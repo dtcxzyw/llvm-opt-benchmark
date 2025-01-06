@@ -55328,7 +55328,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN12GltfImporter10ImportNodeE
   %114 = shufflevector <4 x float> %112, <4 x float> poison, <4 x i32> <i32 poison, i32 0, i32 0, i32 0>
   %115 = fmul <4 x float> %113, %114
   %116 = shufflevector <4 x float> %115, <4 x float> %105, <4 x i32> <i32 3, i32 2, i32 1, i32 7>
-  %117 = shufflevector <4 x float> %115, <4 x float> %105, <4 x i32> <i32 2, i32 1, i32 3, i32 7>
+  %117 = shufflevector <4 x float> %116, <4 x float> poison, <4 x i32> <i32 1, i32 2, i32 0, i32 3>
   %118 = fmul <4 x float> %101, %116
   %119 = fmul <4 x float> %100, %117
   %120 = fsub <4 x float> %118, %119
@@ -55378,7 +55378,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN12GltfImporter10ImportNodeE
   %152 = shufflevector <4 x float> %150, <4 x float> poison, <4 x i32> <i32 poison, i32 0, i32 0, i32 0>
   %153 = fmul <4 x float> %151, %152
   %154 = shufflevector <4 x float> %153, <4 x float> %143, <4 x i32> <i32 3, i32 2, i32 1, i32 7>
-  %155 = shufflevector <4 x float> %153, <4 x float> %143, <4 x i32> <i32 2, i32 1, i32 3, i32 7>
+  %155 = shufflevector <4 x float> %154, <4 x float> poison, <4 x i32> <i32 1, i32 2, i32 0, i32 3>
   %156 = fmul <4 x float> %139, %154
   %157 = fmul <4 x float> %138, %155
   %158 = fsub <4 x float> %156, %157
@@ -55418,7 +55418,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN12GltfImporter10ImportNodeE
   %186 = shufflevector <4 x float> %184, <4 x float> poison, <4 x i32> <i32 poison, i32 0, i32 0, i32 0>
   %187 = fmul <4 x float> %185, %186
   %188 = shufflevector <4 x float> %187, <4 x float> %177, <4 x i32> <i32 3, i32 2, i32 1, i32 7>
-  %189 = shufflevector <4 x float> %187, <4 x float> %177, <4 x i32> <i32 2, i32 1, i32 3, i32 7>
+  %189 = shufflevector <4 x float> %188, <4 x float> poison, <4 x i32> <i32 1, i32 2, i32 0, i32 3>
   %190 = fmul <4 x float> %173, %188
   %191 = fmul <4 x float> %172, %189
   %192 = fsub <4 x float> %190, %191
@@ -55458,8 +55458,8 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN12GltfImporter10ImportNodeE
   %.v.i = select <4 x i1> %217, <4 x float> %218, <4 x float> %90
   %219 = shufflevector <4 x float> %.sroa.0.0.i, <4 x float> %.sroa.13.0.i, <4 x i32> <i32 0, i32 5, i32 poison, i32 0>
   %220 = shufflevector <4 x float> %219, <4 x float> %.sroa.26.0.i, <4 x i32> <i32 0, i32 1, i32 6, i32 3>
-  %221 = shufflevector <4 x float> %219, <4 x float> %.sroa.26.0.i, <4 x i32> <i32 1, i32 6, i32 0, i32 1>
-  %222 = shufflevector <4 x float> %.sroa.26.0.i, <4 x float> %219, <4 x i32> <i32 2, i32 4, i32 5, i32 2>
+  %221 = shufflevector <4 x float> %220, <4 x float> poison, <4 x i32> <i32 1, i32 2, i32 0, i32 1>
+  %222 = shufflevector <4 x float> %220, <4 x float> poison, <4 x i32> <i32 2, i32 0, i32 1, i32 2>
   %223 = fadd <4 x float> %220, %221
   %224 = fadd <4 x float> %222, %223
   %225 = fsub <4 x float> %220, %221

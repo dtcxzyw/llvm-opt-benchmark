@@ -10,7 +10,7 @@ define hidden noundef i64 @_ZN5boost7atomics6detail17find_address_sse2EPVKvPKS3_
 
 5:                                                ; preds = %3
   %6 = tail call noundef i64 @_ZN5boost7atomics6detail20find_address_genericEPVKvPKS3_m(ptr noundef %0, ptr noundef %1, i64 noundef %2)
-  br label %164
+  br label %178
 
 7:                                                ; preds = %3
   %8 = ptrtoint ptr %0 to i64
@@ -26,8 +26,8 @@ define hidden noundef i64 @_ZN5boost7atomics6detail17find_address_sse2EPVKvPKS3_
   %14 = bitcast <2 x i64> %10 to <4 x i32>
   br label %15
 
-15:                                               ; preds = %.lr.ph, %77
-  %.0154193 = phi i64 [ 0, %.lr.ph ], [ %78, %77 ]
+15:                                               ; preds = %.lr.ph, %85
+  %.0154193 = phi i64 [ 0, %.lr.ph ], [ %86, %85 ]
   %16 = getelementptr inbounds nuw ptr, ptr %1, i64 %.0154193
   %17 = load <4 x i32>, ptr %16, align 16, !tbaa !3
   %18 = getelementptr inbounds nuw i8, ptr %16, i64 16
@@ -60,164 +60,178 @@ define hidden noundef i64 @_ZN5boost7atomics6detail17find_address_sse2EPVKvPKS3_
   %45 = sext <4 x i1> %44 to <4 x i32>
   %46 = icmp eq <4 x i32> %31, %14
   %47 = sext <4 x i1> %46 to <4 x i32>
-  %48 = shufflevector <4 x i32> %33, <4 x i32> %35, <4 x i32> <i32 0, i32 2, i32 4, i32 6>
-  %49 = bitcast <4 x i32> %48 to <2 x i64>
-  %50 = shufflevector <4 x i32> %33, <4 x i32> %35, <4 x i32> <i32 1, i32 3, i32 5, i32 7>
-  %51 = bitcast <4 x i32> %50 to <2 x i64>
-  %52 = shufflevector <4 x i32> %37, <4 x i32> %39, <4 x i32> <i32 0, i32 2, i32 4, i32 6>
-  %53 = bitcast <4 x i32> %52 to <2 x i64>
-  %54 = shufflevector <4 x i32> %37, <4 x i32> %39, <4 x i32> <i32 1, i32 3, i32 5, i32 7>
-  %55 = bitcast <4 x i32> %54 to <2 x i64>
-  %56 = shufflevector <4 x i32> %41, <4 x i32> %43, <4 x i32> <i32 0, i32 2, i32 4, i32 6>
-  %57 = bitcast <4 x i32> %56 to <2 x i64>
-  %58 = shufflevector <4 x i32> %41, <4 x i32> %43, <4 x i32> <i32 1, i32 3, i32 5, i32 7>
-  %59 = bitcast <4 x i32> %58 to <2 x i64>
-  %60 = shufflevector <4 x i32> %45, <4 x i32> %47, <4 x i32> <i32 0, i32 2, i32 4, i32 6>
-  %61 = bitcast <4 x i32> %60 to <2 x i64>
-  %62 = shufflevector <4 x i32> %45, <4 x i32> %47, <4 x i32> <i32 1, i32 3, i32 5, i32 7>
-  %63 = bitcast <4 x i32> %62 to <2 x i64>
-  %64 = tail call noundef <2 x i64> asm "pand $1, $0\0A\09", "=x,x,0,~{dirflag},~{fpsr},~{flags}"(<2 x i64> %51, <2 x i64> %49) #4, !srcloc !6
-  %65 = tail call noundef <2 x i64> asm "pand $1, $0\0A\09", "=x,x,0,~{dirflag},~{fpsr},~{flags}"(<2 x i64> %55, <2 x i64> %53) #4, !srcloc !6
-  %66 = tail call noundef <2 x i64> asm "pand $1, $0\0A\09", "=x,x,0,~{dirflag},~{fpsr},~{flags}"(<2 x i64> %59, <2 x i64> %57) #4, !srcloc !6
-  %67 = tail call noundef <2 x i64> asm "pand $1, $0\0A\09", "=x,x,0,~{dirflag},~{fpsr},~{flags}"(<2 x i64> %63, <2 x i64> %61) #4, !srcloc !6
-  %68 = bitcast <2 x i64> %64 to <4 x i32>
-  %69 = bitcast <2 x i64> %65 to <4 x i32>
-  %70 = tail call <8 x i16> @llvm.x86.sse2.packssdw.128(<4 x i32> %68, <4 x i32> %69)
-  %71 = bitcast <2 x i64> %66 to <4 x i32>
-  %72 = bitcast <2 x i64> %67 to <4 x i32>
-  %73 = tail call <8 x i16> @llvm.x86.sse2.packssdw.128(<4 x i32> %71, <4 x i32> %72)
-  %74 = tail call <16 x i8> @llvm.x86.sse2.packsswb.128(<8 x i16> %70, <8 x i16> %73)
-  %75 = icmp slt <16 x i8> %74, zeroinitializer
-  %76 = bitcast <16 x i1> %75 to i16
-  %.not = icmp eq i16 %76, 0
-  br i1 %.not, label %77, label %80
+  %48 = bitcast <4 x i32> %33 to <4 x float>
+  %49 = bitcast <4 x i32> %35 to <4 x float>
+  %50 = shufflevector <4 x float> %48, <4 x float> %49, <4 x i32> <i32 0, i32 2, i32 4, i32 6>
+  %51 = bitcast <4 x float> %50 to <2 x i64>
+  %52 = shufflevector <4 x float> %48, <4 x float> %49, <4 x i32> <i32 1, i32 3, i32 5, i32 7>
+  %53 = bitcast <4 x float> %52 to <2 x i64>
+  %54 = bitcast <4 x i32> %37 to <4 x float>
+  %55 = bitcast <4 x i32> %39 to <4 x float>
+  %56 = shufflevector <4 x float> %54, <4 x float> %55, <4 x i32> <i32 0, i32 2, i32 4, i32 6>
+  %57 = bitcast <4 x float> %56 to <2 x i64>
+  %58 = shufflevector <4 x float> %54, <4 x float> %55, <4 x i32> <i32 1, i32 3, i32 5, i32 7>
+  %59 = bitcast <4 x float> %58 to <2 x i64>
+  %60 = bitcast <4 x i32> %41 to <4 x float>
+  %61 = bitcast <4 x i32> %43 to <4 x float>
+  %62 = shufflevector <4 x float> %60, <4 x float> %61, <4 x i32> <i32 0, i32 2, i32 4, i32 6>
+  %63 = bitcast <4 x float> %62 to <2 x i64>
+  %64 = shufflevector <4 x float> %60, <4 x float> %61, <4 x i32> <i32 1, i32 3, i32 5, i32 7>
+  %65 = bitcast <4 x float> %64 to <2 x i64>
+  %66 = bitcast <4 x i32> %45 to <4 x float>
+  %67 = bitcast <4 x i32> %47 to <4 x float>
+  %68 = shufflevector <4 x float> %66, <4 x float> %67, <4 x i32> <i32 0, i32 2, i32 4, i32 6>
+  %69 = bitcast <4 x float> %68 to <2 x i64>
+  %70 = shufflevector <4 x float> %66, <4 x float> %67, <4 x i32> <i32 1, i32 3, i32 5, i32 7>
+  %71 = bitcast <4 x float> %70 to <2 x i64>
+  %72 = tail call noundef <2 x i64> asm "pand $1, $0\0A\09", "=x,x,0,~{dirflag},~{fpsr},~{flags}"(<2 x i64> %53, <2 x i64> %51) #4, !srcloc !6
+  %73 = tail call noundef <2 x i64> asm "pand $1, $0\0A\09", "=x,x,0,~{dirflag},~{fpsr},~{flags}"(<2 x i64> %59, <2 x i64> %57) #4, !srcloc !6
+  %74 = tail call noundef <2 x i64> asm "pand $1, $0\0A\09", "=x,x,0,~{dirflag},~{fpsr},~{flags}"(<2 x i64> %65, <2 x i64> %63) #4, !srcloc !6
+  %75 = tail call noundef <2 x i64> asm "pand $1, $0\0A\09", "=x,x,0,~{dirflag},~{fpsr},~{flags}"(<2 x i64> %71, <2 x i64> %69) #4, !srcloc !6
+  %76 = bitcast <2 x i64> %72 to <4 x i32>
+  %77 = bitcast <2 x i64> %73 to <4 x i32>
+  %78 = tail call <8 x i16> @llvm.x86.sse2.packssdw.128(<4 x i32> %76, <4 x i32> %77)
+  %79 = bitcast <2 x i64> %74 to <4 x i32>
+  %80 = bitcast <2 x i64> %75 to <4 x i32>
+  %81 = tail call <8 x i16> @llvm.x86.sse2.packssdw.128(<4 x i32> %79, <4 x i32> %80)
+  %82 = tail call <16 x i8> @llvm.x86.sse2.packsswb.128(<8 x i16> %78, <8 x i16> %81)
+  %83 = icmp slt <16 x i8> %82, zeroinitializer
+  %84 = bitcast <16 x i1> %83 to i16
+  %.not = icmp eq i16 %84, 0
+  br i1 %.not, label %85, label %88
 
-77:                                               ; preds = %15
-  %78 = add nuw i64 %.0154193, 16
-  %79 = icmp ult i64 %78, %13
-  br i1 %79, label %15, label %._crit_edge, !llvm.loop !7
+85:                                               ; preds = %15
+  %86 = add nuw i64 %.0154193, 16
+  %87 = icmp ult i64 %86, %13
+  br i1 %87, label %15, label %._crit_edge, !llvm.loop !7
 
-80:                                               ; preds = %15
-  %81 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %76, i1 true)
-  %82 = zext nneg i16 %81 to i64
-  %83 = or disjoint i64 %.0154193, %82
-  br label %164
+88:                                               ; preds = %15
+  %89 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %84, i1 true)
+  %90 = zext nneg i16 %89 to i64
+  %91 = or disjoint i64 %.0154193, %90
+  br label %178
 
-._crit_edge:                                      ; preds = %77, %7
-  %.0154.lcssa = phi i64 [ 0, %7 ], [ %78, %77 ]
-  %84 = sub i64 %11, %.0154.lcssa
-  %85 = icmp ugt i64 %84, 7
-  br i1 %85, label %86, label %124
+._crit_edge:                                      ; preds = %85, %7
+  %.0154.lcssa = phi i64 [ 0, %7 ], [ %86, %85 ]
+  %92 = sub i64 %11, %.0154.lcssa
+  %93 = icmp ugt i64 %92, 7
+  br i1 %93, label %94, label %136
 
-86:                                               ; preds = %._crit_edge
-  %87 = getelementptr inbounds nuw ptr, ptr %1, i64 %.0154.lcssa
-  %88 = load <4 x i32>, ptr %87, align 16, !tbaa !3
-  %89 = getelementptr inbounds nuw i8, ptr %87, i64 16
-  %90 = load <4 x i32>, ptr %89, align 16, !tbaa !3
-  %91 = getelementptr inbounds nuw i8, ptr %87, i64 32
-  %92 = load <4 x i32>, ptr %91, align 16, !tbaa !3
-  %93 = getelementptr inbounds nuw i8, ptr %87, i64 48
-  %94 = load <4 x i32>, ptr %93, align 16, !tbaa !3
-  %95 = bitcast <2 x i64> %10 to <4 x i32>
-  %96 = icmp eq <4 x i32> %88, %95
-  %97 = sext <4 x i1> %96 to <4 x i32>
-  %98 = icmp eq <4 x i32> %90, %95
-  %99 = sext <4 x i1> %98 to <4 x i32>
-  %100 = icmp eq <4 x i32> %92, %95
-  %101 = sext <4 x i1> %100 to <4 x i32>
-  %102 = icmp eq <4 x i32> %94, %95
-  %103 = sext <4 x i1> %102 to <4 x i32>
-  %104 = shufflevector <4 x i32> %97, <4 x i32> %99, <4 x i32> <i32 0, i32 2, i32 4, i32 6>
-  %105 = bitcast <4 x i32> %104 to <2 x i64>
-  %106 = shufflevector <4 x i32> %97, <4 x i32> %99, <4 x i32> <i32 1, i32 3, i32 5, i32 7>
-  %107 = bitcast <4 x i32> %106 to <2 x i64>
-  %108 = shufflevector <4 x i32> %101, <4 x i32> %103, <4 x i32> <i32 0, i32 2, i32 4, i32 6>
-  %109 = bitcast <4 x i32> %108 to <2 x i64>
-  %110 = shufflevector <4 x i32> %101, <4 x i32> %103, <4 x i32> <i32 1, i32 3, i32 5, i32 7>
-  %111 = bitcast <4 x i32> %110 to <2 x i64>
-  %112 = tail call noundef <2 x i64> asm "pand $1, $0\0A\09", "=x,x,0,~{dirflag},~{fpsr},~{flags}"(<2 x i64> %107, <2 x i64> %105) #4, !srcloc !6
-  %113 = tail call noundef <2 x i64> asm "pand $1, $0\0A\09", "=x,x,0,~{dirflag},~{fpsr},~{flags}"(<2 x i64> %111, <2 x i64> %109) #4, !srcloc !6
-  %114 = bitcast <2 x i64> %112 to <4 x i32>
-  %115 = bitcast <2 x i64> %113 to <4 x i32>
-  %116 = tail call <8 x i16> @llvm.x86.sse2.packssdw.128(<4 x i32> %114, <4 x i32> %115)
-  %117 = bitcast <8 x i16> %116 to <16 x i8>
-  %118 = icmp slt <16 x i8> %117, zeroinitializer
-  %119 = bitcast <16 x i1> %118 to i16
-  %.not167 = icmp eq i16 %119, 0
-  br i1 %.not167, label %.thread182, label %120
+94:                                               ; preds = %._crit_edge
+  %95 = getelementptr inbounds nuw ptr, ptr %1, i64 %.0154.lcssa
+  %96 = load <4 x i32>, ptr %95, align 16, !tbaa !3
+  %97 = getelementptr inbounds nuw i8, ptr %95, i64 16
+  %98 = load <4 x i32>, ptr %97, align 16, !tbaa !3
+  %99 = getelementptr inbounds nuw i8, ptr %95, i64 32
+  %100 = load <4 x i32>, ptr %99, align 16, !tbaa !3
+  %101 = getelementptr inbounds nuw i8, ptr %95, i64 48
+  %102 = load <4 x i32>, ptr %101, align 16, !tbaa !3
+  %103 = bitcast <2 x i64> %10 to <4 x i32>
+  %104 = icmp eq <4 x i32> %96, %103
+  %105 = sext <4 x i1> %104 to <4 x i32>
+  %106 = icmp eq <4 x i32> %98, %103
+  %107 = sext <4 x i1> %106 to <4 x i32>
+  %108 = icmp eq <4 x i32> %100, %103
+  %109 = sext <4 x i1> %108 to <4 x i32>
+  %110 = icmp eq <4 x i32> %102, %103
+  %111 = sext <4 x i1> %110 to <4 x i32>
+  %112 = bitcast <4 x i32> %105 to <4 x float>
+  %113 = bitcast <4 x i32> %107 to <4 x float>
+  %114 = shufflevector <4 x float> %112, <4 x float> %113, <4 x i32> <i32 0, i32 2, i32 4, i32 6>
+  %115 = bitcast <4 x float> %114 to <2 x i64>
+  %116 = shufflevector <4 x float> %112, <4 x float> %113, <4 x i32> <i32 1, i32 3, i32 5, i32 7>
+  %117 = bitcast <4 x float> %116 to <2 x i64>
+  %118 = bitcast <4 x i32> %109 to <4 x float>
+  %119 = bitcast <4 x i32> %111 to <4 x float>
+  %120 = shufflevector <4 x float> %118, <4 x float> %119, <4 x i32> <i32 0, i32 2, i32 4, i32 6>
+  %121 = bitcast <4 x float> %120 to <2 x i64>
+  %122 = shufflevector <4 x float> %118, <4 x float> %119, <4 x i32> <i32 1, i32 3, i32 5, i32 7>
+  %123 = bitcast <4 x float> %122 to <2 x i64>
+  %124 = tail call noundef <2 x i64> asm "pand $1, $0\0A\09", "=x,x,0,~{dirflag},~{fpsr},~{flags}"(<2 x i64> %117, <2 x i64> %115) #4, !srcloc !6
+  %125 = tail call noundef <2 x i64> asm "pand $1, $0\0A\09", "=x,x,0,~{dirflag},~{fpsr},~{flags}"(<2 x i64> %123, <2 x i64> %121) #4, !srcloc !6
+  %126 = bitcast <2 x i64> %124 to <4 x i32>
+  %127 = bitcast <2 x i64> %125 to <4 x i32>
+  %128 = tail call <8 x i16> @llvm.x86.sse2.packssdw.128(<4 x i32> %126, <4 x i32> %127)
+  %129 = bitcast <8 x i16> %128 to <16 x i8>
+  %130 = icmp slt <16 x i8> %129, zeroinitializer
+  %131 = bitcast <16 x i1> %130 to i16
+  %.not167 = icmp eq i16 %131, 0
+  br i1 %.not167, label %.thread182, label %132
 
-.thread182:                                       ; preds = %86
+.thread182:                                       ; preds = %94
   %.5185 = or disjoint i64 %.0154.lcssa, 8
-  br label %124
+  br label %136
 
-120:                                              ; preds = %86
-  %121 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %119, i1 true)
-  %122 = lshr i16 %121, 1
-  %123 = zext nneg i16 %122 to i64
-  %.5 = or disjoint i64 %.0154.lcssa, %123
-  br label %164
+132:                                              ; preds = %94
+  %133 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %131, i1 true)
+  %134 = lshr i16 %133, 1
+  %135 = zext nneg i16 %134 to i64
+  %.5 = or disjoint i64 %.0154.lcssa, %135
+  br label %178
 
-124:                                              ; preds = %.thread182, %._crit_edge
+136:                                              ; preds = %.thread182, %._crit_edge
   %.4 = phi i64 [ %.0154.lcssa, %._crit_edge ], [ %.5185, %.thread182 ]
-  %125 = sub i64 %12, %.4
-  %126 = icmp ugt i64 %125, 3
-  br i1 %126, label %127, label %148
+  %137 = sub i64 %12, %.4
+  %138 = icmp ugt i64 %137, 3
+  br i1 %138, label %139, label %162
 
-127:                                              ; preds = %124
-  %128 = getelementptr inbounds nuw ptr, ptr %1, i64 %.4
-  %129 = load <4 x i32>, ptr %128, align 16, !tbaa !3
-  %130 = getelementptr inbounds nuw i8, ptr %128, i64 16
-  %131 = load <4 x i32>, ptr %130, align 16, !tbaa !3
-  %132 = bitcast <2 x i64> %10 to <4 x i32>
-  %133 = icmp eq <4 x i32> %129, %132
-  %134 = sext <4 x i1> %133 to <4 x i32>
-  %135 = icmp eq <4 x i32> %131, %132
-  %136 = sext <4 x i1> %135 to <4 x i32>
-  %137 = shufflevector <4 x i32> %134, <4 x i32> %136, <4 x i32> <i32 0, i32 2, i32 4, i32 6>
-  %138 = bitcast <4 x i32> %137 to <2 x i64>
-  %139 = shufflevector <4 x i32> %134, <4 x i32> %136, <4 x i32> <i32 1, i32 3, i32 5, i32 7>
-  %140 = bitcast <4 x i32> %139 to <2 x i64>
-  %141 = tail call noundef <2 x i64> asm "pand $1, $0\0A\09", "=x,x,0,~{dirflag},~{fpsr},~{flags}"(<2 x i64> %140, <2 x i64> %138) #4, !srcloc !6
-  %142 = bitcast <2 x i64> %141 to <4 x i32>
-  %143 = icmp slt <4 x i32> %142, zeroinitializer
-  %144 = bitcast <4 x i1> %143 to i4
-  %.not168 = icmp eq i4 %144, 0
-  br i1 %.not168, label %.thread187, label %145
+139:                                              ; preds = %136
+  %140 = getelementptr inbounds nuw ptr, ptr %1, i64 %.4
+  %141 = load <4 x i32>, ptr %140, align 16, !tbaa !3
+  %142 = getelementptr inbounds nuw i8, ptr %140, i64 16
+  %143 = load <4 x i32>, ptr %142, align 16, !tbaa !3
+  %144 = bitcast <2 x i64> %10 to <4 x i32>
+  %145 = icmp eq <4 x i32> %141, %144
+  %146 = sext <4 x i1> %145 to <4 x i32>
+  %147 = icmp eq <4 x i32> %143, %144
+  %148 = sext <4 x i1> %147 to <4 x i32>
+  %149 = bitcast <4 x i32> %146 to <4 x float>
+  %150 = bitcast <4 x i32> %148 to <4 x float>
+  %151 = shufflevector <4 x float> %149, <4 x float> %150, <4 x i32> <i32 0, i32 2, i32 4, i32 6>
+  %152 = bitcast <4 x float> %151 to <2 x i64>
+  %153 = shufflevector <4 x float> %149, <4 x float> %150, <4 x i32> <i32 1, i32 3, i32 5, i32 7>
+  %154 = bitcast <4 x float> %153 to <2 x i64>
+  %155 = tail call noundef <2 x i64> asm "pand $1, $0\0A\09", "=x,x,0,~{dirflag},~{fpsr},~{flags}"(<2 x i64> %154, <2 x i64> %152) #4, !srcloc !6
+  %156 = bitcast <2 x i64> %155 to <4 x i32>
+  %157 = icmp slt <4 x i32> %156, zeroinitializer
+  %158 = bitcast <4 x i1> %157 to i4
+  %.not168 = icmp eq i4 %158, 0
+  br i1 %.not168, label %.thread187, label %159
 
-.thread187:                                       ; preds = %127
+.thread187:                                       ; preds = %139
   %.7190 = add i64 %.4, 4
-  br label %148
+  br label %162
 
-145:                                              ; preds = %127
-  %146 = tail call range(i4 0, 5) i4 @llvm.cttz.i4(i4 %144, i1 true)
-  %147 = zext nneg i4 %146 to i64
-  %.7 = add i64 %.4, %147
-  br label %164
+159:                                              ; preds = %139
+  %160 = tail call range(i4 0, 5) i4 @llvm.cttz.i4(i4 %158, i1 true)
+  %161 = zext nneg i4 %160 to i64
+  %.7 = add i64 %.4, %161
+  br label %178
 
-148:                                              ; preds = %.thread187, %124
-  %.6 = phi i64 [ %.4, %124 ], [ %.7190, %.thread187 ]
-  %149 = icmp ult i64 %.6, %12
-  br i1 %149, label %150, label %164
+162:                                              ; preds = %.thread187, %136
+  %.6 = phi i64 [ %.4, %136 ], [ %.7190, %.thread187 ]
+  %163 = icmp ult i64 %.6, %12
+  br i1 %163, label %164, label %178
 
-150:                                              ; preds = %148
-  %151 = getelementptr inbounds nuw ptr, ptr %1, i64 %.6
-  %152 = load <4 x i32>, ptr %151, align 16, !tbaa !3
-  %153 = bitcast <2 x i64> %10 to <4 x i32>
-  %154 = icmp eq <4 x i32> %152, %153
-  %155 = sext <4 x i1> %154 to <4 x i32>
-  %156 = bitcast <4 x i32> %155 to <2 x i64>
-  %157 = shufflevector <4 x i32> %155, <4 x i32> poison, <4 x i32> <i32 1, i32 0, i32 3, i32 2>
-  %158 = bitcast <4 x i32> %157 to <2 x i64>
-  %159 = tail call noundef <2 x i64> asm "pand $1, $0\0A\09", "=x,x,0,~{dirflag},~{fpsr},~{flags}"(<2 x i64> %156, <2 x i64> %158) #4, !srcloc !6
-  %160 = icmp slt <2 x i64> %159, zeroinitializer
-  %161 = bitcast <2 x i1> %160 to i2
-  %162 = tail call range(i2 0, -1) i2 @llvm.cttz.i2(i2 %161, i1 false)
-  %163 = zext nneg i2 %162 to i64
-  %.8 = add i64 %.6, %163
-  br label %164
+164:                                              ; preds = %162
+  %165 = getelementptr inbounds nuw ptr, ptr %1, i64 %.6
+  %166 = load <4 x i32>, ptr %165, align 16, !tbaa !3
+  %167 = bitcast <2 x i64> %10 to <4 x i32>
+  %168 = icmp eq <4 x i32> %166, %167
+  %169 = sext <4 x i1> %168 to <4 x i32>
+  %170 = bitcast <4 x i32> %169 to <2 x i64>
+  %171 = shufflevector <4 x i32> %169, <4 x i32> poison, <4 x i32> <i32 1, i32 0, i32 3, i32 2>
+  %172 = bitcast <4 x i32> %171 to <2 x i64>
+  %173 = tail call noundef <2 x i64> asm "pand $1, $0\0A\09", "=x,x,0,~{dirflag},~{fpsr},~{flags}"(<2 x i64> %170, <2 x i64> %172) #4, !srcloc !6
+  %174 = icmp slt <2 x i64> %173, zeroinitializer
+  %175 = bitcast <2 x i1> %174 to i2
+  %176 = tail call range(i2 0, -1) i2 @llvm.cttz.i2(i2 %175, i1 false)
+  %177 = zext nneg i2 %176 to i64
+  %.8 = add i64 %.6, %177
+  br label %178
 
-164:                                              ; preds = %145, %120, %80, %150, %148, %5
-  %.0 = phi i64 [ %6, %5 ], [ %83, %80 ], [ %.5, %120 ], [ %.7, %145 ], [ %.8, %150 ], [ %.6, %148 ]
+178:                                              ; preds = %159, %132, %88, %164, %162, %5
+  %.0 = phi i64 [ %6, %5 ], [ %91, %88 ], [ %.5, %132 ], [ %.7, %159 ], [ %.8, %164 ], [ %.6, %162 ]
   ret i64 %.0
 }
 
