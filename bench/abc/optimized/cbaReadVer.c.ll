@@ -16784,10 +16784,11 @@ Prs_ManUtilDetectTwo.exit.thread:                 ; preds = %75, %.lr.ph.i300, %
 
 .lr.ph.i306:                                      ; preds = %Prs_ManUtilDetectTwo.exit.thread, %92
   %85 = phi i8 [ %96, %92 ], [ 40, %Prs_ManUtilDetectTwo.exit.thread ]
-  %.04.i = phi i1 [ %.1.v.i, %92 ], [ true, %Prs_ManUtilDetectTwo.exit.thread ]
+  %.04.i = phi i32 [ %.1.i, %92 ], [ 1, %Prs_ManUtilDetectTwo.exit.thread ]
   %.0153.i = phi i32 [ %.116.i, %92 ], [ 0, %Prs_ManUtilDetectTwo.exit.thread ]
   %.0172.i = phi ptr [ %95, %92 ], [ %.val284, %Prs_ManUtilDetectTwo.exit.thread ]
-  br i1 %.04.i, label %86, label %92
+  %.not21.not.i = icmp eq i32 %.04.i, 0
+  br i1 %.not21.not.i, label %92, label %86
 
 86:                                               ; preds = %.lr.ph.i306
   %87 = icmp eq i8 %85, 40
@@ -16801,11 +16802,10 @@ Prs_ManUtilDetectTwo.exit.thread:                 ; preds = %75, %.lr.ph.i300, %
 
 92:                                               ; preds = %86, %.lr.ph.i306
   %.116.i = phi i32 [ %.3.i, %86 ], [ %.0153.i, %.lr.ph.i306 ]
-  %93 = icmp eq i8 %85, 92
-  %brmerge.i = or i1 %.04.i, %93
-  %not..i = xor i1 %93, true
+  %93 = icmp ne i8 %85, 92
   %94 = icmp eq i8 %85, 32
-  %.1.v.i = select i1 %brmerge.i, i1 %not..i, i1 %94
+  %.1.v.i = select i1 %.not21.not.i, i1 %94, i1 %93
+  %.1.i = zext i1 %.1.v.i to i32
   %95 = getelementptr inbounds nuw i8, ptr %.0172.i, i64 1
   %96 = load i8, ptr %95, align 1
   %.not.i307 = icmp eq i8 %96, 0
@@ -17910,10 +17910,11 @@ Prs_ManUtilSkipComments.exit.i153:                ; preds = %.lr.ph38.i.i155, %4
 
 .lr.ph.i:                                         ; preds = %.loopexit234, %60
   %53 = phi i8 [ %64, %60 ], [ 40, %.loopexit234 ]
-  %.04.i = phi i1 [ %.1.v.i, %60 ], [ true, %.loopexit234 ]
+  %.04.i = phi i32 [ %.1.i, %60 ], [ 1, %.loopexit234 ]
   %.0153.i = phi i32 [ %.116.i, %60 ], [ 0, %.loopexit234 ]
   %.0172.i = phi ptr [ %63, %60 ], [ %.val132, %.loopexit234 ]
-  br i1 %.04.i, label %54, label %60
+  %.not21.not.i = icmp eq i32 %.04.i, 0
+  br i1 %.not21.not.i, label %60, label %54
 
 54:                                               ; preds = %.lr.ph.i
   %55 = icmp eq i8 %53, 40
@@ -17927,11 +17928,10 @@ Prs_ManUtilSkipComments.exit.i153:                ; preds = %.lr.ph38.i.i155, %4
 
 60:                                               ; preds = %54, %.lr.ph.i
   %.116.i = phi i32 [ %.3.i, %54 ], [ %.0153.i, %.lr.ph.i ]
-  %61 = icmp eq i8 %53, 92
-  %brmerge.i = or i1 %.04.i, %61
-  %not..i = xor i1 %61, true
+  %61 = icmp ne i8 %53, 92
   %62 = icmp eq i8 %53, 32
-  %.1.v.i = select i1 %brmerge.i, i1 %not..i, i1 %62
+  %.1.v.i = select i1 %.not21.not.i, i1 %62, i1 %61
+  %.1.i = zext i1 %.1.v.i to i32
   %63 = getelementptr inbounds nuw i8, ptr %.0172.i, i64 1
   %64 = load i8, ptr %63, align 1
   %.not.i = icmp eq i8 %64, 0
@@ -19672,10 +19672,11 @@ define internal fastcc noundef ptr @Prs_ManFindClosingParenthesis(ptr readonly %
 
 .lr.ph:                                           ; preds = %0, %9
   %2 = phi i8 [ %13, %9 ], [ %1, %0 ]
-  %.04 = phi i1 [ %.1.v, %9 ], [ true, %0 ]
+  %.04 = phi i32 [ %.1, %9 ], [ 1, %0 ]
   %.0153 = phi i32 [ %.116, %9 ], [ 0, %0 ]
   %.0172 = phi ptr [ %12, %9 ], [ %.24.val, %0 ]
-  br i1 %.04, label %3, label %9
+  %.not21.not = icmp eq i32 %.04, 0
+  br i1 %.not21.not, label %9, label %3
 
 3:                                                ; preds = %.lr.ph
   %4 = icmp eq i8 %2, 40
@@ -19689,11 +19690,10 @@ define internal fastcc noundef ptr @Prs_ManFindClosingParenthesis(ptr readonly %
 
 9:                                                ; preds = %3, %.lr.ph
   %.116 = phi i32 [ %.3, %3 ], [ %.0153, %.lr.ph ]
-  %10 = icmp eq i8 %2, 92
-  %brmerge = or i1 %.04, %10
-  %not. = xor i1 %10, true
+  %10 = icmp ne i8 %2, 92
   %11 = icmp eq i8 %2, 32
-  %.1.v = select i1 %brmerge, i1 %not., i1 %11
+  %.1.v = select i1 %.not21.not, i1 %11, i1 %10
+  %.1 = zext i1 %.1.v to i32
   %12 = getelementptr inbounds nuw i8, ptr %.0172, i64 1
   %13 = load i8, ptr %12, align 1
   %.not = icmp eq i8 %13, 0
