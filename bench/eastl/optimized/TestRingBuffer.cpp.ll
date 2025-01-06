@@ -4930,7 +4930,7 @@ entry:
   %mCapacityAllocator.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %2 = load ptr, ptr %mCapacityAllocator.i.i, align 8
   %cmp3.i = icmp ult ptr %2, %0
-  %3 = icmp uge ptr %1, %0
+  %3 = icmp ule ptr %0, %1
   %or.cond = select i1 %3, i1 true, i1 %cmp3.i
   br i1 %or.cond, label %return, label %if.end5
 
@@ -7691,7 +7691,7 @@ entry:
   %mCapacityAllocator.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %2 = load ptr, ptr %mCapacityAllocator.i.i, align 8
   %cmp3.i = icmp ult ptr %2, %0
-  %3 = icmp uge ptr %1, %0
+  %3 = icmp ule ptr %0, %1
   %or.cond = select i1 %3, i1 true, i1 %cmp3.i
   br i1 %or.cond, label %return, label %if.end5
 
@@ -10742,7 +10742,7 @@ entry:
   %mCapacityAllocator.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %2 = load ptr, ptr %mCapacityAllocator.i.i, align 8
   %cmp3.i = icmp ult ptr %2, %0
-  %3 = icmp uge ptr %1, %0
+  %3 = icmp ule ptr %0, %1
   %or.cond = select i1 %3, i1 true, i1 %cmp3.i
   br i1 %or.cond, label %return, label %if.end5
 
@@ -39737,7 +39737,7 @@ entry:
   %mCapacityAllocator.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %2 = load ptr, ptr %mCapacityAllocator.i.i, align 8
   %cmp3.i = icmp ult ptr %2, %0
-  %3 = icmp uge ptr %1, %0
+  %3 = icmp ule ptr %0, %1
   %or.cond = select i1 %3, i1 true, i1 %cmp3.i
   br i1 %or.cond, label %return, label %if.end5
 
@@ -42443,7 +42443,7 @@ entry:
   %mCapacityAllocator.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %2 = load ptr, ptr %mCapacityAllocator.i.i, align 8
   %cmp3.i = icmp ult ptr %2, %0
-  %3 = icmp uge ptr %1, %0
+  %3 = icmp ule ptr %0, %1
   %or.cond = select i1 %3, i1 true, i1 %cmp3.i
   br i1 %or.cond, label %return, label %if.end5
 
@@ -45611,7 +45611,7 @@ entry:
   %mCapacityAllocator.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %2 = load ptr, ptr %mCapacityAllocator.i.i, align 8
   %cmp3.i = icmp ult ptr %2, %0
-  %3 = icmp uge ptr %1, %0
+  %3 = icmp ule ptr %0, %1
   %or.cond = select i1 %3, i1 true, i1 %cmp3.i
   br i1 %or.cond, label %return, label %if.end5
 
@@ -45821,7 +45821,7 @@ invoke.cont:                                      ; preds = %entry
   %mCapacityAllocator.i.i.i = getelementptr inbounds nuw i8, ptr %intRingBuffer, i64 16
   %2 = load ptr, ptr %mCapacityAllocator.i.i.i, align 8
   %cmp3.i.i = icmp ult ptr %2, %0
-  %3 = icmp uge ptr %1, %0
+  %3 = icmp ule ptr %0, %1
   %or.cond.i = select i1 %3, i1 true, i1 %cmp3.i.i
   br i1 %or.cond.i, label %invoke.cont2, label %if.end5.i
 
@@ -45897,7 +45897,7 @@ invoke.cont8:                                     ; preds = %invoke.cont3
   store ptr %11, ptr %mEnd21.i, align 8
   %12 = load ptr, ptr %mCapacityAllocator.i.i.i, align 8
   %cmp3.i.i187 = icmp uge ptr %12, %9
-  %13 = icmp ult ptr %10, %9
+  %13 = icmp ugt ptr %9, %10
   %or.cond.i188.not = select i1 %13, i1 %cmp3.i.i187, i1 false
   %call12 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %or.cond.i188.not, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 71, ptr noundef nonnull @.str.1)
           to label %invoke.cont11 unwind label %lpad1
@@ -45991,7 +45991,7 @@ invoke.cont17:                                    ; preds = %if.else.i, %_ZN5eas
   %26 = phi ptr [ %15, %if.else.i ], [ %.pre, %_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i14.i ], [ %add.ptr25.i.i.i, %invoke.cont19.i ]
   %27 = load ptr, ptr %mCapacityAllocator.i.i.i, align 8
   %cmp3.i.i239 = icmp ult ptr %27, %26
-  %28 = icmp uge ptr %25, %26
+  %28 = icmp ule ptr %26, %25
   %or.cond.i240 = select i1 %28, i1 true, i1 %cmp3.i.i239
   br i1 %or.cond.i240, label %invoke.cont18, label %if.end5.i241
 
@@ -46096,7 +46096,7 @@ _ZN5eastl11ring_bufferINS_12basic_stringIcNS_9allocatorEEENS_6vectorIS3_S2_EES2_
   %mCapacityAllocator.i.i.i278 = getelementptr inbounds nuw i8, ptr %rbVectorString, i64 16
   %37 = load ptr, ptr %mCapacityAllocator.i.i.i278, align 8
   %cmp3.i.i279 = icmp uge ptr %37, %36
-  %38 = icmp ult ptr %.pre.i, %36
+  %38 = icmp ugt ptr %36, %.pre.i
   %or.cond.i280.not = select i1 %38, i1 %cmp3.i.i279, i1 false
   %call31 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %or.cond.i280.not, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 94, ptr noundef nonnull @.str.5)
           to label %invoke.cont30 unwind label %lpad27.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
@@ -46132,7 +46132,7 @@ invoke.cont41:                                    ; preds = %invoke.cont37
   %45 = load ptr, ptr %mpEnd.i.i277, align 8
   %46 = load ptr, ptr %mCapacityAllocator.i.i.i278, align 8
   %cmp3.i.i329 = icmp uge ptr %46, %45
-  %47 = icmp ult ptr %44, %45
+  %47 = icmp ugt ptr %45, %44
   %or.cond.i330.not = select i1 %47, i1 %cmp3.i.i329, i1 false
   %call47 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %or.cond.i330.not, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 101, ptr noundef nonnull @.str.5)
           to label %invoke.cont46 unwind label %lpad27.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
@@ -46421,7 +46421,7 @@ _ZN5eastl12basic_stringIcNS_9allocatorEED2Ev.exit: ; preds = %invoke.cont89, %if
   %85 = load ptr, ptr %rbVectorString, align 8
   %86 = load ptr, ptr %mCapacityAllocator.i.i.i278, align 8
   %cmp3.i.i438 = icmp ult ptr %86, %84
-  %87 = icmp uge ptr %85, %84
+  %87 = icmp ule ptr %84, %85
   %or.cond.i439 = select i1 %87, i1 true, i1 %cmp3.i.i438
   br i1 %or.cond.i439, label %invoke.cont91, label %if.end5.i440
 
@@ -46601,7 +46601,7 @@ _ZN5eastl11ring_bufferINS_12basic_stringIcNS_9allocatorEEENS_6vectorIS3_S2_EES2_
   %117 = select i1 %cmp.i.i.i, ptr %110, ptr %112
   %118 = load ptr, ptr %mCapacityAllocator.i.i.i278, align 8
   %cmp3.i.i533 = icmp ult ptr %118, %110
-  %119 = icmp uge ptr %116, %110
+  %119 = icmp ule ptr %110, %116
   %or.cond.i534 = select i1 %119, i1 true, i1 %cmp3.i.i533
   br i1 %or.cond.i534, label %invoke.cont131, label %if.end5.i535
 
@@ -47117,7 +47117,7 @@ _ZN5eastl12basic_stringIcNS_9allocatorEED2Ev.exit820: ; preds = %invoke.cont227,
   %201 = load ptr, ptr %rbVectorString, align 8
   %202 = load ptr, ptr %mCapacityAllocator.i.i.i278, align 8
   %cmp3.i.i823 = icmp ult ptr %202, %200
-  %203 = icmp uge ptr %201, %200
+  %203 = icmp ule ptr %200, %201
   %or.cond.i824 = select i1 %203, i1 true, i1 %cmp3.i.i823
   br i1 %or.cond.i824, label %invoke.cont229, label %if.end5.i825
 
@@ -47396,7 +47396,7 @@ for.end288:                                       ; preds = %invoke.cont280, %fo
   store i64 0, ptr %mSize.i276, align 8
   %246 = load ptr, ptr %mCapacityAllocator.i.i.i278, align 8
   %cmp3.i.i982 = icmp uge ptr %246, %244
-  %247 = icmp ult ptr %245, %244
+  %247 = icmp ugt ptr %244, %245
   %or.cond.i983.not = select i1 %247, i1 %cmp3.i.i982, i1 false
   %call293 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %or.cond.i983.not, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 207, ptr noundef nonnull @.str.5)
           to label %invoke.cont292 unwind label %lpad27.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
@@ -48980,7 +48980,7 @@ if.end732:                                        ; preds = %_ZN5eastl12basic_st
   %498 = load ptr, ptr %rbVectorString, align 8
   %499 = load ptr, ptr %mCapacityAllocator.i.i.i278, align 8
   %cmp3.i.i1980 = icmp ult ptr %499, %497
-  %500 = icmp uge ptr %498, %497
+  %500 = icmp ule ptr %497, %498
   %or.cond.i1981 = select i1 %500, i1 true, i1 %cmp3.i.i1980
   br i1 %or.cond.i1981, label %invoke.cont733, label %if.end5.i1982
 
@@ -49054,7 +49054,7 @@ if.end744:                                        ; preds = %if.then742, %for.en
   %508 = load ptr, ptr %rbVectorString, align 8
   %509 = load ptr, ptr %mCapacityAllocator.i.i.i278, align 8
   %cmp3.i.i2019 = icmp ult ptr %509, %507
-  %510 = icmp uge ptr %508, %507
+  %510 = icmp ule ptr %507, %508
   %or.cond.i2020 = select i1 %510, i1 true, i1 %cmp3.i.i2019
   br i1 %or.cond.i2020, label %invoke.cont745, label %if.end5.i2021
 
@@ -49355,7 +49355,7 @@ invoke.cont840:                                   ; preds = %invoke.cont836
   %553 = load ptr, ptr %rbVectorString, align 8
   %554 = load ptr, ptr %mCapacityAllocator.i.i.i278, align 8
   %cmp3.i.i2285 = icmp ult ptr %554, %552
-  %555 = icmp uge ptr %553, %552
+  %555 = icmp ule ptr %552, %553
   %or.cond.i2286 = select i1 %555, i1 true, i1 %cmp3.i.i2285
   br i1 %or.cond.i2286, label %invoke.cont842, label %if.end5.i2287
 
@@ -49414,7 +49414,7 @@ invoke.cont844:                                   ; preds = %invoke.cont842
   %mCapacityAllocator.i.i.i2322 = getelementptr inbounds nuw i8, ptr %rbVectorString2, i64 16
   %561 = load ptr, ptr %mCapacityAllocator.i.i.i2322, align 8
   %cmp3.i.i2323 = icmp ult ptr %561, %559
-  %562 = icmp uge ptr %560, %559
+  %562 = icmp ule ptr %559, %560
   %or.cond.i2324 = select i1 %562, i1 true, i1 %cmp3.i.i2323
   br i1 %or.cond.i2324, label %invoke.cont846, label %if.end5.i2325
 
@@ -49472,7 +49472,7 @@ invoke.cont848:                                   ; preds = %invoke.cont846
   %mCapacityAllocator.i.i.i2360 = getelementptr inbounds nuw i8, ptr %rbVectorString3, i64 16
   %568 = load ptr, ptr %mCapacityAllocator.i.i.i2360, align 8
   %cmp3.i.i2361 = icmp ult ptr %568, %566
-  %569 = icmp uge ptr %567, %566
+  %569 = icmp ule ptr %566, %567
   %or.cond.i2362 = select i1 %569, i1 true, i1 %cmp3.i.i2361
   br i1 %or.cond.i2362, label %invoke.cont850, label %if.end5.i2363
 
@@ -49531,7 +49531,7 @@ invoke.cont852:                                   ; preds = %invoke.cont850
   %mCapacityAllocator.i.i.i2398 = getelementptr inbounds nuw i8, ptr %rbVectorString4, i64 16
   %575 = load ptr, ptr %mCapacityAllocator.i.i.i2398, align 8
   %cmp3.i.i2399 = icmp ult ptr %575, %573
-  %576 = icmp uge ptr %574, %573
+  %576 = icmp ule ptr %573, %574
   %or.cond.i2400 = select i1 %576, i1 true, i1 %cmp3.i.i2399
   br i1 %or.cond.i2400, label %invoke.cont854, label %if.end5.i2401
 
@@ -49590,7 +49590,7 @@ invoke.cont856:                                   ; preds = %invoke.cont854
   %mCapacityAllocator.i.i.i2436 = getelementptr inbounds nuw i8, ptr %rbVectorString5, i64 16
   %582 = load ptr, ptr %mCapacityAllocator.i.i.i2436, align 8
   %cmp3.i.i2437 = icmp ult ptr %582, %580
-  %583 = icmp uge ptr %581, %580
+  %583 = icmp ule ptr %580, %581
   %or.cond.i2438 = select i1 %583, i1 true, i1 %cmp3.i.i2437
   br i1 %or.cond.i2438, label %invoke.cont858, label %if.end5.i2439
 
@@ -49793,7 +49793,7 @@ invoke.cont874:                                   ; preds = %invoke.cont872
   %621 = load ptr, ptr %mpEnd.i.i2239, align 8
   %622 = load ptr, ptr %mCapacityAllocator.i.i.i2360, align 8
   %cmp3.i.i2528 = icmp ult ptr %622, %621
-  %623 = icmp uge ptr %616, %621
+  %623 = icmp ule ptr %621, %616
   %or.cond.i2529 = select i1 %623, i1 true, i1 %cmp3.i.i2528
   br i1 %or.cond.i2529, label %invoke.cont876, label %if.end5.i2530
 
@@ -49882,7 +49882,7 @@ invoke.cont880:                                   ; preds = %invoke.cont876
   %add.ptr.i.i27.i.i = getelementptr inbounds i8, ptr %624, i64 %sub.ptr.sub.i.i15.i.i
   store ptr %add.ptr.i.i27.i.i, ptr %mEnd.i2259, align 8
   %cmp3.i.i2576 = icmp ult ptr %633, %631
-  %636 = icmp uge ptr %627, %631
+  %636 = icmp ule ptr %631, %627
   %or.cond.i2577 = select i1 %636, i1 true, i1 %cmp3.i.i2576
   br i1 %or.cond.i2577, label %invoke.cont881, label %if.end5.i2578
 
@@ -49935,7 +49935,7 @@ invoke.cont883:                                   ; preds = %invoke.cont881
   %638 = load ptr, ptr %rbVectorString3, align 8
   %639 = load ptr, ptr %mCapacityAllocator.i.i.i2360, align 8
   %cmp3.i.i2614 = icmp ult ptr %639, %637
-  %640 = icmp uge ptr %638, %637
+  %640 = icmp ule ptr %637, %638
   %or.cond.i2615 = select i1 %640, i1 true, i1 %cmp3.i.i2614
   br i1 %or.cond.i2615, label %invoke.cont885, label %if.end5.i2616
 
@@ -49992,7 +49992,7 @@ invoke.cont887:                                   ; preds = %invoke.cont885
   %645 = load ptr, ptr %rbVectorString4, align 8
   %646 = load ptr, ptr %mCapacityAllocator.i.i.i2398, align 8
   %cmp3.i.i2652 = icmp ult ptr %646, %644
-  %647 = icmp uge ptr %645, %644
+  %647 = icmp ule ptr %644, %645
   %or.cond.i2653 = select i1 %647, i1 true, i1 %cmp3.i.i2652
   br i1 %or.cond.i2653, label %invoke.cont889, label %if.end5.i2654
 
@@ -50192,7 +50192,7 @@ invoke.cont903:                                   ; preds = %invoke.cont899
   %686 = load ptr, ptr %rbVectorString2, align 8
   %687 = load ptr, ptr %mCapacityAllocator.i.i.i2322, align 8
   %cmp3.i.i2778 = icmp ult ptr %687, %685
-  %688 = icmp uge ptr %686, %685
+  %688 = icmp ule ptr %685, %686
   %or.cond.i2779 = select i1 %688, i1 true, i1 %cmp3.i.i2778
   br i1 %or.cond.i2779, label %invoke.cont904, label %if.end5.i2780
 
@@ -50266,7 +50266,7 @@ invoke.cont913:                                   ; preds = %invoke.cont910
   %696 = load ptr, ptr %rbVectorString2, align 8
   %697 = load ptr, ptr %mCapacityAllocator.i.i.i2322, align 8
   %cmp3.i.i2822 = icmp ult ptr %697, %695
-  %698 = icmp uge ptr %696, %695
+  %698 = icmp ule ptr %695, %696
   %or.cond.i2823 = select i1 %698, i1 true, i1 %cmp3.i.i2822
   br i1 %or.cond.i2823, label %invoke.cont914, label %if.end5.i2824
 
@@ -50345,7 +50345,7 @@ invoke.cont925:                                   ; preds = %invoke.cont922
   %706 = load ptr, ptr %rbVectorString2, align 8
   %707 = load ptr, ptr %mCapacityAllocator.i.i.i2322, align 8
   %cmp3.i.i2867 = icmp ult ptr %707, %705
-  %708 = icmp uge ptr %706, %705
+  %708 = icmp ule ptr %705, %706
   %or.cond.i2868 = select i1 %708, i1 true, i1 %cmp3.i.i2867
   br i1 %or.cond.i2868, label %invoke.cont926, label %if.end5.i2869
 
@@ -50431,7 +50431,7 @@ invoke.cont938:                                   ; preds = %invoke.cont935
   %719 = load ptr, ptr %rbVectorString2, align 8
   %720 = load ptr, ptr %mCapacityAllocator.i.i.i2322, align 8
   %cmp3.i.i2917 = icmp ult ptr %720, %718
-  %721 = icmp uge ptr %719, %718
+  %721 = icmp ule ptr %718, %719
   %or.cond.i2918 = select i1 %721, i1 true, i1 %cmp3.i.i2917
   br i1 %or.cond.i2918, label %invoke.cont940, label %if.end5.i2919
 
@@ -50599,7 +50599,7 @@ invoke.cont977:                                   ; preds = %_ZN5eastl11ring_buf
   %738 = load ptr, ptr %rbVectorString5, align 8
   %739 = load ptr, ptr %mCapacityAllocator.i.i.i2436, align 8
   %cmp3.i.i2979 = icmp ult ptr %739, %731
-  %740 = icmp uge ptr %738, %731
+  %740 = icmp ule ptr %731, %738
   %or.cond.i2980 = select i1 %740, i1 true, i1 %cmp3.i.i2979
   br i1 %or.cond.i2980, label %invoke.cont978, label %if.end5.i2981
 

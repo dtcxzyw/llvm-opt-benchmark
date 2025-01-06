@@ -7545,8 +7545,8 @@ land.lhs.true:                                    ; preds = %if.then
 for.cond.preheader:                               ; preds = %land.lhs.true
   %num_layers = getelementptr inbounds nuw i8, ptr %tm, i64 800008
   %5 = load i32, ptr %num_layers, align 8
-  %cmp892 = icmp sgt i32 %5, 0
-  br i1 %cmp892, label %for.end, label %for.end.thread
+  %cmp891 = icmp sgt i32 %5, 0
+  br i1 %cmp891, label %for.end, label %for.end.thread
 
 for.end:                                          ; preds = %for.cond.preheader
   %idxprom = sext i32 %mapy to i64
@@ -7568,14 +7568,14 @@ for.end:                                          ; preds = %for.cond.preheader
   br i1 %cmp2.i, label %if.then3.i, label %for.body.lr.ph.i
 
 for.end.thread:                                   ; preds = %for.cond.preheader
-  %cur_layer.i102 = getelementptr inbounds nuw i8, ptr %tm, i64 800044
-  %13 = load i32, ptr %cur_layer.i102, align 4
-  %solo_layer.i103 = getelementptr inbounds nuw i8, ptr %tm, i64 801040
-  %14 = load i32, ptr %solo_layer.i103, align 8
-  %cmp17.i104 = icmp slt i32 %14, 0
-  %spec.select.i105 = select i1 %cmp17.i104, i32 %13, i32 %14
-  %cmp2.i106 = icmp sgt i32 %spec.select.i105, -1
-  br i1 %cmp2.i106, label %if.then3.i, label %if.end16
+  %cur_layer.i101 = getelementptr inbounds nuw i8, ptr %tm, i64 800044
+  %13 = load i32, ptr %cur_layer.i101, align 4
+  %solo_layer.i102 = getelementptr inbounds nuw i8, ptr %tm, i64 801040
+  %14 = load i32, ptr %solo_layer.i102, align 8
+  %cmp17.i103 = icmp slt i32 %14, 0
+  %spec.select.i104 = select i1 %cmp17.i103, i32 %13, i32 %14
+  %cmp2.i105 = icmp sgt i32 %spec.select.i104, -1
+  br i1 %cmp2.i105, label %if.then3.i, label %if.end16
 
 for.body.lr.ph.i:                                 ; preds = %for.end
   %layerinfo.i = getelementptr inbounds nuw i8, ptr %tm, i64 800896
@@ -7584,8 +7584,8 @@ for.body.lr.ph.i:                                 ; preds = %for.end
   br label %for.body.i
 
 if.then3.i:                                       ; preds = %for.end.thread, %for.end
-  %spec.select.i107 = phi i32 [ %spec.select.i105, %for.end.thread ], [ %spec.select.i, %for.end ]
-  %cmp4.i = icmp eq i32 %spec.select.i107, 0
+  %spec.select.i106 = phi i32 [ %spec.select.i104, %for.end.thread ], [ %spec.select.i, %for.end ]
+  %cmp4.i = icmp eq i32 %spec.select.i106, 0
   br i1 %cmp4.i, label %cond.true.i, label %cond.end.i
 
 cond.true.i:                                      ; preds = %if.then3.i
@@ -7595,7 +7595,7 @@ cond.true.i:                                      ; preds = %if.then3.i
 
 cond.end.i:                                       ; preds = %cond.true.i, %if.then3.i
   %cond.i = phi i16 [ %16, %cond.true.i ], [ -1, %if.then3.i ]
-  %idxprom.i = zext nneg i32 %spec.select.i107 to i64
+  %idxprom.i = zext nneg i32 %spec.select.i106 to i64
   %arrayidx.i = getelementptr inbounds nuw i16, ptr %temp, i64 %idxprom.i
   store i16 %cond.i, ptr %arrayidx.i, align 2
   br label %if.end16
@@ -7659,11 +7659,10 @@ if.then26:                                        ; preds = %land.lhs.true20
   %24 = load i32, ptr %max_x, align 8
   %max_y = getelementptr inbounds nuw i8, ptr %tm, i64 800004
   %25 = load i32, ptr %max_y, align 4
-  %cmp.not.i = icmp slt i32 %add, 0
   %cmp1.i = icmp sge i32 %add, %24
-  %or.cond.not6.not7.i.not91 = select i1 %cmp.not.i, i1 true, i1 %cmp1.i
-  %cmp3.not.i = icmp slt i32 %add27, 0
-  %or.cond5.not.i.not90 = or i1 %cmp3.not.i, %or.cond.not6.not7.i.not91
+  %26 = or i32 %add27, %add
+  %27 = icmp slt i32 %26, 0
+  %or.cond5.not.i.not90 = select i1 %27, i1 true, i1 %cmp1.i
   %cmp5.i = icmp sge i32 %add27, %25
   %narrow.i.not = select i1 %or.cond5.not.i.not90, i1 true, i1 %cmp5.i
   br i1 %narrow.i.not, label %if.end110, label %if.then29
@@ -7674,27 +7673,27 @@ if.then29:                                        ; preds = %if.then26
 
 for.cond32.preheader:                             ; preds = %if.then29
   %num_layers33 = getelementptr inbounds nuw i8, ptr %tm, i64 800008
-  %26 = load i32, ptr %num_layers33, align 8
-  %cmp3494 = icmp sgt i32 %26, 0
-  br i1 %cmp3494, label %for.body35.lr.ph, label %if.end49
+  %28 = load i32, ptr %num_layers33, align 8
+  %cmp3493 = icmp sgt i32 %28, 0
+  br i1 %cmp3493, label %for.body35.lr.ph, label %if.end49
 
 for.body35.lr.ph:                                 ; preds = %for.cond32.preheader
   %idxprom37 = sext i32 %mapy to i64
   %idxprom39 = sext i32 %mapx to i64
-  %27 = mul nsw i64 %idxprom37, 3200
-  %28 = shl nsw i64 %idxprom39, 4
-  %29 = getelementptr i8, ptr %tm, i64 %27
-  %scevgep99 = getelementptr i8, ptr %29, i64 %28
-  %30 = shl nuw i32 %26, 1
-  %31 = zext i32 %30 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %temp, ptr align 2 %scevgep99, i64 %31, i1 false)
+  %29 = mul nsw i64 %idxprom37, 3200
+  %30 = shl nsw i64 %idxprom39, 4
+  %31 = getelementptr i8, ptr %tm, i64 %29
+  %scevgep98 = getelementptr i8, ptr %31, i64 %30
+  %32 = shl nuw i32 %28, 1
+  %33 = zext i32 %32 to i64
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %temp, ptr align 2 %scevgep98, i64 %33, i1 false)
   br label %if.end49
 
 if.end49:                                         ; preds = %for.body35.lr.ph, %for.cond32.preheader, %if.then29
   %data.2 = phi ptr [ %data.0, %if.then29 ], [ %temp, %for.cond32.preheader ], [ %temp, %for.body35.lr.ph ]
-  %idxprom52 = zext nneg i32 %add27 to i64
-  %idxprom55 = zext nneg i32 %add to i64
-  %arrayidx56 = getelementptr inbounds nuw [200 x [200 x [8 x i16]]], ptr %tm, i64 0, i64 %idxprom52, i64 %idxprom55
+  %idxprom52 = sext i32 %add27 to i64
+  %idxprom55 = sext i32 %add to i64
+  %arrayidx56 = getelementptr inbounds [200 x [200 x [8 x i16]]], ptr %tm, i64 0, i64 %idxprom52, i64 %idxprom55
   %lnot.ext = zext i1 %tobool.not to i32
   call void @stbte__paste_stack(ptr noundef nonnull %tm, ptr noundef nonnull %data.2, ptr noundef nonnull %data.2, ptr noundef %arrayidx56, i32 noundef %lnot.ext)
   %tobool59.not = icmp eq i32 %copy_props, 0
@@ -7705,33 +7704,33 @@ for.body63:                                       ; preds = %if.end49
   %idxprom64 = sext i32 %mapy to i64
   %idxprom66 = sext i32 %mapx to i64
   %arrayidx67 = getelementptr inbounds [200 x [200 x [1 x float]]], ptr %props, i64 0, i64 %idxprom64, i64 %idxprom66
-  %32 = load float, ptr %arrayidx67, align 4
-  %33 = load i32, ptr getelementptr inbounds nuw (i8, ptr @stbte__ui, i64 5264), align 8
-  %add71 = add nsw i32 %33, %sub18
+  %34 = load float, ptr %arrayidx67, align 4
+  %35 = load i32, ptr getelementptr inbounds nuw (i8, ptr @stbte__ui, i64 5264), align 8
+  %add71 = add nsw i32 %35, %sub18
   %idxprom72 = sext i32 %add71 to i64
-  %34 = load i32, ptr getelementptr inbounds nuw (i8, ptr @stbte__ui, i64 5260), align 4
-  %add74 = add nsw i32 %34, %sub17
+  %36 = load i32, ptr getelementptr inbounds nuw (i8, ptr @stbte__ui, i64 5260), align 4
+  %add74 = add nsw i32 %36, %sub17
   %idxprom75 = sext i32 %add74 to i64
   %arrayidx76 = getelementptr inbounds [200 x [200 x [1 x float]]], ptr %props, i64 0, i64 %idxprom72, i64 %idxprom75
-  %35 = load float, ptr %arrayidx76, align 4
-  %cmp79 = fcmp une float %32, %35
+  %37 = load float, ptr %arrayidx76, align 4
+  %cmp79 = fcmp une float %34, %37
   br i1 %cmp79, label %if.then80, label %for.cond113.preheader
 
 if.then80:                                        ; preds = %for.body63
-  %36 = bitcast float %32 to i32
-  %converter.i.sroa.0.0.extract.trunc.i = trunc i32 %36 to i16
-  %converter.i2.sroa.0.2.extract.shift.i = lshr i32 %36, 16
+  %38 = bitcast float %34 to i32
+  %converter.i.sroa.0.0.extract.trunc.i = trunc i32 %38 to i16
+  %converter.i2.sroa.0.2.extract.shift.i = lshr i32 %38, 16
   %converter.i2.sroa.0.2.extract.trunc.i = trunc nuw i32 %converter.i2.sroa.0.2.extract.shift.i to i16
   call void @stbte__undo_record_prop(ptr noundef nonnull %tm, i32 noundef %mapx, i32 noundef %mapy, i32 noundef 0, i16 noundef signext %converter.i.sroa.0.0.extract.trunc.i, i16 noundef signext %converter.i2.sroa.0.2.extract.trunc.i)
-  %37 = load i32, ptr getelementptr inbounds nuw (i8, ptr @stbte__ui, i64 5264), align 8
-  %add89 = add nsw i32 %37, %sub18
+  %39 = load i32, ptr getelementptr inbounds nuw (i8, ptr @stbte__ui, i64 5264), align 8
+  %add89 = add nsw i32 %39, %sub18
   %idxprom90 = sext i32 %add89 to i64
-  %38 = load i32, ptr getelementptr inbounds nuw (i8, ptr @stbte__ui, i64 5260), align 4
-  %add92 = add nsw i32 %38, %sub17
+  %40 = load i32, ptr getelementptr inbounds nuw (i8, ptr @stbte__ui, i64 5260), align 4
+  %add92 = add nsw i32 %40, %sub17
   %idxprom93 = sext i32 %add92 to i64
   %arrayidx94 = getelementptr inbounds [200 x [200 x [1 x float]]], ptr %props, i64 0, i64 %idxprom90, i64 %idxprom93
-  %39 = load float, ptr %arrayidx94, align 4
-  store float %39, ptr %arrayidx67, align 4
+  %41 = load float, ptr %arrayidx94, align 4
+  store float %41, ptr %arrayidx67, align 4
   br label %for.cond113.preheader
 
 if.end110:                                        ; preds = %if.then26, %land.lhs.true20, %if.end16
@@ -7739,11 +7738,11 @@ if.end110:                                        ; preds = %if.then26, %land.lh
   br i1 %tobool111.not, label %if.end151, label %for.cond113.preheader
 
 for.cond113.preheader:                            ; preds = %if.then80, %for.body63, %if.end49, %if.end110
-  %data.1110 = phi ptr [ %data.0, %if.end110 ], [ %data.2, %if.end49 ], [ %data.2, %for.body63 ], [ %data.2, %if.then80 ]
+  %data.1109 = phi ptr [ %data.0, %if.end110 ], [ %data.2, %if.end49 ], [ %data.2, %for.body63 ], [ %data.2, %if.then80 ]
   %num_layers114 = getelementptr inbounds nuw i8, ptr %tm, i64 800008
-  %40 = load i32, ptr %num_layers114, align 8
-  %cmp11596 = icmp sgt i32 %40, 0
-  br i1 %cmp11596, label %for.body116.lr.ph, label %if.end151
+  %42 = load i32, ptr %num_layers114, align 8
+  %cmp11595 = icmp sgt i32 %42, 0
+  br i1 %cmp11595, label %for.body116.lr.ph, label %if.end151
 
 for.body116.lr.ph:                                ; preds = %for.cond113.preheader
   %idxprom118 = sext i32 %mapy to i64
@@ -7751,29 +7750,29 @@ for.body116.lr.ph:                                ; preds = %for.cond113.prehead
   br label %for.body116
 
 for.body116:                                      ; preds = %for.body116.lr.ph, %for.inc148
-  %41 = phi i32 [ %40, %for.body116.lr.ph ], [ %46, %for.inc148 ]
+  %43 = phi i32 [ %42, %for.body116.lr.ph ], [ %48, %for.inc148 ]
   %indvars.iv = phi i64 [ 0, %for.body116.lr.ph ], [ %indvars.iv.next, %for.inc148 ]
   %arrayidx123 = getelementptr inbounds [200 x [200 x [8 x i16]]], ptr %tm, i64 0, i64 %idxprom118, i64 %idxprom120, i64 %indvars.iv
-  %42 = load i16, ptr %arrayidx123, align 2
-  %arrayidx125 = getelementptr inbounds nuw i16, ptr %data.1110, i64 %indvars.iv
-  %43 = load i16, ptr %arrayidx125, align 2
-  %cmp127.not = icmp eq i16 %42, %43
+  %44 = load i16, ptr %arrayidx123, align 2
+  %arrayidx125 = getelementptr inbounds nuw i16, ptr %data.1109, i64 %indvars.iv
+  %45 = load i16, ptr %arrayidx125, align 2
+  %cmp127.not = icmp eq i16 %44, %45
   br i1 %cmp127.not, label %for.inc148, label %if.then129
 
 if.then129:                                       ; preds = %for.body116
-  %conv = sext i16 %42 to i32
-  %44 = trunc nuw nsw i64 %indvars.iv to i32
-  call void @stbte__undo_record(ptr noundef nonnull %tm, i32 noundef %mapx, i32 noundef %mapy, i32 noundef %44, i32 noundef %conv)
-  %45 = load i16, ptr %arrayidx125, align 2
-  store i16 %45, ptr %arrayidx123, align 2
+  %conv = sext i16 %44 to i32
+  %46 = trunc nuw nsw i64 %indvars.iv to i32
+  call void @stbte__undo_record(ptr noundef nonnull %tm, i32 noundef %mapx, i32 noundef %mapy, i32 noundef %46, i32 noundef %conv)
+  %47 = load i16, ptr %arrayidx125, align 2
+  store i16 %47, ptr %arrayidx123, align 2
   %.pre = load i32, ptr %num_layers114, align 8
   br label %for.inc148
 
 for.inc148:                                       ; preds = %for.body116, %if.then129
-  %46 = phi i32 [ %41, %for.body116 ], [ %.pre, %if.then129 ]
+  %48 = phi i32 [ %43, %for.body116 ], [ %.pre, %if.then129 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %47 = sext i32 %46 to i64
-  %cmp115 = icmp slt i64 %indvars.iv.next, %47
+  %49 = sext i32 %48 to i64
+  %cmp115 = icmp slt i64 %indvars.iv.next, %49
   br i1 %cmp115, label %for.body116, label %if.end151, !llvm.loop !53
 
 if.end151:                                        ; preds = %for.inc148, %for.cond113.preheader, %if.end110
