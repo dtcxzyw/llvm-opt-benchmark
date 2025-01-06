@@ -579,11 +579,10 @@ define range(i32 0, 2) i32 @CmdApplyAlias(ptr noundef %0, ptr nocapture noundef 
 
 12:                                               ; preds = %.lr.ph187, %._crit_edge181
   %.0185 = phi ptr [ %9, %.lr.ph187 ], [ %.2.lcssa, %._crit_edge181 ]
-  %.0110184 = phi i32 [ 0, %.lr.ph187 ], [ %spec.select, %._crit_edge181 ]
+  %.0110184 = phi i1 [ true, %.lr.ph187 ], [ %26, %._crit_edge181 ]
   %.0112183 = phi i32 [ %10, %.lr.ph187 ], [ %.2114.lcssa, %._crit_edge181 ]
   %13 = icmp ne i32 %.0112183, 0
-  %.not = icmp eq i32 %.0110184, 0
-  %or.cond = select i1 %13, i1 %.not, i1 false
+  %or.cond = select i1 %13, i1 %.0110184, i1 false
   br i1 %or.cond, label %14, label %.loopexit154
 
 14:                                               ; preds = %12
@@ -600,8 +599,7 @@ define range(i32 0, 2) i32 @CmdApplyAlias(ptr noundef %0, ptr nocapture noundef 
   %23 = load ptr, ptr %22, align 8
   %24 = load ptr, ptr %23, align 8
   %25 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %20, ptr noundef nonnull dereferenceable(1) %24) #25
-  %26 = icmp eq i32 %25, 0
-  %spec.select = zext i1 %26 to i32
+  %26 = icmp ne i32 %25, 0
   %.not129 = icmp eq ptr %20, null
   br i1 %.not129, label %28, label %27
 

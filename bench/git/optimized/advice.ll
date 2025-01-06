@@ -192,29 +192,24 @@ define dso_local void @advise_if_enabled(i32 noundef %type, ptr noundef %advice,
 entry:
   %params = alloca [1 x %struct.__va_list_tag], align 16
   %cond.i = icmp eq i32 %type, 23
-  br i1 %cond.i, label %sw.bb.i, label %sw.default.i
+  br i1 %cond.i, label %sw.bb.i, label %advice_enabled.exit
 
 sw.bb.i:                                          ; preds = %entry
   %0 = load i32, ptr getelementptr inbounds nuw (i8, ptr @advice_setting, i64 376), align 8
-  %tobool.i = icmp ne i32 %0, 0
+  %tobool.i = icmp eq i32 %0, 0
   %1 = load i32, ptr getelementptr inbounds nuw (i8, ptr @advice_setting, i64 360), align 8
-  %tobool1.i = icmp ne i32 %1, 0
-  %2 = select i1 %tobool.i, i1 %tobool1.i, i1 false
-  %land.ext.i = zext i1 %2 to i32
-  br label %advice_enabled.exit
+  %tobool1.i = icmp eq i32 %1, 0
+  %.not = select i1 %tobool.i, i1 true, i1 %tobool1.i
+  br i1 %.not, label %return, label %if.end
 
-sw.default.i:                                     ; preds = %entry
+advice_enabled.exit:                              ; preds = %entry
   %idxprom.i = zext i32 %type to i64
   %enabled.i = getelementptr inbounds nuw [39 x %struct.anon], ptr @advice_setting, i64 0, i64 %idxprom.i, i32 1
-  %3 = load i32, ptr %enabled.i, align 8
-  br label %advice_enabled.exit
+  %2 = load i32, ptr %enabled.i, align 8
+  %3 = icmp eq i32 %2, 0
+  br i1 %3, label %return, label %if.end
 
-advice_enabled.exit:                              ; preds = %sw.bb.i, %sw.default.i
-  %retval.0.i = phi i32 [ %land.ext.i, %sw.bb.i ], [ %3, %sw.default.i ]
-  %tobool.not = icmp eq i32 %retval.0.i, 0
-  br i1 %tobool.not, label %return, label %if.end
-
-if.end:                                           ; preds = %advice_enabled.exit
+if.end:                                           ; preds = %sw.bb.i, %advice_enabled.exit
   call void @llvm.va_start.p0(ptr nonnull %params)
   %idxprom = zext i32 %type to i64
   %arrayidx = getelementptr inbounds nuw [39 x %struct.anon], ptr @advice_setting, i64 0, i64 %idxprom
@@ -223,7 +218,7 @@ if.end:                                           ; preds = %advice_enabled.exit
   call void @llvm.va_end.p0(ptr nonnull %params)
   br label %return
 
-return:                                           ; preds = %advice_enabled.exit, %if.end
+return:                                           ; preds = %sw.bb.i, %advice_enabled.exit, %if.end
   ret void
 }
 

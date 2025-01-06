@@ -3813,14 +3813,14 @@ define internal fastcc range(i32 -1, 1) i32 @re_parse_group_name(ptr noundef non
   %6 = ptrtoint ptr %0 to i64
   br label %7
 
-7:                                                ; preds = %72, %2
-  %8 = phi ptr [ %5, %2 ], [ %.pre, %72 ]
-  %.0 = phi ptr [ %0, %2 ], [ %.1, %72 ]
+7:                                                ; preds = %71, %2
+  %8 = phi ptr [ %5, %2 ], [ %.pre, %71 ]
+  %.0 = phi ptr [ %0, %2 ], [ %.1, %71 ]
   %9 = load i8, ptr %8, align 1
   %10 = zext i8 %9 to i32
   switch i8 %9, label %16 [
     i8 92, label %11
-    i8 62, label %73
+    i8 62, label %72
   ]
 
 11:                                               ; preds = %7
@@ -3849,37 +3849,37 @@ define internal fastcc range(i32 -1, 1) i32 @re_parse_group_name(ptr noundef non
   %22 = call i32 @unicode_from_utf8(ptr noundef %21, i32 noundef 6, ptr noundef nonnull %4) #17
   %.mask.i34 = and i32 %22, -1024
   %.not38 = icmp eq i32 %.mask.i34, 56320
-  br i1 %.not38, label %23, label %.thread41
+  br i1 %.not38, label %23, label %.thread43
 
 23:                                               ; preds = %20
   %24 = shl nuw nsw i32 %19, 10
   %25 = add nsw i32 %24, -56613888
   %26 = add nuw nsw i32 %25, %22
   %27 = load ptr, ptr %4, align 8
-  br label %.thread41.sink.split
+  br label %.thread43.sink.split
 
 .thread:                                          ; preds = %16
   %28 = getelementptr i8, ptr %8, i64 1
-  br label %.thread41.sink.split
+  br label %.thread43.sink.split
 
 29:                                               ; preds = %18, %14
   %.028 = phi i32 [ %15, %14 ], [ %19, %18 ]
   %30 = icmp ugt i32 %.028, 1114111
-  br i1 %30, label %.loopexit, label %.thread41
+  br i1 %30, label %.loopexit, label %.thread43
 
-.thread41.sink.split:                             ; preds = %.thread, %23
+.thread43.sink.split:                             ; preds = %.thread, %23
   %.sink = phi ptr [ %27, %23 ], [ %28, %.thread ]
   %.02837.ph = phi i32 [ %26, %23 ], [ %10, %.thread ]
   store ptr %.sink, ptr %3, align 8
-  br label %.thread41
+  br label %.thread43
 
-.thread41:                                        ; preds = %.thread41.sink.split, %20, %29
-  %.02837 = phi i32 [ %.028, %29 ], [ %19, %20 ], [ %.02837.ph, %.thread41.sink.split ]
+.thread43:                                        ; preds = %.thread43.sink.split, %20, %29
+  %.02837 = phi i32 [ %.028, %29 ], [ %19, %20 ], [ %.02837.ph, %.thread43.sink.split ]
   %31 = icmp eq ptr %.0, %0
   %32 = icmp samesign ult i32 %.02837, 128
   br i1 %31, label %33, label %44
 
-33:                                               ; preds = %.thread41
+33:                                               ; preds = %.thread43
   br i1 %32, label %34, label %42
 
 34:                                               ; preds = %33
@@ -3899,10 +3899,10 @@ define internal fastcc range(i32 -1, 1) i32 @re_parse_group_name(ptr noundef non
 lre_js_is_ident_first.exit:                       ; preds = %34, %42
   %.0.i = phi i32 [ %41, %34 ], [ %43, %42 ]
   %.not33 = icmp eq i32 %.0.i, 0
-  br i1 %.not33, label %.loopexit, label %59
+  br i1 %.not33, label %.loopexit, label %58
 
-44:                                               ; preds = %.thread41
-  br i1 %32, label %45, label %53
+44:                                               ; preds = %.thread43
+  br i1 %32, label %45, label %lre_js_is_ident_next.exit
 
 45:                                               ; preds = %44
   %46 = lshr i32 %.02837, 5
@@ -3910,65 +3910,60 @@ lre_js_is_ident_first.exit:                       ; preds = %34, %42
   %48 = getelementptr [4 x i32], ptr @lre_id_continue_table_ascii, i64 0, i64 %47
   %49 = load i32, ptr %48, align 4
   %50 = and i32 %.02837, 31
-  %51 = lshr i32 %49, %50
-  %52 = and i32 %51, 1
-  br label %lre_js_is_ident_next.exit
+  %51 = shl nuw i32 1, %50
+  %52 = and i32 %49, %51
+  %53 = icmp eq i32 %52, 0
+  br i1 %53, label %.loopexit, label %58
 
-53:                                               ; preds = %44
+lre_js_is_ident_next.exit:                        ; preds = %44
   %54 = call i32 @lre_is_id_continue(i32 noundef range(i32 0, 1114112) %.02837) #17
-  %55 = icmp ne i32 %54, 0
+  %55 = icmp eq i32 %54, 0
   %56 = and i32 %.02837, 2097150
-  %57 = icmp eq i32 %56, 8204
-  %narrow.i = or i1 %57, %55
-  %58 = zext i1 %narrow.i to i32
-  br label %lre_js_is_ident_next.exit
+  %57 = icmp ne i32 %56, 8204
+  %narrow.i.not = and i1 %57, %55
+  br i1 %narrow.i.not, label %.loopexit, label %58
 
-lre_js_is_ident_next.exit:                        ; preds = %45, %53
-  %.0.i35 = phi i32 [ %52, %45 ], [ %58, %53 ]
-  %.not32 = icmp eq i32 %.0.i35, 0
-  br i1 %.not32, label %.loopexit, label %59
+58:                                               ; preds = %45, %lre_js_is_ident_next.exit, %lre_js_is_ident_first.exit
+  %59 = ptrtoint ptr %.0 to i64
+  %reass.sub = sub i64 %59, %6
+  %60 = add i64 %reass.sub, 7
+  %61 = icmp sgt i64 %60, 128
+  br i1 %61, label %.loopexit, label %62
 
-59:                                               ; preds = %lre_js_is_ident_next.exit, %lre_js_is_ident_first.exit
-  %60 = ptrtoint ptr %.0 to i64
-  %reass.sub = sub i64 %60, %6
-  %61 = add i64 %reass.sub, 7
-  %62 = icmp sgt i64 %61, 128
-  br i1 %62, label %.loopexit, label %63
+62:                                               ; preds = %58
+  %63 = icmp samesign ult i32 %.02837, 128
+  br i1 %63, label %64, label %67
 
-63:                                               ; preds = %59
-  %64 = icmp samesign ult i32 %.02837, 128
-  br i1 %64, label %65, label %68
+64:                                               ; preds = %62
+  %65 = trunc nuw nsw i32 %.02837 to i8
+  %66 = getelementptr i8, ptr %.0, i64 1
+  store i8 %65, ptr %.0, align 1
+  br label %71
 
-65:                                               ; preds = %63
-  %66 = trunc nuw nsw i32 %.02837 to i8
-  %67 = getelementptr i8, ptr %.0, i64 1
-  store i8 %66, ptr %.0, align 1
-  br label %72
+67:                                               ; preds = %62
+  %68 = call i32 @unicode_to_utf8(ptr noundef %.0, i32 noundef %.02837) #17
+  %69 = sext i32 %68 to i64
+  %70 = getelementptr i8, ptr %.0, i64 %69
+  br label %71
 
-68:                                               ; preds = %63
-  %69 = call i32 @unicode_to_utf8(ptr noundef %.0, i32 noundef %.02837) #17
-  %70 = sext i32 %69 to i64
-  %71 = getelementptr i8, ptr %.0, i64 %70
-  br label %72
-
-72:                                               ; preds = %68, %65
-  %.1 = phi ptr [ %67, %65 ], [ %71, %68 ]
+71:                                               ; preds = %67, %64
+  %.1 = phi ptr [ %66, %64 ], [ %70, %67 ]
   %.pre = load ptr, ptr %3, align 8
   br label %7
 
-73:                                               ; preds = %7
-  %74 = icmp eq ptr %.0, %0
-  br i1 %74, label %.loopexit, label %75
+72:                                               ; preds = %7
+  %73 = icmp eq ptr %.0, %0
+  br i1 %73, label %.loopexit, label %74
 
-75:                                               ; preds = %73
+74:                                               ; preds = %72
   store i8 0, ptr %.0, align 1
-  %76 = load ptr, ptr %3, align 8
-  %77 = getelementptr i8, ptr %76, i64 1
-  store ptr %77, ptr %1, align 8
+  %75 = load ptr, ptr %3, align 8
+  %76 = getelementptr i8, ptr %75, i64 1
+  store ptr %76, ptr %1, align 8
   br label %.loopexit
 
-.loopexit:                                        ; preds = %59, %lre_js_is_ident_next.exit, %lre_js_is_ident_first.exit, %29, %11, %73, %75
-  %.027 = phi i32 [ 0, %75 ], [ -1, %73 ], [ -1, %11 ], [ -1, %29 ], [ -1, %lre_js_is_ident_first.exit ], [ -1, %lre_js_is_ident_next.exit ], [ -1, %59 ]
+.loopexit:                                        ; preds = %58, %lre_js_is_ident_next.exit, %lre_js_is_ident_first.exit, %29, %11, %45, %72, %74
+  %.027 = phi i32 [ 0, %74 ], [ -1, %72 ], [ -1, %45 ], [ -1, %11 ], [ -1, %29 ], [ -1, %lre_js_is_ident_first.exit ], [ -1, %lre_js_is_ident_next.exit ], [ -1, %58 ]
   ret i32 %.027
 }
 

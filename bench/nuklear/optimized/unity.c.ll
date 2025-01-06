@@ -843,8 +843,8 @@ while.body:                                       ; preds = %while.body.preheade
   %score.079 = phi i32 [ 0, %while.body.preheader ], [ %score.5, %if.end94 ]
   %pattern_iter.078 = phi ptr [ %pattern, %while.body.preheader ], [ %pattern_iter.2, %if.end94 ]
   %prev_matched.075 = phi i32 [ 0, %while.body.preheader ], [ %prev_matched.1, %if.end94 ]
-  %prev_lower.074 = phi i32 [ 0, %while.body.preheader ], [ %lor.ext.i69, %if.end94 ]
-  %prev_separator.073 = phi i32 [ 1, %while.body.preheader ], [ %lor.ext, %if.end94 ]
+  %prev_lower.074 = phi i1 [ true, %while.body.preheader ], [ %or.cond.i68, %if.end94 ]
+  %prev_separator.073 = phi i1 [ false, %while.body.preheader ], [ %.not, %if.end94 ]
   %best_letter_score.072 = phi i32 [ 0, %while.body.preheader ], [ %best_letter_score.3, %if.end94 ]
   %best_letter.071 = phi ptr [ null, %while.body.preheader ], [ %best_letter.3, %if.end94 ]
   %0 = load i8, ptr %pattern_iter.078, align 1
@@ -869,9 +869,9 @@ land.rhs:                                         ; preds = %while.body
   br label %land.end
 
 land.end:                                         ; preds = %land.rhs, %while.body
-  %cond.fr85 = phi i1 [ false, %while.body ], [ %4, %land.rhs ]
+  %cond.fr84 = phi i1 [ false, %while.body ], [ %4, %land.rhs ]
   %tobool11.not = icmp eq ptr %best_letter.071, null
-  br i1 %tobool11.not, label %.thread97, label %land.rhs27
+  br i1 %tobool11.not, label %.thread96, label %land.rhs27
 
 land.rhs27:                                       ; preds = %land.end
   %5 = load i8, ptr %best_letter.071, align 1
@@ -899,25 +899,25 @@ land.rhs34:                                       ; preds = %land.rhs27
   %cond.i66 = select i1 %or.cond.i64, i32 %sub.i65, i32 %conv
   %cmp39 = icmp eq i32 %cond.i63, %cond.i66
   %cmp39.fr = freeze i1 %cmp39
-  %10 = or i1 %cond.fr85, %cmp39.fr
-  br i1 %10, label %11, label %.thread97
+  %10 = or i1 %cond.fr84, %cmp39.fr
+  br i1 %10, label %11, label %.thread96
 
 land.end41:                                       ; preds = %land.rhs27
-  br i1 %cond.fr85, label %11, label %.thread97
+  br i1 %cond.fr84, label %11, label %.thread96
 
 11:                                               ; preds = %land.rhs34, %land.end41
-  br label %.thread97
+  br label %.thread96
 
-.thread97:                                        ; preds = %land.rhs34, %land.end41, %land.end, %11
+.thread96:                                        ; preds = %land.rhs34, %land.end41, %land.end, %11
   %12 = phi i32 [ 0, %11 ], [ %best_letter_score.072, %land.end ], [ %best_letter_score.072, %land.end41 ], [ %best_letter_score.072, %land.rhs34 ]
   %13 = phi i1 [ %cmp17, %11 ], [ false, %land.end ], [ %cmp17, %land.end41 ], [ %cmp17, %land.rhs34 ]
   %14 = phi ptr [ null, %11 ], [ null, %land.end ], [ %best_letter.071, %land.end41 ], [ %best_letter.071, %land.rhs34 ]
   %15 = phi i32 [ %best_letter_score.072, %11 ], [ 0, %land.end ], [ 0, %land.end41 ], [ 0, %land.rhs34 ]
   %score.1 = add nsw i32 %15, %score.079
-  %or.cond3 = select i1 %cond.fr85, i1 true, i1 %13
+  %or.cond3 = select i1 %cond.fr84, i1 true, i1 %13
   br i1 %or.cond3, label %if.then51, label %if.else
 
-if.then51:                                        ; preds = %.thread97
+if.then51:                                        ; preds = %.thread96
   %cmp52 = icmp eq ptr %pattern_iter.078, %pattern
   br i1 %cmp52, label %if.then54, label %if.end63
 
@@ -932,17 +932,15 @@ if.end63:                                         ; preds = %if.then54, %if.then
   %score.2 = phi i32 [ %add62, %if.then54 ], [ %score.1, %if.then51 ]
   %tobool64.not = icmp eq i32 %prev_matched.075, 0
   %spec.select = select i1 %tobool64.not, i32 0, i32 5
-  %tobool68.not = icmp eq i32 %prev_separator.073, 0
   %add70 = or disjoint i32 %spec.select, 10
-  %new_score.1 = select i1 %tobool68.not, i32 %spec.select, i32 %add70
-  %tobool72.not = icmp eq i32 %prev_lower.074, 0
+  %new_score.1 = select i1 %prev_separator.073, i32 %spec.select, i32 %add70
   %conv73 = sext i8 %1 to i32
   %18 = add nsw i32 %conv73, -91
   %or.cond.i67 = icmp ult i32 %18, -26
   %add77 = add nuw nsw i32 %new_score.1, 10
-  %19 = select i1 %tobool72.not, i1 true, i1 %or.cond.i67
+  %19 = select i1 %prev_lower.074, i1 true, i1 %or.cond.i67
   %new_score.2 = select i1 %19, i32 %new_score.1, i32 %add77
-  %spec.select49.idx = zext i1 %cond.fr85 to i64
+  %spec.select49.idx = zext i1 %cond.fr84 to i64
   %spec.select49 = getelementptr inbounds nuw i8, ptr %pattern_iter.078, i64 %spec.select49.idx
   %cmp82.not = icmp sge i32 %new_score.2, %12
   %cmp85.not = icmp ne ptr %14, null
@@ -953,7 +951,7 @@ if.end63:                                         ; preds = %if.then54, %if.then
   %score.3 = add nsw i32 %score.2, %spec.select50
   br label %if.end94
 
-if.else:                                          ; preds = %.thread97
+if.else:                                          ; preds = %.thread96
   %add93 = add nsw i32 %score.1, -1
   %.pre = sext i8 %1 to i32
   br label %if.end94
@@ -965,28 +963,26 @@ if.end94:                                         ; preds = %if.else, %if.end63
   %prev_matched.1 = phi i32 [ 0, %if.else ], [ 1, %if.end63 ]
   %pattern_iter.2 = phi ptr [ %pattern_iter.078, %if.else ], [ %spec.select49, %if.end63 ]
   %score.5 = phi i32 [ %add93, %if.else ], [ %score.3, %if.end63 ]
-  %20 = add nsw i32 %conv95.pre-phi, -97
-  %or.cond.i68 = icmp ult i32 %20, 26
-  %lor.ext.i69 = zext i1 %or.cond.i68 to i32
-  %cmp100 = icmp eq i8 %1, 95
-  %cmp103 = icmp eq i8 %1, 32
-  %21 = or i1 %cmp100, %cmp103
-  %lor.ext = zext i1 %21 to i32
+  %20 = add nsw i32 %conv95.pre-phi, -123
+  %or.cond.i68 = icmp ult i32 %20, -26
+  %cmp100 = icmp ne i8 %1, 95
+  %cmp103 = icmp ne i8 %1, 32
+  %.not = and i1 %cmp100, %cmp103
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %while.end.loopexit, label %while.body, !llvm.loop !16
 
 while.end.loopexit:                               ; preds = %if.end94
-  %22 = icmp eq ptr %best_letter.3, null
-  %23 = select i1 %22, i32 0, i32 %best_letter_score.3
-  %24 = add nsw i32 %score.5, %23
+  %21 = icmp eq ptr %best_letter.3, null
+  %22 = select i1 %21, i32 0, i32 %best_letter_score.3
+  %23 = add nsw i32 %score.5, %22
   br label %while.end
 
 while.end:                                        ; preds = %while.end.loopexit, %while.cond.preheader
   %pattern_iter.0.lcssa = phi ptr [ %pattern, %while.cond.preheader ], [ %pattern_iter.2, %while.end.loopexit ]
-  %spec.select51 = phi i32 [ 0, %while.cond.preheader ], [ %24, %while.end.loopexit ]
-  %25 = load i8, ptr %pattern_iter.0.lcssa, align 1
-  %cmp110.not = icmp eq i8 %25, 0
+  %spec.select51 = phi i32 [ 0, %while.cond.preheader ], [ %23, %while.end.loopexit ]
+  %24 = load i8, ptr %pattern_iter.0.lcssa, align 1
+  %cmp110.not = icmp eq i8 %24, 0
   br i1 %cmp110.not, label %if.end113, label %return
 
 if.end113:                                        ; preds = %while.end

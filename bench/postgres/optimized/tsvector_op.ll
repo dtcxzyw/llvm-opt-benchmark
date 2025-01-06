@@ -833,11 +833,8 @@ define dso_local i64 @tsvector_setweight_by_filter(ptr nocapture noundef readonl
   %52 = zext nneg i32 %50 to i64
   %53 = getelementptr [0 x %struct.WordEntry], ptr %31, i64 0, i64 %52
   %54 = icmp eq i32 %49, 0
-  br i1 %54, label %tsCompareString.exit.us.i, label %.lr.ph.split.preheader.i
-
-.lr.ph.split.preheader.i:                         ; preds = %.lr.ph.i
   %55 = icmp ult i32 %47, 20
-  br label %.lr.ph.split.i
+  br i1 %54, label %tsCompareString.exit.us.i, label %.lr.ph.split.i
 
 tsCompareString.exit.us.i:                        ; preds = %.lr.ph.i, %tsCompareString.exit.thread25.us.i
   %.02032.us.i = phi i32 [ %56, %tsCompareString.exit.thread25.us.i ], [ %50, %.lr.ph.i ]
@@ -846,16 +843,16 @@ tsCompareString.exit.us.i:                        ; preds = %.lr.ph.i, %tsCompar
   %58 = getelementptr %struct.WordEntry, ptr %31, i64 %57
   %59 = load i32, ptr %58, align 4
   %60 = and i32 %59, 4094
-  %.not38.i = icmp eq i32 %60, 0
-  br i1 %.not38.i, label %tsvector_bsearch.exit.thread58, label %tsCompareString.exit.thread25.us.i
+  %.not.i = icmp eq i32 %60, 0
+  br i1 %.not.i, label %tsvector_bsearch.exit.thread58, label %tsCompareString.exit.thread25.us.i
 
 tsCompareString.exit.thread25.us.i:               ; preds = %tsCompareString.exit.us.i
-  %.not39.i = icmp samesign ult i32 %.02032.us.i, 2
-  br i1 %.not39.i, label %tsvector_bsearch.exit.thread, label %tsCompareString.exit.us.i, !llvm.loop !12
+  %.not38.i = icmp samesign ult i32 %.02032.us.i, 2
+  br i1 %.not38.i, label %tsvector_bsearch.exit.thread, label %tsCompareString.exit.us.i, !llvm.loop !12
 
-.lr.ph.split.i:                                   ; preds = %tsCompareString.exit.thread25.i, %.lr.ph.split.preheader.i
-  %.01933.i = phi i32 [ %.1.i, %tsCompareString.exit.thread25.i ], [ 0, %.lr.ph.split.preheader.i ]
-  %.02032.i = phi i32 [ %.121.i, %tsCompareString.exit.thread25.i ], [ %50, %.lr.ph.split.preheader.i ]
+.lr.ph.split.i:                                   ; preds = %.lr.ph.i, %tsCompareString.exit.thread25.i
+  %.01933.i = phi i32 [ %.1.i, %tsCompareString.exit.thread25.i ], [ 0, %.lr.ph.i ]
+  %.02032.i = phi i32 [ %.121.i, %tsCompareString.exit.thread25.i ], [ %50, %.lr.ph.i ]
   %61 = add i32 %.02032.i, %.01933.i
   %62 = sdiv i32 %61, 2
   %63 = sext i32 %62 to i64
@@ -1045,15 +1042,15 @@ define dso_local i64 @tsvector_delete_str(ptr nocapture noundef readonly %0) loc
   %40 = zext nneg i32 %38 to i64
   %41 = getelementptr [0 x %struct.WordEntry], ptr %36, i64 0, i64 %40
   %42 = icmp eq i32 %.fr47, 0
-  br i1 %42, label %tsCompareString.exit.us.i, label %.lr.ph.split.preheader.i
+  br i1 %42, label %tsCompareString.exit.us.i, label %.lr.ph.split.i.preheader
 
-.lr.ph.split.preheader.i:                         ; preds = %.lr.ph.i
+.lr.ph.split.i.preheader:                         ; preds = %.lr.ph.i
   %43 = icmp slt i32 %.fr47, 1
   br i1 %43, label %.lr.ph.split.i.us, label %.lr.ph.split.i
 
-.lr.ph.split.i.us:                                ; preds = %.lr.ph.split.preheader.i, %tsCompareString.exit.thread25.i.us
-  %.01933.i.us = phi i32 [ %.1.i.us, %tsCompareString.exit.thread25.i.us ], [ 0, %.lr.ph.split.preheader.i ]
-  %.02032.i.us = phi i32 [ %.121.i.us, %tsCompareString.exit.thread25.i.us ], [ %38, %.lr.ph.split.preheader.i ]
+.lr.ph.split.i.us:                                ; preds = %.lr.ph.split.i.preheader, %tsCompareString.exit.thread25.i.us
+  %.01933.i.us = phi i32 [ %.1.i.us, %tsCompareString.exit.thread25.i.us ], [ 0, %.lr.ph.split.i.preheader ]
+  %.02032.i.us = phi i32 [ %.121.i.us, %tsCompareString.exit.thread25.i.us ], [ %38, %.lr.ph.split.i.preheader ]
   %44 = add i32 %.02032.i.us, %.01933.i.us
   %45 = sdiv i32 %44, 2
   %46 = sext i32 %45 to i64
@@ -1103,20 +1100,20 @@ tsCompareString.exit.us.i:                        ; preds = %.lr.ph.i, %tsCompar
   %68 = getelementptr %struct.WordEntry, ptr %36, i64 %67
   %69 = load i32, ptr %68, align 4
   %70 = and i32 %69, 4094
-  %.not38.i = icmp eq i32 %70, 0
-  br i1 %.not38.i, label %tsvector_bsearch.exit.thread32, label %tsCompareString.exit.thread25.us.i
+  %.not.i = icmp eq i32 %70, 0
+  br i1 %.not.i, label %tsvector_bsearch.exit.thread32, label %tsCompareString.exit.thread25.us.i
 
 tsvector_bsearch.exit.thread32:                   ; preds = %tsCompareString.exit.us.i
   store i32 %66, ptr %2, align 4
   br label %94
 
 tsCompareString.exit.thread25.us.i:               ; preds = %tsCompareString.exit.us.i
-  %.not39.i = icmp samesign ult i32 %.02032.us.i, 2
-  br i1 %.not39.i, label %tsvector_bsearch.exit.thread, label %tsCompareString.exit.us.i, !llvm.loop !12
+  %.not38.i = icmp samesign ult i32 %.02032.us.i, 2
+  br i1 %.not38.i, label %tsvector_bsearch.exit.thread, label %tsCompareString.exit.us.i, !llvm.loop !12
 
-.lr.ph.split.i:                                   ; preds = %.lr.ph.split.preheader.i, %tsCompareString.exit.thread25.i
-  %.01933.i = phi i32 [ %.1.i, %tsCompareString.exit.thread25.i ], [ 0, %.lr.ph.split.preheader.i ]
-  %.02032.i = phi i32 [ %.121.i, %tsCompareString.exit.thread25.i ], [ %38, %.lr.ph.split.preheader.i ]
+.lr.ph.split.i:                                   ; preds = %.lr.ph.split.i.preheader, %tsCompareString.exit.thread25.i
+  %.01933.i = phi i32 [ %.1.i, %tsCompareString.exit.thread25.i ], [ 0, %.lr.ph.split.i.preheader ]
+  %.02032.i = phi i32 [ %.121.i, %tsCompareString.exit.thread25.i ], [ %38, %.lr.ph.split.i.preheader ]
   %71 = add i32 %.02032.i, %.01933.i
   %72 = sdiv i32 %71, 2
   %73 = sext i32 %72 to i64
@@ -1425,11 +1422,8 @@ define dso_local i64 @tsvector_delete_arr(ptr nocapture noundef readonly %0) loc
   %38 = zext nneg i32 %36 to i64
   %39 = getelementptr [0 x %struct.WordEntry], ptr %19, i64 0, i64 %38
   %40 = icmp eq i32 %35, 0
-  br i1 %40, label %tsCompareString.exit.us.i, label %.lr.ph.split.preheader.i
-
-.lr.ph.split.preheader.i:                         ; preds = %.lr.ph.i
   %41 = icmp ult i32 %33, 20
-  br label %.lr.ph.split.i
+  br i1 %40, label %tsCompareString.exit.us.i, label %.lr.ph.split.i
 
 tsCompareString.exit.us.i:                        ; preds = %.lr.ph.i, %tsCompareString.exit.thread25.us.i
   %.02032.us.i = phi i32 [ %42, %tsCompareString.exit.thread25.us.i ], [ %36, %.lr.ph.i ]
@@ -1438,16 +1432,16 @@ tsCompareString.exit.us.i:                        ; preds = %.lr.ph.i, %tsCompar
   %44 = getelementptr %struct.WordEntry, ptr %19, i64 %43
   %45 = load i32, ptr %44, align 4
   %46 = and i32 %45, 4094
-  %.not38.i = icmp eq i32 %46, 0
-  br i1 %.not38.i, label %tsvector_bsearch.exit.thread31, label %tsCompareString.exit.thread25.us.i
+  %.not.i = icmp eq i32 %46, 0
+  br i1 %.not.i, label %tsvector_bsearch.exit.thread31, label %tsCompareString.exit.thread25.us.i
 
 tsCompareString.exit.thread25.us.i:               ; preds = %tsCompareString.exit.us.i
-  %.not39.i = icmp samesign ult i32 %.02032.us.i, 2
-  br i1 %.not39.i, label %tsvector_bsearch.exit.thread, label %tsCompareString.exit.us.i, !llvm.loop !12
+  %.not38.i = icmp samesign ult i32 %.02032.us.i, 2
+  br i1 %.not38.i, label %tsvector_bsearch.exit.thread, label %tsCompareString.exit.us.i, !llvm.loop !12
 
-.lr.ph.split.i:                                   ; preds = %tsCompareString.exit.thread25.i, %.lr.ph.split.preheader.i
-  %.01933.i = phi i32 [ %.1.i, %tsCompareString.exit.thread25.i ], [ 0, %.lr.ph.split.preheader.i ]
-  %.02032.i = phi i32 [ %.121.i, %tsCompareString.exit.thread25.i ], [ %36, %.lr.ph.split.preheader.i ]
+.lr.ph.split.i:                                   ; preds = %.lr.ph.i, %tsCompareString.exit.thread25.i
+  %.01933.i = phi i32 [ %.1.i, %tsCompareString.exit.thread25.i ], [ 0, %.lr.ph.i ]
+  %.02032.i = phi i32 [ %.121.i, %tsCompareString.exit.thread25.i ], [ %36, %.lr.ph.i ]
   %47 = add i32 %.02032.i, %.01933.i
   %48 = sdiv i32 %47, 2
   %49 = sext i32 %48 to i64

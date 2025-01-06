@@ -14,7 +14,6 @@ target triple = "x86_64-unknown-linux-gnu"
 @_ZL13IrrelevantPos = internal unnamed_addr constant [8 x i8] c"\00\02\04\06\08\0A\0C\0E", align 1
 @_ZL14convertLamAlef = internal unnamed_addr constant [8 x i16] [i16 1570, i16 1570, i16 1571, i16 1571, i16 1573, i16 1573, i16 1575, i16 1575], align 16
 @_ZL13yehHamzaToYeh = internal unnamed_addr constant [2 x i16] [i16 -273, i16 -272], align 2
-@_ZL14tashkeelMedial = internal unnamed_addr constant [16 x i8] c"\00\01\00\00\00\00\00\01\00\01\00\01\00\01\00\01", align 16
 @switch.table._ZL12shapeUnicodePDsiijP10UErrorCodei15uShapeVariables = private unnamed_addr constant [6 x i16] [i16 1628, i16 1629, i16 poison, i16 1630, i16 poison, i16 1631], align 2
 
 ; Function Attrs: mustprogress uwtable
@@ -1850,30 +1849,21 @@ _ZL23isTashkeelOnTatweelCharDs.exit:              ; preds = %switch.early.test.i
   br i1 %cmp3.not, label %switch.early.test.i22, label %for.inc.sink.split
 
 switch.early.test.i22:                            ; preds = %_ZL23isTashkeelOnTatweelCharDs.exit
-  switch i16 %0, label %if.then.i32 [
+  switch i16 %0, label %_ZL22isIsolatedTashkeelCharDs.exit [
     i16 -387, label %for.inc.sink.split
     i16 -395, label %if.else.i29
     i16 -397, label %if.else.i29
   ]
 
-if.then.i32:                                      ; preds = %switch.early.test.i22
-  %arrayidx.i34 = getelementptr inbounds nuw [16 x i8], ptr @_ZL14tashkeelMedial, i64 0, i64 %idxprom.i
-  %5 = load i8, ptr %arrayidx.i34, align 1
-  %conv10.i = zext i8 %5 to i32
-  %sub11.i = sub nsw i32 1, %conv10.i
-  br label %_ZL22isIsolatedTashkeelCharDs.exit
-
 if.else.i29:                                      ; preds = %if.else.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i22, %switch.early.test.i22
-  %6 = add i16 %0, 930
-  %or.cond3.i = icmp ult i16 %6, 6
-  %..i = zext i1 %or.cond3.i to i32
+  %5 = add i16 %0, 924
+  %or.cond3.i = icmp ult i16 %5, -6
   br label %_ZL22isIsolatedTashkeelCharDs.exit
 
-_ZL22isIsolatedTashkeelCharDs.exit:               ; preds = %if.then.i32, %if.else.i29
-  %retval.0.i30 = phi i32 [ %sub11.i, %if.then.i32 ], [ %..i, %if.else.i29 ]
-  %tobool.not = icmp eq i32 %retval.0.i30, 0
+_ZL22isIsolatedTashkeelCharDs.exit:               ; preds = %switch.early.test.i22, %if.else.i29
+  %retval.0.i30 = phi i1 [ %or.cond3.i, %if.else.i29 ], [ false, %switch.early.test.i22 ]
   %cmp19.not = icmp eq i16 %0, -388
-  %or.cond14 = or i1 %cmp19.not, %tobool.not
+  %or.cond14 = or i1 %cmp19.not, %retval.0.i30
   br i1 %or.cond14, label %for.inc, label %for.inc.sink.split
 
 for.inc.sink.split:                               ; preds = %_ZL22isIsolatedTashkeelCharDs.exit, %switch.early.test.i22, %switch.early.test.i, %if.else.i, %_ZL23isTashkeelOnTatweelCharDs.exit

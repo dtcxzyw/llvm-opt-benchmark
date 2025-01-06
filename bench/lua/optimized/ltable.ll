@@ -1034,7 +1034,7 @@ if.end.i.us:                                      ; preds = %for.cond.us
     i8 0, label %return
     i8 1, label %return
     i8 17, label %return
-    i8 3, label %sw.bb14.i.us
+    i8 3, label %equalkey.exit.us
     i8 19, label %sw.bb17.i.us
     i8 2, label %sw.bb22.i.us
     i8 22, label %sw.bb27.i.us
@@ -1046,156 +1046,138 @@ sw.bb32.i.us:                                     ; preds = %if.end.i.us
   %key_val34.i.us = getelementptr inbounds nuw i8, ptr %n.0.us, i64 16
   %3 = load ptr, ptr %key_val34.i.us, align 8
   %call.i.us = tail call i32 @luaS_eqlngstr(ptr noundef %2, ptr noundef %3) #12
-  br label %equalkey.exit.us
+  %4 = icmp eq i32 %call.i.us, 0
+  br i1 %4, label %if.else.us, label %return
 
 sw.bb27.i.us:                                     ; preds = %if.end.i.us
-  %4 = load ptr, ptr %key, align 8
+  %5 = load ptr, ptr %key, align 8
   %key_val29.i.us = getelementptr inbounds nuw i8, ptr %n.0.us, i64 16
-  %5 = load ptr, ptr %key_val29.i.us, align 8
-  %cmp30.i.us = icmp eq ptr %4, %5
-  %conv31.i.us = zext i1 %cmp30.i.us to i32
-  br label %equalkey.exit.us
+  %6 = load ptr, ptr %key_val29.i.us, align 8
+  %cmp30.i.us.not = icmp eq ptr %5, %6
+  br i1 %cmp30.i.us.not, label %return, label %if.else.us
 
 sw.bb22.i.us:                                     ; preds = %if.end.i.us
-  %6 = load ptr, ptr %key, align 8
+  %7 = load ptr, ptr %key, align 8
   %key_val24.i.us = getelementptr inbounds nuw i8, ptr %n.0.us, i64 16
-  %7 = load ptr, ptr %key_val24.i.us, align 8
-  %cmp25.i.us = icmp eq ptr %6, %7
-  %conv26.i.us = zext i1 %cmp25.i.us to i32
-  br label %equalkey.exit.us
+  %8 = load ptr, ptr %key_val24.i.us, align 8
+  %cmp25.i.us.not = icmp eq ptr %7, %8
+  br i1 %cmp25.i.us.not, label %return, label %if.else.us
 
 sw.bb17.i.us:                                     ; preds = %if.end.i.us
-  %8 = load double, ptr %key, align 8
+  %9 = load double, ptr %key, align 8
   %key_val19.i.us = getelementptr inbounds nuw i8, ptr %n.0.us, i64 16
-  %9 = load double, ptr %key_val19.i.us, align 8
-  %cmp20.i.us = fcmp oeq double %8, %9
-  %conv21.i.us = zext i1 %cmp20.i.us to i32
-  br label %equalkey.exit.us
-
-sw.bb14.i.us:                                     ; preds = %if.end.i.us
-  %10 = load i64, ptr %key, align 8
-  %key_val.i.us = getelementptr inbounds nuw i8, ptr %n.0.us, i64 16
-  %11 = load i64, ptr %key_val.i.us, align 8
-  %cmp15.i.us = icmp eq i64 %10, %11
-  %conv16.i.us = zext i1 %cmp15.i.us to i32
-  br label %equalkey.exit.us
+  %10 = load double, ptr %key_val19.i.us, align 8
+  %cmp20.i.us = fcmp une double %9, %10
+  br i1 %cmp20.i.us, label %if.else.us, label %return
 
 sw.default.i.us:                                  ; preds = %if.end.i.us
-  %12 = load ptr, ptr %key, align 8
+  %11 = load ptr, ptr %key, align 8
   %key_val36.i.us = getelementptr inbounds nuw i8, ptr %n.0.us, i64 16
-  %13 = load ptr, ptr %key_val36.i.us, align 8
-  %cmp37.i.us = icmp eq ptr %12, %13
-  %conv38.i.us = zext i1 %cmp37.i.us to i32
-  br label %equalkey.exit.us
+  %12 = load ptr, ptr %key_val36.i.us, align 8
+  %cmp37.i.us.not = icmp eq ptr %11, %12
+  br i1 %cmp37.i.us.not, label %return, label %if.else.us
 
-equalkey.exit.us:                                 ; preds = %sw.default.i.us, %sw.bb14.i.us, %sw.bb17.i.us, %sw.bb22.i.us, %sw.bb27.i.us, %sw.bb32.i.us
-  %retval.0.i.us = phi i32 [ %conv38.i.us, %sw.default.i.us ], [ %call.i.us, %sw.bb32.i.us ], [ %conv31.i.us, %sw.bb27.i.us ], [ %conv26.i.us, %sw.bb22.i.us ], [ %conv21.i.us, %sw.bb17.i.us ], [ %conv16.i.us, %sw.bb14.i.us ]
-  %tobool.not.us = icmp eq i32 %retval.0.i.us, 0
-  br i1 %tobool.not.us, label %if.else.us, label %return
+equalkey.exit.us:                                 ; preds = %if.end.i.us
+  %13 = load i64, ptr %key, align 8
+  %key_val.i.us = getelementptr inbounds nuw i8, ptr %n.0.us, i64 16
+  %14 = load i64, ptr %key_val.i.us, align 8
+  %cmp15.i.us.not = icmp eq i64 %13, %14
+  br i1 %cmp15.i.us.not, label %return, label %if.else.us
 
-if.else.us:                                       ; preds = %for.cond.us, %equalkey.exit.us
+if.else.us:                                       ; preds = %sw.bb17.i.us, %sw.bb22.i.us, %sw.bb27.i.us, %sw.bb32.i.us, %sw.default.i.us, %for.cond.us, %equalkey.exit.us
   %next.us = getelementptr inbounds nuw i8, ptr %n.0.us, i64 12
-  %14 = load i32, ptr %next.us, align 4
-  %cmp.us = icmp eq i32 %14, 0
+  %15 = load i32, ptr %next.us, align 4
+  %cmp.us = icmp eq i32 %15, 0
   br i1 %cmp.us, label %return, label %if.end.us
 
 if.end.us:                                        ; preds = %if.else.us
-  %idx.ext.us = sext i32 %14 to i64
+  %idx.ext.us = sext i32 %15 to i64
   %add.ptr.us = getelementptr inbounds %union.Node, ptr %n.0.us, i64 %idx.ext.us
   br label %for.cond.us
 
 for.cond:                                         ; preds = %entry, %if.end
   %n.0 = phi ptr [ %add.ptr, %if.end ], [ %call, %entry ]
-  %15 = load i8, ptr %tt_.i, align 8
+  %16 = load i8, ptr %tt_.i, align 8
   %key_tt.i = getelementptr inbounds nuw i8, ptr %n.0, i64 9
-  %16 = load i8, ptr %key_tt.i, align 1
-  %cmp.not.i = icmp eq i8 %15, %16
+  %17 = load i8, ptr %key_tt.i, align 1
+  %cmp.not.i = icmp eq i8 %16, %17
   br i1 %cmp.not.i, label %if.end.i, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %for.cond
-  %cmp6.i = icmp ne i8 %16, 11
-  %17 = and i8 %15, 64
-  %tobool11.not.i = icmp eq i8 %17, 0
+  %cmp6.i = icmp ne i8 %17, 11
+  %18 = and i8 %16, 64
+  %tobool11.not.i = icmp eq i8 %18, 0
   %or.cond16.i = or i1 %tobool11.not.i, %cmp6.i
   br i1 %or.cond16.i, label %if.else, label %sw.default.i
 
 if.end.i:                                         ; preds = %for.cond
-  switch i8 %15, label %sw.default.i [
+  switch i8 %16, label %sw.default.i [
     i8 0, label %return
     i8 1, label %return
     i8 17, label %return
-    i8 3, label %sw.bb14.i
+    i8 3, label %equalkey.exit
     i8 19, label %sw.bb17.i
     i8 2, label %sw.bb22.i
     i8 22, label %sw.bb27.i
     i8 84, label %sw.bb32.i
   ]
 
-sw.bb14.i:                                        ; preds = %if.end.i
-  %18 = load i64, ptr %key, align 8
-  %key_val.i = getelementptr inbounds nuw i8, ptr %n.0, i64 16
-  %19 = load i64, ptr %key_val.i, align 8
-  %cmp15.i = icmp eq i64 %18, %19
-  %conv16.i = zext i1 %cmp15.i to i32
-  br label %equalkey.exit
-
 sw.bb17.i:                                        ; preds = %if.end.i
-  %20 = load double, ptr %key, align 8
+  %19 = load double, ptr %key, align 8
   %key_val19.i = getelementptr inbounds nuw i8, ptr %n.0, i64 16
-  %21 = load double, ptr %key_val19.i, align 8
-  %cmp20.i = fcmp oeq double %20, %21
-  %conv21.i = zext i1 %cmp20.i to i32
-  br label %equalkey.exit
+  %20 = load double, ptr %key_val19.i, align 8
+  %cmp20.i = fcmp une double %19, %20
+  br i1 %cmp20.i, label %if.else, label %return
 
 sw.bb22.i:                                        ; preds = %if.end.i
-  %22 = load ptr, ptr %key, align 8
+  %21 = load ptr, ptr %key, align 8
   %key_val24.i = getelementptr inbounds nuw i8, ptr %n.0, i64 16
-  %23 = load ptr, ptr %key_val24.i, align 8
-  %cmp25.i = icmp eq ptr %22, %23
-  %conv26.i = zext i1 %cmp25.i to i32
-  br label %equalkey.exit
+  %22 = load ptr, ptr %key_val24.i, align 8
+  %cmp25.i.not = icmp eq ptr %21, %22
+  br i1 %cmp25.i.not, label %return, label %if.else
 
 sw.bb27.i:                                        ; preds = %if.end.i
-  %24 = load ptr, ptr %key, align 8
+  %23 = load ptr, ptr %key, align 8
   %key_val29.i = getelementptr inbounds nuw i8, ptr %n.0, i64 16
-  %25 = load ptr, ptr %key_val29.i, align 8
-  %cmp30.i = icmp eq ptr %24, %25
-  %conv31.i = zext i1 %cmp30.i to i32
-  br label %equalkey.exit
+  %24 = load ptr, ptr %key_val29.i, align 8
+  %cmp30.i.not = icmp eq ptr %23, %24
+  br i1 %cmp30.i.not, label %return, label %if.else
 
 sw.bb32.i:                                        ; preds = %if.end.i
-  %26 = load ptr, ptr %key, align 8
+  %25 = load ptr, ptr %key, align 8
   %key_val34.i = getelementptr inbounds nuw i8, ptr %n.0, i64 16
-  %27 = load ptr, ptr %key_val34.i, align 8
-  %call.i = tail call i32 @luaS_eqlngstr(ptr noundef %26, ptr noundef %27) #12
-  br label %equalkey.exit
+  %26 = load ptr, ptr %key_val34.i, align 8
+  %call.i = tail call i32 @luaS_eqlngstr(ptr noundef %25, ptr noundef %26) #12
+  %27 = icmp eq i32 %call.i, 0
+  br i1 %27, label %if.else, label %return
 
 sw.default.i:                                     ; preds = %if.end.i, %land.lhs.true.i
   %28 = load ptr, ptr %key, align 8
   %key_val36.i = getelementptr inbounds nuw i8, ptr %n.0, i64 16
   %29 = load ptr, ptr %key_val36.i, align 8
-  %cmp37.i = icmp eq ptr %28, %29
-  %conv38.i = zext i1 %cmp37.i to i32
-  br label %equalkey.exit
+  %cmp37.i.not = icmp eq ptr %28, %29
+  br i1 %cmp37.i.not, label %return, label %if.else
 
-equalkey.exit:                                    ; preds = %sw.bb14.i, %sw.bb17.i, %sw.bb22.i, %sw.bb27.i, %sw.bb32.i, %sw.default.i
-  %retval.0.i = phi i32 [ %conv38.i, %sw.default.i ], [ %call.i, %sw.bb32.i ], [ %conv31.i, %sw.bb27.i ], [ %conv26.i, %sw.bb22.i ], [ %conv21.i, %sw.bb17.i ], [ %conv16.i, %sw.bb14.i ]
-  %tobool.not = icmp eq i32 %retval.0.i, 0
-  br i1 %tobool.not, label %if.else, label %return
+equalkey.exit:                                    ; preds = %if.end.i
+  %30 = load i64, ptr %key, align 8
+  %key_val.i = getelementptr inbounds nuw i8, ptr %n.0, i64 16
+  %31 = load i64, ptr %key_val.i, align 8
+  %cmp15.i.not = icmp eq i64 %30, %31
+  br i1 %cmp15.i.not, label %return, label %if.else
 
-if.else:                                          ; preds = %land.lhs.true.i, %equalkey.exit
+if.else:                                          ; preds = %sw.bb17.i, %sw.bb22.i, %sw.bb27.i, %sw.bb32.i, %sw.default.i, %land.lhs.true.i, %equalkey.exit
   %next = getelementptr inbounds nuw i8, ptr %n.0, i64 12
-  %30 = load i32, ptr %next, align 4
-  %cmp = icmp eq i32 %30, 0
+  %32 = load i32, ptr %next, align 4
+  %cmp = icmp eq i32 %32, 0
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %if.else
-  %idx.ext = sext i32 %30 to i64
+  %idx.ext = sext i32 %32 to i64
   %add.ptr = getelementptr inbounds %union.Node, ptr %n.0, i64 %idx.ext
   br label %for.cond
 
-return:                                           ; preds = %equalkey.exit, %if.else, %if.end.i, %if.end.i, %if.end.i, %if.end.i.us, %if.end.i.us, %if.end.i.us, %equalkey.exit.us, %if.else.us
-  %.us-phi = phi ptr [ %n.0.us, %equalkey.exit.us ], [ @absentkey, %if.else.us ], [ %n.0.us, %if.end.i.us ], [ %n.0.us, %if.end.i.us ], [ %n.0.us, %if.end.i.us ], [ %n.0, %equalkey.exit ], [ @absentkey, %if.else ], [ %n.0, %if.end.i ], [ %n.0, %if.end.i ], [ %n.0, %if.end.i ]
+return:                                           ; preds = %equalkey.exit, %if.else, %if.end.i, %if.end.i, %if.end.i, %sw.default.i, %sw.bb32.i, %sw.bb27.i, %sw.bb22.i, %sw.bb17.i, %if.end.i.us, %if.end.i.us, %if.end.i.us, %equalkey.exit.us, %if.else.us, %sw.default.i.us, %sw.bb32.i.us, %sw.bb27.i.us, %sw.bb22.i.us, %sw.bb17.i.us
+  %.us-phi = phi ptr [ %n.0.us, %sw.bb17.i.us ], [ %n.0.us, %sw.bb22.i.us ], [ %n.0.us, %sw.bb27.i.us ], [ %n.0.us, %sw.bb32.i.us ], [ %n.0.us, %sw.default.i.us ], [ %n.0.us, %equalkey.exit.us ], [ @absentkey, %if.else.us ], [ %n.0.us, %if.end.i.us ], [ %n.0.us, %if.end.i.us ], [ %n.0.us, %if.end.i.us ], [ %n.0, %sw.bb17.i ], [ %n.0, %sw.bb22.i ], [ %n.0, %sw.bb27.i ], [ %n.0, %sw.bb32.i ], [ %n.0, %sw.default.i ], [ %n.0, %equalkey.exit ], [ @absentkey, %if.else ], [ %n.0, %if.end.i ], [ %n.0, %if.end.i ], [ %n.0, %if.end.i ]
   ret ptr %.us-phi
 }
 

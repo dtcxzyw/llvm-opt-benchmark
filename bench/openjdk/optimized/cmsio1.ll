@@ -1046,92 +1046,82 @@ define hidden i32 @cmsIsCLUT(ptr noundef %0, i32 noundef %1, i32 noundef %2) loc
   br label %cmsIsIntentSupported.exit17
 
 10:                                               ; preds = %3
-  switch i32 %2, label %39 [
-    i32 0, label %41
+  switch i32 %2, label %35 [
+    i32 0, label %37
     i32 1, label %11
     i32 2, label %12
   ]
 
 11:                                               ; preds = %10
-  br label %41
+  br label %37
 
 12:                                               ; preds = %10
   %13 = tail call i32 @cmsGetDeviceClass(ptr noundef %0) #4
   %14 = icmp eq i32 %13, 1818848875
-  br i1 %14, label %15, label %19
+  br i1 %14, label %15, label %17
 
 15:                                               ; preds = %12
   %16 = tail call i32 @cmsGetHeaderRenderingIntent(ptr noundef %0) #4
-  %17 = icmp eq i32 %16, %1
-  %18 = zext i1 %17 to i32
-  br label %cmsIsCLUT.exit
+  %.not26 = icmp eq i32 %16, %1
+  br i1 %.not26, label %cmsIsIntentSupported.exit.thread, label %cmsIsIntentSupported.exit
 
-19:                                               ; preds = %12
-  %20 = icmp ugt i32 %1, 3
-  br i1 %20, label %cmsIsIntentSupported.exit, label %21
+17:                                               ; preds = %12
+  %18 = icmp ugt i32 %1, 3
+  br i1 %18, label %cmsIsIntentSupported.exit, label %cmsIsCLUT.exit
 
-21:                                               ; preds = %19
-  %22 = zext nneg i32 %1 to i64
-  %23 = getelementptr inbounds nuw i32, ptr @Device2PCS16, i64 %22
-  %24 = load i32, ptr %23, align 4
-  %25 = tail call i32 @cmsIsTag(ptr noundef %0, i32 noundef %24) #4
-  br label %cmsIsCLUT.exit
+cmsIsCLUT.exit:                                   ; preds = %17
+  %19 = zext nneg i32 %1 to i64
+  %20 = getelementptr inbounds nuw i32, ptr @Device2PCS16, i64 %19
+  %21 = load i32, ptr %20, align 4
+  %22 = tail call i32 @cmsIsTag(ptr noundef %0, i32 noundef %21) #4
+  %23 = icmp eq i32 %22, 0
+  br i1 %23, label %cmsIsIntentSupported.exit, label %cmsIsIntentSupported.exit.thread
 
-cmsIsCLUT.exit:                                   ; preds = %15, %21
-  %.013.i = phi i32 [ %18, %15 ], [ %25, %21 ]
-  %.not.i = icmp eq i32 %.013.i, 0
-  br i1 %.not.i, label %cmsIsIntentSupported.exit, label %cmsIsIntentSupported.exit.thread
-
-cmsIsIntentSupported.exit:                        ; preds = %19, %cmsIsCLUT.exit
-  %26 = tail call i32 @cmsIsMatrixShaper(ptr noundef %0)
-  %.not = icmp eq i32 %26, 0
+cmsIsIntentSupported.exit:                        ; preds = %15, %17, %cmsIsCLUT.exit
+  %24 = tail call i32 @cmsIsMatrixShaper(ptr noundef %0)
+  %.not = icmp eq i32 %24, 0
   br i1 %.not, label %cmsIsIntentSupported.exit17, label %cmsIsIntentSupported.exit.thread
 
-cmsIsIntentSupported.exit.thread:                 ; preds = %cmsIsCLUT.exit, %cmsIsIntentSupported.exit
-  %27 = tail call i32 @cmsGetDeviceClass(ptr noundef %0) #4
-  %28 = icmp eq i32 %27, 1818848875
-  br i1 %28, label %29, label %33
+cmsIsIntentSupported.exit.thread:                 ; preds = %15, %cmsIsCLUT.exit, %cmsIsIntentSupported.exit
+  %25 = tail call i32 @cmsGetDeviceClass(ptr noundef %0) #4
+  %26 = icmp eq i32 %25, 1818848875
+  br i1 %26, label %27, label %cmsIsCLUT.exit21
 
-29:                                               ; preds = %cmsIsIntentSupported.exit.thread
-  %30 = tail call i32 @cmsGetHeaderRenderingIntent(ptr noundef %0) #4
-  %31 = icmp eq i32 %30, 1
-  %32 = zext i1 %31 to i32
-  br label %cmsIsCLUT.exit21
+27:                                               ; preds = %cmsIsIntentSupported.exit.thread
+  %28 = tail call i32 @cmsGetHeaderRenderingIntent(ptr noundef %0) #4
+  %.not27 = icmp eq i32 %28, 1
+  br i1 %.not27, label %cmsIsIntentSupported.exit17, label %31
 
-33:                                               ; preds = %cmsIsIntentSupported.exit.thread
-  %34 = tail call i32 @cmsIsTag(ptr noundef %0, i32 noundef 1110589745) #4
-  br label %cmsIsCLUT.exit21
+cmsIsCLUT.exit21:                                 ; preds = %cmsIsIntentSupported.exit.thread
+  %29 = tail call i32 @cmsIsTag(ptr noundef %0, i32 noundef 1110589745) #4
+  %30 = icmp eq i32 %29, 0
+  br i1 %30, label %31, label %cmsIsIntentSupported.exit17
 
-cmsIsCLUT.exit21:                                 ; preds = %29, %33
-  %.013.i20 = phi i32 [ %32, %29 ], [ %34, %33 ]
-  %.not.i15 = icmp eq i32 %.013.i20, 0
-  br i1 %.not.i15, label %35, label %cmsIsIntentSupported.exit17
-
-35:                                               ; preds = %cmsIsCLUT.exit21
-  %36 = tail call i32 @cmsIsMatrixShaper(ptr noundef %0)
-  %37 = icmp ne i32 %36, 0
-  %38 = zext i1 %37 to i32
+31:                                               ; preds = %27, %cmsIsCLUT.exit21
+  %32 = tail call i32 @cmsIsMatrixShaper(ptr noundef %0)
+  %33 = icmp ne i32 %32, 0
+  %34 = zext i1 %33 to i32
   br label %cmsIsIntentSupported.exit17
 
-39:                                               ; preds = %10
-  %40 = tail call ptr @cmsGetProfileContextID(ptr noundef %0) #4
-  tail call void (ptr, i32, ptr, ...) @cmsSignalError(ptr noundef %40, i32 noundef 2, ptr noundef nonnull @.str, i32 noundef %2) #4
+35:                                               ; preds = %10
+  %36 = tail call ptr @cmsGetProfileContextID(ptr noundef %0) #4
+  tail call void (ptr, i32, ptr, ...) @cmsSignalError(ptr noundef %36, i32 noundef 2, ptr noundef nonnull @.str, i32 noundef %2) #4
   br label %cmsIsIntentSupported.exit17
 
-41:                                               ; preds = %10, %11
+37:                                               ; preds = %10, %11
   %.0 = phi ptr [ @PCS2Device16, %11 ], [ @Device2PCS16, %10 ]
-  %42 = icmp ugt i32 %1, 3
-  br i1 %42, label %cmsIsIntentSupported.exit17, label %43
+  %38 = icmp ugt i32 %1, 3
+  br i1 %38, label %cmsIsIntentSupported.exit17, label %39
 
-43:                                               ; preds = %41
-  %44 = zext nneg i32 %1 to i64
-  %45 = getelementptr inbounds nuw i32, ptr %.0, i64 %44
-  %46 = load i32, ptr %45, align 4
-  %47 = tail call i32 @cmsIsTag(ptr noundef %0, i32 noundef %46) #4
+39:                                               ; preds = %37
+  %40 = zext nneg i32 %1 to i64
+  %41 = getelementptr inbounds nuw i32, ptr %.0, i64 %40
+  %42 = load i32, ptr %41, align 4
+  %43 = tail call i32 @cmsIsTag(ptr noundef %0, i32 noundef %42) #4
   br label %cmsIsIntentSupported.exit17
 
-cmsIsIntentSupported.exit17:                      ; preds = %35, %cmsIsCLUT.exit21, %41, %cmsIsIntentSupported.exit, %43, %39, %6
-  %.013 = phi i32 [ %9, %6 ], [ 0, %39 ], [ %47, %43 ], [ 0, %cmsIsIntentSupported.exit ], [ 0, %41 ], [ %38, %35 ], [ 1, %cmsIsCLUT.exit21 ]
+cmsIsIntentSupported.exit17:                      ; preds = %27, %31, %cmsIsCLUT.exit21, %37, %cmsIsIntentSupported.exit, %39, %35, %6
+  %.013 = phi i32 [ %9, %6 ], [ 0, %35 ], [ %43, %39 ], [ 0, %cmsIsIntentSupported.exit ], [ 0, %37 ], [ %34, %31 ], [ 1, %cmsIsCLUT.exit21 ], [ 1, %27 ]
   ret i32 %.013
 }
 

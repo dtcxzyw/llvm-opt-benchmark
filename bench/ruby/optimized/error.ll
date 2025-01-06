@@ -5279,12 +5279,12 @@ define internal range(i64 0, 21) i64 @syserr_eqq(i64 noundef %0, i64 noundef %1)
   %6 = load i64, ptr @id_errno, align 8
   %7 = tail call i32 @rb_respond_to(i64 noundef %1, i64 noundef %6) #29
   %.not14 = icmp eq i32 %7, 0
-  br i1 %.not14, label %30, label %11
+  br i1 %.not14, label %29, label %11
 
 8:                                                ; preds = %2
   %9 = load i64, ptr @rb_eSystemCallError, align 8
   %10 = icmp eq i64 %0, %9
-  br i1 %10, label %30, label %11
+  br i1 %10, label %29, label %11
 
 11:                                               ; preds = %8, %5
   %12 = load i64, ptr @id_errno, align 8
@@ -5303,25 +5303,24 @@ define internal range(i64 0, 21) i64 @syserr_eqq(i64 noundef %0, i64 noundef %1)
   %20 = tail call i64 @rb_const_get(i64 noundef %0, i64 noundef %19) #29
   %21 = and i64 %.013, 1
   %.not16 = icmp eq i64 %21, 0
-  br i1 %.not16, label %25, label %22
+  br i1 %.not16, label %24, label %22
 
 22:                                               ; preds = %18
-  %23 = icmp eq i64 %.013, %20
-  %24 = zext i1 %23 to i64
+  %23 = icmp ne i64 %.013, %20
   br label %27
 
-25:                                               ; preds = %18
-  %26 = tail call i64 @rb_equal(i64 noundef %.013, i64 noundef %20) #29
+24:                                               ; preds = %18
+  %25 = tail call i64 @rb_equal(i64 noundef %.013, i64 noundef %20) #29
+  %26 = icmp eq i64 %25, 0
   br label %27
 
-27:                                               ; preds = %25, %22
-  %28 = phi i64 [ %24, %22 ], [ %26, %25 ]
-  %.not15 = icmp eq i64 %28, 0
-  %29 = select i1 %.not15, i64 0, i64 20
-  br label %30
+27:                                               ; preds = %24, %22
+  %.not15 = phi i1 [ %23, %22 ], [ %26, %24 ]
+  %28 = select i1 %.not15, i64 0, i64 20
+  br label %29
 
-30:                                               ; preds = %8, %5, %27
-  %.0 = phi i64 [ %29, %27 ], [ 0, %5 ], [ 20, %8 ]
+29:                                               ; preds = %8, %5, %27
+  %.0 = phi i64 [ %28, %27 ], [ 0, %5 ], [ 20, %8 ]
   ret i64 %.0
 }
 

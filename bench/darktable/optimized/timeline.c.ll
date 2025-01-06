@@ -4840,7 +4840,7 @@ define internal fastcc void @_selection_collect(ptr nocapture noundef readonly %
   %39 = load i32, ptr %38, align 4, !tbaa !70
   %40 = icmp eq i32 %37, %39
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 148
-  br i1 %40, label %42, label %62
+  br i1 %40, label %42, label %61
 
 42:                                               ; preds = %34
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 128
@@ -4888,11 +4888,10 @@ define internal fastcc void @_selection_collect(ptr nocapture noundef readonly %
 _time_format_for_collect.exit:                    ; preds = %47, %49, %51, %53, %55
   %58 = phi ptr [ %48, %47 ], [ %50, %49 ], [ %52, %51 ], [ %54, %53 ], [ %57, %55 ]
   %59 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %58) #21
-  %60 = icmp ult i64 %59, 11
-  %61 = zext i1 %60 to i32
-  br label %110
+  %60 = icmp ugt i64 %59, 10
+  br label %108
 
-62:                                               ; preds = %34
+61:                                               ; preds = %34
   %.sroa.037.0.copyload = load i32, ptr %41, align 4, !tbaa !25
   %.sroa.539.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 152
   %.sroa.539.0.copyload = load i32, ptr %.sroa.539.0..sroa_idx, align 4, !tbaa !25
@@ -4902,8 +4901,8 @@ _time_format_for_collect.exit:                    ; preds = %47, %49, %51, %53, 
   %.sroa.745.0.copyload = load i32, ptr %.sroa.745.0..sroa_idx, align 4, !tbaa !25
   %.sroa.848.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 164
   %.sroa.848.0.copyload = load i32, ptr %.sroa.848.0..sroa_idx, align 4, !tbaa !25
-  %63 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %.sroa.068.0.copyload = load i32, ptr %63, align 8, !tbaa !25
+  %62 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %.sroa.068.0.copyload = load i32, ptr %62, align 8, !tbaa !25
   %.sroa.570.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 180
   %.sroa.570.0.copyload = load i32, ptr %.sroa.570.0..sroa_idx, align 4, !tbaa !25
   %.sroa.673.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 184
@@ -4912,141 +4911,139 @@ _time_format_for_collect.exit:                    ; preds = %47, %49, %51, %53, 
   %.sroa.776.0.copyload = load i32, ptr %.sroa.776.0..sroa_idx, align 4, !tbaa !25
   %.sroa.879.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 192
   %.sroa.879.0.copyload = load i32, ptr %.sroa.879.0..sroa_idx, align 8, !tbaa !25
-  %64 = icmp sgt i32 %37, %39
-  br i1 %64, label %65, label %66
+  %63 = icmp sgt i32 %37, %39
+  br i1 %63, label %64, label %65
 
-65:                                               ; preds = %62
-  br label %66
+64:                                               ; preds = %61
+  br label %65
 
-66:                                               ; preds = %65, %62
-  %.sroa.037.0 = phi i32 [ %.sroa.068.0.copyload, %65 ], [ %.sroa.037.0.copyload, %62 ]
-  %.sroa.539.0 = phi i32 [ %.sroa.570.0.copyload, %65 ], [ %.sroa.539.0.copyload, %62 ]
-  %.sroa.642.0 = phi i32 [ %.sroa.673.0.copyload, %65 ], [ %.sroa.642.0.copyload, %62 ]
-  %.sroa.745.0 = phi i32 [ %.sroa.776.0.copyload, %65 ], [ %.sroa.745.0.copyload, %62 ]
-  %.sroa.848.0 = phi i32 [ %.sroa.879.0.copyload, %65 ], [ %.sroa.848.0.copyload, %62 ]
-  %.sroa.068.0 = phi i32 [ %.sroa.037.0.copyload, %65 ], [ %.sroa.068.0.copyload, %62 ]
-  %.sroa.570.0 = phi i32 [ %.sroa.539.0.copyload, %65 ], [ %.sroa.570.0.copyload, %62 ]
-  %.sroa.673.0 = phi i32 [ %.sroa.642.0.copyload, %65 ], [ %.sroa.673.0.copyload, %62 ]
-  %.sroa.776.0 = phi i32 [ %.sroa.745.0.copyload, %65 ], [ %.sroa.776.0.copyload, %62 ]
-  %.sroa.879.0 = phi i32 [ %.sroa.848.0.copyload, %65 ], [ %.sroa.879.0.copyload, %62 ]
-  %67 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %68 = load i32, ptr %67, align 8, !tbaa !26
-  %69 = add i32 %68, 1
-  %70 = and i32 %69, -2
-  switch i32 %70, label %_time_format_for_collect.exit7 [
-    i32 -2, label %71
-    i32 0, label %73
-    i32 2, label %75
-    i32 4, label %77
-    i32 6, label %79
+65:                                               ; preds = %64, %61
+  %.sroa.037.0 = phi i32 [ %.sroa.068.0.copyload, %64 ], [ %.sroa.037.0.copyload, %61 ]
+  %.sroa.539.0 = phi i32 [ %.sroa.570.0.copyload, %64 ], [ %.sroa.539.0.copyload, %61 ]
+  %.sroa.642.0 = phi i32 [ %.sroa.673.0.copyload, %64 ], [ %.sroa.642.0.copyload, %61 ]
+  %.sroa.745.0 = phi i32 [ %.sroa.776.0.copyload, %64 ], [ %.sroa.745.0.copyload, %61 ]
+  %.sroa.848.0 = phi i32 [ %.sroa.879.0.copyload, %64 ], [ %.sroa.848.0.copyload, %61 ]
+  %.sroa.068.0 = phi i32 [ %.sroa.037.0.copyload, %64 ], [ %.sroa.068.0.copyload, %61 ]
+  %.sroa.570.0 = phi i32 [ %.sroa.539.0.copyload, %64 ], [ %.sroa.570.0.copyload, %61 ]
+  %.sroa.673.0 = phi i32 [ %.sroa.642.0.copyload, %64 ], [ %.sroa.673.0.copyload, %61 ]
+  %.sroa.776.0 = phi i32 [ %.sroa.745.0.copyload, %64 ], [ %.sroa.776.0.copyload, %61 ]
+  %.sroa.879.0 = phi i32 [ %.sroa.848.0.copyload, %64 ], [ %.sroa.879.0.copyload, %61 ]
+  %66 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %67 = load i32, ptr %66, align 8, !tbaa !26
+  %68 = add i32 %67, 1
+  %69 = and i32 %68, -2
+  switch i32 %69, label %_time_format_for_collect.exit7 [
+    i32 -2, label %70
+    i32 0, label %72
+    i32 2, label %74
+    i32 4, label %76
+    i32 6, label %78
   ]
 
-71:                                               ; preds = %66
-  %72 = call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.22, i32 noundef %.sroa.037.0) #17
+70:                                               ; preds = %65
+  %71 = call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.22, i32 noundef %.sroa.037.0) #17
   br label %_time_format_for_collect.exit7
 
-73:                                               ; preds = %66
-  %74 = call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.37, i32 noundef %.sroa.037.0, i32 noundef %.sroa.539.0) #17
+72:                                               ; preds = %65
+  %73 = call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.37, i32 noundef %.sroa.037.0, i32 noundef %.sroa.539.0) #17
   br label %_time_format_for_collect.exit7
 
-75:                                               ; preds = %66
-  %76 = call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.38, i32 noundef %.sroa.037.0, i32 noundef %.sroa.539.0, i32 noundef %.sroa.642.0) #17
+74:                                               ; preds = %65
+  %75 = call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.38, i32 noundef %.sroa.037.0, i32 noundef %.sroa.539.0, i32 noundef %.sroa.642.0) #17
   br label %_time_format_for_collect.exit7
 
-77:                                               ; preds = %66
-  %78 = call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.39, i32 noundef %.sroa.037.0, i32 noundef %.sroa.539.0, i32 noundef %.sroa.642.0, i32 noundef %.sroa.745.0) #17
+76:                                               ; preds = %65
+  %77 = call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.39, i32 noundef %.sroa.037.0, i32 noundef %.sroa.539.0, i32 noundef %.sroa.642.0, i32 noundef %.sroa.745.0) #17
   br label %_time_format_for_collect.exit7
 
-79:                                               ; preds = %66
-  %80 = call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.40, i32 noundef %.sroa.037.0, i32 noundef %.sroa.539.0, i32 noundef %.sroa.642.0, i32 noundef %.sroa.745.0, i32 noundef %.sroa.848.0) #17
+78:                                               ; preds = %65
+  %79 = call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.40, i32 noundef %.sroa.037.0, i32 noundef %.sroa.539.0, i32 noundef %.sroa.642.0, i32 noundef %.sroa.745.0, i32 noundef %.sroa.848.0) #17
   br label %_time_format_for_collect.exit7
 
-_time_format_for_collect.exit7:                   ; preds = %66, %71, %73, %75, %77, %79
-  %81 = phi ptr [ %72, %71 ], [ %74, %73 ], [ %76, %75 ], [ %78, %77 ], [ %80, %79 ], [ null, %66 ]
-  %82 = load i32, ptr %67, align 8, !tbaa !26
-  %83 = add i32 %82, 1
-  %84 = and i32 %83, -2
-  switch i32 %84, label %_time_format_for_collect.exit8.thread [
-    i32 -2, label %85
-    i32 0, label %87
-    i32 2, label %89
-    i32 4, label %91
-    i32 6, label %93
+_time_format_for_collect.exit7:                   ; preds = %65, %70, %72, %74, %76, %78
+  %80 = phi ptr [ %71, %70 ], [ %73, %72 ], [ %75, %74 ], [ %77, %76 ], [ %79, %78 ], [ null, %65 ]
+  %81 = load i32, ptr %66, align 8, !tbaa !26
+  %82 = add i32 %81, 1
+  %83 = and i32 %82, -2
+  switch i32 %83, label %_time_format_for_collect.exit8.thread [
+    i32 -2, label %84
+    i32 0, label %86
+    i32 2, label %88
+    i32 4, label %90
+    i32 6, label %92
   ]
 
-85:                                               ; preds = %_time_format_for_collect.exit7
-  %86 = call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.22, i32 noundef %.sroa.068.0) #17
+84:                                               ; preds = %_time_format_for_collect.exit7
+  %85 = call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.22, i32 noundef %.sroa.068.0) #17
   br label %_time_format_for_collect.exit8
 
-87:                                               ; preds = %_time_format_for_collect.exit7
-  %88 = call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.37, i32 noundef %.sroa.068.0, i32 noundef %.sroa.570.0) #17
+86:                                               ; preds = %_time_format_for_collect.exit7
+  %87 = call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.37, i32 noundef %.sroa.068.0, i32 noundef %.sroa.570.0) #17
   br label %_time_format_for_collect.exit8
 
-89:                                               ; preds = %_time_format_for_collect.exit7
-  %90 = call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.38, i32 noundef %.sroa.068.0, i32 noundef %.sroa.570.0, i32 noundef %.sroa.673.0) #17
+88:                                               ; preds = %_time_format_for_collect.exit7
+  %89 = call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.38, i32 noundef %.sroa.068.0, i32 noundef %.sroa.570.0, i32 noundef %.sroa.673.0) #17
   br label %_time_format_for_collect.exit8
 
-91:                                               ; preds = %_time_format_for_collect.exit7
-  %92 = call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.39, i32 noundef %.sroa.068.0, i32 noundef %.sroa.570.0, i32 noundef %.sroa.673.0, i32 noundef %.sroa.776.0) #17
+90:                                               ; preds = %_time_format_for_collect.exit7
+  %91 = call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.39, i32 noundef %.sroa.068.0, i32 noundef %.sroa.570.0, i32 noundef %.sroa.673.0, i32 noundef %.sroa.776.0) #17
   br label %_time_format_for_collect.exit8
 
-93:                                               ; preds = %_time_format_for_collect.exit7
-  %94 = call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.40, i32 noundef %.sroa.068.0, i32 noundef %.sroa.570.0, i32 noundef %.sroa.673.0, i32 noundef %.sroa.776.0, i32 noundef %.sroa.879.0) #17
+92:                                               ; preds = %_time_format_for_collect.exit7
+  %93 = call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.40, i32 noundef %.sroa.068.0, i32 noundef %.sroa.570.0, i32 noundef %.sroa.673.0, i32 noundef %.sroa.776.0, i32 noundef %.sroa.879.0) #17
   br label %_time_format_for_collect.exit8
 
-_time_format_for_collect.exit8:                   ; preds = %85, %87, %89, %91, %93
-  %95 = phi ptr [ %86, %85 ], [ %88, %87 ], [ %90, %89 ], [ %92, %91 ], [ %94, %93 ]
-  %96 = icmp ne ptr %81, null
-  %97 = icmp ne ptr %95, null
-  %98 = select i1 %96, i1 %97, i1 false
-  br i1 %98, label %99, label %_time_format_for_collect.exit8.thread
+_time_format_for_collect.exit8:                   ; preds = %84, %86, %88, %90, %92
+  %94 = phi ptr [ %85, %84 ], [ %87, %86 ], [ %89, %88 ], [ %91, %90 ], [ %93, %92 ]
+  %95 = icmp ne ptr %80, null
+  %96 = icmp ne ptr %94, null
+  %97 = select i1 %95, i1 %96, i1 false
+  br i1 %97, label %98, label %_time_format_for_collect.exit8.thread
 
-99:                                               ; preds = %_time_format_for_collect.exit8
-  %100 = call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.36, ptr noundef nonnull %81, ptr noundef nonnull %95) #17
-  %101 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %81) #21
-  %102 = icmp ugt i64 %101, 10
-  br i1 %102, label %_time_format_for_collect.exit8.thread, label %103
+98:                                               ; preds = %_time_format_for_collect.exit8
+  %99 = call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.36, ptr noundef nonnull %80, ptr noundef nonnull %94) #17
+  %100 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %80) #21
+  %101 = icmp ugt i64 %100, 10
+  br i1 %101, label %_time_format_for_collect.exit8.thread, label %102
 
-103:                                              ; preds = %99
-  %104 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %95) #21
-  %105 = icmp ult i64 %104, 11
-  %106 = zext i1 %105 to i32
+102:                                              ; preds = %98
+  %103 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %94) #21
+  %104 = icmp ugt i64 %103, 10
   br label %_time_format_for_collect.exit8.thread
 
-_time_format_for_collect.exit8.thread:            ; preds = %_time_format_for_collect.exit7, %103, %99, %_time_format_for_collect.exit8
-  %107 = phi ptr [ %95, %_time_format_for_collect.exit8 ], [ %95, %103 ], [ %95, %99 ], [ null, %_time_format_for_collect.exit7 ]
-  %108 = phi ptr [ null, %_time_format_for_collect.exit8 ], [ %100, %103 ], [ %100, %99 ], [ null, %_time_format_for_collect.exit7 ]
-  %109 = phi i32 [ 0, %_time_format_for_collect.exit8 ], [ %106, %103 ], [ 0, %99 ], [ 0, %_time_format_for_collect.exit7 ]
-  call void @g_free(ptr noundef %81) #17
-  call void @g_free(ptr noundef %107) #17
-  br label %110
+_time_format_for_collect.exit8.thread:            ; preds = %_time_format_for_collect.exit7, %102, %98, %_time_format_for_collect.exit8
+  %105 = phi ptr [ %94, %_time_format_for_collect.exit8 ], [ %94, %102 ], [ %94, %98 ], [ null, %_time_format_for_collect.exit7 ]
+  %106 = phi ptr [ null, %_time_format_for_collect.exit8 ], [ %99, %102 ], [ %99, %98 ], [ null, %_time_format_for_collect.exit7 ]
+  %107 = phi i1 [ true, %_time_format_for_collect.exit8 ], [ %104, %102 ], [ true, %98 ], [ true, %_time_format_for_collect.exit7 ]
+  call void @g_free(ptr noundef %80) #17
+  call void @g_free(ptr noundef %105) #17
+  br label %108
 
-110:                                              ; preds = %_time_format_for_collect.exit8.thread, %_time_format_for_collect.exit
-  %111 = phi ptr [ %58, %_time_format_for_collect.exit ], [ %108, %_time_format_for_collect.exit8.thread ]
-  %112 = phi i32 [ %61, %_time_format_for_collect.exit ], [ %109, %_time_format_for_collect.exit8.thread ]
-  %113 = icmp eq ptr %111, null
-  br i1 %113, label %122, label %114
+108:                                              ; preds = %_time_format_for_collect.exit8.thread, %_time_format_for_collect.exit
+  %109 = phi ptr [ %58, %_time_format_for_collect.exit ], [ %106, %_time_format_for_collect.exit8.thread ]
+  %110 = phi i1 [ %60, %_time_format_for_collect.exit ], [ %107, %_time_format_for_collect.exit8.thread ]
+  %111 = icmp eq ptr %109, null
+  br i1 %111, label %119, label %112
 
-114:                                              ; preds = %110
-  %115 = add nuw nsw i32 %35, 1
-  call void @dt_conf_set_int(ptr noundef nonnull @.str.31, i32 noundef %115) #17
+112:                                              ; preds = %108
+  %113 = add nuw nsw i32 %35, 1
+  call void @dt_conf_set_int(ptr noundef nonnull @.str.31, i32 noundef %113) #17
   call void @llvm.lifetime.start.p0(i64 200, ptr nonnull %4) #17
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(200) %4, i8 0, i64 200, i1 false)
-  %116 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %4, i64 noundef 200, ptr noundef nonnull @.str.32, i32 noundef %35) #17
-  %117 = icmp eq i32 %112, 0
-  %118 = select i1 %117, i32 10, i32 9
-  call void @dt_conf_set_int(ptr noundef nonnull %4, i32 noundef %118) #17
-  %119 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %4, i64 noundef 200, ptr noundef nonnull @.str.33, i32 noundef %35) #17
+  %114 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %4, i64 noundef 200, ptr noundef nonnull @.str.32, i32 noundef %35) #17
+  %115 = select i1 %110, i32 10, i32 9
+  call void @dt_conf_set_int(ptr noundef nonnull %4, i32 noundef %115) #17
+  %116 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %4, i64 noundef 200, ptr noundef nonnull @.str.33, i32 noundef %35) #17
   call void @dt_conf_set_int(ptr noundef nonnull %4, i32 noundef 0) #17
-  %120 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %4, i64 noundef 200, ptr noundef nonnull @.str.34, i32 noundef %35) #17
-  call void @dt_conf_set_string(ptr noundef nonnull %4, ptr noundef nonnull %111) #17
-  call void @g_free(ptr noundef nonnull %111) #17
-  %121 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 160), align 8, !tbaa !95
-  call void @dt_collection_update_query(ptr noundef %121, i32 noundef 1, i32 noundef 36, ptr noundef null) #17
+  %117 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %4, i64 noundef 200, ptr noundef nonnull @.str.34, i32 noundef %35) #17
+  call void @dt_conf_set_string(ptr noundef nonnull %4, ptr noundef nonnull %109) #17
+  call void @g_free(ptr noundef nonnull %109) #17
+  %118 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 160), align 8, !tbaa !95
+  call void @dt_collection_update_query(ptr noundef %118, i32 noundef 1, i32 noundef 36, ptr noundef null) #17
   call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %4) #17
-  br label %122
+  br label %119
 
-122:                                              ; preds = %114, %110
+119:                                              ; preds = %112, %108
   ret void
 }
 

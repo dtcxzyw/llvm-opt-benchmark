@@ -5178,14 +5178,14 @@ _ZN15DynScopeVisitor7frameOfEP7AstNode.exit:      ; preds = %_ZNSt3mapIP7AstNode
   %28 = trunc i64 %27 to i32
   %.sroa.0.0.extract.trunc.i.i = select i1 %25, i32 %28, i32 0
   %29 = icmp sgt i32 %21, %.sroa.0.0.extract.trunc.i.i
-  br i1 %29, label %30, label %_ZNK15DynScopeVisitor13needsDynScopeEPK9AstVarRef.exit.thread
+  br i1 %29, label %30, label %_ZNK15DynScopeVisitor13needsDynScopeEPK9AstVarRef.exit.thread14
 
 30:                                               ; preds = %19
   %31 = getelementptr inbounds nuw i8, ptr %6, i64 260
   %32 = load i64, ptr %31, align 4
   %33 = and i64 %32, 16384
-  %.not9.i = icmp eq i64 %33, 0
-  br i1 %.not9.i, label %_ZNK15DynScopeVisitor13needsDynScopeEPK9AstVarRef.exit.thread, label %34
+  %.not.i = icmp eq i64 %33, 0
+  br i1 %.not.i, label %_ZNK15DynScopeVisitor13needsDynScopeEPK9AstVarRef.exit.thread14, label %34
 
 34:                                               ; preds = %30
   %35 = getelementptr inbounds nuw i8, ptr %6, i64 64
@@ -5224,47 +5224,43 @@ _ZNK7AstNode18isClassHandleValueEv.exit.thread7.i: ; preds = %_ZNK7AstNode18isCl
   %50 = getelementptr inbounds nuw i8, ptr %1, i64 116
   %51 = load i32, ptr %50, align 4
   %52 = load i32, ptr @_ZN12VNUser2InUse12s_userCntGblE, align 4
-  %53 = icmp eq i32 %51, %52
+  %53 = icmp ne i32 %51, %52
   %54 = getelementptr inbounds nuw i8, ptr %1, i64 120
   %55 = load i64, ptr %54, align 8
-  %56 = trunc i64 %55 to i32
-  br i1 %53, label %select.unfold.i, label %_ZNK15DynScopeVisitor13needsDynScopeEPK9AstVarRef.exit
+  %56 = and i64 %55, 4294967295
+  %57 = icmp eq i64 %56, 0
+  %58 = select i1 %53, i1 true, i1 %57
+  br i1 %58, label %_ZNK15DynScopeVisitor13needsDynScopeEPK9AstVarRef.exit, label %_ZNK15DynScopeVisitor13needsDynScopeEPK9AstVarRef.exit.thread
 
 _ZNK7AstNode18isClassHandleValueEv.exit.thread.i: ; preds = %_ZNK7AstNode18isClassHandleValueEv.exit.i, %43, %40
-  %57 = getelementptr inbounds nuw i8, ptr %1, i64 176
-  %.sroa.0.0.copyload.i.i = load i8, ptr %57, align 8
-  %58 = add i8 %.sroa.0.0.copyload.i.i, -1
-  %spec.select.i.i = icmp ult i8 %58, 2
-  %59 = zext i1 %spec.select.i.i to i32
-  br label %select.unfold.i
+  %59 = getelementptr inbounds nuw i8, ptr %1, i64 176
+  %.sroa.0.0.copyload.i.i = load i8, ptr %59, align 8
+  %60 = add i8 %.sroa.0.0.copyload.i.i, -3
+  %spec.select.i.i = icmp ult i8 %60, -2
+  br i1 %spec.select.i.i, label %_ZNK15DynScopeVisitor13needsDynScopeEPK9AstVarRef.exit, label %_ZNK15DynScopeVisitor13needsDynScopeEPK9AstVarRef.exit.thread
 
-select.unfold.i:                                  ; preds = %_ZNK7AstNode18isClassHandleValueEv.exit.thread.i, %_ZNK7AstNode18isClassHandleValueEv.exit.thread7.i
-  %60 = phi i32 [ %59, %_ZNK7AstNode18isClassHandleValueEv.exit.thread.i ], [ %56, %_ZNK7AstNode18isClassHandleValueEv.exit.thread7.i ]
-  %.not.i = icmp eq i32 %60, 0
-  br i1 %.not.i, label %_ZNK15DynScopeVisitor13needsDynScopeEPK9AstVarRef.exit, label %_ZNK15DynScopeVisitor13needsDynScopeEPK9AstVarRef.exit.thread13
-
-_ZNK15DynScopeVisitor13needsDynScopeEPK9AstVarRef.exit: ; preds = %_ZNK7AstNode18isClassHandleValueEv.exit.thread7.i, %select.unfold.i
+_ZNK15DynScopeVisitor13needsDynScopeEPK9AstVarRef.exit: ; preds = %_ZNK7AstNode18isClassHandleValueEv.exit.thread7.i, %_ZNK7AstNode18isClassHandleValueEv.exit.thread.i
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 236
   %62 = load i8, ptr %61, align 4
   %63 = trunc i8 %62 to i1
-  br i1 %63, label %_ZNK15DynScopeVisitor13needsDynScopeEPK9AstVarRef.exit.thread13, label %_ZNK15DynScopeVisitor13needsDynScopeEPK9AstVarRef.exit.thread
+  br i1 %63, label %_ZNK15DynScopeVisitor13needsDynScopeEPK9AstVarRef.exit.thread, label %_ZNK15DynScopeVisitor13needsDynScopeEPK9AstVarRef.exit.thread14
 
-_ZNK15DynScopeVisitor13needsDynScopeEPK9AstVarRef.exit.thread13: ; preds = %select.unfold.i, %_ZNK15DynScopeVisitor13needsDynScopeEPK9AstVarRef.exit
+_ZNK15DynScopeVisitor13needsDynScopeEPK9AstVarRef.exit.thread: ; preds = %_ZNK7AstNode18isClassHandleValueEv.exit.thread7.i, %_ZNK7AstNode18isClassHandleValueEv.exit.thread.i, %_ZNK15DynScopeVisitor13needsDynScopeEPK9AstVarRef.exit
   %64 = getelementptr inbounds nuw i8, ptr %18, i64 144
   %65 = load ptr, ptr %64, align 8
-  %.not14 = icmp eq ptr %65, null
-  br i1 %.not14, label %66, label %68
+  %.not15 = icmp eq ptr %65, null
+  br i1 %.not15, label %66, label %68
 
-66:                                               ; preds = %_ZNK15DynScopeVisitor13needsDynScopeEPK9AstVarRef.exit.thread13
+66:                                               ; preds = %_ZNK15DynScopeVisitor13needsDynScopeEPK9AstVarRef.exit.thread
   %67 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZN17ForkDynScopeFrame23createInstancePrototypeEv(ptr noundef nonnull align 8 dereferenceable(184) %18)
   br label %68
 
-68:                                               ; preds = %66, %_ZNK15DynScopeVisitor13needsDynScopeEPK9AstVarRef.exit.thread13
+68:                                               ; preds = %66, %_ZNK15DynScopeVisitor13needsDynScopeEPK9AstVarRef.exit.thread
   %69 = load ptr, ptr %5, align 8
   tail call void @_ZN17ForkDynScopeFrame16captureVarInsertEP6AstVar(ptr noundef nonnull align 8 dereferenceable(184) %18, ptr noundef %69)
-  br label %_ZNK15DynScopeVisitor13needsDynScopeEPK9AstVarRef.exit.thread
+  br label %_ZNK15DynScopeVisitor13needsDynScopeEPK9AstVarRef.exit.thread14
 
-_ZNK15DynScopeVisitor13needsDynScopeEPK9AstVarRef.exit.thread: ; preds = %19, %30, %68, %_ZNK15DynScopeVisitor13needsDynScopeEPK9AstVarRef.exit
+_ZNK15DynScopeVisitor13needsDynScopeEPK9AstVarRef.exit.thread14: ; preds = %19, %30, %68, %_ZNK15DynScopeVisitor13needsDynScopeEPK9AstVarRef.exit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   store ptr %1, ptr %3, align 8
@@ -5275,7 +5271,7 @@ _ZNK15DynScopeVisitor13needsDynScopeEPK9AstVarRef.exit.thread: ; preds = %19, %3
   %73 = trunc i8 %72 to i1
   br i1 %73, label %74, label %_ZN15DynScopeVisitor18bindNodeToDynScopeEP7AstNodeP17ForkDynScopeFrame.exit
 
-74:                                               ; preds = %_ZNK15DynScopeVisitor13needsDynScopeEPK9AstVarRef.exit.thread
+74:                                               ; preds = %_ZNK15DynScopeVisitor13needsDynScopeEPK9AstVarRef.exit.thread14
   %75 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %76 = load ptr, ptr %75, align 8
   %77 = getelementptr inbounds nuw i8, ptr %0, i64 120
@@ -5297,7 +5293,7 @@ _ZNK15DynScopeVisitor13needsDynScopeEPK9AstVarRef.exit.thread: ; preds = %19, %3
   call void @_ZNSt5dequeIP7AstNodeSaIS1_EE16_M_push_back_auxIJRKS1_EEEvDpOT_(ptr noundef nonnull align 8 dereferenceable(80) %85, ptr noundef nonnull align 8 dereferenceable(8) %3)
   br label %_ZN15DynScopeVisitor18bindNodeToDynScopeEP7AstNodeP17ForkDynScopeFrame.exit
 
-_ZN15DynScopeVisitor18bindNodeToDynScopeEP7AstNodeP17ForkDynScopeFrame.exit: ; preds = %_ZNK15DynScopeVisitor13needsDynScopeEPK9AstVarRef.exit.thread, %80, %84
+_ZN15DynScopeVisitor18bindNodeToDynScopeEP7AstNodeP17ForkDynScopeFrame.exit: ; preds = %_ZNK15DynScopeVisitor13needsDynScopeEPK9AstVarRef.exit.thread14, %80, %84
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   br label %_ZN15DynScopeVisitor7frameOfEP7AstNode.exit.thread

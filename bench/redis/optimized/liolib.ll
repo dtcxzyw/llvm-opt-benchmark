@@ -855,14 +855,13 @@ entry:
 for.body:                                         ; preds = %entry, %for.body.backedge
   %nargs.028 = phi i32 [ %nargs.028.be, %for.body.backedge ], [ %nargs.024, %entry ]
   %arg.addr.027 = phi i32 [ %arg.addr.027.be, %for.body.backedge ], [ %arg, %entry ]
-  %status.026 = phi i32 [ %status.026.be, %for.body.backedge ], [ 1, %entry ]
+  %status.026 = phi i1 [ %status.026.be, %for.body.backedge ], [ false, %entry ]
   %call1 = call i32 @lua_type(ptr noundef %L, i32 noundef %arg.addr.027) #9
   %cmp = icmp eq i32 %call1, 3
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %for.body
-  %tobool2.not = icmp eq i32 %status.026, 0
-  br i1 %tobool2.not, label %for.inc.thread, label %land.rhs
+  br i1 %status.026, label %for.inc.thread, label %land.rhs
 
 land.rhs:                                         ; preds = %if.then
   %call3 = call double @lua_tonumber(ptr noundef %L, i32 noundef %arg.addr.027) #9
@@ -873,8 +872,7 @@ land.rhs:                                         ; preds = %if.then
 if.else:                                          ; preds = %for.body
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %l) #9
   %call6 = call ptr @luaL_checklstring(ptr noundef %L, i32 noundef %arg.addr.027, ptr noundef nonnull %l) #9
-  %tobool7.not = icmp eq i32 %status.026, 0
-  br i1 %tobool7.not, label %land.end11, label %land.rhs8
+  br i1 %status.026, label %land.end11, label %land.rhs8
 
 land.rhs8:                                        ; preds = %if.else
   %0 = load i64, ptr %l, align 8, !tbaa !19
@@ -890,21 +888,21 @@ land.end11:                                       ; preds = %land.rhs8, %if.else
 
 for.inc:                                          ; preds = %land.end11, %land.rhs
   %status.1.in = phi i1 [ %2, %land.end11 ], [ %cmp5, %land.rhs ]
-  %status.1 = zext i1 %status.1.in to i32
   %nargs.0 = add nsw i32 %nargs.028, -1
   %tobool.not = icmp eq i32 %nargs.0, 0
+  %3 = xor i1 %status.1.in, true
   br i1 %tobool.not, label %for.end, label %for.body.backedge
 
 for.body.backedge:                                ; preds = %for.inc, %for.inc.thread
-  %nargs.028.be = phi i32 [ %nargs.0, %for.inc ], [ %nargs.04, %for.inc.thread ]
-  %status.026.be = phi i32 [ %status.1, %for.inc ], [ 0, %for.inc.thread ]
+  %nargs.028.be = phi i32 [ %nargs.0, %for.inc ], [ %nargs.03, %for.inc.thread ]
+  %status.026.be = phi i1 [ %3, %for.inc ], [ true, %for.inc.thread ]
   %arg.addr.027.be = add nuw nsw i32 %arg.addr.027, 1
   br label %for.body, !llvm.loop !21
 
 for.inc.thread:                                   ; preds = %if.then
-  %nargs.04 = add nsw i32 %nargs.028, -1
-  %tobool.not5 = icmp eq i32 %nargs.04, 0
-  br i1 %tobool.not5, label %if.else.i, label %for.body.backedge
+  %nargs.03 = add nsw i32 %nargs.028, -1
+  %tobool.not4 = icmp eq i32 %nargs.03, 0
+  br i1 %tobool.not4, label %if.else.i, label %for.body.backedge
 
 for.end:                                          ; preds = %for.inc
   br i1 %status.1.in, label %if.then.i, label %if.else.i
@@ -915,11 +913,11 @@ if.then.i:                                        ; preds = %for.end, %entry
 
 if.else.i:                                        ; preds = %for.inc.thread, %for.end
   %call.i = tail call ptr @__errno_location() #10
-  %3 = load i32, ptr %call.i, align 4, !tbaa !8
+  %4 = load i32, ptr %call.i, align 4, !tbaa !8
   call void @lua_pushnil(ptr noundef %L) #9
-  %call6.i = call ptr @strerror(i32 noundef %3) #9
+  %call6.i = call ptr @strerror(i32 noundef %4) #9
   %call7.i = call ptr (ptr, ptr, ...) @lua_pushfstring(ptr noundef %L, ptr noundef nonnull @.str.19, ptr noundef %call6.i) #9
-  %conv.i = sext i32 %3 to i64
+  %conv.i = sext i32 %4 to i64
   call void @lua_pushinteger(ptr noundef %L, i64 noundef %conv.i) #9
   br label %pushresult.exit
 

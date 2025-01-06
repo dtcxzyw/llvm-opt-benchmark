@@ -5191,25 +5191,31 @@ for.inc102:                                       ; preds = %cond.end84, %if.the
   %exitcond150.not = icmp eq i64 %inc103, %0
   br i1 %exitcond150.not, label %for.cond105.preheader, label %for.body64, !llvm.loop !44
 
-for.body107:                                      ; preds = %for.body107.lr.ph, %for.body107
-  %i.3131 = phi i64 [ %inc137, %for.body107 ], [ 0, %for.body107.lr.ph ]
-  %prev_is_constant.0130 = phi i1 [ %30, %for.body107 ], [ false, %for.body107.lr.ph ]
-  %n_elements.0129 = phi i64 [ %n_elements.2, %for.body107 ], [ 0, %for.body107.lr.ph ]
+for.body107:                                      ; preds = %for.body107.lr.ph, %if.end133
+  %i.3131 = phi i64 [ %inc137, %if.end133 ], [ 0, %for.body107.lr.ph ]
+  %prev_is_constant.0130 = phi i1 [ %cmp135, %if.end133 ], [ true, %for.body107.lr.ph ]
+  %n_elements.0129 = phi i64 [ %n_elements.2, %if.end133 ], [ 0, %for.body107.lr.ph ]
   %arrayidx110 = getelementptr [1 x ptr], ptr %typed_elements109, i64 0, i64 %i.3131
   %29 = load ptr, ptr %arrayidx110, align 8
   %.pre.pre = load i32, ptr %29, align 8
   %cmp130.not = icmp ne i32 %.pre.pre, 20
-  %not.prev_is_constant.0130 = xor i1 %prev_is_constant.0130, true
-  %or.cond242 = select i1 %not.prev_is_constant.0130, i1 true, i1 %cmp130.not
-  %30 = icmp eq i32 %.pre.pre, 20
-  %inc132 = zext i1 %or.cond242 to i64
-  %n_elements.2 = add i64 %n_elements.0129, %inc132
+  %or.cond242.not = select i1 %prev_is_constant.0130, i1 true, i1 %cmp130.not
+  br i1 %or.cond242.not, label %if.then131, label %if.end133
+
+if.then131:                                       ; preds = %for.body107
+  %inc132 = add i64 %n_elements.0129, 1
+  %30 = icmp ne i32 %.pre.pre, 20
+  br label %if.end133
+
+if.end133:                                        ; preds = %for.body107, %if.then131
+  %cmp135 = phi i1 [ %30, %if.then131 ], [ false, %for.body107 ]
+  %n_elements.2 = phi i64 [ %inc132, %if.then131 ], [ %n_elements.0129, %for.body107 ]
   %inc137 = add nuw nsw i64 %i.3131, 1
   %exitcond151.not = icmp eq i64 %inc137, %n_flattened_elements.0.lcssa171183196
   br i1 %exitcond151.not, label %for.end138, label %for.body107, !llvm.loop !42
 
-for.end138:                                       ; preds = %for.body107, %for.inc136.us
-  %n_elements.0.lcssa = phi i64 [ %n_elements.1.us, %for.inc136.us ], [ %n_elements.2, %for.body107 ]
+for.end138:                                       ; preds = %if.end133, %for.inc136.us
+  %n_elements.0.lcssa = phi i64 [ %n_elements.1.us, %for.inc136.us ], [ %n_elements.2, %if.end133 ]
   %31 = load ptr, ptr %arena57, align 8
   %call141 = tail call ptr @_Py_asdl_expr_seq_new(i64 noundef %n_elements.0.lcssa, ptr noundef %31) #8
   %cmp142 = icmp eq ptr %call141, null

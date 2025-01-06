@@ -813,13 +813,13 @@ Mvc_CoverSupport.exit50:                          ; preds = %60, %55, %.loopexit
   %81 = getelementptr inbounds nuw i8, ptr %77, i64 16
   switch i32 %80, label %.preheader [
     i32 0, label %84
-    i32 1, label %91
+    i32 1, label %92
   ]
 
 .preheader:                                       ; preds = %Mvc_CoverSupport.exit50
   %82 = load ptr, ptr %3, align 8
   %83 = getelementptr inbounds nuw i8, ptr %82, i64 16
-  br label %110
+  br label %106
 
 84:                                               ; preds = %Mvc_CoverSupport.exit50
   %85 = load i32, ptr %81, align 8
@@ -828,51 +828,48 @@ Mvc_CoverSupport.exit50:                          ; preds = %60, %55, %.loopexit
   %88 = load i32, ptr %87, align 8
   %89 = xor i32 %88, -1
   %90 = and i32 %85, %89
+  %91 = icmp eq i32 %90, 0
   br label %.loopexit
 
-91:                                               ; preds = %Mvc_CoverSupport.exit50
-  %92 = load i32, ptr %81, align 8
-  %93 = load ptr, ptr %3, align 8
-  %94 = getelementptr inbounds nuw i8, ptr %93, i64 16
-  %95 = load i32, ptr %94, align 8
-  %96 = xor i32 %95, -1
-  %97 = and i32 %92, %96
-  %.not23 = icmp eq i32 %97, 0
-  br i1 %.not23, label %98, label %.loopexit
+92:                                               ; preds = %Mvc_CoverSupport.exit50
+  %93 = load i32, ptr %81, align 8
+  %94 = load ptr, ptr %3, align 8
+  %95 = getelementptr inbounds nuw i8, ptr %94, i64 16
+  %96 = load i32, ptr %95, align 8
+  %97 = xor i32 %96, -1
+  %98 = and i32 %93, %97
+  %.not23 = icmp eq i32 %98, 0
+  br i1 %.not23, label %99, label %.loopexit
 
-98:                                               ; preds = %91
-  %99 = getelementptr inbounds nuw i8, ptr %77, i64 20
-  %100 = load i32, ptr %99, align 4
-  %101 = getelementptr inbounds nuw i8, ptr %93, i64 20
-  %102 = load i32, ptr %101, align 4
-  %103 = xor i32 %102, -1
-  %104 = and i32 %100, %103
-  %105 = icmp ne i32 %104, 0
-  %106 = zext i1 %105 to i32
+99:                                               ; preds = %92
+  %100 = getelementptr inbounds nuw i8, ptr %77, i64 20
+  %101 = load i32, ptr %100, align 4
+  %102 = getelementptr inbounds nuw i8, ptr %94, i64 20
+  %103 = load i32, ptr %102, align 4
+  %104 = xor i32 %103, -1
+  %105 = and i32 %101, %104
+  %.not51 = icmp eq i32 %105, 0
   br label %.loopexit
 
-107:                                              ; preds = %110
-  %108 = add nsw i32 %.055, -1
-  %109 = icmp sgt i32 %.055, 0
-  br i1 %109, label %110, label %.loopexit, !llvm.loop !15
+106:                                              ; preds = %106, %.preheader
+  %.056 = phi i32 [ %80, %.preheader ], [ %114, %106 ]
+  %107 = zext nneg i32 %.056 to i64
+  %108 = getelementptr inbounds nuw [1 x i32], ptr %81, i64 0, i64 %107
+  %109 = load i32, ptr %108, align 4
+  %110 = getelementptr inbounds nuw [1 x i32], ptr %83, i64 0, i64 %107
+  %111 = load i32, ptr %110, align 4
+  %112 = xor i32 %111, -1
+  %113 = and i32 %109, %112
+  %.not = icmp eq i32 %113, 0
+  %114 = add nsw i32 %.056, -1
+  %115 = icmp sgt i32 %.056, 0
+  %or.cond = and i1 %.not, %115
+  br i1 %or.cond, label %106, label %.loopexit, !llvm.loop !15
 
-110:                                              ; preds = %.preheader, %107
-  %.055 = phi i32 [ %80, %.preheader ], [ %108, %107 ]
-  %111 = zext nneg i32 %.055 to i64
-  %112 = getelementptr inbounds nuw [1 x i32], ptr %81, i64 0, i64 %111
-  %113 = load i32, ptr %112, align 4
-  %114 = getelementptr inbounds nuw [1 x i32], ptr %83, i64 0, i64 %111
-  %115 = load i32, ptr %114, align 4
-  %116 = xor i32 %115, -1
-  %117 = and i32 %113, %116
-  %.not = icmp eq i32 %117, 0
-  br i1 %.not, label %107, label %.loopexit
-
-.loopexit:                                        ; preds = %110, %107, %91, %98, %84
-  %.021 = phi i32 [ %90, %84 ], [ 1, %91 ], [ %106, %98 ], [ 1, %110 ], [ 0, %107 ]
-  %.not24 = icmp eq i32 %.021, 0
-  %118 = zext i1 %.not24 to i32
-  ret i32 %118
+.loopexit:                                        ; preds = %106, %92, %99, %84
+  %.021 = phi i1 [ %91, %84 ], [ false, %92 ], [ %.not51, %99 ], [ %.not, %106 ]
+  %116 = zext i1 %.021 to i32
+  ret i32 %116
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable

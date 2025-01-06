@@ -365,18 +365,18 @@ define internal fastcc void @_write_metadata(ptr noundef %0) unnamed_addr #1 {
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 128
   br label %9
 
-7:                                                ; preds = %49
-  %8 = icmp eq ptr %50, null
-  br i1 %8, label %93, label %53
+7:                                                ; preds = %45
+  %8 = icmp eq ptr %46, null
+  br i1 %8, label %89, label %49
 
-9:                                                ; preds = %49, %1
-  %10 = phi i64 [ 0, %1 ], [ %51, %49 ]
-  %11 = phi ptr [ null, %1 ], [ %50, %49 ]
+9:                                                ; preds = %45, %1
+  %10 = phi i64 [ 0, %1 ], [ %47, %45 ]
+  %11 = phi ptr [ null, %1 ], [ %46, %45 ]
   %12 = trunc i64 %10 to i32
   %13 = call i32 @dt_metadata_get_keyid_by_display_order(i32 noundef %12) #15
   %14 = call i32 @dt_metadata_get_type(i32 noundef %12) #15
   %15 = icmp eq i32 %14, 2
-  br i1 %15, label %49, label %16
+  br i1 %15, label %45, label %16
 
 16:                                               ; preds = %9
   %17 = getelementptr inbounds nuw [8 x ptr], ptr %5, i64 0, i64 %10
@@ -393,7 +393,7 @@ define internal fastcc void @_write_metadata(ptr noundef %0) unnamed_addr #1 {
   %23 = getelementptr inbounds nuw [8 x ptr], ptr %6, i64 0, i64 %10
   %24 = load ptr, ptr %23, align 8, !tbaa !15
   %25 = icmp eq ptr %24, null
-  br i1 %25, label %37, label %26
+  br i1 %25, label %38, label %26
 
 26:                                               ; preds = %16
   %27 = load ptr, ptr %17, align 8, !tbaa !15
@@ -402,112 +402,107 @@ define internal fastcc void @_write_metadata(ptr noundef %0) unnamed_addr #1 {
   %30 = ptrtoint ptr %29 to i64
   %31 = and i64 %30, 4294967295
   %32 = icmp eq i64 %31, 0
-  br i1 %32, label %33, label %37
+  br i1 %32, label %33, label %38
 
 33:                                               ; preds = %26
   %34 = load ptr, ptr %23, align 8, !tbaa !15
   %35 = load ptr, ptr %34, align 8, !tbaa !16
   %36 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %22, ptr noundef nonnull dereferenceable(1) %35) #18
-  br label %41
+  %37 = icmp eq i32 %36, 0
+  br i1 %37, label %44, label %40
 
-37:                                               ; preds = %26, %16
-  %38 = load i8, ptr %22, align 1, !tbaa !37
-  %39 = icmp ne i8 %38, 0
-  %40 = zext i1 %39 to i32
-  br label %41
+38:                                               ; preds = %16, %26
+  %39 = load i8, ptr %22, align 1, !tbaa !37
+  %.not = icmp eq i8 %39, 0
+  br i1 %.not, label %44, label %40
 
-41:                                               ; preds = %37, %33
-  %42 = phi i32 [ %36, %33 ], [ %40, %37 ]
-  %43 = icmp eq i32 %42, 0
-  br i1 %43, label %48, label %44
+40:                                               ; preds = %33, %38
+  %41 = call ptr @dt_metadata_get_key(i32 noundef %13) #15
+  %42 = call ptr @g_list_append(ptr noundef %11, ptr noundef %41) #15
+  %43 = call ptr @g_list_append(ptr noundef %42, ptr noundef %22) #15
+  br label %45
 
-44:                                               ; preds = %41
-  %45 = call ptr @dt_metadata_get_key(i32 noundef %13) #15
-  %46 = call ptr @g_list_append(ptr noundef %11, ptr noundef %45) #15
-  %47 = call ptr @g_list_append(ptr noundef %46, ptr noundef %22) #15
-  br label %49
-
-48:                                               ; preds = %41
+44:                                               ; preds = %33, %38
   call void @g_free(ptr noundef %22) #15
-  br label %49
+  br label %45
 
-49:                                               ; preds = %48, %44, %9
-  %50 = phi ptr [ %11, %9 ], [ %11, %48 ], [ %47, %44 ]
-  %51 = add nuw nsw i64 %10, 1
-  %52 = icmp eq i64 %51, 8
-  br i1 %52, label %7, label %9
+45:                                               ; preds = %44, %40, %9
+  %46 = phi ptr [ %11, %9 ], [ %11, %44 ], [ %43, %40 ]
+  %47 = add nuw nsw i64 %10, 1
+  %48 = icmp eq i64 %47, 8
+  br i1 %48, label %7, label %9
 
-53:                                               ; preds = %7
-  %54 = getelementptr inbounds nuw i8, ptr %5, i64 344
-  %55 = load ptr, ptr %54, align 8, !tbaa !13
-  call void @dt_metadata_set_list(ptr noundef %55, ptr noundef nonnull %50, i32 noundef 1) #15
-  br label %63
+49:                                               ; preds = %7
+  %50 = getelementptr inbounds nuw i8, ptr %5, i64 344
+  %51 = load ptr, ptr %50, align 8, !tbaa !13
+  call void @dt_metadata_set_list(ptr noundef %51, ptr noundef nonnull %46, i32 noundef 1) #15
+  br label %59
 
-56:                                               ; preds = %63
-  call void @g_list_free(ptr noundef nonnull %50) #15
-  %57 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3120), align 8, !tbaa !38
-  %58 = and i32 %57, 1
-  %59 = icmp ne i32 %58, 0
-  %60 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3124), align 4
-  %61 = icmp ne i32 %60, 0
-  %62 = select i1 %59, i1 %61, i1 false
-  br i1 %62, label %72, label %77
+52:                                               ; preds = %59
+  call void @g_list_free(ptr noundef nonnull %46) #15
+  %53 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3120), align 8, !tbaa !38
+  %54 = and i32 %53, 1
+  %55 = icmp ne i32 %54, 0
+  %56 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3124), align 4
+  %57 = icmp ne i32 %56, 0
+  %58 = select i1 %55, i1 %57, i1 false
+  br i1 %58, label %68, label %73
 
-63:                                               ; preds = %63, %53
-  %64 = phi ptr [ %50, %53 ], [ %70, %63 ]
+59:                                               ; preds = %59, %49
+  %60 = phi ptr [ %46, %49 ], [ %66, %59 ]
+  %61 = getelementptr inbounds nuw i8, ptr %60, i64 8
+  %62 = load ptr, ptr %61, align 8, !tbaa !18
+  %63 = load ptr, ptr %62, align 8, !tbaa !16
+  call void @g_free(ptr noundef %63) #15
+  %64 = load ptr, ptr %61, align 8, !tbaa !18
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 8
-  %66 = load ptr, ptr %65, align 8, !tbaa !18
-  %67 = load ptr, ptr %66, align 8, !tbaa !16
-  call void @g_free(ptr noundef %67) #15
-  %68 = load ptr, ptr %65, align 8, !tbaa !18
-  %69 = getelementptr inbounds nuw i8, ptr %68, i64 8
-  %70 = load ptr, ptr %69, align 8, !tbaa !15
-  %71 = icmp eq ptr %70, null
-  br i1 %71, label %56, label %63
+  %66 = load ptr, ptr %65, align 8, !tbaa !15
+  %67 = icmp eq ptr %66, null
+  br i1 %67, label %52, label %59
 
-72:                                               ; preds = %56
-  %73 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !20
-  %74 = and i32 %73, 1048576
-  %75 = icmp eq i32 %74, 0
-  br i1 %75, label %77, label %76
+68:                                               ; preds = %52
+  %69 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !20
+  %70 = and i32 %69, 1048576
+  %71 = icmp eq i32 %70, 0
+  br i1 %71, label %73, label %72
 
-76:                                               ; preds = %72
+72:                                               ; preds = %68
   call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.46, ptr noundef nonnull @.str.3, i32 noundef 288, ptr noundef nonnull @__FUNCTION__._write_metadata, ptr noundef nonnull @.str.27) #15
-  br label %77
+  br label %73
 
-77:                                               ; preds = %76, %72, %56
-  %78 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 96), align 8, !tbaa !39
-  call void (ptr, i32, ...) @dt_control_signal_raise(ptr noundef %78, i32 noundef 0) #15
-  %79 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3120), align 8, !tbaa !38
-  %80 = and i32 %79, 1
-  %81 = icmp ne i32 %80, 0
-  %82 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3168), align 8
-  %83 = icmp ne i32 %82, 0
-  %84 = select i1 %81, i1 %83, i1 false
-  br i1 %84, label %85, label %90
+73:                                               ; preds = %72, %68, %52
+  %74 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 96), align 8, !tbaa !39
+  call void (ptr, i32, ...) @dt_control_signal_raise(ptr noundef %74, i32 noundef 0) #15
+  %75 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3120), align 8, !tbaa !38
+  %76 = and i32 %75, 1
+  %77 = icmp ne i32 %76, 0
+  %78 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3168), align 8
+  %79 = icmp ne i32 %78, 0
+  %80 = select i1 %77, i1 %79, i1 false
+  br i1 %80, label %81, label %86
 
-85:                                               ; preds = %77
-  %86 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !20
-  %87 = and i32 %86, 1048576
-  %88 = icmp eq i32 %87, 0
-  br i1 %88, label %90, label %89
+81:                                               ; preds = %73
+  %82 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !20
+  %83 = and i32 %82, 1048576
+  %84 = icmp eq i32 %83, 0
+  br i1 %84, label %86, label %85
 
-89:                                               ; preds = %85
+85:                                               ; preds = %81
   call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.46, ptr noundef nonnull @.str.3, i32 noundef 290, ptr noundef nonnull @__FUNCTION__._write_metadata, ptr noundef nonnull @.str.48) #15
-  br label %90
+  br label %86
 
-90:                                               ; preds = %89, %85, %77
-  %91 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 96), align 8, !tbaa !39
-  call void (ptr, i32, ...) @dt_control_signal_raise(ptr noundef %91, i32 noundef 11, i32 noundef 2) #15
-  %92 = load ptr, ptr %54, align 8, !tbaa !13
-  call void @dt_image_synch_xmps(ptr noundef %92) #15
-  br label %93
+86:                                               ; preds = %85, %81, %73
+  %87 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 96), align 8, !tbaa !39
+  call void (ptr, i32, ...) @dt_control_signal_raise(ptr noundef %87, i32 noundef 11, i32 noundef 2) #15
+  %88 = load ptr, ptr %50, align 8, !tbaa !13
+  call void @dt_image_synch_xmps(ptr noundef %88) #15
+  br label %89
 
-93:                                               ; preds = %90, %7
-  %94 = getelementptr inbounds nuw i8, ptr %5, i64 344
-  %95 = load ptr, ptr %94, align 8, !tbaa !13
-  call void @g_list_free(ptr noundef %95) #15
-  store ptr null, ptr %94, align 8, !tbaa !13
+89:                                               ; preds = %86, %7
+  %90 = getelementptr inbounds nuw i8, ptr %5, i64 344
+  %91 = load ptr, ptr %90, align 8, !tbaa !13
+  call void @g_list_free(ptr noundef %91) #15
+  store ptr null, ptr %90, align 8, !tbaa !13
   call void @dt_lib_gui_queue_update(ptr noundef %0) #15
   ret void
 }

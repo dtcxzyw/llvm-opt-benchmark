@@ -2943,8 +2943,7 @@ _ZNK6icu_7513UnicodeString6charAtEi.exit98:       ; preds = %_ZN6icu_7512_GLOBAL
 
 lor.lhs.false34:                                  ; preds = %_ZNK6icu_7513UnicodeString6charAtEi.exit98
   %cmp28 = icmp eq i16 %18, 78
-  %cmp25 = icmp eq i16 %18, 80
-  %conv26 = zext i1 %cmp25 to i8
+  %cmp25 = icmp ne i16 %18, 80
   %inc35 = add nsw i32 %call31, 1
   store i32 %inc35, ptr %pos, align 4
   %cmp.i.i109 = icmp ult i32 %call31, %cond.i103
@@ -2971,7 +2970,7 @@ do.body44:                                        ; preds = %_ZNK6icu_7513Unicod
 
 if.then49:                                        ; preds = %_ZNK6icu_7513UnicodeString6charAtEi.exit, %if.then8, %if.then15
   %25 = phi i32 [ %inc, %if.then15 ], [ %call10, %if.then8 ], [ %call10, %_ZNK6icu_7513UnicodeString6charAtEi.exit ]
-  %invert.0.ph = phi i8 [ 1, %if.then15 ], [ 0, %if.then8 ], [ 0, %_ZNK6icu_7513UnicodeString6charAtEi.exit ]
+  %invert.0.ph = phi i1 [ false, %if.then15 ], [ true, %if.then8 ], [ true, %_ZNK6icu_7513UnicodeString6charAtEi.exit ]
   %cmp.i.i119 = icmp slt i32 %25, 0
   %spec.select.i = call i32 @llvm.smin.i32(i32 %25, i32 %cond.i41)
   %start.addr.0.i = select i1 %cmp.i.i119, i32 0, i32 %spec.select.i
@@ -2988,7 +2987,7 @@ if.else51:                                        ; preds = %_ZNK6icu_7513Unicod
   br label %if.end53
 
 if.end53:                                         ; preds = %if.else51, %if.then49
-  %invert.0202 = phi i8 [ %invert.0.ph, %if.then49 ], [ %conv26, %if.else51 ]
+  %invert.0202 = phi i1 [ %invert.0.ph, %if.then49 ], [ %cmp25, %if.else51 ]
   %isName.0200 = phi i1 [ false, %if.then49 ], [ %cmp28, %if.else51 ]
   %tobool7.not172198 = phi i32 [ 2, %if.then49 ], [ 1, %if.else51 ]
   %close.0 = phi i32 [ %call2.i, %if.then49 ], [ %call2.i139, %if.else51 ]
@@ -3088,8 +3087,7 @@ invoke.cont84:                                    ; preds = %if.end83
   br i1 %cmp.i167, label %if.end100, label %if.then89
 
 if.then89:                                        ; preds = %invoke.cont84
-  %tobool90.not = icmp eq i8 %invert.0202, 0
-  br i1 %tobool90.not, label %if.end96, label %if.then91
+  br i1 %invert.0202, label %if.end96, label %if.then91
 
 if.then91:                                        ; preds = %if.then89
   %call93 = invoke noundef nonnull align 8 dereferenceable(200) ptr @_ZN6icu_7510UnicodeSet10complementEv(ptr noundef nonnull align 8 dereferenceable(200) %this)

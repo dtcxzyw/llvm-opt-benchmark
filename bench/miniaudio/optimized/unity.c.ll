@@ -59855,7 +59855,7 @@ if.end26.i.i:                                     ; preds = %if.else.i.i, %if.th
 ma_dr_flac__seek_to_first_frame.exit:             ; preds = %while.body.i.i, %if.then.i.i, %if.then11.i.i, %if.else.i.i, %if.end26.i.i
   %retval.0.i.i = phi i32 [ 1, %if.end26.i.i ], [ 0, %if.then.i.i ], [ 0, %if.then11.i.i ], [ 0, %if.else.i.i ], [ 0, %while.body.i.i ]
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(168) %currentFLACFrame.i65, i8 0, i64 168, i1 false)
-  br i1 %ret.known.tr136, label %57, label %return.thread
+  br i1 %ret.known.tr136, label %58, label %return.thread
 
 if.else:                                          ; preds = %if.end6
   %6 = load i64, ptr %totalPCMFrameCount, align 8
@@ -59874,7 +59874,7 @@ if.then21:                                        ; preds = %if.then17
   %sub24 = sub nuw i32 %7, %conv
   store i32 %sub24, ptr %pcmFramesRemaining34, align 8
   store i64 %spec.select, ptr %currentPCMFrame, align 8
-  br i1 %ret.known.tr136, label %57, label %return.thread
+  br i1 %ret.known.tr136, label %58, label %return.thread
 
 if.else27:                                        ; preds = %if.else
   %sub29 = sub nuw i64 %0, %spec.select
@@ -59890,7 +59890,7 @@ if.then38:                                        ; preds = %if.else27
   %add = add i32 %9, %conv30
   store i32 %add, ptr %pcmFramesRemaining34, align 8
   store i64 %spec.select, ptr %currentPCMFrame, align 8
-  br i1 %ret.known.tr136, label %57, label %return.thread
+  br i1 %ret.known.tr136, label %58, label %return.thread
 
 if.end43:                                         ; preds = %if.else27, %if.then17
   %10 = load i32, ptr %container, align 8
@@ -60199,15 +60199,7 @@ for.cond52.backedge.i:                            ; preds = %if.else96.i, %if.th
 
 if.then81.i:                                      ; preds = %if.then76.i
   %cmp83.i = icmp eq i64 %spec.select, %runningPCMFrameCount.0.ph117.i
-  br i1 %cmp83.i, label %if.then76, label %if.end86.i
-
-if.end86.i:                                       ; preds = %if.then81.i
-  %sub82.i = sub i64 %spec.select, %runningPCMFrameCount.0.ph117.i
-  store i64 %runningPCMFrameCount.0.ph117.i, ptr %currentPCMFrame, align 8
-  %call88.i = tail call fastcc i64 @ma_dr_flac__seek_forward_by_pcm_frames(ptr noundef nonnull %pFlac, i64 noundef %sub82.i)
-  %cmp89.i = icmp eq i64 %call88.i, %sub82.i
-  %conv90.i = zext i1 %cmp89.i to i32
-  br label %if.end74
+  br i1 %cmp83.i, label %if.then76, label %if.end74
 
 if.else96.i:                                      ; preds = %if.end72.i
   %call.i.i66 = tail call fastcc i32 @ma_dr_flac__seek_flac_frame(ptr noundef nonnull %pFlac)
@@ -60259,37 +60251,40 @@ land.lhs.true65:                                  ; preds = %if.then61.land.lhs.
 
 if.then71:                                        ; preds = %land.lhs.true65
   %call72 = tail call fastcc i32 @ma_dr_flac__seek_to_pcm_frame__brute_force(ptr noundef %pFlac, i64 noundef %spec.select)
-  br label %if.end74
+  %57 = icmp eq i32 %call72, 0
+  br i1 %57, label %if.else78, label %if.then76
 
-if.end74:                                         ; preds = %if.end86.i, %if.then71
-  %wasSuccessful.0 = phi i32 [ %call72, %if.then71 ], [ %conv90.i, %if.end86.i ]
-  %tobool75.not = icmp eq i32 %wasSuccessful.0, 0
-  br i1 %tobool75.not, label %if.else78, label %if.then76
+if.end74:                                         ; preds = %if.then81.i
+  %sub82.i = sub i64 %spec.select, %runningPCMFrameCount.0.ph117.i
+  store i64 %runningPCMFrameCount.0.ph117.i, ptr %currentPCMFrame, align 8
+  %call88.i = tail call fastcc i64 @ma_dr_flac__seek_forward_by_pcm_frames(ptr noundef nonnull %pFlac, i64 noundef %sub82.i)
+  %cmp89.i.not = icmp eq i64 %call88.i, %sub82.i
+  br i1 %cmp89.i.not, label %if.then76, label %if.else78
 
-if.then76:                                        ; preds = %if.then81.i, %if.then49, %if.then61, %if.end74, %if.then70.i
+if.then76:                                        ; preds = %if.then81.i, %if.then49, %if.then61, %if.end74, %if.then71, %if.then70.i
   store i64 %spec.select, ptr %currentPCMFrame, align 8
-  br i1 %ret.known.tr136, label %57, label %return.thread
+  br i1 %ret.known.tr136, label %58, label %return.thread
 
 if.else78.sink.split:                             ; preds = %if.then2.i.i, %if.end29.i.i.i
   %add31.i.i.i.sink = phi i64 [ %add31.i.i.i, %if.end29.i.i.i ], [ %12, %if.then2.i.i ]
   store i64 %add31.i.i.i.sink, ptr %currentBytePos.i, align 8
   br label %if.else78
 
-if.else78:                                        ; preds = %while.body.i.i76, %while.body.i.i74.i, %for.cond52.outer.loopexit.i, %while.body.i.i.i, %for.cond52.backedge.i, %if.then76.i, %if.else96.i, %if.else78.sink.split, %for.cond52.preheader.i, %while.end.i.i66.i, %if.else.i59.i, %if.then2.i82.i, %if.else.i.i54, %if.then11.i.i73, %if.then.i.i67, %while.end.i.i.i, %if.else.i50.i, %if.then2.i.i, %if.then66.i, %if.end47.i, %land.lhs.true65, %if.end74
+if.else78:                                        ; preds = %while.body.i.i76, %while.body.i.i74.i, %for.cond52.outer.loopexit.i, %while.body.i.i.i, %for.cond52.backedge.i, %if.then76.i, %if.else96.i, %if.else78.sink.split, %if.then71, %for.cond52.preheader.i, %while.end.i.i66.i, %if.else.i59.i, %if.then2.i82.i, %if.else.i.i54, %if.then11.i.i73, %if.then.i.i67, %while.end.i.i.i, %if.else.i50.i, %if.then2.i.i, %if.then66.i, %if.end47.i, %land.lhs.true65, %if.end74
   %call79 = tail call i32 @ma_dr_flac_seek_to_pcm_frame(ptr noundef nonnull %pFlac, i64 noundef %0)
   %cmp80 = icmp eq i32 %call79, 0
   br i1 %cmp80, label %if.end, label %return
 
 return:                                           ; preds = %if.end, %if.end3, %if.else78
   %retval.0 = phi i32 [ 1, %if.end ], [ 0, %if.end3 ], [ 0, %if.else78 ]
-  br i1 %ret.known.tr136, label %57, label %return.thread
+  br i1 %ret.known.tr136, label %58, label %return.thread
 
-57:                                               ; preds = %if.then76, %if.then38, %if.then21, %ma_dr_flac__seek_to_first_frame.exit, %return
+58:                                               ; preds = %if.then76, %if.then38, %if.then21, %ma_dr_flac__seek_to_first_frame.exit, %return
   br label %return.thread
 
-return.thread:                                    ; preds = %entry, %if.then76, %if.then38, %if.then21, %ma_dr_flac__seek_to_first_frame.exit, %return, %57
-  %58 = phi i32 [ 0, %57 ], [ %retval.0, %return ], [ %retval.0.i.i, %ma_dr_flac__seek_to_first_frame.exit ], [ 1, %if.then21 ], [ 1, %if.then38 ], [ 1, %if.then76 ], [ 0, %entry ]
-  ret i32 %58
+return.thread:                                    ; preds = %entry, %if.then76, %if.then38, %if.then21, %ma_dr_flac__seek_to_first_frame.exit, %return, %58
+  %59 = phi i32 [ 0, %58 ], [ %retval.0, %return ], [ %retval.0.i.i, %ma_dr_flac__seek_to_first_frame.exit ], [ 1, %if.then21 ], [ 1, %if.then38 ], [ 1, %if.then76 ], [ 0, %entry ]
+  ret i32 %59
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable

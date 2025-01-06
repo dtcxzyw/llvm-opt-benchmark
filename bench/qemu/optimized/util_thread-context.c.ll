@@ -548,7 +548,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
 for.end26:                                        ; preds = %for.body, %for.inc25.us, %bitmap_new.exit
   call void @numa_bitmask_free(ptr noundef %call9) #8
   %cmp.i27 = icmp ult i32 %call.fr, 65
-  br i1 %cmp.i27, label %if.then.i29, label %if.else.i
+  br i1 %cmp.i27, label %if.then.i29, label %bitmap_empty.exit
 
 if.then.i29:                                      ; preds = %for.end26
   %7 = load i64, ptr %call.i.i, align 8
@@ -556,27 +556,22 @@ if.then.i29:                                      ; preds = %for.end26
   %and.i = and i64 %sub.i, 63
   %shr.i = lshr i64 -1, %and.i
   %and1.i = and i64 %7, %shr.i
-  %tobool.not.i = icmp eq i64 %and1.i, 0
-  %lnot.ext.i = zext i1 %tobool.not.i to i32
-  br label %bitmap_empty.exit
+  %tobool.not.i.not = icmp eq i64 %and1.i, 0
+  br i1 %tobool.not.i.not, label %if.then30, label %if.end31
 
-if.else.i:                                        ; preds = %for.end26
+bitmap_empty.exit:                                ; preds = %for.end26
   %call.i28 = call i32 @slow_bitmap_empty(ptr noundef nonnull %call.i.i, i64 noundef range(i64 -2147483648, 2147483648) %conv) #8
-  br label %bitmap_empty.exit
+  %8 = icmp eq i32 %call.i28, 0
+  br i1 %8, label %if.end31, label %if.then30
 
-bitmap_empty.exit:                                ; preds = %if.then.i29, %if.else.i
-  %retval.0.i = phi i32 [ %lnot.ext.i, %if.then.i29 ], [ %call.i28, %if.else.i ]
-  %tobool29.not = icmp eq i32 %retval.0.i, 0
-  br i1 %tobool29.not, label %if.end31, label %if.then30
-
-if.then30:                                        ; preds = %bitmap_empty.exit
+if.then30:                                        ; preds = %if.then.i29, %bitmap_empty.exit
   call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str, i32 noundef 212, ptr noundef nonnull @__func__.thread_context_set_node_affinity, ptr noundef nonnull @.str.17) #8
   br label %out
 
-if.end31:                                         ; preds = %bitmap_empty.exit
+if.end31:                                         ; preds = %if.then.i29, %bitmap_empty.exit
   %thread_id = getelementptr inbounds nuw i8, ptr %call.i, i64 40
-  %8 = load i32, ptr %thread_id, align 8
-  %cmp32.not = icmp eq i32 %8, -1
+  %9 = load i32, ptr %thread_id, align 8
+  %cmp32.not = icmp eq i32 %9, -1
   br i1 %cmp32.not, label %if.else, label %if.then34
 
 if.then34:                                        ; preds = %if.end31
@@ -599,8 +594,8 @@ if.else:                                          ; preds = %if.end31
 out:                                              ; preds = %if.else, %if.then38, %if.then34, %if.then30, %if.then6
   %bitmap.0 = phi ptr [ %call.i.i, %if.then30 ], [ %call.i.i, %if.then38 ], [ %call.i.i, %if.then34 ], [ null, %if.else ], [ null, %if.then6 ]
   call void @g_free(ptr noundef %bitmap.0) #8
-  %9 = load ptr, ptr %host_nodes, align 8
-  call void @qapi_free_uint16List(ptr noundef %9) #8
+  %10 = load ptr, ptr %host_nodes, align 8
+  call void @qapi_free_uint16List(ptr noundef %10) #8
   br label %return
 
 return:                                           ; preds = %if.end, %out, %if.then

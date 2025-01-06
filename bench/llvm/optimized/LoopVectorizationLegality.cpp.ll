@@ -2002,16 +2002,16 @@ define dso_local noundef zeroext i1 @_ZNK4llvm25LoopVectorizationLegality9isUnif
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %5 = load ptr, ptr %4, align 8
   %6 = tail call noundef zeroext i1 @_ZNK4llvm14LoopAccessInfo11isInvariantEPNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(144) %5, ptr noundef %1) #20
-  br i1 %6, label %59, label %7
+  br i1 %6, label %"_ZN4llvm6all_ofINS_14iterator_rangeINS_6detail15SafeIntIteratorIjLb1EEEEEZNKS_25LoopVectorizationLegality9isUniformEPNS_5ValueENS_12ElementCountEE3$_0EEbOT_T0_.exit", label %7
 
 7:                                                ; preds = %3
   %8 = and i64 %2, 4294967296
   %.not = icmp eq i64 %8, 0
-  br i1 %.not, label %9, label %59
+  br i1 %.not, label %9, label %"_ZN4llvm6all_ofINS_14iterator_rangeINS_6detail15SafeIntIteratorIjLb1EEEEEZNKS_25LoopVectorizationLegality9isUniformEPNS_5ValueENS_12ElementCountEE3$_0EEbOT_T0_.exit"
 
 9:                                                ; preds = %7
   %10 = icmp eq i32 %.sroa.010.0.extract.trunc, 1
-  br i1 %10, label %59, label %11
+  br i1 %10, label %"_ZN4llvm6all_ofINS_14iterator_rangeINS_6detail15SafeIntIteratorIjLb1EEEEEZNKS_25LoopVectorizationLegality9isUniformEPNS_5ValueENS_12ElementCountEE3$_0EEbOT_T0_.exit", label %11
 
 11:                                               ; preds = %9
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -2021,14 +2021,14 @@ define dso_local noundef zeroext i1 @_ZNK4llvm25LoopVectorizationLegality9isUnif
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %17 = load ptr, ptr %16, align 8
   %18 = tail call noundef zeroext i1 @_ZNK4llvm15ScalarEvolution10isSCEVableEPNS_4TypeE(ptr noundef nonnull align 8 dereferenceable(1392) %15, ptr noundef %17) #20
-  br i1 %18, label %19, label %59
+  br i1 %18, label %19, label %"_ZN4llvm6all_ofINS_14iterator_rangeINS_6detail15SafeIntIteratorIjLb1EEEEEZNKS_25LoopVectorizationLegality9isUniformEPNS_5ValueENS_12ElementCountEE3$_0EEbOT_T0_.exit"
 
 19:                                               ; preds = %11
   %20 = tail call noundef ptr @_ZN4llvm15ScalarEvolution7getSCEVEPNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(1392) %15, ptr noundef nonnull %1) #20
   %21 = load ptr, ptr %0, align 8
   %22 = tail call fastcc noundef ptr @_ZN4llvm12_GLOBAL__N_131SCEVAddRecForUniformityRewriter7rewriteEPKNS_4SCEVERNS_15ScalarEvolutionEjjPNS_4LoopE(ptr noundef %20, ptr noundef nonnull align 8 dereferenceable(1392) %15, i32 noundef %.sroa.010.0.extract.trunc, i32 noundef 0, ptr noundef %21)
   %23 = tail call noundef zeroext i1 @_ZN4llvm19SCEVCouldNotCompute7classofEPKNS_4SCEVE(ptr noundef nonnull align 8 dereferenceable(30) %22) #20
-  br i1 %23, label %59, label %24
+  br i1 %23, label %"_ZN4llvm6all_ofINS_14iterator_rangeINS_6detail15SafeIntIteratorIjLb1EEEEEZNKS_25LoopVectorizationLegality9isUniformEPNS_5ValueENS_12ElementCountEE3$_0EEbOT_T0_.exit", label %24
 
 24:                                               ; preds = %19
   %25 = and i64 %2, 4294967295
@@ -2044,7 +2044,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm25LoopVectorizationLegality9isUnif
   %30 = load ptr, ptr %0, align 8
   %31 = tail call fastcc noundef ptr @_ZN4llvm12_GLOBAL__N_131SCEVAddRecForUniformityRewriter7rewriteEPKNS_4SCEVERNS_15ScalarEvolutionEjjPNS_4LoopE(ptr noundef %20, ptr noundef nonnull align 8 dereferenceable(1392) %15, i32 noundef %.sroa.010.0.extract.trunc, i32 noundef %29, ptr noundef %30)
   %.not53.i.i.i.i.i = icmp eq ptr %22, %31
-  br i1 %.not53.i.i.i.i.i, label %32, label %"_ZN4llvm6all_ofINS_14iterator_rangeINS_6detail15SafeIntIteratorIjLb1EEEEEZNKS_25LoopVectorizationLegality9isUniformEPNS_5ValueENS_12ElementCountEE3$_0EEbOT_T0_.exit"
+  br i1 %.not53.i.i.i.i.i, label %32, label %"_ZN4llvm6all_ofINS_14iterator_rangeINS_6detail15SafeIntIteratorIjLb1EEEEEZNKS_25LoopVectorizationLegality9isUniformEPNS_5ValueENS_12ElementCountEE3$_0EEbOT_T0_.exit.loopexit"
 
 32:                                               ; preds = %.lr.ph.i.i.i.i.i
   %33 = add nsw i64 %.sroa.028.058.i.i.i.i.i, -1
@@ -2052,7 +2052,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm25LoopVectorizationLegality9isUnif
   %35 = load ptr, ptr %0, align 8
   %36 = tail call fastcc noundef ptr @_ZN4llvm12_GLOBAL__N_131SCEVAddRecForUniformityRewriter7rewriteEPKNS_4SCEVERNS_15ScalarEvolutionEjjPNS_4LoopE(ptr noundef %20, ptr noundef nonnull align 8 dereferenceable(1392) %15, i32 noundef %.sroa.010.0.extract.trunc, i32 noundef %34, ptr noundef %35)
   %.not54.i.i.i.i.i = icmp eq ptr %22, %36
-  br i1 %.not54.i.i.i.i.i, label %37, label %"_ZN4llvm6all_ofINS_14iterator_rangeINS_6detail15SafeIntIteratorIjLb1EEEEEZNKS_25LoopVectorizationLegality9isUniformEPNS_5ValueENS_12ElementCountEE3$_0EEbOT_T0_.exit"
+  br i1 %.not54.i.i.i.i.i, label %37, label %"_ZN4llvm6all_ofINS_14iterator_rangeINS_6detail15SafeIntIteratorIjLb1EEEEEZNKS_25LoopVectorizationLegality9isUniformEPNS_5ValueENS_12ElementCountEE3$_0EEbOT_T0_.exit.loopexit"
 
 37:                                               ; preds = %32
   %38 = add nsw i64 %.sroa.028.058.i.i.i.i.i, -2
@@ -2060,7 +2060,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm25LoopVectorizationLegality9isUnif
   %40 = load ptr, ptr %0, align 8
   %41 = tail call fastcc noundef ptr @_ZN4llvm12_GLOBAL__N_131SCEVAddRecForUniformityRewriter7rewriteEPKNS_4SCEVERNS_15ScalarEvolutionEjjPNS_4LoopE(ptr noundef %20, ptr noundef nonnull align 8 dereferenceable(1392) %15, i32 noundef %.sroa.010.0.extract.trunc, i32 noundef %39, ptr noundef %40)
   %.not55.i.i.i.i.i = icmp eq ptr %22, %41
-  br i1 %.not55.i.i.i.i.i, label %42, label %"_ZN4llvm6all_ofINS_14iterator_rangeINS_6detail15SafeIntIteratorIjLb1EEEEEZNKS_25LoopVectorizationLegality9isUniformEPNS_5ValueENS_12ElementCountEE3$_0EEbOT_T0_.exit"
+  br i1 %.not55.i.i.i.i.i, label %42, label %"_ZN4llvm6all_ofINS_14iterator_rangeINS_6detail15SafeIntIteratorIjLb1EEEEEZNKS_25LoopVectorizationLegality9isUniformEPNS_5ValueENS_12ElementCountEE3$_0EEbOT_T0_.exit.loopexit"
 
 42:                                               ; preds = %37
   %43 = add nsw i64 %.sroa.028.058.i.i.i.i.i, -3
@@ -2068,7 +2068,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm25LoopVectorizationLegality9isUnif
   %45 = load ptr, ptr %0, align 8
   %46 = tail call fastcc noundef ptr @_ZN4llvm12_GLOBAL__N_131SCEVAddRecForUniformityRewriter7rewriteEPKNS_4SCEVERNS_15ScalarEvolutionEjjPNS_4LoopE(ptr noundef %20, ptr noundef nonnull align 8 dereferenceable(1392) %15, i32 noundef %.sroa.010.0.extract.trunc, i32 noundef %44, ptr noundef %45)
   %.not56.i.i.i.i.i = icmp eq ptr %22, %46
-  br i1 %.not56.i.i.i.i.i, label %47, label %"_ZN4llvm6all_ofINS_14iterator_rangeINS_6detail15SafeIntIteratorIjLb1EEEEEZNKS_25LoopVectorizationLegality9isUniformEPNS_5ValueENS_12ElementCountEE3$_0EEbOT_T0_.exit"
+  br i1 %.not56.i.i.i.i.i, label %47, label %"_ZN4llvm6all_ofINS_14iterator_rangeINS_6detail15SafeIntIteratorIjLb1EEEEEZNKS_25LoopVectorizationLegality9isUniformEPNS_5ValueENS_12ElementCountEE3$_0EEbOT_T0_.exit.loopexit"
 
 47:                                               ; preds = %42
   %48 = add nsw i64 %.sroa.028.058.i.i.i.i.i, -4
@@ -2099,17 +2099,16 @@ define dso_local noundef zeroext i1 @_ZNK4llvm25LoopVectorizationLegality9isUnif
 ._crit_edge._crit_edge67.i.i.i.i.i:               ; preds = %._crit_edge._crit_edge.i.i.i.i.i, %._crit_edge.i.i.i.i.i
   %56 = load ptr, ptr %0, align 8
   %57 = tail call fastcc noundef ptr @_ZN4llvm12_GLOBAL__N_131SCEVAddRecForUniformityRewriter7rewriteEPKNS_4SCEVERNS_15ScalarEvolutionEjjPNS_4LoopE(ptr noundef %20, ptr noundef nonnull align 8 dereferenceable(1392) %15, i32 noundef %.sroa.010.0.extract.trunc, i32 noundef 1, ptr noundef %56)
-  %.not52.i.i.i.i.i = icmp ne ptr %22, %57
-  %spec.select.i.i.i.i.i = zext i1 %.not52.i.i.i.i.i to i64
+  %.not52.i.i.i.i.i.not = icmp eq ptr %22, %57
   br label %"_ZN4llvm6all_ofINS_14iterator_rangeINS_6detail15SafeIntIteratorIjLb1EEEEEZNKS_25LoopVectorizationLegality9isUniformEPNS_5ValueENS_12ElementCountEE3$_0EEbOT_T0_.exit"
 
-"_ZN4llvm6all_ofINS_14iterator_rangeINS_6detail15SafeIntIteratorIjLb1EEEEEZNKS_25LoopVectorizationLegality9isUniformEPNS_5ValueENS_12ElementCountEE3$_0EEbOT_T0_.exit": ; preds = %.lr.ph.i.i.i.i.i, %32, %37, %42, %._crit_edge.i.i.i.i.i, %51, %._crit_edge._crit_edge.i.i.i.i.i, %._crit_edge._crit_edge67.i.i.i.i.i
-  %.sroa.08.0.in.sroa.speculated.i.i.i.i.i = phi i64 [ 3, %51 ], [ 3, %._crit_edge._crit_edge.i.i.i.i.i ], [ 0, %._crit_edge.i.i.i.i.i ], [ %spec.select.i.i.i.i.i, %._crit_edge._crit_edge67.i.i.i.i.i ], [ %.sroa.028.058.i.i.i.i.i, %.lr.ph.i.i.i.i.i ], [ %33, %32 ], [ %38, %37 ], [ %43, %42 ]
-  %58 = icmp eq i64 %.sroa.08.0.in.sroa.speculated.i.i.i.i.i, 0
-  br label %59
+"_ZN4llvm6all_ofINS_14iterator_rangeINS_6detail15SafeIntIteratorIjLb1EEEEEZNKS_25LoopVectorizationLegality9isUniformEPNS_5ValueENS_12ElementCountEE3$_0EEbOT_T0_.exit.loopexit": ; preds = %42, %37, %32, %.lr.ph.i.i.i.i.i
+  %.sroa.08.0.in.sroa.speculated.i.i.i.i.i.ph = phi i64 [ %43, %42 ], [ %38, %37 ], [ %33, %32 ], [ %.sroa.028.058.i.i.i.i.i, %.lr.ph.i.i.i.i.i ]
+  %58 = icmp eq i64 %.sroa.08.0.in.sroa.speculated.i.i.i.i.i.ph, 0
+  br label %"_ZN4llvm6all_ofINS_14iterator_rangeINS_6detail15SafeIntIteratorIjLb1EEEEEZNKS_25LoopVectorizationLegality9isUniformEPNS_5ValueENS_12ElementCountEE3$_0EEbOT_T0_.exit"
 
-59:                                               ; preds = %19, %11, %9, %7, %3, %"_ZN4llvm6all_ofINS_14iterator_rangeINS_6detail15SafeIntIteratorIjLb1EEEEEZNKS_25LoopVectorizationLegality9isUniformEPNS_5ValueENS_12ElementCountEE3$_0EEbOT_T0_.exit"
-  %.0 = phi i1 [ %58, %"_ZN4llvm6all_ofINS_14iterator_rangeINS_6detail15SafeIntIteratorIjLb1EEEEEZNKS_25LoopVectorizationLegality9isUniformEPNS_5ValueENS_12ElementCountEE3$_0EEbOT_T0_.exit" ], [ true, %3 ], [ false, %7 ], [ true, %9 ], [ false, %11 ], [ false, %19 ]
+"_ZN4llvm6all_ofINS_14iterator_rangeINS_6detail15SafeIntIteratorIjLb1EEEEEZNKS_25LoopVectorizationLegality9isUniformEPNS_5ValueENS_12ElementCountEE3$_0EEbOT_T0_.exit": ; preds = %._crit_edge._crit_edge67.i.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i, %51, %._crit_edge.i.i.i.i.i, %"_ZN4llvm6all_ofINS_14iterator_rangeINS_6detail15SafeIntIteratorIjLb1EEEEEZNKS_25LoopVectorizationLegality9isUniformEPNS_5ValueENS_12ElementCountEE3$_0EEbOT_T0_.exit.loopexit", %19, %11, %9, %7, %3
+  %.0 = phi i1 [ true, %3 ], [ false, %7 ], [ true, %9 ], [ false, %11 ], [ false, %19 ], [ false, %51 ], [ false, %._crit_edge._crit_edge.i.i.i.i.i ], [ true, %._crit_edge.i.i.i.i.i ], [ %.not52.i.i.i.i.i.not, %._crit_edge._crit_edge67.i.i.i.i.i ], [ %58, %"_ZN4llvm6all_ofINS_14iterator_rangeINS_6detail15SafeIntIteratorIjLb1EEEEEZNKS_25LoopVectorizationLegality9isUniformEPNS_5ValueENS_12ElementCountEE3$_0EEbOT_T0_.exit.loopexit" ]
   ret i1 %.0
 }
 

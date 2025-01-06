@@ -619,7 +619,7 @@ define range(i32 0, 2) i32 @Cudd_ApaPrintDecimal(ptr nocapture noundef %0, i32 n
   %8 = shl nsw i64 %7, 2
   %9 = tail call noalias noundef ptr @malloc(i64 noundef %8) #17
   %10 = icmp eq ptr %9, null
-  br i1 %10, label %46, label %11
+  br i1 %10, label %43, label %11
 
 11:                                               ; preds = %3
   %12 = add i32 %6, 1
@@ -646,7 +646,7 @@ Cudd_ApaCopy.exit.thread:                         ; preds = %16
 ._crit_edge.thread67:                             ; preds = %Cudd_ApaCopy.exit.thread
   %21 = zext i32 %12 to i64
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %14, i8 0, i64 %21, i1 false)
-  br label %.lr.ph57.preheader
+  br label %.lr.ph58.preheader
 
 .lr.ph.i44.us.preheader:                          ; preds = %Cudd_ApaCopy.exit
   %wide.trip.count.i45 = zext nneg i32 %1 to i64
@@ -679,53 +679,51 @@ Cudd_ApaCopy.exit.thread:                         ; preds = %16
   store i8 %32, ptr %33, align 1
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %34 = icmp sgt i64 %indvars.iv, 0
-  br i1 %34, label %.lr.ph.i44.us, label %.lr.ph57.preheader, !llvm.loop !15
+  br i1 %34, label %.lr.ph.i44.us, label %.lr.ph58.preheader, !llvm.loop !15
 
 ._crit_edge.thread:                               ; preds = %Cudd_ApaCopy.exit.thread, %Cudd_ApaCopy.exit
   tail call void @free(ptr noundef nonnull %9) #18
   br label %.sink.split
 
-.lr.ph57.preheader:                               ; preds = %._crit_edge.loopexit.i.us, %._crit_edge.thread67
+.lr.ph58.preheader:                               ; preds = %._crit_edge.loopexit.i.us, %._crit_edge.thread67
   tail call void @free(ptr noundef nonnull %9) #18
   %35 = zext nneg i32 %6 to i64
   %wide.trip.count = zext i32 %12 to i64
-  br label %.lr.ph57
+  br label %.lr.ph58
 
-.lr.ph57:                                         ; preds = %.lr.ph57.preheader, %44
-  %indvars.iv62 = phi i64 [ 0, %.lr.ph57.preheader ], [ %indvars.iv.next63, %44 ]
-  %.03855 = phi i32 [ 1, %.lr.ph57.preheader ], [ %45, %44 ]
-  %.not42 = icmp eq i32 %.03855, 0
-  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %14, i64 %indvars.iv62
+.lr.ph58:                                         ; preds = %.lr.ph58.preheader, %42
+  %indvars.iv63 = phi i64 [ 0, %.lr.ph58.preheader ], [ %indvars.iv.next64, %42 ]
+  %.03856 = phi i1 [ false, %.lr.ph58.preheader ], [ %.not4351, %42 ]
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %14, i64 %indvars.iv63
   %.pre = load i8, ptr %.phi.trans.insert, align 1
-  br i1 %.not42, label %.thread, label %36
+  br i1 %.03856, label %.thread, label %36
 
-36:                                               ; preds = %.lr.ph57
-  %37 = icmp eq i8 %.pre, 0
-  %38 = zext i1 %37 to i32
-  %39 = icmp ne i64 %indvars.iv62, %35
-  %or.cond.not = select i1 %37, i1 %39, i1 false
-  br i1 %or.cond.not, label %44, label %.thread
+36:                                               ; preds = %.lr.ph58
+  %37 = icmp ne i8 %.pre, 0
+  %38 = icmp eq i64 %indvars.iv63, %35
+  %or.cond = select i1 %37, i1 true, i1 %38
+  br i1 %or.cond, label %.thread, label %42
 
-.thread:                                          ; preds = %.lr.ph57, %36
-  %40 = phi i32 [ %38, %36 ], [ 0, %.lr.ph57 ]
-  %41 = zext i8 %.pre to i32
-  %42 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.1, i32 noundef %41) #18
-  %43 = icmp eq i32 %42, -1
-  br i1 %43, label %.sink.split, label %44
+.thread:                                          ; preds = %.lr.ph58, %36
+  %.not4352 = phi i1 [ %37, %36 ], [ true, %.lr.ph58 ]
+  %39 = zext i8 %.pre to i32
+  %40 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.1, i32 noundef %39) #18
+  %41 = icmp eq i32 %40, -1
+  br i1 %41, label %.sink.split, label %42
 
-44:                                               ; preds = %36, %.thread
-  %45 = phi i32 [ %38, %36 ], [ %40, %.thread ]
-  %indvars.iv.next63 = add nuw nsw i64 %indvars.iv62, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next63, %wide.trip.count
-  br i1 %exitcond.not, label %.sink.split, label %.lr.ph57, !llvm.loop !16
+42:                                               ; preds = %36, %.thread
+  %.not4351 = phi i1 [ false, %36 ], [ %.not4352, %.thread ]
+  %indvars.iv.next64 = add nuw nsw i64 %indvars.iv63, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next64, %wide.trip.count
+  br i1 %exitcond.not, label %.sink.split, label %.lr.ph58, !llvm.loop !16
 
-.sink.split:                                      ; preds = %44, %.thread, %._crit_edge.thread, %11
-  %.sink = phi ptr [ %9, %11 ], [ %14, %._crit_edge.thread ], [ %14, %.thread ], [ %14, %44 ]
-  %.0.ph = phi i32 [ 0, %11 ], [ 1, %._crit_edge.thread ], [ 1, %44 ], [ 0, %.thread ]
+.sink.split:                                      ; preds = %42, %.thread, %._crit_edge.thread, %11
+  %.sink = phi ptr [ %9, %11 ], [ %14, %._crit_edge.thread ], [ %14, %.thread ], [ %14, %42 ]
+  %.0.ph = phi i32 [ 0, %11 ], [ 1, %._crit_edge.thread ], [ 1, %42 ], [ 0, %.thread ]
   tail call void @free(ptr noundef nonnull %.sink) #18
-  br label %46
+  br label %43
 
-46:                                               ; preds = %.sink.split, %3
+43:                                               ; preds = %.sink.split, %3
   %.0 = phi i32 [ 0, %3 ], [ %.0.ph, %.sink.split ]
   ret i32 %.0
 }

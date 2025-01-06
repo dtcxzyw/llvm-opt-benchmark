@@ -196,12 +196,12 @@ for.body.i.us.us:                                 ; preds = %for.body.us.us, %fo
   %incdec.ptr7.i.us.us = getelementptr inbounds nuw i8, ptr %b.addr.021.i.us.us, i64 1
   %cmp.not.i.us.us = icmp uge ptr %incdec.ptr.i.us.us, %add.ptr
   %or.cond.not.i.us.us = select i1 %cmp4.not.i.us.us, i1 true, i1 %cmp.not.i.us.us
-  br i1 %or.cond.not.i.us.us, label %cleanup.loopexit.i.us.us, label %for.body.i.us.us, !llvm.loop !10
+  br i1 %or.cond.not.i.us.us, label %_ZN3ue23cmpEPKcS1_mb.exit.us.us, label %for.body.i.us.us, !llvm.loop !10
 
-cleanup.loopexit.i.us.us:                         ; preds = %for.body.i.us.us
+_ZN3ue23cmpEPKcS1_mb.exit.us.us:                  ; preds = %for.body.i.us.us
   br i1 %cmp4.not.i.us.us, label %for.inc.us.us, label %cleanup
 
-for.inc.us.us:                                    ; preds = %cleanup.loopexit.i.us.us
+for.inc.us.us:                                    ; preds = %_ZN3ue23cmpEPKcS1_mb.exit.us.us
   %dec.us.us = add i64 %i.068.us.us, -1
   %cmp.us.us = icmp ugt i64 %dec.us.us, %0
   br i1 %cmp.us.us, label %for.body.us.us, label %for.cond8.preheader, !llvm.loop !12
@@ -246,12 +246,12 @@ for.body.i47.us:                                  ; preds = %for.body.i47.us.pre
   %incdec.ptr7.i56.us = getelementptr inbounds nuw i8, ptr %b.addr.021.i49.us, i64 1
   %cmp.not.i57.us = icmp uge ptr %incdec.ptr.i55.us, %add.ptr
   %or.cond.not.i58.us = select i1 %cmp4.not.i54.us, i1 true, i1 %cmp.not.i57.us
-  br i1 %or.cond.not.i58.us, label %cleanup.loopexit.i59.us, label %for.body.i47.us, !llvm.loop !10
+  br i1 %or.cond.not.i58.us, label %_ZN3ue23cmpEPKcS1_mb.exit60.us, label %for.body.i47.us, !llvm.loop !10
 
-cleanup.loopexit.i59.us:                          ; preds = %for.body.i47.us
+_ZN3ue23cmpEPKcS1_mb.exit60.us:                   ; preds = %for.body.i47.us
   br i1 %cmp4.not.i54.us, label %for.inc16.us, label %cleanup
 
-for.inc16.us:                                     ; preds = %cleanup.loopexit.i59.us
+for.inc16.us:                                     ; preds = %_ZN3ue23cmpEPKcS1_mb.exit60.us
   %dec17.us = add nsw i64 %i.170.us, -1
   %tobool9.not.us = icmp eq i64 %dec17.us, 0
   br i1 %tobool9.not.us, label %cleanup, label %land.rhs.us, !llvm.loop !13
@@ -260,8 +260,8 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %i.068 = phi i64 [ %dec, %for.inc ], [ %1, %for.body.lr.ph ]
   %gep = getelementptr i8, ptr %invariant.gep, i64 %i.068
   %bcmp = tail call i32 @bcmp(ptr %2, ptr %gep, i64 %0)
-  %tobool7.not = icmp eq i32 %bcmp, 0
-  br i1 %tobool7.not, label %cleanup, label %for.inc
+  %16 = icmp eq i32 %bcmp, 0
+  br i1 %16, label %cleanup, label %for.inc
 
 for.inc:                                          ; preds = %for.body
   %dec = add i64 %i.068, -1
@@ -272,17 +272,17 @@ land.rhs:                                         ; preds = %land.rhs.preheader,
   %i.170 = phi i64 [ %dec17, %for.inc16 ], [ %i.0.lcssa, %land.rhs.preheader ]
   %idx.neg10 = sub i64 0, %i.170
   %add.ptr11 = getelementptr inbounds i8, ptr %add.ptr, i64 %idx.neg10
-  %bcmp7 = tail call i32 @bcmp(ptr nonnull %add.ptr11, ptr %3, i64 %i.170)
-  %tobool14.not = icmp eq i32 %bcmp7, 0
-  br i1 %tobool14.not, label %cleanup, label %for.inc16
+  %bcmp2 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %add.ptr11, ptr noundef nonnull dereferenceable(1) %3, i64 %i.170)
+  %17 = icmp eq i32 %bcmp2, 0
+  br i1 %17, label %cleanup, label %for.inc16
 
 for.inc16:                                        ; preds = %land.rhs
   %dec17 = add i64 %i.170, -1
   %tobool9.not = icmp eq i64 %dec17, 0
   br i1 %tobool9.not, label %cleanup, label %land.rhs, !llvm.loop !13
 
-cleanup:                                          ; preds = %for.body, %cleanup.loopexit.i.us.us, %land.rhs, %for.inc16, %for.inc16.us, %cleanup.loopexit.i59.us, %land.rhs.us, %for.body.lr.ph.split.us, %for.cond8.preheader
-  %retval.0 = phi i64 [ 0, %for.cond8.preheader ], [ %1, %for.body.lr.ph.split.us ], [ %smin, %land.rhs.us ], [ %i.170.us, %cleanup.loopexit.i59.us ], [ 0, %for.inc16.us ], [ %i.170, %land.rhs ], [ 0, %for.inc16 ], [ %i.068.us.us, %cleanup.loopexit.i.us.us ], [ %i.068, %for.body ]
+cleanup:                                          ; preds = %for.body, %_ZN3ue23cmpEPKcS1_mb.exit.us.us, %for.inc16, %land.rhs, %for.inc16.us, %_ZN3ue23cmpEPKcS1_mb.exit60.us, %land.rhs.us, %for.body.lr.ph.split.us, %for.cond8.preheader
+  %retval.0 = phi i64 [ 0, %for.cond8.preheader ], [ %1, %for.body.lr.ph.split.us ], [ %smin, %land.rhs.us ], [ %i.170.us, %_ZN3ue23cmpEPKcS1_mb.exit60.us ], [ 0, %for.inc16.us ], [ %i.170, %land.rhs ], [ 0, %for.inc16 ], [ %i.068.us.us, %_ZN3ue23cmpEPKcS1_mb.exit.us.us ], [ %i.068, %for.body ]
   ret i64 %retval.0
 }
 
@@ -455,63 +455,73 @@ entry:
   %0 = load i64, ptr %_M_string_length.i, align 8
   %1 = load ptr, ptr %a, align 8
   %add.ptr = getelementptr inbounds i8, ptr %1, i64 %0
-  br i1 %nocase, label %for.cond.us.preheader, label %for.cond
+  %i.01 = add i64 %0, -1
+  %tobool.not2 = icmp eq i64 %i.01, 0
+  br i1 %tobool.not2, label %for.end, label %land.rhs.lr.ph
 
-for.cond.us.preheader:                            ; preds = %entry
-  %2 = add i64 %0, -1
-  %smin = tail call i64 @llvm.smin.i64(i64 %2, i64 0)
-  br label %for.cond.us
+land.rhs.lr.ph:                                   ; preds = %entry
+  br i1 %nocase, label %land.rhs.us.preheader, label %land.rhs
 
-for.cond.us:                                      ; preds = %for.cond.us.preheader, %cleanup.loopexit.i.us
-  %i.0.in.us = phi i64 [ %i.0.us, %cleanup.loopexit.i.us ], [ %0, %for.cond.us.preheader ]
-  %i.0.us = add i64 %i.0.in.us, -1
-  %cmp.not20.i.us = icmp sgt i64 %i.0.us, 0
+land.rhs.us.preheader:                            ; preds = %land.rhs.lr.ph
+  %smin = tail call i64 @llvm.smin.i64(i64 %i.01, i64 0)
+  br label %land.rhs.us
+
+land.rhs.us:                                      ; preds = %land.rhs.us.preheader, %for.cond.backedge.us
+  %i.04.us = phi i64 [ %i.0.us, %for.cond.backedge.us ], [ %i.01, %land.rhs.us.preheader ]
+  %i.0.in3.us = phi i64 [ %i.04.us, %for.cond.backedge.us ], [ %0, %land.rhs.us.preheader ]
+  %cmp.not20.i.us = icmp sgt i64 %i.04.us, 0
   br i1 %cmp.not20.i.us, label %for.body.i.us.preheader, label %for.end
 
-for.body.i.us.preheader:                          ; preds = %for.cond.us
-  %idx.neg.us = sub i64 1, %i.0.in.us
+for.body.i.us.preheader:                          ; preds = %land.rhs.us
+  %idx.neg.us = sub i64 1, %i.0.in3.us
   %add.ptr3.us = getelementptr inbounds i8, ptr %add.ptr, i64 %idx.neg.us
   br label %for.body.i.us
 
 for.body.i.us:                                    ; preds = %for.body.i.us.preheader, %for.body.i.us
   %a.addr.022.i.us = phi ptr [ %incdec.ptr.i.us, %for.body.i.us ], [ %add.ptr3.us, %for.body.i.us.preheader ]
   %b.addr.021.i.us = phi ptr [ %incdec.ptr7.i.us, %for.body.i.us ], [ %1, %for.body.i.us.preheader ]
-  %3 = load i8, ptr %a.addr.022.i.us, align 1
-  %4 = add i8 %3, -123
-  %5 = icmp ult i8 %4, -26
-  %sub.i17.i.us = add i8 %3, -32
-  %retval.0.i18.i.us = select i1 %5, i8 %3, i8 %sub.i17.i.us
-  %6 = load i8, ptr %b.addr.021.i.us, align 1
-  %7 = add i8 %6, -123
-  %8 = icmp ult i8 %7, -26
-  %sub.i.i.us = add i8 %6, -32
-  %retval.0.i.i.us = select i1 %8, i8 %6, i8 %sub.i.i.us
+  %2 = load i8, ptr %a.addr.022.i.us, align 1
+  %3 = add i8 %2, -123
+  %4 = icmp ult i8 %3, -26
+  %sub.i17.i.us = add i8 %2, -32
+  %retval.0.i18.i.us = select i1 %4, i8 %2, i8 %sub.i17.i.us
+  %5 = load i8, ptr %b.addr.021.i.us, align 1
+  %6 = add i8 %5, -123
+  %7 = icmp ult i8 %6, -26
+  %sub.i.i.us = add i8 %5, -32
+  %retval.0.i.i.us = select i1 %7, i8 %5, i8 %sub.i.i.us
   %cmp4.not.i.us = icmp ne i8 %retval.0.i18.i.us, %retval.0.i.i.us
   %incdec.ptr.i.us = getelementptr inbounds nuw i8, ptr %a.addr.022.i.us, i64 1
   %incdec.ptr7.i.us = getelementptr inbounds nuw i8, ptr %b.addr.021.i.us, i64 1
   %cmp.not.i.us = icmp uge ptr %incdec.ptr.i.us, %add.ptr
   %or.cond.not.i.us = select i1 %cmp4.not.i.us, i1 true, i1 %cmp.not.i.us
-  br i1 %or.cond.not.i.us, label %cleanup.loopexit.i.us, label %for.body.i.us, !llvm.loop !10
+  br i1 %or.cond.not.i.us, label %_ZN3ue23cmpEPKcS1_mb.exit.us, label %for.body.i.us, !llvm.loop !10
 
-cleanup.loopexit.i.us:                            ; preds = %for.body.i.us
-  br i1 %cmp4.not.i.us, label %for.cond.us, label %for.end, !llvm.loop !15
+_ZN3ue23cmpEPKcS1_mb.exit.us:                     ; preds = %for.body.i.us
+  br i1 %cmp4.not.i.us, label %for.cond.backedge.us, label %for.end
 
-for.cond:                                         ; preds = %entry, %land.rhs
-  %i.0.in = phi i64 [ %i.0, %land.rhs ], [ %0, %entry ]
-  %i.0 = add i64 %i.0.in, -1
-  %tobool.not = icmp eq i64 %i.0, 0
-  br i1 %tobool.not, label %for.end, label %land.rhs
+for.cond.backedge.us:                             ; preds = %_ZN3ue23cmpEPKcS1_mb.exit.us
+  %i.0.us = add nsw i64 %i.04.us, -1
+  %tobool.not.us = icmp eq i64 %i.0.us, 0
+  br i1 %tobool.not.us, label %for.end, label %land.rhs.us, !llvm.loop !15
 
-land.rhs:                                         ; preds = %for.cond
-  %idx.neg = sub i64 1, %i.0.in
+land.rhs:                                         ; preds = %land.rhs.lr.ph, %for.cond.backedge
+  %i.04 = phi i64 [ %i.0, %for.cond.backedge ], [ %i.01, %land.rhs.lr.ph ]
+  %i.0.in3 = phi i64 [ %i.04, %for.cond.backedge ], [ %0, %land.rhs.lr.ph ]
+  %idx.neg = sub i64 1, %i.0.in3
   %add.ptr3 = getelementptr inbounds i8, ptr %add.ptr, i64 %idx.neg
-  %bcmp = tail call i32 @bcmp(ptr %add.ptr3, ptr %1, i64 %i.0)
-  %tobool6.not = icmp eq i32 %bcmp, 0
-  br i1 %tobool6.not, label %for.end, label %for.cond, !llvm.loop !15
+  %bcmp = tail call i32 @bcmp(ptr %add.ptr3, ptr %1, i64 %i.04)
+  %8 = icmp eq i32 %bcmp, 0
+  br i1 %8, label %for.end, label %for.cond.backedge
 
-for.end:                                          ; preds = %for.cond, %land.rhs, %for.cond.us, %cleanup.loopexit.i.us
-  %.us-phi = phi i64 [ %smin, %for.cond.us ], [ %i.0.us, %cleanup.loopexit.i.us ], [ 0, %for.cond ], [ %i.0, %land.rhs ]
-  ret i64 %.us-phi
+for.cond.backedge:                                ; preds = %land.rhs
+  %i.0 = add i64 %i.04, -1
+  %tobool.not = icmp eq i64 %i.0, 0
+  br i1 %tobool.not, label %for.end, label %land.rhs, !llvm.loop !15
+
+for.end:                                          ; preds = %for.cond.backedge, %land.rhs, %for.cond.backedge.us, %land.rhs.us, %_ZN3ue23cmpEPKcS1_mb.exit.us, %entry
+  %i.0.lcssa = phi i64 [ 0, %entry ], [ %i.04.us, %_ZN3ue23cmpEPKcS1_mb.exit.us ], [ %smin, %land.rhs.us ], [ 0, %for.cond.backedge.us ], [ %i.04, %land.rhs ], [ 0, %for.cond.backedge ]
+  ret i64 %i.0.lcssa
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
@@ -2855,120 +2865,120 @@ entry:
   %sub.ptr.sub.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i
   %sub.ptr.div.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i, 3
   %cmp.not5.not.i.i = icmp eq ptr %0, %1
-  br i1 %cmp.not5.not.i.i, label %_ZNK3ue211ue2_literal10any_nocaseEv.exit.thread6, label %for.body.preheader.i.i
-
-_ZNK3ue211ue2_literal10any_nocaseEv.exit.thread6: ; preds = %entry
-  %_M_string_length.i.i8 = getelementptr inbounds nuw i8, ptr %a, i64 8
-  %2 = load i64, ptr %_M_string_length.i.i8, align 8
-  %3 = load ptr, ptr %a, align 8
-  %add.ptr.i9 = getelementptr inbounds i8, ptr %3, i64 %2
-  br label %for.cond.i.preheader
+  br i1 %cmp.not5.not.i.i, label %_ZNK3ue211ue2_literal10any_nocaseEv.exit.thread, label %for.body.preheader.i.i
 
 for.body.preheader.i.i:                           ; preds = %entry
   %umax.i.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i, i64 1)
-  %4 = load i64, ptr %1, align 8
-  %tobool.not.i2.i = icmp eq i64 %4, 0
-  br i1 %tobool.not.i2.i, label %for.cond.i.i, label %_ZNK3ue211ue2_literal10any_nocaseEv.exit.thread
-
-_ZNK3ue211ue2_literal10any_nocaseEv.exit.thread:  ; preds = %for.body.preheader.i.i
-  %_M_string_length.i.i3 = getelementptr inbounds nuw i8, ptr %a, i64 8
-  %5 = load i64, ptr %_M_string_length.i.i3, align 8
-  %6 = load ptr, ptr %a, align 8
-  %add.ptr.i4 = getelementptr inbounds i8, ptr %6, i64 %5
-  br label %for.cond.i.us.preheader
+  %2 = load i64, ptr %1, align 8
+  %tobool.not.i2.i = icmp eq i64 %2, 0
+  br i1 %tobool.not.i2.i, label %for.cond.i.i, label %_ZNK3ue211ue2_literal10any_nocaseEv.exit
 
 for.cond.i.i:                                     ; preds = %for.body.preheader.i.i, %for.body.i.i
   %i.06.i3.i = phi i64 [ %inc.i.i, %for.body.i.i ], [ 0, %for.body.preheader.i.i ]
   %inc.i.i = add nuw i64 %i.06.i3.i, 1
   %exitcond.not.i.i = icmp eq i64 %inc.i.i, %umax.i.i
-  br i1 %exitcond.not.i.i, label %_ZNK3ue211ue2_literal10any_nocaseEv.exit.thread11, label %for.body.i.i, !llvm.loop !14
-
-_ZNK3ue211ue2_literal10any_nocaseEv.exit.thread11: ; preds = %for.cond.i.i
-  %_M_string_length.i.i14 = getelementptr inbounds nuw i8, ptr %a, i64 8
-  %7 = load i64, ptr %_M_string_length.i.i14, align 8
-  %8 = load ptr, ptr %a, align 8
-  %add.ptr.i15 = getelementptr inbounds i8, ptr %8, i64 %7
-  br label %for.cond.i.preheader
+  br i1 %exitcond.not.i.i, label %_ZNK5boost14dynamic_bitsetImSaImEE3anyEv.exit.loopexit.i, label %for.body.i.i, !llvm.loop !14
 
 for.body.i.i:                                     ; preds = %for.cond.i.i
   %add.ptr.i.i.i = getelementptr inbounds i64, ptr %1, i64 %inc.i.i
-  %9 = load i64, ptr %add.ptr.i.i.i, align 8
-  %tobool.not.i.i = icmp eq i64 %9, 0
-  br i1 %tobool.not.i.i, label %for.cond.i.i, label %_ZNK3ue211ue2_literal10any_nocaseEv.exit, !llvm.loop !14
+  %3 = load i64, ptr %add.ptr.i.i.i, align 8
+  %tobool.not.i.i = icmp eq i64 %3, 0
+  br i1 %tobool.not.i.i, label %for.cond.i.i, label %_ZNK5boost14dynamic_bitsetImSaImEE3anyEv.exit.loopexit.i, !llvm.loop !14
 
-_ZNK3ue211ue2_literal10any_nocaseEv.exit:         ; preds = %for.body.i.i
-  %cmp.not.i.le.i = icmp ult i64 %inc.i.i, %sub.ptr.div.i.i.i.i
-  %10 = freeze i1 %cmp.not.i.le.i
+_ZNK5boost14dynamic_bitsetImSaImEE3anyEv.exit.loopexit.i: ; preds = %for.body.i.i, %for.cond.i.i
+  %inc.i.i.lcssa = phi i64 [ %inc.i.i, %for.body.i.i ], [ %umax.i.i, %for.cond.i.i ]
+  %cmp.not.i.le.i = icmp ult i64 %inc.i.i.lcssa, %sub.ptr.div.i.i.i.i
+  br label %_ZNK3ue211ue2_literal10any_nocaseEv.exit
+
+_ZNK3ue211ue2_literal10any_nocaseEv.exit:         ; preds = %_ZNK5boost14dynamic_bitsetImSaImEE3anyEv.exit.loopexit.i, %for.body.preheader.i.i
+  %cmp.not.lcssa.i.i = phi i1 [ true, %for.body.preheader.i.i ], [ %cmp.not.i.le.i, %_ZNK5boost14dynamic_bitsetImSaImEE3anyEv.exit.loopexit.i ]
   %_M_string_length.i.i = getelementptr inbounds nuw i8, ptr %a, i64 8
-  %11 = load i64, ptr %_M_string_length.i.i, align 8
-  %12 = load ptr, ptr %a, align 8
-  %add.ptr.i = getelementptr inbounds i8, ptr %12, i64 %11
-  br i1 %10, label %for.cond.i.us.preheader, label %for.cond.i.preheader
+  %4 = load i64, ptr %_M_string_length.i.i, align 8
+  %5 = load ptr, ptr %a, align 8
+  %add.ptr.i = getelementptr inbounds i8, ptr %5, i64 %4
+  %i.0.i1 = add i64 %4, -1
+  %tobool.not.i2 = icmp eq i64 %i.0.i1, 0
+  br i1 %tobool.not.i2, label %_ZN3ue220maxStringSelfOverlapERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb.exit, label %land.rhs.i.lr.ph
 
-for.cond.i.preheader:                             ; preds = %_ZNK3ue211ue2_literal10any_nocaseEv.exit.thread11, %_ZNK3ue211ue2_literal10any_nocaseEv.exit.thread6, %_ZNK3ue211ue2_literal10any_nocaseEv.exit
-  %add.ptr.i10 = phi ptr [ %add.ptr.i9, %_ZNK3ue211ue2_literal10any_nocaseEv.exit.thread6 ], [ %add.ptr.i, %_ZNK3ue211ue2_literal10any_nocaseEv.exit ], [ %add.ptr.i15, %_ZNK3ue211ue2_literal10any_nocaseEv.exit.thread11 ]
-  %13 = phi ptr [ %3, %_ZNK3ue211ue2_literal10any_nocaseEv.exit.thread6 ], [ %12, %_ZNK3ue211ue2_literal10any_nocaseEv.exit ], [ %8, %_ZNK3ue211ue2_literal10any_nocaseEv.exit.thread11 ]
-  %14 = phi i64 [ %2, %_ZNK3ue211ue2_literal10any_nocaseEv.exit.thread6 ], [ %11, %_ZNK3ue211ue2_literal10any_nocaseEv.exit ], [ %7, %_ZNK3ue211ue2_literal10any_nocaseEv.exit.thread11 ]
-  br label %for.cond.i
+_ZNK3ue211ue2_literal10any_nocaseEv.exit.thread:  ; preds = %entry
+  %_M_string_length.i.i13 = getelementptr inbounds nuw i8, ptr %a, i64 8
+  %6 = load i64, ptr %_M_string_length.i.i13, align 8
+  %7 = load ptr, ptr %a, align 8
+  %add.ptr.i14 = getelementptr inbounds i8, ptr %7, i64 %6
+  %i.0.i115 = add i64 %6, -1
+  %tobool.not.i216 = icmp eq i64 %i.0.i115, 0
+  br i1 %tobool.not.i216, label %_ZN3ue220maxStringSelfOverlapERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb.exit, label %land.rhs.i.preheader
 
-for.cond.i.us.preheader:                          ; preds = %_ZNK3ue211ue2_literal10any_nocaseEv.exit.thread, %_ZNK3ue211ue2_literal10any_nocaseEv.exit
-  %add.ptr.i5 = phi ptr [ %add.ptr.i4, %_ZNK3ue211ue2_literal10any_nocaseEv.exit.thread ], [ %add.ptr.i, %_ZNK3ue211ue2_literal10any_nocaseEv.exit ]
-  %15 = phi ptr [ %6, %_ZNK3ue211ue2_literal10any_nocaseEv.exit.thread ], [ %12, %_ZNK3ue211ue2_literal10any_nocaseEv.exit ]
-  %16 = phi i64 [ %5, %_ZNK3ue211ue2_literal10any_nocaseEv.exit.thread ], [ %11, %_ZNK3ue211ue2_literal10any_nocaseEv.exit ]
-  %17 = add i64 %16, -1
-  %smin = tail call i64 @llvm.smin.i64(i64 %17, i64 0)
-  br label %for.cond.i.us
+land.rhs.i.lr.ph:                                 ; preds = %_ZNK3ue211ue2_literal10any_nocaseEv.exit
+  br i1 %cmp.not.lcssa.i.i, label %land.rhs.i.us.preheader, label %land.rhs.i.preheader
 
-for.cond.i.us:                                    ; preds = %for.cond.i.us.preheader, %cleanup.loopexit.i.i.us
-  %i.0.in.i.us = phi i64 [ %i.0.i.us, %cleanup.loopexit.i.i.us ], [ %16, %for.cond.i.us.preheader ]
-  %i.0.i.us = add i64 %i.0.in.i.us, -1
-  %cmp.not20.i.i.us = icmp sgt i64 %i.0.i.us, 0
+land.rhs.i.preheader:                             ; preds = %_ZNK3ue211ue2_literal10any_nocaseEv.exit.thread, %land.rhs.i.lr.ph
+  %8 = phi i64 [ %4, %land.rhs.i.lr.ph ], [ %6, %_ZNK3ue211ue2_literal10any_nocaseEv.exit.thread ]
+  %9 = phi ptr [ %5, %land.rhs.i.lr.ph ], [ %7, %_ZNK3ue211ue2_literal10any_nocaseEv.exit.thread ]
+  %add.ptr.i1824 = phi ptr [ %add.ptr.i, %land.rhs.i.lr.ph ], [ %add.ptr.i14, %_ZNK3ue211ue2_literal10any_nocaseEv.exit.thread ]
+  %i.0.i11923 = phi i64 [ %i.0.i1, %land.rhs.i.lr.ph ], [ %i.0.i115, %_ZNK3ue211ue2_literal10any_nocaseEv.exit.thread ]
+  br label %land.rhs.i
+
+land.rhs.i.us.preheader:                          ; preds = %land.rhs.i.lr.ph
+  %smin = tail call i64 @llvm.smin.i64(i64 %i.0.i1, i64 0)
+  br label %land.rhs.i.us
+
+land.rhs.i.us:                                    ; preds = %land.rhs.i.us.preheader, %for.cond.i.backedge.us
+  %i.0.i4.us = phi i64 [ %i.0.i.us, %for.cond.i.backedge.us ], [ %i.0.i1, %land.rhs.i.us.preheader ]
+  %i.0.in.i3.us = phi i64 [ %i.0.i4.us, %for.cond.i.backedge.us ], [ %4, %land.rhs.i.us.preheader ]
+  %cmp.not20.i.i.us = icmp sgt i64 %i.0.i4.us, 0
   br i1 %cmp.not20.i.i.us, label %for.body.i.i4.us.preheader, label %_ZN3ue220maxStringSelfOverlapERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb.exit
 
-for.body.i.i4.us.preheader:                       ; preds = %for.cond.i.us
-  %idx.neg.i.us = sub i64 1, %i.0.in.i.us
-  %add.ptr3.i.us = getelementptr inbounds i8, ptr %add.ptr.i5, i64 %idx.neg.i.us
+for.body.i.i4.us.preheader:                       ; preds = %land.rhs.i.us
+  %idx.neg.i.us = sub i64 1, %i.0.in.i3.us
+  %add.ptr3.i.us = getelementptr inbounds i8, ptr %add.ptr.i, i64 %idx.neg.i.us
   br label %for.body.i.i4.us
 
 for.body.i.i4.us:                                 ; preds = %for.body.i.i4.us.preheader, %for.body.i.i4.us
   %a.addr.022.i.i.us = phi ptr [ %incdec.ptr.i.i.us, %for.body.i.i4.us ], [ %add.ptr3.i.us, %for.body.i.i4.us.preheader ]
-  %b.addr.021.i.i.us = phi ptr [ %incdec.ptr7.i.i.us, %for.body.i.i4.us ], [ %15, %for.body.i.i4.us.preheader ]
-  %18 = load i8, ptr %a.addr.022.i.i.us, align 1
-  %19 = add i8 %18, -123
-  %20 = icmp ult i8 %19, -26
-  %sub.i17.i.i.us = add i8 %18, -32
-  %retval.0.i18.i.i.us = select i1 %20, i8 %18, i8 %sub.i17.i.i.us
-  %21 = load i8, ptr %b.addr.021.i.i.us, align 1
-  %22 = add i8 %21, -123
-  %23 = icmp ult i8 %22, -26
-  %sub.i.i.i.us = add i8 %21, -32
-  %retval.0.i.i.i.us = select i1 %23, i8 %21, i8 %sub.i.i.i.us
+  %b.addr.021.i.i.us = phi ptr [ %incdec.ptr7.i.i.us, %for.body.i.i4.us ], [ %5, %for.body.i.i4.us.preheader ]
+  %10 = load i8, ptr %a.addr.022.i.i.us, align 1
+  %11 = add i8 %10, -123
+  %12 = icmp ult i8 %11, -26
+  %sub.i17.i.i.us = add i8 %10, -32
+  %retval.0.i18.i.i.us = select i1 %12, i8 %10, i8 %sub.i17.i.i.us
+  %13 = load i8, ptr %b.addr.021.i.i.us, align 1
+  %14 = add i8 %13, -123
+  %15 = icmp ult i8 %14, -26
+  %sub.i.i.i.us = add i8 %13, -32
+  %retval.0.i.i.i.us = select i1 %15, i8 %13, i8 %sub.i.i.i.us
   %cmp4.not.i.i.us = icmp ne i8 %retval.0.i18.i.i.us, %retval.0.i.i.i.us
   %incdec.ptr.i.i.us = getelementptr inbounds nuw i8, ptr %a.addr.022.i.i.us, i64 1
   %incdec.ptr7.i.i.us = getelementptr inbounds nuw i8, ptr %b.addr.021.i.i.us, i64 1
-  %cmp.not.i.i.us = icmp uge ptr %incdec.ptr.i.i.us, %add.ptr.i5
+  %cmp.not.i.i.us = icmp uge ptr %incdec.ptr.i.i.us, %add.ptr.i
   %or.cond.not.i.i.us = select i1 %cmp4.not.i.i.us, i1 true, i1 %cmp.not.i.i.us
-  br i1 %or.cond.not.i.i.us, label %cleanup.loopexit.i.i.us, label %for.body.i.i4.us, !llvm.loop !10
+  br i1 %or.cond.not.i.i.us, label %_ZN3ue23cmpEPKcS1_mb.exit.i.us, label %for.body.i.i4.us, !llvm.loop !10
 
-cleanup.loopexit.i.i.us:                          ; preds = %for.body.i.i4.us
-  br i1 %cmp4.not.i.i.us, label %for.cond.i.us, label %_ZN3ue220maxStringSelfOverlapERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb.exit, !llvm.loop !15
+_ZN3ue23cmpEPKcS1_mb.exit.i.us:                   ; preds = %for.body.i.i4.us
+  br i1 %cmp4.not.i.i.us, label %for.cond.i.backedge.us, label %_ZN3ue220maxStringSelfOverlapERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb.exit
 
-for.cond.i:                                       ; preds = %for.cond.i.preheader, %land.rhs.i
-  %i.0.in.i = phi i64 [ %i.0.i, %land.rhs.i ], [ %14, %for.cond.i.preheader ]
-  %i.0.i = add i64 %i.0.in.i, -1
+for.cond.i.backedge.us:                           ; preds = %_ZN3ue23cmpEPKcS1_mb.exit.i.us
+  %i.0.i.us = add nsw i64 %i.0.i4.us, -1
+  %tobool.not.i.us = icmp eq i64 %i.0.i.us, 0
+  br i1 %tobool.not.i.us, label %_ZN3ue220maxStringSelfOverlapERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb.exit, label %land.rhs.i.us, !llvm.loop !15
+
+land.rhs.i:                                       ; preds = %land.rhs.i.preheader, %for.cond.i.backedge
+  %i.0.i4 = phi i64 [ %i.0.i, %for.cond.i.backedge ], [ %i.0.i11923, %land.rhs.i.preheader ]
+  %i.0.in.i3 = phi i64 [ %i.0.i4, %for.cond.i.backedge ], [ %8, %land.rhs.i.preheader ]
+  %idx.neg.i = sub i64 1, %i.0.in.i3
+  %add.ptr3.i = getelementptr inbounds i8, ptr %add.ptr.i1824, i64 %idx.neg.i
+  %bcmp = tail call i32 @bcmp(ptr %add.ptr3.i, ptr %9, i64 %i.0.i4)
+  %16 = icmp eq i32 %bcmp, 0
+  br i1 %16, label %_ZN3ue220maxStringSelfOverlapERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb.exit, label %for.cond.i.backedge
+
+for.cond.i.backedge:                              ; preds = %land.rhs.i
+  %i.0.i = add i64 %i.0.i4, -1
   %tobool.not.i = icmp eq i64 %i.0.i, 0
-  br i1 %tobool.not.i, label %_ZN3ue220maxStringSelfOverlapERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb.exit, label %land.rhs.i
+  br i1 %tobool.not.i, label %_ZN3ue220maxStringSelfOverlapERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb.exit, label %land.rhs.i, !llvm.loop !15
 
-land.rhs.i:                                       ; preds = %for.cond.i
-  %idx.neg.i = sub i64 1, %i.0.in.i
-  %add.ptr3.i = getelementptr inbounds i8, ptr %add.ptr.i10, i64 %idx.neg.i
-  %bcmp = tail call i32 @bcmp(ptr %add.ptr3.i, ptr %13, i64 %i.0.i)
-  %tobool6.not.i = icmp eq i32 %bcmp, 0
-  br i1 %tobool6.not.i, label %_ZN3ue220maxStringSelfOverlapERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb.exit, label %for.cond.i, !llvm.loop !15
-
-_ZN3ue220maxStringSelfOverlapERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb.exit: ; preds = %for.cond.i.us, %cleanup.loopexit.i.i.us, %for.cond.i, %land.rhs.i
-  %.us-phi = phi i64 [ 0, %for.cond.i ], [ %i.0.i, %land.rhs.i ], [ %smin, %for.cond.i.us ], [ %i.0.i.us, %cleanup.loopexit.i.i.us ]
-  ret i64 %.us-phi
+_ZN3ue220maxStringSelfOverlapERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb.exit: ; preds = %for.cond.i.backedge.us, %land.rhs.i.us, %_ZN3ue23cmpEPKcS1_mb.exit.i.us, %for.cond.i.backedge, %land.rhs.i, %_ZNK3ue211ue2_literal10any_nocaseEv.exit.thread, %_ZNK3ue211ue2_literal10any_nocaseEv.exit
+  %i.0.i.lcssa = phi i64 [ 0, %_ZNK3ue211ue2_literal10any_nocaseEv.exit ], [ 0, %_ZNK3ue211ue2_literal10any_nocaseEv.exit.thread ], [ %i.0.i4, %land.rhs.i ], [ 0, %for.cond.i.backedge ], [ %i.0.i4.us, %_ZN3ue23cmpEPKcS1_mb.exit.i.us ], [ %smin, %land.rhs.i.us ], [ 0, %for.cond.i.backedge.us ]
+  ret i64 %i.0.i.lcssa
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable

@@ -12577,9 +12577,9 @@ if.end6.i.i.i.i:                                  ; preds = %if.end.i.i.i.i294
   %wsd.i.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i45.i.i, i64 8
   %466 = load i32, ptr %wsd.i.i.i.i, align 8
   %cmp7.i.i.i.i = icmp eq i32 %466, -2147483648
-  br i1 %cmp7.i.i.i.i, label %if.end.thread43.i.i.i, label %if.end.i.i.i295
+  br i1 %cmp7.i.i.i.i, label %if.end.thread.i.i.i, label %if.end.i.i.i295
 
-if.end.thread43.i.i.i:                            ; preds = %if.end6.i.i.i.i
+if.end.thread.i.i.i:                              ; preds = %if.end6.i.i.i.i
   store i32 %sub.i.i.i.i, ptr %wsd.i.i.i.i, align 8
   br label %if.then16.i.i.i
 
@@ -12591,14 +12591,14 @@ land.rhs10.i.i.i:                                 ; preds = %if.else.i.i.i296
   %id.i.i.i = getelementptr inbounds nuw i8, ptr %467, i64 24
   %468 = load i32, ptr %id.i.i.i, align 8
   %469 = load i32, ptr %459, align 8
-  %cmp12.i.i.i = icmp eq i32 %468, %469
-  br i1 %cmp12.i.i.i, label %if.then16.i.i.i, label %for.inc.i47.i.i
+  %cmp12.not.i.i.i = icmp eq i32 %468, %469
+  br i1 %cmp12.not.i.i.i, label %if.then16.i.i.i, label %for.inc.i47.i.i
 
 if.end.i.i.i295:                                  ; preds = %if.end6.i.i.i.i
-  %cmp12.i.i.i.i = icmp eq i32 %sub.i.i.i.i, %466
-  br i1 %cmp12.i.i.i.i, label %if.then16.i.i.i, label %for.inc.i47.i.i
+  %cmp12.i.not.i.i.i = icmp eq i32 %sub.i.i.i.i, %466
+  br i1 %cmp12.i.not.i.i.i, label %if.then16.i.i.i, label %for.inc.i47.i.i
 
-if.then16.i.i.i:                                  ; preds = %if.end.i.i.i295, %land.rhs10.i.i.i, %if.end.thread43.i.i.i, %if.end.i.i.i.i294
+if.then16.i.i.i:                                  ; preds = %if.end.i.i.i295, %land.rhs10.i.i.i, %if.end.thread.i.i.i, %if.end.i.i.i.i294
   %idxprom17.i.i.i = sext i32 %j.037.i.i.i to i64
   %arrayidx18.i.i.i = getelementptr inbounds %struct.moved_block, ptr %pmb.0244.i.i, i64 %idxprom17.i.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %arrayidx18.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %arrayidx.i45.i.i, i64 16, i1 false)
@@ -12607,7 +12607,7 @@ if.then16.i.i.i:                                  ; preds = %if.end.i.i.i295, %l
   br label %for.inc.i47.i.i
 
 for.inc.i47.i.i:                                  ; preds = %if.then16.i.i.i, %if.end.i.i.i295, %land.rhs10.i.i.i, %if.else.i.i.i296, %land.rhs.i.i.i, %if.then.i.i67.i, %for.body.i43.i.i
-  %j.1.i.i.i = phi i32 [ %inc.i50.i.i, %if.then16.i.i.i ], [ %j.037.i.i.i, %if.end.i.i.i295 ], [ %j.037.i.i.i, %if.then.i.i67.i ], [ %j.037.i.i.i, %if.else.i.i.i296 ], [ %j.037.i.i.i, %for.body.i43.i.i ], [ %j.037.i.i.i, %land.rhs10.i.i.i ], [ %j.037.i.i.i, %land.rhs.i.i.i ]
+  %j.1.i.i.i = phi i32 [ %inc.i50.i.i, %if.then16.i.i.i ], [ %j.037.i.i.i, %if.end.i.i.i295 ], [ %j.037.i.i.i, %if.then.i.i67.i ], [ %j.037.i.i.i, %if.else.i.i.i296 ], [ %j.037.i.i.i, %for.body.i43.i.i ], [ %j.037.i.i.i, %land.rhs.i.i.i ], [ %j.037.i.i.i, %land.rhs10.i.i.i ]
   %indvars.iv.next.i48.i.i = add nuw nsw i64 %indvars.iv.i44.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i48.i.i, %460
   br i1 %exitcond.not.i.i, label %pmb_advance_or_null.exit.i.i, label %for.body.i43.i.i, !llvm.loop !41

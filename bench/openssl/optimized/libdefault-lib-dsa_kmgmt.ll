@@ -1013,8 +1013,7 @@ if.end7:                                          ; preds = %if.end3
 if.end15:                                         ; preds = %if.end7
   %call12 = tail call ptr @ossl_dsa_get0_params(ptr noundef nonnull %keydata) #6
   %call13 = tail call i32 @ossl_ffc_params_todata(ptr noundef %call12, ptr noundef nonnull %call4, ptr noundef null) #6
-  %tobool14 = icmp ne i32 %call13, 0
-  %land.ext = zext i1 %tobool14 to i32
+  %tobool14.not = icmp eq i32 %call13, 0
   %and16 = and i32 %selection, 3
   %cmp17.not = icmp eq i32 %and16, 0
   br i1 %cmp17.not, label %if.end27, label %if.then18
@@ -1025,7 +1024,7 @@ if.end15.thread:                                  ; preds = %if.end7
   br i1 %cmp17.not17, label %lor.lhs.false29, label %if.end.i
 
 if.then18:                                        ; preds = %if.end15
-  br i1 %tobool14, label %if.end.i, label %err
+  br i1 %tobool14.not, label %err, label %if.end.i
 
 if.end.i:                                         ; preds = %if.end15.thread, %if.then18
   %and19 = and i32 %selection, 1
@@ -1043,33 +1042,32 @@ if.end.i:                                         ; preds = %if.end15.thread, %i
 land.lhs.true2.i:                                 ; preds = %if.end.i
   %call.i = call i32 @ossl_param_build_set_bn(ptr noundef nonnull %call4, ptr noundef null, ptr noundef nonnull @.str.21, ptr noundef nonnull %0) #6
   %tobool3.not.i = icmp eq i32 %call.i, 0
-  br i1 %tobool3.not.i, label %dsa_key_todata.exit, label %if.end5.i
+  br i1 %tobool3.not.i, label %dsa_key_todata.exit.thread, label %if.end5.i
 
 if.end5.i:                                        ; preds = %land.lhs.true2.i, %if.end.i
   %1 = load ptr, ptr %pub.i, align 8
   %cmp6.not.i = icmp eq ptr %1, null
-  br i1 %cmp6.not.i, label %if.end11.i, label %land.lhs.true7.i
+  br i1 %cmp6.not.i, label %dsa_key_todata.exit, label %land.lhs.true7.i
 
 land.lhs.true7.i:                                 ; preds = %if.end5.i
   %call8.i = call i32 @ossl_param_build_set_bn(ptr noundef nonnull %call4, ptr noundef null, ptr noundef nonnull @.str.22, ptr noundef nonnull %1) #6
   %tobool9.not.i = icmp eq i32 %call8.i, 0
-  br i1 %tobool9.not.i, label %dsa_key_todata.exit, label %if.end11.i
+  br i1 %tobool9.not.i, label %dsa_key_todata.exit.thread, label %dsa_key_todata.exit
 
-if.end11.i:                                       ; preds = %land.lhs.true7.i, %if.end5.i
-  br label %dsa_key_todata.exit
-
-dsa_key_todata.exit:                              ; preds = %land.lhs.true2.i, %land.lhs.true7.i, %if.end11.i
-  %retval.0.i = phi i32 [ 1, %if.end11.i ], [ 0, %land.lhs.true2.i ], [ 0, %land.lhs.true7.i ]
+dsa_key_todata.exit.thread:                       ; preds = %land.lhs.true2.i, %land.lhs.true7.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %priv.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %pub.i)
-  br label %if.end27
+  br label %err
 
-if.end27:                                         ; preds = %dsa_key_todata.exit, %if.end15
-  %ok.1 = phi i32 [ %land.ext, %if.end15 ], [ %retval.0.i, %dsa_key_todata.exit ]
-  %tobool28.not = icmp eq i32 %ok.1, 0
-  br i1 %tobool28.not, label %err, label %lor.lhs.false29
+dsa_key_todata.exit:                              ; preds = %if.end5.i, %land.lhs.true7.i
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %priv.i)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %pub.i)
+  br label %lor.lhs.false29
 
-lor.lhs.false29:                                  ; preds = %if.end15.thread, %if.end27
+if.end27:                                         ; preds = %if.end15
+  br i1 %tobool14.not, label %err, label %lor.lhs.false29
+
+lor.lhs.false29:                                  ; preds = %dsa_key_todata.exit, %if.end15.thread, %if.end27
   %call30 = call ptr @OSSL_PARAM_BLD_to_param(ptr noundef nonnull %call4) #6
   %cmp31 = icmp eq ptr %call30, null
   br i1 %cmp31, label %err, label %if.end33
@@ -1079,8 +1077,8 @@ if.end33:                                         ; preds = %lor.lhs.false29
   call void @OSSL_PARAM_free(ptr noundef nonnull %call30) #6
   br label %err
 
-err:                                              ; preds = %if.then18, %if.end27, %lor.lhs.false29, %if.end33
-  %ok.2 = phi i32 [ %call34, %if.end33 ], [ 0, %lor.lhs.false29 ], [ 0, %if.end27 ], [ 0, %if.then18 ]
+err:                                              ; preds = %dsa_key_todata.exit.thread, %if.then18, %if.end27, %lor.lhs.false29, %if.end33
+  %ok.2 = phi i32 [ %call34, %if.end33 ], [ 0, %lor.lhs.false29 ], [ 0, %if.end27 ], [ 0, %if.then18 ], [ 0, %dsa_key_todata.exit.thread ]
   call void @OSSL_PARAM_BLD_free(ptr noundef nonnull %call4) #6
   br label %return
 

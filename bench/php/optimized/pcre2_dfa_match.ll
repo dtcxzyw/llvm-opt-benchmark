@@ -728,27 +728,25 @@ define i32 @php_pcre2_dfa_match(ptr noundef %0, ptr noundef %1, i64 noundef %2, 
   %373 = icmp eq i8 %371, %.0553
   %374 = select i1 %372, i1 true, i1 %373
   %narrow = select i1 %.not629, i1 %374, i1 false
-  %375 = zext i1 %narrow to i32
-  %376 = xor i1 %narrow, true
-  %or.cond21 = select i1 %376, i1 %299, i1 false
-  br i1 %or.cond21, label %377, label %387
+  %375 = xor i1 %narrow, true
+  %or.cond21 = select i1 %375, i1 %299, i1 false
+  br i1 %or.cond21, label %376, label %387
 
-377:                                              ; preds = %370
-  %378 = zext i8 %371 to i32
-  %379 = lshr i32 %378, 3
-  %380 = zext nneg i32 %379 to i64
-  %381 = getelementptr inbounds nuw i8, ptr %.0550, i64 %380
-  %382 = load i8, ptr %381, align 1
-  %383 = zext i8 %382 to i32
-  %384 = and i32 %378, 7
-  %385 = lshr i32 %383, %384
-  %386 = and i32 %385, 1
-  br label %387
+376:                                              ; preds = %370
+  %377 = zext i8 %371 to i32
+  %378 = lshr i32 %377, 3
+  %379 = zext nneg i32 %378 to i64
+  %380 = getelementptr inbounds nuw i8, ptr %.0550, i64 %379
+  %381 = load i8, ptr %380, align 1
+  %382 = zext i8 %381 to i32
+  %383 = and i32 %377, 7
+  %384 = shl nuw nsw i32 1, %383
+  %385 = and i32 %384, %382
+  %386 = icmp eq i32 %385, 0
+  br i1 %386, label %.thread700, label %514
 
-387:                                              ; preds = %370, %377
-  %.0537 = phi i32 [ %386, %377 ], [ %375, %370 ]
-  %.not656 = icmp eq i32 %.0537, 0
-  br i1 %.not656, label %.thread700, label %514
+387:                                              ; preds = %370
+  br i1 %narrow, label %514, label %.thread700
 
 388:                                              ; preds = %.critedge13
   br i1 %.not629, label %389, label %427
@@ -1014,10 +1012,10 @@ define i32 @php_pcre2_dfa_match(ptr noundef %0, ptr noundef %1, i64 noundef %2, 
   %or.cond679 = select i1 %512, i1 true, i1 %.not647
   br i1 %or.cond679, label %514, label %.thread700
 
-514:                                              ; preds = %492, %489, %422, %495, %._crit_edge, %428, %.critedge23, %367, %387
-  %.2562 = phi ptr [ %.0560, %387 ], [ %.0560, %367 ], [ %.4564, %422 ], [ %.0560, %.critedge23 ], [ %.0560, %428 ], [ %.0560, %._crit_edge ], [ %.0560, %495 ], [ %.0560, %489 ], [ %.0560, %492 ]
-  %.2557 = phi ptr [ %.0555, %387 ], [ %.0555, %367 ], [ %.4559, %422 ], [ %.0555, %.critedge23 ], [ %.0555, %428 ], [ %.0555, %._crit_edge ], [ %.0555, %495 ], [ %.0555, %489 ], [ %.0555, %492 ]
-  %.2545 = phi ptr [ %.0543, %387 ], [ %.0543, %367 ], [ %.3546, %422 ], [ %.6, %.critedge23 ], [ %.0543, %428 ], [ %.8.lcssa, %._crit_edge ], [ %.0543, %495 ], [ %.6, %489 ], [ %spec.select678, %492 ]
+514:                                              ; preds = %376, %492, %489, %422, %495, %._crit_edge, %428, %.critedge23, %367, %387
+  %.2562 = phi ptr [ %.0560, %387 ], [ %.0560, %367 ], [ %.4564, %422 ], [ %.0560, %.critedge23 ], [ %.0560, %428 ], [ %.0560, %._crit_edge ], [ %.0560, %495 ], [ %.0560, %489 ], [ %.0560, %492 ], [ %.0560, %376 ]
+  %.2557 = phi ptr [ %.0555, %387 ], [ %.0555, %367 ], [ %.4559, %422 ], [ %.0555, %.critedge23 ], [ %.0555, %428 ], [ %.0555, %._crit_edge ], [ %.0555, %495 ], [ %.0555, %489 ], [ %.0555, %492 ], [ %.0555, %376 ]
+  %.2545 = phi ptr [ %.0543, %387 ], [ %.0543, %367 ], [ %.3546, %422 ], [ %.6, %.critedge23 ], [ %.0543, %428 ], [ %.8.lcssa, %._crit_edge ], [ %.0543, %495 ], [ %.6, %489 ], [ %spec.select678, %492 ], [ %.0543, %376 ]
   %515 = load ptr, ptr %148, align 8
   %516 = load i32, ptr %155, align 4
   %517 = and i32 %516, 48
@@ -1269,8 +1267,8 @@ define i32 @php_pcre2_dfa_match(ptr noundef %0, ptr noundef %1, i64 noundef %2, 
   %.0543.be = phi ptr [ %spec.select694, %632 ], [ %.9, %628 ], [ %.9, %625 ], [ %.9, %620 ]
   br label %310
 
-.thread700:                                       ; preds = %368, %519, %.critedge35, %593, %604, %606, %543, %542, %387, %422, %._crit_edge, %582, %585, %586
-  %.0533 = phi i32 [ %550, %582 ], [ %550, %586 ], [ %550, %585 ], [ -1, %._crit_edge ], [ -1, %422 ], [ -1, %387 ], [ -1, %542 ], [ -1, %543 ], [ -1, %606 ], [ -1, %604 ], [ -1, %593 ], [ -1, %.critedge35 ], [ -1, %519 ], [ -1, %368 ]
+.thread700:                                       ; preds = %368, %519, %.critedge35, %593, %604, %606, %543, %542, %387, %422, %._crit_edge, %376, %582, %585, %586
+  %.0533 = phi i32 [ %550, %582 ], [ %550, %586 ], [ %550, %585 ], [ -1, %376 ], [ -1, %._crit_edge ], [ -1, %422 ], [ -1, %387 ], [ -1, %542 ], [ -1, %543 ], [ -1, %606 ], [ -1, %604 ], [ -1, %593 ], [ -1, %.critedge35 ], [ -1, %519 ], [ -1, %368 ]
   %636 = load ptr, ptr %12, align 16
   %.not668772 = icmp eq ptr %636, null
   br i1 %.not668772, label %.loopexit, label %.lr.ph773

@@ -4438,12 +4438,12 @@ define internal i32 @ipip_rcv(ptr noundef %0) #4 align 16 {
   %23 = load i32, ptr %22, align 4
   %24 = tail call fastcc ptr @ipip6_tunnel_lookup(ptr noundef %19, ptr noundef %3, i32 noundef %21, i32 noundef %23, i32 noundef %11)
   %25 = icmp eq ptr %24, null
-  br i1 %25, label %107, label %26
+  br i1 %25, label %103, label %26
 
 26:                                               ; preds = %10
   %27 = getelementptr inbounds nuw i8, ptr %24, i64 129
   %28 = load i8, ptr %27, align 1
-  switch i8 %28, label %.thread11 [
+  switch i8 %28, label %102 [
     i8 4, label %29
     i8 0, label %29
   ]
@@ -4455,8 +4455,8 @@ define internal i32 @ipip_rcv(ptr noundef %0) #4 align 16 {
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 127
   %34 = load i8, ptr %33, align 1
   %35 = and i8 %34, 1
-  %.not = icmp eq i8 %35, 0
-  br i1 %.not, label %75, label %36
+  %.not11 = icmp eq i8 %35, 0
+  br i1 %.not11, label %76, label %36
 
 36:                                               ; preds = %29
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 216
@@ -4467,18 +4467,18 @@ define internal i32 @ipip_rcv(ptr noundef %0) #4 align 16 {
   %42 = shl nuw nsw i64 %41, 3
   %43 = getelementptr i8, ptr %38, i64 %42
   %44 = icmp eq ptr %43, null
-  br i1 %44, label %.thread6, label %45
+  br i1 %44, label %.thread8, label %45
 
 45:                                               ; preds = %36
   %46 = getelementptr inbounds nuw i8, ptr %43, i64 4
   %47 = load i32, ptr %46, align 4
   %48 = icmp eq i32 %47, 0
-  br i1 %48, label %.thread6, label %49
+  br i1 %48, label %.thread8, label %49
 
 49:                                               ; preds = %45
   %50 = load i32, ptr %43, align 8
   %51 = icmp eq i32 %50, %47
-  br i1 %51, label %52, label %.thread6
+  br i1 %51, label %52, label %.thread8
 
 52:                                               ; preds = %49
   %53 = getelementptr inbounds nuw i8, ptr %43, i64 64
@@ -4486,7 +4486,7 @@ define internal i32 @ipip_rcv(ptr noundef %0) #4 align 16 {
   %55 = sext i32 %54 to i64
   %56 = getelementptr [1 x %struct.xfrm_offload], ptr %53, i64 0, i64 %55
   %57 = icmp eq ptr %56, null
-  br i1 %57, label %.thread6, label %58
+  br i1 %57, label %.thread8, label %58
 
 58:                                               ; preds = %52
   %59 = getelementptr inbounds nuw i8, ptr %43, i64 16
@@ -4496,78 +4496,73 @@ define internal i32 @ipip_rcv(ptr noundef %0) #4 align 16 {
   %63 = load i8, ptr %62, align 8
   %64 = and i8 %63, 12
   %65 = icmp eq i8 %64, 8
-  br i1 %65, label %66, label %.thread6
+  br i1 %65, label %66, label %.thread8
 
 66:                                               ; preds = %58
   %67 = getelementptr inbounds nuw i8, ptr %56, i64 8
   %68 = load i32, ptr %67, align 4
   %69 = and i32 %68, 2
   %70 = icmp eq i32 %69, 0
-  br i1 %70, label %.thread11, label %71
+  br i1 %70, label %102, label %71
 
 71:                                               ; preds = %66
   %72 = getelementptr inbounds nuw i8, ptr %56, i64 12
   %73 = load i32, ptr %72, align 4
   %74 = and i32 %73, 1
-  br label %90
+  %75 = icmp eq i32 %74, 0
+  br i1 %75, label %102, label %.critedge5
 
-75:                                               ; preds = %29
-  %76 = getelementptr inbounds nuw i8, ptr %32, i64 2816
-  %77 = load i32, ptr %76, align 4
-  %.not14 = icmp eq i32 %77, 0
-  br i1 %.not14, label %78, label %.thread6
+76:                                               ; preds = %29
+  %77 = getelementptr inbounds nuw i8, ptr %32, i64 2816
+  %78 = load i32, ptr %77, align 4
+  %.not12 = icmp eq i32 %78, 0
+  br i1 %.not12, label %79, label %.thread8
 
-78:                                               ; preds = %75
-  %79 = getelementptr inbounds nuw i8, ptr %32, i64 2968
-  %80 = load i8, ptr %79, align 1
-  %81 = icmp eq i8 %80, 2
-  br i1 %81, label %.thread10, label %.thread6
+79:                                               ; preds = %76
+  %80 = getelementptr inbounds nuw i8, ptr %32, i64 2968
+  %81 = load i8, ptr %80, align 1
+  %82 = icmp eq i8 %81, 2
+  br i1 %82, label %.critedge5, label %.thread8
 
-.thread6:                                         ; preds = %36, %45, %49, %52, %58, %78, %75
-  %82 = getelementptr inbounds nuw i8, ptr %0, i64 60
-  %83 = load i16, ptr %82, align 4
-  %84 = and i16 %83, 256
-  %85 = icmp eq i16 %84, 0
-  br i1 %85, label %86, label %.thread10
+.thread8:                                         ; preds = %36, %45, %49, %52, %58, %79, %76
+  %83 = getelementptr inbounds nuw i8, ptr %0, i64 60
+  %84 = load i16, ptr %83, align 4
+  %85 = and i16 %84, 256
+  %86 = icmp eq i16 %85, 0
+  br i1 %86, label %87, label %.critedge5
 
-86:                                               ; preds = %.thread6
-  %87 = tail call i32 @__xfrm_policy_check(ptr noundef null, i32 noundef 0, ptr noundef %0, i16 noundef zeroext 2) #18
-  %88 = icmp ne i32 %87, 0
-  %89 = zext i1 %88 to i32
-  br label %90
+87:                                               ; preds = %.thread8
+  %88 = tail call i32 @__xfrm_policy_check(ptr noundef null, i32 noundef 0, ptr noundef %0, i16 noundef zeroext 2) #18
+  %.not = icmp eq i32 %88, 0
+  br i1 %.not, label %102, label %.critedge5
 
-90:                                               ; preds = %86, %71
-  %91 = phi i32 [ %74, %71 ], [ %89, %86 ]
-  %92 = icmp eq i32 %91, 0
-  br i1 %92, label %.thread11, label %.thread10
+.critedge5:                                       ; preds = %71, %.thread8, %79, %87
+  %89 = tail call i32 @__iptunnel_pull_header(ptr noundef %0, i32 noundef 0, i16 noundef zeroext 8, i1 noundef zeroext false, i1 noundef zeroext false) #18
+  %90 = icmp eq i32 %89, 0
+  br i1 %90, label %.critedge, label %102
 
-.thread10:                                        ; preds = %78, %.thread6, %90
-  %93 = tail call i32 @__iptunnel_pull_header(ptr noundef %0, i32 noundef 0, i16 noundef zeroext 8, i1 noundef zeroext false, i1 noundef zeroext false) #18
-  %94 = icmp eq i32 %93, 0
-  br i1 %94, label %95, label %.thread11
+.critedge:                                        ; preds = %.critedge5
+  %91 = getelementptr inbounds nuw i8, ptr %0, i64 200
+  %92 = load ptr, ptr %91, align 8
+  %93 = load ptr, ptr %12, align 8
+  %94 = ptrtoint ptr %92 to i64
+  %95 = ptrtoint ptr %93 to i64
+  %96 = sub i64 %94, %95
+  %97 = trunc i64 %96 to i16
+  %98 = getelementptr inbounds nuw i8, ptr %0, i64 182
+  store i16 %97, ptr %98, align 2
+  %99 = load i8, ptr @log_ecn_error, align 1, !range !55, !noundef !56
+  %100 = icmp ne i8 %99, 0
+  %101 = tail call i32 @ip_tunnel_rcv(ptr noundef nonnull %24, ptr noundef %0, ptr noundef nonnull @ipip_tpi, ptr noundef null, i1 noundef zeroext %100) #18
+  br label %103
 
-95:                                               ; preds = %.thread10
-  %96 = getelementptr inbounds nuw i8, ptr %0, i64 200
-  %97 = load ptr, ptr %96, align 8
-  %98 = load ptr, ptr %12, align 8
-  %99 = ptrtoint ptr %97 to i64
-  %100 = ptrtoint ptr %98 to i64
-  %101 = sub i64 %99, %100
-  %102 = trunc i64 %101 to i16
-  %103 = getelementptr inbounds nuw i8, ptr %0, i64 182
-  store i16 %102, ptr %103, align 2
-  %104 = load i8, ptr @log_ecn_error, align 1, !range !55, !noundef !56
-  %105 = icmp ne i8 %104, 0
-  %106 = tail call i32 @ip_tunnel_rcv(ptr noundef nonnull %24, ptr noundef %0, ptr noundef nonnull @ipip_tpi, ptr noundef null, i1 noundef zeroext %105) #18
-  br label %107
-
-.thread11:                                        ; preds = %66, %26, %90, %.thread10
+102:                                              ; preds = %26, %87, %.critedge5, %66, %71
   tail call void @kfree_skb_reason(ptr noundef %0, i32 noundef 2) #18
-  br label %107
+  br label %103
 
-107:                                              ; preds = %95, %.thread11, %10
-  %108 = phi i32 [ 0, %.thread11 ], [ %106, %95 ], [ 1, %10 ]
-  ret i32 %108
+103:                                              ; preds = %.critedge, %102, %10
+  %104 = phi i32 [ 0, %102 ], [ %101, %.critedge ], [ 1, %10 ]
+  ret i32 %104
 }
 
 ; Function Attrs: null_pointer_is_valid

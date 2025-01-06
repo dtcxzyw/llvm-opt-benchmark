@@ -780,34 +780,20 @@ if.end22:                                         ; preds = %if.then18
   %bf.load23 = load i8, ptr %enc1, align 4
   %3 = and i8 %bf.load23, 64
   %cmp26 = icmp eq i8 %3, 0
-  br i1 %cmp26, label %if.then27, label %if.else33
-
-if.then27:                                        ; preds = %if.end22
-  %bf.lshr30 = lshr i8 %bf.load23, 1
-  %bf.clear31 = and i8 %bf.lshr30, 1
-  %bf.cast32 = zext nneg i8 %bf.clear31 to i32
-  br label %if.end40
-
-if.else33:                                        ; preds = %if.end22
   %4 = and i8 %bf.load23, 2
-  %tobool39.not = icmp eq i8 %4, 0
-  %lnot.ext = zext i1 %tobool39.not to i32
-  br label %if.end40
-
-if.end40:                                         ; preds = %if.else33, %if.then27
-  %use_forward_transform.0 = phi i32 [ %bf.cast32, %if.then27 ], [ %lnot.ext, %if.else33 ]
-  %tobool41.not = icmp eq i32 %use_forward_transform.0, 0
+  %tobool39.not = icmp ne i8 %4, 0
+  %use_forward_transform.0 = xor i1 %cmp26, %tobool39.not
   %keylen.tr = trunc i64 %keylen to i32
   %conv46 = shl i32 %keylen.tr, 3
   %ks47 = getelementptr inbounds nuw i8, ptr %vctx, i64 192
   %block49 = getelementptr inbounds nuw i8, ptr %vctx, i64 48
-  br i1 %tobool41.not, label %if.else44, label %if.then42
+  br i1 %use_forward_transform.0, label %if.else44, label %if.then42
 
-if.then42:                                        ; preds = %if.end40
+if.then42:                                        ; preds = %if.end22
   %call43 = tail call i32 @AES_set_encrypt_key(ptr noundef nonnull %key, i32 noundef %conv46, ptr noundef nonnull %ks47) #3
   br label %if.end51.sink.split
 
-if.else44:                                        ; preds = %if.end40
+if.else44:                                        ; preds = %if.end22
   %call48 = tail call i32 @AES_set_decrypt_key(ptr noundef nonnull %key, i32 noundef %conv46, ptr noundef nonnull %ks47) #3
   br label %if.end51.sink.split
 

@@ -444,10 +444,9 @@ define internal { double, double } @_ZL14gnom_e_inverse5PJ_XYP8PJconsts(double %
 .split.us:                                        ; preds = %15, %32
   %29 = phi double [ %39, %32 ], [ %24, %15 ]
   %30 = phi i32 [ %43, %32 ], [ 9, %15 ]
-  %.030.us = phi i32 [ %.1.us, %32 ], [ 0, %15 ]
+  %.030.us = phi i1 [ %42, %32 ], [ true, %15 ]
   %31 = call double @geod_genposition(ptr noundef nonnull %5, i32 noundef 0, double noundef %29, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef null, ptr noundef nonnull %4, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef null, ptr noundef null)
-  %cond.us = icmp eq i32 %.030.us, 0
-  br i1 %cond.us, label %32, label %.loopexit
+  br i1 %.030.us, label %32, label %.loopexit
 
 32:                                               ; preds = %.split.us
   %33 = load double, ptr %8, align 8
@@ -460,8 +459,7 @@ define internal { double, double } @_ZL14gnom_e_inverse5PJ_XYP8PJconsts(double %
   store double %39, ptr %4, align 8
   %40 = call double @llvm.fabs.f64(double %37)
   %41 = load double, ptr @_ZZL14gnom_e_inverse5PJ_XYP8PJconstsE4eps_, align 8
-  %42 = fcmp ult double %40, %41
-  %.1.us = zext i1 %42 to i32
+  %42 = fcmp oge double %40, %41
   %43 = add nsw i32 %30, -1
   %.not26.us = icmp eq i32 %30, 0
   br i1 %.not26.us, label %.split32.us, label %.split.us, !llvm.loop !5
@@ -469,10 +467,9 @@ define internal { double, double } @_ZL14gnom_e_inverse5PJ_XYP8PJconsts(double %
 .split:                                           ; preds = %15, %47
   %44 = phi double [ %53, %47 ], [ %24, %15 ]
   %45 = phi i32 [ %57, %47 ], [ 9, %15 ]
-  %.030 = phi i32 [ %.1, %47 ], [ 0, %15 ]
+  %.030 = phi i1 [ %56, %47 ], [ true, %15 ]
   %46 = call double @geod_genposition(ptr noundef nonnull %5, i32 noundef 0, double noundef %44, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef null, ptr noundef nonnull %4, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef null, ptr noundef null)
-  %cond = icmp eq i32 %.030, 0
-  br i1 %cond, label %47, label %.loopexit
+  br i1 %.030, label %47, label %.loopexit
 
 47:                                               ; preds = %.split
   %48 = load double, ptr %8, align 8
@@ -484,16 +481,14 @@ define internal { double, double } @_ZL14gnom_e_inverse5PJ_XYP8PJconsts(double %
   store double %53, ptr %4, align 8
   %54 = call double @llvm.fabs.f64(double %51)
   %55 = load double, ptr @_ZZL14gnom_e_inverse5PJ_XYP8PJconstsE4eps_, align 8
-  %56 = fcmp ult double %54, %55
-  %.1 = zext i1 %56 to i32
+  %56 = fcmp oge double %54, %55
   %57 = add nsw i32 %45, -1
   %.not26 = icmp eq i32 %45, 0
   br i1 %.not26, label %.split32.us, label %.split, !llvm.loop !5
 
 .split32.us:                                      ; preds = %47, %32
-  %.us-phi = phi i32 [ %.1.us, %32 ], [ %.1, %47 ]
-  %.not28 = icmp eq i32 %.us-phi, 0
-  br i1 %.not28, label %62, label %.loopexit
+  %.us-phi = phi i1 [ %42, %32 ], [ %56, %47 ]
+  br i1 %.us-phi, label %62, label %.loopexit
 
 .loopexit:                                        ; preds = %.split, %.split.us, %.split32.us
   %58 = load double, ptr %6, align 8

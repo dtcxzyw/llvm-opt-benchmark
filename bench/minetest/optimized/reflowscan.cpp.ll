@@ -353,12 +353,11 @@ _ZNK14NodeDefManager3getERK7MapNode.exit:         ; preds = %cond.false.i.i, %la
   %cond-lvalue.i.i = phi ptr [ %add.ptr.i14.i.i, %cond.false.i.i ], [ %add.ptr.i.i.i, %land.lhs.true.i.i ]
   %liquid_type.i = getelementptr inbounds nuw i8, ptr %cond-lvalue.i.i, i64 3089
   %24 = load i8, ptr %liquid_type.i, align 1, !tbaa !69
-  %cmp.i240 = icmp ne i8 %24, 0
-  %frombool13 = zext i1 %cmp.i240 to i8
+  %cmp.i240.not = icmp eq i8 %24, 0
   br label %if.end14
 
 if.end14:                                         ; preds = %land.lhs.true.i214, %_ZNK14NodeDefManager3getERK7MapNode.exit, %_ZN10ReflowScan11lookupBlockEiii.exit236
-  %was_liquid.0 = phi i8 [ %frombool13, %_ZNK14NodeDefManager3getERK7MapNode.exit ], [ 0, %_ZN10ReflowScan11lookupBlockEiii.exit236 ], [ 0, %land.lhs.true.i214 ]
+  %was_liquid.0 = phi i1 [ %cmp.i240.not, %_ZNK14NodeDefManager3getERK7MapNode.exit ], [ true, %_ZN10ReflowScan11lookupBlockEiii.exit236 ], [ true, %land.lhs.true.i214 ]
   %was_ignore.0 = phi i1 [ %cmp, %_ZNK14NodeDefManager3getERK7MapNode.exit ], [ true, %_ZN10ReflowScan11lookupBlockEiii.exit236 ], [ true, %land.lhs.true.i214 ]
   %conv18 = zext i32 %rem to i64
   %conv19 = zext i32 %rem4 to i64
@@ -428,9 +427,9 @@ _ZN10ReflowScan11lookupBlockEiii.exit275:         ; preds = %land.lhs.true.i252
 
 for.body:                                         ; preds = %if.end79, %if.end14
   %indvars.iv = phi i64 [ 15, %if.end14 ], [ %indvars.iv.next, %if.end79 ]
-  %conv15487 = phi i32 [ 15, %if.end14 ], [ %65, %if.end79 ]
+  %conv15487 = phi i32 [ 15, %if.end14 ], [ %64, %if.end79 ]
   %was_ignore.1486 = phi i1 [ %was_ignore.0, %if.end14 ], [ %cmp25, %if.end79 ]
-  %was_liquid.1485 = phi i8 [ %was_liquid.0, %if.end14 ], [ %frombool28, %if.end79 ]
+  %was_liquid.1485 = phi i1 [ %was_liquid.0, %if.end14 ], [ %65, %if.end79 ]
   %was_checked.0484 = phi i8 [ 0, %if.end14 ], [ %was_checked.1, %if.end79 ]
   %was_pushed.0483 = phi i8 [ 0, %if.end14 ], [ %was_pushed.1, %if.end79 ]
   %34 = load ptr, ptr %data.i276, align 8, !tbaa !23
@@ -469,10 +468,8 @@ _ZNK14NodeDefManager3getERK7MapNode.exit299:      ; preds = %cond.false.i.i292, 
   %liquid_type.i300 = getelementptr inbounds nuw i8, ptr %cond-lvalue.i.i294, i64 3089
   %39 = load i8, ptr %liquid_type.i300, align 1, !tbaa !69
   %cmp.i301 = icmp ne i8 %39, 0
-  %frombool28 = zext i1 %cmp.i301 to i8
   %or.cond.not481 = or i1 %was_ignore.1486, %cmp25
-  %40 = icmp eq i8 %was_liquid.1485, 0
-  %cmp36 = xor i1 %40, %cmp.i301
+  %cmp36 = xor i1 %was_liquid.1485, %cmp.i301
   %or.cond473 = select i1 %or.cond.not481, i1 true, i1 %cmp36
   br i1 %or.cond473, label %if.end79, label %if.else38
 
@@ -500,15 +497,15 @@ _ZN10ReflowScan28isLiquidHorizontallyFlowableEiii.exit: ; preds = %lor.lhs.false
   br i1 %call7.i, label %if.then46, label %if.end79
 
 if.then46:                                        ; preds = %_ZN10ReflowScan28isLiquidHorizontallyFlowableEiii.exit, %lor.lhs.false3.i, %lor.lhs.false.i, %lor.lhs.false43, %if.then40
-  %41 = load ptr, ptr %m_liquid_queue65, align 8, !tbaa !13
+  %40 = load ptr, ptr %m_liquid_queue65, align 8, !tbaa !13
   call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %ref.tmp) #15
-  %42 = load i16, ptr %m_rel_block_pos67, align 2, !tbaa !20
-  %add.i304 = add i16 %42, %conv69
-  %43 = load i16, ptr %Y.i327, align 8, !tbaa !21
-  %44 = trunc i64 %indvars.iv to i16
-  %add8.i306 = add i16 %43, %44
-  %45 = load i16, ptr %Z.i330, align 2, !tbaa !22
-  %add13.i = add i16 %45, %conv73
+  %41 = load i16, ptr %m_rel_block_pos67, align 2, !tbaa !20
+  %add.i304 = add i16 %41, %conv69
+  %42 = load i16, ptr %Y.i327, align 8, !tbaa !21
+  %43 = trunc i64 %indvars.iv to i16
+  %add8.i306 = add i16 %42, %43
+  %44 = load i16, ptr %Z.i330, align 2, !tbaa !22
+  %add13.i = add i16 %44, %conv73
   %retval.sroa.3.0.insert.ext.i = zext i16 %add13.i to i48
   %retval.sroa.3.0.insert.shift.i = shl nuw i48 %retval.sroa.3.0.insert.ext.i, 32
   %retval.sroa.2.0.insert.ext.i = zext i16 %add8.i306 to i48
@@ -517,30 +514,30 @@ if.then46:                                        ; preds = %_ZN10ReflowScan28is
   %retval.sroa.0.0.insert.ext.i = zext i16 %add.i304 to i48
   %retval.sroa.0.0.insert.insert.i = or disjoint i48 %retval.sroa.2.0.insert.insert.i, %retval.sroa.0.0.insert.ext.i
   store i48 %retval.sroa.0.0.insert.insert.i, ptr %ref.tmp, align 8
-  %call.i.i = call { ptr, i8 } @_ZNSt8_Rb_treeIN3irr4core8vector3dIsEES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE16_M_insert_uniqueIRKS3_EESt4pairISt17_Rb_tree_iteratorIS3_EbEOT_(ptr noundef nonnull align 8 dereferenceable(48) %41, ptr noundef nonnull align 2 dereferenceable(6) %ref.tmp)
-  %46 = extractvalue { ptr, i8 } %call.i.i, 1
-  %47 = and i8 %46, 1
-  %tobool.not.i308.not = icmp eq i8 %47, 0
+  %call.i.i = call { ptr, i8 } @_ZNSt8_Rb_treeIN3irr4core8vector3dIsEES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE16_M_insert_uniqueIRKS3_EESt4pairISt17_Rb_tree_iteratorIS3_EbEOT_(ptr noundef nonnull align 8 dereferenceable(48) %40, ptr noundef nonnull align 2 dereferenceable(6) %ref.tmp)
+  %45 = extractvalue { ptr, i8 } %call.i.i, 1
+  %46 = and i8 %45, 1
+  %tobool.not.i308.not = icmp eq i8 %46, 0
   br i1 %tobool.not.i308.not, label %_ZN11UniqueQueueIN3irr4core8vector3dIsEEE9push_backERKS3_.exit, label %if.then.i309
 
 if.then.i309:                                     ; preds = %if.then46
-  %_M_finish.i.i.i310 = getelementptr inbounds nuw i8, ptr %41, i64 96
-  %48 = load ptr, ptr %_M_finish.i.i.i310, align 8, !tbaa !98
-  %_M_last.i.i.i = getelementptr inbounds nuw i8, ptr %41, i64 112
-  %49 = load ptr, ptr %_M_last.i.i.i, align 8, !tbaa !101
-  %add.ptr.i.i.i311 = getelementptr inbounds i8, ptr %49, i64 -6
-  %cmp.not.i.i.i = icmp eq ptr %48, %add.ptr.i.i.i311
+  %_M_finish.i.i.i310 = getelementptr inbounds nuw i8, ptr %40, i64 96
+  %47 = load ptr, ptr %_M_finish.i.i.i310, align 8, !tbaa !98
+  %_M_last.i.i.i = getelementptr inbounds nuw i8, ptr %40, i64 112
+  %48 = load ptr, ptr %_M_last.i.i.i, align 8, !tbaa !101
+  %add.ptr.i.i.i311 = getelementptr inbounds i8, ptr %48, i64 -6
+  %cmp.not.i.i.i = icmp eq ptr %47, %add.ptr.i.i.i311
   br i1 %cmp.not.i.i.i, label %if.else.i.i.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.then.i309
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %48, ptr noundef nonnull align 8 dereferenceable(6) %ref.tmp, i64 6, i1 false), !tbaa.struct !14
-  %50 = load ptr, ptr %_M_finish.i.i.i310, align 8, !tbaa !98
-  %incdec.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %50, i64 6
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %47, ptr noundef nonnull align 8 dereferenceable(6) %ref.tmp, i64 6, i1 false), !tbaa.struct !14
+  %49 = load ptr, ptr %_M_finish.i.i.i310, align 8, !tbaa !98
+  %incdec.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %49, i64 6
   store ptr %incdec.ptr.i.i.i, ptr %_M_finish.i.i.i310, align 8, !tbaa !98
   br label %_ZN11UniqueQueueIN3irr4core8vector3dIsEEE9push_backERKS3_.exit
 
 if.else.i.i.i:                                    ; preds = %if.then.i309
-  %m_queue.i = getelementptr inbounds nuw i8, ptr %41, i64 48
+  %m_queue.i = getelementptr inbounds nuw i8, ptr %40, i64 48
   call void @_ZNSt5dequeIN3irr4core8vector3dIsEESaIS3_EE16_M_push_back_auxIJRKS3_EEEvDpOT_(ptr noundef nonnull align 8 dereferenceable(80) %m_queue.i, ptr noundef nonnull align 2 dereferenceable(6) %ref.tmp)
   br label %_ZN11UniqueQueueIN3irr4core8vector3dIsEEE9push_backERKS3_.exit
 
@@ -549,19 +546,19 @@ _ZN11UniqueQueueIN3irr4core8vector3dIsEEE9push_backERKS3_.exit: ; preds = %if.el
   br label %if.end79
 
 if.else55:                                        ; preds = %if.else38
-  %51 = and i8 %was_pushed.0483, 1
-  %tobool56.not = icmp eq i8 %51, 0
+  %50 = and i8 %was_pushed.0483, 1
+  %tobool56.not = icmp eq i8 %50, 0
   br i1 %tobool56.not, label %land.lhs.true, label %if.end79
 
 land.lhs.true:                                    ; preds = %if.else55
   %floodable = getelementptr inbounds nuw i8, ptr %cond-lvalue.i.i294, i64 3174
-  %52 = load i8, ptr %floodable, align 2, !tbaa !102, !range !103, !noundef !104
-  %tobool57.not = icmp eq i8 %52, 0
+  %51 = load i8, ptr %floodable, align 2, !tbaa !102, !range !103, !noundef !104
+  %tobool57.not = icmp eq i8 %51, 0
   br i1 %tobool57.not, label %lor.lhs.false58, label %if.then64
 
 lor.lhs.false58:                                  ; preds = %land.lhs.true
-  %53 = and i8 %was_checked.0484, 1
-  %tobool59.not = icmp eq i8 %53, 0
+  %52 = and i8 %was_checked.0484, 1
+  %tobool59.not = icmp eq i8 %52, 0
   br i1 %tobool59.not, label %land.lhs.true60, label %if.end79
 
 land.lhs.true60:                                  ; preds = %lor.lhs.false58
@@ -582,16 +579,16 @@ _ZN10ReflowScan28isLiquidHorizontallyFlowableEiii.exit323: ; preds = %lor.lhs.fa
   br i1 %call7.i322, label %if.then64, label %if.end79
 
 if.then64:                                        ; preds = %_ZN10ReflowScan28isLiquidHorizontallyFlowableEiii.exit323, %lor.lhs.false3.i317, %lor.lhs.false.i314, %land.lhs.true60, %land.lhs.true
-  %54 = load ptr, ptr %m_liquid_queue65, align 8, !tbaa !13
+  %53 = load ptr, ptr %m_liquid_queue65, align 8, !tbaa !13
   call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %ref.tmp66) #15
-  %55 = load i16, ptr %m_rel_block_pos67, align 2, !tbaa !20
-  %add.i326 = add i16 %55, %conv69
-  %56 = load i16, ptr %Y.i327, align 8, !tbaa !21
-  %57 = trunc i64 %indvars.iv to i16
-  %58 = add i16 %57, 1
-  %add8.i329 = add i16 %58, %56
-  %59 = load i16, ptr %Z.i330, align 2, !tbaa !22
-  %add13.i332 = add i16 %59, %conv73
+  %54 = load i16, ptr %m_rel_block_pos67, align 2, !tbaa !20
+  %add.i326 = add i16 %54, %conv69
+  %55 = load i16, ptr %Y.i327, align 8, !tbaa !21
+  %56 = trunc i64 %indvars.iv to i16
+  %57 = add i16 %56, 1
+  %add8.i329 = add i16 %57, %55
+  %58 = load i16, ptr %Z.i330, align 2, !tbaa !22
+  %add13.i332 = add i16 %58, %conv73
   %retval.sroa.3.0.insert.ext.i333 = zext i16 %add13.i332 to i48
   %retval.sroa.3.0.insert.shift.i334 = shl nuw i48 %retval.sroa.3.0.insert.ext.i333, 32
   %retval.sroa.2.0.insert.ext.i335 = zext i16 %add8.i329 to i48
@@ -600,30 +597,30 @@ if.then64:                                        ; preds = %_ZN10ReflowScan28is
   %retval.sroa.0.0.insert.ext.i338 = zext i16 %add.i326 to i48
   %retval.sroa.0.0.insert.insert.i339 = or disjoint i48 %retval.sroa.2.0.insert.insert.i337, %retval.sroa.0.0.insert.ext.i338
   store i48 %retval.sroa.0.0.insert.insert.i339, ptr %ref.tmp66, align 8
-  %call.i.i340 = call { ptr, i8 } @_ZNSt8_Rb_treeIN3irr4core8vector3dIsEES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE16_M_insert_uniqueIRKS3_EESt4pairISt17_Rb_tree_iteratorIS3_EbEOT_(ptr noundef nonnull align 8 dereferenceable(48) %54, ptr noundef nonnull align 2 dereferenceable(6) %ref.tmp66)
-  %60 = extractvalue { ptr, i8 } %call.i.i340, 1
-  %61 = and i8 %60, 1
-  %tobool.not.i341.not = icmp eq i8 %61, 0
+  %call.i.i340 = call { ptr, i8 } @_ZNSt8_Rb_treeIN3irr4core8vector3dIsEES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE16_M_insert_uniqueIRKS3_EESt4pairISt17_Rb_tree_iteratorIS3_EbEOT_(ptr noundef nonnull align 8 dereferenceable(48) %53, ptr noundef nonnull align 2 dereferenceable(6) %ref.tmp66)
+  %59 = extractvalue { ptr, i8 } %call.i.i340, 1
+  %60 = and i8 %59, 1
+  %tobool.not.i341.not = icmp eq i8 %60, 0
   br i1 %tobool.not.i341.not, label %_ZN11UniqueQueueIN3irr4core8vector3dIsEEE9push_backERKS3_.exit351, label %if.then.i342
 
 if.then.i342:                                     ; preds = %if.then64
-  %_M_finish.i.i.i343 = getelementptr inbounds nuw i8, ptr %54, i64 96
-  %62 = load ptr, ptr %_M_finish.i.i.i343, align 8, !tbaa !98
-  %_M_last.i.i.i344 = getelementptr inbounds nuw i8, ptr %54, i64 112
-  %63 = load ptr, ptr %_M_last.i.i.i344, align 8, !tbaa !101
-  %add.ptr.i.i.i345 = getelementptr inbounds i8, ptr %63, i64 -6
-  %cmp.not.i.i.i346 = icmp eq ptr %62, %add.ptr.i.i.i345
+  %_M_finish.i.i.i343 = getelementptr inbounds nuw i8, ptr %53, i64 96
+  %61 = load ptr, ptr %_M_finish.i.i.i343, align 8, !tbaa !98
+  %_M_last.i.i.i344 = getelementptr inbounds nuw i8, ptr %53, i64 112
+  %62 = load ptr, ptr %_M_last.i.i.i344, align 8, !tbaa !101
+  %add.ptr.i.i.i345 = getelementptr inbounds i8, ptr %62, i64 -6
+  %cmp.not.i.i.i346 = icmp eq ptr %61, %add.ptr.i.i.i345
   br i1 %cmp.not.i.i.i346, label %if.else.i.i.i349, label %if.then.i.i.i347
 
 if.then.i.i.i347:                                 ; preds = %if.then.i342
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %62, ptr noundef nonnull align 8 dereferenceable(6) %ref.tmp66, i64 6, i1 false), !tbaa.struct !14
-  %64 = load ptr, ptr %_M_finish.i.i.i343, align 8, !tbaa !98
-  %incdec.ptr.i.i.i348 = getelementptr inbounds nuw i8, ptr %64, i64 6
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %61, ptr noundef nonnull align 8 dereferenceable(6) %ref.tmp66, i64 6, i1 false), !tbaa.struct !14
+  %63 = load ptr, ptr %_M_finish.i.i.i343, align 8, !tbaa !98
+  %incdec.ptr.i.i.i348 = getelementptr inbounds nuw i8, ptr %63, i64 6
   store ptr %incdec.ptr.i.i.i348, ptr %_M_finish.i.i.i343, align 8, !tbaa !98
   br label %_ZN11UniqueQueueIN3irr4core8vector3dIsEEE9push_backERKS3_.exit351
 
 if.else.i.i.i349:                                 ; preds = %if.then.i342
-  %m_queue.i350 = getelementptr inbounds nuw i8, ptr %54, i64 48
+  %m_queue.i350 = getelementptr inbounds nuw i8, ptr %53, i64 48
   call void @_ZNSt5dequeIN3irr4core8vector3dIsEESaIS3_EE16_M_push_back_auxIJRKS3_EEEvDpOT_(ptr noundef nonnull align 8 dereferenceable(80) %m_queue.i350, ptr noundef nonnull align 2 dereferenceable(6) %ref.tmp66)
   br label %_ZN11UniqueQueueIN3irr4core8vector3dIsEEE9push_backERKS3_.exit351
 
@@ -635,8 +632,9 @@ if.end79:                                         ; preds = %_ZN11UniqueQueueIN3
   %was_pushed.1 = phi i8 [ %was_pushed.0483, %if.else55 ], [ %was_pushed.0483, %_ZN11UniqueQueueIN3irr4core8vector3dIsEEE9push_backERKS3_.exit351 ], [ %was_pushed.0483, %lor.lhs.false58 ], [ %was_pushed.0483, %_ZN10ReflowScan28isLiquidHorizontallyFlowableEiii.exit323 ], [ 0, %_ZNK14NodeDefManager3getERK7MapNode.exit299 ], [ 1, %_ZN11UniqueQueueIN3irr4core8vector3dIsEEE9push_backERKS3_.exit ], [ 0, %_ZN10ReflowScan28isLiquidHorizontallyFlowableEiii.exit ]
   %was_checked.1 = phi i8 [ %was_checked.0484, %if.else55 ], [ %was_checked.0484, %_ZN11UniqueQueueIN3irr4core8vector3dIsEEE9push_backERKS3_.exit351 ], [ %was_checked.0484, %lor.lhs.false58 ], [ %was_checked.0484, %_ZN10ReflowScan28isLiquidHorizontallyFlowableEiii.exit323 ], [ 0, %_ZNK14NodeDefManager3getERK7MapNode.exit299 ], [ 1, %_ZN11UniqueQueueIN3irr4core8vector3dIsEEE9push_backERKS3_.exit ], [ 1, %_ZN10ReflowScan28isLiquidHorizontallyFlowableEiii.exit ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %65 = trunc i64 %indvars.iv.next to i32
+  %64 = trunc i64 %indvars.iv.next to i32
   %cmp16.not = icmp eq i64 %indvars.iv, 0
+  %65 = xor i1 %cmp.i301, true
   br i1 %cmp16.not, label %for.cond.cleanup, label %for.body, !llvm.loop !105
 
 if.then86:                                        ; preds = %_ZN10ReflowScan11lookupBlockEiii.exit275, %for.cond.cleanup

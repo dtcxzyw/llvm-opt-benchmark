@@ -23661,63 +23661,63 @@ entry:
 
 entry.split.us:                                   ; preds = %entry
   %0 = load i8, ptr %text, align 1
-  %tobool3.not.us12 = icmp eq i8 %0, 0
-  br i1 %tobool3.not.us12, label %while.end, label %while.body.us
+  %1 = icmp eq i8 %0, 0
+  br i1 %1, label %while.end, label %while.body.us
 
 while.body.us:                                    ; preds = %entry.split.us, %if.end.us
-  %text.addr.0.us13 = phi ptr [ %add.ptr.us, %if.end.us ], [ %text, %entry.split.us ]
+  %text.addr.0.us9 = phi ptr [ %add.ptr.us, %if.end.us ], [ %text, %entry.split.us ]
   store i32 0, ptr %c, align 4
-  %call.us = call noundef i32 @_Z18ImTextCharFromUtf8PjPKcS1_(ptr noundef nonnull %c, ptr noundef nonnull %text.addr.0.us13, ptr noundef null)
+  %call.us = call noundef i32 @_Z18ImTextCharFromUtf8PjPKcS1_(ptr noundef nonnull %c, ptr noundef nonnull %text.addr.0.us9, ptr noundef null)
   %cmp4.us = icmp eq i32 %call.us, 0
   br i1 %cmp4.us, label %while.end, label %if.end.us
 
 if.end.us:                                        ; preds = %while.body.us
   %idx.ext.us = sext i32 %call.us to i64
-  %add.ptr.us = getelementptr inbounds i8, ptr %text.addr.0.us13, i64 %idx.ext.us
-  %1 = load i32, ptr %c, align 4
-  %sh_prom.i.i.us = and i32 %1, 31
+  %add.ptr.us = getelementptr inbounds i8, ptr %text.addr.0.us9, i64 %idx.ext.us
+  %2 = load i32, ptr %c, align 4
+  %sh_prom.i.i.us = and i32 %2, 31
   %shl.i.i.us = shl nuw i32 1, %sh_prom.i.i.us
-  %2 = load ptr, ptr %Data.i.i.i, align 8
-  %3 = lshr i32 %1, 5
-  %4 = and i32 %3, 2047
-  %idxprom.i.i.i.us = zext nneg i32 %4 to i64
-  %arrayidx.i.i.i.us = getelementptr inbounds nuw i32, ptr %2, i64 %idxprom.i.i.i.us
-  %5 = load i32, ptr %arrayidx.i.i.i.us, align 4
-  %or.i.i.us = or i32 %5, %shl.i.i.us
+  %3 = load ptr, ptr %Data.i.i.i, align 8
+  %4 = lshr i32 %2, 5
+  %5 = and i32 %4, 2047
+  %idxprom.i.i.i.us = zext nneg i32 %5 to i64
+  %arrayidx.i.i.i.us = getelementptr inbounds nuw i32, ptr %3, i64 %idxprom.i.i.i.us
+  %6 = load i32, ptr %arrayidx.i.i.i.us, align 4
+  %or.i.i.us = or i32 %6, %shl.i.i.us
   store i32 %or.i.i.us, ptr %arrayidx.i.i.i.us, align 4
-  %6 = load i8, ptr %add.ptr.us, align 1
-  %tobool3.not.us = icmp eq i8 %6, 0
-  br i1 %tobool3.not.us, label %while.end, label %while.body.us, !llvm.loop !129
+  %7 = load i8, ptr %add.ptr.us, align 1
+  %8 = icmp eq i8 %7, 0
+  br i1 %8, label %while.end, label %while.body.us, !llvm.loop !129
 
 entry.split:                                      ; preds = %entry
-  %cmp7.not = icmp ult ptr %text, %text_end
-  br i1 %cmp7.not, label %while.body, label %while.end
+  %cmp.not7 = icmp ult ptr %text, %text_end
+  br i1 %cmp.not7, label %while.body, label %while.end
 
 while.body:                                       ; preds = %entry.split, %if.end
-  %text.addr.010 = phi ptr [ %add.ptr, %if.end ], [ %text, %entry.split ]
+  %text.addr.08 = phi ptr [ %add.ptr, %if.end ], [ %text, %entry.split ]
   store i32 0, ptr %c, align 4
-  %call = call noundef i32 @_Z18ImTextCharFromUtf8PjPKcS1_(ptr noundef nonnull %c, ptr noundef %text.addr.010, ptr noundef nonnull %text_end)
+  %call = call noundef i32 @_Z18ImTextCharFromUtf8PjPKcS1_(ptr noundef nonnull %c, ptr noundef %text.addr.08, ptr noundef nonnull %text_end)
   %cmp4 = icmp eq i32 %call, 0
   br i1 %cmp4, label %while.end, label %if.end
 
 if.end:                                           ; preds = %while.body
   %idx.ext = sext i32 %call to i64
-  %add.ptr = getelementptr inbounds i8, ptr %text.addr.010, i64 %idx.ext
-  %7 = load i32, ptr %c, align 4
-  %sh_prom.i.i = and i32 %7, 31
+  %add.ptr = getelementptr inbounds i8, ptr %text.addr.08, i64 %idx.ext
+  %9 = load i32, ptr %c, align 4
+  %sh_prom.i.i = and i32 %9, 31
   %shl.i.i = shl nuw i32 1, %sh_prom.i.i
-  %8 = load ptr, ptr %Data.i.i.i, align 8
-  %9 = lshr i32 %7, 5
-  %10 = and i32 %9, 2047
-  %idxprom.i.i.i = zext nneg i32 %10 to i64
-  %arrayidx.i.i.i = getelementptr inbounds nuw i32, ptr %8, i64 %idxprom.i.i.i
-  %11 = load i32, ptr %arrayidx.i.i.i, align 4
-  %or.i.i = or i32 %11, %shl.i.i
+  %10 = load ptr, ptr %Data.i.i.i, align 8
+  %11 = lshr i32 %9, 5
+  %12 = and i32 %11, 2047
+  %idxprom.i.i.i = zext nneg i32 %12 to i64
+  %arrayidx.i.i.i = getelementptr inbounds nuw i32, ptr %10, i64 %idxprom.i.i.i
+  %13 = load i32, ptr %arrayidx.i.i.i, align 4
+  %or.i.i = or i32 %13, %shl.i.i
   store i32 %or.i.i, ptr %arrayidx.i.i.i, align 4
   %cmp.not = icmp ult ptr %add.ptr, %text_end
   br i1 %cmp.not, label %while.body, label %while.end, !llvm.loop !129
 
-while.end:                                        ; preds = %while.body, %if.end, %while.body.us, %if.end.us, %entry.split, %entry.split.us
+while.end:                                        ; preds = %if.end, %while.body, %while.body.us, %if.end.us, %entry.split, %entry.split.us
   ret void
 }
 
