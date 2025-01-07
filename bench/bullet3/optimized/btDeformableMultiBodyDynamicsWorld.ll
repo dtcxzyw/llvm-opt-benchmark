@@ -11807,14 +11807,14 @@ if.then8.i:                                       ; preds = %if.then7.i
 
 if.then19.i:                                      ; preds = %if.then8.i
   %fneg.i23.i = fneg float %normal.sroa.0.0.vec.extract35.i
+  %fneg8.i27.i = fneg float %normal.sroa.12.8.vec.extract47.i
   %21 = fneg <2 x float> %normal.sroa.0.0.copyload.i
   %retval.sroa.0.4.vec.insert.i29.i = insertelement <2 x float> %21, float %fneg.i23.i, i64 0
-  %22 = fneg <2 x float> %normal.sroa.12.0.copyload.i
-  %retval.sroa.3.12.vec.insert.i30.i4 = insertelement <2 x float> %22, float 0.000000e+00, i64 1
+  %retval.sroa.3.12.vec.insert.i30.i = insertelement <2 x float> <float poison, float 0.000000e+00>, float %fneg8.i27.i, i64 0
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then19.i, %if.then8.i
-  %normal.sroa.12.0.i = phi <2 x float> [ %retval.sroa.3.12.vec.insert.i30.i4, %if.then19.i ], [ %normal.sroa.12.0.copyload.i, %if.then8.i ]
+  %normal.sroa.12.0.i = phi <2 x float> [ %retval.sroa.3.12.vec.insert.i30.i, %if.then19.i ], [ %normal.sroa.12.0.copyload.i, %if.then8.i ]
   %normal.sroa.0.0.i = phi <2 x float> [ %retval.sroa.0.4.vec.insert.i29.i, %if.then19.i ], [ %normal.sroa.0.0.copyload.i, %if.then8.i ]
   store ptr %2, ptr %rayResult.i, align 8
   %m_localShapeInfo.i.i = getelementptr inbounds nuw i8, ptr %rayResult.i, i64 8
@@ -11827,8 +11827,8 @@ if.end.i:                                         ; preds = %if.then19.i, %if.th
   store float %9, ptr %m_hitFraction.i.i, align 8
   %vtable.i = load ptr, ptr %6, align 8
   %vfn.i = getelementptr inbounds nuw i8, ptr %vtable.i, i64 24
-  %23 = load ptr, ptr %vfn.i, align 8
-  %call24.i = call noundef float %23(ptr noundef nonnull align 8 dereferenceable(36) %6, ptr noundef nonnull align 8 dereferenceable(36) %rayResult.i, i1 noundef zeroext true)
+  %22 = load ptr, ptr %vfn.i, align 8
+  %call24.i = call noundef float %22(ptr noundef nonnull align 8 dereferenceable(36) %6, ptr noundef nonnull align 8 dereferenceable(36) %rayResult.i, i1 noundef zeroext true)
   br label %_ZNK34btDeformableMultiBodyDynamicsWorld13rayTestSingleERK11btTransformS2_P17btCollisionObjectPK16btCollisionShapeS2_RN16btCollisionWorld17RayResultCallbackE.exit
 
 if.else.i:                                        ; preds = %if.then4

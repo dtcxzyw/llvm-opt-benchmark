@@ -17334,10 +17334,11 @@ if.then:                                          ; preds = %entry
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %retval.i.i)
   %ref.tmp2.sroa.0.0.vec.extract.i = extractelement <2 x float> %.fca.0.load.i.i, i64 0
   %fneg.i.i103 = fneg float %ref.tmp2.sroa.0.0.vec.extract.i
+  %ref.tmp2.sroa.3.8.vec.extract.i = extractelement <2 x float> %.fca.1.load.i.i, i64 0
+  %fneg9.i.i105 = fneg float %ref.tmp2.sroa.3.8.vec.extract.i
   %38 = fneg <2 x float> %.fca.0.load.i.i
   %retval.sroa.0.4.vec.insert.i.i = insertelement <2 x float> %38, float %fneg.i.i103, i64 0
-  %39 = fneg <2 x float> %.fca.1.load.i.i
-  %retval.sroa.3.12.vec.insert.i.i = shufflevector <2 x float> %39, <2 x float> %.fca.1.load.i.i, <2 x i32> <i32 0, i32 3>
+  %retval.sroa.3.12.vec.insert.i.i = insertelement <2 x float> %.fca.1.load.i.i, float %fneg9.i.i105, i64 0
   store <2 x float> %retval.sroa.0.4.vec.insert.i.i, ptr %m_baseQuat_interpolate.i.i, align 8
   store <2 x float> %retval.sroa.3.12.vec.insert.i.i, ptr %arrayidx8.i.i, align 8
   br label %if.end

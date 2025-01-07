@@ -812,31 +812,22 @@ entry:
   %5 = load float, ptr %y.i21, align 4
   %mul1.i = fmul float %5, 4.000000e+00
   %cmp = fcmp olt float %mul.i, 0.000000e+00
-  br i1 %cmp, label %if.then, label %if.else
-
-if.then:                                          ; preds = %entry
   %add = fadd float %sub.i, %mul.i
   %fatAABB.sroa.0.0.vec.insert = insertelement <2 x float> %retval.sroa.0.4.vec.insert.i, float %add, i64 0
-  br label %if.end
-
-if.else:                                          ; preds = %entry
   %add13 = fadd float %add.i, %mul.i
   %fatAABB.sroa.8.8.vec.insert = insertelement <2 x float> %retval.sroa.0.4.vec.insert.i20, float %add13, i64 0
-  br label %if.end
-
-if.end:                                           ; preds = %if.else, %if.then
-  %fatAABB.sroa.0.0 = phi <2 x float> [ %fatAABB.sroa.0.0.vec.insert, %if.then ], [ %retval.sroa.0.4.vec.insert.i, %if.else ]
-  %fatAABB.sroa.8.0 = phi <2 x float> [ %retval.sroa.0.4.vec.insert.i20, %if.then ], [ %fatAABB.sroa.8.8.vec.insert, %if.else ]
+  %fatAABB.sroa.0.0 = select i1 %cmp, <2 x float> %fatAABB.sroa.0.0.vec.insert, <2 x float> %retval.sroa.0.4.vec.insert.i
+  %fatAABB.sroa.8.0 = select i1 %cmp, <2 x float> %retval.sroa.0.4.vec.insert.i20, <2 x float> %fatAABB.sroa.8.8.vec.insert
   %cmp14 = fcmp olt float %mul1.i, 0.000000e+00
   br i1 %cmp14, label %if.then15, label %if.else20
 
-if.then15:                                        ; preds = %if.end
+if.then15:                                        ; preds = %entry
   %fatAABB.sroa.0.4.vec.extract = extractelement <2 x float> %fatAABB.sroa.0.0, i64 1
   %add19 = fadd float %mul1.i, %fatAABB.sroa.0.4.vec.extract
   %fatAABB.sroa.0.4.vec.insert = insertelement <2 x float> %fatAABB.sroa.0.0, float %add19, i64 1
   br label %if.end25
 
-if.else20:                                        ; preds = %if.end
+if.else20:                                        ; preds = %entry
   %fatAABB.sroa.8.12.vec.extract76 = extractelement <2 x float> %fatAABB.sroa.8.0, i64 1
   %add24 = fadd float %mul1.i, %fatAABB.sroa.8.12.vec.extract76
   %fatAABB.sroa.8.12.vec.insert = insertelement <2 x float> %fatAABB.sroa.8.0, float %add24, i64 1

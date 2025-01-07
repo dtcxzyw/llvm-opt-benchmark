@@ -1385,14 +1385,14 @@ if.then15:                                        ; preds = %if.then7
 
 if.then20:                                        ; preds = %if.then15
   %fneg.i23 = fneg float %normal.sroa.0.0.vec.extract35
+  %fneg8.i27 = fneg float %normal.sroa.12.8.vec.extract47
   %18 = fneg <2 x float> %normal.sroa.0.0.copyload
   %retval.sroa.0.4.vec.insert.i29 = insertelement <2 x float> %18, float %fneg.i23, i64 0
-  %19 = fneg <2 x float> %normal.sroa.12.0.copyload
-  %retval.sroa.3.12.vec.insert.i3057 = insertelement <2 x float> %19, float 0.000000e+00, i64 1
+  %retval.sroa.3.12.vec.insert.i30 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %fneg8.i27, i64 0
   br label %if.end23
 
 if.end23:                                         ; preds = %if.then15, %if.then20, %if.then7
-  %normal.sroa.12.0 = phi <2 x float> [ %retval.sroa.3.12.vec.insert.i3057, %if.then20 ], [ %normal.sroa.12.0.copyload, %if.then15 ], [ %normal.sroa.12.8.vec.insert, %if.then7 ]
+  %normal.sroa.12.0 = phi <2 x float> [ %retval.sroa.3.12.vec.insert.i30, %if.then20 ], [ %normal.sroa.12.0.copyload, %if.then15 ], [ %normal.sroa.12.8.vec.insert, %if.then7 ]
   %normal.sroa.0.0 = phi <2 x float> [ %retval.sroa.0.4.vec.insert.i29, %if.then20 ], [ %normal.sroa.0.0.copyload, %if.then15 ], [ %normal.sroa.0.4.vec.insert, %if.then7 ]
   store ptr %collisionObject, ptr %rayResult, align 8
   %m_localShapeInfo.i = getelementptr inbounds nuw i8, ptr %rayResult, i64 8
@@ -1405,8 +1405,8 @@ if.end23:                                         ; preds = %if.then15, %if.then
   store float %2, ptr %m_hitFraction.i, align 8
   %vtable = load ptr, ptr %resultCallback, align 8
   %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 24
-  %20 = load ptr, ptr %vfn, align 8
-  %call26 = call noundef float %20(ptr noundef nonnull align 8 dereferenceable(36) %resultCallback, ptr noundef nonnull align 8 dereferenceable(36) %rayResult, i1 noundef zeroext true)
+  %19 = load ptr, ptr %vfn, align 8
+  %call26 = call noundef float %19(ptr noundef nonnull align 8 dereferenceable(36) %resultCallback, ptr noundef nonnull align 8 dereferenceable(36) %rayResult, i1 noundef zeroext true)
   br label %if.end30
 
 if.else:                                          ; preds = %entry
@@ -1778,14 +1778,14 @@ if.then15.i:                                      ; preds = %if.then7.i
 
 if.then20.i:                                      ; preds = %if.then15.i
   %fneg.i23.i = fneg float %normal.sroa.0.0.vec.extract35.i
+  %fneg8.i27.i = fneg float %normal.sroa.12.8.vec.extract47.i
   %25 = fneg <2 x float> %normal.sroa.0.0.copyload.i
   %retval.sroa.0.4.vec.insert.i29.i = insertelement <2 x float> %25, float %fneg.i23.i, i64 0
-  %26 = fneg <2 x float> %normal.sroa.12.0.copyload.i
-  %retval.sroa.3.12.vec.insert.i30.i4 = insertelement <2 x float> %26, float 0.000000e+00, i64 1
+  %retval.sroa.3.12.vec.insert.i30.i = insertelement <2 x float> <float poison, float 0.000000e+00>, float %fneg8.i27.i, i64 0
   br label %if.end23.i
 
 if.end23.i:                                       ; preds = %if.then20.i, %if.then15.i, %if.then7.i
-  %normal.sroa.12.0.i = phi <2 x float> [ %retval.sroa.3.12.vec.insert.i30.i4, %if.then20.i ], [ %normal.sroa.12.0.copyload.i, %if.then15.i ], [ %normal.sroa.12.8.vec.insert.i, %if.then7.i ]
+  %normal.sroa.12.0.i = phi <2 x float> [ %retval.sroa.3.12.vec.insert.i30.i, %if.then20.i ], [ %normal.sroa.12.0.copyload.i, %if.then15.i ], [ %normal.sroa.12.8.vec.insert.i, %if.then7.i ]
   %normal.sroa.0.0.i = phi <2 x float> [ %retval.sroa.0.4.vec.insert.i29.i, %if.then20.i ], [ %normal.sroa.0.0.copyload.i, %if.then15.i ], [ %normal.sroa.0.4.vec.insert.i, %if.then7.i ]
   store ptr %2, ptr %rayResult.i, align 8
   %m_localShapeInfo.i.i = getelementptr inbounds nuw i8, ptr %rayResult.i, i64 8
@@ -1798,8 +1798,8 @@ if.end23.i:                                       ; preds = %if.then20.i, %if.th
   store float %9, ptr %m_hitFraction.i.i, align 8
   %vtable.i = load ptr, ptr %6, align 8
   %vfn.i = getelementptr inbounds nuw i8, ptr %vtable.i, i64 24
-  %27 = load ptr, ptr %vfn.i, align 8
-  %call26.i = call noundef float %27(ptr noundef nonnull align 8 dereferenceable(36) %6, ptr noundef nonnull align 8 dereferenceable(36) %rayResult.i, i1 noundef zeroext true)
+  %26 = load ptr, ptr %vfn.i, align 8
+  %call26.i = call noundef float %26(ptr noundef nonnull align 8 dereferenceable(36) %6, ptr noundef nonnull align 8 dereferenceable(36) %rayResult.i, i1 noundef zeroext true)
   br label %_ZN24btSoftRigidDynamicsWorld13rayTestSingleERK11btTransformS2_P17btCollisionObjectPK16btCollisionShapeS2_RN16btCollisionWorld17RayResultCallbackE.exit
 
 if.else.i:                                        ; preds = %if.then4
