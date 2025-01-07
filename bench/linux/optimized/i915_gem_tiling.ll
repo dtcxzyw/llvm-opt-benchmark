@@ -678,7 +678,7 @@ define dso_local i32 @i915_gem_set_tiling_ioctl(ptr nocapture noundef readonly %
   %38 = load i32, ptr %37, align 8
   %39 = and i32 %38, 8
   %40 = icmp eq i32 %39, 0
-  br i1 %40, label %41, label %114
+  br i1 %40, label %41, label %112
 
 41:                                               ; preds = %35
   %42 = getelementptr inbounds nuw i8, ptr %1, i64 4
@@ -688,11 +688,11 @@ define dso_local i32 @i915_gem_set_tiling_ioctl(ptr nocapture noundef readonly %
   %46 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %47 = load ptr, ptr %46, align 8
   %48 = icmp eq i32 %43, 0
-  br i1 %48, label %91, label %49
+  br i1 %48, label %89, label %49
 
 49:                                               ; preds = %41
   %50 = icmp ugt i32 %43, 2
-  br i1 %50, label %114, label %51
+  br i1 %50, label %112, label %51
 
 51:                                               ; preds = %49
   %52 = getelementptr inbounds nuw i8, ptr %47, i64 7176
@@ -702,7 +702,7 @@ define dso_local i32 @i915_gem_set_tiling_ioctl(ptr nocapture noundef readonly %
 
 55:                                               ; preds = %51
   %56 = icmp ugt i32 %45, 262271
-  br i1 %56, label %114, label %.thread10
+  br i1 %56, label %112, label %.thread10
 
 57:                                               ; preds = %51
   %58 = icmp samesign ugt i8 %53, 3
@@ -710,14 +710,14 @@ define dso_local i32 @i915_gem_set_tiling_ioctl(ptr nocapture noundef readonly %
 
 59:                                               ; preds = %57
   %60 = icmp ugt i32 %45, 131199
-  br i1 %60, label %114, label %.thread10
+  br i1 %60, label %112, label %.thread10
 
 61:                                               ; preds = %57
   %62 = icmp ult i32 %45, 8193
   %63 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %45), !range !18
   %64 = icmp eq i32 %63, 1
   %65 = select i1 %62, i1 %64, i1 false
-  br i1 %65, label %66, label %114
+  br i1 %65, label %66, label %112
 
 66:                                               ; preds = %61
   %67 = icmp eq i8 %53, 2
@@ -736,103 +736,101 @@ define dso_local i32 @i915_gem_set_tiling_ioctl(ptr nocapture noundef readonly %
   br i1 %73, label %.thread11, label %.thread16
 
 75:                                               ; preds = %66
-  %76 = icmp ne i32 %45, 0
-  %77 = and i32 %45, 127
-  %78 = icmp eq i32 %77, 0
-  %79 = and i1 %76, %78
-  br i1 %79, label %90, label %114
+  %76 = and i32 %45, 127
+  %77 = icmp eq i32 %76, 0
+  br i1 %77, label %88, label %112
 
 .thread19:                                        ; preds = %.thread10
-  %80 = icmp ne i32 %45, 0
-  %81 = and i32 %45, 511
-  %82 = icmp eq i32 %81, 0
-  %83 = and i1 %80, %82
-  br i1 %83, label %.thread20, label %114
+  %78 = icmp ne i32 %45, 0
+  %79 = and i32 %45, 511
+  %80 = icmp eq i32 %79, 0
+  %81 = and i1 %78, %80
+  br i1 %81, label %.thread20, label %112
 
 .thread16:                                        ; preds = %69
-  %84 = and i32 %45, 511
-  %85 = icmp eq i32 %84, 0
-  %86 = and i1 %74, %85
-  br i1 %86, label %.thread12, label %114
+  %82 = and i32 %45, 511
+  %83 = icmp eq i32 %82, 0
+  %84 = and i1 %74, %83
+  br i1 %84, label %.thread12, label %112
 
 .thread11:                                        ; preds = %69
-  %87 = and i32 %45, 127
-  %88 = icmp eq i32 %87, 0
-  %89 = and i1 %74, %88
-  br i1 %89, label %.thread12, label %114
+  %85 = and i32 %45, 127
+  %86 = icmp eq i32 %85, 0
+  %87 = and i1 %74, %86
+  br i1 %87, label %.thread12, label %112
 
-90:                                               ; preds = %75
+88:                                               ; preds = %75
   %cond = icmp eq i32 %43, 1
   br i1 %cond, label %.thread20, label %.thread12
 
-91:                                               ; preds = %41
-  %92 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  br label %103
+89:                                               ; preds = %41
+  %90 = getelementptr inbounds nuw i8, ptr %1, i64 12
+  br label %101
 
-.thread12:                                        ; preds = %.thread16, %.thread11, %90
+.thread12:                                        ; preds = %.thread16, %.thread11, %88
   br label %.thread20
 
-.thread20:                                        ; preds = %90, %.thread19, %.thread12
-  %.sink22 = phi i64 [ 820, %.thread12 ], [ 816, %.thread19 ], [ 816, %90 ]
-  %93 = load ptr, ptr %4, align 8
-  %94 = getelementptr inbounds nuw i8, ptr %93, i64 32
-  %95 = load ptr, ptr %94, align 8
-  %96 = getelementptr inbounds nuw i8, ptr %95, i64 %.sink22
-  %97 = load i32, ptr %96, align 4
-  %98 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %99 = icmp eq i32 %97, 6
-  %spec.select = select i1 %99, i32 1, i32 %97
-  %100 = icmp eq i32 %spec.select, 7
-  %storemerge7 = select i1 %100, i32 2, i32 %spec.select
-  store i32 %storemerge7, ptr %98, align 4
-  %101 = icmp eq i32 %storemerge7, 5
-  br i1 %101, label %102, label %105
+.thread20:                                        ; preds = %88, %.thread19, %.thread12
+  %.sink22 = phi i64 [ 820, %.thread12 ], [ 816, %.thread19 ], [ 816, %88 ]
+  %91 = load ptr, ptr %4, align 8
+  %92 = getelementptr inbounds nuw i8, ptr %91, i64 32
+  %93 = load ptr, ptr %92, align 8
+  %94 = getelementptr inbounds nuw i8, ptr %93, i64 %.sink22
+  %95 = load i32, ptr %94, align 4
+  %96 = getelementptr inbounds nuw i8, ptr %1, i64 12
+  %97 = icmp eq i32 %95, 6
+  %spec.select = select i1 %97, i32 1, i32 %95
+  %98 = icmp eq i32 %spec.select, 7
+  %storemerge7 = select i1 %98, i32 2, i32 %spec.select
+  store i32 %storemerge7, ptr %96, align 4
+  %99 = icmp eq i32 %storemerge7, 5
+  br i1 %99, label %100, label %103
 
-102:                                              ; preds = %.thread20
+100:                                              ; preds = %.thread20
   store i32 0, ptr %42, align 4
+  br label %101
+
+101:                                              ; preds = %100, %89
+  %102 = phi ptr [ %96, %100 ], [ %90, %89 ]
+  store i32 0, ptr %102, align 4
+  store i32 0, ptr %44, align 4
   br label %103
 
-103:                                              ; preds = %102, %91
-  %104 = phi ptr [ %98, %102 ], [ %92, %91 ]
-  store i32 0, ptr %104, align 4
-  store i32 0, ptr %44, align 4
-  br label %105
+103:                                              ; preds = %101, %.thread20
+  %104 = phi i32 [ 0, %101 ], [ %45, %.thread20 ]
+  %105 = phi i32 [ 0, %101 ], [ %43, %.thread20 ]
+  %106 = tail call i32 @i915_gem_object_set_tiling(ptr noundef nonnull %15, i32 noundef %105, i32 noundef %104)
+  %107 = getelementptr inbounds nuw i8, ptr %15, i64 664
+  %108 = load i32, ptr %107, align 8
+  %109 = and i32 %108, -128
+  store i32 %109, ptr %44, align 4
+  %110 = load i32, ptr %107, align 8
+  %111 = and i32 %110, 127
+  store i32 %111, ptr %42, align 4
+  br label %112
 
-105:                                              ; preds = %103, %.thread20
-  %106 = phi i32 [ 0, %103 ], [ %45, %.thread20 ]
-  %107 = phi i32 [ 0, %103 ], [ %43, %.thread20 ]
-  %108 = tail call i32 @i915_gem_object_set_tiling(ptr noundef nonnull %15, i32 noundef %107, i32 noundef %106)
-  %109 = getelementptr inbounds nuw i8, ptr %15, i64 664
-  %110 = load i32, ptr %109, align 8
-  %111 = and i32 %110, -128
-  store i32 %111, ptr %44, align 4
-  %112 = load i32, ptr %109, align 8
-  %113 = and i32 %112, 127
-  store i32 %113, ptr %42, align 4
-  br label %114
+112:                                              ; preds = %.thread19, %.thread16, %.thread11, %103, %75, %61, %59, %55, %49, %35
+  %113 = phi i32 [ %106, %103 ], [ -6, %35 ], [ -22, %75 ], [ -22, %61 ], [ -22, %59 ], [ -22, %55 ], [ -22, %49 ], [ -22, %.thread11 ], [ -22, %.thread16 ], [ -22, %.thread19 ]
+  %114 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %15, i32 -1, ptr nonnull elementtype(i32) %15) #7, !srcloc !19
+  %115 = icmp eq i32 %114, 1
+  br i1 %115, label %119, label %116
 
-114:                                              ; preds = %.thread19, %.thread16, %.thread11, %105, %75, %61, %59, %55, %49, %35
-  %115 = phi i32 [ %108, %105 ], [ -6, %35 ], [ -22, %75 ], [ -22, %61 ], [ -22, %59 ], [ -22, %55 ], [ -22, %49 ], [ -22, %.thread11 ], [ -22, %.thread16 ], [ -22, %.thread19 ]
-  %116 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %15, i32 -1, ptr nonnull elementtype(i32) %15) #7, !srcloc !19
-  %117 = icmp eq i32 %116, 1
-  br i1 %117, label %121, label %118
+116:                                              ; preds = %112
+  %117 = icmp sgt i32 %114, 0
+  br i1 %117, label %.thread15, label %118, !prof !10
 
-118:                                              ; preds = %114
-  %119 = icmp sgt i32 %116, 0
-  br i1 %119, label %.thread15, label %120, !prof !10
-
-120:                                              ; preds = %118
+118:                                              ; preds = %116
   tail call void @refcount_warn_saturate(ptr noundef nonnull %15, i32 noundef 3) #7
   br label %.thread15
 
-121:                                              ; preds = %114
+119:                                              ; preds = %112
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !20
   tail call void @drm_gem_object_free(ptr noundef nonnull %15) #7
   br label %.thread15
 
-.thread15:                                        ; preds = %118, %120, %.thread8, %121, %3
-  %122 = phi i32 [ -95, %3 ], [ %115, %121 ], [ -2, %.thread8 ], [ %115, %120 ], [ %115, %118 ]
-  ret i32 %122
+.thread15:                                        ; preds = %116, %118, %.thread8, %119, %3
+  %120 = phi i32 [ -95, %3 ], [ %113, %119 ], [ -2, %.thread8 ], [ %113, %118 ], [ %113, %116 ]
+  ret i32 %120
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

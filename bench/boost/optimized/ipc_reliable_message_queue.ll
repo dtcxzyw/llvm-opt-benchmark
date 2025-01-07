@@ -652,7 +652,7 @@ _ZN5boost3log11v2_mt_posix3aux13is_power_of_2IjEEbT_.exit.thread: ; preds = %6
           to label %26 unwind label %30
 
 26:                                               ; preds = %24
-  %27 = add i32 %3, 63
+  %27 = add nuw i32 %3, 63
   %28 = and i32 %27, -64
   invoke void @_ZN5boost3log11v2_mt_posix3ipc22reliable_message_queue14implementationC2ENS1_9open_mode15create_only_tagERKNS2_11object_nameEjjNS3_15overflow_policyERKNS1_11permissionsE(ptr noundef nonnull align 8 dereferenceable(104) %25, ptr noundef nonnull align 8 dereferenceable(32) %1, i32 noundef %2, i32 noundef %28, i32 noundef %4, ptr noundef nonnull align 4 dereferenceable(4) %5)
           to label %29 unwind label %32
@@ -1382,7 +1382,7 @@ _ZN5boost3log11v2_mt_posix3aux13is_power_of_2IjEEbT_.exit.thread: ; preds = %6
           to label %26 unwind label %30
 
 26:                                               ; preds = %24
-  %27 = add i32 %3, 63
+  %27 = add nuw i32 %3, 63
   %28 = and i32 %27, -64
   invoke void @_ZN5boost3log11v2_mt_posix3ipc22reliable_message_queue14implementationC2ENS1_9open_mode18open_or_create_tagERKNS2_11object_nameEjjNS3_15overflow_policyERKNS1_11permissionsE(ptr noundef nonnull align 8 dereferenceable(104) %25, ptr noundef nonnull align 8 dereferenceable(32) %1, i32 noundef %2, i32 noundef %28, i32 noundef %4, ptr noundef nonnull align 4 dereferenceable(4) %5)
           to label %29 unwind label %32

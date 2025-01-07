@@ -14232,7 +14232,7 @@ _ZNK7xgboost6common18IndexTransformIterIZNS_6linalg6cbeginIKfLi2EEEDaRKNS2_10Ten
   %344 = mul i32 %343, %311
   %345 = sub i32 %310, %344
   %.sroa.3.1.le.i.i.i.i11.i4001177 = zext i32 %345 to i64
-  %346 = zext i32 %343 to i64
+  %346 = zext nneg i32 %343 to i64
   %347 = mul i64 %295, %346
   %348 = mul i64 %298, %.sroa.3.1.le.i.i.i.i11.i4001177
   %349 = getelementptr float, ptr %301, i64 %347
@@ -14624,7 +14624,7 @@ _ZNK7xgboost6common18IndexTransformIterIZNS_6linalg6cbeginIKfLi2EEEDaRKNS2_10Ten
   %529 = mul i32 %528, %496
   %530 = sub i32 %495, %529
   %.sroa.3.1.le.i.i.i.i11.i4611195 = zext i32 %530 to i64
-  %531 = zext i32 %528 to i64
+  %531 = zext nneg i32 %528 to i64
   %532 = mul i64 %480, %531
   %533 = mul i64 %483, %.sroa.3.1.le.i.i.i.i11.i4611195
   %534 = getelementptr float, ptr %486, i64 %532
@@ -14971,7 +14971,7 @@ _ZNK7xgboost6common18IndexTransformIterIZNS_6linalg6cbeginIKfLi2EEEDaRKNS2_10Ten
   %693 = mul i32 %692, %660
   %694 = sub i32 %659, %693
   %.sroa.3.1.le.i.i.i.i11.i7551202 = zext i32 %694 to i64
-  %695 = zext i32 %692 to i64
+  %695 = zext nneg i32 %692 to i64
   %696 = mul i64 %644, %695
   %697 = mul i64 %647, %.sroa.3.1.le.i.i.i.i11.i7551202
   %698 = getelementptr float, ptr %650, i64 %696
@@ -15271,7 +15271,7 @@ _ZNK7xgboost6common18IndexTransformIterIZNS_6linalg6cbeginIKfLi2EEEDaRKNS2_10Ten
   %855 = mul i32 %854, %822
   %856 = sub i32 %821, %855
   %.sroa.3.1.le.i.i.i.i11.i7011209 = zext i32 %856 to i64
-  %857 = zext i32 %854 to i64
+  %857 = zext nneg i32 %854 to i64
   %858 = mul i64 %806, %857
   %859 = mul i64 %809, %.sroa.3.1.le.i.i.i.i11.i7011209
   %860 = getelementptr float, ptr %812, i64 %858
@@ -15656,7 +15656,7 @@ _ZNK7xgboost6common18IndexTransformIterIZNS_6linalg6cbeginIKfLi2EEEDaRKNS2_10Ten
   %1037 = mul i32 %1036, %1004
   %1038 = sub i32 %1003, %1037
   %.sroa.3.1.le.i.i.i.i11.i5391216 = zext i32 %1038 to i64
-  %1039 = zext i32 %1036 to i64
+  %1039 = zext nneg i32 %1036 to i64
   %1040 = mul i64 %988, %1039
   %1041 = mul i64 %991, %.sroa.3.1.le.i.i.i.i11.i5391216
   %1042 = getelementptr float, ptr %994, i64 %1040
@@ -16679,7 +16679,7 @@ _ZZN7xgboost6common8QuantileINS0_18IndexTransformIterIZNS_6linalg6cbeginIKfLi2EE
   %86 = mul i32 %85, %53
   %87 = sub i32 %17, %86
   %.sroa.3.1.le.i.i.i.i11.i25124 = zext i32 %87 to i64
-  %88 = zext i32 %85 to i64
+  %88 = zext nneg i32 %85 to i64
   %89 = mul i64 %9, %88
   %90 = mul i64 %11, %.sroa.3.1.le.i.i.i.i11.i25124
   %91 = getelementptr float, ptr %13, i64 %89
@@ -17270,7 +17270,7 @@ _ZZN7xgboost6common8QuantileINS0_18IndexTransformIterIZNS_6linalg6cbeginIKfLi2EE
   %109 = mul i32 %108, %76
   %110 = sub i32 %75, %109
   %.sroa.3.1.le.i.i.i.i11.i2466 = zext i32 %110 to i64
-  %111 = zext i32 %108 to i64
+  %111 = zext nneg i32 %108 to i64
   %112 = mul i64 %60, %111
   %113 = mul i64 %63, %.sroa.3.1.le.i.i.i.i11.i2466
   %114 = getelementptr float, ptr %66, i64 %112
@@ -17559,7 +17559,7 @@ _ZZN7xgboost6common8QuantileINS0_18IndexTransformIterIZNS_6linalg6cbeginIKfLi2EE
   %83 = mul i32 %82, %50
   %84 = sub i32 %49, %83
   %.sroa.3.1.le.i.i.i.i11.i2044 = zext i32 %84 to i64
-  %85 = zext i32 %82 to i64
+  %85 = zext nneg i32 %82 to i64
   %86 = mul i64 %34, %85
   %87 = mul i64 %37, %.sroa.3.1.le.i.i.i.i11.i2044
   %88 = getelementptr float, ptr %40, i64 %86
@@ -24847,7 +24847,7 @@ _ZNK7xgboost6common18IndexTransformIterIZNS_6linalg6cbeginIKfLi2EEEDaRKNS2_10Ten
   %344 = mul i32 %343, %311
   %345 = sub i32 %310, %344
   %.sroa.3.1.le.i.i.i.i11.i4001177 = zext i32 %345 to i64
-  %346 = zext i32 %343 to i64
+  %346 = zext nneg i32 %343 to i64
   %347 = mul i64 %295, %346
   %348 = mul i64 %298, %.sroa.3.1.le.i.i.i.i11.i4001177
   %349 = getelementptr float, ptr %301, i64 %347
@@ -25239,7 +25239,7 @@ _ZNK7xgboost6common18IndexTransformIterIZNS_6linalg6cbeginIKfLi2EEEDaRKNS2_10Ten
   %529 = mul i32 %528, %496
   %530 = sub i32 %495, %529
   %.sroa.3.1.le.i.i.i.i11.i4611195 = zext i32 %530 to i64
-  %531 = zext i32 %528 to i64
+  %531 = zext nneg i32 %528 to i64
   %532 = mul i64 %480, %531
   %533 = mul i64 %483, %.sroa.3.1.le.i.i.i.i11.i4611195
   %534 = getelementptr float, ptr %486, i64 %532
@@ -25586,7 +25586,7 @@ _ZNK7xgboost6common18IndexTransformIterIZNS_6linalg6cbeginIKfLi2EEEDaRKNS2_10Ten
   %693 = mul i32 %692, %660
   %694 = sub i32 %659, %693
   %.sroa.3.1.le.i.i.i.i11.i7551202 = zext i32 %694 to i64
-  %695 = zext i32 %692 to i64
+  %695 = zext nneg i32 %692 to i64
   %696 = mul i64 %644, %695
   %697 = mul i64 %647, %.sroa.3.1.le.i.i.i.i11.i7551202
   %698 = getelementptr float, ptr %650, i64 %696
@@ -25886,7 +25886,7 @@ _ZNK7xgboost6common18IndexTransformIterIZNS_6linalg6cbeginIKfLi2EEEDaRKNS2_10Ten
   %855 = mul i32 %854, %822
   %856 = sub i32 %821, %855
   %.sroa.3.1.le.i.i.i.i11.i7011209 = zext i32 %856 to i64
-  %857 = zext i32 %854 to i64
+  %857 = zext nneg i32 %854 to i64
   %858 = mul i64 %806, %857
   %859 = mul i64 %809, %.sroa.3.1.le.i.i.i.i11.i7011209
   %860 = getelementptr float, ptr %812, i64 %858
@@ -26271,7 +26271,7 @@ _ZNK7xgboost6common18IndexTransformIterIZNS_6linalg6cbeginIKfLi2EEEDaRKNS2_10Ten
   %1037 = mul i32 %1036, %1004
   %1038 = sub i32 %1003, %1037
   %.sroa.3.1.le.i.i.i.i11.i5391216 = zext i32 %1038 to i64
-  %1039 = zext i32 %1036 to i64
+  %1039 = zext nneg i32 %1036 to i64
   %1040 = mul i64 %988, %1039
   %1041 = mul i64 %991, %.sroa.3.1.le.i.i.i.i11.i5391216
   %1042 = getelementptr float, ptr %994, i64 %1040
@@ -27294,7 +27294,7 @@ _ZZN7xgboost6common16WeightedQuantileINS0_18IndexTransformIterIZNS_6linalg6cbegi
   %86 = mul i32 %85, %53
   %87 = sub i32 %17, %86
   %.sroa.3.1.le.i.i.i.i11.i25124 = zext i32 %87 to i64
-  %88 = zext i32 %85 to i64
+  %88 = zext nneg i32 %85 to i64
   %89 = mul i64 %9, %88
   %90 = mul i64 %11, %.sroa.3.1.le.i.i.i.i11.i25124
   %91 = getelementptr float, ptr %13, i64 %89
@@ -27882,7 +27882,7 @@ _ZZN7xgboost6common16WeightedQuantileINS0_18IndexTransformIterIZNS_6linalg6cbegi
   %109 = mul i32 %108, %76
   %110 = sub i32 %75, %109
   %.sroa.3.1.le.i.i.i.i11.i2466 = zext i32 %110 to i64
-  %111 = zext i32 %108 to i64
+  %111 = zext nneg i32 %108 to i64
   %112 = mul i64 %60, %111
   %113 = mul i64 %63, %.sroa.3.1.le.i.i.i.i11.i2466
   %114 = getelementptr float, ptr %66, i64 %112
@@ -28171,7 +28171,7 @@ _ZZN7xgboost6common16WeightedQuantileINS0_18IndexTransformIterIZNS_6linalg6cbegi
   %83 = mul i32 %82, %50
   %84 = sub i32 %49, %83
   %.sroa.3.1.le.i.i.i.i11.i2044 = zext i32 %84 to i64
-  %85 = zext i32 %82 to i64
+  %85 = zext nneg i32 %82 to i64
   %86 = mul i64 %34, %85
   %87 = mul i64 %37, %.sroa.3.1.le.i.i.i.i11.i2044
   %88 = getelementptr float, ptr %40, i64 %86

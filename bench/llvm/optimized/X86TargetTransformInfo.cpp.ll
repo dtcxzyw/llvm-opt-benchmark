@@ -8264,111 +8264,107 @@ define dso_local noundef zeroext i1 @_ZNK4llvm10X86TTIImpl15isLegalAltInstrEPNS_
   %7 = load i32, ptr %6, align 8
   %8 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %7)
   %or.cond29 = icmp eq i32 %8, 1
-  br i1 %or.cond29, label %9, label %_ZN4llvm13isPowerOf2_32Ej.exit.thread
+  br i1 %or.cond29, label %.lr.ph, label %_ZN4llvm13isPowerOf2_32Ej.exit.thread
 
-9:                                                ; preds = %5
-  %10 = sext i32 %7 to i64
-  %.not30 = icmp eq i32 %7, 0
-  br i1 %.not30, label %._crit_edge, label %.lr.ph
-
-.lr.ph:                                           ; preds = %9
-  %11 = load i64, ptr %4, align 8
-  %12 = and i64 %11, 1
-  %.not.i.i23 = icmp eq i64 %12, 0
-  %13 = lshr i64 %11, 1
-  %14 = lshr i64 %11, 58
-  %15 = shl nsw i64 -1, %14
-  %16 = xor i64 %15, -1
-  %invariant.op = and i64 %13, %16
+.lr.ph:                                           ; preds = %5
+  %9 = sext i32 %7 to i64
+  %10 = load i64, ptr %4, align 8
+  %11 = and i64 %10, 1
+  %.not.i.i23 = icmp eq i64 %11, 0
+  %12 = lshr i64 %10, 1
+  %13 = lshr i64 %10, 58
+  %14 = shl nsw i64 -1, %13
+  %15 = xor i64 %14, -1
+  %invariant.op = and i64 %12, %15
   br i1 %.not.i.i23, label %.lr.ph.split.us, label %_ZNK4llvm14SmallBitVector4testEj.exit
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph
-  %17 = inttoptr i64 %11 to ptr
-  %18 = load ptr, ptr %17, align 8
+  %16 = inttoptr i64 %10 to ptr
+  %17 = load ptr, ptr %16, align 8
   br label %_ZNK4llvm14SmallBitVector4testEj.exit.us
 
-_ZNK4llvm14SmallBitVector4testEj.exit.us:         ; preds = %31, %.lr.ph.split.us
-  %.sroa.024.031.us = phi i64 [ 0, %.lr.ph.split.us ], [ %32, %31 ]
-  %19 = trunc i64 %.sroa.024.031.us to i32
-  %20 = lshr i64 %.sroa.024.031.us, 6
-  %21 = and i64 %20, 67108863
-  %22 = getelementptr inbounds nuw i64, ptr %18, i64 %21
-  %23 = and i64 %.sroa.024.031.us, 63
-  %24 = load i64, ptr %22, align 8
-  %25 = shl nuw i64 1, %23
-  %26 = and i64 %24, %25
-  %.0.i.i.not.us = icmp eq i64 %26, 0
-  %27 = select i1 %.0.i.i.not.us, i32 %2, i32 %3
-  %28 = srem i32 %19, 2
-  %29 = icmp eq i32 %28, 0
-  %30 = icmp ne i32 %27, 16
-  %or.cond.us = and i1 %29, %30
-  br i1 %or.cond.us, label %_ZN4llvm13isPowerOf2_32Ej.exit.thread, label %33
+_ZNK4llvm14SmallBitVector4testEj.exit.us:         ; preds = %30, %.lr.ph.split.us
+  %.sroa.024.031.us = phi i64 [ 0, %.lr.ph.split.us ], [ %31, %30 ]
+  %18 = trunc i64 %.sroa.024.031.us to i32
+  %19 = lshr i64 %.sroa.024.031.us, 6
+  %20 = and i64 %19, 67108863
+  %21 = getelementptr inbounds nuw i64, ptr %17, i64 %20
+  %22 = and i64 %.sroa.024.031.us, 63
+  %23 = load i64, ptr %21, align 8
+  %24 = shl nuw i64 1, %22
+  %25 = and i64 %23, %24
+  %.0.i.i.not.us = icmp eq i64 %25, 0
+  %26 = select i1 %.0.i.i.not.us, i32 %2, i32 %3
+  %27 = srem i32 %18, 2
+  %28 = icmp eq i32 %27, 0
+  %29 = icmp ne i32 %26, 16
+  %or.cond.us = and i1 %28, %29
+  br i1 %or.cond.us, label %_ZN4llvm13isPowerOf2_32Ej.exit.thread, label %32
 
-31:                                               ; preds = %33
-  %32 = add i64 %.sroa.024.031.us, 1
-  %.not.us = icmp eq i64 %32, %10
+30:                                               ; preds = %32
+  %31 = add i64 %.sroa.024.031.us, 1
+  %.not.us = icmp eq i64 %31, %9
   br i1 %.not.us, label %._crit_edge, label %_ZNK4llvm14SmallBitVector4testEj.exit.us
 
-33:                                               ; preds = %_ZNK4llvm14SmallBitVector4testEj.exit.us
-  %34 = icmp eq i32 %28, 1
-  %35 = icmp ne i32 %27, 14
-  %or.cond3.us = and i1 %34, %35
-  br i1 %or.cond3.us, label %_ZN4llvm13isPowerOf2_32Ej.exit.thread, label %31
+32:                                               ; preds = %_ZNK4llvm14SmallBitVector4testEj.exit.us
+  %33 = icmp eq i32 %27, 1
+  %34 = icmp ne i32 %26, 14
+  %or.cond3.us = and i1 %33, %34
+  br i1 %or.cond3.us, label %_ZN4llvm13isPowerOf2_32Ej.exit.thread, label %30
 
-36:                                               ; preds = %45
-  %37 = add i64 %.sroa.024.031, 1
-  %.not = icmp eq i64 %37, %10
+35:                                               ; preds = %44
+  %36 = add i64 %.sroa.024.031, 1
+  %.not = icmp eq i64 %36, %9
   br i1 %.not, label %._crit_edge, label %_ZNK4llvm14SmallBitVector4testEj.exit
 
-_ZNK4llvm14SmallBitVector4testEj.exit:            ; preds = %.lr.ph, %36
-  %.sroa.024.031 = phi i64 [ %37, %36 ], [ 0, %.lr.ph ]
-  %38 = trunc i64 %.sroa.024.031 to i32
-  %39 = and i64 %.sroa.024.031, 4294967295
-  %40 = shl nuw i64 1, %39
-  %.reass = and i64 %40, %invariant.op
+_ZNK4llvm14SmallBitVector4testEj.exit:            ; preds = %.lr.ph, %35
+  %.sroa.024.031 = phi i64 [ %36, %35 ], [ 0, %.lr.ph ]
+  %37 = trunc i64 %.sroa.024.031 to i32
+  %38 = and i64 %.sroa.024.031, 4294967295
+  %39 = shl nuw i64 1, %38
+  %.reass = and i64 %39, %invariant.op
   %.0.i.i.not = icmp eq i64 %.reass, 0
-  %41 = select i1 %.0.i.i.not, i32 %2, i32 %3
-  %42 = srem i32 %38, 2
-  %43 = icmp eq i32 %42, 0
-  %44 = icmp ne i32 %41, 16
-  %or.cond = and i1 %43, %44
-  br i1 %or.cond, label %_ZN4llvm13isPowerOf2_32Ej.exit.thread, label %45
+  %40 = select i1 %.0.i.i.not, i32 %2, i32 %3
+  %41 = srem i32 %37, 2
+  %42 = icmp eq i32 %41, 0
+  %43 = icmp ne i32 %40, 16
+  %or.cond = and i1 %42, %43
+  br i1 %or.cond, label %_ZN4llvm13isPowerOf2_32Ej.exit.thread, label %44
 
-45:                                               ; preds = %_ZNK4llvm14SmallBitVector4testEj.exit
-  %46 = icmp eq i32 %42, 1
-  %47 = icmp ne i32 %41, 14
-  %or.cond3 = and i1 %46, %47
-  br i1 %or.cond3, label %_ZN4llvm13isPowerOf2_32Ej.exit.thread, label %36
+44:                                               ; preds = %_ZNK4llvm14SmallBitVector4testEj.exit
+  %45 = icmp eq i32 %41, 1
+  %46 = icmp ne i32 %40, 14
+  %or.cond3 = and i1 %45, %46
+  br i1 %or.cond3, label %_ZN4llvm13isPowerOf2_32Ej.exit.thread, label %35
 
-._crit_edge:                                      ; preds = %36, %31, %9
-  %48 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %49 = load ptr, ptr %48, align 8
-  %50 = getelementptr inbounds nuw i8, ptr %49, i64 8
-  %51 = load i32, ptr %50, align 8
-  %trunc = trunc i32 %51 to i8
+._crit_edge:                                      ; preds = %35, %30
+  %47 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %48 = load ptr, ptr %47, align 8
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 8
+  %50 = load i32, ptr %49, align 8
+  %trunc = trunc i32 %50 to i8
   switch i8 %trunc, label %_ZN4llvm13isPowerOf2_32Ej.exit.thread [
     i8 2, label %_ZN4llvm13isPowerOf2_32Ej.exit.thread.sink.split
-    i8 3, label %52
+    i8 3, label %51
   ]
 
-52:                                               ; preds = %._crit_edge
+51:                                               ; preds = %._crit_edge
   br label %_ZN4llvm13isPowerOf2_32Ej.exit.thread.sink.split
 
-_ZN4llvm13isPowerOf2_32Ej.exit.thread.sink.split: ; preds = %._crit_edge, %52
-  %.sink = phi i32 [ 1, %52 ], [ 3, %._crit_edge ]
-  %53 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %54 = load ptr, ptr %53, align 8
-  %55 = getelementptr inbounds nuw i8, ptr %54, i64 304
-  %56 = load i32, ptr %55, align 8
-  %57 = icmp sgt i32 %56, 2
-  %58 = and i32 %7, %.sink
-  %59 = icmp eq i32 %58, 0
-  %60 = and i1 %59, %57
+_ZN4llvm13isPowerOf2_32Ej.exit.thread.sink.split: ; preds = %._crit_edge, %51
+  %.sink = phi i32 [ 1, %51 ], [ 3, %._crit_edge ]
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %53 = load ptr, ptr %52, align 8
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 304
+  %55 = load i32, ptr %54, align 8
+  %56 = icmp sgt i32 %55, 2
+  %57 = and i32 %7, %.sink
+  %58 = icmp eq i32 %57, 0
+  %59 = and i1 %58, %56
   br label %_ZN4llvm13isPowerOf2_32Ej.exit.thread
 
-_ZN4llvm13isPowerOf2_32Ej.exit.thread:            ; preds = %_ZNK4llvm14SmallBitVector4testEj.exit, %45, %33, %_ZNK4llvm14SmallBitVector4testEj.exit.us, %_ZN4llvm13isPowerOf2_32Ej.exit.thread.sink.split, %._crit_edge, %5
-  %.0 = phi i1 [ false, %5 ], [ false, %._crit_edge ], [ %60, %_ZN4llvm13isPowerOf2_32Ej.exit.thread.sink.split ], [ false, %_ZNK4llvm14SmallBitVector4testEj.exit.us ], [ false, %33 ], [ false, %45 ], [ false, %_ZNK4llvm14SmallBitVector4testEj.exit ]
+_ZN4llvm13isPowerOf2_32Ej.exit.thread:            ; preds = %_ZNK4llvm14SmallBitVector4testEj.exit, %44, %32, %_ZNK4llvm14SmallBitVector4testEj.exit.us, %_ZN4llvm13isPowerOf2_32Ej.exit.thread.sink.split, %._crit_edge, %5
+  %.0 = phi i1 [ false, %5 ], [ false, %._crit_edge ], [ %59, %_ZN4llvm13isPowerOf2_32Ej.exit.thread.sink.split ], [ false, %_ZNK4llvm14SmallBitVector4testEj.exit.us ], [ false, %32 ], [ false, %44 ], [ false, %_ZNK4llvm14SmallBitVector4testEj.exit ]
   ret i1 %.0
 }
 

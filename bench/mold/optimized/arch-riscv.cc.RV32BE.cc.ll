@@ -36531,20 +36531,18 @@ if.then.i.i.i.i.i.i.i.i.i.i.i.i:                  ; preds = %for.body.i.i.i.i.i.
 if.end.i110.i.i.i.i.i.i.i.i.i.i.i.i:              ; preds = %if.then.i.i.i.i.i.i.i.i.i.i.i.i
   %42 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %conv22.i.i.i.i.i.i.i.i.i.i.i.i, i1 false)
   %sub.i111.i.i.i.i.i.i.i.i.i.i.i.i = sub nuw nsw i64 64, %42
-  %shl.i112.i.i.i.i.i.i.i.i.i.i.i.i = shl nuw i64 1, %sub.i111.i.i.i.i.i.i.i.i.i.i.i.i
+  %shl.i112.i.i.i.i.i.i.i.i.i.i.i.i = shl nuw nsw i64 1, %sub.i111.i.i.i.i.i.i.i.i.i.i.i.i
   br label %_ZN4mold8bit_ceilEm.exit.i.i.i.i.i.i.i.i.i.i.i.i
 
 _ZN4mold8bit_ceilEm.exit.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %if.end.i110.i.i.i.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i.i.i
   %retval.0.i.i.i.i.i.i.i.i.i.i.i.i.i = phi i64 [ %shl.i112.i.i.i.i.i.i.i.i.i.i.i.i, %if.end.i110.i.i.i.i.i.i.i.i.i.i.i.i ], [ %conv22.i.i.i.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i.i.i ]
-  %cmp.i113.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %retval.0.i.i.i.i.i.i.i.i.i.i.i.i.i, 0
   %add.i114.i.i.i.i.i.i.i.i.i.i.i.i = add i64 %sub.i.i.i.i.i.i.i.i.i.i.i.i, -1
   %sub.i115.i.i.i.i.i.i.i.i.i.i.i.i = add i64 %add.i114.i.i.i.i.i.i.i.i.i.i.i.i, %retval.0.i.i.i.i.i.i.i.i.i.i.i.i.i
-  %not.i.i.i.i.i.i.i.i.i.i.i.i.i = sub i64 0, %retval.0.i.i.i.i.i.i.i.i.i.i.i.i.i
+  %not.i.i.i.i.i.i.i.i.i.i.i.i.i = sub nsw i64 0, %retval.0.i.i.i.i.i.i.i.i.i.i.i.i.i
   %and.i.i.i.i.i.i.i.i.i.i.i.i.i = and i64 %sub.i115.i.i.i.i.i.i.i.i.i.i.i.i, %not.i.i.i.i.i.i.i.i.i.i.i.i.i
-  %retval.0.i116.i.i.i.i.i.i.i.i.i.i.i.i = select i1 %cmp.i113.i.i.i.i.i.i.i.i.i.i.i.i, i64 %sub.i.i.i.i.i.i.i.i.i.i.i.i, i64 %and.i.i.i.i.i.i.i.i.i.i.i.i.i
   %add18.i.i.i.i.i.i.i.i.i.i.i.i = add i64 %delta.0288.i.i.i.i.i.i.i.i.i.i.i.i, %conv17.i.i.i.i.i.i.i.i.i.i.i.i
   %sub25.i.i.i.i.i.i.i.i.i.i.i.i = add i64 %add18.i.i.i.i.i.i.i.i.i.i.i.i, %sub.i.i.i.i.i.i.i.i.i.i.i.i
-  %add26.i.i.i.i.i.i.i.i.i.i.i.i = sub i64 %sub25.i.i.i.i.i.i.i.i.i.i.i.i, %retval.0.i116.i.i.i.i.i.i.i.i.i.i.i.i
+  %add26.i.i.i.i.i.i.i.i.i.i.i.i = sub i64 %sub25.i.i.i.i.i.i.i.i.i.i.i.i, %and.i.i.i.i.i.i.i.i.i.i.i.i.i
   br label %for.inc.i.i.i.i.i.i.i.i.i.i.i.i
 
 if.end.i.i.i.i.i.i.i.i.i.i.i.i:                   ; preds = %for.body.i.i.i.i.i.i.i.i.i.i.i.i

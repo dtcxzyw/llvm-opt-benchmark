@@ -3448,17 +3448,17 @@ entry:
 
 if.then:                                          ; preds = %entry
   %dec.i = add nsw i32 %3, -1
-  %shr.i = ashr i32 %dec.i, 1
+  %shr.i = lshr i32 %dec.i, 1
   %or.i = or i32 %shr.i, %dec.i
-  %shr1.i = ashr i32 %or.i, 2
+  %shr1.i = lshr i32 %or.i, 2
   %or2.i = or i32 %shr1.i, %or.i
-  %shr3.i = ashr i32 %or2.i, 4
+  %shr3.i = lshr i32 %or2.i, 4
   %or4.i = or i32 %shr3.i, %or2.i
-  %shr5.i = ashr i32 %or4.i, 8
+  %shr5.i = lshr i32 %or4.i, 8
   %or6.i = or i32 %shr5.i, %or4.i
-  %shr7.i = ashr i32 %or6.i, 16
+  %shr7.i = lshr i32 %or6.i, 16
   %or8.i = or i32 %shr7.i, %or6.i
-  %add.i = add nsw i32 %or8.i, 1
+  %add.i = add nuw nsw i32 %or8.i, 1
   %dec.i9 = add nsw i32 %6, -1
   %shr.i10 = ashr i32 %dec.i9, 1
   %or.i11 = or i32 %shr.i10, %dec.i9
@@ -3473,7 +3473,7 @@ if.then:                                          ; preds = %entry
   %add.i20 = add nsw i32 %or8.i19, 1
   %agg.tmp.sroa.2.0.insert.ext = zext i32 %add.i20 to i64
   %agg.tmp.sroa.2.0.insert.shift = shl nuw i64 %agg.tmp.sroa.2.0.insert.ext, 32
-  %agg.tmp.sroa.0.0.insert.ext = zext i32 %add.i to i64
+  %agg.tmp.sroa.0.0.insert.ext = zext nneg i32 %add.i to i64
   %agg.tmp.sroa.0.0.insert.insert = or disjoint i64 %agg.tmp.sroa.2.0.insert.shift, %agg.tmp.sroa.0.0.insert.ext
   call void @_ZNK4pbrt5Image13FloatResizeUpENS_6Point2IiEENS_10WrapMode2DE(ptr nonnull sret(%"class.pbrt::Image") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(152) %image, i64 %agg.tmp.sroa.0.0.insert.insert, i64 %wrapMode.coerce)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %image, ptr noundef nonnull align 8 dereferenceable(152) %ref.tmp, i64 12, i1 false)

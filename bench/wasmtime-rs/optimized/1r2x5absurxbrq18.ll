@@ -16172,7 +16172,7 @@ define hidden void @_ZN16wasmtime_environ9component5types16CanonicalAbiInfo7vari
 
 _ZN16wasmtime_environ9component5types8add_flat17h4446092aac2a602fE.exit: ; preds = %10
   %15 = add i32 %11, -1
-  %16 = add i32 %15, %11
+  %16 = add nuw i32 %15, %11
   %17 = sub i32 0, %11
   %18 = and i32 %16, %17
   %19 = add i32 %15, %18
@@ -16268,7 +16268,7 @@ define hidden void @_ZN16wasmtime_environ9component5types16CanonicalAbiInfo7vari
 
 _ZN16wasmtime_environ9component5types8add_flat17h4446092aac2a602fE.exit: ; preds = %10
   %15 = add i32 %11, -1
-  %16 = add i32 %15, %11
+  %16 = add nuw i32 %15, %11
   %17 = sub i32 0, %11
   %18 = and i32 %16, %17
   %19 = add i32 %15, %18
@@ -17330,7 +17330,7 @@ define hidden void @_ZN16wasmtime_environ9component5types11VariantInfo3new17h563
 
 _ZN16wasmtime_environ9component5types8align_to17h089c6779f7c5890cE.exit5: ; preds = %14
   %19 = add i32 %15, -1
-  %20 = add i32 %19, %15
+  %20 = add nuw i32 %19, %15
   %21 = sub i32 0, %15
   %22 = and i32 %20, %21
   %23 = add i32 %22, %19
@@ -17471,7 +17471,7 @@ define hidden void @_ZN16wasmtime_environ9component5types11VariantInfo3new17ha28
 
 _ZN16wasmtime_environ9component5types8align_to17h089c6779f7c5890cE.exit5: ; preds = %14
   %19 = add i32 %15, -1
-  %20 = add i32 %19, %15
+  %20 = add nuw i32 %19, %15
   %21 = sub i32 0, %15
   %22 = and i32 %20, %21
   %23 = add i32 %22, %19

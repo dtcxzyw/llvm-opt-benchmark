@@ -8688,15 +8688,11 @@ for.body1274:                                     ; preds = %invoke.cont1270
 
 if.then1278:                                      ; preds = %for.body1274
   invoke void @_ZN4cvc58internal8RationalC2Ei(ptr noundef nonnull align 8 dereferenceable(32) %sum, i32 noundef 0)
-          to label %for.cond1303.preheader unwind label %lpad1177.loopexit
+          to label %for.body1305 unwind label %lpad1177.loopexit
 
-for.cond1303.preheader:                           ; preds = %if.then1278
-  %cmp1304.not11760 = icmp eq i64 %storemerge, 0
-  br i1 %cmp1304.not11760, label %cond.true1364, label %for.body1305
-
-for.body1305:                                     ; preds = %for.cond1303.preheader, %for.inc1358
-  %kk.011762 = phi i64 [ %shr, %for.inc1358 ], [ %storemerge, %for.cond1303.preheader ]
-  %v1.011761 = phi i64 [ %inc1359, %for.inc1358 ], [ 1, %for.cond1303.preheader ]
+for.body1305:                                     ; preds = %if.then1278, %for.inc1358
+  %kk.011762 = phi i64 [ %shr, %for.inc1358 ], [ %storemerge, %if.then1278 ]
+  %v1.011761 = phi i64 [ %inc1359, %for.inc1358 ], [ 1, %if.then1278 ]
   %and1306 = and i64 %kk.011762, 1
   %cmp1307.not = icmp eq i64 %and1306, 0
   br i1 %cmp1307.not, label %for.inc1358, label %cond.true1312
@@ -8976,7 +8972,7 @@ for.inc1358:                                      ; preds = %invoke.cont1351, %f
   %cmp1304.not = icmp ult i64 %kk.011762, 2
   br i1 %cmp1304.not, label %cond.true1364, label %for.body1305, !llvm.loop !219
 
-cond.true1364:                                    ; preds = %for.inc1358, %for.cond1303.preheader
+cond.true1364:                                    ; preds = %for.inc1358
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp9.i5613)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp10.i5614)
   %607 = load ptr, ptr %_M_parent.i.i.i.i.i448, align 8

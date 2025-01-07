@@ -3437,7 +3437,7 @@ define linkonce_odr void @_ZN3acd21ac_decomposition_impl39generate_support_minim
   br i1 %5, label %.preheader, label %.preheader46
 
 .preheader46:                                     ; preds = %1
-  %6 = icmp ugt i32 %3, 1
+  %6 = icmp samesign ugt i32 %3, 1
   br i1 %6, label %.lr.ph, label %.noexc23
 
 .preheader:                                       ; preds = %1, %13

@@ -38330,29 +38330,29 @@ entry:
 if.end.i.i.i.i.i.i.i:                             ; preds = %entry
   %5 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %div.i.i.i.i.i, i1 false)
   %sub.i.i.i.i.i.i.i = sub nuw nsw i64 64, %5
-  %shl.i.i.i.i.i.i.i = shl nuw i64 1, %sub.i.i.i.i.i.i.i
+  %shl.i.i.i.i.i.i.i = shl nuw nsw i64 1, %sub.i.i.i.i.i.i.i
   br label %_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZN4mold3elf13MergedSectionINS4_5ALPHAEE6insertERNS4_7ContextIS6_EESt17basic_string_viewIcSt11char_traitsIcEEmlEUlvE_JEEvRS_OT_DpOT0_EUlvE_EERSH_ENKUlvE_clEv.exit
 
 _ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZN4mold3elf13MergedSectionINS4_5ALPHAEE6insertERNS4_7ContextIS6_EESt17basic_string_viewIcSt11char_traitsIcEEmlEUlvE_JEEvRS_OT_DpOT0_EUlvE_EERSH_ENKUlvE_clEv.exit: ; preds = %entry, %if.end.i.i.i.i.i.i.i
   %retval.0.i.i.i.i.i.i.i = phi i64 [ %shl.i.i.i.i.i.i.i, %if.end.i.i.i.i.i.i.i ], [ %div.i.i.i.i.i, %entry ]
   %map.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 224
-  %.sroa.speculated.i.i.i.i.i.i = tail call i64 @llvm.smax.i64(i64 %retval.0.i.i.i.i.i.i.i, i64 2048)
+  %6 = tail call i64 @llvm.umax.i64(i64 %retval.0.i.i.i.i.i.i.i, i64 2048)
   %nbuckets3.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 240
-  store i64 %.sroa.speculated.i.i.i.i.i.i, ptr %nbuckets3.i.i.i.i.i.i, align 8
-  %6 = load ptr, ptr %map.i.i.i.i.i, align 8
-  tail call void @free(ptr noundef %6) #13
-  %7 = load i64, ptr %nbuckets3.i.i.i.i.i.i, align 8
-  %mul.i.i.i.i.i.i = shl i64 %7, 5
+  store i64 %6, ptr %nbuckets3.i.i.i.i.i.i, align 8
+  %7 = load ptr, ptr %map.i.i.i.i.i, align 8
+  tail call void @free(ptr noundef %7) #13
+  %8 = load i64, ptr %nbuckets3.i.i.i.i.i.i, align 8
+  %mul.i.i.i.i.i.i = shl i64 %8, 5
   %sub.i.i.i.i.i.i = or disjoint i64 %mul.i.i.i.i.i.i, 31
   %call5.i.i.i.i.i.i = tail call noalias ptr @malloc(i64 noundef %sub.i.i.i.i.i.i) #31
   store ptr %call5.i.i.i.i.i.i, ptr %map.i.i.i.i.i, align 8
-  %8 = ptrtoint ptr %call5.i.i.i.i.i.i to i64
-  %sub.i2.i.i.i.i.i.i = add i64 %8, 31
+  %9 = ptrtoint ptr %call5.i.i.i.i.i.i to i64
+  %sub.i2.i.i.i.i.i.i = add i64 %9, 31
   %and.i.i.i.i.i.i.i = and i64 %sub.i2.i.i.i.i.i.i, -32
-  %9 = inttoptr i64 %and.i.i.i.i.i.i.i to ptr
+  %10 = inttoptr i64 %and.i.i.i.i.i.i.i to ptr
   %entries.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 232
-  store ptr %9, ptr %entries.i.i.i.i.i.i, align 8
-  tail call void @llvm.memset.p0.i64(ptr align 32 %9, i8 0, i64 %mul.i.i.i.i.i.i, i1 false)
+  store ptr %10, ptr %entries.i.i.i.i.i.i, align 8
+  tail call void @llvm.memset.p0.i64(ptr align 32 %10, i8 0, i64 %mul.i.i.i.i.i.i, i1 false)
   ret void
 }
 

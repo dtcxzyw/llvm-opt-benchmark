@@ -18816,7 +18816,7 @@ define dso_local i64 @mp_div1_dec(ptr nocapture noundef writeonly %0, ptr nocapt
 
 .lr.ph:                                           ; preds = %.preheader
   %18 = zext i64 %3 to i128
-  br label %119
+  br label %118
 
 19:                                               ; preds = %15
   %20 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 range(i64 1, 0) %3, i1 false)
@@ -18826,154 +18826,153 @@ define dso_local i64 @mp_div1_dec(ptr nocapture noundef writeonly %0, ptr nocapt
 .lr.ph120:                                        ; preds = %19
   %22 = zext i64 %3 to i128
   %23 = xor i64 %3, -1
-  %24 = zext i64 %23 to i128
-  %25 = shl nuw i128 %24, 64
+  %24 = zext nneg i64 %23 to i128
+  %25 = shl nuw nsw i128 %24, 64
   %26 = or disjoint i128 %25, 18446744073709551615
   %27 = udiv i128 %26, %22
-  %28 = and i128 %27, 18446744073709551615
-  br label %29
+  br label %28
 
-29:                                               ; preds = %.lr.ph120, %29
-  %.1.in119 = phi i64 [ %2, %.lr.ph120 ], [ %.1, %29 ]
-  %.3106118 = phi i64 [ %4, %.lr.ph120 ], [ %64, %29 ]
+28:                                               ; preds = %.lr.ph120, %28
+  %.1.in119 = phi i64 [ %2, %.lr.ph120 ], [ %.1, %28 ]
+  %.3106118 = phi i64 [ %4, %.lr.ph120 ], [ %63, %28 ]
   %.1 = add nsw i64 %.1.in119, -1
-  %30 = zext i64 %.3106118 to i128
-  %31 = mul nuw i128 %30, 10000000000000000000
-  %32 = trunc i128 %31 to i64
-  %33 = lshr i128 %31, 64
-  %34 = trunc nuw i128 %33 to i64
-  %35 = getelementptr i64, ptr %1, i64 %.1
-  %36 = load i64, ptr %35, align 8
-  %37 = add i64 %36, %32
-  %38 = icmp ult i64 %37, %32
-  %39 = zext i1 %38 to i64
-  %40 = add nuw i64 %39, %34
-  %41 = ashr i64 %37, 63
-  %42 = and i64 %41, %3
-  %43 = add i64 %42, %37
-  %44 = sub i64 %40, %41
-  %45 = zext i64 %44 to i128
-  %46 = mul nuw i128 %28, %45
-  %47 = zext i64 %43 to i128
-  %48 = add nuw i128 %46, %47
-  %49 = lshr i128 %48, 64
-  %50 = zext i64 %40 to i128
-  %51 = trunc nuw i128 %49 to i64
-  %52 = add i64 %40, %51
-  %53 = shl nuw i128 %50, 64
-  %54 = zext i64 %37 to i128
-  %55 = or disjoint i128 %53, %54
-  %56 = zext i64 %52 to i128
-  %.neg.i = xor i128 %56, -1
+  %29 = zext i64 %.3106118 to i128
+  %30 = mul nuw i128 %29, 10000000000000000000
+  %31 = trunc i128 %30 to i64
+  %32 = lshr i128 %30, 64
+  %33 = trunc nuw i128 %32 to i64
+  %34 = getelementptr i64, ptr %1, i64 %.1
+  %35 = load i64, ptr %34, align 8
+  %36 = add i64 %35, %31
+  %37 = icmp ult i64 %36, %31
+  %38 = zext i1 %37 to i64
+  %39 = add nuw i64 %38, %33
+  %40 = ashr i64 %36, 63
+  %41 = and i64 %40, %3
+  %42 = add i64 %41, %36
+  %43 = sub i64 %39, %40
+  %44 = zext i64 %43 to i128
+  %45 = mul nuw i128 %27, %44
+  %46 = zext i64 %42 to i128
+  %47 = add nuw i128 %45, %46
+  %48 = lshr i128 %47, 64
+  %49 = zext i64 %39 to i128
+  %50 = trunc nuw i128 %48 to i64
+  %51 = add i64 %39, %50
+  %52 = shl nuw i128 %49, 64
+  %53 = zext i64 %36 to i128
+  %54 = or disjoint i128 %52, %53
+  %55 = zext i64 %51 to i128
+  %.neg.i = xor i128 %55, -1
   %.neg24.i = mul i128 %.neg.i, %22
-  %57 = add i128 %55, %.neg24.i
-  %58 = lshr i128 %57, 64
-  %59 = trunc nuw i128 %58 to i64
-  %60 = add i64 %52, 1
-  %61 = add i64 %60, %59
-  %62 = trunc i128 %57 to i64
-  %63 = and i64 %3, %59
-  %64 = add i64 %63, %62
-  %65 = getelementptr i64, ptr %0, i64 %.1
-  store i64 %61, ptr %65, align 8
-  %66 = icmp samesign ugt i64 %.1.in119, 1
-  br i1 %66, label %29, label %.loopexit, !llvm.loop !92
+  %56 = add i128 %54, %.neg24.i
+  %57 = lshr i128 %56, 64
+  %58 = trunc nuw i128 %57 to i64
+  %59 = add i64 %51, 1
+  %60 = add i64 %59, %58
+  %61 = trunc i128 %56 to i64
+  %62 = and i64 %3, %58
+  %63 = add i64 %62, %61
+  %64 = getelementptr i64, ptr %0, i64 %.1
+  store i64 %60, ptr %64, align 8
+  %65 = icmp samesign ugt i64 %.1.in119, 1
+  br i1 %65, label %28, label %.loopexit, !llvm.loop !92
 
 .lr.ph116:                                        ; preds = %19
-  %67 = shl i64 %3, %20
-  %68 = zext i64 %67 to i128
-  %69 = xor i64 %67, -1
-  %70 = zext i64 %69 to i128
-  %71 = shl nuw i128 %70, 64
-  %72 = or disjoint i128 %71, 18446744073709551615
-  %73 = udiv i128 %72, %68
-  %74 = sub nuw nsw i64 64, %20
-  %75 = and i128 %73, 18446744073709551615
-  br label %76
+  %66 = shl i64 %3, %20
+  %67 = zext i64 %66 to i128
+  %68 = xor i64 %66, -1
+  %69 = zext i64 %68 to i128
+  %70 = shl nuw i128 %69, 64
+  %71 = or disjoint i128 %70, 18446744073709551615
+  %72 = udiv i128 %71, %67
+  %73 = sub nuw nsw i64 64, %20
+  %74 = and i128 %72, 18446744073709551615
+  br label %75
 
-76:                                               ; preds = %.lr.ph116, %76
-  %.2.in115 = phi i64 [ %2, %.lr.ph116 ], [ %.2, %76 ]
-  %.4114 = phi i64 [ %4, %.lr.ph116 ], [ %116, %76 ]
+75:                                               ; preds = %.lr.ph116, %75
+  %.2.in115 = phi i64 [ %2, %.lr.ph116 ], [ %.2, %75 ]
+  %.4114 = phi i64 [ %4, %.lr.ph116 ], [ %115, %75 ]
   %.2 = add nsw i64 %.2.in115, -1
-  %77 = zext i64 %.4114 to i128
-  %78 = mul nuw i128 %77, 10000000000000000000
-  %79 = trunc i128 %78 to i64
-  %80 = lshr i128 %78, 64
-  %81 = trunc nuw i128 %80 to i64
-  %82 = getelementptr i64, ptr %1, i64 %.2
-  %83 = load i64, ptr %82, align 8
-  %84 = add i64 %83, %79
-  %85 = icmp ult i64 %84, %79
-  %86 = zext i1 %85 to i64
-  %87 = add nuw i64 %86, %81
-  %88 = shl i64 %87, %20
-  %89 = lshr i64 %84, %74
-  %90 = or i64 %88, %89
-  %91 = shl i64 %84, %20
-  %92 = ashr i64 %91, 63
-  %93 = and i64 %92, %67
-  %94 = add i64 %93, %91
-  %95 = sub i64 %90, %92
-  %96 = zext i64 %95 to i128
-  %97 = mul nuw i128 %75, %96
-  %98 = zext i64 %94 to i128
-  %99 = add nuw i128 %97, %98
-  %100 = lshr i128 %99, 64
-  %101 = zext i64 %90 to i128
-  %102 = trunc nuw i128 %100 to i64
-  %103 = add i64 %90, %102
-  %104 = shl nuw i128 %101, 64
-  %105 = zext i64 %91 to i128
-  %106 = or disjoint i128 %104, %105
-  %107 = zext i64 %103 to i128
-  %.neg.i95 = xor i128 %107, -1
-  %.neg24.i96 = mul i128 %.neg.i95, %68
-  %108 = add i128 %106, %.neg24.i96
-  %109 = lshr i128 %108, 64
-  %110 = trunc nuw i128 %109 to i64
-  %111 = add i64 %103, 1
-  %112 = add i64 %111, %110
-  %113 = trunc i128 %108 to i64
-  %114 = and i64 %67, %110
-  %115 = add i64 %114, %113
-  %116 = lshr i64 %115, %20
-  %117 = getelementptr i64, ptr %0, i64 %.2
-  store i64 %112, ptr %117, align 8
-  %118 = icmp samesign ugt i64 %.2.in115, 1
-  br i1 %118, label %76, label %.loopexit, !llvm.loop !93
+  %76 = zext i64 %.4114 to i128
+  %77 = mul nuw i128 %76, 10000000000000000000
+  %78 = trunc i128 %77 to i64
+  %79 = lshr i128 %77, 64
+  %80 = trunc nuw i128 %79 to i64
+  %81 = getelementptr i64, ptr %1, i64 %.2
+  %82 = load i64, ptr %81, align 8
+  %83 = add i64 %82, %78
+  %84 = icmp ult i64 %83, %78
+  %85 = zext i1 %84 to i64
+  %86 = add nuw i64 %85, %80
+  %87 = shl i64 %86, %20
+  %88 = lshr i64 %83, %73
+  %89 = or i64 %87, %88
+  %90 = shl i64 %83, %20
+  %91 = ashr i64 %90, 63
+  %92 = and i64 %91, %66
+  %93 = add i64 %92, %90
+  %94 = sub i64 %89, %91
+  %95 = zext i64 %94 to i128
+  %96 = mul nuw i128 %74, %95
+  %97 = zext i64 %93 to i128
+  %98 = add nuw i128 %96, %97
+  %99 = lshr i128 %98, 64
+  %100 = zext i64 %89 to i128
+  %101 = trunc nuw i128 %99 to i64
+  %102 = add i64 %89, %101
+  %103 = shl nuw i128 %100, 64
+  %104 = zext i64 %90 to i128
+  %105 = or disjoint i128 %103, %104
+  %106 = zext i64 %102 to i128
+  %.neg.i95 = xor i128 %106, -1
+  %.neg24.i96 = mul i128 %.neg.i95, %67
+  %107 = add i128 %105, %.neg24.i96
+  %108 = lshr i128 %107, 64
+  %109 = trunc nuw i128 %108 to i64
+  %110 = add i64 %102, 1
+  %111 = add i64 %110, %109
+  %112 = trunc i128 %107 to i64
+  %113 = and i64 %66, %109
+  %114 = add i64 %113, %112
+  %115 = lshr i64 %114, %20
+  %116 = getelementptr i64, ptr %0, i64 %.2
+  store i64 %111, ptr %116, align 8
+  %117 = icmp samesign ugt i64 %.2.in115, 1
+  br i1 %117, label %75, label %.loopexit, !llvm.loop !93
 
-119:                                              ; preds = %.lr.ph, %119
-  %.3113 = phi i64 [ %.3111, %.lr.ph ], [ %.3, %119 ]
-  %.5112 = phi i64 [ %4, %.lr.ph ], [ %138, %119 ]
-  %120 = zext i64 %.5112 to i128
-  %121 = mul nuw i128 %120, 10000000000000000000
-  %122 = trunc i128 %121 to i64
-  %123 = lshr i128 %121, 64
-  %124 = trunc nuw i128 %123 to i64
-  %125 = getelementptr i64, ptr %1, i64 %.3113
-  %126 = load i64, ptr %125, align 8
-  %127 = add i64 %126, %122
-  %128 = icmp ult i64 %127, %122
-  %129 = zext i1 %128 to i64
-  %130 = add nuw i64 %129, %124
-  %131 = zext i64 %130 to i128
-  %132 = shl nuw i128 %131, 64
-  %133 = zext i64 %127 to i128
-  %134 = or disjoint i128 %132, %133
-  %.frozen = freeze i128 %134
-  %135 = udiv i128 %.frozen, %18
-  %136 = trunc i128 %135 to i64
-  %137 = mul i128 %135, %18
-  %.decomposed = sub i128 %.frozen, %137
-  %138 = trunc nuw i128 %.decomposed to i64
-  %139 = getelementptr i64, ptr %0, i64 %.3113
-  store i64 %136, ptr %139, align 8
+118:                                              ; preds = %.lr.ph, %118
+  %.3113 = phi i64 [ %.3111, %.lr.ph ], [ %.3, %118 ]
+  %.5112 = phi i64 [ %4, %.lr.ph ], [ %137, %118 ]
+  %119 = zext i64 %.5112 to i128
+  %120 = mul nuw i128 %119, 10000000000000000000
+  %121 = trunc i128 %120 to i64
+  %122 = lshr i128 %120, 64
+  %123 = trunc nuw i128 %122 to i64
+  %124 = getelementptr i64, ptr %1, i64 %.3113
+  %125 = load i64, ptr %124, align 8
+  %126 = add i64 %125, %121
+  %127 = icmp ult i64 %126, %121
+  %128 = zext i1 %127 to i64
+  %129 = add nuw i64 %128, %123
+  %130 = zext i64 %129 to i128
+  %131 = shl nuw i128 %130, 64
+  %132 = zext i64 %126 to i128
+  %133 = or disjoint i128 %131, %132
+  %.frozen = freeze i128 %133
+  %134 = udiv i128 %.frozen, %18
+  %135 = trunc i128 %134 to i64
+  %136 = mul i128 %134, %18
+  %.decomposed = sub i128 %.frozen, %136
+  %137 = trunc nuw i128 %.decomposed to i64
+  %138 = getelementptr i64, ptr %0, i64 %.3113
+  store i64 %135, ptr %138, align 8
   %.3 = add nsw i64 %.3113, -1
   %.not136 = icmp eq i64 %.3113, 0
-  br i1 %.not136, label %.loopexit, label %119, !llvm.loop !94
+  br i1 %.not136, label %.loopexit, label %118, !llvm.loop !94
 
-.loopexit:                                        ; preds = %119, %76, %29, %.preheader, %._crit_edge
-  %.2105 = phi i64 [ %spec.select108, %._crit_edge ], [ %4, %.preheader ], [ %64, %29 ], [ %116, %76 ], [ %138, %119 ]
+.loopexit:                                        ; preds = %118, %75, %28, %.preheader, %._crit_edge
+  %.2105 = phi i64 [ %spec.select108, %._crit_edge ], [ %4, %.preheader ], [ %63, %28 ], [ %115, %75 ], [ %137, %118 ]
   ret i64 %.2105
 }
 

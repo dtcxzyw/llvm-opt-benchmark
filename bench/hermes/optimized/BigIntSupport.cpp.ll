@@ -513,10 +513,8 @@ if.end.i43.thread:                                ; preds = %land.lhs.true
   br label %if.end6.i
 
 if.end.i43:                                       ; preds = %if.end31
-  %cmp44 = icmp ult i64 %12, 4503599627370496
   %sub47 = sub nsw i32 11, %conv
-  %cond49 = select i1 %cmp44, i32 0, i32 %sub47
-  %cmp1.i = icmp eq i32 %cond49, 0
+  %cmp1.i = icmp eq i64 %13, 11
   br i1 %cmp1.i, label %if.then2.i, label %if.end6.i
 
 if.then2.i:                                       ; preds = %if.end.i43
@@ -533,7 +531,7 @@ if.end6.i:                                        ; preds = %if.end.i43.thread, 
   %17 = phi i64 [ %.pre, %if.end5.i ], [ %12, %if.end.i43 ], [ %16, %if.end.i43.thread ]
   %mantissa.06376 = phi i64 [ %cond37, %if.end5.i ], [ %cond37, %if.end.i43 ], [ %or, %if.end.i43.thread ]
   %currDigit.addr.0.i = phi ptr [ %spec.select.sroa.sel84.v.sroa.sel, %if.end5.i ], [ %spec.select, %if.end.i43 ], [ %spec.select.sroa.sel.v.sroa.sel, %if.end.i43.thread ]
-  %numUnusedBitsInCurrDigit.addr.0.i = phi i32 [ 64, %if.end5.i ], [ %cond49, %if.end.i43 ], [ %sub55, %if.end.i43.thread ]
+  %numUnusedBitsInCurrDigit.addr.0.i = phi i32 [ 64, %if.end5.i ], [ %sub47, %if.end.i43 ], [ %sub55, %if.end.i43.thread ]
   %sub.i44 = add nsw i32 %numUnusedBitsInCurrDigit.addr.0.i, -1
   %sh_prom.i = zext nneg i32 %sub.i44 to i64
   %shl.i = shl nuw i64 1, %sh_prom.i
