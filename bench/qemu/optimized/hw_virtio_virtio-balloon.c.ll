@@ -1223,7 +1223,7 @@ declare ptr @virtio_add_queue(ptr noundef, i32 noundef, ptr noundef) local_unnam
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @virtio_balloon_handle_output(ptr noundef %vdev, ptr noundef %vq) #0 {
 entry:
-  %rb_offset.i71 = alloca i64, align 8
+  %rb_offset.i70 = alloca i64, align 8
   %rb_offset.i = alloca i64, align 8
   %_now.i.i49 = alloca %struct.timeval, align 8
   %_now.i.i34 = alloca %struct.timeval, align 8
@@ -1231,9 +1231,9 @@ entry:
   %pfn = alloca i32, align 4
   %tmp = alloca %struct.MemoryRegionSection, align 16
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %vdev, ptr noundef nonnull @.str, ptr noundef nonnull @.str.6, i32 noundef 24, ptr noundef nonnull @__func__.VIRTIO_BALLOON) #13
-  %call190 = tail call ptr @virtqueue_pop(ptr noundef %vq, i64 noundef 56) #13
-  %tobool.not91 = icmp eq ptr %call190, null
-  br i1 %tobool.not91, label %for.end, label %while.cond.preheader.lr.ph
+  %call189 = tail call ptr @virtqueue_pop(ptr noundef %vq, i64 noundef 56) #13
+  %tobool.not90 = icmp eq ptr %call189, null
+  br i1 %tobool.not90, label %for.end, label %while.cond.preheader.lr.ph
 
 while.cond.preheader.lr.ph:                       ; preds = %entry
   %section.sroa.1.0.tmp.sroa_idx = getelementptr inbounds nuw i8, ptr %tmp, i64 16
@@ -1246,9 +1246,9 @@ while.cond.preheader.lr.ph:                       ; preds = %entry
   br label %while.cond.preheader
 
 while.cond.preheader:                             ; preds = %while.cond.preheader.lr.ph, %virtio_balloon_pbp_free.exit
-  %call192 = phi ptr [ %call190, %while.cond.preheader.lr.ph ], [ %call1, %virtio_balloon_pbp_free.exit ]
-  %out_sg = getelementptr inbounds nuw i8, ptr %call192, i64 48
-  %out_num = getelementptr inbounds nuw i8, ptr %call192, i64 12
+  %call191 = phi ptr [ %call189, %while.cond.preheader.lr.ph ], [ %call1, %virtio_balloon_pbp_free.exit ]
+  %out_sg = getelementptr inbounds nuw i8, ptr %call191, i64 48
+  %out_num = getelementptr inbounds nuw i8, ptr %call191, i64 12
   br label %while.cond.outer
 
 while.cond.outer:                                 ; preds = %while.cond.preheader, %if.end36
@@ -1459,9 +1459,9 @@ if.then26:                                        ; preds = %if.then23
   %call1.i66 = call ptr @qemu_ram_block_from_host(ptr noundef %add.ptr.i65, i1 noundef zeroext false, ptr noundef nonnull %rb_offset.i) #13
   %call2.i67 = call i64 @qemu_ram_pagesize(ptr noundef %call1.i66) #13
   %cmp.i = icmp eq i64 %call2.i67, 4096
-  br i1 %cmp.i, label %if.then.i70, label %if.end.i
+  br i1 %cmp.i, label %if.then.i69, label %if.end.i
 
-if.then.i70:                                      ; preds = %if.then26
+if.then.i69:                                      ; preds = %if.then26
   %28 = load i64, ptr %rb_offset.i, align 8
   %call3.i = call i32 @ram_block_discard_range(ptr noundef %call1.i66, i64 noundef %28, i64 noundef 4096) #13
   br label %balloon_inflate_page.exit
@@ -1527,67 +1527,62 @@ if.end16.i:                                       ; preds = %virtio_balloon_pbp_
   %or.i.i = or i64 %shl.i.i, %34
   store i64 %or.i.i, ptr %add.ptr.i.i, align 8
   %cmp.i25.i = icmp ult i64 %conv21.pre-phi.i, 65
-  br i1 %cmp.i25.i, label %if.then.i.i69, label %if.else.i.i68
+  br i1 %cmp.i25.i, label %if.then.i.i68, label %bitmap_full.exit.i
 
-if.then.i.i69:                                    ; preds = %if.end16.i
+if.then.i.i68:                                    ; preds = %if.end16.i
   %35 = load i64, ptr %pbp.sroa.3.3, align 8
   %not.i.i = xor i64 %35, -1
   %sub.i.i = sub nsw i64 0, %div521.i
   %and.i.i = and i64 %sub.i.i, 63
   %shr.i.i = lshr i64 -1, %and.i.i
   %and1.i.i = and i64 %shr.i.i, %not.i.i
-  %tobool.not.i26.i = icmp eq i64 %and1.i.i, 0
-  %lnot.ext.i.i = zext i1 %tobool.not.i26.i to i32
-  br label %bitmap_full.exit.i
+  %tobool.not.i26.not.i = icmp eq i64 %and1.i.i, 0
+  br i1 %tobool.not.i26.not.i, label %if.end.i29.i, label %balloon_inflate_page.exit
 
-if.else.i.i68:                                    ; preds = %if.end16.i
+bitmap_full.exit.i:                               ; preds = %if.end16.i
   %call.i.i = call i32 @slow_bitmap_full(ptr noundef nonnull %pbp.sroa.3.3, i64 noundef range(i64 -2147483648, 2147483648) %conv21.pre-phi.i) #13
-  br label %bitmap_full.exit.i
+  %36 = icmp eq i32 %call.i.i, 0
+  br i1 %36, label %balloon_inflate_page.exit, label %if.end.i29.i
 
-bitmap_full.exit.i:                               ; preds = %if.else.i.i68, %if.then.i.i69
-  %retval.0.i.i = phi i32 [ %lnot.ext.i.i, %if.then.i.i69 ], [ %call.i.i, %if.else.i.i68 ]
-  %tobool23.not.i = icmp eq i32 %retval.0.i.i, 0
-  br i1 %tobool23.not.i, label %balloon_inflate_page.exit, label %if.end.i29.i
-
-if.end.i29.i:                                     ; preds = %bitmap_full.exit.i
+if.end.i29.i:                                     ; preds = %if.then.i.i68, %bitmap_full.exit.i
   %call25.i = call i32 @ram_block_discard_range(ptr noundef %call1.i66, i64 noundef %mul.i, i64 noundef %call2.i67) #13
   call void @g_free(ptr noundef nonnull %pbp.sroa.3.3) #13
   br label %balloon_inflate_page.exit
 
-balloon_inflate_page.exit:                        ; preds = %if.then.i70, %bitmap_full.exit.i, %if.end.i29.i
-  %pbp.sroa.0.4 = phi i64 [ %pbp.sroa.0.1.ph, %if.then.i70 ], [ %pbp.sroa.0.3, %bitmap_full.exit.i ], [ %pbp.sroa.0.3, %if.end.i29.i ]
-  %pbp.sroa.3.4 = phi ptr [ %pbp.sroa.3.1.ph, %if.then.i70 ], [ %pbp.sroa.3.3, %bitmap_full.exit.i ], [ null, %if.end.i29.i ]
+balloon_inflate_page.exit:                        ; preds = %if.then.i69, %if.then.i.i68, %bitmap_full.exit.i, %if.end.i29.i
+  %pbp.sroa.0.4 = phi i64 [ %pbp.sroa.0.1.ph, %if.then.i69 ], [ %pbp.sroa.0.3, %if.end.i29.i ], [ %pbp.sroa.0.3, %if.then.i.i68 ], [ %pbp.sroa.0.3, %bitmap_full.exit.i ]
+  %pbp.sroa.3.4 = phi ptr [ %pbp.sroa.3.1.ph, %if.then.i69 ], [ null, %if.end.i29.i ], [ %pbp.sroa.3.3, %if.then.i.i68 ], [ %pbp.sroa.3.3, %bitmap_full.exit.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %rb_offset.i)
   br label %if.end36
 
 if.else:                                          ; preds = %if.then23
-  %36 = load ptr, ptr %dvq, align 8
-  %cmp28 = icmp eq ptr %vq, %36
+  %37 = load ptr, ptr %dvq, align 8
+  %cmp28 = icmp eq ptr %vq, %37
   br i1 %cmp28, label %if.then30, label %do.body
 
 if.then30:                                        ; preds = %if.else
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %rb_offset.i71)
-  %call.i72 = call ptr @memory_region_get_ram_ptr(ptr noundef nonnull %section.sroa.1.0.copyload) #13
-  %add.ptr.i73 = getelementptr i8, ptr %call.i72, i64 %section.sroa.1013.0.copyload
-  %call1.i74 = call ptr @qemu_ram_block_from_host(ptr noundef %add.ptr.i73, i1 noundef zeroext false, ptr noundef nonnull %rb_offset.i71) #13
-  %call2.i75 = call i64 @qemu_ram_pagesize(ptr noundef %call1.i74) #13
-  %37 = ptrtoint ptr %add.ptr.i73 to i64
-  %not.i = sub i64 0, %call2.i75
-  %and.i = and i64 %37, %not.i
-  %38 = inttoptr i64 %and.i to ptr
-  %call3.i76 = call i32 @qemu_madvise(ptr noundef %38, i64 noundef %call2.i75, i32 noundef 3) #13
-  %cmp.not.i77 = icmp eq i32 %call3.i76, 0
-  br i1 %cmp.not.i77, label %balloon_deflate_page.exit, label %if.then.i78
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %rb_offset.i70)
+  %call.i71 = call ptr @memory_region_get_ram_ptr(ptr noundef nonnull %section.sroa.1.0.copyload) #13
+  %add.ptr.i72 = getelementptr i8, ptr %call.i71, i64 %section.sroa.1013.0.copyload
+  %call1.i73 = call ptr @qemu_ram_block_from_host(ptr noundef %add.ptr.i72, i1 noundef zeroext false, ptr noundef nonnull %rb_offset.i70) #13
+  %call2.i74 = call i64 @qemu_ram_pagesize(ptr noundef %call1.i73) #13
+  %38 = ptrtoint ptr %add.ptr.i72 to i64
+  %not.i = sub i64 0, %call2.i74
+  %and.i = and i64 %38, %not.i
+  %39 = inttoptr i64 %and.i to ptr
+  %call3.i75 = call i32 @qemu_madvise(ptr noundef %39, i64 noundef %call2.i74, i32 noundef 3) #13
+  %cmp.not.i76 = icmp eq i32 %call3.i75, 0
+  br i1 %cmp.not.i76, label %balloon_deflate_page.exit, label %if.then.i77
 
-if.then.i78:                                      ; preds = %if.then30
-  %call4.i79 = tail call ptr @__errno_location() #17
-  %39 = load i32, ptr %call4.i79, align 4
-  %call5.i = call ptr @strerror(i32 noundef %39) #13
+if.then.i77:                                      ; preds = %if.then30
+  %call4.i78 = tail call ptr @__errno_location() #17
+  %40 = load i32, ptr %call4.i78, align 4
+  %call5.i = call ptr @strerror(i32 noundef %40) #13
   call void (ptr, ...) @warn_report(ptr noundef nonnull @.str.48, ptr noundef %call5.i) #13
   br label %balloon_deflate_page.exit
 
-balloon_deflate_page.exit:                        ; preds = %if.then30, %if.then.i78
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %rb_offset.i71)
+balloon_deflate_page.exit:                        ; preds = %if.then30, %if.then.i77
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %rb_offset.i70)
   br label %if.end36
 
 do.body:                                          ; preds = %if.else
@@ -1601,17 +1596,17 @@ if.end36:                                         ; preds = %trace_virtio_balloo
   br label %while.cond.outer, !llvm.loop !7
 
 while.end:                                        ; preds = %iov_to_buf.exit
-  call void @virtqueue_push(ptr noundef %vq, ptr noundef nonnull %call192, i32 noundef 0) #13
+  call void @virtqueue_push(ptr noundef %vq, ptr noundef nonnull %call191, i32 noundef 0) #13
   call void @virtio_notify(ptr noundef %vdev, ptr noundef %vq) #13
-  call void @g_free(ptr noundef nonnull %call192) #13
+  call void @g_free(ptr noundef nonnull %call191) #13
   %tobool.not.i = icmp eq ptr %pbp.sroa.3.1.ph, null
-  br i1 %tobool.not.i, label %virtio_balloon_pbp_free.exit, label %if.end.i82
+  br i1 %tobool.not.i, label %virtio_balloon_pbp_free.exit, label %if.end.i81
 
-if.end.i82:                                       ; preds = %while.end
+if.end.i81:                                       ; preds = %while.end
   call void @g_free(ptr noundef nonnull %pbp.sroa.3.1.ph) #13
   br label %virtio_balloon_pbp_free.exit
 
-virtio_balloon_pbp_free.exit:                     ; preds = %while.end, %if.end.i82
+virtio_balloon_pbp_free.exit:                     ; preds = %while.end, %if.end.i81
   %call1 = call ptr @virtqueue_pop(ptr noundef %vq, i64 noundef 56) #13
   %tobool.not = icmp eq ptr %call1, null
   br i1 %tobool.not, label %for.end, label %while.cond.preheader

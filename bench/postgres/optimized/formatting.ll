@@ -908,15 +908,14 @@ define dso_local ptr @str_initcap(ptr noundef %0, i64 noundef %1, i32 noundef %2
 15:                                               ; preds = %13
   %16 = tail call ptr @pnstrdup(ptr noundef nonnull %0, i64 noundef %1) #18
   %17 = load i8, ptr %16, align 1
-  %.not2831.i = icmp eq i8 %17, 0
-  br i1 %.not2831.i, label %.loopexit, label %.lr.ph.i
+  %.not2834.i = icmp eq i8 %17, 0
+  br i1 %.not2834.i, label %.loopexit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %15, %23
   %18 = phi i8 [ %30, %23 ], [ %17, %15 ]
-  %.02333.i = phi i32 [ %28, %23 ], [ 0, %15 ]
-  %.02432.i = phi ptr [ %29, %23 ], [ %16, %15 ]
-  %.not29.i = icmp eq i32 %.02333.i, 0
-  br i1 %.not29.i, label %21, label %19
+  %.02336.i = phi i1 [ %28, %23 ], [ true, %15 ]
+  %.02435.i = phi ptr [ %29, %23 ], [ %16, %15 ]
+  br i1 %.02336.i, label %21, label %19
 
 19:                                               ; preds = %.lr.ph.i
   %20 = tail call zeroext i8 @pg_ascii_tolower(i8 noundef zeroext %18) #18
@@ -928,15 +927,15 @@ define dso_local ptr @str_initcap(ptr noundef %0, i64 noundef %1, i32 noundef %2
 
 23:                                               ; preds = %21, %19
   %storemerge.i = phi i8 [ %22, %21 ], [ %20, %19 ]
-  store i8 %storemerge.i, ptr %.02432.i, align 1
+  store i8 %storemerge.i, ptr %.02435.i, align 1
   %24 = and i8 %storemerge.i, -33
-  %25 = add i8 %24, -65
-  %or.cond30.i = icmp ult i8 %25, 26
-  %26 = add i8 %storemerge.i, -48
-  %27 = icmp ult i8 %26, 10
-  %narrow.i = select i1 %or.cond30.i, i1 true, i1 %27
-  %28 = zext i1 %narrow.i to i32
-  %29 = getelementptr i8, ptr %.02432.i, i64 1
+  %25 = add i8 %24, -91
+  %or.cond33.i = icmp ult i8 %25, -26
+  %26 = sext i8 %storemerge.i to i32
+  %27 = add nsw i32 %26, -58
+  %.not32.i = icmp ult i32 %27, -10
+  %28 = select i1 %or.cond33.i, i1 %.not32.i, i1 false
+  %29 = getelementptr i8, ptr %.02435.i, i64 1
   %30 = load i8, ptr %29, align 1
   %.not28.i = icmp eq i8 %30, 0
   br i1 %.not28.i, label %.loopexit, label %.lr.ph.i, !llvm.loop !13
@@ -1185,15 +1184,14 @@ define dso_local noundef ptr @asc_initcap(ptr noundef %0, i64 noundef %1) local_
 3:                                                ; preds = %2
   %4 = tail call ptr @pnstrdup(ptr noundef nonnull %0, i64 noundef %1) #18
   %5 = load i8, ptr %4, align 1
-  %.not2831 = icmp eq i8 %5, 0
-  br i1 %.not2831, label %.loopexit, label %.lr.ph
+  %.not2834 = icmp eq i8 %5, 0
+  br i1 %.not2834, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3, %11
   %6 = phi i8 [ %18, %11 ], [ %5, %3 ]
-  %.02333 = phi i32 [ %16, %11 ], [ 0, %3 ]
-  %.02432 = phi ptr [ %17, %11 ], [ %4, %3 ]
-  %.not29 = icmp eq i32 %.02333, 0
-  br i1 %.not29, label %9, label %7
+  %.02336 = phi i1 [ %16, %11 ], [ true, %3 ]
+  %.02435 = phi ptr [ %17, %11 ], [ %4, %3 ]
+  br i1 %.02336, label %9, label %7
 
 7:                                                ; preds = %.lr.ph
   %8 = tail call zeroext i8 @pg_ascii_tolower(i8 noundef zeroext %6) #18
@@ -1205,15 +1203,15 @@ define dso_local noundef ptr @asc_initcap(ptr noundef %0, i64 noundef %1) local_
 
 11:                                               ; preds = %9, %7
   %storemerge = phi i8 [ %10, %9 ], [ %8, %7 ]
-  store i8 %storemerge, ptr %.02432, align 1
+  store i8 %storemerge, ptr %.02435, align 1
   %12 = and i8 %storemerge, -33
-  %13 = add i8 %12, -65
-  %or.cond30 = icmp ult i8 %13, 26
-  %14 = add i8 %storemerge, -48
-  %15 = icmp ult i8 %14, 10
-  %narrow = select i1 %or.cond30, i1 true, i1 %15
-  %16 = zext i1 %narrow to i32
-  %17 = getelementptr i8, ptr %.02432, i64 1
+  %13 = add i8 %12, -91
+  %or.cond33 = icmp ult i8 %13, -26
+  %14 = sext i8 %storemerge to i32
+  %15 = add nsw i32 %14, -58
+  %.not32 = icmp ult i32 %15, -10
+  %16 = select i1 %or.cond33, i1 %.not32, i1 false
+  %17 = getelementptr i8, ptr %.02435, i64 1
   %18 = load i8, ptr %17, align 1
   %.not28 = icmp eq i8 %18, 0
   br i1 %.not28, label %.loopexit, label %.lr.ph, !llvm.loop !13

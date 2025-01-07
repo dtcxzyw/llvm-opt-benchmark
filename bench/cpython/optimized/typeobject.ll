@@ -9651,12 +9651,12 @@ lookup_tp_dict.exit.i.i.i:                        ; preds = %if.then.i.i.i.i, %i
 
 if.then32.i.i.i:                                  ; preds = %lookup_tp_dict.exit.i.i.i
   %call33.i.i.i = tail call ptr @PyDict_SetDefault(ptr noundef %retval.0.i.i.i.i, ptr noundef %name.0.i.i.i, ptr noundef nonnull %descr.0.i.i.i) #20
-  %cmp34.i.i.i = icmp eq ptr %call33.i.i.i, null
+  %cmp34.i.i.i = icmp ne ptr %call33.i.i.i, null
   br label %if.end39.i.i.i
 
 if.else35.i.i.i:                                  ; preds = %lookup_tp_dict.exit.i.i.i
   %call36.i.i.i = tail call i32 @PyDict_SetItem(ptr noundef %retval.0.i.i.i.i, ptr noundef %name.0.i.i.i, ptr noundef nonnull %descr.0.i.i.i) #20
-  %116 = icmp slt i32 %call36.i.i.i, 0
+  %116 = icmp sgt i32 %call36.i.i.i, -1
   br label %if.end39.i.i.i
 
 if.end39.i.i.i:                                   ; preds = %if.else35.i.i.i, %if.then32.i.i.i
@@ -9696,7 +9696,7 @@ if.then1.i.i.i.i:                                 ; preds = %if.end.i.i.i.i
   br label %type_add_method.exit.i.i
 
 type_add_method.exit.i.i:                         ; preds = %if.then1.i.i.i.i, %if.end.i.i.i.i, %if.end42.i.i.i
-  br i1 %err.0.i.i.i, label %error, label %for.cond.i.i
+  br i1 %err.0.i.i.i, label %for.cond.i.i, label %error
 
 if.end4.i93:                                      ; preds = %for.cond.i.i, %for.cond.preheader.i.i, %if.end.i91
   %tp_members.i.i = getelementptr inbounds nuw i8, ptr %type, i64 240

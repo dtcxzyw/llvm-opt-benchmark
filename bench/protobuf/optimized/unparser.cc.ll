@@ -659,14 +659,14 @@ define internal fastcc void @_ZN6google8protobuf13json_internal12_GLOBAL__N_112W
 entry:
   %first.i.i.i = alloca i8, align 1
   %factory.i.i = alloca %"class.google::protobuf::DynamicMessageFactory", align 8
-  %ref.tmp.i.i351 = alloca [1 x %"class.absl::lts_20230802::str_format_internal::FormatArgImpl"], align 8
-  %ref.tmp.i352 = alloca %"class.std::__cxx11::basic_string", align 8
+  %ref.tmp.i.i341 = alloca [1 x %"class.absl::lts_20230802::str_format_internal::FormatArgImpl"], align 8
+  %ref.tmp.i342 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp2.i = alloca %"class.absl::lts_20230802::AlphaNum", align 8
   %ref.tmp3.i = alloca %"class.absl::lts_20230802::AlphaNum", align 8
   %ref.tmp15.i = alloca %"class.std::__cxx11::basic_string", align 8
   %agg.tmp.i = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
   %c.addr.i1.i = alloca i8, align 1
-  %c.addr.i.i344 = alloca i8, align 1
+  %c.addr.i.i334 = alloca i8, align 1
   %c.addr.i52.i = alloca i8, align 1
   %c.addr.i49.i = alloca i8, align 1
   %c.addr.i46.i = alloca i8, align 1
@@ -675,9 +675,9 @@ entry:
   %c.addr.i.i = alloca i8, align 1
   %path.i = alloca %"class.absl::lts_20230802::StatusOr.242", align 8
   %ref.tmp.i118.i = alloca [4 x %"class.absl::lts_20230802::str_format_internal::FormatArgImpl"], align 8
-  %ref.tmp.i.i64 = alloca [1 x %"class.absl::lts_20230802::str_format_internal::FormatArgImpl"], align 8
-  %secs.i65 = alloca %"class.absl::lts_20230802::StatusOr.352", align 8
-  %nanos.i66 = alloca %"class.absl::lts_20230802::StatusOr.376", align 8
+  %ref.tmp.i.i63 = alloca [1 x %"class.absl::lts_20230802::str_format_internal::FormatArgImpl"], align 8
+  %secs.i64 = alloca %"class.absl::lts_20230802::StatusOr.352", align 8
+  %nanos.i65 = alloca %"class.absl::lts_20230802::StatusOr.376", align 8
   %ref.tmp85.i = alloca %"class.std::__cxx11::basic_string", align 8
   %sign.i = alloca %"class.std::basic_string_view", align 8
   %ref.tmp106.i = alloca %"class.std::__cxx11::basic_string", align 8
@@ -722,350 +722,352 @@ sw.bb:                                            ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp44.i)
   %call.i = tail call noundef ptr @_ZN6google8protobuf13json_internal16Proto2Descriptor13MustHaveFieldERKNS0_10DescriptorEiNS1_12JsonLocation14SourceLocationE(ptr noundef nonnull align 8 dereferenceable(152) %desc, i32 noundef 1), !noalias !10
   %call3.i = tail call noundef ptr @_ZN6google8protobuf13json_internal16Proto2Descriptor13MustHaveFieldERKNS0_10DescriptorEiNS1_12JsonLocation14SourceLocationE(ptr noundef nonnull align 8 dereferenceable(152) %desc, i32 noundef 2), !noalias !10
-  %label_.i.i.i194 = getelementptr inbounds nuw i8, ptr %call.i, i64 1
-  %bf.load.i.i.i195 = load i8, ptr %label_.i.i.i194, align 1, !noalias !10
-  %3 = and i8 %bf.load.i.i.i195, 96
-  %cmp.i.i196 = icmp eq i8 %3, 96
-  %vtable.i.i197 = load ptr, ptr %msg, align 8, !noalias !10
-  %vfn.i.i198 = getelementptr inbounds nuw i8, ptr %vtable.i.i197, i64 80
-  %4 = load ptr, ptr %vfn.i.i198, align 8, !noalias !10
-  %call.i.i199 = tail call { ptr, ptr } %4(ptr noundef nonnull align 8 dereferenceable(16) %msg), !noalias !10
-  %5 = extractvalue { ptr, ptr } %call.i.i199, 1
-  br i1 %cmp.i.i196, label %if.then.i204, label %if.else.i200
+  %label_.i.i.i184 = getelementptr inbounds nuw i8, ptr %call.i, i64 1
+  %bf.load.i.i.i185 = load i8, ptr %label_.i.i.i184, align 1, !noalias !10
+  %3 = and i8 %bf.load.i.i.i185, 96
+  %cmp.i.i186 = icmp eq i8 %3, 96
+  %vtable.i.i187 = load ptr, ptr %msg, align 8, !noalias !10
+  %vfn.i.i188 = getelementptr inbounds nuw i8, ptr %vtable.i.i187, i64 80
+  %4 = load ptr, ptr %vfn.i.i188, align 8, !noalias !10
+  %call.i.i189 = tail call { ptr, ptr } %4(ptr noundef nonnull align 8 dereferenceable(16) %msg), !noalias !10
+  %5 = extractvalue { ptr, ptr } %call.i.i189, 1
+  br i1 %cmp.i.i186, label %if.then.i194, label %if.else.i190
 
-if.then.i204:                                     ; preds = %sw.bb
-  %call2.i205 = tail call noundef i32 @_ZNK6google8protobuf10Reflection9FieldSizeERKNS0_7MessageEPKNS0_15FieldDescriptorE(ptr noundef nonnull align 8 dereferenceable(112) %5, ptr noundef nonnull align 8 dereferenceable(16) %msg, ptr noundef nonnull %call.i), !noalias !10
-  %6 = icmp ne i32 %call2.i205, 0
-  br label %_ZN6google8protobuf13json_internal23UnparseProto2Descriptor7GetSizeEPKNS0_15FieldDescriptorERKNS0_7MessageE.exit207
+if.then.i194:                                     ; preds = %sw.bb
+  %call2.i195 = tail call noundef i32 @_ZNK6google8protobuf10Reflection9FieldSizeERKNS0_7MessageEPKNS0_15FieldDescriptorE(ptr noundef nonnull align 8 dereferenceable(112) %5, ptr noundef nonnull align 8 dereferenceable(16) %msg, ptr noundef nonnull %call.i), !noalias !10
+  %6 = icmp eq i32 %call2.i195, 0
+  br label %_ZN6google8protobuf13json_internal23UnparseProto2Descriptor7GetSizeEPKNS0_15FieldDescriptorERKNS0_7MessageE.exit197
 
-if.else.i200:                                     ; preds = %sw.bb
-  %call4.i201 = tail call noundef zeroext i1 @_ZNK6google8protobuf10Reflection8HasFieldERKNS0_7MessageEPKNS0_15FieldDescriptorE(ptr noundef nonnull align 8 dereferenceable(112) %5, ptr noundef nonnull align 8 dereferenceable(16) %msg, ptr noundef nonnull %call.i), !noalias !10
-  br label %_ZN6google8protobuf13json_internal23UnparseProto2Descriptor7GetSizeEPKNS0_15FieldDescriptorERKNS0_7MessageE.exit207
+if.else.i190:                                     ; preds = %sw.bb
+  %call4.i191 = tail call noundef zeroext i1 @_ZNK6google8protobuf10Reflection8HasFieldERKNS0_7MessageEPKNS0_15FieldDescriptorE(ptr noundef nonnull align 8 dereferenceable(112) %5, ptr noundef nonnull align 8 dereferenceable(16) %msg, ptr noundef nonnull %call.i), !noalias !10
+  %7 = xor i1 %call4.i191, true
+  br label %_ZN6google8protobuf13json_internal23UnparseProto2Descriptor7GetSizeEPKNS0_15FieldDescriptorERKNS0_7MessageE.exit197
 
-_ZN6google8protobuf13json_internal23UnparseProto2Descriptor7GetSizeEPKNS0_15FieldDescriptorERKNS0_7MessageE.exit207: ; preds = %if.then.i204, %if.else.i200
-  %retval.0.i203 = phi i1 [ %6, %if.then.i204 ], [ %call4.i201, %if.else.i200 ]
-  %label_.i.i.i180 = getelementptr inbounds nuw i8, ptr %call3.i, i64 1
-  %bf.load.i.i.i181 = load i8, ptr %label_.i.i.i180, align 1, !noalias !10
-  %7 = and i8 %bf.load.i.i.i181, 96
-  %cmp.i.i182 = icmp eq i8 %7, 96
-  %vtable.i.i183 = load ptr, ptr %msg, align 8, !noalias !10
-  %vfn.i.i184 = getelementptr inbounds nuw i8, ptr %vtable.i.i183, i64 80
-  %8 = load ptr, ptr %vfn.i.i184, align 8, !noalias !10
-  %call.i.i185 = tail call { ptr, ptr } %8(ptr noundef nonnull align 8 dereferenceable(16) %msg), !noalias !10
-  %9 = extractvalue { ptr, ptr } %call.i.i185, 1
-  br i1 %cmp.i.i182, label %if.then.i190, label %if.else.i186
+_ZN6google8protobuf13json_internal23UnparseProto2Descriptor7GetSizeEPKNS0_15FieldDescriptorERKNS0_7MessageE.exit197: ; preds = %if.then.i194, %if.else.i190
+  %retval.0.i193 = phi i1 [ %6, %if.then.i194 ], [ %7, %if.else.i190 ]
+  %label_.i.i.i170 = getelementptr inbounds nuw i8, ptr %call3.i, i64 1
+  %bf.load.i.i.i171 = load i8, ptr %label_.i.i.i170, align 1, !noalias !10
+  %8 = and i8 %bf.load.i.i.i171, 96
+  %cmp.i.i172 = icmp eq i8 %8, 96
+  %vtable.i.i173 = load ptr, ptr %msg, align 8, !noalias !10
+  %vfn.i.i174 = getelementptr inbounds nuw i8, ptr %vtable.i.i173, i64 80
+  %9 = load ptr, ptr %vfn.i.i174, align 8, !noalias !10
+  %call.i.i175 = tail call { ptr, ptr } %9(ptr noundef nonnull align 8 dereferenceable(16) %msg), !noalias !10
+  %10 = extractvalue { ptr, ptr } %call.i.i175, 1
+  br i1 %cmp.i.i172, label %if.then.i180, label %if.else.i176
 
-if.then.i190:                                     ; preds = %_ZN6google8protobuf13json_internal23UnparseProto2Descriptor7GetSizeEPKNS0_15FieldDescriptorERKNS0_7MessageE.exit207
-  %call2.i191 = tail call noundef i32 @_ZNK6google8protobuf10Reflection9FieldSizeERKNS0_7MessageEPKNS0_15FieldDescriptorE(ptr noundef nonnull align 8 dereferenceable(112) %9, ptr noundef nonnull align 8 dereferenceable(16) %msg, ptr noundef nonnull %call3.i), !noalias !10
-  %10 = icmp ne i32 %call2.i191, 0
-  br label %_ZN6google8protobuf13json_internal23UnparseProto2Descriptor7GetSizeEPKNS0_15FieldDescriptorERKNS0_7MessageE.exit193
+if.then.i180:                                     ; preds = %_ZN6google8protobuf13json_internal23UnparseProto2Descriptor7GetSizeEPKNS0_15FieldDescriptorERKNS0_7MessageE.exit197
+  %call2.i181 = tail call noundef i32 @_ZNK6google8protobuf10Reflection9FieldSizeERKNS0_7MessageEPKNS0_15FieldDescriptorE(ptr noundef nonnull align 8 dereferenceable(112) %10, ptr noundef nonnull align 8 dereferenceable(16) %msg, ptr noundef nonnull %call3.i), !noalias !10
+  %11 = icmp ne i32 %call2.i181, 0
+  br label %_ZN6google8protobuf13json_internal23UnparseProto2Descriptor7GetSizeEPKNS0_15FieldDescriptorERKNS0_7MessageE.exit183
 
-if.else.i186:                                     ; preds = %_ZN6google8protobuf13json_internal23UnparseProto2Descriptor7GetSizeEPKNS0_15FieldDescriptorERKNS0_7MessageE.exit207
-  %call4.i187 = tail call noundef zeroext i1 @_ZNK6google8protobuf10Reflection8HasFieldERKNS0_7MessageEPKNS0_15FieldDescriptorE(ptr noundef nonnull align 8 dereferenceable(112) %9, ptr noundef nonnull align 8 dereferenceable(16) %msg, ptr noundef nonnull %call3.i), !noalias !10
-  br label %_ZN6google8protobuf13json_internal23UnparseProto2Descriptor7GetSizeEPKNS0_15FieldDescriptorERKNS0_7MessageE.exit193
+if.else.i176:                                     ; preds = %_ZN6google8protobuf13json_internal23UnparseProto2Descriptor7GetSizeEPKNS0_15FieldDescriptorERKNS0_7MessageE.exit197
+  %call4.i177 = tail call noundef zeroext i1 @_ZNK6google8protobuf10Reflection8HasFieldERKNS0_7MessageEPKNS0_15FieldDescriptorE(ptr noundef nonnull align 8 dereferenceable(112) %10, ptr noundef nonnull align 8 dereferenceable(16) %msg, ptr noundef nonnull %call3.i), !noalias !10
+  br label %_ZN6google8protobuf13json_internal23UnparseProto2Descriptor7GetSizeEPKNS0_15FieldDescriptorERKNS0_7MessageE.exit183
 
-_ZN6google8protobuf13json_internal23UnparseProto2Descriptor7GetSizeEPKNS0_15FieldDescriptorERKNS0_7MessageE.exit193: ; preds = %if.then.i190, %if.else.i186
-  %retval.0.i189 = phi i1 [ %10, %if.then.i190 ], [ %call4.i187, %if.else.i186 ]
-  %brmerge.i = or i1 %retval.0.i203, %retval.0.i189
+_ZN6google8protobuf13json_internal23UnparseProto2Descriptor7GetSizeEPKNS0_15FieldDescriptorERKNS0_7MessageE.exit183: ; preds = %if.then.i180, %if.else.i176
+  %retval.0.i179 = phi i1 [ %11, %if.then.i180 ], [ %call4.i177, %if.else.i176 ]
+  %cmp.not.not.i = xor i1 %retval.0.i193, true
+  %brmerge.i = or i1 %retval.0.i179, %cmp.not.not.i
   br i1 %brmerge.i, label %if.else.i, label %if.then.i
 
-if.then.i:                                        ; preds = %_ZN6google8protobuf13json_internal23UnparseProto2Descriptor7GetSizeEPKNS0_15FieldDescriptorERKNS0_7MessageE.exit193
+if.then.i:                                        ; preds = %_ZN6google8protobuf13json_internal23UnparseProto2Descriptor7GetSizeEPKNS0_15FieldDescriptorERKNS0_7MessageE.exit183
   tail call void @_ZN6google8protobuf2io16zc_sink_internal22ZeroCopyStreamByteSink6AppendEPKcm(ptr noundef nonnull align 8 dereferenceable(88) %writer, ptr noundef nonnull @.str.24, i64 noundef 2), !noalias !10
   store i64 0, ptr %agg.result, align 8, !alias.scope !13
   br label %_ZN6google8protobuf13json_internal12_GLOBAL__N_18WriteAnyINS1_23UnparseProto2DescriptorEEEN4absl12lts_202308026StatusERNS1_10JsonWriterERKNT_3MsgERKNSA_4DescE.exit
 
-if.else.i:                                        ; preds = %_ZN6google8protobuf13json_internal23UnparseProto2Descriptor7GetSizeEPKNS0_15FieldDescriptorERKNS0_7MessageE.exit193
-  br i1 %retval.0.i203, label %if.else13.i, label %if.then11.i
+if.else.i:                                        ; preds = %_ZN6google8protobuf13json_internal23UnparseProto2Descriptor7GetSizeEPKNS0_15FieldDescriptorERKNS0_7MessageE.exit183
+  br i1 %retval.0.i193, label %if.then11.i, label %if.else13.i
 
 if.then11.i:                                      ; preds = %if.else.i
   tail call void @_ZN4absl12lts_2023080220InvalidArgumentErrorESt17basic_string_viewIcSt11char_traitsIcEE(ptr nonnull sret(%"class.absl::lts_20230802::Status") align 8 %agg.result, i64 28, ptr nonnull @.str.25)
   br label %_ZN6google8protobuf13json_internal12_GLOBAL__N_18WriteAnyINS1_23UnparseProto2DescriptorEEEN4absl12lts_202308026StatusERNS1_10JsonWriterERKNT_3MsgERKNSA_4DescE.exit
 
 if.else13.i:                                      ; preds = %if.else.i
-  br i1 %retval.0.i189, label %_ZN4absl12lts_202308026StatusD2Ev.exit, label %land.lhs.true15.i
+  br i1 %retval.0.i179, label %_ZN4absl12lts_202308026StatusD2Ev.exit, label %land.lhs.true15.i
 
 land.lhs.true15.i:                                ; preds = %if.else13.i
   %allow_legacy_syntax.i = getelementptr inbounds nuw i8, ptr %writer, i64 45
-  %11 = load i8, ptr %allow_legacy_syntax.i, align 1, !noalias !10
-  %tobool17.i = trunc i8 %11 to i1
+  %12 = load i8, ptr %allow_legacy_syntax.i, align 1, !noalias !10
+  %tobool17.i = trunc i8 %12 to i1
   br i1 %tobool17.i, label %_ZN4absl12lts_202308026StatusD2Ev.exit, label %if.then18.i
 
 if.then18.i:                                      ; preds = %land.lhs.true15.i
   tail call void @_ZN4absl12lts_2023080220InvalidArgumentErrorESt17basic_string_viewIcSt11char_traitsIcEE(ptr nonnull sret(%"class.absl::lts_20230802::Status") align 8 %agg.result, i64 25, ptr nonnull @.str.26)
   br label %_ZN6google8protobuf13json_internal12_GLOBAL__N_18WriteAnyINS1_23UnparseProto2DescriptorEEEN4absl12lts_202308026StatusERNS1_10JsonWriterERKNT_3MsgERKNSA_4DescE.exit
 
-lpad.i.loopexit:                                  ; preds = %if.then.i6.i340
+lpad.i.loopexit:                                  ; preds = %if.then.i6.i330
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup51.i
 
-lpad.i.loopexit.split-lp:                         ; preds = %if.then.i154, %invoke.cont31.i, %if.then.i.i149.invoke, %if.then.i.i342, %invoke.cont40.i, %.noexc345, %.noexc346
+lpad.i.loopexit.split-lp:                         ; preds = %if.then.i144, %invoke.cont31.i, %if.then.i.i139.invoke, %if.then.i.i332, %invoke.cont40.i, %.noexc335, %.noexc336
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup51.i
 
 _ZN4absl12lts_202308026StatusD2Ev.exit:           ; preds = %if.else13.i, %land.lhs.true15.i
   tail call void @_ZN6google8protobuf2io16zc_sink_internal22ZeroCopyStreamByteSink6AppendEPKcm(ptr noundef nonnull align 8 dereferenceable(88) %writer, ptr noundef nonnull @.str.2, i64 noundef 1), !noalias !10
-  %indent_.i169 = getelementptr inbounds nuw i8, ptr %writer, i64 48
-  %12 = load i32, ptr %indent_.i169, align 8, !noalias !10
-  %inc.i170 = add nsw i32 %12, 1
-  store i32 %inc.i170, ptr %indent_.i169, align 8, !noalias !10
+  %indent_.i159 = getelementptr inbounds nuw i8, ptr %writer, i64 48
+  %13 = load i32, ptr %indent_.i159, align 8, !noalias !10
+  %inc.i160 = add nsw i32 %13, 1
+  store i32 %inc.i160, ptr %indent_.i159, align 8, !noalias !10
   %scratch_buf_.i = getelementptr inbounds nuw i8, ptr %writer, i64 56
   tail call void @llvm.experimental.noalias.scope.decl(metadata !16)
-  %vtable.i.i165 = load ptr, ptr %msg, align 8, !noalias !19
-  %vfn.i.i166 = getelementptr inbounds nuw i8, ptr %vtable.i.i165, i64 80
-  %13 = load ptr, ptr %vfn.i.i166, align 8, !noalias !19
-  %call.i.i167 = tail call { ptr, ptr } %13(ptr noundef nonnull align 8 dereferenceable(16) %msg), !noalias !19
-  %14 = extractvalue { ptr, ptr } %call.i.i167, 1
-  %call1.i168 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNK6google8protobuf10Reflection18GetStringReferenceERKNS0_7MessageEPKNS0_15FieldDescriptorEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(112) %14, ptr noundef nonnull align 8 dereferenceable(16) %msg, ptr noundef nonnull %call.i, ptr noundef nonnull align 8 dereferenceable(32) %scratch_buf_.i), !noalias !10
-  %15 = getelementptr inbounds nuw i8, ptr %type_url.i, i64 8
-  %call.i.i.i.i = tail call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %call1.i168) #27, !noalias !19
-  %16 = extractvalue { i64, ptr } %call.i.i.i.i, 0
-  store i64 %16, ptr %15, align 8, !alias.scope !16, !noalias !10
-  %17 = getelementptr inbounds nuw i8, ptr %type_url.i, i64 16
-  %18 = extractvalue { i64, ptr } %call.i.i.i.i, 1
-  store ptr %18, ptr %17, align 8, !alias.scope !16, !noalias !10
+  %vtable.i.i155 = load ptr, ptr %msg, align 8, !noalias !19
+  %vfn.i.i156 = getelementptr inbounds nuw i8, ptr %vtable.i.i155, i64 80
+  %14 = load ptr, ptr %vfn.i.i156, align 8, !noalias !19
+  %call.i.i157 = tail call { ptr, ptr } %14(ptr noundef nonnull align 8 dereferenceable(16) %msg), !noalias !19
+  %15 = extractvalue { ptr, ptr } %call.i.i157, 1
+  %call1.i158 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNK6google8protobuf10Reflection18GetStringReferenceERKNS0_7MessageEPKNS0_15FieldDescriptorEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(112) %15, ptr noundef nonnull align 8 dereferenceable(16) %msg, ptr noundef nonnull %call.i, ptr noundef nonnull align 8 dereferenceable(32) %scratch_buf_.i), !noalias !10
+  %16 = getelementptr inbounds nuw i8, ptr %type_url.i, i64 8
+  %call.i.i.i.i = tail call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %call1.i158) #27, !noalias !19
+  %17 = extractvalue { i64, ptr } %call.i.i.i.i, 0
+  store i64 %17, ptr %16, align 8, !alias.scope !16, !noalias !10
+  %18 = getelementptr inbounds nuw i8, ptr %type_url.i, i64 16
+  %19 = extractvalue { i64, ptr } %call.i.i.i.i, 1
+  store ptr %19, ptr %18, align 8, !alias.scope !16, !noalias !10
   store i64 0, ptr %type_url.i, align 8, !alias.scope !16, !noalias !10
   store i64 0, ptr %agg.result, align 8
-  %options_.i.i328 = getelementptr inbounds nuw i8, ptr %writer, i64 40
-  %19 = load i8, ptr %options_.i.i328, align 8
-  %tobool.i.i329 = trunc i8 %19 to i1
-  br i1 %tobool.i.i329, label %if.then.i.i342, label %_ZN6google8protobuf13json_internal10JsonWriter10WhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit.i330
+  %options_.i.i318 = getelementptr inbounds nuw i8, ptr %writer, i64 40
+  %20 = load i8, ptr %options_.i.i318, align 8
+  %tobool.i.i319 = trunc i8 %20 to i1
+  br i1 %tobool.i.i319, label %if.then.i.i332, label %_ZN6google8protobuf13json_internal10JsonWriter10WhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit.i320
 
-if.then.i.i342:                                   ; preds = %_ZN4absl12lts_202308026StatusD2Ev.exit
+if.then.i.i332:                                   ; preds = %_ZN4absl12lts_202308026StatusD2Ev.exit
   invoke void @_ZN6google8protobuf2io16zc_sink_internal22ZeroCopyStreamByteSink6AppendEPKcm(ptr noundef nonnull align 8 dereferenceable(88) %writer, ptr noundef nonnull @.str, i64 noundef 1)
-          to label %_ZN6google8protobuf13json_internal10JsonWriter10WhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit.i330 unwind label %lpad.i.loopexit.split-lp
+          to label %_ZN6google8protobuf13json_internal10JsonWriter10WhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit.i320 unwind label %lpad.i.loopexit.split-lp
 
-_ZN6google8protobuf13json_internal10JsonWriter10WhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit.i330: ; preds = %if.then.i.i342, %_ZN4absl12lts_202308026StatusD2Ev.exit
-  %20 = load i32, ptr %indent_.i169, align 8
-  %cmp8.i332 = icmp sgt i32 %20, 0
-  br i1 %cmp8.i332, label %for.body.lr.ph.i333, label %invoke.cont31.i
+_ZN6google8protobuf13json_internal10JsonWriter10WhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit.i320: ; preds = %if.then.i.i332, %_ZN4absl12lts_202308026StatusD2Ev.exit
+  %21 = load i32, ptr %indent_.i159, align 8
+  %cmp8.i322 = icmp sgt i32 %21, 0
+  br i1 %cmp8.i322, label %for.body.lr.ph.i323, label %invoke.cont31.i
 
-for.body.lr.ph.i333:                              ; preds = %_ZN6google8protobuf13json_internal10JsonWriter10WhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit.i330
-  %21 = load i8, ptr %options_.i.i328, align 8
-  %22 = trunc i8 %21 to i1
-  br i1 %22, label %for.body.i334, label %invoke.cont31.i
+for.body.lr.ph.i323:                              ; preds = %_ZN6google8protobuf13json_internal10JsonWriter10WhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit.i320
+  %22 = load i8, ptr %options_.i.i318, align 8
+  %23 = trunc i8 %22 to i1
+  br i1 %23, label %for.body.i324, label %invoke.cont31.i
 
-for.body.i334:                                    ; preds = %for.body.lr.ph.i333, %_ZN6google8protobuf13json_internal10JsonWriter10WhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit7.i337
-  %23 = phi i32 [ %25, %_ZN6google8protobuf13json_internal10JsonWriter10WhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit7.i337 ], [ %20, %for.body.lr.ph.i333 ]
-  %i.09.i335 = phi i32 [ %inc.i338, %_ZN6google8protobuf13json_internal10JsonWriter10WhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit7.i337 ], [ 0, %for.body.lr.ph.i333 ]
-  %24 = load i8, ptr %options_.i.i328, align 8
-  %tobool.i5.i336 = trunc i8 %24 to i1
-  br i1 %tobool.i5.i336, label %if.then.i6.i340, label %_ZN6google8protobuf13json_internal10JsonWriter10WhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit7.i337
+for.body.i324:                                    ; preds = %for.body.lr.ph.i323, %_ZN6google8protobuf13json_internal10JsonWriter10WhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit7.i327
+  %24 = phi i32 [ %26, %_ZN6google8protobuf13json_internal10JsonWriter10WhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit7.i327 ], [ %21, %for.body.lr.ph.i323 ]
+  %i.09.i325 = phi i32 [ %inc.i328, %_ZN6google8protobuf13json_internal10JsonWriter10WhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit7.i327 ], [ 0, %for.body.lr.ph.i323 ]
+  %25 = load i8, ptr %options_.i.i318, align 8
+  %tobool.i5.i326 = trunc i8 %25 to i1
+  br i1 %tobool.i5.i326, label %if.then.i6.i330, label %_ZN6google8protobuf13json_internal10JsonWriter10WhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit7.i327
 
-if.then.i6.i340:                                  ; preds = %for.body.i334
+if.then.i6.i330:                                  ; preds = %for.body.i324
   invoke void @_ZN6google8protobuf2io16zc_sink_internal22ZeroCopyStreamByteSink6AppendEPKcm(ptr noundef nonnull align 8 dereferenceable(88) %writer, ptr noundef nonnull @.str.1, i64 noundef 1)
-          to label %.noexc343 unwind label %lpad.i.loopexit
+          to label %.noexc333 unwind label %lpad.i.loopexit
 
-.noexc343:                                        ; preds = %if.then.i6.i340
-  %.pre.i341 = load i32, ptr %indent_.i169, align 8
-  br label %_ZN6google8protobuf13json_internal10JsonWriter10WhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit7.i337
+.noexc333:                                        ; preds = %if.then.i6.i330
+  %.pre.i331 = load i32, ptr %indent_.i159, align 8
+  br label %_ZN6google8protobuf13json_internal10JsonWriter10WhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit7.i327
 
-_ZN6google8protobuf13json_internal10JsonWriter10WhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit7.i337: ; preds = %.noexc343, %for.body.i334
-  %25 = phi i32 [ %23, %for.body.i334 ], [ %.pre.i341, %.noexc343 ]
-  %inc.i338 = add nuw nsw i32 %i.09.i335, 1
-  %cmp.i339 = icmp slt i32 %inc.i338, %25
-  br i1 %cmp.i339, label %for.body.i334, label %invoke.cont31.i, !llvm.loop !4
+_ZN6google8protobuf13json_internal10JsonWriter10WhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit7.i327: ; preds = %.noexc333, %for.body.i324
+  %26 = phi i32 [ %24, %for.body.i324 ], [ %.pre.i331, %.noexc333 ]
+  %inc.i328 = add nuw nsw i32 %i.09.i325, 1
+  %cmp.i329 = icmp slt i32 %inc.i328, %26
+  br i1 %cmp.i329, label %for.body.i324, label %invoke.cont31.i, !llvm.loop !4
 
-invoke.cont31.i:                                  ; preds = %_ZN6google8protobuf13json_internal10JsonWriter10WhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit7.i337, %for.body.lr.ph.i333, %_ZN6google8protobuf13json_internal10JsonWriter10WhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit.i330
+invoke.cont31.i:                                  ; preds = %_ZN6google8protobuf13json_internal10JsonWriter10WhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit7.i327, %for.body.lr.ph.i323, %_ZN6google8protobuf13json_internal10JsonWriter10WhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit.i320
   invoke void @_ZN6google8protobuf2io16zc_sink_internal22ZeroCopyStreamByteSink6AppendEPKcm(ptr noundef nonnull align 8 dereferenceable(88) %writer, ptr noundef nonnull @.str.27, i64 noundef 8)
           to label %invoke.cont33.i unwind label %lpad.i.loopexit.split-lp
 
 invoke.cont33.i:                                  ; preds = %invoke.cont31.i
-  %26 = load i8, ptr %options_.i.i328, align 8
-  %tobool.i152 = trunc i8 %26 to i1
-  br i1 %tobool.i152, label %if.then.i154, label %invoke.cont35.i
+  %27 = load i8, ptr %options_.i.i318, align 8
+  %tobool.i142 = trunc i8 %27 to i1
+  br i1 %tobool.i142, label %if.then.i144, label %invoke.cont35.i
 
-if.then.i154:                                     ; preds = %invoke.cont33.i
+if.then.i144:                                     ; preds = %invoke.cont33.i
   invoke void @_ZN6google8protobuf2io16zc_sink_internal22ZeroCopyStreamByteSink6AppendEPKcm(ptr noundef nonnull align 8 dereferenceable(88) %writer, ptr noundef nonnull @.str.1, i64 noundef 1)
           to label %invoke.cont35.i unwind label %lpad.i.loopexit.split-lp
 
-invoke.cont35.i:                                  ; preds = %invoke.cont33.i, %if.then.i154
-  %27 = load i64, ptr %type_url.i, align 8
-  %cmp.i.i.i.i148 = icmp eq i64 %27, 0
-  br i1 %cmp.i.i.i.i148, label %invoke.cont40.i, label %if.then.i.i149.invoke
+invoke.cont35.i:                                  ; preds = %invoke.cont33.i, %if.then.i144
+  %28 = load i64, ptr %type_url.i, align 8
+  %cmp.i.i.i.i138 = icmp eq i64 %28, 0
+  br i1 %cmp.i.i.i.i138, label %invoke.cont40.i, label %if.then.i.i139.invoke
 
-if.then.i.i149.invoke:                            ; preds = %invoke.cont41.i, %invoke.cont35.i
+if.then.i.i139.invoke:                            ; preds = %invoke.cont41.i, %invoke.cont35.i
   invoke void @_ZN4absl12lts_2023080217internal_statusor6Helper5CrashERKNS0_6StatusE(ptr noundef nonnull align 8 dereferenceable(24) %type_url.i) #29
-          to label %if.then.i.i149.cont unwind label %lpad.i.loopexit.split-lp
+          to label %if.then.i.i139.cont unwind label %lpad.i.loopexit.split-lp
 
-if.then.i.i149.cont:                              ; preds = %if.then.i.i149.invoke
+if.then.i.i139.cont:                              ; preds = %if.then.i.i139.invoke
   unreachable
 
 invoke.cont40.i:                                  ; preds = %invoke.cont35.i
-  %agg.tmp37.sroa.0.0.copyload.i = load i64, ptr %15, align 8
-  %agg.tmp37.sroa.2.0.copyload.i = load ptr, ptr %17, align 8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %c.addr.i.i344)
-  store i8 34, ptr %c.addr.i.i344, align 1
-  invoke void @_ZN6google8protobuf2io16zc_sink_internal22ZeroCopyStreamByteSink6AppendEPKcm(ptr noundef nonnull align 8 dereferenceable(88) %writer, ptr noundef nonnull %c.addr.i.i344, i64 noundef 1)
-          to label %.noexc345 unwind label %lpad.i.loopexit.split-lp
+  %agg.tmp37.sroa.0.0.copyload.i = load i64, ptr %16, align 8
+  %agg.tmp37.sroa.2.0.copyload.i = load ptr, ptr %18, align 8
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %c.addr.i.i334)
+  store i8 34, ptr %c.addr.i.i334, align 1
+  invoke void @_ZN6google8protobuf2io16zc_sink_internal22ZeroCopyStreamByteSink6AppendEPKcm(ptr noundef nonnull align 8 dereferenceable(88) %writer, ptr noundef nonnull %c.addr.i.i334, i64 noundef 1)
+          to label %.noexc335 unwind label %lpad.i.loopexit.split-lp
 
-.noexc345:                                        ; preds = %invoke.cont40.i
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %c.addr.i.i344)
+.noexc335:                                        ; preds = %invoke.cont40.i
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %c.addr.i.i334)
   invoke void @_ZN6google8protobuf13json_internal10JsonWriter16WriteEscapedUtf8ESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(88) %writer, i64 %agg.tmp37.sroa.0.0.copyload.i, ptr %agg.tmp37.sroa.2.0.copyload.i)
-          to label %.noexc346 unwind label %lpad.i.loopexit.split-lp
+          to label %.noexc336 unwind label %lpad.i.loopexit.split-lp
 
-.noexc346:                                        ; preds = %.noexc345
+.noexc336:                                        ; preds = %.noexc335
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %c.addr.i1.i)
   store i8 34, ptr %c.addr.i1.i, align 1
   invoke void @_ZN6google8protobuf2io16zc_sink_internal22ZeroCopyStreamByteSink6AppendEPKcm(ptr noundef nonnull align 8 dereferenceable(88) %writer, ptr noundef nonnull %c.addr.i1.i, i64 noundef 1)
           to label %invoke.cont41.i unwind label %lpad.i.loopexit.split-lp
 
-invoke.cont41.i:                                  ; preds = %.noexc346
+invoke.cont41.i:                                  ; preds = %.noexc336
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %c.addr.i1.i)
-  %28 = load i64, ptr %type_url.i, align 8
-  %cmp.i.i.i.i = icmp eq i64 %28, 0
-  br i1 %cmp.i.i.i.i, label %invoke.cont42.i, label %if.then.i.i149.invoke
+  %29 = load i64, ptr %type_url.i, align 8
+  %cmp.i.i.i.i = icmp eq i64 %29, 0
+  br i1 %cmp.i.i.i.i, label %invoke.cont42.i, label %if.then.i.i139.invoke
 
 invoke.cont42.i:                                  ; preds = %invoke.cont41.i
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp44.i) #27
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp.i)
-  %agg.tmp3.sroa.0.0.copyload.i = load i64, ptr %15, align 8
-  %agg.tmp3.sroa.2.0.copyload.i = load ptr, ptr %17, align 8
-  %call.i348 = call { i64, ptr } @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE17_S_to_string_viewESt17basic_string_viewIcS2_E(i64 %agg.tmp3.sroa.0.0.copyload.i, ptr %agg.tmp3.sroa.2.0.copyload.i) #27
-  %29 = extractvalue { i64, ptr } %call.i348, 0
-  %30 = extractvalue { i64, ptr } %call.i348, 1
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12__sv_wrapperC1ESt17basic_string_viewIcS2_E(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i, i64 %29, ptr %30) #27
-  %31 = load i64, ptr %agg.tmp.i, align 8
-  %32 = getelementptr inbounds nuw i8, ptr %agg.tmp.i, i64 8
-  %33 = load ptr, ptr %32, align 8
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ENS4_12__sv_wrapperERKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i, i64 %31, ptr %33, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp44.i)
+  %agg.tmp3.sroa.0.0.copyload.i = load i64, ptr %16, align 8
+  %agg.tmp3.sroa.2.0.copyload.i = load ptr, ptr %18, align 8
+  %call.i338 = call { i64, ptr } @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE17_S_to_string_viewESt17basic_string_viewIcS2_E(i64 %agg.tmp3.sroa.0.0.copyload.i, ptr %agg.tmp3.sroa.2.0.copyload.i) #27
+  %30 = extractvalue { i64, ptr } %call.i338, 0
+  %31 = extractvalue { i64, ptr } %call.i338, 1
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12__sv_wrapperC1ESt17basic_string_viewIcS2_E(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i, i64 %30, ptr %31) #27
+  %32 = load i64, ptr %agg.tmp.i, align 8
+  %33 = getelementptr inbounds nuw i8, ptr %agg.tmp.i, i64 8
+  %34 = load ptr, ptr %33, align 8
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ENS4_12__sv_wrapperERKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i, i64 %32, ptr %34, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp44.i)
           to label %invoke.cont46.i unwind label %lpad45.i
 
 invoke.cont46.i:                                  ; preds = %invoke.cont42.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp.i)
   call void @llvm.experimental.noalias.scope.decl(metadata !20)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i352)
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i342)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp2.i)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp3.i)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp15.i)
-  %call.i353 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5rfindEcm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i, i8 noundef signext 47, i64 noundef -1) #27, !noalias !20
-  %34 = add i64 %call.i353, 1
-  %or.cond.i354 = icmp ult i64 %34, 2
-  br i1 %or.cond.i354, label %if.then.i369, label %if.end.i355
+  %call.i343 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5rfindEcm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i, i8 noundef signext 47, i64 noundef -1) #27, !noalias !20
+  %35 = add i64 %call.i343, 1
+  %or.cond.i344 = icmp ult i64 %35, 2
+  br i1 %or.cond.i344, label %if.then.i359, label %if.end.i345
 
-if.then.i369:                                     ; preds = %invoke.cont46.i
+if.then.i359:                                     ; preds = %invoke.cont46.i
   store i64 60, ptr %ref.tmp2.i, align 8, !noalias !20
-  %35 = getelementptr inbounds nuw i8, ptr %ref.tmp2.i, i64 8
-  store ptr @.str.28, ptr %35, align 8, !noalias !20
-  %call.i.i370 = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #27, !noalias !20
-  %36 = extractvalue { i64, ptr } %call.i.i370, 0
-  store i64 %36, ptr %ref.tmp3.i, align 8, !noalias !20
-  %37 = getelementptr inbounds nuw i8, ptr %ref.tmp3.i, i64 8
-  %38 = extractvalue { i64, ptr } %call.i.i370, 1
-  store ptr %38, ptr %37, align 8, !noalias !20
-  invoke void @_ZN4absl12lts_202308026StrCatB5cxx11ERKNS0_8AlphaNumES3_(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i352, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp2.i, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp3.i)
-          to label %.noexc373 unwind label %lpad48.i
+  %36 = getelementptr inbounds nuw i8, ptr %ref.tmp2.i, i64 8
+  store ptr @.str.28, ptr %36, align 8, !noalias !20
+  %call.i.i360 = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #27, !noalias !20
+  %37 = extractvalue { i64, ptr } %call.i.i360, 0
+  store i64 %37, ptr %ref.tmp3.i, align 8, !noalias !20
+  %38 = getelementptr inbounds nuw i8, ptr %ref.tmp3.i, i64 8
+  %39 = extractvalue { i64, ptr } %call.i.i360, 1
+  store ptr %39, ptr %38, align 8, !noalias !20
+  invoke void @_ZN4absl12lts_202308026StrCatB5cxx11ERKNS0_8AlphaNumES3_(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i342, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp2.i, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp3.i)
+          to label %.noexc363 unwind label %lpad48.i
 
-.noexc373:                                        ; preds = %if.then.i369
-  %call4.i371 = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i352) #27, !noalias !20
-  %39 = extractvalue { i64, ptr } %call4.i371, 0
-  %40 = extractvalue { i64, ptr } %call4.i371, 1
-  invoke void @_ZN4absl12lts_2023080220InvalidArgumentErrorESt17basic_string_viewIcSt11char_traitsIcEE(ptr nonnull sret(%"class.absl::lts_20230802::Status") align 8 %agg.result, i64 %39, ptr %40)
-          to label %invoke.cont.i unwind label %lpad.i372
+.noexc363:                                        ; preds = %if.then.i359
+  %call4.i361 = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i342) #27, !noalias !20
+  %40 = extractvalue { i64, ptr } %call4.i361, 0
+  %41 = extractvalue { i64, ptr } %call4.i361, 1
+  invoke void @_ZN4absl12lts_2023080220InvalidArgumentErrorESt17basic_string_viewIcSt11char_traitsIcEE(ptr nonnull sret(%"class.absl::lts_20230802::Status") align 8 %agg.result, i64 %40, ptr %41)
+          to label %invoke.cont.i unwind label %lpad.i362
 
-invoke.cont.i:                                    ; preds = %.noexc373
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i352) #27
+invoke.cont.i:                                    ; preds = %.noexc363
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i342) #27
   br label %cleanup50.i
 
-lpad.i372:                                        ; preds = %.noexc373
-  %41 = landingpad { ptr, i32 }
+lpad.i362:                                        ; preds = %.noexc363
+  %42 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i352) #27
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i342) #27
   br label %lpad48.i.body
 
-if.end.i355:                                      ; preds = %invoke.cont46.i
+if.end.i345:                                      ; preds = %invoke.cont46.i
   %call5.i = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #27, !noalias !20
-  %42 = extractvalue { i64, ptr } %call5.i, 0
-  %cmp.i.i.i356 = icmp ugt i64 %34, %42
-  br i1 %cmp.i.i.i356, label %if.then.i.i.i, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i
+  %43 = extractvalue { i64, ptr } %call5.i, 0
+  %cmp.i.i.i346 = icmp ugt i64 %35, %43
+  br i1 %cmp.i.i.i346, label %if.then.i.i.i, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i
 
-if.then.i.i.i:                                    ; preds = %if.end.i355
-  invoke void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.23, ptr noundef nonnull @.str.22, i64 noundef %34, i64 noundef %42) #29
-          to label %.noexc374 unwind label %lpad48.i
+if.then.i.i.i:                                    ; preds = %if.end.i345
+  invoke void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.23, ptr noundef nonnull @.str.22, i64 noundef %35, i64 noundef %43) #29
+          to label %.noexc364 unwind label %lpad48.i
 
-.noexc374:                                        ; preds = %if.then.i.i.i
+.noexc364:                                        ; preds = %if.then.i.i.i
   unreachable
 
-_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i: ; preds = %if.end.i355
-  %43 = extractvalue { i64, ptr } %call5.i, 1
-  %sub.i.i = sub nuw i64 %42, %34
-  %add.ptr.i.i357 = getelementptr inbounds i8, ptr %43, i64 %34
+_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i: ; preds = %if.end.i345
+  %44 = extractvalue { i64, ptr } %call5.i, 1
+  %sub.i.i = sub nuw i64 %43, %35
+  %add.ptr.i.i347 = getelementptr inbounds i8, ptr %44, i64 %35
   %file_.i.i = getelementptr inbounds nuw i8, ptr %desc, i64 16
-  %44 = load ptr, ptr %file_.i.i, align 8, !noalias !20
-  %pool_.i.i = getelementptr inbounds nuw i8, ptr %44, i64 24
-  %45 = load ptr, ptr %pool_.i.i, align 8, !noalias !20
-  %call11.i375 = invoke noundef ptr @_ZNK6google8protobuf14DescriptorPool21FindMessageTypeByNameESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(96) %45, i64 %sub.i.i, ptr nonnull %add.ptr.i.i357)
+  %45 = load ptr, ptr %file_.i.i, align 8, !noalias !20
+  %pool_.i.i = getelementptr inbounds nuw i8, ptr %45, i64 24
+  %46 = load ptr, ptr %pool_.i.i, align 8, !noalias !20
+  %call11.i365 = invoke noundef ptr @_ZNK6google8protobuf14DescriptorPool21FindMessageTypeByNameESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(96) %46, i64 %sub.i.i, ptr nonnull %add.ptr.i.i347)
           to label %call11.i.noexc unwind label %lpad48.i
 
 call11.i.noexc:                                   ; preds = %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i
-  %cmp12.i = icmp eq ptr %call11.i375, null
+  %cmp12.i = icmp eq ptr %call11.i365, null
   br i1 %cmp12.i, label %if.then13.i, label %if.end20.i
 
 if.then13.i:                                      ; preds = %call11.i.noexc
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i.i351), !noalias !20
-  store ptr %ref.tmp.i, ptr %ref.tmp.i.i351, align 8, !noalias !23
-  %dispatcher_.i.i.i.i368 = getelementptr inbounds nuw i8, ptr %ref.tmp.i.i351, i64 8
-  store ptr @_ZN4absl12lts_2023080219str_format_internal13FormatArgImpl8DispatchINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbNS2_4DataENS1_24FormatConversionSpecImplEPv, ptr %dispatcher_.i.i.i.i368, align 8, !noalias !23
-  invoke void @_ZN4absl12lts_2023080219str_format_internal10FormatPackB5cxx11ENS1_21UntypedFormatSpecImplENS0_4SpanIKNS1_13FormatArgImplEEE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp15.i, ptr nonnull @.str.29, i64 25, ptr nonnull %ref.tmp.i.i351, i64 1)
-          to label %.noexc376 unwind label %lpad48.i
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i.i341), !noalias !20
+  store ptr %ref.tmp.i, ptr %ref.tmp.i.i341, align 8, !noalias !23
+  %dispatcher_.i.i.i.i358 = getelementptr inbounds nuw i8, ptr %ref.tmp.i.i341, i64 8
+  store ptr @_ZN4absl12lts_2023080219str_format_internal13FormatArgImpl8DispatchINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbNS2_4DataENS1_24FormatConversionSpecImplEPv, ptr %dispatcher_.i.i.i.i358, align 8, !noalias !23
+  invoke void @_ZN4absl12lts_2023080219str_format_internal10FormatPackB5cxx11ENS1_21UntypedFormatSpecImplENS0_4SpanIKNS1_13FormatArgImplEEE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp15.i, ptr nonnull @.str.29, i64 25, ptr nonnull %ref.tmp.i.i341, i64 1)
+          to label %.noexc366 unwind label %lpad48.i
 
-.noexc376:                                        ; preds = %if.then13.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i.i351), !noalias !20
+.noexc366:                                        ; preds = %if.then13.i
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i.i341), !noalias !20
   %call17.i = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp15.i) #27, !noalias !20
-  %46 = extractvalue { i64, ptr } %call17.i, 0
-  %47 = extractvalue { i64, ptr } %call17.i, 1
-  invoke void @_ZN4absl12lts_2023080220InvalidArgumentErrorESt17basic_string_viewIcSt11char_traitsIcEE(ptr nonnull sret(%"class.absl::lts_20230802::Status") align 8 %agg.result, i64 %46, ptr %47)
+  %47 = extractvalue { i64, ptr } %call17.i, 0
+  %48 = extractvalue { i64, ptr } %call17.i, 1
+  invoke void @_ZN4absl12lts_2023080220InvalidArgumentErrorESt17basic_string_viewIcSt11char_traitsIcEE(ptr nonnull sret(%"class.absl::lts_20230802::Status") align 8 %agg.result, i64 %47, ptr %48)
           to label %invoke.cont19.i unwind label %lpad18.i
 
-invoke.cont19.i:                                  ; preds = %.noexc376
+invoke.cont19.i:                                  ; preds = %.noexc366
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp15.i) #27
   br label %cleanup50.i
 
-lpad18.i:                                         ; preds = %.noexc376
-  %48 = landingpad { ptr, i32 }
+lpad18.i:                                         ; preds = %.noexc366
+  %49 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp15.i) #27
   br label %lpad48.i.body
 
 if.end20.i:                                       ; preds = %call11.i.noexc
-  br i1 %retval.0.i189, label %invoke.cont7.i.i, label %if.end12.i.i
+  br i1 %retval.0.i179, label %invoke.cont7.i.i, label %if.end12.i.i
 
 invoke.cont7.i.i:                                 ; preds = %if.end20.i
   %vtable.i.i23.i = load ptr, ptr %msg, align 8, !noalias !26
   %vfn.i.i24.i = getelementptr inbounds nuw i8, ptr %vtable.i.i23.i, i64 80
-  %49 = load ptr, ptr %vfn.i.i24.i, align 8, !noalias !26
-  %call.i.i.i366377 = invoke { ptr, ptr } %49(ptr noundef nonnull align 8 dereferenceable(16) %msg)
-          to label %call.i.i.i366.noexc unwind label %lpad48.i
+  %50 = load ptr, ptr %vfn.i.i24.i, align 8, !noalias !26
+  %call.i.i.i356367 = invoke { ptr, ptr } %50(ptr noundef nonnull align 8 dereferenceable(16) %msg)
+          to label %call.i.i.i356.noexc unwind label %lpad48.i
 
-call.i.i.i366.noexc:                              ; preds = %invoke.cont7.i.i
-  %50 = extractvalue { ptr, ptr } %call.i.i.i366377, 1
-  %call1.i.i367378 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNK6google8protobuf10Reflection18GetStringReferenceERKNS0_7MessageEPKNS0_15FieldDescriptorEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(112) %50, ptr noundef nonnull align 8 dereferenceable(16) %msg, ptr noundef %call3.i, ptr noundef nonnull align 8 dereferenceable(32) %scratch_buf_.i)
-          to label %call1.i.i367.noexc unwind label %lpad48.i
+call.i.i.i356.noexc:                              ; preds = %invoke.cont7.i.i
+  %51 = extractvalue { ptr, ptr } %call.i.i.i356367, 1
+  %call1.i.i357368 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNK6google8protobuf10Reflection18GetStringReferenceERKNS0_7MessageEPKNS0_15FieldDescriptorEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(112) %51, ptr noundef nonnull align 8 dereferenceable(16) %msg, ptr noundef %call3.i, ptr noundef nonnull align 8 dereferenceable(32) %scratch_buf_.i)
+          to label %call1.i.i357.noexc unwind label %lpad48.i
 
-call1.i.i367.noexc:                               ; preds = %call.i.i.i366.noexc
-  %call.i.i.i.i25.i = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %call1.i.i367378) #27, !noalias !26
+call1.i.i357.noexc:                               ; preds = %call.i.i.i356.noexc
+  %call.i.i.i.i25.i = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %call1.i.i357368) #27, !noalias !26
   store i64 0, ptr %agg.result, align 8, !alias.scope !20
-  %51 = extractvalue { i64, ptr } %call.i.i.i.i25.i, 1
-  %52 = extractvalue { i64, ptr } %call.i.i.i.i25.i, 0
+  %52 = extractvalue { i64, ptr } %call.i.i.i.i25.i, 1
+  %53 = extractvalue { i64, ptr } %call.i.i.i.i25.i, 0
   br label %if.end12.i.i
 
-if.end12.i.i:                                     ; preds = %call1.i.i367.noexc, %if.end20.i
-  %any_bytes.i.sroa.5.0.i = phi ptr [ null, %if.end20.i ], [ %51, %call1.i.i367.noexc ]
-  %any_bytes.i.sroa.0.0.i = phi i64 [ 0, %if.end20.i ], [ %52, %call1.i.i367.noexc ]
+if.end12.i.i:                                     ; preds = %call1.i.i357.noexc, %if.end20.i
+  %any_bytes.i.sroa.5.0.i = phi ptr [ null, %if.end20.i ], [ %52, %call1.i.i357.noexc ]
+  %any_bytes.i.sroa.0.0.i = phi i64 [ 0, %if.end20.i ], [ %53, %call1.i.i357.noexc ]
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %factory.i.i), !noalias !20
   invoke void @_ZN6google8protobuf21DynamicMessageFactoryC1Ev(ptr noundef nonnull align 8 dereferenceable(64) %factory.i.i)
-          to label %.noexc379 unwind label %lpad48.i
+          to label %.noexc369 unwind label %lpad48.i
 
-.noexc379:                                        ; preds = %if.end12.i.i
-  %call.i11.i = invoke noundef ptr @_ZN6google8protobuf21DynamicMessageFactory12GetPrototypeEPKNS0_10DescriptorE(ptr noundef nonnull align 8 dereferenceable(64) %factory.i.i, ptr noundef nonnull align 8 dereferenceable(152) %call11.i375)
+.noexc369:                                        ; preds = %if.end12.i.i
+  %call.i11.i = invoke noundef ptr @_ZN6google8protobuf21DynamicMessageFactory12GetPrototypeEPKNS0_10DescriptorE(ptr noundef nonnull align 8 dereferenceable(64) %factory.i.i, ptr noundef nonnull align 8 dereferenceable(152) %call11.i365)
           to label %invoke.cont.i15.i unwind label %lpad.i12.i, !noalias !31
 
-invoke.cont.i15.i:                                ; preds = %.noexc379
-  %vtable.i.i.i359 = load ptr, ptr %call.i11.i, align 8, !noalias !31
-  %vfn.i.i.i360 = getelementptr inbounds nuw i8, ptr %vtable.i.i.i359, i64 16
-  %53 = load ptr, ptr %vfn.i.i.i360, align 8, !noalias !31
-  %call.i2.i.i = invoke noundef ptr %53(ptr noundef nonnull align 8 dereferenceable(16) %call.i11.i, ptr noundef null)
+invoke.cont.i15.i:                                ; preds = %.noexc369
+  %vtable.i.i.i349 = load ptr, ptr %call.i11.i, align 8, !noalias !31
+  %vfn.i.i.i350 = getelementptr inbounds nuw i8, ptr %vtable.i.i.i349, i64 16
+  %54 = load ptr, ptr %vfn.i.i.i350, align 8, !noalias !31
+  %call.i2.i.i = invoke noundef ptr %54(ptr noundef nonnull align 8 dereferenceable(16) %call.i11.i, ptr noundef null)
           to label %_ZNK6google8protobuf7Message3NewEv.exit.i.i unwind label %lpad.i12.i, !noalias !31
 
 _ZNK6google8protobuf7Message3NewEv.exit.i.i:      ; preds = %invoke.cont.i15.i
@@ -1075,13 +1077,13 @@ _ZNK6google8protobuf7Message3NewEv.exit.i.i:      ; preds = %invoke.cont.i15.i
 call.i.noexc.i.i:                                 ; preds = %_ZNK6google8protobuf7Message3NewEv.exit.i.i
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %first.i.i.i), !noalias !31
   store i8 0, ptr %first.i.i.i, align 1, !noalias !35
-  %all_names_.i.i.i = getelementptr inbounds nuw i8, ptr %call11.i375, i64 8
-  %54 = load ptr, ptr %all_names_.i.i.i, align 8, !noalias !31
-  %arrayidx.i.i.i = getelementptr inbounds nuw i8, ptr %54, i64 32
+  %all_names_.i.i.i = getelementptr inbounds nuw i8, ptr %call11.i365, i64 8
+  %55 = load ptr, ptr %all_names_.i.i.i, align 8, !noalias !31
+  %arrayidx.i.i.i = getelementptr inbounds nuw i8, ptr %55, i64 32
   %call1.i79.i = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %arrayidx.i.i.i) #27, !noalias !31
-  %55 = extractvalue { i64, ptr } %call1.i79.i, 0
-  %56 = extractvalue { i64, ptr } %call1.i79.i, 1
-  %call2.i4.i.i = invoke noundef i32 @_ZN6google8protobuf13json_internal15ClassifyMessageESt17basic_string_viewIcSt11char_traitsIcEE(i64 %55, ptr %56)
+  %56 = extractvalue { i64, ptr } %call1.i79.i, 0
+  %57 = extractvalue { i64, ptr } %call1.i79.i, 1
+  %call2.i4.i.i = invoke noundef i32 @_ZN6google8protobuf13json_internal15ClassifyMessageESt17basic_string_viewIcSt11char_traitsIcEE(i64 %56, ptr %57)
           to label %call2.i.noexc.i.i unwind label %lpad4.i.loopexit.split-lp.loopexit.split-lp.i
 
 call2.i.noexc.i.i:                                ; preds = %call.i.noexc.i.i
@@ -1089,18 +1091,18 @@ call2.i.noexc.i.i:                                ; preds = %call.i.noexc.i.i
   br i1 %cmp.not.i.i.i, label %do.body7.i.i.i, label %if.then.i.i16.i
 
 if.then.i.i16.i:                                  ; preds = %call2.i.noexc.i.i
-  %57 = load i8, ptr %first.i.i.i, align 1, !noalias !31
-  %tobool.i76.i = trunc i8 %57 to i1
-  br i1 %tobool.i76.i, label %.noexc.i.i, label %if.end.i.i362
+  %58 = load i8, ptr %first.i.i.i, align 1, !noalias !31
+  %tobool.i76.i = trunc i8 %58 to i1
+  br i1 %tobool.i76.i, label %.noexc.i.i, label %if.end.i.i352
 
-if.end.i.i362:                                    ; preds = %if.then.i.i16.i
+if.end.i.i352:                                    ; preds = %if.then.i.i16.i
   invoke void @_ZN6google8protobuf2io16zc_sink_internal22ZeroCopyStreamByteSink6AppendEPKcm(ptr noundef nonnull align 8 dereferenceable(88) %writer, ptr noundef nonnull @.str.31, i64 noundef 1)
           to label %.noexc.i.i unwind label %lpad4.i.loopexit.split-lp.loopexit.split-lp.i, !noalias !20
 
-.noexc.i.i:                                       ; preds = %if.end.i.i362, %if.then.i.i16.i
-  %58 = phi i8 [ %57, %if.end.i.i362 ], [ 0, %if.then.i.i16.i ]
-  %59 = load i8, ptr %options_.i.i328, align 8, !noalias !31
-  %tobool.i.i59.i = trunc i8 %59 to i1
+.noexc.i.i:                                       ; preds = %if.end.i.i352, %if.then.i.i16.i
+  %59 = phi i8 [ %58, %if.end.i.i352 ], [ 0, %if.then.i.i16.i ]
+  %60 = load i8, ptr %options_.i.i318, align 8, !noalias !31
+  %tobool.i.i59.i = trunc i8 %60 to i1
   br i1 %tobool.i.i59.i, label %if.then.i.i72.i, label %_ZN6google8protobuf13json_internal10JsonWriter10WhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit.i60.i
 
 if.then.i.i72.i:                                  ; preds = %.noexc.i.i
@@ -1108,20 +1110,20 @@ if.then.i.i72.i:                                  ; preds = %.noexc.i.i
           to label %_ZN6google8protobuf13json_internal10JsonWriter10WhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit.i60.i unwind label %lpad4.i.loopexit.split-lp.loopexit.split-lp.i, !noalias !20
 
 _ZN6google8protobuf13json_internal10JsonWriter10WhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit.i60.i: ; preds = %if.then.i.i72.i, %.noexc.i.i
-  %60 = load i32, ptr %indent_.i169, align 8, !noalias !31
-  %cmp8.i62.i = icmp sgt i32 %60, 0
+  %61 = load i32, ptr %indent_.i159, align 8, !noalias !31
+  %cmp8.i62.i = icmp sgt i32 %61, 0
   br i1 %cmp8.i62.i, label %for.body.lr.ph.i63.i, label %.noexc5.i.i
 
 for.body.lr.ph.i63.i:                             ; preds = %_ZN6google8protobuf13json_internal10JsonWriter10WhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit.i60.i
-  %61 = load i8, ptr %options_.i.i328, align 8, !noalias !31
-  %62 = trunc i8 %61 to i1
-  br i1 %62, label %for.body.i64.i, label %.noexc5.i.i
+  %62 = load i8, ptr %options_.i.i318, align 8, !noalias !31
+  %63 = trunc i8 %62 to i1
+  br i1 %63, label %for.body.i64.i, label %.noexc5.i.i
 
 for.body.i64.i:                                   ; preds = %for.body.lr.ph.i63.i, %_ZN6google8protobuf13json_internal10JsonWriter10WhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit7.i67.i
-  %63 = phi i32 [ %65, %_ZN6google8protobuf13json_internal10JsonWriter10WhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit7.i67.i ], [ %60, %for.body.lr.ph.i63.i ]
+  %64 = phi i32 [ %66, %_ZN6google8protobuf13json_internal10JsonWriter10WhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit7.i67.i ], [ %61, %for.body.lr.ph.i63.i ]
   %i.09.i65.i = phi i32 [ %inc.i68.i, %_ZN6google8protobuf13json_internal10JsonWriter10WhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit7.i67.i ], [ 0, %for.body.lr.ph.i63.i ]
-  %64 = load i8, ptr %options_.i.i328, align 8, !noalias !31
-  %tobool.i5.i66.i = trunc i8 %64 to i1
+  %65 = load i8, ptr %options_.i.i318, align 8, !noalias !31
+  %tobool.i5.i66.i = trunc i8 %65 to i1
   br i1 %tobool.i5.i66.i, label %if.then.i6.i70.i, label %_ZN6google8protobuf13json_internal10JsonWriter10WhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit7.i67.i
 
 if.then.i6.i70.i:                                 ; preds = %for.body.i64.i
@@ -1129,13 +1131,13 @@ if.then.i6.i70.i:                                 ; preds = %for.body.i64.i
           to label %.noexc74.i unwind label %lpad4.i.loopexit.split-lp.loopexit.i, !noalias !20
 
 .noexc74.i:                                       ; preds = %if.then.i6.i70.i
-  %.pre.i71.i = load i32, ptr %indent_.i169, align 8, !noalias !31
+  %.pre.i71.i = load i32, ptr %indent_.i159, align 8, !noalias !31
   br label %_ZN6google8protobuf13json_internal10JsonWriter10WhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit7.i67.i
 
 _ZN6google8protobuf13json_internal10JsonWriter10WhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit7.i67.i: ; preds = %.noexc74.i, %for.body.i64.i
-  %65 = phi i32 [ %63, %for.body.i64.i ], [ %.pre.i71.i, %.noexc74.i ]
+  %66 = phi i32 [ %64, %for.body.i64.i ], [ %.pre.i71.i, %.noexc74.i ]
   %inc.i68.i = add nuw nsw i32 %i.09.i65.i, 1
-  %cmp.i69.i = icmp slt i32 %inc.i68.i, %65
+  %cmp.i69.i = icmp slt i32 %inc.i68.i, %66
   br i1 %cmp.i69.i, label %for.body.i64.i, label %.noexc5.i.i, !llvm.loop !4
 
 .noexc5.i.i:                                      ; preds = %_ZN6google8protobuf13json_internal10JsonWriter10WhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit7.i67.i, %for.body.lr.ph.i63.i, %_ZN6google8protobuf13json_internal10JsonWriter10WhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit.i60.i
@@ -1143,8 +1145,8 @@ _ZN6google8protobuf13json_internal10JsonWriter10WhitespaceESt17basic_string_view
           to label %.noexc6.i.i unwind label %lpad4.i.loopexit.split-lp.loopexit.split-lp.i, !noalias !20
 
 .noexc6.i.i:                                      ; preds = %.noexc5.i.i
-  %66 = load i8, ptr %options_.i.i328, align 8, !noalias !31
-  %tobool.i49.i = trunc i8 %66 to i1
+  %67 = load i8, ptr %options_.i.i318, align 8, !noalias !31
+  %tobool.i49.i = trunc i8 %67 to i1
   br i1 %tobool.i49.i, label %if.then.i50.i, label %.noexc7.i.i
 
 if.then.i50.i:                                    ; preds = %.noexc6.i.i
@@ -1152,38 +1154,38 @@ if.then.i50.i:                                    ; preds = %.noexc6.i.i
           to label %.noexc7.i.i unwind label %lpad4.i.loopexit.split-lp.loopexit.split-lp.i, !noalias !20
 
 .noexc7.i.i:                                      ; preds = %if.then.i50.i, %.noexc6.i.i
-  invoke fastcc void @_ZN6google8protobuf13json_internal12_GLOBAL__N_112WriteMessageINS1_23UnparseProto2DescriptorEEEN4absl12lts_202308026StatusERNS1_10JsonWriterERKNT_3MsgERKNSA_4DescEb(ptr noalias nonnull align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(88) %writer, ptr noundef nonnull align 8 dereferenceable(16) %call.i2.i.i, ptr noundef nonnull align 8 dereferenceable(152) %call11.i375, i1 noundef zeroext false)
+  invoke fastcc void @_ZN6google8protobuf13json_internal12_GLOBAL__N_112WriteMessageINS1_23UnparseProto2DescriptorEEEN4absl12lts_202308026StatusERNS1_10JsonWriterERKNT_3MsgERKNSA_4DescEb(ptr noalias nonnull align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(88) %writer, ptr noundef nonnull align 8 dereferenceable(16) %call.i2.i.i, ptr noundef nonnull align 8 dereferenceable(152) %call11.i365, i1 noundef zeroext false)
           to label %cleanup.i.i.i unwind label %lpad4.i.loopexit.split-lp.loopexit.split-lp.i
 
 cleanup.i.i.i:                                    ; preds = %.noexc7.i.i
-  %67 = load i64, ptr %agg.result, align 8, !alias.scope !20
-  %cmp.i48.i = icmp eq i64 %67, 0
+  %68 = load i64, ptr %agg.result, align 8, !alias.scope !20
+  %cmp.i48.i = icmp eq i64 %68, 0
   br i1 %cmp.i48.i, label %if.end22.i.i.i, label %_ZN6google8protobuf13json_internal23UnparseProto2Descriptor18WithDecodedMessageIZZNS1_12_GLOBAL__N_18WriteAnyIS2_EEN4absl12lts_202308026StatusERNS1_10JsonWriterERKNT_3MsgERKNSB_4DescEENKUlRKNS0_10DescriptorEE_clESK_EUlRKNS0_7MessageEE_EES8_SK_St17basic_string_viewIcSt11char_traitsIcEESB_.exit.i
 
 do.body7.i.i.i:                                   ; preds = %call2.i.noexc.i.i
-  invoke fastcc void @_ZN6google8protobuf13json_internal12_GLOBAL__N_111WriteFieldsINS1_23UnparseProto2DescriptorEEEN4absl12lts_202308026StatusERNS1_10JsonWriterERKNT_3MsgERKNSA_4DescERb(ptr noalias nonnull align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(88) %writer, ptr noundef nonnull align 8 dereferenceable(16) %call.i2.i.i, ptr noundef nonnull align 8 dereferenceable(152) %call11.i375, ptr noundef nonnull align 1 dereferenceable(1) %first.i.i.i)
+  invoke fastcc void @_ZN6google8protobuf13json_internal12_GLOBAL__N_111WriteFieldsINS1_23UnparseProto2DescriptorEEEN4absl12lts_202308026StatusERNS1_10JsonWriterERKNT_3MsgERKNSA_4DescERb(ptr noalias nonnull align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(88) %writer, ptr noundef nonnull align 8 dereferenceable(16) %call.i2.i.i, ptr noundef nonnull align 8 dereferenceable(152) %call11.i365, ptr noundef nonnull align 1 dereferenceable(1) %first.i.i.i)
           to label %cleanup15.i.i.i unwind label %lpad4.i.loopexit.split-lp.loopexit.split-lp.i
 
 cleanup15.i.i.i:                                  ; preds = %do.body7.i.i.i
-  %68 = load i64, ptr %agg.result, align 8, !alias.scope !20
-  %cmp.i41.i = icmp eq i64 %68, 0
+  %69 = load i64, ptr %agg.result, align 8, !alias.scope !20
+  %cmp.i41.i = icmp eq i64 %69, 0
   br i1 %cmp.i41.i, label %cleanup15.i.i.if.end22.i.i_crit_edge.i, label %_ZN6google8protobuf13json_internal23UnparseProto2Descriptor18WithDecodedMessageIZZNS1_12_GLOBAL__N_18WriteAnyIS2_EEN4absl12lts_202308026StatusERNS1_10JsonWriterERKNT_3MsgERKNSB_4DescEENKUlRKNS0_10DescriptorEE_clESK_EUlRKNS0_7MessageEE_EES8_SK_St17basic_string_viewIcSt11char_traitsIcEESB_.exit.i
 
 cleanup15.i.i.if.end22.i.i_crit_edge.i:           ; preds = %cleanup15.i.i.i
-  %.pre.i364 = load i8, ptr %first.i.i.i, align 1, !noalias !35
+  %.pre.i354 = load i8, ptr %first.i.i.i, align 1, !noalias !35
   br label %if.end22.i.i.i
 
 if.end22.i.i.i:                                   ; preds = %cleanup15.i.i.if.end22.i.i_crit_edge.i, %cleanup.i.i.i
-  %69 = phi i8 [ %.pre.i364, %cleanup15.i.i.if.end22.i.i_crit_edge.i ], [ %58, %cleanup.i.i.i ]
-  %70 = load i32, ptr %indent_.i169, align 8
-  %dec.i.i = add nsw i32 %70, -1
-  store i32 %dec.i.i, ptr %indent_.i169, align 8
-  %tobool.i.i.i = trunc i8 %69 to i1
+  %70 = phi i8 [ %.pre.i354, %cleanup15.i.i.if.end22.i.i_crit_edge.i ], [ %59, %cleanup.i.i.i ]
+  %71 = load i32, ptr %indent_.i159, align 8
+  %dec.i.i = add nsw i32 %71, -1
+  store i32 %dec.i.i, ptr %indent_.i159, align 8
+  %tobool.i.i.i = trunc i8 %70 to i1
   br i1 %tobool.i.i.i, label %if.end24.i.i.i, label %if.then23.i.i.i
 
 if.then23.i.i.i:                                  ; preds = %if.end22.i.i.i
-  %71 = load i8, ptr %options_.i.i328, align 8
-  %tobool.i.i29.i = trunc i8 %71 to i1
+  %72 = load i8, ptr %options_.i.i318, align 8
+  %tobool.i.i29.i = trunc i8 %72 to i1
   br i1 %tobool.i.i29.i, label %if.then.i.i31.i, label %_ZN6google8protobuf13json_internal10JsonWriter10WhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit.i.i
 
 if.then.i.i31.i:                                  ; preds = %if.then23.i.i.i
@@ -1191,24 +1193,24 @@ if.then.i.i31.i:                                  ; preds = %if.then23.i.i.i
           to label %if.then.i.i31._ZN6google8protobuf13json_internal10JsonWriter10WhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit.i_crit_edge.i unwind label %lpad4.i.loopexit.split-lp.loopexit.split-lp.i
 
 if.then.i.i31._ZN6google8protobuf13json_internal10JsonWriter10WhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit.i_crit_edge.i: ; preds = %if.then.i.i31.i
-  %.pre97.i = load i32, ptr %indent_.i169, align 8
+  %.pre97.i = load i32, ptr %indent_.i159, align 8
   br label %_ZN6google8protobuf13json_internal10JsonWriter10WhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit.i.i
 
 _ZN6google8protobuf13json_internal10JsonWriter10WhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit.i.i: ; preds = %if.then.i.i31._ZN6google8protobuf13json_internal10JsonWriter10WhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit.i_crit_edge.i, %if.then23.i.i.i
-  %72 = phi i32 [ %.pre97.i, %if.then.i.i31._ZN6google8protobuf13json_internal10JsonWriter10WhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit.i_crit_edge.i ], [ %dec.i.i, %if.then23.i.i.i ]
-  %cmp8.i.i = icmp sgt i32 %72, 0
+  %73 = phi i32 [ %.pre97.i, %if.then.i.i31._ZN6google8protobuf13json_internal10JsonWriter10WhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit.i_crit_edge.i ], [ %dec.i.i, %if.then23.i.i.i ]
+  %cmp8.i.i = icmp sgt i32 %73, 0
   br i1 %cmp8.i.i, label %for.body.lr.ph.i.i, label %if.end24.i.i.i
 
 for.body.lr.ph.i.i:                               ; preds = %_ZN6google8protobuf13json_internal10JsonWriter10WhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit.i.i
-  %73 = load i8, ptr %options_.i.i328, align 8
-  %74 = trunc i8 %73 to i1
-  br i1 %74, label %for.body.i.i, label %if.end24.i.i.i
+  %74 = load i8, ptr %options_.i.i318, align 8
+  %75 = trunc i8 %74 to i1
+  br i1 %75, label %for.body.i.i, label %if.end24.i.i.i
 
 for.body.i.i:                                     ; preds = %for.body.lr.ph.i.i, %_ZN6google8protobuf13json_internal10JsonWriter10WhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit7.i.i
-  %75 = phi i32 [ %77, %_ZN6google8protobuf13json_internal10JsonWriter10WhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit7.i.i ], [ %72, %for.body.lr.ph.i.i ]
+  %76 = phi i32 [ %78, %_ZN6google8protobuf13json_internal10JsonWriter10WhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit7.i.i ], [ %73, %for.body.lr.ph.i.i ]
   %i.09.i.i = phi i32 [ %inc.i.i, %_ZN6google8protobuf13json_internal10JsonWriter10WhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit7.i.i ], [ 0, %for.body.lr.ph.i.i ]
-  %76 = load i8, ptr %options_.i.i328, align 8
-  %tobool.i5.i.i = trunc i8 %76 to i1
+  %77 = load i8, ptr %options_.i.i318, align 8
+  %tobool.i5.i.i = trunc i8 %77 to i1
   br i1 %tobool.i5.i.i, label %if.then.i6.i.i, label %_ZN6google8protobuf13json_internal10JsonWriter10WhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit7.i.i
 
 if.then.i6.i.i:                                   ; preds = %for.body.i.i
@@ -1216,13 +1218,13 @@ if.then.i6.i.i:                                   ; preds = %for.body.i.i
           to label %.noexc33.i unwind label %lpad4.i.loopexit.i
 
 .noexc33.i:                                       ; preds = %if.then.i6.i.i
-  %.pre.i.i = load i32, ptr %indent_.i169, align 8
+  %.pre.i.i = load i32, ptr %indent_.i159, align 8
   br label %_ZN6google8protobuf13json_internal10JsonWriter10WhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit7.i.i
 
 _ZN6google8protobuf13json_internal10JsonWriter10WhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit7.i.i: ; preds = %.noexc33.i, %for.body.i.i
-  %77 = phi i32 [ %75, %for.body.i.i ], [ %.pre.i.i, %.noexc33.i ]
+  %78 = phi i32 [ %76, %for.body.i.i ], [ %.pre.i.i, %.noexc33.i ]
   %inc.i.i = add nuw nsw i32 %i.09.i.i, 1
-  %cmp.i30.i = icmp slt i32 %inc.i.i, %77
+  %cmp.i30.i = icmp slt i32 %inc.i.i, %78
   br i1 %cmp.i30.i, label %for.body.i.i, label %if.end24.i.i.i, !llvm.loop !4
 
 if.end24.i.i.i:                                   ; preds = %_ZN6google8protobuf13json_internal10JsonWriter10WhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit7.i.i, %for.body.lr.ph.i.i, %_ZN6google8protobuf13json_internal10JsonWriter10WhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit.i.i, %if.end22.i.i.i
@@ -1233,13 +1235,13 @@ if.end24.i.i.i:                                   ; preds = %_ZN6google8protobuf
   store i64 0, ptr %agg.result, align 8, !alias.scope !38
   br label %_ZN6google8protobuf13json_internal23UnparseProto2Descriptor18WithDecodedMessageIZZNS1_12_GLOBAL__N_18WriteAnyIS2_EEN4absl12lts_202308026StatusERNS1_10JsonWriterERKNT_3MsgERKNSB_4DescEENKUlRKNS0_10DescriptorEE_clESK_EUlRKNS0_7MessageEE_EES8_SK_St17basic_string_viewIcSt11char_traitsIcEESB_.exit.i
 
-lpad.i12.i:                                       ; preds = %invoke.cont.i15.i, %.noexc379
-  %78 = landingpad { ptr, i32 }
+lpad.i12.i:                                       ; preds = %invoke.cont.i15.i, %.noexc369
+  %79 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup.i13.i
 
 lpad4.i.loopexit.i:                               ; preds = %if.then.i6.i.i
-  %lpad.loopexit.i363 = landingpad { ptr, i32 }
+  %lpad.loopexit.i353 = landingpad { ptr, i32 }
           cleanup
   br label %lpad4.i.i
 
@@ -1248,25 +1250,25 @@ lpad4.i.loopexit.split-lp.loopexit.i:             ; preds = %if.then.i6.i70.i
           cleanup
   br label %lpad4.i.i
 
-lpad4.i.loopexit.split-lp.loopexit.split-lp.i:    ; preds = %if.end24.i.i.i, %if.then.i.i31.i, %do.body7.i.i.i, %.noexc7.i.i, %if.then.i50.i, %.noexc5.i.i, %if.then.i.i72.i, %if.end.i.i362, %call.i.noexc.i.i, %_ZNK6google8protobuf7Message3NewEv.exit.i.i
+lpad4.i.loopexit.split-lp.loopexit.split-lp.i:    ; preds = %if.end24.i.i.i, %if.then.i.i31.i, %do.body7.i.i.i, %.noexc7.i.i, %if.then.i50.i, %.noexc5.i.i, %if.then.i.i72.i, %if.end.i.i352, %call.i.noexc.i.i, %_ZNK6google8protobuf7Message3NewEv.exit.i.i
   %lpad.loopexit.split-lp95.i = landingpad { ptr, i32 }
           cleanup
   br label %lpad4.i.i
 
 lpad4.i.i:                                        ; preds = %lpad4.i.loopexit.split-lp.loopexit.split-lp.i, %lpad4.i.loopexit.split-lp.loopexit.i, %lpad4.i.loopexit.i
-  %lpad.phi.i361 = phi { ptr, i32 } [ %lpad.loopexit.i363, %lpad4.i.loopexit.i ], [ %lpad.loopexit94.i, %lpad4.i.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit.split-lp95.i, %lpad4.i.loopexit.split-lp.loopexit.split-lp.i ]
+  %lpad.phi.i351 = phi { ptr, i32 } [ %lpad.loopexit.i353, %lpad4.i.loopexit.i ], [ %lpad.loopexit94.i, %lpad4.i.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit.split-lp95.i, %lpad4.i.loopexit.split-lp.loopexit.split-lp.i ]
   %cmp.not.i14.i.i = icmp eq ptr %call.i2.i.i, null
   br i1 %cmp.not.i14.i.i, label %ehcleanup.i13.i, label %_ZNKSt14default_deleteIN6google8protobuf7MessageEEclEPS2_.exit.i15.i.i
 
 _ZNKSt14default_deleteIN6google8protobuf7MessageEEclEPS2_.exit.i15.i.i: ; preds = %lpad4.i.i
   %vtable.i.i16.i.i = load ptr, ptr %call.i2.i.i, align 8
   %vfn.i.i17.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i16.i.i, i64 8
-  %79 = load ptr, ptr %vfn.i.i17.i.i, align 8
-  call void %79(ptr noundef nonnull align 8 dereferenceable(16) %call.i2.i.i) #27
+  %80 = load ptr, ptr %vfn.i.i17.i.i, align 8
+  call void %80(ptr noundef nonnull align 8 dereferenceable(16) %call.i2.i.i) #27
   br label %ehcleanup.i13.i
 
 ehcleanup.i13.i:                                  ; preds = %_ZNKSt14default_deleteIN6google8protobuf7MessageEEclEPS2_.exit.i15.i.i, %lpad4.i.i, %lpad.i12.i
-  %.pn.i14.i = phi { ptr, i32 } [ %78, %lpad.i12.i ], [ %lpad.phi.i361, %_ZNKSt14default_deleteIN6google8protobuf7MessageEEclEPS2_.exit.i15.i.i ], [ %lpad.phi.i361, %lpad4.i.i ]
+  %.pn.i14.i = phi { ptr, i32 } [ %79, %lpad.i12.i ], [ %lpad.phi.i351, %_ZNKSt14default_deleteIN6google8protobuf7MessageEEclEPS2_.exit.i15.i.i ], [ %lpad.phi.i351, %lpad4.i.i ]
   call void @_ZN6google8protobuf21DynamicMessageFactoryD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %factory.i.i) #27
   br label %lpad48.i.body
 
@@ -1274,57 +1276,57 @@ _ZN6google8protobuf13json_internal23UnparseProto2Descriptor18WithDecodedMessageI
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %first.i.i.i), !noalias !31
   %vtable.i.i.i.i = load ptr, ptr %call.i2.i.i, align 8
   %vfn.i.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i.i, i64 8
-  %80 = load ptr, ptr %vfn.i.i.i.i, align 8
-  call void %80(ptr noundef nonnull align 8 dereferenceable(16) %call.i2.i.i) #27
+  %81 = load ptr, ptr %vfn.i.i.i.i, align 8
+  call void %81(ptr noundef nonnull align 8 dereferenceable(16) %call.i2.i.i) #27
   call void @_ZN6google8protobuf21DynamicMessageFactoryD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %factory.i.i) #27
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %factory.i.i), !noalias !20
   br label %cleanup50.i
 
 lpad45.i:                                         ; preds = %invoke.cont42.i
-  %81 = landingpad { ptr, i32 }
+  %82 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup.i
 
-lpad48.i:                                         ; preds = %if.end12.i.i, %call.i.i.i366.noexc, %invoke.cont7.i.i, %if.then13.i, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i, %if.then.i.i.i, %if.then.i369
-  %82 = landingpad { ptr, i32 }
+lpad48.i:                                         ; preds = %if.end12.i.i, %call.i.i.i356.noexc, %invoke.cont7.i.i, %if.then13.i, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i, %if.then.i.i.i, %if.then.i359
+  %83 = landingpad { ptr, i32 }
           cleanup
   br label %lpad48.i.body
 
-lpad48.i.body:                                    ; preds = %lpad.i372, %lpad18.i, %ehcleanup.i13.i, %lpad48.i
-  %eh.lpad-body = phi { ptr, i32 } [ %82, %lpad48.i ], [ %.pn.i14.i, %ehcleanup.i13.i ], [ %41, %lpad.i372 ], [ %48, %lpad18.i ]
+lpad48.i.body:                                    ; preds = %lpad.i362, %lpad18.i, %ehcleanup.i13.i, %lpad48.i
+  %eh.lpad-body = phi { ptr, i32 } [ %83, %lpad48.i ], [ %.pn.i14.i, %ehcleanup.i13.i ], [ %42, %lpad.i362 ], [ %49, %lpad18.i ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #27
   br label %ehcleanup.i
 
 ehcleanup.i:                                      ; preds = %lpad48.i.body, %lpad45.i
-  %.pn.i = phi { ptr, i32 } [ %eh.lpad-body, %lpad48.i.body ], [ %81, %lpad45.i ]
+  %.pn.i = phi { ptr, i32 } [ %eh.lpad-body, %lpad48.i.body ], [ %82, %lpad45.i ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp44.i) #27
   br label %ehcleanup51.i
 
 cleanup50.i:                                      ; preds = %_ZN6google8protobuf13json_internal23UnparseProto2Descriptor18WithDecodedMessageIZZNS1_12_GLOBAL__N_18WriteAnyIS2_EEN4absl12lts_202308026StatusERNS1_10JsonWriterERKNT_3MsgERKNSB_4DescEENKUlRKNS0_10DescriptorEE_clESK_EUlRKNS0_7MessageEE_EES8_SK_St17basic_string_viewIcSt11char_traitsIcEESB_.exit.i, %invoke.cont19.i, %invoke.cont.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i352)
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i342)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp2.i)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp3.i)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp15.i)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #27
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp44.i) #27
-  %83 = load i64, ptr %type_url.i, align 8
-  %and.i.i.i.i.i = and i64 %83, 1
+  %84 = load i64, ptr %type_url.i, align 8
+  %and.i.i.i.i.i = and i64 %84, 1
   %cmp.i.i.i.i.i = icmp eq i64 %and.i.i.i.i.i, 0
   br i1 %cmp.i.i.i.i.i, label %_ZN6google8protobuf13json_internal12_GLOBAL__N_18WriteAnyINS1_23UnparseProto2DescriptorEEEN4absl12lts_202308026StatusERNS1_10JsonWriterERKNT_3MsgERKNSA_4DescE.exit, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %cleanup50.i
-  invoke void @_ZN4absl12lts_202308026Status15UnrefNonInlinedEm(i64 noundef %83)
+  invoke void @_ZN4absl12lts_202308026Status15UnrefNonInlinedEm(i64 noundef %84)
           to label %_ZN6google8protobuf13json_internal12_GLOBAL__N_18WriteAnyINS1_23UnparseProto2DescriptorEEEN4absl12lts_202308026StatusERNS1_10JsonWriterERKNT_3MsgERKNSA_4DescE.exit unwind label %terminate.lpad.i.i.i
 
 terminate.lpad.i.i.i:                             ; preds = %if.then.i.i.i.i
-  %84 = landingpad { ptr, i32 }
+  %85 = landingpad { ptr, i32 }
           catch ptr null
-  %85 = extractvalue { ptr, i32 } %84, 0
-  call void @__clang_call_terminate(ptr %85) #28
+  %86 = extractvalue { ptr, i32 } %85, 0
+  call void @__clang_call_terminate(ptr %86) #28
   unreachable
 
-common.resume:                                    ; preds = %lpad.i45, %lpad52.i, %lpad89.i, %lpad124.i, %lpad156.i, %lpad.i124, %ehcleanup121.i, %ehcleanup127.i, %ehcleanup51.i
-  %common.resume.op = phi { ptr, i32 } [ %.pn.pn.i, %ehcleanup51.i ], [ %.pn19.i, %ehcleanup127.i ], [ %.pn13.i, %ehcleanup121.i ], [ %lpad.phi.i, %lpad.i124 ], [ %95, %lpad.i45 ], [ %106, %lpad52.i ], [ %110, %lpad89.i ], [ %114, %lpad124.i ], [ %118, %lpad156.i ]
+common.resume:                                    ; preds = %lpad.i45, %lpad52.i, %lpad89.i, %lpad124.i, %lpad156.i, %lpad.i115, %ehcleanup121.i, %ehcleanup127.i, %ehcleanup51.i
+  %common.resume.op = phi { ptr, i32 } [ %.pn.pn.i, %ehcleanup51.i ], [ %.pn19.i, %ehcleanup127.i ], [ %.pn13.i, %ehcleanup121.i ], [ %lpad.phi.i, %lpad.i115 ], [ %99, %lpad.i45 ], [ %114, %lpad52.i ], [ %118, %lpad89.i ], [ %122, %lpad124.i ], [ %126, %lpad156.i ]
   resume { ptr, i32 } %common.resume.op
 
 ehcleanup51.i:                                    ; preds = %lpad.i.loopexit, %lpad.i.loopexit.split-lp, %ehcleanup.i
@@ -1342,35 +1344,29 @@ sw.bb2:                                           ; preds = %entry
   %call4 = tail call noundef ptr @_ZN6google8protobuf13json_internal16Proto2Descriptor13MustHaveFieldERKNS0_10DescriptorEiNS1_12JsonLocation14SourceLocationE(ptr noundef nonnull align 8 dereferenceable(152) %desc, i32 noundef 1)
   %label_.i.i.i = getelementptr inbounds nuw i8, ptr %call4, i64 1
   %bf.load.i.i.i = load i8, ptr %label_.i.i.i, align 1
-  %86 = and i8 %bf.load.i.i.i, 96
-  %cmp.i.i = icmp eq i8 %86, 96
+  %87 = and i8 %bf.load.i.i.i, 96
+  %cmp.i.i = icmp eq i8 %87, 96
   %vtable.i.i = load ptr, ptr %msg, align 8
   %vfn.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i, i64 80
-  %87 = load ptr, ptr %vfn.i.i, align 8
-  %call.i.i = tail call { ptr, ptr } %87(ptr noundef nonnull align 8 dereferenceable(16) %msg)
-  %88 = extractvalue { ptr, ptr } %call.i.i, 1
-  br i1 %cmp.i.i, label %if.then.i37, label %if.else.i35
+  %88 = load ptr, ptr %vfn.i.i, align 8
+  %call.i.i = tail call { ptr, ptr } %88(ptr noundef nonnull align 8 dereferenceable(16) %msg)
+  %89 = extractvalue { ptr, ptr } %call.i.i, 1
+  br i1 %cmp.i.i, label %if.then.i37, label %_ZN6google8protobuf13json_internal23UnparseProto2Descriptor7GetSizeEPKNS0_15FieldDescriptorERKNS0_7MessageE.exit
 
 if.then.i37:                                      ; preds = %sw.bb2
-  %call2.i = tail call noundef i32 @_ZNK6google8protobuf10Reflection9FieldSizeERKNS0_7MessageEPKNS0_15FieldDescriptorE(ptr noundef nonnull align 8 dereferenceable(112) %88, ptr noundef nonnull align 8 dereferenceable(16) %msg, ptr noundef nonnull %call4)
-  %conv.i = sext i32 %call2.i to i64
-  br label %_ZN6google8protobuf13json_internal23UnparseProto2Descriptor7GetSizeEPKNS0_15FieldDescriptorERKNS0_7MessageE.exit
+  %call2.i = tail call noundef i32 @_ZNK6google8protobuf10Reflection9FieldSizeERKNS0_7MessageEPKNS0_15FieldDescriptorE(ptr noundef nonnull align 8 dereferenceable(112) %89, ptr noundef nonnull align 8 dereferenceable(16) %msg, ptr noundef nonnull %call4)
+  %90 = icmp eq i32 %call2.i, 0
+  br i1 %90, label %if.then, label %if.end
 
-if.else.i35:                                      ; preds = %sw.bb2
-  %call4.i36 = tail call noundef zeroext i1 @_ZNK6google8protobuf10Reflection8HasFieldERKNS0_7MessageEPKNS0_15FieldDescriptorE(ptr noundef nonnull align 8 dereferenceable(112) %88, ptr noundef nonnull align 8 dereferenceable(16) %msg, ptr noundef nonnull %call4)
-  %conv5.i = zext i1 %call4.i36 to i64
-  br label %_ZN6google8protobuf13json_internal23UnparseProto2Descriptor7GetSizeEPKNS0_15FieldDescriptorERKNS0_7MessageE.exit
+_ZN6google8protobuf13json_internal23UnparseProto2Descriptor7GetSizeEPKNS0_15FieldDescriptorERKNS0_7MessageE.exit: ; preds = %sw.bb2
+  %call4.i36 = tail call noundef zeroext i1 @_ZNK6google8protobuf10Reflection8HasFieldERKNS0_7MessageEPKNS0_15FieldDescriptorE(ptr noundef nonnull align 8 dereferenceable(112) %89, ptr noundef nonnull align 8 dereferenceable(16) %msg, ptr noundef nonnull %call4)
+  br i1 %call4.i36, label %if.end, label %if.then
 
-_ZN6google8protobuf13json_internal23UnparseProto2Descriptor7GetSizeEPKNS0_15FieldDescriptorERKNS0_7MessageE.exit: ; preds = %if.then.i37, %if.else.i35
-  %retval.0.i = phi i64 [ %conv.i, %if.then.i37 ], [ %conv5.i, %if.else.i35 ]
-  %cmp = icmp eq i64 %retval.0.i, 0
-  br i1 %cmp, label %if.then, label %if.end
-
-if.then:                                          ; preds = %_ZN6google8protobuf13json_internal23UnparseProto2Descriptor7GetSizeEPKNS0_15FieldDescriptorERKNS0_7MessageE.exit
+if.then:                                          ; preds = %if.then.i37, %_ZN6google8protobuf13json_internal23UnparseProto2Descriptor7GetSizeEPKNS0_15FieldDescriptorERKNS0_7MessageE.exit
   tail call fastcc void @_ZN6google8protobuf13json_internal12_GLOBAL__N_113WriteSingularINS1_23UnparseProto2DescriptorEJEEEN4absl12lts_202308026StatusERNS1_10JsonWriterENT_5FieldEDpOT0_(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(88) %writer, ptr noundef nonnull %call4)
   br label %return
 
-if.end:                                           ; preds = %_ZN6google8protobuf13json_internal23UnparseProto2Descriptor7GetSizeEPKNS0_15FieldDescriptorERKNS0_7MessageE.exit
+if.end:                                           ; preds = %if.then.i37, %_ZN6google8protobuf13json_internal23UnparseProto2Descriptor7GetSizeEPKNS0_15FieldDescriptorERKNS0_7MessageE.exit
   tail call fastcc void @_ZN6google8protobuf13json_internal12_GLOBAL__N_113WriteSingularINS1_23UnparseProto2DescriptorEJRKNS0_7MessageEEEEN4absl12lts_202308026StatusERNS1_10JsonWriterENT_5FieldEDpOT0_(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(88) %writer, ptr noundef nonnull %call4, ptr noundef nonnull align 8 dereferenceable(16) %msg)
   br label %return
 
@@ -1383,159 +1379,163 @@ sw.bb6:                                           ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %x152.i)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp180.i)
   %call.i40 = tail call noundef ptr @_ZN6google8protobuf13json_internal16Proto2Descriptor13MustHaveFieldERKNS0_10DescriptorEiNS1_12JsonLocation14SourceLocationE(ptr noundef nonnull align 8 dereferenceable(152) %desc, i32 noundef 1), !noalias !41
-  %label_.i.i.i309 = getelementptr inbounds nuw i8, ptr %call.i40, i64 1
-  %bf.load.i.i.i310 = load i8, ptr %label_.i.i.i309, align 1, !noalias !41
-  %89 = and i8 %bf.load.i.i.i310, 96
-  %cmp.i.i311 = icmp eq i8 %89, 96
-  %vtable.i.i312 = load ptr, ptr %msg, align 8, !noalias !41
-  %vfn.i.i313 = getelementptr inbounds nuw i8, ptr %vtable.i.i312, i64 80
-  %90 = load ptr, ptr %vfn.i.i313, align 8, !noalias !41
-  %call.i.i314 = tail call { ptr, ptr } %90(ptr noundef nonnull align 8 dereferenceable(16) %msg), !noalias !41
-  %91 = extractvalue { ptr, ptr } %call.i.i314, 1
-  br i1 %cmp.i.i311, label %if.then.i319, label %if.else.i315
+  %label_.i.i.i299 = getelementptr inbounds nuw i8, ptr %call.i40, i64 1
+  %bf.load.i.i.i300 = load i8, ptr %label_.i.i.i299, align 1, !noalias !41
+  %91 = and i8 %bf.load.i.i.i300, 96
+  %cmp.i.i301 = icmp eq i8 %91, 96
+  %vtable.i.i302 = load ptr, ptr %msg, align 8, !noalias !41
+  %vfn.i.i303 = getelementptr inbounds nuw i8, ptr %vtable.i.i302, i64 80
+  %92 = load ptr, ptr %vfn.i.i303, align 8, !noalias !41
+  %call.i.i304 = tail call { ptr, ptr } %92(ptr noundef nonnull align 8 dereferenceable(16) %msg), !noalias !41
+  %93 = extractvalue { ptr, ptr } %call.i.i304, 1
+  br i1 %cmp.i.i301, label %if.then.i309, label %_ZN6google8protobuf13json_internal23UnparseProto2Descriptor7GetSizeEPKNS0_15FieldDescriptorERKNS0_7MessageE.exit312
 
-if.then.i319:                                     ; preds = %sw.bb6
-  %call2.i320 = tail call noundef i32 @_ZNK6google8protobuf10Reflection9FieldSizeERKNS0_7MessageEPKNS0_15FieldDescriptorE(ptr noundef nonnull align 8 dereferenceable(112) %91, ptr noundef nonnull align 8 dereferenceable(16) %msg, ptr noundef nonnull %call.i40), !noalias !41
-  %conv.i321 = sext i32 %call2.i320 to i64
-  br label %_ZN6google8protobuf13json_internal23UnparseProto2Descriptor7GetSizeEPKNS0_15FieldDescriptorERKNS0_7MessageE.exit322
+if.then.i309:                                     ; preds = %sw.bb6
+  %call2.i310 = tail call noundef i32 @_ZNK6google8protobuf10Reflection9FieldSizeERKNS0_7MessageEPKNS0_15FieldDescriptorE(ptr noundef nonnull align 8 dereferenceable(112) %93, ptr noundef nonnull align 8 dereferenceable(16) %msg, ptr noundef nonnull %call.i40), !noalias !41
+  %94 = icmp eq i32 %call2.i310, 0
+  br i1 %94, label %if.end.i, label %if.then.i43
 
-if.else.i315:                                     ; preds = %sw.bb6
-  %call4.i316 = tail call noundef zeroext i1 @_ZNK6google8protobuf10Reflection8HasFieldERKNS0_7MessageEPKNS0_15FieldDescriptorE(ptr noundef nonnull align 8 dereferenceable(112) %91, ptr noundef nonnull align 8 dereferenceable(16) %msg, ptr noundef nonnull %call.i40), !noalias !41
-  %conv5.i317 = zext i1 %call4.i316 to i64
-  br label %_ZN6google8protobuf13json_internal23UnparseProto2Descriptor7GetSizeEPKNS0_15FieldDescriptorERKNS0_7MessageE.exit322
+_ZN6google8protobuf13json_internal23UnparseProto2Descriptor7GetSizeEPKNS0_15FieldDescriptorERKNS0_7MessageE.exit312: ; preds = %sw.bb6
+  %call4.i306 = tail call noundef zeroext i1 @_ZNK6google8protobuf10Reflection8HasFieldERKNS0_7MessageEPKNS0_15FieldDescriptorE(ptr noundef nonnull align 8 dereferenceable(112) %93, ptr noundef nonnull align 8 dereferenceable(16) %msg, ptr noundef nonnull %call.i40), !noalias !41
+  br i1 %call4.i306, label %if.then.i43, label %if.end.i
 
-_ZN6google8protobuf13json_internal23UnparseProto2Descriptor7GetSizeEPKNS0_15FieldDescriptorERKNS0_7MessageE.exit322: ; preds = %if.then.i319, %if.else.i315
-  %retval.0.i318 = phi i64 [ %conv.i321, %if.then.i319 ], [ %conv5.i317, %if.else.i315 ]
-  %cmp.not.i42 = icmp eq i64 %retval.0.i318, 0
-  br i1 %cmp.not.i42, label %if.end.i, label %if.then.i43
-
-if.then.i43:                                      ; preds = %_ZN6google8protobuf13json_internal23UnparseProto2Descriptor7GetSizeEPKNS0_15FieldDescriptorERKNS0_7MessageE.exit322
+if.then.i43:                                      ; preds = %if.then.i309, %_ZN6google8protobuf13json_internal23UnparseProto2Descriptor7GetSizeEPKNS0_15FieldDescriptorERKNS0_7MessageE.exit312
   tail call void @_ZN6google8protobuf2io16zc_sink_internal22ZeroCopyStreamByteSink6AppendEPKcm(ptr noundef nonnull align 8 dereferenceable(88) %writer, ptr noundef nonnull @.str.38, i64 noundef 4), !noalias !41
   store i64 0, ptr %agg.result, align 8, !alias.scope !44
   br label %_ZN6google8protobuf13json_internal12_GLOBAL__N_110WriteValueINS1_23UnparseProto2DescriptorEEEN4absl12lts_202308026StatusERNS1_10JsonWriterERKNT_3MsgERKNSA_4DescEb.exit
 
-if.end.i:                                         ; preds = %_ZN6google8protobuf13json_internal23UnparseProto2Descriptor7GetSizeEPKNS0_15FieldDescriptorERKNS0_7MessageE.exit322
+if.end.i:                                         ; preds = %if.then.i309, %_ZN6google8protobuf13json_internal23UnparseProto2Descriptor7GetSizeEPKNS0_15FieldDescriptorERKNS0_7MessageE.exit312
   %call5.i44 = tail call noundef ptr @_ZN6google8protobuf13json_internal16Proto2Descriptor13MustHaveFieldERKNS0_10DescriptorEiNS1_12JsonLocation14SourceLocationE(ptr noundef nonnull align 8 dereferenceable(152) %desc, i32 noundef 2), !noalias !41
-  %label_.i.i.i294 = getelementptr inbounds nuw i8, ptr %call5.i44, i64 1
-  %bf.load.i.i.i295 = load i8, ptr %label_.i.i.i294, align 1, !noalias !41
-  %92 = and i8 %bf.load.i.i.i295, 96
-  %cmp.i.i296 = icmp eq i8 %92, 96
-  %vtable.i.i297 = load ptr, ptr %msg, align 8, !noalias !41
-  %vfn.i.i298 = getelementptr inbounds nuw i8, ptr %vtable.i.i297, i64 80
-  %93 = load ptr, ptr %vfn.i.i298, align 8, !noalias !41
-  %call.i.i299 = tail call { ptr, ptr } %93(ptr noundef nonnull align 8 dereferenceable(16) %msg), !noalias !41
-  %94 = extractvalue { ptr, ptr } %call.i.i299, 1
-  br i1 %cmp.i.i296, label %if.then.i303, label %if.else.i300
+  %label_.i.i.i284 = getelementptr inbounds nuw i8, ptr %call5.i44, i64 1
+  %bf.load.i.i.i285 = load i8, ptr %label_.i.i.i284, align 1, !noalias !41
+  %95 = and i8 %bf.load.i.i.i285, 96
+  %cmp.i.i286 = icmp eq i8 %95, 96
+  %vtable.i.i287 = load ptr, ptr %msg, align 8, !noalias !41
+  %vfn.i.i288 = getelementptr inbounds nuw i8, ptr %vtable.i.i287, i64 80
+  %96 = load ptr, ptr %vfn.i.i288, align 8, !noalias !41
+  %call.i.i289 = tail call { ptr, ptr } %96(ptr noundef nonnull align 8 dereferenceable(16) %msg), !noalias !41
+  %97 = extractvalue { ptr, ptr } %call.i.i289, 1
+  br i1 %cmp.i.i286, label %if.then.i293, label %_ZN6google8protobuf13json_internal23UnparseProto2Descriptor7GetSizeEPKNS0_15FieldDescriptorERKNS0_7MessageE.exit296
 
-if.then.i303:                                     ; preds = %if.end.i
-  %call2.i304 = tail call noundef i32 @_ZNK6google8protobuf10Reflection9FieldSizeERKNS0_7MessageEPKNS0_15FieldDescriptorE(ptr noundef nonnull align 8 dereferenceable(112) %94, ptr noundef nonnull align 8 dereferenceable(16) %msg, ptr noundef nonnull %call5.i44), !noalias !41
-  %conv.i305 = sext i32 %call2.i304 to i64
-  br label %_ZN6google8protobuf13json_internal23UnparseProto2Descriptor7GetSizeEPKNS0_15FieldDescriptorERKNS0_7MessageE.exit306
+if.then.i293:                                     ; preds = %if.end.i
+  %call2.i294 = tail call noundef i32 @_ZNK6google8protobuf10Reflection9FieldSizeERKNS0_7MessageEPKNS0_15FieldDescriptorE(ptr noundef nonnull align 8 dereferenceable(112) %97, ptr noundef nonnull align 8 dereferenceable(16) %msg, ptr noundef nonnull %call5.i44), !noalias !41
+  %98 = icmp eq i32 %call2.i294, 0
+  br i1 %98, label %if.end40.i, label %_ZN4absl12lts_202308026StatusD2Ev.exit375
 
-if.else.i300:                                     ; preds = %if.end.i
-  %call4.i = tail call noundef zeroext i1 @_ZNK6google8protobuf10Reflection8HasFieldERKNS0_7MessageEPKNS0_15FieldDescriptorE(ptr noundef nonnull align 8 dereferenceable(112) %94, ptr noundef nonnull align 8 dereferenceable(16) %msg, ptr noundef nonnull %call5.i44), !noalias !41
-  %conv5.i301 = zext i1 %call4.i to i64
-  br label %_ZN6google8protobuf13json_internal23UnparseProto2Descriptor7GetSizeEPKNS0_15FieldDescriptorERKNS0_7MessageE.exit306
-
-_ZN6google8protobuf13json_internal23UnparseProto2Descriptor7GetSizeEPKNS0_15FieldDescriptorERKNS0_7MessageE.exit306: ; preds = %if.then.i303, %if.else.i300
-  %retval.0.i302 = phi i64 [ %conv.i305, %if.then.i303 ], [ %conv5.i301, %if.else.i300 ]
-  %cmp7.not.i = icmp eq i64 %retval.0.i302, 0
-  br i1 %cmp7.not.i, label %if.end40.i, label %_ZN4absl12lts_202308026StatusD2Ev.exit385
+_ZN6google8protobuf13json_internal23UnparseProto2Descriptor7GetSizeEPKNS0_15FieldDescriptorERKNS0_7MessageE.exit296: ; preds = %if.end.i
+  %call4.i = tail call noundef zeroext i1 @_ZNK6google8protobuf10Reflection8HasFieldERKNS0_7MessageEPKNS0_15FieldDescriptorE(ptr noundef nonnull align 8 dereferenceable(112) %97, ptr noundef nonnull align 8 dereferenceable(16) %msg, ptr noundef nonnull %call5.i44), !noalias !41
+  br i1 %call4.i, label %_ZN4absl12lts_202308026StatusD2Ev.exit375, label %if.end40.i
 
 lpad.i45:                                         ; preds = %if.then31.i.invoke, %invoke.cont35.i52
-  %95 = landingpad { ptr, i32 }
+  %99 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN4absl12lts_202308028StatusOrIdED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %x.i) #27
   br label %common.resume
 
-_ZN4absl12lts_202308026StatusD2Ev.exit385:        ; preds = %_ZN6google8protobuf13json_internal23UnparseProto2Descriptor7GetSizeEPKNS0_15FieldDescriptorERKNS0_7MessageE.exit306
+_ZN4absl12lts_202308026StatusD2Ev.exit375:        ; preds = %if.then.i293, %_ZN6google8protobuf13json_internal23UnparseProto2Descriptor7GetSizeEPKNS0_15FieldDescriptorERKNS0_7MessageE.exit296
   tail call void @llvm.experimental.noalias.scope.decl(metadata !47)
-  %vtable.i.i290 = load ptr, ptr %msg, align 8, !noalias !50
-  %vfn.i.i291 = getelementptr inbounds nuw i8, ptr %vtable.i.i290, i64 80
-  %96 = load ptr, ptr %vfn.i.i291, align 8, !noalias !50
-  %call.i.i292 = tail call { ptr, ptr } %96(ptr noundef nonnull align 8 dereferenceable(16) %msg), !noalias !50
-  %97 = extractvalue { ptr, ptr } %call.i.i292, 1
-  %call1.i293 = tail call noundef double @_ZNK6google8protobuf10Reflection9GetDoubleERKNS0_7MessageEPKNS0_15FieldDescriptorE(ptr noundef nonnull align 8 dereferenceable(112) %97, ptr noundef nonnull align 8 dereferenceable(16) %msg, ptr noundef nonnull %call5.i44), !noalias !41
-  %98 = getelementptr inbounds nuw i8, ptr %x.i, i64 8
-  store double %call1.i293, ptr %98, align 8, !alias.scope !47, !noalias !41
+  %vtable.i.i280 = load ptr, ptr %msg, align 8, !noalias !50
+  %vfn.i.i281 = getelementptr inbounds nuw i8, ptr %vtable.i.i280, i64 80
+  %100 = load ptr, ptr %vfn.i.i281, align 8, !noalias !50
+  %call.i.i282 = tail call { ptr, ptr } %100(ptr noundef nonnull align 8 dereferenceable(16) %msg), !noalias !50
+  %101 = extractvalue { ptr, ptr } %call.i.i282, 1
+  %call1.i283 = tail call noundef double @_ZNK6google8protobuf10Reflection9GetDoubleERKNS0_7MessageEPKNS0_15FieldDescriptorE(ptr noundef nonnull align 8 dereferenceable(112) %101, ptr noundef nonnull align 8 dereferenceable(16) %msg, ptr noundef nonnull %call5.i44), !noalias !41
+  %102 = getelementptr inbounds nuw i8, ptr %x.i, i64 8
+  store double %call1.i283, ptr %102, align 8, !alias.scope !47, !noalias !41
   store i64 0, ptr %x.i, align 8, !alias.scope !47, !noalias !41
   store i64 0, ptr %agg.result, align 8
-  %99 = fcmp uno double %call1.i293, 0.000000e+00
-  br i1 %99, label %if.then31.i.invoke, label %invoke.cont23.i
+  %103 = fcmp uno double %call1.i283, 0.000000e+00
+  br i1 %103, label %if.then31.i.invoke, label %invoke.cont23.i
 
-invoke.cont23.i:                                  ; preds = %_ZN4absl12lts_202308026StatusD2Ev.exit385
-  %100 = tail call double @llvm.fabs.f64(double %call1.i293)
-  %or.cond = fcmp oeq double %100, 0x7FF0000000000000
+invoke.cont23.i:                                  ; preds = %_ZN4absl12lts_202308026StatusD2Ev.exit375
+  %104 = tail call double @llvm.fabs.f64(double %call1.i283)
+  %or.cond = fcmp oeq double %104, 0x7FF0000000000000
   br i1 %or.cond, label %if.then31.i.invoke, label %invoke.cont35.i52
 
-if.then31.i.invoke:                               ; preds = %invoke.cont23.i, %_ZN4absl12lts_202308026StatusD2Ev.exit385
-  %101 = phi i64 [ 97, %_ZN4absl12lts_202308026StatusD2Ev.exit385 ], [ 102, %invoke.cont23.i ]
-  %102 = phi ptr [ @.str.43, %_ZN4absl12lts_202308026StatusD2Ev.exit385 ], [ @.str.44, %invoke.cont23.i ]
-  invoke void @_ZN4absl12lts_2023080220InvalidArgumentErrorESt17basic_string_viewIcSt11char_traitsIcEE(ptr nonnull sret(%"class.absl::lts_20230802::Status") align 8 %agg.result, i64 %101, ptr nonnull %102)
+if.then31.i.invoke:                               ; preds = %invoke.cont23.i, %_ZN4absl12lts_202308026StatusD2Ev.exit375
+  %105 = phi i64 [ 97, %_ZN4absl12lts_202308026StatusD2Ev.exit375 ], [ 102, %invoke.cont23.i ]
+  %106 = phi ptr [ @.str.43, %_ZN4absl12lts_202308026StatusD2Ev.exit375 ], [ @.str.44, %invoke.cont23.i ]
+  invoke void @_ZN4absl12lts_2023080220InvalidArgumentErrorESt17basic_string_viewIcSt11char_traitsIcEE(ptr nonnull sret(%"class.absl::lts_20230802::Status") align 8 %agg.result, i64 %105, ptr nonnull %106)
           to label %_ZN6google8protobuf13json_internal12_GLOBAL__N_110WriteValueINS1_23UnparseProto2DescriptorEEEN4absl12lts_202308026StatusERNS1_10JsonWriterERKNT_3MsgERKNSA_4DescEb.exit unwind label %lpad.i45
 
 invoke.cont35.i52:                                ; preds = %invoke.cont23.i
-  invoke void @_ZN6google8protobuf13json_internal10JsonWriter5WriteEd(ptr noundef nonnull align 8 dereferenceable(88) %writer, double noundef %call1.i293)
+  invoke void @_ZN6google8protobuf13json_internal10JsonWriter5WriteEd(ptr noundef nonnull align 8 dereferenceable(88) %writer, double noundef %call1.i283)
           to label %invoke.cont37.i unwind label %lpad.i45
 
 invoke.cont37.i:                                  ; preds = %invoke.cont35.i52
   store i64 0, ptr %agg.result, align 8, !alias.scope !51
   br label %_ZN6google8protobuf13json_internal12_GLOBAL__N_110WriteValueINS1_23UnparseProto2DescriptorEEEN4absl12lts_202308026StatusERNS1_10JsonWriterERKNT_3MsgERKNSA_4DescEb.exit
 
-if.end40.i:                                       ; preds = %_ZN6google8protobuf13json_internal23UnparseProto2Descriptor7GetSizeEPKNS0_15FieldDescriptorERKNS0_7MessageE.exit306
+if.end40.i:                                       ; preds = %if.then.i293, %_ZN6google8protobuf13json_internal23UnparseProto2Descriptor7GetSizeEPKNS0_15FieldDescriptorERKNS0_7MessageE.exit296
   %call43.i53 = tail call noundef ptr @_ZN6google8protobuf13json_internal16Proto2Descriptor13MustHaveFieldERKNS0_10DescriptorEiNS1_12JsonLocation14SourceLocationE(ptr noundef nonnull align 8 dereferenceable(152) %desc, i32 noundef 3), !noalias !41
-  %call44.i = tail call noundef i64 @_ZN6google8protobuf13json_internal23UnparseProto2Descriptor7GetSizeEPKNS0_15FieldDescriptorERKNS0_7MessageE(ptr noundef %call43.i53, ptr noundef nonnull align 8 dereferenceable(16) %msg), !noalias !41
-  %cmp45.not.i = icmp eq i64 %call44.i, 0
-  br i1 %cmp45.not.i, label %if.end78.i, label %if.then46.i
+  %label_.i.i.i376 = getelementptr inbounds nuw i8, ptr %call43.i53, i64 1
+  %bf.load.i.i.i377 = load i8, ptr %label_.i.i.i376, align 1, !noalias !41
+  %107 = and i8 %bf.load.i.i.i377, 96
+  %cmp.i.i378 = icmp eq i8 %107, 96
+  %vtable.i.i379 = load ptr, ptr %msg, align 8, !noalias !41
+  %vfn.i.i380 = getelementptr inbounds nuw i8, ptr %vtable.i.i379, i64 80
+  %108 = load ptr, ptr %vfn.i.i380, align 8, !noalias !41
+  %call.i.i381 = tail call { ptr, ptr } %108(ptr noundef nonnull align 8 dereferenceable(16) %msg), !noalias !41
+  %109 = extractvalue { ptr, ptr } %call.i.i381, 1
+  br i1 %cmp.i.i378, label %if.then.i384, label %_ZN6google8protobuf13json_internal23UnparseProto2Descriptor7GetSizeEPKNS0_15FieldDescriptorERKNS0_7MessageE.exit386
 
-if.then46.i:                                      ; preds = %if.end40.i
-  %scratch_buf_.i260 = getelementptr inbounds nuw i8, ptr %writer, i64 56
-  call void @_ZN6google8protobuf13json_internal23UnparseProto2Descriptor9GetStringEPKNS0_15FieldDescriptorERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_7MessageE(ptr nonnull sret(%"class.absl::lts_20230802::StatusOr.242") align 8 %x47.i, ptr noundef %call43.i53, ptr noundef nonnull align 8 dereferenceable(32) %scratch_buf_.i260, ptr noundef nonnull align 8 dereferenceable(16) %msg), !noalias !41
-  %103 = load i64, ptr %x47.i, align 8
-  store i64 %103, ptr %agg.result, align 8
-  %and.i.i.i255 = and i64 %103, 1
-  %cmp.i.i.i256 = icmp eq i64 %and.i.i.i255, 0
-  br i1 %cmp.i.i.i256, label %cleanup60.i, label %if.then.i.i257
+if.then.i384:                                     ; preds = %if.end40.i
+  %call2.i385 = tail call noundef i32 @_ZNK6google8protobuf10Reflection9FieldSizeERKNS0_7MessageEPKNS0_15FieldDescriptorE(ptr noundef nonnull align 8 dereferenceable(112) %109, ptr noundef nonnull align 8 dereferenceable(16) %msg, ptr noundef nonnull %call43.i53), !noalias !41
+  %110 = icmp eq i32 %call2.i385, 0
+  br i1 %110, label %if.end78.i, label %if.then46.i
 
-if.then.i.i257:                                   ; preds = %if.then46.i
-  %sub.i.i.i258 = add nsw i64 %103, -1
-  %104 = inttoptr i64 %sub.i.i.i258 to ptr
-  %105 = atomicrmw add ptr %104, i32 1 monotonic, align 4
+_ZN6google8protobuf13json_internal23UnparseProto2Descriptor7GetSizeEPKNS0_15FieldDescriptorERKNS0_7MessageE.exit386: ; preds = %if.end40.i
+  %call4.i383 = tail call noundef zeroext i1 @_ZNK6google8protobuf10Reflection8HasFieldERKNS0_7MessageEPKNS0_15FieldDescriptorE(ptr noundef nonnull align 8 dereferenceable(112) %109, ptr noundef nonnull align 8 dereferenceable(16) %msg, ptr noundef nonnull %call43.i53), !noalias !41
+  br i1 %call4.i383, label %if.then46.i, label %if.end78.i
+
+if.then46.i:                                      ; preds = %if.then.i384, %_ZN6google8protobuf13json_internal23UnparseProto2Descriptor7GetSizeEPKNS0_15FieldDescriptorERKNS0_7MessageE.exit386
+  %scratch_buf_.i250 = getelementptr inbounds nuw i8, ptr %writer, i64 56
+  call void @_ZN6google8protobuf13json_internal23UnparseProto2Descriptor9GetStringEPKNS0_15FieldDescriptorERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_7MessageE(ptr nonnull sret(%"class.absl::lts_20230802::StatusOr.242") align 8 %x47.i, ptr noundef nonnull %call43.i53, ptr noundef nonnull align 8 dereferenceable(32) %scratch_buf_.i250, ptr noundef nonnull align 8 dereferenceable(16) %msg), !noalias !41
+  %111 = load i64, ptr %x47.i, align 8
+  store i64 %111, ptr %agg.result, align 8
+  %and.i.i.i245 = and i64 %111, 1
+  %cmp.i.i.i246 = icmp eq i64 %and.i.i.i245, 0
+  br i1 %cmp.i.i.i246, label %cleanup60.i, label %if.then.i.i247
+
+if.then.i.i247:                                   ; preds = %if.then46.i
+  %sub.i.i.i248 = add nsw i64 %111, -1
+  %112 = inttoptr i64 %sub.i.i.i248 to ptr
+  %113 = atomicrmw add ptr %112, i32 1 monotonic, align 4
   %.pr = load i64, ptr %agg.result, align 8
   br label %cleanup60.i
 
-lpad52.i:                                         ; preds = %if.then.i.i251, %invoke.cont73.i
-  %106 = landingpad { ptr, i32 }
+lpad52.i:                                         ; preds = %if.then.i.i241, %invoke.cont73.i
+  %114 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN4absl12lts_202308028StatusOrISt17basic_string_viewIcSt11char_traitsIcEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %x47.i) #27
   br label %common.resume
 
-cleanup60.i:                                      ; preds = %if.then46.i, %if.then.i.i257
-  %107 = phi i64 [ %103, %if.then46.i ], [ %.pr, %if.then.i.i257 ]
-  %cmp.i254 = icmp eq i64 %107, 0
-  br i1 %cmp.i254, label %nrvo.unused62.i, label %cleanup76.i
+cleanup60.i:                                      ; preds = %if.then46.i, %if.then.i.i247
+  %115 = phi i64 [ %111, %if.then46.i ], [ %.pr, %if.then.i.i247 ]
+  %cmp.i244 = icmp eq i64 %115, 0
+  br i1 %cmp.i244, label %nrvo.unused62.i, label %cleanup76.i
 
 nrvo.unused62.i:                                  ; preds = %cleanup60.i
   call void @_ZN4absl12lts_202308026StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.result) #27
-  %108 = load i64, ptr %x47.i, align 8
-  %cmp.i.i.i.i250 = icmp eq i64 %108, 0
-  br i1 %cmp.i.i.i.i250, label %invoke.cont73.i, label %if.then.i.i251
+  %116 = load i64, ptr %x47.i, align 8
+  %cmp.i.i.i.i240 = icmp eq i64 %116, 0
+  br i1 %cmp.i.i.i.i240, label %invoke.cont73.i, label %if.then.i.i241
 
-if.then.i.i251:                                   ; preds = %nrvo.unused62.i
+if.then.i.i241:                                   ; preds = %nrvo.unused62.i
   invoke void @_ZN4absl12lts_2023080217internal_statusor6Helper5CrashERKNS0_6StatusE(ptr noundef nonnull align 8 dereferenceable(24) %x47.i) #29
-          to label %.noexc252 unwind label %lpad52.i
+          to label %.noexc242 unwind label %lpad52.i
 
-.noexc252:                                        ; preds = %if.then.i.i251
+.noexc242:                                        ; preds = %if.then.i.i241
   unreachable
 
 invoke.cont73.i:                                  ; preds = %nrvo.unused62.i
-  %109 = getelementptr inbounds nuw i8, ptr %x47.i, i64 8
-  %agg.tmp70.sroa.0.0.copyload.i = load i64, ptr %109, align 8
+  %117 = getelementptr inbounds nuw i8, ptr %x47.i, i64 8
+  %agg.tmp70.sroa.0.0.copyload.i = load i64, ptr %117, align 8
   %agg.tmp70.sroa.2.0.call72.sroa_idx.i = getelementptr inbounds nuw i8, ptr %x47.i, i64 16
   %agg.tmp70.sroa.2.0.copyload.i = load ptr, ptr %agg.tmp70.sroa.2.0.call72.sroa_idx.i, align 8
   store i64 %agg.tmp70.sroa.0.0.copyload.i, ptr %agg.tmp69.i, align 8, !alias.scope !54
-  %t.sroa.2.0.agg.result.sroa_idx.i249 = getelementptr inbounds nuw i8, ptr %agg.tmp69.i, i64 8
-  store ptr %agg.tmp70.sroa.2.0.copyload.i, ptr %t.sroa.2.0.agg.result.sroa_idx.i249, align 8, !alias.scope !54
+  %t.sroa.2.0.agg.result.sroa_idx.i239 = getelementptr inbounds nuw i8, ptr %agg.tmp69.i, i64 8
+  store ptr %agg.tmp70.sroa.2.0.copyload.i, ptr %t.sroa.2.0.agg.result.sroa_idx.i239, align 8, !alias.scope !54
   invoke void @_ZN6google8protobuf13json_internal10JsonWriter5WriteIJSt17basic_string_viewIcSt11char_traitsIcEEEEEvNS1_6QuotedIJDpT_EEE(ptr noundef nonnull align 8 dereferenceable(88) %writer, ptr noundef nonnull %agg.tmp69.i)
           to label %invoke.cont74.i unwind label %lpad52.i
 
@@ -1547,35 +1547,35 @@ cleanup76.i:                                      ; preds = %invoke.cont74.i, %c
   call void @_ZN4absl12lts_202308028StatusOrISt17basic_string_viewIcSt11char_traitsIcEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %x47.i) #27
   br label %_ZN6google8protobuf13json_internal12_GLOBAL__N_110WriteValueINS1_23UnparseProto2DescriptorEEEN4absl12lts_202308026StatusERNS1_10JsonWriterERKNT_3MsgERKNSA_4DescEb.exit
 
-if.end78.i:                                       ; preds = %if.end40.i
+if.end78.i:                                       ; preds = %if.then.i384, %_ZN6google8protobuf13json_internal23UnparseProto2Descriptor7GetSizeEPKNS0_15FieldDescriptorERKNS0_7MessageE.exit386
   %call81.i = tail call noundef ptr @_ZN6google8protobuf13json_internal16Proto2Descriptor13MustHaveFieldERKNS0_10DescriptorEiNS1_12JsonLocation14SourceLocationE(ptr noundef nonnull align 8 dereferenceable(152) %desc, i32 noundef 4), !noalias !41
   %call82.i = tail call noundef i64 @_ZN6google8protobuf13json_internal23UnparseProto2Descriptor7GetSizeEPKNS0_15FieldDescriptorERKNS0_7MessageE(ptr noundef %call81.i, ptr noundef nonnull align 8 dereferenceable(16) %msg), !noalias !41
   %cmp83.not.i = icmp eq i64 %call82.i, 0
   br i1 %cmp83.not.i, label %if.end113.i, label %invoke.cont107.i
 
 lpad89.i:                                         ; preds = %invoke.cont107.i
-  %110 = landingpad { ptr, i32 }
+  %118 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN4absl12lts_202308028StatusOrIbED2Ev(ptr noundef nonnull align 8 dereferenceable(9) %x85.i) #27
   br label %common.resume
 
 invoke.cont107.i:                                 ; preds = %if.end78.i
   tail call void @llvm.experimental.noalias.scope.decl(metadata !60)
-  %vtable.i.i245 = load ptr, ptr %msg, align 8, !noalias !63
-  %vfn.i.i246 = getelementptr inbounds nuw i8, ptr %vtable.i.i245, i64 80
-  %111 = load ptr, ptr %vfn.i.i246, align 8, !noalias !63
-  %call.i.i247 = tail call { ptr, ptr } %111(ptr noundef nonnull align 8 dereferenceable(16) %msg), !noalias !63
-  %112 = extractvalue { ptr, ptr } %call.i.i247, 1
-  %call1.i248 = tail call noundef zeroext i1 @_ZNK6google8protobuf10Reflection7GetBoolERKNS0_7MessageEPKNS0_15FieldDescriptorE(ptr noundef nonnull align 8 dereferenceable(112) %112, ptr noundef nonnull align 8 dereferenceable(16) %msg, ptr noundef %call81.i), !noalias !41
-  %frombool.i = zext i1 %call1.i248 to i8
-  %113 = getelementptr inbounds nuw i8, ptr %x85.i, i64 8
-  store i8 %frombool.i, ptr %113, align 8, !alias.scope !60, !noalias !41
+  %vtable.i.i235 = load ptr, ptr %msg, align 8, !noalias !63
+  %vfn.i.i236 = getelementptr inbounds nuw i8, ptr %vtable.i.i235, i64 80
+  %119 = load ptr, ptr %vfn.i.i236, align 8, !noalias !63
+  %call.i.i237 = tail call { ptr, ptr } %119(ptr noundef nonnull align 8 dereferenceable(16) %msg), !noalias !63
+  %120 = extractvalue { ptr, ptr } %call.i.i237, 1
+  %call1.i238 = tail call noundef zeroext i1 @_ZNK6google8protobuf10Reflection7GetBoolERKNS0_7MessageEPKNS0_15FieldDescriptorE(ptr noundef nonnull align 8 dereferenceable(112) %120, ptr noundef nonnull align 8 dereferenceable(16) %msg, ptr noundef %call81.i), !noalias !41
+  %frombool.i = zext i1 %call1.i238 to i8
+  %121 = getelementptr inbounds nuw i8, ptr %x85.i, i64 8
+  store i8 %frombool.i, ptr %121, align 8, !alias.scope !60, !noalias !41
   store i64 0, ptr %x85.i, align 8, !alias.scope !60, !noalias !41
   store i64 0, ptr %agg.result, align 8
   tail call void @_ZN4absl12lts_202308026StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.result) #27
-  %cond.i = select i1 %call1.i248, ptr @.str.34, ptr @.str.35
-  %call.i.i234 = select i1 %call1.i248, i64 4, i64 5
-  invoke void @_ZN6google8protobuf2io16zc_sink_internal22ZeroCopyStreamByteSink6AppendEPKcm(ptr noundef nonnull align 8 dereferenceable(88) %writer, ptr noundef nonnull %cond.i, i64 noundef %call.i.i234)
+  %cond.i = select i1 %call1.i238, ptr @.str.34, ptr @.str.35
+  %call.i.i224 = select i1 %call1.i238, i64 4, i64 5
+  invoke void @_ZN6google8protobuf2io16zc_sink_internal22ZeroCopyStreamByteSink6AppendEPKcm(ptr noundef nonnull align 8 dereferenceable(88) %writer, ptr noundef nonnull %cond.i, i64 noundef %call.i.i224)
           to label %invoke.cont109.i unwind label %lpad89.i
 
 invoke.cont109.i:                                 ; preds = %invoke.cont107.i
@@ -1590,21 +1590,21 @@ if.end113.i:                                      ; preds = %if.end78.i
   br i1 %cmp118.not.i, label %if.end145.i, label %cleanup132.i
 
 lpad124.i:                                        ; preds = %cleanup132.i
-  %114 = landingpad { ptr, i32 }
+  %122 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN4absl12lts_202308028StatusOrIPKN6google8protobuf7MessageEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %x120.i) #27
   br label %common.resume
 
 cleanup132.i:                                     ; preds = %if.end113.i
   tail call void @llvm.experimental.noalias.scope.decl(metadata !67)
-  %vtable.i.i228 = load ptr, ptr %msg, align 8, !noalias !70
-  %vfn.i.i229 = getelementptr inbounds nuw i8, ptr %vtable.i.i228, i64 80
-  %115 = load ptr, ptr %vfn.i.i229, align 8, !noalias !70
-  %call.i.i230 = tail call { ptr, ptr } %115(ptr noundef nonnull align 8 dereferenceable(16) %msg), !noalias !70
-  %116 = extractvalue { ptr, ptr } %call.i.i230, 1
-  %call1.i231 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZNK6google8protobuf10Reflection10GetMessageERKNS0_7MessageEPKNS0_15FieldDescriptorEPNS0_14MessageFactoryE(ptr noundef nonnull align 8 dereferenceable(112) %116, ptr noundef nonnull align 8 dereferenceable(16) %msg, ptr noundef %call116.i, ptr noundef null), !noalias !41
-  %117 = getelementptr inbounds nuw i8, ptr %x120.i, i64 8
-  store ptr %call1.i231, ptr %117, align 8, !alias.scope !67, !noalias !41
+  %vtable.i.i218 = load ptr, ptr %msg, align 8, !noalias !70
+  %vfn.i.i219 = getelementptr inbounds nuw i8, ptr %vtable.i.i218, i64 80
+  %123 = load ptr, ptr %vfn.i.i219, align 8, !noalias !70
+  %call.i.i220 = tail call { ptr, ptr } %123(ptr noundef nonnull align 8 dereferenceable(16) %msg), !noalias !70
+  %124 = extractvalue { ptr, ptr } %call.i.i220, 1
+  %call1.i221 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZNK6google8protobuf10Reflection10GetMessageERKNS0_7MessageEPKNS0_15FieldDescriptorEPNS0_14MessageFactoryE(ptr noundef nonnull align 8 dereferenceable(112) %124, ptr noundef nonnull align 8 dereferenceable(16) %msg, ptr noundef %call116.i, ptr noundef null), !noalias !41
+  %125 = getelementptr inbounds nuw i8, ptr %x120.i, i64 8
+  store ptr %call1.i221, ptr %125, align 8, !alias.scope !67, !noalias !41
   store i64 0, ptr %x120.i, align 8, !alias.scope !67, !noalias !41
   store i64 0, ptr %agg.result, align 8
   tail call void @_ZN4absl12lts_202308026StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.result) #27
@@ -1622,21 +1622,21 @@ if.end145.i:                                      ; preds = %if.end113.i
   br i1 %cmp150.not.i, label %if.end177.i, label %cleanup164.i
 
 lpad156.i:                                        ; preds = %cleanup164.i
-  %118 = landingpad { ptr, i32 }
+  %126 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN4absl12lts_202308028StatusOrIPKN6google8protobuf7MessageEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %x152.i) #27
   br label %common.resume
 
 cleanup164.i:                                     ; preds = %if.end145.i
   tail call void @llvm.experimental.noalias.scope.decl(metadata !71)
-  %vtable.i.i218 = load ptr, ptr %msg, align 8, !noalias !74
-  %vfn.i.i219 = getelementptr inbounds nuw i8, ptr %vtable.i.i218, i64 80
-  %119 = load ptr, ptr %vfn.i.i219, align 8, !noalias !74
-  %call.i.i220 = tail call { ptr, ptr } %119(ptr noundef nonnull align 8 dereferenceable(16) %msg), !noalias !74
-  %120 = extractvalue { ptr, ptr } %call.i.i220, 1
-  %call1.i221 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZNK6google8protobuf10Reflection10GetMessageERKNS0_7MessageEPKNS0_15FieldDescriptorEPNS0_14MessageFactoryE(ptr noundef nonnull align 8 dereferenceable(112) %120, ptr noundef nonnull align 8 dereferenceable(16) %msg, ptr noundef %call148.i, ptr noundef null), !noalias !41
-  %121 = getelementptr inbounds nuw i8, ptr %x152.i, i64 8
-  store ptr %call1.i221, ptr %121, align 8, !alias.scope !71, !noalias !41
+  %vtable.i.i208 = load ptr, ptr %msg, align 8, !noalias !74
+  %vfn.i.i209 = getelementptr inbounds nuw i8, ptr %vtable.i.i208, i64 80
+  %127 = load ptr, ptr %vfn.i.i209, align 8, !noalias !74
+  %call.i.i210 = tail call { ptr, ptr } %127(ptr noundef nonnull align 8 dereferenceable(16) %msg), !noalias !74
+  %128 = extractvalue { ptr, ptr } %call.i.i210, 1
+  %call1.i211 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZNK6google8protobuf10Reflection10GetMessageERKNS0_7MessageEPKNS0_15FieldDescriptorEPNS0_14MessageFactoryE(ptr noundef nonnull align 8 dereferenceable(112) %128, ptr noundef nonnull align 8 dereferenceable(16) %msg, ptr noundef %call148.i, ptr noundef null), !noalias !41
+  %129 = getelementptr inbounds nuw i8, ptr %x152.i, i64 8
+  store ptr %call1.i211, ptr %129, align 8, !alias.scope !71, !noalias !41
   store i64 0, ptr %x152.i, align 8, !alias.scope !71, !noalias !41
   store i64 0, ptr %agg.result, align 8
   tail call void @_ZN4absl12lts_202308026StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.result) #27
@@ -1660,7 +1660,7 @@ cleanup.action.i:                                 ; preds = %cond.false.i
   unreachable
 
 lpad183.i:                                        ; preds = %cond.false.i
-  %122 = landingpad { ptr, i32 }
+  %130 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN4absl12lts_2023080212log_internal15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp180.i) #28, !noalias !41
   unreachable
@@ -1698,50 +1698,44 @@ sw.bb9:                                           ; preds = %entry
   %call.i57 = tail call noundef ptr @_ZN6google8protobuf13json_internal16Proto2Descriptor13MustHaveFieldERKNS0_10DescriptorEiNS1_12JsonLocation14SourceLocationE(ptr noundef nonnull align 8 dereferenceable(152) %desc, i32 noundef 1), !noalias !84
   %label_.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i57, i64 1
   %bf.load.i.i.i.i = load i8, ptr %label_.i.i.i.i, align 1, !noalias !84
-  %123 = and i8 %bf.load.i.i.i.i, 96
-  %cmp.i.i.i = icmp eq i8 %123, 96
+  %131 = and i8 %bf.load.i.i.i.i, 96
+  %cmp.i.i.i = icmp eq i8 %131, 96
   %vtable.i.i.i = load ptr, ptr %msg, align 8, !noalias !84
   %vfn.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i, i64 80
-  %124 = load ptr, ptr %vfn.i.i.i, align 8, !noalias !84
-  %call.i.i.i = tail call { ptr, ptr } %124(ptr noundef nonnull align 8 dereferenceable(16) %msg), !noalias !84
-  %125 = extractvalue { ptr, ptr } %call.i.i.i, 1
-  br i1 %cmp.i.i.i, label %if.then.i.i, label %if.else.i.i
+  %132 = load ptr, ptr %vfn.i.i.i, align 8, !noalias !84
+  %call.i.i.i = tail call { ptr, ptr } %132(ptr noundef nonnull align 8 dereferenceable(16) %msg), !noalias !84
+  %133 = extractvalue { ptr, ptr } %call.i.i.i, 1
+  br i1 %cmp.i.i.i, label %if.then.i.i, label %_ZN6google8protobuf13json_internal23UnparseProto2Descriptor7GetSizeEPKNS0_15FieldDescriptorERKNS0_7MessageE.exit.i
 
 if.then.i.i:                                      ; preds = %sw.bb9
-  %call2.i.i = tail call noundef i32 @_ZNK6google8protobuf10Reflection9FieldSizeERKNS0_7MessageEPKNS0_15FieldDescriptorE(ptr noundef nonnull align 8 dereferenceable(112) %125, ptr noundef nonnull align 8 dereferenceable(16) %msg, ptr noundef nonnull %call.i57)
-  %conv.i.i = sext i32 %call2.i.i to i64
-  br label %_ZN6google8protobuf13json_internal23UnparseProto2Descriptor7GetSizeEPKNS0_15FieldDescriptorERKNS0_7MessageE.exit.i
+  %call2.i.i = tail call noundef i32 @_ZNK6google8protobuf10Reflection9FieldSizeERKNS0_7MessageEPKNS0_15FieldDescriptorE(ptr noundef nonnull align 8 dereferenceable(112) %133, ptr noundef nonnull align 8 dereferenceable(16) %msg, ptr noundef nonnull %call.i57)
+  %134 = icmp eq i32 %call2.i.i, 0
+  br i1 %134, label %invoke.cont12.thread.i, label %invoke.cont6.i
 
-if.else.i.i:                                      ; preds = %sw.bb9
-  %call4.i.i = tail call noundef zeroext i1 @_ZNK6google8protobuf10Reflection8HasFieldERKNS0_7MessageEPKNS0_15FieldDescriptorE(ptr noundef nonnull align 8 dereferenceable(112) %125, ptr noundef nonnull align 8 dereferenceable(16) %msg, ptr noundef nonnull %call.i57)
-  %conv5.i.i = zext i1 %call4.i.i to i64
-  br label %_ZN6google8protobuf13json_internal23UnparseProto2Descriptor7GetSizeEPKNS0_15FieldDescriptorERKNS0_7MessageE.exit.i
+_ZN6google8protobuf13json_internal23UnparseProto2Descriptor7GetSizeEPKNS0_15FieldDescriptorERKNS0_7MessageE.exit.i: ; preds = %sw.bb9
+  %call4.i.i = tail call noundef zeroext i1 @_ZNK6google8protobuf10Reflection8HasFieldERKNS0_7MessageEPKNS0_15FieldDescriptorE(ptr noundef nonnull align 8 dereferenceable(112) %133, ptr noundef nonnull align 8 dereferenceable(16) %msg, ptr noundef nonnull %call.i57)
+  br i1 %call4.i.i, label %invoke.cont6.i, label %invoke.cont12.thread.i
 
-_ZN6google8protobuf13json_internal23UnparseProto2Descriptor7GetSizeEPKNS0_15FieldDescriptorERKNS0_7MessageE.exit.i: ; preds = %if.else.i.i, %if.then.i.i
-  %retval.0.i.i = phi i64 [ %conv.i.i, %if.then.i.i ], [ %conv5.i.i, %if.else.i.i ]
-  %cmp.not.i58 = icmp eq i64 %retval.0.i.i, 0
-  br i1 %cmp.not.i58, label %invoke.cont12.thread.i, label %invoke.cont6.i
+lpad.i59:                                         ; preds = %call.i.i58.noexc.i, %cond.true29.i, %if.else.i45.i, %if.then.i49.i, %invoke.cont24.i, %invoke.cont20.i, %if.then15.invoke.i
+  %135 = landingpad { ptr, i32 }
+          cleanup
+  br label %ehcleanup127.i
 
-invoke.cont12.thread.i:                           ; preds = %_ZN6google8protobuf13json_internal23UnparseProto2Descriptor7GetSizeEPKNS0_15FieldDescriptorERKNS0_7MessageE.exit.i
-  %126 = getelementptr inbounds nuw i8, ptr %secs.i, i64 8
+invoke.cont12.thread.i:                           ; preds = %_ZN6google8protobuf13json_internal23UnparseProto2Descriptor7GetSizeEPKNS0_15FieldDescriptorERKNS0_7MessageE.exit.i, %if.then.i.i
+  %136 = getelementptr inbounds nuw i8, ptr %secs.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %secs.i, i8 0, i64 16, i1 false), !noalias !84
   store i64 0, ptr %agg.result, align 8, !alias.scope !84
   br label %invoke.cont20.i
 
-lpad.i60:                                         ; preds = %call.i.i58.noexc.i, %cond.true29.i, %if.else.i45.i, %if.then.i49.i, %invoke.cont24.i, %invoke.cont20.i, %if.then15.invoke.i
-  %127 = landingpad { ptr, i32 }
-          cleanup
-  br label %ehcleanup127.i
-
-invoke.cont6.i:                                   ; preds = %_ZN6google8protobuf13json_internal23UnparseProto2Descriptor7GetSizeEPKNS0_15FieldDescriptorERKNS0_7MessageE.exit.i
+invoke.cont6.i:                                   ; preds = %_ZN6google8protobuf13json_internal23UnparseProto2Descriptor7GetSizeEPKNS0_15FieldDescriptorERKNS0_7MessageE.exit.i, %if.then.i.i
   %vtable.i.i21.i = load ptr, ptr %msg, align 8, !noalias !87
   %vfn.i.i22.i = getelementptr inbounds nuw i8, ptr %vtable.i.i21.i, i64 80
-  %128 = load ptr, ptr %vfn.i.i22.i, align 8, !noalias !87
-  %call.i.i23.i = tail call { ptr, ptr } %128(ptr noundef nonnull align 8 dereferenceable(16) %msg), !noalias !87
-  %129 = extractvalue { ptr, ptr } %call.i.i23.i, 1
-  %call1.i.i = tail call noundef i64 @_ZNK6google8protobuf10Reflection8GetInt64ERKNS0_7MessageEPKNS0_15FieldDescriptorE(ptr noundef nonnull align 8 dereferenceable(112) %129, ptr noundef nonnull align 8 dereferenceable(16) %msg, ptr noundef nonnull %call.i57)
-  %130 = getelementptr inbounds nuw i8, ptr %secs.i, i64 8
-  store i64 %call1.i.i, ptr %130, align 8, !noalias !84
+  %137 = load ptr, ptr %vfn.i.i22.i, align 8, !noalias !87
+  %call.i.i23.i = tail call { ptr, ptr } %137(ptr noundef nonnull align 8 dereferenceable(16) %msg), !noalias !87
+  %138 = extractvalue { ptr, ptr } %call.i.i23.i, 1
+  %call1.i.i = tail call noundef i64 @_ZNK6google8protobuf10Reflection8GetInt64ERKNS0_7MessageEPKNS0_15FieldDescriptorE(ptr noundef nonnull align 8 dereferenceable(112) %138, ptr noundef nonnull align 8 dereferenceable(16) %msg, ptr noundef nonnull %call.i57)
+  %139 = getelementptr inbounds nuw i8, ptr %secs.i, i64 8
+  store i64 %call1.i.i, ptr %139, align 8, !noalias !84
   store i64 0, ptr %secs.i, align 8, !noalias !84
   store i64 0, ptr %agg.result, align 8, !alias.scope !84
   %cmp8.i = icmp slt i64 %call1.i.i, -62135596800
@@ -1752,80 +1746,74 @@ invoke.cont12.i:                                  ; preds = %invoke.cont6.i
   br i1 %cmp14.i, label %if.then15.invoke.i, label %invoke.cont20.i
 
 if.then15.invoke.i:                               ; preds = %invoke.cont12.i, %invoke.cont6.i
-  %131 = phi ptr [ @.str.52, %invoke.cont6.i ], [ @.str.53, %invoke.cont12.i ]
-  invoke void @_ZN4absl12lts_2023080220InvalidArgumentErrorESt17basic_string_viewIcSt11char_traitsIcEE(ptr nonnull sret(%"class.absl::lts_20230802::Status") align 8 %agg.result, i64 53, ptr nonnull %131)
-          to label %cleanup126.i unwind label %lpad.i60
+  %140 = phi ptr [ @.str.52, %invoke.cont6.i ], [ @.str.53, %invoke.cont12.i ]
+  invoke void @_ZN4absl12lts_2023080220InvalidArgumentErrorESt17basic_string_viewIcSt11char_traitsIcEE(ptr nonnull sret(%"class.absl::lts_20230802::Status") align 8 %agg.result, i64 53, ptr nonnull %140)
+          to label %cleanup126.i unwind label %lpad.i59
 
 invoke.cont20.i:                                  ; preds = %invoke.cont12.i, %invoke.cont12.thread.i
-  %132 = phi i64 [ 0, %invoke.cont12.thread.i ], [ %call1.i.i, %invoke.cont12.i ]
-  %133 = phi ptr [ %126, %invoke.cont12.thread.i ], [ %130, %invoke.cont12.i ]
-  %add.i = add nsw i64 %132, 62135596800
-  store i64 %add.i, ptr %133, align 8, !noalias !84
-  %call25.i59 = invoke noundef ptr @_ZN6google8protobuf13json_internal16Proto2Descriptor13MustHaveFieldERKNS0_10DescriptorEiNS1_12JsonLocation14SourceLocationE(ptr noundef nonnull align 8 dereferenceable(152) %desc, i32 noundef 2)
-          to label %invoke.cont24.i unwind label %lpad.i60, !noalias !84
+  %141 = phi i64 [ 0, %invoke.cont12.thread.i ], [ %call1.i.i, %invoke.cont12.i ]
+  %142 = phi ptr [ %136, %invoke.cont12.thread.i ], [ %139, %invoke.cont12.i ]
+  %add.i = add nsw i64 %141, 62135596800
+  store i64 %add.i, ptr %142, align 8, !noalias !84
+  %call25.i58 = invoke noundef ptr @_ZN6google8protobuf13json_internal16Proto2Descriptor13MustHaveFieldERKNS0_10DescriptorEiNS1_12JsonLocation14SourceLocationE(ptr noundef nonnull align 8 dereferenceable(152) %desc, i32 noundef 2)
+          to label %invoke.cont24.i unwind label %lpad.i59, !noalias !84
 
 invoke.cont24.i:                                  ; preds = %invoke.cont20.i
-  %label_.i.i.i39.i = getelementptr inbounds nuw i8, ptr %call25.i59, i64 1
+  %label_.i.i.i39.i = getelementptr inbounds nuw i8, ptr %call25.i58, i64 1
   %bf.load.i.i.i40.i = load i8, ptr %label_.i.i.i39.i, align 1, !noalias !84
   %vtable.i.i42.i = load ptr, ptr %msg, align 8, !noalias !84
   %vfn.i.i43.i = getelementptr inbounds nuw i8, ptr %vtable.i.i42.i, i64 80
-  %134 = load ptr, ptr %vfn.i.i43.i, align 8, !noalias !84
-  %call.i.i4452.i = invoke { ptr, ptr } %134(ptr noundef nonnull align 8 dereferenceable(16) %msg)
-          to label %call.i.i44.noexc.i unwind label %lpad.i60, !noalias !84
+  %143 = load ptr, ptr %vfn.i.i43.i, align 8, !noalias !84
+  %call.i.i4452.i = invoke { ptr, ptr } %143(ptr noundef nonnull align 8 dereferenceable(16) %msg)
+          to label %call.i.i44.noexc.i unwind label %lpad.i59, !noalias !84
 
 call.i.i44.noexc.i:                               ; preds = %invoke.cont24.i
-  %135 = and i8 %bf.load.i.i.i40.i, 96
-  %cmp.i.i41.i = icmp eq i8 %135, 96
-  %136 = extractvalue { ptr, ptr } %call.i.i4452.i, 1
+  %144 = and i8 %bf.load.i.i.i40.i, 96
+  %cmp.i.i41.i = icmp eq i8 %144, 96
+  %145 = extractvalue { ptr, ptr } %call.i.i4452.i, 1
   br i1 %cmp.i.i41.i, label %if.then.i49.i, label %if.else.i45.i
 
 if.then.i49.i:                                    ; preds = %call.i.i44.noexc.i
-  %call2.i5053.i = invoke noundef i32 @_ZNK6google8protobuf10Reflection9FieldSizeERKNS0_7MessageEPKNS0_15FieldDescriptorE(ptr noundef nonnull align 8 dereferenceable(112) %136, ptr noundef nonnull align 8 dereferenceable(16) %msg, ptr noundef nonnull %call25.i59)
-          to label %call2.i50.noexc.i unwind label %lpad.i60
+  %call2.i5053.i = invoke noundef i32 @_ZNK6google8protobuf10Reflection9FieldSizeERKNS0_7MessageEPKNS0_15FieldDescriptorE(ptr noundef nonnull align 8 dereferenceable(112) %145, ptr noundef nonnull align 8 dereferenceable(16) %msg, ptr noundef nonnull %call25.i58)
+          to label %call2.i50.noexc.i unwind label %lpad.i59
 
 call2.i50.noexc.i:                                ; preds = %if.then.i49.i
-  %conv.i51.i = sext i32 %call2.i5053.i to i64
-  br label %invoke.cont26.i
+  %146 = icmp eq i32 %call2.i5053.i, 0
+  br i1 %146, label %do.body35.i, label %cond.true29.i
 
 if.else.i45.i:                                    ; preds = %call.i.i44.noexc.i
-  %call4.i4654.i = invoke noundef zeroext i1 @_ZNK6google8protobuf10Reflection8HasFieldERKNS0_7MessageEPKNS0_15FieldDescriptorE(ptr noundef nonnull align 8 dereferenceable(112) %136, ptr noundef nonnull align 8 dereferenceable(16) %msg, ptr noundef nonnull %call25.i59)
-          to label %call4.i46.noexc.i unwind label %lpad.i60
+  %call4.i4654.i = invoke noundef zeroext i1 @_ZNK6google8protobuf10Reflection8HasFieldERKNS0_7MessageEPKNS0_15FieldDescriptorE(ptr noundef nonnull align 8 dereferenceable(112) %145, ptr noundef nonnull align 8 dereferenceable(16) %msg, ptr noundef nonnull %call25.i58)
+          to label %invoke.cont26.i unwind label %lpad.i59
 
-call4.i46.noexc.i:                                ; preds = %if.else.i45.i
-  %conv5.i47.i = zext i1 %call4.i4654.i to i64
-  br label %invoke.cont26.i
+invoke.cont26.i:                                  ; preds = %if.else.i45.i
+  br i1 %call4.i4654.i, label %cond.true29.i, label %do.body35.i
 
-invoke.cont26.i:                                  ; preds = %call4.i46.noexc.i, %call2.i50.noexc.i
-  %retval.0.i48.i = phi i64 [ %conv.i51.i, %call2.i50.noexc.i ], [ %conv5.i47.i, %call4.i46.noexc.i ]
-  %cmp28.not.i = icmp eq i64 %retval.0.i48.i, 0
-  br i1 %cmp28.not.i, label %do.body35.i, label %cond.true29.i
-
-cond.true29.i:                                    ; preds = %invoke.cont26.i
+cond.true29.i:                                    ; preds = %invoke.cont26.i, %call2.i50.noexc.i
   %vtable.i.i56.i = load ptr, ptr %msg, align 8, !noalias !90
   %vfn.i.i57.i = getelementptr inbounds nuw i8, ptr %vtable.i.i56.i, i64 80
-  %137 = load ptr, ptr %vfn.i.i57.i, align 8, !noalias !90
-  %call.i.i5860.i = invoke { ptr, ptr } %137(ptr noundef nonnull align 8 dereferenceable(16) %msg)
-          to label %call.i.i58.noexc.i unwind label %lpad.i60, !noalias !84
+  %147 = load ptr, ptr %vfn.i.i57.i, align 8, !noalias !90
+  %call.i.i5860.i = invoke { ptr, ptr } %147(ptr noundef nonnull align 8 dereferenceable(16) %msg)
+          to label %call.i.i58.noexc.i unwind label %lpad.i59, !noalias !84
 
 call.i.i58.noexc.i:                               ; preds = %cond.true29.i
-  %138 = extractvalue { ptr, ptr } %call.i.i5860.i, 1
-  %call1.i5961.i = invoke noundef i32 @_ZNK6google8protobuf10Reflection8GetInt32ERKNS0_7MessageEPKNS0_15FieldDescriptorE(ptr noundef nonnull align 8 dereferenceable(112) %138, ptr noundef nonnull align 8 dereferenceable(16) %msg, ptr noundef nonnull %call25.i59)
-          to label %do.body35.i unwind label %lpad.i60
+  %148 = extractvalue { ptr, ptr } %call.i.i5860.i, 1
+  %call1.i5961.i = invoke noundef i32 @_ZNK6google8protobuf10Reflection8GetInt32ERKNS0_7MessageEPKNS0_15FieldDescriptorE(ptr noundef nonnull align 8 dereferenceable(112) %148, ptr noundef nonnull align 8 dereferenceable(16) %msg, ptr noundef nonnull %call25.i58)
+          to label %do.body35.i unwind label %lpad.i59
 
-do.body35.i:                                      ; preds = %call.i.i58.noexc.i, %invoke.cont26.i
-  %.sink.i = phi i32 [ %call1.i5961.i, %call.i.i58.noexc.i ], [ 0, %invoke.cont26.i ]
-  %139 = getelementptr inbounds nuw i8, ptr %nanos.i, i64 8
-  store i32 %.sink.i, ptr %139, align 8, !noalias !84
+do.body35.i:                                      ; preds = %call.i.i58.noexc.i, %invoke.cont26.i, %call2.i50.noexc.i
+  %.sink.i = phi i32 [ %call1.i5961.i, %call.i.i58.noexc.i ], [ 0, %call2.i50.noexc.i ], [ 0, %invoke.cont26.i ]
+  %149 = getelementptr inbounds nuw i8, ptr %nanos.i, i64 8
+  store i32 %.sink.i, ptr %149, align 8, !noalias !84
   store i64 0, ptr %nanos.i, align 8, !noalias !84
   store i64 0, ptr %agg.result, align 8, !alias.scope !84
-  %140 = load i64, ptr %secs.i, align 8, !noalias !84
-  %cmp.i.i.i.i73.i = icmp eq i64 %140, 0
+  %150 = load i64, ptr %secs.i, align 8, !noalias !84
+  %cmp.i.i.i.i73.i = icmp eq i64 %150, 0
   br i1 %cmp.i.i.i.i73.i, label %invoke.cont96.i, label %if.then.i.i74.i
 
 lpad38.i:                                         ; preds = %invoke.cont119.i, %invoke.cont103.i, %if.then.i.i74.i
-  %141 = landingpad { ptr, i32 }
+  %151 = landingpad { ptr, i32 }
           cleanup
-  br label %ehcleanup.i61
+  br label %ehcleanup.i60
 
 if.then.i.i74.i:                                  ; preds = %do.body35.i
   invoke void @_ZN4absl12lts_2023080217internal_statusor6Helper5CrashERKNS0_6StatusE(ptr noundef nonnull align 8 dereferenceable(16) %secs.i) #29
@@ -1835,18 +1823,18 @@ if.then.i.i74.i:                                  ; preds = %do.body35.i
   unreachable
 
 invoke.cont96.i:                                  ; preds = %do.body35.i
-  %142 = load i64, ptr %133, align 8, !noalias !84
-  %div.i = sdiv i64 %142, 86400
-  %conv.i63 = trunc i64 %div.i to i32
-  %add57.i = add nsw i32 %conv.i63, 1789995
+  %152 = load i64, ptr %142, align 8, !noalias !84
+  %div.i = sdiv i64 %152, 86400
+  %conv.i62 = trunc i64 %div.i to i32
+  %add57.i = add nsw i32 %conv.i62, 1789995
   %mul.i = shl nsw i32 %add57.i, 2
   %div58.i = sdiv i32 %mul.i, 146097
   %mul59.i = mul nsw i32 %div58.i, 146097
   %add60.i = add nsw i32 %mul59.i, 3
   %div61.neg.i = sdiv i32 %add60.i, -4
   %sub62.i = add i32 %div61.neg.i, %add57.i
-  %143 = mul i32 %sub62.i, 4000
-  %mul64.i = add i32 %143, 4000
+  %153 = mul i32 %sub62.i, 4000
+  %mul64.i = add i32 %153, 4000
   %div65.i = sdiv i32 %mul64.i, 1461001
   %mul66.i = mul nsw i32 %div65.i, 1461
   %div67.neg.i = sdiv i32 %mul66.i, -4
@@ -1861,14 +1849,14 @@ invoke.cont96.i:                                  ; preds = %do.body35.i
   %add76.i = add nsw i32 %div71.i, 2
   %mul77.neg.i = mul nsw i32 %div75.i, -12
   %sub78.i = add nsw i32 %add76.i, %mul77.neg.i
-  %144 = mul nsw i32 %div58.i, 100
-  %mul80.i = add nsw i32 %144, -4900
+  %154 = mul nsw i32 %div58.i, 100
+  %mul80.i = add nsw i32 %154, -4900
   %add81.i = add nsw i32 %mul80.i, %div65.i
   %add82.i = add nsw i32 %add81.i, %div75.i
-  %rem.i = srem i64 %142, 60
-  %div88.i = sdiv i64 %142, 60
+  %rem.i = srem i64 %152, 60
+  %div88.i = sdiv i64 %152, 60
   %rem89.i = srem i64 %div88.i, 60
-  %div93.i = sdiv i64 %142, 3600
+  %div93.i = sdiv i64 %152, 3600
   %rem94.i = srem i64 %div93.i, 24
   %cmp98.i = icmp eq i32 %.sink.i, 0
   br i1 %cmp98.i, label %invoke.cont103.i, label %invoke.cont110.i
@@ -1876,38 +1864,38 @@ invoke.cont96.i:                                  ; preds = %do.body35.i
 invoke.cont103.i:                                 ; preds = %invoke.cont96.i
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %ref.tmp.i.i), !noalias !84
   %retval.sroa.0.0.insert.ext.i.i.i.i.i = zext i32 %add82.i to i64
-  %145 = inttoptr i64 %retval.sroa.0.0.insert.ext.i.i.i.i.i to ptr
-  store ptr %145, ptr %ref.tmp.i.i, align 8, !noalias !93
+  %155 = inttoptr i64 %retval.sroa.0.0.insert.ext.i.i.i.i.i to ptr
+  store ptr %155, ptr %ref.tmp.i.i, align 8, !noalias !93
   %dispatcher_.i.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i.i, i64 8
   store ptr @_ZN4absl12lts_2023080219str_format_internal13FormatArgImpl8DispatchIiEEbNS2_4DataENS1_24FormatConversionSpecImplEPv, ptr %dispatcher_.i.i.i.i, align 8, !noalias !93
   %arrayinit.element.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i.i, i64 16
   %retval.sroa.0.0.insert.ext.i.i.i2.i.i = zext i32 %sub78.i to i64
-  %146 = inttoptr i64 %retval.sroa.0.0.insert.ext.i.i.i2.i.i to ptr
-  store ptr %146, ptr %arrayinit.element.i.i, align 8, !noalias !93
+  %156 = inttoptr i64 %retval.sroa.0.0.insert.ext.i.i.i2.i.i to ptr
+  store ptr %156, ptr %arrayinit.element.i.i, align 8, !noalias !93
   %dispatcher_.i.i3.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i.i, i64 24
   store ptr @_ZN4absl12lts_2023080219str_format_internal13FormatArgImpl8DispatchIiEEbNS2_4DataENS1_24FormatConversionSpecImplEPv, ptr %dispatcher_.i.i3.i.i, align 8, !noalias !93
   %arrayinit.element13.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i.i, i64 32
   %retval.sroa.0.0.insert.ext.i.i.i5.i.i = zext i32 %sub74.i to i64
-  %147 = inttoptr i64 %retval.sroa.0.0.insert.ext.i.i.i5.i.i to ptr
-  store ptr %147, ptr %arrayinit.element13.i.i, align 8, !noalias !93
+  %157 = inttoptr i64 %retval.sroa.0.0.insert.ext.i.i.i5.i.i to ptr
+  store ptr %157, ptr %arrayinit.element13.i.i, align 8, !noalias !93
   %dispatcher_.i.i6.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i.i, i64 40
   store ptr @_ZN4absl12lts_2023080219str_format_internal13FormatArgImpl8DispatchIiEEbNS2_4DataENS1_24FormatConversionSpecImplEPv, ptr %dispatcher_.i.i6.i.i, align 8, !noalias !93
   %arrayinit.element14.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i.i, i64 48
   %retval.sroa.0.0.insert.ext.i.i.i8.i.i = and i64 %rem94.i, 4294967295
-  %148 = inttoptr i64 %retval.sroa.0.0.insert.ext.i.i.i8.i.i to ptr
-  store ptr %148, ptr %arrayinit.element14.i.i, align 8, !noalias !93
+  %158 = inttoptr i64 %retval.sroa.0.0.insert.ext.i.i.i8.i.i to ptr
+  store ptr %158, ptr %arrayinit.element14.i.i, align 8, !noalias !93
   %dispatcher_.i.i9.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i.i, i64 56
   store ptr @_ZN4absl12lts_2023080219str_format_internal13FormatArgImpl8DispatchIiEEbNS2_4DataENS1_24FormatConversionSpecImplEPv, ptr %dispatcher_.i.i9.i.i, align 8, !noalias !93
   %arrayinit.element15.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i.i, i64 64
   %retval.sroa.0.0.insert.ext.i.i.i11.i.i = and i64 %rem89.i, 4294967295
-  %149 = inttoptr i64 %retval.sroa.0.0.insert.ext.i.i.i11.i.i to ptr
-  store ptr %149, ptr %arrayinit.element15.i.i, align 8, !noalias !93
+  %159 = inttoptr i64 %retval.sroa.0.0.insert.ext.i.i.i11.i.i to ptr
+  store ptr %159, ptr %arrayinit.element15.i.i, align 8, !noalias !93
   %dispatcher_.i.i12.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i.i, i64 72
   store ptr @_ZN4absl12lts_2023080219str_format_internal13FormatArgImpl8DispatchIiEEbNS2_4DataENS1_24FormatConversionSpecImplEPv, ptr %dispatcher_.i.i12.i.i, align 8, !noalias !93
   %arrayinit.element16.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i.i, i64 80
   %retval.sroa.0.0.insert.ext.i.i.i14.i.i = and i64 %rem.i, 4294967295
-  %150 = inttoptr i64 %retval.sroa.0.0.insert.ext.i.i.i14.i.i to ptr
-  store ptr %150, ptr %arrayinit.element16.i.i, align 8, !noalias !93
+  %160 = inttoptr i64 %retval.sroa.0.0.insert.ext.i.i.i14.i.i to ptr
+  store ptr %160, ptr %arrayinit.element16.i.i, align 8, !noalias !93
   %dispatcher_.i.i15.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i.i, i64 88
   store ptr @_ZN4absl12lts_2023080219str_format_internal13FormatArgImpl8DispatchIiEEbNS2_4DataENS1_24FormatConversionSpecImplEPv, ptr %dispatcher_.i.i15.i.i, align 8, !noalias !93
   invoke void @_ZN4absl12lts_2023080219str_format_internal10FormatPackB5cxx11ENS1_21UntypedFormatSpecImplENS0_4SpanIKNS1_13FormatArgImplEEE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp101.i, ptr nonnull @.str.54, i64 32, ptr nonnull %ref.tmp.i.i, i64 6)
@@ -1916,25 +1904,25 @@ invoke.cont103.i:                                 ; preds = %invoke.cont96.i
 invoke.cont104.i:                                 ; preds = %invoke.cont103.i
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %ref.tmp.i.i), !noalias !84
   %call105.i = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp101.i) #27, !noalias !84
-  %151 = extractvalue { i64, ptr } %call105.i, 0
-  %152 = extractvalue { i64, ptr } %call105.i, 1
-  invoke void @_ZN6google8protobuf2io16zc_sink_internal22ZeroCopyStreamByteSink6AppendEPKcm(ptr noundef nonnull align 8 dereferenceable(88) %writer, ptr noundef %152, i64 noundef %151)
+  %161 = extractvalue { i64, ptr } %call105.i, 0
+  %162 = extractvalue { i64, ptr } %call105.i, 1
+  invoke void @_ZN6google8protobuf2io16zc_sink_internal22ZeroCopyStreamByteSink6AppendEPKcm(ptr noundef nonnull align 8 dereferenceable(88) %writer, ptr noundef %162, i64 noundef %161)
           to label %cleanup125.i unwind label %lpad106.i
 
 lpad106.i:                                        ; preds = %invoke.cont104.i
-  %153 = landingpad { ptr, i32 }
+  %163 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp101.i) #27, !noalias !84
-  br label %ehcleanup.i61
+  br label %ehcleanup.i60
 
 invoke.cont110.i:                                 ; preds = %invoke.cont96.i
-  %154 = tail call i32 @llvm.abs.i32(i32 %.sink.i, i1 true)
-  %rem112139.i = urem i32 %154, 1000
+  %164 = tail call i32 @llvm.abs.i32(i32 %.sink.i, i1 true)
+  %rem112139.i = urem i32 %164, 1000
   %cmp113140.i = icmp eq i32 %rem112139.i, 0
   br i1 %cmp113140.i, label %while.body.i, label %invoke.cont119.i
 
 while.body.i:                                     ; preds = %invoke.cont110.i, %while.body.i
-  %frac_seconds.0142.i = phi i32 [ %div114.i, %while.body.i ], [ %154, %invoke.cont110.i ]
+  %frac_seconds.0142.i = phi i32 [ %div114.i, %while.body.i ], [ %164, %invoke.cont110.i ]
   %digits.0141.i = phi i64 [ %sub115.i, %while.body.i ], [ 9, %invoke.cont110.i ]
   %div114.i = udiv i32 %frac_seconds.0142.i, 1000
   %sub115.i = add i64 %digits.0141.i, -3
@@ -1944,52 +1932,52 @@ while.body.i:                                     ; preds = %invoke.cont110.i, %
 
 invoke.cont119.i:                                 ; preds = %while.body.i, %invoke.cont110.i
   %digits.0.lcssa.i = phi i64 [ 9, %invoke.cont110.i ], [ %sub115.i, %while.body.i ]
-  %frac_seconds.0.lcssa.i = phi i32 [ %154, %invoke.cont110.i ], [ %div114.i, %while.body.i ]
+  %frac_seconds.0.lcssa.i = phi i32 [ %164, %invoke.cont110.i ], [ %div114.i, %while.body.i ]
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %ref.tmp.i100.i), !noalias !84
   %retval.sroa.0.0.insert.ext.i.i.i.i105.i = zext i32 %add82.i to i64
-  %155 = inttoptr i64 %retval.sroa.0.0.insert.ext.i.i.i.i105.i to ptr
-  store ptr %155, ptr %ref.tmp.i100.i, align 8, !noalias !97
+  %165 = inttoptr i64 %retval.sroa.0.0.insert.ext.i.i.i.i105.i to ptr
+  store ptr %165, ptr %ref.tmp.i100.i, align 8, !noalias !97
   %dispatcher_.i.i.i106.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i100.i, i64 8
   store ptr @_ZN4absl12lts_2023080219str_format_internal13FormatArgImpl8DispatchIiEEbNS2_4DataENS1_24FormatConversionSpecImplEPv, ptr %dispatcher_.i.i.i106.i, align 8, !noalias !97
   %arrayinit.element.i107.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i100.i, i64 16
   %retval.sroa.0.0.insert.ext.i.i.i2.i109.i = zext i32 %sub78.i to i64
-  %156 = inttoptr i64 %retval.sroa.0.0.insert.ext.i.i.i2.i109.i to ptr
-  store ptr %156, ptr %arrayinit.element.i107.i, align 8, !noalias !97
+  %166 = inttoptr i64 %retval.sroa.0.0.insert.ext.i.i.i2.i109.i to ptr
+  store ptr %166, ptr %arrayinit.element.i107.i, align 8, !noalias !97
   %dispatcher_.i.i3.i110.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i100.i, i64 24
   store ptr @_ZN4absl12lts_2023080219str_format_internal13FormatArgImpl8DispatchIiEEbNS2_4DataENS1_24FormatConversionSpecImplEPv, ptr %dispatcher_.i.i3.i110.i, align 8, !noalias !97
   %arrayinit.element17.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i100.i, i64 32
   %retval.sroa.0.0.insert.ext.i.i.i5.i112.i = zext i32 %sub74.i to i64
-  %157 = inttoptr i64 %retval.sroa.0.0.insert.ext.i.i.i5.i112.i to ptr
-  store ptr %157, ptr %arrayinit.element17.i.i, align 8, !noalias !97
+  %167 = inttoptr i64 %retval.sroa.0.0.insert.ext.i.i.i5.i112.i to ptr
+  store ptr %167, ptr %arrayinit.element17.i.i, align 8, !noalias !97
   %dispatcher_.i.i6.i113.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i100.i, i64 40
   store ptr @_ZN4absl12lts_2023080219str_format_internal13FormatArgImpl8DispatchIiEEbNS2_4DataENS1_24FormatConversionSpecImplEPv, ptr %dispatcher_.i.i6.i113.i, align 8, !noalias !97
   %arrayinit.element18.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i100.i, i64 48
   %retval.sroa.0.0.insert.ext.i.i.i8.i115.i = and i64 %rem94.i, 4294967295
-  %158 = inttoptr i64 %retval.sroa.0.0.insert.ext.i.i.i8.i115.i to ptr
-  store ptr %158, ptr %arrayinit.element18.i.i, align 8, !noalias !97
+  %168 = inttoptr i64 %retval.sroa.0.0.insert.ext.i.i.i8.i115.i to ptr
+  store ptr %168, ptr %arrayinit.element18.i.i, align 8, !noalias !97
   %dispatcher_.i.i9.i116.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i100.i, i64 56
   store ptr @_ZN4absl12lts_2023080219str_format_internal13FormatArgImpl8DispatchIiEEbNS2_4DataENS1_24FormatConversionSpecImplEPv, ptr %dispatcher_.i.i9.i116.i, align 8, !noalias !97
   %arrayinit.element19.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i100.i, i64 64
   %retval.sroa.0.0.insert.ext.i.i.i11.i118.i = and i64 %rem89.i, 4294967295
-  %159 = inttoptr i64 %retval.sroa.0.0.insert.ext.i.i.i11.i118.i to ptr
-  store ptr %159, ptr %arrayinit.element19.i.i, align 8, !noalias !97
+  %169 = inttoptr i64 %retval.sroa.0.0.insert.ext.i.i.i11.i118.i to ptr
+  store ptr %169, ptr %arrayinit.element19.i.i, align 8, !noalias !97
   %dispatcher_.i.i12.i119.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i100.i, i64 72
   store ptr @_ZN4absl12lts_2023080219str_format_internal13FormatArgImpl8DispatchIiEEbNS2_4DataENS1_24FormatConversionSpecImplEPv, ptr %dispatcher_.i.i12.i119.i, align 8, !noalias !97
   %arrayinit.element20.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i100.i, i64 80
   %retval.sroa.0.0.insert.ext.i.i.i14.i121.i = and i64 %rem.i, 4294967295
-  %160 = inttoptr i64 %retval.sroa.0.0.insert.ext.i.i.i14.i121.i to ptr
-  store ptr %160, ptr %arrayinit.element20.i.i, align 8, !noalias !97
+  %170 = inttoptr i64 %retval.sroa.0.0.insert.ext.i.i.i14.i121.i to ptr
+  store ptr %170, ptr %arrayinit.element20.i.i, align 8, !noalias !97
   %dispatcher_.i.i15.i122.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i100.i, i64 88
   store ptr @_ZN4absl12lts_2023080219str_format_internal13FormatArgImpl8DispatchIiEEbNS2_4DataENS1_24FormatConversionSpecImplEPv, ptr %dispatcher_.i.i15.i122.i, align 8, !noalias !97
   %arrayinit.element21.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i100.i, i64 96
-  %161 = inttoptr i64 %digits.0.lcssa.i to ptr
-  store ptr %161, ptr %arrayinit.element21.i.i, align 8, !noalias !97
+  %171 = inttoptr i64 %digits.0.lcssa.i to ptr
+  store ptr %171, ptr %arrayinit.element21.i.i, align 8, !noalias !97
   %dispatcher_.i.i17.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i100.i, i64 104
   store ptr @_ZN4absl12lts_2023080219str_format_internal13FormatArgImpl8DispatchImEEbNS2_4DataENS1_24FormatConversionSpecImplEPv, ptr %dispatcher_.i.i17.i.i, align 8, !noalias !97
   %arrayinit.element22.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i100.i, i64 112
   %retval.sroa.0.0.insert.ext.i.i.i19.i.i = zext nneg i32 %frac_seconds.0.lcssa.i to i64
-  %162 = inttoptr i64 %retval.sroa.0.0.insert.ext.i.i.i19.i.i to ptr
-  store ptr %162, ptr %arrayinit.element22.i.i, align 8, !noalias !97
+  %172 = inttoptr i64 %retval.sroa.0.0.insert.ext.i.i.i19.i.i to ptr
+  store ptr %172, ptr %arrayinit.element22.i.i, align 8, !noalias !97
   %dispatcher_.i.i20.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i100.i, i64 120
   store ptr @_ZN4absl12lts_2023080219str_format_internal13FormatArgImpl8DispatchIjEEbNS2_4DataENS1_24FormatConversionSpecImplEPv, ptr %dispatcher_.i.i20.i.i, align 8, !noalias !97
   invoke void @_ZN4absl12lts_2023080219str_format_internal10FormatPackB5cxx11ENS1_21UntypedFormatSpecImplENS0_4SpanIKNS1_13FormatArgImplEEE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp117.i, ptr nonnull @.str.55, i64 37, ptr nonnull %ref.tmp.i100.i, i64 8)
@@ -1998,61 +1986,61 @@ invoke.cont119.i:                                 ; preds = %while.body.i, %invo
 invoke.cont120.i:                                 ; preds = %invoke.cont119.i
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %ref.tmp.i100.i), !noalias !84
   %call121.i = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp117.i) #27, !noalias !84
-  %163 = extractvalue { i64, ptr } %call121.i, 0
-  %164 = extractvalue { i64, ptr } %call121.i, 1
-  invoke void @_ZN6google8protobuf2io16zc_sink_internal22ZeroCopyStreamByteSink6AppendEPKcm(ptr noundef nonnull align 8 dereferenceable(88) %writer, ptr noundef %164, i64 noundef %163)
+  %173 = extractvalue { i64, ptr } %call121.i, 0
+  %174 = extractvalue { i64, ptr } %call121.i, 1
+  invoke void @_ZN6google8protobuf2io16zc_sink_internal22ZeroCopyStreamByteSink6AppendEPKcm(ptr noundef nonnull align 8 dereferenceable(88) %writer, ptr noundef %174, i64 noundef %173)
           to label %cleanup125.i unwind label %lpad122.i
 
 lpad122.i:                                        ; preds = %invoke.cont120.i
-  %165 = landingpad { ptr, i32 }
+  %175 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp117.i) #27, !noalias !84
-  br label %ehcleanup.i61
+  br label %ehcleanup.i60
 
 cleanup125.i:                                     ; preds = %invoke.cont120.i, %invoke.cont104.i
   %ref.tmp117.sink.i = phi ptr [ %ref.tmp101.i, %invoke.cont104.i ], [ %ref.tmp117.i, %invoke.cont120.i ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp117.sink.i) #27, !noalias !84
   store i64 0, ptr %agg.result, align 8, !alias.scope !84
-  %166 = load i64, ptr %nanos.i, align 8, !noalias !84
-  %and.i.i.i.i.i.i = and i64 %166, 1
+  %176 = load i64, ptr %nanos.i, align 8, !noalias !84
+  %and.i.i.i.i.i.i = and i64 %176, 1
   %cmp.i.i.i.i.i.i = icmp eq i64 %and.i.i.i.i.i.i, 0
   br i1 %cmp.i.i.i.i.i.i, label %cleanup126.i, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %cleanup125.i
-  invoke void @_ZN4absl12lts_202308026Status15UnrefNonInlinedEm(i64 noundef %166)
+  invoke void @_ZN4absl12lts_202308026Status15UnrefNonInlinedEm(i64 noundef %176)
           to label %cleanup126.i unwind label %terminate.lpad.i.i.i.i, !noalias !84
 
 terminate.lpad.i.i.i.i:                           ; preds = %if.then.i.i.i.i.i
-  %167 = landingpad { ptr, i32 }
+  %177 = landingpad { ptr, i32 }
           catch ptr null
-  %168 = extractvalue { ptr, i32 } %167, 0
-  call void @__clang_call_terminate(ptr %168) #28
+  %178 = extractvalue { ptr, i32 } %177, 0
+  call void @__clang_call_terminate(ptr %178) #28
   unreachable
 
-ehcleanup.i61:                                    ; preds = %lpad122.i, %lpad106.i, %lpad38.i
-  %.pn.i62 = phi { ptr, i32 } [ %141, %lpad38.i ], [ %153, %lpad106.i ], [ %165, %lpad122.i ]
+ehcleanup.i60:                                    ; preds = %lpad122.i, %lpad106.i, %lpad38.i
+  %.pn.i61 = phi { ptr, i32 } [ %151, %lpad38.i ], [ %163, %lpad106.i ], [ %175, %lpad122.i ]
   call void @_ZN4absl12lts_202308028StatusOrIiED2Ev(ptr noundef nonnull align 8 dereferenceable(12) %nanos.i) #27, !noalias !84
   br label %ehcleanup127.i
 
 cleanup126.i:                                     ; preds = %if.then.i.i.i.i.i, %cleanup125.i, %if.then15.invoke.i
-  %169 = load i64, ptr %secs.i, align 8, !noalias !84
-  %and.i.i.i.i.i126.i = and i64 %169, 1
+  %179 = load i64, ptr %secs.i, align 8, !noalias !84
+  %and.i.i.i.i.i126.i = and i64 %179, 1
   %cmp.i.i.i.i.i127.i = icmp eq i64 %and.i.i.i.i.i126.i, 0
   br i1 %cmp.i.i.i.i.i127.i, label %_ZN6google8protobuf13json_internal12_GLOBAL__N_114WriteTimestampINS1_23UnparseProto2DescriptorEEEN4absl12lts_202308026StatusERNS1_10JsonWriterERKNT_3MsgERKNSA_4DescE.exit, label %if.then.i.i.i.i128.i
 
 if.then.i.i.i.i128.i:                             ; preds = %cleanup126.i
-  invoke void @_ZN4absl12lts_202308026Status15UnrefNonInlinedEm(i64 noundef %169)
+  invoke void @_ZN4absl12lts_202308026Status15UnrefNonInlinedEm(i64 noundef %179)
           to label %_ZN6google8protobuf13json_internal12_GLOBAL__N_114WriteTimestampINS1_23UnparseProto2DescriptorEEEN4absl12lts_202308026StatusERNS1_10JsonWriterERKNT_3MsgERKNSA_4DescE.exit unwind label %terminate.lpad.i.i.i129.i
 
 terminate.lpad.i.i.i129.i:                        ; preds = %if.then.i.i.i.i128.i
-  %170 = landingpad { ptr, i32 }
+  %180 = landingpad { ptr, i32 }
           catch ptr null
-  %171 = extractvalue { ptr, i32 } %170, 0
-  call void @__clang_call_terminate(ptr %171) #28
+  %181 = extractvalue { ptr, i32 } %180, 0
+  call void @__clang_call_terminate(ptr %181) #28
   unreachable
 
-ehcleanup127.i:                                   ; preds = %ehcleanup.i61, %lpad.i60
-  %.pn19.i = phi { ptr, i32 } [ %127, %lpad.i60 ], [ %.pn.i62, %ehcleanup.i61 ]
+ehcleanup127.i:                                   ; preds = %ehcleanup.i60, %lpad.i59
+  %.pn19.i = phi { ptr, i32 } [ %135, %lpad.i59 ], [ %.pn.i61, %ehcleanup.i60 ]
   call void @_ZN4absl12lts_202308028StatusOrIlED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %secs.i) #27
   br label %common.resume
 
@@ -2065,250 +2053,238 @@ _ZN6google8protobuf13json_internal12_GLOBAL__N_114WriteTimestampINS1_23UnparsePr
 
 sw.bb10:                                          ; preds = %entry
   tail call void @llvm.experimental.noalias.scope.decl(metadata !100)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %secs.i65)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %nanos.i66)
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %secs.i64)
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %nanos.i65)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp85.i)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %sign.i)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp106.i)
-  %call.i67 = tail call noundef ptr @_ZN6google8protobuf13json_internal16Proto2Descriptor13MustHaveFieldERKNS0_10DescriptorEiNS1_12JsonLocation14SourceLocationE(ptr noundef nonnull align 8 dereferenceable(152) %desc, i32 noundef 1), !noalias !100
-  %label_.i.i.i.i68 = getelementptr inbounds nuw i8, ptr %call.i67, i64 1
-  %bf.load.i.i.i.i69 = load i8, ptr %label_.i.i.i.i68, align 1, !noalias !100
-  %172 = and i8 %bf.load.i.i.i.i69, 96
-  %cmp.i.i.i70 = icmp eq i8 %172, 96
-  %vtable.i.i.i71 = load ptr, ptr %msg, align 8, !noalias !100
-  %vfn.i.i.i72 = getelementptr inbounds nuw i8, ptr %vtable.i.i.i71, i64 80
-  %173 = load ptr, ptr %vfn.i.i.i72, align 8, !noalias !100
-  %call.i.i.i73 = tail call { ptr, ptr } %173(ptr noundef nonnull align 8 dereferenceable(16) %msg), !noalias !100
-  %174 = extractvalue { ptr, ptr } %call.i.i.i73, 1
-  br i1 %cmp.i.i.i70, label %if.then.i.i104, label %if.else.i.i74
+  %call.i66 = tail call noundef ptr @_ZN6google8protobuf13json_internal16Proto2Descriptor13MustHaveFieldERKNS0_10DescriptorEiNS1_12JsonLocation14SourceLocationE(ptr noundef nonnull align 8 dereferenceable(152) %desc, i32 noundef 1), !noalias !100
+  %label_.i.i.i.i67 = getelementptr inbounds nuw i8, ptr %call.i66, i64 1
+  %bf.load.i.i.i.i68 = load i8, ptr %label_.i.i.i.i67, align 1, !noalias !100
+  %182 = and i8 %bf.load.i.i.i.i68, 96
+  %cmp.i.i.i69 = icmp eq i8 %182, 96
+  %vtable.i.i.i70 = load ptr, ptr %msg, align 8, !noalias !100
+  %vfn.i.i.i71 = getelementptr inbounds nuw i8, ptr %vtable.i.i.i70, i64 80
+  %183 = load ptr, ptr %vfn.i.i.i71, align 8, !noalias !100
+  %call.i.i.i72 = tail call { ptr, ptr } %183(ptr noundef nonnull align 8 dereferenceable(16) %msg), !noalias !100
+  %184 = extractvalue { ptr, ptr } %call.i.i.i72, 1
+  br i1 %cmp.i.i.i69, label %if.then.i.i99, label %_ZN6google8protobuf13json_internal23UnparseProto2Descriptor7GetSizeEPKNS0_15FieldDescriptorERKNS0_7MessageE.exit.i73
 
-if.then.i.i104:                                   ; preds = %sw.bb10
-  %call2.i.i105 = tail call noundef i32 @_ZNK6google8protobuf10Reflection9FieldSizeERKNS0_7MessageEPKNS0_15FieldDescriptorE(ptr noundef nonnull align 8 dereferenceable(112) %174, ptr noundef nonnull align 8 dereferenceable(16) %msg, ptr noundef nonnull %call.i67)
-  %conv.i.i106 = sext i32 %call2.i.i105 to i64
-  br label %_ZN6google8protobuf13json_internal23UnparseProto2Descriptor7GetSizeEPKNS0_15FieldDescriptorERKNS0_7MessageE.exit.i77
+if.then.i.i99:                                    ; preds = %sw.bb10
+  %call2.i.i100 = tail call noundef i32 @_ZNK6google8protobuf10Reflection9FieldSizeERKNS0_7MessageEPKNS0_15FieldDescriptorE(ptr noundef nonnull align 8 dereferenceable(112) %184, ptr noundef nonnull align 8 dereferenceable(16) %msg, ptr noundef nonnull %call.i66)
+  %185 = icmp eq i32 %call2.i.i100, 0
+  br i1 %185, label %invoke.cont6.thread.i, label %invoke.cont6.i97
 
-if.else.i.i74:                                    ; preds = %sw.bb10
-  %call4.i.i75 = tail call noundef zeroext i1 @_ZNK6google8protobuf10Reflection8HasFieldERKNS0_7MessageEPKNS0_15FieldDescriptorE(ptr noundef nonnull align 8 dereferenceable(112) %174, ptr noundef nonnull align 8 dereferenceable(16) %msg, ptr noundef nonnull %call.i67)
-  %conv5.i.i76 = zext i1 %call4.i.i75 to i64
-  br label %_ZN6google8protobuf13json_internal23UnparseProto2Descriptor7GetSizeEPKNS0_15FieldDescriptorERKNS0_7MessageE.exit.i77
+_ZN6google8protobuf13json_internal23UnparseProto2Descriptor7GetSizeEPKNS0_15FieldDescriptorERKNS0_7MessageE.exit.i73: ; preds = %sw.bb10
+  %call4.i.i74 = tail call noundef zeroext i1 @_ZNK6google8protobuf10Reflection8HasFieldERKNS0_7MessageEPKNS0_15FieldDescriptorE(ptr noundef nonnull align 8 dereferenceable(112) %184, ptr noundef nonnull align 8 dereferenceable(16) %msg, ptr noundef nonnull %call.i66)
+  br i1 %call4.i.i74, label %invoke.cont6.i97, label %invoke.cont6.thread.i
 
-_ZN6google8protobuf13json_internal23UnparseProto2Descriptor7GetSizeEPKNS0_15FieldDescriptorERKNS0_7MessageE.exit.i77: ; preds = %if.else.i.i74, %if.then.i.i104
-  %retval.0.i.i78 = phi i64 [ %conv.i.i106, %if.then.i.i104 ], [ %conv5.i.i76, %if.else.i.i74 ]
-  %cmp.not.i79 = icmp eq i64 %retval.0.i.i78, 0
-  br i1 %cmp.not.i79, label %invoke.cont6.thread.i, label %invoke.cont6.i80
-
-invoke.cont6.thread.i:                            ; preds = %_ZN6google8protobuf13json_internal23UnparseProto2Descriptor7GetSizeEPKNS0_15FieldDescriptorERKNS0_7MessageE.exit.i77
-  %175 = getelementptr inbounds nuw i8, ptr %secs.i65, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %secs.i65, i8 0, i64 16, i1 false), !noalias !100
-  store i64 0, ptr %agg.result, align 8, !alias.scope !100
-  br label %if.end15.i
-
-lpad.i82:                                         ; preds = %call.i.i46.noexc.i, %cond.true23.i, %if.else.i33.i, %if.then.i37.i, %invoke.cont18.i, %if.end15.i, %if.then12.i
-  %176 = landingpad { ptr, i32 }
+lpad.i75:                                         ; preds = %call.i.i46.noexc.i, %cond.true23.i, %if.else.i33.i, %if.then.i37.i, %invoke.cont18.i, %if.end15.i, %if.then12.i
+  %186 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup121.i
 
-invoke.cont6.i80:                                 ; preds = %_ZN6google8protobuf13json_internal23UnparseProto2Descriptor7GetSizeEPKNS0_15FieldDescriptorERKNS0_7MessageE.exit.i77
+invoke.cont6.thread.i:                            ; preds = %_ZN6google8protobuf13json_internal23UnparseProto2Descriptor7GetSizeEPKNS0_15FieldDescriptorERKNS0_7MessageE.exit.i73, %if.then.i.i99
+  %187 = getelementptr inbounds nuw i8, ptr %secs.i64, i64 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %secs.i64, i8 0, i64 16, i1 false), !noalias !100
+  store i64 0, ptr %agg.result, align 8, !alias.scope !100
+  br label %if.end15.i
+
+invoke.cont6.i97:                                 ; preds = %_ZN6google8protobuf13json_internal23UnparseProto2Descriptor7GetSizeEPKNS0_15FieldDescriptorERKNS0_7MessageE.exit.i73, %if.then.i.i99
   %vtable.i.i15.i = load ptr, ptr %msg, align 8, !noalias !103
   %vfn.i.i16.i = getelementptr inbounds nuw i8, ptr %vtable.i.i15.i, i64 80
-  %177 = load ptr, ptr %vfn.i.i16.i, align 8, !noalias !103
-  %call.i.i17.i = tail call { ptr, ptr } %177(ptr noundef nonnull align 8 dereferenceable(16) %msg), !noalias !103
-  %178 = extractvalue { ptr, ptr } %call.i.i17.i, 1
-  %call1.i.i81 = tail call noundef i64 @_ZNK6google8protobuf10Reflection8GetInt64ERKNS0_7MessageEPKNS0_15FieldDescriptorE(ptr noundef nonnull align 8 dereferenceable(112) %178, ptr noundef nonnull align 8 dereferenceable(16) %msg, ptr noundef nonnull %call.i67)
-  %179 = getelementptr inbounds nuw i8, ptr %secs.i65, i64 8
-  store i64 %call1.i.i81, ptr %179, align 8, !noalias !100
-  store i64 0, ptr %secs.i65, align 8, !noalias !100
+  %188 = load ptr, ptr %vfn.i.i16.i, align 8, !noalias !103
+  %call.i.i17.i = tail call { ptr, ptr } %188(ptr noundef nonnull align 8 dereferenceable(16) %msg), !noalias !103
+  %189 = extractvalue { ptr, ptr } %call.i.i17.i, 1
+  %call1.i.i98 = tail call noundef i64 @_ZNK6google8protobuf10Reflection8GetInt64ERKNS0_7MessageEPKNS0_15FieldDescriptorE(ptr noundef nonnull align 8 dereferenceable(112) %189, ptr noundef nonnull align 8 dereferenceable(16) %msg, ptr noundef nonnull %call.i66)
+  %190 = getelementptr inbounds nuw i8, ptr %secs.i64, i64 8
+  store i64 %call1.i.i98, ptr %190, align 8, !noalias !100
+  store i64 0, ptr %secs.i64, align 8, !noalias !100
   store i64 0, ptr %agg.result, align 8, !alias.scope !100
-  %180 = add i64 %call1.i.i81, -315576000001
-  %or.cond.i = icmp ult i64 %180, -631152000001
+  %191 = add i64 %call1.i.i98, -315576000001
+  %or.cond.i = icmp ult i64 %191, -631152000001
   br i1 %or.cond.i, label %if.then12.i, label %if.end15.i
 
-if.then12.i:                                      ; preds = %invoke.cont6.i80
+if.then12.i:                                      ; preds = %invoke.cont6.i97
   invoke void @_ZN4absl12lts_2023080220InvalidArgumentErrorESt17basic_string_viewIcSt11char_traitsIcEE(ptr nonnull sret(%"class.absl::lts_20230802::Status") align 8 %agg.result, i64 21, ptr nonnull @.str.56)
-          to label %cleanup120.i unwind label %lpad.i82
+          to label %cleanup120.i unwind label %lpad.i75
 
-if.end15.i:                                       ; preds = %invoke.cont6.i80, %invoke.cont6.thread.i
-  %181 = phi ptr [ %175, %invoke.cont6.thread.i ], [ %179, %invoke.cont6.i80 ]
+if.end15.i:                                       ; preds = %invoke.cont6.i97, %invoke.cont6.thread.i
+  %192 = phi ptr [ %187, %invoke.cont6.thread.i ], [ %190, %invoke.cont6.i97 ]
   %call19.i = invoke noundef ptr @_ZN6google8protobuf13json_internal16Proto2Descriptor13MustHaveFieldERKNS0_10DescriptorEiNS1_12JsonLocation14SourceLocationE(ptr noundef nonnull align 8 dereferenceable(152) %desc, i32 noundef 2)
-          to label %invoke.cont18.i unwind label %lpad.i82, !noalias !100
+          to label %invoke.cont18.i unwind label %lpad.i75, !noalias !100
 
 invoke.cont18.i:                                  ; preds = %if.end15.i
   %label_.i.i.i27.i = getelementptr inbounds nuw i8, ptr %call19.i, i64 1
   %bf.load.i.i.i28.i = load i8, ptr %label_.i.i.i27.i, align 1, !noalias !100
   %vtable.i.i30.i = load ptr, ptr %msg, align 8, !noalias !100
   %vfn.i.i31.i = getelementptr inbounds nuw i8, ptr %vtable.i.i30.i, i64 80
-  %182 = load ptr, ptr %vfn.i.i31.i, align 8, !noalias !100
-  %call.i.i3240.i = invoke { ptr, ptr } %182(ptr noundef nonnull align 8 dereferenceable(16) %msg)
-          to label %call.i.i32.noexc.i unwind label %lpad.i82, !noalias !100
+  %193 = load ptr, ptr %vfn.i.i31.i, align 8, !noalias !100
+  %call.i.i3240.i = invoke { ptr, ptr } %193(ptr noundef nonnull align 8 dereferenceable(16) %msg)
+          to label %call.i.i32.noexc.i unwind label %lpad.i75, !noalias !100
 
 call.i.i32.noexc.i:                               ; preds = %invoke.cont18.i
-  %183 = and i8 %bf.load.i.i.i28.i, 96
-  %cmp.i.i29.i = icmp eq i8 %183, 96
-  %184 = extractvalue { ptr, ptr } %call.i.i3240.i, 1
+  %194 = and i8 %bf.load.i.i.i28.i, 96
+  %cmp.i.i29.i = icmp eq i8 %194, 96
+  %195 = extractvalue { ptr, ptr } %call.i.i3240.i, 1
   br i1 %cmp.i.i29.i, label %if.then.i37.i, label %if.else.i33.i
 
 if.then.i37.i:                                    ; preds = %call.i.i32.noexc.i
-  %call2.i3841.i = invoke noundef i32 @_ZNK6google8protobuf10Reflection9FieldSizeERKNS0_7MessageEPKNS0_15FieldDescriptorE(ptr noundef nonnull align 8 dereferenceable(112) %184, ptr noundef nonnull align 8 dereferenceable(16) %msg, ptr noundef nonnull %call19.i)
-          to label %call2.i38.noexc.i unwind label %lpad.i82
+  %call2.i3841.i = invoke noundef i32 @_ZNK6google8protobuf10Reflection9FieldSizeERKNS0_7MessageEPKNS0_15FieldDescriptorE(ptr noundef nonnull align 8 dereferenceable(112) %195, ptr noundef nonnull align 8 dereferenceable(16) %msg, ptr noundef nonnull %call19.i)
+          to label %call2.i38.noexc.i unwind label %lpad.i75
 
 call2.i38.noexc.i:                                ; preds = %if.then.i37.i
-  %conv.i39.i = sext i32 %call2.i3841.i to i64
-  br label %invoke.cont20.i83
+  %196 = icmp eq i32 %call2.i3841.i, 0
+  br i1 %196, label %invoke.cont48.thread.i, label %cond.true23.i
 
 if.else.i33.i:                                    ; preds = %call.i.i32.noexc.i
-  %call4.i3442.i = invoke noundef zeroext i1 @_ZNK6google8protobuf10Reflection8HasFieldERKNS0_7MessageEPKNS0_15FieldDescriptorE(ptr noundef nonnull align 8 dereferenceable(112) %184, ptr noundef nonnull align 8 dereferenceable(16) %msg, ptr noundef nonnull %call19.i)
-          to label %call4.i34.noexc.i unwind label %lpad.i82
+  %call4.i3442.i = invoke noundef zeroext i1 @_ZNK6google8protobuf10Reflection8HasFieldERKNS0_7MessageEPKNS0_15FieldDescriptorE(ptr noundef nonnull align 8 dereferenceable(112) %195, ptr noundef nonnull align 8 dereferenceable(16) %msg, ptr noundef nonnull %call19.i)
+          to label %invoke.cont20.i76 unwind label %lpad.i75
 
-call4.i34.noexc.i:                                ; preds = %if.else.i33.i
-  %conv5.i35.i = zext i1 %call4.i3442.i to i64
-  br label %invoke.cont20.i83
+invoke.cont20.i76:                                ; preds = %if.else.i33.i
+  br i1 %call4.i3442.i, label %cond.true23.i, label %invoke.cont48.thread.i
 
-invoke.cont20.i83:                                ; preds = %call4.i34.noexc.i, %call2.i38.noexc.i
-  %retval.0.i36.i = phi i64 [ %conv.i39.i, %call2.i38.noexc.i ], [ %conv5.i35.i, %call4.i34.noexc.i ]
-  %cmp22.not.i = icmp eq i64 %retval.0.i36.i, 0
-  br i1 %cmp22.not.i, label %invoke.cont48.thread.i, label %cond.true23.i
-
-cond.true23.i:                                    ; preds = %invoke.cont20.i83
+cond.true23.i:                                    ; preds = %invoke.cont20.i76, %call2.i38.noexc.i
   tail call void @llvm.experimental.noalias.scope.decl(metadata !106)
   %vtable.i.i44.i = load ptr, ptr %msg, align 8, !noalias !109
   %vfn.i.i45.i = getelementptr inbounds nuw i8, ptr %vtable.i.i44.i, i64 80
-  %185 = load ptr, ptr %vfn.i.i45.i, align 8, !noalias !109
-  %call.i.i4648.i = invoke { ptr, ptr } %185(ptr noundef nonnull align 8 dereferenceable(16) %msg)
-          to label %call.i.i46.noexc.i unwind label %lpad.i82, !noalias !100
+  %197 = load ptr, ptr %vfn.i.i45.i, align 8, !noalias !109
+  %call.i.i4648.i = invoke { ptr, ptr } %197(ptr noundef nonnull align 8 dereferenceable(16) %msg)
+          to label %call.i.i46.noexc.i unwind label %lpad.i75, !noalias !100
 
 call.i.i46.noexc.i:                               ; preds = %cond.true23.i
-  %186 = extractvalue { ptr, ptr } %call.i.i4648.i, 1
-  %call1.i4749.i = invoke noundef i32 @_ZNK6google8protobuf10Reflection8GetInt32ERKNS0_7MessageEPKNS0_15FieldDescriptorE(ptr noundef nonnull align 8 dereferenceable(112) %186, ptr noundef nonnull align 8 dereferenceable(16) %msg, ptr noundef nonnull %call19.i)
-          to label %invoke.cont48.i unwind label %lpad.i82
+  %198 = extractvalue { ptr, ptr } %call.i.i4648.i, 1
+  %call1.i4749.i = invoke noundef i32 @_ZNK6google8protobuf10Reflection8GetInt32ERKNS0_7MessageEPKNS0_15FieldDescriptorE(ptr noundef nonnull align 8 dereferenceable(112) %198, ptr noundef nonnull align 8 dereferenceable(16) %msg, ptr noundef nonnull %call19.i)
+          to label %invoke.cont48.i unwind label %lpad.i75
 
-invoke.cont48.thread.i:                           ; preds = %invoke.cont20.i83
-  %187 = getelementptr inbounds nuw i8, ptr %nanos.i66, i64 8
-  store i32 0, ptr %187, align 8, !noalias !100
-  store i64 0, ptr %nanos.i66, align 8, !noalias !100
+invoke.cont48.thread.i:                           ; preds = %invoke.cont20.i76, %call2.i38.noexc.i
+  %199 = getelementptr inbounds nuw i8, ptr %nanos.i65, i64 8
+  store i32 0, ptr %199, align 8, !noalias !100
+  store i64 0, ptr %nanos.i65, align 8, !noalias !100
   store i64 0, ptr %agg.result, align 8, !alias.scope !100
   br label %if.end59.i
 
 lpad32.i:                                         ; preds = %invoke.cont99.i, %invoke.cont88.i, %if.then76.invoke.i, %if.then.i.i71.i
-  %188 = landingpad { ptr, i32 }
+  %200 = landingpad { ptr, i32 }
           cleanup
-  br label %ehcleanup.i84
+  br label %ehcleanup.i77
 
 invoke.cont48.i:                                  ; preds = %call.i.i46.noexc.i
-  %189 = getelementptr inbounds nuw i8, ptr %nanos.i66, i64 8
-  store i32 %call1.i4749.i, ptr %189, align 8, !alias.scope !106, !noalias !100
-  store i64 0, ptr %nanos.i66, align 8, !noalias !100
+  %201 = getelementptr inbounds nuw i8, ptr %nanos.i65, i64 8
+  store i32 %call1.i4749.i, ptr %201, align 8, !alias.scope !106, !noalias !100
+  store i64 0, ptr %nanos.i65, align 8, !noalias !100
   store i64 0, ptr %agg.result, align 8, !alias.scope !100
-  %190 = add i32 %call1.i4749.i, -1000000000
-  %or.cond134.i = icmp ult i32 %190, -1999999999
+  %202 = add i32 %call1.i4749.i, -1000000000
+  %or.cond134.i = icmp ult i32 %202, -1999999999
   br i1 %or.cond134.i, label %if.then76.invoke.i, label %if.end59.i
 
 if.end59.i:                                       ; preds = %invoke.cont48.i, %invoke.cont48.thread.i
-  %191 = phi i32 [ 0, %invoke.cont48.thread.i ], [ %call1.i4749.i, %invoke.cont48.i ]
-  %192 = load i64, ptr %secs.i65, align 8, !noalias !100
-  %cmp.i.i.i.i70.i = icmp eq i64 %192, 0
+  %203 = phi i32 [ 0, %invoke.cont48.thread.i ], [ %call1.i4749.i, %invoke.cont48.i ]
+  %204 = load i64, ptr %secs.i64, align 8, !noalias !100
+  %cmp.i.i.i.i70.i = icmp eq i64 %204, 0
   br i1 %cmp.i.i.i.i70.i, label %invoke.cont60.i, label %if.then.i.i71.i
 
 if.then.i.i71.i:                                  ; preds = %if.end59.i
-  invoke void @_ZN4absl12lts_2023080217internal_statusor6Helper5CrashERKNS0_6StatusE(ptr noundef nonnull align 8 dereferenceable(16) %secs.i65) #29
+  invoke void @_ZN4absl12lts_2023080217internal_statusor6Helper5CrashERKNS0_6StatusE(ptr noundef nonnull align 8 dereferenceable(16) %secs.i64) #29
           to label %.noexc72.i unwind label %lpad32.i, !noalias !100
 
 .noexc72.i:                                       ; preds = %if.then.i.i71.i
   unreachable
 
 invoke.cont60.i:                                  ; preds = %if.end59.i
-  %193 = load i64, ptr %181, align 8, !noalias !100
-  %cmp62.not.i = icmp eq i64 %193, 0
-  %194 = inttoptr i64 %193 to ptr
+  %205 = load i64, ptr %192, align 8, !noalias !100
+  %cmp62.not.i = icmp eq i64 %205, 0
+  %206 = inttoptr i64 %205 to ptr
   br i1 %cmp62.not.i, label %invoke.cont80.i, label %invoke.cont63.i
 
 invoke.cont63.i:                                  ; preds = %invoke.cont60.i
-  %cmp65.not.i = icmp eq i32 %191, 0
-  br i1 %cmp65.not.i, label %invoke.cont88.i, label %invoke.cont71.i86
+  %cmp65.not.i = icmp eq i32 %203, 0
+  br i1 %cmp65.not.i, label %invoke.cont88.i, label %invoke.cont71.i79
 
-invoke.cont71.i86:                                ; preds = %invoke.cont63.i
-  %.lobit.i = lshr i64 %193, 63
+invoke.cont71.i79:                                ; preds = %invoke.cont63.i
+  %.lobit.i = lshr i64 %205, 63
   %conv70.i = trunc nuw nsw i64 %.lobit.i to i32
-  %.lobit11.i = lshr i32 %191, 31
+  %.lobit11.i = lshr i32 %203, 31
   %cmp75.not.i = icmp eq i32 %.lobit11.i, %conv70.i
   br i1 %cmp75.not.i, label %invoke.cont80.i, label %if.then76.invoke.i
 
-if.then76.invoke.i:                               ; preds = %invoke.cont71.i86, %invoke.cont48.i
-  %195 = phi i64 [ 21, %invoke.cont48.i ], [ 36, %invoke.cont71.i86 ]
-  %196 = phi ptr [ @.str.56, %invoke.cont48.i ], [ @.str.57, %invoke.cont71.i86 ]
-  invoke void @_ZN4absl12lts_2023080220InvalidArgumentErrorESt17basic_string_viewIcSt11char_traitsIcEE(ptr nonnull sret(%"class.absl::lts_20230802::Status") align 8 %agg.result, i64 %195, ptr nonnull %196)
+if.then76.invoke.i:                               ; preds = %invoke.cont71.i79, %invoke.cont48.i
+  %207 = phi i64 [ 21, %invoke.cont48.i ], [ 36, %invoke.cont71.i79 ]
+  %208 = phi ptr [ @.str.56, %invoke.cont48.i ], [ @.str.57, %invoke.cont71.i79 ]
+  invoke void @_ZN4absl12lts_2023080220InvalidArgumentErrorESt17basic_string_viewIcSt11char_traitsIcEE(ptr nonnull sret(%"class.absl::lts_20230802::Status") align 8 %agg.result, i64 %207, ptr nonnull %208)
           to label %cleanup120.i unwind label %lpad32.i
 
-invoke.cont80.i:                                  ; preds = %invoke.cont71.i86, %invoke.cont60.i
-  %cmp82.i = icmp eq i32 %191, 0
-  br i1 %cmp82.i, label %invoke.cont88.i, label %invoke.cont96.i91
+invoke.cont80.i:                                  ; preds = %invoke.cont71.i79, %invoke.cont60.i
+  %cmp82.i = icmp eq i32 %203, 0
+  br i1 %cmp82.i, label %invoke.cont88.i, label %invoke.cont96.i84
 
 invoke.cont88.i:                                  ; preds = %invoke.cont80.i, %invoke.cont63.i
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i.i64), !noalias !100
-  store ptr %194, ptr %ref.tmp.i.i64, align 8, !noalias !110
-  %dispatcher_.i.i.i.i102 = getelementptr inbounds nuw i8, ptr %ref.tmp.i.i64, i64 8
-  store ptr @_ZN4absl12lts_2023080219str_format_internal13FormatArgImpl8DispatchIlEEbNS2_4DataENS1_24FormatConversionSpecImplEPv, ptr %dispatcher_.i.i.i.i102, align 8, !noalias !110
-  invoke void @_ZN4absl12lts_2023080219str_format_internal10FormatPackB5cxx11ENS1_21UntypedFormatSpecImplENS0_4SpanIKNS1_13FormatArgImplEEE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp85.i, ptr nonnull @.str.58, i64 5, ptr nonnull %ref.tmp.i.i64, i64 1)
-          to label %invoke.cont90.i103 unwind label %lpad32.i, !noalias !100
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i.i63), !noalias !100
+  store ptr %206, ptr %ref.tmp.i.i63, align 8, !noalias !110
+  %dispatcher_.i.i.i.i95 = getelementptr inbounds nuw i8, ptr %ref.tmp.i.i63, i64 8
+  store ptr @_ZN4absl12lts_2023080219str_format_internal13FormatArgImpl8DispatchIlEEbNS2_4DataENS1_24FormatConversionSpecImplEPv, ptr %dispatcher_.i.i.i.i95, align 8, !noalias !110
+  invoke void @_ZN4absl12lts_2023080219str_format_internal10FormatPackB5cxx11ENS1_21UntypedFormatSpecImplENS0_4SpanIKNS1_13FormatArgImplEEE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp85.i, ptr nonnull @.str.58, i64 5, ptr nonnull %ref.tmp.i.i63, i64 1)
+          to label %invoke.cont90.i96 unwind label %lpad32.i, !noalias !100
 
-invoke.cont90.i103:                               ; preds = %invoke.cont88.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i.i64), !noalias !100
+invoke.cont90.i96:                                ; preds = %invoke.cont88.i
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i.i63), !noalias !100
   %call91.i = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp85.i) #27, !noalias !100
-  %197 = extractvalue { i64, ptr } %call91.i, 0
-  %198 = extractvalue { i64, ptr } %call91.i, 1
-  invoke void @_ZN6google8protobuf2io16zc_sink_internal22ZeroCopyStreamByteSink6AppendEPKcm(ptr noundef nonnull align 8 dereferenceable(88) %writer, ptr noundef %198, i64 noundef %197)
+  %209 = extractvalue { i64, ptr } %call91.i, 0
+  %210 = extractvalue { i64, ptr } %call91.i, 1
+  invoke void @_ZN6google8protobuf2io16zc_sink_internal22ZeroCopyStreamByteSink6AppendEPKcm(ptr noundef nonnull align 8 dereferenceable(88) %writer, ptr noundef %210, i64 noundef %209)
           to label %cleanup119.i unwind label %lpad92.i
 
-lpad92.i:                                         ; preds = %invoke.cont90.i103
-  %199 = landingpad { ptr, i32 }
+lpad92.i:                                         ; preds = %invoke.cont90.i96
+  %211 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp85.i) #27, !noalias !100
-  br label %ehcleanup.i84
+  br label %ehcleanup.i77
 
-invoke.cont96.i91:                                ; preds = %invoke.cont80.i
-  %200 = tail call i32 @llvm.abs.i32(i32 %191, i1 true)
-  %rem135.i = urem i32 %200, 1000
+invoke.cont96.i84:                                ; preds = %invoke.cont80.i
+  %212 = tail call i32 @llvm.abs.i32(i32 %203, i1 true)
+  %rem135.i = urem i32 %212, 1000
   %cmp98136.i = icmp eq i32 %rem135.i, 0
-  br i1 %cmp98136.i, label %while.body.i98, label %invoke.cont99.i
+  br i1 %cmp98136.i, label %while.body.i91, label %invoke.cont99.i
 
-while.body.i98:                                   ; preds = %invoke.cont96.i91, %while.body.i98
-  %digits.0138.i = phi i64 [ %sub.i, %while.body.i98 ], [ 9, %invoke.cont96.i91 ]
-  %frac_seconds.0137.i = phi i32 [ %div.i99, %while.body.i98 ], [ %200, %invoke.cont96.i91 ]
-  %div.i99 = udiv i32 %frac_seconds.0137.i, 1000
+while.body.i91:                                   ; preds = %invoke.cont96.i84, %while.body.i91
+  %digits.0138.i = phi i64 [ %sub.i, %while.body.i91 ], [ 9, %invoke.cont96.i84 ]
+  %frac_seconds.0137.i = phi i32 [ %div.i92, %while.body.i91 ], [ %212, %invoke.cont96.i84 ]
+  %div.i92 = udiv i32 %frac_seconds.0137.i, 1000
   %sub.i = add i64 %digits.0138.i, -3
-  %rem.i100 = urem i32 %div.i99, 1000
-  %cmp98.i101 = icmp eq i32 %rem.i100, 0
-  br i1 %cmp98.i101, label %while.body.i98, label %invoke.cont99.i, !llvm.loop !113
+  %rem.i93 = urem i32 %div.i92, 1000
+  %cmp98.i94 = icmp eq i32 %rem.i93, 0
+  br i1 %cmp98.i94, label %while.body.i91, label %invoke.cont99.i, !llvm.loop !113
 
-invoke.cont99.i:                                  ; preds = %while.body.i98, %invoke.cont96.i91
-  %frac_seconds.0.lcssa.i92 = phi i32 [ %200, %invoke.cont96.i91 ], [ %div.i99, %while.body.i98 ]
-  %digits.0.lcssa.i93 = phi i64 [ 9, %invoke.cont96.i91 ], [ %sub.i, %while.body.i98 ]
-  %cmp101.i = icmp slt i64 %193, 0
-  %cmp104.i = icmp slt i32 %191, 0
-  %201 = or i1 %cmp104.i, %cmp101.i
-  %cond.i94 = select i1 %201, ptr @.str.59, ptr @.str.40
-  %call.i.i110.i = zext i1 %201 to i64
+invoke.cont99.i:                                  ; preds = %while.body.i91, %invoke.cont96.i84
+  %frac_seconds.0.lcssa.i85 = phi i32 [ %212, %invoke.cont96.i84 ], [ %div.i92, %while.body.i91 ]
+  %digits.0.lcssa.i86 = phi i64 [ 9, %invoke.cont96.i84 ], [ %sub.i, %while.body.i91 ]
+  %cmp101.i = icmp slt i64 %205, 0
+  %cmp104.i = icmp slt i32 %203, 0
+  %213 = or i1 %cmp104.i, %cmp101.i
+  %cond.i87 = select i1 %213, ptr @.str.59, ptr @.str.40
+  %call.i.i110.i = zext i1 %213 to i64
   store i64 %call.i.i110.i, ptr %sign.i, align 8, !noalias !100
   %_M_str.i111.i = getelementptr inbounds nuw i8, ptr %sign.i, i64 8
-  store ptr %cond.i94, ptr %_M_str.i111.i, align 8, !noalias !100
-  %202 = tail call noundef i64 @llvm.abs.i64(i64 %193, i1 true)
+  store ptr %cond.i87, ptr %_M_str.i111.i, align 8, !noalias !100
+  %214 = tail call noundef i64 @llvm.abs.i64(i64 %205, i1 true)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %ref.tmp.i118.i), !noalias !100
   store ptr %sign.i, ptr %ref.tmp.i118.i, align 8, !noalias !114
   %dispatcher_.i.i.i122.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i118.i, i64 8
   store ptr @_ZN4absl12lts_2023080219str_format_internal13FormatArgImpl8DispatchISt17basic_string_viewIcSt11char_traitsIcEEEEbNS2_4DataENS1_24FormatConversionSpecImplEPv, ptr %dispatcher_.i.i.i122.i, align 8, !noalias !114
-  %arrayinit.element.i.i95 = getelementptr inbounds nuw i8, ptr %ref.tmp.i118.i, i64 16
-  %203 = inttoptr i64 %202 to ptr
-  store ptr %203, ptr %arrayinit.element.i.i95, align 8, !noalias !114
+  %arrayinit.element.i.i88 = getelementptr inbounds nuw i8, ptr %ref.tmp.i118.i, i64 16
+  %215 = inttoptr i64 %214 to ptr
+  store ptr %215, ptr %arrayinit.element.i.i88, align 8, !noalias !114
   %dispatcher_.i.i1.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i118.i, i64 24
   store ptr @_ZN4absl12lts_2023080219str_format_internal13FormatArgImpl8DispatchIlEEbNS2_4DataENS1_24FormatConversionSpecImplEPv, ptr %dispatcher_.i.i1.i.i, align 8, !noalias !114
   %arrayinit.element9.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i118.i, i64 32
-  %204 = inttoptr i64 %digits.0.lcssa.i93 to ptr
-  store ptr %204, ptr %arrayinit.element9.i.i, align 8, !noalias !114
-  %dispatcher_.i.i3.i.i96 = getelementptr inbounds nuw i8, ptr %ref.tmp.i118.i, i64 40
-  store ptr @_ZN4absl12lts_2023080219str_format_internal13FormatArgImpl8DispatchImEEbNS2_4DataENS1_24FormatConversionSpecImplEPv, ptr %dispatcher_.i.i3.i.i96, align 8, !noalias !114
+  %216 = inttoptr i64 %digits.0.lcssa.i86 to ptr
+  store ptr %216, ptr %arrayinit.element9.i.i, align 8, !noalias !114
+  %dispatcher_.i.i3.i.i89 = getelementptr inbounds nuw i8, ptr %ref.tmp.i118.i, i64 40
+  store ptr @_ZN4absl12lts_2023080219str_format_internal13FormatArgImpl8DispatchImEEbNS2_4DataENS1_24FormatConversionSpecImplEPv, ptr %dispatcher_.i.i3.i.i89, align 8, !noalias !114
   %arrayinit.element10.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i118.i, i64 48
-  %retval.sroa.0.0.insert.ext.i.i.i.i.i97 = zext nneg i32 %frac_seconds.0.lcssa.i92 to i64
-  %205 = inttoptr i64 %retval.sroa.0.0.insert.ext.i.i.i.i.i97 to ptr
-  store ptr %205, ptr %arrayinit.element10.i.i, align 8, !noalias !114
+  %retval.sroa.0.0.insert.ext.i.i.i.i.i90 = zext nneg i32 %frac_seconds.0.lcssa.i85 to i64
+  %217 = inttoptr i64 %retval.sroa.0.0.insert.ext.i.i.i.i.i90 to ptr
+  store ptr %217, ptr %arrayinit.element10.i.i, align 8, !noalias !114
   %dispatcher_.i.i5.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i118.i, i64 56
   store ptr @_ZN4absl12lts_2023080219str_format_internal13FormatArgImpl8DispatchIjEEbNS2_4DataENS1_24FormatConversionSpecImplEPv, ptr %dispatcher_.i.i5.i.i, align 8, !noalias !114
   invoke void @_ZN4absl12lts_2023080219str_format_internal10FormatPackB5cxx11ENS1_21UntypedFormatSpecImplENS0_4SpanIKNS1_13FormatArgImplEEE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp106.i, ptr nonnull @.str.60, i64 12, ptr nonnull %ref.tmp.i118.i, i64 4)
@@ -2317,67 +2293,67 @@ invoke.cont99.i:                                  ; preds = %while.body.i98, %in
 invoke.cont114.i:                                 ; preds = %invoke.cont99.i
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %ref.tmp.i118.i), !noalias !100
   %call115.i = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp106.i) #27, !noalias !100
-  %206 = extractvalue { i64, ptr } %call115.i, 0
-  %207 = extractvalue { i64, ptr } %call115.i, 1
-  invoke void @_ZN6google8protobuf2io16zc_sink_internal22ZeroCopyStreamByteSink6AppendEPKcm(ptr noundef nonnull align 8 dereferenceable(88) %writer, ptr noundef %207, i64 noundef %206)
+  %218 = extractvalue { i64, ptr } %call115.i, 0
+  %219 = extractvalue { i64, ptr } %call115.i, 1
+  invoke void @_ZN6google8protobuf2io16zc_sink_internal22ZeroCopyStreamByteSink6AppendEPKcm(ptr noundef nonnull align 8 dereferenceable(88) %writer, ptr noundef %219, i64 noundef %218)
           to label %cleanup119.i unwind label %lpad116.i
 
 lpad116.i:                                        ; preds = %invoke.cont114.i
-  %208 = landingpad { ptr, i32 }
+  %220 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp106.i) #27, !noalias !100
-  br label %ehcleanup.i84
+  br label %ehcleanup.i77
 
-cleanup119.i:                                     ; preds = %invoke.cont90.i103, %invoke.cont114.i
-  %ref.tmp106.sink.i = phi ptr [ %ref.tmp85.i, %invoke.cont90.i103 ], [ %ref.tmp106.i, %invoke.cont114.i ]
+cleanup119.i:                                     ; preds = %invoke.cont90.i96, %invoke.cont114.i
+  %ref.tmp106.sink.i = phi ptr [ %ref.tmp85.i, %invoke.cont90.i96 ], [ %ref.tmp106.i, %invoke.cont114.i ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp106.sink.i) #27, !noalias !100
   store i64 0, ptr %agg.result, align 8, !alias.scope !100
-  %.pre = load i64, ptr %nanos.i66, align 8, !noalias !100
-  %and.i.i.i.i.i.i87 = and i64 %.pre, 1
-  %cmp.i.i.i.i.i.i88 = icmp eq i64 %and.i.i.i.i.i.i87, 0
-  br i1 %cmp.i.i.i.i.i.i88, label %cleanup120.i, label %if.then.i.i.i.i.i89
+  %.pre = load i64, ptr %nanos.i65, align 8, !noalias !100
+  %and.i.i.i.i.i.i80 = and i64 %.pre, 1
+  %cmp.i.i.i.i.i.i81 = icmp eq i64 %and.i.i.i.i.i.i80, 0
+  br i1 %cmp.i.i.i.i.i.i81, label %cleanup120.i, label %if.then.i.i.i.i.i82
 
-if.then.i.i.i.i.i89:                              ; preds = %cleanup119.i
+if.then.i.i.i.i.i82:                              ; preds = %cleanup119.i
   invoke void @_ZN4absl12lts_202308026Status15UnrefNonInlinedEm(i64 noundef %.pre)
-          to label %cleanup120.i unwind label %terminate.lpad.i.i.i.i90
+          to label %cleanup120.i unwind label %terminate.lpad.i.i.i.i83
 
-terminate.lpad.i.i.i.i90:                         ; preds = %if.then.i.i.i.i.i89
-  %209 = landingpad { ptr, i32 }
+terminate.lpad.i.i.i.i83:                         ; preds = %if.then.i.i.i.i.i82
+  %221 = landingpad { ptr, i32 }
           catch ptr null
-  %210 = extractvalue { ptr, i32 } %209, 0
-  call void @__clang_call_terminate(ptr %210) #28
+  %222 = extractvalue { ptr, i32 } %221, 0
+  call void @__clang_call_terminate(ptr %222) #28
   unreachable
 
-ehcleanup.i84:                                    ; preds = %lpad116.i, %lpad92.i, %lpad32.i
-  %.pn.i85 = phi { ptr, i32 } [ %188, %lpad32.i ], [ %199, %lpad92.i ], [ %208, %lpad116.i ]
-  call void @_ZN4absl12lts_202308028StatusOrIiED2Ev(ptr noundef nonnull align 8 dereferenceable(12) %nanos.i66) #27
+ehcleanup.i77:                                    ; preds = %lpad116.i, %lpad92.i, %lpad32.i
+  %.pn.i78 = phi { ptr, i32 } [ %200, %lpad32.i ], [ %211, %lpad92.i ], [ %220, %lpad116.i ]
+  call void @_ZN4absl12lts_202308028StatusOrIiED2Ev(ptr noundef nonnull align 8 dereferenceable(12) %nanos.i65) #27
   br label %ehcleanup121.i
 
-cleanup120.i:                                     ; preds = %if.then76.invoke.i, %if.then.i.i.i.i.i89, %cleanup119.i, %if.then12.i
-  %211 = load i64, ptr %secs.i65, align 8, !noalias !100
-  %and.i.i.i.i.i127.i = and i64 %211, 1
+cleanup120.i:                                     ; preds = %if.then76.invoke.i, %if.then.i.i.i.i.i82, %cleanup119.i, %if.then12.i
+  %223 = load i64, ptr %secs.i64, align 8, !noalias !100
+  %and.i.i.i.i.i127.i = and i64 %223, 1
   %cmp.i.i.i.i.i128.i = icmp eq i64 %and.i.i.i.i.i127.i, 0
   br i1 %cmp.i.i.i.i.i128.i, label %_ZN6google8protobuf13json_internal12_GLOBAL__N_113WriteDurationINS1_23UnparseProto2DescriptorEEEN4absl12lts_202308026StatusERNS1_10JsonWriterERKNT_3MsgERKNSA_4DescE.exit, label %if.then.i.i.i.i129.i
 
 if.then.i.i.i.i129.i:                             ; preds = %cleanup120.i
-  invoke void @_ZN4absl12lts_202308026Status15UnrefNonInlinedEm(i64 noundef %211)
+  invoke void @_ZN4absl12lts_202308026Status15UnrefNonInlinedEm(i64 noundef %223)
           to label %_ZN6google8protobuf13json_internal12_GLOBAL__N_113WriteDurationINS1_23UnparseProto2DescriptorEEEN4absl12lts_202308026StatusERNS1_10JsonWriterERKNT_3MsgERKNSA_4DescE.exit unwind label %terminate.lpad.i.i.i130.i
 
 terminate.lpad.i.i.i130.i:                        ; preds = %if.then.i.i.i.i129.i
-  %212 = landingpad { ptr, i32 }
+  %224 = landingpad { ptr, i32 }
           catch ptr null
-  %213 = extractvalue { ptr, i32 } %212, 0
-  call void @__clang_call_terminate(ptr %213) #28
+  %225 = extractvalue { ptr, i32 } %224, 0
+  call void @__clang_call_terminate(ptr %225) #28
   unreachable
 
-ehcleanup121.i:                                   ; preds = %ehcleanup.i84, %lpad.i82
-  %.pn13.i = phi { ptr, i32 } [ %176, %lpad.i82 ], [ %.pn.i85, %ehcleanup.i84 ]
-  call void @_ZN4absl12lts_202308028StatusOrIlED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %secs.i65) #27
+ehcleanup121.i:                                   ; preds = %ehcleanup.i77, %lpad.i75
+  %.pn13.i = phi { ptr, i32 } [ %186, %lpad.i75 ], [ %.pn.i78, %ehcleanup.i77 ]
+  call void @_ZN4absl12lts_202308028StatusOrIlED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %secs.i64) #27
   br label %common.resume
 
 _ZN6google8protobuf13json_internal12_GLOBAL__N_113WriteDurationINS1_23UnparseProto2DescriptorEEEN4absl12lts_202308026StatusERNS1_10JsonWriterERKNT_3MsgERKNSA_4DescE.exit: ; preds = %cleanup120.i, %if.then.i.i.i.i129.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %secs.i65)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %nanos.i66)
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %secs.i64)
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %nanos.i65)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp85.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %sign.i)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp106.i)
@@ -2386,47 +2362,47 @@ _ZN6google8protobuf13json_internal12_GLOBAL__N_113WriteDurationINS1_23UnparsePro
 sw.bb11:                                          ; preds = %entry
   tail call void @llvm.experimental.noalias.scope.decl(metadata !117)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %path.i)
-  %call.i107 = tail call noundef ptr @_ZN6google8protobuf13json_internal16Proto2Descriptor13MustHaveFieldERKNS0_10DescriptorEiNS1_12JsonLocation14SourceLocationE(ptr noundef nonnull align 8 dereferenceable(152) %desc, i32 noundef 1), !noalias !117
-  %label_.i.i.i.i108 = getelementptr inbounds nuw i8, ptr %call.i107, i64 1
-  %bf.load.i.i.i.i109 = load i8, ptr %label_.i.i.i.i108, align 1, !noalias !117
-  %214 = and i8 %bf.load.i.i.i.i109, 96
-  %cmp.i.i.i110 = icmp eq i8 %214, 96
-  %vtable.i.i.i111 = load ptr, ptr %msg, align 8, !noalias !117
-  %vfn.i.i.i112 = getelementptr inbounds nuw i8, ptr %vtable.i.i.i111, i64 80
-  %215 = load ptr, ptr %vfn.i.i.i112, align 8, !noalias !117
-  %call.i.i.i113 = tail call { ptr, ptr } %215(ptr noundef nonnull align 8 dereferenceable(16) %msg), !noalias !117
-  %216 = extractvalue { ptr, ptr } %call.i.i.i113, 1
-  br i1 %cmp.i.i.i110, label %if.then.i.i128, label %if.else.i.i114
+  %call.i101 = tail call noundef ptr @_ZN6google8protobuf13json_internal16Proto2Descriptor13MustHaveFieldERKNS0_10DescriptorEiNS1_12JsonLocation14SourceLocationE(ptr noundef nonnull align 8 dereferenceable(152) %desc, i32 noundef 1), !noalias !117
+  %label_.i.i.i.i102 = getelementptr inbounds nuw i8, ptr %call.i101, i64 1
+  %bf.load.i.i.i.i103 = load i8, ptr %label_.i.i.i.i102, align 1, !noalias !117
+  %226 = and i8 %bf.load.i.i.i.i103, 96
+  %cmp.i.i.i104 = icmp eq i8 %226, 96
+  %vtable.i.i.i105 = load ptr, ptr %msg, align 8, !noalias !117
+  %vfn.i.i.i106 = getelementptr inbounds nuw i8, ptr %vtable.i.i.i105, i64 80
+  %227 = load ptr, ptr %vfn.i.i.i106, align 8, !noalias !117
+  %call.i.i.i107 = tail call { ptr, ptr } %227(ptr noundef nonnull align 8 dereferenceable(16) %msg), !noalias !117
+  %228 = extractvalue { ptr, ptr } %call.i.i.i107, 1
+  br i1 %cmp.i.i.i104, label %if.then.i.i119, label %if.else.i.i
 
-if.then.i.i128:                                   ; preds = %sw.bb11
-  %call2.i.i129 = tail call noundef i32 @_ZNK6google8protobuf10Reflection9FieldSizeERKNS0_7MessageEPKNS0_15FieldDescriptorE(ptr noundef nonnull align 8 dereferenceable(112) %216, ptr noundef nonnull align 8 dereferenceable(16) %msg, ptr noundef nonnull %call.i107)
-  %conv.i.i130 = sext i32 %call2.i.i129 to i64
-  br label %_ZN6google8protobuf13json_internal23UnparseProto2Descriptor7GetSizeEPKNS0_15FieldDescriptorERKNS0_7MessageE.exit.i117
+if.then.i.i119:                                   ; preds = %sw.bb11
+  %call2.i.i120 = tail call noundef i32 @_ZNK6google8protobuf10Reflection9FieldSizeERKNS0_7MessageEPKNS0_15FieldDescriptorE(ptr noundef nonnull align 8 dereferenceable(112) %228, ptr noundef nonnull align 8 dereferenceable(16) %msg, ptr noundef nonnull %call.i101)
+  %conv.i.i = sext i32 %call2.i.i120 to i64
+  br label %_ZN6google8protobuf13json_internal23UnparseProto2Descriptor7GetSizeEPKNS0_15FieldDescriptorERKNS0_7MessageE.exit.i109
 
-if.else.i.i114:                                   ; preds = %sw.bb11
-  %call4.i.i115 = tail call noundef zeroext i1 @_ZNK6google8protobuf10Reflection8HasFieldERKNS0_7MessageEPKNS0_15FieldDescriptorE(ptr noundef nonnull align 8 dereferenceable(112) %216, ptr noundef nonnull align 8 dereferenceable(16) %msg, ptr noundef nonnull %call.i107)
-  %conv5.i.i116 = zext i1 %call4.i.i115 to i64
-  br label %_ZN6google8protobuf13json_internal23UnparseProto2Descriptor7GetSizeEPKNS0_15FieldDescriptorERKNS0_7MessageE.exit.i117
+if.else.i.i:                                      ; preds = %sw.bb11
+  %call4.i.i108 = tail call noundef zeroext i1 @_ZNK6google8protobuf10Reflection8HasFieldERKNS0_7MessageEPKNS0_15FieldDescriptorE(ptr noundef nonnull align 8 dereferenceable(112) %228, ptr noundef nonnull align 8 dereferenceable(16) %msg, ptr noundef nonnull %call.i101)
+  %conv5.i.i = zext i1 %call4.i.i108 to i64
+  br label %_ZN6google8protobuf13json_internal23UnparseProto2Descriptor7GetSizeEPKNS0_15FieldDescriptorERKNS0_7MessageE.exit.i109
 
-_ZN6google8protobuf13json_internal23UnparseProto2Descriptor7GetSizeEPKNS0_15FieldDescriptorERKNS0_7MessageE.exit.i117: ; preds = %if.else.i.i114, %if.then.i.i128
-  %retval.0.i.i118 = phi i64 [ %conv.i.i130, %if.then.i.i128 ], [ %conv5.i.i116, %if.else.i.i114 ]
+_ZN6google8protobuf13json_internal23UnparseProto2Descriptor7GetSizeEPKNS0_15FieldDescriptorERKNS0_7MessageE.exit.i109: ; preds = %if.else.i.i, %if.then.i.i119
+  %retval.0.i.i = phi i64 [ %conv.i.i, %if.then.i.i119 ], [ %conv5.i.i, %if.else.i.i ]
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %c.addr.i.i), !noalias !117
   store i8 34, ptr %c.addr.i.i, align 1, !noalias !117
   call void @_ZN6google8protobuf2io16zc_sink_internal22ZeroCopyStreamByteSink6AppendEPKcm(ptr noundef nonnull align 8 dereferenceable(88) %writer, ptr noundef nonnull %c.addr.i.i, i64 noundef 1), !noalias !117
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %c.addr.i.i), !noalias !117
-  %cmp65.not.i119 = icmp eq i64 %retval.0.i.i118, 0
-  br i1 %cmp65.not.i119, label %for.end58.i, label %for.body.lr.ph.i
+  %cmp65.not.i110 = icmp eq i64 %retval.0.i.i, 0
+  br i1 %cmp65.not.i110, label %for.end58.i, label %for.body.lr.ph.i
 
-for.body.lr.ph.i:                                 ; preds = %_ZN6google8protobuf13json_internal23UnparseProto2Descriptor7GetSizeEPKNS0_15FieldDescriptorERKNS0_7MessageE.exit.i117
+for.body.lr.ph.i:                                 ; preds = %_ZN6google8protobuf13json_internal23UnparseProto2Descriptor7GetSizeEPKNS0_15FieldDescriptorERKNS0_7MessageE.exit.i109
   %scratch_buf_.i.i = getelementptr inbounds nuw i8, ptr %writer, i64 56
-  %217 = getelementptr inbounds nuw i8, ptr %path.i, i64 8
-  %218 = getelementptr inbounds nuw i8, ptr %path.i, i64 16
-  %allow_legacy_syntax.i120 = getelementptr inbounds nuw i8, ptr %writer, i64 45
+  %229 = getelementptr inbounds nuw i8, ptr %path.i, i64 8
+  %230 = getelementptr inbounds nuw i8, ptr %path.i, i64 16
+  %allow_legacy_syntax.i111 = getelementptr inbounds nuw i8, ptr %writer, i64 45
   br label %for.body.i
 
 for.cond.i:                                       ; preds = %for.inc.i, %invoke.cont7.i
   %inc.i = add nuw i64 %i.067.i, 1
-  %exitcond.not.i = icmp eq i64 %inc.i, %retval.0.i.i118
+  %exitcond.not.i = icmp eq i64 %inc.i, %retval.0.i.i
   br i1 %exitcond.not.i, label %for.end58.i, label %for.body.i, !llvm.loop !120
 
 for.body.i:                                       ; preds = %for.cond.i, %for.body.lr.ph.i
@@ -2438,17 +2414,17 @@ if.end.i.i:                                       ; preds = %for.body.i
   call void @_ZN6google8protobuf2io16zc_sink_internal22ZeroCopyStreamByteSink6AppendEPKcm(ptr noundef nonnull align 8 dereferenceable(88) %writer, ptr noundef nonnull @.str.31, i64 noundef 1), !noalias !117
   br label %invoke.cont7.i
 
-lpad.loopexit.i:                                  ; preds = %if.end48.i, %if.then46.i125, %if.then26.i, %if.then16.i
+lpad.loopexit.i:                                  ; preds = %if.end48.i, %if.then46.i116, %if.then26.i, %if.then16.i
   %lpad.loopexit56.i = landingpad { ptr, i32 }
           cleanup
-  br label %lpad.i124
+  br label %lpad.i115
 
 lpad.loopexit.split-lp.i:                         ; preds = %if.then41.i
   %lpad.loopexit.split-lp57.i = landingpad { ptr, i32 }
           cleanup
-  br label %lpad.i124
+  br label %lpad.i115
 
-lpad.i124:                                        ; preds = %lpad.loopexit.split-lp.i, %lpad.loopexit.i
+lpad.i115:                                        ; preds = %lpad.loopexit.split-lp.i, %lpad.loopexit.i
   %lpad.phi.i = phi { ptr, i32 } [ %lpad.loopexit56.i, %lpad.loopexit.i ], [ %lpad.loopexit.split-lp57.i, %lpad.loopexit.split-lp.i ]
   call void @_ZN4absl12lts_202308028StatusOrISt17basic_string_viewIcSt11char_traitsIcEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %path.i) #27
   br label %common.resume
@@ -2457,40 +2433,40 @@ invoke.cont7.i:                                   ; preds = %if.end.i.i, %for.bo
   call void @llvm.experimental.noalias.scope.decl(metadata !121)
   %vtable.i.i29.i = load ptr, ptr %msg, align 8, !noalias !124
   %vfn.i.i30.i = getelementptr inbounds nuw i8, ptr %vtable.i.i29.i, i64 80
-  %219 = load ptr, ptr %vfn.i.i30.i, align 8, !noalias !124
-  %call.i.i31.i = call { ptr, ptr } %219(ptr noundef nonnull align 8 dereferenceable(16) %msg), !noalias !124
-  %220 = extractvalue { ptr, ptr } %call.i.i31.i, 1
+  %231 = load ptr, ptr %vfn.i.i30.i, align 8, !noalias !124
+  %call.i.i31.i = call { ptr, ptr } %231(ptr noundef nonnull align 8 dereferenceable(16) %msg), !noalias !124
+  %232 = extractvalue { ptr, ptr } %call.i.i31.i, 1
   %conv.i32.i = trunc i64 %i.067.i to i32
-  %call1.i.i121 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNK6google8protobuf10Reflection26GetRepeatedStringReferenceERKNS0_7MessageEPKNS0_15FieldDescriptorEiPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(112) %220, ptr noundef nonnull align 8 dereferenceable(16) %msg, ptr noundef %call.i107, i32 noundef %conv.i32.i, ptr noundef nonnull align 8 dereferenceable(32) %scratch_buf_.i.i)
-  %call.i.i.i.i.i = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %call1.i.i121) #27, !noalias !124
-  %221 = extractvalue { i64, ptr } %call.i.i.i.i.i, 0
-  store i64 %221, ptr %217, align 8, !alias.scope !121, !noalias !117
-  %222 = extractvalue { i64, ptr } %call.i.i.i.i.i, 1
-  store ptr %222, ptr %218, align 8, !alias.scope !121, !noalias !117
+  %call1.i.i112 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNK6google8protobuf10Reflection26GetRepeatedStringReferenceERKNS0_7MessageEPKNS0_15FieldDescriptorEiPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(112) %232, ptr noundef nonnull align 8 dereferenceable(16) %msg, ptr noundef %call.i101, i32 noundef %conv.i32.i, ptr noundef nonnull align 8 dereferenceable(32) %scratch_buf_.i.i)
+  %call.i.i.i.i.i = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %call1.i.i112) #27, !noalias !124
+  %233 = extractvalue { i64, ptr } %call.i.i.i.i.i, 0
+  store i64 %233, ptr %229, align 8, !alias.scope !121, !noalias !117
+  %234 = extractvalue { i64, ptr } %call.i.i.i.i.i, 1
+  store ptr %234, ptr %230, align 8, !alias.scope !121, !noalias !117
   store i64 0, ptr %path.i, align 8, !alias.scope !121, !noalias !117
   store i64 0, ptr %agg.result, align 8, !alias.scope !117
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %222, i64 %221
-  %cmp12.not.not61.i = icmp eq i64 %221, 0
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %234, i64 %233
+  %cmp12.not.not61.i = icmp eq i64 %233, 0
   br i1 %cmp12.not.not61.i, label %for.cond.i, label %for.body13.i
 
 for.body13.i:                                     ; preds = %invoke.cont7.i, %for.inc.i
-  %__begin0.063.i = phi ptr [ %incdec.ptr.i, %for.inc.i ], [ %222, %invoke.cont7.i ]
+  %__begin0.063.i = phi ptr [ %incdec.ptr.i, %for.inc.i ], [ %234, %invoke.cont7.i ]
   %saw_under.062.i = phi i8 [ %saw_under.1.i, %for.inc.i ], [ 0, %invoke.cont7.i ]
-  %223 = load i8, ptr %__begin0.063.i, align 1
-  %224 = add i8 %223, -97
-  %225 = icmp ult i8 %224, 26
-  br i1 %225, label %land.lhs.true.i, label %if.else.i122
+  %235 = load i8, ptr %__begin0.063.i, align 1
+  %236 = add i8 %235, -97
+  %237 = icmp ult i8 %236, 26
+  br i1 %237, label %land.lhs.true.i, label %if.else.i113
 
 land.lhs.true.i:                                  ; preds = %for.body13.i
-  %tobool.i126 = trunc nuw i8 %saw_under.062.i to i1
-  br i1 %tobool.i126, label %if.then16.i, label %if.then26.i
+  %tobool.i117 = trunc nuw i8 %saw_under.062.i to i1
+  br i1 %tobool.i117, label %if.then16.i, label %if.then26.i
 
 if.then16.i:                                      ; preds = %land.lhs.true.i
-  %idxprom.i.i = zext nneg i8 %223 to i64
-  %arrayidx.i.i127 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4absl12lts_2023080214ascii_internal8kToUpperE, i64 0, i64 %idxprom.i.i
-  %226 = load i8, ptr %arrayidx.i.i127, align 1, !noalias !117
+  %idxprom.i.i = zext nneg i8 %235 to i64
+  %arrayidx.i.i118 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4absl12lts_2023080214ascii_internal8kToUpperE, i64 0, i64 %idxprom.i.i
+  %238 = load i8, ptr %arrayidx.i.i118, align 1, !noalias !117
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %c.addr.i38.i), !noalias !117
-  store i8 %226, ptr %c.addr.i38.i, align 1, !noalias !117
+  store i8 %238, ptr %c.addr.i38.i, align 1, !noalias !117
   invoke void @_ZN6google8protobuf2io16zc_sink_internal22ZeroCopyStreamByteSink6AppendEPKcm(ptr noundef nonnull align 8 dereferenceable(88) %writer, ptr noundef nonnull %c.addr.i38.i, i64 noundef 1)
           to label %_ZN6google8protobuf13json_internal10JsonWriter5WriteEc.exit.i unwind label %lpad.loopexit.i, !noalias !117
 
@@ -2498,16 +2474,16 @@ _ZN6google8protobuf13json_internal10JsonWriter5WriteEc.exit.i: ; preds = %if.the
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %c.addr.i38.i), !noalias !117
   br label %for.inc.i
 
-if.else.i122:                                     ; preds = %for.body13.i
-  %227 = add i8 %223, -48
-  %228 = icmp ult i8 %227, 10
-  %cmp25.i = icmp eq i8 %223, 46
-  %or.cond55.i = or i1 %cmp25.i, %228
+if.else.i113:                                     ; preds = %for.body13.i
+  %239 = add i8 %235, -48
+  %240 = icmp ult i8 %239, 10
+  %cmp25.i = icmp eq i8 %235, 46
+  %or.cond55.i = or i1 %cmp25.i, %240
   br i1 %or.cond55.i, label %if.then26.i, label %if.else28.i
 
-if.then26.i:                                      ; preds = %if.else.i122, %land.lhs.true.i
+if.then26.i:                                      ; preds = %if.else.i113, %land.lhs.true.i
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %c.addr.i40.i), !noalias !117
-  store i8 %223, ptr %c.addr.i40.i, align 1, !noalias !117
+  store i8 %235, ptr %c.addr.i40.i, align 1, !noalias !117
   invoke void @_ZN6google8protobuf2io16zc_sink_internal22ZeroCopyStreamByteSink6AppendEPKcm(ptr noundef nonnull align 8 dereferenceable(88) %writer, ptr noundef nonnull %c.addr.i40.i, i64 noundef 1)
           to label %_ZN6google8protobuf13json_internal10JsonWriter5WriteEc.exit42.i unwind label %lpad.loopexit.i, !noalias !117
 
@@ -2515,12 +2491,12 @@ _ZN6google8protobuf13json_internal10JsonWriter5WriteEc.exit42.i: ; preds = %if.t
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %c.addr.i40.i), !noalias !117
   br label %for.inc.i
 
-if.else28.i:                                      ; preds = %if.else.i122
-  %cmp30.i123 = icmp eq i8 %223, 95
-  br i1 %cmp30.i123, label %land.lhs.true31.i, label %if.else28.if.else37_crit_edge.i
+if.else28.i:                                      ; preds = %if.else.i113
+  %cmp30.i114 = icmp eq i8 %235, 95
+  br i1 %cmp30.i114, label %land.lhs.true31.i, label %if.else28.if.else37_crit_edge.i
 
 if.else28.if.else37_crit_edge.i:                  ; preds = %if.else28.i
-  %.pre.i = load i8, ptr %allow_legacy_syntax.i120, align 1, !noalias !117
+  %.pre.i = load i8, ptr %allow_legacy_syntax.i111, align 1, !noalias !117
   br label %if.else37.i
 
 land.lhs.true31.i:                                ; preds = %if.else28.i
@@ -2528,13 +2504,13 @@ land.lhs.true31.i:                                ; preds = %if.else28.i
   br i1 %tobool32.i, label %lor.lhs.false33.i, label %for.inc.i
 
 lor.lhs.false33.i:                                ; preds = %land.lhs.true31.i
-  %229 = load i8, ptr %allow_legacy_syntax.i120, align 1, !noalias !117
-  %tobool35.i = trunc i8 %229 to i1
+  %241 = load i8, ptr %allow_legacy_syntax.i111, align 1, !noalias !117
+  %tobool35.i = trunc i8 %241 to i1
   br i1 %tobool35.i, label %for.inc.i, label %if.else37.i
 
 if.else37.i:                                      ; preds = %lor.lhs.false33.i, %if.else28.if.else37_crit_edge.i
-  %230 = phi i8 [ %.pre.i, %if.else28.if.else37_crit_edge.i ], [ %229, %lor.lhs.false33.i ]
-  %tobool40.i = trunc i8 %230 to i1
+  %242 = phi i8 [ %.pre.i, %if.else28.if.else37_crit_edge.i ], [ %241, %lor.lhs.false33.i ]
+  %tobool40.i = trunc i8 %242 to i1
   br i1 %tobool40.i, label %if.else44.i, label %if.then41.i
 
 if.then41.i:                                      ; preds = %if.else37.i
@@ -2543,21 +2519,21 @@ if.then41.i:                                      ; preds = %if.else37.i
 
 if.else44.i:                                      ; preds = %if.else37.i
   %tobool45.i = trunc nuw i8 %saw_under.062.i to i1
-  br i1 %tobool45.i, label %if.then46.i125, label %if.end48.i
+  br i1 %tobool45.i, label %if.then46.i116, label %if.end48.i
 
-if.then46.i125:                                   ; preds = %if.else44.i
+if.then46.i116:                                   ; preds = %if.else44.i
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %c.addr.i46.i), !noalias !117
   store i8 95, ptr %c.addr.i46.i, align 1, !noalias !117
   invoke void @_ZN6google8protobuf2io16zc_sink_internal22ZeroCopyStreamByteSink6AppendEPKcm(ptr noundef nonnull align 8 dereferenceable(88) %writer, ptr noundef nonnull %c.addr.i46.i, i64 noundef 1)
           to label %_ZN6google8protobuf13json_internal10JsonWriter5WriteEc.exit48.i unwind label %lpad.loopexit.i, !noalias !117
 
-_ZN6google8protobuf13json_internal10JsonWriter5WriteEc.exit48.i: ; preds = %if.then46.i125
+_ZN6google8protobuf13json_internal10JsonWriter5WriteEc.exit48.i: ; preds = %if.then46.i116
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %c.addr.i46.i), !noalias !117
   br label %if.end48.i
 
 if.end48.i:                                       ; preds = %_ZN6google8protobuf13json_internal10JsonWriter5WriteEc.exit48.i, %if.else44.i
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %c.addr.i49.i), !noalias !117
-  store i8 %223, ptr %c.addr.i49.i, align 1, !noalias !117
+  store i8 %235, ptr %c.addr.i49.i, align 1, !noalias !117
   invoke void @_ZN6google8protobuf2io16zc_sink_internal22ZeroCopyStreamByteSink6AppendEPKcm(ptr noundef nonnull align 8 dereferenceable(88) %writer, ptr noundef nonnull %c.addr.i49.i, i64 noundef 1)
           to label %_ZN6google8protobuf13json_internal10JsonWriter5WriteEc.exit51.i unwind label %lpad.loopexit.i, !noalias !117
 
@@ -2571,7 +2547,7 @@ for.inc.i:                                        ; preds = %_ZN6google8protobuf
   %cmp12.not.not.i = icmp eq ptr %incdec.ptr.i, %add.ptr.i.i
   br i1 %cmp12.not.not.i, label %for.cond.i, label %for.body13.i
 
-for.end58.i:                                      ; preds = %for.cond.i, %_ZN6google8protobuf13json_internal23UnparseProto2Descriptor7GetSizeEPKNS0_15FieldDescriptorERKNS0_7MessageE.exit.i117
+for.end58.i:                                      ; preds = %for.cond.i, %_ZN6google8protobuf13json_internal23UnparseProto2Descriptor7GetSizeEPKNS0_15FieldDescriptorERKNS0_7MessageE.exit.i109
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %c.addr.i52.i), !noalias !117
   store i8 34, ptr %c.addr.i52.i, align 1, !noalias !117
   call void @_ZN6google8protobuf2io16zc_sink_internal22ZeroCopyStreamByteSink6AppendEPKcm(ptr noundef nonnull align 8 dereferenceable(88) %writer, ptr noundef nonnull %c.addr.i52.i, i64 noundef 1), !noalias !117
@@ -2586,63 +2562,63 @@ _ZN6google8protobuf13json_internal12_GLOBAL__N_114WriteFieldMaskINS1_23UnparsePr
 cleanup:                                          ; preds = %entry
   tail call void @_ZN6google8protobuf2io16zc_sink_internal22ZeroCopyStreamByteSink6AppendEPKcm(ptr noundef nonnull align 8 dereferenceable(88) %writer, ptr noundef nonnull @.str.2, i64 noundef 1)
   %indent_.i = getelementptr inbounds nuw i8, ptr %writer, i64 48
-  %231 = load i32, ptr %indent_.i, align 8
-  %inc.i132 = add nsw i32 %231, 1
-  store i32 %inc.i132, ptr %indent_.i, align 8
+  %243 = load i32, ptr %indent_.i, align 8
+  %inc.i122 = add nsw i32 %243, 1
+  store i32 %inc.i122, ptr %indent_.i, align 8
   store i8 1, ptr %first, align 1
   call fastcc void @_ZN6google8protobuf13json_internal12_GLOBAL__N_111WriteFieldsINS1_23UnparseProto2DescriptorEEEN4absl12lts_202308026StatusERNS1_10JsonWriterERKNT_3MsgERKNSA_4DescERb(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(88) %writer, ptr noundef nonnull align 8 dereferenceable(16) %msg, ptr noundef nonnull align 8 dereferenceable(152) %desc, ptr noundef nonnull align 1 dereferenceable(1) %first)
-  %232 = load i64, ptr %agg.result, align 8
-  %cmp.i = icmp eq i64 %232, 0
+  %244 = load i64, ptr %agg.result, align 8
+  %cmp.i = icmp eq i64 %244, 0
   br i1 %cmp.i, label %do.end, label %return
 
 do.end:                                           ; preds = %cleanup
-  %233 = load i32, ptr %indent_.i, align 8
-  %dec.i = add nsw i32 %233, -1
+  %245 = load i32, ptr %indent_.i, align 8
+  %dec.i = add nsw i32 %245, -1
   store i32 %dec.i, ptr %indent_.i, align 8
-  %234 = load i8, ptr %first, align 1
-  %tobool16 = trunc i8 %234 to i1
+  %246 = load i8, ptr %first, align 1
+  %tobool16 = trunc i8 %246 to i1
   br i1 %tobool16, label %if.end18, label %if.then17
 
 if.then17:                                        ; preds = %do.end
   %options_.i.i = getelementptr inbounds nuw i8, ptr %writer, i64 40
-  %235 = load i8, ptr %options_.i.i, align 8
-  %tobool.i.i = trunc i8 %235 to i1
-  br i1 %tobool.i.i, label %if.then.i.i144, label %_ZN6google8protobuf13json_internal10JsonWriter10WhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit.i
+  %247 = load i8, ptr %options_.i.i, align 8
+  %tobool.i.i = trunc i8 %247 to i1
+  br i1 %tobool.i.i, label %if.then.i.i134, label %_ZN6google8protobuf13json_internal10JsonWriter10WhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit.i
 
-if.then.i.i144:                                   ; preds = %if.then17
+if.then.i.i134:                                   ; preds = %if.then17
   tail call void @_ZN6google8protobuf2io16zc_sink_internal22ZeroCopyStreamByteSink6AppendEPKcm(ptr noundef nonnull align 8 dereferenceable(88) %writer, ptr noundef nonnull @.str, i64 noundef 1)
-  %.pre323 = load i32, ptr %indent_.i, align 8
+  %.pre313 = load i32, ptr %indent_.i, align 8
   br label %_ZN6google8protobuf13json_internal10JsonWriter10WhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit.i
 
-_ZN6google8protobuf13json_internal10JsonWriter10WhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit.i: ; preds = %if.then.i.i144, %if.then17
-  %236 = phi i32 [ %.pre323, %if.then.i.i144 ], [ %dec.i, %if.then17 ]
-  %cmp8.i138 = icmp sgt i32 %236, 0
-  br i1 %cmp8.i138, label %for.body.lr.ph.i139, label %if.end18
+_ZN6google8protobuf13json_internal10JsonWriter10WhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit.i: ; preds = %if.then.i.i134, %if.then17
+  %248 = phi i32 [ %.pre313, %if.then.i.i134 ], [ %dec.i, %if.then17 ]
+  %cmp8.i128 = icmp sgt i32 %248, 0
+  br i1 %cmp8.i128, label %for.body.lr.ph.i129, label %if.end18
 
-for.body.lr.ph.i139:                              ; preds = %_ZN6google8protobuf13json_internal10JsonWriter10WhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit.i
-  %237 = load i8, ptr %options_.i.i, align 8
-  %238 = trunc i8 %237 to i1
-  br i1 %238, label %for.body.i140, label %if.end18
+for.body.lr.ph.i129:                              ; preds = %_ZN6google8protobuf13json_internal10JsonWriter10WhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit.i
+  %249 = load i8, ptr %options_.i.i, align 8
+  %250 = trunc i8 %249 to i1
+  br i1 %250, label %for.body.i130, label %if.end18
 
-for.body.i140:                                    ; preds = %for.body.lr.ph.i139, %_ZN6google8protobuf13json_internal10JsonWriter10WhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit7.i
-  %239 = phi i32 [ %241, %_ZN6google8protobuf13json_internal10JsonWriter10WhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit7.i ], [ %236, %for.body.lr.ph.i139 ]
-  %i.09.i = phi i32 [ %inc.i141, %_ZN6google8protobuf13json_internal10JsonWriter10WhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit7.i ], [ 0, %for.body.lr.ph.i139 ]
-  %240 = load i8, ptr %options_.i.i, align 8
-  %tobool.i5.i = trunc i8 %240 to i1
+for.body.i130:                                    ; preds = %for.body.lr.ph.i129, %_ZN6google8protobuf13json_internal10JsonWriter10WhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit7.i
+  %251 = phi i32 [ %253, %_ZN6google8protobuf13json_internal10JsonWriter10WhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit7.i ], [ %248, %for.body.lr.ph.i129 ]
+  %i.09.i = phi i32 [ %inc.i131, %_ZN6google8protobuf13json_internal10JsonWriter10WhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit7.i ], [ 0, %for.body.lr.ph.i129 ]
+  %252 = load i8, ptr %options_.i.i, align 8
+  %tobool.i5.i = trunc i8 %252 to i1
   br i1 %tobool.i5.i, label %if.then.i6.i, label %_ZN6google8protobuf13json_internal10JsonWriter10WhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit7.i
 
-if.then.i6.i:                                     ; preds = %for.body.i140
+if.then.i6.i:                                     ; preds = %for.body.i130
   tail call void @_ZN6google8protobuf2io16zc_sink_internal22ZeroCopyStreamByteSink6AppendEPKcm(ptr noundef nonnull align 8 dereferenceable(88) %writer, ptr noundef nonnull @.str.1, i64 noundef 1)
-  %.pre.i143 = load i32, ptr %indent_.i, align 8
+  %.pre.i133 = load i32, ptr %indent_.i, align 8
   br label %_ZN6google8protobuf13json_internal10JsonWriter10WhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit7.i
 
-_ZN6google8protobuf13json_internal10JsonWriter10WhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit7.i: ; preds = %if.then.i6.i, %for.body.i140
-  %241 = phi i32 [ %239, %for.body.i140 ], [ %.pre.i143, %if.then.i6.i ]
-  %inc.i141 = add nuw nsw i32 %i.09.i, 1
-  %cmp.i142 = icmp slt i32 %inc.i141, %241
-  br i1 %cmp.i142, label %for.body.i140, label %if.end18, !llvm.loop !4
+_ZN6google8protobuf13json_internal10JsonWriter10WhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit7.i: ; preds = %if.then.i6.i, %for.body.i130
+  %253 = phi i32 [ %251, %for.body.i130 ], [ %.pre.i133, %if.then.i6.i ]
+  %inc.i131 = add nuw nsw i32 %i.09.i, 1
+  %cmp.i132 = icmp slt i32 %inc.i131, %253
+  br i1 %cmp.i132, label %for.body.i130, label %if.end18, !llvm.loop !4
 
-if.end18:                                         ; preds = %_ZN6google8protobuf13json_internal10JsonWriter10WhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit7.i, %for.body.lr.ph.i139, %_ZN6google8protobuf13json_internal10JsonWriter10WhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit.i, %do.end
+if.end18:                                         ; preds = %_ZN6google8protobuf13json_internal10JsonWriter10WhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit7.i, %for.body.lr.ph.i129, %_ZN6google8protobuf13json_internal10JsonWriter10WhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit.i, %do.end
   tail call void @_ZN6google8protobuf2io16zc_sink_internal22ZeroCopyStreamByteSink6AppendEPKcm(ptr noundef nonnull align 8 dereferenceable(88) %writer, ptr noundef nonnull @.str.3, i64 noundef 1)
   store i64 0, ptr %agg.result, align 8, !alias.scope !128
   br label %return
@@ -10443,7 +10419,7 @@ if.end:                                           ; preds = %entry
   %cmp5.i.i.i = icmp eq i32 %5, 0
   br i1 %cmp5.i.i.i, label %do.end, label %for.body.lr.ph.i.i.i
 
-common.resume:                                    ; preds = %for.body.i.i.i, %if.then.i.i7.i.i, %if.else.i.i.i.i
+common.resume:                                    ; preds = %for.body.i.i.i, %if.then.i.i7.i.i, %_ZN6google8protobuf13json_internal23UnparseProto2Descriptor7GetSizeEPKNS0_15FieldDescriptorERKNS0_7MessageE.exit.i.i.i
   %6 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN4absl12lts_202308028StatusOrIPKN6google8protobuf7MessageEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %inner.i.i) #27, !noalias !413
@@ -10453,7 +10429,7 @@ for.body.lr.ph.i.i.i:                             ; preds = %if.end
   %fields_.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 56
   br label %for.body.i.i.i
 
-for.cond.i.i.i:                                   ; preds = %_ZN6google8protobuf13json_internal23UnparseProto2Descriptor7GetSizeEPKNS0_15FieldDescriptorERKNS0_7MessageE.exit.i.i.i
+for.cond.i.i.i:                                   ; preds = %call4.i.i.noexc.i.i, %call2.i.i.noexc.i.i
   %inc.i.i.i = add nuw i64 %i.06.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %inc.i.i.i, %conv.i.i.i.i
   br i1 %exitcond.not.i.i.i, label %cleanup10.i.i, label %for.body.i.i.i, !llvm.loop !414
@@ -10476,31 +10452,25 @@ call.i.i.i.noexc.i.i:                             ; preds = %for.body.i.i.i
   %9 = and i8 %bf.load.i.i.i.i.i.i, 96
   %cmp.i.i.i6.i.i = icmp eq i8 %9, 96
   %10 = extractvalue { ptr, ptr } %call.i.i.i8.i.i, 1
-  br i1 %cmp.i.i.i6.i.i, label %if.then.i.i7.i.i, label %if.else.i.i.i.i
+  br i1 %cmp.i.i.i6.i.i, label %if.then.i.i7.i.i, label %_ZN6google8protobuf13json_internal23UnparseProto2Descriptor7GetSizeEPKNS0_15FieldDescriptorERKNS0_7MessageE.exit.i.i.i
 
 if.then.i.i7.i.i:                                 ; preds = %call.i.i.i.noexc.i.i
   %call2.i.i9.i.i = invoke noundef i32 @_ZNK6google8protobuf10Reflection9FieldSizeERKNS0_7MessageEPKNS0_15FieldDescriptorE(ptr noundef nonnull align 8 dereferenceable(112) %10, ptr noundef nonnull align 8 dereferenceable(16) %call1.i.i.i, ptr noundef nonnull %add.ptr.i.i.i.i.i)
           to label %call2.i.i.noexc.i.i unwind label %common.resume
 
 call2.i.i.noexc.i.i:                              ; preds = %if.then.i.i7.i.i
-  %conv.i4.i.i.i = sext i32 %call2.i.i9.i.i to i64
-  br label %_ZN6google8protobuf13json_internal23UnparseProto2Descriptor7GetSizeEPKNS0_15FieldDescriptorERKNS0_7MessageE.exit.i.i.i
+  %11 = icmp eq i32 %call2.i.i9.i.i, 0
+  br i1 %11, label %for.cond.i.i.i, label %cleanup10.i.i
 
-if.else.i.i.i.i:                                  ; preds = %call.i.i.i.noexc.i.i
+_ZN6google8protobuf13json_internal23UnparseProto2Descriptor7GetSizeEPKNS0_15FieldDescriptorERKNS0_7MessageE.exit.i.i.i: ; preds = %call.i.i.i.noexc.i.i
   %call4.i.i10.i.i = invoke noundef zeroext i1 @_ZNK6google8protobuf10Reflection8HasFieldERKNS0_7MessageEPKNS0_15FieldDescriptorE(ptr noundef nonnull align 8 dereferenceable(112) %10, ptr noundef nonnull align 8 dereferenceable(16) %call1.i.i.i, ptr noundef nonnull %add.ptr.i.i.i.i.i)
           to label %call4.i.i.noexc.i.i unwind label %common.resume
 
-call4.i.i.noexc.i.i:                              ; preds = %if.else.i.i.i.i
-  %conv5.i.i.i.i = zext i1 %call4.i.i10.i.i to i64
-  br label %_ZN6google8protobuf13json_internal23UnparseProto2Descriptor7GetSizeEPKNS0_15FieldDescriptorERKNS0_7MessageE.exit.i.i.i
+call4.i.i.noexc.i.i:                              ; preds = %_ZN6google8protobuf13json_internal23UnparseProto2Descriptor7GetSizeEPKNS0_15FieldDescriptorERKNS0_7MessageE.exit.i.i.i
+  br i1 %call4.i.i10.i.i, label %cleanup10.i.i, label %for.cond.i.i.i
 
-_ZN6google8protobuf13json_internal23UnparseProto2Descriptor7GetSizeEPKNS0_15FieldDescriptorERKNS0_7MessageE.exit.i.i.i: ; preds = %call4.i.i.noexc.i.i, %call2.i.i.noexc.i.i
-  %retval.0.i.i.i.i = phi i64 [ %conv.i4.i.i.i, %call2.i.i.noexc.i.i ], [ %conv5.i.i.i.i, %call4.i.i.noexc.i.i ]
-  %cmp3.not.i.i.i = icmp eq i64 %retval.0.i.i.i.i, 0
-  br i1 %cmp3.not.i.i.i, label %for.cond.i.i.i, label %cleanup10.i.i
-
-cleanup10.i.i:                                    ; preds = %_ZN6google8protobuf13json_internal23UnparseProto2Descriptor7GetSizeEPKNS0_15FieldDescriptorERKNS0_7MessageE.exit.i.i.i, %for.cond.i.i.i
-  %cmp.lcssa.i.ph.i.i = phi i8 [ 0, %_ZN6google8protobuf13json_internal23UnparseProto2Descriptor7GetSizeEPKNS0_15FieldDescriptorERKNS0_7MessageE.exit.i.i.i ], [ 1, %for.cond.i.i.i ]
+cleanup10.i.i:                                    ; preds = %call4.i.i.noexc.i.i, %call2.i.i.noexc.i.i, %for.cond.i.i.i
+  %cmp.lcssa.i.ph.i.i = phi i8 [ 0, %call4.i.i.noexc.i.i ], [ 1, %for.cond.i.i.i ], [ 0, %call2.i.i.noexc.i.i ]
   %.pre.i.i = load i64, ptr %inner.i.i, align 8, !noalias !413
   %and.i.i.i.i.i.i.i = and i64 %.pre.i.i, 1
   %cmp.i.i.i.i.i.i.i = icmp eq i64 %and.i.i.i.i.i.i.i, 0
@@ -10511,10 +10481,10 @@ if.then.i.i.i.i.i.i:                              ; preds = %cleanup10.i.i
           to label %do.end unwind label %terminate.lpad.i.i.i.i.i, !noalias !413
 
 terminate.lpad.i.i.i.i.i:                         ; preds = %if.then.i.i.i.i.i.i
-  %11 = landingpad { ptr, i32 }
+  %12 = landingpad { ptr, i32 }
           catch ptr null
-  %12 = extractvalue { ptr, i32 } %11, 0
-  tail call void @__clang_call_terminate(ptr %12) #28
+  %13 = extractvalue { ptr, i32 } %12, 0
+  tail call void @__clang_call_terminate(ptr %13) #28
   unreachable
 
 do.end:                                           ; preds = %if.then.i.i.i.i.i.i, %cleanup10.i.i, %if.end
@@ -10524,8 +10494,8 @@ do.end:                                           ; preds = %if.then.i.i.i.i.i.i
 
 return:                                           ; preds = %entry, %do.end
   %empty.08.sink = phi i8 [ %empty.08, %do.end ], [ 0, %entry ]
-  %13 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
-  store i8 %empty.08.sink, ptr %13, align 8
+  %14 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
+  store i8 %empty.08.sink, ptr %14, align 8
   store i64 0, ptr %agg.result, align 8
   ret void
 }
@@ -10683,7 +10653,7 @@ common.resume:                                    ; preds = %ehcleanup.i, %ehcle
   %common.resume.op = phi { ptr, i32 } [ %25, %lpad.i.i ], [ %122, %lpad376.i ], [ %106, %lpad344.i ], [ %lpad.loopexit, %lpad316.i ], [ %lpad.loopexit471, %lpad270.i ], [ %lpad.loopexit474, %lpad238.i ], [ %lpad.loopexit477, %lpad207.i ], [ %84, %lpad179.i ], [ %80, %lpad151.i ], [ %lpad.phi482, %lpad108.i ], [ %lpad.phi485, %lpad68.i ], [ %.pn104.i, %ehcleanup62.i ], [ %.pn106.i, %ehcleanup.i ]
   resume { ptr, i32 } %common.resume.op
 
-lpad.i.i:                                         ; preds = %if.else.i.i.i.i, %if.then.i.i7.i.i, %for.body.i.i.i
+lpad.i.i:                                         ; preds = %_ZN6google8protobuf13json_internal23UnparseProto2Descriptor7GetSizeEPKNS0_15FieldDescriptorERKNS0_7MessageE.exit.i.i.i, %if.then.i.i7.i.i, %for.body.i.i.i
   %25 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN4absl12lts_202308028StatusOrIPKN6google8protobuf7MessageEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %inner.i.i) #27, !noalias !425
@@ -10693,8 +10663,13 @@ for.body.lr.ph.i.i.i:                             ; preds = %if.then
   %fields_.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 56
   br label %for.body.i.i.i
 
-for.body.i.i.i:                                   ; preds = %_ZN6google8protobuf13json_internal23UnparseProto2Descriptor7GetSizeEPKNS0_15FieldDescriptorERKNS0_7MessageE.exit.i.i.i, %for.body.lr.ph.i.i.i
-  %i.06.i.i.i = phi i64 [ 0, %for.body.lr.ph.i.i.i ], [ %inc.i.i.i, %_ZN6google8protobuf13json_internal23UnparseProto2Descriptor7GetSizeEPKNS0_15FieldDescriptorERKNS0_7MessageE.exit.i.i.i ]
+for.cond.i.i.i:                                   ; preds = %call4.i.i.noexc.i.i, %call2.i.i.noexc.i.i
+  %inc.i.i.i = add nuw i64 %i.06.i.i.i, 1
+  %exitcond.not.i.i.i = icmp eq i64 %inc.i.i.i, %conv.i.i.i.i
+  br i1 %exitcond.not.i.i.i, label %cleanup10.i.i, label %for.body.i.i.i, !llvm.loop !414
+
+for.body.i.i.i:                                   ; preds = %for.cond.i.i.i, %for.body.lr.ph.i.i.i
+  %i.06.i.i.i = phi i64 [ 0, %for.body.lr.ph.i.i.i ], [ %inc.i.i.i, %for.cond.i.i.i ]
   %26 = load ptr, ptr %fields_.i.i.i.i.i, align 8, !noalias !425
   %sext.i.i.i.i = shl i64 %i.06.i.i.i, 32
   %idx.ext.i.i.i.i.i = ashr exact i64 %sext.i.i.i.i, 32
@@ -10711,28 +10686,25 @@ call.i.i.i.noexc.i.i:                             ; preds = %for.body.i.i.i
   %28 = and i8 %bf.load.i.i.i.i.i.i, 96
   %cmp.i.i.i6.i.i = icmp eq i8 %28, 96
   %29 = extractvalue { ptr, ptr } %call.i.i.i8.i.i, 1
-  br i1 %cmp.i.i.i6.i.i, label %if.then.i.i7.i.i, label %if.else.i.i.i.i
+  br i1 %cmp.i.i.i6.i.i, label %if.then.i.i7.i.i, label %_ZN6google8protobuf13json_internal23UnparseProto2Descriptor7GetSizeEPKNS0_15FieldDescriptorERKNS0_7MessageE.exit.i.i.i
 
 if.then.i.i7.i.i:                                 ; preds = %call.i.i.i.noexc.i.i
   %call2.i.i9.i.i = invoke noundef i32 @_ZNK6google8protobuf10Reflection9FieldSizeERKNS0_7MessageEPKNS0_15FieldDescriptorE(ptr noundef nonnull align 8 dereferenceable(112) %29, ptr noundef nonnull align 8 dereferenceable(16) %call1.i.i.i, ptr noundef nonnull %add.ptr.i.i.i.i.i)
           to label %call2.i.i.noexc.i.i unwind label %lpad.i.i
 
 call2.i.i.noexc.i.i:                              ; preds = %if.then.i.i7.i.i
-  %30 = icmp ne i32 %call2.i.i9.i.i, 0
-  br label %_ZN6google8protobuf13json_internal23UnparseProto2Descriptor7GetSizeEPKNS0_15FieldDescriptorERKNS0_7MessageE.exit.i.i.i
+  %30 = icmp eq i32 %call2.i.i9.i.i, 0
+  br i1 %30, label %for.cond.i.i.i, label %cleanup10.i.i
 
-if.else.i.i.i.i:                                  ; preds = %call.i.i.i.noexc.i.i
+_ZN6google8protobuf13json_internal23UnparseProto2Descriptor7GetSizeEPKNS0_15FieldDescriptorERKNS0_7MessageE.exit.i.i.i: ; preds = %call.i.i.i.noexc.i.i
   %call4.i.i10.i.i = invoke noundef zeroext i1 @_ZNK6google8protobuf10Reflection8HasFieldERKNS0_7MessageEPKNS0_15FieldDescriptorE(ptr noundef nonnull align 8 dereferenceable(112) %29, ptr noundef nonnull align 8 dereferenceable(16) %call1.i.i.i, ptr noundef nonnull %add.ptr.i.i.i.i.i)
-          to label %_ZN6google8protobuf13json_internal23UnparseProto2Descriptor7GetSizeEPKNS0_15FieldDescriptorERKNS0_7MessageE.exit.i.i.i unwind label %lpad.i.i
+          to label %call4.i.i.noexc.i.i unwind label %lpad.i.i
 
-_ZN6google8protobuf13json_internal23UnparseProto2Descriptor7GetSizeEPKNS0_15FieldDescriptorERKNS0_7MessageE.exit.i.i.i: ; preds = %if.else.i.i.i.i, %call2.i.i.noexc.i.i
-  %retval.0.i.i.i.i = phi i1 [ %30, %call2.i.i.noexc.i.i ], [ %call4.i.i10.i.i, %if.else.i.i.i.i ]
-  %inc.i.i.i = add nuw i64 %i.06.i.i.i, 1
-  %exitcond.not.i.i.i = icmp eq i64 %inc.i.i.i, %conv.i.i.i.i
-  %or.cond548 = select i1 %retval.0.i.i.i.i, i1 true, i1 %exitcond.not.i.i.i
-  br i1 %or.cond548, label %cleanup10.i.i, label %for.body.i.i.i, !llvm.loop !414
+call4.i.i.noexc.i.i:                              ; preds = %_ZN6google8protobuf13json_internal23UnparseProto2Descriptor7GetSizeEPKNS0_15FieldDescriptorERKNS0_7MessageE.exit.i.i.i
+  br i1 %call4.i.i10.i.i, label %cleanup10.i.i, label %for.cond.i.i.i
 
-cleanup10.i.i:                                    ; preds = %_ZN6google8protobuf13json_internal23UnparseProto2Descriptor7GetSizeEPKNS0_15FieldDescriptorERKNS0_7MessageE.exit.i.i.i
+cleanup10.i.i:                                    ; preds = %call4.i.i.noexc.i.i, %call2.i.i.noexc.i.i, %for.cond.i.i.i
+  %cmp.lcssa.i.ph.i.i = phi i1 [ false, %call4.i.i.noexc.i.i ], [ true, %for.cond.i.i.i ], [ false, %call2.i.i.noexc.i.i ]
   %.pre.i.i = load i64, ptr %inner.i.i, align 8, !noalias !425
   store i64 0, ptr %agg.result, align 8, !alias.scope !426
   %and.i.i.i.i.i.i.i = and i64 %.pre.i.i, 1
@@ -10752,7 +10724,7 @@ terminate.lpad.i.i.i.i.i:                         ; preds = %if.then.i.i.i.i.i.i
 
 cleanup.thread:                                   ; preds = %cleanup10.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %inner.i.i), !noalias !415
-  br i1 %retval.0.i.i.i.i, label %if.end10, label %for.inc
+  br i1 %cmp.lcssa.i.ph.i.i, label %for.inc, label %if.end10
 
 cleanup:                                          ; preds = %if.then.i.i.i.i.i.i
   %.pr = load i64, ptr %agg.result, align 8
@@ -10761,7 +10733,7 @@ cleanup:                                          ; preds = %if.then.i.i.i.i.i.i
   br i1 %cmp.i, label %do.end, label %return
 
 do.end:                                           ; preds = %cleanup
-  br i1 %retval.0.i.i.i.i, label %if.end10, label %for.inc
+  br i1 %cmp.lcssa.i.ph.i.i, label %for.inc, label %if.end10
 
 if.end10:                                         ; preds = %cleanup.thread, %do.end, %for.body
   %tobool.i = trunc nuw i8 %first.0533 to i1

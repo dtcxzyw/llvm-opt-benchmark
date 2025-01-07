@@ -2637,45 +2637,45 @@ rbimpl_intern_const.exit31:                       ; preds = %.lr.ph.i29, %27
   %34 = icmp ne i64 %33, 0
   %35 = icmp eq i64 %32, 0
   %36 = or i1 %35, %34
-  br i1 %36, label %.thread30.i, label %37
+  br i1 %36, label %.critedge.i, label %37
 
 37:                                               ; preds = %31
   %38 = inttoptr i64 %32 to ptr
   %39 = load i64, ptr %38, align 8
   %40 = and i64 %39, 31
-  %41 = icmp eq i64 %40, 11
-  br i1 %41, label %Check_Type.exit, label %.thread30.i
+  %.not.i32 = icmp eq i64 %40, 11
+  br i1 %.not.i32, label %Check_Type.exit, label %.critedge.i
 
-.thread30.i:                                      ; preds = %37, %31
+.critedge.i:                                      ; preds = %37, %31
   call void @rb_unexpected_type(i64 noundef %32, i32 noundef 11) #14
   unreachable
 
 Check_Type.exit:                                  ; preds = %37
-  %42 = load i64, ptr @id_i_io, align 8
-  %43 = call i64 @rb_ivar_set(i64 noundef %2, i64 noundef %42, i64 noundef %32) #10
-  %44 = call ptr @SSL_new(ptr noundef %18) #10
-  %.not19 = icmp eq ptr %44, null
-  br i1 %.not19, label %45, label %47
+  %41 = load i64, ptr @id_i_io, align 8
+  %42 = call i64 @rb_ivar_set(i64 noundef %2, i64 noundef %41, i64 noundef %32) #10
+  %43 = call ptr @SSL_new(ptr noundef %18) #10
+  %.not19 = icmp eq ptr %43, null
+  br i1 %.not19, label %44, label %46
 
-45:                                               ; preds = %Check_Type.exit
-  %46 = load i64, ptr @eSSLError, align 8
-  call void (i64, ptr, ...) @ossl_raise(i64 noundef %46, ptr noundef null) #11
+44:                                               ; preds = %Check_Type.exit
+  %45 = load i64, ptr @eSSLError, align 8
+  call void (i64, ptr, ...) @ossl_raise(i64 noundef %45, ptr noundef null) #11
   unreachable
 
-47:                                               ; preds = %Check_Type.exit
-  %48 = inttoptr i64 %2 to ptr
-  %49 = getelementptr inbounds nuw i8, ptr %48, i64 32
-  store ptr %44, ptr %49, align 8
-  %50 = load i32, ptr @ossl_ssl_ex_ptr_idx, align 4
-  %51 = call i32 @SSL_set_ex_data(ptr noundef nonnull %44, i32 noundef %50, ptr noundef %48) #10
-  call void @SSL_set_info_callback(ptr noundef nonnull %44, ptr noundef nonnull @ssl_info_cb) #10
-  %52 = load i64, ptr %5, align 8
-  %53 = load i64, ptr @id_i_verify_callback, align 8
-  %54 = call i64 @rb_attr_get(i64 noundef %52, i64 noundef %53) #10
-  %55 = load i32, ptr @ossl_ssl_ex_vcb_idx, align 4
-  %56 = inttoptr i64 %54 to ptr
-  %57 = call i32 @SSL_set_ex_data(ptr noundef nonnull %44, i32 noundef %55, ptr noundef %56) #10
-  %58 = call i64 @rb_call_super(i32 noundef 0, ptr noundef null) #10
+46:                                               ; preds = %Check_Type.exit
+  %47 = inttoptr i64 %2 to ptr
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 32
+  store ptr %43, ptr %48, align 8
+  %49 = load i32, ptr @ossl_ssl_ex_ptr_idx, align 4
+  %50 = call i32 @SSL_set_ex_data(ptr noundef nonnull %43, i32 noundef %49, ptr noundef %47) #10
+  call void @SSL_set_info_callback(ptr noundef nonnull %43, ptr noundef nonnull @ssl_info_cb) #10
+  %51 = load i64, ptr %5, align 8
+  %52 = load i64, ptr @id_i_verify_callback, align 8
+  %53 = call i64 @rb_attr_get(i64 noundef %51, i64 noundef %52) #10
+  %54 = load i32, ptr @ossl_ssl_ex_vcb_idx, align 4
+  %55 = inttoptr i64 %53 to ptr
+  %56 = call i32 @SSL_set_ex_data(ptr noundef nonnull %43, i32 noundef %54, ptr noundef %55) #10
+  %57 = call i64 @rb_call_super(i32 noundef 0, ptr noundef null) #10
   ret i64 %2
 }
 
@@ -4480,7 +4480,7 @@ define internal i64 @ossl_call_client_cert_cb(i64 noundef %0) #0 {
   %5 = load i64, ptr @id_i_client_cert_cb, align 8
   %6 = tail call i64 @rb_attr_get(i64 noundef %4, i64 noundef %5) #10
   %7 = icmp eq i64 %6, 4
-  br i1 %7, label %25, label %8
+  br i1 %7, label %24, label %8
 
 8:                                                ; preds = %1
   %9 = load i64, ptr @id_call, align 8
@@ -4489,29 +4489,29 @@ define internal i64 @ossl_call_client_cert_cb(i64 noundef %0) #0 {
   %12 = icmp ne i64 %11, 0
   %13 = icmp eq i64 %10, 0
   %14 = or i1 %13, %12
-  br i1 %14, label %.thread30.i, label %15
+  br i1 %14, label %.critedge.i, label %15
 
 15:                                               ; preds = %8
   %16 = inttoptr i64 %10 to ptr
   %17 = load i64, ptr %16, align 8
   %18 = and i64 %17, 31
-  %19 = icmp eq i64 %18, 7
-  br i1 %19, label %Check_Type.exit, label %.thread30.i
+  %.not.i = icmp eq i64 %18, 7
+  br i1 %.not.i, label %Check_Type.exit, label %.critedge.i
 
-.thread30.i:                                      ; preds = %15, %8
+.critedge.i:                                      ; preds = %15, %8
   call void @rb_unexpected_type(i64 noundef %10, i32 noundef 7) #14
   unreachable
 
 Check_Type.exit:                                  ; preds = %15
-  %20 = call i64 @rb_ary_entry(i64 noundef %10, i64 noundef 0) #15
-  %21 = call ptr @GetX509CertPtr(i64 noundef %20) #10
-  %22 = call i64 @rb_ary_entry(i64 noundef %10, i64 noundef 1) #15
-  %23 = call ptr @GetPrivPKeyPtr(i64 noundef %22) #10
-  %24 = call i64 (i64, ...) @rb_ary_new_from_args(i64 noundef 2, i64 noundef %20, i64 noundef %22) #10
-  br label %25
+  %19 = call i64 @rb_ary_entry(i64 noundef %10, i64 noundef 0) #15
+  %20 = call ptr @GetX509CertPtr(i64 noundef %19) #10
+  %21 = call i64 @rb_ary_entry(i64 noundef %10, i64 noundef 1) #15
+  %22 = call ptr @GetPrivPKeyPtr(i64 noundef %21) #10
+  %23 = call i64 (i64, ...) @rb_ary_new_from_args(i64 noundef 2, i64 noundef %19, i64 noundef %21) #10
+  br label %24
 
-25:                                               ; preds = %1, %Check_Type.exit
-  %.0 = phi i64 [ %24, %Check_Type.exit ], [ 4, %1 ]
+24:                                               ; preds = %1, %Check_Type.exit
+  %.0 = phi i64 [ %23, %Check_Type.exit ], [ 4, %1 ]
   ret i64 %.0
 }
 
@@ -4635,44 +4635,44 @@ define internal i64 @ossl_call_session_get_cb(i64 noundef %0) #0 {
   %4 = icmp ne i64 %3, 0
   %5 = icmp eq i64 %0, 0
   %6 = or i1 %5, %4
-  br i1 %6, label %.thread30.i, label %7
+  br i1 %6, label %.critedge.i, label %7
 
 7:                                                ; preds = %1
   %8 = inttoptr i64 %0 to ptr
   %9 = load i64, ptr %8, align 8
   %10 = and i64 %9, 31
-  %11 = icmp eq i64 %10, 7
-  br i1 %11, label %Check_Type.exit, label %.thread30.i
+  %.not.i = icmp eq i64 %10, 7
+  br i1 %.not.i, label %Check_Type.exit, label %.critedge.i
 
-.thread30.i:                                      ; preds = %7, %1
+.critedge.i:                                      ; preds = %7, %1
   tail call void @rb_unexpected_type(i64 noundef %0, i32 noundef 7) #14
   unreachable
 
 Check_Type.exit:                                  ; preds = %7
-  %12 = tail call i64 @rb_ary_entry(i64 noundef %0, i64 noundef 0) #15
+  %11 = tail call i64 @rb_ary_entry(i64 noundef %0, i64 noundef 0) #15
   %.pr.i = load i64, ptr @ossl_call_session_get_cb.rbimpl_id, align 8
   %.not4.i = icmp eq i64 %.pr.i, 0
   br i1 %.not4.i, label %.lr.ph.i, label %rbimpl_intern_const.exit
 
 .lr.ph.i:                                         ; preds = %Check_Type.exit, %.lr.ph.i
-  %13 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.28, i64 noundef 14) #10
-  store i64 %13, ptr @ossl_call_session_get_cb.rbimpl_id, align 8
-  %.not.i = icmp eq i64 %13, 0
-  br i1 %.not.i, label %.lr.ph.i, label %rbimpl_intern_const.exit, !llvm.loop !11
+  %12 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.28, i64 noundef 14) #10
+  store i64 %12, ptr @ossl_call_session_get_cb.rbimpl_id, align 8
+  %.not.i5 = icmp eq i64 %12, 0
+  br i1 %.not.i5, label %.lr.ph.i, label %rbimpl_intern_const.exit, !llvm.loop !11
 
 rbimpl_intern_const.exit:                         ; preds = %.lr.ph.i, %Check_Type.exit
-  %.lcssa.i = phi i64 [ %.pr.i, %Check_Type.exit ], [ %13, %.lr.ph.i ]
-  %14 = tail call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %12, i64 noundef %.lcssa.i, i32 noundef 0) #10
-  %15 = icmp eq i64 %14, 4
-  br i1 %15, label %19, label %16
+  %.lcssa.i = phi i64 [ %.pr.i, %Check_Type.exit ], [ %12, %.lr.ph.i ]
+  %13 = tail call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %11, i64 noundef %.lcssa.i, i32 noundef 0) #10
+  %14 = icmp eq i64 %13, 4
+  br i1 %14, label %18, label %15
 
-16:                                               ; preds = %rbimpl_intern_const.exit
-  %17 = load i64, ptr @id_call, align 8
-  %18 = call i64 @rb_funcallv(i64 noundef %14, i64 noundef %17, i32 noundef 1, ptr noundef nonnull %2) #10
-  br label %19
+15:                                               ; preds = %rbimpl_intern_const.exit
+  %16 = load i64, ptr @id_call, align 8
+  %17 = call i64 @rb_funcallv(i64 noundef %13, i64 noundef %16, i32 noundef 1, ptr noundef nonnull %2) #10
+  br label %18
 
-19:                                               ; preds = %rbimpl_intern_const.exit, %16
-  %.0 = phi i64 [ %18, %16 ], [ 4, %rbimpl_intern_const.exit ]
+18:                                               ; preds = %rbimpl_intern_const.exit, %15
+  %.0 = phi i64 [ %17, %15 ], [ 4, %rbimpl_intern_const.exit ]
   ret i64 %.0
 }
 
@@ -4690,44 +4690,44 @@ define internal i64 @ossl_call_session_new_cb(i64 noundef %0) #0 {
   %4 = icmp ne i64 %3, 0
   %5 = icmp eq i64 %0, 0
   %6 = or i1 %5, %4
-  br i1 %6, label %.thread30.i, label %7
+  br i1 %6, label %.critedge.i, label %7
 
 7:                                                ; preds = %1
   %8 = inttoptr i64 %0 to ptr
   %9 = load i64, ptr %8, align 8
   %10 = and i64 %9, 31
-  %11 = icmp eq i64 %10, 7
-  br i1 %11, label %Check_Type.exit, label %.thread30.i
+  %.not.i = icmp eq i64 %10, 7
+  br i1 %.not.i, label %Check_Type.exit, label %.critedge.i
 
-.thread30.i:                                      ; preds = %7, %1
+.critedge.i:                                      ; preds = %7, %1
   tail call void @rb_unexpected_type(i64 noundef %0, i32 noundef 7) #14
   unreachable
 
 Check_Type.exit:                                  ; preds = %7
-  %12 = tail call i64 @rb_ary_entry(i64 noundef %0, i64 noundef 0) #15
+  %11 = tail call i64 @rb_ary_entry(i64 noundef %0, i64 noundef 0) #15
   %.pr.i = load i64, ptr @ossl_call_session_new_cb.rbimpl_id, align 8
   %.not4.i = icmp eq i64 %.pr.i, 0
   br i1 %.not4.i, label %.lr.ph.i, label %rbimpl_intern_const.exit
 
 .lr.ph.i:                                         ; preds = %Check_Type.exit, %.lr.ph.i
-  %13 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.29, i64 noundef 14) #10
-  store i64 %13, ptr @ossl_call_session_new_cb.rbimpl_id, align 8
-  %.not.i = icmp eq i64 %13, 0
-  br i1 %.not.i, label %.lr.ph.i, label %rbimpl_intern_const.exit, !llvm.loop !11
+  %12 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.29, i64 noundef 14) #10
+  store i64 %12, ptr @ossl_call_session_new_cb.rbimpl_id, align 8
+  %.not.i5 = icmp eq i64 %12, 0
+  br i1 %.not.i5, label %.lr.ph.i, label %rbimpl_intern_const.exit, !llvm.loop !11
 
 rbimpl_intern_const.exit:                         ; preds = %.lr.ph.i, %Check_Type.exit
-  %.lcssa.i = phi i64 [ %.pr.i, %Check_Type.exit ], [ %13, %.lr.ph.i ]
-  %14 = tail call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %12, i64 noundef %.lcssa.i, i32 noundef 0) #10
-  %15 = icmp eq i64 %14, 4
-  br i1 %15, label %19, label %16
+  %.lcssa.i = phi i64 [ %.pr.i, %Check_Type.exit ], [ %12, %.lr.ph.i ]
+  %13 = tail call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %11, i64 noundef %.lcssa.i, i32 noundef 0) #10
+  %14 = icmp eq i64 %13, 4
+  br i1 %14, label %18, label %15
 
-16:                                               ; preds = %rbimpl_intern_const.exit
-  %17 = load i64, ptr @id_call, align 8
-  %18 = call i64 @rb_funcallv(i64 noundef %14, i64 noundef %17, i32 noundef 1, ptr noundef nonnull %2) #10
-  br label %19
+15:                                               ; preds = %rbimpl_intern_const.exit
+  %16 = load i64, ptr @id_call, align 8
+  %17 = call i64 @rb_funcallv(i64 noundef %13, i64 noundef %16, i32 noundef 1, ptr noundef nonnull %2) #10
+  br label %18
 
-19:                                               ; preds = %rbimpl_intern_const.exit, %16
-  %.0 = phi i64 [ %18, %16 ], [ 4, %rbimpl_intern_const.exit ]
+18:                                               ; preds = %rbimpl_intern_const.exit, %15
+  %.0 = phi i64 [ %17, %15 ], [ 4, %rbimpl_intern_const.exit ]
   ret i64 %.0
 }
 
@@ -4742,33 +4742,33 @@ define internal i64 @ossl_call_session_remove_cb(i64 noundef %0) #0 {
   %4 = icmp ne i64 %3, 0
   %5 = icmp eq i64 %0, 0
   %6 = or i1 %5, %4
-  br i1 %6, label %.thread30.i, label %7
+  br i1 %6, label %.critedge.i, label %7
 
 7:                                                ; preds = %1
   %8 = inttoptr i64 %0 to ptr
   %9 = load i64, ptr %8, align 8
   %10 = and i64 %9, 31
-  %11 = icmp eq i64 %10, 7
-  br i1 %11, label %Check_Type.exit, label %.thread30.i
+  %.not.i = icmp eq i64 %10, 7
+  br i1 %.not.i, label %Check_Type.exit, label %.critedge.i
 
-.thread30.i:                                      ; preds = %7, %1
+.critedge.i:                                      ; preds = %7, %1
   tail call void @rb_unexpected_type(i64 noundef %0, i32 noundef 7) #14
   unreachable
 
 Check_Type.exit:                                  ; preds = %7
-  %12 = tail call i64 @rb_ary_entry(i64 noundef %0, i64 noundef 0) #15
-  %13 = load i64, ptr @id_i_session_remove_cb, align 8
-  %14 = tail call i64 @rb_attr_get(i64 noundef %12, i64 noundef %13) #10
-  %15 = icmp eq i64 %14, 4
-  br i1 %15, label %19, label %16
+  %11 = tail call i64 @rb_ary_entry(i64 noundef %0, i64 noundef 0) #15
+  %12 = load i64, ptr @id_i_session_remove_cb, align 8
+  %13 = tail call i64 @rb_attr_get(i64 noundef %11, i64 noundef %12) #10
+  %14 = icmp eq i64 %13, 4
+  br i1 %14, label %18, label %15
 
-16:                                               ; preds = %Check_Type.exit
-  %17 = load i64, ptr @id_call, align 8
-  %18 = call i64 @rb_funcallv(i64 noundef %14, i64 noundef %17, i32 noundef 1, ptr noundef nonnull %2) #10
-  br label %19
+15:                                               ; preds = %Check_Type.exit
+  %16 = load i64, ptr @id_call, align 8
+  %17 = call i64 @rb_funcallv(i64 noundef %13, i64 noundef %16, i32 noundef 1, ptr noundef nonnull %2) #10
+  br label %18
 
-19:                                               ; preds = %Check_Type.exit, %16
-  %.0 = phi i64 [ %18, %16 ], [ 4, %Check_Type.exit ]
+18:                                               ; preds = %Check_Type.exit, %15
+  %.0 = phi i64 [ %17, %15 ], [ 4, %Check_Type.exit ]
   ret i64 %.0
 }
 
@@ -4782,65 +4782,65 @@ define internal noundef i64 @ossl_call_servername_cb(i64 noundef %0) #0 {
   %4 = icmp ne i64 %3, 0
   %5 = icmp eq i64 %0, 0
   %6 = or i1 %5, %4
-  br i1 %6, label %.thread30.i, label %7
+  br i1 %6, label %.critedge.i, label %7
 
 7:                                                ; preds = %1
   %8 = inttoptr i64 %0 to ptr
   %9 = load i64, ptr %8, align 8
   %10 = and i64 %9, 31
-  %11 = icmp eq i64 %10, 7
-  br i1 %11, label %Check_Type.exit, label %.thread30.i
+  %.not.i = icmp eq i64 %10, 7
+  br i1 %.not.i, label %Check_Type.exit, label %.critedge.i
 
-.thread30.i:                                      ; preds = %7, %1
+.critedge.i:                                      ; preds = %7, %1
   tail call void @rb_unexpected_type(i64 noundef %0, i32 noundef 7) #14
   unreachable
 
 Check_Type.exit:                                  ; preds = %7
-  %12 = tail call i64 @rb_ary_entry(i64 noundef %0, i64 noundef 0) #15
-  %13 = load i64, ptr @id_i_context, align 8
-  %14 = tail call i64 @rb_attr_get(i64 noundef %12, i64 noundef %13) #10
-  %15 = load i64, ptr @id_i_servername_cb, align 8
-  %16 = tail call i64 @rb_attr_get(i64 noundef %14, i64 noundef %15) #10
-  %17 = icmp eq i64 %16, 4
-  br i1 %17, label %37, label %18
+  %11 = tail call i64 @rb_ary_entry(i64 noundef %0, i64 noundef 0) #15
+  %12 = load i64, ptr @id_i_context, align 8
+  %13 = tail call i64 @rb_attr_get(i64 noundef %11, i64 noundef %12) #10
+  %14 = load i64, ptr @id_i_servername_cb, align 8
+  %15 = tail call i64 @rb_attr_get(i64 noundef %13, i64 noundef %14) #10
+  %16 = icmp eq i64 %15, 4
+  br i1 %16, label %36, label %17
 
-18:                                               ; preds = %Check_Type.exit
-  %19 = load i64, ptr @id_call, align 8
-  %20 = call i64 @rb_funcallv(i64 noundef %16, i64 noundef %19, i32 noundef 1, ptr noundef nonnull %2) #10
-  %21 = load i64, ptr @cSSLContext, align 8
-  %22 = call i64 @rb_obj_is_kind_of(i64 noundef %20, i64 noundef %21) #10
-  %.not = icmp eq i64 %22, 0
-  br i1 %.not, label %33, label %23
+17:                                               ; preds = %Check_Type.exit
+  %18 = load i64, ptr @id_call, align 8
+  %19 = call i64 @rb_funcallv(i64 noundef %15, i64 noundef %18, i32 noundef 1, ptr noundef nonnull %2) #10
+  %20 = load i64, ptr @cSSLContext, align 8
+  %21 = call i64 @rb_obj_is_kind_of(i64 noundef %19, i64 noundef %20) #10
+  %.not = icmp eq i64 %21, 0
+  br i1 %.not, label %32, label %22
 
-23:                                               ; preds = %18
-  %24 = call i64 @ossl_sslctx_setup(i64 noundef %20)
-  %25 = call ptr @rb_check_typeddata(i64 noundef %12, ptr noundef nonnull @ossl_ssl_type) #10
-  %.not16 = icmp eq ptr %25, null
-  br i1 %.not16, label %26, label %28
+22:                                               ; preds = %17
+  %23 = call i64 @ossl_sslctx_setup(i64 noundef %19)
+  %24 = call ptr @rb_check_typeddata(i64 noundef %11, ptr noundef nonnull @ossl_ssl_type) #10
+  %.not16 = icmp eq ptr %24, null
+  br i1 %.not16, label %25, label %27
 
-26:                                               ; preds = %23
-  %27 = load i64, ptr @rb_eRuntimeError, align 8
-  call void (i64, ptr, ...) @ossl_raise(i64 noundef %27, ptr noundef nonnull @.str.233) #11
+25:                                               ; preds = %22
+  %26 = load i64, ptr @rb_eRuntimeError, align 8
+  call void (i64, ptr, ...) @ossl_raise(i64 noundef %26, ptr noundef nonnull @.str.233) #11
   unreachable
 
-28:                                               ; preds = %23
-  %29 = call ptr @rb_check_typeddata(i64 noundef %20, ptr noundef nonnull @ossl_sslctx_type) #10
-  %30 = call ptr @SSL_set_SSL_CTX(ptr noundef nonnull %25, ptr noundef %29) #10
-  %31 = load i64, ptr @id_i_context, align 8
-  %32 = call i64 @rb_ivar_set(i64 noundef %12, i64 noundef %31, i64 noundef %20) #10
-  br label %37
+27:                                               ; preds = %22
+  %28 = call ptr @rb_check_typeddata(i64 noundef %19, ptr noundef nonnull @ossl_sslctx_type) #10
+  %29 = call ptr @SSL_set_SSL_CTX(ptr noundef nonnull %24, ptr noundef %28) #10
+  %30 = load i64, ptr @id_i_context, align 8
+  %31 = call i64 @rb_ivar_set(i64 noundef %11, i64 noundef %30, i64 noundef %19) #10
+  br label %36
 
-33:                                               ; preds = %18
-  %34 = icmp eq i64 %20, 4
-  br i1 %34, label %37, label %35
+32:                                               ; preds = %17
+  %33 = icmp eq i64 %19, 4
+  br i1 %33, label %36, label %34
 
-35:                                               ; preds = %33
-  %36 = load i64, ptr @rb_eArgError, align 8
-  call void (i64, ptr, ...) @ossl_raise(i64 noundef %36, ptr noundef nonnull @.str.234) #11
+34:                                               ; preds = %32
+  %35 = load i64, ptr @rb_eArgError, align 8
+  call void (i64, ptr, ...) @ossl_raise(i64 noundef %35, ptr noundef nonnull @.str.234) #11
   unreachable
 
-37:                                               ; preds = %28, %33, %Check_Type.exit
-  %.0 = phi i64 [ 4, %Check_Type.exit ], [ 4, %33 ], [ %20, %28 ]
+36:                                               ; preds = %27, %32, %Check_Type.exit
+  %.0 = phi i64 [ 4, %Check_Type.exit ], [ 4, %32 ], [ %19, %27 ]
   ret i64 %.0
 }
 

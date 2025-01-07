@@ -165,7 +165,6 @@ land.rhs:                                         ; preds = %entry, %while.body
   %length.addr.08 = phi i32 [ %dec, %while.body ], [ %length, %entry ]
   %s.addr.07 = phi ptr [ %incdec.ptr, %while.body ], [ %s, %entry ]
   %0 = load i16, ptr %s.addr.07, align 2
-  %conv = zext i16 %0 to i32
   %cmp1.i = icmp ult i16 %0, 256
   br i1 %cmp1.i, label %if.then2.i, label %if.else6.i
 
@@ -173,34 +172,26 @@ if.then2.i:                                       ; preds = %land.rhs
   %idxprom.i = zext nneg i16 %0 to i64
   %arrayidx.i = getelementptr inbounds nuw [256 x i8], ptr @_ZN6icu_75L6latin1E, i64 0, i64 %idxprom.i
   %1 = load i8, ptr %arrayidx.i, align 1
-  %2 = lshr i8 %1, 2
-  %3 = and i8 %2, 1
-  br label %_ZN6icu_7512PatternProps12isWhiteSpaceEi.exit
+  %2 = and i8 %1, 4
+  %3 = icmp eq i8 %2, 0
+  br i1 %3, label %while.end, label %while.body
 
 if.else6.i:                                       ; preds = %land.rhs
-  %4 = add i16 %0, -8206
-  %or.cond.i = icmp ult i16 %4, 28
-  br i1 %or.cond.i, label %if.then9.i, label %while.end
+  %4 = add i16 %0, -8234
+  %or.cond.i = icmp ult i16 %4, -28
+  %5 = add nsw i16 %0, -8208
+  %6 = icmp ult i16 %5, 24
+  %or.cond = select i1 %or.cond.i, i1 true, i1 %6
+  br i1 %or.cond, label %while.end, label %while.body
 
-if.then9.i:                                       ; preds = %if.else6.i
-  %5 = add nsw i32 %conv, -8232
-  %6 = icmp ult i32 %5, -24
-  %conv12.i = zext i1 %6 to i8
-  br label %_ZN6icu_7512PatternProps12isWhiteSpaceEi.exit
-
-_ZN6icu_7512PatternProps12isWhiteSpaceEi.exit:    ; preds = %if.then2.i, %if.then9.i
-  %retval.0.i = phi i8 [ %3, %if.then2.i ], [ %conv12.i, %if.then9.i ]
-  %tobool.not = icmp eq i8 %retval.0.i, 0
-  br i1 %tobool.not, label %while.end, label %while.body
-
-while.body:                                       ; preds = %_ZN6icu_7512PatternProps12isWhiteSpaceEi.exit
+while.body:                                       ; preds = %if.else6.i, %if.then2.i
   %incdec.ptr = getelementptr inbounds nuw i8, ptr %s.addr.07, i64 2
   %dec = add nsw i32 %length.addr.08, -1
   %cmp = icmp sgt i32 %length.addr.08, 1
   br i1 %cmp, label %land.rhs, label %while.end, !llvm.loop !4
 
-while.end:                                        ; preds = %_ZN6icu_7512PatternProps12isWhiteSpaceEi.exit, %while.body, %if.else6.i, %entry
-  %s.addr.0.lcssa = phi ptr [ %s, %entry ], [ %s.addr.07, %if.else6.i ], [ %incdec.ptr, %while.body ], [ %s.addr.07, %_ZN6icu_7512PatternProps12isWhiteSpaceEi.exit ]
+while.end:                                        ; preds = %while.body, %if.else6.i, %if.then2.i, %entry
+  %s.addr.0.lcssa = phi ptr [ %s, %entry ], [ %s.addr.07, %if.then2.i ], [ %s.addr.07, %if.else6.i ], [ %incdec.ptr, %while.body ]
   ret ptr %s.addr.0.lcssa
 }
 
@@ -235,7 +226,6 @@ _ZNK6icu_7513UnicodeString6charAtEi.exit:         ; preds = %_ZNK6icu_7513Unicod
   %indvars.iv = phi i64 [ %5, %_ZNK6icu_7513UnicodeString6charAtEi.exit.lr.ph ], [ %indvars.iv.next, %while.body ]
   %arrayidx.i.i = getelementptr inbounds i16, ptr %cond.i2.i.i, i64 %indvars.iv
   %7 = load i16, ptr %arrayidx.i.i, align 2
-  %conv = zext i16 %7 to i32
   %cmp1.i = icmp ult i16 %7, 256
   br i1 %cmp1.i, label %if.then2.i, label %if.else6.i
 
@@ -243,27 +233,21 @@ if.then2.i:                                       ; preds = %_ZNK6icu_7513Unicod
   %idxprom.i = zext nneg i16 %7 to i64
   %arrayidx.i = getelementptr inbounds nuw [256 x i8], ptr @_ZN6icu_75L6latin1E, i64 0, i64 %idxprom.i
   %8 = load i8, ptr %arrayidx.i, align 1
-  %9 = lshr i8 %8, 2
-  %10 = and i8 %9, 1
-  br label %_ZN6icu_7512PatternProps12isWhiteSpaceEi.exit
+  %9 = and i8 %8, 4
+  %10 = icmp eq i8 %9, 0
+  br i1 %10, label %while.end.loopexit.split.loop.exit, label %while.body
 
 if.else6.i:                                       ; preds = %_ZNK6icu_7513UnicodeString6charAtEi.exit
   %11 = add i16 %7, -8206
   %or.cond.i = icmp ult i16 %11, 28
-  br i1 %or.cond.i, label %if.then9.i, label %while.end.loopexit.split.loop.exit
+  br i1 %or.cond.i, label %_ZN6icu_7512PatternProps12isWhiteSpaceEi.exit, label %while.end.loopexit.split.loop.exit21
 
-if.then9.i:                                       ; preds = %if.else6.i
-  %12 = add nsw i32 %conv, -8232
-  %13 = icmp ult i32 %12, -24
-  %conv12.i = zext i1 %13 to i8
-  br label %_ZN6icu_7512PatternProps12isWhiteSpaceEi.exit
+_ZN6icu_7512PatternProps12isWhiteSpaceEi.exit:    ; preds = %if.else6.i
+  %12 = add nsw i16 %7, -8208
+  %13 = icmp ult i16 %12, 24
+  br i1 %13, label %while.end.loopexit.split.loop.exit25, label %while.body
 
-_ZN6icu_7512PatternProps12isWhiteSpaceEi.exit:    ; preds = %if.then2.i, %if.then9.i
-  %retval.0.i = phi i8 [ %10, %if.then2.i ], [ %conv12.i, %if.then9.i ]
-  %tobool.not = icmp eq i8 %retval.0.i, 0
-  br i1 %tobool.not, label %while.end.loopexit.split.loop.exit23, label %while.body
-
-while.body:                                       ; preds = %_ZN6icu_7512PatternProps12isWhiteSpaceEi.exit
+while.body:                                       ; preds = %if.then2.i, %_ZN6icu_7512PatternProps12isWhiteSpaceEi.exit
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %cmp = icmp slt i64 %indvars.iv.next, %6
   %14 = trunc nsw i64 %indvars.iv.next to i32
@@ -271,16 +255,20 @@ while.body:                                       ; preds = %_ZN6icu_7512Pattern
   %or.cond = and i1 %cmp, %cmp.i.i5
   br i1 %or.cond, label %_ZNK6icu_7513UnicodeString6charAtEi.exit, label %while.end, !llvm.loop !6
 
-while.end.loopexit.split.loop.exit:               ; preds = %if.else6.i
+while.end.loopexit.split.loop.exit:               ; preds = %if.then2.i
   %15 = trunc nsw i64 %indvars.iv to i32
   br label %while.end
 
-while.end.loopexit.split.loop.exit23:             ; preds = %_ZN6icu_7512PatternProps12isWhiteSpaceEi.exit
+while.end.loopexit.split.loop.exit21:             ; preds = %if.else6.i
   %16 = trunc nsw i64 %indvars.iv to i32
   br label %while.end
 
-while.end:                                        ; preds = %while.body, %while.end.loopexit.split.loop.exit, %while.end.loopexit.split.loop.exit23, %entry
-  %i.0.lcssa = phi i32 [ %start, %entry ], [ %15, %while.end.loopexit.split.loop.exit ], [ %16, %while.end.loopexit.split.loop.exit23 ], [ %cond.i, %while.body ]
+while.end.loopexit.split.loop.exit25:             ; preds = %_ZN6icu_7512PatternProps12isWhiteSpaceEi.exit
+  %17 = trunc nsw i64 %indvars.iv to i32
+  br label %while.end
+
+while.end:                                        ; preds = %while.body, %while.end.loopexit.split.loop.exit, %while.end.loopexit.split.loop.exit21, %while.end.loopexit.split.loop.exit25, %entry
+  %i.0.lcssa = phi i32 [ %start, %entry ], [ %15, %while.end.loopexit.split.loop.exit ], [ %16, %while.end.loopexit.split.loop.exit21 ], [ %17, %while.end.loopexit.split.loop.exit25 ], [ %cond.i, %while.body ]
   ret i32 %i.0.lcssa
 }
 
@@ -293,7 +281,6 @@ entry:
 
 lor.lhs.false:                                    ; preds = %entry
   %1 = load i16, ptr %s, align 2
-  %conv = zext i16 %1 to i32
   %cmp1.i = icmp ult i16 %1, 256
   br i1 %cmp1.i, label %if.then2.i, label %if.else6.i
 
@@ -301,32 +288,23 @@ if.then2.i:                                       ; preds = %lor.lhs.false
   %idxprom.i = zext nneg i16 %1 to i64
   %arrayidx.i = getelementptr inbounds nuw [256 x i8], ptr @_ZN6icu_75L6latin1E, i64 0, i64 %idxprom.i
   %2 = load i8, ptr %arrayidx.i, align 1
-  %3 = lshr i8 %2, 2
-  %4 = and i8 %3, 1
-  br label %_ZN6icu_7512PatternProps12isWhiteSpaceEi.exit
+  %3 = and i8 %2, 4
+  %4 = icmp eq i8 %3, 0
+  br i1 %4, label %land.lhs.true, label %land.rhs.preheader
 
 if.else6.i:                                       ; preds = %lor.lhs.false
-  %5 = add i16 %1, -8206
-  %or.cond.i = icmp ult i16 %5, 28
-  br i1 %or.cond.i, label %if.then9.i, label %land.lhs.true
+  %5 = add i16 %1, -8234
+  %or.cond.i = icmp ult i16 %5, -28
+  %6 = add nsw i16 %1, -8208
+  %7 = icmp ult i16 %6, 24
+  %or.cond = select i1 %or.cond.i, i1 true, i1 %7
+  br i1 %or.cond, label %land.lhs.true, label %land.rhs.preheader
 
-if.then9.i:                                       ; preds = %if.else6.i
-  %6 = add nsw i32 %conv, -8232
-  %7 = icmp ult i32 %6, -24
-  %conv12.i = zext i1 %7 to i8
-  br label %_ZN6icu_7512PatternProps12isWhiteSpaceEi.exit
-
-_ZN6icu_7512PatternProps12isWhiteSpaceEi.exit:    ; preds = %if.then2.i, %if.then9.i
-  %retval.0.i = phi i8 [ %4, %if.then2.i ], [ %conv12.i, %if.then9.i ]
-  %tobool.not = icmp eq i8 %retval.0.i, 0
-  br i1 %tobool.not, label %land.lhs.true, label %land.rhs.preheader
-
-land.lhs.true:                                    ; preds = %if.else6.i, %_ZN6icu_7512PatternProps12isWhiteSpaceEi.exit
+land.lhs.true:                                    ; preds = %if.then2.i, %if.else6.i
   %8 = zext nneg i32 %0 to i64
   %9 = getelementptr i16, ptr %s, i64 %8
   %arrayidx1 = getelementptr i8, ptr %9, i64 -2
   %10 = load i16, ptr %arrayidx1, align 2
-  %conv2 = zext i16 %10 to i32
   %cmp1.i18 = icmp ult i16 %10, 256
   br i1 %cmp1.i18, label %if.then2.i24, label %if.else6.i19
 
@@ -334,27 +312,19 @@ if.then2.i24:                                     ; preds = %land.lhs.true
   %idxprom.i25 = zext nneg i16 %10 to i64
   %arrayidx.i26 = getelementptr inbounds nuw [256 x i8], ptr @_ZN6icu_75L6latin1E, i64 0, i64 %idxprom.i25
   %11 = load i8, ptr %arrayidx.i26, align 1
-  %12 = lshr i8 %11, 2
-  %13 = and i8 %12, 1
-  br label %_ZN6icu_7512PatternProps12isWhiteSpaceEi.exit27
+  %12 = and i8 %11, 4
+  %13 = icmp eq i8 %12, 0
+  br i1 %13, label %return, label %land.rhs.preheader
 
 if.else6.i19:                                     ; preds = %land.lhs.true
-  %14 = add i16 %10, -8206
-  %or.cond.i20 = icmp ult i16 %14, 28
-  br i1 %or.cond.i20, label %if.then9.i22, label %return
+  %14 = add i16 %10, -8234
+  %or.cond.i20 = icmp ult i16 %14, -28
+  %15 = add nsw i16 %10, -8208
+  %16 = icmp ult i16 %15, 24
+  %or.cond72 = select i1 %or.cond.i20, i1 true, i1 %16
+  br i1 %or.cond72, label %return, label %land.rhs.preheader
 
-if.then9.i22:                                     ; preds = %if.else6.i19
-  %15 = add nsw i32 %conv2, -8232
-  %16 = icmp ult i32 %15, -24
-  %conv12.i23 = zext i1 %16 to i8
-  br label %_ZN6icu_7512PatternProps12isWhiteSpaceEi.exit27
-
-_ZN6icu_7512PatternProps12isWhiteSpaceEi.exit27:  ; preds = %if.then2.i24, %if.then9.i22
-  %retval.0.i21 = phi i8 [ %13, %if.then2.i24 ], [ %conv12.i23, %if.then9.i22 ]
-  %tobool4.not = icmp eq i8 %retval.0.i21, 0
-  br i1 %tobool4.not, label %return, label %land.rhs.preheader
-
-land.rhs.preheader:                               ; preds = %_ZN6icu_7512PatternProps12isWhiteSpaceEi.exit, %_ZN6icu_7512PatternProps12isWhiteSpaceEi.exit27
+land.rhs.preheader:                               ; preds = %if.else6.i19, %if.else6.i, %if.then2.i, %if.then2.i24
   %wide.trip.count = zext nneg i32 %0 to i64
   br label %land.rhs
 
@@ -362,7 +332,6 @@ land.rhs:                                         ; preds = %land.rhs.preheader,
   %indvars.iv = phi i64 [ 0, %land.rhs.preheader ], [ %indvars.iv.next, %while.body ]
   %arrayidx7 = getelementptr inbounds nuw i16, ptr %s, i64 %indvars.iv
   %17 = load i16, ptr %arrayidx7, align 2
-  %conv8 = zext i16 %17 to i32
   %cmp1.i28 = icmp ult i16 %17, 256
   br i1 %cmp1.i28, label %if.then2.i34, label %if.else6.i29
 
@@ -370,32 +339,24 @@ if.then2.i34:                                     ; preds = %land.rhs
   %idxprom.i35 = zext nneg i16 %17 to i64
   %arrayidx.i36 = getelementptr inbounds nuw [256 x i8], ptr @_ZN6icu_75L6latin1E, i64 0, i64 %idxprom.i35
   %18 = load i8, ptr %arrayidx.i36, align 1
-  %19 = lshr i8 %18, 2
-  %20 = and i8 %19, 1
-  br label %_ZN6icu_7512PatternProps12isWhiteSpaceEi.exit37
+  %19 = and i8 %18, 4
+  %20 = icmp eq i8 %19, 0
+  br i1 %20, label %while.end, label %while.body
 
 if.else6.i29:                                     ; preds = %land.rhs
-  %21 = add i16 %17, -8206
-  %or.cond.i30 = icmp ult i16 %21, 28
-  br i1 %or.cond.i30, label %if.then9.i32, label %while.end
+  %21 = add i16 %17, -8234
+  %or.cond.i30 = icmp ult i16 %21, -28
+  %22 = add nsw i16 %17, -8208
+  %23 = icmp ult i16 %22, 24
+  %or.cond74 = select i1 %or.cond.i30, i1 true, i1 %23
+  br i1 %or.cond74, label %while.end, label %while.body
 
-if.then9.i32:                                     ; preds = %if.else6.i29
-  %22 = add nsw i32 %conv8, -8232
-  %23 = icmp ult i32 %22, -24
-  %conv12.i33 = zext i1 %23 to i8
-  br label %_ZN6icu_7512PatternProps12isWhiteSpaceEi.exit37
-
-_ZN6icu_7512PatternProps12isWhiteSpaceEi.exit37:  ; preds = %if.then2.i34, %if.then9.i32
-  %retval.0.i31 = phi i8 [ %20, %if.then2.i34 ], [ %conv12.i33, %if.then9.i32 ]
-  %tobool10.not = icmp eq i8 %retval.0.i31, 0
-  br i1 %tobool10.not, label %while.end, label %while.body
-
-while.body:                                       ; preds = %_ZN6icu_7512PatternProps12isWhiteSpaceEi.exit37
+while.body:                                       ; preds = %if.else6.i29, %if.then2.i34
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %if.end22, label %land.rhs, !llvm.loop !7
 
-while.end:                                        ; preds = %if.else6.i29, %_ZN6icu_7512PatternProps12isWhiteSpaceEi.exit37
+while.end:                                        ; preds = %if.then2.i34, %if.else6.i29
   %24 = trunc nuw nsw i64 %indvars.iv to i32
   %invariant.gep = getelementptr i8, ptr %s, i64 -2
   %25 = zext nneg i32 %0 to i64
@@ -405,7 +366,6 @@ while.cond13:                                     ; preds = %while.end, %while.b
   %indvars.iv64 = phi i64 [ %25, %while.end ], [ %indvars.iv.next65, %while.body20 ]
   %gep = getelementptr i16, ptr %invariant.gep, i64 %indvars.iv64
   %26 = load i16, ptr %gep, align 2
-  %conv17 = zext i16 %26 to i32
   %cmp1.i38 = icmp ult i16 %26, 256
   br i1 %cmp1.i38, label %if.then2.i44, label %if.else6.i39
 
@@ -413,31 +373,23 @@ if.then2.i44:                                     ; preds = %while.cond13
   %idxprom.i45 = zext nneg i16 %26 to i64
   %arrayidx.i46 = getelementptr inbounds nuw [256 x i8], ptr @_ZN6icu_75L6latin1E, i64 0, i64 %idxprom.i45
   %27 = load i8, ptr %arrayidx.i46, align 1
-  %28 = lshr i8 %27, 2
-  %29 = and i8 %28, 1
-  br label %_ZN6icu_7512PatternProps12isWhiteSpaceEi.exit47
+  %28 = and i8 %27, 4
+  %29 = icmp eq i8 %28, 0
+  br i1 %29, label %if.end22.loopexit, label %while.body20
 
 if.else6.i39:                                     ; preds = %while.cond13
-  %30 = add i16 %26, -8206
-  %or.cond.i40 = icmp ult i16 %30, 28
-  br i1 %or.cond.i40, label %if.then9.i42, label %if.end22.loopexit
+  %30 = add i16 %26, -8234
+  %or.cond.i40 = icmp ult i16 %30, -28
+  %31 = add nsw i16 %26, -8208
+  %32 = icmp ult i16 %31, 24
+  %or.cond76 = select i1 %or.cond.i40, i1 true, i1 %32
+  br i1 %or.cond76, label %if.end22.loopexit, label %while.body20
 
-if.then9.i42:                                     ; preds = %if.else6.i39
-  %31 = add nsw i32 %conv17, -8232
-  %32 = icmp ult i32 %31, -24
-  %conv12.i43 = zext i1 %32 to i8
-  br label %_ZN6icu_7512PatternProps12isWhiteSpaceEi.exit47
-
-_ZN6icu_7512PatternProps12isWhiteSpaceEi.exit47:  ; preds = %if.then2.i44, %if.then9.i42
-  %retval.0.i41 = phi i8 [ %29, %if.then2.i44 ], [ %conv12.i43, %if.then9.i42 ]
-  %tobool19.not = icmp eq i8 %retval.0.i41, 0
-  br i1 %tobool19.not, label %if.end22.loopexit, label %while.body20
-
-while.body20:                                     ; preds = %_ZN6icu_7512PatternProps12isWhiteSpaceEi.exit47
+while.body20:                                     ; preds = %if.else6.i39, %if.then2.i44
   %indvars.iv.next65 = add nsw i64 %indvars.iv64, -1
   br label %while.cond13, !llvm.loop !8
 
-if.end22.loopexit:                                ; preds = %_ZN6icu_7512PatternProps12isWhiteSpaceEi.exit47, %if.else6.i39
+if.end22.loopexit:                                ; preds = %if.then2.i44, %if.else6.i39
   %33 = trunc nsw i64 %indvars.iv64 to i32
   br label %if.end22
 
@@ -450,8 +402,8 @@ if.end22:                                         ; preds = %while.body, %if.end
   %add.ptr = getelementptr inbounds nuw i16, ptr %s, i64 %idx.ext
   br label %return
 
-return:                                           ; preds = %if.else6.i19, %entry, %_ZN6icu_7512PatternProps12isWhiteSpaceEi.exit27, %if.end22
-  %retval.0 = phi ptr [ %add.ptr, %if.end22 ], [ %s, %_ZN6icu_7512PatternProps12isWhiteSpaceEi.exit27 ], [ %s, %entry ], [ %s, %if.else6.i19 ]
+return:                                           ; preds = %if.then2.i24, %if.else6.i19, %entry, %if.end22
+  %retval.0 = phi ptr [ %add.ptr, %if.end22 ], [ %s, %entry ], [ %s, %if.else6.i19 ], [ %s, %if.then2.i24 ]
   ret ptr %retval.0
 }
 

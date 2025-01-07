@@ -358,7 +358,7 @@ while.body.lr.ph:                                 ; preds = %entry
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end119
-  %previousIs0.0141 = phi i32 [ 0, %while.body.lr.ph ], [ %conv90, %if.end119 ]
+  %previousIs0.0141 = phi i1 [ true, %while.body.lr.ph ], [ %cmp89, %if.end119 ]
   %out.0140 = phi ptr [ %header, %while.body.lr.ph ], [ %out.3, %if.end119 ]
   %symbol.0139 = phi i32 [ 0, %while.body.lr.ph ], [ %inc67, %if.end119 ]
   %bitCount.0138 = phi i32 [ 4, %while.body.lr.ph ], [ %bitCount.3, %if.end119 ]
@@ -366,8 +366,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %threshold.0136 = phi i32 [ %shl, %while.body.lr.ph ], [ %threshold.1.lcssa, %if.end119 ]
   %remaining.0135 = phi i32 [ %add4, %while.body.lr.ph ], [ %sub76, %if.end119 ]
   %nbBits.0134 = phi i32 [ %add5, %while.body.lr.ph ], [ %nbBits.1.lcssa, %if.end119 ]
-  %tobool.not = icmp eq i32 %previousIs0.0141, 0
-  br i1 %tobool.not, label %if.end66, label %while.cond7.preheader
+  br i1 %previousIs0.0141, label %if.end66, label %while.cond7.preheader
 
 while.cond7.preheader:                            ; preds = %while.body
   %cmp8106 = icmp ult i32 %symbol.0139, %add
@@ -517,8 +516,7 @@ if.end66:                                         ; preds = %while.end42, %if.en
   %cmp86 = icmp slt i32 %spec.select, %sub72
   %conv87.neg = sext i1 %cmp86 to i32
   %sub88 = add i32 %add85, %conv87.neg
-  %cmp89 = icmp eq i32 %spec.select, 1
-  %conv90 = zext i1 %cmp89 to i32
+  %cmp89 = icmp ne i32 %spec.select, 1
   %cmp91 = icmp slt i32 %sub76, 1
   br i1 %cmp91, label %return, label %while.cond95.preheader
 

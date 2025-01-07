@@ -3162,7 +3162,7 @@ define internal fastcc range(i32 -30, 1) i32 @check_symlinks_fsobj(ptr noundef %
   %6 = alloca %struct.stat, align 8
   %7 = load i8, ptr %0, align 1
   %8 = icmp eq i8 %7, 0
-  br i1 %8, label %129, label %9
+  br i1 %8, label %154, label %9
 
 9:                                                ; preds = %5
   %10 = tail call i32 (i32, ptr, i32, ...) @openat(i32 noundef -100, ptr noundef nonnull @.str.20, i32 noundef 2686976) #19
@@ -3175,7 +3175,7 @@ define internal fastcc range(i32 -30, 1) i32 @check_symlinks_fsobj(ptr noundef %
   %14 = load i32, ptr %13, align 4
   store i32 %14, ptr %1, align 4
   tail call void (ptr, ptr, ...) @archive_string_sprintf(ptr noundef nonnull %2, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.21, ptr noundef nonnull %0) #19
-  br label %129
+  br label %154
 
 15:                                               ; preds = %9
   %16 = load i8, ptr %0, align 1
@@ -3185,22 +3185,22 @@ define internal fastcc range(i32 -30, 1) i32 @check_symlinks_fsobj(ptr noundef %
   %18 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %19 = icmp ne i32 %4, 0
   %20 = and i32 %3, 16
-  %.not134 = icmp eq i32 %20, 0
-  br i1 %.not134, label %.split.us, label %.preheader147
+  %.not133 = icmp eq i32 %20, 0
+  br i1 %.not133, label %.split.us, label %.split
 
 .split.us:                                        ; preds = %15
   %21 = and i32 %3, 256
   %22 = icmp eq i32 %21, 0
-  br i1 %22, label %.preheader147.us.us, label %.preheader147.us
+  br i1 %22, label %.preheader146.us.us, label %.preheader146.us
 
-.preheader147.us.us:                              ; preds = %.split.us, %54
-  %.0187.us.us = phi i32 [ %.4.us.us, %54 ], [ %10, %.split.us ]
-  %.0114186.us.us = phi ptr [ %.1115.us.us, %54 ], [ %0, %.split.us ]
-  %.1117185.us.us = phi ptr [ %spec.select141.us.us, %54 ], [ %spec.select, %.split.us ]
+.preheader146.us.us:                              ; preds = %.split.us, %54
+  %.0186.us.us = phi i32 [ %.4.us.us, %54 ], [ %10, %.split.us ]
+  %.0114185.us.us = phi ptr [ %.1115.us.us, %54 ], [ %0, %.split.us ]
+  %.1117184.us.us = phi ptr [ %spec.select140.us.us, %54 ], [ %spec.select, %.split.us ]
   br label %23
 
-23:                                               ; preds = %23, %.preheader147.us.us
-  %.3119.us.us = phi ptr [ %26, %23 ], [ %.1117185.us.us, %.preheader147.us.us ]
+23:                                               ; preds = %23, %.preheader146.us.us
+  %.3119.us.us = phi ptr [ %26, %23 ], [ %.1117184.us.us, %.preheader146.us.us ]
   %24 = load i8, ptr %.3119.us.us, align 1
   %25 = icmp eq i8 %24, 47
   %26 = getelementptr inbounds nuw i8, ptr %.3119.us.us, i64 1
@@ -3223,9 +3223,9 @@ define internal fastcc range(i32 -30, 1) i32 @check_symlinks_fsobj(ptr noundef %
 .loopexit.us.us:                                  ; preds = %.preheader.us.us, %28
   %32 = phi i1 [ %31, %28 ], [ true, %.preheader.us.us ]
   store i8 0, ptr %.4120.us.us, align 1
-  %33 = call i32 @fstatat(i32 noundef %.0187.us.us, ptr noundef %.0114186.us.us, ptr noundef nonnull %6, i32 noundef 256) #19
-  %.not133.us.us = icmp eq i32 %33, 0
-  br i1 %.not133.us.us, label %34, label %.split189.us
+  %33 = call i32 @fstatat(i32 noundef %.0186.us.us, ptr noundef %.0114185.us.us, ptr noundef nonnull %6, i32 noundef 256) #19
+  %.not132.us.us = icmp eq i32 %33, 0
+  br i1 %.not132.us.us, label %34, label %.split188.us
 
 34:                                               ; preds = %.loopexit.us.us
   %35 = load i32, ptr %18, align 8
@@ -3238,70 +3238,70 @@ define internal fastcc range(i32 -30, 1) i32 @check_symlinks_fsobj(ptr noundef %
 
 37:                                               ; preds = %34
   %or.cond.us.us = and i1 %19, %32
-  br i1 %or.cond.us.us, label %.loopexit148, label %38
+  br i1 %or.cond.us.us, label %.loopexit147, label %38
 
 38:                                               ; preds = %37
-  br i1 %32, label %.split196.us, label %39
+  br i1 %32, label %.split195.us, label %39
 
 39:                                               ; preds = %38
-  %40 = call i32 @fstatat(i32 noundef %.0187.us.us, ptr noundef %.0114186.us.us, ptr noundef nonnull %6, i32 noundef 0) #19
-  %.not135.us.us = icmp eq i32 %40, 0
-  br i1 %.not135.us.us, label %41, label %.split207.us
+  %40 = call i32 @fstatat(i32 noundef %.0186.us.us, ptr noundef %.0114185.us.us, ptr noundef nonnull %6, i32 noundef 0) #19
+  %.not134.us.us = icmp eq i32 %40, 0
+  br i1 %.not134.us.us, label %41, label %.split206.us
 
 41:                                               ; preds = %39
   %42 = load i32, ptr %18, align 8
   %43 = and i32 %42, 61440
   %44 = icmp eq i32 %43, 16384
-  br i1 %44, label %45, label %.split212.us
+  br i1 %44, label %45, label %.split211.us
 
 45:                                               ; preds = %41
-  %46 = call i32 (i32, ptr, i32, ...) @openat(i32 noundef range(i32 -100, -2147483648) %.0187.us.us, ptr noundef %.0114186.us.us, i32 noundef 2686976) #19
+  %46 = call i32 (i32, ptr, i32, ...) @openat(i32 noundef range(i32 -100, -2147483648) %.0186.us.us, ptr noundef %.0114185.us.us, i32 noundef 2686976) #19
   %47 = icmp sgt i32 %46, -1
-  br i1 %47, label %.sink.split, label %.split217.us
+  br i1 %47, label %.sink.split, label %.split216.us
 
 48:                                               ; preds = %34
   br i1 %32, label %.thread, label %49
 
 .thread:                                          ; preds = %48
   store i8 %27, ptr %.4120.us.us, align 1
-  %.not140.us.us349 = icmp ne i8 %27, 0
-  %spec.select141.idx.us.us350 = zext i1 %.not140.us.us349 to i64
-  %spec.select141.us.us351 = getelementptr inbounds nuw i8, ptr %.4120.us.us, i64 %spec.select141.idx.us.us350
-  br label %.loopexit148
+  %.not139.us.us422 = icmp ne i8 %27, 0
+  %spec.select140.idx.us.us423 = zext i1 %.not139.us.us422 to i64
+  %spec.select140.us.us424 = getelementptr inbounds nuw i8, ptr %.4120.us.us, i64 %spec.select140.idx.us.us423
+  br label %.loopexit147
 
 49:                                               ; preds = %48
-  %50 = call i32 (i32, ptr, i32, ...) @openat(i32 noundef range(i32 -100, -2147483648) %.0187.us.us, ptr noundef %.0114186.us.us, i32 noundef 2686976) #19
+  %50 = call i32 (i32, ptr, i32, ...) @openat(i32 noundef range(i32 -100, -2147483648) %.0186.us.us, ptr noundef %.0114185.us.us, i32 noundef 2686976) #19
   %51 = icmp sgt i32 %50, -1
-  br i1 %51, label %.sink.split, label %.split222.us
+  br i1 %51, label %.sink.split, label %.split221.us
 
 .sink.split:                                      ; preds = %49, %45
   %.4.us.us.ph = phi i32 [ %46, %45 ], [ %50, %49 ]
-  %52 = call i32 @close(i32 noundef %.0187.us.us) #19
+  %52 = call i32 @close(i32 noundef %.0186.us.us) #19
   %53 = getelementptr inbounds nuw i8, ptr %.4120.us.us, i64 1
   br label %54
 
 54:                                               ; preds = %.sink.split, %34
-  %.1115.us.us = phi ptr [ %.0114186.us.us, %34 ], [ %53, %.sink.split ]
-  %.4.us.us = phi i32 [ %.0187.us.us, %34 ], [ %.4.us.us.ph, %.sink.split ]
+  %.1115.us.us = phi ptr [ %.0114185.us.us, %34 ], [ %53, %.sink.split ]
+  %.4.us.us = phi i32 [ %.0186.us.us, %34 ], [ %.4.us.us.ph, %.sink.split ]
   store i8 %27, ptr %.4120.us.us, align 1
-  %.not140.us.us = icmp ne i8 %27, 0
-  %spec.select141.idx.us.us = zext i1 %.not140.us.us to i64
-  %spec.select141.us.us = getelementptr inbounds nuw i8, ptr %.4120.us.us, i64 %spec.select141.idx.us.us
-  br i1 %32, label %.loopexit148, label %.preheader147.us.us, !llvm.loop !15
+  %.not139.us.us = icmp ne i8 %27, 0
+  %spec.select140.idx.us.us = zext i1 %.not139.us.us to i64
+  %spec.select140.us.us = getelementptr inbounds nuw i8, ptr %.4120.us.us, i64 %spec.select140.idx.us.us
+  br i1 %32, label %.loopexit147, label %.preheader146.us.us, !llvm.loop !15
 
 55:                                               ; preds = %.preheader.us.us
   %56 = getelementptr inbounds nuw i8, ptr %.4120.us.us, i64 1
   %.pr.us.us = load i8, ptr %56, align 1
   br label %.preheader.us.us, !llvm.loop !16
 
-.preheader147.us:                                 ; preds = %.split.us, %80
-  %.0187.us = phi i32 [ %.4.us, %80 ], [ %10, %.split.us ]
-  %.0114186.us = phi ptr [ %.1115.us, %80 ], [ %0, %.split.us ]
-  %.1117185.us = phi ptr [ %spec.select141.us, %80 ], [ %spec.select, %.split.us ]
+.preheader146.us:                                 ; preds = %.split.us, %80
+  %.0186.us = phi i32 [ %.4.us, %80 ], [ %10, %.split.us ]
+  %.0114185.us = phi ptr [ %.1115.us, %80 ], [ %0, %.split.us ]
+  %.1117184.us = phi ptr [ %spec.select140.us, %80 ], [ %spec.select, %.split.us ]
   br label %57
 
-57:                                               ; preds = %57, %.preheader147.us
-  %.3119.us = phi ptr [ %60, %57 ], [ %.1117185.us, %.preheader147.us ]
+57:                                               ; preds = %57, %.preheader146.us
+  %.3119.us = phi ptr [ %60, %57 ], [ %.1117184.us, %.preheader146.us ]
   %58 = load i8, ptr %.3119.us, align 1
   %59 = icmp eq i8 %58, 47
   %60 = getelementptr inbounds nuw i8, ptr %.3119.us, i64 1
@@ -3324,9 +3324,9 @@ define internal fastcc range(i32 -30, 1) i32 @check_symlinks_fsobj(ptr noundef %
 .loopexit.us:                                     ; preds = %.preheader.us, %62
   %66 = phi i1 [ %65, %62 ], [ true, %.preheader.us ]
   store i8 0, ptr %.4120.us, align 1
-  %67 = call i32 @fstatat(i32 noundef %.0187.us, ptr noundef %.0114186.us, ptr noundef nonnull %6, i32 noundef 256) #19
-  %.not133.us = icmp eq i32 %67, 0
-  br i1 %.not133.us, label %68, label %.split189.us
+  %67 = call i32 @fstatat(i32 noundef %.0186.us, ptr noundef %.0114185.us, ptr noundef nonnull %6, i32 noundef 256) #19
+  %.not132.us = icmp eq i32 %67, 0
+  br i1 %.not132.us, label %68, label %.split188.us
 
 68:                                               ; preds = %.loopexit.us
   %69 = load i32, ptr %18, align 8
@@ -3339,226 +3339,313 @@ define internal fastcc range(i32 -30, 1) i32 @check_symlinks_fsobj(ptr noundef %
 
 71:                                               ; preds = %68
   %or.cond.us = and i1 %19, %66
-  br i1 %or.cond.us, label %.loopexit148, label %72
+  br i1 %or.cond.us, label %.loopexit147, label %72
 
 72:                                               ; preds = %71
-  br i1 %66, label %.split196.us, label %.split202.us
+  br i1 %66, label %.split195.us, label %.split201.us
 
 73:                                               ; preds = %68
-  br i1 %66, label %.thread352, label %74
+  br i1 %66, label %.thread425, label %74
 
-.thread352:                                       ; preds = %73
+.thread425:                                       ; preds = %73
   store i8 %61, ptr %.4120.us, align 1
-  %.not140.us355 = icmp ne i8 %61, 0
-  %spec.select141.idx.us356 = zext i1 %.not140.us355 to i64
-  %spec.select141.us357 = getelementptr inbounds nuw i8, ptr %.4120.us, i64 %spec.select141.idx.us356
-  br label %.loopexit148
+  %.not139.us428 = icmp ne i8 %61, 0
+  %spec.select140.idx.us429 = zext i1 %.not139.us428 to i64
+  %spec.select140.us430 = getelementptr inbounds nuw i8, ptr %.4120.us, i64 %spec.select140.idx.us429
+  br label %.loopexit147
 
 74:                                               ; preds = %73
-  %75 = call i32 (i32, ptr, i32, ...) @openat(i32 noundef range(i32 -100, -2147483648) %.0187.us, ptr noundef %.0114186.us, i32 noundef 2686976) #19
+  %75 = call i32 (i32, ptr, i32, ...) @openat(i32 noundef range(i32 -100, -2147483648) %.0186.us, ptr noundef %.0114185.us, i32 noundef 2686976) #19
   %76 = icmp sgt i32 %75, -1
-  br i1 %76, label %77, label %.split222.us
+  br i1 %76, label %77, label %.split221.us
 
 77:                                               ; preds = %74
-  %78 = call i32 @close(i32 noundef %.0187.us) #19
+  %78 = call i32 @close(i32 noundef %.0186.us) #19
   %79 = getelementptr inbounds nuw i8, ptr %.4120.us, i64 1
   br label %80
 
 80:                                               ; preds = %77, %68
-  %.1115.us = phi ptr [ %79, %77 ], [ %.0114186.us, %68 ]
-  %.4.us = phi i32 [ %75, %77 ], [ %.0187.us, %68 ]
+  %.1115.us = phi ptr [ %79, %77 ], [ %.0114185.us, %68 ]
+  %.4.us = phi i32 [ %75, %77 ], [ %.0186.us, %68 ]
   store i8 %61, ptr %.4120.us, align 1
-  %.not140.us = icmp ne i8 %61, 0
-  %spec.select141.idx.us = zext i1 %.not140.us to i64
-  %spec.select141.us = getelementptr inbounds nuw i8, ptr %.4120.us, i64 %spec.select141.idx.us
-  br i1 %66, label %.loopexit148, label %.preheader147.us, !llvm.loop !15
+  %.not139.us = icmp ne i8 %61, 0
+  %spec.select140.idx.us = zext i1 %.not139.us to i64
+  %spec.select140.us = getelementptr inbounds nuw i8, ptr %.4120.us, i64 %spec.select140.idx.us
+  br i1 %66, label %.loopexit147, label %.preheader146.us, !llvm.loop !15
 
 81:                                               ; preds = %.preheader.us
   %82 = getelementptr inbounds nuw i8, ptr %.4120.us, i64 1
   %.pr.us = load i8, ptr %82, align 1
   br label %.preheader.us, !llvm.loop !16
 
-.preheader147:                                    ; preds = %15, %127
-  %.0187 = phi i32 [ %.4, %127 ], [ %10, %15 ]
-  %.0114186 = phi ptr [ %.1115, %127 ], [ %0, %15 ]
-  %.1117185 = phi ptr [ %spec.select141, %127 ], [ %spec.select, %15 ]
+.split:                                           ; preds = %15
+  br i1 %19, label %.preheader146, label %.preheader146.us225
+
+.preheader146.us225:                              ; preds = %.split, %107
+  %.0186.us226 = phi i32 [ %.4.us238, %107 ], [ %10, %.split ]
+  %.0114185.us227 = phi ptr [ %.1115.us237, %107 ], [ %0, %.split ]
+  %.1117184.us228 = phi ptr [ %spec.select140.us241, %107 ], [ %spec.select, %.split ]
   br label %83
 
-83:                                               ; preds = %83, %.preheader147
-  %.3119 = phi ptr [ %86, %83 ], [ %.1117185, %.preheader147 ]
-  %84 = load i8, ptr %.3119, align 1
+83:                                               ; preds = %83, %.preheader146.us225
+  %.3119.us229 = phi ptr [ %86, %83 ], [ %.1117184.us228, %.preheader146.us225 ]
+  %84 = load i8, ptr %.3119.us229, align 1
   %85 = icmp eq i8 %84, 47
-  %86 = getelementptr inbounds nuw i8, ptr %.3119, i64 1
-  br i1 %85, label %83, label %.preheader, !llvm.loop !14
+  %86 = getelementptr inbounds nuw i8, ptr %.3119.us229, i64 1
+  br i1 %85, label %83, label %.preheader.us243, !llvm.loop !14
 
-.preheader:                                       ; preds = %83, %88
-  %87 = phi i8 [ %.pr, %88 ], [ %84, %83 ]
-  %.4120 = phi ptr [ %89, %88 ], [ %.3119, %83 ]
-  switch i8 %87, label %88 [
-    i8 0, label %.loopexit
-    i8 47, label %90
+.preheader.us243:                                 ; preds = %83, %108
+  %87 = phi i8 [ %.pr.us242, %108 ], [ %84, %83 ]
+  %.4120.us230 = phi ptr [ %109, %108 ], [ %.3119.us229, %83 ]
+  switch i8 %87, label %108 [
+    i8 0, label %.loopexit.us246
+    i8 47, label %88
   ]
 
-88:                                               ; preds = %.preheader
-  %89 = getelementptr inbounds nuw i8, ptr %.4120, i64 1
-  %.pr = load i8, ptr %89, align 1
+88:                                               ; preds = %.preheader.us243
+  %89 = getelementptr inbounds nuw i8, ptr %.4120.us230, i64 1
+  %90 = load i8, ptr %89, align 1
+  %91 = icmp eq i8 %90, 0
+  br label %.loopexit.us246
+
+.loopexit.us246:                                  ; preds = %.preheader.us243, %88
+  %92 = phi i1 [ %91, %88 ], [ true, %.preheader.us243 ]
+  store i8 0, ptr %.4120.us230, align 1
+  %93 = call i32 @fstatat(i32 noundef %.0186.us226, ptr noundef %.0114185.us227, ptr noundef nonnull %6, i32 noundef 256) #19
+  %.not132.us234 = icmp eq i32 %93, 0
+  br i1 %.not132.us234, label %94, label %.split188.us
+
+94:                                               ; preds = %.loopexit.us246
+  %95 = load i32, ptr %18, align 8
+  %96 = trunc i32 %95 to i16
+  %trunc.us235 = and i16 %96, -4096
+  switch i16 %trunc.us235, label %107 [
+    i16 16384, label %100
+    i16 -24576, label %97
+  ]
+
+97:                                               ; preds = %94
+  br i1 %92, label %.split195.us, label %98
+
+98:                                               ; preds = %97
+  %99 = call i32 @unlinkat(i32 noundef %.0186.us226, ptr noundef %.0114185.us227, i32 noundef 0) #19
+  %.not136.us = icmp eq i32 %99, 0
+  br i1 %.not136.us, label %107, label %.split270.us
+
+100:                                              ; preds = %94
+  br i1 %92, label %.thread433, label %101
+
+.thread433:                                       ; preds = %100
+  store i8 %87, ptr %.4120.us230, align 1
+  %.not139.us239436 = icmp ne i8 %87, 0
+  %spec.select140.idx.us240437 = zext i1 %.not139.us239436 to i64
+  %spec.select140.us241438 = getelementptr inbounds nuw i8, ptr %.4120.us230, i64 %spec.select140.idx.us240437
+  br label %.loopexit147
+
+101:                                              ; preds = %100
+  %102 = call i32 (i32, ptr, i32, ...) @openat(i32 noundef range(i32 -100, -2147483648) %.0186.us226, ptr noundef %.0114185.us227, i32 noundef 2686976) #19
+  %103 = icmp sgt i32 %102, -1
+  br i1 %103, label %104, label %.split221.us
+
+104:                                              ; preds = %101
+  %105 = call i32 @close(i32 noundef %.0186.us226) #19
+  %106 = getelementptr inbounds nuw i8, ptr %.4120.us230, i64 1
+  br label %107
+
+107:                                              ; preds = %98, %104, %94
+  %.1115.us237 = phi ptr [ %106, %104 ], [ %.0114185.us227, %94 ], [ %.0114185.us227, %98 ]
+  %.4.us238 = phi i32 [ %102, %104 ], [ %.0186.us226, %94 ], [ %.0186.us226, %98 ]
+  store i8 %87, ptr %.4120.us230, align 1
+  %.not139.us239 = icmp ne i8 %87, 0
+  %spec.select140.idx.us240 = zext i1 %.not139.us239 to i64
+  %spec.select140.us241 = getelementptr inbounds nuw i8, ptr %.4120.us230, i64 %spec.select140.idx.us240
+  br i1 %92, label %.loopexit147, label %.preheader146.us225, !llvm.loop !15
+
+108:                                              ; preds = %.preheader.us243
+  %109 = getelementptr inbounds nuw i8, ptr %.4120.us230, i64 1
+  %.pr.us242 = load i8, ptr %109, align 1
+  br label %.preheader.us243, !llvm.loop !16
+
+.preheader146:                                    ; preds = %.split, %152
+  %.0186 = phi i32 [ %.4, %152 ], [ %10, %.split ]
+  %.0114185 = phi ptr [ %.1115, %152 ], [ %0, %.split ]
+  %.1117184 = phi ptr [ %spec.select140, %152 ], [ %spec.select, %.split ]
+  br label %110
+
+110:                                              ; preds = %110, %.preheader146
+  %.3119 = phi ptr [ %113, %110 ], [ %.1117184, %.preheader146 ]
+  %111 = load i8, ptr %.3119, align 1
+  %112 = icmp eq i8 %111, 47
+  %113 = getelementptr inbounds nuw i8, ptr %.3119, i64 1
+  br i1 %112, label %110, label %.preheader, !llvm.loop !14
+
+.preheader:                                       ; preds = %110, %115
+  %114 = phi i8 [ %.pr, %115 ], [ %111, %110 ]
+  %.4120 = phi ptr [ %116, %115 ], [ %.3119, %110 ]
+  switch i8 %114, label %115 [
+    i8 0, label %.loopexit
+    i8 47, label %117
+  ]
+
+115:                                              ; preds = %.preheader
+  %116 = getelementptr inbounds nuw i8, ptr %.4120, i64 1
+  %.pr = load i8, ptr %116, align 1
   br label %.preheader, !llvm.loop !16
 
-90:                                               ; preds = %.preheader
-  %91 = getelementptr inbounds nuw i8, ptr %.4120, i64 1
-  %92 = load i8, ptr %91, align 1
-  %93 = icmp eq i8 %92, 0
+117:                                              ; preds = %.preheader
+  %118 = getelementptr inbounds nuw i8, ptr %.4120, i64 1
+  %119 = load i8, ptr %118, align 1
+  %120 = icmp eq i8 %119, 0
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.preheader, %90
-  %94 = phi i1 [ %93, %90 ], [ true, %.preheader ]
+.loopexit:                                        ; preds = %.preheader, %117
+  %121 = phi i1 [ %120, %117 ], [ true, %.preheader ]
   store i8 0, ptr %.4120, align 1
-  %95 = call i32 @fstatat(i32 noundef %.0187, ptr noundef %.0114186, ptr noundef nonnull %6, i32 noundef 256) #19
-  %.not133 = icmp eq i32 %95, 0
-  br i1 %.not133, label %100, label %.split189.us
+  %122 = call i32 @fstatat(i32 noundef %.0186, ptr noundef %.0114185, ptr noundef nonnull %6, i32 noundef 256) #19
+  %.not132 = icmp eq i32 %122, 0
+  br i1 %.not132, label %127, label %.split188.us
 
-.split189.us:                                     ; preds = %.loopexit, %.loopexit.us, %.loopexit.us.us
-  %.us-phi = phi i32 [ %.0187.us.us, %.loopexit.us.us ], [ %.0187.us, %.loopexit.us ], [ %.0187, %.loopexit ]
-  %.us-phi190 = phi i8 [ %27, %.loopexit.us.us ], [ %61, %.loopexit.us ], [ %87, %.loopexit ]
-  %.us-phi191 = phi ptr [ %.4120.us.us, %.loopexit.us.us ], [ %.4120.us, %.loopexit.us ], [ %.4120, %.loopexit ]
-  store i8 %.us-phi190, ptr %.us-phi191, align 1
-  %96 = tail call ptr @__errno_location() #21
-  %97 = load i32, ptr %96, align 4
-  %98 = icmp eq i32 %97, 2
-  br i1 %98, label %.loopexit148, label %99
+.split188.us:                                     ; preds = %.loopexit.us246, %.loopexit, %.loopexit.us, %.loopexit.us.us
+  %.us-phi = phi i32 [ %.0186.us.us, %.loopexit.us.us ], [ %.0186.us, %.loopexit.us ], [ %.0186, %.loopexit ], [ %.0186.us226, %.loopexit.us246 ]
+  %.us-phi189 = phi i8 [ %27, %.loopexit.us.us ], [ %61, %.loopexit.us ], [ %114, %.loopexit ], [ %87, %.loopexit.us246 ]
+  %.us-phi190 = phi ptr [ %.4120.us.us, %.loopexit.us.us ], [ %.4120.us, %.loopexit.us ], [ %.4120, %.loopexit ], [ %.4120.us230, %.loopexit.us246 ]
+  store i8 %.us-phi189, ptr %.us-phi190, align 1
+  %123 = tail call ptr @__errno_location() #21
+  %124 = load i32, ptr %123, align 4
+  %125 = icmp eq i32 %124, 2
+  br i1 %125, label %.loopexit147, label %126
 
-99:                                               ; preds = %.split189.us
-  store i32 %97, ptr %1, align 4
+126:                                              ; preds = %.split188.us
+  store i32 %124, ptr %1, align 4
   call void (ptr, ptr, ...) @archive_string_sprintf(ptr noundef nonnull %2, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.22, ptr noundef nonnull %0) #19
-  br label %.loopexit148
+  br label %.loopexit147
 
-100:                                              ; preds = %.loopexit
-  %101 = load i32, ptr %18, align 8
-  %102 = trunc i32 %101 to i16
-  %trunc = and i16 %102, -4096
-  switch i16 %trunc, label %127 [
-    i16 16384, label %103
-    i16 -24576, label %112
+127:                                              ; preds = %.loopexit
+  %128 = load i32, ptr %18, align 8
+  %129 = trunc i32 %128 to i16
+  %trunc = and i16 %129, -4096
+  switch i16 %trunc, label %152 [
+    i16 16384, label %130
+    i16 -24576, label %139
   ]
 
-103:                                              ; preds = %100
-  br i1 %94, label %.thread360, label %104
+130:                                              ; preds = %127
+  br i1 %121, label %.thread441, label %131
 
-.thread360:                                       ; preds = %103
-  store i8 %87, ptr %.4120, align 1
-  %.not140363 = icmp ne i8 %87, 0
-  %spec.select141.idx364 = zext i1 %.not140363 to i64
-  %spec.select141365 = getelementptr inbounds nuw i8, ptr %.4120, i64 %spec.select141.idx364
-  br label %.loopexit148
+.thread441:                                       ; preds = %130
+  store i8 %114, ptr %.4120, align 1
+  %.not139444 = icmp ne i8 %114, 0
+  %spec.select140.idx445 = zext i1 %.not139444 to i64
+  %spec.select140446 = getelementptr inbounds nuw i8, ptr %.4120, i64 %spec.select140.idx445
+  br label %.loopexit147
 
-104:                                              ; preds = %103
-  %105 = call i32 (i32, ptr, i32, ...) @openat(i32 noundef range(i32 -100, -2147483648) %.0187, ptr noundef %.0114186, i32 noundef 2686976) #19
-  %106 = icmp sgt i32 %105, -1
-  br i1 %106, label %109, label %.split222.us
+131:                                              ; preds = %130
+  %132 = call i32 (i32, ptr, i32, ...) @openat(i32 noundef range(i32 -100, -2147483648) %.0186, ptr noundef %.0114185, i32 noundef 2686976) #19
+  %133 = icmp sgt i32 %132, -1
+  br i1 %133, label %136, label %.split221.us
 
-.split222.us:                                     ; preds = %104, %74, %49
-  %.us-phi223 = phi i32 [ %.0187.us.us, %49 ], [ %.0187.us, %74 ], [ %.0187, %104 ]
-  %.us-phi224 = phi i8 [ %27, %49 ], [ %61, %74 ], [ %87, %104 ]
-  %.us-phi225 = phi ptr [ %.4120.us.us, %49 ], [ %.4120.us, %74 ], [ %.4120, %104 ]
-  store i8 %.us-phi224, ptr %.us-phi225, align 1
-  %107 = tail call ptr @__errno_location() #21
-  %108 = load i32, ptr %107, align 4
-  store i32 %108, ptr %1, align 4
+.split221.us:                                     ; preds = %101, %131, %74, %49
+  %.us-phi222 = phi i32 [ %.0186.us.us, %49 ], [ %.0186.us, %74 ], [ %.0186, %131 ], [ %.0186.us226, %101 ]
+  %.us-phi223 = phi i8 [ %27, %49 ], [ %61, %74 ], [ %114, %131 ], [ %87, %101 ]
+  %.us-phi224 = phi ptr [ %.4120.us.us, %49 ], [ %.4120.us, %74 ], [ %.4120, %131 ], [ %.4120.us230, %101 ]
+  store i8 %.us-phi223, ptr %.us-phi224, align 1
+  %134 = tail call ptr @__errno_location() #21
+  %135 = load i32, ptr %134, align 4
+  store i32 %135, ptr %1, align 4
   call void (ptr, ptr, ...) @archive_string_sprintf(ptr noundef nonnull %2, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.23, ptr noundef nonnull %0) #19
-  br label %.loopexit148
+  br label %.loopexit147
 
-109:                                              ; preds = %104
-  %110 = call i32 @close(i32 noundef %.0187) #19
-  %111 = getelementptr inbounds nuw i8, ptr %.4120, i64 1
-  br label %127
+136:                                              ; preds = %131
+  %137 = call i32 @close(i32 noundef %.0186) #19
+  %138 = getelementptr inbounds nuw i8, ptr %.4120, i64 1
+  br label %152
 
-112:                                              ; preds = %100
-  %or.cond = and i1 %19, %94
-  br i1 %or.cond, label %.loopexit148, label %113
+139:                                              ; preds = %127
+  br i1 %121, label %.loopexit147, label %144
 
-113:                                              ; preds = %112
-  br i1 %94, label %.split196.us, label %118
+.split195.us:                                     ; preds = %97, %38, %72
+  %.us-phi196 = phi ptr [ %.0114185.us, %72 ], [ %.0114185.us.us, %38 ], [ %.0114185.us227, %97 ]
+  %.us-phi197 = phi i32 [ %.0186.us, %72 ], [ %.0186.us.us, %38 ], [ %.0186.us226, %97 ]
+  %.us-phi198 = phi i8 [ %61, %72 ], [ %27, %38 ], [ %87, %97 ]
+  %.us-phi199 = phi ptr [ %.4120.us, %72 ], [ %.4120.us.us, %38 ], [ %.4120.us230, %97 ]
+  %140 = call i32 @unlinkat(i32 noundef %.us-phi197, ptr noundef %.us-phi196, i32 noundef 0) #19
+  %.not137 = icmp eq i32 %140, 0
+  store i8 %.us-phi198, ptr %.us-phi199, align 1
+  br i1 %.not137, label %.loopexit147, label %141
 
-.split196.us:                                     ; preds = %113, %38, %72
-  %.us-phi197 = phi ptr [ %.0114186.us, %72 ], [ %.0114186.us.us, %38 ], [ %.0114186, %113 ]
-  %.us-phi198 = phi i32 [ %.0187.us, %72 ], [ %.0187.us.us, %38 ], [ %.0187, %113 ]
-  %.us-phi199 = phi i8 [ %61, %72 ], [ %27, %38 ], [ %87, %113 ]
-  %.us-phi200 = phi ptr [ %.4120.us, %72 ], [ %.4120.us.us, %38 ], [ %.4120, %113 ]
-  %114 = call i32 @unlinkat(i32 noundef %.us-phi198, ptr noundef %.us-phi197, i32 noundef 0) #19
-  %.not138 = icmp eq i32 %114, 0
-  store i8 %.us-phi199, ptr %.us-phi200, align 1
-  br i1 %.not138, label %.loopexit148, label %115
-
-115:                                              ; preds = %.split196.us
-  %116 = tail call ptr @__errno_location() #21
-  %117 = load i32, ptr %116, align 4
-  store i32 %117, ptr %1, align 4
+141:                                              ; preds = %.split195.us
+  %142 = tail call ptr @__errno_location() #21
+  %143 = load i32, ptr %142, align 4
+  store i32 %143, ptr %1, align 4
   call void (ptr, ptr, ...) @archive_string_sprintf(ptr noundef nonnull %2, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.24, ptr noundef nonnull %0) #19
-  br label %.loopexit148
+  br label %.loopexit147
 
-118:                                              ; preds = %113
-  %119 = call i32 @unlinkat(i32 noundef %.0187, ptr noundef %.0114186, i32 noundef 0) #19
-  %.not137 = icmp eq i32 %119, 0
-  br i1 %.not137, label %127, label %120
+144:                                              ; preds = %139
+  %145 = call i32 @unlinkat(i32 noundef %.0186, ptr noundef %.0114185, i32 noundef 0) #19
+  %.not136 = icmp eq i32 %145, 0
+  br i1 %.not136, label %152, label %.split270.us
 
-120:                                              ; preds = %118
-  store i8 %87, ptr %.4120, align 1
+.split270.us:                                     ; preds = %98, %144
+  %.us-phi271 = phi i32 [ %.0186, %144 ], [ %.0186.us226, %98 ]
+  %.us-phi272 = phi i8 [ %114, %144 ], [ %87, %98 ]
+  %.us-phi273 = phi ptr [ %.4120, %144 ], [ %.4120.us230, %98 ]
+  store i8 %.us-phi272, ptr %.us-phi273, align 1
   store i32 0, ptr %1, align 4
   call void (ptr, ptr, ...) @archive_string_sprintf(ptr noundef nonnull %2, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.25, ptr noundef nonnull %0) #19
-  br label %.loopexit148
+  br label %.loopexit147
 
-.split207.us:                                     ; preds = %39
+.split206.us:                                     ; preds = %39
   store i8 %27, ptr %.4120.us.us, align 1
-  %121 = tail call ptr @__errno_location() #21
-  %122 = load i32, ptr %121, align 4
-  %123 = icmp eq i32 %122, 2
-  br i1 %123, label %.loopexit148, label %124
+  %146 = tail call ptr @__errno_location() #21
+  %147 = load i32, ptr %146, align 4
+  %148 = icmp eq i32 %147, 2
+  br i1 %148, label %.loopexit147, label %149
 
-124:                                              ; preds = %.split207.us
-  store i32 %122, ptr %1, align 4
+149:                                              ; preds = %.split206.us
+  store i32 %147, ptr %1, align 4
   call void (ptr, ptr, ...) @archive_string_sprintf(ptr noundef nonnull %2, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.22, ptr noundef nonnull %0) #19
-  br label %.loopexit148
+  br label %.loopexit147
 
-.split217.us:                                     ; preds = %45
+.split216.us:                                     ; preds = %45
   store i8 %27, ptr %.4120.us.us, align 1
-  %125 = tail call ptr @__errno_location() #21
-  %126 = load i32, ptr %125, align 4
-  store i32 %126, ptr %1, align 4
+  %150 = tail call ptr @__errno_location() #21
+  %151 = load i32, ptr %150, align 4
+  store i32 %151, ptr %1, align 4
   call void (ptr, ptr, ...) @archive_string_sprintf(ptr noundef nonnull %2, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.23, ptr noundef nonnull %0) #19
-  br label %.loopexit148
+  br label %.loopexit147
 
-.split212.us:                                     ; preds = %41
+.split211.us:                                     ; preds = %41
   store i8 %27, ptr %.4120.us.us, align 1
   store i32 0, ptr %1, align 4
   call void (ptr, ptr, ...) @archive_string_sprintf(ptr noundef nonnull %2, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.26, ptr noundef nonnull %0) #19
-  br label %.loopexit148
+  br label %.loopexit147
 
-.split202.us:                                     ; preds = %72
+.split201.us:                                     ; preds = %72
   store i8 %61, ptr %.4120.us, align 1
   store i32 0, ptr %1, align 4
   call void (ptr, ptr, ...) @archive_string_sprintf(ptr noundef nonnull %2, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.26, ptr noundef nonnull %0) #19
-  br label %.loopexit148
+  br label %.loopexit147
 
-127:                                              ; preds = %118, %100, %109
-  %.1115 = phi ptr [ %111, %109 ], [ %.0114186, %100 ], [ %.0114186, %118 ]
-  %.4 = phi i32 [ %105, %109 ], [ %.0187, %100 ], [ %.0187, %118 ]
-  store i8 %87, ptr %.4120, align 1
-  %.not140 = icmp ne i8 %87, 0
-  %spec.select141.idx = zext i1 %.not140 to i64
-  %spec.select141 = getelementptr inbounds nuw i8, ptr %.4120, i64 %spec.select141.idx
-  br i1 %94, label %.loopexit148, label %.preheader147, !llvm.loop !15
+152:                                              ; preds = %144, %127, %136
+  %.1115 = phi ptr [ %138, %136 ], [ %.0114185, %127 ], [ %.0114185, %144 ]
+  %.4 = phi i32 [ %132, %136 ], [ %.0186, %127 ], [ %.0186, %144 ]
+  store i8 %114, ptr %.4120, align 1
+  %.not139 = icmp ne i8 %114, 0
+  %spec.select140.idx = zext i1 %.not139 to i64
+  %spec.select140 = getelementptr inbounds nuw i8, ptr %.4120, i64 %spec.select140.idx
+  br i1 %121, label %.loopexit147, label %.preheader146, !llvm.loop !15
 
-.loopexit148:                                     ; preds = %127, %112, %80, %37, %54, %.split196.us, %.thread360, %.thread352, %.thread, %71, %.split207.us, %.split189.us, %.split202.us, %.split212.us, %.split217.us, %124, %120, %115, %.split222.us, %99
-  %.0176 = phi i32 [ %.us-phi, %.split189.us ], [ %.us-phi, %99 ], [ %.us-phi223, %.split222.us ], [ %.us-phi198, %115 ], [ %.0187, %120 ], [ %.0187.us.us, %.split207.us ], [ %.0187.us.us, %124 ], [ %.0187.us.us, %.split217.us ], [ %.0187.us.us, %.split212.us ], [ %.0187.us, %.split202.us ], [ %.0187.us, %71 ], [ %.0187.us.us, %.thread ], [ %.0187.us, %.thread352 ], [ %.0187, %.thread360 ], [ %.us-phi198, %.split196.us ], [ %.4.us.us, %54 ], [ %.0187.us.us, %37 ], [ %.4.us, %80 ], [ %.4, %127 ], [ %.0187, %112 ]
-  %.0121 = phi i32 [ 0, %.split189.us ], [ -25, %99 ], [ -30, %.split222.us ], [ -25, %115 ], [ -25, %120 ], [ 0, %.split207.us ], [ -25, %124 ], [ -30, %.split217.us ], [ -25, %.split212.us ], [ -25, %.split202.us ], [ 0, %71 ], [ 0, %.thread ], [ 0, %.thread352 ], [ 0, %.thread360 ], [ 0, %.split196.us ], [ 0, %54 ], [ 0, %37 ], [ 0, %80 ], [ 0, %112 ], [ 0, %127 ]
-  %.2118 = phi ptr [ %.us-phi191, %.split189.us ], [ %.us-phi191, %99 ], [ %.us-phi225, %.split222.us ], [ %.us-phi200, %115 ], [ %.4120, %120 ], [ %.4120.us.us, %.split207.us ], [ %.4120.us.us, %124 ], [ %.4120.us.us, %.split217.us ], [ %.4120.us.us, %.split212.us ], [ %.4120.us, %.split202.us ], [ %.4120.us, %71 ], [ %spec.select141.us.us351, %.thread ], [ %spec.select141.us357, %.thread352 ], [ %spec.select141365, %.thread360 ], [ %.us-phi200, %.split196.us ], [ %spec.select141.us.us, %54 ], [ %.4120.us.us, %37 ], [ %spec.select141.us, %80 ], [ %spec.select141, %127 ], [ %.4120, %112 ]
-  %.1112 = phi i8 [ %.us-phi190, %.split189.us ], [ %.us-phi190, %99 ], [ %.us-phi224, %.split222.us ], [ %.us-phi199, %115 ], [ %87, %120 ], [ %27, %.split207.us ], [ %27, %124 ], [ %27, %.split217.us ], [ %27, %.split212.us ], [ %61, %.split202.us ], [ %61, %71 ], [ %27, %.thread ], [ %61, %.thread352 ], [ %87, %.thread360 ], [ %.us-phi199, %.split196.us ], [ %27, %54 ], [ %27, %37 ], [ %61, %80 ], [ %87, %112 ], [ %87, %127 ]
+.loopexit147:                                     ; preds = %107, %139, %152, %80, %37, %54, %.split195.us, %.thread433, %.thread441, %.thread425, %.thread, %71, %.split206.us, %.split188.us, %.split201.us, %.split211.us, %.split216.us, %149, %.split270.us, %141, %.split221.us, %126
+  %.0175 = phi i32 [ %.us-phi, %.split188.us ], [ %.us-phi, %126 ], [ %.us-phi222, %.split221.us ], [ %.us-phi197, %141 ], [ %.us-phi271, %.split270.us ], [ %.0186.us.us, %.split206.us ], [ %.0186.us.us, %149 ], [ %.0186.us.us, %.split216.us ], [ %.0186.us.us, %.split211.us ], [ %.0186.us, %.split201.us ], [ %.0186.us, %71 ], [ %.0186.us.us, %.thread ], [ %.0186.us, %.thread425 ], [ %.0186, %.thread441 ], [ %.0186.us226, %.thread433 ], [ %.us-phi197, %.split195.us ], [ %.4.us.us, %54 ], [ %.0186.us.us, %37 ], [ %.4.us, %80 ], [ %.4, %152 ], [ %.0186, %139 ], [ %.4.us238, %107 ]
+  %.0121 = phi i32 [ 0, %.split188.us ], [ -25, %126 ], [ -30, %.split221.us ], [ -25, %141 ], [ -25, %.split270.us ], [ 0, %.split206.us ], [ -25, %149 ], [ -30, %.split216.us ], [ -25, %.split211.us ], [ -25, %.split201.us ], [ 0, %71 ], [ 0, %.thread ], [ 0, %.thread425 ], [ 0, %.thread441 ], [ 0, %.thread433 ], [ 0, %.split195.us ], [ 0, %54 ], [ 0, %37 ], [ 0, %80 ], [ 0, %152 ], [ 0, %139 ], [ 0, %107 ]
+  %.2118 = phi ptr [ %.us-phi190, %.split188.us ], [ %.us-phi190, %126 ], [ %.us-phi224, %.split221.us ], [ %.us-phi199, %141 ], [ %.us-phi273, %.split270.us ], [ %.4120.us.us, %.split206.us ], [ %.4120.us.us, %149 ], [ %.4120.us.us, %.split216.us ], [ %.4120.us.us, %.split211.us ], [ %.4120.us, %.split201.us ], [ %.4120.us, %71 ], [ %spec.select140.us.us424, %.thread ], [ %spec.select140.us430, %.thread425 ], [ %spec.select140446, %.thread441 ], [ %spec.select140.us241438, %.thread433 ], [ %.us-phi199, %.split195.us ], [ %spec.select140.us.us, %54 ], [ %.4120.us.us, %37 ], [ %spec.select140.us, %80 ], [ %spec.select140, %152 ], [ %.4120, %139 ], [ %spec.select140.us241, %107 ]
+  %.1112 = phi i8 [ %.us-phi189, %.split188.us ], [ %.us-phi189, %126 ], [ %.us-phi223, %.split221.us ], [ %.us-phi198, %141 ], [ %.us-phi272, %.split270.us ], [ %27, %.split206.us ], [ %27, %149 ], [ %27, %.split216.us ], [ %27, %.split211.us ], [ %61, %.split201.us ], [ %61, %71 ], [ %27, %.thread ], [ %61, %.thread425 ], [ %114, %.thread441 ], [ %87, %.thread433 ], [ %.us-phi198, %.split195.us ], [ %27, %54 ], [ %27, %37 ], [ %61, %80 ], [ %114, %152 ], [ %114, %139 ], [ %87, %107 ]
   store i8 %.1112, ptr %.2118, align 1
-  %128 = call i32 @close(i32 noundef %.0176) #19
-  br label %129
+  %153 = call i32 @close(i32 noundef %.0175) #19
+  br label %154
 
-129:                                              ; preds = %5, %.loopexit148, %12
-  %.0122 = phi i32 [ -30, %12 ], [ %.0121, %.loopexit148 ], [ 0, %5 ]
+154:                                              ; preds = %5, %.loopexit147, %12
+  %.0122 = phi i32 [ -30, %12 ], [ %.0121, %.loopexit147 ], [ 0, %5 ]
   ret i32 %.0122
 }
 

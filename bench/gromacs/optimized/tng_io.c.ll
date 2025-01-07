@@ -22001,82 +22001,79 @@ tng_block_destroy.exit44:                         ; preds = %61, %64
 
 73:                                               ; preds = %.lr.ph90
   %74 = call fastcc i32 @tng_data_block_meta_information_read(ptr noundef %0, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef %9, ptr noundef %10, ptr noundef %11, ptr noundef %12, ptr noundef %13, ptr noundef %14, i8 noundef signext 0, ptr noundef %15)
-  %75 = icmp eq i32 %74, 0
-  %spec.select38 = zext i1 %75 to i32
+  %75 = icmp ne i32 %74, 0
   %76 = icmp eq i32 %74, 0
   br i1 %76, label %.backedge, label %.thread
 
 .backedge:                                        ; preds = %73, %.thread75
-  %.067.be = phi i32 [ %spec.select38, %73 ], [ 0, %.thread75 ]
+  %.067.be = phi i1 [ %75, %73 ], [ true, %.thread75 ]
   %77 = load i64, ptr %48, align 8
   %78 = icmp ne i64 %77, 2
-  %79 = icmp eq i32 %.067.be, 0
-  %or.cond = and i1 %79, %78
+  %or.cond = and i1 %.067.be, %78
   br i1 %or.cond, label %.lr.ph90, label %..critedge_crit_edge, !llvm.loop !154
 
 .thread75:                                        ; preds = %.lr.ph90
-  %80 = load ptr, ptr %68, align 8
-  %81 = load i64, ptr %69, align 8
-  %82 = call i32 @fseeko64(ptr noundef %80, i64 noundef %81, i32 noundef 1)
-  %83 = call fastcc i32 @tng_block_header_read(ptr noundef %0, ptr noundef nonnull %16)
-  %84 = icmp eq i32 %83, 0
-  br i1 %84, label %.backedge, label %.thread
+  %79 = load ptr, ptr %68, align 8
+  %80 = load i64, ptr %69, align 8
+  %81 = call i32 @fseeko64(ptr noundef %79, i64 noundef %80, i32 noundef 1)
+  %82 = call fastcc i32 @tng_block_header_read(ptr noundef %0, ptr noundef nonnull %16)
+  %83 = icmp eq i32 %82, 0
+  br i1 %83, label %.backedge, label %.thread
 
 ..critedge_crit_edge:                             ; preds = %.backedge
-  %.not92 = icmp eq i32 %.067.be, 0
-  br i1 %.not92, label %.thread.sink.split, label %85
+  br i1 %.067.be, label %.thread.sink.split, label %84
 
-85:                                               ; preds = %..critedge_crit_edge
-  %86 = getelementptr inbounds nuw i8, ptr %0, i64 296
-  %87 = load i64, ptr %86, align 8
-  %88 = getelementptr inbounds nuw i8, ptr %0, i64 288
-  %89 = load i64, ptr %88, align 8
-  %90 = load i64, ptr %9, align 8
-  %.neg = sub i64 %87, %89
-  %91 = add i64 %.neg, %90
-  %92 = load i64, ptr %10, align 8
-  %93 = sdiv i64 %91, %92
+84:                                               ; preds = %..critedge_crit_edge
+  %85 = getelementptr inbounds nuw i8, ptr %0, i64 296
+  %86 = load i64, ptr %85, align 8
+  %87 = getelementptr inbounds nuw i8, ptr %0, i64 288
+  %88 = load i64, ptr %87, align 8
+  %89 = load i64, ptr %9, align 8
+  %.neg = sub i64 %86, %88
+  %90 = add i64 %.neg, %89
+  %91 = load i64, ptr %10, align 8
+  %92 = sdiv i64 %90, %91
   br label %.thread.sink.split
 
-.thread.sink.split:                               ; preds = %.lr.ph, %..critedge_crit_edge, %85
-  %.sink = phi i64 [ %93, %85 ], [ 0, %..critedge_crit_edge ], [ 0, %.lr.ph ]
+.thread.sink.split:                               ; preds = %.lr.ph, %..critedge_crit_edge, %84
+  %.sink = phi i64 [ %92, %84 ], [ 0, %..critedge_crit_edge ], [ 0, %.lr.ph ]
   store i64 %.sink, ptr %2, align 8
   br label %.thread
 
 .thread:                                          ; preds = %.thread75, %73, %.thread.sink.split, %65
-  %.264 = phi i32 [ %66, %65 ], [ 0, %.thread.sink.split ], [ %83, %.thread75 ], [ %74, %73 ]
-  %94 = getelementptr inbounds nuw i8, ptr %16, i64 40
-  %95 = load ptr, ptr %94, align 8
-  %.not16.i46 = icmp eq ptr %95, null
-  br i1 %.not16.i46, label %97, label %96
+  %.264 = phi i32 [ %66, %65 ], [ 0, %.thread.sink.split ], [ %82, %.thread75 ], [ %74, %73 ]
+  %93 = getelementptr inbounds nuw i8, ptr %16, i64 40
+  %94 = load ptr, ptr %93, align 8
+  %.not16.i46 = icmp eq ptr %94, null
+  br i1 %.not16.i46, label %96, label %95
 
-96:                                               ; preds = %.thread
-  call void @free(ptr noundef nonnull %95) #24
-  store ptr null, ptr %94, align 8
-  br label %97
+95:                                               ; preds = %.thread
+  call void @free(ptr noundef nonnull %94) #24
+  store ptr null, ptr %93, align 8
+  br label %96
 
-97:                                               ; preds = %96, %.thread
-  %98 = getelementptr inbounds nuw i8, ptr %16, i64 104
-  %99 = load ptr, ptr %98, align 8
-  %.not17.i47 = icmp eq ptr %99, null
-  br i1 %.not17.i47, label %101, label %100
+96:                                               ; preds = %95, %.thread
+  %97 = getelementptr inbounds nuw i8, ptr %16, i64 104
+  %98 = load ptr, ptr %97, align 8
+  %.not17.i47 = icmp eq ptr %98, null
+  br i1 %.not17.i47, label %100, label %99
 
-100:                                              ; preds = %97
-  call void @free(ptr noundef nonnull %99) #24
-  store ptr null, ptr %98, align 8
-  br label %101
+99:                                               ; preds = %96
+  call void @free(ptr noundef nonnull %98) #24
+  store ptr null, ptr %97, align 8
+  br label %100
 
-101:                                              ; preds = %100, %97
-  %102 = getelementptr inbounds nuw i8, ptr %16, i64 112
-  %103 = load ptr, ptr %102, align 8
-  %.not18.i48 = icmp eq ptr %103, null
-  br i1 %.not18.i48, label %tng_block_destroy.exit49, label %104
+100:                                              ; preds = %99, %96
+  %101 = getelementptr inbounds nuw i8, ptr %16, i64 112
+  %102 = load ptr, ptr %101, align 8
+  %.not18.i48 = icmp eq ptr %102, null
+  br i1 %.not18.i48, label %tng_block_destroy.exit49, label %103
 
-104:                                              ; preds = %101
-  call void @free(ptr noundef nonnull %103) #24
+103:                                              ; preds = %100
+  call void @free(ptr noundef nonnull %102) #24
   br label %tng_block_destroy.exit49
 
-tng_block_destroy.exit49:                         ; preds = %101, %104
+tng_block_destroy.exit49:                         ; preds = %100, %103
   call void @free(ptr noundef nonnull %16) #24
   br label %tng_block_destroy.exit
 

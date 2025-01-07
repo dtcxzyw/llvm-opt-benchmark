@@ -6439,7 +6439,7 @@ define internal fastcc range(i32 0, 2) i32 @try_heuristic_giop_dissector(ptr nou
   %8 = load ptr, ptr @giop_sub_list, align 8
   %9 = tail call i32 @g_slist_length(ptr noundef %8) #14
   %10 = icmp eq i32 %9, 0
-  br i1 %10, label %73, label %11
+  br i1 %10, label %72, label %11
 
 11:                                               ; preds = %6
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 5
@@ -6447,122 +6447,118 @@ define internal fastcc range(i32 0, 2) i32 @try_heuristic_giop_dissector(ptr nou
   switch i8 %13, label %is_big_endian.exit.thread [
     i8 2, label %14
     i8 1, label %14
-    i8 0, label %19
+    i8 0, label %18
   ]
 
 14:                                               ; preds = %11, %11
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 6
   %16 = load i8, ptr %15, align 2
   %17 = and i8 %16, 1
-  %18 = xor i8 %17, 1
-  %..i = zext nneg i8 %18 to i32
   br label %is_big_endian.exit
 
-19:                                               ; preds = %11
-  %20 = getelementptr inbounds nuw i8, ptr %4, i64 6
-  %21 = load i8, ptr %20, align 2
-  %.not.i = icmp eq i8 %21, 0
-  %.4.i = zext i1 %.not.i to i32
+18:                                               ; preds = %11
+  %19 = getelementptr inbounds nuw i8, ptr %4, i64 6
+  %20 = load i8, ptr %19, align 2
   br label %is_big_endian.exit
 
-is_big_endian.exit:                               ; preds = %14, %19
-  %.0.i = phi i32 [ %..i, %14 ], [ %.4.i, %19 ]
-  %.not = icmp eq i32 %.0.i, 0
-  br i1 %.not, label %is_big_endian.exit.thread, label %22
+is_big_endian.exit:                               ; preds = %14, %18
+  %.0.i.in = phi i8 [ %17, %14 ], [ %20, %18 ]
+  %.0.i.not = icmp eq i8 %.0.i.in, 0
+  br i1 %.0.i.not, label %21, label %is_big_endian.exit.thread
 
-22:                                               ; preds = %is_big_endian.exit
-  %23 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %24 = load i8, ptr %23, align 1
-  %25 = zext i8 %24 to i32
-  %26 = shl nuw i32 %25, 24
-  %27 = getelementptr i8, ptr %4, i64 9
-  %28 = load i8, ptr %27, align 1
-  %29 = zext i8 %28 to i32
-  %30 = shl nuw nsw i32 %29, 16
-  %31 = or disjoint i32 %30, %26
-  %32 = getelementptr i8, ptr %4, i64 10
-  %33 = load i8, ptr %32, align 1
-  %34 = zext i8 %33 to i32
-  %35 = shl nuw nsw i32 %34, 8
-  %36 = or disjoint i32 %31, %35
-  %37 = getelementptr i8, ptr %4, i64 11
-  %38 = load i8, ptr %37, align 1
-  %39 = zext i8 %38 to i32
-  %40 = or disjoint i32 %36, %39
-  br label %43
+21:                                               ; preds = %is_big_endian.exit
+  %22 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %23 = load i8, ptr %22, align 1
+  %24 = zext i8 %23 to i32
+  %25 = shl nuw i32 %24, 24
+  %26 = getelementptr i8, ptr %4, i64 9
+  %27 = load i8, ptr %26, align 1
+  %28 = zext i8 %27 to i32
+  %29 = shl nuw nsw i32 %28, 16
+  %30 = or disjoint i32 %29, %25
+  %31 = getelementptr i8, ptr %4, i64 10
+  %32 = load i8, ptr %31, align 1
+  %33 = zext i8 %32 to i32
+  %34 = shl nuw nsw i32 %33, 8
+  %35 = or disjoint i32 %30, %34
+  %36 = getelementptr i8, ptr %4, i64 11
+  %37 = load i8, ptr %36, align 1
+  %38 = zext i8 %37 to i32
+  %39 = or disjoint i32 %35, %38
+  br label %42
 
 is_big_endian.exit.thread:                        ; preds = %11, %is_big_endian.exit
-  %41 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %42 = load i32, ptr %41, align 1
-  br label %43
+  %40 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %41 = load i32, ptr %40, align 1
+  br label %42
 
-43:                                               ; preds = %is_big_endian.exit.thread, %22
-  %.044 = phi i32 [ %40, %22 ], [ %42, %is_big_endian.exit.thread ]
-  %44 = load i32, ptr %3, align 4
-  %45 = icmp slt i32 %44, 0
-  %46 = icmp ugt i32 %44, %.044
-  %or.cond = select i1 %45, i1 true, i1 %46
-  br i1 %or.cond, label %73, label %.preheader
+42:                                               ; preds = %is_big_endian.exit.thread, %21
+  %.044 = phi i32 [ %39, %21 ], [ %41, %is_big_endian.exit.thread ]
+  %43 = load i32, ptr %3, align 4
+  %44 = icmp slt i32 %43, 0
+  %45 = icmp ugt i32 %43, %.044
+  %or.cond = select i1 %44, i1 true, i1 %45
+  br i1 %or.cond, label %72, label %.preheader
 
-.preheader:                                       ; preds = %43
-  %47 = icmp sgt i32 %9, 0
-  br i1 %47, label %.lr.ph, label %._crit_edge
+.preheader:                                       ; preds = %42
+  %46 = icmp sgt i32 %9, 0
+  br i1 %46, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %.preheader, %69
-  %.04354 = phi i32 [ %70, %69 ], [ 0, %.preheader ]
-  %48 = load ptr, ptr @giop_sub_list, align 8
-  %49 = tail call ptr @g_slist_nth_data(ptr noundef %48, i32 noundef %.04354) #14
-  %50 = getelementptr inbounds nuw i8, ptr %49, i64 16
-  %51 = load ptr, ptr %50, align 8
-  %52 = tail call i32 @proto_is_protocol_enabled(ptr noundef %51) #14
-  %.not48 = icmp eq i32 %52, 0
-  br i1 %.not48, label %69, label %53
+.lr.ph:                                           ; preds = %.preheader, %68
+  %.04354 = phi i32 [ %69, %68 ], [ 0, %.preheader ]
+  %47 = load ptr, ptr @giop_sub_list, align 8
+  %48 = tail call ptr @g_slist_nth_data(ptr noundef %47, i32 noundef %.04354) #14
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 16
+  %50 = load ptr, ptr %49, align 8
+  %51 = tail call i32 @proto_is_protocol_enabled(ptr noundef %50) #14
+  %.not48 = icmp eq i32 %51, 0
+  br i1 %.not48, label %68, label %52
 
-53:                                               ; preds = %.lr.ph
+52:                                               ; preds = %.lr.ph
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(440) %7, ptr noundef nonnull align 8 dereferenceable(440) %1, i64 440, i1 false)
-  %54 = load ptr, ptr %50, align 8
-  %55 = tail call ptr @proto_get_protocol_short_name(ptr noundef %54) #14
-  store ptr %55, ptr %1, align 8
-  %56 = load i32, ptr %3, align 4
-  %57 = load ptr, ptr %49, align 8
-  %58 = tail call i32 %57(ptr noundef %0, ptr noundef nonnull %1, ptr noundef null, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef %5, ptr noundef null) #14
-  %.not49 = icmp eq i32 %58, 0
-  br i1 %.not49, label %68, label %59
+  %53 = load ptr, ptr %49, align 8
+  %54 = tail call ptr @proto_get_protocol_short_name(ptr noundef %53) #14
+  store ptr %54, ptr %1, align 8
+  %55 = load i32, ptr %3, align 4
+  %56 = load ptr, ptr %48, align 8
+  %57 = tail call i32 %56(ptr noundef %0, ptr noundef nonnull %1, ptr noundef null, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef %5, ptr noundef null) #14
+  %.not49 = icmp eq i32 %57, 0
+  br i1 %.not49, label %67, label %58
 
-59:                                               ; preds = %53
-  %60 = load i32, ptr %3, align 4
-  %61 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %60) #14
-  %62 = icmp eq i32 %61, 0
-  br i1 %62, label %63, label %68
+58:                                               ; preds = %52
+  %59 = load i32, ptr %3, align 4
+  %60 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %59) #14
+  %61 = icmp eq i32 %60, 0
+  br i1 %61, label %62, label %67
 
-63:                                               ; preds = %59
-  store i32 %56, ptr %3, align 4
+62:                                               ; preds = %58
+  store i32 %55, ptr %3, align 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(440) %1, ptr noundef nonnull align 8 dereferenceable(440) %7, i64 440, i1 false)
-  %64 = load ptr, ptr %50, align 8
-  %65 = tail call ptr @proto_get_protocol_short_name(ptr noundef %64) #14
-  store ptr %65, ptr %1, align 8
-  %66 = load ptr, ptr %49, align 8
-  %67 = tail call i32 %66(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef %5, ptr noundef null) #14
-  br label %73
+  %63 = load ptr, ptr %49, align 8
+  %64 = tail call ptr @proto_get_protocol_short_name(ptr noundef %63) #14
+  store ptr %64, ptr %1, align 8
+  %65 = load ptr, ptr %48, align 8
+  %66 = tail call i32 %65(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef %5, ptr noundef null) #14
+  br label %72
 
-68:                                               ; preds = %59, %53
+67:                                               ; preds = %58, %52
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(440) %1, ptr noundef nonnull align 8 dereferenceable(440) %7, i64 440, i1 false)
-  store i32 %56, ptr %3, align 4
-  br label %69
+  store i32 %55, ptr %3, align 4
+  br label %68
 
-69:                                               ; preds = %.lr.ph, %68
-  %70 = add nuw nsw i32 %.04354, 1
-  %exitcond.not = icmp eq i32 %70, %9
+68:                                               ; preds = %.lr.ph, %67
+  %69 = add nuw nsw i32 %.04354, 1
+  %exitcond.not = icmp eq i32 %69, %9
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !29
 
-._crit_edge:                                      ; preds = %69, %.preheader
-  %71 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %72 = load ptr, ptr %71, align 8
-  tail call void @col_set_str(ptr noundef %72, i32 noundef 34, ptr noundef nonnull @.str.208) #14
-  br label %73
+._crit_edge:                                      ; preds = %68, %.preheader
+  %70 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %71 = load ptr, ptr %70, align 8
+  tail call void @col_set_str(ptr noundef %71, i32 noundef 34, ptr noundef nonnull @.str.208) #14
+  br label %72
 
-73:                                               ; preds = %43, %6, %._crit_edge, %63
-  %.0 = phi i32 [ 1, %63 ], [ 0, %._crit_edge ], [ 0, %6 ], [ 0, %43 ]
+72:                                               ; preds = %42, %6, %._crit_edge, %62
+  %.0 = phi i32 [ 1, %62 ], [ 0, %._crit_edge ], [ 0, %6 ], [ 0, %42 ]
   ret i32 %.0
 }
 
@@ -7159,12 +7155,12 @@ declare void @tcp_dissect_pdus(ptr noundef, ptr noundef, ptr noundef, i32 nounde
 define internal i32 @get_giop_pdu_len(ptr nocapture readnone %0, ptr noundef %1, i32 noundef %2, ptr nocapture readnone %3) #0 {
   %5 = tail call i32 @tvb_reported_length_remaining(ptr noundef %1, i32 noundef %2) #14
   %6 = icmp slt i32 %5, 12
-  br i1 %6, label %27, label %7
+  br i1 %6, label %25, label %7
 
 7:                                                ; preds = %4
   %8 = tail call i32 @tvb_get_ntohl(ptr noundef %1, i32 noundef %2) #14
   %.not = icmp eq i32 %8, 1195986768
-  br i1 %.not, label %9, label %27
+  br i1 %.not, label %9, label %25
 
 9:                                                ; preds = %7
   %10 = add i32 %2, 5
@@ -7174,45 +7170,38 @@ define internal i32 @get_giop_pdu_len(ptr nocapture readnone %0, ptr noundef %1,
   switch i8 %11, label %is_big_endian.exit.thread [
     i8 2, label %14
     i8 1, label %14
-    i8 0, label %17
+    i8 0, label %is_big_endian.exit
   ]
 
 14:                                               ; preds = %9, %9
   %15 = and i8 %13, 1
-  %16 = xor i8 %15, 1
-  %..i = zext nneg i8 %16 to i32
   br label %is_big_endian.exit
 
-17:                                               ; preds = %9
-  %.not.i = icmp eq i8 %13, 0
-  %.4.i = zext i1 %.not.i to i32
-  br label %is_big_endian.exit
+is_big_endian.exit:                               ; preds = %9, %14
+  %.0.i.in = phi i8 [ %15, %14 ], [ %13, %9 ]
+  %.0.i.not = icmp eq i8 %.0.i.in, 0
+  br i1 %.0.i.not, label %16, label %is_big_endian.exit.thread
 
-is_big_endian.exit:                               ; preds = %14, %17
-  %.0.i = phi i32 [ %..i, %14 ], [ %.4.i, %17 ]
-  %.not15 = icmp eq i32 %.0.i, 0
-  br i1 %.not15, label %is_big_endian.exit.thread, label %18
-
-18:                                               ; preds = %is_big_endian.exit
-  %19 = add i32 %2, 8
-  %20 = tail call i32 @tvb_get_ntohl(ptr noundef %1, i32 noundef %19) #14
-  br label %23
+16:                                               ; preds = %is_big_endian.exit
+  %17 = add i32 %2, 8
+  %18 = tail call i32 @tvb_get_ntohl(ptr noundef %1, i32 noundef %17) #14
+  br label %21
 
 is_big_endian.exit.thread:                        ; preds = %9, %is_big_endian.exit
-  %21 = add i32 %2, 8
-  %22 = tail call i32 @tvb_get_letohl(ptr noundef %1, i32 noundef %21) #14
-  br label %23
+  %19 = add i32 %2, 8
+  %20 = tail call i32 @tvb_get_letohl(ptr noundef %1, i32 noundef %19) #14
+  br label %21
 
-23:                                               ; preds = %is_big_endian.exit.thread, %18
-  %.0 = phi i32 [ %20, %18 ], [ %22, %is_big_endian.exit.thread ]
-  %24 = load i32, ptr @giop_max_message_size, align 4
-  %25 = icmp ugt i32 %.0, %24
-  %26 = add i32 %.0, 12
-  %spec.select = select i1 %25, i32 12, i32 %26
-  br label %27
+21:                                               ; preds = %is_big_endian.exit.thread, %16
+  %.0 = phi i32 [ %18, %16 ], [ %20, %is_big_endian.exit.thread ]
+  %22 = load i32, ptr @giop_max_message_size, align 4
+  %23 = icmp ugt i32 %.0, %22
+  %24 = add i32 %.0, 12
+  %spec.select = select i1 %23, i32 12, i32 %24
+  br label %25
 
-27:                                               ; preds = %23, %7, %4
-  %.014 = phi i32 [ 0, %4 ], [ 0, %7 ], [ %spec.select, %23 ]
+25:                                               ; preds = %21, %7, %4
+  %.014 = phi i32 [ 0, %4 ], [ 0, %7 ], [ %spec.select, %21 ]
   ret i32 %.014
 }
 

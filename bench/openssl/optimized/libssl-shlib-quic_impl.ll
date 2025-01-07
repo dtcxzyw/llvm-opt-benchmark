@@ -3298,35 +3298,28 @@ land.rhs.i:                                       ; preds = %if.then.i
   %call.i.i = call ptr @ossl_quic_channel_get_reactor(ptr noundef %.val.i) #8
   %call1.i.i = call i32 @ossl_quic_reactor_can_poll_r(ptr noundef %call.i.i) #8
   %tobool.not.i.i = icmp eq i32 %call1.i.i, 0
-  br i1 %tobool.not.i.i, label %if.else, label %land.rhs.i.i
-
-land.rhs.i.i:                                     ; preds = %land.rhs.i
-  %call2.i.i = call i32 @ossl_quic_reactor_can_poll_w(ptr noundef %call.i.i) #8
-  %tobool3.i.i = icmp ne i32 %call2.i.i, 0
-  %17 = zext i1 %tobool3.i.i to i32
-  br label %xso_blocking_mode.exit
+  br i1 %tobool.not.i.i, label %if.else, label %xso_blocking_mode.exit
 
 if.else.i:                                        ; preds = %if.end20
   %conn6.i = getelementptr inbounds nuw i8, ptr %13, i64 64
-  %18 = load ptr, ptr %conn6.i, align 8
-  %blocking.i = getelementptr inbounds nuw i8, ptr %18, i64 296
+  %17 = load ptr, ptr %conn6.i, align 8
+  %blocking.i = getelementptr inbounds nuw i8, ptr %17, i64 296
   %bf.load7.i = load i16, ptr %blocking.i, align 8
-  %bf.lshr8.i = lshr i16 %bf.load7.i, 4
-  %bf.clear9.i = and i16 %bf.lshr8.i, 1
-  %bf.cast10.i = zext nneg i16 %bf.clear9.i to i32
-  br label %xso_blocking_mode.exit
+  %18 = and i16 %bf.load7.i, 16
+  %19 = icmp eq i16 %18, 0
+  br i1 %19, label %if.else, label %if.then24
 
-xso_blocking_mode.exit:                           ; preds = %land.rhs.i.i, %if.else.i
-  %retval.0.i19 = phi i32 [ %bf.cast10.i, %if.else.i ], [ %17, %land.rhs.i.i ]
-  %tobool23.not = icmp eq i32 %retval.0.i19, 0
-  br i1 %tobool23.not, label %if.else, label %if.then24
+xso_blocking_mode.exit:                           ; preds = %land.rhs.i
+  %call2.i.i = call i32 @ossl_quic_reactor_can_poll_w(ptr noundef %call.i.i) #8
+  %tobool3.i.i.not = icmp eq i32 %call2.i.i, 0
+  br i1 %tobool3.i.i.not, label %if.else, label %if.then24
 
-if.then24:                                        ; preds = %xso_blocking_mode.exit
+if.then24:                                        ; preds = %if.else.i, %xso_blocking_mode.exit
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %args.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %actual_written.i)
-  %19 = load ptr, ptr %xso, align 8
+  %20 = load ptr, ptr %xso, align 8
   store i64 0, ptr %actual_written.i, align 8
-  %call.i20 = call fastcc i32 @xso_sstream_append(ptr noundef %19, ptr noundef %buf, i64 noundef range(i64 1, 0) %len, ptr noundef nonnull %actual_written.i)
+  %call.i20 = call fastcc i32 @xso_sstream_append(ptr noundef %20, ptr noundef %buf, i64 noundef range(i64 1, 0) %len, ptr noundef nonnull %actual_written.i)
   %tobool.not.i21 = icmp eq i32 %call.i20, 0
   br i1 %tobool.not.i21, label %if.then.i27, label %if.end.i22
 
@@ -3336,30 +3329,30 @@ if.then.i27:                                      ; preds = %if.then24
   br label %quic_write_blocking.exit
 
 if.end.i22:                                       ; preds = %if.then24
-  %20 = load i64, ptr %actual_written.i, align 8
-  %cmp.not.i = icmp eq i64 %20, 0
+  %21 = load i64, ptr %actual_written.i, align 8
+  %cmp.not.i = icmp eq i64 %21, 0
   br i1 %cmp.not.i, label %quic_post_write.exit.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.end.i22
-  %conn.i.i = getelementptr inbounds nuw i8, ptr %19, i64 64
-  %21 = load ptr, ptr %conn.i.i, align 8
-  %ch.i.i = getelementptr inbounds nuw i8, ptr %21, i64 72
-  %22 = load ptr, ptr %ch.i.i, align 8
-  %call.i.i23 = call ptr @ossl_quic_channel_get_qsm(ptr noundef %22) #8
-  %stream.i.i = getelementptr inbounds nuw i8, ptr %19, i64 72
-  %23 = load ptr, ptr %stream.i.i, align 8
-  call void @ossl_quic_stream_map_update_state(ptr noundef %call.i.i23, ptr noundef %23) #8
+  %conn.i.i = getelementptr inbounds nuw i8, ptr %20, i64 64
+  %22 = load ptr, ptr %conn.i.i, align 8
+  %ch.i.i = getelementptr inbounds nuw i8, ptr %22, i64 72
+  %23 = load ptr, ptr %ch.i.i, align 8
+  %call.i.i23 = call ptr @ossl_quic_channel_get_qsm(ptr noundef %23) #8
+  %stream.i.i = getelementptr inbounds nuw i8, ptr %20, i64 72
+  %24 = load ptr, ptr %stream.i.i, align 8
+  call void @ossl_quic_stream_map_update_state(ptr noundef %call.i.i23, ptr noundef %24) #8
   br label %quic_post_write.exit.i
 
 quic_post_write.exit.i:                           ; preds = %if.then.i.i, %if.end.i22
-  %conn3.i.i = getelementptr inbounds nuw i8, ptr %19, i64 64
-  %24 = load ptr, ptr %conn3.i.i, align 8
-  %ch4.i.i = getelementptr inbounds nuw i8, ptr %24, i64 72
-  %25 = load ptr, ptr %ch4.i.i, align 8
-  %call5.i.i = call ptr @ossl_quic_channel_get_reactor(ptr noundef %25) #8
+  %conn3.i.i = getelementptr inbounds nuw i8, ptr %20, i64 64
+  %25 = load ptr, ptr %conn3.i.i, align 8
+  %ch4.i.i = getelementptr inbounds nuw i8, ptr %25, i64 72
+  %26 = load ptr, ptr %ch4.i.i, align 8
+  %call5.i.i = call ptr @ossl_quic_channel_get_reactor(ptr noundef %26) #8
   %call6.i.i = call i32 @ossl_quic_reactor_tick(ptr noundef %call5.i.i, i32 noundef 0) #8
-  %26 = load i64, ptr %actual_written.i, align 8
-  %cmp3.i = icmp eq i64 %26, %len
+  %27 = load i64, ptr %actual_written.i, align 8
+  %cmp3.i = icmp eq i64 %27, %len
   br i1 %cmp3.i, label %if.then5.i, label %if.end6.i
 
 if.then5.i:                                       ; preds = %quic_post_write.exit.i
@@ -3367,47 +3360,47 @@ if.then5.i:                                       ; preds = %quic_post_write.exi
   br label %quic_write_blocking.exit
 
 if.end6.i:                                        ; preds = %quic_post_write.exit.i
-  store ptr %19, ptr %args.i, align 8
-  %add.ptr.i = getelementptr inbounds i8, ptr %buf, i64 %26
+  store ptr %20, ptr %args.i, align 8
+  %add.ptr.i = getelementptr inbounds i8, ptr %buf, i64 %27
   %buf8.i = getelementptr inbounds nuw i8, ptr %args.i, i64 8
   store ptr %add.ptr.i, ptr %buf8.i, align 8
-  %sub.i = sub i64 %len, %26
+  %sub.i = sub i64 %len, %27
   %len9.i = getelementptr inbounds nuw i8, ptr %args.i, i64 16
   store i64 %sub.i, ptr %len9.i, align 8
   %total_written.i = getelementptr inbounds nuw i8, ptr %args.i, i64 24
   store i64 0, ptr %total_written.i, align 8
   %err.i = getelementptr inbounds nuw i8, ptr %args.i, i64 32
   store i32 786691, ptr %err.i, align 8
-  %27 = load ptr, ptr %conn3.i.i, align 8
-  %ch.i13.i = getelementptr inbounds nuw i8, ptr %27, i64 72
-  %28 = load ptr, ptr %ch.i13.i, align 8
-  call void @ossl_quic_channel_set_inhibit_tick(ptr noundef %28, i32 noundef 0) #8
+  %28 = load ptr, ptr %conn3.i.i, align 8
+  %ch.i13.i = getelementptr inbounds nuw i8, ptr %28, i64 72
   %29 = load ptr, ptr %ch.i13.i, align 8
-  %call.i14.i = call ptr @ossl_quic_channel_get_reactor(ptr noundef %29) #8
-  %mutex.i.i = getelementptr inbounds nuw i8, ptr %27, i64 80
-  %30 = load ptr, ptr %mutex.i.i, align 8
-  %call2.i.i24 = call i32 @ossl_quic_reactor_block_until_pred(ptr noundef %call.i14.i, ptr noundef nonnull @quic_write_again, ptr noundef nonnull %args.i, i32 noundef 0, ptr noundef %30) #8
+  call void @ossl_quic_channel_set_inhibit_tick(ptr noundef %29, i32 noundef 0) #8
+  %30 = load ptr, ptr %ch.i13.i, align 8
+  %call.i14.i = call ptr @ossl_quic_channel_get_reactor(ptr noundef %30) #8
+  %mutex.i.i = getelementptr inbounds nuw i8, ptr %28, i64 80
+  %31 = load ptr, ptr %mutex.i.i, align 8
+  %call2.i.i24 = call i32 @ossl_quic_reactor_block_until_pred(ptr noundef %call.i14.i, ptr noundef nonnull @quic_write_again, ptr noundef nonnull %args.i, i32 noundef 0, ptr noundef %31) #8
   %cmp11.i = icmp slt i32 %call2.i.i24, 1
   br i1 %cmp11.i, label %if.then13.i, label %if.end21.i
 
 if.then13.i:                                      ; preds = %if.end6.i
-  %31 = load ptr, ptr %conn3.i.i, align 8
-  %shutting_down.i.i = getelementptr inbounds nuw i8, ptr %31, i64 296
+  %32 = load ptr, ptr %conn3.i.i, align 8
+  %shutting_down.i.i = getelementptr inbounds nuw i8, ptr %32, i64 296
   %bf.load.i.i = load i16, ptr %shutting_down.i.i, align 8
-  %32 = and i16 %bf.load.i.i, 128
-  %tobool.not.i15.i = icmp eq i16 %32, 0
+  %33 = and i16 %bf.load.i.i, 128
+  %tobool.not.i15.i = icmp eq i16 %33, 0
   br i1 %tobool.not.i15.i, label %lor.lhs.false.i.i, label %if.then17.i
 
 lor.lhs.false.i.i:                                ; preds = %if.then13.i
-  %ch.i16.i = getelementptr inbounds nuw i8, ptr %31, i64 72
-  %33 = load ptr, ptr %ch.i16.i, align 8
-  %call.i17.i = call i32 @ossl_quic_channel_is_term_any(ptr noundef %33) #8
+  %ch.i16.i = getelementptr inbounds nuw i8, ptr %32, i64 72
+  %34 = load ptr, ptr %ch.i16.i, align 8
+  %call.i17.i = call i32 @ossl_quic_channel_is_term_any(ptr noundef %34) #8
   %tobool1.not.i.i = icmp eq i32 %call.i17.i, 0
   br i1 %tobool1.not.i.i, label %if.end.i.i, label %if.then17.i
 
 if.end.i.i:                                       ; preds = %lor.lhs.false.i.i
-  %34 = load ptr, ptr %ch.i16.i, align 8
-  %call4.i.i = call i32 @ossl_quic_channel_is_active(ptr noundef %34) #8
+  %35 = load ptr, ptr %ch.i16.i, align 8
+  %call4.i.i = call i32 @ossl_quic_channel_is_active(ptr noundef %35) #8
   %tobool5.not.i.i = icmp eq i32 %call4.i.i, 0
   br i1 %tobool5.not.i.i, label %if.then17.i, label %if.else.i26
 
@@ -3416,13 +3409,13 @@ if.then17.i:                                      ; preds = %if.end.i.i, %lor.lh
   br label %quic_write_blocking.exit
 
 if.else.i26:                                      ; preds = %if.end.i.i
-  %35 = load i32, ptr %err.i, align 8
-  call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error(ptr noundef nonnull %ctx, ptr nonnull poison, i32 noundef 2306, ptr noundef nonnull @__func__.quic_write_blocking, i32 noundef %35, ptr noundef null)
+  %36 = load i32, ptr %err.i, align 8
+  call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error(ptr noundef nonnull %ctx, ptr nonnull poison, i32 noundef 2306, ptr noundef nonnull @__func__.quic_write_blocking, i32 noundef %36, ptr noundef null)
   br label %quic_write_blocking.exit
 
 if.end21.i:                                       ; preds = %if.end6.i
-  %36 = load i64, ptr %total_written.i, align 8
-  store i64 %36, ptr %written, align 8
+  %37 = load i64, ptr %total_written.i, align 8
+  store i64 %37, ptr %written, align 8
   br label %quic_write_blocking.exit
 
 quic_write_blocking.exit:                         ; preds = %if.then.i27, %if.then5.i, %if.then17.i, %if.else.i26, %if.end21.i
@@ -3431,7 +3424,7 @@ quic_write_blocking.exit:                         ; preds = %if.then.i27, %if.th
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %actual_written.i)
   br label %out
 
-if.else:                                          ; preds = %land.rhs.i, %if.then.i, %xso_blocking_mode.exit
+if.else:                                          ; preds = %if.else.i, %land.rhs.i, %if.then.i, %xso_blocking_mode.exit
   br i1 %cmp.not, label %if.else29, label %if.then27
 
 if.then27:                                        ; preds = %if.else
@@ -3444,9 +3437,9 @@ if.else29:                                        ; preds = %if.else
 
 out:                                              ; preds = %if.end16, %if.end5, %quic_write_blocking.exit, %if.else29, %if.then27, %if.then14, %if.then3
   %ret.0 = phi i32 [ %retval.0.i25, %quic_write_blocking.exit ], [ %call28, %if.then27 ], [ %call30, %if.else29 ], [ 0, %if.then14 ], [ 0, %if.then3 ], [ 0, %if.end5 ], [ 1, %if.end16 ]
-  %37 = load ptr, ptr %ctx, align 8
-  %38 = getelementptr i8, ptr %37, i64 80
-  %.val = load ptr, ptr %38, align 8
+  %38 = load ptr, ptr %ctx, align 8
+  %39 = getelementptr i8, ptr %38, i64 80
+  %.val = load ptr, ptr %39, align 8
   call void @ossl_crypto_mutex_unlock(ptr noundef %.val) #8
   br label %return
 
@@ -4295,36 +4288,29 @@ land.rhs.i:                                       ; preds = %if.then.i30
   %call.i.i33 = call ptr @ossl_quic_channel_get_reactor(ptr noundef %.val.i32) #8
   %call1.i.i = call i32 @ossl_quic_reactor_can_poll_r(ptr noundef %call.i.i33) #8
   %tobool.not.i.i = icmp eq i32 %call1.i.i, 0
-  br i1 %tobool.not.i.i, label %if.else50, label %land.rhs.i.i
-
-land.rhs.i.i:                                     ; preds = %land.rhs.i
-  %call2.i.i34 = call i32 @ossl_quic_reactor_can_poll_w(ptr noundef %call.i.i33) #8
-  %tobool3.i.i = icmp ne i32 %call2.i.i34, 0
-  %45 = zext i1 %tobool3.i.i to i32
-  br label %xso_blocking_mode.exit
+  br i1 %tobool.not.i.i, label %if.else50, label %xso_blocking_mode.exit
 
 if.else.i36:                                      ; preds = %if.else
   %conn6.i = getelementptr inbounds nuw i8, ptr %41, i64 64
-  %46 = load ptr, ptr %conn6.i, align 8
-  %blocking.i = getelementptr inbounds nuw i8, ptr %46, i64 296
+  %45 = load ptr, ptr %conn6.i, align 8
+  %blocking.i = getelementptr inbounds nuw i8, ptr %45, i64 296
   %bf.load7.i = load i16, ptr %blocking.i, align 8
-  %bf.lshr8.i = lshr i16 %bf.load7.i, 4
-  %bf.clear9.i = and i16 %bf.lshr8.i, 1
-  %bf.cast10.i = zext nneg i16 %bf.clear9.i to i32
-  br label %xso_blocking_mode.exit
+  %46 = and i16 %bf.load7.i, 16
+  %47 = icmp eq i16 %46, 0
+  br i1 %47, label %if.else50, label %if.then31
 
-xso_blocking_mode.exit:                           ; preds = %land.rhs.i.i, %if.else.i36
-  %retval.0.i35 = phi i32 [ %bf.cast10.i, %if.else.i36 ], [ %45, %land.rhs.i.i ]
-  %tobool30.not = icmp eq i32 %retval.0.i35, 0
-  br i1 %tobool30.not, label %if.else50, label %if.then31
+xso_blocking_mode.exit:                           ; preds = %land.rhs.i
+  %call2.i.i34 = call i32 @ossl_quic_reactor_can_poll_w(ptr noundef %call.i.i33) #8
+  %tobool3.i.i.not = icmp eq i32 %call2.i.i34, 0
+  br i1 %tobool3.i.i.not, label %if.else50, label %if.then31
 
-if.then31:                                        ; preds = %xso_blocking_mode.exit
+if.then31:                                        ; preds = %if.else.i36, %xso_blocking_mode.exit
   store ptr %ctx, ptr %args, align 8
-  %47 = load ptr, ptr %xso2.i, align 8
-  %stream34 = getelementptr inbounds nuw i8, ptr %47, i64 72
-  %48 = load ptr, ptr %stream34, align 8
+  %48 = load ptr, ptr %xso2.i, align 8
+  %stream34 = getelementptr inbounds nuw i8, ptr %48, i64 72
+  %49 = load ptr, ptr %stream34, align 8
   %stream35 = getelementptr inbounds nuw i8, ptr %args, i64 8
-  store ptr %48, ptr %stream35, align 8
+  store ptr %49, ptr %stream35, align 8
   %buf36 = getelementptr inbounds nuw i8, ptr %args, i64 16
   store ptr %buf, ptr %buf36, align 8
   %len37 = getelementptr inbounds nuw i8, ptr %args, i64 24
@@ -4333,15 +4319,15 @@ if.then31:                                        ; preds = %xso_blocking_mode.e
   store ptr %bytes_read, ptr %bytes_read38, align 8
   %peek39 = getelementptr inbounds nuw i8, ptr %args, i64 40
   store i32 %peek, ptr %peek39, align 8
-  %49 = load ptr, ptr %ctx, align 8
-  %ch.i37 = getelementptr inbounds nuw i8, ptr %49, i64 72
-  %50 = load ptr, ptr %ch.i37, align 8
-  call void @ossl_quic_channel_set_inhibit_tick(ptr noundef %50, i32 noundef 0) #8
+  %50 = load ptr, ptr %ctx, align 8
+  %ch.i37 = getelementptr inbounds nuw i8, ptr %50, i64 72
   %51 = load ptr, ptr %ch.i37, align 8
-  %call.i38 = call ptr @ossl_quic_channel_get_reactor(ptr noundef %51) #8
-  %mutex.i = getelementptr inbounds nuw i8, ptr %49, i64 80
-  %52 = load ptr, ptr %mutex.i, align 8
-  %call2.i = call i32 @ossl_quic_reactor_block_until_pred(ptr noundef %call.i38, ptr noundef nonnull @quic_read_again, ptr noundef nonnull %args, i32 noundef 0, ptr noundef %52) #8
+  call void @ossl_quic_channel_set_inhibit_tick(ptr noundef %51, i32 noundef 0) #8
+  %52 = load ptr, ptr %ch.i37, align 8
+  %call.i38 = call ptr @ossl_quic_channel_get_reactor(ptr noundef %52) #8
+  %mutex.i = getelementptr inbounds nuw i8, ptr %50, i64 80
+  %53 = load ptr, ptr %mutex.i, align 8
+  %call2.i = call i32 @ossl_quic_reactor_block_until_pred(ptr noundef %call.i38, ptr noundef nonnull @quic_read_again, ptr noundef nonnull %args, i32 noundef 0, ptr noundef %53) #8
   %cmp42 = icmp eq i32 %call2.i, 0
   br i1 %cmp42, label %if.then43, label %if.else45
 
@@ -4354,59 +4340,59 @@ if.else45:                                        ; preds = %if.then31
   %. = zext i1 %cmp46 to i32
   br label %out
 
-if.else50:                                        ; preds = %land.rhs.i, %if.then.i30, %xso_blocking_mode.exit
-  %53 = load ptr, ptr %ctx, align 8
-  %ch52 = getelementptr inbounds nuw i8, ptr %53, i64 72
-  %54 = load ptr, ptr %ch52, align 8
-  %call53 = call ptr @ossl_quic_channel_get_reactor(ptr noundef %54) #8
+if.else50:                                        ; preds = %if.else.i36, %land.rhs.i, %if.then.i30, %xso_blocking_mode.exit
+  %54 = load ptr, ptr %ctx, align 8
+  %ch52 = getelementptr inbounds nuw i8, ptr %54, i64 72
+  %55 = load ptr, ptr %ch52, align 8
+  %call53 = call ptr @ossl_quic_channel_get_reactor(ptr noundef %55) #8
   %call54 = call i32 @ossl_quic_reactor_tick(ptr noundef %call53, i32 noundef 0) #8
-  %55 = load ptr, ptr %xso2.i, align 8
-  %stream56 = getelementptr inbounds nuw i8, ptr %55, i64 72
-  %56 = load ptr, ptr %stream56, align 8
-  %call57 = call fastcc i32 @quic_read_actual(ptr noundef nonnull %ctx, ptr noundef %56, ptr noundef %buf, i64 noundef %len, ptr noundef nonnull %bytes_read, i32 noundef %peek)
+  %56 = load ptr, ptr %xso2.i, align 8
+  %stream56 = getelementptr inbounds nuw i8, ptr %56, i64 72
+  %57 = load ptr, ptr %stream56, align 8
+  %call57 = call fastcc i32 @quic_read_actual(ptr noundef nonnull %ctx, ptr noundef %57, ptr noundef %buf, i64 noundef %len, ptr noundef nonnull %bytes_read, i32 noundef %peek)
   %tobool58.not = icmp eq i32 %call57, 0
   br i1 %tobool58.not, label %out, label %if.end60
 
 if.end60:                                         ; preds = %if.else50
-  %57 = load i64, ptr %bytes_read, align 8
-  %cmp61.not = icmp eq i64 %57, 0
+  %58 = load i64, ptr %bytes_read, align 8
+  %cmp61.not = icmp eq i64 %58, 0
   br i1 %cmp61.not, label %if.else63, label %out
 
 if.else63:                                        ; preds = %if.end60
-  %58 = load i32, ptr %in_io.i13, align 4
-  %tobool.not.i.i39 = icmp eq i32 %58, 0
+  %59 = load i32, ptr %in_io.i13, align 4
+  %tobool.not.i.i39 = icmp eq i32 %59, 0
   br i1 %tobool.not.i.i39, label %out, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.else63
-  %59 = load i32, ptr %is_stream.i, align 8
-  %tobool1.not.i.i41 = icmp eq i32 %59, 0
+  %60 = load i32, ptr %is_stream.i, align 8
+  %tobool1.not.i.i41 = icmp eq i32 %60, 0
   br i1 %tobool1.not.i.i41, label %land.lhs.true7.i.i47, label %land.lhs.true.i.i42
 
 land.lhs.true.i.i42:                              ; preds = %if.end.i.i
-  %60 = load ptr, ptr %xso2.i, align 8
-  %cmp.not.i.i44 = icmp eq ptr %60, null
+  %61 = load ptr, ptr %xso2.i, align 8
+  %cmp.not.i.i44 = icmp eq ptr %61, null
   br i1 %cmp.not.i.i44, label %out, label %if.then2.i.i45
 
 if.then2.i.i45:                                   ; preds = %land.lhs.true.i.i42
-  %last_error4.i.i46 = getelementptr inbounds nuw i8, ptr %60, i64 128
+  %last_error4.i.i46 = getelementptr inbounds nuw i8, ptr %61, i64 128
   store i32 2, ptr %last_error4.i.i46, align 8
   br label %out
 
 land.lhs.true7.i.i47:                             ; preds = %if.end.i.i
-  %61 = load ptr, ptr %ctx, align 8
-  %cmp8.not.i.i48 = icmp eq ptr %61, null
+  %62 = load ptr, ptr %ctx, align 8
+  %cmp8.not.i.i48 = icmp eq ptr %62, null
   br i1 %cmp8.not.i.i48, label %out, label %if.then9.i.i49
 
 if.then9.i.i49:                                   ; preds = %land.lhs.true7.i.i47
-  %last_error11.i.i50 = getelementptr inbounds nuw i8, ptr %61, i64 336
+  %last_error11.i.i50 = getelementptr inbounds nuw i8, ptr %62, i64 336
   store i32 2, ptr %last_error11.i.i50, align 8
   br label %out
 
 out:                                              ; preds = %if.then9.i.i49, %land.lhs.true7.i.i47, %if.then2.i.i45, %land.lhs.true.i.i42, %if.else63, %qc_wait_for_default_xso_for_read.exit.thread, %if.end60, %if.else50, %if.else45, %if.end17, %if.end5, %if.then24, %if.then43, %if.then3
   %ret.0 = phi i32 [ 1, %if.then24 ], [ 0, %if.then43 ], [ 0, %if.then3 ], [ 0, %if.end5 ], [ 0, %if.end17 ], [ %., %if.else45 ], [ 0, %if.else50 ], [ 1, %if.end60 ], [ 0, %qc_wait_for_default_xso_for_read.exit.thread ], [ 0, %if.else63 ], [ 0, %land.lhs.true.i.i42 ], [ 0, %if.then2.i.i45 ], [ 0, %land.lhs.true7.i.i47 ], [ 0, %if.then9.i.i49 ]
-  %62 = load ptr, ptr %ctx, align 8
-  %63 = getelementptr i8, ptr %62, i64 80
-  %.val = load ptr, ptr %63, align 8
+  %63 = load ptr, ptr %ctx, align 8
+  %64 = getelementptr i8, ptr %63, i64 80
+  %.val = load ptr, ptr %64, align 8
   call void @ossl_crypto_mutex_unlock(ptr noundef %.val) #8
   br label %return
 

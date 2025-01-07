@@ -379,21 +379,21 @@ validate_metamako_timestamp.exit.thread:          ; preds = %48, %45, %36, %34, 
   %95 = tail call ptr @proto_tree_add_item(ptr noundef %88, i32 noundef %93, ptr noundef %0, i32 noundef %94, i32 noundef %.4200, i32 noundef 0) #6
   %96 = load i32, ptr @ett_metamako_extensions, align 4
   %97 = tail call ptr @proto_item_add_subtree(ptr noundef %95, i32 noundef %96) #6
-  %.not221267 = icmp eq i32 %.3210, 0
-  br i1 %.not221267, label %.loopexit238, label %.lr.ph271
+  %.not221266 = icmp eq i32 %.3210, 0
+  br i1 %.not221266, label %.loopexit238, label %.lr.ph270
 
-.lr.ph271:                                        ; preds = %92
+.lr.ph270:                                        ; preds = %92
   %98 = add i32 %24, -16
   br label %99
 
-99:                                               ; preds = %.lr.ph271, %.loopexit
-  %.3269 = phi i32 [ %91, %.lr.ph271 ], [ %161, %.loopexit ]
-  %.4211268 = phi i32 [ %.3210, %.lr.ph271 ], [ %162, %.loopexit ]
+99:                                               ; preds = %.lr.ph270, %.loopexit
+  %.3268 = phi i32 [ %91, %.lr.ph270 ], [ %161, %.loopexit ]
+  %.4211267 = phi i32 [ %.3210, %.lr.ph270 ], [ %162, %.loopexit ]
   br label %100
 
 100:                                              ; preds = %114, %99
   %.0201 = phi i32 [ %98, %99 ], [ %117, %114 ]
-  %.1 = phi i32 [ %.4211268, %99 ], [ %115, %114 ]
+  %.1 = phi i32 [ %.4211267, %99 ], [ %115, %114 ]
   %101 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %.0201) #6
   %102 = lshr i32 %101, 6
   %103 = shl nuw nsw i32 %102, 2
@@ -483,17 +483,17 @@ validate_metamako_timestamp.exit.thread:          ; preds = %48, %45, %36, %34, 
   br label %156
 
 154:                                              ; preds = %156
-  %155 = add nuw nsw i32 %.0189266, 1
-  %exitcond282.not = icmp eq i32 %155, %.5
-  br i1 %exitcond282.not, label %.loopexit, label %156, !llvm.loop !8
+  %155 = add nuw nsw i32 %.0189265, 1
+  %exitcond281.not = icmp eq i32 %155, %.5
+  br i1 %exitcond281.not, label %.loopexit, label %156, !llvm.loop !8
 
 156:                                              ; preds = %150, %154
-  %.0189266 = phi i32 [ 0, %150 ], [ %155, %154 ]
-  %157 = add i32 %.0189266, %152
+  %.0189265 = phi i32 [ 0, %150 ], [ %155, %154 ]
+  %157 = add i32 %.0189265, %152
   %158 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %157) #6
   %159 = zext i8 %158 to i32
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %153, ptr noundef nonnull @.str.85, i32 noundef %159) #6
-  %exitcond = icmp eq i32 %.0189266, 106
+  %exitcond = icmp eq i32 %.0189265, 106
   br i1 %exitcond, label %160, label %154
 
 160:                                              ; preds = %156
@@ -501,8 +501,8 @@ validate_metamako_timestamp.exit.thread:          ; preds = %48, %45, %36, %34, 
   br label %.loopexit
 
 .loopexit:                                        ; preds = %154, %160, %146, %139, %134, %125, %119
-  %161 = add i32 %116, %.3269
-  %162 = add i32 %.4211268, -1
+  %161 = add i32 %116, %.3268
+  %162 = add i32 %.4211267, -1
   %.not221 = icmp eq i32 %162, 0
   br i1 %.not221, label %.loopexit238, label %99, !llvm.loop !9
 

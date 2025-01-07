@@ -4307,9 +4307,9 @@ land.rhs7:                                        ; preds = %land.rhs
   %window = getelementptr inbounds nuw i8, ptr %.pre.pre320, i64 1560
   %arrayidx11 = getelementptr inbounds nuw [32 x ptr], ptr %window, i64 0, i64 %indvars.iv
   %call = tail call i32 @FLAC__memory_alloc_aligned_real_array(i64 noundef %conv, ptr noundef nonnull %arrayidx, ptr noundef nonnull %arrayidx11) #24
-  %tobool12.not = icmp eq i32 %call, 0
+  %tobool12 = icmp eq i32 %call, 0
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  br i1 %tobool12.not, label %land.rhs7.if.end.loopexit_crit_edge, label %land.rhs, !llvm.loop !52
+  br i1 %tobool12, label %land.rhs7.if.end.loopexit_crit_edge, label %land.rhs, !llvm.loop !52
 
 land.rhs7.if.end.loopexit_crit_edge:              ; preds = %land.rhs7
   %.pre.pre = load ptr, ptr %private_, align 8

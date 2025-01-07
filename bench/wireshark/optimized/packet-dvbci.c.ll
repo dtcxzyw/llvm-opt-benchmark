@@ -6338,19 +6338,19 @@ dissect_dvbci_cis_payload_cftable_entry.exit:     ; preds = %117, %125
   %138 = call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %137, ptr noundef %26, i32 noundef 0, i32 noundef 1, i32 noundef -2147483648) #15
   %139 = load i32, ptr @hf_dvbci_cis_dev_mwait, align 4
   %140 = call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %139, ptr noundef %26, i32 noundef 0, i32 noundef 1, i32 noundef -2147483648) #15
-  %.not1.i = icmp sgt i8 %136, -1
-  br i1 %.not1.i, label %dissect_dvbci_cis_payload_device.exit, label %.lr.ph.i75
+  %.01.i75 = icmp sgt i8 %136, -1
+  br i1 %.01.i75, label %dissect_dvbci_cis_payload_device.exit, label %.lr.ph.i76
 
-.lr.ph.i75:                                       ; preds = %135, %.lr.ph.i75
-  %.0162.i = phi i32 [ %144, %.lr.ph.i75 ], [ 1, %135 ]
+.lr.ph.i76:                                       ; preds = %135, %.lr.ph.i76
+  %.0162.i = phi i32 [ %144, %.lr.ph.i76 ], [ 1, %135 ]
   %141 = call zeroext i8 @tvb_get_guint8(ptr noundef %26, i32 noundef %.0162.i) #15
   %142 = load i32, ptr @hf_dvbci_cis_dev_oth_cond_info, align 4
   %143 = call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %142, ptr noundef %26, i32 noundef %.0162.i, i32 noundef 1, i32 noundef -2147483648) #15
   %144 = add i32 %.0162.i, 1
-  %.not.i76 = icmp sgt i8 %141, -1
-  br i1 %.not.i76, label %dissect_dvbci_cis_payload_device.exit, label %.lr.ph.i75, !llvm.loop !25
+  %.0.i77 = icmp sgt i8 %141, -1
+  br i1 %.0.i77, label %dissect_dvbci_cis_payload_device.exit, label %.lr.ph.i76, !llvm.loop !25
 
-dissect_dvbci_cis_payload_device.exit:            ; preds = %.lr.ph.i75, %135
+dissect_dvbci_cis_payload_device.exit:            ; preds = %.lr.ph.i76, %135
   %145 = add i32 %24, %25
   br label %159
 

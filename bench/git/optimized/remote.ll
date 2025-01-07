@@ -1518,7 +1518,7 @@ entry:
   br i1 %cmp6, label %for.body, label %return
 
 for.body:                                         ; preds = %entry, %for.inc
-  %1 = phi i32 [ %6, %for.inc ], [ %0, %entry ]
+  %1 = phi i32 [ %7, %for.inc ], [ %0, %entry ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.inc ], [ 0, %entry ]
   %2 = load ptr, ptr %rs, align 8
   %arrayidx = getelementptr inbounds nuw %struct.refspec_item, ptr %2, i64 %indvars.iv
@@ -1532,36 +1532,31 @@ land.lhs.true:                                    ; preds = %for.body
   %tobool.not.i = icmp eq i8 %4, 0
   %src1.i = getelementptr inbounds nuw i8, ptr %arrayidx, i64 8
   %5 = load ptr, ptr %src1.i, align 8
-  br i1 %tobool.not.i, label %if.end.i, label %if.then.i
+  br i1 %tobool.not.i, label %refspec_match.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %land.lhs.true
   %call.i = tail call fastcc i32 @match_name_with_pattern(ptr noundef %5, ptr noundef %name, ptr noundef null, ptr noundef null)
-  br label %refspec_match.exit
+  %6 = icmp eq i32 %call.i, 0
+  br i1 %6, label %refspec_match.exit.for.inc_crit_edge, label %return
 
-if.end.i:                                         ; preds = %land.lhs.true
+refspec_match.exit:                               ; preds = %land.lhs.true
   %call2.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(1) %name) #20
-  %tobool3.not.i = icmp eq i32 %call2.i, 0
-  %lnot.ext.i = zext i1 %tobool3.not.i to i32
-  br label %refspec_match.exit
+  %tobool3.not.i.not = icmp eq i32 %call2.i, 0
+  br i1 %tobool3.not.i.not, label %return, label %refspec_match.exit.for.inc_crit_edge
 
-refspec_match.exit:                               ; preds = %if.then.i, %if.end.i
-  %retval.0.i = phi i32 [ %call.i, %if.then.i ], [ %lnot.ext.i, %if.end.i ]
-  %tobool4.not = icmp eq i32 %retval.0.i, 0
-  br i1 %tobool4.not, label %refspec_match.exit.for.inc_crit_edge, label %return
-
-refspec_match.exit.for.inc_crit_edge:             ; preds = %refspec_match.exit
+refspec_match.exit.for.inc_crit_edge:             ; preds = %if.then.i, %refspec_match.exit
   %.pre = load i32, ptr %nr, align 4
   br label %for.inc
 
 for.inc:                                          ; preds = %refspec_match.exit.for.inc_crit_edge, %for.body
-  %6 = phi i32 [ %.pre, %refspec_match.exit.for.inc_crit_edge ], [ %1, %for.body ]
+  %7 = phi i32 [ %.pre, %refspec_match.exit.for.inc_crit_edge ], [ %1, %for.body ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %7 = sext i32 %6 to i64
-  %cmp = icmp slt i64 %indvars.iv.next, %7
+  %8 = sext i32 %7 to i64
+  %cmp = icmp slt i64 %indvars.iv.next, %8
   br i1 %cmp, label %for.body, label %return, !llvm.loop !15
 
-return:                                           ; preds = %refspec_match.exit, %for.inc, %entry
-  %retval.0 = phi i32 [ 0, %entry ], [ 0, %for.inc ], [ 1, %refspec_match.exit ]
+return:                                           ; preds = %refspec_match.exit, %for.inc, %if.then.i, %entry
+  %retval.0 = phi i32 [ 0, %entry ], [ 1, %if.then.i ], [ 0, %for.inc ], [ 1, %refspec_match.exit ]
   ret i32 %retval.0
 }
 
@@ -1570,8 +1565,8 @@ define dso_local ptr @apply_negative_refspecs(ptr noundef %ref_map, ptr nocaptur
 entry:
   %ref_map.addr = alloca ptr, align 8
   store ptr %ref_map, ptr %ref_map.addr, align 8
-  %tobool.not12 = icmp eq ptr %ref_map, null
-  br i1 %tobool.not12, label %for.end, label %for.body.lr.ph
+  %tobool.not13 = icmp eq ptr %ref_map, null
+  br i1 %tobool.not13, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %entry
   %nr.i = getelementptr inbounds nuw i8, ptr %rs, i64 12
@@ -1580,12 +1575,12 @@ for.body.lr.ph:                                   ; preds = %entry
   br i1 %1, label %for.body, label %for.end
 
 for.bodythread-pre-split:                         ; preds = %if.end
-  %.pr17 = load i32, ptr %nr.i, align 4
+  %.pr18 = load i32, ptr %nr.i, align 4
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.bodythread-pre-split
-  %2 = phi i32 [ %.pr17, %for.bodythread-pre-split ], [ %0, %for.body.lr.ph ]
-  %tail.013 = phi ptr [ %tail.1, %for.bodythread-pre-split ], [ %ref_map.addr, %for.body.lr.ph ]
+  %2 = phi i32 [ %.pr18, %for.bodythread-pre-split ], [ %0, %for.body.lr.ph ]
+  %tail.014 = phi ptr [ %tail.1, %for.bodythread-pre-split ], [ %ref_map.addr, %for.body.lr.ph ]
   %3 = phi ptr [ %.pr, %for.bodythread-pre-split ], [ %ref_map, %for.body.lr.ph ]
   %name = getelementptr inbounds nuw i8, ptr %3, i64 176
   %cmp6.i = icmp sgt i32 %2, 0
@@ -1609,7 +1604,7 @@ land.lhs.true.i:                                  ; preds = %for.body.i
   %tobool.not.i.i = icmp eq i8 %7, 0
   %src1.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 8
   %8 = load ptr, ptr %src1.i.i, align 8
-  br i1 %tobool.not.i.i, label %if.end.i.i, label %if.then.i.i
+  br i1 %tobool.not.i.i, label %refspec_match.exit.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %land.lhs.true.i
   %call.i = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %8, i32 noundef 42) #20
@@ -1633,29 +1628,29 @@ if.end.i:                                         ; preds = %if.then.i.i
   %add.i = add i64 %call2.i, %sub.ptr.sub.i
   %cmp.not.i = icmp ult i64 %call3.i, %add.i
   %or.cond25.i = select i1 %tobool5.not.i, i1 true, i1 %cmp.not.i
-  br i1 %or.cond25.i, label %for.inc.i, label %refspec_match.exit.i
+  br i1 %or.cond25.i, label %for.inc.i, label %match_name_with_pattern.exit
 
-if.end.i.i:                                       ; preds = %land.lhs.true.i
-  %call2.i.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %8, ptr noundef nonnull dereferenceable(1) %name) #20
-  %tobool3.not.i.i = icmp eq i32 %call2.i.i, 0
-  br i1 %tobool3.not.i.i, label %if.then, label %for.inc.i
-
-refspec_match.exit.i:                             ; preds = %if.end.i
+match_name_with_pattern.exit:                     ; preds = %if.end.i
   %add.ptr6.i = getelementptr inbounds i8, ptr %name, i64 %call3.i
   %idx.neg.i = sub i64 0, %call2.i
   %add.ptr7.i = getelementptr inbounds i8, ptr %add.ptr6.i, i64 %idx.neg.i
   %bcmp.i = tail call i32 @bcmp(ptr nonnull %add.ptr7.i, ptr nonnull %add.ptr.i, i64 %call2.i)
-  %tobool10.not.i = icmp eq i32 %bcmp.i, 0
-  br i1 %tobool10.not.i, label %if.then, label %for.inc.i
+  %tobool10.not.i.not = icmp eq i32 %bcmp.i, 0
+  br i1 %tobool10.not.i.not, label %if.then, label %for.inc.i
 
-for.inc.i:                                        ; preds = %if.end.i, %if.end.i.i, %refspec_match.exit.i, %for.body.i
+refspec_match.exit.i:                             ; preds = %land.lhs.true.i
+  %call2.i.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %8, ptr noundef nonnull dereferenceable(1) %name) #20
+  %tobool3.not.i.not.i = icmp eq i32 %call2.i.i, 0
+  br i1 %tobool3.not.i.not.i, label %if.then, label %for.inc.i
+
+for.inc.i:                                        ; preds = %if.end.i, %match_name_with_pattern.exit, %refspec_match.exit.i, %for.body.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next.i, %5
   br i1 %exitcond.not, label %if.end, label %for.body.i, !llvm.loop !15
 
-if.then:                                          ; preds = %if.end.i.i, %refspec_match.exit.i
+if.then:                                          ; preds = %refspec_match.exit.i, %match_name_with_pattern.exit
   %9 = load ptr, ptr %3, align 8
-  store ptr %9, ptr %tail.013, align 8
+  store ptr %9, ptr %tail.014, align 8
   %peer_ref = getelementptr inbounds nuw i8, ptr %3, i64 168
   %10 = load ptr, ptr %peer_ref, align 8
   tail call void @free(ptr noundef %10) #21
@@ -1663,7 +1658,7 @@ if.then:                                          ; preds = %if.end.i.i, %refspe
   br label %if.end
 
 if.end:                                           ; preds = %for.inc.i, %for.body, %if.then
-  %tail.1 = phi ptr [ %tail.013, %if.then ], [ %3, %for.body ], [ %3, %for.inc.i ]
+  %tail.1 = phi ptr [ %tail.014, %if.then ], [ %3, %for.body ], [ %3, %for.inc.i ]
   %.pr = load ptr, ptr %tail.1, align 8
   %tobool.not = icmp eq ptr %.pr, null
   br i1 %tobool.not, label %for.end.loopexit, label %for.bodythread-pre-split, !llvm.loop !16
@@ -1843,14 +1838,14 @@ entry:
   %cond = load ptr, ptr %cond.in, align 8
   %nr = getelementptr inbounds nuw i8, ptr %rs, i64 12
   %2 = load i32, ptr %nr, align 4
-  %cmp30 = icmp sgt i32 %2, 0
-  br i1 %cmp30, label %for.body, label %for.end60
+  %cmp31 = icmp sgt i32 %2, 0
+  br i1 %cmp31, label %for.body, label %for.end60
 
 for.cond45.preheader:                             ; preds = %for.inc
   %nr47.phi.trans.insert = getelementptr inbounds nuw i8, ptr %reversed, i64 8
-  %.pre47 = load i64, ptr %nr47.phi.trans.insert, align 8
-  %cmp4832.not = icmp eq i64 %.pre47, 0
-  br i1 %cmp4832.not, label %for.end60, label %for.body50.lr.ph
+  %.pre48 = load i64, ptr %nr47.phi.trans.insert, align 8
+  %cmp4833.not = icmp eq i64 %.pre48, 0
+  br i1 %cmp4833.not, label %for.end60, label %for.body50.lr.ph
 
 for.body50.lr.ph:                                 ; preds = %for.cond45.preheader
   %3 = load ptr, ptr %reversed, align 8
@@ -1863,8 +1858,8 @@ for.body50.lr.ph.split.us:                        ; preds = %for.body50.lr.ph
   br label %for.body50.us
 
 for.body50.us:                                    ; preds = %omit_name_by_refspec.exit.loopexit.us, %for.body50.lr.ph.split.us
-  %indvars.iv44 = phi i64 [ %indvars.iv.next45, %omit_name_by_refspec.exit.loopexit.us ], [ 0, %for.body50.lr.ph.split.us ]
-  %arrayidx53.us = getelementptr inbounds nuw %struct.string_list_item, ptr %3, i64 %indvars.iv44
+  %indvars.iv45 = phi i64 [ %indvars.iv.next46, %omit_name_by_refspec.exit.loopexit.us ], [ 0, %for.body50.lr.ph.split.us ]
+  %arrayidx53.us = getelementptr inbounds nuw %struct.string_list_item, ptr %3, i64 %indvars.iv45
   %6 = load ptr, ptr %arrayidx53.us, align 8
   br label %for.body.i.us
 
@@ -1881,7 +1876,7 @@ land.lhs.true.i.us:                               ; preds = %for.body.i.us
   %tobool.not.i.i.us = icmp eq i8 %8, 0
   %src1.i.i.us = getelementptr inbounds nuw i8, ptr %arrayidx.i.us, i64 8
   %9 = load ptr, ptr %src1.i.i.us, align 8
-  br i1 %tobool.not.i.i.us, label %if.end.i.i.us, label %if.then.i.i.us
+  br i1 %tobool.not.i.i.us, label %refspec_match.exit.i.us, label %if.then.i.i.us
 
 if.then.i.i.us:                                   ; preds = %land.lhs.true.i.us
   %call.i.us = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %9, i32 noundef 42) #20
@@ -1900,29 +1895,29 @@ if.end.i.us:                                      ; preds = %if.then.i.i.us
   %add.i.us = add i64 %call2.i.us, %sub.ptr.sub.i.us
   %cmp.not.i.us = icmp ult i64 %call3.i.us, %add.i.us
   %or.cond25.i.us = select i1 %tobool5.not.i.us, i1 true, i1 %cmp.not.i.us
-  br i1 %or.cond25.i.us, label %for.inc.i.us, label %refspec_match.exit.i.us
+  br i1 %or.cond25.i.us, label %for.inc.i.us, label %match_name_with_pattern.exit.us
 
-if.end.i.i.us:                                    ; preds = %land.lhs.true.i.us
-  %call2.i.i.us = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull dereferenceable(1) %6) #20
-  %tobool3.not.i.i.us = icmp eq i32 %call2.i.i.us, 0
-  br i1 %tobool3.not.i.i.us, label %for.end60, label %for.inc.i.us
-
-refspec_match.exit.i.us:                          ; preds = %if.end.i.us
+match_name_with_pattern.exit.us:                  ; preds = %if.end.i.us
   %add.ptr6.i.us = getelementptr inbounds i8, ptr %6, i64 %call3.i.us
   %idx.neg.i.us = sub i64 0, %call2.i.us
   %add.ptr7.i.us = getelementptr inbounds i8, ptr %add.ptr6.i.us, i64 %idx.neg.i.us
   %bcmp.i.us = call i32 @bcmp(ptr %add.ptr7.i.us, ptr nonnull %add.ptr.i.us, i64 %call2.i.us)
-  %tobool10.not.i.us = icmp eq i32 %bcmp.i.us, 0
-  br i1 %tobool10.not.i.us, label %for.end60, label %for.inc.i.us
+  %tobool10.not.i.not.us = icmp eq i32 %bcmp.i.us, 0
+  br i1 %tobool10.not.i.not.us, label %for.end60, label %for.inc.i.us
 
-for.inc.i.us:                                     ; preds = %if.end.i.us, %if.end.i.i.us, %refspec_match.exit.i.us, %for.body.i.us
+refspec_match.exit.i.us:                          ; preds = %land.lhs.true.i.us
+  %call2.i.i.us = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull dereferenceable(1) %6) #20
+  %tobool3.not.i.not.i.us = icmp eq i32 %call2.i.i.us, 0
+  br i1 %tobool3.not.i.not.i.us, label %for.end60, label %for.inc.i.us
+
+for.inc.i.us:                                     ; preds = %refspec_match.exit.i.us, %match_name_with_pattern.exit.us, %if.end.i.us, %for.body.i.us
   %indvars.iv.next.i.us = add nuw nsw i64 %indvars.iv.i.us, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next.i.us, %4
   br i1 %exitcond.not, label %omit_name_by_refspec.exit.loopexit.us, label %for.body.i.us, !llvm.loop !15
 
 omit_name_by_refspec.exit.loopexit.us:            ; preds = %for.inc.i.us
-  %indvars.iv.next45 = add nuw nsw i64 %indvars.iv44, 1
-  %cmp48.us = icmp ugt i64 %.pre47, %indvars.iv.next45
+  %indvars.iv.next46 = add nuw nsw i64 %indvars.iv45, 1
+  %cmp48.us = icmp ugt i64 %.pre48, %indvars.iv.next46
   br i1 %cmp48.us, label %for.body50.us, label %for.end60, !llvm.loop !19
 
 for.body:                                         ; preds = %entry, %for.inc
@@ -1995,8 +1990,8 @@ if.then.i:                                        ; preds = %if.then.i.i.us
   call void (ptr, ...) @die(ptr noundef %call1.i, ptr noundef %9) #22
   unreachable
 
-for.end60:                                        ; preds = %omit_name_by_refspec.exit.loopexit.us, %if.end.i.i.us, %refspec_match.exit.i.us, %entry, %for.body50.lr.ph, %for.cond45.preheader
-  %matched_negative.0.lcssa = phi i32 [ 0, %for.cond45.preheader ], [ 0, %for.body50.lr.ph ], [ 0, %entry ], [ 1, %refspec_match.exit.i.us ], [ 1, %if.end.i.i.us ], [ 0, %omit_name_by_refspec.exit.loopexit.us ]
+for.end60:                                        ; preds = %omit_name_by_refspec.exit.loopexit.us, %match_name_with_pattern.exit.us, %refspec_match.exit.i.us, %entry, %for.body50.lr.ph, %for.cond45.preheader
+  %matched_negative.0.lcssa = phi i32 [ 0, %for.cond45.preheader ], [ 0, %for.body50.lr.ph ], [ 0, %entry ], [ 1, %refspec_match.exit.i.us ], [ 1, %match_name_with_pattern.exit.us ], [ 0, %omit_name_by_refspec.exit.loopexit.us ]
   call void @string_list_clear(ptr noundef nonnull %reversed, i32 noundef 0) #21
   ret i32 %matched_negative.0.lcssa
 }

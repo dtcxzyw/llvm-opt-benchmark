@@ -73,7 +73,7 @@ define internal fastcc void @early_root_info_init() unnamed_addr #0 section ".in
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %2) #9
   %3 = tail call i32 @early_pci_allowed() #9
   %4 = icmp eq i32 %3, 0
-  br i1 %4, label %.thread34.thread, label %.preheader52
+  br i1 %4, label %.thread41.thread, label %.preheader52
 
 .preheader52:                                     ; preds = %0, %21
   %5 = phi i64 [ %24, %21 ], [ 0, %0 ]
@@ -110,7 +110,7 @@ define internal fastcc void @early_root_info_init() unnamed_addr #0 section ".in
 27:                                               ; preds = %21
   %28 = and i8 %23, 1
   %29 = icmp eq i8 %28, 0
-  br i1 %29, label %.thread34.thread, label %.preheader51
+  br i1 %29, label %.thread41.thread, label %.preheader51
 
 .preheader51:                                     ; preds = %27, %46
   %30 = phi i32 [ %47, %46 ], [ 0, %27 ]
@@ -141,7 +141,7 @@ define internal fastcc void @early_root_info_init() unnamed_addr #0 section ".in
 49:                                               ; preds = %46
   %50 = load i8, ptr @boot_cpu_data, align 8
   %51 = icmp ugt i8 %50, 17
-  br i1 %51, label %.thread34.thread, label %52
+  br i1 %51, label %.thread41.thread, label %52
 
 52:                                               ; preds = %49
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %2, i8 0, i64 64, i1 false), !annotation !9
@@ -218,7 +218,7 @@ define internal fastcc void @early_root_info_init() unnamed_addr #0 section ".in
   %100 = and i32 %98, 3
   %101 = load ptr, ptr @pci_root_infos, align 8
   %102 = icmp eq ptr %101, @pci_root_infos
-  br i1 %102, label %.thread29, label %.preheader48
+  br i1 %102, label %.thread36, label %.preheader48
 
 .preheader48:                                     ; preds = %96, %111
   %103 = phi ptr [ %112, %111 ], [ %101, %96 ]
@@ -236,11 +236,11 @@ define internal fastcc void @early_root_info_init() unnamed_addr #0 section ".in
 111:                                              ; preds = %107, %.preheader48
   %112 = load ptr, ptr %103, align 8
   %113 = icmp eq ptr %112, @pci_root_infos
-  br i1 %113, label %.thread29, label %.preheader48, !llvm.loop !10
+  br i1 %113, label %.thread36, label %.preheader48, !llvm.loop !10
 
 114:                                              ; preds = %107
   %115 = icmp eq ptr %103, null
-  br i1 %115, label %.thread29, label %.preheader47
+  br i1 %115, label %.thread36, label %.preheader47
 
 .preheader47:                                     ; preds = %114, %124
   %116 = phi i64 [ %125, %124 ], [ 0, %114 ]
@@ -259,9 +259,9 @@ define internal fastcc void @early_root_info_init() unnamed_addr #0 section ".in
 124:                                              ; preds = %121, %.preheader47
   %125 = add nuw nsw i64 %116, 1
   %126 = icmp eq i64 %125, 16
-  br i1 %126, label %.thread29, label %.preheader47, !llvm.loop !12
+  br i1 %126, label %.thread36, label %.preheader47, !llvm.loop !12
 
-.thread29:                                        ; preds = %111, %124, %96, %114
+.thread36:                                        ; preds = %111, %124, %96, %114
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %1, i8 0, i64 256, i1 false)
   %127 = call i32 @add_range(ptr noundef nonnull %1, i32 noundef 16, i32 noundef 0, i64 noundef 0, i64 noundef 1086626725888) #9
   %128 = call fastcc i64 @native_read_msr(i32 noundef -1073676262)
@@ -271,11 +271,11 @@ define internal fastcc void @early_root_info_init() unnamed_addr #0 section ".in
   %132 = icmp samesign ult i64 %129, 4294967296
   br i1 %132, label %133, label %134
 
-133:                                              ; preds = %.thread29
+133:                                              ; preds = %.thread36
   call void @subtract_range(ptr noundef nonnull %1, i32 noundef 16, i64 noundef 0, i64 noundef %129) #9
   br label %134
 
-134:                                              ; preds = %133, %.thread29
+134:                                              ; preds = %133, %.thread36
   %135 = call ptr @amd_get_mmconfig_range(ptr noundef nonnull %2) #9
   %136 = icmp eq ptr %135, null
   br i1 %136, label %._crit_edge, label %137
@@ -298,15 +298,15 @@ define internal fastcc void @early_root_info_init() unnamed_addr #0 section ".in
   %148 = icmp eq i64 %147, 0
   br label %149
 
-149:                                              ; preds = %.thread31, %._crit_edge
-  %150 = phi i32 [ 0, %._crit_edge ], [ %213, %.thread31 ]
+149:                                              ; preds = %.thread38, %._crit_edge
+  %150 = phi i32 [ 0, %._crit_edge ], [ %213, %.thread38 ]
   %151 = trunc i32 %150 to i8
   %152 = shl nuw nsw i8 %151, 3
   %153 = or disjoint i8 %152, -128
   %154 = call i32 @read_pci_config(i8 noundef zeroext %11, i8 noundef zeroext %12, i8 noundef zeroext 1, i8 noundef zeroext %153) #9
   %155 = and i32 %154, 3
   %156 = icmp eq i32 %155, 0
-  br i1 %156, label %.thread31, label %157
+  br i1 %156, label %.thread38, label %157
 
 157:                                              ; preds = %149
   %158 = and i32 %154, -256
@@ -322,7 +322,7 @@ define internal fastcc void @early_root_info_init() unnamed_addr #0 section ".in
   %168 = or i64 %167, 65535
   %169 = load ptr, ptr @pci_root_infos, align 8
   %170 = icmp eq ptr %169, @pci_root_infos
-  br i1 %170, label %.thread31, label %.preheader46
+  br i1 %170, label %.thread38, label %.preheader46
 
 .preheader46:                                     ; preds = %157, %179
   %171 = phi ptr [ %180, %179 ], [ %169, %157 ]
@@ -340,11 +340,11 @@ define internal fastcc void @early_root_info_init() unnamed_addr #0 section ".in
 179:                                              ; preds = %175, %.preheader46
   %180 = load ptr, ptr %171, align 8
   %181 = icmp eq ptr %180, @pci_root_infos
-  br i1 %181, label %.thread31, label %.preheader46, !llvm.loop !10
+  br i1 %181, label %.thread38, label %.preheader46, !llvm.loop !10
 
 182:                                              ; preds = %175
   %183 = icmp eq ptr %171, null
-  br i1 %183, label %.thread31, label %184
+  br i1 %183, label %.thread38, label %184
 
 184:                                              ; preds = %182
   %185 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.3, i32 noundef %163, i32 noundef %165, i64 noundef %160, i64 noundef %168) #10
@@ -353,30 +353,30 @@ define internal fastcc void @early_root_info_init() unnamed_addr #0 section ".in
 186:                                              ; preds = %184
   %187 = icmp ult i64 %160, %144
   %188 = icmp ugt i64 %160, %143
-  %.not39 = or i1 %187, %188
-  %189 = select i1 %.not39, i64 %160, i64 %146
+  %.not32 = or i1 %187, %188
+  %189 = select i1 %.not32, i64 %160, i64 %146
   %190 = icmp ult i64 %168, %144
   %191 = icmp ugt i64 %168, %143
-  %.not41 = or i1 %190, %191
-  %192 = select i1 %.not41, i64 %168, i64 %147
+  %.not34 = or i1 %190, %191
+  %192 = select i1 %.not34, i64 %168, i64 %147
   %193 = icmp ult i64 %189, %144
   %194 = icmp ugt i64 %192, %143
   %195 = select i1 %193, i1 %194, i1 false
-  br i1 %195, label %.thread32, label %197
+  br i1 %195, label %.thread39, label %197
 
-.thread32:                                        ; preds = %186
+.thread39:                                        ; preds = %186
   call void @update_res(ptr noundef nonnull %171, i64 noundef %189, i64 noundef %147, i64 noundef 512, i32 noundef 0) #9
   call void @subtract_range(ptr noundef nonnull %1, i32 noundef 16, i64 noundef %189, i64 noundef %144) #9
   %196 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.4, i64 noundef %189, i64 noundef %147) #10
   br label %198
 
 197:                                              ; preds = %186
-  %.not36 = and i1 %.not39, %.not41
-  br i1 %.not36, label %208, label %198
+  %.not29 = and i1 %.not32, %.not34
+  br i1 %.not29, label %208, label %198
 
-198:                                              ; preds = %.thread32, %197
-  %199 = phi i64 [ %146, %.thread32 ], [ %189, %197 ]
-  %200 = phi i1 [ %148, %.thread32 ], [ true, %197 ]
+198:                                              ; preds = %.thread39, %197
+  %199 = phi i64 [ %146, %.thread39 ], [ %189, %197 ]
+  %200 = phi i1 [ %148, %.thread39 ], [ true, %197 ]
   %201 = icmp ugt i64 %199, %192
   br i1 %201, label %205, label %202
 
@@ -388,7 +388,7 @@ define internal fastcc void @early_root_info_init() unnamed_addr #0 section ".in
 205:                                              ; preds = %198
   %206 = select i1 %200, ptr @.str.10, ptr @.str.9
   %207 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.8, ptr noundef nonnull %206) #10
-  br label %.thread31
+  br label %.thread38
 
 208:                                              ; preds = %202, %197, %184
   %209 = phi i64 [ %168, %184 ], [ %192, %197 ], [ %192, %202 ]
@@ -397,14 +397,14 @@ define internal fastcc void @early_root_info_init() unnamed_addr #0 section ".in
   %211 = add nsw i64 %209, 1
   call void @subtract_range(ptr noundef nonnull %1, i32 noundef 16, i64 noundef %210, i64 noundef %211) #9
   %212 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.11) #10
-  br label %.thread31
+  br label %.thread38
 
-.thread31:                                        ; preds = %179, %157, %208, %205, %182, %149
+.thread38:                                        ; preds = %179, %157, %208, %205, %182, %149
   %213 = add nuw nsw i32 %150, 1
   %214 = icmp eq i32 %213, 8
   br i1 %214, label %215, label %149, !llvm.loop !13
 
-215:                                              ; preds = %.thread31
+215:                                              ; preds = %.thread38
   %216 = call fastcc i64 @native_read_msr(i32 noundef -1073676272)
   %217 = and i64 %216, 2097152
   %218 = icmp eq i64 %217, 0
@@ -421,7 +421,7 @@ define internal fastcc void @early_root_info_init() unnamed_addr #0 section ".in
 224:                                              ; preds = %219, %215
   %225 = load ptr, ptr @pci_root_infos, align 8
   %226 = icmp eq ptr %225, @pci_root_infos
-  br i1 %226, label %.thread34.thread, label %.preheader44
+  br i1 %226, label %.thread41.thread, label %.preheader44
 
 .preheader44:                                     ; preds = %224, %235
   %227 = phi ptr [ %236, %235 ], [ %225, %224 ]
@@ -439,11 +439,11 @@ define internal fastcc void @early_root_info_init() unnamed_addr #0 section ".in
 235:                                              ; preds = %231, %.preheader44
   %236 = load ptr, ptr %227, align 8
   %237 = icmp eq ptr %236, @pci_root_infos
-  br i1 %237, label %.thread34, label %.preheader44, !llvm.loop !10
+  br i1 %237, label %.thread41, label %.preheader44, !llvm.loop !10
 
 238:                                              ; preds = %231
   %239 = icmp eq ptr %227, null
-  br i1 %239, label %.thread34, label %.preheader43
+  br i1 %239, label %.thread41, label %.preheader43
 
 .preheader43:                                     ; preds = %238, %248
   %240 = phi i64 [ %249, %248 ], [ 0, %238 ]
@@ -462,24 +462,24 @@ define internal fastcc void @early_root_info_init() unnamed_addr #0 section ".in
 248:                                              ; preds = %245, %.preheader43
   %249 = add nuw nsw i64 %240, 1
   %250 = icmp eq i64 %249, 16
-  br i1 %250, label %.thread34.loopexit, label %.preheader43, !llvm.loop !14
+  br i1 %250, label %.thread41.loopexit, label %.preheader43, !llvm.loop !14
 
-.thread34.loopexit:                               ; preds = %248
+.thread41.loopexit:                               ; preds = %248
   %.pr.pre = load ptr, ptr @pci_root_infos, align 8
-  br label %.thread34
+  br label %.thread41
 
-.thread34:                                        ; preds = %235, %.thread34.loopexit, %238
-  %.pr = phi ptr [ %.pr.pre, %.thread34.loopexit ], [ %225, %238 ], [ %225, %235 ]
+.thread41:                                        ; preds = %235, %.thread41.loopexit, %238
+  %.pr = phi ptr [ %.pr.pre, %.thread41.loopexit ], [ %225, %238 ], [ %225, %235 ]
   %251 = icmp eq ptr %.pr, @pci_root_infos
-  br i1 %251, label %.thread34.thread, label %.preheader42
+  br i1 %251, label %.thread41.thread, label %.preheader42
 
 .loopexit:                                        ; preds = %.preheader, %.preheader42
   %252 = load ptr, ptr %254, align 8
   %253 = icmp eq ptr %252, @pci_root_infos
-  br i1 %253, label %.thread34.thread, label %.preheader42, !llvm.loop !15
+  br i1 %253, label %.thread41.thread, label %.preheader42, !llvm.loop !15
 
-.preheader42:                                     ; preds = %.thread34, %.loopexit
-  %254 = phi ptr [ %252, %.loopexit ], [ %.pr, %.thread34 ]
+.preheader42:                                     ; preds = %.thread41, %.loopexit
+  %254 = phi ptr [ %252, %.loopexit ], [ %.pr, %.thread41 ]
   %255 = getelementptr inbounds nuw i8, ptr %254, i64 48
   %256 = load i64, ptr %255, align 8
   %257 = trunc i64 %256 to i32
@@ -501,7 +501,7 @@ define internal fastcc void @early_root_info_init() unnamed_addr #0 section ".in
   %270 = icmp eq ptr %269, %263
   br i1 %270, label %.loopexit, label %.preheader, !llvm.loop !16
 
-.thread34.thread:                                 ; preds = %.loopexit, %224, %.thread34, %49, %27, %0
+.thread41.thread:                                 ; preds = %.loopexit, %224, %.thread41, %49, %27, %0
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %2) #9
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %1) #9
   ret void

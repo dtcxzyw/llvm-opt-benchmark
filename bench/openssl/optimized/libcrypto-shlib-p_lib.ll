@@ -294,9 +294,8 @@ if.then.i:                                        ; preds = %if.then36, %if.else
 
 if.then2.i:                                       ; preds = %if.then.i
   %call.i39 = call i32 @evp_keymgmt_util_has(ptr noundef nonnull %from.addr.06877, i32 noundef 4) #12
-  %tobool.not.i = icmp eq i32 %call.i39, 0
-  %lnot.ext.i = zext i1 %tobool.not.i to i32
-  br label %EVP_PKEY_missing_parameters.exit
+  %tobool.not.i.not = icmp eq i32 %call.i39, 0
+  br i1 %tobool.not.i.not, label %if.then46, label %if.then.i41
 
 if.else.i:                                        ; preds = %if.then.i
   %ameth.i = getelementptr inbounds nuw i8, ptr %from.addr.06877, i64 8
@@ -308,66 +307,59 @@ land.lhs.true.i:                                  ; preds = %if.else.i
   %param_missing.i = getelementptr inbounds nuw i8, ptr %8, i64 128
   %9 = load ptr, ptr %param_missing.i, align 8
   %cmp5.not.i = icmp eq ptr %9, null
-  br i1 %cmp5.not.i, label %if.then.i41, label %if.then6.i
+  br i1 %cmp5.not.i, label %if.then.i41, label %EVP_PKEY_missing_parameters.exit
 
-if.then6.i:                                       ; preds = %land.lhs.true.i
+EVP_PKEY_missing_parameters.exit:                 ; preds = %land.lhs.true.i
   %call9.i = call i32 %9(ptr noundef nonnull %from.addr.06877) #12
-  br label %EVP_PKEY_missing_parameters.exit
+  %10 = icmp eq i32 %call9.i, 0
+  br i1 %10, label %if.then.i41, label %if.then46
 
-EVP_PKEY_missing_parameters.exit:                 ; preds = %if.then2.i, %if.then6.i
-  %retval.0.i = phi i32 [ %lnot.ext.i, %if.then2.i ], [ %call9.i, %if.then6.i ]
-  %tobool45.not = icmp eq i32 %retval.0.i, 0
-  br i1 %tobool45.not, label %if.then.i41, label %if.then46
-
-if.then46:                                        ; preds = %EVP_PKEY_missing_parameters.exit
+if.then46:                                        ; preds = %if.then2.i, %EVP_PKEY_missing_parameters.exit
   call void @ERR_new() #12
   call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 174, ptr noundef nonnull @__func__.EVP_PKEY_copy_parameters) #12
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 6, i32 noundef 103, ptr noundef null) #12
   br label %end
 
-if.then.i41:                                      ; preds = %if.end43, %if.else.i, %land.lhs.true.i, %EVP_PKEY_missing_parameters.exit
-  %from.addr.0687882 = phi ptr [ %from.addr.06877, %EVP_PKEY_missing_parameters.exit ], [ null, %if.end43 ], [ %from.addr.06877, %if.else.i ], [ %from.addr.06877, %land.lhs.true.i ]
+if.then.i41:                                      ; preds = %if.then2.i, %if.end43, %if.else.i, %land.lhs.true.i, %EVP_PKEY_missing_parameters.exit
+  %from.addr.0687882 = phi ptr [ %from.addr.06877, %EVP_PKEY_missing_parameters.exit ], [ null, %if.end43 ], [ %from.addr.06877, %if.else.i ], [ %from.addr.06877, %land.lhs.true.i ], [ %from.addr.06877, %if.then2.i ]
   %keymgmt.i42 = getelementptr inbounds nuw i8, ptr %to, i64 96
-  %10 = load ptr, ptr %keymgmt.i42, align 8
-  %cmp1.not.i43 = icmp eq ptr %10, null
+  %11 = load ptr, ptr %keymgmt.i42, align 8
+  %cmp1.not.i43 = icmp eq ptr %11, null
   br i1 %cmp1.not.i43, label %if.else.i49, label %if.then2.i44
 
 if.then2.i44:                                     ; preds = %if.then.i41
   %call.i45 = call i32 @evp_keymgmt_util_has(ptr noundef nonnull %to, i32 noundef 4) #12
-  %tobool.not.i46 = icmp eq i32 %call.i45, 0
-  %lnot.ext.i47 = zext i1 %tobool.not.i46 to i32
-  br label %EVP_PKEY_missing_parameters.exit57
+  %tobool.not.i46.not = icmp eq i32 %call.i45, 0
+  %.pre8896 = load ptr, ptr %keymgmt.i42, align 8
+  br i1 %tobool.not.i46.not, label %if.end56, label %if.then50
 
 if.else.i49:                                      ; preds = %if.then.i41
   %ameth.i50 = getelementptr inbounds nuw i8, ptr %to, i64 8
-  %11 = load ptr, ptr %ameth.i50, align 8
-  %cmp3.not.i51 = icmp eq ptr %11, null
+  %12 = load ptr, ptr %ameth.i50, align 8
+  %cmp3.not.i51 = icmp eq ptr %12, null
   br i1 %cmp3.not.i51, label %lor.lhs.false.i, label %land.lhs.true.i52
 
 land.lhs.true.i52:                                ; preds = %if.else.i49
-  %param_missing.i53 = getelementptr inbounds nuw i8, ptr %11, i64 128
-  %12 = load ptr, ptr %param_missing.i53, align 8
-  %cmp5.not.i54 = icmp eq ptr %12, null
-  br i1 %cmp5.not.i54, label %lor.lhs.false.i, label %if.then6.i55
+  %param_missing.i53 = getelementptr inbounds nuw i8, ptr %12, i64 128
+  %13 = load ptr, ptr %param_missing.i53, align 8
+  %cmp5.not.i54 = icmp eq ptr %13, null
+  br i1 %cmp5.not.i54, label %lor.lhs.false.i, label %EVP_PKEY_missing_parameters.exit57
 
-if.then6.i55:                                     ; preds = %land.lhs.true.i52
-  %call9.i56 = call i32 %12(ptr noundef nonnull %to) #12
-  br label %EVP_PKEY_missing_parameters.exit57
-
-EVP_PKEY_missing_parameters.exit57:               ; preds = %if.then2.i44, %if.then6.i55
-  %retval.0.i48 = phi i32 [ %lnot.ext.i47, %if.then2.i44 ], [ %call9.i56, %if.then6.i55 ]
-  %tobool49.not = icmp eq i32 %retval.0.i48, 0
+EVP_PKEY_missing_parameters.exit57:               ; preds = %land.lhs.true.i52
+  %call9.i56 = call i32 %13(ptr noundef nonnull %to) #12
+  %14 = icmp eq i32 %call9.i56, 0
   %.pre88 = load ptr, ptr %keymgmt.i42, align 8
-  %cmp.not.i59 = icmp eq ptr %.pre88, null
-  br i1 %tobool49.not, label %if.then50, label %if.end56
+  br i1 %14, label %if.then50, label %if.end56
 
-if.then50:                                        ; preds = %EVP_PKEY_missing_parameters.exit57
+if.then50:                                        ; preds = %if.then2.i44, %EVP_PKEY_missing_parameters.exit57
+  %15 = phi ptr [ %.pre88, %EVP_PKEY_missing_parameters.exit57 ], [ %.pre8896, %if.then2.i44 ]
+  %cmp.not.i59 = icmp eq ptr %15, null
   br i1 %cmp.not.i59, label %lor.lhs.false.i, label %if.then.i60
 
 lor.lhs.false.i:                                  ; preds = %land.lhs.true.i52, %if.else.i49, %if.then50
   %keymgmt1.i = getelementptr inbounds nuw i8, ptr %from.addr.0687882, i64 96
-  %13 = load ptr, ptr %keymgmt1.i, align 8
-  %cmp2.not.i = icmp eq ptr %13, null
+  %16 = load ptr, ptr %keymgmt1.i, align 8
+  %cmp2.not.i = icmp eq ptr %16, null
   br i1 %cmp2.not.i, label %if.end.i, label %if.then.i60
 
 if.then.i60:                                      ; preds = %lor.lhs.false.i, %if.then50
@@ -375,25 +367,25 @@ if.then.i60:                                      ; preds = %lor.lhs.false.i, %i
   br label %EVP_PKEY_parameters_eq.exit
 
 if.end.i:                                         ; preds = %lor.lhs.false.i
-  %14 = load i32, ptr %to, align 8
-  %15 = load i32, ptr %from.addr.0687882, align 8
-  %cmp4.not.i = icmp eq i32 %14, %15
+  %17 = load i32, ptr %to, align 8
+  %18 = load i32, ptr %from.addr.0687882, align 8
+  %cmp4.not.i = icmp eq i32 %17, %18
   br i1 %cmp4.not.i, label %if.end6.i, label %if.else54
 
 if.end6.i:                                        ; preds = %if.end.i
   %ameth.i63 = getelementptr inbounds nuw i8, ptr %to, i64 8
-  %16 = load ptr, ptr %ameth.i63, align 8
-  %cmp7.not.i = icmp eq ptr %16, null
+  %19 = load ptr, ptr %ameth.i63, align 8
+  %cmp7.not.i = icmp eq ptr %19, null
   br i1 %cmp7.not.i, label %if.else54, label %land.lhs.true.i64
 
 land.lhs.true.i64:                                ; preds = %if.end6.i
-  %param_cmp.i = getelementptr inbounds nuw i8, ptr %16, i64 144
-  %17 = load ptr, ptr %param_cmp.i, align 8
-  %cmp9.not.i = icmp eq ptr %17, null
+  %param_cmp.i = getelementptr inbounds nuw i8, ptr %19, i64 144
+  %20 = load ptr, ptr %param_cmp.i, align 8
+  %cmp9.not.i = icmp eq ptr %20, null
   br i1 %cmp9.not.i, label %if.else54, label %if.then10.i
 
 if.then10.i:                                      ; preds = %land.lhs.true.i64
-  %call13.i = call i32 %17(ptr noundef nonnull %to, ptr noundef nonnull %from.addr.0687882) #12
+  %call13.i = call i32 %20(ptr noundef nonnull %to, ptr noundef nonnull %from.addr.0687882) #12
   br label %EVP_PKEY_parameters_eq.exit
 
 EVP_PKEY_parameters_eq.exit:                      ; preds = %if.then.i60, %if.then10.i
@@ -407,13 +399,15 @@ if.else54:                                        ; preds = %if.end6.i, %land.lh
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 6, i32 noundef 153, ptr noundef null) #12
   br label %end
 
-if.end56:                                         ; preds = %EVP_PKEY_missing_parameters.exit57
-  br i1 %cmp.not.i59, label %if.end80, label %land.lhs.true59
+if.end56:                                         ; preds = %if.then2.i44, %EVP_PKEY_missing_parameters.exit57
+  %.pre8897 = phi ptr [ %.pre8896, %if.then2.i44 ], [ %.pre88, %EVP_PKEY_missing_parameters.exit57 ]
+  %cmp58.not = icmp eq ptr %.pre8897, null
+  br i1 %cmp58.not, label %if.end80, label %land.lhs.true59
 
 land.lhs.true59:                                  ; preds = %if.end56
   %keymgmt60 = getelementptr inbounds nuw i8, ptr %from.addr.0687882, i64 96
-  %18 = load ptr, ptr %keymgmt60, align 8
-  %cmp61.not = icmp eq ptr %18, null
+  %21 = load ptr, ptr %keymgmt60, align 8
+  %cmp61.not = icmp eq ptr %21, null
   br i1 %cmp61.not, label %land.lhs.true67, label %if.then62
 
 if.then62:                                        ; preds = %land.lhs.true59
@@ -422,12 +416,12 @@ if.then62:                                        ; preds = %land.lhs.true59
 
 land.lhs.true67:                                  ; preds = %land.lhs.true59
   %keydata = getelementptr inbounds nuw i8, ptr %to, i64 104
-  %19 = load ptr, ptr %keydata, align 8
-  %cmp68 = icmp eq ptr %19, null
+  %22 = load ptr, ptr %keydata, align 8
+  %cmp68 = icmp eq ptr %22, null
   br i1 %cmp68, label %if.then69, label %if.end80
 
 if.then69:                                        ; preds = %land.lhs.true67
-  store ptr %.pre88, ptr %to_keymgmt, align 8
+  store ptr %.pre8897, ptr %to_keymgmt, align 8
   %call71 = call ptr @evp_pkey_export_to_provider(ptr noundef nonnull %from.addr.0687882, ptr noundef null, ptr noundef nonnull %to_keymgmt, ptr noundef null)
   %cmp72 = icmp eq ptr %call71, null
   br i1 %cmp72, label %if.then73, label %if.else74
@@ -439,8 +433,8 @@ if.then73:                                        ; preds = %if.then69
   br label %end
 
 if.else74:                                        ; preds = %if.then69
-  %20 = load ptr, ptr %keymgmt.i42, align 8
-  %call76 = call ptr @evp_keymgmt_dup(ptr noundef %20, ptr noundef nonnull %call71, i32 noundef 4) #12
+  %23 = load ptr, ptr %keymgmt.i42, align 8
+  %call76 = call ptr @evp_keymgmt_dup(ptr noundef %23, ptr noundef nonnull %call71, i32 noundef 4) #12
   store ptr %call76, ptr %keydata, align 8
   %cmp78 = icmp ne ptr %call76, null
   %conv = zext i1 %cmp78 to i32
@@ -448,30 +442,30 @@ if.else74:                                        ; preds = %if.then69
 
 if.end80:                                         ; preds = %if.end56, %land.lhs.true67
   %ameth = getelementptr inbounds nuw i8, ptr %from.addr.0687882, i64 8
-  %21 = load ptr, ptr %ameth, align 8
-  %cmp81.not = icmp eq ptr %21, null
+  %24 = load ptr, ptr %ameth, align 8
+  %cmp81.not = icmp eq ptr %24, null
   br i1 %cmp81.not, label %end, label %land.lhs.true83
 
 land.lhs.true83:                                  ; preds = %if.end80
-  %param_copy = getelementptr inbounds nuw i8, ptr %21, i64 136
-  %22 = load ptr, ptr %param_copy, align 8
-  %cmp85.not = icmp eq ptr %22, null
+  %param_copy = getelementptr inbounds nuw i8, ptr %24, i64 136
+  %25 = load ptr, ptr %param_copy, align 8
+  %cmp85.not = icmp eq ptr %25, null
   br i1 %cmp85.not, label %end, label %if.then87
 
 if.then87:                                        ; preds = %land.lhs.true83
-  %call90 = call i32 %22(ptr noundef nonnull %to, ptr noundef nonnull %from.addr.0687882) #12
+  %call90 = call i32 %25(ptr noundef nonnull %to, ptr noundef nonnull %from.addr.0687882) #12
   br label %end
 
 end:                                              ; preds = %EVP_PKEY_parameters_eq.exit, %if.end80, %land.lhs.true83, %if.then87, %if.then73, %if.else74, %if.else54, %if.else, %if.then18, %if.then, %if.then62, %if.then46, %if.then40
   %ok.0 = phi i32 [ 0, %if.then18 ], [ 0, %if.then46 ], [ %call63, %if.then62 ], [ 0, %if.then73 ], [ %conv, %if.else74 ], [ %call90, %if.then87 ], [ 0, %land.lhs.true83 ], [ 0, %if.end80 ], [ 0, %if.else54 ], [ 0, %if.else ], [ 0, %if.then40 ], [ 0, %if.then ], [ 1, %EVP_PKEY_parameters_eq.exit ]
-  %23 = load ptr, ptr %downgraded_from, align 8
-  %cmp.i = icmp eq ptr %23, null
+  %26 = load ptr, ptr %downgraded_from, align 8
+  %cmp.i = icmp eq ptr %26, null
   br i1 %cmp.i, label %EVP_PKEY_free.exit, label %if.end.i65
 
 if.end.i65:                                       ; preds = %end
-  %references.i = getelementptr inbounds nuw i8, ptr %23, i64 48
-  %24 = atomicrmw sub ptr %references.i, i32 1 monotonic, align 4
-  %cmp.i.i = icmp eq i32 %24, 1
+  %references.i = getelementptr inbounds nuw i8, ptr %26, i64 48
+  %27 = atomicrmw sub ptr %references.i, i32 1 monotonic, align 4
+  %cmp.i.i = icmp eq i32 %27, 1
   br i1 %cmp.i.i, label %CRYPTO_DOWN_REF.exit.thread.i, label %CRYPTO_DOWN_REF.exit.i
 
 CRYPTO_DOWN_REF.exit.thread.i:                    ; preds = %if.end.i65
@@ -479,20 +473,20 @@ CRYPTO_DOWN_REF.exit.thread.i:                    ; preds = %if.end.i65
   br label %if.end3.i
 
 CRYPTO_DOWN_REF.exit.i:                           ; preds = %if.end.i65
-  %cmp1.i = icmp sgt i32 %24, 1
+  %cmp1.i = icmp sgt i32 %27, 1
   br i1 %cmp1.i, label %EVP_PKEY_free.exit, label %if.end3.i
 
 if.end3.i:                                        ; preds = %CRYPTO_DOWN_REF.exit.i, %CRYPTO_DOWN_REF.exit.thread.i
-  call fastcc void @evp_pkey_free_it(ptr noundef %23)
-  %ex_data.i = getelementptr inbounds nuw i8, ptr %23, i64 80
-  call void @CRYPTO_free_ex_data(i32 noundef 17, ptr noundef nonnull %23, ptr noundef nonnull %ex_data.i) #12
-  %lock.i = getelementptr inbounds nuw i8, ptr %23, i64 56
-  %25 = load ptr, ptr %lock.i, align 8
-  call void @CRYPTO_THREAD_lock_free(ptr noundef %25) #12
-  %attributes.i = getelementptr inbounds nuw i8, ptr %23, i64 64
-  %26 = load ptr, ptr %attributes.i, align 8
-  call void @OPENSSL_sk_pop_free(ptr noundef %26, ptr noundef nonnull @X509_ATTRIBUTE_free) #12
-  call void @CRYPTO_free(ptr noundef nonnull %23, ptr noundef nonnull @.str, i32 noundef 1809) #12
+  call fastcc void @evp_pkey_free_it(ptr noundef %26)
+  %ex_data.i = getelementptr inbounds nuw i8, ptr %26, i64 80
+  call void @CRYPTO_free_ex_data(i32 noundef 17, ptr noundef nonnull %26, ptr noundef nonnull %ex_data.i) #12
+  %lock.i = getelementptr inbounds nuw i8, ptr %26, i64 56
+  %28 = load ptr, ptr %lock.i, align 8
+  call void @CRYPTO_THREAD_lock_free(ptr noundef %28) #12
+  %attributes.i = getelementptr inbounds nuw i8, ptr %26, i64 64
+  %29 = load ptr, ptr %attributes.i, align 8
+  call void @OPENSSL_sk_pop_free(ptr noundef %29, ptr noundef nonnull @X509_ATTRIBUTE_free) #12
+  call void @CRYPTO_free(ptr noundef nonnull %26, ptr noundef nonnull @.str, i32 noundef 1809) #12
   br label %EVP_PKEY_free.exit
 
 EVP_PKEY_free.exit:                               ; preds = %end, %CRYPTO_DOWN_REF.exit.i, %if.end3.i

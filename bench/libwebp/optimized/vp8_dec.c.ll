@@ -1282,143 +1282,143 @@ define hidden range(i32 0, 2) i32 @VP8Decode(ptr noundef %0, ptr noundef %1) loc
 
 17:                                               ; preds = %15, %12
   %18 = tail call i32 @VP8EnterCritical(ptr noundef nonnull %0, ptr noundef nonnull %1) #13
-  %19 = icmp eq i32 %18, 0
-  br i1 %19, label %20, label %VP8Clear.exit
+  %.not30 = icmp eq i32 %18, 0
+  br i1 %.not30, label %19, label %VP8Clear.exit
 
-20:                                               ; preds = %17
-  %21 = tail call i32 @VP8InitFrame(ptr noundef nonnull %0, ptr noundef nonnull %1) #13
-  %.not27 = icmp eq i32 %21, 0
-  br i1 %.not27, label %83, label %22
+19:                                               ; preds = %17
+  %20 = tail call i32 @VP8InitFrame(ptr noundef nonnull %0, ptr noundef nonnull %1) #13
+  %.not27 = icmp eq i32 %20, 0
+  br i1 %.not27, label %82, label %21
 
-22:                                               ; preds = %20
-  %23 = getelementptr inbounds nuw i8, ptr %0, i64 2908
-  %24 = getelementptr inbounds nuw i8, ptr %0, i64 428
-  store i32 0, ptr %23, align 4
-  %25 = load i32, ptr %24, align 4
-  %26 = icmp sgt i32 %25, 0
-  br i1 %26, label %.lr.ph31.i, label %._crit_edge32.i
+21:                                               ; preds = %19
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 2908
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 428
+  store i32 0, ptr %22, align 4
+  %24 = load i32, ptr %23, align 4
+  %25 = icmp sgt i32 %24, 0
+  br i1 %25, label %.lr.ph31.i, label %._crit_edge32.i
 
-.lr.ph31.i:                                       ; preds = %22
-  %27 = getelementptr inbounds nuw i8, ptr %0, i64 440
-  %28 = getelementptr inbounds nuw i8, ptr %0, i64 432
-  %29 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %30 = getelementptr inbounds nuw i8, ptr %0, i64 2904
-  %31 = getelementptr inbounds nuw i8, ptr %0, i64 408
-  %32 = getelementptr inbounds nuw i8, ptr %0, i64 2832
-  %33 = getelementptr inbounds nuw i8, ptr %0, i64 2816
-  br label %34
+.lr.ph31.i:                                       ; preds = %21
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 440
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 432
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 2904
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 408
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 2832
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 2816
+  br label %33
 
-34:                                               ; preds = %68, %.lr.ph31.i
-  %storemerge29.i = phi i32 [ 0, %.lr.ph31.i ], [ %70, %68 ]
-  %35 = load i32, ptr %28, align 8
-  %36 = and i32 %35, %storemerge29.i
-  %37 = zext i32 %36 to i64
-  %38 = getelementptr inbounds nuw [8 x %struct.VP8BitReader], ptr %27, i64 0, i64 %37
-  %39 = tail call i32 @VP8ParseIntraModeRow(ptr noundef nonnull %29, ptr noundef nonnull %0) #13
-  %.not23.i = icmp eq i32 %39, 0
-  br i1 %.not23.i, label %43, label %.preheader.i
+33:                                               ; preds = %67, %.lr.ph31.i
+  %storemerge29.i = phi i32 [ 0, %.lr.ph31.i ], [ %69, %67 ]
+  %34 = load i32, ptr %27, align 8
+  %35 = and i32 %34, %storemerge29.i
+  %36 = zext i32 %35 to i64
+  %37 = getelementptr inbounds nuw [8 x %struct.VP8BitReader], ptr %26, i64 0, i64 %36
+  %38 = tail call i32 @VP8ParseIntraModeRow(ptr noundef nonnull %28, ptr noundef nonnull %0) #13
+  %.not23.i = icmp eq i32 %38, 0
+  br i1 %.not23.i, label %42, label %.preheader.i
 
-.preheader.i:                                     ; preds = %34
+.preheader.i:                                     ; preds = %33
+  %39 = load i32, ptr %29, align 8
   %40 = load i32, ptr %30, align 8
-  %41 = load i32, ptr %31, align 8
-  %42 = icmp slt i32 %40, %41
-  br i1 %42, label %.lr.ph.i, label %._crit_edge.i
+  %41 = icmp slt i32 %39, %40
+  br i1 %41, label %.lr.ph.i, label %._crit_edge.i
 
-43:                                               ; preds = %34
-  %44 = load i32, ptr %0, align 8
-  %45 = icmp eq i32 %44, 0
-  br i1 %45, label %46, label %83
+42:                                               ; preds = %33
+  %43 = load i32, ptr %0, align 8
+  %44 = icmp eq i32 %43, 0
+  br i1 %44, label %45, label %82
 
-46:                                               ; preds = %43
+45:                                               ; preds = %42
   store i32 7, ptr %0, align 8
-  %47 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr @.str.14, ptr %47, align 8
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr @.str.14, ptr %46, align 8
   store i32 0, ptr %13, align 4
-  br label %83
+  br label %82
 
-.lr.ph.i:                                         ; preds = %.preheader.i, %54
-  %48 = tail call i32 @VP8DecodeMB(ptr noundef nonnull %0, ptr noundef nonnull %38)
-  %.not25.i = icmp eq i32 %48, 0
-  br i1 %.not25.i, label %49, label %54
+.lr.ph.i:                                         ; preds = %.preheader.i, %53
+  %47 = tail call i32 @VP8DecodeMB(ptr noundef nonnull %0, ptr noundef nonnull %37)
+  %.not25.i = icmp eq i32 %47, 0
+  br i1 %.not25.i, label %48, label %53
 
-49:                                               ; preds = %.lr.ph.i
-  %50 = load i32, ptr %0, align 8
-  %51 = icmp eq i32 %50, 0
-  br i1 %51, label %52, label %83
+48:                                               ; preds = %.lr.ph.i
+  %49 = load i32, ptr %0, align 8
+  %50 = icmp eq i32 %49, 0
+  br i1 %50, label %51, label %82
 
-52:                                               ; preds = %49
+51:                                               ; preds = %48
   store i32 7, ptr %0, align 8
-  %53 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr @.str.15, ptr %53, align 8
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr @.str.15, ptr %52, align 8
   store i32 0, ptr %13, align 4
-  br label %83
+  br label %82
 
-54:                                               ; preds = %.lr.ph.i
-  %55 = load i32, ptr %30, align 8
-  %56 = add nsw i32 %55, 1
-  store i32 %56, ptr %30, align 8
-  %57 = load i32, ptr %31, align 8
-  %58 = icmp slt i32 %56, %57
-  br i1 %58, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !17
+53:                                               ; preds = %.lr.ph.i
+  %54 = load i32, ptr %29, align 8
+  %55 = add nsw i32 %54, 1
+  store i32 %55, ptr %29, align 8
+  %56 = load i32, ptr %30, align 8
+  %57 = icmp slt i32 %55, %56
+  br i1 %57, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !17
 
-._crit_edge.i:                                    ; preds = %54, %.preheader.i
-  %59 = load ptr, ptr %32, align 8
-  %60 = getelementptr inbounds i8, ptr %59, i64 -2
+._crit_edge.i:                                    ; preds = %53, %.preheader.i
+  %58 = load ptr, ptr %31, align 8
+  %59 = getelementptr inbounds i8, ptr %58, i64 -2
+  store i8 0, ptr %59, align 1
+  %60 = getelementptr inbounds i8, ptr %58, i64 -1
   store i8 0, ptr %60, align 1
-  %61 = getelementptr inbounds i8, ptr %59, i64 -1
-  store i8 0, ptr %61, align 1
-  store i32 0, ptr %33, align 8
-  store i32 0, ptr %30, align 8
-  %62 = tail call i32 @VP8ProcessRow(ptr noundef nonnull %0, ptr noundef nonnull %1) #13
-  %.not24.i = icmp eq i32 %62, 0
-  br i1 %.not24.i, label %63, label %68
+  store i32 0, ptr %32, align 8
+  store i32 0, ptr %29, align 8
+  %61 = tail call i32 @VP8ProcessRow(ptr noundef nonnull %0, ptr noundef nonnull %1) #13
+  %.not24.i = icmp eq i32 %61, 0
+  br i1 %.not24.i, label %62, label %67
 
-63:                                               ; preds = %._crit_edge.i
-  %64 = load i32, ptr %0, align 8
-  %65 = icmp eq i32 %64, 0
-  br i1 %65, label %66, label %83
+62:                                               ; preds = %._crit_edge.i
+  %63 = load i32, ptr %0, align 8
+  %64 = icmp eq i32 %63, 0
+  br i1 %64, label %65, label %82
 
-66:                                               ; preds = %63
+65:                                               ; preds = %62
   store i32 6, ptr %0, align 8
-  %67 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr @.str.16, ptr %67, align 8
+  %66 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr @.str.16, ptr %66, align 8
   store i32 0, ptr %13, align 4
-  br label %83
+  br label %82
 
-68:                                               ; preds = %._crit_edge.i
-  %69 = load i32, ptr %23, align 4
-  %70 = add nsw i32 %69, 1
-  store i32 %70, ptr %23, align 4
-  %71 = load i32, ptr %24, align 4
-  %72 = icmp slt i32 %70, %71
-  br i1 %72, label %34, label %._crit_edge32.i, !llvm.loop !18
+67:                                               ; preds = %._crit_edge.i
+  %68 = load i32, ptr %22, align 4
+  %69 = add nsw i32 %68, 1
+  store i32 %69, ptr %22, align 4
+  %70 = load i32, ptr %23, align 4
+  %71 = icmp slt i32 %69, %70
+  br i1 %71, label %33, label %._crit_edge32.i, !llvm.loop !18
 
-._crit_edge32.i:                                  ; preds = %68, %22
-  %73 = getelementptr inbounds nuw i8, ptr %0, i64 200
-  %74 = load i32, ptr %73, align 8
-  %75 = icmp sgt i32 %74, 0
-  br i1 %75, label %76, label %82
+._crit_edge32.i:                                  ; preds = %67, %21
+  %72 = getelementptr inbounds nuw i8, ptr %0, i64 200
+  %73 = load i32, ptr %72, align 8
+  %74 = icmp sgt i32 %73, 0
+  br i1 %74, label %75, label %81
 
-76:                                               ; preds = %._crit_edge32.i
-  %77 = tail call ptr @WebPGetWorkerInterface() #13
-  %78 = getelementptr inbounds nuw i8, ptr %77, i64 16
-  %79 = load ptr, ptr %78, align 8
-  %80 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  %81 = tail call i32 %79(ptr noundef nonnull %80) #13
-  %.not.i = icmp eq i32 %81, 0
-  br i1 %.not.i, label %83, label %82
+75:                                               ; preds = %._crit_edge32.i
+  %76 = tail call ptr @WebPGetWorkerInterface() #13
+  %77 = getelementptr inbounds nuw i8, ptr %76, i64 16
+  %78 = load ptr, ptr %77, align 8
+  %79 = getelementptr inbounds nuw i8, ptr %0, i64 152
+  %80 = tail call i32 %78(ptr noundef nonnull %79) #13
+  %.not.i = icmp eq i32 %80, 0
+  br i1 %.not.i, label %82, label %81
 
-82:                                               ; preds = %76, %._crit_edge32.i
-  br label %83
+81:                                               ; preds = %75, %._crit_edge32.i
+  br label %82
 
-83:                                               ; preds = %20, %43, %46, %49, %52, %63, %66, %76, %82
-  %.2 = phi i32 [ 0, %20 ], [ 1, %82 ], [ 0, %76 ], [ 0, %43 ], [ 0, %46 ], [ 0, %49 ], [ 0, %52 ], [ 0, %63 ], [ 0, %66 ]
-  %84 = tail call i32 @VP8ExitCritical(ptr noundef nonnull %0, ptr noundef nonnull %1) #13
-  %85 = and i32 %84, %.2
-  %.not28 = icmp eq i32 %85, 0
-  br i1 %.not28, label %VP8Clear.exit, label %93
+82:                                               ; preds = %19, %42, %45, %48, %51, %62, %65, %75, %81
+  %.2 = phi i32 [ 0, %19 ], [ 1, %81 ], [ 0, %75 ], [ 0, %42 ], [ 0, %45 ], [ 0, %48 ], [ 0, %51 ], [ 0, %62 ], [ 0, %65 ]
+  %83 = tail call i32 @VP8ExitCritical(ptr noundef nonnull %0, ptr noundef nonnull %1) #13
+  %84 = and i32 %83, %.2
+  %85 = icmp eq i32 %84, 0
+  br i1 %85, label %VP8Clear.exit, label %93
 
-VP8Clear.exit:                                    ; preds = %17, %83
+VP8Clear.exit:                                    ; preds = %17, %82
   %86 = tail call ptr @WebPGetWorkerInterface() #13
   %87 = getelementptr inbounds nuw i8, ptr %86, i64 40
   %88 = load ptr, ptr %87, align 8
@@ -1434,7 +1434,7 @@ VP8Clear.exit:                                    ; preds = %17, %83
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %90, i8 0, i64 16, i1 false)
   br label %VP8SetError.exit
 
-93:                                               ; preds = %83
+93:                                               ; preds = %82
   store i32 0, ptr %13, align 4
   br label %VP8SetError.exit
 

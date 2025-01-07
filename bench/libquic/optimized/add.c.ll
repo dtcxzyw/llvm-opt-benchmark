@@ -156,7 +156,7 @@ for.body.preheader:                               ; preds = %if.end5
   br label %for.body
 
 for.body:                                         ; preds = %for.body.preheader, %if.end20
-  %carry.040 = phi i32 [ %carry.1, %if.end20 ], [ 0, %for.body.preheader ]
+  %carry.040 = phi i1 [ %8, %if.end20 ], [ true, %for.body.preheader ]
   %i.039 = phi i32 [ %dec, %if.end20 ], [ %1, %for.body.preheader ]
   %rp.038 = phi ptr [ %incdec.ptr22, %if.end20 ], [ %3, %for.body.preheader ]
   %bp.037 = phi ptr [ %incdec.ptr10, %if.end20 ], [ %4, %for.body.preheader ]
@@ -165,8 +165,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %5 = load i64, ptr %ap.036, align 8
   %incdec.ptr10 = getelementptr inbounds nuw i8, ptr %bp.037, i64 8
   %6 = load i64, ptr %bp.037, align 8
-  %tobool.not = icmp eq i32 %carry.040, 0
-  br i1 %tobool.not, label %if.else, label %if.then11
+  br i1 %carry.040, label %if.else, label %if.then11
 
 if.then11:                                        ; preds = %for.body
   %cmp12 = icmp ule i64 %5, %6
@@ -182,10 +181,10 @@ if.else:                                          ; preds = %for.body
 if.end20:                                         ; preds = %if.else, %if.then11
   %t1.0 = phi i64 [ %sub15, %if.then11 ], [ %sub18, %if.else ]
   %carry.1.in = phi i1 [ %cmp12, %if.then11 ], [ %cmp16, %if.else ]
-  %carry.1 = zext i1 %carry.1.in to i32
   %incdec.ptr22 = getelementptr inbounds nuw i8, ptr %rp.038, i64 8
   store i64 %t1.0, ptr %rp.038, align 8
   %dec = add nsw i32 %i.039, -1
+  %8 = xor i1 %carry.1.in, true
   %cmp8.not = icmp eq i32 %dec, 0
   br i1 %cmp8.not, label %for.end, label %for.body, !llvm.loop !10
 
@@ -202,11 +201,11 @@ while.body:                                       ; preds = %if.then24, %while.b
   %rp.2 = phi ptr [ %incdec.ptr33, %while.body ], [ %incdec.ptr22, %if.then24 ]
   %dec29 = add nsw i32 %dif.1, -1
   %incdec.ptr30 = getelementptr inbounds nuw i8, ptr %ap.2, i64 8
-  %8 = load i64, ptr %ap.2, align 8
-  %sub31 = add i64 %8, -1
+  %9 = load i64, ptr %ap.2, align 8
+  %sub31 = add i64 %9, -1
   %incdec.ptr33 = getelementptr inbounds nuw i8, ptr %rp.2, i64 8
   store i64 %sub31, ptr %rp.2, align 8
-  %tobool34 = icmp eq i64 %8, 0
+  %tobool34 = icmp eq i64 %9, 0
   %tobool28 = icmp ne i32 %dec29, 0
   %or.cond = select i1 %tobool34, i1 %tobool28, i1 false
   br i1 %or.cond, label %while.body, label %if.end37, !llvm.loop !11

@@ -7775,10 +7775,10 @@ entry:
 
 land.lhs.true.preheader:                          ; preds = %entry
   %1 = load ptr, ptr %t1, align 8
-  %fParent1 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %2 = load ptr, ptr %fParent1, align 8
-  %cmp2 = icmp eq ptr %2, null
-  br i1 %cmp2, label %land.lhs.true2, label %return
+  %fParent5 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %2 = load ptr, ptr %fParent5, align 8
+  %cmp7 = icmp eq ptr %2, null
+  br i1 %cmp7, label %land.lhs.true2, label %return
 
 land.lhs.true2:                                   ; preds = %land.lhs.true.preheader, %land.lhs.true.backedge
   %3 = phi ptr [ %15, %land.lhs.true.backedge ], [ %1, %land.lhs.true.preheader ]
@@ -7826,8 +7826,8 @@ if.end24:                                         ; preds = %if.then10, %if.then
   %11 = load ptr, ptr %fPath, align 8
   %call25 = call fastcc noundef ptr @_ZL10init_entryPKcS0_P10UErrorCode(ptr noundef nonnull %name, ptr noundef %11, ptr noundef nonnull %parentStatus)
   %12 = load i32, ptr %parentStatus, align 4
-  %cmp.i27 = icmp slt i32 %12, 1
-  br i1 %cmp.i27, label %if.else, label %if.then28
+  %cmp.i28 = icmp slt i32 %12, 1
+  br i1 %cmp.i28, label %if.else, label %if.then28
 
 if.then28:                                        ; preds = %if.end24
   store i32 %12, ptr %status, align 4
@@ -7844,27 +7844,28 @@ if.else:                                          ; preds = %if.end24
 
 _ZL10chopLocalePc.exit:                           ; preds = %if.else
   store i8 0, ptr %call.i, align 1
+  %.pre = load ptr, ptr %t1, align 8
   br label %land.lhs.true.backedge
 
 lor.rhs:                                          ; preds = %if.else
   %14 = load i8, ptr %name, align 1
-  %cmp.not.i29 = icmp eq i8 %14, 0
-  br i1 %cmp.not.i29, label %return, label %lor.end
+  %cmp.not.i30 = icmp eq i8 %14, 0
+  br i1 %cmp.not.i30, label %return, label %_ZL13mayHaveParentPc.exit
 
-lor.end:                                          ; preds = %lor.rhs
-  %call.i30 = call noundef ptr @strstr(ptr noundef nonnull dereferenceable(1) @.str.28, ptr noundef nonnull readonly dereferenceable(1) %name) #25
-  %cmp1.i.not = icmp eq ptr %call.i30, null
+_ZL13mayHaveParentPc.exit:                        ; preds = %lor.rhs
+  %call.i31 = call noundef ptr @strstr(ptr noundef nonnull dereferenceable(1) @.str.28, ptr noundef nonnull readonly dereferenceable(1) %name) #25
+  %cmp1.i.not = icmp eq ptr %call.i31, null
   br i1 %cmp1.i.not, label %return, label %land.lhs.true.backedge
 
-land.lhs.true.backedge:                           ; preds = %lor.end, %_ZL10chopLocalePc.exit
-  %15 = load ptr, ptr %t1, align 8
+land.lhs.true.backedge:                           ; preds = %_ZL13mayHaveParentPc.exit, %_ZL10chopLocalePc.exit
+  %15 = phi ptr [ %call25, %_ZL13mayHaveParentPc.exit ], [ %.pre, %_ZL10chopLocalePc.exit ]
   %fParent = getelementptr inbounds nuw i8, ptr %15, i64 16
   %16 = load ptr, ptr %fParent, align 8
   %cmp = icmp eq ptr %16, null
-  br i1 %cmp, label %land.lhs.true2, label %return, !llvm.loop !33
+  br i1 %cmp, label %land.lhs.true2, label %return
 
-return:                                           ; preds = %if.then18, %land.lhs.true2, %land.lhs.true.backedge, %lor.end, %land.rhs, %lor.rhs, %land.lhs.true.preheader, %entry, %if.then28
-  %retval.0 = phi i8 [ 0, %if.then28 ], [ 0, %entry ], [ 1, %land.lhs.true.preheader ], [ 1, %lor.rhs ], [ 1, %land.rhs ], [ 1, %lor.end ], [ 1, %land.lhs.true.backedge ], [ 1, %land.lhs.true2 ], [ 1, %if.then18 ]
+return:                                           ; preds = %if.then18, %land.lhs.true2, %land.lhs.true.backedge, %_ZL13mayHaveParentPc.exit, %land.rhs, %lor.rhs, %land.lhs.true.preheader, %entry, %if.then28
+  %retval.0 = phi i8 [ 0, %if.then28 ], [ 0, %entry ], [ 1, %land.lhs.true.preheader ], [ 1, %lor.rhs ], [ 1, %land.rhs ], [ 1, %_ZL13mayHaveParentPc.exit ], [ 1, %land.lhs.true.backedge ], [ 1, %land.lhs.true2 ], [ 1, %if.then18 ]
   ret i8 %retval.0
 }
 
@@ -7985,7 +7986,7 @@ while.body.i:                                     ; preds = %invoke.cont.i
   %fCountExisting.i = getelementptr inbounds nuw i8, ptr %3, i64 108
   %4 = load i32, ptr %fCountExisting.i, align 4
   %cmp2.i = icmp eq i32 %4, 0
-  br i1 %cmp2.i, label %if.then3.i, label %while.cond.i, !llvm.loop !34
+  br i1 %cmp2.i, label %if.then3.i, label %while.cond.i, !llvm.loop !33
 
 if.then3.i:                                       ; preds = %while.body.i
   %5 = load ptr, ptr @_ZL5cache, align 8
@@ -8043,7 +8044,7 @@ while.cond.i.i:                                   ; preds = %if.end12.i.i, %whil
   %fAlias15.i.i = getelementptr inbounds nuw i8, ptr %alias.0.i.i, i64 24
   %11 = load ptr, ptr %fAlias15.i.i, align 8
   %cmp16.not.i.i = icmp eq ptr %11, null
-  br i1 %cmp16.not.i.i, label %while.end.i.i, label %while.cond.i.i, !llvm.loop !35
+  br i1 %cmp16.not.i.i, label %while.end.i.i, label %while.cond.i.i, !llvm.loop !34
 
 while.end.i.i:                                    ; preds = %while.cond.i.i
   %fCountExisting18.i.i = getelementptr inbounds nuw i8, ptr %alias.0.i.i, i64 108
@@ -8054,7 +8055,7 @@ while.end.i.i:                                    ; preds = %while.cond.i.i
 
 if.end20.i.i:                                     ; preds = %while.end.i.i, %if.end12.i.i
   invoke void @uprv_free_75(ptr noundef nonnull %3)
-          to label %while.cond.i.outer unwind label %lpad.i.loopexit.split-lp, !llvm.loop !34
+          to label %while.cond.i.outer unwind label %lpad.i.loopexit.split-lp, !llvm.loop !33
 
 lpad.i.loopexit:                                  ; preds = %while.cond.i
   %lpad.loopexit = landingpad { ptr, i32 }
@@ -8082,7 +8083,7 @@ _ZN6icu_755MutexD2Ev.exit.i:                      ; preds = %lpad.i
   resume { ptr, i32 } %lpad.phi
 
 do.cond.i:                                        ; preds = %invoke.cont.i
-  br i1 %tobool.not.i, label %cleanup.i, label %do.body.i, !llvm.loop !36
+  br i1 %tobool.not.i, label %cleanup.i, label %do.body.i, !llvm.loop !35
 
 cleanup.i:                                        ; preds = %do.cond.i, %if.then
   invoke void @umtx_unlock_75(ptr noundef nonnull @_ZL9resbMutex)
@@ -8167,7 +8168,7 @@ while.cond:                                       ; preds = %if.end12, %while.co
   %fAlias15 = getelementptr inbounds nuw i8, ptr %alias.0, i64 24
   %5 = load ptr, ptr %fAlias15, align 8
   %cmp16.not = icmp eq ptr %5, null
-  br i1 %cmp16.not, label %while.end, label %while.cond, !llvm.loop !35
+  br i1 %cmp16.not, label %while.end, label %while.cond, !llvm.loop !34
 
 while.end:                                        ; preds = %while.cond
   %fCountExisting18 = getelementptr inbounds nuw i8, ptr %alias.0, i64 108
@@ -8597,4 +8598,3 @@ attributes #25 = { nounwind willreturn memory(read) }
 !33 = distinct !{!33, !5}
 !34 = distinct !{!34, !5}
 !35 = distinct !{!35, !5}
-!36 = distinct !{!36, !5}

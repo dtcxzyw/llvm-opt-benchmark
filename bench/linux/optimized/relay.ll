@@ -1114,7 +1114,7 @@ define dso_local noundef i64 @relay_switch_subbuf(ptr noundef %0, i64 noundef %1
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load i64, ptr %5, align 8
   %7 = icmp ult i64 %6, %1
-  br i1 %7, label %100, label %8, !prof !13
+  br i1 %7, label %96, label %8, !prof !13
 
 8:                                                ; preds = %2
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -1198,59 +1198,58 @@ define dso_local noundef i64 @relay_switch_subbuf(ptr noundef %0, i64 noundef %1
   %68 = load ptr, ptr %67, align 8
   %69 = load ptr, ptr %68, align 8
   %70 = icmp eq ptr %69, null
-  br i1 %70, label %71, label %78
+  br i1 %70, label %76, label %71
 
 71:                                               ; preds = %53
-  %72 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %73 = load i64, ptr %72, align 32
-  %74 = sub i64 %57, %73
-  %75 = load i64, ptr %59, align 8
-  %76 = icmp ult i64 %74, %75
-  %77 = zext i1 %76 to i32
-  br label %82
+  %72 = getelementptr inbounds nuw i8, ptr %0, i64 144
+  %73 = load i64, ptr %72, align 16
+  %74 = tail call i32 %69(ptr noundef %0, ptr noundef %66, ptr noundef %55, i64 noundef %73) #15
+  %75 = icmp eq i32 %74, 0
+  br i1 %75, label %._crit_edge, label %86
 
-78:                                               ; preds = %53
-  %79 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  %80 = load i64, ptr %79, align 16
-  %81 = tail call i32 %69(ptr noundef %0, ptr noundef %66, ptr noundef %55, i64 noundef %80) #15
-  br label %82
+._crit_edge:                                      ; preds = %71
+  %.pre = load ptr, ptr %3, align 8
+  br label %81
 
-82:                                               ; preds = %78, %71
-  %83 = phi i32 [ %81, %78 ], [ %77, %71 ]
-  %84 = icmp eq i32 %83, 0
-  br i1 %84, label %85, label %90
+76:                                               ; preds = %53
+  %77 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %78 = load i64, ptr %77, align 32
+  %79 = sub i64 %57, %78
+  %80 = load i64, ptr %59, align 8
+  %.not = icmp ult i64 %79, %80
+  br i1 %.not, label %86, label %81
 
-85:                                               ; preds = %82
-  %86 = load ptr, ptr %3, align 8
-  %87 = getelementptr inbounds nuw i8, ptr %86, i64 8
-  %88 = load i64, ptr %87, align 8
-  %89 = add i64 %88, 1
-  store i64 %89, ptr %9, align 16
-  br label %103
+81:                                               ; preds = %._crit_edge, %76
+  %82 = phi ptr [ %.pre, %._crit_edge ], [ %58, %76 ]
+  %83 = getelementptr inbounds nuw i8, ptr %82, i64 8
+  %84 = load i64, ptr %83, align 8
+  %85 = add i64 %84, 1
+  store i64 %85, ptr %9, align 16
+  br label %99
 
-90:                                               ; preds = %82
+86:                                               ; preds = %71, %76
   store ptr %66, ptr %54, align 8
-  %91 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %92 = load ptr, ptr %91, align 8
-  %93 = getelementptr i64, ptr %92, i64 %61
-  store i64 0, ptr %93, align 8
-  %94 = load i64, ptr %9, align 16
-  %95 = add i64 %94, %1
-  %96 = load ptr, ptr %3, align 8
-  %97 = getelementptr inbounds nuw i8, ptr %96, i64 8
-  %98 = load i64, ptr %97, align 8
-  %99 = icmp ugt i64 %95, %98
-  br i1 %99, label %100, label %103, !prof !13
+  %87 = getelementptr inbounds nuw i8, ptr %0, i64 136
+  %88 = load ptr, ptr %87, align 8
+  %89 = getelementptr i64, ptr %88, i64 %61
+  store i64 0, ptr %89, align 8
+  %90 = load i64, ptr %9, align 16
+  %91 = add i64 %90, %1
+  %92 = load ptr, ptr %3, align 8
+  %93 = getelementptr inbounds nuw i8, ptr %92, i64 8
+  %94 = load i64, ptr %93, align 8
+  %95 = icmp ugt i64 %91, %94
+  br i1 %95, label %96, label %99, !prof !13
 
-100:                                              ; preds = %90, %2
-  %101 = phi ptr [ %96, %90 ], [ %4, %2 ]
-  %102 = getelementptr inbounds nuw i8, ptr %101, i64 56
-  store i64 %1, ptr %102, align 8
-  br label %103
+96:                                               ; preds = %86, %2
+  %97 = phi ptr [ %92, %86 ], [ %4, %2 ]
+  %98 = getelementptr inbounds nuw i8, ptr %97, i64 56
+  store i64 %1, ptr %98, align 8
+  br label %99
 
-103:                                              ; preds = %100, %90, %85
-  %104 = phi i64 [ 0, %100 ], [ 0, %85 ], [ %1, %90 ]
-  ret i64 %104
+99:                                               ; preds = %96, %86, %81
+  %100 = phi i64 [ 0, %96 ], [ 0, %81 ], [ %1, %86 ]
+  ret i64 %100
 }
 
 ; Function Attrs: null_pointer_is_valid

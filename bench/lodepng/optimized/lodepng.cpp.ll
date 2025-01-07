@@ -9141,79 +9141,79 @@ _Z15lodepng_get_bppPK16LodePNGColorMode.exit:     ; preds = %_Z22lodepng_can_hav
   %mul.i.i163 = mul i32 %retval.0.i.i.i, %7
   %bits = getelementptr inbounds nuw i8, ptr %stats, i64 1048
   %10 = load i32, ptr %bits, align 8
-  %cmp = icmp eq i32 %10, 1
-  %cmp6 = icmp eq i32 %mul.i.i163, 1
-  %11 = and i1 %cmp, %cmp6
+  %cmp = icmp ne i32 %10, 1
+  %cmp6 = icmp ne i32 %mul.i.i163, 1
+  %.not245 = or i1 %cmp, %cmp6
   %cmp8 = icmp ult i32 %mul.i.i163, 9
   %numcolors = getelementptr inbounds nuw i8, ptr %stats, i64 20
-  %12 = load i32, ptr %numcolors, align 4
+  %11 = load i32, ptr %numcolors, align 4
   br i1 %cmp8, label %if.then, label %if.end
 
 if.then:                                          ; preds = %_Z15lodepng_get_bppPK16LodePNGColorMode.exit
   %shl = shl nuw nsw i32 1, %mul.i.i163
-  %add = add i32 %12, %shl
+  %add = add i32 %11, %shl
   %spec.select = tail call i32 @llvm.umin.i32(i32 %add, i32 257)
   br label %if.end
 
 if.end:                                           ; preds = %_Z15lodepng_get_bppPK16LodePNGColorMode.exit, %if.then
   %maxnumcolors.0 = phi i32 [ %spec.select, %if.then ], [ 257, %_Z15lodepng_get_bppPK16LodePNGColorMode.exit ]
   %numpixels14 = getelementptr inbounds nuw i8, ptr %stats, i64 1056
-  %13 = load i64, ptr %numpixels14, align 8
-  %add15 = add i64 %13, %mul
+  %12 = load i64, ptr %numpixels14, align 8
+  %add15 = add i64 %12, %mul
   store i64 %add15, ptr %numpixels14, align 8
   %allow_palette = getelementptr inbounds nuw i8, ptr %stats, i64 1064
-  %14 = load i32, ptr %allow_palette, align 8
-  %tobool16.not = icmp eq i32 %14, 0
+  %13 = load i32, ptr %allow_palette, align 8
+  %tobool16.not = icmp eq i32 %13, 0
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %tree, i8 0, i64 128, i1 false), !alias.scope !265
   %index.i = getelementptr inbounds nuw i8, ptr %tree, i64 128
   store i32 -1, ptr %index.i, align 8
   %alpha = getelementptr inbounds nuw i8, ptr %stats, i64 16
-  %15 = load i32, ptr %alpha, align 8
-  %tobool19.not = icmp eq i32 %15, 0
+  %14 = load i32, ptr %alpha, align 8
+  %tobool19.not = icmp eq i32 %14, 0
   %alpha_done.0 = select i1 %tobool19.not, i32 %conv.i162, i32 1
-  %16 = load i32, ptr %stats, align 8
-  %tobool22.not = icmp ne i32 %16, 0
+  %15 = load i32, ptr %stats, align 8
+  %tobool22.not = icmp ne i32 %15, 0
   %narrow = select i1 %tobool22.not, i1 true, i1 %narrow.i
   %colored_done.0 = zext i1 %narrow to i32
   %cmp26 = icmp eq i32 %10, 16
-  %cmp30.not = icmp uge i32 %10, %mul.i.i163
-  %narrow243 = or i1 %cmp30.not, %11
+  %cmp30.not = icmp ult i32 %10, %mul.i.i163
+  %narrow243.not = and i1 %cmp30.not, %.not245
   %numcolors33 = getelementptr inbounds nuw i8, ptr %stats, i64 20
-  %cmp34.not = icmp uge i32 %12, %maxnumcolors.0
-  %17 = select i1 %cmp34.not, i1 true, i1 %cmp26
-  %narrow244 = select i1 %17, i1 true, i1 %tobool16.not
+  %cmp34.not = icmp uge i32 %11, %maxnumcolors.0
+  %16 = select i1 %cmp34.not, i1 true, i1 %cmp26
+  %narrow244 = select i1 %16, i1 true, i1 %tobool16.not
   %numcolors_done.2 = zext i1 %narrow244 to i32
   br i1 %narrow244, label %if.end52, label %for.cond.preheader
 
 for.cond.preheader:                               ; preds = %if.end
-  %cmp41250.not = icmp eq i32 %12, 0
-  br i1 %cmp41250.not, label %if.end52, label %for.body.lr.ph
+  %cmp41251.not = icmp eq i32 %11, 0
+  br i1 %cmp41251.not, label %if.end52, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
   %palette = getelementptr inbounds nuw i8, ptr %stats, i64 24
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
-  %i.0251 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %for.inc ]
-  %mul42 = shl nuw nsw i64 %i.0251, 2
+  %i.0252 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %for.inc ]
+  %mul42 = shl nuw nsw i64 %i.0252, 2
   %arrayidx = getelementptr inbounds nuw [1024 x i8], ptr %palette, i64 0, i64 %mul42
-  %18 = load i8, ptr %arrayidx, align 1
+  %17 = load i8, ptr %arrayidx, align 1
   %arrayidx44 = getelementptr inbounds nuw i8, ptr %arrayidx, i64 1
-  %19 = load i8, ptr %arrayidx44, align 1
+  %18 = load i8, ptr %arrayidx44, align 1
   %arrayidx45 = getelementptr inbounds nuw i8, ptr %arrayidx, i64 2
-  %20 = load i8, ptr %arrayidx45, align 1
+  %19 = load i8, ptr %arrayidx45, align 1
   %arrayidx46 = getelementptr inbounds nuw i8, ptr %arrayidx, i64 3
-  %21 = load i8, ptr %arrayidx46, align 1
-  %conv47 = trunc nuw i64 %i.0251 to i32
-  %conv.i164 = zext i8 %18 to i32
-  %conv1.i = zext i8 %19 to i32
-  %conv5.i = zext i8 %20 to i32
-  %conv10.i = zext i8 %21 to i32
+  %20 = load i8, ptr %arrayidx46, align 1
+  %conv47 = trunc nuw i64 %i.0252 to i32
+  %conv.i164 = zext i8 %17 to i32
+  %conv1.i = zext i8 %18 to i32
+  %conv5.i = zext i8 %19 to i32
+  %conv10.i = zext i8 %20 to i32
   br label %for.body.i
 
 for.body.i:                                       ; preds = %if.end26.i, %for.body
   %bit.017.i = phi i32 [ 0, %for.body ], [ %inc.i, %if.end26.i ]
-  %tree.addr.016.i = phi ptr [ %tree, %for.body ], [ %23, %if.end26.i ]
+  %tree.addr.016.i = phi ptr [ %tree, %for.body ], [ %22, %if.end26.i ]
   %shr.i = lshr i32 %conv.i164, %bit.017.i
   %and.i = shl nuw nsw i32 %shr.i, 3
   %mul.i = and i32 %and.i, 8
@@ -9230,8 +9230,8 @@ for.body.i:                                       ; preds = %if.end26.i, %for.bo
   %add14.i = or disjoint i32 %add9.i, %mul8.i
   %idxprom.i = zext nneg i32 %add14.i to i64
   %arrayidx.i = getelementptr inbounds nuw [16 x ptr], ptr %tree.addr.016.i, i64 0, i64 %idxprom.i
-  %22 = load ptr, ptr %arrayidx.i, align 8
-  %tobool.not.i165 = icmp eq ptr %22, null
+  %21 = load ptr, ptr %arrayidx.i, align 8
+  %tobool.not.i165 = icmp eq ptr %21, null
   br i1 %tobool.not.i165, label %if.then.i, label %if.end26.i
 
 if.then.i:                                        ; preds = %for.body.i
@@ -9248,25 +9248,25 @@ if.end.i:                                         ; preds = %if.then.i
   br label %if.end26.i
 
 if.end26.i:                                       ; preds = %if.end.i, %for.body.i
-  %23 = phi ptr [ %.pre.i, %if.end.i ], [ %22, %for.body.i ]
+  %22 = phi ptr [ %.pre.i, %if.end.i ], [ %21, %for.body.i ]
   %inc.i = add nuw nsw i32 %bit.017.i, 1
   %exitcond.not.i = icmp eq i32 %inc.i, 8
   br i1 %exitcond.not.i, label %for.inc, label %for.body.i, !llvm.loop !195
 
 for.inc:                                          ; preds = %if.end26.i
-  %index30.i = getelementptr inbounds nuw i8, ptr %23, i64 128
+  %index30.i = getelementptr inbounds nuw i8, ptr %22, i64 128
   store i32 %conv47, ptr %index30.i, align 8
-  %inc = add nuw nsw i64 %i.0251, 1
-  %24 = load i32, ptr %numcolors33, align 4
-  %conv40 = zext i32 %24 to i64
+  %inc = add nuw nsw i64 %i.0252, 1
+  %23 = load i32, ptr %numcolors33, align 4
+  %conv40 = zext i32 %23 to i64
   %cmp41 = icmp samesign ult i64 %inc, %conv40
   br i1 %cmp41, label %for.body, label %if.end52, !llvm.loop !271
 
 if.end52:                                         ; preds = %for.inc, %for.cond.preheader, %if.end
-  %25 = phi i32 [ 0, %for.cond.preheader ], [ %12, %if.end ], [ %24, %for.inc ]
-  %26 = load i32, ptr %bitdepth.i, align 4
-  %cmp53.not = icmp eq i32 %26, 16
-  %cmp57.not252 = icmp eq i64 %mul, 0
+  %24 = phi i32 [ 0, %for.cond.preheader ], [ %11, %if.end ], [ %23, %for.inc ]
+  %25 = load i32, ptr %bitdepth.i, align 4
+  %cmp53.not = icmp eq i32 %25, 16
+  %cmp57.not253 = icmp eq i64 %mul, 0
   br i1 %cmp53.not, label %if.then55, label %if.else212
 
 if.then55:                                        ; preds = %if.end52
@@ -9274,7 +9274,7 @@ if.then55:                                        ; preds = %if.end52
   store i16 0, ptr %g, align 2
   store i16 0, ptr %b, align 2
   store i16 0, ptr %a, align 2
-  br i1 %cmp57.not252, label %if.else212.thread, label %for.body58
+  br i1 %cmp57.not253, label %if.else212.thread, label %for.body58
 
 if.else212.thread:                                ; preds = %if.then55
   store i8 0, ptr %r213, align 1
@@ -9284,11 +9284,11 @@ if.else212.thread:                                ; preds = %if.then55
   br label %for.end376
 
 for.cond56:                                       ; preds = %lor.lhs.false76
-  %inc87 = add nuw i64 %i.1253, 1
+  %inc87 = add nuw i64 %i.1254, 1
   %cmp57.not = icmp eq i64 %inc87, %mul
-  br i1 %cmp57.not, label %if.else212.thread273, label %for.body58, !llvm.loop !272
+  br i1 %cmp57.not, label %if.else212.thread274, label %for.body58, !llvm.loop !272
 
-if.else212.thread273:                             ; preds = %for.cond56
+if.else212.thread274:                             ; preds = %for.cond56
   store i8 0, ptr %r213, align 1
   store i8 0, ptr %g214, align 1
   store i8 0, ptr %b215, align 1
@@ -9296,34 +9296,34 @@ if.else212.thread273:                             ; preds = %for.cond56
   br label %for.body219.lr.ph
 
 for.body58:                                       ; preds = %if.then55, %for.cond56
-  %i.1253 = phi i64 [ %inc87, %for.cond56 ], [ 0, %if.then55 ]
-  call fastcc void @_ZL19getPixelColorRGBA16PtS_S_S_PKhmPK16LodePNGColorMode(ptr noundef %r, ptr noundef %g, ptr noundef %b, ptr noundef %a, ptr noundef %in, i64 noundef %i.1253, ptr noundef nonnull %mode_in)
-  %27 = load i16, ptr %r, align 2
-  %conv59 = zext i16 %27 to i32
+  %i.1254 = phi i64 [ %inc87, %for.cond56 ], [ 0, %if.then55 ]
+  call fastcc void @_ZL19getPixelColorRGBA16PtS_S_S_PKhmPK16LodePNGColorMode(ptr noundef %r, ptr noundef %g, ptr noundef %b, ptr noundef %a, ptr noundef %in, i64 noundef %i.1254, ptr noundef nonnull %mode_in)
+  %26 = load i16, ptr %r, align 2
+  %conv59 = zext i16 %26 to i32
   %and = and i32 %conv59, 255
   %shr = lshr i32 %conv59, 8
   %cmp62.not = icmp eq i32 %and, %shr
   br i1 %cmp62.not, label %lor.lhs.false, label %if.then91
 
 lor.lhs.false:                                    ; preds = %for.body58
-  %28 = load i16, ptr %g, align 2
-  %conv63 = zext i16 %28 to i32
+  %27 = load i16, ptr %g, align 2
+  %conv63 = zext i16 %27 to i32
   %and64 = and i32 %conv63, 255
   %shr66 = lshr i32 %conv63, 8
   %cmp68.not = icmp eq i32 %and64, %shr66
   br i1 %cmp68.not, label %lor.lhs.false69, label %if.then91
 
 lor.lhs.false69:                                  ; preds = %lor.lhs.false
-  %29 = load i16, ptr %b, align 2
-  %conv70 = zext i16 %29 to i32
+  %28 = load i16, ptr %b, align 2
+  %conv70 = zext i16 %28 to i32
   %and71 = and i32 %conv70, 255
   %shr73 = lshr i32 %conv70, 8
   %cmp75.not = icmp eq i32 %and71, %shr73
   br i1 %cmp75.not, label %lor.lhs.false76, label %if.then91
 
 lor.lhs.false76:                                  ; preds = %lor.lhs.false69
-  %30 = load i16, ptr %a, align 2
-  %conv77 = zext i16 %30 to i32
+  %29 = load i16, ptr %a, align 2
+  %conv77 = zext i16 %29 to i32
   %and78 = and i32 %conv77, 255
   %shr80 = lshr i32 %conv77, 8
   %cmp82.not = icmp eq i32 %and78, %shr80
@@ -9342,19 +9342,19 @@ if.then91:                                        ; preds = %lor.lhs.false76, %l
   br label %for.body98
 
 for.body98:                                       ; preds = %if.then91, %for.inc175
-  %i.2256 = phi i64 [ 0, %if.then91 ], [ %inc176, %for.inc175 ]
-  %colored_done.1255 = phi i32 [ %colored_done.0, %if.then91 ], [ %colored_done.2, %for.inc175 ]
-  %alpha_done.1254 = phi i32 [ %alpha_done.0, %if.then91 ], [ %alpha_done.2228, %for.inc175 ]
-  call fastcc void @_ZL19getPixelColorRGBA16PtS_S_S_PKhmPK16LodePNGColorMode(ptr noundef %r92, ptr noundef %g93, ptr noundef %b94, ptr noundef %a95, ptr noundef %in, i64 noundef %i.2256, ptr noundef nonnull %mode_in)
-  %tobool99.not = icmp eq i32 %colored_done.1255, 0
+  %i.2257 = phi i64 [ 0, %if.then91 ], [ %inc176, %for.inc175 ]
+  %colored_done.1256 = phi i32 [ %colored_done.0, %if.then91 ], [ %colored_done.2, %for.inc175 ]
+  %alpha_done.1255 = phi i32 [ %alpha_done.0, %if.then91 ], [ %alpha_done.2228, %for.inc175 ]
+  call fastcc void @_ZL19getPixelColorRGBA16PtS_S_S_PKhmPK16LodePNGColorMode(ptr noundef %r92, ptr noundef %g93, ptr noundef %b94, ptr noundef %a95, ptr noundef %in, i64 noundef %i.2257, ptr noundef nonnull %mode_in)
+  %tobool99.not = icmp eq i32 %colored_done.1256, 0
   br i1 %tobool99.not, label %land.lhs.true100, label %if.end110
 
 land.lhs.true100:                                 ; preds = %for.body98
-  %31 = load i16, ptr %r92, align 2
-  %32 = load i16, ptr %g93, align 2
-  %cmp103.not = icmp eq i16 %31, %32
-  %33 = load i16, ptr %b94, align 2
-  %cmp107.not = icmp eq i16 %31, %33
+  %30 = load i16, ptr %r92, align 2
+  %31 = load i16, ptr %g93, align 2
+  %cmp103.not = icmp eq i16 %30, %31
+  %32 = load i16, ptr %b94, align 2
+  %cmp107.not = icmp eq i16 %30, %32
   %or.cond = select i1 %cmp103.not, i1 %cmp107.not, i1 false
   br i1 %or.cond, label %if.end110, label %if.then108
 
@@ -9365,60 +9365,60 @@ if.then108:                                       ; preds = %land.lhs.true100
 if.end110:                                        ; preds = %land.lhs.true100, %if.then108, %for.body98
   %tobool170 = phi i1 [ true, %for.body98 ], [ true, %if.then108 ], [ false, %land.lhs.true100 ]
   %colored_done.2 = phi i32 [ 1, %for.body98 ], [ 1, %if.then108 ], [ 0, %land.lhs.true100 ]
-  %tobool111.not = icmp eq i32 %alpha_done.1254, 0
+  %tobool111.not = icmp eq i32 %alpha_done.1255, 0
   br i1 %tobool111.not, label %if.then112, label %if.end165
 
 if.then112:                                       ; preds = %if.end110
-  %34 = load i16, ptr %r92, align 2
-  %35 = load i16, ptr %key_r, align 8
-  %cmp115 = icmp eq i16 %34, %35
+  %33 = load i16, ptr %r92, align 2
+  %34 = load i16, ptr %key_r, align 8
+  %cmp115 = icmp eq i16 %33, %34
   br i1 %cmp115, label %land.lhs.true116, label %land.end124
 
 land.lhs.true116:                                 ; preds = %if.then112
-  %36 = load i16, ptr %g93, align 2
-  %37 = load i16, ptr %key_g, align 2
-  %cmp119 = icmp eq i16 %36, %37
+  %35 = load i16, ptr %g93, align 2
+  %36 = load i16, ptr %key_g, align 2
+  %cmp119 = icmp eq i16 %35, %36
   br i1 %cmp119, label %land.rhs120, label %land.end124
 
 land.rhs120:                                      ; preds = %land.lhs.true116
-  %38 = load i16, ptr %b94, align 2
-  %39 = load i16, ptr %key_b, align 4
-  %cmp123 = icmp eq i16 %38, %39
+  %37 = load i16, ptr %b94, align 2
+  %38 = load i16, ptr %key_b, align 4
+  %cmp123 = icmp eq i16 %37, %38
   br label %land.end124
 
 land.end124:                                      ; preds = %land.rhs120, %land.lhs.true116, %if.then112
-  %40 = phi i1 [ false, %land.lhs.true116 ], [ false, %if.then112 ], [ %cmp123, %land.rhs120 ]
-  %41 = load i16, ptr %a95, align 2
-  switch i16 %41, label %if.end165.sink.split [
+  %39 = phi i1 [ false, %land.lhs.true116 ], [ false, %if.then112 ], [ %cmp123, %land.rhs120 ]
+  %40 = load i16, ptr %a95, align 2
+  switch i16 %40, label %if.end165.sink.split [
     i16 -1, label %land.lhs.true154
     i16 0, label %lor.lhs.false131
   ]
 
 lor.lhs.false131:                                 ; preds = %land.end124
-  %42 = load i32, ptr %key, align 4
-  %tobool132 = icmp eq i32 %42, 0
-  %or.cond1 = select i1 %tobool132, i1 true, i1 %40
+  %41 = load i32, ptr %key, align 4
+  %tobool132 = icmp eq i32 %41, 0
+  %or.cond1 = select i1 %tobool132, i1 true, i1 %39
   br i1 %or.cond1, label %land.lhs.true140, label %if.end165.sink.split
 
 land.lhs.true140:                                 ; preds = %lor.lhs.false131
-  %43 = load i32, ptr %alpha, align 8
-  %44 = or i32 %43, %42
-  %brmerge.not = icmp eq i32 %44, 0
+  %42 = load i32, ptr %alpha, align 8
+  %43 = or i32 %42, %41
+  %brmerge.not = icmp eq i32 %43, 0
   br i1 %brmerge.not, label %if.then146, label %for.inc175
 
 if.then146:                                       ; preds = %land.lhs.true140
   store i32 1, ptr %key, align 4
-  store i16 %34, ptr %key_r, align 8
-  %45 = load i16, ptr %g93, align 2
-  store i16 %45, ptr %key_g, align 2
-  %46 = load i16, ptr %b94, align 2
-  store i16 %46, ptr %key_b, align 4
+  store i16 %33, ptr %key_r, align 8
+  %44 = load i16, ptr %g93, align 2
+  store i16 %44, ptr %key_g, align 2
+  %45 = load i16, ptr %b94, align 2
+  store i16 %45, ptr %key_b, align 4
   br label %for.inc175
 
 land.lhs.true154:                                 ; preds = %land.end124
-  %47 = load i32, ptr %key, align 4
-  %tobool156 = icmp ne i32 %47, 0
-  %or.cond2 = select i1 %tobool156, i1 %40, i1 false
+  %46 = load i32, ptr %key, align 4
+  %tobool156 = icmp ne i32 %46, 0
+  %or.cond2 = select i1 %tobool156, i1 %39, i1 false
   br i1 %or.cond2, label %if.end165.sink.split, label %for.inc175
 
 if.end165.sink.split:                             ; preds = %land.lhs.true154, %lor.lhs.false131, %land.end124
@@ -9431,43 +9431,43 @@ if.end165:                                        ; preds = %if.end165.sink.spli
 
 for.inc175:                                       ; preds = %land.lhs.true140, %if.then146, %land.lhs.true154, %if.end165
   %alpha_done.2228 = phi i32 [ 1, %if.end165 ], [ 0, %land.lhs.true154 ], [ 0, %if.then146 ], [ 0, %land.lhs.true140 ]
-  %inc176 = add i64 %i.2256, 1
+  %inc176 = add i64 %i.2257, 1
   %cmp97.not = icmp eq i64 %inc176, %mul
   br i1 %cmp97.not, label %for.end177, label %for.body98, !llvm.loop !273
 
 for.end177:                                       ; preds = %if.end165, %for.inc175
-  %48 = load i32, ptr %key, align 4
-  %tobool179.not = icmp eq i32 %48, 0
+  %47 = load i32, ptr %key, align 4
+  %tobool179.not = icmp eq i32 %47, 0
   br i1 %tobool179.not, label %cleanup, label %land.lhs.true180
 
 land.lhs.true180:                                 ; preds = %for.end177
-  %49 = load i32, ptr %alpha, align 8
-  %tobool182.not = icmp eq i32 %49, 0
+  %48 = load i32, ptr %alpha, align 8
+  %tobool182.not = icmp eq i32 %48, 0
   br i1 %tobool182.not, label %for.body186, label %cleanup
 
 for.body186:                                      ; preds = %land.lhs.true180, %for.inc208
-  %i.3257 = phi i64 [ %inc209, %for.inc208 ], [ 0, %land.lhs.true180 ]
-  call fastcc void @_ZL19getPixelColorRGBA16PtS_S_S_PKhmPK16LodePNGColorMode(ptr noundef %r92, ptr noundef %g93, ptr noundef %b94, ptr noundef %a95, ptr noundef %in, i64 noundef %i.3257, ptr noundef nonnull %mode_in)
-  %50 = load i16, ptr %a95, align 2
-  %cmp188.not = icmp eq i16 %50, 0
+  %i.3258 = phi i64 [ %inc209, %for.inc208 ], [ 0, %land.lhs.true180 ]
+  call fastcc void @_ZL19getPixelColorRGBA16PtS_S_S_PKhmPK16LodePNGColorMode(ptr noundef %r92, ptr noundef %g93, ptr noundef %b94, ptr noundef %a95, ptr noundef %in, i64 noundef %i.3258, ptr noundef nonnull %mode_in)
+  %49 = load i16, ptr %a95, align 2
+  %cmp188.not = icmp eq i16 %49, 0
   br i1 %cmp188.not, label %for.inc208, label %land.lhs.true189
 
 land.lhs.true189:                                 ; preds = %for.body186
-  %51 = load i16, ptr %r92, align 2
-  %52 = load i16, ptr %key_r, align 8
-  %cmp193 = icmp eq i16 %51, %52
+  %50 = load i16, ptr %r92, align 2
+  %51 = load i16, ptr %key_r, align 8
+  %cmp193 = icmp eq i16 %50, %51
   br i1 %cmp193, label %land.lhs.true194, label %for.inc208
 
 land.lhs.true194:                                 ; preds = %land.lhs.true189
-  %53 = load i16, ptr %g93, align 2
-  %54 = load i16, ptr %key_g, align 2
-  %cmp198 = icmp eq i16 %53, %54
+  %52 = load i16, ptr %g93, align 2
+  %53 = load i16, ptr %key_g, align 2
+  %cmp198 = icmp eq i16 %52, %53
   br i1 %cmp198, label %land.lhs.true199, label %for.inc208
 
 land.lhs.true199:                                 ; preds = %land.lhs.true194
-  %55 = load i16, ptr %b94, align 2
-  %56 = load i16, ptr %key_b, align 4
-  %cmp203 = icmp eq i16 %55, %56
+  %54 = load i16, ptr %b94, align 2
+  %55 = load i16, ptr %key_b, align 4
+  %cmp203 = icmp eq i16 %54, %55
   br i1 %cmp203, label %if.then204, label %for.inc208
 
 if.then204:                                       ; preds = %land.lhs.true199
@@ -9476,7 +9476,7 @@ if.then204:                                       ; preds = %land.lhs.true199
   br label %for.inc208
 
 for.inc208:                                       ; preds = %for.body186, %land.lhs.true189, %land.lhs.true194, %land.lhs.true199, %if.then204
-  %inc209 = add i64 %i.3257, 1
+  %inc209 = add i64 %i.3258, 1
   %cmp185.not = icmp eq i64 %inc209, %mul
   br i1 %cmp185.not, label %cleanup, label %for.body186, !llvm.loop !274
 
@@ -9485,9 +9485,9 @@ if.else212:                                       ; preds = %if.end52
   store i8 0, ptr %g214, align 1
   store i8 0, ptr %b215, align 1
   store i8 0, ptr %a216, align 1
-  br i1 %cmp57.not252, label %for.end376, label %for.body219.lr.ph
+  br i1 %cmp57.not253, label %for.end376, label %for.body219.lr.ph
 
-for.body219.lr.ph:                                ; preds = %if.else212.thread273, %if.else212
+for.body219.lr.ph:                                ; preds = %if.else212.thread274, %if.else212
   %key_r257 = getelementptr inbounds nuw i8, ptr %stats, i64 8
   %key_g262 = getelementptr inbounds nuw i8, ptr %stats, i64 10
   %key_b267 = getelementptr inbounds nuw i8, ptr %stats, i64 12
@@ -9496,31 +9496,31 @@ for.body219.lr.ph:                                ; preds = %if.else212.thread27
   br label %for.body219
 
 for.body219:                                      ; preds = %for.body219.lr.ph, %for.inc374
-  %57 = phi i32 [ %25, %for.body219.lr.ph ], [ %93, %for.inc374 ]
-  %i.4263 = phi i64 [ 0, %for.body219.lr.ph ], [ %inc375, %for.inc374 ]
-  %colored_done.3262 = phi i32 [ %colored_done.0, %for.body219.lr.ph ], [ %colored_done.4, %for.inc374 ]
-  %alpha_done.3261 = phi i32 [ %alpha_done.0, %for.body219.lr.ph ], [ %alpha_done.4, %for.inc374 ]
-  %numcolors_done.4260 = phi i32 [ %numcolors_done.2, %for.body219.lr.ph ], [ %numcolors_done.5240, %for.inc374 ]
-  %bits_done.2.in259 = phi i1 [ %narrow243, %for.body219.lr.ph ], [ %cmp234, %for.inc374 ]
-  call fastcc void @_ZL18getPixelColorRGBA8PhS_S_S_PKhmPK16LodePNGColorMode(ptr noundef %r213, ptr noundef %g214, ptr noundef %b215, ptr noundef %a216, ptr noundef %in, i64 noundef %i.4263, ptr noundef nonnull %mode_in)
+  %56 = phi i32 [ %24, %for.body219.lr.ph ], [ %92, %for.inc374 ]
+  %i.4264 = phi i64 [ 0, %for.body219.lr.ph ], [ %inc375, %for.inc374 ]
+  %colored_done.3263 = phi i32 [ %colored_done.0, %for.body219.lr.ph ], [ %colored_done.4, %for.inc374 ]
+  %alpha_done.3262 = phi i32 [ %alpha_done.0, %for.body219.lr.ph ], [ %alpha_done.4, %for.inc374 ]
+  %numcolors_done.4261 = phi i32 [ %numcolors_done.2, %for.body219.lr.ph ], [ %numcolors_done.5240, %for.inc374 ]
+  %bits_done.2260 = phi i1 [ %narrow243.not, %for.body219.lr.ph ], [ %93, %for.inc374 ]
+  call fastcc void @_ZL18getPixelColorRGBA8PhS_S_S_PKhmPK16LodePNGColorMode(ptr noundef %r213, ptr noundef %g214, ptr noundef %b215, ptr noundef %a216, ptr noundef %in, i64 noundef %i.4264, ptr noundef nonnull %mode_in)
   %.pr.pre = load i32, ptr %bits, align 8
-  %cmp223 = icmp ugt i32 %.pr.pre, 7
-  %or.cond281.not = select i1 %bits_done.2.in259, i1 true, i1 %cmp223
-  br i1 %or.cond281.not, label %if.end232, label %if.then224
+  %cmp223 = icmp ult i32 %.pr.pre, 8
+  %or.cond282 = select i1 %bits_done.2260, i1 %cmp223, i1 false
+  br i1 %or.cond282, label %if.then224, label %if.end232
 
 if.then224:                                       ; preds = %for.body219
-  %58 = load i8, ptr %r213, align 1
-  %59 = add i8 %58, 1
-  %or.cond.i = icmp ult i8 %59, 2
+  %57 = load i8, ptr %r213, align 1
+  %58 = add i8 %57, 1
+  %or.cond.i = icmp ult i8 %58, 2
   br i1 %or.cond.i, label %_ZL20getValueRequiredBitsh.exit, label %if.end.i166
 
 if.end.i166:                                      ; preds = %if.then224
-  %rem4.i = urem i8 %58, 17
+  %rem4.i = urem i8 %57, 17
   %cmp4.i = icmp eq i8 %rem4.i, 0
   br i1 %cmp4.i, label %if.then5.i, label %_ZL20getValueRequiredBitsh.exit
 
 if.then5.i:                                       ; preds = %if.end.i166
-  %rem75.i = urem i8 %58, 85
+  %rem75.i = urem i8 %57, 85
   %cmp8.i = icmp eq i8 %rem75.i, 0
   %cond.i = select i1 %cmp8.i, i32 2, i32 4
   br label %_ZL20getValueRequiredBitsh.exit
@@ -9535,23 +9535,23 @@ if.then229:                                       ; preds = %_ZL20getValueRequir
   br label %if.end232
 
 if.end232:                                        ; preds = %_ZL20getValueRequiredBitsh.exit, %for.body219, %if.then229
-  %60 = phi i32 [ %retval.0.i167, %if.then229 ], [ %.pr.pre, %for.body219 ], [ %.pr.pre, %_ZL20getValueRequiredBitsh.exit ]
-  %cmp234 = icmp uge i32 %60, %mul.i.i163
-  %tobool236.not = icmp eq i32 %colored_done.3262, 0
+  %59 = phi i32 [ %retval.0.i167, %if.then229 ], [ %.pr.pre, %for.body219 ], [ %.pr.pre, %_ZL20getValueRequiredBitsh.exit ]
+  %cmp234 = icmp uge i32 %59, %mul.i.i163
+  %tobool236.not = icmp eq i32 %colored_done.3263, 0
   br i1 %tobool236.not, label %land.lhs.true237, label %if.end252
 
 land.lhs.true237:                                 ; preds = %if.end232
-  %61 = load i8, ptr %r213, align 1
-  %62 = load i8, ptr %g214, align 1
-  %cmp240.not = icmp eq i8 %61, %62
-  %63 = load i8, ptr %b215, align 1
-  %cmp244.not = icmp eq i8 %61, %63
+  %60 = load i8, ptr %r213, align 1
+  %61 = load i8, ptr %g214, align 1
+  %cmp240.not = icmp eq i8 %60, %61
+  %62 = load i8, ptr %b215, align 1
+  %cmp244.not = icmp eq i8 %60, %62
   %or.cond161 = select i1 %cmp240.not, i1 %cmp244.not, i1 false
   br i1 %or.cond161, label %if.end252, label %if.then245
 
 if.then245:                                       ; preds = %land.lhs.true237
   store i32 1, ptr %stats, align 8
-  %cmp248 = icmp ult i32 %60, 8
+  %cmp248 = icmp ult i32 %59, 8
   br i1 %cmp248, label %if.then249, label %if.end252
 
 if.then249:                                       ; preds = %if.then245
@@ -9559,51 +9559,51 @@ if.then249:                                       ; preds = %if.then245
   br label %if.end252
 
 if.end252:                                        ; preds = %land.lhs.true237, %if.then245, %if.then249, %if.end232
-  %64 = phi i32 [ %60, %if.end232 ], [ 8, %if.then249 ], [ %60, %if.then245 ], [ %60, %land.lhs.true237 ]
+  %63 = phi i32 [ %59, %if.end232 ], [ 8, %if.then249 ], [ %59, %if.then245 ], [ %59, %land.lhs.true237 ]
   %tobool369 = phi i1 [ true, %if.end232 ], [ true, %if.then249 ], [ true, %if.then245 ], [ false, %land.lhs.true237 ]
   %colored_done.4 = phi i32 [ 1, %if.end232 ], [ 1, %if.then249 ], [ 1, %if.then245 ], [ 0, %land.lhs.true237 ]
-  %tobool253.not = icmp eq i32 %alpha_done.3261, 0
+  %tobool253.not = icmp eq i32 %alpha_done.3262, 0
   br i1 %tobool253.not, label %if.then254, label %if.end326
 
 if.then254:                                       ; preds = %if.end252
-  %65 = load i8, ptr %r213, align 1
-  %66 = load i16, ptr %key_r257, align 8
-  %67 = zext i8 %65 to i16
-  %cmp259 = icmp eq i16 %66, %67
+  %64 = load i8, ptr %r213, align 1
+  %65 = load i16, ptr %key_r257, align 8
+  %66 = zext i8 %64 to i16
+  %cmp259 = icmp eq i16 %65, %66
   br i1 %cmp259, label %land.lhs.true260, label %land.end270
 
 land.lhs.true260:                                 ; preds = %if.then254
-  %68 = load i8, ptr %g214, align 1
-  %69 = load i16, ptr %key_g262, align 2
-  %70 = zext i8 %68 to i16
-  %cmp264 = icmp eq i16 %69, %70
+  %67 = load i8, ptr %g214, align 1
+  %68 = load i16, ptr %key_g262, align 2
+  %69 = zext i8 %67 to i16
+  %cmp264 = icmp eq i16 %68, %69
   br i1 %cmp264, label %land.rhs265, label %land.end270
 
 land.rhs265:                                      ; preds = %land.lhs.true260
-  %71 = load i8, ptr %b215, align 1
-  %72 = load i16, ptr %key_b267, align 4
-  %73 = zext i8 %71 to i16
-  %cmp269 = icmp eq i16 %72, %73
+  %70 = load i8, ptr %b215, align 1
+  %71 = load i16, ptr %key_b267, align 4
+  %72 = zext i8 %70 to i16
+  %cmp269 = icmp eq i16 %71, %72
   br label %land.end270
 
 land.end270:                                      ; preds = %land.rhs265, %land.lhs.true260, %if.then254
-  %74 = phi i1 [ false, %land.lhs.true260 ], [ false, %if.then254 ], [ %cmp269, %land.rhs265 ]
-  %75 = load i8, ptr %a216, align 1
-  switch i8 %75, label %if.then282 [
+  %73 = phi i1 [ false, %land.lhs.true260 ], [ false, %if.then254 ], [ %cmp269, %land.rhs265 ]
+  %74 = load i8, ptr %a216, align 1
+  switch i8 %74, label %if.then282 [
     i8 -1, label %land.lhs.true310
     i8 0, label %lor.lhs.false277
   ]
 
 lor.lhs.false277:                                 ; preds = %land.end270
-  %76 = load i32, ptr %key278, align 4
-  %tobool279 = icmp eq i32 %76, 0
-  %or.cond6 = select i1 %tobool279, i1 true, i1 %74
+  %75 = load i32, ptr %key278, align 4
+  %tobool279 = icmp eq i32 %75, 0
+  %or.cond6 = select i1 %tobool279, i1 true, i1 %73
   br i1 %or.cond6, label %land.lhs.true293, label %if.then282
 
 if.then282:                                       ; preds = %land.end270, %lor.lhs.false277
   store i32 1, ptr %alpha, align 8
   store i32 0, ptr %key278, align 4
-  %cmp286 = icmp ult i32 %64, 8
+  %cmp286 = icmp ult i32 %63, 8
   br i1 %cmp286, label %if.then287, label %if.end326
 
 if.then287:                                       ; preds = %if.then282
@@ -9611,32 +9611,32 @@ if.then287:                                       ; preds = %if.then282
   br label %if.end326
 
 land.lhs.true293:                                 ; preds = %lor.lhs.false277
-  %77 = load i32, ptr %alpha, align 8
-  %78 = or i32 %77, %76
-  %brmerge282.not = icmp eq i32 %78, 0
-  br i1 %brmerge282.not, label %if.then299, label %if.end326
+  %76 = load i32, ptr %alpha, align 8
+  %77 = or i32 %76, %75
+  %brmerge283.not = icmp eq i32 %77, 0
+  br i1 %brmerge283.not, label %if.then299, label %if.end326
 
 if.then299:                                       ; preds = %land.lhs.true293
   store i32 1, ptr %key278, align 4
-  store i16 %67, ptr %key_r257, align 8
-  %79 = load i8, ptr %g214, align 1
-  %conv303 = zext i8 %79 to i16
+  store i16 %66, ptr %key_r257, align 8
+  %78 = load i8, ptr %g214, align 1
+  %conv303 = zext i8 %78 to i16
   store i16 %conv303, ptr %key_g262, align 2
-  %80 = load i8, ptr %b215, align 1
-  %conv305 = zext i8 %80 to i16
+  %79 = load i8, ptr %b215, align 1
+  %conv305 = zext i8 %79 to i16
   store i16 %conv305, ptr %key_b267, align 4
   br label %if.end326
 
 land.lhs.true310:                                 ; preds = %land.end270
-  %81 = load i32, ptr %key278, align 4
-  %tobool312 = icmp ne i32 %81, 0
-  %or.cond7 = select i1 %tobool312, i1 %74, i1 false
+  %80 = load i32, ptr %key278, align 4
+  %tobool312 = icmp ne i32 %80, 0
+  %or.cond7 = select i1 %tobool312, i1 %73, i1 false
   br i1 %or.cond7, label %if.then315, label %if.end326
 
 if.then315:                                       ; preds = %land.lhs.true310
   store i32 1, ptr %alpha, align 8
   store i32 0, ptr %key278, align 4
-  %cmp319 = icmp ult i32 %64, 8
+  %cmp319 = icmp ult i32 %63, 8
   br i1 %cmp319, label %if.then320, label %if.end326
 
 if.then320:                                       ; preds = %if.then315
@@ -9646,18 +9646,18 @@ if.then320:                                       ; preds = %if.then315
 if.end326:                                        ; preds = %land.lhs.true293, %if.then287, %if.then282, %land.lhs.true310, %if.then320, %if.then315, %if.then299, %if.end252
   %tobool365 = phi i1 [ true, %if.end252 ], [ true, %if.then287 ], [ true, %if.then282 ], [ true, %if.then320 ], [ true, %if.then315 ], [ false, %land.lhs.true310 ], [ false, %if.then299 ], [ false, %land.lhs.true293 ]
   %alpha_done.4 = phi i32 [ 1, %if.end252 ], [ 1, %if.then287 ], [ 1, %if.then282 ], [ 1, %if.then320 ], [ 1, %if.then315 ], [ 0, %land.lhs.true310 ], [ 0, %if.then299 ], [ 0, %land.lhs.true293 ]
-  %tobool327.not = icmp eq i32 %numcolors_done.4260, 0
+  %tobool327.not = icmp eq i32 %numcolors_done.4261, 0
   br i1 %tobool327.not, label %if.then328, label %if.end364
 
 if.then328:                                       ; preds = %if.end326
-  %82 = load i8, ptr %r213, align 1
-  %83 = load i8, ptr %g214, align 1
-  %84 = load i8, ptr %b215, align 1
-  %85 = load i8, ptr %a216, align 1
-  %conv.i.i = zext i8 %82 to i32
-  %conv1.i.i = zext i8 %83 to i32
-  %conv5.i.i = zext i8 %84 to i32
-  %conv10.i.i = zext i8 %85 to i32
+  %81 = load i8, ptr %r213, align 1
+  %82 = load i8, ptr %g214, align 1
+  %83 = load i8, ptr %b215, align 1
+  %84 = load i8, ptr %a216, align 1
+  %conv.i.i = zext i8 %81 to i32
+  %conv1.i.i = zext i8 %82 to i32
+  %conv5.i.i = zext i8 %83 to i32
+  %conv10.i.i = zext i8 %84 to i32
   br label %for.body.i.i168
 
 for.cond.i.i172:                                  ; preds = %for.body.i.i168
@@ -9667,7 +9667,7 @@ for.cond.i.i172:                                  ; preds = %for.body.i.i168
 
 for.body.i.i168:                                  ; preds = %for.cond.i.i172, %if.then328
   %bit.012.i.i = phi i32 [ 0, %if.then328 ], [ %inc.i.i173, %for.cond.i.i172 ]
-  %tree.addr.011.i.i = phi ptr [ %tree, %if.then328 ], [ %86, %for.cond.i.i172 ]
+  %tree.addr.011.i.i = phi ptr [ %tree, %if.then328 ], [ %85, %for.cond.i.i172 ]
   %shr.i.i = lshr i32 %conv.i.i, %bit.012.i.i
   %and.i.i = shl nuw nsw i32 %shr.i.i, 3
   %mul.i.i169 = and i32 %and.i.i, 8
@@ -9684,22 +9684,22 @@ for.body.i.i168:                                  ; preds = %for.cond.i.i172, %i
   %add14.i.i = or disjoint i32 %add9.i.i, %mul8.i.i
   %idxprom.i.i = zext nneg i32 %add14.i.i to i64
   %arrayidx.i.i171 = getelementptr inbounds nuw [16 x ptr], ptr %tree.addr.011.i.i, i64 0, i64 %idxprom.i.i
-  %86 = load ptr, ptr %arrayidx.i.i171, align 8
-  %tobool.not.i.i = icmp eq ptr %86, null
+  %85 = load ptr, ptr %arrayidx.i.i171, align 8
+  %tobool.not.i.i = icmp eq ptr %85, null
   br i1 %tobool.not.i.i, label %for.body.i179.preheader, label %for.cond.i.i172
 
 _ZL14color_tree_hasP9ColorTreehhhh.exit:          ; preds = %for.cond.i.i172
-  %index.i.i174 = getelementptr inbounds nuw i8, ptr %86, i64 128
-  %87 = load i32, ptr %index.i.i174, align 8
-  %88 = icmp slt i32 %87, 0
-  br i1 %88, label %for.body.i179.preheader, label %for.inc374
+  %index.i.i174 = getelementptr inbounds nuw i8, ptr %85, i64 128
+  %86 = load i32, ptr %index.i.i174, align 8
+  %87 = icmp slt i32 %86, 0
+  br i1 %87, label %for.body.i179.preheader, label %for.inc374
 
 for.body.i179.preheader:                          ; preds = %for.body.i.i168, %_ZL14color_tree_hasP9ColorTreehhhh.exit
   br label %for.body.i179
 
 for.body.i179:                                    ; preds = %for.body.i179.preheader, %if.end26.i199
   %bit.017.i180 = phi i32 [ %inc.i200, %if.end26.i199 ], [ 0, %for.body.i179.preheader ]
-  %tree.addr.016.i181 = phi ptr [ %90, %if.end26.i199 ], [ %tree, %for.body.i179.preheader ]
+  %tree.addr.016.i181 = phi ptr [ %89, %if.end26.i199 ], [ %tree, %for.body.i179.preheader ]
   %shr.i182 = lshr i32 %conv.i.i, %bit.017.i180
   %and.i183 = shl nuw nsw i32 %shr.i182, 3
   %mul.i184 = and i32 %and.i183, 8
@@ -9716,8 +9716,8 @@ for.body.i179:                                    ; preds = %for.body.i179.prehe
   %add14.i195 = or disjoint i32 %add9.i194, %mul8.i190
   %idxprom.i196 = zext nneg i32 %add14.i195 to i64
   %arrayidx.i197 = getelementptr inbounds nuw [16 x ptr], ptr %tree.addr.016.i181, i64 0, i64 %idxprom.i196
-  %89 = load ptr, ptr %arrayidx.i197, align 8
-  %tobool.not.i198 = icmp eq ptr %89, null
+  %88 = load ptr, ptr %arrayidx.i197, align 8
+  %tobool.not.i198 = icmp eq ptr %88, null
   br i1 %tobool.not.i198, label %if.then.i205, label %if.end26.i199
 
 if.then.i205:                                     ; preds = %for.body.i179
@@ -9734,46 +9734,46 @@ if.end.i208:                                      ; preds = %if.then.i205
   br label %if.end26.i199
 
 if.end26.i199:                                    ; preds = %if.end.i208, %for.body.i179
-  %90 = phi ptr [ %.pre.i210, %if.end.i208 ], [ %89, %for.body.i179 ]
+  %89 = phi ptr [ %.pre.i210, %if.end.i208 ], [ %88, %for.body.i179 ]
   %inc.i200 = add nuw nsw i32 %bit.017.i180, 1
   %exitcond.not.i201 = icmp eq i32 %inc.i200, 8
   br i1 %exitcond.not.i201, label %if.end336, label %for.body.i179, !llvm.loop !195
 
 if.end336:                                        ; preds = %if.end26.i199
-  %index30.i203 = getelementptr inbounds nuw i8, ptr %90, i64 128
-  store i32 %57, ptr %index30.i203, align 8
-  %91 = load i32, ptr %numcolors33, align 4
-  %cmp338 = icmp ult i32 %91, 256
+  %index30.i203 = getelementptr inbounds nuw i8, ptr %89, i64 128
+  store i32 %56, ptr %index30.i203, align 8
+  %90 = load i32, ptr %numcolors33, align 4
+  %cmp338 = icmp ult i32 %90, 256
   br i1 %cmp338, label %if.then339, label %if.end357
 
 if.then339:                                       ; preds = %if.end336
-  %mul342 = shl nuw nsw i32 %91, 2
+  %mul342 = shl nuw nsw i32 %90, 2
   %idxprom = zext nneg i32 %mul342 to i64
   %arrayidx344 = getelementptr inbounds nuw i8, ptr %palette340, i64 %idxprom
-  store i8 %82, ptr %arrayidx344, align 1
+  store i8 %81, ptr %arrayidx344, align 1
   %add346 = or disjoint i32 %mul342, 1
   %idxprom347 = zext nneg i32 %add346 to i64
   %arrayidx348 = getelementptr inbounds nuw i8, ptr %palette340, i64 %idxprom347
-  store i8 %83, ptr %arrayidx348, align 1
+  store i8 %82, ptr %arrayidx348, align 1
   %add350 = or disjoint i32 %mul342, 2
   %idxprom351 = zext nneg i32 %add350 to i64
   %arrayidx352 = getelementptr inbounds nuw i8, ptr %palette340, i64 %idxprom351
-  store i8 %84, ptr %arrayidx352, align 1
+  store i8 %83, ptr %arrayidx352, align 1
   %add354 = or disjoint i32 %mul342, 3
   %idxprom355 = zext nneg i32 %add354 to i64
   %arrayidx356 = getelementptr inbounds nuw i8, ptr %palette340, i64 %idxprom355
-  store i8 %85, ptr %arrayidx356, align 1
+  store i8 %84, ptr %arrayidx356, align 1
   br label %if.end357
 
 if.end357:                                        ; preds = %if.then339, %if.end336
-  %inc359 = add i32 %91, 1
+  %inc359 = add i32 %90, 1
   store i32 %inc359, ptr %numcolors33, align 4
   %cmp361 = icmp uge i32 %inc359, %maxnumcolors.0
   %conv362 = zext i1 %cmp361 to i32
   br label %if.end364
 
 if.end364:                                        ; preds = %if.end357, %if.end326
-  %92 = phi i32 [ %57, %if.end326 ], [ %inc359, %if.end357 ]
+  %91 = phi i32 [ %56, %if.end326 ], [ %inc359, %if.end357 ]
   %numcolors_done.5 = phi i32 [ 1, %if.end326 ], [ %conv362, %if.end357 ]
   %tobool367 = icmp ne i32 %numcolors_done.5, 0
   %or.cond8 = and i1 %tobool365, %tobool367
@@ -9782,14 +9782,15 @@ if.end364:                                        ; preds = %if.end357, %if.end3
   br i1 %or.cond10, label %for.end376, label %for.inc374
 
 for.inc374:                                       ; preds = %_ZL14color_tree_hasP9ColorTreehhhh.exit, %if.end364
-  %93 = phi i32 [ %92, %if.end364 ], [ %57, %_ZL14color_tree_hasP9ColorTreehhhh.exit ]
+  %92 = phi i32 [ %91, %if.end364 ], [ %56, %_ZL14color_tree_hasP9ColorTreehhhh.exit ]
   %numcolors_done.5240 = phi i32 [ %numcolors_done.5, %if.end364 ], [ 0, %_ZL14color_tree_hasP9ColorTreehhhh.exit ]
-  %inc375 = add nuw i64 %i.4263, 1
+  %inc375 = add nuw i64 %i.4264, 1
+  %93 = xor i1 %cmp234, true
   %cmp218.not = icmp eq i64 %inc375, %mul
   br i1 %cmp218.not, label %for.end376, label %for.body219, !llvm.loop !278
 
 for.end376:                                       ; preds = %for.inc374, %if.end364, %if.else212.thread, %if.else212
-  %cmp218.not258272 = phi i1 [ true, %if.else212.thread ], [ true, %if.else212 ], [ false, %if.end364 ], [ false, %for.inc374 ]
+  %cmp218.not259273 = phi i1 [ true, %if.else212.thread ], [ true, %if.else212 ], [ false, %if.end364 ], [ false, %for.inc374 ]
   %key377 = getelementptr inbounds nuw i8, ptr %stats, i64 4
   %94 = load i32, ptr %key377, align 4
   %tobool378.not = icmp eq i32 %94, 0
@@ -9798,8 +9799,8 @@ for.end376:                                       ; preds = %for.inc374, %if.end
 land.lhs.true379:                                 ; preds = %for.end376
   %95 = load i32, ptr %alpha, align 8
   %tobool381.not = icmp ne i32 %95, 0
-  %or.cond266 = or i1 %tobool381.not, %cmp218.not258272
-  br i1 %or.cond266, label %if.end415, label %for.body385.lr.ph
+  %or.cond267 = or i1 %tobool381.not, %cmp218.not259273
+  br i1 %or.cond267, label %if.end415, label %for.body385.lr.ph
 
 for.body385.lr.ph:                                ; preds = %land.lhs.true379
   %key_r390 = getelementptr inbounds nuw i8, ptr %stats, i64 8
@@ -9808,8 +9809,8 @@ for.body385.lr.ph:                                ; preds = %land.lhs.true379
   br label %for.body385
 
 for.body385:                                      ; preds = %for.body385.lr.ph, %for.inc412
-  %i.5265 = phi i64 [ 0, %for.body385.lr.ph ], [ %inc413, %for.inc412 ]
-  call fastcc void @_ZL18getPixelColorRGBA8PhS_S_S_PKhmPK16LodePNGColorMode(ptr noundef %r213, ptr noundef %g214, ptr noundef %b215, ptr noundef %a216, ptr noundef %in, i64 noundef %i.5265, ptr noundef nonnull %mode_in)
+  %i.5266 = phi i64 [ 0, %for.body385.lr.ph ], [ %inc413, %for.inc412 ]
+  call fastcc void @_ZL18getPixelColorRGBA8PhS_S_S_PKhmPK16LodePNGColorMode(ptr noundef %r213, ptr noundef %g214, ptr noundef %b215, ptr noundef %a216, ptr noundef %in, i64 noundef %i.5266, ptr noundef nonnull %mode_in)
   %96 = load i8, ptr %a216, align 1
   %cmp387.not = icmp eq i8 %96, 0
   br i1 %cmp387.not, label %for.inc412, label %land.lhs.true388
@@ -9847,7 +9848,7 @@ if.then408:                                       ; preds = %if.then403
   br label %for.inc412
 
 for.inc412:                                       ; preds = %for.body385, %land.lhs.true388, %land.lhs.true393, %land.lhs.true398, %if.then408, %if.then403
-  %inc413 = add nuw i64 %i.5265, 1
+  %inc413 = add nuw i64 %i.5266, 1
   %cmp384.not = icmp eq i64 %inc413, %mul
   br i1 %cmp384.not, label %if.end415, label %for.body385, !llvm.loop !279
 

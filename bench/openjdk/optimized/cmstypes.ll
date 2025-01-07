@@ -8833,8 +8833,6 @@ define internal fastcc range(i32 0, 2) i32 @WriteSetOfCurves(ptr nocapture nound
 
 42:                                               ; preds = %37
   %43 = tail call i32 @_cmsWriteUInt16Number(ptr noundef %1, i16 noundef zeroext %40) #13
-  %.not13.i = icmp ne i32 %43, 0
-  %..i = zext i1 %.not13.i to i32
   br label %Type_Curve_Write.exit
 
 44:                                               ; preds = %31, %26
@@ -8852,9 +8850,9 @@ define internal fastcc range(i32 0, 2) i32 @WriteSetOfCurves(ptr nocapture nound
   br label %Type_Curve_Write.exit
 
 Type_Curve_Write.exit:                            ; preds = %42, %48
-  %.0.i = phi i32 [ %52, %48 ], [ %..i, %42 ]
-  %.not32 = icmp eq i32 %.0.i, 0
-  br i1 %.not32, label %Type_Curve_Write.exit.thread, label %Type_ParametricCurve_Write.exit
+  %.0.i.in = phi i32 [ %52, %48 ], [ %43, %42 ]
+  %.0.i = icmp eq i32 %.0.i.in, 0
+  br i1 %.0.i, label %Type_Curve_Write.exit.thread, label %Type_ParametricCurve_Write.exit
 
 53:                                               ; preds = %25
   %54 = load ptr, ptr %8, align 8

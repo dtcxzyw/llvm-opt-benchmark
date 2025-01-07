@@ -2524,7 +2524,7 @@ get_relative_dist.exit76:                         ; preds = %get_relative_dist.e
   br i1 %exitcond.not, label %.split.us, label %get_relative_dist.exit76, !llvm.loop !40
 
 .split.us:                                        ; preds = %get_relative_dist.exit76, %get_relative_dist.exit76.us.preheader
-  %.0.i121 = phi i32 [ 0, %get_relative_dist.exit76.us.preheader ], [ %46, %get_relative_dist.exit76 ]
+  %.0.i126 = phi i32 [ 0, %get_relative_dist.exit76.us.preheader ], [ %46, %get_relative_dist.exit76 ]
   %58 = getelementptr inbounds nuw i8, ptr %15, i64 72
   %59 = load ptr, ptr %58, align 8
   %60 = add nsw i32 %22, 1
@@ -2538,43 +2538,43 @@ get_relative_dist.exit76:                         ; preds = %get_relative_dist.e
   %65 = icmp sgt i32 %63, 0
   %.not.i78 = icmp samesign ult i32 %2, 2
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 1124
-  %67 = tail call i32 @llvm.abs.i32(i32 %.0.i121, i1 true)
-  %.fr103 = freeze i32 %67
-  %68 = icmp ult i32 %.fr103, 32
+  %67 = tail call i32 @llvm.abs.i32(i32 %.0.i126, i1 true)
+  %.fr108 = freeze i32 %67
+  %68 = icmp ult i32 %.fr108, 32
   %or.cond = and i1 %65, %68
   br i1 %or.cond, label %.preheader.us.us.preheader, label %get_ref_frame_buf.exit.thread
 
 .preheader.us.us.preheader:                       ; preds = %.preheader.lr.ph
   %69 = icmp eq i32 %2, 2
-  %70 = sub nsw i32 0, %.0.i121
-  %spec.select = select i1 %69, i32 %70, i32 %.0.i121
+  %70 = sub nsw i32 0, %.0.i126
+  %spec.select = select i1 %69, i32 %70, i32 %.0.i126
   %71 = tail call i32 @llvm.umin.i32(i32 %spec.select, i32 31)
   %72 = tail call i32 @llvm.smax.i32(i32 %spec.select, i32 -31)
   %73 = icmp sgt i32 %spec.select, 0
   %74 = zext nneg i32 %63 to i64
-  %wide.trip.count118 = zext nneg i32 %61 to i64
+  %wide.trip.count123 = zext nneg i32 %61 to i64
   %. = select i1 %73, i32 %71, i32 %72
   br label %.preheader.us.us
 
-.preheader.us.us:                                 ; preds = %.preheader.us.us.preheader, %._crit_edge.split.us101.us
-  %indvars.iv115 = phi i64 [ 0, %.preheader.us.us.preheader ], [ %indvars.iv.next116, %._crit_edge.split.us101.us ]
-  %75 = mul nuw nsw i64 %indvars.iv115, %74
-  %76 = trunc nuw nsw i64 %indvars.iv115 to i32
+.preheader.us.us:                                 ; preds = %.preheader.us.us.preheader, %._crit_edge.split.us106.us
+  %indvars.iv120 = phi i64 [ 0, %.preheader.us.us.preheader ], [ %indvars.iv.next121, %._crit_edge.split.us106.us ]
+  %75 = mul nuw nsw i64 %indvars.iv120, %74
+  %76 = trunc nuw nsw i64 %indvars.iv120 to i32
   %77 = and i32 %76, 2147483640
   %78 = add nuw nsw i32 %77, 8
   %invariant.gep = getelementptr inbounds nuw %struct.MV_REF, ptr %59, i64 %75
   br label %79
 
-79:                                               ; preds = %.preheader.us.us, %get_block_position.exit.thread.us100.us
-  %indvars.iv111 = phi i64 [ 0, %.preheader.us.us ], [ %indvars.iv.next112, %get_block_position.exit.thread.us100.us ]
-  %gep = getelementptr inbounds nuw %struct.MV_REF, ptr %invariant.gep, i64 %indvars.iv111
+79:                                               ; preds = %.preheader.us.us, %.thread89.us105.us
+  %indvars.iv116 = phi i64 [ 0, %.preheader.us.us ], [ %indvars.iv.next117, %.thread89.us105.us ]
+  %gep = getelementptr inbounds nuw %struct.MV_REF, ptr %invariant.gep, i64 %indvars.iv116
   %.sroa.0.0.copyload.us.us = load i16, ptr %gep, align 4
   %.sroa.3.0..sroa_idx.us.us = getelementptr inbounds nuw i8, ptr %gep, i64 2
   %.sroa.3.0.copyload.us.us = load i16, ptr %.sroa.3.0..sroa_idx.us.us, align 2
   %80 = getelementptr inbounds nuw i8, ptr %gep, i64 4
   %81 = load i8, ptr %80, align 4
   %82 = icmp sgt i8 %81, 0
-  br i1 %82, label %83, label %get_block_position.exit.thread.us100.us
+  br i1 %82, label %83, label %.thread89.us105.us
 
 83:                                               ; preds = %79
   %84 = zext nneg i8 %81 to i64
@@ -2584,7 +2584,7 @@ get_relative_dist.exit76:                         ; preds = %get_relative_dist.e
   %88 = icmp samesign ult i32 %87, 32
   %89 = icmp sgt i32 %86, 0
   %or.cond.us.us = and i1 %89, %88
-  br i1 %or.cond.us.us, label %90, label %get_block_position.exit.thread.us100.us
+  br i1 %or.cond.us.us, label %90, label %.thread89.us105.us
 
 90:                                               ; preds = %83
   %91 = tail call i32 @llvm.umin.i32(i32 %86, i32 31)
@@ -2632,7 +2632,7 @@ get_mv_projection.exit.us.us:                     ; preds = %114, %111
   %120 = tail call i32 @llvm.smax.i32(i32 %119, i32 -16383)
   %121 = tail call i32 @llvm.smin.i32(i32 range(i32 -131071, 131072) %118, i32 16383)
   %122 = tail call i32 @llvm.smax.i32(i32 %121, i32 -16383)
-  %123 = trunc nuw nsw i64 %indvars.iv111 to i32
+  %123 = trunc nuw nsw i64 %indvars.iv116 to i32
   %124 = and i32 %123, 2147483640
   %125 = lshr i32 %120, 6
   %126 = sub nsw i32 0, %120
@@ -2653,7 +2653,7 @@ get_mv_projection.exit.us.us:                     ; preds = %114, %111
   %.p49.i.us.us = select i1 %.not.i78, i32 %136, i32 %139
   %140 = add i32 %.p49.i.us.us, %123
   %141 = icmp slt i32 %138, 0
-  br i1 %141, label %get_block_position.exit.thread.us100.us, label %142
+  br i1 %141, label %.thread89.us105.us, label %142
 
 142:                                              ; preds = %get_mv_projection.exit.us.us
   %143 = load i32, ptr %23, align 4
@@ -2661,13 +2661,13 @@ get_mv_projection.exit.us.us:                     ; preds = %114, %111
   %145 = icmp sge i32 %138, %144
   %146 = icmp slt i32 %140, 0
   %or.cond.i.us.us = select i1 %145, i1 true, i1 %146
-  br i1 %or.cond.i.us.us, label %get_block_position.exit.thread.us100.us, label %147
+  br i1 %or.cond.i.us.us, label %.thread89.us105.us, label %147
 
 147:                                              ; preds = %142
   %148 = load i32, ptr %28, align 8
   %149 = ashr i32 %148, 1
   %.not42.i.us.us = icmp slt i32 %140, %149
-  br i1 %.not42.i.us.us, label %150, label %get_block_position.exit.thread.us100.us
+  br i1 %.not42.i.us.us, label %150, label %.thread89.us105.us
 
 150:                                              ; preds = %147
   %151 = icmp sge i32 %138, %77
@@ -2679,35 +2679,35 @@ get_mv_projection.exit.us.us:                     ; preds = %114, %111
   %154 = add nuw nsw i32 %124, 16
   %.not44.i.us.us = icmp samesign ult i32 %140, %154
   %or.cond48.i.us.us = select i1 %or.cond47.not53.i.us.us, i1 %.not44.i.us.us, i1 false
-  br i1 %or.cond48.i.us.us, label %get_block_position.exit.us.us, label %get_block_position.exit.thread.us100.us
+  br i1 %or.cond48.i.us.us, label %155, label %.thread89.us105.us
 
-get_block_position.exit.us.us:                    ; preds = %150
-  %155 = load i32, ptr %66, align 4
-  %156 = ashr i32 %155, 1
-  %157 = mul nsw i32 %156, %138
-  %158 = add nsw i32 %157, %140
-  %159 = sext i32 %158 to i64
-  %160 = getelementptr inbounds %struct.TPL_MV_REF, ptr %5, i64 %159
-  store i16 %.sroa.0.0.copyload.us.us, ptr %160, align 4
-  %161 = getelementptr inbounds nuw i8, ptr %160, i64 2
-  store i16 %.sroa.3.0.copyload.us.us, ptr %161, align 2
-  %162 = trunc i32 %86 to i8
-  %163 = getelementptr inbounds nuw i8, ptr %160, i64 4
-  store i8 %162, ptr %163, align 4
-  br label %get_block_position.exit.thread.us100.us
+155:                                              ; preds = %150
+  %156 = load i32, ptr %66, align 4
+  %157 = ashr i32 %156, 1
+  %158 = mul nsw i32 %157, %138
+  %159 = add nsw i32 %158, %140
+  %160 = sext i32 %159 to i64
+  %161 = getelementptr inbounds %struct.TPL_MV_REF, ptr %5, i64 %160
+  store i16 %.sroa.0.0.copyload.us.us, ptr %161, align 4
+  %162 = getelementptr inbounds nuw i8, ptr %161, i64 2
+  store i16 %.sroa.3.0.copyload.us.us, ptr %162, align 2
+  %163 = trunc i32 %86 to i8
+  %164 = getelementptr inbounds nuw i8, ptr %161, i64 4
+  store i8 %163, ptr %164, align 4
+  br label %.thread89.us105.us
 
-get_block_position.exit.thread.us100.us:          ; preds = %get_block_position.exit.us.us, %150, %147, %142, %get_mv_projection.exit.us.us, %83, %79
-  %indvars.iv.next112 = add nuw nsw i64 %indvars.iv111, 1
-  %exitcond114.not = icmp eq i64 %indvars.iv.next112, %74
-  br i1 %exitcond114.not, label %._crit_edge.split.us101.us, label %79, !llvm.loop !41
+.thread89.us105.us:                               ; preds = %155, %150, %147, %142, %get_mv_projection.exit.us.us, %83, %79
+  %indvars.iv.next117 = add nuw nsw i64 %indvars.iv116, 1
+  %exitcond119.not = icmp eq i64 %indvars.iv.next117, %74
+  br i1 %exitcond119.not, label %._crit_edge.split.us106.us, label %79, !llvm.loop !41
 
-._crit_edge.split.us101.us:                       ; preds = %get_block_position.exit.thread.us100.us
-  %indvars.iv.next116 = add nuw nsw i64 %indvars.iv115, 1
-  %exitcond119.not = icmp eq i64 %indvars.iv.next116, %wide.trip.count118
-  br i1 %exitcond119.not, label %get_ref_frame_buf.exit.thread, label %.preheader.us.us, !llvm.loop !42
+._crit_edge.split.us106.us:                       ; preds = %.thread89.us105.us
+  %indvars.iv.next121 = add nuw nsw i64 %indvars.iv120, 1
+  %exitcond124.not = icmp eq i64 %indvars.iv.next121, %wide.trip.count123
+  br i1 %exitcond124.not, label %get_ref_frame_buf.exit.thread, label %.preheader.us.us, !llvm.loop !42
 
-get_ref_frame_buf.exit.thread:                    ; preds = %._crit_edge.split.us101.us, %.preheader.lr.ph, %.split.us, %get_ref_frame_map_idx.exit.i, %20, %25, %17, %17, %get_ref_frame_buf.exit
-  %.0 = phi i32 [ 0, %get_ref_frame_buf.exit ], [ 0, %17 ], [ 0, %17 ], [ 0, %25 ], [ 0, %20 ], [ 0, %get_ref_frame_map_idx.exit.i ], [ 1, %.split.us ], [ 1, %.preheader.lr.ph ], [ 1, %._crit_edge.split.us101.us ]
+get_ref_frame_buf.exit.thread:                    ; preds = %._crit_edge.split.us106.us, %.preheader.lr.ph, %.split.us, %get_ref_frame_map_idx.exit.i, %20, %25, %17, %17, %get_ref_frame_buf.exit
+  %.0 = phi i32 [ 0, %get_ref_frame_buf.exit ], [ 0, %17 ], [ 0, %17 ], [ 0, %25 ], [ 0, %20 ], [ 0, %get_ref_frame_map_idx.exit.i ], [ 1, %.split.us ], [ 1, %.preheader.lr.ph ], [ 1, %._crit_edge.split.us106.us ]
   ret i32 %.0
 }
 

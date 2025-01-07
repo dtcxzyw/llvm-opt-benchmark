@@ -447,74 +447,70 @@ for.body.lr.ph:                                   ; preds = %if.then4
   %does_selection = getelementptr inbounds nuw i8, ptr %encoder, i64 96
   %ctx = getelementptr inbounds nuw i8, ptr %arg, i64 40
   %import_object = getelementptr inbounds nuw i8, ptr %encoder, i64 112
+  %wide.trip.count = zext nneg i32 %call7 to i64
   br label %for.body
 
 for.body:                                         ; preds = %for.body.backedge, %for.body.lr.ph
-  %i.024 = phi i32 [ 0, %for.body.lr.ph ], [ %i.024.be, %for.body.backedge ]
+  %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.be, %for.body.backedge ]
   %bf.load11 = load i8, ptr %flag_find_same_provider, align 8
   %bf.clear12 = and i8 %bf.load11, 1
   %tobool14.not = icmp eq i8 %bf.clear12, 0
-  br i1 %tobool14.not, label %if.else, label %if.then15
+  br i1 %tobool14.not, label %if.end22, label %if.then15
 
 if.then15:                                        ; preds = %for.body
   %5 = load ptr, ptr %id_names, align 8
-  %idxprom = zext nneg i32 %i.024 to i64
-  %arrayidx = getelementptr inbounds nuw i32, ptr %5, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv
   %6 = load i32, ptr %arrayidx, align 4
   %7 = load i32, ptr %id, align 8
-  %cmp16 = icmp eq i32 %6, %7
-  %conv17 = zext i1 %cmp16 to i32
-  br label %if.end22
+  %cmp16.not = icmp eq i32 %6, %7
+  br i1 %cmp16.not, label %lor.lhs.false, label %for.inc
 
-if.else:                                          ; preds = %for.body
+if.end22:                                         ; preds = %for.body
   %8 = load ptr, ptr %arg, align 8
-  %call20 = tail call ptr @OPENSSL_sk_value(ptr noundef %8, i32 noundef %i.024) #5
+  %9 = trunc nuw nsw i64 %indvars.iv to i32
+  %call20 = tail call ptr @OPENSSL_sk_value(ptr noundef %8, i32 noundef %9) #5
   %call21 = tail call i32 @OSSL_ENCODER_is_a(ptr noundef %encoder, ptr noundef %call20) #5
-  br label %if.end22
+  %10 = icmp eq i32 %call21, 0
+  br i1 %10, label %for.inc, label %lor.lhs.false
 
-if.end22:                                         ; preds = %if.else, %if.then15
-  %match.0 = phi i32 [ %conv17, %if.then15 ], [ %call21, %if.else ]
-  %tobool23.not = icmp eq i32 %match.0, 0
-  br i1 %tobool23.not, label %for.inc, label %lor.lhs.false
-
-lor.lhs.false:                                    ; preds = %if.end22
-  %9 = load ptr, ptr %does_selection, align 8
-  %cmp24.not = icmp eq ptr %9, null
+lor.lhs.false:                                    ; preds = %if.then15, %if.end22
+  %11 = load ptr, ptr %does_selection, align 8
+  %cmp24.not = icmp eq ptr %11, null
   br i1 %cmp24.not, label %lor.lhs.false29, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %lor.lhs.false
-  %10 = load ptr, ptr %ctx, align 8
-  %11 = load i32, ptr %10, align 8
-  %call27 = tail call i32 %9(ptr noundef %call5, i32 noundef %11) #5
+  %12 = load ptr, ptr %ctx, align 8
+  %13 = load i32, ptr %12, align 8
+  %call27 = tail call i32 %11(ptr noundef %call5, i32 noundef %13) #5
   %tobool28.not = icmp eq i32 %call27, 0
   br i1 %tobool28.not, label %for.inc, label %lor.lhs.false29
 
 lor.lhs.false29:                                  ; preds = %land.lhs.true, %lor.lhs.false
-  %12 = load ptr, ptr %keymgmt_prov, align 8
-  %cmp31.not = icmp eq ptr %12, %call
+  %14 = load ptr, ptr %keymgmt_prov, align 8
+  %cmp31.not = icmp eq ptr %14, %call
   br i1 %cmp31.not, label %if.end37, label %land.lhs.true33
 
 land.lhs.true33:                                  ; preds = %lor.lhs.false29
-  %13 = load ptr, ptr %import_object, align 8
-  %cmp34 = icmp eq ptr %13, null
+  %15 = load ptr, ptr %import_object, align 8
+  %cmp34 = icmp eq ptr %15, null
   br i1 %cmp34, label %for.inc, label %if.end37
 
 if.end37:                                         ; preds = %land.lhs.true33, %lor.lhs.false29
-  %14 = load ptr, ptr %ctx, align 8
-  %call39 = tail call i32 @OSSL_ENCODER_CTX_add_encoder(ptr noundef %14, ptr noundef nonnull %encoder) #5
-  %tobool40.not = icmp eq i32 %call39, 0
-  %inc = add nuw nsw i32 %i.024, 1
-  %cmp8 = icmp slt i32 %inc, %call7
-  %or.cond = select i1 %tobool40.not, i1 %cmp8, i1 false
-  br i1 %or.cond, label %for.body.backedge, label %if.end43
+  %16 = load ptr, ptr %ctx, align 8
+  %call39 = tail call i32 @OSSL_ENCODER_CTX_add_encoder(ptr noundef %16, ptr noundef nonnull %encoder) #5
+  %tobool40.not = icmp ne i32 %call39, 0
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  %or.cond = select i1 %tobool40.not, i1 true, i1 %exitcond.not
+  br i1 %or.cond, label %if.end43, label %for.body.backedge
 
-for.inc:                                          ; preds = %if.end22, %land.lhs.true, %land.lhs.true33
-  %inc.old = add nuw nsw i32 %i.024, 1
-  %cmp8.old = icmp slt i32 %inc.old, %call7
-  br i1 %cmp8.old, label %for.body.backedge, label %if.end43
+for.inc:                                          ; preds = %if.then15, %if.end22, %land.lhs.true, %land.lhs.true33
+  %indvars.iv.next.old = add nuw nsw i64 %indvars.iv, 1
+  %exitcond.not.old = icmp eq i64 %indvars.iv.next.old, %wide.trip.count
+  br i1 %exitcond.not.old, label %if.end43, label %for.body.backedge
 
 for.body.backedge:                                ; preds = %for.inc, %if.end37
-  %i.024.be = phi i32 [ %inc.old, %for.inc ], [ %inc, %if.end37 ]
+  %indvars.iv.be = phi i64 [ %indvars.iv.next.old, %for.inc ], [ %indvars.iv.next, %if.end37 ]
   br label %for.body, !llvm.loop !6
 
 if.end43:                                         ; preds = %if.end37, %for.inc, %if.then4, %if.end

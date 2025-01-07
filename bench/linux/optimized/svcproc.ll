@@ -239,9 +239,9 @@ define internal noundef range(i32 0, 83886081) i32 @nlmsvc_proc_sm_notify(ptr no
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %6 = load i16, ptr %5, align 2
-  switch i16 %6, label %.thread [
+  switch i16 %6, label %.critedge [
     i16 2, label %7
-    i16 10, label %18
+    i16 10, label %16
   ]
 
 7:                                                ; preds = %1
@@ -249,70 +249,64 @@ define internal noundef range(i32 0, 83886081) i32 @nlmsvc_proc_sm_notify(ptr no
   %9 = load i16, ptr %8, align 2
   %10 = and i16 %9, 252
   %11 = icmp eq i16 %10, 0
-  br i1 %11, label %12, label %.thread
+  br i1 %11, label %12, label %.critedge
 
 12:                                               ; preds = %7
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %14 = load i32, ptr %13, align 4
   %15 = and i32 %14, 255
-  %16 = icmp eq i32 %15, 127
-  %17 = zext i1 %16 to i32
-  br label %37
+  %.not1 = icmp eq i32 %15, 127
+  br i1 %.not1, label %36, label %.critedge
 
-18:                                               ; preds = %1
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 50
-  %20 = load i16, ptr %19, align 2
-  %21 = and i16 %20, 252
-  %22 = icmp eq i16 %21, 0
-  br i1 %22, label %23, label %.thread
+16:                                               ; preds = %1
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 50
+  %18 = load i16, ptr %17, align 2
+  %19 = and i16 %18, 252
+  %20 = icmp eq i16 %19, 0
+  br i1 %20, label %21, label %.critedge
 
-23:                                               ; preds = %18
-  %24 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %25 = tail call i32 @__ipv6_addr_type(ptr noundef nonnull %24) #7
-  %26 = and i32 %25, 4096
-  %27 = icmp eq i32 %26, 0
-  br i1 %27, label %34, label %28
+21:                                               ; preds = %16
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %23 = tail call i32 @__ipv6_addr_type(ptr noundef nonnull %22) #7
+  %24 = and i32 %23, 4096
+  %25 = icmp eq i32 %24, 0
+  br i1 %25, label %30, label %26
 
-28:                                               ; preds = %23
-  %29 = getelementptr i8, ptr %0, i64 68
-  %30 = load i32, ptr %29, align 4
-  %31 = and i32 %30, 255
-  %32 = icmp eq i32 %31, 127
-  %33 = zext i1 %32 to i32
-  br label %37
+26:                                               ; preds = %21
+  %27 = getelementptr i8, ptr %0, i64 68
+  %28 = load i32, ptr %27, align 4
+  %29 = and i32 %28, 255
+  %.not = icmp eq i32 %29, 127
+  br i1 %.not, label %36, label %.critedge
 
-34:                                               ; preds = %23
-  %35 = tail call i32 @__ipv6_addr_type(ptr noundef nonnull %24) #7
-  %36 = and i32 %35, 16
-  br label %37
+30:                                               ; preds = %21
+  %31 = tail call i32 @__ipv6_addr_type(ptr noundef nonnull %22) #7
+  %32 = and i32 %31, 16
+  %33 = icmp eq i32 %32, 0
+  br i1 %33, label %.critedge, label %36
 
-37:                                               ; preds = %34, %28, %12
-  %38 = phi i32 [ %17, %12 ], [ %33, %28 ], [ %36, %34 ]
-  %39 = icmp eq i32 %38, 0
-  br i1 %39, label %.thread, label %42
-
-.thread:                                          ; preds = %18, %7, %1, %37
+.critedge:                                        ; preds = %26, %12, %1, %7, %16, %30
   call void @llvm.lifetime.start.p0(i64 63, ptr nonnull %2) #7
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(63) %2, i8 0, i64 63, i1 false), !annotation !9
-  %40 = call ptr @svc_print_addr(ptr noundef %0, ptr noundef nonnull %2, i64 noundef 63) #7
-  %41 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.22, ptr noundef %40) #8
+  %34 = call ptr @svc_print_addr(ptr noundef %0, ptr noundef nonnull %2, i64 noundef 63) #7
+  %35 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.22, ptr noundef %34) #8
   call void @llvm.lifetime.end.p0(i64 63, ptr nonnull %2) #7
-  br label %50
+  br label %44
 
-42:                                               ; preds = %37
-  %43 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %44 = load ptr, ptr %43, align 8
-  %45 = icmp eq ptr %44, null
-  %46 = getelementptr inbounds nuw i8, ptr %44, i64 488
-  %47 = getelementptr inbounds nuw i8, ptr %0, i64 11392
-  %48 = select i1 %45, ptr %47, ptr %46
-  %49 = load ptr, ptr %48, align 8
-  tail call void @nlm_host_rebooted(ptr noundef %49, ptr noundef %4) #7
-  br label %50
+36:                                               ; preds = %26, %12, %30
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %38 = load ptr, ptr %37, align 8
+  %39 = icmp eq ptr %38, null
+  %40 = getelementptr inbounds nuw i8, ptr %38, i64 488
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 11392
+  %42 = select i1 %39, ptr %41, ptr %40
+  %43 = load ptr, ptr %42, align 8
+  tail call void @nlm_host_rebooted(ptr noundef %43, ptr noundef %4) #7
+  br label %44
 
-50:                                               ; preds = %42, %.thread
-  %51 = phi i32 [ 0, %42 ], [ 83886080, %.thread ]
-  ret i32 %51
+44:                                               ; preds = %36, %.critedge
+  %45 = phi i32 [ 0, %36 ], [ 83886080, %.critedge ]
+  ret i32 %45
 }
 
 ; Function Attrs: null_pointer_is_valid

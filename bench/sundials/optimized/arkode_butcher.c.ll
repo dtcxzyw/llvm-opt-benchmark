@@ -994,7 +994,7 @@ __order3a.exit:                                   ; preds = %70, %83
   br label %89
 
 89:                                               ; preds = %__order3a.exit, %87
-  %.0 = phi i1 [ %.0.i955, %__order3a.exit ], [ false, %87 ]
+  %.0.not = phi i1 [ %.0.i955, %__order3a.exit ], [ false, %87 ]
   %90 = tail call noalias ptr @calloc(i64 noundef %wide.trip.count29.i, i64 noundef 8) #15
   %91 = icmp eq ptr %90, null
   br i1 %91, label %__order3b.exit, label %.preheader.us.i.i
@@ -1054,7 +1054,7 @@ __order3b.exit:                                   ; preds = %89, %108
   br label %thread-pre-split1006
 
 113:                                              ; preds = %__order3b.exit
-  %.not790.not = and i1 %.0, %.0.i962
+  %.not790.not = and i1 %.0.not, %.0.i962
   br i1 %.not790.not, label %.thread1008, label %thread-pre-split1006
 
 .thread1008:                                      ; preds = %113

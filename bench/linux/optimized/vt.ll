@@ -1323,7 +1323,7 @@ define dso_local void @redraw_screen(ptr noundef %0, i32 noundef %1) #0 align 16
 
 15:                                               ; preds = %13
   %16 = icmp eq i32 %1, 0
-  br i1 %16, label %.thread6, label %17
+  br i1 %16, label %.critedge, label %17
 
 17:                                               ; preds = %15
   %18 = load i32, ptr @fg_console, align 4
@@ -1432,14 +1432,14 @@ define dso_local void @redraw_screen(ptr noundef %0, i32 noundef %1) #0 align 16
   tail call void @sysfs_notify(ptr noundef nonnull %73, ptr noundef null, ptr noundef nonnull @.str.1) #25
   br label %76
 
-.thread6:                                         ; preds = %15
+.critedge:                                        ; preds = %15
   tail call fastcc void @hide_cursor(ptr noundef nonnull %0)
   br label %77
 
 76:                                               ; preds = %75, %72
   br i1 %.not, label %144, label %77
 
-77:                                               ; preds = %.thread6, %76
+77:                                               ; preds = %.critedge, %76
   %78 = getelementptr inbounds nuw i8, ptr %0, i64 680
   %79 = load i16, ptr %78, align 8
   tail call fastcc void @set_origin(ptr noundef nonnull %0)

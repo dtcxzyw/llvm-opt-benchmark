@@ -7032,8 +7032,8 @@ proto_item_set_generated.exit.thread.i.i:         ; preds = %474
   %538 = getelementptr inbounds nuw i8, ptr %537, i64 50
   %539 = load i16, ptr %538, align 2
   %540 = and i16 %539, 8
-  %.not242.not.not.i.i = icmp eq i16 %540, 0
-  br i1 %.not242.not.not.i.i, label %541, label %.thread261.i.i
+  %.not242.not.not.not.i.i = icmp eq i16 %540, 0
+  br i1 %.not242.not.not.not.i.i, label %541, label %.thread261.i.i
 
 541:                                              ; preds = %536
   %542 = load i32, ptr %440, align 4
@@ -7048,7 +7048,7 @@ proto_item_set_generated.exit.thread.i.i:         ; preds = %474
   %.neg.i.i = sub i32 %546, %545
   %547 = call i32 @tvb_reported_length(ptr noundef %388) #15
   %548 = add i32 %.neg.i.i, %547
-  br i1 %.not242.not.not.i.i, label %549, label %.thread286.i.i
+  br i1 %.not242.not.not.not.i.i, label %549, label %.thread286.i.i
 
 549:                                              ; preds = %.thread261.i.i, %.thread261.thread326.i.i
   %.2211336.i.i = phi i32 [ %489, %.thread261.thread326.i.i ], [ %548, %.thread261.i.i ]

@@ -502,27 +502,27 @@ define dso_local void @dev_load(ptr noundef %0, ptr noundef %1) #0 align 16 {
   tail call void @__rcu_read_lock() #11
   %3 = tail call ptr @dev_get_by_name_rcu(ptr noundef %0, ptr noundef %1) #11
   tail call void @__rcu_read_unlock() #11
-  %4 = icmp eq ptr %3, null
-  br i1 %4, label %5, label %.thread
+  %.not = icmp eq ptr %3, null
+  br i1 %.not, label %4, label %.thread
 
-5:                                                ; preds = %2
-  %6 = tail call zeroext i1 @capable(i32 noundef 12) #11
-  br i1 %6, label %7, label %.thread1
+4:                                                ; preds = %2
+  %5 = tail call zeroext i1 @capable(i32 noundef 12) #11
+  br i1 %5, label %6, label %.thread1
 
-7:                                                ; preds = %5
-  %8 = tail call i32 (i1, ptr, ...) @__request_module(i1 noundef zeroext true, ptr noundef nonnull @.str.1, ptr noundef %1) #11
-  %9 = icmp eq i32 %8, 0
-  br i1 %9, label %.thread, label %.thread1
+6:                                                ; preds = %4
+  %7 = tail call i32 (i1, ptr, ...) @__request_module(i1 noundef zeroext true, ptr noundef nonnull @.str.1, ptr noundef %1) #11
+  %8 = icmp eq i32 %7, 0
+  br i1 %8, label %.thread, label %.thread1
 
-.thread1:                                         ; preds = %5, %7
-  %10 = tail call zeroext i1 @capable(i32 noundef 16) #11
-  br i1 %10, label %11, label %.thread
+.thread1:                                         ; preds = %4, %6
+  %9 = tail call zeroext i1 @capable(i32 noundef 16) #11
+  br i1 %9, label %10, label %.thread
 
-11:                                               ; preds = %.thread1
-  %12 = tail call i32 (i1, ptr, ...) @__request_module(i1 noundef zeroext true, ptr noundef nonnull @.str.2, ptr noundef %1) #11
+10:                                               ; preds = %.thread1
+  %11 = tail call i32 (i1, ptr, ...) @__request_module(i1 noundef zeroext true, ptr noundef nonnull @.str.2, ptr noundef %1) #11
   br label %.thread
 
-.thread:                                          ; preds = %2, %11, %.thread1, %7
+.thread:                                          ; preds = %2, %10, %.thread1, %6
   ret void
 }
 

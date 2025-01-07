@@ -13,26 +13,25 @@ define void @softfloat_sub256M(ptr nocapture noundef readonly %0, ptr nocapture 
 
 7:                                                ; preds = %3, %7
   %indvars.iv = phi i64 [ 0, %3 ], [ %indvars.iv.next, %7 ]
-  %8 = phi i64 [ %5, %3 ], [ %16, %7 ]
-  %9 = phi i64 [ %4, %3 ], [ %14, %7 ]
-  %.01519 = phi i8 [ 0, %3 ], [ %12, %7 ]
-  %.not = icmp eq i8 %.01519, 0
+  %8 = phi i64 [ %5, %3 ], [ %15, %7 ]
+  %9 = phi i64 [ %4, %3 ], [ %13, %7 ]
+  %.01519 = phi i1 [ true, %3 ], [ %19, %7 ]
   %10 = icmp ule i64 %9, %8
   %11 = icmp ult i64 %9, %8
-  %.in = select i1 %.not, i1 %11, i1 %10
-  %12 = zext i1 %.in to i8
+  %.in = select i1 %.01519, i1 %11, i1 %10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %13 = getelementptr inbounds nuw i64, ptr %0, i64 %indvars.iv.next
-  %14 = load i64, ptr %13, align 8
-  %15 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv.next
-  %16 = load i64, ptr %15, align 8
+  %12 = getelementptr inbounds nuw i64, ptr %0, i64 %indvars.iv.next
+  %13 = load i64, ptr %12, align 8
+  %14 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv.next
+  %15 = load i64, ptr %14, align 8
   %.neg21 = sext i1 %.in to i64
-  %.neg17 = add i64 %14, %.neg21
-  %17 = sub i64 %.neg17, %16
-  %18 = getelementptr inbounds nuw i64, ptr %2, i64 %indvars.iv.next
-  store i64 %17, ptr %18, align 8
-  %19 = icmp eq i64 %indvars.iv.next, 3
-  br i1 %19, label %20, label %7
+  %.neg17 = add i64 %13, %.neg21
+  %16 = sub i64 %.neg17, %15
+  %17 = getelementptr inbounds nuw i64, ptr %2, i64 %indvars.iv.next
+  store i64 %16, ptr %17, align 8
+  %18 = icmp eq i64 %indvars.iv.next, 3
+  %19 = xor i1 %.in, true
+  br i1 %18, label %20, label %7
 
 20:                                               ; preds = %7
   ret void

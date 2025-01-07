@@ -795,7 +795,7 @@ _ZNK4llvm7DIScope11getFilenameEv.exit76.i:        ; preds = %326, %_ZNK4llvm6DIN
 _ZN4llvm7djbHashENS_9StringRefEj.exit.thread.i:   ; preds = %._crit_edge.i
   call void @llvm.lifetime.start.p0(i64 17, ptr nonnull %11), !noalias !16
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %12), !noalias !16
-  br label %.lr.ph.split.i.i.preheader
+  br label %.lr.ph.i80.i.preheader
 
 .lr.ph.i.i:                                       ; preds = %._crit_edge.i, %.lr.ph.i.i
   %.014.i.i = phi i32 [ %347, %.lr.ph.i.i ], [ 5381, %._crit_edge.i ]
@@ -814,21 +814,21 @@ _ZN4llvm7djbHashENS_9StringRefEj.exit.i:          ; preds = %.lr.ph.i.i
   call void @llvm.lifetime.start.p0(i64 17, ptr nonnull %11), !noalias !16
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %12), !noalias !16
   %350 = icmp eq i32 %347, 0
-  br i1 %350, label %351, label %.lr.ph.split.i.i.preheader
+  br i1 %350, label %351, label %.lr.ph.i80.i.preheader
 
 351:                                              ; preds = %_ZN4llvm7djbHashENS_9StringRefEj.exit.i
   store i8 48, ptr %89, align 16, !noalias !22
-  br label %.lr.ph.split.i.i.preheader
+  br label %.lr.ph.i80.i.preheader
 
-.lr.ph.split.i.i.preheader:                       ; preds = %351, %_ZN4llvm7djbHashENS_9StringRefEj.exit.i, %_ZN4llvm7djbHashENS_9StringRefEj.exit.thread.i
-  %.019.i.i.ph = phi i64 [ 5381, %_ZN4llvm7djbHashENS_9StringRefEj.exit.thread.i ], [ %349, %_ZN4llvm7djbHashENS_9StringRefEj.exit.i ], [ 0, %351 ]
-  %.117.i.i.ph = phi ptr [ %88, %_ZN4llvm7djbHashENS_9StringRefEj.exit.thread.i ], [ %88, %_ZN4llvm7djbHashENS_9StringRefEj.exit.i ], [ %89, %351 ]
-  br label %.lr.ph.split.i.i
+.lr.ph.i80.i.preheader:                           ; preds = %351, %_ZN4llvm7djbHashENS_9StringRefEj.exit.i, %_ZN4llvm7djbHashENS_9StringRefEj.exit.thread.i
+  %.019.i.i.ph = phi i64 [ %349, %_ZN4llvm7djbHashENS_9StringRefEj.exit.i ], [ 5381, %_ZN4llvm7djbHashENS_9StringRefEj.exit.thread.i ], [ 0, %351 ]
+  %.117.i.i.ph = phi ptr [ %88, %_ZN4llvm7djbHashENS_9StringRefEj.exit.i ], [ %88, %_ZN4llvm7djbHashENS_9StringRefEj.exit.thread.i ], [ %89, %351 ]
+  br label %.lr.ph.i80.i
 
-.lr.ph.split.i.i:                                 ; preds = %.lr.ph.split.i.i.preheader, %.lr.ph.split.i.i
-  %.019.i.i = phi i64 [ %356, %.lr.ph.split.i.i ], [ %.019.i.i.ph, %.lr.ph.split.i.i.preheader ]
-  %.01218.i.i = phi i32 [ %357, %.lr.ph.split.i.i ], [ 0, %.lr.ph.split.i.i.preheader ]
-  %.117.i.i = phi ptr [ %355, %.lr.ph.split.i.i ], [ %.117.i.i.ph, %.lr.ph.split.i.i.preheader ]
+.lr.ph.i80.i:                                     ; preds = %.lr.ph.i80.i.preheader, %.lr.ph.i80.i
+  %.019.i.i = phi i64 [ %356, %.lr.ph.i80.i ], [ %.019.i.i.ph, %.lr.ph.i80.i.preheader ]
+  %.01218.i.i = phi i32 [ %357, %.lr.ph.i80.i ], [ 0, %.lr.ph.i80.i.preheader ]
+  %.117.i.i = phi ptr [ %355, %.lr.ph.i80.i ], [ %.117.i.i.ph, %.lr.ph.i80.i.preheader ]
   %352 = and i64 %.019.i.i, 15
   %353 = getelementptr inbounds nuw [17 x i8], ptr @_ZZN4llvm8hexdigitEjbE3LUT, i64 0, i64 %352
   %354 = load i8, ptr %353, align 1, !noalias !22
@@ -836,10 +836,10 @@ _ZN4llvm7djbHashENS_9StringRefEj.exit.i:          ; preds = %.lr.ph.i.i
   store i8 %354, ptr %355, align 1, !noalias !22
   %356 = lshr i64 %.019.i.i, 4
   %357 = add nuw nsw i32 %.01218.i.i, 1
-  %exitcond.not.i.i = icmp eq i32 %357, 8
-  br i1 %exitcond.not.i.i, label %_ZN4llvm9utohexstrB5cxx11Embj.exit.i, label %.lr.ph.split.i.i, !llvm.loop !23
+  %exitcond.i = icmp eq i32 %357, 8
+  br i1 %exitcond.i, label %_ZN4llvm9utohexstrB5cxx11Embj.exit.i, label %.lr.ph.i80.i, !llvm.loop !23
 
-_ZN4llvm9utohexstrB5cxx11Embj.exit.i:             ; preds = %.lr.ph.split.i.i
+_ZN4llvm9utohexstrB5cxx11Embj.exit.i:             ; preds = %.lr.ph.i80.i
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %12) #15, !noalias !22
   %358 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %24) #15, !noalias !16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %24, ptr noundef %358, ptr noundef nonnull align 1 dereferenceable(1) %12) #15, !noalias !16

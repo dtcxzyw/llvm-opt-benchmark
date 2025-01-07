@@ -3544,28 +3544,22 @@ sw.bb21:                                          ; preds = %if.else
 
 land.lhs.true:                                    ; preds = %sw.bb21
   %cmp26.not = icmp eq ptr %key, @.str.15
-  br i1 %cmp26.not, label %cond.false, label %cond.true
+  br i1 %cmp26.not, label %cond.end, label %cond.true
 
 cond.true:                                        ; preds = %land.lhs.true
   %compareInvChars = getelementptr inbounds nuw i8, ptr %ds, i64 24
   %7 = load ptr, ptr %compareInvChars, align 8
   %call27 = tail call noundef i32 %7(ptr noundef nonnull %ds, ptr noundef nonnull %key, i32 noundef -1, ptr noundef nonnull @_ZL16gCollationBinKey, i32 noundef 14)
-  %cmp28 = icmp eq i32 %call27, 0
-  %conv = zext i1 %cmp28 to i32
-  br label %cond.end
+  %cmp28.not = icmp eq i32 %call27, 0
+  br i1 %cmp28.not, label %if.then33, label %sw.epilog276
 
-cond.false:                                       ; preds = %land.lhs.true
+cond.end:                                         ; preds = %land.lhs.true
   %add.ptr29 = getelementptr inbounds nuw i8, ptr %add.ptr, i64 4
   %call30 = tail call signext i8 @ucol_looksLikeCollationBinary_75(ptr noundef nonnull %ds, ptr noundef nonnull %add.ptr29, i32 noundef %call22)
-  %conv31 = sext i8 %call30 to i32
-  br label %cond.end
+  %8 = icmp eq i8 %call30, 0
+  br i1 %8, label %sw.epilog276, label %if.then33
 
-cond.end:                                         ; preds = %cond.false, %cond.true
-  %cond = phi i32 [ %conv, %cond.true ], [ %conv31, %cond.false ]
-  %tobool32.not = icmp eq i32 %cond, 0
-  br i1 %tobool32.not, label %sw.epilog276, label %if.then33
-
-if.then33:                                        ; preds = %cond.end
+if.then33:                                        ; preds = %cond.true, %cond.end
   %add.ptr34 = getelementptr inbounds nuw i8, ptr %add.ptr, i64 4
   %add.ptr35 = getelementptr inbounds nuw i8, ptr %add.ptr13, i64 4
   %call36 = tail call i32 @ucol_swap_75(ptr noundef nonnull %ds, ptr noundef nonnull %add.ptr34, i32 noundef %call22, ptr noundef nonnull %add.ptr35, ptr noundef nonnull %pErrorCode)
@@ -3573,27 +3567,27 @@ if.then33:                                        ; preds = %cond.end
 
 if.then41:                                        ; preds = %if.else
   %readUInt16 = getelementptr inbounds nuw i8, ptr %ds, i64 8
-  %8 = load ptr, ptr %readUInt16, align 8
-  %9 = load i16, ptr %add.ptr, align 2
-  %call42 = tail call noundef zeroext i16 %8(i16 noundef zeroext %9)
+  %9 = load ptr, ptr %readUInt16, align 8
+  %10 = load i16, ptr %add.ptr, align 2
+  %call42 = tail call noundef zeroext i16 %9(i16 noundef zeroext %10)
   %conv43 = zext i16 %call42 to i32
   %swapArray1644 = getelementptr inbounds nuw i8, ptr %ds, i64 48
-  %10 = load ptr, ptr %swapArray1644, align 8
+  %11 = load ptr, ptr %swapArray1644, align 8
   %incdec.ptr = getelementptr inbounds nuw i8, ptr %add.ptr, i64 2
   %incdec.ptr45 = getelementptr inbounds nuw i8, ptr %add.ptr13, i64 2
-  %call46 = tail call noundef i32 %10(ptr noundef %ds, ptr noundef nonnull %add.ptr, i32 noundef 2, ptr noundef nonnull %add.ptr13, ptr noundef nonnull %pErrorCode)
+  %call46 = tail call noundef i32 %11(ptr noundef %ds, ptr noundef nonnull %add.ptr, i32 noundef 2, ptr noundef nonnull %add.ptr13, ptr noundef nonnull %pErrorCode)
   %add47 = add nuw nsw i32 %conv43, 2
   %div238 = lshr i32 %add47, 1
   br label %if.end57
 
 if.else49:                                        ; preds = %if.else
-  %11 = load i32, ptr %add.ptr, align 4
-  %call50 = tail call i32 @udata_readInt32_75(ptr noundef %ds, i32 noundef %11)
+  %12 = load i32, ptr %add.ptr, align 4
+  %call50 = tail call i32 @udata_readInt32_75(ptr noundef %ds, i32 noundef %12)
   %swapArray3251 = getelementptr inbounds nuw i8, ptr %ds, i64 56
-  %12 = load ptr, ptr %swapArray3251, align 8
+  %13 = load ptr, ptr %swapArray3251, align 8
   %incdec.ptr52 = getelementptr inbounds nuw i8, ptr %add.ptr, i64 4
   %incdec.ptr53 = getelementptr inbounds nuw i8, ptr %add.ptr13, i64 4
-  %call54 = tail call noundef i32 %12(ptr noundef %ds, ptr noundef nonnull %add.ptr, i32 noundef 4, ptr noundef nonnull %add.ptr13, ptr noundef nonnull %pErrorCode)
+  %call54 = tail call noundef i32 %13(ptr noundef %ds, ptr noundef nonnull %add.ptr, i32 noundef 4, ptr noundef nonnull %add.ptr13, ptr noundef nonnull %pErrorCode)
   %add55 = add nsw i32 %call50, 1
   br label %if.end57
 
@@ -3628,13 +3622,13 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   br i1 %cmp66.not, label %if.else78, label %if.then67
 
 if.then67:                                        ; preds = %for.body
-  %13 = load ptr, ptr %readUInt1668, align 8
+  %14 = load ptr, ptr %readUInt1668, align 8
   %arrayidx70 = getelementptr inbounds nuw i16, ptr %pKey16.0, i64 %indvars.iv
-  %14 = load i16, ptr %arrayidx70, align 2
-  %call71 = tail call noundef zeroext i16 %13(i16 noundef zeroext %14)
+  %15 = load i16, ptr %arrayidx70, align 2
+  %call71 = tail call noundef zeroext i16 %14(i16 noundef zeroext %15)
   %conv72 = zext i16 %call71 to i32
-  %15 = load i32, ptr %localKeyLimit, align 8
-  %cmp73 = icmp sgt i32 %15, %conv72
+  %16 = load i32, ptr %localKeyLimit, align 8
+  %cmp73 = icmp sgt i32 %16, %conv72
   br i1 %cmp73, label %if.then74, label %if.end88
 
 if.then74:                                        ; preds = %if.then67
@@ -3644,8 +3638,8 @@ if.then74:                                        ; preds = %if.then67
 
 if.else78:                                        ; preds = %for.body
   %arrayidx81 = getelementptr inbounds nuw i32, ptr %pKey32.0, i64 %indvars.iv
-  %16 = load i32, ptr %arrayidx81, align 4
-  %call82 = tail call i32 @udata_readInt32_75(ptr noundef nonnull %ds, i32 noundef %16)
+  %17 = load i32, ptr %arrayidx81, align 4
+  %call82 = tail call i32 @udata_readInt32_75(ptr noundef nonnull %ds, i32 noundef %17)
   %cmp83 = icmp sgt i32 %call82, -1
   br i1 %cmp83, label %if.then84, label %if.end88
 
@@ -3656,18 +3650,18 @@ if.then84:                                        ; preds = %if.else78
 
 if.end88:                                         ; preds = %if.else78, %if.then84, %if.then67, %if.then74
   %itemKey.0 = phi ptr [ %add.ptr76, %if.then74 ], [ @.str.15, %if.then67 ], [ %add.ptr86, %if.then84 ], [ @.str.15, %if.else78 ]
-  %17 = load ptr, ptr %readUInt32, align 8
+  %18 = load ptr, ptr %readUInt32, align 8
   %arrayidx90 = getelementptr inbounds nuw i32, ptr %add.ptr62, i64 %indvars.iv
-  %18 = load i32, ptr %arrayidx90, align 4
-  %call91 = tail call noundef i32 %17(i32 noundef %18)
+  %19 = load i32, ptr %arrayidx90, align 4
+  %call91 = tail call noundef i32 %18(i32 noundef %19)
   tail call fastcc void @_ZL17ures_swapResourcePK12UDataSwapperPKjPjjPKcP9TempTableP10UErrorCode(ptr noundef nonnull %ds, ptr noundef nonnull %inBundle, ptr noundef %outBundle, i32 noundef %call91, ptr noundef %itemKey.0, ptr noundef %pTempTable, ptr noundef %pErrorCode)
-  %19 = load i32, ptr %pErrorCode, align 4
-  %cmp.i = icmp slt i32 %19, 1
+  %20 = load i32, ptr %pErrorCode, align 4
+  %cmp.i = icmp slt i32 %20, 1
   br i1 %cmp.i, label %for.inc, label %if.then94
 
 if.then94:                                        ; preds = %if.end88
-  %20 = trunc nuw nsw i64 %indvars.iv to i32
-  tail call void (ptr, ptr, ...) @udata_printError_75(ptr noundef nonnull %ds, ptr noundef nonnull @.str.16, i32 noundef %res, i32 noundef %20, i32 noundef %call91)
+  %21 = trunc nuw nsw i64 %indvars.iv to i32
+  tail call void (ptr, ptr, ...) @udata_printError_75(ptr noundef nonnull %ds, ptr noundef nonnull @.str.16, i32 noundef %res, i32 noundef %21, i32 noundef %call91)
   br label %sw.epilog276
 
 for.inc:                                          ; preds = %if.end88
@@ -3677,16 +3671,16 @@ for.inc:                                          ; preds = %if.end88
 
 for.end:                                          ; preds = %for.inc, %if.end60
   %majorFormatVersion = getelementptr inbounds nuw i8, ptr %pTempTable, i64 36
-  %21 = load i8, ptr %majorFormatVersion, align 4
-  %cmp97 = icmp ugt i8 %21, 1
+  %22 = load i8, ptr %majorFormatVersion, align 4
+  %cmp97 = icmp ugt i8 %22, 1
   br i1 %cmp97, label %if.then101, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %for.end
   %inCharset = getelementptr inbounds nuw i8, ptr %ds, i64 1
-  %22 = load i8, ptr %inCharset, align 1
+  %23 = load i8, ptr %inCharset, align 1
   %outCharset = getelementptr inbounds nuw i8, ptr %ds, i64 3
-  %23 = load i8, ptr %outCharset, align 1
-  %cmp100 = icmp eq i8 %22, %23
+  %24 = load i8, ptr %outCharset, align 1
+  %cmp100 = icmp eq i8 %23, %24
   br i1 %cmp100, label %if.then101, label %if.end116
 
 if.then101:                                       ; preds = %lor.lhs.false, %for.end
@@ -3695,20 +3689,20 @@ if.then101:                                       ; preds = %lor.lhs.false, %for
 
 if.then103:                                       ; preds = %if.then101
   %swapArray16104 = getelementptr inbounds nuw i8, ptr %ds, i64 48
-  %24 = load ptr, ptr %swapArray16104, align 8
+  %25 = load ptr, ptr %swapArray16104, align 8
   %mul105 = shl nsw i32 %count.0, 1
-  %call106 = tail call noundef i32 %24(ptr noundef nonnull %ds, ptr noundef nonnull %pKey16.0, i32 noundef %mul105, ptr noundef %qKey16.0, ptr noundef nonnull %pErrorCode)
+  %call106 = tail call noundef i32 %25(ptr noundef nonnull %ds, ptr noundef nonnull %pKey16.0, i32 noundef %mul105, ptr noundef %qKey16.0, ptr noundef nonnull %pErrorCode)
   %swapArray32107 = getelementptr inbounds nuw i8, ptr %ds, i64 56
-  %25 = load ptr, ptr %swapArray32107, align 8
+  %26 = load ptr, ptr %swapArray32107, align 8
   %mul108 = shl nsw i32 %count.0, 2
-  %call109 = tail call noundef i32 %25(ptr noundef nonnull %ds, ptr noundef %add.ptr62, i32 noundef %mul108, ptr noundef %add.ptr64, ptr noundef nonnull %pErrorCode)
+  %call109 = tail call noundef i32 %26(ptr noundef nonnull %ds, ptr noundef %add.ptr62, i32 noundef %mul108, ptr noundef %add.ptr64, ptr noundef nonnull %pErrorCode)
   br label %sw.epilog276
 
 if.else110:                                       ; preds = %if.then101
   %swapArray32111 = getelementptr inbounds nuw i8, ptr %ds, i64 56
-  %26 = load ptr, ptr %swapArray32111, align 8
+  %27 = load ptr, ptr %swapArray32111, align 8
   %mul113 = shl nsw i32 %count.0, 3
-  %call114 = tail call noundef i32 %26(ptr noundef nonnull %ds, ptr noundef %pKey32.0, i32 noundef %mul113, ptr noundef %qKey32.0, ptr noundef nonnull %pErrorCode)
+  %call114 = tail call noundef i32 %27(ptr noundef nonnull %ds, ptr noundef %pKey32.0, i32 noundef %mul113, ptr noundef %qKey32.0, ptr noundef nonnull %pErrorCode)
   br label %sw.epilog276
 
 if.end116:                                        ; preds = %lor.lhs.false
@@ -3734,18 +3728,18 @@ for.body138.lr.ph:                                ; preds = %for.cond136.prehead
 
 for.body121:                                      ; preds = %for.body121.lr.ph, %for.body121
   %indvars.iv266 = phi i64 [ 0, %for.body121.lr.ph ], [ %indvars.iv.next267, %for.body121 ]
-  %27 = load ptr, ptr %readUInt16122, align 8
+  %28 = load ptr, ptr %readUInt16122, align 8
   %arrayidx124 = getelementptr inbounds nuw i16, ptr %pKey16.0, i64 %indvars.iv266
-  %28 = load i16, ptr %arrayidx124, align 2
-  %call125 = tail call noundef zeroext i16 %27(i16 noundef zeroext %28)
+  %29 = load i16, ptr %arrayidx124, align 2
+  %call125 = tail call noundef zeroext i16 %28(i16 noundef zeroext %29)
   %conv126 = zext i16 %call125 to i32
-  %29 = load ptr, ptr %rows, align 8
-  %arrayidx128 = getelementptr inbounds nuw %struct.Row, ptr %29, i64 %indvars.iv266
-  store i32 %conv126, ptr %arrayidx128, align 4
   %30 = load ptr, ptr %rows, align 8
-  %sortIndex = getelementptr inbounds nuw %struct.Row, ptr %30, i64 %indvars.iv266, i32 1
-  %31 = trunc nuw nsw i64 %indvars.iv266 to i32
-  store i32 %31, ptr %sortIndex, align 4
+  %arrayidx128 = getelementptr inbounds nuw %struct.Row, ptr %30, i64 %indvars.iv266
+  store i32 %conv126, ptr %arrayidx128, align 4
+  %31 = load ptr, ptr %rows, align 8
+  %sortIndex = getelementptr inbounds nuw %struct.Row, ptr %31, i64 %indvars.iv266, i32 1
+  %32 = trunc nuw nsw i64 %indvars.iv266 to i32
+  store i32 %32, ptr %sortIndex, align 4
   %indvars.iv.next267 = add nuw nsw i64 %indvars.iv266, 1
   %exitcond270.not = icmp eq i64 %indvars.iv.next267, %wide.trip.count269
   br i1 %exitcond270.not, label %if.end153, label %for.body121, !llvm.loop !11
@@ -3753,26 +3747,26 @@ for.body121:                                      ; preds = %for.body121.lr.ph, 
 for.body138:                                      ; preds = %for.body138.lr.ph, %for.body138
   %indvars.iv271 = phi i64 [ 0, %for.body138.lr.ph ], [ %indvars.iv.next272, %for.body138 ]
   %arrayidx140 = getelementptr inbounds nuw i32, ptr %pKey32.0, i64 %indvars.iv271
-  %32 = load i32, ptr %arrayidx140, align 4
-  %call141 = tail call i32 @udata_readInt32_75(ptr noundef %ds, i32 noundef %32)
-  %33 = load ptr, ptr %rows142, align 8
-  %arrayidx144 = getelementptr inbounds nuw %struct.Row, ptr %33, i64 %indvars.iv271
-  store i32 %call141, ptr %arrayidx144, align 4
+  %33 = load i32, ptr %arrayidx140, align 4
+  %call141 = tail call i32 @udata_readInt32_75(ptr noundef %ds, i32 noundef %33)
   %34 = load ptr, ptr %rows142, align 8
-  %sortIndex149 = getelementptr inbounds nuw %struct.Row, ptr %34, i64 %indvars.iv271, i32 1
-  %35 = trunc nuw nsw i64 %indvars.iv271 to i32
-  store i32 %35, ptr %sortIndex149, align 4
+  %arrayidx144 = getelementptr inbounds nuw %struct.Row, ptr %34, i64 %indvars.iv271
+  store i32 %call141, ptr %arrayidx144, align 4
+  %35 = load ptr, ptr %rows142, align 8
+  %sortIndex149 = getelementptr inbounds nuw %struct.Row, ptr %35, i64 %indvars.iv271, i32 1
+  %36 = trunc nuw nsw i64 %indvars.iv271 to i32
+  store i32 %36, ptr %sortIndex149, align 4
   %indvars.iv.next272 = add nuw nsw i64 %indvars.iv271, 1
   %exitcond275.not = icmp eq i64 %indvars.iv.next272, %wide.trip.count274
   br i1 %exitcond275.not, label %if.end153, label %for.body138, !llvm.loop !12
 
 if.end153:                                        ; preds = %for.body121, %for.body138, %for.cond119.preheader, %for.cond136.preheader
   %rows154 = getelementptr inbounds nuw i8, ptr %pTempTable, i64 8
-  %36 = load ptr, ptr %rows154, align 8
-  %37 = load ptr, ptr %pTempTable, align 8
-  tail call void @uprv_sortArray_75(ptr noundef %36, i32 noundef %count.0, i32 noundef 8, ptr noundef nonnull @_ZL16ures_compareRowsPKvS0_S0_, ptr noundef %37, i8 noundef signext 0, ptr noundef nonnull %pErrorCode)
-  %38 = load i32, ptr %pErrorCode, align 4
-  %cmp.i239 = icmp slt i32 %38, 1
+  %37 = load ptr, ptr %rows154, align 8
+  %38 = load ptr, ptr %pTempTable, align 8
+  tail call void @uprv_sortArray_75(ptr noundef %37, i32 noundef %count.0, i32 noundef 8, ptr noundef nonnull @_ZL16ures_compareRowsPKvS0_S0_, ptr noundef %38, i8 noundef signext 0, ptr noundef nonnull %pErrorCode)
+  %39 = load i32, ptr %pErrorCode, align 4
+  %cmp.i239 = icmp slt i32 %39, 1
   br i1 %cmp.i239, label %if.end158, label %if.then157
 
 if.then157:                                       ; preds = %if.end153
@@ -3788,11 +3782,11 @@ if.then160:                                       ; preds = %if.end158
 
 if.else163:                                       ; preds = %if.then160
   %resort = getelementptr inbounds nuw i8, ptr %pTempTable, i64 16
-  %39 = load ptr, ptr %resort, align 8
+  %40 = load ptr, ptr %resort, align 8
   br label %if.end164
 
 if.end164:                                        ; preds = %if.then160, %if.else163
-  %rKey16.0 = phi ptr [ %39, %if.else163 ], [ %qKey16.0, %if.then160 ]
+  %rKey16.0 = phi ptr [ %40, %if.else163 ], [ %qKey16.0, %if.then160 ]
   br i1 %cmp65246, label %for.body167.lr.ph, label %for.end180
 
 for.body167.lr.ph:                                ; preds = %if.end164
@@ -3802,14 +3796,14 @@ for.body167.lr.ph:                                ; preds = %if.end164
 
 for.body167:                                      ; preds = %for.body167.lr.ph, %for.body167
   %indvars.iv276 = phi i64 [ 0, %for.body167.lr.ph ], [ %indvars.iv.next277, %for.body167 ]
-  %40 = load ptr, ptr %rows154, align 8
-  %sortIndex171 = getelementptr inbounds nuw %struct.Row, ptr %40, i64 %indvars.iv276, i32 1
-  %41 = load i32, ptr %sortIndex171, align 4
-  %42 = load ptr, ptr %swapArray16172, align 8
-  %idx.ext173 = sext i32 %41 to i64
+  %41 = load ptr, ptr %rows154, align 8
+  %sortIndex171 = getelementptr inbounds nuw %struct.Row, ptr %41, i64 %indvars.iv276, i32 1
+  %42 = load i32, ptr %sortIndex171, align 4
+  %43 = load ptr, ptr %swapArray16172, align 8
+  %idx.ext173 = sext i32 %42 to i64
   %add.ptr174 = getelementptr inbounds i16, ptr %pKey16.0, i64 %idx.ext173
   %add.ptr176 = getelementptr inbounds nuw i16, ptr %rKey16.0, i64 %indvars.iv276
-  %call177 = tail call noundef i32 %42(ptr noundef %ds, ptr noundef nonnull %add.ptr174, i32 noundef 2, ptr noundef %add.ptr176, ptr noundef nonnull %pErrorCode)
+  %call177 = tail call noundef i32 %43(ptr noundef %ds, ptr noundef nonnull %add.ptr174, i32 noundef 2, ptr noundef %add.ptr176, ptr noundef nonnull %pErrorCode)
   %indvars.iv.next277 = add nuw nsw i64 %indvars.iv276, 1
   %exitcond280.not = icmp eq i64 %indvars.iv.next277, %wide.trip.count279
   br i1 %exitcond280.not, label %for.end180, label %for.body167, !llvm.loop !13
@@ -3830,11 +3824,11 @@ if.else186:                                       ; preds = %if.end158
 
 if.else189:                                       ; preds = %if.else186
   %resort190 = getelementptr inbounds nuw i8, ptr %pTempTable, i64 16
-  %43 = load ptr, ptr %resort190, align 8
+  %44 = load ptr, ptr %resort190, align 8
   br label %if.end191
 
 if.end191:                                        ; preds = %if.else186, %if.else189
-  %rKey32.0 = phi ptr [ %43, %if.else189 ], [ %qKey32.0, %if.else186 ]
+  %rKey32.0 = phi ptr [ %44, %if.else189 ], [ %qKey32.0, %if.else186 ]
   br i1 %cmp65246, label %for.body194.lr.ph, label %for.end207
 
 for.body194.lr.ph:                                ; preds = %if.end191
@@ -3844,14 +3838,14 @@ for.body194.lr.ph:                                ; preds = %if.end191
 
 for.body194:                                      ; preds = %for.body194.lr.ph, %for.body194
   %indvars.iv281 = phi i64 [ 0, %for.body194.lr.ph ], [ %indvars.iv.next282, %for.body194 ]
-  %44 = load ptr, ptr %rows154, align 8
-  %sortIndex198 = getelementptr inbounds nuw %struct.Row, ptr %44, i64 %indvars.iv281, i32 1
-  %45 = load i32, ptr %sortIndex198, align 4
-  %46 = load ptr, ptr %swapArray32199, align 8
-  %idx.ext200 = sext i32 %45 to i64
+  %45 = load ptr, ptr %rows154, align 8
+  %sortIndex198 = getelementptr inbounds nuw %struct.Row, ptr %45, i64 %indvars.iv281, i32 1
+  %46 = load i32, ptr %sortIndex198, align 4
+  %47 = load ptr, ptr %swapArray32199, align 8
+  %idx.ext200 = sext i32 %46 to i64
   %add.ptr201 = getelementptr inbounds i32, ptr %pKey32.0, i64 %idx.ext200
   %add.ptr203 = getelementptr inbounds nuw i32, ptr %rKey32.0, i64 %indvars.iv281
-  %call204 = tail call noundef i32 %46(ptr noundef %ds, ptr noundef %add.ptr201, i32 noundef 4, ptr noundef %add.ptr203, ptr noundef nonnull %pErrorCode)
+  %call204 = tail call noundef i32 %47(ptr noundef %ds, ptr noundef %add.ptr201, i32 noundef 4, ptr noundef %add.ptr203, ptr noundef nonnull %pErrorCode)
   %indvars.iv.next282 = add nuw nsw i64 %indvars.iv281, 1
   %exitcond285.not = icmp eq i64 %indvars.iv.next282, %wide.trip.count284
   br i1 %exitcond285.not, label %for.end207, label %for.body194, !llvm.loop !14
@@ -3872,11 +3866,11 @@ if.end215:                                        ; preds = %for.end207, %do.bod
 
 if.else218:                                       ; preds = %if.end215
   %resort219 = getelementptr inbounds nuw i8, ptr %pTempTable, i64 16
-  %47 = load ptr, ptr %resort219, align 8
+  %48 = load ptr, ptr %resort219, align 8
   br label %if.end220
 
 if.end220:                                        ; preds = %if.end215, %if.else218
-  %r.0 = phi ptr [ %47, %if.else218 ], [ %add.ptr64, %if.end215 ]
+  %r.0 = phi ptr [ %48, %if.else218 ], [ %add.ptr64, %if.end215 ]
   br i1 %cmp65246, label %for.body223.lr.ph, label %for.end236
 
 for.body223.lr.ph:                                ; preds = %if.end220
@@ -3886,14 +3880,14 @@ for.body223.lr.ph:                                ; preds = %if.end220
 
 for.body223:                                      ; preds = %for.body223.lr.ph, %for.body223
   %indvars.iv286 = phi i64 [ 0, %for.body223.lr.ph ], [ %indvars.iv.next287, %for.body223 ]
-  %48 = load ptr, ptr %rows154, align 8
-  %sortIndex227 = getelementptr inbounds nuw %struct.Row, ptr %48, i64 %indvars.iv286, i32 1
-  %49 = load i32, ptr %sortIndex227, align 4
-  %50 = load ptr, ptr %swapArray32228, align 8
-  %idx.ext229 = sext i32 %49 to i64
+  %49 = load ptr, ptr %rows154, align 8
+  %sortIndex227 = getelementptr inbounds nuw %struct.Row, ptr %49, i64 %indvars.iv286, i32 1
+  %50 = load i32, ptr %sortIndex227, align 4
+  %51 = load ptr, ptr %swapArray32228, align 8
+  %idx.ext229 = sext i32 %50 to i64
   %add.ptr230 = getelementptr inbounds i32, ptr %add.ptr62, i64 %idx.ext229
   %add.ptr232 = getelementptr inbounds nuw i32, ptr %r.0, i64 %indvars.iv286
-  %call233 = tail call noundef i32 %50(ptr noundef %ds, ptr noundef %add.ptr230, i32 noundef 4, ptr noundef %add.ptr232, ptr noundef nonnull %pErrorCode)
+  %call233 = tail call noundef i32 %51(ptr noundef %ds, ptr noundef %add.ptr230, i32 noundef 4, ptr noundef %add.ptr232, ptr noundef nonnull %pErrorCode)
   %indvars.iv.next287 = add nuw nsw i64 %indvars.iv286, 1
   %exitcond290.not = icmp eq i64 %indvars.iv.next287, %wide.trip.count289
   br i1 %exitcond290.not, label %for.end236, label %for.body223, !llvm.loop !15
@@ -3909,13 +3903,13 @@ do.body239:                                       ; preds = %for.end236
   br label %sw.epilog276
 
 sw.bb244:                                         ; preds = %if.else
-  %51 = load i32, ptr %add.ptr, align 4
-  %call247 = tail call i32 @udata_readInt32_75(ptr noundef %ds, i32 noundef %51)
+  %52 = load i32, ptr %add.ptr, align 4
+  %call247 = tail call i32 @udata_readInt32_75(ptr noundef %ds, i32 noundef %52)
   %swapArray32248 = getelementptr inbounds nuw i8, ptr %ds, i64 56
-  %52 = load ptr, ptr %swapArray32248, align 8
+  %53 = load ptr, ptr %swapArray32248, align 8
   %incdec.ptr249 = getelementptr inbounds nuw i8, ptr %add.ptr, i64 4
   %incdec.ptr250 = getelementptr inbounds nuw i8, ptr %add.ptr13, i64 4
-  %call251 = tail call noundef i32 %52(ptr noundef %ds, ptr noundef nonnull %add.ptr, i32 noundef 4, ptr noundef nonnull %add.ptr13, ptr noundef nonnull %pErrorCode)
+  %call251 = tail call noundef i32 %53(ptr noundef %ds, ptr noundef nonnull %add.ptr, i32 noundef 4, ptr noundef nonnull %add.ptr13, ptr noundef nonnull %pErrorCode)
   %cmp253258 = icmp sgt i32 %call247, 0
   br i1 %cmp253258, label %for.body254.lr.ph, label %for.end265
 
@@ -3926,18 +3920,18 @@ for.body254.lr.ph:                                ; preds = %sw.bb244
 
 for.body254:                                      ; preds = %for.body254.lr.ph, %for.inc263
   %indvars.iv291 = phi i64 [ 0, %for.body254.lr.ph ], [ %indvars.iv.next292, %for.inc263 ]
-  %53 = load ptr, ptr %readUInt32255, align 8
+  %54 = load ptr, ptr %readUInt32255, align 8
   %arrayidx257 = getelementptr inbounds nuw i32, ptr %incdec.ptr249, i64 %indvars.iv291
-  %54 = load i32, ptr %arrayidx257, align 4
-  %call258 = tail call noundef i32 %53(i32 noundef %54)
+  %55 = load i32, ptr %arrayidx257, align 4
+  %call258 = tail call noundef i32 %54(i32 noundef %55)
   tail call fastcc void @_ZL17ures_swapResourcePK12UDataSwapperPKjPjjPKcP9TempTableP10UErrorCode(ptr noundef nonnull %ds, ptr noundef nonnull %inBundle, ptr noundef %outBundle, i32 noundef %call258, ptr noundef null, ptr noundef %pTempTable, ptr noundef %pErrorCode)
-  %55 = load i32, ptr %pErrorCode, align 4
-  %cmp.i241 = icmp slt i32 %55, 1
+  %56 = load i32, ptr %pErrorCode, align 4
+  %cmp.i241 = icmp slt i32 %56, 1
   br i1 %cmp.i241, label %for.inc263, label %if.then261
 
 if.then261:                                       ; preds = %for.body254
-  %56 = trunc nuw nsw i64 %indvars.iv291 to i32
-  tail call void (ptr, ptr, ...) @udata_printError_75(ptr noundef nonnull %ds, ptr noundef nonnull @.str.18, i32 noundef %res, i32 noundef %56, i32 noundef %call258)
+  %57 = trunc nuw nsw i64 %indvars.iv291 to i32
+  tail call void (ptr, ptr, ...) @udata_printError_75(ptr noundef nonnull %ds, ptr noundef nonnull @.str.18, i32 noundef %res, i32 noundef %57, i32 noundef %call258)
   br label %sw.epilog276
 
 for.inc263:                                       ; preds = %for.body254
@@ -3946,26 +3940,26 @@ for.inc263:                                       ; preds = %for.body254
   br i1 %exitcond295.not, label %for.end265, label %for.body254, !llvm.loop !16
 
 for.end265:                                       ; preds = %for.inc263, %sw.bb244
-  %57 = load ptr, ptr %swapArray32248, align 8
+  %58 = load ptr, ptr %swapArray32248, align 8
   %mul267 = shl nsw i32 %call247, 2
-  %call268 = tail call noundef i32 %57(ptr noundef nonnull %ds, ptr noundef nonnull %incdec.ptr249, i32 noundef %mul267, ptr noundef nonnull %incdec.ptr250, ptr noundef nonnull %pErrorCode)
+  %call268 = tail call noundef i32 %58(ptr noundef nonnull %ds, ptr noundef nonnull %incdec.ptr249, i32 noundef %mul267, ptr noundef nonnull %incdec.ptr250, ptr noundef nonnull %pErrorCode)
   br label %sw.epilog276
 
 sw.bb269:                                         ; preds = %if.else
-  %58 = load i32, ptr %add.ptr, align 4
-  %call270 = tail call i32 @udata_readInt32_75(ptr noundef %ds, i32 noundef %58)
+  %59 = load i32, ptr %add.ptr, align 4
+  %call270 = tail call i32 @udata_readInt32_75(ptr noundef %ds, i32 noundef %59)
   %swapArray32271 = getelementptr inbounds nuw i8, ptr %ds, i64 56
-  %59 = load ptr, ptr %swapArray32271, align 8
+  %60 = load ptr, ptr %swapArray32271, align 8
   %add272 = shl i32 %call270, 2
   %mul273 = add i32 %add272, 4
-  %call274 = tail call noundef i32 %59(ptr noundef %ds, ptr noundef nonnull %add.ptr, i32 noundef %mul273, ptr noundef nonnull %add.ptr13, ptr noundef nonnull %pErrorCode)
+  %call274 = tail call noundef i32 %60(ptr noundef %ds, ptr noundef nonnull %add.ptr, i32 noundef %mul273, ptr noundef nonnull %add.ptr13, ptr noundef nonnull %pErrorCode)
   br label %sw.epilog276
 
 sw.default275:                                    ; preds = %if.else
   store i32 16, ptr %pErrorCode, align 4
   br label %sw.epilog276
 
-sw.epilog276:                                     ; preds = %for.end236, %do.body239, %if.then103, %if.else110, %if.end57, %sw.bb21, %cond.end, %if.then33, %if.end, %sw.epilog, %entry, %entry, %entry, %entry, %sw.default275, %sw.bb269, %for.end265, %if.then261, %if.then157, %if.then94, %sw.bb16
+sw.epilog276:                                     ; preds = %cond.true, %for.end236, %do.body239, %if.then103, %if.else110, %if.end57, %sw.bb21, %cond.end, %if.then33, %if.end, %sw.epilog, %entry, %entry, %entry, %entry, %sw.default275, %sw.bb269, %for.end265, %if.then261, %if.then157, %if.then94, %sw.bb16
   ret void
 }
 

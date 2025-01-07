@@ -1134,7 +1134,7 @@ rb_class_of.exit.i:                               ; preds = %15, %13, %12, %11, 
   %.0.in.i.i = phi ptr [ @rb_cNilClass, %11 ], [ @rb_cTrueClass, %12 ], [ %9, %7 ], [ @rb_cFalseClass, %10 ], [ @rb_cInteger, %13 ], [ %spec.select.i.i, %15 ]
   %.0.i.i = load i64, ptr %.0.in.i.i, align 8
   %.not10.i.i = icmp eq i64 %.0.i.i, 0
-  br i1 %.not10.i.i, label %.thread.i.i, label %.lr.ph.i.i
+  br i1 %.not10.i.i, label %.critedge.i.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %rb_class_of.exit.i, %.critedge2.i.i
   %.011.i.i = phi i64 [ %24, %.critedge2.i.i ], [ %.0.i.i, %rb_class_of.exit.i ]
@@ -1151,24 +1151,24 @@ rb_class_of.exit.i:                               ; preds = %15, %13, %12, %11, 
   %23 = getelementptr inbounds nuw i8, ptr %18, i64 16
   %24 = load i64, ptr %23, align 8
   %.not.i1.i = icmp eq i64 %24, 0
-  br i1 %.not.i1.i, label %.thread.i.i, label %.lr.ph.i.i, !llvm.loop !7
+  br i1 %.not.i1.i, label %.critedge.i.i, label %.lr.ph.i.i, !llvm.loop !7
 
 rb_obj_class.exit:                                ; preds = %.lr.ph.i.i
   %25 = and i64 %.011.i.i, 7
   %.not = icmp eq i64 %25, 0
-  %26 = icmp eq i64 %21, 2
-  %or.cond = and i1 %.not, %26
-  br i1 %or.cond, label %rb_obj_alloc.exit, label %.thread.i.i
+  %.not.i.i4 = icmp eq i64 %21, 2
+  %or.cond = and i1 %.not, %.not.i.i4
+  br i1 %or.cond, label %rb_obj_alloc.exit, label %.critedge.i.i
 
-.thread.i.i:                                      ; preds = %.critedge2.i.i, %rb_class_of.exit.i, %rb_obj_class.exit
-  %.0.lcssa.i.i5 = phi i64 [ %.011.i.i, %rb_obj_class.exit ], [ 0, %rb_class_of.exit.i ], [ 0, %.critedge2.i.i ]
-  tail call void @rb_unexpected_type(i64 noundef %.0.lcssa.i.i5, i32 noundef 2) #22
+.critedge.i.i:                                    ; preds = %.critedge2.i.i, %rb_class_of.exit.i, %rb_obj_class.exit
+  %.0.lcssa.i.i6 = phi i64 [ %.011.i.i, %rb_obj_class.exit ], [ 0, %rb_class_of.exit.i ], [ 0, %.critedge2.i.i ]
+  tail call void @rb_unexpected_type(i64 noundef %.0.lcssa.i.i6, i32 noundef 2) #22
   unreachable
 
 rb_obj_alloc.exit:                                ; preds = %rb_obj_class.exit
-  %27 = tail call fastcc i64 @rb_class_alloc(i64 noundef %.011.i.i)
-  %28 = tail call i64 @rb_obj_clone_setup(i64 noundef %0, i64 noundef %27, i64 noundef %1)
-  ret i64 %27
+  %26 = tail call fastcc i64 @rb_class_alloc(i64 noundef %.011.i.i)
+  %27 = tail call i64 @rb_obj_clone_setup(i64 noundef %0, i64 noundef %26, i64 noundef %1)
+  ret i64 %26
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -1203,7 +1203,7 @@ rb_class_of.exit.i:                               ; preds = %6
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %.0.i.i = load i64, ptr %11, align 8
   %.not10.i.i = icmp eq i64 %.0.i.i, 0
-  br i1 %.not10.i.i, label %.thread.i.i, label %.lr.ph.i.i
+  br i1 %.not10.i.i, label %.critedge.i.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %rb_class_of.exit.i, %.critedge2.i.i
   %.011.i.i = phi i64 [ %18, %.critedge2.i.i ], [ %.0.i.i, %rb_class_of.exit.i ]
@@ -1220,28 +1220,28 @@ rb_class_of.exit.i:                               ; preds = %6
   %17 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %18 = load i64, ptr %17, align 8
   %.not.i1.i = icmp eq i64 %18, 0
-  br i1 %.not.i1.i, label %.thread.i.i, label %.lr.ph.i.i, !llvm.loop !7
+  br i1 %.not.i1.i, label %.critedge.i.i, label %.lr.ph.i.i, !llvm.loop !7
 
 rb_obj_class.exit:                                ; preds = %.lr.ph.i.i
   %19 = and i64 %.011.i.i, 7
   %.not = icmp eq i64 %19, 0
-  %20 = icmp eq i64 %15, 2
-  %or.cond = and i1 %.not, %20
-  br i1 %or.cond, label %rb_obj_alloc.exit, label %.thread.i.i
+  %.not.i.i6 = icmp eq i64 %15, 2
+  %or.cond = and i1 %.not, %.not.i.i6
+  br i1 %or.cond, label %rb_obj_alloc.exit, label %.critedge.i.i
 
-.thread.i.i:                                      ; preds = %.critedge2.i.i, %rb_class_of.exit.i, %rb_obj_class.exit
-  %.0.lcssa.i.i9 = phi i64 [ %.011.i.i, %rb_obj_class.exit ], [ 0, %rb_class_of.exit.i ], [ 0, %.critedge2.i.i ]
-  tail call void @rb_unexpected_type(i64 noundef %.0.lcssa.i.i9, i32 noundef 2) #22
+.critedge.i.i:                                    ; preds = %.critedge2.i.i, %rb_class_of.exit.i, %rb_obj_class.exit
+  %.0.lcssa.i.i10 = phi i64 [ %.011.i.i, %rb_obj_class.exit ], [ 0, %rb_class_of.exit.i ], [ 0, %.critedge2.i.i ]
+  tail call void @rb_unexpected_type(i64 noundef %.0.lcssa.i.i10, i32 noundef 2) #22
   unreachable
 
 rb_obj_alloc.exit:                                ; preds = %rb_obj_class.exit
-  %21 = tail call fastcc i64 @rb_class_alloc(i64 noundef %.011.i.i)
-  tail call fastcc void @init_copy(i64 noundef %21, i64 noundef %0)
-  %22 = tail call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %21, i64 noundef 3185, i32 noundef 1, i64 noundef %0) #20
+  %20 = tail call fastcc i64 @rb_class_alloc(i64 noundef %.011.i.i)
+  tail call fastcc void @init_copy(i64 noundef %20, i64 noundef %0)
+  %21 = tail call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %20, i64 noundef 3185, i32 noundef 1, i64 noundef %0) #20
   br label %special_object_p.exit.thread
 
 special_object_p.exit.thread:                     ; preds = %6, %6, %6, %6, %6, %1, %rb_obj_alloc.exit
-  %.0 = phi i64 [ %21, %rb_obj_alloc.exit ], [ %0, %1 ], [ %0, %6 ], [ %0, %6 ], [ %0, %6 ], [ %0, %6 ], [ %0, %6 ]
+  %.0 = phi i64 [ %20, %rb_obj_alloc.exit ], [ %0, %1 ], [ %0, %6 ], [ %0, %6 ], [ %0, %6 ], [ %0, %6 ], [ %0, %6 ]
   ret i64 %.0
 }
 
@@ -1251,22 +1251,22 @@ define dso_local i64 @rb_obj_alloc(i64 noundef %0) local_unnamed_addr #2 {
   %3 = icmp ne i64 %2, 0
   %4 = icmp eq i64 %0, 0
   %5 = or i1 %4, %3
-  br i1 %5, label %.thread.i, label %6
+  br i1 %5, label %.critedge.i, label %6
 
 6:                                                ; preds = %1
   %7 = inttoptr i64 %0 to ptr
   %8 = load i64, ptr %7, align 8
   %9 = and i64 %8, 31
-  %10 = icmp eq i64 %9, 2
-  br i1 %10, label %Check_Type.exit, label %.thread.i
+  %.not.i = icmp eq i64 %9, 2
+  br i1 %.not.i, label %Check_Type.exit, label %.critedge.i
 
-.thread.i:                                        ; preds = %6, %1
+.critedge.i:                                      ; preds = %6, %1
   tail call void @rb_unexpected_type(i64 noundef %0, i32 noundef 2) #22
   unreachable
 
 Check_Type.exit:                                  ; preds = %6
-  %11 = tail call fastcc i64 @rb_class_alloc(i64 noundef %0)
-  ret i64 %11
+  %10 = tail call fastcc i64 @rb_class_alloc(i64 noundef %0)
+  ret i64 %10
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
@@ -2328,23 +2328,23 @@ define dso_local noundef i64 @rb_class_new_instance_kw(i32 noundef %0, ptr nound
   %6 = icmp ne i64 %5, 0
   %7 = icmp eq i64 %2, 0
   %8 = or i1 %7, %6
-  br i1 %8, label %.thread.i, label %9
+  br i1 %8, label %.critedge.i, label %9
 
 9:                                                ; preds = %4
   %10 = inttoptr i64 %2 to ptr
   %11 = load i64, ptr %10, align 8
   %12 = and i64 %11, 31
-  %13 = icmp eq i64 %12, 2
-  br i1 %13, label %Check_Type.exit, label %.thread.i
+  %.not.i = icmp eq i64 %12, 2
+  br i1 %.not.i, label %Check_Type.exit, label %.critedge.i
 
-.thread.i:                                        ; preds = %9, %4
+.critedge.i:                                      ; preds = %9, %4
   tail call void @rb_unexpected_type(i64 noundef %2, i32 noundef 2) #22
   unreachable
 
 Check_Type.exit:                                  ; preds = %9
-  %14 = tail call fastcc i64 @rb_class_alloc(i64 noundef %2)
-  tail call void @rb_obj_call_init_kw(i64 noundef %14, i32 noundef %0, ptr noundef %1, i32 noundef %3) #20
-  ret i64 %14
+  %13 = tail call fastcc i64 @rb_class_alloc(i64 noundef %2)
+  tail call void @rb_obj_call_init_kw(i64 noundef %13, i32 noundef %0, ptr noundef %1, i32 noundef %3) #20
+  ret i64 %13
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -2353,23 +2353,23 @@ define dso_local noundef i64 @rb_class_new_instance(i32 noundef %0, ptr noundef 
   %5 = icmp ne i64 %4, 0
   %6 = icmp eq i64 %2, 0
   %7 = or i1 %6, %5
-  br i1 %7, label %.thread.i.i, label %8
+  br i1 %7, label %.critedge.i.i, label %8
 
 8:                                                ; preds = %3
   %9 = inttoptr i64 %2 to ptr
   %10 = load i64, ptr %9, align 8
   %11 = and i64 %10, 31
-  %12 = icmp eq i64 %11, 2
-  br i1 %12, label %rb_class_new_instance_kw.exit, label %.thread.i.i
+  %.not.i.i = icmp eq i64 %11, 2
+  br i1 %.not.i.i, label %rb_class_new_instance_kw.exit, label %.critedge.i.i
 
-.thread.i.i:                                      ; preds = %8, %3
+.critedge.i.i:                                    ; preds = %8, %3
   tail call void @rb_unexpected_type(i64 noundef %2, i32 noundef 2) #22
   unreachable
 
 rb_class_new_instance_kw.exit:                    ; preds = %8
-  %13 = tail call fastcc i64 @rb_class_alloc(i64 noundef %2)
-  tail call void @rb_obj_call_init_kw(i64 noundef %13, i32 noundef %0, ptr noundef %1, i32 noundef 0) #20
-  ret i64 %13
+  %12 = tail call fastcc i64 @rb_class_alloc(i64 noundef %2)
+  tail call void @rb_obj_call_init_kw(i64 noundef %12, i32 noundef %0, ptr noundef %1, i32 noundef 0) #20
+  ret i64 %12
 }
 
 ; Function Attrs: mustprogress nofree nounwind sspstrong willreturn memory(read) uwtable
@@ -4809,7 +4809,7 @@ define internal fastcc double @rat2dbl_without_to_f(i64 noundef %0) unnamed_addr
   %14 = inttoptr i64 %2 to ptr
   %15 = load i64, ptr %14, align 8
   %16 = and i64 %15, 31
-  switch i64 %16, label %.thread.i [
+  switch i64 %16, label %.critedge.i [
     i64 10, label %17
     i64 4, label %Check_Type.exit
   ]
@@ -4820,10 +4820,10 @@ define internal fastcc double @rat2dbl_without_to_f(i64 noundef %0) unnamed_addr
 
 .critedge:                                        ; preds = %8
   %19 = and i64 %2, 2
-  %.not60 = icmp eq i64 %19, 0
-  br i1 %.not60, label %.thread.i, label %20
+  %.not62 = icmp eq i64 %19, 0
+  br i1 %.not62, label %.critedge.i, label %20
 
-.thread.i:                                        ; preds = %13, %.critedge
+.critedge.i:                                      ; preds = %13, %.critedge
   tail call void @rb_unexpected_type(i64 noundef %2, i32 noundef 4) #22
   unreachable
 
@@ -4848,13 +4848,13 @@ Check_Type.exit:                                  ; preds = %13
 rb_float_value_inline.exit:                       ; preds = %Check_Type.exit, %21, %20, %17, %5
   %29 = phi double [ %7, %5 ], [ %18, %17 ], [ %28, %Check_Type.exit ], [ %26, %21 ], [ 0.000000e+00, %20 ]
   %30 = and i64 %3, 1
-  %.not61 = icmp eq i64 %30, 0
-  br i1 %.not61, label %34, label %31
+  %.not63 = icmp eq i64 %30, 0
+  br i1 %.not63, label %34, label %31
 
 31:                                               ; preds = %rb_float_value_inline.exit
   %32 = ashr i64 %3, 1
   %33 = sitofp i64 %32 to double
-  br label %rb_float_value_inline.exit58
+  br label %rb_float_value_inline.exit60
 
 34:                                               ; preds = %rb_float_value_inline.exit
   %35 = and i64 %3, 6
@@ -4867,44 +4867,44 @@ rb_float_value_inline.exit:                       ; preds = %Check_Type.exit, %2
   %40 = inttoptr i64 %3 to ptr
   %41 = load i64, ptr %40, align 8
   %42 = and i64 %41, 31
-  switch i64 %42, label %.thread.i53 [
+  switch i64 %42, label %.critedge.i55 [
     i64 10, label %43
-    i64 4, label %Check_Type.exit54
+    i64 4, label %Check_Type.exit56
   ]
 
 43:                                               ; preds = %39
   %44 = tail call double @rb_big2dbl(i64 noundef %3) #20
-  br label %rb_float_value_inline.exit58
+  br label %rb_float_value_inline.exit60
 
 .critedge52:                                      ; preds = %34
   %45 = and i64 %3, 2
-  %.not62 = icmp eq i64 %45, 0
-  br i1 %.not62, label %.thread.i53, label %46
+  %.not64 = icmp eq i64 %45, 0
+  br i1 %.not64, label %.critedge.i55, label %46
 
-.thread.i53:                                      ; preds = %39, %.critedge52
+.critedge.i55:                                    ; preds = %39, %.critedge52
   tail call void @rb_unexpected_type(i64 noundef %3, i32 noundef 4) #22
   unreachable
 
 46:                                               ; preds = %.critedge52
-  %.not.i.i56 = icmp eq i64 %3, -9223372036854775806
-  br i1 %.not.i.i56, label %rb_float_value_inline.exit58, label %47
+  %.not.i.i58 = icmp eq i64 %3, -9223372036854775806
+  br i1 %.not.i.i58, label %rb_float_value_inline.exit60, label %47
 
 47:                                               ; preds = %46
-  %.neg.i.i57 = ashr i64 %3, 63
-  %48 = add nsw i64 %.neg.i.i57, 2
+  %.neg.i.i59 = ashr i64 %3, 63
+  %48 = add nsw i64 %.neg.i.i59, 2
   %49 = and i64 %3, -4
   %50 = or i64 %48, %49
   %51 = tail call noundef i64 @llvm.fshl.i64(i64 range(i64 1, 0) %50, i64 range(i64 1, 0) %50, i64 61)
   %52 = bitcast i64 %51 to double
-  br label %rb_float_value_inline.exit58
+  br label %rb_float_value_inline.exit60
 
-Check_Type.exit54:                                ; preds = %39
+Check_Type.exit56:                                ; preds = %39
   %53 = getelementptr inbounds nuw i8, ptr %40, i64 16
   %54 = load double, ptr %53, align 8
-  br label %rb_float_value_inline.exit58
+  br label %rb_float_value_inline.exit60
 
-rb_float_value_inline.exit58:                     ; preds = %Check_Type.exit54, %47, %46, %43, %31
-  %55 = phi double [ %33, %31 ], [ %44, %43 ], [ %54, %Check_Type.exit54 ], [ %52, %47 ], [ 0.000000e+00, %46 ]
+rb_float_value_inline.exit60:                     ; preds = %Check_Type.exit56, %47, %46, %43, %31
+  %55 = phi double [ %33, %31 ], [ %44, %43 ], [ %54, %Check_Type.exit56 ], [ %52, %47 ], [ 0.000000e+00, %46 ]
   %56 = fdiv double %29, %55
   ret double %56
 }

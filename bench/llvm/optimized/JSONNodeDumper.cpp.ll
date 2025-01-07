@@ -4088,43 +4088,43 @@ define dso_local void @_ZN5clang14JSONNodeDumper27createPointerRepresentationB5c
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5)
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 17
   %8 = icmp eq ptr %2, null
-  br i1 %8, label %.thread, label %.lr.ph.split.us.i.preheader
+  br i1 %8, label %10, label %.thread.i.preheader
 
-.lr.ph.split.us.i.preheader:                      ; preds = %3
+.thread.i.preheader:                              ; preds = %3
   %9 = ptrtoint ptr %2 to i64
-  br label %.lr.ph.split.us.i
+  br label %.thread.i
 
-.thread:                                          ; preds = %3
-  %10 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store i8 48, ptr %10, align 16, !noalias !4
+10:                                               ; preds = %3
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  store i8 48, ptr %11, align 16, !noalias !4
   br label %_ZN4llvm9utohexstrB5cxx11Embj.exit
 
-.lr.ph.split.us.i:                                ; preds = %.lr.ph.split.us.i.preheader, %.lr.ph.split.us.i
-  %.019.us.i = phi i64 [ %16, %.lr.ph.split.us.i ], [ %9, %.lr.ph.split.us.i.preheader ]
-  %.117.us.i = phi ptr [ %15, %.lr.ph.split.us.i ], [ %7, %.lr.ph.split.us.i.preheader ]
-  %11 = and i64 %.019.us.i, 15
-  %12 = getelementptr inbounds nuw [17 x i8], ptr @_ZZN4llvm8hexdigitEjbE3LUT, i64 0, i64 %11
-  %13 = load i8, ptr %12, align 1, !noalias !4
-  %14 = or i8 %13, 32
-  %15 = getelementptr inbounds i8, ptr %.117.us.i, i64 -1
-  store i8 %14, ptr %15, align 1, !noalias !4
-  %16 = lshr i64 %.019.us.i, 4
-  %.not15.us.i = icmp ult i64 %.019.us.i, 16
-  br i1 %.not15.us.i, label %_ZN4llvm9utohexstrB5cxx11Embj.exit, label %.lr.ph.split.us.i, !llvm.loop !7
+.thread.i:                                        ; preds = %.thread.i.preheader, %.thread.i
+  %.019.i = phi i64 [ %17, %.thread.i ], [ %9, %.thread.i.preheader ]
+  %.117.i = phi ptr [ %16, %.thread.i ], [ %7, %.thread.i.preheader ]
+  %12 = and i64 %.019.i, 15
+  %13 = getelementptr inbounds nuw [17 x i8], ptr @_ZZN4llvm8hexdigitEjbE3LUT, i64 0, i64 %12
+  %14 = load i8, ptr %13, align 1, !noalias !4
+  %15 = or i8 %14, 32
+  %16 = getelementptr inbounds i8, ptr %.117.i, i64 -1
+  store i8 %15, ptr %16, align 1, !noalias !4
+  %17 = lshr i64 %.019.i, 4
+  %18 = icmp ult i64 %.019.i, 16
+  br i1 %18, label %_ZN4llvm9utohexstrB5cxx11Embj.exit, label %.thread.i, !llvm.loop !7
 
-_ZN4llvm9utohexstrB5cxx11Embj.exit:               ; preds = %.lr.ph.split.us.i, %.thread
-  %.1.lcssa.i = phi ptr [ %10, %.thread ], [ %15, %.lr.ph.split.us.i ]
+_ZN4llvm9utohexstrB5cxx11Embj.exit:               ; preds = %.thread.i, %10
+  %.1.lcssa.i = phi ptr [ %11, %10 ], [ %16, %.thread.i ]
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #20, !noalias !4
-  %17 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %6) #20
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef %17, ptr noundef nonnull align 1 dereferenceable(1) %5) #20
-  %18 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store i64 0, ptr %18, align 8, !alias.scope !4
+  %19 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %6) #20
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef %19, ptr noundef nonnull align 1 dereferenceable(1) %5) #20
+  %20 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  store i64 0, ptr %20, align 8, !alias.scope !4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPcEEvT_S7_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull %.1.lcssa.i, ptr noundef nonnull %7)
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #20
   call void @llvm.lifetime.end.p0(i64 17, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5)
-  %19 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6insertEmPKc(ptr noundef nonnull align 8 dereferenceable(32) %6, i64 noundef 0, ptr noundef nonnull @.str.481) #20, !noalias !9
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %19) #20
+  %21 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6insertEmPKc(ptr noundef nonnull align 8 dereferenceable(32) %6, i64 noundef 0, ptr noundef nonnull @.str.481) #20, !noalias !9
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %21) #20
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #20
   ret void
 }

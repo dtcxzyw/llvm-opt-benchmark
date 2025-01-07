@@ -38339,18 +38339,16 @@ _ZN15rustfmt_nightly7rewrite14RewriteContext7snippet17h7d81c3a187049865E.exit: ;
 
 _ZN4core3str11validations23next_code_point_reverse17h6c1ce942d36db8edE.exit.thread.i.i.i: ; preds = %213, %211
   %.sroa.4.1.i.ph.i.i.i = phi i32 [ %212, %211 ], [ %217, %213 ]
-  br i1 %187, label %"_ZN87_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..ReverseSearcher$GT$9next_back17hb4a8c03155d43c77E.exit.thread7.i.i", label %238
+  %238 = icmp eq i32 %.sroa.4.1.i.ph.i.i.i, 1114112
+  %or.cond = select i1 %187, i1 true, i1 %238
+  br i1 %or.cond, label %"_ZN87_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..ReverseSearcher$GT$9next_back17hb4a8c03155d43c77E.exit.thread7.i.i.loopexit", label %240
 
 .thread.i.i.i:                                    ; preds = %"_ZN87_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..ReverseSearcher$GT$9next_back17hb4a8c03155d43c77E.exit.i.i", %.lr.ph.i.i138
   %.lcssa4.i = phi i1 [ %185, %.lr.ph.i.i138 ], [ %247, %"_ZN87_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..ReverseSearcher$GT$9next_back17hb4a8c03155d43c77E.exit.i.i" ]
-  %spec.select104 = zext i1 %.lcssa4.i to i64
+  %239 = xor i1 %.lcssa4.i, true
   br label %"_ZN87_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..ReverseSearcher$GT$9next_back17hb4a8c03155d43c77E.exit.thread7.i.i"
 
-238:                                              ; preds = %_ZN4core3str11validations23next_code_point_reverse17h6c1ce942d36db8edE.exit.thread.i.i.i
-  %239 = icmp eq i32 %.sroa.4.1.i.ph.i.i.i, 1114112
-  br i1 %239, label %"_ZN87_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..ReverseSearcher$GT$9next_back17hb4a8c03155d43c77E.exit.thread7.i.i", label %240
-
-240:                                              ; preds = %238
+240:                                              ; preds = %_ZN4core3str11validations23next_code_point_reverse17h6c1ce942d36db8edE.exit.thread.i.i.i
   %241 = icmp samesign ult i32 %.sroa.4.1.i.ph.i.i.i, 128
   br i1 %241, label %"_ZN87_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..ReverseSearcher$GT$9next_back17hb4a8c03155d43c77E.exit.i.i", label %242
 
@@ -38390,18 +38388,22 @@ thread-pre-split:                                 ; preds = %.invoke
   %.pr = load i64, ptr %35, align 8, !noalias !5813
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %35, i64 8
   %.pre = load i64, ptr %.phi.trans.insert, align 8, !noalias !5813
+  %261 = icmp eq i64 %.pr, 0
   br label %"_ZN87_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..ReverseSearcher$GT$9next_back17hb4a8c03155d43c77E.exit.thread7.i.i"
 
-"_ZN87_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..ReverseSearcher$GT$9next_back17hb4a8c03155d43c77E.exit.thread7.i.i": ; preds = %_ZN4core3str11validations23next_code_point_reverse17h6c1ce942d36db8edE.exit.thread.i.i.i, %238, %.thread.i.i.i, %.preheader.i.i, %thread-pre-split
-  %261 = phi i64 [ %.pre, %thread-pre-split ], [ undef, %.preheader.i.i ], [ 0, %.thread.i.i.i ], [ %188, %238 ], [ %188, %_ZN4core3str11validations23next_code_point_reverse17h6c1ce942d36db8edE.exit.thread.i.i.i ]
-  %262 = phi i64 [ %.pr, %thread-pre-split ], [ 0, %.preheader.i.i ], [ %spec.select104, %.thread.i.i.i ], [ 1, %_ZN4core3str11validations23next_code_point_reverse17h6c1ce942d36db8edE.exit.thread.i.i.i ], [ 0, %238 ]
+"_ZN87_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..ReverseSearcher$GT$9next_back17hb4a8c03155d43c77E.exit.thread7.i.i.loopexit": ; preds = %_ZN4core3str11validations23next_code_point_reverse17h6c1ce942d36db8edE.exit.thread.i.i.i
+  %switch.ph = xor i1 %187, true
+  br label %"_ZN87_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..ReverseSearcher$GT$9next_back17hb4a8c03155d43c77E.exit.thread7.i.i"
+
+"_ZN87_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..ReverseSearcher$GT$9next_back17hb4a8c03155d43c77E.exit.thread7.i.i": ; preds = %"_ZN87_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..ReverseSearcher$GT$9next_back17hb4a8c03155d43c77E.exit.thread7.i.i.loopexit", %.thread.i.i.i, %.preheader.i.i, %thread-pre-split
+  %262 = phi i64 [ %.pre, %thread-pre-split ], [ undef, %.preheader.i.i ], [ 0, %.thread.i.i.i ], [ %188, %"_ZN87_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..ReverseSearcher$GT$9next_back17hb4a8c03155d43c77E.exit.thread7.i.i.loopexit" ]
+  %switch = phi i1 [ %261, %thread-pre-split ], [ true, %.preheader.i.i ], [ %239, %.thread.i.i.i ], [ %switch.ph, %"_ZN87_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..ReverseSearcher$GT$9next_back17hb4a8c03155d43c77E.exit.thread7.i.i.loopexit" ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %35), !noalias !5813
   call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %34), !noalias !5813
-  %switch = icmp eq i64 %262, 0
   br i1 %switch, label %.invoke102, label %263
 
 263:                                              ; preds = %"_ZN87_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..ReverseSearcher$GT$9next_back17hb4a8c03155d43c77E.exit.thread7.i.i"
-  %264 = add i64 %261, 2
+  %264 = add i64 %262, 2
   %265 = icmp eq i64 %264, 0
   br i1 %265, label %273, label %266
 

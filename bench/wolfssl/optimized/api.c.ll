@@ -3497,37 +3497,38 @@ do.body10:                                        ; preds = %test_ssl_memio_setu
   br label %do.end167
 
 while.body.i:                                     ; preds = %while.body.i.preheader, %if.end45.i
-  %failing_c.05.i = phi i32 [ %failing_c.1.i, %if.end45.i ], [ 0, %while.body.i.preheader ]
-  %failing_s.04.i = phi i32 [ %failing_s.1.i, %if.end45.i ], [ 0, %while.body.i.preheader ]
-  %hs_s.03.i = phi i32 [ %hs_s.1.i, %if.end45.i ], [ 0, %while.body.i.preheader ]
-  %hs_c.02.i = phi i32 [ %hs_c.1.i, %if.end45.i ], [ 0, %while.body.i.preheader ]
+  %failing_c.06.i = phi i32 [ %failing_c.1.i, %if.end45.i ], [ 0, %while.body.i.preheader ]
+  %failing_s.05.i = phi i32 [ %failing_s.1.i, %if.end45.i ], [ 0, %while.body.i.preheader ]
+  %hs_s.04.i = phi i32 [ %hs_s.1.i, %if.end45.i ], [ 0, %while.body.i.preheader ]
+  %hs_c.03.i = phi i32 [ %hs_c.1.i, %if.end45.i ], [ 0, %while.body.i.preheader ]
   %max_rounds.addr.01.i = phi i32 [ %dec.i, %if.end45.i ], [ 10, %while.body.i.preheader ]
-  %tobool2.not.i = icmp eq i32 %hs_c.02.i, 0
+  %tobool2.not.i = icmp eq i32 %hs_c.03.i, 0
   br i1 %tobool2.not.i, label %if.then3.i, label %if.end18.i
 
 if.then3.i:                                       ; preds = %while.body.i
   call void @wolfSSL_SetLoggingPrefix(ptr noundef nonnull @.str.3) #25
   %102 = load ptr, ptr %c_ssl464.i, align 8
-  %call.i42 = call i32 @wolfSSL_connect(ptr noundef %102) #25
+  %call.i41 = call i32 @wolfSSL_connect(ptr noundef %102) #25
   call void @wolfSSL_SetLoggingPrefix(ptr noundef null) #25
-  %cmp4.i = icmp eq i32 %call.i42, 1
-  br i1 %cmp4.i, label %if.end18.i, label %if.else.i43
+  %cmp4.i = icmp eq i32 %call.i41, 1
+  br i1 %cmp4.i, label %if.end18.i, label %if.else.i42
 
-if.else.i43:                                      ; preds = %if.then3.i
+if.else.i42:                                      ; preds = %if.then3.i
   %103 = load ptr, ptr %c_ssl464.i, align 8
-  %call7.i44 = call i32 @wolfSSL_get_error(ptr noundef %103, i32 noundef %call.i42) #25
-  %104 = add i32 %call7.i44, -4
+  %call7.i43 = call i32 @wolfSSL_get_error(ptr noundef %103, i32 noundef %call.i41) #25
+  %104 = add i32 %call7.i43, -4
   %or.cond.i = icmp ult i32 %104, -2
   br i1 %or.cond.i, label %if.then10.i, label %if.end18.i
 
-if.then10.i:                                      ; preds = %if.else.i43
-  %tobool13.not.i = icmp eq i32 %failing_s.04.i, 0
+if.then10.i:                                      ; preds = %if.else.i42
+  %tobool13.not.i = icmp eq i32 %failing_s.05.i, 0
   br i1 %tobool13.not.i, label %if.end18.i, label %do.body33
 
-if.end18.i:                                       ; preds = %if.then10.i, %if.else.i43, %if.then3.i, %while.body.i
-  %hs_c.1.i = phi i32 [ 1, %while.body.i ], [ 1, %if.then10.i ], [ 0, %if.else.i43 ], [ 1, %if.then3.i ]
-  %failing_c.1.i = phi i32 [ %failing_c.05.i, %while.body.i ], [ 1, %if.then10.i ], [ %failing_c.05.i, %if.else.i43 ], [ %failing_c.05.i, %if.then3.i ]
-  %tobool19.not.i = icmp eq i32 %hs_s.03.i, 0
+if.end18.i:                                       ; preds = %if.then10.i, %if.else.i42, %if.then3.i, %while.body.i
+  %tobool39.i = phi i1 [ false, %while.body.i ], [ false, %if.then10.i ], [ true, %if.else.i42 ], [ false, %if.then3.i ]
+  %hs_c.1.i = phi i32 [ 1, %while.body.i ], [ 1, %if.then10.i ], [ 0, %if.else.i42 ], [ 1, %if.then3.i ]
+  %failing_c.1.i = phi i32 [ %failing_c.06.i, %while.body.i ], [ 1, %if.then10.i ], [ %failing_c.06.i, %if.else.i42 ], [ %failing_c.06.i, %if.then3.i ]
+  %tobool19.not.i = icmp eq i32 %hs_s.04.i, 0
   br i1 %tobool19.not.i, label %if.then20.i, label %if.end45.i
 
 if.then20.i:                                      ; preds = %if.end18.i
@@ -3550,17 +3551,17 @@ if.then30.i:                                      ; preds = %if.else24.i
   br i1 %tobool31.not.i, label %if.end45.i, label %do.body33
 
 if.end45.i:                                       ; preds = %if.then30.i, %if.else24.i, %if.then20.i, %if.end18.i
+  %tobool41.i = phi i1 [ false, %if.end18.i ], [ false, %if.then30.i ], [ true, %if.else24.i ], [ false, %if.then20.i ]
   %hs_s.1.i = phi i32 [ 1, %if.end18.i ], [ 1, %if.then30.i ], [ 0, %if.else24.i ], [ 1, %if.then20.i ]
-  %failing_s.1.i = phi i32 [ %failing_s.04.i, %if.end18.i ], [ 1, %if.then30.i ], [ %failing_s.04.i, %if.else24.i ], [ %failing_s.04.i, %if.then20.i ]
+  %failing_s.1.i = phi i32 [ %failing_s.05.i, %if.end18.i ], [ 1, %if.then30.i ], [ %failing_s.05.i, %if.else24.i ], [ %failing_s.05.i, %if.then20.i ]
   %dec.i = add nsw i32 %max_rounds.addr.01.i, -1
-  %land.ext.i = and i32 %hs_s.1.i, %hs_c.1.i
-  %tobool.not.i41 = icmp eq i32 %land.ext.i, 0
+  %.not.i = or i1 %tobool39.i, %tobool41.i
   %cmp1.i = icmp ugt i32 %max_rounds.addr.01.i, 1
-  %108 = select i1 %tobool.not.i41, i1 %cmp1.i, i1 false
+  %108 = select i1 %.not.i, i1 %cmp1.i, i1 false
   br i1 %108, label %while.body.i, label %test_ssl_memio_do_handshake.exit, !llvm.loop !9
 
 test_ssl_memio_do_handshake.exit:                 ; preds = %if.end45.i
-  br i1 %tobool.not.i41, label %do.body33, label %do.end47
+  br i1 %.not.i, label %do.body33, label %do.end47
 
 do.body33:                                        ; preds = %if.then10.i, %if.then30.i, %test_ssl_memio_do_handshake.exit
   %call34 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.17, ptr noundef nonnull @.str.18, i32 noundef 6475)
@@ -3655,11 +3656,11 @@ if.then144:                                       ; preds = %if.end109, %if.then
   call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %input.i)
   %c_msg.i = getelementptr inbounds nuw i8, ptr %test_ctx, i64 48
   %141 = load ptr, ptr %c_msg.i, align 8
-  %cmp.not.i45 = icmp eq ptr %141, null
+  %cmp.not.i44 = icmp eq ptr %141, null
   %c_msglen.i = getelementptr inbounds nuw i8, ptr %test_ctx, i64 56
   %142 = load i32, ptr %c_msglen.i, align 8
-  %msglen_c.0.i = select i1 %cmp.not.i45, i32 14, i32 %142
-  %msg_c.0.i = select i1 %cmp.not.i45, ptr @.str.932, ptr %141
+  %msglen_c.0.i = select i1 %cmp.not.i44, i32 14, i32 %142
+  %msg_c.0.i = select i1 %cmp.not.i44, ptr @.str.932, ptr %141
   %s_msg.i = getelementptr inbounds nuw i8, ptr %test_ctx, i64 64
   %143 = load ptr, ptr %s_msg.i, align 8
   %cmp5.not.i = icmp eq ptr %143, null
@@ -3680,7 +3681,7 @@ do.body67.thread78.i:                             ; preds = %if.then144
   %call24.i = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.20, ptr noundef nonnull @.str.934, ptr noundef nonnull @.str.935)
   %148 = load ptr, ptr @stdout, align 8
   %149 = call i64 @fwrite(ptr nonnull @.str.23, i64 15, i64 1, ptr %148)
-  %call26.i48 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.24, i32 noundef %call13.i, i32 noundef %msglen_c.0.i)
+  %call26.i47 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.24, i32 noundef %call13.i, i32 noundef %msglen_c.0.i)
   %150 = load ptr, ptr @stdout, align 8
   %151 = call i64 @fwrite(ptr nonnull @.str.25, i64 2, i64 1, ptr %150)
   %152 = load ptr, ptr @stdout, align 8
@@ -3692,8 +3693,8 @@ do.body67.thread78.i:                             ; preds = %if.then144
 if.then37.critedge.i:                             ; preds = %if.then144
   call void @wolfSSL_SetLoggingPrefix(ptr noundef nonnull @.str.4) #25
   %153 = load ptr, ptr %s_ssl519.i, align 8
-  %call39.i51 = call i32 @wolfSSL_read(ptr noundef %153, ptr noundef nonnull %input.i, i32 noundef 1023) #25
-  %cmp45.i = icmp sgt i32 %call39.i51, 0
+  %call39.i50 = call i32 @wolfSSL_read(ptr noundef %153, ptr noundef nonnull %input.i, i32 noundef 1023) #25
+  %cmp45.i = icmp sgt i32 %call39.i50, 0
   br i1 %cmp45.i, label %if.then70.i, label %do.end62.i
 
 do.end62.i:                                       ; preds = %if.then37.critedge.i
@@ -3703,22 +3704,22 @@ do.end62.i:                                       ; preds = %if.then37.critedge.
   %call51.i = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.936, ptr noundef nonnull @.str.937, ptr noundef nonnull @.str.938)
   %156 = load ptr, ptr @stdout, align 8
   %157 = call i64 @fwrite(ptr nonnull @.str.23, i64 15, i64 1, ptr %156)
-  %call53.i = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.939, i32 noundef %call39.i51, i32 noundef 0)
+  %call53.i = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.939, i32 noundef %call39.i50, i32 noundef 0)
   %158 = load ptr, ptr @stdout, align 8
   %159 = call i64 @fwrite(ptr nonnull @.str.25, i64 2, i64 1, ptr %158)
   %160 = load ptr, ptr @stdout, align 8
   %call55.i = call i32 @fflush(ptr noundef %160)
-  %cmp63.i = icmp sgt i32 %call39.i51, -1
+  %cmp63.i = icmp sgt i32 %call39.i50, -1
   br i1 %cmp63.i, label %do.body67.thread73.i, label %do.end157.critedge.i
 
 do.body67.thread73.i:                             ; preds = %do.end62.i
-  %idxprom76.i = zext nneg i32 %call39.i51 to i64
+  %idxprom76.i = zext nneg i32 %call39.i50 to i64
   %arrayidx77.i = getelementptr inbounds nuw [1024 x i8], ptr %input.i, i64 0, i64 %idxprom76.i
   store i8 0, ptr %arrayidx77.i, align 1
   br label %do.end157.critedge.i
 
 if.then70.i:                                      ; preds = %if.then37.critedge.i
-  %idxprom.i = zext nneg i32 %call39.i51 to i64
+  %idxprom.i = zext nneg i32 %call39.i50 to i64
   %arrayidx.i = getelementptr inbounds nuw [1024 x i8], ptr %input.i, i64 0, i64 %idxprom.i
   store i8 0, ptr %arrayidx.i, align 1
   %161 = load ptr, ptr @stderr, align 8
@@ -3733,7 +3734,7 @@ do.body82.i:                                      ; preds = %if.then70.i
   %call85.i = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.936, ptr noundef nonnull @.str.941, ptr noundef nonnull @.str.938)
   %164 = load ptr, ptr @stdout, align 8
   %165 = call i64 @fwrite(ptr nonnull @.str.23, i64 15, i64 1, ptr %164)
-  %call87.i52 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.939, i32 noundef %call73.i, i32 noundef 0)
+  %call87.i51 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.939, i32 noundef %call73.i, i32 noundef 0)
   %166 = load ptr, ptr @stdout, align 8
   %167 = call i64 @fwrite(ptr nonnull @.str.25, i64 2, i64 1, ptr %166)
   %168 = load ptr, ptr @stdout, align 8
@@ -3769,7 +3770,7 @@ do.end126.i:                                      ; preds = %if.then100.i
   br i1 %cmp140.i, label %if.then167.i, label %do.body143.i
 
 do.body143.i:                                     ; preds = %do.end126.i
-  %call144.i53 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.17, ptr noundef nonnull @.str.18, i32 noundef 6404)
+  %call144.i52 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.17, ptr noundef nonnull @.str.18, i32 noundef 6404)
   %178 = load ptr, ptr @stdout, align 8
   %179 = call i64 @fwrite(ptr nonnull @.str.19, i64 15, i64 1, ptr %178)
   %call146.i = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.936, ptr noundef nonnull @.str.944, ptr noundef nonnull @.str.938)
@@ -3833,7 +3834,7 @@ if.then202.i:                                     ; preds = %do.end193.i
   br i1 %cmp213.i, label %if.end231.i, label %do.body216.i
 
 do.body216.i:                                     ; preds = %if.then202.i
-  %call217.i54 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.17, ptr noundef nonnull @.str.18, i32 noundef 6412)
+  %call217.i53 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.17, ptr noundef nonnull @.str.18, i32 noundef 6412)
   %195 = load ptr, ptr @stdout, align 8
   %196 = call i64 @fwrite(ptr nonnull @.str.19, i64 15, i64 1, ptr %195)
   %call219.i = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.20, ptr noundef nonnull @.str.947, ptr noundef nonnull @.str.22)
@@ -3894,35 +3895,35 @@ do.body153:                                       ; preds = %do.body254.i, %do.b
 do.end167:                                        ; preds = %do.body10, %do.body33, %do.body62, %do.body94, %do.body126, %test_ssl_memio_read_write.exit, %do.body153
   %_ret.5 = phi i32 [ 0, %do.body153 ], [ 1, %test_ssl_memio_read_write.exit ], [ 0, %do.body126 ], [ 0, %do.body94 ], [ 0, %do.body62 ], [ 0, %do.body33 ], [ 0, %do.body10 ]
   %218 = load ptr, ptr %c_ssl464.i, align 8
-  %call.i56 = call i32 @wolfSSL_get_error(ptr noundef %218, i32 noundef 0) #25
+  %call.i55 = call i32 @wolfSSL_get_error(ptr noundef %218, i32 noundef 0) #25
   %last_err.i = getelementptr inbounds nuw i8, ptr %test_ctx, i64 280
-  store i32 %call.i56, ptr %last_err.i, align 8
+  store i32 %call.i55, ptr %last_err.i, align 8
   %219 = load ptr, ptr %s_ssl519.i, align 8
   %call1.i = call i32 @wolfSSL_get_error(ptr noundef %219, i32 noundef 0) #25
   %last_err2.i = getelementptr inbounds nuw i8, ptr %test_ctx, i64 176
   store i32 %call1.i, ptr %last_err2.i, align 8
   %on_cleanup.i = getelementptr inbounds nuw i8, ptr %test_ctx, i64 216
   %220 = load ptr, ptr %on_cleanup.i, align 8
-  %cmp.not.i58 = icmp eq ptr %220, null
-  br i1 %cmp.not.i58, label %if.end.i61, label %if.then.i59
+  %cmp.not.i57 = icmp eq ptr %220, null
+  br i1 %cmp.not.i57, label %if.end.i60, label %if.then.i58
 
-if.then.i59:                                      ; preds = %do.end167
+if.then.i58:                                      ; preds = %do.end167
   %221 = load ptr, ptr %c_ssl464.i, align 8
-  %call7.i60 = call i32 %220(ptr noundef %221) #25
-  br label %if.end.i61
+  %call7.i59 = call i32 %220(ptr noundef %221) #25
+  br label %if.end.i60
 
-if.end.i61:                                       ; preds = %if.then.i59, %do.end167
+if.end.i60:                                       ; preds = %if.then.i58, %do.end167
   %on_cleanup9.i = getelementptr inbounds nuw i8, ptr %test_ctx, i64 112
   %222 = load ptr, ptr %on_cleanup9.i, align 8
   %cmp10.not.i = icmp eq ptr %222, null
   br i1 %cmp10.not.i, label %if.end16.i, label %if.then11.i
 
-if.then11.i:                                      ; preds = %if.end.i61
+if.then11.i:                                      ; preds = %if.end.i60
   %223 = load ptr, ptr %s_ssl519.i, align 8
   %call15.i = call i32 %222(ptr noundef %223) #25
   br label %if.end16.i
 
-if.end16.i:                                       ; preds = %if.then11.i, %if.end.i61
+if.end16.i:                                       ; preds = %if.then11.i, %if.end.i60
   %224 = load ptr, ptr %s_ssl519.i, align 8
   %call18.i = call i32 @wolfSSL_shutdown(ptr noundef %224) #25
   %225 = load ptr, ptr %c_ssl464.i, align 8
@@ -3931,11 +3932,11 @@ if.end16.i:                                       ; preds = %if.then11.i, %if.en
   call void @wolfSSL_free(ptr noundef %226) #25
   %227 = load ptr, ptr %c_ssl464.i, align 8
   call void @wolfSSL_free(ptr noundef %227) #25
-  %isSharedCtx.i62 = getelementptr inbounds nuw i8, ptr %test_ctx, i64 180
-  %bf.load.i63 = load i8, ptr %isSharedCtx.i62, align 4
-  %bf.clear.i = and i8 %bf.load.i63, 1
-  %tobool.not.i64 = icmp eq i8 %bf.clear.i, 0
-  br i1 %tobool.not.i64, label %if.then24.i, label %if.end26.i
+  %isSharedCtx.i61 = getelementptr inbounds nuw i8, ptr %test_ctx, i64 180
+  %bf.load.i62 = load i8, ptr %isSharedCtx.i61, align 4
+  %bf.clear.i = and i8 %bf.load.i62, 1
+  %tobool.not.i63 = icmp eq i8 %bf.clear.i, 0
+  br i1 %tobool.not.i63, label %if.then24.i, label %if.end26.i
 
 if.then24.i:                                      ; preds = %if.end16.i
   %228 = load ptr, ptr %test_ctx, align 8
@@ -3947,8 +3948,8 @@ if.end26.i:                                       ; preds = %if.then24.i, %if.en
   %isSharedCtx28.i = getelementptr inbounds nuw i8, ptr %test_ctx, i64 284
   %bf.load29.i = load i8, ptr %isSharedCtx28.i, align 4
   %bf.clear30.i = and i8 %bf.load29.i, 1
-  %tobool31.not.i65 = icmp eq i8 %bf.clear30.i, 0
-  br i1 %tobool31.not.i65, label %if.then32.i, label %test_ssl_memio_cleanup.exit
+  %tobool31.not.i64 = icmp eq i8 %bf.clear30.i, 0
+  br i1 %tobool31.not.i64, label %if.then32.i, label %test_ssl_memio_cleanup.exit
 
 if.then32.i:                                      ; preds = %if.end26.i
   %229 = load ptr, ptr %c_ctx, align 8

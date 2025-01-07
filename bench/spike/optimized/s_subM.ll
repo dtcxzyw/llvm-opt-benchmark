@@ -20,26 +20,25 @@ define void @softfloat_subM(i8 noundef zeroext %0, ptr nocapture noundef readonl
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %12 = phi i32 [ %8, %.lr.ph.preheader ], [ %20, %.lr.ph ]
-  %13 = phi i32 [ %7, %.lr.ph.preheader ], [ %18, %.lr.ph ]
-  %.01720 = phi i32 [ 0, %.lr.ph.preheader ], [ %16, %.lr.ph ]
-  %.not = icmp eq i32 %.01720, 0
+  %12 = phi i32 [ %8, %.lr.ph.preheader ], [ %19, %.lr.ph ]
+  %13 = phi i32 [ %7, %.lr.ph.preheader ], [ %17, %.lr.ph ]
+  %.01720 = phi i1 [ true, %.lr.ph.preheader ], [ %23, %.lr.ph ]
   %14 = icmp ule i32 %13, %12
   %15 = icmp ult i32 %13, %12
-  %.in = select i1 %.not, i1 %15, i1 %14
+  %.in = select i1 %.01720, i1 %15, i1 %14
   %.neg22 = sext i1 %.in to i32
-  %16 = zext i1 %.in to i32
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %17 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv.next
-  %18 = load i32, ptr %17, align 4
-  %19 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv.next
-  %20 = load i32, ptr %19, align 4
-  %.neg18 = add i32 %18, %.neg22
-  %21 = sub i32 %.neg18, %20
-  %22 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv.next
-  store i32 %21, ptr %22, align 4
-  %23 = icmp eq i64 %indvars.iv.next, %11
-  br i1 %23, label %._crit_edge, label %.lr.ph
+  %16 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv.next
+  %17 = load i32, ptr %16, align 4
+  %18 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv.next
+  %19 = load i32, ptr %18, align 4
+  %.neg18 = add i32 %17, %.neg22
+  %20 = sub i32 %.neg18, %19
+  %21 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv.next
+  store i32 %20, ptr %21, align 4
+  %22 = icmp eq i64 %indvars.iv.next, %11
+  %23 = xor i1 %.in, true
+  br i1 %22, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %4
   ret void

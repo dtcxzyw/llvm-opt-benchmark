@@ -981,19 +981,19 @@ define void @Map_NodeTryDroppingOnePhase(ptr nocapture noundef readonly %0, ptr 
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 144
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
-  br i1 %5, label %134, label %6
+  br i1 %5, label %136, label %6
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 152
   %8 = load ptr, ptr %7, align 8
   %9 = icmp eq ptr %8, null
-  br i1 %9, label %134, label %10
+  br i1 %9, label %136, label %10
 
 10:                                               ; preds = %6
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 116
   %12 = load i32, ptr %11, align 4
   %13 = icmp eq i32 %12, 1
-  br i1 %13, label %134, label %14
+  br i1 %13, label %136, label %14
 
 14:                                               ; preds = %10
   %15 = getelementptr inbounds nuw i8, ptr %8, i64 144
@@ -1038,30 +1038,30 @@ define void @Map_NodeTryDroppingOnePhase(ptr nocapture noundef readonly %0, ptr 
 
 49:                                               ; preds = %42
   store ptr null, ptr %3, align 8
-  br label %134
+  br label %136
 
 50:                                               ; preds = %42
   %51 = getelementptr inbounds nuw i8, ptr %8, i64 152
   %52 = load float, ptr %51, align 8
   %53 = fadd float %36, %46
   %54 = fcmp ogt float %52, %53
-  br i1 %54, label %55, label %134
+  br i1 %54, label %55, label %136
 
 55:                                               ; preds = %50
   store ptr null, ptr %7, align 8
-  br label %134
+  br label %136
 
 56:                                               ; preds = %38, %14
   %57 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %58 = load i32, ptr %57, align 8
   %59 = icmp eq i32 %58, 0
-  br i1 %59, label %134, label %60
+  br i1 %59, label %136, label %60
 
 60:                                               ; preds = %56
   %61 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %62 = load i32, ptr %61, align 4
   %63 = icmp eq i32 %62, 0
-  br i1 %63, label %134, label %64
+  br i1 %63, label %136, label %64
 
 64:                                               ; preds = %60
   switch i32 %12, label %91 [
@@ -1104,7 +1104,7 @@ define void @Map_NodeTryDroppingOnePhase(ptr nocapture noundef readonly %0, ptr 
   %.065.shrunk = phi i1 [ %79, %65 ], [ %90, %80 ], [ false, %64 ]
   %.0.shrunk = phi i1 [ %74, %65 ], [ %86, %80 ], [ false, %64 ]
   %or.cond = select i1 %.0.shrunk, i1 true, i1 %.065.shrunk
-  br i1 %or.cond, label %92, label %134
+  br i1 %or.cond, label %92, label %136
 
 92:                                               ; preds = %91
   %or.cond3 = select i1 %.0.shrunk, i1 %.065.shrunk, i1 false
@@ -1115,73 +1115,73 @@ define void @Map_NodeTryDroppingOnePhase(ptr nocapture noundef readonly %0, ptr 
   %95 = load float, ptr %94, align 4
   %96 = getelementptr inbounds nuw i8, ptr %8, i64 156
   %97 = load float, ptr %96, align 4
-  %98 = fcmp olt float %95, %97
-  br i1 %98, label %.thread71, label %.thread
+  %98 = fcmp uge float %95, %97
+  br i1 %98, label %118, label %100
 
 99:                                               ; preds = %92
-  br i1 %.0.shrunk, label %.thread71, label %.thread
+  br i1 %.0.shrunk, label %100, label %118
 
-.thread71:                                        ; preds = %93, %99
-  %100 = icmp sgt i32 %12, 1
-  %101 = icmp sgt i32 %62, 0
-  %or.cond74 = and i1 %100, %101
-  br i1 %or.cond74, label %102, label %106
+100:                                              ; preds = %93, %99
+  %101 = icmp sgt i32 %12, 1
+  %102 = icmp sgt i32 %62, 0
+  %or.cond69 = and i1 %101, %102
+  br i1 %or.cond69, label %103, label %107
 
-102:                                              ; preds = %.thread71
-  %103 = getelementptr inbounds nuw i8, ptr %0, i64 160
-  %104 = load i32, ptr %103, align 8
-  %105 = tail call float @Map_CutDeref(ptr noundef nonnull %8, i32 noundef 1, i32 noundef %104) #10
-  br label %106
+103:                                              ; preds = %100
+  %104 = getelementptr inbounds nuw i8, ptr %0, i64 160
+  %105 = load i32, ptr %104, align 8
+  %106 = tail call float @Map_CutDeref(ptr noundef nonnull %8, i32 noundef 1, i32 noundef %105) #10
+  br label %107
 
-106:                                              ; preds = %102, %.thread71
+107:                                              ; preds = %103, %100
   store ptr null, ptr %7, align 8
-  %107 = load i32, ptr %11, align 4
-  %108 = icmp sgt i32 %107, 1
-  br i1 %108, label %109, label %134
+  %108 = load i32, ptr %11, align 4
+  %109 = icmp sgt i32 %108, 1
+  br i1 %109, label %110, label %136
 
-109:                                              ; preds = %106
-  %110 = load i32, ptr %57, align 8
-  %111 = icmp eq i32 %110, 0
-  br i1 %111, label %112, label %134
+110:                                              ; preds = %107
+  %111 = load i32, ptr %57, align 8
+  %112 = icmp eq i32 %111, 0
+  br i1 %112, label %113, label %136
 
-112:                                              ; preds = %109
-  %113 = load ptr, ptr %3, align 8
-  %114 = getelementptr inbounds nuw i8, ptr %0, i64 160
-  %115 = load i32, ptr %114, align 8
-  %116 = tail call float @Map_CutRef(ptr noundef %113, i32 noundef 0, i32 noundef %115) #10
-  br label %134
+113:                                              ; preds = %110
+  %114 = load ptr, ptr %3, align 8
+  %115 = getelementptr inbounds nuw i8, ptr %0, i64 160
+  %116 = load i32, ptr %115, align 8
+  %117 = tail call float @Map_CutRef(ptr noundef %114, i32 noundef 0, i32 noundef %116) #10
+  br label %136
 
-.thread:                                          ; preds = %93, %99
-  %117 = icmp sgt i32 %12, 1
-  %118 = icmp sgt i32 %58, 0
-  %or.cond75 = and i1 %117, %118
-  br i1 %or.cond75, label %119, label %123
+118:                                              ; preds = %93, %99
+  %119 = icmp sgt i32 %12, 1
+  %120 = icmp sgt i32 %58, 0
+  %or.cond70 = and i1 %119, %120
+  br i1 %or.cond70, label %121, label %125
 
-119:                                              ; preds = %.thread
-  %120 = getelementptr inbounds nuw i8, ptr %0, i64 160
-  %121 = load i32, ptr %120, align 8
-  %122 = tail call float @Map_CutDeref(ptr noundef nonnull %4, i32 noundef 0, i32 noundef %121) #10
-  br label %123
+121:                                              ; preds = %118
+  %122 = getelementptr inbounds nuw i8, ptr %0, i64 160
+  %123 = load i32, ptr %122, align 8
+  %124 = tail call float @Map_CutDeref(ptr noundef nonnull %4, i32 noundef 0, i32 noundef %123) #10
+  br label %125
 
-123:                                              ; preds = %119, %.thread
+125:                                              ; preds = %121, %118
   store ptr null, ptr %3, align 8
-  %124 = load i32, ptr %11, align 4
-  %125 = icmp sgt i32 %124, 1
-  br i1 %125, label %126, label %134
+  %126 = load i32, ptr %11, align 4
+  %127 = icmp sgt i32 %126, 1
+  br i1 %127, label %128, label %136
 
-126:                                              ; preds = %123
-  %127 = load i32, ptr %61, align 4
-  %128 = icmp eq i32 %127, 0
-  br i1 %128, label %129, label %134
+128:                                              ; preds = %125
+  %129 = load i32, ptr %61, align 4
+  %130 = icmp eq i32 %129, 0
+  br i1 %130, label %131, label %136
 
-129:                                              ; preds = %126
-  %130 = load ptr, ptr %7, align 8
-  %131 = getelementptr inbounds nuw i8, ptr %0, i64 160
-  %132 = load i32, ptr %131, align 8
-  %133 = tail call float @Map_CutRef(ptr noundef %130, i32 noundef 1, i32 noundef %132) #10
-  br label %134
+131:                                              ; preds = %128
+  %132 = load ptr, ptr %7, align 8
+  %133 = getelementptr inbounds nuw i8, ptr %0, i64 160
+  %134 = load i32, ptr %133, align 8
+  %135 = tail call float @Map_CutRef(ptr noundef %132, i32 noundef 1, i32 noundef %134) #10
+  br label %136
 
-134:                                              ; preds = %123, %126, %129, %106, %109, %112, %91, %56, %60, %49, %55, %50, %10, %2, %6
+136:                                              ; preds = %125, %128, %131, %107, %110, %113, %91, %56, %60, %49, %55, %50, %10, %2, %6
   ret void
 }
 

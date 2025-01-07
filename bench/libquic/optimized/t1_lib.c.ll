@@ -590,8 +590,8 @@ for.end.i:                                        ; preds = %for.body11.i
   br i1 %brmerge.not, label %for.body.i, label %tls1_check_curve_id.exit.loopexit15
 
 tls1_check_curve_id.exit.loopexit15:              ; preds = %tls1_get_curvelist.exit.i, %land.lhs.true.i, %tls1_get_curvelist.exit.thread.i, %for.end.i
-  %retval.0.i5.ph = phi i1 [ true, %land.lhs.true.i ], [ true, %tls1_get_curvelist.exit.i ], [ %cmp18.i, %for.end.i ], [ false, %tls1_get_curvelist.exit.thread.i ]
-  %8 = select i1 %retval.0.i5.ph, i1 %cmp15.i, i1 false
+  %retval.0.i5.not.ph = phi i1 [ true, %land.lhs.true.i ], [ true, %tls1_get_curvelist.exit.i ], [ %cmp18.i, %for.end.i ], [ false, %tls1_get_curvelist.exit.thread.i ]
+  %8 = select i1 %retval.0.i5.not.ph, i1 %cmp15.i, i1 false
   %9 = zext i1 %8 to i32
   br label %done
 

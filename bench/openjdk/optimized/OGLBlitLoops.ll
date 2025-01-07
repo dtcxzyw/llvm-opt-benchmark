@@ -52,7 +52,7 @@ define hidden void @OGLBlitLoops_IsoBlit(ptr nocapture noundef readnone %0, ptr 
   %or.cond9 = or i1 %28, %or.cond7
   %29 = icmp eq ptr %1, null
   %or.cond11 = or i1 %29, %or.cond9
-  br i1 %or.cond11, label %148, label %30
+  br i1 %or.cond11, label %155, label %30
 
 30:                                               ; preds = %16
   store i32 %8, ptr %17, align 8
@@ -70,13 +70,13 @@ define hidden void @OGLBlitLoops_IsoBlit(ptr nocapture noundef readnone %0, ptr 
   %38 = load i32, ptr %32, align 8
   %39 = load i32, ptr %17, align 8
   %40 = icmp sgt i32 %38, %39
-  br i1 %40, label %41, label %148
+  br i1 %40, label %41, label %155
 
 41:                                               ; preds = %30
   %42 = load i32, ptr %33, align 4
   %43 = load i32, ptr %31, align 4
   %44 = icmp sgt i32 %42, %43
-  br i1 %44, label %45, label %148
+  br i1 %44, label %45, label %155
 
 45:                                               ; preds = %41
   %.not = icmp eq i32 %39, %8
@@ -240,60 +240,67 @@ OGLBlitTextureToSurface.exit:                     ; preds = %113, %116
   call void %129(double noundef %.0108, double noundef %.0111) #6
   %130 = load ptr, ptr @j2d_glEnd, align 8
   call void %130() #6
-  br label %148
+  br label %155
 
 131:                                              ; preds = %73
   %.not129 = icmp eq i8 %4, 0
-  br i1 %.not129, label %132, label %.thread
+  br i1 %.not129, label %132, label %.critedge
 
 132:                                              ; preds = %131
   %133 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %134 = load i32, ptr %133, align 8
   %135 = lshr i32 %134, 24
   %136 = and i32 %135, 3
-  switch i32 %136, label %.thread135 [
+  switch i32 %136, label %.critedge134 [
     i32 2, label %137
     i32 1, label %145
   ]
-
-.thread135:                                       ; preds = %132
-  call void @OGLRenderQueue_CheckPreviousOp(i32 noundef -1) #6
-  br label %147
 
 137:                                              ; preds = %132
   %138 = sub nsw i32 %.0106, %.0104
   %139 = fsub double %.0110, %.0108
   %140 = fptosi double %139 to i32
   %.not130 = icmp eq i32 %138, %140
-  br i1 %.not130, label %141, label %.thread
+  br i1 %.not130, label %141, label %.critedge
 
 141:                                              ; preds = %137
   %142 = sub nsw i32 %.0107, %.0105
   %143 = fsub double %.0111, %.0109
   %144 = fptosi double %143 to i32
   %.not131 = icmp eq i32 %142, %144
-  br i1 %.not131, label %145, label %.thread
+  br i1 %.not131, label %149, label %.critedge
 
-.thread:                                          ; preds = %131, %141, %137
+145:                                              ; preds = %132
+  %146 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %147 = load float, ptr %146, align 8
+  %148 = fcmp oeq float %147, 1.000000e+00
   call void @OGLRenderQueue_CheckPreviousOp(i32 noundef -1) #6
-  br label %146
+  br i1 %148, label %154, label %153
 
-145:                                              ; preds = %132, %141
-  %.0.in.in.in = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %.0.in.in = load float, ptr %.0.in.in.in, align 8
-  %.0.in = fcmp oeq float %.0.in.in, 1.000000e+00
+149:                                              ; preds = %141
+  %150 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %151 = load float, ptr %150, align 8
+  %152 = fcmp oeq float %151, 1.000000e+00
   call void @OGLRenderQueue_CheckPreviousOp(i32 noundef -1) #6
-  br i1 %.0.in, label %147, label %146
+  br i1 %152, label %154, label %153
 
-146:                                              ; preds = %.thread, %145
+.critedge:                                        ; preds = %137, %141, %131
+  call void @OGLRenderQueue_CheckPreviousOp(i32 noundef -1) #6
+  br label %153
+
+153:                                              ; preds = %145, %.critedge, %149
   call fastcc void @OGLBlitToSurfaceViaTexture(ptr noundef nonnull %1, ptr noundef %17, ptr noundef null, ptr noundef nonnull %18, i8 noundef zeroext 0, i32 noundef %5, i32 noundef %.0104, i32 noundef %.0105, i32 noundef %.0106, i32 noundef %.0107, double noundef %.0108, double noundef %.0109, double noundef %.0110, double noundef %.0111)
-  br label %148
+  br label %155
 
-147:                                              ; preds = %.thread135, %145
+.critedge134:                                     ; preds = %132
+  call void @OGLRenderQueue_CheckPreviousOp(i32 noundef -1) #6
+  br label %154
+
+154:                                              ; preds = %145, %.critedge134, %149
   call fastcc void @OGLBlitSurfaceToSurface(ptr noundef nonnull %1, ptr noundef nonnull %18, i32 noundef %.0104, i32 noundef %.0105, i32 noundef %.0106, i32 noundef %.0107, double noundef %.0108, double noundef %.0109, double noundef %.0110, double noundef %.0111)
-  br label %148
+  br label %155
 
-148:                                              ; preds = %OGLBlitTextureToSurface.exit, %147, %146, %16, %41, %30
+155:                                              ; preds = %OGLBlitTextureToSurface.exit, %154, %153, %16, %41, %30
   ret void
 }
 

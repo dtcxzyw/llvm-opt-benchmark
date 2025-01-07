@@ -278,12 +278,12 @@ define internal void @pcie_pme_work_fn(ptr noundef %0) #1 align 16 {
   %18 = call i32 @pcie_capability_read_dword(ptr noundef %7, i32 noundef 32, ptr noundef nonnull %2) #9
   %19 = load i32, ptr %2, align 4
   %20 = icmp eq i32 %19, -1
-  br i1 %20, label %130, label %21
+  br i1 %20, label %121, label %21
 
 21:                                               ; preds = %17
   %22 = and i32 %19, 65536
   %23 = icmp eq i32 %22, 0
-  br i1 %23, label %126, label %24
+  br i1 %23, label %117, label %24
 
 24:                                               ; preds = %21
   call void @pcie_clear_root_pme_status(ptr noundef %7) #9
@@ -297,14 +297,14 @@ define internal void @pcie_pme_work_fn(ptr noundef %0) #1 align 16 {
   %31 = and i32 %25, 255
   %32 = icmp eq i32 %29, %31
   %.pre = load ptr, ptr %13, align 8
-  br i1 %32, label %33, label %52
+  br i1 %32, label %33, label %51
 
 33:                                               ; preds = %24
   %34 = getelementptr inbounds nuw i8, ptr %.pre, i64 216
   %35 = load i8, ptr %34, align 8
   %36 = zext i8 %35 to i16
   %37 = icmp eq i16 %27, %36
-  br i1 %37, label %38, label %52
+  br i1 %37, label %38, label %51
 
 38:                                               ; preds = %33
   %39 = load i24, ptr %15, align 1
@@ -329,176 +329,166 @@ define internal void @pcie_pme_work_fn(ptr noundef %0) #1 align 16 {
   call void @down_read(ptr noundef nonnull @pci_bus_sem) #9
   %49 = load ptr, ptr %16, align 8
   %50 = call fastcc zeroext i1 @pcie_pme_walk_bus(ptr noundef %49)
-  %51 = zext i1 %50 to i8
   call void @up_read(ptr noundef nonnull @pci_bus_sem) #9
-  br label %121
+  br i1 %50, label %.thread15, label %.thread13
 
-52:                                               ; preds = %33, %24
-  %53 = getelementptr inbounds nuw i8, ptr %.pre, i64 200
-  %54 = load ptr, ptr %53, align 8
-  %55 = load i32, ptr %54, align 8
-  %56 = call ptr @pci_find_bus(i32 noundef %55, i32 noundef %28) #9
-  %57 = icmp eq ptr %56, null
-  br i1 %57, label %.thread13, label %58
+51:                                               ; preds = %33, %24
+  %52 = getelementptr inbounds nuw i8, ptr %.pre, i64 200
+  %53 = load ptr, ptr %52, align 8
+  %54 = load i32, ptr %53, align 8
+  %55 = call ptr @pci_find_bus(i32 noundef %54, i32 noundef %28) #9
+  %56 = icmp eq ptr %55, null
+  br i1 %56, label %.thread13, label %57
 
-58:                                               ; preds = %52
-  %59 = icmp eq i16 %30, 0
-  br i1 %59, label %60, label %.thread
+57:                                               ; preds = %51
+  %58 = icmp eq i16 %30, 0
+  br i1 %58, label %59, label %.thread
 
-60:                                               ; preds = %58
-  %61 = getelementptr inbounds nuw i8, ptr %56, i64 56
-  %62 = load ptr, ptr %61, align 8
-  %63 = call ptr @pci_dev_get(ptr noundef %62) #9
-  %64 = icmp eq ptr %63, null
-  br i1 %64, label %.thread, label %65
+59:                                               ; preds = %57
+  %60 = getelementptr inbounds nuw i8, ptr %55, i64 56
+  %61 = load ptr, ptr %60, align 8
+  %62 = call ptr @pci_dev_get(ptr noundef %61) #9
+  %63 = icmp eq ptr %62, null
+  br i1 %63, label %.thread, label %64
 
-65:                                               ; preds = %60
-  %66 = getelementptr inbounds nuw i8, ptr %63, i64 100
-  %67 = load i8, ptr %66, align 4
-  %68 = icmp eq i8 %67, 0
-  br i1 %68, label %.thread9, label %69
+64:                                               ; preds = %59
+  %65 = getelementptr inbounds nuw i8, ptr %62, i64 100
+  %66 = load i8, ptr %65, align 4
+  %67 = icmp eq i8 %66, 0
+  br i1 %67, label %.thread9, label %68
 
-69:                                               ; preds = %65
-  %70 = getelementptr inbounds nuw i8, ptr %63, i64 106
-  %71 = load i16, ptr %70, align 2
-  %72 = and i16 %71, 240
-  %73 = icmp eq i16 %72, 112
-  br i1 %73, label %74, label %.thread9
+68:                                               ; preds = %64
+  %69 = getelementptr inbounds nuw i8, ptr %62, i64 106
+  %70 = load i16, ptr %69, align 2
+  %71 = and i16 %70, 240
+  %72 = icmp eq i16 %71, 112
+  br i1 %72, label %73, label %.thread9
 
-.thread9:                                         ; preds = %69, %65
-  call void @pci_dev_put(ptr noundef nonnull %63) #9
+.thread9:                                         ; preds = %68, %64
+  call void @pci_dev_put(ptr noundef nonnull %62) #9
   br label %.thread
 
-74:                                               ; preds = %69
+73:                                               ; preds = %68
   call void @down_read(ptr noundef nonnull @pci_bus_sem) #9
-  %75 = call fastcc zeroext i1 @pcie_pme_walk_bus(ptr noundef nonnull %56)
+  %74 = call fastcc zeroext i1 @pcie_pme_walk_bus(ptr noundef nonnull %55)
   call void @up_read(ptr noundef nonnull @pci_bus_sem) #9
-  call void @pci_dev_put(ptr noundef nonnull %63) #9
-  br i1 %75, label %.thread15, label %.thread
+  call void @pci_dev_put(ptr noundef nonnull %62) #9
+  br i1 %74, label %.thread15, label %.thread
 
-.thread:                                          ; preds = %60, %58, %.thread9, %74
+.thread:                                          ; preds = %59, %57, %.thread9, %73
   call void @down_read(ptr noundef nonnull @pci_bus_sem) #9
-  %76 = getelementptr inbounds nuw i8, ptr %56, i64 40
-  %77 = load ptr, ptr %76, align 8
-  %78 = icmp eq ptr %77, %76
-  br i1 %78, label %.thread10, label %.preheader
+  %75 = getelementptr inbounds nuw i8, ptr %55, i64 40
+  %76 = load ptr, ptr %75, align 8
+  %77 = icmp eq ptr %76, %75
+  br i1 %77, label %.thread10, label %.preheader
 
-.preheader:                                       ; preds = %.thread, %86
-  %79 = phi ptr [ %87, %86 ], [ %77, %.thread ]
-  %80 = call ptr @pci_dev_get(ptr noundef %79) #9
-  %81 = getelementptr inbounds nuw i8, ptr %79, i64 56
-  %82 = load i32, ptr %81, align 8
-  %83 = icmp eq i32 %82, %31
-  br i1 %83, label %.thread11, label %86
+.preheader:                                       ; preds = %.thread, %84
+  %78 = phi ptr [ %85, %84 ], [ %76, %.thread ]
+  %79 = call ptr @pci_dev_get(ptr noundef %78) #9
+  %80 = getelementptr inbounds nuw i8, ptr %78, i64 56
+  %81 = load i32, ptr %80, align 8
+  %82 = icmp eq i32 %81, %31
+  br i1 %82, label %.thread11, label %84
 
 .thread11:                                        ; preds = %.preheader
   call void @up_read(ptr noundef nonnull @pci_bus_sem) #9
-  %84 = call zeroext i1 @pci_check_pme_status(ptr noundef %79) #9
-  %85 = zext i1 %84 to i8
-  br i1 %84, label %89, label %99
+  %83 = call zeroext i1 @pci_check_pme_status(ptr noundef %78) #9
+  br i1 %83, label %87, label %.thread13.sink.split
 
-86:                                               ; preds = %.preheader
-  call void @pci_dev_put(ptr noundef %79) #9
-  %87 = load ptr, ptr %79, align 8
-  %88 = icmp eq ptr %87, %76
-  br i1 %88, label %.thread10, label %.preheader, !llvm.loop !8
+84:                                               ; preds = %.preheader
+  call void @pci_dev_put(ptr noundef %78) #9
+  %85 = load ptr, ptr %78, align 8
+  %86 = icmp eq ptr %85, %75
+  br i1 %86, label %.thread10, label %.preheader, !llvm.loop !8
 
-89:                                               ; preds = %.thread11
-  %90 = getelementptr inbounds nuw i8, ptr %79, i64 157
-  %91 = load i24, ptr %90, align 1
-  %92 = and i24 %91, 64
-  %93 = icmp eq i24 %92, 0
-  br i1 %93, label %96, label %94
+87:                                               ; preds = %.thread11
+  %88 = getelementptr inbounds nuw i8, ptr %78, i64 157
+  %89 = load i24, ptr %88, align 1
+  %90 = and i24 %89, 64
+  %91 = icmp eq i24 %90, 0
+  br i1 %91, label %94, label %92
 
-94:                                               ; preds = %89
-  %95 = and i24 %91, -65
-  store i24 %95, ptr %90, align 1
-  br label %96
+92:                                               ; preds = %87
+  %93 = and i24 %89, -65
+  store i24 %93, ptr %88, align 1
+  br label %94
 
-96:                                               ; preds = %94, %89
-  %97 = getelementptr inbounds nuw i8, ptr %79, i64 184
-  call void @pm_wakeup_dev_event(ptr noundef nonnull %97, i32 noundef 100, i1 noundef zeroext false) #9
-  %98 = call i32 @__pm_runtime_resume(ptr noundef nonnull %97, i32 noundef 1) #9
-  br label %99
+94:                                               ; preds = %87, %92
+  %95 = getelementptr inbounds nuw i8, ptr %78, i64 184
+  call void @pm_wakeup_dev_event(ptr noundef nonnull %95, i32 noundef 100, i1 noundef zeroext false) #9
+  %96 = call i32 @__pm_runtime_resume(ptr noundef nonnull %95, i32 noundef 1) #9
+  call void @pci_dev_put(ptr noundef %78) #9
+  br label %.thread15
 
-99:                                               ; preds = %96, %.thread11
-  call void @pci_dev_put(ptr noundef %79) #9
-  br label %121
-
-.thread10:                                        ; preds = %86, %.thread
+.thread10:                                        ; preds = %84, %.thread
   call void @up_read(ptr noundef nonnull @pci_bus_sem) #9
-  br i1 %59, label %.thread13, label %100
+  br i1 %58, label %.thread13, label %97
 
-100:                                              ; preds = %.thread10
-  %101 = lshr i32 %31, 3
-  %102 = and i32 %25, 7
-  call void (ptr, ptr, ...) @_dev_info(ptr noundef nonnull %14, ptr noundef nonnull @.str.5, i32 noundef %28, i32 noundef %101, i32 noundef %102) #11
-  %103 = getelementptr inbounds nuw i8, ptr %56, i64 56
-  %104 = load ptr, ptr %103, align 8
-  %105 = call ptr @pci_dev_get(ptr noundef %104) #9
-  %106 = icmp eq ptr %105, null
-  br i1 %106, label %.thread13, label %107
+97:                                               ; preds = %.thread10
+  %98 = lshr i32 %31, 3
+  %99 = and i32 %25, 7
+  call void (ptr, ptr, ...) @_dev_info(ptr noundef nonnull %14, ptr noundef nonnull @.str.5, i32 noundef %28, i32 noundef %98, i32 noundef %99) #11
+  %100 = getelementptr inbounds nuw i8, ptr %55, i64 56
+  %101 = load ptr, ptr %100, align 8
+  %102 = call ptr @pci_dev_get(ptr noundef %101) #9
+  %103 = icmp eq ptr %102, null
+  br i1 %103, label %.thread13, label %104
 
-107:                                              ; preds = %100
-  %108 = getelementptr inbounds nuw i8, ptr %105, i64 100
-  %109 = load i8, ptr %108, align 4
-  %110 = icmp eq i8 %109, 0
-  br i1 %110, label %119, label %111
+104:                                              ; preds = %97
+  %105 = getelementptr inbounds nuw i8, ptr %102, i64 100
+  %106 = load i8, ptr %105, align 4
+  %107 = icmp eq i8 %106, 0
+  br i1 %107, label %.thread13.sink.split, label %108
 
-111:                                              ; preds = %107
-  %112 = getelementptr inbounds nuw i8, ptr %105, i64 106
-  %113 = load i16, ptr %112, align 2
-  %114 = and i16 %113, 240
-  %115 = icmp eq i16 %114, 112
-  br i1 %115, label %116, label %119
+108:                                              ; preds = %104
+  %109 = getelementptr inbounds nuw i8, ptr %102, i64 106
+  %110 = load i16, ptr %109, align 2
+  %111 = and i16 %110, 240
+  %112 = icmp eq i16 %111, 112
+  br i1 %112, label %113, label %.thread13.sink.split
 
-116:                                              ; preds = %111
+113:                                              ; preds = %108
   call void @down_read(ptr noundef nonnull @pci_bus_sem) #9
-  %117 = call fastcc zeroext i1 @pcie_pme_walk_bus(ptr noundef nonnull %56)
+  %114 = call fastcc zeroext i1 @pcie_pme_walk_bus(ptr noundef nonnull %55)
   call void @up_read(ptr noundef nonnull @pci_bus_sem) #9
-  %118 = zext i1 %117 to i8
-  br label %119
+  call void @pci_dev_put(ptr noundef nonnull %102) #9
+  br i1 %114, label %.thread15, label %.thread13
 
-119:                                              ; preds = %116, %111, %107
-  %120 = phi i8 [ %118, %116 ], [ 0, %111 ], [ 0, %107 ]
-  call void @pci_dev_put(ptr noundef nonnull %105) #9
-  br label %121
+.thread13.sink.split:                             ; preds = %104, %108, %.thread11
+  %.lcssa.sink = phi ptr [ %78, %.thread11 ], [ %102, %108 ], [ %102, %104 ]
+  call void @pci_dev_put(ptr noundef %.lcssa.sink) #9
+  br label %.thread13
 
-121:                                              ; preds = %119, %99, %48
-  %122 = phi i8 [ %51, %48 ], [ %85, %99 ], [ %120, %119 ]
-  %123 = icmp eq i8 %122, 0
-  br i1 %123, label %.thread13, label %.thread15
-
-.thread13:                                        ; preds = %100, %52, %.thread10, %121
+.thread13:                                        ; preds = %.thread13.sink.split, %48, %97, %51, %.thread10, %113
   call void (ptr, ptr, ...) @_dev_info(ptr noundef nonnull %14, ptr noundef nonnull @.str.6) #11
   br label %.thread15
 
-.thread15:                                        ; preds = %74, %46, %129, %.thread13, %121
+.thread15:                                        ; preds = %94, %48, %73, %46, %120, %.thread13, %113
   call void @_raw_spin_lock_irq(ptr noundef %3) #9
-  %124 = load i8, ptr %8, align 8, !range !5, !noundef !6
-  %125 = icmp eq i8 %124, 0
-  br i1 %125, label %17, label %.thread17, !llvm.loop !11
+  %115 = load i8, ptr %8, align 8, !range !5, !noundef !6
+  %116 = icmp eq i8 %115, 0
+  br i1 %116, label %17, label %.thread17, !llvm.loop !11
 
-126:                                              ; preds = %21
-  %127 = and i32 %19, 131072
-  %128 = icmp eq i32 %127, 0
-  br i1 %128, label %130, label %129
+117:                                              ; preds = %21
+  %118 = and i32 %19, 131072
+  %119 = icmp eq i32 %118, 0
+  br i1 %119, label %121, label %120
 
-129:                                              ; preds = %126
+120:                                              ; preds = %117
   call void @_raw_spin_unlock_irq(ptr noundef %3) #9
   call void asm sideeffect "rep; nop", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !12
   br label %.thread15
 
-130:                                              ; preds = %126, %17
+121:                                              ; preds = %117, %17
   %.pr = load i8, ptr %8, align 8
-  %131 = icmp eq i8 %.pr, 0
-  br i1 %131, label %132, label %.thread17
+  %122 = icmp eq i8 %.pr, 0
+  br i1 %122, label %123, label %.thread17
 
-132:                                              ; preds = %130
-  %133 = call i32 @pcie_capability_clear_and_set_word_locked(ptr noundef %7, i32 noundef 28, i16 noundef zeroext 0, i16 noundef zeroext 8) #9
+123:                                              ; preds = %121
+  %124 = call i32 @pcie_capability_clear_and_set_word_locked(ptr noundef %7, i32 noundef 28, i16 noundef zeroext 0, i16 noundef zeroext 8) #9
   br label %.thread17
 
-.thread17:                                        ; preds = %.thread15, %1, %132, %130
+.thread17:                                        ; preds = %.thread15, %1, %123, %121
   call void @_raw_spin_unlock_irq(ptr noundef %3) #9
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #9
   ret void

@@ -43,19 +43,19 @@ define hidden ptr @VP8DecompressAlphaRows(ptr noundef %0, ptr nocapture noundef 
   %10 = add nuw nsw i32 %3, %2
   %11 = icmp sgt i32 %10, %7
   %or.cond63 = select i1 %or.cond, i1 true, i1 %11
-  br i1 %or.cond63, label %193, label %12
+  br i1 %or.cond63, label %191, label %12
 
 12:                                               ; preds = %4
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 2984
   %14 = load i32, ptr %13, align 8
   %.not = icmp eq i32 %14, 0
-  br i1 %.not, label %15, label %181
+  br i1 %.not, label %15, label %179
 
 15:                                               ; preds = %12
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 2960
   %17 = load ptr, ptr %16, align 8
   %18 = icmp eq ptr %17, null
-  br i1 %18, label %19, label %119
+  br i1 %18, label %19, label %117
 
 19:                                               ; preds = %15
   %20 = tail call ptr @WebPSafeCalloc(i64 noundef 1, i64 noundef 216) #3
@@ -65,7 +65,7 @@ define hidden ptr @VP8DecompressAlphaRows(ptr noundef %0, ptr nocapture noundef 
 
 22:                                               ; preds = %19
   %23 = tail call i32 @VP8SetError(ptr noundef nonnull %0, i32 noundef 1, ptr noundef nonnull @.str) #3
-  br label %193
+  br label %191
 
 24:                                               ; preds = %19
   %.val = load i32, ptr %1, align 8
@@ -181,203 +181,198 @@ AllocateAlphaPlane.exit._crit_edge:               ; preds = %AllocateAlphaPlane.
   store i32 %89, ptr %90, align 4
   %91 = load i32, ptr %54, align 8
   %92 = icmp eq i32 %91, 0
-  br i1 %92, label %93, label %100
+  br i1 %92, label %93, label %ALPHInit.exit
 
 93:                                               ; preds = %72
   %94 = load i32, ptr %36, align 8
   %95 = load i32, ptr %48, align 4
   %96 = mul nsw i32 %95, %94
   %97 = sext i32 %96 to i64
-  %98 = icmp uge i64 %42, %97
-  %99 = zext i1 %98 to i32
-  br label %ALPHInit.exit
+  %.not75 = icmp ult i64 %42, %97
+  br i1 %.not75, label %ALPHInit.exit.thread, label %109
 
-100:                                              ; preds = %72
-  %101 = tail call i32 @VP8LDecodeAlphaHeader(ptr noundef nonnull %36, ptr noundef nonnull %41, i64 noundef %42) #3
-  br label %ALPHInit.exit
+ALPHInit.exit:                                    ; preds = %72
+  %98 = tail call i32 @VP8LDecodeAlphaHeader(ptr noundef nonnull %36, ptr noundef nonnull %41, i64 noundef %42) #3
+  %99 = icmp eq i32 %98, 0
+  br i1 %99, label %ALPHInit.exit.thread, label %109
 
-ALPHInit.exit:                                    ; preds = %93, %100
-  %.0.i65 = phi i32 [ %99, %93 ], [ %101, %100 ]
-  %.not57 = icmp eq i32 %.0.i65, 0
-  br i1 %.not57, label %ALPHInit.exit.thread, label %111
+ALPHInit.exit.thread:                             ; preds = %93, %70, %50, %66, %34, %ALPHInit.exit
+  %100 = load ptr, ptr %16, align 8
+  %101 = getelementptr inbounds nuw i8, ptr %100, i64 24
+  %102 = load ptr, ptr %101, align 8
+  %103 = icmp eq ptr %102, null
+  br i1 %103, label %106, label %104
 
-ALPHInit.exit.thread:                             ; preds = %70, %50, %66, %34, %ALPHInit.exit
-  %102 = load ptr, ptr %16, align 8
-  %103 = getelementptr inbounds nuw i8, ptr %102, i64 24
-  %104 = load ptr, ptr %103, align 8
-  %105 = icmp eq ptr %104, null
-  br i1 %105, label %108, label %106
+104:                                              ; preds = %ALPHInit.exit.thread
+  %105 = load i32, ptr %102, align 8
+  br label %106
 
-106:                                              ; preds = %ALPHInit.exit.thread
-  %107 = load i32, ptr %104, align 8
-  br label %108
-
-108:                                              ; preds = %ALPHInit.exit.thread, %106
-  %109 = phi i32 [ %107, %106 ], [ 1, %ALPHInit.exit.thread ]
-  %110 = tail call i32 @VP8SetError(ptr noundef nonnull %0, i32 noundef %109, ptr noundef nonnull @.str) #3
+106:                                              ; preds = %ALPHInit.exit.thread, %104
+  %107 = phi i32 [ %105, %104 ], [ 1, %ALPHInit.exit.thread ]
+  %108 = tail call i32 @VP8SetError(ptr noundef nonnull %0, i32 noundef %107, ptr noundef nonnull @.str) #3
   br label %ALPHDecode.exit
 
-111:                                              ; preds = %ALPHInit.exit
-  %112 = load ptr, ptr %16, align 8
-  %113 = getelementptr inbounds nuw i8, ptr %112, i64 16
-  %114 = load i32, ptr %113, align 8
-  %.not58 = icmp eq i32 %114, 1
-  br i1 %.not58, label %117, label %115
+109:                                              ; preds = %93, %ALPHInit.exit
+  %110 = load ptr, ptr %16, align 8
+  %111 = getelementptr inbounds nuw i8, ptr %110, i64 16
+  %112 = load i32, ptr %111, align 8
+  %.not58 = icmp eq i32 %112, 1
+  br i1 %.not58, label %115, label %113
 
-115:                                              ; preds = %111
-  %116 = getelementptr inbounds nuw i8, ptr %0, i64 3016
-  store i32 0, ptr %116, align 8
-  br label %119
+113:                                              ; preds = %109
+  %114 = getelementptr inbounds nuw i8, ptr %0, i64 3016
+  store i32 0, ptr %114, align 8
+  br label %117
 
-117:                                              ; preds = %111
-  %118 = sub nsw i32 %7, %2
-  br label %119
+115:                                              ; preds = %109
+  %116 = sub nsw i32 %7, %2
+  br label %117
 
-119:                                              ; preds = %115, %117, %15
-  %120 = phi ptr [ %112, %115 ], [ %112, %117 ], [ %17, %15 ]
-  %.050 = phi i32 [ %3, %115 ], [ %118, %117 ], [ %3, %15 ]
-  %121 = load i32, ptr %120, align 8
-  %122 = getelementptr inbounds nuw i8, ptr %120, i64 164
-  %123 = load i32, ptr %122, align 4
-  %124 = getelementptr inbounds nuw i8, ptr %120, i64 8
-  %125 = load i32, ptr %124, align 8
-  %126 = icmp eq i32 %125, 0
-  br i1 %126, label %127, label %150
+117:                                              ; preds = %113, %115, %15
+  %118 = phi ptr [ %110, %113 ], [ %110, %115 ], [ %17, %15 ]
+  %.050 = phi i32 [ %3, %113 ], [ %116, %115 ], [ %3, %15 ]
+  %119 = load i32, ptr %118, align 8
+  %120 = getelementptr inbounds nuw i8, ptr %118, i64 164
+  %121 = load i32, ptr %120, align 4
+  %122 = getelementptr inbounds nuw i8, ptr %118, i64 8
+  %123 = load i32, ptr %122, align 8
+  %124 = icmp eq i32 %123, 0
+  br i1 %124, label %125, label %148
 
-127:                                              ; preds = %119
-  %128 = getelementptr inbounds nuw i8, ptr %0, i64 3008
-  %129 = load ptr, ptr %128, align 8
-  %130 = icmp sgt i32 %.050, 0
-  br i1 %130, label %.lr.ph.i, label %._crit_edge.i
+125:                                              ; preds = %117
+  %126 = getelementptr inbounds nuw i8, ptr %0, i64 3008
+  %127 = load ptr, ptr %126, align 8
+  %128 = icmp sgt i32 %.050, 0
+  br i1 %128, label %.lr.ph.i, label %._crit_edge.i
 
-.lr.ph.i:                                         ; preds = %127
-  %131 = getelementptr inbounds nuw i8, ptr %0, i64 3000
-  %132 = load ptr, ptr %131, align 8
-  %133 = mul nsw i32 %121, %2
-  %134 = sext i32 %133 to i64
-  %135 = getelementptr inbounds i8, ptr %132, i64 %134
-  %136 = getelementptr inbounds nuw i8, ptr %0, i64 2968
-  %137 = load ptr, ptr %136, align 8
-  %138 = getelementptr inbounds nuw i8, ptr %137, i64 1
-  %139 = getelementptr inbounds i8, ptr %138, i64 %134
-  %140 = getelementptr inbounds nuw i8, ptr %120, i64 12
-  %141 = sext i32 %121 to i64
-  br label %142
+.lr.ph.i:                                         ; preds = %125
+  %129 = getelementptr inbounds nuw i8, ptr %0, i64 3000
+  %130 = load ptr, ptr %129, align 8
+  %131 = mul nsw i32 %119, %2
+  %132 = sext i32 %131 to i64
+  %133 = getelementptr inbounds i8, ptr %130, i64 %132
+  %134 = getelementptr inbounds nuw i8, ptr %0, i64 2968
+  %135 = load ptr, ptr %134, align 8
+  %136 = getelementptr inbounds nuw i8, ptr %135, i64 1
+  %137 = getelementptr inbounds i8, ptr %136, i64 %132
+  %138 = getelementptr inbounds nuw i8, ptr %118, i64 12
+  %139 = sext i32 %119 to i64
+  br label %140
 
-142:                                              ; preds = %142, %.lr.ph.i
-  %.041.i = phi ptr [ %135, %.lr.ph.i ], [ %147, %142 ]
-  %.03340.i = phi ptr [ %139, %.lr.ph.i ], [ %148, %142 ]
-  %.03439.i = phi ptr [ %129, %.lr.ph.i ], [ %.041.i, %142 ]
-  %.03538.i = phi i32 [ 0, %.lr.ph.i ], [ %149, %142 ]
-  %143 = load i32, ptr %140, align 4
-  %144 = zext i32 %143 to i64
-  %145 = getelementptr inbounds nuw [4 x ptr], ptr @WebPUnfilters, i64 0, i64 %144
-  %146 = load ptr, ptr %145, align 8
-  tail call void %146(ptr noundef %.03439.i, ptr noundef %.03340.i, ptr noundef %.041.i, i32 noundef %121) #3
-  %147 = getelementptr inbounds i8, ptr %.041.i, i64 %141
-  %148 = getelementptr inbounds i8, ptr %.03340.i, i64 %141
-  %149 = add nuw nsw i32 %.03538.i, 1
-  %exitcond.not.i = icmp eq i32 %149, %.050
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %142, !llvm.loop !4
+140:                                              ; preds = %140, %.lr.ph.i
+  %.041.i = phi ptr [ %133, %.lr.ph.i ], [ %145, %140 ]
+  %.03340.i = phi ptr [ %137, %.lr.ph.i ], [ %146, %140 ]
+  %.03439.i = phi ptr [ %127, %.lr.ph.i ], [ %.041.i, %140 ]
+  %.03538.i = phi i32 [ 0, %.lr.ph.i ], [ %147, %140 ]
+  %141 = load i32, ptr %138, align 4
+  %142 = zext i32 %141 to i64
+  %143 = getelementptr inbounds nuw [4 x ptr], ptr @WebPUnfilters, i64 0, i64 %142
+  %144 = load ptr, ptr %143, align 8
+  tail call void %144(ptr noundef %.03439.i, ptr noundef %.03340.i, ptr noundef %.041.i, i32 noundef %119) #3
+  %145 = getelementptr inbounds i8, ptr %.041.i, i64 %139
+  %146 = getelementptr inbounds i8, ptr %.03340.i, i64 %139
+  %147 = add nuw nsw i32 %.03538.i, 1
+  %exitcond.not.i = icmp eq i32 %147, %.050
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %140, !llvm.loop !4
 
-._crit_edge.i:                                    ; preds = %142, %127
-  %.034.lcssa.i = phi ptr [ %129, %127 ], [ %.041.i, %142 ]
-  store ptr %.034.lcssa.i, ptr %128, align 8
+._crit_edge.i:                                    ; preds = %140, %125
+  %.034.lcssa.i = phi ptr [ %127, %125 ], [ %.041.i, %140 ]
+  store ptr %.034.lcssa.i, ptr %126, align 8
   %.pre.i = add nsw i32 %.050, %2
+  br label %151
+
+148:                                              ; preds = %117
+  %149 = add nsw i32 %.050, %2
+  %150 = tail call i32 @VP8LDecodeAlphaImageStream(ptr noundef nonnull %118, i32 noundef %149) #3
+  %.not.i66 = icmp eq i32 %150, 0
+  br i1 %.not.i66, label %ALPHDecode.exit, label %151
+
+151:                                              ; preds = %148, %._crit_edge.i
+  %.pre-phi.i = phi i32 [ %149, %148 ], [ %.pre.i, %._crit_edge.i ]
+  %.not37.i = icmp slt i32 %.pre-phi.i, %121
+  br i1 %.not37.i, label %152, label %.thread
+
+.thread:                                          ; preds = %151
+  store i32 1, ptr %13, align 8
   br label %153
 
-150:                                              ; preds = %119
-  %151 = add nsw i32 %.050, %2
-  %152 = tail call i32 @VP8LDecodeAlphaImageStream(ptr noundef nonnull %120, i32 noundef %151) #3
-  %.not.i66 = icmp eq i32 %152, 0
-  br i1 %.not.i66, label %ALPHDecode.exit, label %153
-
-153:                                              ; preds = %150, %._crit_edge.i
-  %.pre-phi.i = phi i32 [ %151, %150 ], [ %.pre.i, %._crit_edge.i ]
-  %.not37.i = icmp slt i32 %.pre-phi.i, %123
-  br i1 %.not37.i, label %154, label %.thread
-
-.thread:                                          ; preds = %153
-  store i32 1, ptr %13, align 8
-  br label %155
-
-154:                                              ; preds = %153
+152:                                              ; preds = %151
   %.pr = load i32, ptr %13, align 8
   %.not60 = icmp eq i32 %.pr, 0
-  br i1 %.not60, label %181, label %155
+  br i1 %.not60, label %179, label %153
 
-155:                                              ; preds = %.thread, %154
-  %156 = load ptr, ptr %16, align 8
-  %.not.i67 = icmp eq ptr %156, null
-  br i1 %.not.i67, label %ALPHDelete.exit, label %157
+153:                                              ; preds = %.thread, %152
+  %154 = load ptr, ptr %16, align 8
+  %.not.i67 = icmp eq ptr %154, null
+  br i1 %.not.i67, label %ALPHDelete.exit, label %155
 
-157:                                              ; preds = %155
-  %158 = getelementptr inbounds nuw i8, ptr %156, i64 24
-  %159 = load ptr, ptr %158, align 8
-  tail call void @VP8LDelete(ptr noundef %159) #3
-  store ptr null, ptr %158, align 8
-  tail call void @WebPSafeFree(ptr noundef nonnull %156) #3
+155:                                              ; preds = %153
+  %156 = getelementptr inbounds nuw i8, ptr %154, i64 24
+  %157 = load ptr, ptr %156, align 8
+  tail call void @VP8LDelete(ptr noundef %157) #3
+  store ptr null, ptr %156, align 8
+  tail call void @WebPSafeFree(ptr noundef nonnull %154) #3
   br label %ALPHDelete.exit
 
-ALPHDelete.exit:                                  ; preds = %155, %157
+ALPHDelete.exit:                                  ; preds = %153, %155
   store ptr null, ptr %16, align 8
-  %160 = getelementptr inbounds nuw i8, ptr %0, i64 3016
-  %161 = load i32, ptr %160, align 8
-  %162 = icmp sgt i32 %161, 0
-  br i1 %162, label %163, label %181
+  %158 = getelementptr inbounds nuw i8, ptr %0, i64 3016
+  %159 = load i32, ptr %158, align 8
+  %160 = icmp sgt i32 %159, 0
+  br i1 %160, label %161, label %179
 
-163:                                              ; preds = %ALPHDelete.exit
-  %164 = getelementptr inbounds nuw i8, ptr %0, i64 3000
-  %165 = load ptr, ptr %164, align 8
-  %166 = getelementptr inbounds nuw i8, ptr %1, i64 128
-  %167 = load i32, ptr %166, align 8
-  %168 = mul nsw i32 %167, %5
-  %169 = sext i32 %168 to i64
-  %170 = getelementptr inbounds i8, ptr %165, i64 %169
-  %171 = getelementptr inbounds nuw i8, ptr %1, i64 120
-  %172 = load i32, ptr %171, align 8
-  %173 = sext i32 %172 to i64
-  %174 = getelementptr inbounds i8, ptr %170, i64 %173
-  %175 = getelementptr inbounds nuw i8, ptr %1, i64 124
-  %176 = load i32, ptr %175, align 4
-  %177 = sub nsw i32 %176, %172
-  %178 = load i32, ptr %6, align 4
-  %179 = sub nsw i32 %178, %167
-  %180 = tail call i32 @WebPDequantizeLevels(ptr noundef %174, i32 noundef %177, i32 noundef %179, i32 noundef %5, i32 noundef %161) #3
-  %.not61 = icmp eq i32 %180, 0
-  br i1 %.not61, label %ALPHDecode.exit, label %181
+161:                                              ; preds = %ALPHDelete.exit
+  %162 = getelementptr inbounds nuw i8, ptr %0, i64 3000
+  %163 = load ptr, ptr %162, align 8
+  %164 = getelementptr inbounds nuw i8, ptr %1, i64 128
+  %165 = load i32, ptr %164, align 8
+  %166 = mul nsw i32 %165, %5
+  %167 = sext i32 %166 to i64
+  %168 = getelementptr inbounds i8, ptr %163, i64 %167
+  %169 = getelementptr inbounds nuw i8, ptr %1, i64 120
+  %170 = load i32, ptr %169, align 8
+  %171 = sext i32 %170 to i64
+  %172 = getelementptr inbounds i8, ptr %168, i64 %171
+  %173 = getelementptr inbounds nuw i8, ptr %1, i64 124
+  %174 = load i32, ptr %173, align 4
+  %175 = sub nsw i32 %174, %170
+  %176 = load i32, ptr %6, align 4
+  %177 = sub nsw i32 %176, %165
+  %178 = tail call i32 @WebPDequantizeLevels(ptr noundef %172, i32 noundef %175, i32 noundef %177, i32 noundef %5, i32 noundef %159) #3
+  %.not61 = icmp eq i32 %178, 0
+  br i1 %.not61, label %ALPHDecode.exit, label %179
 
-181:                                              ; preds = %154, %163, %ALPHDelete.exit, %12
-  %182 = getelementptr inbounds nuw i8, ptr %0, i64 3000
-  %183 = load ptr, ptr %182, align 8
-  %184 = mul nsw i32 %5, %2
-  %185 = sext i32 %184 to i64
-  %186 = getelementptr inbounds i8, ptr %183, i64 %185
-  br label %193
+179:                                              ; preds = %152, %161, %ALPHDelete.exit, %12
+  %180 = getelementptr inbounds nuw i8, ptr %0, i64 3000
+  %181 = load ptr, ptr %180, align 8
+  %182 = mul nsw i32 %5, %2
+  %183 = sext i32 %182 to i64
+  %184 = getelementptr inbounds i8, ptr %181, i64 %183
+  br label %191
 
-ALPHDecode.exit:                                  ; preds = %150, %163, %AllocateAlphaPlane.exit, %108
-  %187 = getelementptr inbounds nuw i8, ptr %0, i64 2992
-  %188 = load ptr, ptr %187, align 8
-  tail call void @WebPSafeFree(ptr noundef %188) #3
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %187, i8 0, i64 16, i1 false)
-  %189 = load ptr, ptr %16, align 8
-  %.not.i.i = icmp eq ptr %189, null
-  br i1 %.not.i.i, label %WebPDeallocateAlphaMemory.exit, label %190
+ALPHDecode.exit:                                  ; preds = %148, %161, %AllocateAlphaPlane.exit, %106
+  %185 = getelementptr inbounds nuw i8, ptr %0, i64 2992
+  %186 = load ptr, ptr %185, align 8
+  tail call void @WebPSafeFree(ptr noundef %186) #3
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %185, i8 0, i64 16, i1 false)
+  %187 = load ptr, ptr %16, align 8
+  %.not.i.i = icmp eq ptr %187, null
+  br i1 %.not.i.i, label %WebPDeallocateAlphaMemory.exit, label %188
 
-190:                                              ; preds = %ALPHDecode.exit
-  %191 = getelementptr inbounds nuw i8, ptr %189, i64 24
-  %192 = load ptr, ptr %191, align 8
-  tail call void @VP8LDelete(ptr noundef %192) #3
-  store ptr null, ptr %191, align 8
-  tail call void @WebPSafeFree(ptr noundef nonnull %189) #3
+188:                                              ; preds = %ALPHDecode.exit
+  %189 = getelementptr inbounds nuw i8, ptr %187, i64 24
+  %190 = load ptr, ptr %189, align 8
+  tail call void @VP8LDelete(ptr noundef %190) #3
+  store ptr null, ptr %189, align 8
+  tail call void @WebPSafeFree(ptr noundef nonnull %187) #3
   br label %WebPDeallocateAlphaMemory.exit
 
-WebPDeallocateAlphaMemory.exit:                   ; preds = %ALPHDecode.exit, %190
+WebPDeallocateAlphaMemory.exit:                   ; preds = %ALPHDecode.exit, %188
   store ptr null, ptr %16, align 8
-  br label %193
+  br label %191
 
-193:                                              ; preds = %4, %WebPDeallocateAlphaMemory.exit, %181, %22
-  %.0 = phi ptr [ %186, %181 ], [ null, %22 ], [ null, %WebPDeallocateAlphaMemory.exit ], [ null, %4 ]
+191:                                              ; preds = %4, %WebPDeallocateAlphaMemory.exit, %179, %22
+  %.0 = phi ptr [ %184, %179 ], [ null, %22 ], [ null, %WebPDeallocateAlphaMemory.exit ], [ null, %4 ]
   ret ptr %.0
 }
 

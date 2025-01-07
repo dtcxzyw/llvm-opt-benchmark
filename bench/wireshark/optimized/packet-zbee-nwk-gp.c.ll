@@ -1207,16 +1207,16 @@ zbee_gp_decrypt_payload.exit:                     ; preds = %.zbee_gp_make_nonce
   %200 = ashr exact i64 %sext155, 56
   %201 = getelementptr i8, ptr %19, i64 %200
   %202 = call i32 @zbee_sec_ccm_decrypt(ptr noundef nonnull %177, ptr noundef nonnull %5, ptr noundef %19, ptr noundef %201, ptr noundef %152, i32 noundef %199, i32 noundef range(i32 0, 256) %170, i32 noundef range(i32 0, 256) %172) #11
-  %.not.i.not = icmp eq i32 %202, 0
+  %.not.i = icmp eq i32 %202, 0
   call void @llvm.lifetime.end.p0(i64 13, ptr nonnull %5)
   %203 = getelementptr inbounds nuw i8, ptr %.0145164, i64 8
   %.0145 = load ptr, ptr %203, align 8
   %204 = icmp ne ptr %.0145, null
-  %205 = select i1 %204, i1 %.not.i.not, i1 false
+  %205 = select i1 %204, i1 %.not.i, i1 false
   br i1 %205, label %168, label %._crit_edge, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %zbee_gp_decrypt_payload.exit
-  br i1 %.not.i.not, label %.critedge, label %206
+  br i1 %.not.i, label %.critedge, label %206
 
 206:                                              ; preds = %._crit_edge
   %207 = load i8, ptr %104, align 4
@@ -1611,16 +1611,16 @@ zbee_gp_decrypt_payload.exit.i:                   ; preds = %194, %.zbee_gp_make
   %.sink.i.i.i = select i1 %brmerge.i.i, i8 5, i8 -93
   store i8 %.sink.i.i.i, ptr %186, align 4
   %203 = call i32 @zbee_sec_ccm_decrypt(ptr noundef nonnull %190, ptr noundef nonnull %10, ptr noundef nonnull %156, ptr noundef %171, ptr noundef %154, i32 noundef 4, i32 noundef 16, i32 noundef 4) #11
-  %.not.i.not.i = icmp eq i32 %203, 0
+  %.not.i.i = icmp eq i32 %203, 0
   call void @llvm.lifetime.end.p0(i64 13, ptr nonnull %10)
   %204 = getelementptr inbounds nuw i8, ptr %.0141176.i, i64 8
   %.0141.i = load ptr, ptr %204, align 8
   %205 = icmp ne ptr %.0141.i, null
-  %206 = select i1 %205, i1 %.not.i.not.i, i1 false
+  %206 = select i1 %205, i1 %.not.i.i, i1 false
   br i1 %206, label %187, label %._crit_edge.i, !llvm.loop !12
 
 ._crit_edge.i:                                    ; preds = %zbee_gp_decrypt_payload.exit.i
-  br i1 %.not.i.not.i, label %.critedge.i, label %207
+  br i1 %.not.i.i, label %.critedge.i, label %207
 
 207:                                              ; preds = %._crit_edge.i
   store i32 0, ptr %11, align 8
@@ -2058,16 +2058,16 @@ zbee_gp_decrypt_payload.exit.i124:                ; preds = %420, %.zbee_gp_make
   %.sink.i.i.i129 = select i1 %brmerge.i.i128, i8 5, i8 -93
   store i8 %.sink.i.i.i129, ptr %411, align 4
   %436 = call i32 @zbee_sec_ccm_decrypt(ptr noundef nonnull %415, ptr noundef nonnull %6, ptr noundef nonnull %381, ptr noundef %396, ptr noundef %379, i32 noundef 4, i32 noundef 16, i32 noundef 4) #11
-  %.not.i.not.i130 = icmp eq i32 %436, 0
+  %.not.i.i130 = icmp eq i32 %436, 0
   call void @llvm.lifetime.end.p0(i64 13, ptr nonnull %6)
   %437 = getelementptr inbounds nuw i8, ptr %.07193.i, i64 8
   %.071.i = load ptr, ptr %437, align 8
   %438 = icmp ne ptr %.071.i, null
-  %439 = select i1 %438, i1 %.not.i.not.i130, i1 false
+  %439 = select i1 %438, i1 %.not.i.i130, i1 false
   br i1 %439, label %412, label %._crit_edge.i131, !llvm.loop !18
 
 ._crit_edge.i131:                                 ; preds = %zbee_gp_decrypt_payload.exit.i124
-  br i1 %.not.i.not.i130, label %dissect_zbee_nwk_gp_cmd_commissioning_reply.exit, label %440
+  br i1 %.not.i.i130, label %dissect_zbee_nwk_gp_cmd_commissioning_reply.exit, label %440
 
 440:                                              ; preds = %._crit_edge.i131
   store i32 0, ptr %8, align 8

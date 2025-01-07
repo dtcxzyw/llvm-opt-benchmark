@@ -1725,7 +1725,7 @@ while.cond.preheader:                             ; preds = %Py_INCREF.exit
 
 while.body:                                       ; preds = %while.cond.preheader, %if.end49
   %call38122 = phi ptr [ %call38, %if.end49 ], [ %call38117, %while.cond.preheader ]
-  %slow_update_toggle.0121 = phi i32 [ %lnot.ext, %if.end49 ], [ 0, %while.cond.preheader ]
+  %slow_update_toggle.0121 = phi i1 [ %41, %if.end49 ], [ true, %while.cond.preheader ]
   %slow_o.0120 = phi ptr [ %slow_o.1, %if.end49 ], [ %34, %while.cond.preheader ]
   %o.0119 = phi ptr [ %call38122, %if.end49 ], [ %34, %while.cond.preheader ]
   %37 = load i64, ptr %call38122, align 8
@@ -1756,8 +1756,7 @@ if.end42:                                         ; preds = %Py_DECREF.exit78
   br i1 %cmp43, label %while.end, label %if.end45
 
 if.end45:                                         ; preds = %if.end42
-  %tobool46.not = icmp eq i32 %slow_update_toggle.0121, 0
-  br i1 %tobool46.not, label %if.end49, label %if.then47
+  br i1 %slow_update_toggle.0121, label %if.end49, label %if.then47
 
 if.then47:                                        ; preds = %if.end45
   %call48 = tail call ptr @PyException_GetContext(ptr noundef %slow_o.0120) #16
@@ -1778,7 +1777,7 @@ if.then1.i67:                                     ; preds = %if.end.i64
 
 if.end49:                                         ; preds = %if.end.i64, %if.then1.i67, %if.then47, %if.end45
   %slow_o.1 = phi ptr [ %call48, %if.then47 ], [ %call48, %if.then1.i67 ], [ %call48, %if.end.i64 ], [ %slow_o.0120, %if.end45 ]
-  %lnot.ext = xor i32 %slow_update_toggle.0121, 1
+  %41 = xor i1 %slow_update_toggle.0121, true
   %call38 = tail call ptr @PyException_GetContext(ptr noundef nonnull %call38122) #16
   %tobool39.not = icmp eq ptr %call38, null
   br i1 %tobool39.not, label %while.end, label %while.body, !llvm.loop !7
@@ -1788,13 +1787,13 @@ while.end:                                        ; preds = %if.end49, %if.end42
   br label %if.end52
 
 if.else:                                          ; preds = %Py_INCREF.exit
-  %41 = load i64, ptr %34, align 8
-  %42 = and i64 %41, 2147483648
-  %cmp.i104.not = icmp eq i64 %42, 0
+  %42 = load i64, ptr %34, align 8
+  %43 = and i64 %42, 2147483648
+  %cmp.i104.not = icmp eq i64 %43, 0
   br i1 %cmp.i104.not, label %if.end.i, label %if.end52
 
 if.end.i:                                         ; preds = %if.else
-  %dec.i = add i64 %41, -1
+  %dec.i = add i64 %42, -1
   store i64 %dec.i, ptr %34, align 8
   %cmp.i = icmp eq i64 %dec.i, 0
   br i1 %cmp.i, label %if.then1.i, label %if.end52
@@ -1804,24 +1803,24 @@ if.then1.i:                                       ; preds = %if.end.i
   br label %if.end52
 
 if.end52:                                         ; preds = %while.end, %if.else, %if.then1.i, %if.end.i, %_PyErr_GetTopmostException.exit
-  %43 = getelementptr i8, ptr %value.addr.0, i64 8
-  %value.addr.0.val57 = load ptr, ptr %43, align 8
-  %44 = getelementptr i8, ptr %value.addr.0.val57, i64 168
-  %call53.val = load i64, ptr %44, align 8
-  %45 = and i64 %call53.val, 1073741824
-  %tobool55.not = icmp eq i64 %45, 0
+  %44 = getelementptr i8, ptr %value.addr.0, i64 8
+  %value.addr.0.val57 = load ptr, ptr %44, align 8
+  %45 = getelementptr i8, ptr %value.addr.0.val57, i64 168
+  %call53.val = load i64, ptr %45, align 8
+  %46 = and i64 %call53.val, 1073741824
+  %tobool55.not = icmp eq i64 %46, 0
   br i1 %tobool55.not, label %if.end58, label %if.then56
 
 if.then56:                                        ; preds = %if.end52
   %call57 = tail call ptr @PyException_GetTraceback(ptr noundef nonnull %value.addr.0) #16
-  %value.addr.0.val.pre = load ptr, ptr %43, align 8
+  %value.addr.0.val.pre = load ptr, ptr %44, align 8
   br label %if.end58
 
 if.end58:                                         ; preds = %if.then56, %if.end52
   %value.addr.0.val = phi ptr [ %value.addr.0.val.pre, %if.then56 ], [ %value.addr.0.val57, %if.end52 ]
   %tb.0 = phi ptr [ %call57, %if.then56 ], [ null, %if.end52 ]
-  %46 = load i32, ptr %value.addr.0.val, align 8
-  %add.i.i94 = add i32 %46, 1
+  %47 = load i32, ptr %value.addr.0.val, align 8
+  %add.i.i94 = add i32 %47, 1
   %cmp.i.i95 = icmp eq i32 %add.i.i94, 0
   br i1 %cmp.i.i95, label %_Py_NewRef.exit, label %if.end.i.i96
 

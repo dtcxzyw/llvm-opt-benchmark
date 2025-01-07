@@ -1902,9 +1902,9 @@ SimpleQuantize.exit:                              ; preds = %ReconstructIntra4.e
   %592 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %593 = load ptr, ptr %592, align 8, !alias.scope !106, !noalias !109
   %594 = load i8, ptr %593, align 4, !noalias !111
-  br i1 %590, label %605, label %.thread199.i
+  br i1 %590, label %605, label %.thread197.i
 
-.thread199.i:                                     ; preds = %589
+.thread197.i:                                     ; preds = %589
   %595 = load ptr, ptr %13, align 8, !alias.scope !106, !noalias !109
   %596 = lshr i8 %594, 5
   %597 = and i8 %596, 3
@@ -1925,15 +1925,15 @@ SimpleQuantize.exit:                              ; preds = %ReconstructIntra4.e
   %609 = lshr i8 %594, 5
   %610 = and i8 %609, 3
   %611 = zext nneg i8 %610 to i64
-  %.idx198.i = mul nuw nsw i64 %611, 744
+  %.idx196.i = mul nuw nsw i64 %611, 744
   %612 = getelementptr i8, ptr %608, i64 1344
-  %613 = getelementptr i8, ptr %612, i64 %.idx198.i
+  %613 = getelementptr i8, ptr %612, i64 %.idx196.i
   %614 = load i64, ptr %613, align 8, !noalias !111
   br i1 %607, label %615, label %.thread.i
 
-615:                                              ; preds = %605, %.thread199.i
-  %616 = phi i64 [ %604, %.thread199.i ], [ 36028797018963967, %605 ]
-  %617 = phi i64 [ %601, %.thread199.i ], [ %614, %605 ]
+615:                                              ; preds = %605, %.thread197.i
+  %616 = phi i64 [ %604, %.thread197.i ], [ 36028797018963967, %605 ]
+  %617 = phi i64 [ %601, %.thread197.i ], [ %614, %605 ]
   %618 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %619 = load ptr, ptr %618, align 8, !alias.scope !106, !noalias !109
   %620 = load ptr, ptr %32, align 8, !alias.scope !106, !noalias !109
@@ -1941,8 +1941,8 @@ SimpleQuantize.exit:                              ; preds = %ReconstructIntra4.e
 
 621:                                              ; preds = %621, %615
   %indvars.iv.i64 = phi i64 [ 0, %615 ], [ %indvars.iv.next.i65, %621 ]
-  %.1107177.i = phi i64 [ 36028797018963967, %615 ], [ %.2.i, %621 ]
-  %.0122175.i = phi i32 [ -1, %615 ], [ %.1123.i, %621 ]
+  %.1107175.i = phi i64 [ 36028797018963967, %615 ], [ %.2.i, %621 ]
+  %.0122173.i = phi i32 [ -1, %615 ], [ %.1123.i, %621 ]
   %622 = getelementptr inbounds nuw [4 x i16], ptr @VP8I16ModeOffsets, i64 0, i64 %indvars.iv.i64
   %623 = load i16, ptr %622, align 2, !noalias !111
   %624 = zext i16 %623 to i64
@@ -1958,12 +1958,12 @@ SimpleQuantize.exit:                              ; preds = %ReconstructIntra4.e
   %634 = add nsw i64 %633, %629
   %.not139.i = icmp eq i64 %indvars.iv.i64, 0
   %635 = icmp sge i64 %616, %632
-  %or.cond141.not172.i = select i1 %.not139.i, i1 true, i1 %635
-  %636 = icmp slt i64 %634, %.1107177.i
-  %or.cond142.i = select i1 %or.cond141.not172.i, i1 %636, i1 false
+  %or.cond141.not170.i = select i1 %.not139.i, i1 true, i1 %635
+  %636 = icmp slt i64 %634, %.1107175.i
+  %or.cond142.i = select i1 %or.cond141.not170.i, i1 %636, i1 false
   %637 = trunc nuw nsw i64 %indvars.iv.i64 to i32
-  %.1123.i = select i1 %or.cond142.i, i32 %637, i32 %.0122175.i
-  %.2.i = select i1 %or.cond142.i, i64 %634, i64 %.1107177.i
+  %.1123.i = select i1 %or.cond142.i, i32 %637, i32 %.0122173.i
+  %.2.i = select i1 %or.cond142.i, i64 %634, i64 %.1107175.i
   %indvars.iv.next.i65 = add nuw nsw i64 %indvars.iv.i64, 1
   %exitcond.not.i66 = icmp eq i64 %indvars.iv.next.i65, 4
   br i1 %exitcond.not.i66, label %638, label %621, !llvm.loop !112
@@ -2015,21 +2015,21 @@ SimpleQuantize.exit:                              ; preds = %ReconstructIntra4.e
   %656 = getelementptr inbounds nuw i8, ptr %.0816.i.i80, i64 32
   %657 = add nuw nsw i32 %.017.i.i79, 1
   %exitcond.not.i.i89 = icmp eq i32 %657, 16
-  br i1 %exitcond.not.i.i89, label %.thread200.i, label %648, !llvm.loop !22
+  br i1 %exitcond.not.i.i89, label %.thread198.i, label %648, !llvm.loop !22
 
 IsFlatSource16.exit.thread.i:                     ; preds = %653, %651, %649, %648
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5), !noalias !111
   br label %659
 
-.thread200.i:                                     ; preds = %655
+.thread198.i:                                     ; preds = %655
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5), !noalias !111
   %658 = select i1 %640, i32 0, i32 2
   tail call void @VP8SetIntra16Mode(ptr noundef nonnull %0, i32 noundef %658) #11, !noalias !109
-  br label %.thread164.i
+  br label %.thread163.i
 
 659:                                              ; preds = %IsFlatSource16.exit.thread.i, %641
   tail call void @VP8SetIntra16Mode(ptr noundef nonnull %0, i32 noundef %.1123.i) #11, !noalias !109
-  br i1 %590, label %.thread164.i, label %.thread.i
+  br i1 %590, label %.thread163.i, label %.thread.i
 
 .thread.i:                                        ; preds = %659, %605
   %660 = phi i64 [ %616, %659 ], [ 36028797018963967, %605 ]
@@ -2072,11 +2072,11 @@ IsFlatSource16.exit.thread.i:                     ; preds = %653, %651, %649, %6
   %686 = ashr exact i32 %674, 2
   %687 = load ptr, ptr %666, align 8, !alias.scope !116, !noalias !109
   %688 = mul nsw i32 %682, %686
-  %.pre196.i = sext i32 %688 to i64
+  %.pre194.i = sext i32 %688 to i64
   br label %689
 
 689:                                              ; preds = %685, %672
-  %.pre-phi.i68 = phi i64 [ %.pre196.i, %685 ], [ %675, %672 ]
+  %.pre-phi.i68 = phi i64 [ %.pre194.i, %685 ], [ %675, %672 ]
   %.sink.i.i69 = phi ptr [ %687, %685 ], [ %664, %672 ]
   %690 = getelementptr i8, ptr %.sink.i.i69, i64 %.pre-phi.i68
   %.in.in.i.i70 = getelementptr i8, ptr %690, i64 -1
@@ -2108,30 +2108,30 @@ GetCostModeI4.exit.i73:                           ; preds = %697, %692
   br label %702
 
 702:                                              ; preds = %702, %GetCostModeI4.exit.i73
-  %indvars.iv187.i = phi i64 [ 0, %GetCostModeI4.exit.i73 ], [ %indvars.iv.next188.i, %702 ]
-  %.0125179.i = phi i64 [ 36028797018963967, %GetCostModeI4.exit.i73 ], [ %spec.select143.i, %702 ]
-  %.0127178.i = phi i32 [ -1, %GetCostModeI4.exit.i73 ], [ %spec.select.i, %702 ]
+  %indvars.iv185.i = phi i64 [ 0, %GetCostModeI4.exit.i73 ], [ %indvars.iv.next186.i, %702 ]
+  %.0125177.i = phi i64 [ 36028797018963967, %GetCostModeI4.exit.i73 ], [ %spec.select143.i, %702 ]
+  %.0127176.i = phi i32 [ -1, %GetCostModeI4.exit.i73 ], [ %spec.select.i, %702 ]
   %703 = load ptr, ptr %32, align 8, !alias.scope !106, !noalias !109
-  %704 = getelementptr inbounds nuw [10 x i16], ptr @VP8I4ModeOffsets, i64 0, i64 %indvars.iv187.i
+  %704 = getelementptr inbounds nuw [10 x i16], ptr @VP8I4ModeOffsets, i64 0, i64 %indvars.iv185.i
   %705 = load i16, ptr %704, align 2, !noalias !111
   %706 = zext i16 %705 to i64
   %707 = getelementptr inbounds nuw i8, ptr %703, i64 %706
   %708 = load ptr, ptr @VP8SSE4x4, align 8, !noalias !111
   %709 = call i32 %708(ptr noundef %679, ptr noundef %707) #11
   %710 = shl nsw i32 %709, 8
-  %711 = getelementptr inbounds nuw i16, ptr %700, i64 %indvars.iv187.i
+  %711 = getelementptr inbounds nuw i16, ptr %700, i64 %indvars.iv185.i
   %712 = load i16, ptr %711, align 2, !noalias !111
   %713 = zext i16 %712 to i32
   %714 = mul nuw nsw i32 %713, 11
   %715 = add nsw i32 %714, %710
   %716 = sext i32 %715 to i64
-  %717 = icmp sgt i64 %.0125179.i, %716
-  %718 = trunc nuw nsw i64 %indvars.iv187.i to i32
-  %spec.select.i = select i1 %717, i32 %718, i32 %.0127178.i
-  %spec.select143.i = call i64 @llvm.smin.i64(i64 %.0125179.i, i64 %716)
-  %indvars.iv.next188.i = add nuw nsw i64 %indvars.iv187.i, 1
-  %exitcond190.not.i = icmp eq i64 %indvars.iv.next188.i, 10
-  br i1 %exitcond190.not.i, label %719, label %702, !llvm.loop !117
+  %717 = icmp sgt i64 %.0125177.i, %716
+  %718 = trunc nuw nsw i64 %indvars.iv185.i to i32
+  %spec.select.i = select i1 %717, i32 %718, i32 %.0127176.i
+  %spec.select143.i = call i64 @llvm.smin.i64(i64 %.0125177.i, i64 %716)
+  %indvars.iv.next186.i = add nuw nsw i64 %indvars.iv185.i, 1
+  %exitcond188.not.i = icmp eq i64 %indvars.iv.next186.i, 10
+  br i1 %exitcond188.not.i, label %719, label %702, !llvm.loop !117
 
 719:                                              ; preds = %702
   %720 = sext i32 %spec.select.i to i64
@@ -2148,7 +2148,7 @@ GetCostModeI4.exit.i73:                           ; preds = %697, %692
   %.not135.i = icmp sge i64 %729, %.0106154.i
   %730 = icmp sgt i64 %724, %660
   %or.cond144.i = select i1 %.not135.i, i1 true, i1 %730
-  br i1 %or.cond144.i, label %.thread164.i, label %731
+  br i1 %or.cond144.i, label %.thread163.i, label %731
 
 731:                                              ; preds = %719
   %732 = load ptr, ptr %667, align 8, !alias.scope !106, !noalias !109
@@ -2220,8 +2220,8 @@ ReconstructIntra4.exit.i77:                       ; preds = %766, %753
   store ptr %776, ptr %667, align 8, !alias.scope !106, !noalias !109
   br label %785
 
-.thread164.i:                                     ; preds = %719, %659, %.thread200.i
-  %.0106155170.i = phi i64 [ %.2.i, %.thread200.i ], [ %.2.i, %659 ], [ %.0106154.i, %719 ]
+.thread163.i:                                     ; preds = %719, %659, %.thread198.i
+  %.0106155168.i = phi i64 [ %.2.i, %659 ], [ %.2.i, %.thread198.i ], [ %.0106154.i, %719 ]
   %778 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %779 = load ptr, ptr %778, align 8, !alias.scope !106, !noalias !109
   %780 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -2231,9 +2231,9 @@ ReconstructIntra4.exit.i77:                       ; preds = %766, %753
   %784 = call fastcc i32 @ReconstructIntra16(ptr noundef %0, ptr noundef %1, ptr noundef %779, i32 noundef %783)
   br label %785
 
-785:                                              ; preds = %.thread164.i, %.thread156.i
-  %.2110.i = phi i32 [ %784, %.thread164.i ], [ %772, %.thread156.i ]
-  %.3.i = phi i64 [ %.0106155170.i, %.thread164.i ], [ %729, %.thread156.i ]
+785:                                              ; preds = %.thread163.i, %.thread156.i
+  %.2110.i = phi i32 [ %784, %.thread163.i ], [ %772, %.thread156.i ]
+  %.3.i = phi i64 [ %.0106155168.i, %.thread163.i ], [ %729, %.thread156.i ]
   br i1 %591, label %RefineUsingDistortion.exit, label %786
 
 786:                                              ; preds = %785
@@ -2243,30 +2243,30 @@ ReconstructIntra4.exit.i77:                       ; preds = %766, %753
   br label %790
 
 790:                                              ; preds = %790, %786
-  %indvars.iv191.i = phi i64 [ 0, %786 ], [ %indvars.iv.next192.i, %790 ]
-  %.0111183.i = phi i64 [ 36028797018963967, %786 ], [ %spec.select146.i, %790 ]
-  %.0113182.i = phi i32 [ -1, %786 ], [ %spec.select145.i, %790 ]
+  %indvars.iv189.i = phi i64 [ 0, %786 ], [ %indvars.iv.next190.i, %790 ]
+  %.0111181.i = phi i64 [ 36028797018963967, %786 ], [ %spec.select146.i, %790 ]
+  %.0113180.i = phi i32 [ -1, %786 ], [ %spec.select145.i, %790 ]
   %791 = load ptr, ptr %32, align 8, !alias.scope !106, !noalias !109
-  %792 = getelementptr inbounds nuw [4 x i16], ptr @VP8UVModeOffsets, i64 0, i64 %indvars.iv191.i
+  %792 = getelementptr inbounds nuw [4 x i16], ptr @VP8UVModeOffsets, i64 0, i64 %indvars.iv189.i
   %793 = load i16, ptr %792, align 2, !noalias !111
   %794 = zext i16 %793 to i64
   %795 = getelementptr inbounds nuw i8, ptr %791, i64 %794
   %796 = load ptr, ptr @VP8SSE16x8, align 8, !noalias !111
   %797 = call i32 %796(ptr noundef nonnull %789, ptr noundef %795) #11
   %798 = shl nsw i32 %797, 8
-  %799 = getelementptr inbounds nuw [4 x i16], ptr @VP8FixedCostsUV, i64 0, i64 %indvars.iv191.i
+  %799 = getelementptr inbounds nuw [4 x i16], ptr @VP8FixedCostsUV, i64 0, i64 %indvars.iv189.i
   %800 = load i16, ptr %799, align 2, !noalias !111
   %801 = zext i16 %800 to i32
   %802 = mul nuw nsw i32 %801, 120
   %803 = add nsw i32 %802, %798
   %804 = sext i32 %803 to i64
-  %805 = icmp sgt i64 %.0111183.i, %804
-  %806 = trunc nuw nsw i64 %indvars.iv191.i to i32
-  %spec.select145.i = select i1 %805, i32 %806, i32 %.0113182.i
-  %spec.select146.i = call i64 @llvm.smin.i64(i64 %.0111183.i, i64 %804)
-  %indvars.iv.next192.i = add nuw nsw i64 %indvars.iv191.i, 1
-  %exitcond194.not.i = icmp eq i64 %indvars.iv.next192.i, 4
-  br i1 %exitcond194.not.i, label %807, label %790, !llvm.loop !129
+  %805 = icmp sgt i64 %.0111181.i, %804
+  %806 = trunc nuw nsw i64 %indvars.iv189.i to i32
+  %spec.select145.i = select i1 %805, i32 %806, i32 %.0113180.i
+  %spec.select146.i = call i64 @llvm.smin.i64(i64 %.0111181.i, i64 %804)
+  %indvars.iv.next190.i = add nuw nsw i64 %indvars.iv189.i, 1
+  %exitcond192.not.i = icmp eq i64 %indvars.iv.next190.i, 4
+  br i1 %exitcond192.not.i, label %807, label %790, !llvm.loop !129
 
 807:                                              ; preds = %790
   call void @VP8SetIntraUVMode(ptr noundef nonnull %0, i32 noundef %spec.select145.i) #11

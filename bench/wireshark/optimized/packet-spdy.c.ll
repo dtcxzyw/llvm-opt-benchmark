@@ -772,8 +772,8 @@ spdy_assemble_data_frames.exit.thread.i:          ; preds = %spdy_assemble_data_
   %199 = phi ptr [ %.pr.i104, %spdy_assemble_data_frames.exit.threadthread-pre-split.i ], [ %167, %165 ], [ %198, %._crit_edge10.i.i ]
   %200 = load i32, ptr @spdy_assemble_entity_bodies, align 4
   %.not140.i = icmp ne i32 %200, 0
-  %narrow.i = select i1 %.not140.i, i1 true, i1 %.0129.in.i
-  br i1 %narrow.i, label %201, label %dissect_spdy_data_payload.exit
+  %spec.select.not.i = select i1 %.not140.i, i1 true, i1 %.0129.in.i
+  br i1 %spec.select.not.i, label %201, label %dissect_spdy_data_payload.exit
 
 201:                                              ; preds = %spdy_assemble_data_frames.exit.thread.i
   %202 = icmp eq ptr %199, null

@@ -1160,23 +1160,23 @@ if.end31:                                         ; preds = %if.end.i, %if.end19
   %cmp32 = icmp eq ptr %audience, null
   %aud = getelementptr inbounds nuw i8, ptr %claims, i64 16
   %12 = load ptr, ptr %aud, align 8
-  %cmp34 = icmp eq ptr %12, null
+  %cmp34.not = icmp eq ptr %12, null
   br i1 %cmp32, label %if.then33, label %if.else
 
 if.then33:                                        ; preds = %if.end31
-  br i1 %cmp34, label %return, label %if.then42
+  br i1 %cmp34.not, label %return, label %if.then42
 
 if.else:                                          ; preds = %if.end31
-  br i1 %cmp34, label %if.then42, label %if.end41
+  br i1 %cmp34.not, label %if.then42, label %if.end41
 
 if.end41:                                         ; preds = %if.else
   %call38 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %audience, ptr noundef nonnull dereferenceable(1) %12) #28
-  %cmp39 = icmp eq i32 %call38, 0
-  br i1 %cmp39, label %return, label %if.then42
+  %cmp39.not = icmp eq i32 %call38, 0
+  br i1 %cmp39.not, label %return, label %if.then42
 
 if.then42:                                        ; preds = %if.then33, %if.else, %if.end41
-  %cond = phi ptr [ %audience, %if.else ], [ %audience, %if.end41 ], [ @.str.21, %if.then33 ]
-  %13 = phi ptr [ null, %if.else ], [ %12, %if.end41 ], [ %12, %if.then33 ]
+  %13 = phi ptr [ %12, %if.then33 ], [ null, %if.else ], [ %12, %if.end41 ]
+  %cond = phi ptr [ @.str.21, %if.then33 ], [ %audience, %if.else ], [ %audience, %if.end41 ]
   %cmp45 = icmp eq ptr %13, null
   %spec.select = select i1 %cmp45, ptr @.str.21, ptr %13
   tail call void (ptr, i32, i32, ptr, ...) @gpr_log(ptr noundef nonnull @.str.15, i32 noundef 350, i32 noundef 2, ptr noundef nonnull @.str.20, ptr noundef nonnull %cond, ptr noundef nonnull %spec.select)

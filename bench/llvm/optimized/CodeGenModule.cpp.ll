@@ -46337,21 +46337,21 @@ _ZN4llvm11raw_ostreamlsEPKc.exit23:               ; preds = %162, %164
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5)
   %167 = getelementptr inbounds nuw i8, ptr %4, i64 17
   %168 = icmp eq i64 %.0.copyload.i.i.i.i.i, 0
-  br i1 %168, label %169, label %.lr.ph.split.i.preheader
+  br i1 %168, label %169, label %.lr.ph.i.preheader
 
 169:                                              ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit23
   %170 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i8 48, ptr %170, align 16, !noalias !611
-  br label %.lr.ph.split.i.preheader
+  br label %.lr.ph.i.preheader
 
-.lr.ph.split.i.preheader:                         ; preds = %169, %_ZN4llvm11raw_ostreamlsEPKc.exit23
-  %.117.i.ph = phi ptr [ %167, %_ZN4llvm11raw_ostreamlsEPKc.exit23 ], [ %170, %169 ]
-  br label %.lr.ph.split.i
+.lr.ph.i.preheader:                               ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit23, %169
+  %.117.i.ph = phi ptr [ %170, %169 ], [ %167, %_ZN4llvm11raw_ostreamlsEPKc.exit23 ]
+  br label %.lr.ph.i
 
-.lr.ph.split.i:                                   ; preds = %.lr.ph.split.i.preheader, %.lr.ph.split.i
-  %.019.i = phi i64 [ %176, %.lr.ph.split.i ], [ %.0.copyload.i.i.i.i.i, %.lr.ph.split.i.preheader ]
-  %.01218.i = phi i32 [ %177, %.lr.ph.split.i ], [ 0, %.lr.ph.split.i.preheader ]
-  %.117.i = phi ptr [ %175, %.lr.ph.split.i ], [ %.117.i.ph, %.lr.ph.split.i.preheader ]
+.lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %.lr.ph.i
+  %.019.i = phi i64 [ %176, %.lr.ph.i ], [ %.0.copyload.i.i.i.i.i, %.lr.ph.i.preheader ]
+  %.01218.i = phi i32 [ %177, %.lr.ph.i ], [ 0, %.lr.ph.i.preheader ]
+  %.117.i = phi ptr [ %175, %.lr.ph.i ], [ %.117.i.ph, %.lr.ph.i.preheader ]
   %171 = and i64 %.019.i, 15
   %172 = getelementptr inbounds nuw [17 x i8], ptr @_ZZN4llvm8hexdigitEjbE3LUT, i64 0, i64 %171
   %173 = load i8, ptr %172, align 1, !noalias !611
@@ -46360,10 +46360,10 @@ _ZN4llvm11raw_ostreamlsEPKc.exit23:               ; preds = %162, %164
   store i8 %174, ptr %175, align 1, !noalias !611
   %176 = lshr i64 %.019.i, 4
   %177 = add nuw nsw i32 %.01218.i, 1
-  %exitcond.not.i = icmp eq i32 %177, 8
-  br i1 %exitcond.not.i, label %_ZN4llvm9utohexstrB5cxx11Embj.exit, label %.lr.ph.split.i, !llvm.loop !614
+  %exitcond = icmp eq i32 %177, 8
+  br i1 %exitcond, label %_ZN4llvm9utohexstrB5cxx11Embj.exit, label %.lr.ph.i, !llvm.loop !614
 
-_ZN4llvm9utohexstrB5cxx11Embj.exit:               ; preds = %.lr.ph.split.i
+_ZN4llvm9utohexstrB5cxx11Embj.exit:               ; preds = %.lr.ph.i
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #25, !noalias !611
   %178 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %17) #25
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef %178, ptr noundef nonnull align 1 dereferenceable(1) %5) #25

@@ -1878,8 +1878,8 @@ if.end:                                           ; preds = %if.then, %entry
   tail call void @free(ptr noundef %to_free.0) #16
   %attr_match_nr = getelementptr inbounds nuw i8, ptr %item, i64 36
   %2 = load i32, ptr %attr_match_nr, align 4
-  %cmp21 = icmp sgt i32 %2, 0
-  br i1 %cmp21, label %for.body.lr.ph, label %return
+  %cmp18 = icmp sgt i32 %2, 0
+  br i1 %cmp18, label %for.body.lr.ph, label %return
 
 for.body.lr.ph:                                   ; preds = %if.end
   %3 = load ptr, ptr %attr_check, align 8
@@ -1890,13 +1890,8 @@ for.body.lr.ph:                                   ; preds = %if.end
   %wide.trip.count = zext nneg i32 %2 to i64
   br label %for.body
 
-for.cond:                                         ; preds = %if.then22, %if.then16, %if.then11, %if.end36
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %return, label %for.body, !llvm.loop !25
-
-for.body:                                         ; preds = %for.body.lr.ph, %for.cond
-  %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.cond ]
+for.body:                                         ; preds = %for.body.lr.ph, %for.inc
+  %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.inc ]
   %value5 = getelementptr inbounds nuw %struct.attr_check_item, ptr %4, i64 %indvars.iv, i32 1
   %6 = load ptr, ptr %value5, align 8
   %arrayidx7 = getelementptr inbounds nuw %struct.attr_match, ptr %5, i64 %indvars.iv
@@ -1906,24 +1901,24 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   br i1 %cmp9, label %if.then11, label %if.else
 
 if.then11:                                        ; preds = %for.body
-  %cmp12 = icmp eq i32 %7, 0
-  br i1 %cmp12, label %for.cond, label %return
+  %cmp12.not = icmp eq i32 %7, 0
+  br i1 %cmp12.not, label %for.inc, label %return
 
 if.else:                                          ; preds = %for.body
   %cmp14 = icmp eq ptr %6, @git_attr__false
   br i1 %cmp14, label %if.then16, label %if.else19
 
 if.then16:                                        ; preds = %if.else
-  %cmp17 = icmp eq i32 %7, 1
-  br i1 %cmp17, label %for.cond, label %return
+  %cmp17.not = icmp eq i32 %7, 1
+  br i1 %cmp17.not, label %for.inc, label %return
 
 if.else19:                                        ; preds = %if.else
   %cmp20 = icmp eq ptr %6, null
   br i1 %cmp20, label %if.then22, label %if.else25
 
 if.then22:                                        ; preds = %if.else19
-  %cmp23 = icmp eq i32 %7, 3
-  br i1 %cmp23, label %for.cond, label %return
+  %cmp23.not = icmp eq i32 %7, 3
+  br i1 %cmp23.not, label %for.inc, label %return
 
 if.else25:                                        ; preds = %if.else19
   %cmp26 = icmp eq i32 %7, 2
@@ -1932,11 +1927,16 @@ if.else25:                                        ; preds = %if.else19
 if.end36:                                         ; preds = %if.else25
   %8 = load ptr, ptr %arrayidx7, align 8
   %call32 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %8, ptr noundef nonnull dereferenceable(1) %6) #18
-  %tobool33.not = icmp eq i32 %call32, 0
-  br i1 %tobool33.not, label %for.cond, label %return
+  %tobool33.not.not = icmp eq i32 %call32, 0
+  br i1 %tobool33.not.not, label %for.inc, label %return
 
-return:                                           ; preds = %if.end36, %for.cond, %if.else25, %if.then11, %if.then16, %if.then22, %if.end
-  %retval.0 = phi i32 [ 1, %if.end ], [ 0, %if.then22 ], [ 0, %if.then16 ], [ 0, %if.then11 ], [ 0, %if.else25 ], [ 1, %for.cond ], [ 0, %if.end36 ]
+for.inc:                                          ; preds = %if.then22, %if.then16, %if.then11, %if.end36
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  br i1 %exitcond.not, label %return, label %for.body, !llvm.loop !25
+
+return:                                           ; preds = %if.end36, %for.inc, %if.else25, %if.then11, %if.then16, %if.then22, %if.end
+  %retval.0 = phi i32 [ 1, %if.end ], [ 0, %if.then22 ], [ 0, %if.then16 ], [ 0, %if.then11 ], [ 0, %if.else25 ], [ 1, %for.inc ], [ 0, %if.end36 ]
   ret i32 %retval.0
 }
 

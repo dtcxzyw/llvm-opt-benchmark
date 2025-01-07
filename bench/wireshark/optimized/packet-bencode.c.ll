@@ -386,15 +386,15 @@ define internal fastcc range(i32 2, 0) i32 @dissect_bencoding_str(ptr noundef %0
 
 9:                                                ; preds = %7
   %10 = tail call ptr @proto_tree_add_expert(ptr noundef %4, ptr noundef %1, ptr noundef nonnull @ei_bencode_str, ptr noundef %0, i32 noundef %2, i32 noundef 1) #2
-  br label %50
+  br label %49
 
-.preheader:                                       ; preds = %7, %39
-  %.082 = phi i32 [ %14, %39 ], [ %3, %7 ]
-  %.081 = phi i32 [ %44, %39 ], [ 0, %7 ]
-  %.079 = phi i32 [ %15, %39 ], [ 0, %7 ]
-  %.0 = phi i32 [ %spec.select, %39 ], [ 0, %7 ]
+.preheader:                                       ; preds = %7, %38
+  %.082 = phi i32 [ %14, %38 ], [ %3, %7 ]
+  %.081 = phi i32 [ %43, %38 ], [ 0, %7 ]
+  %.079 = phi i32 [ %15, %38 ], [ 0, %7 ]
+  %.0 = phi i1 [ %or.cond11.not, %38 ], [ true, %7 ]
   %exitcond.not = icmp eq i32 %.079, %3
-  br i1 %exitcond.not, label %47, label %11
+  br i1 %exitcond.not, label %46, label %11
 
 11:                                               ; preds = %.preheader
   %12 = add i32 %.079, %2
@@ -413,7 +413,7 @@ define internal fastcc range(i32 2, 0) i32 @dissect_bencoding_str(ptr noundef %0
 
 20:                                               ; preds = %19
   %21 = tail call ptr @proto_tree_add_expert(ptr noundef %4, ptr noundef %1, ptr noundef nonnull @ei_bencode_str_length, ptr noundef %0, i32 noundef %2, i32 noundef %14) #2
-  br label %50
+  br label %49
 
 22:                                               ; preds = %19
   %.not89 = icmp eq ptr %4, null
@@ -443,37 +443,35 @@ define internal fastcc range(i32 2, 0) i32 @dissect_bencoding_str(ptr noundef %0
 
 33:                                               ; preds = %.sink.split, %23, %22
   %34 = add nuw i32 %15, %.081
-  br label %50
+  br label %49
 
 35:                                               ; preds = %11
-  %36 = icmp eq i32 %.0, 0
-  %37 = add i8 %13, -48
-  %38 = icmp ult i8 %37, 10
-  %or.cond9 = and i1 %36, %38
-  br i1 %or.cond9, label %39, label %45
+  %36 = add i8 %13, -48
+  %37 = icmp ult i8 %36, 10
+  %or.cond9 = and i1 %.0, %37
+  br i1 %or.cond9, label %38, label %44
 
-39:                                               ; preds = %35
-  %40 = icmp eq i8 %13, 48
-  %41 = icmp eq i32 %.079, 0
-  %or.cond11 = and i1 %40, %41
-  %spec.select = zext i1 %or.cond11 to i32
-  %42 = mul i32 %.081, 10
-  %43 = add i32 %42, -48
-  %44 = add i32 %43, %16
-  %.not = icmp slt i32 %44, %.081
-  br i1 %.not, label %45, label %.preheader, !llvm.loop !8
+38:                                               ; preds = %35
+  %39 = icmp ne i8 %13, 48
+  %40 = icmp ne i32 %.079, 0
+  %or.cond11.not = or i1 %39, %40
+  %41 = mul i32 %.081, 10
+  %42 = add i32 %41, -48
+  %43 = add i32 %42, %16
+  %.not = icmp slt i32 %43, %.081
+  br i1 %.not, label %44, label %.preheader, !llvm.loop !8
 
-45:                                               ; preds = %39, %35
-  %46 = tail call ptr @proto_tree_add_expert(ptr noundef %4, ptr noundef %1, ptr noundef nonnull @ei_bencode_str, ptr noundef %0, i32 noundef %2, i32 noundef %14) #2
-  br label %50
+44:                                               ; preds = %38, %35
+  %45 = tail call ptr @proto_tree_add_expert(ptr noundef %4, ptr noundef %1, ptr noundef nonnull @ei_bencode_str, ptr noundef %0, i32 noundef %2, i32 noundef %14) #2
+  br label %49
 
-47:                                               ; preds = %.preheader
-  %48 = load i32, ptr @hf_bencode_truncated_data, align 4
-  %49 = tail call ptr @proto_tree_add_item(ptr noundef %4, i32 noundef %48, ptr noundef %0, i32 noundef %2, i32 noundef 0, i32 noundef 0) #2
-  br label %50
+46:                                               ; preds = %.preheader
+  %47 = load i32, ptr @hf_bencode_truncated_data, align 4
+  %48 = tail call ptr @proto_tree_add_item(ptr noundef %4, i32 noundef %47, ptr noundef %0, i32 noundef %2, i32 noundef 0, i32 noundef 0) #2
+  br label %49
 
-50:                                               ; preds = %47, %45, %33, %20, %9
-  %.080 = phi i32 [ -1, %9 ], [ -1, %20 ], [ %34, %33 ], [ -1, %45 ], [ -1, %47 ]
+49:                                               ; preds = %46, %44, %33, %20, %9
+  %.080 = phi i32 [ -1, %9 ], [ -1, %20 ], [ %34, %33 ], [ -1, %44 ], [ -1, %46 ]
   ret i32 %.080
 }
 

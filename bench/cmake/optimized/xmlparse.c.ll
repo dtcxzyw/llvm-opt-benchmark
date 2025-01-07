@@ -16108,7 +16108,7 @@ define internal fastcc range(i32 0, 25) i32 @appendAttributeValue(ptr noundef %0
   %28 = getelementptr inbounds nuw i8, ptr %12, i64 258
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 544
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 432
-  %.not137 = icmp eq i8 %2, 0
+  %.not138 = icmp eq i8 %2, 0
   %31 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %32 = getelementptr inbounds nuw i8, ptr %1, i64 72
   br label %33
@@ -16172,7 +16172,7 @@ define internal fastcc range(i32 0, 25) i32 @appendAttributeValue(ptr noundef %0
 
 59:                                               ; preds = %49
   %60 = icmp eq i32 %51, 32
-  %or.cond = and i1 %.not137, %60
+  %or.cond = and i1 %.not138, %60
   br i1 %or.cond, label %61, label %69
 
 61:                                               ; preds = %59
@@ -16205,15 +16205,15 @@ define internal fastcc range(i32 0, 25) i32 @appendAttributeValue(ptr noundef %0
 
 75:                                               ; preds = %.lr.ph
   %76 = call fastcc zeroext i8 @poolGrow(ptr noundef nonnull %5)
-  %.not140 = icmp eq i8 %76, 0
-  br i1 %.not140, label %poolStoreString.exit.thread, label %._crit_edge190
+  %.not141 = icmp eq i8 %76, 0
+  br i1 %.not141, label %poolStoreString.exit.thread, label %._crit_edge189
 
-._crit_edge190:                                   ; preds = %75
-  %.pre191 = load ptr, ptr %16, align 8
+._crit_edge189:                                   ; preds = %75
+  %.pre190 = load ptr, ptr %16, align 8
   br label %77
 
-77:                                               ; preds = %._crit_edge190, %.lr.ph
-  %78 = phi ptr [ %.pre191, %._crit_edge190 ], [ %72, %.lr.ph ]
+77:                                               ; preds = %._crit_edge189, %.lr.ph
+  %78 = phi ptr [ %.pre190, %._crit_edge189 ], [ %72, %.lr.ph ]
   %79 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 0, i64 %indvars.iv
   %80 = load i8, ptr %79, align 1
   %81 = getelementptr inbounds nuw i8, ptr %78, i64 1
@@ -16258,8 +16258,8 @@ poolAppend.exit.thread:                           ; preds = %85, %91
 poolAppend.exit:                                  ; preds = %87
   %93 = load ptr, ptr %31, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
-  %.not139 = icmp eq ptr %93, null
-  br i1 %.not139, label %poolStoreString.exit.thread, label %.loopexit
+  %.not140 = icmp eq ptr %93, null
+  br i1 %.not140, label %poolStoreString.exit.thread, label %.loopexit
 
 94:                                               ; preds = %33
   %95 = load i32, ptr %15, align 8
@@ -16269,36 +16269,36 @@ poolAppend.exit:                                  ; preds = %87
   br label %98
 
 98:                                               ; preds = %94, %33, %33
-  %.pre187 = load ptr, ptr %16, align 8
-  br i1 %.not137, label %99, label %106
+  %.pre186 = load ptr, ptr %16, align 8
+  br i1 %.not138, label %99, label %106
 
 99:                                               ; preds = %98
   %100 = load ptr, ptr %31, align 8
-  %101 = icmp eq ptr %.pre187, %100
+  %101 = icmp eq ptr %.pre186, %100
   br i1 %101, label %.loopexit, label %102
 
 102:                                              ; preds = %99
-  %103 = getelementptr inbounds i8, ptr %.pre187, i64 -1
+  %103 = getelementptr inbounds i8, ptr %.pre186, i64 -1
   %104 = load i8, ptr %103, align 1
   %105 = icmp eq i8 %104, 32
   br i1 %105, label %.loopexit, label %106
 
 106:                                              ; preds = %102, %98
   %107 = load ptr, ptr %17, align 8
-  %108 = icmp eq ptr %.pre187, %107
+  %108 = icmp eq ptr %.pre186, %107
   br i1 %108, label %109, label %111
 
 109:                                              ; preds = %106
   %110 = call fastcc zeroext i8 @poolGrow(ptr noundef nonnull %5)
-  %.not138 = icmp eq i8 %110, 0
-  br i1 %.not138, label %poolStoreString.exit.thread, label %._crit_edge188
+  %.not139 = icmp eq i8 %110, 0
+  br i1 %.not139, label %poolStoreString.exit.thread, label %._crit_edge187
 
-._crit_edge188:                                   ; preds = %109
-  %.pre189 = load ptr, ptr %16, align 8
+._crit_edge187:                                   ; preds = %109
+  %.pre188 = load ptr, ptr %16, align 8
   br label %111
 
-111:                                              ; preds = %._crit_edge188, %106
-  %112 = phi ptr [ %.pre189, %._crit_edge188 ], [ %.pre187, %106 ]
+111:                                              ; preds = %._crit_edge187, %106
+  %112 = phi ptr [ %.pre188, %._crit_edge187 ], [ %.pre186, %106 ]
   %113 = getelementptr inbounds nuw i8, ptr %112, i64 1
   store ptr %113, ptr %16, align 8
   store i8 32, ptr %112, align 1
@@ -16325,8 +16325,8 @@ poolAppend.exit:                                  ; preds = %87
 
 128:                                              ; preds = %124
   %129 = call fastcc zeroext i8 @poolGrow(ptr noundef nonnull %5)
-  %.not136 = icmp eq i8 %129, 0
-  br i1 %.not136, label %poolStoreString.exit.thread, label %._crit_edge
+  %.not137 = icmp eq i8 %129, 0
+  br i1 %.not137, label %poolStoreString.exit.thread, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %128
   %.pre = load ptr, ptr %16, align 8
@@ -16379,8 +16379,8 @@ poolAppend.exit.thread.i:                         ; preds = %141, %147
 poolAppend.exit.i:                                ; preds = %143
   %149 = load ptr, ptr %22, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
-  %.not.i142 = icmp eq ptr %149, null
-  br i1 %.not.i142, label %poolStoreString.exit.thread, label %150
+  %.not.i143 = icmp eq ptr %149, null
+  br i1 %.not.i143, label %poolStoreString.exit.thread, label %150
 
 150:                                              ; preds = %poolAppend.exit.i
   %151 = load ptr, ptr %19, align 8
@@ -16477,59 +16477,59 @@ poolStoreString.exit:                             ; preds = %150, %._crit_edge.i
   %.2.i = add i64 %.2.p.v.i, %.2.p.i
   %199 = getelementptr inbounds ptr, ptr %167, i64 %.2.i
   %200 = load ptr, ptr %199, align 8
-  %.not.i143 = icmp eq ptr %200, null
-  br i1 %.not.i143, label %lookup.exit, label %174, !llvm.loop !15
+  %.not.i144 = icmp eq ptr %200, null
+  br i1 %.not.i144, label %lookup.exit, label %174, !llvm.loop !15
 
 lookup.exit:                                      ; preds = %196, %.lr.ph.i.i, %162, %159
   %.0120.i = phi ptr [ null, %159 ], [ null, %162 ], [ %175, %.lr.ph.i.i ], [ null, %196 ]
   %201 = load ptr, ptr %22, align 8
   store ptr %201, ptr %19, align 8
-  br i1 %26, label %202, label %206
+  br i1 %26, label %202, label %208
 
 202:                                              ; preds = %lookup.exit
   %203 = load i8, ptr %28, align 2
   %.not125 = icmp eq i8 %203, 0
-  br i1 %.not125, label %210, label %204
+  br i1 %.not125, label %206, label %204
 
 204:                                              ; preds = %202
   %205 = load ptr, ptr %29, align 8
   %.not127 = icmp eq ptr %205, null
-  br i1 %.not127, label %.thread, label %215
+  br i1 %.not127, label %.critedge, label %215
 
-206:                                              ; preds = %lookup.exit
+206:                                              ; preds = %202
   %207 = load i8, ptr %27, align 1
-  %.not124 = icmp eq i8 %207, 0
-  br i1 %.not124, label %.thread, label %208
+  %.not126 = icmp eq i8 %207, 0
+  br i1 %.not126, label %.critedge, label %215
 
-208:                                              ; preds = %206
-  %209 = load i8, ptr %28, align 2
-  %.not209 = icmp eq i8 %209, 0
-  br i1 %.not209, label %215, label %.thread
+208:                                              ; preds = %lookup.exit
+  %209 = load i8, ptr %27, align 1
+  %.not124 = icmp eq i8 %209, 0
+  br i1 %.not124, label %.critedge, label %210
 
-210:                                              ; preds = %202
-  %211 = load i8, ptr %27, align 1
-  %.not126 = icmp eq i8 %211, 0
-  br i1 %.not126, label %.thread, label %215
+210:                                              ; preds = %208
+  %211 = load i8, ptr %28, align 2
+  %.not129 = icmp eq i8 %211, 0
+  br i1 %.not129, label %215, label %.critedge
 
-.thread:                                          ; preds = %204, %208, %206, %210
-  %.not130 = icmp eq ptr %.0120.i, null
-  br i1 %.not130, label %poolStoreString.exit.thread, label %212
+.critedge:                                        ; preds = %204, %206, %208, %210
+  %.not131 = icmp eq ptr %.0120.i, null
+  br i1 %.not131, label %poolStoreString.exit.thread, label %212
 
-212:                                              ; preds = %.thread
+212:                                              ; preds = %.critedge
   %213 = getelementptr inbounds nuw i8, ptr %.0120.i, i64 58
   %214 = load i8, ptr %213, align 2
-  %.not131 = icmp eq i8 %214, 0
-  br i1 %.not131, label %poolStoreString.exit.thread, label %216
+  %.not132 = icmp eq i8 %214, 0
+  br i1 %.not132, label %poolStoreString.exit.thread, label %216
 
-215:                                              ; preds = %204, %208, %210
-  %.not129 = icmp eq ptr %.0120.i, null
-  br i1 %.not129, label %.loopexit, label %216
+215:                                              ; preds = %204, %206, %210
+  %.not130 = icmp eq ptr %.0120.i, null
+  br i1 %.not130, label %.loopexit, label %216
 
 216:                                              ; preds = %215, %212
   %217 = getelementptr inbounds nuw i8, ptr %.0120.i, i64 56
   %218 = load i8, ptr %217, align 8
-  %.not132 = icmp eq i8 %218, 0
-  br i1 %.not132, label %225, label %219
+  %.not133 = icmp eq i8 %218, 0
+  br i1 %.not133, label %225, label %219
 
 219:                                              ; preds = %216
   %220 = getelementptr inbounds nuw i8, ptr %0, i64 288
@@ -16545,8 +16545,8 @@ lookup.exit:                                      ; preds = %196, %.lr.ph.i.i, %
 225:                                              ; preds = %216
   %226 = getelementptr inbounds nuw i8, ptr %.0120.i, i64 48
   %227 = load ptr, ptr %226, align 8
-  %.not133 = icmp eq ptr %227, null
-  br i1 %.not133, label %234, label %228
+  %.not134 = icmp eq ptr %227, null
+  br i1 %.not134, label %234, label %228
 
 228:                                              ; preds = %225
   %229 = getelementptr inbounds nuw i8, ptr %0, i64 288
@@ -16562,8 +16562,8 @@ lookup.exit:                                      ; preds = %196, %.lr.ph.i.i, %
 234:                                              ; preds = %225
   %235 = getelementptr inbounds nuw i8, ptr %.0120.i, i64 8
   %236 = load ptr, ptr %235, align 8
-  %.not134 = icmp eq ptr %236, null
-  br i1 %.not134, label %237, label %243
+  %.not135 = icmp eq ptr %236, null
+  br i1 %.not135, label %237, label %243
 
 237:                                              ; preds = %234
   %238 = getelementptr inbounds nuw i8, ptr %0, i64 288
@@ -16585,8 +16585,8 @@ lookup.exit:                                      ; preds = %196, %.lr.ph.i.i, %
   %248 = load ptr, ptr %30, align 8
   %249 = call fastcc i32 @appendAttributeValue(ptr noundef nonnull %0, ptr noundef %248, i8 noundef zeroext %2, ptr noundef nonnull %236, ptr noundef nonnull %247, ptr noundef %5)
   store i8 0, ptr %217, align 8
-  %.not135 = icmp eq i32 %249, 0
-  br i1 %.not135, label %.loopexit, label %poolStoreString.exit.thread
+  %.not136 = icmp eq i32 %249, 0
+  br i1 %.not136, label %.loopexit, label %poolStoreString.exit.thread
 
 250:                                              ; preds = %33
   %251 = getelementptr inbounds nuw i8, ptr %0, i64 288
@@ -16603,8 +16603,8 @@ lookup.exit:                                      ; preds = %196, %.lr.ph.i.i, %
   %256 = load ptr, ptr %9, align 8
   br label %33
 
-poolStoreString.exit.thread:                      ; preds = %154, %poolAppend.exit.i, %243, %212, %.thread, %poolStoreString.exit, %128, %109, %poolAppend.exit, %33, %75, %poolAppend.exit.thread.i, %poolAppend.exit.thread, %250, %254, %237, %241, %228, %232, %219, %223, %53, %57, %43, %47, %36, %40
-  %.0 = phi i32 [ 4, %40 ], [ 4, %36 ], [ 4, %47 ], [ 4, %43 ], [ 14, %57 ], [ 14, %53 ], [ 12, %223 ], [ 12, %219 ], [ 15, %232 ], [ 15, %228 ], [ 16, %241 ], [ 16, %237 ], [ 23, %254 ], [ 23, %250 ], [ 1, %poolAppend.exit.thread ], [ 1, %poolAppend.exit.thread.i ], [ 1, %75 ], [ 1, %154 ], [ 1, %poolAppend.exit.i ], [ %249, %243 ], [ 24, %212 ], [ 11, %.thread ], [ 1, %poolStoreString.exit ], [ 1, %128 ], [ 1, %109 ], [ 1, %poolAppend.exit ], [ 0, %33 ]
+poolStoreString.exit.thread:                      ; preds = %154, %poolAppend.exit.i, %243, %212, %.critedge, %poolStoreString.exit, %128, %109, %poolAppend.exit, %33, %75, %poolAppend.exit.thread.i, %poolAppend.exit.thread, %250, %254, %237, %241, %228, %232, %219, %223, %53, %57, %43, %47, %36, %40
+  %.0 = phi i32 [ 4, %40 ], [ 4, %36 ], [ 4, %47 ], [ 4, %43 ], [ 14, %57 ], [ 14, %53 ], [ 12, %223 ], [ 12, %219 ], [ 15, %232 ], [ 15, %228 ], [ 16, %241 ], [ 16, %237 ], [ 23, %254 ], [ 23, %250 ], [ 1, %poolAppend.exit.thread ], [ 1, %poolAppend.exit.thread.i ], [ 1, %75 ], [ 1, %154 ], [ 1, %poolAppend.exit.i ], [ %249, %243 ], [ 24, %212 ], [ 11, %.critedge ], [ 1, %poolStoreString.exit ], [ 1, %128 ], [ 1, %109 ], [ 1, %poolAppend.exit ], [ 0, %33 ]
   ret i32 %.0
 }
 

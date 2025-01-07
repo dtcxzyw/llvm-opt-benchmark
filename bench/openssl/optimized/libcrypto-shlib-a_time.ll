@@ -794,33 +794,29 @@ entry:
   %tm = alloca %struct.tm, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %now_t.i)
   %cmp.i = icmp eq ptr %t, null
-  br i1 %cmp.i, label %if.then.i, label %if.end4.i
-
-if.then.i:                                        ; preds = %entry
-  %call.i = call i64 @time(ptr noundef nonnull %now_t.i) #9
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %tm, i8 0, i64 56, i1 false)
-  %call1.i = call ptr @OPENSSL_gmtime(ptr noundef nonnull %now_t.i, ptr noundef nonnull %tm) #9
-  %cmp2.not.i = icmp ne ptr %call1.i, null
-  %..i = zext i1 %cmp2.not.i to i32
-  br label %ASN1_TIME_to_tm.exit
+  br i1 %cmp.i, label %ASN1_TIME_to_tm.exit, label %if.end4.i
 
 if.end4.i:                                        ; preds = %entry
   %call5.i = call i32 @ossl_asn1_time_to_tm(ptr noundef nonnull %tm, ptr noundef nonnull readonly %t)
-  br label %ASN1_TIME_to_tm.exit
-
-ASN1_TIME_to_tm.exit:                             ; preds = %if.then.i, %if.end4.i
-  %retval.0.i = phi i32 [ %call5.i, %if.end4.i ], [ %..i, %if.then.i ]
+  %0 = icmp eq i32 %call5.i, 0
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %now_t.i)
-  %tobool.not = icmp eq i32 %retval.0.i, 0
-  br i1 %tobool.not, label %return, label %if.end
+  br i1 %0, label %return, label %if.end
 
-if.end:                                           ; preds = %ASN1_TIME_to_tm.exit
+ASN1_TIME_to_tm.exit:                             ; preds = %entry
+  %call.i = call i64 @time(ptr noundef nonnull %now_t.i) #9
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %tm, i8 0, i64 56, i1 false)
+  %call1.i = call ptr @OPENSSL_gmtime(ptr noundef nonnull %now_t.i, ptr noundef nonnull %tm) #9
+  %cmp2.not.i.not = icmp eq ptr %call1.i, null
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %now_t.i)
+  br i1 %cmp2.not.i.not, label %return, label %if.end
+
+if.end:                                           ; preds = %if.end4.i, %ASN1_TIME_to_tm.exit
   %cmp.not = icmp eq ptr %out, null
   br i1 %cmp.not, label %if.end20.i, label %if.end2
 
 if.end2:                                          ; preds = %if.end
-  %0 = load ptr, ptr %out, align 8
-  %cmp16.i = icmp eq ptr %0, null
+  %1 = load ptr, ptr %out, align 8
+  %cmp16.i = icmp eq ptr %1, null
   br i1 %cmp16.i, label %if.end20.i, label %if.end23.i
 
 if.end20.i:                                       ; preds = %if.end, %if.end2
@@ -829,8 +825,8 @@ if.end20.i:                                       ; preds = %if.end, %if.end2
   br i1 %cmp21.i, label %return, label %if.end23.i
 
 if.end23.i:                                       ; preds = %if.end20.i, %if.end2
-  %ret.010 = phi ptr [ null, %if.end20.i ], [ %0, %if.end2 ]
-  %tmps.134.i = phi ptr [ %call18.i, %if.end20.i ], [ %0, %if.end2 ]
+  %ret.010 = phi ptr [ null, %if.end20.i ], [ %1, %if.end2 ]
+  %tmps.134.i = phi ptr [ %call18.i, %if.end20.i ], [ %1, %if.end2 ]
   %call24.i = call i32 @ASN1_STRING_set(ptr noundef nonnull %tmps.134.i, ptr noundef null, i32 noundef 20) #9
   %tobool25.not.i = icmp eq i32 %call24.i, 0
   br i1 %tobool25.not.i, label %err.i, label %ossl_asn1_time_from_tm.exit
@@ -847,21 +843,21 @@ ossl_asn1_time_from_tm.exit:                      ; preds = %if.end23.i
   %type28.i = getelementptr inbounds nuw i8, ptr %tmps.134.i, i64 4
   store i32 24, ptr %type28.i, align 4
   %data.i = getelementptr inbounds nuw i8, ptr %tmps.134.i, i64 8
-  %1 = load ptr, ptr %data.i, align 8
+  %2 = load ptr, ptr %data.i, align 8
   %tm_year31.i = getelementptr inbounds nuw i8, ptr %tm, i64 20
-  %2 = load i32, ptr %tm_year31.i, align 4
+  %3 = load i32, ptr %tm_year31.i, align 4
   %tm_mon.i = getelementptr inbounds nuw i8, ptr %tm, i64 16
-  %3 = load i32, ptr %tm_mon.i, align 8
-  %add32.i = add nsw i32 %3, 1
+  %4 = load i32, ptr %tm_mon.i, align 8
+  %add32.i = add nsw i32 %4, 1
   %tm_mday.i = getelementptr inbounds nuw i8, ptr %tm, i64 12
-  %4 = load i32, ptr %tm_mday.i, align 4
+  %5 = load i32, ptr %tm_mday.i, align 4
   %tm_hour.i = getelementptr inbounds nuw i8, ptr %tm, i64 8
-  %5 = load i32, ptr %tm_hour.i, align 8
+  %6 = load i32, ptr %tm_hour.i, align 8
   %tm_min.i = getelementptr inbounds nuw i8, ptr %tm, i64 4
-  %6 = load i32, ptr %tm_min.i, align 4
-  %7 = load i32, ptr %tm, align 8
-  %add.i = add nsw i32 %2, 1900
-  %call33.i = call i32 (ptr, i64, ptr, ...) @BIO_snprintf(ptr noundef %1, i64 noundef 20, ptr noundef nonnull @.str.1, i32 noundef %add.i, i32 noundef %add32.i, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7) #9
+  %7 = load i32, ptr %tm_min.i, align 4
+  %8 = load i32, ptr %tm, align 8
+  %add.i = add nsw i32 %3, 1900
+  %call33.i = call i32 (ptr, i64, ptr, ...) @BIO_snprintf(ptr noundef %2, i64 noundef 20, ptr noundef nonnull @.str.1, i32 noundef %add.i, i32 noundef %add32.i, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8) #9
   store i32 %call33.i, ptr %tmps.134.i, align 8
   br i1 %cmp.not, label %return, label %if.then6
 
@@ -869,8 +865,8 @@ if.then6:                                         ; preds = %ossl_asn1_time_from
   store ptr %tmps.134.i, ptr %out, align 8
   br label %return
 
-return:                                           ; preds = %err.i, %if.then46.i, %if.end20.i, %ossl_asn1_time_from_tm.exit, %if.then6, %ASN1_TIME_to_tm.exit
-  %retval.0 = phi ptr [ null, %ASN1_TIME_to_tm.exit ], [ %tmps.134.i, %if.then6 ], [ %tmps.134.i, %ossl_asn1_time_from_tm.exit ], [ null, %if.end20.i ], [ null, %if.then46.i ], [ null, %err.i ]
+return:                                           ; preds = %if.end4.i, %err.i, %if.then46.i, %if.end20.i, %ossl_asn1_time_from_tm.exit, %if.then6, %ASN1_TIME_to_tm.exit
+  %retval.0 = phi ptr [ null, %ASN1_TIME_to_tm.exit ], [ %tmps.134.i, %if.then6 ], [ %tmps.134.i, %ossl_asn1_time_from_tm.exit ], [ null, %if.end20.i ], [ null, %if.then46.i ], [ null, %err.i ], [ null, %if.end4.i ]
   ret ptr %retval.0
 }
 
@@ -1028,55 +1024,47 @@ entry:
   %tm_to = alloca %struct.tm, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %now_t.i)
   %cmp.i = icmp eq ptr %from, null
-  br i1 %cmp.i, label %if.then.i, label %if.end4.i
-
-if.then.i:                                        ; preds = %entry
-  %call.i = call i64 @time(ptr noundef nonnull %now_t.i) #9
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %tm_from, i8 0, i64 56, i1 false)
-  %call1.i = call ptr @OPENSSL_gmtime(ptr noundef nonnull %now_t.i, ptr noundef nonnull %tm_from) #9
-  %cmp2.not.i = icmp ne ptr %call1.i, null
-  %..i = zext i1 %cmp2.not.i to i32
-  br label %ASN1_TIME_to_tm.exit
+  br i1 %cmp.i, label %ASN1_TIME_to_tm.exit, label %if.end4.i
 
 if.end4.i:                                        ; preds = %entry
   %call5.i = call i32 @ossl_asn1_time_to_tm(ptr noundef nonnull %tm_from, ptr noundef nonnull readonly %from)
-  br label %ASN1_TIME_to_tm.exit
-
-ASN1_TIME_to_tm.exit:                             ; preds = %if.then.i, %if.end4.i
-  %retval.0.i = phi i32 [ %call5.i, %if.end4.i ], [ %..i, %if.then.i ]
+  %0 = icmp eq i32 %call5.i, 0
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %now_t.i)
-  %tobool.not = icmp eq i32 %retval.0.i, 0
-  br i1 %tobool.not, label %return, label %if.end
+  br i1 %0, label %return, label %if.end
 
-if.end:                                           ; preds = %ASN1_TIME_to_tm.exit
+ASN1_TIME_to_tm.exit:                             ; preds = %entry
+  %call.i = call i64 @time(ptr noundef nonnull %now_t.i) #9
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %tm_from, i8 0, i64 56, i1 false)
+  %call1.i = call ptr @OPENSSL_gmtime(ptr noundef nonnull %now_t.i, ptr noundef nonnull %tm_from) #9
+  %cmp2.not.i.not = icmp eq ptr %call1.i, null
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %now_t.i)
+  br i1 %cmp2.not.i.not, label %return, label %if.end
+
+if.end:                                           ; preds = %if.end4.i, %ASN1_TIME_to_tm.exit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %now_t.i1)
   %cmp.i2 = icmp eq ptr %to, null
-  br i1 %cmp.i2, label %if.then.i6, label %if.end4.i3
-
-if.then.i6:                                       ; preds = %if.end
-  %call.i7 = call i64 @time(ptr noundef nonnull %now_t.i1) #9
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %tm_to, i8 0, i64 56, i1 false)
-  %call1.i8 = call ptr @OPENSSL_gmtime(ptr noundef nonnull %now_t.i1, ptr noundef nonnull %tm_to) #9
-  %cmp2.not.i9 = icmp ne ptr %call1.i8, null
-  %..i10 = zext i1 %cmp2.not.i9 to i32
-  br label %ASN1_TIME_to_tm.exit11
+  br i1 %cmp.i2, label %ASN1_TIME_to_tm.exit11, label %if.end4.i3
 
 if.end4.i3:                                       ; preds = %if.end
   %call5.i4 = call i32 @ossl_asn1_time_to_tm(ptr noundef nonnull %tm_to, ptr noundef nonnull readonly %to)
-  br label %ASN1_TIME_to_tm.exit11
-
-ASN1_TIME_to_tm.exit11:                           ; preds = %if.then.i6, %if.end4.i3
-  %retval.0.i5 = phi i32 [ %call5.i4, %if.end4.i3 ], [ %..i10, %if.then.i6 ]
+  %1 = icmp eq i32 %call5.i4, 0
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %now_t.i1)
-  %tobool2.not = icmp eq i32 %retval.0.i5, 0
-  br i1 %tobool2.not, label %return, label %if.end4
+  br i1 %1, label %return, label %if.end4
 
-if.end4:                                          ; preds = %ASN1_TIME_to_tm.exit11
+ASN1_TIME_to_tm.exit11:                           ; preds = %if.end
+  %call.i7 = call i64 @time(ptr noundef nonnull %now_t.i1) #9
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %tm_to, i8 0, i64 56, i1 false)
+  %call1.i8 = call ptr @OPENSSL_gmtime(ptr noundef nonnull %now_t.i1, ptr noundef nonnull %tm_to) #9
+  %cmp2.not.i9.not = icmp eq ptr %call1.i8, null
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %now_t.i1)
+  br i1 %cmp2.not.i9.not, label %return, label %if.end4
+
+if.end4:                                          ; preds = %if.end4.i3, %ASN1_TIME_to_tm.exit11
   %call5 = call i32 @OPENSSL_gmtime_diff(ptr noundef %pday, ptr noundef %psec, ptr noundef nonnull %tm_from, ptr noundef nonnull %tm_to) #9
   br label %return
 
-return:                                           ; preds = %ASN1_TIME_to_tm.exit11, %ASN1_TIME_to_tm.exit, %if.end4
-  %retval.0 = phi i32 [ %call5, %if.end4 ], [ 0, %ASN1_TIME_to_tm.exit ], [ 0, %ASN1_TIME_to_tm.exit11 ]
+return:                                           ; preds = %if.end4.i3, %if.end4.i, %ASN1_TIME_to_tm.exit11, %ASN1_TIME_to_tm.exit, %if.end4
+  %retval.0 = phi i32 [ %call5, %if.end4 ], [ 0, %ASN1_TIME_to_tm.exit ], [ 0, %ASN1_TIME_to_tm.exit11 ], [ 0, %if.end4.i ], [ 0, %if.end4.i3 ]
   ret i32 %retval.0
 }
 
@@ -1276,27 +1264,23 @@ entry:
   store i64 %t, ptr %t.addr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %now_t.i)
   %cmp.i = icmp eq ptr %s, null
-  br i1 %cmp.i, label %if.then.i, label %if.end4.i
-
-if.then.i:                                        ; preds = %entry
-  %call.i = call i64 @time(ptr noundef nonnull %now_t.i) #9
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %stm, i8 0, i64 56, i1 false)
-  %call1.i = call ptr @OPENSSL_gmtime(ptr noundef nonnull %now_t.i, ptr noundef nonnull %stm) #9
-  %cmp2.not.i = icmp ne ptr %call1.i, null
-  %..i = zext i1 %cmp2.not.i to i32
-  br label %ASN1_TIME_to_tm.exit
+  br i1 %cmp.i, label %ASN1_TIME_to_tm.exit, label %if.end4.i
 
 if.end4.i:                                        ; preds = %entry
   %call5.i = call i32 @ossl_asn1_time_to_tm(ptr noundef nonnull %stm, ptr noundef nonnull readonly %s)
-  br label %ASN1_TIME_to_tm.exit
-
-ASN1_TIME_to_tm.exit:                             ; preds = %if.then.i, %if.end4.i
-  %retval.0.i = phi i32 [ %call5.i, %if.end4.i ], [ %..i, %if.then.i ]
+  %0 = icmp eq i32 %call5.i, 0
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %now_t.i)
-  %tobool.not = icmp eq i32 %retval.0.i, 0
-  br i1 %tobool.not, label %return, label %if.end
+  br i1 %0, label %return, label %if.end
 
-if.end:                                           ; preds = %ASN1_TIME_to_tm.exit
+ASN1_TIME_to_tm.exit:                             ; preds = %entry
+  %call.i = call i64 @time(ptr noundef nonnull %now_t.i) #9
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %stm, i8 0, i64 56, i1 false)
+  %call1.i = call ptr @OPENSSL_gmtime(ptr noundef nonnull %now_t.i, ptr noundef nonnull %stm) #9
+  %cmp2.not.i.not = icmp eq ptr %call1.i, null
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %now_t.i)
+  br i1 %cmp2.not.i.not, label %return, label %if.end
+
+if.end:                                           ; preds = %if.end4.i, %ASN1_TIME_to_tm.exit
   %call1 = call ptr @OPENSSL_gmtime(ptr noundef nonnull %t.addr, ptr noundef nonnull %ttm) #9
   %tobool2.not = icmp eq ptr %call1, null
   br i1 %tobool2.not, label %return, label %if.end4
@@ -1307,22 +1291,22 @@ if.end4:                                          ; preds = %if.end
   br i1 %tobool6.not, label %return, label %if.end8
 
 if.end8:                                          ; preds = %if.end4
-  %0 = load i32, ptr %day, align 4
-  %cmp = icmp sgt i32 %0, 0
-  %1 = load i32, ptr %sec, align 4
-  %cmp9 = icmp sgt i32 %1, 0
+  %1 = load i32, ptr %day, align 4
+  %cmp = icmp sgt i32 %1, 0
+  %2 = load i32, ptr %sec, align 4
+  %cmp9 = icmp sgt i32 %2, 0
   %or.cond = select i1 %cmp, i1 true, i1 %cmp9
   br i1 %or.cond, label %return, label %if.end11
 
 if.end11:                                         ; preds = %if.end8
-  %cmp12 = icmp slt i32 %0, 0
-  %cmp14 = icmp slt i32 %1, 0
+  %cmp12 = icmp slt i32 %1, 0
+  %cmp14 = icmp slt i32 %2, 0
   %or.cond1 = select i1 %cmp12, i1 true, i1 %cmp14
   %. = sext i1 %or.cond1 to i32
   br label %return
 
-return:                                           ; preds = %if.end11, %if.end8, %if.end4, %if.end, %ASN1_TIME_to_tm.exit
-  %retval.0 = phi i32 [ -2, %ASN1_TIME_to_tm.exit ], [ -2, %if.end ], [ -2, %if.end4 ], [ 1, %if.end8 ], [ %., %if.end11 ]
+return:                                           ; preds = %if.end4.i, %if.end11, %if.end8, %if.end4, %if.end, %ASN1_TIME_to_tm.exit
+  %retval.0 = phi i32 [ -2, %ASN1_TIME_to_tm.exit ], [ -2, %if.end ], [ -2, %if.end4 ], [ 1, %if.end8 ], [ %., %if.end11 ], [ -2, %if.end4.i ]
   ret i32 %retval.0
 }
 
@@ -1445,36 +1429,32 @@ if.then3:                                         ; preds = %if.end
 if.end4:                                          ; preds = %if.end
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %now_t.i)
   %cmp.i = icmp eq ptr %call1.i, null
-  br i1 %cmp.i, label %if.then.i, label %if.end4.i
-
-if.then.i:                                        ; preds = %if.end4
-  %call.i12 = call i64 @time(ptr noundef nonnull %now_t.i) #9
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %call2, i8 0, i64 56, i1 false)
-  %call1.i13 = call ptr @OPENSSL_gmtime(ptr noundef nonnull %now_t.i, ptr noundef nonnull %call2) #9
-  %cmp2.not.i = icmp ne ptr %call1.i13, null
-  %..i = zext i1 %cmp2.not.i to i32
-  br label %ASN1_TIME_to_tm.exit
+  br i1 %cmp.i, label %ASN1_TIME_to_tm.exit, label %if.end4.i
 
 if.end4.i:                                        ; preds = %if.end4
   %call5.i = tail call i32 @ossl_asn1_time_to_tm(ptr noundef nonnull %call2, ptr noundef nonnull readonly %call1.i)
-  br label %ASN1_TIME_to_tm.exit
-
-ASN1_TIME_to_tm.exit:                             ; preds = %if.then.i, %if.end4.i
-  %retval.0.i11 = phi i32 [ %call5.i, %if.end4.i ], [ %..i, %if.then.i ]
+  %0 = icmp eq i32 %call5.i, 0
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %now_t.i)
-  %tobool6.not = icmp eq i32 %retval.0.i11, 0
-  br i1 %tobool6.not, label %if.then7, label %if.end8
+  br i1 %0, label %if.then7, label %if.end8
 
-if.then7:                                         ; preds = %ASN1_TIME_to_tm.exit
+ASN1_TIME_to_tm.exit:                             ; preds = %if.end4
+  %call.i12 = call i64 @time(ptr noundef nonnull %now_t.i) #9
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %call2, i8 0, i64 56, i1 false)
+  %call1.i13 = call ptr @OPENSSL_gmtime(ptr noundef nonnull %now_t.i, ptr noundef nonnull %call2) #9
+  %cmp2.not.i.not = icmp eq ptr %call1.i13, null
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %now_t.i)
+  br i1 %cmp2.not.i.not, label %if.then7, label %if.end8
+
+if.then7:                                         ; preds = %if.end4.i, %ASN1_TIME_to_tm.exit
   call void @CRYPTO_free(ptr noundef nonnull %call2, ptr noundef nonnull @.str.3, i32 noundef 626) #9
   call void @ASN1_item_free(ptr noundef %call1.i, ptr noundef nonnull @ASN1_TIME_it.local_it) #9
   br label %return
 
-if.end8:                                          ; preds = %ASN1_TIME_to_tm.exit
+if.end8:                                          ; preds = %if.end4.i, %ASN1_TIME_to_tm.exit
   call void @ASN1_item_free(ptr noundef %call1.i, ptr noundef nonnull @ASN1_TIME_it.local_it) #9
   %call9 = call i64 @mktime(ptr noundef nonnull %call2) #9
-  %0 = load i64, ptr @timezone, align 8
-  %sub = sub nsw i64 %call9, %0
+  %1 = load i64, ptr @timezone, align 8
+  %sub = sub nsw i64 %call9, %1
   call void @CRYPTO_free(ptr noundef nonnull %call2, ptr noundef nonnull @.str.3, i32 noundef 661) #9
   br label %return
 

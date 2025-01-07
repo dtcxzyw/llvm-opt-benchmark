@@ -13517,7 +13517,7 @@ define internal i32 @dissect_amqp_1_0_variable(ptr noundef %0, ptr noundef %1, i
 
 13:                                               ; preds = %6
   %14 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %4, ptr noundef nonnull @ei_amqp_unknown_amqp_type, ptr noundef nonnull @.str.1528, i32 noundef %3) #12
-  br label %121
+  br label %113
 
 15:                                               ; preds = %11, %8
   %.028 = phi i32 [ %10, %8 ], [ %12, %11 ]
@@ -13593,132 +13593,124 @@ define internal i32 @dissect_amqp_1_0_variable(ptr noundef %0, ptr noundef %1, i
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %.thread.i
-  %59 = phi i32 [ %106, %.thread.i ], [ %58, %.lr.ph.i.preheader ]
-  %60 = phi ptr [ %107, %.thread.i ], [ %.pre36, %.lr.ph.i.preheader ]
+  %59 = phi i32 [ %98, %.thread.i ], [ %58, %.lr.ph.i.preheader ]
+  %60 = phi ptr [ %99, %.thread.i ], [ %.pre36, %.lr.ph.i.preheader ]
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.thread.i ], [ 0, %.lr.ph.i.preheader ]
   %61 = getelementptr %struct._amqp_message_decode_t, ptr %60, i64 %indvars.iv.i
   %62 = load i32, ptr %61, align 8
   switch i32 %62, label %.thread.i [
     i32 0, label %63
-    i32 1, label %69
-    i32 2, label %75
-    i32 3, label %84
-    i32 4, label %95
+    i32 1, label %67
+    i32 2, label %71
+    i32 3, label %78
+    i32 4, label %83
   ]
 
 63:                                               ; preds = %.lr.ph.i
   %64 = getelementptr inbounds nuw i8, ptr %61, i64 8
   %65 = load ptr, ptr %64, align 8
   %66 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %57, ptr noundef nonnull dereferenceable(1) %65) #13
-  %67 = icmp eq i32 %66, 0
-  %68 = zext i1 %67 to i32
-  br label %104
+  %.not41 = icmp eq i32 %66, 0
+  br i1 %.not41, label %find_data_dissector.exit, label %..thread.i_crit_edge
 
-69:                                               ; preds = %.lr.ph.i
-  %70 = getelementptr inbounds nuw i8, ptr %61, i64 8
-  %71 = load ptr, ptr %70, align 8
-  %72 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %57, ptr noundef nonnull dereferenceable(1) %71) #13
-  %73 = icmp ne ptr %72, null
-  %74 = zext i1 %73 to i32
-  br label %104
+67:                                               ; preds = %.lr.ph.i
+  %68 = getelementptr inbounds nuw i8, ptr %61, i64 8
+  %69 = load ptr, ptr %68, align 8
+  %70 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %57, ptr noundef nonnull dereferenceable(1) %69) #13
+  %.not = icmp eq ptr %70, null
+  br i1 %.not, label %..thread.i_crit_edge, label %find_data_dissector.exit
 
-75:                                               ; preds = %.lr.ph.i
-  %76 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %57) #13
-  %77 = getelementptr inbounds nuw i8, ptr %61, i64 8
-  %78 = load ptr, ptr %77, align 8
-  %79 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %78) #13
-  %.not59.i = icmp ult i64 %76, %79
-  br i1 %.not59.i, label %.thread.i, label %80
+71:                                               ; preds = %.lr.ph.i
+  %72 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %57) #13
+  %73 = getelementptr inbounds nuw i8, ptr %61, i64 8
+  %74 = load ptr, ptr %73, align 8
+  %75 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %74) #13
+  %.not59.i = icmp ult i64 %72, %75
+  br i1 %.not59.i, label %.thread.i, label %76
 
-80:                                               ; preds = %75
-  %81 = call i32 @strncmp(ptr noundef %57, ptr noundef %78, i64 noundef %79) #13
-  %82 = icmp eq i32 %81, 0
-  %83 = zext i1 %82 to i32
-  br label %104
+76:                                               ; preds = %71
+  %77 = call i32 @strncmp(ptr noundef %57, ptr noundef %74, i64 noundef %75) #13
+  %.not40 = icmp eq i32 %77, 0
+  br i1 %.not40, label %find_data_dissector.exit, label %..thread.i_crit_edge
 
-84:                                               ; preds = %.lr.ph.i
-  %85 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %57) #13
-  %86 = getelementptr inbounds nuw i8, ptr %61, i64 8
-  %87 = load ptr, ptr %86, align 8
-  %88 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %87) #13
-  %.not58.i = icmp ult i64 %85, %88
-  br i1 %.not58.i, label %.thread.i, label %89
+78:                                               ; preds = %.lr.ph.i
+  %79 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %57) #13
+  %80 = getelementptr inbounds nuw i8, ptr %61, i64 8
+  %81 = load ptr, ptr %80, align 8
+  %82 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %81) #13
+  %.not58.i = icmp ult i64 %79, %82
+  br i1 %.not58.i, label %.thread.i, label %93
 
-89:                                               ; preds = %84
-  %90 = sub nuw i64 %85, %88
-  %91 = getelementptr i8, ptr %57, i64 %90
-  %92 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %91, ptr noundef nonnull dereferenceable(1) %87) #13
-  %93 = icmp eq i32 %92, 0
-  %94 = zext i1 %93 to i32
-  br label %104
+83:                                               ; preds = %.lr.ph.i
+  %84 = getelementptr inbounds nuw i8, ptr %61, i64 16
+  %85 = load ptr, ptr %84, align 8
+  %.not57.i = icmp eq ptr %85, null
+  br i1 %.not57.i, label %.thread.i, label %86
 
-95:                                               ; preds = %.lr.ph.i
-  %96 = getelementptr inbounds nuw i8, ptr %61, i64 16
-  %97 = load ptr, ptr %96, align 8
-  %.not57.i = icmp eq ptr %97, null
-  br i1 %.not57.i, label %.thread.i, label %98
-
-98:                                               ; preds = %95
+86:                                               ; preds = %83
   store ptr null, ptr %7, align 8
-  %99 = load ptr, ptr %96, align 8
-  %100 = call i32 @g_regex_match(ptr noundef %99, ptr noundef %57, i32 noundef 0, ptr noundef nonnull %7) #12
-  %101 = load ptr, ptr %7, align 8
-  %102 = call i32 @g_match_info_matches(ptr noundef %101) #12
-  %103 = load ptr, ptr %7, align 8
-  call void @g_match_info_free(ptr noundef %103) #12
+  %87 = load ptr, ptr %84, align 8
+  %88 = call i32 @g_regex_match(ptr noundef %87, ptr noundef %57, i32 noundef 0, ptr noundef nonnull %7) #12
+  %89 = load ptr, ptr %7, align 8
+  %90 = call i32 @g_match_info_matches(ptr noundef %89) #12
+  %91 = load ptr, ptr %7, align 8
+  call void @g_match_info_free(ptr noundef %91) #12
+  %92 = icmp eq i32 %90, 0
   %.pre = load ptr, ptr @amqp_message_decodes, align 8
-  br label %104
+  br i1 %92, label %..thread.i_crit_edge, label %find_data_dissector.exit
 
-104:                                              ; preds = %98, %89, %80, %69, %63
-  %105 = phi ptr [ %.pre, %98 ], [ %60, %69 ], [ %60, %63 ], [ %60, %80 ], [ %60, %89 ]
-  %.1.i = phi i32 [ %102, %98 ], [ %74, %69 ], [ %68, %63 ], [ %83, %80 ], [ %94, %89 ]
-  %.not60.i = icmp eq i32 %.1.i, 0
-  br i1 %.not60.i, label %..thread.i_crit_edge, label %find_data_dissector.exit
+93:                                               ; preds = %78
+  %94 = sub nuw i64 %79, %82
+  %95 = getelementptr i8, ptr %57, i64 %94
+  %96 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %95, ptr noundef nonnull dereferenceable(1) %81) #13
+  %.not39 = icmp eq i32 %96, 0
+  br i1 %.not39, label %find_data_dissector.exit, label %..thread.i_crit_edge
 
-..thread.i_crit_edge:                             ; preds = %104
+..thread.i_crit_edge:                             ; preds = %76, %63, %67, %86, %93
+  %97 = phi ptr [ %.pre, %86 ], [ %60, %93 ], [ %60, %67 ], [ %60, %63 ], [ %60, %76 ]
   %.pre37 = load i32, ptr @num_amqp_message_decodes, align 4
   br label %.thread.i
 
-.thread.i:                                        ; preds = %..thread.i_crit_edge, %95, %84, %75, %.lr.ph.i
-  %106 = phi i32 [ %.pre37, %..thread.i_crit_edge ], [ %59, %95 ], [ %59, %84 ], [ %59, %75 ], [ %59, %.lr.ph.i ]
-  %107 = phi ptr [ %105, %..thread.i_crit_edge ], [ %60, %95 ], [ %60, %84 ], [ %60, %75 ], [ %60, %.lr.ph.i ]
+.thread.i:                                        ; preds = %..thread.i_crit_edge, %83, %78, %71, %.lr.ph.i
+  %98 = phi i32 [ %.pre37, %..thread.i_crit_edge ], [ %59, %83 ], [ %59, %78 ], [ %59, %71 ], [ %59, %.lr.ph.i ]
+  %99 = phi ptr [ %97, %..thread.i_crit_edge ], [ %60, %83 ], [ %60, %78 ], [ %60, %71 ], [ %60, %.lr.ph.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %108 = zext i32 %106 to i64
-  %109 = icmp samesign ult i64 %indvars.iv.next.i, %108
-  br i1 %109, label %.lr.ph.i, label %find_data_dissector.exit.thread32, !llvm.loop !24
+  %100 = zext i32 %98 to i64
+  %101 = icmp samesign ult i64 %indvars.iv.next.i, %100
+  br i1 %101, label %.lr.ph.i, label %find_data_dissector.exit.thread32, !llvm.loop !24
 
 find_data_dissector.exit.thread.sink.split:       ; preds = %30, %51, %26
-  %110 = tail call ptr @g_ptr_array_free(ptr noundef nonnull %24, i32 noundef 1) #12
+  %102 = tail call ptr @g_ptr_array_free(ptr noundef nonnull %24, i32 noundef 1) #12
   br label %.critedge.sink.split
 
 find_data_dissector.exit.thread32:                ; preds = %.thread.i, %55
-  %111 = call ptr @g_ptr_array_free(ptr noundef nonnull %24, i32 noundef 1) #12
+  %103 = call ptr @g_ptr_array_free(ptr noundef nonnull %24, i32 noundef 1) #12
   br label %.critedge.sink.split
 
-find_data_dissector.exit:                         ; preds = %104
-  %112 = getelementptr inbounds nuw i8, ptr %61, i64 32
-  %113 = load ptr, ptr %112, align 8
-  %114 = getelementptr inbounds nuw i8, ptr %61, i64 40
-  %115 = load ptr, ptr %114, align 8
-  %116 = call i32 @call_dissector_with_data(ptr noundef %113, ptr noundef %20, ptr noundef %1, ptr noundef nonnull %4, ptr noundef %115) #12
-  %117 = call ptr @g_ptr_array_free(ptr noundef nonnull %24, i32 noundef 1) #12
+find_data_dissector.exit:                         ; preds = %76, %63, %67, %86, %93
+  %104 = getelementptr inbounds nuw i8, ptr %61, i64 32
+  %105 = load ptr, ptr %104, align 8
+  %106 = getelementptr inbounds nuw i8, ptr %61, i64 40
+  %107 = load ptr, ptr %106, align 8
+  %108 = call i32 @call_dissector_with_data(ptr noundef %105, ptr noundef %20, ptr noundef %1, ptr noundef nonnull %4, ptr noundef %107) #12
+  %109 = call ptr @g_ptr_array_free(ptr noundef nonnull %24, i32 noundef 1) #12
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
-  br label %119
+  br label %111
 
 .critedge.sink.split:                             ; preds = %22, %19, %find_data_dissector.exit.thread.sink.split, %find_data_dissector.exit.thread32
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   br label %.critedge
 
 .critedge:                                        ; preds = %.critedge.sink.split, %15
-  %118 = call ptr @proto_tree_add_item(ptr noundef %4, i32 noundef %5, ptr noundef %0, i32 noundef %16, i32 noundef %.028, i32 noundef 0) #12
-  br label %119
+  %110 = call ptr @proto_tree_add_item(ptr noundef %4, i32 noundef %5, ptr noundef %0, i32 noundef %16, i32 noundef %.028, i32 noundef 0) #12
+  br label %111
 
-119:                                              ; preds = %find_data_dissector.exit, %.critedge
-  %120 = add i32 %.028, %3
-  br label %121
+111:                                              ; preds = %find_data_dissector.exit, %.critedge
+  %112 = add i32 %.028, %3
+  br label %113
 
-121:                                              ; preds = %119, %13
-  %.0 = phi i32 [ %120, %119 ], [ %3, %13 ]
+113:                                              ; preds = %111, %13
+  %.0 = phi i32 [ %112, %111 ], [ %3, %13 ]
   ret i32 %.0
 }
 

@@ -823,16 +823,16 @@ land.rhs.i.preheader:                             ; preds = %if.end, %if.end8
   br label %land.rhs.i
 
 land.rhs.i:                                       ; preds = %land.rhs.i.preheader, %for.body.i
-  %i.06.i = phi i32 [ %inc.i, %for.body.i ], [ 0, %land.rhs.i.preheader ]
+  %i.07.i = phi i32 [ %inc.i, %for.body.i ], [ 0, %land.rhs.i.preheader ]
   %call1.i = call i32 @OPENSSL_sk_num(ptr noundef nonnull %gen_names.019) #7
-  %cmp.not.i = icmp slt i32 %i.06.i, %call1.i
+  %cmp.not.i = icmp slt i32 %i.07.i, %call1.i
   br i1 %cmp.not.i, label %for.body.i, label %if.end8
 
 for.body.i:                                       ; preds = %land.rhs.i
-  %call3.i = call ptr @OPENSSL_sk_value(ptr noundef nonnull %gen_names.019, i32 noundef %i.06.i) #7
+  %call3.i = call ptr @OPENSSL_sk_value(ptr noundef nonnull %gen_names.019, i32 noundef %i.07.i) #7
   %call4.i = call i32 @GENERAL_NAME_cmp(ptr noundef %call3.i, ptr noundef nonnull %tsa_name) #7
   %cmp5.not.i = icmp eq i32 %call4.i, 0
-  %inc.i = add nuw nsw i32 %i.06.i, 1
+  %inc.i = add nuw nsw i32 %i.07.i, 1
   br i1 %cmp5.not.i, label %while.end, label %land.rhs.i, !llvm.loop !8
 
 if.end8:                                          ; preds = %land.rhs.i

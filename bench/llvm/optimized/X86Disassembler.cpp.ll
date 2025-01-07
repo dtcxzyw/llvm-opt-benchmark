@@ -4355,9 +4355,9 @@ define internal fastcc noundef range(i32 -1, 1) i32 @_ZL8fixupRegPN4llvm15X86Dis
     i8 18, label %76
     i8 23, label %77
     i8 21, label %81
-    i8 22, label %85
-    i8 17, label %90
-    i8 24, label %91
+    i8 22, label %86
+    i8 17, label %91
+    i8 24, label %92
     i8 25, label %96
     i8 26, label %100
     i8 10, label %76
@@ -4403,66 +4403,59 @@ _ZL12fixupRMValuePN4llvm15X86Disassembler19InternalInstructionENS0_11OperandType
 
 77:                                               ; preds = %58
   %78 = and i32 %61, 255
-  %79 = icmp ult i8 %62, 8
-  %spec.select = zext i1 %79 to i8
+  %79 = icmp ugt i8 %62, 7
   %80 = add nuw nsw i32 %78, 383
   br label %_ZL12fixupRMValuePN4llvm15X86Disassembler19InternalInstructionENS0_11OperandTypeEhPh.exit
 
 81:                                               ; preds = %58
   %82 = and i32 %61, 15
-  %83 = lshr i8 %62, 3
-  %.lobit = and i8 %83, 1
-  %spec.select47 = xor i8 %.lobit, 1
-  %84 = add nuw nsw i32 %82, 333
+  %83 = add nuw nsw i32 %82, 333
+  %84 = and i8 %62, 8
+  %85 = icmp ne i8 %84, 0
   br label %_ZL12fixupRMValuePN4llvm15X86Disassembler19InternalInstructionENS0_11OperandTypeEhPh.exit
 
-85:                                               ; preds = %58
-  %86 = icmp ult i8 %62, 8
-  %spec.select48 = zext i1 %86 to i8
-  %87 = lshr i32 %61, 1
-  %88 = and i32 %87, 127
-  %89 = add nuw nsw i32 %88, 341
+86:                                               ; preds = %58
+  %87 = icmp ugt i8 %62, 7
+  %88 = lshr i32 %61, 1
+  %89 = and i32 %88, 127
+  %90 = add nuw nsw i32 %89, 341
   br label %_ZL12fixupRMValuePN4llvm15X86Disassembler19InternalInstructionENS0_11OperandTypeEhPh.exit
-
-90:                                               ; preds = %58
-  br label %_ZL12fixupRMValuePN4llvm15X86Disassembler19InternalInstructionENS0_11OperandTypeEhPh.exit.thread
 
 91:                                               ; preds = %58
-  %92 = and i8 %62, 6
-  %93 = and i32 %61, 7
-  %94 = icmp ne i8 %92, 6
-  %spec.select49 = zext i1 %94 to i8
-  %95 = add nuw nsw i32 %93, 345
+  br label %_ZL12fixupRMValuePN4llvm15X86Disassembler19InternalInstructionENS0_11OperandTypeEhPh.exit.thread
+
+92:                                               ; preds = %58
+  %93 = and i8 %62, 6
+  %94 = and i32 %61, 7
+  %.not54 = icmp eq i8 %93, 6
+  %95 = add nuw nsw i32 %94, 345
   br label %_ZL12fixupRMValuePN4llvm15X86Disassembler19InternalInstructionENS0_11OperandTypeEhPh.exit
 
 96:                                               ; preds = %58
   %97 = and i32 %61, 255
-  %98 = icmp ult i8 %62, 16
-  %spec.select50 = zext i1 %98 to i8
+  %98 = icmp ugt i8 %62, 15
   %99 = add nuw nsw i32 %97, 351
   br label %_ZL12fixupRMValuePN4llvm15X86Disassembler19InternalInstructionENS0_11OperandTypeEhPh.exit
 
 100:                                              ; preds = %58
   %101 = and i32 %61, 255
-  %102 = icmp ult i8 %62, 16
-  %spec.select51 = zext i1 %102 to i8
+  %102 = icmp ugt i8 %62, 15
   %103 = add nuw nsw i32 %101, 367
   br label %_ZL12fixupRMValuePN4llvm15X86Disassembler19InternalInstructionENS0_11OperandTypeEhPh.exit
 
-_ZL12fixupRMValuePN4llvm15X86Disassembler19InternalInstructionENS0_11OperandTypeEhPh.exit.thread: ; preds = %58, %71, %72, %73, %74, %75, %76, %90
-  %.sink53 = phi i32 [ 255, %71 ], [ 255, %72 ], [ 255, %73 ], [ 255, %74 ], [ 255, %75 ], [ 255, %76 ], [ 7, %90 ], [ 255, %58 ]
-  %.sink52 = phi i32 [ 133, %71 ], [ 165, %72 ], [ 197, %73 ], [ 301, %74 ], [ 269, %75 ], [ 237, %76 ], [ 229, %90 ], [ %57, %58 ]
+_ZL12fixupRMValuePN4llvm15X86Disassembler19InternalInstructionENS0_11OperandTypeEhPh.exit.thread: ; preds = %58, %71, %72, %73, %74, %75, %76, %91
+  %.sink53 = phi i32 [ 255, %71 ], [ 255, %72 ], [ 255, %73 ], [ 255, %74 ], [ 255, %75 ], [ 255, %76 ], [ 7, %91 ], [ 255, %58 ]
+  %.sink52 = phi i32 [ 133, %71 ], [ 165, %72 ], [ 197, %73 ], [ 301, %74 ], [ 269, %75 ], [ 237, %76 ], [ 229, %91 ], [ %57, %58 ]
   %104 = and i32 %61, %.sink53
   %105 = add nsw i32 %104, %.sink52
   %106 = and i32 %105, 65535
   br label %.sink.split
 
-_ZL12fixupRMValuePN4llvm15X86Disassembler19InternalInstructionENS0_11OperandTypeEhPh.exit: ; preds = %77, %81, %85, %91, %96, %100
-  %.pr = phi i8 [ %spec.select, %77 ], [ %spec.select47, %81 ], [ %spec.select48, %85 ], [ %spec.select49, %91 ], [ %spec.select50, %96 ], [ %spec.select51, %100 ]
-  %.0.i.ph = phi i32 [ %80, %77 ], [ %84, %81 ], [ %89, %85 ], [ %95, %91 ], [ %99, %96 ], [ %103, %100 ]
+_ZL12fixupRMValuePN4llvm15X86Disassembler19InternalInstructionENS0_11OperandTypeEhPh.exit: ; preds = %77, %81, %86, %92, %96, %100
+  %.pr = phi i1 [ %79, %77 ], [ %85, %81 ], [ %87, %86 ], [ %.not54, %92 ], [ %98, %96 ], [ %102, %100 ]
+  %.0.i.ph = phi i32 [ %80, %77 ], [ %83, %81 ], [ %90, %86 ], [ %95, %92 ], [ %99, %96 ], [ %103, %100 ]
   store i32 %.0.i.ph, ptr %54, align 4
-  %.not26 = icmp eq i8 %.pr, 0
-  br i1 %.not26, label %108, label %107
+  br i1 %.pr, label %108, label %107
 
 .sink.split:                                      ; preds = %_ZL12fixupRMValuePN4llvm15X86Disassembler19InternalInstructionENS0_11OperandTypeEhPh.exit.thread, %_ZL12fixupRMValuePN4llvm15X86Disassembler19InternalInstructionENS0_11OperandTypeEhPh.exit.thread43
   %.0.i.ph.ph.sink = phi i32 [ %.0.i.ph.ph, %_ZL12fixupRMValuePN4llvm15X86Disassembler19InternalInstructionENS0_11OperandTypeEhPh.exit.thread43 ], [ %106, %_ZL12fixupRMValuePN4llvm15X86Disassembler19InternalInstructionENS0_11OperandTypeEhPh.exit.thread ]

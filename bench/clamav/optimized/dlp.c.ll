@@ -239,26 +239,25 @@ get_iin.exit:                                     ; preds = %52, %.lr.ph.split.u
 
 .lr.ph120:                                        ; preds = %.thread91, %.lr.ph120
   %.068119 = phi i64 [ %.068, %.lr.ph120 ], [ %.068116, %.thread91 ]
-  %.071118 = phi i32 [ %110, %.lr.ph120 ], [ 0, %.thread91 ]
-  %.072117 = phi i32 [ %109, %.lr.ph120 ], [ 0, %.thread91 ]
+  %.071118 = phi i32 [ %109, %.lr.ph120 ], [ 0, %.thread91 ]
+  %.072117 = phi i1 [ %110, %.lr.ph120 ], [ true, %.thread91 ]
   %102 = getelementptr inbounds nuw [20 x i8], ptr %4, i64 0, i64 %.068119
   %103 = load i8, ptr %102, align 1
   %104 = sext i8 %103 to i32
   %105 = add nsw i32 %104, -48
-  %.not85 = icmp eq i32 %.072117, 0
   %106 = shl nsw i32 %105, 1
   %107 = icmp sgt i8 %103, 52
   %108 = add nsw i32 %106, -9
   %spec.select88 = select i1 %107, i32 %108, i32 %106
-  %.067 = select i1 %.not85, i32 %105, i32 %spec.select88
-  %109 = xor i32 %.072117, 1
-  %110 = add nsw i32 %.067, %.071118
+  %.067 = select i1 %.072117, i32 %105, i32 %spec.select88
+  %109 = add nsw i32 %.067, %.071118
+  %110 = xor i1 %.072117, true
   %.068 = add nsw i64 %.068119, -1
   %.not145 = icmp eq i64 %.068119, 0
   br i1 %.not145, label %._crit_edge121, label %.lr.ph120
 
 ._crit_edge121:                                   ; preds = %.lr.ph120
-  %111 = srem i32 %110, 10
+  %111 = srem i32 %109, 10
   %112 = icmp eq i32 %111, 0
   br i1 %112, label %.thread.sink.split, label %.thread
 

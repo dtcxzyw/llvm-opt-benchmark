@@ -13915,7 +13915,7 @@ is_pointer_to_heap.exit.thread:                   ; preds = %60, %heap_page_for_
 137:                                              ; preds = %135
   %138 = trunc i64 %136 to i32
   %139 = and i32 %138, 31
-  switch i32 %139, label %150 [
+  switch i32 %139, label %internal_object_p.exit [
     i32 27, label %140
     i32 0, label %RB_SYMBOL_P.exit
     i32 30, label %RB_SYMBOL_P.exit
@@ -13945,21 +13945,16 @@ is_pointer_to_heap.exit.thread:                   ; preds = %60, %heap_page_for_
 
 148:                                              ; preds = %144
   %149 = tail call i32 @rb_singleton_class_internal_p(i64 noundef %2) #39
-  br label %internal_object_p.exit
+  %150 = icmp eq i32 %149, 0
+  br i1 %150, label %internal_object_p.exit.thread104, label %RB_SYMBOL_P.exit
 
-150:                                              ; preds = %137
+internal_object_p.exit:                           ; preds = %137
   %151 = getelementptr inbounds nuw i8, ptr %51, i64 8
   %152 = load i64, ptr %151, align 8
-  %.not19.not.i = icmp eq i64 %152, 0
-  %.mux.i = zext i1 %.not19.not.i to i32
-  br label %internal_object_p.exit
+  %.not19.not.i.not = icmp eq i64 %152, 0
+  br i1 %.not19.not.i.not, label %RB_SYMBOL_P.exit, label %internal_object_p.exit.thread104
 
-internal_object_p.exit:                           ; preds = %148, %150
-  %.0.i96 = phi i32 [ %149, %148 ], [ %.mux.i, %150 ]
-  %.not89 = icmp eq i32 %.0.i96, 0
-  br i1 %.not89, label %internal_object_p.exit.thread104, label %RB_SYMBOL_P.exit
-
-internal_object_p.exit.thread104:                 ; preds = %internal_object_p.exit
+internal_object_p.exit.thread104:                 ; preds = %internal_object_p.exit, %148
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %51, i64 8
   %.pre = load i64, ptr %.phi.trans.insert, align 8
   %153 = icmp eq i64 %.pre, 0
@@ -14007,8 +14002,8 @@ RSTRING_PTR.exit:                                 ; preds = %163, %170
   %173 = add nsw i64 %.1, %172
   br label %RB_SYMBOL_P.exit
 
-RB_SYMBOL_P.exit:                                 ; preds = %135, %137, %137, %137, %137, %137, %141, %21, %RSTRING_PTR.exit, %24, %14, %156, %160, %internal_object_p.exit.thread104.thread, %internal_object_p.exit, %154, %is_pointer_to_heap.exit.thread, %127, %8
-  %.0 = phi i64 [ %11, %8 ], [ %20, %14 ], [ %31, %24 ], [ %131, %127 ], [ %.1, %internal_object_p.exit ], [ %.1, %154 ], [ %.1, %156 ], [ %.1, %160 ], [ %173, %RSTRING_PTR.exit ], [ %.1, %internal_object_p.exit.thread104.thread ], [ %134, %is_pointer_to_heap.exit.thread ], [ %11, %21 ], [ %.1, %141 ], [ %.1, %137 ], [ %.1, %137 ], [ %.1, %137 ], [ %.1, %137 ], [ %.1, %137 ], [ %.1, %135 ]
+RB_SYMBOL_P.exit:                                 ; preds = %148, %135, %137, %137, %137, %137, %137, %141, %21, %RSTRING_PTR.exit, %24, %14, %156, %160, %internal_object_p.exit.thread104.thread, %internal_object_p.exit, %154, %is_pointer_to_heap.exit.thread, %127, %8
+  %.0 = phi i64 [ %11, %8 ], [ %20, %14 ], [ %31, %24 ], [ %131, %127 ], [ %.1, %internal_object_p.exit ], [ %.1, %154 ], [ %.1, %156 ], [ %.1, %160 ], [ %173, %RSTRING_PTR.exit ], [ %.1, %internal_object_p.exit.thread104.thread ], [ %134, %is_pointer_to_heap.exit.thread ], [ %11, %21 ], [ %.1, %141 ], [ %.1, %137 ], [ %.1, %137 ], [ %.1, %137 ], [ %.1, %137 ], [ %.1, %137 ], [ %.1, %135 ], [ %.1, %148 ]
   ret i64 %.0
 }
 
@@ -28818,7 +28813,7 @@ define internal noundef i32 @os_obj_of_i(ptr noundef %0, ptr noundef %1, i64 nou
 11:                                               ; preds = %8
   %12 = trunc i64 %10 to i32
   %13 = and i32 %12, 31
-  switch i32 %13, label %29 [
+  switch i32 %13, label %internal_object_p.exit [
     i32 27, label %14
     i32 0, label %internal_object_p.exit.thread
     i32 30, label %internal_object_p.exit.thread
@@ -28855,21 +28850,16 @@ define internal noundef i32 @os_obj_of_i(ptr noundef %0, ptr noundef %1, i64 nou
 
 27:                                               ; preds = %23
   %28 = tail call i32 @rb_singleton_class_internal_p(i64 noundef %.028) #39
-  br label %internal_object_p.exit
+  %29 = icmp eq i32 %28, 0
+  br i1 %29, label %internal_object_p.exit.thread22, label %internal_object_p.exit.thread
 
-29:                                               ; preds = %11
+internal_object_p.exit:                           ; preds = %11
   %30 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %31 = load i64, ptr %30, align 8
-  %.not19.not.i = icmp eq i64 %31, 0
-  %.mux.i = zext i1 %.not19.not.i to i32
-  br label %internal_object_p.exit
+  %.not19.not.i.not = icmp eq i64 %31, 0
+  br i1 %.not19.not.i.not, label %internal_object_p.exit.thread, label %internal_object_p.exit.thread22
 
-internal_object_p.exit:                           ; preds = %27, %29
-  %.0.i = phi i32 [ %28, %27 ], [ %.mux.i, %29 ]
-  %.not13 = icmp eq i32 %.0.i, 0
-  br i1 %.not13, label %internal_object_p.exit.thread22, label %internal_object_p.exit.thread
-
-internal_object_p.exit.thread22:                  ; preds = %23, %18, %internal_object_p.exit
+internal_object_p.exit.thread22:                  ; preds = %27, %23, %18, %internal_object_p.exit
   %32 = load i64, ptr %7, align 8
   %.not14 = icmp eq i64 %32, 0
   br i1 %.not14, label %35, label %33
@@ -28908,7 +28898,7 @@ rb_ractor_shareable_p.exit.thread:                ; preds = %42, %37, %rb_ractor
   store i64 %48, ptr %3, align 8
   br label %internal_object_p.exit.thread
 
-internal_object_p.exit.thread:                    ; preds = %8, %11, %11, %11, %11, %11, %15, %internal_object_p.exit, %rb_ractor_shareable_p.exit, %rb_ractor_shareable_p.exit.thread, %33
+internal_object_p.exit.thread:                    ; preds = %27, %8, %11, %11, %11, %11, %11, %15, %internal_object_p.exit, %rb_ractor_shareable_p.exit, %rb_ractor_shareable_p.exit.thread, %33
   %49 = add i64 %.028, %2
   %.not = icmp eq i64 %49, %5
   br i1 %.not, label %._crit_edge, label %8, !llvm.loop !194

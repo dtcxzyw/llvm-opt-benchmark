@@ -105,13 +105,13 @@ lor.lhs.false30:                                  ; preds = %land.lhs.true
   br i1 %tobool32.not, label %if.then33, label %if.end59
 
 if.then33:                                        ; preds = %if.end11, %cond.end17, %lor.lhs.false30
-  %cond185663 = phi i32 [ %call15, %lor.lhs.false30 ], [ 0, %cond.end17 ], [ 0, %if.end11 ]
-  %cmp19.not5762 = phi i1 [ false, %lor.lhs.false30 ], [ true, %cond.end17 ], [ true, %if.end11 ]
+  %cmp2662 = phi i1 [ true, %lor.lhs.false30 ], [ false, %cond.end17 ], [ false, %if.end11 ]
+  %cond185661 = phi i32 [ %call15, %lor.lhs.false30 ], [ 0, %cond.end17 ], [ 0, %if.end11 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %mcm, ptr noundef nonnull align 8 dereferenceable(56) @__const.inner_evp_generic_fetch.mcm, i64 56, i1 false)
   %operation_id34 = getelementptr inbounds nuw i8, ptr %methdata, i64 8
   store i32 %operation_id, ptr %operation_id34, align 8
   %name_id35 = getelementptr inbounds nuw i8, ptr %methdata, i64 12
-  store i32 %cond185663, ptr %name_id35, align 4
+  store i32 %cond185661, ptr %name_id35, align 4
   %names = getelementptr inbounds nuw i8, ptr %methdata, i64 16
   store ptr %name, ptr %names, align 8
   %propquery = getelementptr inbounds nuw i8, ptr %methdata, i64 24
@@ -133,14 +133,14 @@ if.then33:                                        ; preds = %if.end11, %cond.end
   br i1 %cmp38.not, label %if.end52, label %if.then40
 
 if.then40:                                        ; preds = %if.then33
-  br i1 %cmp19.not5762, label %if.then43, label %if.end45
+  br i1 %cmp2662, label %if.end45, label %if.then43
 
 if.then43:                                        ; preds = %if.then40
   %call44 = call i32 @ossl_namemap_name2num(ptr noundef nonnull %call2, ptr noundef %name) #4
   br label %if.end45
 
 if.end45:                                         ; preds = %if.then43, %if.then40
-  %name_id.2 = phi i32 [ %call44, %if.then43 ], [ %cond185663, %if.then40 ]
+  %name_id.2 = phi i32 [ %call44, %if.then43 ], [ %cond185661, %if.then40 ]
   %cmp47.not = icmp eq i32 %name_id.2, 0
   br i1 %cmp47.not, label %if.end52, label %if.then49
 
@@ -157,7 +157,7 @@ if.then49:                                        ; preds = %if.end45
   br label %if.end52
 
 if.end52:                                         ; preds = %if.end45, %if.then49, %if.then33
-  %name_id.1 = phi i32 [ %name_id.2, %if.then49 ], [ 0, %if.end45 ], [ %cond185663, %if.then33 ]
+  %name_id.1 = phi i32 [ %name_id.2, %if.then49 ], [ 0, %if.end45 ], [ %cond185661, %if.then33 ]
   %bf.load54 = load i8, ptr %flag_construct_error_occurred, align 8
   %bf.clear55 = and i8 %bf.load54, 1
   %.not = icmp eq i8 %bf.clear55, 0

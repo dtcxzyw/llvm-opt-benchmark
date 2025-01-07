@@ -6066,8 +6066,8 @@ for.cond7.preheader:                              ; preds = %is_null_oid.exit
   %11 = load i32, ptr %nr9, align 8
   %smax = call i32 @llvm.smax.i32(i32 %11, i32 0)
   %wide.trip.count = zext nneg i32 %smax to i64
-  %exitcond.not66 = icmp slt i32 %11, 1
-  br i1 %exitcond.not66, label %if.then29, label %for.body12.preheader
+  %exitcond.not63 = icmp slt i32 %11, 1
+  br i1 %exitcond.not63, label %if.then29, label %for.body12.preheader
 
 for.body12.preheader:                             ; preds = %for.cond7.preheader
   %12 = load ptr, ptr %items13, align 8
@@ -6075,8 +6075,8 @@ for.body12.preheader:                             ; preds = %for.cond7.preheader
   br label %for.body12
 
 for.body12:                                       ; preds = %for.body12.preheader, %land.rhs.backedge
-  %indvars.iv67 = phi i64 [ %indvars.iv.be, %land.rhs.backedge ], [ 0, %for.body12.preheader ]
-  %arrayidx15 = getelementptr inbounds nuw %struct.todo_item, ptr %12, i64 %indvars.iv67
+  %indvars.iv64 = phi i64 [ %indvars.iv.be, %land.rhs.backedge ], [ 0, %for.body12.preheader ]
+  %arrayidx15 = getelementptr inbounds nuw %struct.todo_item, ptr %12, i64 %indvars.iv64
   %arg_offset = getelementptr inbounds nuw i8, ptr %arrayidx15, i64 32
   %14 = load i64, ptr %arg_offset, align 8
   %add.ptr = getelementptr inbounds i8, ptr %13, i64 %14
@@ -6097,7 +6097,7 @@ lor.lhs.false:                                    ; preds = %if.end20
   br i1 %tobool25.not.not, label %for.inc49, label %land.rhs.backedge
 
 land.rhs.backedge:                                ; preds = %for.body12, %if.end20, %lor.lhs.false
-  %indvars.iv.be = add nuw nsw i64 %indvars.iv67, 1
+  %indvars.iv.be = add nuw nsw i64 %indvars.iv64, 1
   %exitcond.not = icmp eq i64 %indvars.iv.be, %wide.trip.count
   br i1 %exitcond.not, label %if.then29, label %for.body12, !llvm.loop !20
 
@@ -6182,23 +6182,23 @@ for.body81:                                       ; preds = %for.body81.backedge
 
 land.end97:                                       ; preds = %for.body81
   %call95 = call i32 @strncmp(ptr noundef %32, ptr noundef %add.ptr65, i64 noundef %conv89) #20
-  %tobool96.not = icmp ne i32 %call95, 0
+  %tobool96 = icmp ne i32 %call95, 0
   %indvars.iv.next55 = add nuw nsw i64 %indvars.iv54, 1
   %cmp78 = icmp ugt i64 %29, %indvars.iv.next55
-  %33 = select i1 %tobool96.not, i1 %cmp78, i1 false
+  %33 = select i1 %tobool96, i1 %cmp78, i1 false
   br i1 %33, label %for.body81.backedge, label %for.end100
 
 for.body81.backedge:                              ; preds = %land.end97, %land.end97.thread
-  %indvars.iv54.be = phi i64 [ %indvars.iv.next55, %land.end97 ], [ %indvars.iv.next5562, %land.end97.thread ]
+  %indvars.iv54.be = phi i64 [ %indvars.iv.next55, %land.end97 ], [ %indvars.iv.next5561, %land.end97.thread ]
   br label %for.body81, !llvm.loop !22
 
 land.end97.thread:                                ; preds = %for.body81
-  %indvars.iv.next5562 = add nuw nsw i64 %indvars.iv54, 1
-  %cmp7863 = icmp ugt i64 %29, %indvars.iv.next5562
-  br i1 %cmp7863, label %for.body81.backedge, label %if.then102
+  %indvars.iv.next5561 = add nuw nsw i64 %indvars.iv54, 1
+  %cmp7862 = icmp ugt i64 %29, %indvars.iv.next5561
+  br i1 %cmp7862, label %for.body81.backedge, label %if.then102
 
 for.end100:                                       ; preds = %land.end97
-  br i1 %tobool96.not, label %if.then102, label %for.inc111
+  br i1 %tobool96, label %if.then102, label %for.inc111
 
 if.then102:                                       ; preds = %land.end97.thread, %for.cond73.preheader, %for.end100
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %argref, ptr noundef nonnull align 8 dereferenceable(24) @__const.make_script_with_merges.label, i64 24, i1 false)

@@ -895,14 +895,7 @@ if.end:                                           ; preds = %entry
   %call.i = tail call ptr @EVP_CIPHER_CTX_get0_cipher(ptr noundef %.val) #5
   store ptr %call.i, ptr %kekcipher.i, align 8
   %cmp.not.i = icmp eq ptr %call.i, null
-  br i1 %cmp.not.i, label %if.end7.i, label %if.then.i
-
-if.then.i:                                        ; preds = %if.end
-  %call3.i = tail call ptr @EVP_CIPHER_CTX_get0_cipher(ptr noundef %.val) #5
-  %call4.i = tail call i32 @EVP_CIPHER_get_mode(ptr noundef %call3.i) #5
-  %cmp5.not.i = icmp eq i32 %call4.i, 65538
-  %..i = zext i1 %cmp5.not.i to i32
-  br label %cms_wrap_init.exit
+  br i1 %cmp.not.i, label %if.end7.i, label %cms_wrap_init.exit
 
 if.end7.i:                                        ; preds = %if.end
   %cmp8.i = icmp eq ptr %3, null
@@ -961,30 +954,33 @@ enc.i:                                            ; preds = %if.else34.i, %if.el
 if.end46.i:                                       ; preds = %enc.i
   %call47.i = call i32 @EVP_EncryptInit_ex(ptr noundef %.val, ptr noundef nonnull %call43.i, ptr noundef null, ptr noundef null, ptr noundef null) #5
   call void @EVP_CIPHER_free(ptr noundef nonnull %call43.i) #5
-  br label %cms_wrap_init.exit
+  %8 = icmp eq i32 %call47.i, 0
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %kekcipher.i)
+  br i1 %8, label %return, label %if.end3
 
 cms_wrap_init.exit.thread:                        ; preds = %if.end7.i, %if.then14.i, %if.then21.i, %enc.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %kekcipher.i)
   br label %return
 
-cms_wrap_init.exit:                               ; preds = %if.then.i, %if.end46.i
-  %retval.0.i = phi i32 [ %call47.i, %if.end46.i ], [ %..i, %if.then.i ]
+cms_wrap_init.exit:                               ; preds = %if.end
+  %call3.i = tail call ptr @EVP_CIPHER_CTX_get0_cipher(ptr noundef %.val) #5
+  %call4.i = tail call i32 @EVP_CIPHER_get_mode(ptr noundef %call3.i) #5
+  %cmp5.not.i.not = icmp eq i32 %call4.i, 65538
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %kekcipher.i)
-  %tobool.not = icmp eq i32 %retval.0.i, 0
-  br i1 %tobool.not, label %return, label %if.end3
+  br i1 %cmp5.not.i.not, label %if.end3, label %return
 
-if.end3:                                          ; preds = %cms_wrap_init.exit
+if.end3:                                          ; preds = %if.end46.i, %cms_wrap_init.exit
   %originator = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %8 = load ptr, ptr %originator, align 8
-  %9 = load i32, ptr %8, align 8
-  %cmp5 = icmp eq i32 %9, -1
+  %9 = load ptr, ptr %originator, align 8
+  %10 = load i32, ptr %9, align 8
+  %cmp5 = icmp eq i32 %10, -1
   br i1 %cmp5, label %if.then6, label %if.end16
 
 if.then6:                                         ; preds = %if.end3
-  store i32 2, ptr %8, align 8
+  store i32 2, ptr %9, align 8
   %call9 = call ptr @CMS_OriginatorPublicKey_it() #5
   %call10 = call ptr @ASN1_item_new(ptr noundef %call9) #5
-  %d11 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %d11 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr %call10, ptr %d11, align 8
   %tobool13.not = icmp eq ptr %call10, null
   br i1 %tobool13.not, label %return, label %if.end16
@@ -1008,34 +1004,34 @@ for.body.lr.ph:                                   ; preds = %for.cond.preheader
 for.body:                                         ; preds = %for.body.lr.ph, %if.end33
   %i.021 = phi i32 [ 0, %for.body.lr.ph ], [ %inc, %if.end33 ]
   %call25 = call ptr @OPENSSL_sk_value(ptr noundef %2, i32 noundef %i.021) #5
-  %10 = load ptr, ptr %pctx, align 8
+  %11 = load ptr, ptr %pctx, align 8
   %pkey = getelementptr inbounds nuw i8, ptr %call25, i64 16
-  %11 = load ptr, ptr %pkey, align 8
-  %call26 = call i32 @EVP_PKEY_derive_set_peer(ptr noundef %10, ptr noundef %11) #5
+  %12 = load ptr, ptr %pkey, align 8
+  %call26 = call i32 @EVP_PKEY_derive_set_peer(ptr noundef %11, ptr noundef %12) #5
   %cmp27 = icmp slt i32 %call26, 1
   br i1 %cmp27, label %return, label %if.end29
 
 if.end29:                                         ; preds = %for.body
-  %12 = load ptr, ptr %key, align 8
-  %13 = load i64, ptr %keylen, align 8
-  %call30 = call fastcc i32 @cms_kek_cipher(ptr noundef %enckey, ptr noundef %enckeylen, ptr noundef %12, i64 noundef %13, ptr noundef nonnull %1, i32 noundef 1)
+  %13 = load ptr, ptr %key, align 8
+  %14 = load i64, ptr %keylen, align 8
+  %call30 = call fastcc i32 @cms_kek_cipher(ptr noundef %enckey, ptr noundef %enckeylen, ptr noundef %13, i64 noundef %14, ptr noundef nonnull %1, i32 noundef 1)
   %tobool31.not = icmp eq i32 %call30, 0
   br i1 %tobool31.not, label %return, label %if.end33
 
 if.end33:                                         ; preds = %if.end29
   %encryptedKey = getelementptr inbounds nuw i8, ptr %call25, i64 8
-  %14 = load ptr, ptr %encryptedKey, align 8
-  %15 = load ptr, ptr %enckey, align 8
-  %16 = load i64, ptr %enckeylen, align 8
-  %conv = trunc i64 %16 to i32
-  call void @ASN1_STRING_set0(ptr noundef %14, ptr noundef %15, i32 noundef %conv) #5
+  %15 = load ptr, ptr %encryptedKey, align 8
+  %16 = load ptr, ptr %enckey, align 8
+  %17 = load i64, ptr %enckeylen, align 8
+  %conv = trunc i64 %17 to i32
+  call void @ASN1_STRING_set0(ptr noundef %15, ptr noundef %16, i32 noundef %conv) #5
   %inc = add nuw nsw i32 %i.021, 1
   %call22 = call i32 @OPENSSL_sk_num(ptr noundef %2) #5
   %cmp23 = icmp slt i32 %inc, %call22
   br i1 %cmp23, label %for.body, label %return, !llvm.loop !4
 
-return:                                           ; preds = %for.body, %if.end29, %if.end33, %for.cond.preheader, %cms_wrap_init.exit.thread, %if.end16, %if.then6, %cms_wrap_init.exit, %if.then
-  %retval.0 = phi i32 [ 0, %if.then ], [ 0, %cms_wrap_init.exit ], [ 0, %if.then6 ], [ 0, %if.end16 ], [ 0, %cms_wrap_init.exit.thread ], [ 1, %for.cond.preheader ], [ 0, %for.body ], [ 0, %if.end29 ], [ 1, %if.end33 ]
+return:                                           ; preds = %for.body, %if.end29, %if.end33, %if.end46.i, %for.cond.preheader, %cms_wrap_init.exit.thread, %if.end16, %if.then6, %cms_wrap_init.exit, %if.then
+  %retval.0 = phi i32 [ 0, %if.then ], [ 0, %cms_wrap_init.exit ], [ 0, %if.then6 ], [ 0, %if.end16 ], [ 0, %cms_wrap_init.exit.thread ], [ 1, %for.cond.preheader ], [ 0, %if.end46.i ], [ 0, %for.body ], [ 0, %if.end29 ], [ 1, %if.end33 ]
   ret i32 %retval.0
 }
 

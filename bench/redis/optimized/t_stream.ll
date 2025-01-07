@@ -2473,9 +2473,9 @@ if.end:                                           ; preds = %entry
   %4 = load ptr, ptr %s, align 8
   call void @raxStart(ptr noundef nonnull %ri, ptr noundef %4) #16
   %call = call i32 @raxSeek(ptr noundef nonnull %ri, ptr noundef nonnull @.str.3, ptr noundef null, i64 noundef 0) #16
-  %call4184 = call i32 @raxNext(ptr noundef nonnull %ri) #16
-  %tobool.not185 = icmp eq i32 %call4184, 0
-  br i1 %tobool.not185, label %while.end122, label %while.body.lr.ph
+  %call4188 = call i32 @raxNext(ptr noundef nonnull %ri) #16
+  %tobool.not189 = icmp eq i32 %call4188, 0
+  br i1 %tobool.not189, label %while.end122, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %if.end
   %cmp5 = icmp eq i32 %3, 1
@@ -2490,7 +2490,7 @@ while.body.lr.ph:                                 ; preds = %if.end
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.then26
-  %deleted.0186 = phi i64 [ 0, %while.body.lr.ph ], [ %add, %if.then26 ]
+  %deleted.0190 = phi i64 [ 0, %while.body.lr.ph ], [ %add, %if.then26 ]
   br i1 %cmp5, label %land.lhs.true, label %if.end8
 
 land.lhs.true:                                    ; preds = %while.body
@@ -2524,7 +2524,7 @@ lpGetIntegerIfValid.exit:                         ; preds = %if.end8, %if.end2.i
   %8 = load i64, ptr %ll.sink.i, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %v.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ll.i)
-  %add = add nsw i64 %8, %deleted.0186
+  %add = add nsw i64 %8, %deleted.0190
   %cmp13 = icmp sgt i64 %add, %2
   %or.cond = select i1 %tobool11.not, i1 %cmp13, i1 false
   br i1 %or.cond, label %while.end122, label %if.end15
@@ -2562,8 +2562,8 @@ if.else.i:                                        ; preds = %if.else
 if.else6.i:                                       ; preds = %if.else.i
   %13 = load i64, ptr %seq.i74, align 8
   %14 = load i64, ptr %seq7.i, align 8
-  %cmp13.i = icmp ult i64 %13, %14
-  br i1 %cmp13.i, label %if.then26, label %if.end36
+  %cmp13.i.not = icmp ult i64 %13, %14
+  br i1 %cmp13.i.not, label %if.then26, label %if.end36
 
 if.then26:                                        ; preds = %if.else6.i, %if.else.i, %if.then17
   call void @lpFree(ptr noundef %6) #16
@@ -2612,14 +2612,14 @@ lpGetIntegerIfValid.exit86:                       ; preds = %if.end39, %if.end2.
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %v.i75)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ll.i76)
   %call43 = call ptr @lpNext(ptr noundef %6, ptr noundef %call41) #16
-  %cmp44189 = icmp sgt i64 %22, 0
-  br i1 %cmp44189, label %for.body, label %for.end
+  %cmp44193 = icmp sgt i64 %22, 0
+  br i1 %cmp44193, label %for.body, label %for.end
 
 for.body:                                         ; preds = %lpGetIntegerIfValid.exit86, %for.body
   %23 = phi ptr [ %call46, %for.body ], [ %call43, %lpGetIntegerIfValid.exit86 ]
-  %j.0190 = phi i64 [ %inc, %for.body ], [ 0, %lpGetIntegerIfValid.exit86 ]
+  %j.0194 = phi i64 [ %inc, %for.body ], [ 0, %lpGetIntegerIfValid.exit86 ]
   %call46 = call ptr @lpNext(ptr noundef %6, ptr noundef %23) #16
-  %inc = add nuw nsw i64 %j.0190, 1
+  %inc = add nuw nsw i64 %j.0194, 1
   %exitcond.not = icmp eq i64 %inc, %22
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !24
 
@@ -2627,16 +2627,16 @@ for.end:                                          ; preds = %for.body, %lpGetInt
   %24 = phi ptr [ %call43, %lpGetIntegerIfValid.exit86 ], [ %call46, %for.body ]
   %call47 = call ptr @lpNext(ptr noundef %6, ptr noundef %24) #16
   store ptr %call47, ptr %p, align 8
-  %tobool49.not193 = icmp eq ptr %call47, null
-  br i1 %tobool49.not193, label %while.end98, label %while.body50.lr.ph
+  %tobool49.not197 = icmp eq ptr %call47, null
+  br i1 %tobool49.not197, label %while.end98, label %while.body50.lr.ph
 
 while.body50.lr.ph:                               ; preds = %for.end
   %cmp57 = icmp eq i32 %3, 2
   br label %while.body50
 
 while.body50:                                     ; preds = %while.body50.lr.ph, %if.end97
-  %lp.0195 = phi ptr [ %6, %while.body50.lr.ph ], [ %lp.1, %if.end97 ]
-  %deleted_from_lp.0194 = phi i64 [ 0, %while.body50.lr.ph ], [ %deleted_from_lp.1, %if.end97 ]
+  %lp.0199 = phi ptr [ %6, %while.body50.lr.ph ], [ %lp.1, %if.end97 ]
+  %deleted_from_lp.0198 = phi i64 [ 0, %while.body50.lr.ph ], [ %deleted_from_lp.1, %if.end97 ]
   %25 = phi ptr [ %call47, %while.body50.lr.ph ], [ %.pr, %if.end97 ]
   store ptr %25, ptr %pcopy, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %v.i87)
@@ -2661,7 +2661,7 @@ lpGetIntegerIfValid.exit98:                       ; preds = %while.body50, %if.e
   %27 = load i64, ptr %ll.sink.i95, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %v.i87)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ll.i88)
-  %call52 = call ptr @lpNext(ptr noundef %lp.0195, ptr noundef nonnull %25) #16
+  %call52 = call ptr @lpNext(ptr noundef %lp.0199, ptr noundef nonnull %25) #16
   store ptr %call52, ptr %p, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %v.i99)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ll.i100)
@@ -2685,7 +2685,7 @@ lpGetIntegerIfValid.exit110:                      ; preds = %lpGetIntegerIfValid
   %29 = load i64, ptr %ll.sink.i107, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %v.i99)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ll.i100)
-  %call54 = call ptr @lpNext(ptr noundef %lp.0195, ptr noundef %call52) #16
+  %call54 = call ptr @lpNext(ptr noundef %lp.0199, ptr noundef %call52) #16
   store ptr %call54, ptr %p, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %v.i111)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ll.i112)
@@ -2709,7 +2709,7 @@ lpGetIntegerIfValid.exit122:                      ; preds = %lpGetIntegerIfValid
   %31 = load i64, ptr %ll.sink.i119, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %v.i111)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ll.i112)
-  %call56 = call ptr @lpNext(ptr noundef %lp.0195, ptr noundef %call54) #16
+  %call56 = call ptr @lpNext(ptr noundef %lp.0199, ptr noundef %call54) #16
   store ptr %call56, ptr %p, align 8
   br i1 %cmp57, label %if.else71, label %if.end64
 
@@ -2736,14 +2736,14 @@ if.else71:                                        ; preds = %lpGetIntegerIfValid
 
 if.else.i124:                                     ; preds = %if.else71.thread, %if.else71
   %37 = phi i64 [ %32, %if.else71.thread ], [ %36, %if.else71 ]
-  %currid.sroa.0.1163216 = phi i64 [ 0, %if.else71.thread ], [ %add60, %if.else71 ]
-  %currid.sroa.3.1164215 = phi i64 [ 0, %if.else71.thread ], [ %add62, %if.else71 ]
-  %cmp4.i125 = icmp ult i64 %currid.sroa.0.1163216, %37
+  %currid.sroa.0.1166217 = phi i64 [ 0, %if.else71.thread ], [ %add60, %if.else71 ]
+  %currid.sroa.3.1167216 = phi i64 [ 0, %if.else71.thread ], [ %add62, %if.else71 ]
+  %cmp4.i125 = icmp ult i64 %currid.sroa.0.1166217, %37
   br i1 %cmp4.i125, label %if.end78, label %if.else6.i126
 
 if.else6.i126:                                    ; preds = %if.else.i124
   %38 = load i64, ptr %seq7.i, align 8
-  %cmp13.i131.not = icmp ult i64 %currid.sroa.3.1164215, %38
+  %cmp13.i131.not = icmp ult i64 %currid.sroa.3.1167216, %38
   br i1 %cmp13.i131.not, label %if.end78, label %while.end98
 
 if.end78:                                         ; preds = %if.else6.i126, %if.else.i124, %if.then67
@@ -2774,7 +2774,7 @@ lpGetIntegerIfValid.exit146:                      ; preds = %if.else81, %if.end2
   %40 = load i64, ptr %ll.sink.i143, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %v.i135)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ll.i136)
-  %call83 = call ptr @lpNext(ptr noundef %lp.0195, ptr noundef %call56) #16
+  %call83 = call ptr @lpNext(ptr noundef %lp.0199, ptr noundef %call56) #16
   store ptr %call83, ptr %p, align 8
   %mul = shl nsw i64 %40, 1
   br label %if.end84
@@ -2782,21 +2782,21 @@ lpGetIntegerIfValid.exit146:                      ; preds = %if.else81, %if.end2
 if.end84:                                         ; preds = %if.end78, %lpGetIntegerIfValid.exit146
   %41 = phi ptr [ %call83, %lpGetIntegerIfValid.exit146 ], [ %call56, %if.end78 ]
   %to_skip.0 = phi i64 [ %mul, %lpGetIntegerIfValid.exit146 ], [ %22, %if.end78 ]
-  %tobool86.not191 = icmp eq i64 %to_skip.0, 0
-  br i1 %tobool86.not191, label %while.end, label %while.body87
+  %tobool86.not195 = icmp eq i64 %to_skip.0, 0
+  br i1 %tobool86.not195, label %while.end, label %while.body87
 
 while.body87:                                     ; preds = %if.end84, %while.body87
   %42 = phi ptr [ %call88, %while.body87 ], [ %41, %if.end84 ]
-  %to_skip.1192 = phi i64 [ %dec, %while.body87 ], [ %to_skip.0, %if.end84 ]
-  %dec = add nsw i64 %to_skip.1192, -1
-  %call88 = call ptr @lpNext(ptr noundef %lp.0195, ptr noundef %42) #16
+  %to_skip.1196 = phi i64 [ %dec, %while.body87 ], [ %to_skip.0, %if.end84 ]
+  %dec = add nsw i64 %to_skip.1196, -1
+  %call88 = call ptr @lpNext(ptr noundef %lp.0199, ptr noundef %42) #16
   store ptr %call88, ptr %p, align 8
   %tobool86.not = icmp eq i64 %dec, 0
   br i1 %tobool86.not, label %while.end, label %while.body87, !llvm.loop !25
 
 while.end:                                        ; preds = %while.body87, %if.end84
   %43 = phi ptr [ %41, %if.end84 ], [ %call88, %while.body87 ]
-  %call89 = call ptr @lpNext(ptr noundef %lp.0195, ptr noundef %43) #16
+  %call89 = call ptr @lpNext(ptr noundef %lp.0199, ptr noundef %43) #16
   store ptr %call89, ptr %p, align 8
   %and90 = and i64 %27, 1
   %tobool91.not = icmp eq i64 %and90, 0
@@ -2804,11 +2804,11 @@ while.end:                                        ; preds = %while.body87, %if.e
 
 if.then92:                                        ; preds = %while.end
   %sub.ptr.lhs.cast = ptrtoint ptr %call89 to i64
-  %sub.ptr.rhs.cast = ptrtoint ptr %lp.0195 to i64
+  %sub.ptr.rhs.cast = ptrtoint ptr %lp.0199 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
   %or = or disjoint i64 %27, 1
-  %call93 = call ptr @lpReplaceInteger(ptr noundef %lp.0195, ptr noundef nonnull %pcopy, i64 noundef %or) #16
-  %inc94 = add nsw i64 %deleted_from_lp.0194, 1
+  %call93 = call ptr @lpReplaceInteger(ptr noundef %lp.0199, ptr noundef nonnull %pcopy, i64 noundef %or) #16
+  %inc94 = add nsw i64 %deleted_from_lp.0198, 1
   %44 = load i64, ptr %length, align 8
   %dec96 = add i64 %44, -1
   store i64 %dec96, ptr %length, align 8
@@ -2818,15 +2818,15 @@ if.then92:                                        ; preds = %while.end
 
 if.end97:                                         ; preds = %if.then92, %while.end
   %.pr = phi ptr [ %call89, %while.end ], [ %add.ptr, %if.then92 ]
-  %deleted_from_lp.1 = phi i64 [ %deleted_from_lp.0194, %while.end ], [ %inc94, %if.then92 ]
-  %lp.1 = phi ptr [ %lp.0195, %while.end ], [ %call93, %if.then92 ]
+  %deleted_from_lp.1 = phi i64 [ %deleted_from_lp.0198, %while.end ], [ %inc94, %if.then92 ]
+  %lp.1 = phi ptr [ %lp.0199, %while.end ], [ %call93, %if.then92 ]
   %tobool49.not = icmp eq ptr %.pr, null
   br i1 %tobool49.not, label %while.end98, label %while.body50, !llvm.loop !26
 
 while.end98:                                      ; preds = %if.end97, %if.then67, %if.else71, %if.else6.i126, %for.end
-  %deleted_from_lp.0.lcssa = phi i64 [ 0, %for.end ], [ %deleted_from_lp.0194, %if.else6.i126 ], [ %deleted_from_lp.0194, %if.else71 ], [ %deleted_from_lp.0194, %if.then67 ], [ %deleted_from_lp.1, %if.end97 ]
-  %lp.0.lcssa = phi ptr [ %6, %for.end ], [ %lp.0195, %if.else6.i126 ], [ %lp.0195, %if.else71 ], [ %lp.0195, %if.then67 ], [ %lp.1, %if.end97 ]
-  %add99 = add nsw i64 %deleted_from_lp.0.lcssa, %deleted.0186
+  %deleted_from_lp.0.lcssa = phi i64 [ 0, %for.end ], [ %deleted_from_lp.0198, %if.else6.i126 ], [ %deleted_from_lp.0198, %if.else71 ], [ %deleted_from_lp.0198, %if.then67 ], [ %deleted_from_lp.1, %if.end97 ]
+  %lp.0.lcssa = phi ptr [ %6, %for.end ], [ %lp.0199, %if.else6.i126 ], [ %lp.0199, %if.else71 ], [ %lp.0199, %if.then67 ], [ %lp.1, %if.end97 ]
+  %add99 = add nsw i64 %deleted_from_lp.0.lcssa, %deleted.0190
   %call100 = call ptr @lpFirst(ptr noundef %lp.0.lcssa) #16
   store ptr %call100, ptr %p, align 8
   %sub101 = sub nsw i64 %8, %deleted_from_lp.0.lcssa
@@ -2868,7 +2868,7 @@ lpGetIntegerIfValid.exit158:                      ; preds = %while.end98, %if.en
   br label %while.end122
 
 while.end122:                                     ; preds = %if.then26, %land.lhs.true, %lpGetIntegerIfValid.exit, %if.end, %if.end36, %lpGetIntegerIfValid.exit158
-  %deleted.1 = phi i64 [ %deleted.0186, %if.end36 ], [ %add99, %lpGetIntegerIfValid.exit158 ], [ 0, %if.end ], [ %add, %if.then26 ], [ %deleted.0186, %land.lhs.true ], [ %deleted.0186, %lpGetIntegerIfValid.exit ]
+  %deleted.1 = phi i64 [ %deleted.0190, %if.end36 ], [ %add99, %lpGetIntegerIfValid.exit158 ], [ 0, %if.end ], [ %add, %if.then26 ], [ %deleted.0190, %land.lhs.true ], [ %deleted.0190, %lpGetIntegerIfValid.exit ]
   call void @raxStop(ptr noundef nonnull %ri) #16
   %length123 = getelementptr inbounds nuw i8, ptr %s, i64 8
   %52 = load i64, ptr %length123, align 8

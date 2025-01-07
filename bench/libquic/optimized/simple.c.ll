@@ -449,24 +449,19 @@ if.end4.i:                                        ; preds = %lor.lhs.false.i
   %field_encode.i = getelementptr inbounds nuw i8, ptr %0, i64 72
   %1 = load ptr, ptr %field_encode.i, align 8
   %tobool5.not.i = icmp eq ptr %1, null
-  br i1 %tobool5.not.i, label %if.end10.i, label %if.then6.i
+  br i1 %tobool5.not.i, label %set_Jprojective_coordinate_GFp.exit, label %if.then6.i
 
 if.then6.i:                                       ; preds = %if.end4.i
   %call9.i = tail call i32 %1(ptr noundef nonnull %group, ptr noundef nonnull %X, ptr noundef nonnull %x, ptr noundef nonnull %ctx.addr.0) #5
-  br label %set_Jprojective_coordinate_GFp.exit
+  %2 = icmp eq i32 %call9.i, 0
+  br i1 %2, label %err, label %lor.lhs.false
 
-if.end10.i:                                       ; preds = %if.end4.i
+set_Jprojective_coordinate_GFp.exit:              ; preds = %if.end4.i
   %call11.i = tail call ptr @BN_copy(ptr noundef nonnull %X, ptr noundef nonnull %x) #5
-  %cmp12.i = icmp ne ptr %call11.i, null
-  %conv.i = zext i1 %cmp12.i to i32
-  br label %set_Jprojective_coordinate_GFp.exit
+  %cmp12.i.not = icmp eq ptr %call11.i, null
+  br i1 %cmp12.i.not, label %err, label %lor.lhs.false
 
-set_Jprojective_coordinate_GFp.exit:              ; preds = %if.then6.i, %if.end10.i
-  %retval.0.i = phi i32 [ %call9.i, %if.then6.i ], [ %conv.i, %if.end10.i ]
-  %tobool.not = icmp eq i32 %retval.0.i, 0
-  br i1 %tobool.not, label %err, label %lor.lhs.false
-
-lor.lhs.false:                                    ; preds = %if.end3, %set_Jprojective_coordinate_GFp.exit
+lor.lhs.false:                                    ; preds = %if.then6.i, %if.end3, %set_Jprojective_coordinate_GFp.exit
   %Y = getelementptr inbounds nuw i8, ptr %point, i64 32
   %cmp.i9 = icmp eq ptr %y, null
   br i1 %cmp.i9, label %lor.lhs.false7, label %if.end.i10
@@ -487,28 +482,23 @@ set_Jprojective_coordinate_GFp.exit28.thread:     ; preds = %if.end.i10, %lor.lh
   br label %err
 
 if.end4.i19:                                      ; preds = %lor.lhs.false.i15
-  %2 = load ptr, ptr %group, align 8
-  %field_encode.i20 = getelementptr inbounds nuw i8, ptr %2, i64 72
-  %3 = load ptr, ptr %field_encode.i20, align 8
-  %tobool5.not.i21 = icmp eq ptr %3, null
-  br i1 %tobool5.not.i21, label %if.end10.i24, label %if.then6.i22
+  %3 = load ptr, ptr %group, align 8
+  %field_encode.i20 = getelementptr inbounds nuw i8, ptr %3, i64 72
+  %4 = load ptr, ptr %field_encode.i20, align 8
+  %tobool5.not.i21 = icmp eq ptr %4, null
+  br i1 %tobool5.not.i21, label %set_Jprojective_coordinate_GFp.exit28, label %if.then6.i22
 
 if.then6.i22:                                     ; preds = %if.end4.i19
-  %call9.i23 = tail call i32 %3(ptr noundef nonnull %group, ptr noundef nonnull %Y, ptr noundef nonnull %y, ptr noundef nonnull %ctx.addr.0) #5
-  br label %set_Jprojective_coordinate_GFp.exit28
+  %call9.i23 = tail call i32 %4(ptr noundef nonnull %group, ptr noundef nonnull %Y, ptr noundef nonnull %y, ptr noundef nonnull %ctx.addr.0) #5
+  %5 = icmp eq i32 %call9.i23, 0
+  br i1 %5, label %err, label %lor.lhs.false7
 
-if.end10.i24:                                     ; preds = %if.end4.i19
+set_Jprojective_coordinate_GFp.exit28:            ; preds = %if.end4.i19
   %call11.i25 = tail call ptr @BN_copy(ptr noundef nonnull %Y, ptr noundef nonnull %y) #5
-  %cmp12.i26 = icmp ne ptr %call11.i25, null
-  %conv.i27 = zext i1 %cmp12.i26 to i32
-  br label %set_Jprojective_coordinate_GFp.exit28
+  %cmp12.i26.not = icmp eq ptr %call11.i25, null
+  br i1 %cmp12.i26.not, label %err, label %lor.lhs.false7
 
-set_Jprojective_coordinate_GFp.exit28:            ; preds = %if.then6.i22, %if.end10.i24
-  %retval.0.i14 = phi i32 [ %call9.i23, %if.then6.i22 ], [ %conv.i27, %if.end10.i24 ]
-  %tobool6.not = icmp eq i32 %retval.0.i14, 0
-  br i1 %tobool6.not, label %err, label %lor.lhs.false7
-
-lor.lhs.false7:                                   ; preds = %lor.lhs.false, %set_Jprojective_coordinate_GFp.exit28
+lor.lhs.false7:                                   ; preds = %if.then6.i22, %lor.lhs.false, %set_Jprojective_coordinate_GFp.exit28
   %Z = getelementptr inbounds nuw i8, ptr %point, i64 56
   %cmp.i29 = icmp eq ptr %z, null
   br i1 %cmp.i29, label %err, label %if.end.i30
@@ -526,36 +516,32 @@ lor.lhs.false.i35:                                ; preds = %if.end.i30
 
 set_Jprojective_coordinate_GFp.exit48.thread:     ; preds = %if.end.i30, %lor.lhs.false.i35
   tail call void @ERR_put_error(i32 noundef 15, i32 noundef 0, i32 noundef 101, ptr noundef nonnull @.str, i32 noundef 280) #5
-  br label %6
+  br label %9
 
 if.end4.i39:                                      ; preds = %lor.lhs.false.i35
-  %4 = load ptr, ptr %group, align 8
-  %field_encode.i40 = getelementptr inbounds nuw i8, ptr %4, i64 72
-  %5 = load ptr, ptr %field_encode.i40, align 8
-  %tobool5.not.i41 = icmp eq ptr %5, null
-  br i1 %tobool5.not.i41, label %if.end10.i44, label %if.then6.i42
+  %6 = load ptr, ptr %group, align 8
+  %field_encode.i40 = getelementptr inbounds nuw i8, ptr %6, i64 72
+  %7 = load ptr, ptr %field_encode.i40, align 8
+  %tobool5.not.i41 = icmp eq ptr %7, null
+  br i1 %tobool5.not.i41, label %set_Jprojective_coordinate_GFp.exit48, label %if.then6.i42
 
 if.then6.i42:                                     ; preds = %if.end4.i39
-  %call9.i43 = tail call i32 %5(ptr noundef nonnull %group, ptr noundef nonnull %Z, ptr noundef nonnull %z, ptr noundef nonnull %ctx.addr.0) #5
-  br label %set_Jprojective_coordinate_GFp.exit48
+  %call9.i43 = tail call i32 %7(ptr noundef nonnull %group, ptr noundef nonnull %Z, ptr noundef nonnull %z, ptr noundef nonnull %ctx.addr.0) #5
+  %call9.i43.fr = freeze i32 %call9.i43
+  %8 = icmp eq i32 %call9.i43.fr, 0
+  br i1 %8, label %9, label %err
 
-if.end10.i44:                                     ; preds = %if.end4.i39
+set_Jprojective_coordinate_GFp.exit48:            ; preds = %if.end4.i39
   %call11.i45 = tail call ptr @BN_copy(ptr noundef nonnull %Z, ptr noundef nonnull %z) #5
-  %cmp12.i46 = icmp ne ptr %call11.i45, null
-  %conv.i47 = zext i1 %cmp12.i46 to i32
-  br label %set_Jprojective_coordinate_GFp.exit48
+  %call11.i45.fr = freeze ptr %call11.i45
+  %cmp12.i46.not = icmp eq ptr %call11.i45.fr, null
+  br i1 %cmp12.i46.not, label %9, label %err
 
-set_Jprojective_coordinate_GFp.exit48:            ; preds = %if.then6.i42, %if.end10.i44
-  %retval.0.i34 = phi i32 [ %call9.i43, %if.then6.i42 ], [ %conv.i47, %if.end10.i44 ]
-  %retval.0.i34.fr = freeze i32 %retval.0.i34
-  %tobool9.not = icmp eq i32 %retval.0.i34.fr, 0
-  br i1 %tobool9.not, label %6, label %err
-
-6:                                                ; preds = %set_Jprojective_coordinate_GFp.exit48.thread, %set_Jprojective_coordinate_GFp.exit48
+9:                                                ; preds = %if.then6.i42, %set_Jprojective_coordinate_GFp.exit48.thread, %set_Jprojective_coordinate_GFp.exit48
   br label %err
 
-err:                                              ; preds = %lor.lhs.false7, %6, %set_Jprojective_coordinate_GFp.exit48, %set_Jprojective_coordinate_GFp.exit28.thread, %set_Jprojective_coordinate_GFp.exit.thread, %set_Jprojective_coordinate_GFp.exit, %set_Jprojective_coordinate_GFp.exit28
-  %ret.0 = phi i32 [ 0, %set_Jprojective_coordinate_GFp.exit28 ], [ 0, %set_Jprojective_coordinate_GFp.exit ], [ 0, %set_Jprojective_coordinate_GFp.exit.thread ], [ 0, %set_Jprojective_coordinate_GFp.exit28.thread ], [ 0, %6 ], [ 1, %set_Jprojective_coordinate_GFp.exit48 ], [ 1, %lor.lhs.false7 ]
+err:                                              ; preds = %if.then6.i42, %if.then6.i22, %if.then6.i, %lor.lhs.false7, %9, %set_Jprojective_coordinate_GFp.exit48, %set_Jprojective_coordinate_GFp.exit28.thread, %set_Jprojective_coordinate_GFp.exit.thread, %set_Jprojective_coordinate_GFp.exit, %set_Jprojective_coordinate_GFp.exit28
+  %ret.0 = phi i32 [ 0, %set_Jprojective_coordinate_GFp.exit28 ], [ 0, %set_Jprojective_coordinate_GFp.exit ], [ 0, %set_Jprojective_coordinate_GFp.exit.thread ], [ 0, %set_Jprojective_coordinate_GFp.exit28.thread ], [ 0, %9 ], [ 1, %set_Jprojective_coordinate_GFp.exit48 ], [ 1, %lor.lhs.false7 ], [ 0, %if.then6.i ], [ 0, %if.then6.i22 ], [ 1, %if.then6.i42 ]
   tail call void @BN_CTX_free(ptr noundef %new_ctx.0) #5
   br label %return
 

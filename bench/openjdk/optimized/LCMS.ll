@@ -697,289 +697,287 @@ define void @Java_sun_java2d_cmm_lcms_LCMS_setTagDataNative(ptr noundef %0, ptr 
 39:                                               ; preds = %30
   %40 = icmp eq i32 %3, 1751474532
   %41 = load ptr, ptr %10, align 8
-  br i1 %40, label %42, label %72
+  br i1 %40, label %42, label %74
 
 42:                                               ; preds = %39
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %8)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
   %43 = icmp slt i32 %33, 128
-  br i1 %43, label %_setHeaderInfo.exit, label %44
+  br i1 %43, label %.critedge, label %_setHeaderInfo.exit
 
-44:                                               ; preds = %42
+_setHeaderInfo.exit:                              ; preds = %42
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %8, ptr noundef nonnull readonly align 1 dereferenceable(128) %37, i64 128, i1 false)
-  %45 = getelementptr inbounds nuw i8, ptr %8, i64 44
-  %46 = load i32, ptr %45, align 4
-  %47 = tail call i32 @_cmsAdjustEndianess32(i32 noundef %46) #8
-  tail call void @cmsSetHeaderFlags(ptr noundef %41, i32 noundef %47) #8
-  %48 = getelementptr inbounds nuw i8, ptr %8, i64 48
-  %49 = load i32, ptr %48, align 8
-  %50 = tail call i32 @_cmsAdjustEndianess32(i32 noundef %49) #8
-  tail call void @cmsSetHeaderManufacturer(ptr noundef %41, i32 noundef %50) #8
-  %51 = getelementptr inbounds nuw i8, ptr %8, i64 52
-  %52 = load i32, ptr %51, align 4
-  %53 = tail call i32 @_cmsAdjustEndianess32(i32 noundef %52) #8
-  tail call void @cmsSetHeaderModel(ptr noundef %41, i32 noundef %53) #8
-  %54 = getelementptr inbounds nuw i8, ptr %8, i64 56
-  call void @_cmsAdjustEndianess64(ptr noundef nonnull %9, ptr noundef nonnull %54) #8
-  %55 = load i64, ptr %9, align 8
-  call void @cmsSetHeaderAttributes(ptr noundef %41, i64 noundef %55) #8
-  %56 = getelementptr inbounds nuw i8, ptr %8, i64 84
-  call void @cmsSetHeaderProfileID(ptr noundef %41, ptr noundef nonnull %56) #8
-  %57 = getelementptr inbounds nuw i8, ptr %8, i64 64
-  %58 = load i32, ptr %57, align 8
-  %59 = call i32 @_cmsAdjustEndianess32(i32 noundef %58) #8
-  call void @cmsSetHeaderRenderingIntent(ptr noundef %41, i32 noundef %59) #8
-  %60 = getelementptr inbounds nuw i8, ptr %8, i64 20
-  %61 = load i32, ptr %60, align 4
-  %62 = call i32 @_cmsAdjustEndianess32(i32 noundef %61) #8
-  call void @cmsSetPCS(ptr noundef %41, i32 noundef %62) #8
-  %63 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  %64 = load i32, ptr %63, align 8
-  %65 = call i32 @_cmsAdjustEndianess32(i32 noundef %64) #8
-  call void @cmsSetColorSpace(ptr noundef %41, i32 noundef %65) #8
-  %66 = getelementptr inbounds nuw i8, ptr %8, i64 12
-  %67 = load i32, ptr %66, align 4
-  %68 = call i32 @_cmsAdjustEndianess32(i32 noundef %67) #8
-  call void @cmsSetDeviceClass(ptr noundef %41, i32 noundef %68) #8
-  %69 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %70 = load i32, ptr %69, align 8
-  %71 = call i32 @_cmsAdjustEndianess32(i32 noundef %70) #8
-  call void @cmsSetEncodedICCversion(ptr noundef %41, i32 noundef %71) #8
-  br label %_setHeaderInfo.exit
-
-_setHeaderInfo.exit:                              ; preds = %42, %44
-  %.0.i = phi i32 [ 1, %44 ], [ 0, %42 ]
+  %44 = getelementptr inbounds nuw i8, ptr %8, i64 44
+  %45 = load i32, ptr %44, align 4
+  %46 = tail call i32 @_cmsAdjustEndianess32(i32 noundef %45) #8
+  tail call void @cmsSetHeaderFlags(ptr noundef %41, i32 noundef %46) #8
+  %47 = getelementptr inbounds nuw i8, ptr %8, i64 48
+  %48 = load i32, ptr %47, align 8
+  %49 = tail call i32 @_cmsAdjustEndianess32(i32 noundef %48) #8
+  tail call void @cmsSetHeaderManufacturer(ptr noundef %41, i32 noundef %49) #8
+  %50 = getelementptr inbounds nuw i8, ptr %8, i64 52
+  %51 = load i32, ptr %50, align 4
+  %52 = tail call i32 @_cmsAdjustEndianess32(i32 noundef %51) #8
+  tail call void @cmsSetHeaderModel(ptr noundef %41, i32 noundef %52) #8
+  %53 = getelementptr inbounds nuw i8, ptr %8, i64 56
+  call void @_cmsAdjustEndianess64(ptr noundef nonnull %9, ptr noundef nonnull %53) #8
+  %54 = load i64, ptr %9, align 8
+  call void @cmsSetHeaderAttributes(ptr noundef %41, i64 noundef %54) #8
+  %55 = getelementptr inbounds nuw i8, ptr %8, i64 84
+  call void @cmsSetHeaderProfileID(ptr noundef %41, ptr noundef nonnull %55) #8
+  %56 = getelementptr inbounds nuw i8, ptr %8, i64 64
+  %57 = load i32, ptr %56, align 8
+  %58 = call i32 @_cmsAdjustEndianess32(i32 noundef %57) #8
+  call void @cmsSetHeaderRenderingIntent(ptr noundef %41, i32 noundef %58) #8
+  %59 = getelementptr inbounds nuw i8, ptr %8, i64 20
+  %60 = load i32, ptr %59, align 4
+  %61 = call i32 @_cmsAdjustEndianess32(i32 noundef %60) #8
+  call void @cmsSetPCS(ptr noundef %41, i32 noundef %61) #8
+  %62 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  %63 = load i32, ptr %62, align 8
+  %64 = call i32 @_cmsAdjustEndianess32(i32 noundef %63) #8
+  call void @cmsSetColorSpace(ptr noundef %41, i32 noundef %64) #8
+  %65 = getelementptr inbounds nuw i8, ptr %8, i64 12
+  %66 = load i32, ptr %65, align 4
+  %67 = call i32 @_cmsAdjustEndianess32(i32 noundef %66) #8
+  call void @cmsSetDeviceClass(ptr noundef %41, i32 noundef %67) #8
+  %68 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %69 = load i32, ptr %68, align 8
+  %70 = call i32 @_cmsAdjustEndianess32(i32 noundef %69) #8
+  call void @cmsSetEncodedICCversion(ptr noundef %41, i32 noundef %70) #8
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
-  br label %151
+  %71 = load ptr, ptr %0, align 8
+  %72 = getelementptr inbounds nuw i8, ptr %71, i64 1536
+  %73 = load ptr, ptr %72, align 8
+  call void %73(ptr noundef nonnull %0, ptr noundef nonnull %4, ptr noundef nonnull %37, i32 noundef 0) #8
+  br label %ThrowIllegalArgumentException.exit
 
-72:                                               ; preds = %39
+74:                                               ; preds = %39
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %7)
   store i32 0, ptr %6, align 4
-  %73 = tail call i32 @cmsGetTagCount(ptr noundef %41) #8
-  %74 = tail call ptr @cmsCreateProfilePlaceholder(ptr noundef null) #8
-  %75 = icmp eq ptr %74, null
-  br i1 %75, label %_writeCookedTag.exit, label %76
+  %75 = tail call i32 @cmsGetTagCount(ptr noundef %41) #8
+  %76 = tail call ptr @cmsCreateProfilePlaceholder(ptr noundef null) #8
+  %77 = icmp eq ptr %76, null
+  br i1 %77, label %151, label %78
 
-76:                                               ; preds = %72
+78:                                               ; preds = %74
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %7, i8 0, i64 128, i1 false)
-  %77 = tail call i32 @cmsGetHeaderFlags(ptr noundef %41) #8
-  %78 = getelementptr inbounds nuw i8, ptr %7, i64 44
-  store i32 %77, ptr %78, align 4
-  %79 = tail call i32 @cmsGetHeaderRenderingIntent(ptr noundef %41) #8
-  %80 = getelementptr inbounds nuw i8, ptr %7, i64 64
-  store i32 %79, ptr %80, align 8
-  %81 = tail call i32 @cmsGetHeaderManufacturer(ptr noundef %41) #8
-  %82 = getelementptr inbounds nuw i8, ptr %7, i64 48
+  %79 = tail call i32 @cmsGetHeaderFlags(ptr noundef %41) #8
+  %80 = getelementptr inbounds nuw i8, ptr %7, i64 44
+  store i32 %79, ptr %80, align 4
+  %81 = tail call i32 @cmsGetHeaderRenderingIntent(ptr noundef %41) #8
+  %82 = getelementptr inbounds nuw i8, ptr %7, i64 64
   store i32 %81, ptr %82, align 8
-  %83 = tail call i32 @cmsGetHeaderModel(ptr noundef %41) #8
-  %84 = getelementptr inbounds nuw i8, ptr %7, i64 52
-  store i32 %83, ptr %84, align 4
-  %85 = tail call i32 @cmsGetPCS(ptr noundef %41) #8
-  %86 = getelementptr inbounds nuw i8, ptr %7, i64 20
+  %83 = tail call i32 @cmsGetHeaderManufacturer(ptr noundef %41) #8
+  %84 = getelementptr inbounds nuw i8, ptr %7, i64 48
+  store i32 %83, ptr %84, align 8
+  %85 = tail call i32 @cmsGetHeaderModel(ptr noundef %41) #8
+  %86 = getelementptr inbounds nuw i8, ptr %7, i64 52
   store i32 %85, ptr %86, align 4
-  %87 = tail call i32 @cmsGetColorSpace(ptr noundef %41) #8
-  %88 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  store i32 %87, ptr %88, align 8
-  %89 = tail call i32 @cmsGetDeviceClass(ptr noundef %41) #8
-  %90 = getelementptr inbounds nuw i8, ptr %7, i64 12
-  store i32 %89, ptr %90, align 4
-  %91 = tail call i32 @cmsGetEncodedICCversion(ptr noundef %41) #8
-  %92 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store i32 %91, ptr %92, align 8
-  %93 = getelementptr inbounds nuw i8, ptr %7, i64 56
-  call void @cmsGetHeaderAttributes(ptr noundef %41, ptr noundef nonnull %93) #8
-  %94 = getelementptr inbounds nuw i8, ptr %7, i64 84
-  call void @cmsGetHeaderProfileID(ptr noundef %41, ptr noundef nonnull %94) #8
-  %95 = load i32, ptr %78, align 4
-  call void @cmsSetHeaderFlags(ptr noundef nonnull %74, i32 noundef %95) #8
-  %96 = load i32, ptr %82, align 8
-  call void @cmsSetHeaderManufacturer(ptr noundef nonnull %74, i32 noundef %96) #8
-  %97 = load i32, ptr %84, align 4
-  call void @cmsSetHeaderModel(ptr noundef nonnull %74, i32 noundef %97) #8
-  %98 = load i64, ptr %93, align 8
-  call void @cmsSetHeaderAttributes(ptr noundef nonnull %74, i64 noundef %98) #8
-  call void @cmsSetHeaderProfileID(ptr noundef nonnull %74, ptr noundef nonnull %94) #8
-  %99 = load i32, ptr %80, align 8
-  call void @cmsSetHeaderRenderingIntent(ptr noundef nonnull %74, i32 noundef %99) #8
-  %100 = load i32, ptr %86, align 4
-  call void @cmsSetPCS(ptr noundef nonnull %74, i32 noundef %100) #8
-  %101 = load i32, ptr %88, align 8
-  call void @cmsSetColorSpace(ptr noundef nonnull %74, i32 noundef %101) #8
-  %102 = load i32, ptr %90, align 4
-  call void @cmsSetDeviceClass(ptr noundef nonnull %74, i32 noundef %102) #8
-  %103 = load i32, ptr %92, align 8
-  call void @cmsSetEncodedICCversion(ptr noundef nonnull %74, i32 noundef %103) #8
-  %104 = icmp slt i32 %33, 1
-  br i1 %104, label %108, label %105
+  %87 = tail call i32 @cmsGetPCS(ptr noundef %41) #8
+  %88 = getelementptr inbounds nuw i8, ptr %7, i64 20
+  store i32 %87, ptr %88, align 4
+  %89 = tail call i32 @cmsGetColorSpace(ptr noundef %41) #8
+  %90 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  store i32 %89, ptr %90, align 8
+  %91 = tail call i32 @cmsGetDeviceClass(ptr noundef %41) #8
+  %92 = getelementptr inbounds nuw i8, ptr %7, i64 12
+  store i32 %91, ptr %92, align 4
+  %93 = tail call i32 @cmsGetEncodedICCversion(ptr noundef %41) #8
+  %94 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  store i32 %93, ptr %94, align 8
+  %95 = getelementptr inbounds nuw i8, ptr %7, i64 56
+  call void @cmsGetHeaderAttributes(ptr noundef %41, ptr noundef nonnull %95) #8
+  %96 = getelementptr inbounds nuw i8, ptr %7, i64 84
+  call void @cmsGetHeaderProfileID(ptr noundef %41, ptr noundef nonnull %96) #8
+  %97 = load i32, ptr %80, align 4
+  call void @cmsSetHeaderFlags(ptr noundef nonnull %76, i32 noundef %97) #8
+  %98 = load i32, ptr %84, align 8
+  call void @cmsSetHeaderManufacturer(ptr noundef nonnull %76, i32 noundef %98) #8
+  %99 = load i32, ptr %86, align 4
+  call void @cmsSetHeaderModel(ptr noundef nonnull %76, i32 noundef %99) #8
+  %100 = load i64, ptr %95, align 8
+  call void @cmsSetHeaderAttributes(ptr noundef nonnull %76, i64 noundef %100) #8
+  call void @cmsSetHeaderProfileID(ptr noundef nonnull %76, ptr noundef nonnull %96) #8
+  %101 = load i32, ptr %82, align 8
+  call void @cmsSetHeaderRenderingIntent(ptr noundef nonnull %76, i32 noundef %101) #8
+  %102 = load i32, ptr %88, align 4
+  call void @cmsSetPCS(ptr noundef nonnull %76, i32 noundef %102) #8
+  %103 = load i32, ptr %90, align 8
+  call void @cmsSetColorSpace(ptr noundef nonnull %76, i32 noundef %103) #8
+  %104 = load i32, ptr %92, align 4
+  call void @cmsSetDeviceClass(ptr noundef nonnull %76, i32 noundef %104) #8
+  %105 = load i32, ptr %94, align 8
+  call void @cmsSetEncodedICCversion(ptr noundef nonnull %76, i32 noundef %105) #8
+  %106 = icmp slt i32 %33, 1
+  br i1 %106, label %110, label %107
 
-105:                                              ; preds = %76
-  %106 = call i32 @cmsWriteRawTag(ptr noundef nonnull %74, i32 noundef range(i32 1751474533, 1751474532) %3, ptr noundef nonnull %37, i32 noundef %33) #8
-  %.not.i33 = icmp eq i32 %106, 0
-  br i1 %.not.i33, label %108, label %.preheader.i
+107:                                              ; preds = %78
+  %108 = call i32 @cmsWriteRawTag(ptr noundef nonnull %76, i32 noundef range(i32 1751474533, 1751474532) %3, ptr noundef nonnull %37, i32 noundef %33) #8
+  %.not.i33 = icmp eq i32 %108, 0
+  br i1 %.not.i33, label %110, label %.preheader.i
 
-.preheader.i:                                     ; preds = %105
-  %107 = icmp sgt i32 %73, 0
-  br i1 %107, label %.lr.ph.i, label %._crit_edge.i
+.preheader.i:                                     ; preds = %107
+  %109 = icmp sgt i32 %75, 0
+  br i1 %109, label %.lr.ph.i, label %._crit_edge.i
 
-108:                                              ; preds = %105, %76
-  %109 = call i32 @cmsCloseProfile(ptr noundef nonnull %74) #8
-  br label %_writeCookedTag.exit
-
-.lr.ph.i:                                         ; preds = %.preheader.i, %124
-  %.07091.i = phi i32 [ %125, %124 ], [ 0, %.preheader.i ]
-  %110 = call i32 @cmsGetTagSignature(ptr noundef %41, i32 noundef %.07091.i) #8
-  %111 = call i32 @cmsReadRawTag(ptr noundef %41, i32 noundef %110, ptr noundef null, i32 noundef 0) #8
-  %112 = icmp eq i32 %110, %3
-  br i1 %112, label %124, label %113
-
-113:                                              ; preds = %.lr.ph.i
-  %.not83.i = icmp eq i32 %111, 0
-  br i1 %.not83.i, label %.critedge.i, label %114
-
-114:                                              ; preds = %113
-  %115 = zext i32 %111 to i64
-  %116 = call noalias ptr @malloc(i64 noundef %115) #9
-  %.not84.i = icmp eq ptr %116, null
-  br i1 %.not84.i, label %.critedge.i, label %117
-
-117:                                              ; preds = %114
-  %118 = call i32 @cmsReadRawTag(ptr noundef %41, i32 noundef %110, ptr noundef nonnull %116, i32 noundef %111) #8
-  %119 = icmp eq i32 %111, %118
-  br i1 %119, label %120, label %.critedge87.i
-
-120:                                              ; preds = %117
-  %121 = call i32 @cmsWriteRawTag(ptr noundef nonnull %74, i32 noundef %110, ptr noundef nonnull %116, i32 noundef %111) #8
-  %122 = icmp eq i32 %121, 0
-  call void @free(ptr noundef nonnull %116) #8
-  br i1 %122, label %.critedge.i, label %124
-
-.critedge87.i:                                    ; preds = %117
-  call void @free(ptr noundef nonnull %116) #8
-  br label %.critedge.i
-
-.critedge.i:                                      ; preds = %120, %114, %113, %.critedge87.i
-  %123 = call i32 @cmsCloseProfile(ptr noundef nonnull %74) #8
-  br label %_writeCookedTag.exit
-
-124:                                              ; preds = %120, %.lr.ph.i
-  %125 = add nuw nsw i32 %.07091.i, 1
-  %exitcond.not.i = icmp eq i32 %125, %73
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !8
-
-._crit_edge.i:                                    ; preds = %124, %.preheader.i
-  %126 = call i32 @cmsSaveProfileToMem(ptr noundef nonnull %74, ptr noundef null, ptr noundef nonnull %6) #8
-  %.not80.i = icmp eq i32 %126, 0
-  br i1 %.not80.i, label %.thread.i, label %127
-
-127:                                              ; preds = %._crit_edge.i
-  %128 = load i32, ptr %6, align 4
-  %129 = zext i32 %128 to i64
-  %130 = call noalias ptr @malloc(i64 noundef %129) #9
-  %.not81.i = icmp eq ptr %130, null
-  br i1 %.not81.i, label %.thread.i, label %131
-
-131:                                              ; preds = %127
-  %132 = call i32 @cmsSaveProfileToMem(ptr noundef nonnull %74, ptr noundef nonnull %130, ptr noundef nonnull %6) #8
-  %.not82.i = icmp eq i32 %132, 0
-  br i1 %.not82.i, label %.thread.i, label %134
-
-.thread.i:                                        ; preds = %131, %127, %._crit_edge.i
-  %.069.ph.i = phi ptr [ null, %._crit_edge.i ], [ null, %127 ], [ %130, %131 ]
-  %133 = call i32 @cmsCloseProfile(ptr noundef nonnull %74) #8
-  br label %139
-
-134:                                              ; preds = %131
-  %135 = load i32, ptr %6, align 4
-  %136 = call ptr @cmsOpenProfileFromMem(ptr noundef nonnull %130, i32 noundef %135) #8
-  %137 = call i32 @cmsCloseProfile(ptr noundef nonnull %74) #8
-  %138 = icmp eq ptr %136, null
-  br i1 %138, label %139, label %140
-
-139:                                              ; preds = %134, %.thread.i
-  %.06990.i = phi ptr [ %.069.ph.i, %.thread.i ], [ %130, %134 ]
-  call void @free(ptr noundef %.06990.i) #8
-  br label %_writeCookedTag.exit
-
-140:                                              ; preds = %134
-  %141 = call ptr @cmsReadTag(ptr noundef nonnull %136, i32 noundef range(i32 1751474533, 1751474532) %3) #8
-  %142 = icmp eq ptr %141, null
-  br i1 %142, label %143, label %145
-
-143:                                              ; preds = %140
-  call void @free(ptr noundef nonnull %130) #8
-  %144 = call i32 @cmsCloseProfile(ptr noundef nonnull %136) #8
-  br label %_writeCookedTag.exit
-
-145:                                              ; preds = %140
-  %146 = call i32 @cmsCloseProfile(ptr noundef nonnull %136) #8
-  %147 = load i32, ptr %6, align 4
-  %148 = call ptr @cmsOpenProfileFromMem(ptr noundef nonnull %130, i32 noundef %147) #8
-  call void @free(ptr noundef nonnull %130) #8
-  br label %_writeCookedTag.exit
-
-_writeCookedTag.exit:                             ; preds = %72, %108, %.critedge.i, %139, %143, %145
-  %.0.i34 = phi ptr [ null, %108 ], [ null, %.critedge.i ], [ null, %139 ], [ null, %143 ], [ %148, %145 ], [ null, %72 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %7)
-  %149 = icmp ne ptr %.0.i34, null
-  %150 = zext i1 %149 to i32
+110:                                              ; preds = %107, %78
+  %111 = call i32 @cmsCloseProfile(ptr noundef nonnull %76) #8
   br label %151
 
-151:                                              ; preds = %_writeCookedTag.exit, %_setHeaderInfo.exit
-  %.028 = phi i32 [ %.0.i, %_setHeaderInfo.exit ], [ %150, %_writeCookedTag.exit ]
-  %.0 = phi ptr [ null, %_setHeaderInfo.exit ], [ %.0.i34, %_writeCookedTag.exit ]
+.lr.ph.i:                                         ; preds = %.preheader.i, %126
+  %.07091.i = phi i32 [ %127, %126 ], [ 0, %.preheader.i ]
+  %112 = call i32 @cmsGetTagSignature(ptr noundef %41, i32 noundef %.07091.i) #8
+  %113 = call i32 @cmsReadRawTag(ptr noundef %41, i32 noundef %112, ptr noundef null, i32 noundef 0) #8
+  %114 = icmp eq i32 %112, %3
+  br i1 %114, label %126, label %115
+
+115:                                              ; preds = %.lr.ph.i
+  %.not83.i = icmp eq i32 %113, 0
+  br i1 %.not83.i, label %.critedge.i, label %116
+
+116:                                              ; preds = %115
+  %117 = zext i32 %113 to i64
+  %118 = call noalias ptr @malloc(i64 noundef %117) #9
+  %.not84.i = icmp eq ptr %118, null
+  br i1 %.not84.i, label %.critedge.i, label %119
+
+119:                                              ; preds = %116
+  %120 = call i32 @cmsReadRawTag(ptr noundef %41, i32 noundef %112, ptr noundef nonnull %118, i32 noundef %113) #8
+  %121 = icmp eq i32 %113, %120
+  br i1 %121, label %122, label %.critedge87.i
+
+122:                                              ; preds = %119
+  %123 = call i32 @cmsWriteRawTag(ptr noundef nonnull %76, i32 noundef %112, ptr noundef nonnull %118, i32 noundef %113) #8
+  %124 = icmp eq i32 %123, 0
+  call void @free(ptr noundef nonnull %118) #8
+  br i1 %124, label %.critedge.i, label %126
+
+.critedge87.i:                                    ; preds = %119
+  call void @free(ptr noundef nonnull %118) #8
+  br label %.critedge.i
+
+.critedge.i:                                      ; preds = %122, %116, %115, %.critedge87.i
+  %125 = call i32 @cmsCloseProfile(ptr noundef nonnull %76) #8
+  br label %151
+
+126:                                              ; preds = %122, %.lr.ph.i
+  %127 = add nuw nsw i32 %.07091.i, 1
+  %exitcond.not.i = icmp eq i32 %127, %75
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !8
+
+._crit_edge.i:                                    ; preds = %126, %.preheader.i
+  %128 = call i32 @cmsSaveProfileToMem(ptr noundef nonnull %76, ptr noundef null, ptr noundef nonnull %6) #8
+  %.not80.i = icmp eq i32 %128, 0
+  br i1 %.not80.i, label %.thread.i, label %129
+
+129:                                              ; preds = %._crit_edge.i
+  %130 = load i32, ptr %6, align 4
+  %131 = zext i32 %130 to i64
+  %132 = call noalias ptr @malloc(i64 noundef %131) #9
+  %.not81.i = icmp eq ptr %132, null
+  br i1 %.not81.i, label %.thread.i, label %133
+
+133:                                              ; preds = %129
+  %134 = call i32 @cmsSaveProfileToMem(ptr noundef nonnull %76, ptr noundef nonnull %132, ptr noundef nonnull %6) #8
+  %.not82.i = icmp eq i32 %134, 0
+  br i1 %.not82.i, label %.thread.i, label %136
+
+.thread.i:                                        ; preds = %133, %129, %._crit_edge.i
+  %.069.ph.i = phi ptr [ null, %._crit_edge.i ], [ null, %129 ], [ %132, %133 ]
+  %135 = call i32 @cmsCloseProfile(ptr noundef nonnull %76) #8
+  br label %141
+
+136:                                              ; preds = %133
+  %137 = load i32, ptr %6, align 4
+  %138 = call ptr @cmsOpenProfileFromMem(ptr noundef nonnull %132, i32 noundef %137) #8
+  %139 = call i32 @cmsCloseProfile(ptr noundef nonnull %76) #8
+  %140 = icmp eq ptr %138, null
+  br i1 %140, label %141, label %142
+
+141:                                              ; preds = %136, %.thread.i
+  %.06990.i = phi ptr [ %.069.ph.i, %.thread.i ], [ %132, %136 ]
+  call void @free(ptr noundef %.06990.i) #8
+  br label %151
+
+142:                                              ; preds = %136
+  %143 = call ptr @cmsReadTag(ptr noundef nonnull %138, i32 noundef range(i32 1751474533, 1751474532) %3) #8
+  %144 = icmp eq ptr %143, null
+  br i1 %144, label %145, label %147
+
+145:                                              ; preds = %142
+  call void @free(ptr noundef nonnull %132) #8
+  %146 = call i32 @cmsCloseProfile(ptr noundef nonnull %138) #8
+  br label %151
+
+147:                                              ; preds = %142
+  %148 = call i32 @cmsCloseProfile(ptr noundef nonnull %138) #8
+  %149 = load i32, ptr %6, align 4
+  %150 = call ptr @cmsOpenProfileFromMem(ptr noundef nonnull %132, i32 noundef %149) #8
+  call void @free(ptr noundef nonnull %132) #8
+  br label %151
+
+151:                                              ; preds = %147, %145, %141, %.critedge.i, %110, %74
+  %.0.i34 = phi ptr [ null, %110 ], [ null, %.critedge.i ], [ null, %141 ], [ null, %145 ], [ %150, %147 ], [ null, %74 ]
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %7)
+  %.not = icmp eq ptr %.0.i34, null
   %152 = load ptr, ptr %0, align 8
   %153 = getelementptr inbounds nuw i8, ptr %152, i64 1536
   %154 = load ptr, ptr %153, align 8
   call void %154(ptr noundef nonnull %0, ptr noundef nonnull %4, ptr noundef nonnull %37, i32 noundef 0) #8
-  %.not = icmp eq i32 %.028, 0
-  br i1 %.not, label %155, label %173
+  br i1 %.not, label %158, label %176
 
-155:                                              ; preds = %151
-  %156 = load ptr, ptr %0, align 8
-  %157 = getelementptr inbounds nuw i8, ptr %156, i64 120
-  %158 = load ptr, ptr %157, align 8
-  %159 = call ptr %158(ptr noundef nonnull %0) #8
-  %.not.i35 = icmp eq ptr %159, null
-  br i1 %.not.i35, label %164, label %160
+.critedge:                                        ; preds = %42
+  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
+  %155 = load ptr, ptr %0, align 8
+  %156 = getelementptr inbounds nuw i8, ptr %155, i64 1536
+  %157 = load ptr, ptr %156, align 8
+  tail call void %157(ptr noundef nonnull %0, ptr noundef nonnull %4, ptr noundef nonnull %37, i32 noundef 0) #8
+  br label %158
 
-160:                                              ; preds = %155
-  %161 = load ptr, ptr %0, align 8
-  %162 = getelementptr inbounds nuw i8, ptr %161, i64 136
-  %163 = load ptr, ptr %162, align 8
-  call void %163(ptr noundef nonnull %0) #8
-  br label %164
+158:                                              ; preds = %.critedge, %151
+  %159 = load ptr, ptr %0, align 8
+  %160 = getelementptr inbounds nuw i8, ptr %159, i64 120
+  %161 = load ptr, ptr %160, align 8
+  %162 = call ptr %161(ptr noundef nonnull %0) #8
+  %.not.i35 = icmp eq ptr %162, null
+  br i1 %.not.i35, label %167, label %163
 
-164:                                              ; preds = %160, %155
-  %165 = call ptr @JNU_NewStringPlatform(ptr noundef nonnull %0, ptr noundef nonnull @.str.10) #8
-  %.not16.i36 = icmp eq ptr %165, null
-  br i1 %.not16.i36, label %ThrowIllegalArgumentException.exit, label %166
+163:                                              ; preds = %158
+  %164 = load ptr, ptr %0, align 8
+  %165 = getelementptr inbounds nuw i8, ptr %164, i64 136
+  %166 = load ptr, ptr %165, align 8
+  call void %166(ptr noundef nonnull %0) #8
+  br label %167
 
-166:                                              ; preds = %164
-  %167 = call ptr (ptr, ptr, ptr, ...) @JNU_NewObjectByName(ptr noundef nonnull %0, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.14, ptr noundef nonnull %165, ptr noundef %159) #8
-  %.not17.i37 = icmp eq ptr %167, null
-  br i1 %.not17.i37, label %ThrowIllegalArgumentException.exit, label %168
+167:                                              ; preds = %163, %158
+  %168 = call ptr @JNU_NewStringPlatform(ptr noundef nonnull %0, ptr noundef nonnull @.str.10) #8
+  %.not16.i36 = icmp eq ptr %168, null
+  br i1 %.not16.i36, label %ThrowIllegalArgumentException.exit, label %169
 
-168:                                              ; preds = %166
-  %169 = load ptr, ptr %0, align 8
-  %170 = getelementptr inbounds nuw i8, ptr %169, i64 104
-  %171 = load ptr, ptr %170, align 8
-  %172 = call i32 %171(ptr noundef nonnull %0, ptr noundef nonnull %167) #8
+169:                                              ; preds = %167
+  %170 = call ptr (ptr, ptr, ptr, ...) @JNU_NewObjectByName(ptr noundef nonnull %0, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.14, ptr noundef nonnull %168, ptr noundef %162) #8
+  %.not17.i37 = icmp eq ptr %170, null
+  br i1 %.not17.i37, label %ThrowIllegalArgumentException.exit, label %171
+
+171:                                              ; preds = %169
+  %172 = load ptr, ptr %0, align 8
+  %173 = getelementptr inbounds nuw i8, ptr %172, i64 104
+  %174 = load ptr, ptr %173, align 8
+  %175 = call i32 %174(ptr noundef nonnull %0, ptr noundef nonnull %170) #8
   br label %ThrowIllegalArgumentException.exit
 
-173:                                              ; preds = %151
-  %.not32 = icmp eq ptr %.0, null
-  br i1 %.not32, label %ThrowIllegalArgumentException.exit, label %174
-
-174:                                              ; preds = %173
-  %175 = load ptr, ptr %10, align 8
-  %176 = call i32 @cmsCloseProfile(ptr noundef %175) #8
-  store ptr %.0, ptr %10, align 8
+176:                                              ; preds = %151
+  %177 = load ptr, ptr %10, align 8
+  %178 = call i32 @cmsCloseProfile(ptr noundef %177) #8
+  store ptr %.0.i34, ptr %10, align 8
   br label %ThrowIllegalArgumentException.exit
 
-ThrowIllegalArgumentException.exit:               ; preds = %168, %166, %164, %25, %23, %21, %173, %174, %30
+ThrowIllegalArgumentException.exit:               ; preds = %_setHeaderInfo.exit, %171, %169, %167, %25, %23, %21, %176, %30
   ret void
 }
 

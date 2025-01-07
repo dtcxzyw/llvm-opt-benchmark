@@ -4818,8 +4818,8 @@ entry:
   %2 = load ptr, ptr %misc_m.i, align 8
   tail call void @ossl_crypto_mutex_lock(ptr noundef %2) #14
   %3 = load volatile i64, ptr %scratch0, align 8
-  %cmp.not5.i = icmp ult i64 %3, %1
-  br i1 %cmp.not5.i, label %if.end.lr.ph.i, label %script_20_wait.exit
+  %cmp5.i = icmp ult i64 %3, %1
+  br i1 %cmp5.i, label %if.end.lr.ph.i, label %script_20_wait.exit
 
 if.end.lr.ph.i:                                   ; preds = %entry
   %misc_cv.i = getelementptr inbounds nuw i8, ptr %h, i64 152
@@ -4830,8 +4830,8 @@ if.end.i:                                         ; preds = %if.end.i, %if.end.l
   %5 = load ptr, ptr %misc_m.i, align 8
   tail call void @ossl_crypto_condvar_wait(ptr noundef %4, ptr noundef %5) #14
   %6 = load volatile i64, ptr %scratch0, align 8
-  %cmp.not.i = icmp ult i64 %6, %1
-  br i1 %cmp.not.i, label %if.end.i, label %script_20_wait.exit, !llvm.loop !11
+  %cmp.i = icmp ult i64 %6, %1
+  br i1 %cmp.i, label %if.end.i, label %script_20_wait.exit, !llvm.loop !11
 
 script_20_wait.exit:                              ; preds = %if.end.i, %entry
   %7 = load ptr, ptr %misc_m.i, align 8
@@ -4887,8 +4887,8 @@ entry:
   %2 = load ptr, ptr %misc_m.i, align 8
   tail call void @ossl_crypto_mutex_lock(ptr noundef %2) #14
   %3 = load volatile i64, ptr %scratch1, align 8
-  %cmp.not5.i = icmp ult i64 %3, %1
-  br i1 %cmp.not5.i, label %if.end.lr.ph.i, label %script_20_wait.exit
+  %cmp5.i = icmp ult i64 %3, %1
+  br i1 %cmp5.i, label %if.end.lr.ph.i, label %script_20_wait.exit
 
 if.end.lr.ph.i:                                   ; preds = %entry
   %misc_cv.i = getelementptr inbounds nuw i8, ptr %h, i64 152
@@ -4899,8 +4899,8 @@ if.end.i:                                         ; preds = %if.end.i, %if.end.l
   %5 = load ptr, ptr %misc_m.i, align 8
   tail call void @ossl_crypto_condvar_wait(ptr noundef %4, ptr noundef %5) #14
   %6 = load volatile i64, ptr %scratch1, align 8
-  %cmp.not.i = icmp ult i64 %6, %1
-  br i1 %cmp.not.i, label %if.end.i, label %script_20_wait.exit, !llvm.loop !11
+  %cmp.i = icmp ult i64 %6, %1
+  br i1 %cmp.i, label %if.end.i, label %script_20_wait.exit, !llvm.loop !11
 
 script_20_wait.exit:                              ; preds = %if.end.i, %entry
   %7 = load ptr, ptr %misc_m.i, align 8

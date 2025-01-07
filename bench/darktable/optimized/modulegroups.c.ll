@@ -2694,26 +2694,26 @@ define internal fastcc void @_lib_modulegroups_update_iop_visibility(ptr noundef
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 280
   %18 = load ptr, ptr %17, align 8, !tbaa !14
   %19 = icmp eq ptr %18, null
-  br i1 %19, label %.loopexit32, label %.preheader31
+  br i1 %19, label %.loopexit35, label %.preheader34
 
-.loopexit32:                                      ; preds = %.preheader31, %16
+.loopexit35:                                      ; preds = %.preheader34, %16
   %20 = load ptr, ptr %13, align 8, !tbaa !55
   tail call void @gtk_widget_destroy(ptr noundef %20) #16
   store ptr null, ptr %13, align 8, !tbaa !55
   %21 = load i32, ptr %3, align 8, !tbaa !50
   br label %27
 
-.preheader31:                                     ; preds = %16, %.preheader31
-  %22 = phi ptr [ %25, %.preheader31 ], [ %18, %16 ]
+.preheader34:                                     ; preds = %16, %.preheader34
+  %22 = phi ptr [ %25, %.preheader34 ], [ %18, %16 ]
   %23 = load ptr, ptr %22, align 8, !tbaa !15
   tail call void @_basics_remove_widget(ptr noundef %23)
   %24 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %25 = load ptr, ptr %24, align 8, !tbaa !14
   %26 = icmp eq ptr %25, null
-  br i1 %26, label %.loopexit32, label %.preheader31
+  br i1 %26, label %.loopexit35, label %.preheader34
 
-27:                                               ; preds = %.loopexit32, %11
-  %28 = phi i32 [ %12, %11 ], [ %21, %.loopexit32 ]
+27:                                               ; preds = %.loopexit35, %11
+  %28 = phi i32 [ %12, %11 ], [ %21, %.loopexit35 ]
   %29 = icmp eq i32 %28, 10000
   br i1 %29, label %30, label %31
 
@@ -2847,7 +2847,7 @@ define internal fastcc void @_lib_modulegroups_update_iop_visibility(ptr noundef
   %111 = getelementptr inbounds nuw i8, ptr %110, i64 2056
   %112 = load ptr, ptr %111, align 8, !tbaa !14
   %113 = icmp eq ptr %112, null
-  br i1 %113, label %.loopexit30, label %114
+  br i1 %113, label %.loopexit33, label %114
 
 114:                                              ; preds = %103
   %115 = getelementptr inbounds nuw i8, ptr %3, i64 304
@@ -2856,13 +2856,13 @@ define internal fastcc void @_lib_modulegroups_update_iop_visibility(ptr noundef
   %118 = getelementptr inbounds nuw i8, ptr %3, i64 64
   br label %121
 
-.loopexit30:                                      ; preds = %332, %103
+.loopexit33:                                      ; preds = %322, %103
   %119 = load i32, ptr %3, align 8, !tbaa !50
   %120 = icmp eq i32 %119, 9999
-  br i1 %120, label %336, label %424
+  br i1 %120, label %326, label %414
 
-121:                                              ; preds = %332, %114
-  %122 = phi ptr [ %112, %114 ], [ %334, %332 ]
+121:                                              ; preds = %322, %114
+  %122 = phi ptr [ %112, %114 ], [ %324, %322 ]
   %123 = load ptr, ptr %122, align 8, !tbaa !15
   %124 = getelementptr inbounds nuw i8, ptr %123, i64 864
   %125 = load ptr, ptr %124, align 16, !tbaa !122
@@ -2890,7 +2890,7 @@ define internal fastcc void @_lib_modulegroups_update_iop_visibility(ptr noundef
 140:                                              ; preds = %133, %129, %121
   %141 = tail call i32 @dt_iop_is_hidden(ptr noundef nonnull %123) #16
   %142 = icmp eq i32 %141, 0
-  br i1 %142, label %143, label %332
+  br i1 %142, label %143, label %322
 
 143:                                              ; preds = %140
   %144 = getelementptr inbounds nuw i8, ptr %123, i64 488
@@ -2911,11 +2911,11 @@ define internal fastcc void @_lib_modulegroups_update_iop_visibility(ptr noundef
 
 153:                                              ; preds = %152, %147
   %154 = icmp eq ptr %125, null
-  br i1 %154, label %332, label %155
+  br i1 %154, label %322, label %155
 
 155:                                              ; preds = %153
   tail call void @gtk_widget_hide(ptr noundef nonnull %125) #16
-  br label %332
+  br label %322
 
 156:                                              ; preds = %143
   %157 = load ptr, ptr %115, align 8, !tbaa !40
@@ -2930,11 +2930,11 @@ define internal fastcc void @_lib_modulegroups_update_iop_visibility(ptr noundef
 
 163:                                              ; preds = %159
   tail call void @gtk_widget_show(ptr noundef nonnull %125) #16
-  br label %332
+  br label %322
 
 164:                                              ; preds = %159
   tail call void @gtk_widget_hide(ptr noundef %125) #16
-  br label %332
+  br label %322
 
 165:                                              ; preds = %156
   br i1 %116, label %208, label %166
@@ -2970,11 +2970,11 @@ define internal fastcc void @_lib_modulegroups_update_iop_visibility(ptr noundef
 
 184:                                              ; preds = %183, %178
   %185 = icmp eq ptr %125, null
-  br i1 %185, label %332, label %186
+  br i1 %185, label %322, label %186
 
 186:                                              ; preds = %184
   tail call void @gtk_widget_hide(ptr noundef nonnull %125) #16
-  br label %332
+  br label %322
 
 187:                                              ; preds = %175, %169
   %188 = getelementptr inbounds nuw i8, ptr %123, i64 464
@@ -3003,11 +3003,11 @@ define internal fastcc void @_lib_modulegroups_update_iop_visibility(ptr noundef
 
 206:                                              ; preds = %200, %194, %187
   tail call void @gtk_widget_show(ptr noundef %125) #16
-  br label %332
+  br label %322
 
 207:                                              ; preds = %200
   tail call void @gtk_widget_hide(ptr noundef %125) #16
-  br label %332
+  br label %322
 
 208:                                              ; preds = %166, %165
   %209 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.115, i32 noundef 5) #16
@@ -3016,84 +3016,90 @@ define internal fastcc void @_lib_modulegroups_update_iop_visibility(ptr noundef
   switch i32 %211, label %261 [
     i32 9999, label %212
     i32 0, label %214
-    i32 -1, label %234
+    i32 -1, label %235
   ]
 
 212:                                              ; preds = %208
   %213 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !86
-  br label %323
+  br label %313
 
 214:                                              ; preds = %208
   %215 = load i32, ptr %117, align 4, !tbaa !120
   %216 = icmp eq i32 %215, 0
-  br i1 %216, label %232, label %217
+  br i1 %216, label %231, label %217
 
 217:                                              ; preds = %214
   %218 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !86
   %219 = getelementptr inbounds nuw i8, ptr %218, i64 2024
   %220 = load ptr, ptr %219, align 8, !tbaa !14
   %221 = icmp eq ptr %220, null
-  br i1 %221, label %323, label %.preheader
+  br i1 %221, label %313, label %.preheader
 
 222:                                              ; preds = %.preheader
-  %223 = getelementptr inbounds nuw i8, ptr %226, i64 8
+  %223 = getelementptr inbounds nuw i8, ptr %227, i64 8
   %224 = load ptr, ptr %223, align 8, !tbaa !14
   %225 = icmp eq ptr %224, null
-  br i1 %225, label %230, label %.preheader
+  br i1 %225, label %.loopexit30.thread, label %.preheader
+
+.loopexit30.thread:                               ; preds = %222
+  %226 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !86
+  br label %313
 
 .preheader:                                       ; preds = %217, %222
-  %226 = phi ptr [ %224, %222 ], [ %220, %217 ]
-  %227 = load ptr, ptr %226, align 8, !tbaa !15
-  %228 = load ptr, ptr %227, align 8, !tbaa !130
-  %229 = icmp eq ptr %228, %123
-  br i1 %229, label %230, label %222
+  %227 = phi ptr [ %224, %222 ], [ %220, %217 ]
+  %228 = load ptr, ptr %227, align 8, !tbaa !15
+  %229 = load ptr, ptr %228, align 8, !tbaa !130
+  %.not37.not = icmp eq ptr %229, %123
+  br i1 %.not37.not, label %.loopexit30.thread38, label %222
 
-230:                                              ; preds = %.preheader, %222
-  %231 = zext i1 %229 to i32
-  br label %306
+.loopexit30.thread38:                             ; preds = %.preheader
+  %230 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !86
+  br label %300
 
-232:                                              ; preds = %214
-  %233 = load i32, ptr %126, align 16, !tbaa !126
-  br label %306
+231:                                              ; preds = %214
+  %232 = load i32, ptr %126, align 16, !tbaa !126
+  %233 = icmp eq i32 %232, 0
+  %234 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !86
+  br i1 %233, label %313, label %300
 
-234:                                              ; preds = %208
-  %235 = getelementptr inbounds nuw i8, ptr %123, i64 64
-  %236 = load ptr, ptr %235, align 16, !tbaa !129
-  %237 = tail call i32 %236() #16
-  %238 = and i32 %237, 4
-  %239 = icmp eq i32 %238, 0
-  %240 = icmp ne i32 %210, 0
-  %241 = select i1 %239, i1 true, i1 %240
-  br i1 %241, label %242, label %.loopexit29
+235:                                              ; preds = %208
+  %236 = getelementptr inbounds nuw i8, ptr %123, i64 64
+  %237 = load ptr, ptr %236, align 16, !tbaa !129
+  %238 = tail call i32 %237() #16
+  %239 = and i32 %238, 4
+  %240 = icmp eq i32 %239, 0
+  %241 = icmp ne i32 %210, 0
+  %242 = select i1 %240, i1 true, i1 %241
+  br i1 %242, label %243, label %.loopexit32
 
-242:                                              ; preds = %234
-  %243 = getelementptr inbounds nuw i8, ptr %123, i64 464
-  %244 = load ptr, ptr %2, align 8, !tbaa !32
-  %245 = getelementptr inbounds nuw i8, ptr %244, i64 72
-  %246 = load ptr, ptr %245, align 8, !tbaa !14
-  %247 = icmp eq ptr %246, null
-  br i1 %247, label %.loopexit29, label %.preheader28
+243:                                              ; preds = %235
+  %244 = getelementptr inbounds nuw i8, ptr %123, i64 464
+  %245 = load ptr, ptr %2, align 8, !tbaa !32
+  %246 = getelementptr inbounds nuw i8, ptr %245, i64 72
+  %247 = load ptr, ptr %246, align 8, !tbaa !14
+  %248 = icmp eq ptr %247, null
+  br i1 %248, label %.loopexit32, label %.preheader31
 
-248:                                              ; preds = %.preheader28
-  %249 = getelementptr inbounds nuw i8, ptr %252, i64 8
-  %250 = load ptr, ptr %249, align 8, !tbaa !14
-  %251 = icmp eq ptr %250, null
-  br i1 %251, label %.loopexit29, label %.preheader28
+249:                                              ; preds = %.preheader31
+  %250 = getelementptr inbounds nuw i8, ptr %253, i64 8
+  %251 = load ptr, ptr %250, align 8, !tbaa !14
+  %252 = icmp eq ptr %251, null
+  br i1 %252, label %.loopexit32, label %.preheader31
 
-.preheader28:                                     ; preds = %242, %248
-  %252 = phi ptr [ %250, %248 ], [ %246, %242 ]
-  %253 = load ptr, ptr %252, align 8, !tbaa !15
-  %254 = getelementptr inbounds nuw i8, ptr %253, i64 32
-  %255 = load ptr, ptr %254, align 8, !tbaa !53
-  %256 = tail call ptr @g_list_find_custom(ptr noundef %255, ptr noundef nonnull %243, ptr noundef nonnull @_iop_compare) #16
-  %257 = icmp eq ptr %256, null
-  br i1 %257, label %248, label %.thread26
+.preheader31:                                     ; preds = %243, %249
+  %253 = phi ptr [ %251, %249 ], [ %247, %243 ]
+  %254 = load ptr, ptr %253, align 8, !tbaa !15
+  %255 = getelementptr inbounds nuw i8, ptr %254, i64 32
+  %256 = load ptr, ptr %255, align 8, !tbaa !53
+  %257 = tail call ptr @g_list_find_custom(ptr noundef %256, ptr noundef nonnull %244, ptr noundef nonnull @_iop_compare) #16
+  %258 = icmp eq ptr %257, null
+  br i1 %258, label %249, label %.thread26
 
-.loopexit29:                                      ; preds = %248, %242, %234
-  %258 = load i32, ptr %126, align 16, !tbaa !126
-  %259 = icmp ne i32 %258, 0
-  %260 = zext i1 %259 to i32
-  br label %306
+.loopexit32:                                      ; preds = %249, %243, %235
+  %259 = load i32, ptr %126, align 16, !tbaa !126
+  %.not27 = icmp eq i32 %259, 0
+  %260 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !86
+  br i1 %.not27, label %313, label %300
 
 261:                                              ; preds = %208
   %262 = load ptr, ptr %108, align 8, !tbaa !85
@@ -3111,256 +3117,245 @@ define internal fastcc void @_lib_modulegroups_update_iop_visibility(ptr noundef
   tail call void @gtk_widget_set_visible(ptr noundef %262, i32 noundef %269) #16
   %270 = load i32, ptr %3, align 8, !tbaa !50
   %271 = icmp eq i32 %270, 0
-  br i1 %271, label %272, label %274
+  br i1 %271, label %272, label %275
 
 272:                                              ; preds = %268
   %273 = load i32, ptr %126, align 16, !tbaa !126
-  br label %290
+  %274 = icmp eq i32 %273, 0
+  br i1 %274, label %.thread, label %289
 
-274:                                              ; preds = %268
-  %275 = load ptr, ptr %2, align 8, !tbaa !32
-  %276 = getelementptr inbounds nuw i8, ptr %275, i64 72
-  %277 = load ptr, ptr %276, align 8, !tbaa !47
-  %278 = add i32 %270, -1
-  %279 = tail call ptr @g_list_nth_data(ptr noundef %277, i32 noundef %278) #16
-  %280 = icmp eq ptr %279, null
-  br i1 %280, label %.thread, label %281
+275:                                              ; preds = %268
+  %276 = load ptr, ptr %2, align 8, !tbaa !32
+  %277 = getelementptr inbounds nuw i8, ptr %276, i64 72
+  %278 = load ptr, ptr %277, align 8, !tbaa !47
+  %279 = add i32 %270, -1
+  %280 = tail call ptr @g_list_nth_data(ptr noundef %278, i32 noundef %279) #16
+  %281 = icmp eq ptr %280, null
+  br i1 %281, label %.thread, label %282
 
-281:                                              ; preds = %274
-  %282 = getelementptr inbounds nuw i8, ptr %279, i64 32
-  %283 = load ptr, ptr %282, align 8, !tbaa !53
-  %284 = getelementptr inbounds nuw i8, ptr %123, i64 944
-  %285 = load ptr, ptr %284, align 16, !tbaa !133
-  %286 = getelementptr inbounds nuw i8, ptr %285, i64 504
-  %287 = tail call ptr @g_list_find_custom(ptr noundef %283, ptr noundef nonnull %286, ptr noundef nonnull @_iop_compare) #16
-  %288 = icmp ne ptr %287, null
-  %289 = zext i1 %288 to i32
-  br label %290
+282:                                              ; preds = %275
+  %283 = getelementptr inbounds nuw i8, ptr %280, i64 32
+  %284 = load ptr, ptr %283, align 8, !tbaa !53
+  %285 = getelementptr inbounds nuw i8, ptr %123, i64 944
+  %286 = load ptr, ptr %285, align 16, !tbaa !133
+  %287 = getelementptr inbounds nuw i8, ptr %286, i64 504
+  %288 = tail call ptr @g_list_find_custom(ptr noundef %284, ptr noundef nonnull %287, ptr noundef nonnull @_iop_compare) #16
+  %.not = icmp eq ptr %288, null
+  br i1 %.not, label %.thread, label %289
 
-290:                                              ; preds = %281, %272
-  %291 = phi i32 [ %273, %272 ], [ %289, %281 ]
-  %292 = icmp eq i32 %291, 0
-  br i1 %292, label %.thread, label %293
+289:                                              ; preds = %272, %282
+  %290 = getelementptr inbounds nuw i8, ptr %123, i64 64
+  %291 = load ptr, ptr %290, align 16, !tbaa !129
+  %292 = tail call i32 %291() #16
+  %293 = and i32 %292, 4
+  %294 = icmp eq i32 %293, 0
+  br i1 %294, label %.thread26, label %.loopexit30
 
-293:                                              ; preds = %290
-  %294 = getelementptr inbounds nuw i8, ptr %123, i64 64
-  %295 = load ptr, ptr %294, align 16, !tbaa !129
-  %296 = tail call i32 %295() #16
-  %297 = and i32 %296, 4
-  %298 = icmp eq i32 %297, 0
-  br i1 %298, label %.thread26, label %299
+.thread:                                          ; preds = %282, %275, %272
+  %295 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !86
+  br label %313
 
-299:                                              ; preds = %293
-  %300 = load i32, ptr %126, align 16, !tbaa !126
-  %301 = or i32 %300, %210
-  %302 = icmp ne i32 %301, 0
-  %303 = zext i1 %302 to i32
-  br label %306
+.thread26:                                        ; preds = %.preheader31, %289
+  %296 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !86
+  br label %300
 
-.thread:                                          ; preds = %290, %274
-  %304 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !86
-  br label %323
+.loopexit30:                                      ; preds = %289
+  %297 = load i32, ptr %126, align 16, !tbaa !126
+  %298 = or i32 %297, %210
+  %.not28 = icmp eq i32 %298, 0
+  %299 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !86
+  br i1 %.not28, label %313, label %300
 
-.thread26:                                        ; preds = %.preheader28, %293
-  %305 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !86
+300:                                              ; preds = %.loopexit32, %231, %.loopexit30.thread38, %.thread26, %.loopexit30
+  %301 = phi ptr [ %296, %.thread26 ], [ %299, %.loopexit30 ], [ %230, %.loopexit30.thread38 ], [ %234, %231 ], [ %260, %.loopexit32 ]
+  %302 = getelementptr inbounds nuw i8, ptr %301, i64 88
+  %303 = load ptr, ptr %302, align 8, !tbaa !128
+  %304 = icmp eq ptr %303, %123
+  br i1 %304, label %305, label %310
+
+305:                                              ; preds = %300
+  %306 = getelementptr inbounds nuw i8, ptr %123, i64 872
+  %307 = load i32, ptr %306, align 8, !tbaa !134
+  %308 = icmp eq i32 %307, 0
+  br i1 %308, label %309, label %310
+
+309:                                              ; preds = %305
+  tail call void @dt_iop_request_focus(ptr noundef null) #16
   br label %310
 
-306:                                              ; preds = %299, %.loopexit29, %232, %230
-  %307 = phi i32 [ %233, %232 ], [ %231, %230 ], [ %260, %.loopexit29 ], [ %303, %299 ]
-  %308 = icmp eq i32 %307, 0
-  %309 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !86
-  br i1 %308, label %323, label %310
+310:                                              ; preds = %309, %305, %300
+  %311 = icmp eq ptr %125, null
+  br i1 %311, label %322, label %312
 
-310:                                              ; preds = %.thread26, %306
-  %311 = phi ptr [ %305, %.thread26 ], [ %309, %306 ]
-  %312 = getelementptr inbounds nuw i8, ptr %311, i64 88
-  %313 = load ptr, ptr %312, align 8, !tbaa !128
-  %314 = icmp eq ptr %313, %123
-  br i1 %314, label %315, label %320
-
-315:                                              ; preds = %310
-  %316 = getelementptr inbounds nuw i8, ptr %123, i64 872
-  %317 = load i32, ptr %316, align 8, !tbaa !134
-  %318 = icmp eq i32 %317, 0
-  br i1 %318, label %319, label %320
-
-319:                                              ; preds = %315
-  tail call void @dt_iop_request_focus(ptr noundef null) #16
-  br label %320
-
-320:                                              ; preds = %319, %315, %310
-  %321 = icmp eq ptr %125, null
-  br i1 %321, label %332, label %322
-
-322:                                              ; preds = %320
+312:                                              ; preds = %310
   tail call void @gtk_widget_show(ptr noundef nonnull %125) #16
-  br label %332
+  br label %322
 
-323:                                              ; preds = %.thread, %306, %217, %212
-  %324 = phi ptr [ %213, %212 ], [ %218, %217 ], [ %309, %306 ], [ %304, %.thread ]
-  %325 = getelementptr inbounds nuw i8, ptr %324, i64 88
-  %326 = load ptr, ptr %325, align 8, !tbaa !128
-  %327 = icmp eq ptr %326, %123
-  br i1 %327, label %328, label %329
+313:                                              ; preds = %.loopexit32, %231, %.loopexit30.thread, %.thread, %.loopexit30, %217, %212
+  %314 = phi ptr [ %213, %212 ], [ %218, %217 ], [ %299, %.loopexit30 ], [ %295, %.thread ], [ %226, %.loopexit30.thread ], [ %234, %231 ], [ %260, %.loopexit32 ]
+  %315 = getelementptr inbounds nuw i8, ptr %314, i64 88
+  %316 = load ptr, ptr %315, align 8, !tbaa !128
+  %317 = icmp eq ptr %316, %123
+  br i1 %317, label %318, label %319
 
-328:                                              ; preds = %323
+318:                                              ; preds = %313
   tail call void @dt_iop_request_focus(ptr noundef null) #16
-  br label %329
+  br label %319
 
-329:                                              ; preds = %328, %323
-  %330 = icmp eq ptr %125, null
-  br i1 %330, label %332, label %331
+319:                                              ; preds = %318, %313
+  %320 = icmp eq ptr %125, null
+  br i1 %320, label %322, label %321
 
-331:                                              ; preds = %329
+321:                                              ; preds = %319
   tail call void @gtk_widget_hide(ptr noundef nonnull %125) #16
-  br label %332
+  br label %322
 
-332:                                              ; preds = %331, %329, %322, %320, %207, %206, %186, %184, %164, %163, %155, %153, %140
-  %333 = getelementptr inbounds nuw i8, ptr %122, i64 8
-  %334 = load ptr, ptr %333, align 8, !tbaa !14
+322:                                              ; preds = %321, %319, %312, %310, %207, %206, %186, %184, %164, %163, %155, %153, %140
+  %323 = getelementptr inbounds nuw i8, ptr %122, i64 8
+  %324 = load ptr, ptr %323, align 8, !tbaa !14
+  %325 = icmp eq ptr %324, null
+  br i1 %325, label %.loopexit33, label %121
+
+326:                                              ; preds = %.loopexit33
+  %327 = icmp eq ptr %45, null
+  br i1 %327, label %331, label %328
+
+328:                                              ; preds = %326
+  %329 = load i8, ptr %45, align 1, !tbaa !31
+  %330 = icmp eq i8 %329, 0
+  br i1 %330, label %331, label %414
+
+331:                                              ; preds = %328, %326
+  %332 = load ptr, ptr %2, align 8, !tbaa !32
+  %333 = getelementptr inbounds nuw i8, ptr %332, i64 288
+  %334 = load ptr, ptr %333, align 8, !tbaa !55
   %335 = icmp eq ptr %334, null
-  br i1 %335, label %.loopexit30, label %121
+  br i1 %335, label %342, label %336
 
-336:                                              ; preds = %.loopexit30
-  %337 = icmp eq ptr %45, null
-  br i1 %337, label %341, label %338
+336:                                              ; preds = %331
+  %337 = tail call i32 @gtk_widget_get_visible(ptr noundef nonnull %334) #16
+  %338 = icmp eq i32 %337, 0
+  br i1 %338, label %339, label %414
 
-338:                                              ; preds = %336
-  %339 = load i8, ptr %45, align 1, !tbaa !31
-  %340 = icmp eq i8 %339, 0
-  br i1 %340, label %341, label %424
+339:                                              ; preds = %336
+  %340 = load ptr, ptr %333, align 8, !tbaa !55
+  %341 = icmp eq ptr %340, null
+  br i1 %341, label %342, label %346
 
-341:                                              ; preds = %338, %336
-  %342 = load ptr, ptr %2, align 8, !tbaa !32
-  %343 = getelementptr inbounds nuw i8, ptr %342, i64 288
-  %344 = load ptr, ptr %343, align 8, !tbaa !55
-  %345 = icmp eq ptr %344, null
-  br i1 %345, label %352, label %346
+342:                                              ; preds = %339, %331
+  %343 = tail call ptr @gtk_box_new(i32 noundef 1, i32 noundef 0) #16
+  store ptr %343, ptr %333, align 8, !tbaa !55
+  %344 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !63
+  %345 = load ptr, ptr %344, align 8, !tbaa !84
+  tail call void @dt_ui_container_add_widget(ptr noundef %345, i32 noundef 4, ptr noundef %343) #16
+  br label %346
 
-346:                                              ; preds = %341
-  %347 = tail call i32 @gtk_widget_get_visible(ptr noundef nonnull %344) #16
+346:                                              ; preds = %342, %339
+  %347 = tail call i32 @dt_conf_get_bool(ptr noundef nonnull @.str.187) #16
   %348 = icmp eq i32 %347, 0
-  br i1 %348, label %349, label %424
+  %349 = load ptr, ptr %333, align 8, !tbaa !55
+  %350 = select i1 %348, ptr @.str.209, ptr @.str.208
+  tail call void @gtk_widget_set_name(ptr noundef %349, ptr noundef nonnull %350) #16
+  %351 = load ptr, ptr %333, align 8, !tbaa !55
+  tail call void @dt_gui_add_class(ptr noundef %351, ptr noundef nonnull @.str.210) #16
+  %352 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !86
+  %353 = getelementptr inbounds nuw i8, ptr %352, i64 2056
+  %354 = load ptr, ptr %353, align 8, !tbaa !135
+  %355 = tail call ptr @g_list_last(ptr noundef %354) #16
+  %356 = icmp eq ptr %355, null
+  br i1 %356, label %.loopexit29, label %357
 
-349:                                              ; preds = %346
-  %350 = load ptr, ptr %343, align 8, !tbaa !55
-  %351 = icmp eq ptr %350, null
-  br i1 %351, label %352, label %356
+357:                                              ; preds = %346
+  %358 = getelementptr inbounds nuw i8, ptr %332, i64 280
+  br label %360
 
-352:                                              ; preds = %349, %341
-  %353 = tail call ptr @gtk_box_new(i32 noundef 1, i32 noundef 0) #16
-  store ptr %353, ptr %343, align 8, !tbaa !55
-  %354 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !63
-  %355 = load ptr, ptr %354, align 8, !tbaa !84
-  tail call void @dt_ui_container_add_widget(ptr noundef %355, i32 noundef 4, ptr noundef %353) #16
-  br label %356
-
-356:                                              ; preds = %352, %349
-  %357 = tail call i32 @dt_conf_get_bool(ptr noundef nonnull @.str.187) #16
-  %358 = icmp eq i32 %357, 0
-  %359 = load ptr, ptr %343, align 8, !tbaa !55
-  %360 = select i1 %358, ptr @.str.209, ptr @.str.208
-  tail call void @gtk_widget_set_name(ptr noundef %359, ptr noundef nonnull %360) #16
-  %361 = load ptr, ptr %343, align 8, !tbaa !55
-  tail call void @dt_gui_add_class(ptr noundef %361, ptr noundef nonnull @.str.210) #16
-  %362 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !86
-  %363 = getelementptr inbounds nuw i8, ptr %362, i64 2056
-  %364 = load ptr, ptr %363, align 8, !tbaa !135
-  %365 = tail call ptr @g_list_last(ptr noundef %364) #16
-  %366 = icmp eq ptr %365, null
-  br i1 %366, label %.loopexit27, label %367
-
-367:                                              ; preds = %356
-  %368 = getelementptr inbounds nuw i8, ptr %342, i64 280
-  br label %370
-
-.loopexit27:                                      ; preds = %419, %356
-  %369 = load ptr, ptr %343, align 8, !tbaa !55
-  tail call void @gtk_widget_show(ptr noundef %369) #16
-  br label %424
-
-370:                                              ; preds = %419, %367
-  %371 = phi i32 [ 2, %367 ], [ %420, %419 ]
-  %372 = phi ptr [ %365, %367 ], [ %422, %419 ]
-  %373 = load ptr, ptr %372, align 8, !tbaa !15
-  %374 = icmp eq i32 %371, 2
-  %375 = select i1 %374, i32 2, i32 1
-  %376 = tail call i32 @dt_iop_is_hidden(ptr noundef %373) #16
-  %377 = icmp eq i32 %376, 0
-  br i1 %377, label %378, label %419
-
-378:                                              ; preds = %370
-  %379 = getelementptr inbounds nuw i8, ptr %373, i64 64
-  %380 = load ptr, ptr %379, align 16, !tbaa !129
-  %381 = tail call i32 %380() #16
-  %382 = and i32 %381, 4
-  %383 = icmp eq i32 %382, 0
-  br i1 %383, label %384, label %419
-
-384:                                              ; preds = %378
-  %385 = getelementptr inbounds nuw i8, ptr %373, i64 488
-  %386 = load i32, ptr %385, align 8, !tbaa !127
-  %387 = icmp eq i32 %386, 2147483647
-  br i1 %387, label %419, label %388
-
-388:                                              ; preds = %384
-  %389 = load ptr, ptr %368, align 8, !tbaa !14
-  %390 = icmp eq ptr %389, null
-  br i1 %390, label %.loopexit, label %391
-
-391:                                              ; preds = %388
-  %392 = getelementptr inbounds nuw i8, ptr %373, i64 464
-  br label %397
-
-.loopexit:                                        ; preds = %414, %388
-  %393 = phi i32 [ %375, %388 ], [ %415, %414 ]
-  %394 = getelementptr inbounds nuw i8, ptr %373, i64 816
-  %395 = load ptr, ptr %394, align 16, !tbaa !136
-  %396 = tail call fastcc i32 @_basics_add_items_from_module_widget(ptr noundef %0, ptr noundef %373, ptr noundef %395, i32 noundef %393)
-  br label %419
-
-397:                                              ; preds = %414, %391
-  %398 = phi ptr [ %389, %391 ], [ %417, %414 ]
-  %399 = phi i32 [ %375, %391 ], [ %415, %414 ]
-  %400 = load ptr, ptr %398, align 8, !tbaa !15
-  %401 = getelementptr inbounds nuw i8, ptr %400, i64 104
-  %402 = load ptr, ptr %401, align 8, !tbaa !137
-  %403 = icmp eq ptr %402, null
-  br i1 %403, label %404, label %414
-
-404:                                              ; preds = %397
-  %405 = getelementptr inbounds nuw i8, ptr %400, i64 8
-  %406 = load ptr, ptr %405, align 8, !tbaa !56
-  %407 = tail call i32 @g_strcmp0(ptr noundef %406, ptr noundef nonnull %392) #16
-  %408 = icmp eq i32 %407, 0
-  br i1 %408, label %409, label %414
-
-409:                                              ; preds = %404
-  %410 = getelementptr inbounds nuw i8, ptr %400, i64 48
-  %411 = load i32, ptr %410, align 8, !tbaa !138
-  %412 = icmp eq i32 %411, 3
-  br i1 %412, label %413, label %414
-
-413:                                              ; preds = %409
-  store ptr %373, ptr %401, align 8, !tbaa !137
-  tail call fastcc void @_basics_add_widget(ptr noundef %0, ptr noundef nonnull %400, ptr noundef null, i32 noundef %399)
+.loopexit29:                                      ; preds = %409, %346
+  %359 = load ptr, ptr %333, align 8, !tbaa !55
+  tail call void @gtk_widget_show(ptr noundef %359) #16
   br label %414
 
-414:                                              ; preds = %413, %409, %404, %397
-  %415 = phi i32 [ %399, %397 ], [ 0, %413 ], [ %399, %409 ], [ %399, %404 ]
-  %416 = getelementptr inbounds nuw i8, ptr %398, i64 8
-  %417 = load ptr, ptr %416, align 8, !tbaa !14
-  %418 = icmp eq ptr %417, null
-  br i1 %418, label %.loopexit, label %397
+360:                                              ; preds = %409, %357
+  %361 = phi i32 [ 2, %357 ], [ %410, %409 ]
+  %362 = phi ptr [ %355, %357 ], [ %412, %409 ]
+  %363 = load ptr, ptr %362, align 8, !tbaa !15
+  %364 = icmp eq i32 %361, 2
+  %365 = select i1 %364, i32 2, i32 1
+  %366 = tail call i32 @dt_iop_is_hidden(ptr noundef %363) #16
+  %367 = icmp eq i32 %366, 0
+  br i1 %367, label %368, label %409
 
-419:                                              ; preds = %.loopexit, %384, %378, %370
-  %420 = phi i32 [ %375, %370 ], [ %375, %378 ], [ %393, %.loopexit ], [ %375, %384 ]
-  %421 = getelementptr inbounds nuw i8, ptr %372, i64 16
-  %422 = load ptr, ptr %421, align 8, !tbaa !139
-  %423 = icmp eq ptr %422, null
-  br i1 %423, label %.loopexit27, label %370
+368:                                              ; preds = %360
+  %369 = getelementptr inbounds nuw i8, ptr %363, i64 64
+  %370 = load ptr, ptr %369, align 16, !tbaa !129
+  %371 = tail call i32 %370() #16
+  %372 = and i32 %371, 4
+  %373 = icmp eq i32 %372, 0
+  br i1 %373, label %374, label %409
 
-424:                                              ; preds = %.loopexit27, %346, %338, %.loopexit30
+374:                                              ; preds = %368
+  %375 = getelementptr inbounds nuw i8, ptr %363, i64 488
+  %376 = load i32, ptr %375, align 8, !tbaa !127
+  %377 = icmp eq i32 %376, 2147483647
+  br i1 %377, label %409, label %378
+
+378:                                              ; preds = %374
+  %379 = load ptr, ptr %358, align 8, !tbaa !14
+  %380 = icmp eq ptr %379, null
+  br i1 %380, label %.loopexit, label %381
+
+381:                                              ; preds = %378
+  %382 = getelementptr inbounds nuw i8, ptr %363, i64 464
+  br label %387
+
+.loopexit:                                        ; preds = %404, %378
+  %383 = phi i32 [ %365, %378 ], [ %405, %404 ]
+  %384 = getelementptr inbounds nuw i8, ptr %363, i64 816
+  %385 = load ptr, ptr %384, align 16, !tbaa !136
+  %386 = tail call fastcc i32 @_basics_add_items_from_module_widget(ptr noundef %0, ptr noundef %363, ptr noundef %385, i32 noundef %383)
+  br label %409
+
+387:                                              ; preds = %404, %381
+  %388 = phi ptr [ %379, %381 ], [ %407, %404 ]
+  %389 = phi i32 [ %365, %381 ], [ %405, %404 ]
+  %390 = load ptr, ptr %388, align 8, !tbaa !15
+  %391 = getelementptr inbounds nuw i8, ptr %390, i64 104
+  %392 = load ptr, ptr %391, align 8, !tbaa !137
+  %393 = icmp eq ptr %392, null
+  br i1 %393, label %394, label %404
+
+394:                                              ; preds = %387
+  %395 = getelementptr inbounds nuw i8, ptr %390, i64 8
+  %396 = load ptr, ptr %395, align 8, !tbaa !56
+  %397 = tail call i32 @g_strcmp0(ptr noundef %396, ptr noundef nonnull %382) #16
+  %398 = icmp eq i32 %397, 0
+  br i1 %398, label %399, label %404
+
+399:                                              ; preds = %394
+  %400 = getelementptr inbounds nuw i8, ptr %390, i64 48
+  %401 = load i32, ptr %400, align 8, !tbaa !138
+  %402 = icmp eq i32 %401, 3
+  br i1 %402, label %403, label %404
+
+403:                                              ; preds = %399
+  store ptr %363, ptr %391, align 8, !tbaa !137
+  tail call fastcc void @_basics_add_widget(ptr noundef %0, ptr noundef nonnull %390, ptr noundef null, i32 noundef %389)
+  br label %404
+
+404:                                              ; preds = %403, %399, %394, %387
+  %405 = phi i32 [ %389, %387 ], [ 0, %403 ], [ %389, %399 ], [ %389, %394 ]
+  %406 = getelementptr inbounds nuw i8, ptr %388, i64 8
+  %407 = load ptr, ptr %406, align 8, !tbaa !14
+  %408 = icmp eq ptr %407, null
+  br i1 %408, label %.loopexit, label %387
+
+409:                                              ; preds = %.loopexit, %374, %368, %360
+  %410 = phi i32 [ %365, %360 ], [ %365, %368 ], [ %383, %.loopexit ], [ %365, %374 ]
+  %411 = getelementptr inbounds nuw i8, ptr %362, i64 16
+  %412 = load ptr, ptr %411, align 8, !tbaa !139
+  %413 = icmp eq ptr %412, null
+  br i1 %413, label %.loopexit29, label %360
+
+414:                                              ; preds = %.loopexit29, %336, %328, %.loopexit33
   ret void
 }
 

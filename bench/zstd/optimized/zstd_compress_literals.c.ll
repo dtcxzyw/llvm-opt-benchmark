@@ -116,7 +116,7 @@ entry:
   %cmp1 = icmp ugt i64 %srcSize, 16383
   %conv2 = zext i1 %cmp1 to i64
   %add3 = add nuw nsw i64 %add, %conv2
-  %cmp5 = icmp ult i64 %srcSize, 256
+  %cmp5 = icmp ugt i64 %srcSize, 255
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(2064) %nextHuf, ptr noundef nonnull align 8 dereferenceable(2064) %prevHuf, i64 2064, i1 false)
   %tobool.not = icmp eq i32 %disableLiteralCompression, 0
   br i1 %tobool.not, label %if.end, label %if.then
@@ -133,7 +133,7 @@ if.then:                                          ; preds = %entry
   br i1 %cmp7.i, label %return, label %do.end17.i
 
 do.end17.i:                                       ; preds = %if.then
-  switch i32 %add3.i, label %default.unreachable121 [
+  switch i32 %add3.i, label %default.unreachable120 [
     i32 1, label %sw.bb.i
     i32 2, label %sw.bb20.i
     i32 3, label %sw.bb24.i
@@ -159,7 +159,7 @@ sw.bb24.i:                                        ; preds = %do.end17.i
   store i32 %conv27.i, ptr %dst, align 1
   br label %sw.epilog.i
 
-default.unreachable121:                           ; preds = %if.end90, %do.end17.i100, %do.end17.i73, %do.end17.i
+default.unreachable120:                           ; preds = %if.end90, %do.end17.i100, %do.end17.i73, %do.end17.i
   unreachable
 
 sw.epilog.i:                                      ; preds = %sw.bb24.i, %sw.bb20.i, %sw.bb.i
@@ -172,10 +172,10 @@ if.end:                                           ; preds = %entry
   %2 = load i32, ptr %repeatMode, align 8
   %sub.i = sub nsw i32 9, %strategy
   %cond.i = tail call i32 @llvm.smin.i32(i32 %sub.i, i32 3)
-  %cmp2.i = icmp eq i32 %2, 2
+  %cmp2.i = icmp ne i32 %2, 2
   %sh_prom.i = zext nneg i32 %cond.i to i64
   %shl.i = shl i64 8, %sh_prom.i
-  %cond6.i = select i1 %cmp2.i, i64 6, i64 %shl.i
+  %cond6.i = select i1 %cmp2.i, i64 %shl.i, i64 6
   %cmp10 = icmp ult i64 %srcSize, %cond6.i
   br i1 %cmp10, label %if.then12, label %do.body15
 
@@ -191,7 +191,7 @@ if.then12:                                        ; preds = %if.end
   br i1 %cmp7.i72, label %return, label %do.end17.i73
 
 do.end17.i73:                                     ; preds = %if.then12
-  switch i32 %add3.i69, label %default.unreachable121 [
+  switch i32 %add3.i69, label %default.unreachable120 [
     i32 1, label %sw.bb.i83
     i32 2, label %sw.bb20.i80
     i32 3, label %sw.bb24.i74
@@ -241,10 +241,10 @@ do.end29:                                         ; preds = %do.body15
   %or37 = or disjoint i32 %cond36, %cond40
   %or41 = or disjoint i32 %or37, %cond43
   %or44 = or disjoint i32 %or41, %cond
-  %cmp47 = icmp eq i64 %add3, 3
-  %or.cond = select i1 %cmp2.i, i1 %cmp47, i1 false
-  %narrow = or i1 %cmp5, %or.cond
-  %cond52 = select i1 %narrow, ptr @HUF_compress1X_repeat, ptr @HUF_compress4X_repeat
+  %cmp47 = icmp ne i64 %add3, 3
+  %or.cond.not = select i1 %cmp2.i, i1 true, i1 %cmp47
+  %spec.select = and i1 %cmp5, %or.cond.not
+  %cond52 = select i1 %spec.select, ptr @HUF_compress4X_repeat, ptr @HUF_compress1X_repeat
   %add.ptr = getelementptr inbounds nuw i8, ptr %dst, i64 %add3
   %sub = sub nuw i64 %dstCapacity, %add3
   %call53 = call i64 %cond52(ptr noundef nonnull %add.ptr, i64 noundef %sub, ptr noundef %src, i64 noundef %srcSize, i32 noundef 255, i32 noundef 11, ptr noundef %entropyWorkspace, i64 noundef %entropyWorkspaceSize, ptr noundef nonnull %nextHuf, ptr noundef nonnull %repeat, i32 noundef %or44) #5, !callees !4
@@ -260,8 +260,8 @@ do.end29:                                         ; preds = %do.body15
   %cmp66.not = icmp ult i64 %call53, %sub65
   %8 = add i64 %call53, -1
   %9 = icmp ult i64 %8, -120
-  %or.cond120 = select i1 %9, i1 %cmp66.not, i1 false
-  br i1 %or.cond120, label %if.end73, label %if.then71
+  %or.cond = select i1 %9, i1 %cmp66.not, i1 false
+  br i1 %or.cond, label %if.end73, label %if.then71
 
 if.then71:                                        ; preds = %do.end29
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(2064) %nextHuf, ptr noundef nonnull align 8 dereferenceable(2064) %prevHuf, i64 2064, i1 false)
@@ -276,7 +276,7 @@ if.then71:                                        ; preds = %do.end29
   br i1 %cmp7.i99, label %return, label %do.end17.i100
 
 do.end17.i100:                                    ; preds = %if.then71
-  switch i32 %add3.i96, label %default.unreachable121 [
+  switch i32 %add3.i96, label %default.unreachable120 [
     i32 1, label %sw.bb.i110
     i32 2, label %sw.bb20.i107
     i32 3, label %sw.bb24.i101
@@ -346,25 +346,24 @@ if.then88:                                        ; preds = %if.end85
   br label %if.end90
 
 if.end90:                                         ; preds = %if.then88, %if.end85
-  switch i64 %add3, label %default.unreachable121 [
+  switch i64 %add3, label %default.unreachable120 [
     i64 3, label %sw.bb
     i64 4, label %sw.bb102
     i64 5, label %sw.bb111
   ]
 
 sw.bb:                                            ; preds = %if.end90
-  %lnot.ext = select i1 %narrow, i32 4, i32 0
+  %shl = select i1 %spec.select, i32 4, i32 0
   %conv96 = trunc i64 %srcSize to i32
   %shl97 = shl i32 %conv96, 4
-  %14 = or disjoint i32 %lnot.ext, %shl97
-  %15 = or disjoint i32 %hType.0, %14
-  %add98 = xor i32 %15, 4
+  %14 = or disjoint i32 %shl, %shl97
   %conv99 = trunc i64 %call53 to i32
   %shl100 = shl i32 %conv99, 14
-  %add101 = add i32 %add98, %shl100
+  %add98 = add i32 %14, %shl100
+  %add101 = or disjoint i32 %add98, %hType.0
   %conv.i116 = trunc i32 %add101 to i16
   store i16 %conv.i116, ptr %dst, align 1
-  %shr.i117 = lshr i32 %add101, 16
+  %shr.i117 = lshr i32 %add98, 16
   %conv1.i = trunc i32 %shr.i117 to i8
   %arrayidx.i = getelementptr inbounds nuw i8, ptr %dst, i64 2
   store i8 %conv1.i, ptr %arrayidx.i, align 1

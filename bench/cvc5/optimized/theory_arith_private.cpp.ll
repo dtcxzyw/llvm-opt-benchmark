@@ -9617,32 +9617,21 @@ _ZNK4cvc58internal6theory5arith6linear22ArithCongruenceManager17isWatchedVariabl
 lor.lhs.false:                                    ; preds = %_ZNK4cvc58internal6theory5arith6linear22ArithCongruenceManager17isWatchedVariableEj.exit
   %_mp_size.i.i = getelementptr inbounds nuw i8, ptr %constraint, i64 12
   %15 = load i32, ptr %_mp_size.i.i, align 4
-  %cmp6.i.i = icmp ne i32 %15, 0
-  %conv.i.i169 = zext i1 %cmp6.i.i to i32
-  %cmp.inv.i.i = icmp sgt i32 %15, -1
-  %cond.i.i = select i1 %cmp.inv.i.i, i32 %conv.i.i169, i32 -1
-  %cmp.i170 = icmp eq i32 %cond.i.i, 0
-  br i1 %cmp.i170, label %if.then.i171, label %_ZNK4cvc58internal13DeltaRational3sgnEv.exit
+  %cmp6.i.i.not = icmp eq i32 %15, 0
+  br i1 %cmp6.i.i.not, label %if.then.i171, label %if.then42
 
 if.then.i171:                                     ; preds = %lor.lhs.false
   %_mp_size.i.i.i = getelementptr inbounds nuw i8, ptr %constraint, i64 44
   %16 = load i32, ptr %_mp_size.i.i.i, align 4
-  %cmp6.i.i.i = icmp ne i32 %16, 0
-  %conv.i.i.i172 = zext i1 %cmp6.i.i.i to i32
-  %cmp.inv.i.i.i = icmp sgt i32 %16, -1
-  br i1 %cmp.inv.i.i.i, label %_ZNK4cvc58internal13DeltaRational3sgnEv.exit, label %if.then42
+  %cmp6.i.i.i.not.not = icmp eq i32 %16, 0
+  br i1 %cmp6.i.i.i.not.not, label %if.end45, label %if.then42
 
-_ZNK4cvc58internal13DeltaRational3sgnEv.exit:     ; preds = %if.then.i171, %lor.lhs.false
-  %retval.0.i = phi i32 [ %cond.i.i, %lor.lhs.false ], [ %conv.i.i.i172, %if.then.i171 ]
-  %cmp41.not = icmp eq i32 %retval.0.i, 0
-  br i1 %cmp41.not, label %if.end45, label %if.then42
-
-if.then42:                                        ; preds = %if.then.i171, %if.then38, %_ZNK4cvc58internal13DeltaRational3sgnEv.exit, %_ZNK4cvc58internal6theory5arith6linear22ArithCongruenceManager17isWatchedVariableEj.exit
+if.then42:                                        ; preds = %lor.lhs.false, %if.then.i171, %if.then38, %_ZNK4cvc58internal6theory5arith6linear22ArithCongruenceManager17isWatchedVariableEj.exit
   %17 = load ptr, ptr %constraint.addr, align 8
   call void @_ZN4cvc58internal6theory5arith6linear22ArithCongruenceManager14equalsConstantEPKNS3_10ConstraintES7_(ptr noundef nonnull align 8 dereferenceable(680) %d_congruenceManager, ptr noundef %17, ptr noundef %10)
   br label %if.end45
 
-if.end45:                                         ; preds = %_ZNK4cvc58internal13DeltaRational3sgnEv.exit, %if.then42, %if.end34
+if.end45:                                         ; preds = %if.then.i171, %if.then42, %if.end34
   %18 = load ptr, ptr %constraint.addr, align 8
   %call46 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNK4cvc58internal6theory5arith6linear10Constraint18getValueCollectionEv(ptr noundef nonnull align 8 dereferenceable(145) %18)
   %call47 = call noundef zeroext i1 @_ZNK4cvc58internal6theory5arith6linear15ValueCollection11hasEqualityEv(ptr noundef nonnull align 8 dereferenceable(32) %call46)
@@ -9765,11 +9754,11 @@ if.then.i208:                                     ; preds = %if.end102
 
 if.else.i:                                        ; preds = %if.end102
   call void @_ZNSt5dequeIPN4cvc58internal6theory5arith6linear10ConstraintESaIS6_EE16_M_push_back_auxIJRKS6_EEEvDpOT_(ptr noundef nonnull align 8 dereferenceable(80) %d_currentPropagationList, ptr noundef nonnull align 8 dereferenceable(8) %constraint.addr)
-  %.pre392 = load ptr, ptr %_M_finish.i, align 8
+  %.pre393 = load ptr, ptr %_M_finish.i, align 8
   br label %_ZNSt5dequeIPN4cvc58internal6theory5arith6linear10ConstraintESaIS6_EE9push_backERKS6_.exit
 
 _ZNSt5dequeIPN4cvc58internal6theory5arith6linear10ConstraintESaIS6_EE9push_backERKS6_.exit: ; preds = %if.then.i208, %if.else.i
-  %38 = phi ptr [ %incdec.ptr.i, %if.then.i208 ], [ %.pre392, %if.else.i ]
+  %38 = phi ptr [ %incdec.ptr.i, %if.then.i208 ], [ %.pre393, %if.else.i ]
   %39 = load i32, ptr %x_i, align 4
   %d_image.i.i210 = getelementptr inbounds nuw i8, ptr %this, i64 1464
   %conv.i.i211 = zext i32 %39 to i64
@@ -10310,32 +10299,21 @@ _ZNK4cvc58internal6theory5arith6linear22ArithCongruenceManager17isWatchedVariabl
 lor.lhs.false:                                    ; preds = %_ZNK4cvc58internal6theory5arith6linear22ArithCongruenceManager17isWatchedVariableEj.exit
   %_mp_size.i.i = getelementptr inbounds nuw i8, ptr %constraint, i64 12
   %16 = load i32, ptr %_mp_size.i.i, align 4
-  %cmp6.i.i = icmp ne i32 %16, 0
-  %conv.i.i399 = zext i1 %cmp6.i.i to i32
-  %cmp.inv.i.i = icmp sgt i32 %16, -1
-  %cond.i.i = select i1 %cmp.inv.i.i, i32 %conv.i.i399, i32 -1
-  %cmp.i400 = icmp eq i32 %cond.i.i, 0
-  br i1 %cmp.i400, label %if.then.i401, label %_ZNK4cvc58internal13DeltaRational3sgnEv.exit
+  %cmp6.i.i.not = icmp eq i32 %16, 0
+  br i1 %cmp6.i.i.not, label %if.then.i401, label %if.then57
 
 if.then.i401:                                     ; preds = %lor.lhs.false
   %_mp_size.i.i.i = getelementptr inbounds nuw i8, ptr %constraint, i64 44
   %17 = load i32, ptr %_mp_size.i.i.i, align 4
-  %cmp6.i.i.i = icmp ne i32 %17, 0
-  %conv.i.i.i402 = zext i1 %cmp6.i.i.i to i32
-  %cmp.inv.i.i.i = icmp sgt i32 %17, -1
-  br i1 %cmp.inv.i.i.i, label %_ZNK4cvc58internal13DeltaRational3sgnEv.exit, label %if.then57
+  %cmp6.i.i.i.not.not = icmp eq i32 %17, 0
+  br i1 %cmp6.i.i.i.not.not, label %if.end60, label %if.then57
 
-_ZNK4cvc58internal13DeltaRational3sgnEv.exit:     ; preds = %if.then.i401, %lor.lhs.false
-  %retval.0.i = phi i32 [ %cond.i.i, %lor.lhs.false ], [ %conv.i.i.i402, %if.then.i401 ]
-  %cmp56.not = icmp eq i32 %retval.0.i, 0
-  br i1 %cmp56.not, label %if.end60, label %if.then57
-
-if.then57:                                        ; preds = %if.then.i401, %if.then53, %_ZNK4cvc58internal13DeltaRational3sgnEv.exit, %_ZNK4cvc58internal6theory5arith6linear22ArithCongruenceManager17isWatchedVariableEj.exit
+if.then57:                                        ; preds = %lor.lhs.false, %if.then.i401, %if.then53, %_ZNK4cvc58internal6theory5arith6linear22ArithCongruenceManager17isWatchedVariableEj.exit
   %18 = load ptr, ptr %constraint.addr, align 8
   call void @_ZN4cvc58internal6theory5arith6linear22ArithCongruenceManager14equalsConstantEPKNS3_10ConstraintES7_(ptr noundef nonnull align 8 dereferenceable(680) %d_congruenceManager, ptr noundef %11, ptr noundef %18)
   br label %if.end60
 
-if.end60:                                         ; preds = %_ZNK4cvc58internal13DeltaRational3sgnEv.exit, %if.then57, %if.end48
+if.end60:                                         ; preds = %if.then.i401, %if.then57, %if.end48
   %call61 = call noundef zeroext i1 @_ZNK4cvc58internal6theory5arith6linear15ValueCollection14hasDisequalityEv(ptr noundef nonnull align 8 dereferenceable(32) %call49)
   br i1 %call61, label %cond.end75, label %if.end119
 
@@ -10456,11 +10434,11 @@ if.then.i498:                                     ; preds = %if.end119
 
 if.else.i:                                        ; preds = %if.end119
   call void @_ZNSt5dequeIPN4cvc58internal6theory5arith6linear10ConstraintESaIS6_EE16_M_push_back_auxIJRKS6_EEEvDpOT_(ptr noundef nonnull align 8 dereferenceable(80) %d_currentPropagationList, ptr noundef nonnull align 8 dereferenceable(8) %constraint.addr)
-  %.pre705 = load ptr, ptr %_M_finish.i, align 8
+  %.pre706 = load ptr, ptr %_M_finish.i, align 8
   br label %_ZNSt5dequeIPN4cvc58internal6theory5arith6linear10ConstraintESaIS6_EE9push_backERKS6_.exit
 
 _ZNSt5dequeIPN4cvc58internal6theory5arith6linear10ConstraintESaIS6_EE9push_backERKS6_.exit: ; preds = %if.then.i498, %if.else.i
-  %38 = phi ptr [ %incdec.ptr.i, %if.then.i498 ], [ %.pre705, %if.else.i ]
+  %38 = phi ptr [ %incdec.ptr.i, %if.then.i498 ], [ %.pre706, %if.else.i ]
   %39 = load i32, ptr %x_i, align 4
   %d_image.i.i500 = getelementptr inbounds nuw i8, ptr %this, i64 1464
   %conv.i.i501 = zext i32 %39 to i64
@@ -10791,14 +10769,14 @@ if.then.i.i:                                      ; preds = %_ZNSt5dequeIPN4cvc5
 
 if.else.i.i:                                      ; preds = %_ZNSt5dequeIPN4cvc58internal6theory5arith6linear10ConstraintESaIS6_EE9push_backERKS6_.exit
   call void @_ZNSt5dequeIPN4cvc58internal6theory5arith6linear10ConstraintESaIS6_EE16_M_push_back_auxIJS6_EEEvDpOT_(ptr noundef nonnull align 8 dereferenceable(80) %d_currentPropagationList, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp43)
-  %.pre386 = load i32, ptr %x_i, align 4
-  %.pre387 = load ptr, ptr %_M_finish.i, align 8
-  %.pre388 = zext i32 %.pre386 to i64
+  %.pre387 = load i32, ptr %x_i, align 4
+  %.pre388 = load ptr, ptr %_M_finish.i, align 8
+  %.pre389 = zext i32 %.pre387 to i64
   br label %_ZNSt5dequeIPN4cvc58internal6theory5arith6linear10ConstraintESaIS6_EE9push_backEOS6_.exit
 
 _ZNSt5dequeIPN4cvc58internal6theory5arith6linear10ConstraintESaIS6_EE9push_backEOS6_.exit: ; preds = %if.then.i.i, %if.else.i.i
-  %conv.i.i225.pre-phi = phi i64 [ %conv.i.i222, %if.then.i.i ], [ %.pre388, %if.else.i.i ]
-  %17 = phi ptr [ %incdec.ptr.i.i, %if.then.i.i ], [ %.pre387, %if.else.i.i ]
+  %conv.i.i225.pre-phi = phi i64 [ %conv.i.i222, %if.then.i.i ], [ %.pre389, %if.else.i.i ]
+  %17 = phi ptr [ %incdec.ptr.i.i, %if.then.i.i ], [ %.pre388, %if.else.i.i ]
   %18 = load ptr, ptr %d_image.i.i221, align 8
   %d_ub.i226 = getelementptr inbounds nuw %"class.cvc5::internal::theory::arith::linear::ArithVariables::VarInfo", ptr %18, i64 %conv.i.i225.pre-phi, i32 4
   %19 = load ptr, ptr %d_ub.i226, align 8
@@ -10853,27 +10831,16 @@ _ZNK4cvc58internal6theory5arith6linear22ArithCongruenceManager17isWatchedVariabl
 if.then55:                                        ; preds = %_ZNK4cvc58internal6theory5arith6linear22ArithCongruenceManager17isWatchedVariableEj.exit
   %_mp_size.i.i = getelementptr inbounds nuw i8, ptr %constraint, i64 12
   %29 = load i32, ptr %_mp_size.i.i, align 4
-  %cmp6.i.i = icmp ne i32 %29, 0
-  %conv.i.i236 = zext i1 %cmp6.i.i to i32
-  %cmp.inv.i.i = icmp sgt i32 %29, -1
-  %cond.i.i = select i1 %cmp.inv.i.i, i32 %conv.i.i236, i32 -1
-  %cmp.i = icmp eq i32 %cond.i.i, 0
-  br i1 %cmp.i, label %if.then.i237, label %_ZNK4cvc58internal13DeltaRational3sgnEv.exit
+  %cmp6.i.i.not = icmp eq i32 %29, 0
+  br i1 %cmp6.i.i.not, label %if.then.i237, label %if.else
 
 if.then.i237:                                     ; preds = %if.then55
   %_mp_size.i.i.i = getelementptr inbounds nuw i8, ptr %constraint, i64 44
   %30 = load i32, ptr %_mp_size.i.i.i, align 4
-  %cmp6.i.i.i = icmp ne i32 %30, 0
-  %conv.i.i.i238 = zext i1 %cmp6.i.i.i to i32
-  %cmp.inv.i.i.i = icmp sgt i32 %30, -1
-  br i1 %cmp.inv.i.i.i, label %_ZNK4cvc58internal13DeltaRational3sgnEv.exit, label %if.else
+  %cmp6.i.i.i.not.not = icmp eq i32 %30, 0
+  br i1 %cmp6.i.i.i.not.not, label %if.then.i239, label %if.else
 
-_ZNK4cvc58internal13DeltaRational3sgnEv.exit:     ; preds = %if.then.i237, %if.then55
-  %retval.0.i = phi i32 [ %cond.i.i, %if.then55 ], [ %conv.i.i.i238, %if.then.i237 ]
-  %cmp57 = icmp eq i32 %retval.0.i, 0
-  br i1 %cmp57, label %if.then.i239, label %if.else
-
-if.then.i239:                                     ; preds = %_ZNK4cvc58internal13DeltaRational3sgnEv.exit
+if.then.i239:                                     ; preds = %if.then.i237
   %31 = load ptr, ptr %d_image.i.i221, align 8
   %d_lb.i.i = getelementptr inbounds nuw %"class.cvc5::internal::theory::arith::linear::ArithVariables::VarInfo", ptr %31, i64 %conv.i.i.i, i32 3
   %32 = load ptr, ptr %d_lb.i.i, align 8
@@ -10902,7 +10869,7 @@ if.else10.i:                                      ; preds = %if.else.i242
   call void @_ZN4cvc58internal6theory5arith6linear22ArithCongruenceManager21watchedVariableIsZeroEPKNS3_10ConstraintES7_(ptr noundef nonnull align 8 dereferenceable(680) %d_congruenceManager, ptr noundef nonnull %32, ptr noundef nonnull %33)
   br label %if.end99
 
-if.else:                                          ; preds = %if.then.i237, %_ZNK4cvc58internal13DeltaRational3sgnEv.exit
+if.else:                                          ; preds = %if.then55, %if.then.i237
   %36 = load ptr, ptr %constraint.addr, align 8
   call void @_ZN4cvc58internal6theory5arith6linear22ArithCongruenceManager27watchedVariableCannotBeZeroEPKNS3_10ConstraintE(ptr noundef nonnull align 8 dereferenceable(680) %d_congruenceManager, ptr noundef %36)
   %37 = load ptr, ptr %constraint.addr, align 8
@@ -11079,31 +11046,20 @@ _ZNK4cvc58internal6theory5arith6linear22ArithCongruenceManager17isWatchedVariabl
 if.then13:                                        ; preds = %_ZNK4cvc58internal6theory5arith6linear22ArithCongruenceManager17isWatchedVariableEj.exit
   %_mp_size.i.i = getelementptr inbounds nuw i8, ptr %constraint, i64 12
   %5 = load i32, ptr %_mp_size.i.i, align 4
-  %cmp6.i.i = icmp ne i32 %5, 0
-  %conv.i.i = zext i1 %cmp6.i.i to i32
-  %cmp.inv.i.i = icmp sgt i32 %5, -1
-  %cond.i.i = select i1 %cmp.inv.i.i, i32 %conv.i.i, i32 -1
-  %cmp.i = icmp eq i32 %cond.i.i, 0
-  br i1 %cmp.i, label %if.then.i144, label %_ZNK4cvc58internal13DeltaRational3sgnEv.exit
+  %cmp6.i.i.not = icmp eq i32 %5, 0
+  br i1 %cmp6.i.i.not, label %if.then.i144, label %if.end18
 
 if.then.i144:                                     ; preds = %if.then13
   %_mp_size.i.i.i = getelementptr inbounds nuw i8, ptr %constraint, i64 44
   %6 = load i32, ptr %_mp_size.i.i.i, align 4
-  %cmp6.i.i.i = icmp ne i32 %6, 0
-  %conv.i.i.i145 = zext i1 %cmp6.i.i.i to i32
-  %cmp.inv.i.i.i = icmp sgt i32 %6, -1
-  br i1 %cmp.inv.i.i.i, label %_ZNK4cvc58internal13DeltaRational3sgnEv.exit, label %if.end18
+  %cmp6.i.i.i.not.not = icmp eq i32 %6, 0
+  br i1 %cmp6.i.i.i.not.not, label %if.then15, label %if.end18
 
-_ZNK4cvc58internal13DeltaRational3sgnEv.exit:     ; preds = %if.then.i144, %if.then13
-  %retval.0.i = phi i32 [ %cond.i.i, %if.then13 ], [ %conv.i.i.i145, %if.then.i144 ]
-  %cmp = icmp eq i32 %retval.0.i, 0
-  br i1 %cmp, label %if.then15, label %if.end18
-
-if.then15:                                        ; preds = %_ZNK4cvc58internal13DeltaRational3sgnEv.exit
+if.then15:                                        ; preds = %if.then.i144
   tail call void @_ZN4cvc58internal6theory5arith6linear22ArithCongruenceManager27watchedVariableCannotBeZeroEPKNS3_10ConstraintE(ptr noundef nonnull align 8 dereferenceable(680) %d_congruenceManager, ptr noundef nonnull %constraint)
   br label %if.end18
 
-if.end18:                                         ; preds = %if.then.i144, %if.then, %_ZNK4cvc58internal6theory5arith6linear22ArithCongruenceManager17isWatchedVariableEj.exit, %if.then15, %_ZNK4cvc58internal13DeltaRational3sgnEv.exit, %cond.end
+if.end18:                                         ; preds = %if.then13, %if.then.i144, %if.then, %_ZNK4cvc58internal6theory5arith6linear22ArithCongruenceManager17isWatchedVariableEj.exit, %if.then15, %cond.end
   %call19 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNK4cvc58internal6theory5arith6linear10Constraint18getValueCollectionEv(ptr noundef nonnull align 8 dereferenceable(145) %constraint)
   %call20 = tail call noundef zeroext i1 @_ZNK4cvc58internal6theory5arith6linear15ValueCollection13hasLowerBoundEv(ptr noundef nonnull align 8 dereferenceable(32) %call19)
   br i1 %call20, label %land.lhs.true, label %if.end32
@@ -11278,8 +11234,8 @@ if.else:                                          ; preds = %land.lhs.true90, %_
 if.else120:                                       ; preds = %if.else
   %call.i582 = call noundef i32 @_ZNK4cvc58internal6theory5arith6linear14ArithVariables15cmpToUpperBoundEjRKNS0_13DeltaRationalE(ptr noundef nonnull align 8 dereferenceable(568) %d_partialModel106, i32 noundef %0, ptr noundef nonnull align 8 dereferenceable(64) %d_value.i)
   %cmp.i583 = icmp sgt i32 %call.i582, 0
-  %brmerge = or i1 %cmp.i583, %tobool.i430
-  br i1 %brmerge, label %return, label %cond.end148
+  %brmerge854 = or i1 %cmp.i583, %tobool.i430
+  br i1 %brmerge854, label %return, label %cond.end148
 
 cond.end148:                                      ; preds = %if.else120
   %d_diseqQueue = getelementptr inbounds nuw i8, ptr %this, i64 1088

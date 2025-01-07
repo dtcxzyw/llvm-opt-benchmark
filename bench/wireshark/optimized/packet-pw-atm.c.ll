@@ -1711,12 +1711,12 @@ pw_cell_size.exit28.i:                            ; preds = %pw_cell_size.exit.t
   unreachable
 
 number_of_cells.exit105:                          ; preds = %45
-  %49 = urem i32 %46, 48
-  %.neg39.i96 = sub nsw i32 %49, %46
-  %50 = icmp samesign ult i32 %46, 48
+  %49 = icmp samesign ult i32 %46, 48
+  %50 = urem i32 %46, 48
+  %.neg39.i96 = sub nsw i32 %50, %46
   %storemerge.i99 = sub i32 4, %.fr113
   %51 = icmp ne i32 %.neg39.i96, %storemerge.i99
-  %or.cond6 = select i1 %50, i1 true, i1 %51
+  %or.cond6 = or i1 %49, %51
   br i1 %or.cond6, label %.sink.split, label %53
 
 .sink.split:                                      ; preds = %number_of_cells.exit105, %pw_cell_size.exit28.i

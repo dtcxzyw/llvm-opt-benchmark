@@ -2433,8 +2433,8 @@ pmix_obj_new_tma.exit:                            ; preds = %.lr.ph.i.i, %41, %4
   %54 = add i64 %53, 1
   %55 = tail call noalias ptr @malloc(i64 noundef %54) #32
   %56 = load i8, ptr %0, align 1
-  %.not135241 = icmp eq i8 %56, 0
-  br i1 %.not135241, label %._crit_edge, label %.lr.ph
+  %.not135242 = icmp eq i8 %56, 0
+  br i1 %.not135242, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %pmix_obj_new_tma.exit, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %pmix_obj_new_tma.exit ]
@@ -2890,7 +2890,7 @@ pmix_obj_run_destructors.exit185:                 ; preds = %.lr.ph.i182, %232
   %257 = zext nneg i32 %219 to i64
   %258 = inttoptr i64 %257 to ptr
   %259 = tail call i32 @pmix_hash_table_set_value_ptr(ptr noundef nonnull @pmix_mca_base_var_index_hash, ptr noundef %255, i64 noundef %256, ptr noundef %258) #25
-  br label %308
+  br label %307
 
 260:                                              ; preds = %29
   %261 = load i8, ptr @pmix_mca_base_var_initialized, align 1
@@ -2930,7 +2930,7 @@ pmix_pointer_array_get_item.exit.i:               ; preds = %260
   %281 = getelementptr inbounds nuw i8, ptr %275, i64 168
   %282 = load ptr, ptr %281, align 8
   %.not.i190 = icmp eq ptr %1, null
-  br i1 %.not.i190, label %287, label %sub_0.i
+  br i1 %.not.i190, label %compare_strings.exit, label %sub_0.i
 
 sub_0.i:                                          ; preds = %280
   %283 = load i8, ptr %1, align 1
@@ -2943,108 +2943,103 @@ sub_0.i:                                          ; preds = %280
   %286 = icmp eq i8 %285, 0
   br i1 %286, label %compare_strings.exit.thread, label %.tail.thread.i
 
-287:                                              ; preds = %280
-  %288 = icmp ne ptr %282, null
-  %spec.select.i = zext i1 %288 to i32
-  br label %compare_strings.exit
-
 .tail.thread.i:                                   ; preds = %.tail.i, %sub_0.i
   %.not16.i = icmp eq ptr %282, null
-  br i1 %.not16.i, label %compare_strings.exit.thread233, label %289
+  br i1 %.not16.i, label %compare_strings.exit.thread233, label %287
 
-289:                                              ; preds = %.tail.thread.i
-  %290 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %1, ptr noundef nonnull readonly dereferenceable(1) %282) #30
-  br label %compare_strings.exit
+287:                                              ; preds = %.tail.thread.i
+  %288 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %1, ptr noundef nonnull readonly dereferenceable(1) %282) #30
+  %289 = icmp eq i32 %288, 0
+  br i1 %289, label %compare_strings.exit.thread, label %compare_strings.exit.thread233
 
-compare_strings.exit:                             ; preds = %287, %289
-  %.0.i191 = phi i32 [ %290, %289 ], [ %spec.select.i, %287 ]
-  %.not131 = icmp eq i32 %.0.i191, 0
-  br i1 %.not131, label %compare_strings.exit.thread, label %compare_strings.exit.thread233
+compare_strings.exit:                             ; preds = %280
+  %.not241 = icmp eq ptr %282, null
+  br i1 %.not241, label %compare_strings.exit.thread, label %compare_strings.exit.thread233
 
-compare_strings.exit.thread:                      ; preds = %.tail.i, %compare_strings.exit
-  %291 = getelementptr inbounds nuw i8, ptr %275, i64 176
-  %292 = load ptr, ptr %291, align 8
-  %293 = call fastcc i32 @compare_strings(ptr noundef %2, ptr noundef %292)
-  %.not132 = icmp eq i32 %293, 0
-  br i1 %.not132, label %294, label %compare_strings.exit.thread233
+compare_strings.exit.thread:                      ; preds = %287, %.tail.i, %compare_strings.exit
+  %290 = getelementptr inbounds nuw i8, ptr %275, i64 176
+  %291 = load ptr, ptr %290, align 8
+  %292 = call fastcc i32 @compare_strings(ptr noundef %2, ptr noundef %291)
+  %.not132 = icmp eq i32 %292, 0
+  br i1 %.not132, label %293, label %compare_strings.exit.thread233
 
-294:                                              ; preds = %compare_strings.exit.thread
-  %295 = getelementptr inbounds nuw i8, ptr %268, i64 136
-  %296 = load ptr, ptr %295, align 8
-  %297 = call fastcc i32 @compare_strings(ptr noundef %3, ptr noundef %296)
-  %.not133 = icmp eq i32 %297, 0
-  br i1 %.not133, label %305, label %compare_strings.exit.thread233
+293:                                              ; preds = %compare_strings.exit.thread
+  %294 = getelementptr inbounds nuw i8, ptr %268, i64 136
+  %295 = load ptr, ptr %294, align 8
+  %296 = call fastcc i32 @compare_strings(ptr noundef %3, ptr noundef %295)
+  %.not133 = icmp eq i32 %296, 0
+  br i1 %.not133, label %304, label %compare_strings.exit.thread233
 
-compare_strings.exit.thread233:                   ; preds = %.tail.thread.i, %294, %compare_strings.exit.thread, %compare_strings.exit
-  %298 = getelementptr inbounds nuw i8, ptr %268, i64 144
-  %299 = load ptr, ptr %298, align 8
-  %300 = getelementptr inbounds nuw i8, ptr %275, i64 176
-  %301 = load ptr, ptr %300, align 8
-  %302 = getelementptr inbounds nuw i8, ptr %268, i64 136
-  %303 = load ptr, ptr %302, align 8
-  %304 = call i32 (ptr, ptr, i32, ...) @pmix_show_help(ptr noundef nonnull @.str.43, ptr noundef nonnull @.str.72, i32 noundef 1, ptr noundef %299, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %282, ptr noundef %301, ptr noundef %303) #25
+compare_strings.exit.thread233:                   ; preds = %287, %.tail.thread.i, %293, %compare_strings.exit.thread, %compare_strings.exit
+  %297 = getelementptr inbounds nuw i8, ptr %268, i64 144
+  %298 = load ptr, ptr %297, align 8
+  %299 = getelementptr inbounds nuw i8, ptr %275, i64 176
+  %300 = load ptr, ptr %299, align 8
+  %301 = getelementptr inbounds nuw i8, ptr %268, i64 136
+  %302 = load ptr, ptr %301, align 8
+  %303 = call i32 (ptr, ptr, i32, ...) @pmix_show_help(ptr noundef nonnull @.str.43, ptr noundef nonnull @.str.72, i32 noundef 1, ptr noundef %298, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %282, ptr noundef %300, ptr noundef %302) #25
   br label %pmix_pointer_array_get_item.exit.thread
 
-305:                                              ; preds = %294
-  %306 = getelementptr inbounds nuw i8, ptr %268, i64 128
-  %307 = load i32, ptr %306, align 8
-  %.not134 = icmp eq i32 %307, %5
-  br i1 %.not134, label %308, label %pmix_pointer_array_get_item.exit.thread
+304:                                              ; preds = %293
+  %305 = getelementptr inbounds nuw i8, ptr %268, i64 128
+  %306 = load i32, ptr %305, align 8
+  %.not134 = icmp eq i32 %306, %5
+  br i1 %.not134, label %307, label %pmix_pointer_array_get_item.exit.thread
 
-308:                                              ; preds = %305, %251
-  %.0222 = phi ptr [ %37, %251 ], [ %268, %305 ]
+307:                                              ; preds = %304, %251
+  %.0222 = phi ptr [ %37, %251 ], [ %268, %304 ]
   %.not140 = icmp eq ptr %.0112, null
-  br i1 %.not140, label %309, label %316
+  br i1 %.not140, label %308, label %315
 
-309:                                              ; preds = %308
-  %310 = getelementptr inbounds nuw i8, ptr %.0222, i64 368
-  store ptr %8, ptr %310, align 8
-  %311 = add i32 %5, -5
-  %or.cond = icmp ult i32 %311, 2
-  br i1 %or.cond, label %312, label %pmix_value_array_append_item.exit
+308:                                              ; preds = %307
+  %309 = getelementptr inbounds nuw i8, ptr %.0222, i64 368
+  store ptr %8, ptr %309, align 8
+  %310 = add i32 %5, -5
+  %or.cond = icmp ult i32 %310, 2
+  br i1 %or.cond, label %311, label %pmix_value_array_append_item.exit
 
-312:                                              ; preds = %309
-  %313 = load ptr, ptr %8, align 8
-  %.not141 = icmp eq ptr %313, null
-  br i1 %.not141, label %pmix_value_array_append_item.exit, label %314
+311:                                              ; preds = %308
+  %312 = load ptr, ptr %8, align 8
+  %.not141 = icmp eq ptr %312, null
+  br i1 %.not141, label %pmix_value_array_append_item.exit, label %313
 
-314:                                              ; preds = %312
-  %315 = call noalias ptr @strdup(ptr noundef nonnull %313) #25
-  store ptr %315, ptr %8, align 8
+313:                                              ; preds = %311
+  %314 = call noalias ptr @strdup(ptr noundef nonnull %312) #25
+  store ptr %314, ptr %8, align 8
   br label %pmix_value_array_append_item.exit
 
-316:                                              ; preds = %308
-  %317 = getelementptr inbounds nuw i8, ptr %.0112, i64 168
-  %318 = getelementptr inbounds nuw i8, ptr %.0112, i64 304
-  %319 = load i64, ptr %318, align 8
-  %320 = add i64 %319, 1
-  %321 = call i32 @pmix_value_array_set_size(ptr noundef nonnull %317, i64 noundef %320) #25
-  %.not12.i.i = icmp eq i32 %321, 0
-  br i1 %.not12.i.i, label %322, label %pmix_value_array_append_item.exit
+315:                                              ; preds = %307
+  %316 = getelementptr inbounds nuw i8, ptr %.0112, i64 168
+  %317 = getelementptr inbounds nuw i8, ptr %.0112, i64 304
+  %318 = load i64, ptr %317, align 8
+  %319 = add i64 %318, 1
+  %320 = call i32 @pmix_value_array_set_size(ptr noundef nonnull %316, i64 noundef %319) #25
+  %.not12.i.i = icmp eq i32 %320, 0
+  br i1 %.not12.i.i, label %321, label %pmix_value_array_append_item.exit
 
-322:                                              ; preds = %316
-  %323 = getelementptr inbounds nuw i8, ptr %.0112, i64 288
-  %324 = load ptr, ptr %323, align 8
-  %325 = getelementptr inbounds nuw i8, ptr %.0112, i64 296
-  %326 = load i64, ptr %325, align 8
-  %327 = mul i64 %326, %319
-  %328 = getelementptr inbounds i8, ptr %324, i64 %327
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %328, ptr nonnull readonly align 4 %12, i64 %326, i1 false)
+321:                                              ; preds = %315
+  %322 = getelementptr inbounds nuw i8, ptr %.0112, i64 288
+  %323 = load ptr, ptr %322, align 8
+  %324 = getelementptr inbounds nuw i8, ptr %.0112, i64 296
+  %325 = load i64, ptr %324, align 8
+  %326 = mul i64 %325, %318
+  %327 = getelementptr inbounds i8, ptr %323, i64 %326
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %327, ptr nonnull readonly align 4 %12, i64 %325, i1 false)
   br label %pmix_value_array_append_item.exit
 
-pmix_value_array_append_item.exit:                ; preds = %322, %316, %312, %314, %309
-  %329 = getelementptr inbounds nuw i8, ptr %.0222, i64 320
-  %330 = load i32, ptr %329, align 8
-  %331 = or i32 %330, 65536
-  store i32 %331, ptr %329, align 8
-  %332 = call fastcc i32 @var_set_initial(ptr noundef nonnull %.0222, ptr noundef %.0112)
-  %.not142 = icmp eq i32 %332, 0
+pmix_value_array_append_item.exit:                ; preds = %321, %315, %311, %313, %308
+  %328 = getelementptr inbounds nuw i8, ptr %.0222, i64 320
+  %329 = load i32, ptr %328, align 8
+  %330 = or i32 %329, 65536
+  store i32 %330, ptr %328, align 8
+  %331 = call fastcc i32 @var_set_initial(ptr noundef nonnull %.0222, ptr noundef %.0112)
+  %.not142 = icmp eq i32 %331, 0
   %.0..0..0.221 = load i32, ptr %12, align 4
-  %spec.select = select i1 %.not142, i32 %.0..0..0.221, i32 %332
+  %spec.select = select i1 %.not142, i32 %.0..0..0.221, i32 %331
   br label %pmix_pointer_array_get_item.exit.thread
 
-pmix_pointer_array_get_item.exit.thread:          ; preds = %pmix_pointer_array_get_item.exit.i, %260, %17, %243, %245, %215, %217, %158, %160, %101, %103, %pmix_value_array_append_item.exit, %305, %270, %226, %198, %141, %84, %32, %27, %pmix_pointer_array_get_item.exit, %15, %compare_strings.exit.thread233
-  %.0111 = phi i32 [ -1, %compare_strings.exit.thread233 ], [ -27, %15 ], [ -46, %pmix_pointer_array_get_item.exit ], [ %28, %27 ], [ %33, %32 ], [ -29, %84 ], [ -1, %141 ], [ -1, %198 ], [ -1, %226 ], [ -1, %270 ], [ -65, %305 ], [ %spec.select, %pmix_value_array_append_item.exit ], [ -29, %103 ], [ -29, %101 ], [ -1, %160 ], [ -1, %158 ], [ -1, %217 ], [ -1, %215 ], [ -1, %245 ], [ -1, %243 ], [ -46, %17 ], [ -1, %260 ], [ -1, %pmix_pointer_array_get_item.exit.i ]
+pmix_pointer_array_get_item.exit.thread:          ; preds = %pmix_pointer_array_get_item.exit.i, %260, %17, %243, %245, %215, %217, %158, %160, %101, %103, %pmix_value_array_append_item.exit, %304, %270, %226, %198, %141, %84, %32, %27, %pmix_pointer_array_get_item.exit, %15, %compare_strings.exit.thread233
+  %.0111 = phi i32 [ -1, %compare_strings.exit.thread233 ], [ -27, %15 ], [ -46, %pmix_pointer_array_get_item.exit ], [ %28, %27 ], [ %33, %32 ], [ -29, %84 ], [ -1, %141 ], [ -1, %198 ], [ -1, %226 ], [ -1, %270 ], [ -65, %304 ], [ %spec.select, %pmix_value_array_append_item.exit ], [ -29, %103 ], [ -29, %101 ], [ -1, %160 ], [ -1, %158 ], [ -1, %217 ], [ -1, %215 ], [ -1, %245 ], [ -1, %243 ], [ -46, %17 ], [ -1, %260 ], [ -1, %pmix_pointer_array_get_item.exit.i ]
   ret i32 %.0111
 }
 

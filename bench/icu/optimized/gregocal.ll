@@ -955,8 +955,7 @@ if.then:                                          ; preds = %entry
 if.end:                                           ; preds = %entry, %if.then
   %eyear.addr.0 = phi i32 [ %add, %if.then ], [ %eyear, %entry ]
   %1 = and i32 %eyear.addr.0, 3
-  %cmp3 = icmp eq i32 %1, 0
-  %conv = zext i1 %cmp3 to i8
+  %cmp3 = icmp ne i32 %1, 0
   %conv4 = sext i32 %eyear.addr.0 to i64
   %sub = add nsw i64 %conv4, -1
   %mul = mul nsw i64 %sub, 365
@@ -986,7 +985,7 @@ if.end15:                                         ; preds = %if.then10, %if.end
   br i1 %tobool17.not, label %if.end28, label %if.then18
 
 if.then18:                                        ; preds = %if.end15
-  br i1 %cmp3, label %land.rhs, label %land.end
+  br i1 %cmp3, label %land.end, label %land.rhs
 
 land.rhs:                                         ; preds = %if.then18
   %rem20 = srem i32 %eyear.addr.0, 100
@@ -995,12 +994,11 @@ land.rhs:                                         ; preds = %if.then18
 
 lor.rhs:                                          ; preds = %land.rhs
   %rem22 = srem i32 %eyear.addr.0, 400
-  %cmp23 = icmp eq i32 %rem22, 0
-  %5 = zext i1 %cmp23 to i8
+  %cmp23 = icmp ne i32 %rem22, 0
   br label %land.end
 
 land.end:                                         ; preds = %land.rhs, %lor.rhs, %if.then18
-  %conv24 = phi i8 [ 0, %if.then18 ], [ 1, %land.rhs ], [ %5, %lor.rhs ]
+  %conv24 = phi i1 [ true, %if.then18 ], [ false, %land.rhs ], [ %cmp23, %lor.rhs ]
   %call.i = call noundef i64 @_ZN6icu_759ClockMath11floorDivideEll(i64 noundef %sub, i64 noundef 400)
   %call1.i = call noundef i64 @_ZN6icu_759ClockMath11floorDivideEll(i64 noundef %sub, i64 noundef 100)
   %sub2.i = sub nsw i64 %call.i, %call1.i
@@ -1011,18 +1009,17 @@ land.end:                                         ; preds = %land.rhs, %lor.rhs,
   br label %if.end28
 
 if.end28:                                         ; preds = %land.end, %if.end15
-  %isLeap.0 = phi i8 [ %conv24, %land.end ], [ %conv, %if.end15 ]
+  %isLeap.0 = phi i1 [ %conv24, %land.end ], [ %cmp3, %if.end15 ]
   %julianDay.0 = phi i64 [ %add27, %land.end ], [ %add7, %if.end15 ]
-  %6 = load i32, ptr %month.addr, align 4
-  %cmp29.not = icmp eq i32 %6, 0
+  %5 = load i32, ptr %month.addr, align 4
+  %cmp29.not = icmp eq i32 %5, 0
   br i1 %cmp29.not, label %if.end36, label %if.then30
 
 if.then30:                                        ; preds = %if.end28
-  %tobool31.not = icmp eq i8 %isLeap.0, 0
-  %idxprom = sext i32 %6 to i64
+  %idxprom = sext i32 %5 to i64
   %arrayidx = getelementptr inbounds [12 x i16], ptr @_ZL12kLeapNumDays, i64 0, i64 %idxprom
   %arrayidx33 = getelementptr inbounds [12 x i16], ptr @_ZL8kNumDays, i64 0, i64 %idxprom
-  %cond.in = select i1 %tobool31.not, ptr %arrayidx33, ptr %arrayidx
+  %cond.in = select i1 %isLeap.0, ptr %arrayidx33, ptr %arrayidx
   %cond = load i16, ptr %cond.in, align 2
   %conv34 = sext i16 %cond to i64
   %add35 = add nsw i64 %julianDay.0, %conv34

@@ -2063,90 +2063,85 @@ _Py_XNewRef.exit:                                 ; preds = %_Py_NewRef.exit19, 
   %kwargs24 = getelementptr inbounds nuw i8, ptr %call5, i64 24
   store ptr %kwargs, ptr %kwargs24, align 8
   %tobool25.not = icmp eq i32 %joinable, 0
-  br i1 %tobool25.not, label %if.else, label %if.then26
+  br i1 %tobool25.not, label %if.end30, label %if.then26
 
 if.then26:                                        ; preds = %_Py_XNewRef.exit
   %call27 = tail call i32 @PyThread_start_joinable_thread(ptr noundef nonnull @thread_run, ptr noundef nonnull %call5, ptr noundef nonnull %ident, ptr noundef nonnull %handle) #8
-  br label %if.end30
+  %9 = icmp eq i32 %call27, 0
+  br i1 %9, label %return, label %if.then32
 
-if.else:                                          ; preds = %_Py_XNewRef.exit
+if.end30:                                         ; preds = %_Py_XNewRef.exit
   store i64 0, ptr %handle, align 8
   %call28 = tail call i64 @PyThread_start_new_thread(ptr noundef nonnull @thread_run, ptr noundef nonnull %call5) #8
   store i64 %call28, ptr %ident, align 8
-  %cmp29 = icmp eq i64 %call28, -1
-  %conv = zext i1 %cmp29 to i32
-  br label %if.end30
+  %cmp29.not = icmp eq i64 %call28, -1
+  br i1 %cmp29.not, label %if.then32, label %return
 
-if.end30:                                         ; preds = %if.else, %if.then26
-  %err.0 = phi i32 [ %call27, %if.then26 ], [ %conv, %if.else ]
-  %tobool31.not = icmp eq i32 %err.0, 0
-  br i1 %tobool31.not, label %return, label %if.then32
-
-if.then32:                                        ; preds = %if.end30
-  %9 = load ptr, ptr @PyExc_RuntimeError, align 8
-  tail call void @PyErr_SetString(ptr noundef %9, ptr noundef nonnull @.str.24) #8
-  %10 = load ptr, ptr %call5, align 8
-  tail call void @PyThreadState_Clear(ptr noundef %10) #8
-  %11 = load ptr, ptr %func20, align 8
-  %12 = load i64, ptr %11, align 8
-  %13 = and i64 %12, 2147483648
-  %cmp.i11.not.i = icmp eq i64 %13, 0
+if.then32:                                        ; preds = %if.then26, %if.end30
+  %10 = load ptr, ptr @PyExc_RuntimeError, align 8
+  tail call void @PyErr_SetString(ptr noundef %10, ptr noundef nonnull @.str.24) #8
+  %11 = load ptr, ptr %call5, align 8
+  tail call void @PyThreadState_Clear(ptr noundef %11) #8
+  %12 = load ptr, ptr %func20, align 8
+  %13 = load i64, ptr %12, align 8
+  %14 = and i64 %13, 2147483648
+  %cmp.i11.not.i = icmp eq i64 %14, 0
   br i1 %cmp.i11.not.i, label %if.end.i4.i, label %Py_DECREF.exit9.i
 
 if.end.i4.i:                                      ; preds = %if.then32
-  %dec.i5.i = add i64 %12, -1
-  store i64 %dec.i5.i, ptr %11, align 8
+  %dec.i5.i = add i64 %13, -1
+  store i64 %dec.i5.i, ptr %12, align 8
   %cmp.i6.i = icmp eq i64 %dec.i5.i, 0
   br i1 %cmp.i6.i, label %if.then1.i7.i, label %Py_DECREF.exit9.i
 
 if.then1.i7.i:                                    ; preds = %if.end.i4.i
-  tail call void @_Py_Dealloc(ptr noundef nonnull %11) #8
+  tail call void @_Py_Dealloc(ptr noundef nonnull %12) #8
   br label %Py_DECREF.exit9.i
 
 Py_DECREF.exit9.i:                                ; preds = %if.then1.i7.i, %if.end.i4.i, %if.then32
-  %14 = load ptr, ptr %args22, align 8
-  %15 = load i64, ptr %14, align 8
-  %16 = and i64 %15, 2147483648
-  %cmp.i14.not.i = icmp eq i64 %16, 0
+  %15 = load ptr, ptr %args22, align 8
+  %16 = load i64, ptr %15, align 8
+  %17 = and i64 %16, 2147483648
+  %cmp.i14.not.i = icmp eq i64 %17, 0
   br i1 %cmp.i14.not.i, label %if.end.i.i24, label %Py_DECREF.exit.i
 
 if.end.i.i24:                                     ; preds = %Py_DECREF.exit9.i
-  %dec.i.i = add i64 %15, -1
-  store i64 %dec.i.i, ptr %14, align 8
+  %dec.i.i = add i64 %16, -1
+  store i64 %dec.i.i, ptr %15, align 8
   %cmp.i.i25 = icmp eq i64 %dec.i.i, 0
   br i1 %cmp.i.i25, label %if.then1.i.i, label %Py_DECREF.exit.i
 
 if.then1.i.i:                                     ; preds = %if.end.i.i24
-  tail call void @_Py_Dealloc(ptr noundef nonnull %14) #8
+  tail call void @_Py_Dealloc(ptr noundef nonnull %15) #8
   br label %Py_DECREF.exit.i
 
 Py_DECREF.exit.i:                                 ; preds = %if.then1.i.i, %if.end.i.i24, %Py_DECREF.exit9.i
-  %17 = load ptr, ptr %kwargs24, align 8
-  %cmp.not.i.i20 = icmp eq ptr %17, null
+  %18 = load ptr, ptr %kwargs24, align 8
+  %cmp.not.i.i20 = icmp eq ptr %18, null
   br i1 %cmp.not.i.i20, label %thread_bootstate_free.exit, label %if.then.i.i21
 
 if.then.i.i21:                                    ; preds = %Py_DECREF.exit.i
-  %18 = load i64, ptr %17, align 8
-  %19 = and i64 %18, 2147483648
-  %cmp.i2.not.i.i = icmp eq i64 %19, 0
+  %19 = load i64, ptr %18, align 8
+  %20 = and i64 %19, 2147483648
+  %cmp.i2.not.i.i = icmp eq i64 %20, 0
   br i1 %cmp.i2.not.i.i, label %if.end.i.i.i22, label %thread_bootstate_free.exit
 
 if.end.i.i.i22:                                   ; preds = %if.then.i.i21
-  %dec.i.i.i = add i64 %18, -1
-  store i64 %dec.i.i.i, ptr %17, align 8
+  %dec.i.i.i = add i64 %19, -1
+  store i64 %dec.i.i.i, ptr %18, align 8
   %cmp.i.i.i23 = icmp eq i64 %dec.i.i.i, 0
   br i1 %cmp.i.i.i23, label %if.then1.i.i.i, label %thread_bootstate_free.exit
 
 if.then1.i.i.i:                                   ; preds = %if.end.i.i.i22
-  tail call void @_Py_Dealloc(ptr noundef nonnull %17) #8
+  tail call void @_Py_Dealloc(ptr noundef nonnull %18) #8
   br label %thread_bootstate_free.exit
 
 thread_bootstate_free.exit:                       ; preds = %Py_DECREF.exit.i, %if.then.i.i21, %if.end.i.i.i22, %if.then1.i.i.i
   tail call void @PyMem_RawFree(ptr noundef nonnull %call5) #8
   br label %return
 
-return:                                           ; preds = %if.end30, %if.then12, %if.then15, %thread_bootstate_free.exit, %if.then6, %if.then3, %if.then
-  %retval.0 = phi i32 [ -1, %if.then3 ], [ -1, %if.then6 ], [ -1, %thread_bootstate_free.exit ], [ -1, %if.then ], [ -1, %if.then15 ], [ -1, %if.then12 ], [ 0, %if.end30 ]
+return:                                           ; preds = %if.then26, %if.end30, %if.then12, %if.then15, %thread_bootstate_free.exit, %if.then6, %if.then3, %if.then
+  %retval.0 = phi i32 [ -1, %if.then3 ], [ -1, %if.then6 ], [ -1, %thread_bootstate_free.exit ], [ -1, %if.then ], [ -1, %if.then15 ], [ -1, %if.then12 ], [ 0, %if.end30 ], [ 0, %if.then26 ]
   ret i32 %retval.0
 }
 

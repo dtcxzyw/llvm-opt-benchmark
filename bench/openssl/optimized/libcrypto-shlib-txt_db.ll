@@ -157,7 +157,7 @@ for.cond108.outer:                                ; preds = %if.end126, %if.end1
   br label %for.cond108
 
 for.cond108:                                      ; preds = %for.cond108.outer, %if.end131
-  %esc.0 = phi i32 [ %conv134, %if.end131 ], [ 0, %for.cond108.outer ]
+  %esc.0 = phi i1 [ %cmp133, %if.end131 ], [ true, %for.cond108.outer ]
   %p.0 = phi ptr [ %incdec.ptr136, %if.end131 ], [ %p.0.ph, %for.cond108.outer ]
   %f.0 = phi ptr [ %incdec.ptr135, %if.end131 ], [ %f.0.ph, %for.cond108.outer ]
   %10 = load i8, ptr %f.0, align 1
@@ -167,8 +167,7 @@ for.cond108:                                      ; preds = %for.cond108.outer, 
   ]
 
 if.then117:                                       ; preds = %for.cond108
-  %tobool118.not = icmp eq i32 %esc.0, 0
-  br i1 %tobool118.not, label %if.else120, label %if.then119
+  br i1 %esc.0, label %if.else120, label %if.then119
 
 if.then119:                                       ; preds = %if.then117
   %incdec.ptr = getelementptr inbounds i8, ptr %p.0, i64 -1
@@ -189,8 +188,7 @@ if.end126:                                        ; preds = %if.else120
 
 if.end131:                                        ; preds = %for.cond108, %if.then119
   %p.2 = phi ptr [ %incdec.ptr, %if.then119 ], [ %p.0, %for.cond108 ]
-  %cmp133 = icmp eq i8 %10, 92
-  %conv134 = zext i1 %cmp133 to i32
+  %cmp133 = icmp ne i8 %10, 92
   %incdec.ptr135 = getelementptr inbounds nuw i8, ptr %f.0, i64 1
   %incdec.ptr136 = getelementptr inbounds nuw i8, ptr %p.2, i64 1
   store i8 %10, ptr %p.2, align 1

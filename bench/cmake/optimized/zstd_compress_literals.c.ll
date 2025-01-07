@@ -113,7 +113,7 @@ define dso_local i64 @ZSTD_compressLiterals(ptr noundef %0, i64 noundef %1, ptr 
   %16 = icmp ugt i64 %3, 16383
   %17 = zext i1 %16 to i64
   %18 = add nuw nsw i64 %15, %17
-  %19 = icmp ult i64 %3, 256
+  %19 = icmp ugt i64 %3, 255
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(2064) %7, ptr noundef nonnull align 8 dereferenceable(2064) %6, i64 2064, i1 false)
   %.not = icmp eq i32 %9, 0
   br i1 %.not, label %40, label %20
@@ -130,7 +130,7 @@ define dso_local i64 @ZSTD_compressLiterals(ptr noundef %0, i64 noundef %1, ptr 
   br i1 %28, label %ZSTD_noCompressLiterals.exit, label %29
 
 29:                                               ; preds = %20
-  switch i32 %25, label %default.unreachable117 [
+  switch i32 %25, label %default.unreachable118 [
     i32 1, label %30
     i32 2, label %32
     i32 3, label %35
@@ -156,7 +156,7 @@ define dso_local i64 @ZSTD_compressLiterals(ptr noundef %0, i64 noundef %1, ptr 
   store i32 %37, ptr %0, align 1
   br label %38
 
-default.unreachable117:                           ; preds = %130, %105, %59, %29
+default.unreachable118:                           ; preds = %130, %105, %59, %29
   unreachable
 
 38:                                               ; preds = %35, %32, %30
@@ -169,10 +169,10 @@ default.unreachable117:                           ; preds = %130, %105, %59, %29
   %42 = load i32, ptr %41, align 8
   %43 = sub nsw i32 9, %8
   %44 = tail call i32 @llvm.smin.i32(i32 %43, i32 3)
-  %45 = icmp eq i32 %42, 2
+  %45 = icmp ne i32 %42, 2
   %46 = zext nneg i32 %44 to i64
   %47 = shl i64 8, %46
-  %48 = select i1 %45, i64 6, i64 %47
+  %48 = select i1 %45, i64 %47, i64 6
   %49 = icmp ult i64 %3, %48
   br i1 %49, label %50, label %70
 
@@ -188,7 +188,7 @@ default.unreachable117:                           ; preds = %130, %105, %59, %29
   br i1 %58, label %ZSTD_noCompressLiterals.exit, label %59
 
 59:                                               ; preds = %50
-  switch i32 %55, label %default.unreachable117 [
+  switch i32 %55, label %default.unreachable118 [
     i32 1, label %60
     i32 2, label %62
     i32 3, label %65
@@ -238,10 +238,10 @@ default.unreachable117:                           ; preds = %130, %105, %59, %29
   %80 = or disjoint i32 %76, %78
   %81 = or disjoint i32 %80, %79
   %82 = or disjoint i32 %81, %72
-  %83 = icmp eq i64 %18, 3
-  %or.cond = select i1 %45, i1 %83, i1 false
-  %narrow = or i1 %19, %or.cond
-  %84 = select i1 %narrow, ptr @HUF_compress1X_repeat, ptr @HUF_compress4X_repeat
+  %83 = icmp ne i64 %18, 3
+  %or.cond.not = select i1 %45, i1 true, i1 %83
+  %spec.select = and i1 %19, %or.cond.not
+  %84 = select i1 %spec.select, ptr @HUF_compress4X_repeat, ptr @HUF_compress1X_repeat
   %85 = getelementptr inbounds nuw i8, ptr %0, i64 %18
   %86 = sub nuw i64 %1, %18
   %87 = call i64 %84(ptr noundef nonnull %85, i64 noundef %86, ptr noundef %2, i64 noundef %3, i32 noundef 255, i32 noundef 11, ptr noundef %4, i64 noundef %5, ptr noundef nonnull %7, ptr noundef nonnull %13, i32 noundef %82) #5, !callees !5
@@ -252,13 +252,13 @@ default.unreachable117:                           ; preds = %130, %105, %59, %29
   %90 = add i32 %89, -1
   %91 = zext nneg i32 %90 to i64
   %92 = lshr i64 %3, %91
-  %.neg116 = add i64 %3, -2
-  %93 = sub i64 %.neg116, %92
+  %.neg117 = add i64 %3, -2
+  %93 = sub i64 %.neg117, %92
   %.not97 = icmp ult i64 %87, %93
   %94 = add i64 %87, -1
   %95 = icmp ult i64 %94, -120
-  %or.cond115 = select i1 %95, i1 %.not97, i1 false
-  br i1 %or.cond115, label %116, label %96
+  %or.cond = select i1 %95, i1 %.not97, i1 false
+  br i1 %or.cond, label %116, label %96
 
 96:                                               ; preds = %71
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(2064) %7, ptr noundef nonnull align 8 dereferenceable(2064) %6, i64 2064, i1 false)
@@ -273,7 +273,7 @@ default.unreachable117:                           ; preds = %130, %105, %59, %29
   br i1 %104, label %ZSTD_noCompressLiterals.exit, label %105
 
 105:                                              ; preds = %96
-  switch i32 %101, label %default.unreachable117 [
+  switch i32 %101, label %default.unreachable118 [
     i32 1, label %106
     i32 2, label %108
     i32 3, label %111
@@ -343,62 +343,61 @@ allBytesIdentical.exit:                           ; preds = %.lr.ph.i, %116
   br label %130
 
 130:                                              ; preds = %128, %allBytesIdentical.exit
-  switch i64 %18, label %default.unreachable117 [
+  switch i64 %18, label %default.unreachable118 [
     i64 3, label %131
-    i64 4, label %145
-    i64 5, label %153
+    i64 4, label %144
+    i64 5, label %152
   ]
 
 131:                                              ; preds = %130
-  %132 = select i1 %narrow, i32 4, i32 0
+  %132 = select i1 %spec.select, i32 4, i32 0
   %133 = trunc i64 %3 to i32
   %134 = shl i32 %133, 4
   %135 = or disjoint i32 %132, %134
-  %136 = or disjoint i32 %.088, %135
-  %137 = xor i32 %136, 4
-  %138 = trunc i64 %87 to i32
-  %139 = shl i32 %138, 14
-  %140 = add i32 %137, %139
-  %141 = trunc i32 %140 to i16
-  store i16 %141, ptr %0, align 1
-  %142 = lshr i32 %140, 16
-  %143 = trunc i32 %142 to i8
-  %144 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i8 %143, ptr %144, align 1
-  br label %164
+  %136 = trunc i64 %87 to i32
+  %137 = shl i32 %136, 14
+  %138 = add i32 %135, %137
+  %139 = or disjoint i32 %138, %.088
+  %140 = trunc i32 %139 to i16
+  store i16 %140, ptr %0, align 1
+  %141 = lshr i32 %138, 16
+  %142 = trunc i32 %141 to i8
+  %143 = getelementptr inbounds nuw i8, ptr %0, i64 2
+  store i8 %142, ptr %143, align 1
+  br label %163
 
-145:                                              ; preds = %130
-  %146 = trunc i64 %3 to i32
-  %147 = shl i32 %146, 4
-  %148 = trunc i64 %87 to i32
-  %149 = shl i32 %148, 18
-  %150 = or disjoint i32 %147, 8
-  %151 = add i32 %150, %149
-  %152 = or disjoint i32 %151, %.088
-  store i32 %152, ptr %0, align 1
-  br label %164
+144:                                              ; preds = %130
+  %145 = trunc i64 %3 to i32
+  %146 = shl i32 %145, 4
+  %147 = trunc i64 %87 to i32
+  %148 = shl i32 %147, 18
+  %149 = or disjoint i32 %146, 8
+  %150 = add i32 %149, %148
+  %151 = or disjoint i32 %150, %.088
+  store i32 %151, ptr %0, align 1
+  br label %163
 
-153:                                              ; preds = %130
-  %154 = trunc i64 %3 to i32
-  %155 = shl i32 %154, 4
-  %156 = trunc i64 %87 to i32
-  %157 = shl i32 %156, 22
-  %158 = or disjoint i32 %155, 12
-  %159 = add i32 %158, %157
-  %160 = or disjoint i32 %159, %.088
-  store i32 %160, ptr %0, align 1
-  %161 = lshr i64 %87, 10
-  %162 = trunc i64 %161 to i8
-  %163 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i8 %162, ptr %163, align 1
-  br label %164
+152:                                              ; preds = %130
+  %153 = trunc i64 %3 to i32
+  %154 = shl i32 %153, 4
+  %155 = trunc i64 %87 to i32
+  %156 = shl i32 %155, 22
+  %157 = or disjoint i32 %154, 12
+  %158 = add i32 %157, %156
+  %159 = or disjoint i32 %158, %.088
+  store i32 %159, ptr %0, align 1
+  %160 = lshr i64 %87, 10
+  %161 = trunc i64 %160 to i8
+  %162 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  store i8 %161, ptr %162, align 1
+  br label %163
 
-164:                                              ; preds = %153, %145, %131
-  %165 = add i64 %87, %18
+163:                                              ; preds = %152, %144, %131
+  %164 = add i64 %87, %18
   br label %ZSTD_noCompressLiterals.exit
 
-ZSTD_noCompressLiterals.exit:                     ; preds = %114, %96, %68, %50, %38, %20, %70, %164, %allBytesIdentical.exit.thread
-  %.0 = phi i64 [ %127, %allBytesIdentical.exit.thread ], [ %165, %164 ], [ -70, %70 ], [ %27, %38 ], [ -70, %20 ], [ %57, %68 ], [ -70, %50 ], [ %103, %114 ], [ -70, %96 ]
+ZSTD_noCompressLiterals.exit:                     ; preds = %114, %96, %68, %50, %38, %20, %70, %163, %allBytesIdentical.exit.thread
+  %.0 = phi i64 [ %127, %allBytesIdentical.exit.thread ], [ %164, %163 ], [ -70, %70 ], [ %27, %38 ], [ -70, %20 ], [ %57, %68 ], [ -70, %50 ], [ %103, %114 ], [ -70, %96 ]
   ret i64 %.0
 }
 

@@ -2713,17 +2713,16 @@ define internal fastcc void @advance_to_end_of_signature(ptr noundef %0, ptr noc
   store i8 %9, ptr %2, align 1
   switch i8 %7, label %thread-pre-split.backedge [
     i8 97, label %thread-pre-split.backedgethread-pre-split
-    i8 40, label %18
-    i8 123, label %19
+    i8 40, label %19
+    i8 123, label %20
   ]
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %12
-  %.01926 = phi i32 [ %spec.select, %12 ], [ %.019.ph.be, %.lr.ph ]
+  %.01926 = phi i1 [ %17, %12 ], [ %18, %.lr.ph ]
   %10 = load ptr, ptr %1, align 8
   %11 = load i8, ptr %10, align 1
   %.not22 = icmp ne i8 %11, 0
-  %.not23 = icmp eq i32 %.01926, 0
-  %or.cond = select i1 %.not22, i1 %.not23, i1 false
+  %or.cond = select i1 %.not22, i1 %.01926, i1 false
   br i1 %or.cond, label %12, label %.critedge
 
 12:                                               ; preds = %.lr.ph.split
@@ -2733,30 +2732,30 @@ define internal fastcc void @advance_to_end_of_signature(ptr noundef %0, ptr noc
   %15 = load i8, ptr %2, align 1
   %16 = add i8 %15, -1
   store i8 %16, ptr %2, align 1
-  %17 = icmp eq i8 %.0.ph.be, %14
-  %spec.select = zext i1 %17 to i32
+  %17 = icmp ne i8 %.0.ph.be, %14
   %.not = icmp eq i8 %16, 0
   br i1 %.not, label %.critedge, label %.lr.ph.split, !llvm.loop !19
 
-thread-pre-split.backedgethread-pre-split:        ; preds = %.split.us, %18, %19
-  %.not24.be.ph = phi i1 [ false, %18 ], [ false, %19 ], [ true, %.split.us ]
-  %.0.ph.be.ph = phi i8 [ 41, %18 ], [ 125, %19 ], [ 0, %.split.us ]
+thread-pre-split.backedgethread-pre-split:        ; preds = %.split.us, %19, %20
+  %.not24.be.ph = phi i1 [ false, %19 ], [ false, %20 ], [ true, %.split.us ]
+  %.0.ph.be.ph = phi i8 [ 41, %19 ], [ 125, %20 ], [ 0, %.split.us ]
   tail call fastcc void @advance_to_end_of_signature(ptr noundef %0, ptr noundef %1, ptr noundef %2)
   %.pr.pr = load i8, ptr %2, align 1
   br label %thread-pre-split.backedge
 
 thread-pre-split.backedge:                        ; preds = %thread-pre-split.backedgethread-pre-split, %.split.us
   %.pr = phi i8 [ %.pr.pr, %thread-pre-split.backedgethread-pre-split ], [ %9, %.split.us ]
+  %18 = phi i1 [ true, %thread-pre-split.backedgethread-pre-split ], [ false, %.split.us ]
   %.019.ph.be = phi i32 [ 0, %thread-pre-split.backedgethread-pre-split ], [ 1, %.split.us ]
   %.not24.be = phi i1 [ %.not24.be.ph, %thread-pre-split.backedgethread-pre-split ], [ true, %.split.us ]
   %.0.ph.be = phi i8 [ %.0.ph.be.ph, %thread-pre-split.backedgethread-pre-split ], [ 0, %.split.us ]
   %.not25 = icmp eq i8 %.pr, 0
   br i1 %.not25, label %.critedge, label %.lr.ph, !llvm.loop !19
 
-18:                                               ; preds = %.split.us
+19:                                               ; preds = %.split.us
   br label %thread-pre-split.backedgethread-pre-split
 
-19:                                               ; preds = %.split.us
+20:                                               ; preds = %.split.us
   br label %thread-pre-split.backedgethread-pre-split
 
 .critedge:                                        ; preds = %.lr.ph.split.us, %thread-pre-split.backedge, %12, %.lr.ph.split, %3

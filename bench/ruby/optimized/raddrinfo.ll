@@ -1898,12 +1898,12 @@ define noundef i64 @rsock_inspect_sockaddr(ptr noundef %0, i32 noundef %1, i64 n
 
 16:                                               ; preds = %9
   %17 = load i16, ptr %0, align 8
-  switch i16 %17, label %195 [
+  switch i16 %17, label %192 [
     i16 0, label %18
     i16 2, label %20
     i16 10, label %58
     i16 1, label %.preheader
-    i16 17, label %111
+    i16 17, label %108
   ]
 
 18:                                               ; preds = %16
@@ -1916,17 +1916,17 @@ define noundef i64 @rsock_inspect_sockaddr(ptr noundef %0, i32 noundef %1, i64 n
 
 .thread:                                          ; preds = %20
   %22 = tail call i64 @rb_str_cat(i64 noundef %2, ptr noundef nonnull @.str.11, i64 noundef 1) #19
-  br label %.thread184
+  br label %.thread183
 
 23:                                               ; preds = %20
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %25 = load i8, ptr %24, align 4
   %26 = zext i8 %25 to i32
   %27 = tail call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %2, ptr noundef nonnull @.str.10, i32 noundef %26) #19
-  %.not207 = icmp eq i32 %1, 5
-  br i1 %.not207, label %.thread184, label %29
+  %.not204 = icmp eq i32 %1, 5
+  br i1 %.not204, label %.thread183, label %29
 
-.thread184:                                       ; preds = %23, %.thread
+.thread183:                                       ; preds = %23, %.thread
   %28 = tail call i64 @rb_str_cat(i64 noundef %2, ptr noundef nonnull @.str.13, i64 noundef 2) #19
   br label %45
 
@@ -1943,45 +1943,45 @@ define noundef i64 @rsock_inspect_sockaddr(ptr noundef %0, i32 noundef %1, i64 n
   %37 = load i8, ptr %36, align 2
   %38 = zext i8 %37 to i32
   %39 = tail call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %2, ptr noundef nonnull @.str.12, i32 noundef %38) #19
-  %.not208 = icmp eq i32 %1, 7
-  br i1 %.not208, label %.thread221, label %.thread186
+  %.not205 = icmp eq i32 %1, 7
+  br i1 %.not205, label %.thread218, label %.thread185
 
-.thread221:                                       ; preds = %35
+.thread218:                                       ; preds = %35
   %40 = tail call i64 @rb_str_cat(i64 noundef %2, ptr noundef nonnull @.str.13, i64 noundef 2) #19
   br label %48
 
-.thread186:                                       ; preds = %35
+.thread185:                                       ; preds = %35
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 7
   %42 = load i8, ptr %41, align 1
   %43 = zext i8 %42 to i32
   %44 = tail call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %2, ptr noundef nonnull @.str.12, i32 noundef %43) #19
   br label %48
 
-45:                                               ; preds = %.thread184, %29
+45:                                               ; preds = %.thread183, %29
   %46 = tail call i64 @rb_str_cat(i64 noundef %2, ptr noundef nonnull @.str.13, i64 noundef 2) #19
   %47 = tail call i64 @rb_str_cat(i64 noundef %2, ptr noundef nonnull @.str.13, i64 noundef 2) #19
-  br i1 %21, label %48, label %.thread187
+  br i1 %21, label %48, label %.thread186
 
-48:                                               ; preds = %.thread221, %.thread186, %45
+48:                                               ; preds = %.thread218, %.thread185, %45
   %49 = load i16, ptr %11, align 2
   %50 = tail call zeroext i16 @ntohs(i16 noundef zeroext %49) #23
-  %.not182 = icmp eq i16 %50, 0
-  br i1 %.not182, label %55, label %51
+  %.not181 = icmp eq i16 %50, 0
+  br i1 %.not181, label %55, label %51
 
 51:                                               ; preds = %48
   %52 = zext i16 %50 to i32
   %53 = tail call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %2, ptr noundef nonnull @.str.14, i32 noundef %52) #19
   br label %55
 
-.thread187:                                       ; preds = %45
+.thread186:                                       ; preds = %45
   %54 = tail call i64 @rb_str_cat(i64 noundef %2, ptr noundef nonnull @.str.15, i64 noundef 2) #19
   br label %56
 
 55:                                               ; preds = %48, %51
-  %.not183 = icmp eq i32 %1, 16
-  br i1 %.not183, label %.loopexit, label %56
+  %.not182 = icmp eq i32 %1, 16
+  br i1 %.not182, label %.loopexit, label %56
 
-56:                                               ; preds = %.thread187, %55
+56:                                               ; preds = %.thread186, %55
   %57 = tail call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %2, ptr noundef nonnull @.str.16, i32 noundef %1, i32 noundef 16) #19
   br label %.loopexit
 
@@ -1995,8 +1995,8 @@ define noundef i64 @rsock_inspect_sockaddr(ptr noundef %0, i32 noundef %1, i64 n
 
 62:                                               ; preds = %58
   %63 = call i32 @rb_getnameinfo(ptr noundef nonnull %0, i32 noundef %1, ptr noundef nonnull %4, i64 noundef 1024, ptr noundef null, i64 noundef 0, i32 noundef 3)
-  %.not180 = icmp eq i32 %63, 0
-  br i1 %.not180, label %65, label %64
+  %.not179 = icmp eq i32 %63, 0
+  br i1 %.not179, label %65, label %64
 
 64:                                               ; preds = %62
   call void @rsock_raise_resolution_error(ptr noundef nonnull @.str.3, i32 noundef %63) #21
@@ -2018,8 +2018,8 @@ define noundef i64 @rsock_inspect_sockaddr(ptr noundef %0, i32 noundef %1, i64 n
   br label %74
 
 74:                                               ; preds = %70, %68
-  %.not181 = icmp eq i32 %1, 28
-  br i1 %.not181, label %.loopexit, label %75
+  %.not180 = icmp eq i32 %1, 28
+  br i1 %.not180, label %.loopexit, label %75
 
 75:                                               ; preds = %74
   %76 = add i32 %1, -28
@@ -2036,247 +2036,242 @@ define noundef i64 @rsock_inspect_sockaddr(ptr noundef %0, i32 noundef %1, i64 n
   %.ptr.i = getelementptr inbounds i8, ptr %0, i64 %.0.add.i
   %80 = load i8, ptr %.ptr.i, align 1
   %81 = icmp eq i8 %80, 0
-  br i1 %81, label %.preheader, label %.thread224, !llvm.loop !20
+  br i1 %81, label %.preheader, label %.thread221, !llvm.loop !20
 
 unixsocket_len.exit:                              ; preds = %.preheader
   %82 = tail call i64 @rb_str_cat(i64 noundef %2, ptr noundef nonnull @.str.21, i64 noundef 27) #19
   br label %.loopexit
 
-.thread224:                                       ; preds = %79
+.thread221:                                       ; preds = %79
   %83 = getelementptr i8, ptr %0, i64 %.0.idx.i
   %84 = icmp ult ptr %11, %83
-  br i1 %84, label %.lr.ph212, label %._crit_edge.thread
+  br i1 %84, label %.lr.ph209, label %._crit_edge.thread
 
-.lr.ph212:                                        ; preds = %.thread224, %93
-  %.0211 = phi ptr [ %95, %93 ], [ %11, %.thread224 ]
-  %.0165210 = phi i32 [ %94, %93 ], [ 1, %.thread224 ]
-  %.not177 = icmp eq i32 %.0165210, 0
-  br i1 %.not177, label %93, label %85
+.lr.ph209:                                        ; preds = %.thread221, %91
+  %.0208 = phi ptr [ %93, %91 ], [ %11, %.thread221 ]
+  %.0165207 = phi i1 [ %92, %91 ], [ false, %.thread221 ]
+  br i1 %.0165207, label %91, label %85
 
-85:                                               ; preds = %.lr.ph212
-  %86 = load i8, ptr %.0211, align 1
+85:                                               ; preds = %.lr.ph209
+  %86 = load i8, ptr %.0208, align 1
   %87 = sext i8 %86 to i32
   %88 = add nsw i32 %87, -127
   %89 = icmp ult i32 %88, -95
-  br i1 %89, label %93, label %90
+  %90 = icmp eq i8 %86, 32
+  %spec.select230 = select i1 %89, i1 true, i1 %90
+  br label %91
 
-90:                                               ; preds = %85
-  %91 = icmp ne i8 %86, 32
-  %92 = zext i1 %91 to i32
-  br label %93
+91:                                               ; preds = %85, %.lr.ph209
+  %92 = phi i1 [ true, %.lr.ph209 ], [ %spec.select230, %85 ]
+  %93 = getelementptr inbounds nuw i8, ptr %.0208, i64 1
+  %94 = icmp ult ptr %93, %83
+  br i1 %94, label %.lr.ph209, label %._crit_edge, !llvm.loop !26
 
-93:                                               ; preds = %90, %85, %.lr.ph212
-  %94 = phi i32 [ 0, %85 ], [ 0, %.lr.ph212 ], [ %92, %90 ]
-  %95 = getelementptr inbounds nuw i8, ptr %.0211, i64 1
-  %96 = icmp ult ptr %95, %83
-  br i1 %96, label %.lr.ph212, label %._crit_edge, !llvm.loop !26
+._crit_edge:                                      ; preds = %91
+  br i1 %92, label %102, label %._crit_edge.thread
 
-._crit_edge:                                      ; preds = %93
-  %97 = icmp eq i32 %94, 0
-  br i1 %97, label %105, label %._crit_edge.thread
+._crit_edge.thread:                               ; preds = %.thread221, %._crit_edge
+  %.0.lcssa226 = phi ptr [ %83, %._crit_edge ], [ %11, %.thread221 ]
+  %95 = load i8, ptr %11, align 1
+  %.not176 = icmp eq i8 %95, 47
+  br i1 %.not176, label %98, label %96
 
-._crit_edge.thread:                               ; preds = %.thread224, %._crit_edge
-  %.0.lcssa229 = phi ptr [ %83, %._crit_edge ], [ %11, %.thread224 ]
-  %98 = load i8, ptr %11, align 1
-  %.not176 = icmp eq i8 %98, 47
-  br i1 %.not176, label %101, label %99
+96:                                               ; preds = %._crit_edge.thread
+  %97 = tail call i64 @rb_str_cat(i64 noundef %2, ptr noundef nonnull @.str.22, i64 noundef 5) #19
+  br label %98
 
-99:                                               ; preds = %._crit_edge.thread
-  %100 = tail call i64 @rb_str_cat(i64 noundef %2, ptr noundef nonnull @.str.22, i64 noundef 5) #19
-  br label %101
-
-101:                                              ; preds = %99, %._crit_edge.thread
-  %102 = ptrtoint ptr %.0.lcssa229 to i64
-  %103 = sub i64 %102, %12
-  %104 = tail call i64 @rb_str_cat(i64 noundef %2, ptr noundef nonnull %11, i64 noundef %103) #19
+98:                                               ; preds = %96, %._crit_edge.thread
+  %99 = ptrtoint ptr %.0.lcssa226 to i64
+  %100 = sub i64 %99, %12
+  %101 = tail call i64 @rb_str_cat(i64 noundef %2, ptr noundef nonnull %11, i64 noundef %100) #19
   br label %.loopexit
 
-105:                                              ; preds = %._crit_edge
-  %106 = tail call i64 @rb_str_cat(i64 noundef %2, ptr noundef nonnull @.str.23, i64 noundef 4) #19
-  br label %.lr.ph216
+102:                                              ; preds = %._crit_edge
+  %103 = tail call i64 @rb_str_cat(i64 noundef %2, ptr noundef nonnull @.str.23, i64 noundef 4) #19
+  br label %.lr.ph213
 
-.lr.ph216:                                        ; preds = %105, %.lr.ph216
-  %.0164214 = phi ptr [ %107, %.lr.ph216 ], [ %11, %105 ]
-  %107 = getelementptr inbounds nuw i8, ptr %.0164214, i64 1
-  %108 = load i8, ptr %.0164214, align 1
-  %109 = zext i8 %108 to i32
-  %110 = tail call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %2, ptr noundef nonnull @.str.24, i32 noundef %109) #19
-  %exitcond220.not = icmp eq ptr %107, %83
-  br i1 %exitcond220.not, label %.loopexit, label %.lr.ph216, !llvm.loop !27
+.lr.ph213:                                        ; preds = %102, %.lr.ph213
+  %.0164211 = phi ptr [ %104, %.lr.ph213 ], [ %11, %102 ]
+  %104 = getelementptr inbounds nuw i8, ptr %.0164211, i64 1
+  %105 = load i8, ptr %.0164211, align 1
+  %106 = zext i8 %105 to i32
+  %107 = tail call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %2, ptr noundef nonnull @.str.24, i32 noundef %106) #19
+  %exitcond217.not = icmp eq ptr %104, %83
+  br i1 %exitcond217.not, label %.loopexit, label %.lr.ph213, !llvm.loop !27
 
-111:                                              ; preds = %16
-  %112 = tail call i64 @rb_str_cat(i64 noundef %2, ptr noundef nonnull @.str.26, i64 noundef 6) #19
-  %113 = icmp ugt i32 %1, 3
-  br i1 %113, label %114, label %.thread194
+108:                                              ; preds = %16
+  %109 = tail call i64 @rb_str_cat(i64 noundef %2, ptr noundef nonnull @.str.26, i64 noundef 6) #19
+  %110 = icmp ugt i32 %1, 3
+  br i1 %110, label %111, label %.thread193
 
-114:                                              ; preds = %111
-  %115 = tail call i64 @rb_str_cat_cstr(i64 noundef %2, ptr noundef nonnull @.str.25) #19
-  %116 = load i16, ptr %11, align 2
-  %117 = tail call zeroext i16 @ntohs(i16 noundef zeroext %116) #23
-  %118 = zext i16 %117 to i32
-  %119 = tail call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %2, ptr noundef nonnull @.str.28, i32 noundef %118) #19
-  %120 = icmp ugt i32 %1, 7
-  br i1 %120, label %121, label %.thread194
+111:                                              ; preds = %108
+  %112 = tail call i64 @rb_str_cat_cstr(i64 noundef %2, ptr noundef nonnull @.str.25) #19
+  %113 = load i16, ptr %11, align 2
+  %114 = tail call zeroext i16 @ntohs(i16 noundef zeroext %113) #23
+  %115 = zext i16 %114 to i32
+  %116 = tail call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %2, ptr noundef nonnull @.str.28, i32 noundef %115) #19
+  %117 = icmp ugt i32 %1, 7
+  br i1 %117, label %118, label %.thread193
 
-121:                                              ; preds = %114
-  %122 = tail call i64 @rb_str_cat_cstr(i64 noundef %2, ptr noundef nonnull @.str.27) #19
-  %123 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %124 = load i32, ptr %123, align 4
-  %125 = call ptr @if_indextoname(i32 noundef %124, ptr noundef nonnull %5) #19
-  %126 = icmp eq ptr %125, null
-  br i1 %126, label %127, label %130
+118:                                              ; preds = %111
+  %119 = tail call i64 @rb_str_cat_cstr(i64 noundef %2, ptr noundef nonnull @.str.27) #19
+  %120 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %121 = load i32, ptr %120, align 4
+  %122 = call ptr @if_indextoname(i32 noundef %121, ptr noundef nonnull %5) #19
+  %123 = icmp eq ptr %122, null
+  br i1 %123, label %124, label %127
 
-127:                                              ; preds = %121
-  %128 = load i32, ptr %123, align 4
-  %129 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %2, ptr noundef nonnull @.str.29, i32 noundef %128) #19
-  br label %132
+124:                                              ; preds = %118
+  %125 = load i32, ptr %120, align 4
+  %126 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %2, ptr noundef nonnull @.str.29, i32 noundef %125) #19
+  br label %129
 
-130:                                              ; preds = %121
-  %131 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %2, ptr noundef nonnull @.str.30, ptr noundef nonnull %5) #19
-  br label %132
+127:                                              ; preds = %118
+  %128 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %2, ptr noundef nonnull @.str.30, ptr noundef nonnull %5) #19
+  br label %129
 
-132:                                              ; preds = %127, %130
-  %133 = icmp ugt i32 %1, 9
-  br i1 %133, label %134, label %.thread194
+129:                                              ; preds = %124, %127
+  %130 = icmp ugt i32 %1, 9
+  br i1 %130, label %131, label %.thread193
 
-134:                                              ; preds = %132
-  %135 = call i64 @rb_str_cat_cstr(i64 noundef %2, ptr noundef nonnull @.str.27) #19
-  %136 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %137 = load i16, ptr %136, align 4
-  %138 = zext i16 %137 to i32
-  %139 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %2, ptr noundef nonnull @.str.31, i32 noundef %138) #19
-  %.not204 = icmp eq i32 %1, 10
-  br i1 %.not204, label %.thread194, label %140
+131:                                              ; preds = %129
+  %132 = call i64 @rb_str_cat_cstr(i64 noundef %2, ptr noundef nonnull @.str.27) #19
+  %133 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %134 = load i16, ptr %133, align 4
+  %135 = zext i16 %134 to i32
+  %136 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %2, ptr noundef nonnull @.str.31, i32 noundef %135) #19
+  %.not203 = icmp eq i32 %1, 10
+  br i1 %.not203, label %.thread193, label %137
 
-140:                                              ; preds = %134
-  %141 = call i64 @rb_str_cat_cstr(i64 noundef %2, ptr noundef nonnull @.str.27) #19
-  %142 = getelementptr inbounds nuw i8, ptr %0, i64 10
-  %143 = load i8, ptr %142, align 2
-  switch i8 %143, label %154 [
-    i8 0, label %144
-    i8 1, label %146
-    i8 2, label %148
-    i8 3, label %150
-    i8 4, label %152
+137:                                              ; preds = %131
+  %138 = call i64 @rb_str_cat_cstr(i64 noundef %2, ptr noundef nonnull @.str.27) #19
+  %139 = getelementptr inbounds nuw i8, ptr %0, i64 10
+  %140 = load i8, ptr %139, align 2
+  switch i8 %140, label %151 [
+    i8 0, label %141
+    i8 1, label %143
+    i8 2, label %145
+    i8 3, label %147
+    i8 4, label %149
   ]
 
-144:                                              ; preds = %140
-  %145 = call i64 @rb_str_cat(i64 noundef %2, ptr noundef nonnull @.str.32, i64 noundef 4) #19
-  br label %.thread194
+141:                                              ; preds = %137
+  %142 = call i64 @rb_str_cat(i64 noundef %2, ptr noundef nonnull @.str.32, i64 noundef 4) #19
+  br label %.thread193
 
-146:                                              ; preds = %140
-  %147 = call i64 @rb_str_cat(i64 noundef %2, ptr noundef nonnull @.str.33, i64 noundef 9) #19
-  br label %.thread194
+143:                                              ; preds = %137
+  %144 = call i64 @rb_str_cat(i64 noundef %2, ptr noundef nonnull @.str.33, i64 noundef 9) #19
+  br label %.thread193
 
-148:                                              ; preds = %140
-  %149 = call i64 @rb_str_cat(i64 noundef %2, ptr noundef nonnull @.str.34, i64 noundef 9) #19
-  br label %.thread194
+145:                                              ; preds = %137
+  %146 = call i64 @rb_str_cat(i64 noundef %2, ptr noundef nonnull @.str.34, i64 noundef 9) #19
+  br label %.thread193
 
-150:                                              ; preds = %140
-  %151 = call i64 @rb_str_cat(i64 noundef %2, ptr noundef nonnull @.str.35, i64 noundef 9) #19
-  br label %.thread194
+147:                                              ; preds = %137
+  %148 = call i64 @rb_str_cat(i64 noundef %2, ptr noundef nonnull @.str.35, i64 noundef 9) #19
+  br label %.thread193
 
-152:                                              ; preds = %140
-  %153 = call i64 @rb_str_cat(i64 noundef %2, ptr noundef nonnull @.str.36, i64 noundef 8) #19
-  br label %.thread194
+149:                                              ; preds = %137
+  %150 = call i64 @rb_str_cat(i64 noundef %2, ptr noundef nonnull @.str.36, i64 noundef 8) #19
+  br label %.thread193
 
-154:                                              ; preds = %140
-  %155 = zext i8 %143 to i32
-  %156 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %2, ptr noundef nonnull @.str.37, i32 noundef %155) #19
-  br label %.thread194
+151:                                              ; preds = %137
+  %152 = zext i8 %140 to i32
+  %153 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %2, ptr noundef nonnull @.str.37, i32 noundef %152) #19
+  br label %.thread193
 
-.thread194:                                       ; preds = %111, %114, %132, %144, %148, %152, %154, %150, %146, %134
-  %.3 = phi ptr [ @.str.27, %144 ], [ @.str.27, %146 ], [ @.str.27, %148 ], [ @.str.27, %150 ], [ @.str.27, %152 ], [ @.str.27, %154 ], [ @.str.27, %134 ], [ @.str.27, %132 ], [ @.str.27, %114 ], [ @.str.25, %111 ]
-  %157 = getelementptr inbounds nuw i8, ptr %0, i64 11
-  %158 = load i8, ptr %157, align 1
-  %159 = zext i8 %158 to i32
-  %160 = add nuw nsw i32 %159, 12
-  %.not = icmp eq i32 %1, %160
-  br i1 %.not, label %168, label %161
+.thread193:                                       ; preds = %108, %111, %129, %141, %145, %149, %151, %147, %143, %131
+  %.3 = phi ptr [ @.str.27, %141 ], [ @.str.27, %143 ], [ @.str.27, %145 ], [ @.str.27, %147 ], [ @.str.27, %149 ], [ @.str.27, %151 ], [ @.str.27, %131 ], [ @.str.27, %129 ], [ @.str.27, %111 ], [ @.str.25, %108 ]
+  %154 = getelementptr inbounds nuw i8, ptr %0, i64 11
+  %155 = load i8, ptr %154, align 1
+  %156 = zext i8 %155 to i32
+  %157 = add nuw nsw i32 %156, 12
+  %.not = icmp eq i32 %1, %157
+  br i1 %.not, label %165, label %158
 
-161:                                              ; preds = %.thread194
-  %162 = call i64 @rb_str_cat_cstr(i64 noundef %2, ptr noundef nonnull %.3) #19
-  %163 = icmp ugt i32 %1, 11
-  br i1 %163, label %164, label %.thread198
+158:                                              ; preds = %.thread193
+  %159 = call i64 @rb_str_cat_cstr(i64 noundef %2, ptr noundef nonnull %.3) #19
+  %160 = icmp ugt i32 %1, 11
+  br i1 %160, label %161, label %.thread197
 
-164:                                              ; preds = %161
-  %165 = load i8, ptr %157, align 1
-  %166 = zext i8 %165 to i32
-  %167 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %2, ptr noundef nonnull @.str.38, i32 noundef %166) #19
-  br label %168
+161:                                              ; preds = %158
+  %162 = load i8, ptr %154, align 1
+  %163 = zext i8 %162 to i32
+  %164 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %2, ptr noundef nonnull @.str.38, i32 noundef %163) #19
+  br label %165
 
-168:                                              ; preds = %164, %.thread194
-  %.4 = phi ptr [ @.str.27, %164 ], [ %.3, %.thread194 ]
-  %169 = icmp ugt i32 %1, 12
-  br i1 %169, label %170, label %.thread201
+165:                                              ; preds = %161, %.thread193
+  %.4 = phi ptr [ @.str.27, %161 ], [ %.3, %.thread193 ]
+  %166 = icmp ugt i32 %1, 12
+  br i1 %166, label %167, label %.thread200
 
-170:                                              ; preds = %168
-  %171 = call i64 @rb_str_cat_cstr(i64 noundef %2, ptr noundef nonnull %.4) #19
-  %172 = call i64 @rb_str_cat(i64 noundef %2, ptr noundef nonnull @.str.39, i64 noundef 6) #19
-  %173 = load i8, ptr %157, align 1
-  %174 = zext i8 %173 to i32
-  %175 = zext i8 %173 to i64
-  %176 = add nuw nsw i64 %175, 12
-  %177 = icmp samesign ugt i64 %176, %10
-  %178 = add i32 %1, -12
-  %spec.select = select i1 %177, i32 %178, i32 %174
-  %.not217 = icmp eq i32 %spec.select, 0
-  br i1 %.not217, label %.thread201, label %.lr.ph
+167:                                              ; preds = %165
+  %168 = call i64 @rb_str_cat_cstr(i64 noundef %2, ptr noundef nonnull %.4) #19
+  %169 = call i64 @rb_str_cat(i64 noundef %2, ptr noundef nonnull @.str.39, i64 noundef 6) #19
+  %170 = load i8, ptr %154, align 1
+  %171 = zext i8 %170 to i32
+  %172 = zext i8 %170 to i64
+  %173 = add nuw nsw i64 %172, 12
+  %174 = icmp samesign ugt i64 %173, %10
+  %175 = add i32 %1, -12
+  %spec.select = select i1 %174, i32 %175, i32 %171
+  %.not214 = icmp eq i32 %spec.select, 0
+  br i1 %.not214, label %.thread200, label %.lr.ph
 
-.lr.ph:                                           ; preds = %170
-  %179 = getelementptr inbounds nuw i8, ptr %0, i64 12
+.lr.ph:                                           ; preds = %167
+  %176 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %wide.trip.count = zext i32 %spec.select to i64
-  br label %180
+  br label %177
 
-180:                                              ; preds = %.lr.ph, %180
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %180 ]
-  %181 = icmp eq i64 %indvars.iv, 0
-  %182 = select i1 %181, ptr @.str.40, ptr @.str.41
-  %183 = call i64 @rb_str_cat_cstr(i64 noundef %2, ptr noundef nonnull %182) #19
-  %184 = getelementptr inbounds nuw [8 x i8], ptr %179, i64 0, i64 %indvars.iv
-  %185 = load i8, ptr %184, align 1
-  %186 = zext i8 %185 to i32
-  %187 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %2, ptr noundef nonnull @.str.42, i32 noundef %186) #19
+177:                                              ; preds = %.lr.ph, %177
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %177 ]
+  %178 = icmp eq i64 %indvars.iv, 0
+  %179 = select i1 %178, ptr @.str.40, ptr @.str.41
+  %180 = call i64 @rb_str_cat_cstr(i64 noundef %2, ptr noundef nonnull %179) #19
+  %181 = getelementptr inbounds nuw [8 x i8], ptr %176, i64 0, i64 %indvars.iv
+  %182 = load i8, ptr %181, align 1
+  %183 = zext i8 %182 to i32
+  %184 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %2, ptr noundef nonnull @.str.42, i32 noundef %183) #19
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.thread201, label %180, !llvm.loop !28
+  br i1 %exitcond.not, label %.thread200, label %177, !llvm.loop !28
 
-.thread201:                                       ; preds = %180, %170, %168
-  %.5203 = phi ptr [ %.4, %168 ], [ @.str.27, %170 ], [ @.str.27, %180 ]
-  %188 = load i8, ptr %157, align 1
-  %189 = zext i8 %188 to i32
-  %190 = add nuw nsw i32 %189, 12
-  %.not174 = icmp eq i32 %190, %1
-  br i1 %.not174, label %193, label %.thread198
+.thread200:                                       ; preds = %177, %167, %165
+  %.5202 = phi ptr [ %.4, %165 ], [ @.str.27, %167 ], [ @.str.27, %177 ]
+  %185 = load i8, ptr %154, align 1
+  %186 = zext i8 %185 to i32
+  %187 = add nuw nsw i32 %186, 12
+  %.not174 = icmp eq i32 %187, %1
+  br i1 %.not174, label %190, label %.thread197
 
-.thread198:                                       ; preds = %161, %.thread201
-  %.5200 = phi ptr [ %.5203, %.thread201 ], [ @.str.27, %161 ]
-  %191 = call i64 @rb_str_cat_cstr(i64 noundef %2, ptr noundef %.5200) #19
-  %192 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %2, ptr noundef nonnull @.str.43, i32 noundef %1, i32 noundef 20) #19
-  br label %193
+.thread197:                                       ; preds = %158, %.thread200
+  %.5199 = phi ptr [ %.5202, %.thread200 ], [ @.str.27, %158 ]
+  %188 = call i64 @rb_str_cat_cstr(i64 noundef %2, ptr noundef %.5199) #19
+  %189 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %2, ptr noundef nonnull @.str.43, i32 noundef %1, i32 noundef 20) #19
+  br label %190
 
-193:                                              ; preds = %.thread198, %.thread201
-  %194 = call i64 @rb_str_cat(i64 noundef %2, ptr noundef nonnull @.str.44, i64 noundef 1) #19
+190:                                              ; preds = %.thread197, %.thread200
+  %191 = call i64 @rb_str_cat(i64 noundef %2, ptr noundef nonnull @.str.44, i64 noundef 1) #19
   br label %.loopexit
 
-195:                                              ; preds = %16
-  %196 = zext i16 %17 to i32
-  %197 = tail call i64 @rsock_intern_family(i32 noundef %196) #19
-  %198 = icmp eq i64 %197, 0
-  br i1 %198, label %199, label %203
+192:                                              ; preds = %16
+  %193 = zext i16 %17 to i32
+  %194 = tail call i64 @rsock_intern_family(i32 noundef %193) #19
+  %195 = icmp eq i64 %194, 0
+  br i1 %195, label %196, label %200
 
-199:                                              ; preds = %195
-  %200 = load i16, ptr %0, align 8
-  %201 = zext i16 %200 to i32
-  %202 = tail call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %2, ptr noundef nonnull @.str.45, i32 noundef %201) #19
+196:                                              ; preds = %192
+  %197 = load i16, ptr %0, align 8
+  %198 = zext i16 %197 to i32
+  %199 = tail call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %2, ptr noundef nonnull @.str.45, i32 noundef %198) #19
   br label %.loopexit
 
-203:                                              ; preds = %195
-  %204 = tail call ptr @rb_id2name(i64 noundef %197) #19
-  %205 = tail call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %2, ptr noundef nonnull @.str.46, ptr noundef %204) #19
+200:                                              ; preds = %192
+  %201 = tail call ptr @rb_id2name(i64 noundef %194) #19
+  %202 = tail call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %2, ptr noundef nonnull @.str.46, ptr noundef %201) #19
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.lr.ph216, %14, %199, %203, %101, %unixsocket_len.exit, %60, %75, %74, %55, %56, %193, %18, %7
+.loopexit:                                        ; preds = %.lr.ph213, %14, %196, %200, %98, %unixsocket_len.exit, %60, %75, %74, %55, %56, %190, %18, %7
   ret i64 %2
 }
 

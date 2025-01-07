@@ -513,128 +513,122 @@ define i32 @slurm_job_preempt(ptr noundef %0, ptr noundef %1, i16 noundef zeroex
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 384
   %11 = load ptr, ptr %10, align 8
   %.not.i = icmp eq ptr %11, null
-  br i1 %.not.i, label %16, label %12
+  br i1 %.not.i, label %_job_check_grace.exit, label %12
 
 12:                                               ; preds = %9
   %13 = tail call i32 @list_for_each_nobreak(ptr noundef nonnull %11, ptr noundef nonnull @_job_check_grace_internal, ptr noundef %1) #8
-  %14 = icmp slt i32 %13, 1
-  %15 = zext i1 %14 to i32
-  br label %_job_check_grace.exit
+  %14 = icmp sgt i32 %13, 0
+  br i1 %14, label %17, label %.critedge
 
-16:                                               ; preds = %9
-  %17 = tail call i32 @_job_check_grace_internal(ptr noundef nonnull %0, ptr noundef %1)
-  %.lobit.i = lshr i32 %17, 31
-  br label %_job_check_grace.exit
+_job_check_grace.exit:                            ; preds = %9
+  %15 = tail call i32 @_job_check_grace_internal(ptr noundef nonnull %0, ptr noundef %1)
+  %16 = icmp sgt i32 %15, -1
+  br i1 %16, label %17, label %.critedge
 
-_job_check_grace.exit:                            ; preds = %12, %16
-  %.0.i = phi i32 [ %15, %12 ], [ %.lobit.i, %16 ]
-  %.not = icmp eq i32 %.0.i, 0
-  br i1 %.not, label %18, label %.critedge
+17:                                               ; preds = %12, %_job_check_grace.exit
+  %18 = load i8, ptr @preempt_send_user_signal, align 1
+  %19 = trunc i8 %18 to i1
+  br i1 %19, label %20, label %25
 
-18:                                               ; preds = %_job_check_grace.exit
-  %19 = load i8, ptr @preempt_send_user_signal, align 1
-  %20 = trunc i8 %19 to i1
-  br i1 %20, label %21, label %26
+20:                                               ; preds = %17
+  %21 = load ptr, ptr %10, align 8
+  %.not32 = icmp eq ptr %21, null
+  br i1 %.not32, label %24, label %22
 
-21:                                               ; preds = %18
-  %22 = load ptr, ptr %10, align 8
-  %.not32 = icmp eq ptr %22, null
-  br i1 %.not32, label %25, label %23
+22:                                               ; preds = %20
+  %23 = call i32 @list_for_each(ptr noundef nonnull %21, ptr noundef nonnull @_job_warn_signal_wrapper, ptr noundef nonnull %5) #8
+  br label %25
 
-23:                                               ; preds = %21
-  %24 = call i32 @list_for_each(ptr noundef nonnull %22, ptr noundef nonnull @_job_warn_signal_wrapper, ptr noundef nonnull %5) #8
-  br label %26
-
-25:                                               ; preds = %21
+24:                                               ; preds = %20
   tail call void @send_job_warn_signal(ptr noundef nonnull %0, i1 noundef zeroext %3) #8
-  br label %26
+  br label %25
 
-26:                                               ; preds = %23, %25, %18
-  switch i16 %2, label %48 [
-    i16 8, label %27
-    i16 2, label %39
+25:                                               ; preds = %22, %24, %17
+  switch i16 %2, label %47 [
+    i16 8, label %26
+    i16 2, label %38
   ]
 
-27:                                               ; preds = %26
-  %28 = load ptr, ptr %10, align 8
-  %.not33 = icmp eq ptr %28, null
-  br i1 %.not33, label %31, label %29
+26:                                               ; preds = %25
+  %27 = load ptr, ptr %10, align 8
+  %.not33 = icmp eq ptr %27, null
+  br i1 %.not33, label %30, label %28
 
-29:                                               ; preds = %27
-  %30 = call i32 @het_job_signal(ptr noundef nonnull %0, i16 noundef zeroext 9, i16 noundef zeroext 0, i32 noundef 0, i1 noundef zeroext true) #8
-  br label %33
+28:                                               ; preds = %26
+  %29 = call i32 @het_job_signal(ptr noundef nonnull %0, i16 noundef zeroext 9, i16 noundef zeroext 0, i32 noundef 0, i1 noundef zeroext true) #8
+  br label %32
 
-31:                                               ; preds = %27
-  %32 = call i32 @job_signal(ptr noundef nonnull %0, i16 noundef zeroext 9, i16 noundef zeroext 0, i32 noundef 0, i1 noundef zeroext true) #8
-  br label %33
+30:                                               ; preds = %26
+  %31 = call i32 @job_signal(ptr noundef nonnull %0, i16 noundef zeroext 9, i16 noundef zeroext 0, i32 noundef 0, i1 noundef zeroext true) #8
+  br label %32
 
-33:                                               ; preds = %31, %29
-  %.0 = phi i32 [ %30, %29 ], [ %32, %31 ]
-  %34 = icmp eq i32 %.0, 0
-  br i1 %34, label %35, label %48
+32:                                               ; preds = %30, %28
+  %.0 = phi i32 [ %29, %28 ], [ %31, %30 ]
+  %33 = icmp eq i32 %.0, 0
+  br i1 %33, label %34, label %47
 
-35:                                               ; preds = %33
-  %36 = call i32 @get_log_level() #8
-  %37 = icmp sgt i32 %36, 2
-  br i1 %37, label %38, label %.critedge
+34:                                               ; preds = %32
+  %35 = call i32 @get_log_level() #8
+  %36 = icmp sgt i32 %35, 2
+  br i1 %36, label %37, label %.critedge
 
-38:                                               ; preds = %35
+37:                                               ; preds = %34
   call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef nonnull @.str.12, ptr noundef nonnull %0, ptr noundef %1) #8
   br label %.critedge
 
-39:                                               ; preds = %26
-  %40 = getelementptr inbounds nuw i8, ptr %0, i64 392
-  %41 = load i32, ptr %40, align 8
-  %42 = call i32 @job_requeue(i32 noundef 0, i32 noundef %41, ptr noundef null, i1 noundef zeroext true, i32 noundef 0) #8
-  %43 = icmp eq i32 %42, 0
-  br i1 %43, label %44, label %48
+38:                                               ; preds = %25
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 392
+  %40 = load i32, ptr %39, align 8
+  %41 = call i32 @job_requeue(i32 noundef 0, i32 noundef %40, ptr noundef null, i1 noundef zeroext true, i32 noundef 0) #8
+  %42 = icmp eq i32 %41, 0
+  br i1 %42, label %43, label %47
 
-44:                                               ; preds = %39
-  %45 = call i32 @get_log_level() #8
-  %46 = icmp sgt i32 %45, 2
-  br i1 %46, label %47, label %.critedge
+43:                                               ; preds = %38
+  %44 = call i32 @get_log_level() #8
+  %45 = icmp sgt i32 %44, 2
+  br i1 %45, label %46, label %.critedge
 
-47:                                               ; preds = %44
+46:                                               ; preds = %43
   call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef nonnull @.str.13, ptr noundef nonnull %0, ptr noundef %1) #8
   br label %.critedge
 
-48:                                               ; preds = %33, %39, %26
-  %49 = load ptr, ptr %10, align 8
-  %.not35 = icmp eq ptr %49, null
-  br i1 %.not35, label %52, label %50
+47:                                               ; preds = %32, %38, %25
+  %48 = load ptr, ptr %10, align 8
+  %.not35 = icmp eq ptr %48, null
+  br i1 %.not35, label %51, label %49
 
-50:                                               ; preds = %48
-  %51 = call i32 @het_job_signal(ptr noundef nonnull %0, i16 noundef zeroext 9, i16 noundef zeroext 0, i32 noundef 0, i1 noundef zeroext true) #8
-  br label %54
+49:                                               ; preds = %47
+  %50 = call i32 @het_job_signal(ptr noundef nonnull %0, i16 noundef zeroext 9, i16 noundef zeroext 0, i32 noundef 0, i1 noundef zeroext true) #8
+  br label %53
 
-52:                                               ; preds = %48
-  %53 = call i32 @job_signal(ptr noundef nonnull %0, i16 noundef zeroext 9, i16 noundef zeroext 0, i32 noundef 0, i1 noundef zeroext true) #8
-  br label %54
+51:                                               ; preds = %47
+  %52 = call i32 @job_signal(ptr noundef nonnull %0, i16 noundef zeroext 9, i16 noundef zeroext 0, i32 noundef 0, i1 noundef zeroext true) #8
+  br label %53
 
-54:                                               ; preds = %52, %50
-  %.3 = phi i32 [ %51, %50 ], [ %53, %52 ]
-  %55 = icmp eq i32 %.3, 0
-  %56 = call i32 @get_log_level() #8
-  %57 = icmp sgt i32 %56, 2
-  br i1 %55, label %58, label %60
+53:                                               ; preds = %51, %49
+  %.3 = phi i32 [ %50, %49 ], [ %52, %51 ]
+  %54 = icmp eq i32 %.3, 0
+  %55 = call i32 @get_log_level() #8
+  %56 = icmp sgt i32 %55, 2
+  br i1 %54, label %57, label %59
 
-58:                                               ; preds = %54
-  br i1 %57, label %59, label %.critedge
+57:                                               ; preds = %53
+  br i1 %56, label %58, label %.critedge
 
-59:                                               ; preds = %58
+58:                                               ; preds = %57
   call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef nonnull @.str.14, ptr noundef nonnull @__func__.slurm_job_preempt, ptr noundef nonnull %0) #8
   br label %.critedge
 
-60:                                               ; preds = %54
-  br i1 %57, label %61, label %.critedge
+59:                                               ; preds = %53
+  br i1 %56, label %60, label %.critedge
 
-61:                                               ; preds = %60
-  %62 = call ptr @slurm_strerror(i32 noundef %.3) #8
-  call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef nonnull @.str.15, ptr noundef nonnull @__func__.slurm_job_preempt, ptr noundef nonnull %0, ptr noundef %62) #8
+60:                                               ; preds = %59
+  %61 = call ptr @slurm_strerror(i32 noundef %.3) #8
+  call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef nonnull @.str.15, ptr noundef nonnull @__func__.slurm_job_preempt, ptr noundef nonnull %0, ptr noundef %61) #8
   br label %.critedge
 
-.critedge:                                        ; preds = %60, %61, %58, %59, %44, %47, %35, %38, %_job_check_grace.exit, %4
-  %.027 = phi i32 [ -1, %4 ], [ -1, %_job_check_grace.exit ], [ 0, %59 ], [ 0, %58 ], [ %.3, %61 ], [ %.3, %60 ], [ 0, %44 ], [ 0, %47 ], [ 0, %35 ], [ 0, %38 ]
+.critedge:                                        ; preds = %12, %59, %60, %57, %58, %43, %46, %34, %37, %_job_check_grace.exit, %4
+  %.027 = phi i32 [ -1, %4 ], [ -1, %_job_check_grace.exit ], [ 0, %58 ], [ 0, %57 ], [ %.3, %60 ], [ %.3, %59 ], [ 0, %43 ], [ 0, %46 ], [ 0, %34 ], [ 0, %37 ], [ -1, %12 ]
   ret i32 %.027
 }
 
