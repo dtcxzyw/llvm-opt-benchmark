@@ -3345,13 +3345,15 @@ if.then113:                                       ; preds = %for.end111
 
 if.else:                                          ; preds = %for.end111
   %114 = load ptr, ptr %bvhLights, align 8
-  %add.ptr.i497 = getelementptr inbounds %"struct.std::pair", ptr %114, i64 %.pre-phi
+  %add.ptr.i497.idx = mul nsw i64 %.pre-phi, 56
+  %add.ptr.i497 = getelementptr inbounds i8, ptr %114, i64 %add.ptr.i497.idx
   %cmp7376.i.i = icmp eq i32 %start, %end
   br i1 %cmp7376.i.i, label %"_ZSt9partitionIPSt4pairIiN4pbrt11LightBoundsEEZNS1_15BVHLightSampler8buildBVHERSt6vectorIS3_SaIS3_EEiijiE3$_0ET_SB_SB_T0_.exit", label %if.else.lr.ph.i.preheader.i
 
 if.else.lr.ph.i.preheader.i:                      ; preds = %if.else
   %115 = sext i32 %end to i64
-  %116 = getelementptr %"struct.std::pair", ptr %114, i64 %115
+  %.idx = mul nsw i64 %115, 56
+  %116 = getelementptr i8, ptr %114, i64 %.idx
   br label %if.else.lr.ph.i.i
 
 if.else.lr.ph.i.i:                                ; preds = %while.end18.i.i, %if.else.lr.ph.i.preheader.i

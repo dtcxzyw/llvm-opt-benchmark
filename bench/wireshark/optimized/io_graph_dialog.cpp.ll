@@ -21733,12 +21733,12 @@ _ZN7QString5clearEv.exit:                         ; preds = %1, %10, %_ZN17QArra
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %15 = load i32, ptr %14, align 8
   %16 = icmp slt i32 %15, 0
-  br i1 %16, label %_ZN14QSharedPointerI16QCPDataContainerI12QCPGraphDataEED2Ev.exit51, label %17
+  br i1 %16, label %_ZN14QSharedPointerI16QCPDataContainerI12QCPGraphDataEED2Ev.exit53, label %17
 
 17:                                               ; preds = %_ZN7QString5clearEv.exit
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %19 = load i32, ptr %18, align 8
-  switch i32 %19, label %_ZN14QSharedPointerI16QCPDataContainerI12QCPGraphDataEED2Ev.exit51 [
+  switch i32 %19, label %_ZN14QSharedPointerI16QCPDataContainerI12QCPGraphDataEED2Ev.exit53 [
     i32 3, label %20
     i32 6, label %20
     i32 7, label %20
@@ -21748,7 +21748,7 @@ _ZN7QString5clearEv.exit:                         ; preds = %1, %10, %_ZN17QArra
 20:                                               ; preds = %17, %17, %17, %17
   %21 = tail call i32 @proto_registrar_get_ftype(i32 noundef %15)
   %22 = icmp eq i32 %21, 25
-  br i1 %22, label %23, label %_ZN14QSharedPointerI16QCPDataContainerI12QCPGraphDataEED2Ev.exit51
+  br i1 %22, label %23, label %_ZN14QSharedPointerI16QCPDataContainerI12QCPGraphDataEED2Ev.exit53
 
 23:                                               ; preds = %20
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 88
@@ -21776,14 +21776,16 @@ _ZNK8QCPGraph4dataEv.exit:                        ; preds = %26, %31
   %37 = getelementptr inbounds nuw i8, ptr %28, i64 32
   %38 = load i32, ptr %37, align 8
   %39 = sext i32 %38 to i64
+  %.idx.i = shl nsw i64 %39, 4
   %40 = getelementptr inbounds nuw i8, ptr %28, i64 24
   %41 = load i64, ptr %40, align 8
-  %42 = getelementptr %class.QCPGraphData, ptr %36, i64 %41
-  %.not8.i = icmp eq i64 %41, %39
+  %.idx11.i = shl i64 %41, 4
+  %42 = getelementptr i8, ptr %36, i64 %.idx11.i
+  %.not8.i = icmp eq i64 %.idx.i, %.idx11.i
   br i1 %.not8.i, label %_ZN7IOGraph21maxValueFromGraphDataI16QCPDataContainerI12QCPGraphDataEEEdRKT_.exit, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %_ZNK8QCPGraph4dataEv.exit
-  %43 = getelementptr %class.QCPGraphData, ptr %36, i64 %39
+  %43 = getelementptr i8, ptr %36, i64 %.idx.i
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
@@ -21830,7 +21832,7 @@ _ZN15QtSharedPointer20ExternalRefCountData7destroyEv.exit.i.i.i: ; preds = %53, 
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %62 = load ptr, ptr %61, align 8
   %.not14 = icmp eq ptr %62, null
-  br i1 %.not14, label %_ZN14QSharedPointerI16QCPDataContainerI12QCPGraphDataEED2Ev.exit51, label %63
+  br i1 %.not14, label %_ZN14QSharedPointerI16QCPDataContainerI12QCPGraphDataEED2Ev.exit53, label %63
 
 63:                                               ; preds = %60
   %64 = getelementptr inbounds nuw i8, ptr %62, i64 192
@@ -21852,48 +21854,50 @@ _ZNK7QCPBars4dataEv.exit:                         ; preds = %63, %68
   %74 = getelementptr inbounds nuw i8, ptr %65, i64 32
   %75 = load i32, ptr %74, align 8
   %76 = sext i32 %75 to i64
+  %.idx.i20 = shl nsw i64 %76, 4
   %77 = getelementptr inbounds nuw i8, ptr %65, i64 24
   %78 = load i64, ptr %77, align 8
-  %79 = getelementptr %class.QCPBarsData, ptr %73, i64 %78
-  %.not8.i20 = icmp eq i64 %78, %76
-  br i1 %.not8.i20, label %_ZN7IOGraph21maxValueFromGraphDataI16QCPDataContainerI11QCPBarsDataEEEdRKT_.exit, label %.lr.ph.preheader.i21
+  %.idx11.i21 = shl i64 %78, 4
+  %79 = getelementptr i8, ptr %73, i64 %.idx11.i21
+  %.not8.i22 = icmp eq i64 %.idx.i20, %.idx11.i21
+  br i1 %.not8.i22, label %_ZN7IOGraph21maxValueFromGraphDataI16QCPDataContainerI11QCPBarsDataEEEdRKT_.exit, label %.lr.ph.preheader.i23
 
-.lr.ph.preheader.i21:                             ; preds = %_ZNK7QCPBars4dataEv.exit
-  %80 = getelementptr %class.QCPBarsData, ptr %73, i64 %76
-  br label %.lr.ph.i22
+.lr.ph.preheader.i23:                             ; preds = %_ZNK7QCPBars4dataEv.exit
+  %80 = getelementptr i8, ptr %73, i64 %.idx.i20
+  br label %.lr.ph.i24
 
-.lr.ph.i22:                                       ; preds = %.lr.ph.i22, %.lr.ph.preheader.i21
-  %.010.i23 = phi double [ %85, %.lr.ph.i22 ], [ 0.000000e+00, %.lr.ph.preheader.i21 ]
-  %.sroa.0.09.i24 = phi ptr [ %86, %.lr.ph.i22 ], [ %80, %.lr.ph.preheader.i21 ]
-  %81 = getelementptr inbounds nuw i8, ptr %.sroa.0.09.i24, i64 8
+.lr.ph.i24:                                       ; preds = %.lr.ph.i24, %.lr.ph.preheader.i23
+  %.010.i25 = phi double [ %85, %.lr.ph.i24 ], [ 0.000000e+00, %.lr.ph.preheader.i23 ]
+  %.sroa.0.09.i26 = phi ptr [ %86, %.lr.ph.i24 ], [ %80, %.lr.ph.preheader.i23 ]
+  %81 = getelementptr inbounds nuw i8, ptr %.sroa.0.09.i26, i64 8
   %82 = load double, ptr %81, align 8
   %83 = tail call double @llvm.fabs.f64(double %82)
-  %84 = fcmp ogt double %83, %.010.i23
-  %85 = select i1 %84, double %83, double %.010.i23
-  %86 = getelementptr i8, ptr %.sroa.0.09.i24, i64 16
-  %.not.i25 = icmp eq ptr %86, %79
-  br i1 %.not.i25, label %_ZN7IOGraph21maxValueFromGraphDataI16QCPDataContainerI11QCPBarsDataEEEdRKT_.exit, label %.lr.ph.i22, !llvm.loop !144
+  %84 = fcmp ogt double %83, %.010.i25
+  %85 = select i1 %84, double %83, double %.010.i25
+  %86 = getelementptr i8, ptr %.sroa.0.09.i26, i64 16
+  %.not.i27 = icmp eq ptr %86, %79
+  br i1 %.not.i27, label %_ZN7IOGraph21maxValueFromGraphDataI16QCPDataContainerI11QCPBarsDataEEEdRKT_.exit, label %.lr.ph.i24, !llvm.loop !144
 
-_ZN7IOGraph21maxValueFromGraphDataI16QCPDataContainerI11QCPBarsDataEEEdRKT_.exit: ; preds = %.lr.ph.i22, %_ZNK7QCPBars4dataEv.exit
-  %.0.lcssa.i26 = phi double [ 0.000000e+00, %_ZNK7QCPBars4dataEv.exit ], [ %85, %.lr.ph.i22 ]
+_ZN7IOGraph21maxValueFromGraphDataI16QCPDataContainerI11QCPBarsDataEEEdRKT_.exit: ; preds = %.lr.ph.i24, %_ZNK7QCPBars4dataEv.exit
+  %.0.lcssa.i28 = phi double [ 0.000000e+00, %_ZNK7QCPBars4dataEv.exit ], [ %85, %.lr.ph.i24 ]
   br i1 %.not.i.i19, label %_ZN14QSharedPointerI16QCPDataContainerI12QCPGraphDataEED2Ev.exit, label %87
 
 87:                                               ; preds = %_ZN7IOGraph21maxValueFromGraphDataI16QCPDataContainerI11QCPBarsDataEEEdRKT_.exit
   %88 = getelementptr inbounds nuw i8, ptr %67, i64 4
   %89 = atomicrmw sub ptr %88, i32 1 seq_cst, align 4
-  %.not5.i.i.i28 = icmp eq i32 %89, 1
-  br i1 %.not5.i.i.i28, label %90, label %_ZN15QtSharedPointer20ExternalRefCountData7destroyEv.exit.i.i.i29
+  %.not5.i.i.i30 = icmp eq i32 %89, 1
+  br i1 %.not5.i.i.i30, label %90, label %_ZN15QtSharedPointer20ExternalRefCountData7destroyEv.exit.i.i.i31
 
 90:                                               ; preds = %87
   %91 = getelementptr inbounds nuw i8, ptr %67, i64 8
   %92 = load ptr, ptr %91, align 8
   invoke void %92(ptr noundef nonnull align 8 dereferenceable(16) %67)
-          to label %_ZN15QtSharedPointer20ExternalRefCountData7destroyEv.exit.i.i.i29 unwind label %94
+          to label %_ZN15QtSharedPointer20ExternalRefCountData7destroyEv.exit.i.i.i31 unwind label %94
 
-_ZN15QtSharedPointer20ExternalRefCountData7destroyEv.exit.i.i.i29: ; preds = %90, %87
+_ZN15QtSharedPointer20ExternalRefCountData7destroyEv.exit.i.i.i31: ; preds = %90, %87
   %93 = atomicrmw sub ptr %67, i32 1 seq_cst, align 4
-  %.not6.i.i.i30 = icmp eq i32 %93, 1
-  br i1 %.not6.i.i.i30, label %_ZN14QSharedPointerI16QCPDataContainerI12QCPGraphDataEED2Ev.exit.sink.split, label %_ZN14QSharedPointerI16QCPDataContainerI12QCPGraphDataEED2Ev.exit
+  %.not6.i.i.i32 = icmp eq i32 %93, 1
+  br i1 %.not6.i.i.i32, label %_ZN14QSharedPointerI16QCPDataContainerI12QCPGraphDataEED2Ev.exit.sink.split, label %_ZN14QSharedPointerI16QCPDataContainerI12QCPGraphDataEED2Ev.exit
 
 94:                                               ; preds = %90
   %95 = landingpad { ptr, i32 }
@@ -21902,16 +21906,16 @@ _ZN15QtSharedPointer20ExternalRefCountData7destroyEv.exit.i.i.i29: ; preds = %90
   tail call void @__clang_call_terminate(ptr %96) #29
   unreachable
 
-_ZN14QSharedPointerI16QCPDataContainerI12QCPGraphDataEED2Ev.exit.sink.split: ; preds = %_ZN15QtSharedPointer20ExternalRefCountData7destroyEv.exit.i.i.i29, %_ZN15QtSharedPointer20ExternalRefCountData7destroyEv.exit.i.i.i
-  %.sink = phi ptr [ %30, %_ZN15QtSharedPointer20ExternalRefCountData7destroyEv.exit.i.i.i ], [ %67, %_ZN15QtSharedPointer20ExternalRefCountData7destroyEv.exit.i.i.i29 ]
-  %.09.ph = phi double [ %.0.lcssa.i, %_ZN15QtSharedPointer20ExternalRefCountData7destroyEv.exit.i.i.i ], [ %.0.lcssa.i26, %_ZN15QtSharedPointer20ExternalRefCountData7destroyEv.exit.i.i.i29 ]
+_ZN14QSharedPointerI16QCPDataContainerI12QCPGraphDataEED2Ev.exit.sink.split: ; preds = %_ZN15QtSharedPointer20ExternalRefCountData7destroyEv.exit.i.i.i31, %_ZN15QtSharedPointer20ExternalRefCountData7destroyEv.exit.i.i.i
+  %.sink = phi ptr [ %30, %_ZN15QtSharedPointer20ExternalRefCountData7destroyEv.exit.i.i.i ], [ %67, %_ZN15QtSharedPointer20ExternalRefCountData7destroyEv.exit.i.i.i31 ]
+  %.09.ph = phi double [ %.0.lcssa.i, %_ZN15QtSharedPointer20ExternalRefCountData7destroyEv.exit.i.i.i ], [ %.0.lcssa.i28, %_ZN15QtSharedPointer20ExternalRefCountData7destroyEv.exit.i.i.i31 ]
   tail call void @_ZdlPv(ptr noundef nonnull %.sink) #27
   br label %_ZN14QSharedPointerI16QCPDataContainerI12QCPGraphDataEED2Ev.exit
 
-_ZN14QSharedPointerI16QCPDataContainerI12QCPGraphDataEED2Ev.exit: ; preds = %_ZN14QSharedPointerI16QCPDataContainerI12QCPGraphDataEED2Ev.exit.sink.split, %_ZN15QtSharedPointer20ExternalRefCountData7destroyEv.exit.i.i.i29, %_ZN7IOGraph21maxValueFromGraphDataI16QCPDataContainerI11QCPBarsDataEEEdRKT_.exit, %_ZN15QtSharedPointer20ExternalRefCountData7destroyEv.exit.i.i.i, %_ZN7IOGraph21maxValueFromGraphDataI16QCPDataContainerI12QCPGraphDataEEEdRKT_.exit
-  %.09 = phi double [ %.0.lcssa.i, %_ZN7IOGraph21maxValueFromGraphDataI16QCPDataContainerI12QCPGraphDataEEEdRKT_.exit ], [ %.0.lcssa.i, %_ZN15QtSharedPointer20ExternalRefCountData7destroyEv.exit.i.i.i ], [ %.0.lcssa.i26, %_ZN7IOGraph21maxValueFromGraphDataI16QCPDataContainerI11QCPBarsDataEEEdRKT_.exit ], [ %.0.lcssa.i26, %_ZN15QtSharedPointer20ExternalRefCountData7destroyEv.exit.i.i.i29 ], [ %.09.ph, %_ZN14QSharedPointerI16QCPDataContainerI12QCPGraphDataEED2Ev.exit.sink.split ]
+_ZN14QSharedPointerI16QCPDataContainerI12QCPGraphDataEED2Ev.exit: ; preds = %_ZN14QSharedPointerI16QCPDataContainerI12QCPGraphDataEED2Ev.exit.sink.split, %_ZN15QtSharedPointer20ExternalRefCountData7destroyEv.exit.i.i.i31, %_ZN7IOGraph21maxValueFromGraphDataI16QCPDataContainerI11QCPBarsDataEEEdRKT_.exit, %_ZN15QtSharedPointer20ExternalRefCountData7destroyEv.exit.i.i.i, %_ZN7IOGraph21maxValueFromGraphDataI16QCPDataContainerI12QCPGraphDataEEEdRKT_.exit
+  %.09 = phi double [ %.0.lcssa.i, %_ZN7IOGraph21maxValueFromGraphDataI16QCPDataContainerI12QCPGraphDataEEEdRKT_.exit ], [ %.0.lcssa.i, %_ZN15QtSharedPointer20ExternalRefCountData7destroyEv.exit.i.i.i ], [ %.0.lcssa.i28, %_ZN7IOGraph21maxValueFromGraphDataI16QCPDataContainerI11QCPBarsDataEEEdRKT_.exit ], [ %.0.lcssa.i28, %_ZN15QtSharedPointer20ExternalRefCountData7destroyEv.exit.i.i.i31 ], [ %.09.ph, %_ZN14QSharedPointerI16QCPDataContainerI12QCPGraphDataEED2Ev.exit.sink.split ]
   %97 = fcmp oeq double %.09, 0.000000e+00
-  br i1 %97, label %_ZN14QSharedPointerI16QCPDataContainerI12QCPGraphDataEED2Ev.exit51, label %98
+  br i1 %97, label %_ZN14QSharedPointerI16QCPDataContainerI12QCPGraphDataEED2Ev.exit53, label %98
 
 98:                                               ; preds = %_ZN14QSharedPointerI16QCPDataContainerI12QCPGraphDataEED2Ev.exit
   %99 = fcmp oge double %.09, 1.000000e+00
@@ -21935,20 +21939,20 @@ _ZN14QSharedPointerI16QCPDataContainerI12QCPGraphDataEED2Ev.exit: ; preds = %_ZN
   %109 = load i64, ptr %107, align 8
   store i64 %109, ptr %106, align 8
   store i64 %108, ptr %107, align 8
-  %.not.i.i.i.i31 = icmp eq ptr %101, null
-  br i1 %.not.i.i.i.i31, label %_ZN7QStringaSEPKc.exit, label %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i.i32
+  %.not.i.i.i.i33 = icmp eq ptr %101, null
+  br i1 %.not.i.i.i.i33, label %_ZN7QStringaSEPKc.exit, label %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i.i34
 
-_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i.i32:  ; preds = %100
+_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i.i34:  ; preds = %100
   %110 = atomicrmw sub ptr %101, i32 1 seq_cst, align 4
-  %.not.i.i.i33 = icmp eq i32 %110, 1
-  br i1 %.not.i.i.i33, label %111, label %_ZN7QStringaSEPKc.exit
+  %.not.i.i.i35 = icmp eq i32 %110, 1
+  br i1 %.not.i.i.i35, label %111, label %_ZN7QStringaSEPKc.exit
 
-111:                                              ; preds = %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i.i32
+111:                                              ; preds = %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i.i34
   %112 = load ptr, ptr %4, align 8
   call void @_ZN10QArrayData10deallocateEPS_xx(ptr noundef %112, i64 noundef 2, i64 noundef 8) #27
   br label %_ZN7QStringaSEPKc.exit
 
-_ZN7QStringaSEPKc.exit:                           ; preds = %100, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i.i32, %111
+_ZN7QStringaSEPKc.exit:                           ; preds = %100, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i.i34, %111
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
   br label %140
 
@@ -21974,20 +21978,20 @@ _ZN7QStringaSEPKc.exit:                           ; preds = %100, %_ZN17QArrayDa
   %124 = load i64, ptr %122, align 8
   store i64 %124, ptr %115, align 8
   store i64 %123, ptr %122, align 8
-  %.not.i.i.i.i34 = icmp eq ptr %117, null
-  br i1 %.not.i.i.i.i34, label %_ZN7QStringaSEPKc.exit37, label %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i.i35
+  %.not.i.i.i.i36 = icmp eq ptr %117, null
+  br i1 %.not.i.i.i.i36, label %_ZN7QStringaSEPKc.exit39, label %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i.i37
 
-_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i.i35:  ; preds = %116
+_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i.i37:  ; preds = %116
   %125 = atomicrmw sub ptr %117, i32 1 seq_cst, align 4
-  %.not.i.i.i36 = icmp eq i32 %125, 1
-  br i1 %.not.i.i.i36, label %126, label %_ZN7QStringaSEPKc.exit37
+  %.not.i.i.i38 = icmp eq i32 %125, 1
+  br i1 %.not.i.i.i38, label %126, label %_ZN7QStringaSEPKc.exit39
 
-126:                                              ; preds = %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i.i35
+126:                                              ; preds = %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i.i37
   %127 = load ptr, ptr %3, align 8
   call void @_ZN10QArrayData10deallocateEPS_xx(ptr noundef %127, i64 noundef 2, i64 noundef 8) #27
-  br label %_ZN7QStringaSEPKc.exit37
+  br label %_ZN7QStringaSEPKc.exit39
 
-_ZN7QStringaSEPKc.exit37:                         ; preds = %116, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i.i35, %126
+_ZN7QStringaSEPKc.exit39:                         ; preds = %116, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i.i37, %126
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
   br label %140
 
@@ -22008,25 +22012,25 @@ _ZN7QStringaSEPKc.exit37:                         ; preds = %116, %_ZN17QArrayDa
   %136 = load i64, ptr %134, align 8
   store i64 %136, ptr %115, align 8
   store i64 %135, ptr %134, align 8
-  %.not.i.i.i.i38 = icmp eq ptr %129, null
-  br i1 %.not.i.i.i.i38, label %_ZN7QStringaSEPKc.exit41, label %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i.i39
+  %.not.i.i.i.i40 = icmp eq ptr %129, null
+  br i1 %.not.i.i.i.i40, label %_ZN7QStringaSEPKc.exit43, label %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i.i41
 
-_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i.i39:  ; preds = %128
+_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i.i41:  ; preds = %128
   %137 = atomicrmw sub ptr %129, i32 1 seq_cst, align 4
-  %.not.i.i.i40 = icmp eq i32 %137, 1
-  br i1 %.not.i.i.i40, label %138, label %_ZN7QStringaSEPKc.exit41
+  %.not.i.i.i42 = icmp eq i32 %137, 1
+  br i1 %.not.i.i.i42, label %138, label %_ZN7QStringaSEPKc.exit43
 
-138:                                              ; preds = %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i.i39
+138:                                              ; preds = %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i.i41
   %139 = load ptr, ptr %2, align 8
   call void @_ZN10QArrayData10deallocateEPS_xx(ptr noundef %139, i64 noundef 2, i64 noundef 8) #27
-  br label %_ZN7QStringaSEPKc.exit41
+  br label %_ZN7QStringaSEPKc.exit43
 
-_ZN7QStringaSEPKc.exit41:                         ; preds = %128, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i.i39, %138
+_ZN7QStringaSEPKc.exit43:                         ; preds = %128, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i.i41, %138
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
   br label %140
 
-140:                                              ; preds = %_ZN7QStringaSEPKc.exit37, %_ZN7QStringaSEPKc.exit41, %_ZN7QStringaSEPKc.exit
-  %.0 = phi double [ 1.000000e+00, %_ZN7QStringaSEPKc.exit ], [ 1.000000e+03, %_ZN7QStringaSEPKc.exit37 ], [ 1.000000e+06, %_ZN7QStringaSEPKc.exit41 ]
+140:                                              ; preds = %_ZN7QStringaSEPKc.exit39, %_ZN7QStringaSEPKc.exit43, %_ZN7QStringaSEPKc.exit
+  %.0 = phi double [ 1.000000e+00, %_ZN7QStringaSEPKc.exit ], [ 1.000000e+03, %_ZN7QStringaSEPKc.exit39 ], [ 1.000000e+06, %_ZN7QStringaSEPKc.exit43 ]
   %141 = load ptr, ptr %24, align 8
   %.not15 = icmp eq ptr %141, null
   br i1 %.not15, label %190, label %142
@@ -22040,8 +22044,8 @@ _ZN7QStringaSEPKc.exit41:                         ; preds = %128, %_ZN17QArrayDa
   %146 = getelementptr inbounds nuw i8, ptr %141, i64 200
   %147 = load ptr, ptr %146, align 8, !noalias !145
   store ptr %147, ptr %145, align 8, !alias.scope !145
-  %.not.i.i42 = icmp eq ptr %147, null
-  br i1 %.not.i.i42, label %_ZNK8QCPGraph4dataEv.exit43, label %148
+  %.not.i.i44 = icmp eq ptr %147, null
+  br i1 %.not.i.i44, label %_ZNK8QCPGraph4dataEv.exit45, label %148
 
 148:                                              ; preds = %142
   %149 = atomicrmw add ptr %147, i32 1 seq_cst, align 4, !noalias !145
@@ -22049,13 +22053,13 @@ _ZN7QStringaSEPKc.exit41:                         ; preds = %128, %_ZN17QArrayDa
   %151 = getelementptr inbounds nuw i8, ptr %150, i64 4
   %152 = atomicrmw add ptr %151, i32 1 seq_cst, align 4, !noalias !145
   %.pre = load ptr, ptr %5, align 8
-  br label %_ZNK8QCPGraph4dataEv.exit43
+  br label %_ZNK8QCPGraph4dataEv.exit45
 
-_ZNK8QCPGraph4dataEv.exit43:                      ; preds = %142, %148
+_ZNK8QCPGraph4dataEv.exit45:                      ; preds = %142, %148
   %153 = phi ptr [ %144, %142 ], [ %.pre, %148 ]
   br i1 %99, label %_ZN7IOGraph14scaleGraphDataI16QCPDataContainerI12QCPGraphDataEEEvRT_i.exit, label %154
 
-154:                                              ; preds = %_ZNK8QCPGraph4dataEv.exit43
+154:                                              ; preds = %_ZNK8QCPGraph4dataEv.exit45
   %155 = getelementptr inbounds nuw i8, ptr %153, i64 8
   %156 = load ptr, ptr %155, align 8
   %.not.i.i.i.i.i.i = icmp eq ptr %156, null
@@ -22068,7 +22072,7 @@ _ZNK17QArrayDataPointerI12QCPGraphDataE11needsDetachEv.exit.i.i.i.i.i: ; preds =
 
 _ZNK17QArrayDataPointerI12QCPGraphDataE11needsDetachEv.exit.thread.i.i.i.i.i: ; preds = %_ZNK17QArrayDataPointerI12QCPGraphDataE11needsDetachEv.exit.i.i.i.i.i, %154
   invoke void @_ZN17QArrayDataPointerI12QCPGraphDataE17reallocateAndGrowEN10QArrayData14GrowthPositionExPS1_(ptr noundef nonnull align 8 dereferenceable(24) %155, i32 noundef 0, i64 noundef 0, ptr noundef null)
-          to label %_ZN16QCPDataContainerI12QCPGraphDataE5beginEv.exit.i unwind label %.loopexit.split-lp68
+          to label %_ZN16QCPDataContainerI12QCPGraphDataE5beginEv.exit.i unwind label %.loopexit.split-lp70
 
 _ZN16QCPDataContainerI12QCPGraphDataE5beginEv.exit.i: ; preds = %_ZNK17QArrayDataPointerI12QCPGraphDataE11needsDetachEv.exit.thread.i.i.i.i.i, %_ZNK17QArrayDataPointerI12QCPGraphDataE11needsDetachEv.exit.i.i.i.i.i
   %159 = getelementptr inbounds nuw i8, ptr %153, i64 16
@@ -22093,14 +22097,14 @@ _ZNK17QArrayDataPointerI12QCPGraphDataE11needsDetachEv.exit.i.i.i.i4.i: ; preds 
 
 _ZNK17QArrayDataPointerI12QCPGraphDataE11needsDetachEv.exit.thread.i.i.i.i5.i: ; preds = %_ZNK17QArrayDataPointerI12QCPGraphDataE11needsDetachEv.exit.i.i.i.i4.i, %166
   invoke void @_ZN17QArrayDataPointerI12QCPGraphDataE17reallocateAndGrowEN10QArrayData14GrowthPositionExPS1_(ptr noundef nonnull align 8 dereferenceable(24) %155, i32 noundef 0, i64 noundef 0, ptr noundef null)
-          to label %_ZN16QCPDataContainerI12QCPGraphDataE3endEv.exit.i unwind label %.loopexit67
+          to label %_ZN16QCPDataContainerI12QCPGraphDataE3endEv.exit.i unwind label %.loopexit69
 
 _ZN16QCPDataContainerI12QCPGraphDataE3endEv.exit.i: ; preds = %_ZNK17QArrayDataPointerI12QCPGraphDataE11needsDetachEv.exit.thread.i.i.i.i5.i, %_ZNK17QArrayDataPointerI12QCPGraphDataE11needsDetachEv.exit.i.i.i.i4.i
   %170 = load ptr, ptr %159, align 8
   %171 = load i64, ptr %165, align 8
   %172 = getelementptr %class.QCPGraphData, ptr %170, i64 %171
-  %.not8.i45 = icmp eq ptr %.sroa.0.0.i, %172
-  br i1 %.not8.i45, label %_ZN7IOGraph14scaleGraphDataI16QCPDataContainerI12QCPGraphDataEEEvRT_i.exit, label %173
+  %.not8.i47 = icmp eq ptr %.sroa.0.0.i, %172
+  br i1 %.not8.i47, label %_ZN7IOGraph14scaleGraphDataI16QCPDataContainerI12QCPGraphDataEEEvRT_i.exit, label %173
 
 173:                                              ; preds = %_ZN16QCPDataContainerI12QCPGraphDataE3endEv.exit.i
   %174 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i, i64 8
@@ -22110,27 +22114,27 @@ _ZN16QCPDataContainerI12QCPGraphDataE3endEv.exit.i: ; preds = %_ZNK17QArrayDataP
   %177 = getelementptr i8, ptr %.sroa.0.0.i, i64 16
   br label %166, !llvm.loop !148
 
-_ZN7IOGraph14scaleGraphDataI16QCPDataContainerI12QCPGraphDataEEEvRT_i.exit: ; preds = %_ZN16QCPDataContainerI12QCPGraphDataE3endEv.exit.i, %_ZNK8QCPGraph4dataEv.exit43
+_ZN7IOGraph14scaleGraphDataI16QCPDataContainerI12QCPGraphDataEEEvRT_i.exit: ; preds = %_ZN16QCPDataContainerI12QCPGraphDataE3endEv.exit.i, %_ZNK8QCPGraph4dataEv.exit45
   %178 = load ptr, ptr %145, align 8
-  %.not.i.i.i47 = icmp eq ptr %178, null
-  br i1 %.not.i.i.i47, label %_ZN14QSharedPointerI16QCPDataContainerI12QCPGraphDataEED2Ev.exit51, label %179
+  %.not.i.i.i49 = icmp eq ptr %178, null
+  br i1 %.not.i.i.i49, label %_ZN14QSharedPointerI16QCPDataContainerI12QCPGraphDataEED2Ev.exit53, label %179
 
 179:                                              ; preds = %_ZN7IOGraph14scaleGraphDataI16QCPDataContainerI12QCPGraphDataEEEvRT_i.exit
   %180 = getelementptr inbounds nuw i8, ptr %178, i64 4
   %181 = atomicrmw sub ptr %180, i32 1 seq_cst, align 4
-  %.not5.i.i.i48 = icmp eq i32 %181, 1
-  br i1 %.not5.i.i.i48, label %182, label %_ZN15QtSharedPointer20ExternalRefCountData7destroyEv.exit.i.i.i49
+  %.not5.i.i.i50 = icmp eq i32 %181, 1
+  br i1 %.not5.i.i.i50, label %182, label %_ZN15QtSharedPointer20ExternalRefCountData7destroyEv.exit.i.i.i51
 
 182:                                              ; preds = %179
   %183 = getelementptr inbounds nuw i8, ptr %178, i64 8
   %184 = load ptr, ptr %183, align 8
   invoke void %184(ptr noundef nonnull align 8 dereferenceable(16) %178)
-          to label %_ZN15QtSharedPointer20ExternalRefCountData7destroyEv.exit.i.i.i49 unwind label %186
+          to label %_ZN15QtSharedPointer20ExternalRefCountData7destroyEv.exit.i.i.i51 unwind label %186
 
-_ZN15QtSharedPointer20ExternalRefCountData7destroyEv.exit.i.i.i49: ; preds = %182, %179
+_ZN15QtSharedPointer20ExternalRefCountData7destroyEv.exit.i.i.i51: ; preds = %182, %179
   %185 = atomicrmw sub ptr %178, i32 1 seq_cst, align 4
-  %.not6.i.i.i50 = icmp eq i32 %185, 1
-  br i1 %.not6.i.i.i50, label %_ZN14QSharedPointerI16QCPDataContainerI12QCPGraphDataEED2Ev.exit51.sink.split, label %_ZN14QSharedPointerI16QCPDataContainerI12QCPGraphDataEED2Ev.exit51
+  %.not6.i.i.i52 = icmp eq i32 %185, 1
+  br i1 %.not6.i.i.i52, label %_ZN14QSharedPointerI16QCPDataContainerI12QCPGraphDataEED2Ev.exit53.sink.split, label %_ZN14QSharedPointerI16QCPDataContainerI12QCPGraphDataEED2Ev.exit53
 
 186:                                              ; preds = %182
   %187 = landingpad { ptr, i32 }
@@ -22139,18 +22143,18 @@ _ZN15QtSharedPointer20ExternalRefCountData7destroyEv.exit.i.i.i49: ; preds = %18
   call void @__clang_call_terminate(ptr %188) #29
   unreachable
 
-.loopexit67:                                      ; preds = %_ZNK17QArrayDataPointerI12QCPGraphDataE11needsDetachEv.exit.thread.i.i.i.i5.i
-  %lpad.loopexit69 = landingpad { ptr, i32 }
+.loopexit69:                                      ; preds = %_ZNK17QArrayDataPointerI12QCPGraphDataE11needsDetachEv.exit.thread.i.i.i.i5.i
+  %lpad.loopexit71 = landingpad { ptr, i32 }
           cleanup
   br label %189
 
-.loopexit.split-lp68:                             ; preds = %_ZNK17QArrayDataPointerI12QCPGraphDataE11needsDetachEv.exit.thread.i.i.i.i.i
-  %lpad.loopexit.split-lp70 = landingpad { ptr, i32 }
+.loopexit.split-lp70:                             ; preds = %_ZNK17QArrayDataPointerI12QCPGraphDataE11needsDetachEv.exit.thread.i.i.i.i.i
+  %lpad.loopexit.split-lp72 = landingpad { ptr, i32 }
           cleanup
   br label %189
 
-189:                                              ; preds = %.loopexit.split-lp68, %.loopexit67
-  %lpad.phi71 = phi { ptr, i32 } [ %lpad.loopexit69, %.loopexit67 ], [ %lpad.loopexit.split-lp70, %.loopexit.split-lp68 ]
+189:                                              ; preds = %.loopexit.split-lp70, %.loopexit69
+  %lpad.phi73 = phi { ptr, i32 } [ %lpad.loopexit71, %.loopexit69 ], [ %lpad.loopexit.split-lp72, %.loopexit.split-lp70 ]
   call void @_ZN14QSharedPointerI16QCPDataContainerI12QCPGraphDataEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #27
   br label %241
 
@@ -22158,7 +22162,7 @@ _ZN15QtSharedPointer20ExternalRefCountData7destroyEv.exit.i.i.i49: ; preds = %18
   %191 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %192 = load ptr, ptr %191, align 8
   %.not16 = icmp eq ptr %192, null
-  br i1 %.not16, label %_ZN14QSharedPointerI16QCPDataContainerI12QCPGraphDataEED2Ev.exit51, label %193
+  br i1 %.not16, label %_ZN14QSharedPointerI16QCPDataContainerI12QCPGraphDataEED2Ev.exit53, label %193
 
 193:                                              ; preds = %190
   call void @llvm.experimental.noalias.scope.decl(metadata !149)
@@ -22169,26 +22173,26 @@ _ZN15QtSharedPointer20ExternalRefCountData7destroyEv.exit.i.i.i49: ; preds = %18
   %197 = getelementptr inbounds nuw i8, ptr %192, i64 200
   %198 = load ptr, ptr %197, align 8, !noalias !149
   store ptr %198, ptr %196, align 8, !alias.scope !149
-  %.not.i.i52 = icmp eq ptr %198, null
-  br i1 %.not.i.i52, label %_ZNK7QCPBars4dataEv.exit53, label %199
+  %.not.i.i54 = icmp eq ptr %198, null
+  br i1 %.not.i.i54, label %_ZNK7QCPBars4dataEv.exit55, label %199
 
 199:                                              ; preds = %193
   %200 = atomicrmw add ptr %198, i32 1 seq_cst, align 4, !noalias !149
   %201 = load ptr, ptr %196, align 8, !alias.scope !149
   %202 = getelementptr inbounds nuw i8, ptr %201, i64 4
   %203 = atomicrmw add ptr %202, i32 1 seq_cst, align 4, !noalias !149
-  %.pre78 = load ptr, ptr %6, align 8
-  br label %_ZNK7QCPBars4dataEv.exit53
+  %.pre80 = load ptr, ptr %6, align 8
+  br label %_ZNK7QCPBars4dataEv.exit55
 
-_ZNK7QCPBars4dataEv.exit53:                       ; preds = %193, %199
-  %204 = phi ptr [ %195, %193 ], [ %.pre78, %199 ]
+_ZNK7QCPBars4dataEv.exit55:                       ; preds = %193, %199
+  %204 = phi ptr [ %195, %193 ], [ %.pre80, %199 ]
   br i1 %99, label %_ZN7IOGraph14scaleGraphDataI16QCPDataContainerI11QCPBarsDataEEEvRT_i.exit, label %205
 
-205:                                              ; preds = %_ZNK7QCPBars4dataEv.exit53
+205:                                              ; preds = %_ZNK7QCPBars4dataEv.exit55
   %206 = getelementptr inbounds nuw i8, ptr %204, i64 8
   %207 = load ptr, ptr %206, align 8
-  %.not.i.i.i.i.i.i55 = icmp eq ptr %207, null
-  br i1 %.not.i.i.i.i.i.i55, label %_ZNK17QArrayDataPointerI11QCPBarsDataE11needsDetachEv.exit.thread.i.i.i.i.i, label %_ZNK17QArrayDataPointerI11QCPBarsDataE11needsDetachEv.exit.i.i.i.i.i
+  %.not.i.i.i.i.i.i57 = icmp eq ptr %207, null
+  br i1 %.not.i.i.i.i.i.i57, label %_ZNK17QArrayDataPointerI11QCPBarsDataE11needsDetachEv.exit.thread.i.i.i.i.i, label %_ZNK17QArrayDataPointerI11QCPBarsDataE11needsDetachEv.exit.i.i.i.i.i
 
 _ZNK17QArrayDataPointerI11QCPBarsDataE11needsDetachEv.exit.i.i.i.i.i: ; preds = %205
   %208 = load atomic i32, ptr %207 monotonic, align 4
@@ -22210,10 +22214,10 @@ _ZN16QCPDataContainerI11QCPBarsDataE5beginEv.exit.i: ; preds = %_ZNK17QArrayData
   br label %217
 
 217:                                              ; preds = %224, %_ZN16QCPDataContainerI11QCPBarsDataE5beginEv.exit.i
-  %.sroa.0.0.i56 = phi ptr [ %215, %_ZN16QCPDataContainerI11QCPBarsDataE5beginEv.exit.i ], [ %228, %224 ]
+  %.sroa.0.0.i58 = phi ptr [ %215, %_ZN16QCPDataContainerI11QCPBarsDataE5beginEv.exit.i ], [ %228, %224 ]
   %218 = load ptr, ptr %206, align 8
-  %.not.i.i.i.i.i3.i57 = icmp eq ptr %218, null
-  br i1 %.not.i.i.i.i.i3.i57, label %_ZNK17QArrayDataPointerI11QCPBarsDataE11needsDetachEv.exit.thread.i.i.i.i5.i, label %_ZNK17QArrayDataPointerI11QCPBarsDataE11needsDetachEv.exit.i.i.i.i4.i
+  %.not.i.i.i.i.i3.i59 = icmp eq ptr %218, null
+  br i1 %.not.i.i.i.i.i3.i59, label %_ZNK17QArrayDataPointerI11QCPBarsDataE11needsDetachEv.exit.thread.i.i.i.i5.i, label %_ZNK17QArrayDataPointerI11QCPBarsDataE11needsDetachEv.exit.i.i.i.i4.i
 
 _ZNK17QArrayDataPointerI11QCPBarsDataE11needsDetachEv.exit.i.i.i.i4.i: ; preds = %217
   %219 = load atomic i32, ptr %218 monotonic, align 4
@@ -22228,38 +22232,38 @@ _ZN16QCPDataContainerI11QCPBarsDataE3endEv.exit.i: ; preds = %_ZNK17QArrayDataPo
   %221 = load ptr, ptr %210, align 8
   %222 = load i64, ptr %216, align 8
   %223 = getelementptr %class.QCPBarsData, ptr %221, i64 %222
-  %.not8.i58 = icmp eq ptr %.sroa.0.0.i56, %223
-  br i1 %.not8.i58, label %_ZN7IOGraph14scaleGraphDataI16QCPDataContainerI11QCPBarsDataEEEvRT_i.exit, label %224
+  %.not8.i60 = icmp eq ptr %.sroa.0.0.i58, %223
+  br i1 %.not8.i60, label %_ZN7IOGraph14scaleGraphDataI16QCPDataContainerI11QCPBarsDataEEEvRT_i.exit, label %224
 
 224:                                              ; preds = %_ZN16QCPDataContainerI11QCPBarsDataE3endEv.exit.i
-  %225 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i56, i64 8
+  %225 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i58, i64 8
   %226 = load double, ptr %225, align 8
   %227 = fmul double %.0, %226
   store double %227, ptr %225, align 8
-  %228 = getelementptr i8, ptr %.sroa.0.0.i56, i64 16
+  %228 = getelementptr i8, ptr %.sroa.0.0.i58, i64 16
   br label %217, !llvm.loop !152
 
-_ZN7IOGraph14scaleGraphDataI16QCPDataContainerI11QCPBarsDataEEEvRT_i.exit: ; preds = %_ZN16QCPDataContainerI11QCPBarsDataE3endEv.exit.i, %_ZNK7QCPBars4dataEv.exit53
+_ZN7IOGraph14scaleGraphDataI16QCPDataContainerI11QCPBarsDataEEEvRT_i.exit: ; preds = %_ZN16QCPDataContainerI11QCPBarsDataE3endEv.exit.i, %_ZNK7QCPBars4dataEv.exit55
   %229 = load ptr, ptr %196, align 8
-  %.not.i.i.i61 = icmp eq ptr %229, null
-  br i1 %.not.i.i.i61, label %_ZN14QSharedPointerI16QCPDataContainerI12QCPGraphDataEED2Ev.exit51, label %230
+  %.not.i.i.i63 = icmp eq ptr %229, null
+  br i1 %.not.i.i.i63, label %_ZN14QSharedPointerI16QCPDataContainerI12QCPGraphDataEED2Ev.exit53, label %230
 
 230:                                              ; preds = %_ZN7IOGraph14scaleGraphDataI16QCPDataContainerI11QCPBarsDataEEEvRT_i.exit
   %231 = getelementptr inbounds nuw i8, ptr %229, i64 4
   %232 = atomicrmw sub ptr %231, i32 1 seq_cst, align 4
-  %.not5.i.i.i62 = icmp eq i32 %232, 1
-  br i1 %.not5.i.i.i62, label %233, label %_ZN15QtSharedPointer20ExternalRefCountData7destroyEv.exit.i.i.i63
+  %.not5.i.i.i64 = icmp eq i32 %232, 1
+  br i1 %.not5.i.i.i64, label %233, label %_ZN15QtSharedPointer20ExternalRefCountData7destroyEv.exit.i.i.i65
 
 233:                                              ; preds = %230
   %234 = getelementptr inbounds nuw i8, ptr %229, i64 8
   %235 = load ptr, ptr %234, align 8
   invoke void %235(ptr noundef nonnull align 8 dereferenceable(16) %229)
-          to label %_ZN15QtSharedPointer20ExternalRefCountData7destroyEv.exit.i.i.i63 unwind label %237
+          to label %_ZN15QtSharedPointer20ExternalRefCountData7destroyEv.exit.i.i.i65 unwind label %237
 
-_ZN15QtSharedPointer20ExternalRefCountData7destroyEv.exit.i.i.i63: ; preds = %233, %230
+_ZN15QtSharedPointer20ExternalRefCountData7destroyEv.exit.i.i.i65: ; preds = %233, %230
   %236 = atomicrmw sub ptr %229, i32 1 seq_cst, align 4
-  %.not6.i.i.i64 = icmp eq i32 %236, 1
-  br i1 %.not6.i.i.i64, label %_ZN14QSharedPointerI16QCPDataContainerI12QCPGraphDataEED2Ev.exit51.sink.split, label %_ZN14QSharedPointerI16QCPDataContainerI12QCPGraphDataEED2Ev.exit51
+  %.not6.i.i.i66 = icmp eq i32 %236, 1
+  br i1 %.not6.i.i.i66, label %_ZN14QSharedPointerI16QCPDataContainerI12QCPGraphDataEED2Ev.exit53.sink.split, label %_ZN14QSharedPointerI16QCPDataContainerI12QCPGraphDataEED2Ev.exit53
 
 237:                                              ; preds = %233
   %238 = landingpad { ptr, i32 }
@@ -22283,16 +22287,16 @@ _ZN15QtSharedPointer20ExternalRefCountData7destroyEv.exit.i.i.i63: ; preds = %23
   call void @_ZN14QSharedPointerI16QCPDataContainerI11QCPBarsDataEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #27
   br label %241
 
-_ZN14QSharedPointerI16QCPDataContainerI12QCPGraphDataEED2Ev.exit51.sink.split: ; preds = %_ZN15QtSharedPointer20ExternalRefCountData7destroyEv.exit.i.i.i63, %_ZN15QtSharedPointer20ExternalRefCountData7destroyEv.exit.i.i.i49
-  %.sink80 = phi ptr [ %178, %_ZN15QtSharedPointer20ExternalRefCountData7destroyEv.exit.i.i.i49 ], [ %229, %_ZN15QtSharedPointer20ExternalRefCountData7destroyEv.exit.i.i.i63 ]
-  call void @_ZdlPv(ptr noundef nonnull %.sink80) #27
-  br label %_ZN14QSharedPointerI16QCPDataContainerI12QCPGraphDataEED2Ev.exit51
+_ZN14QSharedPointerI16QCPDataContainerI12QCPGraphDataEED2Ev.exit53.sink.split: ; preds = %_ZN15QtSharedPointer20ExternalRefCountData7destroyEv.exit.i.i.i65, %_ZN15QtSharedPointer20ExternalRefCountData7destroyEv.exit.i.i.i51
+  %.sink82 = phi ptr [ %178, %_ZN15QtSharedPointer20ExternalRefCountData7destroyEv.exit.i.i.i51 ], [ %229, %_ZN15QtSharedPointer20ExternalRefCountData7destroyEv.exit.i.i.i65 ]
+  call void @_ZdlPv(ptr noundef nonnull %.sink82) #27
+  br label %_ZN14QSharedPointerI16QCPDataContainerI12QCPGraphDataEED2Ev.exit53
 
-_ZN14QSharedPointerI16QCPDataContainerI12QCPGraphDataEED2Ev.exit51: ; preds = %_ZN14QSharedPointerI16QCPDataContainerI12QCPGraphDataEED2Ev.exit51.sink.split, %60, %_ZN15QtSharedPointer20ExternalRefCountData7destroyEv.exit.i.i.i63, %_ZN7IOGraph14scaleGraphDataI16QCPDataContainerI11QCPBarsDataEEEvRT_i.exit, %_ZN15QtSharedPointer20ExternalRefCountData7destroyEv.exit.i.i.i49, %_ZN7IOGraph14scaleGraphDataI16QCPDataContainerI12QCPGraphDataEEEvRT_i.exit, %190, %_ZN14QSharedPointerI16QCPDataContainerI12QCPGraphDataEED2Ev.exit, %17, %_ZN7QString5clearEv.exit, %20
+_ZN14QSharedPointerI16QCPDataContainerI12QCPGraphDataEED2Ev.exit53: ; preds = %_ZN14QSharedPointerI16QCPDataContainerI12QCPGraphDataEED2Ev.exit53.sink.split, %60, %_ZN15QtSharedPointer20ExternalRefCountData7destroyEv.exit.i.i.i65, %_ZN7IOGraph14scaleGraphDataI16QCPDataContainerI11QCPBarsDataEEEvRT_i.exit, %_ZN15QtSharedPointer20ExternalRefCountData7destroyEv.exit.i.i.i51, %_ZN7IOGraph14scaleGraphDataI16QCPDataContainerI12QCPGraphDataEEEvRT_i.exit, %190, %_ZN14QSharedPointerI16QCPDataContainerI12QCPGraphDataEED2Ev.exit, %17, %_ZN7QString5clearEv.exit, %20
   ret void
 
 241:                                              ; preds = %240, %189
-  %.pn = phi { ptr, i32 } [ %lpad.phi71, %189 ], [ %lpad.phi, %240 ]
+  %.pn = phi { ptr, i32 } [ %lpad.phi73, %189 ], [ %lpad.phi, %240 ]
   resume { ptr, i32 } %.pn
 }
 

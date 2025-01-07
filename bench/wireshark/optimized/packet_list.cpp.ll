@@ -5443,21 +5443,26 @@ _ZN17QArrayDataPointerI11QModelIndexE5derefEv.exit.i.i77: ; preds = %_ZN5QListIi
   %163 = getelementptr inbounds nuw i8, ptr %0, i64 440
   %164 = load i64, ptr %163, align 8
   %165 = icmp slt i64 %164, %162
-  br i1 %165, label %_ZN9QtPrivate12QPodArrayOpsIiE16appendInitializeEx.exit.i, label %_ZN5QListIiE6resizeEx.exit
+  br i1 %165, label %166, label %_ZN5QListIiE6resizeEx.exit
 
-_ZN9QtPrivate12QPodArrayOpsIiE16appendInitializeEx.exit.i: ; preds = %157
-  %166 = getelementptr inbounds nuw i8, ptr %0, i64 432
-  %167 = load ptr, ptr %166, align 8
+166:                                              ; preds = %157
+  %167 = getelementptr inbounds nuw i8, ptr %0, i64 432
+  %168 = load ptr, ptr %167, align 8
+  %.idx.i.i = shl i64 %164, 2
   store i64 %162, ptr %163, align 8
-  %168 = getelementptr i32, ptr %167, i64 %164
-  %169 = sub i64 %162, %164
-  %170 = shl i64 %169, 2
-  call void @llvm.memset.p0.i64(ptr align 4 %168, i8 0, i64 %170, i1 false)
+  %.idx6.i.i = shl nsw i64 %162, 2
+  %.not4.i.i = icmp eq i64 %.idx.i.i, %.idx6.i.i
+  br i1 %.not4.i.i, label %_ZN5QListIiE6resizeEx.exit, label %.lr.ph.preheader.i.i
+
+.lr.ph.preheader.i.i:                             ; preds = %166
+  %169 = getelementptr i8, ptr %168, i64 %.idx.i.i
+  %170 = sub i64 %.idx6.i.i, %.idx.i.i
+  call void @llvm.memset.p0.i64(ptr align 4 %169, i8 0, i64 %170, i1 false)
   %.pre = load i64, ptr %163, align 8
   br label %_ZN5QListIiE6resizeEx.exit
 
-_ZN5QListIiE6resizeEx.exit:                       ; preds = %157, %_ZN9QtPrivate12QPodArrayOpsIiE16appendInitializeEx.exit.i
-  %171 = phi i64 [ %164, %157 ], [ %.pre, %_ZN9QtPrivate12QPodArrayOpsIiE16appendInitializeEx.exit.i ]
+_ZN5QListIiE6resizeEx.exit:                       ; preds = %157, %166, %.lr.ph.preheader.i.i
+  %171 = phi i64 [ %164, %157 ], [ %162, %166 ], [ %.pre, %.lr.ph.preheader.i.i ]
   %172 = load ptr, ptr %17, align 8
   %173 = getelementptr inbounds nuw i8, ptr %172, i64 376
   %174 = load ptr, ptr %173, align 8

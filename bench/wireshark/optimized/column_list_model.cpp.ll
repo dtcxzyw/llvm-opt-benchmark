@@ -2797,7 +2797,7 @@ define linkonce_odr void @_ZN5QListI11ListElementE5clearEv(ptr noundef nonnull a
 _ZNK17QArrayDataPointerI11ListElementE11needsDetachEv.exit: ; preds = %5
   %7 = load atomic i32, ptr %6 monotonic, align 4
   %8 = icmp sgt i32 %7, 1
-  br i1 %8, label %9, label %.lr.ph.i.i.i.preheader.i
+  br i1 %8, label %9, label %32
 
 9:                                                ; preds = %_ZNK17QArrayDataPointerI11ListElementE11needsDetachEv.exit
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -2873,50 +2873,52 @@ _ZN9QtPrivate16QGenericArrayOpsI11ListElementE10destroyAllEv.exit.i: ; preds = %
   call void @_ZN10QArrayData10deallocateEPS_xx(ptr noundef nonnull %15, i64 noundef 72, i64 noundef 8) #21
   br label %_ZN17QArrayDataPointerI11ListElementED2Ev.exit
 
-.lr.ph.i.i.i.preheader.i:                         ; preds = %_ZNK17QArrayDataPointerI11ListElementE11needsDetachEv.exit
-  %32 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %33 = load ptr, ptr %32, align 8
-  %34 = getelementptr %struct.ListElement, ptr %33, i64 %4
-  br label %.lr.ph.i.i.i.i
+32:                                               ; preds = %_ZNK17QArrayDataPointerI11ListElementE11needsDetachEv.exit
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %34 = load ptr, ptr %33, align 8
+  %.idx2.i = mul i64 %4, 72
+  %35 = getelementptr i8, ptr %34, i64 %.idx2.i
+  %.not4.i.i.i.i = icmp eq i64 %.idx2.i, 0
+  br i1 %.not4.i.i.i.i, label %_ZN9QtPrivate16QGenericArrayOpsI11ListElementE8truncateEm.exit, label %.lr.ph.i.i.i.i
 
-.lr.ph.i.i.i.i:                                   ; preds = %_ZSt8_DestroyI11ListElementEvPT_.exit.i.i.i.i, %.lr.ph.i.i.i.preheader.i
-  %.05.i.i.i.i = phi ptr [ %44, %_ZSt8_DestroyI11ListElementEvPT_.exit.i.i.i.i ], [ %33, %.lr.ph.i.i.i.preheader.i ]
-  %35 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i, i64 24
-  %36 = load ptr, ptr %35, align 8
-  %.not.i.i.i.i.i.i.i.i.i3 = icmp eq ptr %36, null
+.lr.ph.i.i.i.i:                                   ; preds = %32, %_ZSt8_DestroyI11ListElementEvPT_.exit.i.i.i.i
+  %.05.i.i.i.i = phi ptr [ %45, %_ZSt8_DestroyI11ListElementEvPT_.exit.i.i.i.i ], [ %34, %32 ]
+  %36 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i, i64 24
+  %37 = load ptr, ptr %36, align 8
+  %.not.i.i.i.i.i.i.i.i.i3 = icmp eq ptr %37, null
   br i1 %.not.i.i.i.i.i.i.i.i.i3, label %_ZN7QStringD2Ev.exit.i.i.i.i.i.i, label %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i.i.i.i.i.i.i
 
 _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i.i.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i
-  %37 = atomicrmw sub ptr %36, i32 1 seq_cst, align 4
-  %.not.i.i.i.i.i.i.i.i = icmp eq i32 %37, 1
-  br i1 %.not.i.i.i.i.i.i.i.i, label %38, label %_ZN7QStringD2Ev.exit.i.i.i.i.i.i
+  %38 = atomicrmw sub ptr %37, i32 1 seq_cst, align 4
+  %.not.i.i.i.i.i.i.i.i = icmp eq i32 %38, 1
+  br i1 %.not.i.i.i.i.i.i.i.i, label %39, label %_ZN7QStringD2Ev.exit.i.i.i.i.i.i
 
-38:                                               ; preds = %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i.i.i.i.i.i.i
-  %39 = load ptr, ptr %35, align 8
-  tail call void @_ZN10QArrayData10deallocateEPS_xx(ptr noundef %39, i64 noundef 2, i64 noundef 8) #21
+39:                                               ; preds = %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i.i.i.i.i.i.i
+  %40 = load ptr, ptr %36, align 8
+  tail call void @_ZN10QArrayData10deallocateEPS_xx(ptr noundef %40, i64 noundef 2, i64 noundef 8) #21
   br label %_ZN7QStringD2Ev.exit.i.i.i.i.i.i
 
-_ZN7QStringD2Ev.exit.i.i.i.i.i.i:                 ; preds = %38, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i
-  %40 = load ptr, ptr %.05.i.i.i.i, align 8
-  %.not.i.i.i1.i.i.i.i.i.i = icmp eq ptr %40, null
+_ZN7QStringD2Ev.exit.i.i.i.i.i.i:                 ; preds = %39, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i
+  %41 = load ptr, ptr %.05.i.i.i.i, align 8
+  %.not.i.i.i1.i.i.i.i.i.i = icmp eq ptr %41, null
   br i1 %.not.i.i.i1.i.i.i.i.i.i, label %_ZSt8_DestroyI11ListElementEvPT_.exit.i.i.i.i, label %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i2.i.i.i.i.i.i
 
 _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i2.i.i.i.i.i.i: ; preds = %_ZN7QStringD2Ev.exit.i.i.i.i.i.i
-  %41 = atomicrmw sub ptr %40, i32 1 seq_cst, align 4
-  %.not.i.i3.i.i.i.i.i.i = icmp eq i32 %41, 1
-  br i1 %.not.i.i3.i.i.i.i.i.i, label %42, label %_ZSt8_DestroyI11ListElementEvPT_.exit.i.i.i.i
+  %42 = atomicrmw sub ptr %41, i32 1 seq_cst, align 4
+  %.not.i.i3.i.i.i.i.i.i = icmp eq i32 %42, 1
+  br i1 %.not.i.i3.i.i.i.i.i.i, label %43, label %_ZSt8_DestroyI11ListElementEvPT_.exit.i.i.i.i
 
-42:                                               ; preds = %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i2.i.i.i.i.i.i
-  %43 = load ptr, ptr %.05.i.i.i.i, align 8
-  tail call void @_ZN10QArrayData10deallocateEPS_xx(ptr noundef %43, i64 noundef 2, i64 noundef 8) #21
+43:                                               ; preds = %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i2.i.i.i.i.i.i
+  %44 = load ptr, ptr %.05.i.i.i.i, align 8
+  tail call void @_ZN10QArrayData10deallocateEPS_xx(ptr noundef %44, i64 noundef 2, i64 noundef 8) #21
   br label %_ZSt8_DestroyI11ListElementEvPT_.exit.i.i.i.i
 
-_ZSt8_DestroyI11ListElementEvPT_.exit.i.i.i.i:    ; preds = %42, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i2.i.i.i.i.i.i, %_ZN7QStringD2Ev.exit.i.i.i.i.i.i
-  %44 = getelementptr i8, ptr %.05.i.i.i.i, i64 72
-  %.not.i.i.i.i = icmp eq ptr %44, %34
+_ZSt8_DestroyI11ListElementEvPT_.exit.i.i.i.i:    ; preds = %43, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i2.i.i.i.i.i.i, %_ZN7QStringD2Ev.exit.i.i.i.i.i.i
+  %45 = getelementptr i8, ptr %.05.i.i.i.i, i64 72
+  %.not.i.i.i.i = icmp eq ptr %45, %35
   br i1 %.not.i.i.i.i, label %_ZN9QtPrivate16QGenericArrayOpsI11ListElementE8truncateEm.exit, label %.lr.ph.i.i.i.i, !llvm.loop !4
 
-_ZN9QtPrivate16QGenericArrayOpsI11ListElementE8truncateEm.exit: ; preds = %_ZSt8_DestroyI11ListElementEvPT_.exit.i.i.i.i
+_ZN9QtPrivate16QGenericArrayOpsI11ListElementE8truncateEm.exit: ; preds = %_ZSt8_DestroyI11ListElementEvPT_.exit.i.i.i.i, %32
   store i64 0, ptr %3, align 8
   br label %_ZN17QArrayDataPointerI11ListElementED2Ev.exit
 
