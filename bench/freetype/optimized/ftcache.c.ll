@@ -2471,7 +2471,7 @@ define i32 @FTC_CMapCache_Lookup(ptr noundef %0, ptr noundef %1, i32 noundef %2,
   %6 = alloca %struct.FTC_CMapQueryRec_, align 8
   %7 = alloca ptr, align 8
   %8 = icmp sgt i32 %2, -1
-  %spec.select = select i1 %8, i32 %2, i32 0
+  %spec.select = tail call i32 @llvm.smax.i32(i32 %2, i32 0)
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %132, label %9
 
@@ -2487,10 +2487,10 @@ define i32 @FTC_CMapCache_Lookup(ptr noundef %0, ptr noundef %1, i32 noundef %2,
   %15 = xor i64 %13, %14
   %16 = mul i32 %spec.select, 211
   %17 = zext i32 %16 to i64
-  %18 = lshr i32 %3, 7
-  %19 = zext nneg i32 %18 to i64
-  %20 = add i64 %15, %19
-  %21 = add i64 %20, %17
+  %18 = add i64 %15, %17
+  %19 = lshr i32 %3, 7
+  %20 = zext nneg i32 %19 to i64
+  %21 = add i64 %18, %20
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %23 = load ptr, ptr %22, align 8
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -5377,6 +5377,9 @@ declare i16 @llvm.abs.i16(i16, i1 immarg) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #9
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.smax.i32(i32, i32) #9
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

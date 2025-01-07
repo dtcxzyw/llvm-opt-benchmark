@@ -15429,21 +15429,20 @@ entry:
   %5 = load i32, ptr %allow_greyscale, align 4
   %tobool9.not = icmp ne i32 %5, 0
   %narrow = select i1 %tobool9.not, i1 %tobool8.not, i1 false
-  %cmp14 = icmp ugt i32 %bits.0, 7
-  %or.cond2.not = select i1 %narrow, i1 true, i1 %cmp14
-  %spec.store.select6 = select i1 %or.cond2.not, i32 %bits.0, i32 8
+  %6 = tail call i32 @llvm.umax.i32(i32 %bits.0, i32 8)
+  %spec.store.select6 = select i1 %narrow, i32 %bits.0, i32 %6
   %numcolors = getelementptr inbounds nuw i8, ptr %stats, i64 20
-  %6 = load i32, ptr %numcolors, align 4
-  %conv17 = zext i32 %6 to i64
-  %cmp18 = icmp ult i32 %6, 3
-  %cmp19 = icmp ult i32 %6, 5
-  %cmp22 = icmp ult i32 %6, 17
+  %7 = load i32, ptr %numcolors, align 4
+  %conv17 = zext i32 %7 to i64
+  %cmp18 = icmp ult i32 %7, 3
+  %cmp19 = icmp ult i32 %7, 5
+  %cmp22 = icmp ult i32 %7, 17
   %cond = select i1 %cmp22, i32 4, i32 8
   %cond23 = select i1 %cmp19, i32 2, i32 %cond
   %cond25 = select i1 %cmp18, i32 1, i32 %cond23
   %cmp28 = icmp ugt i32 %spec.store.select6, 8
-  %7 = add i32 %6, -257
-  %8 = icmp ult i32 %7, -256
+  %8 = add i32 %7, -257
+  %9 = icmp ult i32 %8, -256
   %mul = shl nuw nsw i64 %conv17, 1
   %cmp31 = icmp ult i64 %0, %mul
   %tobool3677 = icmp eq i32 %1, 0
@@ -15452,29 +15451,29 @@ entry:
   %cmp38.not = icmp ule i32 %spec.store.select6, %cond25
   %or.cond64.not.not = select i1 %or.cond5.not, i1 %cmp38.not, i1 false
   %allow_palette = getelementptr inbounds nuw i8, ptr %stats, i64 1064
-  %9 = load i32, ptr %allow_palette, align 8
-  %tobool41.not = icmp eq i32 %9, 0
+  %10 = load i32, ptr %allow_palette, align 8
+  %tobool41.not = icmp eq i32 %10, 0
   %.not84 = select i1 %tobool41.not, i1 true, i1 %or.cond64.not.not
   %.not83 = select i1 %.not84, i1 true, i1 %cmp31
-  %.not82 = select i1 %.not83, i1 true, i1 %8
+  %.not82 = select i1 %.not83, i1 true, i1 %9
   %narrow79.not = select i1 %.not82, i1 true, i1 %cmp28
   br i1 %narrow79.not, label %if.else, label %if.then45
 
 if.then45:                                        ; preds = %entry
   %palette = getelementptr inbounds nuw i8, ptr %stats, i64 24
   %palette.i = getelementptr inbounds nuw i8, ptr %mode_out, i64 8
-  %10 = load ptr, ptr %palette.i, align 8
-  %tobool.not.i = icmp eq ptr %10, null
+  %11 = load ptr, ptr %palette.i, align 8
+  %tobool.not.i = icmp eq ptr %11, null
   br i1 %tobool.not.i, label %_Z21lodepng_palette_clearP16LodePNGColorMode.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %if.then45
-  tail call void @free(ptr noundef nonnull %10) #31
+  tail call void @free(ptr noundef nonnull %11) #31
   br label %_Z21lodepng_palette_clearP16LodePNGColorMode.exit
 
 _Z21lodepng_palette_clearP16LodePNGColorMode.exit: ; preds = %if.then45, %if.then.i
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %palette.i, i8 0, i64 16, i1 false)
-  %11 = load i32, ptr %numcolors, align 4
-  %cmp48.not87 = icmp eq i32 %11, 0
+  %12 = load i32, ptr %numcolors, align 4
+  %cmp48.not87 = icmp eq i32 %12, 0
   br i1 %cmp48.not87, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %_Z21lodepng_palette_clearP16LodePNGColorMode.exit
@@ -15482,47 +15481,47 @@ for.body.lr.ph:                                   ; preds = %_Z21lodepng_palette
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
-  %12 = phi i64 [ 0, %for.body.lr.ph ], [ %inc.i, %for.inc ]
+  %13 = phi i64 [ 0, %for.body.lr.ph ], [ %inc.i, %for.inc ]
   %i.088 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %for.inc ]
   %mul49 = shl i64 %i.088, 2
   %arrayidx = getelementptr inbounds i8, ptr %palette, i64 %mul49
-  %13 = load i8, ptr %arrayidx, align 1
+  %14 = load i8, ptr %arrayidx, align 1
   %add51 = or disjoint i64 %mul49, 1
   %arrayidx52 = getelementptr inbounds i8, ptr %palette, i64 %add51
-  %14 = load i8, ptr %arrayidx52, align 1
+  %15 = load i8, ptr %arrayidx52, align 1
   %add54 = or disjoint i64 %mul49, 2
   %arrayidx55 = getelementptr inbounds i8, ptr %palette, i64 %add54
-  %15 = load i8, ptr %arrayidx55, align 1
+  %16 = load i8, ptr %arrayidx55, align 1
   %add57 = or disjoint i64 %mul49, 3
   %arrayidx58 = getelementptr inbounds i8, ptr %palette, i64 %add57
-  %16 = load i8, ptr %arrayidx58, align 1
-  %17 = load ptr, ptr %palette.i, align 8
-  %tobool.not.i66 = icmp eq ptr %17, null
+  %17 = load i8, ptr %arrayidx58, align 1
+  %18 = load ptr, ptr %palette.i, align 8
+  %tobool.not.i66 = icmp eq ptr %18, null
   br i1 %tobool.not.i66, label %if.then.i.i, label %if.end4.i
 
 if.then.i.i:                                      ; preds = %for.body
   %call.i.i.i = tail call noalias noundef dereferenceable_or_null(1024) ptr @malloc(i64 noundef 1024) #30
   store ptr %call.i.i.i, ptr %palette.i, align 8
-  %18 = icmp eq ptr %call.i.i.i, null
-  br i1 %18, label %for.end, label %for.body.i.i
+  %19 = icmp eq ptr %call.i.i.i, null
+  br i1 %19, label %for.end, label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %if.then.i.i, %for.body.i.i
   %i.012.i.i = phi i64 [ %inc.i.i, %for.body.i.i ], [ 0, %if.then.i.i ]
-  %19 = load ptr, ptr %palette.i, align 8
-  %mul.i.i = shl i64 %i.012.i.i, 2
-  %arrayidx.i.i = getelementptr inbounds i8, ptr %19, i64 %mul.i.i
-  store i8 0, ptr %arrayidx.i.i, align 1
   %20 = load ptr, ptr %palette.i, align 8
-  %add9.i.i = or disjoint i64 %mul.i.i, 1
-  %arrayidx10.i.i = getelementptr inbounds i8, ptr %20, i64 %add9.i.i
-  store i8 0, ptr %arrayidx10.i.i, align 1
+  %mul.i.i = shl i64 %i.012.i.i, 2
+  %arrayidx.i.i = getelementptr inbounds i8, ptr %20, i64 %mul.i.i
+  store i8 0, ptr %arrayidx.i.i, align 1
   %21 = load ptr, ptr %palette.i, align 8
-  %add13.i.i = or disjoint i64 %mul.i.i, 2
-  %arrayidx14.i.i = getelementptr inbounds i8, ptr %21, i64 %add13.i.i
-  store i8 0, ptr %arrayidx14.i.i, align 1
+  %add9.i.i = or disjoint i64 %mul.i.i, 1
+  %arrayidx10.i.i = getelementptr inbounds i8, ptr %21, i64 %add9.i.i
+  store i8 0, ptr %arrayidx10.i.i, align 1
   %22 = load ptr, ptr %palette.i, align 8
+  %add13.i.i = or disjoint i64 %mul.i.i, 2
+  %arrayidx14.i.i = getelementptr inbounds i8, ptr %22, i64 %add13.i.i
+  store i8 0, ptr %arrayidx14.i.i, align 1
+  %23 = load ptr, ptr %palette.i, align 8
   %add17.i.i = or disjoint i64 %mul.i.i, 3
-  %arrayidx18.i.i = getelementptr inbounds i8, ptr %22, i64 %add17.i.i
+  %arrayidx18.i.i = getelementptr inbounds i8, ptr %23, i64 %add17.i.i
   store i8 -1, ptr %arrayidx18.i.i, align 1
   %inc.i.i = add nuw nsw i64 %i.012.i.i, 1
   %cmp.not.i.i = icmp eq i64 %inc.i.i, 256
@@ -15538,39 +15537,39 @@ _ZL32lodepng_color_mode_alloc_paletteP16LodePNGColorMode.exit.i.if.end4.i_crit_e
   br label %if.end4.i
 
 if.end4.i:                                        ; preds = %_ZL32lodepng_color_mode_alloc_paletteP16LodePNGColorMode.exit.i.if.end4.i_crit_edge, %for.body
-  %23 = phi i64 [ %.pre, %_ZL32lodepng_color_mode_alloc_paletteP16LodePNGColorMode.exit.i.if.end4.i_crit_edge ], [ %12, %for.body ]
-  %24 = phi ptr [ %.pr.i, %_ZL32lodepng_color_mode_alloc_paletteP16LodePNGColorMode.exit.i.if.end4.i_crit_edge ], [ %17, %for.body ]
-  %cmp.i = icmp ugt i64 %23, 255
+  %24 = phi i64 [ %.pre, %_ZL32lodepng_color_mode_alloc_paletteP16LodePNGColorMode.exit.i.if.end4.i_crit_edge ], [ %13, %for.body ]
+  %25 = phi ptr [ %.pr.i, %_ZL32lodepng_color_mode_alloc_paletteP16LodePNGColorMode.exit.i.if.end4.i_crit_edge ], [ %18, %for.body ]
+  %cmp.i = icmp ugt i64 %24, 255
   br i1 %cmp.i, label %for.end, label %for.inc
 
 for.inc:                                          ; preds = %if.end4.i
-  %mul.i = shl nuw nsw i64 %23, 2
-  %arrayidx.i = getelementptr inbounds nuw i8, ptr %24, i64 %mul.i
-  store i8 %13, ptr %arrayidx.i, align 1
-  %25 = load ptr, ptr %palette.i, align 8
-  %26 = load i64, ptr %palettesize.i, align 8
-  %mul11.i = shl i64 %26, 2
+  %mul.i = shl nuw nsw i64 %24, 2
+  %arrayidx.i = getelementptr inbounds nuw i8, ptr %25, i64 %mul.i
+  store i8 %14, ptr %arrayidx.i, align 1
+  %26 = load ptr, ptr %palette.i, align 8
+  %27 = load i64, ptr %palettesize.i, align 8
+  %mul11.i = shl i64 %27, 2
   %add12.i = or disjoint i64 %mul11.i, 1
-  %arrayidx13.i = getelementptr inbounds i8, ptr %25, i64 %add12.i
-  store i8 %14, ptr %arrayidx13.i, align 1
-  %27 = load ptr, ptr %palette.i, align 8
-  %28 = load i64, ptr %palettesize.i, align 8
-  %mul16.i = shl i64 %28, 2
+  %arrayidx13.i = getelementptr inbounds i8, ptr %26, i64 %add12.i
+  store i8 %15, ptr %arrayidx13.i, align 1
+  %28 = load ptr, ptr %palette.i, align 8
+  %29 = load i64, ptr %palettesize.i, align 8
+  %mul16.i = shl i64 %29, 2
   %add17.i = or disjoint i64 %mul16.i, 2
-  %arrayidx18.i = getelementptr inbounds i8, ptr %27, i64 %add17.i
-  store i8 %15, ptr %arrayidx18.i, align 1
-  %29 = load ptr, ptr %palette.i, align 8
-  %30 = load i64, ptr %palettesize.i, align 8
-  %mul21.i = shl i64 %30, 2
-  %add22.i = or disjoint i64 %mul21.i, 3
-  %arrayidx23.i = getelementptr inbounds i8, ptr %29, i64 %add22.i
-  store i8 %16, ptr %arrayidx23.i, align 1
+  %arrayidx18.i = getelementptr inbounds i8, ptr %28, i64 %add17.i
+  store i8 %16, ptr %arrayidx18.i, align 1
+  %30 = load ptr, ptr %palette.i, align 8
   %31 = load i64, ptr %palettesize.i, align 8
-  %inc.i = add i64 %31, 1
+  %mul21.i = shl i64 %31, 2
+  %add22.i = or disjoint i64 %mul21.i, 3
+  %arrayidx23.i = getelementptr inbounds i8, ptr %30, i64 %add22.i
+  store i8 %17, ptr %arrayidx23.i, align 1
+  %32 = load i64, ptr %palettesize.i, align 8
+  %inc.i = add i64 %32, 1
   store i64 %inc.i, ptr %palettesize.i, align 8
   %inc = add i64 %i.088, 1
-  %32 = load i32, ptr %numcolors, align 4
-  %conv47 = zext i32 %32 to i64
+  %33 = load i32, ptr %numcolors, align 4
+  %conv47 = zext i32 %33 to i64
   %cmp48.not = icmp eq i64 %inc, %conv47
   br i1 %cmp48.not, label %for.end, label %for.body, !llvm.loop !359
 
@@ -15579,39 +15578,39 @@ for.end:                                          ; preds = %for.inc, %_ZL32lode
   store i32 3, ptr %mode_out, align 8
   %bitdepth = getelementptr inbounds nuw i8, ptr %mode_out, i64 4
   store i32 %cond25, ptr %bitdepth, align 4
-  %33 = load i32, ptr %mode_in, align 8
-  %cmp63 = icmp eq i32 %33, 3
+  %34 = load i32, ptr %mode_in, align 8
+  %cmp63 = icmp eq i32 %34, 3
   br i1 %cmp63, label %land.lhs.true64, label %if.end98
 
 land.lhs.true64:                                  ; preds = %for.end
   %palettesize = getelementptr inbounds nuw i8, ptr %mode_in, i64 16
-  %34 = load i64, ptr %palettesize, align 8
+  %35 = load i64, ptr %palettesize, align 8
   %palettesize65 = getelementptr inbounds nuw i8, ptr %mode_out, i64 16
-  %35 = load i64, ptr %palettesize65, align 8
-  %cmp66.not = icmp ult i64 %34, %35
+  %36 = load i64, ptr %palettesize65, align 8
+  %cmp66.not = icmp ult i64 %35, %36
   br i1 %cmp66.not, label %if.end98, label %land.lhs.true67
 
 land.lhs.true67:                                  ; preds = %land.lhs.true64
   %bitdepth68 = getelementptr inbounds nuw i8, ptr %mode_in, i64 4
-  %36 = load i32, ptr %bitdepth68, align 4
-  %cmp70 = icmp eq i32 %36, %cond25
+  %37 = load i32, ptr %bitdepth68, align 4
+  %cmp70 = icmp eq i32 %37, %cond25
   br i1 %cmp70, label %if.then71, label %if.end98
 
 if.then71:                                        ; preds = %land.lhs.true67
-  %37 = load ptr, ptr %palette.i, align 8
-  %tobool.not.i.i = icmp eq ptr %37, null
+  %38 = load ptr, ptr %palette.i, align 8
+  %tobool.not.i.i = icmp eq ptr %38, null
   br i1 %tobool.not.i.i, label %_Z26lodepng_color_mode_cleanupP16LodePNGColorMode.exit.i, label %if.then.i.i67
 
 if.then.i.i67:                                    ; preds = %if.then71
-  tail call void @free(ptr noundef nonnull %37) #31
+  tail call void @free(ptr noundef nonnull %38) #31
   br label %_Z26lodepng_color_mode_cleanupP16LodePNGColorMode.exit.i
 
 _Z26lodepng_color_mode_cleanupP16LodePNGColorMode.exit.i: ; preds = %if.then.i.i67, %if.then71
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %palette.i, i8 0, i64 16, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(40) %mode_out, ptr noundef nonnull readonly align 1 dereferenceable(40) %mode_in, i64 40, i1 false), !alias.scope !360
   %palette.i68 = getelementptr inbounds nuw i8, ptr %mode_in, i64 8
-  %38 = load ptr, ptr %palette.i68, align 8
-  %tobool.not.i69 = icmp eq ptr %38, null
+  %39 = load ptr, ptr %palette.i68, align 8
+  %tobool.not.i69 = icmp eq ptr %39, null
   br i1 %tobool.not.i69, label %if.end98, label %if.then.i70
 
 if.then.i70:                                      ; preds = %_Z26lodepng_color_mode_cleanupP16LodePNGColorMode.exit.i
@@ -15621,14 +15620,14 @@ if.then.i70:                                      ; preds = %_Z26lodepng_color_m
   br i1 %tobool3.not.i, label %if.end98, label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i70
-  %39 = load i64, ptr %palettesize, align 8
-  %40 = shl i64 %39, 2
-  %cmp4.not.i.i = icmp eq i64 %40, 0
+  %40 = load i64, ptr %palettesize, align 8
+  %41 = shl i64 %40, 2
+  %cmp4.not.i.i = icmp eq i64 %41, 0
   br i1 %cmp4.not.i.i, label %if.end98, label %for.body.preheader.i.i
 
 for.body.preheader.i.i:                           ; preds = %if.end.i
-  %41 = load ptr, ptr %palette.i68, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call.i.i, ptr readonly align 1 %41, i64 %40, i1 false), !alias.scope !364
+  %42 = load ptr, ptr %palette.i68, align 8
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call.i.i, ptr readonly align 1 %42, i64 %41, i1 false), !alias.scope !364
   br label %if.end98
 
 if.else:                                          ; preds = %entry
@@ -15646,20 +15645,20 @@ if.then86:                                        ; preds = %if.else
   %notmask = shl nsw i32 -1, %spec.store.select6
   %sub = xor i32 %notmask, -1
   %key_r = getelementptr inbounds nuw i8, ptr %stats, i64 8
-  %42 = load i16, ptr %key_r, align 8
-  %conv88 = zext i16 %42 to i32
+  %43 = load i16, ptr %key_r, align 8
+  %conv88 = zext i16 %43 to i32
   %and = and i32 %conv88, %sub
   %key_r89 = getelementptr inbounds nuw i8, ptr %mode_out, i64 28
   store i32 %and, ptr %key_r89, align 4
   %key_g = getelementptr inbounds nuw i8, ptr %stats, i64 10
-  %43 = load i16, ptr %key_g, align 2
-  %conv90 = zext i16 %43 to i32
+  %44 = load i16, ptr %key_g, align 2
+  %conv90 = zext i16 %44 to i32
   %and91 = and i32 %conv90, %sub
   %key_g92 = getelementptr inbounds nuw i8, ptr %mode_out, i64 32
   store i32 %and91, ptr %key_g92, align 8
   %key_b = getelementptr inbounds nuw i8, ptr %stats, i64 12
-  %44 = load i16, ptr %key_b, align 4
-  %conv93 = zext i16 %44 to i32
+  %45 = load i16, ptr %key_b, align 4
+  %conv93 = zext i16 %45 to i32
   %and94 = and i32 %conv93, %sub
   %key_b95 = getelementptr inbounds nuw i8, ptr %mode_out, i64 36
   store i32 %and94, ptr %key_b95, align 4

@@ -8619,8 +8619,8 @@ if.end.i.i:                                       ; preds = %land.lhs.true.i.i, 
   %1 = load i32, ptr @COLORS, align 4
   %conv.i.i = sext i32 %1 to i64
   %cmp3.not.i.i = icmp slt i64 %call.i.i, %conv.i.i
-  %or.cond4.i.i = select i1 %cmp2.i.i, i1 %cmp3.not.i.i, i1 false
-  br i1 %or.cond4.i.i, label %if.end.i, label %if.then5.i.i
+  %or.cond.i.i = select i1 %cmp2.i.i, i1 %cmp3.not.i.i, i1 false
+  br i1 %or.cond.i.i, label %if.end.i, label %if.then5.i.i
 
 if.then5.i.i:                                     ; preds = %if.end.i.i
   %2 = load ptr, ptr @PyExc_ValueError, align 8
@@ -8633,17 +8633,17 @@ color_allow_default_converter.exit.thread.i:      ; preds = %if.then5.i.i, %land
   br label %exit
 
 if.end.i:                                         ; preds = %if.end.i.i
-  %cmp7.i.i = icmp ne i32 %0, 0
-  %3 = trunc i64 %call.i.i to i32
+  %cmp7.not.i.i = icmp ne i32 %0, 0
+  %3 = call i64 @llvm.smax.i64(i64 %call.i.i, i64 -1)
+  %4 = trunc i64 %3 to i32
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %overflow.i.i)
-  %4 = and i64 %call.i.i, -9223372034707292160
-  %5 = icmp ne i64 %4, 0
-  %cmp.i = or i1 %5, %cmp7.i.i
+  %cmp.i6 = icmp slt i32 %4, 0
+  %cmp.i = or i1 %cmp.i6, %cmp7.not.i.i
   br i1 %cmp.i, label %if.then1.i, label %if.end
 
 if.then1.i:                                       ; preds = %if.end.i
-  %6 = load ptr, ptr @PyExc_ValueError, align 8
-  call void @PyErr_SetString(ptr noundef %6, ptr noundef nonnull @.str.354) #9
+  %5 = load ptr, ptr @PyExc_ValueError, align 8
+  call void @PyErr_SetString(ptr noundef %5, ptr noundef nonnull @.str.354) #9
   br label %exit
 
 if.end:                                           ; preds = %if.end.i
@@ -8654,8 +8654,8 @@ if.end:                                           ; preds = %if.end.i
   br i1 %.b.i, label %if.end.i2, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end
-  %7 = load ptr, ptr @PyCursesError, align 8
-  call void @PyErr_SetString(ptr noundef %7, ptr noundef nonnull @.str.353) #9
+  %6 = load ptr, ptr @PyCursesError, align 8
+  call void @PyErr_SetString(ptr noundef %6, ptr noundef nonnull @.str.353) #9
   br label %_curses_color_content_impl.exit
 
 if.end.i2:                                        ; preds = %if.end
@@ -8663,25 +8663,25 @@ if.end.i2:                                        ; preds = %if.end
   br i1 %.b1.i, label %if.end3.i, label %if.then2.i
 
 if.then2.i:                                       ; preds = %if.end.i2
-  %8 = load ptr, ptr @PyCursesError, align 8
-  call void @PyErr_SetString(ptr noundef %8, ptr noundef nonnull @.str.356) #9
+  %7 = load ptr, ptr @PyCursesError, align 8
+  call void @PyErr_SetString(ptr noundef %7, ptr noundef nonnull @.str.356) #9
   br label %_curses_color_content_impl.exit
 
 if.end3.i:                                        ; preds = %if.end.i2
-  %call.i = call i32 @extended_color_content(i32 noundef %3, ptr noundef nonnull %r.i, ptr noundef nonnull %g.i, ptr noundef nonnull %b.i) #9
+  %call.i = call i32 @extended_color_content(i32 noundef %4, ptr noundef nonnull %r.i, ptr noundef nonnull %g.i, ptr noundef nonnull %b.i) #9
   %cmp4.i = icmp eq i32 %call.i, -1
   br i1 %cmp4.i, label %if.then5.i, label %if.end7.i
 
 if.then5.i:                                       ; preds = %if.end3.i
-  %9 = load ptr, ptr @PyCursesError, align 8
-  %call6.i = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %9, ptr noundef nonnull @.str.156, ptr noundef nonnull @.str.357) #9
+  %8 = load ptr, ptr @PyCursesError, align 8
+  %call6.i = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %8, ptr noundef nonnull @.str.156, ptr noundef nonnull @.str.357) #9
   br label %_curses_color_content_impl.exit
 
 if.end7.i:                                        ; preds = %if.end3.i
-  %10 = load i32, ptr %r.i, align 4
-  %11 = load i32, ptr %g.i, align 4
-  %12 = load i32, ptr %b.i, align 4
-  %call8.i = call ptr (ptr, ...) @Py_BuildValue(ptr noundef nonnull @.str.358, i32 noundef %10, i32 noundef %11, i32 noundef %12) #9
+  %9 = load i32, ptr %r.i, align 4
+  %10 = load i32, ptr %g.i, align 4
+  %11 = load i32, ptr %b.i, align 4
+  %call8.i = call ptr (ptr, ...) @Py_BuildValue(ptr noundef nonnull @.str.358, i32 noundef %9, i32 noundef %10, i32 noundef %11) #9
   br label %_curses_color_content_impl.exit
 
 _curses_color_content_impl.exit:                  ; preds = %if.then.i, %if.then2.i, %if.then5.i, %if.end7.i
@@ -9724,8 +9724,8 @@ if.end.i.i:                                       ; preds = %land.lhs.true.i.i, 
   %2 = load i32, ptr @COLORS, align 4
   %conv.i.i = sext i32 %2 to i64
   %cmp3.not.i.i = icmp slt i64 %call.i.i, %conv.i.i
-  %or.cond4.i.i = select i1 %cmp2.i.i, i1 %cmp3.not.i.i, i1 false
-  br i1 %or.cond4.i.i, label %if.end.i, label %if.then5.i.i
+  %or.cond.i.i = select i1 %cmp2.i.i, i1 %cmp3.not.i.i, i1 false
+  br i1 %or.cond.i.i, label %if.end.i, label %if.then5.i.i
 
 if.then5.i.i:                                     ; preds = %if.end.i.i
   %3 = load ptr, ptr @PyExc_ValueError, align 8
@@ -9738,24 +9738,24 @@ color_allow_default_converter.exit.thread.i:      ; preds = %if.then5.i.i, %land
   br label %exit
 
 if.end.i:                                         ; preds = %if.end.i.i
-  %cmp7.i.i = icmp ne i32 %1, 0
-  %4 = trunc i64 %call.i.i to i32
+  %cmp7.not.i.i = icmp ne i32 %1, 0
+  %4 = call i64 @llvm.smax.i64(i64 %call.i.i, i64 -1)
+  %5 = trunc i64 %4 to i32
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %overflow.i.i)
-  %5 = and i64 %call.i.i, -9223372034707292160
-  %6 = icmp ne i64 %5, 0
-  %cmp.i = or i1 %6, %cmp7.i.i
+  %cmp.i66 = icmp slt i32 %5, 0
+  %cmp.i = or i1 %cmp.i66, %cmp7.not.i.i
   br i1 %cmp.i, label %if.then1.i, label %if.end5
 
 if.then1.i:                                       ; preds = %if.end.i
-  %7 = load ptr, ptr @PyExc_ValueError, align 8
-  call void @PyErr_SetString(ptr noundef %7, ptr noundef nonnull @.str.354) #9
+  %6 = load ptr, ptr @PyExc_ValueError, align 8
+  call void @PyErr_SetString(ptr noundef %6, ptr noundef nonnull @.str.354) #9
   br label %exit
 
 if.end5:                                          ; preds = %if.end.i
   %arrayidx6 = getelementptr i8, ptr %args, i64 8
-  %8 = load ptr, ptr %arrayidx6, align 8
+  %7 = load ptr, ptr %arrayidx6, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %overflow.i)
-  %call.i = call i64 @PyLong_AsLongAndOverflow(ptr noundef %8, ptr noundef nonnull %overflow.i) #9
+  %call.i = call i64 @PyLong_AsLongAndOverflow(ptr noundef %7, ptr noundef nonnull %overflow.i) #9
   %cmp.i6 = icmp eq i64 %call.i, -1
   br i1 %cmp.i6, label %land.lhs.true.i, label %if.end.i7
 
@@ -9765,22 +9765,22 @@ land.lhs.true.i:                                  ; preds = %if.end5
   br i1 %tobool.not.i, label %if.end.i7, label %component_converter.exit.thread
 
 if.end.i7:                                        ; preds = %land.lhs.true.i, %if.end5
-  %9 = load i32, ptr %overflow.i, align 4
-  %cmp2.i = icmp sgt i32 %9, 0
+  %8 = load i32, ptr %overflow.i, align 4
+  %cmp2.i = icmp sgt i32 %8, 0
   %cmp3.i = icmp sgt i64 %call.i, 1000
   %or.cond.i = or i1 %cmp3.i, %cmp2.i
   br i1 %or.cond.i, label %component_converter.exit.thread.sink.split, label %if.else.i
 
 if.else.i:                                        ; preds = %if.end.i7
-  %cmp5.i = icmp slt i32 %9, 0
+  %cmp5.i = icmp slt i32 %8, 0
   %cmp7.i = icmp slt i64 %call.i, 0
   %or.cond1.i = or i1 %cmp7.i, %cmp5.i
   br i1 %or.cond1.i, label %component_converter.exit.thread.sink.split, label %if.end10
 
 component_converter.exit.thread.sink.split:       ; preds = %if.else.i, %if.end.i7
   %.str.370.sink = phi ptr [ @.str.370, %if.end.i7 ], [ @.str.371, %if.else.i ]
-  %10 = load ptr, ptr @PyExc_ValueError, align 8
-  call void @PyErr_SetString(ptr noundef %10, ptr noundef nonnull %.str.370.sink) #9
+  %9 = load ptr, ptr @PyExc_ValueError, align 8
+  call void @PyErr_SetString(ptr noundef %9, ptr noundef nonnull %.str.370.sink) #9
   br label %component_converter.exit.thread
 
 component_converter.exit.thread:                  ; preds = %component_converter.exit.thread.sink.split, %land.lhs.true.i
@@ -9791,9 +9791,9 @@ if.end10:                                         ; preds = %if.else.i
   %conv.i = trunc i64 %call.i to i32
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %overflow.i)
   %arrayidx11 = getelementptr i8, ptr %args, i64 16
-  %11 = load ptr, ptr %arrayidx11, align 8
+  %10 = load ptr, ptr %arrayidx11, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %overflow.i9)
-  %call.i10 = call i64 @PyLong_AsLongAndOverflow(ptr noundef %11, ptr noundef nonnull %overflow.i9) #9
+  %call.i10 = call i64 @PyLong_AsLongAndOverflow(ptr noundef %10, ptr noundef nonnull %overflow.i9) #9
   %cmp.i11 = icmp eq i64 %call.i10, -1
   br i1 %cmp.i11, label %land.lhs.true.i25, label %if.end.i12
 
@@ -9803,22 +9803,22 @@ land.lhs.true.i25:                                ; preds = %if.end10
   br i1 %tobool.not.i27, label %if.end.i12, label %component_converter.exit28.thread
 
 if.end.i12:                                       ; preds = %land.lhs.true.i25, %if.end10
-  %12 = load i32, ptr %overflow.i9, align 4
-  %cmp2.i13 = icmp sgt i32 %12, 0
+  %11 = load i32, ptr %overflow.i9, align 4
+  %cmp2.i13 = icmp sgt i32 %11, 0
   %cmp3.i14 = icmp sgt i64 %call.i10, 1000
   %or.cond.i15 = or i1 %cmp3.i14, %cmp2.i13
   br i1 %or.cond.i15, label %component_converter.exit28.thread.sink.split, label %if.else.i16
 
 if.else.i16:                                      ; preds = %if.end.i12
-  %cmp5.i17 = icmp slt i32 %12, 0
+  %cmp5.i17 = icmp slt i32 %11, 0
   %cmp7.i18 = icmp slt i64 %call.i10, 0
   %or.cond1.i19 = or i1 %cmp7.i18, %cmp5.i17
   br i1 %or.cond1.i19, label %component_converter.exit28.thread.sink.split, label %if.end15
 
 component_converter.exit28.thread.sink.split:     ; preds = %if.else.i16, %if.end.i12
   %.str.370.sink67 = phi ptr [ @.str.370, %if.end.i12 ], [ @.str.371, %if.else.i16 ]
-  %13 = load ptr, ptr @PyExc_ValueError, align 8
-  call void @PyErr_SetString(ptr noundef %13, ptr noundef nonnull %.str.370.sink67) #9
+  %12 = load ptr, ptr @PyExc_ValueError, align 8
+  call void @PyErr_SetString(ptr noundef %12, ptr noundef nonnull %.str.370.sink67) #9
   br label %component_converter.exit28.thread
 
 component_converter.exit28.thread:                ; preds = %component_converter.exit28.thread.sink.split, %land.lhs.true.i25
@@ -9829,9 +9829,9 @@ if.end15:                                         ; preds = %if.else.i16
   %conv.i21 = trunc i64 %call.i10 to i32
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %overflow.i9)
   %arrayidx16 = getelementptr i8, ptr %args, i64 24
-  %14 = load ptr, ptr %arrayidx16, align 8
+  %13 = load ptr, ptr %arrayidx16, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %overflow.i29)
-  %call.i30 = call i64 @PyLong_AsLongAndOverflow(ptr noundef %14, ptr noundef nonnull %overflow.i29) #9
+  %call.i30 = call i64 @PyLong_AsLongAndOverflow(ptr noundef %13, ptr noundef nonnull %overflow.i29) #9
   %cmp.i31 = icmp eq i64 %call.i30, -1
   br i1 %cmp.i31, label %land.lhs.true.i45, label %if.end.i32
 
@@ -9841,22 +9841,22 @@ land.lhs.true.i45:                                ; preds = %if.end15
   br i1 %tobool.not.i47, label %if.end.i32, label %component_converter.exit48.thread
 
 if.end.i32:                                       ; preds = %land.lhs.true.i45, %if.end15
-  %15 = load i32, ptr %overflow.i29, align 4
-  %cmp2.i33 = icmp sgt i32 %15, 0
+  %14 = load i32, ptr %overflow.i29, align 4
+  %cmp2.i33 = icmp sgt i32 %14, 0
   %cmp3.i34 = icmp sgt i64 %call.i30, 1000
   %or.cond.i35 = or i1 %cmp3.i34, %cmp2.i33
   br i1 %or.cond.i35, label %component_converter.exit48.thread.sink.split, label %if.else.i36
 
 if.else.i36:                                      ; preds = %if.end.i32
-  %cmp5.i37 = icmp slt i32 %15, 0
+  %cmp5.i37 = icmp slt i32 %14, 0
   %cmp7.i38 = icmp slt i64 %call.i30, 0
   %or.cond1.i39 = or i1 %cmp7.i38, %cmp5.i37
   br i1 %or.cond1.i39, label %component_converter.exit48.thread.sink.split, label %if.end20
 
 component_converter.exit48.thread.sink.split:     ; preds = %if.else.i36, %if.end.i32
   %.str.370.sink68 = phi ptr [ @.str.370, %if.end.i32 ], [ @.str.371, %if.else.i36 ]
-  %16 = load ptr, ptr @PyExc_ValueError, align 8
-  call void @PyErr_SetString(ptr noundef %16, ptr noundef nonnull %.str.370.sink68) #9
+  %15 = load ptr, ptr @PyExc_ValueError, align 8
+  call void @PyErr_SetString(ptr noundef %15, ptr noundef nonnull %.str.370.sink68) #9
   br label %component_converter.exit48.thread
 
 component_converter.exit48.thread:                ; preds = %component_converter.exit48.thread.sink.split, %land.lhs.true.i45
@@ -9870,8 +9870,8 @@ if.end20:                                         ; preds = %if.else.i36
   br i1 %.b.i, label %if.end.i50, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end20
-  %17 = load ptr, ptr @PyCursesError, align 8
-  call void @PyErr_SetString(ptr noundef %17, ptr noundef nonnull @.str.353) #9
+  %16 = load ptr, ptr @PyCursesError, align 8
+  call void @PyErr_SetString(ptr noundef %16, ptr noundef nonnull @.str.353) #9
   br label %exit
 
 if.end.i50:                                       ; preds = %if.end20
@@ -9879,18 +9879,18 @@ if.end.i50:                                       ; preds = %if.end20
   br i1 %.b1.i, label %if.end3.i, label %if.then2.i
 
 if.then2.i:                                       ; preds = %if.end.i50
-  %18 = load ptr, ptr @PyCursesError, align 8
-  call void @PyErr_SetString(ptr noundef %18, ptr noundef nonnull @.str.356) #9
+  %17 = load ptr, ptr @PyCursesError, align 8
+  call void @PyErr_SetString(ptr noundef %17, ptr noundef nonnull @.str.356) #9
   br label %exit
 
 if.end3.i:                                        ; preds = %if.end.i50
-  %call.i52 = call i32 @init_extended_color(i32 noundef %4, i32 noundef %conv.i, i32 noundef %conv.i21, i32 noundef %conv.i41) #9
+  %call.i52 = call i32 @init_extended_color(i32 noundef %5, i32 noundef %conv.i, i32 noundef %conv.i21, i32 noundef %conv.i41) #9
   %cmp.not.i.i = icmp eq i32 %call.i52, -1
   br i1 %cmp.not.i.i, label %if.else.i.i, label %exit
 
 if.else.i.i:                                      ; preds = %if.end3.i
-  %19 = load ptr, ptr @PyCursesError, align 8
-  %call.i.i53 = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %19, ptr noundef nonnull @.str.156, ptr noundef nonnull @.str.372) #9
+  %18 = load ptr, ptr @PyCursesError, align 8
+  %call.i.i53 = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %18, ptr noundef nonnull @.str.156, ptr noundef nonnull @.str.372) #9
   br label %exit
 
 exit:                                             ; preds = %color_allow_default_converter.exit.thread.i, %if.then1.i, %if.else.i.i, %if.end3.i, %if.then2.i, %if.then.i, %component_converter.exit48.thread, %component_converter.exit28.thread, %component_converter.exit.thread, %lor.lhs.false
@@ -9972,8 +9972,8 @@ if.end.i8:                                        ; preds = %land.lhs.true.i14, 
   %6 = load i32, ptr @COLORS, align 4
   %conv.i10 = sext i32 %6 to i64
   %cmp3.not.i = icmp slt i64 %call.i6, %conv.i10
-  %or.cond4.i = select i1 %cmp2.i9, i1 %cmp3.not.i, i1 false
-  br i1 %or.cond4.i, label %if.end10, label %if.then5.i
+  %or.cond.i11 = select i1 %cmp2.i9, i1 %cmp3.not.i, i1 false
+  br i1 %or.cond.i11, label %if.end10, label %if.then5.i
 
 if.then5.i:                                       ; preds = %if.end.i8
   %7 = load ptr, ptr @PyExc_ValueError, align 8
@@ -9986,90 +9986,88 @@ color_allow_default_converter.exit.thread:        ; preds = %if.then5.i, %land.l
   br label %exit
 
 if.end10:                                         ; preds = %if.end.i8
-  %cmp7.i = icmp ne i32 %5, 0
-  %cmp10.i = icmp slt i64 %call.i6, 0
-  %or.cond.i13 = or i1 %cmp10.i, %cmp7.i
-  %8 = trunc i64 %call.i6 to i32
-  %conv15.i = select i1 %or.cond.i13, i32 -1, i32 %8
+  %cmp7.not.i = icmp eq i32 %5, 0
+  %8 = call i64 @llvm.smax.i64(i64 %call.i6, i64 -1)
+  %9 = trunc i64 %8 to i32
+  %conv15.i = select i1 %cmp7.not.i, i32 %9, i32 -1
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %overflow.i5)
   %arrayidx11 = getelementptr i8, ptr %args, i64 16
-  %9 = load ptr, ptr %arrayidx11, align 8
+  %10 = load ptr, ptr %arrayidx11, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %overflow.i17)
-  %call.i18 = call i64 @PyLong_AsLongAndOverflow(ptr noundef %9, ptr noundef nonnull %overflow.i17) #9
+  %call.i18 = call i64 @PyLong_AsLongAndOverflow(ptr noundef %10, ptr noundef nonnull %overflow.i17) #9
   %cmp.i19 = icmp eq i64 %call.i18, -1
-  br i1 %cmp.i19, label %land.lhs.true.i34, label %if.end.i20
+  br i1 %cmp.i19, label %land.lhs.true.i32, label %if.end.i20
 
-land.lhs.true.i34:                                ; preds = %if.end10
-  %call1.i35 = call ptr @PyErr_Occurred() #9
-  %tobool.not.i36 = icmp eq ptr %call1.i35, null
-  br i1 %tobool.not.i36, label %if.end.i20, label %color_allow_default_converter.exit37.thread
+land.lhs.true.i32:                                ; preds = %if.end10
+  %call1.i33 = call ptr @PyErr_Occurred() #9
+  %tobool.not.i34 = icmp eq ptr %call1.i33, null
+  br i1 %tobool.not.i34, label %if.end.i20, label %color_allow_default_converter.exit35.thread
 
-if.end.i20:                                       ; preds = %land.lhs.true.i34, %if.end10
-  %10 = load i32, ptr %overflow.i17, align 4
-  %cmp2.i21 = icmp slt i32 %10, 1
-  %11 = load i32, ptr @COLORS, align 4
-  %conv.i22 = sext i32 %11 to i64
+if.end.i20:                                       ; preds = %land.lhs.true.i32, %if.end10
+  %11 = load i32, ptr %overflow.i17, align 4
+  %cmp2.i21 = icmp slt i32 %11, 1
+  %12 = load i32, ptr @COLORS, align 4
+  %conv.i22 = sext i32 %12 to i64
   %cmp3.not.i23 = icmp slt i64 %call.i18, %conv.i22
-  %or.cond4.i24 = select i1 %cmp2.i21, i1 %cmp3.not.i23, i1 false
-  br i1 %or.cond4.i24, label %if.end15, label %if.then5.i25
+  %or.cond.i24 = select i1 %cmp2.i21, i1 %cmp3.not.i23, i1 false
+  br i1 %or.cond.i24, label %if.end15, label %if.then5.i25
 
 if.then5.i25:                                     ; preds = %if.end.i20
-  %12 = load ptr, ptr @PyExc_ValueError, align 8
-  %sub.i26 = add i32 %11, -1
-  %call6.i27 = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %12, ptr noundef nonnull @.str.355, i32 noundef %sub.i26) #9
-  br label %color_allow_default_converter.exit37.thread
+  %13 = load ptr, ptr @PyExc_ValueError, align 8
+  %sub.i26 = add i32 %12, -1
+  %call6.i27 = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %13, ptr noundef nonnull @.str.355, i32 noundef %sub.i26) #9
+  br label %color_allow_default_converter.exit35.thread
 
-color_allow_default_converter.exit37.thread:      ; preds = %if.then5.i25, %land.lhs.true.i34
+color_allow_default_converter.exit35.thread:      ; preds = %if.then5.i25, %land.lhs.true.i32
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %overflow.i17)
   br label %exit
 
 if.end15:                                         ; preds = %if.end.i20
-  %cmp7.i30 = icmp ne i32 %10, 0
-  %cmp10.i31 = icmp slt i64 %call.i18, 0
-  %or.cond.i32 = or i1 %cmp10.i31, %cmp7.i30
-  %13 = trunc i64 %call.i18 to i32
-  %conv15.i33 = select i1 %or.cond.i32, i32 -1, i32 %13
+  %cmp7.not.i30 = icmp eq i32 %11, 0
+  %14 = call i64 @llvm.smax.i64(i64 %call.i18, i64 -1)
+  %15 = trunc i64 %14 to i32
+  %conv15.i31 = select i1 %cmp7.not.i30, i32 %15, i32 -1
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %overflow.i17)
   %.b.i = load i1, ptr @initialised, align 4
-  br i1 %.b.i, label %if.end.i39, label %if.then.i
+  br i1 %.b.i, label %if.end.i37, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end15
-  %14 = load ptr, ptr @PyCursesError, align 8
-  call void @PyErr_SetString(ptr noundef %14, ptr noundef nonnull @.str.353) #9
+  %16 = load ptr, ptr @PyCursesError, align 8
+  call void @PyErr_SetString(ptr noundef %16, ptr noundef nonnull @.str.353) #9
   br label %exit
 
-if.end.i39:                                       ; preds = %if.end15
+if.end.i37:                                       ; preds = %if.end15
   %.b2.i = load i1, ptr @initialisedcolors, align 4
   br i1 %.b2.i, label %if.end3.i, label %if.then2.i
 
-if.then2.i:                                       ; preds = %if.end.i39
-  %15 = load ptr, ptr @PyCursesError, align 8
-  call void @PyErr_SetString(ptr noundef %15, ptr noundef nonnull @.str.356) #9
+if.then2.i:                                       ; preds = %if.end.i37
+  %17 = load ptr, ptr @PyCursesError, align 8
+  call void @PyErr_SetString(ptr noundef %17, ptr noundef nonnull @.str.356) #9
   br label %exit
 
-if.end3.i:                                        ; preds = %if.end.i39
-  %call.i40 = call i32 @init_extended_pair(i32 noundef %conv.i, i32 noundef %conv15.i, i32 noundef %conv15.i33) #9
-  %cmp4.i = icmp eq i32 %call.i40, -1
-  br i1 %cmp4.i, label %if.then5.i41, label %exit
+if.end3.i:                                        ; preds = %if.end.i37
+  %call.i38 = call i32 @init_extended_pair(i32 noundef %conv.i, i32 noundef %conv15.i, i32 noundef %conv15.i31) #9
+  %cmp4.i = icmp eq i32 %call.i38, -1
+  br i1 %cmp4.i, label %if.then5.i39, label %exit
 
-if.then5.i41:                                     ; preds = %if.end3.i
-  %16 = load i32, ptr @COLOR_PAIRS, align 4
-  %cmp6.not.i = icmp sgt i32 %16, %conv.i
-  br i1 %cmp6.not.i, label %if.else.i43, label %if.then7.i
+if.then5.i39:                                     ; preds = %if.end3.i
+  %18 = load i32, ptr @COLOR_PAIRS, align 4
+  %cmp6.not.i = icmp sgt i32 %18, %conv.i
+  br i1 %cmp6.not.i, label %if.else.i41, label %if.then7.i
 
-if.then7.i:                                       ; preds = %if.then5.i41
-  %17 = load ptr, ptr @PyExc_ValueError, align 8
-  %sub.i42 = add i32 %16, -1
-  %call8.i = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %17, ptr noundef nonnull @.str.375, i32 noundef %sub.i42) #9
+if.then7.i:                                       ; preds = %if.then5.i39
+  %19 = load ptr, ptr @PyExc_ValueError, align 8
+  %sub.i40 = add i32 %18, -1
+  %call8.i = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %19, ptr noundef nonnull @.str.375, i32 noundef %sub.i40) #9
   br label %exit
 
-if.else.i43:                                      ; preds = %if.then5.i41
-  %18 = load ptr, ptr @PyCursesError, align 8
-  %call9.i = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %18, ptr noundef nonnull @.str.156, ptr noundef nonnull @.str.376) #9
+if.else.i41:                                      ; preds = %if.then5.i39
+  %20 = load ptr, ptr @PyCursesError, align 8
+  %call9.i = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %20, ptr noundef nonnull @.str.156, ptr noundef nonnull @.str.376) #9
   br label %exit
 
-exit:                                             ; preds = %if.else.i43, %if.then7.i, %if.end3.i, %if.then2.i, %if.then.i, %color_allow_default_converter.exit37.thread, %color_allow_default_converter.exit.thread, %pair_converter.exit.thread, %lor.lhs.false
-  %return_value.0 = phi ptr [ null, %lor.lhs.false ], [ null, %pair_converter.exit.thread ], [ null, %color_allow_default_converter.exit.thread ], [ null, %color_allow_default_converter.exit37.thread ], [ null, %if.then.i ], [ null, %if.then2.i ], [ null, %if.else.i43 ], [ null, %if.then7.i ], [ @_Py_NoneStruct, %if.end3.i ]
+exit:                                             ; preds = %if.else.i41, %if.then7.i, %if.end3.i, %if.then2.i, %if.then.i, %color_allow_default_converter.exit35.thread, %color_allow_default_converter.exit.thread, %pair_converter.exit.thread, %lor.lhs.false
+  %return_value.0 = phi ptr [ null, %lor.lhs.false ], [ null, %pair_converter.exit.thread ], [ null, %color_allow_default_converter.exit.thread ], [ null, %color_allow_default_converter.exit35.thread ], [ null, %if.then.i ], [ null, %if.then2.i ], [ null, %if.else.i41 ], [ null, %if.then7.i ], [ @_Py_NoneStruct, %if.end3.i ]
   ret ptr %return_value.0
 }
 
@@ -14342,6 +14340,9 @@ declare void @PyStructSequence_SetItem(ptr noundef, i64 noundef, ptr noundef) lo
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #5
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.smax.i64(i64, i64) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #6

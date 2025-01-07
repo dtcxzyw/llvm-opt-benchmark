@@ -81,10 +81,10 @@ define void @dlatrs3_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nounde
   %55 = sdiv i32 %54, 32
   %56 = icmp slt i32 %53, 33
   %57 = select i1 %56, i32 1, i32 %55
-  %58 = select i1 %56, i32 %53, i32 32
+  %58 = tail call i32 @llvm.smin.i32(i32 %53, i32 32)
   %59 = tail call i32 @llvm.smax.i32(i32 %52, i32 %58)
   %60 = mul nuw nsw i32 %59, %52
-  %61 = add nuw i32 %59, %52
+  %61 = add nuw nsw i32 %59, %52
   %62 = mul i32 %61, %52
   %63 = sitofp i32 %62 to double
   store double %63, ptr %12, align 8, !tbaa !7

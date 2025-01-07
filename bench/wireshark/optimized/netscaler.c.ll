@@ -4594,30 +4594,31 @@ define internal range(i32 0, 2) i32 @nstrace_read_v30(ptr nocapture noundef read
   %25 = zext i32 %.0330 to i64
   %26 = getelementptr i8, ptr %9, i64 %25
   %27 = load i8, ptr %26, align 1
-  %28 = icmp ne i8 %27, 0
-  %29 = load ptr, ptr %0, align 8
-  %30 = tail call i32 @file_eof(ptr noundef %29) #10
-  %31 = icmp ne i32 %30, 0
-  %32 = add nsw i32 %.0331, -1
-  %33 = icmp ult i32 %32, 16383
-  %or.cond5 = and i1 %33, %31
-  br i1 %or.cond5, label %34, label %39
+  %28 = icmp eq i8 %27, 0
+  %29 = tail call i32 @llvm.umax.i32(i32 %.0330, i32 16384)
+  %spec.store.select = select i1 %28, i32 %29, i32 %.0330
+  %30 = load ptr, ptr %0, align 8
+  %31 = tail call i32 @file_eof(ptr noundef %30) #10
+  %32 = icmp ne i32 %31, 0
+  %33 = add nsw i32 %.0331, -1
+  %34 = icmp ult i32 %33, 16383
+  %or.cond5 = and i1 %34, %32
+  br i1 %or.cond5, label %35, label %40
 
-34:                                               ; preds = %24
-  %35 = zext nneg i32 %.0331 to i64
-  %36 = getelementptr i8, ptr %9, i64 %35
-  %37 = sub nuw nsw i32 16384, %.0331
-  %38 = zext nneg i32 %37 to i64
-  tail call void @llvm.memset.p0.i64(ptr align 1 %36, i8 0, i64 %38, i1 false)
-  br label %39
+35:                                               ; preds = %24
+  %36 = zext nneg i32 %.0331 to i64
+  %37 = getelementptr i8, ptr %9, i64 %36
+  %38 = sub nuw nsw i32 16384, %.0331
+  %39 = zext nneg i32 %38 to i64
+  tail call void @llvm.memset.p0.i64(ptr align 1 %37, i8 0, i64 %39, i1 false)
+  br label %40
 
-39:                                               ; preds = %34, %24
-  %40 = icmp ult i32 %.0330, 16384
-  %41 = and i1 %28, %40
+40:                                               ; preds = %35, %24
+  %41 = icmp ult i32 %spec.store.select, 16384
   br i1 %41, label %.lr.ph, label %.critedge
 
-.lr.ph:                                           ; preds = %39, %364
-  %.1459 = phi i32 [ %.10, %364 ], [ %.0330, %39 ]
+.lr.ph:                                           ; preds = %40, %364
+  %.1459 = phi i32 [ %.10, %364 ], [ %spec.store.select, %40 ]
   %42 = zext nneg i32 %.1459 to i64
   %43 = getelementptr i8, ptr %9, i64 %42
   %44 = load i8, ptr %43, align 1
@@ -5276,7 +5277,7 @@ nstrace_ensure_buflen.exit395:                    ; preds = %66
   %365 = icmp ult i32 %.10, 16384
   br i1 %365, label %.lr.ph, label %.critedge, !llvm.loop !18
 
-.critedge:                                        ; preds = %.lr.ph, %364, %39
+.critedge:                                        ; preds = %.lr.ph, %364, %40
   %366 = zext i32 %.0333 to i64
   %367 = load i64, ptr %20, align 8
   %368 = add i64 %367, %366
@@ -6422,6 +6423,9 @@ define internal noundef i32 @nstrace_35_dump_open(ptr nocapture noundef writeonl
   store i32 1, ptr %10, align 4
   ret i32 1
 }
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.umax.i32(i32, i32) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #9

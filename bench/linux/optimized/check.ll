@@ -168,11 +168,11 @@ define dso_local void @setup_bios_corruption_check() local_unnamed_addr #0 secti
 
 .thread:                                          ; preds = %.thread7, %6
   store i32 0, ptr @memory_corruption_check, align 4
-  br label %57
+  br label %56
 
 11:                                               ; preds = %6
   %12 = icmp eq i32 %4, 0
-  br i1 %12, label %57, label %.thread10
+  br i1 %12, label %56, label %.thread10
 
 .thread10:                                        ; preds = %.thread7, %11
   %13 = phi i32 [ %7, %11 ], [ %9, %.thread7 ]
@@ -188,7 +188,7 @@ define dso_local void @setup_bios_corruption_check() local_unnamed_addr #0 secti
   %18 = icmp eq i64 %17, -1
   br i1 %18, label %.loopexit, label %.preheader
 
-.preheader:                                       ; preds = %.thread10, %51
+.preheader:                                       ; preds = %.thread10, %50
   %19 = load i64, ptr %1, align 8
   %20 = add i64 %19, -1
   %21 = or i64 %20, 4095
@@ -196,58 +196,57 @@ define dso_local void @setup_bios_corruption_check() local_unnamed_addr #0 secti
   %23 = load i32, ptr @corruption_check_size, align 4
   %24 = zext i32 %23 to i64
   %25 = icmp ult i64 %22, %24
-  %26 = icmp ult i64 %22, 4097
-  %27 = select i1 %26, i64 4096, i64 %22
-  %28 = select i1 %25, i64 %27, i64 %24
-  store i64 %28, ptr %1, align 8
-  %29 = load i64, ptr %2, align 8
-  %30 = and i64 %29, -4096
-  %31 = icmp ult i64 %30, %24
-  %32 = call i64 @llvm.umax.i64(i64 %30, i64 4096)
-  %33 = select i1 %31, i64 %32, i64 %24
-  store i64 %33, ptr %2, align 8
-  %34 = icmp ult i64 %28, %33
-  br i1 %34, label %35, label %51
+  %26 = call i64 @llvm.umax.i64(i64 %22, i64 4096)
+  %27 = select i1 %25, i64 %26, i64 %24
+  store i64 %27, ptr %1, align 8
+  %28 = load i64, ptr %2, align 8
+  %29 = and i64 %28, -4096
+  %30 = icmp ult i64 %29, %24
+  %31 = call i64 @llvm.umax.i64(i64 %29, i64 4096)
+  %32 = select i1 %30, i64 %31, i64 %24
+  store i64 %32, ptr %2, align 8
+  %33 = icmp ult i64 %27, %32
+  br i1 %33, label %34, label %50
 
-35:                                               ; preds = %.preheader
-  %36 = sub nuw nsw i64 %33, %28
-  %37 = call i32 @memblock_reserve(i64 noundef %28, i64 noundef %36) #7
-  %38 = load i64, ptr %1, align 8
-  %39 = load i32, ptr @num_scan_areas, align 4
-  %40 = sext i32 %39 to i64
-  %41 = getelementptr [8 x %struct.scan_area], ptr @scan_areas, i64 0, i64 %40
-  store i64 %38, ptr %41, align 16
-  %42 = load i64, ptr %2, align 8
-  %43 = sub i64 %42, %38
-  %44 = getelementptr [8 x %struct.scan_area], ptr @scan_areas, i64 0, i64 %40, i32 1
-  store i64 %43, ptr %44, align 8
-  %45 = load i64, ptr @page_offset_base, align 8
-  %46 = add i64 %45, %38
-  %47 = inttoptr i64 %46 to ptr
-  call void @llvm.memset.p0.i64(ptr align 1 %47, i8 0, i64 %43, i1 false)
-  %48 = load i32, ptr @num_scan_areas, align 4
-  %49 = add i32 %48, 1
-  store i32 %49, ptr @num_scan_areas, align 4
-  %50 = icmp sgt i32 %49, 7
-  br i1 %50, label %.thread5, label %51
+34:                                               ; preds = %.preheader
+  %35 = sub nuw nsw i64 %32, %27
+  %36 = call i32 @memblock_reserve(i64 noundef %27, i64 noundef %35) #7
+  %37 = load i64, ptr %1, align 8
+  %38 = load i32, ptr @num_scan_areas, align 4
+  %39 = sext i32 %38 to i64
+  %40 = getelementptr [8 x %struct.scan_area], ptr @scan_areas, i64 0, i64 %39
+  store i64 %37, ptr %40, align 16
+  %41 = load i64, ptr %2, align 8
+  %42 = sub i64 %41, %37
+  %43 = getelementptr [8 x %struct.scan_area], ptr @scan_areas, i64 0, i64 %39, i32 1
+  store i64 %42, ptr %43, align 8
+  %44 = load i64, ptr @page_offset_base, align 8
+  %45 = add i64 %44, %37
+  %46 = inttoptr i64 %45 to ptr
+  call void @llvm.memset.p0.i64(ptr align 1 %46, i8 0, i64 %42, i1 false)
+  %47 = load i32, ptr @num_scan_areas, align 4
+  %48 = add i32 %47, 1
+  store i32 %48, ptr @num_scan_areas, align 4
+  %49 = icmp sgt i32 %48, 7
+  br i1 %49, label %.thread5, label %50
 
-51:                                               ; preds = %35, %.preheader
+50:                                               ; preds = %34, %.preheader
   call void @__next_mem_range(ptr noundef nonnull %3, i32 noundef -1, i32 noundef 0, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @memblock, i64 16), ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @memblock, i64 56), ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef null) #7
-  %52 = load i64, ptr %3, align 8
-  %53 = icmp eq i64 %52, -1
-  br i1 %53, label %.loopexit, label %.preheader, !llvm.loop !6
+  %51 = load i64, ptr %3, align 8
+  %52 = icmp eq i64 %51, -1
+  br i1 %52, label %.loopexit, label %.preheader, !llvm.loop !6
 
-.loopexit:                                        ; preds = %51, %.thread10
+.loopexit:                                        ; preds = %50, %.thread10
   %.pr4 = load i32, ptr @num_scan_areas, align 4
-  %54 = icmp eq i32 %.pr4, 0
-  br i1 %54, label %57, label %.thread5
+  %53 = icmp eq i32 %.pr4, 0
+  br i1 %53, label %56, label %.thread5
 
-.thread5:                                         ; preds = %35, %.loopexit
-  %55 = phi i32 [ %.pr4, %.loopexit ], [ %49, %35 ]
-  %56 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str, i32 noundef %55) #8
-  br label %57
+.thread5:                                         ; preds = %34, %.loopexit
+  %54 = phi i32 [ %.pr4, %.loopexit ], [ %48, %34 ]
+  %55 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str, i32 noundef %54) #8
+  br label %56
 
-57:                                               ; preds = %.thread, %.thread5, %.loopexit, %11
+56:                                               ; preds = %.thread, %.thread5, %.loopexit, %11
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #7
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #7
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1) #7

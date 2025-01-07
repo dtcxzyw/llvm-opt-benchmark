@@ -203,12 +203,12 @@ thread-pre-split:                                 ; preds = %17, %.thread
 .thread13:                                        ; preds = %95, %100, %102, %106, %115
   %120 = phi i32 [ -1, %95 ], [ -2, %100 ], [ -4, %102 ], [ -6, %106 ], [ -8, %115 ]
   store i32 %120, ptr %8, align 4, !tbaa !3
-  br label %139
+  br label %135
 
 121:                                              ; preds = %115
   %.pr12 = load i32, ptr %8, align 4, !tbaa !3
   %122 = icmp eq i32 %.pr12, 0
-  br i1 %122, label %123, label %139
+  br i1 %122, label %123, label %135
 
 123:                                              ; preds = %121
   %124 = mul i32 %97, %69
@@ -223,53 +223,51 @@ thread-pre-split:                                 ; preds = %17, %.thread
   %131 = uitofp nneg i32 %97 to double
   %132 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store double %131, ptr %132, align 8, !tbaa !7
-  %133 = icmp samesign ult i32 %.pr10.pre20, 2
-  %134 = uitofp nneg i32 %.pr10.pre20 to double
-  %135 = select i1 %133, double 1.000000e+00, double %134
-  %136 = uitofp nneg i32 %116 to double
-  %137 = select i1 %29, double %136, double %135
-  store double %137, ptr %6, align 8, !tbaa !7
-  %138 = icmp eq i32 %50, 0
-  %or.cond = or i1 %27, %138
-  br i1 %or.cond, label %159, label %143
+  %minmaxop = select i1 %29, i32 %107, i32 %.pr10.pre20
+  %.in = tail call i32 @llvm.umax.i32(i32 %minmaxop, i32 1)
+  %133 = uitofp nneg i32 %.in to double
+  store double %133, ptr %6, align 8, !tbaa !7
+  %134 = icmp eq i32 %50, 0
+  %or.cond = or i1 %27, %134
+  br i1 %or.cond, label %155, label %139
 
-139:                                              ; preds = %.thread13, %121
-  %140 = phi i32 [ %120, %.thread13 ], [ %.pr12, %121 ]
-  %141 = sub nsw i32 0, %140
-  store i32 %141, ptr %10, align 4, !tbaa !3
-  %142 = call i32 @xerbla_(ptr noundef nonnull @.str.2, ptr noundef nonnull %10, i32 noundef 5) #5
-  br label %159
+135:                                              ; preds = %.thread13, %121
+  %136 = phi i32 [ %120, %.thread13 ], [ %.pr12, %121 ]
+  %137 = sub nsw i32 0, %136
+  store i32 %137, ptr %10, align 4, !tbaa !3
+  %138 = call i32 @xerbla_(ptr noundef nonnull @.str.2, ptr noundef nonnull %10, i32 noundef 5) #5
+  br label %155
 
-143:                                              ; preds = %123
-  %144 = icmp samesign ugt i32 %47, %.pr10.pre20
-  br i1 %144, label %145, label %149
+139:                                              ; preds = %123
+  %140 = icmp samesign ugt i32 %47, %.pr10.pre20
+  br i1 %140, label %141, label %145
 
-145:                                              ; preds = %143
-  %146 = icmp sgt i32 %96, %.pr10.pre20
-  %147 = icmp slt i32 %96, %47
-  %148 = and i1 %147, %146
-  br i1 %148, label %151, label %149
+141:                                              ; preds = %139
+  %142 = icmp sgt i32 %96, %.pr10.pre20
+  %143 = icmp slt i32 %96, %47
+  %144 = and i1 %143, %142
+  br i1 %144, label %147, label %145
 
-149:                                              ; preds = %145, %143
-  %150 = getelementptr inbounds nuw i8, ptr %4, i64 40
-  call void @dgeqrt_(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %12, ptr noundef %2, ptr noundef nonnull %3, ptr noundef nonnull %150, ptr noundef nonnull %12, ptr noundef nonnull %6, ptr noundef nonnull %8) #5
-  br label %153
+145:                                              ; preds = %141, %139
+  %146 = getelementptr inbounds nuw i8, ptr %4, i64 40
+  call void @dgeqrt_(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %12, ptr noundef %2, ptr noundef nonnull %3, ptr noundef nonnull %146, ptr noundef nonnull %12, ptr noundef nonnull %6, ptr noundef nonnull %8) #5
+  br label %149
 
-151:                                              ; preds = %145
-  %152 = getelementptr inbounds nuw i8, ptr %4, i64 40
-  call void @dlatsqr_(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef %2, ptr noundef nonnull %3, ptr noundef nonnull %152, ptr noundef nonnull %12, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %8) #5
-  br label %153
+147:                                              ; preds = %141
+  %148 = getelementptr inbounds nuw i8, ptr %4, i64 40
+  call void @dlatsqr_(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef %2, ptr noundef nonnull %3, ptr noundef nonnull %148, ptr noundef nonnull %12, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %8) #5
+  br label %149
 
-153:                                              ; preds = %151, %149
-  %154 = load i32, ptr %12, align 4, !tbaa !3
-  %155 = load i32, ptr %1, align 4, !tbaa !3
-  %156 = mul nsw i32 %155, %154
-  %157 = call i32 @llvm.smax.i32(i32 %156, i32 1)
-  %158 = uitofp nneg i32 %157 to double
-  store double %158, ptr %6, align 8, !tbaa !7
-  br label %159
+149:                                              ; preds = %147, %145
+  %150 = load i32, ptr %12, align 4, !tbaa !3
+  %151 = load i32, ptr %1, align 4, !tbaa !3
+  %152 = mul nsw i32 %151, %150
+  %153 = call i32 @llvm.smax.i32(i32 %152, i32 1)
+  %154 = uitofp nneg i32 %153 to double
+  store double %154, ptr %6, align 8, !tbaa !7
+  br label %155
 
-159:                                              ; preds = %153, %123, %139
+155:                                              ; preds = %149, %123, %135
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #5
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #5
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #5

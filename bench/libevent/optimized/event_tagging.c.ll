@@ -1469,10 +1469,9 @@ while.end.i:                                      ; preds = %while.body.i10
 decode_int_internal.exit:                         ; preds = %if.end12, %if.end.i, %if.end5.i, %lor.lhs.false.i, %if.end16.i, %while.end.i
   %retval.0.i12 = phi i32 [ %add11.i, %while.end.i ], [ -1, %if.end12 ], [ -1, %if.end.i ], [ -1, %lor.lhs.false.i ], [ -1, %if.end5.i ], [ -1, %if.end16.i ]
   %call15 = tail call i32 @evbuffer_drain(ptr noundef %evbuf, i64 noundef %conv) #7
-  %cmp16 = icmp slt i32 %retval.0.i12, 0
   %cmp20 = icmp ugt i32 %retval.0.i12, %3
-  %or.cond = or i1 %cmp16, %cmp20
-  %spec.select = select i1 %or.cond, i32 -1, i32 %retval.0.i12
+  %9 = tail call i32 @llvm.smax.i32(i32 %retval.0.i12, i32 -1)
+  %spec.select = select i1 %cmp20, i32 -1, i32 %9
   br label %return
 
 return:                                           ; preds = %while.cond.i, %if.then4.i, %entry, %decode_int_internal.exit, %if.end7, %if.end3, %decode_tag_internal.exit
@@ -1590,10 +1589,9 @@ while.end.i:                                      ; preds = %while.body.i10
 decode_int64_internal.exit:                       ; preds = %if.end12, %if.end.i, %if.end5.i, %if.end16.i, %while.end.i
   %retval.0.i12 = phi i32 [ %add11.i, %while.end.i ], [ -1, %if.end12 ], [ -1, %if.end.i ], [ -1, %if.end5.i ], [ -1, %if.end16.i ]
   %call15 = tail call i32 @evbuffer_drain(ptr noundef %evbuf, i64 noundef %conv) #7
-  %cmp16 = icmp slt i32 %retval.0.i12, 0
   %cmp20 = icmp ugt i32 %retval.0.i12, %3
-  %or.cond = or i1 %cmp16, %cmp20
-  %spec.select = select i1 %or.cond, i32 -1, i32 %retval.0.i12
+  %9 = tail call i32 @llvm.smax.i32(i32 %retval.0.i12, i32 -1)
+  %spec.select = select i1 %cmp20, i32 -1, i32 %9
   br label %return
 
 return:                                           ; preds = %while.cond.i, %if.then4.i, %entry, %decode_int64_internal.exit, %if.end7, %if.end3, %decode_tag_internal.exit
@@ -1813,6 +1811,9 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #6
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.smax.i32(i32, i32) #5
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

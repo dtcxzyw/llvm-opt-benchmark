@@ -2892,26 +2892,26 @@ cid_get_offset.exit:                              ; preds = %.lr.ph.i, %36
   %94 = load i32, ptr %93, align 4
   %95 = getelementptr inbounds nuw i8, ptr %0, i64 2712
   store i32 %94, ptr %95, align 8
-  %96 = icmp sgt i32 %94, -1
-  %narrow = select i1 %96, i32 %94, i32 0
-  %spec.select = zext i32 %narrow to i64
-  %97 = icmp ult i64 %.089, %spec.select
-  br i1 %97, label %98, label %99
+  %narrow = call i32 @llvm.smax.i32(i32 %94, i32 0)
+  %spec.select = zext nneg i32 %narrow to i64
+  %96 = icmp ult i64 %.089, %spec.select
+  br i1 %96, label %97, label %98
 
-98:                                               ; preds = %75
+97:                                               ; preds = %75
   store i32 9, ptr %4, align 4
   br label %173
 
-99:                                               ; preds = %75
-  br i1 %96, label %100, label %103
+98:                                               ; preds = %75
+  %99 = icmp sgt i32 %94, -1
+  br i1 %99, label %100, label %103
 
-100:                                              ; preds = %99
+100:                                              ; preds = %98
   %101 = getelementptr inbounds nuw i8, ptr %18, i64 32
   %102 = load ptr, ptr %101, align 8
   call void %102(ptr noundef %.0, i64 noundef %.089, i16 noundef zeroext 4330) #13
   br label %103
 
-103:                                              ; preds = %100, %99
+103:                                              ; preds = %100, %98
   %104 = getelementptr inbounds nuw i8, ptr %0, i64 134
   %105 = load i8, ptr %104, align 2
   %.not102 = icmp eq i8 %105, 0
@@ -3018,9 +3018,9 @@ cid_get_offset.exit:                              ; preds = %.lr.ph.i, %36
   store i64 %172, ptr %156, align 8
   br label %173
 
-173:                                              ; preds = %98, %30, %24, %53, %59, %69, %66, %61, %145, %141, %138
-  %.191 = phi i8 [ 0, %24 ], [ 0, %30 ], [ 0, %53 ], [ 0, %98 ], [ %.090, %145 ], [ %.090, %141 ], [ %.090, %138 ], [ 0, %59 ], [ 0, %61 ], [ 0, %66 ], [ 0, %69 ]
-  %.1 = phi ptr [ null, %24 ], [ null, %30 ], [ %46, %53 ], [ %.0, %98 ], [ %.0, %145 ], [ %.0, %141 ], [ %.0, %138 ], [ null, %59 ], [ null, %61 ], [ %67, %66 ], [ %67, %69 ]
+173:                                              ; preds = %97, %30, %24, %53, %59, %69, %66, %61, %145, %141, %138
+  %.191 = phi i8 [ 0, %24 ], [ 0, %30 ], [ 0, %53 ], [ 0, %97 ], [ %.090, %145 ], [ %.090, %141 ], [ %.090, %138 ], [ 0, %59 ], [ 0, %61 ], [ 0, %66 ], [ 0, %69 ]
+  %.1 = phi ptr [ null, %24 ], [ null, %30 ], [ %46, %53 ], [ %.0, %97 ], [ %.0, %145 ], [ %.0, %141 ], [ %.0, %138 ], [ null, %59 ], [ null, %61 ], [ %67, %66 ], [ %67, %69 ]
   call void @ft_mem_free(ptr noundef %16, ptr noundef %.1) #13
   %174 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %175 = load ptr, ptr %174, align 8
@@ -3052,6 +3052,9 @@ declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #11
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.abs.i64(i64, i1 immarg) #10
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.smax.i32(i32, i32) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #12

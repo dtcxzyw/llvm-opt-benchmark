@@ -782,27 +782,31 @@ _ZNK4Node12find_int_conEi.exit.thread:            ; preds = %71, %65
 97:                                               ; preds = %60
   %98 = tail call noundef ptr @_ZNK4Node13find_int_typeEv(ptr noundef nonnull align 8 dereferenceable(52) %.034) #8
   %.not.i20 = icmp eq ptr %98, null
-  br i1 %.not.i20, label %_ZNK4Node12find_int_conEi.exit22, label %99
+  br i1 %.not.i20, label %_ZNK4Node12find_int_conEi.exit22.thread, label %99
 
 99:                                               ; preds = %97
   %100 = getelementptr inbounds nuw i8, ptr %98, i64 24
   %101 = load i32, ptr %100, align 8
+  %.fr = freeze i32 %101
   %102 = getelementptr inbounds nuw i8, ptr %98, i64 28
   %103 = load i32, ptr %102, align 4
-  %104 = icmp eq i32 %101, %103
-  %spec.select.i21 = select i1 %104, i32 %101, i32 -1
-  br label %_ZNK4Node12find_int_conEi.exit22
+  %104 = icmp eq i32 %.fr, %103
+  br i1 %104, label %_ZNK4Node12find_int_conEi.exit22, label %_ZNK4Node12find_int_conEi.exit22.thread
 
-_ZNK4Node12find_int_conEi.exit22:                 ; preds = %97, %99
-  %105 = phi i32 [ -1, %97 ], [ %spec.select.i21, %99 ]
-  %106 = icmp sgt i32 %105, -1
-  %. = select i1 %106, ptr null, ptr %.034
-  %.15 = select i1 %106, i32 %105, i32 0
+_ZNK4Node12find_int_conEi.exit22:                 ; preds = %99
+  %105 = icmp sgt i32 %.fr, -1
+  %spec.select = select i1 %105, ptr null, ptr %.034
+  br label %_ZNK4Node12find_int_conEi.exit22.thread
+
+_ZNK4Node12find_int_conEi.exit22.thread:          ; preds = %_ZNK4Node12find_int_conEi.exit22, %99, %97
+  %106 = phi i32 [ -1, %97 ], [ -1, %99 ], [ %.fr, %_ZNK4Node12find_int_conEi.exit22 ]
+  %107 = phi ptr [ %.034, %97 ], [ %.034, %99 ], [ %spec.select, %_ZNK4Node12find_int_conEi.exit22 ]
+  %.15 = tail call i32 @llvm.smax.i32(i32 %106, i32 0)
   br label %_ZNK4Node12find_int_conEi.exit19.thread
 
-_ZNK4Node12find_int_conEi.exit19.thread:          ; preds = %86, %_ZNK4Node12find_int_conEi.exit.thread, %_ZNK4Node12find_int_conEi.exit22, %92, %77
-  %.08 = phi ptr [ %81, %77 ], [ %96, %92 ], [ %., %_ZNK4Node12find_int_conEi.exit22 ], [ %.034, %_ZNK4Node12find_int_conEi.exit.thread ], [ %.034, %86 ]
-  %.0 = phi i32 [ %73, %77 ], [ %88, %92 ], [ %.15, %_ZNK4Node12find_int_conEi.exit22 ], [ 0, %_ZNK4Node12find_int_conEi.exit.thread ], [ 0, %86 ]
+_ZNK4Node12find_int_conEi.exit19.thread:          ; preds = %86, %_ZNK4Node12find_int_conEi.exit.thread, %_ZNK4Node12find_int_conEi.exit22.thread, %92, %77
+  %.08 = phi ptr [ %81, %77 ], [ %96, %92 ], [ %107, %_ZNK4Node12find_int_conEi.exit22.thread ], [ %.034, %_ZNK4Node12find_int_conEi.exit.thread ], [ %.034, %86 ]
+  %.0 = phi i32 [ %73, %77 ], [ %88, %92 ], [ %.15, %_ZNK4Node12find_int_conEi.exit22.thread ], [ 0, %_ZNK4Node12find_int_conEi.exit.thread ], [ 0, %86 ]
   store ptr %.08, ptr %2, align 8
   store i32 %.0, ptr %3, align 4
   store ptr %.033, ptr %1, align 8

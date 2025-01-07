@@ -4671,7 +4671,7 @@ define internal fastcc range(i32 -1, 2) i32 @Abc_FlowRetime_VerifyPathLatencies_
   %39 = tail call fastcc i32 @Abc_FlowRetime_VerifyPathLatencies_rec(ptr noundef nonnull %23, i32 noundef %38)
   %40 = icmp sgt i32 %39, -1
   %spec.select68.us = select i1 %40, i32 1, i32 %.140106.us
-  %41 = select i1 %40, i32 %39, i32 0
+  %41 = tail call i32 @llvm.smax.i32(i32 %39, i32 0)
   %spec.select69.us = or i32 %41, %.2107.us
   br label %46
 
@@ -4740,7 +4740,7 @@ define internal fastcc range(i32 -1, 2) i32 @Abc_FlowRetime_VerifyPathLatencies_
   %66 = tail call fastcc i32 @Abc_FlowRetime_VerifyPathLatencies_rec(ptr noundef nonnull %56, i32 noundef 1)
   %67 = icmp sgt i32 %66, -1
   %spec.select68 = select i1 %67, i32 1, i32 %.140106
-  %68 = select i1 %67, i32 %66, i32 0
+  %68 = tail call i32 @llvm.smax.i32(i32 %66, i32 0)
   %spec.select69 = or i32 %68, %.2107
   br label %69
 
@@ -4934,6 +4934,9 @@ declare noundef i32 @putchar(i32 noundef) local_unnamed_addr #12
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #14
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.smax.i32(i32, i32) #14
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
