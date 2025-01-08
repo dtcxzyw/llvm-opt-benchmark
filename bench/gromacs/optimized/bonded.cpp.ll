@@ -1753,113 +1753,117 @@ define internal noundef float @_ZN12_GLOBAL__N_15bondsIL18BondedKernelFlavor0EEE
   %218 = shufflevector <8 x float> %214, <8 x float> %216, <8 x i32> <i32 2, i32 10, i32 3, i32 11, i32 6, i32 14, i32 7, i32 15>
   %219 = shufflevector <8 x float> %215, <8 x float> <float 0.000000e+00, float 0.000000e+00, float poison, float poison, float 0.000000e+00, float 0.000000e+00, float poison, float poison>, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 4, i32 12, i32 5, i32 13>
   %220 = shufflevector <8 x float> %215, <8 x float> <float poison, float poison, float 0.000000e+00, float 0.000000e+00, float poison, float poison, float 0.000000e+00, float 0.000000e+00>, <8 x i32> <i32 2, i32 10, i32 3, i32 11, i32 6, i32 14, i32 7, i32 15>
-  %221 = shl nsw i32 %75, 2
-  %222 = sext i32 %221 to i64
-  %223 = getelementptr inbounds float, ptr %4, i64 %222
-  %224 = load <4 x float>, ptr %223, align 16
-  %225 = shufflevector <8 x float> %217, <8 x float> %219, <4 x i32> <i32 0, i32 8, i32 1, i32 9>
-  %226 = fadd <4 x float> %224, %225
-  store <4 x float> %226, ptr %223, align 16
-  %227 = shl nsw i32 %86, 2
-  %228 = sext i32 %227 to i64
-  %229 = getelementptr inbounds float, ptr %4, i64 %228
-  %230 = load <4 x float>, ptr %229, align 16
-  %231 = shufflevector <8 x float> %217, <8 x float> %219, <4 x i32> <i32 2, i32 10, i32 3, i32 11>
-  %232 = fadd <4 x float> %230, %231
-  store <4 x float> %232, ptr %229, align 16
-  %233 = shl nsw i32 %97, 2
-  %234 = sext i32 %233 to i64
-  %235 = getelementptr inbounds float, ptr %4, i64 %234
-  %236 = load <4 x float>, ptr %235, align 16
-  %237 = shufflevector <8 x float> %218, <8 x float> %220, <4 x i32> <i32 0, i32 8, i32 1, i32 9>
-  %238 = fadd <4 x float> %236, %237
-  store <4 x float> %238, ptr %235, align 16
-  %239 = shl nsw i32 %108, 2
-  %240 = sext i32 %239 to i64
-  %241 = getelementptr inbounds float, ptr %4, i64 %240
-  %242 = load <4 x float>, ptr %241, align 16
-  %243 = shufflevector <8 x float> %218, <8 x float> %220, <4 x i32> <i32 2, i32 10, i32 3, i32 11>
-  %244 = fadd <4 x float> %242, %243
-  store <4 x float> %244, ptr %241, align 16
-  %245 = shl nsw i32 %80, 2
-  %246 = sext i32 %245 to i64
-  %247 = getelementptr inbounds float, ptr %4, i64 %246
-  %248 = load <4 x float>, ptr %247, align 16
-  %249 = shufflevector <8 x float> %217, <8 x float> %219, <4 x i32> <i32 4, i32 12, i32 5, i32 13>
-  %250 = fadd <4 x float> %249, %248
-  store <4 x float> %250, ptr %247, align 16
-  %251 = shl nsw i32 %91, 2
-  %252 = sext i32 %251 to i64
-  %253 = getelementptr inbounds float, ptr %4, i64 %252
-  %254 = load <4 x float>, ptr %253, align 16
-  %255 = shufflevector <8 x float> %217, <8 x float> %219, <4 x i32> <i32 6, i32 14, i32 7, i32 15>
-  %256 = fadd <4 x float> %255, %254
-  store <4 x float> %256, ptr %253, align 16
-  %257 = shl nsw i32 %102, 2
-  %258 = sext i32 %257 to i64
-  %259 = getelementptr inbounds float, ptr %4, i64 %258
-  %260 = load <4 x float>, ptr %259, align 16
-  %261 = shufflevector <8 x float> %218, <8 x float> %220, <4 x i32> <i32 4, i32 12, i32 5, i32 13>
-  %262 = fadd <4 x float> %261, %260
-  store <4 x float> %262, ptr %259, align 16
-  %263 = shl nsw i32 %113, 2
-  %264 = sext i32 %263 to i64
-  %265 = getelementptr inbounds float, ptr %4, i64 %264
-  %266 = load <4 x float>, ptr %265, align 16
-  %267 = shufflevector <8 x float> %218, <8 x float> %220, <4 x i32> <i32 6, i32 14, i32 7, i32 15>
-  %268 = fadd <4 x float> %267, %266
-  store <4 x float> %268, ptr %265, align 16
-  %269 = shl nsw i32 %126, 2
-  %270 = sext i32 %269 to i64
-  %271 = getelementptr inbounds float, ptr %4, i64 %270
-  %272 = load <4 x float>, ptr %271, align 16
-  %273 = fsub <4 x float> %272, %225
-  store <4 x float> %273, ptr %271, align 16
-  %274 = shl nsw i32 %137, 2
-  %275 = sext i32 %274 to i64
-  %276 = getelementptr inbounds float, ptr %4, i64 %275
-  %277 = load <4 x float>, ptr %276, align 16
-  %278 = fsub <4 x float> %277, %231
-  store <4 x float> %278, ptr %276, align 16
-  %279 = shl nsw i32 %148, 2
-  %280 = sext i32 %279 to i64
-  %281 = getelementptr inbounds float, ptr %4, i64 %280
-  %282 = load <4 x float>, ptr %281, align 16
-  %283 = fsub <4 x float> %282, %237
-  store <4 x float> %283, ptr %281, align 16
-  %284 = shl nsw i32 %159, 2
-  %285 = sext i32 %284 to i64
-  %286 = getelementptr inbounds float, ptr %4, i64 %285
-  %287 = load <4 x float>, ptr %286, align 16
-  %288 = fsub <4 x float> %287, %243
-  store <4 x float> %288, ptr %286, align 16
-  %289 = shl nsw i32 %131, 2
-  %290 = sext i32 %289 to i64
-  %291 = getelementptr inbounds float, ptr %4, i64 %290
-  %292 = load <4 x float>, ptr %291, align 16
-  %293 = fsub <4 x float> %292, %249
-  store <4 x float> %293, ptr %291, align 16
-  %294 = shl nsw i32 %142, 2
-  %295 = sext i32 %294 to i64
-  %296 = getelementptr inbounds float, ptr %4, i64 %295
-  %297 = load <4 x float>, ptr %296, align 16
-  %298 = fsub <4 x float> %297, %255
-  store <4 x float> %298, ptr %296, align 16
-  %299 = shl nsw i32 %153, 2
-  %300 = sext i32 %299 to i64
-  %301 = getelementptr inbounds float, ptr %4, i64 %300
-  %302 = load <4 x float>, ptr %301, align 16
-  %303 = fsub <4 x float> %302, %261
-  store <4 x float> %303, ptr %301, align 16
-  %304 = shl nsw i32 %164, 2
-  %305 = sext i32 %304 to i64
-  %306 = getelementptr inbounds float, ptr %4, i64 %305
-  %307 = load <4 x float>, ptr %306, align 16
-  %308 = fsub <4 x float> %307, %267
-  store <4 x float> %308, ptr %306, align 16
+  %221 = shufflevector <8 x float> %217, <8 x float> %219, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 4, i32 12, i32 5, i32 13>
+  %222 = shufflevector <8 x float> %217, <8 x float> %219, <8 x i32> <i32 2, i32 10, i32 3, i32 11, i32 6, i32 14, i32 7, i32 15>
+  %223 = shufflevector <8 x float> %218, <8 x float> %220, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 4, i32 12, i32 5, i32 13>
+  %224 = shufflevector <8 x float> %218, <8 x float> %220, <8 x i32> <i32 2, i32 10, i32 3, i32 11, i32 6, i32 14, i32 7, i32 15>
+  %225 = shl nsw i32 %75, 2
+  %226 = sext i32 %225 to i64
+  %227 = getelementptr inbounds float, ptr %4, i64 %226
+  %228 = load <4 x float>, ptr %227, align 16
+  %229 = shufflevector <8 x float> %221, <8 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
+  %230 = fadd <4 x float> %228, %229
+  store <4 x float> %230, ptr %227, align 16
+  %231 = shl nsw i32 %86, 2
+  %232 = sext i32 %231 to i64
+  %233 = getelementptr inbounds float, ptr %4, i64 %232
+  %234 = load <4 x float>, ptr %233, align 16
+  %235 = shufflevector <8 x float> %222, <8 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
+  %236 = fadd <4 x float> %234, %235
+  store <4 x float> %236, ptr %233, align 16
+  %237 = shl nsw i32 %97, 2
+  %238 = sext i32 %237 to i64
+  %239 = getelementptr inbounds float, ptr %4, i64 %238
+  %240 = load <4 x float>, ptr %239, align 16
+  %241 = shufflevector <8 x float> %223, <8 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
+  %242 = fadd <4 x float> %240, %241
+  store <4 x float> %242, ptr %239, align 16
+  %243 = shl nsw i32 %108, 2
+  %244 = sext i32 %243 to i64
+  %245 = getelementptr inbounds float, ptr %4, i64 %244
+  %246 = load <4 x float>, ptr %245, align 16
+  %247 = shufflevector <8 x float> %224, <8 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
+  %248 = fadd <4 x float> %246, %247
+  store <4 x float> %248, ptr %245, align 16
+  %249 = shl nsw i32 %80, 2
+  %250 = sext i32 %249 to i64
+  %251 = getelementptr inbounds float, ptr %4, i64 %250
+  %252 = load <4 x float>, ptr %251, align 16
+  %253 = shufflevector <8 x float> %221, <8 x float> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 7>
+  %254 = fadd <4 x float> %253, %252
+  store <4 x float> %254, ptr %251, align 16
+  %255 = shl nsw i32 %91, 2
+  %256 = sext i32 %255 to i64
+  %257 = getelementptr inbounds float, ptr %4, i64 %256
+  %258 = load <4 x float>, ptr %257, align 16
+  %259 = shufflevector <8 x float> %222, <8 x float> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 7>
+  %260 = fadd <4 x float> %259, %258
+  store <4 x float> %260, ptr %257, align 16
+  %261 = shl nsw i32 %102, 2
+  %262 = sext i32 %261 to i64
+  %263 = getelementptr inbounds float, ptr %4, i64 %262
+  %264 = load <4 x float>, ptr %263, align 16
+  %265 = shufflevector <8 x float> %223, <8 x float> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 7>
+  %266 = fadd <4 x float> %265, %264
+  store <4 x float> %266, ptr %263, align 16
+  %267 = shl nsw i32 %113, 2
+  %268 = sext i32 %267 to i64
+  %269 = getelementptr inbounds float, ptr %4, i64 %268
+  %270 = load <4 x float>, ptr %269, align 16
+  %271 = shufflevector <8 x float> %224, <8 x float> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 7>
+  %272 = fadd <4 x float> %271, %270
+  store <4 x float> %272, ptr %269, align 16
+  %273 = shl nsw i32 %126, 2
+  %274 = sext i32 %273 to i64
+  %275 = getelementptr inbounds float, ptr %4, i64 %274
+  %276 = load <4 x float>, ptr %275, align 16
+  %277 = fsub <4 x float> %276, %229
+  store <4 x float> %277, ptr %275, align 16
+  %278 = shl nsw i32 %137, 2
+  %279 = sext i32 %278 to i64
+  %280 = getelementptr inbounds float, ptr %4, i64 %279
+  %281 = load <4 x float>, ptr %280, align 16
+  %282 = fsub <4 x float> %281, %235
+  store <4 x float> %282, ptr %280, align 16
+  %283 = shl nsw i32 %148, 2
+  %284 = sext i32 %283 to i64
+  %285 = getelementptr inbounds float, ptr %4, i64 %284
+  %286 = load <4 x float>, ptr %285, align 16
+  %287 = fsub <4 x float> %286, %241
+  store <4 x float> %287, ptr %285, align 16
+  %288 = shl nsw i32 %159, 2
+  %289 = sext i32 %288 to i64
+  %290 = getelementptr inbounds float, ptr %4, i64 %289
+  %291 = load <4 x float>, ptr %290, align 16
+  %292 = fsub <4 x float> %291, %247
+  store <4 x float> %292, ptr %290, align 16
+  %293 = shl nsw i32 %131, 2
+  %294 = sext i32 %293 to i64
+  %295 = getelementptr inbounds float, ptr %4, i64 %294
+  %296 = load <4 x float>, ptr %295, align 16
+  %297 = fsub <4 x float> %296, %253
+  store <4 x float> %297, ptr %295, align 16
+  %298 = shl nsw i32 %142, 2
+  %299 = sext i32 %298 to i64
+  %300 = getelementptr inbounds float, ptr %4, i64 %299
+  %301 = load <4 x float>, ptr %300, align 16
+  %302 = fsub <4 x float> %301, %259
+  store <4 x float> %302, ptr %300, align 16
+  %303 = shl nsw i32 %153, 2
+  %304 = sext i32 %303 to i64
+  %305 = getelementptr inbounds float, ptr %4, i64 %304
+  %306 = load <4 x float>, ptr %305, align 16
+  %307 = fsub <4 x float> %306, %265
+  store <4 x float> %307, ptr %305, align 16
+  %308 = shl nsw i32 %164, 2
+  %309 = sext i32 %308 to i64
+  %310 = getelementptr inbounds float, ptr %4, i64 %309
+  %311 = load <4 x float>, ptr %310, align 16
+  %312 = fsub <4 x float> %311, %271
+  store <4 x float> %312, ptr %310, align 16
   %indvars.iv.next116 = add nuw nsw i64 %indvars.iv115, 24
-  %309 = icmp samesign ult i64 %indvars.iv.next116, %43
-  br i1 %309, label %.preheader, label %._crit_edge, !llvm.loop !14
+  %313 = icmp samesign ult i64 %indvars.iv.next116, %43
+  br i1 %313, label %.preheader, label %._crit_edge, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %74, %14
   ret float 0.000000e+00
@@ -3403,188 +3407,200 @@ define internal noundef float @_ZN12_GLOBAL__N_16anglesIL18BondedKernelFlavor0EE
   %395 = shufflevector <8 x float> %383, <8 x float> %387, <8 x i32> <i32 2, i32 10, i32 3, i32 11, i32 6, i32 14, i32 7, i32 15>
   %396 = shufflevector <8 x float> %385, <8 x float> <float 0.000000e+00, float 0.000000e+00, float poison, float poison, float 0.000000e+00, float 0.000000e+00, float poison, float poison>, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 4, i32 12, i32 5, i32 13>
   %397 = shufflevector <8 x float> %385, <8 x float> <float poison, float poison, float 0.000000e+00, float 0.000000e+00, float poison, float poison, float 0.000000e+00, float 0.000000e+00>, <8 x i32> <i32 2, i32 10, i32 3, i32 11, i32 6, i32 14, i32 7, i32 15>
-  %398 = shl nsw i32 %86, 2
-  %399 = sext i32 %398 to i64
-  %400 = getelementptr inbounds float, ptr %4, i64 %399
-  %401 = load <4 x float>, ptr %400, align 16
-  %402 = shufflevector <8 x float> %394, <8 x float> %396, <4 x i32> <i32 0, i32 8, i32 1, i32 9>
-  %403 = fadd <4 x float> %401, %402
-  store <4 x float> %403, ptr %400, align 16
-  %404 = shl nsw i32 %97, 2
-  %405 = sext i32 %404 to i64
-  %406 = getelementptr inbounds float, ptr %4, i64 %405
-  %407 = load <4 x float>, ptr %406, align 16
-  %408 = shufflevector <8 x float> %394, <8 x float> %396, <4 x i32> <i32 2, i32 10, i32 3, i32 11>
-  %409 = fadd <4 x float> %407, %408
-  store <4 x float> %409, ptr %406, align 16
-  %410 = shl nsw i32 %108, 2
-  %411 = sext i32 %410 to i64
-  %412 = getelementptr inbounds float, ptr %4, i64 %411
-  %413 = load <4 x float>, ptr %412, align 16
-  %414 = shufflevector <8 x float> %395, <8 x float> %397, <4 x i32> <i32 0, i32 8, i32 1, i32 9>
-  %415 = fadd <4 x float> %413, %414
-  store <4 x float> %415, ptr %412, align 16
-  %416 = shl nsw i32 %119, 2
-  %417 = sext i32 %416 to i64
-  %418 = getelementptr inbounds float, ptr %4, i64 %417
-  %419 = load <4 x float>, ptr %418, align 16
-  %420 = shufflevector <8 x float> %395, <8 x float> %397, <4 x i32> <i32 2, i32 10, i32 3, i32 11>
-  %421 = fadd <4 x float> %419, %420
-  store <4 x float> %421, ptr %418, align 16
-  %422 = shl nsw i32 %91, 2
-  %423 = sext i32 %422 to i64
-  %424 = getelementptr inbounds float, ptr %4, i64 %423
-  %425 = load <4 x float>, ptr %424, align 16
-  %426 = shufflevector <8 x float> %394, <8 x float> %396, <4 x i32> <i32 4, i32 12, i32 5, i32 13>
-  %427 = fadd <4 x float> %425, %426
-  store <4 x float> %427, ptr %424, align 16
-  %428 = shl nsw i32 %102, 2
-  %429 = sext i32 %428 to i64
-  %430 = getelementptr inbounds float, ptr %4, i64 %429
-  %431 = load <4 x float>, ptr %430, align 16
-  %432 = shufflevector <8 x float> %394, <8 x float> %396, <4 x i32> <i32 6, i32 14, i32 7, i32 15>
-  %433 = fadd <4 x float> %431, %432
-  store <4 x float> %433, ptr %430, align 16
-  %434 = shl nsw i32 %113, 2
-  %435 = sext i32 %434 to i64
-  %436 = getelementptr inbounds float, ptr %4, i64 %435
-  %437 = load <4 x float>, ptr %436, align 16
-  %438 = shufflevector <8 x float> %395, <8 x float> %397, <4 x i32> <i32 4, i32 12, i32 5, i32 13>
-  %439 = fadd <4 x float> %437, %438
-  store <4 x float> %439, ptr %436, align 16
-  %440 = shl nsw i32 %124, 2
-  %441 = sext i32 %440 to i64
-  %442 = getelementptr inbounds float, ptr %4, i64 %441
-  %443 = load <4 x float>, ptr %442, align 16
-  %444 = shufflevector <8 x float> %395, <8 x float> %397, <4 x i32> <i32 6, i32 14, i32 7, i32 15>
-  %445 = fadd <4 x float> %443, %444
-  store <4 x float> %445, ptr %442, align 16
-  %446 = fadd <8 x float> %383, %389
-  %447 = fadd <8 x float> %385, %391
-  %448 = fadd <8 x float> %387, %393
-  %449 = shufflevector <8 x float> %446, <8 x float> %448, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 4, i32 12, i32 5, i32 13>
-  %450 = shufflevector <8 x float> %446, <8 x float> %448, <8 x i32> <i32 2, i32 10, i32 3, i32 11, i32 6, i32 14, i32 7, i32 15>
-  %451 = shufflevector <8 x float> %447, <8 x float> <float 0.000000e+00, float 0.000000e+00, float poison, float poison, float 0.000000e+00, float 0.000000e+00, float poison, float poison>, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 4, i32 12, i32 5, i32 13>
-  %452 = shufflevector <8 x float> %447, <8 x float> <float poison, float poison, float 0.000000e+00, float 0.000000e+00, float poison, float poison, float 0.000000e+00, float 0.000000e+00>, <8 x i32> <i32 2, i32 10, i32 3, i32 11, i32 6, i32 14, i32 7, i32 15>
-  %453 = shl nsw i32 %137, 2
-  %454 = sext i32 %453 to i64
-  %455 = getelementptr inbounds float, ptr %4, i64 %454
-  %456 = load <4 x float>, ptr %455, align 16
-  %457 = shufflevector <8 x float> %449, <8 x float> %451, <4 x i32> <i32 0, i32 8, i32 1, i32 9>
-  %458 = fsub <4 x float> %456, %457
-  store <4 x float> %458, ptr %455, align 16
-  %459 = shl nsw i32 %148, 2
-  %460 = sext i32 %459 to i64
-  %461 = getelementptr inbounds float, ptr %4, i64 %460
-  %462 = load <4 x float>, ptr %461, align 16
-  %463 = shufflevector <8 x float> %449, <8 x float> %451, <4 x i32> <i32 2, i32 10, i32 3, i32 11>
-  %464 = fsub <4 x float> %462, %463
-  store <4 x float> %464, ptr %461, align 16
-  %465 = shl nsw i32 %159, 2
-  %466 = sext i32 %465 to i64
-  %467 = getelementptr inbounds float, ptr %4, i64 %466
-  %468 = load <4 x float>, ptr %467, align 16
-  %469 = shufflevector <8 x float> %450, <8 x float> %452, <4 x i32> <i32 0, i32 8, i32 1, i32 9>
-  %470 = fsub <4 x float> %468, %469
-  store <4 x float> %470, ptr %467, align 16
-  %471 = shl nsw i32 %170, 2
-  %472 = sext i32 %471 to i64
-  %473 = getelementptr inbounds float, ptr %4, i64 %472
-  %474 = load <4 x float>, ptr %473, align 16
-  %475 = shufflevector <8 x float> %450, <8 x float> %452, <4 x i32> <i32 2, i32 10, i32 3, i32 11>
-  %476 = fsub <4 x float> %474, %475
-  store <4 x float> %476, ptr %473, align 16
-  %477 = shl nsw i32 %142, 2
-  %478 = sext i32 %477 to i64
-  %479 = getelementptr inbounds float, ptr %4, i64 %478
-  %480 = load <4 x float>, ptr %479, align 16
-  %481 = shufflevector <8 x float> %449, <8 x float> %451, <4 x i32> <i32 4, i32 12, i32 5, i32 13>
-  %482 = fsub <4 x float> %480, %481
-  store <4 x float> %482, ptr %479, align 16
-  %483 = shl nsw i32 %153, 2
-  %484 = sext i32 %483 to i64
-  %485 = getelementptr inbounds float, ptr %4, i64 %484
-  %486 = load <4 x float>, ptr %485, align 16
-  %487 = shufflevector <8 x float> %449, <8 x float> %451, <4 x i32> <i32 6, i32 14, i32 7, i32 15>
-  %488 = fsub <4 x float> %486, %487
-  store <4 x float> %488, ptr %485, align 16
-  %489 = shl nsw i32 %164, 2
-  %490 = sext i32 %489 to i64
-  %491 = getelementptr inbounds float, ptr %4, i64 %490
-  %492 = load <4 x float>, ptr %491, align 16
-  %493 = shufflevector <8 x float> %450, <8 x float> %452, <4 x i32> <i32 4, i32 12, i32 5, i32 13>
-  %494 = fsub <4 x float> %492, %493
-  store <4 x float> %494, ptr %491, align 16
-  %495 = shl nsw i32 %175, 2
-  %496 = sext i32 %495 to i64
-  %497 = getelementptr inbounds float, ptr %4, i64 %496
-  %498 = load <4 x float>, ptr %497, align 16
-  %499 = shufflevector <8 x float> %450, <8 x float> %452, <4 x i32> <i32 6, i32 14, i32 7, i32 15>
-  %500 = fsub <4 x float> %498, %499
-  store <4 x float> %500, ptr %497, align 16
-  %501 = shufflevector <8 x float> %389, <8 x float> %393, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 4, i32 12, i32 5, i32 13>
-  %502 = shufflevector <8 x float> %389, <8 x float> %393, <8 x i32> <i32 2, i32 10, i32 3, i32 11, i32 6, i32 14, i32 7, i32 15>
-  %503 = shufflevector <8 x float> %391, <8 x float> <float 0.000000e+00, float 0.000000e+00, float poison, float poison, float 0.000000e+00, float 0.000000e+00, float poison, float poison>, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 4, i32 12, i32 5, i32 13>
-  %504 = shufflevector <8 x float> %391, <8 x float> <float poison, float poison, float 0.000000e+00, float 0.000000e+00, float poison, float poison, float 0.000000e+00, float 0.000000e+00>, <8 x i32> <i32 2, i32 10, i32 3, i32 11, i32 6, i32 14, i32 7, i32 15>
-  %505 = shl nsw i32 %188, 2
-  %506 = sext i32 %505 to i64
-  %507 = getelementptr inbounds float, ptr %4, i64 %506
-  %508 = load <4 x float>, ptr %507, align 16
-  %509 = shufflevector <8 x float> %501, <8 x float> %503, <4 x i32> <i32 0, i32 8, i32 1, i32 9>
-  %510 = fadd <4 x float> %508, %509
-  store <4 x float> %510, ptr %507, align 16
-  %511 = shl nsw i32 %199, 2
-  %512 = sext i32 %511 to i64
-  %513 = getelementptr inbounds float, ptr %4, i64 %512
-  %514 = load <4 x float>, ptr %513, align 16
-  %515 = shufflevector <8 x float> %501, <8 x float> %503, <4 x i32> <i32 2, i32 10, i32 3, i32 11>
-  %516 = fadd <4 x float> %515, %514
-  store <4 x float> %516, ptr %513, align 16
-  %517 = shl nsw i32 %210, 2
+  %398 = shufflevector <8 x float> %394, <8 x float> %396, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 4, i32 12, i32 5, i32 13>
+  %399 = shufflevector <8 x float> %394, <8 x float> %396, <8 x i32> <i32 2, i32 10, i32 3, i32 11, i32 6, i32 14, i32 7, i32 15>
+  %400 = shufflevector <8 x float> %395, <8 x float> %397, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 4, i32 12, i32 5, i32 13>
+  %401 = shufflevector <8 x float> %395, <8 x float> %397, <8 x i32> <i32 2, i32 10, i32 3, i32 11, i32 6, i32 14, i32 7, i32 15>
+  %402 = shl nsw i32 %86, 2
+  %403 = sext i32 %402 to i64
+  %404 = getelementptr inbounds float, ptr %4, i64 %403
+  %405 = load <4 x float>, ptr %404, align 16
+  %406 = shufflevector <8 x float> %398, <8 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
+  %407 = fadd <4 x float> %405, %406
+  store <4 x float> %407, ptr %404, align 16
+  %408 = shl nsw i32 %97, 2
+  %409 = sext i32 %408 to i64
+  %410 = getelementptr inbounds float, ptr %4, i64 %409
+  %411 = load <4 x float>, ptr %410, align 16
+  %412 = shufflevector <8 x float> %399, <8 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
+  %413 = fadd <4 x float> %411, %412
+  store <4 x float> %413, ptr %410, align 16
+  %414 = shl nsw i32 %108, 2
+  %415 = sext i32 %414 to i64
+  %416 = getelementptr inbounds float, ptr %4, i64 %415
+  %417 = load <4 x float>, ptr %416, align 16
+  %418 = shufflevector <8 x float> %400, <8 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
+  %419 = fadd <4 x float> %417, %418
+  store <4 x float> %419, ptr %416, align 16
+  %420 = shl nsw i32 %119, 2
+  %421 = sext i32 %420 to i64
+  %422 = getelementptr inbounds float, ptr %4, i64 %421
+  %423 = load <4 x float>, ptr %422, align 16
+  %424 = shufflevector <8 x float> %401, <8 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
+  %425 = fadd <4 x float> %423, %424
+  store <4 x float> %425, ptr %422, align 16
+  %426 = shl nsw i32 %91, 2
+  %427 = sext i32 %426 to i64
+  %428 = getelementptr inbounds float, ptr %4, i64 %427
+  %429 = load <4 x float>, ptr %428, align 16
+  %430 = shufflevector <8 x float> %398, <8 x float> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 7>
+  %431 = fadd <4 x float> %429, %430
+  store <4 x float> %431, ptr %428, align 16
+  %432 = shl nsw i32 %102, 2
+  %433 = sext i32 %432 to i64
+  %434 = getelementptr inbounds float, ptr %4, i64 %433
+  %435 = load <4 x float>, ptr %434, align 16
+  %436 = shufflevector <8 x float> %399, <8 x float> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 7>
+  %437 = fadd <4 x float> %435, %436
+  store <4 x float> %437, ptr %434, align 16
+  %438 = shl nsw i32 %113, 2
+  %439 = sext i32 %438 to i64
+  %440 = getelementptr inbounds float, ptr %4, i64 %439
+  %441 = load <4 x float>, ptr %440, align 16
+  %442 = shufflevector <8 x float> %400, <8 x float> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 7>
+  %443 = fadd <4 x float> %441, %442
+  store <4 x float> %443, ptr %440, align 16
+  %444 = shl nsw i32 %124, 2
+  %445 = sext i32 %444 to i64
+  %446 = getelementptr inbounds float, ptr %4, i64 %445
+  %447 = load <4 x float>, ptr %446, align 16
+  %448 = shufflevector <8 x float> %401, <8 x float> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 7>
+  %449 = fadd <4 x float> %447, %448
+  store <4 x float> %449, ptr %446, align 16
+  %450 = fadd <8 x float> %383, %389
+  %451 = fadd <8 x float> %385, %391
+  %452 = fadd <8 x float> %387, %393
+  %453 = shufflevector <8 x float> %450, <8 x float> %452, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 4, i32 12, i32 5, i32 13>
+  %454 = shufflevector <8 x float> %450, <8 x float> %452, <8 x i32> <i32 2, i32 10, i32 3, i32 11, i32 6, i32 14, i32 7, i32 15>
+  %455 = shufflevector <8 x float> %451, <8 x float> <float 0.000000e+00, float 0.000000e+00, float poison, float poison, float 0.000000e+00, float 0.000000e+00, float poison, float poison>, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 4, i32 12, i32 5, i32 13>
+  %456 = shufflevector <8 x float> %451, <8 x float> <float poison, float poison, float 0.000000e+00, float 0.000000e+00, float poison, float poison, float 0.000000e+00, float 0.000000e+00>, <8 x i32> <i32 2, i32 10, i32 3, i32 11, i32 6, i32 14, i32 7, i32 15>
+  %457 = shufflevector <8 x float> %453, <8 x float> %455, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 4, i32 12, i32 5, i32 13>
+  %458 = shufflevector <8 x float> %453, <8 x float> %455, <8 x i32> <i32 2, i32 10, i32 3, i32 11, i32 6, i32 14, i32 7, i32 15>
+  %459 = shufflevector <8 x float> %454, <8 x float> %456, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 4, i32 12, i32 5, i32 13>
+  %460 = shufflevector <8 x float> %454, <8 x float> %456, <8 x i32> <i32 2, i32 10, i32 3, i32 11, i32 6, i32 14, i32 7, i32 15>
+  %461 = shl nsw i32 %137, 2
+  %462 = sext i32 %461 to i64
+  %463 = getelementptr inbounds float, ptr %4, i64 %462
+  %464 = load <4 x float>, ptr %463, align 16
+  %465 = shufflevector <8 x float> %457, <8 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
+  %466 = fsub <4 x float> %464, %465
+  store <4 x float> %466, ptr %463, align 16
+  %467 = shl nsw i32 %148, 2
+  %468 = sext i32 %467 to i64
+  %469 = getelementptr inbounds float, ptr %4, i64 %468
+  %470 = load <4 x float>, ptr %469, align 16
+  %471 = shufflevector <8 x float> %458, <8 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
+  %472 = fsub <4 x float> %470, %471
+  store <4 x float> %472, ptr %469, align 16
+  %473 = shl nsw i32 %159, 2
+  %474 = sext i32 %473 to i64
+  %475 = getelementptr inbounds float, ptr %4, i64 %474
+  %476 = load <4 x float>, ptr %475, align 16
+  %477 = shufflevector <8 x float> %459, <8 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
+  %478 = fsub <4 x float> %476, %477
+  store <4 x float> %478, ptr %475, align 16
+  %479 = shl nsw i32 %170, 2
+  %480 = sext i32 %479 to i64
+  %481 = getelementptr inbounds float, ptr %4, i64 %480
+  %482 = load <4 x float>, ptr %481, align 16
+  %483 = shufflevector <8 x float> %460, <8 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
+  %484 = fsub <4 x float> %482, %483
+  store <4 x float> %484, ptr %481, align 16
+  %485 = shl nsw i32 %142, 2
+  %486 = sext i32 %485 to i64
+  %487 = getelementptr inbounds float, ptr %4, i64 %486
+  %488 = load <4 x float>, ptr %487, align 16
+  %489 = shufflevector <8 x float> %457, <8 x float> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 7>
+  %490 = fsub <4 x float> %488, %489
+  store <4 x float> %490, ptr %487, align 16
+  %491 = shl nsw i32 %153, 2
+  %492 = sext i32 %491 to i64
+  %493 = getelementptr inbounds float, ptr %4, i64 %492
+  %494 = load <4 x float>, ptr %493, align 16
+  %495 = shufflevector <8 x float> %458, <8 x float> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 7>
+  %496 = fsub <4 x float> %494, %495
+  store <4 x float> %496, ptr %493, align 16
+  %497 = shl nsw i32 %164, 2
+  %498 = sext i32 %497 to i64
+  %499 = getelementptr inbounds float, ptr %4, i64 %498
+  %500 = load <4 x float>, ptr %499, align 16
+  %501 = shufflevector <8 x float> %459, <8 x float> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 7>
+  %502 = fsub <4 x float> %500, %501
+  store <4 x float> %502, ptr %499, align 16
+  %503 = shl nsw i32 %175, 2
+  %504 = sext i32 %503 to i64
+  %505 = getelementptr inbounds float, ptr %4, i64 %504
+  %506 = load <4 x float>, ptr %505, align 16
+  %507 = shufflevector <8 x float> %460, <8 x float> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 7>
+  %508 = fsub <4 x float> %506, %507
+  store <4 x float> %508, ptr %505, align 16
+  %509 = shufflevector <8 x float> %389, <8 x float> %393, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 4, i32 12, i32 5, i32 13>
+  %510 = shufflevector <8 x float> %389, <8 x float> %393, <8 x i32> <i32 2, i32 10, i32 3, i32 11, i32 6, i32 14, i32 7, i32 15>
+  %511 = shufflevector <8 x float> %391, <8 x float> <float 0.000000e+00, float 0.000000e+00, float poison, float poison, float 0.000000e+00, float 0.000000e+00, float poison, float poison>, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 4, i32 12, i32 5, i32 13>
+  %512 = shufflevector <8 x float> %391, <8 x float> <float poison, float poison, float 0.000000e+00, float 0.000000e+00, float poison, float poison, float 0.000000e+00, float 0.000000e+00>, <8 x i32> <i32 2, i32 10, i32 3, i32 11, i32 6, i32 14, i32 7, i32 15>
+  %513 = shufflevector <8 x float> %509, <8 x float> %511, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 4, i32 12, i32 5, i32 13>
+  %514 = shufflevector <8 x float> %509, <8 x float> %511, <8 x i32> <i32 2, i32 10, i32 3, i32 11, i32 6, i32 14, i32 7, i32 15>
+  %515 = shufflevector <8 x float> %510, <8 x float> %512, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 4, i32 12, i32 5, i32 13>
+  %516 = shufflevector <8 x float> %510, <8 x float> %512, <8 x i32> <i32 2, i32 10, i32 3, i32 11, i32 6, i32 14, i32 7, i32 15>
+  %517 = shl nsw i32 %188, 2
   %518 = sext i32 %517 to i64
   %519 = getelementptr inbounds float, ptr %4, i64 %518
   %520 = load <4 x float>, ptr %519, align 16
-  %521 = shufflevector <8 x float> %502, <8 x float> %504, <4 x i32> <i32 0, i32 8, i32 1, i32 9>
-  %522 = fadd <4 x float> %521, %520
+  %521 = shufflevector <8 x float> %513, <8 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
+  %522 = fadd <4 x float> %520, %521
   store <4 x float> %522, ptr %519, align 16
-  %523 = shl nsw i32 %221, 2
+  %523 = shl nsw i32 %199, 2
   %524 = sext i32 %523 to i64
   %525 = getelementptr inbounds float, ptr %4, i64 %524
   %526 = load <4 x float>, ptr %525, align 16
-  %527 = shufflevector <8 x float> %502, <8 x float> %504, <4 x i32> <i32 2, i32 10, i32 3, i32 11>
+  %527 = shufflevector <8 x float> %514, <8 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
   %528 = fadd <4 x float> %527, %526
   store <4 x float> %528, ptr %525, align 16
-  %529 = shl nsw i32 %193, 2
+  %529 = shl nsw i32 %210, 2
   %530 = sext i32 %529 to i64
   %531 = getelementptr inbounds float, ptr %4, i64 %530
   %532 = load <4 x float>, ptr %531, align 16
-  %533 = shufflevector <8 x float> %501, <8 x float> %503, <4 x i32> <i32 4, i32 12, i32 5, i32 13>
+  %533 = shufflevector <8 x float> %515, <8 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
   %534 = fadd <4 x float> %533, %532
   store <4 x float> %534, ptr %531, align 16
-  %535 = shl nsw i32 %204, 2
+  %535 = shl nsw i32 %221, 2
   %536 = sext i32 %535 to i64
   %537 = getelementptr inbounds float, ptr %4, i64 %536
   %538 = load <4 x float>, ptr %537, align 16
-  %539 = shufflevector <8 x float> %501, <8 x float> %503, <4 x i32> <i32 6, i32 14, i32 7, i32 15>
+  %539 = shufflevector <8 x float> %516, <8 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
   %540 = fadd <4 x float> %539, %538
   store <4 x float> %540, ptr %537, align 16
-  %541 = shl nsw i32 %215, 2
+  %541 = shl nsw i32 %193, 2
   %542 = sext i32 %541 to i64
   %543 = getelementptr inbounds float, ptr %4, i64 %542
   %544 = load <4 x float>, ptr %543, align 16
-  %545 = shufflevector <8 x float> %502, <8 x float> %504, <4 x i32> <i32 4, i32 12, i32 5, i32 13>
+  %545 = shufflevector <8 x float> %513, <8 x float> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 7>
   %546 = fadd <4 x float> %545, %544
   store <4 x float> %546, ptr %543, align 16
-  %547 = shl nsw i32 %226, 2
+  %547 = shl nsw i32 %204, 2
   %548 = sext i32 %547 to i64
   %549 = getelementptr inbounds float, ptr %4, i64 %548
   %550 = load <4 x float>, ptr %549, align 16
-  %551 = shufflevector <8 x float> %502, <8 x float> %504, <4 x i32> <i32 6, i32 14, i32 7, i32 15>
+  %551 = shufflevector <8 x float> %514, <8 x float> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 7>
   %552 = fadd <4 x float> %551, %550
   store <4 x float> %552, ptr %549, align 16
+  %553 = shl nsw i32 %215, 2
+  %554 = sext i32 %553 to i64
+  %555 = getelementptr inbounds float, ptr %4, i64 %554
+  %556 = load <4 x float>, ptr %555, align 16
+  %557 = shufflevector <8 x float> %515, <8 x float> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 7>
+  %558 = fadd <4 x float> %557, %556
+  store <4 x float> %558, ptr %555, align 16
+  %559 = shl nsw i32 %226, 2
+  %560 = sext i32 %559 to i64
+  %561 = getelementptr inbounds float, ptr %4, i64 %560
+  %562 = load <4 x float>, ptr %561, align 16
+  %563 = shufflevector <8 x float> %516, <8 x float> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 7>
+  %564 = fadd <4 x float> %563, %562
+  store <4 x float> %564, ptr %561, align 16
   %indvars.iv.next320 = add nuw nsw i64 %indvars.iv319, 32
-  %553 = icmp samesign ult i64 %indvars.iv.next320, %51
-  br i1 %553, label %.preheader, label %._crit_edge, !llvm.loop !23
+  %565 = icmp samesign ult i64 %indvars.iv.next320, %51
+  br i1 %565, label %.preheader, label %._crit_edge, !llvm.loop !23
 
 ._crit_edge:                                      ; preds = %85, %14
   ret float 0.000000e+00
@@ -4921,188 +4937,200 @@ define internal noundef float @_ZN12_GLOBAL__N_112urey_bradleyIL18BondedKernelFl
   %445 = shufflevector <8 x float> %428, <8 x float> %434, <8 x i32> <i32 2, i32 10, i32 3, i32 11, i32 6, i32 14, i32 7, i32 15>
   %446 = shufflevector <8 x float> %431, <8 x float> <float 0.000000e+00, float 0.000000e+00, float poison, float poison, float 0.000000e+00, float 0.000000e+00, float poison, float poison>, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 4, i32 12, i32 5, i32 13>
   %447 = shufflevector <8 x float> %431, <8 x float> <float poison, float poison, float 0.000000e+00, float 0.000000e+00, float poison, float poison, float 0.000000e+00, float 0.000000e+00>, <8 x i32> <i32 2, i32 10, i32 3, i32 11, i32 6, i32 14, i32 7, i32 15>
-  %448 = shl nsw i32 %100, 2
-  %449 = sext i32 %448 to i64
-  %450 = getelementptr inbounds float, ptr %4, i64 %449
-  %451 = load <4 x float>, ptr %450, align 16
-  %452 = shufflevector <8 x float> %444, <8 x float> %446, <4 x i32> <i32 0, i32 8, i32 1, i32 9>
-  %453 = fadd <4 x float> %451, %452
-  store <4 x float> %453, ptr %450, align 16
-  %454 = shl nsw i32 %111, 2
-  %455 = sext i32 %454 to i64
-  %456 = getelementptr inbounds float, ptr %4, i64 %455
-  %457 = load <4 x float>, ptr %456, align 16
-  %458 = shufflevector <8 x float> %444, <8 x float> %446, <4 x i32> <i32 2, i32 10, i32 3, i32 11>
-  %459 = fadd <4 x float> %457, %458
-  store <4 x float> %459, ptr %456, align 16
-  %460 = shl nsw i32 %122, 2
-  %461 = sext i32 %460 to i64
-  %462 = getelementptr inbounds float, ptr %4, i64 %461
-  %463 = load <4 x float>, ptr %462, align 16
-  %464 = shufflevector <8 x float> %445, <8 x float> %447, <4 x i32> <i32 0, i32 8, i32 1, i32 9>
-  %465 = fadd <4 x float> %463, %464
-  store <4 x float> %465, ptr %462, align 16
-  %466 = shl nsw i32 %133, 2
-  %467 = sext i32 %466 to i64
-  %468 = getelementptr inbounds float, ptr %4, i64 %467
-  %469 = load <4 x float>, ptr %468, align 16
-  %470 = shufflevector <8 x float> %445, <8 x float> %447, <4 x i32> <i32 2, i32 10, i32 3, i32 11>
-  %471 = fadd <4 x float> %469, %470
-  store <4 x float> %471, ptr %468, align 16
-  %472 = shl nsw i32 %105, 2
-  %473 = sext i32 %472 to i64
-  %474 = getelementptr inbounds float, ptr %4, i64 %473
-  %475 = load <4 x float>, ptr %474, align 16
-  %476 = shufflevector <8 x float> %444, <8 x float> %446, <4 x i32> <i32 4, i32 12, i32 5, i32 13>
-  %477 = fadd <4 x float> %475, %476
-  store <4 x float> %477, ptr %474, align 16
-  %478 = shl nsw i32 %116, 2
-  %479 = sext i32 %478 to i64
-  %480 = getelementptr inbounds float, ptr %4, i64 %479
-  %481 = load <4 x float>, ptr %480, align 16
-  %482 = shufflevector <8 x float> %444, <8 x float> %446, <4 x i32> <i32 6, i32 14, i32 7, i32 15>
-  %483 = fadd <4 x float> %481, %482
-  store <4 x float> %483, ptr %480, align 16
-  %484 = shl nsw i32 %127, 2
-  %485 = sext i32 %484 to i64
-  %486 = getelementptr inbounds float, ptr %4, i64 %485
-  %487 = load <4 x float>, ptr %486, align 16
-  %488 = shufflevector <8 x float> %445, <8 x float> %447, <4 x i32> <i32 4, i32 12, i32 5, i32 13>
-  %489 = fadd <4 x float> %487, %488
-  store <4 x float> %489, ptr %486, align 16
-  %490 = shl nsw i32 %138, 2
-  %491 = sext i32 %490 to i64
-  %492 = getelementptr inbounds float, ptr %4, i64 %491
-  %493 = load <4 x float>, ptr %492, align 16
-  %494 = shufflevector <8 x float> %445, <8 x float> %447, <4 x i32> <i32 6, i32 14, i32 7, i32 15>
-  %495 = fadd <4 x float> %493, %494
-  store <4 x float> %495, ptr %492, align 16
-  %496 = fadd <8 x float> %428, %437
-  %497 = fadd <8 x float> %431, %440
-  %498 = fadd <8 x float> %434, %443
-  %499 = shufflevector <8 x float> %496, <8 x float> %498, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 4, i32 12, i32 5, i32 13>
-  %500 = shufflevector <8 x float> %496, <8 x float> %498, <8 x i32> <i32 2, i32 10, i32 3, i32 11, i32 6, i32 14, i32 7, i32 15>
-  %501 = shufflevector <8 x float> %497, <8 x float> <float 0.000000e+00, float 0.000000e+00, float poison, float poison, float 0.000000e+00, float 0.000000e+00, float poison, float poison>, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 4, i32 12, i32 5, i32 13>
-  %502 = shufflevector <8 x float> %497, <8 x float> <float poison, float poison, float 0.000000e+00, float 0.000000e+00, float poison, float poison, float 0.000000e+00, float 0.000000e+00>, <8 x i32> <i32 2, i32 10, i32 3, i32 11, i32 6, i32 14, i32 7, i32 15>
-  %503 = shl nsw i32 %151, 2
-  %504 = sext i32 %503 to i64
-  %505 = getelementptr inbounds float, ptr %4, i64 %504
-  %506 = load <4 x float>, ptr %505, align 16
-  %507 = shufflevector <8 x float> %499, <8 x float> %501, <4 x i32> <i32 0, i32 8, i32 1, i32 9>
-  %508 = fsub <4 x float> %506, %507
-  store <4 x float> %508, ptr %505, align 16
-  %509 = shl nsw i32 %162, 2
-  %510 = sext i32 %509 to i64
-  %511 = getelementptr inbounds float, ptr %4, i64 %510
-  %512 = load <4 x float>, ptr %511, align 16
-  %513 = shufflevector <8 x float> %499, <8 x float> %501, <4 x i32> <i32 2, i32 10, i32 3, i32 11>
-  %514 = fsub <4 x float> %512, %513
-  store <4 x float> %514, ptr %511, align 16
-  %515 = shl nsw i32 %173, 2
-  %516 = sext i32 %515 to i64
-  %517 = getelementptr inbounds float, ptr %4, i64 %516
-  %518 = load <4 x float>, ptr %517, align 16
-  %519 = shufflevector <8 x float> %500, <8 x float> %502, <4 x i32> <i32 0, i32 8, i32 1, i32 9>
-  %520 = fsub <4 x float> %518, %519
-  store <4 x float> %520, ptr %517, align 16
-  %521 = shl nsw i32 %184, 2
-  %522 = sext i32 %521 to i64
-  %523 = getelementptr inbounds float, ptr %4, i64 %522
-  %524 = load <4 x float>, ptr %523, align 16
-  %525 = shufflevector <8 x float> %500, <8 x float> %502, <4 x i32> <i32 2, i32 10, i32 3, i32 11>
-  %526 = fsub <4 x float> %524, %525
-  store <4 x float> %526, ptr %523, align 16
-  %527 = shl nsw i32 %156, 2
-  %528 = sext i32 %527 to i64
-  %529 = getelementptr inbounds float, ptr %4, i64 %528
-  %530 = load <4 x float>, ptr %529, align 16
-  %531 = shufflevector <8 x float> %499, <8 x float> %501, <4 x i32> <i32 4, i32 12, i32 5, i32 13>
-  %532 = fsub <4 x float> %530, %531
-  store <4 x float> %532, ptr %529, align 16
-  %533 = shl nsw i32 %167, 2
-  %534 = sext i32 %533 to i64
-  %535 = getelementptr inbounds float, ptr %4, i64 %534
-  %536 = load <4 x float>, ptr %535, align 16
-  %537 = shufflevector <8 x float> %499, <8 x float> %501, <4 x i32> <i32 6, i32 14, i32 7, i32 15>
-  %538 = fsub <4 x float> %536, %537
-  store <4 x float> %538, ptr %535, align 16
-  %539 = shl nsw i32 %178, 2
-  %540 = sext i32 %539 to i64
-  %541 = getelementptr inbounds float, ptr %4, i64 %540
-  %542 = load <4 x float>, ptr %541, align 16
-  %543 = shufflevector <8 x float> %500, <8 x float> %502, <4 x i32> <i32 4, i32 12, i32 5, i32 13>
-  %544 = fsub <4 x float> %542, %543
-  store <4 x float> %544, ptr %541, align 16
-  %545 = shl nsw i32 %189, 2
-  %546 = sext i32 %545 to i64
-  %547 = getelementptr inbounds float, ptr %4, i64 %546
-  %548 = load <4 x float>, ptr %547, align 16
-  %549 = shufflevector <8 x float> %500, <8 x float> %502, <4 x i32> <i32 6, i32 14, i32 7, i32 15>
-  %550 = fsub <4 x float> %548, %549
-  store <4 x float> %550, ptr %547, align 16
-  %551 = shufflevector <8 x float> %437, <8 x float> %443, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 4, i32 12, i32 5, i32 13>
-  %552 = shufflevector <8 x float> %437, <8 x float> %443, <8 x i32> <i32 2, i32 10, i32 3, i32 11, i32 6, i32 14, i32 7, i32 15>
-  %553 = shufflevector <8 x float> %440, <8 x float> <float 0.000000e+00, float 0.000000e+00, float poison, float poison, float 0.000000e+00, float 0.000000e+00, float poison, float poison>, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 4, i32 12, i32 5, i32 13>
-  %554 = shufflevector <8 x float> %440, <8 x float> <float poison, float poison, float 0.000000e+00, float 0.000000e+00, float poison, float poison, float 0.000000e+00, float 0.000000e+00>, <8 x i32> <i32 2, i32 10, i32 3, i32 11, i32 6, i32 14, i32 7, i32 15>
-  %555 = shl nsw i32 %202, 2
-  %556 = sext i32 %555 to i64
-  %557 = getelementptr inbounds float, ptr %4, i64 %556
-  %558 = load <4 x float>, ptr %557, align 16
-  %559 = shufflevector <8 x float> %551, <8 x float> %553, <4 x i32> <i32 0, i32 8, i32 1, i32 9>
-  %560 = fadd <4 x float> %558, %559
-  store <4 x float> %560, ptr %557, align 16
-  %561 = shl nsw i32 %213, 2
-  %562 = sext i32 %561 to i64
-  %563 = getelementptr inbounds float, ptr %4, i64 %562
-  %564 = load <4 x float>, ptr %563, align 16
-  %565 = shufflevector <8 x float> %551, <8 x float> %553, <4 x i32> <i32 2, i32 10, i32 3, i32 11>
-  %566 = fadd <4 x float> %564, %565
-  store <4 x float> %566, ptr %563, align 16
-  %567 = shl nsw i32 %224, 2
+  %448 = shufflevector <8 x float> %444, <8 x float> %446, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 4, i32 12, i32 5, i32 13>
+  %449 = shufflevector <8 x float> %444, <8 x float> %446, <8 x i32> <i32 2, i32 10, i32 3, i32 11, i32 6, i32 14, i32 7, i32 15>
+  %450 = shufflevector <8 x float> %445, <8 x float> %447, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 4, i32 12, i32 5, i32 13>
+  %451 = shufflevector <8 x float> %445, <8 x float> %447, <8 x i32> <i32 2, i32 10, i32 3, i32 11, i32 6, i32 14, i32 7, i32 15>
+  %452 = shl nsw i32 %100, 2
+  %453 = sext i32 %452 to i64
+  %454 = getelementptr inbounds float, ptr %4, i64 %453
+  %455 = load <4 x float>, ptr %454, align 16
+  %456 = shufflevector <8 x float> %448, <8 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
+  %457 = fadd <4 x float> %455, %456
+  store <4 x float> %457, ptr %454, align 16
+  %458 = shl nsw i32 %111, 2
+  %459 = sext i32 %458 to i64
+  %460 = getelementptr inbounds float, ptr %4, i64 %459
+  %461 = load <4 x float>, ptr %460, align 16
+  %462 = shufflevector <8 x float> %449, <8 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
+  %463 = fadd <4 x float> %461, %462
+  store <4 x float> %463, ptr %460, align 16
+  %464 = shl nsw i32 %122, 2
+  %465 = sext i32 %464 to i64
+  %466 = getelementptr inbounds float, ptr %4, i64 %465
+  %467 = load <4 x float>, ptr %466, align 16
+  %468 = shufflevector <8 x float> %450, <8 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
+  %469 = fadd <4 x float> %467, %468
+  store <4 x float> %469, ptr %466, align 16
+  %470 = shl nsw i32 %133, 2
+  %471 = sext i32 %470 to i64
+  %472 = getelementptr inbounds float, ptr %4, i64 %471
+  %473 = load <4 x float>, ptr %472, align 16
+  %474 = shufflevector <8 x float> %451, <8 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
+  %475 = fadd <4 x float> %473, %474
+  store <4 x float> %475, ptr %472, align 16
+  %476 = shl nsw i32 %105, 2
+  %477 = sext i32 %476 to i64
+  %478 = getelementptr inbounds float, ptr %4, i64 %477
+  %479 = load <4 x float>, ptr %478, align 16
+  %480 = shufflevector <8 x float> %448, <8 x float> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 7>
+  %481 = fadd <4 x float> %479, %480
+  store <4 x float> %481, ptr %478, align 16
+  %482 = shl nsw i32 %116, 2
+  %483 = sext i32 %482 to i64
+  %484 = getelementptr inbounds float, ptr %4, i64 %483
+  %485 = load <4 x float>, ptr %484, align 16
+  %486 = shufflevector <8 x float> %449, <8 x float> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 7>
+  %487 = fadd <4 x float> %485, %486
+  store <4 x float> %487, ptr %484, align 16
+  %488 = shl nsw i32 %127, 2
+  %489 = sext i32 %488 to i64
+  %490 = getelementptr inbounds float, ptr %4, i64 %489
+  %491 = load <4 x float>, ptr %490, align 16
+  %492 = shufflevector <8 x float> %450, <8 x float> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 7>
+  %493 = fadd <4 x float> %491, %492
+  store <4 x float> %493, ptr %490, align 16
+  %494 = shl nsw i32 %138, 2
+  %495 = sext i32 %494 to i64
+  %496 = getelementptr inbounds float, ptr %4, i64 %495
+  %497 = load <4 x float>, ptr %496, align 16
+  %498 = shufflevector <8 x float> %451, <8 x float> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 7>
+  %499 = fadd <4 x float> %497, %498
+  store <4 x float> %499, ptr %496, align 16
+  %500 = fadd <8 x float> %428, %437
+  %501 = fadd <8 x float> %431, %440
+  %502 = fadd <8 x float> %434, %443
+  %503 = shufflevector <8 x float> %500, <8 x float> %502, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 4, i32 12, i32 5, i32 13>
+  %504 = shufflevector <8 x float> %500, <8 x float> %502, <8 x i32> <i32 2, i32 10, i32 3, i32 11, i32 6, i32 14, i32 7, i32 15>
+  %505 = shufflevector <8 x float> %501, <8 x float> <float 0.000000e+00, float 0.000000e+00, float poison, float poison, float 0.000000e+00, float 0.000000e+00, float poison, float poison>, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 4, i32 12, i32 5, i32 13>
+  %506 = shufflevector <8 x float> %501, <8 x float> <float poison, float poison, float 0.000000e+00, float 0.000000e+00, float poison, float poison, float 0.000000e+00, float 0.000000e+00>, <8 x i32> <i32 2, i32 10, i32 3, i32 11, i32 6, i32 14, i32 7, i32 15>
+  %507 = shufflevector <8 x float> %503, <8 x float> %505, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 4, i32 12, i32 5, i32 13>
+  %508 = shufflevector <8 x float> %503, <8 x float> %505, <8 x i32> <i32 2, i32 10, i32 3, i32 11, i32 6, i32 14, i32 7, i32 15>
+  %509 = shufflevector <8 x float> %504, <8 x float> %506, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 4, i32 12, i32 5, i32 13>
+  %510 = shufflevector <8 x float> %504, <8 x float> %506, <8 x i32> <i32 2, i32 10, i32 3, i32 11, i32 6, i32 14, i32 7, i32 15>
+  %511 = shl nsw i32 %151, 2
+  %512 = sext i32 %511 to i64
+  %513 = getelementptr inbounds float, ptr %4, i64 %512
+  %514 = load <4 x float>, ptr %513, align 16
+  %515 = shufflevector <8 x float> %507, <8 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
+  %516 = fsub <4 x float> %514, %515
+  store <4 x float> %516, ptr %513, align 16
+  %517 = shl nsw i32 %162, 2
+  %518 = sext i32 %517 to i64
+  %519 = getelementptr inbounds float, ptr %4, i64 %518
+  %520 = load <4 x float>, ptr %519, align 16
+  %521 = shufflevector <8 x float> %508, <8 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
+  %522 = fsub <4 x float> %520, %521
+  store <4 x float> %522, ptr %519, align 16
+  %523 = shl nsw i32 %173, 2
+  %524 = sext i32 %523 to i64
+  %525 = getelementptr inbounds float, ptr %4, i64 %524
+  %526 = load <4 x float>, ptr %525, align 16
+  %527 = shufflevector <8 x float> %509, <8 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
+  %528 = fsub <4 x float> %526, %527
+  store <4 x float> %528, ptr %525, align 16
+  %529 = shl nsw i32 %184, 2
+  %530 = sext i32 %529 to i64
+  %531 = getelementptr inbounds float, ptr %4, i64 %530
+  %532 = load <4 x float>, ptr %531, align 16
+  %533 = shufflevector <8 x float> %510, <8 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
+  %534 = fsub <4 x float> %532, %533
+  store <4 x float> %534, ptr %531, align 16
+  %535 = shl nsw i32 %156, 2
+  %536 = sext i32 %535 to i64
+  %537 = getelementptr inbounds float, ptr %4, i64 %536
+  %538 = load <4 x float>, ptr %537, align 16
+  %539 = shufflevector <8 x float> %507, <8 x float> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 7>
+  %540 = fsub <4 x float> %538, %539
+  store <4 x float> %540, ptr %537, align 16
+  %541 = shl nsw i32 %167, 2
+  %542 = sext i32 %541 to i64
+  %543 = getelementptr inbounds float, ptr %4, i64 %542
+  %544 = load <4 x float>, ptr %543, align 16
+  %545 = shufflevector <8 x float> %508, <8 x float> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 7>
+  %546 = fsub <4 x float> %544, %545
+  store <4 x float> %546, ptr %543, align 16
+  %547 = shl nsw i32 %178, 2
+  %548 = sext i32 %547 to i64
+  %549 = getelementptr inbounds float, ptr %4, i64 %548
+  %550 = load <4 x float>, ptr %549, align 16
+  %551 = shufflevector <8 x float> %509, <8 x float> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 7>
+  %552 = fsub <4 x float> %550, %551
+  store <4 x float> %552, ptr %549, align 16
+  %553 = shl nsw i32 %189, 2
+  %554 = sext i32 %553 to i64
+  %555 = getelementptr inbounds float, ptr %4, i64 %554
+  %556 = load <4 x float>, ptr %555, align 16
+  %557 = shufflevector <8 x float> %510, <8 x float> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 7>
+  %558 = fsub <4 x float> %556, %557
+  store <4 x float> %558, ptr %555, align 16
+  %559 = shufflevector <8 x float> %437, <8 x float> %443, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 4, i32 12, i32 5, i32 13>
+  %560 = shufflevector <8 x float> %437, <8 x float> %443, <8 x i32> <i32 2, i32 10, i32 3, i32 11, i32 6, i32 14, i32 7, i32 15>
+  %561 = shufflevector <8 x float> %440, <8 x float> <float 0.000000e+00, float 0.000000e+00, float poison, float poison, float 0.000000e+00, float 0.000000e+00, float poison, float poison>, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 4, i32 12, i32 5, i32 13>
+  %562 = shufflevector <8 x float> %440, <8 x float> <float poison, float poison, float 0.000000e+00, float 0.000000e+00, float poison, float poison, float 0.000000e+00, float 0.000000e+00>, <8 x i32> <i32 2, i32 10, i32 3, i32 11, i32 6, i32 14, i32 7, i32 15>
+  %563 = shufflevector <8 x float> %559, <8 x float> %561, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 4, i32 12, i32 5, i32 13>
+  %564 = shufflevector <8 x float> %559, <8 x float> %561, <8 x i32> <i32 2, i32 10, i32 3, i32 11, i32 6, i32 14, i32 7, i32 15>
+  %565 = shufflevector <8 x float> %560, <8 x float> %562, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 4, i32 12, i32 5, i32 13>
+  %566 = shufflevector <8 x float> %560, <8 x float> %562, <8 x i32> <i32 2, i32 10, i32 3, i32 11, i32 6, i32 14, i32 7, i32 15>
+  %567 = shl nsw i32 %202, 2
   %568 = sext i32 %567 to i64
   %569 = getelementptr inbounds float, ptr %4, i64 %568
   %570 = load <4 x float>, ptr %569, align 16
-  %571 = shufflevector <8 x float> %552, <8 x float> %554, <4 x i32> <i32 0, i32 8, i32 1, i32 9>
-  %572 = fadd <4 x float> %571, %570
+  %571 = shufflevector <8 x float> %563, <8 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
+  %572 = fadd <4 x float> %570, %571
   store <4 x float> %572, ptr %569, align 16
-  %573 = shl nsw i32 %235, 2
+  %573 = shl nsw i32 %213, 2
   %574 = sext i32 %573 to i64
   %575 = getelementptr inbounds float, ptr %4, i64 %574
   %576 = load <4 x float>, ptr %575, align 16
-  %577 = shufflevector <8 x float> %552, <8 x float> %554, <4 x i32> <i32 2, i32 10, i32 3, i32 11>
-  %578 = fadd <4 x float> %577, %576
+  %577 = shufflevector <8 x float> %564, <8 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
+  %578 = fadd <4 x float> %576, %577
   store <4 x float> %578, ptr %575, align 16
-  %579 = shl nsw i32 %207, 2
+  %579 = shl nsw i32 %224, 2
   %580 = sext i32 %579 to i64
   %581 = getelementptr inbounds float, ptr %4, i64 %580
   %582 = load <4 x float>, ptr %581, align 16
-  %583 = shufflevector <8 x float> %551, <8 x float> %553, <4 x i32> <i32 4, i32 12, i32 5, i32 13>
+  %583 = shufflevector <8 x float> %565, <8 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
   %584 = fadd <4 x float> %583, %582
   store <4 x float> %584, ptr %581, align 16
-  %585 = shl nsw i32 %218, 2
+  %585 = shl nsw i32 %235, 2
   %586 = sext i32 %585 to i64
   %587 = getelementptr inbounds float, ptr %4, i64 %586
   %588 = load <4 x float>, ptr %587, align 16
-  %589 = shufflevector <8 x float> %551, <8 x float> %553, <4 x i32> <i32 6, i32 14, i32 7, i32 15>
+  %589 = shufflevector <8 x float> %566, <8 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
   %590 = fadd <4 x float> %589, %588
   store <4 x float> %590, ptr %587, align 16
-  %591 = shl nsw i32 %229, 2
+  %591 = shl nsw i32 %207, 2
   %592 = sext i32 %591 to i64
   %593 = getelementptr inbounds float, ptr %4, i64 %592
   %594 = load <4 x float>, ptr %593, align 16
-  %595 = shufflevector <8 x float> %552, <8 x float> %554, <4 x i32> <i32 4, i32 12, i32 5, i32 13>
+  %595 = shufflevector <8 x float> %563, <8 x float> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 7>
   %596 = fadd <4 x float> %595, %594
   store <4 x float> %596, ptr %593, align 16
-  %597 = shl nsw i32 %240, 2
+  %597 = shl nsw i32 %218, 2
   %598 = sext i32 %597 to i64
   %599 = getelementptr inbounds float, ptr %4, i64 %598
   %600 = load <4 x float>, ptr %599, align 16
-  %601 = shufflevector <8 x float> %552, <8 x float> %554, <4 x i32> <i32 6, i32 14, i32 7, i32 15>
+  %601 = shufflevector <8 x float> %564, <8 x float> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 7>
   %602 = fadd <4 x float> %601, %600
   store <4 x float> %602, ptr %599, align 16
+  %603 = shl nsw i32 %229, 2
+  %604 = sext i32 %603 to i64
+  %605 = getelementptr inbounds float, ptr %4, i64 %604
+  %606 = load <4 x float>, ptr %605, align 16
+  %607 = shufflevector <8 x float> %565, <8 x float> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 7>
+  %608 = fadd <4 x float> %607, %606
+  store <4 x float> %608, ptr %605, align 16
+  %609 = shl nsw i32 %240, 2
+  %610 = sext i32 %609 to i64
+  %611 = getelementptr inbounds float, ptr %4, i64 %610
+  %612 = load <4 x float>, ptr %611, align 16
+  %613 = shufflevector <8 x float> %566, <8 x float> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 7>
+  %614 = fadd <4 x float> %613, %612
+  store <4 x float> %614, ptr %611, align 16
   %indvars.iv.next368 = add nuw nsw i64 %indvars.iv367, 32
-  %603 = icmp samesign ult i64 %indvars.iv.next368, %53
-  br i1 %603, label %.preheader, label %._crit_edge, !llvm.loop !37
+  %615 = icmp samesign ult i64 %indvars.iv.next368, %53
+  br i1 %615, label %.preheader, label %._crit_edge, !llvm.loop !37
 
 ._crit_edge:                                      ; preds = %99, %14
   ret float 0.000000e+00
@@ -22450,302 +22478,318 @@ define internal x86_vectorcallcc void @_ZN12_GLOBAL__N_124do_dih_fup_noshiftf_si
   %30 = shufflevector <8 x float> %6, <8 x float> %8, <8 x i32> <i32 2, i32 10, i32 3, i32 11, i32 6, i32 14, i32 7, i32 15>
   %31 = shufflevector <8 x float> %7, <8 x float> <float 0.000000e+00, float 0.000000e+00, float poison, float poison, float 0.000000e+00, float 0.000000e+00, float poison, float poison>, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 4, i32 12, i32 5, i32 13>
   %32 = shufflevector <8 x float> %7, <8 x float> <float poison, float poison, float 0.000000e+00, float 0.000000e+00, float poison, float poison, float 0.000000e+00, float 0.000000e+00>, <8 x i32> <i32 2, i32 10, i32 3, i32 11, i32 6, i32 14, i32 7, i32 15>
-  %33 = load i32, ptr %0, align 4
-  %34 = shl nsw i32 %33, 2
-  %35 = sext i32 %34 to i64
-  %36 = getelementptr inbounds float, ptr %12, i64 %35
-  %37 = load <4 x float>, ptr %36, align 16
-  %38 = shufflevector <8 x float> %29, <8 x float> %31, <4 x i32> <i32 0, i32 8, i32 1, i32 9>
-  %39 = fadd <4 x float> %38, %37
-  store <4 x float> %39, ptr %36, align 16
-  %40 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %41 = load i32, ptr %40, align 4
-  %42 = shl nsw i32 %41, 2
-  %43 = sext i32 %42 to i64
-  %44 = getelementptr inbounds float, ptr %12, i64 %43
-  %45 = load <4 x float>, ptr %44, align 16
-  %46 = shufflevector <8 x float> %29, <8 x float> %31, <4 x i32> <i32 2, i32 10, i32 3, i32 11>
-  %47 = fadd <4 x float> %46, %45
-  store <4 x float> %47, ptr %44, align 16
-  %48 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %49 = load i32, ptr %48, align 4
-  %50 = shl nsw i32 %49, 2
-  %51 = sext i32 %50 to i64
-  %52 = getelementptr inbounds float, ptr %12, i64 %51
-  %53 = load <4 x float>, ptr %52, align 16
-  %54 = shufflevector <8 x float> %30, <8 x float> %32, <4 x i32> <i32 0, i32 8, i32 1, i32 9>
-  %55 = fadd <4 x float> %54, %53
-  store <4 x float> %55, ptr %52, align 16
-  %56 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %57 = load i32, ptr %56, align 4
-  %58 = shl nsw i32 %57, 2
-  %59 = sext i32 %58 to i64
-  %60 = getelementptr inbounds float, ptr %12, i64 %59
-  %61 = load <4 x float>, ptr %60, align 16
-  %62 = shufflevector <8 x float> %30, <8 x float> %32, <4 x i32> <i32 2, i32 10, i32 3, i32 11>
-  %63 = fadd <4 x float> %62, %61
-  store <4 x float> %63, ptr %60, align 16
-  %64 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %65 = load i32, ptr %64, align 4
-  %66 = shl nsw i32 %65, 2
-  %67 = sext i32 %66 to i64
-  %68 = getelementptr inbounds float, ptr %12, i64 %67
-  %69 = load <4 x float>, ptr %68, align 16
-  %70 = shufflevector <8 x float> %29, <8 x float> %31, <4 x i32> <i32 4, i32 12, i32 5, i32 13>
-  %71 = fadd <4 x float> %70, %69
-  store <4 x float> %71, ptr %68, align 16
-  %72 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %73 = load i32, ptr %72, align 4
-  %74 = shl nsw i32 %73, 2
-  %75 = sext i32 %74 to i64
-  %76 = getelementptr inbounds float, ptr %12, i64 %75
-  %77 = load <4 x float>, ptr %76, align 16
-  %78 = shufflevector <8 x float> %29, <8 x float> %31, <4 x i32> <i32 6, i32 14, i32 7, i32 15>
-  %79 = fadd <4 x float> %78, %77
-  store <4 x float> %79, ptr %76, align 16
-  %80 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %81 = load i32, ptr %80, align 4
-  %82 = shl nsw i32 %81, 2
-  %83 = sext i32 %82 to i64
-  %84 = getelementptr inbounds float, ptr %12, i64 %83
-  %85 = load <4 x float>, ptr %84, align 16
-  %86 = shufflevector <8 x float> %30, <8 x float> %32, <4 x i32> <i32 4, i32 12, i32 5, i32 13>
-  %87 = fadd <4 x float> %86, %85
-  store <4 x float> %87, ptr %84, align 16
-  %88 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %89 = load i32, ptr %88, align 4
-  %90 = shl nsw i32 %89, 2
-  %91 = sext i32 %90 to i64
-  %92 = getelementptr inbounds float, ptr %12, i64 %91
-  %93 = load <4 x float>, ptr %92, align 16
-  %94 = shufflevector <8 x float> %30, <8 x float> %32, <4 x i32> <i32 6, i32 14, i32 7, i32 15>
-  %95 = fadd <4 x float> %94, %93
-  store <4 x float> %95, ptr %92, align 16
-  %96 = shufflevector <8 x float> %23, <8 x float> %25, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 4, i32 12, i32 5, i32 13>
-  %97 = shufflevector <8 x float> %23, <8 x float> %25, <8 x i32> <i32 2, i32 10, i32 3, i32 11, i32 6, i32 14, i32 7, i32 15>
-  %98 = shufflevector <8 x float> %24, <8 x float> <float 0.000000e+00, float 0.000000e+00, float poison, float poison, float 0.000000e+00, float 0.000000e+00, float poison, float poison>, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 4, i32 12, i32 5, i32 13>
-  %99 = shufflevector <8 x float> %24, <8 x float> <float poison, float poison, float 0.000000e+00, float 0.000000e+00, float poison, float poison, float 0.000000e+00, float 0.000000e+00>, <8 x i32> <i32 2, i32 10, i32 3, i32 11, i32 6, i32 14, i32 7, i32 15>
-  %100 = load i32, ptr %1, align 4
-  %101 = shl nsw i32 %100, 2
-  %102 = sext i32 %101 to i64
-  %103 = getelementptr inbounds float, ptr %12, i64 %102
-  %104 = load <4 x float>, ptr %103, align 16
-  %105 = shufflevector <8 x float> %96, <8 x float> %98, <4 x i32> <i32 0, i32 8, i32 1, i32 9>
-  %106 = fsub <4 x float> %104, %105
-  store <4 x float> %106, ptr %103, align 16
-  %107 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %108 = load i32, ptr %107, align 4
+  %33 = shufflevector <8 x float> %29, <8 x float> %31, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 4, i32 12, i32 5, i32 13>
+  %34 = shufflevector <8 x float> %29, <8 x float> %31, <8 x i32> <i32 2, i32 10, i32 3, i32 11, i32 6, i32 14, i32 7, i32 15>
+  %35 = shufflevector <8 x float> %30, <8 x float> %32, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 4, i32 12, i32 5, i32 13>
+  %36 = shufflevector <8 x float> %30, <8 x float> %32, <8 x i32> <i32 2, i32 10, i32 3, i32 11, i32 6, i32 14, i32 7, i32 15>
+  %37 = load i32, ptr %0, align 4
+  %38 = shl nsw i32 %37, 2
+  %39 = sext i32 %38 to i64
+  %40 = getelementptr inbounds float, ptr %12, i64 %39
+  %41 = load <4 x float>, ptr %40, align 16
+  %42 = shufflevector <8 x float> %33, <8 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
+  %43 = fadd <4 x float> %42, %41
+  store <4 x float> %43, ptr %40, align 16
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %45 = load i32, ptr %44, align 4
+  %46 = shl nsw i32 %45, 2
+  %47 = sext i32 %46 to i64
+  %48 = getelementptr inbounds float, ptr %12, i64 %47
+  %49 = load <4 x float>, ptr %48, align 16
+  %50 = shufflevector <8 x float> %34, <8 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
+  %51 = fadd <4 x float> %50, %49
+  store <4 x float> %51, ptr %48, align 16
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %53 = load i32, ptr %52, align 4
+  %54 = shl nsw i32 %53, 2
+  %55 = sext i32 %54 to i64
+  %56 = getelementptr inbounds float, ptr %12, i64 %55
+  %57 = load <4 x float>, ptr %56, align 16
+  %58 = shufflevector <8 x float> %35, <8 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
+  %59 = fadd <4 x float> %58, %57
+  store <4 x float> %59, ptr %56, align 16
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %61 = load i32, ptr %60, align 4
+  %62 = shl nsw i32 %61, 2
+  %63 = sext i32 %62 to i64
+  %64 = getelementptr inbounds float, ptr %12, i64 %63
+  %65 = load <4 x float>, ptr %64, align 16
+  %66 = shufflevector <8 x float> %36, <8 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
+  %67 = fadd <4 x float> %66, %65
+  store <4 x float> %67, ptr %64, align 16
+  %68 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %69 = load i32, ptr %68, align 4
+  %70 = shl nsw i32 %69, 2
+  %71 = sext i32 %70 to i64
+  %72 = getelementptr inbounds float, ptr %12, i64 %71
+  %73 = load <4 x float>, ptr %72, align 16
+  %74 = shufflevector <8 x float> %33, <8 x float> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 7>
+  %75 = fadd <4 x float> %74, %73
+  store <4 x float> %75, ptr %72, align 16
+  %76 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  %77 = load i32, ptr %76, align 4
+  %78 = shl nsw i32 %77, 2
+  %79 = sext i32 %78 to i64
+  %80 = getelementptr inbounds float, ptr %12, i64 %79
+  %81 = load <4 x float>, ptr %80, align 16
+  %82 = shufflevector <8 x float> %34, <8 x float> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 7>
+  %83 = fadd <4 x float> %82, %81
+  store <4 x float> %83, ptr %80, align 16
+  %84 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %85 = load i32, ptr %84, align 4
+  %86 = shl nsw i32 %85, 2
+  %87 = sext i32 %86 to i64
+  %88 = getelementptr inbounds float, ptr %12, i64 %87
+  %89 = load <4 x float>, ptr %88, align 16
+  %90 = shufflevector <8 x float> %35, <8 x float> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 7>
+  %91 = fadd <4 x float> %90, %89
+  store <4 x float> %91, ptr %88, align 16
+  %92 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %93 = load i32, ptr %92, align 4
+  %94 = shl nsw i32 %93, 2
+  %95 = sext i32 %94 to i64
+  %96 = getelementptr inbounds float, ptr %12, i64 %95
+  %97 = load <4 x float>, ptr %96, align 16
+  %98 = shufflevector <8 x float> %36, <8 x float> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 7>
+  %99 = fadd <4 x float> %98, %97
+  store <4 x float> %99, ptr %96, align 16
+  %100 = shufflevector <8 x float> %23, <8 x float> %25, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 4, i32 12, i32 5, i32 13>
+  %101 = shufflevector <8 x float> %23, <8 x float> %25, <8 x i32> <i32 2, i32 10, i32 3, i32 11, i32 6, i32 14, i32 7, i32 15>
+  %102 = shufflevector <8 x float> %24, <8 x float> <float 0.000000e+00, float 0.000000e+00, float poison, float poison, float 0.000000e+00, float 0.000000e+00, float poison, float poison>, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 4, i32 12, i32 5, i32 13>
+  %103 = shufflevector <8 x float> %24, <8 x float> <float poison, float poison, float 0.000000e+00, float 0.000000e+00, float poison, float poison, float 0.000000e+00, float 0.000000e+00>, <8 x i32> <i32 2, i32 10, i32 3, i32 11, i32 6, i32 14, i32 7, i32 15>
+  %104 = shufflevector <8 x float> %100, <8 x float> %102, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 4, i32 12, i32 5, i32 13>
+  %105 = shufflevector <8 x float> %100, <8 x float> %102, <8 x i32> <i32 2, i32 10, i32 3, i32 11, i32 6, i32 14, i32 7, i32 15>
+  %106 = shufflevector <8 x float> %101, <8 x float> %103, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 4, i32 12, i32 5, i32 13>
+  %107 = shufflevector <8 x float> %101, <8 x float> %103, <8 x i32> <i32 2, i32 10, i32 3, i32 11, i32 6, i32 14, i32 7, i32 15>
+  %108 = load i32, ptr %1, align 4
   %109 = shl nsw i32 %108, 2
   %110 = sext i32 %109 to i64
   %111 = getelementptr inbounds float, ptr %12, i64 %110
   %112 = load <4 x float>, ptr %111, align 16
-  %113 = shufflevector <8 x float> %96, <8 x float> %98, <4 x i32> <i32 2, i32 10, i32 3, i32 11>
+  %113 = shufflevector <8 x float> %104, <8 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
   %114 = fsub <4 x float> %112, %113
   store <4 x float> %114, ptr %111, align 16
-  %115 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %115 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %116 = load i32, ptr %115, align 4
   %117 = shl nsw i32 %116, 2
   %118 = sext i32 %117 to i64
   %119 = getelementptr inbounds float, ptr %12, i64 %118
   %120 = load <4 x float>, ptr %119, align 16
-  %121 = shufflevector <8 x float> %97, <8 x float> %99, <4 x i32> <i32 0, i32 8, i32 1, i32 9>
+  %121 = shufflevector <8 x float> %105, <8 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
   %122 = fsub <4 x float> %120, %121
   store <4 x float> %122, ptr %119, align 16
-  %123 = getelementptr inbounds nuw i8, ptr %1, i64 12
+  %123 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %124 = load i32, ptr %123, align 4
   %125 = shl nsw i32 %124, 2
   %126 = sext i32 %125 to i64
   %127 = getelementptr inbounds float, ptr %12, i64 %126
   %128 = load <4 x float>, ptr %127, align 16
-  %129 = shufflevector <8 x float> %97, <8 x float> %99, <4 x i32> <i32 2, i32 10, i32 3, i32 11>
+  %129 = shufflevector <8 x float> %106, <8 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
   %130 = fsub <4 x float> %128, %129
   store <4 x float> %130, ptr %127, align 16
-  %131 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %131 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %132 = load i32, ptr %131, align 4
   %133 = shl nsw i32 %132, 2
   %134 = sext i32 %133 to i64
   %135 = getelementptr inbounds float, ptr %12, i64 %134
   %136 = load <4 x float>, ptr %135, align 16
-  %137 = shufflevector <8 x float> %96, <8 x float> %98, <4 x i32> <i32 4, i32 12, i32 5, i32 13>
+  %137 = shufflevector <8 x float> %107, <8 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
   %138 = fsub <4 x float> %136, %137
   store <4 x float> %138, ptr %135, align 16
-  %139 = getelementptr inbounds nuw i8, ptr %1, i64 20
+  %139 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %140 = load i32, ptr %139, align 4
   %141 = shl nsw i32 %140, 2
   %142 = sext i32 %141 to i64
   %143 = getelementptr inbounds float, ptr %12, i64 %142
   %144 = load <4 x float>, ptr %143, align 16
-  %145 = shufflevector <8 x float> %96, <8 x float> %98, <4 x i32> <i32 6, i32 14, i32 7, i32 15>
+  %145 = shufflevector <8 x float> %104, <8 x float> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 7>
   %146 = fsub <4 x float> %144, %145
   store <4 x float> %146, ptr %143, align 16
-  %147 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %147 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %148 = load i32, ptr %147, align 4
   %149 = shl nsw i32 %148, 2
   %150 = sext i32 %149 to i64
   %151 = getelementptr inbounds float, ptr %12, i64 %150
   %152 = load <4 x float>, ptr %151, align 16
-  %153 = shufflevector <8 x float> %97, <8 x float> %99, <4 x i32> <i32 4, i32 12, i32 5, i32 13>
+  %153 = shufflevector <8 x float> %105, <8 x float> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 7>
   %154 = fsub <4 x float> %152, %153
   store <4 x float> %154, ptr %151, align 16
-  %155 = getelementptr inbounds nuw i8, ptr %1, i64 28
+  %155 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %156 = load i32, ptr %155, align 4
   %157 = shl nsw i32 %156, 2
   %158 = sext i32 %157 to i64
   %159 = getelementptr inbounds float, ptr %12, i64 %158
   %160 = load <4 x float>, ptr %159, align 16
-  %161 = shufflevector <8 x float> %97, <8 x float> %99, <4 x i32> <i32 6, i32 14, i32 7, i32 15>
+  %161 = shufflevector <8 x float> %106, <8 x float> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 7>
   %162 = fsub <4 x float> %160, %161
   store <4 x float> %162, ptr %159, align 16
-  %163 = shufflevector <8 x float> %26, <8 x float> %28, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 4, i32 12, i32 5, i32 13>
-  %164 = shufflevector <8 x float> %26, <8 x float> %28, <8 x i32> <i32 2, i32 10, i32 3, i32 11, i32 6, i32 14, i32 7, i32 15>
-  %165 = shufflevector <8 x float> %27, <8 x float> <float 0.000000e+00, float 0.000000e+00, float poison, float poison, float 0.000000e+00, float 0.000000e+00, float poison, float poison>, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 4, i32 12, i32 5, i32 13>
-  %166 = shufflevector <8 x float> %27, <8 x float> <float poison, float poison, float 0.000000e+00, float 0.000000e+00, float poison, float poison, float 0.000000e+00, float 0.000000e+00>, <8 x i32> <i32 2, i32 10, i32 3, i32 11, i32 6, i32 14, i32 7, i32 15>
-  %167 = load i32, ptr %2, align 4
-  %168 = shl nsw i32 %167, 2
-  %169 = sext i32 %168 to i64
-  %170 = getelementptr inbounds float, ptr %12, i64 %169
-  %171 = load <4 x float>, ptr %170, align 16
-  %172 = shufflevector <8 x float> %163, <8 x float> %165, <4 x i32> <i32 0, i32 8, i32 1, i32 9>
-  %173 = fadd <4 x float> %172, %171
-  store <4 x float> %173, ptr %170, align 16
-  %174 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  %175 = load i32, ptr %174, align 4
-  %176 = shl nsw i32 %175, 2
-  %177 = sext i32 %176 to i64
-  %178 = getelementptr inbounds float, ptr %12, i64 %177
-  %179 = load <4 x float>, ptr %178, align 16
-  %180 = shufflevector <8 x float> %163, <8 x float> %165, <4 x i32> <i32 2, i32 10, i32 3, i32 11>
-  %181 = fadd <4 x float> %180, %179
-  store <4 x float> %181, ptr %178, align 16
-  %182 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %183 = load i32, ptr %182, align 4
-  %184 = shl nsw i32 %183, 2
-  %185 = sext i32 %184 to i64
-  %186 = getelementptr inbounds float, ptr %12, i64 %185
-  %187 = load <4 x float>, ptr %186, align 16
-  %188 = shufflevector <8 x float> %164, <8 x float> %166, <4 x i32> <i32 0, i32 8, i32 1, i32 9>
-  %189 = fadd <4 x float> %188, %187
-  store <4 x float> %189, ptr %186, align 16
-  %190 = getelementptr inbounds nuw i8, ptr %2, i64 12
-  %191 = load i32, ptr %190, align 4
-  %192 = shl nsw i32 %191, 2
-  %193 = sext i32 %192 to i64
-  %194 = getelementptr inbounds float, ptr %12, i64 %193
-  %195 = load <4 x float>, ptr %194, align 16
-  %196 = shufflevector <8 x float> %164, <8 x float> %166, <4 x i32> <i32 2, i32 10, i32 3, i32 11>
-  %197 = fadd <4 x float> %196, %195
-  store <4 x float> %197, ptr %194, align 16
-  %198 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %199 = load i32, ptr %198, align 4
-  %200 = shl nsw i32 %199, 2
-  %201 = sext i32 %200 to i64
-  %202 = getelementptr inbounds float, ptr %12, i64 %201
-  %203 = load <4 x float>, ptr %202, align 16
-  %204 = shufflevector <8 x float> %163, <8 x float> %165, <4 x i32> <i32 4, i32 12, i32 5, i32 13>
-  %205 = fadd <4 x float> %204, %203
-  store <4 x float> %205, ptr %202, align 16
-  %206 = getelementptr inbounds nuw i8, ptr %2, i64 20
-  %207 = load i32, ptr %206, align 4
-  %208 = shl nsw i32 %207, 2
-  %209 = sext i32 %208 to i64
-  %210 = getelementptr inbounds float, ptr %12, i64 %209
-  %211 = load <4 x float>, ptr %210, align 16
-  %212 = shufflevector <8 x float> %163, <8 x float> %165, <4 x i32> <i32 6, i32 14, i32 7, i32 15>
-  %213 = fadd <4 x float> %212, %211
-  store <4 x float> %213, ptr %210, align 16
-  %214 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %215 = load i32, ptr %214, align 4
-  %216 = shl nsw i32 %215, 2
-  %217 = sext i32 %216 to i64
-  %218 = getelementptr inbounds float, ptr %12, i64 %217
-  %219 = load <4 x float>, ptr %218, align 16
-  %220 = shufflevector <8 x float> %164, <8 x float> %166, <4 x i32> <i32 4, i32 12, i32 5, i32 13>
-  %221 = fadd <4 x float> %220, %219
-  store <4 x float> %221, ptr %218, align 16
-  %222 = getelementptr inbounds nuw i8, ptr %2, i64 28
-  %223 = load i32, ptr %222, align 4
-  %224 = shl nsw i32 %223, 2
-  %225 = sext i32 %224 to i64
-  %226 = getelementptr inbounds float, ptr %12, i64 %225
-  %227 = load <4 x float>, ptr %226, align 16
-  %228 = shufflevector <8 x float> %164, <8 x float> %166, <4 x i32> <i32 6, i32 14, i32 7, i32 15>
-  %229 = fadd <4 x float> %228, %227
-  store <4 x float> %229, ptr %226, align 16
-  %230 = shufflevector <8 x float> %9, <8 x float> %11, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 4, i32 12, i32 5, i32 13>
-  %231 = shufflevector <8 x float> %9, <8 x float> %11, <8 x i32> <i32 2, i32 10, i32 3, i32 11, i32 6, i32 14, i32 7, i32 15>
-  %232 = shufflevector <8 x float> %10, <8 x float> <float 0.000000e+00, float 0.000000e+00, float poison, float poison, float 0.000000e+00, float 0.000000e+00, float poison, float poison>, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 4, i32 12, i32 5, i32 13>
-  %233 = shufflevector <8 x float> %10, <8 x float> <float poison, float poison, float 0.000000e+00, float 0.000000e+00, float poison, float poison, float 0.000000e+00, float 0.000000e+00>, <8 x i32> <i32 2, i32 10, i32 3, i32 11, i32 6, i32 14, i32 7, i32 15>
-  %234 = load i32, ptr %3, align 4
-  %235 = shl nsw i32 %234, 2
-  %236 = sext i32 %235 to i64
-  %237 = getelementptr inbounds float, ptr %12, i64 %236
-  %238 = load <4 x float>, ptr %237, align 16
-  %239 = shufflevector <8 x float> %230, <8 x float> %232, <4 x i32> <i32 0, i32 8, i32 1, i32 9>
-  %240 = fsub <4 x float> %238, %239
-  store <4 x float> %240, ptr %237, align 16
-  %241 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  %242 = load i32, ptr %241, align 4
-  %243 = shl nsw i32 %242, 2
-  %244 = sext i32 %243 to i64
-  %245 = getelementptr inbounds float, ptr %12, i64 %244
-  %246 = load <4 x float>, ptr %245, align 16
-  %247 = shufflevector <8 x float> %230, <8 x float> %232, <4 x i32> <i32 2, i32 10, i32 3, i32 11>
-  %248 = fsub <4 x float> %246, %247
-  store <4 x float> %248, ptr %245, align 16
-  %249 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %250 = load i32, ptr %249, align 4
+  %163 = getelementptr inbounds nuw i8, ptr %1, i64 28
+  %164 = load i32, ptr %163, align 4
+  %165 = shl nsw i32 %164, 2
+  %166 = sext i32 %165 to i64
+  %167 = getelementptr inbounds float, ptr %12, i64 %166
+  %168 = load <4 x float>, ptr %167, align 16
+  %169 = shufflevector <8 x float> %107, <8 x float> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 7>
+  %170 = fsub <4 x float> %168, %169
+  store <4 x float> %170, ptr %167, align 16
+  %171 = shufflevector <8 x float> %26, <8 x float> %28, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 4, i32 12, i32 5, i32 13>
+  %172 = shufflevector <8 x float> %26, <8 x float> %28, <8 x i32> <i32 2, i32 10, i32 3, i32 11, i32 6, i32 14, i32 7, i32 15>
+  %173 = shufflevector <8 x float> %27, <8 x float> <float 0.000000e+00, float 0.000000e+00, float poison, float poison, float 0.000000e+00, float 0.000000e+00, float poison, float poison>, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 4, i32 12, i32 5, i32 13>
+  %174 = shufflevector <8 x float> %27, <8 x float> <float poison, float poison, float 0.000000e+00, float 0.000000e+00, float poison, float poison, float 0.000000e+00, float 0.000000e+00>, <8 x i32> <i32 2, i32 10, i32 3, i32 11, i32 6, i32 14, i32 7, i32 15>
+  %175 = shufflevector <8 x float> %171, <8 x float> %173, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 4, i32 12, i32 5, i32 13>
+  %176 = shufflevector <8 x float> %171, <8 x float> %173, <8 x i32> <i32 2, i32 10, i32 3, i32 11, i32 6, i32 14, i32 7, i32 15>
+  %177 = shufflevector <8 x float> %172, <8 x float> %174, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 4, i32 12, i32 5, i32 13>
+  %178 = shufflevector <8 x float> %172, <8 x float> %174, <8 x i32> <i32 2, i32 10, i32 3, i32 11, i32 6, i32 14, i32 7, i32 15>
+  %179 = load i32, ptr %2, align 4
+  %180 = shl nsw i32 %179, 2
+  %181 = sext i32 %180 to i64
+  %182 = getelementptr inbounds float, ptr %12, i64 %181
+  %183 = load <4 x float>, ptr %182, align 16
+  %184 = shufflevector <8 x float> %175, <8 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
+  %185 = fadd <4 x float> %184, %183
+  store <4 x float> %185, ptr %182, align 16
+  %186 = getelementptr inbounds nuw i8, ptr %2, i64 4
+  %187 = load i32, ptr %186, align 4
+  %188 = shl nsw i32 %187, 2
+  %189 = sext i32 %188 to i64
+  %190 = getelementptr inbounds float, ptr %12, i64 %189
+  %191 = load <4 x float>, ptr %190, align 16
+  %192 = shufflevector <8 x float> %176, <8 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
+  %193 = fadd <4 x float> %192, %191
+  store <4 x float> %193, ptr %190, align 16
+  %194 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %195 = load i32, ptr %194, align 4
+  %196 = shl nsw i32 %195, 2
+  %197 = sext i32 %196 to i64
+  %198 = getelementptr inbounds float, ptr %12, i64 %197
+  %199 = load <4 x float>, ptr %198, align 16
+  %200 = shufflevector <8 x float> %177, <8 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
+  %201 = fadd <4 x float> %200, %199
+  store <4 x float> %201, ptr %198, align 16
+  %202 = getelementptr inbounds nuw i8, ptr %2, i64 12
+  %203 = load i32, ptr %202, align 4
+  %204 = shl nsw i32 %203, 2
+  %205 = sext i32 %204 to i64
+  %206 = getelementptr inbounds float, ptr %12, i64 %205
+  %207 = load <4 x float>, ptr %206, align 16
+  %208 = shufflevector <8 x float> %178, <8 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
+  %209 = fadd <4 x float> %208, %207
+  store <4 x float> %209, ptr %206, align 16
+  %210 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %211 = load i32, ptr %210, align 4
+  %212 = shl nsw i32 %211, 2
+  %213 = sext i32 %212 to i64
+  %214 = getelementptr inbounds float, ptr %12, i64 %213
+  %215 = load <4 x float>, ptr %214, align 16
+  %216 = shufflevector <8 x float> %175, <8 x float> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 7>
+  %217 = fadd <4 x float> %216, %215
+  store <4 x float> %217, ptr %214, align 16
+  %218 = getelementptr inbounds nuw i8, ptr %2, i64 20
+  %219 = load i32, ptr %218, align 4
+  %220 = shl nsw i32 %219, 2
+  %221 = sext i32 %220 to i64
+  %222 = getelementptr inbounds float, ptr %12, i64 %221
+  %223 = load <4 x float>, ptr %222, align 16
+  %224 = shufflevector <8 x float> %176, <8 x float> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 7>
+  %225 = fadd <4 x float> %224, %223
+  store <4 x float> %225, ptr %222, align 16
+  %226 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  %227 = load i32, ptr %226, align 4
+  %228 = shl nsw i32 %227, 2
+  %229 = sext i32 %228 to i64
+  %230 = getelementptr inbounds float, ptr %12, i64 %229
+  %231 = load <4 x float>, ptr %230, align 16
+  %232 = shufflevector <8 x float> %177, <8 x float> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 7>
+  %233 = fadd <4 x float> %232, %231
+  store <4 x float> %233, ptr %230, align 16
+  %234 = getelementptr inbounds nuw i8, ptr %2, i64 28
+  %235 = load i32, ptr %234, align 4
+  %236 = shl nsw i32 %235, 2
+  %237 = sext i32 %236 to i64
+  %238 = getelementptr inbounds float, ptr %12, i64 %237
+  %239 = load <4 x float>, ptr %238, align 16
+  %240 = shufflevector <8 x float> %178, <8 x float> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 7>
+  %241 = fadd <4 x float> %240, %239
+  store <4 x float> %241, ptr %238, align 16
+  %242 = shufflevector <8 x float> %9, <8 x float> %11, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 4, i32 12, i32 5, i32 13>
+  %243 = shufflevector <8 x float> %9, <8 x float> %11, <8 x i32> <i32 2, i32 10, i32 3, i32 11, i32 6, i32 14, i32 7, i32 15>
+  %244 = shufflevector <8 x float> %10, <8 x float> <float 0.000000e+00, float 0.000000e+00, float poison, float poison, float 0.000000e+00, float 0.000000e+00, float poison, float poison>, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 4, i32 12, i32 5, i32 13>
+  %245 = shufflevector <8 x float> %10, <8 x float> <float poison, float poison, float 0.000000e+00, float 0.000000e+00, float poison, float poison, float 0.000000e+00, float 0.000000e+00>, <8 x i32> <i32 2, i32 10, i32 3, i32 11, i32 6, i32 14, i32 7, i32 15>
+  %246 = shufflevector <8 x float> %242, <8 x float> %244, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 4, i32 12, i32 5, i32 13>
+  %247 = shufflevector <8 x float> %242, <8 x float> %244, <8 x i32> <i32 2, i32 10, i32 3, i32 11, i32 6, i32 14, i32 7, i32 15>
+  %248 = shufflevector <8 x float> %243, <8 x float> %245, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 4, i32 12, i32 5, i32 13>
+  %249 = shufflevector <8 x float> %243, <8 x float> %245, <8 x i32> <i32 2, i32 10, i32 3, i32 11, i32 6, i32 14, i32 7, i32 15>
+  %250 = load i32, ptr %3, align 4
   %251 = shl nsw i32 %250, 2
   %252 = sext i32 %251 to i64
   %253 = getelementptr inbounds float, ptr %12, i64 %252
   %254 = load <4 x float>, ptr %253, align 16
-  %255 = shufflevector <8 x float> %231, <8 x float> %233, <4 x i32> <i32 0, i32 8, i32 1, i32 9>
+  %255 = shufflevector <8 x float> %246, <8 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
   %256 = fsub <4 x float> %254, %255
   store <4 x float> %256, ptr %253, align 16
-  %257 = getelementptr inbounds nuw i8, ptr %3, i64 12
+  %257 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %258 = load i32, ptr %257, align 4
   %259 = shl nsw i32 %258, 2
   %260 = sext i32 %259 to i64
   %261 = getelementptr inbounds float, ptr %12, i64 %260
   %262 = load <4 x float>, ptr %261, align 16
-  %263 = shufflevector <8 x float> %231, <8 x float> %233, <4 x i32> <i32 2, i32 10, i32 3, i32 11>
+  %263 = shufflevector <8 x float> %247, <8 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
   %264 = fsub <4 x float> %262, %263
   store <4 x float> %264, ptr %261, align 16
-  %265 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %265 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %266 = load i32, ptr %265, align 4
   %267 = shl nsw i32 %266, 2
   %268 = sext i32 %267 to i64
   %269 = getelementptr inbounds float, ptr %12, i64 %268
   %270 = load <4 x float>, ptr %269, align 16
-  %271 = shufflevector <8 x float> %230, <8 x float> %232, <4 x i32> <i32 4, i32 12, i32 5, i32 13>
+  %271 = shufflevector <8 x float> %248, <8 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
   %272 = fsub <4 x float> %270, %271
   store <4 x float> %272, ptr %269, align 16
-  %273 = getelementptr inbounds nuw i8, ptr %3, i64 20
+  %273 = getelementptr inbounds nuw i8, ptr %3, i64 12
   %274 = load i32, ptr %273, align 4
   %275 = shl nsw i32 %274, 2
   %276 = sext i32 %275 to i64
   %277 = getelementptr inbounds float, ptr %12, i64 %276
   %278 = load <4 x float>, ptr %277, align 16
-  %279 = shufflevector <8 x float> %230, <8 x float> %232, <4 x i32> <i32 6, i32 14, i32 7, i32 15>
+  %279 = shufflevector <8 x float> %249, <8 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
   %280 = fsub <4 x float> %278, %279
   store <4 x float> %280, ptr %277, align 16
-  %281 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %281 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %282 = load i32, ptr %281, align 4
   %283 = shl nsw i32 %282, 2
   %284 = sext i32 %283 to i64
   %285 = getelementptr inbounds float, ptr %12, i64 %284
   %286 = load <4 x float>, ptr %285, align 16
-  %287 = shufflevector <8 x float> %231, <8 x float> %233, <4 x i32> <i32 4, i32 12, i32 5, i32 13>
+  %287 = shufflevector <8 x float> %246, <8 x float> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 7>
   %288 = fsub <4 x float> %286, %287
   store <4 x float> %288, ptr %285, align 16
-  %289 = getelementptr inbounds nuw i8, ptr %3, i64 28
+  %289 = getelementptr inbounds nuw i8, ptr %3, i64 20
   %290 = load i32, ptr %289, align 4
   %291 = shl nsw i32 %290, 2
   %292 = sext i32 %291 to i64
   %293 = getelementptr inbounds float, ptr %12, i64 %292
   %294 = load <4 x float>, ptr %293, align 16
-  %295 = shufflevector <8 x float> %231, <8 x float> %233, <4 x i32> <i32 6, i32 14, i32 7, i32 15>
+  %295 = shufflevector <8 x float> %247, <8 x float> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 7>
   %296 = fsub <4 x float> %294, %295
   store <4 x float> %296, ptr %293, align 16
+  %297 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %298 = load i32, ptr %297, align 4
+  %299 = shl nsw i32 %298, 2
+  %300 = sext i32 %299 to i64
+  %301 = getelementptr inbounds float, ptr %12, i64 %300
+  %302 = load <4 x float>, ptr %301, align 16
+  %303 = shufflevector <8 x float> %248, <8 x float> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 7>
+  %304 = fsub <4 x float> %302, %303
+  store <4 x float> %304, ptr %301, align 16
+  %305 = getelementptr inbounds nuw i8, ptr %3, i64 28
+  %306 = load i32, ptr %305, align 4
+  %307 = shl nsw i32 %306, 2
+  %308 = sext i32 %307 to i64
+  %309 = getelementptr inbounds float, ptr %12, i64 %308
+  %310 = load <4 x float>, ptr %309, align 16
+  %311 = shufflevector <8 x float> %249, <8 x float> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 7>
+  %312 = fsub <4 x float> %310, %311
+  store <4 x float> %312, ptr %309, align 16
   ret void
 }
 

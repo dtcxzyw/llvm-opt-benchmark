@@ -1284,7 +1284,7 @@ define linkonce_odr hidden void @_ZN8rawspeed19Cr2sRawInterpolator19interpolate_
   %358 = insertelement <2 x i32> %357, i32 %334, i64 1
   %359 = add <2 x i32> %358, %356
   %360 = mul nsw <2 x i32> %359, %68
-  %361 = shufflevector <2 x i32> %354, <2 x i32> %355, <4 x i32> <i32 0, i32 3, i32 poison, i32 poison>
+  %361 = shufflevector <2 x i32> %356, <2 x i32> poison, <4 x i32> <i32 0, i32 1, i32 poison, i32 poison>
   %362 = shufflevector <4 x i32> %346, <4 x i32> %361, <4 x i32> <i32 0, i32 4, i32 0, i32 5>
   %363 = add <4 x i32> %362, %350
   %364 = shufflevector <4 x i32> %337, <4 x i32> %231, <4 x i32> <i32 0, i32 4, i32 5, i32 0>

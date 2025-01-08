@@ -91498,10 +91498,8 @@ define hidden void @"_ZN88_$LT$core..net..socket_addr..SocketAddr$u20$as$u20$min
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %.sroa.38.sroa.15, ptr noundef nonnull align 4 dereferenceable(28) %.sroa.4109.i.sroa.7.0..sroa.6105.0..sroa_idx.i.sroa_idx, i64 28, i1 false), !noalias !18303
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %18), !noalias !18301
   %157 = bitcast i64 %145 to <8 x i8>
-  %.sroa.15161.8.vec.expand = shufflevector <8 x i8> %157, <8 x i8> poison, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
   %158 = bitcast i64 %147 to <8 x i8>
-  %.sroa.15161.16.vec.expand = shufflevector <8 x i8> %158, <8 x i8> poison, <16 x i32> <i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7>
-  %.sroa.15161.16.vecblend = shufflevector <16 x i8> %.sroa.15161.8.vec.expand, <16 x i8> %.sroa.15161.16.vec.expand, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 24, i32 25, i32 26, i32 27, i32 28, i32 29, i32 30, i32 31>
+  %.sroa.15161.16.vecblend = shufflevector <8 x i8> %157, <8 x i8> %158, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15>
   br label %"_ZN90_$LT$core..net..socket_addr..SocketAddrV6$u20$as$u20$minicbor..decode..Decode$LT$C$GT$$GT$6decode17hb700bc0914a5d7e8E.exit.thread"
 
 159:                                              ; preds = %182, %.lr.ph291.i

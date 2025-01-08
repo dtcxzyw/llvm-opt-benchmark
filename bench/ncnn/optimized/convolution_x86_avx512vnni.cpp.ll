@@ -15801,10 +15801,10 @@ _ZN4ncnnL34convolution_im2col_input_tile_int8ERKNS_3MatERS0_iiiiiiiiii.exit: ; p
   br label %.thread88.i.us.us
 
 1789:                                             ; preds = %1783
-  %1790 = shufflevector <16 x i32> %.lcssa342.i.us.us, <16 x i32> %.lcssa343.i.us.us, <4 x i32> <i32 0, i32 17, i32 2, i32 19>
+  %1790 = shufflevector <16 x i32> %1784, <16 x i32> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
   store <4 x i32> %1790, ptr %.156992488.i.us.us, align 1
   %1791 = getelementptr inbounds nuw i8, ptr %.156992488.i.us.us, i64 16
-  %1792 = shufflevector <16 x i32> %.lcssa343.i.us.us, <16 x i32> %.lcssa342.i.us.us, <4 x i32> <i32 0, i32 17, i32 2, i32 19>
+  %1792 = shufflevector <16 x i32> %1785, <16 x i32> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
   store <4 x i32> %1792, ptr %1791, align 1
   %1793 = getelementptr inbounds i32, ptr %.156992488.i.us.us, i64 %710
   %1794 = shufflevector <16 x i32> %.lcssa342.i.us.us, <16 x i32> %.lcssa343.i.us.us, <4 x i32> <i32 4, i32 21, i32 6, i32 23>
