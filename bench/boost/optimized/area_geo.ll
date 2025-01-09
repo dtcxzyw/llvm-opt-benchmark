@@ -162584,14 +162584,14 @@ _ZN5boost8geometry4math15sin_cos_degreesIdEEvRKT_RS3_S6_.exit123.sink.split: ; p
   br label %_ZN5boost8geometry4math15sin_cos_degreesIdEEvRKT_RS3_S6_.exit123
 
 _ZN5boost8geometry4math15sin_cos_degreesIdEEvRKT_RS3_S6_.exit123: ; preds = %_ZN5boost8geometry4math15sin_cos_degreesIdEEvRKT_RS3_S6_.exit123.sink.split, %173
-  %179 = call double @llvm.fabs.f64(double %69)
+  %179 = call noundef double @llvm.fabs.f64(double %69)
   %180 = fcmp ogt double %179, 9.000000e+01
   %.sroa.speculated222 = select i1 %180, double 9.000000e+01, double %69
   %181 = fcmp oeq double %.sroa.speculated222, 0.000000e+00
   br i1 %181, label %_ZN5boost8geometry4math11round_angleIdEET_RKS3_.exit, label %182
 
 182:                                              ; preds = %_ZN5boost8geometry4math15sin_cos_degreesIdEEvRKT_RS3_S6_.exit123
-  %183 = select i1 %180, double 9.000000e+01, double %179
+  %183 = call noundef double @llvm.fabs.f64(double %.sroa.speculated222)
   %184 = fcmp olt double %183, 6.250000e-02
   %185 = fadd double %183, -6.250000e-02
   %186 = fadd double %185, 6.250000e-02
@@ -162603,14 +162603,14 @@ _ZN5boost8geometry4math15sin_cos_degreesIdEEvRKT_RS3_S6_.exit123: ; preds = %_ZN
 
 _ZN5boost8geometry4math11round_angleIdEET_RKS3_.exit: ; preds = %_ZN5boost8geometry4math15sin_cos_degreesIdEEvRKT_RS3_S6_.exit123, %182
   %.0.i = phi double [ %190, %182 ], [ 0.000000e+00, %_ZN5boost8geometry4math15sin_cos_degreesIdEEvRKT_RS3_S6_.exit123 ]
-  %191 = call double @llvm.fabs.f64(double %71)
+  %191 = call noundef double @llvm.fabs.f64(double %71)
   %192 = fcmp ogt double %191, 9.000000e+01
   %.sroa.speculated212 = select i1 %192, double 9.000000e+01, double %71
   %193 = fcmp oeq double %.sroa.speculated212, 0.000000e+00
   br i1 %193, label %_ZN5boost8geometry4math11round_angleIdEET_RKS3_.exit125, label %194
 
 194:                                              ; preds = %_ZN5boost8geometry4math11round_angleIdEET_RKS3_.exit
-  %195 = select i1 %192, double 9.000000e+01, double %191
+  %195 = call noundef double @llvm.fabs.f64(double %.sroa.speculated212)
   %196 = fcmp olt double %195, 6.250000e-02
   %197 = fadd double %195, -6.250000e-02
   %198 = fadd double %197, 6.250000e-02
@@ -167026,14 +167026,14 @@ _ZN5boost8geometry4math15sin_cos_degreesIdEEvRKT_RS3_S6_.exit123.sink.split: ; p
   br label %_ZN5boost8geometry4math15sin_cos_degreesIdEEvRKT_RS3_S6_.exit123
 
 _ZN5boost8geometry4math15sin_cos_degreesIdEEvRKT_RS3_S6_.exit123: ; preds = %_ZN5boost8geometry4math15sin_cos_degreesIdEEvRKT_RS3_S6_.exit123.sink.split, %173
-  %179 = call double @llvm.fabs.f64(double %69)
+  %179 = call noundef double @llvm.fabs.f64(double %69)
   %180 = fcmp ogt double %179, 9.000000e+01
   %.sroa.speculated222 = select i1 %180, double 9.000000e+01, double %69
   %181 = fcmp oeq double %.sroa.speculated222, 0.000000e+00
   br i1 %181, label %_ZN5boost8geometry4math11round_angleIdEET_RKS3_.exit, label %182
 
 182:                                              ; preds = %_ZN5boost8geometry4math15sin_cos_degreesIdEEvRKT_RS3_S6_.exit123
-  %183 = select i1 %180, double 9.000000e+01, double %179
+  %183 = call noundef double @llvm.fabs.f64(double %.sroa.speculated222)
   %184 = fcmp olt double %183, 6.250000e-02
   %185 = fadd double %183, -6.250000e-02
   %186 = fadd double %185, 6.250000e-02
@@ -167045,14 +167045,14 @@ _ZN5boost8geometry4math15sin_cos_degreesIdEEvRKT_RS3_S6_.exit123: ; preds = %_ZN
 
 _ZN5boost8geometry4math11round_angleIdEET_RKS3_.exit: ; preds = %_ZN5boost8geometry4math15sin_cos_degreesIdEEvRKT_RS3_S6_.exit123, %182
   %.0.i = phi double [ %190, %182 ], [ 0.000000e+00, %_ZN5boost8geometry4math15sin_cos_degreesIdEEvRKT_RS3_S6_.exit123 ]
-  %191 = call double @llvm.fabs.f64(double %71)
+  %191 = call noundef double @llvm.fabs.f64(double %71)
   %192 = fcmp ogt double %191, 9.000000e+01
   %.sroa.speculated212 = select i1 %192, double 9.000000e+01, double %71
   %193 = fcmp oeq double %.sroa.speculated212, 0.000000e+00
   br i1 %193, label %_ZN5boost8geometry4math11round_angleIdEET_RKS3_.exit125, label %194
 
 194:                                              ; preds = %_ZN5boost8geometry4math11round_angleIdEET_RKS3_.exit
-  %195 = select i1 %192, double 9.000000e+01, double %191
+  %195 = call noundef double @llvm.fabs.f64(double %.sroa.speculated212)
   %196 = fcmp olt double %195, 6.250000e-02
   %197 = fadd double %195, -6.250000e-02
   %198 = fadd double %197, 6.250000e-02

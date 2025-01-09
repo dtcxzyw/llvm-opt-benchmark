@@ -107335,8 +107335,8 @@ define linkonce_odr dso_local noundef i64 @_ZN5Catch11ulpDistanceIfEEmT_S1_(floa
 
 .lr.ph:                                           ; preds = %2, %tailrecurse
   %.tr2228 = phi float [ 0.000000e+00, %tailrecurse ], [ %1, %2 ]
-  %.tr27 = phi float [ %14, %tailrecurse ], [ %0, %2 ]
-  %accumulator.tr26 = phi i64 [ %15, %tailrecurse ], [ 0, %2 ]
+  %.tr27 = phi float [ %12, %tailrecurse ], [ %0, %2 ]
+  %accumulator.tr26 = phi i64 [ %13, %tailrecurse ], [ 0, %2 ]
   %4 = fcmp oeq float %.tr27, 0.000000e+00
   %.010 = select i1 %4, float 0.000000e+00, float %.tr27
   %5 = fcmp oeq float %.tr2228, 0.000000e+00
@@ -107345,29 +107345,26 @@ define linkonce_odr dso_local noundef i64 @_ZN5Catch11ulpDistanceIfEEmT_S1_(floa
   %7 = bitcast float %.0 to i32
   %8 = xor i32 %7, %6
   %9 = icmp slt i32 %8, 0
-  br i1 %9, label %tailrecurse, label %17
+  br i1 %9, label %tailrecurse, label %14
 
 tailrecurse:                                      ; preds = %.lr.ph
-  %10 = tail call float @llvm.fabs.f32(float %.tr27)
-  %11 = select i1 %4, float 0.000000e+00, float %10
-  %12 = tail call noundef i64 @_ZN5Catch11ulpDistanceIfEEmT_S1_(float noundef %11, float noundef 0.000000e+00)
-  %13 = tail call float @llvm.fabs.f32(float %.tr2228)
-  %14 = select i1 %5, float 0.000000e+00, float %13
-  %15 = add i64 %12, %accumulator.tr26
-  %16 = fcmp oeq float %14, 0.000000e+00
-  br i1 %16, label %.loopexit, label %.lr.ph
+  %10 = tail call noundef float @llvm.fabs.f32(float %.010)
+  %11 = tail call noundef i64 @_ZN5Catch11ulpDistanceIfEEmT_S1_(float noundef %10, float noundef 0.000000e+00)
+  %12 = tail call noundef float @llvm.fabs.f32(float %.0)
+  %13 = add i64 %11, %accumulator.tr26
+  br i1 %5, label %.loopexit, label %.lr.ph
 
-17:                                               ; preds = %.lr.ph
+14:                                               ; preds = %.lr.ph
   %spec.select21 = tail call i32 @llvm.umax.i32(i32 %6, i32 %7)
   %spec.select = zext i32 %spec.select21 to i64
   %spec.select20.v = tail call i32 @llvm.umin.i32(i32 %6, i32 %7)
   %spec.select20 = zext i32 %spec.select20.v to i64
-  %18 = sub nsw i64 %spec.select, %spec.select20
+  %15 = sub nsw i64 %spec.select, %spec.select20
   br label %.loopexit
 
-.loopexit:                                        ; preds = %tailrecurse, %2, %17
-  %accumulator.tr24 = phi i64 [ %accumulator.tr26, %17 ], [ 0, %2 ], [ %15, %tailrecurse ]
-  %.011 = phi i64 [ %18, %17 ], [ 0, %2 ], [ 0, %tailrecurse ]
+.loopexit:                                        ; preds = %tailrecurse, %2, %14
+  %accumulator.tr24 = phi i64 [ %accumulator.tr26, %14 ], [ 0, %2 ], [ %13, %tailrecurse ]
+  %.011 = phi i64 [ %15, %14 ], [ 0, %2 ], [ 0, %tailrecurse ]
   %accumulator.ret.tr = add i64 %.011, %accumulator.tr24
   ret i64 %accumulator.ret.tr
 }
@@ -107382,8 +107379,8 @@ define linkonce_odr dso_local noundef i64 @_ZN5Catch11ulpDistanceIdEEmT_S1_(doub
 
 .lr.ph:                                           ; preds = %2, %tailrecurse
   %.tr2127 = phi double [ 0.000000e+00, %tailrecurse ], [ %1, %2 ]
-  %.tr26 = phi double [ %14, %tailrecurse ], [ %0, %2 ]
-  %accumulator.tr25 = phi i64 [ %15, %tailrecurse ], [ 0, %2 ]
+  %.tr26 = phi double [ %12, %tailrecurse ], [ %0, %2 ]
+  %accumulator.tr25 = phi i64 [ %13, %tailrecurse ], [ 0, %2 ]
   %4 = fcmp oeq double %.tr26, 0.000000e+00
   %.010 = select i1 %4, double 0.000000e+00, double %.tr26
   %5 = fcmp oeq double %.tr2127, 0.000000e+00
@@ -107392,27 +107389,24 @@ define linkonce_odr dso_local noundef i64 @_ZN5Catch11ulpDistanceIdEEmT_S1_(doub
   %7 = bitcast double %.0 to i64
   %8 = xor i64 %7, %6
   %9 = icmp slt i64 %8, 0
-  br i1 %9, label %tailrecurse, label %17
+  br i1 %9, label %tailrecurse, label %14
 
 tailrecurse:                                      ; preds = %.lr.ph
-  %10 = tail call double @llvm.fabs.f64(double %.tr26)
-  %11 = select i1 %4, double 0.000000e+00, double %10
-  %12 = tail call noundef i64 @_ZN5Catch11ulpDistanceIdEEmT_S1_(double noundef %11, double noundef 0.000000e+00)
-  %13 = tail call double @llvm.fabs.f64(double %.tr2127)
-  %14 = select i1 %5, double 0.000000e+00, double %13
-  %15 = add i64 %12, %accumulator.tr25
-  %16 = fcmp oeq double %14, 0.000000e+00
-  br i1 %16, label %.loopexit, label %.lr.ph
+  %10 = tail call noundef double @llvm.fabs.f64(double %.010)
+  %11 = tail call noundef i64 @_ZN5Catch11ulpDistanceIdEEmT_S1_(double noundef %10, double noundef 0.000000e+00)
+  %12 = tail call noundef double @llvm.fabs.f64(double %.0)
+  %13 = add i64 %11, %accumulator.tr25
+  br i1 %5, label %.loopexit, label %.lr.ph
 
-17:                                               ; preds = %.lr.ph
+14:                                               ; preds = %.lr.ph
   %spec.select = tail call i64 @llvm.umax.i64(i64 %6, i64 %7)
   %spec.select20 = tail call i64 @llvm.umin.i64(i64 %6, i64 %7)
-  %18 = sub i64 %spec.select, %spec.select20
+  %15 = sub i64 %spec.select, %spec.select20
   br label %.loopexit
 
-.loopexit:                                        ; preds = %tailrecurse, %2, %17
-  %accumulator.tr23 = phi i64 [ %accumulator.tr25, %17 ], [ 0, %2 ], [ %15, %tailrecurse ]
-  %.011 = phi i64 [ %18, %17 ], [ 0, %2 ], [ 0, %tailrecurse ]
+.loopexit:                                        ; preds = %tailrecurse, %2, %14
+  %accumulator.tr23 = phi i64 [ %accumulator.tr25, %14 ], [ 0, %2 ], [ %13, %tailrecurse ]
+  %.011 = phi i64 [ %15, %14 ], [ 0, %2 ], [ 0, %tailrecurse ]
   %accumulator.ret.tr = add i64 %.011, %accumulator.tr23
   ret i64 %accumulator.ret.tr
 }

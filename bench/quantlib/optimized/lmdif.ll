@@ -3559,9 +3559,8 @@ if.end332:                                        ; preds = %_ZN8QuantLib7MINPAC
   %fnorm.2 = phi double [ %retval.0.i505, %_ZN8QuantLib7MINPACK5enormEiPd.exit711 ], [ %fnorm.1, %if.end300 ]
   %iter.2 = phi i32 [ %add331, %_ZN8QuantLib7MINPACK5enormEiPd.exit711 ], [ %iter.1, %if.end300 ]
   %xnorm.3 = phi double [ %retval.0.i649, %_ZN8QuantLib7MINPACK5enormEiPd.exit711 ], [ %xnorm.2, %if.end300 ]
-  %109 = call double @llvm.fabs.f64(double %78)
-  %110 = select i1 %cmp228, double %109, double 1.000000e+00
-  %cmp333 = fcmp ugt double %110, %ftol
+  %109 = call double @llvm.fabs.f64(double %actred.0)
+  %cmp333 = fcmp ugt double %109, %ftol
   %cmp334 = fcmp ugt double %94, %ftol
   %or.cond308 = or i1 %cmp333, %cmp334
   %mul336 = fmul double %ratio.0, 5.000000e-01
@@ -3570,26 +3569,26 @@ if.end332:                                        ; preds = %_ZN8QuantLib7MINPAC
   %mul340 = fmul double %xtol, %xnorm.3
   %cmp341 = fcmp ugt double %delta.4, %mul340
   %.not = and i1 %or.cond309, %cmp341
-  br i1 %.not, label %112, label %111
+  br i1 %.not, label %111, label %110
 
-111:                                              ; preds = %if.end332
+110:                                              ; preds = %if.end332
   %simplifycfg.merge = select i1 %cmp341, i32 1, i32 2
   store i32 %simplifycfg.merge, ptr %info, align 4, !tbaa !9
-  br label %112
+  br label %111
 
-112:                                              ; preds = %if.end332, %111
+111:                                              ; preds = %if.end332, %110
   %.pr724 = load i32, ptr %info, align 4, !tbaa !9
   %cmp351 = icmp ne i32 %.pr724, 2
   %or.cond.not = select i1 %or.cond309, i1 true, i1 %cmp351
   br i1 %or.cond.not, label %if.end353, label %L300.sink.split
 
-if.end353:                                        ; preds = %112
+if.end353:                                        ; preds = %111
   %cmp354.not = icmp eq i32 %.pr724, 0
   br i1 %cmp354.not, label %if.end356, label %L300
 
 if.end356:                                        ; preds = %if.end353
-  %113 = load i32, ptr %nfev, align 4, !tbaa !9
-  %cmp357.not = icmp slt i32 %113, %maxfev
+  %112 = load i32, ptr %nfev, align 4, !tbaa !9
+  %cmp357.not = icmp slt i32 %112, %maxfev
   br i1 %cmp357.not, label %if.end359, label %if.then358
 
 if.then358:                                       ; preds = %if.end356
@@ -3597,35 +3596,35 @@ if.then358:                                       ; preds = %if.end356
   br label %if.end359
 
 if.end359:                                        ; preds = %if.then358, %if.end356
-  %114 = load double, ptr @_ZN8QuantLib7MINPACK6MACHEPE, align 8, !tbaa !3
-  %cmp360 = fcmp ugt double %110, %114
-  %cmp362 = fcmp ugt double %94, %114
+  %113 = load double, ptr @_ZN8QuantLib7MINPACK6MACHEPE, align 8, !tbaa !3
+  %cmp360 = fcmp ugt double %109, %113
+  %cmp362 = fcmp ugt double %94, %113
   %or.cond313 = or i1 %cmp360, %cmp362
   %or.cond314 = or i1 %cmp337, %or.cond313
-  %mul368 = fmul double %xnorm.3, %114
+  %mul368 = fmul double %xnorm.3, %113
   %cmp369 = fcmp ugt double %delta.4, %mul368
   %.not732 = and i1 %cmp369, %or.cond314
-  br i1 %.not732, label %115, label %.thread
+  br i1 %.not732, label %114, label %.thread
 
-115:                                              ; preds = %if.end359
-  %cmp372 = fcmp ugt double %gnorm.0, %114
+114:                                              ; preds = %if.end359
+  %cmp372 = fcmp ugt double %gnorm.0, %113
   br i1 %cmp372, label %if.end374, label %L300.sink.split
 
 .thread:                                          ; preds = %if.end359
   %simplifycfg.merge730 = select i1 %cmp369, i32 6, i32 7
   store i32 %simplifycfg.merge730, ptr %info, align 4, !tbaa !9
-  %cmp372933 = fcmp ugt double %gnorm.0, %114
+  %cmp372933 = fcmp ugt double %gnorm.0, %113
   br i1 %cmp372933, label %L300, label %L300.sink.split
 
-if.end374:                                        ; preds = %115
+if.end374:                                        ; preds = %114
   br i1 %cmp357.not, label %if.end377, label %L300
 
 if.end377:                                        ; preds = %if.end374
   %cmp378 = fcmp olt double %ratio.0, 1.000000e-04
   br i1 %cmp378, label %L200, label %L30
 
-L300.sink.split:                                  ; preds = %if.end168, %115, %112, %.thread
-  %.sink = phi i32 [ 8, %.thread ], [ 3, %112 ], [ 8, %115 ], [ 4, %if.end168 ]
+L300.sink.split:                                  ; preds = %if.end168, %114, %111, %.thread
+  %.sink = phi i32 [ 8, %.thread ], [ 3, %111 ], [ 8, %114 ], [ 4, %if.end168 ]
   store i32 %.sink, ptr %info, align 4, !tbaa !9
   br label %L300
 
@@ -3635,8 +3634,8 @@ L300:                                             ; preds = %for.body, %if.end17
   br i1 %cmp381, label %if.then382, label %if.end383
 
 if.then382:                                       ; preds = %if.end26, %_ZNKSt8functionIFviiPdS0_PiEEclEiiS0_S0_S1_.exit339, %_ZNKSt8functionIFviiPdS0_PiEEclEiiS0_S0_S1_.exit496, %_ZNKSt8functionIFviiPdS0_PiEEclEiiS0_S0_S1_.exit, %L300
-  %116 = phi i32 [ %.pr728, %L300 ], [ %3, %_ZNKSt8functionIFviiPdS0_PiEEclEiiS0_S0_S1_.exit ], [ %68, %_ZNKSt8functionIFviiPdS0_PiEEclEiiS0_S0_S1_.exit496 ], [ %21, %_ZNKSt8functionIFviiPdS0_PiEEclEiiS0_S0_S1_.exit339 ], [ %18, %if.end26 ]
-  store i32 %116, ptr %info, align 4, !tbaa !9
+  %115 = phi i32 [ %.pr728, %L300 ], [ %3, %_ZNKSt8functionIFviiPdS0_PiEEclEiiS0_S0_S1_.exit ], [ %68, %_ZNKSt8functionIFviiPdS0_PiEEclEiiS0_S0_S1_.exit496 ], [ %21, %_ZNKSt8functionIFviiPdS0_PiEEclEiiS0_S0_S1_.exit339 ], [ %18, %if.end26 ]
+  store i32 %115, ptr %info, align 4, !tbaa !9
   br label %if.end383
 
 if.end383:                                        ; preds = %if.then382, %L300
@@ -3656,8 +3655,8 @@ if.then385:                                       ; preds = %if.end383
   store ptr %fvec, ptr %__args.addr6.i715, align 8, !tbaa !11
   store ptr %iflag, ptr %__args.addr8.i716, align 8, !tbaa !11
   %_M_manager.i.i717 = getelementptr inbounds nuw i8, ptr %fcn, i64 16
-  %117 = load ptr, ptr %_M_manager.i.i717, align 8, !tbaa !13
-  %tobool.not.i.i718 = icmp eq ptr %117, null
+  %116 = load ptr, ptr %_M_manager.i.i717, align 8, !tbaa !13
+  %tobool.not.i.i718 = icmp eq ptr %116, null
   br i1 %tobool.not.i.i718, label %if.then.i721, label %_ZNKSt8functionIFviiPdS0_PiEEclEiiS0_S0_S1_.exit722
 
 if.then.i721:                                     ; preds = %if.then385
@@ -3666,8 +3665,8 @@ if.then.i721:                                     ; preds = %if.then385
 
 _ZNKSt8functionIFviiPdS0_PiEEclEiiS0_S0_S1_.exit722: ; preds = %if.then385
   %_M_invoker.i720 = getelementptr inbounds nuw i8, ptr %fcn, i64 24
-  %118 = load ptr, ptr %_M_invoker.i720, align 8, !tbaa !15
-  call void %118(ptr noundef nonnull align 8 dereferenceable(32) %fcn, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr.i712, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr2.i713, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr4.i714, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr6.i715, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr8.i716)
+  %117 = load ptr, ptr %_M_invoker.i720, align 8, !tbaa !15
+  call void %117(ptr noundef nonnull align 8 dereferenceable(32) %fcn, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr.i712, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr2.i713, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr4.i714, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr6.i715, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr8.i716)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr.i712)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr2.i713)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr4.i714)
