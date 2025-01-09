@@ -454,7 +454,7 @@ ExecHashGetSkewBucket.exit.i:                     ; preds = %.lr.ph.i.i14
   %261 = lshr i32 %253, %260
   %262 = sub i32 32, %260
   %263 = shl i32 %253, %262
-  %264 = or i32 %263, %261
+  %264 = or disjoint i32 %263, %261
   %265 = add i32 %255, -1
   %266 = and i32 %264, %265
   br label %ExecHashGetBucketAndBatch.exit.i.i.i
@@ -1765,7 +1765,7 @@ define dso_local void @ExecHashTableInsert(ptr noundef %0, ptr noundef %1, i32 n
   %15 = lshr i32 %2, %14
   %16 = sub i32 32, %14
   %17 = shl i32 %2, %16
-  %18 = or i32 %17, %15
+  %18 = or disjoint i32 %17, %15
   %19 = add i32 %8, -1
   %20 = and i32 %18, %19
   br label %ExecHashGetBucketAndBatch.exit
@@ -1983,7 +1983,7 @@ define dso_local void @ExecHashGetBucketAndBatch(ptr nocapture noundef readonly 
   %14 = lshr i32 %1, %13
   %15 = sub i32 32, %13
   %16 = shl i32 %1, %15
-  %17 = or i32 %16, %14
+  %17 = or disjoint i32 %16, %14
   %18 = add i32 %7, -1
   %19 = and i32 %17, %18
   br label %20
@@ -2131,7 +2131,7 @@ define internal fastcc void @ExecHashIncreaseNumBatches(ptr noundef %0) unnamed_
   %78 = lshr i32 %70, %77
   %79 = sub i32 32, %77
   %80 = shl i32 %70, %79
-  %81 = or i32 %80, %78
+  %81 = or disjoint i32 %80, %78
   %82 = add i32 %72, -1
   %83 = and i32 %81, %82
   br label %ExecHashGetBucketAndBatch.exit
@@ -2313,7 +2313,7 @@ ExecHashGetBucketAndBatch.exit:                   ; preds = %.backedge
   %16 = lshr i32 %2, %15
   %17 = sub i32 32, %15
   %18 = shl i32 %2, %17
-  %19 = or i32 %18, %16
+  %19 = or disjoint i32 %18, %16
   %20 = add i32 %13, -1
   %21 = and i32 %19, %20
   %22 = icmp eq i32 %21, 0
@@ -4305,7 +4305,7 @@ ExecHashGetBucketAndBatch.exit:                   ; preds = %175
   %186 = lshr i32 %179, %185
   %187 = sub i32 32, %185
   %188 = shl i32 %179, %187
-  %189 = or i32 %188, %186
+  %189 = or disjoint i32 %188, %186
   %190 = add i32 %181, -1
   %191 = and i32 %189, %190
   %192 = icmp eq i32 %191, 0
@@ -4472,7 +4472,7 @@ ExecParallelHashRepartitionFirst.exit:            ; preds = %242, %139
   %290 = lshr i32 %288, %289
   %291 = sub i32 32, %289
   %292 = shl i32 %288, %291
-  %293 = or i32 %292, %290
+  %293 = or disjoint i32 %292, %290
   %294 = add i32 %285, -1
   %295 = and i32 %293, %294
   %296 = sext i32 %295 to i64

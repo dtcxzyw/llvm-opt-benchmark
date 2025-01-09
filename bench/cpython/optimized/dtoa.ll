@@ -2453,7 +2453,7 @@ if.then33:                                        ; preds = %if.end31
   %15 = load i32, ptr %arrayidx4, align 4
   %sub39 = sub nsw i32 32, %scale.addr.0
   %shl = shl i32 %15, %sub39
-  %or40 = or i32 %shl, %shr36
+  %or40 = or disjoint i32 %shl, %shr36
   store i32 %or40, ptr %x, align 8
   %shr45 = lshr i32 %15, %scale.addr.0
   store i32 %shr45, ptr %arrayidx4, align 4
