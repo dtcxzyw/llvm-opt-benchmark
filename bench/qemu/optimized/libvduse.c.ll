@@ -595,8 +595,7 @@ if.end97:                                         ; preds = %if.end.i35
   %add.ptr.i38 = getelementptr i8, ptr %call.i36, i64 %div13.i
   %in_sg.i = getelementptr inbounds nuw i8, ptr %call.i36, i64 16
   store ptr %add.ptr.i38, ptr %in_sg.i, align 8
-  %40 = getelementptr i8, ptr %call.i36, i64 %mul1.i
-  %add.ptr11.i = getelementptr i8, ptr %40, i64 %div13.i
+  %add.ptr11.i = getelementptr i8, ptr %add.ptr.i38, i64 %mul1.i
   %out_sg.i = getelementptr inbounds nuw i8, ptr %call.i36, i64 24
   store ptr %add.ptr11.i, ptr %out_sg.i, align 8
   store i32 %idx, ptr %call.i36, align 8
@@ -609,8 +608,8 @@ for.cond104.preheader:                            ; preds = %for.body, %if.end97
 
 for.body:                                         ; preds = %if.end97, %for.body
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.body ], [ 0, %if.end97 ]
-  %41 = load ptr, ptr %out_sg.i, align 8
-  %arrayidx101 = getelementptr %struct.iovec, ptr %41, i64 %indvars.iv
+  %40 = load ptr, ptr %out_sg.i, align 8
+  %arrayidx101 = getelementptr %struct.iovec, ptr %40, i64 %indvars.iv
   %arrayidx103 = getelementptr [1024 x %struct.iovec], ptr %iov, i64 0, i64 %indvars.iv
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %arrayidx101, ptr noundef nonnull align 16 dereferenceable(16) %arrayidx103, i64 16, i1 false)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -619,10 +618,10 @@ for.body:                                         ; preds = %if.end97, %for.body
 
 for.body107:                                      ; preds = %for.cond104.preheader, %for.body107
   %indvars.iv70 = phi i64 [ %indvars.iv.next71, %for.body107 ], [ 0, %for.cond104.preheader ]
-  %42 = load ptr, ptr %in_sg.i, align 8
-  %arrayidx109 = getelementptr %struct.iovec, ptr %42, i64 %indvars.iv70
-  %43 = trunc nuw i64 %indvars.iv70 to i32
-  %add110 = add i32 %26, %43
+  %41 = load ptr, ptr %in_sg.i, align 8
+  %arrayidx109 = getelementptr %struct.iovec, ptr %41, i64 %indvars.iv70
+  %42 = trunc nuw i64 %indvars.iv70 to i32
+  %add110 = add i32 %26, %42
   %idxprom111 = zext i32 %add110 to i64
   %arrayidx112 = getelementptr [1024 x %struct.iovec], ptr %iov, i64 0, i64 %idxprom111
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %arrayidx109, ptr noundef nonnull align 16 dereferenceable(16) %arrayidx112, i64 16, i1 false)

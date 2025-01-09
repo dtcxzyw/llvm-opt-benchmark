@@ -926,18 +926,18 @@ _ZN6casadi8SparsityaSEOS0_.exit24:                ; preds = %_ZN6casadi8Sparsity
   %45 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %46 = load ptr, ptr %45, align 8
   %47 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %.not44 = icmp eq ptr %46, %47
-  br i1 %.not44, label %._crit_edge, label %.lr.ph
+  %.not38 = icmp eq ptr %46, %47
+  br i1 %.not38, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZN6casadi8SparsityaSEOS0_.exit24, %104
-  %.sroa.031.045 = phi ptr [ %105, %104 ], [ %46, %_ZN6casadi8SparsityaSEOS0_.exit24 ]
-  %48 = getelementptr inbounds nuw i8, ptr %.sroa.031.045, i64 32
+  %.sroa.031.039 = phi ptr [ %105, %104 ], [ %46, %_ZN6casadi8SparsityaSEOS0_.exit24 ]
+  %48 = getelementptr inbounds nuw i8, ptr %.sroa.031.039, i64 32
   %49 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %48, ptr noundef nonnull @.str.8) #24
   %50 = icmp eq i32 %49, 0
   br i1 %50, label %51, label %58
 
 51:                                               ; preds = %.lr.ph
-  %52 = getelementptr inbounds nuw i8, ptr %.sroa.031.045, i64 64
+  %52 = getelementptr inbounds nuw i8, ptr %.sroa.031.039, i64 64
   %53 = call noundef i64 @_ZNK6casadi11GenericType6to_intEv(ptr noundef nonnull align 8 dereferenceable(8) %52)
   store i64 %53, ptr %38, align 8
   br label %104
@@ -958,7 +958,7 @@ _ZN6casadi8SparsityaSEOS0_.exit24:                ; preds = %_ZN6casadi8Sparsity
   br i1 %60, label %61, label %64
 
 61:                                               ; preds = %58
-  %62 = getelementptr inbounds nuw i8, ptr %.sroa.031.045, i64 64
+  %62 = getelementptr inbounds nuw i8, ptr %.sroa.031.039, i64 64
   %63 = call noundef double @_ZNK6casadi11GenericType9to_doubleEv(ptr noundef nonnull align 8 dereferenceable(8) %62)
   store double %63, ptr %39, align 8
   br label %104
@@ -969,7 +969,7 @@ _ZN6casadi8SparsityaSEOS0_.exit24:                ; preds = %_ZN6casadi8Sparsity
   br i1 %66, label %67, label %70
 
 67:                                               ; preds = %64
-  %68 = getelementptr inbounds nuw i8, ptr %.sroa.031.045, i64 64
+  %68 = getelementptr inbounds nuw i8, ptr %.sroa.031.039, i64 64
   %69 = call noundef double @_ZNK6casadi11GenericType9to_doubleEv(ptr noundef nonnull align 8 dereferenceable(8) %68)
   store double %69, ptr %40, align 8
   br label %104
@@ -980,7 +980,7 @@ _ZN6casadi8SparsityaSEOS0_.exit24:                ; preds = %_ZN6casadi8Sparsity
   br i1 %72, label %73, label %76
 
 73:                                               ; preds = %70
-  %74 = getelementptr inbounds nuw i8, ptr %.sroa.031.045, i64 64
+  %74 = getelementptr inbounds nuw i8, ptr %.sroa.031.039, i64 64
   %75 = call noundef double @_ZNK6casadi11GenericType9to_doubleEv(ptr noundef nonnull align 8 dereferenceable(8) %74)
   store double %75, ptr %37, align 8
   br label %104
@@ -991,7 +991,7 @@ _ZN6casadi8SparsityaSEOS0_.exit24:                ; preds = %_ZN6casadi8Sparsity
   br i1 %78, label %79, label %83
 
 79:                                               ; preds = %76
-  %80 = getelementptr inbounds nuw i8, ptr %.sroa.031.045, i64 64
+  %80 = getelementptr inbounds nuw i8, ptr %.sroa.031.039, i64 64
   %81 = call noundef zeroext i1 @_ZNK6casadi11GenericType7to_boolEv(ptr noundef nonnull align 8 dereferenceable(8) %80)
   %82 = zext i1 %81 to i8
   store i8 %82, ptr %41, align 8
@@ -1003,7 +1003,7 @@ _ZN6casadi8SparsityaSEOS0_.exit24:                ; preds = %_ZN6casadi8Sparsity
   br i1 %85, label %86, label %90
 
 86:                                               ; preds = %83
-  %87 = getelementptr inbounds nuw i8, ptr %.sroa.031.045, i64 64
+  %87 = getelementptr inbounds nuw i8, ptr %.sroa.031.039, i64 64
   %88 = call noundef zeroext i1 @_ZNK6casadi11GenericType7to_boolEv(ptr noundef nonnull align 8 dereferenceable(8) %87)
   %89 = zext i1 %88 to i8
   store i8 %89, ptr %42, align 1
@@ -1015,7 +1015,7 @@ _ZN6casadi8SparsityaSEOS0_.exit24:                ; preds = %_ZN6casadi8Sparsity
   br i1 %92, label %93, label %97
 
 93:                                               ; preds = %90
-  %94 = getelementptr inbounds nuw i8, ptr %.sroa.031.045, i64 64
+  %94 = getelementptr inbounds nuw i8, ptr %.sroa.031.039, i64 64
   %95 = call noundef zeroext i1 @_ZNK6casadi11GenericType7to_boolEv(ptr noundef nonnull align 8 dereferenceable(8) %94)
   %96 = zext i1 %95 to i8
   store i8 %96, ptr %43, align 2
@@ -1027,14 +1027,14 @@ _ZN6casadi8SparsityaSEOS0_.exit24:                ; preds = %_ZN6casadi8Sparsity
   br i1 %99, label %100, label %104
 
 100:                                              ; preds = %97
-  %101 = getelementptr inbounds nuw i8, ptr %.sroa.031.045, i64 64
+  %101 = getelementptr inbounds nuw i8, ptr %.sroa.031.039, i64 64
   %102 = call noundef zeroext i1 @_ZNK6casadi11GenericType7to_boolEv(ptr noundef nonnull align 8 dereferenceable(8) %101)
   %103 = zext i1 %102 to i8
   store i8 %103, ptr %44, align 1
   br label %104
 
 104:                                              ; preds = %51, %67, %79, %93, %100, %97, %86, %73, %61
-  %105 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.031.045) #28
+  %105 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.031.039) #28
   %.not = icmp eq ptr %105, %47
   br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph
 
@@ -1077,19 +1077,19 @@ _ZN6casadi8SparsityaSEOS0_.exit24:                ; preds = %_ZN6casadi8Sparsity
   %.sroa.speculated.i59.i = call noundef i64 @llvm.smax.i64(i64 %134, i64 %119)
   %135 = getelementptr inbounds nuw i8, ptr %107, i64 16
   %136 = load i64, ptr %135, align 8
-  %factor = shl i64 %132, 2
-  %137 = shl i64 %136, 1
-  %reass.mul = add i64 %factor, %137
-  %138 = add i64 %119, %113
-  %139 = add i64 %138, %.sroa.speculated.i59.i
-  %140 = add i64 %139, %factor
-  %141 = add i64 %140, %.sroa.speculated.i58.i
-  %142 = add i64 %141, %reass.mul
-  %143 = add i64 %factor, %.sroa.speculated.i.i
+  %reass.add = shl i64 %136, 1
+  %reass.mul = shl i64 %132, 3
+  %137 = add i64 %119, %113
+  %138 = add i64 %137, %.sroa.speculated.i59.i
+  %139 = add i64 %138, %.sroa.speculated.i58.i
+  %140 = add i64 %139, %reass.add
+  %141 = add i64 %140, %reass.mul
+  %142 = shl i64 %132, 2
+  %143 = add i64 %142, %.sroa.speculated.i.i
   call void @_ZN6casadi16FunctionInternal9alloc_argEmb(ptr noundef nonnull align 8 dereferenceable(1304) %0, i64 noundef 0, i1 noundef zeroext true)
   call void @_ZN6casadi16FunctionInternal9alloc_resEmb(ptr noundef nonnull align 8 dereferenceable(1304) %0, i64 noundef 0, i1 noundef zeroext true)
   call void @_ZN6casadi16FunctionInternal8alloc_iwEmb(ptr noundef nonnull align 8 dereferenceable(1304) %0, i64 noundef %143, i1 noundef zeroext true)
-  call void @_ZN6casadi16FunctionInternal7alloc_wEmb(ptr noundef nonnull align 8 dereferenceable(1304) %0, i64 noundef %142, i1 noundef zeroext true)
+  call void @_ZN6casadi16FunctionInternal7alloc_wEmb(ptr noundef nonnull align 8 dereferenceable(1304) %0, i64 noundef %141, i1 noundef zeroext true)
   %144 = load i8, ptr %42, align 1
   %145 = trunc i8 %144 to i1
   br i1 %145, label %146, label %156

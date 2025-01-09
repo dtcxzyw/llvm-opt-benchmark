@@ -1142,446 +1142,443 @@ _ZN3ozz3log6LoggerlsIA31_cEERSoRKT_.exit:         ; preds = %29
   %46 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %47 = load i8, ptr %46, align 8
   %48 = trunc i8 %47 to i1
-  br i1 %48, label %49, label %58
+  br i1 %48, label %49, label %59
 
 49:                                               ; preds = %40
   %50 = load i32, ptr %16, align 4
-  %.3.extract.shift53.i = lshr i32 %50, 24
-  %.masked.i = and i32 %50, 255
-  %.0.insert.ext.i = xor i32 %.masked.i, %.3.extract.shift53.i
-  %51 = shl nuw i32 %.0.insert.ext.i, 24
-  %.masked56.i = and i32 %50, -16777216
-  %.3.insert.shift.i = xor i32 %51, %.masked56.i
-  %.3.extract.shift.i = lshr exact i32 %.3.insert.shift.i, 24
-  %52 = xor i32 %.3.extract.shift.i, %.0.insert.ext.i
-  %53 = lshr i32 %50, 8
-  %.1.extract.shift4157.i = xor i32 %53, %50
-  %54 = shl i32 %.1.extract.shift4157.i, 8
-  %.2.extract.shift4458.i = xor i32 %54, %50
-  %.2.insert.shift.i = and i32 %.2.extract.shift4458.i, 16711680
-  %.1.insert.shift.i = and i32 %53, 65280
-  %55 = or disjoint i32 %.1.insert.shift.i, %.2.insert.shift.i
-  %56 = or disjoint i32 %55, %52
-  %.1.insert.insert.i = or disjoint i32 %56, %.3.insert.shift.i
-  %57 = bitcast i32 %.1.insert.insert.i to float
+  %51 = and i32 %50, -16776961
+  %52 = call i32 @llvm.bswap.i32(i32 %51)
+  %.0.insert.insert31.i = or i32 %52, %50
+  %53 = lshr i32 %.0.insert.insert31.i, 8
+  %.1.extract.shift4156.i = xor i32 %53, %50
+  %.1.insert.shift37.i = and i32 %.1.extract.shift4156.i, 65280
+  %54 = shl i32 %.1.extract.shift4156.i, 8
+  %.2.extract.shift4457.i = xor i32 %54, %50
+  %.2.insert.shift.i = and i32 %.2.extract.shift4457.i, 16711680
+  %55 = or disjoint i32 %.1.insert.shift37.i, %.2.insert.shift.i
+  %.2.insert.insert.i = or disjoint i32 %55, %52
+  %56 = lshr i32 %.2.extract.shift4457.i, 8
+  %57 = and i32 %56, 65280
+  %.1.insert.insert.i = xor i32 %.2.insert.insert.i, %57
+  %58 = bitcast i32 %.1.insert.insert.i to float
   br label %_ZN3ozz2io8IArchiversERf.exit
 
-58:                                               ; preds = %40
-  %59 = load float, ptr %16, align 4
+59:                                               ; preds = %40
+  %60 = load float, ptr %16, align 4
   br label %_ZN3ozz2io8IArchiversERf.exit
 
-_ZN3ozz2io8IArchiversERf.exit:                    ; preds = %49, %58
-  %60 = phi float [ %57, %49 ], [ %59, %58 ]
-  store float %60, ptr %0, align 8
+_ZN3ozz2io8IArchiversERf.exit:                    ; preds = %49, %59
+  %61 = phi float [ %58, %49 ], [ %60, %59 ]
+  store float %61, ptr %0, align 8
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %15)
-  %61 = load ptr, ptr %1, align 8
-  %62 = load ptr, ptr %61, align 8
-  %63 = getelementptr inbounds nuw i8, ptr %62, i64 8
-  %64 = load ptr, ptr %63, align 8
-  %65 = call noundef i64 %64(ptr noundef nonnull align 8 dereferenceable(8) %61, ptr noundef nonnull %15, i64 noundef 4)
-  %66 = load i8, ptr %46, align 8
-  %67 = trunc i8 %66 to i1
-  %68 = load i32, ptr %15, align 4
-  %.sroa.0.0.insert.insert.i = call i32 @llvm.bswap.i32(i32 %68)
-  %69 = select i1 %67, i32 %.sroa.0.0.insert.insert.i, i32 %68
+  %62 = load ptr, ptr %1, align 8
+  %63 = load ptr, ptr %62, align 8
+  %64 = getelementptr inbounds nuw i8, ptr %63, i64 8
+  %65 = load ptr, ptr %64, align 8
+  %66 = call noundef i64 %65(ptr noundef nonnull align 8 dereferenceable(8) %62, ptr noundef nonnull %15, i64 noundef 4)
+  %67 = load i8, ptr %46, align 8
+  %68 = trunc i8 %67 to i1
+  %69 = load i32, ptr %15, align 4
+  %.sroa.0.0.insert.insert.i = call i32 @llvm.bswap.i32(i32 %69)
+  %70 = select i1 %68, i32 %.sroa.0.0.insert.insert.i, i32 %69
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15)
-  store i32 %69, ptr %28, align 4
+  store i32 %70, ptr %28, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %14)
-  %70 = load ptr, ptr %1, align 8
-  %71 = load ptr, ptr %70, align 8
-  %72 = getelementptr inbounds nuw i8, ptr %71, i64 8
-  %73 = load ptr, ptr %72, align 8
-  %74 = call noundef i64 %73(ptr noundef nonnull align 8 dereferenceable(8) %70, ptr noundef nonnull %14, i64 noundef 4)
-  %75 = load i8, ptr %46, align 8
-  %76 = trunc i8 %75 to i1
-  %77 = load i32, ptr %14, align 4
-  %.sroa.0.0.insert.insert.i53 = call i32 @llvm.bswap.i32(i32 %77)
-  %78 = select i1 %76, i32 %.sroa.0.0.insert.insert.i53, i32 %77
+  %71 = load ptr, ptr %1, align 8
+  %72 = load ptr, ptr %71, align 8
+  %73 = getelementptr inbounds nuw i8, ptr %72, i64 8
+  %74 = load ptr, ptr %73, align 8
+  %75 = call noundef i64 %74(ptr noundef nonnull align 8 dereferenceable(8) %71, ptr noundef nonnull %14, i64 noundef 4)
+  %76 = load i8, ptr %46, align 8
+  %77 = trunc i8 %76 to i1
+  %78 = load i32, ptr %14, align 4
+  %.sroa.0.0.insert.insert.i53 = call i32 @llvm.bswap.i32(i32 %78)
+  %79 = select i1 %77, i32 %.sroa.0.0.insert.insert.i53, i32 %78
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13)
-  %79 = load ptr, ptr %1, align 8
-  %80 = load ptr, ptr %79, align 8
-  %81 = getelementptr inbounds nuw i8, ptr %80, i64 8
-  %82 = load ptr, ptr %81, align 8
-  %83 = call noundef i64 %82(ptr noundef nonnull align 8 dereferenceable(8) %79, ptr noundef nonnull %13, i64 noundef 4)
-  %84 = load i8, ptr %46, align 8
-  %85 = trunc i8 %84 to i1
-  %86 = load i32, ptr %13, align 4
-  %.sroa.0.0.insert.insert.i54 = call i32 @llvm.bswap.i32(i32 %86)
-  %87 = select i1 %85, i32 %.sroa.0.0.insert.insert.i54, i32 %86
+  %80 = load ptr, ptr %1, align 8
+  %81 = load ptr, ptr %80, align 8
+  %82 = getelementptr inbounds nuw i8, ptr %81, i64 8
+  %83 = load ptr, ptr %82, align 8
+  %84 = call noundef i64 %83(ptr noundef nonnull align 8 dereferenceable(8) %80, ptr noundef nonnull %13, i64 noundef 4)
+  %85 = load i8, ptr %46, align 8
+  %86 = trunc i8 %85 to i1
+  %87 = load i32, ptr %13, align 4
+  %.sroa.0.0.insert.insert.i54 = call i32 @llvm.bswap.i32(i32 %87)
+  %88 = select i1 %86, i32 %.sroa.0.0.insert.insert.i54, i32 %87
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12)
-  %88 = load ptr, ptr %1, align 8
-  %89 = load ptr, ptr %88, align 8
-  %90 = getelementptr inbounds nuw i8, ptr %89, i64 8
-  %91 = load ptr, ptr %90, align 8
-  %92 = call noundef i64 %91(ptr noundef nonnull align 8 dereferenceable(8) %88, ptr noundef nonnull %12, i64 noundef 4)
-  %93 = load i8, ptr %46, align 8
-  %94 = trunc i8 %93 to i1
-  %95 = load i32, ptr %12, align 4
-  %.sroa.0.0.insert.insert.i55 = call i32 @llvm.bswap.i32(i32 %95)
-  %96 = select i1 %94, i32 %.sroa.0.0.insert.insert.i55, i32 %95
+  %89 = load ptr, ptr %1, align 8
+  %90 = load ptr, ptr %89, align 8
+  %91 = getelementptr inbounds nuw i8, ptr %90, i64 8
+  %92 = load ptr, ptr %91, align 8
+  %93 = call noundef i64 %92(ptr noundef nonnull align 8 dereferenceable(8) %89, ptr noundef nonnull %12, i64 noundef 4)
+  %94 = load i8, ptr %46, align 8
+  %95 = trunc i8 %94 to i1
+  %96 = load i32, ptr %12, align 4
+  %.sroa.0.0.insert.insert.i55 = call i32 @llvm.bswap.i32(i32 %96)
+  %97 = select i1 %95, i32 %.sroa.0.0.insert.insert.i55, i32 %96
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11)
-  %97 = load ptr, ptr %1, align 8
-  %98 = load ptr, ptr %97, align 8
-  %99 = getelementptr inbounds nuw i8, ptr %98, i64 8
-  %100 = load ptr, ptr %99, align 8
-  %101 = call noundef i64 %100(ptr noundef nonnull align 8 dereferenceable(8) %97, ptr noundef nonnull %11, i64 noundef 4)
-  %102 = load i8, ptr %46, align 8
-  %103 = trunc i8 %102 to i1
-  %104 = load i32, ptr %11, align 4
-  %.sroa.0.0.insert.insert.i56 = call i32 @llvm.bswap.i32(i32 %104)
-  %105 = select i1 %103, i32 %.sroa.0.0.insert.insert.i56, i32 %104
+  %98 = load ptr, ptr %1, align 8
+  %99 = load ptr, ptr %98, align 8
+  %100 = getelementptr inbounds nuw i8, ptr %99, i64 8
+  %101 = load ptr, ptr %100, align 8
+  %102 = call noundef i64 %101(ptr noundef nonnull align 8 dereferenceable(8) %98, ptr noundef nonnull %11, i64 noundef 4)
+  %103 = load i8, ptr %46, align 8
+  %104 = trunc i8 %103 to i1
+  %105 = load i32, ptr %11, align 4
+  %.sroa.0.0.insert.insert.i56 = call i32 @llvm.bswap.i32(i32 %105)
+  %106 = select i1 %104, i32 %.sroa.0.0.insert.insert.i56, i32 %105
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10)
-  %106 = load ptr, ptr %1, align 8
-  %107 = load ptr, ptr %106, align 8
-  %108 = getelementptr inbounds nuw i8, ptr %107, i64 8
-  %109 = load ptr, ptr %108, align 8
-  %110 = call noundef i64 %109(ptr noundef nonnull align 8 dereferenceable(8) %106, ptr noundef nonnull %10, i64 noundef 4)
-  %111 = load i8, ptr %46, align 8
-  %112 = trunc i8 %111 to i1
-  %113 = load i32, ptr %10, align 4
-  %.sroa.0.0.insert.insert.i57 = call i32 @llvm.bswap.i32(i32 %113)
-  %114 = select i1 %112, i32 %.sroa.0.0.insert.insert.i57, i32 %113
+  %107 = load ptr, ptr %1, align 8
+  %108 = load ptr, ptr %107, align 8
+  %109 = getelementptr inbounds nuw i8, ptr %108, i64 8
+  %110 = load ptr, ptr %109, align 8
+  %111 = call noundef i64 %110(ptr noundef nonnull align 8 dereferenceable(8) %107, ptr noundef nonnull %10, i64 noundef 4)
+  %112 = load i8, ptr %46, align 8
+  %113 = trunc i8 %112 to i1
+  %114 = load i32, ptr %10, align 4
+  %.sroa.0.0.insert.insert.i57 = call i32 @llvm.bswap.i32(i32 %114)
+  %115 = select i1 %113, i32 %.sroa.0.0.insert.insert.i57, i32 %114
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9)
-  %115 = load ptr, ptr %1, align 8
-  %116 = load ptr, ptr %115, align 8
-  %117 = getelementptr inbounds nuw i8, ptr %116, i64 8
-  %118 = load ptr, ptr %117, align 8
-  %119 = call noundef i64 %118(ptr noundef nonnull align 8 dereferenceable(8) %115, ptr noundef nonnull %9, i64 noundef 4)
-  %120 = load i8, ptr %46, align 8
-  %121 = trunc i8 %120 to i1
-  %122 = load i32, ptr %9, align 4
-  %.sroa.0.0.insert.insert.i58 = call i32 @llvm.bswap.i32(i32 %122)
-  %123 = select i1 %121, i32 %.sroa.0.0.insert.insert.i58, i32 %122
+  %116 = load ptr, ptr %1, align 8
+  %117 = load ptr, ptr %116, align 8
+  %118 = getelementptr inbounds nuw i8, ptr %117, i64 8
+  %119 = load ptr, ptr %118, align 8
+  %120 = call noundef i64 %119(ptr noundef nonnull align 8 dereferenceable(8) %116, ptr noundef nonnull %9, i64 noundef 4)
+  %121 = load i8, ptr %46, align 8
+  %122 = trunc i8 %121 to i1
+  %123 = load i32, ptr %9, align 4
+  %.sroa.0.0.insert.insert.i58 = call i32 @llvm.bswap.i32(i32 %123)
+  %124 = select i1 %122, i32 %.sroa.0.0.insert.insert.i58, i32 %123
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8)
-  %124 = load ptr, ptr %1, align 8
-  %125 = load ptr, ptr %124, align 8
-  %126 = getelementptr inbounds nuw i8, ptr %125, i64 8
-  %127 = load ptr, ptr %126, align 8
-  %128 = call noundef i64 %127(ptr noundef nonnull align 8 dereferenceable(8) %124, ptr noundef nonnull %8, i64 noundef 4)
-  %129 = load i8, ptr %46, align 8
-  %130 = trunc i8 %129 to i1
-  %131 = load i32, ptr %8, align 4
-  %.sroa.0.0.insert.insert.i59 = call i32 @llvm.bswap.i32(i32 %131)
-  %132 = select i1 %130, i32 %.sroa.0.0.insert.insert.i59, i32 %131
+  %125 = load ptr, ptr %1, align 8
+  %126 = load ptr, ptr %125, align 8
+  %127 = getelementptr inbounds nuw i8, ptr %126, i64 8
+  %128 = load ptr, ptr %127, align 8
+  %129 = call noundef i64 %128(ptr noundef nonnull align 8 dereferenceable(8) %125, ptr noundef nonnull %8, i64 noundef 4)
+  %130 = load i8, ptr %46, align 8
+  %131 = trunc i8 %130 to i1
+  %132 = load i32, ptr %8, align 4
+  %.sroa.0.0.insert.insert.i59 = call i32 @llvm.bswap.i32(i32 %132)
+  %133 = select i1 %131, i32 %.sroa.0.0.insert.insert.i59, i32 %132
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
-  %133 = load ptr, ptr %1, align 8
-  %134 = load ptr, ptr %133, align 8
-  %135 = getelementptr inbounds nuw i8, ptr %134, i64 8
-  %136 = load ptr, ptr %135, align 8
-  %137 = call noundef i64 %136(ptr noundef nonnull align 8 dereferenceable(8) %133, ptr noundef nonnull %7, i64 noundef 4)
-  %138 = load i8, ptr %46, align 8
-  %139 = trunc i8 %138 to i1
-  %140 = load i32, ptr %7, align 4
-  %.sroa.0.0.insert.insert.i60 = call i32 @llvm.bswap.i32(i32 %140)
-  %141 = select i1 %139, i32 %.sroa.0.0.insert.insert.i60, i32 %140
+  %134 = load ptr, ptr %1, align 8
+  %135 = load ptr, ptr %134, align 8
+  %136 = getelementptr inbounds nuw i8, ptr %135, i64 8
+  %137 = load ptr, ptr %136, align 8
+  %138 = call noundef i64 %137(ptr noundef nonnull align 8 dereferenceable(8) %134, ptr noundef nonnull %7, i64 noundef 4)
+  %139 = load i8, ptr %46, align 8
+  %140 = trunc i8 %139 to i1
+  %141 = load i32, ptr %7, align 4
+  %.sroa.0.0.insert.insert.i60 = call i32 @llvm.bswap.i32(i32 %141)
+  %142 = select i1 %140, i32 %.sroa.0.0.insert.insert.i60, i32 %141
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
-  %142 = load ptr, ptr %1, align 8
-  %143 = load ptr, ptr %142, align 8
-  %144 = getelementptr inbounds nuw i8, ptr %143, i64 8
-  %145 = load ptr, ptr %144, align 8
-  %146 = call noundef i64 %145(ptr noundef nonnull align 8 dereferenceable(8) %142, ptr noundef nonnull %6, i64 noundef 4)
-  %147 = load i8, ptr %46, align 8
-  %148 = trunc i8 %147 to i1
-  %149 = load i32, ptr %6, align 4
-  %.sroa.0.0.insert.insert.i61 = call i32 @llvm.bswap.i32(i32 %149)
-  %150 = select i1 %148, i32 %.sroa.0.0.insert.insert.i61, i32 %149
+  %143 = load ptr, ptr %1, align 8
+  %144 = load ptr, ptr %143, align 8
+  %145 = getelementptr inbounds nuw i8, ptr %144, i64 8
+  %146 = load ptr, ptr %145, align 8
+  %147 = call noundef i64 %146(ptr noundef nonnull align 8 dereferenceable(8) %143, ptr noundef nonnull %6, i64 noundef 4)
+  %148 = load i8, ptr %46, align 8
+  %149 = trunc i8 %148 to i1
+  %150 = load i32, ptr %6, align 4
+  %.sroa.0.0.insert.insert.i61 = call i32 @llvm.bswap.i32(i32 %150)
+  %151 = select i1 %149, i32 %.sroa.0.0.insert.insert.i61, i32 %150
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
-  %151 = load ptr, ptr %1, align 8
-  %152 = load ptr, ptr %151, align 8
-  %153 = getelementptr inbounds nuw i8, ptr %152, i64 8
-  %154 = load ptr, ptr %153, align 8
-  %155 = call noundef i64 %154(ptr noundef nonnull align 8 dereferenceable(8) %151, ptr noundef nonnull %5, i64 noundef 4)
-  %156 = load i8, ptr %46, align 8
-  %157 = trunc i8 %156 to i1
-  %158 = load i32, ptr %5, align 4
-  %.sroa.0.0.insert.insert.i62 = call i32 @llvm.bswap.i32(i32 %158)
-  %159 = select i1 %157, i32 %.sroa.0.0.insert.insert.i62, i32 %158
+  %152 = load ptr, ptr %1, align 8
+  %153 = load ptr, ptr %152, align 8
+  %154 = getelementptr inbounds nuw i8, ptr %153, i64 8
+  %155 = load ptr, ptr %154, align 8
+  %156 = call noundef i64 %155(ptr noundef nonnull align 8 dereferenceable(8) %152, ptr noundef nonnull %5, i64 noundef 4)
+  %157 = load i8, ptr %46, align 8
+  %158 = trunc i8 %157 to i1
+  %159 = load i32, ptr %5, align 4
+  %.sroa.0.0.insert.insert.i62 = call i32 @llvm.bswap.i32(i32 %159)
+  %160 = select i1 %158, i32 %.sroa.0.0.insert.insert.i62, i32 %159
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
-  %160 = load ptr, ptr %1, align 8
-  %161 = load ptr, ptr %160, align 8
-  %162 = getelementptr inbounds nuw i8, ptr %161, i64 8
-  %163 = load ptr, ptr %162, align 8
-  %164 = call noundef i64 %163(ptr noundef nonnull align 8 dereferenceable(8) %160, ptr noundef nonnull %4, i64 noundef 4)
-  %165 = load i8, ptr %46, align 8
-  %166 = trunc i8 %165 to i1
-  %167 = load i32, ptr %4, align 4
-  %.sroa.0.0.insert.insert.i63 = call i32 @llvm.bswap.i32(i32 %167)
-  %168 = select i1 %166, i32 %.sroa.0.0.insert.insert.i63, i32 %167
+  %161 = load ptr, ptr %1, align 8
+  %162 = load ptr, ptr %161, align 8
+  %163 = getelementptr inbounds nuw i8, ptr %162, i64 8
+  %164 = load ptr, ptr %163, align 8
+  %165 = call noundef i64 %164(ptr noundef nonnull align 8 dereferenceable(8) %161, ptr noundef nonnull %4, i64 noundef 4)
+  %166 = load i8, ptr %46, align 8
+  %167 = trunc i8 %166 to i1
+  %168 = load i32, ptr %4, align 4
+  %.sroa.0.0.insert.insert.i63 = call i32 @llvm.bswap.i32(i32 %168)
+  %169 = select i1 %167, i32 %.sroa.0.0.insert.insert.i63, i32 %168
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
-  %169 = zext i32 %78 to i64
-  %170 = zext i32 %87 to i64
-  %171 = zext i32 %96 to i64
-  %172 = zext i32 %105 to i64
-  %173 = zext i32 %114 to i64
-  %174 = zext i32 %123 to i64
-  %175 = zext i32 %132 to i64
-  %176 = zext i32 %141 to i64
-  %177 = zext i32 %150 to i64
-  %178 = zext i32 %159 to i64
-  %179 = zext i32 %168 to i64
-  %.not.i = icmp ugt i32 %87, 255
-  %.not40.i = icmp eq i32 %78, 0
-  %180 = add nuw nsw i64 %169, 1
-  %spec.select.i = select i1 %.not40.i, i64 0, i64 %180
-  %181 = select i1 %.not.i, i64 10, i64 9
-  %reass.add.i = add nuw nsw i64 %175, %170
-  %reass.add165.i = add nuw nsw i64 %reass.add.i, %177
-  %reass.add166.i = add nuw nsw i64 %reass.add165.i, %179
+  %170 = zext i32 %79 to i64
+  %171 = zext i32 %88 to i64
+  %172 = zext i32 %97 to i64
+  %173 = zext i32 %106 to i64
+  %174 = zext i32 %115 to i64
+  %175 = zext i32 %124 to i64
+  %176 = zext i32 %133 to i64
+  %177 = zext i32 %142 to i64
+  %178 = zext i32 %151 to i64
+  %179 = zext i32 %160 to i64
+  %180 = zext i32 %169 to i64
+  %.not.i = icmp ugt i32 %88, 255
+  %.not40.i = icmp eq i32 %79, 0
+  %181 = add nuw nsw i64 %170, 1
+  %spec.select.i = select i1 %.not40.i, i64 0, i64 %181
+  %182 = select i1 %.not.i, i64 10, i64 9
+  %reass.add.i = add nuw nsw i64 %176, %171
+  %reass.add165.i = add nuw nsw i64 %reass.add.i, %178
+  %reass.add166.i = add nuw nsw i64 %reass.add165.i, %180
   %reass.mul.i = shl nuw nsw i64 %reass.add166.i, 2
-  %reass.add167.i = add nuw nsw i64 %172, %171
-  %reass.add168.i = add nuw nsw i64 %reass.add167.i, %173
-  %reass.mul169.i = mul nuw nsw i64 %reass.add168.i, %181
-  %182 = add nuw nsw i64 %reass.mul169.i, %spec.select.i
-  %183 = add nuw nsw i64 %182, %174
-  %184 = add nuw nsw i64 %183, %176
-  %185 = add nuw nsw i64 %184, %178
-  %186 = add nuw nsw i64 %185, %reass.mul.i
-  %187 = call noundef ptr @_ZN3ozz6memory17default_allocatorEv()
-  %188 = load ptr, ptr %187, align 8
-  %189 = getelementptr inbounds nuw i8, ptr %188, i64 16
-  %190 = load ptr, ptr %189, align 8
-  %191 = call noundef ptr %190(ptr noundef nonnull align 8 dereferenceable(8) %187, i64 noundef %186, i64 noundef 4)
-  %.idx.i.i = shl nuw nsw i64 %170, 2
-  %192 = getelementptr inbounds nuw i8, ptr %191, i64 %.idx.i.i
-  store ptr %191, ptr %19, align 8
-  %193 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i64 %170, ptr %193, align 8
-  %.idx.i42.i = shl nuw nsw i64 %175, 2
-  %194 = getelementptr inbounds nuw i8, ptr %192, i64 %.idx.i42.i
-  %195 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %196 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  store ptr %192, ptr %196, align 8
-  %197 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  store i64 %175, ptr %197, align 8
-  %.idx.i46.i = shl nuw nsw i64 %177, 2
-  %198 = getelementptr inbounds nuw i8, ptr %194, i64 %.idx.i46.i
-  %199 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  store ptr %194, ptr %199, align 8
-  %200 = getelementptr inbounds nuw i8, ptr %0, i64 160
-  store i64 %177, ptr %200, align 8
-  %.idx.i50.i = shl nuw nsw i64 %179, 2
-  %201 = getelementptr inbounds nuw i8, ptr %198, i64 %.idx.i50.i
-  %202 = getelementptr inbounds nuw i8, ptr %0, i64 224
-  store ptr %198, ptr %202, align 8
-  %203 = getelementptr inbounds nuw i8, ptr %0, i64 232
-  store i64 %179, ptr %203, align 8
-  %.idx.i54.i = shl nuw nsw i64 %171, 1
-  %204 = getelementptr inbounds nuw i8, ptr %201, i64 %.idx.i54.i
-  %205 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store ptr %201, ptr %205, align 8
-  %206 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store i64 %171, ptr %206, align 8
-  %.idx.i58.i = shl nuw nsw i64 %172, 1
-  %207 = getelementptr inbounds nuw i8, ptr %204, i64 %.idx.i58.i
-  %208 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  store ptr %204, ptr %208, align 8
-  %209 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  store i64 %172, ptr %209, align 8
-  %.idx.i62.i = shl nuw nsw i64 %173, 1
-  %210 = getelementptr inbounds nuw i8, ptr %207, i64 %.idx.i62.i
-  %211 = getelementptr inbounds nuw i8, ptr %0, i64 192
-  store ptr %207, ptr %211, align 8
-  %212 = getelementptr inbounds nuw i8, ptr %0, i64 200
-  store i64 %173, ptr %212, align 8
-  %.idx.i66.i = mul nuw nsw i64 %171, 6
-  %213 = getelementptr inbounds nuw i8, ptr %210, i64 %.idx.i66.i
-  store ptr %210, ptr %27, align 8
-  %214 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  store i64 %171, ptr %214, align 8
-  %.idx.i70.i = mul nuw nsw i64 %172, 6
-  %215 = getelementptr inbounds nuw i8, ptr %213, i64 %.idx.i70.i
-  %216 = getelementptr inbounds nuw i8, ptr %0, i64 264
-  store ptr %213, ptr %216, align 8
-  %217 = getelementptr inbounds nuw i8, ptr %0, i64 272
-  store i64 %172, ptr %217, align 8
-  %.idx.i74.i = mul nuw nsw i64 %173, 6
-  %218 = getelementptr inbounds nuw i8, ptr %215, i64 %.idx.i74.i
-  %219 = getelementptr inbounds nuw i8, ptr %0, i64 280
-  store ptr %215, ptr %219, align 8
-  %220 = getelementptr inbounds nuw i8, ptr %0, i64 288
-  store i64 %173, ptr %220, align 8
-  %221 = zext i1 %.not.i to i64
-  %222 = shl nuw nsw i64 %171, %221
-  %223 = getelementptr inbounds nuw i8, ptr %218, i64 %222
-  store ptr %218, ptr %195, align 8
-  %224 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store i64 %222, ptr %224, align 8
-  %225 = shl nuw nsw i64 %172, %221
-  %226 = getelementptr inbounds nuw i8, ptr %223, i64 %225
-  store ptr %223, ptr %25, align 8
-  %227 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  store i64 %225, ptr %227, align 8
-  %228 = shl nuw nsw i64 %173, %221
-  %229 = getelementptr inbounds nuw i8, ptr %226, i64 %228
-  store ptr %226, ptr %26, align 8
-  %230 = getelementptr inbounds nuw i8, ptr %0, i64 184
-  store i64 %228, ptr %230, align 8
-  %231 = getelementptr inbounds nuw i8, ptr %229, i64 %174
-  %232 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  store ptr %229, ptr %232, align 8
-  %233 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  store i64 %174, ptr %233, align 8
-  %234 = getelementptr inbounds nuw i8, ptr %231, i64 %176
-  %235 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  store ptr %231, ptr %235, align 8
-  %236 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  store i64 %176, ptr %236, align 8
-  %237 = getelementptr inbounds nuw i8, ptr %234, i64 %178
-  %238 = getelementptr inbounds nuw i8, ptr %0, i64 208
-  store ptr %234, ptr %238, align 8
-  %239 = getelementptr inbounds nuw i8, ptr %0, i64 216
-  store i64 %178, ptr %239, align 8
-  %spec.select164.i = select i1 %.not40.i, ptr null, ptr %237
+  %reass.add167.i = add nuw nsw i64 %173, %172
+  %reass.add168.i = add nuw nsw i64 %reass.add167.i, %174
+  %reass.mul169.i = mul nuw nsw i64 %reass.add168.i, %182
+  %183 = add nuw nsw i64 %reass.mul169.i, %spec.select.i
+  %184 = add nuw nsw i64 %183, %175
+  %185 = add nuw nsw i64 %184, %177
+  %186 = add nuw nsw i64 %185, %179
+  %187 = add nuw nsw i64 %186, %reass.mul.i
+  %188 = call noundef ptr @_ZN3ozz6memory17default_allocatorEv()
+  %189 = load ptr, ptr %188, align 8
+  %190 = getelementptr inbounds nuw i8, ptr %189, i64 16
+  %191 = load ptr, ptr %190, align 8
+  %192 = call noundef ptr %191(ptr noundef nonnull align 8 dereferenceable(8) %188, i64 noundef %187, i64 noundef 4)
+  %.idx.i.i = shl nuw nsw i64 %171, 2
+  %193 = getelementptr inbounds nuw i8, ptr %192, i64 %.idx.i.i
+  store ptr %192, ptr %19, align 8
+  %194 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store i64 %171, ptr %194, align 8
+  %.idx.i42.i = shl nuw nsw i64 %176, 2
+  %195 = getelementptr inbounds nuw i8, ptr %193, i64 %.idx.i42.i
+  %196 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %197 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  store ptr %193, ptr %197, align 8
+  %198 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  store i64 %176, ptr %198, align 8
+  %.idx.i46.i = shl nuw nsw i64 %178, 2
+  %199 = getelementptr inbounds nuw i8, ptr %195, i64 %.idx.i46.i
+  %200 = getelementptr inbounds nuw i8, ptr %0, i64 152
+  store ptr %195, ptr %200, align 8
+  %201 = getelementptr inbounds nuw i8, ptr %0, i64 160
+  store i64 %178, ptr %201, align 8
+  %.idx.i50.i = shl nuw nsw i64 %180, 2
+  %202 = getelementptr inbounds nuw i8, ptr %199, i64 %.idx.i50.i
+  %203 = getelementptr inbounds nuw i8, ptr %0, i64 224
+  store ptr %199, ptr %203, align 8
+  %204 = getelementptr inbounds nuw i8, ptr %0, i64 232
+  store i64 %180, ptr %204, align 8
+  %.idx.i54.i = shl nuw nsw i64 %172, 1
+  %205 = getelementptr inbounds nuw i8, ptr %202, i64 %.idx.i54.i
+  %206 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  store ptr %202, ptr %206, align 8
+  %207 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  store i64 %172, ptr %207, align 8
+  %.idx.i58.i = shl nuw nsw i64 %173, 1
+  %208 = getelementptr inbounds nuw i8, ptr %205, i64 %.idx.i58.i
+  %209 = getelementptr inbounds nuw i8, ptr %0, i64 120
+  store ptr %205, ptr %209, align 8
+  %210 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  store i64 %173, ptr %210, align 8
+  %.idx.i62.i = shl nuw nsw i64 %174, 1
+  %211 = getelementptr inbounds nuw i8, ptr %208, i64 %.idx.i62.i
+  %212 = getelementptr inbounds nuw i8, ptr %0, i64 192
+  store ptr %208, ptr %212, align 8
+  %213 = getelementptr inbounds nuw i8, ptr %0, i64 200
+  store i64 %174, ptr %213, align 8
+  %.idx.i66.i = mul nuw nsw i64 %172, 6
+  %214 = getelementptr inbounds nuw i8, ptr %211, i64 %.idx.i66.i
+  store ptr %211, ptr %27, align 8
+  %215 = getelementptr inbounds nuw i8, ptr %0, i64 256
+  store i64 %172, ptr %215, align 8
+  %.idx.i70.i = mul nuw nsw i64 %173, 6
+  %216 = getelementptr inbounds nuw i8, ptr %214, i64 %.idx.i70.i
+  %217 = getelementptr inbounds nuw i8, ptr %0, i64 264
+  store ptr %214, ptr %217, align 8
+  %218 = getelementptr inbounds nuw i8, ptr %0, i64 272
+  store i64 %173, ptr %218, align 8
+  %.idx.i74.i = mul nuw nsw i64 %174, 6
+  %219 = getelementptr inbounds nuw i8, ptr %216, i64 %.idx.i74.i
+  %220 = getelementptr inbounds nuw i8, ptr %0, i64 280
+  store ptr %216, ptr %220, align 8
+  %221 = getelementptr inbounds nuw i8, ptr %0, i64 288
+  store i64 %174, ptr %221, align 8
+  %222 = zext i1 %.not.i to i64
+  %223 = shl nuw nsw i64 %172, %222
+  %224 = getelementptr inbounds nuw i8, ptr %219, i64 %223
+  store ptr %219, ptr %196, align 8
+  %225 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  store i64 %223, ptr %225, align 8
+  %226 = shl nuw nsw i64 %173, %222
+  %227 = getelementptr inbounds nuw i8, ptr %224, i64 %226
+  store ptr %224, ptr %25, align 8
+  %228 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  store i64 %226, ptr %228, align 8
+  %229 = shl nuw nsw i64 %174, %222
+  %230 = getelementptr inbounds nuw i8, ptr %227, i64 %229
+  store ptr %227, ptr %26, align 8
+  %231 = getelementptr inbounds nuw i8, ptr %0, i64 184
+  store i64 %229, ptr %231, align 8
+  %232 = getelementptr inbounds nuw i8, ptr %230, i64 %175
+  %233 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  store ptr %230, ptr %233, align 8
+  %234 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  store i64 %175, ptr %234, align 8
+  %235 = getelementptr inbounds nuw i8, ptr %232, i64 %177
+  %236 = getelementptr inbounds nuw i8, ptr %0, i64 136
+  store ptr %232, ptr %236, align 8
+  %237 = getelementptr inbounds nuw i8, ptr %0, i64 144
+  store i64 %177, ptr %237, align 8
+  %238 = getelementptr inbounds nuw i8, ptr %235, i64 %179
+  %239 = getelementptr inbounds nuw i8, ptr %0, i64 208
+  store ptr %235, ptr %239, align 8
+  %240 = getelementptr inbounds nuw i8, ptr %0, i64 216
+  store i64 %179, ptr %240, align 8
+  %spec.select164.i = select i1 %.not40.i, ptr null, ptr %238
   store ptr %spec.select164.i, ptr %24, align 8
   %.not52 = icmp eq ptr %spec.select164.i, null
-  br i1 %.not52, label %248, label %240
+  br i1 %.not52, label %249, label %241
 
-240:                                              ; preds = %_ZN3ozz2io8IArchiversERf.exit
-  %241 = load ptr, ptr %1, align 8
-  %242 = load ptr, ptr %241, align 8
-  %243 = getelementptr inbounds nuw i8, ptr %242, i64 8
-  %244 = load ptr, ptr %243, align 8
-  %245 = call noundef i64 %244(ptr noundef nonnull align 8 dereferenceable(8) %241, ptr noundef nonnull %spec.select164.i, i64 noundef %169)
-  %246 = load ptr, ptr %24, align 8
-  %247 = getelementptr inbounds nuw i8, ptr %246, i64 %169
-  store i8 0, ptr %247, align 1
+241:                                              ; preds = %_ZN3ozz2io8IArchiversERf.exit
+  %242 = load ptr, ptr %1, align 8
+  %243 = load ptr, ptr %242, align 8
+  %244 = getelementptr inbounds nuw i8, ptr %243, i64 8
+  %245 = load ptr, ptr %244, align 8
+  %246 = call noundef i64 %245(ptr noundef nonnull align 8 dereferenceable(8) %242, ptr noundef nonnull %spec.select164.i, i64 noundef %170)
+  %247 = load ptr, ptr %24, align 8
+  %248 = getelementptr inbounds nuw i8, ptr %247, i64 %170
+  store i8 0, ptr %248, align 1
   %.sroa.05.0.copyload.pre = load ptr, ptr %19, align 8
-  %.sroa.26.0.copyload.pre = load i64, ptr %193, align 8
+  %.sroa.26.0.copyload.pre = load i64, ptr %194, align 8
   %.pre = shl i64 %.sroa.26.0.copyload.pre, 2
-  br label %248
+  br label %249
 
-248:                                              ; preds = %240, %_ZN3ozz2io8IArchiversERf.exit
-  %.pre-phi = phi i64 [ %.pre, %240 ], [ %.idx.i.i, %_ZN3ozz2io8IArchiversERf.exit ]
-  %.sroa.05.0.copyload = phi ptr [ %.sroa.05.0.copyload.pre, %240 ], [ %191, %_ZN3ozz2io8IArchiversERf.exit ]
-  %249 = load ptr, ptr %1, align 8
-  %250 = load ptr, ptr %249, align 8
-  %251 = getelementptr inbounds nuw i8, ptr %250, i64 8
-  %252 = load ptr, ptr %251, align 8
-  %253 = call noundef i64 %252(ptr noundef nonnull align 8 dereferenceable(8) %249, ptr noundef %.sroa.05.0.copyload, i64 noundef %.pre-phi)
-  %254 = load i8, ptr %46, align 8
-  %255 = trunc i8 %254 to i1
+249:                                              ; preds = %241, %_ZN3ozz2io8IArchiversERf.exit
+  %.pre-phi = phi i64 [ %.pre, %241 ], [ %.idx.i.i, %_ZN3ozz2io8IArchiversERf.exit ]
+  %.sroa.05.0.copyload = phi ptr [ %.sroa.05.0.copyload.pre, %241 ], [ %192, %_ZN3ozz2io8IArchiversERf.exit ]
+  %250 = load ptr, ptr %1, align 8
+  %251 = load ptr, ptr %250, align 8
+  %252 = getelementptr inbounds nuw i8, ptr %251, i64 8
+  %253 = load ptr, ptr %252, align 8
+  %254 = call noundef i64 %253(ptr noundef nonnull align 8 dereferenceable(8) %250, ptr noundef %.sroa.05.0.copyload, i64 noundef %.pre-phi)
+  %255 = load i8, ptr %46, align 8
+  %256 = trunc i8 %255 to i1
   %.not43.i.i = icmp ne i64 %.pre-phi, 0
-  %or.cond.not = and i1 %.not43.i.i, %255
+  %or.cond.not = and i1 %.not43.i.i, %256
   br i1 %or.cond.not, label %.lr.ph.i.i, label %_ZN3ozz2io8IArchiversIKNS0_8internal5ArrayIfEEEEvRT_.exit
 
-.lr.ph.i.i:                                       ; preds = %248, %.lr.ph.i.i
-  %.03940.i.i = phi i64 [ %267, %.lr.ph.i.i ], [ 0, %248 ]
-  %256 = getelementptr inbounds i8, ptr %.sroa.05.0.copyload, i64 %.03940.i.i
-  %257 = or disjoint i64 %.03940.i.i, 3
-  %258 = getelementptr inbounds i8, ptr %.sroa.05.0.copyload, i64 %257
-  %259 = load i8, ptr %256, align 1
-  %260 = load i8, ptr %258, align 1
-  store i8 %259, ptr %258, align 1
-  store i8 %260, ptr %256, align 1
-  %261 = or disjoint i64 %.03940.i.i, 1
-  %262 = getelementptr inbounds i8, ptr %.sroa.05.0.copyload, i64 %261
-  %263 = or disjoint i64 %.03940.i.i, 2
-  %264 = getelementptr inbounds i8, ptr %.sroa.05.0.copyload, i64 %263
-  %265 = load i8, ptr %262, align 1
-  %266 = load i8, ptr %264, align 1
-  store i8 %265, ptr %264, align 1
-  store i8 %266, ptr %262, align 1
-  %267 = add nuw i64 %.03940.i.i, 4
-  %268 = icmp ult i64 %267, %.pre-phi
-  br i1 %268, label %.lr.ph.i.i, label %_ZN3ozz2io8IArchiversIKNS0_8internal5ArrayIfEEEEvRT_.exit, !llvm.loop !9
+.lr.ph.i.i:                                       ; preds = %249, %.lr.ph.i.i
+  %.03940.i.i = phi i64 [ %268, %.lr.ph.i.i ], [ 0, %249 ]
+  %257 = getelementptr inbounds i8, ptr %.sroa.05.0.copyload, i64 %.03940.i.i
+  %258 = or disjoint i64 %.03940.i.i, 3
+  %259 = getelementptr inbounds i8, ptr %.sroa.05.0.copyload, i64 %258
+  %260 = load i8, ptr %257, align 1
+  %261 = load i8, ptr %259, align 1
+  store i8 %260, ptr %259, align 1
+  store i8 %261, ptr %257, align 1
+  %262 = or disjoint i64 %.03940.i.i, 1
+  %263 = getelementptr inbounds i8, ptr %.sroa.05.0.copyload, i64 %262
+  %264 = or disjoint i64 %.03940.i.i, 2
+  %265 = getelementptr inbounds i8, ptr %.sroa.05.0.copyload, i64 %264
+  %266 = load i8, ptr %263, align 1
+  %267 = load i8, ptr %265, align 1
+  store i8 %266, ptr %265, align 1
+  store i8 %267, ptr %263, align 1
+  %268 = add nuw i64 %.03940.i.i, 4
+  %269 = icmp ult i64 %268, %.pre-phi
+  br i1 %269, label %.lr.ph.i.i, label %_ZN3ozz2io8IArchiversIKNS0_8internal5ArrayIfEEEEvRT_.exit, !llvm.loop !9
 
-_ZN3ozz2io8IArchiversIKNS0_8internal5ArrayIfEEEEvRT_.exit: ; preds = %.lr.ph.i.i, %248
-  call void @_ZN3ozz2io6ExternINS_9animation9Animation14TKeyframesCtrlILb0EEEE4LoadERNS0_8IArchiveEPS5_mj(ptr noundef nonnull align 8 dereferenceable(9) %1, ptr noundef nonnull align 8 dereferenceable(68) %195, i64 noundef 1, i32 noundef 0)
+_ZN3ozz2io8IArchiversIKNS0_8internal5ArrayIfEEEEvRT_.exit: ; preds = %.lr.ph.i.i, %249
+  call void @_ZN3ozz2io6ExternINS_9animation9Animation14TKeyframesCtrlILb0EEEE4LoadERNS0_8IArchiveEPS5_mj(ptr noundef nonnull align 8 dereferenceable(9) %1, ptr noundef nonnull align 8 dereferenceable(68) %196, i64 noundef 1, i32 noundef 0)
   %.sroa.03.0.copyload = load ptr, ptr %27, align 8
-  %.sroa.24.0.copyload = load i64, ptr %214, align 8
-  %269 = mul i64 %.sroa.24.0.copyload, 6
-  %270 = load ptr, ptr %1, align 8
-  %271 = load ptr, ptr %270, align 8
-  %272 = getelementptr inbounds nuw i8, ptr %271, i64 8
-  %273 = load ptr, ptr %272, align 8
-  %274 = call noundef i64 %273(ptr noundef nonnull align 8 dereferenceable(8) %270, ptr noundef %.sroa.03.0.copyload, i64 noundef %269)
-  %275 = load i8, ptr %46, align 8
-  %276 = trunc i8 %275 to i1
-  %.not30.i.i.i.i.i = icmp ne i64 %269, 0
-  %or.cond.not.i.i.i = and i1 %.not30.i.i.i.i.i, %276
+  %.sroa.24.0.copyload = load i64, ptr %215, align 8
+  %270 = mul i64 %.sroa.24.0.copyload, 6
+  %271 = load ptr, ptr %1, align 8
+  %272 = load ptr, ptr %271, align 8
+  %273 = getelementptr inbounds nuw i8, ptr %272, i64 8
+  %274 = load ptr, ptr %273, align 8
+  %275 = call noundef i64 %274(ptr noundef nonnull align 8 dereferenceable(8) %271, ptr noundef %.sroa.03.0.copyload, i64 noundef %270)
+  %276 = load i8, ptr %46, align 8
+  %277 = trunc i8 %276 to i1
+  %.not30.i.i.i.i.i = icmp ne i64 %270, 0
+  %or.cond.not.i.i.i = and i1 %.not30.i.i.i.i.i, %277
   br i1 %or.cond.not.i.i.i, label %.lr.ph.i.i.i.i.i, label %_ZN3ozz2io8IArchiversIKNS0_8internal5ArrayINS_9animation8internal9Float3KeyEEEEEvRT_.exit
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %_ZN3ozz2io8IArchiversIKNS0_8internal5ArrayIfEEEEvRT_.exit, %.lr.ph.i.i.i.i.i
-  %.02627.i.i.i.i.i = phi i64 [ %282, %.lr.ph.i.i.i.i.i ], [ 0, %_ZN3ozz2io8IArchiversIKNS0_8internal5ArrayIfEEEEvRT_.exit ]
-  %277 = getelementptr inbounds i8, ptr %.sroa.03.0.copyload, i64 %.02627.i.i.i.i.i
-  %278 = or disjoint i64 %.02627.i.i.i.i.i, 1
-  %279 = getelementptr inbounds i8, ptr %.sroa.03.0.copyload, i64 %278
-  %280 = load i8, ptr %277, align 1
-  %281 = load i8, ptr %279, align 1
-  store i8 %280, ptr %279, align 1
-  store i8 %281, ptr %277, align 1
-  %282 = add nuw i64 %.02627.i.i.i.i.i, 2
-  %283 = icmp ult i64 %282, %269
-  br i1 %283, label %.lr.ph.i.i.i.i.i, label %_ZN3ozz2io8IArchiversIKNS0_8internal5ArrayINS_9animation8internal9Float3KeyEEEEEvRT_.exit, !llvm.loop !10
+  %.02627.i.i.i.i.i = phi i64 [ %283, %.lr.ph.i.i.i.i.i ], [ 0, %_ZN3ozz2io8IArchiversIKNS0_8internal5ArrayIfEEEEvRT_.exit ]
+  %278 = getelementptr inbounds i8, ptr %.sroa.03.0.copyload, i64 %.02627.i.i.i.i.i
+  %279 = or disjoint i64 %.02627.i.i.i.i.i, 1
+  %280 = getelementptr inbounds i8, ptr %.sroa.03.0.copyload, i64 %279
+  %281 = load i8, ptr %278, align 1
+  %282 = load i8, ptr %280, align 1
+  store i8 %281, ptr %280, align 1
+  store i8 %282, ptr %278, align 1
+  %283 = add nuw i64 %.02627.i.i.i.i.i, 2
+  %284 = icmp ult i64 %283, %270
+  br i1 %284, label %.lr.ph.i.i.i.i.i, label %_ZN3ozz2io8IArchiversIKNS0_8internal5ArrayINS_9animation8internal9Float3KeyEEEEEvRT_.exit, !llvm.loop !10
 
 _ZN3ozz2io8IArchiversIKNS0_8internal5ArrayINS_9animation8internal9Float3KeyEEEEEvRT_.exit: ; preds = %.lr.ph.i.i.i.i.i, %_ZN3ozz2io8IArchiversIKNS0_8internal5ArrayIfEEEEvRT_.exit
   call void @_ZN3ozz2io6ExternINS_9animation9Animation14TKeyframesCtrlILb0EEEE4LoadERNS0_8IArchiveEPS5_mj(ptr noundef nonnull align 8 dereferenceable(9) %1, ptr noundef nonnull align 8 dereferenceable(68) %25, i64 noundef 1, i32 noundef 0)
-  %.sroa.01.0.copyload = load ptr, ptr %216, align 8
-  %.sroa.22.0.copyload = load i64, ptr %217, align 8
-  %284 = mul i64 %.sroa.22.0.copyload, 6
-  %285 = load ptr, ptr %1, align 8
-  %286 = load ptr, ptr %285, align 8
-  %287 = getelementptr inbounds nuw i8, ptr %286, i64 8
-  %288 = load ptr, ptr %287, align 8
-  %289 = call noundef i64 %288(ptr noundef nonnull align 8 dereferenceable(8) %285, ptr noundef %.sroa.01.0.copyload, i64 noundef %284)
-  %290 = load i8, ptr %46, align 8
-  %291 = trunc i8 %290 to i1
-  %.not30.i.i.i.i.i64 = icmp ne i64 %284, 0
-  %or.cond.not.i.i.i65 = and i1 %.not30.i.i.i.i.i64, %291
+  %.sroa.01.0.copyload = load ptr, ptr %217, align 8
+  %.sroa.22.0.copyload = load i64, ptr %218, align 8
+  %285 = mul i64 %.sroa.22.0.copyload, 6
+  %286 = load ptr, ptr %1, align 8
+  %287 = load ptr, ptr %286, align 8
+  %288 = getelementptr inbounds nuw i8, ptr %287, i64 8
+  %289 = load ptr, ptr %288, align 8
+  %290 = call noundef i64 %289(ptr noundef nonnull align 8 dereferenceable(8) %286, ptr noundef %.sroa.01.0.copyload, i64 noundef %285)
+  %291 = load i8, ptr %46, align 8
+  %292 = trunc i8 %291 to i1
+  %.not30.i.i.i.i.i64 = icmp ne i64 %285, 0
+  %or.cond.not.i.i.i65 = and i1 %.not30.i.i.i.i.i64, %292
   br i1 %or.cond.not.i.i.i65, label %.lr.ph.i.i.i.i.i66, label %_ZN3ozz2io8IArchiversIKNS0_8internal5ArrayINS_9animation8internal13QuaternionKeyEEEEEvRT_.exit
 
 .lr.ph.i.i.i.i.i66:                               ; preds = %_ZN3ozz2io8IArchiversIKNS0_8internal5ArrayINS_9animation8internal9Float3KeyEEEEEvRT_.exit, %.lr.ph.i.i.i.i.i66
-  %.02627.i.i.i.i.i67 = phi i64 [ %297, %.lr.ph.i.i.i.i.i66 ], [ 0, %_ZN3ozz2io8IArchiversIKNS0_8internal5ArrayINS_9animation8internal9Float3KeyEEEEEvRT_.exit ]
-  %292 = getelementptr inbounds i8, ptr %.sroa.01.0.copyload, i64 %.02627.i.i.i.i.i67
-  %293 = or disjoint i64 %.02627.i.i.i.i.i67, 1
-  %294 = getelementptr inbounds i8, ptr %.sroa.01.0.copyload, i64 %293
-  %295 = load i8, ptr %292, align 1
-  %296 = load i8, ptr %294, align 1
-  store i8 %295, ptr %294, align 1
-  store i8 %296, ptr %292, align 1
-  %297 = add nuw i64 %.02627.i.i.i.i.i67, 2
-  %298 = icmp ult i64 %297, %284
-  br i1 %298, label %.lr.ph.i.i.i.i.i66, label %_ZN3ozz2io8IArchiversIKNS0_8internal5ArrayINS_9animation8internal13QuaternionKeyEEEEEvRT_.exit, !llvm.loop !10
+  %.02627.i.i.i.i.i67 = phi i64 [ %298, %.lr.ph.i.i.i.i.i66 ], [ 0, %_ZN3ozz2io8IArchiversIKNS0_8internal5ArrayINS_9animation8internal9Float3KeyEEEEEvRT_.exit ]
+  %293 = getelementptr inbounds i8, ptr %.sroa.01.0.copyload, i64 %.02627.i.i.i.i.i67
+  %294 = or disjoint i64 %.02627.i.i.i.i.i67, 1
+  %295 = getelementptr inbounds i8, ptr %.sroa.01.0.copyload, i64 %294
+  %296 = load i8, ptr %293, align 1
+  %297 = load i8, ptr %295, align 1
+  store i8 %296, ptr %295, align 1
+  store i8 %297, ptr %293, align 1
+  %298 = add nuw i64 %.02627.i.i.i.i.i67, 2
+  %299 = icmp ult i64 %298, %285
+  br i1 %299, label %.lr.ph.i.i.i.i.i66, label %_ZN3ozz2io8IArchiversIKNS0_8internal5ArrayINS_9animation8internal13QuaternionKeyEEEEEvRT_.exit, !llvm.loop !10
 
 _ZN3ozz2io8IArchiversIKNS0_8internal5ArrayINS_9animation8internal13QuaternionKeyEEEEEvRT_.exit: ; preds = %.lr.ph.i.i.i.i.i66, %_ZN3ozz2io8IArchiversIKNS0_8internal5ArrayINS_9animation8internal9Float3KeyEEEEEvRT_.exit
   call void @_ZN3ozz2io6ExternINS_9animation9Animation14TKeyframesCtrlILb0EEEE4LoadERNS0_8IArchiveEPS5_mj(ptr noundef nonnull align 8 dereferenceable(9) %1, ptr noundef nonnull align 8 dereferenceable(68) %26, i64 noundef 1, i32 noundef 0)
-  %.sroa.0.0.copyload = load ptr, ptr %219, align 8
-  %.sroa.2.0.copyload = load i64, ptr %220, align 8
-  %299 = mul i64 %.sroa.2.0.copyload, 6
-  %300 = load ptr, ptr %1, align 8
-  %301 = load ptr, ptr %300, align 8
-  %302 = getelementptr inbounds nuw i8, ptr %301, i64 8
-  %303 = load ptr, ptr %302, align 8
-  %304 = call noundef i64 %303(ptr noundef nonnull align 8 dereferenceable(8) %300, ptr noundef %.sroa.0.0.copyload, i64 noundef %299)
-  %305 = load i8, ptr %46, align 8
-  %306 = trunc i8 %305 to i1
-  %.not30.i.i.i.i.i68 = icmp ne i64 %299, 0
-  %or.cond.not.i.i.i69 = and i1 %.not30.i.i.i.i.i68, %306
+  %.sroa.0.0.copyload = load ptr, ptr %220, align 8
+  %.sroa.2.0.copyload = load i64, ptr %221, align 8
+  %300 = mul i64 %.sroa.2.0.copyload, 6
+  %301 = load ptr, ptr %1, align 8
+  %302 = load ptr, ptr %301, align 8
+  %303 = getelementptr inbounds nuw i8, ptr %302, i64 8
+  %304 = load ptr, ptr %303, align 8
+  %305 = call noundef i64 %304(ptr noundef nonnull align 8 dereferenceable(8) %301, ptr noundef %.sroa.0.0.copyload, i64 noundef %300)
+  %306 = load i8, ptr %46, align 8
+  %307 = trunc i8 %306 to i1
+  %.not30.i.i.i.i.i68 = icmp ne i64 %300, 0
+  %or.cond.not.i.i.i69 = and i1 %.not30.i.i.i.i.i68, %307
   br i1 %or.cond.not.i.i.i69, label %.lr.ph.i.i.i.i.i70, label %_ZN3ozz2io8IArchiversIKNS0_8internal5ArrayINS_9animation8internal9Float3KeyEEEEEvRT_.exit72
 
 .lr.ph.i.i.i.i.i70:                               ; preds = %_ZN3ozz2io8IArchiversIKNS0_8internal5ArrayINS_9animation8internal13QuaternionKeyEEEEEvRT_.exit, %.lr.ph.i.i.i.i.i70
-  %.02627.i.i.i.i.i71 = phi i64 [ %312, %.lr.ph.i.i.i.i.i70 ], [ 0, %_ZN3ozz2io8IArchiversIKNS0_8internal5ArrayINS_9animation8internal13QuaternionKeyEEEEEvRT_.exit ]
-  %307 = getelementptr inbounds i8, ptr %.sroa.0.0.copyload, i64 %.02627.i.i.i.i.i71
-  %308 = or disjoint i64 %.02627.i.i.i.i.i71, 1
-  %309 = getelementptr inbounds i8, ptr %.sroa.0.0.copyload, i64 %308
-  %310 = load i8, ptr %307, align 1
-  %311 = load i8, ptr %309, align 1
-  store i8 %310, ptr %309, align 1
-  store i8 %311, ptr %307, align 1
-  %312 = add nuw i64 %.02627.i.i.i.i.i71, 2
-  %313 = icmp ult i64 %312, %299
-  br i1 %313, label %.lr.ph.i.i.i.i.i70, label %_ZN3ozz2io8IArchiversIKNS0_8internal5ArrayINS_9animation8internal9Float3KeyEEEEEvRT_.exit72, !llvm.loop !10
+  %.02627.i.i.i.i.i71 = phi i64 [ %313, %.lr.ph.i.i.i.i.i70 ], [ 0, %_ZN3ozz2io8IArchiversIKNS0_8internal5ArrayINS_9animation8internal13QuaternionKeyEEEEEvRT_.exit ]
+  %308 = getelementptr inbounds i8, ptr %.sroa.0.0.copyload, i64 %.02627.i.i.i.i.i71
+  %309 = or disjoint i64 %.02627.i.i.i.i.i71, 1
+  %310 = getelementptr inbounds i8, ptr %.sroa.0.0.copyload, i64 %309
+  %311 = load i8, ptr %308, align 1
+  %312 = load i8, ptr %310, align 1
+  store i8 %311, ptr %310, align 1
+  store i8 %312, ptr %308, align 1
+  %313 = add nuw i64 %.02627.i.i.i.i.i71, 2
+  %314 = icmp ult i64 %313, %300
+  br i1 %314, label %.lr.ph.i.i.i.i.i70, label %_ZN3ozz2io8IArchiversIKNS0_8internal5ArrayINS_9animation8internal9Float3KeyEEEEEvRT_.exit72, !llvm.loop !10
 
 _ZN3ozz2io8IArchiversIKNS0_8internal5ArrayINS_9animation8internal9Float3KeyEEEEEvRT_.exit72: ; preds = %.lr.ph.i.i.i.i.i70, %_ZN3ozz2io8IArchiversIKNS0_8internal5ArrayINS_9animation8internal13QuaternionKeyEEEEEvRT_.exit, %37
   ret void
@@ -1828,7 +1825,7 @@ define linkonce_odr dso_local void @_ZN3ozz2io6ExternINS_9animation9Animation14T
   br label %7
 
 7:                                                ; preds = %.lr.ph, %_ZN3ozz2io8IArchiversERf.exit
-  %.055 = phi i64 [ 0, %.lr.ph ], [ %78, %_ZN3ozz2io8IArchiversERf.exit ]
+  %.055 = phi i64 [ 0, %.lr.ph ], [ %79, %_ZN3ozz2io8IArchiversERf.exit ]
   %8 = getelementptr inbounds %"struct.ozz::animation::Animation::TKeyframesCtrl", ptr %1, i64 %.055
   %.sroa.05.0.copyload = load ptr, ptr %8, align 8
   %.sroa.26.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 8
@@ -1924,40 +1921,37 @@ _ZN3ozz2io8IArchiversIKNS0_8internal5ArrayIjEEEEvRT_.exit: ; preds = %.lr.ph.i.i
   %63 = call noundef i64 %62(ptr noundef nonnull align 8 dereferenceable(8) %59, ptr noundef nonnull %5, i64 noundef 4)
   %64 = load i8, ptr %6, align 8
   %65 = trunc i8 %64 to i1
-  br i1 %65, label %66, label %75
+  br i1 %65, label %66, label %76
 
 66:                                               ; preds = %_ZN3ozz2io8IArchiversIKNS0_8internal5ArrayIjEEEEvRT_.exit
   %67 = load i32, ptr %5, align 4
-  %.3.extract.shift53.i = lshr i32 %67, 24
-  %.masked.i = and i32 %67, 255
-  %.0.insert.ext.i = xor i32 %.masked.i, %.3.extract.shift53.i
-  %68 = shl nuw i32 %.0.insert.ext.i, 24
-  %.masked56.i = and i32 %67, -16777216
-  %.3.insert.shift.i = xor i32 %68, %.masked56.i
-  %.3.extract.shift.i = lshr exact i32 %.3.insert.shift.i, 24
-  %69 = xor i32 %.3.extract.shift.i, %.0.insert.ext.i
-  %70 = lshr i32 %67, 8
-  %.1.extract.shift4157.i = xor i32 %70, %67
-  %71 = shl i32 %.1.extract.shift4157.i, 8
-  %.2.extract.shift4458.i = xor i32 %71, %67
-  %.2.insert.shift.i = and i32 %.2.extract.shift4458.i, 16711680
-  %.1.insert.shift.i = and i32 %70, 65280
-  %72 = or disjoint i32 %.1.insert.shift.i, %.2.insert.shift.i
-  %73 = or disjoint i32 %72, %69
-  %.1.insert.insert.i = or disjoint i32 %73, %.3.insert.shift.i
-  %74 = bitcast i32 %.1.insert.insert.i to float
+  %68 = and i32 %67, -16776961
+  %69 = call i32 @llvm.bswap.i32(i32 %68)
+  %.0.insert.insert31.i = or i32 %69, %67
+  %70 = lshr i32 %.0.insert.insert31.i, 8
+  %.1.extract.shift4156.i = xor i32 %70, %67
+  %.1.insert.shift37.i = and i32 %.1.extract.shift4156.i, 65280
+  %71 = shl i32 %.1.extract.shift4156.i, 8
+  %.2.extract.shift4457.i = xor i32 %71, %67
+  %.2.insert.shift.i = and i32 %.2.extract.shift4457.i, 16711680
+  %72 = or disjoint i32 %.1.insert.shift37.i, %.2.insert.shift.i
+  %.2.insert.insert.i = or disjoint i32 %72, %69
+  %73 = lshr i32 %.2.extract.shift4457.i, 8
+  %74 = and i32 %73, 65280
+  %.1.insert.insert.i = xor i32 %.2.insert.insert.i, %74
+  %75 = bitcast i32 %.1.insert.insert.i to float
   br label %_ZN3ozz2io8IArchiversERf.exit
 
-75:                                               ; preds = %_ZN3ozz2io8IArchiversIKNS0_8internal5ArrayIjEEEEvRT_.exit
-  %76 = load float, ptr %5, align 4
+76:                                               ; preds = %_ZN3ozz2io8IArchiversIKNS0_8internal5ArrayIjEEEEvRT_.exit
+  %77 = load float, ptr %5, align 4
   br label %_ZN3ozz2io8IArchiversERf.exit
 
-_ZN3ozz2io8IArchiversERf.exit:                    ; preds = %66, %75
-  %77 = phi float [ %74, %66 ], [ %76, %75 ]
-  store float %77, ptr %58, align 4
+_ZN3ozz2io8IArchiversERf.exit:                    ; preds = %66, %76
+  %78 = phi float [ %75, %66 ], [ %77, %76 ]
+  store float %78, ptr %58, align 4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
-  %78 = add nuw i64 %.055, 1
-  %exitcond.not = icmp eq i64 %78, %2
+  %79 = add nuw i64 %.055, 1
+  %exitcond.not = icmp eq i64 %79, %2
   br i1 %exitcond.not, label %._crit_edge, label %7, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %_ZN3ozz2io8IArchiversERf.exit, %4

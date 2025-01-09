@@ -640,7 +640,7 @@ define hidden noundef zeroext i1 @_ZN12CDSEnumKlass21initialize_enum_klassEP13In
   %6 = load i8, ptr @_ZN17ArchiveHeapLoader10_is_mappedE, align 1
   %7 = trunc i8 %6 to i1
   %8 = select i1 %5, i1 true, i1 %7
-  br i1 %8, label %9, label %120
+  br i1 %8, label %9, label %122
 
 9:                                                ; preds = %2
   %10 = getelementptr inbounds i8, ptr %0, i64 -8
@@ -770,16 +770,16 @@ _ZN15JavaFieldStreamC2EPK13InstanceKlass.exit:    ; preds = %.lr.ph.i.i.i.i.i.i,
   call void @_ZN18constantPoolHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %79) #9
   %80 = getelementptr inbounds nuw i8, ptr %3, i64 32
   call void @_ZN18constantPoolHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %80) #9
-  br label %120
+  br label %122
 
 81:                                               ; preds = %.lr.ph, %_ZN15FieldStreamBase4nextEv.exit
-  %82 = phi i32 [ %71, %.lr.ph ], [ %118, %_ZN15FieldStreamBase4nextEv.exit ]
-  %83 = phi i32 [ %70, %.lr.ph ], [ %119, %_ZN15FieldStreamBase4nextEv.exit ]
+  %82 = phi i32 [ %71, %.lr.ph ], [ %120, %_ZN15FieldStreamBase4nextEv.exit ]
+  %83 = phi i32 [ %70, %.lr.ph ], [ %121, %_ZN15FieldStreamBase4nextEv.exit ]
   %.0918 = phi i32 [ 0, %.lr.ph ], [ %.1, %_ZN15FieldStreamBase4nextEv.exit ]
   %.sroa.0.0.copyload.i.i = load i32, ptr %72, align 4
   %84 = and i32 %.sroa.0.0.copyload.i.i, 8
   %.not16 = icmp eq i32 %84, 0
-  br i1 %.not16, label %113, label %85
+  br i1 %.not16, label %115, label %85
 
 85:                                               ; preds = %81
   %86 = add nsw i32 %.0918, 1
@@ -795,54 +795,54 @@ _ZN15JavaFieldStreamC2EPK13InstanceKlass.exit:    ; preds = %.lr.ph.i.i.i.i.i.i,
   %94 = sext i32 %93 to i64
   %95 = load i32, ptr %74, align 8
   %96 = sext i32 %95 to i64
-  %reass.add.i.i.i.i = add nsw i64 %96, %94
-  %reass.mul.i.i.i.i = shl nsw i64 %reass.add.i.i.i.i, 3
-  %97 = add nsw i64 %96, 7
-  %98 = and i64 %97, -8
+  %97 = add nsw i64 %96, %94
+  %98 = shl nsw i64 %97, 3
+  %99 = add nsw i64 %96, 7
+  %100 = and i64 %99, -8
   %gep = getelementptr i8, ptr %invariant.gep, i64 %88
-  %99 = getelementptr i8, ptr %gep, i64 %..i.i.i.i.i.i.i
-  %100 = getelementptr i8, ptr %99, i64 %reass.mul.i.i.i.i
-  %101 = getelementptr i8, ptr %100, i64 %98
-  %102 = getelementptr inbounds nuw i8, ptr %101, i64 4
-  %103 = sext i32 %.0918 to i64
-  %104 = getelementptr inbounds [1 x i32], ptr %102, i64 0, i64 %103
-  %105 = load i32, ptr %104, align 4
-  %106 = load ptr, ptr %76, align 8
-  %107 = getelementptr inbounds nuw i8, ptr %106, i64 24
-  %108 = load ptr, ptr %107, align 8
-  %109 = load i32, ptr %68, align 8
-  call void @_ZN15fieldDescriptor12reinitializeEP13InstanceKlassi(ptr noundef nonnull align 8 dereferenceable(48) %75, ptr noundef %108, i32 noundef %109) #9
+  %101 = getelementptr i8, ptr %gep, i64 %..i.i.i.i.i.i.i
+  %102 = getelementptr i8, ptr %101, i64 %98
+  %103 = getelementptr i8, ptr %102, i64 %100
+  %104 = getelementptr inbounds nuw i8, ptr %103, i64 4
+  %105 = sext i32 %.0918 to i64
+  %106 = getelementptr inbounds [1 x i32], ptr %104, i64 0, i64 %105
+  %107 = load i32, ptr %106, align 4
+  %108 = load ptr, ptr %76, align 8
+  %109 = getelementptr inbounds nuw i8, ptr %108, i64 24
+  %110 = load ptr, ptr %109, align 8
+  %111 = load i32, ptr %68, align 8
+  call void @_ZN15fieldDescriptor12reinitializeEP13InstanceKlassi(ptr noundef nonnull align 8 dereferenceable(48) %75, ptr noundef %110, i32 noundef %111) #9
   %.sroa.1.0.copyload.i = load i32, ptr %.sroa.1.0..sroa_idx.i, align 8
-  %110 = call noundef ptr @_ZN10HeapShared8get_rootEib(i32 noundef %105, i1 noundef zeroext true) #9
-  %111 = sext i32 %.sroa.1.0.copyload.i to i64
-  %112 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm286790EP7oopDescLNS_11BarrierTypeE1EE14_store_at_funcE, align 8
-  call void %112(ptr noundef nonnull align 8 dereferenceable(16) %41, i64 noundef %111, ptr noundef %110) #9
+  %112 = call noundef ptr @_ZN10HeapShared8get_rootEib(i32 noundef %107, i1 noundef zeroext true) #9
+  %113 = sext i32 %.sroa.1.0.copyload.i to i64
+  %114 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm286790EP7oopDescLNS_11BarrierTypeE1EE14_store_at_funcE, align 8
+  call void %114(ptr noundef nonnull align 8 dereferenceable(16) %41, i64 noundef %113, ptr noundef %112) #9
   %.pre = load i32, ptr %68, align 8
   %.pre19 = load i32, ptr %69, align 4
-  br label %113
+  br label %115
 
-113:                                              ; preds = %81, %85
-  %114 = phi i32 [ %.pre19, %85 ], [ %82, %81 ]
-  %115 = phi i32 [ %.pre, %85 ], [ %83, %81 ]
+115:                                              ; preds = %81, %85
+  %116 = phi i32 [ %.pre19, %85 ], [ %82, %81 ]
+  %117 = phi i32 [ %.pre, %85 ], [ %83, %81 ]
   %.1 = phi i32 [ %86, %85 ], [ %.0918, %81 ]
-  %116 = add nsw i32 %115, 1
-  store i32 %116, ptr %68, align 8
-  %.not.i = icmp slt i32 %116, %114
-  br i1 %.not.i, label %117, label %_ZN15FieldStreamBase4nextEv.exit
+  %118 = add nsw i32 %117, 1
+  store i32 %118, ptr %68, align 8
+  %.not.i = icmp slt i32 %118, %116
+  br i1 %.not.i, label %119, label %_ZN15FieldStreamBase4nextEv.exit
 
-117:                                              ; preds = %113
+119:                                              ; preds = %115
   call void @_ZN15FieldInfoReader15read_field_infoER9FieldInfo(ptr noundef nonnull align 8 dereferenceable(20) %77, ptr noundef nonnull align 4 dereferenceable(26) %78)
   %.pre20 = load i32, ptr %68, align 8
   %.pre21 = load i32, ptr %69, align 4
   br label %_ZN15FieldStreamBase4nextEv.exit
 
-_ZN15FieldStreamBase4nextEv.exit:                 ; preds = %113, %117
-  %118 = phi i32 [ %114, %113 ], [ %.pre21, %117 ]
-  %119 = phi i32 [ %116, %113 ], [ %.pre20, %117 ]
-  %.not15 = icmp slt i32 %119, %118
+_ZN15FieldStreamBase4nextEv.exit:                 ; preds = %115, %119
+  %120 = phi i32 [ %116, %115 ], [ %.pre21, %119 ]
+  %121 = phi i32 [ %118, %115 ], [ %.pre20, %119 ]
+  %.not15 = icmp slt i32 %121, %120
   br i1 %.not15, label %81, label %._crit_edge, !llvm.loop !9
 
-120:                                              ; preds = %2, %._crit_edge
+122:                                              ; preds = %2, %._crit_edge
   ret i1 %8
 }
 

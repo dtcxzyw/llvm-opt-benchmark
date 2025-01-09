@@ -53601,8 +53601,8 @@ define internal fastcc range(i32 0, 2) i32 @uncompress_b44_impl(ptr nocapture no
   %108 = load i8, ptr %99, align 1
   %109 = and i8 %108, 63
   %110 = zext nneg i8 %109 to i32
-  %111 = add nsw i32 %110, -32
-  %112 = add nsw i32 %103, %111
+  %111 = add nsw i32 %103, -32
+  %112 = add nsw i32 %111, %110
   %113 = shl nsw i32 %112, %84
   %114 = add nsw i32 %113, %105
   %115 = trunc i32 %114 to i16

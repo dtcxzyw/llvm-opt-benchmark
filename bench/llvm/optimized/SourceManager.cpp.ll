@@ -13263,18 +13263,19 @@ define dso_local noundef i64 @_ZNK5clang13SourceManager21getDataStructureSizesEv
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %26 = load ptr, ptr %25, align 8
   %.not = icmp eq ptr %26, null
-  br i1 %.not, label %33, label %27
+  br i1 %.not, label %34, label %27
 
 27:                                               ; preds = %1
   %28 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %29 = load i32, ptr %28, align 8
   %30 = zext i32 %29 to i64
-  %31 = shl nuw nsw i64 %30, 4
-  %32 = add i64 %31, %24
-  br label %33
+  %31 = add nuw nsw i64 %30, %22
+  %32 = shl nuw nsw i64 %31, 4
+  %33 = add i64 %32, %19
+  br label %34
 
-33:                                               ; preds = %27, %1
-  %.0 = phi i64 [ %32, %27 ], [ %24, %1 ]
+34:                                               ; preds = %27, %1
+  %.0 = phi i64 [ %33, %27 ], [ %24, %1 ]
   ret i64 %.0
 }
 

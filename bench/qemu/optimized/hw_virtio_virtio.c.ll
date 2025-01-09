@@ -4402,43 +4402,41 @@ if.else:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   %sub = add i64 %sz, 7
-  %div24 = and i64 %sub, -8
   %conv = zext i32 %in_num to i64
   %conv3 = zext i32 %out_num to i64
   %0 = add nuw nsw i64 %conv, %conv3
   %1 = shl nuw nsw i64 %0, 3
-  %2 = add i64 %1, %div24
-  %mul11 = shl nuw nsw i64 %conv, 4
-  %add12 = add i64 %2, %mul11
-  %mul14 = shl nuw nsw i64 %conv3, 4
-  %add15 = add i64 %add12, %mul14
+  %2 = add i64 %1, %sub
+  %div825 = and i64 %2, -8
+  %3 = shl nuw nsw i64 %0, 4
+  %add15 = add i64 %div825, %3
   %call = tail call noalias ptr @g_malloc(i64 noundef %add15) #26
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
-  %3 = load i32, ptr @trace_events_enabled_count, align 4
-  %tobool.i.i = icmp ne i32 %3, 0
-  %4 = load i16, ptr @_TRACE_VIRTQUEUE_ALLOC_ELEMENT_DSTATE, align 2
-  %tobool4.i.i = icmp ne i16 %4, 0
+  %4 = load i32, ptr @trace_events_enabled_count, align 4
+  %tobool.i.i = icmp ne i32 %4, 0
+  %5 = load i16, ptr @_TRACE_VIRTQUEUE_ALLOC_ELEMENT_DSTATE, align 2
+  %tobool4.i.i = icmp ne i16 %5, 0
   %or.cond.i.i = select i1 %tobool.i.i, i1 %tobool4.i.i, i1 false
   br i1 %or.cond.i.i, label %land.lhs.true5.i.i, label %trace_virtqueue_alloc_element.exit
 
 land.lhs.true5.i.i:                               ; preds = %if.end
-  %5 = load i32, ptr @qemu_loglevel, align 4
-  %and.i.i.i = and i32 %5, 32768
+  %6 = load i32, ptr @qemu_loglevel, align 4
+  %and.i.i.i = and i32 %6, 32768
   %cmp.i.not.i.i = icmp eq i32 %and.i.i.i, 0
   br i1 %cmp.i.not.i.i, label %trace_virtqueue_alloc_element.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
-  %6 = load i8, ptr @message_with_timestamp, align 1
-  %tobool7.i.i = trunc i8 %6 to i1
+  %7 = load i8, ptr @message_with_timestamp, align 1
+  %tobool7.i.i = trunc i8 %7 to i1
   br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #23
   %call10.i.i = tail call i32 @qemu_get_thread_id() #23
-  %7 = load i64, ptr %_now.i.i, align 8
+  %8 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds nuw i8, ptr %_now.i.i, i64 8
-  %8 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.91, i32 noundef %call10.i.i, i64 noundef %7, i64 noundef %8, ptr noundef %call, i64 noundef range(i64 56, 0) %sz, i32 noundef %in_num, i32 noundef %out_num) #23
+  %9 = load i64, ptr %tv_usec.i.i, align 8
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.91, i32 noundef %call10.i.i, i64 noundef %8, i64 noundef %9, ptr noundef %call, i64 noundef range(i64 56, 0) %sz, i32 noundef %in_num, i32 noundef %out_num) #23
   br label %trace_virtqueue_alloc_element.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
@@ -4447,6 +4445,8 @@ if.else.i.i:                                      ; preds = %if.then.i.i
 
 trace_virtqueue_alloc_element.exit:               ; preds = %if.end, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
   %mul1 = shl nuw nsw i64 %conv, 3
+  %div24 = and i64 %sub, -8
+  %mul11 = shl nuw nsw i64 %conv, 4
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
   %out_num17 = getelementptr inbounds nuw i8, ptr %call, i64 12
   store i32 %out_num, ptr %out_num17, align 4
@@ -4455,14 +4455,13 @@ trace_virtqueue_alloc_element.exit:               ; preds = %if.end, %land.lhs.t
   %add.ptr = getelementptr i8, ptr %call, i64 %div24
   %in_addr = getelementptr inbounds nuw i8, ptr %call, i64 24
   store ptr %add.ptr, ptr %in_addr, align 8
-  %9 = getelementptr i8, ptr %call, i64 %mul1
-  %add.ptr19 = getelementptr i8, ptr %9, i64 %div24
+  %add.ptr19 = getelementptr i8, ptr %add.ptr, i64 %mul1
   %out_addr = getelementptr inbounds nuw i8, ptr %call, i64 32
   store ptr %add.ptr19, ptr %out_addr, align 8
-  %add.ptr20 = getelementptr i8, ptr %call, i64 %2
+  %add.ptr20 = getelementptr i8, ptr %call, i64 %div825
   %in_sg = getelementptr inbounds nuw i8, ptr %call, i64 40
   store ptr %add.ptr20, ptr %in_sg, align 8
-  %add.ptr21 = getelementptr i8, ptr %call, i64 %add12
+  %add.ptr21 = getelementptr i8, ptr %add.ptr20, i64 %mul11
   %out_sg = getelementptr inbounds nuw i8, ptr %call, i64 48
   store ptr %add.ptr21, ptr %out_sg, align 8
   ret ptr %call

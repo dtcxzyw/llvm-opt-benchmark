@@ -149,7 +149,7 @@ define dso_local void @vlv_dsi_init(ptr noundef %0) local_unnamed_addr #0 align 
   store i32 0, ptr %2, align 4, !annotation !10
   tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %9, i32 noundef 2, ptr noundef nonnull @.str.4) #9
   %10 = call zeroext i1 @intel_bios_is_dsi_present(ptr noundef %0, ptr noundef nonnull %2) #9
-  br i1 %10, label %11, label %347
+  br i1 %10, label %11, label %346
 
 11:                                               ; preds = %8
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 7184
@@ -162,7 +162,7 @@ define dso_local void @vlv_dsi_init(ptr noundef %0) local_unnamed_addr #0 align 
   %18 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 80), align 16
   %19 = call noalias noundef align 8 dereferenceable_or_null(656) ptr @kmalloc_trace(ptr noundef %18, i32 noundef 3520, i64 noundef 656) #11
   %20 = icmp eq ptr %19, null
-  br i1 %20, label %347, label %21
+  br i1 %20, label %346, label %21
 
 21:                                               ; preds = %11
   %22 = call ptr @intel_connector_alloc() #9
@@ -171,7 +171,7 @@ define dso_local void @vlv_dsi_init(ptr noundef %0) local_unnamed_addr #0 align 
 
 24:                                               ; preds = %21
   call void @kfree(ptr noundef nonnull %19) #9
-  br label %347
+  br label %346
 
 25:                                               ; preds = %21
   %26 = getelementptr inbounds nuw i8, ptr %19, i64 544
@@ -594,104 +594,103 @@ define dso_local void @vlv_dsi_init(ptr noundef %0) local_unnamed_addr #0 align 
   %282 = udiv i32 %281, 1000000
   %283 = shl nuw nsw i32 %282, 2
   %284 = select i1 %197, i32 1, i32 3
-  %285 = shl nuw nsw i32 %218, %284
-  %286 = shl nuw nsw i32 %240, %284
-  %287 = add nuw nsw i32 %283, 17
-  %288 = add nuw nsw i32 %287, %285
-  %289 = add nuw nsw i32 %288, %286
-  %290 = lshr i32 %289, 3
-  %291 = load i8, ptr %257, align 1
-  %292 = zext i8 %291 to i32
-  %293 = shl nuw nsw i32 %282, 1
-  %294 = add nuw nsw i32 %293, 7
-  %295 = add nuw nsw i32 %294, %292
-  %296 = lshr i32 %295, 3
-  %297 = call i32 @llvm.umax.i32(i32 %290, i32 %296)
-  %298 = getelementptr inbounds nuw i8, ptr %19, i64 618
-  %299 = add nuw nsw i32 %297, %181
-  %300 = trunc nuw nsw i32 %299 to i16
-  store i16 %300, ptr %298, align 2
-  %301 = add nuw nsw i32 %254, %218
-  %302 = shl nuw nsw i32 %301, 1
-  %303 = add nuw nsw i32 %283, 7
-  %304 = add nuw nsw i32 %303, %302
-  %305 = lshr i32 %304, 3
-  %306 = getelementptr inbounds nuw i8, ptr %19, i64 620
-  %307 = add nuw nsw i32 %305, %181
-  %308 = trunc nuw nsw i32 %307 to i16
-  store i16 %308, ptr %306, align 4
-  %309 = add nuw nsw i32 %273, %282
-  %310 = shl nuw nsw i32 %309, 1
-  %311 = add nuw nsw i32 %310, 15
-  %312 = lshr i32 %311, 3
-  %313 = getelementptr inbounds nuw i8, ptr %19, i64 622
-  %314 = add nuw nsw i32 %312, %181
-  %315 = trunc nuw nsw i32 %314 to i16
-  store i16 %315, ptr %313, align 2
+  %285 = add nuw nsw i32 %283, 17
+  %286 = add nuw nsw i32 %240, %218
+  %287 = shl nuw nsw i32 %286, %284
+  %288 = add nuw nsw i32 %285, %287
+  %289 = lshr i32 %288, 3
+  %290 = load i8, ptr %257, align 1
+  %291 = zext i8 %290 to i32
+  %292 = shl nuw nsw i32 %282, 1
+  %293 = add nuw nsw i32 %292, 7
+  %294 = add nuw nsw i32 %293, %291
+  %295 = lshr i32 %294, 3
+  %296 = call i32 @llvm.umax.i32(i32 %289, i32 %295)
+  %297 = getelementptr inbounds nuw i8, ptr %19, i64 618
+  %298 = add nuw nsw i32 %296, %181
+  %299 = trunc nuw nsw i32 %298 to i16
+  store i16 %299, ptr %297, align 2
+  %300 = add nuw nsw i32 %254, %218
+  %301 = shl nuw nsw i32 %300, 1
+  %302 = add nuw nsw i32 %283, 7
+  %303 = add nuw nsw i32 %302, %301
+  %304 = lshr i32 %303, 3
+  %305 = getelementptr inbounds nuw i8, ptr %19, i64 620
+  %306 = add nuw nsw i32 %304, %181
+  %307 = trunc nuw nsw i32 %306 to i16
+  store i16 %307, ptr %305, align 4
+  %308 = add nuw nsw i32 %273, %282
+  %309 = shl nuw nsw i32 %308, 1
+  %310 = add nuw nsw i32 %309, 15
+  %311 = lshr i32 %310, 3
+  %312 = getelementptr inbounds nuw i8, ptr %19, i64 622
+  %313 = add nuw nsw i32 %311, %181
+  %314 = trunc nuw nsw i32 %313 to i16
+  store i16 %314, ptr %312, align 2
   call void @intel_dsi_log_params(ptr noundef nonnull %19) #9
-  %316 = call zeroext i1 @intel_dsi_get_hw_state(ptr noundef nonnull %19, ptr noundef nonnull %3)
-  call void @intel_dsi_vbt_gpio_init(ptr noundef nonnull %19, i1 noundef zeroext %316) #9
-  %317 = call i32 @drm_connector_init(ptr noundef %0, ptr noundef nonnull %22, ptr noundef nonnull @intel_dsi_connector_funcs, i32 noundef 16) #9
-  %318 = getelementptr inbounds nuw i8, ptr %22, i64 1544
-  store ptr @intel_dsi_connector_helper_funcs, ptr %318, align 8
-  %319 = getelementptr inbounds nuw i8, ptr %22, i64 212
-  store i32 1, ptr %319, align 4
+  %315 = call zeroext i1 @intel_dsi_get_hw_state(ptr noundef nonnull %19, ptr noundef nonnull %3)
+  call void @intel_dsi_vbt_gpio_init(ptr noundef nonnull %19, i1 noundef zeroext %315) #9
+  %316 = call i32 @drm_connector_init(ptr noundef %0, ptr noundef nonnull %22, ptr noundef nonnull @intel_dsi_connector_funcs, i32 noundef 16) #9
+  %317 = getelementptr inbounds nuw i8, ptr %22, i64 1544
+  store ptr @intel_dsi_connector_helper_funcs, ptr %317, align 8
+  %318 = getelementptr inbounds nuw i8, ptr %22, i64 212
+  store i32 1, ptr %318, align 4
   call void @intel_connector_attach_encoder(ptr noundef nonnull %22, ptr noundef nonnull %19) #9
-  %320 = getelementptr inbounds nuw i8, ptr %0, i64 368
-  call void @mutex_lock(ptr noundef nonnull %320) #9
+  %319 = getelementptr inbounds nuw i8, ptr %0, i64 368
+  call void @mutex_lock(ptr noundef nonnull %319) #9
   call void @intel_panel_add_vbt_lfp_fixed_mode(ptr noundef nonnull %22) #9
-  call void @mutex_unlock(ptr noundef nonnull %320) #9
-  %321 = call ptr @intel_panel_preferred_fixed_mode(ptr noundef nonnull %22) #9
-  %322 = icmp eq ptr %321, null
-  br i1 %322, label %323, label %329
+  call void @mutex_unlock(ptr noundef nonnull %319) #9
+  %320 = call ptr @intel_panel_preferred_fixed_mode(ptr noundef nonnull %22) #9
+  %321 = icmp eq ptr %320, null
+  br i1 %321, label %322, label %328
 
-323:                                              ; preds = %272
-  br i1 %4, label %327, label %324
+322:                                              ; preds = %272
+  br i1 %4, label %326, label %323
 
-324:                                              ; preds = %323
-  %325 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %326 = load ptr, ptr %325, align 8
-  br label %327
+323:                                              ; preds = %322
+  %324 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %325 = load ptr, ptr %324, align 8
+  br label %326
 
-327:                                              ; preds = %324, %323
-  %328 = phi ptr [ %326, %324 ], [ null, %323 ]
-  call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %328, i32 noundef 2, ptr noundef nonnull @.str.12) #9
+326:                                              ; preds = %323, %322
+  %327 = phi ptr [ %325, %323 ], [ null, %322 ]
+  call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %327, i32 noundef 2, ptr noundef nonnull @.str.12) #9
   call void @drm_connector_cleanup(ptr noundef nonnull %22) #9
   br label %.loopexit
 
-329:                                              ; preds = %272
-  %330 = call ptr @dmi_first_match(ptr noundef nonnull @vlv_dsi_dmi_quirk_table) #9
-  %331 = icmp eq ptr %330, null
-  br i1 %331, label %335, label %332
+328:                                              ; preds = %272
+  %329 = call ptr @dmi_first_match(ptr noundef nonnull @vlv_dsi_dmi_quirk_table) #9
+  %330 = icmp eq ptr %329, null
+  br i1 %330, label %334, label %331
 
-332:                                              ; preds = %329
-  %333 = getelementptr inbounds nuw i8, ptr %330, i64 336
-  %334 = load ptr, ptr %333, align 8
-  call void %334(ptr noundef nonnull %19) #9
-  br label %335
+331:                                              ; preds = %328
+  %332 = getelementptr inbounds nuw i8, ptr %329, i64 336
+  %333 = load ptr, ptr %332, align 8
+  call void %333(ptr noundef nonnull %19) #9
+  br label %334
 
-335:                                              ; preds = %332, %329
-  %336 = call i32 @intel_panel_init(ptr noundef nonnull %22, ptr noundef null) #9
-  %337 = call i32 @intel_backlight_setup(ptr noundef nonnull %22, i32 noundef -1) #9
-  %338 = call ptr @intel_panel_preferred_fixed_mode(ptr noundef %22) #9
+334:                                              ; preds = %331, %328
+  %335 = call i32 @intel_panel_init(ptr noundef nonnull %22, ptr noundef null) #9
+  %336 = call i32 @intel_backlight_setup(ptr noundef nonnull %22, i32 noundef -1) #9
+  %337 = call ptr @intel_panel_preferred_fixed_mode(ptr noundef %22) #9
   call void @intel_attach_scaling_mode_property(ptr noundef %22) #9
-  %339 = call i32 @intel_dsi_get_panel_orientation(ptr noundef %22) #9
-  %340 = getelementptr inbounds nuw i8, ptr %338, i64 4
-  %341 = load i16, ptr %340, align 4
-  %342 = zext i16 %341 to i32
-  %343 = getelementptr inbounds nuw i8, ptr %338, i64 14
-  %344 = load i16, ptr %343, align 2
-  %345 = zext i16 %344 to i32
-  %346 = call i32 @drm_connector_set_panel_orientation_with_quirk(ptr noundef %22, i32 noundef %339, i32 noundef %342, i32 noundef %345) #9
-  br label %347
+  %338 = call i32 @intel_dsi_get_panel_orientation(ptr noundef %22) #9
+  %339 = getelementptr inbounds nuw i8, ptr %337, i64 4
+  %340 = load i16, ptr %339, align 4
+  %341 = zext i16 %340 to i32
+  %342 = getelementptr inbounds nuw i8, ptr %337, i64 14
+  %343 = load i16, ptr %342, align 2
+  %344 = zext i16 %343 to i32
+  %345 = call i32 @drm_connector_set_panel_orientation_with_quirk(ptr noundef %22, i32 noundef %338, i32 noundef %341, i32 noundef %344) #9
+  br label %346
 
-.loopexit:                                        ; preds = %129, %327, %145
+.loopexit:                                        ; preds = %129, %326, %145
   call void @drm_encoder_cleanup(ptr noundef nonnull %19) #9
   call void @kfree(ptr noundef nonnull %19) #9
   call void @kfree(ptr noundef nonnull %22) #9
-  br label %347
+  br label %346
 
-347:                                              ; preds = %.loopexit, %335, %24, %11, %8
+346:                                              ; preds = %.loopexit, %334, %24, %11, %8
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #9
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #9
   ret void

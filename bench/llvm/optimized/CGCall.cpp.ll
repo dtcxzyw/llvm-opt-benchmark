@@ -5161,27 +5161,27 @@ define dso_local noalias noundef nonnull ptr @_ZN5clang7CodeGen14CGFunctionInfo6
   %36 = and i16 %26, 4096
   %37 = zext nneg i16 %36 to i64
   %38 = shl nuw nsw i64 %37, 13
-  %39 = and i16 %26, 2048
+  %39 = and i16 %26, 224
   %40 = zext nneg i16 %39 to i64
-  %41 = shl nuw nsw i64 %40, 24
-  %42 = or i64 %34, %35
-  %.masked.masked.masked.masked = or i64 %42, %22
-  %43 = and i16 %26, 224
-  %44 = zext nneg i16 %43 to i64
-  %45 = shl nuw nsw i64 %44, 21
-  %.masked58 = or disjoint i64 %45, %38
-  %46 = or i64 %.masked58, %.masked.masked.masked.masked
-  %47 = add nuw nsw i64 %46, %41
+  %41 = shl nuw nsw i64 %40, 21
+  %42 = and i16 %26, 2048
+  %43 = zext nneg i16 %42 to i64
+  %44 = shl nuw nsw i64 %43, 24
+  %45 = or i64 %34, %35
+  %.masked.masked.masked.masked = or i64 %45, %22
+  %.masked53.masked.masked = or disjoint i64 %41, %38
+  %46 = or i64 %.masked53.masked.masked, %.masked.masked.masked.masked
+  %47 = add nuw nsw i64 %46, %44
   store i32 %8, ptr %18, align 8
   %48 = and i16 %26, 1792
-  %.not59 = icmp eq i16 %48, 0
-  %49 = select i1 %.not59, i64 0, i64 536870912
+  %.not57 = icmp eq i16 %48, 0
+  %49 = select i1 %.not57, i64 0, i64 536870912
   %50 = and i64 %47, -1061393793025
   %51 = or disjoint i64 %49, %50
   %52 = lshr i16 %26, 8
   %narrow = add nuw nsw i16 %52, 7
   %53 = and i16 %narrow, 7
-  %54 = select i1 %.not59, i16 0, i16 %53
+  %54 = select i1 %.not57, i16 0, i16 %53
   %55 = zext nneg i16 %54 to i64
   %56 = shl nuw nsw i64 %55, 32
   %57 = or disjoint i64 %51, %56
@@ -5197,8 +5197,8 @@ define dso_local noalias noundef nonnull ptr @_ZN5clang7CodeGen14CGFunctionInfo6
   %64 = getelementptr inbounds nuw i8, ptr %17, i64 40
   store i64 %6, ptr %64, align 8
   store i64 %57, ptr %19, align 8
-  %.not61 = icmp eq i32 %60, 0
-  br i1 %.not61, label %._crit_edge, label %.lr.ph
+  %.not59 = icmp eq i32 %60, 0
+  br i1 %.not59, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %9
   %65 = load ptr, ptr %7, align 8
@@ -5217,19 +5217,19 @@ define dso_local noalias noundef nonnull ptr @_ZN5clang7CodeGen14CGFunctionInfo6
 
 ._crit_edge:                                      ; preds = %67, %9
   %71 = and i64 %13, 4294967295
-  %.not4863 = icmp eq i64 %71, 0
-  br i1 %.not4863, label %._crit_edge67, label %.lr.ph66
+  %.not4861 = icmp eq i64 %71, 0
+  br i1 %.not4861, label %._crit_edge65, label %.lr.ph64
 
-.lr.ph66:                                         ; preds = %._crit_edge
+.lr.ph64:                                         ; preds = %._crit_edge
   %72 = load ptr, ptr %5, align 8
   %73 = add i64 %11, 1
   %74 = and i64 %73, 4294967295
   %75 = getelementptr inbounds nuw %"struct.clang::CodeGen::CGFunctionInfoArgInfo", ptr %64, i64 %74
   %76 = and i64 %13, 4294967295
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %75, ptr align 1 %72, i64 %76, i1 false)
-  br label %._crit_edge67
+  br label %._crit_edge65
 
-._crit_edge67:                                    ; preds = %.lr.ph66, %._crit_edge
+._crit_edge65:                                    ; preds = %.lr.ph64, %._crit_edge
   ret ptr %17
 }
 

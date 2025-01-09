@@ -10842,9 +10842,9 @@ entry:
   %.val = load i64, ptr %3, align 8
   %r = getelementptr inbounds nuw i8, ptr %po, i64 48
   %4 = load i64, ptr %r, align 8
-  %reass.add = add i64 %4, %.val
-  %reass.mul = shl i64 %reass.add, 3
-  %add4 = add i64 %reass.mul, %call.val
+  %5 = add i64 %4, %.val
+  %6 = shl i64 %5, 3
+  %add4 = add i64 %6, %call.val
   %call5 = tail call ptr @PyLong_FromSize_t(i64 noundef %add4) #8
   ret ptr %call5
 }

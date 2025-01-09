@@ -2565,25 +2565,24 @@ _ZNK6vectorIPN3smt5enodeELb0EjE4sizeEv.exit:      ; preds = %entry, %if.end.i
 if.end.i4:                                        ; preds = %_ZNK6vectorIPN3smt5enodeELb0EjE4sizeEv.exit
   %arrayidx.i5 = getelementptr inbounds i8, ptr %4, i64 -4
   %5 = load i32, ptr %arrayidx.i5, align 4
-  %6 = shl i32 %5, 1
   br label %_ZNK6vectorIPN3smt5enodeELb0EjE4sizeEv.exit7
 
 _ZNK6vectorIPN3smt5enodeELb0EjE4sizeEv.exit7:     ; preds = %_ZNK6vectorIPN3smt5enodeELb0EjE4sizeEv.exit, %if.end.i4
-  %retval.0.i6 = phi i32 [ %6, %if.end.i4 ], [ 0, %_ZNK6vectorIPN3smt5enodeELb0EjE4sizeEv.exit ]
-  %7 = load ptr, ptr %1, align 8
-  %cmp.i8 = icmp eq ptr %7, null
+  %retval.0.i6 = phi i32 [ %5, %if.end.i4 ], [ 0, %_ZNK6vectorIPN3smt5enodeELb0EjE4sizeEv.exit ]
+  %6 = load ptr, ptr %1, align 8
+  %cmp.i8 = icmp eq ptr %6, null
   br i1 %cmp.i8, label %_ZNK6vectorIPN3smt5enodeELb0EjE4sizeEv.exit12, label %if.end.i9
 
 if.end.i9:                                        ; preds = %_ZNK6vectorIPN3smt5enodeELb0EjE4sizeEv.exit7
-  %arrayidx.i10 = getelementptr inbounds i8, ptr %7, i64 -4
-  %8 = load i32, ptr %arrayidx.i10, align 4
-  %9 = shl i32 %8, 1
+  %arrayidx.i10 = getelementptr inbounds i8, ptr %6, i64 -4
+  %7 = load i32, ptr %arrayidx.i10, align 4
   br label %_ZNK6vectorIPN3smt5enodeELb0EjE4sizeEv.exit12
 
 _ZNK6vectorIPN3smt5enodeELb0EjE4sizeEv.exit12:    ; preds = %_ZNK6vectorIPN3smt5enodeELb0EjE4sizeEv.exit7, %if.end.i9
-  %retval.0.i11 = phi i32 [ %9, %if.end.i9 ], [ 0, %_ZNK6vectorIPN3smt5enodeELb0EjE4sizeEv.exit7 ]
-  %add = add i32 %retval.0.i6, %retval.0.i
-  %add6 = add i32 %add, %retval.0.i11
+  %retval.0.i11 = phi i32 [ %7, %if.end.i9 ], [ 0, %_ZNK6vectorIPN3smt5enodeELb0EjE4sizeEv.exit7 ]
+  %8 = add i32 %retval.0.i11, %retval.0.i6
+  %9 = shl i32 %8, 1
+  %add6 = add i32 %9, %retval.0.i
   ret i32 %add6
 }
 

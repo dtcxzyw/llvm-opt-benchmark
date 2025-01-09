@@ -772,57 +772,58 @@ define dso_local ptr @__populate_section_memmap(i64 noundef %0, i64 noundef %1, 
   %6 = load i64, ptr @vmemmap_base, align 8
   %.idx = shl i64 %0, 6
   %7 = add i64 %6, %.idx
-  %8 = shl i64 %1, 6
-  %9 = add i64 %7, %8
-  %10 = or i64 %1, %0
-  %11 = and i64 %10, 511
-  %12 = icmp eq i64 %11, 0
-  br i1 %12, label %14, label %13, !prof !7
+  %8 = add i64 %1, %0
+  %9 = shl i64 %8, 6
+  %10 = add i64 %6, %9
+  %11 = or i64 %1, %0
+  %12 = and i64 %11, 511
+  %13 = icmp eq i64 %12, 0
+  br i1 %13, label %15, label %14, !prof !7
 
-13:                                               ; preds = %5
+14:                                               ; preds = %5
   tail call void asm sideeffect "376: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 376b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 376) #7, !srcloc !16
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.2, i32 461, i32 2307, i64 12) #7, !srcloc !17
   tail call void asm sideeffect "377: nop\0A\09.pushsection .discard.instr_end\0A\09.long 377b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 377) #7, !srcloc !18
-  br label %37
+  br label %38
 
-14:                                               ; preds = %5
-  %15 = icmp eq ptr %4, null
-  br i1 %15, label %28, label %16
+15:                                               ; preds = %5
+  %16 = icmp eq ptr %4, null
+  br i1 %16, label %29, label %17
 
-16:                                               ; preds = %14
-  %17 = getelementptr inbounds nuw i8, ptr %4, i64 104
-  %18 = load i64, ptr %17, align 8
-  %19 = trunc i64 %18 to i32
-  %20 = shl nuw i32 1, %19
-  %21 = sext i32 %20 to i64
-  %22 = icmp eq ptr %3, null
-  %23 = and i64 %21, 288230376151711680
-  %24 = icmp samesign ugt i64 %23, 128
-  %25 = select i1 %22, i1 %24, i1 false
-  br i1 %25, label %26, label %28
+17:                                               ; preds = %15
+  %18 = getelementptr inbounds nuw i8, ptr %4, i64 104
+  %19 = load i64, ptr %18, align 8
+  %20 = trunc i64 %19 to i32
+  %21 = shl nuw i32 1, %20
+  %22 = sext i32 %21 to i64
+  %23 = icmp eq ptr %3, null
+  %24 = and i64 %22, 288230376151711680
+  %25 = icmp samesign ugt i64 %24, 128
+  %26 = select i1 %23, i1 %25, i1 false
+  br i1 %26, label %27, label %29
 
-26:                                               ; preds = %16
-  %27 = tail call fastcc i32 @vmemmap_populate_compound_pages(i64 noundef %0, i64 noundef %7, i64 noundef %9, i32 noundef %2, ptr noundef nonnull %4) #9
-  br label %30
+27:                                               ; preds = %17
+  %28 = tail call fastcc i32 @vmemmap_populate_compound_pages(i64 noundef %0, i64 noundef %7, i64 noundef %10, i32 noundef %2, ptr noundef nonnull %4) #9
+  br label %31
 
-28:                                               ; preds = %16, %14
-  %29 = tail call i32 @vmemmap_populate(i64 noundef %7, i64 noundef %9, i32 noundef %2, ptr noundef %3) #7
-  br label %30
+29:                                               ; preds = %17, %15
+  %30 = tail call i32 @vmemmap_populate(i64 noundef %7, i64 noundef %10, i32 noundef %2, ptr noundef %3) #7
+  br label %31
 
-30:                                               ; preds = %28, %26
-  %31 = phi i32 [ %27, %26 ], [ %29, %28 ]
-  %32 = icmp slt i32 %31, 0
-  br i1 %32, label %37, label %33
+31:                                               ; preds = %29, %27
+  %32 = phi i32 [ %28, %27 ], [ %30, %29 ]
+  %33 = icmp slt i32 %32, 0
+  br i1 %33, label %38, label %34
 
-33:                                               ; preds = %30
-  %34 = load i64, ptr @vmemmap_base, align 8
-  %35 = inttoptr i64 %34 to ptr
-  %36 = getelementptr %struct.page, ptr %35, i64 %0
-  br label %37
+34:                                               ; preds = %31
+  %35 = load i64, ptr @vmemmap_base, align 8
+  %36 = inttoptr i64 %35 to ptr
+  %37 = getelementptr %struct.page, ptr %36, i64 %0
+  br label %38
 
-37:                                               ; preds = %33, %30, %13
-  %38 = phi ptr [ %36, %33 ], [ null, %13 ], [ null, %30 ]
-  ret ptr %38
+38:                                               ; preds = %34, %31, %14
+  %39 = phi ptr [ %37, %34 ], [ null, %14 ], [ null, %31 ]
+  ret ptr %39
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize

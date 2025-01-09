@@ -5931,64 +5931,62 @@ calculate_frame_key.exit:                         ; preds = %35
   %39 = or disjoint i8 %2, %1
   %40 = zext i8 %39 to i64
   %41 = shl nuw i64 %40, 56
-  %42 = zext i8 %3 to i64
-  %43 = shl nuw nsw i64 %42, 48
-  %44 = or disjoint i64 %41, %43
-  %45 = zext nneg i8 %5 to i64
-  %46 = shl nuw nsw i64 %45, 48
-  %47 = or disjoint i64 %46, %44
-  %48 = zext i8 %4 to i64
-  %49 = shl nuw nsw i64 %48, 40
-  %50 = or disjoint i64 %47, %49
-  %51 = zext i8 %6 to i64
-  %52 = shl nuw nsw i64 %51, 32
-  %53 = or disjoint i64 %50, %52
-  %54 = zext i16 %8 to i64
-  %55 = shl nuw nsw i64 %54, 16
-  %56 = or disjoint i64 %53, %55
-  %57 = zext i16 %9 to i64
-  %58 = or disjoint i64 %56, %57
-  %59 = inttoptr i64 %58 to ptr
-  %60 = tail call ptr @wmem_map_lookup(ptr noundef %31, ptr noundef %59) #9
-  %.not37 = icmp eq ptr %60, null
-  br i1 %.not37, label %67, label %61
+  %42 = or disjoint i8 %5, %3
+  %43 = zext i8 %42 to i64
+  %44 = shl nuw nsw i64 %43, 48
+  %45 = or disjoint i64 %44, %41
+  %46 = zext i8 %4 to i64
+  %47 = shl nuw nsw i64 %46, 40
+  %48 = or disjoint i64 %45, %47
+  %49 = zext i8 %6 to i64
+  %50 = shl nuw nsw i64 %49, 32
+  %51 = or disjoint i64 %48, %50
+  %52 = zext i16 %8 to i64
+  %53 = shl nuw nsw i64 %52, 16
+  %54 = or disjoint i64 %51, %53
+  %55 = zext i16 %9 to i64
+  %56 = or disjoint i64 %54, %55
+  %57 = inttoptr i64 %56 to ptr
+  %58 = tail call ptr @wmem_map_lookup(ptr noundef %31, ptr noundef %57) #9
+  %.not37 = icmp eq ptr %58, null
+  br i1 %.not37, label %65, label %59
 
-61:                                               ; preds = %calculate_frame_key.exit
-  %62 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %63 = getelementptr inbounds nuw i8, ptr %60, i64 160
-  call void @nstime_delta(ptr noundef nonnull %12, ptr noundef nonnull %62, ptr noundef nonnull %63) #9
-  %64 = call double @nstime_to_sec(ptr noundef nonnull %12) #9
-  %65 = call double @llvm.fabs.f64(double %64)
-  %66 = fcmp ogt double %65, 6.000000e+01
-  br i1 %66, label %67, label %.thread
+59:                                               ; preds = %calculate_frame_key.exit
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %61 = getelementptr inbounds nuw i8, ptr %58, i64 160
+  call void @nstime_delta(ptr noundef nonnull %12, ptr noundef nonnull %60, ptr noundef nonnull %61) #9
+  %62 = call double @nstime_to_sec(ptr noundef nonnull %12) #9
+  %63 = call double @llvm.fabs.f64(double %62)
+  %64 = fcmp ogt double %63, 6.000000e+01
+  br i1 %64, label %65, label %.thread
 
-67:                                               ; preds = %61, %calculate_frame_key.exit
+65:                                               ; preds = %59, %calculate_frame_key.exit
   %.not40 = icmp eq i32 %10, 0
-  br i1 %.not40, label %.thread, label %68
+  br i1 %.not40, label %.thread, label %66
 
-68:                                               ; preds = %67
-  %69 = call ptr @wmem_file_scope() #9
-  %70 = call noalias ptr @wmem_alloc0(ptr noundef %69, i64 noundef 176) #9
-  %71 = getelementptr inbounds nuw i8, ptr %70, i64 152
-  store ptr null, ptr %71, align 8
-  %72 = icmp eq i8 %5, 2
-  br i1 %72, label %73, label %75
+66:                                               ; preds = %65
+  %67 = call ptr @wmem_file_scope() #9
+  %68 = call noalias ptr @wmem_alloc0(ptr noundef %67, i64 noundef 176) #9
+  %69 = getelementptr inbounds nuw i8, ptr %68, i64 152
+  store ptr null, ptr %69, align 8
+  %70 = icmp eq i8 %5, 2
+  br i1 %70, label %71, label %73
 
-73:                                               ; preds = %68
-  %74 = getelementptr inbounds nuw i8, ptr %70, i64 128
-  store i32 0, ptr %74, align 8
-  br label %75
+71:                                               ; preds = %66
+  %72 = getelementptr inbounds nuw i8, ptr %68, i64 128
+  store i32 0, ptr %72, align 8
+  br label %73
 
-75:                                               ; preds = %73, %68
-  %76 = load ptr, ptr %.0, align 8
-  %77 = call ptr @wmem_map_insert(ptr noundef %76, ptr noundef %59, ptr noundef nonnull %70) #9
-  %78 = getelementptr inbounds nuw i8, ptr %70, i64 160
-  %79 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  call void @nstime_copy(ptr noundef nonnull %78, ptr noundef nonnull %79) #9
+73:                                               ; preds = %71, %66
+  %74 = load ptr, ptr %.0, align 8
+  %75 = call ptr @wmem_map_insert(ptr noundef %74, ptr noundef %57, ptr noundef nonnull %68) #9
+  %76 = getelementptr inbounds nuw i8, ptr %68, i64 160
+  %77 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  call void @nstime_copy(ptr noundef nonnull %76, ptr noundef nonnull %77) #9
   br label %.thread
 
-.thread:                                          ; preds = %61, %75, %67
-  %.1 = phi ptr [ %70, %75 ], [ null, %67 ], [ %60, %61 ]
+.thread:                                          ; preds = %59, %73, %65
+  %.1 = phi ptr [ %68, %73 ], [ null, %65 ], [ %58, %59 ]
   ret ptr %.1
 }
 

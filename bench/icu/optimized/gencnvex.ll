@@ -583,7 +583,7 @@ if.end:                                           ; preds = %entry, %while.end
   %fromUTableUChars = getelementptr inbounds nuw i8, ptr %cnvData, i64 56
   %10 = load ptr, ptr %fromUTableUChars, align 8
   %call25 = call i32 @utm_countItems(ptr noundef %10) #15
-  %11 = add i32 %call20, %call25
+  %11 = add i32 %call25, %call20
   %12 = shl i32 %11, 1
   %add27 = add i32 %12, %add18
   %13 = and i32 %11, 1
@@ -651,7 +651,7 @@ if.end51:                                         ; preds = %if.then46, %if.end3
   store i32 %add58, ptr %arrayidx59, align 4
   %stage3Top = getelementptr inbounds nuw i8, ptr %cnvData, i64 917592
   %20 = load i32, ptr %stage3Top, align 8
-  %21 = add i32 %add55, %20
+  %21 = add i32 %20, %add55
   %22 = shl i32 %21, 1
   %add61 = add i32 %22, %top.1
   %and62 = and i32 %add61, 3

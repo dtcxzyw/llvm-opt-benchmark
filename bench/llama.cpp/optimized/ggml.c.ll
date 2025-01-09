@@ -17030,8 +17030,8 @@ entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, i8 0, i64 24, i1 false)
   %n_nodes = getelementptr inbounds nuw i8, ptr %cgraph, i64 4
   %1 = load i32, ptr %n_nodes, align 4
-  %cmp1157 = icmp sgt i32 %1, 0
-  br i1 %cmp1157, label %for.body.lr.ph, label %for.end.thread
+  %cmp1156 = icmp sgt i32 %1, 0
+  br i1 %cmp1156, label %for.body.lr.ph, label %for.end.thread
 
 for.body.lr.ph:                                   ; preds = %entry
   %nodes = getelementptr inbounds nuw i8, ptr %cgraph, i64 16
@@ -17039,7 +17039,7 @@ for.body.lr.ph:                                   ; preds = %entry
 
 for.body:                                         ; preds = %for.body.lr.ph, %sw.epilog
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %sw.epilog ]
-  %work_size.0159 = phi i64 [ 0, %for.body.lr.ph ], [ %cond397, %sw.epilog ]
+  %work_size.0158 = phi i64 [ 0, %for.body.lr.ph ], [ %cond397, %sw.epilog ]
   %2 = load ptr, ptr %nodes, align 8
   %arrayidx = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv
   %3 = load ptr, ptr %arrayidx, align 8
@@ -17085,11 +17085,11 @@ sw.bb8:                                           ; preds = %for.body, %for.body
   %src = getelementptr inbounds nuw i8, ptr %3, i64 160
   %8 = load ptr, ptr %src, align 8
   %9 = load i32, ptr %8, align 8
-  %idxprom.i118 = zext i32 %9 to i64
-  %is_quantized.i119 = getelementptr inbounds nuw [19 x %struct.ggml_type_traits_t], ptr @type_traits, i64 0, i64 %idxprom.i118, i32 3
-  %10 = load i8, ptr %is_quantized.i119, align 8
-  %tobool.i120 = trunc i8 %10 to i1
-  br i1 %tobool.i120, label %if.then12, label %sw.epilog
+  %idxprom.i119 = zext i32 %9 to i64
+  %is_quantized.i120 = getelementptr inbounds nuw [19 x %struct.ggml_type_traits_t], ptr @type_traits, i64 0, i64 %idxprom.i119, i32 3
+  %10 = load i8, ptr %is_quantized.i120, align 8
+  %tobool.i121 = trunc i8 %10 to i1
+  br i1 %tobool.i121, label %if.then12, label %sw.epilog
 
 if.then12:                                        ; preds = %sw.bb8
   %ne16 = getelementptr inbounds nuw i8, ptr %8, i64 16
@@ -17103,11 +17103,11 @@ sw.bb22:                                          ; preds = %for.body
   %src23 = getelementptr inbounds nuw i8, ptr %3, i64 160
   %12 = load ptr, ptr %src23, align 8
   %13 = load i32, ptr %12, align 8
-  %idxprom.i121 = zext i32 %13 to i64
-  %is_quantized.i122 = getelementptr inbounds nuw [19 x %struct.ggml_type_traits_t], ptr @type_traits, i64 0, i64 %idxprom.i121, i32 3
-  %14 = load i8, ptr %is_quantized.i122, align 8
-  %tobool.i123 = trunc i8 %14 to i1
-  br i1 %tobool.i123, label %if.then27, label %sw.epilog
+  %idxprom.i122 = zext i32 %13 to i64
+  %is_quantized.i123 = getelementptr inbounds nuw [19 x %struct.ggml_type_traits_t], ptr @type_traits, i64 0, i64 %idxprom.i122, i32 3
+  %14 = load i8, ptr %is_quantized.i123, align 8
+  %tobool.i124 = trunc i8 %14 to i1
+  br i1 %tobool.i124, label %if.then27, label %sw.epilog
 
 if.then27:                                        ; preds = %sw.bb22
   %arrayidx30 = getelementptr inbounds nuw i8, ptr %3, i64 168
@@ -17147,11 +17147,11 @@ if.then49:                                        ; preds = %sw.bb37
   %idxprom.i.i = zext i32 %19 to i64
   %type_size.i.i = getelementptr inbounds nuw [19 x %struct.ggml_type_traits_t], ptr @type_traits, i64 0, i64 %idxprom.i.i, i32 2
   %26 = load i64, ptr %type_size.i.i, align 8
-  %mul.i124 = mul i64 %mul8.i, %26
+  %mul.i125 = mul i64 %mul8.i, %26
   %blck_size.i.i = getelementptr inbounds nuw [19 x %struct.ggml_type_traits_t], ptr @type_traits, i64 0, i64 %idxprom.i.i, i32 1
   %27 = load i32, ptr %blck_size.i.i, align 8
   %conv.i = sext i32 %27 to i64
-  %div.i = udiv i64 %mul.i124, %conv.i
+  %div.i = udiv i64 %mul.i125, %conv.i
   br label %sw.epilog
 
 sw.bb55:                                          ; preds = %for.body
@@ -17173,26 +17173,26 @@ sw.bb55.if.end71_crit_edge:                       ; preds = %sw.bb55
   br label %if.end71
 
 if.then68:                                        ; preds = %sw.bb55
-  %ne.i125 = getelementptr inbounds nuw i8, ptr %29, i64 16
-  %33 = load i64, ptr %ne.i125, align 8
-  %arrayidx2.i126 = getelementptr inbounds nuw i8, ptr %29, i64 24
-  %34 = load i64, ptr %arrayidx2.i126, align 8
-  %mul.i127 = mul nsw i64 %34, %33
-  %arrayidx4.i128 = getelementptr inbounds nuw i8, ptr %29, i64 32
-  %35 = load i64, ptr %arrayidx4.i128, align 8
-  %mul5.i129 = mul nsw i64 %mul.i127, %35
-  %arrayidx7.i130 = getelementptr inbounds nuw i8, ptr %29, i64 40
-  %36 = load i64, ptr %arrayidx7.i130, align 8
-  %mul8.i131 = mul nsw i64 %mul5.i129, %36
-  %idxprom.i.i132 = zext i32 %31 to i64
-  %type_size.i.i133 = getelementptr inbounds nuw [19 x %struct.ggml_type_traits_t], ptr @type_traits, i64 0, i64 %idxprom.i.i132, i32 2
-  %37 = load i64, ptr %type_size.i.i133, align 8
-  %mul.i134 = mul i64 %mul8.i131, %37
-  %blck_size.i.i135 = getelementptr inbounds nuw [19 x %struct.ggml_type_traits_t], ptr @type_traits, i64 0, i64 %idxprom.i.i132, i32 1
-  %38 = load i32, ptr %blck_size.i.i135, align 8
-  %conv.i136 = sext i32 %38 to i64
-  %div.i137 = udiv i64 %mul.i134, %conv.i136
-  %39 = add i64 %div.i137, 7
+  %ne.i126 = getelementptr inbounds nuw i8, ptr %29, i64 16
+  %33 = load i64, ptr %ne.i126, align 8
+  %arrayidx2.i127 = getelementptr inbounds nuw i8, ptr %29, i64 24
+  %34 = load i64, ptr %arrayidx2.i127, align 8
+  %mul.i128 = mul nsw i64 %34, %33
+  %arrayidx4.i129 = getelementptr inbounds nuw i8, ptr %29, i64 32
+  %35 = load i64, ptr %arrayidx4.i129, align 8
+  %mul5.i130 = mul nsw i64 %mul.i128, %35
+  %arrayidx7.i131 = getelementptr inbounds nuw i8, ptr %29, i64 40
+  %36 = load i64, ptr %arrayidx7.i131, align 8
+  %mul8.i132 = mul nsw i64 %mul5.i130, %36
+  %idxprom.i.i133 = zext i32 %31 to i64
+  %type_size.i.i134 = getelementptr inbounds nuw [19 x %struct.ggml_type_traits_t], ptr @type_traits, i64 0, i64 %idxprom.i.i133, i32 2
+  %37 = load i64, ptr %type_size.i.i134, align 8
+  %mul.i135 = mul i64 %mul8.i132, %37
+  %blck_size.i.i136 = getelementptr inbounds nuw [19 x %struct.ggml_type_traits_t], ptr @type_traits, i64 0, i64 %idxprom.i.i133, i32 1
+  %38 = load i32, ptr %blck_size.i.i136, align 8
+  %conv.i137 = sext i32 %38 to i64
+  %div.i138 = udiv i64 %mul.i135, %conv.i137
+  %39 = add i64 %div.i138, 7
   %40 = and i64 %39, -8
   br label %if.end71
 
@@ -17202,178 +17202,178 @@ if.end71:                                         ; preds = %sw.bb55.if.end71_cr
   %arrayidx.i = getelementptr inbounds nuw i8, ptr %3, i64 88
   %42 = load i32, ptr %arrayidx.i, align 4
   %conv73 = sext i32 %42 to i64
-  %mul80160 = add i64 %41, 1
-  %reass.add150 = mul i64 %mul80160, %conv73
-  %reass.mul151 = shl i64 %reass.add150, 3
-  %add81 = add i64 %reass.mul151, %cur.1
+  %mul79118 = add i64 %41, 1
+  %43 = shl nsw i64 %conv73, 3
+  %44 = mul i64 %43, %mul79118
+  %add81 = add i64 %44, %cur.1
   br label %sw.epilog
 
 sw.bb82:                                          ; preds = %for.body
   %src83 = getelementptr inbounds nuw i8, ptr %3, i64 160
-  %43 = load ptr, ptr %src83, align 8
-  %44 = load i32, ptr %43, align 8
-  %idxprom.i138 = zext i32 %44 to i64
-  %is_quantized.i139 = getelementptr inbounds nuw [19 x %struct.ggml_type_traits_t], ptr @type_traits, i64 0, i64 %idxprom.i138, i32 3
-  %45 = load i8, ptr %is_quantized.i139, align 8
-  %tobool.i140 = trunc i8 %45 to i1
-  br i1 %tobool.i140, label %if.then87, label %sw.epilog
+  %45 = load ptr, ptr %src83, align 8
+  %46 = load i32, ptr %45, align 8
+  %idxprom.i139 = zext i32 %46 to i64
+  %is_quantized.i140 = getelementptr inbounds nuw [19 x %struct.ggml_type_traits_t], ptr @type_traits, i64 0, i64 %idxprom.i139, i32 3
+  %47 = load i8, ptr %is_quantized.i140, align 8
+  %tobool.i141 = trunc i8 %47 to i1
+  br i1 %tobool.i141, label %if.then87, label %sw.epilog
 
 if.then87:                                        ; preds = %sw.bb82
-  %ne91 = getelementptr inbounds nuw i8, ptr %43, i64 16
-  %46 = load i64, ptr %ne91, align 8
+  %ne91 = getelementptr inbounds nuw i8, ptr %45, i64 16
+  %48 = load i64, ptr %ne91, align 8
   %conv94 = sext i32 %call to i64
   %mul93 = shl nsw i64 %conv94, 2
-  %mul95 = mul i64 %mul93, %46
+  %mul95 = mul i64 %mul93, %48
   br label %sw.epilog
 
 sw.bb97:                                          ; preds = %for.body
   %ne99 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %47 = load i64, ptr %ne99, align 8
+  %49 = load i64, ptr %ne99, align 8
   %conv102 = sext i32 %call to i64
   %mul101 = shl nsw i64 %conv102, 2
-  %mul103 = mul i64 %mul101, %47
+  %mul103 = mul i64 %mul101, %49
   br label %sw.epilog
 
 do.body:                                          ; preds = %for.body
   %src105 = getelementptr inbounds nuw i8, ptr %3, i64 160
-  %48 = load ptr, ptr %src105, align 8
-  %ne107 = getelementptr inbounds nuw i8, ptr %48, i64 16
-  %arrayidx108 = getelementptr inbounds nuw i8, ptr %48, i64 40
-  %49 = load i64, ptr %arrayidx108, align 8
-  %cmp109 = icmp eq i64 %49, 1
+  %50 = load ptr, ptr %src105, align 8
+  %ne107 = getelementptr inbounds nuw i8, ptr %50, i64 16
+  %arrayidx108 = getelementptr inbounds nuw i8, ptr %50, i64 40
+  %51 = load i64, ptr %arrayidx108, align 8
+  %cmp109 = icmp eq i64 %51, 1
   br i1 %cmp109, label %do.body115, label %if.then111
 
 if.then111:                                       ; preds = %do.body
-  %50 = load ptr, ptr @stdout, align 8
-  %call112 = tail call i32 @fflush(ptr noundef %50)
-  %51 = load ptr, ptr @stderr, align 8
-  %call113 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %51, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.9, i32 noundef 16508, ptr noundef nonnull @.str.120) #46
+  %52 = load ptr, ptr @stdout, align 8
+  %call112 = tail call i32 @fflush(ptr noundef %52)
+  %53 = load ptr, ptr @stderr, align 8
+  %call113 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %53, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.9, i32 noundef 16508, ptr noundef nonnull @.str.120) #46
   tail call void @ggml_print_backtrace()
   tail call void @abort() #47
   unreachable
 
 do.body115:                                       ; preds = %do.body
   %arrayidx117 = getelementptr inbounds nuw i8, ptr %3, i64 168
-  %52 = load ptr, ptr %arrayidx117, align 8
-  %ne118 = getelementptr inbounds nuw i8, ptr %52, i64 16
-  %arrayidx119 = getelementptr inbounds nuw i8, ptr %52, i64 32
-  %53 = load i64, ptr %arrayidx119, align 8
-  %cmp120 = icmp eq i64 %53, 1
+  %54 = load ptr, ptr %arrayidx117, align 8
+  %ne118 = getelementptr inbounds nuw i8, ptr %54, i64 16
+  %arrayidx119 = getelementptr inbounds nuw i8, ptr %54, i64 32
+  %55 = load i64, ptr %arrayidx119, align 8
+  %cmp120 = icmp eq i64 %55, 1
   br i1 %cmp120, label %do.body127, label %if.then122
 
 if.then122:                                       ; preds = %do.body115
-  %54 = load ptr, ptr @stdout, align 8
-  %call123 = tail call i32 @fflush(ptr noundef %54)
-  %55 = load ptr, ptr @stderr, align 8
-  %call124 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %55, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.9, i32 noundef 16509, ptr noundef nonnull @.str.121) #46
+  %56 = load ptr, ptr @stdout, align 8
+  %call123 = tail call i32 @fflush(ptr noundef %56)
+  %57 = load ptr, ptr @stderr, align 8
+  %call124 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %57, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.9, i32 noundef 16509, ptr noundef nonnull @.str.121) #46
   tail call void @ggml_print_backtrace()
   tail call void @abort() #47
   unreachable
 
 do.body127:                                       ; preds = %do.body115
-  %arrayidx131 = getelementptr inbounds nuw i8, ptr %52, i64 40
-  %56 = load i64, ptr %arrayidx131, align 8
-  %cmp132 = icmp eq i64 %56, 1
+  %arrayidx131 = getelementptr inbounds nuw i8, ptr %54, i64 40
+  %58 = load i64, ptr %arrayidx131, align 8
+  %cmp132 = icmp eq i64 %58, 1
   br i1 %cmp132, label %do.end138, label %if.then134
 
 if.then134:                                       ; preds = %do.body127
-  %57 = load ptr, ptr @stdout, align 8
-  %call135 = tail call i32 @fflush(ptr noundef %57)
-  %58 = load ptr, ptr @stderr, align 8
-  %call136 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %58, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.9, i32 noundef 16510, ptr noundef nonnull @.str.122) #46
+  %59 = load ptr, ptr @stdout, align 8
+  %call135 = tail call i32 @fflush(ptr noundef %59)
+  %60 = load ptr, ptr @stderr, align 8
+  %call136 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %60, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.9, i32 noundef 16510, ptr noundef nonnull @.str.122) #46
   tail call void @ggml_print_backtrace()
   tail call void @abort() #47
   unreachable
 
 do.end138:                                        ; preds = %do.body127
-  %59 = load i64, ptr %ne107, align 8
-  %arrayidx146 = getelementptr inbounds nuw i8, ptr %48, i64 24
-  %60 = load i64, ptr %arrayidx146, align 8
-  %arrayidx150 = getelementptr inbounds nuw i8, ptr %48, i64 32
-  %61 = load i64, ptr %arrayidx150, align 8
-  %62 = load i64, ptr %ne118, align 8
-  %arrayidx158 = getelementptr inbounds nuw i8, ptr %52, i64 24
-  %63 = load i64, ptr %arrayidx158, align 8
-  %64 = load i32, ptr %48, align 8
-  switch i32 %64, label %do.body197 [
+  %61 = load i64, ptr %ne107, align 8
+  %arrayidx146 = getelementptr inbounds nuw i8, ptr %50, i64 24
+  %62 = load i64, ptr %arrayidx146, align 8
+  %arrayidx150 = getelementptr inbounds nuw i8, ptr %50, i64 32
+  %63 = load i64, ptr %arrayidx150, align 8
+  %64 = load i64, ptr %ne118, align 8
+  %arrayidx158 = getelementptr inbounds nuw i8, ptr %54, i64 24
+  %65 = load i64, ptr %arrayidx158, align 8
+  %66 = load i32, ptr %50, align 8
+  switch i32 %66, label %do.body197 [
     i32 1, label %land.lhs.true
     i32 0, label %land.lhs.true182
   ]
 
 land.lhs.true:                                    ; preds = %do.end138
-  %65 = load i32, ptr %52, align 8
-  %cmp167 = icmp eq i32 %65, 0
+  %67 = load i32, ptr %54, align 8
+  %cmp167 = icmp eq i32 %67, 0
   br i1 %cmp167, label %if.then169, label %do.body197
 
 if.then169:                                       ; preds = %land.lhs.true
-  %mul171 = mul i64 %61, %60
-  %mul172 = mul i64 %mul171, %59
-  %mul175 = mul i64 %63, %62
-  %reass.add148 = add i64 %mul175, %mul172
-  %reass.mul149 = shl i64 %reass.add148, 1
+  %mul171 = mul i64 %63, %62
+  %mul172 = mul i64 %mul171, %61
+  %mul175 = mul i64 %65, %64
+  %reass.add149 = add i64 %mul175, %mul172
+  %reass.mul150 = shl i64 %reass.add149, 1
   br label %sw.epilog
 
 land.lhs.true182:                                 ; preds = %do.end138
-  %66 = load i32, ptr %52, align 8
-  %cmp186 = icmp eq i32 %66, 0
+  %68 = load i32, ptr %54, align 8
+  %cmp186 = icmp eq i32 %68, 0
   br i1 %cmp186, label %if.then188, label %do.body197
 
 if.then188:                                       ; preds = %land.lhs.true182
-  %mul190 = mul i64 %61, %60
-  %mul191 = mul i64 %mul190, %59
-  %mul194 = mul i64 %63, %62
-  %reass.add146 = add i64 %mul194, %mul191
-  %reass.mul147 = shl i64 %reass.add146, 2
+  %mul190 = mul i64 %63, %62
+  %mul191 = mul i64 %mul190, %61
+  %mul194 = mul i64 %65, %64
+  %reass.add147 = add i64 %mul194, %mul191
+  %reass.mul148 = shl i64 %reass.add147, 2
   br label %sw.epilog
 
 do.body197:                                       ; preds = %do.end138, %land.lhs.true, %land.lhs.true182
-  %67 = load ptr, ptr @stdout, align 8
-  %call198 = tail call i32 @fflush(ptr noundef %67)
-  %68 = load ptr, ptr @stderr, align 8
-  %call199 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %68, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.9, i32 noundef 16528, ptr noundef nonnull @.str.26) #46
+  %69 = load ptr, ptr @stdout, align 8
+  %call198 = tail call i32 @fflush(ptr noundef %69)
+  %70 = load ptr, ptr @stderr, align 8
+  %call199 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %70, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.9, i32 noundef 16528, ptr noundef nonnull @.str.26) #46
   tail call void @ggml_print_backtrace()
   tail call void @abort() #47
   unreachable
 
 sw.bb203:                                         ; preds = %for.body
   %src205 = getelementptr inbounds nuw i8, ptr %3, i64 160
-  %69 = load ptr, ptr %src205, align 8
-  %ne207 = getelementptr inbounds nuw i8, ptr %69, i64 16
-  %70 = load i64, ptr %ne207, align 8
-  %arrayidx213 = getelementptr inbounds nuw i8, ptr %69, i64 24
-  %71 = load i64, ptr %arrayidx213, align 8
-  %arrayidx218 = getelementptr inbounds nuw i8, ptr %69, i64 32
-  %72 = load i64, ptr %arrayidx218, align 8
-  %arrayidx222 = getelementptr inbounds nuw i8, ptr %69, i64 40
-  %73 = load i64, ptr %arrayidx222, align 8
+  %71 = load ptr, ptr %src205, align 8
+  %ne207 = getelementptr inbounds nuw i8, ptr %71, i64 16
+  %72 = load i64, ptr %ne207, align 8
+  %arrayidx213 = getelementptr inbounds nuw i8, ptr %71, i64 24
+  %73 = load i64, ptr %arrayidx213, align 8
+  %arrayidx218 = getelementptr inbounds nuw i8, ptr %71, i64 32
+  %74 = load i64, ptr %arrayidx218, align 8
+  %arrayidx222 = getelementptr inbounds nuw i8, ptr %71, i64 40
+  %75 = load i64, ptr %arrayidx222, align 8
   %arrayidx225 = getelementptr inbounds nuw i8, ptr %3, i64 168
-  %74 = load ptr, ptr %arrayidx225, align 8
-  %ne226 = getelementptr inbounds nuw i8, ptr %74, i64 16
-  %75 = load i64, ptr %ne226, align 8
-  %arrayidx232 = getelementptr inbounds nuw i8, ptr %74, i64 24
-  %76 = load i64, ptr %arrayidx232, align 8
-  %arrayidx236 = getelementptr inbounds nuw i8, ptr %74, i64 32
-  %77 = load i64, ptr %arrayidx236, align 8
-  %mul238 = mul i64 %71, %70
-  %mul239 = mul i64 %mul238, %72
-  %mul240 = mul i64 %mul239, %73
-  %mul243 = mul i64 %76, %75
-  %mul244 = mul i64 %mul243, %77
+  %76 = load ptr, ptr %arrayidx225, align 8
+  %ne226 = getelementptr inbounds nuw i8, ptr %76, i64 16
+  %77 = load i64, ptr %ne226, align 8
+  %arrayidx232 = getelementptr inbounds nuw i8, ptr %76, i64 24
+  %78 = load i64, ptr %arrayidx232, align 8
+  %arrayidx236 = getelementptr inbounds nuw i8, ptr %76, i64 32
+  %79 = load i64, ptr %arrayidx236, align 8
+  %mul238 = mul i64 %73, %72
+  %mul239 = mul i64 %mul238, %74
+  %mul240 = mul i64 %mul239, %75
+  %mul243 = mul i64 %78, %77
+  %mul244 = mul i64 %mul243, %79
   %reass.add = add i64 %mul244, %mul240
   %reass.mul = shl i64 %reass.add, 1
   br label %sw.epilog
 
 sw.bb246:                                         ; preds = %for.body
   %arrayidx249 = getelementptr inbounds nuw i8, ptr %3, i64 168
-  %78 = load ptr, ptr %arrayidx249, align 8
-  %arrayidx251 = getelementptr inbounds nuw i8, ptr %78, i64 24
-  %79 = load i64, ptr %arrayidx251, align 8
-  %sub2.i = shl i64 %79, 32
+  %80 = load ptr, ptr %arrayidx249, align 8
+  %arrayidx251 = getelementptr inbounds nuw i8, ptr %80, i64 24
+  %81 = load i64, ptr %arrayidx251, align 8
+  %sub2.i = shl i64 %81, 32
   %and4.i = add i64 %sub2.i, 12884901888
-  %sext145 = ashr exact i64 %and4.i, 32
-  %conv254 = and i64 %sext145, -4
-  %80 = load i32, ptr %78, align 8
-  switch i32 %80, label %sw.epilog [
+  %sext146 = ashr exact i64 %and4.i, 32
+  %conv254 = and i64 %sext146, -4
+  %82 = load i32, ptr %80, align 8
+  switch i32 %82, label %sw.epilog [
     i32 0, label %if.then260
     i32 1, label %if.then274
   ]
@@ -17392,45 +17392,45 @@ if.then274:                                       ; preds = %sw.bb246
 
 sw.bb284:                                         ; preds = %for.body
   %arrayidx286 = getelementptr inbounds nuw i8, ptr %3, i64 168
-  %81 = load ptr, ptr %arrayidx286, align 8
-  %82 = load i32, ptr %81, align 8
-  switch i32 %82, label %sw.epilog [
+  %83 = load ptr, ptr %arrayidx286, align 8
+  %84 = load i32, ptr %83, align 8
+  switch i32 %84, label %sw.epilog [
     i32 0, label %if.then290
     i32 1, label %if.then312
   ]
 
 if.then290:                                       ; preds = %sw.bb284
-  %arrayidx294 = getelementptr inbounds nuw i8, ptr %81, i64 24
-  %83 = load i64, ptr %arrayidx294, align 8
+  %arrayidx294 = getelementptr inbounds nuw i8, ptr %83, i64 24
+  %85 = load i64, ptr %arrayidx294, align 8
   %conv296 = sext i32 %call to i64
   %mul297 = shl nsw i64 %conv296, 3
-  %add305 = mul i64 %mul297, %83
+  %add305 = mul i64 %mul297, %85
   br label %sw.epilog
 
 if.then312:                                       ; preds = %sw.bb284
-  %arrayidx316 = getelementptr inbounds nuw i8, ptr %81, i64 24
-  %84 = load i64, ptr %arrayidx316, align 8
+  %arrayidx316 = getelementptr inbounds nuw i8, ptr %83, i64 24
+  %86 = load i64, ptr %arrayidx316, align 8
   %conv318 = sext i32 %call to i64
   %mul319 = shl nsw i64 %conv318, 3
-  %add327 = mul i64 %mul319, %84
+  %add327 = mul i64 %mul319, %86
   br label %sw.epilog
 
 sw.bb330:                                         ; preds = %for.body
   %src331 = getelementptr inbounds nuw i8, ptr %3, i64 160
-  %85 = load ptr, ptr %src331, align 8
-  %ne333 = getelementptr inbounds nuw i8, ptr %85, i64 16
-  %86 = load i64, ptr %ne333, align 8
+  %87 = load ptr, ptr %src331, align 8
+  %ne333 = getelementptr inbounds nuw i8, ptr %87, i64 16
+  %88 = load i64, ptr %ne333, align 8
   %arrayidx337 = getelementptr inbounds nuw i8, ptr %3, i64 168
-  %87 = load ptr, ptr %arrayidx337, align 8
-  %arrayidx339 = getelementptr inbounds nuw i8, ptr %87, i64 24
-  %88 = load i64, ptr %arrayidx339, align 8
-  %sub2.i141 = shl i64 %88, 32
-  %and4.i142 = add i64 %sub2.i141, 12884901888
-  %sext = ashr exact i64 %and4.i142, 32
+  %89 = load ptr, ptr %arrayidx337, align 8
+  %arrayidx339 = getelementptr inbounds nuw i8, ptr %89, i64 24
+  %90 = load i64, ptr %arrayidx339, align 8
+  %sub2.i142 = shl i64 %90, 32
+  %and4.i143 = add i64 %sub2.i142, 12884901888
+  %sext = ashr exact i64 %and4.i143, 32
   %conv342 = and i64 %sext, -4
-  %cond = tail call i64 @llvm.smax.i64(i64 %86, i64 %conv342)
-  %89 = load i32, ptr %87, align 8
-  switch i32 %89, label %sw.epilog [
+  %cond = tail call i64 @llvm.smax.i64(i64 %88, i64 %conv342)
+  %91 = load i32, ptr %89, align 8
+  switch i32 %91, label %sw.epilog [
     i32 0, label %if.then351
     i32 1, label %if.then365
   ]
@@ -17448,37 +17448,37 @@ if.then365:                                       ; preds = %sw.bb330
   br label %sw.epilog
 
 sw.bb375:                                         ; preds = %for.body
-  %90 = load i32, ptr %3, align 8
-  %idxprom.i143 = zext i32 %90 to i64
-  %type_size.i = getelementptr inbounds nuw [19 x %struct.ggml_type_traits_t], ptr @type_traits, i64 0, i64 %idxprom.i143, i32 2
-  %91 = load i64, ptr %type_size.i, align 8
+  %92 = load i32, ptr %3, align 8
+  %idxprom.i144 = zext i32 %92 to i64
+  %type_size.i = getelementptr inbounds nuw [19 x %struct.ggml_type_traits_t], ptr @type_traits, i64 0, i64 %idxprom.i144, i32 2
+  %93 = load i64, ptr %type_size.i, align 8
   %conv378 = sext i32 %call to i64
   %src379 = getelementptr inbounds nuw i8, ptr %3, i64 160
-  %92 = load ptr, ptr %src379, align 8
-  %ne381 = getelementptr inbounds nuw i8, ptr %92, i64 16
-  %93 = load i64, ptr %ne381, align 8
-  %mul384117 = add i64 %93, 1
-  %add385 = mul i64 %91, %conv378
+  %94 = load ptr, ptr %src379, align 8
+  %ne381 = getelementptr inbounds nuw i8, ptr %94, i64 16
+  %95 = load i64, ptr %ne381, align 8
+  %mul384117 = add i64 %95, 1
+  %add385 = mul i64 %93, %conv378
   %mul386 = mul i64 %add385, %mul384117
   br label %sw.epilog
 
 do.body388:                                       ; preds = %for.body
-  %94 = load ptr, ptr @stdout, align 8
-  %call389 = tail call i32 @fflush(ptr noundef %94)
-  %95 = load ptr, ptr @stderr, align 8
-  %call390 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %95, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.9, i32 noundef 16587, ptr noundef nonnull @.str.26) #46
+  %96 = load ptr, ptr @stdout, align 8
+  %call389 = tail call i32 @fflush(ptr noundef %96)
+  %97 = load ptr, ptr @stderr, align 8
+  %call390 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %97, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.9, i32 noundef 16587, ptr noundef nonnull @.str.26) #46
   tail call void @ggml_print_backtrace()
   tail call void @abort() #47
   unreachable
 
 sw.epilog:                                        ; preds = %sw.bb330, %sw.bb284, %sw.bb246, %for.body, %if.then351, %if.then365, %if.then290, %if.then312, %if.then260, %if.then274, %if.then169, %if.then188, %sw.bb82, %if.then87, %sw.bb37, %if.then49, %sw.bb22, %if.then27, %sw.bb8, %if.then12, %sw.bb, %if.then3, %sw.bb375, %sw.bb203, %sw.bb97, %if.end71
-  %cur.0 = phi i64 [ 0, %for.body ], [ %mul386, %sw.bb375 ], [ %add358, %if.then351 ], [ %add372, %if.then365 ], [ %add305, %if.then290 ], [ %add327, %if.then312 ], [ %add267, %if.then260 ], [ %add281, %if.then274 ], [ %reass.mul, %sw.bb203 ], [ %reass.mul149, %if.then169 ], [ %reass.mul147, %if.then188 ], [ %mul103, %sw.bb97 ], [ %mul95, %if.then87 ], [ 0, %sw.bb82 ], [ %add81, %if.end71 ], [ %div.i, %if.then49 ], [ 0, %sw.bb37 ], [ %mul35, %if.then27 ], [ 0, %sw.bb22 ], [ %mul20, %if.then12 ], [ 0, %sw.bb8 ], [ %mul6, %if.then3 ], [ 0, %sw.bb ], [ 0, %sw.bb246 ], [ 0, %sw.bb284 ], [ 0, %sw.bb330 ]
+  %cur.0 = phi i64 [ 0, %for.body ], [ %mul386, %sw.bb375 ], [ %add358, %if.then351 ], [ %add372, %if.then365 ], [ %add305, %if.then290 ], [ %add327, %if.then312 ], [ %add267, %if.then260 ], [ %add281, %if.then274 ], [ %reass.mul, %sw.bb203 ], [ %reass.mul150, %if.then169 ], [ %reass.mul148, %if.then188 ], [ %mul103, %sw.bb97 ], [ %mul95, %if.then87 ], [ 0, %sw.bb82 ], [ %add81, %if.end71 ], [ %div.i, %if.then49 ], [ 0, %sw.bb37 ], [ %mul35, %if.then27 ], [ 0, %sw.bb22 ], [ %mul20, %if.then12 ], [ 0, %sw.bb8 ], [ %mul6, %if.then3 ], [ 0, %sw.bb ], [ 0, %sw.bb246 ], [ 0, %sw.bb284 ], [ 0, %sw.bb330 ]
   %cur.0.fr = freeze i64 %cur.0
-  %cond397 = tail call i64 @llvm.umax.i64(i64 %work_size.0159, i64 %cur.0.fr)
+  %cond397 = tail call i64 @llvm.umax.i64(i64 %work_size.0158, i64 %cur.0.fr)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %96 = load i32, ptr %n_nodes, align 4
-  %97 = sext i32 %96 to i64
-  %cmp1 = icmp slt i64 %indvars.iv.next, %97
+  %98 = load i32, ptr %n_nodes, align 4
+  %99 = sext i32 %98 to i64
+  %cmp1 = icmp slt i64 %indvars.iv.next, %99
   br i1 %cmp1, label %for.body, label %for.end, !llvm.loop !64
 
 for.end:                                          ; preds = %sw.epilog
@@ -17487,16 +17487,16 @@ for.end:                                          ; preds = %sw.epilog
   %mul402 = add i32 %sub401, -64
   %conv403 = sext i32 %mul402 to i64
   %add404 = add i64 %cond397, %conv403
-  br i1 %cmp398.not, label %for.end.thread, label %98
+  br i1 %cmp398.not, label %for.end.thread, label %100
 
 for.end.thread:                                   ; preds = %entry, %for.end
-  br label %98
+  br label %100
 
-98:                                               ; preds = %for.end, %for.end.thread
-  %99 = phi i64 [ 0, %for.end.thread ], [ %add404, %for.end ]
+100:                                              ; preds = %for.end, %for.end.thread
+  %101 = phi i64 [ 0, %for.end.thread ], [ %add404, %for.end ]
   %n_threads406 = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store i32 %spec.store.select, ptr %n_threads406, align 8
-  store i64 %99, ptr %agg.result, align 8
+  store i64 %101, ptr %agg.result, align 8
   %work_data = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store ptr null, ptr %work_data, align 8
   ret void
@@ -21444,14 +21444,14 @@ cond.false.i.i.i:                                 ; preds = %while.end.i.i.i
 ggml_graph_nbytes.exit.i:                         ; preds = %cond.false.i.i.i, %cond.true.i.i.i
   %cond.i.i.i = phi i64 [ %2, %cond.true.i.i.i ], [ %or.i.i.i, %cond.false.i.i.i ]
   %mul1.i.i = shl i64 %0, 4
-  %reass.add = add i64 %cond.i.i.i, %0
-  %reass.mul = shl i64 %reass.add, 3
-  %nbytes.0.i.i = add i64 %mul1.i.i, 80
-  %add6.i.i = add i64 %nbytes.0.i.i, %reass.mul
+  %add.i.i = add i64 %mul1.i.i, 80
+  %3 = add i64 %cond.i.i.i, %0
+  %4 = shl i64 %3, 3
+  %add6.i.i = add i64 %add.i.i, %4
   %call1.i = tail call fastcc ptr @ggml_new_object(ptr noundef %ctx, i32 noundef 1, i64 noundef %add6.i.i)
   %mem_buffer.i = getelementptr inbounds nuw i8, ptr %ctx, i64 8
-  %3 = load ptr, ptr %mem_buffer.i, align 8
-  %4 = load i64, ptr %call1.i, align 8
+  %5 = load ptr, ptr %mem_buffer.i, align 8
+  %6 = load i64, ptr %call1.i, align 8
   br label %while.body.i.i
 
 while.body.i.i:                                   ; preds = %while.body.i.i, %ggml_graph_nbytes.exit.i
@@ -21460,8 +21460,8 @@ while.body.i.i:                                   ; preds = %while.body.i.i, %gg
   %add.i16.i = add i64 %r.09.i.i, %l.010.i.i
   %div8.i.i = lshr i64 %add.i16.i, 1
   %arrayidx.i.i = getelementptr inbounds nuw [32 x i64], ptr @ggml_hash_size.primes, i64 0, i64 %div8.i.i
-  %5 = load i64, ptr %arrayidx.i.i, align 8
-  %cmp1.i.i = icmp ult i64 %5, %mul4.i.i
+  %7 = load i64, ptr %arrayidx.i.i, align 8
+  %cmp1.i.i = icmp ult i64 %7, %mul4.i.i
   %add2.i.i = add nuw i64 %div8.i.i, 1
   %r.1.i.i = select i1 %cmp1.i.i, i64 %r.09.i.i, i64 %div8.i.i
   %l.1.i.i = select i1 %cmp1.i.i, i64 %add2.i.i, i64 %l.010.i.i
@@ -21474,7 +21474,7 @@ while.end.i.i:                                    ; preds = %while.body.i.i
 
 cond.true.i.i:                                    ; preds = %while.end.i.i
   %arrayidx4.i.i = getelementptr inbounds nuw [32 x i64], ptr @ggml_hash_size.primes, i64 0, i64 %l.1.i.i
-  %6 = load i64, ptr %arrayidx4.i.i, align 8
+  %8 = load i64, ptr %arrayidx4.i.i, align 8
   br label %ggml_new_graph_custom.exit
 
 cond.false.i.i:                                   ; preds = %while.end.i.i
@@ -21482,8 +21482,8 @@ cond.false.i.i:                                   ; preds = %while.end.i.i
   br label %ggml_new_graph_custom.exit
 
 ggml_new_graph_custom.exit:                       ; preds = %cond.true.i.i, %cond.false.i.i
-  %cond.i.i = phi i64 [ %6, %cond.true.i.i ], [ %or.i.i, %cond.false.i.i ]
-  %add.ptr.i = getelementptr inbounds i8, ptr %3, i64 %4
+  %cond.i.i = phi i64 [ %8, %cond.true.i.i ], [ %or.i.i, %cond.false.i.i ]
+  %add.ptr.i = getelementptr inbounds i8, ptr %5, i64 %6
   %add.ptr2.i = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 80
   %add.ptr4.i = getelementptr inbounds ptr, ptr %add.ptr2.i, i64 %0
   %add.ptr5.i = getelementptr inbounds ptr, ptr %add.ptr4.i, i64 %0
@@ -21509,24 +21509,24 @@ ggml_new_graph_custom.exit:                       ; preds = %cond.true.i.i, %con
   %.compoundliteral.sroa.9.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 56
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.compoundliteral.sroa.9.0..sroa_idx.i, i8 0, i64 24, i1 false)
   tail call fastcc void @ggml_visit_parents(ptr noundef nonnull %add.ptr.i, ptr noundef %f)
-  %7 = load i32, ptr %.compoundliteral.sroa.2.0..sroa_idx.i, align 4
-  %cmp.i.i10 = icmp sgt i32 %7, 0
+  %9 = load i32, ptr %.compoundliteral.sroa.2.0..sroa_idx.i, align 4
+  %cmp.i.i10 = icmp sgt i32 %9, 0
   br i1 %cmp.i.i10, label %do.body.i.i, label %ggml_build_forward_expand.exit
 
 do.body.i.i:                                      ; preds = %ggml_new_graph_custom.exit
-  %8 = load ptr, ptr %.compoundliteral.sroa.41.0..sroa_idx.i, align 8
-  %9 = zext nneg i32 %7 to i64
-  %10 = getelementptr ptr, ptr %8, i64 %9
-  %arrayidx.i.i11 = getelementptr i8, ptr %10, i64 -8
-  %11 = load ptr, ptr %arrayidx.i.i11, align 8
-  %cmp5.i.i = icmp eq ptr %11, %f
+  %10 = load ptr, ptr %.compoundliteral.sroa.41.0..sroa_idx.i, align 8
+  %11 = zext nneg i32 %9 to i64
+  %12 = getelementptr ptr, ptr %10, i64 %11
+  %arrayidx.i.i11 = getelementptr i8, ptr %12, i64 -8
+  %13 = load ptr, ptr %arrayidx.i.i11, align 8
+  %cmp5.i.i = icmp eq ptr %13, %f
   br i1 %cmp5.i.i, label %ggml_build_forward_expand.exit, label %if.then6.i.i
 
 if.then6.i.i:                                     ; preds = %do.body.i.i
-  %12 = load ptr, ptr @stdout, align 8
-  %call.i.i = tail call i32 @fflush(ptr noundef %12)
-  %13 = load ptr, ptr @stderr, align 8
-  %call7.i.i = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %13, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.9, i32 noundef 15727, ptr noundef nonnull @.str.448) #46
+  %14 = load ptr, ptr @stdout, align 8
+  %call.i.i = tail call i32 @fflush(ptr noundef %14)
+  %15 = load ptr, ptr @stderr, align 8
+  %call7.i.i = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %15, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.9, i32 noundef 15727, ptr noundef nonnull @.str.448) #46
   tail call void @ggml_print_backtrace()
   tail call void @abort() #47
   unreachable

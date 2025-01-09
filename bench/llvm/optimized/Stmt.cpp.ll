@@ -13963,112 +13963,112 @@ _ZSt4copyIPKPN5clang4StmtEPS2_ET0_T_S7_S6_.exit:  ; preds = %3, %4
 define dso_local noundef ptr @_ZN5clang12CompoundStmt6CreateERKNS_10ASTContextEN4llvm8ArrayRefIPNS_4StmtEEENS_17FPOptionsOverrideENS_14SourceLocationESA_(ptr noundef nonnull align 8 dereferenceable(23096) %0, ptr %1, i64 %2, i64 %3, i32 %4, i32 %5) local_unnamed_addr #0 align 2 {
   %7 = icmp ugt i64 %3, 4294967295
   %8 = zext i1 %7 to i64
-  %reass.add.i.i = add i64 %2, %8
-  %reass.mul.i.i = shl i64 %reass.add.i.i, 3
-  %9 = add i64 %reass.mul.i.i, 16
-  %10 = getelementptr inbounds nuw i8, ptr %0, i64 2144
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 2224
-  %12 = load i64, ptr %11, align 8
-  %13 = add i64 %12, %9
-  store i64 %13, ptr %11, align 8
-  %14 = load ptr, ptr %10, align 8
-  %15 = ptrtoint ptr %14 to i64
-  %16 = add i64 %15, 7
-  %17 = and i64 %16, -8
-  %18 = add i64 %17, %9
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 2152
-  %20 = load ptr, ptr %19, align 8
-  %21 = ptrtoint ptr %20 to i64
-  %.not.i.i.i = icmp ugt i64 %18, %21
-  %.not14.i.i.i = icmp eq ptr %14, null
+  %9 = add i64 %2, %8
+  %10 = shl i64 %9, 3
+  %11 = add i64 %10, 16
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 2144
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 2224
+  %14 = load i64, ptr %13, align 8
+  %15 = add i64 %14, %11
+  store i64 %15, ptr %13, align 8
+  %16 = load ptr, ptr %12, align 8
+  %17 = ptrtoint ptr %16 to i64
+  %18 = add i64 %17, 7
+  %19 = and i64 %18, -8
+  %20 = add i64 %19, %11
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 2152
+  %22 = load ptr, ptr %21, align 8
+  %23 = ptrtoint ptr %22 to i64
+  %.not.i.i.i = icmp ugt i64 %20, %23
+  %.not14.i.i.i = icmp eq ptr %16, null
   %or.cond.i.i.i = or i1 %.not14.i.i.i, %.not.i.i.i
   br i1 %or.cond.i.i.i, label %_ZNK5clang10ASTContext8AllocateEmj.exit.thread, label %_ZNK5clang10ASTContext8AllocateEmj.exit
 
 _ZNK5clang10ASTContext8AllocateEmj.exit.thread:   ; preds = %6
-  %22 = tail call noundef nonnull ptr @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12AllocateSlowEmmNS_5AlignE(ptr noundef nonnull align 8 dereferenceable(96) %10, i64 noundef %9, i64 noundef %9, i8 3)
-  br label %26
+  %24 = tail call noundef nonnull ptr @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12AllocateSlowEmmNS_5AlignE(ptr noundef nonnull align 8 dereferenceable(96) %12, i64 noundef %11, i64 noundef %11, i8 3)
+  br label %28
 
 _ZNK5clang10ASTContext8AllocateEmj.exit:          ; preds = %6
-  %23 = inttoptr i64 %18 to ptr
-  store ptr %23, ptr %10, align 8
-  %24 = inttoptr i64 %17 to ptr
-  %25 = icmp eq i64 %17, 0
-  br i1 %25, label %27, label %26
+  %25 = inttoptr i64 %20 to ptr
+  store ptr %25, ptr %12, align 8
+  %26 = inttoptr i64 %19 to ptr
+  %27 = icmp eq i64 %19, 0
+  br i1 %27, label %29, label %28
 
-26:                                               ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.thread, %_ZNK5clang10ASTContext8AllocateEmj.exit
-  %.0.i.i.i11 = phi ptr [ %22, %_ZNK5clang10ASTContext8AllocateEmj.exit.thread ], [ %24, %_ZNK5clang10ASTContext8AllocateEmj.exit ]
+28:                                               ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.thread, %_ZNK5clang10ASTContext8AllocateEmj.exit
+  %.0.i.i.i11 = phi ptr [ %24, %_ZNK5clang10ASTContext8AllocateEmj.exit.thread ], [ %26, %_ZNK5clang10ASTContext8AllocateEmj.exit ]
   tail call void @_ZN5clang12CompoundStmtC1EN4llvm8ArrayRefIPNS_4StmtEEENS_17FPOptionsOverrideENS_14SourceLocationES7_(ptr noundef nonnull align 8 dereferenceable(16) %.0.i.i.i11, ptr %1, i64 %2, i64 %3, i32 %4, i32 %5) #31
-  br label %27
+  br label %29
 
-27:                                               ; preds = %26, %_ZNK5clang10ASTContext8AllocateEmj.exit
-  %28 = phi ptr [ %.0.i.i.i11, %26 ], [ null, %_ZNK5clang10ASTContext8AllocateEmj.exit ]
-  ret ptr %28
+29:                                               ; preds = %28, %_ZNK5clang10ASTContext8AllocateEmj.exit
+  %30 = phi ptr [ %.0.i.i.i11, %28 ], [ null, %_ZNK5clang10ASTContext8AllocateEmj.exit ]
+  ret ptr %30
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local noundef ptr @_ZN5clang12CompoundStmt11CreateEmptyERKNS_10ASTContextEjb(ptr noundef nonnull align 8 dereferenceable(23096) %0, i32 noundef %1, i1 noundef zeroext %2) local_unnamed_addr #0 align 2 {
   %4 = zext i32 %1 to i64
   %5 = zext i1 %2 to i64
-  %reass.add.i.i = add nuw nsw i64 %5, %4
-  %reass.mul.i.i = shl nuw nsw i64 %reass.add.i.i, 3
-  %6 = add nuw nsw i64 %reass.mul.i.i, 16
-  %7 = getelementptr inbounds nuw i8, ptr %0, i64 2144
-  %8 = getelementptr inbounds nuw i8, ptr %0, i64 2224
-  %9 = load i64, ptr %8, align 8
-  %10 = add i64 %9, %6
-  store i64 %10, ptr %8, align 8
-  %11 = load ptr, ptr %7, align 8
-  %12 = ptrtoint ptr %11 to i64
-  %13 = add i64 %12, 7
-  %14 = and i64 %13, -8
-  %15 = add i64 %14, %6
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 2152
-  %17 = load ptr, ptr %16, align 8
-  %18 = ptrtoint ptr %17 to i64
-  %.not.i.i.i = icmp ugt i64 %15, %18
-  %.not14.i.i.i = icmp eq ptr %11, null
+  %6 = add nuw nsw i64 %5, %4
+  %7 = shl nuw nsw i64 %6, 3
+  %8 = add nuw nsw i64 %7, 16
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 2144
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 2224
+  %11 = load i64, ptr %10, align 8
+  %12 = add i64 %11, %8
+  store i64 %12, ptr %10, align 8
+  %13 = load ptr, ptr %9, align 8
+  %14 = ptrtoint ptr %13 to i64
+  %15 = add i64 %14, 7
+  %16 = and i64 %15, -8
+  %17 = add i64 %16, %8
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 2152
+  %19 = load ptr, ptr %18, align 8
+  %20 = ptrtoint ptr %19 to i64
+  %.not.i.i.i = icmp ugt i64 %17, %20
+  %.not14.i.i.i = icmp eq ptr %13, null
   %or.cond.i.i.i = or i1 %.not14.i.i.i, %.not.i.i.i
-  br i1 %or.cond.i.i.i, label %.critedge.i.i.i, label %19
+  br i1 %or.cond.i.i.i, label %.critedge.i.i.i, label %21
 
-19:                                               ; preds = %3
-  %20 = inttoptr i64 %15 to ptr
-  store ptr %20, ptr %7, align 8
-  %21 = inttoptr i64 %14 to ptr
+21:                                               ; preds = %3
+  %22 = inttoptr i64 %17 to ptr
+  store ptr %22, ptr %9, align 8
+  %23 = inttoptr i64 %16 to ptr
   br label %_ZNK5clang10ASTContext8AllocateEmj.exit
 
 .critedge.i.i.i:                                  ; preds = %3
-  %22 = tail call noundef nonnull ptr @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12AllocateSlowEmmNS_5AlignE(ptr noundef nonnull align 8 dereferenceable(96) %7, i64 noundef %6, i64 noundef %6, i8 3)
+  %24 = tail call noundef nonnull ptr @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12AllocateSlowEmmNS_5AlignE(ptr noundef nonnull align 8 dereferenceable(96) %9, i64 noundef %8, i64 noundef %8, i8 3)
   br label %_ZNK5clang10ASTContext8AllocateEmj.exit
 
-_ZNK5clang10ASTContext8AllocateEmj.exit:          ; preds = %19, %.critedge.i.i.i
-  %.0.i.i.i = phi ptr [ %21, %19 ], [ %22, %.critedge.i.i.i ]
-  %23 = icmp ne ptr %.0.i.i.i, null
-  tail call void @llvm.assume(i1 %23)
+_ZNK5clang10ASTContext8AllocateEmj.exit:          ; preds = %21, %.critedge.i.i.i
+  %.0.i.i.i = phi ptr [ %23, %21 ], [ %24, %.critedge.i.i.i ]
+  %25 = icmp ne ptr %.0.i.i.i, null
+  tail call void @llvm.assume(i1 %25)
   store i8 -21, ptr %.0.i.i.i, align 8
-  %24 = load i8, ptr @_ZN5clang4Stmt17StatisticsEnabledE, align 1
-  %25 = trunc i8 %24 to i1
-  br i1 %25, label %26, label %_ZN5clang12CompoundStmtC2ENS_4Stmt10EmptyShellE.exit
+  %26 = load i8, ptr @_ZN5clang4Stmt17StatisticsEnabledE, align 1
+  %27 = trunc i8 %26 to i1
+  br i1 %27, label %28, label %_ZN5clang12CompoundStmtC2ENS_4Stmt10EmptyShellE.exit
 
-26:                                               ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit
-  %27 = tail call fastcc noundef nonnull align 8 dereferenceable(16) ptr @_ZL21getStmtInfoTableEntryN5clang4Stmt9StmtClassE(i32 noundef 235)
-  %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
-  %29 = load i32, ptr %28, align 8
-  %30 = add i32 %29, 1
-  store i32 %30, ptr %28, align 8
+28:                                               ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit
+  %29 = tail call fastcc noundef nonnull align 8 dereferenceable(16) ptr @_ZL21getStmtInfoTableEntryN5clang4Stmt9StmtClassE(i32 noundef 235)
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 8
+  %31 = load i32, ptr %30, align 8
+  %32 = add i32 %31, 1
+  store i32 %32, ptr %30, align 8
   br label %_ZN5clang12CompoundStmtC2ENS_4Stmt10EmptyShellE.exit
 
-_ZN5clang12CompoundStmtC2ENS_4Stmt10EmptyShellE.exit: ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit, %26
-  %31 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 8
-  store i32 0, ptr %31, align 4
-  %32 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 12
-  store i32 0, ptr %32, align 4
-  %33 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 4
-  store i32 %1, ptr %33, align 4
-  %34 = load i16, ptr %.0.i.i.i, align 8
-  %35 = select i1 %2, i16 256, i16 0
-  %36 = and i16 %34, -257
-  %37 = or disjoint i16 %36, %35
-  store i16 %37, ptr %.0.i.i.i, align 8
+_ZN5clang12CompoundStmtC2ENS_4Stmt10EmptyShellE.exit: ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit, %28
+  %33 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 8
+  store i32 0, ptr %33, align 4
+  %34 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 12
+  store i32 0, ptr %34, align 4
+  %35 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 4
+  store i32 %1, ptr %35, align 4
+  %36 = load i16, ptr %.0.i.i.i, align 8
+  %37 = select i1 %2, i16 256, i16 0
+  %38 = and i16 %36, -257
+  %39 = or disjoint i16 %38, %37
+  store i16 %39, ptr %.0.i.i.i, align 8
   ret ptr %.0.i.i.i
 }
 

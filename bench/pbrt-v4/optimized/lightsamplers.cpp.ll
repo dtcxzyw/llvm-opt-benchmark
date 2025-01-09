@@ -2181,16 +2181,16 @@ invoke.cont51:                                    ; preds = %invoke.cont11, %if.
   %50 = load i64, ptr %nStored.i.i, align 8
   %mul = shl i64 %49, 5
   %mul53 = shl i64 %50, 2
+  %add = add i64 %mul53, %mul
   %nStored.i60 = getelementptr inbounds nuw i8, ptr %this, i64 56
   %51 = load i64, ptr %nStored.i60, align 8
-  %52 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN4pbrtL13lightBVHBytesE)
-  %53 = load i64, ptr %52, align 8
-  %reass.add = add i64 %51, %lights.coerce1
-  %reass.mul = shl i64 %reass.add, 3
-  %add57 = add i64 %mul53, %mul
-  %add62 = add i64 %add57, %53
-  %add63 = add i64 %add62, %reass.mul
-  store i64 %add63, ptr %52, align 8
+  %52 = add i64 %51, %lights.coerce1
+  %53 = shl i64 %52, 3
+  %54 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN4pbrtL13lightBVHBytesE)
+  %55 = load i64, ptr %54, align 8
+  %add62 = add i64 %add, %55
+  %add63 = add i64 %add62, %53
+  store i64 %add63, ptr %54, align 8
   %tobool.not.i.i.i = icmp eq ptr %48, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorISt4pairIiN4pbrt11LightBoundsEESaIS3_EED2Ev.exit, label %if.then.i.i.i
 
@@ -2203,12 +2203,12 @@ _ZNSt6vectorISt4pairIiN4pbrt11LightBoundsEESaIS3_EED2Ev.exit: ; preds = %invoke.
 
 ehcleanup:                                        ; preds = %lpad12.loopexit, %lpad12.loopexit.split-lp, %_ZN4pstd8optionalIN4pbrt11LightBoundsEE5valueEv.exit.i.i, %lpad19
   %.pn = phi { ptr, i32 } [ %lpad.phi77, %lpad19 ], [ %lpad.phi77, %_ZN4pstd8optionalIN4pbrt11LightBoundsEE5valueEv.exit.i.i ], [ %lpad.loopexit, %lpad12.loopexit ], [ %lpad.loopexit.split-lp, %lpad12.loopexit.split-lp ]
-  %54 = load ptr, ptr %bvhLights, align 8
-  %tobool.not.i.i.i61 = icmp eq ptr %54, null
+  %56 = load ptr, ptr %bvhLights, align 8
+  %tobool.not.i.i.i61 = icmp eq ptr %56, null
   br i1 %tobool.not.i.i.i61, label %_ZNSt6vectorISt4pairIiN4pbrt11LightBoundsEESaIS3_EED2Ev.exit63, label %if.then.i.i.i62
 
 if.then.i.i.i62:                                  ; preds = %ehcleanup
-  call void @_ZdlPv(ptr noundef nonnull %54) #26
+  call void @_ZdlPv(ptr noundef nonnull %56) #26
   br label %_ZNSt6vectorISt4pairIiN4pbrt11LightBoundsEESaIS3_EED2Ev.exit63
 
 _ZNSt6vectorISt4pairIiN4pbrt11LightBoundsEESaIS3_EED2Ev.exit63: ; preds = %ehcleanup, %if.then.i.i.i62

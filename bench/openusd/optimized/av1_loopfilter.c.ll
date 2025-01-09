@@ -149,7 +149,7 @@ segfeature_active.exit.thread:                    ; preds = %33, %52, %segfeatur
   %82 = getelementptr inbounds [2 x i8], ptr %75, i64 0, i64 %81
   %83 = load i8, ptr %82, align 1
   %84 = sext i8 %83 to i32
-  %85 = add nsw i32 %72, %84
+  %85 = add nsw i32 %84, %72
   br label %86
 
 86:                                               ; preds = %74, %64
@@ -446,7 +446,7 @@ segfeature_active.exit.thread:                    ; preds = %66, %76, %segfeatur
   %105 = getelementptr inbounds nuw [2 x i8], ptr %56, i64 0, i64 %indvars.iv
   %106 = load i8, ptr %105, align 1
   %107 = sext i8 %106 to i32
-  %108 = add nsw i32 %104, %107
+  %108 = add nsw i32 %107, %104
   %109 = shl i32 %108, %90
   %110 = add i32 %109, %.082
   %111 = icmp slt i32 %110, 0

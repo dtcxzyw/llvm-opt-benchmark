@@ -806,51 +806,51 @@ define i32 @Abc_NamObjNumMax(ptr nocapture noundef readonly %0) local_unnamed_ad
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define i32 @Abc_NamMemUsed(ptr noundef readonly %0) local_unnamed_addr #10 {
   %2 = icmp eq ptr %0, null
-  br i1 %2, label %15, label %3
+  br i1 %2, label %17, label %3
 
 3:                                                ; preds = %1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %5 = load i32, ptr %4, align 4
-  %6 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %7 = load i32, ptr %6, align 8
-  %8 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %9 = load i32, ptr %8, align 4
-  %10 = getelementptr inbounds nuw i8, ptr %0, i64 36
-  %11 = load i32, ptr %10, align 4
-  %12 = add i32 %9, %7
-  %reass.add = add i32 %12, %11
-  %reass.mul = shl i32 %reass.add, 2
-  %13 = add i32 %5, 80
-  %14 = add i32 %13, %reass.mul
-  br label %15
+  %6 = add i32 %5, 80
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %8 = load i32, ptr %7, align 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  %10 = load i32, ptr %9, align 4
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 36
+  %12 = load i32, ptr %11, align 4
+  %13 = add i32 %10, %8
+  %14 = add i32 %13, %12
+  %15 = shl i32 %14, 2
+  %16 = add i32 %6, %15
+  br label %17
 
-15:                                               ; preds = %1, %3
-  %.0 = phi i32 [ %14, %3 ], [ 0, %1 ]
+17:                                               ; preds = %1, %3
+  %.0 = phi i32 [ %16, %3 ], [ 0, %1 ]
   ret i32 %.0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define i32 @Abc_NamMemAlloc(ptr noundef readonly %0) local_unnamed_addr #10 {
   %2 = icmp eq ptr %0, null
-  br i1 %2, label %14, label %3
+  br i1 %2, label %16, label %3
 
 3:                                                ; preds = %1
   %4 = load i32, ptr %0, align 8
-  %5 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %6 = load i32, ptr %5, align 8
-  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %8 = load i32, ptr %7, align 8
-  %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %10 = load i32, ptr %9, align 8
-  %11 = add i32 %8, %6
-  %reass.add = add i32 %11, %10
-  %reass.mul = shl i32 %reass.add, 2
-  %12 = add i32 %4, 80
-  %13 = add i32 %12, %reass.mul
-  br label %14
+  %5 = add i32 %4, 80
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %7 = load i32, ptr %6, align 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %9 = load i32, ptr %8, align 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %11 = load i32, ptr %10, align 8
+  %12 = add i32 %9, %7
+  %13 = add i32 %12, %11
+  %14 = shl i32 %13, 2
+  %15 = add i32 %5, %14
+  br label %16
 
-14:                                               ; preds = %1, %3
-  %.0 = phi i32 [ %13, %3 ], [ 0, %1 ]
+16:                                               ; preds = %1, %3
+  %.0 = phi i32 [ %15, %3 ], [ 0, %1 ]
   ret i32 %.0
 }
 

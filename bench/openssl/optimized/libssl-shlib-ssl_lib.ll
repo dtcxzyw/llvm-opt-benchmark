@@ -15298,9 +15298,9 @@ entry:
 
 if.end:                                           ; preds = %entry
   %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %prefix) #25
-  %reass.add = add i64 %parameter_2_len, %parameter_1_len
-  %reass.mul = shl i64 %reass.add, 1
-  %add2 = add i64 %reass.mul, 3
+  %2 = add i64 %parameter_2_len, %parameter_1_len
+  %3 = shl i64 %2, 1
+  %add2 = add i64 %3, 3
   %add3 = add i64 %add2, %call
   %call4 = tail call noalias ptr @CRYPTO_malloc(i64 noundef %add3, ptr noundef nonnull @.str, i32 noundef 6723) #24
   %cmp5 = icmp eq ptr %call4, null
@@ -15317,8 +15317,8 @@ for.body:                                         ; preds = %if.end7, %for.body
   %i.023 = phi i64 [ 0, %if.end7 ], [ %inc, %for.body ]
   %cursor.022 = phi ptr [ %incdec.ptr, %if.end7 ], [ %add.ptr11, %for.body ]
   %arrayidx = getelementptr inbounds nuw i8, ptr %parameter_1, i64 %i.023
-  %2 = load i8, ptr %arrayidx, align 1
-  %conv = zext i8 %2 to i32
+  %4 = load i8, ptr %arrayidx, align 1
+  %conv = zext i8 %4 to i32
   %call10 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %cursor.022, ptr noundef nonnull dereferenceable(1) @.str.15, i32 noundef %conv) #24
   %add.ptr11 = getelementptr inbounds nuw i8, ptr %cursor.022, i64 2
   %inc = add nuw nsw i64 %i.023, 1
@@ -15335,8 +15335,8 @@ for.body16:                                       ; preds = %for.end, %for.body1
   %i.126 = phi i64 [ %inc22, %for.body16 ], [ 0, %for.end ]
   %cursor.125 = phi ptr [ %add.ptr20, %for.body16 ], [ %incdec.ptr12, %for.end ]
   %arrayidx17 = getelementptr inbounds i8, ptr %parameter_2, i64 %i.126
-  %3 = load i8, ptr %arrayidx17, align 1
-  %conv18 = zext i8 %3 to i32
+  %5 = load i8, ptr %arrayidx17, align 1
+  %conv18 = zext i8 %5 to i32
   %call19 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %cursor.125, ptr noundef nonnull dereferenceable(1) @.str.15, i32 noundef %conv18) #24
   %add.ptr20 = getelementptr inbounds nuw i8, ptr %cursor.125, i64 2
   %inc22 = add nuw i64 %i.126, 1
@@ -15346,8 +15346,8 @@ for.body16:                                       ; preds = %for.end, %for.body1
 for.end23:                                        ; preds = %for.body16, %for.end
   %cursor.1.lcssa = phi ptr [ %incdec.ptr12, %for.end ], [ %add.ptr20, %for.body16 ]
   store i8 0, ptr %cursor.1.lcssa, align 1
-  %4 = load ptr, ptr %keylog_callback, align 8
-  tail call void %4(ptr noundef %sc, ptr noundef nonnull %call4) #24
+  %6 = load ptr, ptr %keylog_callback, align 8
+  tail call void %6(ptr noundef %sc, ptr noundef nonnull %call4) #24
   tail call void @CRYPTO_clear_free(ptr noundef nonnull %call4, i64 noundef %add3, ptr noundef nonnull @.str, i32 noundef 6743) #24
   br label %return
 

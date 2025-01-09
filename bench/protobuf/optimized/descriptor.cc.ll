@@ -60791,7 +60791,7 @@ _ZN6google8protobuf12_GLOBAL__N_117FlatAllocatorImplIJcNSt7__cxx1112basic_string
   store i32 %conv11.i, ptr %total_.i, align 8
   %current_size_.i.i.i.i50 = getelementptr inbounds nuw i8, ptr %8, i64 200
   %26 = load i32, ptr %current_size_.i.i.i.i50, align 8
-  %27 = add i32 %25, %26
+  %27 = add i32 %26, %25
   %28 = shl i32 %27, 3
   %conv11.i57 = add i32 %28, %conv8.i.i
   store i32 %conv11.i57, ptr %total_.i, align 8
@@ -61014,7 +61014,7 @@ _ZN6google8protobuf12_GLOBAL__N_117FlatAllocatorImplIJcNSt7__cxx1112basic_string
   store i32 %conv11.i, ptr %total_.i, align 8
   %current_size_.i.i.i.i41 = getelementptr inbounds nuw i8, ptr %8, i64 80
   %25 = load i32, ptr %current_size_.i.i.i.i41, align 8
-  %26 = add i32 %24, %25
+  %26 = add i32 %25, %24
   %27 = shl i32 %26, 3
   %conv11.i48 = add i32 %27, %conv8.i.i
   store i32 %conv11.i48, ptr %total_.i, align 8

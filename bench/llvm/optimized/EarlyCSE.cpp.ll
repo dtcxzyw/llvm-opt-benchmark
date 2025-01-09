@@ -11221,121 +11221,109 @@ define linkonce_odr hidden noundef ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapINS_1
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %20 = load ptr, ptr %19, align 8
   %21 = ptrtoint ptr %20 to i64
-  %22 = trunc i64 %21 to i32
-  %23 = lshr i32 %22, 4
-  %24 = lshr i32 %22, 9
-  %25 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %23 = load ptr, ptr %22, align 8
+  %24 = ptrtoint ptr %23 to i64
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %26 = load ptr, ptr %25, align 8
   %27 = ptrtoint ptr %26 to i64
-  %28 = trunc i64 %27 to i32
-  %29 = lshr i32 %28, 4
-  %30 = lshr i32 %28, 9
-  %31 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %32 = load ptr, ptr %31, align 8
-  %33 = ptrtoint ptr %32 to i64
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %29 = load ptr, ptr %28, align 8
+  %30 = ptrtoint ptr %29 to i64
+  %31 = xor i64 %24, %21
+  %32 = xor i64 %31, %27
+  %33 = xor i64 %32, %30
   %34 = trunc i64 %33 to i32
-  %35 = lshr i32 %34, 4
-  %36 = lshr i32 %34, 9
-  %37 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %38 = load ptr, ptr %37, align 8
-  %39 = ptrtoint ptr %38 to i64
-  %40 = trunc i64 %39 to i32
-  %41 = lshr i32 %40, 4
-  %42 = lshr i32 %40, 9
-  %43 = xor i32 %11, %12
-  %44 = xor i32 %43, %18
-  %45 = xor i32 %44, %24
-  %46 = xor i32 %45, %23
-  %47 = xor i32 %46, %30
-  %48 = xor i32 %47, %29
-  %49 = xor i32 %48, %36
-  %50 = xor i32 %49, %35
-  %51 = xor i32 %50, %42
-  %52 = xor i32 %51, %41
-  %53 = add i32 %5, -1
-  br label %54
+  %35 = lshr i32 %34, 9
+  %36 = lshr i32 %34, 4
+  %37 = xor i32 %11, %12
+  %38 = xor i32 %37, %18
+  %39 = xor i32 %38, %35
+  %40 = xor i32 %39, %36
+  %41 = add i32 %5, -1
+  br label %42
 
-54:                                               ; preds = %_ZN4llvm12DenseMapInfoINS_14MemoryLocationEvE7isEqualERKS1_S4_.exit17.thread, %7
-  %.pn = phi i32 [ %52, %7 ], [ %99, %_ZN4llvm12DenseMapInfoINS_14MemoryLocationEvE7isEqualERKS1_S4_.exit17.thread ]
-  %.014 = phi i32 [ 1, %7 ], [ %98, %_ZN4llvm12DenseMapInfoINS_14MemoryLocationEvE7isEqualERKS1_S4_.exit17.thread ]
-  %.015 = and i32 %.pn, %53
-  %55 = zext i32 %.015 to i64
-  %56 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.249", ptr %3, i64 %55
+42:                                               ; preds = %_ZN4llvm12DenseMapInfoINS_14MemoryLocationEvE7isEqualERKS1_S4_.exit17.thread, %7
+  %.pn = phi i32 [ %40, %7 ], [ %87, %_ZN4llvm12DenseMapInfoINS_14MemoryLocationEvE7isEqualERKS1_S4_.exit17.thread ]
+  %.014 = phi i32 [ 1, %7 ], [ %86, %_ZN4llvm12DenseMapInfoINS_14MemoryLocationEvE7isEqualERKS1_S4_.exit17.thread ]
+  %.015 = and i32 %.pn, %41
+  %43 = zext i32 %.015 to i64
+  %44 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.249", ptr %3, i64 %43
+  %45 = load ptr, ptr %44, align 8
+  %46 = icmp eq ptr %8, %45
+  br i1 %46, label %47, label %_ZN4llvm12DenseMapInfoINS_14MemoryLocationEvE7isEqualERKS1_S4_.exit.thread
+
+47:                                               ; preds = %42
+  %48 = getelementptr inbounds nuw i8, ptr %44, i64 8
+  %49 = load i64, ptr %48, align 8
+  %50 = icmp eq i64 %14, %49
+  br i1 %50, label %51, label %_ZN4llvm12DenseMapInfoINS_14MemoryLocationEvE7isEqualERKS1_S4_.exit.thread
+
+51:                                               ; preds = %47
+  %52 = getelementptr inbounds nuw i8, ptr %44, i64 16
+  %53 = load ptr, ptr %52, align 8
+  %54 = icmp eq ptr %20, %53
+  br i1 %54, label %55, label %_ZN4llvm12DenseMapInfoINS_14MemoryLocationEvE7isEqualERKS1_S4_.exit.thread
+
+55:                                               ; preds = %51
+  %56 = getelementptr inbounds nuw i8, ptr %44, i64 24
   %57 = load ptr, ptr %56, align 8
-  %58 = icmp eq ptr %8, %57
+  %58 = icmp eq ptr %23, %57
   br i1 %58, label %59, label %_ZN4llvm12DenseMapInfoINS_14MemoryLocationEvE7isEqualERKS1_S4_.exit.thread
 
-59:                                               ; preds = %54
-  %60 = getelementptr inbounds nuw i8, ptr %56, i64 8
-  %61 = load i64, ptr %60, align 8
-  %62 = icmp eq i64 %14, %61
-  br i1 %62, label %63, label %_ZN4llvm12DenseMapInfoINS_14MemoryLocationEvE7isEqualERKS1_S4_.exit.thread
+59:                                               ; preds = %55
+  %60 = getelementptr inbounds nuw i8, ptr %44, i64 32
+  %61 = load ptr, ptr %60, align 8
+  %62 = icmp eq ptr %26, %61
+  br i1 %62, label %_ZN4llvm12DenseMapInfoINS_14MemoryLocationEvE7isEqualERKS1_S4_.exit, label %_ZN4llvm12DenseMapInfoINS_14MemoryLocationEvE7isEqualERKS1_S4_.exit.thread
 
-63:                                               ; preds = %59
-  %64 = getelementptr inbounds nuw i8, ptr %56, i64 16
-  %65 = load ptr, ptr %64, align 8
-  %66 = icmp eq ptr %20, %65
-  br i1 %66, label %67, label %_ZN4llvm12DenseMapInfoINS_14MemoryLocationEvE7isEqualERKS1_S4_.exit.thread
+_ZN4llvm12DenseMapInfoINS_14MemoryLocationEvE7isEqualERKS1_S4_.exit: ; preds = %59
+  %63 = getelementptr inbounds nuw i8, ptr %44, i64 40
+  %64 = load ptr, ptr %63, align 8
+  %65 = icmp eq ptr %29, %64
+  br i1 %65, label %.loopexit, label %_ZN4llvm12DenseMapInfoINS_14MemoryLocationEvE7isEqualERKS1_S4_.exit.thread
 
-67:                                               ; preds = %63
-  %68 = getelementptr inbounds nuw i8, ptr %56, i64 24
-  %69 = load ptr, ptr %68, align 8
-  %70 = icmp eq ptr %26, %69
-  br i1 %70, label %71, label %_ZN4llvm12DenseMapInfoINS_14MemoryLocationEvE7isEqualERKS1_S4_.exit.thread
+_ZN4llvm12DenseMapInfoINS_14MemoryLocationEvE7isEqualERKS1_S4_.exit.thread: ; preds = %51, %55, %59, %42, %47, %_ZN4llvm12DenseMapInfoINS_14MemoryLocationEvE7isEqualERKS1_S4_.exit
+  %66 = icmp eq ptr %45, inttoptr (i64 -4096 to ptr)
+  br i1 %66, label %67, label %_ZN4llvm12DenseMapInfoINS_14MemoryLocationEvE7isEqualERKS1_S4_.exit17.thread
+
+67:                                               ; preds = %_ZN4llvm12DenseMapInfoINS_14MemoryLocationEvE7isEqualERKS1_S4_.exit.thread
+  %68 = getelementptr inbounds nuw i8, ptr %44, i64 8
+  %69 = load i64, ptr %68, align 8
+  %70 = icmp eq i64 %69, -3
+  br i1 %70, label %71, label %_ZN4llvm12DenseMapInfoINS_14MemoryLocationEvE7isEqualERKS1_S4_.exit17.thread
 
 71:                                               ; preds = %67
-  %72 = getelementptr inbounds nuw i8, ptr %56, i64 32
+  %72 = getelementptr inbounds nuw i8, ptr %44, i64 16
   %73 = load ptr, ptr %72, align 8
-  %74 = icmp eq ptr %32, %73
-  br i1 %74, label %_ZN4llvm12DenseMapInfoINS_14MemoryLocationEvE7isEqualERKS1_S4_.exit, label %_ZN4llvm12DenseMapInfoINS_14MemoryLocationEvE7isEqualERKS1_S4_.exit.thread
+  %74 = icmp eq ptr %73, null
+  br i1 %74, label %75, label %_ZN4llvm12DenseMapInfoINS_14MemoryLocationEvE7isEqualERKS1_S4_.exit17.thread
 
-_ZN4llvm12DenseMapInfoINS_14MemoryLocationEvE7isEqualERKS1_S4_.exit: ; preds = %71
-  %75 = getelementptr inbounds nuw i8, ptr %56, i64 40
-  %76 = load ptr, ptr %75, align 8
-  %77 = icmp eq ptr %38, %76
-  br i1 %77, label %.loopexit, label %_ZN4llvm12DenseMapInfoINS_14MemoryLocationEvE7isEqualERKS1_S4_.exit.thread
-
-_ZN4llvm12DenseMapInfoINS_14MemoryLocationEvE7isEqualERKS1_S4_.exit.thread: ; preds = %63, %67, %71, %54, %59, %_ZN4llvm12DenseMapInfoINS_14MemoryLocationEvE7isEqualERKS1_S4_.exit
-  %78 = icmp eq ptr %57, inttoptr (i64 -4096 to ptr)
+75:                                               ; preds = %71
+  %76 = getelementptr inbounds nuw i8, ptr %44, i64 24
+  %77 = load ptr, ptr %76, align 8
+  %78 = icmp eq ptr %77, null
   br i1 %78, label %79, label %_ZN4llvm12DenseMapInfoINS_14MemoryLocationEvE7isEqualERKS1_S4_.exit17.thread
 
-79:                                               ; preds = %_ZN4llvm12DenseMapInfoINS_14MemoryLocationEvE7isEqualERKS1_S4_.exit.thread
-  %80 = getelementptr inbounds nuw i8, ptr %56, i64 8
-  %81 = load i64, ptr %80, align 8
-  %82 = icmp eq i64 %81, -3
-  br i1 %82, label %83, label %_ZN4llvm12DenseMapInfoINS_14MemoryLocationEvE7isEqualERKS1_S4_.exit17.thread
+79:                                               ; preds = %75
+  %80 = getelementptr inbounds nuw i8, ptr %44, i64 32
+  %81 = load ptr, ptr %80, align 8
+  %82 = icmp eq ptr %81, null
+  br i1 %82, label %_ZN4llvm12DenseMapInfoINS_14MemoryLocationEvE7isEqualERKS1_S4_.exit17, label %_ZN4llvm12DenseMapInfoINS_14MemoryLocationEvE7isEqualERKS1_S4_.exit17.thread
 
-83:                                               ; preds = %79
-  %84 = getelementptr inbounds nuw i8, ptr %56, i64 16
-  %85 = load ptr, ptr %84, align 8
-  %86 = icmp eq ptr %85, null
-  br i1 %86, label %87, label %_ZN4llvm12DenseMapInfoINS_14MemoryLocationEvE7isEqualERKS1_S4_.exit17.thread
+_ZN4llvm12DenseMapInfoINS_14MemoryLocationEvE7isEqualERKS1_S4_.exit17: ; preds = %79
+  %83 = getelementptr inbounds nuw i8, ptr %44, i64 40
+  %84 = load ptr, ptr %83, align 8
+  %85 = icmp eq ptr %84, null
+  br i1 %85, label %.loopexit, label %_ZN4llvm12DenseMapInfoINS_14MemoryLocationEvE7isEqualERKS1_S4_.exit17.thread
 
-87:                                               ; preds = %83
-  %88 = getelementptr inbounds nuw i8, ptr %56, i64 24
-  %89 = load ptr, ptr %88, align 8
-  %90 = icmp eq ptr %89, null
-  br i1 %90, label %91, label %_ZN4llvm12DenseMapInfoINS_14MemoryLocationEvE7isEqualERKS1_S4_.exit17.thread
-
-91:                                               ; preds = %87
-  %92 = getelementptr inbounds nuw i8, ptr %56, i64 32
-  %93 = load ptr, ptr %92, align 8
-  %94 = icmp eq ptr %93, null
-  br i1 %94, label %_ZN4llvm12DenseMapInfoINS_14MemoryLocationEvE7isEqualERKS1_S4_.exit17, label %_ZN4llvm12DenseMapInfoINS_14MemoryLocationEvE7isEqualERKS1_S4_.exit17.thread
-
-_ZN4llvm12DenseMapInfoINS_14MemoryLocationEvE7isEqualERKS1_S4_.exit17: ; preds = %91
-  %95 = getelementptr inbounds nuw i8, ptr %56, i64 40
-  %96 = load ptr, ptr %95, align 8
-  %97 = icmp eq ptr %96, null
-  br i1 %97, label %.loopexit, label %_ZN4llvm12DenseMapInfoINS_14MemoryLocationEvE7isEqualERKS1_S4_.exit17.thread
-
-_ZN4llvm12DenseMapInfoINS_14MemoryLocationEvE7isEqualERKS1_S4_.exit17.thread: ; preds = %83, %87, %91, %_ZN4llvm12DenseMapInfoINS_14MemoryLocationEvE7isEqualERKS1_S4_.exit.thread, %79, %_ZN4llvm12DenseMapInfoINS_14MemoryLocationEvE7isEqualERKS1_S4_.exit17
-  %98 = add i32 %.014, 1
-  %99 = add i32 %.015, %.014
-  br label %54, !llvm.loop !89
+_ZN4llvm12DenseMapInfoINS_14MemoryLocationEvE7isEqualERKS1_S4_.exit17.thread: ; preds = %71, %75, %79, %_ZN4llvm12DenseMapInfoINS_14MemoryLocationEvE7isEqualERKS1_S4_.exit.thread, %67, %_ZN4llvm12DenseMapInfoINS_14MemoryLocationEvE7isEqualERKS1_S4_.exit17
+  %86 = add i32 %.014, 1
+  %87 = add i32 %.015, %.014
+  br label %42, !llvm.loop !89
 
 .loopexit:                                        ; preds = %_ZN4llvm12DenseMapInfoINS_14MemoryLocationEvE7isEqualERKS1_S4_.exit17, %_ZN4llvm12DenseMapInfoINS_14MemoryLocationEvE7isEqualERKS1_S4_.exit, %2
-  %.0 = phi ptr [ null, %2 ], [ null, %_ZN4llvm12DenseMapInfoINS_14MemoryLocationEvE7isEqualERKS1_S4_.exit17 ], [ %56, %_ZN4llvm12DenseMapInfoINS_14MemoryLocationEvE7isEqualERKS1_S4_.exit ]
+  %.0 = phi ptr [ null, %2 ], [ null, %_ZN4llvm12DenseMapInfoINS_14MemoryLocationEvE7isEqualERKS1_S4_.exit17 ], [ %44, %_ZN4llvm12DenseMapInfoINS_14MemoryLocationEvE7isEqualERKS1_S4_.exit ]
   ret ptr %.0
 }
 
@@ -11450,165 +11438,153 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK4llvm12DenseMapBaseINS_8Dense
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %21 = load ptr, ptr %20, align 8
   %22 = ptrtoint ptr %21 to i64
-  %23 = trunc i64 %22 to i32
-  %24 = lshr i32 %23, 4
-  %25 = lshr i32 %23, 9
-  %26 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %24 = load ptr, ptr %23, align 8
+  %25 = ptrtoint ptr %24 to i64
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %27 = load ptr, ptr %26, align 8
   %28 = ptrtoint ptr %27 to i64
-  %29 = trunc i64 %28 to i32
-  %30 = lshr i32 %29, 4
-  %31 = lshr i32 %29, 9
-  %32 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %33 = load ptr, ptr %32, align 8
-  %34 = ptrtoint ptr %33 to i64
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %30 = load ptr, ptr %29, align 8
+  %31 = ptrtoint ptr %30 to i64
+  %32 = xor i64 %25, %22
+  %33 = xor i64 %32, %28
+  %34 = xor i64 %33, %31
   %35 = trunc i64 %34 to i32
-  %36 = lshr i32 %35, 4
-  %37 = lshr i32 %35, 9
-  %38 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %39 = load ptr, ptr %38, align 8
-  %40 = ptrtoint ptr %39 to i64
-  %41 = trunc i64 %40 to i32
-  %42 = lshr i32 %41, 4
-  %43 = lshr i32 %41, 9
-  %44 = xor i32 %12, %13
-  %45 = xor i32 %44, %19
-  %46 = xor i32 %45, %25
-  %47 = xor i32 %46, %24
-  %48 = xor i32 %47, %31
-  %49 = xor i32 %48, %30
-  %50 = xor i32 %49, %37
-  %51 = xor i32 %50, %36
-  %52 = xor i32 %51, %43
-  %53 = xor i32 %52, %42
-  %54 = add i32 %6, -1
-  br label %55
+  %36 = lshr i32 %35, 9
+  %37 = lshr i32 %35, 4
+  %38 = xor i32 %12, %13
+  %39 = xor i32 %38, %19
+  %40 = xor i32 %39, %36
+  %41 = xor i32 %40, %37
+  %42 = add i32 %6, -1
+  br label %43
 
-55:                                               ; preds = %_ZN4llvm12DenseMapInfoINS_14MemoryLocationEvE7isEqualERKS1_S4_.exit30, %8
+43:                                               ; preds = %_ZN4llvm12DenseMapInfoINS_14MemoryLocationEvE7isEqualERKS1_S4_.exit30, %8
   %.026 = phi ptr [ null, %8 ], [ %spec.select, %_ZN4llvm12DenseMapInfoINS_14MemoryLocationEvE7isEqualERKS1_S4_.exit30 ]
-  %.pn = phi i32 [ %53, %8 ], [ %123, %_ZN4llvm12DenseMapInfoINS_14MemoryLocationEvE7isEqualERKS1_S4_.exit30 ]
-  %.024 = phi i32 [ 1, %8 ], [ %122, %_ZN4llvm12DenseMapInfoINS_14MemoryLocationEvE7isEqualERKS1_S4_.exit30 ]
-  %.025 = and i32 %.pn, %54
-  %56 = zext i32 %.025 to i64
-  %57 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.249", ptr %4, i64 %56
+  %.pn = phi i32 [ %41, %8 ], [ %111, %_ZN4llvm12DenseMapInfoINS_14MemoryLocationEvE7isEqualERKS1_S4_.exit30 ]
+  %.024 = phi i32 [ 1, %8 ], [ %110, %_ZN4llvm12DenseMapInfoINS_14MemoryLocationEvE7isEqualERKS1_S4_.exit30 ]
+  %.025 = and i32 %.pn, %42
+  %44 = zext i32 %.025 to i64
+  %45 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.249", ptr %4, i64 %44
+  %46 = load ptr, ptr %45, align 8
+  %47 = icmp eq ptr %9, %46
+  br i1 %47, label %48, label %_ZN4llvm12DenseMapInfoINS_14MemoryLocationEvE7isEqualERKS1_S4_.exit.thread
+
+48:                                               ; preds = %43
+  %49 = getelementptr inbounds nuw i8, ptr %45, i64 8
+  %50 = load i64, ptr %49, align 8
+  %51 = icmp eq i64 %15, %50
+  br i1 %51, label %52, label %_ZN4llvm12DenseMapInfoINS_14MemoryLocationEvE7isEqualERKS1_S4_.exit.thread
+
+52:                                               ; preds = %48
+  %53 = getelementptr inbounds nuw i8, ptr %45, i64 16
+  %54 = load ptr, ptr %53, align 8
+  %55 = icmp eq ptr %21, %54
+  br i1 %55, label %56, label %_ZN4llvm12DenseMapInfoINS_14MemoryLocationEvE7isEqualERKS1_S4_.exit.thread
+
+56:                                               ; preds = %52
+  %57 = getelementptr inbounds nuw i8, ptr %45, i64 24
   %58 = load ptr, ptr %57, align 8
-  %59 = icmp eq ptr %9, %58
+  %59 = icmp eq ptr %24, %58
   br i1 %59, label %60, label %_ZN4llvm12DenseMapInfoINS_14MemoryLocationEvE7isEqualERKS1_S4_.exit.thread
 
-60:                                               ; preds = %55
-  %61 = getelementptr inbounds nuw i8, ptr %57, i64 8
-  %62 = load i64, ptr %61, align 8
-  %63 = icmp eq i64 %15, %62
-  br i1 %63, label %64, label %_ZN4llvm12DenseMapInfoINS_14MemoryLocationEvE7isEqualERKS1_S4_.exit.thread
+60:                                               ; preds = %56
+  %61 = getelementptr inbounds nuw i8, ptr %45, i64 32
+  %62 = load ptr, ptr %61, align 8
+  %63 = icmp eq ptr %27, %62
+  br i1 %63, label %_ZN4llvm12DenseMapInfoINS_14MemoryLocationEvE7isEqualERKS1_S4_.exit, label %_ZN4llvm12DenseMapInfoINS_14MemoryLocationEvE7isEqualERKS1_S4_.exit.thread
 
-64:                                               ; preds = %60
-  %65 = getelementptr inbounds nuw i8, ptr %57, i64 16
-  %66 = load ptr, ptr %65, align 8
-  %67 = icmp eq ptr %21, %66
-  br i1 %67, label %68, label %_ZN4llvm12DenseMapInfoINS_14MemoryLocationEvE7isEqualERKS1_S4_.exit.thread
+_ZN4llvm12DenseMapInfoINS_14MemoryLocationEvE7isEqualERKS1_S4_.exit: ; preds = %60
+  %64 = getelementptr inbounds nuw i8, ptr %45, i64 40
+  %65 = load ptr, ptr %64, align 8
+  %66 = icmp eq ptr %30, %65
+  br i1 %66, label %.loopexit, label %_ZN4llvm12DenseMapInfoINS_14MemoryLocationEvE7isEqualERKS1_S4_.exit.thread
 
-68:                                               ; preds = %64
-  %69 = getelementptr inbounds nuw i8, ptr %57, i64 24
-  %70 = load ptr, ptr %69, align 8
-  %71 = icmp eq ptr %27, %70
-  br i1 %71, label %72, label %_ZN4llvm12DenseMapInfoINS_14MemoryLocationEvE7isEqualERKS1_S4_.exit.thread
-
-72:                                               ; preds = %68
-  %73 = getelementptr inbounds nuw i8, ptr %57, i64 32
-  %74 = load ptr, ptr %73, align 8
-  %75 = icmp eq ptr %33, %74
-  br i1 %75, label %_ZN4llvm12DenseMapInfoINS_14MemoryLocationEvE7isEqualERKS1_S4_.exit, label %_ZN4llvm12DenseMapInfoINS_14MemoryLocationEvE7isEqualERKS1_S4_.exit.thread
-
-_ZN4llvm12DenseMapInfoINS_14MemoryLocationEvE7isEqualERKS1_S4_.exit: ; preds = %72
-  %76 = getelementptr inbounds nuw i8, ptr %57, i64 40
-  %77 = load ptr, ptr %76, align 8
-  %78 = icmp eq ptr %39, %77
-  br i1 %78, label %.loopexit, label %_ZN4llvm12DenseMapInfoINS_14MemoryLocationEvE7isEqualERKS1_S4_.exit.thread
-
-_ZN4llvm12DenseMapInfoINS_14MemoryLocationEvE7isEqualERKS1_S4_.exit.thread: ; preds = %64, %68, %72, %55, %60, %_ZN4llvm12DenseMapInfoINS_14MemoryLocationEvE7isEqualERKS1_S4_.exit
-  %magicptr = ptrtoint ptr %58 to i64
+_ZN4llvm12DenseMapInfoINS_14MemoryLocationEvE7isEqualERKS1_S4_.exit.thread: ; preds = %52, %56, %60, %43, %48, %_ZN4llvm12DenseMapInfoINS_14MemoryLocationEvE7isEqualERKS1_S4_.exit
+  %magicptr = ptrtoint ptr %46 to i64
   switch i64 %magicptr, label %_ZN4llvm12DenseMapInfoINS_14MemoryLocationEvE7isEqualERKS1_S4_.exit30 [
-    i64 -4096, label %79
-    i64 -8192, label %100
+    i64 -4096, label %67
+    i64 -8192, label %88
   ]
 
-79:                                               ; preds = %_ZN4llvm12DenseMapInfoINS_14MemoryLocationEvE7isEqualERKS1_S4_.exit.thread
-  %80 = getelementptr inbounds nuw i8, ptr %57, i64 8
-  %81 = load i64, ptr %80, align 8
-  %82 = icmp eq i64 %81, -3
-  br i1 %82, label %83, label %_ZN4llvm12DenseMapInfoINS_14MemoryLocationEvE7isEqualERKS1_S4_.exit30
+67:                                               ; preds = %_ZN4llvm12DenseMapInfoINS_14MemoryLocationEvE7isEqualERKS1_S4_.exit.thread
+  %68 = getelementptr inbounds nuw i8, ptr %45, i64 8
+  %69 = load i64, ptr %68, align 8
+  %70 = icmp eq i64 %69, -3
+  br i1 %70, label %71, label %_ZN4llvm12DenseMapInfoINS_14MemoryLocationEvE7isEqualERKS1_S4_.exit30
 
-83:                                               ; preds = %79
-  %84 = getelementptr inbounds nuw i8, ptr %57, i64 16
-  %85 = load ptr, ptr %84, align 8
-  %86 = icmp eq ptr %85, null
-  br i1 %86, label %87, label %_ZN4llvm12DenseMapInfoINS_14MemoryLocationEvE7isEqualERKS1_S4_.exit30
+71:                                               ; preds = %67
+  %72 = getelementptr inbounds nuw i8, ptr %45, i64 16
+  %73 = load ptr, ptr %72, align 8
+  %74 = icmp eq ptr %73, null
+  br i1 %74, label %75, label %_ZN4llvm12DenseMapInfoINS_14MemoryLocationEvE7isEqualERKS1_S4_.exit30
 
-87:                                               ; preds = %83
-  %88 = getelementptr inbounds nuw i8, ptr %57, i64 24
-  %89 = load ptr, ptr %88, align 8
-  %90 = icmp eq ptr %89, null
-  br i1 %90, label %91, label %_ZN4llvm12DenseMapInfoINS_14MemoryLocationEvE7isEqualERKS1_S4_.exit30
+75:                                               ; preds = %71
+  %76 = getelementptr inbounds nuw i8, ptr %45, i64 24
+  %77 = load ptr, ptr %76, align 8
+  %78 = icmp eq ptr %77, null
+  br i1 %78, label %79, label %_ZN4llvm12DenseMapInfoINS_14MemoryLocationEvE7isEqualERKS1_S4_.exit30
 
-91:                                               ; preds = %87
-  %92 = getelementptr inbounds nuw i8, ptr %57, i64 32
-  %93 = load ptr, ptr %92, align 8
-  %94 = icmp eq ptr %93, null
-  br i1 %94, label %_ZN4llvm12DenseMapInfoINS_14MemoryLocationEvE7isEqualERKS1_S4_.exit29, label %_ZN4llvm12DenseMapInfoINS_14MemoryLocationEvE7isEqualERKS1_S4_.exit30
+79:                                               ; preds = %75
+  %80 = getelementptr inbounds nuw i8, ptr %45, i64 32
+  %81 = load ptr, ptr %80, align 8
+  %82 = icmp eq ptr %81, null
+  br i1 %82, label %_ZN4llvm12DenseMapInfoINS_14MemoryLocationEvE7isEqualERKS1_S4_.exit29, label %_ZN4llvm12DenseMapInfoINS_14MemoryLocationEvE7isEqualERKS1_S4_.exit30
 
-_ZN4llvm12DenseMapInfoINS_14MemoryLocationEvE7isEqualERKS1_S4_.exit29: ; preds = %91
-  %95 = getelementptr inbounds nuw i8, ptr %57, i64 40
-  %96 = load ptr, ptr %95, align 8
-  %97 = icmp eq ptr %96, null
-  br i1 %97, label %98, label %_ZN4llvm12DenseMapInfoINS_14MemoryLocationEvE7isEqualERKS1_S4_.exit30
+_ZN4llvm12DenseMapInfoINS_14MemoryLocationEvE7isEqualERKS1_S4_.exit29: ; preds = %79
+  %83 = getelementptr inbounds nuw i8, ptr %45, i64 40
+  %84 = load ptr, ptr %83, align 8
+  %85 = icmp eq ptr %84, null
+  br i1 %85, label %86, label %_ZN4llvm12DenseMapInfoINS_14MemoryLocationEvE7isEqualERKS1_S4_.exit30
 
-98:                                               ; preds = %_ZN4llvm12DenseMapInfoINS_14MemoryLocationEvE7isEqualERKS1_S4_.exit29
+86:                                               ; preds = %_ZN4llvm12DenseMapInfoINS_14MemoryLocationEvE7isEqualERKS1_S4_.exit29
   %.not = icmp eq ptr %.026, null
-  %99 = select i1 %.not, ptr %57, ptr %.026
+  %87 = select i1 %.not, ptr %45, ptr %.026
   br label %.loopexit
 
-100:                                              ; preds = %_ZN4llvm12DenseMapInfoINS_14MemoryLocationEvE7isEqualERKS1_S4_.exit.thread
-  %101 = getelementptr inbounds nuw i8, ptr %57, i64 8
-  %102 = load i64, ptr %101, align 8
-  %103 = icmp eq i64 %102, -4
+88:                                               ; preds = %_ZN4llvm12DenseMapInfoINS_14MemoryLocationEvE7isEqualERKS1_S4_.exit.thread
+  %89 = getelementptr inbounds nuw i8, ptr %45, i64 8
+  %90 = load i64, ptr %89, align 8
+  %91 = icmp eq i64 %90, -4
+  br i1 %91, label %92, label %_ZN4llvm12DenseMapInfoINS_14MemoryLocationEvE7isEqualERKS1_S4_.exit30
+
+92:                                               ; preds = %88
+  %93 = getelementptr inbounds nuw i8, ptr %45, i64 16
+  %94 = load ptr, ptr %93, align 8
+  %95 = icmp eq ptr %94, null
+  br i1 %95, label %96, label %_ZN4llvm12DenseMapInfoINS_14MemoryLocationEvE7isEqualERKS1_S4_.exit30
+
+96:                                               ; preds = %92
+  %97 = getelementptr inbounds nuw i8, ptr %45, i64 24
+  %98 = load ptr, ptr %97, align 8
+  %99 = icmp eq ptr %98, null
+  br i1 %99, label %100, label %_ZN4llvm12DenseMapInfoINS_14MemoryLocationEvE7isEqualERKS1_S4_.exit30
+
+100:                                              ; preds = %96
+  %101 = getelementptr inbounds nuw i8, ptr %45, i64 32
+  %102 = load ptr, ptr %101, align 8
+  %103 = icmp eq ptr %102, null
   br i1 %103, label %104, label %_ZN4llvm12DenseMapInfoINS_14MemoryLocationEvE7isEqualERKS1_S4_.exit30
 
 104:                                              ; preds = %100
-  %105 = getelementptr inbounds nuw i8, ptr %57, i64 16
+  %105 = getelementptr inbounds nuw i8, ptr %45, i64 40
   %106 = load ptr, ptr %105, align 8
   %107 = icmp eq ptr %106, null
-  br i1 %107, label %108, label %_ZN4llvm12DenseMapInfoINS_14MemoryLocationEvE7isEqualERKS1_S4_.exit30
-
-108:                                              ; preds = %104
-  %109 = getelementptr inbounds nuw i8, ptr %57, i64 24
-  %110 = load ptr, ptr %109, align 8
-  %111 = icmp eq ptr %110, null
-  br i1 %111, label %112, label %_ZN4llvm12DenseMapInfoINS_14MemoryLocationEvE7isEqualERKS1_S4_.exit30
-
-112:                                              ; preds = %108
-  %113 = getelementptr inbounds nuw i8, ptr %57, i64 32
-  %114 = load ptr, ptr %113, align 8
-  %115 = icmp eq ptr %114, null
-  br i1 %115, label %116, label %_ZN4llvm12DenseMapInfoINS_14MemoryLocationEvE7isEqualERKS1_S4_.exit30
-
-116:                                              ; preds = %112
-  %117 = getelementptr inbounds nuw i8, ptr %57, i64 40
-  %118 = load ptr, ptr %117, align 8
-  %119 = icmp eq ptr %118, null
   br label %_ZN4llvm12DenseMapInfoINS_14MemoryLocationEvE7isEqualERKS1_S4_.exit30
 
-_ZN4llvm12DenseMapInfoINS_14MemoryLocationEvE7isEqualERKS1_S4_.exit30: ; preds = %_ZN4llvm12DenseMapInfoINS_14MemoryLocationEvE7isEqualERKS1_S4_.exit.thread, %83, %87, %91, %79, %_ZN4llvm12DenseMapInfoINS_14MemoryLocationEvE7isEqualERKS1_S4_.exit29, %100, %104, %108, %112, %116
-  %120 = phi i1 [ false, %100 ], [ false, %112 ], [ false, %108 ], [ false, %104 ], [ %119, %116 ], [ false, %_ZN4llvm12DenseMapInfoINS_14MemoryLocationEvE7isEqualERKS1_S4_.exit29 ], [ false, %79 ], [ false, %91 ], [ false, %87 ], [ false, %83 ], [ false, %_ZN4llvm12DenseMapInfoINS_14MemoryLocationEvE7isEqualERKS1_S4_.exit.thread ]
-  %121 = icmp eq ptr %.026, null
-  %or.cond.not = select i1 %120, i1 %121, i1 false
-  %spec.select = select i1 %or.cond.not, ptr %57, ptr %.026
-  %122 = add i32 %.024, 1
-  %123 = add i32 %.025, %.024
-  br label %55, !llvm.loop !90
+_ZN4llvm12DenseMapInfoINS_14MemoryLocationEvE7isEqualERKS1_S4_.exit30: ; preds = %_ZN4llvm12DenseMapInfoINS_14MemoryLocationEvE7isEqualERKS1_S4_.exit.thread, %71, %75, %79, %67, %_ZN4llvm12DenseMapInfoINS_14MemoryLocationEvE7isEqualERKS1_S4_.exit29, %88, %92, %96, %100, %104
+  %108 = phi i1 [ false, %88 ], [ false, %100 ], [ false, %96 ], [ false, %92 ], [ %107, %104 ], [ false, %_ZN4llvm12DenseMapInfoINS_14MemoryLocationEvE7isEqualERKS1_S4_.exit29 ], [ false, %67 ], [ false, %79 ], [ false, %75 ], [ false, %71 ], [ false, %_ZN4llvm12DenseMapInfoINS_14MemoryLocationEvE7isEqualERKS1_S4_.exit.thread ]
+  %109 = icmp eq ptr %.026, null
+  %or.cond.not = select i1 %108, i1 %109, i1 false
+  %spec.select = select i1 %or.cond.not, ptr %45, ptr %.026
+  %110 = add i32 %.024, 1
+  %111 = add i32 %.025, %.024
+  br label %43, !llvm.loop !90
 
-.loopexit:                                        ; preds = %_ZN4llvm12DenseMapInfoINS_14MemoryLocationEvE7isEqualERKS1_S4_.exit, %3, %98
-  %.sink = phi ptr [ %99, %98 ], [ null, %3 ], [ %57, %_ZN4llvm12DenseMapInfoINS_14MemoryLocationEvE7isEqualERKS1_S4_.exit ]
-  %.0 = phi i1 [ false, %98 ], [ false, %3 ], [ true, %_ZN4llvm12DenseMapInfoINS_14MemoryLocationEvE7isEqualERKS1_S4_.exit ]
+.loopexit:                                        ; preds = %_ZN4llvm12DenseMapInfoINS_14MemoryLocationEvE7isEqualERKS1_S4_.exit, %3, %86
+  %.sink = phi ptr [ %87, %86 ], [ null, %3 ], [ %45, %_ZN4llvm12DenseMapInfoINS_14MemoryLocationEvE7isEqualERKS1_S4_.exit ]
+  %.0 = phi i1 [ false, %86 ], [ false, %3 ], [ true, %_ZN4llvm12DenseMapInfoINS_14MemoryLocationEvE7isEqualERKS1_S4_.exit ]
   store ptr %.sink, ptr %2, align 8
   ret i1 %.0
 }

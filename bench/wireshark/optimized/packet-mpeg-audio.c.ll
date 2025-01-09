@@ -318,8 +318,8 @@ define internal i32 @dissect_mpeg_audio(ptr noundef %0, ptr noundef %1, ptr noun
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 8
   br label %16
 
-16:                                               ; preds = %.lr.ph, %106
-  %.031 = phi i32 [ 0, %.lr.ph ], [ %.1, %106 ]
+16:                                               ; preds = %.lr.ph, %107
+  %.031 = phi i32 [ 0, %.lr.ph ], [ %.1, %107 ]
   %17 = call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %.031) #3
   %18 = call i32 @tvb_get_ntoh24(ptr noundef %17, i32 noundef 0) #3
   switch i32 %18, label %28 [
@@ -338,12 +338,12 @@ define internal i32 @dissect_mpeg_audio(ptr noundef %0, ptr noundef %1, ptr noun
   %23 = load i32, ptr @ett_mpeg_audio_ID3v1, align 4
   %24 = call i32 @dissect_per_sequence(ptr noundef %17, i32 noundef 0, ptr noundef nonnull %8, ptr noundef %12, i32 noundef %22, i32 noundef %23, ptr noundef nonnull @ID3v1_sequence) #3
   call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %8)
-  br label %106
+  br label %107
 
 25:                                               ; preds = %16
   %26 = load ptr, ptr @id3v2_handle, align 8
   %27 = call i32 @call_dissector(ptr noundef %26, ptr noundef %0, ptr noundef %1, ptr noundef %12) #3
-  br label %106
+  br label %107
 
 28:                                               ; preds = %16
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
@@ -429,87 +429,88 @@ define internal i32 @dissect_mpeg_audio(ptr noundef %0, ptr noundef %1, ptr noun
   %79 = load i32, ptr @hf_mpeg_audio_padbytes, align 4
   %80 = sdiv i32 %76, 8
   %81 = call ptr @proto_tree_add_item(ptr noundef %12, i32 noundef %79, ptr noundef %17, i32 noundef %80, i32 noundef %77, i32 noundef 0) #3
-  %82 = shl i32 %77, 3
-  %83 = add i32 %82, %76
+  %82 = add i32 %77, %.038.i
+  %83 = shl i32 %82, 3
+  %84 = add i32 %83, %69
   br label %dissect_mpeg_audio_frame.exit
 
 dissect_mpeg_audio_frame.exit.thread:             ; preds = %28, %36, %33, %30
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %7)
-  br label %86
+  br label %87
 
 dissect_mpeg_audio_frame.exit:                    ; preds = %66, %71, %78
-  %.037.i = phi i32 [ %83, %78 ], [ %76, %71 ], [ %69, %66 ]
-  %84 = sdiv i32 %.037.i, 8
+  %.037.i = phi i32 [ %84, %78 ], [ %76, %71 ], [ %69, %66 ]
+  %85 = sdiv i32 %.037.i, 8
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %7)
   %.037.i.off = add i32 %.037.i, 7
-  %85 = icmp ult i32 %.037.i.off, 15
-  br i1 %85, label %86, label %106
+  %86 = icmp ult i32 %.037.i.off, 15
+  br i1 %86, label %87, label %107
 
-86:                                               ; preds = %dissect_mpeg_audio_frame.exit.thread, %dissect_mpeg_audio_frame.exit
+87:                                               ; preds = %dissect_mpeg_audio_frame.exit.thread, %dissect_mpeg_audio_frame.exit
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
-  %87 = call i32 @tvb_find_guint8(ptr noundef %17, i32 noundef 0, i32 noundef -1, i8 noundef zeroext -1) #3
-  %.not29.i = icmp eq i32 %87, -1
+  %88 = call i32 @tvb_find_guint8(ptr noundef %17, i32 noundef 0, i32 noundef -1, i8 noundef zeroext -1) #3
+  %.not29.i = icmp eq i32 %88, -1
   br i1 %.not29.i, label %.critedge.i, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %86, %102
-  %.02430.i = phi i32 [ %104, %102 ], [ %87, %86 ]
-  %88 = call i32 @tvb_bytes_exist(ptr noundef %17, i32 noundef %.02430.i, i32 noundef 4) #3
-  %.not25.i = icmp eq i32 %88, 0
-  br i1 %.not25.i, label %.critedge.i, label %89
+.lr.ph.i:                                         ; preds = %87, %103
+  %.02430.i = phi i32 [ %105, %103 ], [ %88, %87 ]
+  %89 = call i32 @tvb_bytes_exist(ptr noundef %17, i32 noundef %.02430.i, i32 noundef 4) #3
+  %.not25.i = icmp eq i32 %89, 0
+  br i1 %.not25.i, label %.critedge.i, label %90
 
-89:                                               ; preds = %.lr.ph.i
-  %90 = call i32 @tvb_get_guint32(ptr noundef %17, i32 noundef %.02430.i, i32 noundef 0) #3
-  store i32 %90, ptr %5, align 4
-  %91 = icmp ugt i32 %90, -2097153
-  br i1 %91, label %92, label %102
+90:                                               ; preds = %.lr.ph.i
+  %91 = call i32 @tvb_get_guint32(ptr noundef %17, i32 noundef %.02430.i, i32 noundef 0) #3
+  store i32 %91, ptr %5, align 4
+  %92 = icmp ugt i32 %91, -2097153
+  br i1 %92, label %93, label %103
 
-92:                                               ; preds = %89
-  %93 = call i32 @mpa_version(ptr noundef nonnull %5) #3
-  %94 = icmp sgt i32 %93, -1
-  br i1 %94, label %95, label %102
+93:                                               ; preds = %90
+  %94 = call i32 @mpa_version(ptr noundef nonnull %5) #3
+  %95 = icmp sgt i32 %94, -1
+  br i1 %95, label %96, label %103
 
-95:                                               ; preds = %92
-  %96 = call i32 @mpa_layer(ptr noundef nonnull %5) #3
-  %97 = icmp sgt i32 %96, -1
-  br i1 %97, label %98, label %102
+96:                                               ; preds = %93
+  %97 = call i32 @mpa_layer(ptr noundef nonnull %5) #3
+  %98 = icmp sgt i32 %97, -1
+  br i1 %98, label %99, label %103
 
-98:                                               ; preds = %95
-  %99 = call i32 @mpa_bitrate(ptr noundef nonnull %5) #3
-  %.not26.i = icmp eq i32 %99, 0
-  br i1 %.not26.i, label %102, label %100
+99:                                               ; preds = %96
+  %100 = call i32 @mpa_bitrate(ptr noundef nonnull %5) #3
+  %.not26.i = icmp eq i32 %100, 0
+  br i1 %.not26.i, label %103, label %101
 
-100:                                              ; preds = %98
-  %101 = call i32 @mpa_frequency(ptr noundef nonnull %5) #3
-  %.not27.i = icmp eq i32 %101, 0
-  br i1 %.not27.i, label %102, label %mpeg_resync.exit
+101:                                              ; preds = %99
+  %102 = call i32 @mpa_frequency(ptr noundef nonnull %5) #3
+  %.not27.i = icmp eq i32 %102, 0
+  br i1 %.not27.i, label %103, label %mpeg_resync.exit
 
-102:                                              ; preds = %100, %98, %95, %92, %89
-  %103 = add nuw i32 %.02430.i, 1
-  %104 = call i32 @tvb_find_guint8(ptr noundef %17, i32 noundef %103, i32 noundef -1, i8 noundef zeroext -1) #3
-  %.not.i27 = icmp eq i32 %104, -1
+103:                                              ; preds = %101, %99, %96, %93, %90
+  %104 = add nuw i32 %.02430.i, 1
+  %105 = call i32 @tvb_find_guint8(ptr noundef %17, i32 noundef %104, i32 noundef -1, i8 noundef zeroext -1) #3
+  %.not.i27 = icmp eq i32 %105, -1
   br i1 %.not.i27, label %.critedge.i, label %.lr.ph.i, !llvm.loop !4
 
-.critedge.i:                                      ; preds = %102, %.lr.ph.i, %86
-  %105 = call i32 @tvb_reported_length(ptr noundef %17) #3
+.critedge.i:                                      ; preds = %103, %.lr.ph.i, %87
+  %106 = call i32 @tvb_reported_length(ptr noundef %17) #3
   br label %mpeg_resync.exit
 
-mpeg_resync.exit:                                 ; preds = %100, %.critedge.i
-  %.0.i28 = phi i32 [ %105, %.critedge.i ], [ %.02430.i, %100 ]
+mpeg_resync.exit:                                 ; preds = %101, %.critedge.i
+  %.0.i28 = phi i32 [ %106, %.critedge.i ], [ %.02430.i, %101 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
-  br label %106
+  br label %107
 
-106:                                              ; preds = %dissect_mpeg_audio_frame.exit, %mpeg_resync.exit, %25, %19
-  %.025.pn = phi i32 [ %27, %25 ], [ %24, %19 ], [ %.0.i28, %mpeg_resync.exit ], [ %84, %dissect_mpeg_audio_frame.exit ]
+107:                                              ; preds = %dissect_mpeg_audio_frame.exit, %mpeg_resync.exit, %25, %19
+  %.025.pn = phi i32 [ %27, %25 ], [ %24, %19 ], [ %.0.i28, %mpeg_resync.exit ], [ %85, %dissect_mpeg_audio_frame.exit ]
   %.1 = add i32 %.025.pn, %.031
-  %107 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.1) #3
-  %108 = icmp sgt i32 %107, 3
-  br i1 %108, label %16, label %._crit_edge, !llvm.loop !6
+  %108 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.1) #3
+  %109 = icmp sgt i32 %108, 3
+  br i1 %109, label %16, label %._crit_edge, !llvm.loop !6
 
-._crit_edge:                                      ; preds = %106, %4
-  %109 = call i32 @tvb_reported_length(ptr noundef %0) #3
-  ret i32 %109
+._crit_edge:                                      ; preds = %107, %4
+  %110 = call i32 @tvb_reported_length(ptr noundef %0) #3
+  ret i32 %110
 }
 
 ; Function Attrs: nounwind uwtable

@@ -1356,7 +1356,7 @@ _ZNK5Eigen20SparseCompressedBaseINS_12SparseMatrixIdLi0EiEEE8nonZerosEv.exit: ; 
   %104 = load i64, ptr %103, align 8
   %105 = shl i64 %104, 2
   %sext = and i64 %96, 4294967292
-  %106 = add i64 %105, %sext
+  %106 = add i64 %105, %96
   %107 = trunc i64 %106 to i32
   %108 = ashr i32 %107, 20
   %109 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %102, i32 noundef %108)
@@ -1365,7 +1365,7 @@ _ZNK5Eigen20SparseCompressedBaseINS_12SparseMatrixIdLi0EiEEE8nonZerosEv.exit: ; 
   %112 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull @.str.22)
   %113 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %114 = load i64, ptr %113, align 8
-  %115 = add i64 %104, %114
+  %115 = add i64 %114, %104
   %116 = shl i64 %115, 2
   %117 = add i64 %116, %sext
   %118 = trunc i64 %117 to i32
@@ -1376,7 +1376,7 @@ _ZNK5Eigen20SparseCompressedBaseINS_12SparseMatrixIdLi0EiEEE8nonZerosEv.exit: ; 
   %123 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull @.str.23)
   %124 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %125 = load i64, ptr %124, align 8
-  %126 = add i64 %115, %125
+  %126 = add i64 %125, %115
   %127 = shl i64 %126, 2
   %128 = add i64 %127, %sext
   %129 = trunc i64 %128 to i32
@@ -1387,7 +1387,7 @@ _ZNK5Eigen20SparseCompressedBaseINS_12SparseMatrixIdLi0EiEEE8nonZerosEv.exit: ; 
   %134 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull @.str.24)
   %135 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %136 = load i64, ptr %135, align 8
-  %137 = add i64 %126, %136
+  %137 = add i64 %136, %126
   %138 = shl i64 %137, 2
   %139 = add i64 %138, %sext
   %140 = trunc i64 %139 to i32

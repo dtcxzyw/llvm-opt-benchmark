@@ -208,23 +208,23 @@ _ZNK17DumpTimeClassInfo28num_enum_klass_static_fieldsEv.exit: ; preds = %_ZNK17D
   %24 = lshr i32 %.sroa.0.0.copyload.i.i.i.i, 23
   %25 = and i32 %24, 8
   %..i.i = zext nneg i32 %25 to i64
-  %26 = add nsw i64 %.0.i.i, 7
-  %27 = and i64 %26, -8
-  %28 = icmp slt i32 %.0.i.i2, 1
-  %29 = add nsw i32 %.0.i.i2, -1
-  %30 = zext nneg i32 %29 to i64
-  %31 = shl nuw nsw i64 %30, 2
-  %32 = add nuw nsw i64 %31, 15
-  %33 = and i64 %32, 17179869176
-  %spec.select = select i1 %28, i64 0, i64 %33
-  %reass.add.i = add nsw i64 %.0.i.i1, %.0.i.i
-  %reass.mul.i = shl nsw i64 %reass.add.i, 3
-  %34 = add nsw i64 %27, 16
-  %35 = add nsw i64 %34, %reass.mul.i
-  %36 = add i64 %35, %22
-  %37 = add i64 %36, %..i.i
-  %38 = add i64 %37, %spec.select
-  ret i64 %38
+  %26 = add nsw i64 %.0.i.i1, %.0.i.i
+  %27 = shl nsw i64 %26, 3
+  %28 = add nsw i64 %.0.i.i, 7
+  %29 = and i64 %28, -8
+  %30 = icmp slt i32 %.0.i.i2, 1
+  %31 = add nsw i32 %.0.i.i2, -1
+  %32 = zext nneg i32 %31 to i64
+  %33 = shl nuw nsw i64 %32, 2
+  %34 = add nuw nsw i64 %33, 15
+  %35 = and i64 %34, 17179869176
+  %spec.select = select i1 %30, i64 0, i64 %35
+  %36 = add nsw i64 %29, 16
+  %37 = add nsw i64 %36, %27
+  %38 = add i64 %37, %22
+  %39 = add i64 %38, %..i.i
+  %40 = add i64 %39, %spec.select
+  ret i64 %40
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

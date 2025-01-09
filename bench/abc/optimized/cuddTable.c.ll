@@ -873,7 +873,7 @@ define void @cuddSlowTableGrowth(ptr noundef initializes((128, 136)) %0) local_u
 define noundef ptr @cuddInitTable(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #1 {
   %5 = tail call noalias dereferenceable_or_null(760) ptr @malloc(i64 noundef 760) #13
   %6 = icmp eq ptr %5, null
-  br i1 %6, label %334, label %7
+  br i1 %6, label %332, label %7
 
 7:                                                ; preds = %4
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 440
@@ -945,7 +945,7 @@ define noundef ptr @cuddInitTable(i32 noundef %0, i32 noundef %1, i32 noundef %2
 
 46:                                               ; preds = %21
   tail call void @free(ptr noundef nonnull %5) #14
-  br label %334
+  br label %332
 
 47:                                               ; preds = %21
   %48 = load i32, ptr %17, align 4
@@ -960,7 +960,7 @@ define noundef ptr @cuddInitTable(i32 noundef %0, i32 noundef %1, i32 noundef %2
 54:                                               ; preds = %47
   tail call void @free(ptr noundef nonnull %43) #14
   tail call void @free(ptr noundef nonnull %5) #14
-  br label %334
+  br label %332
 
 55:                                               ; preds = %47
   %56 = shl nsw i64 %41, 2
@@ -974,7 +974,7 @@ define noundef ptr @cuddInitTable(i32 noundef %0, i32 noundef %1, i32 noundef %2
   tail call void @free(ptr noundef nonnull %43) #14
   tail call void @free(ptr noundef nonnull %51) #14
   tail call void @free(ptr noundef nonnull %5) #14
-  br label %334
+  br label %332
 
 61:                                               ; preds = %55
   %62 = tail call noalias ptr @malloc(i64 noundef %56) #13
@@ -988,7 +988,7 @@ define noundef ptr @cuddInitTable(i32 noundef %0, i32 noundef %1, i32 noundef %2
   tail call void @free(ptr noundef nonnull %51) #14
   tail call void @free(ptr noundef nonnull %57) #14
   tail call void @free(ptr noundef nonnull %5) #14
-  br label %334
+  br label %332
 
 66:                                               ; preds = %61
   %67 = shl nsw i64 %49, 2
@@ -1004,7 +1004,7 @@ define noundef ptr @cuddInitTable(i32 noundef %0, i32 noundef %1, i32 noundef %2
   tail call void @free(ptr noundef nonnull %57) #14
   tail call void @free(ptr noundef nonnull %62) #14
   tail call void @free(ptr noundef nonnull %5) #14
-  br label %334
+  br label %332
 
 72:                                               ; preds = %66
   %73 = tail call noalias ptr @malloc(i64 noundef %67) #13
@@ -1020,7 +1020,7 @@ define noundef ptr @cuddInitTable(i32 noundef %0, i32 noundef %1, i32 noundef %2
   tail call void @free(ptr noundef nonnull %62) #14
   tail call void @free(ptr noundef nonnull %68) #14
   tail call void @free(ptr noundef nonnull %5) #14
-  br label %334
+  br label %332
 
 77:                                               ; preds = %72
   %78 = getelementptr inbounds nuw i8, ptr %5, i64 352
@@ -1043,7 +1043,7 @@ define noundef ptr @cuddInitTable(i32 noundef %0, i32 noundef %1, i32 noundef %2
   tail call void @free(ptr noundef nonnull %68) #14
   tail call void @free(ptr noundef nonnull %73) #14
   tail call void @free(ptr noundef nonnull %5) #14
-  br label %334
+  br label %332
 
 86:                                               ; preds = %77
   store ptr null, ptr %82, align 8
@@ -1135,7 +1135,7 @@ define noundef ptr @cuddInitTable(i32 noundef %0, i32 noundef %1, i32 noundef %2
 
 117:                                              ; preds = %116, %114
   tail call void @free(ptr noundef nonnull %5) #14
-  br label %334
+  br label %332
 
 .lr.ph:                                           ; preds = %.preheader566, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.preheader566 ]
@@ -1323,7 +1323,7 @@ define noundef ptr @cuddInitTable(i32 noundef %0, i32 noundef %1, i32 noundef %2
 
 181:                                              ; preds = %180, %178
   tail call void @free(ptr noundef nonnull %5) #14
-  br label %334
+  br label %332
 
 .lr.ph571:                                        ; preds = %.preheader565, %.lr.ph571
   %indvars.iv616 = phi i64 [ %indvars.iv.next617, %.lr.ph571 ], [ 0, %.preheader565 ]
@@ -1504,7 +1504,7 @@ define noundef ptr @cuddInitTable(i32 noundef %0, i32 noundef %1, i32 noundef %2
 
 237:                                              ; preds = %236, %234
   tail call void @free(ptr noundef nonnull %5) #14
-  br label %334
+  br label %332
 
 ._crit_edge578:                                   ; preds = %.lr.ph577.preheader, %.preheader563
   %238 = load ptr, ptr %69, align 8
@@ -1669,7 +1669,7 @@ define noundef ptr @cuddInitTable(i32 noundef %0, i32 noundef %1, i32 noundef %2
 
 285:                                              ; preds = %284, %282
   tail call void @free(ptr noundef nonnull %5) #14
-  br label %334
+  br label %332
 
 ._crit_edge584:                                   ; preds = %.lr.ph583.preheader, %.preheader562
   %286 = getelementptr inbounds nuw i8, ptr %5, i64 392
@@ -1679,79 +1679,77 @@ define noundef ptr @cuddInitTable(i32 noundef %0, i32 noundef %1, i32 noundef %2
   %289 = add nsw i32 %288, %287
   %290 = sext i32 %289 to i64
   %291 = shl nsw i64 %290, 6
-  %292 = mul i32 %.0436, %25
-  %293 = zext i32 %292 to i64
-  %294 = shl nuw nsw i64 %293, 3
+  %292 = add nsw i64 %291, 760
+  %293 = mul i32 %.0436, %25
+  %294 = zext i32 %293 to i64
   %.559 = tail call i32 @llvm.smax.i32(i32 %288, i32 %287)
   %295 = add nsw i32 %.559, 1
   %296 = sext i32 %295 to i64
-  %297 = shl nsw i64 %296, 3
-  %298 = add nuw nsw i64 %294, 760
-  %299 = add nsw i64 %298, %291
-  %300 = add nsw i64 %299, %297
-  %301 = getelementptr inbounds nuw i8, ptr %5, i64 632
-  %302 = load i32, ptr %90, align 8
-  %303 = sext i32 %302 to i64
-  %304 = shl nsw i64 %303, 3
-  %305 = add nsw i64 %300, %304
-  store i64 %305, ptr %301, align 8
-  %306 = getelementptr inbounds nuw i8, ptr %5, i64 452
-  store i32 0, ptr %306, align 4
-  %307 = getelementptr inbounds nuw i8, ptr %5, i64 484
+  %297 = add nsw i64 %296, %294
+  %298 = getelementptr inbounds nuw i8, ptr %5, i64 632
+  %299 = load i32, ptr %90, align 8
+  %300 = sext i32 %299 to i64
+  %301 = add nsw i64 %297, %300
+  %302 = shl nsw i64 %301, 3
+  %303 = add nsw i64 %302, %292
+  store i64 %303, ptr %298, align 8
+  %304 = getelementptr inbounds nuw i8, ptr %5, i64 452
+  store i32 0, ptr %304, align 4
+  %305 = getelementptr inbounds nuw i8, ptr %5, i64 484
+  store i32 0, ptr %305, align 4
+  %306 = getelementptr inbounds nuw i8, ptr %5, i64 488
+  store i32 0, ptr %306, align 8
+  %307 = getelementptr inbounds nuw i8, ptr %5, i64 500
   store i32 0, ptr %307, align 4
-  %308 = getelementptr inbounds nuw i8, ptr %5, i64 488
+  %308 = getelementptr inbounds nuw i8, ptr %5, i64 504
   store i32 0, ptr %308, align 8
-  %309 = getelementptr inbounds nuw i8, ptr %5, i64 500
-  store i32 0, ptr %309, align 4
-  %310 = getelementptr inbounds nuw i8, ptr %5, i64 504
-  store i32 0, ptr %310, align 8
-  %311 = getelementptr inbounds nuw i8, ptr %5, i64 448
-  store i32 0, ptr %311, align 8
-  %312 = getelementptr inbounds nuw i8, ptr %5, i64 492
-  store i32 4, ptr %312, align 4
-  %313 = getelementptr inbounds nuw i8, ptr %5, i64 496
-  store i32 4, ptr %313, align 8
-  %314 = getelementptr inbounds nuw i8, ptr %5, i64 508
-  store i32 4004, ptr %314, align 4
-  %315 = getelementptr inbounds nuw i8, ptr %5, i64 512
-  store i32 -1, ptr %315, align 8
-  %316 = getelementptr inbounds nuw i8, ptr %5, i64 456
-  store i32 1000, ptr %316, align 8
-  %317 = getelementptr inbounds nuw i8, ptr %5, i64 460
-  store i32 2000000, ptr %317, align 4
-  %318 = getelementptr inbounds nuw i8, ptr %5, i64 520
-  %319 = getelementptr inbounds nuw i8, ptr %5, i64 536
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %318, i8 0, i64 16, i1 false)
-  store i32 7, ptr %319, align 8
-  %320 = getelementptr inbounds nuw i8, ptr %5, i64 540
-  %321 = getelementptr inbounds nuw i8, ptr %5, i64 384
+  %309 = getelementptr inbounds nuw i8, ptr %5, i64 448
+  store i32 0, ptr %309, align 8
+  %310 = getelementptr inbounds nuw i8, ptr %5, i64 492
+  store i32 4, ptr %310, align 4
+  %311 = getelementptr inbounds nuw i8, ptr %5, i64 496
+  store i32 4, ptr %311, align 8
+  %312 = getelementptr inbounds nuw i8, ptr %5, i64 508
+  store i32 4004, ptr %312, align 4
+  %313 = getelementptr inbounds nuw i8, ptr %5, i64 512
+  store i32 -1, ptr %313, align 8
+  %314 = getelementptr inbounds nuw i8, ptr %5, i64 456
+  store i32 1000, ptr %314, align 8
+  %315 = getelementptr inbounds nuw i8, ptr %5, i64 460
+  store i32 2000000, ptr %315, align 4
+  %316 = getelementptr inbounds nuw i8, ptr %5, i64 520
+  %317 = getelementptr inbounds nuw i8, ptr %5, i64 536
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %316, i8 0, i64 16, i1 false)
+  store i32 7, ptr %317, align 8
+  %318 = getelementptr inbounds nuw i8, ptr %5, i64 540
+  %319 = getelementptr inbounds nuw i8, ptr %5, i64 384
+  store ptr null, ptr %319, align 8
+  %320 = getelementptr inbounds nuw i8, ptr %5, i64 368
+  store i32 0, ptr %320, align 8
+  %321 = getelementptr inbounds nuw i8, ptr %5, i64 360
   store ptr null, ptr %321, align 8
-  %322 = getelementptr inbounds nuw i8, ptr %5, i64 368
-  store i32 0, ptr %322, align 8
-  %323 = getelementptr inbounds nuw i8, ptr %5, i64 360
-  store ptr null, ptr %323, align 8
-  %324 = getelementptr inbounds nuw i8, ptr %5, i64 576
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %320, i8 0, i64 28, i1 false)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %324, i8 0, i64 32, i1 false)
-  %325 = load ptr, ptr @stdout, align 8
-  %326 = getelementptr inbounds nuw i8, ptr %5, i64 608
+  %322 = getelementptr inbounds nuw i8, ptr %5, i64 576
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %318, i8 0, i64 28, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %322, i8 0, i64 32, i1 false)
+  %323 = load ptr, ptr @stdout, align 8
+  %324 = getelementptr inbounds nuw i8, ptr %5, i64 608
+  store ptr %323, ptr %324, align 8
+  %325 = load ptr, ptr @stderr, align 8
+  %326 = getelementptr inbounds nuw i8, ptr %5, i64 616
   store ptr %325, ptr %326, align 8
-  %327 = load ptr, ptr @stderr, align 8
-  %328 = getelementptr inbounds nuw i8, ptr %5, i64 616
-  store ptr %327, ptr %328, align 8
-  %329 = getelementptr inbounds nuw i8, ptr %5, i64 624
+  %327 = getelementptr inbounds nuw i8, ptr %5, i64 624
+  store i32 0, ptr %327, align 8
+  %328 = getelementptr inbounds nuw i8, ptr %5, i64 648
+  store i64 -1, ptr %328, align 8
+  %329 = getelementptr inbounds nuw i8, ptr %5, i64 656
   store i32 0, ptr %329, align 8
-  %330 = getelementptr inbounds nuw i8, ptr %5, i64 648
-  store i64 -1, ptr %330, align 8
-  %331 = getelementptr inbounds nuw i8, ptr %5, i64 656
+  %330 = getelementptr inbounds nuw i8, ptr %5, i64 664
+  %331 = getelementptr inbounds nuw i8, ptr %5, i64 728
   store i32 0, ptr %331, align 8
-  %332 = getelementptr inbounds nuw i8, ptr %5, i64 664
-  %333 = getelementptr inbounds nuw i8, ptr %5, i64 728
-  store i32 0, ptr %333, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %332, i8 0, i64 16, i1 false)
-  br label %334
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %330, i8 0, i64 16, i1 false)
+  br label %332
 
-334:                                              ; preds = %4, %._crit_edge584, %285, %237, %181, %117, %85, %76, %71, %65, %60, %54, %46
+332:                                              ; preds = %4, %._crit_edge584, %285, %237, %181, %117, %85, %76, %71, %65, %60, %54, %46
   %.0 = phi ptr [ null, %46 ], [ null, %54 ], [ null, %60 ], [ null, %65 ], [ null, %71 ], [ null, %76 ], [ null, %85 ], [ null, %117 ], [ null, %181 ], [ null, %237 ], [ null, %285 ], [ %5, %._crit_edge584 ], [ null, %4 ]
   ret ptr %.0
 }

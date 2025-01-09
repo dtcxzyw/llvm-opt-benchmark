@@ -819,39 +819,39 @@ define dso_local noundef zeroext i1 @_ZNK5clang21TemplateParameterList31contains
 define dso_local noundef ptr @_ZN5clang21TemplateParameterList6CreateERKNS_10ASTContextENS_14SourceLocationES4_N4llvm8ArrayRefIPNS_9NamedDeclEEES4_PNS_4ExprE(ptr noundef nonnull align 8 dereferenceable(23096) %0, i32 %1, i32 %2, ptr %3, i64 %4, i32 %5, ptr noundef %6) local_unnamed_addr #0 align 2 {
   %.not = icmp ne ptr %6, null
   %8 = zext i1 %.not to i64
-  %reass.add.i.i = add i64 %4, %8
-  %reass.mul.i.i = shl i64 %reass.add.i.i, 3
-  %9 = add i64 %reass.mul.i.i, 16
-  %10 = getelementptr inbounds nuw i8, ptr %0, i64 2144
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 2224
-  %12 = load i64, ptr %11, align 8
-  %13 = add i64 %12, %9
-  store i64 %13, ptr %11, align 8
-  %14 = load ptr, ptr %10, align 8
-  %15 = ptrtoint ptr %14 to i64
-  %16 = add i64 %15, 7
-  %17 = and i64 %16, -8
-  %18 = add i64 %17, %9
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 2152
-  %20 = load ptr, ptr %19, align 8
-  %21 = ptrtoint ptr %20 to i64
-  %.not.i.i.i = icmp ugt i64 %18, %21
-  %.not14.i.i.i = icmp eq ptr %14, null
+  %9 = add i64 %4, %8
+  %10 = shl i64 %9, 3
+  %11 = add i64 %10, 16
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 2144
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 2224
+  %14 = load i64, ptr %13, align 8
+  %15 = add i64 %14, %11
+  store i64 %15, ptr %13, align 8
+  %16 = load ptr, ptr %12, align 8
+  %17 = ptrtoint ptr %16 to i64
+  %18 = add i64 %17, 7
+  %19 = and i64 %18, -8
+  %20 = add i64 %19, %11
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 2152
+  %22 = load ptr, ptr %21, align 8
+  %23 = ptrtoint ptr %22 to i64
+  %.not.i.i.i = icmp ugt i64 %20, %23
+  %.not14.i.i.i = icmp eq ptr %16, null
   %or.cond.i.i.i = or i1 %.not14.i.i.i, %.not.i.i.i
-  br i1 %or.cond.i.i.i, label %.critedge.i.i.i, label %22
+  br i1 %or.cond.i.i.i, label %.critedge.i.i.i, label %24
 
-22:                                               ; preds = %7
-  %23 = inttoptr i64 %18 to ptr
-  store ptr %23, ptr %10, align 8
-  %24 = inttoptr i64 %17 to ptr
+24:                                               ; preds = %7
+  %25 = inttoptr i64 %20 to ptr
+  store ptr %25, ptr %12, align 8
+  %26 = inttoptr i64 %19 to ptr
   br label %_ZNK5clang10ASTContext8AllocateEmj.exit
 
 .critedge.i.i.i:                                  ; preds = %7
-  %25 = tail call noundef nonnull ptr @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12AllocateSlowEmmNS_5AlignE(ptr noundef nonnull align 8 dereferenceable(96) %10, i64 noundef %9, i64 noundef %9, i8 3)
+  %27 = tail call noundef nonnull ptr @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12AllocateSlowEmmNS_5AlignE(ptr noundef nonnull align 8 dereferenceable(96) %12, i64 noundef %11, i64 noundef %11, i8 3)
   br label %_ZNK5clang10ASTContext8AllocateEmj.exit
 
-_ZNK5clang10ASTContext8AllocateEmj.exit:          ; preds = %22, %.critedge.i.i.i
-  %.0.i.i.i = phi ptr [ %24, %22 ], [ %25, %.critedge.i.i.i ]
+_ZNK5clang10ASTContext8AllocateEmj.exit:          ; preds = %24, %.critedge.i.i.i
+  %.0.i.i.i = phi ptr [ %26, %24 ], [ %27, %.critedge.i.i.i ]
   tail call void @_ZN5clang21TemplateParameterListC1ERKNS_10ASTContextENS_14SourceLocationES4_N4llvm8ArrayRefIPNS_9NamedDeclEEES4_PNS_4ExprE(ptr noundef nonnull align 8 dereferenceable(16) %.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(23096) %0, i32 %1, i32 %2, ptr %3, i64 %4, i32 %5, ptr noundef %6) #21
   ret ptr %.0.i.i.i
 }
@@ -8120,17 +8120,17 @@ _ZN5clang23NonTypeTemplateParmDecl6CreateERKNS_10ASTContextEPNS_11DeclContextENS
   %150 = add i64 %149, 40
   %151 = load ptr, ptr %71, align 8
   %152 = ptrtoint ptr %151 to i64
-  %.not.i.i.i.i42.i.i = icmp ugt i64 %150, %152
-  %.not14.i.i.i.i43.i.i = icmp eq ptr %146, null
-  %or.cond.i.i.i.i44.i.i = or i1 %.not14.i.i.i.i43.i.i, %.not.i.i.i.i42.i.i
-  br i1 %or.cond.i.i.i.i44.i.i, label %.critedge.i.i.i.i46.i.i, label %153
+  %.not.i.i.i.i41.i.i = icmp ugt i64 %150, %152
+  %.not14.i.i.i.i42.i.i = icmp eq ptr %146, null
+  %or.cond.i.i.i.i43.i.i = or i1 %.not14.i.i.i.i42.i.i, %.not.i.i.i.i41.i.i
+  br i1 %or.cond.i.i.i.i43.i.i, label %.critedge.i.i.i.i45.i.i, label %153
 
 153:                                              ; preds = %_ZN5clang23NonTypeTemplateParmDecl6CreateERKNS_10ASTContextEPNS_11DeclContextENS_14SourceLocationES6_jjPKNS_14IdentifierInfoENS_8QualTypeEbPNS_14TypeSourceInfoE.exit40.i.i
   %154 = inttoptr i64 %150 to ptr
   %155 = inttoptr i64 %149 to ptr
   br label %_ZL33createMakeIntegerSeqParameterListRKN5clang10ASTContextEPNS_11DeclContextE.exit.i
 
-.critedge.i.i.i.i46.i.i:                          ; preds = %_ZN5clang23NonTypeTemplateParmDecl6CreateERKNS_10ASTContextEPNS_11DeclContextENS_14SourceLocationES6_jjPKNS_14IdentifierInfoENS_8QualTypeEbPNS_14TypeSourceInfoE.exit40.i.i
+.critedge.i.i.i.i45.i.i:                          ; preds = %_ZN5clang23NonTypeTemplateParmDecl6CreateERKNS_10ASTContextEPNS_11DeclContextENS_14SourceLocationES6_jjPKNS_14IdentifierInfoENS_8QualTypeEbPNS_14TypeSourceInfoE.exit40.i.i
   call void @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12StartNewSlabEv(ptr noundef nonnull align 8 dereferenceable(96) %62)
   %156 = load ptr, ptr %62, align 8
   %157 = ptrtoint ptr %156 to i64
@@ -8140,11 +8140,11 @@ _ZN5clang23NonTypeTemplateParmDecl6CreateERKNS_10ASTContextEPNS_11DeclContextENS
   %161 = getelementptr inbounds nuw i8, ptr %160, i64 40
   br label %_ZL33createMakeIntegerSeqParameterListRKN5clang10ASTContextEPNS_11DeclContextE.exit.i
 
-_ZL33createMakeIntegerSeqParameterListRKN5clang10ASTContextEPNS_11DeclContextE.exit.i: ; preds = %.critedge.i.i.i.i46.i.i, %153
-  %.sink15.i = phi ptr [ %161, %.critedge.i.i.i.i46.i.i ], [ %154, %153 ]
-  %.0.i.i.i.i45.i.i = phi ptr [ %160, %.critedge.i.i.i.i46.i.i ], [ %155, %153 ]
+_ZL33createMakeIntegerSeqParameterListRKN5clang10ASTContextEPNS_11DeclContextE.exit.i: ; preds = %.critedge.i.i.i.i45.i.i, %153
+  %.sink15.i = phi ptr [ %161, %.critedge.i.i.i.i45.i.i ], [ %154, %153 ]
+  %.0.i.i.i.i44.i.i = phi ptr [ %160, %.critedge.i.i.i.i45.i.i ], [ %155, %153 ]
   store ptr %.sink15.i, ptr %62, align 8
-  call void @_ZN5clang21TemplateParameterListC1ERKNS_10ASTContextENS_14SourceLocationES4_N4llvm8ArrayRefIPNS_9NamedDeclEEES4_PNS_4ExprE(ptr noundef nonnull align 8 dereferenceable(16) %.0.i.i.i.i45.i.i, ptr noundef nonnull align 8 dereferenceable(23096) %1, i32 0, i32 0, ptr nonnull %8, i64 3, i32 0, ptr noundef null) #21
+  call void @_ZN5clang21TemplateParameterListC1ERKNS_10ASTContextENS_14SourceLocationES4_N4llvm8ArrayRefIPNS_9NamedDeclEEES4_PNS_4ExprE(ptr noundef nonnull align 8 dereferenceable(16) %.0.i.i.i.i44.i.i, ptr noundef nonnull align 8 dereferenceable(23096) %1, i32 0, i32 0, ptr nonnull %8, i64 3, i32 0, ptr noundef null) #21
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8)
   br label %_ZL34createBuiltinTemplateParameterListRKN5clang10ASTContextEPNS_11DeclContextENS_19BuiltinTemplateKindE.exit
@@ -8276,7 +8276,7 @@ _ZL34createTypePackElementParameterListRKN5clang10ASTContextEPNS_11DeclContextE.
   br label %_ZL34createBuiltinTemplateParameterListRKN5clang10ASTContextEPNS_11DeclContextENS_19BuiltinTemplateKindE.exit
 
 _ZL34createBuiltinTemplateParameterListRKN5clang10ASTContextEPNS_11DeclContextENS_19BuiltinTemplateKindE.exit: ; preds = %_ZL33createMakeIntegerSeqParameterListRKN5clang10ASTContextEPNS_11DeclContextE.exit.i, %_ZL34createTypePackElementParameterListRKN5clang10ASTContextEPNS_11DeclContextE.exit.i
-  %.0.i = phi ptr [ %.0.i.i.i.i.i11.i, %_ZL34createTypePackElementParameterListRKN5clang10ASTContextEPNS_11DeclContextE.exit.i ], [ %.0.i.i.i.i45.i.i, %_ZL33createMakeIntegerSeqParameterListRKN5clang10ASTContextEPNS_11DeclContextE.exit.i ]
+  %.0.i = phi ptr [ %.0.i.i.i.i.i11.i, %_ZL34createTypePackElementParameterListRKN5clang10ASTContextEPNS_11DeclContextE.exit.i ], [ %.0.i.i.i.i44.i.i, %_ZL33createMakeIntegerSeqParameterListRKN5clang10ASTContextEPNS_11DeclContextE.exit.i ]
   call void @_ZN5clang4DeclC2ENS0_4KindEPNS_11DeclContextENS_14SourceLocationE(ptr noundef nonnull align 8 dereferenceable(64) %0, i32 noundef 71, ptr noundef %2, i32 0)
   %232 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 %3, ptr %232, align 8

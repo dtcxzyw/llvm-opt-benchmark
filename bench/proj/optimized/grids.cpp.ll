@@ -4379,7 +4379,7 @@ define hidden noundef zeroext i1 @_ZNK5osgeo4proj9GTiffGrid8valuesAtEiiiiiPKiPfR
   %192 = xor i32 %.0155213, -1
   %193 = add nsw i32 %4, %192
   %194 = select i1 %191, i32 %.0155213, i32 %193
-  %195 = add i32 %79, %194
+  %195 = add i32 %194, %79
   %196 = shl i32 %195, 8
   %197 = add i32 %196, %22
   %198 = load i16, ptr %180, align 8
@@ -4417,7 +4417,7 @@ define hidden noundef zeroext i1 @_ZNK5osgeo4proj9GTiffGrid8valuesAtEiiiiiPKiPfR
   %213 = xor i32 %.0145193.us, -1
   %214 = add nsw i32 %4, %213
   %215 = select i1 %212, i32 %.0145193.us, i32 %214
-  %216 = add i32 %79, %215
+  %216 = add i32 %215, %79
   %217 = shl i32 %216, 8
   %218 = add i32 %217, %22
   %219 = zext i16 %210 to i32
@@ -4459,7 +4459,7 @@ define hidden noundef zeroext i1 @_ZNK5osgeo4proj9GTiffGrid8valuesAtEiiiiiPKiPfR
   %236 = xor i32 %.0149198.us, -1
   %237 = add nsw i32 %4, %236
   %238 = select i1 %235, i32 %.0149198.us, i32 %237
-  %239 = add i32 %79, %238
+  %239 = add i32 %238, %79
   %240 = shl i32 %239, 8
   %241 = add i32 %240, %22
   %242 = zext i16 %233 to i32
@@ -4502,7 +4502,7 @@ define hidden noundef zeroext i1 @_ZNK5osgeo4proj9GTiffGrid8valuesAtEiiiiiPKiPfR
   %260 = xor i32 %.0153207.us, -1
   %261 = add nsw i32 %4, %260
   %262 = select i1 %259, i32 %.0153207.us, i32 %261
-  %263 = add i32 %79, %262
+  %263 = add i32 %262, %79
   %264 = shl i32 %263, 8
   %265 = add i32 %264, %22
   %266 = zext i16 %257 to i32

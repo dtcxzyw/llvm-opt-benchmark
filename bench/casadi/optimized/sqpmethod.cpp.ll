@@ -9145,8 +9145,8 @@ _ZN6casadi21casadi_sqpmethod_workIdEEvPKNS_21casadi_sqpmethod_probIT_EEPxS6_ii.e
   %1539 = add nsw i64 %1530, %1528
   %1540 = add i64 %1538, %1539
   %..i = select i1 %or.cond.i, i64 %1539, i64 0
-  %reass.add65.i = add i64 %1539, %1528
-  %reass.mul.i = shl i64 %reass.add65.i, 1
+  %reass.add64.i = add i64 %1539, %1528
+  %reass.mul.i = shl i64 %reass.add64.i, 1
   %1541 = add i64 %1540, %reass.mul.i
   %1542 = add i64 %1541, %..i
   %1543 = add nsw i64 %1542, %1510

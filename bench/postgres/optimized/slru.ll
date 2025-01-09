@@ -53,30 +53,30 @@ define dso_local i64 @SimpleLruShmemSize(i32 noundef %0, i32 noundef %1) local_u
   %6 = add nsw i64 %4, 7
   %7 = and i64 %6, -8
   %8 = sext i32 %3 to i64
-  %9 = shl nsw i64 %8, 2
-  %10 = add nsw i64 %9, 7
-  %11 = and i64 %10, -8
-  %12 = icmp sgt i32 %1, 0
-  %13 = mul i32 %1, %0
-  %14 = sext i32 %13 to i64
-  %15 = shl nsw i64 %14, 3
-  %16 = select i1 %12, i64 %15, i64 0
-  %reass.add = add nsw i64 %8, %4
-  %reass.mul = shl nsw i64 %reass.add, 7
-  %17 = shl nsw i64 %4, 4
-  %18 = add nsw i64 %5, 14
-  %19 = and i64 %18, -16
-  %reass.mul26 = add nsw i64 %17, %19
-  %20 = add nsw i64 %7, 135
-  %21 = add nsw i64 %20, %reass.mul
-  %22 = add nsw i64 %21, %11
-  %.0 = add nsw i64 %22, %16
-  %23 = add i64 %.0, %reass.mul26
-  %24 = and i64 %23, -32
-  %25 = shl i32 %0, 13
-  %26 = sext i32 %25 to i64
-  %27 = add i64 %24, %26
-  ret i64 %27
+  %9 = add nsw i64 %8, %4
+  %10 = shl nsw i64 %9, 7
+  %11 = shl nsw i64 %8, 2
+  %12 = add nsw i64 %11, 7
+  %13 = and i64 %12, -8
+  %14 = icmp sgt i32 %1, 0
+  %15 = mul i32 %1, %0
+  %16 = sext i32 %15 to i64
+  %17 = shl nsw i64 %16, 3
+  %18 = select i1 %14, i64 %17, i64 0
+  %19 = shl nsw i64 %4, 4
+  %20 = add nsw i64 %5, 14
+  %21 = and i64 %20, -16
+  %reass.mul = add nsw i64 %19, %21
+  %22 = add nsw i64 %7, 135
+  %23 = add nsw i64 %22, %10
+  %24 = add nsw i64 %23, %13
+  %.0 = add nsw i64 %24, %18
+  %25 = add i64 %.0, %reass.mul
+  %26 = and i64 %25, -32
+  %27 = shl i32 %0, 13
+  %28 = sext i32 %27 to i64
+  %29 = add i64 %26, %28
+  ret i64 %29
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
@@ -101,99 +101,97 @@ define dso_local void @SimpleLruInit(ptr noundef %0, ptr noundef %1, i32 noundef
   %14 = add nsw i64 %12, 7
   %15 = and i64 %14, -8
   %16 = sext i32 %11 to i64
-  %17 = shl nsw i64 %16, 2
-  %18 = add nsw i64 %17, 7
-  %19 = and i64 %18, -8
-  %20 = icmp sgt i32 %3, 0
-  %21 = mul i32 %3, %2
-  %22 = sext i32 %21 to i64
-  %23 = shl nsw i64 %22, 3
-  %24 = select i1 %20, i64 %23, i64 0
-  %reass.add.i = add nsw i64 %16, %12
-  %reass.mul.i = shl nsw i64 %reass.add.i, 7
-  %25 = shl nsw i64 %12, 4
-  %26 = add nsw i64 %13, 14
-  %27 = and i64 %26, -16
-  %28 = add nsw i64 %25, 135
-  %29 = add nsw i64 %28, %15
-  %30 = add nsw i64 %29, %27
-  %.0.i = add nsw i64 %30, %reass.mul.i
-  %reass.mul26.i = add nsw i64 %.0.i, %19
-  %31 = add i64 %reass.mul26.i, %24
-  %32 = and i64 %31, -32
-  %33 = shl i32 %2, 13
-  %34 = sext i32 %33 to i64
-  %35 = add i64 %32, %34
-  %36 = call ptr @ShmemInitStruct(ptr noundef %1, i64 noundef %35, ptr noundef nonnull %10) #15
-  %37 = load i8, ptr @IsUnderPostmaster, align 1
-  %38 = trunc i8 %37 to i1
-  br i1 %38, label %.loopexit, label %39
+  %17 = add nsw i64 %16, %12
+  %18 = shl nsw i64 %17, 7
+  %19 = shl nsw i64 %16, 2
+  %20 = add nsw i64 %19, 7
+  %21 = and i64 %20, -8
+  %22 = icmp sgt i32 %3, 0
+  %23 = mul i32 %3, %2
+  %24 = sext i32 %23 to i64
+  %25 = shl nsw i64 %24, 3
+  %26 = select i1 %22, i64 %25, i64 0
+  %27 = shl nsw i64 %12, 4
+  %28 = add nsw i64 %13, 14
+  %29 = and i64 %28, -16
+  %30 = add nsw i64 %27, 135
+  %31 = add nsw i64 %30, %15
+  %32 = add nsw i64 %31, %29
+  %.0.i = add nsw i64 %32, %18
+  %reass.mul.i = add nsw i64 %.0.i, %21
+  %33 = add i64 %reass.mul.i, %26
+  %34 = and i64 %33, -32
+  %35 = shl i32 %2, 13
+  %36 = sext i32 %35 to i64
+  %37 = add i64 %34, %36
+  %38 = call ptr @ShmemInitStruct(ptr noundef %1, i64 noundef %37, ptr noundef nonnull %10) #15
+  %39 = load i8, ptr @IsUnderPostmaster, align 1
+  %40 = trunc i8 %39 to i1
+  br i1 %40, label %.loopexit, label %41
 
-39:                                               ; preds = %9
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %36, i8 0, i64 104, i1 false)
-  store i32 %2, ptr %36, align 8
-  %40 = getelementptr inbounds nuw i8, ptr %36, i64 80
-  store i32 %3, ptr %40, align 8
-  %41 = getelementptr inbounds nuw i8, ptr %36, i64 88
-  store volatile i64 0, ptr %41, align 8
-  %42 = call i32 @pgstat_get_slru_index(ptr noundef %1) #15
-  %43 = getelementptr inbounds nuw i8, ptr %36, i64 96
-  store i32 %42, ptr %43, align 8
-  %44 = getelementptr i8, ptr %36, i64 104
-  %45 = getelementptr inbounds nuw i8, ptr %36, i64 8
-  store ptr %44, ptr %45, align 8
-  %46 = add nsw i64 %13, 104
-  %47 = getelementptr i8, ptr %36, i64 %46
-  %48 = getelementptr inbounds nuw i8, ptr %36, i64 16
-  store ptr %47, ptr %48, align 8
-  %49 = shl nsw i64 %12, 2
-  %50 = add nsw i64 %49, 7
-  %51 = and i64 %50, -8
-  %52 = add nsw i64 %51, %46
-  %53 = getelementptr i8, ptr %36, i64 %52
-  %54 = getelementptr inbounds nuw i8, ptr %36, i64 24
-  store ptr %53, ptr %54, align 8
-  %55 = add nsw i64 %52, %15
-  %56 = getelementptr i8, ptr %36, i64 %55
-  %57 = getelementptr inbounds nuw i8, ptr %36, i64 32
-  store ptr %56, ptr %57, align 8
-  %58 = add nsw i64 %55, %13
-  %59 = getelementptr i8, ptr %36, i64 %58
-  %60 = getelementptr inbounds nuw i8, ptr %36, i64 40
-  store ptr %59, ptr %60, align 8
-  %61 = add i64 %58, %51
-  %62 = getelementptr i8, ptr %36, i64 %61
-  %63 = getelementptr inbounds nuw i8, ptr %36, i64 48
-  store ptr %62, ptr %63, align 8
-  %64 = shl nsw i64 %12, 7
-  %65 = add i64 %61, %64
-  %66 = getelementptr i8, ptr %36, i64 %65
-  %67 = getelementptr inbounds nuw i8, ptr %36, i64 56
-  store ptr %66, ptr %67, align 8
-  %68 = shl nsw i64 %16, 7
-  %69 = add i64 %65, %68
-  %70 = getelementptr i8, ptr %36, i64 %69
-  %71 = getelementptr inbounds nuw i8, ptr %36, i64 64
+41:                                               ; preds = %9
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %38, i8 0, i64 104, i1 false)
+  store i32 %2, ptr %38, align 8
+  %42 = getelementptr inbounds nuw i8, ptr %38, i64 80
+  store i32 %3, ptr %42, align 8
+  %43 = getelementptr inbounds nuw i8, ptr %38, i64 88
+  store volatile i64 0, ptr %43, align 8
+  %44 = call i32 @pgstat_get_slru_index(ptr noundef %1) #15
+  %45 = getelementptr inbounds nuw i8, ptr %38, i64 96
+  store i32 %44, ptr %45, align 8
+  %46 = getelementptr i8, ptr %38, i64 104
+  %47 = getelementptr inbounds nuw i8, ptr %38, i64 8
+  store ptr %46, ptr %47, align 8
+  %48 = add nsw i64 %13, 104
+  %49 = getelementptr i8, ptr %38, i64 %48
+  %50 = getelementptr inbounds nuw i8, ptr %38, i64 16
+  store ptr %49, ptr %50, align 8
+  %51 = shl nsw i64 %12, 2
+  %52 = add nsw i64 %51, 7
+  %53 = and i64 %52, -8
+  %54 = add nsw i64 %53, %48
+  %55 = getelementptr i8, ptr %38, i64 %54
+  %56 = getelementptr inbounds nuw i8, ptr %38, i64 24
+  store ptr %55, ptr %56, align 8
+  %57 = add nsw i64 %54, %15
+  %58 = getelementptr i8, ptr %38, i64 %57
+  %59 = getelementptr inbounds nuw i8, ptr %38, i64 32
+  store ptr %58, ptr %59, align 8
+  %60 = add nsw i64 %57, %13
+  %61 = getelementptr i8, ptr %38, i64 %60
+  %62 = getelementptr inbounds nuw i8, ptr %38, i64 40
+  store ptr %61, ptr %62, align 8
+  %63 = add i64 %60, %53
+  %64 = getelementptr i8, ptr %38, i64 %63
+  %65 = getelementptr inbounds nuw i8, ptr %38, i64 48
+  store ptr %64, ptr %65, align 8
+  %66 = shl nsw i64 %12, 7
+  %67 = getelementptr i8, ptr %64, i64 %66
+  %68 = getelementptr inbounds nuw i8, ptr %38, i64 56
+  store ptr %67, ptr %68, align 8
+  %69 = add i64 %63, %18
+  %70 = getelementptr i8, ptr %38, i64 %69
+  %71 = getelementptr inbounds nuw i8, ptr %38, i64 64
   store ptr %70, ptr %71, align 8
-  %72 = add i64 %69, %19
-  br i1 %20, label %73, label %77
+  %72 = add i64 %69, %21
+  br i1 %22, label %73, label %77
 
-73:                                               ; preds = %39
-  %74 = getelementptr i8, ptr %36, i64 %72
-  %75 = getelementptr inbounds nuw i8, ptr %36, i64 72
+73:                                               ; preds = %41
+  %74 = getelementptr i8, ptr %38, i64 %72
+  %75 = getelementptr inbounds nuw i8, ptr %38, i64 72
   store ptr %74, ptr %75, align 8
-  %76 = add i64 %72, %23
+  %76 = add i64 %72, %25
   br label %77
 
-77:                                               ; preds = %73, %39
-  %.096 = phi i64 [ %76, %73 ], [ %72, %39 ]
+77:                                               ; preds = %73, %41
+  %.096 = phi i64 [ %76, %73 ], [ %72, %41 ]
   %78 = icmp sgt i32 %2, 0
   br i1 %78, label %.lr.ph.preheader, label %.loopexit
 
 .lr.ph.preheader:                                 ; preds = %77
   %79 = add i64 %.096, 31
   %80 = and i64 %79, -32
-  %81 = getelementptr i8, ptr %36, i64 %80
+  %81 = getelementptr i8, ptr %38, i64 %80
   %wide.trip.count = zext nneg i32 %2 to i64
   br label %.lr.ph
 
@@ -208,19 +206,19 @@ define dso_local void @SimpleLruInit(ptr noundef %0, ptr noundef %1, i32 noundef
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %.09799 = phi ptr [ %81, %.lr.ph.preheader ], [ %93, %.lr.ph ]
-  %83 = load ptr, ptr %63, align 8
+  %83 = load ptr, ptr %65, align 8
   %84 = getelementptr %union.LWLockPadded, ptr %83, i64 %indvars.iv
   call void @LWLockInitialize(ptr noundef %84, i32 noundef %5) #15
-  %85 = load ptr, ptr %45, align 8
+  %85 = load ptr, ptr %47, align 8
   %86 = getelementptr ptr, ptr %85, i64 %indvars.iv
   store ptr %.09799, ptr %86, align 8
-  %87 = load ptr, ptr %48, align 8
+  %87 = load ptr, ptr %50, align 8
   %88 = getelementptr i32, ptr %87, i64 %indvars.iv
   store i32 0, ptr %88, align 4
-  %89 = load ptr, ptr %54, align 8
+  %89 = load ptr, ptr %56, align 8
   %90 = getelementptr i8, ptr %89, i64 %indvars.iv
   store i8 0, ptr %90, align 1
-  %91 = load ptr, ptr %60, align 8
+  %91 = load ptr, ptr %62, align 8
   %92 = getelementptr i32, ptr %91, i64 %indvars.iv
   store i32 0, ptr %92, align 4
   %93 = getelementptr i8, ptr %.09799, i64 8192
@@ -230,7 +228,7 @@ define dso_local void @SimpleLruInit(ptr noundef %0, ptr noundef %1, i32 noundef
 
 .lr.ph102:                                        ; preds = %.lr.ph102.preheader, %.lr.ph102
   %indvars.iv104 = phi i64 [ 0, %.lr.ph102.preheader ], [ %indvars.iv.next105, %.lr.ph102 ]
-  %94 = load ptr, ptr %67, align 8
+  %94 = load ptr, ptr %68, align 8
   %95 = getelementptr %union.LWLockPadded, ptr %94, i64 %indvars.iv104
   call void @LWLockInitialize(ptr noundef %95, i32 noundef %6) #15
   %96 = load ptr, ptr %71, align 8
@@ -242,7 +240,7 @@ define dso_local void @SimpleLruInit(ptr noundef %0, ptr noundef %1, i32 noundef
 
 .loopexit:                                        ; preds = %.lr.ph102, %77, %.preheader, %9
   %98 = zext i1 %8 to i8
-  store ptr %36, ptr %0, align 8
+  store ptr %38, ptr %0, align 8
   %99 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 %7, ptr %99, align 4
   %100 = getelementptr inbounds nuw i8, ptr %0, i64 10

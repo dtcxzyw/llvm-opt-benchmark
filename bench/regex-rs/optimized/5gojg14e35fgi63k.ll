@@ -4415,28 +4415,28 @@ define noundef i64 @_ZN14regex_automata6hybrid5regex5Cache12memory_usage17he149f
   %46 = add i64 %5, %3
   %47 = add i64 %46, %11
   %48 = add i64 %47, %13
-  %reass.add.i1 = add i64 %48, %15
-  %49 = add i64 %reass.add.i1, %17
-  %reass.add1.i2 = add i64 %49, %19
-  %50 = add i64 %reass.add1.i2, %25
-  %51 = add i64 %50, %27
-  %52 = add i64 %51, %33
-  %reass.add.i = add i64 %52, %35
-  %53 = add i64 %reass.add.i, %37
-  %reass.add1.i = add i64 %53, %39
-  %reass.add = add i64 %reass.add1.i, %41
+  %49 = add i64 %48, %15
+  %50 = add i64 %49, %17
+  %reass.add.i1 = add i64 %50, %19
+  %51 = add i64 %reass.add.i1, %25
+  %52 = add i64 %51, %27
+  %53 = add i64 %52, %33
+  %54 = add i64 %53, %35
+  %55 = add i64 %54, %37
+  %reass.add.i = add i64 %55, %39
+  %reass.add = add i64 %reass.add.i, %41
   %reass.mul = shl i64 %reass.add, 2
-  %reass.add4 = add i64 %31, %9
-  %reass.mul5 = mul i64 %reass.add4, 20
-  %reass.add6 = add i64 %29, %7
-  %reass.mul7 = shl i64 %reass.add6, 4
-  %54 = add i64 %23, %21
-  %55 = add i64 %54, %reass.mul7
-  %56 = add i64 %55, %reass.mul5
-  %57 = add i64 %56, %43
-  %58 = add i64 %57, %45
-  %59 = add i64 %58, %reass.mul
-  ret i64 %59
+  %reass.add3 = add i64 %31, %9
+  %reass.mul4 = mul i64 %reass.add3, 20
+  %reass.add5 = add i64 %29, %7
+  %reass.mul6 = shl i64 %reass.add5, 4
+  %56 = add i64 %23, %21
+  %57 = add i64 %56, %reass.mul6
+  %58 = add i64 %57, %reass.mul4
+  %59 = add i64 %58, %43
+  %60 = add i64 %59, %45
+  %61 = add i64 %60, %reass.mul
+  ret i64 %61
 }
 
 ; Function Attrs: nonlazybind uwtable

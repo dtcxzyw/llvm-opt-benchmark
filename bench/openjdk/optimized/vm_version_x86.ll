@@ -3126,8 +3126,8 @@ define hidden noundef range(i64 0, 2305843009213693952) i64 @_ZNK10VM_Version9Cp
   %or.cond.not = icmp eq i32 %57, 402653184
   %58 = and i32 %53, 6
   %or.cond140.not = icmp eq i32 %58, 6
-  %or.cond171 = select i1 %or.cond.not, i1 %or.cond140.not, i1 false
-  br i1 %or.cond171, label %59, label %119
+  %or.cond170 = select i1 %or.cond.not, i1 %or.cond140.not, i1 false
+  br i1 %or.cond170, label %59, label %119
 
 59:                                               ; preds = %32
   %60 = and i32 %35, 536870912
@@ -3298,7 +3298,7 @@ define hidden noundef range(i64 0, 2305843009213693952) i64 @_ZNK10VM_Version9Cp
   switch i32 %173, label %200 [
     i32 1869052232, label %.thread
     i32 1752462657, label %.thread
-    i32 1970169159, label %.thread169
+    i32 1970169159, label %.thread168
   ]
 
 .thread:                                          ; preds = %119, %119
@@ -3307,9 +3307,9 @@ define hidden noundef range(i64 0, 2305843009213693952) i64 @_ZNK10VM_Version9Cp
   %175 = load i32, ptr %174, align 8
   %176 = and i32 %175, 256
   %.not124 = icmp eq i32 %176, 0
-  %or.cond172 = select i1 %.not123, i1 %.not124, i1 false
+  %or.cond171 = select i1 %.not123, i1 %.not124, i1 false
   %177 = or i64 %.46, 32
-  %.48 = select i1 %or.cond172, i64 %.46, i64 %177
+  %.48 = select i1 %or.cond171, i64 %.46, i64 %177
   %178 = shl i32 %175, 9
   %179 = and i32 %178, 16384
   %180 = zext nneg i32 %179 to i64
@@ -3320,7 +3320,7 @@ define hidden noundef range(i64 0, 2305843009213693952) i64 @_ZNK10VM_Version9Cp
   %spec.select152 = or i64 %spec.select148, %183
   br label %200
 
-.thread169:                                       ; preds = %119
+.thread168:                                       ; preds = %119
   %184 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %185 = load i32, ptr %184, align 8
   %186 = shl i32 %185, 9
@@ -3359,62 +3359,62 @@ define hidden noundef range(i64 0, 2305843009213693952) i64 @_ZNK10VM_Version9Cp
   %spec.select153 = or i64 %.50, %209
   br label %210
 
-210:                                              ; preds = %.thread169, %200, %201
-  %211 = phi i1 [ false, %200 ], [ false, %201 ], [ true, %.thread169 ]
-  %.54 = phi i64 [ %.50, %200 ], [ %spec.select153, %201 ], [ %spec.select155, %.thread169 ]
-  %212 = and i32 %169, 128
+210:                                              ; preds = %.thread168, %200, %201
+  %211 = phi i1 [ false, %200 ], [ false, %201 ], [ true, %.thread168 ]
+  %.54 = phi i64 [ %.50, %200 ], [ %spec.select153, %201 ], [ %spec.select155, %.thread168 ]
+  %212 = and i32 %169, 24
   %213 = zext nneg i32 %212 to i64
-  %214 = shl nuw nsw i64 %213, 50
-  %215 = and i32 %139, 1048576
+  %214 = shl nuw nsw i64 %213, 51
+  %215 = and i32 %169, 128
   %216 = zext nneg i32 %215 to i64
-  %217 = shl nuw nsw i64 %216, 36
-  %reass.add167 = and i32 %169, 24
-  %reass.add = zext nneg i32 %reass.add167 to i64
-  %reass.mul = shl nuw nsw i64 %reass.add, 51
-  %.57 = or disjoint i64 %214, %217
-  %.58 = or disjoint i64 %.57, %reass.mul
+  %217 = shl nuw nsw i64 %216, 50
+  %218 = and i32 %139, 1048576
+  %219 = zext nneg i32 %218 to i64
+  %220 = shl nuw nsw i64 %219, 36
+  %.57 = or disjoint i64 %214, %220
+  %.58 = or disjoint i64 %.57, %217
   %.59 = or i64 %.58, %.54
-  %218 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
-  %219 = and i64 %218, 65536
-  %.not = icmp eq i64 %219, 0
-  br i1 %.not, label %_ZN10VM_Version28is_intel_tsc_synched_at_initEv.exit, label %220
+  %221 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
+  %222 = and i64 %221, 65536
+  %.not = icmp eq i64 %222, 0
+  br i1 %.not, label %_ZN10VM_Version28is_intel_tsc_synched_at_initEv.exit, label %223
 
-220:                                              ; preds = %210
-  switch i32 %173, label %228 [
+223:                                              ; preds = %210
+  switch i32 %173, label %231 [
     i32 1752462657, label %_ZN10VM_Version16is_amd_BarcelonaEv.exit
     i32 1869052232, label %_ZN10VM_Version16is_amd_BarcelonaEv.exit.thread
   ]
 
-_ZN10VM_Version16is_amd_BarcelonaEv.exit:         ; preds = %220
-  %221 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 16), align 8
-  %222 = lshr i32 %221, 8
-  %223 = and i32 %222, 15
-  %224 = lshr i32 %221, 20
-  %225 = and i32 %224, 255
-  %226 = add nuw nsw i32 %223, %225
-  %227 = icmp eq i32 %226, 17
-  br i1 %227, label %228, label %_ZN10VM_Version16is_amd_BarcelonaEv.exit.thread
+_ZN10VM_Version16is_amd_BarcelonaEv.exit:         ; preds = %223
+  %224 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 16), align 8
+  %225 = lshr i32 %224, 8
+  %226 = and i32 %225, 15
+  %227 = lshr i32 %224, 20
+  %228 = and i32 %227, 255
+  %229 = add nuw nsw i32 %226, %228
+  %230 = icmp eq i32 %229, 17
+  br i1 %230, label %231, label %_ZN10VM_Version16is_amd_BarcelonaEv.exit.thread
 
-228:                                              ; preds = %220, %_ZN10VM_Version16is_amd_BarcelonaEv.exit
+231:                                              ; preds = %223, %_ZN10VM_Version16is_amd_BarcelonaEv.exit
   br i1 %211, label %_ZN10VM_Version20is_intel_family_coreEv.exit.i, label %_ZN10VM_Version28is_intel_tsc_synched_at_initEv.exit
 
-_ZN10VM_Version20is_intel_family_coreEv.exit.i:   ; preds = %228
-  %229 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 16), align 8
-  %230 = lshr i32 %229, 8
-  %231 = and i32 %230, 15
-  %232 = lshr i32 %229, 20
-  %233 = and i32 %232, 255
-  %234 = add nuw nsw i32 %231, %233
-  %235 = icmp eq i32 %234, 6
-  br i1 %235, label %236, label %_ZN10VM_Version28is_intel_tsc_synched_at_initEv.exit
+_ZN10VM_Version20is_intel_family_coreEv.exit.i:   ; preds = %231
+  %232 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 16), align 8
+  %233 = lshr i32 %232, 8
+  %234 = and i32 %233, 15
+  %235 = lshr i32 %232, 20
+  %236 = and i32 %235, 255
+  %237 = add nuw nsw i32 %234, %236
+  %238 = icmp eq i32 %237, 6
+  br i1 %238, label %239, label %_ZN10VM_Version28is_intel_tsc_synched_at_initEv.exit
 
-236:                                              ; preds = %_ZN10VM_Version20is_intel_family_coreEv.exit.i
-  %237 = lshr i32 %229, 4
-  %238 = and i32 %237, 15
-  %239 = lshr i32 %229, 12
-  %240 = and i32 %239, 240
-  %241 = or disjoint i32 %238, %240
-  %trunc.i = trunc nuw i32 %241 to i8
+239:                                              ; preds = %_ZN10VM_Version20is_intel_family_coreEv.exit.i
+  %240 = lshr i32 %232, 4
+  %241 = and i32 %240, 15
+  %242 = lshr i32 %232, 12
+  %243 = and i32 %242, 240
+  %244 = or disjoint i32 %241, %243
+  %trunc.i = trunc nuw i32 %244 to i8
   switch i8 %trunc.i, label %_ZN10VM_Version28is_intel_tsc_synched_at_initEv.exit [
     i8 58, label %_ZN10VM_Version16is_amd_BarcelonaEv.exit.thread
     i8 45, label %_ZN10VM_Version16is_amd_BarcelonaEv.exit.thread
@@ -3422,12 +3422,12 @@ _ZN10VM_Version20is_intel_family_coreEv.exit.i:   ; preds = %228
     i8 26, label %_ZN10VM_Version16is_amd_BarcelonaEv.exit.thread
   ]
 
-_ZN10VM_Version16is_amd_BarcelonaEv.exit.thread:  ; preds = %220, %236, %236, %236, %236, %_ZN10VM_Version16is_amd_BarcelonaEv.exit
-  %242 = or i64 %.59, 131072
+_ZN10VM_Version16is_amd_BarcelonaEv.exit.thread:  ; preds = %223, %239, %239, %239, %239, %_ZN10VM_Version16is_amd_BarcelonaEv.exit
+  %245 = or i64 %.59, 131072
   br label %_ZN10VM_Version28is_intel_tsc_synched_at_initEv.exit
 
-_ZN10VM_Version28is_intel_tsc_synched_at_initEv.exit: ; preds = %236, %_ZN10VM_Version20is_intel_family_coreEv.exit.i, %228, %_ZN10VM_Version16is_amd_BarcelonaEv.exit.thread, %210
-  %.60 = phi i64 [ %242, %_ZN10VM_Version16is_amd_BarcelonaEv.exit.thread ], [ %.59, %210 ], [ %.59, %228 ], [ %.59, %_ZN10VM_Version20is_intel_family_coreEv.exit.i ], [ %.59, %236 ]
+_ZN10VM_Version28is_intel_tsc_synched_at_initEv.exit: ; preds = %239, %_ZN10VM_Version20is_intel_family_coreEv.exit.i, %231, %_ZN10VM_Version16is_amd_BarcelonaEv.exit.thread, %210
+  %.60 = phi i64 [ %245, %_ZN10VM_Version16is_amd_BarcelonaEv.exit.thread ], [ %.59, %210 ], [ %.59, %231 ], [ %.59, %_ZN10VM_Version20is_intel_family_coreEv.exit.i ], [ %.59, %239 ]
   ret i64 %.60
 }
 

@@ -1046,15 +1046,13 @@ if.end.i:                                         ; preds = %entry, %while.body
   br i1 %cmp2.not.i18.not, label %while.cond11.preheader, label %while.body
 
 while.body:                                       ; preds = %if.end.i
-  %7 = trunc nuw nsw i64 %indvars.iv to i32
-  %shl = shl nuw nsw i32 256, %7
   %arrayidx = getelementptr inbounds nuw [8 x i32], ptr %mNumUVComponents, i64 0, i64 %indvars.iv
-  %8 = load i32, ptr %arrayidx, align 4
-  %cmp = icmp eq i32 %8, 3
-  %shl8 = shl nuw nsw i32 65536, %7
-  %or9 = select i1 %cmp, i32 %shl8, i32 0
-  %9 = add nuw nsw i32 %or9, %shl
-  %iRet.3 = or i32 %9, %iRet.233
+  %7 = load i32, ptr %arrayidx, align 4
+  %cmp = icmp eq i32 %7, 3
+  %iRet.3.v.v = select i1 %cmp, i32 65792, i32 256
+  %8 = trunc nuw nsw i64 %indvars.iv to i32
+  %iRet.3.v = shl nuw nsw i32 %iRet.3.v.v, %8
+  %iRet.3 = or i32 %iRet.3.v, %iRet.233
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond = icmp eq i64 %indvars.iv.next, 8
   br i1 %exitcond, label %while.cond11.preheader, label %if.end.i, !llvm.loop !16
@@ -1063,14 +1061,14 @@ _ZNK6aiMesh15HasVertexColorsEj.exit:              ; preds = %while.cond11.prehea
   %indvars.iv40 = phi i64 [ %indvars.iv.next41, %while.body13 ], [ 0, %while.cond11.preheader ]
   %iRet.435 = phi i32 [ %or16, %while.body13 ], [ %.us-phi, %while.cond11.preheader ]
   %arrayidx.i24 = getelementptr inbounds nuw [8 x ptr], ptr %mColors.i, i64 0, i64 %indvars.iv40
-  %10 = load ptr, ptr %arrayidx.i24, align 8
-  %cmp2.not.i25.not = icmp eq ptr %10, null
+  %9 = load ptr, ptr %arrayidx.i24, align 8
+  %cmp2.not.i25.not = icmp eq ptr %9, null
   br i1 %cmp2.not.i25.not, label %while.end17, label %while.body13
 
 while.body13:                                     ; preds = %_ZNK6aiMesh15HasVertexColorsEj.exit
   %indvars.iv.next41 = add nuw nsw i64 %indvars.iv40, 1
-  %11 = trunc nuw nsw i64 %indvars.iv40 to i32
-  %shl15 = shl nuw i32 16777216, %11
+  %10 = trunc nuw nsw i64 %indvars.iv40 to i32
+  %shl15 = shl nuw i32 16777216, %10
   %or16 = or i32 %shl15, %iRet.435
   %exitcond43 = icmp eq i64 %indvars.iv.next41, 8
   br i1 %exitcond43, label %while.end17, label %_ZNK6aiMesh15HasVertexColorsEj.exit, !llvm.loop !17

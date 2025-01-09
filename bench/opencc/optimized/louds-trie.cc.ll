@@ -3763,29 +3763,29 @@ define noundef i64 @_ZNK6marisa8grimoire4trie9LoudsTrie10total_sizeEv(ptr nocapt
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 1032
   %47 = load i64, ptr %46, align 8
   %reass.add = add i64 %13, %5
-  %reass.add5 = add i64 %reass.add, %21
-  %reass.add6 = add i64 %reass.add5, %35
-  %reass.add7 = add i64 %reass.add6, %47
-  %reass.mul = mul i64 %reass.add7, 12
-  %reass.add8 = add i64 %11, %3
-  %reass.add9 = add i64 %reass.add8, %19
-  %reass.add10 = add i64 %reass.add9, %29
-  %reass.add11 = add i64 %reass.add10, %33
-  %reass.mul12 = shl i64 %reass.add11, 3
-  %reass.add.i1 = add i64 %9, %7
-  %reass.add.i3 = add i64 %reass.add.i1, %15
-  %reass.add.i.i = add i64 %reass.add.i3, %17
-  %reass.add13 = add i64 %reass.add.i.i, %23
-  %reass.add14 = add i64 %reass.add13, %25
-  %reass.add.i = add i64 %reass.add14, %37
-  %reass.add15 = add i64 %reass.add.i, %39
-  %reass.mul16 = shl i64 %reass.add15, 2
-  %48 = add i64 %31, %27
-  %49 = add i64 %48, %reass.mul12
-  %50 = add i64 %49, %reass.mul16
-  %51 = add i64 %50, %45
-  %52 = add i64 %51, %reass.mul
-  ret i64 %52
+  %reass.add1 = add i64 %reass.add, %21
+  %reass.add2 = add i64 %reass.add1, %35
+  %reass.add3 = add i64 %reass.add2, %47
+  %reass.mul = mul i64 %reass.add3, 12
+  %reass.add4 = add i64 %11, %3
+  %reass.add5 = add i64 %reass.add4, %19
+  %reass.add6 = add i64 %reass.add5, %29
+  %reass.add7 = add i64 %reass.add6, %33
+  %reass.mul8 = shl i64 %reass.add7, 3
+  %48 = add i64 %9, %7
+  %49 = add i64 %48, %15
+  %50 = add i64 %49, %17
+  %reass.add9 = add i64 %50, %23
+  %reass.add10 = add i64 %reass.add9, %25
+  %51 = add i64 %reass.add10, %37
+  %reass.add11 = add i64 %51, %39
+  %reass.mul12 = shl i64 %reass.add11, 2
+  %52 = add i64 %31, %27
+  %53 = add i64 %52, %reass.mul8
+  %54 = add i64 %53, %reass.mul12
+  %55 = add i64 %54, %45
+  %56 = add i64 %55, %reass.mul
+  ret i64 %56
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable

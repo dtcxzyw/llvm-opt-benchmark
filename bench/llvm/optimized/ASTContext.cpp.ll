@@ -63052,14 +63052,14 @@ define dso_local range(i64 0, -15) i64 @_ZNK5clang10ASTContext23getFunctionTypeI
   %19 = getelementptr inbounds i8, ptr %16, i64 -32
   %20 = ptrtoint ptr %19 to i64
   %21 = and i64 %20, -16
-  br i1 %5, label %350, label %22
+  br i1 %5, label %354, label %22
 
 22:                                               ; preds = %18
   %23 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %24 = load i32, ptr %23, align 8
   %25 = add i32 %24, -6
   %26 = icmp ult i32 %25, 3
-  br i1 %26, label %27, label %350
+  br i1 %26, label %27, label %354
 
 27:                                               ; preds = %22
   %28 = getelementptr inbounds nuw i8, ptr %4, i64 48
@@ -63121,7 +63121,7 @@ _ZNK4llvm15TrailingObjectsIN5clang17FunctionProtoTypeEJNS1_8QualTypeENS1_14Sourc
 _ZNK5clang17FunctionProtoType15getNoexceptExprEv.exit: ; preds = %27, %_ZNK4llvm15TrailingObjectsIN5clang17FunctionProtoTypeEJNS1_8QualTypeENS1_14SourceLocationENS1_12FunctionType26FunctionTypeExtraBitfieldsENS5_25FunctionTypeArmAttributesENS5_13ExceptionTypeEPNS1_4ExprEPNS1_12FunctionDeclENS5_16ExtParameterInfoENS1_10QualifiersENS1_14FunctionEffectENS1_19EffectConditionExprEEE18getTrailingObjectsISA_EEPKT_v.exit.i
   %.0.i = phi ptr [ %66, %_ZNK4llvm15TrailingObjectsIN5clang17FunctionProtoTypeEJNS1_8QualTypeENS1_14SourceLocationENS1_12FunctionType26FunctionTypeExtraBitfieldsENS5_25FunctionTypeArmAttributesENS5_13ExceptionTypeEPNS1_4ExprEPNS1_12FunctionDeclENS5_16ExtParameterInfoENS1_10QualifiersENS1_14FunctionEffectENS1_19EffectConditionExprEEE18getTrailingObjectsISA_EEPKT_v.exit.i ], [ null, %27 ]
   %67 = icmp eq ptr %29, %.0.i
-  br i1 %67, label %350, label %68
+  br i1 %67, label %354, label %68
 
 68:                                               ; preds = %_ZNK5clang17FunctionProtoType15getNoexceptExprEv.exit
   %69 = inttoptr i64 %21 to ptr
@@ -63604,120 +63604,119 @@ _ZN5clang17FunctionProtoType20getExceptionSpecSizeENS_26ExceptionSpecificationTy
   %290 = select i1 %288, i64 8, i64 0
   %291 = add i64 %289, %290
   %292 = and i64 %291, -8
-  %reass.add.i.i.i.i.i.i.i = add nuw nsw i64 %.sroa.29.0.extract.shift, %.sroa.11.0.i
-  %reass.mul.i.i.i.i.i.i.i = shl nuw nsw i64 %reass.add.i.i.i.i.i.i.i, 3
-  %reass.add.i.i.i.i.i = add nuw nsw i64 %277, %276
-  %reass.add.i.i.i.i = add nuw nsw i64 %reass.add.i.i.i.i.i, %275
-  %reass.mul.i.i.i.i = shl nuw nsw i64 %reass.add.i.i.i.i, 3
-  %293 = add i64 %280, %reass.mul.i.i.i.i.i.i.i
-  %294 = add i64 %293, %reass.mul.i.i.i.i
-  %295 = add i64 %294, %292
-  %296 = icmp ne i64 %295, 0
-  %.neg.i.i.i.i.i.i.i.i.i.i.i = sext i1 %296 to i64
-  %297 = add i64 %295, %.neg.i.i.i.i.i.i.i.i.i.i.i
-  %298 = select i1 %296, i64 8, i64 0
-  %299 = add i64 %297, %298
-  %300 = and i64 %299, -8
+  %293 = add nuw nsw i64 %277, %276
+  %294 = add nuw nsw i64 %293, %275
+  %295 = add nuw nsw i64 %.sroa.29.0.extract.shift, %.sroa.11.0.i
+  %296 = add nuw nsw i64 %295, %294
+  %297 = shl nuw nsw i64 %296, 3
+  %298 = add i64 %297, %280
+  %299 = add i64 %298, %292
+  %300 = icmp ne i64 %299, 0
+  %.neg.i.i.i.i.i.i.i.i.i.i.i = sext i1 %300 to i64
+  %301 = add i64 %299, %.neg.i.i.i.i.i.i.i.i.i.i.i
+  %302 = select i1 %300, i64 8, i64 0
+  %303 = add i64 %301, %302
+  %304 = and i64 %303, -8
   %.inv = icmp ult i64 %282, 8
-  %301 = select i1 %.inv, i64 0, i64 8
-  %302 = add i64 %301, %273
-  %303 = add i64 %302, %300
-  %304 = icmp ne i64 %303, 0
-  %.neg.i.i.i.i.i.i.i.i.i.i.i.i.i = sext i1 %304 to i64
-  %305 = add i64 %303, %.neg.i.i.i.i.i.i.i.i.i.i.i.i.i
-  %306 = select i1 %304, i64 8, i64 0
-  %307 = add i64 %305, %306
-  %308 = and i64 %307, -8
-  %309 = shl i64 %.sroa.2.0.copyload.i, 3
-  %310 = add i64 %309, 48
-  %311 = add i64 %310, %308
-  %312 = getelementptr inbounds nuw i8, ptr %0, i64 2144
-  %313 = getelementptr inbounds nuw i8, ptr %0, i64 2224
-  %314 = load i64, ptr %313, align 8
-  %315 = add i64 %311, %314
-  store i64 %315, ptr %313, align 8
-  %316 = load ptr, ptr %312, align 8
-  %317 = ptrtoint ptr %316 to i64
-  %318 = add i64 %317, 15
-  %319 = and i64 %318, -16
-  %320 = add i64 %311, %319
-  %321 = getelementptr inbounds nuw i8, ptr %0, i64 2152
-  %322 = load ptr, ptr %321, align 8
-  %323 = ptrtoint ptr %322 to i64
-  %.not.i.i.i114 = icmp ugt i64 %320, %323
-  %.not14.i.i.i = icmp eq ptr %316, null
+  %305 = select i1 %.inv, i64 0, i64 8
+  %306 = add i64 %305, %273
+  %307 = add i64 %306, %304
+  %308 = icmp ne i64 %307, 0
+  %.neg.i.i.i.i.i.i.i.i.i.i.i.i.i = sext i1 %308 to i64
+  %309 = add i64 %307, %.neg.i.i.i.i.i.i.i.i.i.i.i.i.i
+  %310 = select i1 %308, i64 8, i64 0
+  %311 = add i64 %309, %310
+  %312 = and i64 %311, -8
+  %313 = shl i64 %.sroa.2.0.copyload.i, 3
+  %314 = add i64 %313, 48
+  %315 = add i64 %314, %312
+  %316 = getelementptr inbounds nuw i8, ptr %0, i64 2144
+  %317 = getelementptr inbounds nuw i8, ptr %0, i64 2224
+  %318 = load i64, ptr %317, align 8
+  %319 = add i64 %315, %318
+  store i64 %319, ptr %317, align 8
+  %320 = load ptr, ptr %316, align 8
+  %321 = ptrtoint ptr %320 to i64
+  %322 = add i64 %321, 15
+  %323 = and i64 %322, -16
+  %324 = add i64 %315, %323
+  %325 = getelementptr inbounds nuw i8, ptr %0, i64 2152
+  %326 = load ptr, ptr %325, align 8
+  %327 = ptrtoint ptr %326 to i64
+  %.not.i.i.i114 = icmp ugt i64 %324, %327
+  %.not14.i.i.i = icmp eq ptr %320, null
   %or.cond.i.i.i = or i1 %.not14.i.i.i, %.not.i.i.i114
-  br i1 %or.cond.i.i.i, label %.critedge.i.i.i, label %324
+  br i1 %or.cond.i.i.i, label %.critedge.i.i.i, label %328
 
-324:                                              ; preds = %_ZN5clang17FunctionProtoType20getExceptionSpecSizeENS_26ExceptionSpecificationTypeEj.exit
-  %325 = inttoptr i64 %320 to ptr
-  store ptr %325, ptr %312, align 8
-  %326 = inttoptr i64 %319 to ptr
+328:                                              ; preds = %_ZN5clang17FunctionProtoType20getExceptionSpecSizeENS_26ExceptionSpecificationTypeEj.exit
+  %329 = inttoptr i64 %324 to ptr
+  store ptr %329, ptr %316, align 8
+  %330 = inttoptr i64 %323 to ptr
   br label %_ZNK5clang10ASTContext8AllocateEmj.exit
 
 .critedge.i.i.i:                                  ; preds = %_ZN5clang17FunctionProtoType20getExceptionSpecSizeENS_26ExceptionSpecificationTypeEj.exit
-  %327 = call noundef nonnull ptr @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12AllocateSlowEmmNS_5AlignE(ptr noundef nonnull align 8 dereferenceable(96) %312, i64 noundef %311, i64 noundef %311, i8 4)
+  %331 = call noundef nonnull ptr @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12AllocateSlowEmmNS_5AlignE(ptr noundef nonnull align 8 dereferenceable(96) %316, i64 noundef %315, i64 noundef %315, i8 4)
   br label %_ZNK5clang10ASTContext8AllocateEmj.exit
 
-_ZNK5clang10ASTContext8AllocateEmj.exit:          ; preds = %324, %.critedge.i.i.i
-  %.0.i.i.i = phi ptr [ %326, %324 ], [ %327, %.critedge.i.i.i ]
+_ZNK5clang10ASTContext8AllocateEmj.exit:          ; preds = %328, %.critedge.i.i.i
+  %.0.i.i.i = phi ptr [ %330, %328 ], [ %331, %.critedge.i.i.i ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %12, ptr noundef nonnull align 8 dereferenceable(120) %4, i64 120, i1 false)
   call void @_ZN5clang17FunctionProtoTypeC1ENS_8QualTypeEN4llvm8ArrayRefIS1_EES1_RKNS0_12ExtProtoInfoE(ptr noundef nonnull align 16 dereferenceable(48) %.0.i.i.i, i64 %1, ptr %2, i64 %3, i64 %.sroa.0127.1, ptr noundef nonnull align 8 dereferenceable(120) %12) #29
-  %328 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %329 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %328) #29
-  %330 = add i64 %329, 1
-  %331 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE8capacityEv(ptr noundef nonnull align 8 dereferenceable(16) %328) #29
-  %.not.i.i.i115 = icmp ugt i64 %330, %331
-  br i1 %.not.i.i.i115, label %332, label %_ZN4llvm23SmallVectorTemplateBaseIPN5clang4TypeELb1EE9push_backES3_.exit
+  %332 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %333 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %332) #29
+  %334 = add i64 %333, 1
+  %335 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE8capacityEv(ptr noundef nonnull align 8 dereferenceable(16) %332) #29
+  %.not.i.i.i115 = icmp ugt i64 %334, %335
+  br i1 %.not.i.i.i115, label %336, label %_ZN4llvm23SmallVectorTemplateBaseIPN5clang4TypeELb1EE9push_backES3_.exit
 
-332:                                              ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit
-  %333 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %328, ptr noundef nonnull %333, i64 noundef %330, i64 noundef 8) #29
+336:                                              ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit
+  %337 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %332, ptr noundef nonnull %337, i64 noundef %334, i64 noundef 8) #29
   br label %_ZN4llvm23SmallVectorTemplateBaseIPN5clang4TypeELb1EE9push_backES3_.exit
 
-_ZN4llvm23SmallVectorTemplateBaseIPN5clang4TypeELb1EE9push_backES3_.exit: ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit, %332
-  %334 = load ptr, ptr %328, align 8
-  %335 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %328) #29
-  %336 = getelementptr inbounds ptr, ptr %334, i64 %335
-  %337 = ptrtoint ptr %.0.i.i.i to i64
-  store i64 %337, ptr %336, align 1
-  %338 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %328) #29
-  %339 = add i64 %338, 1
-  call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %328, i64 noundef %339) #29
-  br i1 %17, label %340, label %343
+_ZN4llvm23SmallVectorTemplateBaseIPN5clang4TypeELb1EE9push_backES3_.exit: ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit, %336
+  %338 = load ptr, ptr %332, align 8
+  %339 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %332) #29
+  %340 = getelementptr inbounds ptr, ptr %338, i64 %339
+  %341 = ptrtoint ptr %.0.i.i.i to i64
+  store i64 %341, ptr %340, align 1
+  %342 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %332) #29
+  %343 = add i64 %342, 1
+  call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %332, i64 noundef %343) #29
+  br i1 %17, label %344, label %347
 
-340:                                              ; preds = %_ZN4llvm23SmallVectorTemplateBaseIPN5clang4TypeELb1EE9push_backES3_.exit
-  %341 = load ptr, ptr %8, align 8
-  %342 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 32
-  call void @_ZN4llvm14FoldingSetBase10InsertNodeEPNS0_4NodeEPvRKNS0_14FoldingSetInfoE(ptr noundef nonnull align 8 dereferenceable(16) %15, ptr noundef nonnull %342, ptr noundef %341, ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4llvm20ContextualFoldingSetIN5clang17FunctionProtoTypeERNS1_10ASTContextEE17getFoldingSetInfoEvE4Info) #29
-  br label %343
+344:                                              ; preds = %_ZN4llvm23SmallVectorTemplateBaseIPN5clang4TypeELb1EE9push_backES3_.exit
+  %345 = load ptr, ptr %8, align 8
+  %346 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 32
+  call void @_ZN4llvm14FoldingSetBase10InsertNodeEPNS0_4NodeEPvRKNS0_14FoldingSetInfoE(ptr noundef nonnull align 8 dereferenceable(16) %15, ptr noundef nonnull %346, ptr noundef %345, ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4llvm20ContextualFoldingSetIN5clang17FunctionProtoTypeERNS1_10ASTContextEE17getFoldingSetInfoEvE4Info) #29
+  br label %347
 
-343:                                              ; preds = %340, %_ZN4llvm23SmallVectorTemplateBaseIPN5clang4TypeELb1EE9push_backES3_.exit
-  %344 = load i64, ptr %272, align 8
-  %345 = icmp eq i64 %344, 0
-  br i1 %345, label %348, label %346
+347:                                              ; preds = %344, %_ZN4llvm23SmallVectorTemplateBaseIPN5clang4TypeELb1EE9push_backES3_.exit
+  %348 = load i64, ptr %272, align 8
+  %349 = icmp eq i64 %348, 0
+  br i1 %349, label %352, label %350
 
-346:                                              ; preds = %343
-  %347 = getelementptr inbounds nuw i8, ptr %0, i64 17233
-  store i8 1, ptr %347, align 1
-  br label %348
+350:                                              ; preds = %347
+  %351 = getelementptr inbounds nuw i8, ptr %0, i64 17233
+  store i8 1, ptr %351, align 1
+  br label %352
 
-348:                                              ; preds = %346, %343
-  %349 = and i64 %337, -16
-  br label %350
+352:                                              ; preds = %350, %347
+  %353 = and i64 %341, -16
+  br label %354
 
-350:                                              ; preds = %18, %22, %_ZNK5clang17FunctionProtoType15getNoexceptExprEv.exit, %348
-  %.sroa.0133.0 = phi i64 [ %349, %348 ], [ %21, %18 ], [ %21, %_ZNK5clang17FunctionProtoType15getNoexceptExprEv.exit ], [ %21, %22 ]
-  %351 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(144) %7) #29
-  %352 = load ptr, ptr %7, align 8
-  %353 = icmp eq ptr %352, %13
-  br i1 %353, label %_ZN4llvm16FoldingSetNodeIDD2Ev.exit, label %354
+354:                                              ; preds = %18, %22, %_ZNK5clang17FunctionProtoType15getNoexceptExprEv.exit, %352
+  %.sroa.0133.0 = phi i64 [ %353, %352 ], [ %21, %18 ], [ %21, %_ZNK5clang17FunctionProtoType15getNoexceptExprEv.exit ], [ %21, %22 ]
+  %355 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(144) %7) #29
+  %356 = load ptr, ptr %7, align 8
+  %357 = icmp eq ptr %356, %13
+  br i1 %357, label %_ZN4llvm16FoldingSetNodeIDD2Ev.exit, label %358
 
-354:                                              ; preds = %350
-  call void @free(ptr noundef %352) #29
+358:                                              ; preds = %354
+  call void @free(ptr noundef %356) #29
   br label %_ZN4llvm16FoldingSetNodeIDD2Ev.exit
 
-_ZN4llvm16FoldingSetNodeIDD2Ev.exit:              ; preds = %350, %354
+_ZN4llvm16FoldingSetNodeIDD2Ev.exit:              ; preds = %354, %358
   ret i64 %.sroa.0133.0
 }
 

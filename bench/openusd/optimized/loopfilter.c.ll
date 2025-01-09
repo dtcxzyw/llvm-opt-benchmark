@@ -645,7 +645,7 @@ define internal fastcc void @filter8(i8 noundef signext %0, i8 noundef zeroext %
   %13 = icmp ne i8 %0, 0
   %or.cond = and i1 %13, %12
   %14 = load i8, ptr %7, align 1
-  br i1 %or.cond, label %15, label %82
+  br i1 %or.cond, label %15, label %80
 
 15:                                               ; preds = %11
   %16 = load i8, ptr %3, align 1
@@ -702,86 +702,85 @@ define internal fastcc void @filter8(i8 noundef signext %0, i8 noundef zeroext %
   %64 = lshr i32 %63, 3
   %65 = trunc nuw i32 %64 to i8
   store i8 %65, ptr %7, align 1
-  %66 = shl nuw nsw i32 %39, 1
-  %reass.add = shl nuw nsw i32 %58, 1
-  %67 = add nuw nsw i32 %30, %27
-  %68 = add nuw nsw i32 %67, %29
-  %69 = add nuw nsw i32 %68, %66
-  %70 = add nuw nsw i32 %69, %47
-  %71 = add nuw nsw i32 %70, %reass.add
-  %72 = lshr i32 %71, 3
-  %73 = trunc nuw i32 %72 to i8
-  store i8 %73, ptr %8, align 1
-  %74 = shl nuw nsw i32 %47, 1
-  %75 = add nuw nsw i32 %30, %29
-  %76 = add nuw nsw i32 %75, %39
-  %77 = add nuw nsw i32 %76, %74
-  %78 = add nuw nsw i32 %77, %58
-  %79 = add nuw nsw i32 %78, %reass.add
-  %80 = lshr i32 %79, 3
-  %81 = trunc nuw i32 %80 to i8
-  store i8 %81, ptr %9, align 1
-  br label %133
+  %reass.add66 = add nuw nsw i32 %58, %39
+  %reass.mul = shl nuw nsw i32 %reass.add66, 1
+  %66 = add nuw nsw i32 %30, %27
+  %67 = add nuw nsw i32 %66, %29
+  %68 = add nuw nsw i32 %67, %47
+  %69 = add nuw nsw i32 %68, %reass.mul
+  %70 = lshr i32 %69, 3
+  %71 = trunc nuw i32 %70 to i8
+  store i8 %71, ptr %8, align 1
+  %72 = add nuw nsw i32 %58, %47
+  %73 = shl nuw nsw i32 %72, 1
+  %74 = add nuw nsw i32 %30, %29
+  %75 = add nuw nsw i32 %74, %39
+  %76 = add nuw nsw i32 %75, %58
+  %77 = add nuw nsw i32 %76, %73
+  %78 = lshr i32 %77, 3
+  %79 = trunc nuw i32 %78 to i8
+  store i8 %79, ptr %9, align 1
+  br label %131
 
-82:                                               ; preds = %11
-  %83 = load i8, ptr %5, align 1
+80:                                               ; preds = %11
+  %81 = load i8, ptr %5, align 1
+  %82 = xor i8 %81, -128
+  %83 = load i8, ptr %6, align 1
   %84 = xor i8 %83, -128
-  %85 = load i8, ptr %6, align 1
-  %86 = xor i8 %85, -128
-  %87 = xor i8 %14, -128
-  %88 = load i8, ptr %8, align 1
-  %89 = xor i8 %88, -128
-  %90 = zext i8 %83 to i32
-  %91 = zext i8 %85 to i32
-  %92 = sub nsw i32 %90, %91
-  %93 = tail call i32 @llvm.abs.i32(i32 %92, i1 true)
-  %94 = zext i8 %1 to i32
-  %95 = icmp samesign ule i32 %93, %94
-  %96 = zext i8 %88 to i32
-  %97 = zext i8 %14 to i32
-  %98 = sub nsw i32 %96, %97
-  %99 = tail call i32 @llvm.abs.i32(i32 %98, i1 true)
-  %100 = icmp samesign ule i32 %99, %94
-  %.not32.i = and i1 %95, %100
-  %101 = tail call i8 @llvm.ssub.sat.i8(i8 %84, i8 %89)
-  %102 = sext i8 %101 to i32
-  %103 = select i1 %.not32.i, i32 0, i32 %102
-  %104 = sext i8 %87 to i32
-  %105 = sext i8 %86 to i32
-  %106 = sub nsw i32 %104, %105
-  %107 = mul nsw i32 %106, 3
-  %108 = add nsw i32 %103, %107
-  %109 = tail call i32 @llvm.smin.i32(i32 range(i32 -893, 893) %108, i32 127)
-  %110 = tail call i32 @llvm.smax.i32(i32 %109, i32 -128)
-  %111 = trunc nsw i32 %110 to i8
-  %112 = and i8 %0, %111
-  %113 = sext i8 %112 to i32
-  %114 = tail call i32 @llvm.smin.i32(i32 %113, i32 123)
-  %115 = trunc nsw i32 %114 to i8
-  %116 = add nsw i8 %115, 4
-  %117 = ashr i8 %116, 3
-  %118 = tail call i32 @llvm.smin.i32(i32 %113, i32 124)
-  %119 = trunc nsw i32 %118 to i8
-  %120 = add nsw i8 %119, 3
-  %121 = ashr i8 %120, 3
-  %122 = tail call i8 @llvm.ssub.sat.i8(i8 %87, i8 %117)
+  %85 = xor i8 %14, -128
+  %86 = load i8, ptr %8, align 1
+  %87 = xor i8 %86, -128
+  %88 = zext i8 %81 to i32
+  %89 = zext i8 %83 to i32
+  %90 = sub nsw i32 %88, %89
+  %91 = tail call i32 @llvm.abs.i32(i32 %90, i1 true)
+  %92 = zext i8 %1 to i32
+  %93 = icmp samesign ule i32 %91, %92
+  %94 = zext i8 %86 to i32
+  %95 = zext i8 %14 to i32
+  %96 = sub nsw i32 %94, %95
+  %97 = tail call i32 @llvm.abs.i32(i32 %96, i1 true)
+  %98 = icmp samesign ule i32 %97, %92
+  %.not32.i = and i1 %93, %98
+  %99 = tail call i8 @llvm.ssub.sat.i8(i8 %82, i8 %87)
+  %100 = sext i8 %99 to i32
+  %101 = select i1 %.not32.i, i32 0, i32 %100
+  %102 = sext i8 %85 to i32
+  %103 = sext i8 %84 to i32
+  %104 = sub nsw i32 %102, %103
+  %105 = mul nsw i32 %104, 3
+  %106 = add nsw i32 %101, %105
+  %107 = tail call i32 @llvm.smin.i32(i32 range(i32 -893, 893) %106, i32 127)
+  %108 = tail call i32 @llvm.smax.i32(i32 %107, i32 -128)
+  %109 = trunc nsw i32 %108 to i8
+  %110 = and i8 %0, %109
+  %111 = sext i8 %110 to i32
+  %112 = tail call i32 @llvm.smin.i32(i32 %111, i32 123)
+  %113 = trunc nsw i32 %112 to i8
+  %114 = add nsw i8 %113, 4
+  %115 = ashr i8 %114, 3
+  %116 = tail call i32 @llvm.smin.i32(i32 %111, i32 124)
+  %117 = trunc nsw i32 %116 to i8
+  %118 = add nsw i8 %117, 3
+  %119 = ashr i8 %118, 3
+  %120 = tail call i8 @llvm.ssub.sat.i8(i8 %85, i8 %115)
+  %121 = xor i8 %120, -128
+  store i8 %121, ptr %7, align 1
+  %122 = tail call i8 @llvm.sadd.sat.i8(i8 %84, i8 %119)
   %123 = xor i8 %122, -128
-  store i8 %123, ptr %7, align 1
-  %124 = tail call i8 @llvm.sadd.sat.i8(i8 %86, i8 %121)
-  %125 = xor i8 %124, -128
-  store i8 %125, ptr %6, align 1
-  %126 = add nsw i8 %117, 1
-  %127 = ashr i8 %126, 1
-  %128 = select i1 %.not32.i, i8 %127, i8 0
-  %129 = tail call i8 @llvm.ssub.sat.i8(i8 %89, i8 %128)
+  store i8 %123, ptr %6, align 1
+  %124 = add nsw i8 %115, 1
+  %125 = ashr i8 %124, 1
+  %126 = select i1 %.not32.i, i8 %125, i8 0
+  %127 = tail call i8 @llvm.ssub.sat.i8(i8 %87, i8 %126)
+  %128 = xor i8 %127, -128
+  store i8 %128, ptr %8, align 1
+  %129 = tail call i8 @llvm.sadd.sat.i8(i8 %126, i8 %82)
   %130 = xor i8 %129, -128
-  store i8 %130, ptr %8, align 1
-  %131 = tail call i8 @llvm.sadd.sat.i8(i8 %128, i8 %84)
-  %132 = xor i8 %131, -128
-  store i8 %132, ptr %5, align 1
-  br label %133
+  store i8 %130, ptr %5, align 1
+  br label %131
 
-133:                                              ; preds = %82, %15
+131:                                              ; preds = %80, %15
   ret void
 }
 
@@ -1998,7 +1997,7 @@ define internal fastcc void @highbd_filter8(i8 noundef signext %0, i8 noundef ze
   %13 = icmp ne i8 %2, 0
   %14 = icmp ne i8 %0, 0
   %or.cond = and i1 %14, %13
-  br i1 %or.cond, label %15, label %83
+  br i1 %or.cond, label %15, label %81
 
 15:                                               ; preds = %12
   %16 = load i16, ptr %3, align 2
@@ -2056,32 +2055,31 @@ define internal fastcc void @highbd_filter8(i8 noundef signext %0, i8 noundef ze
   %65 = lshr i32 %64, 3
   %66 = trunc nuw i32 %65 to i16
   store i16 %66, ptr %7, align 2
-  %67 = shl nuw nsw i32 %40, 1
-  %reass.add = shl nuw nsw i32 %59, 1
-  %68 = add nuw nsw i32 %31, %28
-  %69 = add nuw nsw i32 %68, %30
-  %70 = add nuw nsw i32 %69, %67
-  %71 = add nuw nsw i32 %70, %48
-  %72 = add nuw nsw i32 %71, %reass.add
-  %73 = lshr i32 %72, 3
-  %74 = trunc nuw i32 %73 to i16
-  store i16 %74, ptr %8, align 2
-  %75 = shl nuw nsw i32 %48, 1
-  %76 = add nuw nsw i32 %31, %30
-  %77 = add nuw nsw i32 %76, %40
-  %78 = add nuw nsw i32 %77, %75
-  %79 = add nuw nsw i32 %78, %59
-  %80 = add nuw nsw i32 %79, %reass.add
-  %81 = lshr i32 %80, 3
-  %82 = trunc nuw i32 %81 to i16
-  store i16 %82, ptr %9, align 2
-  br label %84
+  %reass.add67 = add nuw nsw i32 %59, %40
+  %reass.mul = shl nuw nsw i32 %reass.add67, 1
+  %67 = add nuw nsw i32 %31, %28
+  %68 = add nuw nsw i32 %67, %30
+  %69 = add nuw nsw i32 %68, %48
+  %70 = add nuw nsw i32 %69, %reass.mul
+  %71 = lshr i32 %70, 3
+  %72 = trunc nuw i32 %71 to i16
+  store i16 %72, ptr %8, align 2
+  %73 = add nuw nsw i32 %59, %48
+  %74 = shl nuw nsw i32 %73, 1
+  %75 = add nuw nsw i32 %31, %30
+  %76 = add nuw nsw i32 %75, %40
+  %77 = add nuw nsw i32 %76, %59
+  %78 = add nuw nsw i32 %77, %74
+  %79 = lshr i32 %78, 3
+  %80 = trunc nuw i32 %79 to i16
+  store i16 %80, ptr %9, align 2
+  br label %82
 
-83:                                               ; preds = %12
+81:                                               ; preds = %12
   tail call fastcc void @highbd_filter4(i8 noundef signext %0, i8 noundef zeroext %1, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8, i32 noundef %11)
-  br label %84
+  br label %82
 
-84:                                               ; preds = %83, %15
+82:                                               ; preds = %81, %15
   ret void
 }
 

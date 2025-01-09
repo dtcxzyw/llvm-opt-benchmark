@@ -23630,151 +23630,149 @@ _ZSt6fill_nIPyxiET_S1_T0_RKT1_.exit286:           ; preds = %.lr.ph.i.i.i.i282, 
 
 .lr.ph.i.i.i.i287:                                ; preds = %._crit_edge351
   %268 = add i64 %.2188374, -8
-  %269 = shl i64 %265, 3
-  %270 = add i64 %268, %269
-  %271 = shl i64 %246, 3
-  %272 = add i64 %270, %271
-  %273 = sub i64 %272, %.1187357375
-  %274 = and i64 %273, -8
-  %275 = add i64 %274, 8
-  call void @llvm.memset.p0.i64(ptr align 8 %248, i8 0, i64 %275, i1 false)
+  %269 = add nuw i64 %265, %246
+  %270 = shl i64 %269, 3
+  %271 = add i64 %270, %268
+  %272 = sub i64 %271, %.1187357375
+  %273 = and i64 %272, -8
+  %274 = add i64 %273, 8
+  call void @llvm.memset.p0.i64(ptr align 8 %248, i8 0, i64 %274, i1 false)
   br label %_ZSt6fill_nIPyxiET_S1_T0_RKT1_.exit291
 
 _ZSt6fill_nIPyxiET_S1_T0_RKT1_.exit291:           ; preds = %.lr.ph.i.i.i.i287, %._crit_edge351, %244
   %.not218 = icmp ne ptr %.2185, null
-  %276 = load i64, ptr %80, align 8
-  %277 = icmp sgt i64 %276, 0
-  %or.cond400 = select i1 %.not218, i1 %277, i1 false
+  %275 = load i64, ptr %80, align 8
+  %276 = icmp sgt i64 %275, 0
+  %or.cond400 = select i1 %.not218, i1 %276, i1 false
   br i1 %or.cond400, label %.lr.ph354, label %_ZSt6fill_nIPyxiET_S1_T0_RKT1_.exit296
 
 .lr.ph354:                                        ; preds = %_ZSt6fill_nIPyxiET_S1_T0_RKT1_.exit291, %.lr.ph354
-  %.0161353 = phi i64 [ %283, %.lr.ph354 ], [ 0, %_ZSt6fill_nIPyxiET_S1_T0_RKT1_.exit291 ]
-  %278 = getelementptr inbounds nuw i64, ptr %.2185, i64 %.0161353
-  %279 = load i64, ptr %278, align 8
-  %280 = getelementptr inbounds nuw i64, ptr %79, i64 %.0161353
-  %281 = load i64, ptr %280, align 8
-  %282 = or i64 %281, %279
-  store i64 %282, ptr %280, align 8
-  %283 = add nuw nsw i64 %.0161353, 1
-  %284 = load i64, ptr %80, align 8
-  %285 = icmp slt i64 %283, %284
-  br i1 %285, label %.lr.ph354, label %._crit_edge355, !llvm.loop !264
+  %.0161353 = phi i64 [ %282, %.lr.ph354 ], [ 0, %_ZSt6fill_nIPyxiET_S1_T0_RKT1_.exit291 ]
+  %277 = getelementptr inbounds nuw i64, ptr %.2185, i64 %.0161353
+  %278 = load i64, ptr %277, align 8
+  %279 = getelementptr inbounds nuw i64, ptr %79, i64 %.0161353
+  %280 = load i64, ptr %279, align 8
+  %281 = or i64 %280, %278
+  store i64 %281, ptr %279, align 8
+  %282 = add nuw nsw i64 %.0161353, 1
+  %283 = load i64, ptr %80, align 8
+  %284 = icmp slt i64 %282, %283
+  br i1 %284, label %.lr.ph354, label %._crit_edge355, !llvm.loop !264
 
 ._crit_edge355:                                   ; preds = %.lr.ph354
-  %286 = icmp slt i64 %284, 1
-  br i1 %286, label %_ZSt6fill_nIPyxiET_S1_T0_RKT1_.exit296, label %.lr.ph.i.i.i.i292
+  %285 = icmp slt i64 %283, 1
+  br i1 %285, label %_ZSt6fill_nIPyxiET_S1_T0_RKT1_.exit296, label %.lr.ph.i.i.i.i292
 
 .lr.ph.i.i.i.i292:                                ; preds = %._crit_edge355
-  %287 = add i64 %.2185376, -8
-  %288 = shl i64 %284, 3
-  %289 = add i64 %287, %288
-  %290 = shl i64 %249, 3
-  %291 = add i64 %289, %290
-  %292 = sub i64 %291, %.1184358377
-  %293 = and i64 %292, -8
-  %294 = add i64 %293, 8
-  call void @llvm.memset.p0.i64(ptr align 8 %251, i8 0, i64 %294, i1 false)
+  %286 = add i64 %.2185376, -8
+  %287 = add i64 %283, %249
+  %288 = shl i64 %287, 3
+  %289 = add i64 %288, %286
+  %290 = sub i64 %289, %.1184358377
+  %291 = and i64 %290, -8
+  %292 = add i64 %291, 8
+  call void @llvm.memset.p0.i64(ptr align 8 %251, i8 0, i64 %292, i1 false)
   br label %_ZSt6fill_nIPyxiET_S1_T0_RKT1_.exit296
 
 _ZSt6fill_nIPyxiET_S1_T0_RKT1_.exit296:           ; preds = %.lr.ph.i.i.i.i292, %._crit_edge355, %_ZSt6fill_nIPyxiET_S1_T0_RKT1_.exit291
-  %295 = load i64, ptr %241, align 8
-  %296 = icmp sgt i64 %295, 0
-  %297 = icmp ne ptr %.2182, null
-  %or.cond5 = select i1 %296, i1 %297, i1 false
-  br i1 %or.cond5, label %298, label %300
+  %293 = load i64, ptr %241, align 8
+  %294 = icmp sgt i64 %293, 0
+  %295 = icmp ne ptr %.2182, null
+  %or.cond5 = select i1 %294, i1 %295, i1 false
+  br i1 %or.cond5, label %296, label %298
 
-298:                                              ; preds = %_ZSt6fill_nIPyxiET_S1_T0_RKT1_.exit296
-  %299 = call noundef i32 @_ZNK6casadi10Integrator16fquad_sp_reverseEPNS_12SpReverseMemEPyS3_S3_S3_S3_(ptr noundef nonnull align 8 dereferenceable(1905) %0, ptr noundef nonnull %11, ptr noundef %4, ptr noundef %79, ptr noundef %53, ptr noundef %.4, ptr noundef nonnull %.2182)
-  %.not219 = icmp eq i32 %299, 0
-  br i1 %.not219, label %300, label %.loopexit
+296:                                              ; preds = %_ZSt6fill_nIPyxiET_S1_T0_RKT1_.exit296
+  %297 = call noundef i32 @_ZNK6casadi10Integrator16fquad_sp_reverseEPNS_12SpReverseMemEPyS3_S3_S3_S3_(ptr noundef nonnull align 8 dereferenceable(1905) %0, ptr noundef nonnull %11, ptr noundef %4, ptr noundef %79, ptr noundef %53, ptr noundef %.4, ptr noundef nonnull %.2182)
+  %.not219 = icmp eq i32 %297, 0
+  br i1 %.not219, label %298, label %.loopexit
 
-300:                                              ; preds = %298, %_ZSt6fill_nIPyxiET_S1_T0_RKT1_.exit296
-  %301 = load i64, ptr %77, align 8
-  %302 = load i64, ptr %80, align 8
-  %303 = add nsw i64 %302, %301
-  %304 = icmp slt i64 %303, 1
-  br i1 %304, label %_ZSt6fill_nIPyxiET_S1_T0_RKT1_.exit301, label %.lr.ph.i.i.i.i297
+298:                                              ; preds = %296, %_ZSt6fill_nIPyxiET_S1_T0_RKT1_.exit296
+  %299 = load i64, ptr %77, align 8
+  %300 = load i64, ptr %80, align 8
+  %301 = add nsw i64 %300, %299
+  %302 = icmp slt i64 %301, 1
+  br i1 %302, label %_ZSt6fill_nIPyxiET_S1_T0_RKT1_.exit301, label %.lr.ph.i.i.i.i297
 
-.lr.ph.i.i.i.i297:                                ; preds = %300
-  %305 = shl i64 %303, 3
-  call void @llvm.memset.p0.i64(ptr align 8 %93, i8 0, i64 %305, i1 false)
+.lr.ph.i.i.i.i297:                                ; preds = %298
+  %303 = shl i64 %301, 3
+  call void @llvm.memset.p0.i64(ptr align 8 %93, i8 0, i64 %303, i1 false)
   br label %_ZSt6fill_nIPyxiET_S1_T0_RKT1_.exit301
 
-_ZSt6fill_nIPyxiET_S1_T0_RKT1_.exit301:           ; preds = %.lr.ph.i.i.i.i297, %300
+_ZSt6fill_nIPyxiET_S1_T0_RKT1_.exit301:           ; preds = %.lr.ph.i.i.i.i297, %298
   call void @_ZNK6casadi8Sparsity7spsolveEPyS1_b(ptr noundef nonnull align 8 dereferenceable(8) %243, ptr noundef %93, ptr noundef %4, i1 noundef zeroext true)
-  %306 = load i64, ptr %77, align 8
-  %307 = load i64, ptr %80, align 8
-  %308 = add nsw i64 %307, %306
-  %309 = icmp slt i64 %308, 1
-  br i1 %309, label %_ZSt6copy_nIPyxS0_ET1_T_T0_S1_.exit305, label %_ZSt8__copy_nIPyxS0_ET1_T_T0_S1_St26random_access_iterator_tag.exit.i302
+  %304 = load i64, ptr %77, align 8
+  %305 = load i64, ptr %80, align 8
+  %306 = add nsw i64 %305, %304
+  %307 = icmp slt i64 %306, 1
+  br i1 %307, label %_ZSt6copy_nIPyxS0_ET1_T_T0_S1_.exit305, label %_ZSt8__copy_nIPyxS0_ET1_T_T0_S1_St26random_access_iterator_tag.exit.i302
 
 _ZSt8__copy_nIPyxS0_ET1_T_T0_S1_St26random_access_iterator_tag.exit.i302: ; preds = %_ZSt6fill_nIPyxiET_S1_T0_RKT1_.exit301
-  %.idx.i.i303 = shl nsw i64 %308, 3
+  %.idx.i.i303 = shl nsw i64 %306, 3
   call void @llvm.memmove.p0.p0.i64(ptr align 8 %4, ptr align 8 %93, i64 %.idx.i.i303, i1 false)
   %.pr330 = load i64, ptr %77, align 8
   br label %_ZSt6copy_nIPyxS0_ET1_T_T0_S1_.exit305
 
 _ZSt6copy_nIPyxS0_ET1_T_T0_S1_.exit305:           ; preds = %_ZSt6fill_nIPyxiET_S1_T0_RKT1_.exit301, %_ZSt8__copy_nIPyxS0_ET1_T_T0_S1_St26random_access_iterator_tag.exit.i302
-  %310 = phi i64 [ %306, %_ZSt6fill_nIPyxiET_S1_T0_RKT1_.exit301 ], [ %.pr330, %_ZSt8__copy_nIPyxS0_ET1_T_T0_S1_St26random_access_iterator_tag.exit.i302 ]
-  %311 = icmp slt i64 %310, 1
-  br i1 %311, label %_ZSt6copy_nIPyxS0_ET1_T_T0_S1_.exit309, label %_ZSt8__copy_nIPyxS0_ET1_T_T0_S1_St26random_access_iterator_tag.exit.i306
+  %308 = phi i64 [ %304, %_ZSt6fill_nIPyxiET_S1_T0_RKT1_.exit301 ], [ %.pr330, %_ZSt8__copy_nIPyxS0_ET1_T_T0_S1_St26random_access_iterator_tag.exit.i302 ]
+  %309 = icmp slt i64 %308, 1
+  br i1 %309, label %_ZSt6copy_nIPyxS0_ET1_T_T0_S1_.exit309, label %_ZSt8__copy_nIPyxS0_ET1_T_T0_S1_St26random_access_iterator_tag.exit.i306
 
 _ZSt8__copy_nIPyxS0_ET1_T_T0_S1_St26random_access_iterator_tag.exit.i306: ; preds = %_ZSt6copy_nIPyxS0_ET1_T_T0_S1_.exit305
-  %.idx.i.i307 = shl nsw i64 %310, 3
+  %.idx.i.i307 = shl nsw i64 %308, 3
   call void @llvm.memmove.p0.p0.i64(ptr align 8 %82, ptr align 8 %4, i64 %.idx.i.i307, i1 false)
   br label %_ZSt6copy_nIPyxS0_ET1_T_T0_S1_.exit309
 
 _ZSt6copy_nIPyxS0_ET1_T_T0_S1_.exit309:           ; preds = %_ZSt6copy_nIPyxS0_ET1_T_T0_S1_.exit305, %_ZSt8__copy_nIPyxS0_ET1_T_T0_S1_St26random_access_iterator_tag.exit.i306
-  %312 = call noundef i32 @_ZNK6casadi10Integrator15fdae_sp_reverseEPNS_12SpReverseMemEPyS3_S3_S3_S3_(ptr noundef nonnull align 8 dereferenceable(1905) %0, ptr noundef nonnull %11, ptr noundef %82, ptr noundef %53, ptr noundef %.4, ptr noundef %4, ptr noundef %79)
-  %.not220 = icmp eq i32 %312, 0
-  br i1 %.not220, label %313, label %.loopexit
+  %310 = call noundef i32 @_ZNK6casadi10Integrator15fdae_sp_reverseEPNS_12SpReverseMemEPyS3_S3_S3_S3_(ptr noundef nonnull align 8 dereferenceable(1905) %0, ptr noundef nonnull %11, ptr noundef %82, ptr noundef %53, ptr noundef %.4, ptr noundef %4, ptr noundef %79)
+  %.not220 = icmp eq i32 %310, 0
+  br i1 %.not220, label %311, label %.loopexit
 
-313:                                              ; preds = %_ZSt6copy_nIPyxS0_ET1_T_T0_S1_.exit309
-  %314 = load i64, ptr %77, align 8
-  %315 = icmp slt i64 %314, 1
-  br i1 %315, label %_ZSt6copy_nIPyxS0_ET1_T_T0_S1_.exit313, label %_ZSt8__copy_nIPyxS0_ET1_T_T0_S1_St26random_access_iterator_tag.exit.i310
+311:                                              ; preds = %_ZSt6copy_nIPyxS0_ET1_T_T0_S1_.exit309
+  %312 = load i64, ptr %77, align 8
+  %313 = icmp slt i64 %312, 1
+  br i1 %313, label %_ZSt6copy_nIPyxS0_ET1_T_T0_S1_.exit313, label %_ZSt8__copy_nIPyxS0_ET1_T_T0_S1_St26random_access_iterator_tag.exit.i310
 
-_ZSt8__copy_nIPyxS0_ET1_T_T0_S1_St26random_access_iterator_tag.exit.i310: ; preds = %313
-  %.idx.i.i311 = shl nsw i64 %314, 3
+_ZSt8__copy_nIPyxS0_ET1_T_T0_S1_St26random_access_iterator_tag.exit.i310: ; preds = %311
+  %.idx.i.i311 = shl nsw i64 %312, 3
   call void @llvm.memmove.p0.p0.i64(ptr align 8 %4, ptr align 8 %82, i64 %.idx.i.i311, i1 false)
   br label %_ZSt6copy_nIPyxS0_ET1_T_T0_S1_.exit313
 
-_ZSt6copy_nIPyxS0_ET1_T_T0_S1_.exit313:           ; preds = %313, %_ZSt8__copy_nIPyxS0_ET1_T_T0_S1_St26random_access_iterator_tag.exit.i310
-  %316 = load i64, ptr %80, align 8
-  %317 = icmp slt i64 %316, 1
-  br i1 %317, label %_ZSt6fill_nIPyxiET_S1_T0_RKT1_.exit318, label %.lr.ph.i.i.i.i314
+_ZSt6copy_nIPyxS0_ET1_T_T0_S1_.exit313:           ; preds = %311, %_ZSt8__copy_nIPyxS0_ET1_T_T0_S1_St26random_access_iterator_tag.exit.i310
+  %314 = load i64, ptr %80, align 8
+  %315 = icmp slt i64 %314, 1
+  br i1 %315, label %_ZSt6fill_nIPyxiET_S1_T0_RKT1_.exit318, label %.lr.ph.i.i.i.i314
 
 .lr.ph.i.i.i.i314:                                ; preds = %_ZSt6copy_nIPyxS0_ET1_T_T0_S1_.exit313
-  %318 = shl i64 %316, 3
-  call void @llvm.memset.p0.i64(ptr align 8 %79, i8 0, i64 %318, i1 false)
+  %316 = shl i64 %314, 3
+  call void @llvm.memset.p0.i64(ptr align 8 %79, i8 0, i64 %316, i1 false)
   br label %_ZSt6fill_nIPyxiET_S1_T0_RKT1_.exit318
 
 _ZSt6fill_nIPyxiET_S1_T0_RKT1_.exit318:           ; preds = %.lr.ph.i.i.i.i314, %_ZSt6copy_nIPyxS0_ET1_T_T0_S1_.exit313
-  %319 = icmp sgt i64 %.in, 1
-  br i1 %319, label %244, label %._crit_edge363, !llvm.loop !265
+  %317 = icmp sgt i64 %.in, 1
+  br i1 %317, label %244, label %._crit_edge363, !llvm.loop !265
 
 ._crit_edge363:                                   ; preds = %_ZSt6fill_nIPyxiET_S1_T0_RKT1_.exit318, %239
   %.not212 = icmp ne ptr %51, null
-  %320 = load i64, ptr %77, align 8
-  %321 = icmp sgt i64 %320, 0
-  %or.cond367 = select i1 %.not212, i1 %321, i1 false
+  %318 = load i64, ptr %77, align 8
+  %319 = icmp sgt i64 %318, 0
+  %or.cond367 = select i1 %.not212, i1 %319, i1 false
   br i1 %or.cond367, label %.lr.ph365, label %.loopexit
 
 .lr.ph365:                                        ; preds = %._crit_edge363, %.lr.ph365
-  %.0364 = phi i64 [ %327, %.lr.ph365 ], [ 0, %._crit_edge363 ]
-  %322 = getelementptr inbounds nuw i64, ptr %82, i64 %.0364
+  %.0364 = phi i64 [ %325, %.lr.ph365 ], [ 0, %._crit_edge363 ]
+  %320 = getelementptr inbounds nuw i64, ptr %82, i64 %.0364
+  %321 = load i64, ptr %320, align 8
+  %322 = getelementptr inbounds nuw i64, ptr %51, i64 %.0364
   %323 = load i64, ptr %322, align 8
-  %324 = getelementptr inbounds nuw i64, ptr %51, i64 %.0364
-  %325 = load i64, ptr %324, align 8
-  %326 = or i64 %325, %323
-  store i64 %326, ptr %324, align 8
-  %327 = add nuw nsw i64 %.0364, 1
-  %328 = load i64, ptr %77, align 8
-  %329 = icmp slt i64 %327, %328
-  br i1 %329, label %.lr.ph365, label %.loopexit, !llvm.loop !266
+  %324 = or i64 %323, %321
+  store i64 %324, ptr %322, align 8
+  %325 = add nuw nsw i64 %.0364, 1
+  %326 = load i64, ptr %77, align 8
+  %327 = icmp slt i64 %325, %326
+  br i1 %327, label %.lr.ph365, label %.loopexit, !llvm.loop !266
 
-.loopexit:                                        ; preds = %_ZSt6copy_nIPyxS0_ET1_T_T0_S1_.exit277, %150, %_ZSt6copy_nIPyxS0_ET1_T_T0_S1_.exit309, %298, %.lr.ph365, %._crit_edge363
-  %.0166 = phi i32 [ 0, %._crit_edge363 ], [ 0, %.lr.ph365 ], [ 1, %298 ], [ 1, %_ZSt6copy_nIPyxS0_ET1_T_T0_S1_.exit309 ], [ 1, %150 ], [ 1, %_ZSt6copy_nIPyxS0_ET1_T_T0_S1_.exit277 ]
+.loopexit:                                        ; preds = %_ZSt6copy_nIPyxS0_ET1_T_T0_S1_.exit277, %150, %_ZSt6copy_nIPyxS0_ET1_T_T0_S1_.exit309, %296, %.lr.ph365, %._crit_edge363
+  %.0166 = phi i32 [ 0, %._crit_edge363 ], [ 0, %.lr.ph365 ], [ 1, %296 ], [ 1, %_ZSt6copy_nIPyxS0_ET1_T_T0_S1_.exit309 ], [ 1, %150 ], [ 1, %_ZSt6copy_nIPyxS0_ET1_T_T0_S1_.exit277 ]
   ret i32 %.0166
 }
 

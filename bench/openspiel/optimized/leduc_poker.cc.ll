@@ -9655,23 +9655,23 @@ define void @_ZNK10open_spiel11leduc_poker9LeducGame27InformationStateTensorShap
   %16 = add nsw i32 %9, %7
   %17 = shl nsw i32 %13, 1
   %18 = add nsw i32 %16, %17
-  br label %21
+  br label %23
 
 19:                                               ; preds = %2
-  %reass.add = add i32 %13, %9
-  %reass.mul = shl i32 %reass.add, 1
-  %20 = add i32 %reass.mul, %7
-  br label %21
+  %20 = add i32 %13, %9
+  %21 = shl i32 %20, 1
+  %22 = add i32 %21, %7
+  br label %23
 
-21:                                               ; preds = %19, %15
-  %.sink13 = phi i32 [ %20, %19 ], [ %18, %15 ]
+23:                                               ; preds = %19, %15
+  %.sink13 = phi i32 [ %22, %19 ], [ %18, %15 ]
   store ptr %14, ptr %0, align 8
-  %22 = getelementptr inbounds nuw i8, ptr %14, i64 4
-  %23 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %22, ptr %23, align 8
+  %24 = getelementptr inbounds nuw i8, ptr %14, i64 4
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %24, ptr %25, align 8
   store i32 %.sink13, ptr %14, align 4
-  %24 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %22, ptr %24, align 8
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %24, ptr %26, align 8
   ret void
 }
 

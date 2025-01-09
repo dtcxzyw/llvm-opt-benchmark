@@ -11676,152 +11676,149 @@ _ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequen
   %93 = load i32, ptr %1, align 8
   %94 = select i1 %.not42, i32 0, i32 262144
   %95 = and i32 %93, -3932161
-  %96 = or disjoint i32 %95, %94
-  %97 = shl nuw nsw i32 %15, 19
-  %98 = or disjoint i32 %96, %97
-  %99 = shl nuw nsw i32 %16, 19
-  %100 = or disjoint i32 %98, %99
-  %101 = shl nuw nsw i32 %17, 19
-  %102 = or disjoint i32 %100, %101
-  store i32 %102, ptr %1, align 8
-  %103 = load i32, ptr %2, align 8
-  %104 = load i32, ptr %14, align 4
-  %105 = add i32 %104, 1
-  store i32 %105, ptr %14, align 4
-  %106 = shl nuw i32 1, %104
-  %107 = and i32 %106, %103
-  %.not43 = icmp eq i32 %107, 0
-  %108 = load i32, ptr %1, align 8
-  %109 = select i1 %.not43, i32 0, i32 4194304
-  %110 = and i32 %108, -4194305
-  %111 = or disjoint i32 %109, %110
-  store i32 %111, ptr %1, align 8
-  %112 = load i32, ptr %2, align 8
-  %113 = load i32, ptr %14, align 4
-  %114 = lshr i32 %112, %113
-  %115 = add i32 %113, 2
-  store i32 %115, ptr %14, align 4
-  %116 = load i32, ptr %1, align 8
-  %117 = shl i32 %114, 23
-  %118 = and i32 %117, 25165824
-  %119 = and i32 %116, -25165825
-  %120 = or disjoint i32 %119, %118
-  store i32 %120, ptr %1, align 8
-  %121 = load ptr, ptr %0, align 8
-  %122 = getelementptr inbounds nuw i8, ptr %121, i64 8
-  %123 = load ptr, ptr %122, align 8
-  %124 = getelementptr inbounds nuw i8, ptr %121, i64 16
-  %125 = load ptr, ptr %124, align 8
-  %126 = getelementptr inbounds nuw i8, ptr %121, i64 32
-  %127 = getelementptr inbounds nuw i8, ptr %121, i64 24
-  %128 = load i32, ptr %127, align 4
-  %129 = add i32 %128, 1
-  store i32 %129, ptr %127, align 4
-  %130 = zext i32 %128 to i64
-  %131 = load ptr, ptr %126, align 8
-  %132 = getelementptr inbounds nuw i64, ptr %131, i64 %130
-  %133 = load i64, ptr %132, align 8
-  %134 = getelementptr inbounds nuw i8, ptr %125, i64 856
-  %135 = load i64, ptr %134, align 8
-  %136 = icmp eq i64 %135, 0
-  br i1 %136, label %138, label %137
+  %96 = shl i32 %13, 19
+  %97 = and i32 %96, 3670016
+  %98 = or disjoint i32 %97, %95
+  %99 = or disjoint i32 %98, %94
+  store i32 %99, ptr %1, align 8
+  %100 = load i32, ptr %2, align 8
+  %101 = load i32, ptr %14, align 4
+  %102 = add i32 %101, 1
+  store i32 %102, ptr %14, align 4
+  %103 = shl nuw i32 1, %101
+  %104 = and i32 %103, %100
+  %.not43 = icmp eq i32 %104, 0
+  %105 = load i32, ptr %1, align 8
+  %106 = select i1 %.not43, i32 0, i32 4194304
+  %107 = and i32 %105, -4194305
+  %108 = or disjoint i32 %106, %107
+  store i32 %108, ptr %1, align 8
+  %109 = load i32, ptr %2, align 8
+  %110 = load i32, ptr %14, align 4
+  %111 = lshr i32 %109, %110
+  %112 = add i32 %110, 2
+  store i32 %112, ptr %14, align 4
+  %113 = load i32, ptr %1, align 8
+  %114 = shl i32 %111, 23
+  %115 = and i32 %114, 25165824
+  %116 = and i32 %113, -25165825
+  %117 = or disjoint i32 %116, %115
+  store i32 %117, ptr %1, align 8
+  %118 = load ptr, ptr %0, align 8
+  %119 = getelementptr inbounds nuw i8, ptr %118, i64 8
+  %120 = load ptr, ptr %119, align 8
+  %121 = getelementptr inbounds nuw i8, ptr %118, i64 16
+  %122 = load ptr, ptr %121, align 8
+  %123 = getelementptr inbounds nuw i8, ptr %118, i64 32
+  %124 = getelementptr inbounds nuw i8, ptr %118, i64 24
+  %125 = load i32, ptr %124, align 4
+  %126 = add i32 %125, 1
+  store i32 %126, ptr %124, align 4
+  %127 = zext i32 %125 to i64
+  %128 = load ptr, ptr %123, align 8
+  %129 = getelementptr inbounds nuw i64, ptr %128, i64 %127
+  %130 = load i64, ptr %129, align 8
+  %131 = getelementptr inbounds nuw i8, ptr %122, i64 856
+  %132 = load i64, ptr %131, align 8
+  %133 = icmp eq i64 %132, 0
+  br i1 %133, label %135, label %134
 
-137:                                              ; preds = %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.thread.i.i.i
-  tail call void @_ZNK5clang9ASTReader19ReadModuleOffsetMapERNS_13serialization10ModuleFileE(ptr noundef nonnull align 8 dereferenceable(15968) %123, ptr noundef nonnull align 8 dereferenceable(3464) %125) #18
-  br label %138
+134:                                              ; preds = %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.thread.i.i.i
+  tail call void @_ZNK5clang9ASTReader19ReadModuleOffsetMapERNS_13serialization10ModuleFileE(ptr noundef nonnull align 8 dereferenceable(15968) %120, ptr noundef nonnull align 8 dereferenceable(3464) %122) #18
+  br label %135
 
-138:                                              ; preds = %137, %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.thread.i.i.i
-  %.not.i.i.i.i.i30 = icmp ult i64 %133, 4294967296
-  %139 = trunc i64 %133 to i32
-  %140 = tail call noundef i32 @llvm.fshl.i32(i32 %139, i32 %139, i32 31)
-  br i1 %.not.i.i.i.i.i30, label %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.thread.i.i.i32, label %141
+135:                                              ; preds = %134, %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.thread.i.i.i
+  %.not.i.i.i.i.i30 = icmp ult i64 %130, 4294967296
+  %136 = trunc i64 %130 to i32
+  %137 = tail call noundef i32 @llvm.fshl.i32(i32 %136, i32 %136, i32 31)
+  br i1 %.not.i.i.i.i.i30, label %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.thread.i.i.i32, label %138
 
-141:                                              ; preds = %138
-  %.sroa.2.0.extract.shift.i.i.i31 = lshr i64 %133, 32
-  %142 = getelementptr inbounds nuw i8, ptr %125, i64 3320
-  %143 = add nuw nsw i64 %.sroa.2.0.extract.shift.i.i.i31, 4294967295
-  %144 = and i64 %143, 4294967295
-  %145 = load ptr, ptr %142, align 8
-  %146 = getelementptr inbounds nuw ptr, ptr %145, i64 %144
-  %147 = load ptr, ptr %146, align 8
+138:                                              ; preds = %135
+  %.sroa.2.0.extract.shift.i.i.i31 = lshr i64 %130, 32
+  %139 = getelementptr inbounds nuw i8, ptr %122, i64 3320
+  %140 = add nuw nsw i64 %.sroa.2.0.extract.shift.i.i.i31, 4294967295
+  %141 = and i64 %140, 4294967295
+  %142 = load ptr, ptr %139, align 8
+  %143 = getelementptr inbounds nuw ptr, ptr %142, i64 %141
+  %144 = load ptr, ptr %143, align 8
   br label %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.thread.i.i.i32
 
-_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.thread.i.i.i32: ; preds = %138, %141
-  %148 = phi ptr [ %147, %141 ], [ %125, %138 ]
-  %149 = icmp eq i32 %139, 0
-  %150 = getelementptr inbounds nuw i8, ptr %148, i64 1648
-  %151 = load i32, ptr %150, align 8
-  %152 = add i32 %140, -2
-  %153 = add i32 %152, %151
-  %spec.select39 = select i1 %149, i32 0, i32 %153
-  %154 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  store i32 %spec.select39, ptr %154, align 4
-  br i1 %.not, label %162, label %155
+_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.thread.i.i.i32: ; preds = %135, %138
+  %145 = phi ptr [ %144, %138 ], [ %122, %135 ]
+  %146 = icmp eq i32 %136, 0
+  %147 = getelementptr inbounds nuw i8, ptr %145, i64 1648
+  %148 = load i32, ptr %147, align 8
+  %149 = add i32 %137, -2
+  %150 = add i32 %149, %148
+  %spec.select39 = select i1 %146, i32 0, i32 %150
+  %151 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  store i32 %spec.select39, ptr %151, align 4
+  br i1 %.not, label %159, label %152
 
-155:                                              ; preds = %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.thread.i.i.i32
-  %156 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %157 = load ptr, ptr %0, align 8
-  %158 = tail call { ptr, ptr } @_ZN5clang15ASTRecordReader26readNestedNameSpecifierLocEv(ptr noundef nonnull align 8 dereferenceable(560) %157) #18
-  %159 = extractvalue { ptr, ptr } %158, 0
-  store ptr %159, ptr %156, align 8
-  %160 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %161 = extractvalue { ptr, ptr } %158, 1
-  store ptr %161, ptr %160, align 8
-  br label %162
+152:                                              ; preds = %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.thread.i.i.i32
+  %153 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  %154 = load ptr, ptr %0, align 8
+  %155 = tail call { ptr, ptr } @_ZN5clang15ASTRecordReader26readNestedNameSpecifierLocEv(ptr noundef nonnull align 8 dereferenceable(560) %154) #18
+  %156 = extractvalue { ptr, ptr } %155, 0
+  store ptr %156, ptr %153, align 8
+  %157 = getelementptr inbounds nuw i8, ptr %1, i64 56
+  %158 = extractvalue { ptr, ptr } %155, 1
+  store ptr %158, ptr %157, align 8
+  br label %159
 
-162:                                              ; preds = %155, %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.thread.i.i.i32
-  br i1 %.not40, label %186, label %163
+159:                                              ; preds = %152, %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.thread.i.i.i32
+  br i1 %.not40, label %183, label %160
 
-163:                                              ; preds = %162
-  %164 = load ptr, ptr %0, align 8
-  %165 = getelementptr inbounds nuw i8, ptr %164, i64 8
-  %166 = load ptr, ptr %165, align 8
-  %167 = getelementptr inbounds nuw i8, ptr %164, i64 16
-  %168 = load ptr, ptr %167, align 8
-  %169 = getelementptr inbounds nuw i8, ptr %164, i64 32
-  %170 = getelementptr inbounds nuw i8, ptr %164, i64 24
-  %171 = tail call i64 @_ZN5clang9ASTReader10ReadDeclIDERNS_13serialization10ModuleFileERKN4llvm15SmallVectorImplImEERj(ptr noundef nonnull align 8 dereferenceable(15968) %166, ptr noundef nonnull align 8 dereferenceable(3464) %168, ptr noundef nonnull align 8 dereferenceable(16) %169, ptr noundef nonnull align 4 dereferenceable(4) %170) #18
-  %172 = tail call noundef ptr @_ZN5clang9ASTReader7GetDeclENS_12GlobalDeclIDE(ptr noundef nonnull align 8 dereferenceable(15968) %166, i64 %171) #18
-  %173 = load i32, ptr %2, align 8
-  %174 = load i32, ptr %14, align 4
-  %175 = lshr i32 %173, %174
-  %176 = and i32 %175, 3
-  %177 = add i32 %174, 2
-  store i32 %177, ptr %14, align 4
-  %178 = zext nneg i32 %176 to i64
-  %179 = ptrtoint ptr %172 to i64
-  %180 = or i64 %178, %179
-  %181 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %182 = load i32, ptr %1, align 8
-  %183 = lshr i32 %182, 19
-  %.lobit.i.i.i.i = and i32 %183, 1
-  %184 = zext nneg i32 %.lobit.i.i.i.i to i64
-  %185 = getelementptr inbounds nuw %"class.clang::NestedNameSpecifierLoc", ptr %181, i64 %184
-  store i64 %180, ptr %185, align 8
-  br label %186
+160:                                              ; preds = %159
+  %161 = load ptr, ptr %0, align 8
+  %162 = getelementptr inbounds nuw i8, ptr %161, i64 8
+  %163 = load ptr, ptr %162, align 8
+  %164 = getelementptr inbounds nuw i8, ptr %161, i64 16
+  %165 = load ptr, ptr %164, align 8
+  %166 = getelementptr inbounds nuw i8, ptr %161, i64 32
+  %167 = getelementptr inbounds nuw i8, ptr %161, i64 24
+  %168 = tail call i64 @_ZN5clang9ASTReader10ReadDeclIDERNS_13serialization10ModuleFileERKN4llvm15SmallVectorImplImEERj(ptr noundef nonnull align 8 dereferenceable(15968) %163, ptr noundef nonnull align 8 dereferenceable(3464) %165, ptr noundef nonnull align 8 dereferenceable(16) %166, ptr noundef nonnull align 4 dereferenceable(4) %167) #18
+  %169 = tail call noundef ptr @_ZN5clang9ASTReader7GetDeclENS_12GlobalDeclIDE(ptr noundef nonnull align 8 dereferenceable(15968) %163, i64 %168) #18
+  %170 = load i32, ptr %2, align 8
+  %171 = load i32, ptr %14, align 4
+  %172 = lshr i32 %170, %171
+  %173 = and i32 %172, 3
+  %174 = add i32 %171, 2
+  store i32 %174, ptr %14, align 4
+  %175 = zext nneg i32 %173 to i64
+  %176 = ptrtoint ptr %169 to i64
+  %177 = or i64 %175, %176
+  %178 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  %179 = load i32, ptr %1, align 8
+  %180 = lshr i32 %179, 19
+  %.lobit.i.i.i.i = and i32 %180, 1
+  %181 = zext nneg i32 %.lobit.i.i.i.i to i64
+  %182 = getelementptr inbounds nuw %"class.clang::NestedNameSpecifierLoc", ptr %178, i64 %181
+  store i64 %177, ptr %182, align 8
+  br label %183
 
-186:                                              ; preds = %163, %162
-  br i1 %.not41, label %199, label %187
+183:                                              ; preds = %160, %159
+  br i1 %.not41, label %196, label %184
 
-187:                                              ; preds = %186
-  %188 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %189 = load i32, ptr %1, align 8
-  %190 = lshr i32 %189, 19
-  %.lobit.i.i.i.i.i = and i32 %190, 1
-  %191 = zext nneg i32 %.lobit.i.i.i.i.i to i64
-  %192 = getelementptr inbounds nuw %"class.clang::NestedNameSpecifierLoc", ptr %188, i64 %191
-  %193 = lshr i32 %189, 20
-  %.lobit.i.i.i.i36 = and i32 %193, 1
-  %194 = zext nneg i32 %.lobit.i.i.i.i36 to i64
-  %195 = getelementptr inbounds nuw %"class.clang::DeclAccessPair", ptr %192, i64 %194
-  %196 = lshr i32 %189, 21
-  %.lobit.i.i.i.i38 = and i32 %196, 1
-  %197 = zext nneg i32 %.lobit.i.i.i.i38 to i64
-  %198 = getelementptr inbounds nuw %"struct.clang::ASTTemplateKWAndArgsInfo", ptr %195, i64 %197
-  tail call void @_ZN5clang13ASTStmtReader25ReadTemplateKWAndArgsInfoERNS_24ASTTemplateKWAndArgsInfoEPNS_19TemplateArgumentLocEj(ptr noundef nonnull align 8 dereferenceable(28) %0, ptr noundef nonnull align 8 dereferenceable(16) %195, ptr noundef nonnull %198, i32 noundef %27)
-  br label %199
+184:                                              ; preds = %183
+  %185 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  %186 = load i32, ptr %1, align 8
+  %187 = lshr i32 %186, 19
+  %.lobit.i.i.i.i.i = and i32 %187, 1
+  %188 = zext nneg i32 %.lobit.i.i.i.i.i to i64
+  %189 = getelementptr inbounds nuw %"class.clang::NestedNameSpecifierLoc", ptr %185, i64 %188
+  %190 = lshr i32 %186, 20
+  %.lobit.i.i.i.i36 = and i32 %190, 1
+  %191 = zext nneg i32 %.lobit.i.i.i.i36 to i64
+  %192 = getelementptr inbounds nuw %"class.clang::DeclAccessPair", ptr %189, i64 %191
+  %193 = lshr i32 %186, 21
+  %.lobit.i.i.i.i38 = and i32 %193, 1
+  %194 = zext nneg i32 %.lobit.i.i.i.i38 to i64
+  %195 = getelementptr inbounds nuw %"struct.clang::ASTTemplateKWAndArgsInfo", ptr %192, i64 %194
+  tail call void @_ZN5clang13ASTStmtReader25ReadTemplateKWAndArgsInfoERNS_24ASTTemplateKWAndArgsInfoEPNS_19TemplateArgumentLocEj(ptr noundef nonnull align 8 dereferenceable(28) %0, ptr noundef nonnull align 8 dereferenceable(16) %192, ptr noundef nonnull %195, i32 noundef %27)
+  br label %196
 
-199:                                              ; preds = %187, %186
+196:                                              ; preds = %184, %183
   ret void
 }
 

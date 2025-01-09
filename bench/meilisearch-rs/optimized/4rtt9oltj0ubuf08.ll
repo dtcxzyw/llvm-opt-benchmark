@@ -134872,17 +134872,17 @@ define internal noundef i64 @"_ZN92_$LT$aho_corasick..nfa..noncontiguous..NFA$u2
   %13 = icmp eq ptr %12, null
   %14 = mul i64 %2, 20
   %15 = mul i64 %4, 9
-  %16 = shl i64 %6, 3
-  %17 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %.val.i = load i64, ptr %17, align 8
+  %16 = add i64 %15, %14
+  %17 = shl i64 %6, 3
+  %18 = add i64 %16, %17
+  %19 = add i64 %10, %8
+  %20 = shl i64 %19, 2
+  %21 = add i64 %18, %20
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 136
+  %.val.i = load i64, ptr %22, align 8
   %.sroa.02.0.i = select i1 %13, i64 0, i64 %.val.i
-  %reass.add = add i64 %10, %8
-  %reass.mul = shl i64 %reass.add, 2
-  %18 = add i64 %15, %14
-  %19 = add i64 %18, %16
-  %20 = add i64 %19, %reass.mul
-  %21 = add i64 %20, %.sroa.02.0.i
-  ret i64 %21
+  %23 = add i64 %21, %.sroa.02.0.i
+  ret i64 %23
 }
 
 ; Function Attrs: alwaysinline mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable

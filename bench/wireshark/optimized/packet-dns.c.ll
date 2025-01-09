@@ -8561,7 +8561,7 @@ define internal fastcc range(i32 0, 2) i32 @compute_key_id(ptr noundef %0, ptr n
   %26 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %2, i32 noundef %25) #10
   %27 = zext i8 %26 to i32
   %28 = or disjoint i32 %24, %27
-  br label %49
+  br label %50
 
 .lr.ph:                                           ; preds = %18, %.lr.ph
   %.03542 = phi i32 [ %38, %.lr.ph ], [ %3, %18 ]
@@ -8582,29 +8582,30 @@ define internal fastcc range(i32 0, 2) i32 @compute_key_id(ptr noundef %0, ptr n
 
 ._crit_edge:                                      ; preds = %.lr.ph
   %40 = icmp eq i32 %37, 1
-  br i1 %40, label %41, label %46
+  br i1 %40, label %41, label %47
 
 41:                                               ; preds = %._crit_edge
   %42 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %2, i32 noundef %38) #10
   %43 = zext i8 %42 to i32
-  %44 = shl nuw nsw i32 %43, 8
-  %45 = add i32 %44, %36
-  br label %46
+  %44 = add nuw nsw i32 %32, %43
+  %45 = shl nuw nsw i32 %44, 8
+  %46 = add i32 %45, %35
+  br label %47
 
-46:                                               ; preds = %41, %._crit_edge
-  %.1 = phi i32 [ %45, %41 ], [ %36, %._crit_edge ]
-  %47 = lshr i32 %.1, 16
-  %48 = add i32 %47, %.1
-  br label %49
+47:                                               ; preds = %41, %._crit_edge
+  %.1 = phi i32 [ %46, %41 ], [ %36, %._crit_edge ]
+  %48 = lshr i32 %.1, 16
+  %49 = add i32 %48, %.1
+  br label %50
 
-49:                                               ; preds = %46, %19
-  %storemerge.in = phi i32 [ %48, %46 ], [ %28, %19 ]
+50:                                               ; preds = %47, %19
+  %storemerge.in = phi i32 [ %49, %47 ], [ %28, %19 ]
   %storemerge = trunc i32 %storemerge.in to i16
   store i16 %storemerge, ptr %6, align 2
   br label %proto_item_set_generated.exit
 
-proto_item_set_generated.exit:                    ; preds = %14, %11, %9, %49
-  %.0 = phi i32 [ 1, %49 ], [ 0, %9 ], [ 0, %11 ], [ 0, %14 ]
+proto_item_set_generated.exit:                    ; preds = %14, %11, %9, %50
+  %.0 = phi i32 [ 1, %50 ], [ 0, %9 ], [ 0, %11 ], [ 0, %14 ]
   ret i32 %.0
 }
 

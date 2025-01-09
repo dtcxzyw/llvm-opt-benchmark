@@ -14254,25 +14254,26 @@ define hidden void @_ZN6brotli3enc17brotli_bit_stream32BrotliStoreUncompressedMe
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h2c304cd278eb72ebE.exit32": ; preds = %39
   %43 = getelementptr inbounds nuw i8, ptr %10, i64 %36
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %43, ptr nonnull readonly align 1 %22, i64 %24, i1 false), !alias.scope !1939, !noalias !1943
-  %44 = shl i64 %24, 3
-  %45 = add i64 %35, %44
-  store i64 %45, ptr %9, align 8
-  tail call void @_ZN6brotli3enc17brotli_bit_stream29BrotliWriteBitsPrepareStorage17h748a5b60b8cbe10cE(i64 noundef %45, ptr noalias noundef nonnull align 1 %10, i64 noundef %11)
-  %46 = getelementptr inbounds nuw i8, ptr %6, i64 97
-  %47 = load i8, ptr %46, align 1, !range !87, !noundef !62
-  %48 = trunc nuw i8 %47 to i1
-  %.not = xor i1 %48, true
+  %44 = add i64 %24, %20
+  %45 = shl i64 %44, 3
+  %46 = add i64 %25, %45
+  store i64 %46, ptr %9, align 8
+  tail call void @_ZN6brotli3enc17brotli_bit_stream29BrotliWriteBitsPrepareStorage17h748a5b60b8cbe10cE(i64 noundef %46, ptr noalias noundef nonnull align 1 %10, i64 noundef %11)
+  %47 = getelementptr inbounds nuw i8, ptr %6, i64 97
+  %48 = load i8, ptr %47, align 1, !range !87, !noundef !62
+  %49 = trunc nuw i8 %48 to i1
+  %.not = xor i1 %49, true
   %brmerge = or i1 %12, %.not
-  br i1 %brmerge, label %49, label %51
+  br i1 %brmerge, label %50, label %52
 
-49:                                               ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h2c304cd278eb72ebE.exit32", %51
-  %50 = icmp eq i32 %1, 0
-  br i1 %50, label %59, label %60
+50:                                               ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h2c304cd278eb72ebE.exit32", %52
+  %51 = icmp eq i32 %1, 0
+  br i1 %51, label %60, label %61
 
-51:                                               ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h2c304cd278eb72ebE.exit32"
+52:                                               ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h2c304cd278eb72ebE.exit32"
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %16)
-  %52 = trunc i64 %7 to i32
-  store i32 %52, ptr %16, align 4
+  %53 = trunc i64 %7 to i32
+  store i32 %53, ptr %16, align 4
   %.sroa.44.0..sroa_idx = getelementptr inbounds nuw i8, ptr %16, i64 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.44.0..sroa_idx, i8 0, i64 12, i1 false)
   call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %15)
@@ -14285,12 +14286,12 @@ define hidden void @_ZN6brotli3enc17brotli_bit_stream32BrotliStoreUncompressedMe
   store i64 0, ptr %.sroa.8.0..sroa_idx, align 8
   %.sroa.9.0..sroa_idx = getelementptr inbounds nuw i8, ptr %15, i64 32
   store i32 1, ptr %.sroa.9.0..sroa_idx, align 8
-  %53 = getelementptr inbounds nuw i8, ptr %15, i64 40
-  store ptr @anon.da5671b31171a2d3975d53f4ba34dcb5.10, ptr %53, align 8
-  %54 = getelementptr inbounds nuw i8, ptr %15, i64 48
-  store i64 0, ptr %54, align 8
-  %55 = getelementptr inbounds nuw i8, ptr %15, i64 56
-  store ptr @anon.da5671b31171a2d3975d53f4ba34dcb5.10, ptr %55, align 8
+  %54 = getelementptr inbounds nuw i8, ptr %15, i64 40
+  store ptr @anon.da5671b31171a2d3975d53f4ba34dcb5.10, ptr %54, align 8
+  %55 = getelementptr inbounds nuw i8, ptr %15, i64 48
+  store i64 0, ptr %55, align 8
+  %56 = getelementptr inbounds nuw i8, ptr %15, i64 56
+  store ptr @anon.da5671b31171a2d3975d53f4ba34dcb5.10, ptr %56, align 8
   %.sroa.68.0..sroa_idx9 = getelementptr inbounds nuw i8, ptr %15, i64 64
   store i64 0, ptr %.sroa.68.0..sroa_idx9, align 8
   %.sroa.713.0..sroa_idx14 = getelementptr inbounds nuw i8, ptr %15, i64 72
@@ -14299,8 +14300,8 @@ define hidden void @_ZN6brotli3enc17brotli_bit_stream32BrotliStoreUncompressedMe
   store i64 0, ptr %.sroa.8.0..sroa_idx18, align 8
   %.sroa.9.0..sroa_idx22 = getelementptr inbounds nuw i8, ptr %15, i64 88
   store i32 1, ptr %.sroa.9.0..sroa_idx22, align 8
-  %56 = getelementptr inbounds nuw i8, ptr %15, i64 96
-  store ptr @anon.da5671b31171a2d3975d53f4ba34dcb5.10, ptr %56, align 8
+  %57 = getelementptr inbounds nuw i8, ptr %15, i64 96
+  store ptr @anon.da5671b31171a2d3975d53f4ba34dcb5.10, ptr %57, align 8
   %.sroa.68.0..sroa_idx11 = getelementptr inbounds nuw i8, ptr %15, i64 104
   store i64 0, ptr %.sroa.68.0..sroa_idx11, align 8
   %.sroa.713.0..sroa_idx16 = getelementptr inbounds nuw i8, ptr %15, i64 112
@@ -14309,23 +14310,23 @@ define hidden void @_ZN6brotli3enc17brotli_bit_stream32BrotliStoreUncompressedMe
   store i64 0, ptr %.sroa.8.0..sroa_idx20, align 8
   %.sroa.9.0..sroa_idx24 = getelementptr inbounds nuw i8, ptr %15, i64 128
   store i32 1, ptr %.sroa.9.0..sroa_idx24, align 8
-  %57 = getelementptr inbounds nuw i8, ptr %15, i64 136
-  store ptr @anon.da5671b31171a2d3975d53f4ba34dcb5.10, ptr %57, align 8
-  %58 = getelementptr inbounds nuw i8, ptr %15, i64 144
-  store i64 0, ptr %58, align 8
+  %58 = getelementptr inbounds nuw i8, ptr %15, i64 136
+  store ptr @anon.da5671b31171a2d3975d53f4ba34dcb5.10, ptr %58, align 8
+  %59 = getelementptr inbounds nuw i8, ptr %15, i64 144
+  store i64 0, ptr %59, align 8
   call fastcc void @_ZN6brotli3enc17brotli_bit_stream12LogMetaBlock17h9b50c5fa465043fcE(ptr noalias noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 4 %16, i64 noundef 1, ptr noalias noundef nonnull readonly align 1 %18, i64 noundef %20, ptr noalias noundef nonnull readonly align 1 %22, i64 noundef %24, ptr noalias noundef nonnull readonly align 4 dereferenceable(16) @anon.da5671b31171a2d3975d53f4ba34dcb5.118, ptr noalias noundef align 8 dereferenceable(8) %8, ptr noalias nocapture noundef align 8 dereferenceable(152) %15, ptr noalias noundef readonly align 8 dereferenceable(112) %6, i8 noundef 4)
   call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %15)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %16)
-  br label %49
+  br label %50
 
-59:                                               ; preds = %60, %49
+60:                                               ; preds = %61, %50
   ret void
 
-60:                                               ; preds = %49
+61:                                               ; preds = %50
   call void @_ZN6brotli3enc17brotli_bit_stream15BrotliWriteBits17h449729164f2b6cc0E(i8 noundef 1, i64 noundef 1, ptr noalias noundef nonnull align 8 dereferenceable(8) %9, ptr noalias noundef nonnull align 1 %10, i64 noundef %11)
   call void @_ZN6brotli3enc17brotli_bit_stream15BrotliWriteBits17h449729164f2b6cc0E(i8 noundef 1, i64 noundef 1, ptr noalias noundef nonnull align 8 dereferenceable(8) %9, ptr noalias noundef nonnull align 1 %10, i64 noundef %11)
   call void @_ZN6brotli3enc17brotli_bit_stream18JumpToByteBoundary17h03a7951fb05a6519E(ptr noalias noundef nonnull align 8 dereferenceable(8) %9, ptr noalias noundef nonnull align 1 %10, i64 noundef %11)
-  br label %59
+  br label %60
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -14389,25 +14390,26 @@ define hidden void @_ZN6brotli3enc17brotli_bit_stream32BrotliStoreUncompressedMe
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h2c304cd278eb72ebE.exit32": ; preds = %39
   %43 = getelementptr inbounds nuw i8, ptr %10, i64 %36
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %43, ptr nonnull readonly align 1 %22, i64 %24, i1 false), !alias.scope !1957, !noalias !1961
-  %44 = shl i64 %24, 3
-  %45 = add i64 %35, %44
-  store i64 %45, ptr %9, align 8
-  tail call void @_ZN6brotli3enc17brotli_bit_stream29BrotliWriteBitsPrepareStorage17h748a5b60b8cbe10cE(i64 noundef %45, ptr noalias noundef nonnull align 1 %10, i64 noundef %11)
-  %46 = getelementptr inbounds nuw i8, ptr %6, i64 97
-  %47 = load i8, ptr %46, align 1, !range !87, !noundef !62
-  %48 = trunc nuw i8 %47 to i1
-  %.not = xor i1 %48, true
+  %44 = add i64 %24, %20
+  %45 = shl i64 %44, 3
+  %46 = add i64 %25, %45
+  store i64 %46, ptr %9, align 8
+  tail call void @_ZN6brotli3enc17brotli_bit_stream29BrotliWriteBitsPrepareStorage17h748a5b60b8cbe10cE(i64 noundef %46, ptr noalias noundef nonnull align 1 %10, i64 noundef %11)
+  %47 = getelementptr inbounds nuw i8, ptr %6, i64 97
+  %48 = load i8, ptr %47, align 1, !range !87, !noundef !62
+  %49 = trunc nuw i8 %48 to i1
+  %.not = xor i1 %49, true
   %brmerge = or i1 %12, %.not
-  br i1 %brmerge, label %49, label %51
+  br i1 %brmerge, label %50, label %52
 
-49:                                               ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h2c304cd278eb72ebE.exit32", %51
-  %50 = icmp eq i32 %1, 0
-  br i1 %50, label %59, label %60
+50:                                               ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h2c304cd278eb72ebE.exit32", %52
+  %51 = icmp eq i32 %1, 0
+  br i1 %51, label %60, label %61
 
-51:                                               ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h2c304cd278eb72ebE.exit32"
+52:                                               ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h2c304cd278eb72ebE.exit32"
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %16)
-  %52 = trunc i64 %7 to i32
-  store i32 %52, ptr %16, align 4
+  %53 = trunc i64 %7 to i32
+  store i32 %53, ptr %16, align 4
   %.sroa.44.0..sroa_idx = getelementptr inbounds nuw i8, ptr %16, i64 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.44.0..sroa_idx, i8 0, i64 12, i1 false)
   call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %15)
@@ -14420,12 +14422,12 @@ define hidden void @_ZN6brotli3enc17brotli_bit_stream32BrotliStoreUncompressedMe
   store i64 0, ptr %.sroa.8.0..sroa_idx, align 8
   %.sroa.9.0..sroa_idx = getelementptr inbounds nuw i8, ptr %15, i64 32
   store i32 1, ptr %.sroa.9.0..sroa_idx, align 8
-  %53 = getelementptr inbounds nuw i8, ptr %15, i64 40
-  store ptr @anon.da5671b31171a2d3975d53f4ba34dcb5.10, ptr %53, align 8
-  %54 = getelementptr inbounds nuw i8, ptr %15, i64 48
-  store i64 0, ptr %54, align 8
-  %55 = getelementptr inbounds nuw i8, ptr %15, i64 56
-  store ptr @anon.da5671b31171a2d3975d53f4ba34dcb5.10, ptr %55, align 8
+  %54 = getelementptr inbounds nuw i8, ptr %15, i64 40
+  store ptr @anon.da5671b31171a2d3975d53f4ba34dcb5.10, ptr %54, align 8
+  %55 = getelementptr inbounds nuw i8, ptr %15, i64 48
+  store i64 0, ptr %55, align 8
+  %56 = getelementptr inbounds nuw i8, ptr %15, i64 56
+  store ptr @anon.da5671b31171a2d3975d53f4ba34dcb5.10, ptr %56, align 8
   %.sroa.68.0..sroa_idx9 = getelementptr inbounds nuw i8, ptr %15, i64 64
   store i64 0, ptr %.sroa.68.0..sroa_idx9, align 8
   %.sroa.713.0..sroa_idx14 = getelementptr inbounds nuw i8, ptr %15, i64 72
@@ -14434,8 +14436,8 @@ define hidden void @_ZN6brotli3enc17brotli_bit_stream32BrotliStoreUncompressedMe
   store i64 0, ptr %.sroa.8.0..sroa_idx18, align 8
   %.sroa.9.0..sroa_idx22 = getelementptr inbounds nuw i8, ptr %15, i64 88
   store i32 1, ptr %.sroa.9.0..sroa_idx22, align 8
-  %56 = getelementptr inbounds nuw i8, ptr %15, i64 96
-  store ptr @anon.da5671b31171a2d3975d53f4ba34dcb5.10, ptr %56, align 8
+  %57 = getelementptr inbounds nuw i8, ptr %15, i64 96
+  store ptr @anon.da5671b31171a2d3975d53f4ba34dcb5.10, ptr %57, align 8
   %.sroa.68.0..sroa_idx11 = getelementptr inbounds nuw i8, ptr %15, i64 104
   store i64 0, ptr %.sroa.68.0..sroa_idx11, align 8
   %.sroa.713.0..sroa_idx16 = getelementptr inbounds nuw i8, ptr %15, i64 112
@@ -14444,23 +14446,23 @@ define hidden void @_ZN6brotli3enc17brotli_bit_stream32BrotliStoreUncompressedMe
   store i64 0, ptr %.sroa.8.0..sroa_idx20, align 8
   %.sroa.9.0..sroa_idx24 = getelementptr inbounds nuw i8, ptr %15, i64 128
   store i32 1, ptr %.sroa.9.0..sroa_idx24, align 8
-  %57 = getelementptr inbounds nuw i8, ptr %15, i64 136
-  store ptr @anon.da5671b31171a2d3975d53f4ba34dcb5.10, ptr %57, align 8
-  %58 = getelementptr inbounds nuw i8, ptr %15, i64 144
-  store i64 0, ptr %58, align 8
+  %58 = getelementptr inbounds nuw i8, ptr %15, i64 136
+  store ptr @anon.da5671b31171a2d3975d53f4ba34dcb5.10, ptr %58, align 8
+  %59 = getelementptr inbounds nuw i8, ptr %15, i64 144
+  store i64 0, ptr %59, align 8
   call fastcc void @_ZN6brotli3enc17brotli_bit_stream12LogMetaBlock17hc85597b862862630E(ptr noalias noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 4 %16, i64 noundef 1, ptr noalias noundef nonnull readonly align 1 %18, i64 noundef %20, ptr noalias noundef nonnull readonly align 1 %22, i64 noundef %24, ptr noalias noundef nonnull readonly align 4 dereferenceable(16) @anon.da5671b31171a2d3975d53f4ba34dcb5.118, ptr noalias noundef align 8 dereferenceable(8) %8, ptr noalias nocapture noundef align 8 dereferenceable(152) %15, ptr noalias noundef readonly align 8 dereferenceable(112) %6, i8 noundef 4)
   call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %15)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %16)
-  br label %49
+  br label %50
 
-59:                                               ; preds = %60, %49
+60:                                               ; preds = %61, %50
   ret void
 
-60:                                               ; preds = %49
+61:                                               ; preds = %50
   call void @_ZN6brotli3enc17brotli_bit_stream15BrotliWriteBits17h449729164f2b6cc0E(i8 noundef 1, i64 noundef 1, ptr noalias noundef nonnull align 8 dereferenceable(8) %9, ptr noalias noundef nonnull align 1 %10, i64 noundef %11)
   call void @_ZN6brotli3enc17brotli_bit_stream15BrotliWriteBits17h449729164f2b6cc0E(i8 noundef 1, i64 noundef 1, ptr noalias noundef nonnull align 8 dereferenceable(8) %9, ptr noalias noundef nonnull align 1 %10, i64 noundef %11)
   call void @_ZN6brotli3enc17brotli_bit_stream18JumpToByteBoundary17h03a7951fb05a6519E(ptr noalias noundef nonnull align 8 dereferenceable(8) %9, ptr noalias noundef nonnull align 1 %10, i64 noundef %11)
-  br label %59
+  br label %60
 }
 
 ; Function Attrs: nonlazybind uwtable

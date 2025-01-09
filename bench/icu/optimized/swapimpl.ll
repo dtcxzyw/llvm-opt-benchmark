@@ -848,19 +848,19 @@ for.end:                                          ; preds = %for.body
   %12 = load i32, ptr %arrayidx53, align 4
   %arrayidx55 = getelementptr inbounds nuw i8, ptr %indexes, i64 8
   %13 = load i32, ptr %arrayidx55, align 8
+  %14 = add i32 %13, %12
+  %15 = shl i32 %14, 1
+  %add57 = add i32 %15, %add
   %arrayidx58 = getelementptr inbounds nuw i8, ptr %indexes, i64 40
-  %14 = load i32, ptr %arrayidx58, align 8
+  %16 = load i32, ptr %arrayidx58, align 8
+  %add59 = add nsw i32 %add57, %16
   %arrayidx60 = getelementptr inbounds nuw i8, ptr %indexes, i64 44
-  %15 = load i32, ptr %arrayidx60, align 4
+  %17 = load i32, ptr %arrayidx60, align 4
+  %add61 = add nsw i32 %add59, %17
   %arrayidx62 = getelementptr inbounds nuw i8, ptr %indexes, i64 48
-  %16 = load i32, ptr %arrayidx62, align 16
-  %mul63 = shl nsw i32 %16, 1
-  %reass.add = add i32 %13, %12
-  %reass.mul = shl i32 %reass.add, 1
-  %add57 = add i32 %14, %add
-  %add59 = add i32 %add57, %15
-  %add61 = add i32 %add59, %reass.mul
-  %add64 = add i32 %add61, %mul63
+  %18 = load i32, ptr %arrayidx62, align 16
+  %mul63 = shl nsw i32 %18, 1
+  %add64 = add nsw i32 %add61, %mul63
   %cmp65 = icmp sgt i32 %length.addr.0, -1
   br i1 %cmp65, label %if.then66, label %if.end122
 
@@ -884,49 +884,47 @@ do.body:                                          ; preds = %if.end69
 
 if.end73:                                         ; preds = %do.body, %if.end69
   %swapArray32 = getelementptr inbounds nuw i8, ptr %ds, i64 56
-  %17 = load ptr, ptr %swapArray32, align 8
-  %call74 = tail call noundef i32 %17(ptr noundef %ds, ptr noundef nonnull %add.ptr38, i32 noundef 128, ptr noundef %add.ptr40, ptr noundef nonnull %pErrorCode)
+  %19 = load ptr, ptr %swapArray32, align 8
+  %call74 = tail call noundef i32 %19(ptr noundef %ds, ptr noundef nonnull %add.ptr38, i32 noundef 128, ptr noundef %add.ptr40, ptr noundef nonnull %pErrorCode)
   %add.ptr78 = getelementptr inbounds nuw i8, ptr %add.ptr38, i64 128
   %add.ptr80 = getelementptr inbounds nuw i8, ptr %add.ptr40, i64 128
   %call81 = tail call i32 @utrie_swap_75(ptr noundef %ds, ptr noundef nonnull %add.ptr78, i32 noundef %11, ptr noundef nonnull %add.ptr80, ptr noundef nonnull %pErrorCode)
   %swapArray16 = getelementptr inbounds nuw i8, ptr %ds, i64 48
-  %18 = load ptr, ptr %swapArray16, align 8
+  %20 = load ptr, ptr %swapArray16, align 8
   %idx.ext87 = sext i32 %add to i64
   %add.ptr88 = getelementptr inbounds i8, ptr %add.ptr38, i64 %idx.ext87
   %add.ptr90 = getelementptr inbounds i8, ptr %add.ptr40, i64 %idx.ext87
-  %call91 = tail call noundef i32 %18(ptr noundef %ds, ptr noundef %add.ptr88, i32 noundef %reass.mul, ptr noundef %add.ptr90, ptr noundef nonnull %pErrorCode)
-  %add92 = add nsw i32 %reass.mul, %add
-  %cmp94.not = icmp eq i32 %14, 0
+  %call91 = tail call noundef i32 %20(ptr noundef %ds, ptr noundef %add.ptr88, i32 noundef %15, ptr noundef %add.ptr90, ptr noundef nonnull %pErrorCode)
+  %cmp94.not = icmp eq i32 %16, 0
   br i1 %cmp94.not, label %if.end102, label %if.then95
 
 if.then95:                                        ; preds = %if.end73
-  %idx.ext96 = sext i32 %add92 to i64
+  %idx.ext96 = sext i32 %add57 to i64
   %add.ptr97 = getelementptr inbounds i8, ptr %add.ptr38, i64 %idx.ext96
   %add.ptr99 = getelementptr inbounds i8, ptr %add.ptr40, i64 %idx.ext96
-  %call100 = tail call i32 @utrie_swap_75(ptr noundef nonnull %ds, ptr noundef %add.ptr97, i32 noundef %14, ptr noundef %add.ptr99, ptr noundef nonnull %pErrorCode)
-  %add101 = add nsw i32 %add92, %14
+  %call100 = tail call i32 @utrie_swap_75(ptr noundef nonnull %ds, ptr noundef %add.ptr97, i32 noundef %16, ptr noundef %add.ptr99, ptr noundef nonnull %pErrorCode)
   br label %if.end102
 
 if.end102:                                        ; preds = %if.then95, %if.end73
-  %offset.0 = phi i32 [ %add101, %if.then95 ], [ %add92, %if.end73 ]
-  %cmp104.not = icmp eq i32 %15, 0
+  %offset.0 = phi i32 [ %add59, %if.then95 ], [ %add57, %if.end73 ]
+  %cmp104.not = icmp eq i32 %17, 0
   br i1 %cmp104.not, label %if.end112, label %if.then105
 
 if.then105:                                       ; preds = %if.end102
   %idx.ext106 = sext i32 %offset.0 to i64
   %add.ptr107 = getelementptr inbounds i8, ptr %add.ptr38, i64 %idx.ext106
   %add.ptr109 = getelementptr inbounds i8, ptr %add.ptr40, i64 %idx.ext106
-  %call110 = tail call i32 @utrie_swap_75(ptr noundef nonnull %ds, ptr noundef %add.ptr107, i32 noundef %15, ptr noundef %add.ptr109, ptr noundef nonnull %pErrorCode)
-  %add111 = add nsw i32 %offset.0, %15
+  %call110 = tail call i32 @utrie_swap_75(ptr noundef nonnull %ds, ptr noundef %add.ptr107, i32 noundef %17, ptr noundef %add.ptr109, ptr noundef nonnull %pErrorCode)
+  %add111 = add nsw i32 %offset.0, %17
   br label %if.end112
 
 if.end112:                                        ; preds = %if.then105, %if.end102
   %offset.1 = phi i32 [ %add111, %if.then105 ], [ %offset.0, %if.end102 ]
-  %19 = load ptr, ptr %swapArray16, align 8
+  %21 = load ptr, ptr %swapArray16, align 8
   %idx.ext116 = sext i32 %offset.1 to i64
   %add.ptr117 = getelementptr inbounds i8, ptr %add.ptr38, i64 %idx.ext116
   %add.ptr119 = getelementptr inbounds i8, ptr %add.ptr40, i64 %idx.ext116
-  %call120 = tail call noundef i32 %19(ptr noundef nonnull %ds, ptr noundef %add.ptr117, i32 noundef %mul63, ptr noundef %add.ptr119, ptr noundef nonnull %pErrorCode)
+  %call120 = tail call noundef i32 %21(ptr noundef nonnull %ds, ptr noundef %add.ptr117, i32 noundef %mul63, ptr noundef %add.ptr119, ptr noundef nonnull %pErrorCode)
   br label %if.end122
 
 if.end122:                                        ; preds = %if.end112, %for.end

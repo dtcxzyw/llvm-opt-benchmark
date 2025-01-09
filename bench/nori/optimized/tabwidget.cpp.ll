@@ -967,10 +967,10 @@ define hidden i64 @_ZNK7nanogui13TabWidgetBase14preferred_sizeEP10NVGcontext(ptr
   %36 = load i32, ptr %35, align 4
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 300
   %38 = load i32, ptr %37, align 4
-  %reass.add = add i32 %38, %36
-  %reass.mul = shl i32 %reass.add, 1
-  %39 = add i32 %reass.mul, %32
-  %.sroa.2.0.insert.ext = zext i32 %39 to i64
+  %39 = add i32 %38, %36
+  %40 = shl i32 %39, 1
+  %41 = add i32 %40, %32
+  %.sroa.2.0.insert.ext = zext i32 %41 to i64
   %.sroa.2.0.insert.shift = shl nuw i64 %.sroa.2.0.insert.ext, 32
   %.sroa.014.0.insert.insert = or disjoint i64 %.sroa.2.0.insert.shift, %.0.lcssa
   ret i64 %.sroa.014.0.insert.insert

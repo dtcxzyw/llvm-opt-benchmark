@@ -1213,25 +1213,25 @@ define i32 @Wln_NtkMemUsage(ptr nocapture noundef readonly %0) local_unnamed_add
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %39 = load ptr, ptr %38, align 8
   %40 = tail call i32 @Abc_NamMemUsed(ptr noundef %39) #17
-  %reass.add = add i32 %5, %3
-  %reass.add34 = add i32 %reass.add, %7
-  %reass.add35 = add i32 %reass.add34, %11
-  %reass.add36 = add i32 %reass.add35, %13
-  %reass.add37 = add i32 %reass.add36, %15
-  %reass.add38 = add i32 %reass.add37, %17
-  %reass.add39 = add i32 %reass.add38, %19
-  %reass.add40 = add i32 %reass.add39, %21
-  %reass.add41 = add i32 %reass.add40, %23
-  %reass.add42 = add i32 %reass.add41, %25
-  %41 = add i32 %reass.add42, %27
-  %42 = add i32 %41, %29
-  %reass.add43 = add i32 %42, %31
-  %reass.mul = shl i32 %reass.add43, 2
-  %43 = add i32 %9, 1092
-  %44 = add i32 %43, %37
-  %45 = add i32 %44, %40
-  %46 = add i32 %45, %reass.mul
-  ret i32 %46
+  %41 = add i32 %5, %3
+  %42 = add i32 %41, %7
+  %43 = add i32 %42, %11
+  %44 = add i32 %43, %13
+  %45 = add i32 %44, %15
+  %46 = add i32 %45, %17
+  %47 = add i32 %46, %19
+  %48 = add i32 %47, %21
+  %49 = add i32 %48, %23
+  %50 = add i32 %49, %25
+  %51 = add i32 %50, %27
+  %52 = add i32 %51, %29
+  %reass.add = add i32 %52, %31
+  %reass.mul = shl i32 %reass.add, 2
+  %53 = add i32 %9, 1092
+  %54 = add i32 %53, %reass.mul
+  %55 = add i32 %54, %37
+  %56 = add i32 %55, %40
+  ret i32 %56
 }
 
 declare i32 @Abc_NamMemUsed(ptr noundef) local_unnamed_addr #2
