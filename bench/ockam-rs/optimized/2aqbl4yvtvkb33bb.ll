@@ -1861,7 +1861,7 @@ define hidden { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$6shrink17h915
 
 11:                                               ; preds = %2
   %12 = icmp eq i64 %5, 0
-  br i1 %12, label %21, label %13
+  br i1 %12, label %20, label %13
 
 13:                                               ; preds = %11
   %14 = shl nuw i64 %5, 3
@@ -1875,27 +1875,25 @@ define hidden { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$6shrink17h915
 
 "_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$6shrink17he786ab5534c190c8E.exit": ; preds = %13
   %17 = shl nuw i64 %1, 3
-  %18 = icmp ule i64 %17, %14
-  tail call void @llvm.assume(i1 %18)
-  %19 = tail call noundef align 8 ptr @__rust_realloc(ptr noundef nonnull %15, i64 noundef %14, i64 noundef range(i64 1, -9223372036854775807) 8, i64 noundef %17) #19
-  %.not28 = icmp eq ptr %19, null
-  %.sink1.i = select i1 %.not28, ptr inttoptr (i64 8 to ptr), ptr %19
-  %20 = ptrtoint ptr %.sink1.i to i64
-  br i1 %.not28, label %21, label %.sink.split
+  %18 = tail call noundef align 8 ptr @__rust_realloc(ptr noundef nonnull %15, i64 noundef %14, i64 noundef range(i64 1, -9223372036854775807) 8, i64 noundef %17) #19
+  %.not28 = icmp eq ptr %18, null
+  %.sink1.i = select i1 %.not28, ptr inttoptr (i64 8 to ptr), ptr %18
+  %19 = ptrtoint ptr %.sink1.i to i64
+  br i1 %.not28, label %20, label %.sink.split
 
 .sink.split:                                      ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$6shrink17he786ab5534c190c8E.exit", %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h6940b36ff7ab085dE.exit"
-  %.sink29 = phi ptr [ inttoptr (i64 8 to ptr), %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h6940b36ff7ab085dE.exit" ], [ %19, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$6shrink17he786ab5534c190c8E.exit" ]
+  %.sink29 = phi ptr [ inttoptr (i64 8 to ptr), %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h6940b36ff7ab085dE.exit" ], [ %18, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$6shrink17he786ab5534c190c8E.exit" ]
   %.sink = phi i64 [ 0, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h6940b36ff7ab085dE.exit" ], [ %1, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$6shrink17he786ab5534c190c8E.exit" ]
   store ptr %.sink29, ptr %0, align 8
   store i64 %.sink, ptr %4, align 8
-  br label %21
+  br label %20
 
-21:                                               ; preds = %.sink.split, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$6shrink17he786ab5534c190c8E.exit", %11
+20:                                               ; preds = %.sink.split, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$6shrink17he786ab5534c190c8E.exit", %11
   %.sroa.4.0 = phi i64 [ undef, %11 ], [ %17, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$6shrink17he786ab5534c190c8E.exit" ], [ undef, %.sink.split ]
-  %.sroa.0.0 = phi i64 [ -9223372036854775807, %11 ], [ %20, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$6shrink17he786ab5534c190c8E.exit" ], [ -9223372036854775807, %.sink.split ]
-  %22 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
-  %23 = insertvalue { i64, i64 } %22, i64 %.sroa.4.0, 1
-  ret { i64, i64 } %23
+  %.sroa.0.0 = phi i64 [ -9223372036854775807, %11 ], [ %19, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$6shrink17he786ab5534c190c8E.exit" ], [ -9223372036854775807, %.sink.split ]
+  %21 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
+  %22 = insertvalue { i64, i64 } %21, i64 %.sroa.4.0, 1
+  ret { i64, i64 } %22
 }
 
 ; Function Attrs: nonlazybind uwtable

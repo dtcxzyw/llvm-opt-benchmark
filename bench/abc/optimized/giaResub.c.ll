@@ -10246,12 +10246,12 @@ define range(i32 1, 0) i32 @Gia_ManResubPerformMux_rec(ptr noundef %0, i32 nound
   %4 = icmp eq i32 %2, 0
   %5 = icmp slt i32 %1, 3
   %or.cond = or i1 %5, %4
-  br i1 %or.cond, label %149, label %6
+  br i1 %or.cond, label %150, label %6
 
 6:                                                ; preds = %3
   %7 = tail call i32 @Gia_ManResubFindBestBinate(ptr noundef %0)
   %8 = icmp eq i32 %7, -1
-  br i1 %8, label %149, label %9
+  br i1 %8, label %150, label %9
 
 9:                                                ; preds = %6
   %10 = load i32, ptr %0, align 8
@@ -10404,11 +10404,11 @@ Abc_TtAndSharp.exit107:                           ; preds = %.lr.ph22.i103, %.lr
 
 70:                                               ; preds = %68, %69
   %.not82 = icmp eq ptr %13, null
-  br i1 %.not82, label %149, label %71
+  br i1 %.not82, label %150, label %71
 
 71:                                               ; preds = %70
   tail call void @free(ptr noundef nonnull %13) #30
-  br label %149
+  br label %150
 
 .thread:                                          ; preds = %Abc_TtAndSharp.exit107, %64
   %.068146 = phi i32 [ %66, %64 ], [ %62, %Abc_TtAndSharp.exit107 ]
@@ -10529,7 +10529,7 @@ Abc_TtAndSharp.exit139.thread:                    ; preds = %.preheader.i132, %.
   %.neg80 = add i32 %.neg.neg, %1
   %109 = add i32 %.neg80, %.neg79
   %110 = icmp slt i32 %109, 3
-  br i1 %110, label %149, label %111
+  br i1 %110, label %150, label %111
 
 111:                                              ; preds = %106
   %112 = tail call i32 @Gia_ManResubPerform_rec(ptr noundef nonnull %0, i32 noundef %1, i32 noundef 0)
@@ -10540,7 +10540,7 @@ Abc_TtAndSharp.exit139.thread:                    ; preds = %.preheader.i132, %.
   %115 = add nsw i32 %2, -1
   %116 = tail call i32 @Gia_ManResubPerformMux_rec(ptr noundef nonnull %0, i32 noundef %1, i32 noundef %115)
   %117 = icmp eq i32 %116, -1
-  br i1 %117, label %149, label %.thread149
+  br i1 %117, label %150, label %.thread149
 
 .thread149:                                       ; preds = %111, %114
   %.069151 = phi i32 [ %116, %114 ], [ %112, %111 ]
@@ -10577,17 +10577,18 @@ Abc_TtAndSharp.exit139.thread:                    ; preds = %.preheader.i132, %.
   %.val.i143 = load i32, ptr %140, align 4
   %141 = sdiv i32 %.val.i143, 2
   %142 = add nsw i32 %141, %.val18.i142
-  %143 = tail call i32 @llvm.smin.i32(i32 %127, i32 %136)
-  %144 = tail call i32 @llvm.smax.i32(i32 %127, i32 %136)
-  %145 = or disjoint i32 %143, 1
+  %143 = icmp sgt i32 %124, %133
+  %144 = select i1 %143, i32 %136, i32 %127
+  %145 = select i1 %143, i32 %127, i32 %136
   %146 = or disjoint i32 %144, 1
-  tail call fastcc void @Vec_IntPushTwo(ptr noundef %139, i32 noundef %145, i32 noundef %146)
-  %147 = shl nsw i32 %142, 1
-  %148 = or disjoint i32 %147, 1
-  br label %149
+  %147 = or disjoint i32 %145, 1
+  tail call fastcc void @Vec_IntPushTwo(ptr noundef %139, i32 noundef %146, i32 noundef %147)
+  %148 = shl nsw i32 %142, 1
+  %149 = or disjoint i32 %148, 1
+  br label %150
 
-149:                                              ; preds = %114, %106, %71, %70, %6, %3, %.thread149
-  %.0 = phi i32 [ %148, %.thread149 ], [ -1, %3 ], [ -1, %6 ], [ -1, %70 ], [ -1, %71 ], [ -1, %106 ], [ -1, %114 ]
+150:                                              ; preds = %114, %106, %71, %70, %6, %3, %.thread149
+  %.0 = phi i32 [ %149, %.thread149 ], [ -1, %3 ], [ -1, %6 ], [ -1, %70 ], [ -1, %71 ], [ -1, %106 ], [ -1, %114 ]
   ret i32 %.0
 }
 

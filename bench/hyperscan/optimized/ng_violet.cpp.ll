@@ -18996,7 +18996,7 @@ if.then13:                                        ; preds = %if.then
   %sub.ptr.rhs.cast.i = ptrtoint ptr %__position.coerce to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.rhs.cast, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 5
-  %cmp19 = icmp ugt i64 %sub.ptr.div.i, %sub.ptr.div.i.i.i.i
+  %cmp19 = icmp ugt i64 %sub.ptr.sub.i, %sub.ptr.sub.i.i.i.i
   br i1 %cmp19, label %for.body.i.i.i.i.i.preheader, label %_ZSt7advanceISt13move_iteratorIN9__gnu_cxx17__normal_iteratorIPN3ue29CharReachESt6vectorIS4_SaIS4_EEEEEmEvRT_T0_.exit
 
 for.body.i.i.i.i.i.preheader:                     ; preds = %if.then13
@@ -29644,7 +29644,7 @@ if.then13:                                        ; preds = %if.then
   %sub.ptr.rhs.cast.i = ptrtoint ptr %__position.coerce to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.rhs.cast, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 4
-  %cmp19 = icmp ugt i64 %sub.ptr.div.i, %sub.ptr.div.i.i.i.i
+  %cmp19 = icmp ugt i64 %sub.ptr.sub.i, %sub.ptr.sub.i.i.i.i
   br i1 %cmp19, label %for.body.i.i.i.i.i.preheader, label %_ZSt7advanceISt13move_iteratorIN9__gnu_cxx17__normal_iteratorIPN3ue212graph_detail17vertex_descriptorINS3_9ue2_graphINS3_8NGHolderENS3_19NFAGraphVertexPropsENS3_17NFAGraphEdgePropsEEEEESt6vectorISB_SaISB_EEEEEmEvRT_T0_.exit
 
 for.body.i.i.i.i.i.preheader:                     ; preds = %if.then13
@@ -45588,12 +45588,10 @@ if.else12:                                        ; preds = %entry
   %sub.ptr.lhs.cast.i.i.i.i.i.i.i.i93 = ptrtoint ptr %12 to i64
   %sub.ptr.rhs.cast.i.i.i.i.i.i.i.i94 = ptrtoint ptr %11 to i64
   %sub.ptr.sub.i.i.i.i.i.i.i.i95 = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i.i.i93, %sub.ptr.rhs.cast.i.i.i.i.i.i.i.i94
-  %sub.ptr.div.i.i.i.i.i.i.i.i96 = ashr exact i64 %sub.ptr.sub.i.i.i.i.i.i.i.i95, 4
   %sub.ptr.lhs.cast1.i.i.i.i.i.i.i.i97 = ptrtoint ptr %14 to i64
   %sub.ptr.rhs.cast2.i.i.i.i.i.i.i.i98 = ptrtoint ptr %13 to i64
   %sub.ptr.sub3.i.i.i.i.i.i.i.i99 = sub i64 %sub.ptr.lhs.cast1.i.i.i.i.i.i.i.i97, %sub.ptr.rhs.cast2.i.i.i.i.i.i.i.i98
-  %sub.ptr.div4.i.i.i.i.i.i.i.i100 = ashr exact i64 %sub.ptr.sub3.i.i.i.i.i.i.i.i99, 4
-  %cmp.i.i.i.i.i.i.i.i101 = icmp slt i64 %sub.ptr.div4.i.i.i.i.i.i.i.i100, %sub.ptr.div.i.i.i.i.i.i.i.i96
+  %cmp.i.i.i.i.i.i.i.i101 = icmp slt i64 %sub.ptr.sub3.i.i.i.i.i.i.i.i99, %sub.ptr.sub.i.i.i.i.i.i.i.i95
   %add.ptr.i.i.i.i.i.i.i.i102 = getelementptr inbounds i8, ptr %11, i64 %sub.ptr.sub3.i.i.i.i.i.i.i.i99
   %cond.i.i.i.i.i.i.i.i103 = select i1 %cmp.i.i.i.i.i.i.i.i101, ptr %add.ptr.i.i.i.i.i.i.i.i102, ptr %12
   %cmp.not39.i.i.i.i.i.i.i104 = icmp eq ptr %cond.i.i.i.i.i.i.i.i103, %11
@@ -45733,7 +45731,7 @@ if.else42:                                        ; preds = %_ZNK9__gnu_cxx5__op
   br label %cleanup80
 
 if.else44:                                        ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPKN3ue212graph_detail17vertex_descriptorINS3_9ue2_graphINS3_11RoseInGraphENS3_17RoseInVertexPropsENS3_15RoseInEdgePropsEEEEESD_EEbT_T0_.exit37.i.i.i.i.i.i.i116, %if.then.i.i32.i.i.i.i.i.i.i126, %_ZNKSt4lessISt6vectorIN3ue212graph_detail17vertex_descriptorINS1_9ue2_graphINS1_11RoseInGraphENS1_17RoseInVertexPropsENS1_15RoseInEdgePropsEEEEESaIS9_EEEclERKSB_SE_.exit136
-  %cmp.i.i.i.i.i.i.i.i201 = icmp slt i64 %sub.ptr.div.i.i.i.i.i.i.i.i96, %sub.ptr.div4.i.i.i.i.i.i.i.i100
+  %cmp.i.i.i.i.i.i.i.i201 = icmp slt i64 %sub.ptr.sub.i.i.i.i.i.i.i.i95, %sub.ptr.sub3.i.i.i.i.i.i.i.i99
   %add.ptr.i.i.i.i.i.i.i.i202 = getelementptr inbounds i8, ptr %13, i64 %sub.ptr.sub.i.i.i.i.i.i.i.i95
   %cond.i.i.i.i.i.i.i.i203 = select i1 %cmp.i.i.i.i.i.i.i.i201, ptr %add.ptr.i.i.i.i.i.i.i.i202, ptr %14
   %cmp.not39.i.i.i.i.i.i.i204 = icmp eq ptr %cond.i.i.i.i.i.i.i.i203, %13
@@ -50867,12 +50865,10 @@ if.else12:                                        ; preds = %entry
   %sub.ptr.lhs.cast.i.i.i.i.i.i.i.i93 = ptrtoint ptr %12 to i64
   %sub.ptr.rhs.cast.i.i.i.i.i.i.i.i94 = ptrtoint ptr %11 to i64
   %sub.ptr.sub.i.i.i.i.i.i.i.i95 = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i.i.i93, %sub.ptr.rhs.cast.i.i.i.i.i.i.i.i94
-  %sub.ptr.div.i.i.i.i.i.i.i.i96 = ashr exact i64 %sub.ptr.sub.i.i.i.i.i.i.i.i95, 4
   %sub.ptr.lhs.cast1.i.i.i.i.i.i.i.i97 = ptrtoint ptr %14 to i64
   %sub.ptr.rhs.cast2.i.i.i.i.i.i.i.i98 = ptrtoint ptr %13 to i64
   %sub.ptr.sub3.i.i.i.i.i.i.i.i99 = sub i64 %sub.ptr.lhs.cast1.i.i.i.i.i.i.i.i97, %sub.ptr.rhs.cast2.i.i.i.i.i.i.i.i98
-  %sub.ptr.div4.i.i.i.i.i.i.i.i100 = ashr exact i64 %sub.ptr.sub3.i.i.i.i.i.i.i.i99, 4
-  %cmp.i.i.i.i.i.i.i.i101 = icmp slt i64 %sub.ptr.div4.i.i.i.i.i.i.i.i100, %sub.ptr.div.i.i.i.i.i.i.i.i96
+  %cmp.i.i.i.i.i.i.i.i101 = icmp slt i64 %sub.ptr.sub3.i.i.i.i.i.i.i.i99, %sub.ptr.sub.i.i.i.i.i.i.i.i95
   %add.ptr.i.i.i.i.i.i.i.i102 = getelementptr inbounds i8, ptr %11, i64 %sub.ptr.sub3.i.i.i.i.i.i.i.i99
   %cond.i.i.i.i.i.i.i.i103 = select i1 %cmp.i.i.i.i.i.i.i.i101, ptr %add.ptr.i.i.i.i.i.i.i.i102, ptr %12
   %cmp.not39.i.i.i.i.i.i.i104 = icmp eq ptr %cond.i.i.i.i.i.i.i.i103, %11
@@ -51012,7 +51008,7 @@ if.else42:                                        ; preds = %_ZNK9__gnu_cxx5__op
   br label %cleanup80
 
 if.else44:                                        ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPKN3ue212graph_detail17vertex_descriptorINS3_9ue2_graphINS3_8NGHolderENS3_19NFAGraphVertexPropsENS3_17NFAGraphEdgePropsEEEEESD_EEbT_T0_.exit37.i.i.i.i.i.i.i116, %if.then.i.i32.i.i.i.i.i.i.i126, %_ZNKSt4lessISt6vectorIN3ue212graph_detail17vertex_descriptorINS1_9ue2_graphINS1_8NGHolderENS1_19NFAGraphVertexPropsENS1_17NFAGraphEdgePropsEEEEESaIS9_EEEclERKSB_SE_.exit136
-  %cmp.i.i.i.i.i.i.i.i201 = icmp slt i64 %sub.ptr.div.i.i.i.i.i.i.i.i96, %sub.ptr.div4.i.i.i.i.i.i.i.i100
+  %cmp.i.i.i.i.i.i.i.i201 = icmp slt i64 %sub.ptr.sub.i.i.i.i.i.i.i.i95, %sub.ptr.sub3.i.i.i.i.i.i.i.i99
   %add.ptr.i.i.i.i.i.i.i.i202 = getelementptr inbounds i8, ptr %13, i64 %sub.ptr.sub.i.i.i.i.i.i.i.i95
   %cond.i.i.i.i.i.i.i.i203 = select i1 %cmp.i.i.i.i.i.i.i.i201, ptr %add.ptr.i.i.i.i.i.i.i.i202, ptr %14
   %cmp.not39.i.i.i.i.i.i.i204 = icmp eq ptr %cond.i.i.i.i.i.i.i.i203, %13

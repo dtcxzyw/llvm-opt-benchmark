@@ -16634,8 +16634,8 @@ if.then:                                          ; preds = %entry
 if.then4:                                         ; preds = %if.then
   %sub.ptr.rhs.cast7 = ptrtoint ptr %position to i64
   %sub.ptr.sub8 = sub i64 %sub.ptr.rhs.cast, %sub.ptr.rhs.cast7
-  %sub.ptr.div9 = sdiv exact i64 %sub.ptr.sub8, 24
-  %cmp10 = icmp ult i64 %sub.ptr.div.i.i, %sub.ptr.div9
+  %sub.ptr.div9.neg = sdiv exact i64 %sub.ptr.sub8, -24
+  %cmp10 = icmp ult i64 %sub.ptr.sub.i.i, %sub.ptr.sub8
   br i1 %cmp10, label %for.body.i.i.preheader, label %if.else
 
 for.body.i.i.preheader:                           ; preds = %if.then4
@@ -16815,8 +16815,7 @@ _ZN5eastl22uninitialized_copy_ptrIP10TestObjectS2_S2_EET1_T_T0_S3_.exit: ; preds
 
 for.body.i.i53.preheader:                         ; preds = %_ZN5eastl22uninitialized_copy_ptrIP10TestObjectS2_S2_EET1_T_T0_S3_.exit
   %add.ptr26 = getelementptr inbounds i8, ptr %27, i64 %sub.ptr.sub.i.i
-  %idx.neg27 = sub nsw i64 0, %sub.ptr.div9
-  %add.ptr28 = getelementptr inbounds %struct.TestObject, ptr %add.ptr26, i64 %idx.neg27
+  %add.ptr28 = getelementptr inbounds %struct.TestObject, ptr %add.ptr26, i64 %sub.ptr.div9.neg
   br label %for.body.i.i53
 
 for.body.i.i53:                                   ; preds = %for.body.i.i53.preheader, %for.body.i.i53
@@ -17930,7 +17929,7 @@ if.then4:                                         ; preds = %if.then
   %sub.ptr.rhs.cast7 = ptrtoint ptr %position to i64
   %sub.ptr.sub8 = sub i64 %sub.ptr.rhs.cast, %sub.ptr.rhs.cast7
   %sub.ptr.div9 = ashr exact i64 %sub.ptr.sub8, 2
-  %cmp10 = icmp ult i64 %sub.ptr.div.i.i, %sub.ptr.div9
+  %cmp10 = icmp ult i64 %sub.ptr.sub.i.i, %sub.ptr.sub8
   br i1 %cmp10, label %_ZN5eastl22uninitialized_move_ptrIPiS1_S1_EET1_T_T0_S2_.exit, label %if.else
 
 _ZN5eastl22uninitialized_move_ptrIPiS1_S1_EET1_T_T0_S2_.exit: ; preds = %if.then4
@@ -19905,8 +19904,8 @@ if.then:                                          ; preds = %entry
 if.then4:                                         ; preds = %if.then
   %sub.ptr.rhs.cast7 = ptrtoint ptr %position to i64
   %sub.ptr.sub8 = sub i64 %sub.ptr.rhs.cast, %sub.ptr.rhs.cast7
-  %sub.ptr.div9 = sdiv exact i64 %sub.ptr.sub8, 24
-  %cmp10 = icmp ult i64 %sub.ptr.div.i.i, %sub.ptr.div9
+  %sub.ptr.div9.neg = sdiv exact i64 %sub.ptr.sub8, -24
+  %cmp10 = icmp ult i64 %sub.ptr.sub.i.i, %sub.ptr.sub8
   br i1 %cmp10, label %for.body.i.i.preheader, label %if.else
 
 for.body.i.i.preheader:                           ; preds = %if.then4
@@ -20086,8 +20085,7 @@ _ZN5eastl22uninitialized_copy_ptrIPK10TestObjectS3_PS1_EET1_T_T0_S5_.exit: ; pre
 
 for.body.i.i53.preheader:                         ; preds = %_ZN5eastl22uninitialized_copy_ptrIPK10TestObjectS3_PS1_EET1_T_T0_S5_.exit
   %add.ptr26 = getelementptr inbounds i8, ptr %27, i64 %sub.ptr.sub.i.i
-  %idx.neg27 = sub nsw i64 0, %sub.ptr.div9
-  %add.ptr28 = getelementptr inbounds %struct.TestObject, ptr %add.ptr26, i64 %idx.neg27
+  %add.ptr28 = getelementptr inbounds %struct.TestObject, ptr %add.ptr26, i64 %sub.ptr.div9.neg
   br label %for.body.i.i53
 
 for.body.i.i53:                                   ; preds = %for.body.i.i53.preheader, %for.body.i.i53
@@ -20684,7 +20682,7 @@ if.then4:                                         ; preds = %if.then
   %sub.ptr.rhs.cast7 = ptrtoint ptr %position to i64
   %sub.ptr.sub8 = sub i64 %sub.ptr.rhs.cast, %sub.ptr.rhs.cast7
   %sub.ptr.div9 = ashr exact i64 %sub.ptr.sub8, 2
-  %cmp10 = icmp ult i64 %sub.ptr.div.i.i, %sub.ptr.div9
+  %cmp10 = icmp ult i64 %sub.ptr.sub.i.i, %sub.ptr.sub8
   br i1 %cmp10, label %_ZN5eastl22uninitialized_move_ptrIPfS1_S1_EET1_T_T0_S2_.exit, label %if.else
 
 _ZN5eastl22uninitialized_move_ptrIPfS1_S1_EET1_T_T0_S2_.exit: ; preds = %if.then4

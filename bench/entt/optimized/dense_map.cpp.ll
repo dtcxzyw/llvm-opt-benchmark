@@ -72497,33 +72497,29 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 cleanup.cont367:                                  ; preds = %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i2818, %cleanup.cont367.critedge
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %gtest_ar333) #25
   %228 = load ptr, ptr %_M_finish.i.i2399, align 8, !tbaa !40
-  %229 = ptrtoint ptr %228 to i64
   %add.ptr.i.i.i.i2824 = getelementptr inbounds i8, ptr %228, i64 -72
-  %230 = load ptr, ptr %packed.i, align 8, !tbaa !40
+  %229 = load ptr, ptr %packed.i, align 8, !tbaa !40
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %add.ptr.i.i.i.i2824 to i64
-  %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %230 to i64
+  %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %229 to i64
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
   %sub.ptr.div.i.i.i = sdiv exact i64 %sub.ptr.sub.i.i.i, 24
-  %sub.ptr.sub.i.i32.i = sub i64 %229, %sub.ptr.rhs.cast.i.i.i
-  %sub.ptr.div.i.i33.i = sdiv exact i64 %sub.ptr.sub.i.i32.i, 24
-  %cmp.not40.i = icmp eq i64 %sub.ptr.div.i.i33.i, %sub.ptr.div.i.i.i
   %.pre = load ptr, ptr %_M_finish.i.i, align 8, !tbaa !55
   %.pre4615 = load ptr, ptr %map, align 8, !tbaa !33
   %.pre4616 = ptrtoint ptr %.pre to i64
   %.pre4617 = ptrtoint ptr %.pre4615 to i64
   %.pre4618 = sub i64 %.pre4616, %.pre4617
   %.pre4619 = ashr exact i64 %.pre4618, 3
-  br i1 %cmp.not40.i, label %invoke.cont386, label %for.body.lr.ph.i
-
-for.body.lr.ph.i:                                 ; preds = %cleanup.cont367
+  %230 = ptrtoint ptr %228 to i64
+  %sub.ptr.sub.i.i32.i = sub i64 %230, %sub.ptr.rhs.cast.i.i.i
+  %sub.ptr.div.i.i33.i = sdiv exact i64 %sub.ptr.sub.i.i32.i, 24
   %sub.i.i.i.i = add nsw i64 %.pre4619, -1
   br label %for.body.i
 
-for.body.i:                                       ; preds = %_ZN4entt9dense_mapImmNS_8identityESt8equal_toImESaISt4pairIKmmEEE5eraseERS5_.exit.i, %for.body.lr.ph.i
-  %incdec.ptr.i.i.i43.i = phi ptr [ %228, %for.body.lr.ph.i ], [ %incdec.ptr.i.i.i42.i, %_ZN4entt9dense_mapImmNS_8identityESt8equal_toImESaISt4pairIKmmEEE5eraseERS5_.exit.i ]
-  %from.041.i = phi i64 [ %sub.ptr.div.i.i33.i, %for.body.lr.ph.i ], [ %sub.i, %_ZN4entt9dense_mapImmNS_8identityESt8equal_toImESaISt4pairIKmmEEE5eraseERS5_.exit.i ]
+for.body.i:                                       ; preds = %_ZN4entt9dense_mapImmNS_8identityESt8equal_toImESaISt4pairIKmmEEE5eraseERS5_.exit.i, %cleanup.cont367
+  %incdec.ptr.i.i.i43.i = phi ptr [ %228, %cleanup.cont367 ], [ %incdec.ptr.i.i.i42.i, %_ZN4entt9dense_mapImmNS_8identityESt8equal_toImESaISt4pairIKmmEEE5eraseERS5_.exit.i ]
+  %from.041.i = phi i64 [ %sub.ptr.div.i.i33.i, %cleanup.cont367 ], [ %sub.i, %_ZN4entt9dense_mapImmNS_8identityESt8equal_toImESaISt4pairIKmmEEE5eraseERS5_.exit.i ]
   %sub.i = add nsw i64 %from.041.i, -1
-  %element.i = getelementptr inbounds %"struct.entt::internal::dense_map_node", ptr %230, i64 %sub.i, i32 1
+  %element.i = getelementptr inbounds %"struct.entt::internal::dense_map_node", ptr %229, i64 %sub.i, i32 1
   %231 = load i64, ptr %element.i, align 8, !tbaa !57
   %and.i.i.i.i = and i64 %231, %sub.i.i.i.i
   %add.ptr.i35.i = getelementptr inbounds i64, ptr %.pre4615, i64 %and.i.i.i.i
@@ -72595,7 +72591,7 @@ _ZN4entt9dense_mapImmNS_8identityESt8equal_toImESaISt4pairIKmmEEE5eraseERS5_.exi
   %cmp.not.i = icmp eq i64 %sub.i, %sub.ptr.div.i.i.i
   br i1 %cmp.not.i, label %invoke.cont386, label %for.body.i, !llvm.loop !477
 
-invoke.cont386:                                   ; preds = %_ZN4entt9dense_mapImmNS_8identityESt8equal_toImESaISt4pairIKmmEEE5eraseERS5_.exit.i, %cleanup.cont367
+invoke.cont386:                                   ; preds = %_ZN4entt9dense_mapImmNS_8identityESt8equal_toImESaISt4pairIKmmEEE5eraseERS5_.exit.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %gtest_ar393) #25
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp394) #25
   store i64 %.pre4619, ptr %ref.tmp394, align 8, !tbaa !57

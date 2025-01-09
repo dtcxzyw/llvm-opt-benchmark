@@ -72620,15 +72620,15 @@ invoke.cont9.i:                                   ; preds = %while.end.i.i.i.i, 
   %sub.ptr.lhs.cast.i15.i = ptrtoint ptr %64 to i64
   %sub.ptr.rhs.cast.i16.i = ptrtoint ptr %65 to i64
   %sub.ptr.sub.i17.i = sub i64 %sub.ptr.lhs.cast.i15.i, %sub.ptr.rhs.cast.i16.i
-  %sub.ptr.div.i18.i = ashr exact i64 %sub.ptr.sub.i17.i, 3
   %sub.ptr.lhs.cast.i20.i = ptrtoint ptr %probe_histogram.i.sroa.13.4 to i64
   %sub.ptr.rhs.cast.i21.i = ptrtoint ptr %probe_histogram.i.sroa.0.4 to i64
   %sub.ptr.sub.i22.i = sub i64 %sub.ptr.lhs.cast.i20.i, %sub.ptr.rhs.cast.i21.i
-  %sub.ptr.div.i23.i = ashr exact i64 %sub.ptr.sub.i22.i, 3
-  %cmp.i24.i = icmp ult i64 %sub.ptr.div.i18.i, %sub.ptr.div.i23.i
+  %cmp.i24.i = icmp ult i64 %sub.ptr.sub.i17.i, %sub.ptr.sub.i22.i
   br i1 %cmp.i24.i, label %if.then.i27.i, label %invoke.cont17.i
 
 if.then.i27.i:                                    ; preds = %invoke.cont9.i
+  %sub.ptr.div.i23.i = ashr exact i64 %sub.ptr.sub.i22.i, 3
+  %sub.ptr.div.i18.i = ashr exact i64 %sub.ptr.sub.i17.i, 3
   %sub.i.i = sub nuw nsw i64 %sub.ptr.div.i23.i, %sub.ptr.div.i18.i
   %66 = load ptr, ptr %_M_end_of_storage.i, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %66 to i64
@@ -72734,7 +72734,8 @@ for.body.i.i:                                     ; preds = %invoke.cont17.i, %f
   br i1 %cmp.i.not.i.i, label %for.body41.preheader.i, label %for.body.i.i, !llvm.loop !3062
 
 for.body41.preheader.i:                           ; preds = %for.body.i.i
-  %umax.i = call i64 @llvm.umax.i64(i64 %sub.ptr.div.i23.i, i64 1)
+  %sub.ptr.div.i35.i = ashr exact i64 %sub.ptr.sub.i22.i, 3
+  %umax.i = call i64 @llvm.umax.i64(i64 %sub.ptr.div.i35.i, i64 1)
   br label %for.body41.i
 
 for.body41.i:                                     ; preds = %for.body41.i, %for.body41.preheader.i
@@ -74876,7 +74877,7 @@ if.then9:                                         ; preds = %if.then
   %sub.ptr.rhs.cast.i = ptrtoint ptr %__position.coerce to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.rhs.cast, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 3
-  %cmp15 = icmp ugt i64 %sub.ptr.div.i, %sub.ptr.div.i.i.i
+  %cmp15 = icmp ugt i64 %sub.ptr.sub.i, %sub.ptr.sub.i.i.i
   br i1 %cmp15, label %_ZSt22__uninitialized_move_aIPlS0_SaIlEET0_T_S3_S2_RT1_.exit, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEmEvRT_T0_.exit
 
 _ZSt22__uninitialized_move_aIPlS0_SaIlEET0_T_S3_S2_RT1_.exit: ; preds = %if.then9
@@ -77761,15 +77762,15 @@ invoke.cont21.i:                                  ; preds = %while.end.i.i.i.i.i
   %sub.ptr.lhs.cast.i34.i = ptrtoint ptr %68 to i64
   %sub.ptr.rhs.cast.i35.i = ptrtoint ptr %69 to i64
   %sub.ptr.sub.i36.i = sub i64 %sub.ptr.lhs.cast.i34.i, %sub.ptr.rhs.cast.i35.i
-  %sub.ptr.div.i37.i = ashr exact i64 %sub.ptr.sub.i36.i, 3
   %sub.ptr.lhs.cast.i39.i = ptrtoint ptr %probe_histogram.sroa.12.3.i to i64
   %sub.ptr.rhs.cast.i40.i = ptrtoint ptr %probe_histogram.sroa.0.3.i to i64
   %sub.ptr.sub.i41.i = sub i64 %sub.ptr.lhs.cast.i39.i, %sub.ptr.rhs.cast.i40.i
   %sub.ptr.div.i42.i = ashr exact i64 %sub.ptr.sub.i41.i, 3
-  %cmp.i.i = icmp ult i64 %sub.ptr.div.i37.i, %sub.ptr.div.i42.i
+  %cmp.i.i = icmp ult i64 %sub.ptr.sub.i36.i, %sub.ptr.sub.i41.i
   br i1 %cmp.i.i, label %if.then.i.i, label %invoke.cont29.i
 
 if.then.i.i:                                      ; preds = %invoke.cont21.i
+  %sub.ptr.div.i37.i = ashr exact i64 %sub.ptr.sub.i36.i, 3
   %sub.i.i = sub nuw nsw i64 %sub.ptr.div.i42.i, %sub.ptr.div.i37.i
   %70 = load ptr, ptr %_M_end_of_storage.i, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %70 to i64

@@ -368,86 +368,78 @@ _ZL20pr_listoflists_titleP8_IO_FILEiPKcPKN3gmx11ListOfListsIiEE.exit: ; preds = 
   br label %35
 
 35:                                               ; preds = %.lr.ph51, %._crit_edge
-  %.050 = phi i64 [ 0, %.lr.ph51 ], [ %69, %._crit_edge ]
+  %.050 = phi i64 [ 0, %.lr.ph51 ], [ %66, %._crit_edge ]
   %36 = tail call noundef i32 @_Z9pr_indentP8_IO_FILEi(ptr noundef %0, i32 noundef %.0.i)
   %37 = load ptr, ptr %33, align 8
   %38 = load ptr, ptr %3, align 8
   %39 = getelementptr i32, ptr %38, i64 %.050
   %40 = load i32, ptr %39, align 4
-  %41 = sext i32 %40 to i64
-  %.idx45 = shl nsw i64 %41, 2
-  %42 = getelementptr inbounds i8, ptr %37, i64 %.idx45
-  %43 = getelementptr i8, ptr %39, i64 4
-  %44 = load i32, ptr %43, align 4
-  %45 = sext i32 %44 to i64
-  %.idx = shl nsw i64 %45, 2
-  %46 = getelementptr inbounds i8, ptr %37, i64 %.idx
-  %47 = icmp eq i32 %40, %44
-  %48 = trunc i64 %.050 to i32
-  br i1 %47, label %49, label %51
+  %41 = getelementptr i8, ptr %39, i64 4
+  %42 = load i32, ptr %41, align 4
+  %43 = sext i32 %42 to i64
+  %.idx = shl nsw i64 %43, 2
+  %44 = getelementptr inbounds i8, ptr %37, i64 %.idx
+  %45 = icmp eq i32 %40, %42
+  %46 = trunc i64 %.050 to i32
+  br i1 %45, label %.thread, label %.lr.ph.preheader
 
-49:                                               ; preds = %35
-  %50 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.8, ptr noundef %2, i32 noundef %48) #6
-  br label %55
+.thread:                                          ; preds = %35
+  %47 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.8, ptr noundef %2, i32 noundef %46) #6
+  br label %._crit_edge
 
-51:                                               ; preds = %35
-  %52 = select i1 %4, i32 %48, i32 -1
+.lr.ph.preheader:                                 ; preds = %35
+  %48 = sext i32 %40 to i64
+  %.idx45 = shl nsw i64 %48, 2
+  %49 = getelementptr inbounds i8, ptr %37, i64 %.idx45
+  %50 = select i1 %4, i32 %46, i32 -1
   %gepdiff = sub nsw i64 %.idx, %.idx45
-  %53 = ashr exact i64 %gepdiff, 2
-  %54 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.13, ptr noundef %2, i32 noundef %52, i64 noundef %53) #6
-  br label %55
-
-55:                                               ; preds = %51, %49
-  %.pn = phi i32 [ %50, %49 ], [ %54, %51 ]
-  %.not46 = icmp eq i64 %.idx45, %.idx
-  br i1 %.not46, label %._crit_edge, label %.lr.ph.preheader
-
-.lr.ph.preheader:                                 ; preds = %55
-  %.038 = add nsw i32 %.pn, %36
+  %51 = ashr exact i64 %gepdiff, 2
+  %52 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.13, ptr noundef %2, i32 noundef %50, i64 noundef %51) #6
+  %.038 = add nsw i32 %52, %36
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %64
-  %.149 = phi i32 [ %66, %64 ], [ %.038, %.lr.ph.preheader ]
-  %.03948 = phi i1 [ false, %64 ], [ true, %.lr.ph.preheader ]
-  %.sroa.0.047 = phi ptr [ %67, %64 ], [ %42, %.lr.ph.preheader ]
-  %56 = load i32, ptr %.sroa.0.047, align 4
-  br i1 %.03948, label %60, label %57
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %61
+  %.149 = phi i32 [ %63, %61 ], [ %.038, %.lr.ph.preheader ]
+  %.03948 = phi i1 [ false, %61 ], [ true, %.lr.ph.preheader ]
+  %.sroa.0.047 = phi ptr [ %64, %61 ], [ %49, %.lr.ph.preheader ]
+  %53 = load i32, ptr %.sroa.0.047, align 4
+  br i1 %.03948, label %57, label %54
 
-57:                                               ; preds = %.lr.ph
-  %58 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.9) #6
-  %59 = add nsw i32 %58, %.149
-  br label %60
+54:                                               ; preds = %.lr.ph
+  %55 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.9) #6
+  %56 = add nsw i32 %55, %.149
+  br label %57
 
-60:                                               ; preds = %57, %.lr.ph
-  %.2 = phi i32 [ %.149, %.lr.ph ], [ %59, %57 ]
-  %61 = icmp sgt i32 %.2, 70
-  br i1 %61, label %62, label %64
+57:                                               ; preds = %54, %.lr.ph
+  %.2 = phi i32 [ %.149, %.lr.ph ], [ %56, %54 ]
+  %58 = icmp sgt i32 %.2, 70
+  br i1 %58, label %59, label %61
 
-62:                                               ; preds = %60
+59:                                               ; preds = %57
   %fputc = tail call i32 @fputc(i32 10, ptr %0)
-  %63 = tail call noundef i32 @_Z9pr_indentP8_IO_FILEi(ptr noundef %0, i32 noundef %34)
-  br label %64
+  %60 = tail call noundef i32 @_Z9pr_indentP8_IO_FILEi(ptr noundef %0, i32 noundef %34)
+  br label %61
 
-64:                                               ; preds = %62, %60
-  %.3 = phi i32 [ %63, %62 ], [ %.2, %60 ]
-  %65 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.11, i32 noundef %56) #6
-  %66 = add nsw i32 %65, %.3
-  %67 = getelementptr inbounds nuw i8, ptr %.sroa.0.047, i64 4
-  %.not = icmp eq ptr %67, %46
+61:                                               ; preds = %59, %57
+  %.3 = phi i32 [ %60, %59 ], [ %.2, %57 ]
+  %62 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.11, i32 noundef %53) #6
+  %63 = add nsw i32 %62, %.3
+  %64 = getelementptr inbounds nuw i8, ptr %.sroa.0.047, i64 4
+  %.not = icmp eq ptr %64, %44
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
-._crit_edge:                                      ; preds = %64, %55
-  %68 = tail call i64 @fwrite(ptr nonnull @.str.12, i64 2, i64 1, ptr %0)
-  %69 = add nuw nsw i64 %.050, 1
-  %70 = load ptr, ptr %26, align 8
-  %71 = load ptr, ptr %3, align 8
-  %72 = ptrtoint ptr %70 to i64
-  %73 = ptrtoint ptr %71 to i64
-  %74 = sub i64 %72, %73
-  %75 = ashr exact i64 %74, 2
-  %76 = add nsw i64 %75, -1
-  %77 = icmp slt i64 %69, %76
-  br i1 %77, label %35, label %.loopexit, !llvm.loop !9
+._crit_edge:                                      ; preds = %61, %.thread
+  %65 = tail call i64 @fwrite(ptr nonnull @.str.12, i64 2, i64 1, ptr %0)
+  %66 = add nuw nsw i64 %.050, 1
+  %67 = load ptr, ptr %26, align 8
+  %68 = load ptr, ptr %3, align 8
+  %69 = ptrtoint ptr %67 to i64
+  %70 = ptrtoint ptr %68 to i64
+  %71 = sub i64 %69, %70
+  %72 = ashr exact i64 %71, 2
+  %73 = add nsw i64 %72, -1
+  %74 = icmp slt i64 %66, %73
+  br i1 %74, label %35, label %.loopexit, !llvm.loop !9
 
 .loopexit:                                        ; preds = %._crit_edge, %_ZL20pr_listoflists_titleP8_IO_FILEiPKcPKN3gmx11ListOfListsIiEE.exit, %5
   ret void

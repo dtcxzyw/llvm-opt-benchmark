@@ -487,24 +487,23 @@ _ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit.i.i: ; preds = %33, %30
 
 _ZSt7advanceIPimEvRT_T0_.exit.i.i:                ; preds = %35
   %.not.i.i.i.i.i17.i.i = icmp eq ptr %37, %25
-  br i1 %.not.i.i.i.i.i17.i.i, label %_ZSt4copyIPiS0_ET0_T_S2_S1_.exit18.i.thread.i, label %_ZSt4copyIPiS0_ET0_T_S2_S1_.exit18.i.i
+  br i1 %.not.i.i.i.i.i17.i.i, label %_ZSt22__uninitialized_copy_aIPiS0_iET0_T_S2_S1_RSaIT1_E.exit.i.i, label %43
 
-_ZSt4copyIPiS0_ET0_T_S2_S1_.exit18.i.i:           ; preds = %_ZSt7advanceIPimEvRT_T0_.exit.i.i
+43:                                               ; preds = %_ZSt7advanceIPimEvRT_T0_.exit.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %25, ptr noundef nonnull align 16 dereferenceable(1) @__const._ZN2cv11xfeatures2d28LATCHDescriptorExtractorImpl17setSamplingPointsEv.sampling_points_arr, i64 %39, i1 false)
   %.pre26.i.i = load ptr, ptr %36, align 8
-  %gepdiff.i = sub nsw i64 12288, %39
-  br label %_ZSt4copyIPiS0_ET0_T_S2_S1_.exit18.i.thread.i
+  br label %_ZSt22__uninitialized_copy_aIPiS0_iET0_T_S2_S1_RSaIT1_E.exit.i.i
 
-_ZSt4copyIPiS0_ET0_T_S2_S1_.exit18.i.thread.i:    ; preds = %_ZSt4copyIPiS0_ET0_T_S2_S1_.exit18.i.i, %_ZSt7advanceIPimEvRT_T0_.exit.i.i
-  %43 = phi i64 [ %gepdiff.i, %_ZSt4copyIPiS0_ET0_T_S2_S1_.exit18.i.i ], [ 12288, %_ZSt7advanceIPimEvRT_T0_.exit.i.i ]
-  %44 = phi ptr [ %.pre26.i.i, %_ZSt4copyIPiS0_ET0_T_S2_S1_.exit18.i.i ], [ %37, %_ZSt7advanceIPimEvRT_T0_.exit.i.i ]
+_ZSt22__uninitialized_copy_aIPiS0_iET0_T_S2_S1_RSaIT1_E.exit.i.i: ; preds = %43, %_ZSt7advanceIPimEvRT_T0_.exit.i.i
+  %44 = phi ptr [ %37, %_ZSt7advanceIPimEvRT_T0_.exit.i.i ], [ %.pre26.i.i, %43 ]
+  %gepdiff = sub nsw i64 12288, %39
   %.sink.i.i25.i.ptr.i = getelementptr inbounds nuw i8, ptr @__const._ZN2cv11xfeatures2d28LATCHDescriptorExtractorImpl17setSamplingPointsEv.sampling_points_arr, i64 %39
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %44, ptr nonnull align 4 %.sink.i.i25.i.ptr.i, i64 %43, i1 false)
-  %45 = getelementptr inbounds i8, ptr %44, i64 %43
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %44, ptr nonnull align 4 %.sink.i.i25.i.ptr.i, i64 %gepdiff, i1 false)
+  %45 = getelementptr inbounds i8, ptr %44, i64 %gepdiff
   store ptr %45, ptr %36, align 8
   br label %_ZN2cv11xfeatures2d28LATCHDescriptorExtractorImpl17setSamplingPointsEv.exit
 
-_ZN2cv11xfeatures2d28LATCHDescriptorExtractorImpl17setSamplingPointsEv.exit: ; preds = %_ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit.i.i, %40, %42, %_ZSt4copyIPiS0_ET0_T_S2_S1_.exit18.i.thread.i
+_ZN2cv11xfeatures2d28LATCHDescriptorExtractorImpl17setSamplingPointsEv.exit: ; preds = %_ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit.i.i, %40, %42, %_ZSt22__uninitialized_copy_aIPiS0_iET0_T_S2_S1_RSaIT1_E.exit.i.i
   ret void
 }
 
@@ -2334,24 +2333,24 @@ _ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit.i: ; preds = %13, %10
 
 _ZSt7advanceIPimEvRT_T0_.exit.i:                  ; preds = %15
   %.not.i.i.i.i.i17.i = icmp eq ptr %17, %5
-  br i1 %.not.i.i.i.i.i17.i, label %_ZSt4copyIPiS0_ET0_T_S2_S1_.exit18.i.thread, label %_ZSt4copyIPiS0_ET0_T_S2_S1_.exit18.i
+  br i1 %.not.i.i.i.i.i17.i, label %_ZSt22__uninitialized_copy_aIPiS0_iET0_T_S2_S1_RSaIT1_E.exit.i, label %23
 
-_ZSt4copyIPiS0_ET0_T_S2_S1_.exit18.i:             ; preds = %_ZSt7advanceIPimEvRT_T0_.exit.i
+23:                                               ; preds = %_ZSt7advanceIPimEvRT_T0_.exit.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %5, ptr noundef nonnull align 16 dereferenceable(1) @__const._ZN2cv11xfeatures2d28LATCHDescriptorExtractorImpl17setSamplingPointsEv.sampling_points_arr, i64 %19, i1 false)
   %.pre26.i = load ptr, ptr %16, align 8
-  br label %_ZSt4copyIPiS0_ET0_T_S2_S1_.exit18.i.thread
+  br label %_ZSt22__uninitialized_copy_aIPiS0_iET0_T_S2_S1_RSaIT1_E.exit.i
 
-_ZSt4copyIPiS0_ET0_T_S2_S1_.exit18.i.thread:      ; preds = %_ZSt7advanceIPimEvRT_T0_.exit.i, %_ZSt4copyIPiS0_ET0_T_S2_S1_.exit18.i
-  %.sink.i.i25.i.idx4 = phi i64 [ %19, %_ZSt4copyIPiS0_ET0_T_S2_S1_.exit18.i ], [ 0, %_ZSt7advanceIPimEvRT_T0_.exit.i ]
-  %23 = phi ptr [ %.pre26.i, %_ZSt4copyIPiS0_ET0_T_S2_S1_.exit18.i ], [ %17, %_ZSt7advanceIPimEvRT_T0_.exit.i ]
-  %24 = sub nsw i64 12288, %19
-  %.sink.i.i25.i.ptr = getelementptr inbounds nuw i8, ptr @__const._ZN2cv11xfeatures2d28LATCHDescriptorExtractorImpl17setSamplingPointsEv.sampling_points_arr, i64 %.sink.i.i25.i.idx4
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %23, ptr nonnull align 4 %.sink.i.i25.i.ptr, i64 %24, i1 false)
-  %25 = getelementptr inbounds i8, ptr %23, i64 %24
+_ZSt22__uninitialized_copy_aIPiS0_iET0_T_S2_S1_RSaIT1_E.exit.i: ; preds = %23, %_ZSt7advanceIPimEvRT_T0_.exit.i
+  %24 = phi ptr [ %17, %_ZSt7advanceIPimEvRT_T0_.exit.i ], [ %.pre26.i, %23 ]
+  %.sink.i.i25.i.idx = phi i64 [ 0, %_ZSt7advanceIPimEvRT_T0_.exit.i ], [ %19, %23 ]
+  %gepdiff = sub nsw i64 12288, %19
+  %.sink.i.i25.i.ptr = getelementptr inbounds nuw i8, ptr @__const._ZN2cv11xfeatures2d28LATCHDescriptorExtractorImpl17setSamplingPointsEv.sampling_points_arr, i64 %.sink.i.i25.i.idx
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %24, ptr nonnull align 4 %.sink.i.i25.i.ptr, i64 %gepdiff, i1 false)
+  %25 = getelementptr inbounds i8, ptr %24, i64 %gepdiff
   store ptr %25, ptr %16, align 8
   br label %_ZNSt6vectorIiSaIiEE13_M_assign_auxIPiEEvT_S4_St20forward_iterator_tag.exit
 
-_ZNSt6vectorIiSaIiEE13_M_assign_auxIPiEEvT_S4_St20forward_iterator_tag.exit: ; preds = %_ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit.i, %20, %22, %_ZSt4copyIPiS0_ET0_T_S2_S1_.exit18.i.thread
+_ZNSt6vectorIiSaIiEE13_M_assign_auxIPiEEvT_S4_St20forward_iterator_tag.exit: ; preds = %_ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit.i, %20, %22, %_ZSt22__uninitialized_copy_aIPiS0_iET0_T_S2_S1_RSaIT1_E.exit.i
   ret void
 }
 

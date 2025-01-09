@@ -3156,16 +3156,20 @@ if.then27:                                        ; preds = %invoke.cont25
   %sub.ptr.lhs.cast.i58 = ptrtoint ptr %9 to i64
   %sub.ptr.rhs.cast.i59 = ptrtoint ptr %10 to i64
   %sub.ptr.sub.i60 = sub i64 %sub.ptr.lhs.cast.i58, %sub.ptr.rhs.cast.i59
+  %cmp305.not = icmp eq i64 %sub.ptr.sub.i60, %sub.ptr.sub.i
+  br i1 %cmp305.not, label %if.end108, label %for.body31.preheader
+
+for.body31.preheader:                             ; preds = %if.then27
   %sub.ptr.div.i61 = ashr exact i64 %sub.ptr.sub.i60, 3
   %sub = sub nsw i64 %sub.ptr.div.i61, %sub.ptr.div.i
-  %cmp305.not = icmp eq i64 %sub.ptr.div.i61, %sub.ptr.div.i
-  br i1 %cmp305.not, label %if.end108, label %for.body31
+  %umax = call i64 @llvm.umax.i64(i64 %sub, i64 1)
+  br label %for.body31
 
-for.body31:                                       ; preds = %if.then27, %for.inc
-  %i.0309 = phi i64 [ %inc, %for.inc ], [ 0, %if.then27 ]
-  %meshes.sroa.0.2308 = phi ptr [ %meshes.sroa.0.8, %for.inc ], [ %meshes.sroa.0.0317, %if.then27 ]
-  %meshes.sroa.10.1307 = phi ptr [ %meshes.sroa.10.5, %for.inc ], [ %meshes.sroa.10.0316, %if.then27 ]
-  %meshes.sroa.20.1306 = phi ptr [ %meshes.sroa.20.5, %for.inc ], [ %meshes.sroa.20.0315, %if.then27 ]
+for.body31:                                       ; preds = %for.body31.preheader, %for.inc
+  %i.0309 = phi i64 [ %inc, %for.inc ], [ 0, %for.body31.preheader ]
+  %meshes.sroa.0.2308 = phi ptr [ %meshes.sroa.0.8, %for.inc ], [ %meshes.sroa.0.0317, %for.body31.preheader ]
+  %meshes.sroa.10.1307 = phi ptr [ %meshes.sroa.10.5, %for.inc ], [ %meshes.sroa.10.0316, %for.body31.preheader ]
+  %meshes.sroa.20.1306 = phi ptr [ %meshes.sroa.20.5, %for.inc ], [ %meshes.sroa.20.0315, %for.body31.preheader ]
   %add = add i64 %i.0309, %sub.ptr.div.i
   %conv = trunc i64 %add to i32
   %cmp.not.i.i = icmp eq ptr %meshes.sroa.10.1307, %meshes.sroa.20.1306
@@ -3230,7 +3234,7 @@ for.inc:                                          ; preds = %_ZNSt6vectorIjSaIjE
   %meshes.sroa.0.8 = phi ptr [ %call5.i.i.i.i.i.i63, %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i.i ], [ %meshes.sroa.0.2308, %if.then.i.i ]
   %meshes.sroa.10.5 = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i.pn, i64 4
   %inc = add nuw i64 %i.0309, 1
-  %exitcond380.not = icmp eq i64 %inc, %sub
+  %exitcond380.not = icmp eq i64 %inc, %umax
   br i1 %exitcond380.not, label %if.end108, label %for.body31, !llvm.loop !27
 
 lpad:                                             ; preds = %entry

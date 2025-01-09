@@ -241,8 +241,7 @@ land.lhs.true:                                    ; preds = %_ZNSt3setIN5boost10
   %sub.ptr.lhs.cast.i32 = ptrtoint ptr %10 to i64
   %sub.ptr.rhs.cast.i33 = ptrtoint ptr %11 to i64
   %sub.ptr.sub.i34 = sub i64 %sub.ptr.lhs.cast.i32, %sub.ptr.rhs.cast.i33
-  %sub.ptr.div.i35 = ashr exact i64 %sub.ptr.sub.i34, 4
-  %cmp5 = icmp eq i64 %sub.ptr.div.i, %sub.ptr.div.i35
+  %cmp5 = icmp eq i64 %sub.ptr.sub.i24, %sub.ptr.sub.i34
   br i1 %cmp5, label %land.lhs.true6, label %if.then
 
 land.lhs.true6:                                   ; preds = %land.lhs.true

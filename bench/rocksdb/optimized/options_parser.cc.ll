@@ -3990,7 +3990,6 @@ for.end:                                          ; preds = %for.inc, %if.end45
   %sub.ptr.lhs.cast.i82 = ptrtoint ptr %48 to i64
   %sub.ptr.rhs.cast.i83 = ptrtoint ptr %49 to i64
   %sub.ptr.sub.i84 = sub i64 %sub.ptr.lhs.cast.i82, %sub.ptr.rhs.cast.i83
-  %sub.ptr.div.i85 = sdiv exact i64 %sub.ptr.sub.i84, 824
   %cf_opts_.i86 = getelementptr inbounds nuw i8, ptr %parser, i64 768
   %_M_finish.i87 = getelementptr inbounds nuw i8, ptr %parser, i64 776
   %50 = load ptr, ptr %_M_finish.i87, align 8
@@ -3998,8 +3997,7 @@ for.end:                                          ; preds = %for.inc, %if.end45
   %sub.ptr.lhs.cast.i88 = ptrtoint ptr %50 to i64
   %sub.ptr.rhs.cast.i89 = ptrtoint ptr %51 to i64
   %sub.ptr.sub.i90 = sub i64 %sub.ptr.lhs.cast.i88, %sub.ptr.rhs.cast.i89
-  %sub.ptr.div.i91 = sdiv exact i64 %sub.ptr.sub.i90, 824
-  %cmp68.not = icmp eq i64 %sub.ptr.div.i85, %sub.ptr.div.i91
+  %cmp68.not = icmp eq i64 %sub.ptr.sub.i84, %sub.ptr.sub.i90
   br i1 %cmp68.not, label %if.end93, label %if.then69
 
 if.then69:                                        ; preds = %for.end
@@ -4015,7 +4013,7 @@ if.then73:                                        ; preds = %if.then69
   br label %if.then26.invoke
 
 if.else79:                                        ; preds = %if.then69
-  %cmp84 = icmp ugt i64 %sub.ptr.div.i85, %sub.ptr.div.i91
+  %cmp84 = icmp ugt i64 %sub.ptr.sub.i84, %sub.ptr.sub.i90
   br i1 %cmp84, label %if.then85, label %if.end93
 
 if.then85:                                        ; preds = %if.else79

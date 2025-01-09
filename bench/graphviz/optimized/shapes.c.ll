@@ -4463,19 +4463,19 @@ define noundef ptr @bind_shape(ptr nocapture noundef readonly %0, ptr noundef %1
   %9 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %.0, ptr noundef nonnull dereferenceable(7) @.str.2) #29
   %10 = icmp eq i32 %9, 0
   %11 = load ptr, ptr @Shapes, align 16
-  %.not1522 = icmp eq ptr %11, null
-  %or.cond = select i1 %10, i1 true, i1 %.not1522
+  %.not1523 = icmp eq ptr %11, null
+  %or.cond = select i1 %10, i1 true, i1 %.not1523
   br i1 %or.cond, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %8, %15
   %12 = phi ptr [ %17, %15 ], [ %11, %8 ]
-  %.01323 = phi ptr [ %16, %15 ], [ @Shapes, %8 ]
+  %.01324 = phi ptr [ %16, %15 ], [ @Shapes, %8 ]
   %13 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %12, ptr noundef nonnull readonly dereferenceable(1) %.0) #29
   %14 = icmp eq i32 %13, 0
   br i1 %14, label %user_shape.exit, label %15
 
 15:                                               ; preds = %.lr.ph
-  %16 = getelementptr inbounds nuw i8, ptr %.01323, i64 32
+  %16 = getelementptr inbounds nuw i8, ptr %.01324, i64 32
   %17 = load ptr, ptr %16, align 8
   %.not15 = icmp eq ptr %17, null
   br i1 %.not15, label %.loopexit, label %.lr.ph
@@ -4517,19 +4517,19 @@ define noundef ptr @bind_shape(ptr nocapture noundef readonly %0, ptr noundef %1
   unreachable
 
 31:                                               ; preds = %.loopexit.i
-  %32 = shl nuw i64 %.pre.i, 3
-  %33 = shl nuw i64 %26, 3
-  %34 = icmp eq i64 %26, 0
-  br i1 %34, label %35, label %36
+  %32 = icmp eq i64 %26, 0
+  br i1 %32, label %33, label %34
 
-35:                                               ; preds = %31
+33:                                               ; preds = %31
   tail call void @free(ptr noundef %18) #25
   br label %gv_recalloc.exit.i
 
-36:                                               ; preds = %31
-  %37 = tail call ptr @realloc(ptr noundef %18, i64 noundef range(i64 0, -7) %33) #30
+34:                                               ; preds = %31
+  %35 = shl nuw i64 %.pre.i, 3
+  %36 = shl nuw i64 %26, 3
+  %37 = tail call ptr @realloc(ptr noundef %18, i64 noundef range(i64 0, -7) %36) #30
   %38 = icmp eq ptr %37, null
-  br i1 %38, label %41, label %45
+  br i1 %38, label %41, label %.thread18
 
 .thread17:                                        ; preds = %.preheader.i.i
   store i64 1, ptr @N_UserShape, align 8
@@ -4537,65 +4537,61 @@ define noundef ptr @bind_shape(ptr nocapture noundef readonly %0, ptr noundef %1
   %40 = icmp eq ptr %39, null
   br i1 %40, label %41, label %.thread18
 
-41:                                               ; preds = %.thread17, %36
-  %42 = phi i64 [ 8, %.thread17 ], [ %33, %36 ]
+41:                                               ; preds = %.thread17, %34
+  %42 = phi i64 [ 8, %.thread17 ], [ %36, %34 ]
   %43 = load ptr, ptr @stderr, align 8
   %44 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %43, ptr noundef nonnull @.str.4, i64 noundef range(i64 0, -7) %42) #27
   tail call fastcc void @graphviz_exit() #28
   unreachable
 
-45:                                               ; preds = %36
-  %46 = icmp ugt i64 %33, %32
-  br i1 %46, label %.thread18, label %gv_recalloc.exit.i
-
-.thread18:                                        ; preds = %.thread17, %45
-  %47 = phi i64 [ %32, %45 ], [ 0, %.thread17 ]
-  %48 = phi ptr [ %37, %45 ], [ %39, %.thread17 ]
-  %49 = getelementptr inbounds i8, ptr %48, i64 %47
-  store i64 0, ptr %49, align 1
+.thread18:                                        ; preds = %34, %.thread17
+  %45 = phi i64 [ 0, %.thread17 ], [ %35, %34 ]
+  %46 = phi ptr [ %39, %.thread17 ], [ %37, %34 ]
+  %47 = getelementptr inbounds i8, ptr %46, i64 %45
+  store i64 0, ptr %47, align 1
   br label %gv_recalloc.exit.i
 
-gv_recalloc.exit.i:                               ; preds = %.thread18, %45, %35
-  %.0.i.i.i = phi ptr [ null, %35 ], [ %48, %.thread18 ], [ %37, %45 ]
+gv_recalloc.exit.i:                               ; preds = %.thread18, %33
+  %.0.i.i.i = phi ptr [ null, %33 ], [ %46, %.thread18 ]
   store ptr %.0.i.i.i, ptr @UserShape, align 8
-  %50 = tail call noalias dereferenceable_or_null(32) ptr @calloc(i64 noundef 1, i64 noundef range(i64 1, 89) 32) #26
-  %51 = icmp eq ptr %50, null
-  br i1 %51, label %52, label %gv_alloc.exit.i
+  %48 = tail call noalias dereferenceable_or_null(32) ptr @calloc(i64 noundef 1, i64 noundef range(i64 1, 89) 32) #26
+  %49 = icmp eq ptr %48, null
+  br i1 %49, label %50, label %gv_alloc.exit.i
 
-52:                                               ; preds = %gv_recalloc.exit.i
-  %53 = load ptr, ptr @stderr, align 8
-  %54 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %53, ptr noundef nonnull @.str.4, i64 noundef 32) #27
+50:                                               ; preds = %gv_recalloc.exit.i
+  %51 = load ptr, ptr @stderr, align 8
+  %52 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %51, ptr noundef nonnull @.str.4, i64 noundef 32) #27
   tail call fastcc void @graphviz_exit() #28
   unreachable
 
 gv_alloc.exit.i:                                  ; preds = %gv_recalloc.exit.i
-  %55 = getelementptr inbounds ptr, ptr %.0.i.i.i, i64 %.pre.i
-  store ptr %50, ptr %55, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %50, ptr noundef nonnull align 16 dereferenceable(32) @Shapes, i64 32, i1 false)
-  %56 = tail call noalias ptr @strdup(ptr noundef readonly %.0) #25
-  store ptr %56, ptr %50, align 8
-  %57 = load ptr, ptr @Lib, align 8
-  %58 = icmp eq ptr %57, null
-  br i1 %58, label %59, label %find_user_shape.exit.sink.split.i
+  %53 = getelementptr inbounds ptr, ptr %.0.i.i.i, i64 %.pre.i
+  store ptr %48, ptr %53, align 8
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %48, ptr noundef nonnull align 16 dereferenceable(32) @Shapes, i64 32, i1 false)
+  %54 = tail call noalias ptr @strdup(ptr noundef readonly %.0) #25
+  store ptr %54, ptr %48, align 8
+  %55 = load ptr, ptr @Lib, align 8
+  %56 = icmp eq ptr %55, null
+  br i1 %56, label %57, label %find_user_shape.exit.sink.split.i
 
-59:                                               ; preds = %gv_alloc.exit.i
-  %60 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %.0, ptr noundef nonnull dereferenceable(7) @.str.2) #29
-  %61 = icmp eq i32 %60, 0
-  br i1 %61, label %find_user_shape.exit.sink.split.i, label %62
+57:                                               ; preds = %gv_alloc.exit.i
+  %58 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %.0, ptr noundef nonnull dereferenceable(7) @.str.2) #29
+  %59 = icmp eq i32 %58, 0
+  br i1 %59, label %find_user_shape.exit.sink.split.i, label %60
 
-62:                                               ; preds = %59
-  %63 = load ptr, ptr @Shapes, align 16
-  %64 = tail call i32 (i32, ptr, ...) @agerr(i32 noundef 0, ptr noundef nonnull @.str.106, ptr noundef %63, ptr noundef %56) #25
+60:                                               ; preds = %57
+  %61 = load ptr, ptr @Shapes, align 16
+  %62 = tail call i32 (i32, ptr, ...) @agerr(i32 noundef 0, ptr noundef nonnull @.str.106, ptr noundef %61, ptr noundef %54) #25
   br label %find_user_shape.exit.sink.split.i
 
-find_user_shape.exit.sink.split.i:                ; preds = %62, %59, %gv_alloc.exit.i
-  %.sink.i = phi i8 [ 0, %62 ], [ 1, %59 ], [ 1, %gv_alloc.exit.i ]
-  %65 = getelementptr inbounds nuw i8, ptr %50, i64 24
-  store i8 %.sink.i, ptr %65, align 8
+find_user_shape.exit.sink.split.i:                ; preds = %60, %57, %gv_alloc.exit.i
+  %.sink.i = phi i8 [ 0, %60 ], [ 1, %57 ], [ 1, %gv_alloc.exit.i ]
+  %63 = getelementptr inbounds nuw i8, ptr %48, i64 24
+  store i8 %.sink.i, ptr %63, align 8
   br label %user_shape.exit
 
 user_shape.exit:                                  ; preds = %.lr.ph, %.lr.ph.i.i, %find_user_shape.exit.sink.split.i
-  %.1 = phi ptr [ %50, %find_user_shape.exit.sink.split.i ], [ %22, %.lr.ph.i.i ], [ %.01323, %.lr.ph ]
+  %.1 = phi ptr [ %48, %find_user_shape.exit.sink.split.i ], [ %22, %.lr.ph.i.i ], [ %.01324, %.lr.ph ]
   ret ptr %.1
 }
 

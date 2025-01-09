@@ -1206,125 +1206,123 @@ X11SD_DisposeOrCacheXImage.exit.i:                ; preds = %137
 
 171:                                              ; preds = %164
   %172 = load i32, ptr %4, align 4
+  %173 = load i32, ptr %5, align 4
   %.neg.i.i = mul i32 %172, -65536
-  %173 = ashr exact i32 %.neg.i.i, 16
-  %174 = load ptr, ptr @awt_display, align 8
-  %175 = getelementptr inbounds nuw i8, ptr %174, i64 232
-  %176 = load ptr, ptr %175, align 8
-  %177 = load ptr, ptr %12, align 8
-  %178 = getelementptr inbounds nuw i8, ptr %177, i64 32
-  %179 = load i32, ptr %178, align 8
-  %180 = sext i32 %179 to i64
-  %181 = getelementptr inbounds %struct.Screen, ptr %176, i64 %180
-  %182 = getelementptr inbounds nuw i8, ptr %181, i64 24
-  %183 = load i32, ptr %182, align 8
-  %184 = add nsw i32 %183, %173
-  %185 = load i32, ptr %2, align 4
-  %186 = icmp sgt i32 %185, %173
-  %187 = shl i32 %185, 16
-  %sext52.i.i = select i1 %186, i32 %187, i32 %.neg.i.i
-  %188 = load i32, ptr %51, align 4
-  %sext.i.i = shl i32 %184, 16
-  %189 = ashr exact i32 %sext.i.i, 16
-  %190 = icmp slt i32 %188, %189
-  %191 = shl i32 %188, 16
-  %sext53.i.i = select i1 %190, i32 %191, i32 %sext.i.i
-  %192 = ashr exact i32 %sext52.i.i, 16
-  %193 = ashr exact i32 %sext53.i.i, 16
-  %.not54.i.i = icmp slt i32 %192, %193
-  br i1 %.not54.i.i, label %194, label %X11SD_ClipToRoot.exit.thread.i
-
-194:                                              ; preds = %171
-  %195 = load i32, ptr %54, align 4
-  %196 = load i32, ptr %5, align 4
-  %.neg50.i.i = mul i32 %196, -65536
-  %197 = ashr exact i32 %.neg50.i.i, 16
-  %198 = getelementptr inbounds nuw i8, ptr %181, i64 28
-  %199 = load i32, ptr %198, align 4
-  %200 = add nsw i32 %197, %199
-  %sext51.i.i = shl i32 %200, 16
+  %174 = ashr exact i32 %.neg.i.i, 16
+  %175 = load ptr, ptr @awt_display, align 8
+  %176 = getelementptr inbounds nuw i8, ptr %175, i64 232
+  %177 = load ptr, ptr %176, align 8
+  %178 = load ptr, ptr %12, align 8
+  %179 = getelementptr inbounds nuw i8, ptr %178, i64 32
+  %180 = load i32, ptr %179, align 8
+  %181 = sext i32 %180 to i64
+  %182 = getelementptr inbounds %struct.Screen, ptr %177, i64 %181
+  %183 = getelementptr inbounds nuw i8, ptr %182, i64 24
+  %184 = load i32, ptr %183, align 8
+  %185 = add nsw i32 %184, %174
+  %.neg50.i.i = mul i32 %173, -65536
+  %186 = ashr exact i32 %.neg50.i.i, 16
+  %187 = getelementptr inbounds nuw i8, ptr %182, i64 28
+  %188 = load i32, ptr %187, align 4
+  %189 = add nsw i32 %188, %186
+  %190 = load i32, ptr %2, align 4
+  %191 = icmp sgt i32 %190, %174
+  %192 = shl i32 %190, 16
+  %sext52.i.i = select i1 %191, i32 %192, i32 %.neg.i.i
+  %193 = load i32, ptr %42, align 4
+  %194 = icmp sgt i32 %193, %186
+  %195 = shl i32 %193, 16
+  %sext55.i.i = select i1 %194, i32 %195, i32 %.neg50.i.i
+  %196 = load i32, ptr %51, align 4
+  %sext.i.i = shl i32 %185, 16
+  %197 = ashr exact i32 %sext.i.i, 16
+  %198 = icmp slt i32 %196, %197
+  %199 = shl i32 %196, 16
+  %sext53.i.i = select i1 %198, i32 %199, i32 %sext.i.i
+  %200 = load i32, ptr %54, align 4
+  %sext51.i.i = shl i32 %189, 16
   %201 = ashr exact i32 %sext51.i.i, 16
-  %202 = icmp slt i32 %195, %201
-  %203 = shl i32 %195, 16
+  %202 = icmp slt i32 %200, %201
+  %203 = shl i32 %200, 16
   %sext56.i.i = select i1 %202, i32 %203, i32 %sext51.i.i
-  %204 = load i32, ptr %42, align 4
-  %205 = icmp sgt i32 %204, %197
-  %206 = shl i32 %204, 16
-  %sext55.i.i = select i1 %205, i32 %206, i32 %.neg50.i.i
-  %207 = ashr exact i32 %sext55.i.i, 16
-  %208 = ashr exact i32 %sext56.i.i, 16
-  %.not57.i.i = icmp slt i32 %207, %208
-  br i1 %.not57.i.i, label %209, label %X11SD_ClipToRoot.exit.thread.i
+  %.not54.i.i = icmp slt i32 %sext52.i.i, %sext53.i.i
+  %.not57.i.i = icmp slt i32 %sext55.i.i, %sext56.i.i
+  %or.cond.i.i = select i1 %.not54.i.i, i1 %.not57.i.i, i1 false
+  br i1 %or.cond.i.i, label %204, label %X11SD_ClipToRoot.exit.thread.i
 
-X11SD_ClipToRoot.exit.thread.i:                   ; preds = %194, %171, %164, %159
+X11SD_ClipToRoot.exit.thread.i:                   ; preds = %171, %164, %159
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %7)
   br label %X11SD_DisposeOrCacheXImage.exit.thread11.sink.split.i
 
-209:                                              ; preds = %194
+204:                                              ; preds = %171
+  %205 = ashr exact i32 %sext53.i.i, 16
+  %206 = ashr exact i32 %sext52.i.i, 16
+  %207 = ashr exact i32 %sext56.i.i, 16
+  %208 = ashr exact i32 %sext55.i.i, 16
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %7)
-  %210 = sub nsw i32 %193, %192
-  %211 = sub nsw i32 %208, %207
-  %212 = call ptr @XGetImage(ptr noundef nonnull %174, i64 noundef %110, i32 noundef %192, i32 noundef %207, i32 noundef %210, i32 noundef %211, i64 noundef -1, i32 noundef 2) #18
-  %213 = icmp eq ptr %212, null
-  br i1 %213, label %214, label %.lr.ph.i
+  %209 = sub nsw i32 %205, %206
+  %210 = sub nsw i32 %207, %208
+  %211 = call ptr @XGetImage(ptr noundef nonnull %175, i64 noundef %110, i32 noundef %206, i32 noundef %208, i32 noundef %209, i32 noundef %210, i64 noundef -1, i32 noundef 2) #18
+  %212 = icmp eq ptr %211, null
+  br i1 %212, label %213, label %.lr.ph.i
 
-214:                                              ; preds = %209
-  %215 = load ptr, ptr @awt_display, align 8
-  %216 = call i32 @XGrabServer(ptr noundef %215) #18
-  %217 = load ptr, ptr @awt_display, align 8
-  %218 = call ptr @XGetImage(ptr noundef %217, i64 noundef %110, i32 noundef %192, i32 noundef %207, i32 noundef %210, i32 noundef %211, i64 noundef -1, i32 noundef 2) #18
-  %219 = load ptr, ptr @awt_display, align 8
-  %220 = call i32 @XUngrabServer(ptr noundef %219) #18
-  %221 = load ptr, ptr @awt_display, align 8
-  %222 = call i32 @XSync(ptr noundef %221, i32 noundef 0) #18
-  %.not141.i = icmp eq ptr %218, null
+213:                                              ; preds = %204
+  %214 = load ptr, ptr @awt_display, align 8
+  %215 = call i32 @XGrabServer(ptr noundef %214) #18
+  %216 = load ptr, ptr @awt_display, align 8
+  %217 = call ptr @XGetImage(ptr noundef %216, i64 noundef %110, i32 noundef %206, i32 noundef %208, i32 noundef %209, i32 noundef %210, i64 noundef -1, i32 noundef 2) #18
+  %218 = load ptr, ptr @awt_display, align 8
+  %219 = call i32 @XUngrabServer(ptr noundef %218) #18
+  %220 = load ptr, ptr @awt_display, align 8
+  %221 = call i32 @XSync(ptr noundef %220, i32 noundef 0) #18
+  %.not141.i = icmp eq ptr %217, null
   br i1 %.not141.i, label %X11SD_DisposeOrCacheXImage.exit.thread11.sink.split.i, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %214, %209
-  %.012121.i = phi ptr [ %218, %214 ], [ %212, %209 ]
-  %223 = mul nsw i32 %210, %15
-  %224 = getelementptr inbounds nuw i8, ptr %.012121.i, i64 16
-  %225 = load ptr, ptr %224, align 8
-  %226 = getelementptr inbounds nuw i8, ptr %.012121.i, i64 44
-  %227 = load i32, ptr %226, align 4
-  %228 = load ptr, ptr %153, align 8
-  %229 = sub nsw i32 %207, %43
-  %230 = sext i32 %229 to i64
-  %231 = mul nsw i64 %230, %150
-  %232 = getelementptr inbounds i8, ptr %228, i64 %231
-  %233 = sub nsw i32 %192, %41
-  %234 = mul nsw i32 %233, %15
-  %235 = sext i32 %234 to i64
-  %236 = getelementptr inbounds i8, ptr %232, i64 %235
-  %237 = sext i32 %223 to i64
-  %238 = sext i32 %227 to i64
-  br label %239
+.lr.ph.i:                                         ; preds = %213, %204
+  %.012121.i = phi ptr [ %217, %213 ], [ %211, %204 ]
+  %222 = mul nsw i32 %209, %15
+  %223 = getelementptr inbounds nuw i8, ptr %.012121.i, i64 16
+  %224 = load ptr, ptr %223, align 8
+  %225 = getelementptr inbounds nuw i8, ptr %.012121.i, i64 44
+  %226 = load i32, ptr %225, align 4
+  %227 = load ptr, ptr %153, align 8
+  %228 = sub nsw i32 %208, %43
+  %229 = sext i32 %228 to i64
+  %230 = mul nsw i64 %229, %150
+  %231 = getelementptr inbounds i8, ptr %227, i64 %230
+  %232 = sub nsw i32 %206, %41
+  %233 = mul nsw i32 %232, %15
+  %234 = sext i32 %233 to i64
+  %235 = getelementptr inbounds i8, ptr %231, i64 %234
+  %236 = sext i32 %222 to i64
+  %237 = sext i32 %226 to i64
+  br label %238
 
-239:                                              ; preds = %239, %.lr.ph.i
-  %.024.i = phi i32 [ %207, %.lr.ph.i ], [ %242, %239 ]
-  %.011723.i = phi ptr [ %225, %.lr.ph.i ], [ %241, %239 ]
-  %.011822.i = phi ptr [ %236, %.lr.ph.i ], [ %240, %239 ]
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.011822.i, ptr align 1 %.011723.i, i64 %237, i1 false)
-  %240 = getelementptr inbounds i8, ptr %.011822.i, i64 %150
-  %241 = getelementptr inbounds i8, ptr %.011723.i, i64 %238
-  %242 = add nsw i32 %.024.i, 1
-  %exitcond.not.i = icmp eq i32 %242, %208
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %239, !llvm.loop !6
+238:                                              ; preds = %238, %.lr.ph.i
+  %.024.i = phi i32 [ %208, %.lr.ph.i ], [ %241, %238 ]
+  %.011723.i = phi ptr [ %224, %.lr.ph.i ], [ %240, %238 ]
+  %.011822.i = phi ptr [ %235, %.lr.ph.i ], [ %239, %238 ]
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.011822.i, ptr align 1 %.011723.i, i64 %236, i1 false)
+  %239 = getelementptr inbounds i8, ptr %.011822.i, i64 %150
+  %240 = getelementptr inbounds i8, ptr %.011723.i, i64 %237
+  %241 = add nsw i32 %.024.i, 1
+  %242 = icmp slt i32 %241, %207
+  br i1 %242, label %238, label %._crit_edge.i, !llvm.loop !6
 
-._crit_edge.i:                                    ; preds = %239
+._crit_edge.i:                                    ; preds = %238
   %243 = getelementptr inbounds nuw i8, ptr %.012121.i, i64 96
   %244 = load ptr, ptr %243, align 8
   %245 = call i32 %244(ptr noundef nonnull %.012121.i) #18
   br label %X11SD_DisposeOrCacheXImage.exit.thread11.sink.split.i
 
-X11SD_DisposeOrCacheXImage.exit.thread11.sink.split.i: ; preds = %._crit_edge.i, %214, %X11SD_ClipToRoot.exit.thread.i, %155, %137
-  %.sink26.i = phi ptr [ %139, %137 ], [ %144, %X11SD_ClipToRoot.exit.thread.i ], [ %144, %214 ], [ %144, %._crit_edge.i ], [ %144, %155 ]
+X11SD_DisposeOrCacheXImage.exit.thread11.sink.split.i: ; preds = %._crit_edge.i, %213, %X11SD_ClipToRoot.exit.thread.i, %155, %137
+  %.sink26.i = phi ptr [ %139, %137 ], [ %144, %X11SD_ClipToRoot.exit.thread.i ], [ %144, %213 ], [ %144, %._crit_edge.i ], [ %144, %155 ]
   %246 = getelementptr inbounds nuw i8, ptr %.sink26.i, i64 80
   store ptr null, ptr %246, align 8
   br label %X11SD_DisposeOrCacheXImage.exit.thread11.i

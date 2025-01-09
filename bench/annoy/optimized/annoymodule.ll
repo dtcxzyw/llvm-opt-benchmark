@@ -4899,7 +4899,7 @@ _ZNSt6vectorIiSaIiEE9push_backERKi.exit118:       ; preds = %_ZNSt6vectorIiSaIiE
   br i1 %366, label %.lr.ph169, label %.loopexit141, !llvm.loop !21
 
 367:                                              ; preds = %263
-  %368 = icmp ugt i64 %269, %277
+  %368 = icmp ugt i64 %268, %276
   %369 = zext i1 %368 to i64
   br i1 %2, label %370, label %373
 
@@ -5731,7 +5731,7 @@ define linkonce_odr void @_ZNSt6vectorIiSaIiEE15_M_range_insertIN9__gnu_cxx17__n
   %18 = ptrtoint ptr %1 to i64
   %19 = sub i64 %15, %18
   %20 = ashr exact i64 %19, 2
-  %21 = icmp ugt i64 %20, %9
+  %21 = icmp ugt i64 %19, %8
   br i1 %21, label %22, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEmEvRT_T0_.exit
 
 22:                                               ; preds = %17
@@ -7171,7 +7171,7 @@ define linkonce_odr void @_ZNSt6vectorIiSaIiEE15_M_range_insertIPKiEEvN9__gnu_cx
   %18 = ptrtoint ptr %1 to i64
   %19 = sub i64 %15, %18
   %20 = ashr exact i64 %19, 2
-  %21 = icmp ugt i64 %20, %9
+  %21 = icmp ugt i64 %19, %8
   br i1 %21, label %22, label %_ZSt7advanceIPKimEvRT_T0_.exit
 
 22:                                               ; preds = %17
@@ -10372,7 +10372,7 @@ _ZNSt6vectorIiSaIiEE9push_backERKi.exit118:       ; preds = %_ZNSt6vectorIiSaIiE
   br i1 %370, label %.lr.ph168, label %.loopexit140, !llvm.loop !72
 
 371:                                              ; preds = %267
-  %372 = icmp ugt i64 %273, %281
+  %372 = icmp ugt i64 %272, %280
   %373 = zext i1 %372 to i64
   br i1 %2, label %374, label %377
 
@@ -14030,7 +14030,7 @@ _ZNSt6vectorIiSaIiEE9push_backERKi.exit118:       ; preds = %_ZNSt6vectorIiSaIiE
   br i1 %370, label %.lr.ph168, label %.loopexit140, !llvm.loop !99
 
 371:                                              ; preds = %267
-  %372 = icmp ugt i64 %273, %281
+  %372 = icmp ugt i64 %272, %280
   %373 = zext i1 %372 to i64
   br i1 %2, label %374, label %377
 
@@ -18312,7 +18312,7 @@ _ZNSt6vectorIiSaIiEE9push_backERKi.exit118:       ; preds = %_ZNSt6vectorIiSaIiE
   br i1 %338, label %.lr.ph167, label %.loopexit140, !llvm.loop !127
 
 339:                                              ; preds = %235
-  %340 = icmp ugt i64 %241, %249
+  %340 = icmp ugt i64 %240, %248
   %341 = zext i1 %340 to i64
   br i1 %2, label %342, label %345
 
@@ -22546,7 +22546,7 @@ _ZNSt6vectorIiSaIiEE9push_backERKi.exit118:       ; preds = %_ZNSt6vectorIiSaIiE
   br i1 %373, label %.lr.ph168, label %.loopexit140, !llvm.loop !168
 
 374:                                              ; preds = %270
-  %375 = icmp ugt i64 %276, %284
+  %375 = icmp ugt i64 %275, %283
   %376 = zext i1 %375 to i64
   br i1 %2, label %377, label %380
 

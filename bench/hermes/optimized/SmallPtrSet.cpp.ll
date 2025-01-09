@@ -837,37 +837,40 @@ _ZSt11swap_rangesIPPKvS2_ET0_T_S4_S3_.exit.loopexit: ; preds = %for.body.i
 _ZSt11swap_rangesIPPKvS2_ET0_T_S4_S3_.exit:       ; preds = %_ZSt11swap_rangesIPPKvS2_ET0_T_S4_S3_.exit.loopexit, %if.end49
   %33 = phi i32 [ %.pre, %_ZSt11swap_rangesIPPKvS2_ET0_T_S4_S3_.exit.loopexit ], [ %29, %if.end49 ]
   %cmp60 = icmp ugt i32 %33, %30
-  %add.ptr64.idx = shl nuw nsw i64 %idx.ext55, 3
   br i1 %cmp60, label %if.then.i.i.i.i.i57, label %if.else
 
 if.then.i.i.i.i.i57:                              ; preds = %_ZSt11swap_rangesIPPKvS2_ET0_T_S4_S3_.exit
+  %add.ptr64.idx = shl nuw nsw i64 %idx.ext55, 3
   %34 = load ptr, ptr %this, align 8
   %add.ptr64 = getelementptr inbounds nuw i8, ptr %34, i64 %add.ptr64.idx
   %narrow = sub nuw i32 %33, %30
   %35 = zext i32 %narrow to i64
-  %gepdiff69 = shl nuw nsw i64 %35, 3
-  %36 = load ptr, ptr %RHS, align 8
-  %add.ptr71 = getelementptr inbounds nuw ptr, ptr %36, i64 %idx.ext55
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %add.ptr71, ptr align 8 %add.ptr64, i64 %gepdiff69, i1 false)
-  br label %if.end84
+  br label %if.end84.sink.split
 
 if.else:                                          ; preds = %_ZSt11swap_rangesIPPKvS2_ET0_T_S4_S3_.exit
-  %37 = load i32, ptr %NumNonEmpty51, align 4
-  %idx.ext78 = zext i32 %37 to i64
-  %add.ptr79.idx = shl nuw nsw i64 %idx.ext78, 3
-  %tobool.not.i.i.i.i.i63 = icmp samesign eq i64 %add.ptr79.idx, %add.ptr64.idx
+  %36 = load i32, ptr %NumNonEmpty51, align 4
+  %tobool.not.i.i.i.i.i63 = icmp eq i32 %36, %30
   br i1 %tobool.not.i.i.i.i.i63, label %if.end84, label %if.then.i.i.i.i.i64
 
 if.then.i.i.i.i.i64:                              ; preds = %if.else
-  %38 = load ptr, ptr %RHS, align 8
-  %add.ptr75 = getelementptr inbounds nuw i8, ptr %38, i64 %add.ptr64.idx
-  %gepdiff = sub nsw i64 %add.ptr79.idx, %add.ptr64.idx
-  %39 = load ptr, ptr %this, align 8
+  %idx.ext78 = zext i32 %36 to i64
+  %add.ptr75.idx = shl nuw nsw i64 %idx.ext55, 3
+  %37 = load ptr, ptr %RHS, align 8
+  %add.ptr75 = getelementptr inbounds nuw i8, ptr %37, i64 %add.ptr75.idx
+  %38 = sub nsw i64 %idx.ext78, %idx.ext55
+  br label %if.end84.sink.split
+
+if.end84.sink.split:                              ; preds = %if.then.i.i.i.i.i57, %if.then.i.i.i.i.i64
+  %.sink = phi i64 [ %38, %if.then.i.i.i.i.i64 ], [ %35, %if.then.i.i.i.i.i57 ]
+  %this.sink = phi ptr [ %this, %if.then.i.i.i.i.i64 ], [ %RHS, %if.then.i.i.i.i.i57 ]
+  %add.ptr75.sink = phi ptr [ %add.ptr75, %if.then.i.i.i.i.i64 ], [ %add.ptr64, %if.then.i.i.i.i.i57 ]
+  %gepdiff = shl nsw i64 %.sink, 3
+  %39 = load ptr, ptr %this.sink, align 8
   %add.ptr82 = getelementptr inbounds nuw ptr, ptr %39, i64 %idx.ext55
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %add.ptr82, ptr align 8 %add.ptr75, i64 %gepdiff, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %add.ptr82, ptr align 8 %add.ptr75.sink, i64 %gepdiff, i1 false)
   br label %if.end84
 
-if.end84:                                         ; preds = %if.then.i.i.i.i.i64, %if.else, %if.then.i.i.i.i.i57
+if.end84:                                         ; preds = %if.end84.sink.split, %if.else
   %40 = load i32, ptr %NumNonEmpty50, align 4
   %41 = load i32, ptr %NumNonEmpty51, align 4
   store i32 %41, ptr %NumNonEmpty50, align 4

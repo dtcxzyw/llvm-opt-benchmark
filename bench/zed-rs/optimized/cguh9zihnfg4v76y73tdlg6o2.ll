@@ -172,7 +172,7 @@ define hidden void @_ZN12aho_corasick3nfa13noncontiguous7Builder5build17hc61124d
   %66 = getelementptr inbounds nuw i8, ptr %16, i64 592
   %67 = load ptr, ptr %66, align 16, !alias.scope !44, !noalias !47, !nonnull !5, !noundef !5
   %68 = shl nuw i64 %54, 3
-  %69 = icmp uge i64 %63, %68
+  %69 = icmp uge i64 %.sroa.0.0.sroa.speculated.i17.i.i.i179.i, %54
   tail call void @llvm.assume(i1 %69)
   %70 = tail call noundef align 4 ptr @__rust_realloc(ptr noundef nonnull %67, i64 noundef %68, i64 noundef range(i64 1, 9) 4, i64 noundef %63) #20, !noalias !49
   br label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$4grow17h8fe1967c46a2f3c3E.exit.i.i.i.i180.i"
@@ -241,7 +241,7 @@ define hidden void @_ZN12aho_corasick3nfa13noncontiguous7Builder5build17hc61124d
   %94 = getelementptr inbounds nuw i8, ptr %16, i64 568
   %95 = load ptr, ptr %94, align 8, !alias.scope !66, !noalias !69, !nonnull !5, !noundef !5
   %96 = shl nuw i64 %82, 2
-  %97 = icmp uge i64 %91, %96
+  %97 = icmp uge i64 %.sroa.0.0.sroa.speculated.i17.i.i.i191.i, %82
   tail call void @llvm.assume(i1 %97)
   %98 = tail call noundef align 4 ptr @__rust_realloc(ptr noundef nonnull %95, i64 noundef %96, i64 noundef range(i64 1, 9) 4, i64 noundef %91) #20, !noalias !71
   br label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$4grow17h8fe1967c46a2f3c3E.exit.i.i.i.i192.i"
@@ -835,7 +835,7 @@ _ZN12aho_corasick4util10primitives9PatternID3new17hfbe7a56c108857afE.exit: ; pre
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h341d247cb2f8a6caE.exit.thread.i.i.i": ; preds = %53
   %57 = load ptr, ptr %.phi.trans.insert.i, align 8, !alias.scope !117, !noalias !120, !nonnull !5, !noundef !5
   %58 = shl nuw nsw i64 %29, 2
-  %59 = icmp samesign uge i64 %55, %58
+  %59 = icmp samesign uge i64 %.sroa.0.0.sroa.speculated.i17.i.i.i, %29
   tail call void @llvm.assume(i1 %59)
   %60 = tail call noundef align 4 ptr @__rust_realloc(ptr noundef nonnull %57, i64 noundef %58, i64 noundef range(i64 1, 9) 4, i64 noundef %55) #20, !noalias !122
   br label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$4grow17h8fe1967c46a2f3c3E.exit.i.i.i.i"
@@ -3598,7 +3598,7 @@ define internal fastcc void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$13shrink_to_
 10:                                               ; preds = %2
   tail call void @llvm.experimental.noalias.scope.decl(metadata !212)
   %11 = icmp eq i64 %4, 0
-  br i1 %11, label %24, label %12
+  br i1 %11, label %23, label %12
 
 12:                                               ; preds = %10
   %13 = shl nuw i64 %4, 2
@@ -3612,24 +3612,22 @@ define internal fastcc void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$13shrink_to_
   br label %17
 
 17:                                               ; preds = %18, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.exit.i"
-  %storemerge.i = phi ptr [ inttoptr (i64 4 to ptr), %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.exit.i" ], [ %21, %18 ]
+  %storemerge.i = phi ptr [ inttoptr (i64 4 to ptr), %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.exit.i" ], [ %20, %18 ]
   store ptr %storemerge.i, ptr %14, align 8, !alias.scope !212
   store i64 %1, ptr %0, align 8, !alias.scope !212
-  br label %24
+  br label %23
 
 18:                                               ; preds = %12
   %19 = shl nuw i64 %1, 2
-  %20 = icmp ule i64 %19, %13
-  tail call void @llvm.assume(i1 %20)
-  %21 = tail call noundef align 4 ptr @__rust_realloc(ptr noundef nonnull %15, i64 noundef %13, i64 noundef range(i64 1, -9223372036854775807) 4, i64 noundef range(i64 4, 0) %19) #20, !noalias !212
-  %22 = icmp eq ptr %21, null
-  br i1 %22, label %23, label %17
+  %20 = tail call noundef align 4 ptr @__rust_realloc(ptr noundef nonnull %15, i64 noundef %13, i64 noundef range(i64 1, -9223372036854775807) 4, i64 noundef range(i64 4, 0) %19) #20, !noalias !212
+  %21 = icmp eq ptr %20, null
+  br i1 %21, label %22, label %17
 
-23:                                               ; preds = %18
+22:                                               ; preds = %18
   tail call void @_ZN5alloc7raw_vec12handle_error17hc0e4a0ae60df49a1E(i64 noundef 4, i64 %19) #21
   unreachable
 
-24:                                               ; preds = %17, %10
+23:                                               ; preds = %17, %10
   ret void
 }
 
@@ -3714,7 +3712,7 @@ define internal fastcc void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$13shrink_to_
 10:                                               ; preds = %2
   tail call void @llvm.experimental.noalias.scope.decl(metadata !228)
   %11 = icmp eq i64 %4, 0
-  br i1 %11, label %24, label %12
+  br i1 %11, label %23, label %12
 
 12:                                               ; preds = %10
   %13 = shl nuw i64 %4, 3
@@ -3728,24 +3726,22 @@ define internal fastcc void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$13shrink_to_
   br label %17
 
 17:                                               ; preds = %18, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.exit.i"
-  %storemerge.i = phi ptr [ inttoptr (i64 4 to ptr), %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.exit.i" ], [ %21, %18 ]
+  %storemerge.i = phi ptr [ inttoptr (i64 4 to ptr), %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.exit.i" ], [ %20, %18 ]
   store ptr %storemerge.i, ptr %14, align 8, !alias.scope !228
   store i64 %1, ptr %0, align 8, !alias.scope !228
-  br label %24
+  br label %23
 
 18:                                               ; preds = %12
   %19 = shl nuw i64 %1, 3
-  %20 = icmp ule i64 %19, %13
-  tail call void @llvm.assume(i1 %20)
-  %21 = tail call noundef align 4 ptr @__rust_realloc(ptr noundef nonnull %15, i64 noundef %13, i64 noundef range(i64 1, -9223372036854775807) 4, i64 noundef range(i64 4, 0) %19) #20, !noalias !228
-  %22 = icmp eq ptr %21, null
-  br i1 %22, label %23, label %17
+  %20 = tail call noundef align 4 ptr @__rust_realloc(ptr noundef nonnull %15, i64 noundef %13, i64 noundef range(i64 1, -9223372036854775807) 4, i64 noundef range(i64 4, 0) %19) #20, !noalias !228
+  %21 = icmp eq ptr %20, null
+  br i1 %21, label %22, label %17
 
-23:                                               ; preds = %18
+22:                                               ; preds = %18
   tail call void @_ZN5alloc7raw_vec12handle_error17hc0e4a0ae60df49a1E(i64 noundef 4, i64 %19) #21
   unreachable
 
-24:                                               ; preds = %17, %10
+23:                                               ; preds = %17, %10
   ret void
 }
 
@@ -3830,7 +3826,7 @@ define internal fastcc void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$13shrink_to_
 10:                                               ; preds = %2
   tail call void @llvm.experimental.noalias.scope.decl(metadata !244)
   %11 = icmp eq i64 %4, 0
-  br i1 %11, label %24, label %12
+  br i1 %11, label %23, label %12
 
 12:                                               ; preds = %10
   %13 = shl nuw i64 %4, 2
@@ -3844,24 +3840,22 @@ define internal fastcc void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$13shrink_to_
   br label %17
 
 17:                                               ; preds = %18, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.exit.i"
-  %storemerge.i = phi ptr [ inttoptr (i64 4 to ptr), %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.exit.i" ], [ %21, %18 ]
+  %storemerge.i = phi ptr [ inttoptr (i64 4 to ptr), %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.exit.i" ], [ %20, %18 ]
   store ptr %storemerge.i, ptr %14, align 8, !alias.scope !244
   store i64 %1, ptr %0, align 8, !alias.scope !244
-  br label %24
+  br label %23
 
 18:                                               ; preds = %12
   %19 = shl nuw i64 %1, 2
-  %20 = icmp ule i64 %19, %13
-  tail call void @llvm.assume(i1 %20)
-  %21 = tail call noundef align 4 ptr @__rust_realloc(ptr noundef nonnull %15, i64 noundef %13, i64 noundef range(i64 1, -9223372036854775807) 4, i64 noundef range(i64 4, 0) %19) #20, !noalias !244
-  %22 = icmp eq ptr %21, null
-  br i1 %22, label %23, label %17
+  %20 = tail call noundef align 4 ptr @__rust_realloc(ptr noundef nonnull %15, i64 noundef %13, i64 noundef range(i64 1, -9223372036854775807) 4, i64 noundef range(i64 4, 0) %19) #20, !noalias !244
+  %21 = icmp eq ptr %20, null
+  br i1 %21, label %22, label %17
 
-23:                                               ; preds = %18
+22:                                               ; preds = %18
   tail call void @_ZN5alloc7raw_vec12handle_error17hc0e4a0ae60df49a1E(i64 noundef 4, i64 %19) #21
   unreachable
 
-24:                                               ; preds = %17, %10
+23:                                               ; preds = %17, %10
   ret void
 }
 
@@ -8348,7 +8342,7 @@ define hidden { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amorti
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %15 = load ptr, ptr %14, align 8, !alias.scope !279, !noalias !282, !nonnull !5, !noundef !5
   %16 = shl nuw i64 %8, 3
-  %17 = icmp uge i64 %11, %16
+  %17 = icmp uge i64 %.sroa.0.0.sroa.speculated.i17, %8
   tail call void @llvm.assume(i1 %17)
   %18 = tail call noundef align 8 ptr @__rust_realloc(ptr noundef nonnull %15, i64 noundef %16, i64 noundef range(i64 1, 9) 8, i64 noundef %11) #20, !noalias !284
   br label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$4grow17h8fe1967c46a2f3c3E.exit.i"
@@ -9814,7 +9808,7 @@ define hidden void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$7reserve21do_reserve_
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %15 = load ptr, ptr %14, align 8, !alias.scope !408, !noalias !411, !nonnull !5, !noundef !5
   %16 = shl nuw i64 %8, 3
-  %17 = icmp uge i64 %11, %16
+  %17 = icmp uge i64 %.sroa.0.0.sroa.speculated.i17.i, %8
   tail call void @llvm.assume(i1 %17)
   %18 = tail call noundef align 8 ptr @__rust_realloc(ptr noundef nonnull %15, i64 noundef %16, i64 noundef range(i64 1, 9) 8, i64 noundef %11) #20, !noalias !413
   br label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$4grow17h8fe1967c46a2f3c3E.exit.i.i"
@@ -10036,7 +10030,7 @@ define hidden void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$8grow_one17h0fb0f3439
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %12 = load ptr, ptr %11, align 8, !alias.scope !456, !noalias !459, !nonnull !5, !noundef !5
   %13 = shl nuw i64 %2, 5
-  %14 = icmp uge i64 %8, %13
+  %14 = icmp uge i64 %.sroa.0.0.sroa.speculated.i17.i, %2
   tail call void @llvm.assume(i1 %14)
   %15 = tail call noundef align 8 ptr @__rust_realloc(ptr noundef nonnull %12, i64 noundef %13, i64 noundef range(i64 1, 9) 8, i64 noundef %8) #20, !noalias !461
   br label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$4grow17h8fe1967c46a2f3c3E.exit.i.i"
@@ -10091,7 +10085,7 @@ define hidden void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$8grow_one17h0fca5febe
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %12 = load ptr, ptr %11, align 8, !alias.scope !468, !noalias !471, !nonnull !5, !noundef !5
   %13 = shl nuw i64 %2, 3
-  %14 = icmp uge i64 %8, %13
+  %14 = icmp uge i64 %.sroa.0.0.sroa.speculated.i17.i, %2
   tail call void @llvm.assume(i1 %14)
   %15 = tail call noundef align 8 ptr @__rust_realloc(ptr noundef nonnull %12, i64 noundef %13, i64 noundef range(i64 1, 9) 8, i64 noundef %8) #20, !noalias !473
   br label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$4grow17h8fe1967c46a2f3c3E.exit.i.i"
@@ -10256,7 +10250,7 @@ define hidden void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$8grow_one17h266c0bfbb
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %12 = load ptr, ptr %11, align 8, !alias.scope !504, !noalias !507, !nonnull !5, !noundef !5
   %13 = shl nuw i64 %2, 4
-  %14 = icmp uge i64 %8, %13
+  %14 = icmp uge i64 %.sroa.0.0.sroa.speculated.i17.i, %2
   tail call void @llvm.assume(i1 %14)
   %15 = tail call noundef align 8 ptr @__rust_realloc(ptr noundef nonnull %12, i64 noundef %13, i64 noundef range(i64 1, 9) 8, i64 noundef %8) #20, !noalias !509
   br label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$4grow17h8fe1967c46a2f3c3E.exit.i.i"
@@ -10313,7 +10307,7 @@ define hidden void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$8grow_one17h276eb49cf
 
 12:                                               ; preds = %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h8ca0662be4160f9bE.exit.thread.i"
   %13 = shl nuw i64 %2, 3
-  %14 = icmp uge i64 %8, %13
+  %14 = icmp uge i64 %.sroa.0.0.sroa.speculated.i18.i, %2
   tail call void @llvm.assume(i1 %14)
   %15 = tail call noundef align 8 ptr @__rust_realloc(ptr noundef nonnull %.val17.i, i64 noundef %13, i64 noundef range(i64 1, 9) 8, i64 noundef %8) #20, !noalias !516
   br label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$4grow17h8fe1967c46a2f3c3E.exit.i.i"
@@ -10369,7 +10363,7 @@ define hidden void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$8grow_one17h2cf3183d6
 
 12:                                               ; preds = %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h2b629d2c8d970887E.exit.thread.i"
   %13 = shl nuw i64 %2, 4
-  %14 = icmp uge i64 %8, %13
+  %14 = icmp uge i64 %.sroa.0.0.sroa.speculated.i18.i, %2
   tail call void @llvm.assume(i1 %14)
   %15 = tail call noundef align 8 ptr @__rust_realloc(ptr noundef nonnull %.val17.i, i64 noundef %13, i64 noundef range(i64 1, 9) 8, i64 noundef %8) #20, !noalias !523
   br label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$4grow17h8fe1967c46a2f3c3E.exit.i.i"
@@ -10478,7 +10472,7 @@ define hidden void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$8grow_one17h53a1f59c4
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %12 = load ptr, ptr %11, align 8, !alias.scope !542, !noalias !545, !nonnull !5, !noundef !5
   %13 = shl nuw i64 %2, 3
-  %14 = icmp uge i64 %8, %13
+  %14 = icmp uge i64 %.sroa.0.0.sroa.speculated.i17.i, %2
   tail call void @llvm.assume(i1 %14)
   %15 = tail call noundef align 8 ptr @__rust_realloc(ptr noundef nonnull %12, i64 noundef %13, i64 noundef range(i64 1, 9) 8, i64 noundef %8) #20, !noalias !547
   br label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$4grow17h8fe1967c46a2f3c3E.exit.i.i"
@@ -10533,7 +10527,7 @@ define hidden void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$8grow_one17h5792db713
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %12 = load ptr, ptr %11, align 8, !alias.scope !554, !noalias !557, !nonnull !5, !noundef !5
   %13 = shl nuw i64 %2, 4
-  %14 = icmp uge i64 %8, %13
+  %14 = icmp uge i64 %.sroa.0.0.sroa.speculated.i17.i, %2
   tail call void @llvm.assume(i1 %14)
   %15 = tail call noundef align 8 ptr @__rust_realloc(ptr noundef nonnull %12, i64 noundef %13, i64 noundef range(i64 1, 9) 8, i64 noundef %8) #20, !noalias !559
   br label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$4grow17h8fe1967c46a2f3c3E.exit.i.i"
@@ -10643,7 +10637,7 @@ define hidden void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$8grow_one17h5875ca57a
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %12 = load ptr, ptr %11, align 8, !alias.scope !578, !noalias !581, !nonnull !5, !noundef !5
   %13 = shl nuw i64 %2, 5
-  %14 = icmp uge i64 %8, %13
+  %14 = icmp uge i64 %.sroa.0.0.sroa.speculated.i17.i, %2
   tail call void @llvm.assume(i1 %14)
   %15 = tail call noundef align 8 ptr @__rust_realloc(ptr noundef nonnull %12, i64 noundef %13, i64 noundef range(i64 1, 9) 8, i64 noundef %8) #20, !noalias !583
   br label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$4grow17h8fe1967c46a2f3c3E.exit.i.i"
@@ -10698,7 +10692,7 @@ define hidden void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$8grow_one17h6246a8c0b
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %12 = load ptr, ptr %11, align 8, !alias.scope !590, !noalias !593, !nonnull !5, !noundef !5
   %13 = shl nuw i64 %2, 5
-  %14 = icmp uge i64 %8, %13
+  %14 = icmp uge i64 %.sroa.0.0.sroa.speculated.i17.i, %2
   tail call void @llvm.assume(i1 %14)
   %15 = tail call noundef align 8 ptr @__rust_realloc(ptr noundef nonnull %12, i64 noundef %13, i64 noundef range(i64 1, 9) 8, i64 noundef %8) #20, !noalias !595
   br label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$4grow17h8fe1967c46a2f3c3E.exit.i.i"
@@ -10808,7 +10802,7 @@ define hidden void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$8grow_one17h71ac2cdfc
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %12 = load ptr, ptr %11, align 8, !alias.scope !614, !noalias !617, !nonnull !5, !noundef !5
   %13 = shl nuw i64 %2, 5
-  %14 = icmp uge i64 %8, %13
+  %14 = icmp uge i64 %.sroa.0.0.sroa.speculated.i17.i, %2
   tail call void @llvm.assume(i1 %14)
   %15 = tail call noundef align 8 ptr @__rust_realloc(ptr noundef nonnull %12, i64 noundef %13, i64 noundef range(i64 1, 9) 8, i64 noundef %8) #20, !noalias !619
   br label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$4grow17h8fe1967c46a2f3c3E.exit.i.i"
@@ -10973,7 +10967,7 @@ define hidden void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$8grow_one17ha0094efc3
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %12 = load ptr, ptr %11, align 8, !alias.scope !650, !noalias !653, !nonnull !5, !noundef !5
   %13 = shl nuw i64 %2, 3
-  %14 = icmp uge i64 %8, %13
+  %14 = icmp uge i64 %.sroa.0.0.sroa.speculated.i17.i, %2
   tail call void @llvm.assume(i1 %14)
   %15 = tail call noundef align 8 ptr @__rust_realloc(ptr noundef nonnull %12, i64 noundef %13, i64 noundef range(i64 1, 9) 8, i64 noundef %8) #20, !noalias !655
   br label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$4grow17h8fe1967c46a2f3c3E.exit.i.i"
@@ -11028,7 +11022,7 @@ define hidden void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$8grow_one17hbee2f0fea
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %12 = load ptr, ptr %11, align 8, !alias.scope !662, !noalias !665, !nonnull !5, !noundef !5
   %13 = shl nuw i64 %2, 4
-  %14 = icmp uge i64 %8, %13
+  %14 = icmp uge i64 %.sroa.0.0.sroa.speculated.i17.i, %2
   tail call void @llvm.assume(i1 %14)
   %15 = tail call noundef align 8 ptr @__rust_realloc(ptr noundef nonnull %12, i64 noundef %13, i64 noundef range(i64 1, 9) 8, i64 noundef %8) #20, !noalias !667
   br label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$4grow17h8fe1967c46a2f3c3E.exit.i.i"
@@ -11083,7 +11077,7 @@ define hidden void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$8grow_one17hcc98b3703
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %12 = load ptr, ptr %11, align 8, !alias.scope !674, !noalias !677, !nonnull !5, !noundef !5
   %13 = shl nuw i64 %2, 6
-  %14 = icmp uge i64 %8, %13
+  %14 = icmp uge i64 %.sroa.0.0.sroa.speculated.i17.i, %2
   tail call void @llvm.assume(i1 %14)
   %15 = tail call noundef align 8 ptr @__rust_realloc(ptr noundef nonnull %12, i64 noundef %13, i64 noundef range(i64 1, 9) 8, i64 noundef %8) #20, !noalias !679
   br label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$4grow17h8fe1967c46a2f3c3E.exit.i.i"
@@ -11138,7 +11132,7 @@ define hidden void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$8grow_one17hcf7a676ea
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %12 = load ptr, ptr %11, align 8, !alias.scope !686, !noalias !689, !nonnull !5, !noundef !5
   %13 = shl nuw i64 %2, 4
-  %14 = icmp uge i64 %8, %13
+  %14 = icmp uge i64 %.sroa.0.0.sroa.speculated.i17.i, %2
   tail call void @llvm.assume(i1 %14)
   %15 = tail call noundef align 8 ptr @__rust_realloc(ptr noundef nonnull %12, i64 noundef %13, i64 noundef range(i64 1, 9) 8, i64 noundef %8) #20, !noalias !691
   br label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$4grow17h8fe1967c46a2f3c3E.exit.i.i"
@@ -11193,7 +11187,7 @@ define hidden void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$8grow_one17hd85cdf9b3
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %12 = load ptr, ptr %11, align 8, !alias.scope !698, !noalias !701, !nonnull !5, !noundef !5
   %13 = shl nuw i64 %2, 4
-  %14 = icmp uge i64 %8, %13
+  %14 = icmp uge i64 %.sroa.0.0.sroa.speculated.i17.i, %2
   tail call void @llvm.assume(i1 %14)
   %15 = tail call noundef align 8 ptr @__rust_realloc(ptr noundef nonnull %12, i64 noundef %13, i64 noundef range(i64 1, 9) 8, i64 noundef %8) #20, !noalias !703
   br label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$4grow17h8fe1967c46a2f3c3E.exit.i.i"
@@ -11248,7 +11242,7 @@ define hidden void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$8grow_one17hf5b68c669
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %12 = load ptr, ptr %11, align 8, !alias.scope !710, !noalias !713, !nonnull !5, !noundef !5
   %13 = shl nuw i64 %2, 4
-  %14 = icmp uge i64 %8, %13
+  %14 = icmp uge i64 %.sroa.0.0.sroa.speculated.i17.i, %2
   tail call void @llvm.assume(i1 %14)
   %15 = tail call noundef align 8 ptr @__rust_realloc(ptr noundef nonnull %12, i64 noundef %13, i64 noundef range(i64 1, 9) 8, i64 noundef %8) #20, !noalias !715
   br label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$4grow17h8fe1967c46a2f3c3E.exit.i.i"
@@ -11356,7 +11350,7 @@ define hidden void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$8grow_one17hfb8ad15de
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %12 = load ptr, ptr %11, align 8, !alias.scope !734, !noalias !737, !nonnull !5, !noundef !5
   %13 = shl nuw i64 %2, 5
-  %14 = icmp uge i64 %8, %13
+  %14 = icmp uge i64 %.sroa.0.0.sroa.speculated.i17.i, %2
   tail call void @llvm.assume(i1 %14)
   %15 = tail call noundef align 8 ptr @__rust_realloc(ptr noundef nonnull %12, i64 noundef %13, i64 noundef range(i64 1, 9) 8, i64 noundef %8) #20, !noalias !739
   br label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$4grow17h8fe1967c46a2f3c3E.exit.i.i"

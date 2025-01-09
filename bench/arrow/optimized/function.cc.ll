@@ -9414,18 +9414,18 @@ entry:
   %sub.ptr.lhs.cast.i = ptrtoint ptr %2 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %3 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %sub.ptr.div.i = sdiv exact i64 %sub.ptr.sub.i, 24
   %_M_finish.i38 = getelementptr inbounds nuw i8, ptr %args, i64 8
   %4 = load ptr, ptr %_M_finish.i38, align 8
   %5 = load ptr, ptr %args, align 8
   %sub.ptr.lhs.cast.i39 = ptrtoint ptr %4 to i64
   %sub.ptr.rhs.cast.i40 = ptrtoint ptr %5 to i64
   %sub.ptr.sub.i41 = sub i64 %sub.ptr.lhs.cast.i39, %sub.ptr.rhs.cast.i40
-  %sub.ptr.div.i42 = sdiv exact i64 %sub.ptr.sub.i41, 24
-  %cmp.not = icmp eq i64 %sub.ptr.div.i, %sub.ptr.div.i42
+  %cmp.not = icmp eq i64 %sub.ptr.sub.i, %sub.ptr.sub.i41
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
+  %sub.ptr.div.i42 = sdiv exact i64 %sub.ptr.sub.i41, 24
+  %sub.ptr.div.i = sdiv exact i64 %sub.ptr.sub.i, 24
   store i64 %sub.ptr.div.i, ptr %ref.tmp6, align 8
   store i64 %sub.ptr.div.i42, ptr %ref.tmp9, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i.i), !noalias !167
@@ -9567,7 +9567,6 @@ _ZN5arrow6StatusD2Ev.exit88.if.end24_crit_edge:   ; preds = %_ZN5arrow6StatusD2E
   %.pre516 = ptrtoint ptr %.pre to i64
   %.pre517 = ptrtoint ptr %.pre511 to i64
   %.pre518 = sub i64 %.pre516, %.pre517
-  %.pre519 = sdiv exact i64 %.pre518, 24
   br label %if.end24
 
 if.then20:                                        ; preds = %_ZN5arrow6StatusD2Ev.exit88
@@ -9658,13 +9657,13 @@ _ZN5arrow6Status11DeleteStateEv.exit.i103:        ; preds = %if.end8.sink.split.
   br label %cleanup160
 
 if.end24:                                         ; preds = %_ZN5arrow6StatusD2Ev.exit88.if.end24_crit_edge, %if.end
-  %sub.ptr.div.i165.pre-phi = phi i64 [ %.pre519, %_ZN5arrow6StatusD2Ev.exit88.if.end24_crit_edge ], [ %sub.ptr.div.i42, %if.end ]
   %sub.ptr.sub.i164.pre-phi = phi i64 [ %.pre518, %_ZN5arrow6StatusD2Ev.exit88.if.end24_crit_edge ], [ %sub.ptr.sub.i41, %if.end ]
   %35 = phi ptr [ %.pre511, %_ZN5arrow6StatusD2Ev.exit88.if.end24_crit_edge ], [ %5, %if.end ]
   %36 = phi ptr [ %.pre, %_ZN5arrow6StatusD2Ev.exit88.if.end24_crit_edge ], [ %4, %if.end ]
   %kernel_ctx = getelementptr inbounds nuw i8, ptr %this, i64 40
   %37 = load ptr, ptr %kernel_ctx, align 8
-  %cmp.i.i = icmp ugt i64 %sub.ptr.div.i165.pre-phi, 384307168202282325
+  %sub.ptr.div.i165 = sdiv exact i64 %sub.ptr.sub.i164.pre-phi, 24
+  %cmp.i.i = icmp ugt i64 %sub.ptr.div.i165, 384307168202282325
   br i1 %cmp.i.i, label %if.then.i.i, label %_ZNSt6vectorIN5arrow5DatumESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i
 
 if.then.i.i:                                      ; preds = %if.end24
@@ -9680,7 +9679,7 @@ _ZNSt6vectorIN5arrow5DatumESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i: ; preds = 
   br i1 %cmp.not.i.i.i.i, label %invoke.cont30.thread, label %for.body.preheader.i.i.i.i.i
 
 invoke.cont30.thread:                             ; preds = %_ZNSt6vectorIN5arrow5DatumESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i
-  %_M_finish.i.i7.i521 = getelementptr inbounds nuw i8, ptr %args_with_cast, i64 8
+  %_M_finish.i.i7.i520 = getelementptr inbounds nuw i8, ptr %args_with_cast, i64 8
   br label %for.end
 
 for.body.preheader.i.i.i.i.i:                     ; preds = %_ZNSt6vectorIN5arrow5DatumESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i
@@ -10365,7 +10364,7 @@ for.end.loopexit:                                 ; preds = %_ZN5arrow5DatumD2Ev
   br label %for.end
 
 for.end:                                          ; preds = %invoke.cont30.thread, %for.end.loopexit
-  %_M_finish.i.i7.i523 = phi ptr [ %_M_finish.i.i7.i, %for.end.loopexit ], [ %_M_finish.i.i7.i521, %invoke.cont30.thread ]
+  %_M_finish.i.i7.i522 = phi ptr [ %_M_finish.i.i7.i, %for.end.loopexit ], [ %_M_finish.i.i7.i520, %invoke.cont30.thread ]
   %138 = phi ptr [ %.pre515, %for.end.loopexit ], [ null, %invoke.cont30.thread ]
   %139 = phi ptr [ %.pre514, %for.end.loopexit ], [ null, %invoke.cont30.thread ]
   %140 = phi ptr [ %129, %for.end.loopexit ], [ null, %invoke.cont30.thread ]
@@ -10848,9 +10847,9 @@ ehcleanup157:                                     ; preds = %ehcleanup155, %lpad
   br label %ehcleanup159
 
 cleanup158:                                       ; preds = %if.then.i.i.i.i474, %invoke.cont.i.i, %_ZN5arrow5DatumD2Ev.exit296
-  %_M_finish.i.i7.i522 = phi ptr [ %_M_finish.i.i7.i523, %if.then.i.i.i.i474 ], [ %_M_finish.i.i7.i523, %invoke.cont.i.i ], [ %_M_finish.i.i7.i, %_ZN5arrow5DatumD2Ev.exit296 ]
+  %_M_finish.i.i7.i521 = phi ptr [ %_M_finish.i.i7.i522, %if.then.i.i.i.i474 ], [ %_M_finish.i.i7.i522, %invoke.cont.i.i ], [ %_M_finish.i.i7.i, %_ZN5arrow5DatumD2Ev.exit296 ]
   %202 = load ptr, ptr %args_with_cast, align 8
-  %203 = load ptr, ptr %_M_finish.i.i7.i522, align 8
+  %203 = load ptr, ptr %_M_finish.i.i7.i521, align 8
   %cmp.not3.i.i.i.i477 = icmp eq ptr %202, %203
   br i1 %cmp.not3.i.i.i.i477, label %invoke.cont.i487, label %for.body.i.i.i.i478
 

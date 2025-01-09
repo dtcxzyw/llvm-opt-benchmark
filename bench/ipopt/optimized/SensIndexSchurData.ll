@@ -1076,36 +1076,36 @@ define void @_ZN5Ipopt14IndexSchurData12SetData_ListERKSt6vectorIiSaIiEEd(ptr no
   %10 = ptrtoint ptr %8 to i64
   %11 = ptrtoint ptr %9 to i64
   %12 = sub i64 %10, %11
-  %13 = ashr exact i64 %12, 2
-  %14 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %15 = load ptr, ptr %14, align 8
-  %16 = load ptr, ptr %6, align 8
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %14 = load ptr, ptr %13, align 8
+  %15 = load ptr, ptr %6, align 8
+  %16 = ptrtoint ptr %14 to i64
   %17 = ptrtoint ptr %15 to i64
-  %18 = ptrtoint ptr %16 to i64
-  %19 = sub i64 %17, %18
-  %20 = ashr exact i64 %19, 2
-  %21 = icmp ugt i64 %13, %20
-  br i1 %21, label %22, label %24
+  %18 = sub i64 %16, %17
+  %19 = icmp ugt i64 %12, %18
+  br i1 %19, label %20, label %24
 
-22:                                               ; preds = %3
-  %23 = sub nuw nsw i64 %13, %20
-  call void @_ZNSt6vectorIiSaIiEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPiS1_EEmRKi(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr %15, i64 noundef %23, ptr noundef nonnull align 4 dereferenceable(4) %4)
+20:                                               ; preds = %3
+  %21 = ashr exact i64 %12, 2
+  %22 = ashr exact i64 %18, 2
+  %23 = sub nuw nsw i64 %21, %22
+  call void @_ZNSt6vectorIiSaIiEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPiS1_EEmRKi(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr %14, i64 noundef %23, ptr noundef nonnull align 4 dereferenceable(4) %4)
   br label %_ZNSt6vectorIiSaIiEE6resizeEmRKi.exit
 
 24:                                               ; preds = %3
-  %25 = icmp ult i64 %13, %20
+  %25 = icmp ult i64 %12, %18
   br i1 %25, label %26, label %_ZNSt6vectorIiSaIiEE6resizeEmRKi.exit
 
 26:                                               ; preds = %24
-  %27 = getelementptr inbounds i8, ptr %16, i64 %12
-  %.not.i.i = icmp eq ptr %15, %27
+  %27 = getelementptr inbounds i8, ptr %15, i64 %12
+  %.not.i.i = icmp eq ptr %14, %27
   br i1 %.not.i.i, label %_ZNSt6vectorIiSaIiEE6resizeEmRKi.exit, label %28
 
 28:                                               ; preds = %26
-  store ptr %27, ptr %14, align 8
+  store ptr %27, ptr %13, align 8
   br label %_ZNSt6vectorIiSaIiEE6resizeEmRKi.exit
 
-_ZNSt6vectorIiSaIiEE6resizeEmRKi.exit:            ; preds = %22, %24, %26, %28
+_ZNSt6vectorIiSaIiEE6resizeEmRKi.exit:            ; preds = %20, %24, %26, %28
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %30 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIiSaIiEEaSERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %29, ptr noundef nonnull align 8 dereferenceable(24) %1)
   %31 = load ptr, ptr %0, align 8

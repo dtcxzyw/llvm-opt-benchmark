@@ -953,8 +953,7 @@ if.end:                                           ; preds = %entry
   %sub.ptr.lhs.cast.i.i13 = ptrtoint ptr %6 to i64
   %sub.ptr.rhs.cast.i.i14 = ptrtoint ptr %7 to i64
   %sub.ptr.sub.i.i15 = sub i64 %sub.ptr.lhs.cast.i.i13, %sub.ptr.rhs.cast.i.i14
-  %sub.ptr.div.i.i16 = ashr exact i64 %sub.ptr.sub.i.i15, 3
-  %cmp.not = icmp eq i64 %sub.ptr.div.i.i, %sub.ptr.div.i.i16
+  %cmp.not = icmp eq i64 %sub.ptr.sub.i.i, %sub.ptr.sub.i.i15
   br i1 %cmp.not, label %for.cond.preheader, label %if.then9
 
 for.cond.preheader:                               ; preds = %if.end
@@ -966,7 +965,7 @@ for.body.preheader:                               ; preds = %for.cond.preheader
   br label %for.body
 
 if.then9:                                         ; preds = %if.end
-  %cmp12 = icmp ult i64 %sub.ptr.div.i.i, %sub.ptr.div.i.i16
+  %cmp12 = icmp ult i64 %sub.ptr.sub.i.i, %sub.ptr.sub.i.i15
   %cond13 = select i1 %cmp12, i32 -1, i32 1
   br label %return
 
@@ -1175,7 +1174,7 @@ entry:
   br i1 %cmp14, label %if.then, label %if.end17
 
 if.then:                                          ; preds = %entry
-  %cmp15.not = icmp eq i64 %sub.ptr.div.i.i, %sub.ptr.div.i.i16
+  %cmp15.not = icmp eq i64 %sub.ptr.sub.i.i, %sub.ptr.sub.i.i15
   br i1 %cmp15.not, label %if.end17, label %return
 
 if.end17:                                         ; preds = %if.then, %entry
@@ -1224,7 +1223,7 @@ entry:
   br i1 %cmp14, label %if.then, label %if.end17
 
 if.then:                                          ; preds = %entry
-  %cmp15.not = icmp eq i64 %sub.ptr.div.i.i, %sub.ptr.div.i.i17
+  %cmp15.not = icmp eq i64 %sub.ptr.sub.i.i, %sub.ptr.sub.i.i16
   br i1 %cmp15.not, label %if.end17, label %return
 
 if.end17:                                         ; preds = %if.then, %entry
@@ -1792,7 +1791,6 @@ entry:
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
-  %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i.i, 3
   %d_seq.i8 = getelementptr inbounds nuw i8, ptr %y, i64 8
   %_M_finish.i.i9 = getelementptr inbounds nuw i8, ptr %y, i64 16
   %2 = load ptr, ptr %_M_finish.i.i9, align 8
@@ -1801,10 +1799,11 @@ entry:
   %sub.ptr.rhs.cast.i.i11 = ptrtoint ptr %3 to i64
   %sub.ptr.sub.i.i12 = sub i64 %sub.ptr.lhs.cast.i.i10, %sub.ptr.rhs.cast.i.i11
   %sub.ptr.div.i.i13 = ashr exact i64 %sub.ptr.sub.i.i12, 3
-  %cmp = icmp ugt i64 %sub.ptr.div.i.i13, %sub.ptr.div.i.i
+  %cmp = icmp ugt i64 %sub.ptr.sub.i.i12, %sub.ptr.sub.i.i
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
+  %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i.i, 3
   %sub = sub nuw nsw i64 %sub.ptr.div.i.i, %sub.ptr.div.i.i13
   %invariant.gep = getelementptr %"class.cvc5::internal::NodeTemplate", ptr %1, i64 %sub
   %cmp317.not = icmp eq ptr %2, %3
@@ -3030,8 +3029,7 @@ if.then:                                          ; preds = %entry
 if.then9:                                         ; preds = %if.then
   %sub.ptr.rhs.cast.i = ptrtoint ptr %__position.coerce to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.rhs.cast, %sub.ptr.rhs.cast.i
-  %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 3
-  %cmp15 = icmp ugt i64 %sub.ptr.div.i, %sub.ptr.div.i.i.i
+  %cmp15 = icmp ugt i64 %sub.ptr.sub.i, %sub.ptr.sub.i.i.i
   br i1 %cmp15, label %if.then16, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN4cvc58internal12NodeTemplateILb1EEESt6vectorIS5_SaIS5_EEEEmEvRT_T0_.exit
 
 if.then16:                                        ; preds = %if.then9
@@ -3178,6 +3176,7 @@ _ZN4cvc58internal12NodeTemplateILb1EEaSERKS2_.exit.i.i.i.i.i52: ; preds = %if.th
   br i1 %cmp.i.i.i.i.i56, label %for.body.i.i.i.i.i34, label %if.end109, !llvm.loop !6
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN4cvc58internal12NodeTemplateILb1EEESt6vectorIS5_SaIS5_EEEEmEvRT_T0_.exit: ; preds = %if.then9
+  %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 3
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__first.coerce, i64 %sub.ptr.sub.i
   %call.i.i.i = tail call noundef ptr @_ZSt16__do_uninit_copyIN9__gnu_cxx17__normal_iteratorIPKN4cvc58internal12NodeTemplateILb1EEESt6vectorIS5_SaIS5_EEEEPS5_ET0_T_SE_SD_(ptr %incdec.ptr.i.i.i, ptr %__last.coerce, ptr noundef %1)
   %sub = sub nuw nsw i64 %sub.ptr.div.i.i.i, %sub.ptr.div.i

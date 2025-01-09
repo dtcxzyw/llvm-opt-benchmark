@@ -729,7 +729,6 @@ invoke.cont5:                                     ; preds = %invoke.cont3
   %sub.ptr.lhs.cast.i26 = ptrtoint ptr %2 to i64
   %sub.ptr.rhs.cast.i27 = ptrtoint ptr %3 to i64
   %sub.ptr.sub.i28 = sub i64 %sub.ptr.lhs.cast.i26, %sub.ptr.rhs.cast.i27
-  %sub.ptr.div.i29 = ashr exact i64 %sub.ptr.sub.i28, 5
   %cmp = icmp eq ptr %0, %1
   %cmp7 = icmp eq ptr %2, %3
   %or.cond = or i1 %cmp, %cmp7
@@ -770,7 +769,7 @@ lpad10:                                           ; preds = %if.end24
   br label %ehcleanup
 
 if.end15:                                         ; preds = %land.lhs.true, %if.end
-  %cmp16 = icmp ugt i64 %sub.ptr.div.i29, 1
+  %cmp16 = icmp ugt i64 %sub.ptr.sub.i28, 32
   br i1 %cmp16, label %land.lhs.true17, label %if.end24
 
 land.lhs.true17:                                  ; preds = %if.end15
@@ -879,7 +878,7 @@ if.end.i.i54:                                     ; preds = %land.rhs.i49
   br label %cleanup
 
 if.end47:                                         ; preds = %if.end38
-  %cmp48.not = icmp eq i64 %sub.ptr.div.i, %sub.ptr.div.i29
+  %cmp48.not = icmp eq i64 %sub.ptr.sub.i, %sub.ptr.sub.i28
   br i1 %cmp48.not, label %for.body.lr.ph, label %cleanup
 
 for.body.lr.ph:                                   ; preds = %if.end47

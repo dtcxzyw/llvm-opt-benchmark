@@ -6394,24 +6394,24 @@ if.end94:                                         ; preds = %_ZNSt6vectorImSaImE
   %sub.ptr.lhs.cast.i417 = ptrtoint ptr %84 to i64
   %sub.ptr.rhs.cast.i418 = ptrtoint ptr %83 to i64
   %sub.ptr.sub.i419 = sub i64 %sub.ptr.lhs.cast.i417, %sub.ptr.rhs.cast.i418
-  %sub.ptr.div.i420 = ashr exact i64 %sub.ptr.sub.i419, 3
   store i64 0, ptr %ref.tmp96, align 8
   %85 = load ptr, ptr %_M_finish.i.i339, align 8
   %86 = load ptr, ptr %out_samples_size, align 8
   %sub.ptr.lhs.cast.i.i422 = ptrtoint ptr %85 to i64
   %sub.ptr.rhs.cast.i.i423 = ptrtoint ptr %86 to i64
   %sub.ptr.sub.i.i424 = sub i64 %sub.ptr.lhs.cast.i.i422, %sub.ptr.rhs.cast.i.i423
-  %sub.ptr.div.i.i425 = ashr exact i64 %sub.ptr.sub.i.i424, 3
-  %cmp.i426 = icmp ugt i64 %sub.ptr.div.i420, %sub.ptr.div.i.i425
+  %cmp.i426 = icmp ugt i64 %sub.ptr.sub.i419, %sub.ptr.sub.i.i424
   br i1 %cmp.i426, label %if.then.i431, label %if.else.i427
 
 if.then.i431:                                     ; preds = %if.end94
+  %sub.ptr.div.i420 = ashr exact i64 %sub.ptr.sub.i419, 3
+  %sub.ptr.div.i.i425 = ashr exact i64 %sub.ptr.sub.i.i424, 3
   %sub.i432 = sub nuw nsw i64 %sub.ptr.div.i420, %sub.ptr.div.i.i425
   invoke void @_ZNSt6vectorImSaImEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPmS1_EEmRKm(ptr noundef nonnull align 8 dereferenceable(24) %out_samples_size, ptr %85, i64 noundef %sub.i432, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp96)
           to label %invoke.cont97 unwind label %lpad81.loopexit.split-lp
 
 if.else.i427:                                     ; preds = %if.end94
-  %cmp6.i = icmp ult i64 %sub.ptr.div.i420, %sub.ptr.div.i.i425
+  %cmp6.i = icmp ult i64 %sub.ptr.sub.i419, %sub.ptr.sub.i.i424
   br i1 %cmp6.i, label %if.then7.i, label %invoke.cont97
 
 if.then7.i:                                       ; preds = %if.else.i427
@@ -11141,7 +11141,7 @@ if.then9:                                         ; preds = %if.then
   %sub.ptr.rhs.cast.i = ptrtoint ptr %__position.coerce to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.rhs.cast, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 2
-  %cmp15 = icmp ugt i64 %sub.ptr.div.i, %sub.ptr.div.i.i.i
+  %cmp15 = icmp ugt i64 %sub.ptr.sub.i, %sub.ptr.sub.i.i.i
   br i1 %cmp15, label %_ZSt22__uninitialized_move_aIPiS0_SaIiEET0_T_S3_S2_RT1_.exit, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEmEvRT_T0_.exit
 
 _ZSt22__uninitialized_move_aIPiS0_SaIiEET0_T_S3_S2_RT1_.exit: ; preds = %if.then9

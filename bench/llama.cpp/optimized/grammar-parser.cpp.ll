@@ -625,7 +625,7 @@ while.body21:                                     ; preds = %if.then11, %if.end4
   %sub.ptr.rhs.cast.i89 = ptrtoint ptr %25 to i64
   %sub.ptr.sub.i90 = sub i64 %sub.ptr.lhs.cast.i88, %sub.ptr.rhs.cast.i89
   %sub.ptr.div.i91 = ashr exact i64 %sub.ptr.sub.i90, 3
-  %cmp27 = icmp ult i64 %sub.ptr.div.i86, %sub.ptr.div.i91
+  %cmp27 = icmp ult i64 %sub.ptr.sub.i85, %sub.ptr.sub.i90
   %cond = select i1 %cmp27, i32 6, i32 %spec.select
   %26 = load ptr, ptr %_M_end_of_storage.i.i93, align 8
   %cmp.not.i.i94 = icmp eq ptr %24, %26
@@ -4648,7 +4648,7 @@ if.then9:                                         ; preds = %if.then
   %sub.ptr.rhs.cast.i = ptrtoint ptr %__position.coerce to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.rhs.cast, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 3
-  %cmp15 = icmp ugt i64 %sub.ptr.div.i, %sub.ptr.div.i.i.i
+  %cmp15 = icmp ugt i64 %sub.ptr.sub.i, %sub.ptr.sub.i.i.i
   br i1 %cmp15, label %_ZSt22__uninitialized_move_aIP21llama_grammar_elementS1_SaIS0_EET0_T_S4_S3_RT1_.exit, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIP21llama_grammar_elementSt6vectorIS2_SaIS2_EEEEmEvRT_T0_.exit
 
 _ZSt22__uninitialized_move_aIP21llama_grammar_elementS1_SaIS0_EET0_T_S4_S3_RT1_.exit: ; preds = %if.then9

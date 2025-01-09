@@ -3134,18 +3134,18 @@ invoke.cont215:                                   ; preds = %invoke.cont205
   %sub.ptr.lhs.cast.i314 = ptrtoint ptr %206 to i64
   %sub.ptr.rhs.cast.i315 = ptrtoint ptr %207 to i64
   %sub.ptr.sub.i316 = sub i64 %sub.ptr.lhs.cast.i314, %sub.ptr.rhs.cast.i315
-  %sub.ptr.div.i317 = ashr exact i64 %sub.ptr.sub.i316, 3
   %_M_finish.i.i318 = getelementptr inbounds nuw i8, ptr %this, i64 256
   %208 = load ptr, ptr %_M_finish.i.i318, align 8, !tbaa !147
   %209 = load ptr, ptr %dT_, align 8, !tbaa !148
   %sub.ptr.lhs.cast.i.i319 = ptrtoint ptr %208 to i64
   %sub.ptr.rhs.cast.i.i320 = ptrtoint ptr %209 to i64
   %sub.ptr.sub.i.i321 = sub i64 %sub.ptr.lhs.cast.i.i319, %sub.ptr.rhs.cast.i.i320
-  %sub.ptr.div.i.i322 = ashr exact i64 %sub.ptr.sub.i.i321, 3
-  %cmp.i323 = icmp ugt i64 %sub.ptr.div.i317, %sub.ptr.div.i.i322
+  %cmp.i323 = icmp ugt i64 %sub.ptr.sub.i316, %sub.ptr.sub.i.i321
   br i1 %cmp.i323, label %if.then.i327, label %if.else.i324
 
 if.then.i327:                                     ; preds = %invoke.cont215
+  %sub.ptr.div.i317 = ashr exact i64 %sub.ptr.sub.i316, 3
+  %sub.ptr.div.i.i322 = ashr exact i64 %sub.ptr.sub.i.i321, 3
   %sub.i = sub nuw nsw i64 %sub.ptr.div.i317, %sub.ptr.div.i.i322
   invoke void @_ZNSt6vectorIdSaIdEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %dT_, i64 noundef %sub.i)
           to label %if.then.i327.invoke.cont219_crit_edge unwind label %lpad39
@@ -3156,11 +3156,10 @@ if.then.i327.invoke.cont219_crit_edge:            ; preds = %if.then.i327
   %.pre1030 = ptrtoint ptr %.pre1025 to i64
   %.pre1031 = ptrtoint ptr %.pre1026 to i64
   %.pre1032 = sub i64 %.pre1030, %.pre1031
-  %.pre1033 = ashr exact i64 %.pre1032, 3
   br label %invoke.cont219
 
 if.else.i324:                                     ; preds = %invoke.cont215
-  %cmp4.i = icmp ult i64 %sub.ptr.div.i317, %sub.ptr.div.i.i322
+  %cmp4.i = icmp ult i64 %sub.ptr.sub.i316, %sub.ptr.sub.i.i321
   br i1 %cmp4.i, label %if.then5.i, label %invoke.cont219
 
 if.then5.i:                                       ; preds = %if.else.i324
@@ -3173,7 +3172,6 @@ invoke.cont.i.i:                                  ; preds = %if.then5.i
   br label %invoke.cont219
 
 invoke.cont219:                                   ; preds = %if.then.i327.invoke.cont219_crit_edge, %invoke.cont.i.i, %if.then5.i, %if.else.i324
-  %sub.ptr.div.i333.pre-phi = phi i64 [ %.pre1033, %if.then.i327.invoke.cont219_crit_edge ], [ %sub.ptr.div.i317, %invoke.cont.i.i ], [ %sub.ptr.div.i317, %if.then5.i ], [ %sub.ptr.div.i317, %if.else.i324 ]
   %sub.ptr.sub.i332.pre-phi = phi i64 [ %.pre1032, %if.then.i327.invoke.cont219_crit_edge ], [ %sub.ptr.sub.i316, %invoke.cont.i.i ], [ %sub.ptr.sub.i316, %if.then5.i ], [ %sub.ptr.sub.i316, %if.else.i324 ]
   %_M_finish.i.i334 = getelementptr inbounds nuw i8, ptr %this, i64 232
   %210 = load ptr, ptr %_M_finish.i.i334, align 8, !tbaa !147
@@ -3181,17 +3179,18 @@ invoke.cont219:                                   ; preds = %if.then.i327.invoke
   %sub.ptr.lhs.cast.i.i335 = ptrtoint ptr %210 to i64
   %sub.ptr.rhs.cast.i.i336 = ptrtoint ptr %211 to i64
   %sub.ptr.sub.i.i337 = sub i64 %sub.ptr.lhs.cast.i.i335, %sub.ptr.rhs.cast.i.i336
-  %sub.ptr.div.i.i338 = ashr exact i64 %sub.ptr.sub.i.i337, 3
-  %cmp.i339 = icmp ugt i64 %sub.ptr.div.i333.pre-phi, %sub.ptr.div.i.i338
+  %cmp.i339 = icmp ugt i64 %sub.ptr.sub.i332.pre-phi, %sub.ptr.sub.i.i337
   br i1 %cmp.i339, label %if.then.i346, label %if.else.i340
 
 if.then.i346:                                     ; preds = %invoke.cont219
-  %sub.i347 = sub nuw nsw i64 %sub.ptr.div.i333.pre-phi, %sub.ptr.div.i.i338
+  %sub.ptr.div.i333 = ashr exact i64 %sub.ptr.sub.i332.pre-phi, 3
+  %sub.ptr.div.i.i338 = ashr exact i64 %sub.ptr.sub.i.i337, 3
+  %sub.i347 = sub nuw nsw i64 %sub.ptr.div.i333, %sub.ptr.div.i.i338
   invoke void @_ZNSt6vectorIdSaIdEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %expiryTimes_, i64 noundef %sub.i347)
           to label %invoke.cont223 unwind label %lpad39
 
 if.else.i340:                                     ; preds = %invoke.cont219
-  %cmp4.i341 = icmp ult i64 %sub.ptr.div.i333.pre-phi, %sub.ptr.div.i.i338
+  %cmp4.i341 = icmp ult i64 %sub.ptr.sub.i332.pre-phi, %sub.ptr.sub.i.i337
   br i1 %cmp4.i341, label %if.then5.i342, label %invoke.cont223
 
 if.then5.i342:                                    ; preds = %if.else.i340
@@ -7167,18 +7166,18 @@ invoke.cont210:                                   ; preds = %invoke.cont200
   %sub.ptr.lhs.cast.i317 = ptrtoint ptr %199 to i64
   %sub.ptr.rhs.cast.i318 = ptrtoint ptr %200 to i64
   %sub.ptr.sub.i319 = sub i64 %sub.ptr.lhs.cast.i317, %sub.ptr.rhs.cast.i318
-  %sub.ptr.div.i320 = ashr exact i64 %sub.ptr.sub.i319, 3
   %_M_finish.i.i321 = getelementptr inbounds nuw i8, ptr %this, i64 256
   %201 = load ptr, ptr %_M_finish.i.i321, align 8, !tbaa !147
   %202 = load ptr, ptr %dT_, align 8, !tbaa !148
   %sub.ptr.lhs.cast.i.i322 = ptrtoint ptr %201 to i64
   %sub.ptr.rhs.cast.i.i323 = ptrtoint ptr %202 to i64
   %sub.ptr.sub.i.i324 = sub i64 %sub.ptr.lhs.cast.i.i322, %sub.ptr.rhs.cast.i.i323
-  %sub.ptr.div.i.i325 = ashr exact i64 %sub.ptr.sub.i.i324, 3
-  %cmp.i326 = icmp ugt i64 %sub.ptr.div.i320, %sub.ptr.div.i.i325
+  %cmp.i326 = icmp ugt i64 %sub.ptr.sub.i319, %sub.ptr.sub.i.i324
   br i1 %cmp.i326, label %if.then.i330, label %if.else.i327
 
 if.then.i330:                                     ; preds = %invoke.cont210
+  %sub.ptr.div.i320 = ashr exact i64 %sub.ptr.sub.i319, 3
+  %sub.ptr.div.i.i325 = ashr exact i64 %sub.ptr.sub.i.i324, 3
   %sub.i = sub nuw nsw i64 %sub.ptr.div.i320, %sub.ptr.div.i.i325
   invoke void @_ZNSt6vectorIdSaIdEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %dT_, i64 noundef %sub.i)
           to label %if.then.i330.invoke.cont214_crit_edge unwind label %lpad37
@@ -7189,11 +7188,10 @@ if.then.i330.invoke.cont214_crit_edge:            ; preds = %if.then.i330
   %.pre1033 = ptrtoint ptr %.pre1028 to i64
   %.pre1034 = ptrtoint ptr %.pre1029 to i64
   %.pre1035 = sub i64 %.pre1033, %.pre1034
-  %.pre1036 = ashr exact i64 %.pre1035, 3
   br label %invoke.cont214
 
 if.else.i327:                                     ; preds = %invoke.cont210
-  %cmp4.i = icmp ult i64 %sub.ptr.div.i320, %sub.ptr.div.i.i325
+  %cmp4.i = icmp ult i64 %sub.ptr.sub.i319, %sub.ptr.sub.i.i324
   br i1 %cmp4.i, label %if.then5.i, label %invoke.cont214
 
 if.then5.i:                                       ; preds = %if.else.i327
@@ -7206,7 +7204,6 @@ invoke.cont.i.i:                                  ; preds = %if.then5.i
   br label %invoke.cont214
 
 invoke.cont214:                                   ; preds = %if.then.i330.invoke.cont214_crit_edge, %invoke.cont.i.i, %if.then5.i, %if.else.i327
-  %sub.ptr.div.i336.pre-phi = phi i64 [ %.pre1036, %if.then.i330.invoke.cont214_crit_edge ], [ %sub.ptr.div.i320, %invoke.cont.i.i ], [ %sub.ptr.div.i320, %if.then5.i ], [ %sub.ptr.div.i320, %if.else.i327 ]
   %sub.ptr.sub.i335.pre-phi = phi i64 [ %.pre1035, %if.then.i330.invoke.cont214_crit_edge ], [ %sub.ptr.sub.i319, %invoke.cont.i.i ], [ %sub.ptr.sub.i319, %if.then5.i ], [ %sub.ptr.sub.i319, %if.else.i327 ]
   %_M_finish.i.i337 = getelementptr inbounds nuw i8, ptr %this, i64 232
   %203 = load ptr, ptr %_M_finish.i.i337, align 8, !tbaa !147
@@ -7214,17 +7211,18 @@ invoke.cont214:                                   ; preds = %if.then.i330.invoke
   %sub.ptr.lhs.cast.i.i338 = ptrtoint ptr %203 to i64
   %sub.ptr.rhs.cast.i.i339 = ptrtoint ptr %204 to i64
   %sub.ptr.sub.i.i340 = sub i64 %sub.ptr.lhs.cast.i.i338, %sub.ptr.rhs.cast.i.i339
-  %sub.ptr.div.i.i341 = ashr exact i64 %sub.ptr.sub.i.i340, 3
-  %cmp.i342 = icmp ugt i64 %sub.ptr.div.i336.pre-phi, %sub.ptr.div.i.i341
+  %cmp.i342 = icmp ugt i64 %sub.ptr.sub.i335.pre-phi, %sub.ptr.sub.i.i340
   br i1 %cmp.i342, label %if.then.i349, label %if.else.i343
 
 if.then.i349:                                     ; preds = %invoke.cont214
-  %sub.i350 = sub nuw nsw i64 %sub.ptr.div.i336.pre-phi, %sub.ptr.div.i.i341
+  %sub.ptr.div.i336 = ashr exact i64 %sub.ptr.sub.i335.pre-phi, 3
+  %sub.ptr.div.i.i341 = ashr exact i64 %sub.ptr.sub.i.i340, 3
+  %sub.i350 = sub nuw nsw i64 %sub.ptr.div.i336, %sub.ptr.div.i.i341
   invoke void @_ZNSt6vectorIdSaIdEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %expiryTimes_, i64 noundef %sub.i350)
           to label %invoke.cont218 unwind label %lpad37
 
 if.else.i343:                                     ; preds = %invoke.cont214
-  %cmp4.i344 = icmp ult i64 %sub.ptr.div.i336.pre-phi, %sub.ptr.div.i.i341
+  %cmp4.i344 = icmp ult i64 %sub.ptr.sub.i335.pre-phi, %sub.ptr.sub.i.i340
   br i1 %cmp4.i344, label %if.then5.i345, label %invoke.cont218
 
 if.then5.i345:                                    ; preds = %if.else.i343

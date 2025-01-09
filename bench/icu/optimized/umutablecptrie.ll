@@ -1665,7 +1665,7 @@ _ZNK6icu_7512_GLOBAL__N_120MutableCodePointTrie3getEi.exit.i.i: ; preds = %if.el
   store i32 %retval.0.i.i.i, ptr %highValue.i103.i, align 4
   %shr.i.i.i = ashr i32 %26, 4
   %cmp12.i.i.i = icmp sgt i32 %shr.i.i.i, 0
-  br i1 %cmp12.i.i.i, label %while.body.lr.ph.i.i.i, label %if.then5.i.i
+  br i1 %cmp12.i.i.i, label %while.body.lr.ph.i.i.i, label %for.body.lr.ph.i107.i
 
 while.body.lr.ph.i.i.i:                           ; preds = %_ZNK6icu_7512_GLOBAL__N_120MutableCodePointTrie3getEi.exit.i.i
   %flags.i33.i.i = getelementptr inbounds nuw i8, ptr %trie, i64 64
@@ -1691,7 +1691,7 @@ if.then.i.i.i:                                    ; preds = %while.body.i.i.i
 
 while.cond.backedge.i.i.i:                        ; preds = %for.cond.i.i.i, %if.then.i.i.i
   %cmp.i.i.i = icmp sgt i64 %indvars.iv19.i.i.i, 1
-  br i1 %cmp.i.i.i, label %while.body.i.i.i, label %if.then5.i.i, !llvm.loop !14
+  br i1 %cmp.i.i.i, label %while.body.i.i.i, label %for.body.lr.ph.i107.i, !llvm.loop !14
 
 if.else.i36.i.i:                                  ; preds = %while.body.i.i.i
   %idx.ext.i.i.i = zext i32 %36 to i64
@@ -1727,16 +1727,12 @@ if.then.i118.i:                                   ; preds = %_ZNK6icu_7512_GLOBA
 if.end.i.i:                                       ; preds = %if.then.i118.i, %_ZNK6icu_7512_GLOBAL__N_120MutableCodePointTrie13findHighStartEv.exit.i.i
   %39 = phi i32 [ %38, %if.then.i118.i ], [ %retval.0.i.i.i, %_ZNK6icu_7512_GLOBAL__N_120MutableCodePointTrie13findHighStartEv.exit.i.i ]
   %cmp4.i117.i = icmp samesign ult i32 %and.i115.i, %cond.i
-  br i1 %cmp4.i117.i, label %if.then5.i.i, label %if.end11.i.i
+  br i1 %cmp4.i117.i, label %for.body.lr.ph.i107.i, label %if.end11.i.i
 
-if.then5.i.i:                                     ; preds = %while.cond.backedge.i.i.i, %if.end.i.i, %_ZNK6icu_7512_GLOBAL__N_120MutableCodePointTrie3getEi.exit.i.i
-  %40 = phi i32 [ %39, %if.end.i.i ], [ %retval.0.i.i.i, %_ZNK6icu_7512_GLOBAL__N_120MutableCodePointTrie3getEi.exit.i.i ], [ %retval.0.i.i.i, %while.cond.backedge.i.i.i ]
-  %and195200.i.i = phi i32 [ %and.i115.i, %if.end.i.i ], [ 0, %_ZNK6icu_7512_GLOBAL__N_120MutableCodePointTrie3getEi.exit.i.i ], [ 0, %while.cond.backedge.i.i.i ]
-  %shr.i104.i = lshr exact i32 %and195200.i.i, 4
-  %cmp6246.i.i = icmp samesign ult i32 %shr.i104.i, %shr.i
-  br i1 %cmp6246.i.i, label %for.body.lr.ph.i107.i, label %if.end11.i.i
-
-for.body.lr.ph.i107.i:                            ; preds = %if.then5.i.i
+for.body.lr.ph.i107.i:                            ; preds = %while.cond.backedge.i.i.i, %if.end.i.i, %_ZNK6icu_7512_GLOBAL__N_120MutableCodePointTrie3getEi.exit.i.i
+  %and195200.i247.i = phi i32 [ 0, %_ZNK6icu_7512_GLOBAL__N_120MutableCodePointTrie3getEi.exit.i.i ], [ %and.i115.i, %if.end.i.i ], [ 0, %while.cond.backedge.i.i.i ]
+  %40 = phi i32 [ %retval.0.i.i.i, %_ZNK6icu_7512_GLOBAL__N_120MutableCodePointTrie3getEi.exit.i.i ], [ %39, %if.end.i.i ], [ %retval.0.i.i.i, %while.cond.backedge.i.i.i ]
+  %shr.i104.i = lshr exact i32 %and195200.i247.i, 4
   %flags.i108.i = getelementptr inbounds nuw i8, ptr %trie, i64 64
   %41 = zext nneg i32 %shr.i104.i to i64
   %wide.trip.count.i109.i = zext nneg i32 %shr.i to i64
@@ -1751,17 +1747,23 @@ for.body.i110.i:                                  ; preds = %for.body.i110.i, %f
   store i32 %40, ptr %arrayidx9.i.i, align 4
   %indvars.iv.next.i113.i = add nuw nsw i64 %indvars.iv.i111.i, 1
   %exitcond.not.i114.i = icmp eq i64 %indvars.iv.next.i113.i, %wide.trip.count.i109.i
-  br i1 %exitcond.not.i114.i, label %if.end11.i.i, label %for.body.i110.i, !llvm.loop !16
+  br i1 %exitcond.not.i114.i, label %if.end11.i.i.loopexit, label %for.body.i110.i, !llvm.loop !16
 
-if.end11.i.i:                                     ; preds = %for.body.i110.i, %if.then5.i.i, %if.end.i.i
-  %43 = phi i32 [ %and.i115.i, %if.end.i.i ], [ %cond.i, %if.then5.i.i ], [ %cond.i, %for.body.i110.i ]
-  %and195199.i.i = phi i32 [ %and.i115.i, %if.end.i.i ], [ %and195200.i.i, %if.then5.i.i ], [ %and195200.i.i, %for.body.i110.i ]
-  store i32 %43, ptr %highStart.i.i.i, align 8
+if.end11.i.i.loopexit:                            ; preds = %for.body.i110.i
+  %data.i52.i.i.phi.trans.insert = getelementptr inbounds nuw i8, ptr %trie, i64 16
+  %.pre = load ptr, ptr %data.i52.i.i.phi.trans.insert, align 8
+  %.pre63 = load ptr, ptr %trie, align 8
+  br label %if.end11.i.i
+
+if.end11.i.i:                                     ; preds = %if.end11.i.i.loopexit, %if.end.i.i
+  %43 = phi ptr [ %33, %if.end.i.i ], [ %.pre63, %if.end11.i.i.loopexit ]
+  %44 = phi ptr [ %32, %if.end.i.i ], [ %.pre, %if.end11.i.i.loopexit ]
+  %45 = phi i32 [ %and.i115.i, %if.end.i.i ], [ %cond.i, %if.end11.i.i.loopexit ]
+  %and195199.i.i = phi i32 [ %and.i115.i, %if.end.i.i ], [ %and195200.i247.i, %if.end11.i.i.loopexit ]
+  store i32 %45, ptr %highStart.i.i.i, align 8
   %flags.i48.i.i = getelementptr inbounds nuw i8, ptr %trie, i64 64
   %data.i52.i.i = getelementptr inbounds nuw i8, ptr %trie, i64 16
-  %44 = load ptr, ptr %data.i52.i.i, align 8
-  %45 = load ptr, ptr %trie, align 8
-  %46 = zext nneg i32 %43 to i64
+  %46 = zext nneg i32 %45 to i64
   br label %if.end.i39.i.i
 
 if.end.i39.i.i:                                   ; preds = %_ZNK6icu_7512_GLOBAL__N_120MutableCodePointTrie3getEi.exit60.i.i, %if.end11.i.i
@@ -1778,12 +1780,12 @@ if.end4.i46.i.i:                                  ; preds = %if.end.i39.i.i
   br i1 %cmp5.i50.i.i, label %if.then6.i57.i.i, label %if.else.i51.i.i
 
 if.then6.i57.i.i:                                 ; preds = %if.end4.i46.i.i
-  %arrayidx8.i58.i.i = getelementptr inbounds nuw i32, ptr %45, i64 %idxprom.i.i.i
+  %arrayidx8.i58.i.i = getelementptr inbounds nuw i32, ptr %43, i64 %idxprom.i.i.i
   br label %_ZNK6icu_7512_GLOBAL__N_120MutableCodePointTrie3getEi.exit60.i.i
 
 if.else.i51.i.i:                                  ; preds = %if.end4.i46.i.i
   %48 = trunc nuw nsw i64 %indvars.iv297.i.i to i32
-  %arrayidx11.i53.i.i = getelementptr inbounds nuw i32, ptr %45, i64 %idxprom.i.i.i
+  %arrayidx11.i53.i.i = getelementptr inbounds nuw i32, ptr %43, i64 %idxprom.i.i.i
   %49 = load i32, ptr %arrayidx11.i53.i.i, align 4
   %and.i.i.i = and i32 %48, 15
   %add.i54.i.i = add i32 %49, %and.i.i.i
@@ -1804,8 +1806,8 @@ for.end21.i.i:                                    ; preds = %_ZNK6icu_7512_GLOBA
   store i32 0, ptr %allSameBlocks.i.i, align 4
   %mostRecent.i.i.i = getelementptr inbounds nuw i8, ptr %allSameBlocks.i.i, i64 4
   store i32 -1, ptr %mostRecent.i.i.i, align 4
-  %shr.i62.i.i = lshr exact i32 %43, 4
-  %cmp101.i.not.i.i = icmp eq i32 %43, 0
+  %shr.i62.i.i = lshr exact i32 %45, 4
+  %cmp101.i.not.i.i = icmp eq i32 %45, 0
   br i1 %cmp101.i.not.i.i, label %if.end25.i.i, label %for.body.lr.ph.i.i.i
 
 for.body.lr.ph.i.i.i:                             ; preds = %for.end21.i.i
@@ -3938,13 +3940,13 @@ land.lhs.true108.i:                               ; preds = %if.else103.i
   %errorValue114.i = getelementptr inbounds nuw i8, ptr %trie, i64 44
   %306 = load i32, ptr %errorValue114.i, align 4
   %cmp115.i = icmp eq i32 %305, %306
-  %.pre236.i.pre63 = load i32, ptr %highValue.i103.i, align 4
+  %.pre236.i.pre64 = load i32, ptr %highValue.i103.i, align 4
   br i1 %cmp115.i, label %land.lhs.true116.i, label %while.body.lr.ph.i
 
 land.lhs.true116.i:                               ; preds = %land.lhs.true108.i
   %arrayidx121.i = getelementptr i8, ptr %304, i64 -8
   %307 = load i32, ptr %arrayidx121.i, align 4
-  %cmp123.i = icmp eq i32 %307, %.pre236.i.pre63
+  %cmp123.i = icmp eq i32 %307, %.pre236.i.pre64
   br i1 %cmp123.i, label %if.end165.i, label %while.body.lr.ph.i
 
 land.lhs.true127.i:                               ; preds = %if.else103.i
@@ -3969,7 +3971,7 @@ default.unreachable:                              ; preds = %if.else103.i
   unreachable
 
 while.body.lr.ph.i:                               ; preds = %if.else103.i.while.body.lr.ph.i_crit_edge, %land.lhs.true127.i, %land.lhs.true116.i, %land.lhs.true108.i
-  %.pre236.i = phi i32 [ %.pre236.i.pre, %if.else103.i.while.body.lr.ph.i_crit_edge ], [ %312, %land.lhs.true127.i ], [ %.pre236.i.pre63, %land.lhs.true116.i ], [ %.pre236.i.pre63, %land.lhs.true108.i ]
+  %.pre236.i = phi i32 [ %.pre236.i.pre, %if.else103.i.while.body.lr.ph.i_crit_edge ], [ %312, %land.lhs.true127.i ], [ %.pre236.i.pre64, %land.lhs.true116.i ], [ %.pre236.i.pre64, %land.lhs.true108.i ]
   br label %while.body.i
 
 while.body.i:                                     ; preds = %while.body.i, %while.body.lr.ph.i

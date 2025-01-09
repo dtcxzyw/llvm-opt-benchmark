@@ -122459,7 +122459,7 @@ define linkonce_odr hidden void @_ZNSt6vectorIN5boost10shared_ptrINS0_9unit_test
   %18 = ptrtoint ptr %1 to i64
   %19 = sub i64 %15, %18
   %20 = ashr exact i64 %19, 4
-  %21 = icmp ugt i64 %20, %9
+  %21 = icmp ugt i64 %19, %8
   br i1 %21, label %.lr.ph.i.i.i.i.i.preheader, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN5boost10shared_ptrINS2_9unit_test9decorator4baseEEESt6vectorIS7_SaIS7_EEEEmEvRT_T0_.exit
 
 .lr.ph.i.i.i.i.i.preheader:                       ; preds = %17

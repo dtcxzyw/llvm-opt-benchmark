@@ -36584,41 +36584,42 @@ _ZN32pxrInternal_v0_24__pxrReserved__17UsdSkelAnimMapper16_ResizeContainerIfEEvP
   br i1 %.not71, label %_ZSt4copyIPKfPfET0_T_S4_S3_.exit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %61
-  %69 = shl nuw nsw i64 %22, 2
-  br label %70
+  %gepdiff = shl nuw nsw i64 %22, 2
+  br label %69
 
-70:                                               ; preds = %.lr.ph, %_ZSt4copyIPKfPfET0_T_S4_S3_.exit50
-  %.04270 = phi i64 [ 0, %.lr.ph ], [ %85, %_ZSt4copyIPKfPfET0_T_S4_S3_.exit50 ]
-  %71 = getelementptr inbounds i32, ptr %68, i64 %.04270
-  %72 = load i32, ptr %71, align 4
-  %73 = icmp sgt i32 %72, -1
-  br i1 %73, label %74, label %_ZSt4copyIPKfPfET0_T_S4_S3_.exit50
+69:                                               ; preds = %.lr.ph, %_ZSt4copyIPKfPfET0_T_S4_S3_.exit50
+  %.04270 = phi i64 [ 0, %.lr.ph ], [ %86, %_ZSt4copyIPKfPfET0_T_S4_S3_.exit50 ]
+  %70 = getelementptr inbounds i32, ptr %68, i64 %.04270
+  %71 = load i32, ptr %70, align 4
+  %72 = icmp sgt i32 %71, -1
+  br i1 %72, label %73, label %_ZSt4copyIPKfPfET0_T_S4_S3_.exit50
 
-74:                                               ; preds = %70
-  %75 = zext nneg i32 %72 to i64
-  %76 = tail call noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIfE4sizeEv(ptr noundef nonnull align 8 dereferenceable(40) %2)
-  %77 = icmp ugt i64 %76, %75
-  br i1 %77, label %78, label %_ZSt4copyIPKfPfET0_T_S4_S3_.exit50
+73:                                               ; preds = %69
+  %74 = zext nneg i32 %71 to i64
+  %75 = tail call noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIfE4sizeEv(ptr noundef nonnull align 8 dereferenceable(40) %2)
+  %76 = icmp ugt i64 %75, %74
+  br i1 %76, label %77, label %_ZSt4copyIPKfPfET0_T_S4_S3_.exit50
 
-78:                                               ; preds = %74
-  %.idx69 = mul i64 %69, %.04270
+77:                                               ; preds = %73
+  %78 = mul i64 %.04270, %22
   %79 = add nuw i64 %.04270, 1
-  %.idx = mul i64 %69, %79
-  %.not.i.i.i.i.i49 = icmp eq i64 %.idx, %.idx69
-  br i1 %.not.i.i.i.i.i49, label %_ZSt4copyIPKfPfET0_T_S4_S3_.exit50, label %80
+  %80 = mul i64 %79, %22
+  %.not.i.i.i.i.i49 = icmp eq i64 %80, %78
+  br i1 %.not.i.i.i.i.i49, label %_ZSt4copyIPKfPfET0_T_S4_S3_.exit50, label %81
 
-80:                                               ; preds = %78
-  %81 = getelementptr inbounds i8, ptr %62, i64 %.idx69
-  %82 = mul nuw nsw i32 %72, %3
-  %83 = zext nneg i32 %82 to i64
-  %84 = getelementptr inbounds nuw float, ptr %63, i64 %83
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %84, ptr align 4 %81, i64 %69, i1 false)
+81:                                               ; preds = %77
+  %.idx69 = shl nsw i64 %78, 2
+  %82 = getelementptr inbounds i8, ptr %62, i64 %.idx69
+  %83 = mul nuw nsw i32 %71, %3
+  %84 = zext nneg i32 %83 to i64
+  %85 = getelementptr inbounds nuw float, ptr %63, i64 %84
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %85, ptr align 4 %82, i64 %gepdiff, i1 false)
   br label %_ZSt4copyIPKfPfET0_T_S4_S3_.exit50
 
-_ZSt4copyIPKfPfET0_T_S4_S3_.exit50:               ; preds = %80, %78, %70, %74
-  %85 = add nuw i64 %.04270, 1
-  %86 = icmp ult i64 %85, %.sroa.speculated
-  br i1 %86, label %70, label %_ZSt4copyIPKfPfET0_T_S4_S3_.exit, !llvm.loop !149
+_ZSt4copyIPKfPfET0_T_S4_S3_.exit50:               ; preds = %81, %77, %69, %73
+  %86 = add nuw i64 %.04270, 1
+  %87 = icmp ult i64 %86, %.sroa.speculated
+  br i1 %87, label %69, label %_ZSt4copyIPKfPfET0_T_S4_S3_.exit, !llvm.loop !149
 
 _ZSt4copyIPKfPfET0_T_S4_S3_.exit:                 ; preds = %_ZSt4copyIPKfPfET0_T_S4_S3_.exit50, %61, %54, %44, %_ZN32pxrInternal_v0_24__pxrReserved__17UsdSkelAnimMapper16_ResizeContainerIfEEvPNS_7VtArrayIT_EEmRKS3_.exit, %28, %15, %8
   %.0 = phi i1 [ false, %15 ], [ true, %28 ], [ false, %8 ], [ true, %_ZN32pxrInternal_v0_24__pxrReserved__17UsdSkelAnimMapper16_ResizeContainerIfEEvPNS_7VtArrayIT_EEmRKS3_.exit ], [ true, %44 ], [ true, %54 ], [ true, %61 ], [ true, %_ZSt4copyIPKfPfET0_T_S4_S3_.exit50 ]

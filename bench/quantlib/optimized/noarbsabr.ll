@@ -3457,9 +3457,10 @@ _ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPKdSt6vectorIdSaIdEEEEdET_S8_S8
 
 _ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPKdSt6vectorIdSaIdEEEEdET_S8_S8_RKT0_.exit: ; preds = %_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPKdSt6vectorIdSaIdEEEEdET_S8_S8_RKT0_.exit.loopexit, %entry
   %sub.ptr.lhs.cast.i.pre-phi = phi i64 [ %.pre418, %_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPKdSt6vectorIdSaIdEEEEdET_S8_S8_RKT0_.exit.loopexit ], [ %sub.ptr.rhs.cast.i.i.i.i.i, %entry ]
+  %__first.sroa.0.0.lcssa.i.i = phi ptr [ %__first.sroa.0.1.i.i, %_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPKdSt6vectorIdSaIdEEEEdET_S8_S8_RKT0_.exit.loopexit ], [ %0, %entry ]
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i.pre-phi, %sub.ptr.rhs.cast.i.i.i.i.i
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 3
-  %cmp = icmp eq i64 %sub.ptr.div.i, %sub.ptr.div.i.i.i.i.i
+  %cmp = icmp eq ptr %__first.sroa.0.0.lcssa.i.i, %1
   %dec = sext i1 %cmp to i64
   %spec.select = add nsw i64 %sub.ptr.div.i, %dec
   %cmp18 = icmp eq i64 %spec.select, 0
@@ -3511,7 +3512,7 @@ _ZSt11upper_boundISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPKdSt6vect
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i72, %18
   %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i.i, 3
   %sub41 = sub nsw i64 %sub.ptr.div.i75, %sub.ptr.div.i.i
-  %cmp42 = icmp eq i64 %sub.ptr.div.i75, %sub.ptr.div.i.i
+  %cmp42 = icmp eq i64 %18, %sub.ptr.rhs.cast.i73
   %spec.select63 = select i1 %cmp42, i64 1, i64 %sub41
   %19 = getelementptr double, ptr %9, i64 %spec.select63
   %add.ptr.i86 = getelementptr i8, ptr %19, i64 -8
@@ -3558,7 +3559,7 @@ _ZSt11upper_boundISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPKdSt6vect
   %sub.ptr.sub.i.i119 = sub i64 %sub.ptr.lhs.cast.i90, %32
   %sub.ptr.div.i.i120 = ashr exact i64 %sub.ptr.sub.i.i119, 3
   %sub67 = sub nsw i64 %sub.ptr.div.i93, %sub.ptr.div.i.i120
-  %cmp68 = icmp eq i64 %sub.ptr.div.i93, %sub.ptr.div.i.i120
+  %cmp68 = icmp eq i64 %32, %sub.ptr.rhs.cast.i91
   %rhoInd.0 = select i1 %cmp68, i64 1, i64 %sub67
   %cmp74 = icmp eq i64 %rhoInd.0, %sub.ptr.div.i93
   %dec76 = sext i1 %cmp74 to i64
@@ -3607,9 +3608,10 @@ _ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPKdSt6vectorIdSaIdEEEEdET_S8_S8
 
 _ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPKdSt6vectorIdSaIdEEEEdET_S8_S8_RKT0_.exit152: ; preds = %_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPKdSt6vectorIdSaIdEEEEdET_S8_S8_RKT0_.exit152.loopexit, %_ZSt11upper_boundISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPKdSt6vectorIdSaIdEEEEEdET_SA_SA_RKT0_.exit113
   %sub.ptr.lhs.cast.i153.pre-phi = phi i64 [ %.pre419, %_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPKdSt6vectorIdSaIdEEEEdET_S8_S8_RKT0_.exit152.loopexit ], [ %sub.ptr.rhs.cast.i.i.i.i.i131, %_ZSt11upper_boundISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPKdSt6vectorIdSaIdEEEEEdET_SA_SA_RKT0_.exit113 ]
+  %__first.sroa.0.0.lcssa.i.i135 = phi ptr [ %__first.sroa.0.1.i.i149, %_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPKdSt6vectorIdSaIdEEEEdET_S8_S8_RKT0_.exit152.loopexit ], [ %36, %_ZSt11upper_boundISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPKdSt6vectorIdSaIdEEEEEdET_SA_SA_RKT0_.exit113 ]
   %sub.ptr.sub.i155 = sub i64 %sub.ptr.lhs.cast.i153.pre-phi, %sub.ptr.rhs.cast.i.i.i.i.i131
   %sub.ptr.div.i156 = ashr exact i64 %sub.ptr.sub.i155, 3
-  %cmp109 = icmp eq i64 %sub.ptr.div.i156, %sub.ptr.div.i.i.i.i.i133
+  %cmp109 = icmp eq ptr %__first.sroa.0.0.lcssa.i.i135, %37
   %dec111 = sext i1 %cmp109 to i64
   %nuInd.0 = add nsw i64 %sub.ptr.div.i156, %dec111
   %cmp113.not = icmp eq i64 %nuInd.0, 0
@@ -3666,9 +3668,10 @@ _ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPKdSt6vectorIdSaIdEEEEdET_S8_S8
 
 _ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPKdSt6vectorIdSaIdEEEEdET_S8_S8_RKT0_.exit187: ; preds = %_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPKdSt6vectorIdSaIdEEEEdET_S8_S8_RKT0_.exit187.loopexit, %cond.end
   %sub.ptr.lhs.cast.i188.pre-phi = phi i64 [ %.pre420, %_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPKdSt6vectorIdSaIdEEEEdET_S8_S8_RKT0_.exit187.loopexit ], [ %sub.ptr.rhs.cast.i.i.i.i.i166, %cond.end ]
+  %__first.sroa.0.0.lcssa.i.i170 = phi ptr [ %__first.sroa.0.1.i.i184, %_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPKdSt6vectorIdSaIdEEEEdET_S8_S8_RKT0_.exit187.loopexit ], [ %45, %cond.end ]
   %sub.ptr.sub.i190 = sub i64 %sub.ptr.lhs.cast.i188.pre-phi, %sub.ptr.rhs.cast.i.i.i.i.i166
   %sub.ptr.div.i191 = ashr exact i64 %sub.ptr.sub.i190, 3
-  %cmp142 = icmp eq i64 %sub.ptr.div.i191, %sub.ptr.div.i.i.i.i.i168
+  %cmp142 = icmp eq ptr %__first.sroa.0.0.lcssa.i.i170, %46
   br i1 %cmp142, label %if.end146, label %if.else
 
 if.else:                                          ; preds = %_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPKdSt6vectorIdSaIdEEEEdET_S8_S8_RKT0_.exit187

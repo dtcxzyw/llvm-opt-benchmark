@@ -63175,7 +63175,7 @@ define linkonce_odr dso_local void @_ZN4crow6Router11validate_bpESt6vectorIPNS_9
   br i1 %234, label %268, label %238
 
 238:                                              ; preds = %222
-  %239 = icmp ugt i64 %237, %226
+  %239 = icmp ugt i64 %236, %225
   br i1 %239, label %240, label %253
 
 240:                                              ; preds = %238
@@ -63321,7 +63321,7 @@ _ZNSt6vectorIiSaIiEE15_M_range_insertIN9__gnu_cxx17__normal_iteratorIPKiS1_EEEEv
   %314 = sub i64 %312, %313
   %315 = ashr exact i64 %314, 2
   %316 = sub nsw i64 %309, %315
-  %317 = icmp ult i64 %309, %315
+  %317 = icmp ult i64 %308, %314
   br i1 %317, label %318, label %320
 
 318:                                              ; preds = %303
@@ -64769,7 +64769,7 @@ define linkonce_odr dso_local void @_ZNSt6vectorIiSaIiEE15_M_range_insertIN9__gn
   %20 = ptrtoint ptr %1 to i64
   %21 = sub i64 %16, %20
   %22 = ashr exact i64 %21, 2
-  %23 = icmp ugt i64 %22, %10
+  %23 = icmp ugt i64 %21, %9
   br i1 %23, label %24, label %37
 
 24:                                               ; preds = %19

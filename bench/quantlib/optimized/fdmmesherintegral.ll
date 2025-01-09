@@ -570,7 +570,7 @@ _ZN8QuantLib5ArrayC2Em.exit64:                    ; preds = %cond.true.i59, %inv
   br i1 %cmp.not.i55, label %for.cond.cleanup, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %_ZN8QuantLib5ArrayC2Em.exit64
-  %mul = shl i64 %43, 3
+  %gepdiff = shl nsw i64 %43, 3
   br label %for.body
 
 for.cond.cleanup:                                 ; preds = %invoke.cont75, %_ZN8QuantLib5ArrayC2Em.exit64
@@ -643,17 +643,18 @@ lpad61:                                           ; preds = %invoke.cont73
 
 for.body:                                         ; preds = %for.body.lr.ph, %invoke.cont75
   %i.0118 = phi i64 [ 0, %for.body.lr.ph ], [ %add, %invoke.cont75 ]
-  %add.ptr.idx = mul i64 %mul, %i.0118
+  %mul = mul i64 %i.0118, %43
   %add = add nuw i64 %i.0118, 1
-  %add.ptr70.idx = mul i64 %mul, %add
-  %tobool.not.i.i.i.i.i = icmp samesign eq i64 %add.ptr70.idx, %add.ptr.idx
+  %mul69 = mul i64 %add, %43
+  %tobool.not.i.i.i.i.i = icmp eq i64 %mul69, %mul
   br i1 %tobool.not.i.i.i.i.i, label %invoke.cont73, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %for.body
+  %add.ptr.idx = shl nuw nsw i64 %mul, 3
   %61 = load ptr, ptr %f, align 8, !tbaa !10
   %add.ptr = getelementptr inbounds nuw i8, ptr %61, i64 %add.ptr.idx
   %62 = load ptr, ptr %fSub, align 8, !tbaa !10
-  call void @llvm.memmove.p0.p0.i64(ptr align 8 %62, ptr align 8 %add.ptr, i64 %mul, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr align 8 %62, ptr align 8 %add.ptr, i64 %gepdiff, i1 false)
   br label %invoke.cont73
 
 invoke.cont73:                                    ; preds = %if.then.i.i.i.i.i, %for.body

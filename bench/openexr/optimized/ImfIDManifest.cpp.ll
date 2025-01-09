@@ -1355,7 +1355,6 @@ if.end204:                                        ; preds = %_ZNSt6vectorINSt7__
   %sub.ptr.lhs.cast.i218 = ptrtoint ptr %95 to i64
   %sub.ptr.rhs.cast.i219 = ptrtoint ptr %96 to i64
   %sub.ptr.sub.i220 = sub i64 %sub.ptr.lhs.cast.i218, %sub.ptr.rhs.cast.i219
-  %sub.ptr.div.i221 = ashr exact i64 %sub.ptr.sub.i220, 5
   %_M_finish.i.i222 = getelementptr inbounds nuw i8, ptr %retval.sroa.0.0.i517529, i64 48
   %97 = load ptr, ptr %_M_finish.i.i222, align 8
   %98 = load ptr, ptr %second207, align 8
@@ -1363,11 +1362,16 @@ if.end204:                                        ; preds = %_ZNSt6vectorINSt7__
   %sub.ptr.rhs.cast.i.i224 = ptrtoint ptr %98 to i64
   %sub.ptr.sub.i.i225 = sub i64 %sub.ptr.lhs.cast.i.i223, %sub.ptr.rhs.cast.i.i224
   %sub.ptr.div.i.i226 = ashr exact i64 %sub.ptr.sub.i.i225, 5
-  %cmp.i227 = icmp ugt i64 %sub.ptr.div.i221, %sub.ptr.div.i.i226
+  %cmp.i227 = icmp ugt i64 %sub.ptr.sub.i220, %sub.ptr.sub.i.i225
   br i1 %cmp.i227, label %if.then.i238, label %if.else.i228
 
 if.then.i238:                                     ; preds = %if.end204
+  %sub.ptr.div.i221 = ashr exact i64 %sub.ptr.sub.i220, 5
   %sub.i239 = sub nuw nsw i64 %sub.ptr.div.i221, %sub.ptr.div.i.i226
+  %cmp.not.i334 = icmp eq i64 %sub.i239, 0
+  br i1 %cmp.not.i334, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE6resizeEm.exit, label %if.then.i335
+
+if.then.i335:                                     ; preds = %if.then.i238
   %_M_end_of_storage.i = getelementptr inbounds nuw i8, ptr %retval.sroa.0.0.i517529, i64 56
   %99 = load ptr, ptr %_M_end_of_storage.i, align 8
   %sub.ptr.lhs.cast.i341 = ptrtoint ptr %99 to i64
@@ -1381,9 +1385,9 @@ if.then.i238:                                     ; preds = %if.end204
   %cmp8.not.i = icmp ult i64 %sub.ptr.div.i343, %sub.i239
   br i1 %cmp8.not.i, label %if.else.i350, label %for.body.i.i.i.i346
 
-for.body.i.i.i.i346:                              ; preds = %if.then.i238, %for.body.i.i.i.i346
-  %__cur.06.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i348, %for.body.i.i.i.i346 ], [ %97, %if.then.i238 ]
-  %__n.addr.05.i.i.i.i = phi i64 [ %dec.i.i.i.i347, %for.body.i.i.i.i346 ], [ %sub.i239, %if.then.i238 ]
+for.body.i.i.i.i346:                              ; preds = %if.then.i335, %for.body.i.i.i.i346
+  %__cur.06.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i348, %for.body.i.i.i.i346 ], [ %97, %if.then.i335 ]
+  %__n.addr.05.i.i.i.i = phi i64 [ %dec.i.i.i.i347, %for.body.i.i.i.i346 ], [ %sub.i239, %if.then.i335 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__cur.06.i.i.i.i) #30
   %dec.i.i.i.i347 = add i64 %__n.addr.05.i.i.i.i, -1
   %incdec.ptr.i.i.i.i348 = getelementptr inbounds nuw i8, ptr %__cur.06.i.i.i.i, i64 32
@@ -1394,7 +1398,7 @@ _ZSt27__uninitialized_default_n_aIPNSt7__cxx1112basic_stringIcSt11char_traitsIcE
   store ptr %incdec.ptr.i.i.i.i348, ptr %_M_finish.i.i222, align 8
   br label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE6resizeEm.exit
 
-if.else.i350:                                     ; preds = %if.then.i238
+if.else.i350:                                     ; preds = %if.then.i335
   %cmp.i.i351 = icmp ult i64 %sub.i345, %sub.i239
   br i1 %cmp.i.i351, label %if.then.i.i.i.invoke, label %_ZNKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12_M_check_lenEmPKc.exit.i
 
@@ -1450,7 +1454,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
   br label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE6resizeEm.exit
 
 if.else.i228:                                     ; preds = %if.end204
-  %cmp4.i229 = icmp ult i64 %sub.ptr.div.i221, %sub.ptr.div.i.i226
+  %cmp4.i229 = icmp ult i64 %sub.ptr.sub.i220, %sub.ptr.sub.i.i225
   br i1 %cmp4.i229, label %if.then5.i230, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE6resizeEm.exit
 
 if.then5.i230:                                    ; preds = %if.else.i228
@@ -1469,7 +1473,7 @@ invoke.cont.i.i237:                               ; preds = %for.body.i.i.i.i.i2
   store ptr %add.ptr.i231, ptr %_M_finish.i.i222, align 8
   br label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE6resizeEm.exit
 
-_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE6resizeEm.exit: ; preds = %_ZSt27__uninitialized_default_n_aIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmS5_ET_S7_T0_RSaIT1_E.exit.i, %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit36.i, %if.else.i228, %if.then5.i230, %invoke.cont.i.i237
+_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE6resizeEm.exit: ; preds = %if.then.i238, %_ZSt27__uninitialized_default_n_aIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmS5_ET_S7_T0_RSaIT1_E.exit.i, %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit36.i, %if.else.i228, %if.then5.i230, %invoke.cont.i.i237
   %data.addr.promoted441 = load ptr, ptr %data.addr, align 8
   %101 = load ptr, ptr %_M_finish.i217, align 8
   %102 = load ptr, ptr %_components, align 8

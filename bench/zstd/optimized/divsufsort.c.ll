@@ -1817,7 +1817,7 @@ if.end88.i.i:                                     ; preds = %do.body.i.i, %if.en
   %sub.ptr.div92.i.i = ashr exact i64 %sub.ptr.sub91.i.i, 2
   %sub.ptr.sub95.i.i = sub i64 %sub.ptr.lhs.cast10.i.i, %sub.ptr.lhs.cast30.i.i
   %sub.ptr.div96.i.i = ashr exact i64 %sub.ptr.sub95.i.i, 2
-  %cmp97.not.i.i = icmp sgt i64 %sub.ptr.div92.i.i, %sub.ptr.div96.i.i
+  %cmp97.not.i.i = icmp sgt i64 %sub.ptr.sub91.i.i, %sub.ptr.sub95.i.i
   br i1 %cmp97.not.i.i, label %if.else174.i.i, label %if.then99.i.i
 
 if.then99.i.i:                                    ; preds = %if.end88.i.i
@@ -3483,8 +3483,8 @@ tr_partition.exit.i:                              ; preds = %do.body130.i.i, %fo
   %.pre.i248 = ptrtoint ptr %add.ptr147.i.i to i64
   %.pre326.i = ptrtoint ptr %add.ptr141.i.i to i64
   %.pre327.i = sub i64 %.pre.i248, %.pre326.i
-  %.pre328.i = ashr exact i64 %.pre327.i, 2
-  %cmp569.not.i.i = icmp eq i64 %sub.ptr.div515.i.i, %.pre328.i
+  %.pre328.i = lshr exact i64 %.pre327.i, 2
+  %cmp569.not.i.i = icmp eq i64 %sub.ptr.sub514.i.i, %.pre327.i
   br i1 %cmp569.not.i.i, label %if.else1230.i.i, label %if.then571.i.i
 
 if.then571.i.i:                                   ; preds = %tr_partition.exit.i
@@ -3505,7 +3505,7 @@ cond.true.i702.i.i:                               ; preds = %cond.true576.i.i
   br i1 %tobool2.not.i703.i.i, label %cond.false.i710.i.i, label %cond.true3.i704.i.i
 
 cond.true3.i704.i.i:                              ; preds = %cond.true.i702.i.i
-  %shr.i705.i.i = lshr i64 %.pre328.i, 24
+  %shr.i705.i.i = lshr i64 %.pre327.i, 26
   %idxprom.i706.i.i = and i64 %shr.i705.i.i, 255
   %arrayidx.i707.i.i = getelementptr inbounds nuw [256 x i32], ptr @lg_table, i64 0, i64 %idxprom.i706.i.i
   %364 = load i32, ptr %arrayidx.i707.i.i, align 4
@@ -3513,8 +3513,8 @@ cond.true3.i704.i.i:                              ; preds = %cond.true.i702.i.i
   br label %cond.end584.i.i
 
 cond.false.i710.i.i:                              ; preds = %cond.true.i702.i.i
-  %shr5.i711.i.i = lshr i64 %.pre328.i, 16
-  %idxprom7.i712.i.i = and i64 %shr5.i711.i.i, 255
+  %shr5.i711.i.i = lshr i64 %.pre327.i, 18
+  %idxprom7.i712.i.i = and i64 %shr5.i711.i.i, 65535
   %arrayidx8.i713.i.i = getelementptr inbounds nuw [256 x i32], ptr @lg_table, i64 0, i64 %idxprom7.i712.i.i
   %365 = load i32, ptr %arrayidx8.i713.i.i, align 4
   %add9.i714.i.i = add nsw i32 %365, 16
@@ -3525,8 +3525,8 @@ cond.false10.i715.i.i:                            ; preds = %cond.true576.i.i
   br i1 %tobool12.not.i716.i.i, label %cond.false19.i722.i.i, label %cond.true13.i717.i.i
 
 cond.true13.i717.i.i:                             ; preds = %cond.false10.i715.i.i
-  %shr14.i718.i.i = lshr i64 %.pre328.i, 8
-  %idxprom16.i719.i.i = and i64 %shr14.i718.i.i, 255
+  %shr14.i718.i.i = lshr i64 %.pre327.i, 10
+  %idxprom16.i719.i.i = and i64 %shr14.i718.i.i, 16777215
   %arrayidx17.i720.i.i = getelementptr inbounds nuw [256 x i32], ptr @lg_table, i64 0, i64 %idxprom16.i719.i.i
   %366 = load i32, ptr %arrayidx17.i720.i.i, align 4
   %add18.i721.i.i = add nsw i32 %366, 8
@@ -3580,11 +3580,12 @@ for.body613.i.i:                                  ; preds = %if.then603.i.i, %fo
   br i1 %cmp611.i.i, label %for.body613.i.i, label %if.end619.i.i, !llvm.loop !54
 
 if.end619.i.i:                                    ; preds = %for.body613.i.i, %if.then603.i.i, %for.end600.i.i
-  %cmp624.i.i = icmp sgt i64 %.pre328.i, 1
+  %sub.ptr.div623.i.i = ashr exact i64 %.pre327.i, 2
+  %cmp624.i.i = icmp sgt i64 %sub.ptr.div623.i.i, 1
   br i1 %cmp624.i.i, label %land.lhs.true.i.i, label %if.else1081.i.i
 
 land.lhs.true.i.i:                                ; preds = %if.end619.i.i
-  %conv630.i.i = trunc i64 %.pre328.i to i32
+  %conv630.i.i = trunc i64 %sub.ptr.div623.i.i to i32
   %cmp.not.i727.i.i = icmp slt i32 %budget.sroa.7.3.i, %conv630.i.i
   br i1 %cmp.not.i727.i.i, label %if.end.i731.i.i, label %if.then633.i.i
 
@@ -3606,11 +3607,11 @@ if.then633.i.i:                                   ; preds = %if.end4.i733.i.i, %
   %budget.sroa.0.5.i = phi i32 [ %sub9.i737.i.i, %if.end4.i733.i.i ], [ %budget.sroa.0.3.i, %land.lhs.true.i.i ]
   %budget.sroa.7.5.i = sub i32 %sub5.i735.i.pn.i, %conv630.i.i
   %sub.ptr.div637.i.i = ashr exact i64 %sub.ptr.sub92.i.i, 2
-  %cmp642.not.i.i = icmp sgt i64 %sub.ptr.div637.i.i, %sub.ptr.div112.i.i
+  %cmp642.not.i.i = icmp sgt i64 %sub.ptr.sub92.i.i, %sub.ptr.sub111.i.i
   br i1 %cmp642.not.i.i, label %if.else862.i.i, label %if.then644.i.i
 
 if.then644.i.i:                                   ; preds = %if.then633.i.i
-  %cmp653.not.i.i = icmp sgt i64 %sub.ptr.div112.i.i, %.pre328.i
+  %cmp653.not.i.i = icmp sgt i64 %sub.ptr.sub111.i.i, %.pre327.i
   br i1 %cmp653.not.i.i, label %if.else737.i.i, label %if.then655.i.i
 
 if.then655.i.i:                                   ; preds = %if.then644.i.i
@@ -3666,7 +3667,7 @@ do.body711.i.i:                                   ; preds = %if.else703.i.i
   br label %for.cond.outer.i.i.backedge
 
 if.else737.i.i:                                   ; preds = %if.then644.i.i
-  %cmp746.not.i.i = icmp sgt i64 %sub.ptr.div637.i.i, %.pre328.i
+  %cmp746.not.i.i = icmp sgt i64 %sub.ptr.sub92.i.i, %.pre327.i
   br i1 %cmp746.not.i.i, label %do.body820.i.i, label %if.then748.i.i
 
 if.then748.i.i:                                   ; preds = %if.else737.i.i
@@ -3730,7 +3731,7 @@ do.body820.i.i:                                   ; preds = %if.else737.i.i
   br label %for.cond.outer.i.i.backedge
 
 if.else862.i.i:                                   ; preds = %if.then633.i.i
-  %cmp871.not.i.i = icmp sgt i64 %sub.ptr.div637.i.i, %.pre328.i
+  %cmp871.not.i.i = icmp sgt i64 %sub.ptr.sub92.i.i, %.pre327.i
   br i1 %cmp871.not.i.i, label %if.else955.i.i, label %if.then873.i.i
 
 if.then873.i.i:                                   ; preds = %if.else862.i.i
@@ -3786,7 +3787,7 @@ do.body929.i.i:                                   ; preds = %if.else921.i.i
   br label %for.cond.outer.i.i.backedge
 
 if.else955.i.i:                                   ; preds = %if.else862.i.i
-  %cmp964.not.i.i = icmp sgt i64 %sub.ptr.div112.i.i, %.pre328.i
+  %cmp964.not.i.i = icmp sgt i64 %sub.ptr.sub111.i.i, %.pre327.i
   br i1 %cmp964.not.i.i, label %do.body1038.i.i, label %if.then966.i.i
 
 if.then966.i.i:                                   ; preds = %if.else955.i.i
@@ -3864,7 +3865,7 @@ if.then1091.i.i:                                  ; preds = %if.else1081.i.i
 
 if.end1095.i.i:                                   ; preds = %if.then1091.i.i, %if.else1081.i.i
   %sub.ptr.div1099.i.i = ashr exact i64 %sub.ptr.sub92.i.i, 2
-  %cmp1104.not.i.i = icmp sgt i64 %sub.ptr.div1099.i.i, %sub.ptr.div112.i.i
+  %cmp1104.not.i.i = icmp sgt i64 %sub.ptr.sub92.i.i, %sub.ptr.sub111.i.i
   br i1 %cmp1104.not.i.i, label %if.else1167.i.i, label %if.then1106.i.i
 
 if.then1106.i.i:                                  ; preds = %if.end1095.i.i
@@ -5536,8 +5537,7 @@ if.end76:                                         ; preds = %if.then26.i, %for.e
   %sub.ptr.sub79 = sub i64 %sub.ptr.lhs.cast77, %sub.ptr.rhs.cast78
   %sub.ptr.div80 = ashr exact i64 %sub.ptr.sub79, 2
   %sub.ptr.sub83 = sub i64 %sub.ptr.lhs.cast1, %sub.ptr.lhs.cast77
-  %sub.ptr.div84 = ashr exact i64 %sub.ptr.sub83, 2
-  %cmp85.not = icmp sgt i64 %sub.ptr.div80, %sub.ptr.div84
+  %cmp85.not = icmp sgt i64 %sub.ptr.sub79, %sub.ptr.sub83
   br i1 %cmp85.not, label %if.else116, label %if.then87
 
 if.then87:                                        ; preds = %if.end76
@@ -5575,7 +5575,7 @@ cond.false.i391:                                  ; preds = %do.body95
   br label %for.cond.backedge
 
 if.else116:                                       ; preds = %if.end76
-  %cmp121 = icmp sgt i64 %sub.ptr.div84, 1
+  %cmp121 = icmp sgt i64 %sub.ptr.sub83, 4
   br i1 %cmp121, label %do.body124, label %if.else146
 
 do.body124:                                       ; preds = %if.else116
@@ -6392,16 +6392,15 @@ if.then26.i458:                                   ; preds = %for.end24.i456
 
 cond.end:                                         ; preds = %if.then26.i458, %for.end24.i456, %for.end360
   %cond = phi ptr [ %add.ptr365, %for.end360 ], [ %incdec.ptr.lcssa.i451, %for.end24.i456 ], [ %incdec.ptr.lcssa.i451, %if.then26.i458 ]
-  %sub.ptr.div384 = ashr exact i64 %sub.ptr.sub312, 2
   %sub.ptr.rhs.cast386 = ptrtoint ptr %add.ptr371 to i64
-  %cmp389.not = icmp sgt i64 %sub.ptr.div384, %sub.ptr.div335
+  %cmp389.not = icmp sgt i64 %sub.ptr.sub312, %sub.ptr.sub334
   %sub.ptr.rhs.cast535 = ptrtoint ptr %cond to i64
   %sub.ptr.sub536 = sub i64 %sub.ptr.rhs.cast386, %sub.ptr.rhs.cast535
   %sub.ptr.div537 = ashr exact i64 %sub.ptr.sub536, 2
   br i1 %cmp389.not, label %if.else529, label %if.then391
 
 if.then391:                                       ; preds = %cond.end
-  %cmp400.not = icmp sgt i64 %sub.ptr.div335, %sub.ptr.div537
+  %cmp400.not = icmp sgt i64 %sub.ptr.sub334, %sub.ptr.sub536
   br i1 %cmp400.not, label %if.else440, label %do.body403
 
 do.body403:                                       ; preds = %if.then391
@@ -6449,7 +6448,7 @@ ss_ilg.exit493:                                   ; preds = %cond.true.i482, %co
   br label %for.cond.backedge
 
 if.else440:                                       ; preds = %if.then391
-  %cmp449.not = icmp sgt i64 %sub.ptr.div384, %sub.ptr.div537
+  %cmp449.not = icmp sgt i64 %sub.ptr.sub312, %sub.ptr.sub536
   %idxprom491 = sext i32 %ssize.0 to i64
   %arrayidx492 = getelementptr inbounds [16 x %struct.anon], ptr %stack, i64 0, i64 %idxprom491
   store ptr %add.ptr371, ptr %arrayidx492, align 8
@@ -6524,7 +6523,7 @@ cond.false.i517:                                  ; preds = %do.body490
   br label %for.cond.backedge
 
 if.else529:                                       ; preds = %cond.end
-  %cmp538.not = icmp sgt i64 %sub.ptr.div384, %sub.ptr.div537
+  %cmp538.not = icmp sgt i64 %sub.ptr.sub312, %sub.ptr.sub536
   br i1 %cmp538.not, label %if.else578, label %do.body541
 
 do.body541:                                       ; preds = %if.else529
@@ -6572,7 +6571,7 @@ ss_ilg.exit535:                                   ; preds = %cond.true.i524, %co
   br label %for.cond.backedge
 
 if.else578:                                       ; preds = %if.else529
-  %cmp587.not = icmp sgt i64 %sub.ptr.div335, %sub.ptr.div537
+  %cmp587.not = icmp sgt i64 %sub.ptr.sub334, %sub.ptr.sub536
   %idxprom629 = sext i32 %ssize.0 to i64
   %arrayidx630 = getelementptr inbounds [16 x %struct.anon], ptr %stack, i64 0, i64 %idxprom629
   store ptr %first.addr.0, ptr %arrayidx630, align 8
@@ -7843,7 +7842,8 @@ if.end125:                                        ; preds = %do.body121
   br label %for.cond.outer.backedge
 
 if.end140:                                        ; preds = %if.end57
-  %sub.ptr.div61.sub.ptr.div = tail call i64 @llvm.smin.i64(i64 %sub.ptr.div61, i64 %sub.ptr.div)
+  %cmp149 = icmp slt i64 %sub.ptr.sub60, %sub.ptr.sub
+  %sub.ptr.div61.sub.ptr.div = select i1 %cmp149, i64 %sub.ptr.div61, i64 %sub.ptr.div
   %conv163 = trunc i64 %sub.ptr.div61.sub.ptr.div to i32
   %cmp165662 = icmp sgt i32 %conv163, 0
   br i1 %cmp165662, label %for.body, label %if.else326
@@ -8356,9 +8356,6 @@ declare i32 @llvm.smin.i32(i32, i32) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i8 @llvm.umax.i8(i8, i8) #4
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.smin.i64(i64, i64) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #4

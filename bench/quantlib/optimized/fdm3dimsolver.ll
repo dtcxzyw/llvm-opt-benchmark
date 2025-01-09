@@ -5164,20 +5164,18 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %sub.ptr.rhs.cast.i39 = ptrtoint ptr %42 to i64
   %sub.ptr.sub.i40 = sub i64 %sub.ptr.lhs.cast.i38, %sub.ptr.rhs.cast.i39
   %sub.ptr.div.i41 = ashr exact i64 %sub.ptr.sub.i40, 3
-  %mul = shl i64 %i.097, 3
-  %mul32 = mul i64 %mul, %sub.ptr.div.i36
-  %add.ptr.idx = mul i64 %mul32, %sub.ptr.div.i41
+  %mul = mul i64 %sub.ptr.div.i41, %sub.ptr.div.i36
+  %mul32 = mul i64 %mul, %i.097
   %add = add nuw i64 %i.097, 1
-  %mul37 = mul i64 %sub.ptr.div.i41, %sub.ptr.div.i36
-  %mul40 = shl i64 %mul37, 3
-  %add.ptr41.idx = mul i64 %mul40, %add
-  %tobool.not.i.i.i.i.i55 = icmp samesign eq i64 %add.ptr41.idx, %add.ptr.idx
+  %mul40 = mul i64 %mul, %add
+  %tobool.not.i.i.i.i.i55 = icmp eq i64 %mul40, %mul32
   br i1 %tobool.not.i.i.i.i.i55, label %invoke.cont45, label %if.then.i.i.i.i.i56
 
 if.then.i.i.i.i.i56:                              ; preds = %for.body
+  %add.ptr.idx = shl nuw nsw i64 %mul32, 3
   %43 = load ptr, ptr %rhs, align 8, !tbaa !3
   %add.ptr = getelementptr inbounds nuw i8, ptr %43, i64 %add.ptr.idx
-  %gepdiff = sub nsw i64 %add.ptr41.idx, %add.ptr.idx
+  %gepdiff = shl nsw i64 %mul, 3
   %44 = load ptr, ptr %resultValues_, align 8, !tbaa !91
   %add.ptr.i = getelementptr inbounds nuw %"class.QuantLib::Matrix", ptr %44, i64 %i.097
   %45 = load ptr, ptr %add.ptr.i, align 8, !tbaa !3
@@ -6134,20 +6132,18 @@ for.body:                                         ; preds = %_ZN8QuantLib6Matrix
   %sub.ptr.rhs.cast.i60 = ptrtoint ptr %32 to i64
   %sub.ptr.sub.i61 = sub i64 %sub.ptr.lhs.cast.i59, %sub.ptr.rhs.cast.i60
   %sub.ptr.div.i62 = ashr exact i64 %sub.ptr.sub.i61, 3
-  %mul = shl i64 %i.0148, 3
-  %mul22 = mul i64 %mul, %sub.ptr.div.i57
-  %add.ptr.idx = mul i64 %mul22, %sub.ptr.div.i62
+  %mul = mul i64 %sub.ptr.div.i62, %sub.ptr.div.i57
+  %mul22 = mul i64 %mul, %i.0148
   %add = add nuw i64 %i.0148, 1
-  %mul27 = mul i64 %sub.ptr.div.i62, %sub.ptr.div.i57
-  %mul30 = shl i64 %mul27, 3
-  %add.ptr31.idx = mul i64 %mul30, %add
-  %tobool.not.i.i.i.i.i = icmp samesign eq i64 %add.ptr31.idx, %add.ptr.idx
+  %mul30 = mul i64 %mul, %add
+  %tobool.not.i.i.i.i.i = icmp eq i64 %mul30, %mul22
   br i1 %tobool.not.i.i.i.i.i, label %_ZSt4copyIPKdPdET0_T_S4_S3_.exit, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %for.body
+  %add.ptr.idx = shl nuw nsw i64 %mul22, 3
   %33 = load ptr, ptr %call6, align 8, !tbaa !3
   %add.ptr = getelementptr inbounds nuw i8, ptr %33, i64 %add.ptr.idx
-  %gepdiff = sub nsw i64 %add.ptr31.idx, %add.ptr.idx
+  %gepdiff = shl nsw i64 %mul, 3
   %add.ptr.i = getelementptr inbounds nuw %"class.QuantLib::Matrix", ptr %16, i64 %i.0148
   %34 = load ptr, ptr %add.ptr.i, align 8, !tbaa !3
   call void @llvm.memmove.p0.p0.i64(ptr align 8 %34, ptr align 8 %add.ptr, i64 %gepdiff, i1 false)

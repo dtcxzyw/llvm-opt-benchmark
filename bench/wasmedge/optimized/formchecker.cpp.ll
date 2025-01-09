@@ -4479,62 +4479,65 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1257: ; preds = %.loopexit, %.l
   %1190 = ptrtoint ptr %2 to i64
   %1191 = getelementptr inbounds nuw i8, ptr %50, i64 8
   %1192 = getelementptr inbounds nuw i8, ptr %50, i64 16
-  %1193 = trunc i64 %.sroa.3.0.i1294 to i32
-  %.not906.not3065 = icmp eq i32 %1193, 0
-  %1194 = and i64 %.sroa.3.0.i1294, 4294967295
-  br label %1196
+  br label %1194
 
-1195:                                             ; preds = %_ZNSt6vectorISt8optionalIN8WasmEdge7ValTypeEESaIS3_EED2Ev.exit1305
+1193:                                             ; preds = %_ZNSt6vectorISt8optionalIN8WasmEdge7ValTypeEESaIS3_EED2Ev.exit1305
   %indvars.iv.next3091 = add nuw nsw i64 %indvars.iv3090, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next3091, %1161
-  br i1 %exitcond.not, label %._crit_edge3074.loopexit, label %1196, !llvm.loop !84
+  br i1 %exitcond.not, label %._crit_edge3074.loopexit, label %1194, !llvm.loop !84
 
-1196:                                             ; preds = %.lr.ph3073, %1195
-  %indvars.iv3090 = phi i64 [ 0, %.lr.ph3073 ], [ %indvars.iv.next3091, %1195 ]
-  %1197 = getelementptr inbounds nuw %"struct.WasmEdge::AST::Instruction::JumpDescriptor", ptr %1154, i64 %indvars.iv3090
-  %1198 = load i32, ptr %1197, align 4
+1194:                                             ; preds = %.lr.ph3073, %1193
+  %indvars.iv3090 = phi i64 [ 0, %.lr.ph3073 ], [ %indvars.iv.next3091, %1193 ]
+  %1195 = getelementptr inbounds nuw %"struct.WasmEdge::AST::Instruction::JumpDescriptor", ptr %1154, i64 %indvars.iv3090
+  %1196 = load i32, ptr %1195, align 4
   %.val961.val = load ptr, ptr %1164, align 8
   %.val961.val968 = load ptr, ptr %1165, align 8
-  call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_1clEj"(ptr dead_on_unwind noalias writable align 4 %49, ptr %.val961.val, ptr %.val961.val968, i32 noundef %1198)
-  %1199 = load i8, ptr %49, align 4
-  %1200 = trunc i8 %1199 to i1
-  %1201 = load i32, ptr %1185, align 4
-  br i1 %1200, label %1202, label %1279
+  call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_1clEj"(ptr dead_on_unwind noalias writable align 4 %49, ptr %.val961.val, ptr %.val961.val968, i32 noundef %1196)
+  %1197 = load i8, ptr %49, align 4
+  %1198 = trunc i8 %1197 to i1
+  %1199 = load i32, ptr %1185, align 4
+  br i1 %1198, label %1200, label %1279
 
-1202:                                             ; preds = %1196
-  %1203 = zext i32 %1201 to i64
-  %1204 = load ptr, ptr %1164, align 8
-  %1205 = getelementptr inbounds nuw %"struct.WasmEdge::Validator::FormChecker::CtrlFrame", ptr %1204, i64 %1203
-  %1206 = getelementptr inbounds nuw i8, ptr %1205, i64 76
-  %1207 = load i32, ptr %1206, align 4
-  %1208 = icmp eq i32 %1207, 3
-  %1209 = getelementptr inbounds nuw i8, ptr %1205, i64 24
-  %1210 = load ptr, ptr %1209, align 8
-  %1211 = load ptr, ptr %1205, align 8
-  %.sink6.i1297 = select i1 %1208, i64 8, i64 32
-  %.sink4.i1298 = select i1 %1208, ptr %1211, ptr %1210
-  %1212 = getelementptr inbounds nuw i8, ptr %1205, i64 %.sink6.i1297
-  %1213 = load ptr, ptr %1212, align 8
-  %1214 = ptrtoint ptr %1213 to i64
-  %1215 = ptrtoint ptr %.sink4.i1298 to i64
-  %1216 = sub i64 %1214, %1215
-  %.sroa.3.0.i1300 = ashr exact i64 %1216, 3
-  %.not905 = icmp eq i64 %.sroa.3.0.i1294, %.sroa.3.0.i1300
-  br i1 %.not905, label %1219, label %1217
+1200:                                             ; preds = %1194
+  %1201 = zext i32 %1199 to i64
+  %1202 = load ptr, ptr %1164, align 8
+  %1203 = getelementptr inbounds nuw %"struct.WasmEdge::Validator::FormChecker::CtrlFrame", ptr %1202, i64 %1201
+  %1204 = getelementptr inbounds nuw i8, ptr %1203, i64 76
+  %1205 = load i32, ptr %1204, align 4
+  %1206 = icmp eq i32 %1205, 3
+  %1207 = getelementptr inbounds nuw i8, ptr %1203, i64 24
+  %1208 = load ptr, ptr %1207, align 8
+  %1209 = load ptr, ptr %1203, align 8
+  %.sink6.i1297 = select i1 %1206, i64 8, i64 32
+  %.sink4.i1298 = select i1 %1206, ptr %1209, ptr %1208
+  %1210 = getelementptr inbounds nuw i8, ptr %1203, i64 %.sink6.i1297
+  %1211 = load ptr, ptr %1210, align 8
+  %1212 = ptrtoint ptr %1211 to i64
+  %1213 = ptrtoint ptr %.sink4.i1298 to i64
+  %1214 = sub i64 %1212, %1213
+  %.sroa.3.0.i1300 = ashr exact i64 %1214, 3
+  %.not905 = icmp eq i64 %1184, %1214
+  br i1 %.not905, label %1217, label %1215
 
-1217:                                             ; preds = %1202
+1215:                                             ; preds = %1200
   %.val990.val = load ptr, ptr %1, align 8
-  %1218 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %.val990.val997 = load ptr, ptr %1218, align 8
+  %1216 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %.val990.val997 = load ptr, ptr %1216, align 8
   call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_3clEN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_"(ptr dead_on_unwind noalias writable align 4 %0, ptr %.val990.val, ptr %.val990.val997, ptr %.sink4.i1292, i64 %.sroa.3.0.i1294, ptr %.sink4.i1298, i64 %.sroa.3.0.i1300)
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1268
 
-1219:                                             ; preds = %1202
-  call void @_ZNSt6vectorISt8optionalIN8WasmEdge7ValTypeEESaIS3_EEC2EmRKS4_(ptr noundef nonnull align 8 dereferenceable(24) %50, i64 noundef %.sroa.3.0.i1294, ptr noundef nonnull align 1 dereferenceable(1) %51)
-  br i1 %.not906.not3065, label %._crit_edge3070, label %.lr.ph3069
+1217:                                             ; preds = %1200
+  call void @_ZNSt6vectorISt8optionalIN8WasmEdge7ValTypeEESaIS3_EEC2EmRKS4_(ptr noundef nonnull align 8 dereferenceable(24) %50, i64 noundef %.sroa.3.0.i1300, ptr noundef nonnull align 1 dereferenceable(1) %51)
+  %1218 = trunc i64 %.sroa.3.0.i1300 to i32
+  %.not906.not3065 = icmp eq i32 %1218, 0
+  br i1 %.not906.not3065, label %._crit_edge3070, label %.lr.ph3069.preheader
 
-.lr.ph3069:                                       ; preds = %1219, %1243
-  %indvars.iv = phi i64 [ %1220, %1243 ], [ %1194, %1219 ]
+.lr.ph3069.preheader:                             ; preds = %1217
+  %1219 = and i64 %.sroa.3.0.i1300, 4294967295
+  br label %.lr.ph3069
+
+.lr.ph3069:                                       ; preds = %.lr.ph3069.preheader, %1243
+  %indvars.iv = phi i64 [ %1219, %.lr.ph3069.preheader ], [ %1220, %1243 ]
   %1220 = add nsw i64 %indvars.iv, -1
   %1221 = getelementptr inbounds nuw %"class.WasmEdge::ValType", ptr %.sink4.i1298, i64 %1220
   %.sroa.0638.0.copyload = load i64, ptr %1221, align 4
@@ -4598,7 +4601,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1257: ; preds = %.loopexit, %.l
   %.not906.not.wide = icmp eq i64 %1220, 0
   br i1 %.not906.not.wide, label %._crit_edge3070, label %.lr.ph3069, !llvm.loop !88
 
-._crit_edge3070:                                  ; preds = %1243, %1219
+._crit_edge3070:                                  ; preds = %1243, %1217
   %1244 = load ptr, ptr %1189, align 8
   %1245 = load ptr, ptr %1188, align 8
   %1246 = ptrtoint ptr %1244 to i64
@@ -4606,23 +4609,23 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1257: ; preds = %.loopexit, %.l
   %1248 = sub i64 %1246, %1247
   %1249 = sdiv exact i64 %1248, 12
   %1250 = load ptr, ptr %1164, align 8
-  %1251 = getelementptr inbounds nuw %"struct.WasmEdge::Validator::FormChecker::CtrlFrame", ptr %1250, i64 %1203, i32 3
+  %1251 = getelementptr inbounds nuw %"struct.WasmEdge::Validator::FormChecker::CtrlFrame", ptr %1250, i64 %1201, i32 3
   %1252 = load i64, ptr %1251, align 8
   %1253 = sub i64 %1249, %1252
   %1254 = trunc i64 %1253 to i32
-  %1255 = add i32 %1254, %1193
-  %1256 = getelementptr inbounds nuw i8, ptr %1197, i64 4
+  %1255 = add i32 %1254, %1218
+  %1256 = getelementptr inbounds nuw i8, ptr %1195, i64 4
   store i32 %1255, ptr %1256, align 4
-  %1257 = getelementptr inbounds nuw i8, ptr %1197, i64 8
-  store i32 %1193, ptr %1257, align 4
+  %1257 = getelementptr inbounds nuw i8, ptr %1195, i64 8
+  store i32 %1218, ptr %1257, align 4
   %1258 = load ptr, ptr %1164, align 8
-  %1259 = getelementptr inbounds nuw %"struct.WasmEdge::Validator::FormChecker::CtrlFrame", ptr %1258, i64 %1203, i32 2
+  %1259 = getelementptr inbounds nuw %"struct.WasmEdge::Validator::FormChecker::CtrlFrame", ptr %1258, i64 %1201, i32 2
   %1260 = load ptr, ptr %1259, align 8
   %1261 = ptrtoint ptr %1260 to i64
   %1262 = sub i64 %1261, %1190
   %1263 = lshr exact i64 %1262, 5
   %1264 = trunc i64 %1263 to i32
-  %1265 = getelementptr inbounds nuw i8, ptr %1197, i64 12
+  %1265 = getelementptr inbounds nuw i8, ptr %1195, i64 12
   store i32 %1264, ptr %1265, align 4
   %1266 = load ptr, ptr %50, align 8
   %1267 = load ptr, ptr %1191, align 8
@@ -4648,14 +4651,14 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1257: ; preds = %.loopexit, %.l
   br label %_ZNSt6vectorISt8optionalIN8WasmEdge7ValTypeEESaIS3_EED2Ev.exit1305
 
 _ZNSt6vectorISt8optionalIN8WasmEdge7ValTypeEESaIS3_EED2Ev.exit1305: ; preds = %1272, %1274
-  br i1 %.not906.not3056, label %1195, label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1268
+  br i1 %.not906.not3056, label %1193, label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1268
 
-1279:                                             ; preds = %1196
+1279:                                             ; preds = %1194
   store i8 0, ptr %0, align 4
-  store i32 %1201, ptr %1187, align 4
+  store i32 %1199, ptr %1187, align 4
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1268
 
-._crit_edge3074.loopexit:                         ; preds = %1195
+._crit_edge3074.loopexit:                         ; preds = %1193
   %.pre3100 = load ptr, ptr %1164, align 8
   %.phi.trans.insert3101 = getelementptr inbounds nuw %"struct.WasmEdge::Validator::FormChecker::CtrlFrame", ptr %.pre3100, i64 %1171
   %.phi.trans.insert3102 = getelementptr inbounds nuw i8, ptr %.phi.trans.insert3101, i64 76
@@ -13018,7 +13021,7 @@ _ZSteqIN8WasmEdge7ValTypeES1_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7de
 5323:                                             ; preds = %3
   unreachable
 
-_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1268: ; preds = %_ZNSt6vectorISt8optionalIN8WasmEdge7ValTypeEESaIS3_EED2Ev.exit1305, %4414, %4410, %4364, %4360, %4340, %4336, %3949, %3945, %3925, %3921, %2920, %2918, %2602, %2600, %2319, %2317, %2145, %2143, %1963, %1836, %1834, %1517, %1515, %1007, %973, %971, %913, %816, %5306, %5289, %5272, %5255, %5238, %5221, %5204, %5191, %5178, %5165, %5152, %5139, %5126, %5113, %5100, %5087, %5074, %5061, %5048, %5035, %5022, %5009, %4996, %4983, %4970, %4957, %4944, %4931, %4918, %4905, %4892, %4879, %4866, %4853, %4840, %4827, %4814, %4801, %4788, %4775, %4762, %4749, %4736, %4723, %4710, %4697, %4684, %4671, %4658, %4649, %4640, %4631, %4622, %4613, %4604, %4595, %4586, %4577, %4568, %4559, %4550, %4541, %4532, %4515, %4498, %4485, %4484, %4467, %4454, %4437, %4428, %4415, %4382, %4365, %4312, %4303, %4294, %4285, %4271, %4261, %4247, %4237, %4223, %4213, %4199, %4189, %4175, %4165, %4151, %4141, %4128, %4126, %4118, %4109, %4100, %4091, %4082, %4069, %4056, %4043, %4030, %4021, %4012, %4003, %3994, %3985, %3976, %3963, %3950, %3889, %3876, %3863, %3850, %3841, %3832, %3823, %3814, %3805, %3796, %3787, %3778, %3769, %3760, %3751, %3742, %3733, %3724, %3715, %3706, %3697, %3688, %3679, %3670, %3661, %3652, %3643, %3634, %3625, %3616, %3607, %3598, %3593, %3588, %3583, %3578, %3577, %3573, %3549, %3546, %3528, %3524, %3509, %3496, %3491, %3482, %3473, %3464, %3455, %3446, %3437, %3428, %3419, %3410, %3401, %3392, %3383, %3374, %3365, %3356, %3347, %3338, %3329, %3328, %3324, %3300, %3296, %3269, %3251, %3247, %3219, %3197, %3192, %3183, %3177, %3172, %3165, %3152, %3151, %3142, %3137, %3119, %3112, %3105, %3103, %3082, %3070, %3066, %3050, %3042, %3039, %3035, %3020, %3010, %3003, %2998, %2986, %2982, %2973, %2964, %2960, %2953, %2946, %2939, %2934, %2782, %2763, %2756, %2747, %2745, %2740, %2734, %2714, %2693, %2687, %2684, %2661, %2657, %2632, %2611, %2608, %2559, %2544, %.thread2999, %2532, %2528, %2511, %2493, %2479, %2472, %2449, %2435, %2430, %2412, %2394, %2380, %2374, %2360, %2352, %2334, %2288, %2285, %2269, %2254, %2244, %2242, %2234, %2208, %2206, %2198, %2194, %2177, %2151, %2077, %2075, %2071, %2062, %2042, %2015, %2013, %2003, %2000, %1996, %1976, %1974, %1968, %1967, %1914, %1913, %1909, %1892, %1884, %1851, %1798, %1797, %1793, %1776, %1769, %1738, %1731, %1717, %1713, %1696, %1655, %1640, %1618, %1614, %1605, %1598, %1559, %1555, %1543, %1539, %1523, %1412, %1409, %1408, %1372, %1363, %1328, %1301, %1297, %1279, %1217, %1148, %1118, %1114, %1087, %1080, %1047, %1043, %1020, %1011, %992, %988, %982, %979, %929, %917, %831, %819, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1255, %565, %564
+_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1268: ; preds = %_ZNSt6vectorISt8optionalIN8WasmEdge7ValTypeEESaIS3_EED2Ev.exit1305, %4414, %4410, %4364, %4360, %4340, %4336, %3949, %3945, %3925, %3921, %2920, %2918, %2602, %2600, %2319, %2317, %2145, %2143, %1963, %1836, %1834, %1517, %1515, %1007, %973, %971, %913, %816, %5306, %5289, %5272, %5255, %5238, %5221, %5204, %5191, %5178, %5165, %5152, %5139, %5126, %5113, %5100, %5087, %5074, %5061, %5048, %5035, %5022, %5009, %4996, %4983, %4970, %4957, %4944, %4931, %4918, %4905, %4892, %4879, %4866, %4853, %4840, %4827, %4814, %4801, %4788, %4775, %4762, %4749, %4736, %4723, %4710, %4697, %4684, %4671, %4658, %4649, %4640, %4631, %4622, %4613, %4604, %4595, %4586, %4577, %4568, %4559, %4550, %4541, %4532, %4515, %4498, %4485, %4484, %4467, %4454, %4437, %4428, %4415, %4382, %4365, %4312, %4303, %4294, %4285, %4271, %4261, %4247, %4237, %4223, %4213, %4199, %4189, %4175, %4165, %4151, %4141, %4128, %4126, %4118, %4109, %4100, %4091, %4082, %4069, %4056, %4043, %4030, %4021, %4012, %4003, %3994, %3985, %3976, %3963, %3950, %3889, %3876, %3863, %3850, %3841, %3832, %3823, %3814, %3805, %3796, %3787, %3778, %3769, %3760, %3751, %3742, %3733, %3724, %3715, %3706, %3697, %3688, %3679, %3670, %3661, %3652, %3643, %3634, %3625, %3616, %3607, %3598, %3593, %3588, %3583, %3578, %3577, %3573, %3549, %3546, %3528, %3524, %3509, %3496, %3491, %3482, %3473, %3464, %3455, %3446, %3437, %3428, %3419, %3410, %3401, %3392, %3383, %3374, %3365, %3356, %3347, %3338, %3329, %3328, %3324, %3300, %3296, %3269, %3251, %3247, %3219, %3197, %3192, %3183, %3177, %3172, %3165, %3152, %3151, %3142, %3137, %3119, %3112, %3105, %3103, %3082, %3070, %3066, %3050, %3042, %3039, %3035, %3020, %3010, %3003, %2998, %2986, %2982, %2973, %2964, %2960, %2953, %2946, %2939, %2934, %2782, %2763, %2756, %2747, %2745, %2740, %2734, %2714, %2693, %2687, %2684, %2661, %2657, %2632, %2611, %2608, %2559, %2544, %.thread2999, %2532, %2528, %2511, %2493, %2479, %2472, %2449, %2435, %2430, %2412, %2394, %2380, %2374, %2360, %2352, %2334, %2288, %2285, %2269, %2254, %2244, %2242, %2234, %2208, %2206, %2198, %2194, %2177, %2151, %2077, %2075, %2071, %2062, %2042, %2015, %2013, %2003, %2000, %1996, %1976, %1974, %1968, %1967, %1914, %1913, %1909, %1892, %1884, %1851, %1798, %1797, %1793, %1776, %1769, %1738, %1731, %1717, %1713, %1696, %1655, %1640, %1618, %1614, %1605, %1598, %1559, %1555, %1543, %1539, %1523, %1412, %1409, %1408, %1372, %1363, %1328, %1301, %1297, %1279, %1215, %1148, %1118, %1114, %1087, %1080, %1047, %1043, %1020, %1011, %992, %988, %982, %979, %929, %917, %831, %819, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1255, %565, %564
   ret void
 
 _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1266: ; preds = %2928, %2926, %2586, %2583, %2328, %2325, %2104, %2102, %1845, %1842, %1447, %1445, %1234, %1232, %964, %962, %3298, %3249, %3037, %3022, %3012, %2784, %2736, %2716, %2659, %2474, %2073, %1998, %1961, %1005, %911, %814, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1257

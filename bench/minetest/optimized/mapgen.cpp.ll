@@ -3408,7 +3408,7 @@ for.body.lr.ph:                                   ; preds = %invoke.cont9
   br i1 %cmp18.not84, label %for.cond.cleanup, label %for.body.lr.ph.split
 
 for.body.lr.ph.split:                             ; preds = %for.body.lr.ph
-  %cmp33.not81 = icmp sgt i32 %conv16.i, %conv32
+  %cmp33.not81 = icmp sgt i32 %sext79, %sext80
   %Y.i = getelementptr inbounds nuw i8, ptr %6, i64 22
   %m_cache_extent.i68 = getelementptr inbounds nuw i8, ptr %6, i64 20
   %Z.i = getelementptr inbounds nuw i8, ptr %6, i64 12
@@ -3858,7 +3858,7 @@ for.body.lr.ph:                                   ; preds = %entry
   %conv9 = ashr exact i32 %sext, 16
   %sext96 = shl i32 %nmax.sroa.0.0.extract.trunc, 16
   %conv13 = ashr exact i32 %sext96, 16
-  %cmp14.not104 = icmp sgt i32 %conv9, %conv13
+  %cmp14.not104 = icmp sgt i32 %sext, %sext96
   %conv7.i = sext i16 %sub8.i.i.i to i32
   %conv47 = ashr i32 %2, 16
   %ndef = getelementptr inbounds nuw i8, ptr %this, i64 48
@@ -3885,6 +3885,7 @@ for.body.preheader:                               ; preds = %for.body.lr.ph.spli
   %Y9.i = getelementptr inbounds nuw i8, ptr %1, i64 10
   %8 = load i16, ptr %Y9.i, align 2, !tbaa !88
   %conv10.i = sext i16 %8 to i32
+  %smax = tail call i32 @llvm.smax.i32(i32 %conv9, i32 %conv13)
   %sub11.i = sub nsw i32 %conv7.i, %conv10.i
   br i1 %propagate_shadow, label %for.body.preheader.split.us, label %for.body.preheader.split
 
@@ -3948,7 +3949,7 @@ if.end57.us22.us.us:                              ; preds = %for.body50.us12.us.
 
 cleanup60.us26.us.us:                             ; preds = %for.body50.us12.us.us, %if.end57.us22.us.us, %if.else.us10.us.us
   %inc.us27.us.us = add nsw i32 %x.0105.us2.us.us, 1
-  %exitcond.not.us28.us.us = icmp eq i32 %x.0105.us2.us.us, %conv13
+  %exitcond.not.us28.us.us = icmp eq i32 %x.0105.us2.us.us, %smax
   br i1 %exitcond.not.us28.us.us, label %for.cond10.for.cond.cleanup15_crit_edge.split.split.us29.split.us.us, label %for.body16.us1.us.us, !llvm.loop !183
 
 for.cond10.for.cond.cleanup15_crit_edge.split.split.us29.split.us.us: ; preds = %cleanup60.us26.us.us
@@ -4010,7 +4011,7 @@ if.end57.us22:                                    ; preds = %for.body50.us12
 
 cleanup60.us26:                                   ; preds = %for.body50.us12, %if.end57.us22, %for.body16.us1, %if.else.us10
   %inc.us27 = add nsw i32 %x.0105.us2, 1
-  %exitcond.not.us28 = icmp eq i32 %x.0105.us2, %conv13
+  %exitcond.not.us28 = icmp eq i32 %x.0105.us2, %smax
   br i1 %exitcond.not.us28, label %for.cond10.for.cond.cleanup15_crit_edge.split.split.us29.split, label %for.body16.us1, !llvm.loop !183
 
 for.cond10.for.cond.cleanup15_crit_edge.split.split.us29.split: ; preds = %cleanup60.us26
@@ -4064,7 +4065,7 @@ if.end57.us.us.us:                                ; preds = %for.body50.us.us.us
 
 cleanup60.loopexit.us.us.us:                      ; preds = %if.end57.us.us.us, %for.body50.us.us.us
   %inc.us.us.us = add nsw i32 %x.0105.us.us.us, 1
-  %exitcond.not.us.us.us = icmp eq i32 %x.0105.us.us.us, %conv13
+  %exitcond.not.us.us.us = icmp eq i32 %x.0105.us.us.us, %smax
   br i1 %exitcond.not.us.us.us, label %for.cond10.for.cond.cleanup15_crit_edge.split.split.us.split.us.us, label %for.body16.us.us.us, !llvm.loop !183
 
 for.cond10.for.cond.cleanup15_crit_edge.split.split.us.split.us.us: ; preds = %cleanup60.loopexit.us.us.us
@@ -4122,7 +4123,7 @@ if.end57.us:                                      ; preds = %for.body50.us
 
 cleanup60.us:                                     ; preds = %for.body50.us, %if.end57.us, %for.body16.us
   %inc.us = add nsw i32 %x.0105.us, 1
-  %exitcond.not.us = icmp eq i32 %x.0105.us, %conv13
+  %exitcond.not.us = icmp eq i32 %x.0105.us, %smax
   br i1 %exitcond.not.us, label %for.cond10.for.cond.cleanup15_crit_edge.split.split.us.split, label %for.body16.us, !llvm.loop !183
 
 for.cond10.for.cond.cleanup15_crit_edge.split.split.us.split: ; preds = %cleanup60.us

@@ -6133,9 +6133,9 @@ define linkonce_odr hidden void @_ZN5clang10ASTContext22addTranslationUnitDeclEv
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 2072
   %13 = load ptr, ptr %12, align 8
   %14 = icmp eq ptr %11, %13
-  br i1 %14, label %.thread, label %_ZNSt6vectorIPN5clang4DeclESaIS2_EE13_M_assign_auxIPKS2_EEvT_S8_St20forward_iterator_tag.exit
+  br i1 %14, label %15, label %_ZNSt6vectorIPN5clang4DeclESaIS2_EE13_M_assign_auxIPKS2_EEvT_S8_St20forward_iterator_tag.exit
 
-15:                                               ; preds = %1
+15:                                               ; preds = %9, %1
   store ptr %3, ptr %2, align 8
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 22984
   %17 = load ptr, ptr %16, align 8
@@ -6144,80 +6144,72 @@ define linkonce_odr hidden void @_ZN5clang10ASTContext22addTranslationUnitDeclEv
   %20 = sub i64 %18, %19
   %21 = icmp ult i64 %20, 8
   %22 = ptrtoint ptr %3 to i64
-  br i1 %21, label %30, label %_ZSt4copyIPKPN5clang4DeclEPS2_ET0_T_S7_S6_.exit18.i
+  br i1 %21, label %23, label %27
 
-.thread:                                          ; preds = %9
-  store ptr %3, ptr %2, align 8
-  %23 = getelementptr inbounds nuw i8, ptr %0, i64 22984
-  %24 = load ptr, ptr %23, align 8
-  %25 = ptrtoint ptr %24 to i64
-  %26 = ptrtoint ptr %5 to i64
-  %27 = sub i64 %25, %26
-  %28 = icmp ult i64 %27, 8
-  %29 = ptrtoint ptr %3 to i64
-  br i1 %28, label %30, label %37
-
-30:                                               ; preds = %.thread, %15
-  %31 = phi i64 [ %29, %.thread ], [ %22, %15 ]
-  %32 = phi i64 [ %27, %.thread ], [ %20, %15 ]
-  %33 = phi ptr [ %23, %.thread ], [ %16, %15 ]
-  %34 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #31
-  store i64 %31, ptr %34, align 8
+23:                                               ; preds = %15
+  %24 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #31
+  store i64 %22, ptr %24, align 8
   %.not.i.i = icmp eq ptr %5, null
-  br i1 %.not.i.i, label %_ZNSt12_Vector_baseIPN5clang4DeclESaIS2_EE13_M_deallocateEPS2_m.exit.i, label %35
+  br i1 %.not.i.i, label %_ZNSt12_Vector_baseIPN5clang4DeclESaIS2_EE13_M_deallocateEPS2_m.exit.i, label %25
 
-35:                                               ; preds = %30
-  tail call void @_ZdlPvm(ptr noundef nonnull %5, i64 noundef %32) #32
+25:                                               ; preds = %23
+  tail call void @_ZdlPvm(ptr noundef nonnull %5, i64 noundef %20) #32
   br label %_ZNSt12_Vector_baseIPN5clang4DeclESaIS2_EE13_M_deallocateEPS2_m.exit.i
 
-_ZNSt12_Vector_baseIPN5clang4DeclESaIS2_EE13_M_deallocateEPS2_m.exit.i: ; preds = %35, %30
-  store ptr %34, ptr %4, align 8
-  %36 = getelementptr inbounds nuw i8, ptr %34, i64 8
-  store ptr %36, ptr %6, align 8
-  store ptr %36, ptr %33, align 8
+_ZNSt12_Vector_baseIPN5clang4DeclESaIS2_EE13_M_deallocateEPS2_m.exit.i: ; preds = %25, %23
+  store ptr %24, ptr %4, align 8
+  %26 = getelementptr inbounds nuw i8, ptr %24, i64 8
+  store ptr %26, ptr %6, align 8
+  store ptr %26, ptr %16, align 8
   br label %_ZNSt6vectorIPN5clang4DeclESaIS2_EE13_M_assign_auxIPKS2_EEvT_S8_St20forward_iterator_tag.exit
 
-37:                                               ; preds = %.thread
-  store i64 %29, ptr %5, align 8
+27:                                               ; preds = %15
+  %28 = ptrtoint ptr %7 to i64
+  %29 = sub i64 %28, %19
+  %.not.i = icmp ult i64 %29, 8
+  br i1 %.not.i, label %33, label %30
+
+30:                                               ; preds = %27
+  store i64 %22, ptr %5, align 8
   %.pre.i = load ptr, ptr %6, align 8
-  %38 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %.not.i16.i = icmp eq ptr %.pre.i, %38
-  br i1 %.not.i16.i, label %_ZNSt6vectorIPN5clang4DeclESaIS2_EE13_M_assign_auxIPKS2_EEvT_S8_St20forward_iterator_tag.exit, label %39
+  %31 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %.not.i16.i = icmp eq ptr %.pre.i, %31
+  br i1 %.not.i16.i, label %_ZNSt6vectorIPN5clang4DeclESaIS2_EE13_M_assign_auxIPKS2_EEvT_S8_St20forward_iterator_tag.exit, label %32
 
-39:                                               ; preds = %37
-  store ptr %38, ptr %6, align 8
+32:                                               ; preds = %30
+  store ptr %31, ptr %6, align 8
   br label %_ZNSt6vectorIPN5clang4DeclESaIS2_EE13_M_assign_auxIPKS2_EEvT_S8_St20forward_iterator_tag.exit
 
-_ZSt4copyIPKPN5clang4DeclEPS2_ET0_T_S7_S6_.exit18.i: ; preds = %15
-  %40 = ptrtoint ptr %7 to i64
-  %41 = sub i64 %40, %19
-  %gepdiff = sub nsw i64 8, %41
-  %.not.i.i.i.i.i.i.i.i.i = icmp eq i64 %41, 8
-  br i1 %.not.i.i.i.i.i.i.i.i.i, label %_ZSt22__uninitialized_copy_aIPKPN5clang4DeclEPS2_S2_ET0_T_S7_S6_RSaIT1_E.exit.i, label %42
+33:                                               ; preds = %27
+  %34 = getelementptr inbounds nuw i8, ptr %2, i64 %29
+  br i1 %8, label %_ZSt4copyIPKPN5clang4DeclEPS2_ET0_T_S7_S6_.exit18.i, label %35
 
-42:                                               ; preds = %_ZSt4copyIPKPN5clang4DeclEPS2_ET0_T_S7_S6_.exit18.i
-  %.sink.i.i25.i.ptr = getelementptr inbounds i8, ptr %2, i64 %41
-  call void @llvm.memmove.p0.p0.i64(ptr align 8 %7, ptr nonnull align 8 %.sink.i.i25.i.ptr, i64 %gepdiff, i1 false)
-  br label %_ZSt22__uninitialized_copy_aIPKPN5clang4DeclEPS2_S2_ET0_T_S7_S6_RSaIT1_E.exit.i
+35:                                               ; preds = %33
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %5, ptr noundef nonnull align 8 dereferenceable(1) %2, i64 %29, i1 false)
+  %.pre26.i = load ptr, ptr %6, align 8
+  br label %_ZSt4copyIPKPN5clang4DeclEPS2_ET0_T_S7_S6_.exit18.i
 
-_ZSt22__uninitialized_copy_aIPKPN5clang4DeclEPS2_S2_ET0_T_S7_S6_RSaIT1_E.exit.i: ; preds = %42, %_ZSt4copyIPKPN5clang4DeclEPS2_ET0_T_S7_S6_.exit18.i
-  %43 = getelementptr inbounds i8, ptr %7, i64 %gepdiff
-  store ptr %43, ptr %6, align 8
+_ZSt4copyIPKPN5clang4DeclEPS2_ET0_T_S7_S6_.exit18.i: ; preds = %35, %33
+  %36 = phi ptr [ %7, %33 ], [ %.pre26.i, %35 ]
+  %gepdiff = sub nuw nsw i64 8, %29
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %36, ptr nonnull align 8 %34, i64 %gepdiff, i1 false)
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 %gepdiff
+  store ptr %37, ptr %6, align 8
   br label %_ZNSt6vectorIPN5clang4DeclESaIS2_EE13_M_assign_auxIPKS2_EEvT_S8_St20forward_iterator_tag.exit
 
-_ZNSt6vectorIPN5clang4DeclESaIS2_EE13_M_assign_auxIPKS2_EEvT_S8_St20forward_iterator_tag.exit: ; preds = %_ZSt22__uninitialized_copy_aIPKPN5clang4DeclEPS2_S2_ET0_T_S7_S6_RSaIT1_E.exit.i, %39, %37, %_ZNSt12_Vector_baseIPN5clang4DeclESaIS2_EE13_M_deallocateEPS2_m.exit.i, %9
-  %44 = getelementptr inbounds nuw i8, ptr %0, i64 2072
-  %45 = load ptr, ptr %44, align 8
-  %.not = icmp eq ptr %45, null
-  br i1 %.not, label %48, label %46
+_ZNSt6vectorIPN5clang4DeclESaIS2_EE13_M_assign_auxIPKS2_EEvT_S8_St20forward_iterator_tag.exit: ; preds = %_ZSt4copyIPKPN5clang4DeclEPS2_ET0_T_S7_S6_.exit18.i, %32, %30, %_ZNSt12_Vector_baseIPN5clang4DeclESaIS2_EE13_M_deallocateEPS2_m.exit.i, %9
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 2072
+  %39 = load ptr, ptr %38, align 8
+  %.not = icmp eq ptr %39, null
+  br i1 %.not, label %42, label %40
 
-46:                                               ; preds = %_ZNSt6vectorIPN5clang4DeclESaIS2_EE13_M_assign_auxIPKS2_EEvT_S8_St20forward_iterator_tag.exit
-  %47 = getelementptr inbounds nuw i8, ptr %3, i64 72
-  tail call void @_ZN5clang12RedeclarableINS_19TranslationUnitDeclEE15setPreviousDeclEPS1_(ptr noundef nonnull align 8 dereferenceable(16) %47, ptr noundef nonnull %45)
-  br label %48
+40:                                               ; preds = %_ZNSt6vectorIPN5clang4DeclESaIS2_EE13_M_assign_auxIPKS2_EEvT_S8_St20forward_iterator_tag.exit
+  %41 = getelementptr inbounds nuw i8, ptr %3, i64 72
+  tail call void @_ZN5clang12RedeclarableINS_19TranslationUnitDeclEE15setPreviousDeclEPS1_(ptr noundef nonnull align 8 dereferenceable(16) %41, ptr noundef nonnull %39)
+  br label %42
 
-48:                                               ; preds = %46, %_ZNSt6vectorIPN5clang4DeclESaIS2_EE13_M_assign_auxIPKS2_EEvT_S8_St20forward_iterator_tag.exit
-  store ptr %3, ptr %44, align 8
+42:                                               ; preds = %40, %_ZNSt6vectorIPN5clang4DeclESaIS2_EE13_M_assign_auxIPKS2_EEvT_S8_St20forward_iterator_tag.exit
+  store ptr %3, ptr %38, align 8
   ret void
 }
 
@@ -130462,7 +130454,7 @@ define linkonce_odr void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_trait
   %18 = ptrtoint ptr %1 to i64
   %19 = sub i64 %15, %18
   %20 = ashr exact i64 %19, 5
-  %21 = icmp ugt i64 %20, %9
+  %21 = icmp ugt i64 %19, %8
   br i1 %21, label %.lr.ph.i.i.i.i.i.preheader, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEEmEvRT_T0_.exit
 
 .lr.ph.i.i.i.i.i.preheader:                       ; preds = %17

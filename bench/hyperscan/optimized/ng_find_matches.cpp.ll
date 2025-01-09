@@ -14342,8 +14342,7 @@ if.else:                                          ; preds = %if.then
   %8 = load ptr, ptr %_M_finish.i94, align 8
   %sub.ptr.lhs.cast.i95 = ptrtoint ptr %8 to i64
   %sub.ptr.sub.i97 = sub i64 %sub.ptr.lhs.cast.i95, %sub.ptr.rhs.cast.i90
-  %sub.ptr.div.i98 = ashr exact i64 %sub.ptr.sub.i97, 5
-  %cmp26.not = icmp ult i64 %sub.ptr.div.i98, %sub.ptr.div.i
+  %cmp26.not = icmp ult i64 %sub.ptr.sub.i97, %sub.ptr.sub.i
   br i1 %cmp26.not, label %if.else49, label %if.then27
 
 if.then27:                                        ; preds = %if.else
@@ -14394,6 +14393,7 @@ _ZSt8_DestroyIN5boost14dynamic_bitsetImSaImEEEEvPT_.exit.i.i.i104: ; preds = %if
   br i1 %cmp.i.not.i.i.i, label %if.end69, label %for.body.i.i.i101, !llvm.loop !374
 
 if.else49:                                        ; preds = %if.else
+  %sub.ptr.div.i98 = ashr exact i64 %sub.ptr.sub.i97, 5
   %cmp7.i.i.i.i.i114 = icmp sgt i64 %sub.ptr.div.i98, 0
   br i1 %cmp7.i.i.i.i.i114, label %for.body.i.i.i.i.i116, label %_ZSt4copyIPN5boost14dynamic_bitsetImSaImEEES4_ET0_T_S6_S5_.exit
 
@@ -14456,7 +14456,6 @@ if.then:                                          ; preds = %entry
   %sub.ptr.lhs.cast.i = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %sub.ptr.div.i = sdiv exact i64 %sub.ptr.sub.i, 24
   %_M_end_of_storage.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %2 = load ptr, ptr %_M_end_of_storage.i, align 8
   %3 = load ptr, ptr %this, align 8
@@ -14467,6 +14466,7 @@ if.then:                                          ; preds = %entry
   br i1 %cmp3, label %if.then4, label %if.else
 
 if.then4:                                         ; preds = %if.then
+  %sub.ptr.div.i = sdiv exact i64 %sub.ptr.sub.i, 24
   %call11 = tail call noundef ptr @_ZNSt6vectorIS_ImSaImEESaIS1_EE20_M_allocate_and_copyIN9__gnu_cxx17__normal_iteratorIPKS1_S3_EEEEPS1_mT_SB_(ptr noundef nonnull align 8 dereferenceable(24) %this, i64 noundef %sub.ptr.div.i, ptr %1, ptr %0)
   %4 = load ptr, ptr %this, align 8
   %_M_finish = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -14513,8 +14513,7 @@ if.else:                                          ; preds = %if.then
   %8 = load ptr, ptr %_M_finish.i94, align 8
   %sub.ptr.lhs.cast.i95 = ptrtoint ptr %8 to i64
   %sub.ptr.sub.i97 = sub i64 %sub.ptr.lhs.cast.i95, %sub.ptr.rhs.cast.i90
-  %sub.ptr.div.i98 = sdiv exact i64 %sub.ptr.sub.i97, 24
-  %cmp26.not = icmp ult i64 %sub.ptr.div.i98, %sub.ptr.div.i
+  %cmp26.not = icmp ult i64 %sub.ptr.sub.i97, %sub.ptr.sub.i
   br i1 %cmp26.not, label %if.else49, label %if.then27
 
 if.then27:                                        ; preds = %if.else
@@ -14591,15 +14590,14 @@ _ZSt4copyIPSt6vectorImSaImEES3_ET0_T_S5_S4_.exit.loopexit: ; preds = %for.body.i
   %.pre135 = ptrtoint ptr %.pre132 to i64
   %.pre136 = ptrtoint ptr %.pre133 to i64
   %.pre137 = sub i64 %.pre135, %.pre136
-  %.pre138 = sdiv exact i64 %.pre137, 24
   br label %_ZSt4copyIPSt6vectorImSaImEES3_ET0_T_S5_S4_.exit
 
 _ZSt4copyIPSt6vectorImSaImEES3_ET0_T_S5_S4_.exit: ; preds = %_ZSt4copyIPSt6vectorImSaImEES3_ET0_T_S5_S4_.exit.loopexit, %if.else49
-  %sub.ptr.div.i130.pre-phi = phi i64 [ %.pre138, %_ZSt4copyIPSt6vectorImSaImEES3_ET0_T_S5_S4_.exit.loopexit ], [ %sub.ptr.div.i98, %if.else49 ]
+  %sub.ptr.div.i130.pre-phi.in = phi i64 [ %.pre137, %_ZSt4copyIPSt6vectorImSaImEES3_ET0_T_S5_S4_.exit.loopexit ], [ %sub.ptr.sub.i97, %if.else49 ]
   %11 = phi ptr [ %.pre134, %_ZSt4copyIPSt6vectorImSaImEES3_ET0_T_S5_S4_.exit.loopexit ], [ %0, %if.else49 ]
   %12 = phi ptr [ %.pre132, %_ZSt4copyIPSt6vectorImSaImEES3_ET0_T_S5_S4_.exit.loopexit ], [ %8, %if.else49 ]
   %13 = phi ptr [ %.pre131, %_ZSt4copyIPSt6vectorImSaImEES3_ET0_T_S5_S4_.exit.loopexit ], [ %1, %if.else49 ]
-  %add.ptr62 = getelementptr inbounds %"class.std::vector.122", ptr %13, i64 %sub.ptr.div.i130.pre-phi
+  %add.ptr62 = getelementptr inbounds i8, ptr %13, i64 %sub.ptr.div.i130.pre-phi.in
   %call.i.i.i = tail call noundef ptr @_ZSt16__do_uninit_copyIPSt6vectorImSaImEES3_ET0_T_S5_S4_(ptr noundef %add.ptr62, ptr noundef %11, ptr noundef %12)
   br label %if.end69
 

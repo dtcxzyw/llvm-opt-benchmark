@@ -118,7 +118,7 @@ define hidden void @_ZN2cv3dnn8fastNormERKNS_3MatERS1_fmb(ptr noundef nonnull al
   br i1 %.not, label %_ZN2cv3dnn14dnn4_v20240521L5shapeERKNS_3MatE.exit.thread, label %16
 
 16:                                               ; preds = %5
-  %17 = icmp slt i32 %.val, 0
+  %17 = icmp ugt i64 %.idx, 9223372036854775804
   br i1 %17, label %.noexc40, label %_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i
 
 .noexc40:                                         ; preds = %16
@@ -151,7 +151,7 @@ _ZN2cv3dnn14dnn4_v20240521L5shapeERKNS_3MatE.exit.thread: ; preds = %5, %_ZNSt12
   br i1 %.not.i, label %.invoke, label %24
 
 24:                                               ; preds = %21
-  %.not28.i = icmp samesign ugt i32 %spec.select.i, %.val
+  %.not28.i = icmp sgt i32 %spec.select.i, %.val
   br i1 %.not28.i, label %.invoke, label %.preheader.i
 
 .preheader.i:                                     ; preds = %24
@@ -491,7 +491,7 @@ define hidden void @_ZN2cv3dnn8fastNormERKNS_3MatES3_RS1_fm(ptr noundef nonnull 
   br i1 %.not, label %_ZN2cv3dnn14dnn4_v20240521L5shapeERKNS_3MatE.exit.thread, label %14
 
 14:                                               ; preds = %5
-  %15 = icmp slt i32 %.val, 0
+  %15 = icmp ugt i64 %.idx, 9223372036854775804
   br i1 %15, label %.noexc41, label %_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i
 
 .noexc41:                                         ; preds = %14
@@ -524,7 +524,7 @@ _ZN2cv3dnn14dnn4_v20240521L5shapeERKNS_3MatE.exit.thread: ; preds = %5, %_ZNSt12
   br i1 %.not.i, label %.invoke, label %22
 
 22:                                               ; preds = %19
-  %.not28.i = icmp samesign ugt i32 %spec.select.i, %.val
+  %.not28.i = icmp sgt i32 %spec.select.i, %.val
   br i1 %.not28.i, label %.invoke, label %.preheader.i
 
 .preheader.i:                                     ; preds = %22
@@ -700,7 +700,7 @@ define hidden void @_ZN2cv3dnn8fastNormERKNS_3MatES3_S3_RS1_fm(ptr noundef nonnu
   br i1 %.not, label %_ZN2cv3dnn14dnn4_v20240521L5shapeERKNS_3MatE.exit, label %15
 
 15:                                               ; preds = %6
-  %16 = icmp slt i32 %.val, 0
+  %16 = icmp ugt i64 %.idx, 9223372036854775804
   br i1 %16, label %.noexc46, label %_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i
 
 .noexc46:                                         ; preds = %15
@@ -950,18 +950,18 @@ define hidden void @_ZN2cv3dnn15fastNormChannelERKNS_3MatES3_S3_RS1_f(ptr nounde
   %.val = load i32, ptr %12, align 4
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %.val22 = load ptr, ptr %13, align 8
+  %14 = sext i32 %.val to i64
+  %.idx = shl nsw i64 %14, 2
   %.not = icmp ne i32 %.val, 0
   tail call void @llvm.assume(i1 %.not)
-  %14 = icmp slt i32 %.val, 0
-  br i1 %14, label %.noexc32, label %_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i
+  %15 = icmp ugt i64 %.idx, 9223372036854775804
+  br i1 %15, label %.noexc32, label %_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i
 
 .noexc32:                                         ; preds = %5
   tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.21) #17
   unreachable
 
 _ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i: ; preds = %5
-  %15 = zext nneg i32 %.val to i64
-  %.idx = shl nuw nsw i64 %15, 2
   %16 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %.idx) #18
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %16, ptr align 4 %.val22, i64 %.idx, i1 false)
   %17 = load i32, ptr %16, align 4
@@ -1022,7 +1022,7 @@ _ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i: ; preds = %5
   br i1 %44, label %45, label %.invoke
 
 45:                                               ; preds = %42
-  %.not.i = icmp samesign ult i32 %.val, 2
+  %.not.i = icmp slt i32 %.val, 2
   br i1 %.not.i, label %.invoke, label %49
 
 .invoke:                                          ; preds = %45, %42
@@ -1037,16 +1037,20 @@ _ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i: ; preds = %5
 
 49:                                               ; preds = %45
   %.not42 = icmp eq i32 %.val, 2
-  br i1 %.not42, label %_ZN2cv3dnn14dnn4_v20240521L5totalERKSt6vectorIiSaIiEEii.exit, label %.lr.ph.i
+  br i1 %.not42, label %_ZN2cv3dnn14dnn4_v20240521L5totalERKSt6vectorIiSaIiEEii.exit, label %.lr.ph.i.preheader
 
-.lr.ph.i:                                         ; preds = %49, %.lr.ph.i
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 2, %49 ]
-  %.0231.i = phi i32 [ %52, %.lr.ph.i ], [ 1, %49 ]
+.lr.ph.i.preheader:                               ; preds = %49
+  %wide.trip.count = zext nneg i32 %.val to i64
+  br label %.lr.ph.i
+
+.lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %.lr.ph.i
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 2, %.lr.ph.i.preheader ]
+  %.0231.i = phi i32 [ %52, %.lr.ph.i ], [ 1, %.lr.ph.i.preheader ]
   %50 = getelementptr inbounds nuw i32, ptr %16, i64 %indvars.iv.i
   %51 = load i32, ptr %50, align 4
   %52 = mul nsw i32 %51, %.0231.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next.i, %15
+  %exitcond.not = icmp eq i64 %indvars.iv.next.i, %wide.trip.count
   br i1 %exitcond.not, label %_ZN2cv3dnn14dnn4_v20240521L5totalERKSt6vectorIiSaIiEEii.exit.loopexit, label %.lr.ph.i, !llvm.loop !4
 
 _ZN2cv3dnn14dnn4_v20240521L5totalERKSt6vectorIiSaIiEEii.exit.loopexit: ; preds = %.lr.ph.i
@@ -1159,18 +1163,18 @@ define hidden void @_ZN2cv3dnn13fastNormGroupERKNS_3MatES3_S3_RS1_fm(ptr noundef
   %.val = load i32, ptr %15, align 4
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %.val25 = load ptr, ptr %16, align 8
+  %17 = sext i32 %.val to i64
+  %.idx = shl nsw i64 %17, 2
   %.not = icmp ne i32 %.val, 0
   tail call void @llvm.assume(i1 %.not)
-  %17 = icmp slt i32 %.val, 0
-  br i1 %17, label %.noexc35, label %_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i
+  %18 = icmp ugt i64 %.idx, 9223372036854775804
+  br i1 %18, label %.noexc35, label %_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i
 
 .noexc35:                                         ; preds = %6
   tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.21) #17
   unreachable
 
 _ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i: ; preds = %6
-  %18 = zext nneg i32 %.val to i64
-  %.idx = shl nuw nsw i64 %18, 2
   %19 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %.idx) #18
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %19, ptr align 4 %.val25, i64 %.idx, i1 false)
   %20 = load i32, ptr %19, align 4
@@ -1232,7 +1236,7 @@ _ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i: ; preds = %6
 48:                                               ; preds = %45
   %49 = udiv i64 %24, %5
   store i64 %49, ptr %9, align 8
-  %.not.i = icmp samesign ult i32 %.val, 2
+  %.not.i = icmp slt i32 %.val, 2
   br i1 %.not.i, label %.invoke, label %53
 
 .invoke:                                          ; preds = %48, %45
@@ -1247,16 +1251,20 @@ _ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i: ; preds = %6
 
 53:                                               ; preds = %48
   %.not46 = icmp eq i32 %.val, 2
-  br i1 %.not46, label %_ZN2cv3dnn14dnn4_v20240521L5totalERKSt6vectorIiSaIiEEii.exit, label %.lr.ph.i
+  br i1 %.not46, label %_ZN2cv3dnn14dnn4_v20240521L5totalERKSt6vectorIiSaIiEEii.exit, label %.lr.ph.i.preheader
 
-.lr.ph.i:                                         ; preds = %53, %.lr.ph.i
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 2, %53 ]
-  %.0231.i = phi i32 [ %56, %.lr.ph.i ], [ 1, %53 ]
+.lr.ph.i.preheader:                               ; preds = %53
+  %wide.trip.count = zext nneg i32 %.val to i64
+  br label %.lr.ph.i
+
+.lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %.lr.ph.i
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 2, %.lr.ph.i.preheader ]
+  %.0231.i = phi i32 [ %56, %.lr.ph.i ], [ 1, %.lr.ph.i.preheader ]
   %54 = getelementptr inbounds nuw i32, ptr %19, i64 %indvars.iv.i
   %55 = load i32, ptr %54, align 4
   %56 = mul nsw i32 %55, %.0231.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next.i, %18
+  %exitcond.not = icmp eq i64 %indvars.iv.next.i, %wide.trip.count
   br i1 %exitcond.not, label %_ZN2cv3dnn14dnn4_v20240521L5totalERKSt6vectorIiSaIiEEii.exit.loopexit, label %.lr.ph.i, !llvm.loop !4
 
 _ZN2cv3dnn14dnn4_v20240521L5totalERKSt6vectorIiSaIiEEii.exit.loopexit: ; preds = %.lr.ph.i

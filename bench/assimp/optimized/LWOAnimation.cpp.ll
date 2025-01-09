@@ -1547,11 +1547,13 @@ if.else68:                                        ; preds = %if.end39
   %sub.ptr.rhs.cast.i127 = ptrtoint ptr %21 to i64
   %sub.ptr.sub.i128 = sub i64 %sub.ptr.lhs.cast.i126, %sub.ptr.rhs.cast.i127
   %sub.ptr.div.i129 = sdiv exact i64 %sub.ptr.sub.i128, 40
+  %cmp.i130 = icmp ult i64 %sub.ptr.sub.i, %sub.ptr.sub.i128
   %22 = call i64 @llvm.umax.i64(i64 %sub.ptr.div.i, i64 %sub.ptr.div.i129)
+  %.sroa.speculated = select i1 %cmp.i130, i64 %22, i64 %sub.ptr.div.i
   br label %if.end85
 
 if.end85:                                         ; preds = %if.else68, %invoke.cont61
-  %reserve.0 = phi i64 [ %conv, %invoke.cont61 ], [ %22, %if.else68 ]
+  %reserve.0 = phi i64 [ %conv, %invoke.cont61 ], [ %.sroa.speculated, %if.else68 ]
   %shr = lshr i64 %reserve.0, 1
   %add = add i64 %shr, %reserve.0
   %cmp.i134 = icmp ugt i64 %add, 384307168202282325

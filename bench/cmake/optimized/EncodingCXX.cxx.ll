@@ -342,16 +342,16 @@ define dso_local noundef nonnull align 8 dereferenceable(24) ptr @_ZN5cmsys8Enco
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %0, align 8
-  %.not23 = icmp eq ptr %4, %5
-  br i1 %.not23, label %._crit_edge, label %.lr.ph
+  %.not25 = icmp eq ptr %4, %5
+  br i1 %.not25, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %6 = phi ptr [ %11, %.lr.ph ], [ %5, %.preheader ]
-  %.018 = phi i64 [ %9, %.lr.ph ], [ 0, %.preheader ]
-  %7 = getelementptr inbounds ptr, ptr %6, i64 %.018
+  %.019 = phi i64 [ %9, %.lr.ph ], [ 0, %.preheader ]
+  %7 = getelementptr inbounds ptr, ptr %6, i64 %.019
   %8 = load ptr, ptr %7, align 8
   tail call void @free(ptr noundef %8) #15
-  %9 = add nuw i64 %.018, 1
+  %9 = add nuw i64 %.019, 1
   %10 = load ptr, ptr %3, align 8
   %11 = load ptr, ptr %0, align 8
   %12 = ptrtoint ptr %10 to i64
@@ -362,8 +362,9 @@ define dso_local noundef nonnull align 8 dereferenceable(24) ptr @_ZN5cmsys8Enco
   br i1 %16, label %.lr.ph, label %._crit_edge, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
-  %.lcssa16 = phi ptr [ %4, %.preheader ], [ %10, %.lr.ph ]
-  %.lcssa15 = phi ptr [ %5, %.preheader ], [ %11, %.lr.ph ]
+  %.lcssa17 = phi ptr [ %4, %.preheader ], [ %10, %.lr.ph ]
+  %.lcssa16 = phi ptr [ %5, %.preheader ], [ %11, %.lr.ph ]
+  %.lcssa15 = phi i64 [ 0, %.preheader ], [ %14, %.lr.ph ]
   %.lcssa = phi i64 [ 0, %.preheader ], [ %15, %.lr.ph ]
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %18 = load ptr, ptr %17, align 8
@@ -371,54 +372,54 @@ define dso_local noundef nonnull align 8 dereferenceable(24) ptr @_ZN5cmsys8Enco
   %20 = ptrtoint ptr %18 to i64
   %21 = ptrtoint ptr %19 to i64
   %22 = sub i64 %20, %21
-  %23 = ashr exact i64 %22, 3
-  %24 = icmp ugt i64 %23, %.lcssa
-  br i1 %24, label %25, label %27
+  %23 = icmp ugt i64 %22, %.lcssa15
+  br i1 %23, label %24, label %27
 
-25:                                               ; preds = %._crit_edge
-  %26 = sub nuw nsw i64 %23, %.lcssa
+24:                                               ; preds = %._crit_edge
+  %25 = ashr exact i64 %22, 3
+  %26 = sub nuw nsw i64 %25, %.lcssa
   tail call void @_ZNSt6vectorIPcSaIS0_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %26)
   %.pre = load ptr, ptr %3, align 8
-  %.pre28 = load ptr, ptr %0, align 8
+  %.pre31 = load ptr, ptr %0, align 8
   br label %_ZNSt6vectorIPcSaIS0_EE6resizeEm.exit
 
 27:                                               ; preds = %._crit_edge
-  %28 = icmp ult i64 %23, %.lcssa
+  %28 = icmp ult i64 %22, %.lcssa15
   br i1 %28, label %29, label %_ZNSt6vectorIPcSaIS0_EE6resizeEm.exit
 
 29:                                               ; preds = %27
-  %30 = getelementptr inbounds i8, ptr %.lcssa15, i64 %22
-  %.not.i.i = icmp eq ptr %.lcssa16, %30
+  %30 = getelementptr inbounds i8, ptr %.lcssa16, i64 %22
+  %.not.i.i = icmp eq ptr %.lcssa17, %30
   br i1 %.not.i.i, label %_ZNSt6vectorIPcSaIS0_EE6resizeEm.exit, label %31
 
 31:                                               ; preds = %29
   store ptr %30, ptr %3, align 8
   br label %_ZNSt6vectorIPcSaIS0_EE6resizeEm.exit
 
-_ZNSt6vectorIPcSaIS0_EE6resizeEm.exit:            ; preds = %25, %27, %29, %31
-  %32 = phi ptr [ %.pre28, %25 ], [ %.lcssa15, %27 ], [ %.lcssa15, %29 ], [ %.lcssa15, %31 ]
-  %33 = phi ptr [ %.pre, %25 ], [ %.lcssa16, %27 ], [ %.lcssa16, %29 ], [ %30, %31 ]
-  %.not24 = icmp eq ptr %33, %32
-  br i1 %.not24, label %.loopexit, label %.lr.ph22
+_ZNSt6vectorIPcSaIS0_EE6resizeEm.exit:            ; preds = %24, %27, %29, %31
+  %32 = phi ptr [ %.pre31, %24 ], [ %.lcssa16, %27 ], [ %.lcssa16, %29 ], [ %.lcssa16, %31 ]
+  %33 = phi ptr [ %.pre, %24 ], [ %.lcssa17, %27 ], [ %.lcssa17, %29 ], [ %30, %31 ]
+  %.not26 = icmp eq ptr %33, %32
+  br i1 %.not26, label %.loopexit, label %.lr.ph24
 
-.lr.ph22:                                         ; preds = %_ZNSt6vectorIPcSaIS0_EE6resizeEm.exit, %40
+.lr.ph24:                                         ; preds = %_ZNSt6vectorIPcSaIS0_EE6resizeEm.exit, %40
   %34 = phi ptr [ %45, %40 ], [ %32, %_ZNSt6vectorIPcSaIS0_EE6resizeEm.exit ]
-  %.121 = phi i64 [ %43, %40 ], [ 0, %_ZNSt6vectorIPcSaIS0_EE6resizeEm.exit ]
+  %.123 = phi i64 [ %43, %40 ], [ 0, %_ZNSt6vectorIPcSaIS0_EE6resizeEm.exit ]
   %35 = load ptr, ptr %1, align 8
-  %36 = getelementptr inbounds ptr, ptr %35, i64 %.121
+  %36 = getelementptr inbounds ptr, ptr %35, i64 %.123
   %37 = load ptr, ptr %36, align 8
   %.not14 = icmp eq ptr %37, null
   br i1 %.not14, label %40, label %38
 
-38:                                               ; preds = %.lr.ph22
+38:                                               ; preds = %.lr.ph24
   %39 = tail call noalias ptr @strdup(ptr noundef nonnull %37) #15
   br label %40
 
-40:                                               ; preds = %.lr.ph22, %38
-  %41 = phi ptr [ %39, %38 ], [ null, %.lr.ph22 ]
-  %42 = getelementptr inbounds ptr, ptr %34, i64 %.121
+40:                                               ; preds = %.lr.ph24, %38
+  %41 = phi ptr [ %39, %38 ], [ null, %.lr.ph24 ]
+  %42 = getelementptr inbounds ptr, ptr %34, i64 %.123
   store ptr %41, ptr %42, align 8
-  %43 = add nuw i64 %.121, 1
+  %43 = add nuw i64 %.123, 1
   %44 = load ptr, ptr %3, align 8
   %45 = load ptr, ptr %0, align 8
   %46 = ptrtoint ptr %44 to i64
@@ -426,7 +427,7 @@ _ZNSt6vectorIPcSaIS0_EE6resizeEm.exit:            ; preds = %25, %27, %29, %31
   %48 = sub i64 %46, %47
   %49 = ashr exact i64 %48, 3
   %50 = icmp ult i64 %43, %49
-  br i1 %50, label %.lr.ph22, label %.loopexit, !llvm.loop !11
+  br i1 %50, label %.lr.ph24, label %.loopexit, !llvm.loop !11
 
 .loopexit:                                        ; preds = %40, %_ZNSt6vectorIPcSaIS0_EE6resizeEm.exit, %2
   ret ptr %0

@@ -976,9 +976,10 @@ _ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPKN8QuantLib4DateESt6vectorIS3_
 
 invoke.cont34:                                    ; preds = %_ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPKN8QuantLib4DateESt6vectorIS3_SaIS3_EEEES3_ET_SA_SA_RKT0_.exit.loopexit.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
   %sub.ptr.lhs.cast.i.pre-phi.i = phi i64 [ %.pre.i78, %_ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPKN8QuantLib4DateESt6vectorIS3_SaIS3_EEEES3_ET_SA_SA_RKT0_.exit.loopexit.i ], [ %sub.ptr.rhs.cast.i.i.i.i.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ]
+  %__first.sroa.0.0.lcssa.i.i.i = phi ptr [ %__first.sroa.0.1.i.i.i, %_ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPKN8QuantLib4DateESt6vectorIS3_SaIS3_EEEES3_ET_SA_SA_RKT0_.exit.loopexit.i ], [ %call24.val, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ]
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.pre-phi.i, %sub.ptr.rhs.cast.i.i.i.i.i.i
   %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i.i, 3
-  %cmp.i = icmp eq i64 %sub.ptr.div.i.i, %sub.ptr.div.i.i.i.i.i.i
+  %cmp.i = icmp eq ptr %__first.sroa.0.0.lcssa.i.i.i, %call24.val69
   %brmerge.not.i = and i1 %cmp.i, %loadedv.i
   %sub.i = sext i1 %brmerge.not.i to i64
   %cond.i = add nsw i64 %sub.ptr.div.i.i, %sub.i
