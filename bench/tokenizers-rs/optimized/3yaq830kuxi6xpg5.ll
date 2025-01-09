@@ -12906,16 +12906,16 @@ define hidden { i64, i64 } @"_ZN8smallvec17SmallVec$LT$A$GT$8try_grow17h9a837e96
   br i1 %6, label %36, label %32
 
 17:                                               ; preds = %15
-  %or.cond.not.i = icmp ult i64 %1, 576460752303423488
-  br i1 %or.cond.not.i, label %18, label %36
+  %or.cond.i = icmp ugt i64 %1, 576460752303423487
+  br i1 %or.cond.i, label %36, label %18
 
 18:                                               ; preds = %17
   %19 = shl nuw nsw i64 %1, 4
   br i1 %6, label %21, label %20
 
 20:                                               ; preds = %18
-  %or.cond.not.i92 = icmp ult i64 %5, 576460752303423488
-  br i1 %or.cond.not.i92, label %25, label %36
+  %or.cond.i92 = icmp ugt i64 %5, 576460752303423487
+  br i1 %or.cond.i92, label %36, label %25
 
 21:                                               ; preds = %18
   %22 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1
@@ -12947,8 +12947,8 @@ define hidden { i64, i64 } @"_ZN8smallvec17SmallVec$LT$A$GT$8try_grow17h9a837e96
   %33 = shl i64 %.val, 4
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %10, ptr nonnull align 8 %9, i64 %33, i1 false)
   store i64 %.val, ptr %4, align 8
-  %or.cond.not.i.i = icmp ult i64 %5, 576460752303423488
-  br i1 %or.cond.not.i.i, label %_ZN8smallvec10deallocate17hf8a56af8cc07b024E.exit, label %34
+  %or.cond.i.i = icmp ugt i64 %5, 576460752303423487
+  br i1 %or.cond.i.i, label %34, label %_ZN8smallvec10deallocate17hf8a56af8cc07b024E.exit
 
 34:                                               ; preds = %32
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3), !noalias !1180
@@ -13001,16 +13001,16 @@ define hidden { i64, i64 } @"_ZN8smallvec17SmallVec$LT$A$GT$8try_grow17he20b9f1b
   br i1 %6, label %36, label %32
 
 17:                                               ; preds = %15
-  %or.cond.not.i = icmp ult i64 %1, 576460752303423488
-  br i1 %or.cond.not.i, label %18, label %36
+  %or.cond.i = icmp ugt i64 %1, 576460752303423487
+  br i1 %or.cond.i, label %36, label %18
 
 18:                                               ; preds = %17
   %19 = shl nuw nsw i64 %1, 4
   br i1 %6, label %21, label %20
 
 20:                                               ; preds = %18
-  %or.cond.not.i92 = icmp ult i64 %5, 576460752303423488
-  br i1 %or.cond.not.i92, label %25, label %36
+  %or.cond.i92 = icmp ugt i64 %5, 576460752303423487
+  br i1 %or.cond.i92, label %36, label %25
 
 21:                                               ; preds = %18
   %22 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1
@@ -13042,8 +13042,8 @@ define hidden { i64, i64 } @"_ZN8smallvec17SmallVec$LT$A$GT$8try_grow17he20b9f1b
   %33 = shl i64 %.val, 4
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %10, ptr nonnull align 8 %9, i64 %33, i1 false)
   store i64 %.val, ptr %4, align 8
-  %or.cond.not.i.i = icmp ult i64 %5, 576460752303423488
-  br i1 %or.cond.not.i.i, label %_ZN8smallvec10deallocate17h634ea17a07011191E.exit, label %34
+  %or.cond.i.i = icmp ugt i64 %5, 576460752303423487
+  br i1 %or.cond.i.i, label %34, label %_ZN8smallvec10deallocate17h634ea17a07011191E.exit
 
 34:                                               ; preds = %32
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3), !noalias !1188

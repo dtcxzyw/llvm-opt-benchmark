@@ -56270,8 +56270,8 @@ if.end6.i:                                        ; preds = %_ZNK3org6apache5arr
   %arrayidx.i.i.i = getelementptr inbounds nuw i64, ptr %add.ptr.i.i.i, i64 %conv.i.i
   %33 = load i64, ptr %arrayidx.i.i.i, align 8, !noalias !1456
   store i64 %33, ptr %count.i, align 8, !noalias !1456
-  %or.cond.not.i = icmp ult i64 %33, 2147483648
-  br i1 %or.cond.not.i, label %_ZN5arrow3ipc12_GLOBAL__N_111ArrayLoader16GetVariadicCountEi.exit.thread, label %if.then11.i
+  %or.cond.i = icmp ugt i64 %33, 2147483647
+  br i1 %or.cond.i, label %if.then11.i, label %_ZN5arrow3ipc12_GLOBAL__N_111ArrayLoader16GetVariadicCountEi.exit.thread
 
 if.then11.i:                                      ; preds = %if.end6.i
   call void @_ZN5arrow6Status8FromArgsIJRA65_KcRlRA2_S2_EEES0_NS_10StatusCodeEDpOT_(ptr nonnull sret(%"class.arrow::Status") align 8 %ref.tmp12.i, i8 noundef signext 5, ptr noundef nonnull align 1 dereferenceable(65) @.str.35, ptr noundef nonnull align 8 dereferenceable(8) %count.i, ptr noundef nonnull align 1 dereferenceable(2) @.str.36), !noalias !1456

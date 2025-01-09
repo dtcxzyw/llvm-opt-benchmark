@@ -24561,10 +24561,10 @@ if.then46.i:                                      ; preds = %if.then39.i, %if.th
 lor.lhs.false.i44.i:                              ; preds = %if.then46.i
   %call.i.i45.i = tail call i64 @mi_option_get(i32 noundef 6)
   %cmp.i.not.i46.i = icmp ne i64 %call.i.i45.i, 0
-  %4 = or i64 %try_alignment, %size
-  %5 = and i64 %4, 2097151
-  %6 = icmp eq i64 %5, 0
-  %or.cond8 = and i1 %cmp.i.not.i46.i, %6
+  %rem2.i52.i9 = or i64 %try_alignment, %size
+  %4 = and i64 %rem2.i52.i9, 2097151
+  %5 = icmp eq i64 %4, 0
+  %or.cond8 = and i1 %cmp.i.not.i46.i, %5
   br i1 %or.cond8, label %if.then53.i, label %unix_mmap.exit.thread
 
 if.then53.i:                                      ; preds = %lor.lhs.false.i44.i
@@ -24587,11 +24587,11 @@ unix_mmap.exit:                                   ; preds = %if.then46.i
 
 cond.false:                                       ; preds = %unix_mmap.exit
   %call3 = tail call ptr @__errno_location() #55
-  %7 = load i32, ptr %call3, align 4
+  %6 = load i32, ptr %call3, align 4
   br label %cond.end
 
 cond.end:                                         ; preds = %unix_mmap.exit.thread, %unix_mmap.exit, %cond.false
-  %cond4 = phi i32 [ %7, %cond.false ], [ 0, %unix_mmap.exit ], [ 0, %unix_mmap.exit.thread ]
+  %cond4 = phi i32 [ %6, %cond.false ], [ 0, %unix_mmap.exit ], [ 0, %unix_mmap.exit.thread ]
   ret i32 %cond4
 }
 

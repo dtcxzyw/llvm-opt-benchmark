@@ -88,9 +88,8 @@ if.then:                                          ; preds = %entry
 if.then6:                                         ; preds = %if.then
   %cmp7 = icmp eq i32 %and.i, 0
   %cmp9 = icmp eq i32 %and.i11, 0
-  %4 = or i32 %1, %0
-  %5 = and i32 %4, 8388607
-  %brmerge.not = icmp eq i32 %5, 0
+  %4 = or i32 %and.i11, %and.i
+  %brmerge.not = icmp eq i32 %4, 0
   %cmp9.mux = or i1 %cmp7, %cmp9
   %cmp15.unshifted = xor i32 %1, %0
   %cmp15 = icmp slt i32 %cmp15.unshifted, 0
@@ -101,19 +100,19 @@ if.else19:                                        ; preds = %entry
   br i1 %cmp3, label %return, label %if.end22
 
 if.end22:                                         ; preds = %if.else19
-  %6 = tail call float @llvm.fabs.f32(float %expected)
+  %5 = tail call float @llvm.fabs.f32(float %expected)
   %cmp14.i = icmp slt i32 %0, 0
   br i1 %compressDenorms, label %if.then24, label %if.else27
 
 if.then24:                                        ; preds = %if.end22
-  %and.i15 = bitcast float %6 to i32
+  %and.i15 = bitcast float %5 to i32
   %cmp.i = icmp samesign ult i32 %and.i15, 8388608
   %add.i = add nuw i32 %0, 2139095041
   %sub.i = sub nuw i32 -2139095041, %and.i15
   %cond.i = select i1 %cmp14.i, i32 %sub.i, i32 %add.i
   %retval.0.i = select i1 %cmp.i, i32 -2147483648, i32 %cond.i
-  %7 = tail call float @llvm.fabs.f32(float %actual)
-  %and.i16 = bitcast float %7 to i32
+  %6 = tail call float @llvm.fabs.f32(float %actual)
+  %and.i16 = bitcast float %6 to i32
   %cmp.i17 = icmp samesign ult i32 %and.i16, 8388608
   %add.i18 = add nuw i32 %1, 2139095041
   %sub.i19 = sub nuw i32 -2139095041, %and.i16
@@ -123,15 +122,15 @@ if.then24:                                        ; preds = %if.end22
   br label %if.end30
 
 if.else27:                                        ; preds = %if.end22
-  %8 = fneg float %6
-  %add.i23 = bitcast float %8 to i32
-  %and.i24 = bitcast float %6 to i32
+  %7 = fneg float %5
+  %add.i23 = bitcast float %7 to i32
+  %and.i24 = bitcast float %5 to i32
   %sub.i25 = sub nuw i32 -2147483648, %and.i24
   %cond.i26 = select i1 %cmp14.i, i32 %sub.i25, i32 %add.i23
-  %9 = tail call float @llvm.fabs.f32(float %actual)
-  %10 = fneg float %9
-  %add.i27 = bitcast float %10 to i32
-  %and.i28 = bitcast float %9 to i32
+  %8 = tail call float @llvm.fabs.f32(float %actual)
+  %9 = fneg float %8
+  %add.i27 = bitcast float %9 to i32
+  %and.i28 = bitcast float %8 to i32
   %sub.i29 = sub nuw i32 -2147483648, %and.i28
   %cmp3.i30 = icmp slt i32 %1, 0
   %cond.i31 = select i1 %cmp3.i30, i32 %sub.i29, i32 %add.i27

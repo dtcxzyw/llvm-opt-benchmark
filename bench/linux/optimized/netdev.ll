@@ -17905,7 +17905,7 @@ define internal fastcc i32 @__e1000_shutdown(ptr noundef %0, i1 noundef zeroext 
   tail call void (ptr, ptr, ...) @netdev_err(ptr noundef %151, ptr noundef nonnull @.str.155) #25
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %4) #22
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %3) #22
-  br label %461
+  br label %460
 
 152:                                              ; preds = %145
   %153 = call i32 @e1000_enable_phy_wakeup_reg_access_bm(ptr noundef %10, ptr noundef nonnull %4) #22
@@ -18095,7 +18095,7 @@ define internal fastcc i32 @__e1000_shutdown(ptr noundef %0, i1 noundef zeroext 
   call void %285(ptr noundef %10) #22
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %4) #22
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %3) #22
-  br label %461
+  br label %460
 
 286:                                              ; preds = %.loopexit23
   %287 = getelementptr i8, ptr %8, i64 4688
@@ -18281,24 +18281,24 @@ define internal fastcc i32 @__e1000_shutdown(ptr noundef %0, i1 noundef zeroext 
   %398 = xor i1 %1, true
   %399 = call i32 @e1000_enable_ulp_lpt_lp(ptr noundef %10, i1 noundef zeroext %398) #22
   %400 = icmp eq i32 %399, 0
-  br i1 %400, label %.thread19, label %461
+  br i1 %400, label %.thread19, label %460
 
 .thread19:                                        ; preds = %393, %397, %389, %388
   %401 = load i32, ptr %385, align 8
   %402 = icmp ugt i32 %401, 11
-  br i1 %402, label %403, label %440
+  br i1 %402, label %403, label %439
 
 403:                                              ; preds = %.thread19
   %404 = getelementptr i8, ptr %8, i64 14808
   %405 = load i16, ptr %404, align 8
   %406 = icmp eq i16 %405, 0
-  br i1 %406, label %440, label %407
+  br i1 %406, label %439, label %407
 
 407:                                              ; preds = %403
   %408 = getelementptr i8, ptr %8, i64 13140
   %409 = load i16, ptr %408, align 4
   %410 = icmp eq i16 %409, 0
-  br i1 %410, label %440, label %411
+  br i1 %410, label %439, label %411
 
 411:                                              ; preds = %407
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %5) #22
@@ -18306,14 +18306,14 @@ define internal fastcc i32 @__e1000_shutdown(ptr noundef %0, i1 noundef zeroext 
   %412 = load ptr, ptr %384, align 8
   %413 = call i32 %412(ptr noundef %10) #22
   %414 = icmp eq i32 %413, 0
-  br i1 %414, label %415, label %437
+  br i1 %414, label %415, label %436
 
 415:                                              ; preds = %411
   %416 = getelementptr i8, ptr %8, i64 4672
   %417 = load ptr, ptr %416, align 8
   %418 = call i32 %417(ptr noundef %10, i32 noundef 24724, ptr noundef nonnull %5) #22
   %419 = icmp eq i32 %418, 0
-  br i1 %419, label %420, label %437
+  br i1 %419, label %420, label %436
 
 420:                                              ; preds = %415
   %421 = load i16, ptr %404, align 8
@@ -18329,66 +18329,65 @@ define internal fastcc i32 @__e1000_shutdown(ptr noundef %0, i1 noundef zeroext 
   %.not42 = icmp eq i16 %427, 0
   %428 = or i16 %.pre38, 16384
   %429 = select i1 %.not42, i16 %.pre38, i16 %428
-  %430 = and i16 %421, 6
-  %431 = and i16 %422, %430
-  %.not = icmp eq i16 %431, 0
-  br i1 %.not, label %433, label %432
+  %430 = or disjoint i16 %424, %427
+  %.not = icmp eq i16 %430, 0
+  br i1 %.not, label %432, label %431
 
-432:                                              ; preds = %420
+431:                                              ; preds = %420
   store i16 %429, ptr %5, align 2
-  br label %433
+  br label %432
 
-433:                                              ; preds = %420, %432
-  %434 = getelementptr i8, ptr %8, i64 4728
-  %435 = load ptr, ptr %434, align 8
-  %436 = call i32 %435(ptr noundef %10, i32 noundef 24724, i16 noundef zeroext %429) #22
-  br label %437
+432:                                              ; preds = %420, %431
+  %433 = getelementptr i8, ptr %8, i64 4728
+  %434 = load ptr, ptr %433, align 8
+  %435 = call i32 %434(ptr noundef %10, i32 noundef 24724, i16 noundef zeroext %429) #22
+  br label %436
 
-437:                                              ; preds = %433, %415, %411
-  %438 = getelementptr i8, ptr %8, i64 4688
-  %439 = load ptr, ptr %438, align 8
-  call void %439(ptr noundef %10) #22
+436:                                              ; preds = %432, %415, %411
+  %437 = getelementptr i8, ptr %8, i64 4688
+  %438 = load ptr, ptr %437, align 8
+  call void %438(ptr noundef %10) #22
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %5) #22
-  br label %440
+  br label %439
 
-440:                                              ; preds = %437, %407, %403, %.thread19
+439:                                              ; preds = %436, %407, %403, %.thread19
   call void @e1000e_release_hw_control(ptr noundef %9)
   call void @pci_clear_master(ptr noundef %0) #22
-  %441 = getelementptr i8, ptr %8, i64 14220
-  %442 = load i32, ptr %441, align 4
-  %443 = and i32 %442, 8192
-  %444 = icmp eq i32 %443, 0
-  br i1 %444, label %461, label %445
+  %440 = getelementptr i8, ptr %8, i64 14220
+  %441 = load i32, ptr %440, align 4
+  %442 = and i32 %441, 8192
+  %443 = icmp eq i32 %442, 0
+  br i1 %443, label %460, label %444
 
-445:                                              ; preds = %440
-  %446 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %447 = load ptr, ptr %446, align 8
-  %448 = getelementptr inbounds nuw i8, ptr %447, i64 56
-  %449 = load ptr, ptr %448, align 8
+444:                                              ; preds = %439
+  %445 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %446 = load ptr, ptr %445, align 8
+  %447 = getelementptr inbounds nuw i8, ptr %446, i64 56
+  %448 = load ptr, ptr %447, align 8
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %6) #22
   store i16 0, ptr %6, align 2, !annotation !11
-  %450 = icmp eq ptr %449, null
-  br i1 %450, label %460, label %451
+  %449 = icmp eq ptr %448, null
+  br i1 %449, label %459, label %450
 
-451:                                              ; preds = %445
-  %452 = call i32 @pcie_capability_read_word(ptr noundef nonnull %449, i32 noundef 8, ptr noundef nonnull %6) #22
-  %453 = load i16, ptr %6, align 2
-  %454 = and i16 %453, -2
-  %455 = call i32 @pcie_capability_write_word(ptr noundef nonnull %449, i32 noundef 8, i16 noundef zeroext %454) #22
-  %456 = call i32 @pci_save_state(ptr noundef %0) #22
-  %457 = call i32 @pci_prepare_to_sleep(ptr noundef %0) #22
-  %458 = load i16, ptr %6, align 2
-  %459 = call i32 @pcie_capability_write_word(ptr noundef nonnull %449, i32 noundef 8, i16 noundef zeroext %458) #22
+450:                                              ; preds = %444
+  %451 = call i32 @pcie_capability_read_word(ptr noundef nonnull %448, i32 noundef 8, ptr noundef nonnull %6) #22
+  %452 = load i16, ptr %6, align 2
+  %453 = and i16 %452, -2
+  %454 = call i32 @pcie_capability_write_word(ptr noundef nonnull %448, i32 noundef 8, i16 noundef zeroext %453) #22
+  %455 = call i32 @pci_save_state(ptr noundef %0) #22
+  %456 = call i32 @pci_prepare_to_sleep(ptr noundef %0) #22
+  %457 = load i16, ptr %6, align 2
+  %458 = call i32 @pcie_capability_write_word(ptr noundef nonnull %448, i32 noundef 8, i16 noundef zeroext %457) #22
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %6) #22
-  br label %461
+  br label %460
 
-460:                                              ; preds = %445
+459:                                              ; preds = %444
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %6) #22
-  br label %461
+  br label %460
 
-461:                                              ; preds = %.thread18, %.thread, %460, %451, %440, %397
-  %462 = phi i32 [ %399, %397 ], [ 0, %460 ], [ 0, %451 ], [ 0, %440 ], [ %148, %.thread ], [ %.ph, %.thread18 ]
-  ret i32 %462
+460:                                              ; preds = %.thread18, %.thread, %459, %450, %439, %397
+  %461 = phi i32 [ %399, %397 ], [ 0, %459 ], [ 0, %450 ], [ 0, %439 ], [ %148, %.thread ], [ %.ph, %.thread18 ]
+  ret i32 %461
 }
 
 ; Function Attrs: null_pointer_is_valid

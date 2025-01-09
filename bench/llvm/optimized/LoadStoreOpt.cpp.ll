@@ -1071,7 +1071,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm15GISelAddressing12instMayAliasERKN
   %19 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %20 = load i64, ptr %19, align 8
   %21 = icmp eq i64 %18, %20
-  br i1 %21, label %114, label %22
+  br i1 %21, label %113, label %22
 
 22:                                               ; preds = %16, %4
   %23 = load i8, ptr %5, align 8
@@ -1081,7 +1081,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm15GISelAddressing12instMayAliasERKN
 25:                                               ; preds = %22
   %26 = load i8, ptr %6, align 8
   %27 = trunc i8 %26 to i1
-  br i1 %27, label %114, label %28
+  br i1 %27, label %113, label %28
 
 28:                                               ; preds = %25, %22
   %29 = getelementptr inbounds nuw i8, ptr %5, i64 1
@@ -1093,7 +1093,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm15GISelAddressing12instMayAliasERKN
   %33 = getelementptr inbounds nuw i8, ptr %6, i64 1
   %34 = load i8, ptr %33, align 1
   %35 = trunc i8 %34 to i1
-  br i1 %35, label %114, label %36
+  br i1 %35, label %113, label %36
 
 36:                                               ; preds = %32, %28
   %37 = getelementptr inbounds nuw i8, ptr %5, i64 24
@@ -1115,7 +1115,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm15GISelAddressing12instMayAliasERKN
   %47 = and i16 %.pre, 2
   %.not73 = icmp eq i16 %47, 0
   %or.cond76 = select i1 %.not72, i1 true, i1 %.not73
-  br i1 %or.cond76, label %._crit_edge, label %114
+  br i1 %or.cond76, label %._crit_edge, label %113
 
 ._crit_edge:                                      ; preds = %43
   %48 = and i16 %.pre, 32
@@ -1123,7 +1123,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm15GISelAddressing12instMayAliasERKN
   %50 = and i16 %45, 2
   %51 = icmp ne i16 %50, 0
   %or.cond69 = and i1 %51, %49
-  br i1 %or.cond69, label %114, label %52
+  br i1 %or.cond69, label %113, label %52
 
 52:                                               ; preds = %._crit_edge, %36
   %53 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -1134,7 +1134,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm15GISelAddressing12instMayAliasERKN
   %58 = load i64, ptr %57, align 8
   %59 = icmp ne i64 %58, 0
   %or.cond5 = select i1 %56, i1 %59, i1 false
-  br i1 %or.cond5, label %114, label %60
+  br i1 %or.cond5, label %113, label %60
 
 60:                                               ; preds = %52
   %61 = getelementptr inbounds nuw i8, ptr %6, i64 16
@@ -1145,102 +1145,101 @@ define dso_local noundef zeroext i1 @_ZN4llvm15GISelAddressing12instMayAliasERKN
   %66 = load i64, ptr %65, align 8
   %67 = icmp ne i64 %66, 0
   %or.cond8 = select i1 %64, i1 %67, i1 false
-  br i1 %or.cond8, label %114, label %68
+  br i1 %or.cond8, label %113, label %68
 
 68:                                               ; preds = %60
-  %69 = or i64 %62, %54
-  %70 = and i64 %69, 4611686018427387904
-  %or.cond71.demorgan.not = icmp eq i64 %70, 0
-  br i1 %or.cond71.demorgan.not, label %71, label %.critedge
+  %69 = or i64 %63, %55
+  %or.cond71.demorgan.not = icmp eq i64 %69, 0
+  br i1 %or.cond71.demorgan.not, label %70, label %.critedge
 
-71:                                               ; preds = %68
-  %72 = call noundef zeroext i1 @_ZN4llvm15GISelAddressing24aliasIsKnownForLoadStoreERKNS_12MachineInstrES3_RbRNS_19MachineRegisterInfoE(ptr noundef nonnull align 8 dereferenceable(70) %0, ptr noundef nonnull align 8 dereferenceable(70) %1, ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef nonnull align 8 dereferenceable(512) %2)
-  br i1 %72, label %73, label %.critedge
+70:                                               ; preds = %68
+  %71 = call noundef zeroext i1 @_ZN4llvm15GISelAddressing24aliasIsKnownForLoadStoreERKNS_12MachineInstrES3_RbRNS_19MachineRegisterInfoE(ptr noundef nonnull align 8 dereferenceable(70) %0, ptr noundef nonnull align 8 dereferenceable(70) %1, ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef nonnull align 8 dereferenceable(512) %2)
+  br i1 %71, label %72, label %.critedge
 
-73:                                               ; preds = %71
-  %74 = load i8, ptr %7, align 1
-  %75 = trunc i8 %74 to i1
-  br label %114
+72:                                               ; preds = %70
+  %73 = load i8, ptr %7, align 1
+  %74 = trunc i8 %73 to i1
+  br label %113
 
-.critedge:                                        ; preds = %68, %71
-  br i1 %or.cond, label %76, label %114
+.critedge:                                        ; preds = %68, %70
+  br i1 %or.cond, label %75, label %113
 
-76:                                               ; preds = %.critedge
-  %77 = getelementptr inbounds nuw i8, ptr %38, i64 8
-  %78 = load i64, ptr %77, align 8
-  %79 = getelementptr inbounds nuw i8, ptr %41, i64 8
-  %80 = load i64, ptr %79, align 8
+75:                                               ; preds = %.critedge
+  %76 = getelementptr inbounds nuw i8, ptr %38, i64 8
+  %77 = load i64, ptr %76, align 8
+  %78 = getelementptr inbounds nuw i8, ptr %41, i64 8
+  %79 = load i64, ptr %78, align 8
   %.not = icmp eq ptr %3, null
-  br i1 %.not, label %113, label %81
+  br i1 %.not, label %112, label %80
 
-81:                                               ; preds = %76
+80:                                               ; preds = %75
   %.sroa.0.0.copyload.i.i.i.i = load i64, ptr %38, align 8
-  %82 = and i64 %.sroa.0.0.copyload.i.i.i.i, 4
-  %83 = icmp ne i64 %82, 0
-  %84 = and i64 %.sroa.0.0.copyload.i.i.i.i, -8
-  %85 = inttoptr i64 %84 to ptr
-  %.not3574 = icmp eq i64 %84, 0
-  %.not35 = or i1 %83, %.not3574
-  br i1 %.not35, label %113, label %86
+  %81 = and i64 %.sroa.0.0.copyload.i.i.i.i, 4
+  %82 = icmp ne i64 %81, 0
+  %83 = and i64 %.sroa.0.0.copyload.i.i.i.i, -8
+  %84 = inttoptr i64 %83 to ptr
+  %.not3574 = icmp eq i64 %83, 0
+  %.not35 = or i1 %82, %.not3574
+  br i1 %.not35, label %112, label %85
 
-86:                                               ; preds = %81
+85:                                               ; preds = %80
   %.sroa.0.0.copyload.i.i.i.i38 = load i64, ptr %41, align 8
-  %87 = and i64 %.sroa.0.0.copyload.i.i.i.i38, 4
-  %88 = icmp ne i64 %87, 0
+  %86 = and i64 %.sroa.0.0.copyload.i.i.i.i38, 4
+  %87 = icmp ne i64 %86, 0
   %.not3675 = icmp ult i64 %.sroa.0.0.copyload.i.i.i.i38, 8
-  %.not36 = or i1 %.not3675, %88
-  br i1 %.not36, label %113, label %89
+  %.not36 = or i1 %.not3675, %87
+  br i1 %.not36, label %112, label %88
 
-89:                                               ; preds = %86
-  switch i64 %54, label %90 [
-    i64 -1, label %113
-    i64 -4611686018427387906, label %113
+88:                                               ; preds = %85
+  switch i64 %54, label %89 [
+    i64 -1, label %112
+    i64 -4611686018427387906, label %112
+  ]
+
+89:                                               ; preds = %88
+  switch i64 %62, label %90 [
+    i64 -1, label %112
+    i64 -4611686018427387906, label %112
   ]
 
 90:                                               ; preds = %89
-  switch i64 %62, label %91 [
-    i64 -1, label %113
-    i64 -4611686018427387906, label %113
-  ]
+  %.sroa.speculated = tail call i64 @llvm.smin.i64(i64 %79, i64 %77)
+  %91 = and i64 %54, 4611686018427387903
+  %92 = and i64 %62, 4611686018427387903
+  %93 = add i64 %79, %92
+  %94 = sub i64 %93, %.sroa.speculated
+  %95 = add i64 %77, %91
+  %96 = sub i64 %95, %.sroa.speculated
+  %97 = icmp ugt i64 %96, 4611686018427387899
+  %98 = select i1 %97, i64 -4611686018427387906, i64 %96
+  %.sroa.014.0 = select i1 %56, i64 %54, i64 %98
+  %99 = icmp ugt i64 %94, 4611686018427387899
+  %100 = select i1 %99, i64 -4611686018427387906, i64 %94
+  %.sroa.013.0 = select i1 %64, i64 %62, i64 %100
+  %101 = getelementptr inbounds nuw i8, ptr %38, i64 40
+  %102 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %102, ptr noundef nonnull align 8 dereferenceable(32) %101, i64 32, i1 false)
+  store ptr %84, ptr %8, align 8
+  %103 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  store i64 %.sroa.014.0, ptr %103, align 8
+  %104 = and i64 %.sroa.0.0.copyload.i.i.i.i38, -8
+  %105 = inttoptr i64 %104 to ptr
+  %106 = getelementptr inbounds nuw i8, ptr %41, i64 40
+  %107 = getelementptr inbounds nuw i8, ptr %9, i64 16
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %107, ptr noundef nonnull align 8 dereferenceable(32) %106, i64 32, i1 false)
+  store ptr %105, ptr %9, align 8
+  %108 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  store i64 %.sroa.013.0, ptr %108, align 8
+  %109 = call i32 @_ZN4llvm9AAResults5aliasERKNS_14MemoryLocationES3_(ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef nonnull align 8 dereferenceable(48) %8, ptr noundef nonnull align 8 dereferenceable(48) %9) #18
+  %110 = and i32 %109, 255
+  %111 = icmp eq i32 %110, 0
+  br i1 %111, label %113, label %112
 
-91:                                               ; preds = %90
-  %.sroa.speculated = tail call i64 @llvm.smin.i64(i64 %80, i64 %78)
-  %92 = and i64 %54, 4611686018427387903
-  %93 = and i64 %62, 4611686018427387903
-  %94 = add i64 %80, %93
-  %95 = sub i64 %94, %.sroa.speculated
-  %96 = add i64 %78, %92
-  %97 = sub i64 %96, %.sroa.speculated
-  %98 = icmp ugt i64 %97, 4611686018427387899
-  %99 = select i1 %98, i64 -4611686018427387906, i64 %97
-  %.sroa.014.0 = select i1 %56, i64 %54, i64 %99
-  %100 = icmp ugt i64 %95, 4611686018427387899
-  %101 = select i1 %100, i64 -4611686018427387906, i64 %95
-  %.sroa.013.0 = select i1 %64, i64 %62, i64 %101
-  %102 = getelementptr inbounds nuw i8, ptr %38, i64 40
-  %103 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %103, ptr noundef nonnull align 8 dereferenceable(32) %102, i64 32, i1 false)
-  store ptr %85, ptr %8, align 8
-  %104 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store i64 %.sroa.014.0, ptr %104, align 8
-  %105 = and i64 %.sroa.0.0.copyload.i.i.i.i38, -8
-  %106 = inttoptr i64 %105 to ptr
-  %107 = getelementptr inbounds nuw i8, ptr %41, i64 40
-  %108 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %108, ptr noundef nonnull align 8 dereferenceable(32) %107, i64 32, i1 false)
-  store ptr %106, ptr %9, align 8
-  %109 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  store i64 %.sroa.013.0, ptr %109, align 8
-  %110 = call i32 @_ZN4llvm9AAResults5aliasERKNS_14MemoryLocationES3_(ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef nonnull align 8 dereferenceable(48) %8, ptr noundef nonnull align 8 dereferenceable(48) %9) #18
-  %111 = and i32 %110, 255
-  %112 = icmp eq i32 %111, 0
-  br i1 %112, label %114, label %113
+112:                                              ; preds = %89, %89, %88, %88, %90, %85, %80, %75
+  br label %113
 
-113:                                              ; preds = %90, %90, %89, %89, %91, %86, %81, %76
-  br label %114
-
-114:                                              ; preds = %43, %._crit_edge, %91, %.critedge, %52, %60, %32, %25, %16, %113, %73
-  %.0 = phi i1 [ %75, %73 ], [ true, %113 ], [ true, %16 ], [ true, %25 ], [ true, %32 ], [ true, %60 ], [ true, %52 ], [ true, %.critedge ], [ false, %91 ], [ false, %._crit_edge ], [ false, %43 ]
+113:                                              ; preds = %43, %._crit_edge, %90, %.critedge, %52, %60, %32, %25, %16, %112, %72
+  %.0 = phi i1 [ %74, %72 ], [ true, %112 ], [ true, %16 ], [ true, %25 ], [ true, %32 ], [ true, %60 ], [ true, %52 ], [ true, %.critedge ], [ false, %90 ], [ false, %._crit_edge ], [ false, %43 ]
   ret i1 %.0
 }
 

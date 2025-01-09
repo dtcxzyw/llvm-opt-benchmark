@@ -7357,22 +7357,23 @@ if.then7:                                         ; preds = %if.then
 if.end:                                           ; preds = %entry, %start.backedge
   %3 = phi i32 [ %23, %start.backedge ], [ %2, %entry ]
   %4 = phi ptr [ %22, %start.backedge ], [ %1, %entry ]
-  %and.i53402 = phi i64 [ %and.i53, %start.backedge ], [ %and.i53394, %entry ]
-  %cmp.i399 = phi i1 [ %cmp.i, %start.backedge ], [ %cmp.i393, %entry ]
+  %and.i53403 = phi i64 [ %and.i53, %start.backedge ], [ %and.i53394, %entry ]
+  %cmp.i400 = phi i1 [ %cmp.i, %start.backedge ], [ %cmp.i393, %entry ]
+  %and.i399 = phi i64 [ %and.i, %start.backedge ], [ %and.i392, %entry ]
   %5 = phi i64 [ %21, %start.backedge ], [ %0, %entry ]
   %6 = phi ptr [ %20, %start.backedge ], [ %l.coerce, %entry ]
   %7 = phi ptr [ %19, %start.backedge ], [ %r.coerce, %entry ]
   %8 = ptrtoint ptr %7 to i64
-  %cmp.i55403.in = and i64 %8, 1
-  %cmp.i55403 = icmp ne i64 %cmp.i55403.in, 0
-  %and.i56404 = and i64 %8, -2
-  %9 = inttoptr i64 %and.i56404 to ptr
+  %and.i54404 = and i64 %8, 1
+  %cmp.i55405 = icmp ne i64 %and.i54404, 0
+  %and.i56406 = and i64 %8, -2
+  %9 = inttoptr i64 %and.i56406 to ptr
   %10 = load i32, ptr %9, align 8
   %cmp9 = icmp eq i32 %10, 0
   br i1 %cmp9, label %if.then10, label %if.end15
 
 if.then10:                                        ; preds = %if.end
-  br i1 %cmp.i55403, label %if.then12, label %return
+  br i1 %cmp.i55405, label %if.then12, label %return
 
 if.then12:                                        ; preds = %if.then10
   %m_false13 = getelementptr inbounds nuw i8, ptr %this, i64 656
@@ -7380,11 +7381,11 @@ if.then12:                                        ; preds = %if.then10
   br label %return
 
 if.end15:                                         ; preds = %if.end
-  %cmp16 = icmp eq i64 %and.i53402, %and.i56404
+  %cmp16 = icmp eq i64 %and.i53403, %and.i56406
   br i1 %cmp16, label %if.then17, label %if.end25
 
 if.then17:                                        ; preds = %if.end15
-  %11 = xor i1 %cmp.i399, %cmp.i55403
+  %11 = xor i1 %cmp.i400, %cmp.i55405
   br i1 %11, label %if.else23, label %return
 
 if.else23:                                        ; preds = %if.then17
@@ -7410,7 +7411,7 @@ if.then27:                                        ; preds = %if.end25
 _ZNK11aig_manager3imp9is_not_eqERK7aig_litS3_.exit: ; preds = %if.then27
   %and.i4.i = and i64 %13, 1
   %cmp.i.i58 = icmp ne i64 %and.i4.i, 0
-  %cmp6.i = xor i1 %cmp.i55403, %cmp.i.i58
+  %cmp6.i = xor i1 %cmp.i55405, %cmp.i.i58
   br i1 %cmp6.i, label %if.then32, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.then27, %_ZNK11aig_manager3imp9is_not_eqERK7aig_litS3_.exit
@@ -7421,11 +7422,11 @@ lor.lhs.false:                                    ; preds = %if.then27, %_ZNK11a
 _ZNK11aig_manager3imp9is_not_eqERK7aig_litS3_.exit66: ; preds = %lor.lhs.false
   %and.i4.i61 = and i64 %14, 1
   %cmp.i.i62 = icmp ne i64 %and.i4.i61, 0
-  %cmp6.i65 = xor i1 %cmp.i55403, %cmp.i.i62
+  %cmp6.i65 = xor i1 %cmp.i55405, %cmp.i.i62
   br i1 %cmp6.i65, label %if.then32, label %if.end37
 
 if.then32:                                        ; preds = %_ZNK11aig_manager3imp9is_not_eqERK7aig_litS3_.exit66, %_ZNK11aig_manager3imp9is_not_eqERK7aig_litS3_.exit
-  br i1 %cmp.i399, label %return, label %if.else35
+  br i1 %cmp.i400, label %return, label %if.else35
 
 if.else35:                                        ; preds = %if.then32
   %m_false36 = getelementptr inbounds nuw i8, ptr %this, i64 656
@@ -7437,7 +7438,7 @@ if.end37:                                         ; preds = %lor.lhs.false, %_ZN
   br i1 %cmp.i67, label %if.then39, label %if.end44
 
 if.then39:                                        ; preds = %if.end37
-  br i1 %cmp.i399, label %if.then41, label %return
+  br i1 %cmp.i400, label %if.then41, label %return
 
 if.then41:                                        ; preds = %if.then39
   %xor.i = xor i64 %14, 1
@@ -7446,8 +7447,8 @@ if.then41:                                        ; preds = %if.then39
   br label %start.backedge
 
 start.backedge:                                   ; preds = %if.then41, %if.then48, %if.then74, %if.then80, %if.then86, %if.then112, %if.then118, %if.then138, %if.then144, %if.then185, %if.then192
-  %19 = phi ptr [ %7, %if.then41 ], [ %7, %if.then48 ], [ %28, %if.then74 ], [ %7, %if.then80 ], [ %25, %if.then86 ], [ %7, %if.then112 ], [ %7, %if.then118 ], [ %45, %if.then138 ], [ %46, %if.then144 ], [ %59, %if.then185 ], [ %60, %if.then192 ]
-  %20 = phi ptr [ %18, %if.then41 ], [ %24, %if.then48 ], [ %6, %if.then74 ], [ %12, %if.then80 ], [ %6, %if.then86 ], [ %39, %if.then112 ], [ %40, %if.then118 ], [ %6, %if.then138 ], [ %6, %if.then144 ], [ %6, %if.then185 ], [ %6, %if.then192 ]
+  %19 = phi ptr [ %7, %if.then41 ], [ %7, %if.then48 ], [ %28, %if.then74 ], [ %7, %if.then80 ], [ %25, %if.then86 ], [ %7, %if.then112 ], [ %7, %if.then118 ], [ %44, %if.then138 ], [ %45, %if.then144 ], [ %58, %if.then185 ], [ %59, %if.then192 ]
+  %20 = phi ptr [ %18, %if.then41 ], [ %24, %if.then48 ], [ %6, %if.then74 ], [ %12, %if.then80 ], [ %6, %if.then86 ], [ %38, %if.then112 ], [ %39, %if.then118 ], [ %6, %if.then138 ], [ %6, %if.then144 ], [ %6, %if.then185 ], [ %6, %if.then192 ]
   %21 = ptrtoint ptr %20 to i64
   %and.i = and i64 %21, 1
   %cmp.i = icmp ne i64 %and.i, 0
@@ -7462,7 +7463,7 @@ if.end44:                                         ; preds = %if.end37
   br i1 %cmp.i68, label %if.then46, label %if.end51
 
 if.then46:                                        ; preds = %if.end44
-  br i1 %cmp.i399, label %if.then48, label %return
+  br i1 %cmp.i400, label %if.then48, label %return
 
 if.then48:                                        ; preds = %if.then46
   %xor.i69 = xor i64 %13, 1
@@ -7481,14 +7482,13 @@ if.then53:                                        ; preds = %if.end51
   %arrayidx57 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %27 = load i64, ptr %arrayidx57, align 8
   %28 = inttoptr i64 %27 to ptr
-  %29 = or i64 %5, %8
-  %30 = and i64 %29, 1
-  %brmerge.not = icmp eq i64 %30, 0
+  %29 = or i64 %and.i54404, %and.i399
+  %brmerge.not = icmp eq i64 %29, 0
   br i1 %brmerge.not, label %if.then60, label %if.end95
 
 if.then60:                                        ; preds = %if.then53
-  %31 = xor i64 %26, %13
-  %cmp.i72 = icmp ult i64 %31, 2
+  %30 = xor i64 %26, %13
+  %cmp.i72 = icmp ult i64 %30, 2
   br i1 %cmp.i72, label %_ZNK11aig_manager3imp9is_not_eqERK7aig_litS3_.exit79, label %lor.lhs.false62
 
 _ZNK11aig_manager3imp9is_not_eqERK7aig_litS3_.exit79: ; preds = %if.then60
@@ -7500,8 +7500,8 @@ _ZNK11aig_manager3imp9is_not_eqERK7aig_litS3_.exit79: ; preds = %if.then60
   br i1 %cmp6.i78, label %if.then68, label %lor.lhs.false62
 
 lor.lhs.false62:                                  ; preds = %if.then60, %_ZNK11aig_manager3imp9is_not_eqERK7aig_litS3_.exit79
-  %32 = xor i64 %27, %13
-  %cmp.i80 = icmp ult i64 %32, 2
+  %31 = xor i64 %27, %13
+  %cmp.i80 = icmp ult i64 %31, 2
   br i1 %cmp.i80, label %_ZNK11aig_manager3imp9is_not_eqERK7aig_litS3_.exit87, label %lor.lhs.false64
 
 _ZNK11aig_manager3imp9is_not_eqERK7aig_litS3_.exit87: ; preds = %lor.lhs.false62
@@ -7513,8 +7513,8 @@ _ZNK11aig_manager3imp9is_not_eqERK7aig_litS3_.exit87: ; preds = %lor.lhs.false62
   br i1 %cmp6.i86, label %if.then68, label %lor.lhs.false64
 
 lor.lhs.false64:                                  ; preds = %lor.lhs.false62, %_ZNK11aig_manager3imp9is_not_eqERK7aig_litS3_.exit87
-  %33 = xor i64 %14, %26
-  %cmp.i88 = icmp ult i64 %33, 2
+  %32 = xor i64 %14, %26
+  %cmp.i88 = icmp ult i64 %32, 2
   br i1 %cmp.i88, label %_ZNK11aig_manager3imp9is_not_eqERK7aig_litS3_.exit95, label %lor.lhs.false66
 
 _ZNK11aig_manager3imp9is_not_eqERK7aig_litS3_.exit95: ; preds = %lor.lhs.false64
@@ -7526,8 +7526,8 @@ _ZNK11aig_manager3imp9is_not_eqERK7aig_litS3_.exit95: ; preds = %lor.lhs.false64
   br i1 %cmp6.i94, label %if.then68, label %lor.lhs.false66
 
 lor.lhs.false66:                                  ; preds = %lor.lhs.false64, %_ZNK11aig_manager3imp9is_not_eqERK7aig_litS3_.exit95
-  %34 = xor i64 %27, %14
-  %cmp.i96 = icmp ult i64 %34, 2
+  %33 = xor i64 %27, %14
+  %cmp.i96 = icmp ult i64 %33, 2
   br i1 %cmp.i96, label %_ZNK11aig_manager3imp9is_not_eqERK7aig_litS3_.exit103, label %if.end70
 
 _ZNK11aig_manager3imp9is_not_eqERK7aig_litS3_.exit103: ; preds = %lor.lhs.false66
@@ -7566,7 +7566,7 @@ if.end82:                                         ; preds = %lor.lhs.false78
   br i1 %cmp.i108, label %if.then86, label %if.end95.thread
 
 if.end95.thread:                                  ; preds = %if.end82
-  %call.not314 = xor i1 %cmp.i399, true
+  %call.not314 = xor i1 %cmp.i400, true
   br label %if.end121.thread
 
 if.then86:                                        ; preds = %if.end82
@@ -7574,13 +7574,13 @@ if.then86:                                        ; preds = %if.end82
   br label %start.backedge
 
 if.end95:                                         ; preds = %if.then53
-  %call.not = xor i1 %cmp.i399, true
-  %brmerge48 = or i1 %cmp.i55403, %call.not
+  %call.not = xor i1 %cmp.i400, true
+  %brmerge48 = or i1 %cmp.i55405, %call.not
   br i1 %brmerge48, label %if.end121, label %if.then99
 
 if.then99:                                        ; preds = %if.end95
-  %35 = xor i64 %26, %13
-  %cmp.i112 = icmp ult i64 %35, 2
+  %34 = xor i64 %26, %13
+  %cmp.i112 = icmp ult i64 %34, 2
   br i1 %cmp.i112, label %_ZNK11aig_manager3imp9is_not_eqERK7aig_litS3_.exit119, label %lor.lhs.false101
 
 _ZNK11aig_manager3imp9is_not_eqERK7aig_litS3_.exit119: ; preds = %if.then99
@@ -7592,8 +7592,8 @@ _ZNK11aig_manager3imp9is_not_eqERK7aig_litS3_.exit119: ; preds = %if.then99
   br i1 %cmp6.i118, label %return, label %lor.lhs.false101
 
 lor.lhs.false101:                                 ; preds = %if.then99, %_ZNK11aig_manager3imp9is_not_eqERK7aig_litS3_.exit119
-  %36 = xor i64 %27, %13
-  %cmp.i120 = icmp ult i64 %36, 2
+  %35 = xor i64 %27, %13
+  %cmp.i120 = icmp ult i64 %35, 2
   br i1 %cmp.i120, label %_ZNK11aig_manager3imp9is_not_eqERK7aig_litS3_.exit127, label %lor.lhs.false103
 
 _ZNK11aig_manager3imp9is_not_eqERK7aig_litS3_.exit127: ; preds = %lor.lhs.false101
@@ -7605,8 +7605,8 @@ _ZNK11aig_manager3imp9is_not_eqERK7aig_litS3_.exit127: ; preds = %lor.lhs.false1
   br i1 %cmp6.i126, label %return, label %lor.lhs.false103
 
 lor.lhs.false103:                                 ; preds = %lor.lhs.false101, %_ZNK11aig_manager3imp9is_not_eqERK7aig_litS3_.exit127
-  %37 = xor i64 %14, %26
-  %cmp.i128 = icmp ult i64 %37, 2
+  %36 = xor i64 %14, %26
+  %cmp.i128 = icmp ult i64 %36, 2
   br i1 %cmp.i128, label %_ZNK11aig_manager3imp9is_not_eqERK7aig_litS3_.exit135, label %lor.lhs.false105
 
 _ZNK11aig_manager3imp9is_not_eqERK7aig_litS3_.exit135: ; preds = %lor.lhs.false103
@@ -7618,8 +7618,8 @@ _ZNK11aig_manager3imp9is_not_eqERK7aig_litS3_.exit135: ; preds = %lor.lhs.false1
   br i1 %cmp6.i134, label %return, label %lor.lhs.false105
 
 lor.lhs.false105:                                 ; preds = %lor.lhs.false103, %_ZNK11aig_manager3imp9is_not_eqERK7aig_litS3_.exit135
-  %38 = xor i64 %27, %14
-  %cmp.i136 = icmp ult i64 %38, 2
+  %37 = xor i64 %27, %14
+  %cmp.i136 = icmp ult i64 %37, 2
   br i1 %cmp.i136, label %_ZNK11aig_manager3imp9is_not_eqERK7aig_litS3_.exit143, label %if.end108
 
 _ZNK11aig_manager3imp9is_not_eqERK7aig_litS3_.exit143: ; preds = %lor.lhs.false105
@@ -7638,8 +7638,8 @@ if.end108:                                        ; preds = %lor.lhs.false105, %
 
 if.then112:                                       ; preds = %if.end108
   %xor.i146 = xor i64 %13, 1
-  %39 = inttoptr i64 %xor.i146 to ptr
-  store ptr %39, ptr %l, align 8
+  %38 = inttoptr i64 %xor.i146 to ptr
+  store ptr %38, ptr %l, align 8
   br label %start.backedge
 
 if.end114:                                        ; preds = %if.end108
@@ -7650,23 +7650,23 @@ if.end114:                                        ; preds = %if.end108
 
 if.then118:                                       ; preds = %if.end114
   %xor.i149 = xor i64 %14, 1
-  %40 = inttoptr i64 %xor.i149 to ptr
-  store ptr %40, ptr %l, align 8
+  %39 = inttoptr i64 %xor.i149 to ptr
+  store ptr %39, ptr %l, align 8
   br label %start.backedge
 
 if.end121.thread:                                 ; preds = %if.end114, %if.end95.thread
   %call.not316.ph = phi i1 [ %call.not314, %if.end95.thread ], [ false, %if.end114 ]
-  %call4.not318 = xor i1 %cmp.i55403, true
+  %call4.not318 = xor i1 %cmp.i55405, true
   br label %if.end147
 
 if.end121:                                        ; preds = %if.end95
-  %call4.not = xor i1 %cmp.i55403, true
-  %brmerge49 = or i1 %cmp.i399, %call4.not
+  %call4.not = xor i1 %cmp.i55405, true
+  %brmerge49 = or i1 %cmp.i400, %call4.not
   br i1 %brmerge49, label %if.end147, label %if.then125
 
 if.then125:                                       ; preds = %if.end121
-  %41 = xor i64 %26, %13
-  %cmp.i150 = icmp ult i64 %41, 2
+  %40 = xor i64 %26, %13
+  %cmp.i150 = icmp ult i64 %40, 2
   br i1 %cmp.i150, label %_ZNK11aig_manager3imp9is_not_eqERK7aig_litS3_.exit157, label %lor.lhs.false127
 
 _ZNK11aig_manager3imp9is_not_eqERK7aig_litS3_.exit157: ; preds = %if.then125
@@ -7678,8 +7678,8 @@ _ZNK11aig_manager3imp9is_not_eqERK7aig_litS3_.exit157: ; preds = %if.then125
   br i1 %cmp6.i156, label %return, label %lor.lhs.false127
 
 lor.lhs.false127:                                 ; preds = %if.then125, %_ZNK11aig_manager3imp9is_not_eqERK7aig_litS3_.exit157
-  %42 = xor i64 %27, %13
-  %cmp.i158 = icmp ult i64 %42, 2
+  %41 = xor i64 %27, %13
+  %cmp.i158 = icmp ult i64 %41, 2
   br i1 %cmp.i158, label %_ZNK11aig_manager3imp9is_not_eqERK7aig_litS3_.exit165, label %lor.lhs.false129
 
 _ZNK11aig_manager3imp9is_not_eqERK7aig_litS3_.exit165: ; preds = %lor.lhs.false127
@@ -7691,8 +7691,8 @@ _ZNK11aig_manager3imp9is_not_eqERK7aig_litS3_.exit165: ; preds = %lor.lhs.false1
   br i1 %cmp6.i164, label %return, label %lor.lhs.false129
 
 lor.lhs.false129:                                 ; preds = %lor.lhs.false127, %_ZNK11aig_manager3imp9is_not_eqERK7aig_litS3_.exit165
-  %43 = xor i64 %14, %26
-  %cmp.i166 = icmp ult i64 %43, 2
+  %42 = xor i64 %14, %26
+  %cmp.i166 = icmp ult i64 %42, 2
   br i1 %cmp.i166, label %_ZNK11aig_manager3imp9is_not_eqERK7aig_litS3_.exit173, label %lor.lhs.false131
 
 _ZNK11aig_manager3imp9is_not_eqERK7aig_litS3_.exit173: ; preds = %lor.lhs.false129
@@ -7704,8 +7704,8 @@ _ZNK11aig_manager3imp9is_not_eqERK7aig_litS3_.exit173: ; preds = %lor.lhs.false1
   br i1 %cmp6.i172, label %return, label %lor.lhs.false131
 
 lor.lhs.false131:                                 ; preds = %lor.lhs.false129, %_ZNK11aig_manager3imp9is_not_eqERK7aig_litS3_.exit173
-  %44 = xor i64 %27, %14
-  %cmp.i174 = icmp ult i64 %44, 2
+  %43 = xor i64 %27, %14
+  %cmp.i174 = icmp ult i64 %43, 2
   br i1 %cmp.i174, label %_ZNK11aig_manager3imp9is_not_eqERK7aig_litS3_.exit181, label %if.end134
 
 _ZNK11aig_manager3imp9is_not_eqERK7aig_litS3_.exit181: ; preds = %lor.lhs.false131
@@ -7724,8 +7724,8 @@ if.end134:                                        ; preds = %lor.lhs.false131, %
 
 if.then138:                                       ; preds = %if.end134
   %xor.i184 = xor i64 %27, 1
-  %45 = inttoptr i64 %xor.i184 to ptr
-  store ptr %45, ptr %r, align 8
+  %44 = inttoptr i64 %xor.i184 to ptr
+  store ptr %44, ptr %r, align 8
   br label %start.backedge
 
 if.end140:                                        ; preds = %if.end134
@@ -7736,8 +7736,8 @@ if.end140:                                        ; preds = %if.end134
 
 if.then144:                                       ; preds = %if.end140
   %xor.i187 = xor i64 %26, 1
-  %46 = inttoptr i64 %xor.i187 to ptr
-  store ptr %46, ptr %r, align 8
+  %45 = inttoptr i64 %xor.i187 to ptr
+  store ptr %45, ptr %r, align 8
   br label %start.backedge
 
 if.end147:                                        ; preds = %if.end140, %if.end121.thread, %if.end121
@@ -7748,8 +7748,8 @@ if.end147:                                        ; preds = %if.end140, %if.end1
 
 if.then151:                                       ; preds = %if.end147
   %cmp.i188 = icmp eq ptr %12, %25
-  %47 = xor i64 %27, %14
-  %cmp.i189 = icmp ult i64 %47, 2
+  %46 = xor i64 %27, %14
+  %cmp.i189 = icmp ult i64 %46, 2
   %or.cond326 = select i1 %cmp.i188, i1 %cmp.i189, i1 false
   br i1 %or.cond326, label %_ZNK11aig_manager3imp9is_not_eqERK7aig_litS3_.exit196, label %if.end156
 
@@ -7763,12 +7763,12 @@ _ZNK11aig_manager3imp9is_not_eqERK7aig_litS3_.exit196: ; preds = %if.then151
 
 if.then155:                                       ; preds = %_ZNK11aig_manager3imp9is_not_eqERK7aig_litS3_.exit196
   %xor.i197 = xor i64 %13, 1
-  %48 = inttoptr i64 %xor.i197 to ptr
+  %47 = inttoptr i64 %xor.i197 to ptr
   br label %return
 
 if.end156:                                        ; preds = %_ZNK11aig_manager3imp9is_not_eqERK7aig_litS3_.exit196, %if.then151
-  %49 = xor i64 %26, %13
-  %cmp.i198 = icmp ult i64 %49, 2
+  %48 = xor i64 %26, %13
+  %cmp.i198 = icmp ult i64 %48, 2
   br i1 %cmp.i198, label %_ZNK11aig_manager3imp9is_not_eqERK7aig_litS3_.exit205, label %if.then166
 
 _ZNK11aig_manager3imp9is_not_eqERK7aig_litS3_.exit205: ; preds = %if.end156
@@ -7783,45 +7783,45 @@ _ZNK11aig_manager3imp9is_not_eqERK7aig_litS3_.exit205: ; preds = %if.end156
 
 if.then160:                                       ; preds = %_ZNK11aig_manager3imp9is_not_eqERK7aig_litS3_.exit205
   %xor.i207 = xor i64 %14, 1
-  %50 = inttoptr i64 %xor.i207 to ptr
+  %49 = inttoptr i64 %xor.i207 to ptr
   br label %return
 
 if.end164:                                        ; preds = %if.end25
   %m_children.i208.phi.trans.insert = getelementptr inbounds nuw i8, ptr %9, i64 8
   %.pre = load ptr, ptr %m_children.i208.phi.trans.insert, align 8
-  %51 = ptrtoint ptr %.pre to i64
-  %52 = icmp eq ptr %.pre, null
-  br i1 %52, label %if.end196, label %if.then166
+  %50 = ptrtoint ptr %.pre to i64
+  %51 = icmp eq ptr %.pre, null
+  br i1 %51, label %if.end196, label %if.then166
 
 if.then166:                                       ; preds = %_ZNK11aig_manager3imp9is_not_eqERK7aig_litS3_.exit205, %if.end147, %if.end156, %if.end164
-  %53 = phi i64 [ %51, %if.end164 ], [ %26, %if.end156 ], [ %26, %if.end147 ], [ %26, %_ZNK11aig_manager3imp9is_not_eqERK7aig_litS3_.exit205 ]
-  %54 = inttoptr i64 %53 to ptr
+  %52 = phi i64 [ %50, %if.end164 ], [ %26, %if.end156 ], [ %26, %if.end147 ], [ %26, %_ZNK11aig_manager3imp9is_not_eqERK7aig_litS3_.exit205 ]
+  %53 = inttoptr i64 %52 to ptr
   %arrayidx172 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  %55 = load i64, ptr %arrayidx172, align 8
-  %56 = inttoptr i64 %55 to ptr
-  %57 = xor i64 %53, %5
-  %cmp.i210 = icmp ult i64 %57, 2
+  %54 = load i64, ptr %arrayidx172, align 8
+  %55 = inttoptr i64 %54 to ptr
+  %56 = xor i64 %52, %5
+  %cmp.i210 = icmp ult i64 %56, 2
   br i1 %cmp.i210, label %_ZNK11aig_manager3imp9is_not_eqERK7aig_litS3_.exit217, label %lor.lhs.false174
 
 _ZNK11aig_manager3imp9is_not_eqERK7aig_litS3_.exit217: ; preds = %if.then166
-  %and.i5.i214 = and i64 %53, 1
+  %and.i5.i214 = and i64 %52, 1
   %cmp.i6.i215 = icmp ne i64 %and.i5.i214, 0
-  %cmp6.i216 = xor i1 %cmp.i399, %cmp.i6.i215
+  %cmp6.i216 = xor i1 %cmp.i400, %cmp.i6.i215
   br i1 %cmp6.i216, label %if.then176, label %lor.lhs.false174
 
 lor.lhs.false174:                                 ; preds = %if.then166, %_ZNK11aig_manager3imp9is_not_eqERK7aig_litS3_.exit217
-  %58 = xor i64 %55, %5
-  %cmp.i218 = icmp ult i64 %58, 2
+  %57 = xor i64 %54, %5
+  %cmp.i218 = icmp ult i64 %57, 2
   br i1 %cmp.i218, label %_ZNK11aig_manager3imp9is_not_eqERK7aig_litS3_.exit225, label %if.end181
 
 _ZNK11aig_manager3imp9is_not_eqERK7aig_litS3_.exit225: ; preds = %lor.lhs.false174
-  %and.i5.i222 = and i64 %55, 1
+  %and.i5.i222 = and i64 %54, 1
   %cmp.i6.i223 = icmp ne i64 %and.i5.i222, 0
-  %cmp6.i224 = xor i1 %cmp.i399, %cmp.i6.i223
+  %cmp6.i224 = xor i1 %cmp.i400, %cmp.i6.i223
   br i1 %cmp6.i224, label %if.then176, label %if.end181
 
 if.then176:                                       ; preds = %_ZNK11aig_manager3imp9is_not_eqERK7aig_litS3_.exit225, %_ZNK11aig_manager3imp9is_not_eqERK7aig_litS3_.exit217
-  br i1 %cmp.i55403, label %return, label %if.else179
+  br i1 %cmp.i55405, label %return, label %if.else179
 
 if.else179:                                       ; preds = %if.then176
   %m_false180 = getelementptr inbounds nuw i8, ptr %this, i64 656
@@ -7829,29 +7829,29 @@ if.else179:                                       ; preds = %if.then176
   br label %return
 
 if.end181:                                        ; preds = %lor.lhs.false174, %_ZNK11aig_manager3imp9is_not_eqERK7aig_litS3_.exit225
-  %cmp.i226 = icmp eq ptr %6, %54
+  %cmp.i226 = icmp eq ptr %6, %53
   br i1 %cmp.i226, label %if.then183, label %if.end188
 
 if.then183:                                       ; preds = %if.end181
-  br i1 %cmp.i55403, label %if.then185, label %return
+  br i1 %cmp.i55405, label %if.then185, label %return
 
 if.then185:                                       ; preds = %if.then183
-  %xor.i227 = xor i64 %55, 1
-  %59 = inttoptr i64 %xor.i227 to ptr
-  store ptr %59, ptr %r, align 8
+  %xor.i227 = xor i64 %54, 1
+  %58 = inttoptr i64 %xor.i227 to ptr
+  store ptr %58, ptr %r, align 8
   br label %start.backedge
 
 if.end188:                                        ; preds = %if.end181
-  %cmp.i228 = icmp eq ptr %6, %56
+  %cmp.i228 = icmp eq ptr %6, %55
   br i1 %cmp.i228, label %if.then190, label %if.end196
 
 if.then190:                                       ; preds = %if.end188
-  br i1 %cmp.i55403, label %if.then192, label %return
+  br i1 %cmp.i55405, label %if.then192, label %return
 
 if.then192:                                       ; preds = %if.then190
-  %xor.i229 = xor i64 %53, 1
-  %60 = inttoptr i64 %xor.i229 to ptr
-  store ptr %60, ptr %r, align 8
+  %xor.i229 = xor i64 %52, 1
+  %59 = inttoptr i64 %xor.i229 to ptr
+  store ptr %59, ptr %r, align 8
   br label %start.backedge
 
 if.end196:                                        ; preds = %if.end51, %if.end188, %if.end164
@@ -7867,7 +7867,7 @@ if.else203:                                       ; preds = %if.end196
   br label %return
 
 return:                                           ; preds = %if.then190, %if.then183, %_ZNK11aig_manager3imp9is_not_eqERK7aig_litS3_.exit157, %_ZNK11aig_manager3imp9is_not_eqERK7aig_litS3_.exit165, %_ZNK11aig_manager3imp9is_not_eqERK7aig_litS3_.exit173, %_ZNK11aig_manager3imp9is_not_eqERK7aig_litS3_.exit181, %_ZNK11aig_manager3imp9is_not_eqERK7aig_litS3_.exit119, %_ZNK11aig_manager3imp9is_not_eqERK7aig_litS3_.exit127, %_ZNK11aig_manager3imp9is_not_eqERK7aig_litS3_.exit135, %_ZNK11aig_manager3imp9is_not_eqERK7aig_litS3_.exit143, %if.then46, %if.then39, %if.then176, %if.then32, %if.then17, %if.then10, %if.then, %if.else203, %if.then200, %if.else179, %if.then160, %if.then155, %if.then68, %if.else35, %if.else23, %if.then12, %if.then7
-  %retval.sroa.0.0 = phi ptr [ %retval.sroa.0.0.copyload, %if.then7 ], [ %retval.sroa.0.0.copyload31, %if.then12 ], [ %retval.sroa.0.0.copyload34, %if.else23 ], [ %call201, %if.then200 ], [ %call204, %if.else203 ], [ %retval.sroa.0.0.copyload45, %if.else179 ], [ %retval.sroa.0.0.copyload36, %if.else35 ], [ %48, %if.then155 ], [ %50, %if.then160 ], [ %retval.sroa.0.0.copyload39, %if.then68 ], [ %.lcssa354, %if.then ], [ %6, %if.then10 ], [ %6, %if.then17 ], [ %7, %if.then32 ], [ %6, %if.then176 ], [ %7, %if.then190 ], [ %7, %if.then183 ], [ %6, %_ZNK11aig_manager3imp9is_not_eqERK7aig_litS3_.exit157 ], [ %6, %_ZNK11aig_manager3imp9is_not_eqERK7aig_litS3_.exit165 ], [ %6, %_ZNK11aig_manager3imp9is_not_eqERK7aig_litS3_.exit173 ], [ %6, %_ZNK11aig_manager3imp9is_not_eqERK7aig_litS3_.exit181 ], [ %7, %_ZNK11aig_manager3imp9is_not_eqERK7aig_litS3_.exit119 ], [ %7, %_ZNK11aig_manager3imp9is_not_eqERK7aig_litS3_.exit127 ], [ %7, %_ZNK11aig_manager3imp9is_not_eqERK7aig_litS3_.exit135 ], [ %7, %_ZNK11aig_manager3imp9is_not_eqERK7aig_litS3_.exit143 ], [ %6, %if.then46 ], [ %6, %if.then39 ]
+  %retval.sroa.0.0 = phi ptr [ %retval.sroa.0.0.copyload, %if.then7 ], [ %retval.sroa.0.0.copyload31, %if.then12 ], [ %retval.sroa.0.0.copyload34, %if.else23 ], [ %call201, %if.then200 ], [ %call204, %if.else203 ], [ %retval.sroa.0.0.copyload45, %if.else179 ], [ %retval.sroa.0.0.copyload36, %if.else35 ], [ %47, %if.then155 ], [ %49, %if.then160 ], [ %retval.sroa.0.0.copyload39, %if.then68 ], [ %.lcssa354, %if.then ], [ %6, %if.then10 ], [ %6, %if.then17 ], [ %7, %if.then32 ], [ %6, %if.then176 ], [ %7, %if.then190 ], [ %7, %if.then183 ], [ %6, %_ZNK11aig_manager3imp9is_not_eqERK7aig_litS3_.exit157 ], [ %6, %_ZNK11aig_manager3imp9is_not_eqERK7aig_litS3_.exit165 ], [ %6, %_ZNK11aig_manager3imp9is_not_eqERK7aig_litS3_.exit173 ], [ %6, %_ZNK11aig_manager3imp9is_not_eqERK7aig_litS3_.exit181 ], [ %7, %_ZNK11aig_manager3imp9is_not_eqERK7aig_litS3_.exit119 ], [ %7, %_ZNK11aig_manager3imp9is_not_eqERK7aig_litS3_.exit127 ], [ %7, %_ZNK11aig_manager3imp9is_not_eqERK7aig_litS3_.exit135 ], [ %7, %_ZNK11aig_manager3imp9is_not_eqERK7aig_litS3_.exit143 ], [ %6, %if.then46 ], [ %6, %if.then39 ]
   ret ptr %retval.sroa.0.0
 }
 

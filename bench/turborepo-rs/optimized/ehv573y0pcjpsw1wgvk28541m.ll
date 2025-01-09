@@ -173,7 +173,7 @@ define void @_RINvNtNtNtNtCs1LoaDTb72WA_4core5slice4sort6stable5drift4sortNtNtCs
   %7 = alloca [66 x i8], align 1
   %8 = alloca [528 x i8], align 8
   %9 = icmp ult i64 %1, 2
-  br i1 %9, label %87, label %10
+  br i1 %9, label %86, label %10
 
 10:                                               ; preds = %6
   %11 = add i64 %1, 4611686018427387903
@@ -197,10 +197,10 @@ define void @_RINvNtNtNtNtCs1LoaDTb72WA_4core5slice4sort6stable5drift4sortNtNtCs
   call void @llvm.lifetime.start.p0(i64 66, ptr nonnull %7)
   br label %20
 
-20:                                               ; preds = %74, %19
-  %.sroa.017.0 = phi i64 [ 1, %19 ], [ %.sroa.022.0, %74 ]
-  %.sroa.08.0 = phi i64 [ 0, %19 ], [ %77, %74 ]
-  %.sroa.01.0 = phi i64 [ 0, %19 ], [ %75, %74 ]
+20:                                               ; preds = %73, %19
+  %.sroa.017.0 = phi i64 [ 1, %19 ], [ %.sroa.022.0, %73 ]
+  %.sroa.08.0 = phi i64 [ 0, %19 ], [ %76, %73 ]
+  %.sroa.01.0 = phi i64 [ 0, %19 ], [ %74, %73 ]
   %21 = icmp ult i64 %.sroa.08.0, %1
   br i1 %21, label %_RNvXs5_NtNtCs1LoaDTb72WA_4core5slice5indexINtNtNtB9_3ops5range9RangeFromjEINtB5_10SliceIndexSNtNtCs68wO5nsWeTG_5alloc6string6StringE9index_mutCsff1zCjKRl2o_13turborepo_env.exit, label %34
 
@@ -242,7 +242,7 @@ _RNvXs5_NtNtCs1LoaDTb72WA_4core5slice5indexINtNtNtB9_3ops5range9RangeFromjEINtB5
   store i64 %.sroa.017.1.lcssa, ptr %39, align 8
   %40 = getelementptr inbounds i8, ptr %7, i64 %.sroa.01.1.lcssa
   store i8 %.sroa.025.0, ptr %40, align 1
-  br i1 %21, label %74, label %78
+  br i1 %21, label %73, label %77
 
 41:                                               ; preds = %.lr.ph
   %42 = getelementptr inbounds i64, ptr %8, i64 %36
@@ -253,82 +253,81 @@ _RNvXs5_NtNtCs1LoaDTb72WA_4core5slice5indexINtNtNtB9_3ops5range9RangeFromjEINtB5
   %47 = sub i64 %.sroa.08.0, %46
   %48 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %0, i64 %47
   %49 = icmp ugt i64 %46, %3
-  %50 = and i64 %.sroa.017.131, 1
-  %.not4.i = icmp eq i64 %50, 0
-  %51 = or i64 %43, %.sroa.017.131
-  %52 = and i64 %51, 1
+  %50 = and i64 %43, 1
+  %51 = and i64 %.sroa.017.131, 1
+  %.not4.i = icmp eq i64 %51, 0
+  %52 = or i64 %50, %51
   %53 = icmp ne i64 %52, 0
   %or.cond3.i = or i1 %49, %53
-  br i1 %or.cond3.i, label %54, label %56
+  br i1 %or.cond3.i, label %54, label %55
 
 54:                                               ; preds = %41
-  %55 = and i64 %43, 1
-  %.not.i = icmp eq i64 %55, 0
-  br i1 %.not.i, label %_RNvXs2_NtNtCs1LoaDTb72WA_4core5slice5indexINtNtNtB9_3ops5range5RangejEINtB5_10SliceIndexSNtNtCs68wO5nsWeTG_5alloc6string6StringE9index_mutCsff1zCjKRl2o_13turborepo_env.exit, label %63
+  %.not.i = icmp eq i64 %50, 0
+  br i1 %.not.i, label %_RNvXs2_NtNtCs1LoaDTb72WA_4core5slice5indexINtNtNtB9_3ops5range5RangejEINtB5_10SliceIndexSNtNtCs68wO5nsWeTG_5alloc6string6StringE9index_mutCsff1zCjKRl2o_13turborepo_env.exit, label %62
 
-56:                                               ; preds = %41
-  %57 = shl i64 %46, 1
+55:                                               ; preds = %41
+  %56 = shl i64 %46, 1
   br label %_RINvNtNtNtNtCs1LoaDTb72WA_4core5slice4sort6stable5drift13logical_mergeNtNtCs68wO5nsWeTG_5alloc6string6StringNvYB16_NtNtBa_3cmp10PartialOrd2ltECsff1zCjKRl2o_13turborepo_env.exit
 
 _RNvXs2_NtNtCs1LoaDTb72WA_4core5slice5indexINtNtNtB9_3ops5range5RangejEINtB5_10SliceIndexSNtNtCs68wO5nsWeTG_5alloc6string6StringE9index_mutCsff1zCjKRl2o_13turborepo_env.exit: ; preds = %54
-  %58 = or i64 %44, 1
-  %59 = tail call range(i64 0, 64) i64 @llvm.ctlz.i64(i64 %58, i1 true)
-  %60 = trunc nuw nsw i64 %59 to i32
-  %61 = shl nuw nsw i32 %60, 1
-  %62 = xor i32 %61, 126
-  tail call void @_RINvNtNtNtNtCs1LoaDTb72WA_4core5slice4sort6stable9quicksort9quicksortNtNtCs68wO5nsWeTG_5alloc6string6StringNvYB15_NtNtBa_3cmp10PartialOrd2ltECsff1zCjKRl2o_13turborepo_env(ptr noalias noundef nonnull align 8 %48, i64 noundef %44, ptr noalias noundef nonnull align 8 %2, i64 noundef %3, i32 noundef %62, ptr noalias noundef readonly align 8 dereferenceable_or_null(24) null, ptr noalias noundef nonnull align 1 %5)
-  br label %63
+  %57 = or i64 %44, 1
+  %58 = tail call range(i64 0, 64) i64 @llvm.ctlz.i64(i64 %57, i1 true)
+  %59 = trunc nuw nsw i64 %58 to i32
+  %60 = shl nuw nsw i32 %59, 1
+  %61 = xor i32 %60, 126
+  tail call void @_RINvNtNtNtNtCs1LoaDTb72WA_4core5slice4sort6stable9quicksort9quicksortNtNtCs68wO5nsWeTG_5alloc6string6StringNvYB15_NtNtBa_3cmp10PartialOrd2ltECsff1zCjKRl2o_13turborepo_env(ptr noalias noundef nonnull align 8 %48, i64 noundef %44, ptr noalias noundef nonnull align 8 %2, i64 noundef %3, i32 noundef %61, ptr noalias noundef readonly align 8 dereferenceable_or_null(24) null, ptr noalias noundef nonnull align 1 %5)
+  br label %62
 
-63:                                               ; preds = %_RNvXs2_NtNtCs1LoaDTb72WA_4core5slice5indexINtNtNtB9_3ops5range5RangejEINtB5_10SliceIndexSNtNtCs68wO5nsWeTG_5alloc6string6StringE9index_mutCsff1zCjKRl2o_13turborepo_env.exit, %54
-  br i1 %.not4.i, label %_RNvXs5_NtNtCs1LoaDTb72WA_4core5slice5indexINtNtNtB9_3ops5range9RangeFromjEINtB5_10SliceIndexSNtNtCs68wO5nsWeTG_5alloc6string6StringE9index_mutCsff1zCjKRl2o_13turborepo_env.exit30, label %70
+62:                                               ; preds = %_RNvXs2_NtNtCs1LoaDTb72WA_4core5slice5indexINtNtNtB9_3ops5range5RangejEINtB5_10SliceIndexSNtNtCs68wO5nsWeTG_5alloc6string6StringE9index_mutCsff1zCjKRl2o_13turborepo_env.exit, %54
+  br i1 %.not4.i, label %_RNvXs5_NtNtCs1LoaDTb72WA_4core5slice5indexINtNtNtB9_3ops5range9RangeFromjEINtB5_10SliceIndexSNtNtCs68wO5nsWeTG_5alloc6string6StringE9index_mutCsff1zCjKRl2o_13turborepo_env.exit30, label %69
 
-_RNvXs5_NtNtCs1LoaDTb72WA_4core5slice5indexINtNtNtB9_3ops5range9RangeFromjEINtB5_10SliceIndexSNtNtCs68wO5nsWeTG_5alloc6string6StringE9index_mutCsff1zCjKRl2o_13turborepo_env.exit30: ; preds = %63
-  %64 = getelementptr inbounds nuw { { { i64, ptr, {} }, i64 } }, ptr %48, i64 %44
-  %65 = or i64 %45, 1
-  %66 = tail call range(i64 0, 64) i64 @llvm.ctlz.i64(i64 %65, i1 true)
-  %67 = trunc nuw nsw i64 %66 to i32
-  %68 = shl nuw nsw i32 %67, 1
-  %69 = xor i32 %68, 126
-  tail call void @_RINvNtNtNtNtCs1LoaDTb72WA_4core5slice4sort6stable9quicksort9quicksortNtNtCs68wO5nsWeTG_5alloc6string6StringNvYB15_NtNtBa_3cmp10PartialOrd2ltECsff1zCjKRl2o_13turborepo_env(ptr noalias noundef nonnull align 8 %64, i64 noundef %45, ptr noalias noundef nonnull align 8 %2, i64 noundef %3, i32 noundef %69, ptr noalias noundef readonly align 8 dereferenceable_or_null(24) null, ptr noalias noundef nonnull align 1 %5)
-  br label %70
+_RNvXs5_NtNtCs1LoaDTb72WA_4core5slice5indexINtNtNtB9_3ops5range9RangeFromjEINtB5_10SliceIndexSNtNtCs68wO5nsWeTG_5alloc6string6StringE9index_mutCsff1zCjKRl2o_13turborepo_env.exit30: ; preds = %62
+  %63 = getelementptr inbounds nuw { { { i64, ptr, {} }, i64 } }, ptr %48, i64 %44
+  %64 = or i64 %45, 1
+  %65 = tail call range(i64 0, 64) i64 @llvm.ctlz.i64(i64 %64, i1 true)
+  %66 = trunc nuw nsw i64 %65 to i32
+  %67 = shl nuw nsw i32 %66, 1
+  %68 = xor i32 %67, 126
+  tail call void @_RINvNtNtNtNtCs1LoaDTb72WA_4core5slice4sort6stable9quicksort9quicksortNtNtCs68wO5nsWeTG_5alloc6string6StringNvYB15_NtNtBa_3cmp10PartialOrd2ltECsff1zCjKRl2o_13turborepo_env(ptr noalias noundef nonnull align 8 %63, i64 noundef %45, ptr noalias noundef nonnull align 8 %2, i64 noundef %3, i32 noundef %68, ptr noalias noundef readonly align 8 dereferenceable_or_null(24) null, ptr noalias noundef nonnull align 1 %5)
+  br label %69
 
-70:                                               ; preds = %_RNvXs5_NtNtCs1LoaDTb72WA_4core5slice5indexINtNtNtB9_3ops5range9RangeFromjEINtB5_10SliceIndexSNtNtCs68wO5nsWeTG_5alloc6string6StringE9index_mutCsff1zCjKRl2o_13turborepo_env.exit30, %63
+69:                                               ; preds = %_RNvXs5_NtNtCs1LoaDTb72WA_4core5slice5indexINtNtNtB9_3ops5range9RangeFromjEINtB5_10SliceIndexSNtNtCs68wO5nsWeTG_5alloc6string6StringE9index_mutCsff1zCjKRl2o_13turborepo_env.exit30, %62
   tail call void @_RINvNtNtNtNtCs1LoaDTb72WA_4core5slice4sort6stable5merge5mergeNtNtCs68wO5nsWeTG_5alloc6string6StringNvYBX_NtNtBa_3cmp10PartialOrd2ltECsff1zCjKRl2o_13turborepo_env(ptr noalias noundef nonnull align 8 %48, i64 noundef range(i64 0, -1) %46, ptr noalias noundef nonnull align 8 %2, i64 noundef %3, i64 noundef %44, ptr noalias noundef nonnull align 1 %5)
-  %71 = shl i64 %46, 1
-  %72 = or disjoint i64 %71, 1
+  %70 = shl i64 %46, 1
+  %71 = or disjoint i64 %70, 1
   br label %_RINvNtNtNtNtCs1LoaDTb72WA_4core5slice4sort6stable5drift13logical_mergeNtNtCs68wO5nsWeTG_5alloc6string6StringNvYB16_NtNtBa_3cmp10PartialOrd2ltECsff1zCjKRl2o_13turborepo_env.exit
 
-_RINvNtNtNtNtCs1LoaDTb72WA_4core5slice4sort6stable5drift13logical_mergeNtNtCs68wO5nsWeTG_5alloc6string6StringNvYB16_NtNtBa_3cmp10PartialOrd2ltECsff1zCjKRl2o_13turborepo_env.exit: ; preds = %56, %70
-  %.sroa.0.0.i = phi i64 [ %72, %70 ], [ %57, %56 ]
-  %73 = icmp ugt i64 %36, 1
-  br i1 %73, label %.lr.ph, label %._crit_edge
+_RINvNtNtNtNtCs1LoaDTb72WA_4core5slice4sort6stable5drift13logical_mergeNtNtCs68wO5nsWeTG_5alloc6string6StringNvYB16_NtNtBa_3cmp10PartialOrd2ltECsff1zCjKRl2o_13turborepo_env.exit: ; preds = %55, %69
+  %.sroa.0.0.i = phi i64 [ %71, %69 ], [ %56, %55 ]
+  %72 = icmp ugt i64 %36, 1
+  br i1 %72, label %.lr.ph, label %._crit_edge
 
-74:                                               ; preds = %._crit_edge
-  %75 = add i64 %.sroa.01.1.lcssa, 1
-  %76 = lshr i64 %.sroa.022.0, 1
-  %77 = add i64 %76, %.sroa.08.0
+73:                                               ; preds = %._crit_edge
+  %74 = add i64 %.sroa.01.1.lcssa, 1
+  %75 = lshr i64 %.sroa.022.0, 1
+  %76 = add i64 %75, %.sroa.08.0
   br label %20
 
-78:                                               ; preds = %._crit_edge
-  %79 = and i64 %.sroa.017.1.lcssa, 1
-  %.not29 = icmp eq i64 %79, 0
-  br i1 %.not29, label %80, label %86
+77:                                               ; preds = %._crit_edge
+  %78 = and i64 %.sroa.017.1.lcssa, 1
+  %.not29 = icmp eq i64 %78, 0
+  br i1 %.not29, label %79, label %85
 
-80:                                               ; preds = %78
-  %81 = or i64 %1, 1
-  %82 = tail call range(i64 0, 64) i64 @llvm.ctlz.i64(i64 %81, i1 true)
-  %83 = trunc nuw nsw i64 %82 to i32
-  %84 = shl nuw nsw i32 %83, 1
-  %85 = xor i32 %84, 126
-  tail call void @_RINvNtNtNtNtCs1LoaDTb72WA_4core5slice4sort6stable9quicksort9quicksortNtNtCs68wO5nsWeTG_5alloc6string6StringNvYB15_NtNtBa_3cmp10PartialOrd2ltECsff1zCjKRl2o_13turborepo_env(ptr noalias noundef nonnull align 8 %0, i64 noundef %1, ptr noalias noundef nonnull align 8 %2, i64 noundef %3, i32 noundef %85, ptr noalias noundef readonly align 8 dereferenceable_or_null(24) null, ptr noalias noundef nonnull align 1 %5)
-  br label %86
+79:                                               ; preds = %77
+  %80 = or i64 %1, 1
+  %81 = tail call range(i64 0, 64) i64 @llvm.ctlz.i64(i64 %80, i1 true)
+  %82 = trunc nuw nsw i64 %81 to i32
+  %83 = shl nuw nsw i32 %82, 1
+  %84 = xor i32 %83, 126
+  tail call void @_RINvNtNtNtNtCs1LoaDTb72WA_4core5slice4sort6stable9quicksort9quicksortNtNtCs68wO5nsWeTG_5alloc6string6StringNvYB15_NtNtBa_3cmp10PartialOrd2ltECsff1zCjKRl2o_13turborepo_env(ptr noalias noundef nonnull align 8 %0, i64 noundef %1, ptr noalias noundef nonnull align 8 %2, i64 noundef %3, i32 noundef %84, ptr noalias noundef readonly align 8 dereferenceable_or_null(24) null, ptr noalias noundef nonnull align 1 %5)
+  br label %85
 
-86:                                               ; preds = %78, %80
+85:                                               ; preds = %77, %79
   call void @llvm.lifetime.end.p0(i64 66, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 528, ptr nonnull %8)
-  br label %87
+  br label %86
 
-87:                                               ; preds = %6, %86
+86:                                               ; preds = %6, %85
   ret void
 }
 

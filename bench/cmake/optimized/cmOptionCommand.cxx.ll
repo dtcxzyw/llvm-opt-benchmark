@@ -73,8 +73,8 @@ define dso_local noundef zeroext i1 @_Z15cmOptionCommandRKSt6vectorINSt7__cxx111
   %23 = ptrtoint ptr %21 to i64
   %24 = sub i64 %22, %23
   %25 = and i64 %24, -64
-  %or.cond.not.not = icmp eq i64 %25, 64
-  br i1 %or.cond.not.not, label %39, label %.thread
+  %or.cond = icmp eq i64 %25, 64
+  br i1 %or.cond, label %39, label %.thread
 
 .thread:                                          ; preds = %2
   call void @_Z6cmJoinRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EESt17basic_string_viewIcS3_ESB_(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %7, ptr noundef nonnull align 8 dereferenceable(24) %0, i64 1, ptr nonnull @.str.2, i64 0, ptr null)
@@ -438,7 +438,7 @@ _ZN10cmMakefile18AddCacheDefinitionERKNSt7__cxx1112basic_stringIcSt11char_traits
   br label %152
 
 151:                                              ; preds = %48, %149, %64, %_ZN17cmExecutionStatus8SetErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
-  ret i1 %or.cond.not.not
+  ret i1 %or.cond
 
 152:                                              ; preds = %.body60, %150, %.body, %37, %35
   %.pn55 = phi { ptr, i32 } [ %38, %37 ], [ %36, %35 ], [ %.pn53, %.body ], [ %.pn50.pn, %150 ], [ %eh.lpad-body61, %.body60 ]

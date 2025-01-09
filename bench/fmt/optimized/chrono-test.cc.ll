@@ -69079,8 +69079,8 @@ _ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSEOc.
   br label %if.end
 
 if.end:                                           ; preds = %_ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSEOc.exit.i, %entry
-  %or.cond.i.not = icmp ult i64 %value, 2147483648
-  br i1 %or.cond.i.not, label %_ZN3fmt3v106detail18to_nonnegative_intIliTnNSt9enable_ifIXsr3std11is_integralIT_EE5valueEiE4typeELi0EEET0_S4_S7_.exit, label %if.then.i7
+  %or.cond.i = icmp ugt i64 %value, 2147483647
+  br i1 %or.cond.i, label %if.then.i7, label %_ZN3fmt3v106detail18to_nonnegative_intIliTnNSt9enable_ifIXsr3std11is_integralIT_EE5valueEiE4typeELi0EEET0_S4_S7_.exit
 
 if.then.i7:                                       ; preds = %if.end
   %exception.i = tail call ptr @__cxa_allocate_exception(i64 16) #30
@@ -78416,8 +78416,8 @@ _ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSEOc.
   br label %if.end
 
 if.end:                                           ; preds = %_ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSEOc.exit.i, %entry
-  %or.cond.i.not = icmp ult i64 %value, 2147483648
-  br i1 %or.cond.i.not, label %_ZN3fmt3v106detail18to_nonnegative_intIliTnNSt9enable_ifIXsr3std11is_integralIT_EE5valueEiE4typeELi0EEET0_S4_S7_.exit, label %if.then.i7
+  %or.cond.i = icmp ugt i64 %value, 2147483647
+  br i1 %or.cond.i, label %if.then.i7, label %_ZN3fmt3v106detail18to_nonnegative_intIliTnNSt9enable_ifIXsr3std11is_integralIT_EE5valueEiE4typeELi0EEET0_S4_S7_.exit
 
 if.then.i7:                                       ; preds = %if.end
   %exception.i = tail call ptr @__cxa_allocate_exception(i64 16) #30
@@ -80806,8 +80806,8 @@ _ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSEOc.
   br label %if.end
 
 if.end:                                           ; preds = %_ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSEOc.exit.i, %entry
-  %or.cond.i.not = icmp ult i64 %value, 2147483648
-  br i1 %or.cond.i.not, label %_ZN3fmt3v106detail18to_nonnegative_intIliTnNSt9enable_ifIXsr3std11is_integralIT_EE5valueEiE4typeELi0EEET0_S4_S7_.exit, label %if.then.i7
+  %or.cond.i = icmp ugt i64 %value, 2147483647
+  br i1 %or.cond.i, label %if.then.i7, label %_ZN3fmt3v106detail18to_nonnegative_intIliTnNSt9enable_ifIXsr3std11is_integralIT_EE5valueEiE4typeELi0EEET0_S4_S7_.exit
 
 if.then.i7:                                       ; preds = %if.end
   %exception.i = tail call ptr @__cxa_allocate_exception(i64 16) #30
@@ -83196,8 +83196,8 @@ _ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSEOc.
   br label %if.end
 
 if.end:                                           ; preds = %_ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSEOc.exit.i, %entry
-  %or.cond.i.not = icmp ult i64 %value, 2147483648
-  br i1 %or.cond.i.not, label %_ZN3fmt3v106detail18to_nonnegative_intIliTnNSt9enable_ifIXsr3std11is_integralIT_EE5valueEiE4typeELi0EEET0_S4_S7_.exit, label %if.then.i7
+  %or.cond.i = icmp ugt i64 %value, 2147483647
+  br i1 %or.cond.i, label %if.then.i7, label %_ZN3fmt3v106detail18to_nonnegative_intIliTnNSt9enable_ifIXsr3std11is_integralIT_EE5valueEiE4typeELi0EEET0_S4_S7_.exit
 
 if.then.i7:                                       ; preds = %if.end
   %exception.i = tail call ptr @__cxa_allocate_exception(i64 16) #30
@@ -106791,8 +106791,8 @@ _ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSEOc.
   br label %if.end
 
 if.end:                                           ; preds = %_ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSEOc.exit.i, %entry
-  %or.cond.i.not = icmp ult i64 %value, 2147483648
-  br i1 %or.cond.i.not, label %_ZN3fmt3v106detail18to_nonnegative_intIliTnNSt9enable_ifIXsr3std11is_integralIT_EE5valueEiE4typeELi0EEET0_S4_S7_.exit, label %if.then.i7
+  %or.cond.i = icmp ugt i64 %value, 2147483647
+  br i1 %or.cond.i, label %if.then.i7, label %_ZN3fmt3v106detail18to_nonnegative_intIliTnNSt9enable_ifIXsr3std11is_integralIT_EE5valueEiE4typeELi0EEET0_S4_S7_.exit
 
 if.then.i7:                                       ; preds = %if.end
   %exception.i = tail call ptr @__cxa_allocate_exception(i64 16) #30
@@ -108840,8 +108840,8 @@ _ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSEOc.
   br label %if.end
 
 if.end:                                           ; preds = %_ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSEOc.exit.i, %entry
-  %or.cond.i.not = icmp ult i64 %value, 2147483648
-  br i1 %or.cond.i.not, label %_ZN3fmt3v106detail18to_nonnegative_intIliTnNSt9enable_ifIXsr3std11is_integralIT_EE5valueEiE4typeELi0EEET0_S4_S7_.exit, label %if.then.i7
+  %or.cond.i = icmp ugt i64 %value, 2147483647
+  br i1 %or.cond.i, label %if.then.i7, label %_ZN3fmt3v106detail18to_nonnegative_intIliTnNSt9enable_ifIXsr3std11is_integralIT_EE5valueEiE4typeELi0EEET0_S4_S7_.exit
 
 if.then.i7:                                       ; preds = %if.end
   %exception.i = tail call ptr @__cxa_allocate_exception(i64 16) #30
@@ -110889,8 +110889,8 @@ _ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSEOc.
   br label %if.end
 
 if.end:                                           ; preds = %_ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSEOc.exit.i, %entry
-  %or.cond.i.not = icmp ult i64 %value, 2147483648
-  br i1 %or.cond.i.not, label %_ZN3fmt3v106detail18to_nonnegative_intIliTnNSt9enable_ifIXsr3std11is_integralIT_EE5valueEiE4typeELi0EEET0_S4_S7_.exit, label %if.then.i7
+  %or.cond.i = icmp ugt i64 %value, 2147483647
+  br i1 %or.cond.i, label %if.then.i7, label %_ZN3fmt3v106detail18to_nonnegative_intIliTnNSt9enable_ifIXsr3std11is_integralIT_EE5valueEiE4typeELi0EEET0_S4_S7_.exit
 
 if.then.i7:                                       ; preds = %if.end
   %exception.i = tail call ptr @__cxa_allocate_exception(i64 16) #30
@@ -157659,8 +157659,8 @@ _ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSEOc.
   br label %if.end
 
 if.end:                                           ; preds = %_ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSEOc.exit.i, %entry
-  %or.cond.i.not = icmp ult i64 %value, 2147483648
-  br i1 %or.cond.i.not, label %_ZN3fmt3v106detail18to_nonnegative_intIxiTnNSt9enable_ifIXsr3std11is_integralIT_EE5valueEiE4typeELi0EEET0_S4_S7_.exit, label %if.then.i7
+  %or.cond.i = icmp ugt i64 %value, 2147483647
+  br i1 %or.cond.i, label %if.then.i7, label %_ZN3fmt3v106detail18to_nonnegative_intIxiTnNSt9enable_ifIXsr3std11is_integralIT_EE5valueEiE4typeELi0EEET0_S4_S7_.exit
 
 if.then.i7:                                       ; preds = %if.end
   %exception.i = tail call ptr @__cxa_allocate_exception(i64 16) #30
@@ -163190,8 +163190,8 @@ _ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSEOc.
   br label %if.end
 
 if.end:                                           ; preds = %_ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSEOc.exit.i, %entry
-  %or.cond.i.not = icmp ult i64 %value, 2147483648
-  br i1 %or.cond.i.not, label %_ZN3fmt3v106detail18to_nonnegative_intIxiTnNSt9enable_ifIXsr3std11is_integralIT_EE5valueEiE4typeELi0EEET0_S4_S7_.exit, label %if.then.i7
+  %or.cond.i = icmp ugt i64 %value, 2147483647
+  br i1 %or.cond.i, label %if.then.i7, label %_ZN3fmt3v106detail18to_nonnegative_intIxiTnNSt9enable_ifIXsr3std11is_integralIT_EE5valueEiE4typeELi0EEET0_S4_S7_.exit
 
 if.then.i7:                                       ; preds = %if.end
   %exception.i = tail call ptr @__cxa_allocate_exception(i64 16) #30
@@ -165643,8 +165643,8 @@ _ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSEOc.
   br label %if.end
 
 if.end:                                           ; preds = %_ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSEOc.exit.i, %entry
-  %or.cond.i.not = icmp ult i64 %value, 2147483648
-  br i1 %or.cond.i.not, label %_ZN3fmt3v106detail18to_nonnegative_intIxiTnNSt9enable_ifIXsr3std11is_integralIT_EE5valueEiE4typeELi0EEET0_S4_S7_.exit, label %if.then.i7
+  %or.cond.i = icmp ugt i64 %value, 2147483647
+  br i1 %or.cond.i, label %if.then.i7, label %_ZN3fmt3v106detail18to_nonnegative_intIxiTnNSt9enable_ifIXsr3std11is_integralIT_EE5valueEiE4typeELi0EEET0_S4_S7_.exit
 
 if.then.i7:                                       ; preds = %if.end
   %exception.i = tail call ptr @__cxa_allocate_exception(i64 16) #30

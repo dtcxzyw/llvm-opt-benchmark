@@ -131,13 +131,13 @@ if.then21:                                        ; preds = %if.then13
   br i1 %or.cond.i, label %for.body.i, label %for.body9.i
 
 for.body.i:                                       ; preds = %if.then21, %for.body.i
-  %indvars.iv24.i = phi i64 [ %indvars.iv.next25.i, %for.body.i ], [ 0, %if.then21 ]
-  %arrayidx.i = getelementptr inbounds nuw i32, ptr %buffer, i64 %indvars.iv24.i
+  %indvars.iv25.i = phi i64 [ %indvars.iv.next26.i, %for.body.i ], [ 0, %if.then21 ]
+  %arrayidx.i = getelementptr inbounds nuw i32, ptr %buffer, i64 %indvars.iv25.i
   %6 = load i32, ptr %arrayidx.i, align 4
   %or.i.i = tail call noundef i32 @llvm.bswap.i32(i32 %6)
   store i32 %or.i.i, ptr %arrayidx.i, align 4
-  %indvars.iv.next25.i = add nuw nsw i64 %indvars.iv24.i, 1
-  %exitcond.not.i = icmp eq i64 %indvars.iv.next25.i, 16
+  %indvars.iv.next26.i = add nuw nsw i64 %indvars.iv25.i, 1
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next26.i, 16
   br i1 %exitcond.not.i, label %ByteReverseWords.exit, label %for.body.i, !llvm.loop !4
 
 for.body9.i:                                      ; preds = %if.then21, %for.body9.i
@@ -164,58 +164,58 @@ if.end33:                                         ; preds = %if.then13, %ByteRev
 while.body.preheader:                             ; preds = %if.end33
   %7 = ptrtoint ptr %buffer to i64
   %8 = and i64 %7, 3
-  %or.cond.i46 = icmp eq i64 %8, 0
-  br i1 %or.cond.i46, label %while.body.us, label %while.body
+  %or.cond.i47 = icmp eq i64 %8, 0
+  br i1 %or.cond.i47, label %while.body.us, label %while.body
 
-while.body.us:                                    ; preds = %while.body.preheader, %ByteReverseWords.exit64.loopexit.us
-  %len.addr.1.us = phi i32 [ %sub39.us, %ByteReverseWords.exit64.loopexit.us ], [ %len.addr.0, %while.body.preheader ]
-  %data.addr.1.us = phi ptr [ %add.ptr38.us, %ByteReverseWords.exit64.loopexit.us ], [ %data.addr.0, %while.body.preheader ]
+while.body.us:                                    ; preds = %while.body.preheader, %ByteReverseWords.exit65.loopexit.us
+  %len.addr.1.us = phi i32 [ %sub39.us, %ByteReverseWords.exit65.loopexit.us ], [ %len.addr.0, %while.body.preheader ]
+  %data.addr.1.us = phi ptr [ %add.ptr38.us, %ByteReverseWords.exit65.loopexit.us ], [ %data.addr.0, %while.body.preheader ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %buffer, ptr noundef nonnull align 1 dereferenceable(64) %data.addr.1.us, i64 64, i1 false)
   %add.ptr38.us = getelementptr inbounds nuw i8, ptr %data.addr.1.us, i64 64
-  br label %for.body.i57.us
+  br label %for.body.i58.us
 
-for.body.i57.us:                                  ; preds = %while.body.us, %for.body.i57.us
-  %indvars.iv24.i58.us = phi i64 [ %indvars.iv.next25.i62.us, %for.body.i57.us ], [ 0, %while.body.us ]
-  %arrayidx.i59.us = getelementptr inbounds nuw i32, ptr %buffer, i64 %indvars.iv24.i58.us
-  %9 = load i32, ptr %arrayidx.i59.us, align 4
-  %or.i.i60.us = tail call noundef i32 @llvm.bswap.i32(i32 %9)
-  store i32 %or.i.i60.us, ptr %arrayidx.i59.us, align 4
-  %indvars.iv.next25.i62.us = add nuw nsw i64 %indvars.iv24.i58.us, 1
-  %exitcond.not.i63.us = icmp eq i64 %indvars.iv.next25.i62.us, 16
-  br i1 %exitcond.not.i63.us, label %ByteReverseWords.exit64.loopexit.us, label %for.body.i57.us, !llvm.loop !4
+for.body.i58.us:                                  ; preds = %while.body.us, %for.body.i58.us
+  %indvars.iv25.i59.us = phi i64 [ %indvars.iv.next26.i63.us, %for.body.i58.us ], [ 0, %while.body.us ]
+  %arrayidx.i60.us = getelementptr inbounds nuw i32, ptr %buffer, i64 %indvars.iv25.i59.us
+  %9 = load i32, ptr %arrayidx.i60.us, align 4
+  %or.i.i61.us = tail call noundef i32 @llvm.bswap.i32(i32 %9)
+  store i32 %or.i.i61.us, ptr %arrayidx.i60.us, align 4
+  %indvars.iv.next26.i63.us = add nuw nsw i64 %indvars.iv25.i59.us, 1
+  %exitcond.not.i64.us = icmp eq i64 %indvars.iv.next26.i63.us, 16
+  br i1 %exitcond.not.i64.us, label %ByteReverseWords.exit65.loopexit.us, label %for.body.i58.us, !llvm.loop !4
 
-ByteReverseWords.exit64.loopexit.us:              ; preds = %for.body.i57.us
+ByteReverseWords.exit65.loopexit.us:              ; preds = %for.body.i58.us
   %sub39.us = add i32 %len.addr.1.us, -64
   tail call fastcc void @Transform_Sha256(ptr noundef %sha256, ptr noundef %buffer)
   %cmp34.us = icmp ugt i32 %sub39.us, 63
   br i1 %cmp34.us, label %while.body.us, label %while.end, !llvm.loop !7
 
-while.body:                                       ; preds = %while.body.preheader, %ByteReverseWords.exit64.loopexit65
-  %len.addr.1 = phi i32 [ %sub39, %ByteReverseWords.exit64.loopexit65 ], [ %len.addr.0, %while.body.preheader ]
-  %data.addr.1 = phi ptr [ %add.ptr38, %ByteReverseWords.exit64.loopexit65 ], [ %data.addr.0, %while.body.preheader ]
+while.body:                                       ; preds = %while.body.preheader, %ByteReverseWords.exit65.loopexit66
+  %len.addr.1 = phi i32 [ %sub39, %ByteReverseWords.exit65.loopexit66 ], [ %len.addr.0, %while.body.preheader ]
+  %data.addr.1 = phi ptr [ %add.ptr38, %ByteReverseWords.exit65.loopexit66 ], [ %data.addr.0, %while.body.preheader ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %buffer, ptr noundef nonnull align 1 dereferenceable(64) %data.addr.1, i64 64, i1 false)
   %add.ptr38 = getelementptr inbounds nuw i8, ptr %data.addr.1, i64 64
-  br label %for.body9.i48
+  br label %for.body9.i49
 
-for.body9.i48:                                    ; preds = %while.body, %for.body9.i48
-  %indvars.iv.i49 = phi i64 [ %indvars.iv.next.i54, %for.body9.i48 ], [ 0, %while.body ]
-  %add.ptr.i50 = getelementptr inbounds nuw i8, ptr %buffer, i64 %indvars.iv.i49
-  %scratch.0.copyload.i51 = load i32, ptr %add.ptr.i50, align 1
-  %or.i16.i52 = tail call noundef i32 @llvm.bswap.i32(i32 %scratch.0.copyload.i51)
-  store i32 %or.i16.i52, ptr %add.ptr.i50, align 1
-  %indvars.iv.next.i54 = add nuw nsw i64 %indvars.iv.i49, 4
-  %cmp8.i55 = icmp samesign ult i64 %indvars.iv.i49, 60
-  br i1 %cmp8.i55, label %for.body9.i48, label %ByteReverseWords.exit64.loopexit65, !llvm.loop !6
+for.body9.i49:                                    ; preds = %while.body, %for.body9.i49
+  %indvars.iv.i50 = phi i64 [ %indvars.iv.next.i55, %for.body9.i49 ], [ 0, %while.body ]
+  %add.ptr.i51 = getelementptr inbounds nuw i8, ptr %buffer, i64 %indvars.iv.i50
+  %scratch.0.copyload.i52 = load i32, ptr %add.ptr.i51, align 1
+  %or.i16.i53 = tail call noundef i32 @llvm.bswap.i32(i32 %scratch.0.copyload.i52)
+  store i32 %or.i16.i53, ptr %add.ptr.i51, align 1
+  %indvars.iv.next.i55 = add nuw nsw i64 %indvars.iv.i50, 4
+  %cmp8.i56 = icmp samesign ult i64 %indvars.iv.i50, 60
+  br i1 %cmp8.i56, label %for.body9.i49, label %ByteReverseWords.exit65.loopexit66, !llvm.loop !6
 
-ByteReverseWords.exit64.loopexit65:               ; preds = %for.body9.i48
+ByteReverseWords.exit65.loopexit66:               ; preds = %for.body9.i49
   %sub39 = add i32 %len.addr.1, -64
   tail call fastcc void @Transform_Sha256(ptr noundef %sha256, ptr noundef %buffer)
   %cmp34 = icmp ugt i32 %sub39, 63
   br i1 %cmp34, label %while.body, label %while.end, !llvm.loop !7
 
-while.end:                                        ; preds = %ByteReverseWords.exit64.loopexit65, %ByteReverseWords.exit64.loopexit.us, %if.end33
-  %len.addr.2 = phi i32 [ %len.addr.0, %if.end33 ], [ %sub39.us, %ByteReverseWords.exit64.loopexit.us ], [ %sub39, %ByteReverseWords.exit64.loopexit65 ]
-  %data.addr.2 = phi ptr [ %data.addr.0, %if.end33 ], [ %add.ptr38.us, %ByteReverseWords.exit64.loopexit.us ], [ %add.ptr38, %ByteReverseWords.exit64.loopexit65 ]
+while.end:                                        ; preds = %ByteReverseWords.exit65.loopexit66, %ByteReverseWords.exit65.loopexit.us, %if.end33
+  %len.addr.2 = phi i32 [ %len.addr.0, %if.end33 ], [ %sub39.us, %ByteReverseWords.exit65.loopexit.us ], [ %sub39, %ByteReverseWords.exit65.loopexit66 ]
+  %data.addr.2 = phi ptr [ %data.addr.0, %if.end33 ], [ %add.ptr38.us, %ByteReverseWords.exit65.loopexit.us ], [ %add.ptr38, %ByteReverseWords.exit65.loopexit66 ]
   %cmp48.not = icmp eq i32 %len.addr.2, 0
   br i1 %cmp48.not, label %return, label %if.then50
 
@@ -246,14 +246,14 @@ if.end:                                           ; preds = %entry
   br i1 %or.cond.i, label %for.body.i, label %for.body9.i
 
 for.body.i:                                       ; preds = %if.end, %for.body.i
-  %indvars.iv24.i = phi i64 [ %indvars.iv.next25.i, %for.body.i ], [ 0, %if.end ]
-  %arrayidx.i = getelementptr inbounds nuw i32, ptr %sha256, i64 %indvars.iv24.i
+  %indvars.iv25.i = phi i64 [ %indvars.iv.next26.i, %for.body.i ], [ 0, %if.end ]
+  %arrayidx.i = getelementptr inbounds nuw i32, ptr %sha256, i64 %indvars.iv25.i
   %2 = load i32, ptr %arrayidx.i, align 4
   %or.i.i = tail call noundef i32 @llvm.bswap.i32(i32 %2)
-  %arrayidx5.i = getelementptr inbounds nuw i32, ptr %digest, i64 %indvars.iv24.i
+  %arrayidx5.i = getelementptr inbounds nuw i32, ptr %digest, i64 %indvars.iv25.i
   store i32 %or.i.i, ptr %arrayidx5.i, align 4
-  %indvars.iv.next25.i = add nuw nsw i64 %indvars.iv24.i, 1
-  %exitcond.not.i = icmp eq i64 %indvars.iv.next25.i, 8
+  %indvars.iv.next26.i = add nuw nsw i64 %indvars.iv25.i, 1
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next26.i, 8
   br i1 %exitcond.not.i, label %ByteReverseWords.exit, label %for.body.i, !llvm.loop !4
 
 for.body9.i:                                      ; preds = %if.end, %for.body9.i
@@ -299,13 +299,13 @@ if.end4:                                          ; preds = %if.end
   br i1 %or.cond.i, label %for.body.i, label %for.body9.i
 
 for.body.i:                                       ; preds = %if.end4, %for.body.i
-  %indvars.iv24.i = phi i64 [ %indvars.iv.next25.i, %for.body.i ], [ 0, %if.end4 ]
-  %arrayidx.i = getelementptr inbounds nuw i32, ptr %sha256, i64 %indvars.iv24.i
+  %indvars.iv25.i = phi i64 [ %indvars.iv.next26.i, %for.body.i ], [ 0, %if.end4 ]
+  %arrayidx.i = getelementptr inbounds nuw i32, ptr %sha256, i64 %indvars.iv25.i
   %2 = load i32, ptr %arrayidx.i, align 4
   %or.i.i = tail call noundef i32 @llvm.bswap.i32(i32 %2)
   store i32 %or.i.i, ptr %arrayidx.i, align 4
-  %indvars.iv.next25.i = add nuw nsw i64 %indvars.iv24.i, 1
-  %exitcond.not.i = icmp eq i64 %indvars.iv.next25.i, 8
+  %indvars.iv.next26.i = add nuw nsw i64 %indvars.iv25.i, 1
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next26.i, 8
   br i1 %exitcond.not.i, label %ByteReverseWords.exit, label %for.body.i, !llvm.loop !4
 
 for.body9.i:                                      ; preds = %if.end4, %for.body9.i
@@ -369,7 +369,7 @@ if.end3:                                          ; preds = %entry
 
 if.end3.if.end24_crit_edge:                       ; preds = %if.end3
   %.pre = ptrtoint ptr %buffer to i64
-  %.pre57 = and i64 %.pre, 3
+  %.pre58 = and i64 %.pre, 3
   br label %if.end24
 
 if.then7:                                         ; preds = %if.end3
@@ -385,13 +385,13 @@ if.then7:                                         ; preds = %if.end3
   br i1 %or.cond.i, label %for.body.i, label %for.body9.i
 
 for.body.i:                                       ; preds = %if.then7, %for.body.i
-  %indvars.iv24.i = phi i64 [ %indvars.iv.next25.i, %for.body.i ], [ 0, %if.then7 ]
-  %arrayidx.i = getelementptr inbounds nuw i32, ptr %buffer, i64 %indvars.iv24.i
+  %indvars.iv25.i = phi i64 [ %indvars.iv.next26.i, %for.body.i ], [ 0, %if.then7 ]
+  %arrayidx.i = getelementptr inbounds nuw i32, ptr %buffer, i64 %indvars.iv25.i
   %4 = load i32, ptr %arrayidx.i, align 4
   %or.i.i = tail call noundef i32 @llvm.bswap.i32(i32 %4)
   store i32 %or.i.i, ptr %arrayidx.i, align 4
-  %indvars.iv.next25.i = add nuw nsw i64 %indvars.iv24.i, 1
-  %exitcond.not.i = icmp eq i64 %indvars.iv.next25.i, 16
+  %indvars.iv.next26.i = add nuw nsw i64 %indvars.iv25.i, 1
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next26.i, 16
   br i1 %exitcond.not.i, label %ByteReverseWords.exit, label %for.body.i, !llvm.loop !4
 
 for.body9.i:                                      ; preds = %if.then7, %for.body9.i
@@ -410,7 +410,7 @@ ByteReverseWords.exit:                            ; preds = %for.body9.i, %for.b
   br label %if.end24
 
 if.end24:                                         ; preds = %if.end3.if.end24_crit_edge, %ByteReverseWords.exit
-  %.pre-phi58 = phi i64 [ %.pre57, %if.end3.if.end24_crit_edge ], [ %3, %ByteReverseWords.exit ]
+  %.pre-phi59 = phi i64 [ %.pre58, %if.end3.if.end24_crit_edge ], [ %3, %ByteReverseWords.exit ]
   %5 = phi i32 [ %1, %if.end3.if.end24_crit_edge ], [ 0, %ByteReverseWords.exit ]
   %idxprom26 = zext nneg i32 %5 to i64
   %arrayidx27 = getelementptr inbounds nuw i8, ptr %buffer, i64 %idxprom26
@@ -425,30 +425,30 @@ if.end24:                                         ; preds = %if.end3.if.end24_cr
   store i32 %add31, ptr %hiLen, align 8
   %shl34 = shl i32 %6, 3
   store i32 %shl34, ptr %loLen, align 4
-  %or.cond.i34 = icmp eq i64 %.pre-phi58, 0
-  br i1 %or.cond.i34, label %for.body.i45, label %for.body9.i36
+  %or.cond.i35 = icmp eq i64 %.pre-phi59, 0
+  br i1 %or.cond.i35, label %for.body.i46, label %for.body9.i37
 
-for.body.i45:                                     ; preds = %if.end24, %for.body.i45
-  %indvars.iv24.i46 = phi i64 [ %indvars.iv.next25.i50, %for.body.i45 ], [ 0, %if.end24 ]
-  %arrayidx.i47 = getelementptr inbounds nuw i32, ptr %buffer, i64 %indvars.iv24.i46
-  %8 = load i32, ptr %arrayidx.i47, align 4
-  %or.i.i48 = tail call noundef i32 @llvm.bswap.i32(i32 %8)
-  store i32 %or.i.i48, ptr %arrayidx.i47, align 4
-  %indvars.iv.next25.i50 = add nuw nsw i64 %indvars.iv24.i46, 1
-  %exitcond.not.i51 = icmp eq i64 %indvars.iv.next25.i50, 16
-  br i1 %exitcond.not.i51, label %ByteReverseWords.exit52, label %for.body.i45, !llvm.loop !4
+for.body.i46:                                     ; preds = %if.end24, %for.body.i46
+  %indvars.iv25.i47 = phi i64 [ %indvars.iv.next26.i51, %for.body.i46 ], [ 0, %if.end24 ]
+  %arrayidx.i48 = getelementptr inbounds nuw i32, ptr %buffer, i64 %indvars.iv25.i47
+  %8 = load i32, ptr %arrayidx.i48, align 4
+  %or.i.i49 = tail call noundef i32 @llvm.bswap.i32(i32 %8)
+  store i32 %or.i.i49, ptr %arrayidx.i48, align 4
+  %indvars.iv.next26.i51 = add nuw nsw i64 %indvars.iv25.i47, 1
+  %exitcond.not.i52 = icmp eq i64 %indvars.iv.next26.i51, 16
+  br i1 %exitcond.not.i52, label %ByteReverseWords.exit53, label %for.body.i46, !llvm.loop !4
 
-for.body9.i36:                                    ; preds = %if.end24, %for.body9.i36
-  %indvars.iv.i37 = phi i64 [ %indvars.iv.next.i42, %for.body9.i36 ], [ 0, %if.end24 ]
-  %add.ptr.i38 = getelementptr inbounds nuw i8, ptr %buffer, i64 %indvars.iv.i37
-  %scratch.0.copyload.i39 = load i32, ptr %add.ptr.i38, align 1
-  %or.i16.i40 = tail call noundef i32 @llvm.bswap.i32(i32 %scratch.0.copyload.i39)
-  store i32 %or.i16.i40, ptr %add.ptr.i38, align 1
-  %indvars.iv.next.i42 = add nuw nsw i64 %indvars.iv.i37, 4
-  %cmp8.i43 = icmp samesign ult i64 %indvars.iv.i37, 60
-  br i1 %cmp8.i43, label %for.body9.i36, label %ByteReverseWords.exit52, !llvm.loop !6
+for.body9.i37:                                    ; preds = %if.end24, %for.body9.i37
+  %indvars.iv.i38 = phi i64 [ %indvars.iv.next.i43, %for.body9.i37 ], [ 0, %if.end24 ]
+  %add.ptr.i39 = getelementptr inbounds nuw i8, ptr %buffer, i64 %indvars.iv.i38
+  %scratch.0.copyload.i40 = load i32, ptr %add.ptr.i39, align 1
+  %or.i16.i41 = tail call noundef i32 @llvm.bswap.i32(i32 %scratch.0.copyload.i40)
+  store i32 %or.i16.i41, ptr %add.ptr.i39, align 1
+  %indvars.iv.next.i43 = add nuw nsw i64 %indvars.iv.i38, 4
+  %cmp8.i44 = icmp samesign ult i64 %indvars.iv.i38, 60
+  br i1 %cmp8.i44, label %for.body9.i37, label %ByteReverseWords.exit53, !llvm.loop !6
 
-ByteReverseWords.exit52:                          ; preds = %for.body9.i36, %for.body.i45
+ByteReverseWords.exit53:                          ; preds = %for.body9.i37, %for.body.i46
   %arrayidx40 = getelementptr inbounds nuw i8, ptr %sha256, i64 88
   %9 = load i32, ptr %hiLen, align 8
   store i32 %9, ptr %arrayidx40, align 1
@@ -458,8 +458,8 @@ ByteReverseWords.exit52:                          ; preds = %for.body9.i36, %for
   tail call fastcc void @Transform_Sha256(ptr noundef %sha256, ptr noundef %buffer)
   br label %return
 
-return:                                           ; preds = %entry, %ByteReverseWords.exit52
-  %retval.0 = phi i32 [ 0, %ByteReverseWords.exit52 ], [ -192, %entry ]
+return:                                           ; preds = %entry, %ByteReverseWords.exit53
+  %retval.0 = phi i32 [ 0, %ByteReverseWords.exit53 ], [ -192, %entry ]
   ret i32 %retval.0
 }
 
@@ -541,13 +541,13 @@ if.end4:                                          ; preds = %if.end
   br i1 %or.cond.i, label %for.body.i, label %for.body9.i
 
 for.body.i:                                       ; preds = %if.end4, %for.body.i
-  %indvars.iv24.i = phi i64 [ %indvars.iv.next25.i, %for.body.i ], [ 0, %if.end4 ]
-  %arrayidx.i = getelementptr inbounds nuw i32, ptr %sha224, i64 %indvars.iv24.i
+  %indvars.iv25.i = phi i64 [ %indvars.iv.next26.i, %for.body.i ], [ 0, %if.end4 ]
+  %arrayidx.i = getelementptr inbounds nuw i32, ptr %sha224, i64 %indvars.iv25.i
   %2 = load i32, ptr %arrayidx.i, align 4
   %or.i.i = tail call noundef i32 @llvm.bswap.i32(i32 %2)
   store i32 %or.i.i, ptr %arrayidx.i, align 4
-  %indvars.iv.next25.i = add nuw nsw i64 %indvars.iv24.i, 1
-  %exitcond.not.i = icmp eq i64 %indvars.iv.next25.i, 7
+  %indvars.iv.next26.i = add nuw nsw i64 %indvars.iv25.i, 1
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next26.i, 7
   br i1 %exitcond.not.i, label %ByteReverseWords.exit, label %for.body.i, !llvm.loop !4
 
 for.body9.i:                                      ; preds = %if.end4, %for.body9.i
@@ -788,13 +788,13 @@ if.end.i5:                                        ; preds = %entry
   br i1 %cmp2.not.i, label %for.body.i.i, label %for.body.preheader.i.i
 
 for.body.i.i:                                     ; preds = %if.end.i5, %for.body.i.i
-  %indvars.iv24.i.i = phi i64 [ %indvars.iv.next25.i.i, %for.body.i.i ], [ 0, %if.end.i5 ]
-  %arrayidx.i.i = getelementptr inbounds nuw i32, ptr %tmpSha224, i64 %indvars.iv24.i.i
+  %indvars.iv25.i.i = phi i64 [ %indvars.iv.next26.i.i, %for.body.i.i ], [ 0, %if.end.i5 ]
+  %arrayidx.i.i = getelementptr inbounds nuw i32, ptr %tmpSha224, i64 %indvars.iv25.i.i
   %0 = load i32, ptr %arrayidx.i.i, align 4
   %or.i.i.i = call noundef i32 @llvm.bswap.i32(i32 %0)
   store i32 %or.i.i.i, ptr %arrayidx.i.i, align 4
-  %indvars.iv.next25.i.i = add nuw nsw i64 %indvars.iv24.i.i, 1
-  %exitcond.not.i.i = icmp eq i64 %indvars.iv.next25.i.i, 7
+  %indvars.iv.next26.i.i = add nuw nsw i64 %indvars.iv25.i.i, 1
+  %exitcond.not.i.i = icmp eq i64 %indvars.iv.next26.i.i, 7
   br i1 %exitcond.not.i.i, label %ByteReverseWords.exit.i, label %for.body.i.i, !llvm.loop !4
 
 ByteReverseWords.exit.i:                          ; preds = %for.body.i.i
@@ -852,13 +852,13 @@ if.end.i5:                                        ; preds = %entry
   br i1 %cmp2.not.i, label %for.body.i.i, label %for.body.preheader.i.i
 
 for.body.i.i:                                     ; preds = %if.end.i5, %for.body.i.i
-  %indvars.iv24.i.i = phi i64 [ %indvars.iv.next25.i.i, %for.body.i.i ], [ 0, %if.end.i5 ]
-  %arrayidx.i.i = getelementptr inbounds nuw i32, ptr %tmpSha256, i64 %indvars.iv24.i.i
+  %indvars.iv25.i.i = phi i64 [ %indvars.iv.next26.i.i, %for.body.i.i ], [ 0, %if.end.i5 ]
+  %arrayidx.i.i = getelementptr inbounds nuw i32, ptr %tmpSha256, i64 %indvars.iv25.i.i
   %0 = load i32, ptr %arrayidx.i.i, align 4
   %or.i.i.i = call noundef i32 @llvm.bswap.i32(i32 %0)
   store i32 %or.i.i.i, ptr %arrayidx.i.i, align 4
-  %indvars.iv.next25.i.i = add nuw nsw i64 %indvars.iv24.i.i, 1
-  %exitcond.not.i.i = icmp eq i64 %indvars.iv.next25.i.i, 8
+  %indvars.iv.next26.i.i = add nuw nsw i64 %indvars.iv25.i.i, 1
+  %exitcond.not.i.i = icmp eq i64 %indvars.iv.next26.i.i, 8
   br i1 %exitcond.not.i.i, label %ByteReverseWords.exit.i, label %for.body.i.i, !llvm.loop !4
 
 ByteReverseWords.exit.i:                          ; preds = %for.body.i.i

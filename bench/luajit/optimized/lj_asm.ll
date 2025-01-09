@@ -24688,9 +24688,7 @@ if.then26:                                        ; preds = %sw.bb21
   %19 = ptrtoint ptr %dispatch to i64
   %sub = sub i64 %17, %19
   %20 = add i64 %sub, 2147483648
-  %21 = add i64 %sub, 2147483652
-  %22 = or i64 %20, %21
-  %or.cond = icmp ult i64 %22, 4294967296
+  %or.cond = icmp ult i64 %20, 4294967292
   br i1 %or.cond, label %if.then47, label %if.then.i45
 
 if.then47:                                        ; preds = %if.then26
@@ -24725,8 +24723,8 @@ ra_alloc1.exit52:                                 ; preds = %if.end72, %if.then.
   %shl.i48 = shl nuw i32 1, %r.0.i47
   %not.i49 = xor i32 %shl.i48, -1
   %weakset.i50 = getelementptr inbounds nuw i8, ptr %as, i64 176
-  %23 = load i32, ptr %weakset.i50, align 8
-  %and2.i51 = and i32 %23, %not.i49
+  %21 = load i32, ptr %weakset.i50, align 8
+  %and2.i51 = and i32 %21, %not.i49
   store i32 %and2.i51, ptr %weakset.i50, align 8
   %conv74 = trunc nuw i32 %r.0.i47 to i8
   %mrm75 = getelementptr inbounds nuw i8, ptr %as, i64 160

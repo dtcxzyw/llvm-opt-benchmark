@@ -128925,23 +128925,22 @@ define hidden noundef range(i8 0, 3) i8 @"_ZN5tokio4sync4mpsc4list11Rx$LT$T$GT$3
   %.not3.i = icmp eq i64 %22, 0
   %..i = select i1 %.not3.i, i8 2, i8 1
   %.sroa.0.0.i = select i1 %.not.i3, i8 %..i, i8 0
-  %23 = or disjoint i64 %20, 8589934592
-  %24 = and i64 %23, %19
-  %25 = icmp eq i64 %24, 0
-  br i1 %25, label %"_ZN5tokio4sync4mpsc4list11Rx$LT$T$GT$18try_advancing_head17h044a24d7285ae5baE.llvm.8265446259410684974.exit", label %26
+  %23 = or disjoint i64 %21, %22
+  %24 = icmp eq i64 %23, 0
+  br i1 %24, label %"_ZN5tokio4sync4mpsc4list11Rx$LT$T$GT$18try_advancing_head17h044a24d7285ae5baE.llvm.8265446259410684974.exit", label %25
 
-"_ZN5tokio4sync4mpsc4list11Rx$LT$T$GT$18try_advancing_head17h044a24d7285ae5baE.llvm.8265446259410684974.exit": ; preds = %.lr.ph.i, %26, %.loopexit, %27
-  %.sroa.0.0 = phi i8 [ 2, %.loopexit ], [ 1, %26 ], [ %.sroa.0.0.i, %27 ], [ 2, %.lr.ph.i ]
+"_ZN5tokio4sync4mpsc4list11Rx$LT$T$GT$18try_advancing_head17h044a24d7285ae5baE.llvm.8265446259410684974.exit": ; preds = %.lr.ph.i, %25, %.loopexit, %26
+  %.sroa.0.0 = phi i8 [ 2, %.loopexit ], [ 1, %25 ], [ %.sroa.0.0.i, %26 ], [ 2, %.lr.ph.i ]
   ret i8 %.sroa.0.0
 
-26:                                               ; preds = %.loopexit
+25:                                               ; preds = %.loopexit
   %trunc = trunc i8 %.sroa.0.0.i to i1
-  br i1 %trunc, label %"_ZN5tokio4sync4mpsc4list11Rx$LT$T$GT$18try_advancing_head17h044a24d7285ae5baE.llvm.8265446259410684974.exit", label %27
+  br i1 %trunc, label %"_ZN5tokio4sync4mpsc4list11Rx$LT$T$GT$18try_advancing_head17h044a24d7285ae5baE.llvm.8265446259410684974.exit", label %26
 
-27:                                               ; preds = %26
-  %28 = load i64, ptr %3, align 8, !noundef !4
-  %29 = add i64 %28, 1
-  store i64 %29, ptr %3, align 8
+26:                                               ; preds = %25
+  %27 = load i64, ptr %3, align 8, !noundef !4
+  %28 = add i64 %27, 1
+  store i64 %28, ptr %3, align 8
   br label %"_ZN5tokio4sync4mpsc4list11Rx$LT$T$GT$18try_advancing_head17h044a24d7285ae5baE.llvm.8265446259410684974.exit"
 }
 

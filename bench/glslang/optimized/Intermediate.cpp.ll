@@ -5119,182 +5119,181 @@ _ZNK7glslang13TIntermediate20canImplicitlyPromoteENS_10TBasicTypeES1_NS_9TOperat
   br i1 %95, label %96, label %_ZN7glslangL28getCorrespondingUnsignedTypeENS_10TBasicTypeE.exit117
 
 96:                                               ; preds = %94, %92
-  %97 = or i32 %89, %85
-  %98 = and i32 %97, -7
-  %brmerge.demorgan.not = icmp eq i32 %98, 0
-  br i1 %brmerge.demorgan.not, label %101, label %99
+  %97 = or i32 %switch.and.i.i87, %switch.and.i.i85
+  %brmerge.demorgan.not = icmp eq i32 %97, 0
+  br i1 %brmerge.demorgan.not, label %100, label %98
 
-99:                                               ; preds = %96
-  br i1 %switch.selectcmp.i3.i, label %100, label %113
+98:                                               ; preds = %96
+  br i1 %switch.selectcmp.i3.i, label %99, label %112
 
-100:                                              ; preds = %99
-  br i1 %switch.selectcmp.i3.i90, label %101, label %107
+99:                                               ; preds = %98
+  br i1 %switch.selectcmp.i3.i90, label %100, label %106
 
-101:                                              ; preds = %96, %100
+100:                                              ; preds = %96, %99
   %switch.tableidx = add i32 %2, -4
-  %102 = icmp ult i32 %switch.tableidx, 8
-  br i1 %102, label %switch.lookup, label %_ZN7glslang11getTypeRankENS_10TBasicTypeE.exit
+  %101 = icmp ult i32 %switch.tableidx, 8
+  br i1 %101, label %switch.lookup, label %_ZN7glslang11getTypeRankENS_10TBasicTypeE.exit
 
-switch.lookup:                                    ; preds = %101
-  %103 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [8 x i32], ptr @switch.table._ZNK7glslang13TIntermediate28getConversionDestinationTypeENS_10TBasicTypeES1_NS_9TOperatorE.20, i64 0, i64 %103
+switch.lookup:                                    ; preds = %100
+  %102 = zext nneg i32 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds nuw [8 x i32], ptr @switch.table._ZNK7glslang13TIntermediate28getConversionDestinationTypeENS_10TBasicTypeES1_NS_9TOperatorE.20, i64 0, i64 %102
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %_ZN7glslang11getTypeRankENS_10TBasicTypeE.exit
 
-_ZN7glslang11getTypeRankENS_10TBasicTypeE.exit:   ; preds = %switch.lookup, %101
-  %.0.i97 = phi i32 [ -1, %101 ], [ %switch.load, %switch.lookup ]
+_ZN7glslang11getTypeRankENS_10TBasicTypeE.exit:   ; preds = %switch.lookup, %100
+  %.0.i97 = phi i32 [ -1, %100 ], [ %switch.load, %switch.lookup ]
   %switch.tableidx207 = add i32 %3, -4
-  %104 = icmp ult i32 %switch.tableidx207, 8
-  br i1 %104, label %switch.lookup206, label %_ZN7glslang11getTypeRankENS_10TBasicTypeE.exit99
+  %103 = icmp ult i32 %switch.tableidx207, 8
+  br i1 %103, label %switch.lookup206, label %_ZN7glslang11getTypeRankENS_10TBasicTypeE.exit99
 
 switch.lookup206:                                 ; preds = %_ZN7glslang11getTypeRankENS_10TBasicTypeE.exit
-  %105 = zext nneg i32 %switch.tableidx207 to i64
-  %switch.gep208 = getelementptr inbounds nuw [8 x i32], ptr @switch.table._ZNK7glslang13TIntermediate28getConversionDestinationTypeENS_10TBasicTypeES1_NS_9TOperatorE.20, i64 0, i64 %105
+  %104 = zext nneg i32 %switch.tableidx207 to i64
+  %switch.gep208 = getelementptr inbounds nuw [8 x i32], ptr @switch.table._ZNK7glslang13TIntermediate28getConversionDestinationTypeENS_10TBasicTypeES1_NS_9TOperatorE.20, i64 0, i64 %104
   %switch.load209 = load i32, ptr %switch.gep208, align 4
   br label %_ZN7glslang11getTypeRankENS_10TBasicTypeE.exit99
 
 _ZN7glslang11getTypeRankENS_10TBasicTypeE.exit99: ; preds = %switch.lookup206, %_ZN7glslang11getTypeRankENS_10TBasicTypeE.exit
   %.0.i98 = phi i32 [ -1, %_ZN7glslang11getTypeRankENS_10TBasicTypeE.exit ], [ %switch.load209, %switch.lookup206 ]
-  %106 = icmp slt i32 %.0.i97, %.0.i98
-  %spec.select188 = select i1 %106, i32 %3, i32 %2
+  %105 = icmp slt i32 %.0.i97, %.0.i98
+  %spec.select188 = select i1 %105, i32 %3, i32 %2
   br label %_ZN7glslangL28getCorrespondingUnsignedTypeENS_10TBasicTypeE.exit117
 
-107:                                              ; preds = %100
+106:                                              ; preds = %99
   %switch.tableidx211 = add i32 %2, -4
-  %108 = icmp ult i32 %switch.tableidx211, 8
-  br i1 %108, label %switch.lookup210, label %_ZN7glslang11getTypeRankENS_10TBasicTypeE.exit103
+  %107 = icmp ult i32 %switch.tableidx211, 8
+  br i1 %107, label %switch.lookup210, label %_ZN7glslang11getTypeRankENS_10TBasicTypeE.exit103
 
-switch.lookup210:                                 ; preds = %107
-  %109 = zext nneg i32 %switch.tableidx211 to i64
-  %switch.gep212 = getelementptr inbounds nuw [8 x i32], ptr @switch.table._ZNK7glslang13TIntermediate28getConversionDestinationTypeENS_10TBasicTypeES1_NS_9TOperatorE.20, i64 0, i64 %109
+switch.lookup210:                                 ; preds = %106
+  %108 = zext nneg i32 %switch.tableidx211 to i64
+  %switch.gep212 = getelementptr inbounds nuw [8 x i32], ptr @switch.table._ZNK7glslang13TIntermediate28getConversionDestinationTypeENS_10TBasicTypeES1_NS_9TOperatorE.20, i64 0, i64 %108
   %switch.load213 = load i32, ptr %switch.gep212, align 4
   br label %_ZN7glslang11getTypeRankENS_10TBasicTypeE.exit103
 
-_ZN7glslang11getTypeRankENS_10TBasicTypeE.exit103: ; preds = %switch.lookup210, %107
-  %.0.i102 = phi i32 [ -1, %107 ], [ %switch.load213, %switch.lookup210 ]
+_ZN7glslang11getTypeRankENS_10TBasicTypeE.exit103: ; preds = %switch.lookup210, %106
+  %.0.i102 = phi i32 [ -1, %106 ], [ %switch.load213, %switch.lookup210 ]
   %switch.tableidx215 = add i32 %3, -4
-  %110 = icmp ult i32 %switch.tableidx215, 8
-  br i1 %110, label %switch.lookup214, label %_ZN7glslang11getTypeRankENS_10TBasicTypeE.exit105
+  %109 = icmp ult i32 %switch.tableidx215, 8
+  br i1 %109, label %switch.lookup214, label %_ZN7glslang11getTypeRankENS_10TBasicTypeE.exit105
 
 switch.lookup214:                                 ; preds = %_ZN7glslang11getTypeRankENS_10TBasicTypeE.exit103
-  %111 = zext nneg i32 %switch.tableidx215 to i64
-  %switch.gep216 = getelementptr inbounds nuw [8 x i32], ptr @switch.table._ZNK7glslang13TIntermediate28getConversionDestinationTypeENS_10TBasicTypeES1_NS_9TOperatorE.20, i64 0, i64 %111
+  %110 = zext nneg i32 %switch.tableidx215 to i64
+  %switch.gep216 = getelementptr inbounds nuw [8 x i32], ptr @switch.table._ZNK7glslang13TIntermediate28getConversionDestinationTypeENS_10TBasicTypeES1_NS_9TOperatorE.20, i64 0, i64 %110
   %switch.load217 = load i32, ptr %switch.gep216, align 4
   br label %_ZN7glslang11getTypeRankENS_10TBasicTypeE.exit105
 
 _ZN7glslang11getTypeRankENS_10TBasicTypeE.exit105: ; preds = %switch.lookup214, %_ZN7glslang11getTypeRankENS_10TBasicTypeE.exit103
   %.0.i104 = phi i32 [ -1, %_ZN7glslang11getTypeRankENS_10TBasicTypeE.exit103 ], [ %switch.load217, %switch.lookup214 ]
-  %112 = icmp sgt i32 %.0.i102, %.0.i104
-  br i1 %112, label %_ZN7glslangL28getCorrespondingUnsignedTypeENS_10TBasicTypeE.exit117, label %.thread148
+  %111 = icmp sgt i32 %.0.i102, %.0.i104
+  br i1 %111, label %_ZN7glslangL28getCorrespondingUnsignedTypeENS_10TBasicTypeE.exit117, label %.thread148
 
-113:                                              ; preds = %99
-  br i1 %switch.selectcmp.i3.i90, label %114, label %.thread148
+112:                                              ; preds = %98
+  br i1 %switch.selectcmp.i3.i90, label %113, label %.thread148
 
-114:                                              ; preds = %113
+113:                                              ; preds = %112
   %switch.tableidx219 = add i32 %3, -4
-  %115 = icmp ult i32 %switch.tableidx219, 8
-  br i1 %115, label %switch.lookup218, label %_ZN7glslang11getTypeRankENS_10TBasicTypeE.exit109
+  %114 = icmp ult i32 %switch.tableidx219, 8
+  br i1 %114, label %switch.lookup218, label %_ZN7glslang11getTypeRankENS_10TBasicTypeE.exit109
 
-switch.lookup218:                                 ; preds = %114
-  %116 = zext nneg i32 %switch.tableidx219 to i64
-  %switch.gep220 = getelementptr inbounds nuw [8 x i32], ptr @switch.table._ZNK7glslang13TIntermediate28getConversionDestinationTypeENS_10TBasicTypeES1_NS_9TOperatorE.20, i64 0, i64 %116
+switch.lookup218:                                 ; preds = %113
+  %115 = zext nneg i32 %switch.tableidx219 to i64
+  %switch.gep220 = getelementptr inbounds nuw [8 x i32], ptr @switch.table._ZNK7glslang13TIntermediate28getConversionDestinationTypeENS_10TBasicTypeES1_NS_9TOperatorE.20, i64 0, i64 %115
   %switch.load221 = load i32, ptr %switch.gep220, align 4
   br label %_ZN7glslang11getTypeRankENS_10TBasicTypeE.exit109
 
-_ZN7glslang11getTypeRankENS_10TBasicTypeE.exit109: ; preds = %switch.lookup218, %114
-  %.0.i108 = phi i32 [ -1, %114 ], [ %switch.load221, %switch.lookup218 ]
+_ZN7glslang11getTypeRankENS_10TBasicTypeE.exit109: ; preds = %switch.lookup218, %113
+  %.0.i108 = phi i32 [ -1, %113 ], [ %switch.load221, %switch.lookup218 ]
   %switch.tableidx223 = add i32 %2, -4
-  %117 = icmp ult i32 %switch.tableidx223, 8
-  br i1 %117, label %switch.lookup222, label %_ZN7glslang11getTypeRankENS_10TBasicTypeE.exit111
+  %116 = icmp ult i32 %switch.tableidx223, 8
+  br i1 %116, label %switch.lookup222, label %_ZN7glslang11getTypeRankENS_10TBasicTypeE.exit111
 
 switch.lookup222:                                 ; preds = %_ZN7glslang11getTypeRankENS_10TBasicTypeE.exit109
-  %118 = zext nneg i32 %switch.tableidx223 to i64
-  %switch.gep224 = getelementptr inbounds nuw [8 x i32], ptr @switch.table._ZNK7glslang13TIntermediate28getConversionDestinationTypeENS_10TBasicTypeES1_NS_9TOperatorE.20, i64 0, i64 %118
+  %117 = zext nneg i32 %switch.tableidx223 to i64
+  %switch.gep224 = getelementptr inbounds nuw [8 x i32], ptr @switch.table._ZNK7glslang13TIntermediate28getConversionDestinationTypeENS_10TBasicTypeES1_NS_9TOperatorE.20, i64 0, i64 %117
   %switch.load225 = load i32, ptr %switch.gep224, align 4
   br label %_ZN7glslang11getTypeRankENS_10TBasicTypeE.exit111
 
 _ZN7glslang11getTypeRankENS_10TBasicTypeE.exit111: ; preds = %switch.lookup222, %_ZN7glslang11getTypeRankENS_10TBasicTypeE.exit109
   %.0.i110 = phi i32 [ -1, %_ZN7glslang11getTypeRankENS_10TBasicTypeE.exit109 ], [ %switch.load225, %switch.lookup222 ]
-  %119 = icmp sgt i32 %.0.i108, %.0.i110
-  br i1 %119, label %_ZN7glslangL28getCorrespondingUnsignedTypeENS_10TBasicTypeE.exit117, label %.thread148
+  %118 = icmp sgt i32 %.0.i108, %.0.i110
+  br i1 %118, label %_ZN7glslangL28getCorrespondingUnsignedTypeENS_10TBasicTypeE.exit117, label %.thread148
 
-.thread148:                                       ; preds = %_ZN7glslang11getTypeRankENS_10TBasicTypeE.exit105, %_ZN7glslang11getTypeRankENS_10TBasicTypeE.exit111, %113
-  br i1 %switch.selectcmp.i.i86, label %120, label %124
+.thread148:                                       ; preds = %_ZN7glslang11getTypeRankENS_10TBasicTypeE.exit105, %_ZN7glslang11getTypeRankENS_10TBasicTypeE.exit111, %112
+  br i1 %switch.selectcmp.i.i86, label %119, label %123
 
-120:                                              ; preds = %.thread148
+119:                                              ; preds = %.thread148
   switch i32 %2, label %_ZN7glslangL28getCorrespondingUnsignedTypeENS_10TBasicTypeE.exit [
-    i32 10, label %122
-    i32 6, label %121
+    i32 10, label %121
+    i32 6, label %120
     i32 8, label %_ZN7glslangL42canSignedIntTypeRepresentAllUnsignedValuesENS_10TBasicTypeES0_.exit
     i32 4, label %_ZN7glslangL28getCorrespondingUnsignedTypeENS_10TBasicTypeE.exit117
   ]
 
-121:                                              ; preds = %120
+120:                                              ; preds = %119
   %cond.i = icmp eq i32 %3, 5
   %spec.select196 = select i1 %cond.i, i32 6, i32 7
   br label %_ZN7glslangL28getCorrespondingUnsignedTypeENS_10TBasicTypeE.exit117
 
-122:                                              ; preds = %120
+121:                                              ; preds = %119
   %switch.tableidx227 = add i32 %3, -5
-  %123 = icmp ult i32 %switch.tableidx227, 5
-  br i1 %123, label %switch.lookup226, label %_ZN7glslangL28getCorrespondingUnsignedTypeENS_10TBasicTypeE.exit117
+  %122 = icmp ult i32 %switch.tableidx227, 5
+  br i1 %122, label %switch.lookup226, label %_ZN7glslangL28getCorrespondingUnsignedTypeENS_10TBasicTypeE.exit117
 
-_ZN7glslangL42canSignedIntTypeRepresentAllUnsignedValuesENS_10TBasicTypeES0_.exit: ; preds = %120
+_ZN7glslangL42canSignedIntTypeRepresentAllUnsignedValuesENS_10TBasicTypeES0_.exit: ; preds = %119
   %switch.and5.i = and i32 %90, -3
   %switch.selectcmp6.i = icmp eq i32 %switch.and5.i, 0
   %spec.select190 = select i1 %switch.selectcmp6.i, i32 8, i32 9
   br label %_ZN7glslangL28getCorrespondingUnsignedTypeENS_10TBasicTypeE.exit117
 
-_ZN7glslangL28getCorrespondingUnsignedTypeENS_10TBasicTypeE.exit: ; preds = %120
+_ZN7glslangL28getCorrespondingUnsignedTypeENS_10TBasicTypeE.exit: ; preds = %119
   br label %_ZN7glslangL28getCorrespondingUnsignedTypeENS_10TBasicTypeE.exit117
 
-124:                                              ; preds = %.thread148
-  br i1 %switch.selectcmp.i.i88, label %125, label %_ZN7glslangL28getCorrespondingUnsignedTypeENS_10TBasicTypeE.exit117
+123:                                              ; preds = %.thread148
+  br i1 %switch.selectcmp.i.i88, label %124, label %_ZN7glslangL28getCorrespondingUnsignedTypeENS_10TBasicTypeE.exit117
 
-125:                                              ; preds = %124
+124:                                              ; preds = %123
   switch i32 %3, label %_ZN7glslangL28getCorrespondingUnsignedTypeENS_10TBasicTypeE.exit126 [
-    i32 10, label %127
-    i32 6, label %126
+    i32 10, label %126
+    i32 6, label %125
     i32 8, label %_ZN7glslangL42canSignedIntTypeRepresentAllUnsignedValuesENS_10TBasicTypeES0_.exit124
     i32 4, label %_ZN7glslangL28getCorrespondingUnsignedTypeENS_10TBasicTypeE.exit117
   ]
 
-126:                                              ; preds = %125
+125:                                              ; preds = %124
   %cond.i123 = icmp eq i32 %2, 5
   %spec.select198 = select i1 %cond.i123, i32 6, i32 7
   br label %_ZN7glslangL28getCorrespondingUnsignedTypeENS_10TBasicTypeE.exit117
 
-127:                                              ; preds = %125
+126:                                              ; preds = %124
   %switch.tableidx231 = add i32 %2, -5
-  %128 = icmp ult i32 %switch.tableidx231, 5
-  br i1 %128, label %switch.lookup230, label %_ZN7glslangL28getCorrespondingUnsignedTypeENS_10TBasicTypeE.exit117
+  %127 = icmp ult i32 %switch.tableidx231, 5
+  br i1 %127, label %switch.lookup230, label %_ZN7glslangL28getCorrespondingUnsignedTypeENS_10TBasicTypeE.exit117
 
-_ZN7glslangL42canSignedIntTypeRepresentAllUnsignedValuesENS_10TBasicTypeES0_.exit124: ; preds = %125
+_ZN7glslangL42canSignedIntTypeRepresentAllUnsignedValuesENS_10TBasicTypeES0_.exit124: ; preds = %124
   %switch.and5.i120 = and i32 %86, -3
   %switch.selectcmp6.i121 = icmp eq i32 %switch.and5.i120, 0
   %spec.select192 = select i1 %switch.selectcmp6.i121, i32 8, i32 9
   br label %_ZN7glslangL28getCorrespondingUnsignedTypeENS_10TBasicTypeE.exit117
 
-_ZN7glslangL28getCorrespondingUnsignedTypeENS_10TBasicTypeE.exit126: ; preds = %125
+_ZN7glslangL28getCorrespondingUnsignedTypeENS_10TBasicTypeE.exit126: ; preds = %124
   br label %_ZN7glslangL28getCorrespondingUnsignedTypeENS_10TBasicTypeE.exit117
 
-switch.lookup226:                                 ; preds = %122
-  %129 = zext nneg i32 %switch.tableidx227 to i64
-  %switch.gep228 = getelementptr inbounds nuw [5 x i32], ptr @switch.table._ZNK7glslang13TIntermediate28getConversionDestinationTypeENS_10TBasicTypeES1_NS_9TOperatorE.22, i64 0, i64 %129
+switch.lookup226:                                 ; preds = %121
+  %128 = zext nneg i32 %switch.tableidx227 to i64
+  %switch.gep228 = getelementptr inbounds nuw [5 x i32], ptr @switch.table._ZNK7glslang13TIntermediate28getConversionDestinationTypeENS_10TBasicTypeES1_NS_9TOperatorE.22, i64 0, i64 %128
   %switch.load229 = load i32, ptr %switch.gep228, align 4
   br label %_ZN7glslangL28getCorrespondingUnsignedTypeENS_10TBasicTypeE.exit117
 
-switch.lookup230:                                 ; preds = %127
-  %130 = zext nneg i32 %switch.tableidx231 to i64
-  %switch.gep232 = getelementptr inbounds nuw [5 x i32], ptr @switch.table._ZNK7glslang13TIntermediate28getConversionDestinationTypeENS_10TBasicTypeES1_NS_9TOperatorE.22, i64 0, i64 %130
+switch.lookup230:                                 ; preds = %126
+  %129 = zext nneg i32 %switch.tableidx231 to i64
+  %switch.gep232 = getelementptr inbounds nuw [5 x i32], ptr @switch.table._ZNK7glslang13TIntermediate28getConversionDestinationTypeENS_10TBasicTypeES1_NS_9TOperatorE.22, i64 0, i64 %129
   %switch.load233 = load i32, ptr %switch.gep232, align 4
   br label %_ZN7glslangL28getCorrespondingUnsignedTypeENS_10TBasicTypeE.exit117
 
-_ZN7glslangL28getCorrespondingUnsignedTypeENS_10TBasicTypeE.exit117: ; preds = %127, %switch.lookup230, %122, %switch.lookup226, %124, %94, %88, %.thread, %32, %28, %40, %36, %_ZNK7glslang13TIntermediate20canImplicitlyPromoteENS_10TBasicTypeES1_NS_9TOperatorE.exit84, %_ZNK7glslang13TIntermediate20canImplicitlyPromoteENS_10TBasicTypeES1_NS_9TOperatorE.exit, %_ZN7glslang11getTypeRankENS_10TBasicTypeE.exit105, %_ZN7glslang11getTypeRankENS_10TBasicTypeE.exit111, %_ZN7glslangL28getCorrespondingUnsignedTypeENS_10TBasicTypeE.exit, %_ZN7glslangL28getCorrespondingUnsignedTypeENS_10TBasicTypeE.exit126, %51, %_ZNK7glslang13TIntermediate22isFPIntegralConversionENS_10TBasicTypeES1_.exit.thread.i, %73, %_ZNK7glslang13TIntermediate22isFPIntegralConversionENS_10TBasicTypeES1_.exit.thread.i80, %120, %125, %_ZN7glslang11getTypeRankENS_10TBasicTypeE.exit99, %_ZN7glslangL42canSignedIntTypeRepresentAllUnsignedValuesENS_10TBasicTypeES0_.exit, %_ZN7glslangL42canSignedIntTypeRepresentAllUnsignedValuesENS_10TBasicTypeES0_.exit124, %121, %126, %22, %24, %11, %13, %17
-  %.1138.sink205 = phi i32 [ 24, %17 ], [ 24, %13 ], [ 24, %11 ], [ %2, %22 ], [ %spec.select, %24 ], [ 24, %124 ], [ 24, %94 ], [ 24, %88 ], [ 24, %.thread ], [ 2, %32 ], [ 2, %28 ], [ 1, %40 ], [ 1, %36 ], [ 3, %_ZNK7glslang13TIntermediate20canImplicitlyPromoteENS_10TBasicTypeES1_NS_9TOperatorE.exit84 ], [ 3, %_ZNK7glslang13TIntermediate20canImplicitlyPromoteENS_10TBasicTypeES1_NS_9TOperatorE.exit ], [ %2, %_ZN7glslang11getTypeRankENS_10TBasicTypeE.exit105 ], [ %3, %_ZN7glslang11getTypeRankENS_10TBasicTypeE.exit111 ], [ 24, %_ZN7glslangL28getCorrespondingUnsignedTypeENS_10TBasicTypeE.exit ], [ 24, %_ZN7glslangL28getCorrespondingUnsignedTypeENS_10TBasicTypeE.exit126 ], [ 3, %51 ], [ 3, %_ZNK7glslang13TIntermediate22isFPIntegralConversionENS_10TBasicTypeES1_.exit.thread.i ], [ 3, %73 ], [ 3, %_ZNK7glslang13TIntermediate22isFPIntegralConversionENS_10TBasicTypeES1_.exit.thread.i80 ], [ %spec.select188, %_ZN7glslang11getTypeRankENS_10TBasicTypeE.exit99 ], [ 5, %120 ], [ %spec.select190, %_ZN7glslangL42canSignedIntTypeRepresentAllUnsignedValuesENS_10TBasicTypeES0_.exit ], [ 5, %125 ], [ %spec.select192, %_ZN7glslangL42canSignedIntTypeRepresentAllUnsignedValuesENS_10TBasicTypeES0_.exit124 ], [ %spec.select196, %121 ], [ %spec.select198, %126 ], [ %switch.load229, %switch.lookup226 ], [ 11, %122 ], [ %switch.load233, %switch.lookup230 ], [ 11, %127 ]
+_ZN7glslangL28getCorrespondingUnsignedTypeENS_10TBasicTypeE.exit117: ; preds = %126, %switch.lookup230, %121, %switch.lookup226, %123, %94, %88, %.thread, %32, %28, %40, %36, %_ZNK7glslang13TIntermediate20canImplicitlyPromoteENS_10TBasicTypeES1_NS_9TOperatorE.exit84, %_ZNK7glslang13TIntermediate20canImplicitlyPromoteENS_10TBasicTypeES1_NS_9TOperatorE.exit, %_ZN7glslang11getTypeRankENS_10TBasicTypeE.exit105, %_ZN7glslang11getTypeRankENS_10TBasicTypeE.exit111, %_ZN7glslangL28getCorrespondingUnsignedTypeENS_10TBasicTypeE.exit, %_ZN7glslangL28getCorrespondingUnsignedTypeENS_10TBasicTypeE.exit126, %51, %_ZNK7glslang13TIntermediate22isFPIntegralConversionENS_10TBasicTypeES1_.exit.thread.i, %73, %_ZNK7glslang13TIntermediate22isFPIntegralConversionENS_10TBasicTypeES1_.exit.thread.i80, %119, %124, %_ZN7glslang11getTypeRankENS_10TBasicTypeE.exit99, %_ZN7glslangL42canSignedIntTypeRepresentAllUnsignedValuesENS_10TBasicTypeES0_.exit, %_ZN7glslangL42canSignedIntTypeRepresentAllUnsignedValuesENS_10TBasicTypeES0_.exit124, %120, %125, %22, %24, %11, %13, %17
+  %.1138.sink205 = phi i32 [ 24, %17 ], [ 24, %13 ], [ 24, %11 ], [ %2, %22 ], [ %spec.select, %24 ], [ 24, %123 ], [ 24, %94 ], [ 24, %88 ], [ 24, %.thread ], [ 2, %32 ], [ 2, %28 ], [ 1, %40 ], [ 1, %36 ], [ 3, %_ZNK7glslang13TIntermediate20canImplicitlyPromoteENS_10TBasicTypeES1_NS_9TOperatorE.exit84 ], [ 3, %_ZNK7glslang13TIntermediate20canImplicitlyPromoteENS_10TBasicTypeES1_NS_9TOperatorE.exit ], [ %2, %_ZN7glslang11getTypeRankENS_10TBasicTypeE.exit105 ], [ %3, %_ZN7glslang11getTypeRankENS_10TBasicTypeE.exit111 ], [ 24, %_ZN7glslangL28getCorrespondingUnsignedTypeENS_10TBasicTypeE.exit ], [ 24, %_ZN7glslangL28getCorrespondingUnsignedTypeENS_10TBasicTypeE.exit126 ], [ 3, %51 ], [ 3, %_ZNK7glslang13TIntermediate22isFPIntegralConversionENS_10TBasicTypeES1_.exit.thread.i ], [ 3, %73 ], [ 3, %_ZNK7glslang13TIntermediate22isFPIntegralConversionENS_10TBasicTypeES1_.exit.thread.i80 ], [ %spec.select188, %_ZN7glslang11getTypeRankENS_10TBasicTypeE.exit99 ], [ 5, %119 ], [ %spec.select190, %_ZN7glslangL42canSignedIntTypeRepresentAllUnsignedValuesENS_10TBasicTypeES0_.exit ], [ 5, %124 ], [ %spec.select192, %_ZN7glslangL42canSignedIntTypeRepresentAllUnsignedValuesENS_10TBasicTypeES0_.exit124 ], [ %spec.select196, %120 ], [ %spec.select198, %125 ], [ %switch.load229, %switch.lookup226 ], [ 11, %121 ], [ %switch.load233, %switch.lookup230 ], [ 11, %126 ]
   store i32 %.1138.sink205, ptr %0, align 4
-  %131 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 %.1138.sink205, ptr %131, align 4
+  %130 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  store i32 %.1138.sink205, ptr %130, align 4
   ret void
 }
 

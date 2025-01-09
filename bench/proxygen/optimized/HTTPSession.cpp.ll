@@ -32894,8 +32894,7 @@ invoke.cont34:                                    ; preds = %cleanup.done
 
 for.cond.preheader:                               ; preds = %invoke.cont34
   %.pre2030 = and i64 %2, 4611686018427387903
-  %3 = and i64 %2, 4611686018427387903
-  %or.cond32.not = icmp eq i64 %3, 0
+  %or.cond32.not = icmp eq i64 %and.i.i, 0
   br i1 %or.cond32.not, label %if.then.i8, label %for.body
 
 invoke.cont34.split.us:                           ; preds = %invoke.cont34
@@ -32909,23 +32908,23 @@ invoke.cont41.us.loopexit:                        ; preds = %for.inc.us
 
 for.body.us:                                      ; preds = %invoke.cont34.split.us, %for.inc.us
   %idx.0.us13 = phi i64 [ %inc.us, %for.inc.us ], [ 0, %invoke.cont34.split.us ]
-  %4 = load i64, ptr %observers_, align 8
-  %and.i.i.i.us = and i64 %4, 4611686018427387903
+  %3 = load i64, ptr %observers_, align 8
+  %and.i.i.i.us = and i64 %3, 4611686018427387903
   %cmp.not.i.us = icmp samesign ult i64 %idx.0.us13, %and.i.i.i.us
   br i1 %cmp.not.i.us, label %invoke.cont46.us, label %if.then.i
 
 invoke.cont46.us:                                 ; preds = %for.body.us
-  %5 = load ptr, ptr %u.i.i.i.i, align 8
-  %tobool.not1.i.i.i.i.us = icmp slt i64 %4, 0
-  %cond.i.i.i.i.us = select i1 %tobool.not1.i.i.i.i.us, ptr %5, ptr %u.i.i.i.i
+  %4 = load ptr, ptr %u.i.i.i.i, align 8
+  %tobool.not1.i.i.i.i.us = icmp slt i64 %3, 0
+  %cond.i.i.i.i.us = select i1 %tobool.not1.i.i.i.i.us, ptr %4, ptr %u.i.i.i.i
   %add.ptr.i.i.us = getelementptr inbounds nuw %"class.std::shared_ptr.629", ptr %cond.i.i.i.i.us, i64 %idx.0.us13
-  %6 = load ptr, ptr %add.ptr.i.i.us, align 8
-  %cmp.i.not.us = icmp eq ptr %6, null
+  %5 = load ptr, ptr %add.ptr.i.i.us, align 8
+  %cmp.i.not.us = icmp eq ptr %5, null
   br i1 %cmp.i.not.us, label %for.inc.us, label %if.end.us
 
 if.end.us:                                        ; preds = %invoke.cont46.us
-  %7 = load ptr, ptr %call_.i, align 16
-  invoke void %7(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i.i.us, ptr noundef nonnull align 16 dereferenceable(48) %fn)
+  %6 = load ptr, ptr %call_.i, align 16
+  invoke void %6(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i.i.us, ptr noundef nonnull align 16 dereferenceable(48) %fn)
           to label %for.inc.us unwind label %terminate.lpad.loopexit.split.us
 
 for.inc.us:                                       ; preds = %if.end.us, %invoke.cont46.us
@@ -32953,17 +32952,17 @@ if.then.i:                                        ; preds = %for.body.us, %for.b
   unreachable
 
 invoke.cont46:                                    ; preds = %for.body
-  %8 = load ptr, ptr %u.i.i.i.i, align 8
+  %7 = load ptr, ptr %u.i.i.i.i, align 8
   %tobool.not1.i.i.i.i = icmp slt i64 %.pre15.pre1733, 0
-  %cond.i.i.i.i = select i1 %tobool.not1.i.i.i.i, ptr %8, ptr %u.i.i.i.i
+  %cond.i.i.i.i = select i1 %tobool.not1.i.i.i.i, ptr %7, ptr %u.i.i.i.i
   %add.ptr.i.i = getelementptr inbounds nuw %"class.std::shared_ptr.629", ptr %cond.i.i.i.i, i64 %idx.034
-  %9 = load ptr, ptr %add.ptr.i.i, align 8
-  %cmp.i.not = icmp eq ptr %9, null
+  %8 = load ptr, ptr %add.ptr.i.i, align 8
+  %cmp.i.not = icmp eq ptr %8, null
   br i1 %cmp.i.not, label %for.inc, label %if.end
 
 if.end:                                           ; preds = %invoke.cont46
-  %10 = load ptr, ptr %call_.i, align 16
-  invoke void %10(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i.i, ptr noundef nonnull align 16 dereferenceable(48) %fn)
+  %9 = load ptr, ptr %call_.i, align 16
+  invoke void %9(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i.i, ptr noundef nonnull align 16 dereferenceable(48) %fn)
           to label %if.end.for.inc_crit_edge unwind label %terminate.lpad.loopexit.split
 
 if.end.for.inc_crit_edge:                         ; preds = %if.end
@@ -32983,33 +32982,33 @@ if.then.i8:                                       ; preds = %for.inc, %for.cond.
   %.us-phi = phi i64 [ %.pre, %invoke.cont41.us.loopexit ], [ %2, %invoke.cont34.split.us ], [ %2, %for.cond.preheader ], [ %.pre15.pre, %for.inc ]
   %.us-phi10 = phi i64 [ %.pre19, %invoke.cont41.us.loopexit ], [ 0, %invoke.cont34.split.us ], [ %.pre2030, %for.cond.preheader ], [ %.pre20, %for.inc ]
   %removalDuringIteration_.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 60
-  %11 = load i8, ptr %removalDuringIteration_.i.i.i, align 4
-  %tobool.i.i.i = trunc i8 %11 to i1
+  %10 = load i8, ptr %removalDuringIteration_.i.i.i, align 4
+  %tobool.i.i.i = trunc i8 %10 to i1
   br i1 %tobool.i.i.i, label %invoke.cont.i.i.i, label %_ZN5folly6detail14ScopeGuardImplIZNS_22ObserverContainerStoreINS_21ObserverContainerBaseIN8proxygen28HTTPSessionObserverInterfaceENS4_27HTTPSessionObserverAccessorENS_34ObserverContainerBasePolicyDefaultINS5_6EventsELm32EEEE8ObserverENS_35ObserverContainerStorePolicyDefaultILj2EEEE21invokeForEachObserverEONS_8FunctionIFvRSt10shared_ptrISB_EEEENS_26ObserverContainerStoreBaseISB_E26InvokeWhileIteratingPolicyEEUlvE_Lb1EED2Ev.exit
 
 invoke.cont.i.i.i:                                ; preds = %if.then.i8
-  %12 = load ptr, ptr %u.i.i.i.i, align 8
+  %11 = load ptr, ptr %u.i.i.i.i, align 8
   %tobool.not1.i.i.i.i.i = icmp slt i64 %.us-phi, 0
-  %cond.i.i.i.i.i = select i1 %tobool.not1.i.i.i.i.i, ptr %12, ptr %u.i.i.i.i
+  %cond.i.i.i.i.i = select i1 %tobool.not1.i.i.i.i.i, ptr %11, ptr %u.i.i.i.i
   %add.ptr.i.i.i.i = getelementptr inbounds nuw %"class.std::shared_ptr.629", ptr %cond.i.i.i.i.i, i64 %.us-phi10
   %call.i4.i.i.i = invoke noundef ptr @_ZSt11__remove_ifIPSt10shared_ptrIN5folly21ObserverContainerBaseIN8proxygen28HTTPSessionObserverInterfaceENS3_27HTTPSessionObserverAccessorENS1_34ObserverContainerBasePolicyDefaultINS4_6EventsELm32EEEE8ObserverEEN9__gnu_cxx5__ops10_Iter_predIZZNS1_22ObserverContainerStoreISA_NS1_35ObserverContainerStorePolicyDefaultILj2EEEE21invokeForEachObserverEONS1_8FunctionIFvRSB_EEENS1_26ObserverContainerStoreBaseISA_E26InvokeWhileIteratingPolicyEENKUlvE_clEvEUlRKT_E_EEEST_ST_ST_T0_(ptr noundef %cond.i.i.i.i.i, ptr noundef %add.ptr.i.i.i.i)
           to label %invoke.cont8.i.i.i unwind label %terminate.lpad.i.i.i
 
 invoke.cont8.i.i.i:                               ; preds = %invoke.cont.i.i.i
-  %13 = load i64, ptr %observers_, align 8
-  %14 = load ptr, ptr %u.i.i.i.i, align 8
-  %tobool.not1.i.i6.i.i.i = icmp slt i64 %13, 0
-  %cond.i.i7.i.i.i = select i1 %tobool.not1.i.i6.i.i.i, ptr %14, ptr %u.i.i.i.i
-  %and.i.i.i8.i.i.i = and i64 %13, 4611686018427387903
+  %12 = load i64, ptr %observers_, align 8
+  %13 = load ptr, ptr %u.i.i.i.i, align 8
+  %tobool.not1.i.i6.i.i.i = icmp slt i64 %12, 0
+  %cond.i.i7.i.i.i = select i1 %tobool.not1.i.i6.i.i.i, ptr %13, ptr %u.i.i.i.i
+  %and.i.i.i8.i.i.i = and i64 %12, 4611686018427387903
   %add.ptr.i9.i.i.i = getelementptr inbounds nuw %"class.std::shared_ptr.629", ptr %cond.i.i7.i.i.i, i64 %and.i.i.i8.i.i.i
   %call11.i.i.i = invoke noundef ptr @_ZN5folly12small_vectorISt10shared_ptrINS_21ObserverContainerBaseIN8proxygen28HTTPSessionObserverInterfaceENS3_27HTTPSessionObserverAccessorENS_34ObserverContainerBasePolicyDefaultINS4_6EventsELm32EEEE8ObserverEELm2EvE5eraseEPKSB_SE_(ptr noundef nonnull align 8 dereferenceable(40) %observers_, ptr noundef %call.i4.i.i.i, ptr noundef %add.ptr.i9.i.i.i)
           to label %_ZN5folly6detail14ScopeGuardImplIZNS_22ObserverContainerStoreINS_21ObserverContainerBaseIN8proxygen28HTTPSessionObserverInterfaceENS4_27HTTPSessionObserverAccessorENS_34ObserverContainerBasePolicyDefaultINS5_6EventsELm32EEEE8ObserverENS_35ObserverContainerStorePolicyDefaultILj2EEEE21invokeForEachObserverEONS_8FunctionIFvRSt10shared_ptrISB_EEEENS_26ObserverContainerStoreBaseISB_E26InvokeWhileIteratingPolicyEEUlvE_Lb1EED2Ev.exit unwind label %terminate.lpad.i.i.i
 
 terminate.lpad.i.i.i:                             ; preds = %invoke.cont8.i.i.i, %invoke.cont.i.i.i
-  %15 = landingpad { ptr, i32 }
+  %14 = landingpad { ptr, i32 }
           catch ptr null
-  %16 = extractvalue { ptr, i32 } %15, 0
-  tail call void @__clang_call_terminate(ptr %16) #42
+  %15 = extractvalue { ptr, i32 } %14, 0
+  tail call void @__clang_call_terminate(ptr %15) #42
   unreachable
 
 _ZN5folly6detail14ScopeGuardImplIZNS_22ObserverContainerStoreINS_21ObserverContainerBaseIN8proxygen28HTTPSessionObserverInterfaceENS4_27HTTPSessionObserverAccessorENS_34ObserverContainerBasePolicyDefaultINS5_6EventsELm32EEEE8ObserverENS_35ObserverContainerStorePolicyDefaultILj2EEEE21invokeForEachObserverEONS_8FunctionIFvRSt10shared_ptrISB_EEEENS_26ObserverContainerStoreBaseISB_E26InvokeWhileIteratingPolicyEEUlvE_Lb1EED2Ev.exit: ; preds = %if.then.i8, %invoke.cont8.i.i.i
@@ -33030,8 +33029,8 @@ terminate.lpad.loopexit.split-lp:                 ; preds = %cond.false, %invoke
 
 terminate.lpad:                                   ; preds = %terminate.lpad.loopexit.split, %terminate.lpad.loopexit.split.us, %terminate.lpad.loopexit.split-lp
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit.split-lp, %terminate.lpad.loopexit.split-lp ], [ %lpad.loopexit, %terminate.lpad.loopexit.split ], [ %lpad.loopexit.us, %terminate.lpad.loopexit.split.us ]
-  %17 = extractvalue { ptr, i32 } %lpad.phi, 0
-  call void @__clang_call_terminate(ptr %17) #42
+  %16 = extractvalue { ptr, i32 } %lpad.phi, 0
+  call void @__clang_call_terminate(ptr %16) #42
   unreachable
 }
 

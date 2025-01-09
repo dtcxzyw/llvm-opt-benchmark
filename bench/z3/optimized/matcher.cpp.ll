@@ -95,8 +95,8 @@ _ZN6vectorISt4pairIP4exprS2_ELb0EjE9push_backEOS3_.exit: ; preds = %lor.lhs.fals
   %inc.i = add i32 %6, 1
   store i32 %inc.i, ptr %arrayidx10.i, align 4
   %7 = load ptr, ptr %m_todo.i, align 8
-  %cmp.i1974 = icmp eq ptr %7, null
-  br i1 %cmp.i1974, label %return, label %_ZNK6vectorISt4pairIP4exprS2_ELb0EjE5emptyEv.exit
+  %cmp.i1975 = icmp eq ptr %7, null
+  br i1 %cmp.i1975, label %return, label %_ZNK6vectorISt4pairIP4exprS2_ELb0EjE5emptyEv.exit
 
 _ZNK6vectorISt4pairIP4exprS2_ELb0EjE5emptyEv.exit: ; preds = %_ZN6vectorISt4pairIP4exprS2_ELb0EjE9push_backEOS3_.exit, %while.cond.backedge
   %8 = phi ptr [ %38, %while.cond.backedge ], [ %7, %_ZN6vectorISt4pairIP4exprS2_ELb0EjE9push_backEOS3_.exit ]
@@ -226,12 +226,12 @@ _ZN12substitution6insertEP3varjRK11expr_offset.exit: ; preds = %lor.lhs.false.i.
   store i32 2, ptr %m_state.i.i, align 8
   %.pre = load ptr, ptr %m_todo.i, align 8
   %arrayidx.i33.phi.trans.insert = getelementptr inbounds i8, ptr %.pre, i64 -4
-  %.pre82 = load i32, ptr %arrayidx.i33.phi.trans.insert, align 4
-  %.pre83 = add i32 %.pre82, -1
+  %.pre83 = load i32, ptr %arrayidx.i33.phi.trans.insert, align 4
+  %.pre84 = add i32 %.pre83, -1
   br label %if.end19
 
 if.end19:                                         ; preds = %if.then11, %_ZN12substitution6insertEP3varjRK11expr_offset.exit
-  %dec.i.pre-phi = phi i32 [ %10, %if.then11 ], [ %.pre83, %_ZN12substitution6insertEP3varjRK11expr_offset.exit ]
+  %dec.i.pre-phi = phi i32 [ %10, %if.then11 ], [ %.pre84, %_ZN12substitution6insertEP3varjRK11expr_offset.exit ]
   %37 = phi ptr [ %8, %if.then11 ], [ %.pre, %_ZN12substitution6insertEP3varjRK11expr_offset.exit ]
   %arrayidx.i33 = getelementptr inbounds i8, ptr %37, i64 -4
   store i32 %dec.i.pre-phi, ptr %arrayidx.i33, align 4
@@ -247,55 +247,55 @@ if.end21:                                         ; preds = %_ZN6vectorISt4pairI
   %39 = load ptr, ptr %second22, align 8
   %m_kind.i.i34 = getelementptr inbounds nuw i8, ptr %39, i64 4
   %bf.load.i.i35 = load i32, ptr %m_kind.i.i34, align 4
-  %40 = or i32 %bf.load.i.i35, %bf.load.i.i
-  %41 = and i32 %40, 65535
-  %or.cond72 = icmp eq i32 %41, 0
+  %bf.clear.i.i3673 = or i32 %bf.load.i.i35, %bf.load.i.i
+  %40 = and i32 %bf.clear.i.i3673, 65535
+  %or.cond72 = icmp eq i32 %40, 0
   br i1 %or.cond72, label %if.end33, label %return
 
 if.end33:                                         ; preds = %if.end21
   %m_decl.i = getelementptr inbounds nuw i8, ptr %12, i64 16
-  %42 = load ptr, ptr %m_decl.i, align 8
+  %41 = load ptr, ptr %m_decl.i, align 8
   %m_decl.i46 = getelementptr inbounds nuw i8, ptr %39, i64 16
-  %43 = load ptr, ptr %m_decl.i46, align 8
-  %cmp40.not = icmp eq ptr %42, %43
+  %42 = load ptr, ptr %m_decl.i46, align 8
+  %cmp40.not = icmp eq ptr %41, %42
   br i1 %cmp40.not, label %if.end42, label %return
 
 if.end42:                                         ; preds = %if.end33
   %m_num_args.i = getelementptr inbounds nuw i8, ptr %12, i64 24
-  %44 = load i32, ptr %m_num_args.i, align 8
+  %43 = load i32, ptr %m_num_args.i, align 8
   %m_num_args.i47 = getelementptr inbounds nuw i8, ptr %39, i64 24
-  %45 = load i32, ptr %m_num_args.i47, align 8
-  %cmp45.not = icmp eq i32 %44, %45
+  %44 = load i32, ptr %m_num_args.i47, align 8
+  %cmp45.not = icmp eq i32 %43, %44
   br i1 %cmp45.not, label %if.end47, label %return
 
 if.end47:                                         ; preds = %if.end42
   store i32 %10, ptr %arrayidx.i20, align 4
-  %cmp49 = icmp eq i32 %44, 0
+  %cmp49 = icmp eq i32 %43, 0
   br i1 %cmp49, label %while.cond.backedge, label %while.cond52.preheader
 
 while.cond52.preheader:                           ; preds = %if.end47
   %m_args.i = getelementptr inbounds nuw i8, ptr %12, i64 32
   %m_args.i51 = getelementptr inbounds nuw i8, ptr %39, i64 32
-  %46 = zext i32 %44 to i64
+  %45 = zext i32 %43 to i64
   br label %while.body54
 
 while.body54:                                     ; preds = %while.cond52.preheader, %_ZN6vectorISt4pairIP4exprS2_ELb0EjE9push_backEOS3_.exit68
-  %indvars.iv = phi i64 [ %46, %while.cond52.preheader ], [ %47, %_ZN6vectorISt4pairIP4exprS2_ELb0EjE9push_backEOS3_.exit68 ]
-  %47 = add nsw i64 %indvars.iv, -1
-  %arrayidx.i50 = getelementptr inbounds nuw [0 x ptr], ptr %m_args.i, i64 0, i64 %47
-  %48 = load ptr, ptr %arrayidx.i50, align 8
-  %arrayidx.i53 = getelementptr inbounds nuw [0 x ptr], ptr %m_args.i51, i64 0, i64 %47
-  %49 = load ptr, ptr %arrayidx.i53, align 8
-  %50 = load ptr, ptr %m_todo.i, align 8
-  %cmp.i55 = icmp eq ptr %50, null
+  %indvars.iv = phi i64 [ %45, %while.cond52.preheader ], [ %46, %_ZN6vectorISt4pairIP4exprS2_ELb0EjE9push_backEOS3_.exit68 ]
+  %46 = add nsw i64 %indvars.iv, -1
+  %arrayidx.i50 = getelementptr inbounds nuw [0 x ptr], ptr %m_args.i, i64 0, i64 %46
+  %47 = load ptr, ptr %arrayidx.i50, align 8
+  %arrayidx.i53 = getelementptr inbounds nuw [0 x ptr], ptr %m_args.i51, i64 0, i64 %46
+  %48 = load ptr, ptr %arrayidx.i53, align 8
+  %49 = load ptr, ptr %m_todo.i, align 8
+  %cmp.i55 = icmp eq ptr %49, null
   br i1 %cmp.i55, label %if.then.i64, label %lor.lhs.false.i56
 
 lor.lhs.false.i56:                                ; preds = %while.body54
-  %arrayidx.i57 = getelementptr inbounds i8, ptr %50, i64 -4
-  %51 = load i32, ptr %arrayidx.i57, align 4
-  %arrayidx4.i58 = getelementptr inbounds i8, ptr %50, i64 -8
-  %52 = load i32, ptr %arrayidx4.i58, align 4
-  %cmp5.i59 = icmp eq i32 %51, %52
+  %arrayidx.i57 = getelementptr inbounds i8, ptr %49, i64 -4
+  %50 = load i32, ptr %arrayidx.i57, align 4
+  %arrayidx4.i58 = getelementptr inbounds i8, ptr %49, i64 -8
+  %51 = load i32, ptr %arrayidx4.i58, align 4
+  %cmp5.i59 = icmp eq i32 %50, %51
   br i1 %cmp5.i59, label %if.then.i64, label %_ZN6vectorISt4pairIP4exprS2_ELb0EjE9push_backEOS3_.exit68
 
 if.then.i64:                                      ; preds = %lor.lhs.false.i56, %while.body54
@@ -306,24 +306,24 @@ if.then.i64:                                      ; preds = %lor.lhs.false.i56, 
   br label %_ZN6vectorISt4pairIP4exprS2_ELb0EjE9push_backEOS3_.exit68
 
 _ZN6vectorISt4pairIP4exprS2_ELb0EjE9push_backEOS3_.exit68: ; preds = %lor.lhs.false.i56, %if.then.i64
-  %53 = phi i32 [ %.pre1.i67, %if.then.i64 ], [ %51, %lor.lhs.false.i56 ]
-  %54 = phi ptr [ %.pre.i65, %if.then.i64 ], [ %50, %lor.lhs.false.i56 ]
-  %idx.ext.i60 = zext i32 %53 to i64
-  %add.ptr.i61 = getelementptr inbounds nuw %"struct.std::pair", ptr %54, i64 %idx.ext.i60
-  store ptr %48, ptr %add.ptr.i61, align 8
+  %52 = phi i32 [ %.pre1.i67, %if.then.i64 ], [ %50, %lor.lhs.false.i56 ]
+  %53 = phi ptr [ %.pre.i65, %if.then.i64 ], [ %49, %lor.lhs.false.i56 ]
+  %idx.ext.i60 = zext i32 %52 to i64
+  %add.ptr.i61 = getelementptr inbounds nuw %"struct.std::pair", ptr %53, i64 %idx.ext.i60
+  store ptr %47, ptr %add.ptr.i61, align 8
   %ref.tmp56.sroa.2.0.add.ptr.i61.sroa_idx = getelementptr inbounds nuw i8, ptr %add.ptr.i61, i64 8
-  store ptr %49, ptr %ref.tmp56.sroa.2.0.add.ptr.i61.sroa_idx, align 8
-  %55 = load ptr, ptr %m_todo.i, align 8
-  %arrayidx10.i62 = getelementptr inbounds i8, ptr %55, i64 -4
-  %56 = load i32, ptr %arrayidx10.i62, align 4
-  %inc.i63 = add i32 %56, 1
+  store ptr %48, ptr %ref.tmp56.sroa.2.0.add.ptr.i61.sroa_idx, align 8
+  %54 = load ptr, ptr %m_todo.i, align 8
+  %arrayidx10.i62 = getelementptr inbounds i8, ptr %54, i64 -4
+  %55 = load i32, ptr %arrayidx10.i62, align 4
+  %inc.i63 = add i32 %55, 1
   store i32 %inc.i63, ptr %arrayidx10.i62, align 4
-  %cmp53.not.wide = icmp eq i64 %47, 0
+  %cmp53.not.wide = icmp eq i64 %46, 0
   br i1 %cmp53.not.wide, label %while.cond.backedge, label %while.body54, !llvm.loop !6
 
 return:                                           ; preds = %if.then11, %if.end21, %if.end33, %if.end42, %_ZNK6vectorISt4pairIP4exprS2_ELb0EjE5emptyEv.exit, %while.cond.backedge, %_ZN6vectorISt4pairIP4exprS2_ELb0EjE9push_backEOS3_.exit
-  %57 = phi i1 [ true, %_ZN6vectorISt4pairIP4exprS2_ELb0EjE9push_backEOS3_.exit ], [ true, %while.cond.backedge ], [ true, %_ZNK6vectorISt4pairIP4exprS2_ELb0EjE5emptyEv.exit ], [ false, %if.end42 ], [ false, %if.end33 ], [ false, %if.end21 ], [ false, %if.then11 ]
-  ret i1 %57
+  %56 = phi i1 [ true, %_ZN6vectorISt4pairIP4exprS2_ELb0EjE9push_backEOS3_.exit ], [ true, %while.cond.backedge ], [ true, %_ZNK6vectorISt4pairIP4exprS2_ELb0EjE5emptyEv.exit ], [ false, %if.end42 ], [ false, %if.end33 ], [ false, %if.end21 ], [ false, %if.then11 ]
+  ret i1 %56
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable

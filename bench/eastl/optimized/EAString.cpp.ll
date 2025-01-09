@@ -7509,9 +7509,9 @@ define dso_local noundef range(i32 -65535, 65536) i32 @_ZN2EA4StdC6StrcmpEPKDsS2
 entry:
   %0 = ptrtoint ptr %pString1 to i64
   %1 = ptrtoint ptr %pString2 to i64
-  %2 = or i64 %1, %0
-  %3 = and i64 %2, 7
-  %or.cond = icmp eq i64 %3, 0
+  %and.i18 = or i64 %1, %0
+  %2 = and i64 %and.i18, 7
+  %or.cond = icmp eq i64 %2, 0
   br i1 %or.cond, label %while.cond.preheader, label %entry.if.end5_crit_edge
 
 entry.if.end5_crit_edge:                          ; preds = %entry
@@ -7519,67 +7519,67 @@ entry.if.end5_crit_edge:                          ; preds = %entry
   br label %if.end5
 
 while.cond.preheader:                             ; preds = %entry
-  %4 = load i64, ptr %pString1, align 8
-  %5 = load i64, ptr %pString2, align 8
-  %cmp20 = icmp eq i64 %4, %5
-  %6 = trunc i64 %4 to i16
-  br i1 %cmp20, label %while.body, label %if.end5
+  %3 = load i64, ptr %pString1, align 8
+  %4 = load i64, ptr %pString2, align 8
+  %cmp21 = icmp eq i64 %3, %4
+  %5 = trunc i64 %3 to i16
+  br i1 %cmp21, label %while.body, label %if.end5
 
 while.body:                                       ; preds = %while.cond.preheader, %if.end
-  %7 = phi i64 [ %11, %if.end ], [ %4, %while.cond.preheader ]
-  %pWord2.022 = phi ptr [ %incdec.ptr4, %if.end ], [ %pString2, %while.cond.preheader ]
-  %pWord1.021 = phi ptr [ %incdec.ptr, %if.end ], [ %pString1, %while.cond.preheader ]
-  %8 = sub i64 281479271743488, %7
-  %9 = or i64 %8, %7
-  %10 = and i64 %9, -9223231297218904064
-  %cmp.i17.not = icmp eq i64 %10, -9223231297218904064
+  %6 = phi i64 [ %10, %if.end ], [ %3, %while.cond.preheader ]
+  %pWord2.023 = phi ptr [ %incdec.ptr4, %if.end ], [ %pString2, %while.cond.preheader ]
+  %pWord1.022 = phi ptr [ %incdec.ptr, %if.end ], [ %pString1, %while.cond.preheader ]
+  %7 = sub i64 281479271743488, %6
+  %8 = or i64 %7, %6
+  %9 = and i64 %8, -9223231297218904064
+  %cmp.i17.not = icmp eq i64 %9, -9223231297218904064
   br i1 %cmp.i17.not, label %if.end, label %return
 
 if.end:                                           ; preds = %while.body
-  %incdec.ptr = getelementptr inbounds nuw i8, ptr %pWord1.021, i64 8
-  %incdec.ptr4 = getelementptr inbounds nuw i8, ptr %pWord2.022, i64 8
-  %11 = load i64, ptr %incdec.ptr, align 8
-  %12 = load i64, ptr %incdec.ptr4, align 8
-  %cmp = icmp eq i64 %11, %12
+  %incdec.ptr = getelementptr inbounds nuw i8, ptr %pWord1.022, i64 8
+  %incdec.ptr4 = getelementptr inbounds nuw i8, ptr %pWord2.023, i64 8
+  %10 = load i64, ptr %incdec.ptr, align 8
+  %11 = load i64, ptr %incdec.ptr4, align 8
+  %cmp = icmp eq i64 %10, %11
   br i1 %cmp, label %while.body, label %if.end5.loopexit, !llvm.loop !174
 
 if.end5.loopexit:                                 ; preds = %if.end
-  %13 = trunc i64 %11 to i16
+  %12 = trunc i64 %10 to i16
   br label %if.end5
 
 if.end5:                                          ; preds = %entry.if.end5_crit_edge, %if.end5.loopexit, %while.cond.preheader
-  %14 = phi i16 [ %.pre, %entry.if.end5_crit_edge ], [ %6, %while.cond.preheader ], [ %13, %if.end5.loopexit ]
+  %13 = phi i16 [ %.pre, %entry.if.end5_crit_edge ], [ %5, %while.cond.preheader ], [ %12, %if.end5.loopexit ]
   %pString1.addr.0 = phi ptr [ %pString1, %entry.if.end5_crit_edge ], [ %pString1, %while.cond.preheader ], [ %incdec.ptr, %if.end5.loopexit ]
   %pString2.addr.0 = phi ptr [ %pString2, %entry.if.end5_crit_edge ], [ %pString2, %while.cond.preheader ], [ %incdec.ptr4, %if.end5.loopexit ]
-  %tobool.not24 = icmp eq i16 %14, 0
-  br i1 %tobool.not24, label %while.end12, label %land.rhs
+  %tobool.not25 = icmp eq i16 %13, 0
+  br i1 %tobool.not25, label %while.end12, label %land.rhs
 
 land.rhs:                                         ; preds = %if.end5, %while.body9
-  %15 = phi i16 [ %17, %while.body9 ], [ %14, %if.end5 ]
-  %pString2.addr.126 = phi ptr [ %incdec.ptr11, %while.body9 ], [ %pString2.addr.0, %if.end5 ]
-  %pString1.addr.125 = phi ptr [ %incdec.ptr10, %while.body9 ], [ %pString1.addr.0, %if.end5 ]
-  %16 = load i16, ptr %pString2.addr.126, align 2
-  %cmp8 = icmp eq i16 %15, %16
+  %14 = phi i16 [ %16, %while.body9 ], [ %13, %if.end5 ]
+  %pString2.addr.127 = phi ptr [ %incdec.ptr11, %while.body9 ], [ %pString2.addr.0, %if.end5 ]
+  %pString1.addr.126 = phi ptr [ %incdec.ptr10, %while.body9 ], [ %pString1.addr.0, %if.end5 ]
+  %15 = load i16, ptr %pString2.addr.127, align 2
+  %cmp8 = icmp eq i16 %14, %15
   br i1 %cmp8, label %while.body9, label %while.end12.loopexit
 
 while.body9:                                      ; preds = %land.rhs
-  %incdec.ptr10 = getelementptr inbounds nuw i8, ptr %pString1.addr.125, i64 2
-  %incdec.ptr11 = getelementptr inbounds nuw i8, ptr %pString2.addr.126, i64 2
-  %17 = load i16, ptr %incdec.ptr10, align 2
-  %tobool.not = icmp eq i16 %17, 0
+  %incdec.ptr10 = getelementptr inbounds nuw i8, ptr %pString1.addr.126, i64 2
+  %incdec.ptr11 = getelementptr inbounds nuw i8, ptr %pString2.addr.127, i64 2
+  %16 = load i16, ptr %incdec.ptr10, align 2
+  %tobool.not = icmp eq i16 %16, 0
   br i1 %tobool.not, label %while.end12.loopexit, label %land.rhs, !llvm.loop !175
 
 while.end12.loopexit:                             ; preds = %while.body9, %land.rhs
-  %pString2.addr.1.lcssa.ph = phi ptr [ %pString2.addr.126, %land.rhs ], [ %incdec.ptr11, %while.body9 ]
-  %.lcssa.ph = phi i16 [ %15, %land.rhs ], [ 0, %while.body9 ]
-  %18 = zext i16 %.lcssa.ph to i32
+  %pString2.addr.1.lcssa.ph = phi ptr [ %pString2.addr.127, %land.rhs ], [ %incdec.ptr11, %while.body9 ]
+  %.lcssa.ph = phi i16 [ %14, %land.rhs ], [ 0, %while.body9 ]
+  %17 = zext i16 %.lcssa.ph to i32
   br label %while.end12
 
 while.end12:                                      ; preds = %while.end12.loopexit, %if.end5
   %pString2.addr.1.lcssa = phi ptr [ %pString2.addr.0, %if.end5 ], [ %pString2.addr.1.lcssa.ph, %while.end12.loopexit ]
-  %.lcssa = phi i32 [ 0, %if.end5 ], [ %18, %while.end12.loopexit ]
-  %19 = load i16, ptr %pString2.addr.1.lcssa, align 2
-  %conv14 = zext i16 %19 to i32
+  %.lcssa = phi i32 [ 0, %if.end5 ], [ %17, %while.end12.loopexit ]
+  %18 = load i16, ptr %pString2.addr.1.lcssa, align 2
+  %conv14 = zext i16 %18 to i32
   %sub = sub nsw i32 %.lcssa, %conv14
   br label %return
 
@@ -8941,9 +8941,9 @@ define dso_local noundef range(i32 -65535, 65536) i32 @_ZN2EA4StdC7StrcollEPKDsS
 entry:
   %0 = ptrtoint ptr %pString1 to i64
   %1 = ptrtoint ptr %pString2 to i64
-  %2 = or i64 %1, %0
-  %3 = and i64 %2, 7
-  %or.cond.i = icmp eq i64 %3, 0
+  %and.i18.i = or i64 %1, %0
+  %2 = and i64 %and.i18.i, 7
+  %or.cond.i = icmp eq i64 %2, 0
   br i1 %or.cond.i, label %while.cond.preheader.i, label %entry.if.end5_crit_edge.i
 
 entry.if.end5_crit_edge.i:                        ; preds = %entry
@@ -8951,67 +8951,67 @@ entry.if.end5_crit_edge.i:                        ; preds = %entry
   br label %if.end5.i
 
 while.cond.preheader.i:                           ; preds = %entry
-  %4 = load i64, ptr %pString1, align 8
-  %5 = load i64, ptr %pString2, align 8
-  %cmp20.i = icmp eq i64 %4, %5
-  %6 = trunc i64 %4 to i16
-  br i1 %cmp20.i, label %while.body.i, label %if.end5.i
+  %3 = load i64, ptr %pString1, align 8
+  %4 = load i64, ptr %pString2, align 8
+  %cmp21.i = icmp eq i64 %3, %4
+  %5 = trunc i64 %3 to i16
+  br i1 %cmp21.i, label %while.body.i, label %if.end5.i
 
 while.body.i:                                     ; preds = %while.cond.preheader.i, %if.end.i
-  %7 = phi i64 [ %11, %if.end.i ], [ %4, %while.cond.preheader.i ]
-  %pWord2.022.i = phi ptr [ %incdec.ptr4.i, %if.end.i ], [ %pString2, %while.cond.preheader.i ]
-  %pWord1.021.i = phi ptr [ %incdec.ptr.i, %if.end.i ], [ %pString1, %while.cond.preheader.i ]
-  %8 = sub i64 281479271743488, %7
-  %9 = or i64 %8, %7
-  %10 = and i64 %9, -9223231297218904064
-  %cmp.i17.not.i = icmp eq i64 %10, -9223231297218904064
+  %6 = phi i64 [ %10, %if.end.i ], [ %3, %while.cond.preheader.i ]
+  %pWord2.023.i = phi ptr [ %incdec.ptr4.i, %if.end.i ], [ %pString2, %while.cond.preheader.i ]
+  %pWord1.022.i = phi ptr [ %incdec.ptr.i, %if.end.i ], [ %pString1, %while.cond.preheader.i ]
+  %7 = sub i64 281479271743488, %6
+  %8 = or i64 %7, %6
+  %9 = and i64 %8, -9223231297218904064
+  %cmp.i17.not.i = icmp eq i64 %9, -9223231297218904064
   br i1 %cmp.i17.not.i, label %if.end.i, label %_ZN2EA4StdC6StrcmpEPKDsS2_.exit
 
 if.end.i:                                         ; preds = %while.body.i
-  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %pWord1.021.i, i64 8
-  %incdec.ptr4.i = getelementptr inbounds nuw i8, ptr %pWord2.022.i, i64 8
-  %11 = load i64, ptr %incdec.ptr.i, align 8
-  %12 = load i64, ptr %incdec.ptr4.i, align 8
-  %cmp.i = icmp eq i64 %11, %12
+  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %pWord1.022.i, i64 8
+  %incdec.ptr4.i = getelementptr inbounds nuw i8, ptr %pWord2.023.i, i64 8
+  %10 = load i64, ptr %incdec.ptr.i, align 8
+  %11 = load i64, ptr %incdec.ptr4.i, align 8
+  %cmp.i = icmp eq i64 %10, %11
   br i1 %cmp.i, label %while.body.i, label %if.end5.loopexit.i, !llvm.loop !174
 
 if.end5.loopexit.i:                               ; preds = %if.end.i
-  %13 = trunc i64 %11 to i16
+  %12 = trunc i64 %10 to i16
   br label %if.end5.i
 
 if.end5.i:                                        ; preds = %if.end5.loopexit.i, %while.cond.preheader.i, %entry.if.end5_crit_edge.i
-  %14 = phi i16 [ %.pre.i, %entry.if.end5_crit_edge.i ], [ %6, %while.cond.preheader.i ], [ %13, %if.end5.loopexit.i ]
+  %13 = phi i16 [ %.pre.i, %entry.if.end5_crit_edge.i ], [ %5, %while.cond.preheader.i ], [ %12, %if.end5.loopexit.i ]
   %pString1.addr.0.i = phi ptr [ %pString1, %entry.if.end5_crit_edge.i ], [ %pString1, %while.cond.preheader.i ], [ %incdec.ptr.i, %if.end5.loopexit.i ]
   %pString2.addr.0.i = phi ptr [ %pString2, %entry.if.end5_crit_edge.i ], [ %pString2, %while.cond.preheader.i ], [ %incdec.ptr4.i, %if.end5.loopexit.i ]
-  %tobool.not24.i = icmp eq i16 %14, 0
-  br i1 %tobool.not24.i, label %while.end12.i, label %land.rhs.i
+  %tobool.not25.i = icmp eq i16 %13, 0
+  br i1 %tobool.not25.i, label %while.end12.i, label %land.rhs.i
 
 land.rhs.i:                                       ; preds = %if.end5.i, %while.body9.i
-  %15 = phi i16 [ %17, %while.body9.i ], [ %14, %if.end5.i ]
-  %pString2.addr.126.i = phi ptr [ %incdec.ptr11.i, %while.body9.i ], [ %pString2.addr.0.i, %if.end5.i ]
-  %pString1.addr.125.i = phi ptr [ %incdec.ptr10.i, %while.body9.i ], [ %pString1.addr.0.i, %if.end5.i ]
-  %16 = load i16, ptr %pString2.addr.126.i, align 2
-  %cmp8.i = icmp eq i16 %15, %16
+  %14 = phi i16 [ %16, %while.body9.i ], [ %13, %if.end5.i ]
+  %pString2.addr.127.i = phi ptr [ %incdec.ptr11.i, %while.body9.i ], [ %pString2.addr.0.i, %if.end5.i ]
+  %pString1.addr.126.i = phi ptr [ %incdec.ptr10.i, %while.body9.i ], [ %pString1.addr.0.i, %if.end5.i ]
+  %15 = load i16, ptr %pString2.addr.127.i, align 2
+  %cmp8.i = icmp eq i16 %14, %15
   br i1 %cmp8.i, label %while.body9.i, label %while.end12.loopexit.i
 
 while.body9.i:                                    ; preds = %land.rhs.i
-  %incdec.ptr10.i = getelementptr inbounds nuw i8, ptr %pString1.addr.125.i, i64 2
-  %incdec.ptr11.i = getelementptr inbounds nuw i8, ptr %pString2.addr.126.i, i64 2
-  %17 = load i16, ptr %incdec.ptr10.i, align 2
-  %tobool.not.i = icmp eq i16 %17, 0
+  %incdec.ptr10.i = getelementptr inbounds nuw i8, ptr %pString1.addr.126.i, i64 2
+  %incdec.ptr11.i = getelementptr inbounds nuw i8, ptr %pString2.addr.127.i, i64 2
+  %16 = load i16, ptr %incdec.ptr10.i, align 2
+  %tobool.not.i = icmp eq i16 %16, 0
   br i1 %tobool.not.i, label %while.end12.loopexit.i, label %land.rhs.i, !llvm.loop !175
 
 while.end12.loopexit.i:                           ; preds = %while.body9.i, %land.rhs.i
-  %pString2.addr.1.lcssa.ph.i = phi ptr [ %pString2.addr.126.i, %land.rhs.i ], [ %incdec.ptr11.i, %while.body9.i ]
-  %.lcssa.ph.i = phi i16 [ %15, %land.rhs.i ], [ 0, %while.body9.i ]
-  %18 = zext i16 %.lcssa.ph.i to i32
+  %pString2.addr.1.lcssa.ph.i = phi ptr [ %pString2.addr.127.i, %land.rhs.i ], [ %incdec.ptr11.i, %while.body9.i ]
+  %.lcssa.ph.i = phi i16 [ %14, %land.rhs.i ], [ 0, %while.body9.i ]
+  %17 = zext i16 %.lcssa.ph.i to i32
   br label %while.end12.i
 
 while.end12.i:                                    ; preds = %while.end12.loopexit.i, %if.end5.i
   %pString2.addr.1.lcssa.i = phi ptr [ %pString2.addr.0.i, %if.end5.i ], [ %pString2.addr.1.lcssa.ph.i, %while.end12.loopexit.i ]
-  %.lcssa.i = phi i32 [ 0, %if.end5.i ], [ %18, %while.end12.loopexit.i ]
-  %19 = load i16, ptr %pString2.addr.1.lcssa.i, align 2
-  %conv14.i = zext i16 %19 to i32
+  %.lcssa.i = phi i32 [ 0, %if.end5.i ], [ %17, %while.end12.loopexit.i ]
+  %18 = load i16, ptr %pString2.addr.1.lcssa.i, align 2
+  %conv14.i = zext i16 %18 to i32
   %sub.i = sub nsw i32 %.lcssa.i, %conv14.i
   br label %_ZN2EA4StdC6StrcmpEPKDsS2_.exit
 

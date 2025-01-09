@@ -9301,15 +9301,17 @@ define internal fastcc void @interleaveByte2(ptr noundef %dst, ptr noundef %src0
 entry:
   %0 = ptrtoint ptr %dst to i64
   %1 = trunc i64 %0 to i32
+  %conv = and i32 %1, 15
   %2 = ptrtoint ptr %src0 to i64
   %3 = trunc i64 %2 to i32
+  %conv2 = and i32 %3, 15
   %4 = ptrtoint ptr %src1 to i64
   %5 = trunc i64 %4 to i32
+  %conv4 = and i32 %5, 15
   %div = sdiv i32 %numBytes, 16
-  %6 = or i32 %3, %1
-  %7 = or i32 %6, %5
-  %8 = and i32 %7, 15
-  %or.cond1.not = icmp eq i32 %8, 0
+  %6 = or i32 %conv2, %conv
+  %7 = or i32 %6, %conv4
+  %or.cond1.not = icmp eq i32 %7, 0
   br i1 %or.cond1.not, label %for.cond.preheader, label %if.else
 
 for.cond.preheader:                               ; preds = %entry
@@ -9323,16 +9325,16 @@ for.body.preheader:                               ; preds = %for.cond.preheader
 for.body:                                         ; preds = %for.body.preheader, %for.body
   %indvars.iv143 = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next144, %for.body ]
   %arrayidx = getelementptr inbounds nuw <2 x i64>, ptr %src0, i64 %indvars.iv143
-  %9 = load <16 x i8>, ptr %arrayidx, align 16
+  %8 = load <16 x i8>, ptr %arrayidx, align 16
   %arrayidx10 = getelementptr inbounds nuw <2 x i64>, ptr %src1, i64 %indvars.iv143
-  %10 = load <16 x i8>, ptr %arrayidx10, align 16
-  %11 = shl nuw nsw i64 %indvars.iv143, 1
-  %arrayidx12 = getelementptr inbounds nuw <2 x i64>, ptr %dst, i64 %11
-  %shuffle.i177 = shufflevector <16 x i8> %9, <16 x i8> %10, <16 x i32> <i32 0, i32 16, i32 1, i32 17, i32 2, i32 18, i32 3, i32 19, i32 4, i32 20, i32 5, i32 21, i32 6, i32 22, i32 7, i32 23>
+  %9 = load <16 x i8>, ptr %arrayidx10, align 16
+  %10 = shl nuw nsw i64 %indvars.iv143, 1
+  %arrayidx12 = getelementptr inbounds nuw <2 x i64>, ptr %dst, i64 %10
+  %shuffle.i177 = shufflevector <16 x i8> %8, <16 x i8> %9, <16 x i32> <i32 0, i32 16, i32 1, i32 17, i32 2, i32 18, i32 3, i32 19, i32 4, i32 20, i32 5, i32 21, i32 6, i32 22, i32 7, i32 23>
   store <16 x i8> %shuffle.i177, ptr %arrayidx12, align 16, !nontemporal !104
-  %12 = or disjoint i64 %11, 1
-  %arrayidx15 = getelementptr inbounds nuw <2 x i64>, ptr %dst, i64 %12
-  %shuffle.i186 = shufflevector <16 x i8> %9, <16 x i8> %10, <16 x i32> <i32 8, i32 24, i32 9, i32 25, i32 10, i32 26, i32 11, i32 27, i32 12, i32 28, i32 13, i32 29, i32 14, i32 30, i32 15, i32 31>
+  %11 = or disjoint i64 %10, 1
+  %arrayidx15 = getelementptr inbounds nuw <2 x i64>, ptr %dst, i64 %11
+  %shuffle.i186 = shufflevector <16 x i8> %8, <16 x i8> %9, <16 x i32> <i32 8, i32 24, i32 9, i32 25, i32 10, i32 26, i32 11, i32 27, i32 12, i32 28, i32 13, i32 29, i32 14, i32 30, i32 15, i32 31>
   store <16 x i8> %shuffle.i186, ptr %arrayidx15, align 16, !nontemporal !104
   %indvars.iv.next144 = add nuw nsw i64 %indvars.iv143, 1
   %exitcond149.not = icmp eq i64 %indvars.iv.next144, %wide.trip.count148
@@ -9344,30 +9346,27 @@ for.end:                                          ; preds = %for.body, %for.cond
   br i1 %cmp20108, label %for.body22.preheader, label %if.end164
 
 for.body22.preheader:                             ; preds = %for.end
-  %13 = sext i32 %mul18 to i64
+  %12 = sext i32 %mul18 to i64
   %wide.trip.count155 = sext i32 %numBytes to i64
   br label %for.body22
 
 for.body22:                                       ; preds = %for.body22.preheader, %for.body22
-  %indvars.iv150 = phi i64 [ %13, %for.body22.preheader ], [ %indvars.iv.next151, %for.body22 ]
+  %indvars.iv150 = phi i64 [ %12, %for.body22.preheader ], [ %indvars.iv.next151, %for.body22 ]
   %arrayidx24 = getelementptr inbounds i8, ptr %src0, i64 %indvars.iv150
-  %14 = load i8, ptr %arrayidx24, align 1
-  %15 = shl nsw i64 %indvars.iv150, 1
-  %arrayidx27 = getelementptr inbounds i8, ptr %dst, i64 %15
-  store i8 %14, ptr %arrayidx27, align 1
+  %13 = load i8, ptr %arrayidx24, align 1
+  %14 = shl nsw i64 %indvars.iv150, 1
+  %arrayidx27 = getelementptr inbounds i8, ptr %dst, i64 %14
+  store i8 %13, ptr %arrayidx27, align 1
   %arrayidx29 = getelementptr inbounds i8, ptr %src1, i64 %indvars.iv150
-  %16 = load i8, ptr %arrayidx29, align 1
-  %17 = or disjoint i64 %15, 1
-  %arrayidx33 = getelementptr inbounds i8, ptr %dst, i64 %17
-  store i8 %16, ptr %arrayidx33, align 1
+  %15 = load i8, ptr %arrayidx29, align 1
+  %16 = or disjoint i64 %14, 1
+  %arrayidx33 = getelementptr inbounds i8, ptr %dst, i64 %16
+  store i8 %15, ptr %arrayidx33, align 1
   %indvars.iv.next151 = add nsw i64 %indvars.iv150, 1
   %exitcond156.not = icmp eq i64 %indvars.iv.next151, %wide.trip.count155
   br i1 %exitcond156.not, label %if.end164, label %for.body22, !llvm.loop !106
 
 if.else:                                          ; preds = %entry
-  %conv4 = and i32 %5, 15
-  %conv2 = and i32 %3, 15
-  %conv = and i32 %1, 15
   %tobool37 = icmp eq i32 %conv, 0
   %cmp39 = icmp eq i32 %conv2, 8
   %or.cond2 = and i1 %tobool37, %cmp39
@@ -9388,22 +9387,22 @@ if.then44:                                        ; preds = %if.else
   br i1 %cmp49100, label %for.body51.preheader, label %if.end164
 
 for.body51.preheader:                             ; preds = %if.then44
-  %18 = tail call i32 @llvm.umin.i32(i32 %numBytes, i32 8)
-  %wide.trip.count127 = zext nneg i32 %18 to i64
+  %17 = tail call i32 @llvm.umin.i32(i32 %numBytes, i32 8)
+  %wide.trip.count127 = zext nneg i32 %17 to i64
   br label %for.body51
 
 for.body51:                                       ; preds = %for.body51.preheader, %for.body51
   %indvars.iv122 = phi i64 [ 0, %for.body51.preheader ], [ %indvars.iv.next123, %for.body51 ]
   %arrayidx53 = getelementptr inbounds nuw i8, ptr %src0, i64 %indvars.iv122
-  %19 = load i8, ptr %arrayidx53, align 1
-  %20 = shl nuw nsw i64 %indvars.iv122, 1
-  %arrayidx56 = getelementptr inbounds nuw i8, ptr %dst, i64 %20
-  store i8 %19, ptr %arrayidx56, align 1
+  %18 = load i8, ptr %arrayidx53, align 1
+  %19 = shl nuw nsw i64 %indvars.iv122, 1
+  %arrayidx56 = getelementptr inbounds nuw i8, ptr %dst, i64 %19
+  store i8 %18, ptr %arrayidx56, align 1
   %arrayidx58 = getelementptr inbounds nuw i8, ptr %src1, i64 %indvars.iv122
-  %21 = load i8, ptr %arrayidx58, align 1
-  %22 = or disjoint i64 %20, 1
-  %arrayidx62 = getelementptr inbounds nuw i8, ptr %dst, i64 %22
-  store i8 %21, ptr %arrayidx62, align 1
+  %20 = load i8, ptr %arrayidx58, align 1
+  %21 = or disjoint i64 %19, 1
+  %arrayidx62 = getelementptr inbounds nuw i8, ptr %dst, i64 %21
+  store i8 %20, ptr %arrayidx62, align 1
   %indvars.iv.next123 = add nuw nsw i64 %indvars.iv122, 1
   %exitcond128.not = icmp eq i64 %indvars.iv.next123, %wide.trip.count127
   br i1 %exitcond128.not, label %for.end65, label %for.body51, !llvm.loop !107
@@ -9427,19 +9426,19 @@ for.body77.preheader:                             ; preds = %if.then68
 
 for.body77:                                       ; preds = %for.body77.preheader, %for.body77
   %indvars.iv129 = phi i64 [ 0, %for.body77.preheader ], [ %indvars.iv.next130, %for.body77 ]
-  %23 = shl nuw nsw i64 %indvars.iv129, 1
-  %arrayidx80 = getelementptr inbounds nuw <2 x i64>, ptr %arrayidx69, i64 %23
+  %22 = shl nuw nsw i64 %indvars.iv129, 1
+  %arrayidx80 = getelementptr inbounds nuw <2 x i64>, ptr %arrayidx69, i64 %22
   %arrayidx82 = getelementptr inbounds nuw <2 x i64>, ptr %arrayidx70, i64 %indvars.iv129
-  %24 = load <16 x i8>, ptr %arrayidx82, align 16
+  %23 = load <16 x i8>, ptr %arrayidx82, align 16
   %arrayidx84 = getelementptr inbounds nuw <2 x i64>, ptr %arrayidx71, i64 %indvars.iv129
-  %25 = load <16 x i8>, ptr %arrayidx84, align 16
-  %shuffle.i174 = shufflevector <16 x i8> %24, <16 x i8> %25, <16 x i32> <i32 0, i32 16, i32 1, i32 17, i32 2, i32 18, i32 3, i32 19, i32 4, i32 20, i32 5, i32 21, i32 6, i32 22, i32 7, i32 23>
+  %24 = load <16 x i8>, ptr %arrayidx84, align 16
+  %shuffle.i174 = shufflevector <16 x i8> %23, <16 x i8> %24, <16 x i32> <i32 0, i32 16, i32 1, i32 17, i32 2, i32 18, i32 3, i32 19, i32 4, i32 20, i32 5, i32 21, i32 6, i32 22, i32 7, i32 23>
   store <16 x i8> %shuffle.i174, ptr %arrayidx80, align 16, !nontemporal !104
-  %26 = or disjoint i64 %23, 1
-  %arrayidx89 = getelementptr inbounds nuw <2 x i64>, ptr %arrayidx69, i64 %26
-  %27 = load <16 x i8>, ptr %arrayidx82, align 16
-  %28 = load <16 x i8>, ptr %arrayidx84, align 16
-  %shuffle.i183 = shufflevector <16 x i8> %27, <16 x i8> %28, <16 x i32> <i32 8, i32 24, i32 9, i32 25, i32 10, i32 26, i32 11, i32 27, i32 12, i32 28, i32 13, i32 29, i32 14, i32 30, i32 15, i32 31>
+  %25 = or disjoint i64 %22, 1
+  %arrayidx89 = getelementptr inbounds nuw <2 x i64>, ptr %arrayidx69, i64 %25
+  %26 = load <16 x i8>, ptr %arrayidx82, align 16
+  %27 = load <16 x i8>, ptr %arrayidx84, align 16
+  %shuffle.i183 = shufflevector <16 x i8> %26, <16 x i8> %27, <16 x i32> <i32 8, i32 24, i32 9, i32 25, i32 10, i32 26, i32 11, i32 27, i32 12, i32 28, i32 13, i32 29, i32 14, i32 30, i32 15, i32 31>
   store <16 x i8> %shuffle.i183, ptr %arrayidx89, align 16, !nontemporal !104
   %indvars.iv.next130 = add nuw nsw i64 %indvars.iv129, 1
   %exitcond135.not = icmp eq i64 %indvars.iv.next130, %wide.trip.count134
@@ -9452,23 +9451,23 @@ for.end97:                                        ; preds = %for.body77, %if.the
   br i1 %cmp102104, label %for.body104.preheader, label %if.end164
 
 for.body104.preheader:                            ; preds = %for.end97
-  %29 = or disjoint i32 %mul99, 8
-  %30 = sext i32 %29 to i64
+  %28 = or disjoint i32 %mul99, 8
+  %29 = sext i32 %28 to i64
   %wide.trip.count141 = zext nneg i32 %numBytes to i64
   br label %for.body104
 
 for.body104:                                      ; preds = %for.body104.preheader, %for.body104
-  %indvars.iv136 = phi i64 [ %30, %for.body104.preheader ], [ %indvars.iv.next137, %for.body104 ]
+  %indvars.iv136 = phi i64 [ %29, %for.body104.preheader ], [ %indvars.iv.next137, %for.body104 ]
   %arrayidx106 = getelementptr inbounds i8, ptr %src0, i64 %indvars.iv136
-  %31 = load i8, ptr %arrayidx106, align 1
-  %32 = shl nsw i64 %indvars.iv136, 1
-  %arrayidx109 = getelementptr inbounds i8, ptr %dst, i64 %32
-  store i8 %31, ptr %arrayidx109, align 1
+  %30 = load i8, ptr %arrayidx106, align 1
+  %31 = shl nsw i64 %indvars.iv136, 1
+  %arrayidx109 = getelementptr inbounds i8, ptr %dst, i64 %31
+  store i8 %30, ptr %arrayidx109, align 1
   %arrayidx111 = getelementptr inbounds i8, ptr %src1, i64 %indvars.iv136
-  %33 = load i8, ptr %arrayidx111, align 1
-  %34 = or disjoint i64 %32, 1
-  %arrayidx115 = getelementptr inbounds i8, ptr %dst, i64 %34
-  store i8 %33, ptr %arrayidx115, align 1
+  %32 = load i8, ptr %arrayidx111, align 1
+  %33 = or disjoint i64 %31, 1
+  %arrayidx115 = getelementptr inbounds i8, ptr %dst, i64 %33
+  store i8 %32, ptr %arrayidx115, align 1
   %indvars.iv.next137 = add nsw i64 %indvars.iv136, 1
   %exitcond142.not = icmp eq i64 %indvars.iv.next137, %wide.trip.count141
   br i1 %exitcond142.not, label %if.end164, label %for.body104, !llvm.loop !109
@@ -9476,16 +9475,16 @@ for.body104:                                      ; preds = %for.body104.prehead
 for.body124:                                      ; preds = %for.body124.preheader, %for.body124
   %indvars.iv = phi i64 [ 0, %for.body124.preheader ], [ %indvars.iv.next, %for.body124 ]
   %arrayidx126 = getelementptr inbounds nuw <2 x i64>, ptr %src0, i64 %indvars.iv
-  %35 = load <16 x i8>, ptr %arrayidx126, align 1
+  %34 = load <16 x i8>, ptr %arrayidx126, align 1
   %arrayidx129 = getelementptr inbounds nuw <2 x i64>, ptr %src1, i64 %indvars.iv
-  %36 = load <16 x i8>, ptr %arrayidx129, align 1
-  %37 = shl nuw nsw i64 %indvars.iv, 1
-  %arrayidx133 = getelementptr inbounds nuw <2 x i64>, ptr %dst, i64 %37
-  %shuffle.i = shufflevector <16 x i8> %35, <16 x i8> %36, <16 x i32> <i32 0, i32 16, i32 1, i32 17, i32 2, i32 18, i32 3, i32 19, i32 4, i32 20, i32 5, i32 21, i32 6, i32 22, i32 7, i32 23>
+  %35 = load <16 x i8>, ptr %arrayidx129, align 1
+  %36 = shl nuw nsw i64 %indvars.iv, 1
+  %arrayidx133 = getelementptr inbounds nuw <2 x i64>, ptr %dst, i64 %36
+  %shuffle.i = shufflevector <16 x i8> %34, <16 x i8> %35, <16 x i32> <i32 0, i32 16, i32 1, i32 17, i32 2, i32 18, i32 3, i32 19, i32 4, i32 20, i32 5, i32 21, i32 6, i32 22, i32 7, i32 23>
   store <16 x i8> %shuffle.i, ptr %arrayidx133, align 1
-  %38 = or disjoint i64 %37, 1
-  %arrayidx138 = getelementptr inbounds nuw <2 x i64>, ptr %dst, i64 %38
-  %shuffle.i180 = shufflevector <16 x i8> %35, <16 x i8> %36, <16 x i32> <i32 8, i32 24, i32 9, i32 25, i32 10, i32 26, i32 11, i32 27, i32 12, i32 28, i32 13, i32 29, i32 14, i32 30, i32 15, i32 31>
+  %37 = or disjoint i64 %36, 1
+  %arrayidx138 = getelementptr inbounds nuw <2 x i64>, ptr %dst, i64 %37
+  %shuffle.i180 = shufflevector <16 x i8> %34, <16 x i8> %35, <16 x i32> <i32 8, i32 24, i32 9, i32 25, i32 10, i32 26, i32 11, i32 27, i32 12, i32 28, i32 13, i32 29, i32 14, i32 30, i32 15, i32 31>
   store <16 x i8> %shuffle.i180, ptr %arrayidx138, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -9497,22 +9496,22 @@ for.end142:                                       ; preds = %for.body124, %for.c
   br i1 %cmp14698, label %for.body148.preheader, label %if.end164
 
 for.body148.preheader:                            ; preds = %for.end142
-  %39 = sext i32 %mul144 to i64
+  %38 = sext i32 %mul144 to i64
   %wide.trip.count120 = sext i32 %numBytes to i64
   br label %for.body148
 
 for.body148:                                      ; preds = %for.body148.preheader, %for.body148
-  %indvars.iv115 = phi i64 [ %39, %for.body148.preheader ], [ %indvars.iv.next116, %for.body148 ]
+  %indvars.iv115 = phi i64 [ %38, %for.body148.preheader ], [ %indvars.iv.next116, %for.body148 ]
   %arrayidx150 = getelementptr inbounds i8, ptr %src0, i64 %indvars.iv115
-  %40 = load i8, ptr %arrayidx150, align 1
-  %41 = shl nsw i64 %indvars.iv115, 1
-  %arrayidx153 = getelementptr inbounds i8, ptr %dst, i64 %41
-  store i8 %40, ptr %arrayidx153, align 1
+  %39 = load i8, ptr %arrayidx150, align 1
+  %40 = shl nsw i64 %indvars.iv115, 1
+  %arrayidx153 = getelementptr inbounds i8, ptr %dst, i64 %40
+  store i8 %39, ptr %arrayidx153, align 1
   %arrayidx155 = getelementptr inbounds i8, ptr %src1, i64 %indvars.iv115
-  %42 = load i8, ptr %arrayidx155, align 1
-  %43 = or disjoint i64 %41, 1
-  %arrayidx159 = getelementptr inbounds i8, ptr %dst, i64 %43
-  store i8 %42, ptr %arrayidx159, align 1
+  %41 = load i8, ptr %arrayidx155, align 1
+  %42 = or disjoint i64 %40, 1
+  %arrayidx159 = getelementptr inbounds i8, ptr %dst, i64 %42
+  store i8 %41, ptr %arrayidx159, align 1
   %indvars.iv.next116 = add nsw i64 %indvars.iv115, 1
   %exitcond121.not = icmp eq i64 %indvars.iv.next116, %wide.trip.count120
   br i1 %exitcond121.not, label %if.end164, label %for.body148, !llvm.loop !111

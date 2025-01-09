@@ -52074,8 +52074,8 @@ entry:
   %and.i = and i32 %0, 8
   %and.i9 = and i32 %and.i, %__mode
   %cmp.not.not = icmp eq i32 %and.i9, 0
-  %and.i10 = and i32 %0, %__mode
-  %and.i11 = and i32 %and.i10, 16
+  %and.i10 = and i32 %__mode, 16
+  %and.i11 = and i32 %and.i10, %0
   %cmp6.not.not = icmp eq i32 %and.i11, 0
   %_M_in_beg.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %1 = load ptr, ptr %_M_in_beg.i, align 8
@@ -52085,9 +52085,9 @@ entry:
   %tobool10.not = icmp eq ptr %cond, null
   %tobool12.not = icmp ne i64 %__sp.coerce0, 0
   %or.cond.not21 = select i1 %tobool10.not, i1 %tobool12.not, i1 false
-  %3 = and i32 %and.i10, 24
+  %3 = or disjoint i32 %and.i9, %and.i11
   %brmerge.not = icmp eq i32 %3, 0
-  %or.cond20 = or i1 %or.cond.not21, %brmerge.not
+  %or.cond20 = select i1 %or.cond.not21, i1 true, i1 %brmerge.not
   br i1 %or.cond20, label %if.end34, label %if.then
 
 if.then:                                          ; preds = %entry

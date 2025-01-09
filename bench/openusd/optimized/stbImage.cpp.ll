@@ -50621,15 +50621,15 @@ _ZL14stbi__gif_testP13stbi__context.exit.i:       ; preds = %1174, %1170
   %1196 = load i32, ptr %12, align 8
   %1197 = getelementptr inbounds nuw i8, ptr %12, i64 4
   %1198 = load i32, ptr %1197, align 4
-  %or.cond60.not.i.i.i = icmp ult i32 %1196, 536870912
-  br i1 %or.cond60.not.i.i.i, label %_ZL21stbi__mul2sizes_validii.exit.thread15.i.i.i106.i, label %_ZL24stbi__process_gif_rasterP13stbi__contextP9stbi__gif.exit.thread.sink.split.i.i.i
+  %or.cond60.i.i.i = icmp ugt i32 %1196, 536870911
+  br i1 %or.cond60.i.i.i, label %_ZL24stbi__process_gif_rasterP13stbi__contextP9stbi__gif.exit.thread.sink.split.i.i.i, label %_ZL21stbi__mul2sizes_validii.exit.thread15.i.i.i105.i
 
-_ZL21stbi__mul2sizes_validii.exit.thread15.i.i.i106.i: ; preds = %1195
+_ZL21stbi__mul2sizes_validii.exit.thread15.i.i.i105.i: ; preds = %1195
   %1199 = shl nuw nsw i32 %1196, 2
   %or.cond.not.i10.i.i.i.i = icmp sgt i32 %1198, -1
   br i1 %or.cond.not.i10.i.i.i.i, label %1200, label %_ZL24stbi__process_gif_rasterP13stbi__contextP9stbi__gif.exit.thread.sink.split.i.i.i
 
-1200:                                             ; preds = %_ZL21stbi__mul2sizes_validii.exit.thread15.i.i.i106.i
+1200:                                             ; preds = %_ZL21stbi__mul2sizes_validii.exit.thread15.i.i.i105.i
   %1201 = icmp eq i32 %1198, 0
   br i1 %1201, label %_ZL21stbi__mad3sizes_validiiii.exit.i.i.i, label %_ZL21stbi__mul2sizes_validii.exit12.i.i.i107.i
 
@@ -51801,8 +51801,8 @@ _ZL10stbi__get8P13stbi__context.exit223.i.i.i:    ; preds = %_ZL19stbi__refill_b
 _ZL10stbi__skipP13stbi__contexti.exit228.i.i.i.backedge: ; preds = %._crit_edge.i225.i.i.i, %1761
   br label %_ZL10stbi__skipP13stbi__contexti.exit228.i.i.i, !llvm.loop !1076
 
-_ZL24stbi__process_gif_rasterP13stbi__contextP9stbi__gif.exit.thread.sink.split.i.i.i: ; preds = %_ZL10stbi__get8P13stbi__context.exit.i.i113.i, %1224, %1530, %1511, %1508, %1315, %1254, %1247, %1212, %_ZL21stbi__mad3sizes_validiiii.exit.i.i.i, %_ZL21stbi__mul2sizes_validii.exit12.i.i.i107.i, %_ZL21stbi__mul2sizes_validii.exit.thread15.i.i.i106.i, %1195
-  %.str.121.sink.i.i.i = phi ptr [ @.str.47, %_ZL21stbi__mul2sizes_validii.exit12.i.i.i107.i ], [ @.str.47, %1195 ], [ @.str.47, %_ZL21stbi__mul2sizes_validii.exit.thread15.i.i.i106.i ], [ @.str.30, %1212 ], [ @.str.30, %_ZL21stbi__mad3sizes_validiiii.exit.i.i.i ], [ @.str.116, %1254 ], [ @.str.116, %1247 ], [ @.str.117, %1315 ], [ %.str.121.mux, %1508 ], [ @.str.121, %1530 ], [ @.str.120, %1511 ], [ @.str.118, %1224 ], [ @.str.118, %_ZL10stbi__get8P13stbi__context.exit.i.i113.i ]
+_ZL24stbi__process_gif_rasterP13stbi__contextP9stbi__gif.exit.thread.sink.split.i.i.i: ; preds = %_ZL10stbi__get8P13stbi__context.exit.i.i113.i, %1224, %1530, %1511, %1508, %1315, %1254, %1247, %1212, %_ZL21stbi__mad3sizes_validiiii.exit.i.i.i, %_ZL21stbi__mul2sizes_validii.exit12.i.i.i107.i, %_ZL21stbi__mul2sizes_validii.exit.thread15.i.i.i105.i, %1195
+  %.str.121.sink.i.i.i = phi ptr [ @.str.47, %_ZL21stbi__mul2sizes_validii.exit12.i.i.i107.i ], [ @.str.47, %1195 ], [ @.str.47, %_ZL21stbi__mul2sizes_validii.exit.thread15.i.i.i105.i ], [ @.str.30, %1212 ], [ @.str.30, %_ZL21stbi__mad3sizes_validiiii.exit.i.i.i ], [ @.str.116, %1254 ], [ @.str.116, %1247 ], [ @.str.117, %1315 ], [ %.str.121.mux, %1508 ], [ @.str.121, %1530 ], [ @.str.120, %1511 ], [ @.str.118, %1224 ], [ @.str.118, %_ZL10stbi__get8P13stbi__context.exit.i.i113.i ]
   store ptr %.str.121.sink.i.i.i, ptr %92, align 8
   br label %_ZL19stbi__gif_load_nextP13stbi__contextP9stbi__gifPiiPh.exit.thread.i.i
 
@@ -51827,7 +51827,7 @@ _ZL19stbi__gif_load_nextP13stbi__contextP9stbi__gifPiiPh.exit.thread.i.i: ; pred
   br label %_ZL14stbi__gif_loadP13stbi__contextPiS1_S1_iP17stbi__result_info.exit.i
 
 _ZL14stbi__gif_loadP13stbi__contextPiS1_S1_iP17stbi__result_info.exit.i: ; preds = %1771, %_ZL19stbi__gif_load_nextP13stbi__contextP9stbi__gifPiiPh.exit.thread.i.i, %1768, %_ZL24stbi__process_gif_rasterP13stbi__contextP9stbi__gif.exit.i.i.i
-  %.0.i105.i = phi ptr [ %.0.i185.i.i.i, %1768 ], [ null, %1771 ], [ null, %_ZL19stbi__gif_load_nextP13stbi__contextP9stbi__gifPiiPh.exit.thread.i.i ], [ null, %_ZL24stbi__process_gif_rasterP13stbi__contextP9stbi__gif.exit.i.i.i ]
+  %.0.i106.i = phi ptr [ %.0.i185.i.i.i, %1768 ], [ null, %1771 ], [ null, %_ZL19stbi__gif_load_nextP13stbi__contextP9stbi__gifPiiPh.exit.thread.i.i ], [ null, %_ZL24stbi__process_gif_rasterP13stbi__contextP9stbi__gif.exit.i.i.i ]
   %1772 = getelementptr inbounds nuw i8, ptr %12, i64 24
   %1773 = load ptr, ptr %1772, align 8
   call void @free(ptr noundef %1773) #46
@@ -57256,7 +57256,7 @@ _ZL14stbi__pnm_testP13stbi__context.exit:         ; preds = %_ZL10stbi__get8P13s
   br label %_ZL15stbi__load_mainP13stbi__contextPiS1_S1_iP17stbi__result_infoi.exit.thread
 
 _ZL15stbi__load_mainP13stbi__contextPiS1_S1_iP17stbi__result_infoi.exit: ; preds = %_ZL15load_jpeg_imageP10stbi__jpegPiS1_S1_i.exit.i, %._crit_edge.i.i99, %2555, %_ZL14stbi__png_loadP13stbi__contextPiS1_S1_iP17stbi__result_info.exit.i, %_ZL14stbi__bmp_loadP13stbi__contextPiS1_S1_iP17stbi__result_info.exit.i, %_ZL14stbi__gif_loadP13stbi__contextPiS1_S1_iP17stbi__result_info.exit.i, %.loopexit.i125.i, %_ZL14stbi__pnm_testP13stbi__context.exit, %4319, %4327
-  %.0.i = phi ptr [ %.043.i.i.i, %_ZL14stbi__png_loadP13stbi__contextPiS1_S1_iP17stbi__result_info.exit.i ], [ %.0.i.i, %_ZL14stbi__bmp_loadP13stbi__contextPiS1_S1_iP17stbi__result_info.exit.i ], [ %.0.i105.i, %_ZL14stbi__gif_loadP13stbi__contextPiS1_S1_iP17stbi__result_info.exit.i ], [ %4314, %_ZL14stbi__pnm_testP13stbi__context.exit ], [ %4324, %4319 ], [ %4328, %4327 ], [ %1848, %.loopexit.i125.i ], [ %2714, %._crit_edge.i.i99 ], [ %.039.i, %2555 ], [ %.0.i.i33, %_ZL15load_jpeg_imageP10stbi__jpegPiS1_S1_i.exit.i ]
+  %.0.i = phi ptr [ %.043.i.i.i, %_ZL14stbi__png_loadP13stbi__contextPiS1_S1_iP17stbi__result_info.exit.i ], [ %.0.i.i, %_ZL14stbi__bmp_loadP13stbi__contextPiS1_S1_iP17stbi__result_info.exit.i ], [ %.0.i106.i, %_ZL14stbi__gif_loadP13stbi__contextPiS1_S1_iP17stbi__result_info.exit.i ], [ %4314, %_ZL14stbi__pnm_testP13stbi__context.exit ], [ %4324, %4319 ], [ %4328, %4327 ], [ %1848, %.loopexit.i125.i ], [ %2714, %._crit_edge.i.i99 ], [ %.039.i, %2555 ], [ %.0.i.i33, %_ZL15load_jpeg_imageP10stbi__jpegPiS1_S1_i.exit.i ]
   %4330 = icmp eq ptr %.0.i, null
   br i1 %4330, label %_ZL15stbi__load_mainP13stbi__contextPiS1_S1_iP17stbi__result_infoi.exit.thread, label %4331
 

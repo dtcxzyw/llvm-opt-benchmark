@@ -3307,103 +3307,96 @@ define dso_local noundef zeroext i1 @_ZNK4llvm11Instruction24isIdenticalToWhenDe
   br i1 %.not16, label %17, label %_ZSt5equalIPKN4llvm3UseES3_EbT_S4_T0_.exit
 
 17:                                               ; preds = %12
-  %18 = or i32 %10, %7
-  %19 = and i32 %18, 134217727
-  %or.cond = icmp eq i32 %19, 0
-  br i1 %or.cond, label %20, label %22
+  %or.cond = icmp eq i32 %8, 0
+  br i1 %or.cond, label %18, label %20
 
-20:                                               ; preds = %17
-  %21 = tail call noundef zeroext i1 @_ZNK4llvm11Instruction19hasSameSpecialStateEPKS0_b(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull %1, i1 noundef zeroext false) #22
+18:                                               ; preds = %17
+  %19 = tail call noundef zeroext i1 @_ZNK4llvm11Instruction19hasSameSpecialStateEPKS0_b(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull %1, i1 noundef zeroext false) #22
   br label %_ZSt5equalIPKN4llvm3UseES3_EbT_S4_T0_.exit
 
-22:                                               ; preds = %17
-  %23 = and i32 %7, 1073741824
-  %.not.i.i = icmp eq i32 %23, 0
-  br i1 %.not.i.i, label %27, label %24
+20:                                               ; preds = %17
+  %21 = and i32 %7, 1073741824
+  %.not.i.i = icmp eq i32 %21, 0
+  br i1 %.not.i.i, label %25, label %22
 
-24:                                               ; preds = %22
-  %25 = getelementptr inbounds i8, ptr %0, i64 -8
-  %26 = load ptr, ptr %25, align 8
+22:                                               ; preds = %20
+  %23 = getelementptr inbounds i8, ptr %0, i64 -8
+  %24 = load ptr, ptr %23, align 8
   %.pre1.i = zext nneg i32 %8 to i64
   br label %_ZNK4llvm4User6op_endEv.exit
 
-27:                                               ; preds = %22
-  %28 = zext nneg i32 %8 to i64
-  %29 = sub nsw i64 0, %28
-  %30 = getelementptr inbounds %"class.llvm::Use", ptr %0, i64 %29
+25:                                               ; preds = %20
+  %26 = zext nneg i32 %8 to i64
+  %27 = sub nsw i64 0, %26
+  %28 = getelementptr inbounds %"class.llvm::Use", ptr %0, i64 %27
   br label %_ZNK4llvm4User6op_endEv.exit
 
-_ZNK4llvm4User6op_endEv.exit:                     ; preds = %24, %27
-  %31 = phi ptr [ %26, %24 ], [ %30, %27 ]
-  %.pre-phi2.i = phi i64 [ %.pre1.i, %24 ], [ %28, %27 ]
-  %32 = getelementptr inbounds nuw %"class.llvm::Use", ptr %31, i64 %.pre-phi2.i
-  %33 = and i32 %10, 1073741824
-  %.not.i.i19 = icmp eq i32 %33, 0
-  br i1 %.not.i.i19, label %37, label %34
+_ZNK4llvm4User6op_endEv.exit:                     ; preds = %22, %25
+  %29 = phi ptr [ %24, %22 ], [ %28, %25 ]
+  %.pre-phi2.i = phi i64 [ %.pre1.i, %22 ], [ %26, %25 ]
+  %30 = getelementptr inbounds nuw %"class.llvm::Use", ptr %29, i64 %.pre-phi2.i
+  %31 = and i32 %10, 1073741824
+  %.not.i.i19 = icmp eq i32 %31, 0
+  br i1 %.not.i.i19, label %35, label %32
 
-34:                                               ; preds = %_ZNK4llvm4User6op_endEv.exit
-  %35 = getelementptr inbounds i8, ptr %1, i64 -8
-  %36 = load ptr, ptr %35, align 8
-  br label %_ZNK4llvm4User8op_beginEv.exit20
+32:                                               ; preds = %_ZNK4llvm4User6op_endEv.exit
+  %33 = getelementptr inbounds i8, ptr %1, i64 -8
+  %34 = load ptr, ptr %33, align 8
+  br label %.lr.ph.i.i.i.i.preheader
 
-37:                                               ; preds = %_ZNK4llvm4User6op_endEv.exit
-  %38 = zext nneg i32 %8 to i64
-  %39 = sub nsw i64 0, %38
-  %40 = getelementptr inbounds %"class.llvm::Use", ptr %1, i64 %39
-  br label %_ZNK4llvm4User8op_beginEv.exit20
+35:                                               ; preds = %_ZNK4llvm4User6op_endEv.exit
+  %36 = zext nneg i32 %8 to i64
+  %37 = sub nsw i64 0, %36
+  %38 = getelementptr inbounds %"class.llvm::Use", ptr %1, i64 %37
+  br label %.lr.ph.i.i.i.i.preheader
 
-_ZNK4llvm4User8op_beginEv.exit20:                 ; preds = %34, %37
-  %41 = phi ptr [ %36, %34 ], [ %40, %37 ]
-  %.not9.i.i.i.i = icmp eq i64 %.pre-phi2.i, 0
-  br i1 %.not9.i.i.i.i, label %.loopexit, label %.lr.ph.i.i.i.i
+.lr.ph.i.i.i.i.preheader:                         ; preds = %35, %32
+  %.011.i.i.i.i.ph = phi ptr [ %38, %35 ], [ %34, %32 ]
+  br label %.lr.ph.i.i.i.i
 
-.lr.ph.i.i.i.i:                                   ; preds = %_ZNK4llvm4User8op_beginEv.exit20, %45
-  %.011.i.i.i.i = phi ptr [ %47, %45 ], [ %41, %_ZNK4llvm4User8op_beginEv.exit20 ]
-  %.0810.i.i.i.i = phi ptr [ %46, %45 ], [ %31, %_ZNK4llvm4User8op_beginEv.exit20 ]
-  %42 = load ptr, ptr %.0810.i.i.i.i, align 8
-  %43 = load ptr, ptr %.011.i.i.i.i, align 8
-  %44 = icmp eq ptr %42, %43
-  br i1 %44, label %45, label %_ZSt5equalIPKN4llvm3UseES3_EbT_S4_T0_.exit
+.lr.ph.i.i.i.i:                                   ; preds = %.lr.ph.i.i.i.i.preheader, %42
+  %.011.i.i.i.i = phi ptr [ %44, %42 ], [ %.011.i.i.i.i.ph, %.lr.ph.i.i.i.i.preheader ]
+  %.0810.i.i.i.i = phi ptr [ %43, %42 ], [ %29, %.lr.ph.i.i.i.i.preheader ]
+  %39 = load ptr, ptr %.0810.i.i.i.i, align 8
+  %40 = load ptr, ptr %.011.i.i.i.i, align 8
+  %41 = icmp eq ptr %39, %40
+  br i1 %41, label %42, label %_ZSt5equalIPKN4llvm3UseES3_EbT_S4_T0_.exit
 
-45:                                               ; preds = %.lr.ph.i.i.i.i
-  %46 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i, i64 32
-  %47 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i, i64 32
-  %.not.i.i.i.i = icmp eq ptr %46, %32
+42:                                               ; preds = %.lr.ph.i.i.i.i
+  %43 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i, i64 32
+  %44 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i, i64 32
+  %.not.i.i.i.i = icmp eq ptr %43, %30
   br i1 %.not.i.i.i.i, label %.loopexit, label %.lr.ph.i.i.i.i, !llvm.loop !9
 
-.loopexit:                                        ; preds = %45, %_ZNK4llvm4User8op_beginEv.exit20
+.loopexit:                                        ; preds = %42
   %.not23 = icmp eq i8 %3, 84
-  br i1 %.not23, label %48, label %63
+  br i1 %.not23, label %45, label %59
 
-48:                                               ; preds = %.loopexit
-  %.not.i.i.i.i21 = icmp eq i32 %8, 0
-  br i1 %.not.i.i.i.i21, label %_ZSt5equalIPKN4llvm3UseES3_EbT_S4_T0_.exit, label %49
-
-49:                                               ; preds = %48
-  %50 = getelementptr inbounds i8, ptr %0, i64 -8
-  %51 = load ptr, ptr %50, align 8
-  %52 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %53 = load i32, ptr %52, align 8
-  %54 = zext i32 %53 to i64
-  %55 = getelementptr inbounds nuw %"class.llvm::Use", ptr %51, i64 %54
-  %56 = getelementptr inbounds i8, ptr %1, i64 -8
-  %57 = load ptr, ptr %56, align 8
-  %58 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  %59 = load i32, ptr %58, align 8
-  %60 = zext i32 %59 to i64
-  %61 = getelementptr inbounds nuw %"class.llvm::Use", ptr %57, i64 %60
-  %62 = shl nuw nsw i32 %8, 3
-  %.idx = zext nneg i32 %62 to i64
-  %bcmp.i.i.i.i = tail call i32 @bcmp(ptr %55, ptr %61, i64 %.idx)
+45:                                               ; preds = %.loopexit
+  %46 = getelementptr inbounds i8, ptr %0, i64 -8
+  %47 = load ptr, ptr %46, align 8
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %49 = load i32, ptr %48, align 8
+  %50 = zext i32 %49 to i64
+  %51 = getelementptr inbounds nuw %"class.llvm::Use", ptr %47, i64 %50
+  %52 = getelementptr inbounds i8, ptr %1, i64 -8
+  %53 = load ptr, ptr %52, align 8
+  %54 = getelementptr inbounds nuw i8, ptr %1, i64 72
+  %55 = load i32, ptr %54, align 8
+  %56 = zext i32 %55 to i64
+  %57 = getelementptr inbounds nuw %"class.llvm::Use", ptr %53, i64 %56
+  %58 = shl nuw nsw i32 %8, 3
+  %.idx = zext nneg i32 %58 to i64
+  %bcmp.i.i.i.i = tail call i32 @bcmp(ptr %51, ptr %57, i64 %.idx)
   %.not7.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i, 0
   br label %_ZSt5equalIPKN4llvm3UseES3_EbT_S4_T0_.exit
 
-63:                                               ; preds = %.loopexit
-  %64 = tail call noundef zeroext i1 @_ZNK4llvm11Instruction19hasSameSpecialStateEPKS0_b(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull %1, i1 noundef zeroext false) #22
+59:                                               ; preds = %.loopexit
+  %60 = tail call noundef zeroext i1 @_ZNK4llvm11Instruction19hasSameSpecialStateEPKS0_b(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull %1, i1 noundef zeroext false) #22
   br label %_ZSt5equalIPKN4llvm3UseES3_EbT_S4_T0_.exit
 
-_ZSt5equalIPKN4llvm3UseES3_EbT_S4_T0_.exit:       ; preds = %.lr.ph.i.i.i.i, %49, %48, %2, %5, %12, %63, %20
-  %.0 = phi i1 [ %21, %20 ], [ %64, %63 ], [ false, %12 ], [ false, %5 ], [ false, %2 ], [ %.not7.i.i.i.i, %49 ], [ true, %48 ], [ false, %.lr.ph.i.i.i.i ]
+_ZSt5equalIPKN4llvm3UseES3_EbT_S4_T0_.exit:       ; preds = %.lr.ph.i.i.i.i, %45, %2, %5, %12, %59, %18
+  %.0 = phi i1 [ %19, %18 ], [ %60, %59 ], [ false, %12 ], [ false, %5 ], [ false, %2 ], [ %.not7.i.i.i.i, %45 ], [ false, %.lr.ph.i.i.i.i ]
   ret i1 %.0
 }
 

@@ -11638,8 +11638,8 @@ RB_OBJ_FROZEN.exit.thread.i.i:                    ; preds = %12, %7
   unreachable
 
 rb_ary_modify_check.exit:                         ; preds = %12
-  %or.cond.not.i = icmp eq i32 %0, 1
-  br i1 %or.cond.not.i, label %rb_check_arity.exit.i, label %19
+  %or.cond.i.not = icmp eq i32 %0, 1
+  br i1 %or.cond.i.not, label %rb_check_arity.exit.i, label %19
 
 19:                                               ; preds = %rb_ary_modify_check.exit
   tail call void @rb_error_arity(i32 noundef range(i32 1, 0) %0, i32 noundef 0, i32 noundef 1) #20
@@ -11832,8 +11832,8 @@ RB_OBJ_FROZEN.exit.thread.i.i:                    ; preds = %34, %29
   unreachable
 
 rb_ary_modify_check.exit:                         ; preds = %34
-  %or.cond.not.i = icmp eq i32 %0, 1
-  br i1 %or.cond.not.i, label %rb_check_arity.exit.i, label %41
+  %or.cond.i.not = icmp eq i32 %0, 1
+  br i1 %or.cond.i.not, label %rb_check_arity.exit.i, label %41
 
 41:                                               ; preds = %rb_ary_modify_check.exit
   tail call void @rb_error_arity(i32 noundef range(i32 1, 0) %0, i32 noundef 0, i32 noundef 1) #20
@@ -12571,8 +12571,8 @@ rb_long2num_inline.exit:                          ; preds = %53, %rb_array_len.e
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @rb_ary_join_m(i32 noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2) #3 {
-  %or.cond.not = icmp ult i32 %0, 2
-  br i1 %or.cond.not, label %rb_check_arity.exit, label %4
+  %or.cond = icmp ugt i32 %0, 1
+  br i1 %or.cond, label %4, label %rb_check_arity.exit
 
 4:                                                ; preds = %3
   tail call void @rb_error_arity(i32 noundef %0, i32 noundef 0, i32 noundef 1) #20
@@ -12817,8 +12817,8 @@ rb_ary_reverse.exit:                              ; preds = %.lr.ph.i.i, %rb_ary
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @rb_ary_rotate_m(i32 noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2) #3 {
-  %or.cond.not = icmp ult i32 %0, 2
-  br i1 %or.cond.not, label %rb_check_arity.exit, label %4
+  %or.cond = icmp ugt i32 %0, 1
+  br i1 %or.cond, label %4, label %rb_check_arity.exit
 
 4:                                                ; preds = %3
   tail call void @rb_error_arity(i32 noundef %0, i32 noundef 0, i32 noundef 1) #20
@@ -13124,8 +13124,8 @@ rb_array_len.exit45:                              ; preds = %132, %135
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal noundef i64 @rb_ary_rotate_bang(i32 noundef %0, ptr nocapture noundef readonly %1, i64 noundef returned %2) #3 {
-  %or.cond.not = icmp ult i32 %0, 2
-  br i1 %or.cond.not, label %rb_check_arity.exit, label %4
+  %or.cond = icmp ugt i32 %0, 1
+  br i1 %or.cond, label %4, label %rb_check_arity.exit
 
 4:                                                ; preds = %3
   tail call void @rb_error_arity(i32 noundef %0, i32 noundef 0, i32 noundef 1) #20
@@ -16867,8 +16867,8 @@ rb_ary_union_hash.exit:                           ; preds = %rb_array_len.exit.i
 define internal i64 @rb_ary_max(i32 noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2) #3 {
   %4 = alloca i64, align 8
   %5 = alloca i64, align 8
-  %or.cond.not = icmp ult i32 %0, 2
-  br i1 %or.cond.not, label %rb_check_arity.exit, label %6
+  %or.cond = icmp ugt i32 %0, 1
+  br i1 %or.cond, label %6, label %rb_check_arity.exit
 
 6:                                                ; preds = %3
   tail call void @rb_error_arity(i32 noundef %0, i32 noundef 0, i32 noundef 1) #20
@@ -17212,8 +17212,8 @@ ary_max_opt_fixnum.exit:                          ; preds = %80, %75, %.thread79
 define internal i64 @rb_ary_min(i32 noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2) #3 {
   %4 = alloca i64, align 8
   %5 = alloca i64, align 8
-  %or.cond.not = icmp ult i32 %0, 2
-  br i1 %or.cond.not, label %rb_check_arity.exit, label %6
+  %or.cond = icmp ugt i32 %0, 1
+  br i1 %or.cond, label %6, label %rb_check_arity.exit
 
 6:                                                ; preds = %3
   tail call void @rb_error_arity(i32 noundef %0, i32 noundef 0, i32 noundef 1) #20
@@ -18136,8 +18136,8 @@ rb_array_len.exit28:                              ; preds = %34, %41
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @rb_ary_flatten(i32 noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2) #3 {
-  %or.cond.not = icmp ult i32 %0, 2
-  br i1 %or.cond.not, label %rb_check_arity.exit, label %4
+  %or.cond = icmp ugt i32 %0, 1
+  br i1 %or.cond, label %4, label %rb_check_arity.exit
 
 4:                                                ; preds = %3
   tail call void @rb_error_arity(i32 noundef %0, i32 noundef 0, i32 noundef 1) #20
@@ -18230,8 +18230,8 @@ ary_make_shared_copy.exit18:                      ; preds = %36, %39
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal range(i64 1, -7) i64 @rb_ary_flatten_bang(i32 noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2) #3 {
-  %or.cond.not = icmp ult i32 %0, 2
-  br i1 %or.cond.not, label %rb_check_arity.exit, label %4
+  %or.cond = icmp ugt i32 %0, 1
+  br i1 %or.cond, label %4, label %rb_check_arity.exit
 
 4:                                                ; preds = %3
   tail call void @rb_error_arity(i32 noundef %0, i32 noundef 0, i32 noundef 1) #20
@@ -18322,8 +18322,8 @@ rb_ary_modify_check.exit:                         ; preds = %13
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @rb_ary_count(i32 noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2) #3 {
-  %or.cond.not = icmp ult i32 %0, 2
-  br i1 %or.cond.not, label %rb_check_arity.exit, label %4
+  %or.cond = icmp ugt i32 %0, 1
+  br i1 %or.cond, label %4, label %rb_check_arity.exit
 
 4:                                                ; preds = %3
   tail call void @rb_error_arity(i32 noundef %0, i32 noundef 0, i32 noundef 1) #20
@@ -18482,8 +18482,8 @@ rb_long2num_inline.exit:                          ; preds = %69, %66, %24, %21
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @rb_ary_cycle(i32 noundef %0, ptr noundef %1, i64 noundef %2) #3 {
-  %or.cond.not = icmp ult i32 %0, 2
-  br i1 %or.cond.not, label %rb_check_arity.exit, label %4
+  %or.cond = icmp ugt i32 %0, 1
+  br i1 %or.cond, label %4, label %rb_check_arity.exit
 
 4:                                                ; preds = %3
   tail call void @rb_error_arity(i32 noundef %0, i32 noundef 0, i32 noundef 1) #20
@@ -18641,8 +18641,8 @@ rb_array_len.exit:                                ; preds = %9, %12
   br label %.loopexit
 
 20:                                               ; preds = %rb_array_len.exit
-  %or.cond52.not = icmp ult i32 %0, 2
-  br i1 %or.cond52.not, label %rb_check_arity.exit, label %21
+  %or.cond52 = icmp ugt i32 %0, 1
+  br i1 %or.cond52, label %21, label %rb_check_arity.exit
 
 21:                                               ; preds = %20
   tail call void @rb_error_arity(i32 noundef %0, i32 noundef 0, i32 noundef 1) #20
@@ -21269,8 +21269,8 @@ define internal range(i64 0, 21) i64 @rb_ary_any_p(i32 noundef %0, ptr nocapture
 
 rb_array_len.exit:                                ; preds = %7, %10
   %.0.i = phi i64 [ %9, %7 ], [ %12, %10 ]
-  %or.cond.not = icmp ult i32 %0, 2
-  br i1 %or.cond.not, label %rb_check_arity.exit, label %13
+  %or.cond = icmp ugt i32 %0, 1
+  br i1 %or.cond, label %13, label %rb_check_arity.exit
 
 13:                                               ; preds = %rb_array_len.exit
   tail call void @rb_error_arity(i32 noundef %0, i32 noundef 0, i32 noundef 1) #20
@@ -21438,8 +21438,8 @@ define internal range(i64 0, 21) i64 @rb_ary_all_p(i32 noundef %0, ptr nocapture
 
 rb_array_len.exit:                                ; preds = %7, %10
   %.0.i = phi i64 [ %9, %7 ], [ %12, %10 ]
-  %or.cond.not = icmp ult i32 %0, 2
-  br i1 %or.cond.not, label %rb_check_arity.exit, label %13
+  %or.cond = icmp ugt i32 %0, 1
+  br i1 %or.cond, label %13, label %rb_check_arity.exit
 
 13:                                               ; preds = %rb_array_len.exit
   tail call void @rb_error_arity(i32 noundef %0, i32 noundef 0, i32 noundef 1) #20
@@ -21607,8 +21607,8 @@ define internal range(i64 0, 21) i64 @rb_ary_none_p(i32 noundef %0, ptr nocaptur
 
 rb_array_len.exit:                                ; preds = %7, %10
   %.0.i = phi i64 [ %9, %7 ], [ %12, %10 ]
-  %or.cond.not = icmp ult i32 %0, 2
-  br i1 %or.cond.not, label %rb_check_arity.exit, label %13
+  %or.cond = icmp ugt i32 %0, 1
+  br i1 %or.cond, label %13, label %rb_check_arity.exit
 
 13:                                               ; preds = %rb_array_len.exit
   tail call void @rb_error_arity(i32 noundef %0, i32 noundef 0, i32 noundef 1) #20
@@ -21776,8 +21776,8 @@ define internal range(i64 0, 21) i64 @rb_ary_one_p(i32 noundef %0, ptr nocapture
 
 rb_array_len.exit:                                ; preds = %7, %10
   %.0.i = phi i64 [ %9, %7 ], [ %12, %10 ]
-  %or.cond.not = icmp ult i32 %0, 2
-  br i1 %or.cond.not, label %rb_check_arity.exit, label %13
+  %or.cond = icmp ugt i32 %0, 1
+  br i1 %or.cond, label %13, label %rb_check_arity.exit
 
 13:                                               ; preds = %rb_array_len.exit
   tail call void @rb_error_arity(i32 noundef %0, i32 noundef 0, i32 noundef 1) #20
@@ -22042,8 +22042,8 @@ rb_ary_at.exit:                                   ; preds = %rb_array_const_ptr.
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @rb_ary_sum(i32 noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2) #3 {
-  %or.cond298.not = icmp ult i32 %0, 2
-  br i1 %or.cond298.not, label %rb_check_arity.exit, label %4
+  %or.cond298 = icmp ugt i32 %0, 1
+  br i1 %or.cond298, label %4, label %rb_check_arity.exit
 
 4:                                                ; preds = %3
   tail call void @rb_error_arity(i32 noundef %0, i32 noundef 0, i32 noundef 1) #20

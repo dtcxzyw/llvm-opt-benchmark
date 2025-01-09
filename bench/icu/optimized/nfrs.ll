@@ -1583,10 +1583,10 @@ for.body:                                         ; preds = %for.body.preheader,
   %5 = load i64, ptr %4, align 8
   %and17.i = and i64 %leastCommonMultiple.086, 1
   %cmp18.i = icmp eq i64 %and17.i, 0
-  %6 = or i64 %5, %leastCommonMultiple.086
-  %7 = and i64 %6, 1
-  %8 = icmp eq i64 %7, 0
-  br i1 %8, label %while.body.i, label %while.end.i
+  %and1732.i = or i64 %5, %leastCommonMultiple.086
+  %6 = and i64 %and1732.i, 1
+  %7 = icmp eq i64 %6, 0
+  br i1 %7, label %while.body.i, label %while.end.i
 
 while.body.i:                                     ; preds = %for.body, %while.body.i
   %x1.023.i = phi i64 [ %shr.i, %while.body.i ], [ %leastCommonMultiple.086, %for.body ]
@@ -1595,20 +1595,20 @@ while.body.i:                                     ; preds = %for.body, %while.bo
   %inc.i = add nuw nsw i32 %p2.022.i, 1
   %shr.i = ashr exact i64 %x1.023.i, 1
   %shr3.i = ashr exact i64 %y1.021.i, 1
-  %9 = and i64 %x1.023.i, 2
-  %cmp.i = icmp eq i64 %9, 0
-  %10 = and i64 %y1.021.i, 2
-  %cmp2.i = icmp eq i64 %10, 0
-  %11 = select i1 %cmp.i, i1 %cmp2.i, i1 false
-  br i1 %11, label %while.body.i, label %while.end.loopexit.i, !llvm.loop !20
+  %8 = and i64 %x1.023.i, 2
+  %cmp.i = icmp eq i64 %8, 0
+  %9 = and i64 %y1.021.i, 2
+  %cmp2.i = icmp eq i64 %9, 0
+  %10 = select i1 %cmp.i, i1 %cmp2.i, i1 false
+  br i1 %10, label %while.body.i, label %while.end.loopexit.i, !llvm.loop !20
 
 while.end.loopexit.i:                             ; preds = %while.body.i
-  %12 = zext nneg i32 %inc.i to i64
+  %11 = zext nneg i32 %inc.i to i64
   br label %while.end.i
 
 while.end.i:                                      ; preds = %while.end.loopexit.i, %for.body
   %y1.0.lcssa.i = phi i64 [ %5, %for.body ], [ %shr3.i, %while.end.loopexit.i ]
-  %p2.0.lcssa.i = phi i64 [ 0, %for.body ], [ %12, %while.end.loopexit.i ]
+  %p2.0.lcssa.i = phi i64 [ 0, %for.body ], [ %11, %while.end.loopexit.i ]
   %x1.0.lcssa.i = phi i64 [ %leastCommonMultiple.086, %for.body ], [ %shr.i, %while.end.loopexit.i ]
   %cmp.lcssa.i = phi i1 [ %cmp18.i, %for.body ], [ %cmp.i, %while.end.loopexit.i ]
   %sub.i = sub nsw i64 0, %y1.0.lcssa.i
@@ -1650,26 +1650,26 @@ _ZN6icu_75L8util_lcmEll.exit:                     ; preds = %while.end14.i, %whi
 for.end:                                          ; preds = %_ZN6icu_75L8util_lcmEll.exit, %entry
   %leastCommonMultiple.0.lcssa = phi i64 [ %2, %entry ], [ %mul.i, %_ZN6icu_75L8util_lcmEll.exit ]
   %conv = sitofp i64 %leastCommonMultiple.0.lcssa to double
-  %13 = tail call double @llvm.fmuladd.f64(double %number, double %conv, double 5.000000e-01)
-  %call.i = tail call signext i8 @uprv_isNaN_75(double noundef %13)
+  %12 = tail call double @llvm.fmuladd.f64(double %number, double %conv, double 5.000000e-01)
+  %call.i = tail call signext i8 @uprv_isNaN_75(double noundef %12)
   %tobool.not.i = icmp eq i8 %call.i, 0
   br i1 %tobool.not.i, label %if.then.i, label %_ZN6icu_7517util64_fromDoubleEd.exit
 
 if.then.i:                                        ; preds = %for.end
   %call1.i = tail call double @uprv_maxMantissa_75()
   %fneg.i = fneg double %call1.i
-  %cmp.i27 = fcmp olt double %13, %fneg.i
+  %cmp.i27 = fcmp olt double %12, %fneg.i
   br i1 %cmp.i27, label %if.end6.i, label %if.else.i
 
 if.else.i:                                        ; preds = %if.then.i
-  %cmp4.i = fcmp ogt double %13, %call1.i
+  %cmp4.i = fcmp ogt double %12, %call1.i
   br i1 %cmp4.i, label %if.then5.i, label %if.end6.i
 
 if.then5.i:                                       ; preds = %if.else.i
   br label %if.end6.i
 
 if.end6.i:                                        ; preds = %if.then5.i, %if.else.i, %if.then.i
-  %d.addr.0.i = phi double [ %call1.i, %if.then5.i ], [ %13, %if.else.i ], [ %fneg.i, %if.then.i ]
+  %d.addr.0.i = phi double [ %call1.i, %if.then5.i ], [ %12, %if.else.i ], [ %fneg.i, %if.then.i ]
   %cmp7.i = fcmp olt double %d.addr.0.i, 0.000000e+00
   %fneg10.i = fneg double %d.addr.0.i
   %d.addr.1.i = select i1 %cmp7.i, double %fneg10.i, double %d.addr.0.i
@@ -1716,13 +1716,13 @@ if.then15.i45:                                    ; preds = %if.end6.i38
 
 _ZN6icu_7517util64_fromDoubleEd.exit48:           ; preds = %_ZN6icu_7517util64_fromDoubleEd.exit, %if.end6.i38, %if.then15.i45
   %result.0.i31 = phi i64 [ 0, %_ZN6icu_7517util64_fromDoubleEd.exit ], [ %sub.i46, %if.then15.i45 ], [ %conv13.i44, %if.end6.i38 ]
-  %14 = load i32, ptr %fCount.i, align 8
-  %cmp1687.not = icmp eq i32 %14, 0
+  %13 = load i32, ptr %fCount.i, align 8
+  %cmp1687.not = icmp eq i32 %13, 0
   %.pre.pre = load ptr, ptr %rules, align 8
   br i1 %cmp1687.not, label %for.end31, label %for.body17.lr.ph
 
 for.body17.lr.ph:                                 ; preds = %_ZN6icu_7517util64_fromDoubleEd.exit48
-  %wide.trip.count99 = zext i32 %14 to i64
+  %wide.trip.count99 = zext i32 %13 to i64
   br label %for.body17
 
 for.body17:                                       ; preds = %for.body17.lr.ph, %for.inc29
@@ -1730,9 +1730,9 @@ for.body17:                                       ; preds = %for.body17.lr.ph, %
   %winner.089 = phi i32 [ 0, %for.body17.lr.ph ], [ %winner.2, %for.inc29 ]
   %difference.088 = phi i64 [ %result.0.i31, %for.body17.lr.ph ], [ %difference.1, %for.inc29 ]
   %arrayidx.i53 = getelementptr inbounds nuw ptr, ptr %.pre.pre, i64 %indvars.iv96
-  %15 = load ptr, ptr %arrayidx.i53, align 8
-  %16 = load i64, ptr %15, align 8
-  %mul = mul nsw i64 %16, %result.0.i
+  %14 = load ptr, ptr %arrayidx.i53, align 8
+  %15 = load i64, ptr %14, align 8
+  %mul = mul nsw i64 %15, %result.0.i
   %rem = srem i64 %mul, %leastCommonMultiple.0.lcssa
   %sub = sub nsw i64 %leastCommonMultiple.0.lcssa, %rem
   %spec.select = tail call i64 @llvm.smin.i64(i64 %sub, i64 %rem)
@@ -1741,36 +1741,36 @@ for.body17:                                       ; preds = %for.body17.lr.ph, %
 
 if.then24:                                        ; preds = %for.body17
   %cmp25 = icmp eq i64 %spec.select, 0
-  %17 = trunc nuw i64 %indvars.iv96 to i32
+  %16 = trunc nuw i64 %indvars.iv96 to i32
   br i1 %cmp25, label %for.end31, label %for.inc29
 
 for.inc29:                                        ; preds = %for.body17, %if.then24
   %difference.1 = phi i64 [ %spec.select, %if.then24 ], [ %difference.088, %for.body17 ]
-  %winner.2 = phi i32 [ %17, %if.then24 ], [ %winner.089, %for.body17 ]
+  %winner.2 = phi i32 [ %16, %if.then24 ], [ %winner.089, %for.body17 ]
   %indvars.iv.next97 = add nuw nsw i64 %indvars.iv96, 1
   %exitcond100.not = icmp eq i64 %indvars.iv.next97, %wide.trip.count99
   br i1 %exitcond100.not, label %for.end31, label %for.body17, !llvm.loop !24
 
 for.end31:                                        ; preds = %for.inc29, %if.then24, %_ZN6icu_7517util64_fromDoubleEd.exit48
-  %winner.1 = phi i32 [ 0, %_ZN6icu_7517util64_fromDoubleEd.exit48 ], [ %17, %if.then24 ], [ %winner.2, %for.inc29 ]
+  %winner.1 = phi i32 [ 0, %_ZN6icu_7517util64_fromDoubleEd.exit48 ], [ %16, %if.then24 ], [ %winner.2, %for.inc29 ]
   %add = add nsw i32 %winner.1, 1
-  %cmp34 = icmp ult i32 %add, %14
+  %cmp34 = icmp ult i32 %add, %13
   br i1 %cmp34, label %land.lhs.true, label %if.end54
 
 land.lhs.true:                                    ; preds = %for.end31
   %idxprom.i59 = zext i32 %add to i64
   %arrayidx.i60 = getelementptr inbounds nuw ptr, ptr %.pre.pre, i64 %idxprom.i59
-  %18 = load ptr, ptr %arrayidx.i60, align 8
-  %19 = load i64, ptr %18, align 8
+  %17 = load ptr, ptr %arrayidx.i60, align 8
+  %18 = load i64, ptr %17, align 8
   %idxprom.i65 = zext i32 %winner.1 to i64
   %arrayidx.i66 = getelementptr inbounds nuw ptr, ptr %.pre.pre, i64 %idxprom.i65
-  %20 = load ptr, ptr %arrayidx.i66, align 8
-  %21 = load i64, ptr %20, align 8
-  %cmp4283 = icmp eq i64 %19, %21
+  %19 = load ptr, ptr %arrayidx.i66, align 8
+  %20 = load i64, ptr %19, align 8
+  %cmp4283 = icmp eq i64 %18, %20
   br i1 %cmp4283, label %cond.true.i70, label %cond.true.i76
 
 cond.true.i70:                                    ; preds = %land.lhs.true
-  %conv47 = sitofp i64 %19 to double
+  %conv47 = sitofp i64 %18 to double
   %mul48 = fmul double %number, %conv47
   %cmp49 = fcmp olt double %mul48, 5.000000e-01
   %cmp50 = fcmp oge double %mul48, 2.000000e+00
@@ -1786,11 +1786,11 @@ cond.true.i76:                                    ; preds = %cond.true.i70, %lan
   %winner.3103 = phi i32 [ %winner.1, %if.end54 ], [ %winner.1, %land.lhs.true ], [ %spec.select22, %cond.true.i70 ]
   %idxprom.i77 = zext i32 %winner.3103 to i64
   %arrayidx.i78 = getelementptr inbounds nuw ptr, ptr %.pre.pre, i64 %idxprom.i77
-  %22 = load ptr, ptr %arrayidx.i78, align 8
+  %21 = load ptr, ptr %arrayidx.i78, align 8
   br label %_ZNK6icu_7510NFRuleListixEj.exit80
 
 _ZNK6icu_7510NFRuleListixEj.exit80:               ; preds = %if.end54, %cond.true.i76
-  %cond.i79 = phi ptr [ %22, %cond.true.i76 ], [ null, %if.end54 ]
+  %cond.i79 = phi ptr [ %21, %cond.true.i76 ], [ null, %if.end54 ]
   ret ptr %cond.i79
 }
 
