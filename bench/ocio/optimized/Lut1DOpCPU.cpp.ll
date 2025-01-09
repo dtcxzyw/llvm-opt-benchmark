@@ -221258,31 +221258,148 @@ _ZN9Imath_3_14halfC2Ef.exit:                      ; preds = %if.then4.i.i, %if.e
   %retval.0.i.i = phi i16 [ %conv19.i.i, %if.end.i.i ], [ %conv26.i.i, %if.then23.i.i ], [ %conv36.i.i, %if.end27.i.i ], [ %conv6.i.i, %if.then4.i.i ], [ %conv.i.i, %if.end37.i.i ], [ %inc.i.i, %if.then55.i.i ], [ %conv49.i.i, %lor.lhs.false.i.i ]
   %6 = and i16 %retval.0.i.i, 32767
   %7 = icmp eq i16 %6, 31744
-  br i1 %7, label %_ZNK9Imath_3_14halfcvfEv.exit, label %if.end
+  br i1 %7, label %if.then, label %_ZN9Imath_3_14halfC2Ef.exit.if.end_crit_edge
 
-_ZNK9Imath_3_14halfcvfEv.exit:                    ; preds = %_ZN9Imath_3_14halfC2Ef.exit
-  %8 = and i16 %retval.0.i.i, -32768
-  %or35.i.i.i = or disjoint i16 %8, 31743
-  %h.signext.i.i = sext i16 %retval.0.i.i to i32
-  %shl3.i.i = and i32 %h.signext.i.i, -2147483648
-  %add.i.i8 = or disjoint i32 %shl3.i.i, 1199562752
-  %9 = bitcast i32 %add.i.i8 to float
+_ZN9Imath_3_14halfC2Ef.exit.if.end_crit_edge:     ; preds = %_ZN9Imath_3_14halfC2Ef.exit
+  %.pre168 = zext i16 %retval.0.i.i to i32
+  %.pre169 = shl nuw nsw i32 %.pre168, 13
+  %.pre171 = and i32 %.pre169, 268427264
+  %.pre172 = sext i16 %retval.0.i.i to i32
+  %.pre173 = and i32 %.pre172, -2147483648
   br label %if.end
 
-if.end:                                           ; preds = %_ZNK9Imath_3_14halfcvfEv.exit, %_ZN9Imath_3_14halfC2Ef.exit
-  %halfVal.sroa.0.0 = phi i16 [ %or35.i.i.i, %_ZNK9Imath_3_14halfcvfEv.exit ], [ %retval.0.i.i, %_ZN9Imath_3_14halfC2Ef.exit ]
-  %fIn.addr.0 = phi float [ %9, %_ZNK9Imath_3_14halfcvfEv.exit ], [ %fIn, %_ZN9Imath_3_14halfC2Ef.exit ]
-  %conv.i.i9 = zext i16 %halfVal.sroa.0.0 to i32
-  %10 = shl nuw nsw i32 %conv.i.i9, 13
-  %shr.i.i10 = and i32 %10, 268427264
-  %h.signext.i.i11 = sext i16 %halfVal.sroa.0.0 to i32
-  %shl3.i.i12 = and i32 %h.signext.i.i11, -2147483648
-  %cmp.i.i13 = icmp samesign ugt i32 %shr.i.i10, 8388607
+if.then:                                          ; preds = %_ZN9Imath_3_14halfC2Ef.exit
+  %cmp.i = icmp slt i16 %retval.0.i.i, 0
+  %conv = select i1 %cmp.i, float -6.550400e+04, float 6.550400e+04
+  %8 = bitcast float %conv to i32
+  %9 = tail call float @llvm.fabs.f32(float %conv)
+  %and.i.i.i = bitcast float %9 to i32
+  %shr.i.i.i = lshr i32 %8, 16
+  %10 = trunc nuw i32 %shr.i.i.i to i16
+  %conv.i.i.i = and i16 %10, -32768
+  %cmp.i.i.i = icmp samesign ugt i32 %and.i.i.i, 947912703
+  br i1 %cmp.i.i.i, label %if.then.i.i.i, label %if.end37.i.i.i
+
+if.then.i.i.i:                                    ; preds = %if.then
+  %cmp2.i.i.i = icmp samesign ugt i32 %and.i.i.i, 2139095039
+  br i1 %cmp2.i.i.i, label %if.then4.i.i.i, label %if.end20.i.i.i
+
+if.then4.i.i.i:                                   ; preds = %if.then.i.i.i
+  %conv6.i.i.i = or disjoint i16 %conv.i.i.i, 31744
+  %cmp7.i.i.i = icmp eq i32 %and.i.i.i, 2139095040
+  br i1 %cmp7.i.i.i, label %_ZN9Imath_3_14halfaSEf.exit, label %if.end.i.i.i
+
+if.end.i.i.i:                                     ; preds = %if.then4.i.i.i
+  %and9.i.i.i = lshr i32 %and.i.i.i, 13
+  %shr10.i.i.i = and i32 %and9.i.i.i, 1023
+  %cmp15.i.i.i = icmp eq i32 %shr10.i.i.i, 0
+  %11 = zext i1 %cmp15.i.i.i to i16
+  %12 = trunc nuw nsw i32 %shr10.i.i.i to i16
+  %13 = or i16 %12, %11
+  %conv19.i.i.i = or disjoint i16 %13, %conv6.i.i.i
+  br label %_ZN9Imath_3_14halfaSEf.exit
+
+if.end20.i.i.i:                                   ; preds = %if.then.i.i.i
+  %cmp21.i.i.i = icmp samesign ugt i32 %and.i.i.i, 1199566847
+  br i1 %cmp21.i.i.i, label %if.then23.i.i.i, label %if.end27.i.i.i
+
+if.then23.i.i.i:                                  ; preds = %if.end20.i.i.i
+  %conv26.i.i.i = or disjoint i16 %conv.i.i.i, 31744
+  br label %_ZN9Imath_3_14halfaSEf.exit
+
+if.end27.i.i.i:                                   ; preds = %if.end20.i.i.i
+  %add.i.i.i = add nuw nsw i32 %and.i.i.i, 134221823
+  %shr28.i.i.i = lshr i32 %and.i.i.i, 13
+  %and29.i.i.i = and i32 %shr28.i.i.i, 1
+  %add30.i.i.i = add nuw nsw i32 %add.i.i.i, %and29.i.i.i
+  %shr31.i.i.i = lshr i32 %add30.i.i.i, 13
+  %conv32.i.i.i = and i32 %shr.i.i.i, 32768
+  %or35.i.i.i = or i32 %shr31.i.i.i, %conv32.i.i.i
+  %conv36.i.i.i = trunc i32 %or35.i.i.i to i16
+  br label %_ZN9Imath_3_14halfaSEf.exit
+
+if.end37.i.i.i:                                   ; preds = %if.then
+  %cmp38.i.i.i = icmp samesign ult i32 %and.i.i.i, 855638017
+  br i1 %cmp38.i.i.i, label %_ZN9Imath_3_14halfaSEf.exit, label %if.end40.i.i.i
+
+if.end40.i.i.i:                                   ; preds = %if.end37.i.i.i
+  %shr41.i.i.i = lshr i32 %and.i.i.i, 23
+  %sub42.i.i.i = sub nuw nsw i32 126, %shr41.i.i.i
+  %and43.i.i.i = and i32 %and.i.i.i, 8388607
+  %or44.i.i.i = or disjoint i32 %and43.i.i.i, 8388608
+  %sub45.i.i.i = add nsw i32 %shr41.i.i.i, -94
+  %shl.i.i.i = shl i32 %or44.i.i.i, %sub45.i.i.i
+  %shr46.i.i.i = lshr i32 %or44.i.i.i, %sub42.i.i.i
+  %conv47.i.i.i = and i32 %shr.i.i.i, 32768
+  %or48.i.i.i = or i32 %shr46.i.i.i, %conv47.i.i.i
+  %conv49.i.i.i = trunc nuw i32 %or48.i.i.i to i16
+  %cmp50.i.i.i = icmp ugt i32 %shl.i.i.i, -2147483648
+  br i1 %cmp50.i.i.i, label %if.then55.i.i.i, label %lor.lhs.false.i.i.i
+
+lor.lhs.false.i.i.i:                              ; preds = %if.end40.i.i.i
+  %cmp51.i.i.i = icmp ne i32 %shl.i.i.i, -2147483648
+  %and53.i.i.i = and i32 %shr46.i.i.i, 1
+  %cmp54.not.i.i.i = icmp eq i32 %and53.i.i.i, 0
+  %or.cond.i.i.i = select i1 %cmp51.i.i.i, i1 true, i1 %cmp54.not.i.i.i
+  br i1 %or.cond.i.i.i, label %_ZN9Imath_3_14halfaSEf.exit, label %if.then55.i.i.i
+
+if.then55.i.i.i:                                  ; preds = %lor.lhs.false.i.i.i, %if.end40.i.i.i
+  %inc.i.i.i = add nuw i16 %conv49.i.i.i, 1
+  br label %_ZN9Imath_3_14halfaSEf.exit
+
+_ZN9Imath_3_14halfaSEf.exit:                      ; preds = %if.then4.i.i.i, %if.end.i.i.i, %if.then23.i.i.i, %if.end27.i.i.i, %if.end37.i.i.i, %lor.lhs.false.i.i.i, %if.then55.i.i.i
+  %retval.0.i.i.i = phi i16 [ %conv19.i.i.i, %if.end.i.i.i ], [ %conv26.i.i.i, %if.then23.i.i.i ], [ %conv36.i.i.i, %if.end27.i.i.i ], [ %conv6.i.i.i, %if.then4.i.i.i ], [ %conv.i.i.i, %if.end37.i.i.i ], [ %inc.i.i.i, %if.then55.i.i.i ], [ %conv49.i.i.i, %lor.lhs.false.i.i.i ]
+  %conv.i.i4 = zext i16 %retval.0.i.i.i to i32
+  %14 = shl nuw nsw i32 %conv.i.i4, 13
+  %shr.i.i5 = and i32 %14, 268427264
+  %h.signext.i.i = sext i16 %retval.0.i.i.i to i32
+  %shl3.i.i = and i32 %h.signext.i.i, -2147483648
+  %cmp.i.i6 = icmp samesign ugt i32 %shr.i.i5, 8388607
+  br i1 %cmp.i.i6, label %if.then.i.i7, label %if.else9.i.i
+
+if.then.i.i7:                                     ; preds = %_ZN9Imath_3_14halfaSEf.exit
+  %or.i.i = or disjoint i32 %shr.i.i5, %shl3.i.i
+  %cmp5.i.i = icmp samesign ult i32 %shr.i.i5, 260046848
+  br i1 %cmp5.i.i, label %if.then7.i.i, label %if.else.i.i
+
+if.then7.i.i:                                     ; preds = %if.then.i.i7
+  %add.i.i8 = add nuw nsw i32 %or.i.i, 939524096
+  br label %_ZNK9Imath_3_14halfcvfEv.exit
+
+if.else.i.i:                                      ; preds = %if.then.i.i7
+  %or8.i.i = or i32 %or.i.i, 2139095040
+  br label %_ZNK9Imath_3_14halfcvfEv.exit
+
+if.else9.i.i:                                     ; preds = %_ZN9Imath_3_14halfaSEf.exit
+  %cmp10.not.i.i = icmp eq i32 %shr.i.i5, 0
+  br i1 %cmp10.not.i.i, label %_ZNK9Imath_3_14halfcvfEv.exit, label %if.then11.i.i
+
+if.then11.i.i:                                    ; preds = %if.else9.i.i
+  %15 = tail call range(i32 9, 33) i32 @llvm.ctlz.i32(i32 %shr.i.i5, i1 true)
+  %sub.i.i = add nsw i32 %15, -8
+  %shl13.i.i = shl i32 %shr.i.i5, %sub.i.i
+  %or12.i.i = or i32 %shl3.i.i, %shl13.i.i
+  %or14.i.i = or i32 %or12.i.i, 947912704
+  %shl15.i.i = shl nuw nsw i32 %sub.i.i, 23
+  %sub16.i.i = sub nuw i32 %or14.i.i, %shl15.i.i
+  br label %_ZNK9Imath_3_14halfcvfEv.exit
+
+_ZNK9Imath_3_14halfcvfEv.exit:                    ; preds = %if.then7.i.i, %if.else.i.i, %if.else9.i.i, %if.then11.i.i
+  %v.sroa.0.0.i.i = phi i32 [ %add.i.i8, %if.then7.i.i ], [ %or8.i.i, %if.else.i.i ], [ %sub16.i.i, %if.then11.i.i ], [ %shl3.i.i, %if.else9.i.i ]
+  %16 = bitcast i32 %v.sroa.0.0.i.i to float
+  br label %if.end
+
+if.end:                                           ; preds = %_ZN9Imath_3_14halfC2Ef.exit.if.end_crit_edge, %_ZNK9Imath_3_14halfcvfEv.exit
+  %shl3.i.i12.pre-phi = phi i32 [ %.pre173, %_ZN9Imath_3_14halfC2Ef.exit.if.end_crit_edge ], [ %shl3.i.i, %_ZNK9Imath_3_14halfcvfEv.exit ]
+  %shr.i.i10.pre-phi = phi i32 [ %.pre171, %_ZN9Imath_3_14halfC2Ef.exit.if.end_crit_edge ], [ %shr.i.i5, %_ZNK9Imath_3_14halfcvfEv.exit ]
+  %halfVal.sroa.0.0 = phi i16 [ %retval.0.i.i, %_ZN9Imath_3_14halfC2Ef.exit.if.end_crit_edge ], [ %retval.0.i.i.i, %_ZNK9Imath_3_14halfcvfEv.exit ]
+  %fIn.addr.0 = phi float [ %fIn, %_ZN9Imath_3_14halfC2Ef.exit.if.end_crit_edge ], [ %16, %_ZNK9Imath_3_14halfcvfEv.exit ]
+  %cmp.i.i13 = icmp samesign ugt i32 %shr.i.i10.pre-phi, 8388607
   br i1 %cmp.i.i13, label %if.then.i.i24, label %if.else9.i.i14
 
 if.then.i.i24:                                    ; preds = %if.end
-  %or.i.i25 = or disjoint i32 %shr.i.i10, %shl3.i.i12
-  %cmp5.i.i26 = icmp samesign ult i32 %shr.i.i10, 260046848
+  %or.i.i25 = or disjoint i32 %shr.i.i10.pre-phi, %shl3.i.i12.pre-phi
+  %cmp5.i.i26 = icmp samesign ult i32 %shr.i.i10.pre-phi, 260046848
   br i1 %cmp5.i.i26, label %if.then7.i.i29, label %if.else.i.i27
 
 if.then7.i.i29:                                   ; preds = %if.then.i.i24
@@ -221294,25 +221411,25 @@ if.else.i.i27:                                    ; preds = %if.then.i.i24
   br label %_ZNK9Imath_3_14halfcvfEv.exit31
 
 if.else9.i.i14:                                   ; preds = %if.end
-  %cmp10.not.i.i15 = icmp eq i32 %shr.i.i10, 0
+  %cmp10.not.i.i15 = icmp eq i32 %shr.i.i10.pre-phi, 0
   br i1 %cmp10.not.i.i15, label %_ZNK9Imath_3_14halfcvfEv.exit31, label %if.then11.i.i16
 
 if.then11.i.i16:                                  ; preds = %if.else9.i.i14
-  %11 = tail call range(i32 9, 33) i32 @llvm.ctlz.i32(i32 %shr.i.i10, i1 true)
-  %sub.i.i17 = add nsw i32 %11, -8
-  %shl13.i.i18 = shl i32 %shr.i.i10, %sub.i.i17
-  %or12.i.i19 = or i32 %shl3.i.i12, %shl13.i.i18
+  %17 = tail call range(i32 9, 33) i32 @llvm.ctlz.i32(i32 %shr.i.i10.pre-phi, i1 true)
+  %sub.i.i17 = add nsw i32 %17, -8
+  %shl13.i.i18 = shl i32 %shr.i.i10.pre-phi, %sub.i.i17
+  %or12.i.i19 = or i32 %shl3.i.i12.pre-phi, %shl13.i.i18
   %or14.i.i20 = or i32 %or12.i.i19, 947912704
   %shl15.i.i21 = shl nuw nsw i32 %sub.i.i17, 23
   %sub16.i.i22 = sub nuw i32 %or14.i.i20, %shl15.i.i21
   br label %_ZNK9Imath_3_14halfcvfEv.exit31
 
 _ZNK9Imath_3_14halfcvfEv.exit31:                  ; preds = %if.then7.i.i29, %if.else.i.i27, %if.else9.i.i14, %if.then11.i.i16
-  %v.sroa.0.0.i.i23 = phi i32 [ %add.i.i30, %if.then7.i.i29 ], [ %or8.i.i28, %if.else.i.i27 ], [ %sub16.i.i22, %if.then11.i.i16 ], [ %shl3.i.i12, %if.else9.i.i14 ]
-  %12 = bitcast i32 %v.sroa.0.0.i.i23 to float
-  %13 = tail call noundef float @llvm.fabs.f32(float %12)
-  %14 = tail call noundef float @llvm.fabs.f32(float %fIn.addr.0)
-  %cmp = fcmp ogt float %13, %14
+  %v.sroa.0.0.i.i23 = phi i32 [ %add.i.i30, %if.then7.i.i29 ], [ %or8.i.i28, %if.else.i.i27 ], [ %sub16.i.i22, %if.then11.i.i16 ], [ %shl3.i.i12.pre-phi, %if.else9.i.i14 ]
+  %18 = bitcast i32 %v.sroa.0.0.i.i23 to float
+  %19 = tail call noundef float @llvm.fabs.f32(float %18)
+  %20 = tail call noundef float @llvm.fabs.f32(float %fIn.addr.0)
+  %cmp = fcmp ogt float %19, %20
   br i1 %cmp, label %if.then7, label %if.else
 
 if.then7:                                         ; preds = %_ZNK9Imath_3_14halfcvfEv.exit31
@@ -221326,25 +221443,137 @@ if.then7:                                         ; preds = %_ZNK9Imath_3_14half
 
 if.else:                                          ; preds = %_ZNK9Imath_3_14halfcvfEv.exit31
   %inc = add i16 %halfVal.sroa.0.0, 1
-  %15 = and i16 %inc, 32767
-  %16 = icmp eq i16 %15, 31744
-  br i1 %16, label %_ZNK9Imath_3_14halfcvfEv.exit105, label %if.end27
+  %21 = and i16 %inc, 32767
+  %22 = icmp eq i16 %21, 31744
+  br i1 %22, label %if.then18, label %if.end27
 
-_ZNK9Imath_3_14halfcvfEv.exit105:                 ; preds = %if.else
-  %17 = and i16 %inc, -32768
-  %or35.i.i.i70 = or disjoint i16 %17, 31743
-  %h.signext.i.i85 = sext i16 %inc to i32
+if.then18:                                        ; preds = %if.else
+  %cmp.i32 = icmp slt i16 %inc, 0
+  %conv21 = select i1 %cmp.i32, float -6.550400e+04, float 6.550400e+04
+  %23 = bitcast float %conv21 to i32
+  %24 = tail call float @llvm.fabs.f32(float %conv21)
+  %and.i.i.i33 = bitcast float %24 to i32
+  %shr.i.i.i34 = lshr i32 %23, 16
+  %25 = trunc nuw i32 %shr.i.i.i34 to i16
+  %conv.i.i.i35 = and i16 %25, -32768
+  %cmp.i.i.i36 = icmp samesign ugt i32 %and.i.i.i33, 947912703
+  br i1 %cmp.i.i.i36, label %if.then.i.i.i59, label %if.end37.i.i.i37
+
+if.then.i.i.i59:                                  ; preds = %if.then18
+  %cmp2.i.i.i60 = icmp samesign ugt i32 %and.i.i.i33, 2139095039
+  br i1 %cmp2.i.i.i60, label %if.then4.i.i.i74, label %if.end20.i.i.i61
+
+if.then4.i.i.i74:                                 ; preds = %if.then.i.i.i59
+  %conv6.i.i.i75 = or disjoint i16 %conv.i.i.i35, 31744
+  %cmp7.i.i.i76 = icmp eq i32 %and.i.i.i33, 2139095040
+  br i1 %cmp7.i.i.i76, label %_ZN9Imath_3_14halfaSEf.exit82, label %if.end.i.i.i77
+
+if.end.i.i.i77:                                   ; preds = %if.then4.i.i.i74
+  %and9.i.i.i78 = lshr i32 %and.i.i.i33, 13
+  %shr10.i.i.i79 = and i32 %and9.i.i.i78, 1023
+  %cmp15.i.i.i80 = icmp eq i32 %shr10.i.i.i79, 0
+  %26 = zext i1 %cmp15.i.i.i80 to i16
+  %27 = trunc nuw nsw i32 %shr10.i.i.i79 to i16
+  %28 = or i16 %27, %26
+  %conv19.i.i.i81 = or disjoint i16 %28, %conv6.i.i.i75
+  br label %_ZN9Imath_3_14halfaSEf.exit82
+
+if.end20.i.i.i61:                                 ; preds = %if.then.i.i.i59
+  %cmp21.i.i.i62 = icmp samesign ugt i32 %and.i.i.i33, 1199566847
+  br i1 %cmp21.i.i.i62, label %if.then23.i.i.i72, label %if.end27.i.i.i63
+
+if.then23.i.i.i72:                                ; preds = %if.end20.i.i.i61
+  %conv26.i.i.i73 = or disjoint i16 %conv.i.i.i35, 31744
+  br label %_ZN9Imath_3_14halfaSEf.exit82
+
+if.end27.i.i.i63:                                 ; preds = %if.end20.i.i.i61
+  %add.i.i.i64 = add nuw nsw i32 %and.i.i.i33, 134221823
+  %shr28.i.i.i65 = lshr i32 %and.i.i.i33, 13
+  %and29.i.i.i66 = and i32 %shr28.i.i.i65, 1
+  %add30.i.i.i67 = add nuw nsw i32 %add.i.i.i64, %and29.i.i.i66
+  %shr31.i.i.i68 = lshr i32 %add30.i.i.i67, 13
+  %conv32.i.i.i69 = and i32 %shr.i.i.i34, 32768
+  %or35.i.i.i70 = or i32 %shr31.i.i.i68, %conv32.i.i.i69
+  %conv36.i.i.i71 = trunc i32 %or35.i.i.i70 to i16
+  br label %_ZN9Imath_3_14halfaSEf.exit82
+
+if.end37.i.i.i37:                                 ; preds = %if.then18
+  %cmp38.i.i.i38 = icmp samesign ult i32 %and.i.i.i33, 855638017
+  br i1 %cmp38.i.i.i38, label %_ZN9Imath_3_14halfaSEf.exit82, label %if.end40.i.i.i39
+
+if.end40.i.i.i39:                                 ; preds = %if.end37.i.i.i37
+  %shr41.i.i.i40 = lshr i32 %and.i.i.i33, 23
+  %sub42.i.i.i41 = sub nuw nsw i32 126, %shr41.i.i.i40
+  %and43.i.i.i42 = and i32 %and.i.i.i33, 8388607
+  %or44.i.i.i43 = or disjoint i32 %and43.i.i.i42, 8388608
+  %sub45.i.i.i44 = add nsw i32 %shr41.i.i.i40, -94
+  %shl.i.i.i45 = shl i32 %or44.i.i.i43, %sub45.i.i.i44
+  %shr46.i.i.i46 = lshr i32 %or44.i.i.i43, %sub42.i.i.i41
+  %conv47.i.i.i47 = and i32 %shr.i.i.i34, 32768
+  %or48.i.i.i48 = or i32 %shr46.i.i.i46, %conv47.i.i.i47
+  %conv49.i.i.i49 = trunc nuw i32 %or48.i.i.i48 to i16
+  %cmp50.i.i.i50 = icmp ugt i32 %shl.i.i.i45, -2147483648
+  br i1 %cmp50.i.i.i50, label %if.then55.i.i.i56, label %lor.lhs.false.i.i.i51
+
+lor.lhs.false.i.i.i51:                            ; preds = %if.end40.i.i.i39
+  %cmp51.i.i.i52 = icmp ne i32 %shl.i.i.i45, -2147483648
+  %and53.i.i.i53 = and i32 %shr46.i.i.i46, 1
+  %cmp54.not.i.i.i54 = icmp eq i32 %and53.i.i.i53, 0
+  %or.cond.i.i.i55 = select i1 %cmp51.i.i.i52, i1 true, i1 %cmp54.not.i.i.i54
+  br i1 %or.cond.i.i.i55, label %_ZN9Imath_3_14halfaSEf.exit82, label %if.then55.i.i.i56
+
+if.then55.i.i.i56:                                ; preds = %lor.lhs.false.i.i.i51, %if.end40.i.i.i39
+  %inc.i.i.i57 = add nuw i16 %conv49.i.i.i49, 1
+  br label %_ZN9Imath_3_14halfaSEf.exit82
+
+_ZN9Imath_3_14halfaSEf.exit82:                    ; preds = %if.then4.i.i.i74, %if.end.i.i.i77, %if.then23.i.i.i72, %if.end27.i.i.i63, %if.end37.i.i.i37, %lor.lhs.false.i.i.i51, %if.then55.i.i.i56
+  %retval.0.i.i.i58 = phi i16 [ %conv19.i.i.i81, %if.end.i.i.i77 ], [ %conv26.i.i.i73, %if.then23.i.i.i72 ], [ %conv36.i.i.i71, %if.end27.i.i.i63 ], [ %conv6.i.i.i75, %if.then4.i.i.i74 ], [ %conv.i.i.i35, %if.end37.i.i.i37 ], [ %inc.i.i.i57, %if.then55.i.i.i56 ], [ %conv49.i.i.i49, %lor.lhs.false.i.i.i51 ]
+  %conv.i.i83 = zext i16 %retval.0.i.i.i58 to i32
+  %29 = shl nuw nsw i32 %conv.i.i83, 13
+  %shr.i.i84 = and i32 %29, 268427264
+  %h.signext.i.i85 = sext i16 %retval.0.i.i.i58 to i32
   %shl3.i.i86 = and i32 %h.signext.i.i85, -2147483648
-  %add.i.i104 = or disjoint i32 %shl3.i.i86, 1199562752
-  %18 = bitcast i32 %add.i.i104 to float
+  %cmp.i.i87 = icmp samesign ugt i32 %shr.i.i84, 8388607
+  br i1 %cmp.i.i87, label %if.then.i.i98, label %if.else9.i.i88
+
+if.then.i.i98:                                    ; preds = %_ZN9Imath_3_14halfaSEf.exit82
+  %or.i.i99 = or disjoint i32 %shr.i.i84, %shl3.i.i86
+  %cmp5.i.i100 = icmp samesign ult i32 %shr.i.i84, 260046848
+  br i1 %cmp5.i.i100, label %if.then7.i.i103, label %if.else.i.i101
+
+if.then7.i.i103:                                  ; preds = %if.then.i.i98
+  %add.i.i104 = add nuw nsw i32 %or.i.i99, 939524096
+  br label %_ZNK9Imath_3_14halfcvfEv.exit105
+
+if.else.i.i101:                                   ; preds = %if.then.i.i98
+  %or8.i.i102 = or i32 %or.i.i99, 2139095040
+  br label %_ZNK9Imath_3_14halfcvfEv.exit105
+
+if.else9.i.i88:                                   ; preds = %_ZN9Imath_3_14halfaSEf.exit82
+  %cmp10.not.i.i89 = icmp eq i32 %shr.i.i84, 0
+  br i1 %cmp10.not.i.i89, label %_ZNK9Imath_3_14halfcvfEv.exit105, label %if.then11.i.i90
+
+if.then11.i.i90:                                  ; preds = %if.else9.i.i88
+  %30 = tail call range(i32 9, 33) i32 @llvm.ctlz.i32(i32 %shr.i.i84, i1 true)
+  %sub.i.i91 = add nsw i32 %30, -8
+  %shl13.i.i92 = shl i32 %shr.i.i84, %sub.i.i91
+  %or12.i.i93 = or i32 %shl3.i.i86, %shl13.i.i92
+  %or14.i.i94 = or i32 %or12.i.i93, 947912704
+  %shl15.i.i95 = shl nuw nsw i32 %sub.i.i91, 23
+  %sub16.i.i96 = sub nuw i32 %or14.i.i94, %shl15.i.i95
+  br label %_ZNK9Imath_3_14halfcvfEv.exit105
+
+_ZNK9Imath_3_14halfcvfEv.exit105:                 ; preds = %if.then7.i.i103, %if.else.i.i101, %if.else9.i.i88, %if.then11.i.i90
+  %v.sroa.0.0.i.i97 = phi i32 [ %add.i.i104, %if.then7.i.i103 ], [ %or8.i.i102, %if.else.i.i101 ], [ %sub16.i.i96, %if.then11.i.i90 ], [ %shl3.i.i86, %if.else9.i.i88 ]
+  %31 = bitcast i32 %v.sroa.0.0.i.i97 to float
   br label %if.end27
 
 if.end27:                                         ; preds = %if.else, %_ZNK9Imath_3_14halfcvfEv.exit105, %if.then7
-  %shl3.i.i109.pre-phi = phi i32 [ %shl3.i.i12, %if.else ], [ %shl3.i.i12, %_ZNK9Imath_3_14halfcvfEv.exit105 ], [ %.pre167, %if.then7 ]
-  %shr.i.i107.pre-phi = phi i32 [ %shr.i.i10, %if.else ], [ %shr.i.i10, %_ZNK9Imath_3_14halfcvfEv.exit105 ], [ %.pre165, %if.then7 ]
-  %retval.sroa.5.0 = phi i16 [ %inc, %if.else ], [ %or35.i.i.i70, %_ZNK9Imath_3_14halfcvfEv.exit105 ], [ %halfVal.sroa.0.0, %if.then7 ]
+  %shl3.i.i109.pre-phi = phi i32 [ %shl3.i.i12.pre-phi, %if.else ], [ %shl3.i.i12.pre-phi, %_ZNK9Imath_3_14halfcvfEv.exit105 ], [ %.pre167, %if.then7 ]
+  %shr.i.i107.pre-phi = phi i32 [ %shr.i.i10.pre-phi, %if.else ], [ %shr.i.i10.pre-phi, %_ZNK9Imath_3_14halfcvfEv.exit105 ], [ %.pre165, %if.then7 ]
+  %retval.sroa.5.0 = phi i16 [ %inc, %if.else ], [ %retval.0.i.i.i58, %_ZNK9Imath_3_14halfcvfEv.exit105 ], [ %halfVal.sroa.0.0, %if.then7 ]
   %retval.sroa.0.0 = phi i16 [ %halfVal.sroa.0.0, %if.else ], [ %halfVal.sroa.0.0, %_ZNK9Imath_3_14halfcvfEv.exit105 ], [ %dec, %if.then7 ]
-  %fIn.addr.1 = phi float [ %fIn.addr.0, %if.else ], [ %18, %_ZNK9Imath_3_14halfcvfEv.exit105 ], [ %fIn.addr.0, %if.then7 ]
+  %fIn.addr.1 = phi float [ %fIn.addr.0, %if.else ], [ %31, %_ZNK9Imath_3_14halfcvfEv.exit105 ], [ %fIn.addr.0, %if.then7 ]
   %cmp.i.i110 = icmp samesign ugt i32 %shr.i.i107.pre-phi, 8388607
   br i1 %cmp.i.i110, label %if.then.i.i121, label %if.else9.i.i111
 
@@ -221366,8 +221595,8 @@ if.else9.i.i111:                                  ; preds = %if.end27
   br i1 %cmp10.not.i.i112, label %_ZNK9Imath_3_14halfcvfEv.exit128, label %if.then11.i.i113
 
 if.then11.i.i113:                                 ; preds = %if.else9.i.i111
-  %19 = tail call range(i32 9, 33) i32 @llvm.ctlz.i32(i32 %shr.i.i107.pre-phi, i1 true)
-  %sub.i.i114 = add nsw i32 %19, -8
+  %32 = tail call range(i32 9, 33) i32 @llvm.ctlz.i32(i32 %shr.i.i107.pre-phi, i1 true)
+  %sub.i.i114 = add nsw i32 %32, -8
   %shl13.i.i115 = shl i32 %shr.i.i107.pre-phi, %sub.i.i114
   %or12.i.i116 = or i32 %shl3.i.i109.pre-phi, %shl13.i.i115
   %or14.i.i117 = or i32 %or12.i.i116, 947912704
@@ -221378,8 +221607,8 @@ if.then11.i.i113:                                 ; preds = %if.else9.i.i111
 _ZNK9Imath_3_14halfcvfEv.exit128:                 ; preds = %if.then7.i.i126, %if.else.i.i124, %if.else9.i.i111, %if.then11.i.i113
   %v.sroa.0.0.i.i120 = phi i32 [ %add.i.i127, %if.then7.i.i126 ], [ %or8.i.i125, %if.else.i.i124 ], [ %sub16.i.i119, %if.then11.i.i113 ], [ %shl3.i.i109.pre-phi, %if.else9.i.i111 ]
   %conv.i.i129 = zext i16 %retval.sroa.5.0 to i32
-  %20 = shl nuw nsw i32 %conv.i.i129, 13
-  %shr.i.i130 = and i32 %20, 268427264
+  %33 = shl nuw nsw i32 %conv.i.i129, 13
+  %shr.i.i130 = and i32 %33, 268427264
   %h.signext.i.i131 = sext i16 %retval.sroa.5.0 to i32
   %shl3.i.i132 = and i32 %h.signext.i.i131, -2147483648
   %cmp.i.i133 = icmp samesign ugt i32 %shr.i.i130, 8388607
@@ -221403,8 +221632,8 @@ if.else9.i.i134:                                  ; preds = %_ZNK9Imath_3_14half
   br i1 %cmp10.not.i.i135, label %_ZNK9Imath_3_14halfcvfEv.exit151, label %if.then11.i.i136
 
 if.then11.i.i136:                                 ; preds = %if.else9.i.i134
-  %21 = tail call range(i32 9, 33) i32 @llvm.ctlz.i32(i32 %shr.i.i130, i1 true)
-  %sub.i.i137 = add nsw i32 %21, -8
+  %34 = tail call range(i32 9, 33) i32 @llvm.ctlz.i32(i32 %shr.i.i130, i1 true)
+  %sub.i.i137 = add nsw i32 %34, -8
   %shl13.i.i138 = shl i32 %shr.i.i130, %sub.i.i137
   %or12.i.i139 = or i32 %shl3.i.i132, %shl13.i.i138
   %or14.i.i140 = or i32 %or12.i.i139, 947912704
@@ -221414,15 +221643,15 @@ if.then11.i.i136:                                 ; preds = %if.else9.i.i134
 
 _ZNK9Imath_3_14halfcvfEv.exit151:                 ; preds = %if.then7.i.i149, %if.else.i.i147, %if.else9.i.i134, %if.then11.i.i136
   %v.sroa.0.0.i.i143 = phi i32 [ %add.i.i150, %if.then7.i.i149 ], [ %or8.i.i148, %if.else.i.i147 ], [ %sub16.i.i142, %if.then11.i.i136 ], [ %shl3.i.i132, %if.else9.i.i134 ]
-  %22 = bitcast i32 %v.sroa.0.0.i.i120 to float
-  %23 = bitcast i32 %v.sroa.0.0.i.i143 to float
-  %sub = fsub float %fIn.addr.1, %22
-  %sub32 = fsub float %23, %22
+  %35 = bitcast i32 %v.sroa.0.0.i.i120 to float
+  %36 = bitcast i32 %v.sroa.0.0.i.i143 to float
+  %sub = fsub float %fIn.addr.1, %35
+  %sub32 = fsub float %36, %35
   %div = fdiv float %sub, %sub32
   %.inv = fcmp ord float %div, 0.000000e+00
   %retval.sroa.9.0 = select i1 %.inv, float %div, float 0.000000e+00
-  %24 = bitcast float %retval.sroa.9.0 to i32
-  %retval.sroa.9.0.insert.ext = zext i32 %24 to i64
+  %37 = bitcast float %retval.sroa.9.0 to i32
+  %retval.sroa.9.0.insert.ext = zext i32 %37 to i64
   %retval.sroa.9.0.insert.shift = shl nuw i64 %retval.sroa.9.0.insert.ext, 32
   %retval.sroa.5.0.insert.ext = zext i16 %retval.sroa.5.0 to i64
   %retval.sroa.5.0.insert.shift = shl nuw nsw i64 %retval.sroa.5.0.insert.ext, 16

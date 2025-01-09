@@ -1318,55 +1318,54 @@ define hidden void @"_ZN6uu_fmt9linebreak15build_best_path28_$u7b$$u7b$closure$u
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define hidden { i64, float } @_ZN6uu_fmt9linebreak16compute_demerits17hd10ee69a08f3e8ccE(i64 noundef %0, i64 noundef %1, i64 noundef %2, float noundef %3) unnamed_addr #3 {
-  %5 = icmp ne i64 %0, 0
+  %5 = icmp eq i64 %0, 0
   %6 = sitofp i64 %0 to float
   %7 = uitofp i64 %1 to float
   %8 = fdiv float %6, %7
-  %.0 = select i1 %5, float %8, float 0.000000e+00
-  %9 = tail call float @llvm.fabs.f32(float %8)
+  %.0 = select i1 %5, float 0.000000e+00, float %8
+  %9 = tail call float @llvm.fabs.f32(float %.0)
   %10 = fcmp ogt float %9, 1.000000e+00
-  %11 = and i1 %5, %10
-  br i1 %11, label %18, label %12
+  br i1 %10, label %17, label %11
 
-12:                                               ; preds = %4
-  %13 = tail call float @llvm.powi.f32.i32(float %.0, i32 3)
-  %14 = tail call float @llvm.fabs.f32(float %13)
-  %15 = fmul float %14, 1.000000e+02
-  %16 = tail call i64 @llvm.fptosi.sat.i64.f32(float %15)
-  %17 = add i64 %16, 1
-  br label %18
+11:                                               ; preds = %4
+  %12 = tail call float @llvm.powi.f32.i32(float %.0, i32 3)
+  %13 = tail call float @llvm.fabs.f32(float %12)
+  %14 = fmul float %13, 1.000000e+02
+  %15 = tail call i64 @llvm.fptosi.sat.i64.f32(float %14)
+  %16 = add i64 %15, 1
+  br label %17
 
-18:                                               ; preds = %4, %12
-  %.013 = phi i64 [ %17, %12 ], [ 10000001, %4 ]
+17:                                               ; preds = %4, %11
+  %.013 = phi i64 [ %16, %11 ], [ 10000001, %4 ]
   %.not = icmp ult i64 %2, %1
-  br i1 %.not, label %19, label %"_ZN4core3num21_$LT$impl$u20$i64$GT$3pow17h46f3f76ba4990e7aE.llvm.6876384978452292205.exit"
+  br i1 %.not, label %18, label %"_ZN4core3num21_$LT$impl$u20$i64$GT$3pow17h46f3f76ba4990e7aE.llvm.6876384978452292205.exit"
 
-19:                                               ; preds = %18
-  %20 = sub nuw i64 %1, %2
-  %21 = uitofp i64 %20 to float
-  %22 = add i64 %1, -1
-  %23 = uitofp i64 %22 to float
-  %24 = fdiv float %21, %23
-  %25 = tail call float @llvm.powi.f32.i32(float %24, i32 3)
-  %26 = tail call float @llvm.fabs.f32(float %25)
-  %27 = fmul float %26, 3.000000e+02
-  %28 = tail call i64 @llvm.fptosi.sat.i64.f32(float %27)
+18:                                               ; preds = %17
+  %19 = sub nuw i64 %1, %2
+  %20 = uitofp i64 %19 to float
+  %21 = add i64 %1, -1
+  %22 = uitofp i64 %21 to float
+  %23 = fdiv float %20, %22
+  %24 = tail call float @llvm.powi.f32.i32(float %23, i32 3)
+  %25 = tail call float @llvm.fabs.f32(float %24)
+  %26 = fmul float %25, 3.000000e+02
+  %27 = tail call i64 @llvm.fptosi.sat.i64.f32(float %26)
   br label %"_ZN4core3num21_$LT$impl$u20$i64$GT$3pow17h46f3f76ba4990e7aE.llvm.6876384978452292205.exit"
 
-"_ZN4core3num21_$LT$impl$u20$i64$GT$3pow17h46f3f76ba4990e7aE.llvm.6876384978452292205.exit": ; preds = %18, %19
-  %.012 = phi i64 [ %28, %19 ], [ 0, %18 ]
-  %29 = fsub float %.0, %3
-  %30 = fmul float %29, 5.000000e-01
-  %31 = tail call float @llvm.powi.f32.i32(float %30, i32 3)
-  %32 = tail call float @llvm.fabs.f32(float %31)
-  %33 = fmul float %32, 6.000000e+02
-  %34 = tail call i64 @llvm.fptosi.sat.i64.f32(float %33)
-  %35 = add i64 %.013, %34
-  %36 = add i64 %35, %.012
-  %37 = mul i64 %36, %36
-  %38 = insertvalue { i64, float } poison, i64 %37, 0
-  %39 = insertvalue { i64, float } %38, float %.0, 1
-  ret { i64, float } %39
+"_ZN4core3num21_$LT$impl$u20$i64$GT$3pow17h46f3f76ba4990e7aE.llvm.6876384978452292205.exit": ; preds = %17, %18
+  %.012 = phi i64 [ %27, %18 ], [ 0, %17 ]
+  %28 = fsub float %.0, %3
+  %29 = fmul float %28, 5.000000e-01
+  %30 = tail call float @llvm.powi.f32.i32(float %29, i32 3)
+  %31 = tail call float @llvm.fabs.f32(float %30)
+  %32 = fmul float %31, 6.000000e+02
+  %33 = tail call i64 @llvm.fptosi.sat.i64.f32(float %32)
+  %34 = add i64 %.013, %33
+  %35 = add i64 %34, %.012
+  %36 = mul i64 %35, %35
+  %37 = insertvalue { i64, float } poison, i64 %36, 0
+  %38 = insertvalue { i64, float } %37, float %.0, 1
+  ret { i64, float } %38
 }
 
 ; Function Attrs: nonlazybind uwtable

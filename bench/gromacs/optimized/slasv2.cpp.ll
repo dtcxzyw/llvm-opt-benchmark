@@ -29,7 +29,7 @@ define void @slasv2_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
 20:                                               ; preds = %16
   store float %.0152, ptr %3, align 4
   store float %.0150, ptr %4, align 4
-  br label %94
+  br label %93
 
 21:                                               ; preds = %16
   %22 = fcmp ogt float %18, %.0150
@@ -66,87 +66,86 @@ define void @slasv2_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   %36 = fadd float %.0150, %33
   %37 = tail call noundef float @llvm.fabs.f32(float %36)
   %38 = fmul float %37, 0x3E80000000000000
-  %39 = fcmp uge float %35, %38
+  %39 = fcmp olt float %35, %38
   %40 = fdiv float %33, %.0150
-  %.0136 = select i1 %39, float %40, float 1.000000e+00
+  %.0136 = select i1 %39, float 1.000000e+00, float %40
   %41 = fdiv float %17, %.0153
   %42 = fsub float 2.000000e+00, %.0136
   %43 = fmul float %41, %41
   %44 = fmul float %42, %42
   %45 = fadd float %43, %44
   %sqrt = tail call float @llvm.sqrt.f32(float %45)
-  %46 = tail call float @llvm.fabs.f32(float %40)
+  %46 = tail call noundef float @llvm.fabs.f32(float %.0136)
   %47 = fcmp olt float %46, 0x3810000000000000
-  %48 = and i1 %47, %39
-  %49 = tail call float @llvm.fabs.f32(float %41)
-  %50 = tail call float @llvm.fmuladd.f32(float %.0136, float %.0136, float %43)
-  %sqrt174 = tail call float @llvm.sqrt.f32(float %50)
-  %.0137 = select i1 %48, float %49, float %sqrt174
-  %51 = fadd float %.0137, %sqrt
-  %52 = fmul float %51, 5.000000e-01
-  %53 = fdiv float %.0152, %52
-  store float %53, ptr %3, align 4
-  %54 = fmul float %.0150, %52
-  store float %54, ptr %4, align 4
-  %55 = tail call noundef float @llvm.fabs.f32(float %43)
-  %56 = fcmp olt float %55, 0x3810000000000000
-  br i1 %56, label %57, label %71
+  %48 = tail call float @llvm.fabs.f32(float %41)
+  %49 = tail call float @llvm.fmuladd.f32(float %.0136, float %.0136, float %43)
+  %sqrt174 = tail call float @llvm.sqrt.f32(float %49)
+  %.0137 = select i1 %47, float %48, float %sqrt174
+  %50 = fadd float %.0137, %sqrt
+  %51 = fmul float %50, 5.000000e-01
+  %52 = fdiv float %.0152, %51
+  store float %52, ptr %3, align 4
+  %53 = fmul float %.0150, %51
+  store float %53, ptr %4, align 4
+  %54 = tail call noundef float @llvm.fabs.f32(float %43)
+  %55 = fcmp olt float %54, 0x3810000000000000
+  br i1 %55, label %56, label %70
 
-57:                                               ; preds = %32
-  %58 = fcmp ogt float %.0153, 0.000000e+00
-  br i1 %48, label %59, label %65
+56:                                               ; preds = %32
+  %57 = fcmp ogt float %.0153, 0.000000e+00
+  br i1 %47, label %58, label %64
 
-59:                                               ; preds = %57
-  %60 = select i1 %58, double 2.000000e+00, double -2.000000e+00
-  %61 = fcmp ogt float %17, 0.000000e+00
-  %62 = fneg double %60
-  %63 = select i1 %61, double %60, double %62
-  %64 = fptrunc double %63 to float
-  br label %82
+58:                                               ; preds = %56
+  %59 = select i1 %57, double 2.000000e+00, double -2.000000e+00
+  %60 = fcmp ogt float %17, 0.000000e+00
+  %61 = fneg double %59
+  %62 = select i1 %60, double %59, double %61
+  %63 = fptrunc double %62 to float
+  br label %81
 
-65:                                               ; preds = %57
-  %66 = fneg float %33
-  %67 = select i1 %58, float %33, float %66
-  %68 = fdiv float %17, %67
-  %69 = fdiv float %41, %42
-  %70 = fadd float %68, %69
-  br label %82
+64:                                               ; preds = %56
+  %65 = fneg float %33
+  %66 = select i1 %57, float %33, float %65
+  %67 = fdiv float %17, %66
+  %68 = fdiv float %41, %42
+  %69 = fadd float %67, %68
+  br label %81
 
-71:                                               ; preds = %32
-  %72 = fadd float %42, %sqrt
-  %73 = fdiv float %41, %72
-  %74 = fadd float %.0136, %.0137
-  %75 = fdiv float %41, %74
-  %76 = fadd float %75, %73
-  %77 = fpext float %76 to double
-  %78 = fpext float %52 to double
-  %79 = fadd double %78, 1.000000e+00
-  %80 = fmul double %79, %77
-  %81 = fptrunc double %80 to float
-  br label %82
+70:                                               ; preds = %32
+  %71 = fadd float %42, %sqrt
+  %72 = fdiv float %41, %71
+  %73 = fadd float %.0136, %.0137
+  %74 = fdiv float %41, %73
+  %75 = fadd float %74, %72
+  %76 = fpext float %75 to double
+  %77 = fpext float %51 to double
+  %78 = fadd double %77, 1.000000e+00
+  %79 = fmul double %78, %76
+  %80 = fptrunc double %79 to float
+  br label %81
 
-82:                                               ; preds = %59, %65, %71
-  %.0149 = phi float [ %64, %59 ], [ %70, %65 ], [ %81, %71 ]
-  %83 = fmul float %.0149, %.0149
-  %84 = fpext float %83 to double
-  %85 = fadd double %84, 4.000000e+00
-  %sqrt175 = tail call double @llvm.sqrt.f64(double %85)
-  %86 = fptrunc double %sqrt175 to float
-  %87 = fdiv float 2.000000e+00, %86
-  %88 = fdiv float %.0149, %86
-  %89 = tail call float @llvm.fmuladd.f32(float %88, float %41, float %87)
-  %90 = fdiv float %89, %52
-  %91 = fdiv float %.0151, %.0153
-  %92 = fmul float %91, %88
-  %93 = fdiv float %92, %52
-  br label %94
+81:                                               ; preds = %58, %64, %70
+  %.0149 = phi float [ %63, %58 ], [ %69, %64 ], [ %80, %70 ]
+  %82 = fmul float %.0149, %.0149
+  %83 = fpext float %82 to double
+  %84 = fadd double %83, 4.000000e+00
+  %sqrt175 = tail call double @llvm.sqrt.f64(double %84)
+  %85 = fptrunc double %sqrt175 to float
+  %86 = fdiv float 2.000000e+00, %85
+  %87 = fdiv float %.0149, %85
+  %88 = tail call float @llvm.fmuladd.f32(float %87, float %41, float %86)
+  %89 = fdiv float %88, %51
+  %90 = fdiv float %.0151, %.0153
+  %91 = fmul float %90, %87
+  %92 = fdiv float %91, %51
+  br label %93
 
-94:                                               ; preds = %82, %20
-  %.0147 = phi float [ 1.000000e+00, %20 ], [ %90, %82 ]
-  %.0145 = phi float [ 1.000000e+00, %20 ], [ %87, %82 ]
-  %.0143 = phi float [ 0.000000e+00, %20 ], [ %93, %82 ]
-  %.0141 = phi float [ 0.000000e+00, %20 ], [ %88, %82 ]
-  %.1139 = phi i32 [ %.0138, %20 ], [ %.2140.ph, %82 ]
+93:                                               ; preds = %81, %20
+  %.0147 = phi float [ 1.000000e+00, %20 ], [ %89, %81 ]
+  %.0145 = phi float [ 1.000000e+00, %20 ], [ %86, %81 ]
+  %.0143 = phi float [ 0.000000e+00, %20 ], [ %92, %81 ]
+  %.0141 = phi float [ 0.000000e+00, %20 ], [ %87, %81 ]
+  %.1139 = phi i32 [ %.0138, %20 ], [ %.2140.ph, %81 ]
   %.0141..0147 = select i1 %14, float %.0141, float %.0147
   %.0145..0143 = select i1 %14, float %.0145, float %.0143
   %.0143..0145 = select i1 %14, float %.0143, float %.0145
@@ -155,63 +154,63 @@ define void @slasv2_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   store float %.0145..0143, ptr %7, align 4
   store float %.0143..0145, ptr %6, align 4
   store float %.0147..0141, ptr %5, align 4
-  switch i32 %.1139, label %96 [
+  switch i32 %.1139, label %95 [
     i32 1, label %.thread169
     i32 2, label %.thread172
   ]
 
-.thread169:                                       ; preds = %94
-  %95 = load float, ptr %6, align 4
+.thread169:                                       ; preds = %93
+  %94 = load float, ptr %6, align 4
   br label %.thread172
 
-96:                                               ; preds = %94
+95:                                               ; preds = %93
   br label %.thread172
 
-.thread172:                                       ; preds = %94, %.thread, %.thread169, %96
-  %.0147..0141185.sink = phi float [ %95, %.thread169 ], [ %.0147..0141, %96 ], [ 1.000000e+00, %.thread ], [ %.0147..0141, %94 ]
-  %.sink196 = phi ptr [ %8, %.thread169 ], [ %7, %96 ], [ %8, %.thread ], [ %8, %94 ]
-  %.sink = phi ptr [ %0, %.thread169 ], [ %2, %96 ], [ %1, %.thread ], [ %1, %94 ]
-  %97 = fcmp ogt float %.0147..0141185.sink, 0.000000e+00
-  %98 = load float, ptr %.sink196, align 4
-  %99 = fcmp ogt float %98, 0.000000e+00
-  %100 = select i1 %99, double 1.000000e+00, double -1.000000e+00
-  %101 = fneg double %100
-  %102 = select i1 %97, double %100, double %101
-  %103 = load float, ptr %.sink, align 4
-  %104 = fcmp ogt float %103, 0.000000e+00
-  %105 = fneg double %102
-  %106 = select i1 %104, double %102, double %105
-  %.2 = fptrunc double %106 to float
-  %107 = fcmp olt float %.2, 0.000000e+00
-  br i1 %107, label %108, label %111
+.thread172:                                       ; preds = %93, %.thread, %.thread169, %95
+  %.0147..0141185.sink = phi float [ %94, %.thread169 ], [ %.0147..0141, %95 ], [ 1.000000e+00, %.thread ], [ %.0147..0141, %93 ]
+  %.sink196 = phi ptr [ %8, %.thread169 ], [ %7, %95 ], [ %8, %.thread ], [ %8, %93 ]
+  %.sink = phi ptr [ %0, %.thread169 ], [ %2, %95 ], [ %1, %.thread ], [ %1, %93 ]
+  %96 = fcmp ogt float %.0147..0141185.sink, 0.000000e+00
+  %97 = load float, ptr %.sink196, align 4
+  %98 = fcmp ogt float %97, 0.000000e+00
+  %99 = select i1 %98, double 1.000000e+00, double -1.000000e+00
+  %100 = fneg double %99
+  %101 = select i1 %96, double %99, double %100
+  %102 = load float, ptr %.sink, align 4
+  %103 = fcmp ogt float %102, 0.000000e+00
+  %104 = fneg double %101
+  %105 = select i1 %103, double %101, double %104
+  %.2 = fptrunc double %105 to float
+  %106 = fcmp olt float %.2, 0.000000e+00
+  br i1 %106, label %107, label %110
 
-108:                                              ; preds = %.thread172
-  %109 = load float, ptr %4, align 4
-  %110 = fneg float %109
-  store float %110, ptr %4, align 4
-  br label %111
+107:                                              ; preds = %.thread172
+  %108 = load float, ptr %4, align 4
+  %109 = fneg float %108
+  store float %109, ptr %4, align 4
+  br label %110
 
-111:                                              ; preds = %108, %.thread172
-  %112 = fpext float %.2 to double
-  %113 = load float, ptr %0, align 4
-  %114 = fcmp ogt float %113, 0.000000e+00
-  %115 = fneg double %112
-  %116 = select i1 %114, double %112, double %115
-  %117 = load float, ptr %2, align 4
-  %118 = fcmp ogt float %117, 0.000000e+00
-  %119 = fneg double %116
-  %120 = select i1 %118, double %116, double %119
-  %121 = fptrunc double %120 to float
-  %122 = fcmp olt float %121, 0.000000e+00
-  br i1 %122, label %123, label %126
+110:                                              ; preds = %107, %.thread172
+  %111 = fpext float %.2 to double
+  %112 = load float, ptr %0, align 4
+  %113 = fcmp ogt float %112, 0.000000e+00
+  %114 = fneg double %111
+  %115 = select i1 %113, double %111, double %114
+  %116 = load float, ptr %2, align 4
+  %117 = fcmp ogt float %116, 0.000000e+00
+  %118 = fneg double %115
+  %119 = select i1 %117, double %115, double %118
+  %120 = fptrunc double %119 to float
+  %121 = fcmp olt float %120, 0.000000e+00
+  br i1 %121, label %122, label %125
 
-123:                                              ; preds = %111
-  %124 = load float, ptr %3, align 4
-  %125 = fneg float %124
-  store float %125, ptr %3, align 4
-  br label %126
+122:                                              ; preds = %110
+  %123 = load float, ptr %3, align 4
+  %124 = fneg float %123
+  store float %124, ptr %3, align 4
+  br label %125
 
-126:                                              ; preds = %123, %111
+125:                                              ; preds = %122, %110
   ret void
 }
 
