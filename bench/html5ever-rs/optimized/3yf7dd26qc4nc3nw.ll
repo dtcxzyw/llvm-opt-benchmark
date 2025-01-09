@@ -1409,7 +1409,7 @@ define hidden noundef range(i64 1, 0) i64 @"_ZN4core6result19Result$LT$T$C$E$GT$
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
-  %8 = call noundef i64 @"_ZN115_$LT$string_cache..atom..Atom$LT$Static$GT$$u20$as$u20$core..convert..From$LT$alloc..borrow..Cow$LT$str$GT$$GT$$GT$4from28_$u7b$$u7b$closure$u7d$$u7d$17h7a2397967a282b0eE.llvm.13834333043177491542"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %5, ptr noalias nocapture noundef nonnull align 4 dereferenceable(12) %7)
+  %8 = call noundef i64 @"_ZN115_$LT$string_cache..atom..Atom$LT$Static$GT$$u20$as$u20$core..convert..From$LT$alloc..borrow..Cow$LT$str$GT$$GT$$GT$4from28_$u7b$$u7b$closure$u7d$$u7d$17h7a2397967a282b0eE.llvm.13834333043177491542"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %5, ptr noalias nocapture noundef nonnull align 4 dereferenceable(12) %7), !range !29
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
   br label %"_ZN4core3ptr195drop_in_place$LT$$LT$string_cache..atom..Atom$LT$markup5ever..NamespaceStaticSet$GT$$u20$as$u20$core..convert..From$LT$alloc..borrow..Cow$LT$str$GT$$GT$$GT$..from..$u7b$$u7b$closure$u7d$$u7d$$GT$17h94a354e2a5079308E.llvm.13834333043177491542.exit"
 
@@ -1459,7 +1459,7 @@ define hidden noundef range(i64 1, 0) i64 @"_ZN4core6result19Result$LT$T$C$E$GT$
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
-  %8 = call noundef i64 @"_ZN115_$LT$string_cache..atom..Atom$LT$Static$GT$$u20$as$u20$core..convert..From$LT$alloc..borrow..Cow$LT$str$GT$$GT$$GT$4from28_$u7b$$u7b$closure$u7d$$u7d$17hc8eba757eeff65cfE.llvm.13834333043177491542"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %5, ptr noalias nocapture noundef nonnull align 4 dereferenceable(12) %7)
+  %8 = call noundef i64 @"_ZN115_$LT$string_cache..atom..Atom$LT$Static$GT$$u20$as$u20$core..convert..From$LT$alloc..borrow..Cow$LT$str$GT$$GT$$GT$4from28_$u7b$$u7b$closure$u7d$$u7d$17hc8eba757eeff65cfE.llvm.13834333043177491542"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %5, ptr noalias nocapture noundef nonnull align 4 dereferenceable(12) %7), !range !29
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
   br label %"_ZN4core3ptr195drop_in_place$LT$$LT$string_cache..atom..Atom$LT$markup5ever..LocalNameStaticSet$GT$$u20$as$u20$core..convert..From$LT$alloc..borrow..Cow$LT$str$GT$$GT$$GT$..from..$u7b$$u7b$closure$u7d$$u7d$$GT$17h64d1221d91732b5cE.llvm.13834333043177491542.exit"
 
@@ -1509,7 +1509,7 @@ define hidden noundef range(i64 1, 0) i64 @"_ZN4core6result19Result$LT$T$C$E$GT$
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
-  %8 = call noundef i64 @"_ZN115_$LT$string_cache..atom..Atom$LT$Static$GT$$u20$as$u20$core..convert..From$LT$alloc..borrow..Cow$LT$str$GT$$GT$$GT$4from28_$u7b$$u7b$closure$u7d$$u7d$17h262de3089577d10aE.llvm.13834333043177491542"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %5, ptr noalias nocapture noundef nonnull align 4 dereferenceable(12) %7)
+  %8 = call noundef i64 @"_ZN115_$LT$string_cache..atom..Atom$LT$Static$GT$$u20$as$u20$core..convert..From$LT$alloc..borrow..Cow$LT$str$GT$$GT$$GT$4from28_$u7b$$u7b$closure$u7d$$u7d$17h262de3089577d10aE.llvm.13834333043177491542"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %5, ptr noalias nocapture noundef nonnull align 4 dereferenceable(12) %7), !range !29
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
   br label %"_ZN4core3ptr192drop_in_place$LT$$LT$string_cache..atom..Atom$LT$markup5ever..PrefixStaticSet$GT$$u20$as$u20$core..convert..From$LT$alloc..borrow..Cow$LT$str$GT$$GT$$GT$..from..$u7b$$u7b$closure$u7d$$u7d$$GT$17hb4334b91b8492891E.llvm.13834333043177491542.exit"
 

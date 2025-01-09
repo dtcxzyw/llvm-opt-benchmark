@@ -12695,7 +12695,7 @@ define noundef range(i8 0, 5) i8 @"_ZN3hir7display79_$LT$impl$u20$hir_ty..displa
   br i1 %trunc, label %13, label %11
 
 11:                                               ; preds = %2
-  %12 = call noundef i8 @"_ZN3hir7display73_$LT$impl$u20$hir_ty..display..HirDisplay$u20$for$u20$hir..ConstParam$GT$7hir_fmt17hc12eb2ecef925ce3E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(12) %10, ptr noalias noundef nonnull align 8 dereferenceable(120) %1)
+  %12 = call noundef i8 @"_ZN3hir7display73_$LT$impl$u20$hir_ty..display..HirDisplay$u20$for$u20$hir..ConstParam$GT$7hir_fmt17hc12eb2ecef925ce3E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(12) %10, ptr noalias noundef nonnull align 8 dereferenceable(120) %1), !range !1953
   br label %15
 
 13:                                               ; preds = %2

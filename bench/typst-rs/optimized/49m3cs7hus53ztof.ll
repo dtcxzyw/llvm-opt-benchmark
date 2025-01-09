@@ -40566,7 +40566,7 @@ define hidden void @_ZN5typst4eval3ops4join17h255cd6fe4cc66ba1E(ptr noalias noca
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %29)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %28)
   %87 = invoke noundef i32 @_ZN5typst7symbols6symbol6Symbol3get17h46cbc01c2440e447E(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %85)
-          to label %145 unwind label %150
+          to label %145 unwind label %150, !range !3996
 
 88:                                               ; preds = %105, %93
   %89 = landingpad { ptr, i32 }
@@ -41092,7 +41092,7 @@ define hidden void @_ZN5typst4eval3ops4join17h255cd6fe4cc66ba1E(ptr noalias noca
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %41)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %39)
   %236 = invoke noundef i32 @_ZN5typst7symbols6symbol6Symbol3get17h46cbc01c2440e447E(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %235)
-          to label %244 unwind label %249
+          to label %244 unwind label %249, !range !3996
 
 237:                                              ; preds = %77
   %238 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -43046,7 +43046,7 @@ define hidden void @_ZN5typst4eval3ops3add17h91d2f1a96ea0416eE(ptr noalias nocap
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %48)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %47)
   %328 = invoke noundef i32 @_ZN5typst7symbols6symbol6Symbol3get17h46cbc01c2440e447E(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %326)
-          to label %388 unwind label %394
+          to label %388 unwind label %394, !range !3996
 
 329:                                              ; preds = %346, %334
   %330 = landingpad { ptr, i32 }
@@ -43602,7 +43602,7 @@ define hidden void @_ZN5typst4eval3ops3add17h91d2f1a96ea0416eE(ptr noalias nocap
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %60)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %58)
   %497 = invoke noundef i32 @_ZN5typst7symbols6symbol6Symbol3get17h46cbc01c2440e447E(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %496)
-          to label %505 unwind label %511
+          to label %505 unwind label %511, !range !3996
 
 498:                                              ; preds = %113
   %499 = getelementptr inbounds nuw i8, ptr %1, i64 8
