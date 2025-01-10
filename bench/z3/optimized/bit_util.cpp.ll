@@ -455,7 +455,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %arrayidx18 = getelementptr inbounds nuw i32, ptr %src, i64 %idxprom17
   %4 = load i32, ptr %arrayidx18, align 4
   %shl = shl i32 %4, %narrow
-  %or = or i32 %shl, %shr
+  %or = or disjoint i32 %shl, %shr
   store i32 %or, ptr %arrayidx14, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -515,7 +515,7 @@ for.body55:                                       ; preds = %for.body55.preheade
   %arrayidx65 = getelementptr inbounds nuw i32, ptr %src, i64 %indvars.iv.next84
   %19 = load i32, ptr %arrayidx65, align 4
   %shl66 = shl i32 %19, %narrow
-  %or69 = or i32 %shl66, %shr62
+  %or69 = or disjoint i32 %shl66, %shr62
   store i32 %or69, ptr %arrayidx59, align 4
   %exitcond87.not = icmp eq i64 %indvars.iv.next84, %wide.trip.count86
   br i1 %exitcond87.not, label %for.end72.loopexit, label %for.body55, !llvm.loop !15
@@ -594,7 +594,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %arrayidx21 = getelementptr inbounds nuw i32, ptr %src, i64 %idxprom20
   %4 = load i32, ptr %arrayidx21, align 4
   %shl = shl i32 %4, %narrow
-  %or = or i32 %shl, %shr
+  %or = or disjoint i32 %shl, %shr
   store i32 %or, ptr %arrayidx17, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -621,7 +621,7 @@ if.then33:                                        ; preds = %for.end
   %arrayidx36 = getelementptr inbounds nuw i32, ptr %src, i64 %idxprom35
   %7 = load i32, ptr %arrayidx36, align 4
   %shl37 = shl i32 %7, %narrow
-  %or40 = or i32 %shl37, %shr31
+  %or40 = or disjoint i32 %shl37, %shr31
   store i32 %or40, ptr %arrayidx28, align 4
   br label %if.end101
 
@@ -669,7 +669,7 @@ for.body66:                                       ; preds = %for.body66.preheade
   %arrayidx76 = getelementptr inbounds nuw i32, ptr %src, i64 %indvars.iv.next104
   %10 = load i32, ptr %arrayidx76, align 4
   %shl77 = shl i32 %10, %narrow
-  %or80 = or i32 %shl77, %shr73
+  %or80 = or disjoint i32 %shl77, %shr73
   store i32 %or80, ptr %arrayidx70, align 4
   %exitcond107.not = icmp eq i64 %indvars.iv.next104, %wide.trip.count106
   br i1 %exitcond107.not, label %for.end83, label %for.body66, !llvm.loop !18
@@ -688,7 +688,7 @@ if.then92:                                        ; preds = %for.end83
   %arrayidx95 = getelementptr inbounds nuw i32, ptr %src, i64 %idxprom94
   %12 = load i32, ptr %arrayidx95, align 4
   %shl96 = shl i32 %12, %narrow
-  %or99 = or i32 %shl96, %shr90
+  %or99 = or disjoint i32 %shl96, %shr90
   store i32 %or99, ptr %arrayidx87, align 4
   br label %if.end101
 

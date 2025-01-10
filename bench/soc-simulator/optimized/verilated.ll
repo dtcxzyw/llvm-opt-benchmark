@@ -4160,7 +4160,7 @@ _ZL17VL_MOSTSETBITP1_WiPKj.exit217:               ; preds = %.preheader.i212
   %98 = getelementptr i8, ptr %95, i64 -4
   %99 = load i32, ptr %98, align 4
   %100 = lshr i32 %99, %90
-  %101 = or i32 %100, %97
+  %101 = or disjoint i32 %100, %97
   %102 = getelementptr inbounds nuw [129 x i32], ptr %6, i64 0, i64 %indvars.iv304
   store i32 %101, ptr %102, align 4
   %indvars.iv.next305 = add nsw i64 %indvars.iv304, -1

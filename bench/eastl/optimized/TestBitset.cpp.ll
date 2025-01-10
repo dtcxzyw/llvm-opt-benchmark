@@ -9764,7 +9764,7 @@ if.then.i:                                        ; preds = %if.then
   %shl.i = shl i32 %2, %sh_prom.i
   %sh_prom13.i = sub i32 32, %sh_prom.i
   %shr.i = lshr i32 %1, %sh_prom13.i
-  %or.i = or i32 %shl.i, %shr.i
+  %or.i = or disjoint i32 %shl.i, %shr.i
   %shl19.i = shl i32 %1, %sh_prom.i
   store i32 %shl19.i, ptr %this, align 4
   br label %_ZN5eastl10BitsetBaseILm2EjElSEm.exit
@@ -9808,7 +9808,7 @@ if.then.i:                                        ; preds = %if.then
   %shr.i = lshr i32 %2, %sh_prom.i
   %sh_prom13.i = sub nuw nsw i32 32, %sh_prom.i
   %shl.i = shl i32 %1, %sh_prom13.i
-  %or.i = or i32 %shr.i, %shl.i
+  %or.i = or disjoint i32 %shr.i, %shl.i
   store i32 %or.i, ptr %this, align 4
   %shr19.i = lshr i32 %1, %sh_prom.i
   store i32 %shr19.i, ptr %arrayidx.i, align 4
@@ -10105,7 +10105,7 @@ if.then.i.i:                                      ; preds = %if.then.i
   %shl.i.i = shl i32 %2, %sh_prom.i.i
   %sh_prom13.i.i = sub i32 32, %sh_prom.i.i
   %shr.i.i = lshr i32 %1, %sh_prom13.i.i
-  %or.i.i = or i32 %shl.i.i, %shr.i.i
+  %or.i.i = or disjoint i32 %shl.i.i, %shr.i.i
   %shl19.i.i = shl i32 %1, %sh_prom.i.i
   br label %_ZN5eastl10BitsetBaseILm2EjElSEm.exit.i
 
@@ -10147,7 +10147,7 @@ if.then.i.i:                                      ; preds = %if.then.i
   %shr.i.i = lshr i32 %2, %sh_prom.i.i
   %sh_prom13.i.i = sub nuw nsw i32 32, %sh_prom.i.i
   %shl.i.i = shl i32 %1, %sh_prom13.i.i
-  %or.i.i = or i32 %shr.i.i, %shl.i.i
+  %or.i.i = or disjoint i32 %shr.i.i, %shl.i.i
   %shr19.i.i = lshr i32 %1, %sh_prom.i.i
   br label %_ZN5eastl6bitsetILm33EjErSEm.exit
 

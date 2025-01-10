@@ -890,7 +890,7 @@ while.body:                                       ; preds = %if.end, %while.body
   %arrayidx = getelementptr i8, ptr %src.addr.039, i64 8
   %3 = load i64, ptr %arrayidx, align 8
   %shl3 = shl i64 %3, %sub2
-  %or = or i64 %shl3, %shr
+  %or = or disjoint i64 %shl3, %shr
   store i64 %or, ptr %dst.addr.040, align 8
   %incdec.ptr = getelementptr i8, ptr %dst.addr.040, i64 8
   %sub5 = add i64 %nbits.addr.038, -64
@@ -916,7 +916,7 @@ if.then8:                                         ; preds = %while.end
   %5 = load i64, ptr %arrayidx15, align 8
   %and16 = and i64 %5, %sub14
   %shl18 = shl i64 %and16, %sub2
-  %or19 = or i64 %shl18, %shr10
+  %or19 = or disjoint i64 %shl18, %shr10
   store i64 %or19, ptr %dst.addr.0.lcssa, align 8
   br label %if.end27
 

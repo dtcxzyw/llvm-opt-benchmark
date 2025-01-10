@@ -808,7 +808,7 @@ define dso_local range(i32 0, 33) i32 @bf_normalize_and_round(ptr nocapture noun
   %32 = load i64, ptr %31, align 8
   %33 = shl i64 %32, %27
   %34 = lshr i64 %.03544, %28
-  %35 = or i64 %33, %34
+  %35 = or disjoint i64 %33, %34
   store i64 %35, ptr %31, align 8
   %36 = add nuw i64 %.045, 1
   %exitcond.not = icmp eq i64 %36, %.03443
@@ -4134,7 +4134,7 @@ mp_mul_basecase.exit:                             ; preds = %mp_add_mul1.exit.lo
   %195 = load i64, ptr %194, align 8
   %196 = shl i64 %195, %190
   %197 = lshr i64 %.03544.i, %191
-  %198 = or i64 %196, %197
+  %198 = or disjoint i64 %196, %197
   store i64 %198, ptr %194, align 8
   %199 = add nuw i64 %.045.i, 1
   %exitcond.not.i113 = icmp eq i64 %199, %.03443.i
@@ -7367,7 +7367,7 @@ bf_logic_op1.exit140:                             ; preds = %171, %173, %175
   %207 = load i64, ptr %206, align 8
   %208 = shl i64 %207, %202
   %209 = lshr i64 %.03544.i, %203
-  %210 = or i64 %208, %209
+  %210 = or disjoint i64 %208, %209
   store i64 %210, ptr %206, align 8
   %211 = add nuw i64 %.045.i, 1
   %exitcond.not.i = icmp eq i64 %211, %.03443.i
@@ -9606,7 +9606,7 @@ bf_set_inf.exit347:                               ; preds = %311, %312
   %358 = load i64, ptr %357, align 8
   %359 = shl i64 %358, %353
   %360 = lshr i64 %.03544.i, %354
-  %361 = or i64 %359, %360
+  %361 = or disjoint i64 %359, %360
   store i64 %361, ptr %357, align 8
   %362 = add nuw i64 %.045.i, 1
   %exitcond.not.i = icmp eq i64 %362, %.03443.i
@@ -18908,7 +18908,7 @@ define dso_local i64 @mp_div1_dec(ptr nocapture noundef writeonly %0, ptr nocapt
   %87 = add nuw i64 %86, %81
   %88 = shl i64 %87, %20
   %89 = lshr i64 %84, %74
-  %90 = or i64 %88, %89
+  %90 = or disjoint i64 %88, %89
   %91 = shl i64 %84, %20
   %92 = ashr i64 %91, 63
   %93 = and i64 %92, %67
@@ -24215,7 +24215,7 @@ get_bits.exit192:                                 ; preds = %375, %382
   %445 = load i64, ptr %444, align 8
   %446 = shl i64 %445, %440
   %447 = lshr i64 %.03544.i, %441
-  %448 = or i64 %446, %447
+  %448 = or disjoint i64 %446, %447
   store i64 %448, ptr %444, align 8
   %449 = add nuw i64 %.045.i, 1
   %exitcond.not.i = icmp eq i64 %449, %.03443.i

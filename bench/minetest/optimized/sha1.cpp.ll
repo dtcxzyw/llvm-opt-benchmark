@@ -39,7 +39,7 @@ entry:
   %shl = shl i32 %x, %bits
   %sub = sub nsw i32 32, %bits
   %shr = lshr i32 %x, %sub
-  %or = or i32 %shr, %shl
+  %or = or disjoint i32 %shr, %shl
   ret i32 %or
 }
 

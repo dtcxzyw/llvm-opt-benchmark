@@ -287,10 +287,10 @@ if.then143:                                       ; preds = %if.else140
 if.else160:                                       ; preds = %if.else140
   %shr161 = lshr i32 %v0.0103, %numbits
   %shl163 = shl i32 %v1.0104, %sub162
-  %or164 = or i32 %shl163, %shr161
+  %or164 = or disjoint i32 %shl163, %shr161
   %shr168 = lshr i32 %v1.0104, %numbits
   %shl170 = shl i32 %10, %sub162
-  %or171 = or i32 %shl170, %shr168
+  %or171 = or disjoint i32 %shl170, %shr168
   br label %if.end177
 
 if.end177:                                        ; preds = %sw.epilog130, %if.then139, %if.else160, %if.then143

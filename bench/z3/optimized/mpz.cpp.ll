@@ -12606,7 +12606,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %arrayidx34 = getelementptr inbounds nuw i32, ptr %m_digits, i64 %idxprom33
   %5 = load i32, ptr %arrayidx34, align 4
   %shl35 = shl i32 %5, %narrow
-  %or = or i32 %shl35, %shr
+  %or = or disjoint i32 %shl35, %shr
   store i32 %or, ptr %arrayidx30, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -12648,7 +12648,7 @@ for.body64:                                       ; preds = %for.body64.preheade
   %arrayidx70 = getelementptr inbounds nuw i32, ptr %m_digits, i64 %indvars.iv.next87
   %10 = load i32, ptr %arrayidx70, align 4
   %shl71 = shl i32 %10, %narrow
-  %or74 = or i32 %shl71, %shr67
+  %or74 = or disjoint i32 %shl71, %shr67
   store i32 %or74, ptr %arrayidx66, align 4
   %exitcond90.not = icmp eq i64 %indvars.iv.next87, %wide.trip.count89
   br i1 %exitcond90.not, label %for.end77.loopexit, label %for.body64, !llvm.loop !47
@@ -27263,7 +27263,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %arrayidx34 = getelementptr inbounds nuw i32, ptr %m_digits, i64 %idxprom33
   %5 = load i32, ptr %arrayidx34, align 4
   %shl35 = shl i32 %5, %narrow
-  %or = or i32 %shl35, %shr
+  %or = or disjoint i32 %shl35, %shr
   store i32 %or, ptr %arrayidx30, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -27305,7 +27305,7 @@ for.body64:                                       ; preds = %for.body64.preheade
   %arrayidx70 = getelementptr inbounds nuw i32, ptr %m_digits, i64 %indvars.iv.next87
   %10 = load i32, ptr %arrayidx70, align 4
   %shl71 = shl i32 %10, %narrow
-  %or74 = or i32 %shl71, %shr67
+  %or74 = or disjoint i32 %shl71, %shr67
   store i32 %or74, ptr %arrayidx66, align 4
   %exitcond90.not = icmp eq i64 %indvars.iv.next87, %wide.trip.count89
   br i1 %exitcond90.not, label %for.end77.loopexit, label %for.body64, !llvm.loop !89

@@ -33016,22 +33016,18 @@ if.then13:                                        ; preds = %if.else
 
 if.else14:                                        ; preds = %if.else
   %cmp15 = icmp samesign ult i64 %1, 64
+  %4 = load i64, ptr %this, align 8, !tbaa !747
   br i1 %cmp15, label %if.then16, label %if.else23
 
 if.then16:                                        ; preds = %if.else14
-  %shl = shl i64 %0, %1
-  %4 = load i64, ptr %this, align 8, !tbaa !747
-  %sub = sub nuw nsw i64 64, %1
-  %shr = lshr i64 %4, %sub
-  %add = add i64 %shr, %shl
+  %add = tail call i64 @llvm.fshl.i64(i64 %0, i64 %4, i64 %1)
   %and = and i64 %add, 9223372036854775807
   %shl20 = shl i64 %4, %1
   br label %if.end33
 
 if.else23:                                        ; preds = %if.else14
-  %5 = load i64, ptr %this, align 8, !tbaa !747
   %sub26 = add nsw i64 %1, -64
-  %shl27 = shl i64 %5, %sub26
+  %shl27 = shl i64 %4, %sub26
   %and28 = and i64 %shl27, 9223372036854775807
   br label %if.end33
 
@@ -33370,22 +33366,18 @@ if.then13.i:                                      ; preds = %if.else.i
 
 if.else14.i:                                      ; preds = %if.else.i
   %cmp15.i = icmp samesign ult i64 %1, 64
+  %4 = load i64, ptr %this, align 8, !tbaa !747
   br i1 %cmp15.i, label %if.then16.i, label %if.else23.i
 
 if.then16.i:                                      ; preds = %if.else14.i
-  %shl.i = shl i64 %0, %1
-  %4 = load i64, ptr %this, align 8, !tbaa !747
-  %sub.i = sub nuw nsw i64 64, %1
-  %shr.i = lshr i64 %4, %sub.i
-  %add.i = add i64 %shr.i, %shl.i
+  %add.i = tail call i64 @llvm.fshl.i64(i64 %0, i64 %4, i64 %1)
   %and.i = and i64 %add.i, 9223372036854775807
   %shl20.i = shl i64 %4, %1
   br label %if.end33.i
 
 if.else23.i:                                      ; preds = %if.else14.i
-  %5 = load i64, ptr %this, align 8, !tbaa !747
   %sub26.i = add nsw i64 %1, -64
-  %shl27.i = shl i64 %5, %sub26.i
+  %shl27.i = shl i64 %4, %sub26.i
   %and28.i = and i64 %shl27.i, 9223372036854775807
   br label %if.end33.i
 
@@ -33398,9 +33390,9 @@ if.end33.i:                                       ; preds = %if.else23.i, %if.th
   br label %_ZNK6duckdb9hugeint_tlsERKS0_.exit
 
 _ZNK6duckdb9hugeint_tlsERKS0_.exit:               ; preds = %if.end33.i, %if.then13.i, %if.then5.i, %if.then.i
-  %6 = load <2 x i64>, ptr %retval.i, align 16
+  %5 = load <2 x i64>, ptr %retval.i, align 16
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %retval.i)
-  store <2 x i64> %6, ptr %this, align 8, !tbaa !87
+  store <2 x i64> %5, ptr %this, align 8, !tbaa !87
   ret ptr %this
 }
 
@@ -48629,7 +48621,7 @@ for.body.i.prol:                                  ; preds = %for.body.i.preheade
   %shr.i.prol = lshr i64 %scalar.recur.prol, %rem.i.i
   %44 = load i64, ptr %source_validity12.0110.i.prol, align 8, !tbaa !87
   %shl.i.prol = shl i64 %44, %sub.i
-  %or.i.prol = or i64 %shl.i.prol, %shr.i.prol
+  %or.i.prol = or disjoint i64 %shl.i.prol, %shr.i.prol
   %incdec.ptr21.i.prol = getelementptr inbounds nuw i8, ptr %target_validity16.0107.i.prol, i64 8
   store i64 %or.i.prol, ptr %target_validity16.0107.i.prol, align 8, !tbaa !87
   %source_validity12.0.i.prol = getelementptr inbounds nuw i8, ptr %source_validity12.0110.i.prol, i64 8
@@ -48668,28 +48660,28 @@ for.body.i:                                       ; preds = %for.body.i.prol.loo
   %shr.i = lshr i64 %scalar.recur, %rem.i.i
   %48 = load i64, ptr %source_validity12.0110.i, align 8, !tbaa !87
   %shl.i = shl i64 %48, %sub.i
-  %or.i = or i64 %shl.i, %shr.i
+  %or.i = or disjoint i64 %shl.i, %shr.i
   %incdec.ptr21.i = getelementptr inbounds nuw i8, ptr %target_validity16.0107.i, i64 8
   store i64 %or.i, ptr %target_validity16.0107.i, align 8, !tbaa !87
   %source_validity12.0.i = getelementptr inbounds nuw i8, ptr %source_validity12.0110.i, i64 8
   %shr.i.1 = lshr i64 %48, %rem.i.i
   %49 = load i64, ptr %source_validity12.0.i, align 8, !tbaa !87
   %shl.i.1 = shl i64 %49, %sub.i
-  %or.i.1 = or i64 %shl.i.1, %shr.i.1
+  %or.i.1 = or disjoint i64 %shl.i.1, %shr.i.1
   %incdec.ptr21.i.1 = getelementptr inbounds nuw i8, ptr %target_validity16.0107.i, i64 16
   store i64 %or.i.1, ptr %incdec.ptr21.i, align 8, !tbaa !87
   %source_validity12.0.i.1 = getelementptr inbounds nuw i8, ptr %source_validity12.0110.i, i64 16
   %shr.i.2 = lshr i64 %49, %rem.i.i
   %50 = load i64, ptr %source_validity12.0.i.1, align 8, !tbaa !87
   %shl.i.2 = shl i64 %50, %sub.i
-  %or.i.2 = or i64 %shl.i.2, %shr.i.2
+  %or.i.2 = or disjoint i64 %shl.i.2, %shr.i.2
   %incdec.ptr21.i.2 = getelementptr inbounds nuw i8, ptr %target_validity16.0107.i, i64 24
   store i64 %or.i.2, ptr %incdec.ptr21.i.1, align 8, !tbaa !87
   %source_validity12.0.i.2 = getelementptr inbounds nuw i8, ptr %source_validity12.0110.i, i64 24
   %shr.i.3 = lshr i64 %50, %rem.i.i
   %51 = load i64, ptr %source_validity12.0.i.2, align 8, !tbaa !87
   %shl.i.3 = shl i64 %51, %sub.i
-  %or.i.3 = or i64 %shl.i.3, %shr.i.3
+  %or.i.3 = or disjoint i64 %shl.i.3, %shr.i.3
   %incdec.ptr21.i.3 = getelementptr inbounds nuw i8, ptr %target_validity16.0107.i, i64 32
   store i64 %or.i.3, ptr %incdec.ptr21.i.2, align 8, !tbaa !87
   %inc.i.3 = add nuw nsw i64 %i.0109.i, 4
@@ -48705,7 +48697,7 @@ if.then22.i:                                      ; preds = %for.cond.cleanup.i
 if.then26.i:                                      ; preds = %if.then22.i
   %52 = load i64, ptr %source_validity12.0.lcssa.i, align 8, !tbaa !87
   %shl28.i = shl i64 %52, %sub.i
-  %or29.i = or i64 %shl28.i, %shr24.i
+  %or29.i = or disjoint i64 %shl28.i, %shr24.i
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then26.i, %if.then22.i
@@ -49045,7 +49037,7 @@ for.body.prol:                                    ; preds = %for.body.preheader1
   %shr.prol = lshr i64 %scalar.recur.prol, %rem.i
   %36 = load i64, ptr %source_validity12.0110.prol, align 8, !tbaa !87
   %shl.prol = shl i64 %36, %sub
-  %or.prol = or i64 %shl.prol, %shr.prol
+  %or.prol = or disjoint i64 %shl.prol, %shr.prol
   %incdec.ptr21.prol = getelementptr inbounds nuw i8, ptr %target_validity16.0107.prol, i64 8
   store i64 %or.prol, ptr %target_validity16.0107.prol, align 8, !tbaa !87
   %source_validity12.0.prol = getelementptr inbounds nuw i8, ptr %source_validity12.0110.prol, i64 8
@@ -49084,28 +49076,28 @@ for.body:                                         ; preds = %for.body.prol.loope
   %shr = lshr i64 %scalar.recur, %rem.i
   %40 = load i64, ptr %source_validity12.0110, align 8, !tbaa !87
   %shl = shl i64 %40, %sub
-  %or = or i64 %shl, %shr
+  %or = or disjoint i64 %shl, %shr
   %incdec.ptr21 = getelementptr inbounds nuw i8, ptr %target_validity16.0107, i64 8
   store i64 %or, ptr %target_validity16.0107, align 8, !tbaa !87
   %source_validity12.0 = getelementptr inbounds nuw i8, ptr %source_validity12.0110, i64 8
   %shr.1 = lshr i64 %40, %rem.i
   %41 = load i64, ptr %source_validity12.0, align 8, !tbaa !87
   %shl.1 = shl i64 %41, %sub
-  %or.1 = or i64 %shl.1, %shr.1
+  %or.1 = or disjoint i64 %shl.1, %shr.1
   %incdec.ptr21.1 = getelementptr inbounds nuw i8, ptr %target_validity16.0107, i64 16
   store i64 %or.1, ptr %incdec.ptr21, align 8, !tbaa !87
   %source_validity12.0.1 = getelementptr inbounds nuw i8, ptr %source_validity12.0110, i64 16
   %shr.2 = lshr i64 %41, %rem.i
   %42 = load i64, ptr %source_validity12.0.1, align 8, !tbaa !87
   %shl.2 = shl i64 %42, %sub
-  %or.2 = or i64 %shl.2, %shr.2
+  %or.2 = or disjoint i64 %shl.2, %shr.2
   %incdec.ptr21.2 = getelementptr inbounds nuw i8, ptr %target_validity16.0107, i64 24
   store i64 %or.2, ptr %incdec.ptr21.1, align 8, !tbaa !87
   %source_validity12.0.2 = getelementptr inbounds nuw i8, ptr %source_validity12.0110, i64 24
   %shr.3 = lshr i64 %42, %rem.i
   %43 = load i64, ptr %source_validity12.0.2, align 8, !tbaa !87
   %shl.3 = shl i64 %43, %sub
-  %or.3 = or i64 %shl.3, %shr.3
+  %or.3 = or disjoint i64 %shl.3, %shr.3
   %incdec.ptr21.3 = getelementptr inbounds nuw i8, ptr %target_validity16.0107, i64 32
   store i64 %or.3, ptr %incdec.ptr21.2, align 8, !tbaa !87
   %inc.3 = add nuw nsw i64 %i.0109, 4
@@ -49121,7 +49113,7 @@ if.then22:                                        ; preds = %for.cond.cleanup
 if.then26:                                        ; preds = %if.then22
   %44 = load i64, ptr %source_validity12.0.lcssa, align 8, !tbaa !87
   %shl28 = shl i64 %44, %sub
-  %or29 = or i64 %shl28, %shr24
+  %or29 = or disjoint i64 %shl28, %shr24
   br label %if.end
 
 if.end:                                           ; preds = %if.then26, %if.then22

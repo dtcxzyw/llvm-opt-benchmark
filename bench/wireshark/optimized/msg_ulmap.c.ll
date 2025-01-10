@@ -4752,7 +4752,7 @@ define hidden noundef i32 @wimax_decode_ulmap_reduced_aas(ptr noundef %0, i32 no
   %99 = add nsw i32 %91, 4
   %100 = tail call i32 @tvb_get_ntohl(ptr noundef %3, i32 noundef %99) #4
   %101 = lshr i32 %100, %97
-  %102 = or i32 %101, %98
+  %102 = or disjoint i32 %101, %98
   br label %103
 
 103:                                              ; preds = %96, %93

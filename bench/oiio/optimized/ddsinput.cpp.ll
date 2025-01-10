@@ -3022,7 +3022,7 @@ cond.end:                                         ; preds = %cond.false, %cond.t
   %and4.i1630 = and i64 %bstream.sroa.499.32535, %conv.i
   %sub6.i = sub nuw nsw i64 64, %sh_prom.i
   %shl7.i1631 = shl nuw i64 %and4.i1630, %sub6.i
-  %or.i1632 = or i64 %shl7.i1631, %shr.i1628
+  %or.i1632 = or disjoint i64 %shl7.i1631, %shr.i1628
   %and975 = shl nuw nsw i32 %cond969, 1
   %mul977 = and i32 %and975, 2
   %idxprom979 = zext nneg i32 %mul977 to i64
@@ -3763,7 +3763,7 @@ for.body81:                                       ; preds = %for.cond79.preheade
   %shr.i237 = lshr i64 %bstream.sroa.0.7440, %sh_prom.i236
   %and4.i239 = and i64 %bstream.sroa.23.7439, %conv.i234
   %shl7.i242 = shl i64 %and4.i239, %sub6.i241
-  %or.i243 = or i64 %shl7.i242, %shr.i237
+  %or.i243 = or disjoint i64 %shl7.i242, %shr.i237
   %shr11.i244 = lshr i64 %bstream.sroa.23.7439, %sh_prom.i236
   %arrayidx88 = getelementptr inbounds nuw [6 x [4 x i32]], ptr %endpoints, i64 0, i64 %indvars.iv486, i64 3
   store i32 %conv1.i235, ptr %arrayidx88, align 4

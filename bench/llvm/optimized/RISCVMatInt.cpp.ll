@@ -899,7 +899,7 @@ define internal fastcc void @_ZL27generateInstSeqLeadingZeroslRKN4llvm15MCSubtar
   %7 = shl i64 %0, %5
   %8 = sub nuw nsw i64 64, %5
   %9 = lshr i64 -1, %8
-  %10 = or i64 %9, %7
+  %10 = or disjoint i64 %9, %7
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 16
   call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(80) %4, ptr noundef nonnull %11, i64 noundef 8) #11
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 216

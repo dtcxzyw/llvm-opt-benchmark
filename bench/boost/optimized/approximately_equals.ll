@@ -155586,7 +155586,7 @@ define linkonce_odr hidden void @_ZN5boost14multiprecision8backends18left_shift_
   %47 = load i64, ptr %46, align 8, !tbaa !1539
   %48 = sub nuw nsw i64 64, %6
   %49 = lshr i64 %47, %48
-  %50 = or i64 %49, %39
+  %50 = or disjoint i64 %49, %39
   store i64 %50, ptr %41, align 8, !tbaa !1539
   br label %51
 
@@ -155618,7 +155618,7 @@ define linkonce_odr hidden void @_ZN5boost14multiprecision8backends18left_shift_
   %65 = getelementptr inbounds nuw i64, ptr %0, i64 %64
   %66 = load i64, ptr %65, align 8, !tbaa !1539
   %67 = lshr i64 %66, %54
-  %68 = or i64 %67, %61
+  %68 = or disjoint i64 %67, %61
   store i64 %68, ptr %62, align 8, !tbaa !1539
   %69 = add i64 %.1108, 1
   %70 = sub i64 %.187, %69
@@ -159523,7 +159523,7 @@ _ZN5boost14multiprecision8backends15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_t
   %81 = getelementptr inbounds nuw i64, ptr %41, i64 %76
   %82 = load i64, ptr %81, align 8, !tbaa !1539
   %83 = shl i64 %82, %72
-  %84 = or i64 %83, %80
+  %84 = or disjoint i64 %83, %80
   store i64 %84, ptr %77, align 8, !tbaa !1539
   %85 = add i64 %.060, 1
   %.reass = add i64 %85, %invariant.op
@@ -160237,7 +160237,7 @@ _ZN5boost14multiprecision8backends15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_t
   %99 = load i64, ptr %98, align 8, !tbaa !1539
   %100 = sub nuw nsw i64 64, %6
   %101 = lshr i64 %99, %100
-  %102 = or i64 %101, %91
+  %102 = or disjoint i64 %101, %91
   store i64 %102, ptr %93, align 8, !tbaa !1539
   br label %103
 
@@ -160269,7 +160269,7 @@ _ZN5boost14multiprecision8backends15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_t
   %117 = getelementptr inbounds nuw i64, ptr %56, i64 %116
   %118 = load i64, ptr %117, align 8, !tbaa !1539
   %119 = lshr i64 %118, %106
-  %120 = or i64 %119, %113
+  %120 = or disjoint i64 %119, %113
   store i64 %120, ptr %114, align 8, !tbaa !1539
   %121 = add i64 %.1108, 1
   %122 = sub i64 %.187, %121
@@ -167510,7 +167510,7 @@ define linkonce_odr hidden void @_ZN5boost14multiprecision8backends18left_shift_
   %47 = load i64, ptr %46, align 8, !tbaa !1539
   %48 = sub nuw nsw i64 64, %6
   %49 = lshr i64 %47, %48
-  %50 = or i64 %49, %39
+  %50 = or disjoint i64 %49, %39
   store i64 %50, ptr %41, align 8, !tbaa !1539
   br label %51
 
@@ -167542,7 +167542,7 @@ define linkonce_odr hidden void @_ZN5boost14multiprecision8backends18left_shift_
   %65 = getelementptr inbounds nuw i64, ptr %0, i64 %64
   %66 = load i64, ptr %65, align 8, !tbaa !1539
   %67 = lshr i64 %66, %54
-  %68 = or i64 %67, %61
+  %68 = or disjoint i64 %67, %61
   store i64 %68, ptr %62, align 8, !tbaa !1539
   %69 = add i64 %.1108, 1
   %70 = sub i64 %.187, %69
@@ -168099,7 +168099,7 @@ define linkonce_odr hidden void @_ZN5boost14multiprecision8backends16eval_right_
   %gep = getelementptr i64, ptr %invariant.gep, i64 %.057.i
   %60 = load i64, ptr %gep, align 8, !tbaa !1539
   %61 = shl i64 %60, %52
-  %62 = or i64 %61, %59
+  %62 = or disjoint i64 %61, %59
   store i64 %62, ptr %56, align 8, !tbaa !1539
   %63 = add i64 %.057.i, 1
   %exitcond.not.i = icmp eq i64 %63, %54

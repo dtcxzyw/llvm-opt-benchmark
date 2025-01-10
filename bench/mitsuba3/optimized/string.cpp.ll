@@ -4679,7 +4679,7 @@ define linkonce_odr hidden { i64, i32 } @_ZN10fast_float19positive_digit_compIfE
   %13 = load i64, ptr %12, align 8
   %14 = shl i64 %13, %6
   %15 = lshr i64 %.01622.i.i.i.i, %9
-  %16 = or i64 %14, %15
+  %16 = or disjoint i64 %14, %15
   store i64 %16, ptr %12, align 8
   %17 = add nuw nsw i64 %.01721.i.i.i.i, 1
   %18 = load i16, ptr %10, align 8
@@ -4933,7 +4933,7 @@ define linkonce_odr hidden { i64, i32 } @_ZN10fast_float19negative_digit_compIfE
   %51 = load i64, ptr %50, align 8
   %52 = shl i64 %51, %45
   %53 = lshr i64 %.01622.i.i.i, %48
-  %54 = or i64 %52, %53
+  %54 = or disjoint i64 %52, %53
   store i64 %54, ptr %50, align 8
   %55 = add nuw nsw i64 %.01721.i.i.i, 1
   %56 = load i16, ptr %33, align 8
@@ -5017,7 +5017,7 @@ _ZN10fast_float6bigint9shl_limbsEm.exit.i.i:      ; preds = %65
   %90 = load i64, ptr %89, align 8
   %91 = shl i64 %90, %83
   %92 = lshr i64 %.01622.i.i.i102, %86
-  %93 = or i64 %91, %92
+  %93 = or disjoint i64 %91, %92
   store i64 %93, ptr %89, align 8
   %94 = add nuw nsw i64 %.01721.i.i.i103, 1
   %95 = load i16, ptr %87, align 8
@@ -6683,7 +6683,7 @@ define linkonce_odr hidden { i64, i32 } @_ZN10fast_float19positive_digit_compIdE
   %13 = load i64, ptr %12, align 8
   %14 = shl i64 %13, %6
   %15 = lshr i64 %.01622.i.i.i.i, %9
-  %16 = or i64 %14, %15
+  %16 = or disjoint i64 %14, %15
   store i64 %16, ptr %12, align 8
   %17 = add nuw nsw i64 %.01721.i.i.i.i, 1
   %18 = load i16, ptr %10, align 8
@@ -6937,7 +6937,7 @@ define linkonce_odr hidden { i64, i32 } @_ZN10fast_float19negative_digit_compIdE
   %51 = load i64, ptr %50, align 8
   %52 = shl i64 %51, %45
   %53 = lshr i64 %.01622.i.i.i, %48
-  %54 = or i64 %52, %53
+  %54 = or disjoint i64 %52, %53
   store i64 %54, ptr %50, align 8
   %55 = add nuw nsw i64 %.01721.i.i.i, 1
   %56 = load i16, ptr %33, align 8
@@ -7021,7 +7021,7 @@ _ZN10fast_float6bigint9shl_limbsEm.exit.i.i:      ; preds = %65
   %90 = load i64, ptr %89, align 8
   %91 = shl i64 %90, %83
   %92 = lshr i64 %.01622.i.i.i102, %86
-  %93 = or i64 %91, %92
+  %93 = or disjoint i64 %91, %92
   store i64 %93, ptr %89, align 8
   %94 = add nuw nsw i64 %.01721.i.i.i103, 1
   %95 = load i16, ptr %87, align 8

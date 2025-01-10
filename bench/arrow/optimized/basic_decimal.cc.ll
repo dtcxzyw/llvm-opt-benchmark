@@ -843,7 +843,7 @@ for.body.i116.i:                                  ; preds = %for.body.i116.i, %f
   %arrayidx3.i.i = getelementptr inbounds nuw i32, ptr %divisor_array.i, i64 %add.i119.i
   %17 = load i32, ptr %arrayidx3.i.i, align 4
   %shr.i120.i = lshr i32 %17, %sh_prom5.i.i
-  %or.i.i = or i32 %shr.i120.i, %shl.i118.i
+  %or.i.i = or disjoint i32 %shr.i120.i, %shl.i118.i
   store i32 %or.i.i, ptr %arrayidx.i117.i, align 4
   %exitcond.not.i121.i = icmp eq i64 %add.i119.i, %.pre27
   br i1 %exitcond.not.i121.i, label %for.end.i115.i, label %for.body.i116.i, !llvm.loop !7
@@ -864,7 +864,7 @@ for.body.i135.i:                                  ; preds = %for.end.i115.i, %fo
   %arrayidx3.i140.i = getelementptr inbounds nuw i32, ptr %dividend_array.i, i64 %add.i139.i
   %20 = load i32, ptr %arrayidx3.i140.i, align 4
   %shr.i141.i = lshr i32 %20, %sh_prom5.i.i
-  %or.i142.i = or i32 %shr.i141.i, %shl.i138.i
+  %or.i142.i = or disjoint i32 %shr.i141.i, %shl.i138.i
   store i32 %or.i142.i, ptr %arrayidx.i137.i, align 4
   %exitcond.not.i143.i = icmp eq i64 %add.i139.i, %retval.0.i.i
   br i1 %exitcond.not.i143.i, label %for.end.i129.loopexit.i, label %for.body.i135.i, !llvm.loop !7
@@ -1027,7 +1027,7 @@ for.body.i152.i:                                  ; preds = %for.body.i152.i, %f
   %gep.i.i = getelementptr i32, ptr %invariant.gep.i.i, i64 %i.0.in13.i.i
   %34 = load i32, ptr %gep.i.i, align 4
   %shl.i155.i = shl i32 %34, %sh_prom6.i.i
-  %or.i156.i = or i32 %shl.i155.i, %shr.i154.i
+  %or.i156.i = or disjoint i32 %shl.i155.i, %shr.i154.i
   store i32 %or.i156.i, ptr %arrayidx.i153.i, align 4
   %cmp2.i.i = icmp samesign ugt i64 %i.0.in13.i.i, 2
   br i1 %cmp2.i.i, label %for.body.i152.i, label %for.end.i150.i, !llvm.loop !12
@@ -2876,7 +2876,7 @@ for.body.i112.i:                                  ; preds = %for.body.i112.i, %f
   %arrayidx3.i.i = getelementptr inbounds nuw i32, ptr %divisor_array.i, i64 %add.i115.i
   %26 = load i32, ptr %arrayidx3.i.i, align 4
   %shr.i.i = lshr i32 %26, %sh_prom5.i.i
-  %or.i.i = or i32 %shr.i.i, %shl.i114.i
+  %or.i.i = or disjoint i32 %shr.i.i, %shl.i114.i
   store i32 %or.i.i, ptr %arrayidx.i113.i, align 4
   %exitcond.not.i116.i = icmp eq i64 %add.i115.i, %sub.i.i
   br i1 %exitcond.not.i116.i, label %for.end.i110.i, label %for.body.i112.i, !llvm.loop !7
@@ -2908,7 +2908,7 @@ for.body.i130.i:                                  ; preds = %for.body.i130.i, %f
   %arrayidx3.i135.i = getelementptr inbounds nuw i32, ptr %dividend_array.i, i64 %add.i134.i
   %29 = load i32, ptr %arrayidx3.i135.i, align 4
   %shr.i136.i = lshr i32 %29, %sh_prom5.i128.i
-  %or.i137.i = or i32 %shr.i136.i, %shl.i133.i
+  %or.i137.i = or disjoint i32 %shr.i136.i, %shl.i133.i
   store i32 %or.i137.i, ptr %arrayidx.i132.i, align 4
   %exitcond.not.i138.i = icmp eq i64 %add.i134.i, %next_index.1.lcssa.i.i.i
   br i1 %exitcond.not.i138.i, label %for.end.i124.i, label %for.body.i130.i, !llvm.loop !7
@@ -3072,7 +3072,7 @@ for.body.i147.i:                                  ; preds = %for.body.i147.i, %f
   %gep.i.i = getelementptr i32, ptr %invariant.gep.i.i, i64 %i.0.in13.i.i
   %43 = load i32, ptr %gep.i.i, align 4
   %shl.i150.i = shl i32 %43, %sh_prom6.i.i
-  %or.i151.i = or i32 %shl.i150.i, %shr.i149.i
+  %or.i151.i = or disjoint i32 %shl.i150.i, %shr.i149.i
   store i32 %or.i151.i, ptr %arrayidx.i148.i, align 4
   %cmp2.i.i = icmp samesign ugt i64 %i.0.in13.i.i, 2
   br i1 %cmp2.i.i, label %for.body.i147.i, label %for.end.i145.i, !llvm.loop !12

@@ -3650,7 +3650,7 @@ define hidden i32 @ir_folding(ptr nocapture noundef %0, i32 noundef %1, i32 noun
   %759 = shl i32 %757, %758
   %760 = sub i32 32, %758
   %761 = lshr i32 %757, %760
-  %762 = or i32 %761, %759
+  %762 = or disjoint i32 %761, %759
   %763 = zext i32 %762 to i64
   store i64 %763, ptr %.sroa.0, align 8
   br label %1734
@@ -3661,7 +3661,7 @@ define hidden i32 @ir_folding(ptr nocapture noundef %0, i32 noundef %1, i32 noun
   %767 = shl i32 %765, %766
   %768 = sub i32 32, %766
   %769 = lshr i32 %765, %768
-  %770 = or i32 %769, %767
+  %770 = or disjoint i32 %769, %767
   %771 = sext i32 %770 to i64
   store i64 %771, ptr %.sroa.0, align 8
   br label %1734
@@ -3672,7 +3672,7 @@ define hidden i32 @ir_folding(ptr nocapture noundef %0, i32 noundef %1, i32 noun
   %775 = shl i64 %773, %774
   %776 = sub i64 64, %774
   %777 = lshr i64 %773, %776
-  %778 = or i64 %777, %775
+  %778 = or disjoint i64 %777, %775
   store i64 %778, ptr %.sroa.0, align 8
   br label %1734
 
@@ -3714,7 +3714,7 @@ define hidden i32 @ir_folding(ptr nocapture noundef %0, i32 noundef %1, i32 noun
   %802 = lshr i32 %800, %801
   %803 = sub i32 32, %801
   %804 = shl i32 %800, %803
-  %805 = or i32 %804, %802
+  %805 = or disjoint i32 %804, %802
   %806 = zext i32 %805 to i64
   store i64 %806, ptr %.sroa.0, align 8
   br label %1734
@@ -3725,7 +3725,7 @@ define hidden i32 @ir_folding(ptr nocapture noundef %0, i32 noundef %1, i32 noun
   %810 = lshr i32 %808, %809
   %811 = sub i32 32, %809
   %812 = shl i32 %808, %811
-  %813 = or i32 %812, %810
+  %813 = or disjoint i32 %812, %810
   %814 = sext i32 %813 to i64
   store i64 %814, ptr %.sroa.0, align 8
   br label %1734
@@ -3736,7 +3736,7 @@ define hidden i32 @ir_folding(ptr nocapture noundef %0, i32 noundef %1, i32 noun
   %818 = lshr i64 %816, %817
   %819 = sub i64 64, %817
   %820 = shl i64 %816, %819
-  %821 = or i64 %820, %818
+  %821 = or disjoint i64 %820, %818
   store i64 %821, ptr %.sroa.0, align 8
   br label %1734
 

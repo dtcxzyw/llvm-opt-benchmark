@@ -9384,10 +9384,10 @@ define hidden void @mlib_c_ImageLookUpSI_U8_U8(ptr noundef readonly %0, i32 noun
   %556 = load i32, ptr %555, align 4
   %557 = lshr i32 %.0453549, %531
   %558 = shl i32 %553, %530
-  %559 = add i32 %558, %557
+  %559 = or disjoint i32 %558, %557
   %560 = lshr i32 %553, %531
   %561 = shl i32 %556, %530
-  %562 = add i32 %561, %560
+  %562 = or disjoint i32 %561, %560
   %563 = load i8, ptr %.1457547, align 1
   %564 = getelementptr inbounds nuw i8, ptr %.1457547, i64 1
   %565 = load i8, ptr %564, align 1
@@ -9414,10 +9414,10 @@ define hidden void @mlib_c_ImageLookUpSI_U8_U8(ptr noundef readonly %0, i32 noun
   %576 = load i32, ptr %575, align 4
   %577 = lshr i32 %.0453.lcssa, %531
   %578 = shl i32 %573, %530
-  %579 = add i32 %578, %577
+  %579 = or disjoint i32 %578, %577
   %580 = lshr i32 %573, %531
   %581 = shl i32 %576, %530
-  %582 = add i32 %581, %580
+  %582 = or disjoint i32 %581, %580
   store i32 %579, ptr %.1459.lcssa, align 4
   %583 = getelementptr inbounds nuw i8, ptr %.1459.lcssa, i64 4
   store i32 %582, ptr %583, align 4
@@ -10197,7 +10197,7 @@ define hidden void @mlib_c_ImageLookUpSI_S16_U8(ptr nocapture noundef readonly %
   %450 = or disjoint i32 %449, %445
   %451 = lshr i32 %.0412, %401
   %452 = shl i32 %450, %400
-  %453 = add i32 %452, %451
+  %453 = or disjoint i32 %452, %451
   %454 = load i16, ptr %.1369410, align 2
   store i32 %453, ptr %.1371409, align 4
   %455 = add nuw nsw i32 %.2375408, 1
@@ -10228,7 +10228,7 @@ define hidden void @mlib_c_ImageLookUpSI_S16_U8(ptr nocapture noundef readonly %
   %476 = or disjoint i32 %475, %471
   %477 = lshr i32 %450, %401
   %478 = shl i32 %476, %400
-  %479 = add i32 %478, %477
+  %479 = or disjoint i32 %478, %477
   store i32 %479, ptr %456, align 4
   %480 = getelementptr inbounds nuw i8, ptr %.1371409, i64 8
   %481 = load i32, ptr %480, align 4
@@ -10975,7 +10975,7 @@ define hidden void @mlib_c_ImageLookUpSI_U16_U8(ptr nocapture noundef readonly %
   %448 = or disjoint i32 %447, %443
   %449 = lshr i32 %.0412, %399
   %450 = shl i32 %448, %398
-  %451 = add i32 %450, %449
+  %451 = or disjoint i32 %450, %449
   %452 = load i16, ptr %.1369410, align 2
   store i32 %451, ptr %.1371409, align 4
   %453 = add nuw nsw i32 %.2375408, 1
@@ -11006,7 +11006,7 @@ define hidden void @mlib_c_ImageLookUpSI_U16_U8(ptr nocapture noundef readonly %
   %474 = or disjoint i32 %473, %469
   %475 = lshr i32 %448, %399
   %476 = shl i32 %474, %398
-  %477 = add i32 %476, %475
+  %477 = or disjoint i32 %476, %475
   store i32 %477, ptr %454, align 4
   %478 = getelementptr inbounds nuw i8, ptr %.1371409, i64 8
   %479 = load i32, ptr %478, align 4

@@ -7098,7 +7098,7 @@ define internal noundef i32 @_ZL9shaRotr32jj(i32 noundef %0, i32 noundef %1) #18
   %3 = lshr i32 %0, %1
   %4 = sub i32 32, %1
   %5 = shl i32 %0, %4
-  %6 = or i32 %5, %3
+  %6 = or disjoint i32 %5, %3
   ret i32 %6
 }
 

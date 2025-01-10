@@ -60703,7 +60703,7 @@ define linkonce_odr hidden { i64, i32 } @_ZN5boost4json6detail8charconv6detail10
   %15 = load i64, ptr %14, align 8, !tbaa !11
   %16 = shl i64 %15, %6
   %17 = lshr i64 %.01622.i.i.i.i, %9
-  %18 = or i64 %16, %17
+  %18 = or disjoint i64 %16, %17
   store i64 %18, ptr %14, align 8, !tbaa !11
   %19 = add nuw nsw i64 %.01721.i.i.i.i, 1
   %exitcond.not.i.i.i.i = icmp eq i64 %19, %12
@@ -60944,7 +60944,7 @@ _ZN5boost4json6detail8charconv6detail10fast_float11to_extendedIdEENS4_17adjusted
   %50 = load i64, ptr %49, align 8, !tbaa !11
   %51 = shl i64 %50, %42
   %52 = lshr i64 %.01622.i.i.i, %45
-  %53 = or i64 %51, %52
+  %53 = or disjoint i64 %51, %52
   store i64 %53, ptr %49, align 8, !tbaa !11
   %54 = add nuw nsw i64 %.01721.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %54, %47
@@ -61018,7 +61018,7 @@ _ZSt13copy_backwardIPKmPmET0_T_S4_S3_.exit.i.i.i: ; preds = %60
   %85 = load i64, ptr %84, align 8, !tbaa !11
   %86 = shl i64 %85, %76
   %87 = lshr i64 %.01622.i.i.i36, %79
-  %88 = or i64 %86, %87
+  %88 = or disjoint i64 %86, %87
   store i64 %88, ptr %84, align 8, !tbaa !11
   %89 = add nuw nsw i64 %.01721.i.i.i37, 1
   %exitcond.not.i.i.i38 = icmp eq i64 %89, %82

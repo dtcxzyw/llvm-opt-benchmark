@@ -1393,7 +1393,7 @@ define i32 @qtmd_decompress(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
   %565 = shl i32 %.09611753, %564
   %566 = sub nsw i32 32, %564
   %567 = lshr i32 %.14862, %566
-  %568 = or i32 %567, %565
+  %568 = or disjoint i32 %567, %565
   %569 = shl i32 %.14862, %564
   %570 = sub nsw i32 %.14895, %564
   %571 = trunc i32 %563 to i8
@@ -1686,7 +1686,7 @@ define i32 @qtmd_decompress(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
   %716 = shl i32 %.19621719, %715
   %717 = sub nsw i32 32, %715
   %718 = lshr i32 %.19867, %717
-  %719 = or i32 %718, %716
+  %719 = or disjoint i32 %718, %716
   %720 = shl i32 %.19867, %715
   %721 = sub nsw i32 %.19900, %715
   %722 = trunc i32 %714 to i8
@@ -1980,7 +1980,7 @@ define i32 @qtmd_decompress(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
   %868 = shl i32 %.29631653, %867
   %869 = sub nsw i32 32, %867
   %870 = lshr i32 %.23871, %869
-  %871 = or i32 %870, %868
+  %871 = or disjoint i32 %870, %868
   %872 = shl i32 %.23871, %867
   %873 = sub nsw i32 %.23904, %867
   %874 = trunc i32 %866 to i8
@@ -2286,7 +2286,7 @@ define i32 @qtmd_decompress(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
   %1023 = shl i32 %.39641686, %1022
   %1024 = sub nsw i32 32, %1022
   %1025 = lshr i32 %.27875, %1024
-  %1026 = or i32 %1025, %1023
+  %1026 = or disjoint i32 %1025, %1023
   %1027 = shl i32 %.27875, %1022
   %1028 = sub nsw i32 %.27908, %1022
   %1029 = trunc i32 %1021 to i8

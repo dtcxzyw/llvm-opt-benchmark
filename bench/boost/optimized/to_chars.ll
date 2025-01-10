@@ -5451,7 +5451,7 @@ _ZN5boost8charconv6detailL42check_rounding_condition_inside_subsegmentIbJETnNSt9
   %596 = load i64, ptr %595, align 8, !tbaa !14
   %597 = sub nsw i64 64, %591
   %598 = lshr i64 %596, %597
-  %599 = or i64 %598, %592
+  %599 = or disjoint i64 %598, %592
   %600 = getelementptr inbounds nuw i8, ptr %571, i64 16
   store i64 %599, ptr %600, align 8, !tbaa !14
   br label %601
@@ -5468,7 +5468,7 @@ _ZN5boost8charconv6detailL42check_rounding_condition_inside_subsegmentIbJETnNSt9
   %607 = getelementptr inbounds nuw [428 x i64], ptr @_ZN5boost8charconv6detail24extended_cache_long_implILb1EE5cacheE, i64 0, i64 %.pre-phi2621
   %608 = load i64, ptr %607, align 8, !tbaa !14
   %609 = lshr i64 %608, %.pre-phi2623
-  %610 = or i64 %609, %606
+  %610 = or disjoint i64 %609, %606
   %611 = getelementptr inbounds nuw i8, ptr %571, i64 8
   store i64 %610, ptr %611, align 8, !tbaa !14
   br label %612
@@ -5484,7 +5484,7 @@ _ZN5boost8charconv6detailL42check_rounding_condition_inside_subsegmentIbJETnNSt9
   %617 = getelementptr inbounds nuw [428 x i64], ptr @_ZN5boost8charconv6detail24extended_cache_long_implILb1EE5cacheE, i64 0, i64 %.pre-phi2629
   %618 = load i64, ptr %617, align 8, !tbaa !14
   %619 = lshr i64 %618, %.pre-phi2631
-  %620 = or i64 %619, %616
+  %620 = or disjoint i64 %619, %616
   store i64 %620, ptr %571, align 8, !tbaa !14
   br label %622
 
@@ -7616,7 +7616,7 @@ _ZN5boost8charconv6detail18has_further_digitsILj1ELj0ENS1_24extended_cache_long_
   %1791 = load i64, ptr %1790, align 8, !tbaa !14
   %1792 = sub nsw i64 64, %1786
   %1793 = lshr i64 %1791, %1792
-  %1794 = or i64 %1793, %1787
+  %1794 = or disjoint i64 %1793, %1787
   %1795 = getelementptr inbounds nuw i8, ptr %1766, i64 16
   store i64 %1794, ptr %1795, align 8, !tbaa !14
   br label %1796
@@ -7633,7 +7633,7 @@ _ZN5boost8charconv6detail18has_further_digitsILj1ELj0ENS1_24extended_cache_long_
   %1802 = getelementptr inbounds nuw [428 x i64], ptr @_ZN5boost8charconv6detail24extended_cache_long_implILb1EE5cacheE, i64 0, i64 %.pre-phi2605
   %1803 = load i64, ptr %1802, align 8, !tbaa !14
   %1804 = lshr i64 %1803, %.pre-phi2607
-  %1805 = or i64 %1804, %1801
+  %1805 = or disjoint i64 %1804, %1801
   %1806 = getelementptr inbounds nuw i8, ptr %1766, i64 8
   store i64 %1805, ptr %1806, align 8, !tbaa !14
   br label %1807
@@ -7649,7 +7649,7 @@ _ZN5boost8charconv6detail18has_further_digitsILj1ELj0ENS1_24extended_cache_long_
   %1812 = getelementptr inbounds nuw [428 x i64], ptr @_ZN5boost8charconv6detail24extended_cache_long_implILb1EE5cacheE, i64 0, i64 %.pre-phi2613
   %1813 = load i64, ptr %1812, align 8, !tbaa !14
   %1814 = lshr i64 %1813, %.pre-phi2615
-  %1815 = or i64 %1814, %1811
+  %1815 = or disjoint i64 %1814, %1811
   store i64 %1815, ptr %1766, align 8, !tbaa !14
   br label %1817
 

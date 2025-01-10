@@ -2919,7 +2919,7 @@ for.body.i.i.i.i:                                 ; preds = %if.then.i.i.i, %for
   %1 = load i64, ptr %arrayidx.i.i.i.i.i, align 8
   %shl6.i.i.i.i = shl i64 %1, %rem2.i.i.i
   %shr7.i.i.i.i = lshr i64 %prev.013.i.i.i.i, %sub.i.i.i.i
-  %or.i.i.i.i = or i64 %shl6.i.i.i.i, %shr7.i.i.i.i
+  %or.i.i.i.i = or disjoint i64 %shl6.i.i.i.i, %shr7.i.i.i.i
   store i64 %or.i.i.i.i, ptr %arrayidx.i.i.i.i.i, align 8
   %inc.i.i.i.i = add nuw nsw i64 %index.012.i.i.i.i, 1
   %2 = load i16, ptr %length.i.i.i.i.i, align 8
@@ -3171,7 +3171,7 @@ for.body.i.i.i:                                   ; preds = %if.then.i.i, %for.b
   %4 = load i64, ptr %arrayidx.i.i.i.i, align 8
   %shl6.i.i.i = shl i64 %4, %rem2.i.i
   %shr7.i.i.i = lshr i64 %prev.013.i.i.i, %sub.i.i.i
-  %or.i.i.i = or i64 %shl6.i.i.i, %shr7.i.i.i
+  %or.i.i.i = or disjoint i64 %shl6.i.i.i, %shr7.i.i.i
   store i64 %or.i.i.i, ptr %arrayidx.i.i.i.i, align 8
   %inc.i.i.i = add nuw nsw i64 %index.012.i.i.i, 1
   %5 = load i16, ptr %length.i.i, align 8
@@ -3255,7 +3255,7 @@ for.body.i.i.i72:                                 ; preds = %if.then.i.i68, %for
   %13 = load i64, ptr %arrayidx.i.i.i.i75, align 8
   %shl6.i.i.i76 = shl i64 %13, %rem2.i.i65
   %shr7.i.i.i77 = lshr i64 %prev.013.i.i.i73, %sub.i.i.i69
-  %or.i.i.i78 = or i64 %shl6.i.i.i76, %shr7.i.i.i77
+  %or.i.i.i78 = or disjoint i64 %shl6.i.i.i76, %shr7.i.i.i77
   store i64 %or.i.i.i78, ptr %arrayidx.i.i.i.i75, align 8
   %inc.i.i.i79 = add nuw nsw i64 %index.012.i.i.i74, 1
   %14 = load i16, ptr %length.i.i.i.i70, align 8
@@ -4035,7 +4035,7 @@ for.body.i.i.i.i:                                 ; preds = %if.then.i.i.i, %for
   %1 = load i64, ptr %arrayidx.i.i.i.i.i, align 8
   %shl6.i.i.i.i = shl i64 %1, %rem2.i.i.i
   %shr7.i.i.i.i = lshr i64 %prev.013.i.i.i.i, %sub.i.i.i.i
-  %or.i.i.i.i = or i64 %shl6.i.i.i.i, %shr7.i.i.i.i
+  %or.i.i.i.i = or disjoint i64 %shl6.i.i.i.i, %shr7.i.i.i.i
   store i64 %or.i.i.i.i, ptr %arrayidx.i.i.i.i.i, align 8
   %inc.i.i.i.i = add nuw nsw i64 %index.012.i.i.i.i, 1
   %2 = load i16, ptr %length.i.i.i.i.i, align 8
@@ -4288,7 +4288,7 @@ for.body.i.i.i:                                   ; preds = %if.then.i.i, %for.b
   %4 = load i64, ptr %arrayidx.i.i.i.i, align 8
   %shl6.i.i.i = shl i64 %4, %rem2.i.i
   %shr7.i.i.i = lshr i64 %prev.013.i.i.i, %sub.i.i.i
-  %or.i.i.i = or i64 %shl6.i.i.i, %shr7.i.i.i
+  %or.i.i.i = or disjoint i64 %shl6.i.i.i, %shr7.i.i.i
   store i64 %or.i.i.i, ptr %arrayidx.i.i.i.i, align 8
   %inc.i.i.i = add nuw nsw i64 %index.012.i.i.i, 1
   %5 = load i16, ptr %length.i.i, align 8
@@ -4372,7 +4372,7 @@ for.body.i.i.i72:                                 ; preds = %if.then.i.i68, %for
   %13 = load i64, ptr %arrayidx.i.i.i.i75, align 8
   %shl6.i.i.i76 = shl i64 %13, %rem2.i.i65
   %shr7.i.i.i77 = lshr i64 %prev.013.i.i.i73, %sub.i.i.i69
-  %or.i.i.i78 = or i64 %shl6.i.i.i76, %shr7.i.i.i77
+  %or.i.i.i78 = or disjoint i64 %shl6.i.i.i76, %shr7.i.i.i77
   store i64 %or.i.i.i78, ptr %arrayidx.i.i.i.i75, align 8
   %inc.i.i.i79 = add nuw nsw i64 %index.012.i.i.i74, 1
   %14 = load i16, ptr %length.i.i.i.i70, align 8

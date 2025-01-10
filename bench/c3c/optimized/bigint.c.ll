@@ -332,7 +332,7 @@ define dso_local { i64, i64 } @i128_urem(i64 %0, i64 %1, i64 %2, i64 %3) local_u
   %26 = shl i64 %2, %14
   %27 = sub nuw nsw i64 64, %14
   %28 = lshr i64 %3, %27
-  %29 = or i64 %28, %26
+  %29 = or disjoint i64 %28, %26
   %30 = shl i64 %3, %14
   br label %i128_shl64.exit.i.preheader
 
@@ -427,7 +427,7 @@ define dso_local { i64, i64 } @i128_udiv(i64 %0, i64 %1, i64 %2, i64 %3) local_u
   %26 = shl i64 %2, %14
   %27 = sub nuw nsw i64 64, %14
   %28 = lshr i64 %3, %27
-  %29 = or i64 %28, %26
+  %29 = or disjoint i64 %28, %26
   %30 = shl i64 %3, %14
   br label %i128_shl64.exit.i.preheader
 
@@ -727,7 +727,7 @@ define dso_local { i64, i64 } @i128_shl64(i64 %0, i64 %1, i64 noundef %2) local_
   %15 = shl i64 %0, %2
   %16 = sub nuw nsw i64 64, %2
   %17 = lshr i64 %1, %16
-  %18 = or i64 %17, %15
+  %18 = or disjoint i64 %17, %15
   %19 = shl i64 %1, %2
   br label %20
 
@@ -803,7 +803,7 @@ define dso_local { i64, i64 } @i128_extend(i64 %0, i64 %1, i32 noundef %2) local
   %18 = shl i64 %0, %8
   %19 = add nsw i64 %7, -64
   %20 = lshr i64 %1, %19
-  %21 = or i64 %20, %18
+  %21 = add nuw nsw i64 %20, %18
   %22 = shl i64 %1, %8
   br label %i128_shl64.exit
 
@@ -838,7 +838,7 @@ i128_shl64.exit.thread55:                         ; preds = %10
   %34 = lshr i64 %.sroa.6.0.i, %8
   %35 = add nsw i64 %7, -64
   %36 = shl i64 %.sroa.011.0.i, %35
-  %37 = or i64 %34, %36
+  %37 = add nuw nsw i64 %34, %36
   %38 = lshr i64 %.sroa.011.0.i, %8
   br label %i128_ashr64.exit
 
@@ -855,7 +855,7 @@ i128_shl64.exit.thread55:                         ; preds = %10
   %45 = lshr i64 %.sroa.6.0.i, %8
   %46 = add nsw i64 %7, -64
   %47 = shl i64 %.sroa.011.0.i, %46
-  %48 = or i64 %45, %47
+  %48 = add nuw nsw i64 %45, %47
   br label %i128_ashr64.exit
 
 49:                                               ; preds = %i128_shl64.exit
@@ -871,7 +871,7 @@ i128_shl64.exit.thread55:                         ; preds = %10
   %55 = lshr i64 %.sroa.6.0.i, %8
   %56 = add nsw i64 %7, -64
   %57 = shl i64 %.sroa.011.0.i, %56
-  %58 = or i64 %55, %57
+  %58 = add nuw nsw i64 %55, %57
   %59 = lshr i64 %.sroa.011.0.i, %8
   br label %i128_ashr64.exit
 
@@ -915,7 +915,7 @@ define dso_local { i64, i64 } @i128_ashr64(i64 %0, i64 %1, i64 noundef %2) local
   %16 = lshr i64 %1, %2
   %17 = sub nuw nsw i64 64, %2
   %18 = shl i64 %0, %17
-  %19 = or i64 %18, %16
+  %19 = or disjoint i64 %18, %16
   %20 = lshr i64 %0, %2
   br label %i128_lshr64.exit
 
@@ -940,7 +940,7 @@ define dso_local { i64, i64 } @i128_ashr64(i64 %0, i64 %1, i64 noundef %2) local
   %31 = lshr i64 %1, %2
   %32 = sub nuw nsw i64 64, %2
   %33 = shl i64 %0, %32
-  %34 = or i64 %33, %31
+  %34 = or disjoint i64 %33, %31
   br label %i128_lshr64.exit
 
 i128_lshr64.exit:                                 ; preds = %15, %12, %8, %7, %22, %21, %3, %29, %26
@@ -977,7 +977,7 @@ define dso_local { i64, i64 } @i128_lshr64(i64 %0, i64 %1, i64 noundef %2) local
   %15 = lshr i64 %1, %2
   %16 = sub nuw nsw i64 64, %2
   %17 = shl i64 %0, %16
-  %18 = or i64 %17, %15
+  %18 = or disjoint i64 %17, %15
   %19 = lshr i64 %0, %2
   br label %20
 
@@ -1179,7 +1179,7 @@ define dso_local { i64, i64 } @i128_shl(i64 %0, i64 %1, i64 %2, i64 %3) local_un
   %17 = shl i64 %0, %3
   %18 = sub nuw nsw i64 64, %3
   %19 = lshr i64 %1, %18
-  %20 = or i64 %19, %17
+  %20 = or disjoint i64 %19, %17
   %21 = shl i64 %1, %3
   br label %i128_shl64.exit
 
@@ -1237,7 +1237,7 @@ define dso_local { i64, i64 } @i128_lshr(i64 %0, i64 %1, i64 %2, i64 %3) local_u
   %17 = lshr i64 %1, %3
   %18 = sub nuw nsw i64 64, %3
   %19 = shl i64 %0, %18
-  %20 = or i64 %19, %17
+  %20 = or disjoint i64 %19, %17
   %21 = lshr i64 %0, %3
   br label %i128_lshr64.exit
 
@@ -1287,7 +1287,7 @@ define dso_local { i64, i64 } @i128_ashr(i64 %0, i64 %1, i64 %2, i64 %3) local_u
   %19 = lshr i64 %1, %3
   %20 = sub nuw nsw i64 64, %3
   %21 = shl i64 %0, %20
-  %22 = or i64 %21, %19
+  %22 = or disjoint i64 %21, %19
   %23 = lshr i64 %0, %3
   br label %i128_ashr64.exit
 
@@ -1312,7 +1312,7 @@ define dso_local { i64, i64 } @i128_ashr(i64 %0, i64 %1, i64 %2, i64 %3) local_u
   %34 = lshr i64 %1, %3
   %35 = sub nuw nsw i64 64, %3
   %36 = shl i64 %0, %35
-  %37 = or i64 %36, %34
+  %37 = or disjoint i64 %36, %34
   br label %i128_ashr64.exit
 
 i128_ashr64.exit:                                 ; preds = %32, %29, %25, %24, %18, %15, %11, %10, %6, %5
@@ -1832,7 +1832,7 @@ define dso_local void @i128_udivrem(i64 %0, i64 %1, i64 %2, i64 %3, ptr nocaptur
   %29 = shl i64 %2, %17
   %30 = sub nuw nsw i64 64, %17
   %31 = lshr i64 %3, %30
-  %32 = or i64 %31, %29
+  %32 = or disjoint i64 %31, %29
   %33 = shl i64 %3, %17
   br label %i128_shl64.exit.preheader
 
@@ -1975,7 +1975,7 @@ i128_neg.exit25:                                  ; preds = %18, %17, %i128_neg.
   %44 = shl i64 %.sroa.07.0, %32
   %45 = sub nuw nsw i64 64, %32
   %46 = lshr i64 %.sroa.5.0, %45
-  %47 = or i64 %46, %44
+  %47 = or disjoint i64 %46, %44
   %48 = shl i64 %.sroa.5.0, %32
   br label %i128_shl64.exit.i.i.preheader
 
@@ -2143,7 +2143,7 @@ i128_neg.exit25:                                  ; preds = %18, %17, %i128_neg.
   %44 = shl i64 %.sroa.07.0, %32
   %45 = sub nuw nsw i64 64, %32
   %46 = lshr i64 %.sroa.5.0, %45
-  %47 = or i64 %46, %44
+  %47 = or disjoint i64 %46, %44
   %48 = shl i64 %.sroa.5.0, %32
   br label %i128_shl64.exit.i.i.preheader
 
@@ -3002,11 +3002,11 @@ define dso_local void @int_conv(ptr dead_on_unwind noalias nocapture writable wr
   %34 = shl i64 %21, %20
   %35 = sub nuw nsw i64 64, %20
   %36 = lshr i64 %23, %35
-  %37 = or i64 %36, %34
+  %37 = or disjoint i64 %36, %34
   %38 = lshr i64 -1, %20
   %39 = and i64 %23, %38
   %40 = shl i64 %37, %35
-  %41 = or i64 %40, %39
+  %41 = add nuw nsw i64 %40, %39
   %42 = lshr i64 %37, %20
   br label %i128_lshr64.exit
 
@@ -3045,11 +3045,11 @@ i128_lshr64.exit:                                 ; preds = %18, %25, %29, %33
   %60 = shl i64 %47, %46
   %61 = sub nuw nsw i64 64, %46
   %62 = lshr i64 %49, %61
-  %63 = or i64 %62, %60
+  %63 = or disjoint i64 %62, %60
   %64 = lshr i64 -1, %46
   %65 = and i64 %49, %64
   %66 = shl i64 %63, %61
-  %67 = or i64 %66, %65
+  %67 = add nuw nsw i64 %66, %65
   %68 = lshr i64 %63, %46
   br label %i128_lshr64.exit45
 
@@ -3080,7 +3080,7 @@ i128_lshr64.exit45.thread:                        ; preds = %44
   %77 = shl i64 %.sroa.015.0.i41, %46
   %78 = sub nuw nsw i64 64, %46
   %79 = lshr i64 %.sroa.6.0.i42, %78
-  %80 = or i64 %79, %77
+  %80 = or disjoint i64 %79, %77
   %81 = shl i64 %.sroa.6.0.i42, %46
   %.not.i154 = icmp sgt i64 %80, -1
   br i1 %.not.i154, label %.thread159, label %.thread164
@@ -3097,7 +3097,7 @@ i128_lshr64.exit45.thread:                        ; preds = %44
   %84 = lshr exact i64 %81, %46
   %85 = sub nuw nsw i64 64, %46
   %86 = shl i64 %80, %85
-  %87 = or i64 %84, %86
+  %87 = or disjoint i64 %84, %86
   %88 = lshr i64 %80, %46
   br label %i128_ashr64.exit
 
@@ -3110,7 +3110,7 @@ i128_lshr64.exit45.thread:                        ; preds = %44
   %92 = lshr exact i64 %81, %46
   %93 = sub nuw nsw i64 64, %46
   %94 = shl i64 %80, %93
-  %95 = or i64 %92, %94
+  %95 = or disjoint i64 %92, %94
   br label %i128_ashr64.exit
 
 i128_ashr64.exit:                                 ; preds = %i128_lshr64.exit45.thread, %.thread126, %82, %.thread159, %89, %.thread164
@@ -3196,7 +3196,7 @@ define dso_local void @int_div(ptr dead_on_unwind noalias nocapture writable wri
   %38 = shl i64 %13, %26
   %39 = sub nuw nsw i64 64, %26
   %40 = lshr i64 %15, %39
-  %41 = or i64 %40, %38
+  %41 = or disjoint i64 %40, %38
   %42 = shl i64 %15, %26
   br label %i128_shl64.exit.i.i.preheader
 
@@ -3325,7 +3325,7 @@ define dso_local void @int_rem(ptr dead_on_unwind noalias nocapture writable wri
   %38 = shl i64 %13, %26
   %39 = sub nuw nsw i64 64, %26
   %40 = lshr i64 %15, %39
-  %41 = or i64 %40, %38
+  %41 = or disjoint i64 %40, %38
   %42 = shl i64 %15, %26
   br label %i128_shl64.exit.i.i.preheader
 
@@ -3526,7 +3526,7 @@ define dso_local void @int_shr64(ptr dead_on_unwind noalias nocapture writable w
   %23 = lshr i64 %10, %2
   %24 = sub nuw nsw i64 64, %2
   %25 = shl i64 %8, %24
-  %26 = or i64 %23, %25
+  %26 = or disjoint i64 %23, %25
   %27 = lshr i64 %8, %2
   br label %i128_lshr64.exit
 
@@ -3564,7 +3564,7 @@ i128_lshr64.exit:                                 ; preds = %12, %13, %15, %19, 
   %41 = lshr i64 %10, %2
   %42 = sub nuw nsw i64 64, %2
   %43 = shl i64 %8, %42
-  %44 = or i64 %41, %43
+  %44 = or disjoint i64 %41, %43
   %45 = lshr i64 %8, %2
   br label %i128_ashr64.exit
 
@@ -3589,7 +3589,7 @@ i128_lshr64.exit:                                 ; preds = %12, %13, %15, %19, 
   %56 = lshr i64 %10, %2
   %57 = sub nuw nsw i64 64, %2
   %58 = shl i64 %8, %57
-  %59 = or i64 %56, %58
+  %59 = or disjoint i64 %56, %58
   br label %i128_ashr64.exit
 
 i128_ashr64.exit:                                 ; preds = %29, %32, %33, %37, %40, %46, %47, %51, %54
@@ -3646,7 +3646,7 @@ define dso_local void @int_shl64(ptr dead_on_unwind noalias nocapture writable w
   %23 = shl i64 %8, %2
   %24 = sub nuw nsw i64 64, %2
   %25 = lshr i64 %10, %24
-  %26 = or i64 %25, %23
+  %26 = or disjoint i64 %25, %23
   %27 = shl i64 %10, %2
   br label %i128_shl64.exit
 
@@ -3680,7 +3680,7 @@ i128_shl64.exit:                                  ; preds = %12, %13, %15, %19, 
   %40 = shl i64 %8, %2
   %41 = sub nuw nsw i64 64, %2
   %42 = lshr i64 %10, %41
-  %43 = or i64 %42, %40
+  %43 = or disjoint i64 %42, %40
   %44 = shl i64 %10, %2
   br label %i128_shl64.exit10
 

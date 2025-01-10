@@ -556,7 +556,7 @@ for.body8.i:                                      ; preds = %for.body8.i, %for.b
   %arrayidx.i25.i = getelementptr inbounds nuw i32, ptr %.pre, i64 %indvars.iv.next.i
   %34 = load i32, ptr %arrayidx.i25.i, align 4
   %shl19.i = shl i32 %34, %sub11.i
-  %or.i74 = or i32 %shl19.i, %shr.i73
+  %or.i74 = or disjoint i32 %shl19.i, %shr.i73
   %arrayidx21.i = getelementptr inbounds nuw i32, ptr %rem, i64 %indvars.iv.i
   store i32 %or.i74, ptr %arrayidx21.i, align 4
   %exitcond.not = icmp eq i64 %indvars.iv.next.i, %29
@@ -913,7 +913,7 @@ for.body31:                                       ; preds = %if.then21, %for.bod
   %arrayidx37 = getelementptr inbounds nuw i32, ptr %numer, i64 %25
   %26 = load i32, ptr %arrayidx37, align 4
   %shr41 = lshr i32 %26, %sub25
-  %or = or i32 %shr41, %shl34
+  %or = or disjoint i32 %shr41, %shl34
   %27 = load ptr, ptr %n_numer, align 8
   %arrayidx.i101 = getelementptr inbounds nuw i32, ptr %27, i64 %indvars.iv
   store i32 %or, ptr %arrayidx.i101, align 4
@@ -944,7 +944,7 @@ for.body52:                                       ; preds = %for.body52.preheade
   %arrayidx58 = getelementptr inbounds nuw i32, ptr %denom, i64 %idxprom57
   %32 = load i32, ptr %arrayidx58, align 4
   %shr62 = lshr i32 %32, %sub25
-  %or63 = or i32 %shr62, %shl55
+  %or63 = or disjoint i32 %shr62, %shl55
   %33 = load ptr, ptr %n_denom, align 8
   %arrayidx.i104 = getelementptr inbounds nuw i32, ptr %33, i64 %indvars.iv121
   store i32 %or63, ptr %arrayidx.i104, align 4
@@ -1465,7 +1465,7 @@ for.body8:                                        ; preds = %for.body8.lr.ph, %f
   %arrayidx.i25 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv.next
   %7 = load i32, ptr %arrayidx.i25, align 4
   %shl19 = shl i32 %7, %sub11
-  %or = or i32 %shl19, %shr
+  %or = or disjoint i32 %shl19, %shr
   %arrayidx21 = getelementptr inbounds nuw i32, ptr %rem, i64 %indvars.iv
   store i32 %or, ptr %arrayidx21, align 4
   %8 = load i32, ptr %m_pos.i, align 8

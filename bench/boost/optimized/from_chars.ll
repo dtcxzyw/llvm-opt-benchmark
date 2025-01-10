@@ -3371,7 +3371,7 @@ define linkonce_odr hidden { i64, i32 } @_ZN5boost8charconv6detail10fast_float19
   %15 = load i64, ptr %14, align 8, !tbaa !7
   %16 = shl i64 %15, %6
   %17 = lshr i64 %.01622.i.i.i.i, %9
-  %18 = or i64 %16, %17
+  %18 = or disjoint i64 %16, %17
   store i64 %18, ptr %14, align 8, !tbaa !7
   %19 = add nuw nsw i64 %.01721.i.i.i.i, 1
   %exitcond.not.i.i.i.i = icmp eq i64 %19, %12
@@ -3611,7 +3611,7 @@ _ZN5boost8charconv6detail10fast_float11to_extendedIfEENS2_17adjusted_mantissaET_
   %49 = load i64, ptr %48, align 8, !tbaa !7
   %50 = shl i64 %49, %41
   %51 = lshr i64 %.01622.i.i.i, %44
-  %52 = or i64 %50, %51
+  %52 = or disjoint i64 %50, %51
   store i64 %52, ptr %48, align 8, !tbaa !7
   %53 = add nuw nsw i64 %.01721.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %53, %46
@@ -3685,7 +3685,7 @@ _ZSt13copy_backwardIPKmPmET0_T_S4_S3_.exit.i.i.i: ; preds = %59
   %84 = load i64, ptr %83, align 8, !tbaa !7
   %85 = shl i64 %84, %75
   %86 = lshr i64 %.01622.i.i.i36, %78
-  %87 = or i64 %85, %86
+  %87 = or disjoint i64 %85, %86
   store i64 %87, ptr %83, align 8, !tbaa !7
   %88 = add nuw nsw i64 %.01721.i.i.i37, 1
   %exitcond.not.i.i.i38 = icmp eq i64 %88, %81
@@ -6515,7 +6515,7 @@ define linkonce_odr hidden { i64, i32 } @_ZN5boost8charconv6detail10fast_float19
   %15 = load i64, ptr %14, align 8, !tbaa !7
   %16 = shl i64 %15, %6
   %17 = lshr i64 %.01622.i.i.i.i, %9
-  %18 = or i64 %16, %17
+  %18 = or disjoint i64 %16, %17
   store i64 %18, ptr %14, align 8, !tbaa !7
   %19 = add nuw nsw i64 %.01721.i.i.i.i, 1
   %exitcond.not.i.i.i.i = icmp eq i64 %19, %12
@@ -6756,7 +6756,7 @@ _ZN5boost8charconv6detail10fast_float11to_extendedIdEENS2_17adjusted_mantissaET_
   %50 = load i64, ptr %49, align 8, !tbaa !7
   %51 = shl i64 %50, %42
   %52 = lshr i64 %.01622.i.i.i, %45
-  %53 = or i64 %51, %52
+  %53 = or disjoint i64 %51, %52
   store i64 %53, ptr %49, align 8, !tbaa !7
   %54 = add nuw nsw i64 %.01721.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %54, %47
@@ -6830,7 +6830,7 @@ _ZSt13copy_backwardIPKmPmET0_T_S4_S3_.exit.i.i.i: ; preds = %60
   %85 = load i64, ptr %84, align 8, !tbaa !7
   %86 = shl i64 %85, %76
   %87 = lshr i64 %.01622.i.i.i36, %79
-  %88 = or i64 %86, %87
+  %88 = or disjoint i64 %86, %87
   store i64 %88, ptr %84, align 8, !tbaa !7
   %89 = add nuw nsw i64 %.01721.i.i.i37, 1
   %exitcond.not.i.i.i38 = icmp eq i64 %89, %82
