@@ -52645,17 +52645,17 @@ ggml_vec_max_f32.exit.i140:                       ; preds = %for.body.i.i, %for.
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %sump.i9, i8 0, i64 32, i1 false)
   br i1 %cmp295255.i, label %for.body297.i, label %for.body344.i.preheader
 
-for.body297.i:                                    ; preds = %ggml_vec_max_f32.exit.i140, %for.inc337.i.loopexit
-  %indvars.iv271.i = phi i64 [ %indvars.iv.next272.i, %for.inc337.i.loopexit ], [ 0, %ggml_vec_max_f32.exit.i140 ]
+for.body297.i:                                    ; preds = %ggml_vec_max_f32.exit.i140, %for.inc337.i
+  %indvars.iv271.i = phi i64 [ %indvars.iv.next272.i, %for.inc337.i ], [ 0, %ggml_vec_max_f32.exit.i140 ]
   %cmp299.not.i = icmp sgt i64 %cond250.i, %indvars.iv271.i
-  br i1 %cmp299.not.i, label %if.end302.i, label %for.body344.i.preheader
+  br i1 %cmp299.not.i, label %if.else.preheader.i, label %for.body344.i.preheader
 
-if.end302.i:                                      ; preds = %for.body297.i
+if.else.preheader.i:                              ; preds = %for.body297.i
   %add.ptr304.i = getelementptr inbounds nuw float, ptr %add.ptr.i127, i64 %indvars.iv271.i
   br label %if.else.i
 
-if.else.i:                                        ; preds = %if.end302.i, %for.inc334.i144
-  %indvars.iv267.i = phi i64 [ %indvars.iv.next268.i, %for.inc334.i144 ], [ 0, %if.end302.i ]
+if.else.i:                                        ; preds = %for.inc334.i144, %if.else.preheader.i
+  %indvars.iv267.i = phi i64 [ 0, %if.else.preheader.i ], [ %indvars.iv.next268.i, %for.inc334.i144 ]
   %arrayidx315.i = getelementptr inbounds nuw float, ptr %add.ptr304.i, i64 %indvars.iv267.i
   %268 = load float, ptr %arrayidx315.i, align 4
   %cmp316.i = fcmp oeq float %268, 0xFFF0000000000000
@@ -52679,14 +52679,14 @@ for.inc334.i144:                                  ; preds = %if.else321.i, %if.e
   %270 = or disjoint i64 %indvars.iv.next268.i, %indvars.iv271.i
   %cmp311.not.i = icmp samesign ugt i64 %cond250.i, %270
   %or.cond.i = select i1 %cmp306.i, i1 %cmp311.not.i, i1 false
-  br i1 %or.cond.i, label %if.else.i, label %for.inc337.i.loopexit, !llvm.loop !703
+  br i1 %or.cond.i, label %if.else.i, label %for.inc337.i, !llvm.loop !703
 
-for.inc337.i.loopexit:                            ; preds = %for.inc334.i144
+for.inc337.i:                                     ; preds = %for.inc334.i144
   %indvars.iv.next272.i = add nuw nsw i64 %indvars.iv271.i, 4
   %cmp295.i = icmp slt i64 %indvars.iv.next272.i, %conv234.i
   br i1 %cmp295.i, label %for.body297.i, label %for.body344.i.preheader, !llvm.loop !704
 
-for.body344.i.preheader:                          ; preds = %for.inc337.i.loopexit, %for.body297.i, %ggml_vec_max_f32.exit.i140
+for.body344.i.preheader:                          ; preds = %for.inc337.i, %for.body297.i, %ggml_vec_max_f32.exit.i140
   br label %for.body344.i
 
 for.body344.i:                                    ; preds = %for.body344.i.preheader, %for.body344.i
@@ -54119,13 +54119,13 @@ ggml_vec_max_f32.exit.us.us.us.i:                 ; preds = %for.body.i.us.us.us
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %sump.i, i8 0, i64 32, i1 false)
   br i1 %cmp391522.i, label %for.body393.us.us.us.i, label %for.body442.us.us.us.i.preheader
 
-for.body442.us.us.us.i.preheader:                 ; preds = %for.inc435.us.us.us.i.loopexit, %for.body393.us.us.us.i, %ggml_vec_max_f32.exit.us.us.us.i
+for.body442.us.us.us.i.preheader:                 ; preds = %for.inc435.us.us.us.i, %for.body393.us.us.us.i, %ggml_vec_max_f32.exit.us.us.us.i
   br label %for.body442.us.us.us.i
 
-for.body393.us.us.us.i:                           ; preds = %ggml_vec_max_f32.exit.us.us.us.i, %for.inc435.us.us.us.i.loopexit
-  %indvars.iv566.i = phi i64 [ %indvars.iv.next567.i, %for.inc435.us.us.us.i.loopexit ], [ 0, %ggml_vec_max_f32.exit.us.us.us.i ]
+for.body393.us.us.us.i:                           ; preds = %ggml_vec_max_f32.exit.us.us.us.i, %for.inc435.us.us.us.i
+  %indvars.iv566.i = phi i64 [ %indvars.iv.next567.i, %for.inc435.us.us.us.i ], [ 0, %ggml_vec_max_f32.exit.us.us.us.i ]
   %cmp395.not.us.us.us.i = icmp sgt i64 %cond347.us.us.us.i, %indvars.iv566.i
-  br i1 %cmp395.not.us.us.us.i, label %if.end398.us.us.us.i, label %for.body442.us.us.us.i.preheader
+  br i1 %cmp395.not.us.us.us.i, label %if.else.us.us.us.preheader.i, label %for.body442.us.us.us.i.preheader
 
 for.end448.us.us.us.i:                            ; preds = %for.body442.us.us.us.i
   %div449.us.us.us.i = fdiv double 1.000000e+00, %add445.us.us.us.i
@@ -54609,18 +54609,18 @@ for.body442.us.us.us.i:                           ; preds = %for.body442.us.us.u
   %exitcond572.not.i = icmp eq i64 %indvars.iv.next570.i, 4
   br i1 %exitcond572.not.i, label %for.end448.us.us.us.i, label %for.body442.us.us.us.i, !llvm.loop !780
 
-if.end398.us.us.us.i:                             ; preds = %for.body393.us.us.us.i
+if.else.us.us.us.preheader.i:                     ; preds = %for.body393.us.us.us.i
   %add.ptr400.us.us.us.i = getelementptr inbounds nuw float, ptr %add.ptr318.us.us.us.i, i64 %indvars.iv566.i
   %add.ptr402.us.us.us.i = getelementptr inbounds nuw float, ptr %add.ptr333.us.us.us.i, i64 %indvars.iv566.i
   br label %if.else.us.us.us.i
 
-for.inc435.us.us.us.i.loopexit:                   ; preds = %for.inc432.us.us.us.i
+for.inc435.us.us.us.i:                            ; preds = %for.inc432.us.us.us.i
   %indvars.iv.next567.i = add nuw nsw i64 %indvars.iv566.i, 4
   %cmp391.us.us.us.i = icmp slt i64 %indvars.iv.next567.i, %conv82.i
   br i1 %cmp391.us.us.us.i, label %for.body393.us.us.us.i, label %for.body442.us.us.us.i.preheader, !llvm.loop !781
 
-if.else.us.us.us.i:                               ; preds = %if.end398.us.us.us.i, %for.inc432.us.us.us.i
-  %indvars.iv562.i = phi i64 [ %indvars.iv.next563.i, %for.inc432.us.us.us.i ], [ 0, %if.end398.us.us.us.i ]
+if.else.us.us.us.i:                               ; preds = %for.inc432.us.us.us.i, %if.else.us.us.us.preheader.i
+  %indvars.iv562.i = phi i64 [ 0, %if.else.us.us.us.preheader.i ], [ %indvars.iv.next563.i, %for.inc432.us.us.us.i ]
   %arrayidx413.us.us.us.i = getelementptr inbounds nuw float, ptr %add.ptr400.us.us.us.i, i64 %indvars.iv562.i
   %169 = load float, ptr %arrayidx413.us.us.us.i, align 4
   %cmp414.us.us.us.i = fcmp oeq float %169, 0xFFF0000000000000
@@ -54645,7 +54645,7 @@ for.inc432.us.us.us.i:                            ; preds = %if.else419.us.us.us
   %172 = or disjoint i64 %indvars.iv.next563.i, %indvars.iv566.i
   %cmp409.not.us.us.us.i = icmp samesign ugt i64 %cond347.us.us.us.i, %172
   %or.cond.us.us.us.i = select i1 %cmp404.us.us.us.i, i1 %cmp409.not.us.us.us.i, i1 false
-  br i1 %or.cond.us.us.us.i, label %if.else.us.us.us.i, label %for.inc435.us.us.us.i.loopexit, !llvm.loop !782
+  br i1 %or.cond.us.us.us.i, label %if.else.us.us.us.i, label %for.inc435.us.us.us.i, !llvm.loop !782
 
 for.body383.us.us.us.i:                           ; preds = %ggml_vec_scale_f32.exit.us.us.us.i, %for.body383.us.us.us.i
   %i379.0518.us.us.us.i = phi i64 [ %inc386.us.us.us.i, %for.body383.us.us.us.i ], [ %cond347.us.us.us.i, %ggml_vec_scale_f32.exit.us.us.us.i ]
