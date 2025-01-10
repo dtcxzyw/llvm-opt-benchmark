@@ -7027,7 +7027,7 @@ define hidden { i8, i8 } @_ZN15ra_ap_rustc_abi16TargetDataLayout12vector_align17
   %12 = getelementptr inbounds nuw i8, ptr %.sroa.0.014, i64 16
   %13 = load i64, ptr %.sroa.0.014, align 8, !noundef !10
   %14 = icmp eq i64 %13, %1
-  br i1 %14, label %31, label %7
+  br i1 %14, label %29, label %7
 
 15:                                               ; preds = %9
   %16 = add i64 %1, -1
@@ -7040,39 +7040,33 @@ define hidden { i8, i8 } @_ZN15ra_ap_rustc_abi16TargetDataLayout12vector_align17
 .thread:                                          ; preds = %9, %15
   %.018 = phi i64 [ %19, %15 ], [ 1, %9 ]
   %21 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.018, i1 true)
-  %22 = shl nuw i64 1, %21
-  %.not.i = icmp eq i64 %.018, %22
-  br i1 %.not.i, label %23, label %27
+  %22 = icmp samesign ugt i64 %21, 29
+  br i1 %22, label %25, label %23
 
 23:                                               ; preds = %.thread
-  %24 = icmp samesign ugt i64 %21, 29
-  br i1 %24, label %27, label %25
-
-25:                                               ; preds = %23
-  %26 = trunc nuw nsw i64 %21 to i8
+  %24 = trunc nuw nsw i64 %21 to i8
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h4147fb7cadb810d6E.exit"
 
-27:                                               ; preds = %.thread, %23
-  %.sroa.08.0 = phi i64 [ 0, %.thread ], [ 1, %23 ]
+25:                                               ; preds = %.thread
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3), !noalias !2982
-  store i64 %.sroa.08.0, ptr %3, align 8, !noalias !2982
-  %28 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store i64 %.018, ptr %28, align 8, !noalias !2982
+  store i64 1, ptr %3, align 8, !noalias !2982
+  %26 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store i64 %.018, ptr %26, align 8, !noalias !2982
   call void @_ZN4core6result13unwrap_failed17ha188096f98826595E(ptr noalias noundef nonnull readonly align 1 @anon.1dac31fa3210420145aae2dceea84124.48, i64 noundef 43, ptr noundef nonnull align 1 %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1dac31fa3210420145aae2dceea84124.49, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1dac31fa3210420145aae2dceea84124.9) #58, !noalias !2982
   unreachable
 
-"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h4147fb7cadb810d6E.exit": ; preds = %15, %25, %31
-  %.sroa.3.0 = phi i8 [ %33, %31 ], [ 0, %15 ], [ %26, %25 ]
-  %.sroa.0.0 = phi i8 [ %35, %31 ], [ 0, %15 ], [ %26, %25 ]
-  %29 = insertvalue { i8, i8 } poison, i8 %.sroa.0.0, 0
-  %30 = insertvalue { i8, i8 } %29, i8 %.sroa.3.0, 1
-  ret { i8, i8 } %30
+"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h4147fb7cadb810d6E.exit": ; preds = %15, %23, %29
+  %.sroa.3.0 = phi i8 [ %31, %29 ], [ 0, %15 ], [ %24, %23 ]
+  %.sroa.0.0 = phi i8 [ %33, %29 ], [ 0, %15 ], [ %24, %23 ]
+  %27 = insertvalue { i8, i8 } poison, i8 %.sroa.0.0, 0
+  %28 = insertvalue { i8, i8 } %27, i8 %.sroa.3.0, 1
+  ret { i8, i8 } %28
 
-31:                                               ; preds = %11
-  %32 = getelementptr inbounds nuw i8, ptr %.sroa.0.014, i64 9
-  %33 = load i8, ptr %32, align 1, !noundef !10
-  %34 = getelementptr inbounds nuw i8, ptr %.sroa.0.014, i64 8
-  %35 = load i8, ptr %34, align 8, !noundef !10
+29:                                               ; preds = %11
+  %30 = getelementptr inbounds nuw i8, ptr %.sroa.0.014, i64 9
+  %31 = load i8, ptr %30, align 1, !noundef !10
+  %32 = getelementptr inbounds nuw i8, ptr %.sroa.0.014, i64 8
+  %33 = load i8, ptr %32, align 8, !noundef !10
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h4147fb7cadb810d6E.exit"
 }
 
@@ -7606,7 +7600,7 @@ _ZN15ra_ap_rustc_abi6Scalar4size17h0f15ca3752f633fbE.exit: ; preds = %switch.loo
   %63 = getelementptr inbounds nuw i8, ptr %.sroa.0.014.i, i64 16
   %64 = load i64, ptr %.sroa.0.014.i, align 8, !noalias !3056, !noundef !10
   %65 = icmp eq i64 %64, %54
-  br i1 %65, label %80, label %58
+  br i1 %65, label %78, label %58
 
 66:                                               ; preds = %60
   %67 = add i64 %54, -1
@@ -7619,38 +7613,32 @@ _ZN15ra_ap_rustc_abi6Scalar4size17h0f15ca3752f633fbE.exit: ; preds = %switch.loo
 .thread.i:                                        ; preds = %66, %60
   %.018.i = phi i64 [ %70, %66 ], [ 1, %60 ]
   %72 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.018.i, i1 true)
-  %73 = shl nuw i64 1, %72
-  %.not.i.i = icmp eq i64 %.018.i, %73
-  br i1 %.not.i.i, label %74, label %78
+  %73 = icmp samesign ugt i64 %72, 29
+  br i1 %73, label %76, label %74
 
 74:                                               ; preds = %.thread.i
-  %75 = icmp samesign ugt i64 %72, 29
-  br i1 %75, label %78, label %76
-
-76:                                               ; preds = %74
-  %77 = trunc nuw nsw i64 %72 to i8
+  %75 = trunc nuw nsw i64 %72 to i8
   br label %_ZN15ra_ap_rustc_abi16TargetDataLayout12vector_align17h06a423de10802197E.llvm.10169251571672223956.exit
 
-78:                                               ; preds = %74, %.thread.i
-  %.sroa.08.0.i = phi i64 [ 0, %.thread.i ], [ 1, %74 ]
+76:                                               ; preds = %.thread.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3), !noalias !3059
-  store i64 %.sroa.08.0.i, ptr %3, align 8, !noalias !3059
-  %79 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store i64 %.018.i, ptr %79, align 8, !noalias !3059
+  store i64 1, ptr %3, align 8, !noalias !3059
+  %77 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store i64 %.018.i, ptr %77, align 8, !noalias !3059
   call void @_ZN4core6result13unwrap_failed17ha188096f98826595E(ptr noalias noundef nonnull readonly align 1 @anon.1dac31fa3210420145aae2dceea84124.48, i64 noundef 43, ptr noundef nonnull align 1 %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1dac31fa3210420145aae2dceea84124.49, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1dac31fa3210420145aae2dceea84124.9) #58, !noalias !3059
   unreachable
 
-80:                                               ; preds = %62
-  %81 = getelementptr inbounds nuw i8, ptr %.sroa.0.014.i, i64 9
-  %82 = load i8, ptr %81, align 1, !noalias !3056, !noundef !10
-  %83 = getelementptr inbounds nuw i8, ptr %.sroa.0.014.i, i64 8
-  %84 = load i8, ptr %83, align 8, !noalias !3056, !noundef !10
+78:                                               ; preds = %62
+  %79 = getelementptr inbounds nuw i8, ptr %.sroa.0.014.i, i64 9
+  %80 = load i8, ptr %79, align 1, !noalias !3056, !noundef !10
+  %81 = getelementptr inbounds nuw i8, ptr %.sroa.0.014.i, i64 8
+  %82 = load i8, ptr %81, align 8, !noalias !3056, !noundef !10
   br label %_ZN15ra_ap_rustc_abi16TargetDataLayout12vector_align17h06a423de10802197E.llvm.10169251571672223956.exit
 
-_ZN15ra_ap_rustc_abi16TargetDataLayout12vector_align17h06a423de10802197E.llvm.10169251571672223956.exit: ; preds = %80, %76, %66, %_ZN15ra_ap_rustc_abi6Scalar5align17ha6c64ae46d916731E.exit, %_ZN15ra_ap_rustc_abi6Scalar5align17ha6c64ae46d916731E.exit25, %2, %2
-  %.sroa.4.0 = phi i8 [ undef, %2 ], [ undef, %2 ], [ %.0.sroa.speculated.i26, %_ZN15ra_ap_rustc_abi6Scalar5align17ha6c64ae46d916731E.exit25 ], [ %.pn3.i.i, %_ZN15ra_ap_rustc_abi6Scalar5align17ha6c64ae46d916731E.exit ], [ %82, %80 ], [ 0, %66 ], [ %77, %76 ]
-  %.sroa.3.0 = phi i8 [ undef, %2 ], [ undef, %2 ], [ %.0.sroa.speculated.i, %_ZN15ra_ap_rustc_abi6Scalar5align17ha6c64ae46d916731E.exit25 ], [ %.pn5.i.i, %_ZN15ra_ap_rustc_abi6Scalar5align17ha6c64ae46d916731E.exit ], [ %84, %80 ], [ 0, %66 ], [ %77, %76 ]
-  %.sroa.0.0 = phi i8 [ 0, %2 ], [ 0, %2 ], [ 1, %_ZN15ra_ap_rustc_abi6Scalar5align17ha6c64ae46d916731E.exit25 ], [ 1, %_ZN15ra_ap_rustc_abi6Scalar5align17ha6c64ae46d916731E.exit ], [ 1, %80 ], [ 1, %66 ], [ 1, %76 ]
+_ZN15ra_ap_rustc_abi16TargetDataLayout12vector_align17h06a423de10802197E.llvm.10169251571672223956.exit: ; preds = %78, %74, %66, %_ZN15ra_ap_rustc_abi6Scalar5align17ha6c64ae46d916731E.exit, %_ZN15ra_ap_rustc_abi6Scalar5align17ha6c64ae46d916731E.exit25, %2, %2
+  %.sroa.4.0 = phi i8 [ undef, %2 ], [ undef, %2 ], [ %.0.sroa.speculated.i26, %_ZN15ra_ap_rustc_abi6Scalar5align17ha6c64ae46d916731E.exit25 ], [ %.pn3.i.i, %_ZN15ra_ap_rustc_abi6Scalar5align17ha6c64ae46d916731E.exit ], [ %80, %78 ], [ 0, %66 ], [ %75, %74 ]
+  %.sroa.3.0 = phi i8 [ undef, %2 ], [ undef, %2 ], [ %.0.sroa.speculated.i, %_ZN15ra_ap_rustc_abi6Scalar5align17ha6c64ae46d916731E.exit25 ], [ %.pn5.i.i, %_ZN15ra_ap_rustc_abi6Scalar5align17ha6c64ae46d916731E.exit ], [ %82, %78 ], [ 0, %66 ], [ %75, %74 ]
+  %.sroa.0.0 = phi i8 [ 0, %2 ], [ 0, %2 ], [ 1, %_ZN15ra_ap_rustc_abi6Scalar5align17ha6c64ae46d916731E.exit25 ], [ 1, %_ZN15ra_ap_rustc_abi6Scalar5align17ha6c64ae46d916731E.exit ], [ 1, %78 ], [ 1, %66 ], [ 1, %74 ]
   %.sroa.4.0.insert.ext = zext i8 %.sroa.4.0 to i24
   %.sroa.4.0.insert.shift = shl nuw i24 %.sroa.4.0.insert.ext, 16
   %.sroa.3.0.insert.ext = zext i8 %.sroa.3.0 to i24

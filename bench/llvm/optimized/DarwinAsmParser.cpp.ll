@@ -2703,10 +2703,12 @@ define internal noundef zeroext i1 @_ZN4llvm20MCAsmParserExtension15HandleDirect
   %156 = load i64, ptr %9, align 8
   %157 = load i64, ptr %10, align 8
   %158 = trunc i64 %157 to i8
-  %159 = load ptr, ptr %149, align 8
-  %160 = getelementptr inbounds nuw i8, ptr %159, i64 488
-  %161 = load ptr, ptr %160, align 8
-  call void %161(ptr noundef nonnull align 8 dereferenceable(288) %149, ptr noundef %155, ptr noundef nonnull %44, i64 noundef %156, i8 %158) #15
+  %159 = xor i8 %158, 63
+  %160 = sub nuw nsw i8 63, %159
+  %161 = load ptr, ptr %149, align 8
+  %162 = getelementptr inbounds nuw i8, ptr %161, i64 488
+  %163 = load ptr, ptr %162, align 8
+  call void %163(ptr noundef nonnull align 8 dereferenceable(288) %149, ptr noundef %155, ptr noundef nonnull %44, i64 noundef %156, i8 %160) #15
   br label %_ZN12_GLOBAL__N_115DarwinAsmParser18parseDirectiveTBSSEN4llvm9StringRefENS1_5SMLocE.exit
 
 _ZN12_GLOBAL__N_115DarwinAsmParser18parseDirectiveTBSSEN4llvm9StringRefENS1_5SMLocE.exit: ; preds = %27, %53, %58, %85, %111, %124, %132, %139, %144
@@ -3100,10 +3102,12 @@ define internal noundef zeroext i1 @_ZN4llvm20MCAsmParserExtension15HandleDirect
   %251 = load i64, ptr %15, align 8
   %252 = load i64, ptr %16, align 8
   %253 = trunc i64 %252 to i8
-  %254 = load ptr, ptr %244, align 8
-  %255 = getelementptr inbounds nuw i8, ptr %254, i64 480
-  %256 = load ptr, ptr %255, align 8
-  call void %256(ptr noundef nonnull align 8 dereferenceable(288) %244, ptr noundef %250, ptr noundef nonnull %139, i64 noundef %251, i8 %253, ptr %57) #15
+  %254 = xor i8 %253, 63
+  %255 = sub nuw nsw i8 63, %254
+  %256 = load ptr, ptr %244, align 8
+  %257 = getelementptr inbounds nuw i8, ptr %256, i64 480
+  %258 = load ptr, ptr %257, align 8
+  call void %258(ptr noundef nonnull align 8 dereferenceable(288) %244, ptr noundef %250, ptr noundef nonnull %139, i64 noundef %251, i8 %255, ptr %57) #15
   br label %_ZN12_GLOBAL__N_115DarwinAsmParser22parseDirectiveZerofillEN4llvm9StringRefENS1_5SMLocE.exit
 
 _ZN12_GLOBAL__N_115DarwinAsmParser22parseDirectiveZerofillEN4llvm9StringRefENS1_5SMLocE.exit: ; preds = %27, %41, %63, %80, %100, %122, %148, %153, %180, %206, %219, %227, %234, %239

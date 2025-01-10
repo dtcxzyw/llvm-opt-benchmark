@@ -68042,7 +68042,7 @@ _ZN4llvm32GetPointerBaseWithConstantOffsetEPNS_5ValueERlRKNS_10DataLayoutEb.exit
 124:                                              ; preds = %122
   %125 = call noundef range(i32 0, 33) i32 @llvm.cttz.i32(i32 %116, i1 true)
   %126 = lshr i32 %117, %125
-  %127 = call noundef range(i32 0, 33) i32 @llvm.cttz.i32(i32 %120, i1 true)
+  %127 = zext nneg i8 %115 to i32
   %128 = lshr i32 %120, %127
   %129 = call i32 @llvm.umin.i32(i32 %125, i32 %127)
   %spec.select3334.i.i.i = call i32 @llvm.umin.i32(i32 %126, i32 %128)
@@ -68795,7 +68795,7 @@ _ZN4llvm32GetPointerBaseWithConstantOffsetEPKNS_5ValueERlRKNS_10DataLayoutEb.exi
 215:                                              ; preds = %213
   %216 = call noundef range(i32 0, 33) i32 @llvm.cttz.i32(i32 %210, i1 true)
   %217 = lshr i32 %211, %216
-  %218 = call noundef range(i32 0, 33) i32 @llvm.cttz.i32(i32 %189, i1 true)
+  %218 = zext nneg i8 %.sroa.080.1105.i.i to i32
   %219 = lshr i32 %189, %218
   %220 = call i32 @llvm.umin.i32(i32 %216, i32 %218)
   %spec.select3334.i.i.i = call i32 @llvm.umin.i32(i32 %217, i32 %219)

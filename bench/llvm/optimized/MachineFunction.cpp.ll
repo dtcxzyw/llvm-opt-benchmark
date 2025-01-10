@@ -1061,151 +1061,153 @@ _ZNK4llvm5Value11getMetadataEj.exit:              ; preds = %_ZNK4llvm5Value11ha
 _ZNK4llvm5Value11getMetadataEj.exit.thread:       ; preds = %154, %_ZNK4llvm5Value11hasMetadataEj.exit.thread, %162, %_ZNK4llvm5Value11getMetadataEj.exit
   %163 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZL17AlignAllFunctions, i64 128), align 8
   %.not6 = icmp eq i32 %163, 0
-  br i1 %.not6, label %166, label %164
+  br i1 %.not6, label %168, label %164
 
 164:                                              ; preds = %_ZNK4llvm5Value11getMetadataEj.exit.thread
   %165 = trunc i32 %163 to i8
-  store i8 %165, ptr %144, align 4
-  br label %166
+  %166 = xor i8 %165, 63
+  %167 = sub nuw nsw i8 63, %166
+  store i8 %167, ptr %144, align 4
+  br label %168
 
-166:                                              ; preds = %164, %_ZNK4llvm5Value11getMetadataEj.exit.thread
-  %167 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  store ptr null, ptr %167, align 8
-  %168 = load ptr, ptr %0, align 8
-  %169 = getelementptr inbounds nuw i8, ptr %168, i64 2
-  %170 = load i16, ptr %169, align 2
-  %171 = and i16 %170, 8
-  %.not62 = icmp eq i16 %171, 0
-  br i1 %.not62, label %174, label %172
+168:                                              ; preds = %164, %_ZNK4llvm5Value11getMetadataEj.exit.thread
+  %169 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  store ptr null, ptr %169, align 8
+  %170 = load ptr, ptr %0, align 8
+  %171 = getelementptr inbounds nuw i8, ptr %170, i64 2
+  %172 = load i16, ptr %171, align 2
+  %173 = and i16 %172, 8
+  %.not62 = icmp eq i16 %173, 0
+  br i1 %.not62, label %176, label %174
 
-172:                                              ; preds = %166
-  %173 = tail call noundef ptr @_ZNK4llvm8Function16getPersonalityFnEv(ptr noundef nonnull align 8 dereferenceable(136) %168) #25
-  br label %174
+174:                                              ; preds = %168
+  %175 = tail call noundef ptr @_ZNK4llvm8Function16getPersonalityFnEv(ptr noundef nonnull align 8 dereferenceable(136) %170) #25
+  br label %176
 
-174:                                              ; preds = %166, %172
-  %175 = phi ptr [ %173, %172 ], [ null, %166 ]
-  %176 = tail call noundef i32 @_ZN4llvm21classifyEHPersonalityEPKNS_5ValueE(ptr noundef %175) #25
-  %.off.i = add i32 %176, -7
+176:                                              ; preds = %168, %174
+  %177 = phi ptr [ %175, %174 ], [ null, %168 ]
+  %178 = tail call noundef i32 @_ZN4llvm21classifyEHPersonalityEPKNS_5ValueE(ptr noundef %177) #25
+  %.off.i = add i32 %178, -7
   %switch.i = icmp ult i32 %.off.i, 4
-  br i1 %switch.i, label %177, label %197
+  br i1 %switch.i, label %179, label %199
 
-177:                                              ; preds = %174
-  %178 = load i64, ptr %58, align 8
-  %179 = add i64 %178, 720
-  store i64 %179, ptr %58, align 8
-  %180 = load ptr, ptr %57, align 8
-  %181 = ptrtoint ptr %180 to i64
-  %182 = add i64 %181, 15
-  %183 = and i64 %182, -16
-  %184 = add i64 %183, 720
-  %185 = load ptr, ptr %66, align 8
-  %186 = ptrtoint ptr %185 to i64
-  %.not.i.i.i25 = icmp ugt i64 %184, %186
-  %.not14.i.i.i26 = icmp eq ptr %180, null
+179:                                              ; preds = %176
+  %180 = load i64, ptr %58, align 8
+  %181 = add i64 %180, 720
+  store i64 %181, ptr %58, align 8
+  %182 = load ptr, ptr %57, align 8
+  %183 = ptrtoint ptr %182 to i64
+  %184 = add i64 %183, 15
+  %185 = and i64 %184, -16
+  %186 = add i64 %185, 720
+  %187 = load ptr, ptr %66, align 8
+  %188 = ptrtoint ptr %187 to i64
+  %.not.i.i.i25 = icmp ugt i64 %186, %188
+  %.not14.i.i.i26 = icmp eq ptr %182, null
   %or.cond.i.i.i27 = or i1 %.not14.i.i.i26, %.not.i.i.i25
-  br i1 %or.cond.i.i.i27, label %.critedge.i.i.i29, label %187
+  br i1 %or.cond.i.i.i27, label %.critedge.i.i.i29, label %189
 
-187:                                              ; preds = %177
-  %188 = inttoptr i64 %184 to ptr
-  %189 = inttoptr i64 %183 to ptr
+189:                                              ; preds = %179
+  %190 = inttoptr i64 %186 to ptr
+  %191 = inttoptr i64 %185 to ptr
   br label %_ZnwIN4llvm15MallocAllocatorELm4096ELm4096ELm128EEPvmRNS0_20BumpPtrAllocatorImplIT_XT0_EXT1_EXT2_EEE.exit30
 
-.critedge.i.i.i29:                                ; preds = %177
+.critedge.i.i.i29:                                ; preds = %179
   tail call void @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12StartNewSlabEv(ptr noundef nonnull align 8 dereferenceable(96) %57)
-  %190 = load ptr, ptr %57, align 8
-  %191 = ptrtoint ptr %190 to i64
-  %192 = add i64 %191, 15
-  %193 = and i64 %192, -16
-  %194 = inttoptr i64 %193 to ptr
-  %195 = getelementptr inbounds nuw i8, ptr %194, i64 720
+  %192 = load ptr, ptr %57, align 8
+  %193 = ptrtoint ptr %192 to i64
+  %194 = add i64 %193, 15
+  %195 = and i64 %194, -16
+  %196 = inttoptr i64 %195 to ptr
+  %197 = getelementptr inbounds nuw i8, ptr %196, i64 720
   br label %_ZnwIN4llvm15MallocAllocatorELm4096ELm4096ELm128EEPvmRNS0_20BumpPtrAllocatorImplIT_XT0_EXT1_EXT2_EEE.exit30
 
-_ZnwIN4llvm15MallocAllocatorELm4096ELm4096ELm128EEPvmRNS0_20BumpPtrAllocatorImplIT_XT0_EXT1_EXT2_EEE.exit30: ; preds = %187, %.critedge.i.i.i29
-  %.sink66 = phi ptr [ %195, %.critedge.i.i.i29 ], [ %188, %187 ]
-  %.0.i.i.i28 = phi ptr [ %194, %.critedge.i.i.i29 ], [ %189, %187 ]
+_ZnwIN4llvm15MallocAllocatorELm4096ELm4096ELm128EEPvmRNS0_20BumpPtrAllocatorImplIT_XT0_EXT1_EXT2_EEE.exit30: ; preds = %189, %.critedge.i.i.i29
+  %.sink66 = phi ptr [ %197, %.critedge.i.i.i29 ], [ %190, %189 ]
+  %.0.i.i.i28 = phi ptr [ %196, %.critedge.i.i.i29 ], [ %191, %189 ]
   store ptr %.sink66, ptr %57, align 8
   tail call void @_ZN4llvm13WinEHFuncInfoC1Ev(ptr noundef nonnull align 8 dereferenceable(720) %.0.i.i.i28) #25
-  %196 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  store ptr %.0.i.i.i28, ptr %196, align 8
-  br label %197
+  %198 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  store ptr %.0.i.i.i28, ptr %198, align 8
+  br label %199
 
-197:                                              ; preds = %_ZnwIN4llvm15MallocAllocatorELm4096ELm4096ELm128EEPvmRNS0_20BumpPtrAllocatorImplIT_XT0_EXT1_EXT2_EEE.exit30, %174
-  %198 = load ptr, ptr %0, align 8
-  %199 = getelementptr inbounds nuw i8, ptr %198, i64 2
-  %200 = load i16, ptr %199, align 2
-  %201 = and i16 %200, 8
-  %.not63 = icmp eq i16 %201, 0
-  br i1 %.not63, label %204, label %202
+199:                                              ; preds = %_ZnwIN4llvm15MallocAllocatorELm4096ELm4096ELm128EEPvmRNS0_20BumpPtrAllocatorImplIT_XT0_EXT1_EXT2_EEE.exit30, %176
+  %200 = load ptr, ptr %0, align 8
+  %201 = getelementptr inbounds nuw i8, ptr %200, i64 2
+  %202 = load i16, ptr %201, align 2
+  %203 = and i16 %202, 8
+  %.not63 = icmp eq i16 %203, 0
+  br i1 %.not63, label %206, label %204
 
-202:                                              ; preds = %197
-  %203 = tail call noundef ptr @_ZNK4llvm8Function16getPersonalityFnEv(ptr noundef nonnull align 8 dereferenceable(136) %198) #25
-  br label %204
+204:                                              ; preds = %199
+  %205 = tail call noundef ptr @_ZNK4llvm8Function16getPersonalityFnEv(ptr noundef nonnull align 8 dereferenceable(136) %200) #25
+  br label %206
 
-204:                                              ; preds = %197, %202
-  %205 = phi ptr [ %203, %202 ], [ null, %197 ]
-  %206 = tail call noundef i32 @_ZN4llvm21classifyEHPersonalityEPKNS_5ValueE(ptr noundef %205) #25
-  switch i32 %206, label %_ZN4llvm21isScopedEHPersonalityENS_13EHPersonalityE.exit [
-    i32 9, label %207
-    i32 7, label %207
-    i32 8, label %207
-    i32 10, label %207
-    i32 12, label %207
+206:                                              ; preds = %199, %204
+  %207 = phi ptr [ %205, %204 ], [ null, %199 ]
+  %208 = tail call noundef i32 @_ZN4llvm21classifyEHPersonalityEPKNS_5ValueE(ptr noundef %207) #25
+  switch i32 %208, label %_ZN4llvm21isScopedEHPersonalityENS_13EHPersonalityE.exit [
+    i32 9, label %209
+    i32 7, label %209
+    i32 8, label %209
+    i32 10, label %209
+    i32 12, label %209
   ]
 
-207:                                              ; preds = %204, %204, %204, %204, %204
-  %208 = load i64, ptr %58, align 8
-  %209 = add i64 %208, 48
-  store i64 %209, ptr %58, align 8
-  %210 = load ptr, ptr %57, align 8
-  %211 = ptrtoint ptr %210 to i64
-  %212 = add i64 %211, 15
-  %213 = and i64 %212, -16
-  %214 = add i64 %213, 48
-  %215 = load ptr, ptr %66, align 8
-  %216 = ptrtoint ptr %215 to i64
-  %.not.i.i.i32 = icmp ugt i64 %214, %216
-  %.not14.i.i.i33 = icmp eq ptr %210, null
+209:                                              ; preds = %206, %206, %206, %206, %206
+  %210 = load i64, ptr %58, align 8
+  %211 = add i64 %210, 48
+  store i64 %211, ptr %58, align 8
+  %212 = load ptr, ptr %57, align 8
+  %213 = ptrtoint ptr %212 to i64
+  %214 = add i64 %213, 15
+  %215 = and i64 %214, -16
+  %216 = add i64 %215, 48
+  %217 = load ptr, ptr %66, align 8
+  %218 = ptrtoint ptr %217 to i64
+  %.not.i.i.i32 = icmp ugt i64 %216, %218
+  %.not14.i.i.i33 = icmp eq ptr %212, null
   %or.cond.i.i.i34 = or i1 %.not14.i.i.i33, %.not.i.i.i32
-  br i1 %or.cond.i.i.i34, label %.critedge.i.i.i36, label %217
+  br i1 %or.cond.i.i.i34, label %.critedge.i.i.i36, label %219
 
-217:                                              ; preds = %207
-  %218 = inttoptr i64 %214 to ptr
-  %219 = inttoptr i64 %213 to ptr
+219:                                              ; preds = %209
+  %220 = inttoptr i64 %216 to ptr
+  %221 = inttoptr i64 %215 to ptr
   br label %_ZnwIN4llvm15MallocAllocatorELm4096ELm4096ELm128EEPvmRNS0_20BumpPtrAllocatorImplIT_XT0_EXT1_EXT2_EEE.exit37
 
-.critedge.i.i.i36:                                ; preds = %207
+.critedge.i.i.i36:                                ; preds = %209
   tail call void @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12StartNewSlabEv(ptr noundef nonnull align 8 dereferenceable(96) %57)
-  %220 = load ptr, ptr %57, align 8
-  %221 = ptrtoint ptr %220 to i64
-  %222 = add i64 %221, 15
-  %223 = and i64 %222, -16
-  %224 = inttoptr i64 %223 to ptr
-  %225 = getelementptr inbounds nuw i8, ptr %224, i64 48
+  %222 = load ptr, ptr %57, align 8
+  %223 = ptrtoint ptr %222 to i64
+  %224 = add i64 %223, 15
+  %225 = and i64 %224, -16
+  %226 = inttoptr i64 %225 to ptr
+  %227 = getelementptr inbounds nuw i8, ptr %226, i64 48
   br label %_ZnwIN4llvm15MallocAllocatorELm4096ELm4096ELm128EEPvmRNS0_20BumpPtrAllocatorImplIT_XT0_EXT1_EXT2_EEE.exit37
 
-_ZnwIN4llvm15MallocAllocatorELm4096ELm4096ELm128EEPvmRNS0_20BumpPtrAllocatorImplIT_XT0_EXT1_EXT2_EEE.exit37: ; preds = %217, %.critedge.i.i.i36
-  %.sink67 = phi ptr [ %225, %.critedge.i.i.i36 ], [ %218, %217 ]
-  %.0.i.i.i35 = phi ptr [ %224, %.critedge.i.i.i36 ], [ %219, %217 ]
+_ZnwIN4llvm15MallocAllocatorELm4096ELm4096ELm128EEPvmRNS0_20BumpPtrAllocatorImplIT_XT0_EXT1_EXT2_EEE.exit37: ; preds = %219, %.critedge.i.i.i36
+  %.sink67 = phi ptr [ %227, %.critedge.i.i.i36 ], [ %220, %219 ]
+  %.0.i.i.i35 = phi ptr [ %226, %.critedge.i.i.i36 ], [ %221, %219 ]
   store ptr %.sink67, ptr %57, align 8
-  %226 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %228 = getelementptr inbounds nuw i8, ptr %0, i64 80
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.0.i.i.i35, i8 0, i64 48, i1 false)
-  store ptr %.0.i.i.i35, ptr %226, align 8
+  store ptr %.0.i.i.i35, ptr %228, align 8
   br label %_ZN4llvm21isScopedEHPersonalityENS_13EHPersonalityE.exit
 
-_ZN4llvm21isScopedEHPersonalityENS_13EHPersonalityE.exit: ; preds = %204, %_ZnwIN4llvm15MallocAllocatorELm4096ELm4096ELm128EEPvmRNS0_20BumpPtrAllocatorImplIT_XT0_EXT1_EXT2_EEE.exit37
-  %227 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %228 = load ptr, ptr %227, align 8
-  %229 = tail call noalias noundef nonnull dereferenceable(224) ptr @_Znwm(i64 noundef 224) #27, !noalias !6
-  tail call void @_ZN4llvm24PseudoSourceValueManagerC1ERKNS_13TargetMachineE(ptr noundef nonnull align 8 dereferenceable(224) %229, ptr noundef nonnull align 8 dereferenceable(1232) %228) #25, !noalias !6
-  %230 = getelementptr inbounds nuw i8, ptr %0, i64 352
-  %231 = load ptr, ptr %230, align 8
-  store ptr %229, ptr %230, align 8
-  %.not.i.i.i.i = icmp eq ptr %231, null
+_ZN4llvm21isScopedEHPersonalityENS_13EHPersonalityE.exit: ; preds = %206, %_ZnwIN4llvm15MallocAllocatorELm4096ELm4096ELm128EEPvmRNS0_20BumpPtrAllocatorImplIT_XT0_EXT1_EXT2_EEE.exit37
+  %229 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %230 = load ptr, ptr %229, align 8
+  %231 = tail call noalias noundef nonnull dereferenceable(224) ptr @_Znwm(i64 noundef 224) #27, !noalias !6
+  tail call void @_ZN4llvm24PseudoSourceValueManagerC1ERKNS_13TargetMachineE(ptr noundef nonnull align 8 dereferenceable(224) %231, ptr noundef nonnull align 8 dereferenceable(1232) %230) #25, !noalias !6
+  %232 = getelementptr inbounds nuw i8, ptr %0, i64 352
+  %233 = load ptr, ptr %232, align 8
+  store ptr %231, ptr %232, align 8
+  %.not.i.i.i.i = icmp eq ptr %233, null
   br i1 %.not.i.i.i.i, label %_ZNSt10unique_ptrIN4llvm24PseudoSourceValueManagerESt14default_deleteIS1_EED2Ev.exit, label %_ZNKSt14default_deleteIN4llvm24PseudoSourceValueManagerEEclEPS1_.exit.i.i.i.i
 
 _ZNKSt14default_deleteIN4llvm24PseudoSourceValueManagerEEclEPS1_.exit.i.i.i.i: ; preds = %_ZN4llvm21isScopedEHPersonalityENS_13EHPersonalityE.exit
-  tail call void @_ZN4llvm24PseudoSourceValueManagerD2Ev(ptr noundef nonnull align 8 dereferenceable(224) %231) #25
-  tail call void @_ZdlPvm(ptr noundef nonnull %231, i64 noundef 224) #26
+  tail call void @_ZN4llvm24PseudoSourceValueManagerD2Ev(ptr noundef nonnull align 8 dereferenceable(224) %233) #25
+  tail call void @_ZdlPvm(ptr noundef nonnull %233, i64 noundef 224) #26
   br label %_ZNSt10unique_ptrIN4llvm24PseudoSourceValueManagerESt14default_deleteIS1_EED2Ev.exit
 
 _ZNSt10unique_ptrIN4llvm24PseudoSourceValueManagerESt14default_deleteIS1_EED2Ev.exit: ; preds = %_ZNKSt14default_deleteIN4llvm24PseudoSourceValueManagerEEclEPS1_.exit.i.i.i.i, %_ZN4llvm21isScopedEHPersonalityENS_13EHPersonalityE.exit

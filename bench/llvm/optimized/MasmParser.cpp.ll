@@ -17137,7 +17137,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_110MasmParser18parseD
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 264
   %14 = load ptr, ptr %13, align 8
   %15 = tail call noundef zeroext i1 %14(ptr noundef nonnull align 8 dereferenceable(1144) %0) #24
-  br i1 %15, label %151, label %16
+  br i1 %15, label %153, label %16
 
 16:                                               ; preds = %1
   %17 = load ptr, ptr %0, align 8
@@ -17159,7 +17159,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_110MasmParser18parseD
   store ptr @.str.200, ptr %3, align 8
   store i8 3, ptr %27, align 8
   %29 = call noundef zeroext i1 @_ZN4llvm11MCAsmParser8TokErrorERKNS_5TwineENS_7SMRangeE(ptr noundef nonnull align 8 dereferenceable(34) %0, ptr noundef nonnull align 8 dereferenceable(34) %3, ptr null, ptr null) #24
-  br label %151
+  br label %153
 
 30:                                               ; preds = %16
   %31 = load ptr, ptr %0, align 8
@@ -17194,7 +17194,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_110MasmParser18parseD
   store ptr @.str.174, ptr %5, align 8
   store i8 3, ptr %50, align 8
   %52 = call noundef zeroext i1 @_ZN4llvm11MCAsmParser8TokErrorERKNS_5TwineENS_7SMRangeE(ptr noundef nonnull align 8 dereferenceable(34) %0, ptr noundef nonnull align 8 dereferenceable(34) %5, ptr null, ptr null) #24
-  br label %151
+  br label %153
 
 53:                                               ; preds = %30
   %54 = load ptr, ptr %0, align 8
@@ -17210,7 +17210,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_110MasmParser18parseD
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 256
   %65 = load ptr, ptr %64, align 8
   %66 = call noundef zeroext i1 %65(ptr noundef nonnull align 8 dereferenceable(1144) %0, ptr noundef nonnull align 8 dereferenceable(8) %6) #24
-  br i1 %66, label %151, label %67
+  br i1 %66, label %153, label %67
 
 67:                                               ; preds = %53
   store i64 0, ptr %7, align 8
@@ -17238,7 +17238,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_110MasmParser18parseD
   %87 = getelementptr inbounds nuw i8, ptr %86, i64 256
   %88 = load ptr, ptr %87, align 8
   %89 = call noundef zeroext i1 %88(ptr noundef nonnull align 8 dereferenceable(1144) %0, ptr noundef nonnull align 8 dereferenceable(8) %7) #24
-  br i1 %89, label %151, label %90
+  br i1 %89, label %153, label %90
 
 90:                                               ; preds = %76
   %91 = getelementptr inbounds nuw i8, ptr %0, i64 184
@@ -17261,7 +17261,7 @@ _ZN4llvm13isPowerOf2_64Em.exit.thread:            ; preds = %96
   store ptr @.str.202, ptr %8, align 8
   store i8 3, ptr %99, align 8
   %101 = call noundef zeroext i1 @_ZN4llvm11MCAsmParser5ErrorENS_5SMLocERKNS_5TwineENS_7SMRangeE(ptr noundef nonnull align 8 dereferenceable(34) %0, ptr %85, ptr noundef nonnull align 8 dereferenceable(34) %8, ptr null, ptr null) #24
-  br label %151
+  br label %153
 
 102:                                              ; preds = %96
   %103 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %97, i1 false)
@@ -17273,7 +17273,7 @@ _ZN4llvm13isPowerOf2_64Em.exit.thread:            ; preds = %96
 106:                                              ; preds = %90, %102, %67
   %.sroa.028.0 = phi ptr [ %85, %102 ], [ %85, %90 ], [ null, %67 ]
   %107 = call noundef zeroext i1 @_ZN4llvm11MCAsmParser8parseEOLEv(ptr noundef nonnull align 8 dereferenceable(34) %0) #24
-  br i1 %107, label %151, label %108
+  br i1 %107, label %153, label %108
 
 108:                                              ; preds = %106
   %109 = load i64, ptr %6, align 8
@@ -17287,7 +17287,7 @@ _ZN4llvm13isPowerOf2_64Em.exit.thread:            ; preds = %96
   store ptr @.str.203, ptr %9, align 8
   store i8 3, ptr %112, align 8
   %114 = call noundef zeroext i1 @_ZN4llvm11MCAsmParser5ErrorENS_5SMLocERKNS_5TwineENS_7SMRangeE(ptr noundef nonnull align 8 dereferenceable(34) %0, ptr %62, ptr noundef nonnull align 8 dereferenceable(34) %9, ptr null, ptr null) #24
-  br label %151
+  br label %153
 
 115:                                              ; preds = %108
   %116 = load i64, ptr %7, align 8
@@ -17301,7 +17301,7 @@ _ZN4llvm13isPowerOf2_64Em.exit.thread:            ; preds = %96
   store ptr @.str.204, ptr %10, align 8
   store i8 3, ptr %119, align 8
   %121 = call noundef zeroext i1 @_ZN4llvm11MCAsmParser5ErrorENS_5SMLocERKNS_5TwineENS_7SMRangeE(ptr noundef nonnull align 8 dereferenceable(34) %0, ptr %.sroa.028.0, ptr noundef nonnull align 8 dereferenceable(34) %10, ptr null, ptr null) #24
-  br label %151
+  br label %153
 
 122:                                              ; preds = %115
   %123 = getelementptr inbounds nuw i8, ptr %41, i64 8
@@ -17339,7 +17339,7 @@ _ZN4llvm8MCSymbol18redefineIfPossibleEv.exit:     ; preds = %122, %132
   store ptr @.str.205, ptr %11, align 8
   store i8 3, ptr %137, align 8
   %139 = call noundef zeroext i1 @_ZN4llvm11MCAsmParser5ErrorENS_5SMLocERKNS_5TwineENS_7SMRangeE(ptr noundef nonnull align 8 dereferenceable(34) %0, ptr %21, ptr noundef nonnull align 8 dereferenceable(34) %11, ptr null, ptr null) #24
-  br label %151
+  br label %153
 
 140:                                              ; preds = %_ZN4llvm8MCSymbol18redefineIfPossibleEv.exit
   %141 = load ptr, ptr %0, align 8
@@ -17349,13 +17349,15 @@ _ZN4llvm8MCSymbol18redefineIfPossibleEv.exit:     ; preds = %122, %132
   %145 = load i64, ptr %6, align 8
   %146 = load i64, ptr %7, align 8
   %147 = trunc i64 %146 to i8
-  %148 = load ptr, ptr %144, align 8
-  %149 = getelementptr inbounds nuw i8, ptr %148, i64 464
-  %150 = load ptr, ptr %149, align 8
-  call void %150(ptr noundef nonnull align 8 dereferenceable(288) %144, ptr noundef nonnull %41, i64 noundef %145, i8 %147) #24
-  br label %151
+  %148 = xor i8 %147, 63
+  %149 = sub nuw nsw i8 63, %148
+  %150 = load ptr, ptr %144, align 8
+  %151 = getelementptr inbounds nuw i8, ptr %150, i64 464
+  %152 = load ptr, ptr %151, align 8
+  call void %152(ptr noundef nonnull align 8 dereferenceable(288) %144, ptr noundef nonnull %41, i64 noundef %145, i8 %149) #24
+  br label %153
 
-151:                                              ; preds = %106, %76, %53, %1, %140, %136, %118, %111, %_ZN4llvm13isPowerOf2_64Em.exit.thread, %49, %26
+153:                                              ; preds = %106, %76, %53, %1, %140, %136, %118, %111, %_ZN4llvm13isPowerOf2_64Em.exit.thread, %49, %26
   %.0 = phi i1 [ %29, %26 ], [ %52, %49 ], [ %114, %111 ], [ %121, %118 ], [ false, %140 ], [ %139, %136 ], [ %101, %_ZN4llvm13isPowerOf2_64Em.exit.thread ], [ true, %1 ], [ true, %53 ], [ true, %76 ], [ true, %106 ]
   ret i1 %.0
 }
