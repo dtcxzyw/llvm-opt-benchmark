@@ -2493,7 +2493,7 @@ _ZN5draco13DecoderBuffer4PeekIcEEbPT_.exit:       ; preds = %2
   store i64 %16, ptr %14, align 8
   %21 = load i8, ptr %0, align 8
   %22 = trunc i8 %21 to i1
-  br i1 %22, label %206, label %.preheader76
+  br i1 %22, label %205, label %.preheader76
 
 .preheader76:                                     ; preds = %20, %42
   %indvars.iv = phi i64 [ %indvars.iv.next, %42 ], [ 0, %20 ]
@@ -2504,7 +2504,7 @@ _ZN5draco13DecoderBuffer4PeekIcEEbPT_.exit:       ; preds = %2
 25:                                               ; preds = %.preheader76
   %indvars90 = trunc i64 %indvars.iv to i32
   %26 = icmp samesign ugt i32 %indvars90, 2
-  br i1 %26, label %.loopexit77, label %27
+  br i1 %26, label %.preheader.lr.ph, label %27
 
 27:                                               ; preds = %25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #19
@@ -2570,388 +2570,384 @@ _ZN5draco6StatusaSERKS0_.exit:                    ; preds = %_ZN5draco6StatusC2E
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
   br i1 %exitcond.not, label %.preheader.lr.ph, label %.preheader76, !llvm.loop !20
 
-.loopexit77:                                      ; preds = %25
-  %43 = icmp sgt i32 %indvars90, 2
-  br i1 %43, label %.preheader.lr.ph, label %.loopexit75
-
-.preheader.lr.ph:                                 ; preds = %42, %.loopexit77
-  %.0327996 = phi i32 [ %indvars90, %.loopexit77 ], [ 8, %42 ]
-  %44 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %45 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %46 = getelementptr inbounds nuw i8, ptr %0, i64 36
-  %47 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %48 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  %49 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %50 = getelementptr inbounds nuw i8, ptr %0, i64 320
-  %51 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %52 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %53 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %54 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %55 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %56 = getelementptr inbounds nuw i8, ptr %0, i64 24
+.preheader.lr.ph:                                 ; preds = %42, %25
+  %.0327996 = phi i32 [ %indvars90, %25 ], [ 8, %42 ]
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 36
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 44
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 320
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %56 = add nsw i32 %.0327996, -3
   %57 = add nsw i32 %.0327996, -3
-  %58 = add nsw i32 %.0327996, -3
   br label %.preheader
 
-.preheader:                                       ; preds = %.preheader.lr.ph, %202
-  %.03784 = phi i32 [ 0, %.preheader.lr.ph ], [ %205, %202 ]
-  %59 = icmp ne i32 %.03784, %57
-  br label %60
+.preheader:                                       ; preds = %.preheader.lr.ph, %201
+  %.03784 = phi i32 [ 0, %.preheader.lr.ph ], [ %204, %201 ]
+  %58 = icmp ne i32 %.03784, %56
+  br label %59
 
-60:                                               ; preds = %.preheader, %200
-  %.03683 = phi i32 [ 0, %.preheader ], [ %201, %200 ]
-  %61 = load i32, ptr %44, align 4
-  %62 = mul nsw i32 %61, 3
-  %63 = add nsw i32 %62, %.03683
-  %64 = icmp eq i32 %.03683, 0
-  %65 = add nuw nsw i32 %.03683, %.03784
-  %66 = select i1 %64, i32 0, i32 %65
-  %67 = zext nneg i32 %66 to i64
-  %68 = getelementptr inbounds nuw [8 x %"struct.std::array.73"], ptr %3, i64 0, i64 %67
-  %69 = load i32, ptr %68, align 4
-  %70 = icmp sgt i32 %69, 0
-  br i1 %70, label %71, label %79
+59:                                               ; preds = %.preheader, %199
+  %.03683 = phi i32 [ 0, %.preheader ], [ %200, %199 ]
+  %60 = load i32, ptr %43, align 4
+  %61 = mul nsw i32 %60, 3
+  %62 = add nsw i32 %61, %.03683
+  %63 = icmp eq i32 %.03683, 0
+  %64 = add nuw nsw i32 %.03683, %.03784
+  %65 = select i1 %63, i32 0, i32 %64
+  %66 = zext nneg i32 %65 to i64
+  %67 = getelementptr inbounds nuw [8 x %"struct.std::array.73"], ptr %3, i64 0, i64 %66
+  %68 = load i32, ptr %67, align 4
+  %69 = icmp sgt i32 %68, 0
+  br i1 %69, label %70, label %78
 
-71:                                               ; preds = %60
-  %72 = load ptr, ptr %50, align 8
-  %73 = load i32, ptr %51, align 4
-  %74 = getelementptr inbounds nuw i8, ptr %72, i64 16
-  %75 = sext i32 %73 to i64
-  %76 = load ptr, ptr %74, align 8
-  %77 = getelementptr inbounds %"class.std::unique_ptr.78", ptr %76, i64 %75
-  %78 = add nsw i32 %69, -1
+70:                                               ; preds = %59
+  %71 = load ptr, ptr %49, align 8
+  %72 = load i32, ptr %50, align 4
+  %73 = getelementptr inbounds nuw i8, ptr %71, i64 16
+  %74 = sext i32 %72 to i64
+  %75 = load ptr, ptr %73, align 8
+  %76 = getelementptr inbounds %"class.std::unique_ptr.78", ptr %75, i64 %74
+  %77 = add nsw i32 %68, -1
   br label %.sink.split.i
 
-79:                                               ; preds = %60
-  %80 = icmp slt i32 %69, 0
-  br i1 %80, label %81, label %94
+78:                                               ; preds = %59
+  %79 = icmp slt i32 %68, 0
+  br i1 %79, label %80, label %93
 
-81:                                               ; preds = %79
-  %82 = load ptr, ptr %50, align 8
-  %83 = load i32, ptr %51, align 4
-  %84 = getelementptr inbounds nuw i8, ptr %82, i64 16
-  %85 = sext i32 %83 to i64
-  %86 = load ptr, ptr %84, align 8
-  %87 = getelementptr inbounds %"class.std::unique_ptr.78", ptr %86, i64 %85
-  %88 = load i32, ptr %52, align 8
-  %89 = add nsw i32 %88, %69
+80:                                               ; preds = %78
+  %81 = load ptr, ptr %49, align 8
+  %82 = load i32, ptr %50, align 4
+  %83 = getelementptr inbounds nuw i8, ptr %81, i64 16
+  %84 = sext i32 %82 to i64
+  %85 = load ptr, ptr %83, align 8
+  %86 = getelementptr inbounds %"class.std::unique_ptr.78", ptr %85, i64 %84
+  %87 = load i32, ptr %51, align 8
+  %88 = add nsw i32 %87, %68
   br label %.sink.split.i
 
-.sink.split.i:                                    ; preds = %81, %71
-  %.sink46.in.i = phi ptr [ %87, %81 ], [ %77, %71 ]
-  %.sink.i = phi i32 [ %89, %81 ], [ %78, %71 ]
+.sink.split.i:                                    ; preds = %80, %70
+  %.sink46.in.i = phi ptr [ %86, %80 ], [ %76, %70 ]
+  %.sink.i = phi i32 [ %88, %80 ], [ %77, %70 ]
   %.sink46.i = load ptr, ptr %.sink46.in.i, align 8
-  %90 = getelementptr inbounds nuw i8, ptr %.sink46.i, i64 72
-  %91 = zext i32 %63 to i64
-  %92 = load ptr, ptr %90, align 8
-  %93 = getelementptr inbounds nuw %"class.draco::IndexType", ptr %92, i64 %91
-  store i32 %.sink.i, ptr %93, align 4
-  br label %94
+  %89 = getelementptr inbounds nuw i8, ptr %.sink46.i, i64 72
+  %90 = zext i32 %62 to i64
+  %91 = load ptr, ptr %89, align 8
+  %92 = getelementptr inbounds nuw %"class.draco::IndexType", ptr %91, i64 %90
+  store i32 %.sink.i, ptr %92, align 4
+  br label %93
 
-94:                                               ; preds = %.sink.split.i, %79
-  %95 = load i32, ptr %45, align 8
-  %96 = icmp sgt i32 %95, -1
-  br i1 %96, label %97, label %124
+93:                                               ; preds = %.sink.split.i, %78
+  %94 = load i32, ptr %44, align 8
+  %95 = icmp sgt i32 %94, -1
+  br i1 %95, label %96, label %123
 
-97:                                               ; preds = %94
-  %98 = getelementptr inbounds nuw i8, ptr %68, i64 4
-  %99 = load i32, ptr %98, align 4
-  %100 = icmp sgt i32 %99, 0
-  br i1 %100, label %101, label %109
+96:                                               ; preds = %93
+  %97 = getelementptr inbounds nuw i8, ptr %67, i64 4
+  %98 = load i32, ptr %97, align 4
+  %99 = icmp sgt i32 %98, 0
+  br i1 %99, label %100, label %108
 
-101:                                              ; preds = %97
-  %102 = load ptr, ptr %50, align 8
-  %103 = getelementptr inbounds nuw i8, ptr %102, i64 16
-  %104 = zext nneg i32 %95 to i64
-  %105 = load ptr, ptr %103, align 8
-  %106 = getelementptr inbounds nuw %"class.std::unique_ptr.78", ptr %105, i64 %104
-  %107 = load ptr, ptr %106, align 8
-  %108 = add nsw i32 %99, -1
+100:                                              ; preds = %96
+  %101 = load ptr, ptr %49, align 8
+  %102 = getelementptr inbounds nuw i8, ptr %101, i64 16
+  %103 = zext nneg i32 %94 to i64
+  %104 = load ptr, ptr %102, align 8
+  %105 = getelementptr inbounds nuw %"class.std::unique_ptr.78", ptr %104, i64 %103
+  %106 = load ptr, ptr %105, align 8
+  %107 = add nsw i32 %98, -1
   br label %.sink.split47.i
 
-109:                                              ; preds = %97
-  %110 = icmp slt i32 %99, 0
-  %111 = load ptr, ptr %50, align 8
-  %112 = getelementptr inbounds nuw i8, ptr %111, i64 16
-  %113 = zext nneg i32 %95 to i64
-  %114 = load ptr, ptr %112, align 8
-  %115 = getelementptr inbounds nuw %"class.std::unique_ptr.78", ptr %114, i64 %113
-  %116 = load ptr, ptr %115, align 8
-  br i1 %110, label %117, label %.sink.split47.i
+108:                                              ; preds = %96
+  %109 = icmp slt i32 %98, 0
+  %110 = load ptr, ptr %49, align 8
+  %111 = getelementptr inbounds nuw i8, ptr %110, i64 16
+  %112 = zext nneg i32 %94 to i64
+  %113 = load ptr, ptr %111, align 8
+  %114 = getelementptr inbounds nuw %"class.std::unique_ptr.78", ptr %113, i64 %112
+  %115 = load ptr, ptr %114, align 8
+  br i1 %109, label %116, label %.sink.split47.i
 
-117:                                              ; preds = %109
-  %118 = load i32, ptr %53, align 4
-  %119 = add nsw i32 %118, %99
+116:                                              ; preds = %108
+  %117 = load i32, ptr %52, align 4
+  %118 = add nsw i32 %117, %98
   br label %.sink.split47.i
 
-.sink.split47.i:                                  ; preds = %117, %109, %101
-  %.sink53.i = phi ptr [ %107, %101 ], [ %116, %117 ], [ %116, %109 ]
-  %.sink48.i = phi i32 [ %108, %101 ], [ %119, %117 ], [ 0, %109 ]
-  %120 = getelementptr inbounds nuw i8, ptr %.sink53.i, i64 72
-  %121 = zext i32 %63 to i64
-  %122 = load ptr, ptr %120, align 8
-  %123 = getelementptr inbounds nuw %"class.draco::IndexType", ptr %122, i64 %121
-  store i32 %.sink48.i, ptr %123, align 4
-  br label %124
+.sink.split47.i:                                  ; preds = %116, %108, %100
+  %.sink53.i = phi ptr [ %106, %100 ], [ %115, %116 ], [ %115, %108 ]
+  %.sink48.i = phi i32 [ %107, %100 ], [ %118, %116 ], [ 0, %108 ]
+  %119 = getelementptr inbounds nuw i8, ptr %.sink53.i, i64 72
+  %120 = zext i32 %62 to i64
+  %121 = load ptr, ptr %119, align 8
+  %122 = getelementptr inbounds nuw %"class.draco::IndexType", ptr %121, i64 %120
+  store i32 %.sink48.i, ptr %122, align 4
+  br label %123
 
-124:                                              ; preds = %.sink.split47.i, %94
-  %125 = load i32, ptr %46, align 4
-  %126 = icmp sgt i32 %125, -1
-  br i1 %126, label %127, label %154
+123:                                              ; preds = %.sink.split47.i, %93
+  %124 = load i32, ptr %45, align 4
+  %125 = icmp sgt i32 %124, -1
+  br i1 %125, label %126, label %153
 
-127:                                              ; preds = %124
-  %128 = getelementptr inbounds nuw i8, ptr %68, i64 8
-  %129 = load i32, ptr %128, align 4
-  %130 = icmp sgt i32 %129, 0
-  br i1 %130, label %131, label %139
+126:                                              ; preds = %123
+  %127 = getelementptr inbounds nuw i8, ptr %67, i64 8
+  %128 = load i32, ptr %127, align 4
+  %129 = icmp sgt i32 %128, 0
+  br i1 %129, label %130, label %138
 
-131:                                              ; preds = %127
-  %132 = load ptr, ptr %50, align 8
-  %133 = getelementptr inbounds nuw i8, ptr %132, i64 16
-  %134 = zext nneg i32 %125 to i64
-  %135 = load ptr, ptr %133, align 8
-  %136 = getelementptr inbounds nuw %"class.std::unique_ptr.78", ptr %135, i64 %134
-  %137 = load ptr, ptr %136, align 8
-  %138 = add nsw i32 %129, -1
+130:                                              ; preds = %126
+  %131 = load ptr, ptr %49, align 8
+  %132 = getelementptr inbounds nuw i8, ptr %131, i64 16
+  %133 = zext nneg i32 %124 to i64
+  %134 = load ptr, ptr %132, align 8
+  %135 = getelementptr inbounds nuw %"class.std::unique_ptr.78", ptr %134, i64 %133
+  %136 = load ptr, ptr %135, align 8
+  %137 = add nsw i32 %128, -1
   br label %.sink.split54.i
 
-139:                                              ; preds = %127
-  %140 = icmp slt i32 %129, 0
-  %141 = load ptr, ptr %50, align 8
-  %142 = getelementptr inbounds nuw i8, ptr %141, i64 16
-  %143 = zext nneg i32 %125 to i64
-  %144 = load ptr, ptr %142, align 8
-  %145 = getelementptr inbounds nuw %"class.std::unique_ptr.78", ptr %144, i64 %143
-  %146 = load ptr, ptr %145, align 8
-  br i1 %140, label %147, label %.sink.split54.i
+138:                                              ; preds = %126
+  %139 = icmp slt i32 %128, 0
+  %140 = load ptr, ptr %49, align 8
+  %141 = getelementptr inbounds nuw i8, ptr %140, i64 16
+  %142 = zext nneg i32 %124 to i64
+  %143 = load ptr, ptr %141, align 8
+  %144 = getelementptr inbounds nuw %"class.std::unique_ptr.78", ptr %143, i64 %142
+  %145 = load ptr, ptr %144, align 8
+  br i1 %139, label %146, label %.sink.split54.i
 
-147:                                              ; preds = %139
-  %148 = load i32, ptr %54, align 8
-  %149 = add nsw i32 %148, %129
+146:                                              ; preds = %138
+  %147 = load i32, ptr %53, align 8
+  %148 = add nsw i32 %147, %128
   br label %.sink.split54.i
 
-.sink.split54.i:                                  ; preds = %147, %139, %131
-  %.sink60.i = phi ptr [ %137, %131 ], [ %146, %147 ], [ %146, %139 ]
-  %.sink55.i = phi i32 [ %138, %131 ], [ %149, %147 ], [ 0, %139 ]
-  %150 = getelementptr inbounds nuw i8, ptr %.sink60.i, i64 72
-  %151 = zext i32 %63 to i64
-  %152 = load ptr, ptr %150, align 8
-  %153 = getelementptr inbounds nuw %"class.draco::IndexType", ptr %152, i64 %151
-  store i32 %.sink55.i, ptr %153, align 4
-  br label %154
+.sink.split54.i:                                  ; preds = %146, %138, %130
+  %.sink60.i = phi ptr [ %136, %130 ], [ %145, %146 ], [ %145, %138 ]
+  %.sink55.i = phi i32 [ %137, %130 ], [ %148, %146 ], [ 0, %138 ]
+  %149 = getelementptr inbounds nuw i8, ptr %.sink60.i, i64 72
+  %150 = zext i32 %62 to i64
+  %151 = load ptr, ptr %149, align 8
+  %152 = getelementptr inbounds nuw %"class.draco::IndexType", ptr %151, i64 %150
+  store i32 %.sink55.i, ptr %152, align 4
+  br label %153
 
-154:                                              ; preds = %.sink.split54.i, %124
-  %155 = load i32, ptr %47, align 8
-  %156 = icmp sgt i32 %155, -1
-  br i1 %156, label %157, label %169
+153:                                              ; preds = %.sink.split54.i, %123
+  %154 = load i32, ptr %46, align 8
+  %155 = icmp sgt i32 %154, -1
+  br i1 %155, label %156, label %168
 
-157:                                              ; preds = %154
-  %158 = load ptr, ptr %50, align 8
-  %159 = getelementptr inbounds nuw i8, ptr %158, i64 16
-  %160 = zext nneg i32 %155 to i64
-  %161 = load ptr, ptr %159, align 8
-  %162 = getelementptr inbounds nuw %"class.std::unique_ptr.78", ptr %161, i64 %160
-  %163 = load ptr, ptr %162, align 8
-  %164 = load i32, ptr %55, align 8
-  %165 = getelementptr inbounds nuw i8, ptr %163, i64 72
-  %166 = zext i32 %63 to i64
-  %167 = load ptr, ptr %165, align 8
-  %168 = getelementptr inbounds nuw %"class.draco::IndexType", ptr %167, i64 %166
-  store i32 %164, ptr %168, align 4
-  br label %169
+156:                                              ; preds = %153
+  %157 = load ptr, ptr %49, align 8
+  %158 = getelementptr inbounds nuw i8, ptr %157, i64 16
+  %159 = zext nneg i32 %154 to i64
+  %160 = load ptr, ptr %158, align 8
+  %161 = getelementptr inbounds nuw %"class.std::unique_ptr.78", ptr %160, i64 %159
+  %162 = load ptr, ptr %161, align 8
+  %163 = load i32, ptr %54, align 8
+  %164 = getelementptr inbounds nuw i8, ptr %162, i64 72
+  %165 = zext i32 %62 to i64
+  %166 = load ptr, ptr %164, align 8
+  %167 = getelementptr inbounds nuw %"class.draco::IndexType", ptr %166, i64 %165
+  store i32 %163, ptr %167, align 4
+  br label %168
 
-169:                                              ; preds = %157, %154
-  %170 = load i32, ptr %48, align 4
-  %171 = icmp sgt i32 %170, -1
-  br i1 %171, label %172, label %_ZN5draco10ObjDecoder23MapPointToVertexIndicesENS_9IndexTypeIjNS_20PointIndex_tag_type_EEERKSt5arrayIiLm3EE.exit
+168:                                              ; preds = %156, %153
+  %169 = load i32, ptr %47, align 4
+  %170 = icmp sgt i32 %169, -1
+  br i1 %170, label %171, label %_ZN5draco10ObjDecoder23MapPointToVertexIndicesENS_9IndexTypeIjNS_20PointIndex_tag_type_EEERKSt5arrayIiLm3EE.exit
 
-172:                                              ; preds = %169
-  %173 = load ptr, ptr %50, align 8
-  %174 = getelementptr inbounds nuw i8, ptr %173, i64 16
-  %175 = zext nneg i32 %170 to i64
-  %176 = load ptr, ptr %174, align 8
-  %177 = getelementptr inbounds nuw %"class.std::unique_ptr.78", ptr %176, i64 %175
-  %178 = load ptr, ptr %177, align 8
-  %179 = load i32, ptr %56, align 8
-  %180 = getelementptr inbounds nuw i8, ptr %178, i64 72
-  %181 = zext i32 %63 to i64
-  %182 = load ptr, ptr %180, align 8
-  %183 = getelementptr inbounds nuw %"class.draco::IndexType", ptr %182, i64 %181
-  store i32 %179, ptr %183, align 4
+171:                                              ; preds = %168
+  %172 = load ptr, ptr %49, align 8
+  %173 = getelementptr inbounds nuw i8, ptr %172, i64 16
+  %174 = zext nneg i32 %169 to i64
+  %175 = load ptr, ptr %173, align 8
+  %176 = getelementptr inbounds nuw %"class.std::unique_ptr.78", ptr %175, i64 %174
+  %177 = load ptr, ptr %176, align 8
+  %178 = load i32, ptr %55, align 8
+  %179 = getelementptr inbounds nuw i8, ptr %177, i64 72
+  %180 = zext i32 %62 to i64
+  %181 = load ptr, ptr %179, align 8
+  %182 = getelementptr inbounds nuw %"class.draco::IndexType", ptr %181, i64 %180
+  store i32 %178, ptr %182, align 4
   br label %_ZN5draco10ObjDecoder23MapPointToVertexIndicesENS_9IndexTypeIjNS_20PointIndex_tag_type_EEERKSt5arrayIiLm3EE.exit
 
-_ZN5draco10ObjDecoder23MapPointToVertexIndicesENS_9IndexTypeIjNS_20PointIndex_tag_type_EEERKSt5arrayIiLm3EE.exit: ; preds = %169, %172
-  %184 = load i32, ptr %49, align 8
-  %185 = icmp sgt i32 %184, -1
-  br i1 %185, label %186, label %200
+_ZN5draco10ObjDecoder23MapPointToVertexIndicesENS_9IndexTypeIjNS_20PointIndex_tag_type_EEERKSt5arrayIiLm3EE.exit: ; preds = %168, %171
+  %183 = load i32, ptr %48, align 8
+  %184 = icmp sgt i32 %183, -1
+  br i1 %184, label %185, label %199
 
-186:                                              ; preds = %_ZN5draco10ObjDecoder23MapPointToVertexIndicesENS_9IndexTypeIjNS_20PointIndex_tag_type_EEERKSt5arrayIiLm3EE.exit
-  %187 = icmp eq i32 %.03683, 1
-  %188 = and i1 %59, %187
-  %189 = zext i1 %188 to i32
-  %190 = load ptr, ptr %50, align 8
-  %191 = getelementptr inbounds nuw i8, ptr %190, i64 16
-  %192 = zext nneg i32 %184 to i64
-  %193 = load ptr, ptr %191, align 8
-  %194 = getelementptr inbounds nuw %"class.std::unique_ptr.78", ptr %193, i64 %192
-  %195 = load ptr, ptr %194, align 8
-  %196 = getelementptr inbounds nuw i8, ptr %195, i64 72
-  %197 = zext i32 %63 to i64
-  %198 = load ptr, ptr %196, align 8
-  %199 = getelementptr inbounds nuw %"class.draco::IndexType", ptr %198, i64 %197
-  store i32 %189, ptr %199, align 4
-  br label %200
+185:                                              ; preds = %_ZN5draco10ObjDecoder23MapPointToVertexIndicesENS_9IndexTypeIjNS_20PointIndex_tag_type_EEERKSt5arrayIiLm3EE.exit
+  %186 = icmp eq i32 %.03683, 1
+  %187 = and i1 %58, %186
+  %188 = zext i1 %187 to i32
+  %189 = load ptr, ptr %49, align 8
+  %190 = getelementptr inbounds nuw i8, ptr %189, i64 16
+  %191 = zext nneg i32 %183 to i64
+  %192 = load ptr, ptr %190, align 8
+  %193 = getelementptr inbounds nuw %"class.std::unique_ptr.78", ptr %192, i64 %191
+  %194 = load ptr, ptr %193, align 8
+  %195 = getelementptr inbounds nuw i8, ptr %194, i64 72
+  %196 = zext i32 %62 to i64
+  %197 = load ptr, ptr %195, align 8
+  %198 = getelementptr inbounds nuw %"class.draco::IndexType", ptr %197, i64 %196
+  store i32 %188, ptr %198, align 4
+  br label %199
 
-200:                                              ; preds = %_ZN5draco10ObjDecoder23MapPointToVertexIndicesENS_9IndexTypeIjNS_20PointIndex_tag_type_EEERKSt5arrayIiLm3EE.exit, %186
-  %201 = add nuw nsw i32 %.03683, 1
-  %exitcond93.not = icmp eq i32 %201, 3
-  br i1 %exitcond93.not, label %202, label %60, !llvm.loop !21
+199:                                              ; preds = %_ZN5draco10ObjDecoder23MapPointToVertexIndicesENS_9IndexTypeIjNS_20PointIndex_tag_type_EEERKSt5arrayIiLm3EE.exit, %185
+  %200 = add nuw nsw i32 %.03683, 1
+  %exitcond93.not = icmp eq i32 %200, 3
+  br i1 %exitcond93.not, label %201, label %59, !llvm.loop !21
 
-202:                                              ; preds = %200
-  %203 = load i32, ptr %44, align 4
-  %204 = add nsw i32 %203, 1
-  store i32 %204, ptr %44, align 4
-  %205 = add nuw nsw i32 %.03784, 1
-  %exitcond94.not = icmp eq i32 %.03784, %58
+201:                                              ; preds = %199
+  %202 = load i32, ptr %43, align 4
+  %203 = add nsw i32 %202, 1
+  store i32 %203, ptr %43, align 4
+  %204 = add nuw nsw i32 %.03784, 1
+  %exitcond94.not = icmp eq i32 %.03784, %57
   br i1 %exitcond94.not, label %.loopexit75, label %.preheader, !llvm.loop !22
 
-206:                                              ; preds = %20
+205:                                              ; preds = %20
   tail call void @_ZN5draco6parser14SkipWhitespaceEPNS_13DecoderBufferE(ptr noundef nonnull %11)
   store i8 0, ptr %7, align 1
-  %207 = load i64, ptr %12, align 8
-  %208 = load i64, ptr %14, align 8
-  %209 = add i64 %208, 1
-  %.not7385 = icmp slt i64 %207, %209
+  %206 = load i64, ptr %12, align 8
+  %207 = load i64, ptr %14, align 8
+  %208 = add i64 %207, 1
+  %.not7385 = icmp slt i64 %206, %208
   br i1 %.not7385, label %.thread, label %_ZN5draco13DecoderBuffer4PeekIcEEbPT_.exit54
 
-_ZN5draco13DecoderBuffer4PeekIcEEbPT_.exit54:     ; preds = %206, %.loopexit
-  %210 = phi i64 [ %232, %.loopexit ], [ %208, %206 ]
-  %.086 = phi i32 [ %.1, %.loopexit ], [ 0, %206 ]
-  %211 = load ptr, ptr %11, align 8
-  %212 = getelementptr inbounds i8, ptr %211, i64 %210
-  %213 = load i8, ptr %212, align 1
-  %.not74 = icmp eq i8 %213, 10
-  br i1 %.not74, label %_ZN5draco13DecoderBuffer4PeekIcEEbPT_.exit54.thread, label %214
+_ZN5draco13DecoderBuffer4PeekIcEEbPT_.exit54:     ; preds = %205, %.loopexit
+  %209 = phi i64 [ %231, %.loopexit ], [ %207, %205 ]
+  %.086 = phi i32 [ %.1, %.loopexit ], [ 0, %205 ]
+  %210 = load ptr, ptr %11, align 8
+  %211 = getelementptr inbounds i8, ptr %210, i64 %209
+  %212 = load i8, ptr %211, align 1
+  %.not74 = icmp eq i8 %212, 10
+  br i1 %.not74, label %_ZN5draco13DecoderBuffer4PeekIcEEbPT_.exit54.thread, label %213
 
-214:                                              ; preds = %_ZN5draco13DecoderBuffer4PeekIcEEbPT_.exit54
-  %215 = call noundef zeroext i1 @_ZN5draco6parser14PeekWhitespaceEPNS_13DecoderBufferEPb(ptr noundef nonnull %11, ptr noundef nonnull %7)
-  br i1 %215, label %216, label %219
+213:                                              ; preds = %_ZN5draco13DecoderBuffer4PeekIcEEbPT_.exit54
+  %214 = call noundef zeroext i1 @_ZN5draco6parser14PeekWhitespaceEPNS_13DecoderBufferEPb(ptr noundef nonnull %11, ptr noundef nonnull %7)
+  br i1 %214, label %215, label %218
 
-216:                                              ; preds = %214
-  %217 = load i64, ptr %14, align 8
-  %218 = add nsw i64 %217, 1
-  store i64 %218, ptr %14, align 8
+215:                                              ; preds = %213
+  %216 = load i64, ptr %14, align 8
+  %217 = add nsw i64 %216, 1
+  store i64 %217, ptr %14, align 8
   br label %.loopexit
 
-219:                                              ; preds = %214
-  %220 = add nsw i32 %.086, 1
-  %221 = call noundef zeroext i1 @_ZN5draco6parser14PeekWhitespaceEPNS_13DecoderBufferEPb(ptr noundef nonnull %11, ptr noundef nonnull %7)
-  %222 = load i8, ptr %7, align 1
-  %223 = trunc i8 %222 to i1
-  %224 = select i1 %221, i1 true, i1 %223
-  br i1 %224, label %.loopexit, label %.lr.ph
+218:                                              ; preds = %213
+  %219 = add nsw i32 %.086, 1
+  %220 = call noundef zeroext i1 @_ZN5draco6parser14PeekWhitespaceEPNS_13DecoderBufferEPb(ptr noundef nonnull %11, ptr noundef nonnull %7)
+  %221 = load i8, ptr %7, align 1
+  %222 = trunc i8 %221 to i1
+  %223 = select i1 %220, i1 true, i1 %222
+  br i1 %223, label %.loopexit, label %.lr.ph
 
-.lr.ph:                                           ; preds = %219, %.lr.ph
-  %225 = load i64, ptr %14, align 8
-  %226 = add nsw i64 %225, 1
-  store i64 %226, ptr %14, align 8
-  %227 = call noundef zeroext i1 @_ZN5draco6parser14PeekWhitespaceEPNS_13DecoderBufferEPb(ptr noundef nonnull %11, ptr noundef nonnull %7)
-  %228 = load i8, ptr %7, align 1
-  %229 = trunc i8 %228 to i1
-  %230 = select i1 %227, i1 true, i1 %229
-  br i1 %230, label %.loopexit, label %.lr.ph, !llvm.loop !23
+.lr.ph:                                           ; preds = %218, %.lr.ph
+  %224 = load i64, ptr %14, align 8
+  %225 = add nsw i64 %224, 1
+  store i64 %225, ptr %14, align 8
+  %226 = call noundef zeroext i1 @_ZN5draco6parser14PeekWhitespaceEPNS_13DecoderBufferEPb(ptr noundef nonnull %11, ptr noundef nonnull %7)
+  %227 = load i8, ptr %7, align 1
+  %228 = trunc i8 %227 to i1
+  %229 = select i1 %226, i1 true, i1 %228
+  br i1 %229, label %.loopexit, label %.lr.ph, !llvm.loop !23
 
-.loopexit:                                        ; preds = %.lr.ph, %219, %216
-  %.1 = phi i32 [ %.086, %216 ], [ %220, %219 ], [ %220, %.lr.ph ]
-  %231 = load i64, ptr %12, align 8
-  %232 = load i64, ptr %14, align 8
-  %233 = add i64 %232, 1
-  %.not73 = icmp slt i64 %231, %233
+.loopexit:                                        ; preds = %.lr.ph, %218, %215
+  %.1 = phi i32 [ %.086, %215 ], [ %219, %218 ], [ %219, %.lr.ph ]
+  %230 = load i64, ptr %12, align 8
+  %231 = load i64, ptr %14, align 8
+  %232 = add i64 %231, 1
+  %.not73 = icmp slt i64 %230, %232
   br i1 %.not73, label %_ZN5draco13DecoderBuffer4PeekIcEEbPT_.exit54.thread, label %_ZN5draco13DecoderBuffer4PeekIcEEbPT_.exit54, !llvm.loop !24
 
 _ZN5draco13DecoderBuffer4PeekIcEEbPT_.exit54.thread: ; preds = %_ZN5draco13DecoderBuffer4PeekIcEEbPT_.exit54, %.loopexit
   %.0.lcssa = phi i32 [ %.086, %_ZN5draco13DecoderBuffer4PeekIcEEbPT_.exit54 ], [ %.1, %.loopexit ]
-  %234 = icmp sgt i32 %.0.lcssa, 3
-  br i1 %234, label %235, label %237
+  %233 = icmp sgt i32 %.0.lcssa, 3
+  br i1 %233, label %234, label %236
 
-235:                                              ; preds = %_ZN5draco13DecoderBuffer4PeekIcEEbPT_.exit54.thread
-  %236 = getelementptr inbounds nuw i8, ptr %0, i64 242
-  store i8 1, ptr %236, align 2
-  br label %237
+234:                                              ; preds = %_ZN5draco13DecoderBuffer4PeekIcEEbPT_.exit54.thread
+  %235 = getelementptr inbounds nuw i8, ptr %0, i64 242
+  store i8 1, ptr %235, align 2
+  br label %236
 
-237:                                              ; preds = %235, %_ZN5draco13DecoderBuffer4PeekIcEEbPT_.exit54.thread
-  %238 = add i32 %.0.lcssa, -9
-  %or.cond = icmp ult i32 %238, -6
-  br i1 %or.cond, label %.thread, label %253
+236:                                              ; preds = %234, %_ZN5draco13DecoderBuffer4PeekIcEEbPT_.exit54.thread
+  %237 = add i32 %.0.lcssa, -9
+  %or.cond = icmp ult i32 %237, -6
+  br i1 %or.cond, label %.thread, label %252
 
-.thread:                                          ; preds = %206, %237
+.thread:                                          ; preds = %205, %236
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %10) #19
-  %239 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %9)
-          to label %.noexc55 unwind label %246
+  %238 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %9)
+          to label %.noexc55 unwind label %245
 
 .noexc55:                                         ; preds = %.thread
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef %239, ptr noundef nonnull align 1 dereferenceable(1) %10)
-          to label %.noexc56 unwind label %246
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef %238, ptr noundef nonnull align 1 dereferenceable(1) %10)
+          to label %.noexc56 unwind label %245
 
 .noexc56:                                         ; preds = %.noexc55
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull @.str.11, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.11, i64 35))
-          to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit59 unwind label %240
+          to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit59 unwind label %239
 
-240:                                              ; preds = %.noexc56
-  %241 = landingpad { ptr, i32 }
+239:                                              ; preds = %.noexc56
+  %240 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #19
   br label %.body
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit59: ; preds = %.noexc56
   store i32 -1, ptr %8, align 8, !alias.scope !25
-  %242 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %242, ptr noundef nonnull align 8 dereferenceable(32) %9)
-          to label %_ZN5draco11ErrorStatusERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit unwind label %248
+  %241 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %241, ptr noundef nonnull align 8 dereferenceable(32) %9)
+          to label %_ZN5draco11ErrorStatusERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit unwind label %247
 
 _ZN5draco11ErrorStatusERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit59
-  %243 = load i32, ptr %8, align 8
-  store i32 %243, ptr %1, align 8
-  %244 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %245 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %244, ptr noundef nonnull align 8 dereferenceable(32) %242)
-          to label %_ZN5draco6StatusaSERKS0_.exit62 unwind label %250
+  %242 = load i32, ptr %8, align 8
+  store i32 %242, ptr %1, align 8
+  %243 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %244 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %243, ptr noundef nonnull align 8 dereferenceable(32) %241)
+          to label %_ZN5draco6StatusaSERKS0_.exit62 unwind label %249
 
 _ZN5draco6StatusaSERKS0_.exit62:                  ; preds = %_ZN5draco11ErrorStatusERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %242) #19
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %241) #19
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #19
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %10) #19
   br label %_ZN5draco13DecoderBuffer4PeekIcEEbPT_.exit.thread
 
-246:                                              ; preds = %.noexc55, %.thread
-  %247 = landingpad { ptr, i32 }
+245:                                              ; preds = %.noexc55, %.thread
+  %246 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
-248:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit59
-  %249 = landingpad { ptr, i32 }
+247:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit59
+  %248 = landingpad { ptr, i32 }
           cleanup
-  br label %252
+  br label %251
 
-250:                                              ; preds = %_ZN5draco11ErrorStatusERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
-  %251 = landingpad { ptr, i32 }
+249:                                              ; preds = %_ZN5draco11ErrorStatusERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
+  %250 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %242) #19
-  br label %252
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %241) #19
+  br label %251
 
-252:                                              ; preds = %250, %248
-  %.pn46 = phi { ptr, i32 } [ %251, %250 ], [ %249, %248 ]
+251:                                              ; preds = %249, %247
+  %.pn46 = phi { ptr, i32 } [ %250, %249 ], [ %248, %247 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #19
   br label %.body
 
-253:                                              ; preds = %237
-  %254 = add nsw i32 %.0.lcssa, -2
-  %255 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %256 = load i32, ptr %255, align 4
-  %257 = add nsw i32 %254, %256
-  store i32 %257, ptr %255, align 4
+252:                                              ; preds = %236
+  %253 = add nsw i32 %.0.lcssa, -2
+  %254 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %255 = load i32, ptr %254, align 4
+  %256 = add nsw i32 %253, %255
+  store i32 %256, ptr %254, align 4
   br label %.loopexit75
 
-.loopexit75:                                      ; preds = %202, %.loopexit77, %253
+.loopexit75:                                      ; preds = %201, %252
   call void @_ZN5draco6parser8SkipLineEPNS_13DecoderBufferE(ptr noundef nonnull %11)
   br label %_ZN5draco13DecoderBuffer4PeekIcEEbPT_.exit.thread
 
@@ -2959,9 +2955,9 @@ _ZN5draco13DecoderBuffer4PeekIcEEbPT_.exit.thread: ; preds = %2, %_ZN5draco13Dec
   %.031 = phi i1 [ false, %_ZN5draco6StatusaSERKS0_.exit62 ], [ true, %.loopexit75 ], [ true, %_ZN5draco6StatusaSERKS0_.exit ], [ false, %_ZN5draco13DecoderBuffer4PeekIcEEbPT_.exit ], [ false, %2 ]
   ret i1 %.031
 
-.body:                                            ; preds = %252, %240, %246, %41, %29, %35
-  %.sink = phi ptr [ %6, %35 ], [ %6, %29 ], [ %6, %41 ], [ %10, %246 ], [ %10, %240 ], [ %10, %252 ]
-  %.pn46.pn.pn = phi { ptr, i32 } [ %36, %35 ], [ %30, %29 ], [ %.pn, %41 ], [ %247, %246 ], [ %241, %240 ], [ %.pn46, %252 ]
+.body:                                            ; preds = %251, %239, %245, %41, %29, %35
+  %.sink = phi ptr [ %6, %35 ], [ %6, %29 ], [ %6, %41 ], [ %10, %245 ], [ %10, %239 ], [ %10, %251 ]
+  %.pn46.pn.pn = phi { ptr, i32 } [ %36, %35 ], [ %30, %29 ], [ %.pn, %41 ], [ %246, %245 ], [ %240, %239 ], [ %.pn46, %251 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %.sink) #19
   resume { ptr, i32 } %.pn46.pn.pn
 }

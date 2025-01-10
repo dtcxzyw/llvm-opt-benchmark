@@ -36038,19 +36038,19 @@ define internal i32 @ieee80211_tag_rsnx(ptr noundef %0, ptr noundef %1, ptr noun
   %21 = load i32, ptr @ett_tag_rsnx_octet2, align 4
   %22 = tail call ptr @proto_tree_add_bitmask_with_flags(ptr noundef %2, ptr noundef %0, i32 noundef 1, i32 noundef %20, i32 noundef %21, ptr noundef nonnull @ieee80211_tag_rsnx.octet2, i32 noundef -2147483648, i32 noundef 1) #22
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %22, ptr noundef nonnull @.str.9855, i32 noundef 2) #22
-  %23 = icmp samesign ugt i32 %5, 2
-  br i1 %23, label %.lr.ph, label %.loopexit
+  %23 = icmp samesign ult i32 %5, 3
+  br i1 %23, label %.loopexit, label %.preheader
 
-.lr.ph:                                           ; preds = %19, %.lr.ph
-  %.036 = phi i32 [ %26, %.lr.ph ], [ 2, %19 ]
+.preheader:                                       ; preds = %19, %.preheader
+  %.036 = phi i32 [ %26, %.preheader ], [ 2, %19 ]
   %24 = load i32, ptr @hf_ieee80211_tag_rsnx_reserved, align 4
   %25 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %24, ptr noundef %0, i32 noundef %.036, i32 noundef 1, i32 noundef -2147483648) #22
   %26 = add nuw nsw i32 %.036, 1
   %exitcond.not = icmp eq i32 %26, %5
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !138
+  br i1 %exitcond.not, label %.loopexit, label %.preheader, !llvm.loop !138
 
-.loopexit:                                        ; preds = %.lr.ph, %19, %11, %7
-  %.034 = phi i32 [ 0, %7 ], [ 1, %11 ], [ 2, %19 ], [ %5, %.lr.ph ]
+.loopexit:                                        ; preds = %.preheader, %19, %11, %7
+  %.034 = phi i32 [ 0, %7 ], [ 1, %11 ], [ 2, %19 ], [ %5, %.preheader ]
   ret i32 %.034
 }
 

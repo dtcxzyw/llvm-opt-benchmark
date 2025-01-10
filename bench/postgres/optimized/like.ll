@@ -1640,7 +1640,7 @@ define internal fastcc range(i32 -1, 2) i32 @UTF8_MatchText(ptr nocapture nounde
   %.07933 = phi i32 [ %.079.be, %.backedge ], [ %3, %9 ]
   %.08432 = phi ptr [ %.084.be, %.backedge ], [ %2, %9 ]
   %13 = load i8, ptr %.08432, align 1
-  switch i8 %13, label %69 [
+  switch i8 %13, label %68 [
     i8 92, label %15
     i8 37, label %.preheader1
     i8 95, label %.preheader5
@@ -1668,7 +1668,7 @@ define internal fastcc range(i32 -1, 2) i32 @UTF8_MatchText(ptr nocapture nounde
   %24 = load i8, ptr %23, align 1
   %25 = load i8, ptr %.07135, align 1
   %.not97 = icmp eq i8 %24, %25
-  br i1 %.not97, label %71, label %.thread
+  br i1 %.not97, label %70, label %.thread
 
 .lr.ph51:                                         ; preds = %.preheader1, %.critedge
   %.28149.in = phi i32 [ %.28149, %.critedge ], [ %.07933, %.preheader1 ]
@@ -1741,19 +1741,19 @@ define internal fastcc range(i32 -1, 2) i32 @UTF8_MatchText(ptr nocapture nounde
   %.47655 = phi i32 [ %56, %.critedge2 ], [ %.17347, %.loopexit ]
   %48 = load i8, ptr %.456, align 1
   %49 = icmp eq i8 %48, %.070
-  br i1 %49, label %50, label %.preheader31
+  br i1 %49, label %50, label %.preheader29
 
 50:                                               ; preds = %.lr.ph58
   %51 = tail call fastcc i32 @UTF8_MatchText(ptr noundef nonnull %.456, i32 noundef %.47655, ptr noundef nonnull %.28650, i32 noundef %.28149)
   %.not96 = icmp eq i32 %51, 0
-  br i1 %.not96, label %.preheader31, label %.thread
+  br i1 %.not96, label %.preheader29, label %.thread
 
-.preheader31:                                     ; preds = %50, %.lr.ph58
+.preheader29:                                     ; preds = %50, %.lr.ph58
   br label %52
 
-52:                                               ; preds = %.preheader31, %54
-  %.577 = phi i32 [ %56, %54 ], [ %.47655, %.preheader31 ]
-  %.5 = phi ptr [ %55, %54 ], [ %.456, %.preheader31 ]
+52:                                               ; preds = %.preheader29, %54
+  %.577 = phi i32 [ %56, %54 ], [ %.47655, %.preheader29 ]
+  %.5 = phi ptr [ %55, %54 ], [ %.456, %.preheader29 ]
   %53 = icmp samesign ugt i32 %.577, 1
   br i1 %53, label %54, label %.thread
 
@@ -1765,71 +1765,70 @@ define internal fastcc range(i32 -1, 2) i32 @UTF8_MatchText(ptr nocapture nounde
   br i1 %58, label %52, label %.critedge2, !llvm.loop !19
 
 .critedge2:                                       ; preds = %54
-  %59 = icmp sgt i32 %.577, 1
-  br i1 %59, label %.lr.ph58, label %.thread, !llvm.loop !20
+  br label %.lr.ph58, !llvm.loop !20
 
-.preheader5:                                      ; preds = %.lr.ph, %62
-  %.678 = phi i32 [ %63, %62 ], [ %.07234, %.lr.ph ]
-  %.6 = phi ptr [ %60, %62 ], [ %.07135, %.lr.ph ]
-  %60 = getelementptr i8, ptr %.6, i64 1
-  %61 = icmp sgt i32 %.678, 1
-  br i1 %61, label %62, label %.backedge
+.preheader5:                                      ; preds = %.lr.ph, %61
+  %.678 = phi i32 [ %62, %61 ], [ %.07234, %.lr.ph ]
+  %.6 = phi ptr [ %59, %61 ], [ %.07135, %.lr.ph ]
+  %59 = getelementptr i8, ptr %.6, i64 1
+  %60 = icmp sgt i32 %.678, 1
+  br i1 %60, label %61, label %.backedge
 
-62:                                               ; preds = %.preheader5
-  %63 = add nsw i32 %.678, -1
-  %64 = load i8, ptr %60, align 1
-  %65 = icmp slt i8 %64, -64
-  br i1 %65, label %.preheader5, label %.backedge, !llvm.loop !21
+61:                                               ; preds = %.preheader5
+  %62 = add nsw i32 %.678, -1
+  %63 = load i8, ptr %59, align 1
+  %64 = icmp slt i8 %63, -64
+  br i1 %64, label %.preheader5, label %.backedge, !llvm.loop !21
 
-.backedge:                                        ; preds = %62, %.preheader5, %71
-  %.185.pn = phi ptr [ %.185, %71 ], [ %.08432, %.preheader5 ], [ %.08432, %62 ]
-  %.079.be.in = phi i32 [ %.180, %71 ], [ %.07933, %.preheader5 ], [ %.07933, %62 ]
-  %.072.be = phi i32 [ %73, %71 ], [ %63, %62 ], [ 0, %.preheader5 ]
-  %.071.be = phi ptr [ %72, %71 ], [ %60, %.preheader5 ], [ %60, %62 ]
+.backedge:                                        ; preds = %61, %.preheader5, %70
+  %.185.pn = phi ptr [ %.185, %70 ], [ %.08432, %.preheader5 ], [ %.08432, %61 ]
+  %.079.be.in = phi i32 [ %.180, %70 ], [ %.07933, %.preheader5 ], [ %.07933, %61 ]
+  %.072.be = phi i32 [ %72, %70 ], [ %62, %61 ], [ 0, %.preheader5 ]
+  %.071.be = phi ptr [ %71, %70 ], [ %59, %.preheader5 ], [ %59, %61 ]
   %.079.be = add nsw i32 %.079.be.in, -1
   %.084.be = getelementptr i8, ptr %.185.pn, i64 1
-  %66 = icmp sgt i32 %.072.be, 0
-  %67 = icmp sgt i32 %.079.be.in, 1
-  %68 = select i1 %66, i1 %67, i1 false
-  br i1 %68, label %.lr.ph, label %._crit_edge, !llvm.loop !22
+  %65 = icmp sgt i32 %.072.be, 0
+  %66 = icmp sgt i32 %.079.be.in, 1
+  %67 = select i1 %65, i1 %66, i1 false
+  br i1 %67, label %.lr.ph, label %._crit_edge, !llvm.loop !22
 
-69:                                               ; preds = %.lr.ph
-  %70 = load i8, ptr %.07135, align 1
-  %.not = icmp eq i8 %13, %70
-  br i1 %.not, label %71, label %.thread
+68:                                               ; preds = %.lr.ph
+  %69 = load i8, ptr %.07135, align 1
+  %.not = icmp eq i8 %13, %69
+  br i1 %.not, label %70, label %.thread
 
-71:                                               ; preds = %69, %21
-  %.185 = phi ptr [ %23, %21 ], [ %.08432, %69 ]
-  %.180 = phi i32 [ %22, %21 ], [ %.07933, %69 ]
-  %72 = getelementptr i8, ptr %.07135, i64 1
-  %73 = add nsw i32 %.07234, -1
+70:                                               ; preds = %68, %21
+  %.185 = phi ptr [ %23, %21 ], [ %.08432, %68 ]
+  %.180 = phi i32 [ %22, %21 ], [ %.07933, %68 ]
+  %71 = getelementptr i8, ptr %.07135, i64 1
+  %72 = add nsw i32 %.07234, -1
   br label %.backedge
 
 ._crit_edge:                                      ; preds = %.backedge, %9
   %.084.lcssa = phi ptr [ %2, %9 ], [ %.084.be, %.backedge ]
   %.079.lcssa = phi i32 [ %3, %9 ], [ %.079.be, %.backedge ]
-  %.lcssa16 = phi i1 [ %10, %9 ], [ %66, %.backedge ]
+  %.lcssa16 = phi i1 [ %10, %9 ], [ %65, %.backedge ]
   br i1 %.lcssa16, label %.thread, label %.preheader4
 
 .preheader4:                                      ; preds = %._crit_edge
-  %74 = icmp sgt i32 %.079.lcssa, 0
-  br i1 %74, label %.lr.ph40, label %.thread
+  %73 = icmp sgt i32 %.079.lcssa, 0
+  br i1 %73, label %.lr.ph40, label %.thread
 
-.lr.ph40:                                         ; preds = %.preheader4, %77
-  %.48339 = phi i32 [ %79, %77 ], [ %.079.lcssa, %.preheader4 ]
-  %.48838 = phi ptr [ %78, %77 ], [ %.084.lcssa, %.preheader4 ]
-  %75 = load i8, ptr %.48838, align 1
-  %76 = icmp eq i8 %75, 37
-  br i1 %76, label %77, label %.thread
+.lr.ph40:                                         ; preds = %.preheader4, %76
+  %.48339 = phi i32 [ %78, %76 ], [ %.079.lcssa, %.preheader4 ]
+  %.48838 = phi ptr [ %77, %76 ], [ %.084.lcssa, %.preheader4 ]
+  %74 = load i8, ptr %.48838, align 1
+  %75 = icmp eq i8 %74, 37
+  br i1 %75, label %76, label %.thread
 
-77:                                               ; preds = %.lr.ph40
-  %78 = getelementptr i8, ptr %.48838, i64 1
-  %79 = add nsw i32 %.48339, -1
-  %80 = icmp sgt i32 %.48339, 1
-  br i1 %80, label %.lr.ph40, label %.thread, !llvm.loop !23
+76:                                               ; preds = %.lr.ph40
+  %77 = getelementptr i8, ptr %.48838, i64 1
+  %78 = add nsw i32 %.48339, -1
+  %79 = icmp sgt i32 %.48339, 1
+  br i1 %79, label %.lr.ph40, label %.thread, !llvm.loop !23
 
-.thread:                                          ; preds = %69, %21, %27, %.critedge, %50, %.critedge2, %52, %77, %.lr.ph40, %.preheader4, %.preheader1, %.loopexit, %._crit_edge, %6
-  %.0 = phi i32 [ 1, %6 ], [ 0, %._crit_edge ], [ -1, %.loopexit ], [ 1, %.preheader1 ], [ 1, %.preheader4 ], [ 1, %77 ], [ -1, %.lr.ph40 ], [ -1, %52 ], [ %51, %50 ], [ -1, %.critedge2 ], [ -1, %27 ], [ 1, %.critedge ], [ 0, %21 ], [ 0, %69 ]
+.thread:                                          ; preds = %68, %21, %27, %.critedge, %50, %52, %76, %.lr.ph40, %.preheader4, %.preheader1, %.loopexit, %._crit_edge, %6
+  %.0 = phi i32 [ 1, %6 ], [ 0, %._crit_edge ], [ -1, %.loopexit ], [ 1, %.preheader1 ], [ 1, %.preheader4 ], [ 1, %76 ], [ -1, %.lr.ph40 ], [ -1, %52 ], [ %51, %50 ], [ -1, %27 ], [ 1, %.critedge ], [ 0, %21 ], [ 0, %68 ]
   ret i32 %.0
 }
 

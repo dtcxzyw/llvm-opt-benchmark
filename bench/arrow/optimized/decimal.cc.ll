@@ -5227,9 +5227,9 @@ _ZN5arrow12_GLOBAL__N_124Decimal128RealConversion17RoundedRightShiftERKNS_10Deci
 
 while.body.preheader:                             ; preds = %if.then8
   %call20 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN5arrow15BasicDecimal128mLERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %x, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN5arrowL22kDecimal128PowersOfTenE, i64 480))
-  %sub21 = add nsw i32 %scale, -30
   %sub24 = sub nsw i32 38, %precision
   %.sroa.speculated216 = call i32 @llvm.smax.i32(i32 %sub24, i32 1)
+  %sub21 = add nsw i32 %scale, -30
   br label %while.body
 
 while.body:                                       ; preds = %while.body.preheader, %_ZN5arrow12_GLOBAL__N_124Decimal128RealConversion17RoundedRightShiftERKNS_10Decimal128Ei.exit102
@@ -6080,9 +6080,9 @@ _ZN5arrow12_GLOBAL__N_124Decimal128RealConversion17RoundedRightShiftERKNS_10Deci
 
 while.body.preheader:                             ; preds = %if.then8
   %call20 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN5arrow15BasicDecimal128mLERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %x, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN5arrowL22kDecimal128PowersOfTenE, i64 352))
-  %sub21 = add nsw i32 %scale, -22
   %sub24 = sub nsw i32 38, %precision
   %.sroa.speculated216 = call i32 @llvm.smax.i32(i32 %sub24, i32 1)
+  %sub21 = add nsw i32 %scale, -22
   br label %while.body
 
 while.body:                                       ; preds = %while.body.preheader, %_ZN5arrow12_GLOBAL__N_124Decimal128RealConversion17RoundedRightShiftERKNS_10Decimal128Ei.exit102
@@ -8109,9 +8109,9 @@ if.then11:                                        ; preds = %if.then8
 
 while.body.preheader:                             ; preds = %if.then8
   %call16 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZN5arrow15BasicDecimal256mLERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %x, ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds nuw (i8, ptr @_ZN5arrowL22kDecimal256PowersOfTenE, i64 2176))
-  %sub17 = add nsw i32 %scale, -68
   %sub20 = sub nsw i32 76, %precision
   %.sroa.speculated84 = call i32 @llvm.smax.i32(i32 %sub20, i32 1)
+  %sub17 = add nsw i32 %scale, -68
   br label %while.body
 
 while.body:                                       ; preds = %while.body.preheader, %while.body
@@ -8767,9 +8767,9 @@ if.then11:                                        ; preds = %if.then8
 
 while.body.preheader:                             ; preds = %if.then8
   %call16 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZN5arrow15BasicDecimal256mLERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %x, ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds nuw (i8, ptr @_ZN5arrowL22kDecimal256PowersOfTenE, i64 1920))
-  %sub17 = add nsw i32 %scale, -60
   %sub20 = sub nsw i32 76, %precision
   %.sroa.speculated84 = call i32 @llvm.smax.i32(i32 %sub20, i32 1)
+  %sub17 = add nsw i32 %scale, -60
   br label %while.body
 
 while.body:                                       ; preds = %while.body.preheader, %while.body

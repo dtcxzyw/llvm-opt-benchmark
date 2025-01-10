@@ -144,7 +144,7 @@ do.body:                                          ; preds = %do.body.preheader, 
   br i1 %cmp41, label %land.rhs43, label %do.end.thread
 
 do.end.thread:                                    ; preds = %do.body
-  %inc60 = add nsw i64 %n.148, 1
+  %inc59 = add nsw i64 %n.148, 1
   br label %if.end75
 
 land.rhs43:                                       ; preds = %do.body
@@ -157,9 +157,7 @@ land.rhs43:                                       ; preds = %do.body
 do.end:                                           ; preds = %land.rhs43
   %inc = add nsw i64 %n.148, 1
   %cmp32 = icmp slt i64 %n.148, -1
-  %cmp35 = icmp sgt i64 %posi.4, 1
-  %8 = and i1 %cmp32, %cmp35
-  br i1 %8, label %do.body.preheader, label %if.end75, !llvm.loop !8
+  br i1 %cmp32, label %do.body.preheader, label %if.end75, !llvm.loop !8
 
 do.body63.preheader:                              ; preds = %while.cond54.preheader, %do.end71
   %n.245 = phi i64 [ %n.2, %do.end71 ], [ %n.241, %while.cond54.preheader ]
@@ -170,26 +168,26 @@ do.body63:                                        ; preds = %do.body63.preheader
   %posi.6 = phi i64 [ %inc64, %do.body63 ], [ %posi.544, %do.body63.preheader ]
   %inc64 = add nsw i64 %posi.6, 1
   %add.ptr66 = getelementptr inbounds i8, ptr %call, i64 %inc64
-  %9 = load i8, ptr %add.ptr66, align 1
-  %cmp69 = icmp slt i8 %9, -64
+  %8 = load i8, ptr %add.ptr66, align 1
+  %cmp69 = icmp slt i8 %8, -64
   br i1 %cmp69, label %do.body63, label %do.end71, !llvm.loop !9
 
 do.end71:                                         ; preds = %do.body63
   %n.2 = add nsw i64 %n.245, -1
   %cmp55 = icmp sgt i64 %n.245, 1
   %cmp58 = icmp slt i64 %inc64, %5
-  %10 = select i1 %cmp55, i1 %cmp58, i1 false
-  br i1 %10, label %do.body63.preheader, label %if.end75, !llvm.loop !10
+  %9 = select i1 %cmp55, i1 %cmp58, i1 false
+  br i1 %9, label %do.body63.preheader, label %if.end75, !llvm.loop !10
 
 if.end75:                                         ; preds = %do.end71, %do.end, %do.end.thread, %while.cond54.preheader
-  %n.0 = phi i64 [ %n.241, %while.cond54.preheader ], [ %inc60, %do.end.thread ], [ %inc, %do.end ], [ %n.2, %do.end71 ]
+  %n.0 = phi i64 [ %n.241, %while.cond54.preheader ], [ %inc59, %do.end.thread ], [ %inc, %do.end ], [ %n.2, %do.end71 ]
   %posi.2 = phi i64 [ %posi.038, %while.cond54.preheader ], [ 0, %do.end.thread ], [ %dec40, %do.end ], [ %inc64, %do.end71 ]
   %cmp76 = icmp eq i64 %n.0, 0
   br i1 %cmp76, label %if.then78, label %if.else80
 
 if.then78:                                        ; preds = %while.body, %land.rhs14, %while.cond.preheader, %if.end75
-  %posi.269 = phi i64 [ %posi.2, %if.end75 ], [ %posi.038, %while.cond.preheader ], [ 0, %while.body ], [ %posi.153, %land.rhs14 ]
-  %add79 = add nsw i64 %posi.269, 1
+  %posi.266 = phi i64 [ %posi.2, %if.end75 ], [ %posi.038, %while.cond.preheader ], [ 0, %while.body ], [ %posi.153, %land.rhs14 ]
+  %add79 = add nsw i64 %posi.266, 1
   call void @lua_pushinteger(ptr noundef %L, i64 noundef %add79) #2
   br label %return
 

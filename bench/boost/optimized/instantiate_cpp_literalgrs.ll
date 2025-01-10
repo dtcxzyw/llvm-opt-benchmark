@@ -11275,12 +11275,12 @@ _ZN5boost6spirit7classic4impl11extract_intILi16ELj4ELi4ENS2_19positive_accumulat
   br i1 %36, label %_ZNK5boost6spirit7classic11uint_parserIjLi16ELj4ELi4EE5parseINS1_7scannerIPKcNS1_16scanner_policiesINS1_16iteration_policyENS1_12match_policyENS1_13action_policyEEEEEEENS1_13parser_resultIS3_T_E4typeERKSF_.exit.thread22, label %_ZNK5boost6spirit7classic11uint_parserIjLi16ELj4ELi4EE5parseINS1_7scannerIPKcNS1_16scanner_policiesINS1_16iteration_policyENS1_12match_policyENS1_13action_policyEEEEEEENS1_13parser_resultIS3_T_E4typeERKSF_.exit.thread
 
 _ZNK5boost6spirit7classic11uint_parserIjLi16ELj4ELi4EE5parseINS1_7scannerIPKcNS1_16scanner_policiesINS1_16iteration_policyENS1_12match_policyENS1_13action_policyEEEEEEENS1_13parser_resultIS3_T_E4typeERKSF_.exit.thread22: ; preds = %32, %_ZN5boost6spirit7classic4impl11extract_intILi16ELj4ELi4ENS2_19positive_accumulateIjLi16EEEE1fIKNS1_7scannerIPKcNS1_16scanner_policiesINS1_16iteration_policyENS1_12match_policyENS1_13action_policyEEEEEjEEbRT_RT0_Rm.exit.i.i.i
-  %.011.i.i.i.sink = phi i32 [ %.011.i.i.i, %_ZN5boost6spirit7classic4impl11extract_intILi16ELj4ELi4ENS2_19positive_accumulateIjLi16EEEE1fIKNS1_7scannerIPKcNS1_16scanner_policiesINS1_16iteration_policyENS1_12match_policyENS1_13action_policyEEEEEjEEbRT_RT0_Rm.exit.i.i.i ], [ %33, %32 ]
-  %.0.i.i.i.sink = phi i64 [ %.0.i.i.i, %_ZN5boost6spirit7classic4impl11extract_intILi16ELj4ELi4ENS2_19positive_accumulateIjLi16EEEE1fIKNS1_7scannerIPKcNS1_16scanner_policiesINS1_16iteration_policyENS1_12match_policyENS1_13action_policyEEEEEjEEbRT_RT0_Rm.exit.i.i.i ], [ 4, %32 ]
-  %37 = zext i32 %.011.i.i.i.sink to i64
+  %.011.i.i.i.lcssa.sink = phi i32 [ %.011.i.i.i, %_ZN5boost6spirit7classic4impl11extract_intILi16ELj4ELi4ENS2_19positive_accumulateIjLi16EEEE1fIKNS1_7scannerIPKcNS1_16scanner_policiesINS1_16iteration_policyENS1_12match_policyENS1_13action_policyEEEEEjEEbRT_RT0_Rm.exit.i.i.i ], [ %33, %32 ]
+  %.0.i.i.i.lcssa.sink = phi i64 [ %.0.i.i.i, %_ZN5boost6spirit7classic4impl11extract_intILi16ELj4ELi4ENS2_19positive_accumulateIjLi16EEEE1fIKNS1_7scannerIPKcNS1_16scanner_policiesINS1_16iteration_policyENS1_12match_policyENS1_13action_policyEEEEEjEEbRT_RT0_Rm.exit.i.i.i ], [ 4, %32 ]
+  %37 = zext i32 %.011.i.i.i.lcssa.sink to i64
   %38 = shl nuw i64 %37, 32
   %.sroa.3.8.insert.insert.i.i.i = or disjoint i64 %38, 1
-  store i64 %.0.i.i.i.sink, ptr %4, align 8
+  store i64 %.0.i.i.i.lcssa.sink, ptr %4, align 8
   %39 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 %.sroa.3.8.insert.insert.i.i.i, ptr %39, align 8
   %40 = getelementptr inbounds nuw i8, ptr %4, i64 12
@@ -11365,12 +11365,12 @@ _ZN5boost6spirit7classic4impl11extract_intILi16ELj8ELi8ENS2_19positive_accumulat
   br i1 %36, label %_ZNK5boost6spirit7classic11uint_parserIjLi16ELj8ELi8EE5parseINS1_7scannerIPKcNS1_16scanner_policiesINS1_16iteration_policyENS1_12match_policyENS1_13action_policyEEEEEEENS1_13parser_resultIS3_T_E4typeERKSF_.exit.thread22, label %_ZNK5boost6spirit7classic11uint_parserIjLi16ELj8ELi8EE5parseINS1_7scannerIPKcNS1_16scanner_policiesINS1_16iteration_policyENS1_12match_policyENS1_13action_policyEEEEEEENS1_13parser_resultIS3_T_E4typeERKSF_.exit.thread
 
 _ZNK5boost6spirit7classic11uint_parserIjLi16ELj8ELi8EE5parseINS1_7scannerIPKcNS1_16scanner_policiesINS1_16iteration_policyENS1_12match_policyENS1_13action_policyEEEEEEENS1_13parser_resultIS3_T_E4typeERKSF_.exit.thread22: ; preds = %32, %_ZN5boost6spirit7classic4impl11extract_intILi16ELj8ELi8ENS2_19positive_accumulateIjLi16EEEE1fIKNS1_7scannerIPKcNS1_16scanner_policiesINS1_16iteration_policyENS1_12match_policyENS1_13action_policyEEEEEjEEbRT_RT0_Rm.exit.i.i.i
-  %.011.i.i.i.sink = phi i32 [ %.011.i.i.i, %_ZN5boost6spirit7classic4impl11extract_intILi16ELj8ELi8ENS2_19positive_accumulateIjLi16EEEE1fIKNS1_7scannerIPKcNS1_16scanner_policiesINS1_16iteration_policyENS1_12match_policyENS1_13action_policyEEEEEjEEbRT_RT0_Rm.exit.i.i.i ], [ %33, %32 ]
-  %.0.i.i.i.sink = phi i64 [ %.0.i.i.i, %_ZN5boost6spirit7classic4impl11extract_intILi16ELj8ELi8ENS2_19positive_accumulateIjLi16EEEE1fIKNS1_7scannerIPKcNS1_16scanner_policiesINS1_16iteration_policyENS1_12match_policyENS1_13action_policyEEEEEjEEbRT_RT0_Rm.exit.i.i.i ], [ 8, %32 ]
-  %37 = zext i32 %.011.i.i.i.sink to i64
+  %.011.i.i.i.lcssa.sink = phi i32 [ %.011.i.i.i, %_ZN5boost6spirit7classic4impl11extract_intILi16ELj8ELi8ENS2_19positive_accumulateIjLi16EEEE1fIKNS1_7scannerIPKcNS1_16scanner_policiesINS1_16iteration_policyENS1_12match_policyENS1_13action_policyEEEEEjEEbRT_RT0_Rm.exit.i.i.i ], [ %33, %32 ]
+  %.0.i.i.i.lcssa.sink = phi i64 [ %.0.i.i.i, %_ZN5boost6spirit7classic4impl11extract_intILi16ELj8ELi8ENS2_19positive_accumulateIjLi16EEEE1fIKNS1_7scannerIPKcNS1_16scanner_policiesINS1_16iteration_policyENS1_12match_policyENS1_13action_policyEEEEEjEEbRT_RT0_Rm.exit.i.i.i ], [ 8, %32 ]
+  %37 = zext i32 %.011.i.i.i.lcssa.sink to i64
   %38 = shl nuw i64 %37, 32
   %.sroa.3.8.insert.insert.i.i.i = or disjoint i64 %38, 1
-  store i64 %.0.i.i.i.sink, ptr %4, align 8
+  store i64 %.0.i.i.i.lcssa.sink, ptr %4, align 8
   %39 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 %.sroa.3.8.insert.insert.i.i.i, ptr %39, align 8
   %40 = getelementptr inbounds nuw i8, ptr %4, i64 12
