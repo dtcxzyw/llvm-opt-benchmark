@@ -52,16 +52,17 @@ define void @PHP_FNV132Final(ptr nocapture noundef writeonly %0, ptr nocapture n
 
 3:                                                ; preds = %2, %3
   %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %3 ]
-  %4 = sub nuw nsw i64 3, %indvars.iv
-  %5 = getelementptr inbounds nuw i8, ptr %1, i64 %4
-  %6 = load i8, ptr %5, align 1
-  %7 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv
-  store i8 %6, ptr %7, align 1
+  %4 = and i64 %indvars.iv, 4294967295
+  %5 = xor i64 %4, 3
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 %5
+  %7 = load i8, ptr %6, align 1
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv
+  store i8 %7, ptr %8, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %8, label %3
+  br i1 %exitcond.not, label %9, label %3
 
-8:                                                ; preds = %3
+9:                                                ; preds = %3
   ret void
 }
 
@@ -131,16 +132,17 @@ define void @PHP_FNV164Final(ptr nocapture noundef writeonly %0, ptr nocapture n
 
 3:                                                ; preds = %2, %3
   %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %3 ]
-  %4 = sub nuw nsw i64 7, %indvars.iv
-  %5 = getelementptr inbounds nuw i8, ptr %1, i64 %4
-  %6 = load i8, ptr %5, align 1
-  %7 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv
-  store i8 %6, ptr %7, align 1
+  %4 = and i64 %indvars.iv, 4294967295
+  %5 = xor i64 %4, 7
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 %5
+  %7 = load i8, ptr %6, align 1
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv
+  store i8 %7, ptr %8, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond.not, label %8, label %3
+  br i1 %exitcond.not, label %9, label %3
 
-8:                                                ; preds = %3
+9:                                                ; preds = %3
   ret void
 }
 

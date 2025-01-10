@@ -900,7 +900,7 @@ _ZNK10RegionNode10is_diamondEv.exit:              ; preds = %28
   br i1 %82, label %83, label %93
 
 83:                                               ; preds = %76
-  %84 = sub nuw nsw i64 3, %indvars.iv.i
+  %84 = xor i64 %indvars.iv.i, 3
   %85 = getelementptr inbounds nuw ptr, ptr %65, i64 %84
   %86 = load ptr, ptr %85, align 8
   %.not20.i = icmp eq ptr %86, null
@@ -1021,19 +1021,19 @@ define hidden noundef zeroext i1 @_ZN7PhiNode20try_clean_memory_phiEP12PhaseIter
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   br label %11
 
-11:                                               ; preds = %6, %40
-  %indvars.iv = phi i64 [ 1, %6 ], [ %indvars.iv.next, %40 ]
+11:                                               ; preds = %6, %41
+  %indvars.iv = phi i64 [ 1, %6 ], [ %indvars.iv.next, %41 ]
   %12 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv
   %13 = load ptr, ptr %12, align 8
   %.not19 = icmp eq ptr %13, null
-  br i1 %.not19, label %40, label %14
+  br i1 %.not19, label %41, label %14
 
 14:                                               ; preds = %11
   %15 = getelementptr inbounds nuw i8, ptr %13, i64 44
   %16 = load i32, ptr %15, align 4
   %17 = and i32 %16, 255
   %18 = icmp eq i32 %17, 128
-  br i1 %18, label %19, label %40
+  br i1 %18, label %19, label %41
 
 19:                                               ; preds = %14
   %20 = load ptr, ptr %10, align 8
@@ -1042,38 +1042,39 @@ define hidden noundef zeroext i1 @_ZN7PhiNode20try_clean_memory_phiEP12PhaseIter
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 32
   %24 = load i32, ptr %23, align 8
   %25 = icmp eq i32 %24, 1
-  br i1 %25, label %26, label %40
+  br i1 %25, label %26, label %41
 
 26:                                               ; preds = %19
-  %27 = sub nuw nsw i64 3, %indvars.iv
-  %28 = getelementptr inbounds nuw ptr, ptr %8, i64 %27
-  %29 = load ptr, ptr %28, align 8
-  %.not20 = icmp eq ptr %29, null
-  br i1 %.not20, label %40, label %30
+  %27 = and i64 %indvars.iv, 4294967295
+  %28 = xor i64 %27, 3
+  %29 = getelementptr inbounds nuw ptr, ptr %8, i64 %28
+  %30 = load ptr, ptr %29, align 8
+  %.not20 = icmp eq ptr %30, null
+  br i1 %.not20, label %41, label %31
 
-30:                                               ; preds = %26
-  %31 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %32 = load ptr, ptr %31, align 8
-  %33 = getelementptr inbounds nuw i8, ptr %32, i64 16
-  %34 = load ptr, ptr %33, align 8
-  %35 = icmp eq ptr %29, %34
-  br i1 %35, label %36, label %40
+31:                                               ; preds = %26
+  %32 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  %33 = load ptr, ptr %32, align 8
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 16
+  %35 = load ptr, ptr %34, align 8
+  %36 = icmp eq ptr %30, %35
+  br i1 %36, label %37, label %41
 
-36:                                               ; preds = %30
+37:                                               ; preds = %31
   tail call void @_ZN12PhaseIterGVN21add_users_to_worklistEP4Node(ptr noundef nonnull align 8 dereferenceable(2416) %1, ptr noundef nonnull %0) #10
-  %37 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %38 = load ptr, ptr %37, align 8
-  %39 = tail call noundef zeroext i1 @_ZN8NodeHash11hash_deleteEPK4Node(ptr noundef nonnull align 8 dereferenceable(40) %38, ptr noundef nonnull %0) #10
+  %38 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %39 = load ptr, ptr %38, align 8
+  %40 = tail call noundef zeroext i1 @_ZN8NodeHash11hash_deleteEPK4Node(ptr noundef nonnull align 8 dereferenceable(40) %39, ptr noundef nonnull %0) #10
   tail call void @_ZN12PhaseIterGVN12subsume_nodeEP4NodeS1_(ptr noundef nonnull align 8 dereferenceable(2416) %1, ptr noundef nonnull %0, ptr noundef nonnull %13) #10
   br label %.loopexit
 
-40:                                               ; preds = %11, %14, %19, %30, %26
+41:                                               ; preds = %11, %14, %19, %31, %26
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
   br i1 %exitcond.not, label %.loopexit, label %11, !llvm.loop !14
 
-.loopexit:                                        ; preds = %40, %2, %36
-  %.0 = phi i1 [ true, %36 ], [ false, %2 ], [ false, %40 ]
+.loopexit:                                        ; preds = %41, %2, %37
+  %.0 = phi i1 [ true, %37 ], [ false, %2 ], [ false, %41 ]
   ret i1 %.0
 }
 
@@ -10696,7 +10697,7 @@ define internal fastcc noundef ptr @_ZL10is_x2logicP8PhaseGVNP7PhiNodei(ptr noun
   br i1 %or.cond44, label %83, label %142
 
 83:                                               ; preds = %80
-  %84 = sub nuw nsw i32 1, %.035
+  %84 = xor i32 %.035, 1
   br label %85
 
 85:                                               ; preds = %78, %83
@@ -10709,7 +10710,7 @@ define internal fastcc noundef ptr @_ZL10is_x2logicP8PhaseGVNP7PhiNodei(ptr noun
   ]
 
 88:                                               ; preds = %85
-  %89 = sub nuw nsw i32 1, %.1
+  %89 = xor i32 %.1, 1
   br label %90
 
 90:                                               ; preds = %85, %88

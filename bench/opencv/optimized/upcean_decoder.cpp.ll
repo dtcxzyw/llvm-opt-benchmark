@@ -1809,7 +1809,7 @@ define internal fastcc void @"_ZZN2cv7barcode15get_AB_PatternsEvENK3$_0clEv"() u
   store ptr %3, ptr %2, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) @_ZZN2cv7barcode15get_AB_PatternsEvE11AB_Patterns, i8 0, i64 24, i1 false)
   %5 = invoke noalias noundef nonnull dereferenceable(480) ptr @_Znwm(i64 noundef 480) #17
-          to label %.noexc20 unwind label %42
+          to label %.noexc20 unwind label %43
 
 .noexc20:                                         ; preds = %.noexc
   store ptr %5, ptr @_ZZN2cv7barcode15get_AB_PatternsEvE11AB_Patterns, align 8
@@ -1879,66 +1879,67 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %12, %14
 .preheader.preheader:                             ; preds = %.noexc22, %19
   br label %.preheader
 
-.preheader:                                       ; preds = %.preheader.preheader, %47
-  %indvars.iv4 = phi i64 [ %indvars.iv.next5, %47 ], [ 0, %.preheader.preheader ]
+.preheader:                                       ; preds = %.preheader.preheader, %48
+  %indvars.iv4 = phi i64 [ %indvars.iv.next5, %48 ], [ 0, %.preheader.preheader ]
   br label %32
 
 32:                                               ; preds = %.preheader, %32
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %32 ]
   %33 = load ptr, ptr @_ZZN2cv7barcode15get_AB_PatternsEvE11AB_Patterns, align 8
   %34 = getelementptr inbounds nuw %"class.std::vector", ptr %33, i64 %indvars.iv4
-  %35 = sub nuw nsw i64 3, %indvars.iv
-  %36 = load ptr, ptr %34, align 8
-  %37 = getelementptr inbounds nuw i32, ptr %36, i64 %35
-  %38 = load i32, ptr %37, align 4
-  %39 = getelementptr inbounds nuw i8, ptr %34, i64 240
-  %40 = load ptr, ptr %39, align 8
-  %41 = getelementptr inbounds nuw i32, ptr %40, i64 %indvars.iv
-  store i32 %38, ptr %41, align 4
+  %35 = and i64 %indvars.iv, 4294967295
+  %36 = xor i64 %35, 3
+  %37 = load ptr, ptr %34, align 8
+  %38 = getelementptr inbounds nuw i32, ptr %37, i64 %36
+  %39 = load i32, ptr %38, align 4
+  %40 = getelementptr inbounds nuw i8, ptr %34, i64 240
+  %41 = load ptr, ptr %40, align 8
+  %42 = getelementptr inbounds nuw i32, ptr %41, i64 %indvars.iv
+  store i32 %39, ptr %42, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %47, label %32, !llvm.loop !30
+  br i1 %exitcond.not, label %48, label %32, !llvm.loop !30
 
-42:                                               ; preds = %.noexc
-  %43 = landingpad { ptr, i32 }
+43:                                               ; preds = %.noexc
+  %44 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
-.body:                                            ; preds = %8, %11, %42
-  %eh.lpad-body = phi { ptr, i32 } [ %43, %42 ], [ %9, %11 ], [ %9, %8 ]
-  %44 = load ptr, ptr %0, align 8
-  %.not.i.i.i23 = icmp eq ptr %44, null
-  br i1 %.not.i.i.i23, label %_ZNSt6vectorIiSaIiEED2Ev.exit24, label %45
+.body:                                            ; preds = %8, %11, %43
+  %eh.lpad-body = phi { ptr, i32 } [ %44, %43 ], [ %9, %11 ], [ %9, %8 ]
+  %45 = load ptr, ptr %0, align 8
+  %.not.i.i.i23 = icmp eq ptr %45, null
+  br i1 %.not.i.i.i23, label %_ZNSt6vectorIiSaIiEED2Ev.exit24, label %46
 
-45:                                               ; preds = %.body
-  call void @_ZdlPv(ptr noundef nonnull %44) #18
+46:                                               ; preds = %.body
+  call void @_ZdlPv(ptr noundef nonnull %45) #18
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit24
 
 .loopexit:                                        ; preds = %.lr.ph.i.i.i.i.i
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
-  br label %46
+  br label %47
 
 .loopexit.split-lp:                               ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit, %16
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
-  br label %46
+  br label %47
 
-46:                                               ; preds = %.loopexit.split-lp, %.loopexit
+47:                                               ; preds = %.loopexit.split-lp, %.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @_ZNSt6vectorIS_IiSaIiEESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) @_ZZN2cv7barcode15get_AB_PatternsEvE11AB_Patterns) #19
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit24
 
-47:                                               ; preds = %32
+48:                                               ; preds = %32
   %indvars.iv.next5 = add nuw nsw i64 %indvars.iv4, 1
   %exitcond7.not = icmp eq i64 %indvars.iv.next5, 10
-  br i1 %exitcond7.not, label %48, label %.preheader, !llvm.loop !31
+  br i1 %exitcond7.not, label %49, label %.preheader, !llvm.loop !31
 
-48:                                               ; preds = %47
+49:                                               ; preds = %48
   ret void
 
-_ZNSt6vectorIiSaIiEED2Ev.exit24:                  ; preds = %.body, %45, %46
-  %.pn18 = phi { ptr, i32 } [ %lpad.phi, %46 ], [ %eh.lpad-body, %.body ], [ %eh.lpad-body, %45 ]
+_ZNSt6vectorIiSaIiEED2Ev.exit24:                  ; preds = %.body, %46, %47
+  %.pn18 = phi { ptr, i32 } [ %lpad.phi, %47 ], [ %eh.lpad-body, %.body ], [ %eh.lpad-body, %46 ]
   resume { ptr, i32 } %.pn18
 }
 

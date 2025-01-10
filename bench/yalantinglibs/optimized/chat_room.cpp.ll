@@ -22708,7 +22708,7 @@ _ZN4asio6detail14io_object_implINS0_22deadline_timer_serviceINS0_18chrono_time_t
   br i1 %cmp.i.i.i, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %_ZN4asio6detail14io_object_implINS0_22deadline_timer_serviceINS0_18chrono_time_traitsINSt6chrono3_V212steady_clockENS_11wait_traitsIS6_EEEEEENS_15any_io_executorEEC2EiRKSB_.exit
-  %sub.i.i.i.i = sub nuw nsw i64 9223372036854775807, %call.i.i
+  %sub.i.i.i.i = xor i64 %call.i.i, 9223372036854775807
   %14 = load i64, ptr %expiry_time, align 8
   %cmp.i8.i.i = icmp slt i64 %sub.i.i.i.i, %14
   br i1 %cmp.i8.i.i, label %_ZN4asio6detail18chrono_time_traitsINSt6chrono3_V212steady_clockENS_11wait_traitsIS4_EEE3addERKNS2_10time_pointIS4_NS2_8durationIlSt5ratioILl1ELl1000000000EEEEEERKSC_.exit.i, label %if.end41.i.i
@@ -23172,7 +23172,7 @@ if.else.i:                                        ; preds = %if.then.i
   br i1 %cmp.i.i.i, label %if.end5.i, label %if.else20.i
 
 if.else20.i:                                      ; preds = %if.else.i
-  %sub.i.i26.i = sub nuw nsw i64 9223372036854775807, %retval.sroa.0.0.copyload.i.i.i
+  %sub.i.i26.i = xor i64 %retval.sroa.0.0.copyload.i.i.i, 9223372036854775807
   %sub.i.i29.i = sub nsw i64 0, %call.i
   %cmp.i30.i = icmp samesign ult i64 %sub.i.i26.i, %sub.i.i29.i
   %sub.i.i33.i = sub nsw i64 %retval.sroa.0.0.copyload.i.i.i, %call.i
@@ -23230,7 +23230,7 @@ if.else.i:                                        ; preds = %if.then.i
   br i1 %cmp.i.i.i, label %if.end5.i, label %if.else20.i
 
 if.else20.i:                                      ; preds = %if.else.i
-  %sub.i.i26.i = sub nuw nsw i64 9223372036854775807, %retval.sroa.0.0.copyload.i.i.i
+  %sub.i.i26.i = xor i64 %retval.sroa.0.0.copyload.i.i.i, 9223372036854775807
   %sub.i.i29.i = sub nsw i64 0, %call.i
   %cmp.i30.i = icmp samesign ult i64 %sub.i.i26.i, %sub.i.i29.i
   %sub.i.i33.i = sub nsw i64 %retval.sroa.0.0.copyload.i.i.i, %call.i
@@ -44143,18 +44143,19 @@ if.then16:                                        ; preds = %cond.end
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.body.i.i, %if.then16
-  %indvars.iv.i.i = phi i64 [ 0, %if.then16 ], [ %indvars.iv.next.i.i, %for.body.i.i ]
+  %i.06.i.i = phi i32 [ 0, %if.then16 ], [ %inc.i.i, %for.body.i.i ]
   %num.addr.05.i.i = phi i32 [ %add17, %if.then16 ], [ %div.i.i, %for.body.i.i ]
   %rem.i.i = srem i32 %num.addr.05.i.i, 10
   %idxprom.i.i = sext i32 %rem.i.i to i64
   %arrayidx.i.i = getelementptr inbounds [10 x i8], ptr @_ZN7cinatraL6digitsE, i64 0, i64 %idxprom.i.i
   %4 = load i8, ptr %arrayidx.i.i, align 1
-  %5 = sub nuw nsw i64 3, %indvars.iv.i.i
-  %arrayidx2.i.i = getelementptr inbounds nuw i8, ptr %p.0132, i64 %5
+  %5 = xor i32 %i.06.i.i, 3
+  %sub.i.i = zext nneg i32 %5 to i64
+  %arrayidx2.i.i = getelementptr inbounds nuw i8, ptr %p.0132, i64 %sub.i.i
   store i8 %4, ptr %arrayidx2.i.i, align 1
   %div.i.i = sdiv i32 %num.addr.05.i.i, 10
-  %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
-  %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 4
+  %inc.i.i = add nuw nsw i32 %i.06.i.i, 1
+  %exitcond.not.i.i = icmp eq i32 %inc.i.i, 4
   br i1 %exitcond.not.i.i, label %_ZN7cinatra7to_yearEPcic.exit, label %for.body.i.i, !llvm.loop !658
 
 _ZN7cinatra7to_yearEPcic.exit:                    ; preds = %for.body.i.i
@@ -44170,13 +44171,13 @@ if.then22:                                        ; preds = %cond.end
 
 for.body.i.i56:                                   ; preds = %for.body.i.i56, %if.then22
   %cmp.i.i = phi i1 [ true, %if.then22 ], [ false, %for.body.i.i56 ]
-  %indvars.iv.i.i57 = phi i64 [ 1, %if.then22 ], [ 0, %for.body.i.i56 ]
+  %i.06.i.i57 = phi i64 [ 1, %if.then22 ], [ 0, %for.body.i.i56 ]
   %num.addr.05.i.i58 = phi i32 [ %add23, %if.then22 ], [ %div.i.i63, %for.body.i.i56 ]
   %rem.i.i59 = srem i32 %num.addr.05.i.i58, 10
   %idxprom.i.i60 = sext i32 %rem.i.i59 to i64
   %arrayidx.i.i61 = getelementptr inbounds [10 x i8], ptr @_ZN7cinatraL6digitsE, i64 0, i64 %idxprom.i.i60
   %7 = load i8, ptr %arrayidx.i.i61, align 1
-  %arrayidx2.i.i62 = getelementptr inbounds nuw i8, ptr %p.0132, i64 %indvars.iv.i.i57
+  %arrayidx2.i.i62 = getelementptr inbounds nuw i8, ptr %p.0132, i64 %i.06.i.i57
   store i8 %7, ptr %arrayidx2.i.i62, align 1
   %div.i.i63 = sdiv i32 %num.addr.05.i.i58, 10
   br i1 %cmp.i.i, label %for.body.i.i56, label %_ZN7cinatra8to_monthEPcic.exit, !llvm.loop !659
@@ -44193,13 +44194,13 @@ if.then30:                                        ; preds = %cond.end
 
 for.body.i.i67:                                   ; preds = %for.body.i.i67, %if.then30
   %cmp.i.i68 = phi i1 [ true, %if.then30 ], [ false, %for.body.i.i67 ]
-  %indvars.iv.i.i69 = phi i64 [ 1, %if.then30 ], [ 0, %for.body.i.i67 ]
+  %i.06.i.i69 = phi i64 [ 1, %if.then30 ], [ 0, %for.body.i.i67 ]
   %num.addr.05.i.i70 = phi i32 [ %8, %if.then30 ], [ %div.i.i75, %for.body.i.i67 ]
   %rem.i.i71 = srem i32 %num.addr.05.i.i70, 10
   %idxprom.i.i72 = sext i32 %rem.i.i71 to i64
   %arrayidx.i.i73 = getelementptr inbounds [10 x i8], ptr @_ZN7cinatraL6digitsE, i64 0, i64 %idxprom.i.i72
   %9 = load i8, ptr %arrayidx.i.i73, align 1
-  %arrayidx2.i.i74 = getelementptr inbounds nuw i8, ptr %p.0132, i64 %indvars.iv.i.i69
+  %arrayidx2.i.i74 = getelementptr inbounds nuw i8, ptr %p.0132, i64 %i.06.i.i69
   store i8 %9, ptr %arrayidx2.i.i74, align 1
   %div.i.i75 = sdiv i32 %num.addr.05.i.i70, 10
   br i1 %cmp.i.i68, label %for.body.i.i67, label %_ZN7cinatra6to_dayEPcic.exit, !llvm.loop !659
@@ -44216,13 +44217,13 @@ if.then37:                                        ; preds = %cond.end
 
 for.body.i.i79:                                   ; preds = %for.body.i.i79, %if.then37
   %cmp.i.i80 = phi i1 [ true, %if.then37 ], [ false, %for.body.i.i79 ]
-  %indvars.iv.i.i81 = phi i64 [ 1, %if.then37 ], [ 0, %for.body.i.i79 ]
+  %i.06.i.i81 = phi i64 [ 1, %if.then37 ], [ 0, %for.body.i.i79 ]
   %num.addr.05.i.i82 = phi i32 [ %10, %if.then37 ], [ %div.i.i87, %for.body.i.i79 ]
   %rem.i.i83 = srem i32 %num.addr.05.i.i82, 10
   %idxprom.i.i84 = sext i32 %rem.i.i83 to i64
   %arrayidx.i.i85 = getelementptr inbounds [10 x i8], ptr @_ZN7cinatraL6digitsE, i64 0, i64 %idxprom.i.i84
   %11 = load i8, ptr %arrayidx.i.i85, align 1
-  %arrayidx2.i.i86 = getelementptr inbounds nuw i8, ptr %p.0132, i64 %indvars.iv.i.i81
+  %arrayidx2.i.i86 = getelementptr inbounds nuw i8, ptr %p.0132, i64 %i.06.i.i81
   store i8 %11, ptr %arrayidx2.i.i86, align 1
   %div.i.i87 = sdiv i32 %num.addr.05.i.i82, 10
   br i1 %cmp.i.i80, label %for.body.i.i79, label %_ZN7cinatra7to_hourEPcic.exit, !llvm.loop !659
@@ -44239,13 +44240,13 @@ if.then47:                                        ; preds = %cond.end
 
 for.body.i.i91:                                   ; preds = %for.body.i.i91, %if.then47
   %cmp.i.i92 = phi i1 [ true, %if.then47 ], [ false, %for.body.i.i91 ]
-  %indvars.iv.i.i93 = phi i64 [ 1, %if.then47 ], [ 0, %for.body.i.i91 ]
+  %i.06.i.i93 = phi i64 [ 1, %if.then47 ], [ 0, %for.body.i.i91 ]
   %num.addr.05.i.i94 = phi i32 [ %12, %if.then47 ], [ %div.i.i99, %for.body.i.i91 ]
   %rem.i.i95 = srem i32 %num.addr.05.i.i94, 10
   %idxprom.i.i96 = sext i32 %rem.i.i95 to i64
   %arrayidx.i.i97 = getelementptr inbounds [10 x i8], ptr @_ZN7cinatraL6digitsE, i64 0, i64 %idxprom.i.i96
   %13 = load i8, ptr %arrayidx.i.i97, align 1
-  %arrayidx2.i.i98 = getelementptr inbounds nuw i8, ptr %p.0132, i64 %indvars.iv.i.i93
+  %arrayidx2.i.i98 = getelementptr inbounds nuw i8, ptr %p.0132, i64 %i.06.i.i93
   store i8 %13, ptr %arrayidx2.i.i98, align 1
   %div.i.i99 = sdiv i32 %num.addr.05.i.i94, 10
   br i1 %cmp.i.i92, label %for.body.i.i91, label %_ZN7cinatra6to_minEPcic.exit, !llvm.loop !659
@@ -44262,13 +44263,13 @@ if.then54:                                        ; preds = %cond.end
 
 for.body.i.i103:                                  ; preds = %for.body.i.i103, %if.then54
   %cmp.i.i104 = phi i1 [ true, %if.then54 ], [ false, %for.body.i.i103 ]
-  %indvars.iv.i.i105 = phi i64 [ 1, %if.then54 ], [ 0, %for.body.i.i103 ]
+  %i.06.i.i105 = phi i64 [ 1, %if.then54 ], [ 0, %for.body.i.i103 ]
   %num.addr.05.i.i106 = phi i32 [ %14, %if.then54 ], [ %div.i.i111, %for.body.i.i103 ]
   %rem.i.i107 = srem i32 %num.addr.05.i.i106, 10
   %idxprom.i.i108 = sext i32 %rem.i.i107 to i64
   %arrayidx.i.i109 = getelementptr inbounds [10 x i8], ptr @_ZN7cinatraL6digitsE, i64 0, i64 %idxprom.i.i108
   %15 = load i8, ptr %arrayidx.i.i109, align 1
-  %arrayidx2.i.i110 = getelementptr inbounds nuw i8, ptr %p.0132, i64 %indvars.iv.i.i105
+  %arrayidx2.i.i110 = getelementptr inbounds nuw i8, ptr %p.0132, i64 %i.06.i.i105
   store i8 %15, ptr %arrayidx2.i.i110, align 1
   %div.i.i111 = sdiv i32 %num.addr.05.i.i106, 10
   br i1 %cmp.i.i104, label %for.body.i.i103, label %_ZN7cinatra6to_secEPcic.exit, !llvm.loop !659

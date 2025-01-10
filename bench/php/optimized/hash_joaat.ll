@@ -54,16 +54,17 @@ define void @PHP_JOAATFinal(ptr nocapture noundef writeonly %0, ptr nocapture no
 
 9:                                                ; preds = %2, %9
   %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %9 ]
-  %10 = sub nuw nsw i64 3, %indvars.iv
-  %11 = getelementptr inbounds nuw i8, ptr %3, i64 %10
-  %12 = load i8, ptr %11, align 1
-  %13 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv
-  store i8 %12, ptr %13, align 1
+  %10 = and i64 %indvars.iv, 4294967295
+  %11 = xor i64 %10, 3
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 %11
+  %13 = load i8, ptr %12, align 1
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv
+  store i8 %13, ptr %14, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %14, label %9
+  br i1 %exitcond.not, label %15, label %9
 
-14:                                               ; preds = %9
+15:                                               ; preds = %9
   store i32 0, ptr %1, align 4
   ret void
 }

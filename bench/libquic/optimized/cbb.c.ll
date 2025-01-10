@@ -1308,20 +1308,20 @@ entry:
 for.body:                                         ; preds = %entry, %for.body.backedge
   %tobool1.not = phi i1 [ %tobool1.not.be, %for.body.backedge ], [ true, %entry ]
   %i.076 = phi i64 [ %i.076.be, %for.body.backedge ], [ 0, %entry ]
-  %0 = shl nuw nsw i64 %i.076, 3
-  %mul = sub nuw nsw i64 56, %0
+  %sub = shl nuw nsw i64 %i.076, 3
+  %mul = xor i64 %sub, 56
   %shr = lshr i64 %value, %mul
   %conv = trunc i64 %shr to i8
   br i1 %tobool1.not, label %if.then2, label %if.end15
 
 if.then2:                                         ; preds = %for.body
-  %1 = trunc i64 %shr to i32
-  %conv3 = and i32 %1, 255
+  %0 = trunc i64 %shr to i32
+  %conv3 = and i32 %0, 255
   %cmp4 = icmp eq i32 %conv3, 0
   br i1 %cmp4, label %for.inc, label %if.end7
 
 if.end7:                                          ; preds = %if.then2
-  %and9 = and i32 %1, 128
+  %and9 = and i32 %0, 128
   %tobool10.not = icmp eq i32 %and9, 0
   br i1 %tobool10.not, label %if.end15, label %land.lhs.true
 
@@ -1331,45 +1331,45 @@ land.lhs.true:                                    ; preds = %if.end7
   br i1 %tobool.not.i, label %return, label %if.end.i
 
 if.end.i:                                         ; preds = %land.lhs.true
-  %2 = load ptr, ptr %child, align 8
-  %cmp.i.i.i.i = icmp eq ptr %2, null
+  %1 = load ptr, ptr %child, align 8
+  %cmp.i.i.i.i = icmp eq ptr %1, null
   br i1 %cmp.i.i.i.i, label %return, label %if.end.i.i.i.i
 
 if.end.i.i.i.i:                                   ; preds = %if.end.i
-  %len1.i.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %3 = load i64, ptr %len1.i.i.i.i, align 8
-  %add.i.i.i.i = add i64 %3, 1
-  %cmp3.i.i.i.i = icmp eq i64 %3, -1
+  %len1.i.i.i.i = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %2 = load i64, ptr %len1.i.i.i.i, align 8
+  %add.i.i.i.i = add i64 %2, 1
+  %cmp3.i.i.i.i = icmp eq i64 %2, -1
   br i1 %cmp3.i.i.i.i, label %return, label %if.end5.i.i.i.i
 
 if.end5.i.i.i.i:                                  ; preds = %if.end.i.i.i.i
-  %cap.i.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %4 = load i64, ptr %cap.i.i.i.i, align 8
-  %cmp6.i.i.i.i = icmp ugt i64 %add.i.i.i.i, %4
+  %cap.i.i.i.i = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %3 = load i64, ptr %cap.i.i.i.i, align 8
+  %cmp6.i.i.i.i = icmp ugt i64 %add.i.i.i.i, %3
   br i1 %cmp6.i.i.i.i, label %if.then7.i.i.i.i, label %if.end5.i.i.cbb_buffer_add.exit_crit_edge.i.i
 
 if.end5.i.i.cbb_buffer_add.exit_crit_edge.i.i:    ; preds = %if.end5.i.i.i.i
-  %.pre.i.i = load ptr, ptr %2, align 8
+  %.pre.i.i = load ptr, ptr %1, align 8
   br label %CBB_add_u8.exit
 
 if.then7.i.i.i.i:                                 ; preds = %if.end5.i.i.i.i
-  %can_resize.i.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %5 = load i8, ptr %can_resize.i.i.i.i, align 8
-  %tobool.not.i.i.i.i = icmp eq i8 %5, 0
+  %can_resize.i.i.i.i = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %4 = load i8, ptr %can_resize.i.i.i.i, align 8
+  %tobool.not.i.i.i.i = icmp eq i8 %4, 0
   br i1 %tobool.not.i.i.i.i, label %return, label %if.end10.i.i.i.i
 
 if.end10.i.i.i.i:                                 ; preds = %if.then7.i.i.i.i
-  %mul.i.i.i.i = shl i64 %4, 1
-  %cmp12.i.i.i.i = icmp slt i64 %4, 0
-  %6 = call i64 @llvm.umax.i64(i64 %mul.i.i.i.i, i64 %add.i.i.i.i)
-  %newcap.0.i.i.i.i = select i1 %cmp12.i.i.i.i, i64 %add.i.i.i.i, i64 %6
-  %7 = load ptr, ptr %2, align 8
-  %call.i.i.i.i = call ptr @realloc(ptr noundef %7, i64 noundef %newcap.0.i.i.i.i) #15
+  %mul.i.i.i.i = shl i64 %3, 1
+  %cmp12.i.i.i.i = icmp slt i64 %3, 0
+  %5 = call i64 @llvm.umax.i64(i64 %mul.i.i.i.i, i64 %add.i.i.i.i)
+  %newcap.0.i.i.i.i = select i1 %cmp12.i.i.i.i, i64 %add.i.i.i.i, i64 %5
+  %6 = load ptr, ptr %1, align 8
+  %call.i.i.i.i = call ptr @realloc(ptr noundef %6, i64 noundef %newcap.0.i.i.i.i) #15
   %cmp16.i.i.i.i = icmp eq ptr %call.i.i.i.i, null
   br i1 %cmp16.i.i.i.i, label %return, label %if.end18.i.i.i.i
 
 if.end18.i.i.i.i:                                 ; preds = %if.end10.i.i.i.i
-  store ptr %call.i.i.i.i, ptr %2, align 8
+  store ptr %call.i.i.i.i, ptr %1, align 8
   store i64 %newcap.0.i.i.i.i, ptr %cap.i.i.i.i, align 8
   %.pre5.pre.i.i.i = load i64, ptr %len1.i.i.i.i, align 8
   %.pre14.i.i = add i64 %.pre5.pre.i.i.i, 1
@@ -1377,9 +1377,9 @@ if.end18.i.i.i.i:                                 ; preds = %if.end10.i.i.i.i
 
 CBB_add_u8.exit:                                  ; preds = %if.end5.i.i.cbb_buffer_add.exit_crit_edge.i.i, %if.end18.i.i.i.i
   %add.i.pre-phi.i.i = phi i64 [ %add.i.i.i.i, %if.end5.i.i.cbb_buffer_add.exit_crit_edge.i.i ], [ %.pre14.i.i, %if.end18.i.i.i.i ]
-  %8 = phi ptr [ %.pre.i.i, %if.end5.i.i.cbb_buffer_add.exit_crit_edge.i.i ], [ %call.i.i.i.i, %if.end18.i.i.i.i ]
-  %.pre.i.i.i = phi i64 [ %3, %if.end5.i.i.cbb_buffer_add.exit_crit_edge.i.i ], [ %.pre5.pre.i.i.i, %if.end18.i.i.i.i ]
-  %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %8, i64 %.pre.i.i.i
+  %7 = phi ptr [ %.pre.i.i, %if.end5.i.i.cbb_buffer_add.exit_crit_edge.i.i ], [ %call.i.i.i.i, %if.end18.i.i.i.i ]
+  %.pre.i.i.i = phi i64 [ %2, %if.end5.i.i.cbb_buffer_add.exit_crit_edge.i.i ], [ %.pre5.pre.i.i.i, %if.end18.i.i.i.i ]
+  %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 %.pre.i.i.i
   store i64 %add.i.pre-phi.i.i, ptr %len1.i.i.i.i, align 8
   store i8 0, ptr %add.ptr.i.i.i.i, align 1
   br label %if.end15
@@ -1390,45 +1390,45 @@ if.end15:                                         ; preds = %CBB_add_u8.exit, %i
   br i1 %tobool.not.i8, label %return, label %if.end.i9
 
 if.end.i9:                                        ; preds = %if.end15
-  %9 = load ptr, ptr %child, align 8
-  %cmp.i.i.i.i10 = icmp eq ptr %9, null
+  %8 = load ptr, ptr %child, align 8
+  %cmp.i.i.i.i10 = icmp eq ptr %8, null
   br i1 %cmp.i.i.i.i10, label %return, label %if.end.i.i.i.i11
 
 if.end.i.i.i.i11:                                 ; preds = %if.end.i9
-  %len1.i.i.i.i12 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %10 = load i64, ptr %len1.i.i.i.i12, align 8
-  %add.i.i.i.i13 = add i64 %10, 1
-  %cmp3.i.i.i.i14 = icmp eq i64 %10, -1
+  %len1.i.i.i.i12 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %9 = load i64, ptr %len1.i.i.i.i12, align 8
+  %add.i.i.i.i13 = add i64 %9, 1
+  %cmp3.i.i.i.i14 = icmp eq i64 %9, -1
   br i1 %cmp3.i.i.i.i14, label %return, label %if.end5.i.i.i.i15
 
 if.end5.i.i.i.i15:                                ; preds = %if.end.i.i.i.i11
-  %cap.i.i.i.i16 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  %11 = load i64, ptr %cap.i.i.i.i16, align 8
-  %cmp6.i.i.i.i17 = icmp ugt i64 %add.i.i.i.i13, %11
+  %cap.i.i.i.i16 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  %10 = load i64, ptr %cap.i.i.i.i16, align 8
+  %cmp6.i.i.i.i17 = icmp ugt i64 %add.i.i.i.i13, %10
   br i1 %cmp6.i.i.i.i17, label %if.then7.i.i.i.i25, label %if.end5.i.i.cbb_buffer_add.exit_crit_edge.i.i18
 
 if.end5.i.i.cbb_buffer_add.exit_crit_edge.i.i18:  ; preds = %if.end5.i.i.i.i15
-  %.pre.i.i19 = load ptr, ptr %9, align 8
+  %.pre.i.i19 = load ptr, ptr %8, align 8
   br label %for.inc.thread
 
 if.then7.i.i.i.i25:                               ; preds = %if.end5.i.i.i.i15
-  %can_resize.i.i.i.i26 = getelementptr inbounds nuw i8, ptr %9, i64 24
-  %12 = load i8, ptr %can_resize.i.i.i.i26, align 8
-  %tobool.not.i.i.i.i27 = icmp eq i8 %12, 0
+  %can_resize.i.i.i.i26 = getelementptr inbounds nuw i8, ptr %8, i64 24
+  %11 = load i8, ptr %can_resize.i.i.i.i26, align 8
+  %tobool.not.i.i.i.i27 = icmp eq i8 %11, 0
   br i1 %tobool.not.i.i.i.i27, label %return, label %if.end10.i.i.i.i28
 
 if.end10.i.i.i.i28:                               ; preds = %if.then7.i.i.i.i25
-  %mul.i.i.i.i29 = shl i64 %11, 1
-  %cmp12.i.i.i.i30 = icmp slt i64 %11, 0
-  %13 = call i64 @llvm.umax.i64(i64 %mul.i.i.i.i29, i64 %add.i.i.i.i13)
-  %newcap.0.i.i.i.i31 = select i1 %cmp12.i.i.i.i30, i64 %add.i.i.i.i13, i64 %13
-  %14 = load ptr, ptr %9, align 8
-  %call.i.i.i.i32 = call ptr @realloc(ptr noundef %14, i64 noundef %newcap.0.i.i.i.i31) #15
+  %mul.i.i.i.i29 = shl i64 %10, 1
+  %cmp12.i.i.i.i30 = icmp slt i64 %10, 0
+  %12 = call i64 @llvm.umax.i64(i64 %mul.i.i.i.i29, i64 %add.i.i.i.i13)
+  %newcap.0.i.i.i.i31 = select i1 %cmp12.i.i.i.i30, i64 %add.i.i.i.i13, i64 %12
+  %13 = load ptr, ptr %8, align 8
+  %call.i.i.i.i32 = call ptr @realloc(ptr noundef %13, i64 noundef %newcap.0.i.i.i.i31) #15
   %cmp16.i.i.i.i33 = icmp eq ptr %call.i.i.i.i32, null
   br i1 %cmp16.i.i.i.i33, label %return, label %if.end18.i.i.i.i34
 
 if.end18.i.i.i.i34:                               ; preds = %if.end10.i.i.i.i28
-  store ptr %call.i.i.i.i32, ptr %9, align 8
+  store ptr %call.i.i.i.i32, ptr %8, align 8
   store i64 %newcap.0.i.i.i.i31, ptr %cap.i.i.i.i16, align 8
   %.pre5.pre.i.i.i35 = load i64, ptr %len1.i.i.i.i12, align 8
   %.pre14.i.i36 = add i64 %.pre5.pre.i.i.i35, 1
@@ -1446,9 +1446,9 @@ for.body.backedge:                                ; preds = %for.inc, %for.inc.t
 
 for.inc.thread:                                   ; preds = %if.end18.i.i.i.i34, %if.end5.i.i.cbb_buffer_add.exit_crit_edge.i.i18
   %add.i.pre-phi.i.i21 = phi i64 [ %add.i.i.i.i13, %if.end5.i.i.cbb_buffer_add.exit_crit_edge.i.i18 ], [ %.pre14.i.i36, %if.end18.i.i.i.i34 ]
-  %15 = phi ptr [ %.pre.i.i19, %if.end5.i.i.cbb_buffer_add.exit_crit_edge.i.i18 ], [ %call.i.i.i.i32, %if.end18.i.i.i.i34 ]
-  %.pre.i.i.i22 = phi i64 [ %10, %if.end5.i.i.cbb_buffer_add.exit_crit_edge.i.i18 ], [ %.pre5.pre.i.i.i35, %if.end18.i.i.i.i34 ]
-  %add.ptr.i.i.i.i23 = getelementptr inbounds i8, ptr %15, i64 %.pre.i.i.i22
+  %14 = phi ptr [ %.pre.i.i19, %if.end5.i.i.cbb_buffer_add.exit_crit_edge.i.i18 ], [ %call.i.i.i.i32, %if.end18.i.i.i.i34 ]
+  %.pre.i.i.i22 = phi i64 [ %9, %if.end5.i.i.cbb_buffer_add.exit_crit_edge.i.i18 ], [ %.pre5.pre.i.i.i35, %if.end18.i.i.i.i34 ]
+  %add.ptr.i.i.i.i23 = getelementptr inbounds i8, ptr %14, i64 %.pre.i.i.i22
   store i64 %add.i.pre-phi.i.i21, ptr %len1.i.i.i.i12, align 8
   store i8 %conv, ptr %add.ptr.i.i.i.i23, align 1
   %inc80 = add nuw nsw i64 %i.076, 1
@@ -1461,45 +1461,45 @@ land.lhs.true21:                                  ; preds = %for.inc
   br i1 %tobool.not.i39, label %return, label %if.end.i40
 
 if.end.i40:                                       ; preds = %land.lhs.true21
-  %16 = load ptr, ptr %child, align 8
-  %cmp.i.i.i.i41 = icmp eq ptr %16, null
+  %15 = load ptr, ptr %child, align 8
+  %cmp.i.i.i.i41 = icmp eq ptr %15, null
   br i1 %cmp.i.i.i.i41, label %return, label %if.end.i.i.i.i42
 
 if.end.i.i.i.i42:                                 ; preds = %if.end.i40
-  %len1.i.i.i.i43 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  %17 = load i64, ptr %len1.i.i.i.i43, align 8
-  %add.i.i.i.i44 = add i64 %17, 1
-  %cmp3.i.i.i.i45 = icmp eq i64 %17, -1
+  %len1.i.i.i.i43 = getelementptr inbounds nuw i8, ptr %15, i64 8
+  %16 = load i64, ptr %len1.i.i.i.i43, align 8
+  %add.i.i.i.i44 = add i64 %16, 1
+  %cmp3.i.i.i.i45 = icmp eq i64 %16, -1
   br i1 %cmp3.i.i.i.i45, label %return, label %if.end5.i.i.i.i46
 
 if.end5.i.i.i.i46:                                ; preds = %if.end.i.i.i.i42
-  %cap.i.i.i.i47 = getelementptr inbounds nuw i8, ptr %16, i64 16
-  %18 = load i64, ptr %cap.i.i.i.i47, align 8
-  %cmp6.i.i.i.i48 = icmp ugt i64 %add.i.i.i.i44, %18
+  %cap.i.i.i.i47 = getelementptr inbounds nuw i8, ptr %15, i64 16
+  %17 = load i64, ptr %cap.i.i.i.i47, align 8
+  %cmp6.i.i.i.i48 = icmp ugt i64 %add.i.i.i.i44, %17
   br i1 %cmp6.i.i.i.i48, label %if.then7.i.i.i.i56, label %if.end5.i.i.cbb_buffer_add.exit_crit_edge.i.i49
 
 if.end5.i.i.cbb_buffer_add.exit_crit_edge.i.i49:  ; preds = %if.end5.i.i.i.i46
-  %.pre.i.i50 = load ptr, ptr %16, align 8
+  %.pre.i.i50 = load ptr, ptr %15, align 8
   br label %CBB_add_u8.exit68
 
 if.then7.i.i.i.i56:                               ; preds = %if.end5.i.i.i.i46
-  %can_resize.i.i.i.i57 = getelementptr inbounds nuw i8, ptr %16, i64 24
-  %19 = load i8, ptr %can_resize.i.i.i.i57, align 8
-  %tobool.not.i.i.i.i58 = icmp eq i8 %19, 0
+  %can_resize.i.i.i.i57 = getelementptr inbounds nuw i8, ptr %15, i64 24
+  %18 = load i8, ptr %can_resize.i.i.i.i57, align 8
+  %tobool.not.i.i.i.i58 = icmp eq i8 %18, 0
   br i1 %tobool.not.i.i.i.i58, label %return, label %if.end10.i.i.i.i59
 
 if.end10.i.i.i.i59:                               ; preds = %if.then7.i.i.i.i56
-  %mul.i.i.i.i60 = shl i64 %18, 1
-  %cmp12.i.i.i.i61 = icmp slt i64 %18, 0
-  %20 = call i64 @llvm.umax.i64(i64 %mul.i.i.i.i60, i64 %add.i.i.i.i44)
-  %newcap.0.i.i.i.i62 = select i1 %cmp12.i.i.i.i61, i64 %add.i.i.i.i44, i64 %20
-  %21 = load ptr, ptr %16, align 8
-  %call.i.i.i.i63 = call ptr @realloc(ptr noundef %21, i64 noundef %newcap.0.i.i.i.i62) #15
+  %mul.i.i.i.i60 = shl i64 %17, 1
+  %cmp12.i.i.i.i61 = icmp slt i64 %17, 0
+  %19 = call i64 @llvm.umax.i64(i64 %mul.i.i.i.i60, i64 %add.i.i.i.i44)
+  %newcap.0.i.i.i.i62 = select i1 %cmp12.i.i.i.i61, i64 %add.i.i.i.i44, i64 %19
+  %20 = load ptr, ptr %15, align 8
+  %call.i.i.i.i63 = call ptr @realloc(ptr noundef %20, i64 noundef %newcap.0.i.i.i.i62) #15
   %cmp16.i.i.i.i64 = icmp eq ptr %call.i.i.i.i63, null
   br i1 %cmp16.i.i.i.i64, label %return, label %if.end18.i.i.i.i65
 
 if.end18.i.i.i.i65:                               ; preds = %if.end10.i.i.i.i59
-  store ptr %call.i.i.i.i63, ptr %16, align 8
+  store ptr %call.i.i.i.i63, ptr %15, align 8
   store i64 %newcap.0.i.i.i.i62, ptr %cap.i.i.i.i47, align 8
   %.pre5.pre.i.i.i66 = load i64, ptr %len1.i.i.i.i43, align 8
   %.pre14.i.i67 = add i64 %.pre5.pre.i.i.i66, 1
@@ -1507,9 +1507,9 @@ if.end18.i.i.i.i65:                               ; preds = %if.end10.i.i.i.i59
 
 CBB_add_u8.exit68:                                ; preds = %if.end5.i.i.cbb_buffer_add.exit_crit_edge.i.i49, %if.end18.i.i.i.i65
   %add.i.pre-phi.i.i52 = phi i64 [ %add.i.i.i.i44, %if.end5.i.i.cbb_buffer_add.exit_crit_edge.i.i49 ], [ %.pre14.i.i67, %if.end18.i.i.i.i65 ]
-  %22 = phi ptr [ %.pre.i.i50, %if.end5.i.i.cbb_buffer_add.exit_crit_edge.i.i49 ], [ %call.i.i.i.i63, %if.end18.i.i.i.i65 ]
-  %.pre.i.i.i53 = phi i64 [ %17, %if.end5.i.i.cbb_buffer_add.exit_crit_edge.i.i49 ], [ %.pre5.pre.i.i.i66, %if.end18.i.i.i.i65 ]
-  %add.ptr.i.i.i.i54 = getelementptr inbounds i8, ptr %22, i64 %.pre.i.i.i53
+  %21 = phi ptr [ %.pre.i.i50, %if.end5.i.i.cbb_buffer_add.exit_crit_edge.i.i49 ], [ %call.i.i.i.i63, %if.end18.i.i.i.i65 ]
+  %.pre.i.i.i53 = phi i64 [ %16, %if.end5.i.i.cbb_buffer_add.exit_crit_edge.i.i49 ], [ %.pre5.pre.i.i.i66, %if.end18.i.i.i.i65 ]
+  %add.ptr.i.i.i.i54 = getelementptr inbounds i8, ptr %21, i64 %.pre.i.i.i53
   store i64 %add.i.pre-phi.i.i52, ptr %len1.i.i.i.i43, align 8
   store i8 0, ptr %add.ptr.i.i.i.i54, align 1
   br label %if.end25

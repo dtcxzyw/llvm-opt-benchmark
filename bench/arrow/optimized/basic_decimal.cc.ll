@@ -2258,7 +2258,7 @@ for.body.preheader:                               ; preds = %for.body.lr.ph
   %add.neg = xor i32 %div19, -1
   %1 = sext i32 %add.neg to i64
   %2 = zext nneg i32 %div19 to i64
-  %3 = sub nuw nsw i64 3, %2
+  %3 = xor i64 %2, 3
   %arrayidx.i.i.i48 = getelementptr inbounds nuw [4 x i64], ptr %this, i64 0, i64 %3
   %4 = load i64, ptr %arrayidx.i.i.i48, align 8
   %arrayidx.i.i.i2049 = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -2382,29 +2382,30 @@ for.body.us.preheader:                            ; preds = %for.body.lr.ph
   %7 = zext nneg i32 %6 to i64
   %scevgep = getelementptr i8, ptr %array_le, i64 %7
   %8 = shl nuw nsw i32 %div14, 3
-  %narrow = sub nuw nsw i32 32, %8
-  %9 = zext nneg i32 %narrow to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %shifted_le, ptr align 8 %scevgep, i64 %9, i1 false)
+  %9 = xor i32 %8, 24
+  %narrow = add nuw nsw i32 %9, 8
+  %10 = zext nneg i32 %narrow to i64
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %shifted_le, ptr noundef nonnull align 8 dereferenceable(1) %scevgep, i64 %10, i1 false)
   br label %for.end
 
 for.body:                                         ; preds = %for.body.preheader, %cond.end
   %indvars.iv = phi i64 [ %2, %for.body.preheader ], [ %indvars.iv.next.pre-phi, %cond.end ]
   %arrayidx.i.i21 = getelementptr inbounds nuw [4 x i64], ptr %array_le, i64 0, i64 %indvars.iv
-  %10 = load i64, ptr %arrayidx.i.i21, align 8
-  %shr8 = lshr i64 %10, %sh_prom
-  %11 = sub nuw nsw i64 %indvars.iv, %3
-  %arrayidx.i.i22 = getelementptr inbounds [4 x i64], ptr %shifted_le, i64 0, i64 %11
+  %11 = load i64, ptr %arrayidx.i.i21, align 8
+  %shr8 = lshr i64 %11, %sh_prom
+  %12 = sub nuw nsw i64 %indvars.iv, %3
+  %arrayidx.i.i22 = getelementptr inbounds [4 x i64], ptr %shifted_le, i64 0, i64 %12
   %cmp13.not = icmp eq i64 %indvars.iv, 3
   br i1 %cmp13.not, label %cond.end, label %cond.true
 
 cond.true:                                        ; preds = %for.body
-  %12 = add nuw nsw i64 %indvars.iv, 1
-  %arrayidx.i.i23 = getelementptr inbounds nuw [4 x i64], ptr %array_le, i64 0, i64 %12
+  %13 = add nuw nsw i64 %indvars.iv, 1
+  %arrayidx.i.i23 = getelementptr inbounds nuw [4 x i64], ptr %array_le, i64 0, i64 %13
   %cond.in.sroa.speculate.load.cond.true = load i64, ptr %arrayidx.i.i23, align 8
   br label %cond.end
 
 cond.end:                                         ; preds = %for.body, %cond.true
-  %indvars.iv.next.pre-phi = phi i64 [ %12, %cond.true ], [ 4, %for.body ]
+  %indvars.iv.next.pre-phi = phi i64 [ %13, %cond.true ], [ 4, %for.body ]
   %cond.in.sroa.speculated = phi i64 [ %cond.in.sroa.speculate.load.cond.true, %cond.true ], [ %shr, %for.body ]
   %shl = shl i64 %cond.in.sroa.speculated, %sh_prom18
   %or = or i64 %shl, %shr8

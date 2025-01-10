@@ -7275,29 +7275,28 @@ define internal fastcc i32 @cli_loadign(ptr noundef %0, ptr nocapture noundef %1
   br i1 %45, label %46, label %.loopexit
 
 46:                                               ; preds = %44
+  %47 = xor i32 %42, 3
   %.not78 = icmp eq ptr %.058, %5
-  br i1 %.not78, label %.lr.ph.preheader, label %47
+  br i1 %.not78, label %.lr.ph.preheader, label %48
 
-47:                                               ; preds = %46
-  %48 = and i64 %41, 3
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %5, ptr align 1 %.058, i64 %48, i1 false)
+48:                                               ; preds = %46
+  %49 = and i64 %41, 3
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %5, ptr align 1 %.058, i64 %49, i1 false)
   br label %.lr.ph.preheader
 
-.lr.ph.preheader:                                 ; preds = %46, %47
-  %.260 = phi ptr [ %5, %47 ], [ %.058, %46 ]
+.lr.ph.preheader:                                 ; preds = %46, %48
+  %.260 = phi ptr [ %5, %48 ], [ %.058, %46 ]
   store i8 0, ptr %21, align 1
-  %49 = and i64 %41, 3
-  %50 = xor i64 %49, 3
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %indvars.iv = phi i64 [ %50, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %51 = sub nuw nsw i64 3, %indvars.iv
-  %52 = getelementptr inbounds nuw [8192 x i8], ptr %5, i64 0, i64 %51
-  store i8 32, ptr %52, align 1
-  %53 = trunc nuw i64 %indvars.iv to i32
-  %54 = icmp sgt i32 %53, 1
+  %.0106 = phi i32 [ %50, %.lr.ph ], [ %47, %.lr.ph.preheader ]
+  %50 = add nsw i32 %.0106, -1
+  %51 = xor i32 %.0106, 3
+  %52 = zext nneg i32 %51 to i64
+  %53 = getelementptr inbounds nuw [8192 x i8], ptr %5, i64 0, i64 %52
+  store i8 32, ptr %53, align 1
+  %54 = icmp samesign ugt i32 %.0106, 1
   br i1 %54, label %.lr.ph, label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %44
@@ -13792,7 +13791,7 @@ define internal fastcc range(i32 0, 2) i32 @cli_chkign(ptr noundef nonnull %0, p
   %6 = icmp ne ptr %1, null
   %7 = icmp ne ptr %2, null
   %or.cond3 = and i1 %6, %7
-  br i1 %or.cond3, label %8, label %52
+  br i1 %or.cond3, label %8, label %51
 
 8:                                                ; preds = %3
   %9 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #20
@@ -13844,18 +13843,17 @@ define internal fastcc range(i32 0, 2) i32 @cli_chkign(ptr noundef nonnull %0, p
   br i1 %.not38.i, label %cli_signorm.exit, label %34
 
 34:                                               ; preds = %31
-  %spec.select.i = tail call i64 @llvm.usub.sat.i64(i64 3, i64 %.029.i)
-  %35 = sub nuw i64 %spec.select40.i, %spec.select.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %33, ptr nonnull align 1 %1, i64 %35, i1 false)
-  %36 = getelementptr inbounds i8, ptr %33, i64 %spec.select40.i
-  store i8 0, ptr %36, align 1
+  %35 = tail call i64 @llvm.umin.i64(i64 %.029.i, i64 3)
+  %spec.select.i = xor i64 %35, 3
+  %36 = sub nuw i64 %spec.select40.i, %spec.select.i
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %33, ptr nonnull align 1 %1, i64 %36, i1 false)
+  %37 = getelementptr inbounds i8, ptr %33, i64 %spec.select40.i
+  store i8 0, ptr %37, align 1
   %.not3942.i = icmp ugt i64 %.029.i, 2
   br i1 %.not3942.i, label %cli_signorm.exit, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %34
-  %37 = getelementptr i8, ptr %33, i64 %.029.i
-  %38 = getelementptr i8, ptr %37, i64 %spec.select40.i
-  %scevgep.i = getelementptr i8, ptr %38, i64 -3
+  %scevgep.i = getelementptr i8, ptr %33, i64 %36
   tail call void @llvm.memset.p0.i64(ptr align 1 %scevgep.i, i8 32, i64 %spec.select.i, i1 false)
   br label %cli_signorm.exit
 
@@ -13863,39 +13861,39 @@ cli_signorm.exit:                                 ; preds = %16, %22, %24, %29, 
   %.0.i = phi ptr [ null, %16 ], [ null, %24 ], [ null, %29 ], [ null, %31 ], [ null, %22 ], [ %33, %34 ], [ %33, %.lr.ph.preheader.i ]
   %.not = icmp eq ptr %.0.i, null
   %spec.select = select i1 %.not, ptr %1, ptr %.0.i
-  %39 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %spec.select) #20
-  %40 = trunc i64 %39 to i32
-  %41 = call i32 @cli_bm_scanbuff(ptr noundef nonnull %spec.select, i32 noundef %40, ptr noundef nonnull %4, ptr noundef null, ptr noundef nonnull %0, i32 noundef 0, ptr noundef null, ptr noundef null, ptr noundef null) #21
-  %42 = icmp eq i32 %41, 1
-  br i1 %42, label %43, label %50
+  %38 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %spec.select) #20
+  %39 = trunc i64 %38 to i32
+  %40 = call i32 @cli_bm_scanbuff(ptr noundef nonnull %spec.select, i32 noundef %39, ptr noundef nonnull %4, ptr noundef null, ptr noundef nonnull %0, i32 noundef 0, ptr noundef null, ptr noundef null, ptr noundef null) #21
+  %41 = icmp eq i32 %40, 1
+  br i1 %41, label %42, label %49
 
-43:                                               ; preds = %cli_signorm.exit
-  %44 = load ptr, ptr %4, align 8
-  %.not24 = icmp eq ptr %44, null
-  br i1 %.not24, label %49, label %45
+42:                                               ; preds = %cli_signorm.exit
+  %43 = load ptr, ptr %4, align 8
+  %.not24 = icmp eq ptr %43, null
+  br i1 %.not24, label %48, label %44
 
-45:                                               ; preds = %43
-  %46 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #20
-  %47 = call ptr @cl_hash_data(ptr noundef nonnull @.str.219, ptr noundef nonnull %2, i64 noundef %46, ptr noundef nonnull %5, ptr noundef null) #21
-  %48 = load ptr, ptr %4, align 8
-  %bcmp = call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %5, ptr noundef nonnull dereferenceable(16) %48, i64 16)
+44:                                               ; preds = %42
+  %45 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #20
+  %46 = call ptr @cl_hash_data(ptr noundef nonnull @.str.219, ptr noundef nonnull %2, i64 noundef %45, ptr noundef nonnull %5, ptr noundef null) #21
+  %47 = load ptr, ptr %4, align 8
+  %bcmp = call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %5, ptr noundef nonnull dereferenceable(16) %47, i64 16)
   %.not25 = icmp eq i32 %bcmp, 0
-  br i1 %.not25, label %49, label %50
+  br i1 %.not25, label %48, label %49
 
-49:                                               ; preds = %45, %43
+48:                                               ; preds = %44, %42
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.220, ptr noundef nonnull %spec.select) #21
-  br label %50
+  br label %49
 
-50:                                               ; preds = %49, %45, %cli_signorm.exit
-  %.0 = phi i32 [ 0, %45 ], [ 1, %49 ], [ 0, %cli_signorm.exit ]
-  br i1 %.not, label %52, label %51
+49:                                               ; preds = %48, %44, %cli_signorm.exit
+  %.0 = phi i32 [ 0, %44 ], [ 1, %48 ], [ 0, %cli_signorm.exit ]
+  br i1 %.not, label %51, label %50
 
-51:                                               ; preds = %50
+50:                                               ; preds = %49
   call void @free(ptr noundef nonnull %.0.i) #21
-  br label %52
+  br label %51
 
-52:                                               ; preds = %50, %51, %3
-  %.018 = phi i32 [ 0, %3 ], [ %.0, %51 ], [ %.0, %50 ]
+51:                                               ; preds = %49, %50, %3
+  %.018 = phi i32 [ 0, %3 ], [ %.0, %50 ], [ %.0, %49 ]
   ret i32 %.018
 }
 
@@ -15714,9 +15712,6 @@ declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #17
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #18
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.usub.sat.i64(i64, i64) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #18

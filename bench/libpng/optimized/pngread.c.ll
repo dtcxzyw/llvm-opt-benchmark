@@ -2743,7 +2743,7 @@ make_gray_colormap.exit463:                       ; preds = %.preheader579
   %.0411631 = phi i32 [ 1, %207 ], [ %267, %266 ]
   %.1413630 = phi i32 [ 232, %207 ], [ %220, %266 ]
   %209 = mul nuw nsw i32 %.0411631, 51
-  %210 = sub nuw nsw i32 255, %209
+  %210 = xor i32 %209, 255
   %211 = mul nuw nsw i32 %210, %.1401
   %212 = mul nuw nsw i32 %210, %.1403
   %213 = mul nuw nsw i32 %210, %.1405
@@ -5135,8 +5135,8 @@ define internal noundef i32 @png_image_read_and_map(ptr nocapture noundef readon
 
 25:                                               ; preds = %22
   %26 = icmp samesign ugt i32 %.0104154, 1
-  %27 = sub nuw nsw i32 7, %.0104154
-  %28 = lshr i32 %27, 1
+  %27 = lshr i32 %.0104154, 1
+  %28 = xor i32 %27, 3
   %29 = select i1 %26, i32 %28, i32 3
   %notmask = shl nsw i32 -1, %29
   %30 = xor i32 %notmask, -1
@@ -5501,8 +5501,8 @@ define internal noundef i32 @png_image_read_composite(ptr nocapture noundef read
 
 30:                                               ; preds = %27
   %31 = icmp samesign ugt i32 %.07392, 1
-  %32 = sub nuw nsw i32 7, %.07392
-  %33 = lshr i32 %32, 1
+  %32 = lshr i32 %.07392, 1
+  %33 = xor i32 %32, 3
   %34 = select i1 %31, i32 %33, i32 3
   %notmask = shl nsw i32 -1, %34
   %35 = xor i32 %notmask, -1
@@ -5735,8 +5735,8 @@ define internal noundef i32 @png_image_read_background(ptr nocapture noundef rea
 
 47:                                               ; preds = %44
   %48 = icmp samesign ugt i32 %.0234, 1
-  %49 = sub nuw nsw i32 7, %.0234
-  %50 = lshr i32 %49, 1
+  %49 = lshr i32 %.0234, 1
+  %50 = xor i32 %49, 3
   %51 = select i1 %48, i32 %50, i32 3
   %notmask203 = shl nsw i32 -1, %51
   %52 = xor i32 %notmask203, -1
@@ -5969,8 +5969,8 @@ define internal noundef i32 @png_image_read_background(ptr nocapture noundef rea
 
 195:                                              ; preds = %.split.us
   %196 = icmp samesign ugt i32 %.1219.us, 1
-  %197 = sub nuw nsw i32 7, %.1219.us
-  %198 = lshr i32 %197, 1
+  %197 = lshr i32 %.1219.us, 1
+  %198 = xor i32 %197, 3
   %199 = select i1 %196, i32 %198, i32 3
   %notmask.us = shl nsw i32 -1, %199
   %200 = xor i32 %notmask.us, -1
@@ -6080,8 +6080,8 @@ define internal noundef i32 @png_image_read_background(ptr nocapture noundef rea
 
 258:                                              ; preds = %.split
   %259 = icmp samesign ugt i32 %.1219, 1
-  %260 = sub nuw nsw i32 7, %.1219
-  %261 = lshr i32 %260, 1
+  %260 = lshr i32 %.1219, 1
+  %261 = xor i32 %260, 3
   %262 = select i1 %259, i32 %261, i32 3
   %notmask = shl nsw i32 -1, %262
   %263 = xor i32 %notmask, -1

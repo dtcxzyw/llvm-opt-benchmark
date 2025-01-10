@@ -5391,7 +5391,7 @@ define hidden void @_ZN4time10formatting22format_number_pad_zero17hc8e3981a7ebb6
 
 "_ZN4itoa54_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$u8$GT$5write17hab5db7216d2f3d64E.exit": ; preds = %19, %25
   %.1.i = phi i64 [ %.01823.i, %25 ], [ 1, %19 ]
-  %27 = sub nuw nsw i64 3, %.1.i
+  %27 = xor i64 %.1.i, 3
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %29 = load i64, ptr %28, align 8, !alias.scope !604, !noalias !615, !noundef !4
   %30 = load i64, ptr %1, align 8, !alias.scope !604, !noalias !615, !noundef !4

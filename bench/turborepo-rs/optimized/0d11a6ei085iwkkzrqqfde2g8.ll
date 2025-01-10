@@ -86,7 +86,7 @@ define hidden { ptr, i64 } @_RNvXs5_CsfbvjWzJraAt_4itoahNtNtB5_7private6Sealed5w
 
 22:                                               ; preds = %13, %19
   %.sroa.07.1 = phi i64 [ %.sroa.07.017, %19 ], [ 1, %13 ]
-  %23 = sub nuw nsw i64 3, %.sroa.07.1
+  %23 = xor i64 %.sroa.07.1, 3
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 %.sroa.07.1
   %25 = insertvalue { ptr, i64 } poison, ptr %24, 0
   %26 = insertvalue { ptr, i64 } %25, i64 %23, 1
@@ -314,29 +314,29 @@ define hidden void @_RINvNtCs8mTrBI1stz4_15turborepo_vt1004term11extend_itoahEB4
 
 _RNvXs5_CsfbvjWzJraAt_4itoahNtNtB5_7private6Sealed5write.llvm.2772946472389925136.exit: ; preds = %14, %20
   %.sroa.07.1.i = phi i64 [ %.sroa.07.017.i, %20 ], [ 1, %14 ]
-  %gepdiff = sub nuw nsw i64 3, %.sroa.07.1.i
-  %22 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %23 = load i64, ptr %22, align 8, !alias.scope !9, !noundef !4
-  %24 = load i64, ptr %0, align 8, !alias.scope !9, !noundef !4
-  %25 = sub i64 %24, %23
-  %26 = icmp ugt i64 %gepdiff, %25
-  br i1 %26, label %27, label %_RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE15append_elementsCs8mTrBI1stz4_15turborepo_vt100.llvm.2772946472389925136.exit
+  %22 = xor i64 %.sroa.07.1.i, 3
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %24 = load i64, ptr %23, align 8, !alias.scope !9, !noundef !4
+  %25 = load i64, ptr %0, align 8, !alias.scope !9, !noundef !4
+  %26 = sub i64 %25, %24
+  %27 = icmp ugt i64 %22, %26
+  br i1 %27, label %28, label %_RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE15append_elementsCs8mTrBI1stz4_15turborepo_vt100.llvm.2772946472389925136.exit
 
-27:                                               ; preds = %_RNvXs5_CsfbvjWzJraAt_4itoahNtNtB5_7private6Sealed5write.llvm.2772946472389925136.exit
-  tail call void @_RINvNvMs0_NtCs68wO5nsWeTG_5alloc7raw_vecINtB8_6RawVecppE7reserve21do_reserve_and_handlehNtNtBa_5alloc6GlobalECscjWV1zBNszQ_8bitflags(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %23, i64 noundef %gepdiff)
-  %.pre.i = load i64, ptr %22, align 8, !alias.scope !9
+28:                                               ; preds = %_RNvXs5_CsfbvjWzJraAt_4itoahNtNtB5_7private6Sealed5write.llvm.2772946472389925136.exit
+  tail call void @_RINvNvMs0_NtCs68wO5nsWeTG_5alloc7raw_vecINtB8_6RawVecppE7reserve21do_reserve_and_handlehNtNtBa_5alloc6GlobalECscjWV1zBNszQ_8bitflags(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %24, i64 noundef %22)
+  %.pre.i = load i64, ptr %23, align 8, !alias.scope !9
   br label %_RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE15append_elementsCs8mTrBI1stz4_15turborepo_vt100.llvm.2772946472389925136.exit
 
-_RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE15append_elementsCs8mTrBI1stz4_15turborepo_vt100.llvm.2772946472389925136.exit: ; preds = %_RNvXs5_CsfbvjWzJraAt_4itoahNtNtB5_7private6Sealed5write.llvm.2772946472389925136.exit, %27
-  %28 = phi i64 [ %.pre.i, %27 ], [ %23, %_RNvXs5_CsfbvjWzJraAt_4itoahNtNtB5_7private6Sealed5write.llvm.2772946472389925136.exit ]
-  %29 = getelementptr inbounds nuw i8, ptr %3, i64 %.sroa.07.1.i
-  %30 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %31 = load ptr, ptr %30, align 8, !alias.scope !9, !nonnull !4, !noundef !4
-  %32 = getelementptr inbounds i8, ptr %31, i64 %28
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %32, ptr nonnull readonly align 1 %29, i64 %gepdiff, i1 false)
-  %33 = load i64, ptr %22, align 8, !alias.scope !9, !noundef !4
-  %34 = add i64 %33, %gepdiff
-  store i64 %34, ptr %22, align 8, !alias.scope !9
+_RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE15append_elementsCs8mTrBI1stz4_15turborepo_vt100.llvm.2772946472389925136.exit: ; preds = %_RNvXs5_CsfbvjWzJraAt_4itoahNtNtB5_7private6Sealed5write.llvm.2772946472389925136.exit, %28
+  %29 = phi i64 [ %.pre.i, %28 ], [ %24, %_RNvXs5_CsfbvjWzJraAt_4itoahNtNtB5_7private6Sealed5write.llvm.2772946472389925136.exit ]
+  %30 = getelementptr inbounds nuw i8, ptr %3, i64 %.sroa.07.1.i
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %32 = load ptr, ptr %31, align 8, !alias.scope !9, !nonnull !4, !noundef !4
+  %33 = getelementptr inbounds i8, ptr %32, i64 %29
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %33, ptr nonnull readonly align 1 %30, i64 %22, i1 false)
+  %34 = load i64, ptr %23, align 8, !alias.scope !9, !noundef !4
+  %35 = add i64 %34, %22
+  store i64 %35, ptr %23, align 8, !alias.scope !9
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3)
   ret void
 }

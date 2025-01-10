@@ -276,7 +276,7 @@ define void @_ZN2cv8saliency14ObjectnessBING9FilterTIG11reconstructERNS_3MatE(pt
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %7 = load ptr, ptr %6, align 8
   invoke void %7(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(352) %3, ptr noundef nonnull align 8 dereferenceable(96) %1, i32 noundef -1)
-          to label %_ZN2cv3MataSERKNS_7MatExprE.exit unwind label %27
+          to label %_ZN2cv3MataSERKNS_7MatExprE.exit unwind label %29
 
 _ZN2cv3MataSERKNS_7MatExprE.exit:                 ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 208
@@ -290,9 +290,9 @@ _ZN2cv3MataSERKNS_7MatExprE.exit:                 ; preds = %2
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br label %14
 
-14:                                               ; preds = %_ZN2cv3MataSERKNS_7MatExprE.exit, %29
-  %15 = phi i1 [ true, %_ZN2cv3MataSERKNS_7MatExprE.exit ], [ false, %29 ]
-  %indvars.iv18 = phi i64 [ 0, %_ZN2cv3MataSERKNS_7MatExprE.exit ], [ 1, %29 ]
+14:                                               ; preds = %_ZN2cv3MataSERKNS_7MatExprE.exit, %31
+  %15 = phi i1 [ true, %_ZN2cv3MataSERKNS_7MatExprE.exit ], [ false, %31 ]
+  %indvars.iv18 = phi i64 [ 0, %_ZN2cv3MataSERKNS_7MatExprE.exit ], [ 1, %31 ]
   %16 = getelementptr inbounds nuw [2 x i64], ptr %0, i64 0, i64 %indvars.iv18
   %17 = load i64, ptr %16, align 8
   %18 = getelementptr inbounds nuw [2 x float], ptr %13, i64 0, i64 %indvars.iv18
@@ -301,28 +301,30 @@ _ZN2cv3MataSERKNS_7MatExprE.exit:                 ; preds = %2
 19:                                               ; preds = %14, %19
   %indvars.iv = phi i64 [ 0, %14 ], [ %indvars.iv.next, %19 ]
   %20 = load float, ptr %18, align 4
-  %21 = lshr exact i64 -9223372036854775808, %indvars.iv
-  %22 = and i64 %21, %17
-  %.not = icmp eq i64 %22, 0
-  %23 = select i1 %.not, float -1.000000e+00, float 1.000000e+00
-  %24 = getelementptr inbounds nuw float, ptr %12, i64 %indvars.iv
-  %25 = load float, ptr %24, align 4
-  %26 = call float @llvm.fmuladd.f32(float %20, float %23, float %25)
-  store float %26, ptr %24, align 4
+  %21 = and i64 %indvars.iv, 4294967295
+  %22 = xor i64 %21, 63
+  %23 = shl nuw i64 1, %22
+  %24 = and i64 %23, %17
+  %.not = icmp eq i64 %24, 0
+  %25 = select i1 %.not, float -1.000000e+00, float 1.000000e+00
+  %26 = getelementptr inbounds nuw float, ptr %12, i64 %indvars.iv
+  %27 = load float, ptr %26, align 4
+  %28 = call float @llvm.fmuladd.f32(float %20, float %25, float %27)
+  store float %28, ptr %26, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 64
-  br i1 %exitcond.not, label %29, label %19, !llvm.loop !9
+  br i1 %exitcond.not, label %31, label %19, !llvm.loop !9
 
-27:                                               ; preds = %2
-  %28 = landingpad { ptr, i32 }
+29:                                               ; preds = %2
+  %30 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN2cv7MatExprD2Ev(ptr noundef nonnull align 8 dereferenceable(352) %3) #11
-  resume { ptr, i32 } %28
+  resume { ptr, i32 } %30
 
-29:                                               ; preds = %19
-  br i1 %15, label %14, label %30, !llvm.loop !10
+31:                                               ; preds = %19
+  br i1 %15, label %14, label %32, !llvm.loop !10
 
-30:                                               ; preds = %29
+32:                                               ; preds = %31
   ret void
 }
 

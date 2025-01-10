@@ -23763,26 +23763,26 @@ get_bits.exit.i:                                  ; preds = %187, %179
   br i1 %204, label %205, label %.preheader268
 
 205:                                              ; preds = %197
-  %206 = sub nuw nsw i32 63, %200
-  %207 = sub nsw i64 63, %199
-  %208 = and i64 %207, 4294967295
-  %notmask.i.i = shl nsw i64 -1, %208
-  %209 = xor i64 %notmask.i.i, -1
-  %210 = and i64 %.0.i.i177, %209
-  %211 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 range(i64 1, 0) %210, i1 false)
-  %212 = xor i64 %.0.i53.i, -1
-  %213 = and i64 %209, %212
-  %214 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 range(i64 1, 0) %213, i1 false)
-  %215 = tail call i64 @llvm.umin.i64(i64 %211, i64 %214)
-  %216 = trunc nuw nsw i64 %215 to i32
-  %217 = sub nsw i32 %216, %201
-  %218 = sext i32 %217 to i64
-  %219 = add i64 %203, %218
-  %.not52.i = icmp eq i32 %217, %206
+  %206 = sub nsw i64 63, %199
+  %207 = and i64 %206, 4294967295
+  %notmask.i.i = shl nsw i64 -1, %207
+  %208 = xor i64 %notmask.i.i, -1
+  %209 = and i64 %.0.i.i177, %208
+  %210 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 range(i64 1, 0) %209, i1 false)
+  %211 = xor i64 %.0.i53.i, -1
+  %212 = and i64 %208, %211
+  %213 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 range(i64 1, 0) %212, i1 false)
+  %214 = tail call i64 @llvm.umin.i64(i64 %210, i64 %213)
+  %215 = trunc nuw nsw i64 %214 to i32
+  %216 = sub nsw i32 %215, %201
+  %217 = sext i32 %216 to i64
+  %218 = add i64 %203, %217
+  %219 = xor i32 %216, %200
+  %.not52.i = icmp eq i32 %219, 63
   br i1 %.not52.i, label %.preheader268, label %count_cancelled_bits.exit
 
 .preheader268:                                    ; preds = %205, %197
-  %.3.i.ph = phi i64 [ %203, %197 ], [ %219, %205 ]
+  %.3.i.ph = phi i64 [ %203, %197 ], [ %218, %205 ]
   br label %220
 
 220:                                              ; preds = %.preheader268, %get_bits.exit61.i
@@ -23857,7 +23857,7 @@ get_bits.exit61.i:                                ; preds = %242, %234
 count_cancelled_bits.exit:                        ; preds = %.count_cancelled_bits.exit_crit_edge, %252, %205, %152
   %258 = phi i64 [ %.pre239, %152 ], [ %.pre238, %.count_cancelled_bits.exit_crit_edge ], [ %.pre239, %205 ], [ %.pre239, %252 ]
   %259 = phi i64 [ %.pre237, %152 ], [ %.pre, %.count_cancelled_bits.exit_crit_edge ], [ %.pre237, %205 ], [ %.pre237, %252 ]
-  %.0151 = phi i64 [ 1, %152 ], [ 0, %.count_cancelled_bits.exit_crit_edge ], [ %219, %205 ], [ %257, %252 ]
+  %.0151 = phi i64 [ 1, %152 ], [ 0, %.count_cancelled_bits.exit_crit_edge ], [ %218, %205 ], [ %257, %252 ]
   %260 = add i64 %3, 65
   %261 = add i64 %260, %.0151
   %262 = lshr i64 %261, 6

@@ -2652,9 +2652,10 @@ define noundef range(i32 0, 262141) i32 @_ZN10open_spiel2go7GoBoard17CaptureDead
   %107 = zext nneg i32 %106 to i64
   %scevgep = getelementptr i8, ptr %0, i64 %107
   %108 = shl nuw nsw i32 %.432, 1
-  %narrow = sub nuw nsw i32 8, %108
-  %109 = zext nneg i32 %narrow to i64
-  tail call void @llvm.memset.p0.i64(ptr align 2 %scevgep, i8 0, i64 %109, i1 false)
+  %109 = xor i32 %108, 6
+  %narrow = add nuw nsw i32 %109, 2
+  %110 = zext nneg i32 %narrow to i64
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(1) %scevgep, i8 0, i64 %110, i1 false)
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph, %"_ZN10open_spiel2go12_GLOBAL__N_110NeighboursIZNS0_7GoBoard17CaptureDeadChainsEtNS0_7GoColorEE3$_0EEvtRKT_.exit"

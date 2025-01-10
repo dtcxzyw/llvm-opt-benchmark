@@ -31579,7 +31579,7 @@ _ZNK4absl16strings_internal8SplitterINS_6ByCharENS_10AllowEmptyESt17basic_string
   %add.ptr15.i.i.i = getelementptr inbounds nuw i8, ptr @.str.159, i64 %2
   %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %add.ptr15.i.i.i to i64
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
-  %sub.i.i.i.i = sub nuw nsw i64 3, %2
+  %sub.i.i.i.i = xor i64 %2, 3
   %.sroa.speculated.i.i.i.i = call i64 @llvm.umin.i64(i64 %sub.i.i.i.i, i64 %sub.ptr.sub.i.i.i)
   store i64 %.sroa.speculated.i.i.i.i, ptr %curr_.i.i, align 8, !alias.scope !571
   %ref.tmp.sroa.2.0.curr_.sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %it, i64 24
@@ -72600,7 +72600,7 @@ if.then7:                                         ; preds = %if.then
   br i1 %cmp14, label %if.then15, label %if.end53
 
 if.then15:                                        ; preds = %if.then7
-  %sub18 = sub nuw nsw i8 15, %5
+  %sub18 = xor i8 %5, 15
   %6 = load i32, ptr %position_, align 4
   %conv20 = and i32 %6, 255
   %cmp21 = icmp samesign ult i32 %conv20, 15
@@ -72649,7 +72649,7 @@ if.then59:                                        ; preds = %if.end53
   br i1 %cmp67, label %if.then68, label %if.end108
 
 if.then68:                                        ; preds = %if.then59
-  %sub72 = sub nuw nsw i8 15, %12
+  %sub72 = xor i8 %12, 15
   %13 = load i32, ptr %position_, align 4
   %cmp75 = icmp sgt i32 %13, 0
   %14 = zext i1 %cmp75 to i8
@@ -76177,7 +76177,7 @@ if.then7:                                         ; preds = %if.then
   br i1 %cmp14, label %if.then15, label %if.end53
 
 if.then15:                                        ; preds = %if.then7
-  %sub18 = sub nuw nsw i8 7, %5
+  %sub18 = xor i8 %5, 7
   %6 = load i32, ptr %position_, align 4
   %conv20 = and i32 %6, 255
   %cmp21 = icmp samesign ult i32 %conv20, 7
@@ -76226,7 +76226,7 @@ if.then59:                                        ; preds = %if.end53
   br i1 %cmp67, label %if.then68, label %if.end108
 
 if.then68:                                        ; preds = %if.then59
-  %sub72 = sub nuw nsw i8 7, %12
+  %sub72 = xor i8 %12, 7
   %13 = load i32, ptr %position_, align 4
   %cmp75 = icmp sgt i32 %13, 0
   %14 = zext i1 %cmp75 to i8
@@ -79557,7 +79557,7 @@ if.then7:                                         ; preds = %if.then
   br i1 %cmp14, label %if.then15, label %if.end53
 
 if.then15:                                        ; preds = %if.then7
-  %sub18 = sub nuw nsw i8 15, %5
+  %sub18 = xor i8 %5, 15
   %6 = load i32, ptr %position_, align 4
   %conv20 = and i32 %6, 255
   %cmp21 = icmp samesign ult i32 %conv20, 15
@@ -79606,7 +79606,7 @@ if.then59:                                        ; preds = %if.end53
   br i1 %cmp67, label %if.then68, label %if.end108
 
 if.then68:                                        ; preds = %if.then59
-  %sub72 = sub nuw nsw i8 15, %12
+  %sub72 = xor i8 %12, 15
   %13 = load i32, ptr %position_, align 4
   %cmp75 = icmp sgt i32 %13, 0
   %14 = zext i1 %cmp75 to i8
@@ -83126,7 +83126,7 @@ if.then7:                                         ; preds = %if.then
   br i1 %cmp14, label %if.then15, label %if.end53
 
 if.then15:                                        ; preds = %if.then7
-  %sub18 = sub nuw nsw i8 7, %5
+  %sub18 = xor i8 %5, 7
   %6 = load i32, ptr %position_, align 4
   %conv20 = and i32 %6, 255
   %cmp21 = icmp samesign ult i32 %conv20, 7
@@ -83175,7 +83175,7 @@ if.then59:                                        ; preds = %if.end53
   br i1 %cmp67, label %if.then68, label %if.end108
 
 if.then68:                                        ; preds = %if.then59
-  %sub72 = sub nuw nsw i8 7, %12
+  %sub72 = xor i8 %12, 7
   %13 = load i32, ptr %position_, align 4
   %cmp75 = icmp sgt i32 %13, 0
   %14 = zext i1 %cmp75 to i8
@@ -110690,7 +110690,7 @@ if.then7:                                         ; preds = %if.then
   br i1 %cmp14, label %if.then15, label %if.end53
 
 if.then15:                                        ; preds = %if.then7
-  %sub18 = sub nuw nsw i8 7, %5
+  %sub18 = xor i8 %5, 7
   %6 = load i32, ptr %position_, align 4
   %conv20 = and i32 %6, 255
   %cmp21 = icmp samesign ult i32 %conv20, 7
@@ -110739,7 +110739,7 @@ if.then59:                                        ; preds = %if.end53
   br i1 %cmp67, label %if.then68, label %if.end108
 
 if.then68:                                        ; preds = %if.then59
-  %sub72 = sub nuw nsw i8 7, %12
+  %sub72 = xor i8 %12, 7
   %13 = load i32, ptr %position_, align 4
   %cmp75 = icmp sgt i32 %13, 0
   %14 = zext i1 %cmp75 to i8
@@ -124017,7 +124017,7 @@ if.then7:                                         ; preds = %if.then
   br i1 %cmp14, label %if.then15, label %if.end53
 
 if.then15:                                        ; preds = %if.then7
-  %sub18 = sub nuw nsw i8 7, %5
+  %sub18 = xor i8 %5, 7
   %6 = load i32, ptr %position_, align 4
   %conv20 = and i32 %6, 255
   %cmp21 = icmp samesign ult i32 %conv20, 7
@@ -124066,7 +124066,7 @@ if.then59:                                        ; preds = %if.end53
   br i1 %cmp67, label %if.then68, label %if.end108
 
 if.then68:                                        ; preds = %if.then59
-  %sub72 = sub nuw nsw i8 7, %12
+  %sub72 = xor i8 %12, 7
   %13 = load i32, ptr %position_, align 4
   %cmp75 = icmp sgt i32 %13, 0
   %14 = zext i1 %cmp75 to i8

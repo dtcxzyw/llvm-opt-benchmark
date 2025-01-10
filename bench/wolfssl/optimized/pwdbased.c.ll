@@ -228,8 +228,8 @@ while.body.us:                                    ; preds = %while.body.lr.ph, %
 
 for.cond.us:                                      ; preds = %for.body.us
   %inc.us = add nuw nsw i32 %j.039.us, 1
-  %exitcond97.not = icmp eq i32 %inc.us, 4
-  br i1 %exitcond97.not, label %if.end34.us, label %for.body.us, !llvm.loop !7
+  %exitcond98.not = icmp eq i32 %inc.us, 4
+  br i1 %exitcond98.not, label %if.end34.us, label %for.body.us, !llvm.loop !7
 
 if.end34.us:                                      ; preds = %for.cond.us
   %call37.us = call i32 @wc_HmacFinal(ptr noundef nonnull %hmac, ptr noundef nonnull %buffer) #6
@@ -303,13 +303,13 @@ for.body.i.us:                                    ; preds = %for.body.i.us, %for
 
 xorbuf.exit.us:                                   ; preds = %for.body.i.us, %if.end.i.us
   %inc65.us = add nuw nsw i32 %j.141.us, 1
-  %exitcond98.not = icmp eq i32 %inc65.us, %iterations
-  br i1 %exitcond98.not, label %for.cond45.if.end70_crit_edge.us, label %for.body48.us, !llvm.loop !10
+  %exitcond99.not = icmp eq i32 %inc65.us, %iterations
+  br i1 %exitcond99.not, label %for.cond45.if.end70_crit_edge.us, label %for.body48.us, !llvm.loop !10
 
 for.body.us:                                      ; preds = %while.body.us, %for.cond.us
   %j.039.us = phi i32 [ %inc.us, %for.cond.us ], [ 0, %while.body.us ]
-  %9 = shl nuw nsw i32 %j.039.us, 3
-  %mul.us = sub nuw nsw i32 24, %9
+  %sub.us = shl nuw nsw i32 %j.039.us, 3
+  %mul.us = xor i32 %sub.us, 24
   %shr.us = lshr i32 %i.046.us, %mul.us
   %conv.us = trunc i32 %shr.us to i8
   store i8 %conv.us, ptr %b, align 1
@@ -339,8 +339,8 @@ for.cond:                                         ; preds = %for.body
 
 for.body:                                         ; preds = %while.body, %for.cond
   %j.039 = phi i32 [ %inc, %for.cond ], [ 0, %while.body ]
-  %10 = shl nuw nsw i32 %j.039, 3
-  %mul = sub nuw nsw i32 24, %10
+  %sub = shl nuw nsw i32 %j.039, 3
+  %mul = xor i32 %sub, 24
   %shr = lshr i32 %i.046, %mul
   %conv = trunc i32 %shr to i8
   store i8 %conv, ptr %b, align 1

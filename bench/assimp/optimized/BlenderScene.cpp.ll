@@ -3246,7 +3246,7 @@ invoke.cont.i.i:                                  ; preds = %if.then.i.i
   unreachable
 
 common.resume:                                    ; preds = %catch.dispatch, %lpad65, %lpad.i.i
-  %common.resume.op = phi { ptr, i32 } [ %17, %lpad.i.i ], [ %38, %lpad65 ], [ %.pn26, %catch.dispatch ]
+  %common.resume.op = phi { ptr, i32 } [ %17, %lpad.i.i ], [ %40, %lpad65 ], [ %.pn26, %catch.dispatch ]
   resume { ptr, i32 } %common.resume.op
 
 lpad.i.i:                                         ; preds = %if.then.i.i
@@ -3315,9 +3315,10 @@ for.body55.preheader:                             ; preds = %for.cond.preheader,
   %28 = zext nneg i32 %27 to i64
   %scevgep66 = getelementptr i8, ptr %out, i64 %28
   %29 = shl nuw nsw i32 %i.0.lcssa71, 4
-  %narrow68 = sub nuw nsw i32 64, %29
-  %30 = zext nneg i32 %narrow68 to i64
-  call void @llvm.memset.p0.i64(ptr align 4 %scevgep66, i8 0, i64 %30, i1 false)
+  %30 = xor i32 %29, 48
+  %narrow68 = add nuw nsw i32 %30, 16
+  %31 = zext nneg i32 %narrow68 to i64
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %scevgep66, i8 0, i64 %31, i1 false)
   br label %try.cont
 
 for.cond36.preheader:                             ; preds = %for.inc
@@ -3326,14 +3327,15 @@ for.cond36.preheader:                             ; preds = %for.inc
 
 for.body39.preheader:                             ; preds = %for.cond23.preheader, %for.cond36.preheader
   %j.0.lcssa74 = phi i32 [ %inc, %for.cond36.preheader ], [ 0, %for.cond23.preheader ]
-  %31 = shl nuw nsw i32 %j.0.lcssa74, 2
-  %32 = zext nneg i32 %31 to i64
-  %33 = or disjoint i64 %25, %32
-  %scevgep = getelementptr i8, ptr %out, i64 %33
-  %34 = shl nuw nsw i32 %j.0.lcssa74, 2
-  %narrow = sub nuw nsw i32 16, %34
-  %35 = zext nneg i32 %narrow to i64
-  call void @llvm.memset.p0.i64(ptr align 4 %scevgep, i8 0, i64 %35, i1 false)
+  %32 = shl nuw nsw i32 %j.0.lcssa74, 2
+  %33 = zext nneg i32 %32 to i64
+  %34 = or disjoint i64 %25, %33
+  %scevgep = getelementptr i8, ptr %out, i64 %34
+  %35 = shl nuw nsw i32 %j.0.lcssa74, 2
+  %36 = xor i32 %35, 12
+  %narrow = add nuw nsw i32 %36, 4
+  %37 = zext nneg i32 %narrow to i64
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %scevgep, i8 0, i64 %37, i1 false)
   br label %for.inc49
 
 for.body31:                                       ; preds = %for.cond23.preheader, %for.inc
@@ -3346,30 +3348,30 @@ for.body31:                                       ; preds = %for.cond23.preheade
 for.inc:                                          ; preds = %for.body31
   %inc = add nuw nsw i32 %j.054, 1
   %conv24 = zext nneg i32 %inc to i64
-  %36 = load i64, ptr %arrayidx26, align 8
-  %.sroa.speculated = call i64 @llvm.umin.i64(i64 %36, i64 4)
+  %38 = load i64, ptr %arrayidx26, align 8
+  %.sroa.speculated = call i64 @llvm.umin.i64(i64 %38, i64 4)
   %cmp30 = icmp samesign ugt i64 %.sroa.speculated, %conv24
   br i1 %cmp30, label %for.body31, label %for.cond36.preheader, !llvm.loop !4
 
 for.inc49:                                        ; preds = %for.body39.preheader, %for.cond36.preheader
   %inc50 = add nuw nsw i32 %i.060, 1
   %conv19 = zext nneg i32 %inc50 to i64
-  %37 = load i64, ptr %array_sizes, align 8
-  %.sroa.speculated48 = call i64 @llvm.umin.i64(i64 %37, i64 4)
+  %39 = load i64, ptr %array_sizes, align 8
+  %.sroa.speculated48 = call i64 @llvm.umin.i64(i64 %39, i64 4)
   %cmp = icmp samesign ugt i64 %.sroa.speculated48, %conv19
   br i1 %cmp, label %for.cond23.preheader, label %for.cond52.preheader, !llvm.loop !6
 
 lpad65:                                           ; preds = %call.i.noexc29, %catch
-  %38 = landingpad { ptr, i32 }
+  %40 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
           to label %common.resume unwind label %terminate.lpad
 
 terminate.lpad:                                   ; preds = %lpad65
-  %39 = landingpad { ptr, i32 }
+  %41 = landingpad { ptr, i32 }
           catch ptr null
-  %40 = extractvalue { ptr, i32 } %39, 0
-  call void @__clang_call_terminate(ptr %40) #22
+  %42 = extractvalue { ptr, i32 } %41, 0
+  call void @__clang_call_terminate(ptr %42) #22
   unreachable
 }
 
@@ -8022,7 +8024,7 @@ invoke.cont.i.i:                                  ; preds = %if.then.i.i
   unreachable
 
 common.resume:                                    ; preds = %catch.dispatch, %lpad62, %lpad.i.i
-  %common.resume.op = phi { ptr, i32 } [ %17, %lpad.i.i ], [ %32, %lpad62 ], [ %.pn26, %catch.dispatch ]
+  %common.resume.op = phi { ptr, i32 } [ %17, %lpad.i.i ], [ %33, %lpad62 ], [ %.pn26, %catch.dispatch ]
   resume { ptr, i32 } %common.resume.op
 
 lpad.i.i:                                         ; preds = %if.then.i.i
@@ -8090,9 +8092,10 @@ for.body52.preheader:                             ; preds = %for.cond.preheader,
   %27 = zext nneg i32 %26 to i64
   %scevgep = getelementptr i8, ptr %out, i64 %27
   %28 = shl nuw nsw i32 %i.0.lcssa68, 3
-  %narrow = sub nuw nsw i32 32, %28
-  %29 = zext nneg i32 %narrow to i64
-  call void @llvm.memset.p0.i64(ptr align 4 %scevgep, i8 0, i64 %29, i1 false)
+  %29 = xor i32 %28, 24
+  %narrow = add nuw nsw i32 %29, 8
+  %30 = zext nneg i32 %narrow to i64
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %scevgep, i8 0, i64 %30, i1 false)
   br label %try.cont
 
 for.cond34.preheader:                             ; preds = %for.inc
@@ -8114,8 +8117,8 @@ for.body29:                                       ; preds = %for.cond22.preheade
 for.inc:                                          ; preds = %for.body29
   %inc = add nuw nsw i32 %j.051, 1
   %conv23 = zext nneg i32 %inc to i64
-  %30 = load i64, ptr %arrayidx25, align 8
-  %.sroa.speculated = call i64 @llvm.umin.i64(i64 %30, i64 2)
+  %31 = load i64, ptr %arrayidx25, align 8
+  %.sroa.speculated = call i64 @llvm.umin.i64(i64 %31, i64 2)
   %cmp28 = icmp samesign ugt i64 %.sroa.speculated, %conv23
   br i1 %cmp28, label %for.body29, label %for.cond34.preheader, !llvm.loop !11
 
@@ -8132,22 +8135,22 @@ for.inc46.loopexit.critedge:                      ; preds = %for.inc46.loopexit.
 for.inc46:                                        ; preds = %for.body37.preheader, %for.inc46.loopexit.critedge, %for.cond34.preheader
   %inc47 = add nuw nsw i32 %i.057, 1
   %conv19 = zext nneg i32 %inc47 to i64
-  %31 = load i64, ptr %array_sizes, align 8
-  %.sroa.speculated45 = call i64 @llvm.umin.i64(i64 %31, i64 4)
+  %32 = load i64, ptr %array_sizes, align 8
+  %.sroa.speculated45 = call i64 @llvm.umin.i64(i64 %32, i64 4)
   %cmp = icmp samesign ugt i64 %.sroa.speculated45, %conv19
   br i1 %cmp, label %for.cond22.preheader, label %for.cond49.preheader, !llvm.loop !12
 
 lpad62:                                           ; preds = %catch
-  %32 = landingpad { ptr, i32 }
+  %33 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
           to label %common.resume unwind label %terminate.lpad
 
 terminate.lpad:                                   ; preds = %lpad62
-  %33 = landingpad { ptr, i32 }
+  %34 = landingpad { ptr, i32 }
           catch ptr null
-  %34 = extractvalue { ptr, i32 } %33, 0
-  call void @__clang_call_terminate(ptr %34) #22
+  %35 = extractvalue { ptr, i32 } %34, 0
+  call void @__clang_call_terminate(ptr %35) #22
   unreachable
 }
 
@@ -8318,7 +8321,7 @@ invoke.cont.i.i:                                  ; preds = %if.then.i.i
   unreachable
 
 common.resume:                                    ; preds = %catch.dispatch, %lpad35, %lpad.i.i
-  %common.resume.op = phi { ptr, i32 } [ %17, %lpad.i.i ], [ %30, %lpad35 ], [ %.pn18, %catch.dispatch ]
+  %common.resume.op = phi { ptr, i32 } [ %17, %lpad.i.i ], [ %31, %lpad35 ], [ %.pn18, %catch.dispatch ]
   resume { ptr, i32 } %common.resume.op
 
 lpad.i.i:                                         ; preds = %if.then.i.i
@@ -8375,9 +8378,10 @@ for.body26.preheader:                             ; preds = %for.cond.preheader,
   %26 = zext nneg i32 %25 to i64
   %scevgep = getelementptr i8, ptr %out, i64 %26
   %27 = shl nuw nsw i32 %i.0.lcssa45, 2
-  %narrow = sub nuw nsw i32 16, %27
-  %28 = zext nneg i32 %narrow to i64
-  call void @llvm.memset.p0.i64(ptr align 4 %scevgep, i8 0, i64 %28, i1 false)
+  %28 = xor i32 %27, 12
+  %narrow = add nuw nsw i32 %28, 4
+  %29 = zext nneg i32 %narrow to i64
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %scevgep, i8 0, i64 %29, i1 false)
   br label %try.cont
 
 for.body:                                         ; preds = %for.cond.preheader, %for.inc
@@ -8390,22 +8394,22 @@ for.body:                                         ; preds = %for.cond.preheader,
 for.inc:                                          ; preds = %for.body
   %inc = add nuw nsw i32 %i.038, 1
   %conv18 = zext nneg i32 %inc to i64
-  %29 = load i64, ptr %array_sizes, align 8
-  %.sroa.speculated = call i64 @llvm.umin.i64(i64 %29, i64 4)
+  %30 = load i64, ptr %array_sizes, align 8
+  %.sroa.speculated = call i64 @llvm.umin.i64(i64 %30, i64 4)
   %cmp = icmp samesign ugt i64 %.sroa.speculated, %conv18
   br i1 %cmp, label %for.body, label %for.cond23.preheader, !llvm.loop !13
 
 lpad35:                                           ; preds = %catch
-  %30 = landingpad { ptr, i32 }
+  %31 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
           to label %common.resume unwind label %terminate.lpad
 
 terminate.lpad:                                   ; preds = %lpad35
-  %31 = landingpad { ptr, i32 }
+  %32 = landingpad { ptr, i32 }
           catch ptr null
-  %32 = extractvalue { ptr, i32 } %31, 0
-  call void @__clang_call_terminate(ptr %32) #22
+  %33 = extractvalue { ptr, i32 } %32, 0
+  call void @__clang_call_terminate(ptr %33) #22
   unreachable
 }
 

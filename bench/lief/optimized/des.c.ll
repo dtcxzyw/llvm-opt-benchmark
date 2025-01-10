@@ -481,16 +481,17 @@ define hidden noundef i32 @mbedtls_des_setkey_dec(ptr nocapture noundef %0, ptr 
   %9 = or disjoint i64 %indvars.iv, 1
   %10 = getelementptr inbounds nuw [32 x i32], ptr %0, i64 0, i64 %9
   %11 = load i32, ptr %10, align 4
-  %12 = sub nuw nsw i64 31, %indvars.iv
-  %13 = getelementptr inbounds nuw [32 x i32], ptr %0, i64 0, i64 %12
-  %14 = load i32, ptr %13, align 4
-  store i32 %14, ptr %10, align 4
-  store i32 %11, ptr %13, align 4
+  %12 = and i64 %indvars.iv, 4294967294
+  %13 = xor i64 %12, 31
+  %14 = getelementptr inbounds nuw [32 x i32], ptr %0, i64 0, i64 %13
+  %15 = load i32, ptr %14, align 4
+  store i32 %15, ptr %10, align 4
+  store i32 %11, ptr %14, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %15 = icmp samesign ult i64 %indvars.iv, 14
-  br i1 %15, label %3, label %16, !llvm.loop !9
+  %16 = icmp samesign ult i64 %indvars.iv, 14
+  br i1 %16, label %3, label %17, !llvm.loop !9
 
-16:                                               ; preds = %3
+17:                                               ; preds = %3
   ret i32 0
 }
 
@@ -510,7 +511,7 @@ define hidden noundef i32 @mbedtls_des3_set2key_enc(ptr nocapture noundef %0, pt
   %9 = load i32, ptr %8, align 4
   %10 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv.i
   store i32 %9, ptr %10, align 8
-  %11 = sub nuw nsw i64 31, %indvars.iv.i
+  %11 = xor i64 %indvars.iv.i, 31
   %12 = getelementptr inbounds nuw i32, ptr %0, i64 %11
   %13 = load i32, ptr %12, align 4
   %14 = or disjoint i64 %indvars.iv.i, 1
@@ -522,7 +523,7 @@ define hidden noundef i32 @mbedtls_des3_set2key_enc(ptr nocapture noundef %0, pt
   %19 = or disjoint i64 %indvars.iv.i, 32
   %20 = getelementptr inbounds nuw i32, ptr %0, i64 %19
   store i32 %18, ptr %20, align 4
-  %21 = sub nuw nsw i64 63, %indvars.iv.i
+  %21 = xor i64 %indvars.iv.i, 63
   %22 = getelementptr inbounds nuw i32, ptr %3, i64 %21
   %23 = load i32, ptr %22, align 4
   %24 = or disjoint i64 %indvars.iv.i, 33
@@ -567,7 +568,7 @@ define hidden noundef i32 @mbedtls_des3_set2key_dec(ptr nocapture noundef %0, pt
   %9 = load i32, ptr %8, align 8
   %10 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv.i
   store i32 %9, ptr %10, align 4
-  %11 = sub nuw nsw i64 31, %indvars.iv.i
+  %11 = xor i64 %indvars.iv.i, 31
   %12 = getelementptr inbounds nuw i32, ptr %3, i64 %11
   %13 = load i32, ptr %12, align 4
   %14 = or disjoint i64 %indvars.iv.i, 1
@@ -579,7 +580,7 @@ define hidden noundef i32 @mbedtls_des3_set2key_dec(ptr nocapture noundef %0, pt
   %19 = or disjoint i64 %indvars.iv.i, 32
   %20 = getelementptr inbounds nuw i32, ptr %3, i64 %19
   store i32 %18, ptr %20, align 8
-  %21 = sub nuw nsw i64 63, %indvars.iv.i
+  %21 = xor i64 %indvars.iv.i, 63
   %22 = getelementptr inbounds nuw i32, ptr %0, i64 %21
   %23 = load i32, ptr %22, align 4
   %24 = or disjoint i64 %indvars.iv.i, 33
@@ -639,7 +640,7 @@ define hidden noundef i32 @mbedtls_des3_set3key_enc(ptr nocapture noundef %0, pt
   %21 = or disjoint i64 %indvars.iv.i, 32
   %22 = getelementptr inbounds nuw i32, ptr %0, i64 %21
   store i32 %20, ptr %22, align 4
-  %23 = sub nuw nsw i64 63, %indvars.iv.i
+  %23 = xor i64 %indvars.iv.i, 63
   %24 = getelementptr inbounds nuw i32, ptr %3, i64 %23
   %25 = load i32, ptr %24, align 4
   %26 = or disjoint i64 %indvars.iv.i, 33
@@ -651,7 +652,7 @@ define hidden noundef i32 @mbedtls_des3_set3key_enc(ptr nocapture noundef %0, pt
   %31 = or disjoint i64 %indvars.iv.i, 64
   %32 = getelementptr inbounds nuw i32, ptr %3, i64 %31
   store i32 %30, ptr %32, align 8
-  %33 = sub nuw nsw i64 31, %indvars.iv.i
+  %33 = xor i64 %indvars.iv.i, 31
   %34 = getelementptr inbounds nuw i32, ptr %0, i64 %33
   %35 = load i32, ptr %34, align 4
   %36 = or disjoint i64 %indvars.iv.i, 65
@@ -697,7 +698,7 @@ define hidden noundef i32 @mbedtls_des3_set3key_dec(ptr nocapture noundef %0, pt
   %21 = or disjoint i64 %indvars.iv.i, 32
   %22 = getelementptr inbounds nuw i32, ptr %3, i64 %21
   store i32 %20, ptr %22, align 8
-  %23 = sub nuw nsw i64 63, %indvars.iv.i
+  %23 = xor i64 %indvars.iv.i, 63
   %24 = getelementptr inbounds nuw i32, ptr %0, i64 %23
   %25 = load i32, ptr %24, align 4
   %26 = or disjoint i64 %indvars.iv.i, 33
@@ -709,7 +710,7 @@ define hidden noundef i32 @mbedtls_des3_set3key_dec(ptr nocapture noundef %0, pt
   %31 = or disjoint i64 %indvars.iv.i, 64
   %32 = getelementptr inbounds nuw i32, ptr %0, i64 %31
   store i32 %30, ptr %32, align 4
-  %33 = sub nuw nsw i64 31, %indvars.iv.i
+  %33 = xor i64 %indvars.iv.i, 31
   %34 = getelementptr inbounds nuw i32, ptr %3, i64 %33
   %35 = load i32, ptr %34, align 4
   %36 = or disjoint i64 %indvars.iv.i, 65
@@ -1674,7 +1675,7 @@ define hidden range(i32 0, 2) i32 @mbedtls_des_self_test(i32 noundef %0) local_u
   %30 = or disjoint i64 %indvars.iv.i, 1
   %31 = getelementptr inbounds nuw [32 x i32], ptr %6, i64 0, i64 %30
   %32 = load i32, ptr %31, align 4
-  %33 = sub nuw nsw i64 31, %indvars.iv.i
+  %33 = xor i64 %indvars.iv.i, 31
   %34 = getelementptr inbounds nuw [32 x i32], ptr %6, i64 0, i64 %33
   %35 = load i32, ptr %34, align 4
   store i32 %35, ptr %31, align 4
@@ -1700,7 +1701,7 @@ mbedtls_des_setkey_dec.exit.thread138:            ; preds = %22
   %41 = load i32, ptr %40, align 8
   %42 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv.i.i
   store i32 %41, ptr %42, align 4
-  %43 = sub nuw nsw i64 31, %indvars.iv.i.i
+  %43 = xor i64 %indvars.iv.i.i, 31
   %44 = getelementptr inbounds nuw i32, ptr %5, i64 %43
   %45 = load i32, ptr %44, align 4
   %46 = or disjoint i64 %indvars.iv.i.i, 1
@@ -1712,7 +1713,7 @@ mbedtls_des_setkey_dec.exit.thread138:            ; preds = %22
   %51 = or disjoint i64 %indvars.iv.i.i, 32
   %52 = getelementptr inbounds nuw i32, ptr %5, i64 %51
   store i32 %50, ptr %52, align 8
-  %53 = sub nuw nsw i64 63, %indvars.iv.i.i
+  %53 = xor i64 %indvars.iv.i.i, 63
   %54 = getelementptr inbounds nuw i32, ptr %7, i64 %53
   %55 = load i32, ptr %54, align 4
   %56 = or disjoint i64 %indvars.iv.i.i, 33
@@ -1754,7 +1755,7 @@ mbedtls_des3_set2key_dec.exit:                    ; preds = %38
   %73 = load i32, ptr %72, align 4
   %74 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv.i.i83
   store i32 %73, ptr %74, align 8
-  %75 = sub nuw nsw i64 31, %indvars.iv.i.i83
+  %75 = xor i64 %indvars.iv.i.i83, 31
   %76 = getelementptr inbounds nuw i32, ptr %7, i64 %75
   %77 = load i32, ptr %76, align 4
   %78 = or disjoint i64 %indvars.iv.i.i83, 1
@@ -1766,7 +1767,7 @@ mbedtls_des3_set2key_dec.exit:                    ; preds = %38
   %83 = or disjoint i64 %indvars.iv.i.i83, 32
   %84 = getelementptr inbounds nuw i32, ptr %7, i64 %83
   store i32 %82, ptr %84, align 4
-  %85 = sub nuw nsw i64 63, %indvars.iv.i.i83
+  %85 = xor i64 %indvars.iv.i.i83, 63
   %86 = getelementptr inbounds nuw i32, ptr %4, i64 %85
   %87 = load i32, ptr %86, align 4
   %88 = or disjoint i64 %indvars.iv.i.i83, 33
@@ -1922,7 +1923,7 @@ mbedtls_des_setkey_dec.exit.split:                ; preds = %mbedtls_des_setkey_
   %141 = or disjoint i64 %indvars.iv.i85, 1
   %142 = getelementptr inbounds nuw [32 x i32], ptr %6, i64 0, i64 %141
   %143 = load i32, ptr %142, align 4
-  %144 = sub nuw nsw i64 31, %indvars.iv.i85
+  %144 = xor i64 %indvars.iv.i85, 31
   %145 = getelementptr inbounds nuw [32 x i32], ptr %6, i64 0, i64 %144
   %146 = load i32, ptr %145, align 4
   store i32 %146, ptr %142, align 4
@@ -1948,7 +1949,7 @@ mbedtls_des_setkey_dec.exit.split:                ; preds = %mbedtls_des_setkey_
   %153 = load i32, ptr %152, align 8
   %154 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv.i.i88
   store i32 %153, ptr %154, align 4
-  %155 = sub nuw nsw i64 31, %indvars.iv.i.i88
+  %155 = xor i64 %indvars.iv.i.i88, 31
   %156 = getelementptr inbounds nuw i32, ptr %3, i64 %155
   %157 = load i32, ptr %156, align 4
   %158 = or disjoint i64 %indvars.iv.i.i88, 1
@@ -1960,7 +1961,7 @@ mbedtls_des_setkey_dec.exit.split:                ; preds = %mbedtls_des_setkey_
   %163 = or disjoint i64 %indvars.iv.i.i88, 32
   %164 = getelementptr inbounds nuw i32, ptr %3, i64 %163
   store i32 %162, ptr %164, align 8
-  %165 = sub nuw nsw i64 63, %indvars.iv.i.i88
+  %165 = xor i64 %indvars.iv.i.i88, 63
   %166 = getelementptr inbounds nuw i32, ptr %7, i64 %165
   %167 = load i32, ptr %166, align 4
   %168 = or disjoint i64 %indvars.iv.i.i88, 33
@@ -2002,7 +2003,7 @@ mbedtls_des3_set2key_dec.exit90:                  ; preds = %150
   %185 = load i32, ptr %184, align 4
   %186 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv.i.i91
   store i32 %185, ptr %186, align 8
-  %187 = sub nuw nsw i64 31, %indvars.iv.i.i91
+  %187 = xor i64 %indvars.iv.i.i91, 31
   %188 = getelementptr inbounds nuw i32, ptr %7, i64 %187
   %189 = load i32, ptr %188, align 4
   %190 = or disjoint i64 %indvars.iv.i.i91, 1
@@ -2014,7 +2015,7 @@ mbedtls_des3_set2key_dec.exit90:                  ; preds = %150
   %195 = or disjoint i64 %indvars.iv.i.i91, 32
   %196 = getelementptr inbounds nuw i32, ptr %7, i64 %195
   store i32 %194, ptr %196, align 4
-  %197 = sub nuw nsw i64 63, %indvars.iv.i.i91
+  %197 = xor i64 %indvars.iv.i.i91, 63
   %198 = getelementptr inbounds nuw i32, ptr %2, i64 %197
   %199 = load i32, ptr %198, align 4
   %200 = or disjoint i64 %indvars.iv.i.i91, 33

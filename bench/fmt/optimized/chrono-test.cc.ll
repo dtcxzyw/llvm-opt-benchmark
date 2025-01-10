@@ -124569,9 +124569,9 @@ if.end72:                                         ; preds = %if.else51, %if.then
 if.then92:                                        ; preds = %if.end72
   %add93 = add nsw i32 %sub74.neg, %digits_in_the_first_segment.0
   %cmp.i = icmp sgt i32 %add93, 0
-  %sub.i = sub nuw nsw i32 2147483647, %add93
-  %cmp1.i = icmp samesign ugt i32 %precision, %sub.i
-  %or.cond.i = select i1 %cmp.i, i1 %cmp1.i, i1 false
+  %sub.i = xor i32 %add93, 2147483647
+  %cmp1.i = icmp sgt i32 %precision, %sub.i
+  %or.cond.i = and i1 %cmp.i, %cmp1.i
   br i1 %or.cond.i, label %if.then.i, label %_ZN3fmt3v106detail16adjust_precisionERii.exit
 
 if.then.i:                                        ; preds = %if.then92
@@ -126667,8 +126667,9 @@ if.end91:                                         ; preds = %_ZN3fmt3v106detail6
 
 if.then94:                                        ; preds = %if.end91
   %175 = load i32, ptr %exp10, align 4
+  %add95 = add nsw i32 %175, 1
   %cmp.i618 = icmp sgt i32 %175, -1
-  %sub.i619 = sub nsw i32 2147483646, %175
+  %sub.i619 = xor i32 %add95, 2147483647
   %cmp1.i = icmp sgt i32 %num_digits, %sub.i619
   %or.cond.i620 = select i1 %cmp.i618, i1 %cmp1.i, i1 false
   br i1 %or.cond.i620, label %if.then.i, label %_ZN3fmt3v106detail16adjust_precisionERii.exit
@@ -126693,8 +126694,7 @@ lpad.i:                                           ; preds = %if.then.i
   br label %lpad6.body
 
 _ZN3fmt3v106detail16adjust_precisionERii.exit:    ; preds = %if.then94
-  %add95 = add i32 %num_digits, 1
-  %add.i622 = add i32 %add95, %175
+  %add.i622 = add nsw i32 %add95, %num_digits
   br label %if.end98
 
 if.end98:                                         ; preds = %_ZN3fmt3v106detail16adjust_precisionERii.exit, %if.end91, %if.end62

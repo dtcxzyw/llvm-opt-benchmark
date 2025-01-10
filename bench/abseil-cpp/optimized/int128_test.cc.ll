@@ -37972,10 +37972,11 @@ entry:
   br label %for.body4.lr.ph
 
 for.body4.lr.ph:                                  ; preds = %for.inc265, %entry
-  %indvars.iv = phi i32 [ 127, %entry ], [ %indvars.iv.next, %for.inc265 ]
   %storemerge2802 = phi i32 [ 0, %entry ], [ %inc266, %for.inc265 ]
+  %sub = xor i32 %storemerge2802, 127
   %sh_prom.i = zext nneg i32 %storemerge2802 to i128
   %shl.i.neg = shl nsw i128 -1, %sh_prom.i
+  %umax = call i32 @llvm.umax.i32(i32 %sub, i32 1)
   br label %for.body4
 
 for.body4:                                        ; preds = %for.body4.lr.ph, %_ZN7testing15AssertionResultD2Ev.exit721
@@ -39065,7 +39066,7 @@ _ZN7testing15AssertionResultD2Ev.exit721:         ; preds = %if.end262, %_ZNKSt1
   store ptr null, ptr %message_.i.i702, align 8
   call void @_ZN7testing11ScopedTraceD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %gtest_trace_899) #24
   %inc = add nuw nsw i32 %storemerge1502801, 1
-  %exitcond.not = icmp eq i32 %inc, %indvars.iv
+  %exitcond.not = icmp eq i32 %inc, %umax
   br i1 %exitcond.not, label %for.inc265, label %for.body4, !llvm.loop !828
 
 ehcleanup263:                                     ; preds = %_ZN7testing7MessageD2Ev.exit717, %lpad251
@@ -39080,7 +39081,6 @@ ehcleanup264:                                     ; preds = %ehcleanup263, %ehcl
 
 for.inc265:                                       ; preds = %_ZN7testing15AssertionResultD2Ev.exit721
   %inc266 = add nuw nsw i32 %storemerge2802, 1
-  %indvars.iv.next = add nsw i32 %indvars.iv, -1
   %exitcond2808.not = icmp eq i32 %inc266, 64
   br i1 %exitcond2808.not, label %for.end267, label %for.body4.lr.ph, !llvm.loop !829
 
@@ -92166,6 +92166,9 @@ declare void @llvm.assume(i1 noundef) #23
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.fabs.f64(double) #22
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.umax.i32(i32, i32) #22
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

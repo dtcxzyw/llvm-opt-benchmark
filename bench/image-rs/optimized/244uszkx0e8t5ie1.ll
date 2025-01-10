@@ -23044,29 +23044,29 @@ _ZN5image6codecs4webp3vp811edge_pixels17h3aa6b66f5c2b1252E.exit: ; preds = %343
   %410 = add i64 %46, %33
   br label %411
 
-411:                                              ; preds = %"_ZN115_$LT$core..ops..range..RangeInclusive$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17hd028b9f832cb58daE.exit.i37", %_ZN5image6codecs4webp3vp811edge_pixels17h3aa6b66f5c2b1252E.exit
-  %.017.i = phi i64 [ %410, %_ZN5image6codecs4webp3vp811edge_pixels17h3aa6b66f5c2b1252E.exit ], [ %427, %"_ZN115_$LT$core..ops..range..RangeInclusive$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17hd028b9f832cb58daE.exit.i37" ]
-  %.sroa.0.016.i = phi i64 [ 0, %_ZN5image6codecs4webp3vp811edge_pixels17h3aa6b66f5c2b1252E.exit ], [ %412, %"_ZN115_$LT$core..ops..range..RangeInclusive$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17hd028b9f832cb58daE.exit.i37" ]
-  %412 = add nuw nsw i64 %.sroa.0.016.i, 1
-  %413 = add i64 %.017.i, 3
+411:                                              ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hdfea2586a1465bd1E.exit.i37", %_ZN5image6codecs4webp3vp811edge_pixels17h3aa6b66f5c2b1252E.exit
+  %.020.i = phi i64 [ %410, %_ZN5image6codecs4webp3vp811edge_pixels17h3aa6b66f5c2b1252E.exit ], [ %427, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hdfea2586a1465bd1E.exit.i37" ]
+  %.sroa.0.019.i = phi i64 [ 0, %_ZN5image6codecs4webp3vp811edge_pixels17h3aa6b66f5c2b1252E.exit ], [ %412, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hdfea2586a1465bd1E.exit.i37" ]
+  %412 = add nuw nsw i64 %.sroa.0.019.i, 1
+  %413 = add i64 %.020.i, 3
   %414 = icmp eq i64 %413, -1
   br i1 %414, label %422, label %415
 
 415:                                              ; preds = %411
-  %416 = icmp ugt i64 %.017.i, -5
+  %416 = icmp ugt i64 %.020.i, -5
   br i1 %416, label %418, label %417
 
 417:                                              ; preds = %415
   %.not.i.i36 = icmp ult i64 %413, %1
-  br i1 %.not.i.i36, label %"_ZN115_$LT$core..ops..range..RangeInclusive$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17hd028b9f832cb58daE.exit.i37", label %420
+  br i1 %.not.i.i36, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hdfea2586a1465bd1E.exit.i37", label %420
 
 418:                                              ; preds = %415
-  %419 = add nsw i64 %.017.i, 4
-  tail call void @_ZN4core5slice5index22slice_index_order_fail17hcfcb08cd5efc8d4cE(i64 noundef %.017.i, i64 noundef %419, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.4b579c9d043b721191b412a2a5c930c7.447) #34, !noalias !2622
+  %419 = add nsw i64 %.020.i, 4
+  tail call void @_ZN4core5slice5index22slice_index_order_fail17hcfcb08cd5efc8d4cE(i64 noundef %.020.i, i64 noundef %419, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.4b579c9d043b721191b412a2a5c930c7.447) #34, !noalias !2622
   unreachable
 
 420:                                              ; preds = %417
-  %421 = add nuw i64 %.017.i, 4
+  %421 = add nuw i64 %.020.i, 4
   tail call void @_ZN4core5slice5index24slice_end_index_len_fail17h9163fa4abd3ca1acE(i64 noundef %421, i64 noundef %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.4b579c9d043b721191b412a2a5c930c7.447) #34, !noalias !2622
   unreachable
 
@@ -23074,17 +23074,17 @@ _ZN5image6codecs4webp3vp811edge_pixels17h3aa6b66f5c2b1252E.exit: ; preds = %343
   tail call void @_ZN4core5slice5index29slice_end_index_overflow_fail17h29a7f9de5ef3f7a0E(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.4b579c9d043b721191b412a2a5c930c7.447) #34, !noalias !2628
   unreachable
 
-"_ZN115_$LT$core..ops..range..RangeInclusive$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17hd028b9f832cb58daE.exit.i37": ; preds = %417
-  %423 = sub nuw nsw i64 3, %.sroa.0.016.i
+"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hdfea2586a1465bd1E.exit.i37": ; preds = %417
+  %423 = xor i64 %.sroa.0.019.i, 3
   %424 = getelementptr inbounds nuw i8, ptr %8, i64 %423
-  %425 = getelementptr inbounds i8, ptr %0, i64 %.017.i
+  %425 = getelementptr inbounds i8, ptr %0, i64 %.020.i
   %426 = load i32, ptr %424, align 1, !alias.scope !2629, !noalias !2633
   store i32 %426, ptr %425, align 1, !alias.scope !2635, !noalias !2636
-  %427 = add i64 %.017.i, %2
+  %427 = add i64 %.020.i, %2
   %exitcond.not.i38 = icmp eq i64 %412, 4
   br i1 %exitcond.not.i38, label %_ZN5image6codecs4webp3vp815predict_brdpred17hfc891fb42df04ac1E.exit, label %411
 
-_ZN5image6codecs4webp3vp815predict_brdpred17hfc891fb42df04ac1E.exit: ; preds = %"_ZN115_$LT$core..ops..range..RangeInclusive$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17hd028b9f832cb58daE.exit.i37"
+_ZN5image6codecs4webp3vp815predict_brdpred17hfc891fb42df04ac1E.exit: ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hdfea2586a1465bd1E.exit.i37"
   call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %8), !noalias !2607
   br label %_ZN5image6codecs4webp3vp815predict_bdcpred17h353272dfad87dd28E.exit
 

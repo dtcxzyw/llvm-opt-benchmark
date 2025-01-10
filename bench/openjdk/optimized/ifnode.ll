@@ -6177,9 +6177,8 @@ define hidden noundef ptr @_ZN6IfNode5IdealEP8PhaseGVNb(ptr noundef nonnull alig
 101:                                              ; preds = %100, %98
   %.2.i = phi i32 [ %99, %98 ], [ %spec.select.i, %100 ]
   %102 = icmp eq i32 %53, 2
-  %103 = sub nuw nsw i32 1, %.2.i
-  %spec.select60.i = select i1 %102, i32 %103, i32 %.2.i
-  %.not59.i = icmp eq i32 %spec.select60.i, 0
+  %103 = zext i1 %102 to i32
+  %.not59.i = icmp eq i32 %.2.i, %103
   br i1 %.not59.i, label %_ZL19remove_useless_boolP6IfNodeP8PhaseGVN.exit, label %104
 
 104:                                              ; preds = %101

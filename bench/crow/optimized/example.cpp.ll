@@ -58775,8 +58775,8 @@ _ZNSt6vectorISt6futureIvESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__norm
   %181 = load ptr, ptr %179, align 8, !tbaa !150
   %182 = call i64 @_ZNSt6chrono3_V212system_clock3nowEv() #36
   %183 = icmp sgt i64 %182, -1
-  %184 = sub nuw nsw i64 9223372036854775807, %182
-  %185 = icmp samesign ult i64 %184, %180
+  %184 = xor i64 %182, 9223372036854775807
+  %185 = icmp slt i64 %184, %180
   %or.cond = select i1 %183, i1 %185, i1 false
   %186 = add nsw i64 %182, %180
   %187 = select i1 %or.cond, i64 9223372036854775807, i64 %186
@@ -76494,7 +76494,7 @@ define linkonce_odr dso_local noundef i64 @_ZNK4asio6detail11timer_queueINS0_18c
   br i1 %15, label %28, label %16
 
 16:                                               ; preds = %14
-  %17 = sub nuw nsw i64 9223372036854775807, %10
+  %17 = xor i64 %10, 9223372036854775807
   %18 = sub nsw i64 0, %9
   %19 = icmp samesign ult i64 %17, %18
   %20 = sub nsw i64 %10, %9
@@ -76553,7 +76553,7 @@ define linkonce_odr dso_local noundef i64 @_ZNK4asio6detail11timer_queueINS0_18c
   br i1 %15, label %28, label %16
 
 16:                                               ; preds = %14
-  %17 = sub nuw nsw i64 9223372036854775807, %10
+  %17 = xor i64 %10, 9223372036854775807
   %18 = sub nsw i64 0, %9
   %19 = icmp samesign ult i64 %17, %18
   %20 = sub nsw i64 %10, %9
@@ -80237,7 +80237,7 @@ define linkonce_odr dso_local noundef i64 @_ZNK4asio6detail11timer_queueINS0_18c
   br i1 %15, label %28, label %16
 
 16:                                               ; preds = %14
-  %17 = sub nuw nsw i64 9223372036854775807, %10
+  %17 = xor i64 %10, 9223372036854775807
   %18 = sub nsw i64 0, %9
   %19 = icmp samesign ult i64 %17, %18
   %20 = sub nsw i64 %10, %9
@@ -80296,7 +80296,7 @@ define linkonce_odr dso_local noundef i64 @_ZNK4asio6detail11timer_queueINS0_18c
   br i1 %15, label %28, label %16
 
 16:                                               ; preds = %14
-  %17 = sub nuw nsw i64 9223372036854775807, %10
+  %17 = xor i64 %10, 9223372036854775807
   %18 = sub nsw i64 0, %9
   %19 = icmp samesign ult i64 %17, %18
   %20 = sub nsw i64 %10, %9
@@ -83820,7 +83820,7 @@ define linkonce_odr dso_local void @_ZN4crow6ServerINS_4CrowIJ17ExampleMiddlewar
   br i1 %17, label %18, label %21
 
 18:                                               ; preds = %7
-  %19 = sub nuw nsw i64 9223372036854775807, %16
+  %19 = xor i64 %16, 9223372036854775807
   %20 = icmp slt i64 %19, %14
   br i1 %20, label %27, label %25
 

@@ -366,19 +366,20 @@ entry:
   br label %for.body5
 
 for.body5:                                        ; preds = %for.body5, %entry
-  %indvars.iv = phi i64 [ 1, %entry ], [ %indvars.iv.next, %for.body5 ]
+  %i.113 = phi i32 [ 1, %entry ], [ %inc11, %for.body5 ]
   %n.addr.012 = phi i32 [ %n, %entry ], [ %div, %for.body5 ]
   %rem = srem i32 %n.addr.012, 10
   %div = sdiv i32 %n.addr.012, 10
   %0 = trunc nsw i32 %rem to i8
   %conv = add nsw i8 %0, 48
-  %1 = sub nuw nsw i64 7, %indvars.iv
-  %arrayidx7 = getelementptr inbounds nuw i8, ptr %str, i64 %1
+  %sub = xor i32 %i.113, 7
+  %idxprom6 = zext nneg i32 %sub to i64
+  %arrayidx7 = getelementptr inbounds nuw i8, ptr %str, i64 %idxprom6
   store i8 %conv, ptr %arrayidx7, align 1
   %n.addr.0.off = add i32 %n.addr.012, 9
   %cmp8 = icmp ult i32 %n.addr.0.off, 19
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, 8
+  %inc11 = add nuw nsw i32 %i.113, 1
+  %exitcond.not = icmp eq i32 %inc11, 8
   %or.cond = select i1 %cmp8, i1 true, i1 %exitcond.not
   br i1 %or.cond, label %for.end12, label %for.body5, !llvm.loop !14
 
@@ -509,51 +510,52 @@ for.body.i.preheader:                             ; preds = %stb_include_file.ex
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i.preheader, %for.body.i
-  %indvars.iv.i50 = phi i64 [ %indvars.iv.next.i51, %for.body.i ], [ 0, %for.body.i.preheader ]
-  %filename.i = getelementptr inbounds nuw %struct.include_info, ptr %.pre, i64 %indvars.iv.i50, i32 2
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %for.body.i ], [ 0, %for.body.i.preheader ]
+  %filename.i = getelementptr inbounds nuw %struct.include_info, ptr %.pre, i64 %indvars.iv.i, i32 2
   %2 = load ptr, ptr %filename.i, align 8
   call void @free(ptr noundef %2) #16
-  %indvars.iv.next.i51 = add nuw nsw i64 %indvars.iv.i50, 1
-  %exitcond.not.i52 = icmp eq i64 %indvars.iv.next.i51, %wide.trip.count
-  br i1 %exitcond.not.i52, label %return, label %for.body.i, !llvm.loop !4
+  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
+  %exitcond.not.i50 = icmp eq i64 %indvars.iv.next.i, %wide.trip.count
+  br i1 %exitcond.not.i50, label %return, label %for.body.i, !llvm.loop !4
 
 if.end57:                                         ; preds = %stb_include_file.exit
   %call58 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %call4.i) #17
-  %add.i53 = add i64 %call58, %add.i41
-  %call.i54 = call ptr @realloc(ptr noundef %call.i42, i64 noundef %add.i53) #15
-  %add.ptr.i55 = getelementptr inbounds i8, ptr %call.i54, i64 %add.i41
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i55, ptr nonnull readonly align 1 %call4.i, i64 %call58, i1 false)
+  %add.i51 = add i64 %call58, %add.i41
+  %call.i52 = call ptr @realloc(ptr noundef %call.i42, i64 noundef %add.i51) #15
+  %add.ptr.i53 = getelementptr inbounds i8, ptr %call.i52, i64 %add.i41
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i53, ptr nonnull readonly align 1 %call4.i, i64 %call58, i1 false)
   call void @free(ptr noundef nonnull %call4.i) #16
   br label %if.end60
 
 if.end60:                                         ; preds = %if.then35, %if.then38, %if.end57
-  %textlen.1 = phi i64 [ %add.i41, %if.then35 ], [ %add.i45, %if.then38 ], [ %add.i53, %if.end57 ]
-  %text.1 = phi ptr [ %call.i42, %if.then35 ], [ %call.i46, %if.then38 ], [ %call.i54, %if.end57 ]
+  %textlen.1 = phi i64 [ %add.i41, %if.then35 ], [ %add.i45, %if.then38 ], [ %add.i51, %if.end57 ]
+  %text.1 = phi ptr [ %call.i42, %if.then35 ], [ %call.i46, %if.then38 ], [ %call.i52, %if.end57 ]
   store i64 9118724144243466, ptr %temp, align 16
   %next_line_after = getelementptr inbounds nuw %struct.include_info, ptr %.pre, i64 %indvars.iv, i32 3
   %3 = load i32, ptr %next_line_after, align 8
   store i64 2314885530818453536, ptr %add.ptr5, align 2
   store i8 0, ptr %arrayidx2.i, align 2
-  br label %for.body5.i58
+  br label %for.body5.i56
 
-for.body5.i58:                                    ; preds = %for.body5.i58, %if.end60
-  %indvars.iv.i59 = phi i64 [ 1, %if.end60 ], [ %indvars.iv.next.i68, %for.body5.i58 ]
-  %n.addr.012.i60 = phi i32 [ %3, %if.end60 ], [ %div.i67, %for.body5.i58 ]
-  %rem.i61 = srem i32 %n.addr.012.i60, 10
-  %div.i67 = sdiv i32 %n.addr.012.i60, 10
-  %4 = trunc nsw i32 %rem.i61 to i8
-  %conv.i62 = add nsw i8 %4, 48
-  %5 = sub nuw nsw i64 7, %indvars.iv.i59
-  %arrayidx7.i63 = getelementptr inbounds nuw i8, ptr %add.ptr5, i64 %5
-  store i8 %conv.i62, ptr %arrayidx7.i63, align 1
-  %n.addr.0.off.i64 = add i32 %n.addr.012.i60, 9
+for.body5.i56:                                    ; preds = %for.body5.i56, %if.end60
+  %i.113.i57 = phi i32 [ 1, %if.end60 ], [ %inc11.i68, %for.body5.i56 ]
+  %n.addr.012.i58 = phi i32 [ %3, %if.end60 ], [ %div.i67, %for.body5.i56 ]
+  %rem.i59 = srem i32 %n.addr.012.i58, 10
+  %div.i67 = sdiv i32 %n.addr.012.i58, 10
+  %4 = trunc nsw i32 %rem.i59 to i8
+  %conv.i60 = add nsw i8 %4, 48
+  %sub.i61 = xor i32 %i.113.i57, 7
+  %idxprom6.i62 = zext nneg i32 %sub.i61 to i64
+  %arrayidx7.i63 = getelementptr inbounds nuw i8, ptr %add.ptr5, i64 %idxprom6.i62
+  store i8 %conv.i60, ptr %arrayidx7.i63, align 1
+  %n.addr.0.off.i64 = add i32 %n.addr.012.i58, 9
   %cmp8.i65 = icmp ult i32 %n.addr.0.off.i64, 19
-  %indvars.iv.next.i68 = add nuw nsw i64 %indvars.iv.i59, 1
-  %exitcond.not.i69 = icmp eq i64 %indvars.iv.next.i68, 8
+  %inc11.i68 = add nuw nsw i32 %i.113.i57, 1
+  %exitcond.not.i69 = icmp eq i32 %inc11.i68, 8
   %or.cond = select i1 %cmp8.i65, i1 true, i1 %exitcond.not.i69
-  br i1 %or.cond, label %stb_include_itoa.exit70, label %for.body5.i58, !llvm.loop !14
+  br i1 %or.cond, label %stb_include_itoa.exit70, label %for.body5.i56, !llvm.loop !14
 
-stb_include_itoa.exit70:                          ; preds = %for.body5.i58
+stb_include_itoa.exit70:                          ; preds = %for.body5.i56
   %strlen39 = call i64 @strlen(ptr nonnull dereferenceable(1) %temp)
   %endptr40 = getelementptr inbounds i8, ptr %temp, i64 %strlen39
   store i16 32, ptr %endptr40, align 1
@@ -564,8 +566,8 @@ stb_include_itoa.exit70:                          ; preds = %for.body5.i58
   %add.ptr.i73 = getelementptr inbounds i8, ptr %call.i72, i64 %textlen.1
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i73, ptr nonnull readonly align 16 %temp, i64 %call75, i1 false)
   %end = getelementptr inbounds nuw %struct.include_info, ptr %.pre, i64 %indvars.iv, i32 1
-  %6 = load i32, ptr %end, align 4
-  %conv79 = sext i32 %6 to i64
+  %5 = load i32, ptr %end, align 4
+  %conv79 = sext i32 %5 to i64
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %for.end, label %stb_include_itoa.exit, !llvm.loop !15
@@ -590,8 +592,8 @@ for.body.preheader.i80:                           ; preds = %for.end
 for.body.i82:                                     ; preds = %for.body.i82, %for.body.preheader.i80
   %indvars.iv.i83 = phi i64 [ 0, %for.body.preheader.i80 ], [ %indvars.iv.next.i85, %for.body.i82 ]
   %filename.i84 = getelementptr inbounds nuw %struct.include_info, ptr %.pre, i64 %indvars.iv.i83, i32 2
-  %7 = load ptr, ptr %filename.i84, align 8
-  call void @free(ptr noundef %7) #16
+  %6 = load ptr, ptr %filename.i84, align 8
+  call void @free(ptr noundef %6) #16
   %indvars.iv.next.i85 = add nuw nsw i64 %indvars.iv.i83, 1
   %exitcond.not.i86 = icmp eq i64 %indvars.iv.next.i85, %wide.trip.count.i81
   br i1 %exitcond.not.i86, label %return, label %for.body.i82, !llvm.loop !4

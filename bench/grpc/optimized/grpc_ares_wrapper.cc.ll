@@ -453,7 +453,7 @@ if.end11.i.i:                                     ; preds = %if.end.i.i
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %if.else.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.end11.i.i
-  %sub.i.i.i = sub nuw nsw i64 9223372036854775807, %call.i
+  %sub.i.i.i = xor i64 %call.i, 9223372036854775807
   %cmp1.i.i.i = icmp slt i64 %sub.i.i.i, %conv
   br i1 %cmp1.i.i.i, label %_ZN9grpc_coreplENS_9TimestampENS_8DurationE.exit, label %if.end7.i.i.i
 
@@ -491,22 +491,32 @@ _ZN9grpc_core9Timestamp3NowEv.exit.i:             ; preds = %11, %do.end.i
   %vtable.i.i = load ptr, ptr %12, align 8
   %13 = load ptr, ptr %vtable.i.i, align 8
   %call.i.i = tail call i64 %13(ptr noundef nonnull align 8 dereferenceable(8) %12)
+  %call.i.i.off = add i64 %call.i.i, -9223372036854775807
+  %switch = icmp ult i64 %call.i.i.off, 2
+  br i1 %switch, label %_ZL37calculate_next_ares_backup_poll_alarmP19grpc_ares_ev_driver.exit, label %if.end11.i.i.i
+
+if.end11.i.i.i:                                   ; preds = %_ZN9grpc_core9Timestamp3NowEv.exit.i
+  %cmp.i.i.i.i = icmp sgt i64 %call.i.i, 0
+  %sub.i.i.i.i = xor i64 %call.i.i, 9223372036854775800
+  %cmp1.i.i.i.i = icmp samesign ult i64 %sub.i.i.i.i, 1000
+  %or.cond.i = select i1 %cmp.i.i.i.i, i1 %cmp1.i.i.i.i, i1 false
+  %add.i.i.i.i = add nsw i64 %call.i.i, 1000
+  %spec.select.i = select i1 %or.cond.i, i64 9223372036854775807, i64 %add.i.i.i.i
+  br label %_ZL37calculate_next_ares_backup_poll_alarmP19grpc_ares_ev_driver.exit
+
+_ZL37calculate_next_ares_backup_poll_alarmP19grpc_ares_ev_driver.exit: ; preds = %_ZN9grpc_core9Timestamp3NowEv.exit.i, %if.end11.i.i.i
+  %retval.0.i.i.i = phi i64 [ %spec.select.i, %if.end11.i.i.i ], [ %call.i.i, %_ZN9grpc_core9Timestamp3NowEv.exit.i ]
   %14 = load atomic i8, ptr getelementptr inbounds nuw (i8, ptr @grpc_trace_cares_resolver, i64 16) monotonic, align 8
   %tobool.i.i.i.i19 = trunc i8 %14 to i1
   br i1 %tobool.i.i.i.i19, label %if.then.i22, label %_ZL23grpc_ares_ev_driver_refP19grpc_ares_ev_driver.exit24
 
-if.then.i22:                                      ; preds = %_ZN9grpc_core9Timestamp3NowEv.exit.i
+if.then.i22:                                      ; preds = %_ZL37calculate_next_ares_backup_poll_alarmP19grpc_ares_ev_driver.exit
   %request.i23 = getelementptr inbounds nuw i8, ptr %ev_driver, i64 40
   %15 = load ptr, ptr %request.i23, align 8
   tail call void (ptr, i32, i32, ptr, ...) @gpr_log(ptr noundef nonnull @.str.5, i32 noundef 193, i32 noundef 0, ptr noundef nonnull @.str.36, ptr noundef %15, ptr noundef nonnull %ev_driver)
   br label %_ZL23grpc_ares_ev_driver_refP19grpc_ares_ev_driver.exit24
 
-_ZL23grpc_ares_ev_driver_refP19grpc_ares_ev_driver.exit24: ; preds = %_ZN9grpc_core9Timestamp3NowEv.exit.i, %if.then.i22
-  %call.i.i.off = add i64 %call.i.i, -9223372036854775807
-  %switch = icmp ult i64 %call.i.i.off, 2
-  %16 = tail call i64 @llvm.smin.i64(i64 %call.i.i, i64 9223372036854774807)
-  %spec.select.i = add nsw i64 %16, 1000
-  %retval.0.i.i.i = select i1 %switch, i64 %call.i.i, i64 %spec.select.i
+_ZL23grpc_ares_ev_driver_refP19grpc_ares_ev_driver.exit24: ; preds = %_ZL37calculate_next_ares_backup_poll_alarmP19grpc_ares_ev_driver.exit, %if.then.i22
   tail call void @gpr_ref(ptr noundef nonnull %refs.i)
   %on_ares_backup_poll_alarm_locked = getelementptr inbounds nuw i8, ptr %ev_driver, i64 208
   %cb1.i25 = getelementptr inbounds nuw i8, ptr %ev_driver, i64 216
@@ -1191,19 +1201,29 @@ _ZN9grpc_core9Timestamp3NowEv.exit.i:             ; preds = %25, %do.end.i
 call.i.i.noexc:                                   ; preds = %_ZN9grpc_core9Timestamp3NowEv.exit.i
   %call.i.i28.off = add i64 %call.i.i28, -9223372036854775807
   %switch = icmp ult i64 %call.i.i28.off, 2
-  %29 = call i64 @llvm.smin.i64(i64 %call.i.i28, i64 9223372036854774807)
-  %spec.select.i = add nsw i64 %29, 1000
-  %retval.0.i.i.i = select i1 %switch, i64 %call.i.i28, i64 %spec.select.i
-  %30 = load atomic i8, ptr getelementptr inbounds nuw (i8, ptr @grpc_trace_cares_resolver, i64 16) monotonic, align 8
-  %tobool.i.i.i.i29 = trunc i8 %30 to i1
+  br i1 %switch, label %invoke.cont36, label %if.end11.i.i.i
+
+if.end11.i.i.i:                                   ; preds = %call.i.i.noexc
+  %cmp.i.i.i.i = icmp sgt i64 %call.i.i28, 0
+  %sub.i.i.i.i = xor i64 %call.i.i28, 9223372036854775800
+  %cmp1.i.i.i.i = icmp samesign ult i64 %sub.i.i.i.i, 1000
+  %or.cond.i = select i1 %cmp.i.i.i.i, i1 %cmp1.i.i.i.i, i1 false
+  %add.i.i.i.i = add nsw i64 %call.i.i28, 1000
+  %spec.select.i = select i1 %or.cond.i, i64 9223372036854775807, i64 %add.i.i.i.i
+  br label %invoke.cont36
+
+invoke.cont36:                                    ; preds = %call.i.i.noexc, %if.end11.i.i.i
+  %retval.0.i.i.i = phi i64 [ %spec.select.i, %if.end11.i.i.i ], [ %call.i.i28, %call.i.i.noexc ]
+  %29 = load atomic i8, ptr getelementptr inbounds nuw (i8, ptr @grpc_trace_cares_resolver, i64 16) monotonic, align 8
+  %tobool.i.i.i.i29 = trunc i8 %29 to i1
   br i1 %tobool.i.i.i.i29, label %if.then.i31, label %do.end.i30
 
-if.then.i31:                                      ; preds = %call.i.i.noexc
-  %31 = load ptr, ptr %request, align 8
-  invoke void (ptr, i32, i32, ptr, ...) @gpr_log(ptr noundef nonnull @.str.5, i32 noundef 193, i32 noundef 0, ptr noundef nonnull @.str.36, ptr noundef %31, ptr noundef nonnull %arg)
+if.then.i31:                                      ; preds = %invoke.cont36
+  %30 = load ptr, ptr %request, align 8
+  invoke void (ptr, i32, i32, ptr, ...) @gpr_log(ptr noundef nonnull @.str.5, i32 noundef 193, i32 noundef 0, ptr noundef nonnull @.str.36, ptr noundef %30, ptr noundef nonnull %arg)
           to label %do.end.i30 unwind label %lpad.loopexit.split-lp
 
-do.end.i30:                                       ; preds = %if.then.i31, %call.i.i.noexc
+do.end.i30:                                       ; preds = %if.then.i31, %invoke.cont36
   %refs.i = getelementptr inbounds nuw i8, ptr %arg, i64 16
   invoke void @gpr_ref(ptr noundef nonnull %refs.i)
           to label %invoke.cont38 unwind label %lpad.loopexit.split-lp
@@ -1233,10 +1253,10 @@ invoke.cont47:                                    ; preds = %if.end46
           to label %_ZN4absl12lts_202308029MutexLockD2Ev.exit unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %invoke.cont47
-  %32 = landingpad { ptr, i32 }
+  %31 = landingpad { ptr, i32 }
           catch ptr null
-  %33 = extractvalue { ptr, i32 } %32, 0
-  call void @__clang_call_terminate(ptr %33) #26
+  %32 = extractvalue { ptr, i32 } %31, 0
+  call void @__clang_call_terminate(ptr %32) #26
   unreachable
 
 _ZN4absl12lts_202308029MutexLockD2Ev.exit:        ; preds = %invoke.cont47
@@ -1248,10 +1268,10 @@ ehcleanup:                                        ; preds = %lpad.loopexit, %lpa
           to label %_ZN4absl12lts_202308029MutexLockD2Ev.exit36 unwind label %terminate.lpad.i35
 
 terminate.lpad.i35:                               ; preds = %ehcleanup
-  %34 = landingpad { ptr, i32 }
+  %33 = landingpad { ptr, i32 }
           catch ptr null
-  %35 = extractvalue { ptr, i32 } %34, 0
-  call void @__clang_call_terminate(ptr %35) #26
+  %34 = extractvalue { ptr, i32 } %33, 0
+  call void @__clang_call_terminate(ptr %34) #26
   unreachable
 
 _ZN4absl12lts_202308029MutexLockD2Ev.exit36:      ; preds = %ehcleanup
@@ -6282,9 +6302,6 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #22
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #22
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.smin.i64(i64, i64) #21
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

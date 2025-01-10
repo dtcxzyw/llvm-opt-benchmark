@@ -2472,9 +2472,10 @@ if.else13:                                        ; preds = %if.else
 
 for.body:                                         ; preds = %for.inc, %if.else13
   %i.0102 = phi i32 [ 0, %if.else13 ], [ %inc, %for.inc ]
-  %rem.i101.cmp = icmp samesign ugt i32 %i.0102, 63
-  %rem.i101.v = select i1 %rem.i101.cmp, i32 127, i32 63
-  %rem.i101 = sub nsw i32 %rem.i101.v, %i.0102
+  %sub = xor i32 %i.0102, 127
+  %rem.i101.urem = sub nsw i32 63, %i.0102
+  %rem.i101.cmp = icmp samesign ult i32 %sub, 64
+  %rem.i101 = select i1 %rem.i101.cmp, i32 %sub, i32 %rem.i101.urem
   %sh_prom.i = zext nneg i32 %rem.i101 to i64
   %retval.0.i.v.v.v = select i1 %rem.i101.cmp, i64 %tempDividend.sroa.0.0, i64 %tempDividend.sroa.6.0
   %retval.0.i.v.v = lshr i64 %retval.0.i.v.v.v, %sh_prom.i
@@ -2518,7 +2519,7 @@ _ZN2EA4StdCgeERKNS0_8int128_tES3_.exit.thread:    ; preds = %if.then8.i.i, %if.e
 
 if.then8.i.thread:                                ; preds = %_ZN2EA4StdCgeERKNS0_8int128_tES3_.exit.thread
   %15 = load i64, ptr %mPart114.i, align 8
-  br label %if.end22.thread
+  br label %if.else13.i
 
 if.then.i62.thread:                               ; preds = %_ZN2EA4StdCgeERKNS0_8int128_tES3_.exit.thread
   %16 = load i64, ptr %quotient, align 8
@@ -2543,20 +2544,20 @@ if.else.i63:                                      ; preds = %if.then.i62.thread,
 
 if.then8.i:                                       ; preds = %_ZN2EA4StdCgeERKNS0_8int128_tES3_.exit
   %19 = load i64, ptr %mPart114.i, align 8
-  br i1 %retval.0.i.i, label %if.then10.i, label %if.end22.thread
+  br i1 %retval.0.i.i, label %if.then10.i, label %if.else13.i
 
 if.then10.i:                                      ; preds = %if.then8.i
   %or11.i = or i64 %19, %shl.i
   store i64 %or11.i, ptr %mPart114.i, align 8
   br label %if.then20
 
-if.end22.thread:                                  ; preds = %if.then8.i, %if.then8.i.thread
+if.else13.i:                                      ; preds = %if.then8.i.thread, %if.then8.i
   %20 = phi i64 [ %15, %if.then8.i.thread ], [ %19, %if.then8.i ]
   %shl.i108116 = phi i64 [ %shl.i104, %if.then8.i.thread ], [ %shl.i, %if.then8.i ]
   %not15.i = xor i64 %shl.i108116, -1
   %and16.i = and i64 %20, %not15.i
   store i64 %and16.i, ptr %mPart114.i, align 8
-  br label %land.lhs.true
+  br label %if.end22
 
 if.then20:                                        ; preds = %if.then2.i, %if.then10.i
   %21 = load i64, ptr %remainder, align 8
@@ -2570,11 +2571,11 @@ if.then20:                                        ; preds = %if.then2.i, %if.the
   store i64 %sub7.i.i, ptr %mPart12.i.i48, align 8
   br label %if.end22
 
-if.end22:                                         ; preds = %if.else.i63, %if.then20
+if.end22:                                         ; preds = %if.else13.i, %if.else.i63, %if.then20
   %cmp23.not = icmp eq i32 %i.0102, 127
   br i1 %cmp23.not, label %if.end29, label %land.lhs.true
 
-land.lhs.true:                                    ; preds = %if.end22.thread, %if.end22
+land.lhs.true:                                    ; preds = %if.end22
   %23 = load i64, ptr %remainder, align 8
   %cmp.i66 = icmp eq i64 %23, 0
   %24 = load i64, ptr %mPart12.i.i48, align 8
@@ -5156,9 +5157,10 @@ if.else8:                                         ; preds = %if.else
 
 for.body:                                         ; preds = %for.inc, %if.else8
   %i.054 = phi i32 [ 0, %if.else8 ], [ %inc, %for.inc ]
-  %rem.i53.cmp = icmp samesign ugt i32 %i.054, 63
-  %rem.i53.v = select i1 %rem.i53.cmp, i32 127, i32 63
-  %rem.i53 = sub nsw i32 %rem.i53.v, %i.054
+  %sub = xor i32 %i.054, 127
+  %rem.i53.urem = sub nsw i32 63, %i.054
+  %rem.i53.cmp = icmp samesign ult i32 %sub, 64
+  %rem.i53 = select i1 %rem.i53.cmp, i32 %sub, i32 %rem.i53.urem
   %sh_prom.i = zext nneg i32 %rem.i53 to i64
   %retval.0.i.v.v.v = select i1 %rem.i53.cmp, i64 %1, i64 %0
   %retval.0.i.v.v = lshr i64 %retval.0.i.v.v.v, %sh_prom.i
@@ -5189,7 +5191,7 @@ _ZN2EA4StdCgeERKNS0_9uint128_tES3_.exit:          ; preds = %if.then.i.i, %if.el
 _ZN2EA4StdCgeERKNS0_9uint128_tES3_.exit.thread:   ; preds = %if.then.i.i, %if.else10.i.i
   %shl.i56 = shl nuw i64 1, %sh_prom.i
   %not.i = xor i64 %shl.i56, -1
-  br i1 %rem.i53.cmp, label %if.else.i38, label %if.end.thread
+  br i1 %rem.i53.cmp, label %if.else.i38, label %if.else13.i
 
 if.then2.i:                                       ; preds = %_ZN2EA4StdCgeERKNS0_9uint128_tES3_.exit
   %8 = load i64, ptr %quotient, align 8
@@ -5209,11 +5211,11 @@ if.then10.i:                                      ; preds = %_ZN2EA4StdCgeERKNS0
   store i64 %or11.i, ptr %mPart114.i, align 8
   br label %if.then15
 
-if.end.thread:                                    ; preds = %_ZN2EA4StdCgeERKNS0_9uint128_tES3_.exit.thread
+if.else13.i:                                      ; preds = %_ZN2EA4StdCgeERKNS0_9uint128_tES3_.exit.thread
   %11 = load i64, ptr %mPart114.i, align 8
   %and16.i = and i64 %11, %not.i
   store i64 %and16.i, ptr %mPart114.i, align 8
-  br label %land.lhs.true
+  br label %if.end
 
 if.then15:                                        ; preds = %if.then2.i, %if.then10.i
   %12 = load i64, ptr %remainder, align 8
@@ -5227,11 +5229,11 @@ if.then15:                                        ; preds = %if.then2.i, %if.the
   store i64 %sub7.i.i, ptr %mPart12.i.i24, align 8
   br label %if.end
 
-if.end:                                           ; preds = %if.else.i38, %if.then15
+if.end:                                           ; preds = %if.else13.i, %if.else.i38, %if.then15
   %cmp17.not = icmp eq i32 %i.054, 127
   br i1 %cmp17.not, label %if.end23, label %land.lhs.true
 
-land.lhs.true:                                    ; preds = %if.end.thread, %if.end
+land.lhs.true:                                    ; preds = %if.end
   %14 = load i64, ptr %remainder, align 8
   %cmp.i41 = icmp eq i64 %14, 0
   %15 = load i64, ptr %mPart12.i.i24, align 8
@@ -5383,9 +5385,10 @@ for.body.i:                                       ; preds = %if.else.i, %for.inc
   %ref.tmp.sroa.0.0 = phi i64 [ %ref.tmp.sroa.0.1, %for.inc.i ], [ 0, %if.else.i ]
   %ref.tmp.sroa.7.0 = phi i64 [ %ref.tmp.sroa.7.1, %for.inc.i ], [ 0, %if.else.i ]
   %i.054.i = phi i32 [ %inc.i, %for.inc.i ], [ 0, %if.else.i ]
-  %rem.i53.cmp.i = icmp samesign ugt i32 %i.054.i, 63
-  %rem.i53.v.i = select i1 %rem.i53.cmp.i, i32 127, i32 63
-  %rem.i53.i = sub nsw i32 %rem.i53.v.i, %i.054.i
+  %sub.i = xor i32 %i.054.i, 127
+  %rem.i53.urem.i = sub nsw i32 63, %i.054.i
+  %rem.i53.cmp.i = icmp samesign ult i32 %sub.i, 64
+  %rem.i53.i = select i1 %rem.i53.cmp.i, i32 %sub.i, i32 %rem.i53.urem.i
   %sh_prom.i.i = zext nneg i32 %rem.i53.i to i64
   %retval.0.i.v.v.v.i = select i1 %rem.i53.cmp.i, i64 %1, i64 %0
   %retval.0.i.v.v.i = lshr i64 %retval.0.i.v.v.v.i, %sh_prom.i.i
@@ -5405,9 +5408,9 @@ if.else10.i.i.i:                                  ; preds = %for.body.i
 _ZN2EA4StdCgeERKNS0_9uint128_tES3_.exit.i:        ; preds = %if.else10.i.i.i, %if.then.i.i.i
   %shl.i.i = shl nuw i64 1, %sh_prom.i.i
   %or.i.i = select i1 %rem.i53.cmp.i, i64 %shl.i.i, i64 0
-  %ref.tmp.sroa.0.3 = or i64 %or.i.i, %ref.tmp.sroa.0.0
+  %ref.tmp.sroa.0.2 = or i64 %or.i.i, %ref.tmp.sroa.0.0
   %or11.i.i = select i1 %rem.i53.cmp.i, i64 0, i64 %shl.i.i
-  %ref.tmp.sroa.7.3 = or i64 %or11.i.i, %ref.tmp.sroa.7.0
+  %ref.tmp.sroa.7.2 = or i64 %or11.i.i, %ref.tmp.sroa.7.0
   %sub.i.i.i = sub i64 %add.i.i.i, %3
   %cmp.i.i39.i = icmp ult i64 %add.i.i.i, %3
   %conv.neg.i.i.i = sext i1 %cmp.i.i39.i to i64
@@ -5418,29 +5421,25 @@ _ZN2EA4StdCgeERKNS0_9uint128_tES3_.exit.i:        ; preds = %if.else10.i.i.i, %i
 _ZN2EA4StdCgeERKNS0_9uint128_tES3_.exit.thread.i: ; preds = %if.else10.i.i.i, %if.then.i.i.i
   %shl.i56.i = shl nuw i64 1, %sh_prom.i.i
   %not.i.i = xor i64 %shl.i56.i, -1
-  br i1 %rem.i53.cmp.i, label %if.else.i38.i, label %if.end.thread.i
+  br i1 %rem.i53.cmp.i, label %if.else.i38.i, label %if.else13.i.i
 
 if.else.i38.i:                                    ; preds = %_ZN2EA4StdCgeERKNS0_9uint128_tES3_.exit.thread.i
   %and.i.i = and i64 %ref.tmp.sroa.0.0, %not.i.i
   br label %if.end.i
 
-if.end.thread.i:                                  ; preds = %_ZN2EA4StdCgeERKNS0_9uint128_tES3_.exit.thread.i
+if.else13.i.i:                                    ; preds = %_ZN2EA4StdCgeERKNS0_9uint128_tES3_.exit.thread.i
   %and16.i.i = and i64 %ref.tmp.sroa.7.0, %not.i.i
-  br label %land.lhs.true.i
+  br label %if.end.i
 
-if.end.i:                                         ; preds = %_ZN2EA4StdCgeERKNS0_9uint128_tES3_.exit.i, %if.else.i38.i
-  %remainder.i.sroa.0.3 = phi i64 [ %add.i.i.i, %if.else.i38.i ], [ %sub.i.i.i, %_ZN2EA4StdCgeERKNS0_9uint128_tES3_.exit.i ]
-  %remainder.i.sroa.11.3 = phi i64 [ %remainder.i.sroa.11.0, %if.else.i38.i ], [ %sub7.i.i.i, %_ZN2EA4StdCgeERKNS0_9uint128_tES3_.exit.i ]
-  %ref.tmp.sroa.0.2 = phi i64 [ %and.i.i, %if.else.i38.i ], [ %ref.tmp.sroa.0.3, %_ZN2EA4StdCgeERKNS0_9uint128_tES3_.exit.i ]
-  %ref.tmp.sroa.7.2 = phi i64 [ %ref.tmp.sroa.7.0, %if.else.i38.i ], [ %ref.tmp.sroa.7.3, %_ZN2EA4StdCgeERKNS0_9uint128_tES3_.exit.i ]
+if.end.i:                                         ; preds = %_ZN2EA4StdCgeERKNS0_9uint128_tES3_.exit.i, %if.else13.i.i, %if.else.i38.i
+  %remainder.i.sroa.0.1 = phi i64 [ %add.i.i.i, %if.else.i38.i ], [ %add.i.i.i, %if.else13.i.i ], [ %sub.i.i.i, %_ZN2EA4StdCgeERKNS0_9uint128_tES3_.exit.i ]
+  %remainder.i.sroa.11.1 = phi i64 [ %remainder.i.sroa.11.0, %if.else.i38.i ], [ %remainder.i.sroa.11.0, %if.else13.i.i ], [ %sub7.i.i.i, %_ZN2EA4StdCgeERKNS0_9uint128_tES3_.exit.i ]
+  %ref.tmp.sroa.0.1 = phi i64 [ %and.i.i, %if.else.i38.i ], [ %ref.tmp.sroa.0.0, %if.else13.i.i ], [ %ref.tmp.sroa.0.2, %_ZN2EA4StdCgeERKNS0_9uint128_tES3_.exit.i ]
+  %ref.tmp.sroa.7.1 = phi i64 [ %ref.tmp.sroa.7.0, %if.else.i38.i ], [ %and16.i.i, %if.else13.i.i ], [ %ref.tmp.sroa.7.2, %_ZN2EA4StdCgeERKNS0_9uint128_tES3_.exit.i ]
   %cmp17.not.i = icmp eq i32 %i.054.i, 127
   br i1 %cmp17.not.i, label %_ZNK2EA4StdC9uint128_t7ModulusERKS1_RS1_S4_.exit, label %land.lhs.true.i
 
-land.lhs.true.i:                                  ; preds = %if.end.i, %if.end.thread.i
-  %remainder.i.sroa.0.1 = phi i64 [ %remainder.i.sroa.0.3, %if.end.i ], [ %add.i.i.i, %if.end.thread.i ]
-  %remainder.i.sroa.11.1 = phi i64 [ %remainder.i.sroa.11.3, %if.end.i ], [ %remainder.i.sroa.11.0, %if.end.thread.i ]
-  %ref.tmp.sroa.0.1 = phi i64 [ %ref.tmp.sroa.0.2, %if.end.i ], [ %ref.tmp.sroa.0.0, %if.end.thread.i ]
-  %ref.tmp.sroa.7.1 = phi i64 [ %ref.tmp.sroa.7.2, %if.end.i ], [ %and16.i.i, %if.end.thread.i ]
+land.lhs.true.i:                                  ; preds = %if.end.i
   %cmp.i41.i = icmp eq i64 %remainder.i.sroa.0.1, 0
   %cmp2.i43.i = icmp eq i64 %remainder.i.sroa.11.1, 0
   %6 = select i1 %cmp.i41.i, i1 %cmp2.i43.i, i1 false
@@ -5458,10 +5457,10 @@ for.inc.i:                                        ; preds = %if.then19.i, %land.
   br label %for.body.i
 
 _ZNK2EA4StdC9uint128_t7ModulusERKS1_RS1_S4_.exit: ; preds = %if.end.i, %if.else.i, %entry
-  %ref.tmp.sroa.0.4 = phi i64 [ 0, %entry ], [ 0, %if.else.i ], [ %ref.tmp.sroa.0.2, %if.end.i ]
-  %ref.tmp.sroa.7.4 = phi i64 [ 0, %entry ], [ 0, %if.else.i ], [ %ref.tmp.sroa.7.2, %if.end.i ]
-  store i64 %ref.tmp.sroa.7.4, ptr %mPart1.i.i.i, align 8
-  store i64 %ref.tmp.sroa.0.4, ptr %this, align 8
+  %ref.tmp.sroa.0.3 = phi i64 [ 0, %entry ], [ 0, %if.else.i ], [ %ref.tmp.sroa.0.1, %if.end.i ]
+  %ref.tmp.sroa.7.3 = phi i64 [ 0, %entry ], [ 0, %if.else.i ], [ %ref.tmp.sroa.7.1, %if.end.i ]
+  store i64 %ref.tmp.sroa.7.3, ptr %mPart1.i.i.i, align 8
+  store i64 %ref.tmp.sroa.0.3, ptr %this, align 8
   ret ptr %this
 }
 
@@ -5489,9 +5488,10 @@ for.body.i:                                       ; preds = %if.else.i, %for.inc
   %ref.tmp.sroa.0.0 = phi i64 [ %ref.tmp.sroa.0.2, %for.inc.i ], [ 0, %if.else.i ]
   %ref.tmp.sroa.10.0 = phi i64 [ %ref.tmp.sroa.10.2, %for.inc.i ], [ 0, %if.else.i ]
   %i.054.i = phi i32 [ %inc.i, %for.inc.i ], [ 0, %if.else.i ]
-  %rem.i53.cmp.i = icmp samesign ugt i32 %i.054.i, 63
-  %rem.i53.v.i = select i1 %rem.i53.cmp.i, i32 127, i32 63
-  %rem.i53.i = sub nsw i32 %rem.i53.v.i, %i.054.i
+  %sub.i = xor i32 %i.054.i, 127
+  %rem.i53.urem.i = sub nsw i32 63, %i.054.i
+  %rem.i53.cmp.i = icmp samesign ult i32 %sub.i, 64
+  %rem.i53.i = select i1 %rem.i53.cmp.i, i32 %sub.i, i32 %rem.i53.urem.i
   %sh_prom.i.i = zext nneg i32 %rem.i53.i to i64
   %retval.0.i.v.v.v.i = select i1 %rem.i53.cmp.i, i64 %1, i64 %0
   %retval.0.i.v.v.i = lshr i64 %retval.0.i.v.v.v.i, %sh_prom.i.i
@@ -5502,11 +5502,11 @@ for.body.i:                                       ; preds = %if.else.i, %for.inc
 
 if.then.i.i.i:                                    ; preds = %for.body.i
   %or.cond.not.i.i = icmp ult i64 %add.i.i.i, %3
-  br i1 %or.cond.not.i.i, label %_ZN2EA4StdCgeERKNS0_9uint128_tES3_.exit.thread.i, label %_ZN2EA4StdCgeERKNS0_9uint128_tES3_.exit.i
+  br i1 %or.cond.not.i.i, label %if.end.i, label %_ZN2EA4StdCgeERKNS0_9uint128_tES3_.exit.i
 
 if.else10.i.i.i:                                  ; preds = %for.body.i
   %cmp13.i.i.i = icmp ugt i64 %ref.tmp.sroa.10.0, %2
-  br i1 %cmp13.i.i.i, label %_ZN2EA4StdCgeERKNS0_9uint128_tES3_.exit.i, label %_ZN2EA4StdCgeERKNS0_9uint128_tES3_.exit.thread.i
+  br i1 %cmp13.i.i.i, label %_ZN2EA4StdCgeERKNS0_9uint128_tES3_.exit.i, label %if.end.i
 
 _ZN2EA4StdCgeERKNS0_9uint128_tES3_.exit.i:        ; preds = %if.else10.i.i.i, %if.then.i.i.i
   %sub.i.i.i = sub i64 %add.i.i.i, %3
@@ -5516,18 +5516,13 @@ _ZN2EA4StdCgeERKNS0_9uint128_tES3_.exit.i:        ; preds = %if.else10.i.i.i, %i
   %sub7.i.i.i = add i64 %sub6.i.i.i, %conv.neg.i.i.i
   br label %if.end.i
 
-_ZN2EA4StdCgeERKNS0_9uint128_tES3_.exit.thread.i: ; preds = %if.else10.i.i.i, %if.then.i.i.i
-  br i1 %rem.i53.cmp.i, label %if.end.i, label %land.lhs.true.i
-
-if.end.i:                                         ; preds = %_ZN2EA4StdCgeERKNS0_9uint128_tES3_.exit.thread.i, %_ZN2EA4StdCgeERKNS0_9uint128_tES3_.exit.i
-  %ref.tmp.sroa.0.3 = phi i64 [ %sub.i.i.i, %_ZN2EA4StdCgeERKNS0_9uint128_tES3_.exit.i ], [ %add.i.i.i, %_ZN2EA4StdCgeERKNS0_9uint128_tES3_.exit.thread.i ]
-  %ref.tmp.sroa.10.3 = phi i64 [ %sub7.i.i.i, %_ZN2EA4StdCgeERKNS0_9uint128_tES3_.exit.i ], [ %ref.tmp.sroa.10.0, %_ZN2EA4StdCgeERKNS0_9uint128_tES3_.exit.thread.i ]
+if.end.i:                                         ; preds = %if.then.i.i.i, %if.else10.i.i.i, %_ZN2EA4StdCgeERKNS0_9uint128_tES3_.exit.i
+  %ref.tmp.sroa.0.1 = phi i64 [ %sub.i.i.i, %_ZN2EA4StdCgeERKNS0_9uint128_tES3_.exit.i ], [ %add.i.i.i, %if.else10.i.i.i ], [ %add.i.i.i, %if.then.i.i.i ]
+  %ref.tmp.sroa.10.1 = phi i64 [ %sub7.i.i.i, %_ZN2EA4StdCgeERKNS0_9uint128_tES3_.exit.i ], [ %ref.tmp.sroa.10.0, %if.else10.i.i.i ], [ %ref.tmp.sroa.10.0, %if.then.i.i.i ]
   %cmp17.not.i = icmp eq i32 %i.054.i, 127
   br i1 %cmp17.not.i, label %_ZNK2EA4StdC9uint128_t7ModulusERKS1_RS1_S4_.exit, label %land.lhs.true.i
 
-land.lhs.true.i:                                  ; preds = %_ZN2EA4StdCgeERKNS0_9uint128_tES3_.exit.thread.i, %if.end.i
-  %ref.tmp.sroa.0.1 = phi i64 [ %ref.tmp.sroa.0.3, %if.end.i ], [ %add.i.i.i, %_ZN2EA4StdCgeERKNS0_9uint128_tES3_.exit.thread.i ]
-  %ref.tmp.sroa.10.1 = phi i64 [ %ref.tmp.sroa.10.3, %if.end.i ], [ %ref.tmp.sroa.10.0, %_ZN2EA4StdCgeERKNS0_9uint128_tES3_.exit.thread.i ]
+land.lhs.true.i:                                  ; preds = %if.end.i
   %cmp.i41.i = icmp eq i64 %ref.tmp.sroa.0.1, 0
   %cmp2.i43.i = icmp eq i64 %ref.tmp.sroa.10.1, 0
   %6 = select i1 %cmp.i41.i, i1 %cmp2.i43.i, i1 false
@@ -5545,10 +5540,10 @@ for.inc.i:                                        ; preds = %if.then19.i, %land.
   br label %for.body.i
 
 _ZNK2EA4StdC9uint128_t7ModulusERKS1_RS1_S4_.exit: ; preds = %if.end.i, %if.else.i, %entry
-  %ref.tmp.sroa.0.4 = phi i64 [ 0, %entry ], [ 0, %if.else.i ], [ %ref.tmp.sroa.0.3, %if.end.i ]
-  %ref.tmp.sroa.10.4 = phi i64 [ 0, %entry ], [ 0, %if.else.i ], [ %ref.tmp.sroa.10.3, %if.end.i ]
-  store i64 %ref.tmp.sroa.10.4, ptr %mPart1.i.i.i, align 8
-  store i64 %ref.tmp.sroa.0.4, ptr %this, align 8
+  %ref.tmp.sroa.0.3 = phi i64 [ 0, %entry ], [ 0, %if.else.i ], [ %ref.tmp.sroa.0.1, %if.end.i ]
+  %ref.tmp.sroa.10.3 = phi i64 [ 0, %entry ], [ 0, %if.else.i ], [ %ref.tmp.sroa.10.1, %if.end.i ]
+  store i64 %ref.tmp.sroa.10.3, ptr %mPart1.i.i.i, align 8
+  store i64 %ref.tmp.sroa.0.3, ptr %this, align 8
   ret ptr %this
 }
 
@@ -6294,17 +6289,18 @@ while.end.thread:                                 ; preds = %if.then34
 
 for.body.i.preheader:                             ; preds = %if.then34, %_ZN2EA4StdC9uint128_tdVERKS1_.exit
   %pValue.addr.5126 = phi ptr [ %incdec.ptr36, %_ZN2EA4StdC9uint128_tdVERKS1_.exit ], [ %pValue, %if.then34 ]
-  %value.sroa.6.0125 = phi i64 [ %ref.tmp.sroa.7.4.i, %_ZN2EA4StdC9uint128_tdVERKS1_.exit ], [ %5, %if.then34 ]
-  %value.sroa.0.0124 = phi i64 [ %ref.tmp.sroa.0.4.i, %_ZN2EA4StdC9uint128_tdVERKS1_.exit ], [ %6, %if.then34 ]
+  %value.sroa.6.0125 = phi i64 [ %ref.tmp.sroa.7.3.i, %_ZN2EA4StdC9uint128_tdVERKS1_.exit ], [ %5, %if.then34 ]
+  %value.sroa.0.0124 = phi i64 [ %ref.tmp.sroa.0.3.i, %_ZN2EA4StdC9uint128_tdVERKS1_.exit ], [ %6, %if.then34 ]
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i.preheader, %for.inc.i
   %remainder.sroa.0.1 = phi i64 [ %remainder.sroa.0.3, %for.inc.i ], [ 0, %for.body.i.preheader ]
   %remainder.sroa.10.1 = phi i64 [ %remainder.sroa.10.3, %for.inc.i ], [ 0, %for.body.i.preheader ]
   %i.054.i = phi i32 [ %inc.i, %for.inc.i ], [ 0, %for.body.i.preheader ]
-  %rem.i53.cmp.i = icmp samesign ugt i32 %i.054.i, 63
-  %rem.i53.v.i = select i1 %rem.i53.cmp.i, i32 127, i32 63
-  %rem.i53.i = sub nsw i32 %rem.i53.v.i, %i.054.i
+  %sub.i = xor i32 %i.054.i, 127
+  %rem.i53.urem.i = sub nsw i32 63, %i.054.i
+  %rem.i53.cmp.i = icmp samesign ult i32 %sub.i, 64
+  %rem.i53.i = select i1 %rem.i53.cmp.i, i32 %sub.i, i32 %rem.i53.urem.i
   %sh_prom.i.i = zext nneg i32 %rem.i53.i to i64
   %retval.0.i.v.v.v.i = select i1 %rem.i53.cmp.i, i64 %value.sroa.0.0124, i64 %value.sroa.6.0125
   %retval.0.i.v.v.i = lshr i64 %retval.0.i.v.v.v.i, %sh_prom.i.i
@@ -6313,26 +6309,15 @@ for.body.i:                                       ; preds = %for.body.i.preheade
   %cmp.i.i32.i = icmp eq i64 %remainder.sroa.10.1, 0
   %or.cond.not.i.i = icmp ult i64 %add.i.i.i, 10
   %or.cond81 = and i1 %cmp.i.i32.i, %or.cond.not.i.i
-  br i1 %or.cond81, label %_ZN2EA4StdCgeERKNS0_9uint128_tES3_.exit.thread.i, label %_ZN2EA4StdCgeERKNS0_9uint128_tES3_.exit.i
-
-_ZN2EA4StdCgeERKNS0_9uint128_tES3_.exit.i:        ; preds = %for.body.i
   %sub.i.i.i = add i64 %add.i.i.i, -10
   %conv.neg.i.i.i = sext i1 %or.cond.not.i.i to i64
   %sub7.i.i.i = add i64 %remainder.sroa.10.1, %conv.neg.i.i.i
-  br label %if.end.i
-
-_ZN2EA4StdCgeERKNS0_9uint128_tES3_.exit.thread.i: ; preds = %for.body.i
-  br i1 %rem.i53.cmp.i, label %if.end.i, label %land.lhs.true.i
-
-if.end.i:                                         ; preds = %_ZN2EA4StdCgeERKNS0_9uint128_tES3_.exit.thread.i, %_ZN2EA4StdCgeERKNS0_9uint128_tES3_.exit.i
-  %remainder.sroa.0.4 = phi i64 [ %sub.i.i.i, %_ZN2EA4StdCgeERKNS0_9uint128_tES3_.exit.i ], [ %add.i.i.i, %_ZN2EA4StdCgeERKNS0_9uint128_tES3_.exit.thread.i ]
-  %remainder.sroa.10.4 = phi i64 [ %sub7.i.i.i, %_ZN2EA4StdCgeERKNS0_9uint128_tES3_.exit.i ], [ 0, %_ZN2EA4StdCgeERKNS0_9uint128_tES3_.exit.thread.i ]
+  %remainder.sroa.0.2 = select i1 %or.cond81, i64 %add.i.i.i, i64 %sub.i.i.i
+  %remainder.sroa.10.2 = select i1 %or.cond81, i64 0, i64 %sub7.i.i.i
   %cmp17.not.i = icmp eq i32 %i.054.i, 127
   br i1 %cmp17.not.i, label %if.else.i.i, label %land.lhs.true.i
 
-land.lhs.true.i:                                  ; preds = %_ZN2EA4StdCgeERKNS0_9uint128_tES3_.exit.thread.i, %if.end.i
-  %remainder.sroa.0.2 = phi i64 [ %remainder.sroa.0.4, %if.end.i ], [ %add.i.i.i, %_ZN2EA4StdCgeERKNS0_9uint128_tES3_.exit.thread.i ]
-  %remainder.sroa.10.2 = phi i64 [ %remainder.sroa.10.4, %if.end.i ], [ 0, %_ZN2EA4StdCgeERKNS0_9uint128_tES3_.exit.thread.i ]
+land.lhs.true.i:                                  ; preds = %for.body.i
   %8 = or i64 %remainder.sroa.10.2, %remainder.sroa.0.2
   %9 = icmp eq i64 %8, 0
   br i1 %9, label %for.inc.i, label %if.then19.i
@@ -6348,8 +6333,8 @@ for.inc.i:                                        ; preds = %if.then19.i, %land.
   %inc.i = add nuw nsw i32 %i.054.i, 1
   br label %for.body.i
 
-if.else.i.i:                                      ; preds = %if.end.i
-  %10 = trunc i64 %remainder.sroa.0.4 to i8
+if.else.i.i:                                      ; preds = %for.body.i
+  %10 = trunc i64 %remainder.sroa.0.2 to i8
   %conv = add i8 %10, 48
   %incdec.ptr36 = getelementptr inbounds nuw i8, ptr %pValue.addr.5126, i64 1
   store i8 %conv, ptr %pValue.addr.5126, align 1
@@ -6363,9 +6348,10 @@ for.body.i.i:                                     ; preds = %if.else.i.i, %for.i
   %ref.tmp.sroa.0.0.i = phi i64 [ %ref.tmp.sroa.0.1.i, %for.inc.i.i ], [ 0, %if.else.i.i ]
   %ref.tmp.sroa.7.0.i = phi i64 [ %ref.tmp.sroa.7.1.i, %for.inc.i.i ], [ 0, %if.else.i.i ]
   %i.054.i.i = phi i32 [ %inc.i.i, %for.inc.i.i ], [ 0, %if.else.i.i ]
-  %rem.i53.cmp.i.i = icmp samesign ugt i32 %i.054.i.i, 63
-  %rem.i53.v.i.i = select i1 %rem.i53.cmp.i.i, i32 127, i32 63
-  %rem.i53.i.i = sub nsw i32 %rem.i53.v.i.i, %i.054.i.i
+  %sub.i.i = xor i32 %i.054.i.i, 127
+  %rem.i53.urem.i.i = sub nsw i32 63, %i.054.i.i
+  %rem.i53.cmp.i.i = icmp samesign ult i32 %sub.i.i, 64
+  %rem.i53.i.i = select i1 %rem.i53.cmp.i.i, i32 %sub.i.i, i32 %rem.i53.urem.i.i
   %sh_prom.i.i.i = zext nneg i32 %rem.i53.i.i to i64
   %retval.0.i.v.v.v.i.i = select i1 %rem.i53.cmp.i.i, i64 %value.sroa.0.0124, i64 %value.sroa.6.0125
   %retval.0.i.v.v.i.i = lshr i64 %retval.0.i.v.v.v.i.i, %sh_prom.i.i.i
@@ -6379,9 +6365,9 @@ for.body.i.i:                                     ; preds = %if.else.i.i, %for.i
 
 _ZN2EA4StdCgeERKNS0_9uint128_tES3_.exit.i.i:      ; preds = %for.body.i.i
   %or.i.i.i = select i1 %rem.i53.cmp.i.i, i64 %shl.i56.i.i, i64 0
-  %ref.tmp.sroa.0.3.i = or i64 %or.i.i.i, %ref.tmp.sroa.0.0.i
+  %ref.tmp.sroa.0.2.i = or i64 %or.i.i.i, %ref.tmp.sroa.0.0.i
   %or11.i.i.i = select i1 %rem.i53.cmp.i.i, i64 0, i64 %shl.i56.i.i
-  %ref.tmp.sroa.7.3.i = or i64 %or11.i.i.i, %ref.tmp.sroa.7.0.i
+  %ref.tmp.sroa.7.2.i = or i64 %or11.i.i.i, %ref.tmp.sroa.7.0.i
   %sub.i.i.i.i = add i64 %add.i.i.i.i, -10
   %conv.neg.i.i.i.i = sext i1 %or.cond.not.i.i.i to i64
   %sub7.i.i.i.i = add i64 %remainder.i.sroa.11.0.i, %conv.neg.i.i.i.i
@@ -6389,29 +6375,25 @@ _ZN2EA4StdCgeERKNS0_9uint128_tES3_.exit.i.i:      ; preds = %for.body.i.i
 
 _ZN2EA4StdCgeERKNS0_9uint128_tES3_.exit.thread.i.i: ; preds = %for.body.i.i
   %not.i.i.i = xor i64 %shl.i56.i.i, -1
-  br i1 %rem.i53.cmp.i.i, label %if.else.i38.i.i, label %if.end.thread.i.i
+  br i1 %rem.i53.cmp.i.i, label %if.else.i38.i.i, label %if.else13.i.i.i
 
 if.else.i38.i.i:                                  ; preds = %_ZN2EA4StdCgeERKNS0_9uint128_tES3_.exit.thread.i.i
   %and.i.i.i = and i64 %ref.tmp.sroa.0.0.i, %not.i.i.i
   br label %if.end.i.i
 
-if.end.thread.i.i:                                ; preds = %_ZN2EA4StdCgeERKNS0_9uint128_tES3_.exit.thread.i.i
+if.else13.i.i.i:                                  ; preds = %_ZN2EA4StdCgeERKNS0_9uint128_tES3_.exit.thread.i.i
   %and16.i.i.i = and i64 %ref.tmp.sroa.7.0.i, %not.i.i.i
-  br label %land.lhs.true.i.i
+  br label %if.end.i.i
 
-if.end.i.i:                                       ; preds = %if.else.i38.i.i, %_ZN2EA4StdCgeERKNS0_9uint128_tES3_.exit.i.i
-  %remainder.i.sroa.0.3.i = phi i64 [ %add.i.i.i.i, %if.else.i38.i.i ], [ %sub.i.i.i.i, %_ZN2EA4StdCgeERKNS0_9uint128_tES3_.exit.i.i ]
-  %remainder.i.sroa.11.3.i = phi i64 [ 0, %if.else.i38.i.i ], [ %sub7.i.i.i.i, %_ZN2EA4StdCgeERKNS0_9uint128_tES3_.exit.i.i ]
-  %ref.tmp.sroa.0.2.i = phi i64 [ %and.i.i.i, %if.else.i38.i.i ], [ %ref.tmp.sroa.0.3.i, %_ZN2EA4StdCgeERKNS0_9uint128_tES3_.exit.i.i ]
-  %ref.tmp.sroa.7.2.i = phi i64 [ %ref.tmp.sroa.7.0.i, %if.else.i38.i.i ], [ %ref.tmp.sroa.7.3.i, %_ZN2EA4StdCgeERKNS0_9uint128_tES3_.exit.i.i ]
+if.end.i.i:                                       ; preds = %if.else13.i.i.i, %if.else.i38.i.i, %_ZN2EA4StdCgeERKNS0_9uint128_tES3_.exit.i.i
+  %remainder.i.sroa.0.1.i = phi i64 [ %add.i.i.i.i, %if.else.i38.i.i ], [ %add.i.i.i.i, %if.else13.i.i.i ], [ %sub.i.i.i.i, %_ZN2EA4StdCgeERKNS0_9uint128_tES3_.exit.i.i ]
+  %remainder.i.sroa.11.1.i = phi i64 [ 0, %if.else.i38.i.i ], [ 0, %if.else13.i.i.i ], [ %sub7.i.i.i.i, %_ZN2EA4StdCgeERKNS0_9uint128_tES3_.exit.i.i ]
+  %ref.tmp.sroa.0.1.i = phi i64 [ %and.i.i.i, %if.else.i38.i.i ], [ %ref.tmp.sroa.0.0.i, %if.else13.i.i.i ], [ %ref.tmp.sroa.0.2.i, %_ZN2EA4StdCgeERKNS0_9uint128_tES3_.exit.i.i ]
+  %ref.tmp.sroa.7.1.i = phi i64 [ %ref.tmp.sroa.7.0.i, %if.else.i38.i.i ], [ %and16.i.i.i, %if.else13.i.i.i ], [ %ref.tmp.sroa.7.2.i, %_ZN2EA4StdCgeERKNS0_9uint128_tES3_.exit.i.i ]
   %cmp17.not.i.i = icmp eq i32 %i.054.i.i, 127
   br i1 %cmp17.not.i.i, label %_ZN2EA4StdC9uint128_tdVERKS1_.exit, label %land.lhs.true.i.i
 
-land.lhs.true.i.i:                                ; preds = %if.end.i.i, %if.end.thread.i.i
-  %remainder.i.sroa.0.1.i = phi i64 [ %remainder.i.sroa.0.3.i, %if.end.i.i ], [ %add.i.i.i.i, %if.end.thread.i.i ]
-  %remainder.i.sroa.11.1.i = phi i64 [ %remainder.i.sroa.11.3.i, %if.end.i.i ], [ 0, %if.end.thread.i.i ]
-  %ref.tmp.sroa.0.1.i = phi i64 [ %ref.tmp.sroa.0.2.i, %if.end.i.i ], [ %ref.tmp.sroa.0.0.i, %if.end.thread.i.i ]
-  %ref.tmp.sroa.7.1.i = phi i64 [ %ref.tmp.sroa.7.2.i, %if.end.i.i ], [ %and16.i.i.i, %if.end.thread.i.i ]
+land.lhs.true.i.i:                                ; preds = %if.end.i.i
   %cmp.i41.i.i = icmp eq i64 %remainder.i.sroa.0.1.i, 0
   %cmp2.i43.i.i = icmp eq i64 %remainder.i.sroa.11.1.i, 0
   %13 = select i1 %cmp.i41.i.i, i1 %cmp2.i43.i.i, i1 false
@@ -6429,15 +6411,15 @@ for.inc.i.i:                                      ; preds = %if.then19.i.i, %lan
   br label %for.body.i.i
 
 _ZN2EA4StdC9uint128_tdVERKS1_.exit:               ; preds = %if.end.i.i, %if.else.i.i
-  %ref.tmp.sroa.0.4.i = phi i64 [ 0, %if.else.i.i ], [ %ref.tmp.sroa.0.2.i, %if.end.i.i ]
-  %ref.tmp.sroa.7.4.i = phi i64 [ 0, %if.else.i.i ], [ %ref.tmp.sroa.7.2.i, %if.end.i.i ]
-  %cmp.i.i = icmp eq i64 %ref.tmp.sroa.7.4.i, 0
-  %or.cond.not.i = icmp ult i64 %ref.tmp.sroa.0.4.i, 10
+  %ref.tmp.sroa.0.3.i = phi i64 [ 0, %if.else.i.i ], [ %ref.tmp.sroa.0.1.i, %if.end.i.i ]
+  %ref.tmp.sroa.7.3.i = phi i64 [ 0, %if.else.i.i ], [ %ref.tmp.sroa.7.1.i, %if.end.i.i ]
+  %cmp.i.i = icmp eq i64 %ref.tmp.sroa.7.3.i, 0
+  %or.cond.not.i = icmp ult i64 %ref.tmp.sroa.0.3.i, 10
   %or.cond = select i1 %cmp.i.i, i1 %or.cond.not.i, i1 false
   br i1 %or.cond, label %while.end, label %for.body.i.preheader, !llvm.loop !57
 
 while.end:                                        ; preds = %_ZN2EA4StdC9uint128_tdVERKS1_.exit
-  %14 = trunc nuw i64 %ref.tmp.sroa.0.4.i to i8
+  %14 = trunc nuw i64 %ref.tmp.sroa.0.3.i to i8
   %conv40 = or disjoint i8 %14, 48
   %incdec.ptr41 = getelementptr inbounds nuw i8, ptr %pValue.addr.5126, i64 2
   store i8 %conv40, ptr %incdec.ptr36, align 1

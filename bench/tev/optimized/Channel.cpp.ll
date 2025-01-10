@@ -23810,13 +23810,13 @@ _ZN3fmt2v96detail6bufferIjE9push_backERKj.exit.i135: ; preds = %.noexc139, %119
           cleanup
   br label %.body
 
-.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; preds = %_ZN3fmt2v96detail6bigintlSEi.exit140, %158, %_ZN3fmt2v96detail6bigintlSEi.exit239, %._crit_edge, %45, %68, %76, %95, %104, %124, %149, %_ZN3fmt2v919basic_memory_bufferIjLm32ENSt3__19allocatorIjEEE6resizeEm.exit.thread.i, %_ZN3fmt2v919basic_memory_bufferIjLm32ENSt3__19allocatorIjEEE6resizeEm.exit.thread.i158, %193, %244, %252, %272, %288, %306, %336, %344, %353, %442, %466, %490, %504, %666, %763, %816, %828
+.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; preds = %_ZN3fmt2v96detail6bigintlSEi.exit140, %158, %_ZN3fmt2v96detail6bigintlSEi.exit239, %._crit_edge, %45, %68, %76, %95, %104, %124, %149, %_ZN3fmt2v919basic_memory_bufferIjLm32ENSt3__19allocatorIjEEE6resizeEm.exit.thread.i, %_ZN3fmt2v919basic_memory_bufferIjLm32ENSt3__19allocatorIjEEE6resizeEm.exit.thread.i158, %193, %244, %252, %272, %288, %306, %336, %344, %353, %442, %466, %490, %505, %666, %763, %816, %828
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
-.body:                                            ; preds = %.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %505
-  %eh.lpad-body = phi { ptr, i32 } [ %506, %505 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit537, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit540, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+.body:                                            ; preds = %.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %506
+  %eh.lpad-body = phi { ptr, i32 } [ %507, %506 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit537, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit540, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   %130 = load ptr, ptr %25, align 8
   %.not.i.i.i = icmp eq ptr %130, %28
   br i1 %.not.i.i.i, label %_ZN3fmt2v96detail6bigintD2Ev.exit, label %131
@@ -24720,34 +24720,34 @@ _ZN3fmt2v96detail6bigintmLIiEERS2_T_.exit303:     ; preds = %_ZN3fmt2v96detail6b
 
 497:                                              ; preds = %_ZN3fmt2v96detail6bigintmLIiEERS2_T_.exit303
   %498 = load i32, ptr %4, align 4
-  %499 = icmp sgt i32 %498, -1
-  %500 = sub nsw i32 2147483646, %498
-  %501 = icmp sgt i32 %2, %500
-  %or.cond.i304 = select i1 %499, i1 %501, i1 false
-  br i1 %or.cond.i304, label %502, label %_ZN3fmt2v96detail16adjust_precisionERii.exit
+  %499 = add nsw i32 %498, 1
+  %500 = icmp sgt i32 %498, -1
+  %501 = xor i32 %499, 2147483647
+  %502 = icmp sgt i32 %2, %501
+  %or.cond.i304 = select i1 %500, i1 %502, i1 false
+  br i1 %or.cond.i304, label %503, label %_ZN3fmt2v96detail16adjust_precisionERii.exit
 
-502:                                              ; preds = %497
-  %503 = call ptr @__cxa_allocate_exception(i64 16) #22
-  invoke void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %503, ptr noundef nonnull @.str.65)
-          to label %504 unwind label %505
+503:                                              ; preds = %497
+  %504 = call ptr @__cxa_allocate_exception(i64 16) #22
+  invoke void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %504, ptr noundef nonnull @.str.65)
+          to label %505 unwind label %506
 
-504:                                              ; preds = %502
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3fmt2v912format_errorE, i64 16), ptr %503, align 8
-  invoke void @__cxa_throw(ptr nonnull %503, ptr nonnull @_ZTIN3fmt2v912format_errorE, ptr nonnull @_ZN3fmt2v912format_errorD2Ev) #27
+505:                                              ; preds = %503
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3fmt2v912format_errorE, i64 16), ptr %504, align 8
+  invoke void @__cxa_throw(ptr nonnull %504, ptr nonnull @_ZTIN3fmt2v912format_errorE, ptr nonnull @_ZN3fmt2v912format_errorD2Ev) #27
           to label %.noexc305 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
-.noexc305:                                        ; preds = %504
+.noexc305:                                        ; preds = %505
   unreachable
 
-505:                                              ; preds = %502
-  %506 = landingpad { ptr, i32 }
+506:                                              ; preds = %503
+  %507 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %503) #22
+  call void @__cxa_free_exception(ptr %504) #22
   br label %.body
 
 _ZN3fmt2v96detail16adjust_precisionERii.exit:     ; preds = %497
-  %507 = add i32 %2, 1
-  %508 = add i32 %507, %498
+  %508 = add nsw i32 %499, %2
   br label %509
 
 509:                                              ; preds = %_ZN3fmt2v96detail16adjust_precisionERii.exit, %_ZN3fmt2v96detail6bigintmLIiEERS2_T_.exit303, %_ZN3fmt2v96detail6bigintlSEi.exit153
@@ -39613,9 +39613,9 @@ _ZN3fmt2v96detail9normalizeILi0EyEENS1_8basic_fpIT0_EES5_.exit: ; preds = %.lr.p
 110:                                              ; preds = %_ZN3fmt2v96detail9normalizeILi0EyEENS1_8basic_fpIT0_EES5_.exit
   %111 = add nsw i32 %93, %109
   %112 = icmp sgt i32 %111, 0
-  %113 = sub nuw nsw i32 2147483647, %111
+  %113 = xor i32 %111, 2147483647
   %114 = icmp sgt i32 %1, %113
-  %or.cond.i = select i1 %112, i1 %114, i1 false
+  %or.cond.i = and i1 %112, %114
   br i1 %or.cond.i, label %115, label %_ZN3fmt2v96detail16adjust_precisionERii.exit
 
 115:                                              ; preds = %110

@@ -10055,7 +10055,7 @@ _ZN5Eigen10MatrixBaseINS_5BlockINS1_INS_6MatrixIdLin1ELi2ELi1ELin1ELi2EEELin1ELi
   br label %158
 
 158:                                              ; preds = %157, %_ZN5Eigen10MatrixBaseINS_5BlockINS1_INS_6MatrixIdLin1ELi2ELi1ELin1ELi2EEELin1ELi1ELb0EEELin1ELi1ELb0EEEE22makeHouseholderInPlaceERdS7_.exit
-  %159 = sub nuw nsw i64 1, %.083187
+  %159 = xor i64 %.083187, 1
   call void @llvm.experimental.noalias.scope.decl(metadata !257)
   %160 = load i64, ptr %4, align 8, !noalias !257
   %161 = sub nsw i64 %160, %114
@@ -20890,7 +20890,7 @@ _ZNK5Eigen9DenseBaseINS_5BlockINS_6MatrixIdLi1ELin1ELi1ELi1ELin1EEELi1ELin1ELb0E
   %140 = mul nsw i64 %139, %.083163
   %141 = getelementptr inbounds double, ptr %137, i64 %140
   %142 = getelementptr inbounds nuw double, ptr %6, i64 %.083163
-  %143 = sub nuw nsw i64 1, %.083163
+  %143 = xor i64 %.083163, 1
   %144 = getelementptr inbounds double, ptr %141, i64 %139
   %or.cond.i.i = icmp eq i64 %.083163, 1
   br i1 %or.cond.i.i, label %.thread.i, label %_ZNK5Eigen10MatrixBaseINS_5BlockIKNS1_INS1_INS_6MatrixIdLi2ELin1ELi1ELi2ELin1EEELi2ELi1ELb0EEELin1ELi1ELb0EEELin1ELi1ELb0EEEE11squaredNormEv.exit.i.i

@@ -365,9 +365,9 @@ define internal fastcc void @"_ZZN5ZXing6Pdf417L22GetClosestDecodedValueERKSt5ar
   store ptr %1, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6Pdf417L22GetClosestDecodedValueERKSt5arrayIiLm8EEE10ratioTable, i64 8), align 8
   br label %3
 
-3:                                                ; preds = %2, %21
-  %indvars.iv14 = phi i64 [ 0, %2 ], [ %indvars.iv.next15, %21 ]
-  %4 = getelementptr inbounds nuw [2787 x i16], ptr @_ZN5ZXing6Pdf417L12SYMBOL_TABLEE, i64 0, i64 %indvars.iv14
+3:                                                ; preds = %2, %23
+  %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %23 ]
+  %4 = getelementptr inbounds nuw [2787 x i16], ptr @_ZN5ZXing6Pdf417L12SYMBOL_TABLEE, i64 0, i64 %indvars.iv
   %5 = load i16, ptr %4, align 2
   %6 = zext i16 %5 to i32
   %7 = or disjoint i32 %6, 65536
@@ -375,7 +375,7 @@ define internal fastcc void @"_ZZN5ZXing6Pdf417L22GetClosestDecodedValueERKSt5ar
   br label %.preheader
 
 .preheader:                                       ; preds = %3, %._crit_edge
-  %indvars.iv = phi i64 [ 0, %3 ], [ %indvars.iv.next, %._crit_edge ]
+  %.0168 = phi i32 [ 0, %3 ], [ %22, %._crit_edge ]
   %.0177 = phi i32 [ %8, %3 ], [ %.lcssa, %._crit_edge ]
   %.0186 = phi i32 [ %7, %3 ], [ %.1.lcssa, %._crit_edge ]
   %9 = and i32 %.0186, 1
@@ -401,20 +401,21 @@ define internal fastcc void @"_ZZN5ZXing6Pdf417L22GetClosestDecodedValueERKSt5ar
   %.lcssa = phi i32 [ %9, %.preheader ], [ %13, %._crit_edge.loopexit ]
   %16 = fdiv float %.0.lcssa, 1.700000e+01
   %17 = load ptr, ptr @_ZZN5ZXing6Pdf417L22GetClosestDecodedValueERKSt5arrayIiLm8EEE10ratioTable, align 8
-  %18 = getelementptr inbounds nuw %"struct.std::array.1", ptr %17, i64 %indvars.iv14
-  %19 = sub nuw nsw i64 7, %indvars.iv
-  %20 = getelementptr inbounds nuw [8 x float], ptr %18, i64 0, i64 %19
-  store float %16, ptr %20, align 4
+  %18 = getelementptr inbounds nuw %"struct.std::array.1", ptr %17, i64 %indvars.iv
+  %19 = xor i32 %.0168, 7
+  %20 = zext nneg i32 %19 to i64
+  %21 = getelementptr inbounds nuw [8 x float], ptr %18, i64 0, i64 %20
+  store float %16, ptr %21, align 4
+  %22 = add nuw nsw i32 %.0168, 1
+  %exitcond.not = icmp eq i32 %22, 8
+  br i1 %exitcond.not, label %23, label %.preheader, !llvm.loop !19
+
+23:                                               ; preds = %._crit_edge
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond.not, label %21, label %.preheader, !llvm.loop !19
+  %exitcond14.not = icmp eq i64 %indvars.iv.next, 2787
+  br i1 %exitcond14.not, label %24, label %3, !llvm.loop !20
 
-21:                                               ; preds = %._crit_edge
-  %indvars.iv.next15 = add nuw nsw i64 %indvars.iv14, 1
-  %exitcond17.not = icmp eq i64 %indvars.iv.next15, 2787
-  br i1 %exitcond17.not, label %22, label %3, !llvm.loop !20
-
-22:                                               ; preds = %21
+24:                                               ; preds = %23
   ret void
 }
 

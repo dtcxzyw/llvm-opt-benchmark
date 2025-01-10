@@ -838,7 +838,7 @@ common.resume:                                    ; preds = %25, %.body, %16
   %26 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h1a8dc4668ceb4783E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %10) #32
-          to label %common.resume unwind label %63
+          to label %common.resume unwind label %61
 
 27:                                               ; preds = %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7a2850656f4f6ccaE.exit"
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10)
@@ -877,8 +877,8 @@ common.resume:                                    ; preds = %25, %.body, %16
 
 36:                                               ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hb11464bd8a11e3dbE.exit.i.i", %.lr.ph.i.i
   %37 = phi i64 [ %33, %.lr.ph.i.i ], [ %51, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hb11464bd8a11e3dbE.exit.i.i" ]
-  %.sroa.05.013.i.i = phi i64 [ %12, %.lr.ph.i.i ], [ %37, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hb11464bd8a11e3dbE.exit.i.i" ]
-  %38 = icmp ult i64 %.sroa.05.013.i.i, 3
+  %.sroa.05.012.i.i = phi i64 [ %12, %.lr.ph.i.i ], [ %37, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hb11464bd8a11e3dbE.exit.i.i" ]
+  %38 = icmp ult i64 %.sroa.05.012.i.i, 3
   br i1 %38, label %switch.lookup18, label %.loopexit
 
 switch.lookup18:                                  ; preds = %36
@@ -905,9 +905,9 @@ switch.lookup18:                                  ; preds = %36
           to label %.body unwind label %42, !noalias !196
 
 switch.lookup20:                                  ; preds = %switch.lookup18
-  %switch.gep21 = getelementptr inbounds nuw [3 x ptr], ptr @"switch.table._ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter_nested..SpecFromIterNested$LT$T$C$I$GT$$GT$9from_iter17h363ac85da1581709E.llvm.17316549881917752266.53", i64 0, i64 %.sroa.05.013.i.i
+  %switch.gep21 = getelementptr inbounds nuw [3 x ptr], ptr @"switch.table._ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter_nested..SpecFromIterNested$LT$T$C$I$GT$$GT$9from_iter17h363ac85da1581709E.llvm.17316549881917752266.53", i64 0, i64 %.sroa.05.012.i.i
   %switch.load22 = load ptr, ptr %switch.gep21, align 8
-  %switch.gep23 = getelementptr inbounds nuw [3 x i64], ptr @"switch.table._ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter_nested..SpecFromIterNested$LT$T$C$I$GT$$GT$9from_iter17h363ac85da1581709E.llvm.17316549881917752266.54", i64 0, i64 %.sroa.05.013.i.i
+  %switch.gep23 = getelementptr inbounds nuw [3 x i64], ptr @"switch.table._ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter_nested..SpecFromIterNested$LT$T$C$I$GT$$GT$9from_iter17h363ac85da1581709E.llvm.17316549881917752266.54", i64 0, i64 %.sroa.05.012.i.i
   %switch.load24 = load i64, ptr %switch.gep23, align 8
   %40 = invoke noundef zeroext i1 @"_ZN42_$LT$str$u20$as$u20$core..fmt..Display$GT$3fmt17hc2aaa223287dde65E"(ptr noalias noundef nonnull readonly align 1 %switch.load22, i64 noundef %switch.load24, ptr noalias noundef nonnull align 8 dereferenceable(64) %5)
           to label %"_ZN73_$LT$ockam_abac..resource..ResourceType$u20$as$u20$core..fmt..Display$GT$3fmt17h39bcde56c49f46f2E.exit.i.i.i.i.i.i" unwind label %.loopexit.i.i, !noalias !196
@@ -947,7 +947,7 @@ switch.lookup20:                                  ; preds = %switch.lookup18
   %47 = icmp eq i64 %45, %46
   br i1 %47, label %55, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hb11464bd8a11e3dbE.exit.i.i"
 
-"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hb11464bd8a11e3dbE.exit.i.i": ; preds = %60, %55, %44
+"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hb11464bd8a11e3dbE.exit.i.i": ; preds = %55, %44
   %48 = load ptr, ptr %11, align 8, !alias.scope !199, !nonnull !4, !noundef !4
   %49 = getelementptr inbounds { { { ptr, i64 }, i64 } }, ptr %48, i64 %45
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %49, ptr noundef nonnull align 8 dereferenceable(24) %7, i64 24, i1 false)
@@ -961,26 +961,21 @@ switch.lookup20:                                  ; preds = %switch.lookup18
   %52 = icmp ugt i64 %.reass.i.i, 3
   br i1 %52, label %.loopexit, label %36
 
-53:                                               ; preds = %60
+53:                                               ; preds = %55
   %54 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h1a8dc4668ceb4783E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %7) #32
-          to label %.body unwind label %61
+          to label %.body unwind label %59
 
 55:                                               ; preds = %44
   %56 = add i64 %37, %2
-  %57 = icmp ugt i64 %56, 2
-  %58 = sub i64 4, %56
-  %59 = select i1 %57, i64 1, i64 %58
-  %.not12.i.i = icmp eq i64 %59, 0
-  br i1 %.not12.i.i, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hb11464bd8a11e3dbE.exit.i.i", label %60
-
-60:                                               ; preds = %55
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$7reserve21do_reserve_and_handle17hbdead17bf6eec748E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %11, i64 noundef %45, i64 noundef range(i64 1, 0) %59)
+  %57 = call i64 @llvm.umin.i64(i64 %56, i64 3)
+  %58 = sub nuw nsw i64 4, %57
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$7reserve21do_reserve_and_handle17hbdead17bf6eec748E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %11, i64 noundef %45, i64 noundef range(i64 1, 0) %58)
           to label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hb11464bd8a11e3dbE.exit.i.i" unwind label %53
 
-61:                                               ; preds = %53
-  %62 = landingpad { ptr, i32 }
+59:                                               ; preds = %53
+  %60 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hceade526831b1e89E() #33
   unreachable
@@ -988,15 +983,15 @@ switch.lookup20:                                  ; preds = %switch.lookup18
 .body:                                            ; preds = %39, %53
   %eh.lpad-body = phi { ptr, i32 } [ %lpad.phi.i.i, %39 ], [ %54, %53 ]
   invoke void @"_ZN4core3ptr65drop_in_place$LT$alloc..vec..Vec$LT$alloc..string..String$GT$$GT$17h15994deaeaf2094aE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %11) #32
-          to label %common.resume unwind label %63
+          to label %common.resume unwind label %61
 
 .loopexit:                                        ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hb11464bd8a11e3dbE.exit.i.i", %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7a2850656f4f6ccaE.exit.i.i", %36, %29
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.8.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %11, i64 24, i1 false)
   br label %24
 
-63:                                               ; preds = %25, %.body
-  %64 = landingpad { ptr, i32 }
+61:                                               ; preds = %25, %.body
+  %62 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hceade526831b1e89E() #33
   unreachable
@@ -12211,13 +12206,13 @@ declare void @llvm.experimental.noalias.scope.decl(metadata) #30
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #31
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.umin.i64(i64, i64) #28
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i8 @llvm.ucmp.i8.i64(i64, i64) #28
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #28
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #28
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i8 @llvm.scmp.i8.i64(i64, i64) #28

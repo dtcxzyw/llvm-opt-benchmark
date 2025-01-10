@@ -2487,7 +2487,7 @@ define ptr @gpu_p_test_cpu_conv(ptr noundef %0) local_unnamed_addr #0 {
 8:                                                ; preds = %7
   %9 = tail call i32 (ptr, ...) @slurm_error(ptr noundef nonnull @.str.6) #12
   %10 = tail call ptr @slurm_xstrdup(ptr noundef nonnull @.str.7) #12
-  br label %66
+  br label %67
 
 11:                                               ; preds = %7
   %12 = load i8, ptr %0, align 1
@@ -2506,7 +2506,7 @@ define ptr @gpu_p_test_cpu_conv(ptr noundef %0) local_unnamed_addr #0 {
 15:                                               ; preds = %11
   %16 = tail call i32 (ptr, ...) @slurm_error(ptr noundef nonnull @.str.8) #12
   %17 = tail call ptr @slurm_xstrdup(ptr noundef nonnull @.str.7) #12
-  br label %66
+  br label %67
 
 18:                                               ; preds = %.preheader48.preheader
   %19 = tail call i32 @slurm_xstrcmp(ptr noundef nonnull %0, ptr noundef nonnull @.str.10) #12
@@ -2548,7 +2548,7 @@ define ptr @gpu_p_test_cpu_conv(ptr noundef %0) local_unnamed_addr #0 {
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %35 = load i8, ptr %34, align 1
   %36 = icmp eq i8 %35, 88
-  br i1 %36, label %37, label %47
+  br i1 %36, label %37, label %48
 
 37:                                               ; preds = %33
   %38 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %34) #14
@@ -2569,59 +2569,60 @@ define ptr @gpu_p_test_cpu_conv(ptr noundef %0) local_unnamed_addr #0 {
   %44 = shl nuw nsw i64 %spec.select45, 3
   %scevgep = getelementptr i8, ptr %2, i64 %44
   %45 = shl nuw nsw i64 %spec.select45, 3
-  %46 = sub nuw nsw i64 4096, %45
-  call void @llvm.memset.p0.i64(ptr align 8 %scevgep, i8 0, i64 %46, i1 false)
+  %46 = xor i64 %45, 4088
+  %47 = add nuw nsw i64 %46, 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %scevgep, i8 0, i64 %47, i1 false)
   br label %.loopexit.preheader
 
-47:                                               ; preds = %33
-  %48 = tail call i32 (ptr, ...) @slurm_error(ptr noundef nonnull @.str.14) #12
-  %49 = tail call ptr @slurm_xstrdup(ptr noundef nonnull @.str.7) #12
-  br label %66
+48:                                               ; preds = %33
+  %49 = tail call i32 (ptr, ...) @slurm_error(ptr noundef nonnull @.str.14) #12
+  %50 = tail call ptr @slurm_xstrdup(ptr noundef nonnull @.str.7) #12
+  br label %67
 
-.loopexit:                                        ; preds = %.loopexit.preheader, %61
-  %indvars.iv = phi i64 [ %indvars.iv.next, %61 ], [ 0, %.loopexit.preheader ]
-  %50 = getelementptr inbounds nuw [512 x i64], ptr %2, i64 0, i64 %indvars.iv
-  %51 = load i64, ptr %50, align 8
-  %52 = and i64 %51, 4294967295
-  %53 = icmp eq i64 %52, 4294967295
-  br i1 %53, label %54, label %55
-
-54:                                               ; preds = %.loopexit
-  %putchar44 = tail call i32 @putchar(i32 88)
-  br label %61
+.loopexit:                                        ; preds = %.loopexit.preheader, %62
+  %indvars.iv = phi i64 [ %indvars.iv.next, %62 ], [ 0, %.loopexit.preheader ]
+  %51 = getelementptr inbounds nuw [512 x i64], ptr %2, i64 0, i64 %indvars.iv
+  %52 = load i64, ptr %51, align 8
+  %53 = and i64 %52, 4294967295
+  %54 = icmp eq i64 %53, 4294967295
+  br i1 %54, label %55, label %56
 
 55:                                               ; preds = %.loopexit
-  %56 = icmp ugt i64 %51, 9
-  br i1 %56, label %57, label %59
+  %putchar44 = tail call i32 @putchar(i32 88)
+  br label %62
 
-57:                                               ; preds = %55
-  %58 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.16, i64 noundef %51)
-  br label %61
+56:                                               ; preds = %.loopexit
+  %57 = icmp ugt i64 %52, 9
+  br i1 %57, label %58, label %60
 
-59:                                               ; preds = %55
-  %60 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.17, i64 noundef %51)
-  br label %61
+58:                                               ; preds = %56
+  %59 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.16, i64 noundef %52)
+  br label %62
 
-61:                                               ; preds = %54, %59, %57
+60:                                               ; preds = %56
+  %61 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.17, i64 noundef %52)
+  br label %62
+
+62:                                               ; preds = %55, %60, %58
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 512
-  br i1 %exitcond.not, label %62, label %.loopexit, !llvm.loop !19
+  br i1 %exitcond.not, label %63, label %.loopexit, !llvm.loop !19
 
-62:                                               ; preds = %61
+63:                                               ; preds = %62
   %putchar = tail call i32 @putchar(i32 10)
-  %63 = tail call ptr @slurm_bit_alloc(i64 noundef 32768) #12
-  store ptr %63, ptr %3, align 8
-  call fastcc void @_set_cpu_set_bitstr(ptr noundef %63, ptr noundef %2)
-  %64 = tail call ptr @slurm_bit_fmt_full(ptr noundef %63) #12
-  %.not43 = icmp eq ptr %63, null
-  br i1 %.not43, label %66, label %65
+  %64 = tail call ptr @slurm_bit_alloc(i64 noundef 32768) #12
+  store ptr %64, ptr %3, align 8
+  call fastcc void @_set_cpu_set_bitstr(ptr noundef %64, ptr noundef %2)
+  %65 = tail call ptr @slurm_bit_fmt_full(ptr noundef %64) #12
+  %.not43 = icmp eq ptr %64, null
+  br i1 %.not43, label %67, label %66
 
-65:                                               ; preds = %62
+66:                                               ; preds = %63
   call void @slurm_bit_free(ptr noundef nonnull %3) #12
-  br label %66
+  br label %67
 
-66:                                               ; preds = %62, %65, %47, %15, %8
-  %.0 = phi ptr [ %17, %15 ], [ %49, %47 ], [ %10, %8 ], [ %64, %65 ], [ %64, %62 ]
+67:                                               ; preds = %63, %66, %48, %15, %8
+  %.0 = phi ptr [ %17, %15 ], [ %50, %48 ], [ %10, %8 ], [ %65, %66 ], [ %65, %63 ]
   ret ptr %.0
 }
 

@@ -1620,7 +1620,7 @@ define i32 @FT_Bitmap_Blend(ptr noundef %0, ptr noundef %1, i64 %2, i64 %3, ptr 
   %206 = udiv i32 %205, 255
   %207 = mul nuw nsw i32 %202, %191
   %208 = udiv i32 %207, 255
-  %209 = sub nuw nsw i32 255, %202
+  %209 = xor i32 %202, 255
   %210 = load i8, ptr %.0221299, align 1
   %211 = zext i8 %210 to i32
   %212 = getelementptr inbounds nuw i8, ptr %.0221299, i64 1
@@ -1633,31 +1633,23 @@ define i32 @FT_Bitmap_Blend(ptr noundef %0, ptr noundef %1, i64 %2, i64 %3, ptr 
   %219 = load i8, ptr %218, align 1
   %220 = zext i8 %219 to i32
   %221 = mul nuw nsw i32 %209, %211
-  %.lhs.trunc = trunc nuw i32 %221 to i16
-  %222 = udiv i16 %.lhs.trunc, 255
-  %.zext = zext nneg i16 %222 to i32
-  %223 = add nuw nsw i32 %204, %.zext
+  %222 = udiv i32 %221, 255
+  %223 = add nuw nsw i32 %222, %204
   %224 = trunc i32 %223 to i8
   store i8 %224, ptr %.0221299, align 1
   %225 = mul nuw nsw i32 %209, %214
-  %.lhs.trunc315 = trunc nuw i32 %225 to i16
-  %226 = udiv i16 %.lhs.trunc315, 255
-  %.zext316 = zext nneg i16 %226 to i32
-  %227 = add nuw nsw i32 %206, %.zext316
+  %226 = udiv i32 %225, 255
+  %227 = add nuw nsw i32 %226, %206
   %228 = trunc i32 %227 to i8
   store i8 %228, ptr %212, align 1
   %229 = mul nuw nsw i32 %209, %217
-  %.lhs.trunc317 = trunc nuw i32 %229 to i16
-  %230 = udiv i16 %.lhs.trunc317, 255
-  %.zext318 = zext nneg i16 %230 to i32
-  %231 = add nuw nsw i32 %208, %.zext318
+  %230 = udiv i32 %229, 255
+  %231 = add nuw nsw i32 %230, %208
   %232 = trunc i32 %231 to i8
   store i8 %232, ptr %215, align 1
   %233 = mul nuw nsw i32 %209, %220
-  %.lhs.trunc319 = trunc nuw i32 %233 to i16
-  %234 = udiv i16 %.lhs.trunc319, 255
-  %.zext320 = zext nneg i16 %234 to i32
-  %235 = add nuw nsw i32 %202, %.zext320
+  %234 = udiv i32 %233, 255
+  %235 = add nuw nsw i32 %234, %202
   %236 = trunc i32 %235 to i8
   %237 = getelementptr inbounds nuw i8, ptr %.0221299, i64 4
   store i8 %236, ptr %218, align 1

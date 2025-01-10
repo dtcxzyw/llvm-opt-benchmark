@@ -19611,7 +19611,7 @@ if.then118:                                       ; preds = %for.body112
   %sub.ptr.sub.i275 = sub i64 %sub.ptr.lhs.cast.i273, %sub.ptr.lhs.cast.i
   %sub.ptr.div.i276 = ashr exact i64 %sub.ptr.sub.i275, 3
   %cmp3.not.i = icmp ult i64 %sub.ptr.div.i276, %sub.i
-  br i1 %cmp3.not.i, label %_ZNKSt6vectorIPS_I9ActiveABMSaIS0_EESaIS3_EE12_M_check_lenEmPKc.exit.i, label %if.end.i.i.i.i.i.i
+  br i1 %cmp3.not.i, label %if.else42.i, label %if.end.i.i.i.i.i.i
 
 if.end.i.i.i.i.i.i:                               ; preds = %if.then118
   %34 = shl nuw nsw i64 %conv114, 3
@@ -19625,14 +19625,14 @@ if.end.i.i.i.i.i.i:                               ; preds = %if.then118
   %.pre323 = load ptr, ptr %m_aabms, align 8, !tbaa !511
   br label %if.end125
 
-_ZNKSt6vectorIPS_I9ActiveABMSaIS0_EESaIS3_EE12_M_check_lenEmPKc.exit.i: ; preds = %if.then118
+if.else42.i:                                      ; preds = %if.then118
   %.sroa.speculated.i.i = call i64 @llvm.umax.i64(i64 %sub.ptr.div.i, i64 %sub.i)
   %add.i.i = add nuw nsw i64 %.sroa.speculated.i.i, %sub.ptr.div.i
   %mul.i.i.i.i = shl nuw nsw i64 %add.i.i, 3
   %call5.i.i.i.i289 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i) #38
           to label %if.end.i.i.i.i.i161.i unwind label %lpad123.loopexit
 
-if.end.i.i.i.i.i161.i:                            ; preds = %_ZNKSt6vectorIPS_I9ActiveABMSaIS0_EESaIS3_EE12_M_check_lenEmPKc.exit.i
+if.end.i.i.i.i.i161.i:                            ; preds = %if.else42.i
   %add.ptr54.i = getelementptr inbounds i8, ptr %call5.i.i.i.i289, i64 %sub.ptr.sub.i
   %39 = shl nuw nsw i64 %conv114, 3
   %40 = add nuw nsw i64 %39, 2040
@@ -19663,7 +19663,7 @@ _ZNSt12_Vector_baseIPSt6vectorI9ActiveABMSaIS1_EESaIS4_EE13_M_deallocateEPS4_m.e
   store ptr %add.ptr90.i, ptr %_M_end_of_storage.i271, align 8, !tbaa !547
   br label %if.end125
 
-lpad123.loopexit:                                 ; preds = %_ZNKSt6vectorIPS_I9ActiveABMSaIS0_EESaIS3_EE12_M_check_lenEmPKc.exit.i
+lpad123.loopexit:                                 ; preds = %if.else42.i
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup151

@@ -6123,7 +6123,7 @@ if.then:                                          ; preds = %entry
 
 for.body.i:                                       ; preds = %if.then, %cond.end.i
   %i.015.i = phi i64 [ %inc.i, %cond.end.i ], [ 0, %if.then ]
-  %sub.i = sub nuw nsw i64 3, %i.015.i
+  %sub.i = xor i64 %i.015.i, 3
   %cmp2.i = icmp samesign ult i64 %shr.i, %sub.i
   br i1 %cmp2.i, label %cond.true.i, label %cond.end.i
 
@@ -6586,7 +6586,7 @@ if.then.i:                                        ; preds = %entry
 
 for.body.i.i:                                     ; preds = %if.then.i, %cond.end.i.i
   %i.015.i.i = phi i64 [ %inc.i.i, %cond.end.i.i ], [ 0, %if.then.i ]
-  %sub.i.i = sub nuw nsw i64 3, %i.015.i.i
+  %sub.i.i = xor i64 %i.015.i.i, 3
   %cmp2.i.i = icmp samesign ult i64 %shr.i.i, %sub.i.i
   br i1 %cmp2.i.i, label %cond.true.i.i, label %cond.end.i.i
 
@@ -10903,7 +10903,7 @@ if.then:                                          ; preds = %entry
 
 for.body.i:                                       ; preds = %if.then, %cond.end.i
   %i.015.i = phi i64 [ %inc.i, %cond.end.i ], [ 0, %if.then ]
-  %sub.i = sub nuw nsw i64 3, %i.015.i
+  %sub.i = xor i64 %i.015.i, 3
   %cmp2.i = icmp samesign ult i64 %shr.i, %sub.i
   br i1 %cmp2.i, label %cond.true.i, label %cond.end.i
 
@@ -11366,7 +11366,7 @@ if.then.i:                                        ; preds = %entry
 
 for.body.i.i:                                     ; preds = %if.then.i, %cond.end.i.i
   %i.015.i.i = phi i64 [ %inc.i.i, %cond.end.i.i ], [ 0, %if.then.i ]
-  %sub.i.i = sub nuw nsw i64 3, %i.015.i.i
+  %sub.i.i = xor i64 %i.015.i.i, 3
   %cmp2.i.i = icmp samesign ult i64 %shr.i.i, %sub.i.i
   br i1 %cmp2.i.i, label %cond.true.i.i, label %cond.end.i.i
 
@@ -17055,7 +17055,8 @@ _ZN5eastl6bitsetILm129EmE4flipEv.exit1895:        ; preds = %for.body.i.i1887
 
 for.body.i.i1896:                                 ; preds = %cond.end.i.i, %_ZN5eastl6bitsetILm129EmE4flipEv.exit1895
   %i.015.i.i = phi i64 [ %add.i.i1909, %cond.end.i.i ], [ 0, %_ZN5eastl6bitsetILm129EmE4flipEv.exit1895 ]
-  %cmp2.i.i = icmp samesign ult i64 %i.015.i.i, 2
+  %sub.i.i = xor i64 %i.015.i.i, 2
+  %cmp2.i.i = icmp samesign ugt i64 %sub.i.i, 1
   %add.i.i1909 = add nuw nsw i64 %i.015.i.i, 1
   br i1 %cmp2.i.i, label %cond.true.i.i, label %cond.end.i.i
 

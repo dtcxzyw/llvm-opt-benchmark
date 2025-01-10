@@ -1001,36 +1001,37 @@ define internal fastcc void @des_setkey(ptr nocapture noundef nonnull readonly %
   %172 = or i32 %167, %171
   %173 = getelementptr inbounds nuw [16 x i32], ptr %112, i64 0, i64 %indvars.iv
   store i32 %172, ptr %173, align 4
-  %174 = sub nuw nsw i64 15, %indvars.iv
-  %175 = getelementptr inbounds nuw [16 x i32], ptr %113, i64 0, i64 %174
-  store i32 %172, ptr %175, align 4
-  %176 = getelementptr inbounds nuw [128 x i32], ptr @comp_maskr, i64 0, i64 %130
-  %177 = load i32, ptr %176, align 4
-  %178 = getelementptr inbounds nuw [128 x i32], ptr getelementptr inbounds nuw (i8, ptr @comp_maskr, i64 512), i64 0, i64 %135
-  %179 = load i32, ptr %178, align 4
-  %180 = or i32 %179, %177
-  %181 = getelementptr inbounds nuw [128 x i32], ptr getelementptr inbounds nuw (i8, ptr @comp_maskr, i64 1024), i64 0, i64 %141
-  %182 = load i32, ptr %181, align 4
-  %183 = or i32 %180, %182
-  %184 = getelementptr inbounds nuw [128 x i32], ptr getelementptr inbounds nuw (i8, ptr @comp_maskr, i64 1536), i64 0, i64 %146
-  %185 = load i32, ptr %184, align 4
-  %186 = or i32 %183, %185
-  %187 = getelementptr inbounds nuw [128 x i32], ptr getelementptr inbounds nuw (i8, ptr @comp_maskr, i64 2048), i64 0, i64 %152
-  %188 = load i32, ptr %187, align 4
-  %189 = or i32 %186, %188
-  %190 = getelementptr inbounds nuw [128 x i32], ptr getelementptr inbounds nuw (i8, ptr @comp_maskr, i64 2560), i64 0, i64 %158
-  %191 = load i32, ptr %190, align 4
-  %192 = or i32 %189, %191
-  %193 = getelementptr inbounds nuw [128 x i32], ptr getelementptr inbounds nuw (i8, ptr @comp_maskr, i64 3072), i64 0, i64 %164
-  %194 = load i32, ptr %193, align 4
-  %195 = or i32 %192, %194
-  %196 = getelementptr inbounds nuw [128 x i32], ptr getelementptr inbounds nuw (i8, ptr @comp_maskr, i64 3584), i64 0, i64 %169
-  %197 = load i32, ptr %196, align 4
-  %198 = or i32 %195, %197
-  %199 = getelementptr inbounds nuw [16 x i32], ptr %114, i64 0, i64 %indvars.iv
-  store i32 %198, ptr %199, align 4
-  %200 = getelementptr inbounds nuw [16 x i32], ptr %115, i64 0, i64 %174
-  store i32 %198, ptr %200, align 4
+  %174 = and i64 %indvars.iv, 4294967295
+  %175 = xor i64 %174, 15
+  %176 = getelementptr inbounds nuw [16 x i32], ptr %113, i64 0, i64 %175
+  store i32 %172, ptr %176, align 4
+  %177 = getelementptr inbounds nuw [128 x i32], ptr @comp_maskr, i64 0, i64 %130
+  %178 = load i32, ptr %177, align 4
+  %179 = getelementptr inbounds nuw [128 x i32], ptr getelementptr inbounds nuw (i8, ptr @comp_maskr, i64 512), i64 0, i64 %135
+  %180 = load i32, ptr %179, align 4
+  %181 = or i32 %180, %178
+  %182 = getelementptr inbounds nuw [128 x i32], ptr getelementptr inbounds nuw (i8, ptr @comp_maskr, i64 1024), i64 0, i64 %141
+  %183 = load i32, ptr %182, align 4
+  %184 = or i32 %181, %183
+  %185 = getelementptr inbounds nuw [128 x i32], ptr getelementptr inbounds nuw (i8, ptr @comp_maskr, i64 1536), i64 0, i64 %146
+  %186 = load i32, ptr %185, align 4
+  %187 = or i32 %184, %186
+  %188 = getelementptr inbounds nuw [128 x i32], ptr getelementptr inbounds nuw (i8, ptr @comp_maskr, i64 2048), i64 0, i64 %152
+  %189 = load i32, ptr %188, align 4
+  %190 = or i32 %187, %189
+  %191 = getelementptr inbounds nuw [128 x i32], ptr getelementptr inbounds nuw (i8, ptr @comp_maskr, i64 2560), i64 0, i64 %158
+  %192 = load i32, ptr %191, align 4
+  %193 = or i32 %190, %192
+  %194 = getelementptr inbounds nuw [128 x i32], ptr getelementptr inbounds nuw (i8, ptr @comp_maskr, i64 3072), i64 0, i64 %164
+  %195 = load i32, ptr %194, align 4
+  %196 = or i32 %193, %195
+  %197 = getelementptr inbounds nuw [128 x i32], ptr getelementptr inbounds nuw (i8, ptr @comp_maskr, i64 3584), i64 0, i64 %169
+  %198 = load i32, ptr %197, align 4
+  %199 = or i32 %196, %198
+  %200 = getelementptr inbounds nuw [16 x i32], ptr %114, i64 0, i64 %indvars.iv
+  store i32 %199, ptr %200, align 4
+  %201 = getelementptr inbounds nuw [16 x i32], ptr %115, i64 0, i64 %175
+  store i32 %199, ptr %201, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
   br i1 %exitcond.not, label %.loopexit, label %116

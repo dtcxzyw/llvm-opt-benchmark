@@ -830,7 +830,7 @@ if.then38:                                        ; preds = %if.then34
   br i1 %cmp76, label %if.then42, label %if.else
 
 if.then42:                                        ; preds = %if.then38
-  %sub = sub nuw nsw i32 1, %result.060
+  %sub = xor i32 %result.060, 1
   br label %if.end112
 
 if.else:                                          ; preds = %if.then38
@@ -852,8 +852,8 @@ if.end61:                                         ; preds = %if.else
   %cmp62 = fcmp ogt double %7, 0.000000e+00
   %8 = icmp sle i64 %ipNext.sroa.8.0.copyload, %ip.sroa.6.059
   %cmp68 = xor i1 %8, %cmp62
-  %sub70 = sub nuw nsw i32 1, %result.060
-  %spec.select = select i1 %cmp68, i32 %sub70, i32 %result.060
+  %sub70 = zext i1 %cmp68 to i32
+  %spec.select = xor i32 %result.060, %sub70
   br label %if.end112
 
 if.else73:                                        ; preds = %if.then34
@@ -878,8 +878,8 @@ if.end99:                                         ; preds = %if.then77
   %cmp100 = fcmp ogt double %10, 0.000000e+00
   %11 = icmp sle i64 %ipNext.sroa.8.0.copyload, %ip.sroa.6.059
   %cmp106 = xor i1 %11, %cmp100
-  %sub108 = sub nuw nsw i32 1, %result.060
-  %spec.select55 = select i1 %cmp106, i32 %sub108, i32 %result.060
+  %sub108 = zext i1 %cmp106 to i32
+  %spec.select55 = xor i32 %result.060, %sub108
   br label %if.end112
 
 if.end112:                                        ; preds = %if.end99, %if.end61, %if.then42, %if.else73, %if.end24
@@ -961,7 +961,7 @@ if.then40:                                        ; preds = %if.then35
   br i1 %cmp91, label %if.then46, label %if.else
 
 if.then46:                                        ; preds = %if.then40
-  %sub = sub nuw nsw i32 1, %result.0
+  %sub = xor i32 %result.0, 1
   br label %if.end136
 
 if.else:                                          ; preds = %if.then40
@@ -983,8 +983,8 @@ if.end71:                                         ; preds = %if.else
   %cmp72 = fcmp ogt double %14, 0.000000e+00
   %15 = icmp sle i64 %3, %10
   %cmp81 = xor i1 %15, %cmp72
-  %sub83 = sub nuw nsw i32 1, %result.0
-  %spec.select = select i1 %cmp81, i32 %sub83, i32 %result.0
+  %sub83 = zext i1 %cmp81 to i32
+  %spec.select = xor i32 %result.0, %sub83
   br label %if.end136
 
 if.else86:                                        ; preds = %if.then35
@@ -1009,8 +1009,8 @@ if.end120:                                        ; preds = %if.then92
   %cmp121 = fcmp ogt double %17, 0.000000e+00
   %18 = icmp sle i64 %3, %10
   %cmp130 = xor i1 %18, %cmp121
-  %sub132 = sub nuw nsw i32 1, %result.0
-  %spec.select56 = select i1 %cmp130, i32 %sub132, i32 %result.0
+  %sub132 = zext i1 %cmp130 to i32
+  %spec.select56 = xor i32 %result.0, %sub132
   br label %if.end136
 
 if.end136:                                        ; preds = %land.lhs.true.if.end22_crit_edge, %if.end120, %if.end71, %if.then46, %if.else86, %if.end22
@@ -10501,7 +10501,7 @@ if.then40.i:                                      ; preds = %if.then35.i
   br i1 %cmp91.i, label %if.then46.i, label %if.else.i
 
 if.then46.i:                                      ; preds = %if.then40.i
-  %sub.i92 = sub nuw nsw i32 1, %result.0.i
+  %sub.i92 = xor i32 %result.0.i, 1
   br label %if.end136.i
 
 if.else.i:                                        ; preds = %if.then40.i
@@ -10523,8 +10523,8 @@ if.end71.i:                                       ; preds = %if.else.i
   %cmp72.i = fcmp ogt double %38, 0.000000e+00
   %39 = icmp sle i64 %30, %35
   %cmp81.i = xor i1 %39, %cmp72.i
-  %sub83.i = sub nuw nsw i32 1, %result.0.i
-  %spec.select.i = select i1 %cmp81.i, i32 %sub83.i, i32 %result.0.i
+  %sub83.i = zext i1 %cmp81.i to i32
+  %spec.select.i = xor i32 %result.0.i, %sub83.i
   br label %if.end136.i
 
 if.else86.i:                                      ; preds = %if.then35.i
@@ -10549,8 +10549,8 @@ if.end120.i:                                      ; preds = %if.then92.i
   %cmp121.i = fcmp ogt double %41, 0.000000e+00
   %42 = icmp sle i64 %30, %35
   %cmp130.i = xor i1 %42, %cmp121.i
-  %sub132.i = sub nuw nsw i32 1, %result.0.i
-  %spec.select56.i = select i1 %cmp130.i, i32 %sub132.i, i32 %result.0.i
+  %sub132.i = zext i1 %cmp130.i to i32
+  %spec.select56.i = xor i32 %result.0.i, %sub132.i
   br label %if.end136.i
 
 if.end136.i:                                      ; preds = %land.lhs.true.i, %if.end120.i, %if.else86.i, %if.end71.i, %if.then46.i, %if.end22.i
@@ -10645,7 +10645,7 @@ if.then40.i114:                                   ; preds = %if.then35.i109
   br i1 %cmp91.i113, label %if.then46.i135, label %if.else.i115
 
 if.then46.i135:                                   ; preds = %if.then40.i114
-  %sub.i136 = sub nuw nsw i32 1, %result.0.i98
+  %sub.i136 = xor i32 %result.0.i98, 1
   br label %if.end136.i132
 
 if.else.i115:                                     ; preds = %if.then40.i114
@@ -10667,8 +10667,8 @@ if.end71.i127:                                    ; preds = %if.else.i115
   %cmp72.i128 = fcmp ogt double %57, 0.000000e+00
   %58 = icmp sle i64 %49, %54
   %cmp81.i129 = xor i1 %58, %cmp72.i128
-  %sub83.i130 = sub nuw nsw i32 1, %result.0.i98
-  %spec.select.i131 = select i1 %cmp81.i129, i32 %sub83.i130, i32 %result.0.i98
+  %sub83.i130 = zext i1 %cmp81.i129 to i32
+  %spec.select.i131 = xor i32 %result.0.i98, %sub83.i130
   br label %if.end136.i132
 
 if.else86.i137:                                   ; preds = %if.then35.i109
@@ -10693,8 +10693,8 @@ if.end120.i149:                                   ; preds = %if.then92.i138
   %cmp121.i150 = fcmp ogt double %60, 0.000000e+00
   %61 = icmp sle i64 %49, %54
   %cmp130.i151 = xor i1 %61, %cmp121.i150
-  %sub132.i152 = sub nuw nsw i32 1, %result.0.i98
-  %spec.select56.i153 = select i1 %cmp130.i151, i32 %sub132.i152, i32 %result.0.i98
+  %sub132.i152 = zext i1 %cmp130.i151 to i32
+  %spec.select56.i153 = xor i32 %result.0.i98, %sub132.i152
   br label %if.end136.i132
 
 if.end136.i132:                                   ; preds = %land.lhs.true.i160, %if.end120.i149, %if.else86.i137, %if.end71.i127, %if.then46.i135, %if.end22.i106
@@ -10851,7 +10851,7 @@ if.then40.i.i:                                    ; preds = %if.then35.i.i
   br i1 %cmp91.i.i, label %if.then46.i.i, label %if.else.i.i86
 
 if.then46.i.i:                                    ; preds = %if.then40.i.i
-  %sub.i.i = sub nuw nsw i32 1, %result.0.i.i
+  %sub.i.i = xor i32 %result.0.i.i, 1
   br label %if.end136.i.i
 
 if.else.i.i86:                                    ; preds = %if.then40.i.i
@@ -10873,8 +10873,8 @@ if.end71.i.i:                                     ; preds = %if.else.i.i86
   %cmp72.i.i = fcmp ogt double %89, 0.000000e+00
   %90 = icmp sle i64 %81, %86
   %cmp81.i.i = xor i1 %90, %cmp72.i.i
-  %sub83.i.i = sub nuw nsw i32 1, %result.0.i.i
-  %spec.select.i.i = select i1 %cmp81.i.i, i32 %sub83.i.i, i32 %result.0.i.i
+  %sub83.i.i = zext i1 %cmp81.i.i to i32
+  %spec.select.i.i = xor i32 %result.0.i.i, %sub83.i.i
   br label %if.end136.i.i
 
 if.else86.i.i:                                    ; preds = %if.then35.i.i
@@ -10899,8 +10899,8 @@ if.end120.i.i:                                    ; preds = %if.then92.i.i
   %cmp121.i.i = fcmp ogt double %92, 0.000000e+00
   %93 = icmp sle i64 %81, %86
   %cmp130.i.i = xor i1 %93, %cmp121.i.i
-  %sub132.i.i = sub nuw nsw i32 1, %result.0.i.i
-  %spec.select56.i.i = select i1 %cmp130.i.i, i32 %sub132.i.i, i32 %result.0.i.i
+  %sub132.i.i = zext i1 %cmp130.i.i to i32
+  %spec.select56.i.i = xor i32 %result.0.i.i, %sub132.i.i
   br label %if.end136.i.i
 
 if.end136.i.i:                                    ; preds = %if.end120.i.i, %if.else86.i.i, %if.end71.i.i, %if.then46.i.i, %if.end22.i.i, %land.lhs.true.i.i
@@ -18015,7 +18015,7 @@ if.then40.i:                                      ; preds = %if.then35.i
   br i1 %cmp91.i, label %if.then46.i, label %if.else.i
 
 if.then46.i:                                      ; preds = %if.then40.i
-  %sub.i = sub nuw nsw i32 1, %result.0.i
+  %sub.i = xor i32 %result.0.i, 1
   br label %if.end136.i
 
 if.else.i:                                        ; preds = %if.then40.i
@@ -18037,8 +18037,8 @@ if.end71.i:                                       ; preds = %if.else.i
   %cmp72.i = fcmp ogt double %20, 0.000000e+00
   %21 = icmp sle i64 %12, %17
   %cmp81.i = xor i1 %21, %cmp72.i
-  %sub83.i = sub nuw nsw i32 1, %result.0.i
-  %spec.select.i = select i1 %cmp81.i, i32 %sub83.i, i32 %result.0.i
+  %sub83.i = zext i1 %cmp81.i to i32
+  %spec.select.i = xor i32 %result.0.i, %sub83.i
   br label %if.end136.i
 
 if.else86.i:                                      ; preds = %if.then35.i
@@ -18063,8 +18063,8 @@ if.end120.i:                                      ; preds = %if.then92.i
   %cmp121.i = fcmp ogt double %23, 0.000000e+00
   %24 = icmp sle i64 %12, %17
   %cmp130.i = xor i1 %24, %cmp121.i
-  %sub132.i = sub nuw nsw i32 1, %result.0.i
-  %spec.select56.i = select i1 %cmp130.i, i32 %sub132.i, i32 %result.0.i
+  %sub132.i = zext i1 %cmp130.i to i32
+  %spec.select56.i = xor i32 %result.0.i, %sub132.i
   br label %if.end136.i
 
 if.end136.i:                                      ; preds = %land.lhs.true.i, %if.end120.i, %if.else86.i, %if.end71.i, %if.then46.i, %if.end22.i
@@ -18238,7 +18238,7 @@ if.then40.i:                                      ; preds = %if.then35.i
   br i1 %cmp91.i, label %if.then46.i, label %if.else.i
 
 if.then46.i:                                      ; preds = %if.then40.i
-  %sub.i = sub nuw nsw i32 1, %result.0.i
+  %sub.i = xor i32 %result.0.i, 1
   br label %if.end136.i
 
 if.else.i:                                        ; preds = %if.then40.i
@@ -18260,8 +18260,8 @@ if.end71.i:                                       ; preds = %if.else.i
   %cmp72.i = fcmp ogt double %21, 0.000000e+00
   %22 = icmp sle i64 %13, %18
   %cmp81.i = xor i1 %22, %cmp72.i
-  %sub83.i = sub nuw nsw i32 1, %result.0.i
-  %spec.select.i = select i1 %cmp81.i, i32 %sub83.i, i32 %result.0.i
+  %sub83.i = zext i1 %cmp81.i to i32
+  %spec.select.i = xor i32 %result.0.i, %sub83.i
   br label %if.end136.i
 
 if.else86.i:                                      ; preds = %if.then35.i
@@ -18286,8 +18286,8 @@ if.end120.i:                                      ; preds = %if.then92.i
   %cmp121.i = fcmp ogt double %24, 0.000000e+00
   %25 = icmp sle i64 %13, %18
   %cmp130.i = xor i1 %25, %cmp121.i
-  %sub132.i = sub nuw nsw i32 1, %result.0.i
-  %spec.select56.i = select i1 %cmp130.i, i32 %sub132.i, i32 %result.0.i
+  %sub132.i = zext i1 %cmp130.i to i32
+  %spec.select56.i = xor i32 %result.0.i, %sub132.i
   br label %if.end136.i
 
 if.end136.i:                                      ; preds = %land.lhs.true.i, %if.end120.i, %if.else86.i, %if.end71.i, %if.then46.i, %if.end22.i
@@ -18372,7 +18372,7 @@ if.then40.i65:                                    ; preds = %if.then35.i60
   br i1 %cmp91.i64, label %if.then46.i86, label %if.else.i66
 
 if.then46.i86:                                    ; preds = %if.then40.i65
-  %sub.i87 = sub nuw nsw i32 1, %result.0.i49
+  %sub.i87 = xor i32 %result.0.i49, 1
   br label %if.end136.i83
 
 if.else.i66:                                      ; preds = %if.then40.i65
@@ -18394,8 +18394,8 @@ if.end71.i78:                                     ; preds = %if.else.i66
   %cmp72.i79 = fcmp ogt double %39, 0.000000e+00
   %40 = icmp sle i64 %31, %36
   %cmp81.i80 = xor i1 %40, %cmp72.i79
-  %sub83.i81 = sub nuw nsw i32 1, %result.0.i49
-  %spec.select.i82 = select i1 %cmp81.i80, i32 %sub83.i81, i32 %result.0.i49
+  %sub83.i81 = zext i1 %cmp81.i80 to i32
+  %spec.select.i82 = xor i32 %result.0.i49, %sub83.i81
   br label %if.end136.i83
 
 if.else86.i88:                                    ; preds = %if.then35.i60
@@ -18420,8 +18420,8 @@ if.end120.i100:                                   ; preds = %if.then92.i89
   %cmp121.i101 = fcmp ogt double %42, 0.000000e+00
   %43 = icmp sle i64 %31, %36
   %cmp130.i102 = xor i1 %43, %cmp121.i101
-  %sub132.i103 = sub nuw nsw i32 1, %result.0.i49
-  %spec.select56.i104 = select i1 %cmp130.i102, i32 %sub132.i103, i32 %result.0.i49
+  %sub132.i103 = zext i1 %cmp130.i102 to i32
+  %spec.select56.i104 = xor i32 %result.0.i49, %sub132.i103
   br label %if.end136.i83
 
 if.end136.i83:                                    ; preds = %land.lhs.true.i111, %if.end120.i100, %if.else86.i88, %if.end71.i78, %if.then46.i86, %if.end22.i57

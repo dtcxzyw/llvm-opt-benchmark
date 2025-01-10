@@ -456,13 +456,13 @@ transform_point_upscaled.exit220:                 ; preds = %.thread449, %224, %
   %308 = and i32 %296, 255
   %309 = icmp samesign ult i32 %307, 128
   %310 = shl nuw nsw i32 %307, 1
-  %311 = sub nuw nsw i32 254, %310
+  %311 = xor i32 %310, 254
   %312 = add nsw i32 %310, -256
   %.0103.i = select i1 %309, i32 %311, i32 %312
   %.0101.i = select i1 %309, i32 -1, i32 1
   %313 = icmp samesign ult i32 %308, 128
   %314 = shl nuw nsw i32 %308, 1
-  %315 = sub nuw nsw i32 254, %314
+  %315 = xor i32 %314, 254
   %316 = add nsw i32 %314, -256
   %.0102.i = select i1 %313, i32 %315, i32 %316
   %.0100.i = select i1 %313, i32 -1, i32 1
@@ -548,10 +548,10 @@ transform_point_upscaled.exit220:                 ; preds = %.thread449, %224, %
 
 365:                                              ; preds = %362
   %366 = zext i8 %321 to i32
-  %367 = sub nuw nsw i32 255, %.0103.i
+  %367 = xor i32 %.0103.i, 255
   %368 = mul nuw nsw i32 %367, %366
   %369 = lshr i32 %368, 8
-  %370 = trunc nuw i32 %369 to i8
+  %370 = trunc i32 %369 to i8
   store i8 %370, ptr %322, align 1, !tbaa !25
   br label %380
 
@@ -566,10 +566,10 @@ transform_point_upscaled.exit220:                 ; preds = %.thread449, %224, %
 
 374:                                              ; preds = %371
   %375 = zext i8 %321 to i32
-  %376 = sub nuw nsw i32 255, %.0102.i
+  %376 = xor i32 %.0102.i, 255
   %377 = mul nuw nsw i32 %376, %375
   %378 = lshr i32 %377, 8
-  %379 = trunc nuw i32 %378 to i8
+  %379 = trunc i32 %378 to i8
   store i8 %379, ptr %322, align 1, !tbaa !25
   br label %380
 
@@ -612,12 +612,12 @@ transform_point_upscaled.exit220:                 ; preds = %.thread449, %224, %
   %399 = and i32 %385, 255
   %400 = and i32 %388, 255
   %401 = icmp samesign ult i32 %399, 128
-  %402 = sub nuw nsw i32 127, %399
+  %402 = xor i32 %399, 127
   %403 = add nsw i32 %399, -128
   %.0149.i = select i1 %401, i32 -1, i32 1
   %.0147.i = select i1 %401, i32 %402, i32 %403
   %404 = icmp samesign ult i32 %400, 128
-  %405 = sub nuw nsw i32 127, %400
+  %405 = xor i32 %400, 127
   %406 = add nsw i32 %400, -128
   %.0150.i = select i1 %404, i32 %405, i32 %406
   %.0148.i = select i1 %404, i32 -1, i32 1
@@ -664,10 +664,10 @@ transform_point_upscaled.exit220:                 ; preds = %.thread449, %224, %
 
 430:                                              ; preds = %422
   %431 = getelementptr inbounds nuw i8, ptr %413, i64 3
-  %432 = sub nuw nsw i32 255, %.0150.i
+  %432 = xor i32 %.0150.i, 255
   %433 = mul nuw nsw i32 %415, %432
   %434 = lshr i32 %433, 8
-  %435 = trunc nuw i32 %434 to i8
+  %435 = trunc i32 %434 to i8
   store i8 %435, ptr %431, align 1, !tbaa !29
   br label %452
 
@@ -688,7 +688,7 @@ transform_point_upscaled.exit220:                 ; preds = %.thread449, %224, %
 441:                                              ; preds = %438
   %442 = mul nuw nsw i32 %.0150.i, %428
   %443 = zext i8 %440 to i32
-  %444 = sub nuw nsw i32 255, %.0150.i
+  %444 = xor i32 %.0150.i, 255
   %445 = mul nuw nsw i32 %444, %443
   %446 = add nuw nsw i32 %445, %442
   %447 = lshr i32 %446, 8
@@ -697,7 +697,7 @@ transform_point_upscaled.exit220:                 ; preds = %.thread449, %224, %
   br label %449
 
 449:                                              ; preds = %441, %438
-  %.sroa.5.0.insert.ext17.i = shl nsw i32 %.0150.i, 24
+  %.sroa.5.0.insert.ext17.i = shl i32 %.0150.i, 24
   %.sroa.011.0.insert.insert15.i = or disjoint i32 %.sroa.5.0.insert.ext17.i, %.sroa.011.0.insert.ext.i
   %450 = load i32, ptr %413, align 1
   %451 = tail call i32 @lv_color_mix32(i32 %.sroa.011.0.insert.insert15.i, i32 %450) #3
@@ -713,10 +713,10 @@ transform_point_upscaled.exit220:                 ; preds = %.thread449, %224, %
   %456 = getelementptr inbounds nuw i8, ptr %413, i64 3
   %457 = load i8, ptr %456, align 1, !tbaa !29
   %458 = zext i8 %457 to i32
-  %459 = sub nuw nsw i32 255, %.0147.i
+  %459 = xor i32 %.0147.i, 255
   %460 = mul nuw nsw i32 %459, %458
   %461 = lshr i32 %460, 8
-  %462 = trunc nuw i32 %461 to i8
+  %462 = trunc i32 %461 to i8
   store i8 %462, ptr %456, align 1, !tbaa !29
   br label %498
 
@@ -737,7 +737,7 @@ transform_point_upscaled.exit220:                 ; preds = %.thread449, %224, %
 469:                                              ; preds = %466
   %470 = mul nuw nsw i32 %.0147.i, %453
   %471 = zext i8 %468 to i32
-  %472 = sub nuw nsw i32 255, %.0147.i
+  %472 = xor i32 %.0147.i, 255
   %473 = mul nuw nsw i32 %472, %471
   %474 = add nuw nsw i32 %473, %470
   %475 = lshr i32 %474, 8
@@ -746,7 +746,7 @@ transform_point_upscaled.exit220:                 ; preds = %.thread449, %224, %
   br label %477
 
 477:                                              ; preds = %469, %466
-  %.sroa.528.0.insert.ext30.i = shl nsw i32 %.0147.i, 24
+  %.sroa.528.0.insert.ext30.i = shl i32 %.0147.i, 24
   %.sroa.023.0.insert.insert27.i = or disjoint i32 %.sroa.528.0.insert.ext30.i, %.sroa.023.0.insert.ext.i
   %478 = load i32, ptr %413, align 1
   %479 = tail call i32 @lv_color_mix32(i32 %.sroa.023.0.insert.insert27.i, i32 %478) #3
@@ -764,10 +764,10 @@ transform_point_upscaled.exit220:                 ; preds = %.thread449, %224, %
 
 483:                                              ; preds = %480
   %484 = getelementptr inbounds nuw i8, ptr %413, i64 3
-  %485 = sub nuw nsw i32 127, %.0147.i
+  %485 = xor i32 %.0147.i, 127
   %486 = mul nuw nsw i32 %415, %485
   %487 = lshr i32 %486, 7
-  %488 = trunc nuw i32 %487 to i8
+  %488 = trunc i32 %487 to i8
   store i8 %488, ptr %484, align 1, !tbaa !29
   br label %498
 
@@ -782,10 +782,10 @@ transform_point_upscaled.exit220:                 ; preds = %.thread449, %224, %
 
 492:                                              ; preds = %489
   %493 = getelementptr inbounds nuw i8, ptr %413, i64 3
-  %494 = sub nuw nsw i32 127, %.0150.i
+  %494 = xor i32 %.0150.i, 127
   %495 = mul nuw nsw i32 %415, %494
   %496 = lshr i32 %495, 7
-  %497 = trunc nuw i32 %496 to i8
+  %497 = trunc i32 %496 to i8
   store i8 %497, ptr %493, align 1, !tbaa !29
   br label %498
 
@@ -842,13 +842,13 @@ transform_point_upscaled.exit220:                 ; preds = %.thread449, %224, %
   %523 = and i32 %511, 255
   %524 = icmp samesign ult i32 %522, 128
   %525 = shl nuw nsw i32 %522, 1
-  %526 = sub nuw nsw i32 254, %525
+  %526 = xor i32 %525, 254
   %527 = add nsw i32 %525, -256
   %.0110.i = select i1 %524, i32 %526, i32 %527
   %.0108.i = select i1 %524, i32 -1, i32 1
   %528 = icmp samesign ult i32 %523, 128
   %529 = shl nuw nsw i32 %523, 1
-  %530 = sub nuw nsw i32 254, %529
+  %530 = xor i32 %529, 254
   %531 = add nsw i32 %529, -256
   %.0109.i = select i1 %528, i32 %530, i32 %531
   %.0107.i = select i1 %528, i32 -1, i32 1
@@ -944,10 +944,10 @@ transform_point_upscaled.exit220:                 ; preds = %.thread449, %224, %
 584:                                              ; preds = %581
   %585 = load i8, ptr %535, align 1, !tbaa !25
   %586 = zext i8 %585 to i32
-  %587 = sub nuw nsw i32 255, %.0110.i
+  %587 = xor i32 %.0110.i, 255
   %588 = mul nuw nsw i32 %587, %586
   %589 = lshr i32 %588, 8
-  %590 = trunc nuw i32 %589 to i8
+  %590 = trunc i32 %589 to i8
   store i8 %590, ptr %540, align 1, !tbaa !29
   br label %601
 
@@ -963,10 +963,10 @@ transform_point_upscaled.exit220:                 ; preds = %.thread449, %224, %
 594:                                              ; preds = %591
   %595 = load i8, ptr %535, align 1, !tbaa !25
   %596 = zext i8 %595 to i32
-  %597 = sub nuw nsw i32 255, %.0109.i
+  %597 = xor i32 %.0109.i, 255
   %598 = mul nuw nsw i32 %597, %596
   %599 = lshr i32 %598, 8
-  %600 = trunc nuw i32 %599 to i8
+  %600 = trunc i32 %599 to i8
   store i8 %600, ptr %540, align 1, !tbaa !29
   br label %601
 
@@ -1012,13 +1012,13 @@ transform_point_upscaled.exit220:                 ; preds = %.thread449, %224, %
   %622 = and i32 %609, 255
   %623 = icmp samesign ult i32 %621, 128
   %624 = shl nuw nsw i32 %621, 1
-  %625 = sub nuw nsw i32 254, %624
+  %625 = xor i32 %624, 254
   %626 = add nsw i32 %624, -256
   %.0108.i255 = select i1 %623, i32 %625, i32 %626
   %.0106.i256 = select i1 %623, i32 -1, i32 1
   %627 = icmp samesign ult i32 %622, 128
   %628 = shl nuw nsw i32 %622, 1
-  %629 = sub nuw nsw i32 254, %628
+  %629 = xor i32 %628, 254
   %630 = add nsw i32 %628, -256
   %.0107.i257 = select i1 %627, i32 %629, i32 %630
   %.0105.i = select i1 %627, i32 -1, i32 1
@@ -1107,10 +1107,10 @@ transform_point_upscaled.exit220:                 ; preds = %.thread449, %224, %
 680:                                              ; preds = %677
   %681 = load i8, ptr %634, align 1, !tbaa !25
   %682 = zext i8 %681 to i32
-  %683 = sub nuw nsw i32 255, %.0108.i255
+  %683 = xor i32 %.0108.i255, 255
   %684 = mul nuw nsw i32 %683, %682
   %685 = lshr i32 %684, 8
-  %686 = trunc nuw i32 %685 to i8
+  %686 = trunc i32 %685 to i8
   store i8 %686, ptr %637, align 1, !tbaa !38
   br label %697
 
@@ -1126,10 +1126,10 @@ transform_point_upscaled.exit220:                 ; preds = %.thread449, %224, %
 690:                                              ; preds = %687
   %691 = load i8, ptr %634, align 1, !tbaa !25
   %692 = zext i8 %691 to i32
-  %693 = sub nuw nsw i32 255, %.0107.i257
+  %693 = xor i32 %.0107.i257, 255
   %694 = mul nuw nsw i32 %693, %692
   %695 = lshr i32 %694, 8
-  %696 = trunc nuw i32 %695 to i8
+  %696 = trunc i32 %695 to i8
   store i8 %696, ptr %637, align 1, !tbaa !38
   br label %697
 
@@ -1202,12 +1202,12 @@ define internal fastcc void @transform_rgb888(ptr nocapture noundef readonly %0,
   %35 = and i32 %20, 255
   %36 = and i32 %24, 255
   %37 = icmp samesign ult i32 %35, 128
-  %38 = sub nuw nsw i32 127, %35
+  %38 = xor i32 %35, 127
   %39 = add nsw i32 %35, -128
   %.0155 = select i1 %37, i32 -1, i32 1
   %.0153 = select i1 %37, i32 %38, i32 %39
   %40 = icmp samesign ult i32 %36, 128
-  %41 = sub nuw nsw i32 127, %36
+  %41 = xor i32 %36, 127
   %42 = add nsw i32 %36, -128
   %.0156 = select i1 %40, i32 -1, i32 1
   %.0154 = select i1 %40, i32 %41, i32 %42
@@ -1276,7 +1276,7 @@ define internal fastcc void @transform_rgb888(ptr nocapture noundef readonly %0,
   br i1 %81, label %84, label %82
 
 82:                                               ; preds = %63
-  %.sroa.7.0.insert.ext28 = shl nsw i32 %.0154, 24
+  %.sroa.7.0.insert.ext28 = shl i32 %.0154, 24
   %.sroa.6.0.insert.insert26 = or disjoint i32 %.sroa.6.0.insert.shift, %.sroa.7.0.insert.ext28
   %.sroa.5.0.insert.insert21 = or disjoint i32 %.sroa.6.0.insert.insert26, %.sroa.5.0.insert.shift
   %.sroa.012.0.insert.insert16 = or disjoint i32 %.sroa.5.0.insert.insert21, %.sroa.012.0.insert.ext
@@ -1298,7 +1298,7 @@ define internal fastcc void @transform_rgb888(ptr nocapture noundef readonly %0,
   br i1 %86, label %106, label %87
 
 87:                                               ; preds = %84
-  %.sroa.751.0.insert.ext53 = shl nsw i32 %.0153, 24
+  %.sroa.751.0.insert.ext53 = shl i32 %.0153, 24
   %.sroa.645.0.insert.insert50 = or disjoint i32 %.sroa.645.0.insert.shift, %.sroa.751.0.insert.ext53
   %.sroa.539.0.insert.insert44 = or disjoint i32 %.sroa.645.0.insert.insert50, %.sroa.539.0.insert.shift
   %.sroa.034.0.insert.insert38 = or disjoint i32 %.sroa.539.0.insert.insert44, %.sroa.034.0.insert.ext
@@ -1317,10 +1317,10 @@ define internal fastcc void @transform_rgb888(ptr nocapture noundef readonly %0,
   br i1 %or.cond, label %98, label %93
 
 93:                                               ; preds = %90
-  %94 = sub nuw nsw i32 255, %.0153
+  %94 = xor i32 %.0153, 255
   %95 = mul nuw nsw i32 %94, 255
   %96 = lshr i32 %95, 8
-  %97 = trunc nuw i32 %96 to i8
+  %97 = trunc i32 %96 to i8
   store i8 %97, ptr %56, align 1, !tbaa !29
   br label %106
 
@@ -1334,10 +1334,10 @@ define internal fastcc void @transform_rgb888(ptr nocapture noundef readonly %0,
   br i1 %or.cond177, label %106, label %101
 
 101:                                              ; preds = %98
-  %102 = sub nuw nsw i32 255, %.0154
+  %102 = xor i32 %.0154, 255
   %103 = mul nuw nsw i32 %102, 255
   %104 = lshr i32 %103, 8
-  %105 = trunc nuw i32 %104 to i8
+  %105 = trunc i32 %104 to i8
   store i8 %105, ptr %56, align 1, !tbaa !29
   br label %106
 
@@ -1398,13 +1398,13 @@ define internal fastcc void @transform_rgb565a8(ptr nocapture noundef readonly %
   %41 = and i32 %29, 255
   %42 = icmp samesign ult i32 %40, 128
   %43 = shl nuw nsw i32 %40, 1
-  %44 = sub nuw nsw i32 254, %43
+  %44 = xor i32 %43, 254
   %45 = add nsw i32 %43, -256
   %.0157 = select i1 %42, i32 -1, i32 1
   %.0155 = select i1 %42, i32 %44, i32 %45
   %46 = icmp samesign ult i32 %41, 128
   %47 = shl nuw nsw i32 %41, 1
-  %48 = sub nuw nsw i32 254, %47
+  %48 = xor i32 %47, 254
   %49 = add nsw i32 %47, -256
   %.0158 = select i1 %46, i32 -1, i32 1
   %.0156 = select i1 %46, i32 %48, i32 %49
@@ -1543,10 +1543,10 @@ define internal fastcc void @transform_rgb565a8(ptr nocapture noundef readonly %
 
 132:                                              ; preds = %129
   %133 = zext i8 %.0 to i32
-  %134 = sub nuw nsw i32 255, %.0155
+  %134 = xor i32 %.0155, 255
   %135 = mul nuw nsw i32 %134, %133
   %136 = lshr i32 %135, 8
-  %137 = trunc nuw i32 %136 to i8
+  %137 = trunc i32 %136 to i8
   %138 = getelementptr inbounds nuw i8, ptr %10, i64 %indvars.iv
   store i8 %137, ptr %138, align 1, !tbaa !25
   br label %151
@@ -1562,10 +1562,10 @@ define internal fastcc void @transform_rgb565a8(ptr nocapture noundef readonly %
 
 142:                                              ; preds = %139
   %143 = zext i8 %.0 to i32
-  %144 = sub nuw nsw i32 255, %.0156
+  %144 = xor i32 %.0156, 255
   %145 = mul nuw nsw i32 %144, %143
   %146 = lshr i32 %145, 8
-  %147 = trunc nuw i32 %146 to i8
+  %147 = trunc i32 %146 to i8
   %148 = getelementptr inbounds nuw i8, ptr %10, i64 %indvars.iv
   store i8 %147, ptr %148, align 1, !tbaa !25
   br label %151

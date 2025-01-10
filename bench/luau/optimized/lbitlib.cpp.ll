@@ -339,20 +339,21 @@ define internal noundef i32 @_ZL9b_countlzP9lua_State(ptr noundef %0) #0 {
   %2 = tail call noundef i32 @_Z18luaL_checkunsignedP9lua_Statei(ptr noundef %0, i32 noundef 1)
   br label %3
 
-3:                                                ; preds = %1, %6
-  %.08 = phi i32 [ 0, %1 ], [ %7, %6 ]
-  %4 = lshr exact i32 -2147483648, %.08
-  %5 = and i32 %4, %2
-  %.not = icmp eq i32 %5, 0
-  br i1 %.not, label %6, label %8
+3:                                                ; preds = %1, %7
+  %.08 = phi i32 [ 0, %1 ], [ %8, %7 ]
+  %4 = xor i32 %.08, 31
+  %5 = shl nuw i32 1, %4
+  %6 = and i32 %5, %2
+  %.not = icmp eq i32 %6, 0
+  br i1 %.not, label %7, label %9
 
-6:                                                ; preds = %3
-  %7 = add nuw nsw i32 %.08, 1
-  %exitcond.not = icmp eq i32 %7, 32
-  br i1 %exitcond.not, label %8, label %3, !llvm.loop !9
+7:                                                ; preds = %3
+  %8 = add nuw nsw i32 %.08, 1
+  %exitcond.not = icmp eq i32 %8, 32
+  br i1 %exitcond.not, label %9, label %3, !llvm.loop !9
 
-8:                                                ; preds = %3, %6
-  %.07 = phi i32 [ 32, %6 ], [ %.08, %3 ]
+9:                                                ; preds = %3, %7
+  %.07 = phi i32 [ 32, %7 ], [ %.08, %3 ]
   tail call void @_Z16lua_pushunsignedP9lua_Statej(ptr noundef %0, i32 noundef %.07)
   ret i32 1
 }

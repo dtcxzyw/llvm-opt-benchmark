@@ -23255,20 +23255,31 @@ entry:
 
 sw.bb:                                            ; preds = %entry
   %cmp = icmp ugt i64 %length, 3
-  br i1 %cmp, label %return, label %sw.epilog
+  br i1 %cmp, label %return, label %if.end
+
+if.end:                                           ; preds = %sw.bb
+  %sub = xor i64 %length, 3
+  br label %sw.epilog
 
 sw.bb5:                                           ; preds = %entry
   %cmp6 = icmp ugt i64 %length, 6
-  br i1 %cmp6, label %return, label %sw.epilog
+  br i1 %cmp6, label %return, label %if.end10
+
+if.end10:                                         ; preds = %sw.bb5
+  %sub13 = sub nuw nsw i64 6, %length
+  br label %sw.epilog
 
 sw.bb15:                                          ; preds = %entry
   %cmp16 = icmp ugt i64 %length, 9
-  br i1 %cmp16, label %return, label %sw.epilog
+  br i1 %cmp16, label %return, label %if.end20
 
-sw.epilog:                                        ; preds = %sw.bb15, %sw.bb5, %sw.bb
-  %.pn = phi i64 [ 3, %sw.bb ], [ 6, %sw.bb5 ], [ 9, %sw.bb15 ]
-  %omitted.0 = sub nuw nsw i64 %.pn, %length
-  %cmp25 = icmp eq i64 %.pn, %length
+if.end20:                                         ; preds = %sw.bb15
+  %sub23 = sub nuw nsw i64 9, %length
+  br label %sw.epilog
+
+sw.epilog:                                        ; preds = %if.end20, %if.end10, %if.end
+  %omitted.0 = phi i64 [ %sub, %if.end ], [ %sub13, %if.end10 ], [ %sub23, %if.end20 ]
+  %cmp25 = icmp eq i64 %omitted.0, 0
   br i1 %cmp25, label %if.then28, label %if.else
 
 if.then28:                                        ; preds = %sw.epilog

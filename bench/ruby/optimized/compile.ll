@@ -75287,7 +75287,7 @@ ibf_dump_pos.exit.loopexit.i:                     ; preds = %385, %ibf_dump_writ
 173:                                              ; preds = %176, %172
   %indvars.iv.i.i = phi i64 [ 0, %172 ], [ %indvars.iv.next.i.i, %176 ]
   %.01617.i.i = phi i64 [ %164, %172 ], [ 0, %176 ]
-  %174 = sub nuw nsw i64 7, %indvars.iv.i.i
+  %174 = xor i64 %indvars.iv.i.i, 7
   %175 = lshr i64 %.01617.i.i, %174
   %.not.i46.i = icmp eq i64 %175, 0
   br i1 %.not.i46.i, label %.critedge.split.loop.exit20.i.i, label %176
@@ -75536,7 +75536,7 @@ ISEQ_IS_ENTRY_START.exit.i:                       ; preds = %256, %.lr.ph.i
 290:                                              ; preds = %293, %285
   %indvars.iv.i.i.i = phi i64 [ 0, %285 ], [ %indvars.iv.next.i.i.i, %293 ]
   %.01617.i.i.i = phi i64 [ %289, %285 ], [ %297, %293 ]
-  %291 = sub nuw nsw i64 7, %indvars.iv.i.i.i
+  %291 = xor i64 %indvars.iv.i.i.i, 7
   %292 = lshr i64 %.01617.i.i.i, %291
   %.not.i.i65.i = icmp eq i64 %292, 0
   br i1 %.not.i.i65.i, label %.critedge.split.loop.exit20.i.i.i, label %293
@@ -75596,7 +75596,7 @@ ibf_dump_write_small_value.exit.i.i:              ; preds = %.critedge.i.i.i
 321:                                              ; preds = %324, %ibf_dump_write_small_value.exit.i.i
   %indvars.iv.i7.i.i = phi i64 [ 0, %ibf_dump_write_small_value.exit.i.i ], [ %indvars.iv.next.i10.i.i, %324 ]
   %.01617.i8.i.i = phi i64 [ %320, %ibf_dump_write_small_value.exit.i.i ], [ %328, %324 ]
-  %322 = sub nuw nsw i64 7, %indvars.iv.i7.i.i
+  %322 = xor i64 %indvars.iv.i7.i.i, 7
   %323 = lshr i64 %.01617.i8.i.i, %322
   %.not.i9.i.i = icmp eq i64 %323, 0
   br i1 %.not.i9.i.i, label %.critedge.split.loop.exit20.i17.i.i, label %324
@@ -75673,7 +75673,7 @@ ibf_dump_object.exit.i:                           ; preds = %278, %.ibf_table_fi
 357:                                              ; preds = %360, %ibf_dump_object.exit.i
   %indvars.iv.i68.i = phi i64 [ 0, %ibf_dump_object.exit.i ], [ %indvars.iv.next.i71.i, %360 ]
   %.01617.i69.i = phi i64 [ %.041.i, %ibf_dump_object.exit.i ], [ %364, %360 ]
-  %358 = sub nuw nsw i64 7, %indvars.iv.i68.i
+  %358 = xor i64 %indvars.iv.i68.i, 7
   %359 = lshr i64 %.01617.i69.i, %358
   %.not.i70.i = icmp eq i64 %359, 0
   br i1 %.not.i70.i, label %.critedge.split.loop.exit20.i78.i, label %360
@@ -75828,7 +75828,7 @@ ibf_dump_pos.exit.i:                              ; preds = %ibf_dump_param_opt_
 432:                                              ; preds = %435, %428
   %indvars.iv.i.i174 = phi i64 [ 0, %428 ], [ %indvars.iv.next.i.i177, %435 ]
   %.01617.i.i175 = phi i64 [ %431, %428 ], [ %439, %435 ]
-  %433 = sub nuw nsw i64 7, %indvars.iv.i.i174
+  %433 = xor i64 %indvars.iv.i.i174, 7
   %434 = lshr i64 %.01617.i.i175, %433
   %.not.i.i176 = icmp eq i64 %434, 0
   br i1 %.not.i.i176, label %.critedge.split.loop.exit20.i.i184, label %435
@@ -75888,7 +75888,7 @@ ibf_dump_write_small_value.exit.i183:             ; preds = %.critedge.i.i179
 463:                                              ; preds = %466, %ibf_dump_write_small_value.exit.i183
   %indvars.iv.i14.i = phi i64 [ 0, %ibf_dump_write_small_value.exit.i183 ], [ %indvars.iv.next.i17.i, %466 ]
   %.01617.i15.i = phi i64 [ %462, %ibf_dump_write_small_value.exit.i183 ], [ %470, %466 ]
-  %464 = sub nuw nsw i64 7, %indvars.iv.i14.i
+  %464 = xor i64 %indvars.iv.i14.i, 7
   %465 = lshr i64 %.01617.i15.i, %464
   %.not.i16.i = icmp eq i64 %465, 0
   br i1 %.not.i16.i, label %.critedge.split.loop.exit20.i24.i, label %466
@@ -75948,7 +75948,7 @@ ibf_dump_write_small_value.exit25.i:              ; preds = %.critedge.i19.i
 494:                                              ; preds = %497, %ibf_dump_write_small_value.exit25.i
   %indvars.iv.i26.i = phi i64 [ 0, %ibf_dump_write_small_value.exit25.i ], [ %indvars.iv.next.i29.i, %497 ]
   %.01617.i27.i = phi i64 [ %493, %ibf_dump_write_small_value.exit25.i ], [ %501, %497 ]
-  %495 = sub nuw nsw i64 7, %indvars.iv.i26.i
+  %495 = xor i64 %indvars.iv.i26.i, 7
   %496 = lshr i64 %.01617.i27.i, %495
   %.not.i28.i = icmp eq i64 %496, 0
   br i1 %.not.i28.i, label %.critedge.split.loop.exit20.i36.i, label %497
@@ -76047,7 +76047,7 @@ ibf_dump_pos.exit.preheader.i187:                 ; preds = %ibf_dump_insns_info
 543:                                              ; preds = %546, %538
   %indvars.iv.i.i191 = phi i64 [ 0, %538 ], [ %indvars.iv.next.i.i194, %546 ]
   %.01617.i.i192 = phi i64 [ %542, %538 ], [ %550, %546 ]
-  %544 = sub nuw nsw i64 7, %indvars.iv.i.i191
+  %544 = xor i64 %indvars.iv.i.i191, 7
   %545 = lshr i64 %.01617.i.i192, %544
   %.not.i.i193 = icmp eq i64 %545, 0
   br i1 %.not.i.i193, label %.critedge.split.loop.exit20.i.i203, label %546
@@ -76311,7 +76311,7 @@ ibf_dump_id.exit.i:                               ; preds = %672, %.ibf_table_fi
 677:                                              ; preds = %680, %ibf_dump_id.exit.i
   %indvars.iv.i.i225 = phi i64 [ 0, %ibf_dump_id.exit.i ], [ %indvars.iv.next.i.i228, %680 ]
   %.01617.i.i226 = phi i64 [ %.0.i37.i, %ibf_dump_id.exit.i ], [ %684, %680 ]
-  %678 = sub nuw nsw i64 7, %indvars.iv.i.i225
+  %678 = xor i64 %indvars.iv.i.i225, 7
   %679 = lshr i64 %.01617.i.i226, %678
   %.not.i.i227 = icmp eq i64 %679, 0
   br i1 %.not.i.i227, label %.critedge.split.loop.exit20.i.i245, label %680
@@ -76384,7 +76384,7 @@ vm_ci_flag.exit.i:                                ; preds = %708, %705
 713:                                              ; preds = %716, %vm_ci_flag.exit.i
   %indvars.iv.i42.i = phi i64 [ 0, %vm_ci_flag.exit.i ], [ %indvars.iv.next.i45.i, %716 ]
   %.01617.i43.i = phi i64 [ %712, %vm_ci_flag.exit.i ], [ %720, %716 ]
-  %714 = sub nuw nsw i64 7, %indvars.iv.i42.i
+  %714 = xor i64 %indvars.iv.i42.i, 7
   %715 = lshr i64 %.01617.i43.i, %714
   %.not.i44.i = icmp eq i64 %715, 0
   br i1 %.not.i44.i, label %.critedge.split.loop.exit20.i52.i, label %716
@@ -76456,7 +76456,7 @@ vm_ci_argc.exit.i:                                ; preds = %744, %741
 748:                                              ; preds = %751, %vm_ci_argc.exit.i
   %indvars.iv.i56.i = phi i64 [ 0, %vm_ci_argc.exit.i ], [ %indvars.iv.next.i59.i, %751 ]
   %.01617.i57.i = phi i64 [ %.0.i55.i, %vm_ci_argc.exit.i ], [ %755, %751 ]
-  %749 = sub nuw nsw i64 7, %indvars.iv.i56.i
+  %749 = xor i64 %indvars.iv.i56.i, 7
   %750 = lshr i64 %.01617.i57.i, %749
   %.not.i58.i = icmp eq i64 %750, 0
   br i1 %.not.i58.i, label %.critedge.split.loop.exit20.i66.i, label %751
@@ -76524,7 +76524,7 @@ vm_ci_kwarg.exit.i:                               ; preds = %ibf_dump_write_smal
 781:                                              ; preds = %784, %778
   %indvars.iv.i70.i = phi i64 [ 0, %778 ], [ %indvars.iv.next.i73.i, %784 ]
   %.01617.i71.i = phi i64 [ %780, %778 ], [ %788, %784 ]
-  %782 = sub nuw nsw i64 7, %indvars.iv.i70.i
+  %782 = xor i64 %indvars.iv.i70.i, 7
   %783 = lshr i64 %.01617.i71.i, %782
   %.not.i72.i = icmp eq i64 %783, 0
   br i1 %.not.i72.i, label %.critedge.split.loop.exit20.i80.i, label %784
@@ -76620,7 +76620,7 @@ ibf_dump_object.exit.i241:                        ; preds = %820, %.ibf_table_fi
 825:                                              ; preds = %828, %ibf_dump_object.exit.i241
   %indvars.iv.i82.i = phi i64 [ 0, %ibf_dump_object.exit.i241 ], [ %indvars.iv.next.i85.i, %828 ]
   %.01617.i83.i = phi i64 [ %.pre-phi.i.i, %ibf_dump_object.exit.i241 ], [ %832, %828 ]
-  %826 = sub nuw nsw i64 7, %indvars.iv.i82.i
+  %826 = xor i64 %indvars.iv.i82.i, 7
   %827 = lshr i64 %.01617.i83.i, %826
   %.not.i84.i = icmp eq i64 %827, 0
   br i1 %.not.i84.i, label %.critedge.split.loop.exit20.i92.i, label %828
@@ -76703,7 +76703,7 @@ ibf_dump_write_small_value.exit105.i:             ; preds = %vm_ci_kwarg.exit.th
 861:                                              ; preds = %864, %860
   %indvars.iv.i106.i = phi i64 [ 0, %860 ], [ %indvars.iv.next.i109.i, %864 ]
   %.01617.i107.i = phi i64 [ -1, %860 ], [ %868, %864 ]
-  %862 = sub nuw nsw i64 7, %indvars.iv.i106.i
+  %862 = xor i64 %indvars.iv.i106.i, 7
   %863 = lshr i64 %.01617.i107.i, %862
   %.not.i108.i = icmp eq i64 %863, 0
   br i1 %.not.i108.i, label %.critedge.split.loop.exit20.i116.i, label %864
@@ -76796,7 +76796,7 @@ ibf_dump_pos.exit247:                             ; preds = %ibf_dump_ci_entries
 903:                                              ; preds = %906, %ibf_dump_pos.exit247
   %indvars.iv.i248 = phi i64 [ 0, %ibf_dump_pos.exit247 ], [ %indvars.iv.next.i250, %906 ]
   %.01617.i = phi i64 [ %902, %ibf_dump_pos.exit247 ], [ %910, %906 ]
-  %904 = sub nuw nsw i64 7, %indvars.iv.i248
+  %904 = xor i64 %indvars.iv.i248, 7
   %905 = lshr i64 %.01617.i, %904
   %.not.i249 = icmp eq i64 %905, 0
   br i1 %.not.i249, label %.critedge.split.loop.exit20.i, label %906
@@ -76856,7 +76856,7 @@ ibf_dump_write_small_value.exit:                  ; preds = %.critedge.i
 935:                                              ; preds = %938, %ibf_dump_write_small_value.exit
   %indvars.iv.i255 = phi i64 [ 0, %ibf_dump_write_small_value.exit ], [ %indvars.iv.next.i258, %938 ]
   %.01617.i256 = phi i64 [ %934, %ibf_dump_write_small_value.exit ], [ %942, %938 ]
-  %936 = sub nuw nsw i64 7, %indvars.iv.i255
+  %936 = xor i64 %indvars.iv.i255, 7
   %937 = lshr i64 %.01617.i256, %936
   %.not.i257 = icmp eq i64 %937, 0
   br i1 %.not.i257, label %.critedge.split.loop.exit20.i266, label %938
@@ -76916,7 +76916,7 @@ ibf_dump_write_small_value.exit267:               ; preds = %.critedge.i260
 966:                                              ; preds = %969, %ibf_dump_write_small_value.exit267
   %indvars.iv.i268 = phi i64 [ 0, %ibf_dump_write_small_value.exit267 ], [ %indvars.iv.next.i271, %969 ]
   %.01617.i269 = phi i64 [ %965, %ibf_dump_write_small_value.exit267 ], [ %973, %969 ]
-  %967 = sub nuw nsw i64 7, %indvars.iv.i268
+  %967 = xor i64 %indvars.iv.i268, 7
   %968 = lshr i64 %.01617.i269, %967
   %.not.i270 = icmp eq i64 %968, 0
   br i1 %.not.i270, label %.critedge.split.loop.exit20.i279, label %969
@@ -76975,7 +76975,7 @@ ibf_dump_write_small_value.exit280:               ; preds = %.critedge.i273
 996:                                              ; preds = %999, %ibf_dump_write_small_value.exit280
   %indvars.iv.i281 = phi i64 [ 0, %ibf_dump_write_small_value.exit280 ], [ %indvars.iv.next.i284, %999 ]
   %.01617.i282 = phi i64 [ %995, %ibf_dump_write_small_value.exit280 ], [ %1003, %999 ]
-  %997 = sub nuw nsw i64 7, %indvars.iv.i281
+  %997 = xor i64 %indvars.iv.i281, 7
   %998 = lshr i64 %.01617.i282, %997
   %.not.i283 = icmp eq i64 %998, 0
   br i1 %.not.i283, label %.critedge.split.loop.exit20.i292, label %999
@@ -77034,7 +77034,7 @@ ibf_dump_write_small_value.exit293:               ; preds = %.critedge.i286
 1026:                                             ; preds = %1029, %ibf_dump_write_small_value.exit293
   %indvars.iv.i294 = phi i64 [ 0, %ibf_dump_write_small_value.exit293 ], [ %indvars.iv.next.i297, %1029 ]
   %.01617.i295 = phi i64 [ %1025, %ibf_dump_write_small_value.exit293 ], [ %1033, %1029 ]
-  %1027 = sub nuw nsw i64 7, %indvars.iv.i294
+  %1027 = xor i64 %indvars.iv.i294, 7
   %1028 = lshr i64 %.01617.i295, %1027
   %.not.i296 = icmp eq i64 %1028, 0
   br i1 %.not.i296, label %.critedge.split.loop.exit20.i305, label %1029
@@ -77095,7 +77095,7 @@ ibf_dump_write_small_value.exit306:               ; preds = %.critedge.i299
 1058:                                             ; preds = %1061, %ibf_dump_write_small_value.exit306
   %indvars.iv.i307 = phi i64 [ 0, %ibf_dump_write_small_value.exit306 ], [ %indvars.iv.next.i310, %1061 ]
   %.01617.i308 = phi i64 [ %1057, %ibf_dump_write_small_value.exit306 ], [ %1065, %1061 ]
-  %1059 = sub nuw nsw i64 7, %indvars.iv.i307
+  %1059 = xor i64 %indvars.iv.i307, 7
   %1060 = lshr i64 %.01617.i308, %1059
   %.not.i309 = icmp eq i64 %1060, 0
   br i1 %.not.i309, label %.critedge.split.loop.exit20.i318, label %1061
@@ -77156,7 +77156,7 @@ ibf_dump_write_small_value.exit319:               ; preds = %.critedge.i312
 1090:                                             ; preds = %1093, %ibf_dump_write_small_value.exit319
   %indvars.iv.i320 = phi i64 [ 0, %ibf_dump_write_small_value.exit319 ], [ %indvars.iv.next.i323, %1093 ]
   %.01617.i321 = phi i64 [ %1089, %ibf_dump_write_small_value.exit319 ], [ %1097, %1093 ]
-  %1091 = sub nuw nsw i64 7, %indvars.iv.i320
+  %1091 = xor i64 %indvars.iv.i320, 7
   %1092 = lshr i64 %.01617.i321, %1091
   %.not.i322 = icmp eq i64 %1092, 0
   br i1 %.not.i322, label %.critedge.split.loop.exit20.i331, label %1093
@@ -77217,7 +77217,7 @@ ibf_dump_write_small_value.exit332:               ; preds = %.critedge.i325
 1122:                                             ; preds = %1125, %ibf_dump_write_small_value.exit332
   %indvars.iv.i333 = phi i64 [ 0, %ibf_dump_write_small_value.exit332 ], [ %indvars.iv.next.i336, %1125 ]
   %.01617.i334 = phi i64 [ %1121, %ibf_dump_write_small_value.exit332 ], [ %1129, %1125 ]
-  %1123 = sub nuw nsw i64 7, %indvars.iv.i333
+  %1123 = xor i64 %indvars.iv.i333, 7
   %1124 = lshr i64 %.01617.i334, %1123
   %.not.i335 = icmp eq i64 %1124, 0
   br i1 %.not.i335, label %.critedge.split.loop.exit20.i344, label %1125
@@ -77278,7 +77278,7 @@ ibf_dump_write_small_value.exit345:               ; preds = %.critedge.i338
 1154:                                             ; preds = %1157, %ibf_dump_write_small_value.exit345
   %indvars.iv.i346 = phi i64 [ 0, %ibf_dump_write_small_value.exit345 ], [ %indvars.iv.next.i349, %1157 ]
   %.01617.i347 = phi i64 [ %1153, %ibf_dump_write_small_value.exit345 ], [ %1161, %1157 ]
-  %1155 = sub nuw nsw i64 7, %indvars.iv.i346
+  %1155 = xor i64 %indvars.iv.i346, 7
   %1156 = lshr i64 %.01617.i347, %1155
   %.not.i348 = icmp eq i64 %1156, 0
   br i1 %.not.i348, label %.critedge.split.loop.exit20.i357, label %1157
@@ -77339,7 +77339,7 @@ ibf_dump_write_small_value.exit358:               ; preds = %.critedge.i351
 1186:                                             ; preds = %1189, %ibf_dump_write_small_value.exit358
   %indvars.iv.i359 = phi i64 [ 0, %ibf_dump_write_small_value.exit358 ], [ %indvars.iv.next.i362, %1189 ]
   %.01617.i360 = phi i64 [ %1185, %ibf_dump_write_small_value.exit358 ], [ %1193, %1189 ]
-  %1187 = sub nuw nsw i64 7, %indvars.iv.i359
+  %1187 = xor i64 %indvars.iv.i359, 7
   %1188 = lshr i64 %.01617.i360, %1187
   %.not.i361 = icmp eq i64 %1188, 0
   br i1 %.not.i361, label %.critedge.split.loop.exit20.i370, label %1189
@@ -77400,7 +77400,7 @@ ibf_dump_write_small_value.exit371:               ; preds = %.critedge.i364
 1218:                                             ; preds = %1221, %ibf_dump_write_small_value.exit371
   %indvars.iv.i372 = phi i64 [ 0, %ibf_dump_write_small_value.exit371 ], [ %indvars.iv.next.i375, %1221 ]
   %.01617.i373 = phi i64 [ %1217, %ibf_dump_write_small_value.exit371 ], [ %1225, %1221 ]
-  %1219 = sub nuw nsw i64 7, %indvars.iv.i372
+  %1219 = xor i64 %indvars.iv.i372, 7
   %1220 = lshr i64 %.01617.i373, %1219
   %.not.i374 = icmp eq i64 %1220, 0
   br i1 %.not.i374, label %.critedge.split.loop.exit20.i383, label %1221
@@ -77461,7 +77461,7 @@ ibf_dump_write_small_value.exit384:               ; preds = %.critedge.i377
 1250:                                             ; preds = %1253, %ibf_dump_write_small_value.exit384
   %indvars.iv.i385 = phi i64 [ 0, %ibf_dump_write_small_value.exit384 ], [ %indvars.iv.next.i388, %1253 ]
   %.01617.i386 = phi i64 [ %1249, %ibf_dump_write_small_value.exit384 ], [ %1257, %1253 ]
-  %1251 = sub nuw nsw i64 7, %indvars.iv.i385
+  %1251 = xor i64 %indvars.iv.i385, 7
   %1252 = lshr i64 %.01617.i386, %1251
   %.not.i387 = icmp eq i64 %1252, 0
   br i1 %.not.i387, label %.critedge.split.loop.exit20.i396, label %1253
@@ -77521,7 +77521,7 @@ ibf_dump_write_small_value.exit397:               ; preds = %.critedge.i390
 1281:                                             ; preds = %1284, %ibf_dump_write_small_value.exit397
   %indvars.iv.i398 = phi i64 [ 0, %ibf_dump_write_small_value.exit397 ], [ %indvars.iv.next.i401, %1284 ]
   %.01617.i399 = phi i64 [ %1280, %ibf_dump_write_small_value.exit397 ], [ %1288, %1284 ]
-  %1282 = sub nuw nsw i64 7, %indvars.iv.i398
+  %1282 = xor i64 %indvars.iv.i398, 7
   %1283 = lshr i64 %.01617.i399, %1282
   %.not.i400 = icmp eq i64 %1283, 0
   br i1 %.not.i400, label %.critedge.split.loop.exit20.i409, label %1284
@@ -77580,7 +77580,7 @@ ibf_dump_write_small_value.exit410:               ; preds = %.critedge.i403
 1311:                                             ; preds = %1314, %ibf_dump_write_small_value.exit410
   %indvars.iv.i411 = phi i64 [ 0, %ibf_dump_write_small_value.exit410 ], [ %indvars.iv.next.i414, %1314 ]
   %.01617.i412 = phi i64 [ %1310, %ibf_dump_write_small_value.exit410 ], [ %1318, %1314 ]
-  %1312 = sub nuw nsw i64 7, %indvars.iv.i411
+  %1312 = xor i64 %indvars.iv.i411, 7
   %1313 = lshr i64 %.01617.i412, %1312
   %.not.i413 = icmp eq i64 %1313, 0
   br i1 %.not.i413, label %.critedge.split.loop.exit20.i422, label %1314
@@ -77638,7 +77638,7 @@ ibf_dump_write_small_value.exit423:               ; preds = %.critedge.i416
 1340:                                             ; preds = %1343, %ibf_dump_write_small_value.exit423
   %indvars.iv.i424 = phi i64 [ 0, %ibf_dump_write_small_value.exit423 ], [ %indvars.iv.next.i427, %1343 ]
   %.01617.i425 = phi i64 [ %.pre-phi.i, %ibf_dump_write_small_value.exit423 ], [ %1347, %1343 ]
-  %1341 = sub nuw nsw i64 7, %indvars.iv.i424
+  %1341 = xor i64 %indvars.iv.i424, 7
   %1342 = lshr i64 %.01617.i425, %1341
   %.not.i426 = icmp eq i64 %1342, 0
   br i1 %.not.i426, label %.critedge.split.loop.exit20.i435, label %1343
@@ -77696,7 +77696,7 @@ ibf_dump_write_small_value.exit436:               ; preds = %.critedge.i429
 1369:                                             ; preds = %1372, %ibf_dump_write_small_value.exit436
   %indvars.iv.i437 = phi i64 [ 0, %ibf_dump_write_small_value.exit436 ], [ %indvars.iv.next.i440, %1372 ]
   %.01617.i438 = phi i64 [ %.pre-phi.i158, %ibf_dump_write_small_value.exit436 ], [ %1376, %1372 ]
-  %1370 = sub nuw nsw i64 7, %indvars.iv.i437
+  %1370 = xor i64 %indvars.iv.i437, 7
   %1371 = lshr i64 %.01617.i438, %1370
   %.not.i439 = icmp eq i64 %1371, 0
   br i1 %.not.i439, label %.critedge.split.loop.exit20.i448, label %1372
@@ -77754,7 +77754,7 @@ ibf_dump_write_small_value.exit449:               ; preds = %.critedge.i442
 1398:                                             ; preds = %1401, %ibf_dump_write_small_value.exit449
   %indvars.iv.i450 = phi i64 [ 0, %ibf_dump_write_small_value.exit449 ], [ %indvars.iv.next.i453, %1401 ]
   %.01617.i451 = phi i64 [ %.pre-phi.i164, %ibf_dump_write_small_value.exit449 ], [ %1405, %1401 ]
-  %1399 = sub nuw nsw i64 7, %indvars.iv.i450
+  %1399 = xor i64 %indvars.iv.i450, 7
   %1400 = lshr i64 %.01617.i451, %1399
   %.not.i452 = icmp eq i64 %1400, 0
   br i1 %.not.i452, label %.critedge.split.loop.exit20.i461, label %1401
@@ -77815,7 +77815,7 @@ ibf_dump_write_small_value.exit462:               ; preds = %.critedge.i455
 1430:                                             ; preds = %1433, %ibf_dump_write_small_value.exit462
   %indvars.iv.i463 = phi i64 [ 0, %ibf_dump_write_small_value.exit462 ], [ %indvars.iv.next.i466, %1433 ]
   %.01617.i464 = phi i64 [ %1429, %ibf_dump_write_small_value.exit462 ], [ %1437, %1433 ]
-  %1431 = sub nuw nsw i64 7, %indvars.iv.i463
+  %1431 = xor i64 %indvars.iv.i463, 7
   %1432 = lshr i64 %.01617.i464, %1431
   %.not.i465 = icmp eq i64 %1432, 0
   br i1 %.not.i465, label %.critedge.split.loop.exit20.i474, label %1433
@@ -77876,7 +77876,7 @@ ibf_dump_write_small_value.exit475:               ; preds = %.critedge.i468
 1462:                                             ; preds = %1465, %ibf_dump_write_small_value.exit475
   %indvars.iv.i476 = phi i64 [ 0, %ibf_dump_write_small_value.exit475 ], [ %indvars.iv.next.i479, %1465 ]
   %.01617.i477 = phi i64 [ %1461, %ibf_dump_write_small_value.exit475 ], [ %1469, %1465 ]
-  %1463 = sub nuw nsw i64 7, %indvars.iv.i476
+  %1463 = xor i64 %indvars.iv.i476, 7
   %1464 = lshr i64 %.01617.i477, %1463
   %.not.i478 = icmp eq i64 %1464, 0
   br i1 %.not.i478, label %.critedge.split.loop.exit20.i487, label %1465
@@ -77937,7 +77937,7 @@ ibf_dump_write_small_value.exit488:               ; preds = %.critedge.i481
 1494:                                             ; preds = %1497, %ibf_dump_write_small_value.exit488
   %indvars.iv.i489 = phi i64 [ 0, %ibf_dump_write_small_value.exit488 ], [ %indvars.iv.next.i492, %1497 ]
   %.01617.i490 = phi i64 [ %1493, %ibf_dump_write_small_value.exit488 ], [ %1501, %1497 ]
-  %1495 = sub nuw nsw i64 7, %indvars.iv.i489
+  %1495 = xor i64 %indvars.iv.i489, 7
   %1496 = lshr i64 %.01617.i490, %1495
   %.not.i491 = icmp eq i64 %1496, 0
   br i1 %.not.i491, label %.critedge.split.loop.exit20.i500, label %1497
@@ -77998,7 +77998,7 @@ ibf_dump_write_small_value.exit501:               ; preds = %.critedge.i494
 1526:                                             ; preds = %1529, %ibf_dump_write_small_value.exit501
   %indvars.iv.i502 = phi i64 [ 0, %ibf_dump_write_small_value.exit501 ], [ %indvars.iv.next.i505, %1529 ]
   %.01617.i503 = phi i64 [ %1525, %ibf_dump_write_small_value.exit501 ], [ %1533, %1529 ]
-  %1527 = sub nuw nsw i64 7, %indvars.iv.i502
+  %1527 = xor i64 %indvars.iv.i502, 7
   %1528 = lshr i64 %.01617.i503, %1527
   %.not.i504 = icmp eq i64 %1528, 0
   br i1 %.not.i504, label %.critedge.split.loop.exit20.i513, label %1529
@@ -78059,7 +78059,7 @@ ibf_dump_write_small_value.exit514:               ; preds = %.critedge.i507
 1558:                                             ; preds = %1561, %ibf_dump_write_small_value.exit514
   %indvars.iv.i515 = phi i64 [ 0, %ibf_dump_write_small_value.exit514 ], [ %indvars.iv.next.i518, %1561 ]
   %.01617.i516 = phi i64 [ %1557, %ibf_dump_write_small_value.exit514 ], [ %1565, %1561 ]
-  %1559 = sub nuw nsw i64 7, %indvars.iv.i515
+  %1559 = xor i64 %indvars.iv.i515, 7
   %1560 = lshr i64 %.01617.i516, %1559
   %.not.i517 = icmp eq i64 %1560, 0
   br i1 %.not.i517, label %.critedge.split.loop.exit20.i526, label %1561
@@ -78120,7 +78120,7 @@ ibf_dump_write_small_value.exit527:               ; preds = %.critedge.i520
 1590:                                             ; preds = %1593, %ibf_dump_write_small_value.exit527
   %indvars.iv.i528 = phi i64 [ 0, %ibf_dump_write_small_value.exit527 ], [ %indvars.iv.next.i531, %1593 ]
   %.01617.i529 = phi i64 [ %1589, %ibf_dump_write_small_value.exit527 ], [ %1597, %1593 ]
-  %1591 = sub nuw nsw i64 7, %indvars.iv.i528
+  %1591 = xor i64 %indvars.iv.i528, 7
   %1592 = lshr i64 %.01617.i529, %1591
   %.not.i530 = icmp eq i64 %1592, 0
   br i1 %.not.i530, label %.critedge.split.loop.exit20.i539, label %1593
@@ -78180,7 +78180,7 @@ ibf_dump_write_small_value.exit540:               ; preds = %.critedge.i533
 1621:                                             ; preds = %1624, %ibf_dump_write_small_value.exit540
   %indvars.iv.i541 = phi i64 [ 0, %ibf_dump_write_small_value.exit540 ], [ %indvars.iv.next.i544, %1624 ]
   %.01617.i542 = phi i64 [ %1620, %ibf_dump_write_small_value.exit540 ], [ %1628, %1624 ]
-  %1622 = sub nuw nsw i64 7, %indvars.iv.i541
+  %1622 = xor i64 %indvars.iv.i541, 7
   %1623 = lshr i64 %.01617.i542, %1622
   %.not.i543 = icmp eq i64 %1623, 0
   br i1 %.not.i543, label %.critedge.split.loop.exit20.i552, label %1624
@@ -78240,7 +78240,7 @@ ibf_dump_write_small_value.exit553:               ; preds = %.critedge.i546
 1652:                                             ; preds = %1655, %ibf_dump_write_small_value.exit553
   %indvars.iv.i554 = phi i64 [ 0, %ibf_dump_write_small_value.exit553 ], [ %indvars.iv.next.i557, %1655 ]
   %.01617.i555 = phi i64 [ %1651, %ibf_dump_write_small_value.exit553 ], [ %1659, %1655 ]
-  %1653 = sub nuw nsw i64 7, %indvars.iv.i554
+  %1653 = xor i64 %indvars.iv.i554, 7
   %1654 = lshr i64 %.01617.i555, %1653
   %.not.i556 = icmp eq i64 %1654, 0
   br i1 %.not.i556, label %.critedge.split.loop.exit20.i565, label %1655
@@ -78300,7 +78300,7 @@ ibf_dump_write_small_value.exit566:               ; preds = %.critedge.i559
 1683:                                             ; preds = %1686, %ibf_dump_write_small_value.exit566
   %indvars.iv.i567 = phi i64 [ 0, %ibf_dump_write_small_value.exit566 ], [ %indvars.iv.next.i570, %1686 ]
   %.01617.i568 = phi i64 [ %1682, %ibf_dump_write_small_value.exit566 ], [ %1690, %1686 ]
-  %1684 = sub nuw nsw i64 7, %indvars.iv.i567
+  %1684 = xor i64 %indvars.iv.i567, 7
   %1685 = lshr i64 %.01617.i568, %1684
   %.not.i569 = icmp eq i64 %1685, 0
   br i1 %.not.i569, label %.critedge.split.loop.exit20.i578, label %1686
@@ -78360,7 +78360,7 @@ ibf_dump_write_small_value.exit579:               ; preds = %.critedge.i572
 1714:                                             ; preds = %1717, %ibf_dump_write_small_value.exit579
   %indvars.iv.i580 = phi i64 [ 0, %ibf_dump_write_small_value.exit579 ], [ %indvars.iv.next.i583, %1717 ]
   %.01617.i581 = phi i64 [ %1713, %ibf_dump_write_small_value.exit579 ], [ %1721, %1717 ]
-  %1715 = sub nuw nsw i64 7, %indvars.iv.i580
+  %1715 = xor i64 %indvars.iv.i580, 7
   %1716 = lshr i64 %.01617.i581, %1715
   %.not.i582 = icmp eq i64 %1716, 0
   br i1 %.not.i582, label %.critedge.split.loop.exit20.i591, label %1717
@@ -78418,7 +78418,7 @@ ibf_dump_write_small_value.exit592:               ; preds = %.critedge.i585
 1743:                                             ; preds = %1746, %ibf_dump_write_small_value.exit592
   %indvars.iv.i593 = phi i64 [ 0, %ibf_dump_write_small_value.exit592 ], [ %indvars.iv.next.i596, %1746 ]
   %.01617.i594 = phi i64 [ %579, %ibf_dump_write_small_value.exit592 ], [ %1750, %1746 ]
-  %1744 = sub nuw nsw i64 7, %indvars.iv.i593
+  %1744 = xor i64 %indvars.iv.i593, 7
   %1745 = lshr i64 %.01617.i594, %1744
   %.not.i595 = icmp eq i64 %1745, 0
   br i1 %.not.i595, label %.critedge.split.loop.exit20.i604, label %1746
@@ -78478,7 +78478,7 @@ ibf_dump_write_small_value.exit605:               ; preds = %.critedge.i598
 1774:                                             ; preds = %1777, %ibf_dump_write_small_value.exit605
   %indvars.iv.i606 = phi i64 [ 0, %ibf_dump_write_small_value.exit605 ], [ %indvars.iv.next.i609, %1777 ]
   %.01617.i607 = phi i64 [ %1773, %ibf_dump_write_small_value.exit605 ], [ %1781, %1777 ]
-  %1775 = sub nuw nsw i64 7, %indvars.iv.i606
+  %1775 = xor i64 %indvars.iv.i606, 7
   %1776 = lshr i64 %.01617.i607, %1775
   %.not.i608 = icmp eq i64 %1776, 0
   br i1 %.not.i608, label %.critedge.split.loop.exit20.i617, label %1777
@@ -78538,7 +78538,7 @@ ibf_dump_write_small_value.exit618:               ; preds = %.critedge.i611
 1804:                                             ; preds = %1807, %ibf_dump_write_small_value.exit618
   %indvars.iv.i619 = phi i64 [ 0, %ibf_dump_write_small_value.exit618 ], [ %indvars.iv.next.i622, %1807 ]
   %.01617.i620 = phi i64 [ %1803, %ibf_dump_write_small_value.exit618 ], [ %1811, %1807 ]
-  %1805 = sub nuw nsw i64 7, %indvars.iv.i619
+  %1805 = xor i64 %indvars.iv.i619, 7
   %1806 = lshr i64 %.01617.i620, %1805
   %.not.i621 = icmp eq i64 %1806, 0
   br i1 %.not.i621, label %.critedge.split.loop.exit20.i630, label %1807
@@ -78598,7 +78598,7 @@ ibf_dump_write_small_value.exit631:               ; preds = %.critedge.i624
 1834:                                             ; preds = %1837, %ibf_dump_write_small_value.exit631
   %indvars.iv.i632 = phi i64 [ 0, %ibf_dump_write_small_value.exit631 ], [ %indvars.iv.next.i635, %1837 ]
   %.01617.i633 = phi i64 [ %1833, %ibf_dump_write_small_value.exit631 ], [ %1841, %1837 ]
-  %1835 = sub nuw nsw i64 7, %indvars.iv.i632
+  %1835 = xor i64 %indvars.iv.i632, 7
   %1836 = lshr i64 %.01617.i633, %1835
   %.not.i634 = icmp eq i64 %1836, 0
   br i1 %.not.i634, label %.critedge.split.loop.exit20.i643, label %1837
@@ -78658,7 +78658,7 @@ ibf_dump_write_small_value.exit644:               ; preds = %.critedge.i637
 1864:                                             ; preds = %1867, %ibf_dump_write_small_value.exit644
   %indvars.iv.i645 = phi i64 [ 0, %ibf_dump_write_small_value.exit644 ], [ %indvars.iv.next.i648, %1867 ]
   %.01617.i646 = phi i64 [ %1863, %ibf_dump_write_small_value.exit644 ], [ %1871, %1867 ]
-  %1865 = sub nuw nsw i64 7, %indvars.iv.i645
+  %1865 = xor i64 %indvars.iv.i645, 7
   %1866 = lshr i64 %.01617.i646, %1865
   %.not.i647 = icmp eq i64 %1866, 0
   br i1 %.not.i647, label %.critedge.split.loop.exit20.i656, label %1867
@@ -78718,7 +78718,7 @@ ibf_dump_write_small_value.exit657:               ; preds = %.critedge.i650
 1895:                                             ; preds = %1898, %ibf_dump_write_small_value.exit657
   %indvars.iv.i658 = phi i64 [ 0, %ibf_dump_write_small_value.exit657 ], [ %indvars.iv.next.i661, %1898 ]
   %.01617.i659 = phi i64 [ %1894, %ibf_dump_write_small_value.exit657 ], [ %1902, %1898 ]
-  %1896 = sub nuw nsw i64 7, %indvars.iv.i658
+  %1896 = xor i64 %indvars.iv.i658, 7
   %1897 = lshr i64 %.01617.i659, %1896
   %.not.i660 = icmp eq i64 %1897, 0
   br i1 %.not.i660, label %.critedge.split.loop.exit20.i669, label %1898
@@ -78778,7 +78778,7 @@ ibf_dump_write_small_value.exit670:               ; preds = %.critedge.i663
 1926:                                             ; preds = %1929, %ibf_dump_write_small_value.exit670
   %indvars.iv.i671 = phi i64 [ 0, %ibf_dump_write_small_value.exit670 ], [ %indvars.iv.next.i674, %1929 ]
   %.01617.i672 = phi i64 [ %1925, %ibf_dump_write_small_value.exit670 ], [ %1933, %1929 ]
-  %1927 = sub nuw nsw i64 7, %indvars.iv.i671
+  %1927 = xor i64 %indvars.iv.i671, 7
   %1928 = lshr i64 %.01617.i672, %1927
   %.not.i673 = icmp eq i64 %1928, 0
   br i1 %.not.i673, label %.critedge.split.loop.exit20.i682, label %1929
@@ -78838,7 +78838,7 @@ ibf_dump_write_small_value.exit683:               ; preds = %.critedge.i676
 1957:                                             ; preds = %1960, %ibf_dump_write_small_value.exit683
   %indvars.iv.i684 = phi i64 [ 0, %ibf_dump_write_small_value.exit683 ], [ %indvars.iv.next.i687, %1960 ]
   %.01617.i685 = phi i64 [ %1956, %ibf_dump_write_small_value.exit683 ], [ %1964, %1960 ]
-  %1958 = sub nuw nsw i64 7, %indvars.iv.i684
+  %1958 = xor i64 %indvars.iv.i684, 7
   %1959 = lshr i64 %.01617.i685, %1958
   %.not.i686 = icmp eq i64 %1959, 0
   br i1 %.not.i686, label %.critedge.split.loop.exit20.i695, label %1960
@@ -78899,7 +78899,7 @@ ibf_dump_write_small_value.exit696:               ; preds = %.critedge.i689
 1989:                                             ; preds = %1992, %ibf_dump_write_small_value.exit696
   %indvars.iv.i697 = phi i64 [ 0, %ibf_dump_write_small_value.exit696 ], [ %indvars.iv.next.i700, %1992 ]
   %.01617.i698 = phi i64 [ %1988, %ibf_dump_write_small_value.exit696 ], [ %1996, %1992 ]
-  %1990 = sub nuw nsw i64 7, %indvars.iv.i697
+  %1990 = xor i64 %indvars.iv.i697, 7
   %1991 = lshr i64 %.01617.i698, %1990
   %.not.i699 = icmp eq i64 %1991, 0
   br i1 %.not.i699, label %.critedge.split.loop.exit20.i708, label %1992
@@ -78960,7 +78960,7 @@ ibf_dump_write_small_value.exit709:               ; preds = %.critedge.i702
 2021:                                             ; preds = %2024, %ibf_dump_write_small_value.exit709
   %indvars.iv.i710 = phi i64 [ 0, %ibf_dump_write_small_value.exit709 ], [ %indvars.iv.next.i713, %2024 ]
   %.01617.i711 = phi i64 [ %2020, %ibf_dump_write_small_value.exit709 ], [ %2028, %2024 ]
-  %2022 = sub nuw nsw i64 7, %indvars.iv.i710
+  %2022 = xor i64 %indvars.iv.i710, 7
   %2023 = lshr i64 %.01617.i711, %2022
   %.not.i712 = icmp eq i64 %2023, 0
   br i1 %.not.i712, label %.critedge.split.loop.exit20.i721, label %2024
@@ -79021,7 +79021,7 @@ ibf_dump_write_small_value.exit722:               ; preds = %.critedge.i715
 2053:                                             ; preds = %2056, %ibf_dump_write_small_value.exit722
   %indvars.iv.i723 = phi i64 [ 0, %ibf_dump_write_small_value.exit722 ], [ %indvars.iv.next.i726, %2056 ]
   %.01617.i724 = phi i64 [ %2052, %ibf_dump_write_small_value.exit722 ], [ %2060, %2056 ]
-  %2054 = sub nuw nsw i64 7, %indvars.iv.i723
+  %2054 = xor i64 %indvars.iv.i723, 7
   %2055 = lshr i64 %.01617.i724, %2054
   %.not.i725 = icmp eq i64 %2055, 0
   br i1 %.not.i725, label %.critedge.split.loop.exit20.i734, label %2056
@@ -79082,7 +79082,7 @@ ibf_dump_write_small_value.exit735:               ; preds = %.critedge.i728
 2085:                                             ; preds = %2088, %ibf_dump_write_small_value.exit735
   %indvars.iv.i736 = phi i64 [ 0, %ibf_dump_write_small_value.exit735 ], [ %indvars.iv.next.i739, %2088 ]
   %.01617.i737 = phi i64 [ %2084, %ibf_dump_write_small_value.exit735 ], [ %2092, %2088 ]
-  %2086 = sub nuw nsw i64 7, %indvars.iv.i736
+  %2086 = xor i64 %indvars.iv.i736, 7
   %2087 = lshr i64 %.01617.i737, %2086
   %.not.i738 = icmp eq i64 %2087, 0
   br i1 %.not.i738, label %.critedge.split.loop.exit20.i747, label %2088
@@ -79143,7 +79143,7 @@ ibf_dump_write_small_value.exit748:               ; preds = %.critedge.i741
 2117:                                             ; preds = %2120, %ibf_dump_write_small_value.exit748
   %indvars.iv.i749 = phi i64 [ 0, %ibf_dump_write_small_value.exit748 ], [ %indvars.iv.next.i752, %2120 ]
   %.01617.i750 = phi i64 [ %2116, %ibf_dump_write_small_value.exit748 ], [ %2124, %2120 ]
-  %2118 = sub nuw nsw i64 7, %indvars.iv.i749
+  %2118 = xor i64 %indvars.iv.i749, 7
   %2119 = lshr i64 %.01617.i750, %2118
   %.not.i751 = icmp eq i64 %2119, 0
   br i1 %.not.i751, label %.critedge.split.loop.exit20.i760, label %2120
@@ -79204,7 +79204,7 @@ ibf_dump_write_small_value.exit761:               ; preds = %.critedge.i754
 2149:                                             ; preds = %2152, %ibf_dump_write_small_value.exit761
   %indvars.iv.i762 = phi i64 [ 0, %ibf_dump_write_small_value.exit761 ], [ %indvars.iv.next.i765, %2152 ]
   %.01617.i763 = phi i64 [ %2148, %ibf_dump_write_small_value.exit761 ], [ %2156, %2152 ]
-  %2150 = sub nuw nsw i64 7, %indvars.iv.i762
+  %2150 = xor i64 %indvars.iv.i762, 7
   %2151 = lshr i64 %.01617.i763, %2150
   %.not.i764 = icmp eq i64 %2151, 0
   br i1 %.not.i764, label %.critedge.split.loop.exit20.i773, label %2152
@@ -79265,7 +79265,7 @@ ibf_dump_write_small_value.exit774:               ; preds = %.critedge.i767
 2181:                                             ; preds = %2184, %ibf_dump_write_small_value.exit774
   %indvars.iv.i775 = phi i64 [ 0, %ibf_dump_write_small_value.exit774 ], [ %indvars.iv.next.i778, %2184 ]
   %.01617.i776 = phi i64 [ %2180, %ibf_dump_write_small_value.exit774 ], [ %2188, %2184 ]
-  %2182 = sub nuw nsw i64 7, %indvars.iv.i775
+  %2182 = xor i64 %indvars.iv.i775, 7
   %2183 = lshr i64 %.01617.i776, %2182
   %.not.i777 = icmp eq i64 %2183, 0
   br i1 %.not.i777, label %.critedge.split.loop.exit20.i786, label %2184
@@ -79326,7 +79326,7 @@ ibf_dump_write_small_value.exit787:               ; preds = %.critedge.i780
 2213:                                             ; preds = %2216, %ibf_dump_write_small_value.exit787
   %indvars.iv.i788 = phi i64 [ 0, %ibf_dump_write_small_value.exit787 ], [ %indvars.iv.next.i791, %2216 ]
   %.01617.i789 = phi i64 [ %2212, %ibf_dump_write_small_value.exit787 ], [ %2220, %2216 ]
-  %2214 = sub nuw nsw i64 7, %indvars.iv.i788
+  %2214 = xor i64 %indvars.iv.i788, 7
   %2215 = lshr i64 %.01617.i789, %2214
   %.not.i790 = icmp eq i64 %2215, 0
   br i1 %.not.i790, label %.critedge.split.loop.exit20.i799, label %2216
@@ -79828,7 +79828,7 @@ ibf_dump_pos.exit.preheader:                      ; preds = %._crit_edge
 60:                                               ; preds = %63, %56
   %indvars.iv.i = phi i64 [ 0, %56 ], [ %indvars.iv.next.i, %63 ]
   %.01617.i = phi i64 [ %59, %56 ], [ %67, %63 ]
-  %61 = sub nuw nsw i64 7, %indvars.iv.i
+  %61 = xor i64 %indvars.iv.i, 7
   %62 = lshr i64 %.01617.i, %61
   %.not.i = icmp eq i64 %62, 0
   br i1 %.not.i, label %.critedge.split.loop.exit20.i, label %63
@@ -79888,7 +79888,7 @@ ibf_dump_write_small_value.exit:                  ; preds = %.critedge.i
 91:                                               ; preds = %94, %ibf_dump_write_small_value.exit
   %indvars.iv.i38 = phi i64 [ 0, %ibf_dump_write_small_value.exit ], [ %indvars.iv.next.i41, %94 ]
   %.01617.i39 = phi i64 [ %90, %ibf_dump_write_small_value.exit ], [ %98, %94 ]
-  %92 = sub nuw nsw i64 7, %indvars.iv.i38
+  %92 = xor i64 %indvars.iv.i38, 7
   %93 = lshr i64 %.01617.i39, %92
   %.not.i40 = icmp eq i64 %93, 0
   br i1 %.not.i40, label %.critedge.split.loop.exit20.i48, label %94
@@ -79948,7 +79948,7 @@ ibf_dump_write_small_value.exit49:                ; preds = %.critedge.i43
 122:                                              ; preds = %125, %ibf_dump_write_small_value.exit49
   %indvars.iv.i50 = phi i64 [ 0, %ibf_dump_write_small_value.exit49 ], [ %indvars.iv.next.i53, %125 ]
   %.01617.i51 = phi i64 [ %121, %ibf_dump_write_small_value.exit49 ], [ %129, %125 ]
-  %123 = sub nuw nsw i64 7, %indvars.iv.i50
+  %123 = xor i64 %indvars.iv.i50, 7
   %124 = lshr i64 %.01617.i51, %123
   %.not.i52 = icmp eq i64 %124, 0
   br i1 %.not.i52, label %.critedge.split.loop.exit20.i60, label %125
@@ -80008,7 +80008,7 @@ ibf_dump_write_small_value.exit61:                ; preds = %.critedge.i55
 153:                                              ; preds = %156, %ibf_dump_write_small_value.exit61
   %indvars.iv.i62 = phi i64 [ 0, %ibf_dump_write_small_value.exit61 ], [ %indvars.iv.next.i65, %156 ]
   %.01617.i63 = phi i64 [ %152, %ibf_dump_write_small_value.exit61 ], [ %160, %156 ]
-  %154 = sub nuw nsw i64 7, %indvars.iv.i62
+  %154 = xor i64 %indvars.iv.i62, 7
   %155 = lshr i64 %.01617.i63, %154
   %.not.i64 = icmp eq i64 %155, 0
   br i1 %.not.i64, label %.critedge.split.loop.exit20.i72, label %156
@@ -80068,7 +80068,7 @@ ibf_dump_write_small_value.exit73:                ; preds = %.critedge.i67
 184:                                              ; preds = %187, %ibf_dump_write_small_value.exit73
   %indvars.iv.i74 = phi i64 [ 0, %ibf_dump_write_small_value.exit73 ], [ %indvars.iv.next.i77, %187 ]
   %.01617.i75 = phi i64 [ %183, %ibf_dump_write_small_value.exit73 ], [ %191, %187 ]
-  %185 = sub nuw nsw i64 7, %indvars.iv.i74
+  %185 = xor i64 %indvars.iv.i74, 7
   %186 = lshr i64 %.01617.i75, %185
   %.not.i76 = icmp eq i64 %186, 0
   br i1 %.not.i76, label %.critedge.split.loop.exit20.i84, label %187
@@ -80128,7 +80128,7 @@ ibf_dump_write_small_value.exit85:                ; preds = %.critedge.i79
 215:                                              ; preds = %218, %ibf_dump_write_small_value.exit85
   %indvars.iv.i86 = phi i64 [ 0, %ibf_dump_write_small_value.exit85 ], [ %indvars.iv.next.i89, %218 ]
   %.01617.i87 = phi i64 [ %214, %ibf_dump_write_small_value.exit85 ], [ %222, %218 ]
-  %216 = sub nuw nsw i64 7, %indvars.iv.i86
+  %216 = xor i64 %indvars.iv.i86, 7
   %217 = lshr i64 %.01617.i87, %216
   %.not.i88 = icmp eq i64 %217, 0
   br i1 %.not.i88, label %.critedge.split.loop.exit20.i96, label %218
@@ -80243,7 +80243,7 @@ ibf_dump_pos.exit:                                ; preds = %1
 18:                                               ; preds = %21, %16
   %indvars.iv.i = phi i64 [ 0, %16 ], [ %indvars.iv.next.i, %21 ]
   %.01617.i = phi i64 [ %17, %16 ], [ %25, %21 ]
-  %19 = sub nuw nsw i64 7, %indvars.iv.i
+  %19 = xor i64 %indvars.iv.i, 7
   %20 = lshr i64 %.01617.i, %19
   %.not.i = icmp eq i64 %20, 0
   br i1 %.not.i, label %.critedge.split.loop.exit20.i, label %21
@@ -80372,7 +80372,7 @@ ibf_dump_id.exit:                                 ; preds = %60, %66, %.ibf_tabl
 82:                                               ; preds = %85, %ibf_dump_id.exit
   %indvars.iv.i34 = phi i64 [ 0, %ibf_dump_id.exit ], [ %indvars.iv.next.i37, %85 ]
   %.01617.i35 = phi i64 [ %.0.i, %ibf_dump_id.exit ], [ %89, %85 ]
-  %83 = sub nuw nsw i64 7, %indvars.iv.i34
+  %83 = xor i64 %indvars.iv.i34, 7
   %84 = lshr i64 %.01617.i35, %83
   %.not.i36 = icmp eq i64 %84, 0
   br i1 %.not.i36, label %.critedge.split.loop.exit20.i44, label %85
@@ -80429,7 +80429,7 @@ ibf_dump_write_small_value.exit45:                ; preds = %.critedge.i39
 110:                                              ; preds = %113, %ibf_dump_write_small_value.exit45
   %indvars.iv.i46 = phi i64 [ 0, %ibf_dump_write_small_value.exit45 ], [ %indvars.iv.next.i49, %113 ]
   %.01617.i47 = phi i64 [ %64, %ibf_dump_write_small_value.exit45 ], [ %117, %113 ]
-  %111 = sub nuw nsw i64 7, %indvars.iv.i46
+  %111 = xor i64 %indvars.iv.i46, 7
   %112 = lshr i64 %.01617.i47, %111
   %.not.i48 = icmp eq i64 %112, 0
   br i1 %.not.i48, label %.critedge.split.loop.exit20.i56, label %113
@@ -80613,7 +80613,7 @@ ibf_dump_object_object_header.exit.i:             ; preds = %33
 41:                                               ; preds = %44, %ibf_dump_object_object_header.exit.i
   %indvars.iv.i.i = phi i64 [ 0, %ibf_dump_object_object_header.exit.i ], [ %indvars.iv.next.i.i, %44 ]
   %.01617.i.i = phi i64 [ %0, %ibf_dump_object_object_header.exit.i ], [ %48, %44 ]
-  %42 = sub nuw nsw i64 7, %indvars.iv.i.i
+  %42 = xor i64 %indvars.iv.i.i, 7
   %43 = lshr i64 %.01617.i.i, %42
   %.not.i45.i = icmp eq i64 %43, 0
   br i1 %.not.i45.i, label %.critedge.split.loop.exit20.i.i, label %44
@@ -80902,7 +80902,7 @@ ibf_dump_object.exit:                             ; preds = %.ibf_table_find_or_
 34:                                               ; preds = %37, %33
   %indvars.iv.i = phi i64 [ 0, %33 ], [ %indvars.iv.next.i, %37 ]
   %.01617.i = phi i64 [ %.0, %33 ], [ %41, %37 ]
-  %35 = sub nuw nsw i64 7, %indvars.iv.i
+  %35 = xor i64 %indvars.iv.i, 7
   %36 = lshr i64 %.01617.i, %35
   %.not.i = icmp eq i64 %36, 0
   br i1 %.not.i, label %.critedge.split.loop.exit20.i, label %37
@@ -80961,7 +80961,7 @@ ibf_dump_write_small_value.exit:                  ; preds = %.critedge.i
 64:                                               ; preds = %67, %ibf_dump_write_small_value.exit
   %indvars.iv.i17 = phi i64 [ 0, %ibf_dump_write_small_value.exit ], [ %indvars.iv.next.i20, %67 ]
   %.01617.i18 = phi i64 [ %10, %ibf_dump_write_small_value.exit ], [ %71, %67 ]
-  %65 = sub nuw nsw i64 7, %indvars.iv.i17
+  %65 = xor i64 %indvars.iv.i17, 7
   %66 = lshr i64 %.01617.i18, %65
   %.not.i19 = icmp eq i64 %66, 0
   br i1 %.not.i19, label %.critedge.split.loop.exit20.i27, label %67
@@ -81093,7 +81093,7 @@ ibf_dump_write_byte.exit:                         ; preds = %ibf_dump_object.exi
 30:                                               ; preds = %33, %ibf_dump_write_byte.exit
   %indvars.iv.i = phi i64 [ 0, %ibf_dump_write_byte.exit ], [ %indvars.iv.next.i, %33 ]
   %.01617.i = phi i64 [ %.pre-phi.i, %ibf_dump_write_byte.exit ], [ %37, %33 ]
-  %31 = sub nuw nsw i64 7, %indvars.iv.i
+  %31 = xor i64 %indvars.iv.i, 7
   %32 = lshr i64 %.01617.i, %31
   %.not.i = icmp eq i64 %32, 0
   br i1 %.not.i, label %.critedge.split.loop.exit20.i, label %33
@@ -81177,7 +81177,7 @@ rb_array_len.exit:                                ; preds = %9, %12
 15:                                               ; preds = %18, %rb_array_len.exit
   %indvars.iv.i = phi i64 [ 0, %rb_array_len.exit ], [ %indvars.iv.next.i, %18 ]
   %.01617.i = phi i64 [ %.0.i, %rb_array_len.exit ], [ %22, %18 ]
-  %16 = sub nuw nsw i64 7, %indvars.iv.i
+  %16 = xor i64 %indvars.iv.i, 7
   %17 = lshr i64 %.01617.i, %16
   %.not.i10 = icmp eq i64 %17, 0
   br i1 %.not.i10, label %.critedge.split.loop.exit20.i, label %18
@@ -81287,7 +81287,7 @@ ibf_dump_object.exit:                             ; preds = %.ibf_table_find_or_
 67:                                               ; preds = %70, %ibf_dump_object.exit
   %indvars.iv.i11 = phi i64 [ 0, %ibf_dump_object.exit ], [ %indvars.iv.next.i14, %70 ]
   %.01617.i12 = phi i64 [ %.pre-phi.i, %ibf_dump_object.exit ], [ %74, %70 ]
-  %68 = sub nuw nsw i64 7, %indvars.iv.i11
+  %68 = xor i64 %indvars.iv.i11, 7
   %69 = lshr i64 %.01617.i12, %68
   %.not.i13 = icmp eq i64 %69, 0
   br i1 %.not.i13, label %.critedge.split.loop.exit20.i21, label %70
@@ -81375,7 +81375,7 @@ RHASH_SIZE.exit:                                  ; preds = %7, %10
 15:                                               ; preds = %18, %RHASH_SIZE.exit
   %indvars.iv.i = phi i64 [ 0, %RHASH_SIZE.exit ], [ %indvars.iv.next.i, %18 ]
   %.01617.i = phi i64 [ %.0.i, %RHASH_SIZE.exit ], [ %22, %18 ]
-  %16 = sub nuw nsw i64 7, %indvars.iv.i
+  %16 = xor i64 %indvars.iv.i, 7
   %17 = lshr i64 %.01617.i, %16
   %.not.i = icmp eq i64 %17, 0
   br i1 %.not.i, label %.critedge.split.loop.exit20.i, label %18
@@ -81845,7 +81845,7 @@ ibf_dump_object.exit14:                           ; preds = %.ibf_table_find_or_
 32:                                               ; preds = %35, %ibf_dump_object.exit14
   %indvars.iv.i = phi i64 [ 0, %ibf_dump_object.exit14 ], [ %indvars.iv.next.i, %35 ]
   %.01617.i = phi i64 [ %.pre-phi.i, %ibf_dump_object.exit14 ], [ %39, %35 ]
-  %33 = sub nuw nsw i64 7, %indvars.iv.i
+  %33 = xor i64 %indvars.iv.i, 7
   %34 = lshr i64 %.01617.i, %33
   %.not.i = icmp eq i64 %34, 0
   br i1 %.not.i, label %.critedge.split.loop.exit20.i, label %35
@@ -81903,7 +81903,7 @@ ibf_dump_write_small_value.exit:                  ; preds = %.critedge.i
 61:                                               ; preds = %64, %ibf_dump_write_small_value.exit
   %indvars.iv.i15 = phi i64 [ 0, %ibf_dump_write_small_value.exit ], [ %indvars.iv.next.i18, %64 ]
   %.01617.i16 = phi i64 [ %.pre-phi.i12, %ibf_dump_write_small_value.exit ], [ %68, %64 ]
-  %62 = sub nuw nsw i64 7, %indvars.iv.i15
+  %62 = xor i64 %indvars.iv.i15, 7
   %63 = lshr i64 %.01617.i16, %62
   %.not.i17 = icmp eq i64 %63, 0
   br i1 %.not.i17, label %.critedge.split.loop.exit20.i25, label %64

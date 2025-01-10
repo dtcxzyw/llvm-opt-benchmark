@@ -2626,9 +2626,10 @@ entry:
   br label %for.body
 
 for.body:                                         ; preds = %entry, %for.inc
-  %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %for.inc ]
-  %0 = sub nuw nsw i64 255, %indvars.iv
-  %arrayidx = getelementptr [256 x ptr], ptr %devices, i64 0, i64 %0
+  %devfn.05 = phi i32 [ 0, %entry ], [ %inc, %for.inc ]
+  %0 = xor i32 %devfn.05, 255
+  %sub = zext nneg i32 %0 to i64
+  %arrayidx = getelementptr [256 x ptr], ptr %devices, i64 0, i64 %sub
   %1 = load ptr, ptr %arrayidx, align 8
   %tobool.not = icmp eq ptr %1, null
   br i1 %tobool.not, label %for.inc, label %if.then
@@ -2638,8 +2639,8 @@ if.then:                                          ; preds = %for.body
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body, %if.then
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, 256
+  %inc = add nuw nsw i32 %devfn.05, 1
+  %exitcond.not = icmp eq i32 %inc, 256
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !16
 
 for.end:                                          ; preds = %for.inc
@@ -2658,9 +2659,10 @@ if.then:                                          ; preds = %entry
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.inc.i, %if.then
-  %indvars.iv.i = phi i64 [ 0, %if.then ], [ %indvars.iv.next.i, %for.inc.i ]
-  %0 = sub nuw nsw i64 255, %indvars.iv.i
-  %arrayidx.i = getelementptr [256 x ptr], ptr %devices.i, i64 0, i64 %0
+  %devfn.05.i = phi i32 [ 0, %if.then ], [ %inc.i, %for.inc.i ]
+  %0 = xor i32 %devfn.05.i, 255
+  %sub.i = zext nneg i32 %0 to i64
+  %arrayidx.i = getelementptr [256 x ptr], ptr %devices.i, i64 0, i64 %sub.i
   %1 = load ptr, ptr %arrayidx.i, align 8
   %tobool.not.i = icmp eq ptr %1, null
   br i1 %tobool.not.i, label %for.inc.i, label %if.then.i
@@ -2670,8 +2672,8 @@ if.then.i:                                        ; preds = %for.body.i
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %if.then.i, %for.body.i
-  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 256
+  %inc.i = add nuw nsw i32 %devfn.05.i, 1
+  %exitcond.not.i = icmp eq i32 %inc.i, 256
   br i1 %exitcond.not.i, label %if.end, label %for.body.i, !llvm.loop !16
 
 if.end:                                           ; preds = %for.inc.i, %entry

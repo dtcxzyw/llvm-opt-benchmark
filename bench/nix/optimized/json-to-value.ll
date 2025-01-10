@@ -26208,7 +26208,7 @@ _ZN8nlohmann6detail13binary_readerINS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112b
   %.not.not.i = icmp eq i8 %39, 0
   %40 = load i32, ptr %25, align 8
   %41 = trunc i32 %40 to i8
-  %42 = sub nuw nsw i64 7, %.09.i
+  %42 = xor i64 %.09.i, 7
   %.sink12.i = select i1 %.not.not.i, i64 %42, i64 %.09.i
   %43 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 0, i64 %.sink12.i
   store i8 %41, ptr %43, align 1
@@ -26326,7 +26326,7 @@ _ZN8nlohmann6detail13binary_readerINS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112b
   %.not.not.i31 = icmp eq i8 %87, 0
   %88 = load i32, ptr %73, align 8
   %89 = trunc i32 %88 to i8
-  %90 = sub nuw nsw i64 3, %.09.i27
+  %90 = xor i64 %.09.i27, 3
   %.sink12.i32 = select i1 %.not.not.i31, i64 %90, i64 %.09.i27
   %91 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 0, i64 %.sink12.i32
   store i8 %89, ptr %91, align 1
@@ -26536,7 +26536,7 @@ _ZN8nlohmann6detail13binary_readerINS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112b
   %.not.not.i41 = icmp eq i8 %187, 0
   %188 = load i32, ptr %173, align 8
   %189 = trunc i32 %188 to i8
-  %190 = sub nuw nsw i64 3, %.09.i37
+  %190 = xor i64 %.09.i37, 3
   %.sink12.i42 = select i1 %.not.not.i41, i64 %190, i64 %.09.i37
   %191 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 0, i64 %.sink12.i42
   store i8 %189, ptr %191, align 1
@@ -26664,7 +26664,7 @@ _ZN8nlohmann6detail13binary_readerINS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112b
   %.not.not.i52 = icmp eq i8 %253, 0
   %254 = load i32, ptr %239, align 8
   %255 = trunc i32 %254 to i8
-  %256 = sub nuw nsw i64 3, %.09.i48
+  %256 = xor i64 %.09.i48, 3
   %.sink12.i53 = select i1 %.not.not.i52, i64 %256, i64 %.09.i48
   %257 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 0, i64 %.sink12.i53
   store i8 %255, ptr %257, align 1
@@ -26726,7 +26726,7 @@ _ZN8nlohmann6detail13binary_readerINS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112b
   %.not.not.i60 = icmp eq i8 %285, 0
   %286 = load i32, ptr %271, align 8
   %287 = trunc i32 %286 to i8
-  %288 = sub nuw nsw i64 7, %.09.i56
+  %288 = xor i64 %.09.i56, 7
   %.sink12.i61 = select i1 %.not.not.i60, i64 %288, i64 %.09.i56
   %289 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 0, i64 %.sink12.i61
   store i8 %287, ptr %289, align 1
@@ -27861,7 +27861,7 @@ _ZN8nlohmann6detail13binary_readerINS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112b
   %21 = trunc i8 %20 to i1
   %22 = load i32, ptr %7, align 8
   %23 = trunc i32 %22 to i8
-  %24 = sub nuw nsw i64 3, %.09
+  %24 = xor i64 %.09, 3
   %.sink12 = select i1 %21, i64 %24, i64 %.09
   %25 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 0, i64 %.sink12
   store i8 %23, ptr %25, align 1
@@ -27916,7 +27916,7 @@ _ZN8nlohmann6detail13binary_readerINS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112b
   %21 = trunc i8 %20 to i1
   %22 = load i32, ptr %7, align 8
   %23 = trunc i32 %22 to i8
-  %24 = sub nuw nsw i64 7, %.09
+  %24 = xor i64 %.09, 7
   %.sink12 = select i1 %21, i64 %24, i64 %.09
   %25 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 0, i64 %.sink12
   store i8 %23, ptr %25, align 1
@@ -28941,7 +28941,7 @@ _ZN8nlohmann6detail13binary_readerINS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112b
   %21 = trunc i8 %20 to i1
   %22 = load i32, ptr %7, align 8
   %23 = trunc i32 %22 to i8
-  %24 = sub nuw nsw i64 3, %.09
+  %24 = xor i64 %.09, 3
   %.sink12 = select i1 %21, i64 %24, i64 %.09
   %25 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 0, i64 %.sink12
   store i8 %23, ptr %25, align 1
@@ -28996,7 +28996,7 @@ _ZN8nlohmann6detail13binary_readerINS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112b
   %21 = trunc i8 %20 to i1
   %22 = load i32, ptr %7, align 8
   %23 = trunc i32 %22 to i8
-  %24 = sub nuw nsw i64 7, %.09
+  %24 = xor i64 %.09, 7
   %.sink12 = select i1 %21, i64 %24, i64 %.09
   %25 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 0, i64 %.sink12
   store i8 %23, ptr %25, align 1
@@ -30501,7 +30501,7 @@ _ZN8nlohmann6detail13binary_readerINS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112b
   %64 = trunc i8 %63 to i1
   %65 = load i32, ptr %7, align 8
   %66 = trunc i32 %65 to i8
-  %67 = sub nuw nsw i64 3, %.09.i17
+  %67 = xor i64 %.09.i17, 3
   %.sink12.i21 = select i1 %64, i64 %67, i64 %.09.i17
   %68 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 0, i64 %.sink12.i21
   store i8 %66, ptr %68, align 1
@@ -30702,7 +30702,7 @@ _ZN8nlohmann6detail13binary_readerINS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112b
   %160 = trunc i8 %159 to i1
   %161 = load i32, ptr %7, align 8
   %162 = trunc i32 %161 to i8
-  %163 = sub nuw nsw i64 3, %.09.i43
+  %163 = xor i64 %.09.i43, 3
   %.sink12.i47 = select i1 %160, i64 %163, i64 %.09.i43
   %164 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 0, i64 %.sink12.i47
   store i8 %162, ptr %164, align 1
@@ -31075,7 +31075,7 @@ _ZN8nlohmann6detail13binary_readerINS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112b
   %21 = trunc i8 %20 to i1
   %22 = load i32, ptr %7, align 8
   %23 = trunc i32 %22 to i8
-  %24 = sub nuw nsw i64 3, %.09
+  %24 = xor i64 %.09, 3
   %.sink12 = select i1 %21, i64 %24, i64 %.09
   %25 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 0, i64 %.sink12
   store i8 %23, ptr %25, align 1
@@ -31130,7 +31130,7 @@ _ZN8nlohmann6detail13binary_readerINS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112b
   %21 = trunc i8 %20 to i1
   %22 = load i32, ptr %7, align 8
   %23 = trunc i32 %22 to i8
-  %24 = sub nuw nsw i64 7, %.09
+  %24 = xor i64 %.09, 7
   %.sink12 = select i1 %21, i64 %24, i64 %.09
   %25 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 0, i64 %.sink12
   store i8 %23, ptr %25, align 1
@@ -31399,7 +31399,7 @@ _ZN8nlohmann6detail13binary_readerINS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112b
   %147 = trunc i8 %146 to i1
   %148 = load i32, ptr %133, align 8
   %149 = trunc i32 %148 to i8
-  %150 = sub nuw nsw i64 3, %.09.i52
+  %150 = xor i64 %.09.i52, 3
   %.sink12.i56 = select i1 %147, i64 %150, i64 %.09.i52
   %151 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 0, i64 %.sink12.i56
   store i8 %149, ptr %151, align 1
@@ -31460,7 +31460,7 @@ _ZN8nlohmann6detail13binary_readerINS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112b
   %179 = trunc i8 %178 to i1
   %180 = load i32, ptr %165, align 8
   %181 = trunc i32 %180 to i8
-  %182 = sub nuw nsw i64 7, %.09.i57
+  %182 = xor i64 %.09.i57, 7
   %.sink12.i61 = select i1 %179, i64 %182, i64 %.09.i57
   %183 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 0, i64 %.sink12.i61
   store i8 %181, ptr %183, align 1
@@ -31520,7 +31520,7 @@ _ZN8nlohmann6detail13binary_readerINS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112b
   %210 = trunc i8 %209 to i1
   %211 = load i32, ptr %196, align 8
   %212 = trunc i32 %211 to i8
-  %213 = sub nuw nsw i64 3, %.09.i63
+  %213 = xor i64 %.09.i63, 3
   %.sink12.i67 = select i1 %210, i64 %213, i64 %.09.i63
   %214 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 0, i64 %.sink12.i67
   store i8 %212, ptr %214, align 1
@@ -31624,7 +31624,7 @@ _ZN8nlohmann6detail13binary_readerINS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112b
   %256 = trunc i8 %255 to i1
   %257 = load i32, ptr %242, align 8
   %258 = trunc i32 %257 to i8
-  %259 = sub nuw nsw i64 7, %.09.i69
+  %259 = xor i64 %.09.i69, 7
   %.sink12.i73 = select i1 %256, i64 %259, i64 %.09.i69
   %260 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 0, i64 %.sink12.i73
   store i8 %258, ptr %260, align 1
@@ -33272,7 +33272,7 @@ _ZN8nlohmann6detail13binary_readerINS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112b
   %193 = trunc i8 %192 to i1
   %194 = load i32, ptr %31, align 8
   %195 = trunc i32 %194 to i8
-  %196 = sub nuw nsw i64 3, %.09.i48
+  %196 = xor i64 %.09.i48, 3
   %.sink12.i52 = select i1 %193, i64 %196, i64 %.09.i48
   %197 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 0, i64 %.sink12.i52
   store i8 %195, ptr %197, align 1
@@ -33391,7 +33391,7 @@ _ZN8nlohmann6detail13binary_readerINS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112b
   %248 = trunc i8 %247 to i1
   %249 = load i32, ptr %31, align 8
   %250 = trunc i32 %249 to i8
-  %251 = sub nuw nsw i64 7, %.09.i63
+  %251 = xor i64 %.09.i63, 7
   %.sink12.i67 = select i1 %248, i64 %251, i64 %.09.i63
   %252 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 0, i64 %.sink12.i67
   store i8 %250, ptr %252, align 1
@@ -34349,7 +34349,7 @@ _ZN8nlohmann6detail13binary_readerINS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112b
   %83 = trunc i8 %82 to i1
   %84 = load i32, ptr %18, align 8
   %85 = trunc i32 %84 to i8
-  %86 = sub nuw nsw i64 3, %.09.i26
+  %86 = xor i64 %.09.i26, 3
   %.sink12.i30 = select i1 %83, i64 %86, i64 %.09.i26
   %87 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 0, i64 %.sink12.i30
   store i8 %85, ptr %87, align 1
@@ -34402,7 +34402,7 @@ _ZN8nlohmann6detail13binary_readerINS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112b
   %106 = trunc i8 %105 to i1
   %107 = load i32, ptr %18, align 8
   %108 = trunc i32 %107 to i8
-  %109 = sub nuw nsw i64 7, %.09.i31
+  %109 = xor i64 %.09.i31, 7
   %.sink12.i35 = select i1 %106, i64 %109, i64 %.09.i31
   %110 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 0, i64 %.sink12.i35
   store i8 %108, ptr %110, align 1

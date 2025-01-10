@@ -51864,7 +51864,8 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %for.
   %shl6.i.i = shl nuw i32 1, %b.08.i.i
   %and7.i.i = and i32 %shl6.i.i, %conv5.i.i
   %tobool8.not.i.i = icmp eq i32 %and7.i.i, 0
-  %shl11.i.i = lshr exact i32 -2147483648, %b.08.i.i
+  %sub10.i.i = xor i32 %b.08.i.i, 31
+  %shl11.i.i = shl nuw i32 1, %sub10.i.i
   %xor12.i.i = select i1 %tobool8.not.i.i, i32 0, i32 %shl11.i.i
   %v.addr.2.i.i = xor i32 %xor12.i.i, %v.addr.19.i.i
   %inc.i.i = add nuw nsw i32 %b.08.i.i, 1
@@ -52093,7 +52094,8 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %for.
   %shl6.i.i = shl nuw i32 1, %b.08.i.i
   %and7.i.i = and i32 %shl6.i.i, %conv5.i.i
   %tobool8.not.i.i = icmp eq i32 %and7.i.i, 0
-  %shl11.i.i = lshr exact i32 -2147483648, %b.08.i.i
+  %sub10.i.i = xor i32 %b.08.i.i, 31
+  %shl11.i.i = shl nuw i32 1, %sub10.i.i
   %xor12.i.i = select i1 %tobool8.not.i.i, i32 0, i32 %shl11.i.i
   %v.addr.2.i.i = xor i32 %xor12.i.i, %v.addr.19.i.i
   %inc.i.i = add nuw nsw i32 %b.08.i.i, 1
@@ -52380,7 +52382,8 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %for.
   %shl6.i.i = shl nuw i32 1, %b.08.i.i
   %and7.i.i = and i32 %shl6.i.i, %conv5.i.i
   %tobool8.not.i.i = icmp eq i32 %and7.i.i, 0
-  %shl11.i.i = lshr exact i32 -2147483648, %b.08.i.i
+  %sub10.i.i = xor i32 %b.08.i.i, 31
+  %shl11.i.i = shl nuw i32 1, %sub10.i.i
   %xor12.i.i = select i1 %tobool8.not.i.i, i32 0, i32 %shl11.i.i
   %v.addr.2.i.i = xor i32 %xor12.i.i, %v.addr.19.i.i
   %inc.i.i = add nuw nsw i32 %b.08.i.i, 1
@@ -55089,10 +55092,10 @@ if.then10:                                        ; preds = %_ZNK4pbrt13ZSobolSa
   br i1 %cmp.not6.i154, label %_ZN4pbrt11SobolSampleINS_22BinaryPermuteScramblerEEEfliT_.exit.thread, label %for.body.i47
 
 _ZN4pbrt11SobolSampleINS_22BinaryPermuteScramblerEEEfliT_.exit.thread: ; preds = %if.then10
-  %conv.i64246 = uitofp i32 %conv to float
-  %mul3.i247 = fmul float %conv.i64246, 0x3DF0000000000000
-  %cmp.i.i65248 = fcmp ogt float %mul3.i247, 0x3FEFFFFFE0000000
-  %.sroa.speculated.i66249 = select i1 %cmp.i.i65248, float 0x3FEFFFFFE0000000, float %mul3.i247
+  %conv.i64247 = uitofp i32 %conv to float
+  %mul3.i248 = fmul float %conv.i64247, 0x3DF0000000000000
+  %cmp.i.i65249 = fcmp ogt float %mul3.i248, 0x3FEFFFFFE0000000
+  %.sroa.speculated.i66250 = select i1 %cmp.i.i65249, float 0x3FEFFFFFE0000000, float %mul3.i248
   br label %_ZN4pbrt11SobolSampleINS_22BinaryPermuteScramblerEEEfliT_.exit90
 
 for.body.i47:                                     ; preds = %if.then10, %for.inc.i56
@@ -55149,7 +55152,7 @@ _ZN4pbrt11SobolSampleINS_22BinaryPermuteScramblerEEEfliT_.exit90.loopexit: ; pre
   br label %_ZN4pbrt11SobolSampleINS_22BinaryPermuteScramblerEEEfliT_.exit90
 
 _ZN4pbrt11SobolSampleINS_22BinaryPermuteScramblerEEEfliT_.exit90: ; preds = %_ZN4pbrt11SobolSampleINS_22BinaryPermuteScramblerEEEfliT_.exit90.loopexit, %_ZN4pbrt11SobolSampleINS_22BinaryPermuteScramblerEEEfliT_.exit.thread
-  %.sroa.speculated.i66250 = phi float [ %.sroa.speculated.i66249, %_ZN4pbrt11SobolSampleINS_22BinaryPermuteScramblerEEEfliT_.exit.thread ], [ %.sroa.speculated.i66, %_ZN4pbrt11SobolSampleINS_22BinaryPermuteScramblerEEEfliT_.exit90.loopexit ]
+  %.sroa.speculated.i66251 = phi float [ %.sroa.speculated.i66250, %_ZN4pbrt11SobolSampleINS_22BinaryPermuteScramblerEEEfliT_.exit.thread ], [ %.sroa.speculated.i66, %_ZN4pbrt11SobolSampleINS_22BinaryPermuteScramblerEEEfliT_.exit90.loopexit ]
   %v.0.lcssa.i84 = phi i32 [ 0, %_ZN4pbrt11SobolSampleINS_22BinaryPermuteScramblerEEEfliT_.exit.thread ], [ %v.1.i79, %_ZN4pbrt11SobolSampleINS_22BinaryPermuteScramblerEEEfliT_.exit90.loopexit ]
   %xor.i.i85 = xor i32 %v.0.lcssa.i84, %conv4
   %conv.i86 = uitofp i32 %xor.i.i85 to float
@@ -55289,7 +55292,8 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %for.
   %shl6.i.i = shl nuw i32 1, %b.08.i.i
   %and7.i.i = and i32 %shl6.i.i, %conv5.i.i
   %tobool8.not.i.i = icmp eq i32 %and7.i.i, 0
-  %shl11.i.i = lshr exact i32 -2147483648, %b.08.i.i
+  %sub10.i.i = xor i32 %b.08.i.i, 31
+  %shl11.i.i = shl nuw i32 1, %sub10.i.i
   %xor12.i.i = select i1 %tobool8.not.i.i, i32 0, i32 %shl11.i.i
   %v.addr.2.i.i = xor i32 %xor12.i.i, %v.addr.19.i.i
   %inc.i.i = add nuw nsw i32 %b.08.i.i, 1
@@ -55331,8 +55335,8 @@ for.end.i193:                                     ; preds = %for.inc.i188, %_ZN4
   br label %for.body.i.i196
 
 for.body.i.i196:                                  ; preds = %for.body.i.i196, %for.end.i193
-  %v.addr.19.i.i197 = phi i32 [ %spec.select.i.i195, %for.end.i193 ], [ %v.addr.2.i.i218, %for.body.i.i196 ]
-  %b.08.i.i198 = phi i32 [ 1, %for.end.i193 ], [ %inc.i.i219, %for.body.i.i196 ]
+  %v.addr.19.i.i197 = phi i32 [ %spec.select.i.i195, %for.end.i193 ], [ %v.addr.2.i.i219, %for.body.i.i196 ]
+  %b.08.i.i198 = phi i32 [ 1, %for.end.i193 ], [ %inc.i.i220, %for.body.i.i196 ]
   %sub.i.i199 = sub nuw nsw i32 32, %b.08.i.i198
   %shl.i.i200 = shl nsw i32 -1, %sub.i.i199
   %and2.i.i201 = and i32 %shl.i.i200, %v.addr.19.i.i197
@@ -55350,26 +55354,27 @@ for.body.i.i196:                                  ; preds = %for.body.i.i196, %f
   %shl6.i.i213 = shl nuw i32 1, %b.08.i.i198
   %and7.i.i214 = and i32 %shl6.i.i213, %conv5.i.i212
   %tobool8.not.i.i215 = icmp eq i32 %and7.i.i214, 0
-  %shl11.i.i216 = lshr exact i32 -2147483648, %b.08.i.i198
-  %xor12.i.i217 = select i1 %tobool8.not.i.i215, i32 0, i32 %shl11.i.i216
-  %v.addr.2.i.i218 = xor i32 %xor12.i.i217, %v.addr.19.i.i197
-  %inc.i.i219 = add nuw nsw i32 %b.08.i.i198, 1
-  %exitcond.not.i.i220 = icmp eq i32 %inc.i.i219, 32
-  br i1 %exitcond.not.i.i220, label %_ZN4pbrt11SobolSampleINS_13OwenScramblerEEEfliT_.exit225, label %for.body.i.i196, !llvm.loop !703
+  %sub10.i.i216 = xor i32 %b.08.i.i198, 31
+  %shl11.i.i217 = shl nuw i32 1, %sub10.i.i216
+  %xor12.i.i218 = select i1 %tobool8.not.i.i215, i32 0, i32 %shl11.i.i217
+  %v.addr.2.i.i219 = xor i32 %xor12.i.i218, %v.addr.19.i.i197
+  %inc.i.i220 = add nuw nsw i32 %b.08.i.i198, 1
+  %exitcond.not.i.i221 = icmp eq i32 %inc.i.i220, 32
+  br i1 %exitcond.not.i.i221, label %_ZN4pbrt11SobolSampleINS_13OwenScramblerEEEfliT_.exit226, label %for.body.i.i196, !llvm.loop !703
 
-_ZN4pbrt11SobolSampleINS_13OwenScramblerEEEfliT_.exit225: ; preds = %for.body.i.i196
-  %conv.i221 = uitofp i32 %v.addr.2.i.i218 to float
-  %mul3.i222 = fmul float %conv.i221, 0x3DF0000000000000
+_ZN4pbrt11SobolSampleINS_13OwenScramblerEEEfliT_.exit226: ; preds = %for.body.i.i196
+  %conv.i222 = uitofp i32 %v.addr.2.i.i219 to float
+  %mul3.i223 = fmul float %conv.i222, 0x3DF0000000000000
   br label %return
 
-return:                                           ; preds = %for.end.loopexit.i39, %if.then, %_ZN4pbrt11SobolSampleINS_13OwenScramblerEEEfliT_.exit225, %_ZN4pbrt11SobolSampleINS_17FastOwenScramblerEEEfliT_.exit152, %_ZN4pbrt11SobolSampleINS_22BinaryPermuteScramblerEEEfliT_.exit90
-  %mul3.i222.sink251 = phi float [ %mul3.i222, %_ZN4pbrt11SobolSampleINS_13OwenScramblerEEEfliT_.exit225 ], [ %mul3.i149, %_ZN4pbrt11SobolSampleINS_17FastOwenScramblerEEEfliT_.exit152 ], [ %mul3.i87, %_ZN4pbrt11SobolSampleINS_22BinaryPermuteScramblerEEEfliT_.exit90 ], [ %23, %for.end.loopexit.i39 ], [ 0.000000e+00, %if.then ]
-  %.sroa.speculated.i176.sink = phi float [ %.sroa.speculated.i176, %_ZN4pbrt11SobolSampleINS_13OwenScramblerEEEfliT_.exit225 ], [ %.sroa.speculated.i117, %_ZN4pbrt11SobolSampleINS_17FastOwenScramblerEEEfliT_.exit152 ], [ %.sroa.speculated.i66250, %_ZN4pbrt11SobolSampleINS_22BinaryPermuteScramblerEEEfliT_.exit90 ], [ %.sroa.speculated.i, %for.end.loopexit.i39 ], [ 0.000000e+00, %if.then ]
-  %cmp.i.i223 = fcmp ogt float %mul3.i222.sink251, 0x3FEFFFFFE0000000
-  %.sroa.speculated.i224 = select i1 %cmp.i.i223, float 0x3FEFFFFFE0000000, float %mul3.i222.sink251
-  %retval.sroa.0.0.vec.insert233 = insertelement <2 x float> poison, float %.sroa.speculated.i176.sink, i64 0
-  %retval.sroa.0.4.vec.insert239 = insertelement <2 x float> %retval.sroa.0.0.vec.insert233, float %.sroa.speculated.i224, i64 1
-  ret <2 x float> %retval.sroa.0.4.vec.insert239
+return:                                           ; preds = %for.end.loopexit.i39, %if.then, %_ZN4pbrt11SobolSampleINS_13OwenScramblerEEEfliT_.exit226, %_ZN4pbrt11SobolSampleINS_17FastOwenScramblerEEEfliT_.exit152, %_ZN4pbrt11SobolSampleINS_22BinaryPermuteScramblerEEEfliT_.exit90
+  %mul3.i223.sink252 = phi float [ %mul3.i223, %_ZN4pbrt11SobolSampleINS_13OwenScramblerEEEfliT_.exit226 ], [ %mul3.i149, %_ZN4pbrt11SobolSampleINS_17FastOwenScramblerEEEfliT_.exit152 ], [ %mul3.i87, %_ZN4pbrt11SobolSampleINS_22BinaryPermuteScramblerEEEfliT_.exit90 ], [ %23, %for.end.loopexit.i39 ], [ 0.000000e+00, %if.then ]
+  %.sroa.speculated.i176.sink = phi float [ %.sroa.speculated.i176, %_ZN4pbrt11SobolSampleINS_13OwenScramblerEEEfliT_.exit226 ], [ %.sroa.speculated.i117, %_ZN4pbrt11SobolSampleINS_17FastOwenScramblerEEEfliT_.exit152 ], [ %.sroa.speculated.i66251, %_ZN4pbrt11SobolSampleINS_22BinaryPermuteScramblerEEEfliT_.exit90 ], [ %.sroa.speculated.i, %for.end.loopexit.i39 ], [ 0.000000e+00, %if.then ]
+  %cmp.i.i224 = fcmp ogt float %mul3.i223.sink252, 0x3FEFFFFFE0000000
+  %.sroa.speculated.i225 = select i1 %cmp.i.i224, float 0x3FEFFFFFE0000000, float %mul3.i223.sink252
+  %retval.sroa.0.0.vec.insert234 = insertelement <2 x float> poison, float %.sroa.speculated.i176.sink, i64 0
+  %retval.sroa.0.4.vec.insert240 = insertelement <2 x float> %retval.sroa.0.0.vec.insert234, float %.sroa.speculated.i225, i64 1
+  ret <2 x float> %retval.sroa.0.4.vec.insert240
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -97902,9 +97907,9 @@ entry:
   %bounds.sroa.8.8.extract.trunc.i.i.i = trunc nuw i64 %bounds.sroa.8.8.extract.shift.i.i.i to i32
   %cmp.not.i.i.i.i = icmp sge i32 %bounds.sroa.0.0.extract.trunc.i.i.i, %bounds.sroa.5.8.extract.trunc.i.i.i
   %1 = tail call i32 @llvm.smax.i32(i32 %bounds.sroa.4.0.extract.trunc.i.i.i, i32 %bounds.sroa.8.8.extract.trunc.i.i.i)
-  %cmp4.i.i373.i.not1.i.i = icmp sge i32 %bounds.sroa.4.0.extract.trunc.i.i.i, %bounds.sroa.8.8.extract.trunc.i.i.i
-  %cmp4.i.i373.i.not.i.i = select i1 %cmp.not.i.i.i.i, i1 true, i1 %cmp4.i.i373.i.not1.i.i
-  br i1 %cmp4.i.i373.i.not.i.i, label %"_ZSt10__invoke_rIvRZN4pbrt18FunctionIntegrator6RenderEvE3$_2JNS0_7Bounds2IiEEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES7_E4typeEOS8_DpOS9_.exit", label %for.body.lr.ph.i.i.i
+  %cmp4.i.i374.i.not1.i.i = icmp sge i32 %bounds.sroa.4.0.extract.trunc.i.i.i, %bounds.sroa.8.8.extract.trunc.i.i.i
+  %cmp4.i.i374.i.not.i.i = select i1 %cmp.not.i.i.i.i, i1 true, i1 %cmp4.i.i374.i.not1.i.i
+  br i1 %cmp4.i.i374.i.not.i.i, label %"_ZSt10__invoke_rIvRZN4pbrt18FunctionIntegrator6RenderEvE3$_2JNS0_7Bounds2IiEEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES7_E4typeEOS8_DpOS9_.exit", label %for.body.lr.ph.i.i.i
 
 for.body.lr.ph.i.i.i:                             ; preds = %entry
   %2 = getelementptr inbounds nuw i8, ptr %__functor.val, i64 16
@@ -97941,11 +97946,11 @@ for.body.lr.ph.i.i.i:                             ; preds = %entry
   br label %for.body.i.i.i
 
 for.body.i.i.i:                                   ; preds = %_ZNKSt8functionIFdN4pbrt6Point2IfEEEEclES2_.exit.i.i.i, %for.body.lr.ph.i.i.i
-  %__begin4.sroa.7.0375.i.i.i = phi i32 [ %bounds.sroa.4.0.extract.trunc.i.i.i, %for.body.lr.ph.i.i.i ], [ %__begin4.sroa.7.1.i.i.i, %_ZNKSt8functionIFdN4pbrt6Point2IfEEEEclES2_.exit.i.i.i ]
-  %__begin4.sroa.0.0374.i.i.i = phi i32 [ %bounds.sroa.0.0.extract.trunc.i.i.i, %for.body.lr.ph.i.i.i ], [ %__begin4.sroa.0.1.i.i.i, %_ZNKSt8functionIFdN4pbrt6Point2IfEEEEclES2_.exit.i.i.i ]
-  %__begin4.sroa.7.0.insert.ext.i.i.i = zext i32 %__begin4.sroa.7.0375.i.i.i to i64
+  %__begin4.sroa.7.0376.i.i.i = phi i32 [ %bounds.sroa.4.0.extract.trunc.i.i.i, %for.body.lr.ph.i.i.i ], [ %__begin4.sroa.7.1.i.i.i, %_ZNKSt8functionIFdN4pbrt6Point2IfEEEEclES2_.exit.i.i.i ]
+  %__begin4.sroa.0.0375.i.i.i = phi i32 [ %bounds.sroa.0.0.extract.trunc.i.i.i, %for.body.lr.ph.i.i.i ], [ %__begin4.sroa.0.1.i.i.i, %_ZNKSt8functionIFdN4pbrt6Point2IfEEEEclES2_.exit.i.i.i ]
+  %__begin4.sroa.7.0.insert.ext.i.i.i = zext i32 %__begin4.sroa.7.0376.i.i.i to i64
   %__begin4.sroa.7.0.insert.shift.i.i.i = shl nuw i64 %__begin4.sroa.7.0.insert.ext.i.i.i, 32
-  %__begin4.sroa.0.0.insert.ext.i.i.i = zext i32 %__begin4.sroa.0.0374.i.i.i to i64
+  %__begin4.sroa.0.0.insert.ext.i.i.i = zext i32 %__begin4.sroa.0.0375.i.i.i to i64
   %__begin4.sroa.0.0.insert.insert.i.i.i = or disjoint i64 %__begin4.sroa.7.0.insert.shift.i.i.i, %__begin4.sroa.0.0.insert.ext.i.i.i
   %15 = load ptr, ptr %__functor.val, align 8
   %16 = load i8, ptr %15, align 1
@@ -97955,10 +97960,10 @@ for.body.i.i.i:                                   ; preds = %_ZNKSt8functionIFdN
 if.then.i.i.i:                                    ; preds = %for.body.i.i.i
   %17 = load ptr, ptr %9, align 8
   %18 = load i32, ptr %17, align 4
-  %sub.i.i.i = sub nsw i32 %__begin4.sroa.0.0374.i.i.i, %18
+  %sub.i.i.i = sub nsw i32 %__begin4.sroa.0.0375.i.i.i, %18
   %y7.i.i.i = getelementptr inbounds nuw i8, ptr %17, i64 4
   %19 = load i32, ptr %y7.i.i.i, align 4
-  %sub8.i.i.i = sub nsw i32 %__begin4.sroa.7.0375.i.i.i, %19
+  %sub8.i.i.i = sub nsw i32 %__begin4.sroa.7.0376.i.i.i, %19
   %pMax.i.i.i = getelementptr inbounds nuw i8, ptr %17, i64 8
   %20 = load i32, ptr %pMax.i.i.i, align 4
   %sub12.i.i.i = sub nsw i32 %20, %18
@@ -98027,12 +98032,12 @@ while.end.loopexit.i39.i.i.i:                     ; preds = %while.body.i28.i.i.
   br label %_ZN4pbrt14RadicalInverseEim.exit43.i.i.i
 
 _ZN4pbrt14RadicalInverseEim.exit43.i.i.i:         ; preds = %while.end.loopexit.i39.i.i.i, %sw.bb.i.i.i
-  %.sroa.speculated.i384.i.i.i = phi float [ %.sroa.speculated.i.i.i.i, %while.end.loopexit.i39.i.i.i ], [ 0.000000e+00, %sw.bb.i.i.i ]
+  %.sroa.speculated.i385.i.i.i = phi float [ %.sroa.speculated.i.i.i.i, %while.end.loopexit.i39.i.i.i ], [ 0.000000e+00, %sw.bb.i.i.i ]
   %mul12.i40.i.i.i = phi float [ %31, %while.end.loopexit.i39.i.i.i ], [ 0.000000e+00, %sw.bb.i.i.i ]
   %cmp.i.i41.i.i.i = fcmp ogt float %mul12.i40.i.i.i, 0x3FEFFFFFE0000000
   %.sroa.speculated.i42.i.i.i = select i1 %cmp.i.i41.i.i.i, float 0x3FEFFFFFE0000000, float %mul12.i40.i.i.i
-  %u.sroa.0.0.vec.insert344.i.i.i = insertelement <2 x float> poison, float %.sroa.speculated.i384.i.i.i, i64 0
-  %u.sroa.0.4.vec.insert357.i.i.i = insertelement <2 x float> %u.sroa.0.0.vec.insert344.i.i.i, float %.sroa.speculated.i42.i.i.i, i64 1
+  %u.sroa.0.0.vec.insert345.i.i.i = insertelement <2 x float> poison, float %.sroa.speculated.i385.i.i.i, i64 0
+  %u.sroa.0.4.vec.insert358.i.i.i = insertelement <2 x float> %u.sroa.0.0.vec.insert345.i.i.i, float %.sroa.speculated.i42.i.i.i, i64 1
   br label %if.end140.i.i.i
 
 sw.bb20.i.i.i:                                    ; preds = %if.then.i.i.i
@@ -98136,8 +98141,8 @@ _ZN4pbrt23ScrambledRadicalInverseEimRKNS_16DigitPermutationE.exit93.i.i.i: ; pre
   %mul19.i65.i.i.i = phi float [ 0.000000e+00, %_ZN4pbrt23ScrambledRadicalInverseEimRKNS_16DigitPermutationE.exit.i.i.i ], [ %48, %while.end.loopexit.i92.i.i.i ]
   %cmp.i.i66.i.i.i = fcmp ogt float %mul19.i65.i.i.i, 0x3FEFFFFFE0000000
   %.sroa.speculated.i67.i.i.i = select i1 %cmp.i.i66.i.i.i, float 0x3FEFFFFFE0000000, float %mul19.i65.i.i.i
-  %u.sroa.0.0.vec.insert342.i.i.i = insertelement <2 x float> poison, float %.sroa.speculated.i50.i.i.i, i64 0
-  %u.sroa.0.4.vec.insert355.i.i.i = insertelement <2 x float> %u.sroa.0.0.vec.insert342.i.i.i, float %.sroa.speculated.i67.i.i.i, i64 1
+  %u.sroa.0.0.vec.insert343.i.i.i = insertelement <2 x float> poison, float %.sroa.speculated.i50.i.i.i, i64 0
+  %u.sroa.0.4.vec.insert356.i.i.i = insertelement <2 x float> %u.sroa.0.0.vec.insert343.i.i.i, float %.sroa.speculated.i67.i.i.i, i64 1
   br label %if.end140.i.i.i
 
 sw.bb31.i.i.i:                                    ; preds = %if.then.i.i.i
@@ -98161,8 +98166,8 @@ sw.bb31.i.i.i:                                    ; preds = %if.then.i.i.i
   %58 = load i64, ptr %add.ptr.i96.i.i.i, align 8
   %conv43.i.i.i = trunc i64 %58 to i32
   %call44.i.i.i = call noundef float @_ZN4pbrt27OwenScrambledRadicalInverseEimj(i32 noundef 1, i64 noundef %conv39.i.i.i, i32 noundef %conv43.i.i.i)
-  %u.sroa.0.0.vec.insert340.i.i.i = insertelement <2 x float> poison, float %call38.i.i.i, i64 0
-  %u.sroa.0.4.vec.insert353.i.i.i = insertelement <2 x float> %u.sroa.0.0.vec.insert340.i.i.i, float %call44.i.i.i, i64 1
+  %u.sroa.0.0.vec.insert341.i.i.i = insertelement <2 x float> poison, float %call38.i.i.i, i64 0
+  %u.sroa.0.4.vec.insert354.i.i.i = insertelement <2 x float> %u.sroa.0.0.vec.insert341.i.i.i, float %call44.i.i.i, i64 1
   br label %if.end140.i.i.i
 
 sw.default.i.i.i:                                 ; preds = %if.then.i.i.i
@@ -98178,10 +98183,10 @@ if.else.i.i.i:                                    ; preds = %for.body.i.i.i
 if.then46.i.i.i:                                  ; preds = %if.else.i.i.i
   %61 = load ptr, ptr %9, align 8
   %62 = load i32, ptr %61, align 4
-  %sub51.i.i.i = sub nsw i32 %__begin4.sroa.0.0374.i.i.i, %62
+  %sub51.i.i.i = sub nsw i32 %__begin4.sroa.0.0375.i.i.i, %62
   %y54.i.i.i = getelementptr inbounds nuw i8, ptr %61, i64 4
   %63 = load i32, ptr %y54.i.i.i, align 4
-  %sub55.i.i.i = sub nsw i32 %__begin4.sroa.7.0375.i.i.i, %63
+  %sub55.i.i.i = sub nsw i32 %__begin4.sroa.7.0376.i.i.i, %63
   %pMax56.i.i.i = getelementptr inbounds nuw i8, ptr %61, i64 8
   %64 = load i32, ptr %pMax56.i.i.i, align 4
   %sub60.i.i.i = sub nsw i32 %64, %62
@@ -98258,12 +98263,12 @@ for.end.loopexit.i119.i.i.i:                      ; preds = %for.inc.i114.i.i.i
   br label %_ZN4pbrt11SobolSampleINS_12NoRandomizerEEEfliT_.exit123.i.i.i
 
 _ZN4pbrt11SobolSampleINS_12NoRandomizerEEEfliT_.exit123.i.i.i: ; preds = %for.end.loopexit.i119.i.i.i, %sw.bb70.i.i.i
-  %.sroa.speculated.i102371.i.i.i = phi float [ %.sroa.speculated.i102.i.i.i, %for.end.loopexit.i119.i.i.i ], [ 0.000000e+00, %sw.bb70.i.i.i ]
+  %.sroa.speculated.i102372.i.i.i = phi float [ %.sroa.speculated.i102.i.i.i, %for.end.loopexit.i119.i.i.i ], [ 0.000000e+00, %sw.bb70.i.i.i ]
   %v.0.lcssa.i120.i.i.i = phi float [ %75, %for.end.loopexit.i119.i.i.i ], [ 0.000000e+00, %sw.bb70.i.i.i ]
   %cmp.i.i121.i.i.i = fcmp ogt float %v.0.lcssa.i120.i.i.i, 0x3FEFFFFFE0000000
   %.sroa.speculated.i122.i.i.i = select i1 %cmp.i.i121.i.i.i, float 0x3FEFFFFFE0000000, float %v.0.lcssa.i120.i.i.i
-  %u.sroa.0.0.vec.insert338.i.i.i = insertelement <2 x float> poison, float %.sroa.speculated.i102371.i.i.i, i64 0
-  %u.sroa.0.4.vec.insert351.i.i.i = insertelement <2 x float> %u.sroa.0.0.vec.insert338.i.i.i, float %.sroa.speculated.i122.i.i.i, i64 1
+  %u.sroa.0.0.vec.insert339.i.i.i = insertelement <2 x float> poison, float %.sroa.speculated.i102372.i.i.i, i64 0
+  %u.sroa.0.4.vec.insert352.i.i.i = insertelement <2 x float> %u.sroa.0.0.vec.insert339.i.i.i, float %.sroa.speculated.i122.i.i.i, i64 1
   br label %if.end140.i.i.i
 
 sw.bb77.i.i.i:                                    ; preds = %if.then46.i.i.i
@@ -98342,8 +98347,8 @@ _ZN4pbrt11SobolSampleINS_22BinaryPermuteScramblerEEEfliT_.exit169.i.i.i: ; preds
   %mul3.i166.i.i.i = fmul float %conv.i165.i.i.i, 0x3DF0000000000000
   %cmp.i.i167.i.i.i = fcmp ogt float %mul3.i166.i.i.i, 0x3FEFFFFFE0000000
   %.sroa.speculated.i168.i.i.i = select i1 %cmp.i.i167.i.i.i, float 0x3FEFFFFFE0000000, float %mul3.i166.i.i.i
-  %u.sroa.0.0.vec.insert336.i.i.i = insertelement <2 x float> poison, float %.sroa.speculated.i145.i.i.i, i64 0
-  %u.sroa.0.4.vec.insert349.i.i.i = insertelement <2 x float> %u.sroa.0.0.vec.insert336.i.i.i, float %.sroa.speculated.i168.i.i.i, i64 1
+  %u.sroa.0.0.vec.insert337.i.i.i = insertelement <2 x float> poison, float %.sroa.speculated.i145.i.i.i, i64 0
+  %u.sroa.0.4.vec.insert350.i.i.i = insertelement <2 x float> %u.sroa.0.0.vec.insert337.i.i.i, float %.sroa.speculated.i168.i.i.i, i64 1
   br label %if.end140.i.i.i
 
 sw.bb95.i.i.i:                                    ; preds = %if.then46.i.i.i
@@ -98444,8 +98449,8 @@ _ZN4pbrt11SobolSampleINS_17FastOwenScramblerEEEfliT_.exit230.i.i.i: ; preds = %f
   %mul3.i227.i.i.i = fmul float %conv.i226.i.i.i, 0x3DF0000000000000
   %cmp.i.i228.i.i.i = fcmp ogt float %mul3.i227.i.i.i, 0x3FEFFFFFE0000000
   %.sroa.speculated.i229.i.i.i = select i1 %cmp.i.i228.i.i.i, float 0x3FEFFFFFE0000000, float %mul3.i227.i.i.i
-  %u.sroa.0.0.vec.insert334.i.i.i = insertelement <2 x float> poison, float %.sroa.speculated.i195.i.i.i, i64 0
-  %u.sroa.0.4.vec.insert347.i.i.i = insertelement <2 x float> %u.sroa.0.0.vec.insert334.i.i.i, float %.sroa.speculated.i229.i.i.i, i64 1
+  %u.sroa.0.0.vec.insert335.i.i.i = insertelement <2 x float> poison, float %.sroa.speculated.i195.i.i.i, i64 0
+  %u.sroa.0.4.vec.insert348.i.i.i = insertelement <2 x float> %u.sroa.0.0.vec.insert335.i.i.i, float %.sroa.speculated.i229.i.i.i, i64 1
   br label %if.end140.i.i.i
 
 sw.bb113.i.i.i:                                   ; preds = %if.then46.i.i.i
@@ -98508,7 +98513,8 @@ for.body.i.i.i.i.i:                               ; preds = %for.body.i.i.i.i.i,
   %shl6.i.i.i.i.i = shl nuw i32 1, %b.08.i.i.i.i.i
   %and7.i.i.i.i.i = and i32 %shl6.i.i.i.i.i, %conv5.i.i.i.i.i
   %tobool8.not.i.i.i.i.i = icmp eq i32 %and7.i.i.i.i.i, 0
-  %shl11.i.i.i.i.i = lshr exact i32 -2147483648, %b.08.i.i.i.i.i
+  %sub10.i.i.i.i.i = xor i32 %b.08.i.i.i.i.i, 31
+  %shl11.i.i.i.i.i = shl nuw i32 1, %sub10.i.i.i.i.i
   %xor12.i.i.i.i.i = select i1 %tobool8.not.i.i.i.i.i, i32 0, i32 %shl11.i.i.i.i.i
   %v.addr.2.i.i.i.i.i = xor i32 %xor12.i.i.i.i.i, %v.addr.19.i.i.i.i.i
   %inc.i.i.i.i.i = add nuw nsw i32 %b.08.i.i.i.i.i, 1
@@ -98555,8 +98561,8 @@ for.end.i271.i.i.i:                               ; preds = %for.inc.i266.i.i.i,
   br label %for.body.i.i274.i.i.i
 
 for.body.i.i274.i.i.i:                            ; preds = %for.body.i.i274.i.i.i, %for.end.i271.i.i.i
-  %v.addr.19.i.i275.i.i.i = phi i32 [ %spec.select.i.i273.i.i.i, %for.end.i271.i.i.i ], [ %v.addr.2.i.i296.i.i.i, %for.body.i.i274.i.i.i ]
-  %b.08.i.i276.i.i.i = phi i32 [ 1, %for.end.i271.i.i.i ], [ %inc.i.i297.i.i.i, %for.body.i.i274.i.i.i ]
+  %v.addr.19.i.i275.i.i.i = phi i32 [ %spec.select.i.i273.i.i.i, %for.end.i271.i.i.i ], [ %v.addr.2.i.i297.i.i.i, %for.body.i.i274.i.i.i ]
+  %b.08.i.i276.i.i.i = phi i32 [ 1, %for.end.i271.i.i.i ], [ %inc.i.i298.i.i.i, %for.body.i.i274.i.i.i ]
   %sub.i.i277.i.i.i = sub nuw nsw i32 32, %b.08.i.i276.i.i.i
   %shl.i.i278.i.i.i = shl nsw i32 -1, %sub.i.i277.i.i.i
   %and2.i.i279.i.i.i = and i32 %shl.i.i278.i.i.i, %v.addr.19.i.i275.i.i.i
@@ -98574,20 +98580,21 @@ for.body.i.i274.i.i.i:                            ; preds = %for.body.i.i274.i.i
   %shl6.i.i291.i.i.i = shl nuw i32 1, %b.08.i.i276.i.i.i
   %and7.i.i292.i.i.i = and i32 %shl6.i.i291.i.i.i, %conv5.i.i290.i.i.i
   %tobool8.not.i.i293.i.i.i = icmp eq i32 %and7.i.i292.i.i.i, 0
-  %shl11.i.i294.i.i.i = lshr exact i32 -2147483648, %b.08.i.i276.i.i.i
-  %xor12.i.i295.i.i.i = select i1 %tobool8.not.i.i293.i.i.i, i32 0, i32 %shl11.i.i294.i.i.i
-  %v.addr.2.i.i296.i.i.i = xor i32 %xor12.i.i295.i.i.i, %v.addr.19.i.i275.i.i.i
-  %inc.i.i297.i.i.i = add nuw nsw i32 %b.08.i.i276.i.i.i, 1
-  %exitcond.not.i.i298.i.i.i = icmp eq i32 %inc.i.i297.i.i.i, 32
-  br i1 %exitcond.not.i.i298.i.i.i, label %_ZN4pbrt11SobolSampleINS_13OwenScramblerEEEfliT_.exit303.i.i.i, label %for.body.i.i274.i.i.i, !llvm.loop !703
+  %sub10.i.i294.i.i.i = xor i32 %b.08.i.i276.i.i.i, 31
+  %shl11.i.i295.i.i.i = shl nuw i32 1, %sub10.i.i294.i.i.i
+  %xor12.i.i296.i.i.i = select i1 %tobool8.not.i.i293.i.i.i, i32 0, i32 %shl11.i.i295.i.i.i
+  %v.addr.2.i.i297.i.i.i = xor i32 %xor12.i.i296.i.i.i, %v.addr.19.i.i275.i.i.i
+  %inc.i.i298.i.i.i = add nuw nsw i32 %b.08.i.i276.i.i.i, 1
+  %exitcond.not.i.i299.i.i.i = icmp eq i32 %inc.i.i298.i.i.i, 32
+  br i1 %exitcond.not.i.i299.i.i.i, label %_ZN4pbrt11SobolSampleINS_13OwenScramblerEEEfliT_.exit304.i.i.i, label %for.body.i.i274.i.i.i, !llvm.loop !703
 
-_ZN4pbrt11SobolSampleINS_13OwenScramblerEEEfliT_.exit303.i.i.i: ; preds = %for.body.i.i274.i.i.i
-  %conv.i299.i.i.i = uitofp i32 %v.addr.2.i.i296.i.i.i to float
-  %mul3.i300.i.i.i = fmul float %conv.i299.i.i.i, 0x3DF0000000000000
-  %cmp.i.i301.i.i.i = fcmp ogt float %mul3.i300.i.i.i, 0x3FEFFFFFE0000000
-  %.sroa.speculated.i302.i.i.i = select i1 %cmp.i.i301.i.i.i, float 0x3FEFFFFFE0000000, float %mul3.i300.i.i.i
+_ZN4pbrt11SobolSampleINS_13OwenScramblerEEEfliT_.exit304.i.i.i: ; preds = %for.body.i.i274.i.i.i
+  %conv.i300.i.i.i = uitofp i32 %v.addr.2.i.i297.i.i.i to float
+  %mul3.i301.i.i.i = fmul float %conv.i300.i.i.i, 0x3DF0000000000000
+  %cmp.i.i302.i.i.i = fcmp ogt float %mul3.i301.i.i.i, 0x3FEFFFFFE0000000
+  %.sroa.speculated.i303.i.i.i = select i1 %cmp.i.i302.i.i.i, float 0x3FEFFFFFE0000000, float %mul3.i301.i.i.i
   %u.sroa.0.0.vec.insert.i.i.i = insertelement <2 x float> poison, float %.sroa.speculated.i253.i.i.i, i64 0
-  %u.sroa.0.4.vec.insert.i.i.i = insertelement <2 x float> %u.sroa.0.0.vec.insert.i.i.i, float %.sroa.speculated.i302.i.i.i, i64 1
+  %u.sroa.0.4.vec.insert.i.i.i = insertelement <2 x float> %u.sroa.0.0.vec.insert.i.i.i, float %.sroa.speculated.i303.i.i.i, i64 1
   br label %if.end140.i.i.i
 
 sw.default131.i.i.i:                              ; preds = %if.then46.i.i.i
@@ -98612,28 +98619,28 @@ if.else133.i.i.i:                                 ; preds = %if.else.i.i.i
   store ptr %dimension.addr.i.i.i.i, ptr %8, align 8
   %and.i.i.i.i.i.i = and i64 %106, 144115188075855871
   %109 = inttoptr i64 %and.i.i.i.i.i.i to ptr
-  %shr.i.i.i305.i.i.i = lshr i64 %106, 57
-  %conv.i.i.i.i.i.i = trunc nuw nsw i64 %shr.i.i.i305.i.i.i to i32
-  %sub.i.i306.i.i.i = add nsw i32 %conv.i.i.i.i.i.i, -1
-  call void @_ZN4pbrt6detail8DispatchIRZNS_7Sampler16StartPixelSampleENS_6Point2IiEEiiEUlT_E_vNS_14PMJ02BNSamplerENS_18IndependentSamplerENS_17StratifiedSamplerENS_13HaltonSamplerENS_18PaddedSobolSamplerENS_12SobolSamplerENS_13ZSobolSamplerENS_10MLTSamplerEJNS_15DebugMLTSamplerEEvEET0_OS5_Pvi(ptr noundef nonnull align 8 dereferenceable(24) %start.i.i.i.i, ptr noundef %109, i32 noundef %sub.i.i306.i.i.i)
+  %shr.i.i.i306.i.i.i = lshr i64 %106, 57
+  %conv.i.i.i.i.i.i = trunc nuw nsw i64 %shr.i.i.i306.i.i.i to i32
+  %sub.i.i307.i.i.i = add nsw i32 %conv.i.i.i.i.i.i, -1
+  call void @_ZN4pbrt6detail8DispatchIRZNS_7Sampler16StartPixelSampleENS_6Point2IiEEiiEUlT_E_vNS_14PMJ02BNSamplerENS_18IndependentSamplerENS_17StratifiedSamplerENS_13HaltonSamplerENS_18PaddedSobolSamplerENS_12SobolSamplerENS_13ZSobolSamplerENS_10MLTSamplerEJNS_15DebugMLTSamplerEEvEET0_OS5_Pvi(ptr noundef nonnull align 8 dereferenceable(24) %start.i.i.i.i, ptr noundef %109, i32 noundef %sub.i.i307.i.i.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %p.i.i.i.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %sampleIndex.addr.i.i.i.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %dimension.addr.i.i.i.i)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %start.i.i.i.i)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %get.i.i.i.i)
-  %call3.i.i.i.i.i = call <2 x float> @_ZN4pbrt6detail8DispatchIRZNS_7Sampler10GetPixel2DEvEUlT_E_NS_6Point2IfEENS_14PMJ02BNSamplerENS_18IndependentSamplerENS_17StratifiedSamplerENS_13HaltonSamplerENS_18PaddedSobolSamplerENS_12SobolSamplerENS_13ZSobolSamplerENS_10MLTSamplerEJNS_15DebugMLTSamplerEEvEET0_OS3_Pvi(ptr noundef nonnull align 1 dereferenceable(1) %get.i.i.i.i, ptr noundef %109, i32 noundef %sub.i.i306.i.i.i)
+  %call3.i.i.i.i.i = call <2 x float> @_ZN4pbrt6detail8DispatchIRZNS_7Sampler10GetPixel2DEvEUlT_E_NS_6Point2IfEENS_14PMJ02BNSamplerENS_18IndependentSamplerENS_17StratifiedSamplerENS_13HaltonSamplerENS_18PaddedSobolSamplerENS_12SobolSamplerENS_13ZSobolSamplerENS_10MLTSamplerEJNS_15DebugMLTSamplerEEvEET0_OS3_Pvi(ptr noundef nonnull align 1 dereferenceable(1) %get.i.i.i.i, ptr noundef %109, i32 noundef %sub.i.i307.i.i.i)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %get.i.i.i.i)
   br label %if.end140.i.i.i
 
-if.end140.i.i.i:                                  ; preds = %if.else133.i.i.i, %_ZN4pbrt11SobolSampleINS_13OwenScramblerEEEfliT_.exit303.i.i.i, %_ZN4pbrt11SobolSampleINS_17FastOwenScramblerEEEfliT_.exit230.i.i.i, %_ZN4pbrt11SobolSampleINS_22BinaryPermuteScramblerEEEfliT_.exit169.i.i.i, %_ZN4pbrt11SobolSampleINS_12NoRandomizerEEEfliT_.exit123.i.i.i, %sw.bb31.i.i.i, %_ZN4pbrt23ScrambledRadicalInverseEimRKNS_16DigitPermutationE.exit93.i.i.i, %_ZN4pbrt14RadicalInverseEim.exit43.i.i.i
-  %u.sroa.0.1.i.i.i = phi <2 x float> [ %u.sroa.0.4.vec.insert353.i.i.i, %sw.bb31.i.i.i ], [ %u.sroa.0.4.vec.insert355.i.i.i, %_ZN4pbrt23ScrambledRadicalInverseEimRKNS_16DigitPermutationE.exit93.i.i.i ], [ %u.sroa.0.4.vec.insert357.i.i.i, %_ZN4pbrt14RadicalInverseEim.exit43.i.i.i ], [ %u.sroa.0.4.vec.insert.i.i.i, %_ZN4pbrt11SobolSampleINS_13OwenScramblerEEEfliT_.exit303.i.i.i ], [ %u.sroa.0.4.vec.insert347.i.i.i, %_ZN4pbrt11SobolSampleINS_17FastOwenScramblerEEEfliT_.exit230.i.i.i ], [ %u.sroa.0.4.vec.insert349.i.i.i, %_ZN4pbrt11SobolSampleINS_22BinaryPermuteScramblerEEEfliT_.exit169.i.i.i ], [ %u.sroa.0.4.vec.insert351.i.i.i, %_ZN4pbrt11SobolSampleINS_12NoRandomizerEEEfliT_.exit123.i.i.i ], [ %call3.i.i.i.i.i, %if.else133.i.i.i ]
+if.end140.i.i.i:                                  ; preds = %if.else133.i.i.i, %_ZN4pbrt11SobolSampleINS_13OwenScramblerEEEfliT_.exit304.i.i.i, %_ZN4pbrt11SobolSampleINS_17FastOwenScramblerEEEfliT_.exit230.i.i.i, %_ZN4pbrt11SobolSampleINS_22BinaryPermuteScramblerEEEfliT_.exit169.i.i.i, %_ZN4pbrt11SobolSampleINS_12NoRandomizerEEEfliT_.exit123.i.i.i, %sw.bb31.i.i.i, %_ZN4pbrt23ScrambledRadicalInverseEimRKNS_16DigitPermutationE.exit93.i.i.i, %_ZN4pbrt14RadicalInverseEim.exit43.i.i.i
+  %u.sroa.0.1.i.i.i = phi <2 x float> [ %u.sroa.0.4.vec.insert354.i.i.i, %sw.bb31.i.i.i ], [ %u.sroa.0.4.vec.insert356.i.i.i, %_ZN4pbrt23ScrambledRadicalInverseEimRKNS_16DigitPermutationE.exit93.i.i.i ], [ %u.sroa.0.4.vec.insert358.i.i.i, %_ZN4pbrt14RadicalInverseEim.exit43.i.i.i ], [ %u.sroa.0.4.vec.insert.i.i.i, %_ZN4pbrt11SobolSampleINS_13OwenScramblerEEEfliT_.exit304.i.i.i ], [ %u.sroa.0.4.vec.insert348.i.i.i, %_ZN4pbrt11SobolSampleINS_17FastOwenScramblerEEEfliT_.exit230.i.i.i ], [ %u.sroa.0.4.vec.insert350.i.i.i, %_ZN4pbrt11SobolSampleINS_22BinaryPermuteScramblerEEEfliT_.exit169.i.i.i ], [ %u.sroa.0.4.vec.insert352.i.i.i, %_ZN4pbrt11SobolSampleINS_12NoRandomizerEEEfliT_.exit123.i.i.i ], [ %call3.i.i.i.i.i, %if.else133.i.i.i ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__args.i.i.i.i)
   store <2 x float> %u.sroa.0.1.i.i.i, ptr %__args.i.i.i.i, align 8
   %110 = load ptr, ptr %_M_manager.i.i.i.i.i, align 8
   %tobool.not.i.i.i.i.i = icmp eq ptr %110, null
-  br i1 %tobool.not.i.i.i.i.i, label %if.then.i311.i.i.i, label %_ZNKSt8functionIFdN4pbrt6Point2IfEEEEclES2_.exit.i.i.i
+  br i1 %tobool.not.i.i.i.i.i, label %if.then.i312.i.i.i, label %_ZNKSt8functionIFdN4pbrt6Point2IfEEEEclES2_.exit.i.i.i
 
-if.then.i311.i.i.i:                               ; preds = %if.end140.i.i.i
+if.then.i312.i.i.i:                               ; preds = %if.end140.i.i.i
   call void @_ZSt25__throw_bad_function_callv() #35
   unreachable
 
@@ -98643,27 +98650,27 @@ _ZNKSt8functionIFdN4pbrt6Point2IfEEEEclES2_.exit.i.i.i: ; preds = %if.end140.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.i.i.i.i)
   %112 = load ptr, ptr %14, align 8
   %113 = load i32, ptr %112, align 8
-  %sub.i312.i.i.i = sub i32 %__begin4.sroa.0.0374.i.i.i, %113
-  %y.i313.i.i.i = getelementptr inbounds nuw i8, ptr %112, i64 4
-  %114 = load i32, ptr %y.i313.i.i.i, align 4
-  %sub6.i314.i.i.i = sub nsw i32 %__begin4.sroa.7.0375.i.i.i, %114
+  %sub.i313.i.i.i = sub i32 %__begin4.sroa.0.0375.i.i.i, %113
+  %y.i314.i.i.i = getelementptr inbounds nuw i8, ptr %112, i64 4
+  %114 = load i32, ptr %y.i314.i.i.i, align 4
+  %sub6.i315.i.i.i = sub nsw i32 %__begin4.sroa.7.0376.i.i.i, %114
   %values.i.i.i.i = getelementptr inbounds nuw i8, ptr %112, i64 24
   %115 = load ptr, ptr %values.i.i.i.i, align 8
-  %pMax.i315.i.i.i = getelementptr inbounds nuw i8, ptr %112, i64 8
-  %116 = load i32, ptr %pMax.i315.i.i.i, align 8
+  %pMax.i316.i.i.i = getelementptr inbounds nuw i8, ptr %112, i64 8
+  %116 = load i32, ptr %pMax.i316.i.i.i, align 8
   %sub13.i.i.i.i = sub nsw i32 %116, %113
-  %mul.i316.i.i.i = mul nsw i32 %sub13.i.i.i.i, %sub6.i314.i.i.i
-  %add.i317.i.i.i = add nsw i32 %sub.i312.i.i.i, %mul.i316.i.i.i
-  %idxprom.i.i.i.i = sext i32 %add.i317.i.i.i to i64
-  %arrayidx.i318.i.i.i = getelementptr inbounds double, ptr %115, i64 %idxprom.i.i.i.i
-  %117 = load double, ptr %arrayidx.i318.i.i.i, align 8
+  %mul.i317.i.i.i = mul nsw i32 %sub13.i.i.i.i, %sub6.i315.i.i.i
+  %add.i318.i.i.i = add nsw i32 %sub.i313.i.i.i, %mul.i317.i.i.i
+  %idxprom.i.i.i.i = sext i32 %add.i318.i.i.i to i64
+  %arrayidx.i319.i.i.i = getelementptr inbounds double, ptr %115, i64 %idxprom.i.i.i.i
+  %117 = load double, ptr %arrayidx.i319.i.i.i, align 8
   %add147.i.i.i = fadd double %call2.i.i.i.i, %117
-  store double %add147.i.i.i, ptr %arrayidx.i318.i.i.i, align 8
-  %inc.i.i319.i.i.i = add nsw i32 %__begin4.sroa.0.0374.i.i.i, 1
-  %cmp.i.i320.i.i.i = icmp eq i32 %inc.i.i319.i.i.i, %bounds.sroa.5.8.extract.trunc.i.i.i
-  %__begin4.sroa.0.1.i.i.i = select i1 %cmp.i.i320.i.i.i, i32 %bounds.sroa.0.0.extract.trunc.i.i.i, i32 %inc.i.i319.i.i.i
-  %inc10.i.i.i.i.i = zext i1 %cmp.i.i320.i.i.i to i32
-  %__begin4.sroa.7.1.i.i.i = add nsw i32 %__begin4.sroa.7.0375.i.i.i, %inc10.i.i.i.i.i
+  store double %add147.i.i.i, ptr %arrayidx.i319.i.i.i, align 8
+  %inc.i.i320.i.i.i = add nsw i32 %__begin4.sroa.0.0375.i.i.i, 1
+  %cmp.i.i321.i.i.i = icmp eq i32 %inc.i.i320.i.i.i, %bounds.sroa.5.8.extract.trunc.i.i.i
+  %__begin4.sroa.0.1.i.i.i = select i1 %cmp.i.i321.i.i.i, i32 %bounds.sroa.0.0.extract.trunc.i.i.i, i32 %inc.i.i320.i.i.i
+  %inc10.i.i.i.i.i = zext i1 %cmp.i.i321.i.i.i to i32
+  %__begin4.sroa.7.1.i.i.i = add nsw i32 %__begin4.sroa.7.0376.i.i.i, %inc10.i.i.i.i.i
   %cmp.not.i.i.i.i.i = icmp ne i32 %__begin4.sroa.0.1.i.i.i, %bounds.sroa.0.0.extract.trunc.i.i.i
   %cmp4.i.i.i.i.i = icmp ne i32 %__begin4.sroa.7.1.i.i.i, %1
   %118 = select i1 %cmp.not.i.i.i.i.i, i1 true, i1 %cmp4.i.i.i.i.i

@@ -367,36 +367,37 @@ for.body31.preheader:                             ; preds = %if.end23, %for.cond
   %5 = zext nneg i32 %4 to i64
   %scevgep = getelementptr i8, ptr %c_d, i64 %5
   %6 = shl nuw nsw i32 %ii.0.lcssa86, 3
-  %narrow = sub nuw nsw i32 32, %6
-  %7 = zext nneg i32 %narrow to i64
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %scevgep, i8 0, i64 %7, i1 false)
+  %7 = xor i32 %6, 24
+  %narrow = add nuw nsw i32 %7, 8
+  %8 = zext nneg i32 %narrow to i64
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %scevgep, i8 0, i64 %8, i1 false)
   br label %for.end36
 
 for.body:                                         ; preds = %for.body.preheader, %for.body
   %indvars.iv = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next, %for.body ]
   %arrayidx = getelementptr inbounds nuw i64, ptr %add.ptr, i64 %indvars.iv
-  %8 = load i64, ptr %arrayidx, align 8
+  %9 = load i64, ptr %arrayidx, align 8
   %arrayidx27 = getelementptr inbounds nuw [4 x i64], ptr %c_d, i64 0, i64 %indvars.iv
-  store i64 %8, ptr %arrayidx27, align 8
+  store i64 %9, ptr %arrayidx27, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %for.cond28.preheader, label %for.body, !llvm.loop !6
 
 for.end36:                                        ; preds = %for.body31.preheader, %for.cond28.preheader
-  %9 = load i64, ptr %c_d, align 16
+  %10 = load i64, ptr %c_d, align 16
   %arrayidx39 = getelementptr inbounds nuw i8, ptr %c_d, i64 8
-  %10 = load i64, ptr %arrayidx39, align 8
-  %or = tail call i64 @llvm.fshl.i64(i64 %10, i64 %9, i64 32)
+  %11 = load i64, ptr %arrayidx39, align 8
+  %or = tail call i64 @llvm.fshl.i64(i64 %11, i64 %10, i64 32)
   %arrayidx44 = getelementptr inbounds nuw i8, ptr %c_d, i64 16
-  %11 = load i64, ptr %arrayidx44, align 16
-  %or47 = tail call i64 @llvm.fshl.i64(i64 %11, i64 %10, i64 32)
+  %12 = load i64, ptr %arrayidx44, align 16
+  %or47 = tail call i64 @llvm.fshl.i64(i64 %12, i64 %11, i64 32)
   %arrayidx51 = getelementptr inbounds nuw i8, ptr %c_d, i64 24
-  %12 = load i64, ptr %arrayidx51, align 8
-  %or54 = tail call i64 @llvm.fshl.i64(i64 %12, i64 %11, i64 32)
-  %shr56 = lshr i64 %12, 32
+  %13 = load i64, ptr %arrayidx51, align 8
+  %or54 = tail call i64 @llvm.fshl.i64(i64 %13, i64 %12, i64 32)
+  %shr56 = lshr i64 %13, 32
   %arrayidx58 = getelementptr inbounds nuw i8, ptr %r_d.0, i64 24
-  %13 = load i64, ptr %arrayidx58, align 8
-  %and = and i64 %13, 4294967295
+  %14 = load i64, ptr %arrayidx58, align 8
+  %and = and i64 %14, 4294967295
   store i64 %and, ptr %arrayidx58, align 8
   store i64 0, ptr %t_d, align 16
   %arrayidx62 = getelementptr inbounds nuw i8, ptr %t_d, i64 8
@@ -413,7 +414,7 @@ for.end36:                                        ; preds = %for.body31.preheade
   %shl84 = shl i64 %or54, 32
   store i64 %shl84, ptr %arrayidx62, align 8
   %shr88 = lshr i64 %or54, 32
-  %shl91 = and i64 %12, -4294967296
+  %shl91 = and i64 %13, -4294967296
   %or93 = or disjoint i64 %shr88, %shl91
   store i64 %or93, ptr %arrayidx69, align 16
   store i64 0, ptr %arrayidx76, align 8
@@ -427,8 +428,8 @@ for.end36:                                        ; preds = %for.body31.preheade
   store i64 %shr56, ptr %arrayidx62, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %arrayidx69, i8 0, i64 16, i1 false)
   %call143 = call i64 @bn_sub_words(ptr noundef %r_d.0, ptr noundef %r_d.0, ptr noundef nonnull %t_d, i32 noundef 4) #6
-  %14 = load i64, ptr %arrayidx58, align 8
-  %shr147 = lshr i64 %14, 32
+  %15 = load i64, ptr %arrayidx58, align 8
+  %shr147 = lshr i64 %15, 32
   %conv148 = trunc nuw i64 %shr147 to i32
   %cmp149 = icmp sgt i32 %conv148, 0
   br i1 %cmp149, label %if.then151, label %if.else162
@@ -438,15 +439,15 @@ if.then151:                                       ; preds = %for.end36
   %idxprom153 = and i64 %sub152, 4294967295
   %arrayidx154 = getelementptr inbounds nuw [2 x [4 x i64]], ptr @_nist_p_224, i64 0, i64 %idxprom153
   %call156 = call i64 @bn_sub_words(ptr noundef nonnull %r_d.0, ptr noundef nonnull %r_d.0, ptr noundef nonnull %arrayidx154, i32 noundef 4) #6
-  %15 = load i64, ptr %arrayidx58, align 8
-  %shr159 = lshr i64 %15, 32
-  %16 = trunc nuw i64 %shr159 to i32
-  %conv160 = and i32 %16, 1
+  %16 = load i64, ptr %arrayidx58, align 8
+  %shr159 = lshr i64 %16, 32
+  %17 = trunc nuw i64 %shr159 to i32
+  %conv160 = and i32 %17, 1
   %and161 = xor i32 %conv160, 1
   br label %if.end177
 
 if.else162:                                       ; preds = %for.end36
-  %cmp163 = icmp slt i64 %14, 0
+  %cmp163 = icmp slt i64 %15, 0
   br i1 %cmp163, label %if.then165, label %if.end177
 
 if.then165:                                       ; preds = %if.else162
@@ -471,9 +472,9 @@ if.end177:                                        ; preds = %if.else162, %if.the
 for.body.i69:                                     ; preds = %for.body.i69, %if.end177
   %indvars.iv.i70 = phi i64 [ 0, %if.end177 ], [ %indvars.iv.next.i73, %for.body.i69 ]
   %arrayidx.i71 = getelementptr inbounds nuw i64, ptr %cond186, i64 %indvars.iv.i70
-  %17 = load i64, ptr %arrayidx.i71, align 8
+  %18 = load i64, ptr %arrayidx.i71, align 8
   %arrayidx2.i72 = getelementptr inbounds nuw i64, ptr %r_d.0, i64 %indvars.iv.i70
-  store i64 %17, ptr %arrayidx2.i72, align 8
+  store i64 %18, ptr %arrayidx2.i72, align 8
   %indvars.iv.next.i73 = add nuw nsw i64 %indvars.iv.i70, 1
   %exitcond.not.i74 = icmp eq i64 %indvars.iv.next.i73, 4
   br i1 %exitcond.not.i74, label %nist_cp_bn.exit75, label %for.body.i69, !llvm.loop !4
@@ -578,9 +579,9 @@ for.body31.preheader:                             ; preds = %if.end23, %for.cond
   %8 = zext nneg i32 %7 to i64
   %scevgep = getelementptr i8, ptr %buf, i64 %8
   %smax = tail call i32 @llvm.smax.i32(i32 %0, i32 4)
-  %9 = shl i32 %smax, 3
-  %10 = sub i32 56, %9
-  %11 = zext i32 %10 to i64
+  %9 = xor i32 %smax, 7
+  %10 = zext nneg i32 %9 to i64
+  %11 = shl nuw nsw i64 %10, 3
   %12 = add nuw nsw i64 %11, 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %scevgep, i8 0, i64 %12, i1 false)
   br label %for.end36

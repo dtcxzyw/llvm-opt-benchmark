@@ -4065,27 +4065,27 @@ pmix_strncpy.exit.i:                              ; preds = %20, %.lr.ph.i.i
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 %.0.i.i
   store i8 58, ptr %24, align 1
   %25 = getelementptr i8, ptr %24, i64 1
-  %26 = sub nuw nsw i64 255, %.0.i.i
   br label %.lr.ph.i19.i
 
-.lr.ph.i19.i:                                     ; preds = %29, %pmix_strncpy.exit.i
-  %.012.i20.i = phi i64 [ %30, %29 ], [ 0, %pmix_strncpy.exit.i ]
-  %.0811.i21.i = phi ptr [ %32, %29 ], [ %25, %pmix_strncpy.exit.i ]
-  %.0910.i22.i = phi ptr [ %31, %29 ], [ %2, %pmix_strncpy.exit.i ]
-  %27 = load i8, ptr %.0910.i22.i, align 1
-  store i8 %27, ptr %.0811.i21.i, align 1
-  %28 = icmp eq i8 %27, 0
-  br i1 %28, label %pmix_strncpy.exit25.i, label %29
+.lr.ph.i19.i:                                     ; preds = %28, %pmix_strncpy.exit.i
+  %.012.i20.i = phi i64 [ %29, %28 ], [ 0, %pmix_strncpy.exit.i ]
+  %.0811.i21.i = phi ptr [ %31, %28 ], [ %25, %pmix_strncpy.exit.i ]
+  %.0910.i22.i = phi ptr [ %30, %28 ], [ %2, %pmix_strncpy.exit.i ]
+  %26 = load i8, ptr %.0910.i22.i, align 1
+  store i8 %26, ptr %.0811.i21.i, align 1
+  %27 = icmp eq i8 %26, 0
+  br i1 %27, label %pmix_strncpy.exit25.i, label %28
 
-29:                                               ; preds = %.lr.ph.i19.i
-  %30 = add nuw i64 %.012.i20.i, 1
-  %31 = getelementptr inbounds nuw i8, ptr %.0910.i22.i, i64 1
-  %32 = getelementptr inbounds nuw i8, ptr %.0811.i21.i, i64 1
-  %exitcond.not.i23.i = icmp eq i64 %30, %26
+28:                                               ; preds = %.lr.ph.i19.i
+  %29 = add nuw i64 %.012.i20.i, 1
+  %30 = getelementptr inbounds nuw i8, ptr %.0910.i22.i, i64 1
+  %31 = getelementptr inbounds nuw i8, ptr %.0811.i21.i, i64 1
+  %32 = xor i64 %29, %.0.i.i
+  %exitcond.not.i23.i = icmp eq i64 %32, 255
   br i1 %exitcond.not.i23.i, label %pmix_strncpy.exit25.i, label %.lr.ph.i19.i, !llvm.loop !4
 
-pmix_strncpy.exit25.i:                            ; preds = %29, %.lr.ph.i19.i
-  %.08.lcssa.i24.ph.i = phi ptr [ %32, %29 ], [ %.0811.i21.i, %.lr.ph.i19.i ]
+pmix_strncpy.exit25.i:                            ; preds = %28, %.lr.ph.i19.i
+  %.08.lcssa.i24.ph.i = phi ptr [ %31, %28 ], [ %.0811.i21.i, %.lr.ph.i19.i ]
   store i8 0, ptr %.08.lcssa.i24.ph.i, align 1
   br label %pmix_bfrops_base_tma_multicluster_nspace_construct.exit
 

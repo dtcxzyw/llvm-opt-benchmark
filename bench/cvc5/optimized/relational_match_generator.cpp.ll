@@ -543,13 +543,12 @@ invoke.cont44:                                    ; preds = %lor.lhs.false.i.i.i
           to label %call2.i.i.i.noexc308 unwind label %lpad10.loopexit.split-lp
 
 call2.i.i.i.noexc308:                             ; preds = %invoke.cont44
+  %conv48 = xor i64 %i.0681, 1
   %cmp.i.i289 = icmp eq i32 %call2.i.i.i309, 2
   %inc.i.i290 = zext i1 %cmp.i.i289 to i64
-  %reass.sub682 = sub nsw i64 %inc.i.i290, %i.0681
-  %spec.select.i.i291 = add nsw i64 %reass.sub682, 1
+  %spec.select.i.i291 = add nuw nsw i64 %conv48, %inc.i.i290
   %d_children.i.i292 = getelementptr inbounds nuw i8, ptr %48, i64 16
-  %idxprom.i.i293 = and i64 %spec.select.i.i291, 4294967295
-  %arrayidx.i.i294 = getelementptr inbounds nuw [0 x ptr], ptr %d_children.i.i292, i64 0, i64 %idxprom.i.i293
+  %arrayidx.i.i294 = getelementptr inbounds nuw [0 x ptr], ptr %d_children.i.i292, i64 0, i64 %spec.select.i.i291
   %49 = load ptr, ptr %arrayidx.i.i294, align 8, !noalias !17
   store ptr %49, ptr %ref.tmp47, align 8, !alias.scope !17
   %bf.load.i.i.i295 = load i64, ptr %49, align 8, !noalias !17

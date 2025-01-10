@@ -16601,9 +16601,7 @@ _ZN4llvm13isPowerOf2_64Em.exit.thread:            ; preds = %44
 55:                                               ; preds = %49
   %56 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %.01922, i1 false)
   %57 = trunc nuw nsw i64 %56 to i16
-  %58 = sub nsw i16 63, %57
-  %.sroa.016.0.insert.ext = and i16 %58, 255
-  %.sroa.016.0.insert.insert = or disjoint i16 %.sroa.016.0.insert.ext, 256
+  %.sroa.016.0.insert.insert = xor i16 %57, 319
   store i16 %.sroa.016.0.insert.insert, ptr %1, align 1
   br label %_ZN4llvm8LLParser12EatIfPresentENS_5lltok4KindE.exit
 

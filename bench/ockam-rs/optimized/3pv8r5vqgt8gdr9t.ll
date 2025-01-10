@@ -13240,15 +13240,14 @@ define noundef zeroext i1 @"_ZN75_$LT$ockam_abac..resource..ResourceTypeIter$u20
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load i64, ptr %6, align 8, !alias.scope !1761, !noalias !1766, !noundef !45
   %8 = add i64 %7, %5
-  %9 = icmp ugt i64 %8, 2
-  %10 = sub nuw nsw i64 3, %8
-  %.0.i.i = select i1 %9, i64 0, i64 %10
+  %9 = tail call i64 @llvm.umin.i64(i64 %8, i64 3)
+  %.0.i.i = xor i64 %9, 3
   store i64 %.0.i.i, ptr %3, align 8
-  %11 = call noundef align 8 dereferenceable(16) ptr @_ZN4core3fmt8builders11DebugStruct5field17haf2f6c53e543649eE(ptr noalias noundef nonnull align 8 dereferenceable(16) %4, ptr noalias noundef nonnull readonly align 1 @anon.319bcac2edebe9295f179af30ff32645.157, i64 noundef 3, ptr noundef nonnull align 1 %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.319bcac2edebe9295f179af30ff32645.158)
-  %12 = call noundef zeroext i1 @_ZN4core3fmt8builders11DebugStruct6finish17h5cca625c6aa0e92fE(ptr noalias noundef nonnull align 8 dereferenceable(16) %11)
+  %10 = call noundef align 8 dereferenceable(16) ptr @_ZN4core3fmt8builders11DebugStruct5field17haf2f6c53e543649eE(ptr noalias noundef nonnull align 8 dereferenceable(16) %4, ptr noalias noundef nonnull readonly align 1 @anon.319bcac2edebe9295f179af30ff32645.157, i64 noundef 3, ptr noundef nonnull align 1 %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.319bcac2edebe9295f179af30ff32645.158)
+  %11 = call noundef zeroext i1 @_ZN4core3fmt8builders11DebugStruct6finish17h5cca625c6aa0e92fE(ptr noalias noundef nonnull align 8 dereferenceable(16) %10)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
-  ret i1 %12
+  ret i1 %11
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
@@ -13295,14 +13294,13 @@ define void @"_ZN97_$LT$ockam_abac..resource..ResourceTypeIter$u20$as$u20$core..
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load i64, ptr %4, align 8, !noundef !45
   %6 = add i64 %5, %3
-  %7 = icmp ugt i64 %6, 2
-  %8 = sub nuw nsw i64 3, %6
-  %.0 = select i1 %7, i64 0, i64 %8
+  %7 = tail call i64 @llvm.umin.i64(i64 %6, i64 3)
+  %.0 = xor i64 %7, 3
   store i64 %.0, ptr %0, align 8
-  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 1, ptr %9, align 8
-  %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %.0, ptr %10, align 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 1, ptr %8, align 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 %.0, ptr %9, align 8
   ret void
 }
 
@@ -13338,9 +13336,8 @@ define noundef range(i64 0, 4) i64 @"_ZN108_$LT$ockam_abac..resource..ResourceTy
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8, !alias.scope !1771, !noalias !1774, !noundef !45
   %5 = add i64 %4, %2
-  %6 = icmp ugt i64 %5, 2
-  %7 = sub nuw nsw i64 3, %5
-  %.0.i = select i1 %6, i64 0, i64 %7
+  %6 = tail call i64 @llvm.umin.i64(i64 %5, i64 3)
+  %.0.i = xor i64 %6, 3
   ret i64 %.0.i
 }
 
