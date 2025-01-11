@@ -12082,8 +12082,9 @@ if.then11.i:                                      ; preds = %if.else.i
   %tobool1.not.i.i = icmp eq i64 %3, 0
   %conv.i.i = zext i1 %tobool1.not.i.i to i64
   %retval.0.i.i = select i1 %tobool.not.i.i, i64 %conv.i.i, i64 %shr.i46.i
-  %div16.i = udiv i64 %mul6.i, %retval.0.i.i
-  %cmp17.i = icmp ugt i64 %div16.i, 70
+  %5 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %retval.0.i.i, i1 true)
+  %div1651.i = lshr i64 %mul6.i, %5
+  %cmp17.i = icmp ugt i64 %div1651.i, 70
   %mul19.i = zext i1 %cmp17.i to i64
   %spec.select.i = shl i64 %retval.0.i.i, %mul19.i
   %cond26.i = tail call i64 @llvm.umax.i64(i64 %spec.select.i, i64 64)
@@ -12104,11 +12105,11 @@ if.then32.i:                                      ; preds = %if.then30.i
 
 if.end35.i:                                       ; preds = %if.end28.i
   %table.i = getelementptr inbounds nuw i8, ptr %arrayidx4, i64 8
-  %5 = load ptr, ptr %table.i, align 8
-  tail call void @g_free(ptr noundef %5) #19
-  %fulltlb.i = getelementptr inbounds nuw i8, ptr %arrayidx, i64 560
-  %6 = load ptr, ptr %fulltlb.i, align 8
+  %6 = load ptr, ptr %table.i, align 8
   tail call void @g_free(ptr noundef %6) #19
+  %fulltlb.i = getelementptr inbounds nuw i8, ptr %arrayidx, i64 560
+  %7 = load ptr, ptr %fulltlb.i, align 8
+  tail call void @g_free(ptr noundef %7) #19
   store i64 %now, ptr %window_begin_ns.i, align 8
   store i64 0, ptr %window_max_entries.i, align 8
   %sub.i = shl i64 %new_size.0.i, 5
@@ -12118,41 +12119,41 @@ if.end35.i:                                       ; preds = %if.end28.i
   store ptr %call37.i, ptr %table.i, align 8
   %call39.i = tail call noalias ptr @g_try_malloc_n(i64 noundef %new_size.0.i, i64 noundef 32) #20
   store ptr %call39.i, ptr %fulltlb.i, align 8
-  %7 = load ptr, ptr %table.i, align 8
-  %cmp4251.i = icmp eq ptr %7, null
-  %cmp4452.i = icmp eq ptr %call39.i, null
-  %or.cond53.i = select i1 %cmp4251.i, i1 true, i1 %cmp4452.i
-  br i1 %or.cond53.i, label %while.body.i, label %tlb_mmu_resize_locked.exit
+  %8 = load ptr, ptr %table.i, align 8
+  %cmp4252.i = icmp eq ptr %8, null
+  %cmp4453.i = icmp eq ptr %call39.i, null
+  %or.cond54.i = select i1 %cmp4252.i, i1 true, i1 %cmp4453.i
+  br i1 %or.cond54.i, label %while.body.i, label %tlb_mmu_resize_locked.exit
 
 while.body.i:                                     ; preds = %if.end35.i, %if.end49.i
-  %8 = phi ptr [ %11, %if.end49.i ], [ %7, %if.end35.i ]
-  %new_size.154.i = phi i64 [ %cond55.i, %if.end49.i ], [ %new_size.0.i, %if.end35.i ]
-  %cmp45.i = icmp eq i64 %new_size.154.i, 64
+  %9 = phi ptr [ %12, %if.end49.i ], [ %8, %if.end35.i ]
+  %new_size.155.i = phi i64 [ %cond55.i, %if.end49.i ], [ %new_size.0.i, %if.end35.i ]
+  %cmp45.i = icmp eq i64 %new_size.155.i, 64
   br i1 %cmp45.i, label %if.then46.i, label %if.end49.i
 
 if.then46.i:                                      ; preds = %while.body.i
   %call47.i = tail call ptr @__errno_location() #24
-  %9 = load i32, ptr %call47.i, align 4
-  %call48.i = tail call ptr @strerror(i32 noundef %9) #19
+  %10 = load i32, ptr %call47.i, align 4
+  %call48.i = tail call ptr @strerror(i32 noundef %10) #19
   tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.7, ptr noundef nonnull @__func__.tlb_mmu_resize_locked, ptr noundef %call48.i) #19
   tail call void @abort() #22
   unreachable
 
 if.end49.i:                                       ; preds = %while.body.i
-  %shr.i = lshr i64 %new_size.154.i, 1
+  %shr.i = lshr i64 %new_size.155.i, 1
   %cond55.i = tail call i64 @llvm.umax.i64(i64 %shr.i, i64 64)
   %sub56.i = shl i64 %cond55.i, 5
   %shl57.i = add i64 %sub56.i, -32
   store i64 %shl57.i, ptr %arrayidx4, align 16
-  tail call void @g_free(ptr noundef %8) #19
-  %10 = load ptr, ptr %fulltlb.i, align 8
-  tail call void @g_free(ptr noundef %10) #19
+  tail call void @g_free(ptr noundef %9) #19
+  %11 = load ptr, ptr %fulltlb.i, align 8
+  tail call void @g_free(ptr noundef %11) #19
   %call61.i = tail call noalias ptr @g_try_malloc_n(i64 noundef %cond55.i, i64 noundef 32) #20
   store ptr %call61.i, ptr %table.i, align 8
   %call63.i = tail call noalias ptr @g_try_malloc_n(i64 noundef %cond55.i, i64 noundef 32) #20
   store ptr %call63.i, ptr %fulltlb.i, align 8
-  %11 = load ptr, ptr %table.i, align 8
-  %cmp42.i = icmp eq ptr %11, null
+  %12 = load ptr, ptr %table.i, align 8
+  %cmp42.i = icmp eq ptr %12, null
   %cmp44.i = icmp eq ptr %call63.i, null
   %or.cond.i = select i1 %cmp42.i, i1 true, i1 %cmp44.i
   br i1 %or.cond.i, label %while.body.i, label %tlb_mmu_resize_locked.exit, !llvm.loop !181
@@ -12163,10 +12164,10 @@ tlb_mmu_resize_locked.exit:                       ; preds = %if.end49.i, %if.the
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %arrayidx, i8 -1, i64 16, i1 false)
   store i64 0, ptr %vindex.i, align 8
   %table.i6 = getelementptr inbounds nuw i8, ptr %arrayidx4, i64 8
-  %12 = load ptr, ptr %table.i6, align 8
+  %13 = load ptr, ptr %table.i6, align 8
   %fast.val.i7 = load i64, ptr %arrayidx4, align 16
   %add.i.i8 = add i64 %fast.val.i7, 32
-  tail call void @llvm.memset.p0.i64(ptr align 8 %12, i8 -1, i64 %add.i.i8, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr align 8 %13, i8 -1, i64 %add.i.i8, i1 false)
   %vtable.i = getelementptr inbounds nuw i8, ptr %arrayidx, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(256) %vtable.i, i8 -1, i64 256, i1 false)
   ret void

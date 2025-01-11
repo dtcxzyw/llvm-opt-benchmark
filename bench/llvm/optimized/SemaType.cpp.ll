@@ -48272,140 +48272,143 @@ _ZN5clang14BuiltinTypeLoc22getWrittenBuiltinSpecsEv.exit: ; preds = %3, %_ZNK5cl
   %.pn = load ptr, ptr %4, align 8
   %17 = getelementptr inbounds nuw i8, ptr %.pn, i64 344
   %.rhs.trunc.i.i = trunc nuw nsw i32 %16 to i8
-  %18 = udiv i8 7, %.rhs.trunc.i.i
-  %narrow.i.i = add nuw nsw i8 %18, 1
-  %19 = zext nneg i8 %narrow.i.i to i32
-  %20 = mul nuw nsw i32 %16, %19
-  %21 = zext nneg i32 %20 to i64
-  %22 = getelementptr inbounds nuw i8, ptr %2, i64 %21
-  %23 = load i32, ptr %17, align 4
-  store i32 %23, ptr %22, align 4
-  %24 = load i32, ptr %7, align 16
-  %.fr2.i = freeze i32 %24
-  %25 = lshr i32 %.fr2.i, 19
-  %26 = and i32 %25, 511
-  %27 = add nsw i32 %26, -436
-  %or.cond.i.i = icmp ult i32 %27, 5
-  %28 = add nsw i32 %26, -444
-  %or.cond3.i.i = icmp ult i32 %28, 37
+  %18 = tail call range(i8 0, 9) i8 @llvm.cttz.i8(i8 %.rhs.trunc.i.i, i1 true)
+  %19 = lshr i8 7, %18
+  %narrow.i.i = add nuw nsw i8 %19, 1
+  %20 = zext nneg i8 %narrow.i.i to i32
+  %21 = mul nuw nsw i32 %16, %20
+  %22 = zext nneg i32 %21 to i64
+  %23 = getelementptr inbounds nuw i8, ptr %2, i64 %22
+  %24 = load i32, ptr %17, align 4
+  store i32 %24, ptr %23, align 4
+  %25 = load i32, ptr %7, align 16
+  %.fr2.i = freeze i32 %25
+  %26 = lshr i32 %.fr2.i, 19
+  %27 = and i32 %26, 511
+  %28 = add nsw i32 %27, -436
+  %or.cond.i.i = icmp ult i32 %28, 5
+  %29 = add nsw i32 %27, -444
+  %or.cond3.i.i = icmp ult i32 %29, 37
   %or.cond.i4 = select i1 %or.cond.i.i, i1 true, i1 %or.cond3.i.i
   br i1 %or.cond.i4, label %_ZNK5clang14BuiltinTypeLoc18getWrittenSignSpecEv.exit, label %switch.early.test.i
 
 switch.early.test.i:                              ; preds = %_ZN5clang14BuiltinTypeLoc22getWrittenBuiltinSpecsEv.exit
-  switch i32 %26, label %_ZN5clang14BuiltinTypeLoc18expandBuiltinRangeENS_11SourceRangeE.exit [
+  switch i32 %27, label %_ZN5clang14BuiltinTypeLoc18expandBuiltinRangeENS_11SourceRangeE.exit [
     i32 442, label %switch.early.test3.i
     i32 431, label %switch.early.test3.i
   ]
 
 switch.early.test3.i:                             ; preds = %switch.early.test.i, %switch.early.test.i
-  %switch.selectcmp.case1.i = icmp eq i32 %26, 442
-  %switch.selectcmp.case2.i = icmp eq i32 %26, 431
+  %switch.selectcmp.case1.i = icmp eq i32 %27, 442
+  %switch.selectcmp.case2.i = icmp eq i32 %27, 431
   %switch.selectcmp.i = or i1 %switch.selectcmp.case1.i, %switch.selectcmp.case2.i
-  %29 = select i1 %switch.selectcmp.i, i32 4, i32 1
+  %30 = select i1 %switch.selectcmp.i, i32 4, i32 1
   br label %_ZNK5clang14BuiltinTypeLoc18getWrittenSignSpecEv.exit
 
 _ZNK5clang14BuiltinTypeLoc18getWrittenSignSpecEv.exit: ; preds = %_ZN5clang14BuiltinTypeLoc22getWrittenBuiltinSpecsEv.exit, %switch.early.test3.i
-  %30 = phi i32 [ %29, %switch.early.test3.i ], [ 4, %_ZN5clang14BuiltinTypeLoc22getWrittenBuiltinSpecsEv.exit ]
-  %.rhs.trunc.i.i.i = trunc nuw nsw i32 %30 to i8
-  %31 = udiv i8 7, %.rhs.trunc.i.i.i
-  %narrow.i.i.i = add nuw nsw i8 %31, 1
-  %32 = zext nneg i8 %narrow.i.i.i to i32
-  %33 = mul nuw nsw i32 %30, %32
-  %34 = zext nneg i32 %33 to i64
-  %35 = getelementptr inbounds nuw i8, ptr %2, i64 %34
-  %36 = load i16, ptr %35, align 4
-  %37 = and i16 %36, 384
-  %.not = icmp eq i16 %37, 0
-  br i1 %.not, label %_ZN5clang14BuiltinTypeLoc18expandBuiltinRangeENS_11SourceRangeE.exit, label %38
+  %31 = phi i32 [ %30, %switch.early.test3.i ], [ 4, %_ZN5clang14BuiltinTypeLoc22getWrittenBuiltinSpecsEv.exit ]
+  %.rhs.trunc.i.i.i = trunc nuw nsw i32 %31 to i8
+  %32 = tail call range(i8 0, 9) i8 @llvm.cttz.i8(i8 %.rhs.trunc.i.i.i, i1 true)
+  %33 = lshr i8 7, %32
+  %narrow.i.i.i = add nuw nsw i8 %33, 1
+  %34 = zext nneg i8 %narrow.i.i.i to i32
+  %35 = mul nuw nsw i32 %31, %34
+  %36 = zext nneg i32 %35 to i64
+  %37 = getelementptr inbounds nuw i8, ptr %2, i64 %36
+  %38 = load i16, ptr %37, align 4
+  %39 = and i16 %38, 384
+  %.not = icmp eq i16 %39, 0
+  br i1 %.not, label %_ZN5clang14BuiltinTypeLoc18expandBuiltinRangeENS_11SourceRangeE.exit, label %40
 
-38:                                               ; preds = %_ZNK5clang14BuiltinTypeLoc18getWrittenSignSpecEv.exit
-  %39 = load ptr, ptr %4, align 8
-  %40 = getelementptr inbounds nuw i8, ptr %39, i64 252
-  %.sroa.0.0.copyload.i5 = load i32, ptr %40, align 4
+40:                                               ; preds = %_ZNK5clang14BuiltinTypeLoc18getWrittenSignSpecEv.exit
+  %41 = load ptr, ptr %4, align 8
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 252
+  %.sroa.0.0.copyload.i5 = load i32, ptr %42, align 4
   %.sroa.0.0.copyload.i.i = load i32, ptr %2, align 4
   %.not.i = icmp eq i32 %.sroa.0.0.copyload.i.i, 0
-  br i1 %.not.i, label %41, label %42
+  br i1 %.not.i, label %43, label %44
 
-41:                                               ; preds = %38
+43:                                               ; preds = %40
   %.sroa.2.0.insert.ext = zext i32 %.sroa.0.0.copyload.i5 to i64
   %.sroa.2.0.insert.shift = shl nuw i64 %.sroa.2.0.insert.ext, 32
   %.sroa.0.0.insert.insert = or disjoint i64 %.sroa.2.0.insert.shift, %.sroa.2.0.insert.ext
   store i64 %.sroa.0.0.insert.insert, ptr %2, align 4
   br label %_ZN5clang14BuiltinTypeLoc18expandBuiltinRangeENS_11SourceRangeE.exit
 
-42:                                               ; preds = %38
+44:                                               ; preds = %40
   %.sroa.01.0.copyload.sroa.speculated.i = tail call i32 @llvm.umin.i32(i32 %.sroa.0.0.copyload.i.i, i32 %.sroa.0.0.copyload.i5)
   store i32 %.sroa.01.0.copyload.sroa.speculated.i, ptr %2, align 4
-  %43 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  %.sroa.0.0.copyload.i11.i = load i32, ptr %43, align 4
+  %45 = getelementptr inbounds nuw i8, ptr %2, i64 4
+  %.sroa.0.0.copyload.i11.i = load i32, ptr %45, align 4
   %.sroa.0.0.copyload.sroa.speculated.i = tail call i32 @llvm.umax.i32(i32 %.sroa.0.0.copyload.i11.i, i32 %.sroa.0.0.copyload.i5)
-  store i32 %.sroa.0.0.copyload.sroa.speculated.i, ptr %43, align 4
+  store i32 %.sroa.0.0.copyload.sroa.speculated.i, ptr %45, align 4
   br label %_ZN5clang14BuiltinTypeLoc18expandBuiltinRangeENS_11SourceRangeE.exit
 
-_ZN5clang14BuiltinTypeLoc18expandBuiltinRangeENS_11SourceRangeE.exit: ; preds = %switch.early.test.i, %42, %41, %_ZNK5clang14BuiltinTypeLoc18getWrittenSignSpecEv.exit
-  %44 = load i32, ptr %7, align 16
-  %.fr2.i6 = freeze i32 %44
-  %45 = lshr i32 %.fr2.i6, 19
-  %46 = and i32 %45, 511
-  %47 = add nsw i32 %46, -436
-  %or.cond.i.i7 = icmp ult i32 %47, 5
-  %48 = add nsw i32 %46, -444
-  %or.cond3.i.i8 = icmp ult i32 %48, 37
+_ZN5clang14BuiltinTypeLoc18expandBuiltinRangeENS_11SourceRangeE.exit: ; preds = %switch.early.test.i, %44, %43, %_ZNK5clang14BuiltinTypeLoc18getWrittenSignSpecEv.exit
+  %46 = load i32, ptr %7, align 16
+  %.fr2.i6 = freeze i32 %46
+  %47 = lshr i32 %.fr2.i6, 19
+  %48 = and i32 %47, 511
+  %49 = add nsw i32 %48, -436
+  %or.cond.i.i7 = icmp ult i32 %49, 5
+  %50 = add nsw i32 %48, -444
+  %or.cond3.i.i8 = icmp ult i32 %50, 37
   %or.cond.i9 = select i1 %or.cond.i.i7, i1 true, i1 %or.cond3.i.i8
   br i1 %or.cond.i9, label %_ZNK5clang14BuiltinTypeLoc19getWrittenWidthSpecEv.exit, label %switch.early.test.i10
 
 switch.early.test.i10:                            ; preds = %_ZN5clang14BuiltinTypeLoc18expandBuiltinRangeENS_11SourceRangeE.exit
-  switch i32 %46, label %_ZN5clang14BuiltinTypeLoc18expandBuiltinRangeENS_11SourceRangeE.exit28 [
+  switch i32 %48, label %_ZN5clang14BuiltinTypeLoc18expandBuiltinRangeENS_11SourceRangeE.exit28 [
     i32 442, label %switch.early.test3.i11
     i32 431, label %switch.early.test3.i11
   ]
 
 switch.early.test3.i11:                           ; preds = %switch.early.test.i10, %switch.early.test.i10
-  %switch.selectcmp.case1.i12 = icmp eq i32 %46, 442
-  %switch.selectcmp.case2.i13 = icmp eq i32 %46, 431
+  %switch.selectcmp.case1.i12 = icmp eq i32 %48, 442
+  %switch.selectcmp.case2.i13 = icmp eq i32 %48, 431
   %switch.selectcmp.i14 = or i1 %switch.selectcmp.case1.i12, %switch.selectcmp.case2.i13
-  %49 = select i1 %switch.selectcmp.i14, i32 4, i32 1
+  %51 = select i1 %switch.selectcmp.i14, i32 4, i32 1
   br label %_ZNK5clang14BuiltinTypeLoc19getWrittenWidthSpecEv.exit
 
 _ZNK5clang14BuiltinTypeLoc19getWrittenWidthSpecEv.exit: ; preds = %_ZN5clang14BuiltinTypeLoc18expandBuiltinRangeENS_11SourceRangeE.exit, %switch.early.test3.i11
-  %50 = phi i32 [ %49, %switch.early.test3.i11 ], [ 4, %_ZN5clang14BuiltinTypeLoc18expandBuiltinRangeENS_11SourceRangeE.exit ]
-  %.rhs.trunc.i.i.i16 = trunc nuw nsw i32 %50 to i8
-  %51 = udiv i8 7, %.rhs.trunc.i.i.i16
-  %narrow.i.i.i17 = add nuw nsw i8 %51, 1
-  %52 = zext nneg i8 %narrow.i.i.i17 to i32
-  %53 = mul nuw nsw i32 %50, %52
-  %54 = zext nneg i32 %53 to i64
-  %55 = getelementptr inbounds nuw i8, ptr %2, i64 %54
-  %56 = load i16, ptr %55, align 4
-  %57 = and i16 %56, 1536
-  %.not3 = icmp eq i16 %57, 0
-  br i1 %.not3, label %_ZN5clang14BuiltinTypeLoc18expandBuiltinRangeENS_11SourceRangeE.exit28, label %58
+  %52 = phi i32 [ %51, %switch.early.test3.i11 ], [ 4, %_ZN5clang14BuiltinTypeLoc18expandBuiltinRangeENS_11SourceRangeE.exit ]
+  %.rhs.trunc.i.i.i16 = trunc nuw nsw i32 %52 to i8
+  %53 = tail call range(i8 0, 9) i8 @llvm.cttz.i8(i8 %.rhs.trunc.i.i.i16, i1 true)
+  %54 = lshr i8 7, %53
+  %narrow.i.i.i17 = add nuw nsw i8 %54, 1
+  %55 = zext nneg i8 %narrow.i.i.i17 to i32
+  %56 = mul nuw nsw i32 %52, %55
+  %57 = zext nneg i32 %56 to i64
+  %58 = getelementptr inbounds nuw i8, ptr %2, i64 %57
+  %59 = load i16, ptr %58, align 4
+  %60 = and i16 %59, 1536
+  %.not3 = icmp eq i16 %60, 0
+  br i1 %.not3, label %_ZN5clang14BuiltinTypeLoc18expandBuiltinRangeENS_11SourceRangeE.exit28, label %61
 
-58:                                               ; preds = %_ZNK5clang14BuiltinTypeLoc19getWrittenWidthSpecEv.exit
-  %59 = load ptr, ptr %4, align 8
-  %60 = getelementptr inbounds nuw i8, ptr %59, i64 240
-  %.sroa.0.0.copyload.i19 = load i64, ptr %60, align 8
+61:                                               ; preds = %_ZNK5clang14BuiltinTypeLoc19getWrittenWidthSpecEv.exit
+  %62 = load ptr, ptr %4, align 8
+  %63 = getelementptr inbounds nuw i8, ptr %62, i64 240
+  %.sroa.0.0.copyload.i19 = load i64, ptr %63, align 8
   %.sroa.0.0.copyload.i.i20 = load i32, ptr %2, align 4
   %.not.i21 = icmp eq i32 %.sroa.0.0.copyload.i.i20, 0
-  br i1 %.not.i21, label %61, label %62
+  br i1 %.not.i21, label %64, label %65
 
-61:                                               ; preds = %58
+64:                                               ; preds = %61
   store i64 %.sroa.0.0.copyload.i19, ptr %2, align 4
   br label %_ZN5clang14BuiltinTypeLoc18expandBuiltinRangeENS_11SourceRangeE.exit28
 
-62:                                               ; preds = %58
+65:                                               ; preds = %61
   %.sroa.021.0.extract.trunc.i22 = trunc i64 %.sroa.0.0.copyload.i19 to i32
   %.sroa.3.0.extract.shift.i23 = lshr i64 %.sroa.0.0.copyload.i19, 32
   %.sroa.3.0.extract.trunc.i24 = trunc nuw i64 %.sroa.3.0.extract.shift.i23 to i32
   %.sroa.01.0.copyload.sroa.speculated.i25 = tail call i32 @llvm.umin.i32(i32 %.sroa.0.0.copyload.i.i20, i32 %.sroa.021.0.extract.trunc.i22)
   store i32 %.sroa.01.0.copyload.sroa.speculated.i25, ptr %2, align 4
-  %63 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  %.sroa.0.0.copyload.i11.i26 = load i32, ptr %63, align 4
+  %66 = getelementptr inbounds nuw i8, ptr %2, i64 4
+  %.sroa.0.0.copyload.i11.i26 = load i32, ptr %66, align 4
   %.sroa.0.0.copyload.sroa.speculated.i27 = tail call i32 @llvm.umax.i32(i32 %.sroa.0.0.copyload.i11.i26, i32 %.sroa.3.0.extract.trunc.i24)
-  store i32 %.sroa.0.0.copyload.sroa.speculated.i27, ptr %63, align 4
+  store i32 %.sroa.0.0.copyload.sroa.speculated.i27, ptr %66, align 4
   br label %_ZN5clang14BuiltinTypeLoc18expandBuiltinRangeENS_11SourceRangeE.exit28
 
-_ZN5clang14BuiltinTypeLoc18expandBuiltinRangeENS_11SourceRangeE.exit28: ; preds = %switch.early.test, %switch.early.test.i10, %62, %61, %_ZNK5clang14BuiltinTypeLoc19getWrittenWidthSpecEv.exit
+_ZN5clang14BuiltinTypeLoc18expandBuiltinRangeENS_11SourceRangeE.exit28: ; preds = %switch.early.test, %switch.early.test.i10, %65, %64, %_ZNK5clang14BuiltinTypeLoc19getWrittenWidthSpecEv.exit
   ret void
 }
 
@@ -50881,6 +50884,9 @@ declare i32 @llvm.usub.sat.i32(i32, i32) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smin.i64(i64, i64) #17
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i8 @llvm.cttz.i8(i8, i1 immarg) #17
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }

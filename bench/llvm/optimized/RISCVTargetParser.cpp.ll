@@ -1094,58 +1094,64 @@ _ZN4llvm11raw_ostreamlsEPKc.exit26:               ; preds = %77, %75, %71, %69
 define dso_local noundef range(i32 0, -7) i32 @_ZN4llvm10RISCVVType15getSEWLMULRatioEjNS_7RISCVII5VLMULE(i32 noundef %0, i8 noundef zeroext %1) local_unnamed_addr #5 {
   %3 = zext i8 %1 to i32
   %switch.i = icmp ugt i8 %1, 3
-  %4 = shl i32 %0, 3
-  %.v = select i1 %switch.i, i32 -5, i32 3
-  %5 = add nsw i32 %.v, %3
-  %6 = lshr i32 %4, %5
-  ret i32 %6
+  %4 = sub nsw i32 8, %3
+  %5 = lshr i32 8, %4
+  %6 = shl nuw nsw i32 8, %3
+  %7 = select i1 %switch.i, i32 %5, i32 %6
+  %8 = shl i32 %0, 3
+  %9 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %7, i1 true)
+  %10 = lshr i32 %8, %9
+  ret i32 %10
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define dso_local range(i16 0, 272) i16 @_ZN4llvm10RISCVVType16getSameRatioLMULEjNS_7RISCVII5VLMULEj(i32 noundef %0, i8 noundef zeroext %1, i32 noundef %2) local_unnamed_addr #5 {
   %4 = zext i8 %1 to i32
   %switch.i.i = icmp ugt i8 %1, 3
-  %5 = shl i32 %0, 3
-  %.v.i = select i1 %switch.i.i, i32 -5, i32 3
-  %6 = add nsw i32 %.v.i, %4
-  %7 = lshr i32 %5, %6
-  %8 = shl i32 %2, 3
-  %9 = udiv i32 %8, %7
-  %10 = icmp ugt i32 %9, 7
-  br i1 %10, label %13, label %11
+  %5 = sub nsw i32 8, %4
+  %6 = lshr i32 8, %5
+  %7 = shl nuw nsw i32 8, %4
+  %8 = select i1 %switch.i.i, i32 %6, i32 %7
+  %9 = shl i32 %0, 3
+  %10 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %8, i1 true)
+  %11 = lshr i32 %9, %10
+  %12 = shl i32 %2, 3
+  %13 = udiv i32 %12, %11
+  %14 = icmp ugt i32 %13, 7
+  br i1 %14, label %17, label %15
 
-11:                                               ; preds = %3
-  %.rhs.trunc = trunc nuw i32 %9 to i8
-  %12 = udiv i8 8, %.rhs.trunc
-  %.zext = zext nneg i8 %12 to i32
-  br label %15
+15:                                               ; preds = %3
+  %.rhs.trunc = trunc nuw i32 %13 to i8
+  %16 = udiv i8 8, %.rhs.trunc
+  %.zext = zext nneg i8 %16 to i32
+  br label %19
 
-13:                                               ; preds = %3
-  %14 = lshr i32 %9, 3
-  br label %15
+17:                                               ; preds = %3
+  %18 = lshr i32 %13, 3
+  br label %19
 
-15:                                               ; preds = %13, %11
-  %16 = phi i32 [ %.zext, %11 ], [ %14, %13 ]
-  %17 = tail call range(i32 1, 30) i32 @llvm.ctpop.i32(i32 range(i32 1, 536870912) %16)
-  %18 = icmp samesign ult i32 %17, 2
-  %19 = icmp samesign ult i32 %16, 9
-  %or.cond.i = select i1 %18, i1 %19, i1 false
-  %20 = icmp ne i32 %16, 1
-  %21 = or i1 %10, %20
-  %or.cond = and i1 %21, %or.cond.i
-  br i1 %or.cond, label %22, label %_ZN4llvm10RISCVVTypeL11isValidLMULEjb.exit.thread
+19:                                               ; preds = %17, %15
+  %20 = phi i32 [ %.zext, %15 ], [ %18, %17 ]
+  %21 = tail call range(i32 1, 30) i32 @llvm.ctpop.i32(i32 range(i32 1, 536870912) %20)
+  %22 = icmp samesign ult i32 %21, 2
+  %23 = icmp samesign ult i32 %20, 9
+  %or.cond.i = select i1 %22, i1 %23, i1 false
+  %24 = icmp ne i32 %20, 1
+  %25 = or i1 %14, %24
+  %or.cond = and i1 %25, %or.cond.i
+  br i1 %or.cond, label %26, label %_ZN4llvm10RISCVVTypeL11isValidLMULEjb.exit.thread
 
-22:                                               ; preds = %15
-  %23 = tail call noundef range(i32 0, 33) i32 @llvm.ctlz.i32(i32 range(i32 1, 536870912) %16, i1 true)
-  %24 = xor i32 %23, 31
-  %25 = sub nuw nsw i32 8, %24
-  %26 = select i1 %10, i32 %24, i32 %25
-  %27 = trunc nuw nsw i32 %26 to i16
+26:                                               ; preds = %19
+  %27 = tail call noundef range(i32 0, 33) i32 @llvm.ctlz.i32(i32 range(i32 1, 536870912) %20, i1 true)
+  %28 = xor i32 %27, 31
+  %29 = sub nuw nsw i32 8, %28
+  %30 = select i1 %14, i32 %28, i32 %29
+  %31 = trunc nuw nsw i32 %30 to i16
   br label %_ZN4llvm10RISCVVTypeL11isValidLMULEjb.exit.thread
 
-_ZN4llvm10RISCVVTypeL11isValidLMULEjb.exit.thread: ; preds = %15, %22
-  %.sroa.0.0 = phi i16 [ %27, %22 ], [ 0, %15 ]
-  %.sroa.2.0 = phi i16 [ 256, %22 ], [ 0, %15 ]
+_ZN4llvm10RISCVVTypeL11isValidLMULEjb.exit.thread: ; preds = %19, %26
+  %.sroa.0.0 = phi i16 [ %31, %26 ], [ 0, %19 ]
+  %.sroa.2.0 = phi i16 [ 256, %26 ], [ 0, %19 ]
   %.sroa.0.0.insert.insert = or i16 %.sroa.2.0, %.sroa.0.0
   ret i16 %.sroa.0.0.insert.insert
 }
@@ -1956,6 +1962,9 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #15
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.cttz.i32(i32, i1 immarg) #13
 
 attributes #0 = { mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }

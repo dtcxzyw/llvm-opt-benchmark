@@ -4827,7 +4827,7 @@ define void @_ZN22AmbientOcclusionPlugin6initGLEPFbiPKcEj(ptr noundef nonnull al
   tail call void @_ZNK19MeshLabPluginLogger3logEN11GLLogStream6LevelsEPKc(ptr noundef nonnull align 8 dereferenceable(16) %16, i32 noundef 0, ptr noundef nonnull @.str.70)
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 173
   store i8 1, ptr %17, align 1
-  br label %201
+  br label %202
 
 18:                                               ; preds = %3
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 180
@@ -4899,7 +4899,7 @@ _ZNK19MeshLabPluginLogger3logIJRjS1_EEEvN11GLLogStream6LevelsEPKcDpOT_.exit: ; p
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 172
   %50 = load i8, ptr %49, align 4
   %51 = trunc i8 %50 to i1
-  br i1 %51, label %52, label %197
+  br i1 %51, label %52, label %198
 
 52:                                               ; preds = %48
   %53 = call zeroext i8 @glewIsSupported(ptr noundef nonnull @.str.73)
@@ -4919,7 +4919,7 @@ _ZNK19MeshLabPluginLogger3logIJRjS1_EEEvN11GLLogStream6LevelsEPKcDpOT_.exit: ; p
   call void @_ZNK19MeshLabPluginLogger3logEN11GLLogStream6LevelsEPKc(ptr noundef nonnull align 8 dereferenceable(16) %60, i32 noundef 0, ptr noundef nonnull @.str.75)
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 173
   store i8 1, ptr %61, align 1
-  br label %201
+  br label %202
 
 62:                                               ; preds = %54, %52
   %63 = call zeroext i8 @glewIsSupported(ptr noundef nonnull @.str.76)
@@ -4934,7 +4934,7 @@ _ZNK19MeshLabPluginLogger3logIJRjS1_EEEvN11GLLogStream6LevelsEPKcDpOT_.exit: ; p
   call void @_ZNK19MeshLabPluginLogger3logEN11GLLogStream6LevelsEPKc(ptr noundef nonnull align 8 dereferenceable(16) %68, i32 noundef 0, ptr noundef nonnull @.str.77)
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 173
   store i8 1, ptr %69, align 1
-  br label %201
+  br label %202
 
 70:                                               ; preds = %62
   %71 = call zeroext i8 @glewIsSupported(ptr noundef nonnull @.str.78)
@@ -4954,7 +4954,7 @@ _ZNK19MeshLabPluginLogger3logIJRjS1_EEEvN11GLLogStream6LevelsEPKcDpOT_.exit: ; p
   call void @_ZNK19MeshLabPluginLogger3logEN11GLLogStream6LevelsEPKc(ptr noundef nonnull align 8 dereferenceable(16) %78, i32 noundef 0, ptr noundef nonnull @.str.80)
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 173
   store i8 1, ptr %79, align 1
-  br label %201
+  br label %202
 
 80:                                               ; preds = %72
   %81 = getelementptr inbounds nuw i8, ptr %0, i64 152
@@ -4978,7 +4978,7 @@ _ZNK19MeshLabPluginLogger3logIJRjS1_EEEvN11GLLogStream6LevelsEPKcDpOT_.exit: ; p
   call void @_ZNK19MeshLabPluginLogger3logEN11GLLogStream6LevelsEPKc(ptr noundef nonnull align 8 dereferenceable(16) %92, i32 noundef 0, ptr noundef nonnull @.str.81)
   %93 = getelementptr inbounds nuw i8, ptr %0, i64 173
   store i8 1, ptr %93, align 1
-  br label %201
+  br label %202
 
 94:                                               ; preds = %80
   %95 = load i8, ptr %49, align 4
@@ -4993,7 +4993,7 @@ _ZNK19MeshLabPluginLogger3logIJRjS1_EEEvN11GLLogStream6LevelsEPKcDpOT_.exit: ; p
   call void @_ZNK19MeshLabPluginLogger3logEN11GLLogStream6LevelsEPKc(ptr noundef nonnull align 8 dereferenceable(16) %101, i32 noundef 0, ptr noundef nonnull @.str.82)
   %102 = getelementptr inbounds nuw i8, ptr %0, i64 173
   store i8 1, ptr %102, align 1
-  br label %201
+  br label %202
 
 103:                                              ; preds = %94, %80
   %104 = udiv i32 %2, %85
@@ -5018,7 +5018,7 @@ _ZNK19MeshLabPluginLogger3logIJRjS1_EEEvN11GLLogStream6LevelsEPKcDpOT_.exit: ; p
   call void @_ZNK19MeshLabPluginLogger3logEN11GLLogStream6LevelsEPKc(ptr noundef nonnull align 8 dereferenceable(16) %115, i32 noundef 0, ptr noundef nonnull @.str.83)
   %116 = getelementptr inbounds nuw i8, ptr %0, i64 173
   store i8 1, ptr %116, align 1
-  br label %201
+  br label %202
 
 117:                                              ; preds = %109
   %118 = call noundef zeroext i1 %1(i32 noundef 30, ptr noundef nonnull @.str.84)
@@ -5048,23 +5048,23 @@ _ZNKR7QString8toLatin1Ev.exit:                    ; preds = %124
 127:                                              ; preds = %117
   %128 = landingpad { ptr, i32 }
           cleanup
-  br label %196
+  br label %197
 
 .loopexit:                                        ; preds = %.lr.ph
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
-  br label %195
+  br label %196
 
-.loopexit.split-lp:                               ; preds = %136, %144, %147, %149, %151, %154, %157, %161, %162, %163, %166, %168, %171, %._crit_edge, %189, %192, %124, %131
+.loopexit.split-lp:                               ; preds = %136, %145, %148, %150, %152, %155, %158, %162, %163, %164, %167, %169, %172, %._crit_edge, %190, %193, %124, %131
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
-  br label %195
+  br label %196
 
 129:                                              ; preds = %126, %_ZNKR7QString8toLatin1Ev.exit
   %130 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN10QByteArrayD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %8) #28
-  br label %195
+  br label %196
 
 131:                                              ; preds = %121
   invoke void @_ZN7QString15toLatin1_helperERKS_(ptr dead_on_unwind nonnull writable sret(%class.QByteArray) align 8 %9, ptr noundef nonnull align 8 dereferenceable(8) %7)
@@ -5082,166 +5082,167 @@ _ZNKR7QString8toLatin1Ev.exit36:                  ; preds = %131
   %135 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN10QByteArrayD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #28
-  br label %195
+  br label %196
 
 136:                                              ; preds = %133, %126
   %.sink = phi ptr [ %8, %126 ], [ %9, %133 ]
   call void @_ZN10QByteArrayD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %.sink) #28
   store i32 %.027, ptr %19, align 4
-  %137 = udiv i32 %2, %106
-  %138 = add i32 %137, 1
-  %139 = load i32, ptr %5, align 4
-  %.sroa.speculated = call i32 @llvm.umin.i32(i32 %139, i32 %138)
-  %140 = getelementptr inbounds nuw i8, ptr %0, i64 168
-  store i32 %.sroa.speculated, ptr %140, align 8
-  %141 = zext i32 %.sroa.speculated to i64
-  %142 = shl nuw nsw i64 %141, 2
-  %143 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %142) #31
-          to label %144 unwind label %.loopexit.split-lp
+  %137 = call range(i32 2, 33) i32 @llvm.cttz.i32(i32 %106, i1 true)
+  %138 = lshr i32 %2, %137
+  %139 = add nuw nsw i32 %138, 1
+  %140 = load i32, ptr %5, align 4
+  %.sroa.speculated = call i32 @llvm.umin.i32(i32 %140, i32 %139)
+  %141 = getelementptr inbounds nuw i8, ptr %0, i64 168
+  store i32 %.sroa.speculated, ptr %141, align 8
+  %142 = zext nneg i32 %.sroa.speculated to i64
+  %143 = shl nuw nsw i64 %142, 2
+  %144 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %143) #31
+          to label %145 unwind label %.loopexit.split-lp
 
-144:                                              ; preds = %136
-  %145 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  store ptr %143, ptr %145, align 8
-  %146 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %142) #31
-          to label %147 unwind label %.loopexit.split-lp
+145:                                              ; preds = %136
+  %146 = getelementptr inbounds nuw i8, ptr %0, i64 136
+  store ptr %144, ptr %146, align 8
+  %147 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %143) #31
+          to label %148 unwind label %.loopexit.split-lp
 
-147:                                              ; preds = %144
-  %148 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  store ptr %146, ptr %148, align 8
+148:                                              ; preds = %145
+  %149 = getelementptr inbounds nuw i8, ptr %0, i64 144
+  store ptr %147, ptr %149, align 8
   invoke void @_ZN22AmbientOcclusionPlugin12initTexturesEv(ptr noundef nonnull align 8 dereferenceable(185) %0)
-          to label %149 unwind label %.loopexit.split-lp
+          to label %150 unwind label %.loopexit.split-lp
 
-149:                                              ; preds = %147
-  %150 = invoke noundef zeroext i1 %1(i32 noundef 60, ptr noundef nonnull @.str.87)
-          to label %151 unwind label %.loopexit.split-lp
+150:                                              ; preds = %148
+  %151 = invoke noundef zeroext i1 %1(i32 noundef 60, ptr noundef nonnull @.str.87)
+          to label %152 unwind label %.loopexit.split-lp
 
-151:                                              ; preds = %149
-  %152 = getelementptr inbounds nuw i8, ptr %0, i64 116
-  store i32 0, ptr %152, align 4
-  %153 = load ptr, ptr @__glewGenFramebuffersEXT, align 8
-  invoke void %153(i32 noundef 1, ptr noundef nonnull %152)
-          to label %154 unwind label %.loopexit.split-lp
+152:                                              ; preds = %150
+  %153 = getelementptr inbounds nuw i8, ptr %0, i64 116
+  store i32 0, ptr %153, align 4
+  %154 = load ptr, ptr @__glewGenFramebuffersEXT, align 8
+  invoke void %154(i32 noundef 1, ptr noundef nonnull %153)
+          to label %155 unwind label %.loopexit.split-lp
 
-154:                                              ; preds = %151
-  %155 = load ptr, ptr @__glewBindFramebufferEXT, align 8
-  %156 = load i32, ptr %152, align 4
-  invoke void %155(i32 noundef 36160, i32 noundef %156)
-          to label %157 unwind label %.loopexit.split-lp
+155:                                              ; preds = %152
+  %156 = load ptr, ptr @__glewBindFramebufferEXT, align 8
+  %157 = load i32, ptr %153, align 4
+  invoke void %156(i32 noundef 36160, i32 noundef %157)
+          to label %158 unwind label %.loopexit.split-lp
 
-157:                                              ; preds = %154
-  %158 = load ptr, ptr @__glewFramebufferTexture2DEXT, align 8
-  %159 = getelementptr inbounds nuw i8, ptr %0, i64 124
-  %160 = load i32, ptr %159, align 4
-  invoke void %158(i32 noundef 36160, i32 noundef 36096, i32 noundef 3553, i32 noundef %160, i32 noundef 0)
-          to label %161 unwind label %.loopexit.split-lp
-
-161:                                              ; preds = %157
-  invoke void @glDrawBuffer(i32 noundef 0)
+158:                                              ; preds = %155
+  %159 = load ptr, ptr @__glewFramebufferTexture2DEXT, align 8
+  %160 = getelementptr inbounds nuw i8, ptr %0, i64 124
+  %161 = load i32, ptr %160, align 4
+  invoke void %159(i32 noundef 36160, i32 noundef 36096, i32 noundef 3553, i32 noundef %161, i32 noundef 0)
           to label %162 unwind label %.loopexit.split-lp
 
-162:                                              ; preds = %161
-  invoke void @glReadBuffer(i32 noundef 0)
+162:                                              ; preds = %158
+  invoke void @glDrawBuffer(i32 noundef 0)
           to label %163 unwind label %.loopexit.split-lp
 
 163:                                              ; preds = %162
-  %164 = invoke noundef zeroext i1 @_ZN22AmbientOcclusionPlugin16checkFramebufferEv(ptr noundef nonnull align 8 dereferenceable(185) %0)
-          to label %165 unwind label %.loopexit.split-lp
+  invoke void @glReadBuffer(i32 noundef 0)
+          to label %164 unwind label %.loopexit.split-lp
 
-165:                                              ; preds = %163
-  br i1 %164, label %166, label %.critedge
+164:                                              ; preds = %163
+  %165 = invoke noundef zeroext i1 @_ZN22AmbientOcclusionPlugin16checkFramebufferEv(ptr noundef nonnull align 8 dereferenceable(185) %0)
+          to label %166 unwind label %.loopexit.split-lp
 
-166:                                              ; preds = %165
-  %167 = load ptr, ptr @__glewBindFramebufferEXT, align 8
-  invoke void %167(i32 noundef 36160, i32 noundef 0)
-          to label %168 unwind label %.loopexit.split-lp
+166:                                              ; preds = %164
+  br i1 %165, label %167, label %.critedge
 
-168:                                              ; preds = %166
-  %169 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  store i32 0, ptr %169, align 8
-  %170 = load ptr, ptr @__glewGenFramebuffersEXT, align 8
-  invoke void %170(i32 noundef 1, ptr noundef nonnull %169)
-          to label %171 unwind label %.loopexit.split-lp
+167:                                              ; preds = %166
+  %168 = load ptr, ptr @__glewBindFramebufferEXT, align 8
+  invoke void %168(i32 noundef 36160, i32 noundef 0)
+          to label %169 unwind label %.loopexit.split-lp
 
-171:                                              ; preds = %168
-  %172 = load ptr, ptr @__glewBindFramebufferEXT, align 8
-  %173 = load i32, ptr %169, align 8
-  invoke void %172(i32 noundef 36160, i32 noundef %173)
+169:                                              ; preds = %167
+  %170 = getelementptr inbounds nuw i8, ptr %0, i64 120
+  store i32 0, ptr %170, align 8
+  %171 = load ptr, ptr @__glewGenFramebuffersEXT, align 8
+  invoke void %171(i32 noundef 1, ptr noundef nonnull %170)
+          to label %172 unwind label %.loopexit.split-lp
+
+172:                                              ; preds = %169
+  %173 = load ptr, ptr @__glewBindFramebufferEXT, align 8
+  %174 = load i32, ptr %170, align 8
+  invoke void %173(i32 noundef 36160, i32 noundef %174)
           to label %.preheader unwind label %.loopexit.split-lp
 
-.preheader:                                       ; preds = %171
-  %174 = load i32, ptr %140, align 8
-  %.not46 = icmp eq i32 %174, 0
+.preheader:                                       ; preds = %172
+  %175 = load i32, ptr %141, align 8
+  %.not46 = icmp eq i32 %175, 0
   br i1 %.not46, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %.preheader, %183
-  %indvars.iv = phi i64 [ %indvars.iv.next, %183 ], [ 0, %.preheader ]
-  %175 = trunc nuw i64 %indvars.iv to i32
-  %176 = add i32 %175, 36064
-  %177 = load ptr, ptr %148, align 8
-  %178 = getelementptr inbounds nuw i32, ptr %177, i64 %indvars.iv
-  store i32 %176, ptr %178, align 4
-  %179 = load ptr, ptr @__glewFramebufferTexture2DEXT, align 8
-  %180 = load ptr, ptr %145, align 8
-  %181 = getelementptr inbounds nuw i32, ptr %180, i64 %indvars.iv
-  %182 = load i32, ptr %181, align 4
-  invoke void %179(i32 noundef 36160, i32 noundef %176, i32 noundef 3553, i32 noundef %182, i32 noundef 0)
-          to label %183 unwind label %.loopexit
+.lr.ph:                                           ; preds = %.preheader, %184
+  %indvars.iv = phi i64 [ %indvars.iv.next, %184 ], [ 0, %.preheader ]
+  %176 = trunc nuw i64 %indvars.iv to i32
+  %177 = add i32 %176, 36064
+  %178 = load ptr, ptr %149, align 8
+  %179 = getelementptr inbounds nuw i32, ptr %178, i64 %indvars.iv
+  store i32 %177, ptr %179, align 4
+  %180 = load ptr, ptr @__glewFramebufferTexture2DEXT, align 8
+  %181 = load ptr, ptr %146, align 8
+  %182 = getelementptr inbounds nuw i32, ptr %181, i64 %indvars.iv
+  %183 = load i32, ptr %182, align 4
+  invoke void %180(i32 noundef 36160, i32 noundef %177, i32 noundef 3553, i32 noundef %183, i32 noundef 0)
+          to label %184 unwind label %.loopexit
 
-183:                                              ; preds = %.lr.ph
+184:                                              ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %184 = load i32, ptr %140, align 8
-  %185 = zext i32 %184 to i64
-  %186 = icmp samesign ult i64 %indvars.iv.next, %185
-  br i1 %186, label %.lr.ph, label %._crit_edge, !llvm.loop !39
+  %185 = load i32, ptr %141, align 8
+  %186 = zext i32 %185 to i64
+  %187 = icmp samesign ult i64 %indvars.iv.next, %186
+  br i1 %187, label %.lr.ph, label %._crit_edge, !llvm.loop !39
 
-._crit_edge:                                      ; preds = %183, %.preheader
-  %.lcssa = phi i32 [ 0, %.preheader ], [ %184, %183 ]
-  %187 = load ptr, ptr @__glewDrawBuffers, align 8
-  %188 = load ptr, ptr %148, align 8
-  invoke void %187(i32 noundef %.lcssa, ptr noundef %188)
-          to label %189 unwind label %.loopexit.split-lp
+._crit_edge:                                      ; preds = %184, %.preheader
+  %.lcssa = phi i32 [ 0, %.preheader ], [ %185, %184 ]
+  %188 = load ptr, ptr @__glewDrawBuffers, align 8
+  %189 = load ptr, ptr %149, align 8
+  invoke void %188(i32 noundef %.lcssa, ptr noundef %189)
+          to label %190 unwind label %.loopexit.split-lp
 
-189:                                              ; preds = %._crit_edge
-  %190 = invoke noundef zeroext i1 @_ZN22AmbientOcclusionPlugin16checkFramebufferEv(ptr noundef nonnull align 8 dereferenceable(185) %0)
-          to label %191 unwind label %.loopexit.split-lp
+190:                                              ; preds = %._crit_edge
+  %191 = invoke noundef zeroext i1 @_ZN22AmbientOcclusionPlugin16checkFramebufferEv(ptr noundef nonnull align 8 dereferenceable(185) %0)
+          to label %192 unwind label %.loopexit.split-lp
 
-191:                                              ; preds = %189
-  br i1 %190, label %192, label %.critedge
+192:                                              ; preds = %190
+  br i1 %191, label %193, label %.critedge
 
-192:                                              ; preds = %191
-  %193 = load ptr, ptr @__glewBindFramebufferEXT, align 8
-  invoke void %193(i32 noundef 36160, i32 noundef 0)
-          to label %194 unwind label %.loopexit.split-lp
+193:                                              ; preds = %192
+  %194 = load ptr, ptr @__glewBindFramebufferEXT, align 8
+  invoke void %194(i32 noundef 36160, i32 noundef 0)
+          to label %195 unwind label %.loopexit.split-lp
 
-194:                                              ; preds = %192
+195:                                              ; preds = %193
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #28
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #28
-  br label %197
+  br label %198
 
-195:                                              ; preds = %.loopexit, %.loopexit.split-lp, %134, %129
+196:                                              ; preds = %.loopexit, %.loopexit.split-lp, %134, %129
   %.pn = phi { ptr, i32 } [ %130, %129 ], [ %135, %134 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #28
-  br label %196
+  br label %197
 
-196:                                              ; preds = %195, %127
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %195 ], [ %128, %127 ]
+197:                                              ; preds = %196, %127
+  %.pn.pn = phi { ptr, i32 } [ %.pn, %196 ], [ %128, %127 ]
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #28
   resume { ptr, i32 } %.pn.pn
 
-197:                                              ; preds = %194, %48
-  %198 = load i32, ptr %21, align 8
-  call void @glViewport(i32 noundef 0, i32 noundef 0, i32 noundef %198, i32 noundef %198)
-  %199 = call noundef zeroext i1 %1(i32 noundef 100, ptr noundef nonnull @.str.88)
-  br label %201
+198:                                              ; preds = %195, %48
+  %199 = load i32, ptr %21, align 8
+  call void @glViewport(i32 noundef 0, i32 noundef 0, i32 noundef %199, i32 noundef %199)
+  %200 = call noundef zeroext i1 %1(i32 noundef 100, ptr noundef nonnull @.str.88)
+  br label %202
 
-.critedge:                                        ; preds = %191, %165
-  %200 = getelementptr inbounds nuw i8, ptr %0, i64 173
-  store i8 1, ptr %200, align 1
+.critedge:                                        ; preds = %192, %166
+  %201 = getelementptr inbounds nuw i8, ptr %0, i64 173
+  store i8 1, ptr %201, align 1
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #28
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #28
-  br label %201
+  br label %202
 
-201:                                              ; preds = %.critedge, %197, %111, %97, %88, %74, %64, %56, %12
+202:                                              ; preds = %.critedge, %198, %111, %97, %88, %74, %64, %56, %12
   ret void
 }
 
@@ -17422,17 +17423,20 @@ __cxx_global_var_init.5.exit:                     ; preds = %_ZNSt4pairIKN3vcg8C
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #23
 
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.cttz.i32(i32, i1 immarg) #24
+
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
-declare void @llvm.experimental.noalias.scope.decl(metadata) #24
+declare void @llvm.experimental.noalias.scope.decl(metadata) #25
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #25
+declare i64 @llvm.umax.i64(i64, i64) #24
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #25
+declare i64 @llvm.umin.i64(i64, i64) #24
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare float @llvm.sqrt.f32(float) #25
+declare float @llvm.sqrt.f32(float) #24
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #26
@@ -17441,7 +17445,7 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #26
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #26
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umin.i32(i32, i32) #25
+declare i32 @llvm.umin.i32(i32, i32) #24
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -17467,8 +17471,8 @@ attributes #20 = { mustprogress nocallback nofree nounwind willreturn memory(arg
 attributes #21 = { mustprogress nofree nounwind willreturn memory(write) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #22 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #23 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #24 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
-attributes #25 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #24 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #25 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
 attributes #26 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #27 = { builtin nounwind }
 attributes #28 = { nounwind }

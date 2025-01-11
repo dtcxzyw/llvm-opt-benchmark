@@ -27415,9 +27415,6 @@ declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_st
 declare void @_ZNK8facebook5velox10BaseVector8validateERKNS0_21VectorValidateOptionsE(ptr noundef nonnull align 8 dereferenceable(99), ptr noundef nonnull align 8 dereferenceable(40)) unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare { i64, i1 } @llvm.umul.with.overflow.i64(i64, i64) #7
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare { i64, i1 } @llvm.uadd.with.overflow.i64(i64, i64) #7
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -33174,8 +33171,8 @@ for.cond.preheader:                               ; preds = %if.else13
   %add23 = add i64 %sub.i, 1
   %div2560 = lshr i64 %add23, 32
   %limit.0 = select i1 %cmp17, i64 4294967296, i64 %div2560
-  %cmp27.not65 = icmp eq i64 %limit.0, 0
-  br i1 %cmp27.not65, label %for.cond.us, label %while.body
+  %cmp27.not66 = icmp eq i64 %limit.0, 0
+  br i1 %cmp27.not66, label %for.cond.us, label %while.body
 
 for.cond.us:                                      ; preds = %for.cond.preheader, %for.cond.us
   %call40.us = tail call noundef i64 @_ZN5boost6random6detail20generate_uniform_intISt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEmEET0_RT_S5_S5_N4mpl_5bool_ILb1EEE(ptr noundef nonnull align 8 dereferenceable(5000) %eng, i64 noundef 0, i64 noundef %sub.i)
@@ -33183,32 +33180,33 @@ for.cond.us:                                      ; preds = %for.cond.preheader,
   br i1 %cmp51.us, label %for.cond.us, label %if.end53, !llvm.loop !423
 
 while.body:                                       ; preds = %for.cond.preheader, %while.body.backedge
-  %mult.067 = phi i64 [ %mult.067.be, %while.body.backedge ], [ 1, %for.cond.preheader ]
-  %result.066 = phi i64 [ %result.066.be, %while.body.backedge ], [ 0, %for.cond.preheader ]
+  %mult.068 = phi i64 [ %mult.068.be, %while.body.backedge ], [ 1, %for.cond.preheader ]
+  %result.067 = phi i64 [ %result.067.be, %while.body.backedge ], [ 0, %for.cond.preheader ]
   %call29 = tail call noundef i64 @_ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEclEv(ptr noundef nonnull align 8 dereferenceable(5000) %eng)
-  %mul = mul i64 %call29, %mult.067
-  %add31 = add i64 %mul, %result.066
-  %mul32 = mul i64 %mult.067, 4294967295
-  %add33 = sub i64 %add23, %mult.067
+  %mul = mul i64 %call29, %mult.068
+  %add31 = add i64 %mul, %result.067
+  %mul32 = mul i64 %mult.068, 4294967295
+  %add33 = sub i64 %add23, %mult.068
   %cmp34 = icmp eq i64 %mul32, %add33
   br i1 %cmp34, label %return, label %if.end36
 
 if.end36:                                         ; preds = %while.body
-  %mul38 = shl i64 %mult.067, 32
+  %mul38 = shl i64 %mult.068, 32
   %cmp27.not = icmp samesign ugt i64 %mul38, %limit.0
   br i1 %cmp27.not, label %while.cond.while.end_crit_edge, label %while.body.backedge
 
 while.body.backedge:                              ; preds = %if.end36, %while.cond.while.end_crit_edge, %if.end45
-  %mult.067.be = phi i64 [ %mul38, %if.end36 ], [ 1, %while.cond.while.end_crit_edge ], [ 1, %if.end45 ]
-  %result.066.be = phi i64 [ %add31, %if.end36 ], [ 0, %while.cond.while.end_crit_edge ], [ 0, %if.end45 ]
+  %mult.068.be = phi i64 [ %mul38, %if.end36 ], [ 1, %while.cond.while.end_crit_edge ], [ 1, %if.end45 ]
+  %result.067.be = phi i64 [ %add31, %if.end36 ], [ 0, %while.cond.while.end_crit_edge ], [ 0, %if.end45 ]
   br label %while.body, !llvm.loop !423
 
 while.cond.while.end_crit_edge:                   ; preds = %if.end36
-  %div39 = udiv i64 %sub.i, %mul38
-  %call40 = tail call noundef i64 @_ZN5boost6random6detail20generate_uniform_intISt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEmEET0_RT_S5_S5_N4mpl_5bool_ILb1EEE(ptr noundef nonnull align 8 dereferenceable(5000) %eng, i64 noundef 0, i64 noundef %div39)
-  %mul62 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %mul38, i64 %call40)
-  %mul.ov = extractvalue { i64, i1 } %mul62, 1
-  br i1 %mul.ov, label %while.body.backedge, label %if.end45
+  %0 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %mul38, i1 true)
+  %div3962 = lshr i64 %sub.i, %0
+  %call40 = tail call noundef i64 @_ZN5boost6random6detail20generate_uniform_intISt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEmEET0_RT_S5_S5_N4mpl_5bool_ILb1EEE(ptr noundef nonnull align 8 dereferenceable(5000) %eng, i64 noundef 0, i64 noundef %div3962)
+  %div4263 = lshr i64 -1, %0
+  %cmp43 = icmp ult i64 %div4263, %call40
+  br i1 %cmp43, label %while.body.backedge, label %if.end45
 
 if.end45:                                         ; preds = %while.cond.while.end_crit_edge
   %mul46 = mul i64 %call40, %mul38
@@ -60217,8 +60215,8 @@ for.cond85.i.i.i.i:                               ; preds = %entry, %for.cond85.
 for.cond.i:                                       ; preds = %for.cond85.i.i.i.i, %for.cond.i.backedge
   %call29.i = tail call noundef i64 @_ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEclEv(ptr noundef nonnull align 8 dereferenceable(5000) %rng)
   %call40.i = tail call noundef i64 @_ZN5boost6random6detail20generate_uniform_intISt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEmEET0_RT_S5_S5_N4mpl_5bool_ILb1EEE(ptr noundef nonnull align 8 dereferenceable(5000) %rng, i64 noundef 0, i64 noundef 2147483647)
-  %mul.ov.i = icmp ugt i64 %call40.i, 4294967295
-  br i1 %mul.ov.i, label %for.cond.i.backedge, label %if.end45.i
+  %cmp43.i = icmp ugt i64 %call40.i, 4294967295
+  br i1 %cmp43.i, label %for.cond.i.backedge, label %if.end45.i
 
 if.end45.i:                                       ; preds = %for.cond.i
   %mul46.i = shl nuw i64 %call40.i, 32
@@ -60239,8 +60237,8 @@ _ZN5boost6random6detail20generate_uniform_intISt23mersenne_twister_engineImLm32E
 for.cond.i32:                                     ; preds = %entry, %for.cond.i32.backedge
   %call29.i36 = tail call noundef i64 @_ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEclEv(ptr noundef nonnull align 8 dereferenceable(5000) %rng)
   %call40.i47 = tail call noundef i64 @_ZN5boost6random6detail20generate_uniform_intISt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEmEET0_RT_S5_S5_N4mpl_5bool_ILb1EEE(ptr noundef nonnull align 8 dereferenceable(5000) %rng, i64 noundef 0, i64 noundef 2147483647)
-  %mul.ov.i49 = icmp ugt i64 %call40.i47, 4294967295
-  br i1 %mul.ov.i49, label %for.cond.i32.backedge, label %if.end45.i50
+  %cmp43.i49 = icmp ugt i64 %call40.i47, 4294967295
+  br i1 %cmp43.i49, label %for.cond.i32.backedge, label %if.end45.i50
 
 if.end45.i50:                                     ; preds = %for.cond.i32
   %mul46.i51 = shl nuw i64 %call40.i47, 32
@@ -60262,8 +60260,8 @@ _ZN5boost6random6detail20generate_uniform_intISt23mersenne_twister_engineImLm32E
 for.cond.i60:                                     ; preds = %entry, %for.cond.i60.backedge
   %call29.i64 = tail call noundef i64 @_ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEclEv(ptr noundef nonnull align 8 dereferenceable(5000) %rng)
   %call40.i75 = tail call noundef i64 @_ZN5boost6random6detail20generate_uniform_intISt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEmEET0_RT_S5_S5_N4mpl_5bool_ILb1EEE(ptr noundef nonnull align 8 dereferenceable(5000) %rng, i64 noundef 0, i64 noundef 2147483647)
-  %mul.ov.i77 = icmp ugt i64 %call40.i75, 4294967295
-  br i1 %mul.ov.i77, label %for.cond.i60.backedge, label %if.end45.i78
+  %cmp43.i77 = icmp ugt i64 %call40.i75, 4294967295
+  br i1 %cmp43.i77, label %for.cond.i60.backedge, label %if.end45.i78
 
 if.end45.i78:                                     ; preds = %for.cond.i60
   %mul46.i79 = shl nuw i64 %call40.i75, 32

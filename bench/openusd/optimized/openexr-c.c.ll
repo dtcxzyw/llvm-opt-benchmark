@@ -20082,7 +20082,7 @@ define internal fastcc i32 @internal_exr_compute_chunk_offset_size(ptr nocapture
   store i64 %.090.lcssa, ptr %90, align 8
   %91 = getelementptr inbounds nuw i8, ptr %0, i64 242
   store i16 %.095.lcssa, ptr %91, align 2
-  br label %147
+  br label %148
 
 92:                                               ; preds = %1
   %93 = getelementptr inbounds nuw i8, ptr %0, i64 176
@@ -20194,16 +20194,17 @@ define internal fastcc i32 @internal_exr_compute_chunk_offset_size(ptr nocapture
   %143 = sext i32 %.sroa.2.0.copyload to i64
   %144 = sub nsw i64 %142, %143
   %145 = add nsw i64 %144, %.092
-  %146 = udiv i64 %145, %.092
-  br label %147
+  %146 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.092, i1 true)
+  %147 = lshr i64 %145, %146
+  br label %148
 
-147:                                              ; preds = %._crit_edge136, %._crit_edge128
-  %.188.in = phi i64 [ %.087.in, %._crit_edge128 ], [ %146, %._crit_edge136 ]
+148:                                              ; preds = %._crit_edge136, %._crit_edge128
+  %.188.in = phi i64 [ %.087.in, %._crit_edge128 ], [ %147, %._crit_edge136 ]
   %.188 = trunc i64 %.188.in to i32
   br label %.loopexit
 
-.loopexit:                                        ; preds = %32, %92, %12, %._crit_edge, %147
-  %.086 = phi i32 [ %.188, %147 ], [ -1, %._crit_edge ], [ -1, %12 ], [ -1, %92 ], [ -1, %32 ]
+.loopexit:                                        ; preds = %32, %92, %12, %._crit_edge, %148
+  %.086 = phi i32 [ %.188, %148 ], [ -1, %._crit_edge ], [ -1, %12 ], [ -1, %92 ], [ -1, %32 ]
   ret i32 %.086
 }
 

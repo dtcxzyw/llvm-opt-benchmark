@@ -2202,11 +2202,11 @@ _ZNK4llvm16BasicTTIImplBaseINS_12RISCVTTIImplEE23getTypeLegalizationCostEPNS_4Ty
     i32 3, label %149
     i32 6, label %149
     i32 2, label %.thread755thread-pre-split
-    i32 5, label %296
-    i32 4, label %355
-    i32 0, label %380
-    i32 8, label %460
-    i32 1, label %478
+    i32 5, label %295
+    i32 4, label %354
+    i32 0, label %379
+    i32 8, label %459
+    i32 1, label %477
   ]
 
 63:                                               ; preds = %62
@@ -2543,33 +2543,34 @@ _ZN4llvm12PowerOf2CeilEm.exit:                    ; preds = %222, %224
   %235 = zext i1 %234 to i64
   %236 = sub i64 %233, %235
   %237 = zext i32 %.0.i to i64
-  %238 = udiv i64 %236, %237
-  %239 = add i64 %238, %235
-  %240 = and i64 %239, 4294967295
-  %.not780 = icmp eq i64 %240, 0
+  %238 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %237, i1 true)
+  %239 = lshr i64 %236, %238
+  %240 = add i64 %239, %235
+  %241 = and i64 %240, 4294967295
+  %.not780 = icmp eq i64 %241, 0
   br i1 %.not780, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZN4llvm12PowerOf2CeilEm.exit
-  %241 = getelementptr inbounds nuw i8, ptr %20, i64 16
-  %242 = add i64 %239, 4294967295
-  %243 = add nsw i64 %237, -1
-  %244 = add i32 %.0.i, -1
-  %245 = and i64 %242, 4294967295
-  %246 = and i64 %239, 4294967295
+  %242 = getelementptr inbounds nuw i8, ptr %20, i64 16
+  %243 = add i64 %240, 4294967295
+  %244 = add nsw i64 %237, -1
+  %245 = add i32 %.0.i, -1
+  %246 = and i64 %243, 4294967295
+  %wide.trip.count = and i64 %240, 4294967295
   br label %247
 
 247:                                              ; preds = %.lr.ph, %_ZN4llvm11SmallVectorIiLj12EED2Ev.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZN4llvm11SmallVectorIiLj12EED2Ev.exit ]
   %.sroa.20.2777 = phi i32 [ 0, %.lr.ph ], [ %.sroa.20.3, %_ZN4llvm11SmallVectorIiLj12EED2Ev.exit ]
   %.sroa.0732.2776 = phi i64 [ 0, %.lr.ph ], [ %.sroa.0732.3, %_ZN4llvm11SmallVectorIiLj12EED2Ev.exit ]
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(64) %20, ptr noundef nonnull %241, i64 noundef 12) #21
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(64) %20, ptr noundef nonnull %242, i64 noundef 12) #21
   call void @_ZN4llvm15SmallVectorImplIiE6assignEmi(ptr noundef nonnull align 8 dereferenceable(64) %20, i64 noundef %237, i32 noundef -1)
   %248 = trunc nuw i64 %indvars.iv to i32
   %249 = mul i32 %.0.i, %248
   %250 = zext i32 %249 to i64
-  %251 = icmp eq i64 %indvars.iv, %245
+  %251 = icmp eq i64 %indvars.iv, %246
   %252 = load i64, ptr %33, align 8
-  %253 = and i64 %252, %243
+  %253 = and i64 %252, %244
   %254 = select i1 %251, i64 %253, i64 %237
   %255 = load ptr, ptr %13, align 8
   %256 = getelementptr inbounds nuw i32, ptr %255, i64 %250
@@ -2594,7 +2595,7 @@ _ZN4llvm12PowerOf2CeilEm.exit:                    ; preds = %222, %224
   %266 = zext i1 %265 to i8
   %267 = select i1 %262, i32 0, i32 %.0.i
   %268 = urem i32 %259, %213
-  %269 = and i32 %268, %244
+  %269 = and i32 %268, %245
   %270 = add i32 %269, %267
   br label %"_ZZN4llvm12RISCVTTIImpl14getShuffleCostENS_19TargetTransformInfo11ShuffleKindEPNS_10VectorTypeENS_8ArrayRefIiEENS1_14TargetCostKindEiS4_NS5_IPKNS_5ValueEEEPKNS_11InstructionEENK3$_0clEi.exit.i.i"
 
@@ -2665,7 +2666,7 @@ _ZN4llvm15InstructionCostpLERKS0_.exit:           ; preds = %"_ZN4llvm6all_ofINS
   %.sroa.20.3 = phi i32 [ %.sroa.20.2777, %"_ZN4llvm6all_ofINS_6detail5zippyINS1_14zip_enumeratorEJNS1_12index_streamERNS_11SmallVectorIiLj12EEEEEEZNS_12RISCVTTIImpl14getShuffleCostENS_19TargetTransformInfo11ShuffleKindEPNS_10VectorTypeENS_8ArrayRefIiEENSA_14TargetCostKindEiSD_NSE_IPKNS_5ValueEEEPKNS_11InstructionEE3$_1EEbOT_T0_.exit" ], [ %spec.select766, %_ZN4llvm15InstructionCostpLERKS0_.exit ], [ %.sroa.20.2777, %.lr.ph.i.i.i.i ]
   %291 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(64) %20) #21
   %292 = load ptr, ptr %20, align 8
-  %293 = icmp eq ptr %292, %241
+  %293 = icmp eq ptr %292, %242
   br i1 %293, label %_ZN4llvm11SmallVectorIiLj12EED2Ev.exit, label %294
 
 294:                                              ; preds = %"_ZN4llvm6all_ofINS_6detail5zippyINS1_14zip_enumeratorEJNS1_12index_streamERNS_11SmallVectorIiLj12EEEEEEZNS_12RISCVTTIImpl14getShuffleCostENS_19TargetTransformInfo11ShuffleKindEPNS_10VectorTypeENS_8ArrayRefIiEENSA_14TargetCostKindEiSD_NSE_IPKNS_5ValueEEEPKNS_11InstructionEE3$_1EEbOT_T0_.exit.thread"
@@ -2674,514 +2675,514 @@ _ZN4llvm15InstructionCostpLERKS0_.exit:           ; preds = %"_ZN4llvm6all_ofINS
 
 _ZN4llvm11SmallVectorIiLj12EED2Ev.exit:           ; preds = %"_ZN4llvm6all_ofINS_6detail5zippyINS1_14zip_enumeratorEJNS1_12index_streamERNS_11SmallVectorIiLj12EEEEEEZNS_12RISCVTTIImpl14getShuffleCostENS_19TargetTransformInfo11ShuffleKindEPNS_10VectorTypeENS_8ArrayRefIiEENSA_14TargetCostKindEiSD_NSE_IPKNS_5ValueEEEPKNS_11InstructionEE3$_1EEbOT_T0_.exit.thread", %294
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %295 = icmp samesign ult i64 %indvars.iv.next, %246
-  br i1 %295, label %247, label %.loopexit, !llvm.loop !50
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  br i1 %exitcond.not, label %.loopexit, label %247, !llvm.loop !50
 
 .critedge:                                        ; preds = %194, %_ZNK4llvm3MVT20getVectorNumElementsEv.exit335, %_ZNK4llvm7details23FixedOrScalableQuantityINS_8TypeSizeEmEeqERKS3_.exit, %192, %.thread755, %215, %_ZNK4llvm16BasicTTIImplBaseINS_12RISCVTTIImplEE23getTypeLegalizationCostEPNS_4TypeE.exit
   switch i32 %34, label %.critedge.thread [
-    i32 5, label %296
-    i32 4, label %355
-    i32 2, label %367
-    i32 0, label %380
-    i32 8, label %460
-    i32 1, label %478
+    i32 5, label %295
+    i32 4, label %354
+    i32 2, label %366
+    i32 0, label %379
+    i32 8, label %459
+    i32 1, label %477
   ]
 
-296:                                              ; preds = %62, %.critedge
-  %297 = load i32, ptr %14, align 4
-  %298 = icmp eq i32 %297, 0
-  br i1 %298, label %.loopexit, label %299
+295:                                              ; preds = %62, %.critedge
+  %296 = load i32, ptr %14, align 4
+  %297 = icmp eq i32 %296, 0
+  br i1 %297, label %.loopexit, label %298
 
-299:                                              ; preds = %296
-  %300 = load ptr, ptr %15, align 8
+298:                                              ; preds = %295
+  %299 = load ptr, ptr %15, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %11)
-  %301 = load ptr, ptr %300, align 8, !noalias !51
-  %302 = load ptr, ptr %36, align 8, !noalias !51
-  %303 = load ptr, ptr %38, align 8, !noalias !51
-  %304 = call { i16, ptr } @_ZNK4llvm18TargetLoweringBase12getValueTypeERKNS_10DataLayoutEPNS_4TypeEb(ptr noundef nonnull align 8 dereferenceable(408123) %302, ptr noundef nonnull align 8 dereferenceable(512) %303, ptr noundef nonnull %300, i1 noundef zeroext false), !noalias !51
-  %305 = extractvalue { i16, ptr } %304, 0
-  %306 = extractvalue { i16, ptr } %304, 1
-  %307 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  %300 = load ptr, ptr %299, align 8, !noalias !51
+  %301 = load ptr, ptr %36, align 8, !noalias !51
+  %302 = load ptr, ptr %38, align 8, !noalias !51
+  %303 = call { i16, ptr } @_ZNK4llvm18TargetLoweringBase12getValueTypeERKNS_10DataLayoutEPNS_4TypeEb(ptr noundef nonnull align 8 dereferenceable(408123) %301, ptr noundef nonnull align 8 dereferenceable(512) %302, ptr noundef nonnull %299, i1 noundef zeroext false), !noalias !51
+  %304 = extractvalue { i16, ptr } %303, 0
+  %305 = extractvalue { i16, ptr } %303, 1
+  %306 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %.sroa.24.0..sroa_idx.i350 = getelementptr inbounds nuw i8, ptr %11, i64 16
   br label %_ZNK4llvm3EVTeqES0_.exit.thread29.i366
 
-_ZNK4llvm3EVTeqES0_.exit.thread29.i366:           ; preds = %_ZNK4llvm3EVTeqES0_.exit.thread29.i366.backedge, %299
-  %.sroa.025.0.i352 = phi i16 [ %305, %299 ], [ %.sroa.0.0.copyload.i363, %_ZNK4llvm3EVTeqES0_.exit.thread29.i366.backedge ]
-  %.sroa.827.0.i353 = phi ptr [ %306, %299 ], [ %.sroa.827.0.copyload.pre.i365, %_ZNK4llvm3EVTeqES0_.exit.thread29.i366.backedge ]
-  %308 = load ptr, ptr %36, align 8, !noalias !51
-  call void @_ZNK4llvm18TargetLoweringBase17getTypeConversionERNS_11LLVMContextENS_3EVTE(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair.342") align 8 %11, ptr noundef nonnull align 8 dereferenceable(408123) %308, ptr noundef nonnull align 8 dereferenceable(8) %301, i16 %.sroa.025.0.i352, ptr %.sroa.827.0.i353) #21
-  %309 = load i8, ptr %11, align 8, !noalias !51
-  switch i8 %309, label %_ZN4llvm15InstructionCostmLEl.exit.i361 [
-    i8 10, label %310
+_ZNK4llvm3EVTeqES0_.exit.thread29.i366:           ; preds = %_ZNK4llvm3EVTeqES0_.exit.thread29.i366.backedge, %298
+  %.sroa.025.0.i352 = phi i16 [ %304, %298 ], [ %.sroa.0.0.copyload.i363, %_ZNK4llvm3EVTeqES0_.exit.thread29.i366.backedge ]
+  %.sroa.827.0.i353 = phi ptr [ %305, %298 ], [ %.sroa.827.0.copyload.pre.i365, %_ZNK4llvm3EVTeqES0_.exit.thread29.i366.backedge ]
+  %307 = load ptr, ptr %36, align 8, !noalias !51
+  call void @_ZNK4llvm18TargetLoweringBase17getTypeConversionERNS_11LLVMContextENS_3EVTE(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair.342") align 8 %11, ptr noundef nonnull align 8 dereferenceable(408123) %307, ptr noundef nonnull align 8 dereferenceable(8) %300, i16 %.sroa.025.0.i352, ptr %.sroa.827.0.i353) #21
+  %308 = load i8, ptr %11, align 8, !noalias !51
+  switch i8 %308, label %_ZN4llvm15InstructionCostmLEl.exit.i361 [
+    i8 10, label %309
     i8 0, label %_ZNK4llvm16BasicTTIImplBaseINS_12RISCVTTIImplEE23getTypeLegalizationCostEPNS_4TypeE.exit369
   ]
 
-310:                                              ; preds = %_ZNK4llvm3EVTeqES0_.exit.thread29.i366
+309:                                              ; preds = %_ZNK4llvm3EVTeqES0_.exit.thread29.i366
   %.not.i358 = icmp eq i16 %.sroa.025.0.i352, 0
   %spec.select.i359 = select i1 %.not.i358, i16 8, i16 %.sroa.025.0.i352
   br label %_ZNK4llvm16BasicTTIImplBaseINS_12RISCVTTIImplEE23getTypeLegalizationCostEPNS_4TypeE.exit369
 
 _ZN4llvm15InstructionCostmLEl.exit.i361:          ; preds = %_ZNK4llvm3EVTeqES0_.exit.thread29.i366
-  %.sroa.0.0.copyload.i363 = load i16, ptr %307, align 8, !noalias !51
+  %.sroa.0.0.copyload.i363 = load i16, ptr %306, align 8, !noalias !51
   %.not.i.i.i364 = icmp eq i16 %.sroa.025.0.i352, %.sroa.0.0.copyload.i363
   %.sroa.827.0.copyload.pre.i365 = load ptr, ptr %.sroa.24.0..sroa_idx.i350, align 8, !noalias !51
-  br i1 %.not.i.i.i364, label %311, label %_ZNK4llvm3EVTeqES0_.exit.thread29.i366.backedge
+  br i1 %.not.i.i.i364, label %310, label %_ZNK4llvm3EVTeqES0_.exit.thread29.i366.backedge
 
-311:                                              ; preds = %_ZN4llvm15InstructionCostmLEl.exit.i361
-  %312 = icmp ne i16 %.sroa.025.0.i352, 0
-  %313 = icmp eq ptr %.sroa.827.0.i353, %.sroa.827.0.copyload.pre.i365
-  %or.cond32.i367 = select i1 %312, i1 true, i1 %313
+310:                                              ; preds = %_ZN4llvm15InstructionCostmLEl.exit.i361
+  %311 = icmp ne i16 %.sroa.025.0.i352, 0
+  %312 = icmp eq ptr %.sroa.827.0.i353, %.sroa.827.0.copyload.pre.i365
+  %or.cond32.i367 = select i1 %311, i1 true, i1 %312
   br i1 %or.cond32.i367, label %_ZNK4llvm16BasicTTIImplBaseINS_12RISCVTTIImplEE23getTypeLegalizationCostEPNS_4TypeE.exit369, label %_ZNK4llvm3EVTeqES0_.exit.thread29.i366.backedge
 
-_ZNK4llvm3EVTeqES0_.exit.thread29.i366.backedge:  ; preds = %311, %_ZN4llvm15InstructionCostmLEl.exit.i361
+_ZNK4llvm3EVTeqES0_.exit.thread29.i366.backedge:  ; preds = %310, %_ZN4llvm15InstructionCostmLEl.exit.i361
   br label %_ZNK4llvm3EVTeqES0_.exit.thread29.i366, !llvm.loop !14
 
-_ZNK4llvm16BasicTTIImplBaseINS_12RISCVTTIImplEE23getTypeLegalizationCostEPNS_4TypeE.exit369: ; preds = %_ZNK4llvm3EVTeqES0_.exit.thread29.i366, %311, %310
-  %.sroa.025.0.lcssa42.sink.i356 = phi i16 [ %spec.select.i359, %310 ], [ %.sroa.025.0.i352, %311 ], [ %.sroa.025.0.i352, %_ZNK4llvm3EVTeqES0_.exit.thread29.i366 ]
+_ZNK4llvm16BasicTTIImplBaseINS_12RISCVTTIImplEE23getTypeLegalizationCostEPNS_4TypeE.exit369: ; preds = %_ZNK4llvm3EVTeqES0_.exit.thread29.i366, %310, %309
+  %.sroa.025.0.lcssa42.sink.i356 = phi i16 [ %spec.select.i359, %309 ], [ %.sroa.025.0.i352, %310 ], [ %.sroa.025.0.i352, %_ZNK4llvm3EVTeqES0_.exit.thread29.i366 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11)
-  %314 = add i16 %.sroa.025.0.lcssa42.sink.i356, -17
-  %or.cond768 = icmp ult i16 %314, 120
-  br i1 %or.cond768, label %315, label %.critedge2
+  %313 = add i16 %.sroa.025.0.lcssa42.sink.i356, -17
+  %or.cond768 = icmp ult i16 %313, 120
+  br i1 %or.cond768, label %314, label %.critedge2
 
-315:                                              ; preds = %_ZNK4llvm16BasicTTIImplBaseINS_12RISCVTTIImplEE23getTypeLegalizationCostEPNS_4TypeE.exit369
-  %316 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %317 = load ptr, ptr %316, align 8
-  %318 = call noundef i32 @_ZNK4llvm14RISCVSubtarget25getMinRVVVectorSizeInBitsEv(ptr noundef nonnull align 8 dereferenceable(409192) %317) #21
-  %319 = icmp eq i32 %318, 0
-  %320 = getelementptr inbounds nuw i8, ptr %317, i64 492
-  %321 = load i32, ptr %320, align 4
-  %322 = select i1 %319, i32 %321, i32 %318
-  %323 = load ptr, ptr %316, align 8
-  %324 = call noundef i32 @_ZNK4llvm14RISCVSubtarget25getMaxRVVVectorSizeInBitsEv(ptr noundef nonnull align 8 dereferenceable(409192) %323) #21
-  %325 = icmp eq i32 %324, 0
-  %326 = select i1 %325, i32 65536, i32 %324
-  %327 = icmp eq i32 %322, %326
-  br i1 %327, label %_ZNK4llvm3MVT19getScalarSizeInBitsEv.exit375, label %.critedge2
+314:                                              ; preds = %_ZNK4llvm16BasicTTIImplBaseINS_12RISCVTTIImplEE23getTypeLegalizationCostEPNS_4TypeE.exit369
+  %315 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %316 = load ptr, ptr %315, align 8
+  %317 = call noundef i32 @_ZNK4llvm14RISCVSubtarget25getMinRVVVectorSizeInBitsEv(ptr noundef nonnull align 8 dereferenceable(409192) %316) #21
+  %318 = icmp eq i32 %317, 0
+  %319 = getelementptr inbounds nuw i8, ptr %316, i64 492
+  %320 = load i32, ptr %319, align 4
+  %321 = select i1 %318, i32 %320, i32 %317
+  %322 = load ptr, ptr %315, align 8
+  %323 = call noundef i32 @_ZNK4llvm14RISCVSubtarget25getMaxRVVVectorSizeInBitsEv(ptr noundef nonnull align 8 dereferenceable(409192) %322) #21
+  %324 = icmp eq i32 %323, 0
+  %325 = select i1 %324, i32 65536, i32 %323
+  %326 = icmp eq i32 %321, %325
+  br i1 %326, label %_ZNK4llvm3MVT19getScalarSizeInBitsEv.exit375, label %.critedge2
 
-_ZNK4llvm3MVT19getScalarSizeInBitsEv.exit375:     ; preds = %315
-  %328 = zext nneg i16 %.sroa.025.0.lcssa42.sink.i356 to i64
-  %329 = add nsw i64 %328, -1
-  %330 = getelementptr inbounds [240 x i16], ptr @_ZZNK4llvm3MVT20getVectorElementTypeEvE10EltTyTable, i64 0, i64 %329
-  %331 = load i16, ptr %330, align 2
-  %332 = zext i16 %331 to i64
-  %333 = add nsw i64 %332, -1
-  %334 = getelementptr inbounds [240 x %"class.llvm::TypeSize"], ptr @_ZZNK4llvm3MVT13getSizeInBitsEvE9SizeTable, i64 0, i64 %333
-  %.sroa.0.0.copyload.i.i374 = load i64, ptr %334, align 16
-  %335 = load i32, ptr %14, align 4
-  %336 = sext i32 %335 to i64
-  %337 = mul i64 %.sroa.0.0.copyload.i.i374, %336
-  %338 = zext i32 %322 to i64
-  %339 = urem i64 %337, %338
-  %340 = icmp eq i64 %339, 0
-  br i1 %340, label %341, label %.critedge2
+_ZNK4llvm3MVT19getScalarSizeInBitsEv.exit375:     ; preds = %314
+  %327 = zext nneg i16 %.sroa.025.0.lcssa42.sink.i356 to i64
+  %328 = add nsw i64 %327, -1
+  %329 = getelementptr inbounds [240 x i16], ptr @_ZZNK4llvm3MVT20getVectorElementTypeEvE10EltTyTable, i64 0, i64 %328
+  %330 = load i16, ptr %329, align 2
+  %331 = zext i16 %330 to i64
+  %332 = add nsw i64 %331, -1
+  %333 = getelementptr inbounds [240 x %"class.llvm::TypeSize"], ptr @_ZZNK4llvm3MVT13getSizeInBitsEvE9SizeTable, i64 0, i64 %332
+  %.sroa.0.0.copyload.i.i374 = load i64, ptr %333, align 16
+  %334 = load i32, ptr %14, align 4
+  %335 = sext i32 %334 to i64
+  %336 = mul i64 %.sroa.0.0.copyload.i.i374, %335
+  %337 = zext i32 %321 to i64
+  %338 = urem i64 %336, %337
+  %339 = icmp eq i64 %338, 0
+  br i1 %339, label %340, label %.critedge2
 
-341:                                              ; preds = %_ZNK4llvm3MVT19getScalarSizeInBitsEv.exit375
-  %342 = getelementptr inbounds [240 x %"class.llvm::TypeSize"], ptr @_ZZNK4llvm3MVT13getSizeInBitsEvE9SizeTable, i64 0, i64 %329
-  %.sroa.0.0.copyload.i376 = load i64, ptr %342, align 16
-  %.sroa.2.0..sroa_idx.i377 = getelementptr inbounds nuw i8, ptr %342, i64 8
+340:                                              ; preds = %_ZNK4llvm3MVT19getScalarSizeInBitsEv.exit375
+  %341 = getelementptr inbounds [240 x %"class.llvm::TypeSize"], ptr @_ZZNK4llvm3MVT13getSizeInBitsEvE9SizeTable, i64 0, i64 %328
+  %.sroa.0.0.copyload.i376 = load i64, ptr %341, align 16
+  %.sroa.2.0..sroa_idx.i377 = getelementptr inbounds nuw i8, ptr %341, i64 8
   %.sroa.2.0.copyload.i378 = load i8, ptr %.sroa.2.0..sroa_idx.i377, align 8
   store i64 %.sroa.0.0.copyload.i376, ptr %22, align 8
   %.sroa.2113.0..sroa_idx = getelementptr inbounds nuw i8, ptr %22, i64 8
   store i8 %.sroa.2.0.copyload.i378, ptr %.sroa.2113.0..sroa_idx, align 8
-  %343 = call noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9) %22) #21
-  %.not239 = icmp ugt i64 %343, %338
+  %342 = call noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9) %22) #21
+  %.not239 = icmp ugt i64 %342, %337
   br i1 %.not239, label %.critedge2, label %.loopexit
 
-.critedge2:                                       ; preds = %341, %315, %_ZNK4llvm3MVT19getScalarSizeInBitsEv.exit375, %_ZNK4llvm16BasicTTIImplBaseINS_12RISCVTTIImplEE23getTypeLegalizationCostEPNS_4TypeE.exit369
+.critedge2:                                       ; preds = %340, %314, %_ZNK4llvm3MVT19getScalarSizeInBitsEv.exit375, %_ZNK4llvm16BasicTTIImplBaseINS_12RISCVTTIImplEE23getTypeLegalizationCostEPNS_4TypeE.exit369
   store i32 13601, ptr %23, align 4
-  %344 = call { i64, i32 } @_ZN4llvm12RISCVTTIImpl23getRISCVInstructionCostENS_8ArrayRefIjEENS_3MVTENS_19TargetTransformInfo14TargetCostKindE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr nonnull %23, i64 1, i16 %.sroa.025.0.lcssa42.sink.i, i32 noundef %5)
-  %.fca.0.extract105 = extractvalue { i64, i32 } %344, 0
-  %.fca.1.extract106 = extractvalue { i64, i32 } %344, 1
-  %345 = call { i64, i1 } @llvm.smul.with.overflow.i64(i64 %.sroa.019.1.lcssa.sink.i, i64 %.fca.0.extract105)
-  %346 = extractvalue { i64, i1 } %345, 1
-  %347 = extractvalue { i64, i1 } %345, 0
-  br i1 %346, label %348, label %_ZN4llvmmlERKNS_15InstructionCostES2_.exit391
+  %343 = call { i64, i32 } @_ZN4llvm12RISCVTTIImpl23getRISCVInstructionCostENS_8ArrayRefIjEENS_3MVTENS_19TargetTransformInfo14TargetCostKindE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr nonnull %23, i64 1, i16 %.sroa.025.0.lcssa42.sink.i, i32 noundef %5)
+  %.fca.0.extract105 = extractvalue { i64, i32 } %343, 0
+  %.fca.1.extract106 = extractvalue { i64, i32 } %343, 1
+  %344 = call { i64, i1 } @llvm.smul.with.overflow.i64(i64 %.sroa.019.1.lcssa.sink.i, i64 %.fca.0.extract105)
+  %345 = extractvalue { i64, i1 } %344, 1
+  %346 = extractvalue { i64, i1 } %344, 0
+  br i1 %345, label %347, label %_ZN4llvmmlERKNS_15InstructionCostES2_.exit391
 
-348:                                              ; preds = %.critedge2
-  %349 = icmp sgt i64 %.sroa.019.1.lcssa.sink.i, 0
-  %350 = icmp sgt i64 %.fca.0.extract105, 0
-  %or.cond.i.i388 = select i1 %349, i1 %350, i1 false
-  br i1 %or.cond.i.i388, label %_ZN4llvmmlERKNS_15InstructionCostES2_.exit391, label %351
+347:                                              ; preds = %.critedge2
+  %348 = icmp sgt i64 %.sroa.019.1.lcssa.sink.i, 0
+  %349 = icmp sgt i64 %.fca.0.extract105, 0
+  %or.cond.i.i388 = select i1 %348, i1 %349, i1 false
+  br i1 %or.cond.i.i388, label %_ZN4llvmmlERKNS_15InstructionCostES2_.exit391, label %350
 
-351:                                              ; preds = %348
-  %352 = icmp slt i64 %.sroa.019.1.lcssa.sink.i, 0
-  %353 = icmp slt i64 %.fca.0.extract105, 0
-  %or.cond7.i.i389 = select i1 %352, i1 %353, i1 false
+350:                                              ; preds = %347
+  %351 = icmp slt i64 %.sroa.019.1.lcssa.sink.i, 0
+  %352 = icmp slt i64 %.fca.0.extract105, 0
+  %or.cond7.i.i389 = select i1 %351, i1 %352, i1 false
   %spec.select.i.i390 = select i1 %or.cond7.i.i389, i64 9223372036854775807, i64 -9223372036854775808
   br label %_ZN4llvmmlERKNS_15InstructionCostES2_.exit391
 
-_ZN4llvmmlERKNS_15InstructionCostES2_.exit391:    ; preds = %.critedge2, %348, %351
-  %.0.i.i384 = phi i64 [ %347, %.critedge2 ], [ 9223372036854775807, %348 ], [ %spec.select.i.i390, %351 ]
-  %354 = icmp eq i32 %.fca.1.extract106, 1
-  %spec.select.i385 = select i1 %354, i32 1, i32 %.sink.i
+_ZN4llvmmlERKNS_15InstructionCostES2_.exit391:    ; preds = %.critedge2, %347, %350
+  %.0.i.i384 = phi i64 [ %346, %.critedge2 ], [ 9223372036854775807, %347 ], [ %spec.select.i.i390, %350 ]
+  %353 = icmp eq i32 %.fca.1.extract106, 1
+  %spec.select.i385 = select i1 %353, i32 1, i32 %.sink.i
   br label %.loopexit
 
-355:                                              ; preds = %62, %.critedge
+354:                                              ; preds = %62, %.critedge
   store i32 13603, ptr %24, align 4
-  %356 = call { i64, i32 } @_ZN4llvm12RISCVTTIImpl23getRISCVInstructionCostENS_8ArrayRefIjEENS_3MVTENS_19TargetTransformInfo14TargetCostKindE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr nonnull %24, i64 1, i16 %.sroa.025.0.lcssa42.sink.i, i32 noundef %5)
-  %.fca.0.extract96 = extractvalue { i64, i32 } %356, 0
-  %.fca.1.extract97 = extractvalue { i64, i32 } %356, 1
-  %357 = call { i64, i1 } @llvm.smul.with.overflow.i64(i64 %.sroa.019.1.lcssa.sink.i, i64 %.fca.0.extract96)
-  %358 = extractvalue { i64, i1 } %357, 1
-  %359 = extractvalue { i64, i1 } %357, 0
-  br i1 %358, label %360, label %_ZN4llvmmlERKNS_15InstructionCostES2_.exit402
+  %355 = call { i64, i32 } @_ZN4llvm12RISCVTTIImpl23getRISCVInstructionCostENS_8ArrayRefIjEENS_3MVTENS_19TargetTransformInfo14TargetCostKindE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr nonnull %24, i64 1, i16 %.sroa.025.0.lcssa42.sink.i, i32 noundef %5)
+  %.fca.0.extract96 = extractvalue { i64, i32 } %355, 0
+  %.fca.1.extract97 = extractvalue { i64, i32 } %355, 1
+  %356 = call { i64, i1 } @llvm.smul.with.overflow.i64(i64 %.sroa.019.1.lcssa.sink.i, i64 %.fca.0.extract96)
+  %357 = extractvalue { i64, i1 } %356, 1
+  %358 = extractvalue { i64, i1 } %356, 0
+  br i1 %357, label %359, label %_ZN4llvmmlERKNS_15InstructionCostES2_.exit402
 
-360:                                              ; preds = %355
-  %361 = icmp sgt i64 %.sroa.019.1.lcssa.sink.i, 0
-  %362 = icmp sgt i64 %.fca.0.extract96, 0
-  %or.cond.i.i399 = select i1 %361, i1 %362, i1 false
-  br i1 %or.cond.i.i399, label %_ZN4llvmmlERKNS_15InstructionCostES2_.exit402, label %363
+359:                                              ; preds = %354
+  %360 = icmp sgt i64 %.sroa.019.1.lcssa.sink.i, 0
+  %361 = icmp sgt i64 %.fca.0.extract96, 0
+  %or.cond.i.i399 = select i1 %360, i1 %361, i1 false
+  br i1 %or.cond.i.i399, label %_ZN4llvmmlERKNS_15InstructionCostES2_.exit402, label %362
 
-363:                                              ; preds = %360
-  %364 = icmp slt i64 %.sroa.019.1.lcssa.sink.i, 0
-  %365 = icmp slt i64 %.fca.0.extract96, 0
-  %or.cond7.i.i400 = select i1 %364, i1 %365, i1 false
+362:                                              ; preds = %359
+  %363 = icmp slt i64 %.sroa.019.1.lcssa.sink.i, 0
+  %364 = icmp slt i64 %.fca.0.extract96, 0
+  %or.cond7.i.i400 = select i1 %363, i1 %364, i1 false
   %spec.select.i.i401 = select i1 %or.cond7.i.i400, i64 9223372036854775807, i64 -9223372036854775808
   br label %_ZN4llvmmlERKNS_15InstructionCostES2_.exit402
 
-_ZN4llvmmlERKNS_15InstructionCostES2_.exit402:    ; preds = %355, %360, %363
-  %.0.i.i395 = phi i64 [ %359, %355 ], [ 9223372036854775807, %360 ], [ %spec.select.i.i401, %363 ]
-  %366 = icmp eq i32 %.fca.1.extract97, 1
-  %spec.select.i396 = select i1 %366, i32 1, i32 %.sink.i
+_ZN4llvmmlERKNS_15InstructionCostES2_.exit402:    ; preds = %354, %359, %362
+  %.0.i.i395 = phi i64 [ %358, %354 ], [ 9223372036854775807, %359 ], [ %spec.select.i.i401, %362 ]
+  %365 = icmp eq i32 %.fca.1.extract97, 1
+  %spec.select.i396 = select i1 %365, i32 1, i32 %.sink.i
   br label %.loopexit
 
-367:                                              ; preds = %.critedge
+366:                                              ; preds = %.critedge
   store i32 13516, ptr %25, align 4
-  %368 = getelementptr inbounds nuw i8, ptr %25, i64 4
-  store i32 13457, ptr %368, align 4
-  %369 = call { i64, i32 } @_ZN4llvm12RISCVTTIImpl23getRISCVInstructionCostENS_8ArrayRefIjEENS_3MVTENS_19TargetTransformInfo14TargetCostKindE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr nonnull %25, i64 2, i16 %.sroa.025.0.lcssa42.sink.i, i32 noundef %5)
-  %.fca.0.extract87 = extractvalue { i64, i32 } %369, 0
-  %.fca.1.extract88 = extractvalue { i64, i32 } %369, 1
-  %370 = icmp eq i32 %.fca.1.extract88, 1
+  %367 = getelementptr inbounds nuw i8, ptr %25, i64 4
+  store i32 13457, ptr %367, align 4
+  %368 = call { i64, i32 } @_ZN4llvm12RISCVTTIImpl23getRISCVInstructionCostENS_8ArrayRefIjEENS_3MVTENS_19TargetTransformInfo14TargetCostKindE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr nonnull %25, i64 2, i16 %.sroa.025.0.lcssa42.sink.i, i32 noundef %5)
+  %.fca.0.extract87 = extractvalue { i64, i32 } %368, 0
+  %.fca.1.extract88 = extractvalue { i64, i32 } %368, 1
+  %369 = icmp eq i32 %.fca.1.extract88, 1
   %.0.i.i408 = call i64 @llvm.sadd.sat.i64(i64 %.fca.0.extract87, i64 1)
-  %371 = call { i64, i1 } @llvm.smul.with.overflow.i64(i64 %.sroa.019.1.lcssa.sink.i, i64 %.0.i.i408)
-  %372 = extractvalue { i64, i1 } %371, 1
-  %373 = extractvalue { i64, i1 } %371, 0
-  br i1 %372, label %374, label %_ZN4llvmmlERKNS_15InstructionCostES2_.exit421
+  %370 = call { i64, i1 } @llvm.smul.with.overflow.i64(i64 %.sroa.019.1.lcssa.sink.i, i64 %.0.i.i408)
+  %371 = extractvalue { i64, i1 } %370, 1
+  %372 = extractvalue { i64, i1 } %370, 0
+  br i1 %371, label %373, label %_ZN4llvmmlERKNS_15InstructionCostES2_.exit421
 
-374:                                              ; preds = %367
-  %375 = icmp sgt i64 %.sroa.019.1.lcssa.sink.i, 0
-  %376 = icmp sgt i64 %.0.i.i408, 0
-  %or.cond.i.i418 = select i1 %375, i1 %376, i1 false
-  br i1 %or.cond.i.i418, label %_ZN4llvmmlERKNS_15InstructionCostES2_.exit421, label %377
+373:                                              ; preds = %366
+  %374 = icmp sgt i64 %.sroa.019.1.lcssa.sink.i, 0
+  %375 = icmp sgt i64 %.0.i.i408, 0
+  %or.cond.i.i418 = select i1 %374, i1 %375, i1 false
+  br i1 %or.cond.i.i418, label %_ZN4llvmmlERKNS_15InstructionCostES2_.exit421, label %376
 
-377:                                              ; preds = %374
-  %378 = icmp slt i64 %.sroa.019.1.lcssa.sink.i, 0
-  %379 = icmp slt i64 %.0.i.i408, 0
-  %or.cond7.i.i419 = select i1 %378, i1 %379, i1 false
+376:                                              ; preds = %373
+  %377 = icmp slt i64 %.sroa.019.1.lcssa.sink.i, 0
+  %378 = icmp slt i64 %.0.i.i408, 0
+  %or.cond7.i.i419 = select i1 %377, i1 %378, i1 false
   %spec.select.i.i420 = select i1 %or.cond7.i.i419, i64 9223372036854775807, i64 -9223372036854775808
   br label %_ZN4llvmmlERKNS_15InstructionCostES2_.exit421
 
-_ZN4llvmmlERKNS_15InstructionCostES2_.exit421:    ; preds = %367, %374, %377
-  %.0.i.i414 = phi i64 [ %373, %367 ], [ 9223372036854775807, %374 ], [ %spec.select.i.i420, %377 ]
-  %spec.select.i415 = select i1 %370, i32 1, i32 %.sink.i
+_ZN4llvmmlERKNS_15InstructionCostES2_.exit421:    ; preds = %366, %373, %376
+  %.0.i.i414 = phi i64 [ %372, %366 ], [ 9223372036854775807, %373 ], [ %spec.select.i.i420, %376 ]
+  %spec.select.i415 = select i1 %369, i32 1, i32 %.sink.i
   br label %.loopexit
 
-380:                                              ; preds = %62, %.critedge
-  %381 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %382 = load i64, ptr %381, align 8
-  %.not238 = icmp eq i64 %382, 0
-  br i1 %.not238, label %397, label %383
+379:                                              ; preds = %62, %.critedge
+  %380 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %381 = load i64, ptr %380, align 8
+  %.not238 = icmp eq i64 %381, 0
+  br i1 %.not238, label %396, label %382
 
-383:                                              ; preds = %380
-  %384 = load ptr, ptr %8, align 8
-  %385 = load ptr, ptr %384, align 8
-  %386 = load i8, ptr %385, align 8
-  %387 = icmp ult i8 %386, 29
-  br i1 %387, label %391, label %388
+382:                                              ; preds = %379
+  %383 = load ptr, ptr %8, align 8
+  %384 = load ptr, ptr %383, align 8
+  %385 = load i8, ptr %384, align 8
+  %386 = icmp ult i8 %385, 29
+  br i1 %386, label %390, label %387
 
-388:                                              ; preds = %383
-  %389 = zext i8 %386 to i32
-  %390 = add nsw i32 %389, -29
+387:                                              ; preds = %382
+  %388 = zext i8 %385 to i32
+  %389 = add nsw i32 %388, -29
   br label %_ZN4llvm8Operator9getOpcodeEPKNS_5ValueE.exit
 
-391:                                              ; preds = %383
-  %.not.i423 = icmp eq i8 %386, 5
-  br i1 %.not.i423, label %392, label %_ZN4llvm8Operator9getOpcodeEPKNS_5ValueE.exit
+390:                                              ; preds = %382
+  %.not.i423 = icmp eq i8 %385, 5
+  br i1 %.not.i423, label %391, label %_ZN4llvm8Operator9getOpcodeEPKNS_5ValueE.exit
 
-392:                                              ; preds = %391
-  %393 = getelementptr inbounds nuw i8, ptr %385, i64 2
-  %394 = load i16, ptr %393, align 2
-  %395 = zext i16 %394 to i32
+391:                                              ; preds = %390
+  %392 = getelementptr inbounds nuw i8, ptr %384, i64 2
+  %393 = load i16, ptr %392, align 2
+  %394 = zext i16 %393 to i32
   br label %_ZN4llvm8Operator9getOpcodeEPKNS_5ValueE.exit
 
-_ZN4llvm8Operator9getOpcodeEPKNS_5ValueE.exit:    ; preds = %388, %391, %392
-  %.0.i422 = phi i32 [ %390, %388 ], [ %395, %392 ], [ 58, %391 ]
-  %396 = icmp eq i32 %.0.i422, 62
-  br label %397
+_ZN4llvm8Operator9getOpcodeEPKNS_5ValueE.exit:    ; preds = %387, %390, %391
+  %.0.i422 = phi i32 [ %389, %387 ], [ %394, %391 ], [ 58, %390 ]
+  %395 = icmp eq i32 %.0.i422, 62
+  br label %396
 
-397:                                              ; preds = %_ZN4llvm8Operator9getOpcodeEPKNS_5ValueE.exit, %380
-  %398 = phi i1 [ false, %380 ], [ %396, %_ZN4llvm8Operator9getOpcodeEPKNS_5ValueE.exit ]
-  %399 = add i16 %.sroa.025.0.lcssa42.sink.i, -17
-  %spec.select.i.i.i424 = icmp ult i16 %399, 173
-  br i1 %spec.select.i.i.i424, label %400, label %_ZNK4llvm3MVT19getScalarSizeInBitsEv.exit427
+396:                                              ; preds = %_ZN4llvm8Operator9getOpcodeEPKNS_5ValueE.exit, %379
+  %397 = phi i1 [ false, %379 ], [ %395, %_ZN4llvm8Operator9getOpcodeEPKNS_5ValueE.exit ]
+  %398 = add i16 %.sroa.025.0.lcssa42.sink.i, -17
+  %spec.select.i.i.i424 = icmp ult i16 %398, 173
+  br i1 %spec.select.i.i.i424, label %399, label %_ZNK4llvm3MVT19getScalarSizeInBitsEv.exit427
 
-400:                                              ; preds = %397
-  %401 = zext nneg i16 %.sroa.025.0.lcssa42.sink.i to i64
-  %402 = add nsw i64 %401, -1
-  %403 = getelementptr inbounds [240 x i16], ptr @_ZZNK4llvm3MVT20getVectorElementTypeEvE10EltTyTable, i64 0, i64 %402
-  %404 = load i16, ptr %403, align 2
+399:                                              ; preds = %396
+  %400 = zext nneg i16 %.sroa.025.0.lcssa42.sink.i to i64
+  %401 = add nsw i64 %400, -1
+  %402 = getelementptr inbounds [240 x i16], ptr @_ZZNK4llvm3MVT20getVectorElementTypeEvE10EltTyTable, i64 0, i64 %401
+  %403 = load i16, ptr %402, align 2
   br label %_ZNK4llvm3MVT19getScalarSizeInBitsEv.exit427
 
-_ZNK4llvm3MVT19getScalarSizeInBitsEv.exit427:     ; preds = %397, %400
-  %.sroa.0.0.i.i425 = phi i16 [ %404, %400 ], [ %.sroa.025.0.lcssa42.sink.i, %397 ]
-  %405 = zext i16 %.sroa.0.0.i.i425 to i64
-  %406 = add nsw i64 %405, -1
-  %407 = getelementptr inbounds [240 x %"class.llvm::TypeSize"], ptr @_ZZNK4llvm3MVT13getSizeInBitsEvE9SizeTable, i64 0, i64 %406
-  %.sroa.0.0.copyload.i.i426 = load i64, ptr %407, align 16
-  %408 = icmp eq i64 %.sroa.0.0.copyload.i.i426, 1
-  br i1 %408, label %409, label %435
+_ZNK4llvm3MVT19getScalarSizeInBitsEv.exit427:     ; preds = %396, %399
+  %.sroa.0.0.i.i425 = phi i16 [ %403, %399 ], [ %.sroa.025.0.lcssa42.sink.i, %396 ]
+  %404 = zext i16 %.sroa.0.0.i.i425 to i64
+  %405 = add nsw i64 %404, -1
+  %406 = getelementptr inbounds [240 x %"class.llvm::TypeSize"], ptr @_ZZNK4llvm3MVT13getSizeInBitsEvE9SizeTable, i64 0, i64 %405
+  %.sroa.0.0.copyload.i.i426 = load i64, ptr %406, align 16
+  %407 = icmp eq i64 %.sroa.0.0.copyload.i.i426, 1
+  br i1 %407, label %408, label %434
 
-409:                                              ; preds = %_ZNK4llvm3MVT19getScalarSizeInBitsEv.exit427
-  br i1 %398, label %410, label %423
+408:                                              ; preds = %_ZNK4llvm3MVT19getScalarSizeInBitsEv.exit427
+  br i1 %397, label %409, label %422
 
-410:                                              ; preds = %409
+409:                                              ; preds = %408
   store i32 13519, ptr %26, align 4
-  %411 = getelementptr inbounds nuw i8, ptr %26, i64 4
-  store i32 13500, ptr %411, align 4
-  %412 = call { i64, i32 } @_ZN4llvm12RISCVTTIImpl23getRISCVInstructionCostENS_8ArrayRefIjEENS_3MVTENS_19TargetTransformInfo14TargetCostKindE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr nonnull %26, i64 2, i16 %.sroa.025.0.lcssa42.sink.i, i32 noundef %5)
-  %.fca.0.extract73 = extractvalue { i64, i32 } %412, 0
-  %.fca.1.extract74 = extractvalue { i64, i32 } %412, 1
-  %413 = icmp eq i32 %.fca.1.extract74, 1
+  %410 = getelementptr inbounds nuw i8, ptr %26, i64 4
+  store i32 13500, ptr %410, align 4
+  %411 = call { i64, i32 } @_ZN4llvm12RISCVTTIImpl23getRISCVInstructionCostENS_8ArrayRefIjEENS_3MVTENS_19TargetTransformInfo14TargetCostKindE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr nonnull %26, i64 2, i16 %.sroa.025.0.lcssa42.sink.i, i32 noundef %5)
+  %.fca.0.extract73 = extractvalue { i64, i32 } %411, 0
+  %.fca.1.extract74 = extractvalue { i64, i32 } %411, 1
+  %412 = icmp eq i32 %.fca.1.extract74, 1
   %.0.i.i433 = call i64 @llvm.sadd.sat.i64(i64 %.fca.0.extract73, i64 1)
-  %414 = call { i64, i1 } @llvm.smul.with.overflow.i64(i64 %.sroa.019.1.lcssa.sink.i, i64 %.0.i.i433)
-  %415 = extractvalue { i64, i1 } %414, 1
-  %416 = extractvalue { i64, i1 } %414, 0
-  br i1 %415, label %417, label %_ZN4llvmmlERKNS_15InstructionCostES2_.exit446
+  %413 = call { i64, i1 } @llvm.smul.with.overflow.i64(i64 %.sroa.019.1.lcssa.sink.i, i64 %.0.i.i433)
+  %414 = extractvalue { i64, i1 } %413, 1
+  %415 = extractvalue { i64, i1 } %413, 0
+  br i1 %414, label %416, label %_ZN4llvmmlERKNS_15InstructionCostES2_.exit446
 
-417:                                              ; preds = %410
-  %418 = icmp sgt i64 %.sroa.019.1.lcssa.sink.i, 0
-  %419 = icmp sgt i64 %.0.i.i433, 0
-  %or.cond.i.i443 = select i1 %418, i1 %419, i1 false
-  br i1 %or.cond.i.i443, label %_ZN4llvmmlERKNS_15InstructionCostES2_.exit446, label %420
+416:                                              ; preds = %409
+  %417 = icmp sgt i64 %.sroa.019.1.lcssa.sink.i, 0
+  %418 = icmp sgt i64 %.0.i.i433, 0
+  %or.cond.i.i443 = select i1 %417, i1 %418, i1 false
+  br i1 %or.cond.i.i443, label %_ZN4llvmmlERKNS_15InstructionCostES2_.exit446, label %419
 
-420:                                              ; preds = %417
-  %421 = icmp slt i64 %.sroa.019.1.lcssa.sink.i, 0
-  %422 = icmp slt i64 %.0.i.i433, 0
-  %or.cond7.i.i444 = select i1 %421, i1 %422, i1 false
+419:                                              ; preds = %416
+  %420 = icmp slt i64 %.sroa.019.1.lcssa.sink.i, 0
+  %421 = icmp slt i64 %.0.i.i433, 0
+  %or.cond7.i.i444 = select i1 %420, i1 %421, i1 false
   %spec.select.i.i445 = select i1 %or.cond7.i.i444, i64 9223372036854775807, i64 -9223372036854775808
   br label %_ZN4llvmmlERKNS_15InstructionCostES2_.exit446
 
-_ZN4llvmmlERKNS_15InstructionCostES2_.exit446:    ; preds = %410, %417, %420
-  %.0.i.i439 = phi i64 [ %416, %410 ], [ 9223372036854775807, %417 ], [ %spec.select.i.i445, %420 ]
-  %spec.select.i440 = select i1 %413, i32 1, i32 %.sink.i
+_ZN4llvmmlERKNS_15InstructionCostES2_.exit446:    ; preds = %409, %416, %419
+  %.0.i.i439 = phi i64 [ %415, %409 ], [ 9223372036854775807, %416 ], [ %spec.select.i.i445, %419 ]
+  %spec.select.i440 = select i1 %412, i32 1, i32 %.sink.i
   br label %.loopexit
 
-423:                                              ; preds = %409
+422:                                              ; preds = %408
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %27, ptr noundef nonnull align 4 dereferenceable(20) @constinit, i64 20, i1 false)
-  %424 = call { i64, i32 } @_ZN4llvm12RISCVTTIImpl23getRISCVInstructionCostENS_8ArrayRefIjEENS_3MVTENS_19TargetTransformInfo14TargetCostKindE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr nonnull %27, i64 5, i16 %.sroa.025.0.lcssa42.sink.i, i32 noundef %5)
-  %.fca.0.extract60 = extractvalue { i64, i32 } %424, 0
-  %.fca.1.extract61 = extractvalue { i64, i32 } %424, 1
-  %425 = icmp eq i32 %.fca.1.extract61, 1
+  %423 = call { i64, i32 } @_ZN4llvm12RISCVTTIImpl23getRISCVInstructionCostENS_8ArrayRefIjEENS_3MVTENS_19TargetTransformInfo14TargetCostKindE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr nonnull %27, i64 5, i16 %.sroa.025.0.lcssa42.sink.i, i32 noundef %5)
+  %.fca.0.extract60 = extractvalue { i64, i32 } %423, 0
+  %.fca.1.extract61 = extractvalue { i64, i32 } %423, 1
+  %424 = icmp eq i32 %.fca.1.extract61, 1
   %.0.i.i452 = call i64 @llvm.sadd.sat.i64(i64 %.fca.0.extract60, i64 1)
-  %426 = call { i64, i1 } @llvm.smul.with.overflow.i64(i64 %.sroa.019.1.lcssa.sink.i, i64 %.0.i.i452)
-  %427 = extractvalue { i64, i1 } %426, 1
-  %428 = extractvalue { i64, i1 } %426, 0
-  br i1 %427, label %429, label %_ZN4llvmmlERKNS_15InstructionCostES2_.exit465
+  %425 = call { i64, i1 } @llvm.smul.with.overflow.i64(i64 %.sroa.019.1.lcssa.sink.i, i64 %.0.i.i452)
+  %426 = extractvalue { i64, i1 } %425, 1
+  %427 = extractvalue { i64, i1 } %425, 0
+  br i1 %426, label %428, label %_ZN4llvmmlERKNS_15InstructionCostES2_.exit465
 
-429:                                              ; preds = %423
-  %430 = icmp sgt i64 %.sroa.019.1.lcssa.sink.i, 0
-  %431 = icmp sgt i64 %.0.i.i452, 0
-  %or.cond.i.i462 = select i1 %430, i1 %431, i1 false
-  br i1 %or.cond.i.i462, label %_ZN4llvmmlERKNS_15InstructionCostES2_.exit465, label %432
+428:                                              ; preds = %422
+  %429 = icmp sgt i64 %.sroa.019.1.lcssa.sink.i, 0
+  %430 = icmp sgt i64 %.0.i.i452, 0
+  %or.cond.i.i462 = select i1 %429, i1 %430, i1 false
+  br i1 %or.cond.i.i462, label %_ZN4llvmmlERKNS_15InstructionCostES2_.exit465, label %431
 
-432:                                              ; preds = %429
-  %433 = icmp slt i64 %.sroa.019.1.lcssa.sink.i, 0
-  %434 = icmp slt i64 %.0.i.i452, 0
-  %or.cond7.i.i463 = select i1 %433, i1 %434, i1 false
+431:                                              ; preds = %428
+  %432 = icmp slt i64 %.sroa.019.1.lcssa.sink.i, 0
+  %433 = icmp slt i64 %.0.i.i452, 0
+  %or.cond7.i.i463 = select i1 %432, i1 %433, i1 false
   %spec.select.i.i464 = select i1 %or.cond7.i.i463, i64 9223372036854775807, i64 -9223372036854775808
   br label %_ZN4llvmmlERKNS_15InstructionCostES2_.exit465
 
-_ZN4llvmmlERKNS_15InstructionCostES2_.exit465:    ; preds = %423, %429, %432
-  %.0.i.i458 = phi i64 [ %428, %423 ], [ 9223372036854775807, %429 ], [ %spec.select.i.i464, %432 ]
-  %spec.select.i459 = select i1 %425, i32 1, i32 %.sink.i
+_ZN4llvmmlERKNS_15InstructionCostES2_.exit465:    ; preds = %422, %428, %431
+  %.0.i.i458 = phi i64 [ %427, %422 ], [ 9223372036854775807, %428 ], [ %spec.select.i.i464, %431 ]
+  %spec.select.i459 = select i1 %424, i32 1, i32 %.sink.i
   br label %.loopexit
 
-435:                                              ; preds = %_ZNK4llvm3MVT19getScalarSizeInBitsEv.exit427
-  br i1 %398, label %436, label %448
+434:                                              ; preds = %_ZNK4llvm3MVT19getScalarSizeInBitsEv.exit427
+  br i1 %397, label %435, label %447
 
-436:                                              ; preds = %435
+435:                                              ; preds = %434
   store i32 13519, ptr %28, align 4
-  %437 = call { i64, i32 } @_ZN4llvm12RISCVTTIImpl23getRISCVInstructionCostENS_8ArrayRefIjEENS_3MVTENS_19TargetTransformInfo14TargetCostKindE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr nonnull %28, i64 1, i16 %.sroa.025.0.lcssa42.sink.i, i32 noundef %5)
-  %.fca.0.extract47 = extractvalue { i64, i32 } %437, 0
-  %.fca.1.extract48 = extractvalue { i64, i32 } %437, 1
-  %438 = call { i64, i1 } @llvm.smul.with.overflow.i64(i64 %.sroa.019.1.lcssa.sink.i, i64 %.fca.0.extract47)
-  %439 = extractvalue { i64, i1 } %438, 1
-  %440 = extractvalue { i64, i1 } %438, 0
-  br i1 %439, label %441, label %_ZN4llvmmlERKNS_15InstructionCostES2_.exit476
+  %436 = call { i64, i32 } @_ZN4llvm12RISCVTTIImpl23getRISCVInstructionCostENS_8ArrayRefIjEENS_3MVTENS_19TargetTransformInfo14TargetCostKindE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr nonnull %28, i64 1, i16 %.sroa.025.0.lcssa42.sink.i, i32 noundef %5)
+  %.fca.0.extract47 = extractvalue { i64, i32 } %436, 0
+  %.fca.1.extract48 = extractvalue { i64, i32 } %436, 1
+  %437 = call { i64, i1 } @llvm.smul.with.overflow.i64(i64 %.sroa.019.1.lcssa.sink.i, i64 %.fca.0.extract47)
+  %438 = extractvalue { i64, i1 } %437, 1
+  %439 = extractvalue { i64, i1 } %437, 0
+  br i1 %438, label %440, label %_ZN4llvmmlERKNS_15InstructionCostES2_.exit476
 
-441:                                              ; preds = %436
-  %442 = icmp sgt i64 %.sroa.019.1.lcssa.sink.i, 0
-  %443 = icmp sgt i64 %.fca.0.extract47, 0
-  %or.cond.i.i473 = select i1 %442, i1 %443, i1 false
-  br i1 %or.cond.i.i473, label %_ZN4llvmmlERKNS_15InstructionCostES2_.exit476, label %444
+440:                                              ; preds = %435
+  %441 = icmp sgt i64 %.sroa.019.1.lcssa.sink.i, 0
+  %442 = icmp sgt i64 %.fca.0.extract47, 0
+  %or.cond.i.i473 = select i1 %441, i1 %442, i1 false
+  br i1 %or.cond.i.i473, label %_ZN4llvmmlERKNS_15InstructionCostES2_.exit476, label %443
 
-444:                                              ; preds = %441
-  %445 = icmp slt i64 %.sroa.019.1.lcssa.sink.i, 0
-  %446 = icmp slt i64 %.fca.0.extract47, 0
-  %or.cond7.i.i474 = select i1 %445, i1 %446, i1 false
+443:                                              ; preds = %440
+  %444 = icmp slt i64 %.sroa.019.1.lcssa.sink.i, 0
+  %445 = icmp slt i64 %.fca.0.extract47, 0
+  %or.cond7.i.i474 = select i1 %444, i1 %445, i1 false
   %spec.select.i.i475 = select i1 %or.cond7.i.i474, i64 9223372036854775807, i64 -9223372036854775808
   br label %_ZN4llvmmlERKNS_15InstructionCostES2_.exit476
 
-_ZN4llvmmlERKNS_15InstructionCostES2_.exit476:    ; preds = %436, %441, %444
-  %.0.i.i469 = phi i64 [ %440, %436 ], [ 9223372036854775807, %441 ], [ %spec.select.i.i475, %444 ]
-  %447 = icmp eq i32 %.fca.1.extract48, 1
-  %spec.select.i470 = select i1 %447, i32 1, i32 %.sink.i
+_ZN4llvmmlERKNS_15InstructionCostES2_.exit476:    ; preds = %435, %440, %443
+  %.0.i.i469 = phi i64 [ %439, %435 ], [ 9223372036854775807, %440 ], [ %spec.select.i.i475, %443 ]
+  %446 = icmp eq i32 %.fca.1.extract48, 1
+  %spec.select.i470 = select i1 %446, i32 1, i32 %.sink.i
   br label %.loopexit
 
-448:                                              ; preds = %435
+447:                                              ; preds = %434
   store i32 13564, ptr %29, align 4
-  %449 = call { i64, i32 } @_ZN4llvm12RISCVTTIImpl23getRISCVInstructionCostENS_8ArrayRefIjEENS_3MVTENS_19TargetTransformInfo14TargetCostKindE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr nonnull %29, i64 1, i16 %.sroa.025.0.lcssa42.sink.i, i32 noundef %5)
-  %.fca.0.extract38 = extractvalue { i64, i32 } %449, 0
-  %.fca.1.extract39 = extractvalue { i64, i32 } %449, 1
-  %450 = call { i64, i1 } @llvm.smul.with.overflow.i64(i64 %.sroa.019.1.lcssa.sink.i, i64 %.fca.0.extract38)
-  %451 = extractvalue { i64, i1 } %450, 1
-  %452 = extractvalue { i64, i1 } %450, 0
-  br i1 %451, label %453, label %_ZN4llvmmlERKNS_15InstructionCostES2_.exit487
+  %448 = call { i64, i32 } @_ZN4llvm12RISCVTTIImpl23getRISCVInstructionCostENS_8ArrayRefIjEENS_3MVTENS_19TargetTransformInfo14TargetCostKindE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr nonnull %29, i64 1, i16 %.sroa.025.0.lcssa42.sink.i, i32 noundef %5)
+  %.fca.0.extract38 = extractvalue { i64, i32 } %448, 0
+  %.fca.1.extract39 = extractvalue { i64, i32 } %448, 1
+  %449 = call { i64, i1 } @llvm.smul.with.overflow.i64(i64 %.sroa.019.1.lcssa.sink.i, i64 %.fca.0.extract38)
+  %450 = extractvalue { i64, i1 } %449, 1
+  %451 = extractvalue { i64, i1 } %449, 0
+  br i1 %450, label %452, label %_ZN4llvmmlERKNS_15InstructionCostES2_.exit487
 
-453:                                              ; preds = %448
-  %454 = icmp sgt i64 %.sroa.019.1.lcssa.sink.i, 0
-  %455 = icmp sgt i64 %.fca.0.extract38, 0
-  %or.cond.i.i484 = select i1 %454, i1 %455, i1 false
-  br i1 %or.cond.i.i484, label %_ZN4llvmmlERKNS_15InstructionCostES2_.exit487, label %456
+452:                                              ; preds = %447
+  %453 = icmp sgt i64 %.sroa.019.1.lcssa.sink.i, 0
+  %454 = icmp sgt i64 %.fca.0.extract38, 0
+  %or.cond.i.i484 = select i1 %453, i1 %454, i1 false
+  br i1 %or.cond.i.i484, label %_ZN4llvmmlERKNS_15InstructionCostES2_.exit487, label %455
 
-456:                                              ; preds = %453
-  %457 = icmp slt i64 %.sroa.019.1.lcssa.sink.i, 0
-  %458 = icmp slt i64 %.fca.0.extract38, 0
-  %or.cond7.i.i485 = select i1 %457, i1 %458, i1 false
+455:                                              ; preds = %452
+  %456 = icmp slt i64 %.sroa.019.1.lcssa.sink.i, 0
+  %457 = icmp slt i64 %.fca.0.extract38, 0
+  %or.cond7.i.i485 = select i1 %456, i1 %457, i1 false
   %spec.select.i.i486 = select i1 %or.cond7.i.i485, i64 9223372036854775807, i64 -9223372036854775808
   br label %_ZN4llvmmlERKNS_15InstructionCostES2_.exit487
 
-_ZN4llvmmlERKNS_15InstructionCostES2_.exit487:    ; preds = %448, %453, %456
-  %.0.i.i480 = phi i64 [ %452, %448 ], [ 9223372036854775807, %453 ], [ %spec.select.i.i486, %456 ]
-  %459 = icmp eq i32 %.fca.1.extract39, 1
-  %spec.select.i481 = select i1 %459, i32 1, i32 %.sink.i
+_ZN4llvmmlERKNS_15InstructionCostES2_.exit487:    ; preds = %447, %452, %455
+  %.0.i.i480 = phi i64 [ %451, %447 ], [ 9223372036854775807, %452 ], [ %spec.select.i.i486, %455 ]
+  %458 = icmp eq i32 %.fca.1.extract39, 1
+  %spec.select.i481 = select i1 %458, i32 1, i32 %.sink.i
   br label %.loopexit
 
-460:                                              ; preds = %62, %.critedge
+459:                                              ; preds = %62, %.critedge
   store i64 58428735108386, ptr %30, align 8
-  %461 = load i32, ptr %14, align 4
-  %or.cond = icmp ult i32 %461, 32
-  br i1 %or.cond, label %462, label %463
+  %460 = load i32, ptr %14, align 4
+  %or.cond = icmp ult i32 %460, 32
+  br i1 %or.cond, label %461, label %462
 
-462:                                              ; preds = %460
+461:                                              ; preds = %459
   store i32 13601, ptr %30, align 8
-  br label %466
+  br label %465
 
-463:                                              ; preds = %460
-  %or.cond5 = icmp ugt i32 %461, -32
-  br i1 %or.cond5, label %464, label %466
+462:                                              ; preds = %459
+  %or.cond5 = icmp ugt i32 %460, -32
+  br i1 %or.cond5, label %463, label %465
 
-464:                                              ; preds = %463
-  %465 = getelementptr inbounds nuw i8, ptr %30, i64 4
-  store i32 13603, ptr %465, align 4
-  br label %466
+463:                                              ; preds = %462
+  %464 = getelementptr inbounds nuw i8, ptr %30, i64 4
+  store i32 13603, ptr %464, align 4
+  br label %465
 
-466:                                              ; preds = %463, %464, %462
-  %467 = call { i64, i32 } @_ZN4llvm12RISCVTTIImpl23getRISCVInstructionCostENS_8ArrayRefIjEENS_3MVTENS_19TargetTransformInfo14TargetCostKindE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr nonnull %30, i64 2, i16 %.sroa.025.0.lcssa42.sink.i, i32 noundef %5)
-  %.fca.0.extract29 = extractvalue { i64, i32 } %467, 0
-  %.fca.1.extract30 = extractvalue { i64, i32 } %467, 1
-  %468 = call { i64, i1 } @llvm.smul.with.overflow.i64(i64 %.sroa.019.1.lcssa.sink.i, i64 %.fca.0.extract29)
-  %469 = extractvalue { i64, i1 } %468, 1
-  %470 = extractvalue { i64, i1 } %468, 0
-  br i1 %469, label %471, label %_ZN4llvmmlERKNS_15InstructionCostES2_.exit498
+465:                                              ; preds = %462, %463, %461
+  %466 = call { i64, i32 } @_ZN4llvm12RISCVTTIImpl23getRISCVInstructionCostENS_8ArrayRefIjEENS_3MVTENS_19TargetTransformInfo14TargetCostKindE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr nonnull %30, i64 2, i16 %.sroa.025.0.lcssa42.sink.i, i32 noundef %5)
+  %.fca.0.extract29 = extractvalue { i64, i32 } %466, 0
+  %.fca.1.extract30 = extractvalue { i64, i32 } %466, 1
+  %467 = call { i64, i1 } @llvm.smul.with.overflow.i64(i64 %.sroa.019.1.lcssa.sink.i, i64 %.fca.0.extract29)
+  %468 = extractvalue { i64, i1 } %467, 1
+  %469 = extractvalue { i64, i1 } %467, 0
+  br i1 %468, label %470, label %_ZN4llvmmlERKNS_15InstructionCostES2_.exit498
 
-471:                                              ; preds = %466
-  %472 = icmp sgt i64 %.sroa.019.1.lcssa.sink.i, 0
-  %473 = icmp sgt i64 %.fca.0.extract29, 0
-  %or.cond.i.i495 = select i1 %472, i1 %473, i1 false
-  br i1 %or.cond.i.i495, label %_ZN4llvmmlERKNS_15InstructionCostES2_.exit498, label %474
+470:                                              ; preds = %465
+  %471 = icmp sgt i64 %.sroa.019.1.lcssa.sink.i, 0
+  %472 = icmp sgt i64 %.fca.0.extract29, 0
+  %or.cond.i.i495 = select i1 %471, i1 %472, i1 false
+  br i1 %or.cond.i.i495, label %_ZN4llvmmlERKNS_15InstructionCostES2_.exit498, label %473
 
-474:                                              ; preds = %471
-  %475 = icmp slt i64 %.sroa.019.1.lcssa.sink.i, 0
-  %476 = icmp slt i64 %.fca.0.extract29, 0
-  %or.cond7.i.i496 = select i1 %475, i1 %476, i1 false
+473:                                              ; preds = %470
+  %474 = icmp slt i64 %.sroa.019.1.lcssa.sink.i, 0
+  %475 = icmp slt i64 %.fca.0.extract29, 0
+  %or.cond7.i.i496 = select i1 %474, i1 %475, i1 false
   %spec.select.i.i497 = select i1 %or.cond7.i.i496, i64 9223372036854775807, i64 -9223372036854775808
   br label %_ZN4llvmmlERKNS_15InstructionCostES2_.exit498
 
-_ZN4llvmmlERKNS_15InstructionCostES2_.exit498:    ; preds = %466, %471, %474
-  %.0.i.i491 = phi i64 [ %470, %466 ], [ 9223372036854775807, %471 ], [ %spec.select.i.i497, %474 ]
-  %477 = icmp eq i32 %.fca.1.extract30, 1
-  %spec.select.i492 = select i1 %477, i32 1, i32 %.sink.i
+_ZN4llvmmlERKNS_15InstructionCostES2_.exit498:    ; preds = %465, %470, %473
+  %.0.i.i491 = phi i64 [ %469, %465 ], [ 9223372036854775807, %470 ], [ %spec.select.i.i497, %473 ]
+  %476 = icmp eq i32 %.fca.1.extract30, 1
+  %spec.select.i492 = select i1 %476, i32 1, i32 %.sink.i
   br label %.loopexit
 
-478:                                              ; preds = %62, %.critedge
-  %479 = add i16 %.sroa.025.0.lcssa42.sink.i, -17
-  %spec.select.i499 = icmp ult i16 %479, 120
-  br i1 %spec.select.i499, label %_ZNK4llvm3MVT20getVectorNumElementsEv.exit506, label %480
+477:                                              ; preds = %62, %.critedge
+  %478 = add i16 %.sroa.025.0.lcssa42.sink.i, -17
+  %spec.select.i499 = icmp ult i16 %478, 120
+  br i1 %spec.select.i499, label %_ZNK4llvm3MVT20getVectorNumElementsEv.exit506, label %479
 
-480:                                              ; preds = %478
+479:                                              ; preds = %477
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %31, ptr noundef nonnull align 4 dereferenceable(12) @__const._ZN4llvm12RISCVTTIImpl14getShuffleCostENS_19TargetTransformInfo11ShuffleKindEPNS_10VectorTypeENS_8ArrayRefIiEENS1_14TargetCostKindEiS4_NS5_IPKNS_5ValueEEEPKNS_11InstructionE.Opcodes.5, i64 12, i1 false)
-  br label %493
+  br label %492
 
-_ZNK4llvm3MVT20getVectorNumElementsEv.exit506:    ; preds = %478
-  %481 = zext nneg i16 %.sroa.025.0.lcssa42.sink.i to i64
-  %482 = add nsw i64 %481, -1
-  %483 = getelementptr inbounds [240 x i16], ptr @_ZZNK4llvm3MVT23getVectorMinNumElementsEvE10NElemTable, i64 0, i64 %482
-  %484 = load i16, ptr %483, align 2
-  %485 = zext i16 %484 to i64
-  %486 = add nuw nsw i64 %485, 4294967295
-  %487 = and i64 %486, 4294967280
-  %488 = icmp ne i64 %487, 0
-  %489 = zext i1 %488 to i64
+_ZNK4llvm3MVT20getVectorNumElementsEv.exit506:    ; preds = %477
+  %480 = zext nneg i16 %.sroa.025.0.lcssa42.sink.i to i64
+  %481 = add nsw i64 %480, -1
+  %482 = getelementptr inbounds [240 x i16], ptr @_ZZNK4llvm3MVT23getVectorMinNumElementsEvE10NElemTable, i64 0, i64 %481
+  %483 = load i16, ptr %482, align 2
+  %484 = zext i16 %483 to i64
+  %485 = add nuw nsw i64 %484, 4294967295
+  %486 = and i64 %485, 4294967280
+  %487 = icmp ne i64 %486, 0
+  %488 = zext i1 %487 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %31, ptr noundef nonnull align 4 dereferenceable(12) @__const._ZN4llvm12RISCVTTIImpl14getShuffleCostENS_19TargetTransformInfo11ShuffleKindEPNS_10VectorTypeENS_8ArrayRefIiEENS1_14TargetCostKindEiS4_NS5_IPKNS_5ValueEEEPKNS_11InstructionE.Opcodes.5, i64 12, i1 false)
-  %490 = icmp eq i64 %487, 0
-  br i1 %490, label %491, label %493
+  %489 = icmp eq i64 %486, 0
+  br i1 %489, label %490, label %492
 
-491:                                              ; preds = %_ZNK4llvm3MVT20getVectorNumElementsEv.exit506
-  %492 = getelementptr inbounds nuw i8, ptr %31, i64 4
-  store i32 13572, ptr %492, align 4
-  br label %493
+490:                                              ; preds = %_ZNK4llvm3MVT20getVectorNumElementsEv.exit506
+  %491 = getelementptr inbounds nuw i8, ptr %31, i64 4
+  store i32 13572, ptr %491, align 4
+  br label %492
 
-493:                                              ; preds = %480, %491, %_ZNK4llvm3MVT20getVectorNumElementsEv.exit506
-  %.sroa.0542.0760 = phi i64 [ %489, %491 ], [ %489, %_ZNK4llvm3MVT20getVectorNumElementsEv.exit506 ], [ 3, %480 ]
-  %494 = call { i64, i32 } @_ZN4llvm12RISCVTTIImpl23getRISCVInstructionCostENS_8ArrayRefIjEENS_3MVTENS_19TargetTransformInfo14TargetCostKindE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr nonnull %31, i64 3, i16 %.sroa.025.0.lcssa42.sink.i, i32 noundef %5)
-  %.fca.0.extract20 = extractvalue { i64, i32 } %494, 0
-  %.fca.1.extract21 = extractvalue { i64, i32 } %494, 1
-  %495 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %496 = load ptr, ptr %495, align 8
-  %497 = call noundef zeroext i1 @_ZNK4llvm4Type11isIntegerTyEj(ptr noundef nonnull align 8 dereferenceable(24) %496, i32 noundef 1) #21
-  %498 = icmp eq i32 %.fca.1.extract21, 1
+492:                                              ; preds = %479, %490, %_ZNK4llvm3MVT20getVectorNumElementsEv.exit506
+  %.sroa.0542.0760 = phi i64 [ %488, %490 ], [ %488, %_ZNK4llvm3MVT20getVectorNumElementsEv.exit506 ], [ 3, %479 ]
+  %493 = call { i64, i32 } @_ZN4llvm12RISCVTTIImpl23getRISCVInstructionCostENS_8ArrayRefIjEENS_3MVTENS_19TargetTransformInfo14TargetCostKindE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr nonnull %31, i64 3, i16 %.sroa.025.0.lcssa42.sink.i, i32 noundef %5)
+  %.fca.0.extract20 = extractvalue { i64, i32 } %493, 0
+  %.fca.1.extract21 = extractvalue { i64, i32 } %493, 1
+  %494 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  %495 = load ptr, ptr %494, align 8
+  %496 = call noundef zeroext i1 @_ZNK4llvm4Type11isIntegerTyEj(ptr noundef nonnull align 8 dereferenceable(24) %495, i32 noundef 1) #21
+  %497 = icmp eq i32 %.fca.1.extract21, 1
   %.0.i.i511 = call i64 @llvm.sadd.sat.i64(i64 %.sroa.0542.0760, i64 %.fca.0.extract20)
-  %499 = call i64 @llvm.sadd.sat.i64(i64 %.0.i.i511, i64 3)
-  %.0.i.i518 = select i1 %497, i64 %499, i64 %.0.i.i511
-  %500 = call { i64, i1 } @llvm.smul.with.overflow.i64(i64 %.sroa.019.1.lcssa.sink.i, i64 %.0.i.i518)
-  %501 = extractvalue { i64, i1 } %500, 1
-  %502 = extractvalue { i64, i1 } %500, 0
-  br i1 %501, label %503, label %_ZN4llvmmlERKNS_15InstructionCostES2_.exit531
+  %498 = call i64 @llvm.sadd.sat.i64(i64 %.0.i.i511, i64 3)
+  %.0.i.i518 = select i1 %496, i64 %498, i64 %.0.i.i511
+  %499 = call { i64, i1 } @llvm.smul.with.overflow.i64(i64 %.sroa.019.1.lcssa.sink.i, i64 %.0.i.i518)
+  %500 = extractvalue { i64, i1 } %499, 1
+  %501 = extractvalue { i64, i1 } %499, 0
+  br i1 %500, label %502, label %_ZN4llvmmlERKNS_15InstructionCostES2_.exit531
 
-503:                                              ; preds = %493
-  %504 = icmp sgt i64 %.sroa.019.1.lcssa.sink.i, 0
-  %505 = icmp sgt i64 %.0.i.i518, 0
-  %or.cond.i.i528 = select i1 %504, i1 %505, i1 false
-  br i1 %or.cond.i.i528, label %_ZN4llvmmlERKNS_15InstructionCostES2_.exit531, label %506
+502:                                              ; preds = %492
+  %503 = icmp sgt i64 %.sroa.019.1.lcssa.sink.i, 0
+  %504 = icmp sgt i64 %.0.i.i518, 0
+  %or.cond.i.i528 = select i1 %503, i1 %504, i1 false
+  br i1 %or.cond.i.i528, label %_ZN4llvmmlERKNS_15InstructionCostES2_.exit531, label %505
 
-506:                                              ; preds = %503
-  %507 = icmp slt i64 %.sroa.019.1.lcssa.sink.i, 0
-  %508 = icmp slt i64 %.0.i.i518, 0
-  %or.cond7.i.i529 = select i1 %507, i1 %508, i1 false
+505:                                              ; preds = %502
+  %506 = icmp slt i64 %.sroa.019.1.lcssa.sink.i, 0
+  %507 = icmp slt i64 %.0.i.i518, 0
+  %or.cond7.i.i529 = select i1 %506, i1 %507, i1 false
   %spec.select.i.i530 = select i1 %or.cond7.i.i529, i64 9223372036854775807, i64 -9223372036854775808
   br label %_ZN4llvmmlERKNS_15InstructionCostES2_.exit531
 
-_ZN4llvmmlERKNS_15InstructionCostES2_.exit531:    ; preds = %493, %503, %506
-  %.0.i.i524 = phi i64 [ %502, %493 ], [ 9223372036854775807, %503 ], [ %spec.select.i.i530, %506 ]
-  %spec.select.i525 = select i1 %498, i32 1, i32 %.sink.i
+_ZN4llvmmlERKNS_15InstructionCostES2_.exit531:    ; preds = %492, %502, %505
+  %.0.i.i524 = phi i64 [ %501, %492 ], [ 9223372036854775807, %502 ], [ %spec.select.i.i530, %505 ]
+  %spec.select.i525 = select i1 %497, i32 1, i32 %.sink.i
   br label %.loopexit
 
 .critedge.thread:                                 ; preds = %67, %62, %.critedge
   %.sroa.06.0.copyload = load ptr, ptr %13, align 8
   %.sroa.27.0.copyload = load i64, ptr %33, align 8
-  %509 = load i32, ptr %14, align 4
-  %510 = load ptr, ptr %15, align 8
+  %508 = load i32, ptr %14, align 4
+  %509 = load ptr, ptr %15, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %32, i8 0, i64 16, i1 false)
-  %511 = call { i64, i32 } @_ZN4llvm16BasicTTIImplBaseINS_12RISCVTTIImplEE14getShuffleCostENS_19TargetTransformInfo11ShuffleKindEPNS_10VectorTypeENS_8ArrayRefIiEENS3_14TargetCostKindEiS6_NS7_IPKNS_5ValueEEEPKNS_11InstructionE(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %34, ptr noundef nonnull %2, ptr %.sroa.06.0.copyload, i64 %.sroa.27.0.copyload, i32 noundef %5, i32 noundef %509, ptr noundef %510, ptr noundef nonnull byval(%"class.llvm::ArrayRef.78") align 8 %32, ptr noundef null)
-  %.fca.0.extract = extractvalue { i64, i32 } %511, 0
-  %.fca.1.extract = extractvalue { i64, i32 } %511, 1
+  %510 = call { i64, i32 } @_ZN4llvm16BasicTTIImplBaseINS_12RISCVTTIImplEE14getShuffleCostENS_19TargetTransformInfo11ShuffleKindEPNS_10VectorTypeENS_8ArrayRefIiEENS3_14TargetCostKindEiS6_NS7_IPKNS_5ValueEEEPKNS_11InstructionE(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %34, ptr noundef nonnull %2, ptr %.sroa.06.0.copyload, i64 %.sroa.27.0.copyload, i32 noundef %5, i32 noundef %508, ptr noundef %509, ptr noundef nonnull byval(%"class.llvm::ArrayRef.78") align 8 %32, ptr noundef null)
+  %.fca.0.extract = extractvalue { i64, i32 } %510, 0
+  %.fca.1.extract = extractvalue { i64, i32 } %510, 1
   br label %.loopexit
 
-.loopexit:                                        ; preds = %_ZN4llvm11SmallVectorIiLj12EED2Ev.exit, %_ZN4llvm12PowerOf2CeilEm.exit, %341, %296, %126, %.critedge.thread, %_ZN4llvmmlERKNS_15InstructionCostES2_.exit531, %_ZN4llvmmlERKNS_15InstructionCostES2_.exit498, %_ZN4llvmmlERKNS_15InstructionCostES2_.exit487, %_ZN4llvmmlERKNS_15InstructionCostES2_.exit476, %_ZN4llvmmlERKNS_15InstructionCostES2_.exit465, %_ZN4llvmmlERKNS_15InstructionCostES2_.exit446, %_ZN4llvmmlERKNS_15InstructionCostES2_.exit421, %_ZN4llvmmlERKNS_15InstructionCostES2_.exit402, %_ZN4llvmmlERKNS_15InstructionCostES2_.exit391, %_ZN4llvmmlERKNS_15InstructionCostES2_.exit312, %141, %_ZN4llvmmlERKNS_15InstructionCostES2_.exit255
-  %.sroa.0732.0 = phi i64 [ %.fca.0.extract, %.critedge.thread ], [ %.0.i.i524, %_ZN4llvmmlERKNS_15InstructionCostES2_.exit531 ], [ %.0.i.i491, %_ZN4llvmmlERKNS_15InstructionCostES2_.exit498 ], [ %.0.i.i439, %_ZN4llvmmlERKNS_15InstructionCostES2_.exit446 ], [ %.0.i.i458, %_ZN4llvmmlERKNS_15InstructionCostES2_.exit465 ], [ %.0.i.i469, %_ZN4llvmmlERKNS_15InstructionCostES2_.exit476 ], [ %.0.i.i480, %_ZN4llvmmlERKNS_15InstructionCostES2_.exit487 ], [ %.0.i.i395, %_ZN4llvmmlERKNS_15InstructionCostES2_.exit402 ], [ %.0.i.i384, %_ZN4llvmmlERKNS_15InstructionCostES2_.exit391 ], [ %.0.i.i414, %_ZN4llvmmlERKNS_15InstructionCostES2_.exit421 ], [ %.0.i.i325, %_ZN4llvmmlERKNS_15InstructionCostES2_.exit312 ], [ %.0.i.i248, %_ZN4llvmmlERKNS_15InstructionCostES2_.exit255 ], [ %.0.i.i278, %141 ], [ %.0.i.i259, %126 ], [ 0, %296 ], [ 0, %341 ], [ 0, %_ZN4llvm12PowerOf2CeilEm.exit ], [ %.sroa.0732.3, %_ZN4llvm11SmallVectorIiLj12EED2Ev.exit ]
-  %.sroa.20.0 = phi i32 [ %.fca.1.extract, %.critedge.thread ], [ %spec.select.i525, %_ZN4llvmmlERKNS_15InstructionCostES2_.exit531 ], [ %spec.select.i492, %_ZN4llvmmlERKNS_15InstructionCostES2_.exit498 ], [ %spec.select.i440, %_ZN4llvmmlERKNS_15InstructionCostES2_.exit446 ], [ %spec.select.i459, %_ZN4llvmmlERKNS_15InstructionCostES2_.exit465 ], [ %spec.select.i470, %_ZN4llvmmlERKNS_15InstructionCostES2_.exit476 ], [ %spec.select.i481, %_ZN4llvmmlERKNS_15InstructionCostES2_.exit487 ], [ %spec.select.i396, %_ZN4llvmmlERKNS_15InstructionCostES2_.exit402 ], [ %spec.select.i385, %_ZN4llvmmlERKNS_15InstructionCostES2_.exit391 ], [ %spec.select.i415, %_ZN4llvmmlERKNS_15InstructionCostES2_.exit421 ], [ %spec.select.i324, %_ZN4llvmmlERKNS_15InstructionCostES2_.exit312 ], [ %spec.select.i249, %_ZN4llvmmlERKNS_15InstructionCostES2_.exit255 ], [ %spec.select.i277, %141 ], [ %spec.select.i260, %126 ], [ 0, %296 ], [ 0, %341 ], [ 0, %_ZN4llvm12PowerOf2CeilEm.exit ], [ %.sroa.20.3, %_ZN4llvm11SmallVectorIiLj12EED2Ev.exit ]
+.loopexit:                                        ; preds = %_ZN4llvm11SmallVectorIiLj12EED2Ev.exit, %_ZN4llvm12PowerOf2CeilEm.exit, %340, %295, %126, %.critedge.thread, %_ZN4llvmmlERKNS_15InstructionCostES2_.exit531, %_ZN4llvmmlERKNS_15InstructionCostES2_.exit498, %_ZN4llvmmlERKNS_15InstructionCostES2_.exit487, %_ZN4llvmmlERKNS_15InstructionCostES2_.exit476, %_ZN4llvmmlERKNS_15InstructionCostES2_.exit465, %_ZN4llvmmlERKNS_15InstructionCostES2_.exit446, %_ZN4llvmmlERKNS_15InstructionCostES2_.exit421, %_ZN4llvmmlERKNS_15InstructionCostES2_.exit402, %_ZN4llvmmlERKNS_15InstructionCostES2_.exit391, %_ZN4llvmmlERKNS_15InstructionCostES2_.exit312, %141, %_ZN4llvmmlERKNS_15InstructionCostES2_.exit255
+  %.sroa.0732.0 = phi i64 [ %.fca.0.extract, %.critedge.thread ], [ %.0.i.i524, %_ZN4llvmmlERKNS_15InstructionCostES2_.exit531 ], [ %.0.i.i491, %_ZN4llvmmlERKNS_15InstructionCostES2_.exit498 ], [ %.0.i.i439, %_ZN4llvmmlERKNS_15InstructionCostES2_.exit446 ], [ %.0.i.i458, %_ZN4llvmmlERKNS_15InstructionCostES2_.exit465 ], [ %.0.i.i469, %_ZN4llvmmlERKNS_15InstructionCostES2_.exit476 ], [ %.0.i.i480, %_ZN4llvmmlERKNS_15InstructionCostES2_.exit487 ], [ %.0.i.i395, %_ZN4llvmmlERKNS_15InstructionCostES2_.exit402 ], [ %.0.i.i384, %_ZN4llvmmlERKNS_15InstructionCostES2_.exit391 ], [ %.0.i.i414, %_ZN4llvmmlERKNS_15InstructionCostES2_.exit421 ], [ %.0.i.i325, %_ZN4llvmmlERKNS_15InstructionCostES2_.exit312 ], [ %.0.i.i248, %_ZN4llvmmlERKNS_15InstructionCostES2_.exit255 ], [ %.0.i.i278, %141 ], [ %.0.i.i259, %126 ], [ 0, %295 ], [ 0, %340 ], [ 0, %_ZN4llvm12PowerOf2CeilEm.exit ], [ %.sroa.0732.3, %_ZN4llvm11SmallVectorIiLj12EED2Ev.exit ]
+  %.sroa.20.0 = phi i32 [ %.fca.1.extract, %.critedge.thread ], [ %spec.select.i525, %_ZN4llvmmlERKNS_15InstructionCostES2_.exit531 ], [ %spec.select.i492, %_ZN4llvmmlERKNS_15InstructionCostES2_.exit498 ], [ %spec.select.i440, %_ZN4llvmmlERKNS_15InstructionCostES2_.exit446 ], [ %spec.select.i459, %_ZN4llvmmlERKNS_15InstructionCostES2_.exit465 ], [ %spec.select.i470, %_ZN4llvmmlERKNS_15InstructionCostES2_.exit476 ], [ %spec.select.i481, %_ZN4llvmmlERKNS_15InstructionCostES2_.exit487 ], [ %spec.select.i396, %_ZN4llvmmlERKNS_15InstructionCostES2_.exit402 ], [ %spec.select.i385, %_ZN4llvmmlERKNS_15InstructionCostES2_.exit391 ], [ %spec.select.i415, %_ZN4llvmmlERKNS_15InstructionCostES2_.exit421 ], [ %spec.select.i324, %_ZN4llvmmlERKNS_15InstructionCostES2_.exit312 ], [ %spec.select.i249, %_ZN4llvmmlERKNS_15InstructionCostES2_.exit255 ], [ %spec.select.i277, %141 ], [ %spec.select.i260, %126 ], [ 0, %295 ], [ 0, %340 ], [ 0, %_ZN4llvm12PowerOf2CeilEm.exit ], [ %.sroa.20.3, %_ZN4llvm11SmallVectorIiLj12EED2Ev.exit ]
   %.fca.0.insert = insertvalue { i64, i32 } poison, i64 %.sroa.0732.0, 0
   %.fca.1.insert = insertvalue { i64, i32 } %.fca.0.insert, i32 %.sroa.20.0, 1
   ret { i64, i32 } %.fca.1.insert

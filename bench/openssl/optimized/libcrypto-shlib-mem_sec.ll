@@ -85,18 +85,19 @@ if.end26.i:                                       ; preds = %if.else.i, %if.end.
   %minsize.addr.0.i = phi i64 [ 16, %if.end.i ], [ %minsize, %if.else.i ]
   store i64 %size, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 24), align 8
   store i64 %minsize.addr.0.i, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 48), align 8
-  %div.i = udiv i64 %size, %minsize.addr.0.i
-  %mul.i = shl nuw nsw i64 %div.i, 1
+  %2 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %minsize.addr.0.i, i1 true)
+  %div26.i = lshr i64 %size, %2
+  %mul.i = shl nuw nsw i64 %div26.i, 1
   store i64 %mul.i, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 72), align 8
-  %cmp28.i = icmp samesign ult i64 %div.i, 4
+  %cmp28.i = icmp ult i64 %div26.i, 4
   br i1 %cmp28.i, label %err.i, label %for.body.i
 
 for.body.i:                                       ; preds = %if.end26.i, %for.body.i
-  %i.030.i = phi i64 [ %shr32.i, %for.body.i ], [ %mul.i, %if.end26.i ]
-  %inc312829.i = phi i64 [ %inc31.i, %for.body.i ], [ -1, %if.end26.i ]
-  %inc31.i = add nsw i64 %inc312829.i, 1
-  %shr32.i = lshr i64 %i.030.i, 1
-  %tobool.not.i = icmp samesign ult i64 %i.030.i, 2
+  %i.031.i = phi i64 [ %shr32.i, %for.body.i ], [ %mul.i, %if.end26.i ]
+  %inc312930.i = phi i64 [ %inc31.i, %for.body.i ], [ -1, %if.end26.i ]
+  %inc31.i = add nsw i64 %inc312930.i, 1
+  %shr32.i = lshr i64 %i.031.i, 1
+  %tobool.not.i = icmp samesign ult i64 %i.031.i, 2
   br i1 %tobool.not.i, label %for.end.i, label %for.body.i, !llvm.loop !4
 
 for.end.i:                                        ; preds = %for.body.i
@@ -112,8 +113,8 @@ cond.false36.i:                                   ; preds = %for.end.i
   unreachable
 
 if.end41.i:                                       ; preds = %for.end.i
-  %2 = load i64, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 72), align 8
-  %shr42.i = lshr i64 %2, 3
+  %3 = load i64, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 72), align 8
+  %shr42.i = lshr i64 %3, 3
   %call43.i = tail call noalias ptr @CRYPTO_zalloc(i64 noundef %shr42.i, ptr noundef nonnull @.str.1, i32 noundef 490) #8
   store ptr %call43.i, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 56), align 8
   %cmp44.not.i = icmp eq ptr %call43.i, null
@@ -124,8 +125,8 @@ cond.false46.i:                                   ; preds = %if.end41.i
   unreachable
 
 if.end51.i:                                       ; preds = %if.end41.i
-  %3 = load i64, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 72), align 8
-  %shr52.i = lshr i64 %3, 3
+  %4 = load i64, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 72), align 8
+  %shr52.i = lshr i64 %4, 3
   %call53.i = tail call noalias ptr @CRYPTO_zalloc(i64 noundef %shr52.i, ptr noundef nonnull @.str.1, i32 noundef 495) #8
   store ptr %call53.i, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 64), align 8
   %cmp54.not.i = icmp eq ptr %call53.i, null
@@ -139,9 +140,9 @@ if.end61.i:                                       ; preds = %if.end51.i
   %call62.i = tail call i64 @sysconf(i32 noundef 30) #8
   %cmp63.i = icmp slt i64 %call62.i, 1
   %.call62.i = select i1 %cmp63.i, i64 4096, i64 %call62.i
-  %4 = load i64, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 24), align 8
+  %5 = load i64, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 24), align 8
   %reass.add.i = shl i64 %.call62.i, 1
-  %add67.i = add i64 %reass.add.i, %4
+  %add67.i = add i64 %reass.add.i, %5
   store i64 %add67.i, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 8), align 8
   %call68.i = tail call ptr @mmap(ptr noundef null, i64 noundef %add67.i, i32 noundef 3, i32 noundef 34, i32 noundef -1, i64 noundef 0) #8
   store ptr %call68.i, ptr @sh, align 8
@@ -155,82 +156,82 @@ if.end61.err_crit_edge.i:                         ; preds = %if.end61.i
 if.end71.i:                                       ; preds = %if.end61.i
   %add.ptr.i = getelementptr inbounds nuw i8, ptr %call68.i, i64 %.call62.i
   store ptr %add.ptr.i, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 16), align 8
-  %5 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 56), align 8
-  tail call fastcc void @sh_setbit(ptr noundef nonnull %add.ptr.i, i32 noundef 0, ptr noundef %5)
-  %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 32), align 8
-  %7 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 16), align 8
-  tail call fastcc void @sh_add_to_list(ptr noundef %6, ptr noundef %7)
-  %8 = load ptr, ptr @sh, align 8
-  %call72.i = tail call i32 @mprotect(ptr noundef %8, i64 noundef %.call62.i, i32 noundef 0) #8
+  %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 56), align 8
+  tail call fastcc void @sh_setbit(ptr noundef nonnull %add.ptr.i, i32 noundef 0, ptr noundef %6)
+  %7 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 32), align 8
+  %8 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 16), align 8
+  tail call fastcc void @sh_add_to_list(ptr noundef %7, ptr noundef %8)
+  %9 = load ptr, ptr @sh, align 8
+  %call72.i = tail call i32 @mprotect(ptr noundef %9, i64 noundef %.call62.i, i32 noundef 0) #8
   %cmp73.i = icmp slt i32 %call72.i, 0
-  %9 = load i64, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 24), align 8
+  %10 = load i64, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 24), align 8
   %sub77.i = add i64 %reass.add.i, -1
-  %add78.i = add i64 %sub77.i, %9
+  %add78.i = add i64 %sub77.i, %10
   %not.i = sub nsw i64 0, %.call62.i
   %and80.i = and i64 %add78.i, %not.i
-  %10 = load ptr, ptr @sh, align 8
-  %add.ptr81.i = getelementptr inbounds i8, ptr %10, i64 %and80.i
+  %11 = load ptr, ptr @sh, align 8
+  %add.ptr81.i = getelementptr inbounds i8, ptr %11, i64 %and80.i
   %call82.i = tail call i32 @mprotect(ptr noundef %add.ptr81.i, i64 noundef %.call62.i, i32 noundef 0) #8
   %cmp83.i = icmp slt i32 %call82.i, 0
-  %11 = select i1 %cmp83.i, i1 true, i1 %cmp73.i
-  %ret.1.i = select i1 %11, i32 2, i32 1
-  %12 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 16), align 8
-  %13 = load i64, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 24), align 8
-  %call86.i = tail call i64 (i64, ...) @syscall(i64 noundef 325, ptr noundef %12, i64 noundef %13, i32 noundef 1) #8
+  %12 = select i1 %cmp83.i, i1 true, i1 %cmp73.i
+  %ret.1.i = select i1 %12, i32 2, i32 1
+  %13 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 16), align 8
+  %14 = load i64, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 24), align 8
+  %call86.i = tail call i64 (i64, ...) @syscall(i64 noundef 325, ptr noundef %13, i64 noundef %14, i32 noundef 1) #8
   %cmp87.i = icmp slt i64 %call86.i, 0
   br i1 %cmp87.i, label %if.then88.i, label %sh_init.exit
 
 if.then88.i:                                      ; preds = %if.end71.i
   %call89.i = tail call ptr @__errno_location() #10
-  %14 = load i32, ptr %call89.i, align 4
-  %cmp90.i = icmp eq i32 %14, 38
+  %15 = load i32, ptr %call89.i, align 4
+  %cmp90.i = icmp eq i32 %15, 38
   br i1 %cmp90.i, label %if.then91.i, label %sh_init.exit
 
 if.then91.i:                                      ; preds = %if.then88.i
-  %15 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 16), align 8
-  %16 = load i64, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 24), align 8
-  %call92.i = tail call i32 @mlock(ptr noundef %15, i64 noundef %16) #8
+  %16 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 16), align 8
+  %17 = load i64, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 24), align 8
+  %call92.i = tail call i32 @mlock(ptr noundef %16, i64 noundef %17) #8
   %cmp93.i = icmp slt i32 %call92.i, 0
-  %spec.select26.i = select i1 %cmp93.i, i32 2, i32 %ret.1.i
+  %spec.select27.i = select i1 %cmp93.i, i32 2, i32 %ret.1.i
   br label %sh_init.exit
 
 err.i:                                            ; preds = %if.end61.err_crit_edge.i, %if.end26.i
-  %17 = phi ptr [ %.pre.i, %if.end61.err_crit_edge.i ], [ null, %if.end26.i ]
-  tail call void @CRYPTO_free(ptr noundef %17, ptr noundef nonnull @.str.1, i32 noundef 602) #8
-  %18 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 56), align 8
-  tail call void @CRYPTO_free(ptr noundef %18, ptr noundef nonnull @.str.1, i32 noundef 603) #8
-  %19 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 64), align 8
-  tail call void @CRYPTO_free(ptr noundef %19, ptr noundef nonnull @.str.1, i32 noundef 604) #8
-  %20 = load ptr, ptr @sh, align 8
-  %cmp.i.i = icmp ne ptr %20, inttoptr (i64 -1 to ptr)
-  %21 = load i64, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 8), align 8
-  %tobool.i.i = icmp ne i64 %21, 0
+  %18 = phi ptr [ %.pre.i, %if.end61.err_crit_edge.i ], [ null, %if.end26.i ]
+  tail call void @CRYPTO_free(ptr noundef %18, ptr noundef nonnull @.str.1, i32 noundef 602) #8
+  %19 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 56), align 8
+  tail call void @CRYPTO_free(ptr noundef %19, ptr noundef nonnull @.str.1, i32 noundef 603) #8
+  %20 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 64), align 8
+  tail call void @CRYPTO_free(ptr noundef %20, ptr noundef nonnull @.str.1, i32 noundef 604) #8
+  %21 = load ptr, ptr @sh, align 8
+  %cmp.i.i = icmp ne ptr %21, inttoptr (i64 -1 to ptr)
+  %22 = load i64, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 8), align 8
+  %tobool.i.i = icmp ne i64 %22, 0
   %or.cond.i.i = select i1 %cmp.i.i, i1 %tobool.i.i, i1 false
   br i1 %or.cond.i.i, label %if.then.i.i, label %sh_init.exit.thread
 
 if.then.i.i:                                      ; preds = %err.i
-  %call.i.i = tail call i32 @munmap(ptr noundef %20, i64 noundef %21) #8
+  %call.i.i = tail call i32 @munmap(ptr noundef %21, i64 noundef %22) #8
   br label %sh_init.exit.thread
 
 sh_init.exit.thread:                              ; preds = %err.i, %if.then.i.i
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) @sh, i8 0, i64 80, i1 false)
-  %22 = load ptr, ptr @sec_malloc_lock, align 8
-  tail call void @CRYPTO_THREAD_lock_free(ptr noundef %22) #8
+  %23 = load ptr, ptr @sec_malloc_lock, align 8
+  tail call void @CRYPTO_THREAD_lock_free(ptr noundef %23) #8
   store ptr null, ptr @sec_malloc_lock, align 8
   br label %return
 
 sh_init.exit:                                     ; preds = %if.end71.i, %if.then88.i, %if.then91.i
-  %ret.2.i = phi i32 [ %ret.1.i, %if.end71.i ], [ %spec.select26.i, %if.then91.i ], [ 2, %if.then88.i ]
-  %23 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 16), align 8
-  %24 = load i64, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 24), align 8
-  %call99.i = tail call i32 @madvise(ptr noundef %23, i64 noundef %24, i32 noundef 16) #8
+  %ret.2.i = phi i32 [ %ret.1.i, %if.end71.i ], [ %spec.select27.i, %if.then91.i ], [ 2, %if.then88.i ]
+  %24 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 16), align 8
+  %25 = load i64, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 24), align 8
+  %call99.i = tail call i32 @madvise(ptr noundef %24, i64 noundef %25, i32 noundef 16) #8
   %cmp100.i = icmp slt i32 %call99.i, 0
-  %spec.select27.i = select i1 %cmp100.i, i32 2, i32 %ret.2.i
+  %spec.select28.i = select i1 %cmp100.i, i32 2, i32 %ret.2.i
   store i1 true, ptr @secure_mem_initialized, align 4
   br label %return
 
 return:                                           ; preds = %entry, %sh_init.exit.thread, %sh_init.exit, %if.then
-  %retval.0 = phi i32 [ 0, %if.then ], [ 0, %entry ], [ %spec.select27.i, %sh_init.exit ], [ 0, %sh_init.exit.thread ]
+  %retval.0 = phi i32 [ 0, %if.then ], [ 0, %entry ], [ %spec.select28.i, %sh_init.exit ], [ 0, %sh_init.exit.thread ]
   ret i32 %retval.0
 }
 
@@ -1837,6 +1838,9 @@ cond.end31:                                       ; preds = %cond.end22
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.ctpop.i64(i64) #7
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.cttz.i64(i64, i1 immarg) #7
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

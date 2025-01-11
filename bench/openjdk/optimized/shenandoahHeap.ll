@@ -974,6 +974,8 @@ $_ZTV28ShenandoahObjectToOopClosureI30ShenandoahSTWUpdateRefsClosureE = comdat a
 @.str.10 = private unnamed_addr constant [43 x i8] c"Bitmap bytes per region should not be zero\00", align 1
 @.str.11 = private unnamed_addr constant [57 x i8] c"guarantee(is_power_of_2(bitmap_bytes_per_region)) failed\00", align 1
 @.str.12 = private unnamed_addr constant [52 x i8] c"Bitmap bytes per region should be power of two: %lu\00", align 1
+@.str.13 = private unnamed_addr constant [49 x i8] c"guarantee(_bitmap_regions_per_slice >= 1) failed\00", align 1
+@.str.14 = private unnamed_addr constant [47 x i8] c"Should have at least one region per slice: %lu\00", align 1
 @.str.15 = private unnamed_addr constant [70 x i8] c"guarantee(((_bitmap_bytes_per_slice) % bitmap_page_size) == 0) failed\00", align 1
 @.str.16 = private unnamed_addr constant [66 x i8] c"Bitmap slices should be page-granular: bps = %lu, page size = %lu\00", align 1
 @.str.17 = private unnamed_addr constant [12 x i8] c"Mark Bitmap\00", align 1
@@ -1419,520 +1421,537 @@ _Z13is_power_of_2ImTnNSt9enable_ifIXcvbsr3std11is_integralIT_EE5valueEiE4typeELi
 
 104:                                              ; preds = %100
   %105 = icmp ugt i64 %54, %97
-  br i1 %105, label %106, label %.thread
+  br i1 %105, label %108, label %.thread
 
-106:                                              ; preds = %104
-  %107 = udiv i64 %54, %97
-  br label %.thread
+.thread:                                          ; preds = %104
+  %106 = getelementptr inbounds nuw i8, ptr %0, i64 2392
+  store i64 1, ptr %106, align 8
+  %107 = getelementptr inbounds nuw i8, ptr %0, i64 2400
+  store i64 %97, ptr %107, align 8
+  br label %116
 
-.thread:                                          ; preds = %104, %106
-  %.sink176 = phi i64 [ %107, %106 ], [ 1, %104 ]
-  %.sink = phi i64 [ %54, %106 ], [ %97, %104 ]
-  %108 = getelementptr inbounds nuw i8, ptr %0, i64 2392
-  store i64 %.sink176, ptr %108, align 8
-  %109 = getelementptr inbounds nuw i8, ptr %0, i64 2400
-  store i64 %.sink, ptr %109, align 8
-  %110 = urem i64 %.sink, %54
-  %111 = icmp eq i64 %110, 0
-  br i1 %111, label %115, label %112
+108:                                              ; preds = %104
+  %109 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %97, i1 true)
+  %110 = lshr i64 %54, %109
+  %111 = getelementptr inbounds nuw i8, ptr %0, i64 2392
+  store i64 %110, ptr %111, align 8
+  %112 = getelementptr inbounds nuw i8, ptr %0, i64 2400
+  store i64 %54, ptr %112, align 8
+  %.not139 = icmp eq i64 %110, 0
+  br i1 %.not139, label %113, label %116
 
-112:                                              ; preds = %.thread
-  %113 = load ptr, ptr @g_assert_poison, align 8
-  store i8 88, ptr %113, align 1
-  %114 = load i64, ptr %109, align 8
-  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str.8, i32 noundef 248, ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.16, i64 noundef %114, i64 noundef %54) #27
+113:                                              ; preds = %108
+  %114 = load ptr, ptr @g_assert_poison, align 8
+  store i8 88, ptr %114, align 1
+  %115 = load i64, ptr %111, align 8
+  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str.8, i32 noundef 244, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.14, i64 noundef %115) #27
   unreachable
 
-115:                                              ; preds = %.thread
-  %116 = load i64, ptr %95, align 8
-  call void @_ZN13ReservedSpaceC1Emm(ptr noundef nonnull align 8 dereferenceable(49) %9, i64 noundef %116, i64 noundef %54) #26
-  %117 = load ptr, ptr %9, align 8
-  %118 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %119 = load i64, ptr %118, align 8
-  %120 = getelementptr inbounds nuw i8, ptr %9, i64 32
-  %121 = load i64, ptr %120, align 8
-  call void @_ZN2os35trace_page_sizes_for_requested_sizeEPKcmmS1_mm(ptr noundef nonnull @.str.17, i64 noundef %90, i64 noundef %54, ptr noundef %117, i64 noundef %119, i64 noundef %121) #26
-  %122 = load ptr, ptr %9, align 8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5)
-  %123 = load i32, ptr @_ZN10MemTracker15_tracking_levelE, align 4
-  %124 = icmp sgt i32 %123, 1
-  %125 = icmp ne ptr %122, null
-  %or.cond.i = and i1 %125, %124
-  br i1 %or.cond.i, label %126, label %_ZN10MemTracker26record_virtual_memory_typeEPv8MEMFLAGS.exit
+116:                                              ; preds = %.thread, %108
+  %117 = phi ptr [ %107, %.thread ], [ %112, %108 ]
+  %118 = phi ptr [ %106, %.thread ], [ %111, %108 ]
+  %119 = phi i64 [ %97, %.thread ], [ %54, %108 ]
+  %120 = urem i64 %119, %54
+  %121 = icmp eq i64 %120, 0
+  br i1 %121, label %125, label %122
 
-126:                                              ; preds = %115
+122:                                              ; preds = %116
+  %123 = load ptr, ptr @g_assert_poison, align 8
+  store i8 88, ptr %123, align 1
+  %124 = load i64, ptr %117, align 8
+  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str.8, i32 noundef 248, ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.16, i64 noundef %124, i64 noundef %54) #27
+  unreachable
+
+125:                                              ; preds = %116
+  %126 = load i64, ptr %95, align 8
+  call void @_ZN13ReservedSpaceC1Emm(ptr noundef nonnull align 8 dereferenceable(49) %9, i64 noundef %126, i64 noundef %54) #26
+  %127 = load ptr, ptr %9, align 8
+  %128 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %129 = load i64, ptr %128, align 8
+  %130 = getelementptr inbounds nuw i8, ptr %9, i64 32
+  %131 = load i64, ptr %130, align 8
+  call void @_ZN2os35trace_page_sizes_for_requested_sizeEPKcmmS1_mm(ptr noundef nonnull @.str.17, i64 noundef %90, i64 noundef %54, ptr noundef %127, i64 noundef %129, i64 noundef %131) #26
+  %132 = load ptr, ptr %9, align 8
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5)
+  %133 = load i32, ptr @_ZN10MemTracker15_tracking_levelE, align 4
+  %134 = icmp sgt i32 %133, 1
+  %135 = icmp ne ptr %132, null
+  %or.cond.i = and i1 %135, %134
+  br i1 %or.cond.i, label %136, label %_ZN10MemTracker26record_virtual_memory_typeEPv8MEMFLAGS.exit
+
+136:                                              ; preds = %125
   call void @_ZN14ThreadCriticalC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #26
-  call void @_ZN20VirtualMemoryTracker24set_reserved_region_typeEPh8MEMFLAGS(ptr noundef nonnull %122, i8 noundef zeroext 5) #26
+  call void @_ZN20VirtualMemoryTracker24set_reserved_region_typeEPh8MEMFLAGS(ptr noundef nonnull %132, i8 noundef zeroext 5) #26
   call void @_ZN14ThreadCriticalD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #26
   %.pre170 = load ptr, ptr %9, align 8
   br label %_ZN10MemTracker26record_virtual_memory_typeEPv8MEMFLAGS.exit
 
-_ZN10MemTracker26record_virtual_memory_typeEPv8MEMFLAGS.exit: ; preds = %115, %126
-  %127 = phi ptr [ %122, %115 ], [ %.pre170, %126 ]
+_ZN10MemTracker26record_virtual_memory_typeEPv8MEMFLAGS.exit: ; preds = %125, %136
+  %137 = phi ptr [ %132, %125 ], [ %.pre170, %136 ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5)
-  %128 = load i64, ptr %118, align 8
-  %129 = lshr i64 %128, 3
-  %130 = getelementptr inbounds nuw i8, ptr %0, i64 2256
-  store ptr %127, ptr %130, align 8
+  %138 = load i64, ptr %128, align 8
+  %139 = lshr i64 %138, 3
+  %140 = getelementptr inbounds nuw i8, ptr %0, i64 2256
+  store ptr %137, ptr %140, align 8
   %.sroa.2155.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 2264
-  store i64 %129, ptr %.sroa.2155.0..sroa_idx, align 8
-  %131 = getelementptr inbounds nuw i8, ptr %9, i64 40
-  %132 = load i8, ptr %131, align 8
-  %133 = trunc i8 %132 to i1
-  %134 = getelementptr inbounds nuw i8, ptr %0, i64 2424
-  %135 = and i8 %132, 1
-  store i8 %135, ptr %134, align 8
-  br i1 %133, label %147, label %136
+  store i64 %139, ptr %.sroa.2155.0..sroa_idx, align 8
+  %141 = getelementptr inbounds nuw i8, ptr %9, i64 40
+  %142 = load i8, ptr %141, align 8
+  %143 = trunc i8 %142 to i1
+  %144 = getelementptr inbounds nuw i8, ptr %0, i64 2424
+  %145 = and i8 %142, 1
+  store i8 %145, ptr %144, align 8
+  br i1 %143, label %157, label %146
 
-136:                                              ; preds = %_ZN10MemTracker26record_virtual_memory_typeEPv8MEMFLAGS.exit
-  %137 = load i64, ptr %95, align 8
-  %138 = load i64, ptr %109, align 8
-  %139 = add i64 %28, -1
-  %140 = load i64, ptr %108, align 8
-  %141 = add i64 %139, %140
-  %142 = sub i64 0, %140
-  %143 = and i64 %141, %142
-  %144 = mul i64 %143, %138
-  %145 = udiv i64 %144, %140
-  %146 = call noundef i64 @llvm.umin.i64(i64 %137, i64 %145)
-  call void @_ZN2os21commit_memory_or_exitEPcmmbPKc(ptr noundef %127, i64 noundef %146, i64 noundef %54, i1 noundef zeroext false, ptr noundef nonnull @.str.18) #26
-  br label %147
+146:                                              ; preds = %_ZN10MemTracker26record_virtual_memory_typeEPv8MEMFLAGS.exit
+  %147 = load i64, ptr %95, align 8
+  %148 = load i64, ptr %117, align 8
+  %149 = add i64 %28, -1
+  %150 = load i64, ptr %118, align 8
+  %151 = add i64 %149, %150
+  %152 = sub i64 0, %150
+  %153 = and i64 %151, %152
+  %154 = mul i64 %153, %148
+  %155 = udiv i64 %154, %150
+  %156 = call noundef i64 @llvm.umin.i64(i64 %147, i64 %155)
+  call void @_ZN2os21commit_memory_or_exitEPcmmbPKc(ptr noundef %137, i64 noundef %156, i64 noundef %54, i1 noundef zeroext false, ptr noundef nonnull @.str.18) #26
+  br label %157
 
-147:                                              ; preds = %136, %_ZN10MemTracker26record_virtual_memory_typeEPv8MEMFLAGS.exit
-  %148 = call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 208, i8 noundef zeroext 5, i32 noundef 0) #26
+157:                                              ; preds = %146, %_ZN10MemTracker26record_virtual_memory_typeEPv8MEMFLAGS.exit
+  %158 = call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 208, i8 noundef zeroext 5, i32 noundef 0) #26
   %.sroa.048.0.copyload = load ptr, ptr %66, align 8
   %.sroa.249.0.copyload = load i64, ptr %.sroa.2157.0..sroa_idx, align 8
-  %.sroa.046.0.copyload = load ptr, ptr %130, align 8
+  %.sroa.046.0.copyload = load ptr, ptr %140, align 8
   %.sroa.247.0.copyload = load i64, ptr %.sroa.2155.0..sroa_idx, align 8
-  %149 = load i64, ptr %25, align 8
-  %150 = getelementptr inbounds nuw i8, ptr %0, i64 496
-  %151 = load i32, ptr %150, align 8
-  call void @_ZN24ShenandoahMarkingContextC1E9MemRegionS0_mj(ptr noundef nonnull align 8 dereferenceable(208) %148, ptr %.sroa.048.0.copyload, i64 %.sroa.249.0.copyload, ptr %.sroa.046.0.copyload, i64 %.sroa.247.0.copyload, i64 noundef %149, i32 noundef %151) #26
-  %152 = getelementptr inbounds nuw i8, ptr %0, i64 2248
-  store ptr %148, ptr %152, align 8
-  %153 = load i8, ptr @ShenandoahVerify, align 1
-  %154 = trunc i8 %153 to i1
-  br i1 %154, label %155, label %181
-
-155:                                              ; preds = %147
-  %156 = load i64, ptr %95, align 8
-  call void @_ZN13ReservedSpaceC1Emm(ptr noundef nonnull align 8 dereferenceable(49) %10, i64 noundef %156, i64 noundef %54) #26
-  %157 = load ptr, ptr %10, align 8
-  %158 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %159 = load i64, ptr %158, align 8
-  %160 = getelementptr inbounds nuw i8, ptr %10, i64 32
-  %161 = load i64, ptr %160, align 8
-  call void @_ZN2os35trace_page_sizes_for_requested_sizeEPKcmmS1_mm(ptr noundef nonnull @.str.19, i64 noundef %90, i64 noundef %54, ptr noundef %157, i64 noundef %159, i64 noundef %161) #26
-  %162 = getelementptr inbounds nuw i8, ptr %10, i64 40
-  %163 = load i8, ptr %162, align 8
+  %159 = load i64, ptr %25, align 8
+  %160 = getelementptr inbounds nuw i8, ptr %0, i64 496
+  %161 = load i32, ptr %160, align 8
+  call void @_ZN24ShenandoahMarkingContextC1E9MemRegionS0_mj(ptr noundef nonnull align 8 dereferenceable(208) %158, ptr %.sroa.048.0.copyload, i64 %.sroa.249.0.copyload, ptr %.sroa.046.0.copyload, i64 %.sroa.247.0.copyload, i64 noundef %159, i32 noundef %161) #26
+  %162 = getelementptr inbounds nuw i8, ptr %0, i64 2248
+  store ptr %158, ptr %162, align 8
+  %163 = load i8, ptr @ShenandoahVerify, align 1
   %164 = trunc i8 %163 to i1
-  br i1 %164, label %168, label %165
+  br i1 %164, label %165, label %191
 
-165:                                              ; preds = %155
-  %166 = load ptr, ptr %10, align 8
-  %167 = load i64, ptr %158, align 8
-  call void @_ZN2os21commit_memory_or_exitEPcmmbPKc(ptr noundef %166, i64 noundef %167, i64 noundef %54, i1 noundef zeroext false, ptr noundef nonnull @.str.20) #26
-  br label %168
+165:                                              ; preds = %157
+  %166 = load i64, ptr %95, align 8
+  call void @_ZN13ReservedSpaceC1Emm(ptr noundef nonnull align 8 dereferenceable(49) %10, i64 noundef %166, i64 noundef %54) #26
+  %167 = load ptr, ptr %10, align 8
+  %168 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  %169 = load i64, ptr %168, align 8
+  %170 = getelementptr inbounds nuw i8, ptr %10, i64 32
+  %171 = load i64, ptr %170, align 8
+  call void @_ZN2os35trace_page_sizes_for_requested_sizeEPKcmmS1_mm(ptr noundef nonnull @.str.19, i64 noundef %90, i64 noundef %54, ptr noundef %167, i64 noundef %169, i64 noundef %171) #26
+  %172 = getelementptr inbounds nuw i8, ptr %10, i64 40
+  %173 = load i8, ptr %172, align 8
+  %174 = trunc i8 %173 to i1
+  br i1 %174, label %178, label %175
 
-168:                                              ; preds = %165, %155
-  %169 = load ptr, ptr %10, align 8
+175:                                              ; preds = %165
+  %176 = load ptr, ptr %10, align 8
+  %177 = load i64, ptr %168, align 8
+  call void @_ZN2os21commit_memory_or_exitEPcmmbPKc(ptr noundef %176, i64 noundef %177, i64 noundef %54, i1 noundef zeroext false, ptr noundef nonnull @.str.20) #26
+  br label %178
+
+178:                                              ; preds = %175, %165
+  %179 = load ptr, ptr %10, align 8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
-  %170 = load i32, ptr @_ZN10MemTracker15_tracking_levelE, align 4
-  %171 = icmp sgt i32 %170, 1
-  %172 = icmp ne ptr %169, null
-  %or.cond.i140 = and i1 %172, %171
-  br i1 %or.cond.i140, label %173, label %_ZN10MemTracker26record_virtual_memory_typeEPv8MEMFLAGS.exit141
+  %180 = load i32, ptr @_ZN10MemTracker15_tracking_levelE, align 4
+  %181 = icmp sgt i32 %180, 1
+  %182 = icmp ne ptr %179, null
+  %or.cond.i140 = and i1 %182, %181
+  br i1 %or.cond.i140, label %183, label %_ZN10MemTracker26record_virtual_memory_typeEPv8MEMFLAGS.exit141
 
-173:                                              ; preds = %168
+183:                                              ; preds = %178
   call void @_ZN14ThreadCriticalC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #26
-  call void @_ZN20VirtualMemoryTracker24set_reserved_region_typeEPh8MEMFLAGS(ptr noundef nonnull %169, i8 noundef zeroext 5) #26
+  call void @_ZN20VirtualMemoryTracker24set_reserved_region_typeEPh8MEMFLAGS(ptr noundef nonnull %179, i8 noundef zeroext 5) #26
   call void @_ZN14ThreadCriticalD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #26
   %.pre171 = load ptr, ptr %10, align 8
   br label %_ZN10MemTracker26record_virtual_memory_typeEPv8MEMFLAGS.exit141
 
-_ZN10MemTracker26record_virtual_memory_typeEPv8MEMFLAGS.exit141: ; preds = %168, %173
-  %174 = phi ptr [ %169, %168 ], [ %.pre171, %173 ]
+_ZN10MemTracker26record_virtual_memory_typeEPv8MEMFLAGS.exit141: ; preds = %178, %183
+  %184 = phi ptr [ %179, %178 ], [ %.pre171, %183 ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
-  %175 = load i64, ptr %158, align 8
-  %176 = lshr i64 %175, 3
-  %177 = getelementptr inbounds nuw i8, ptr %0, i64 2288
+  %185 = load i64, ptr %168, align 8
+  %186 = lshr i64 %185, 3
+  %187 = getelementptr inbounds nuw i8, ptr %0, i64 2288
   %.sroa.044.0.copyload = load ptr, ptr %66, align 8
   %.sroa.245.0.copyload = load i64, ptr %.sroa.2157.0..sroa_idx, align 8
-  call void @_ZN10MarkBitMap10initializeE9MemRegionS0_(ptr noundef nonnull align 8 dereferenceable(48) %177, ptr %.sroa.044.0.copyload, i64 %.sroa.245.0.copyload, ptr %174, i64 %176) #26
-  %178 = call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 16, i8 noundef zeroext 5, i32 noundef 0) #26
-  store ptr %0, ptr %178, align 8
-  %179 = getelementptr inbounds nuw i8, ptr %178, i64 8
-  store ptr %177, ptr %179, align 8
-  %180 = getelementptr inbounds nuw i8, ptr %0, i64 1672
-  store ptr %178, ptr %180, align 8
-  br label %181
+  call void @_ZN10MarkBitMap10initializeE9MemRegionS0_(ptr noundef nonnull align 8 dereferenceable(48) %187, ptr %.sroa.044.0.copyload, i64 %.sroa.245.0.copyload, ptr %184, i64 %186) #26
+  %188 = call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 16, i8 noundef zeroext 5, i32 noundef 0) #26
+  store ptr %0, ptr %188, align 8
+  %189 = getelementptr inbounds nuw i8, ptr %188, i64 8
+  store ptr %187, ptr %189, align 8
+  %190 = getelementptr inbounds nuw i8, ptr %0, i64 1672
+  store ptr %188, ptr %190, align 8
+  br label %191
 
-181:                                              ; preds = %_ZN10MemTracker26record_virtual_memory_typeEPv8MEMFLAGS.exit141, %147
-  %182 = load i8, ptr @UseTransparentHugePages, align 1
-  %183 = trunc i8 %182 to i1
-  %184 = load i64, ptr @_ZN6OSInfo13_vm_page_sizeE, align 8
-  %spec.select = select i1 %183, i64 %184, i64 %54
-  %185 = load i64, ptr %95, align 8
-  call void @_ZN13ReservedSpaceC1Emm(ptr noundef nonnull align 8 dereferenceable(49) %11, i64 noundef %185, i64 noundef %spec.select) #26
-  %186 = load ptr, ptr %11, align 8
-  %187 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  %188 = load i64, ptr %187, align 8
-  %189 = getelementptr inbounds nuw i8, ptr %11, i64 32
-  %190 = load i64, ptr %189, align 8
-  call void @_ZN2os35trace_page_sizes_for_requested_sizeEPKcmmS1_mm(ptr noundef nonnull @.str.21, i64 noundef %90, i64 noundef %spec.select, ptr noundef %186, i64 noundef %188, i64 noundef %190) #26
-  %191 = load ptr, ptr %11, align 8
+191:                                              ; preds = %_ZN10MemTracker26record_virtual_memory_typeEPv8MEMFLAGS.exit141, %157
+  %192 = load i8, ptr @UseTransparentHugePages, align 1
+  %193 = trunc i8 %192 to i1
+  %194 = load i64, ptr @_ZN6OSInfo13_vm_page_sizeE, align 8
+  %spec.select = select i1 %193, i64 %194, i64 %54
+  %195 = load i64, ptr %95, align 8
+  call void @_ZN13ReservedSpaceC1Emm(ptr noundef nonnull align 8 dereferenceable(49) %11, i64 noundef %195, i64 noundef %spec.select) #26
+  %196 = load ptr, ptr %11, align 8
+  %197 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  %198 = load i64, ptr %197, align 8
+  %199 = getelementptr inbounds nuw i8, ptr %11, i64 32
+  %200 = load i64, ptr %199, align 8
+  call void @_ZN2os35trace_page_sizes_for_requested_sizeEPKcmmS1_mm(ptr noundef nonnull @.str.21, i64 noundef %90, i64 noundef %spec.select, ptr noundef %196, i64 noundef %198, i64 noundef %200) #26
+  %201 = load ptr, ptr %11, align 8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3)
-  %192 = load i32, ptr @_ZN10MemTracker15_tracking_levelE, align 4
-  %193 = icmp sgt i32 %192, 1
-  %194 = icmp ne ptr %191, null
-  %or.cond.i142 = and i1 %194, %193
-  br i1 %or.cond.i142, label %195, label %_ZN10MemTracker26record_virtual_memory_typeEPv8MEMFLAGS.exit143
+  %202 = load i32, ptr @_ZN10MemTracker15_tracking_levelE, align 4
+  %203 = icmp sgt i32 %202, 1
+  %204 = icmp ne ptr %201, null
+  %or.cond.i142 = and i1 %204, %203
+  br i1 %or.cond.i142, label %205, label %_ZN10MemTracker26record_virtual_memory_typeEPv8MEMFLAGS.exit143
 
-195:                                              ; preds = %181
+205:                                              ; preds = %191
   call void @_ZN14ThreadCriticalC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #26
-  call void @_ZN20VirtualMemoryTracker24set_reserved_region_typeEPh8MEMFLAGS(ptr noundef nonnull %191, i8 noundef zeroext 5) #26
+  call void @_ZN20VirtualMemoryTracker24set_reserved_region_typeEPh8MEMFLAGS(ptr noundef nonnull %201, i8 noundef zeroext 5) #26
   call void @_ZN14ThreadCriticalD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #26
   %.pre172 = load ptr, ptr %11, align 8
   br label %_ZN10MemTracker26record_virtual_memory_typeEPv8MEMFLAGS.exit143
 
-_ZN10MemTracker26record_virtual_memory_typeEPv8MEMFLAGS.exit143: ; preds = %181, %195
-  %196 = phi ptr [ %191, %181 ], [ %.pre172, %195 ]
+_ZN10MemTracker26record_virtual_memory_typeEPv8MEMFLAGS.exit143: ; preds = %191, %205
+  %206 = phi ptr [ %201, %191 ], [ %.pre172, %205 ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3)
-  %197 = load i64, ptr %187, align 8
-  %198 = lshr i64 %197, 3
-  %199 = getelementptr inbounds nuw i8, ptr %0, i64 2272
-  store ptr %196, ptr %199, align 8
+  %207 = load i64, ptr %197, align 8
+  %208 = lshr i64 %207, 3
+  %209 = getelementptr inbounds nuw i8, ptr %0, i64 2272
+  store ptr %206, ptr %209, align 8
   %.sroa.2.0..sroa_idx150 = getelementptr inbounds nuw i8, ptr %0, i64 2280
-  store i64 %198, ptr %.sroa.2.0..sroa_idx150, align 8
-  %200 = getelementptr inbounds nuw i8, ptr %11, i64 40
-  %201 = load i8, ptr %200, align 8
-  %202 = getelementptr inbounds nuw i8, ptr %0, i64 2425
-  %203 = and i8 %201, 1
-  store i8 %203, ptr %202, align 1
-  %204 = getelementptr inbounds nuw i8, ptr %0, i64 2336
+  store i64 %208, ptr %.sroa.2.0..sroa_idx150, align 8
+  %210 = getelementptr inbounds nuw i8, ptr %11, i64 40
+  %211 = load i8, ptr %210, align 8
+  %212 = getelementptr inbounds nuw i8, ptr %0, i64 2425
+  %213 = and i8 %211, 1
+  store i8 %213, ptr %212, align 1
+  %214 = getelementptr inbounds nuw i8, ptr %0, i64 2336
   %.sroa.038.0.copyload = load ptr, ptr %66, align 8
   %.sroa.239.0.copyload = load i64, ptr %.sroa.2157.0..sroa_idx, align 8
-  call void @_ZN10MarkBitMap10initializeE9MemRegionS0_(ptr noundef nonnull align 8 dereferenceable(48) %204, ptr %.sroa.038.0.copyload, i64 %.sroa.239.0.copyload, ptr %196, i64 %198) #26
-  %205 = load i64, ptr %25, align 8
-  %206 = shl i64 %205, 7
-  %207 = load i64, ptr @_ZN6OSInfo26_vm_allocation_granularityE, align 8
-  %208 = call noundef i64 @llvm.umax.i64(i64 %61, i64 %207)
-  %209 = add i64 %206, -1
-  %210 = add i64 %209, %208
-  %211 = sub i64 0, %208
-  %212 = and i64 %210, %211
-  call void @_ZN13ReservedSpaceC1Emm(ptr noundef nonnull align 8 dereferenceable(49) %12, i64 noundef %212, i64 noundef %61) #26
-  %213 = load ptr, ptr %12, align 8
-  %214 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  %215 = load i64, ptr %214, align 8
-  %216 = getelementptr inbounds nuw i8, ptr %12, i64 32
-  %217 = load i64, ptr %216, align 8
-  call void @_ZN2os35trace_page_sizes_for_requested_sizeEPKcmmS1_mm(ptr noundef nonnull @.str.22, i64 noundef %206, i64 noundef %61, ptr noundef %213, i64 noundef %215, i64 noundef %217) #26
-  %218 = load ptr, ptr %12, align 8
+  call void @_ZN10MarkBitMap10initializeE9MemRegionS0_(ptr noundef nonnull align 8 dereferenceable(48) %214, ptr %.sroa.038.0.copyload, i64 %.sroa.239.0.copyload, ptr %206, i64 %208) #26
+  %215 = load i64, ptr %25, align 8
+  %216 = shl i64 %215, 7
+  %217 = load i64, ptr @_ZN6OSInfo26_vm_allocation_granularityE, align 8
+  %218 = call noundef i64 @llvm.umax.i64(i64 %61, i64 %217)
+  %219 = add i64 %216, -1
+  %220 = add i64 %219, %218
+  %221 = sub i64 0, %218
+  %222 = and i64 %220, %221
+  call void @_ZN13ReservedSpaceC1Emm(ptr noundef nonnull align 8 dereferenceable(49) %12, i64 noundef %222, i64 noundef %61) #26
+  %223 = load ptr, ptr %12, align 8
+  %224 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  %225 = load i64, ptr %224, align 8
+  %226 = getelementptr inbounds nuw i8, ptr %12, i64 32
+  %227 = load i64, ptr %226, align 8
+  call void @_ZN2os35trace_page_sizes_for_requested_sizeEPKcmmS1_mm(ptr noundef nonnull @.str.22, i64 noundef %216, i64 noundef %61, ptr noundef %223, i64 noundef %225, i64 noundef %227) #26
+  %228 = load ptr, ptr %12, align 8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2)
-  %219 = load i32, ptr @_ZN10MemTracker15_tracking_levelE, align 4
-  %220 = icmp sgt i32 %219, 1
-  %221 = icmp ne ptr %218, null
-  %or.cond.i144 = and i1 %221, %220
-  br i1 %or.cond.i144, label %222, label %_ZN10MemTracker26record_virtual_memory_typeEPv8MEMFLAGS.exit145
+  %229 = load i32, ptr @_ZN10MemTracker15_tracking_levelE, align 4
+  %230 = icmp sgt i32 %229, 1
+  %231 = icmp ne ptr %228, null
+  %or.cond.i144 = and i1 %231, %230
+  br i1 %or.cond.i144, label %232, label %_ZN10MemTracker26record_virtual_memory_typeEPv8MEMFLAGS.exit145
 
-222:                                              ; preds = %_ZN10MemTracker26record_virtual_memory_typeEPv8MEMFLAGS.exit143
+232:                                              ; preds = %_ZN10MemTracker26record_virtual_memory_typeEPv8MEMFLAGS.exit143
   call void @_ZN14ThreadCriticalC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #26
-  call void @_ZN20VirtualMemoryTracker24set_reserved_region_typeEPh8MEMFLAGS(ptr noundef nonnull %218, i8 noundef zeroext 5) #26
+  call void @_ZN20VirtualMemoryTracker24set_reserved_region_typeEPh8MEMFLAGS(ptr noundef nonnull %228, i8 noundef zeroext 5) #26
   call void @_ZN14ThreadCriticalD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #26
   br label %_ZN10MemTracker26record_virtual_memory_typeEPv8MEMFLAGS.exit145
 
-_ZN10MemTracker26record_virtual_memory_typeEPv8MEMFLAGS.exit145: ; preds = %_ZN10MemTracker26record_virtual_memory_typeEPv8MEMFLAGS.exit143, %222
+_ZN10MemTracker26record_virtual_memory_typeEPv8MEMFLAGS.exit145: ; preds = %_ZN10MemTracker26record_virtual_memory_typeEPv8MEMFLAGS.exit143, %232
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2)
-  %223 = getelementptr inbounds nuw i8, ptr %12, i64 40
-  %224 = load i8, ptr %223, align 8
-  %225 = trunc i8 %224 to i1
-  br i1 %225, label %228, label %226
+  %233 = getelementptr inbounds nuw i8, ptr %12, i64 40
+  %234 = load i8, ptr %233, align 8
+  %235 = trunc i8 %234 to i1
+  br i1 %235, label %238, label %236
 
-226:                                              ; preds = %_ZN10MemTracker26record_virtual_memory_typeEPv8MEMFLAGS.exit145
-  %227 = load ptr, ptr %12, align 8
-  call void @_ZN2os21commit_memory_or_exitEPcmmbPKc(ptr noundef %227, i64 noundef %212, i64 noundef %61, i1 noundef zeroext false, ptr noundef nonnull @.str.23) #26
-  br label %228
+236:                                              ; preds = %_ZN10MemTracker26record_virtual_memory_typeEPv8MEMFLAGS.exit145
+  %237 = load ptr, ptr %12, align 8
+  call void @_ZN2os21commit_memory_or_exitEPcmmbPKc(ptr noundef %237, i64 noundef %222, i64 noundef %61, i1 noundef zeroext false, ptr noundef nonnull @.str.23) #26
+  br label %238
 
-228:                                              ; preds = %226, %_ZN10MemTracker26record_virtual_memory_typeEPv8MEMFLAGS.exit145
-  %229 = load i64, ptr @_ZN6OSInfo13_vm_page_sizeE, align 8
-  %230 = load i64, ptr @_ZN6OSInfo26_vm_allocation_granularityE, align 8
-  %231 = call noundef i64 @llvm.umax.i64(i64 %229, i64 %230)
-  %232 = load ptr, ptr %8, align 8
-  %233 = ptrtoint ptr %232 to i64
-  %234 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %235 = load i64, ptr %234, align 8
-  %236 = add i64 %235, %233
-  %237 = load i64, ptr @_ZN20ShenandoahHeapRegion20RegionSizeBytesShiftE, align 8
-  %238 = lshr i64 %236, %237
-  %239 = add i64 %231, -1
-  %240 = add i64 %239, %238
-  %241 = sub i64 0, %231
-  %242 = and i64 %240, %241
-  %243 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %231)
-  %or.cond.i146 = icmp eq i64 %243, 1
-  %244 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %231, i1 true)
-  %245 = sub nuw nsw i64 64, %244
-  %246 = shl nuw i64 1, %245
-  %.0.i = select i1 %or.cond.i146, i64 %231, i64 %246
+238:                                              ; preds = %236, %_ZN10MemTracker26record_virtual_memory_typeEPv8MEMFLAGS.exit145
+  %239 = load i64, ptr @_ZN6OSInfo13_vm_page_sizeE, align 8
+  %240 = load i64, ptr @_ZN6OSInfo26_vm_allocation_granularityE, align 8
+  %241 = call noundef i64 @llvm.umax.i64(i64 %239, i64 %240)
+  %242 = load ptr, ptr %8, align 8
+  %243 = ptrtoint ptr %242 to i64
+  %244 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %245 = load i64, ptr %244, align 8
+  %246 = add i64 %245, %243
+  %247 = load i64, ptr @_ZN20ShenandoahHeapRegion20RegionSizeBytesShiftE, align 8
+  %248 = lshr i64 %246, %247
+  %249 = add i64 %241, -1
+  %250 = add i64 %249, %248
+  %251 = sub i64 0, %241
+  %252 = and i64 %250, %251
+  %253 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %241)
+  %or.cond.i146 = icmp eq i64 %253, 1
+  %254 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %241, i1 true)
+  %255 = sub nuw nsw i64 64, %254
+  %256 = shl nuw i64 1, %255
+  %.0.i = select i1 %or.cond.i146, i64 %241, i64 %256
   call void @_ZN13ReservedSpaceC1Ev(ptr noundef nonnull align 8 dereferenceable(49) %13) #26
-  %247 = icmp ult i64 %.0.i, 1073741825
-  br i1 %247, label %.lr.ph, label %.loopexit
+  %257 = icmp ult i64 %.0.i, 1073741825
+  br i1 %257, label %.lr.ph, label %.loopexit
 
-248:                                              ; preds = %.lr.ph
-  %249 = shl nuw nsw i64 %.0134160, 1
-  %250 = icmp samesign ult i64 %.0134160, 536870913
-  br i1 %250, label %.lr.ph, label %.loopexit, !llvm.loop !9
+258:                                              ; preds = %.lr.ph
+  %259 = shl nuw nsw i64 %.0134160, 1
+  %260 = icmp samesign ult i64 %.0134160, 536870913
+  br i1 %260, label %.lr.ph, label %.loopexit, !llvm.loop !9
 
-.lr.ph:                                           ; preds = %228, %248
-  %.0134160 = phi i64 [ %249, %248 ], [ %.0.i, %228 ]
-  %251 = inttoptr i64 %.0134160 to ptr
-  call void @_ZN13ReservedSpaceC1EmmmPc(ptr noundef nonnull align 8 dereferenceable(49) %14, i64 noundef %242, i64 noundef %231, i64 noundef %229, ptr noundef %251) #26
+.lr.ph:                                           ; preds = %238, %258
+  %.0134160 = phi i64 [ %259, %258 ], [ %.0.i, %238 ]
+  %261 = inttoptr i64 %.0134160 to ptr
+  call void @_ZN13ReservedSpaceC1EmmmPc(ptr noundef nonnull align 8 dereferenceable(49) %14, i64 noundef %252, i64 noundef %241, i64 noundef %239, ptr noundef %261) #26
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(49) %13, ptr noundef nonnull align 8 dereferenceable(49) %14, i64 49, i1 false)
-  %252 = load ptr, ptr %13, align 8
-  %.not159 = icmp eq ptr %252, null
-  br i1 %.not159, label %248, label %253
+  %262 = load ptr, ptr %13, align 8
+  %.not159 = icmp eq ptr %262, null
+  br i1 %.not159, label %258, label %263
 
-253:                                              ; preds = %.lr.ph
-  %254 = call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 256, i8 noundef zeroext 5, i32 noundef 0) #26
-  %255 = load ptr, ptr %8, align 8
-  call void @_ZN23ShenandoahCollectionSetC1EP14ShenandoahHeap13ReservedSpacePc(ptr noundef nonnull align 8 dereferenceable(256) %254, ptr noundef nonnull %0, ptr noundef nonnull byval(%class.ReservedSpace) align 8 %13, ptr noundef %255) #26
-  %256 = getelementptr inbounds nuw i8, ptr %0, i64 2440
-  store ptr %254, ptr %256, align 8
+263:                                              ; preds = %.lr.ph
+  %264 = call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 256, i8 noundef zeroext 5, i32 noundef 0) #26
+  %265 = load ptr, ptr %8, align 8
+  call void @_ZN23ShenandoahCollectionSetC1EP14ShenandoahHeap13ReservedSpacePc(ptr noundef nonnull align 8 dereferenceable(256) %264, ptr noundef nonnull %0, ptr noundef nonnull byval(%class.ReservedSpace) align 8 %13, ptr noundef %265) #26
+  %266 = getelementptr inbounds nuw i8, ptr %0, i64 2440
+  store ptr %264, ptr %266, align 8
   br label %.loopexit
 
-.loopexit:                                        ; preds = %248, %228, %253
-  %257 = getelementptr inbounds nuw i8, ptr %0, i64 2440
-  %258 = load ptr, ptr %257, align 8
-  %259 = icmp eq ptr %258, null
-  br i1 %259, label %260, label %264
+.loopexit:                                        ; preds = %258, %238, %263
+  %267 = getelementptr inbounds nuw i8, ptr %0, i64 2440
+  %268 = load ptr, ptr %267, align 8
+  %269 = icmp eq ptr %268, null
+  br i1 %269, label %270, label %274
 
-260:                                              ; preds = %.loopexit
-  %261 = load i64, ptr @_ZN6OSInfo13_vm_page_sizeE, align 8
-  call void @_ZN13ReservedSpaceC1EmmmPc(ptr noundef nonnull align 8 dereferenceable(49) %15, i64 noundef %242, i64 noundef %231, i64 noundef %261, ptr noundef null) #26
+270:                                              ; preds = %.loopexit
+  %271 = load i64, ptr @_ZN6OSInfo13_vm_page_sizeE, align 8
+  call void @_ZN13ReservedSpaceC1EmmmPc(ptr noundef nonnull align 8 dereferenceable(49) %15, i64 noundef %252, i64 noundef %241, i64 noundef %271, ptr noundef null) #26
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(49) %13, ptr noundef nonnull align 8 dereferenceable(49) %15, i64 49, i1 false)
-  %262 = call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 256, i8 noundef zeroext 5, i32 noundef 0) #26
-  %263 = load ptr, ptr %8, align 8
-  call void @_ZN23ShenandoahCollectionSetC1EP14ShenandoahHeap13ReservedSpacePc(ptr noundef nonnull align 8 dereferenceable(256) %262, ptr noundef nonnull %0, ptr noundef nonnull byval(%class.ReservedSpace) align 8 %13, ptr noundef %263) #26
-  store ptr %262, ptr %257, align 8
-  br label %264
+  %272 = call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 256, i8 noundef zeroext 5, i32 noundef 0) #26
+  %273 = load ptr, ptr %8, align 8
+  call void @_ZN23ShenandoahCollectionSetC1EP14ShenandoahHeap13ReservedSpacePc(ptr noundef nonnull align 8 dereferenceable(256) %272, ptr noundef nonnull %0, ptr noundef nonnull byval(%class.ReservedSpace) align 8 %13, ptr noundef %273) #26
+  store ptr %272, ptr %267, align 8
+  br label %274
 
-264:                                              ; preds = %260, %.loopexit
-  %265 = load ptr, ptr %13, align 8
-  %266 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %267 = load i64, ptr %266, align 8
-  %268 = getelementptr inbounds nuw i8, ptr %13, i64 32
-  %269 = load i64, ptr %268, align 8
-  call void @_ZN2os35trace_page_sizes_for_requested_sizeEPKcmmS1_mm(ptr noundef nonnull @.str.24, i64 noundef %242, i64 noundef %229, ptr noundef %265, i64 noundef %267, i64 noundef %269) #26
-  %270 = load i64, ptr %25, align 8
-  %271 = shl i64 %270, 3
-  %272 = call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef %271, i8 noundef zeroext 5, i32 noundef 0) #26
-  %273 = getelementptr inbounds nuw i8, ptr %0, i64 552
-  store ptr %272, ptr %273, align 8
-  %274 = call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 224, i8 noundef zeroext 5, i32 noundef 0) #26
-  %275 = load i64, ptr %25, align 8
-  call void @_ZN17ShenandoahFreeSetC1EP14ShenandoahHeapm(ptr noundef nonnull align 8 dereferenceable(224) %274, ptr noundef nonnull %0, i64 noundef %275) #26
-  %276 = getelementptr inbounds nuw i8, ptr %0, i64 1656
-  store ptr %274, ptr %276, align 8
-  %277 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %278 = call noundef i32 asm sideeffect "lock cmpxchgl $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 1, i32 0, ptr nonnull %277) #26, !srcloc !11
-  %.not.i.i = icmp eq i32 %278, 0
-  br i1 %.not.i.i, label %_ZN16ShenandoahLockerC2EP14ShenandoahLockb.exit, label %279
+274:                                              ; preds = %270, %.loopexit
+  %275 = load ptr, ptr %13, align 8
+  %276 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  %277 = load i64, ptr %276, align 8
+  %278 = getelementptr inbounds nuw i8, ptr %13, i64 32
+  %279 = load i64, ptr %278, align 8
+  call void @_ZN2os35trace_page_sizes_for_requested_sizeEPKcmmS1_mm(ptr noundef nonnull @.str.24, i64 noundef %252, i64 noundef %239, ptr noundef %275, i64 noundef %277, i64 noundef %279) #26
+  %280 = load i64, ptr %25, align 8
+  %281 = shl i64 %280, 3
+  %282 = call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef %281, i8 noundef zeroext 5, i32 noundef 0) #26
+  %283 = getelementptr inbounds nuw i8, ptr %0, i64 552
+  store ptr %282, ptr %283, align 8
+  %284 = call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 224, i8 noundef zeroext 5, i32 noundef 0) #26
+  %285 = load i64, ptr %25, align 8
+  call void @_ZN17ShenandoahFreeSetC1EP14ShenandoahHeapm(ptr noundef nonnull align 8 dereferenceable(224) %284, ptr noundef nonnull %0, i64 noundef %285) #26
+  %286 = getelementptr inbounds nuw i8, ptr %0, i64 1656
+  store ptr %284, ptr %286, align 8
+  %287 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %288 = call noundef i32 asm sideeffect "lock cmpxchgl $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 1, i32 0, ptr nonnull %287) #26, !srcloc !11
+  %.not.i.i = icmp eq i32 %288, 0
+  br i1 %.not.i.i, label %_ZN16ShenandoahLockerC2EP14ShenandoahLockb.exit, label %289
 
-279:                                              ; preds = %264
-  %280 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  call void @_ZN14ShenandoahLock14contended_lockEb(ptr noundef nonnull align 8 dereferenceable(208) %280, i1 noundef zeroext false) #26
+289:                                              ; preds = %274
+  %290 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  call void @_ZN14ShenandoahLock14contended_lockEb(ptr noundef nonnull align 8 dereferenceable(208) %290, i1 noundef zeroext false) #26
   br label %_ZN16ShenandoahLockerC2EP14ShenandoahLockb.exit
 
-_ZN16ShenandoahLockerC2EP14ShenandoahLockb.exit:  ; preds = %264, %279
-  %281 = load i64, ptr %25, align 8
-  %.not165 = icmp eq i64 %281, 0
+_ZN16ShenandoahLockerC2EP14ShenandoahLockb.exit:  ; preds = %274, %289
+  %291 = load i64, ptr %25, align 8
+  %.not165 = icmp eq i64 %291, 0
   br i1 %.not165, label %_ZN16ShenandoahLockerD2Ev.exit, label %.lr.ph162
 
 .lr.ph162:                                        ; preds = %_ZN16ShenandoahLockerC2EP14ShenandoahLockb.exit, %.lr.ph162
-  %.0135161 = phi i64 [ %293, %.lr.ph162 ], [ 0, %_ZN16ShenandoahLockerC2EP14ShenandoahLockb.exit ]
-  %282 = load ptr, ptr %8, align 8
-  %283 = load i64, ptr @_ZN20ShenandoahHeapRegion15RegionSizeWordsE, align 8
-  %284 = mul i64 %283, %.0135161
-  %285 = getelementptr inbounds ptr, ptr %282, i64 %284
-  %286 = icmp ult i64 %.0135161, %28
-  %287 = load ptr, ptr %12, align 8
-  %288 = shl i64 %.0135161, 7
-  %289 = getelementptr inbounds i8, ptr %287, i64 %288
-  call void @_ZN20ShenandoahHeapRegionC1EPP12HeapWordImplmb(ptr noundef nonnull align 8 dereferenceable(96) %289, ptr noundef %285, i64 noundef %.0135161, i1 noundef zeroext %286) #26
-  %290 = load ptr, ptr %152, align 8
-  call void @_ZN24ShenandoahMarkingContext28initialize_top_at_mark_startEP20ShenandoahHeapRegion(ptr noundef nonnull align 8 dereferenceable(208) %290, ptr noundef nonnull %289) #26
-  %291 = load ptr, ptr %273, align 8
-  %292 = getelementptr inbounds ptr, ptr %291, i64 %.0135161
-  store ptr %289, ptr %292, align 8
-  %293 = add nuw i64 %.0135161, 1
-  %294 = load i64, ptr %25, align 8
-  %295 = icmp ult i64 %293, %294
-  br i1 %295, label %.lr.ph162, label %_ZN16ShenandoahLockerD2Ev.exit, !llvm.loop !12
+  %.0135161 = phi i64 [ %303, %.lr.ph162 ], [ 0, %_ZN16ShenandoahLockerC2EP14ShenandoahLockb.exit ]
+  %292 = load ptr, ptr %8, align 8
+  %293 = load i64, ptr @_ZN20ShenandoahHeapRegion15RegionSizeWordsE, align 8
+  %294 = mul i64 %293, %.0135161
+  %295 = getelementptr inbounds ptr, ptr %292, i64 %294
+  %296 = icmp ult i64 %.0135161, %28
+  %297 = load ptr, ptr %12, align 8
+  %298 = shl i64 %.0135161, 7
+  %299 = getelementptr inbounds i8, ptr %297, i64 %298
+  call void @_ZN20ShenandoahHeapRegionC1EPP12HeapWordImplmb(ptr noundef nonnull align 8 dereferenceable(96) %299, ptr noundef %295, i64 noundef %.0135161, i1 noundef zeroext %296) #26
+  %300 = load ptr, ptr %162, align 8
+  call void @_ZN24ShenandoahMarkingContext28initialize_top_at_mark_startEP20ShenandoahHeapRegion(ptr noundef nonnull align 8 dereferenceable(208) %300, ptr noundef nonnull %299) #26
+  %301 = load ptr, ptr %283, align 8
+  %302 = getelementptr inbounds ptr, ptr %301, i64 %.0135161
+  store ptr %299, ptr %302, align 8
+  %303 = add nuw i64 %.0135161, 1
+  %304 = load i64, ptr %25, align 8
+  %305 = icmp ult i64 %303, %304
+  br i1 %305, label %.lr.ph162, label %_ZN16ShenandoahLockerD2Ev.exit, !llvm.loop !12
 
 _ZN16ShenandoahLockerD2Ev.exit:                   ; preds = %.lr.ph162, %_ZN16ShenandoahLockerC2EP14ShenandoahLockb.exit
-  %296 = load ptr, ptr %152, align 8
-  call void @_ZN24ShenandoahMarkingContext13mark_completeEv(ptr noundef nonnull align 8 dereferenceable(208) %296) #26
-  %297 = load ptr, ptr %276, align 8
-  call void @_ZN17ShenandoahFreeSet7rebuildEv(ptr noundef nonnull align 8 dereferenceable(224) %297) #26
+  %306 = load ptr, ptr %162, align 8
+  call void @_ZN24ShenandoahMarkingContext13mark_completeEv(ptr noundef nonnull align 8 dereferenceable(208) %306) #26
+  %307 = load ptr, ptr %286, align 8
+  call void @_ZN17ShenandoahFreeSet7rebuildEv(ptr noundef nonnull align 8 dereferenceable(224) %307) #26
   call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !13
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !14
-  store volatile i32 0, ptr %277, align 8
-  %298 = load i8, ptr @AlwaysPreTouch, align 1
-  %299 = trunc i8 %298 to i1
-  br i1 %299, label %300, label %333
+  store volatile i32 0, ptr %287, align 8
+  %308 = load i8, ptr @AlwaysPreTouch, align 1
+  %309 = trunc i8 %308 to i1
+  br i1 %309, label %310, label %343
 
-300:                                              ; preds = %_ZN16ShenandoahLockerD2Ev.exit
-  %301 = getelementptr inbounds nuw i8, ptr %0, i64 504
-  %302 = load ptr, ptr %301, align 8
-  %303 = load i32, ptr %150, align 8
-  call void @_ZN25ShenandoahPushWorkerScopeC1EP13WorkerThreadsjb(ptr noundef nonnull align 8 dereferenceable(16) %16, ptr noundef %302, i32 noundef %303, i1 noundef zeroext false) #26
-  %304 = getelementptr inbounds nuw i8, ptr %0, i64 2408
-  store i64 %46, ptr %304, align 8
-  %305 = getelementptr inbounds nuw i8, ptr %0, i64 2416
-  store i64 %54, ptr %305, align 8
-  %306 = load i8, ptr @UseTransparentHugePages, align 1
-  %307 = trunc i8 %306 to i1
-  br i1 %307, label %308, label %310
+310:                                              ; preds = %_ZN16ShenandoahLockerD2Ev.exit
+  %311 = getelementptr inbounds nuw i8, ptr %0, i64 504
+  %312 = load ptr, ptr %311, align 8
+  %313 = load i32, ptr %160, align 8
+  call void @_ZN25ShenandoahPushWorkerScopeC1EP13WorkerThreadsjb(ptr noundef nonnull align 8 dereferenceable(16) %16, ptr noundef %312, i32 noundef %313, i1 noundef zeroext false) #26
+  %314 = getelementptr inbounds nuw i8, ptr %0, i64 2408
+  store i64 %46, ptr %314, align 8
+  %315 = getelementptr inbounds nuw i8, ptr %0, i64 2416
+  store i64 %54, ptr %315, align 8
+  %316 = load i8, ptr @UseTransparentHugePages, align 1
+  %317 = trunc i8 %316 to i1
+  br i1 %317, label %318, label %320
 
-308:                                              ; preds = %300
-  %309 = load i64, ptr @_ZN6OSInfo13_vm_page_sizeE, align 8
-  store i64 %309, ptr %304, align 8
-  store i64 %309, ptr %305, align 8
-  br label %310
+318:                                              ; preds = %310
+  %319 = load i64, ptr @_ZN6OSInfo13_vm_page_sizeE, align 8
+  store i64 %319, ptr %314, align 8
+  store i64 %319, ptr %315, align 8
+  br label %320
 
-310:                                              ; preds = %308, %300
-  %311 = phi i64 [ %309, %308 ], [ %54, %300 ]
-  %312 = load ptr, ptr %9, align 8
-  %313 = load i64, ptr %95, align 8
-  %314 = getelementptr inbounds nuw i8, ptr %17, i64 8
-  store ptr @.str.90, ptr %314, align 8
-  %315 = getelementptr inbounds nuw i8, ptr %17, i64 16
-  %316 = call noundef i32 @_ZN4GCId20current_or_undefinedEv() #26
-  store i32 %316, ptr %315, align 8
+320:                                              ; preds = %318, %310
+  %321 = phi i64 [ %319, %318 ], [ %54, %310 ]
+  %322 = load ptr, ptr %9, align 8
+  %323 = load i64, ptr %95, align 8
+  %324 = getelementptr inbounds nuw i8, ptr %17, i64 8
+  store ptr @.str.90, ptr %324, align 8
+  %325 = getelementptr inbounds nuw i8, ptr %17, i64 16
+  %326 = call noundef i32 @_ZN4GCId20current_or_undefinedEv() #26
+  store i32 %326, ptr %325, align 8
   store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV28ShenandoahPretouchBitmapTask, i64 16), ptr %17, align 8
-  %317 = getelementptr inbounds nuw i8, ptr %17, i64 24
-  %318 = load ptr, ptr @_ZN8Universe14_collectedHeapE, align 8
-  store ptr %318, ptr %317, align 8
-  %319 = getelementptr inbounds nuw i8, ptr %17, i64 96
-  store volatile i64 0, ptr %319, align 8
-  %320 = getelementptr inbounds nuw i8, ptr %17, i64 168
-  store ptr %312, ptr %320, align 8
-  %321 = getelementptr inbounds nuw i8, ptr %17, i64 176
-  store i64 %313, ptr %321, align 8
-  %322 = getelementptr inbounds nuw i8, ptr %17, i64 184
-  store i64 %311, ptr %322, align 8
-  %323 = load ptr, ptr %301, align 8
-  call void @_ZN13WorkerThreads8run_taskEP10WorkerTask(ptr noundef nonnull align 8 dereferenceable(120) %323, ptr noundef nonnull %17) #26
-  %324 = load i64, ptr %304, align 8
-  %325 = getelementptr inbounds nuw i8, ptr %18, i64 8
-  store ptr @.str.91, ptr %325, align 8
-  %326 = getelementptr inbounds nuw i8, ptr %18, i64 16
-  %327 = call noundef i32 @_ZN4GCId20current_or_undefinedEv() #26
-  store i32 %327, ptr %326, align 8
+  %327 = getelementptr inbounds nuw i8, ptr %17, i64 24
+  %328 = load ptr, ptr @_ZN8Universe14_collectedHeapE, align 8
+  store ptr %328, ptr %327, align 8
+  %329 = getelementptr inbounds nuw i8, ptr %17, i64 96
+  store volatile i64 0, ptr %329, align 8
+  %330 = getelementptr inbounds nuw i8, ptr %17, i64 168
+  store ptr %322, ptr %330, align 8
+  %331 = getelementptr inbounds nuw i8, ptr %17, i64 176
+  store i64 %323, ptr %331, align 8
+  %332 = getelementptr inbounds nuw i8, ptr %17, i64 184
+  store i64 %321, ptr %332, align 8
+  %333 = load ptr, ptr %311, align 8
+  call void @_ZN13WorkerThreads8run_taskEP10WorkerTask(ptr noundef nonnull align 8 dereferenceable(120) %333, ptr noundef nonnull %17) #26
+  %334 = load i64, ptr %314, align 8
+  %335 = getelementptr inbounds nuw i8, ptr %18, i64 8
+  store ptr @.str.91, ptr %335, align 8
+  %336 = getelementptr inbounds nuw i8, ptr %18, i64 16
+  %337 = call noundef i32 @_ZN4GCId20current_or_undefinedEv() #26
+  store i32 %337, ptr %336, align 8
   store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV26ShenandoahPretouchHeapTask, i64 16), ptr %18, align 8
-  %328 = getelementptr inbounds nuw i8, ptr %18, i64 24
-  %329 = load ptr, ptr @_ZN8Universe14_collectedHeapE, align 8
-  store ptr %329, ptr %328, align 8
-  %330 = getelementptr inbounds nuw i8, ptr %18, i64 96
-  store volatile i64 0, ptr %330, align 8
-  %331 = getelementptr inbounds nuw i8, ptr %18, i64 168
-  store i64 %324, ptr %331, align 8
-  %332 = load ptr, ptr %301, align 8
-  call void @_ZN13WorkerThreads8run_taskEP10WorkerTask(ptr noundef nonnull align 8 dereferenceable(120) %332, ptr noundef nonnull %18) #26
+  %338 = getelementptr inbounds nuw i8, ptr %18, i64 24
+  %339 = load ptr, ptr @_ZN8Universe14_collectedHeapE, align 8
+  store ptr %339, ptr %338, align 8
+  %340 = getelementptr inbounds nuw i8, ptr %18, i64 96
+  store volatile i64 0, ptr %340, align 8
+  %341 = getelementptr inbounds nuw i8, ptr %18, i64 168
+  store i64 %334, ptr %341, align 8
+  %342 = load ptr, ptr %311, align 8
+  call void @_ZN13WorkerThreads8run_taskEP10WorkerTask(ptr noundef nonnull align 8 dereferenceable(120) %342, ptr noundef nonnull %18) #26
   call void @_ZN25ShenandoahPushWorkerScopeD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %16) #26
-  br label %333
+  br label %343
 
-333:                                              ; preds = %310, %_ZN16ShenandoahLockerD2Ev.exit
-  %334 = load i32, ptr %150, align 8
-  %335 = zext i32 %334 to i64
-  %336 = shl nuw nsw i64 %335, 3
-  %337 = call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef %336, i8 noundef zeroext 5, i32 noundef 0) #26
-  %338 = getelementptr inbounds nuw i8, ptr %0, i64 2432
-  store ptr %337, ptr %338, align 8
-  %339 = load i32, ptr %150, align 8
-  %.not166 = icmp eq i32 %339, 0
+343:                                              ; preds = %320, %_ZN16ShenandoahLockerD2Ev.exit
+  %344 = load i32, ptr %160, align 8
+  %345 = zext i32 %344 to i64
+  %346 = shl nuw nsw i64 %345, 3
+  %347 = call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef %346, i8 noundef zeroext 5, i32 noundef 0) #26
+  %348 = getelementptr inbounds nuw i8, ptr %0, i64 2432
+  store ptr %347, ptr %348, align 8
+  %349 = load i32, ptr %160, align 8
+  %.not166 = icmp eq i32 %349, 0
   br i1 %.not166, label %._crit_edge, label %.lr.ph164
 
-.lr.ph164:                                        ; preds = %333, %.lr.ph164
-  %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph164 ], [ 0, %333 ]
-  %340 = load i64, ptr %25, align 8
-  %341 = shl i64 %340, 1
-  %342 = call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef %341, i8 noundef zeroext 5, i32 noundef 0) #26
-  %343 = load ptr, ptr %338, align 8
-  %344 = getelementptr inbounds nuw ptr, ptr %343, i64 %indvars.iv
-  store ptr %342, ptr %344, align 8
-  %345 = load ptr, ptr %338, align 8
-  %346 = getelementptr inbounds nuw ptr, ptr %345, i64 %indvars.iv
-  %347 = load ptr, ptr %346, align 8
-  %348 = load i64, ptr %25, align 8
-  %349 = shl i64 %348, 1
-  call void @llvm.memset.p0.i64(ptr align 1 %347, i8 0, i64 %349, i1 false)
+.lr.ph164:                                        ; preds = %343, %.lr.ph164
+  %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph164 ], [ 0, %343 ]
+  %350 = load i64, ptr %25, align 8
+  %351 = shl i64 %350, 1
+  %352 = call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef %351, i8 noundef zeroext 5, i32 noundef 0) #26
+  %353 = load ptr, ptr %348, align 8
+  %354 = getelementptr inbounds nuw ptr, ptr %353, i64 %indvars.iv
+  store ptr %352, ptr %354, align 8
+  %355 = load ptr, ptr %348, align 8
+  %356 = getelementptr inbounds nuw ptr, ptr %355, i64 %indvars.iv
+  %357 = load ptr, ptr %356, align 8
+  %358 = load i64, ptr %25, align 8
+  %359 = shl i64 %358, 1
+  call void @llvm.memset.p0.i64(ptr align 1 %357, i8 0, i64 %359, i1 false)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %350 = load i32, ptr %150, align 8
-  %351 = zext i32 %350 to i64
-  %352 = icmp samesign ult i64 %indvars.iv.next, %351
-  br i1 %352, label %.lr.ph164, label %._crit_edge, !llvm.loop !15
+  %360 = load i32, ptr %160, align 8
+  %361 = zext i32 %360 to i64
+  %362 = icmp samesign ult i64 %indvars.iv.next, %361
+  br i1 %362, label %.lr.ph164, label %._crit_edge, !llvm.loop !15
 
-._crit_edge:                                      ; preds = %.lr.ph164, %333
-  %353 = load ptr, ptr @_ZN10BarrierSet12_barrier_setE, align 8
-  %354 = getelementptr inbounds nuw i8, ptr %353, i64 664
-  call void @_ZN16SATBMarkQueueSet39set_process_completed_buffers_thresholdEm(ptr noundef nonnull align 8 dereferenceable(393) %354, i64 noundef 20) #26
-  call void @_ZN16SATBMarkQueueSet39set_buffer_enqueue_threshold_percentageEj(ptr noundef nonnull align 8 dereferenceable(393) %354, i32 noundef 60) #26
-  %355 = call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 336, i8 noundef zeroext 5, i32 noundef 0) #26
-  call void @_ZN27ShenandoahMonitoringSupportC1EP14ShenandoahHeap(ptr noundef nonnull align 8 dereferenceable(336) %355, ptr noundef nonnull %0) #26
-  %356 = getelementptr inbounds nuw i8, ptr %0, i64 1688
-  store ptr %355, ptr %356, align 8
-  %357 = call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 30352, i8 noundef zeroext 5, i32 noundef 0) #26
-  %358 = load i32, ptr %150, align 8
-  call void @_ZN22ShenandoahPhaseTimingsC1Ej(ptr noundef nonnull align 8 dereferenceable(30352) %357, i32 noundef %358) #26
-  %359 = getelementptr inbounds nuw i8, ptr %0, i64 1680
-  store ptr %357, ptr %359, align 8
+._crit_edge:                                      ; preds = %.lr.ph164, %343
+  %363 = load ptr, ptr @_ZN10BarrierSet12_barrier_setE, align 8
+  %364 = getelementptr inbounds nuw i8, ptr %363, i64 664
+  call void @_ZN16SATBMarkQueueSet39set_process_completed_buffers_thresholdEm(ptr noundef nonnull align 8 dereferenceable(393) %364, i64 noundef 20) #26
+  call void @_ZN16SATBMarkQueueSet39set_buffer_enqueue_threshold_percentageEj(ptr noundef nonnull align 8 dereferenceable(393) %364, i32 noundef 60) #26
+  %365 = call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 336, i8 noundef zeroext 5, i32 noundef 0) #26
+  call void @_ZN27ShenandoahMonitoringSupportC1EP14ShenandoahHeap(ptr noundef nonnull align 8 dereferenceable(336) %365, ptr noundef nonnull %0) #26
+  %366 = getelementptr inbounds nuw i8, ptr %0, i64 1688
+  store ptr %365, ptr %366, align 8
+  %367 = call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 30352, i8 noundef zeroext 5, i32 noundef 0) #26
+  %368 = load i32, ptr %160, align 8
+  call void @_ZN22ShenandoahPhaseTimingsC1Ej(ptr noundef nonnull align 8 dereferenceable(30352) %367, i32 noundef %368) #26
+  %369 = getelementptr inbounds nuw i8, ptr %0, i64 1680
+  store ptr %367, ptr %369, align 8
   call void @_ZN19ShenandoahCodeRoots10initializeEv() #26
-  %360 = load i8, ptr @ShenandoahPacing, align 1
-  %361 = trunc i8 %360 to i1
-  br i1 %361, label %362, label %379
+  %370 = load i8, ptr @ShenandoahPacing, align 1
+  %371 = trunc i8 %370 to i1
+  br i1 %371, label %372, label %389
 
-362:                                              ; preds = %._crit_edge
-  %363 = call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 480, i8 noundef zeroext 5, i32 noundef 0) #26
-  store ptr %0, ptr %363, align 8
-  %364 = getelementptr inbounds nuw i8, ptr %363, i64 8
-  %365 = call noundef double @_ZN2os11elapsedTimeEv() #26
-  store double %365, ptr %364, align 8
-  %366 = getelementptr inbounds nuw i8, ptr %363, i64 16
-  %367 = call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 72, i8 noundef zeroext 9, i32 noundef 0) #26
-  call void @_ZN12TruncatedSeqC1Eid(ptr noundef nonnull align 8 dereferenceable(72) %367, i32 noundef 5, double noundef 3.000000e-01) #26
-  store ptr %367, ptr %366, align 8
-  %368 = getelementptr inbounds nuw i8, ptr %363, i64 24
-  %369 = call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 104, i8 noundef zeroext 22, i32 noundef 0) #26
-  call void @_ZN5MutexC2ENS_4RankEPKcb(ptr noundef nonnull align 8 dereferenceable(104) %369, i32 noundef 40, ptr noundef nonnull @.str.92, i1 noundef zeroext true) #26
-  store ptr %369, ptr %368, align 8
-  %370 = getelementptr inbounds nuw i8, ptr %363, i64 96
-  %371 = call i8 asm sideeffect "xchgb ($2),$0", "=q,0,r,~{memory},~{dirflag},~{fpsr},~{flags}"(i8 0, ptr nonnull %370) #26, !srcloc !16
-  %372 = getelementptr inbounds nuw i8, ptr %363, i64 168
-  call void @_ZN12PeriodicTaskC2Em(ptr noundef nonnull align 8 dereferenceable(24) %372, i64 noundef 10) #26
-  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV33ShenandoahPeriodicPacerNotifyTask, i64 16), ptr %372, align 8
-  %373 = getelementptr inbounds nuw i8, ptr %363, i64 184
-  store ptr %363, ptr %373, align 8
-  %374 = getelementptr inbounds nuw i8, ptr %363, i64 192
-  store volatile i64 0, ptr %374, align 8
-  %375 = getelementptr inbounds nuw i8, ptr %363, i64 200
-  store volatile double 1.000000e+00, ptr %375, align 8
-  %376 = getelementptr inbounds nuw i8, ptr %363, i64 272
-  store volatile i64 0, ptr %376, align 8
-  %377 = getelementptr inbounds nuw i8, ptr %363, i64 408
-  store volatile i64 -1, ptr %377, align 8
-  call void @_ZN12PeriodicTask6enrollEv(ptr noundef nonnull align 8 dereferenceable(16) %372) #26
-  %378 = getelementptr inbounds nuw i8, ptr %0, i64 1664
-  store ptr %363, ptr %378, align 8
-  call void @_ZN15ShenandoahPacer14setup_for_idleEv(ptr noundef nonnull align 8 dereferenceable(480) %363) #26
-  br label %379
+372:                                              ; preds = %._crit_edge
+  %373 = call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 480, i8 noundef zeroext 5, i32 noundef 0) #26
+  store ptr %0, ptr %373, align 8
+  %374 = getelementptr inbounds nuw i8, ptr %373, i64 8
+  %375 = call noundef double @_ZN2os11elapsedTimeEv() #26
+  store double %375, ptr %374, align 8
+  %376 = getelementptr inbounds nuw i8, ptr %373, i64 16
+  %377 = call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 72, i8 noundef zeroext 9, i32 noundef 0) #26
+  call void @_ZN12TruncatedSeqC1Eid(ptr noundef nonnull align 8 dereferenceable(72) %377, i32 noundef 5, double noundef 3.000000e-01) #26
+  store ptr %377, ptr %376, align 8
+  %378 = getelementptr inbounds nuw i8, ptr %373, i64 24
+  %379 = call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 104, i8 noundef zeroext 22, i32 noundef 0) #26
+  call void @_ZN5MutexC2ENS_4RankEPKcb(ptr noundef nonnull align 8 dereferenceable(104) %379, i32 noundef 40, ptr noundef nonnull @.str.92, i1 noundef zeroext true) #26
+  store ptr %379, ptr %378, align 8
+  %380 = getelementptr inbounds nuw i8, ptr %373, i64 96
+  %381 = call i8 asm sideeffect "xchgb ($2),$0", "=q,0,r,~{memory},~{dirflag},~{fpsr},~{flags}"(i8 0, ptr nonnull %380) #26, !srcloc !16
+  %382 = getelementptr inbounds nuw i8, ptr %373, i64 168
+  call void @_ZN12PeriodicTaskC2Em(ptr noundef nonnull align 8 dereferenceable(24) %382, i64 noundef 10) #26
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV33ShenandoahPeriodicPacerNotifyTask, i64 16), ptr %382, align 8
+  %383 = getelementptr inbounds nuw i8, ptr %373, i64 184
+  store ptr %373, ptr %383, align 8
+  %384 = getelementptr inbounds nuw i8, ptr %373, i64 192
+  store volatile i64 0, ptr %384, align 8
+  %385 = getelementptr inbounds nuw i8, ptr %373, i64 200
+  store volatile double 1.000000e+00, ptr %385, align 8
+  %386 = getelementptr inbounds nuw i8, ptr %373, i64 272
+  store volatile i64 0, ptr %386, align 8
+  %387 = getelementptr inbounds nuw i8, ptr %373, i64 408
+  store volatile i64 -1, ptr %387, align 8
+  call void @_ZN12PeriodicTask6enrollEv(ptr noundef nonnull align 8 dereferenceable(16) %382) #26
+  %388 = getelementptr inbounds nuw i8, ptr %0, i64 1664
+  store ptr %373, ptr %388, align 8
+  call void @_ZN15ShenandoahPacer14setup_for_idleEv(ptr noundef nonnull align 8 dereferenceable(480) %373) #26
+  br label %389
 
-379:                                              ; preds = %362, %._crit_edge
-  %380 = call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 1872, i8 noundef zeroext 2, i32 noundef 0) #26
-  call void @_ZN23ShenandoahControlThreadC1Ev(ptr noundef nonnull align 8 dereferenceable(1868) %380) #26
-  %381 = getelementptr inbounds nuw i8, ptr %0, i64 1624
-  store ptr %380, ptr %381, align 8
+389:                                              ; preds = %372, %._crit_edge
+  %390 = call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 1872, i8 noundef zeroext 2, i32 noundef 0) #26
+  call void @_ZN23ShenandoahControlThreadC1Ev(ptr noundef nonnull align 8 dereferenceable(1868) %390) #26
+  %391 = getelementptr inbounds nuw i8, ptr %0, i64 1624
+  store ptr %390, ptr %391, align 8
   call void @_ZN20ShenandoahInitLogger5printEv() #26
   ret i32 0
 }

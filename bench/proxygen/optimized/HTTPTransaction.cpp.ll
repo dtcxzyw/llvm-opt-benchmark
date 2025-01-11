@@ -5405,8 +5405,8 @@ invoke.cont28:                                    ; preds = %if.then24
 invoke.cont33:                                    ; preds = %invoke.cont28
   %not.call29 = xor i1 %call29, true
   %23 = zext i1 %not.call29 to i32
-  %div5 = lshr i32 %call34, %23
-  %cmp35.not = icmp ult i32 %22, %div5
+  %div2 = lshr i32 %call34, %23
+  %cmp35.not = icmp ult i32 %22, %div2
   br i1 %cmp35.not, label %if.end41, label %if.then36
 
 if.then36:                                        ; preds = %invoke.cont33
@@ -5421,10 +5421,10 @@ if.end41:                                         ; preds = %if.end13, %invoke.c
   br label %if.then.i
 
 if.then.i:                                        ; preds = %if.end41, %entry
-  %guardCount_.i4 = getelementptr inbounds nuw i8, ptr %this, i64 72
-  %25 = load i32, ptr %guardCount_.i4, align 8
+  %guardCount_.i5 = getelementptr inbounds nuw i8, ptr %this, i64 72
+  %25 = load i32, ptr %guardCount_.i5, align 8
   %dec.i = add i32 %25, -1
-  store i32 %dec.i, ptr %guardCount_.i4, align 8
+  store i32 %dec.i, ptr %guardCount_.i5, align 8
   %cmp5.i = icmp eq i32 %dec.i, 0
   br i1 %cmp5.i, label %if.then6.i, label %_ZN5folly22DelayedDestructionBase15DestructorGuardD2Ev.exit
 

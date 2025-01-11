@@ -125445,7 +125445,7 @@ _ZN5clang14TypeLocBuilder4pushINS_14BuiltinTypeLocEEET_NS_8QualTypeE.exit: ; pre
   br i1 %or.cond, label %_ZN5clang14BuiltinTypeLoc22getWrittenBuiltinSpecsEv.exit, label %switch.early.test
 
 switch.early.test:                                ; preds = %_ZN5clang14TypeLocBuilder4pushINS_14BuiltinTypeLocEEET_NS_8QualTypeE.exit
-  switch i32 %20, label %45 [
+  switch i32 %20, label %47 [
     i32 442, label %switch.early.test9
     i32 431, label %switch.early.test9
   ]
@@ -125460,27 +125460,28 @@ switch.early.test9:                               ; preds = %switch.early.test, 
 _ZN5clang14BuiltinTypeLoc22getWrittenBuiltinSpecsEv.exit: ; preds = %_ZN5clang14TypeLocBuilder4pushINS_14BuiltinTypeLocEEET_NS_8QualTypeE.exit, %switch.early.test9
   %24 = phi i32 [ %23, %switch.early.test9 ], [ 4, %_ZN5clang14TypeLocBuilder4pushINS_14BuiltinTypeLocEEET_NS_8QualTypeE.exit ]
   %.rhs.trunc.i.i = trunc nuw nsw i32 %24 to i8
-  %25 = udiv i8 7, %.rhs.trunc.i.i
-  %narrow.i.i = add nuw nsw i8 %25, 1
-  %26 = zext nneg i8 %narrow.i.i to i32
-  %27 = mul nuw nsw i32 %24, %26
-  %28 = zext nneg i32 %27 to i64
-  %29 = getelementptr inbounds nuw i8, ptr %2, i64 %28
-  %30 = getelementptr inbounds nuw i8, ptr %16, i64 16
-  %31 = load i32, ptr %30, align 16
-  %32 = lshr i32 %31, 19
-  %33 = and i32 %32, 511
-  %34 = add nsw i32 %33, -436
-  %or.cond.i.i.i.i5 = icmp ult i32 %34, 5
+  %25 = tail call range(i8 0, 9) i8 @llvm.cttz.i8(i8 %.rhs.trunc.i.i, i1 true)
+  %26 = lshr i8 7, %25
+  %narrow.i.i = add nuw nsw i8 %26, 1
+  %27 = zext nneg i8 %narrow.i.i to i32
+  %28 = mul nuw nsw i32 %24, %27
+  %29 = zext nneg i32 %28 to i64
+  %30 = getelementptr inbounds nuw i8, ptr %2, i64 %29
+  %31 = getelementptr inbounds nuw i8, ptr %16, i64 16
+  %32 = load i32, ptr %31, align 16
+  %33 = lshr i32 %32, 19
+  %34 = and i32 %33, 511
+  %35 = add nsw i32 %34, -436
+  %or.cond.i.i.i.i5 = icmp ult i32 %35, 5
   br i1 %or.cond.i.i.i.i5, label %_ZNK5clang14BuiltinTypeLoc19needsExtraLocalDataEv.exit.thread.i.i.i13, label %_ZNK5clang14BuiltinTypeLoc19needsExtraLocalDataEv.exit.i.i.i6
 
 _ZNK5clang14BuiltinTypeLoc19needsExtraLocalDataEv.exit.i.i.i6: ; preds = %_ZN5clang14BuiltinTypeLoc22getWrittenBuiltinSpecsEv.exit
-  %35 = add nsw i32 %33, -444
-  %or.cond3.i.i.i.i7 = icmp ult i32 %35, 37
-  %36 = icmp eq i32 %33, 431
-  %or.cond5.i.i.i.i8 = or i1 %36, %or.cond3.i.i.i.i7
-  %37 = icmp eq i32 %33, 442
-  %spec.select.i.i.i.i9 = or i1 %37, %or.cond5.i.i.i.i8
+  %36 = add nsw i32 %34, -444
+  %or.cond3.i.i.i.i7 = icmp ult i32 %36, 37
+  %37 = icmp eq i32 %34, 431
+  %or.cond5.i.i.i.i8 = or i1 %37, %or.cond3.i.i.i.i7
+  %38 = icmp eq i32 %34, 442
+  %spec.select.i.i.i.i9 = or i1 %38, %or.cond5.i.i.i.i8
   %cond.fr.i.i.i10 = freeze i1 %spec.select.i.i.i.i9
   br i1 %cond.fr.i.i.i10, label %_ZNK5clang14BuiltinTypeLoc19needsExtraLocalDataEv.exit.thread.i.i.i13, label %_ZN5clang14BuiltinTypeLoc22getWrittenBuiltinSpecsEv.exit14
 
@@ -125488,19 +125489,20 @@ _ZNK5clang14BuiltinTypeLoc19needsExtraLocalDataEv.exit.thread.i.i.i13: ; preds =
   br label %_ZN5clang14BuiltinTypeLoc22getWrittenBuiltinSpecsEv.exit14
 
 _ZN5clang14BuiltinTypeLoc22getWrittenBuiltinSpecsEv.exit14: ; preds = %_ZNK5clang14BuiltinTypeLoc19needsExtraLocalDataEv.exit.i.i.i6, %_ZNK5clang14BuiltinTypeLoc19needsExtraLocalDataEv.exit.thread.i.i.i13
-  %38 = phi i32 [ 4, %_ZNK5clang14BuiltinTypeLoc19needsExtraLocalDataEv.exit.thread.i.i.i13 ], [ 1, %_ZNK5clang14BuiltinTypeLoc19needsExtraLocalDataEv.exit.i.i.i6 ]
-  %.rhs.trunc.i.i11 = trunc nuw nsw i32 %38 to i8
-  %39 = udiv i8 7, %.rhs.trunc.i.i11
-  %narrow.i.i12 = add nuw nsw i8 %39, 1
-  %40 = zext nneg i8 %narrow.i.i12 to i32
-  %41 = mul nuw nsw i32 %38, %40
-  %42 = zext nneg i32 %41 to i64
-  %43 = getelementptr inbounds nuw i8, ptr %17, i64 %42
-  %44 = load i32, ptr %29, align 4
-  store i32 %44, ptr %43, align 4
-  br label %45
+  %39 = phi i32 [ 4, %_ZNK5clang14BuiltinTypeLoc19needsExtraLocalDataEv.exit.thread.i.i.i13 ], [ 1, %_ZNK5clang14BuiltinTypeLoc19needsExtraLocalDataEv.exit.i.i.i6 ]
+  %.rhs.trunc.i.i11 = trunc nuw nsw i32 %39 to i8
+  %40 = tail call range(i8 0, 9) i8 @llvm.cttz.i8(i8 %.rhs.trunc.i.i11, i1 true)
+  %41 = lshr i8 7, %40
+  %narrow.i.i12 = add nuw nsw i8 %41, 1
+  %42 = zext nneg i8 %narrow.i.i12 to i32
+  %43 = mul nuw nsw i32 %39, %42
+  %44 = zext nneg i32 %43 to i64
+  %45 = getelementptr inbounds nuw i8, ptr %17, i64 %44
+  %46 = load i32, ptr %30, align 4
+  store i32 %46, ptr %45, align 4
+  br label %47
 
-45:                                               ; preds = %switch.early.test, %_ZN5clang14BuiltinTypeLoc22getWrittenBuiltinSpecsEv.exit14
+47:                                               ; preds = %switch.early.test, %_ZN5clang14BuiltinTypeLoc22getWrittenBuiltinSpecsEv.exit14
   ret i64 %4
 }
 
@@ -161298,7 +161300,7 @@ _ZN5clang14TypeLocBuilder4pushINS_14BuiltinTypeLocEEET_NS_8QualTypeE.exit: ; pre
   br i1 %or.cond, label %_ZN5clang14BuiltinTypeLoc22getWrittenBuiltinSpecsEv.exit, label %switch.early.test
 
 switch.early.test:                                ; preds = %_ZN5clang14TypeLocBuilder4pushINS_14BuiltinTypeLocEEET_NS_8QualTypeE.exit
-  switch i32 %20, label %45 [
+  switch i32 %20, label %47 [
     i32 442, label %switch.early.test9
     i32 431, label %switch.early.test9
   ]
@@ -161313,27 +161315,28 @@ switch.early.test9:                               ; preds = %switch.early.test, 
 _ZN5clang14BuiltinTypeLoc22getWrittenBuiltinSpecsEv.exit: ; preds = %_ZN5clang14TypeLocBuilder4pushINS_14BuiltinTypeLocEEET_NS_8QualTypeE.exit, %switch.early.test9
   %24 = phi i32 [ %23, %switch.early.test9 ], [ 4, %_ZN5clang14TypeLocBuilder4pushINS_14BuiltinTypeLocEEET_NS_8QualTypeE.exit ]
   %.rhs.trunc.i.i = trunc nuw nsw i32 %24 to i8
-  %25 = udiv i8 7, %.rhs.trunc.i.i
-  %narrow.i.i = add nuw nsw i8 %25, 1
-  %26 = zext nneg i8 %narrow.i.i to i32
-  %27 = mul nuw nsw i32 %24, %26
-  %28 = zext nneg i32 %27 to i64
-  %29 = getelementptr inbounds nuw i8, ptr %2, i64 %28
-  %30 = getelementptr inbounds nuw i8, ptr %16, i64 16
-  %31 = load i32, ptr %30, align 16
-  %32 = lshr i32 %31, 19
-  %33 = and i32 %32, 511
-  %34 = add nsw i32 %33, -436
-  %or.cond.i.i.i.i5 = icmp ult i32 %34, 5
+  %25 = tail call range(i8 0, 9) i8 @llvm.cttz.i8(i8 %.rhs.trunc.i.i, i1 true)
+  %26 = lshr i8 7, %25
+  %narrow.i.i = add nuw nsw i8 %26, 1
+  %27 = zext nneg i8 %narrow.i.i to i32
+  %28 = mul nuw nsw i32 %24, %27
+  %29 = zext nneg i32 %28 to i64
+  %30 = getelementptr inbounds nuw i8, ptr %2, i64 %29
+  %31 = getelementptr inbounds nuw i8, ptr %16, i64 16
+  %32 = load i32, ptr %31, align 16
+  %33 = lshr i32 %32, 19
+  %34 = and i32 %33, 511
+  %35 = add nsw i32 %34, -436
+  %or.cond.i.i.i.i5 = icmp ult i32 %35, 5
   br i1 %or.cond.i.i.i.i5, label %_ZNK5clang14BuiltinTypeLoc19needsExtraLocalDataEv.exit.thread.i.i.i13, label %_ZNK5clang14BuiltinTypeLoc19needsExtraLocalDataEv.exit.i.i.i6
 
 _ZNK5clang14BuiltinTypeLoc19needsExtraLocalDataEv.exit.i.i.i6: ; preds = %_ZN5clang14BuiltinTypeLoc22getWrittenBuiltinSpecsEv.exit
-  %35 = add nsw i32 %33, -444
-  %or.cond3.i.i.i.i7 = icmp ult i32 %35, 37
-  %36 = icmp eq i32 %33, 431
-  %or.cond5.i.i.i.i8 = or i1 %36, %or.cond3.i.i.i.i7
-  %37 = icmp eq i32 %33, 442
-  %spec.select.i.i.i.i9 = or i1 %37, %or.cond5.i.i.i.i8
+  %36 = add nsw i32 %34, -444
+  %or.cond3.i.i.i.i7 = icmp ult i32 %36, 37
+  %37 = icmp eq i32 %34, 431
+  %or.cond5.i.i.i.i8 = or i1 %37, %or.cond3.i.i.i.i7
+  %38 = icmp eq i32 %34, 442
+  %spec.select.i.i.i.i9 = or i1 %38, %or.cond5.i.i.i.i8
   %cond.fr.i.i.i10 = freeze i1 %spec.select.i.i.i.i9
   br i1 %cond.fr.i.i.i10, label %_ZNK5clang14BuiltinTypeLoc19needsExtraLocalDataEv.exit.thread.i.i.i13, label %_ZN5clang14BuiltinTypeLoc22getWrittenBuiltinSpecsEv.exit14
 
@@ -161341,19 +161344,20 @@ _ZNK5clang14BuiltinTypeLoc19needsExtraLocalDataEv.exit.thread.i.i.i13: ; preds =
   br label %_ZN5clang14BuiltinTypeLoc22getWrittenBuiltinSpecsEv.exit14
 
 _ZN5clang14BuiltinTypeLoc22getWrittenBuiltinSpecsEv.exit14: ; preds = %_ZNK5clang14BuiltinTypeLoc19needsExtraLocalDataEv.exit.i.i.i6, %_ZNK5clang14BuiltinTypeLoc19needsExtraLocalDataEv.exit.thread.i.i.i13
-  %38 = phi i32 [ 4, %_ZNK5clang14BuiltinTypeLoc19needsExtraLocalDataEv.exit.thread.i.i.i13 ], [ 1, %_ZNK5clang14BuiltinTypeLoc19needsExtraLocalDataEv.exit.i.i.i6 ]
-  %.rhs.trunc.i.i11 = trunc nuw nsw i32 %38 to i8
-  %39 = udiv i8 7, %.rhs.trunc.i.i11
-  %narrow.i.i12 = add nuw nsw i8 %39, 1
-  %40 = zext nneg i8 %narrow.i.i12 to i32
-  %41 = mul nuw nsw i32 %38, %40
-  %42 = zext nneg i32 %41 to i64
-  %43 = getelementptr inbounds nuw i8, ptr %17, i64 %42
-  %44 = load i32, ptr %29, align 4
-  store i32 %44, ptr %43, align 4
-  br label %45
+  %39 = phi i32 [ 4, %_ZNK5clang14BuiltinTypeLoc19needsExtraLocalDataEv.exit.thread.i.i.i13 ], [ 1, %_ZNK5clang14BuiltinTypeLoc19needsExtraLocalDataEv.exit.i.i.i6 ]
+  %.rhs.trunc.i.i11 = trunc nuw nsw i32 %39 to i8
+  %40 = tail call range(i8 0, 9) i8 @llvm.cttz.i8(i8 %.rhs.trunc.i.i11, i1 true)
+  %41 = lshr i8 7, %40
+  %narrow.i.i12 = add nuw nsw i8 %41, 1
+  %42 = zext nneg i8 %narrow.i.i12 to i32
+  %43 = mul nuw nsw i32 %39, %42
+  %44 = zext nneg i32 %43 to i64
+  %45 = getelementptr inbounds nuw i8, ptr %17, i64 %44
+  %46 = load i32, ptr %30, align 4
+  store i32 %46, ptr %45, align 4
+  br label %47
 
-45:                                               ; preds = %switch.early.test, %_ZN5clang14BuiltinTypeLoc22getWrittenBuiltinSpecsEv.exit14
+47:                                               ; preds = %switch.early.test, %_ZN5clang14BuiltinTypeLoc22getWrittenBuiltinSpecsEv.exit14
   ret i64 %4
 }
 
@@ -201727,6 +201731,9 @@ declare i64 @llvm.umin.i64(i64, i64) #20
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #20
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i8 @llvm.cttz.i8(i8, i1 immarg) #20
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.fshl.i64(i64, i64, i64) #20

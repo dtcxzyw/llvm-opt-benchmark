@@ -10744,12 +10744,12 @@ define internal fastcc range(i32 0, 2) i32 @get_envparam_size(ptr noundef %0, pt
   %3 = alloca ptr, align 8
   %4 = tail call ptr @getenv(ptr noundef %0) #39
   %.not = icmp eq ptr %4, null
-  br i1 %.not, label %65, label %5
+  br i1 %.not, label %66, label %5
 
 5:                                                ; preds = %2
   %6 = load i8, ptr %4, align 1
   %.not31 = icmp eq i8 %6, 0
-  br i1 %.not31, label %65, label %7
+  br i1 %.not31, label %66, label %7
 
 7:                                                ; preds = %5
   %8 = call i64 @strtoll(ptr noundef nonnull %4, ptr noundef nonnull %3, i32 noundef 0) #39
@@ -10811,73 +10811,74 @@ thread-pre-split:                                 ; preds = %7, %7, %11, %12
   %30 = load i64, ptr %29, align 8
   %31 = and i64 %30, -5
   %.not35 = icmp eq i64 %31, 0
-  br i1 %.not35, label %65, label %32
+  br i1 %.not35, label %66, label %32
 
 32:                                               ; preds = %.critedge
   %33 = load ptr, ptr @stderr, align 8
   %34 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %33, ptr noundef nonnull @.str.275, ptr noundef %0, ptr noundef nonnull %4) #58
-  br label %65
+  br label %66
 
 ._crit_edge:                                      ; preds = %26, %14
-  br i1 %16, label %35, label %49
+  br i1 %16, label %35, label %50
 
 35:                                               ; preds = %._crit_edge
-  %36 = udiv i64 9223372036854775807, %.0
-  %37 = sub nsw i64 0, %36
-  %38 = icmp slt i64 %8, %37
-  %39 = icmp slt i64 %36, %8
-  %or.cond = or i1 %38, %39
-  br i1 %or.cond, label %40, label %47
+  %36 = tail call range(i64 10, 65) i64 @llvm.cttz.i64(i64 %.0, i1 true)
+  %37 = lshr i64 9223372036854775807, %36
+  %38 = sub nsw i64 0, %37
+  %39 = icmp slt i64 %8, %38
+  %40 = icmp slt i64 %37, %8
+  %or.cond = or i1 %39, %40
+  br i1 %or.cond, label %41, label %48
 
-40:                                               ; preds = %35
-  %41 = tail call ptr @rb_ruby_verbose_ptr() #39
-  %42 = load i64, ptr %41, align 8
-  %43 = and i64 %42, -5
-  %.not38 = icmp eq i64 %43, 0
-  br i1 %.not38, label %65, label %44
+41:                                               ; preds = %35
+  %42 = tail call ptr @rb_ruby_verbose_ptr() #39
+  %43 = load i64, ptr %42, align 8
+  %44 = and i64 %43, -5
+  %.not38 = icmp eq i64 %44, 0
+  br i1 %.not38, label %66, label %45
 
-44:                                               ; preds = %40
-  %45 = load ptr, ptr @stderr, align 8
-  %46 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %45, ptr noundef nonnull @.str.276, ptr noundef %0, ptr noundef nonnull %4) #58
-  br label %65
+45:                                               ; preds = %41
+  %46 = load ptr, ptr @stderr, align 8
+  %47 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %46, ptr noundef nonnull @.str.276, ptr noundef %0, ptr noundef nonnull %4) #58
+  br label %66
 
-47:                                               ; preds = %35
-  %48 = mul i64 %.0, %8
-  br label %49
+48:                                               ; preds = %35
+  %49 = mul i64 %.0, %8
+  br label %50
 
-49:                                               ; preds = %47, %._crit_edge
-  %.027 = phi i64 [ %48, %47 ], [ %8, %._crit_edge ]
-  %50 = icmp sgt i64 %.027, 0
-  %51 = tail call ptr @rb_ruby_verbose_ptr() #39
-  %52 = load i64, ptr %51, align 8
-  %53 = and i64 %52, -5
-  %.not37 = icmp eq i64 %53, 0
-  br i1 %50, label %54, label %60
+50:                                               ; preds = %48, %._crit_edge
+  %.027 = phi i64 [ %49, %48 ], [ %8, %._crit_edge ]
+  %51 = icmp sgt i64 %.027, 0
+  %52 = tail call ptr @rb_ruby_verbose_ptr() #39
+  %53 = load i64, ptr %52, align 8
+  %54 = and i64 %53, -5
+  %.not37 = icmp eq i64 %54, 0
+  br i1 %51, label %55, label %61
 
-54:                                               ; preds = %49
-  br i1 %.not37, label %59, label %55
+55:                                               ; preds = %50
+  br i1 %.not37, label %60, label %56
 
-55:                                               ; preds = %54
-  %56 = load ptr, ptr @stderr, align 8
-  %57 = load i64, ptr %1, align 8
-  %58 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %56, ptr noundef nonnull @.str.277, ptr noundef %0, i64 noundef %.027, i64 noundef %57) #58
-  br label %59
+56:                                               ; preds = %55
+  %57 = load ptr, ptr @stderr, align 8
+  %58 = load i64, ptr %1, align 8
+  %59 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %57, ptr noundef nonnull @.str.277, ptr noundef %0, i64 noundef %.027, i64 noundef %58) #58
+  br label %60
 
-59:                                               ; preds = %55, %54
+60:                                               ; preds = %56, %55
   store i64 %.027, ptr %1, align 8
-  br label %65
+  br label %66
 
-60:                                               ; preds = %49
-  br i1 %.not37, label %65, label %61
+61:                                               ; preds = %50
+  br i1 %.not37, label %66, label %62
 
-61:                                               ; preds = %60
-  %62 = load ptr, ptr @stderr, align 8
-  %63 = load i64, ptr %1, align 8
-  %64 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %62, ptr noundef nonnull @.str.278, ptr noundef %0, i64 noundef %.027, i64 noundef %63, i64 noundef 0) #58
-  br label %65
+62:                                               ; preds = %61
+  %63 = load ptr, ptr @stderr, align 8
+  %64 = load i64, ptr %1, align 8
+  %65 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %63, ptr noundef nonnull @.str.278, ptr noundef %0, i64 noundef %.027, i64 noundef %64, i64 noundef 0) #58
+  br label %66
 
-65:                                               ; preds = %2, %5, %60, %61, %40, %44, %.critedge, %32, %59
-  %.028 = phi i32 [ 1, %59 ], [ 0, %32 ], [ 0, %.critedge ], [ 0, %44 ], [ 0, %40 ], [ 0, %61 ], [ 0, %60 ], [ 0, %5 ], [ 0, %2 ]
+66:                                               ; preds = %2, %5, %61, %62, %41, %45, %.critedge, %32, %60
+  %.028 = phi i32 [ 1, %60 ], [ 0, %32 ], [ 0, %.critedge ], [ 0, %45 ], [ 0, %41 ], [ 0, %62 ], [ 0, %61 ], [ 0, %5 ], [ 0, %2 ]
   ret i32 %.028
 }
 
@@ -29419,6 +29420,9 @@ declare void @llvm.va_end.p0(ptr) #38
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #51
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.cttz.i64(i64, i1 immarg) #51
 
 ; Function Attrs: nofree nounwind
 declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #52

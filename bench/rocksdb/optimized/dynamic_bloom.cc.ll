@@ -56,8 +56,9 @@ _ZN7rocksdb12_GLOBAL__N_113roundUpToPow2Ej.exit:  ; preds = %while.cond.i
   %mul5 = shl i32 %.sroa.speculated, 6
   %add6 = add i32 %total_bits, -1
   %sub = add i32 %add6, %mul5
-  %div7 = udiv i32 %sub, %mul5
-  %mul8 = mul i32 %div7, %mul
+  %1 = tail call range(i32 6, 33) i32 @llvm.cttz.i32(i32 %mul5, i1 true)
+  %div718 = lshr i32 %sub, %1
+  %mul8 = mul i32 %div718, %mul
   %div914 = lshr exact i32 %mul8, 3
   store i32 %div914, ptr %this, align 8
   %sub10 = add i32 %mul, -1
@@ -65,13 +66,13 @@ _ZN7rocksdb12_GLOBAL__N_113roundUpToPow2Ej.exit:  ; preds = %while.cond.i
   %conv12 = zext i32 %add11 to i64
   %vtable = load ptr, ptr %allocator, align 8
   %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 24
-  %1 = load ptr, ptr %vfn, align 8
-  %call13 = tail call noundef ptr %1(ptr noundef nonnull align 8 dereferenceable(8) %allocator, i64 noundef %conv12, i64 noundef %huge_page_tlb_size, ptr noundef %logger)
+  %2 = load ptr, ptr %vfn, align 8
+  %call13 = tail call noundef ptr %2(ptr noundef nonnull align 8 dereferenceable(8) %allocator, i64 noundef %conv12, i64 noundef %huge_page_tlb_size, ptr noundef %logger)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %call13, i8 0, i64 %conv12, i1 false)
-  %2 = ptrtoint ptr %call13 to i64
+  %3 = ptrtoint ptr %call13 to i64
   %conv15 = zext i32 %mul to i64
-  %3 = add nsw i64 %conv15, -1
-  %rem = and i64 %3, %2
+  %4 = add nsw i64 %conv15, -1
+  %rem = and i64 %4, %3
   %cmp16.not = icmp eq i64 %rem, 0
   %sub18 = sub nsw i64 %conv15, %rem
   %raw.0.idx = select i1 %cmp16.not, i64 0, i64 %sub18
@@ -99,6 +100,9 @@ entry:
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #6
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.cttz.i32(i32, i1 immarg) #6
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="non-leaf" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-cldemote,-clwb,-clzero,-cmpccxadd,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-pconfig,-prefetchi,-prefetchwt1,-ptwrite,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
 attributes #1 = { nofree nounwind }

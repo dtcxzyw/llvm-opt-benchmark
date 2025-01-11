@@ -141,15 +141,15 @@ define dso_local void @intel_gt_sysfs_pm_init(ptr noundef %0, ptr noundef %1) lo
   br i1 %9, label %85, label %10
 
 10:                                               ; preds = %2
-  %11 = tail call zeroext i1 @is_object_gt(ptr noundef %1) #5
+  %11 = tail call zeroext i1 @is_object_gt(ptr noundef %1) #6
   br i1 %11, label %12, label %14
 
 12:                                               ; preds = %10
-  %13 = tail call i32 @sysfs_create_group(ptr noundef %1, ptr noundef nonnull @rc6_attr_group) #5
+  %13 = tail call i32 @sysfs_create_group(ptr noundef %1, ptr noundef nonnull @rc6_attr_group) #6
   br label %16
 
 14:                                               ; preds = %10
-  %15 = tail call i32 @sysfs_merge_group(ptr noundef %1, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @rc6_attr_group, i64 40)) #5
+  %15 = tail call i32 @sysfs_merge_group(ptr noundef %1, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @rc6_attr_group, i64 40)) #6
   br label %16
 
 16:                                               ; preds = %14, %12
@@ -173,7 +173,7 @@ define dso_local void @intel_gt_sysfs_pm_init(ptr noundef %0, ptr noundef %1) lo
   %28 = load i32, ptr %27, align 8
   %29 = sext i32 %17 to i64
   %30 = inttoptr i64 %29 to ptr
-  tail call void (ptr, ptr, ...) @_dev_warn(ptr noundef %26, ptr noundef nonnull @.str.6, i32 noundef %28, ptr noundef nonnull %30) #6
+  tail call void (ptr, ptr, ...) @_dev_warn(ptr noundef %26, ptr noundef nonnull @.str.6, i32 noundef %28, ptr noundef nonnull %30) #7
   br label %31
 
 31:                                               ; preds = %25, %16
@@ -187,15 +187,15 @@ define dso_local void @intel_gt_sysfs_pm_init(ptr noundef %0, ptr noundef %1) lo
   br i1 %38, label %59, label %39
 
 39:                                               ; preds = %31
-  %40 = tail call zeroext i1 @is_object_gt(ptr noundef %1) #5
+  %40 = tail call zeroext i1 @is_object_gt(ptr noundef %1) #6
   br i1 %40, label %41, label %43
 
 41:                                               ; preds = %39
-  %42 = tail call i32 @sysfs_create_group(ptr noundef %1, ptr noundef nonnull @rc6p_attr_group) #5
+  %42 = tail call i32 @sysfs_create_group(ptr noundef %1, ptr noundef nonnull @rc6p_attr_group) #6
   br label %45
 
 43:                                               ; preds = %39
-  %44 = tail call i32 @sysfs_merge_group(ptr noundef %1, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @rc6p_attr_group, i64 40)) #5
+  %44 = tail call i32 @sysfs_merge_group(ptr noundef %1, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @rc6p_attr_group, i64 40)) #6
   br label %45
 
 45:                                               ; preds = %43, %41
@@ -219,7 +219,7 @@ define dso_local void @intel_gt_sysfs_pm_init(ptr noundef %0, ptr noundef %1) lo
   %56 = load i32, ptr %55, align 8
   %57 = sext i32 %46 to i64
   %58 = inttoptr i64 %57 to ptr
-  tail call void (ptr, ptr, ...) @_dev_warn(ptr noundef %54, ptr noundef nonnull @.str.7, i32 noundef %56, ptr noundef nonnull %58) #6
+  tail call void (ptr, ptr, ...) @_dev_warn(ptr noundef %54, ptr noundef nonnull @.str.7, i32 noundef %56, ptr noundef nonnull %58) #7
   %.pre = load ptr, ptr %0, align 8
   br label %59
 
@@ -232,15 +232,15 @@ define dso_local void @intel_gt_sysfs_pm_init(ptr noundef %0, ptr noundef %1) lo
   br i1 %64, label %85, label %65
 
 65:                                               ; preds = %59
-  %66 = tail call zeroext i1 @is_object_gt(ptr noundef %1) #5
+  %66 = tail call zeroext i1 @is_object_gt(ptr noundef %1) #6
   br i1 %66, label %67, label %69
 
 67:                                               ; preds = %65
-  %68 = tail call i32 @sysfs_create_group(ptr noundef %1, ptr noundef nonnull @media_rc6_attr_group) #5
+  %68 = tail call i32 @sysfs_create_group(ptr noundef %1, ptr noundef nonnull @media_rc6_attr_group) #6
   br label %71
 
 69:                                               ; preds = %65
-  %70 = tail call i32 @sysfs_merge_group(ptr noundef %1, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @media_rc6_attr_group, i64 40)) #5
+  %70 = tail call i32 @sysfs_merge_group(ptr noundef %1, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @media_rc6_attr_group, i64 40)) #6
   br label %71
 
 71:                                               ; preds = %69, %67
@@ -264,7 +264,7 @@ define dso_local void @intel_gt_sysfs_pm_init(ptr noundef %0, ptr noundef %1) lo
   %82 = load i32, ptr %81, align 8
   %83 = sext i32 %72 to i64
   %84 = inttoptr i64 %83 to ptr
-  tail call void (ptr, ptr, ...) @_dev_warn(ptr noundef %80, ptr noundef nonnull @.str.8, i32 noundef %82, ptr noundef nonnull %84) #6
+  tail call void (ptr, ptr, ...) @_dev_warn(ptr noundef %80, ptr noundef nonnull @.str.8, i32 noundef %82, ptr noundef nonnull %84) #7
   %.pre21 = load ptr, ptr %0, align 8
   br label %85
 
@@ -276,10 +276,10 @@ define dso_local void @intel_gt_sysfs_pm_init(ptr noundef %0, ptr noundef %1) lo
   br i1 %89, label %.thread, label %90
 
 90:                                               ; preds = %85
-  %91 = tail call zeroext i1 @is_object_gt(ptr noundef %1) #5
+  %91 = tail call zeroext i1 @is_object_gt(ptr noundef %1) #6
   %92 = select i1 %91, ptr @gen6_rps_attrs, ptr @gen6_gt_attrs
   %93 = select i1 %91, ptr @attr_rps_vlv_rpe_freq_mhz, ptr @dev_attr_gt_vlv_rpe_freq_mhz
-  %94 = tail call i32 @sysfs_create_files(ptr noundef %1, ptr noundef nonnull %92) #5
+  %94 = tail call i32 @sysfs_create_files(ptr noundef %1, ptr noundef nonnull %92) #6
   %95 = icmp eq i32 %94, 0
   br i1 %95, label %96, label %.thread19
 
@@ -292,12 +292,12 @@ define dso_local void @intel_gt_sysfs_pm_init(ptr noundef %0, ptr noundef %1) lo
   br i1 %101, label %104, label %102
 
 102:                                              ; preds = %96
-  %103 = tail call i32 @sysfs_create_file_ns(ptr noundef %1, ptr noundef nonnull %93, ptr noundef null) #5
+  %103 = tail call i32 @sysfs_create_file_ns(ptr noundef %1, ptr noundef nonnull %93, ptr noundef null) #6
   br label %104
 
 104:                                              ; preds = %102, %96
   %105 = phi i32 [ %103, %102 ], [ 0, %96 ]
-  %106 = tail call zeroext i1 @is_object_gt(ptr noundef %1) #5
+  %106 = tail call zeroext i1 @is_object_gt(ptr noundef %1) #6
   br i1 %106, label %107, label %121
 
 107:                                              ; preds = %104
@@ -319,7 +319,7 @@ define dso_local void @intel_gt_sysfs_pm_init(ptr noundef %0, ptr noundef %1) lo
   br i1 %118, label %119, label %121
 
 119:                                              ; preds = %115, %111, %107
-  %120 = tail call i32 @sysfs_create_files(ptr noundef %1, ptr noundef nonnull @gen6_gt_rps_attrs) #5
+  %120 = tail call i32 @sysfs_create_files(ptr noundef %1, ptr noundef nonnull @gen6_gt_rps_attrs) #6
   br label %121
 
 121:                                              ; preds = %119, %115, %104
@@ -344,15 +344,15 @@ define dso_local void @intel_gt_sysfs_pm_init(ptr noundef %0, ptr noundef %1) lo
   %133 = load i32, ptr %132, align 8
   %134 = sext i32 %124 to i64
   %135 = inttoptr i64 %134 to ptr
-  tail call void (ptr, ptr, ...) @_dev_warn(ptr noundef %131, ptr noundef nonnull @.str, i32 noundef %133, ptr noundef nonnull %135) #6
+  tail call void (ptr, ptr, ...) @_dev_warn(ptr noundef %131, ptr noundef nonnull @.str, i32 noundef %133, ptr noundef nonnull %135) #7
   br label %.thread
 
 .thread:                                          ; preds = %85, %130, %121
-  %136 = tail call zeroext i1 @is_object_gt(ptr noundef %1) #5
+  %136 = tail call zeroext i1 @is_object_gt(ptr noundef %1) #6
   br i1 %136, label %137, label %248
 
 137:                                              ; preds = %.thread
-  %138 = tail call i32 @sysfs_create_file_ns(ptr noundef %1, ptr noundef nonnull @attr_punit_req_freq_mhz, ptr noundef null) #5
+  %138 = tail call i32 @sysfs_create_file_ns(ptr noundef %1, ptr noundef nonnull @attr_punit_req_freq_mhz, ptr noundef null) #6
   %139 = icmp eq i32 %138, 0
   br i1 %139, label %152, label %140
 
@@ -372,7 +372,7 @@ define dso_local void @intel_gt_sysfs_pm_init(ptr noundef %0, ptr noundef %1) lo
   %149 = load i32, ptr %148, align 8
   %150 = sext i32 %138 to i64
   %151 = inttoptr i64 %150 to ptr
-  tail call void (ptr, ptr, ...) @_dev_warn(ptr noundef %147, ptr noundef nonnull @.str.1, i32 noundef %149, ptr noundef nonnull %151) #6
+  tail call void (ptr, ptr, ...) @_dev_warn(ptr noundef %147, ptr noundef nonnull @.str.1, i32 noundef %149, ptr noundef nonnull %151) #7
   br label %152
 
 152:                                              ; preds = %146, %137
@@ -394,7 +394,7 @@ define dso_local void @intel_gt_sysfs_pm_init(ptr noundef %0, ptr noundef %1) lo
   br i1 %163, label %179, label %164
 
 164:                                              ; preds = %160
-  %165 = tail call i32 @sysfs_create_file_ns(ptr noundef %1, ptr noundef nonnull @attr_slpc_ignore_eff_freq, ptr noundef null) #5
+  %165 = tail call i32 @sysfs_create_file_ns(ptr noundef %1, ptr noundef nonnull @attr_slpc_ignore_eff_freq, ptr noundef null) #6
   %166 = icmp eq i32 %165, 0
   br i1 %166, label %179, label %167
 
@@ -414,16 +414,16 @@ define dso_local void @intel_gt_sysfs_pm_init(ptr noundef %0, ptr noundef %1) lo
   %176 = load i32, ptr %175, align 8
   %177 = sext i32 %165 to i64
   %178 = inttoptr i64 %177 to ptr
-  tail call void (ptr, ptr, ...) @_dev_warn(ptr noundef %174, ptr noundef nonnull @.str.2, i32 noundef %176, ptr noundef nonnull %178) #6
+  tail call void (ptr, ptr, ...) @_dev_warn(ptr noundef %174, ptr noundef nonnull @.str.2, i32 noundef %176, ptr noundef nonnull %178) #7
   br label %179
 
 179:                                              ; preds = %173, %164, %160, %156, %152
-  %180 = tail call i32 @intel_gt_perf_limit_reasons_reg(ptr noundef %0) #5
+  %180 = tail call i32 @intel_gt_perf_limit_reasons_reg(ptr noundef %0) #6
   %181 = icmp eq i32 %180, 0
   br i1 %181, label %197, label %182
 
 182:                                              ; preds = %179
-  %183 = tail call i32 @sysfs_create_files(ptr noundef %1, ptr noundef nonnull @throttle_reason_attrs) #5
+  %183 = tail call i32 @sysfs_create_files(ptr noundef %1, ptr noundef nonnull @throttle_reason_attrs) #6
   %184 = icmp eq i32 %183, 0
   br i1 %184, label %197, label %185
 
@@ -443,7 +443,7 @@ define dso_local void @intel_gt_sysfs_pm_init(ptr noundef %0, ptr noundef %1) lo
   %194 = load i32, ptr %193, align 8
   %195 = sext i32 %183 to i64
   %196 = inttoptr i64 %195 to ptr
-  tail call void (ptr, ptr, ...) @_dev_warn(ptr noundef %192, ptr noundef nonnull @.str.3, i32 noundef %194, ptr noundef nonnull %196) #6
+  tail call void (ptr, ptr, ...) @_dev_warn(ptr noundef %192, ptr noundef nonnull @.str.3, i32 noundef %194, ptr noundef nonnull %196) #7
   br label %197
 
 197:                                              ; preds = %191, %182, %179
@@ -474,7 +474,7 @@ define dso_local void @intel_gt_sysfs_pm_init(ptr noundef %0, ptr noundef %1) lo
   br i1 %215, label %231, label %216
 
 216:                                              ; preds = %212
-  %217 = tail call i32 @sysfs_create_files(ptr noundef %1, ptr noundef nonnull @media_perf_power_attrs) #5
+  %217 = tail call i32 @sysfs_create_files(ptr noundef %1, ptr noundef nonnull @media_perf_power_attrs) #6
   %218 = icmp eq i32 %217, 0
   br i1 %218, label %231, label %219
 
@@ -494,13 +494,13 @@ define dso_local void @intel_gt_sysfs_pm_init(ptr noundef %0, ptr noundef %1) lo
   %228 = load i32, ptr %227, align 8
   %229 = sext i32 %217 to i64
   %230 = inttoptr i64 %229 to ptr
-  tail call void (ptr, ptr, ...) @_dev_warn(ptr noundef %226, ptr noundef nonnull @.str.4, i32 noundef %228, ptr noundef nonnull %230) #6
+  tail call void (ptr, ptr, ...) @_dev_warn(ptr noundef %226, ptr noundef nonnull @.str.4, i32 noundef %228, ptr noundef nonnull %230) #7
   br label %231
 
 231:                                              ; preds = %225, %216, %212, %208, %205, %197
   %232 = getelementptr inbounds nuw i8, ptr %0, i64 5256
   %233 = load ptr, ptr %232, align 8
-  %234 = tail call i32 @sysfs_create_files(ptr noundef %233, ptr noundef nonnull @rps_defaults_attrs) #5
+  %234 = tail call i32 @sysfs_create_files(ptr noundef %233, ptr noundef nonnull @rps_defaults_attrs) #6
   %235 = icmp eq i32 %234, 0
   br i1 %235, label %248, label %236
 
@@ -520,7 +520,7 @@ define dso_local void @intel_gt_sysfs_pm_init(ptr noundef %0, ptr noundef %1) lo
   %245 = load i32, ptr %244, align 8
   %246 = sext i32 %234 to i64
   %247 = inttoptr i64 %246 to ptr
-  tail call void (ptr, ptr, ...) @_dev_warn(ptr noundef %243, ptr noundef nonnull @.str.5, i32 noundef %245, ptr noundef nonnull %247) #6
+  tail call void (ptr, ptr, ...) @_dev_warn(ptr noundef %243, ptr noundef nonnull @.str.5, i32 noundef %245, ptr noundef nonnull %247) #7
   br label %248
 
 248:                                              ; preds = %242, %231, %.thread
@@ -554,7 +554,7 @@ declare dso_local i32 @sysfs_merge_group(ptr noundef, ptr noundef) local_unnamed
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal range(i64 -2147483648, 2147483648) i64 @rc6_enable_show(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) #0 align 16 {
   %4 = load ptr, ptr %1, align 8
-  %5 = tail call ptr @intel_gt_sysfs_get_drvdata(ptr noundef %0, ptr noundef %4) #5
+  %5 = tail call ptr @intel_gt_sysfs_get_drvdata(ptr noundef %0, ptr noundef %4) #6
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 7168
   %8 = load ptr, ptr %7, align 8
@@ -563,7 +563,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @rc6_enable_show(ptr noun
   %11 = trunc i64 %10 to i32
   %12 = lshr i32 %11, 29
   %13 = and i32 %12, 3
-  %14 = tail call i32 (ptr, ptr, ...) @sysfs_emit(ptr noundef %2, ptr noundef nonnull @.str.10, i32 noundef %13) #5
+  %14 = tail call i32 (ptr, ptr, ...) @sysfs_emit(ptr noundef %2, ptr noundef nonnull @.str.10, i32 noundef %13) #6
   %15 = sext i32 %14 to i64
   ret i64 %15
 }
@@ -582,11 +582,11 @@ define internal range(i64 -2147483648, 2147483648) i64 @rc6_residency_ms_show(pt
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc range(i64 -2147483648, 2147483648) i64 @rc6_residency_ms_show_common(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) unnamed_addr #0 align 16 {
-  %4 = tail call zeroext i1 @is_object_gt(ptr noundef %0) #5
+  %4 = tail call zeroext i1 @is_object_gt(ptr noundef %0) #6
   br i1 %4, label %36, label %5
 
 5:                                                ; preds = %3
-  %6 = tail call ptr @kdev_minor_to_i915(ptr noundef %0) #5
+  %6 = tail call ptr @kdev_minor_to_i915(ptr noundef %0) #6
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 9304
   br label %8
 
@@ -604,17 +604,17 @@ define internal fastcc range(i64 -2147483648, 2147483648) i64 @rc6_residency_ms_
   %17 = load ptr, ptr %16, align 8
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 24
   %19 = load ptr, ptr %18, align 8
-  %20 = tail call i64 @intel_runtime_pm_get(ptr noundef %19) #5
+  %20 = tail call i64 @intel_runtime_pm_get(ptr noundef %19) #6
   %21 = icmp eq i64 %20, 0
   br i1 %21, label %31, label %22
 
 22:                                               ; preds = %15
   %23 = getelementptr inbounds nuw i8, ptr %13, i64 3592
-  %24 = tail call i64 @intel_rc6_residency_us(ptr noundef nonnull %23, i32 noundef 1) #5
+  %24 = tail call i64 @intel_rc6_residency_us(ptr noundef nonnull %23, i32 noundef 1) #6
   %25 = load ptr, ptr %16, align 8
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 24
   %27 = load ptr, ptr %26, align 8
-  tail call void @intel_runtime_pm_put_unchecked(ptr noundef %27) #5
+  tail call void @intel_runtime_pm_put_unchecked(ptr noundef %27) #6
   %28 = add i64 %24, 500
   %29 = udiv i64 %28, 1000
   %30 = trunc i64 %29 to i32
@@ -631,22 +631,22 @@ define internal fastcc range(i64 -2147483648, 2147483648) i64 @rc6_residency_ms_
 
 36:                                               ; preds = %3
   %37 = load ptr, ptr %1, align 8
-  %38 = tail call ptr @intel_gt_sysfs_get_drvdata(ptr noundef %0, ptr noundef %37) #5
+  %38 = tail call ptr @intel_gt_sysfs_get_drvdata(ptr noundef %0, ptr noundef %37) #6
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 24
   %40 = load ptr, ptr %39, align 8
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 24
   %42 = load ptr, ptr %41, align 8
-  %43 = tail call i64 @intel_runtime_pm_get(ptr noundef %42) #5
+  %43 = tail call i64 @intel_runtime_pm_get(ptr noundef %42) #6
   %44 = icmp eq i64 %43, 0
   br i1 %44, label %.loopexit, label %45
 
 45:                                               ; preds = %36
   %46 = getelementptr inbounds nuw i8, ptr %38, i64 3592
-  %47 = tail call i64 @intel_rc6_residency_us(ptr noundef nonnull %46, i32 noundef 1) #5
+  %47 = tail call i64 @intel_rc6_residency_us(ptr noundef nonnull %46, i32 noundef 1) #6
   %48 = load ptr, ptr %39, align 8
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 24
   %50 = load ptr, ptr %49, align 8
-  tail call void @intel_runtime_pm_put_unchecked(ptr noundef %50) #5
+  tail call void @intel_runtime_pm_put_unchecked(ptr noundef %50) #6
   %51 = add i64 %47, 500
   %52 = udiv i64 %51, 1000
   %53 = trunc i64 %52 to i32
@@ -654,7 +654,7 @@ define internal fastcc range(i64 -2147483648, 2147483648) i64 @rc6_residency_ms_
 
 .loopexit:                                        ; preds = %34, %45, %36
   %54 = phi i32 [ %53, %45 ], [ 0, %36 ], [ %35, %34 ]
-  %55 = tail call i32 (ptr, ptr, ...) @sysfs_emit(ptr noundef %2, ptr noundef nonnull @.str.12, i32 noundef %54) #5
+  %55 = tail call i32 (ptr, ptr, ...) @sysfs_emit(ptr noundef %2, ptr noundef nonnull @.str.12, i32 noundef %54) #6
   %56 = sext i32 %55 to i64
   ret i64 %56
 }
@@ -674,7 +674,7 @@ declare dso_local void @intel_runtime_pm_put_unchecked(ptr noundef) local_unname
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal range(i64 -2147483648, 2147483648) i64 @rc6_enable_dev_show(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) #0 align 16 {
   %4 = load ptr, ptr %1, align 8
-  %5 = tail call ptr @intel_gt_sysfs_get_drvdata(ptr noundef %0, ptr noundef %4) #5
+  %5 = tail call ptr @intel_gt_sysfs_get_drvdata(ptr noundef %0, ptr noundef %4) #6
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 7168
   %8 = load ptr, ptr %7, align 8
@@ -683,7 +683,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @rc6_enable_dev_show(ptr 
   %11 = trunc i64 %10 to i32
   %12 = lshr i32 %11, 29
   %13 = and i32 %12, 3
-  %14 = tail call i32 (ptr, ptr, ...) @sysfs_emit(ptr noundef %2, ptr noundef nonnull @.str.10, i32 noundef %13) #5
+  %14 = tail call i32 (ptr, ptr, ...) @sysfs_emit(ptr noundef %2, ptr noundef nonnull @.str.10, i32 noundef %13) #6
   %15 = sext i32 %14 to i64
   ret i64 %15
 }
@@ -702,11 +702,11 @@ define internal range(i64 -2147483648, 2147483648) i64 @rc6p_residency_ms_show(p
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc range(i64 -2147483648, 2147483648) i64 @rc6p_residency_ms_show_common(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) unnamed_addr #0 align 16 {
-  %4 = tail call zeroext i1 @is_object_gt(ptr noundef %0) #5
+  %4 = tail call zeroext i1 @is_object_gt(ptr noundef %0) #6
   br i1 %4, label %36, label %5
 
 5:                                                ; preds = %3
-  %6 = tail call ptr @kdev_minor_to_i915(ptr noundef %0) #5
+  %6 = tail call ptr @kdev_minor_to_i915(ptr noundef %0) #6
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 9304
   br label %8
 
@@ -724,17 +724,17 @@ define internal fastcc range(i64 -2147483648, 2147483648) i64 @rc6p_residency_ms
   %17 = load ptr, ptr %16, align 8
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 24
   %19 = load ptr, ptr %18, align 8
-  %20 = tail call i64 @intel_runtime_pm_get(ptr noundef %19) #5
+  %20 = tail call i64 @intel_runtime_pm_get(ptr noundef %19) #6
   %21 = icmp eq i64 %20, 0
   br i1 %21, label %31, label %22
 
 22:                                               ; preds = %15
   %23 = getelementptr inbounds nuw i8, ptr %13, i64 3592
-  %24 = tail call i64 @intel_rc6_residency_us(ptr noundef nonnull %23, i32 noundef 2) #5
+  %24 = tail call i64 @intel_rc6_residency_us(ptr noundef nonnull %23, i32 noundef 2) #6
   %25 = load ptr, ptr %16, align 8
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 24
   %27 = load ptr, ptr %26, align 8
-  tail call void @intel_runtime_pm_put_unchecked(ptr noundef %27) #5
+  tail call void @intel_runtime_pm_put_unchecked(ptr noundef %27) #6
   %28 = add i64 %24, 500
   %29 = udiv i64 %28, 1000
   %30 = trunc i64 %29 to i32
@@ -751,22 +751,22 @@ define internal fastcc range(i64 -2147483648, 2147483648) i64 @rc6p_residency_ms
 
 36:                                               ; preds = %3
   %37 = load ptr, ptr %1, align 8
-  %38 = tail call ptr @intel_gt_sysfs_get_drvdata(ptr noundef %0, ptr noundef %37) #5
+  %38 = tail call ptr @intel_gt_sysfs_get_drvdata(ptr noundef %0, ptr noundef %37) #6
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 24
   %40 = load ptr, ptr %39, align 8
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 24
   %42 = load ptr, ptr %41, align 8
-  %43 = tail call i64 @intel_runtime_pm_get(ptr noundef %42) #5
+  %43 = tail call i64 @intel_runtime_pm_get(ptr noundef %42) #6
   %44 = icmp eq i64 %43, 0
   br i1 %44, label %.loopexit, label %45
 
 45:                                               ; preds = %36
   %46 = getelementptr inbounds nuw i8, ptr %38, i64 3592
-  %47 = tail call i64 @intel_rc6_residency_us(ptr noundef nonnull %46, i32 noundef 2) #5
+  %47 = tail call i64 @intel_rc6_residency_us(ptr noundef nonnull %46, i32 noundef 2) #6
   %48 = load ptr, ptr %39, align 8
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 24
   %50 = load ptr, ptr %49, align 8
-  tail call void @intel_runtime_pm_put_unchecked(ptr noundef %50) #5
+  tail call void @intel_runtime_pm_put_unchecked(ptr noundef %50) #6
   %51 = add i64 %47, 500
   %52 = udiv i64 %51, 1000
   %53 = trunc i64 %52 to i32
@@ -774,7 +774,7 @@ define internal fastcc range(i64 -2147483648, 2147483648) i64 @rc6p_residency_ms
 
 .loopexit:                                        ; preds = %34, %45, %36
   %54 = phi i32 [ %53, %45 ], [ 0, %36 ], [ %35, %34 ]
-  %55 = tail call i32 (ptr, ptr, ...) @sysfs_emit(ptr noundef %2, ptr noundef nonnull @.str.12, i32 noundef %54) #5
+  %55 = tail call i32 (ptr, ptr, ...) @sysfs_emit(ptr noundef %2, ptr noundef nonnull @.str.12, i32 noundef %54) #6
   %56 = sext i32 %55 to i64
   ret i64 %56
 }
@@ -787,11 +787,11 @@ define internal range(i64 -2147483648, 2147483648) i64 @rc6pp_residency_ms_show(
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc range(i64 -2147483648, 2147483648) i64 @rc6pp_residency_ms_show_common(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) unnamed_addr #0 align 16 {
-  %4 = tail call zeroext i1 @is_object_gt(ptr noundef %0) #5
+  %4 = tail call zeroext i1 @is_object_gt(ptr noundef %0) #6
   br i1 %4, label %36, label %5
 
 5:                                                ; preds = %3
-  %6 = tail call ptr @kdev_minor_to_i915(ptr noundef %0) #5
+  %6 = tail call ptr @kdev_minor_to_i915(ptr noundef %0) #6
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 9304
   br label %8
 
@@ -809,17 +809,17 @@ define internal fastcc range(i64 -2147483648, 2147483648) i64 @rc6pp_residency_m
   %17 = load ptr, ptr %16, align 8
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 24
   %19 = load ptr, ptr %18, align 8
-  %20 = tail call i64 @intel_runtime_pm_get(ptr noundef %19) #5
+  %20 = tail call i64 @intel_runtime_pm_get(ptr noundef %19) #6
   %21 = icmp eq i64 %20, 0
   br i1 %21, label %31, label %22
 
 22:                                               ; preds = %15
   %23 = getelementptr inbounds nuw i8, ptr %13, i64 3592
-  %24 = tail call i64 @intel_rc6_residency_us(ptr noundef nonnull %23, i32 noundef 3) #5
+  %24 = tail call i64 @intel_rc6_residency_us(ptr noundef nonnull %23, i32 noundef 3) #6
   %25 = load ptr, ptr %16, align 8
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 24
   %27 = load ptr, ptr %26, align 8
-  tail call void @intel_runtime_pm_put_unchecked(ptr noundef %27) #5
+  tail call void @intel_runtime_pm_put_unchecked(ptr noundef %27) #6
   %28 = add i64 %24, 500
   %29 = udiv i64 %28, 1000
   %30 = trunc i64 %29 to i32
@@ -836,22 +836,22 @@ define internal fastcc range(i64 -2147483648, 2147483648) i64 @rc6pp_residency_m
 
 36:                                               ; preds = %3
   %37 = load ptr, ptr %1, align 8
-  %38 = tail call ptr @intel_gt_sysfs_get_drvdata(ptr noundef %0, ptr noundef %37) #5
+  %38 = tail call ptr @intel_gt_sysfs_get_drvdata(ptr noundef %0, ptr noundef %37) #6
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 24
   %40 = load ptr, ptr %39, align 8
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 24
   %42 = load ptr, ptr %41, align 8
-  %43 = tail call i64 @intel_runtime_pm_get(ptr noundef %42) #5
+  %43 = tail call i64 @intel_runtime_pm_get(ptr noundef %42) #6
   %44 = icmp eq i64 %43, 0
   br i1 %44, label %.loopexit, label %45
 
 45:                                               ; preds = %36
   %46 = getelementptr inbounds nuw i8, ptr %38, i64 3592
-  %47 = tail call i64 @intel_rc6_residency_us(ptr noundef nonnull %46, i32 noundef 3) #5
+  %47 = tail call i64 @intel_rc6_residency_us(ptr noundef nonnull %46, i32 noundef 3) #6
   %48 = load ptr, ptr %39, align 8
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 24
   %50 = load ptr, ptr %49, align 8
-  tail call void @intel_runtime_pm_put_unchecked(ptr noundef %50) #5
+  tail call void @intel_runtime_pm_put_unchecked(ptr noundef %50) #6
   %51 = add i64 %47, 500
   %52 = udiv i64 %51, 1000
   %53 = trunc i64 %52 to i32
@@ -859,7 +859,7 @@ define internal fastcc range(i64 -2147483648, 2147483648) i64 @rc6pp_residency_m
 
 .loopexit:                                        ; preds = %34, %45, %36
   %54 = phi i32 [ %53, %45 ], [ 0, %36 ], [ %35, %34 ]
-  %55 = tail call i32 (ptr, ptr, ...) @sysfs_emit(ptr noundef %2, ptr noundef nonnull @.str.12, i32 noundef %54) #5
+  %55 = tail call i32 (ptr, ptr, ...) @sysfs_emit(ptr noundef %2, ptr noundef nonnull @.str.12, i32 noundef %54) #6
   %56 = sext i32 %55 to i64
   ret i64 %56
 }
@@ -884,11 +884,11 @@ define internal range(i64 -2147483648, 2147483648) i64 @media_rc6_residency_ms_s
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc range(i64 -2147483648, 2147483648) i64 @media_rc6_residency_ms_show_common(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) unnamed_addr #0 align 16 {
-  %4 = tail call zeroext i1 @is_object_gt(ptr noundef %0) #5
+  %4 = tail call zeroext i1 @is_object_gt(ptr noundef %0) #6
   br i1 %4, label %36, label %5
 
 5:                                                ; preds = %3
-  %6 = tail call ptr @kdev_minor_to_i915(ptr noundef %0) #5
+  %6 = tail call ptr @kdev_minor_to_i915(ptr noundef %0) #6
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 9304
   br label %8
 
@@ -906,17 +906,17 @@ define internal fastcc range(i64 -2147483648, 2147483648) i64 @media_rc6_residen
   %17 = load ptr, ptr %16, align 8
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 24
   %19 = load ptr, ptr %18, align 8
-  %20 = tail call i64 @intel_runtime_pm_get(ptr noundef %19) #5
+  %20 = tail call i64 @intel_runtime_pm_get(ptr noundef %19) #6
   %21 = icmp eq i64 %20, 0
   br i1 %21, label %31, label %22
 
 22:                                               ; preds = %15
   %23 = getelementptr inbounds nuw i8, ptr %13, i64 3592
-  %24 = tail call i64 @intel_rc6_residency_us(ptr noundef nonnull %23, i32 noundef 2) #5
+  %24 = tail call i64 @intel_rc6_residency_us(ptr noundef nonnull %23, i32 noundef 2) #6
   %25 = load ptr, ptr %16, align 8
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 24
   %27 = load ptr, ptr %26, align 8
-  tail call void @intel_runtime_pm_put_unchecked(ptr noundef %27) #5
+  tail call void @intel_runtime_pm_put_unchecked(ptr noundef %27) #6
   %28 = add i64 %24, 500
   %29 = udiv i64 %28, 1000
   %30 = trunc i64 %29 to i32
@@ -933,22 +933,22 @@ define internal fastcc range(i64 -2147483648, 2147483648) i64 @media_rc6_residen
 
 36:                                               ; preds = %3
   %37 = load ptr, ptr %1, align 8
-  %38 = tail call ptr @intel_gt_sysfs_get_drvdata(ptr noundef %0, ptr noundef %37) #5
+  %38 = tail call ptr @intel_gt_sysfs_get_drvdata(ptr noundef %0, ptr noundef %37) #6
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 24
   %40 = load ptr, ptr %39, align 8
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 24
   %42 = load ptr, ptr %41, align 8
-  %43 = tail call i64 @intel_runtime_pm_get(ptr noundef %42) #5
+  %43 = tail call i64 @intel_runtime_pm_get(ptr noundef %42) #6
   %44 = icmp eq i64 %43, 0
   br i1 %44, label %.loopexit, label %45
 
 45:                                               ; preds = %36
   %46 = getelementptr inbounds nuw i8, ptr %38, i64 3592
-  %47 = tail call i64 @intel_rc6_residency_us(ptr noundef nonnull %46, i32 noundef 2) #5
+  %47 = tail call i64 @intel_rc6_residency_us(ptr noundef nonnull %46, i32 noundef 2) #6
   %48 = load ptr, ptr %39, align 8
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 24
   %50 = load ptr, ptr %49, align 8
-  tail call void @intel_runtime_pm_put_unchecked(ptr noundef %50) #5
+  tail call void @intel_runtime_pm_put_unchecked(ptr noundef %50) #6
   %51 = add i64 %47, 500
   %52 = udiv i64 %51, 1000
   %53 = trunc i64 %52 to i32
@@ -956,7 +956,7 @@ define internal fastcc range(i64 -2147483648, 2147483648) i64 @media_rc6_residen
 
 .loopexit:                                        ; preds = %34, %45, %36
   %54 = phi i32 [ %53, %45 ], [ 0, %36 ], [ %35, %34 ]
-  %55 = tail call i32 (ptr, ptr, ...) @sysfs_emit(ptr noundef %2, ptr noundef nonnull @.str.12, i32 noundef %54) #5
+  %55 = tail call i32 (ptr, ptr, ...) @sysfs_emit(ptr noundef %2, ptr noundef nonnull @.str.12, i32 noundef %54) #6
   %56 = sext i32 %55 to i64
   ret i64 %56
 }
@@ -969,11 +969,11 @@ define internal range(i64 -2147483648, 2147483648) i64 @media_rc6_residency_ms_d
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal range(i64 -2147483648, 2147483648) i64 @act_freq_mhz_show(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) #0 align 16 {
-  %4 = tail call zeroext i1 @is_object_gt(ptr noundef %0) #5
+  %4 = tail call zeroext i1 @is_object_gt(ptr noundef %0) #6
   br i1 %4, label %21, label %5
 
 5:                                                ; preds = %3
-  %6 = tail call ptr @kdev_minor_to_i915(ptr noundef %0) #5
+  %6 = tail call ptr @kdev_minor_to_i915(ptr noundef %0) #6
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 9304
   br label %8
 
@@ -988,7 +988,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @act_freq_mhz_show(ptr no
 
 15:                                               ; preds = %8
   %16 = getelementptr inbounds nuw i8, ptr %13, i64 3696
-  %17 = tail call i32 @intel_rps_read_actual_frequency(ptr noundef nonnull %16) #5
+  %17 = tail call i32 @intel_rps_read_actual_frequency(ptr noundef nonnull %16) #6
   %18 = tail call i32 @llvm.umax.i32(i32 %17, i32 %11)
   br label %19
 
@@ -998,14 +998,14 @@ define internal range(i64 -2147483648, 2147483648) i64 @act_freq_mhz_show(ptr no
 
 21:                                               ; preds = %3
   %22 = load ptr, ptr %1, align 8
-  %23 = tail call ptr @intel_gt_sysfs_get_drvdata(ptr noundef %0, ptr noundef %22) #5
+  %23 = tail call ptr @intel_gt_sysfs_get_drvdata(ptr noundef %0, ptr noundef %22) #6
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 3696
-  %25 = tail call i32 @intel_rps_read_actual_frequency(ptr noundef nonnull %24) #5
+  %25 = tail call i32 @intel_rps_read_actual_frequency(ptr noundef nonnull %24) #6
   br label %act_freq_mhz_show_common.exit
 
 act_freq_mhz_show_common.exit:                    ; preds = %19, %21
   %26 = phi i32 [ %25, %21 ], [ %20, %19 ]
-  %27 = tail call i32 (ptr, ptr, ...) @sysfs_emit(ptr noundef %2, ptr noundef nonnull @.str.12, i32 noundef %26) #5
+  %27 = tail call i32 (ptr, ptr, ...) @sysfs_emit(ptr noundef %2, ptr noundef nonnull @.str.12, i32 noundef %26) #6
   %28 = sext i32 %27 to i64
   ret i64 %28
 }
@@ -1015,11 +1015,11 @@ declare dso_local i32 @intel_rps_read_actual_frequency(ptr noundef) local_unname
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal range(i64 -2147483648, 2147483648) i64 @cur_freq_mhz_show(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) #0 align 16 {
-  %4 = tail call zeroext i1 @is_object_gt(ptr noundef %0) #5
+  %4 = tail call zeroext i1 @is_object_gt(ptr noundef %0) #6
   br i1 %4, label %21, label %5
 
 5:                                                ; preds = %3
-  %6 = tail call ptr @kdev_minor_to_i915(ptr noundef %0) #5
+  %6 = tail call ptr @kdev_minor_to_i915(ptr noundef %0) #6
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 9304
   br label %8
 
@@ -1034,7 +1034,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @cur_freq_mhz_show(ptr no
 
 15:                                               ; preds = %8
   %16 = getelementptr inbounds nuw i8, ptr %13, i64 3696
-  %17 = tail call i32 @intel_rps_get_requested_frequency(ptr noundef nonnull %16) #5
+  %17 = tail call i32 @intel_rps_get_requested_frequency(ptr noundef nonnull %16) #6
   %18 = tail call i32 @llvm.umax.i32(i32 %17, i32 %11)
   br label %19
 
@@ -1044,14 +1044,14 @@ define internal range(i64 -2147483648, 2147483648) i64 @cur_freq_mhz_show(ptr no
 
 21:                                               ; preds = %3
   %22 = load ptr, ptr %1, align 8
-  %23 = tail call ptr @intel_gt_sysfs_get_drvdata(ptr noundef %0, ptr noundef %22) #5
+  %23 = tail call ptr @intel_gt_sysfs_get_drvdata(ptr noundef %0, ptr noundef %22) #6
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 3696
-  %25 = tail call i32 @intel_rps_get_requested_frequency(ptr noundef nonnull %24) #5
+  %25 = tail call i32 @intel_rps_get_requested_frequency(ptr noundef nonnull %24) #6
   br label %cur_freq_mhz_show_common.exit
 
 cur_freq_mhz_show_common.exit:                    ; preds = %19, %21
   %26 = phi i32 [ %25, %21 ], [ %20, %19 ]
-  %27 = tail call i32 (ptr, ptr, ...) @sysfs_emit(ptr noundef %2, ptr noundef nonnull @.str.12, i32 noundef %26) #5
+  %27 = tail call i32 (ptr, ptr, ...) @sysfs_emit(ptr noundef %2, ptr noundef nonnull @.str.12, i32 noundef %26) #6
   %28 = sext i32 %27 to i64
   ret i64 %28
 }
@@ -1061,11 +1061,11 @@ declare dso_local i32 @intel_rps_get_requested_frequency(ptr noundef) local_unna
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal range(i64 -2147483648, 2147483648) i64 @boost_freq_mhz_show(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) #0 align 16 {
-  %4 = tail call zeroext i1 @is_object_gt(ptr noundef %0) #5
+  %4 = tail call zeroext i1 @is_object_gt(ptr noundef %0) #6
   br i1 %4, label %21, label %5
 
 5:                                                ; preds = %3
-  %6 = tail call ptr @kdev_minor_to_i915(ptr noundef %0) #5
+  %6 = tail call ptr @kdev_minor_to_i915(ptr noundef %0) #6
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 9304
   br label %8
 
@@ -1080,7 +1080,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @boost_freq_mhz_show(ptr 
 
 15:                                               ; preds = %8
   %16 = getelementptr inbounds nuw i8, ptr %13, i64 3696
-  %17 = tail call i32 @intel_rps_get_boost_frequency(ptr noundef nonnull %16) #5
+  %17 = tail call i32 @intel_rps_get_boost_frequency(ptr noundef nonnull %16) #6
   %18 = tail call i32 @llvm.umax.i32(i32 %17, i32 %11)
   br label %19
 
@@ -1090,14 +1090,14 @@ define internal range(i64 -2147483648, 2147483648) i64 @boost_freq_mhz_show(ptr 
 
 21:                                               ; preds = %3
   %22 = load ptr, ptr %1, align 8
-  %23 = tail call ptr @intel_gt_sysfs_get_drvdata(ptr noundef %0, ptr noundef %22) #5
+  %23 = tail call ptr @intel_gt_sysfs_get_drvdata(ptr noundef %0, ptr noundef %22) #6
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 3696
-  %25 = tail call i32 @intel_rps_get_boost_frequency(ptr noundef nonnull %24) #5
+  %25 = tail call i32 @intel_rps_get_boost_frequency(ptr noundef nonnull %24) #6
   br label %boost_freq_mhz_show_common.exit
 
 boost_freq_mhz_show_common.exit:                  ; preds = %19, %21
   %26 = phi i32 [ %25, %21 ], [ %20, %19 ]
-  %27 = tail call i32 (ptr, ptr, ...) @sysfs_emit(ptr noundef %2, ptr noundef nonnull @.str.12, i32 noundef %26) #5
+  %27 = tail call i32 (ptr, ptr, ...) @sysfs_emit(ptr noundef %2, ptr noundef nonnull @.str.12, i32 noundef %26) #6
   %28 = sext i32 %27 to i64
   ret i64 %28
 }
@@ -1114,9 +1114,9 @@ declare dso_local i32 @intel_rps_get_boost_frequency(ptr noundef) local_unnamed_
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc i64 @boost_freq_mhz_store_common(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i64 noundef %3) unnamed_addr #0 align 16 {
   %5 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #6
   store i32 0, ptr %5, align 4, !annotation !11
-  %6 = call i32 @kstrtouint(ptr noundef %2, i32 noundef 0, ptr noundef nonnull %5) #5
+  %6 = call i32 @kstrtouint(ptr noundef %2, i32 noundef 0, ptr noundef nonnull %5) #6
   %7 = icmp eq i32 %6, 0
   br i1 %7, label %10, label %8
 
@@ -1126,11 +1126,11 @@ define internal fastcc i64 @boost_freq_mhz_store_common(ptr noundef %0, ptr noca
 
 10:                                               ; preds = %4
   %11 = load i32, ptr %5, align 4
-  %12 = call zeroext i1 @is_object_gt(ptr noundef %0) #5
+  %12 = call zeroext i1 @is_object_gt(ptr noundef %0) #6
   br i1 %12, label %28, label %13
 
 13:                                               ; preds = %10
-  %14 = call ptr @kdev_minor_to_i915(ptr noundef %0) #5
+  %14 = call ptr @kdev_minor_to_i915(ptr noundef %0) #6
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 9304
   br label %16
 
@@ -1144,7 +1144,7 @@ define internal fastcc i64 @boost_freq_mhz_store_common(ptr noundef %0, ptr noca
 
 22:                                               ; preds = %16
   %23 = getelementptr inbounds nuw i8, ptr %20, i64 3696
-  %24 = call i32 @intel_rps_set_boost_frequency(ptr noundef nonnull %23, i32 noundef %11) #5
+  %24 = call i32 @intel_rps_set_boost_frequency(ptr noundef nonnull %23, i32 noundef %11) #6
   %25 = icmp eq i32 %24, 0
   br i1 %25, label %27, label %.thread4
 
@@ -1157,9 +1157,9 @@ define internal fastcc i64 @boost_freq_mhz_store_common(ptr noundef %0, ptr noca
 
 28:                                               ; preds = %10
   %29 = load ptr, ptr %1, align 8
-  %30 = call ptr @intel_gt_sysfs_get_drvdata(ptr noundef %0, ptr noundef %29) #5
+  %30 = call ptr @intel_gt_sysfs_get_drvdata(ptr noundef %0, ptr noundef %29) #6
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 3696
-  %32 = call i32 @intel_rps_set_boost_frequency(ptr noundef nonnull %31, i32 noundef %11) #5
+  %32 = call i32 @intel_rps_set_boost_frequency(ptr noundef nonnull %31, i32 noundef %11) #6
   %.fr = freeze i32 %32
   %33 = icmp eq i32 %.fr, 0
   %34 = sext i32 %.fr to i64
@@ -1170,7 +1170,7 @@ define internal fastcc i64 @boost_freq_mhz_store_common(ptr noundef %0, ptr noca
 
 35:                                               ; preds = %.thread, %28, %.thread4, %8
   %36 = phi i64 [ %9, %8 ], [ %3, %.thread ], [ %34, %28 ], [ %26, %.thread4 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #6
   ret i64 %36
 }
 
@@ -1182,11 +1182,11 @@ declare dso_local i32 @intel_rps_set_boost_frequency(ptr noundef, i32 noundef) l
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal range(i64 -2147483648, 2147483648) i64 @max_freq_mhz_show(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) #0 align 16 {
-  %4 = tail call zeroext i1 @is_object_gt(ptr noundef %0) #5
+  %4 = tail call zeroext i1 @is_object_gt(ptr noundef %0) #6
   br i1 %4, label %21, label %5
 
 5:                                                ; preds = %3
-  %6 = tail call ptr @kdev_minor_to_i915(ptr noundef %0) #5
+  %6 = tail call ptr @kdev_minor_to_i915(ptr noundef %0) #6
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 9304
   br label %8
 
@@ -1201,7 +1201,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @max_freq_mhz_show(ptr no
 
 15:                                               ; preds = %8
   %16 = getelementptr inbounds nuw i8, ptr %13, i64 3696
-  %17 = tail call i32 @intel_rps_get_max_frequency(ptr noundef nonnull %16) #5
+  %17 = tail call i32 @intel_rps_get_max_frequency(ptr noundef nonnull %16) #6
   %18 = tail call i32 @llvm.umax.i32(i32 %17, i32 %11)
   br label %19
 
@@ -1211,14 +1211,14 @@ define internal range(i64 -2147483648, 2147483648) i64 @max_freq_mhz_show(ptr no
 
 21:                                               ; preds = %3
   %22 = load ptr, ptr %1, align 8
-  %23 = tail call ptr @intel_gt_sysfs_get_drvdata(ptr noundef %0, ptr noundef %22) #5
+  %23 = tail call ptr @intel_gt_sysfs_get_drvdata(ptr noundef %0, ptr noundef %22) #6
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 3696
-  %25 = tail call i32 @intel_rps_get_max_frequency(ptr noundef nonnull %24) #5
+  %25 = tail call i32 @intel_rps_get_max_frequency(ptr noundef nonnull %24) #6
   br label %max_freq_mhz_show_common.exit
 
 max_freq_mhz_show_common.exit:                    ; preds = %19, %21
   %26 = phi i32 [ %25, %21 ], [ %20, %19 ]
-  %27 = tail call i32 (ptr, ptr, ...) @sysfs_emit(ptr noundef %2, ptr noundef nonnull @.str.12, i32 noundef %26) #5
+  %27 = tail call i32 (ptr, ptr, ...) @sysfs_emit(ptr noundef %2, ptr noundef nonnull @.str.12, i32 noundef %26) #6
   %28 = sext i32 %27 to i64
   ret i64 %28
 }
@@ -1235,9 +1235,9 @@ declare dso_local i32 @intel_rps_get_max_frequency(ptr noundef) local_unnamed_ad
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc i64 @max_freq_mhz_store_common(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i64 noundef %3) unnamed_addr #0 align 16 {
   %5 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #6
   store i32 0, ptr %5, align 4, !annotation !11
-  %6 = call i32 @kstrtouint(ptr noundef %2, i32 noundef 0, ptr noundef nonnull %5) #5
+  %6 = call i32 @kstrtouint(ptr noundef %2, i32 noundef 0, ptr noundef nonnull %5) #6
   %7 = icmp eq i32 %6, 0
   br i1 %7, label %10, label %8
 
@@ -1247,11 +1247,11 @@ define internal fastcc i64 @max_freq_mhz_store_common(ptr noundef %0, ptr nocapt
 
 10:                                               ; preds = %4
   %11 = load i32, ptr %5, align 4
-  %12 = call zeroext i1 @is_object_gt(ptr noundef %0) #5
+  %12 = call zeroext i1 @is_object_gt(ptr noundef %0) #6
   br i1 %12, label %28, label %13
 
 13:                                               ; preds = %10
-  %14 = call ptr @kdev_minor_to_i915(ptr noundef %0) #5
+  %14 = call ptr @kdev_minor_to_i915(ptr noundef %0) #6
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 9304
   br label %16
 
@@ -1265,7 +1265,7 @@ define internal fastcc i64 @max_freq_mhz_store_common(ptr noundef %0, ptr nocapt
 
 22:                                               ; preds = %16
   %23 = getelementptr inbounds nuw i8, ptr %20, i64 3696
-  %24 = call i32 @intel_rps_set_max_frequency(ptr noundef nonnull %23, i32 noundef %11) #5
+  %24 = call i32 @intel_rps_set_max_frequency(ptr noundef nonnull %23, i32 noundef %11) #6
   %25 = icmp eq i32 %24, 0
   br i1 %25, label %27, label %.thread4
 
@@ -1278,9 +1278,9 @@ define internal fastcc i64 @max_freq_mhz_store_common(ptr noundef %0, ptr nocapt
 
 28:                                               ; preds = %10
   %29 = load ptr, ptr %1, align 8
-  %30 = call ptr @intel_gt_sysfs_get_drvdata(ptr noundef %0, ptr noundef %29) #5
+  %30 = call ptr @intel_gt_sysfs_get_drvdata(ptr noundef %0, ptr noundef %29) #6
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 3696
-  %32 = call i32 @intel_rps_set_max_frequency(ptr noundef nonnull %31, i32 noundef %11) #5
+  %32 = call i32 @intel_rps_set_max_frequency(ptr noundef nonnull %31, i32 noundef %11) #6
   %.fr = freeze i32 %32
   %33 = icmp eq i32 %.fr, 0
   %34 = sext i32 %.fr to i64
@@ -1291,7 +1291,7 @@ define internal fastcc i64 @max_freq_mhz_store_common(ptr noundef %0, ptr nocapt
 
 35:                                               ; preds = %.thread, %28, %.thread4, %8
   %36 = phi i64 [ %9, %8 ], [ %3, %.thread ], [ %34, %28 ], [ %26, %.thread4 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #6
   ret i64 %36
 }
 
@@ -1300,11 +1300,11 @@ declare dso_local i32 @intel_rps_set_max_frequency(ptr noundef, i32 noundef) loc
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal range(i64 -2147483648, 2147483648) i64 @min_freq_mhz_show(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) #0 align 16 {
-  %4 = tail call zeroext i1 @is_object_gt(ptr noundef %0) #5
+  %4 = tail call zeroext i1 @is_object_gt(ptr noundef %0) #6
   br i1 %4, label %21, label %5
 
 5:                                                ; preds = %3
-  %6 = tail call ptr @kdev_minor_to_i915(ptr noundef %0) #5
+  %6 = tail call ptr @kdev_minor_to_i915(ptr noundef %0) #6
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 9304
   br label %8
 
@@ -1319,7 +1319,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @min_freq_mhz_show(ptr no
 
 15:                                               ; preds = %8
   %16 = getelementptr inbounds nuw i8, ptr %13, i64 3696
-  %17 = tail call i32 @intel_rps_get_min_frequency(ptr noundef nonnull %16) #5
+  %17 = tail call i32 @intel_rps_get_min_frequency(ptr noundef nonnull %16) #6
   %18 = tail call i32 @llvm.umin.i32(i32 %17, i32 %11)
   br label %19
 
@@ -1329,14 +1329,14 @@ define internal range(i64 -2147483648, 2147483648) i64 @min_freq_mhz_show(ptr no
 
 21:                                               ; preds = %3
   %22 = load ptr, ptr %1, align 8
-  %23 = tail call ptr @intel_gt_sysfs_get_drvdata(ptr noundef %0, ptr noundef %22) #5
+  %23 = tail call ptr @intel_gt_sysfs_get_drvdata(ptr noundef %0, ptr noundef %22) #6
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 3696
-  %25 = tail call i32 @intel_rps_get_min_frequency(ptr noundef nonnull %24) #5
+  %25 = tail call i32 @intel_rps_get_min_frequency(ptr noundef nonnull %24) #6
   br label %min_freq_mhz_show_common.exit
 
 min_freq_mhz_show_common.exit:                    ; preds = %19, %21
   %26 = phi i32 [ %25, %21 ], [ %20, %19 ]
-  %27 = tail call i32 (ptr, ptr, ...) @sysfs_emit(ptr noundef %2, ptr noundef nonnull @.str.12, i32 noundef %26) #5
+  %27 = tail call i32 (ptr, ptr, ...) @sysfs_emit(ptr noundef %2, ptr noundef nonnull @.str.12, i32 noundef %26) #6
   %28 = sext i32 %27 to i64
   ret i64 %28
 }
@@ -1353,9 +1353,9 @@ declare dso_local i32 @intel_rps_get_min_frequency(ptr noundef) local_unnamed_ad
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc i64 @min_freq_mhz_store_common(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i64 noundef %3) unnamed_addr #0 align 16 {
   %5 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #6
   store i32 0, ptr %5, align 4, !annotation !11
-  %6 = call i32 @kstrtouint(ptr noundef %2, i32 noundef 0, ptr noundef nonnull %5) #5
+  %6 = call i32 @kstrtouint(ptr noundef %2, i32 noundef 0, ptr noundef nonnull %5) #6
   %7 = icmp eq i32 %6, 0
   br i1 %7, label %10, label %8
 
@@ -1365,11 +1365,11 @@ define internal fastcc i64 @min_freq_mhz_store_common(ptr noundef %0, ptr nocapt
 
 10:                                               ; preds = %4
   %11 = load i32, ptr %5, align 4
-  %12 = call zeroext i1 @is_object_gt(ptr noundef %0) #5
+  %12 = call zeroext i1 @is_object_gt(ptr noundef %0) #6
   br i1 %12, label %28, label %13
 
 13:                                               ; preds = %10
-  %14 = call ptr @kdev_minor_to_i915(ptr noundef %0) #5
+  %14 = call ptr @kdev_minor_to_i915(ptr noundef %0) #6
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 9304
   br label %16
 
@@ -1383,7 +1383,7 @@ define internal fastcc i64 @min_freq_mhz_store_common(ptr noundef %0, ptr nocapt
 
 22:                                               ; preds = %16
   %23 = getelementptr inbounds nuw i8, ptr %20, i64 3696
-  %24 = call i32 @intel_rps_set_min_frequency(ptr noundef nonnull %23, i32 noundef %11) #5
+  %24 = call i32 @intel_rps_set_min_frequency(ptr noundef nonnull %23, i32 noundef %11) #6
   %25 = icmp eq i32 %24, 0
   br i1 %25, label %27, label %.thread4
 
@@ -1396,9 +1396,9 @@ define internal fastcc i64 @min_freq_mhz_store_common(ptr noundef %0, ptr nocapt
 
 28:                                               ; preds = %10
   %29 = load ptr, ptr %1, align 8
-  %30 = call ptr @intel_gt_sysfs_get_drvdata(ptr noundef %0, ptr noundef %29) #5
+  %30 = call ptr @intel_gt_sysfs_get_drvdata(ptr noundef %0, ptr noundef %29) #6
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 3696
-  %32 = call i32 @intel_rps_set_min_frequency(ptr noundef nonnull %31, i32 noundef %11) #5
+  %32 = call i32 @intel_rps_set_min_frequency(ptr noundef nonnull %31, i32 noundef %11) #6
   %.fr = freeze i32 %32
   %33 = icmp eq i32 %.fr, 0
   %34 = sext i32 %.fr to i64
@@ -1409,7 +1409,7 @@ define internal fastcc i64 @min_freq_mhz_store_common(ptr noundef %0, ptr nocapt
 
 35:                                               ; preds = %.thread, %28, %.thread4, %8
   %36 = phi i64 [ %9, %8 ], [ %3, %.thread ], [ %34, %28 ], [ %26, %.thread4 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #6
   ret i64 %36
 }
 
@@ -1418,11 +1418,11 @@ declare dso_local i32 @intel_rps_set_min_frequency(ptr noundef, i32 noundef) loc
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal range(i64 -2147483648, 2147483648) i64 @RP0_freq_mhz_show(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) #0 align 16 {
-  %4 = tail call zeroext i1 @is_object_gt(ptr noundef %0) #5
+  %4 = tail call zeroext i1 @is_object_gt(ptr noundef %0) #6
   br i1 %4, label %21, label %5
 
 5:                                                ; preds = %3
-  %6 = tail call ptr @kdev_minor_to_i915(ptr noundef %0) #5
+  %6 = tail call ptr @kdev_minor_to_i915(ptr noundef %0) #6
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 9304
   br label %8
 
@@ -1437,7 +1437,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @RP0_freq_mhz_show(ptr no
 
 15:                                               ; preds = %8
   %16 = getelementptr inbounds nuw i8, ptr %13, i64 3696
-  %17 = tail call i32 @intel_rps_get_rp0_frequency(ptr noundef nonnull %16) #5
+  %17 = tail call i32 @intel_rps_get_rp0_frequency(ptr noundef nonnull %16) #6
   %18 = tail call i32 @llvm.umax.i32(i32 %17, i32 %11)
   br label %19
 
@@ -1447,14 +1447,14 @@ define internal range(i64 -2147483648, 2147483648) i64 @RP0_freq_mhz_show(ptr no
 
 21:                                               ; preds = %3
   %22 = load ptr, ptr %1, align 8
-  %23 = tail call ptr @intel_gt_sysfs_get_drvdata(ptr noundef %0, ptr noundef %22) #5
+  %23 = tail call ptr @intel_gt_sysfs_get_drvdata(ptr noundef %0, ptr noundef %22) #6
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 3696
-  %25 = tail call i32 @intel_rps_get_rp0_frequency(ptr noundef nonnull %24) #5
+  %25 = tail call i32 @intel_rps_get_rp0_frequency(ptr noundef nonnull %24) #6
   br label %RP0_freq_mhz_show_common.exit
 
 RP0_freq_mhz_show_common.exit:                    ; preds = %19, %21
   %26 = phi i32 [ %25, %21 ], [ %20, %19 ]
-  %27 = tail call i32 (ptr, ptr, ...) @sysfs_emit(ptr noundef %2, ptr noundef nonnull @.str.12, i32 noundef %26) #5
+  %27 = tail call i32 (ptr, ptr, ...) @sysfs_emit(ptr noundef %2, ptr noundef nonnull @.str.12, i32 noundef %26) #6
   %28 = sext i32 %27 to i64
   ret i64 %28
 }
@@ -1464,11 +1464,11 @@ declare dso_local i32 @intel_rps_get_rp0_frequency(ptr noundef) local_unnamed_ad
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal range(i64 -2147483648, 2147483648) i64 @RP1_freq_mhz_show(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) #0 align 16 {
-  %4 = tail call zeroext i1 @is_object_gt(ptr noundef %0) #5
+  %4 = tail call zeroext i1 @is_object_gt(ptr noundef %0) #6
   br i1 %4, label %21, label %5
 
 5:                                                ; preds = %3
-  %6 = tail call ptr @kdev_minor_to_i915(ptr noundef %0) #5
+  %6 = tail call ptr @kdev_minor_to_i915(ptr noundef %0) #6
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 9304
   br label %8
 
@@ -1483,7 +1483,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @RP1_freq_mhz_show(ptr no
 
 15:                                               ; preds = %8
   %16 = getelementptr inbounds nuw i8, ptr %13, i64 3696
-  %17 = tail call i32 @intel_rps_get_rp1_frequency(ptr noundef nonnull %16) #5
+  %17 = tail call i32 @intel_rps_get_rp1_frequency(ptr noundef nonnull %16) #6
   %18 = tail call i32 @llvm.umax.i32(i32 %17, i32 %11)
   br label %19
 
@@ -1493,14 +1493,14 @@ define internal range(i64 -2147483648, 2147483648) i64 @RP1_freq_mhz_show(ptr no
 
 21:                                               ; preds = %3
   %22 = load ptr, ptr %1, align 8
-  %23 = tail call ptr @intel_gt_sysfs_get_drvdata(ptr noundef %0, ptr noundef %22) #5
+  %23 = tail call ptr @intel_gt_sysfs_get_drvdata(ptr noundef %0, ptr noundef %22) #6
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 3696
-  %25 = tail call i32 @intel_rps_get_rp1_frequency(ptr noundef nonnull %24) #5
+  %25 = tail call i32 @intel_rps_get_rp1_frequency(ptr noundef nonnull %24) #6
   br label %RP1_freq_mhz_show_common.exit
 
 RP1_freq_mhz_show_common.exit:                    ; preds = %19, %21
   %26 = phi i32 [ %25, %21 ], [ %20, %19 ]
-  %27 = tail call i32 (ptr, ptr, ...) @sysfs_emit(ptr noundef %2, ptr noundef nonnull @.str.12, i32 noundef %26) #5
+  %27 = tail call i32 (ptr, ptr, ...) @sysfs_emit(ptr noundef %2, ptr noundef nonnull @.str.12, i32 noundef %26) #6
   %28 = sext i32 %27 to i64
   ret i64 %28
 }
@@ -1510,11 +1510,11 @@ declare dso_local i32 @intel_rps_get_rp1_frequency(ptr noundef) local_unnamed_ad
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal range(i64 -2147483648, 2147483648) i64 @RPn_freq_mhz_show(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) #0 align 16 {
-  %4 = tail call zeroext i1 @is_object_gt(ptr noundef %0) #5
+  %4 = tail call zeroext i1 @is_object_gt(ptr noundef %0) #6
   br i1 %4, label %21, label %5
 
 5:                                                ; preds = %3
-  %6 = tail call ptr @kdev_minor_to_i915(ptr noundef %0) #5
+  %6 = tail call ptr @kdev_minor_to_i915(ptr noundef %0) #6
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 9304
   br label %8
 
@@ -1529,7 +1529,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @RPn_freq_mhz_show(ptr no
 
 15:                                               ; preds = %8
   %16 = getelementptr inbounds nuw i8, ptr %13, i64 3696
-  %17 = tail call i32 @intel_rps_get_rpn_frequency(ptr noundef nonnull %16) #5
+  %17 = tail call i32 @intel_rps_get_rpn_frequency(ptr noundef nonnull %16) #6
   %18 = tail call i32 @llvm.umax.i32(i32 %17, i32 %11)
   br label %19
 
@@ -1539,14 +1539,14 @@ define internal range(i64 -2147483648, 2147483648) i64 @RPn_freq_mhz_show(ptr no
 
 21:                                               ; preds = %3
   %22 = load ptr, ptr %1, align 8
-  %23 = tail call ptr @intel_gt_sysfs_get_drvdata(ptr noundef %0, ptr noundef %22) #5
+  %23 = tail call ptr @intel_gt_sysfs_get_drvdata(ptr noundef %0, ptr noundef %22) #6
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 3696
-  %25 = tail call i32 @intel_rps_get_rpn_frequency(ptr noundef nonnull %24) #5
+  %25 = tail call i32 @intel_rps_get_rpn_frequency(ptr noundef nonnull %24) #6
   br label %RPn_freq_mhz_show_common.exit
 
 RPn_freq_mhz_show_common.exit:                    ; preds = %19, %21
   %26 = phi i32 [ %25, %21 ], [ %20, %19 ]
-  %27 = tail call i32 (ptr, ptr, ...) @sysfs_emit(ptr noundef %2, ptr noundef nonnull @.str.12, i32 noundef %26) #5
+  %27 = tail call i32 (ptr, ptr, ...) @sysfs_emit(ptr noundef %2, ptr noundef nonnull @.str.12, i32 noundef %26) #6
   %28 = sext i32 %27 to i64
   ret i64 %28
 }
@@ -1556,11 +1556,11 @@ declare dso_local i32 @intel_rps_get_rpn_frequency(ptr noundef) local_unnamed_ad
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal range(i64 -2147483648, 2147483648) i64 @vlv_rpe_freq_mhz_show(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) #0 align 16 {
-  %4 = tail call zeroext i1 @is_object_gt(ptr noundef %0) #5
+  %4 = tail call zeroext i1 @is_object_gt(ptr noundef %0) #6
   br i1 %4, label %24, label %5
 
 5:                                                ; preds = %3
-  %6 = tail call ptr @kdev_minor_to_i915(ptr noundef %0) #5
+  %6 = tail call ptr @kdev_minor_to_i915(ptr noundef %0) #6
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 9304
   br label %8
 
@@ -1578,7 +1578,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @vlv_rpe_freq_mhz_show(pt
   %17 = getelementptr inbounds nuw i8, ptr %13, i64 3840
   %18 = load i8, ptr %17, align 8
   %19 = zext i8 %18 to i32
-  %20 = tail call i32 @intel_gpu_freq(ptr noundef nonnull %16, i32 noundef %19) #5
+  %20 = tail call i32 @intel_gpu_freq(ptr noundef nonnull %16, i32 noundef %19) #6
   %21 = tail call i32 @llvm.umax.i32(i32 %20, i32 %11)
   br label %22
 
@@ -1588,17 +1588,17 @@ define internal range(i64 -2147483648, 2147483648) i64 @vlv_rpe_freq_mhz_show(pt
 
 24:                                               ; preds = %3
   %25 = load ptr, ptr %1, align 8
-  %26 = tail call ptr @intel_gt_sysfs_get_drvdata(ptr noundef %0, ptr noundef %25) #5
+  %26 = tail call ptr @intel_gt_sysfs_get_drvdata(ptr noundef %0, ptr noundef %25) #6
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 3696
   %28 = getelementptr inbounds nuw i8, ptr %26, i64 3840
   %29 = load i8, ptr %28, align 8
   %30 = zext i8 %29 to i32
-  %31 = tail call i32 @intel_gpu_freq(ptr noundef nonnull %27, i32 noundef %30) #5
+  %31 = tail call i32 @intel_gpu_freq(ptr noundef nonnull %27, i32 noundef %30) #6
   br label %vlv_rpe_freq_mhz_show_common.exit
 
 vlv_rpe_freq_mhz_show_common.exit:                ; preds = %22, %24
   %32 = phi i32 [ %31, %24 ], [ %23, %22 ]
-  %33 = tail call i32 (ptr, ptr, ...) @sysfs_emit(ptr noundef %2, ptr noundef nonnull @.str.12, i32 noundef %32) #5
+  %33 = tail call i32 (ptr, ptr, ...) @sysfs_emit(ptr noundef %2, ptr noundef nonnull @.str.12, i32 noundef %32) #6
   %34 = sext i32 %33 to i64
   ret i64 %34
 }
@@ -1608,11 +1608,11 @@ declare dso_local i32 @intel_gpu_freq(ptr noundef, i32 noundef) local_unnamed_ad
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal range(i64 -2147483648, 2147483648) i64 @act_freq_mhz_dev_show(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) #0 align 16 {
-  %4 = tail call zeroext i1 @is_object_gt(ptr noundef %0) #5
+  %4 = tail call zeroext i1 @is_object_gt(ptr noundef %0) #6
   br i1 %4, label %21, label %5
 
 5:                                                ; preds = %3
-  %6 = tail call ptr @kdev_minor_to_i915(ptr noundef %0) #5
+  %6 = tail call ptr @kdev_minor_to_i915(ptr noundef %0) #6
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 9304
   br label %8
 
@@ -1627,7 +1627,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @act_freq_mhz_dev_show(pt
 
 15:                                               ; preds = %8
   %16 = getelementptr inbounds nuw i8, ptr %13, i64 3696
-  %17 = tail call i32 @intel_rps_read_actual_frequency(ptr noundef nonnull %16) #5
+  %17 = tail call i32 @intel_rps_read_actual_frequency(ptr noundef nonnull %16) #6
   %18 = tail call i32 @llvm.umax.i32(i32 %17, i32 %11)
   br label %19
 
@@ -1637,25 +1637,25 @@ define internal range(i64 -2147483648, 2147483648) i64 @act_freq_mhz_dev_show(pt
 
 21:                                               ; preds = %3
   %22 = load ptr, ptr %1, align 8
-  %23 = tail call ptr @intel_gt_sysfs_get_drvdata(ptr noundef %0, ptr noundef %22) #5
+  %23 = tail call ptr @intel_gt_sysfs_get_drvdata(ptr noundef %0, ptr noundef %22) #6
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 3696
-  %25 = tail call i32 @intel_rps_read_actual_frequency(ptr noundef nonnull %24) #5
+  %25 = tail call i32 @intel_rps_read_actual_frequency(ptr noundef nonnull %24) #6
   br label %act_freq_mhz_show_common.exit
 
 act_freq_mhz_show_common.exit:                    ; preds = %19, %21
   %26 = phi i32 [ %25, %21 ], [ %20, %19 ]
-  %27 = tail call i32 (ptr, ptr, ...) @sysfs_emit(ptr noundef %2, ptr noundef nonnull @.str.12, i32 noundef %26) #5
+  %27 = tail call i32 (ptr, ptr, ...) @sysfs_emit(ptr noundef %2, ptr noundef nonnull @.str.12, i32 noundef %26) #6
   %28 = sext i32 %27 to i64
   ret i64 %28
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal range(i64 -2147483648, 2147483648) i64 @cur_freq_mhz_dev_show(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) #0 align 16 {
-  %4 = tail call zeroext i1 @is_object_gt(ptr noundef %0) #5
+  %4 = tail call zeroext i1 @is_object_gt(ptr noundef %0) #6
   br i1 %4, label %21, label %5
 
 5:                                                ; preds = %3
-  %6 = tail call ptr @kdev_minor_to_i915(ptr noundef %0) #5
+  %6 = tail call ptr @kdev_minor_to_i915(ptr noundef %0) #6
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 9304
   br label %8
 
@@ -1670,7 +1670,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @cur_freq_mhz_dev_show(pt
 
 15:                                               ; preds = %8
   %16 = getelementptr inbounds nuw i8, ptr %13, i64 3696
-  %17 = tail call i32 @intel_rps_get_requested_frequency(ptr noundef nonnull %16) #5
+  %17 = tail call i32 @intel_rps_get_requested_frequency(ptr noundef nonnull %16) #6
   %18 = tail call i32 @llvm.umax.i32(i32 %17, i32 %11)
   br label %19
 
@@ -1680,25 +1680,25 @@ define internal range(i64 -2147483648, 2147483648) i64 @cur_freq_mhz_dev_show(pt
 
 21:                                               ; preds = %3
   %22 = load ptr, ptr %1, align 8
-  %23 = tail call ptr @intel_gt_sysfs_get_drvdata(ptr noundef %0, ptr noundef %22) #5
+  %23 = tail call ptr @intel_gt_sysfs_get_drvdata(ptr noundef %0, ptr noundef %22) #6
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 3696
-  %25 = tail call i32 @intel_rps_get_requested_frequency(ptr noundef nonnull %24) #5
+  %25 = tail call i32 @intel_rps_get_requested_frequency(ptr noundef nonnull %24) #6
   br label %cur_freq_mhz_show_common.exit
 
 cur_freq_mhz_show_common.exit:                    ; preds = %19, %21
   %26 = phi i32 [ %25, %21 ], [ %20, %19 ]
-  %27 = tail call i32 (ptr, ptr, ...) @sysfs_emit(ptr noundef %2, ptr noundef nonnull @.str.12, i32 noundef %26) #5
+  %27 = tail call i32 (ptr, ptr, ...) @sysfs_emit(ptr noundef %2, ptr noundef nonnull @.str.12, i32 noundef %26) #6
   %28 = sext i32 %27 to i64
   ret i64 %28
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal range(i64 -2147483648, 2147483648) i64 @boost_freq_mhz_dev_show(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) #0 align 16 {
-  %4 = tail call zeroext i1 @is_object_gt(ptr noundef %0) #5
+  %4 = tail call zeroext i1 @is_object_gt(ptr noundef %0) #6
   br i1 %4, label %21, label %5
 
 5:                                                ; preds = %3
-  %6 = tail call ptr @kdev_minor_to_i915(ptr noundef %0) #5
+  %6 = tail call ptr @kdev_minor_to_i915(ptr noundef %0) #6
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 9304
   br label %8
 
@@ -1713,7 +1713,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @boost_freq_mhz_dev_show(
 
 15:                                               ; preds = %8
   %16 = getelementptr inbounds nuw i8, ptr %13, i64 3696
-  %17 = tail call i32 @intel_rps_get_boost_frequency(ptr noundef nonnull %16) #5
+  %17 = tail call i32 @intel_rps_get_boost_frequency(ptr noundef nonnull %16) #6
   %18 = tail call i32 @llvm.umax.i32(i32 %17, i32 %11)
   br label %19
 
@@ -1723,14 +1723,14 @@ define internal range(i64 -2147483648, 2147483648) i64 @boost_freq_mhz_dev_show(
 
 21:                                               ; preds = %3
   %22 = load ptr, ptr %1, align 8
-  %23 = tail call ptr @intel_gt_sysfs_get_drvdata(ptr noundef %0, ptr noundef %22) #5
+  %23 = tail call ptr @intel_gt_sysfs_get_drvdata(ptr noundef %0, ptr noundef %22) #6
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 3696
-  %25 = tail call i32 @intel_rps_get_boost_frequency(ptr noundef nonnull %24) #5
+  %25 = tail call i32 @intel_rps_get_boost_frequency(ptr noundef nonnull %24) #6
   br label %boost_freq_mhz_show_common.exit
 
 boost_freq_mhz_show_common.exit:                  ; preds = %19, %21
   %26 = phi i32 [ %25, %21 ], [ %20, %19 ]
-  %27 = tail call i32 (ptr, ptr, ...) @sysfs_emit(ptr noundef %2, ptr noundef nonnull @.str.12, i32 noundef %26) #5
+  %27 = tail call i32 (ptr, ptr, ...) @sysfs_emit(ptr noundef %2, ptr noundef nonnull @.str.12, i32 noundef %26) #6
   %28 = sext i32 %27 to i64
   ret i64 %28
 }
@@ -1743,11 +1743,11 @@ define internal i64 @boost_freq_mhz_dev_store(ptr noundef %0, ptr nocapture noun
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal range(i64 -2147483648, 2147483648) i64 @max_freq_mhz_dev_show(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) #0 align 16 {
-  %4 = tail call zeroext i1 @is_object_gt(ptr noundef %0) #5
+  %4 = tail call zeroext i1 @is_object_gt(ptr noundef %0) #6
   br i1 %4, label %21, label %5
 
 5:                                                ; preds = %3
-  %6 = tail call ptr @kdev_minor_to_i915(ptr noundef %0) #5
+  %6 = tail call ptr @kdev_minor_to_i915(ptr noundef %0) #6
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 9304
   br label %8
 
@@ -1762,7 +1762,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @max_freq_mhz_dev_show(pt
 
 15:                                               ; preds = %8
   %16 = getelementptr inbounds nuw i8, ptr %13, i64 3696
-  %17 = tail call i32 @intel_rps_get_max_frequency(ptr noundef nonnull %16) #5
+  %17 = tail call i32 @intel_rps_get_max_frequency(ptr noundef nonnull %16) #6
   %18 = tail call i32 @llvm.umax.i32(i32 %17, i32 %11)
   br label %19
 
@@ -1772,14 +1772,14 @@ define internal range(i64 -2147483648, 2147483648) i64 @max_freq_mhz_dev_show(pt
 
 21:                                               ; preds = %3
   %22 = load ptr, ptr %1, align 8
-  %23 = tail call ptr @intel_gt_sysfs_get_drvdata(ptr noundef %0, ptr noundef %22) #5
+  %23 = tail call ptr @intel_gt_sysfs_get_drvdata(ptr noundef %0, ptr noundef %22) #6
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 3696
-  %25 = tail call i32 @intel_rps_get_max_frequency(ptr noundef nonnull %24) #5
+  %25 = tail call i32 @intel_rps_get_max_frequency(ptr noundef nonnull %24) #6
   br label %max_freq_mhz_show_common.exit
 
 max_freq_mhz_show_common.exit:                    ; preds = %19, %21
   %26 = phi i32 [ %25, %21 ], [ %20, %19 ]
-  %27 = tail call i32 (ptr, ptr, ...) @sysfs_emit(ptr noundef %2, ptr noundef nonnull @.str.12, i32 noundef %26) #5
+  %27 = tail call i32 (ptr, ptr, ...) @sysfs_emit(ptr noundef %2, ptr noundef nonnull @.str.12, i32 noundef %26) #6
   %28 = sext i32 %27 to i64
   ret i64 %28
 }
@@ -1792,11 +1792,11 @@ define internal i64 @max_freq_mhz_dev_store(ptr noundef %0, ptr nocapture nounde
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal range(i64 -2147483648, 2147483648) i64 @min_freq_mhz_dev_show(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) #0 align 16 {
-  %4 = tail call zeroext i1 @is_object_gt(ptr noundef %0) #5
+  %4 = tail call zeroext i1 @is_object_gt(ptr noundef %0) #6
   br i1 %4, label %21, label %5
 
 5:                                                ; preds = %3
-  %6 = tail call ptr @kdev_minor_to_i915(ptr noundef %0) #5
+  %6 = tail call ptr @kdev_minor_to_i915(ptr noundef %0) #6
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 9304
   br label %8
 
@@ -1811,7 +1811,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @min_freq_mhz_dev_show(pt
 
 15:                                               ; preds = %8
   %16 = getelementptr inbounds nuw i8, ptr %13, i64 3696
-  %17 = tail call i32 @intel_rps_get_min_frequency(ptr noundef nonnull %16) #5
+  %17 = tail call i32 @intel_rps_get_min_frequency(ptr noundef nonnull %16) #6
   %18 = tail call i32 @llvm.umin.i32(i32 %17, i32 %11)
   br label %19
 
@@ -1821,14 +1821,14 @@ define internal range(i64 -2147483648, 2147483648) i64 @min_freq_mhz_dev_show(pt
 
 21:                                               ; preds = %3
   %22 = load ptr, ptr %1, align 8
-  %23 = tail call ptr @intel_gt_sysfs_get_drvdata(ptr noundef %0, ptr noundef %22) #5
+  %23 = tail call ptr @intel_gt_sysfs_get_drvdata(ptr noundef %0, ptr noundef %22) #6
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 3696
-  %25 = tail call i32 @intel_rps_get_min_frequency(ptr noundef nonnull %24) #5
+  %25 = tail call i32 @intel_rps_get_min_frequency(ptr noundef nonnull %24) #6
   br label %min_freq_mhz_show_common.exit
 
 min_freq_mhz_show_common.exit:                    ; preds = %19, %21
   %26 = phi i32 [ %25, %21 ], [ %20, %19 ]
-  %27 = tail call i32 (ptr, ptr, ...) @sysfs_emit(ptr noundef %2, ptr noundef nonnull @.str.12, i32 noundef %26) #5
+  %27 = tail call i32 (ptr, ptr, ...) @sysfs_emit(ptr noundef %2, ptr noundef nonnull @.str.12, i32 noundef %26) #6
   %28 = sext i32 %27 to i64
   ret i64 %28
 }
@@ -1841,11 +1841,11 @@ define internal i64 @min_freq_mhz_dev_store(ptr noundef %0, ptr nocapture nounde
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal range(i64 -2147483648, 2147483648) i64 @RP0_freq_mhz_dev_show(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) #0 align 16 {
-  %4 = tail call zeroext i1 @is_object_gt(ptr noundef %0) #5
+  %4 = tail call zeroext i1 @is_object_gt(ptr noundef %0) #6
   br i1 %4, label %21, label %5
 
 5:                                                ; preds = %3
-  %6 = tail call ptr @kdev_minor_to_i915(ptr noundef %0) #5
+  %6 = tail call ptr @kdev_minor_to_i915(ptr noundef %0) #6
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 9304
   br label %8
 
@@ -1860,7 +1860,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @RP0_freq_mhz_dev_show(pt
 
 15:                                               ; preds = %8
   %16 = getelementptr inbounds nuw i8, ptr %13, i64 3696
-  %17 = tail call i32 @intel_rps_get_rp0_frequency(ptr noundef nonnull %16) #5
+  %17 = tail call i32 @intel_rps_get_rp0_frequency(ptr noundef nonnull %16) #6
   %18 = tail call i32 @llvm.umax.i32(i32 %17, i32 %11)
   br label %19
 
@@ -1870,25 +1870,25 @@ define internal range(i64 -2147483648, 2147483648) i64 @RP0_freq_mhz_dev_show(pt
 
 21:                                               ; preds = %3
   %22 = load ptr, ptr %1, align 8
-  %23 = tail call ptr @intel_gt_sysfs_get_drvdata(ptr noundef %0, ptr noundef %22) #5
+  %23 = tail call ptr @intel_gt_sysfs_get_drvdata(ptr noundef %0, ptr noundef %22) #6
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 3696
-  %25 = tail call i32 @intel_rps_get_rp0_frequency(ptr noundef nonnull %24) #5
+  %25 = tail call i32 @intel_rps_get_rp0_frequency(ptr noundef nonnull %24) #6
   br label %RP0_freq_mhz_show_common.exit
 
 RP0_freq_mhz_show_common.exit:                    ; preds = %19, %21
   %26 = phi i32 [ %25, %21 ], [ %20, %19 ]
-  %27 = tail call i32 (ptr, ptr, ...) @sysfs_emit(ptr noundef %2, ptr noundef nonnull @.str.12, i32 noundef %26) #5
+  %27 = tail call i32 (ptr, ptr, ...) @sysfs_emit(ptr noundef %2, ptr noundef nonnull @.str.12, i32 noundef %26) #6
   %28 = sext i32 %27 to i64
   ret i64 %28
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal range(i64 -2147483648, 2147483648) i64 @RP1_freq_mhz_dev_show(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) #0 align 16 {
-  %4 = tail call zeroext i1 @is_object_gt(ptr noundef %0) #5
+  %4 = tail call zeroext i1 @is_object_gt(ptr noundef %0) #6
   br i1 %4, label %21, label %5
 
 5:                                                ; preds = %3
-  %6 = tail call ptr @kdev_minor_to_i915(ptr noundef %0) #5
+  %6 = tail call ptr @kdev_minor_to_i915(ptr noundef %0) #6
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 9304
   br label %8
 
@@ -1903,7 +1903,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @RP1_freq_mhz_dev_show(pt
 
 15:                                               ; preds = %8
   %16 = getelementptr inbounds nuw i8, ptr %13, i64 3696
-  %17 = tail call i32 @intel_rps_get_rp1_frequency(ptr noundef nonnull %16) #5
+  %17 = tail call i32 @intel_rps_get_rp1_frequency(ptr noundef nonnull %16) #6
   %18 = tail call i32 @llvm.umax.i32(i32 %17, i32 %11)
   br label %19
 
@@ -1913,25 +1913,25 @@ define internal range(i64 -2147483648, 2147483648) i64 @RP1_freq_mhz_dev_show(pt
 
 21:                                               ; preds = %3
   %22 = load ptr, ptr %1, align 8
-  %23 = tail call ptr @intel_gt_sysfs_get_drvdata(ptr noundef %0, ptr noundef %22) #5
+  %23 = tail call ptr @intel_gt_sysfs_get_drvdata(ptr noundef %0, ptr noundef %22) #6
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 3696
-  %25 = tail call i32 @intel_rps_get_rp1_frequency(ptr noundef nonnull %24) #5
+  %25 = tail call i32 @intel_rps_get_rp1_frequency(ptr noundef nonnull %24) #6
   br label %RP1_freq_mhz_show_common.exit
 
 RP1_freq_mhz_show_common.exit:                    ; preds = %19, %21
   %26 = phi i32 [ %25, %21 ], [ %20, %19 ]
-  %27 = tail call i32 (ptr, ptr, ...) @sysfs_emit(ptr noundef %2, ptr noundef nonnull @.str.12, i32 noundef %26) #5
+  %27 = tail call i32 (ptr, ptr, ...) @sysfs_emit(ptr noundef %2, ptr noundef nonnull @.str.12, i32 noundef %26) #6
   %28 = sext i32 %27 to i64
   ret i64 %28
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal range(i64 -2147483648, 2147483648) i64 @RPn_freq_mhz_dev_show(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) #0 align 16 {
-  %4 = tail call zeroext i1 @is_object_gt(ptr noundef %0) #5
+  %4 = tail call zeroext i1 @is_object_gt(ptr noundef %0) #6
   br i1 %4, label %21, label %5
 
 5:                                                ; preds = %3
-  %6 = tail call ptr @kdev_minor_to_i915(ptr noundef %0) #5
+  %6 = tail call ptr @kdev_minor_to_i915(ptr noundef %0) #6
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 9304
   br label %8
 
@@ -1946,7 +1946,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @RPn_freq_mhz_dev_show(pt
 
 15:                                               ; preds = %8
   %16 = getelementptr inbounds nuw i8, ptr %13, i64 3696
-  %17 = tail call i32 @intel_rps_get_rpn_frequency(ptr noundef nonnull %16) #5
+  %17 = tail call i32 @intel_rps_get_rpn_frequency(ptr noundef nonnull %16) #6
   %18 = tail call i32 @llvm.umax.i32(i32 %17, i32 %11)
   br label %19
 
@@ -1956,25 +1956,25 @@ define internal range(i64 -2147483648, 2147483648) i64 @RPn_freq_mhz_dev_show(pt
 
 21:                                               ; preds = %3
   %22 = load ptr, ptr %1, align 8
-  %23 = tail call ptr @intel_gt_sysfs_get_drvdata(ptr noundef %0, ptr noundef %22) #5
+  %23 = tail call ptr @intel_gt_sysfs_get_drvdata(ptr noundef %0, ptr noundef %22) #6
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 3696
-  %25 = tail call i32 @intel_rps_get_rpn_frequency(ptr noundef nonnull %24) #5
+  %25 = tail call i32 @intel_rps_get_rpn_frequency(ptr noundef nonnull %24) #6
   br label %RPn_freq_mhz_show_common.exit
 
 RPn_freq_mhz_show_common.exit:                    ; preds = %19, %21
   %26 = phi i32 [ %25, %21 ], [ %20, %19 ]
-  %27 = tail call i32 (ptr, ptr, ...) @sysfs_emit(ptr noundef %2, ptr noundef nonnull @.str.12, i32 noundef %26) #5
+  %27 = tail call i32 (ptr, ptr, ...) @sysfs_emit(ptr noundef %2, ptr noundef nonnull @.str.12, i32 noundef %26) #6
   %28 = sext i32 %27 to i64
   ret i64 %28
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal range(i64 -2147483648, 2147483648) i64 @vlv_rpe_freq_mhz_dev_show(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) #0 align 16 {
-  %4 = tail call zeroext i1 @is_object_gt(ptr noundef %0) #5
+  %4 = tail call zeroext i1 @is_object_gt(ptr noundef %0) #6
   br i1 %4, label %24, label %5
 
 5:                                                ; preds = %3
-  %6 = tail call ptr @kdev_minor_to_i915(ptr noundef %0) #5
+  %6 = tail call ptr @kdev_minor_to_i915(ptr noundef %0) #6
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 9304
   br label %8
 
@@ -1992,7 +1992,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @vlv_rpe_freq_mhz_dev_sho
   %17 = getelementptr inbounds nuw i8, ptr %13, i64 3840
   %18 = load i8, ptr %17, align 8
   %19 = zext i8 %18 to i32
-  %20 = tail call i32 @intel_gpu_freq(ptr noundef nonnull %16, i32 noundef %19) #5
+  %20 = tail call i32 @intel_gpu_freq(ptr noundef nonnull %16, i32 noundef %19) #6
   %21 = tail call i32 @llvm.umax.i32(i32 %20, i32 %11)
   br label %22
 
@@ -2002,17 +2002,17 @@ define internal range(i64 -2147483648, 2147483648) i64 @vlv_rpe_freq_mhz_dev_sho
 
 24:                                               ; preds = %3
   %25 = load ptr, ptr %1, align 8
-  %26 = tail call ptr @intel_gt_sysfs_get_drvdata(ptr noundef %0, ptr noundef %25) #5
+  %26 = tail call ptr @intel_gt_sysfs_get_drvdata(ptr noundef %0, ptr noundef %25) #6
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 3696
   %28 = getelementptr inbounds nuw i8, ptr %26, i64 3840
   %29 = load i8, ptr %28, align 8
   %30 = zext i8 %29 to i32
-  %31 = tail call i32 @intel_gpu_freq(ptr noundef nonnull %27, i32 noundef %30) #5
+  %31 = tail call i32 @intel_gpu_freq(ptr noundef nonnull %27, i32 noundef %30) #6
   br label %vlv_rpe_freq_mhz_show_common.exit
 
 vlv_rpe_freq_mhz_show_common.exit:                ; preds = %22, %24
   %32 = phi i32 [ %31, %24 ], [ %23, %22 ]
-  %33 = tail call i32 (ptr, ptr, ...) @sysfs_emit(ptr noundef %2, ptr noundef nonnull @.str.12, i32 noundef %32) #5
+  %33 = tail call i32 (ptr, ptr, ...) @sysfs_emit(ptr noundef %2, ptr noundef nonnull @.str.12, i32 noundef %32) #6
   %34 = sext i32 %33 to i64
   ret i64 %34
 }
@@ -2020,11 +2020,11 @@ vlv_rpe_freq_mhz_show_common.exit:                ; preds = %22, %24
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal range(i64 -2147483648, 2147483648) i64 @rps_up_threshold_pct_show(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) #0 align 16 {
   %4 = load ptr, ptr %1, align 8
-  %5 = tail call ptr @intel_gt_sysfs_get_drvdata(ptr noundef %0, ptr noundef %4) #5
+  %5 = tail call ptr @intel_gt_sysfs_get_drvdata(ptr noundef %0, ptr noundef %4) #6
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 3696
-  %7 = tail call zeroext i8 @intel_rps_get_up_threshold(ptr noundef nonnull %6) #5
+  %7 = tail call zeroext i8 @intel_rps_get_up_threshold(ptr noundef nonnull %6) #6
   %8 = zext i8 %7 to i32
-  %9 = tail call i32 (ptr, ptr, ...) @sysfs_emit(ptr noundef %2, ptr noundef nonnull @.str.12, i32 noundef %8) #5
+  %9 = tail call i32 (ptr, ptr, ...) @sysfs_emit(ptr noundef %2, ptr noundef nonnull @.str.12, i32 noundef %8) #6
   %10 = sext i32 %9 to i64
   ret i64 %10
 }
@@ -2033,10 +2033,10 @@ define internal range(i64 -2147483648, 2147483648) i64 @rps_up_threshold_pct_sho
 define internal i64 @rps_up_threshold_pct_store(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i64 noundef %3) #0 align 16 {
   %5 = alloca i8, align 1
   %6 = load ptr, ptr %1, align 8
-  %7 = tail call ptr @intel_gt_sysfs_get_drvdata(ptr noundef %0, ptr noundef %6) #5
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #5
+  %7 = tail call ptr @intel_gt_sysfs_get_drvdata(ptr noundef %0, ptr noundef %6) #6
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #6
   store i8 0, ptr %5, align 1, !annotation !11
-  %8 = call i32 @kstrtou8(ptr noundef %2, i32 noundef 10, ptr noundef nonnull %5) #5
+  %8 = call i32 @kstrtou8(ptr noundef %2, i32 noundef 10, ptr noundef nonnull %5) #6
   %9 = icmp eq i32 %8, 0
   br i1 %9, label %12, label %10
 
@@ -2047,7 +2047,7 @@ define internal i64 @rps_up_threshold_pct_store(ptr noundef %0, ptr nocapture no
 12:                                               ; preds = %4
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 3696
   %14 = load i8, ptr %5, align 1
-  %15 = call i32 @intel_rps_set_up_threshold(ptr noundef nonnull %13, i8 noundef zeroext %14) #5
+  %15 = call i32 @intel_rps_set_up_threshold(ptr noundef nonnull %13, i8 noundef zeroext %14) #6
   %16 = icmp eq i32 %15, 0
   %17 = sext i32 %15 to i64
   %18 = select i1 %16, i64 %3, i64 %17
@@ -2055,7 +2055,7 @@ define internal i64 @rps_up_threshold_pct_store(ptr noundef %0, ptr nocapture no
 
 19:                                               ; preds = %12, %10
   %20 = phi i64 [ %11, %10 ], [ %18, %12 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #5
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #6
   ret i64 %20
 }
 
@@ -2071,11 +2071,11 @@ declare dso_local i32 @intel_rps_set_up_threshold(ptr noundef, i8 noundef zeroex
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal range(i64 -2147483648, 2147483648) i64 @rps_down_threshold_pct_show(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) #0 align 16 {
   %4 = load ptr, ptr %1, align 8
-  %5 = tail call ptr @intel_gt_sysfs_get_drvdata(ptr noundef %0, ptr noundef %4) #5
+  %5 = tail call ptr @intel_gt_sysfs_get_drvdata(ptr noundef %0, ptr noundef %4) #6
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 3696
-  %7 = tail call zeroext i8 @intel_rps_get_down_threshold(ptr noundef nonnull %6) #5
+  %7 = tail call zeroext i8 @intel_rps_get_down_threshold(ptr noundef nonnull %6) #6
   %8 = zext i8 %7 to i32
-  %9 = tail call i32 (ptr, ptr, ...) @sysfs_emit(ptr noundef %2, ptr noundef nonnull @.str.12, i32 noundef %8) #5
+  %9 = tail call i32 (ptr, ptr, ...) @sysfs_emit(ptr noundef %2, ptr noundef nonnull @.str.12, i32 noundef %8) #6
   %10 = sext i32 %9 to i64
   ret i64 %10
 }
@@ -2084,10 +2084,10 @@ define internal range(i64 -2147483648, 2147483648) i64 @rps_down_threshold_pct_s
 define internal i64 @rps_down_threshold_pct_store(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i64 noundef %3) #0 align 16 {
   %5 = alloca i8, align 1
   %6 = load ptr, ptr %1, align 8
-  %7 = tail call ptr @intel_gt_sysfs_get_drvdata(ptr noundef %0, ptr noundef %6) #5
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #5
+  %7 = tail call ptr @intel_gt_sysfs_get_drvdata(ptr noundef %0, ptr noundef %6) #6
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #6
   store i8 0, ptr %5, align 1, !annotation !11
-  %8 = call i32 @kstrtou8(ptr noundef %2, i32 noundef 10, ptr noundef nonnull %5) #5
+  %8 = call i32 @kstrtou8(ptr noundef %2, i32 noundef 10, ptr noundef nonnull %5) #6
   %9 = icmp eq i32 %8, 0
   br i1 %9, label %12, label %10
 
@@ -2098,7 +2098,7 @@ define internal i64 @rps_down_threshold_pct_store(ptr noundef %0, ptr nocapture 
 12:                                               ; preds = %4
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 3696
   %14 = load i8, ptr %5, align 1
-  %15 = call i32 @intel_rps_set_down_threshold(ptr noundef nonnull %13, i8 noundef zeroext %14) #5
+  %15 = call i32 @intel_rps_set_down_threshold(ptr noundef nonnull %13, i8 noundef zeroext %14) #6
   %16 = icmp eq i32 %15, 0
   %17 = sext i32 %15 to i64
   %18 = select i1 %16, i64 %3, i64 %17
@@ -2106,7 +2106,7 @@ define internal i64 @rps_down_threshold_pct_store(ptr noundef %0, ptr nocapture 
 
 19:                                               ; preds = %12, %10
   %20 = phi i64 [ %11, %10 ], [ %18, %12 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #5
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #6
   ret i64 %20
 }
 
@@ -2122,10 +2122,10 @@ declare dso_local i32 @sysfs_create_file_ns(ptr noundef, ptr noundef, ptr nounde
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal range(i64 -2147483648, 2147483648) i64 @punit_req_freq_mhz_show(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) #0 align 16 {
   %4 = load ptr, ptr %1, align 8
-  %5 = tail call ptr @intel_gt_sysfs_get_drvdata(ptr noundef %0, ptr noundef %4) #5
+  %5 = tail call ptr @intel_gt_sysfs_get_drvdata(ptr noundef %0, ptr noundef %4) #6
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 3696
-  %7 = tail call i32 @intel_rps_read_punit_req_frequency(ptr noundef nonnull %6) #5
-  %8 = tail call i32 (ptr, ptr, ...) @sysfs_emit(ptr noundef %2, ptr noundef nonnull @.str.12, i32 noundef %7) #5
+  %7 = tail call i32 @intel_rps_read_punit_req_frequency(ptr noundef nonnull %6) #6
+  %8 = tail call i32 (ptr, ptr, ...) @sysfs_emit(ptr noundef %2, ptr noundef nonnull @.str.12, i32 noundef %7) #6
   %9 = sext i32 %8 to i64
   ret i64 %9
 }
@@ -2136,11 +2136,11 @@ declare dso_local i32 @intel_rps_read_punit_req_frequency(ptr noundef) local_unn
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal range(i64 -2147483648, 2147483648) i64 @slpc_ignore_eff_freq_show(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) #0 align 16 {
   %4 = load ptr, ptr %1, align 8
-  %5 = tail call ptr @intel_gt_sysfs_get_drvdata(ptr noundef %0, ptr noundef %4) #5
+  %5 = tail call ptr @intel_gt_sysfs_get_drvdata(ptr noundef %0, ptr noundef %4) #6
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 1548
   %7 = load i8, ptr %6, align 4, !range !5, !noundef !6
   %8 = zext nneg i8 %7 to i32
-  %9 = tail call i32 (ptr, ptr, ...) @sysfs_emit(ptr noundef %2, ptr noundef nonnull @.str.12, i32 noundef %8) #5
+  %9 = tail call i32 (ptr, ptr, ...) @sysfs_emit(ptr noundef %2, ptr noundef nonnull @.str.12, i32 noundef %8) #6
   %10 = sext i32 %9 to i64
   ret i64 %10
 }
@@ -2149,10 +2149,10 @@ define internal range(i64 -2147483648, 2147483648) i64 @slpc_ignore_eff_freq_sho
 define internal i64 @slpc_ignore_eff_freq_store(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i64 noundef %3) #0 align 16 {
   %5 = alloca i32, align 4
   %6 = load ptr, ptr %1, align 8
-  %7 = tail call ptr @intel_gt_sysfs_get_drvdata(ptr noundef %0, ptr noundef %6) #5
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #5
+  %7 = tail call ptr @intel_gt_sysfs_get_drvdata(ptr noundef %0, ptr noundef %6) #6
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #6
   store i32 0, ptr %5, align 4, !annotation !11
-  %8 = call i32 @kstrtouint(ptr noundef %2, i32 noundef 0, ptr noundef nonnull %5) #5
+  %8 = call i32 @kstrtouint(ptr noundef %2, i32 noundef 0, ptr noundef nonnull %5) #6
   %9 = icmp eq i32 %8, 0
   br i1 %9, label %12, label %10
 
@@ -2164,7 +2164,7 @@ define internal i64 @slpc_ignore_eff_freq_store(ptr noundef %0, ptr nocapture no
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 1504
   %14 = load i32, ptr %5, align 4
   %15 = icmp ne i32 %14, 0
-  %16 = call i32 @intel_guc_slpc_set_ignore_eff_freq(ptr noundef nonnull %13, i1 noundef zeroext %15) #5
+  %16 = call i32 @intel_guc_slpc_set_ignore_eff_freq(ptr noundef nonnull %13, i1 noundef zeroext %15) #6
   %17 = icmp eq i32 %16, 0
   %18 = sext i32 %16 to i64
   %19 = select i1 %17, i64 %3, i64 %18
@@ -2172,7 +2172,7 @@ define internal i64 @slpc_ignore_eff_freq_store(ptr noundef %0, ptr nocapture no
 
 20:                                               ; preds = %12, %10
   %21 = phi i64 [ %11, %10 ], [ %19, %12 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #6
   ret i64 %21
 }
 
@@ -2182,16 +2182,16 @@ declare dso_local i32 @intel_guc_slpc_set_ignore_eff_freq(ptr noundef, i1 nounde
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal range(i64 -2147483648, 2147483648) i64 @throttle_reason_bool_show(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) #0 align 16 {
   %4 = load ptr, ptr %1, align 8
-  %5 = tail call ptr @intel_gt_sysfs_get_drvdata(ptr noundef %0, ptr noundef %4) #5
+  %5 = tail call ptr @intel_gt_sysfs_get_drvdata(ptr noundef %0, ptr noundef %4) #6
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 3696
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %8 = load ptr, ptr %7, align 8
-  %9 = tail call i32 %8(ptr noundef %5) #5
+  %9 = tail call i32 %8(ptr noundef %5) #6
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %11 = load i32, ptr %10, align 8
-  %12 = tail call zeroext i1 @rps_read_mask_mmio(ptr noundef nonnull %6, i32 %9, i32 noundef %11) #5
+  %12 = tail call zeroext i1 @rps_read_mask_mmio(ptr noundef nonnull %6, i32 %9, i32 noundef %11) #6
   %13 = zext i1 %12 to i32
-  %14 = tail call i32 (ptr, ptr, ...) @sysfs_emit(ptr noundef %2, ptr noundef nonnull @.str.12, i32 noundef %13) #5
+  %14 = tail call i32 (ptr, ptr, ...) @sysfs_emit(ptr noundef %2, ptr noundef nonnull @.str.12, i32 noundef %13) #6
   %15 = sext i32 %14 to i64
   ret i64 %15
 }
@@ -2202,7 +2202,7 @@ declare dso_local zeroext i1 @rps_read_mask_mmio(ptr noundef, i32, i32 noundef) 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal range(i64 -2147483648, 2147483648) i64 @media_freq_factor_show(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) #0 align 16 {
   %4 = load ptr, ptr %1, align 8
-  %5 = tail call ptr @intel_gt_sysfs_get_drvdata(ptr noundef %0, ptr noundef %4) #5
+  %5 = tail call ptr @intel_gt_sysfs_get_drvdata(ptr noundef %0, ptr noundef %4) #6
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr i8, ptr %6, i64 7188
   %8 = load i32, ptr %7, align 4
@@ -2221,33 +2221,33 @@ define internal range(i64 -2147483648, 2147483648) i64 @media_freq_factor_show(p
   %17 = load ptr, ptr %16, align 8
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 24
   %19 = load ptr, ptr %18, align 8
-  %20 = tail call i64 @intel_runtime_pm_get(ptr noundef %19) #5
+  %20 = tail call i64 @intel_runtime_pm_get(ptr noundef %19) #6
   %21 = icmp eq i64 %20, 0
-  br i1 %21, label %33, label %22
+  br i1 %21, label %.thread, label %22
 
 22:                                               ; preds = %15
   %23 = load ptr, ptr %16, align 8
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 144
   %25 = load ptr, ptr %24, align 8
-  %26 = tail call i32 %25(ptr noundef %23, i32 40968, i1 noundef zeroext true) #5
+  %26 = tail call i32 %25(ptr noundef %23, i32 40968, i1 noundef zeroext true) #6
   %27 = load ptr, ptr %16, align 8
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 24
   %29 = load ptr, ptr %28, align 8
-  tail call void @intel_runtime_pm_put_unchecked(ptr noundef %29) #5
+  tail call void @intel_runtime_pm_put_unchecked(ptr noundef %29) #6
   %30 = and i32 %26, 8192
   %31 = icmp eq i32 %30, 0
-  %32 = select i1 %31, i16 2, i16 1
-  br label %33
+  %32 = select i1 %31, i32 2, i32 1
+  br label %.thread
 
-33:                                               ; preds = %22, %15
-  %.ph = phi i16 [ 2, %15 ], [ %32, %22 ]
-  %34 = udiv i16 256, %.ph
-  %.zext = zext nneg i16 %34 to i32
+.thread:                                          ; preds = %22, %15
+  %.ph = phi i32 [ 2, %15 ], [ %32, %22 ]
+  %33 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %.ph, i1 true)
+  %34 = lshr i32 256, %33
   br label %35
 
-35:                                               ; preds = %11, %33
-  %36 = phi i32 [ %.zext, %33 ], [ 0, %11 ]
-  %37 = tail call i32 (ptr, ptr, ...) @sysfs_emit(ptr noundef %2, ptr noundef nonnull @.str.12, i32 noundef %36) #5
+35:                                               ; preds = %11, %.thread
+  %36 = phi i32 [ %34, %.thread ], [ 0, %11 ]
+  %37 = tail call i32 (ptr, ptr, ...) @sysfs_emit(ptr noundef %2, ptr noundef nonnull @.str.12, i32 noundef %36) #6
   %38 = sext i32 %37 to i64
   ret i64 %38
 }
@@ -2256,11 +2256,11 @@ define internal range(i64 -2147483648, 2147483648) i64 @media_freq_factor_show(p
 define internal i64 @media_freq_factor_store(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i64 noundef %3) #0 align 16 {
   %5 = alloca i32, align 4
   %6 = load ptr, ptr %1, align 8
-  %7 = tail call ptr @intel_gt_sysfs_get_drvdata(ptr noundef %0, ptr noundef %6) #5
+  %7 = tail call ptr @intel_gt_sysfs_get_drvdata(ptr noundef %0, ptr noundef %6) #6
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 1504
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #6
   store i32 0, ptr %5, align 4, !annotation !11
-  %9 = call i32 @kstrtouint(ptr noundef %2, i32 noundef 0, ptr noundef nonnull %5) #5
+  %9 = call i32 @kstrtouint(ptr noundef %2, i32 noundef 0, ptr noundef nonnull %5) #6
   %10 = icmp eq i32 %9, 0
   br i1 %10, label %11, label %14
 
@@ -2296,14 +2296,14 @@ define internal i64 @media_freq_factor_store(ptr noundef %0, ptr nocapture nound
   br i1 %26, label %.thread, label %.thread7
 
 .thread7:                                         ; preds = %.thread6, %25
-  %27 = call i32 @intel_guc_slpc_set_media_ratio_mode(ptr noundef nonnull %8, i32 noundef %17) #5
+  %27 = call i32 @intel_guc_slpc_set_media_ratio_mode(ptr noundef nonnull %8, i32 noundef %17) #6
   %28 = icmp eq i32 %27, 0
   br i1 %28, label %29, label %31
 
 29:                                               ; preds = %.thread7
   %30 = getelementptr inbounds nuw i8, ptr %7, i64 1552
   store i32 %17, ptr %30, align 8
-  call void (ptr, i32, ptr, ...) @___drm_dbg(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.48, i32 noundef %17) #5
+  call void (ptr, i32, ptr, ...) @___drm_dbg(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.48, i32 noundef %17) #6
   br label %31
 
 31:                                               ; preds = %29, %.thread7
@@ -2313,7 +2313,7 @@ define internal i64 @media_freq_factor_store(ptr noundef %0, ptr nocapture nound
 
 .thread:                                          ; preds = %22, %31, %25, %14
   %34 = phi i64 [ %15, %14 ], [ %33, %31 ], [ -22, %25 ], [ -22, %22 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #6
   ret i64 %34
 }
 
@@ -2325,7 +2325,7 @@ declare dso_local void @___drm_dbg(ptr noundef, i32 noundef, ptr noundef, ...) l
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal range(i64 -2147483648, 2147483648) i64 @freq_factor_scale_show(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr noundef %2) #0 align 16 {
-  %4 = tail call i32 (ptr, ptr, ...) @sysfs_emit(ptr noundef %2, ptr noundef nonnull @.str.50, ptr noundef nonnull @.str.51) #5
+  %4 = tail call i32 (ptr, ptr, ...) @sysfs_emit(ptr noundef %2, ptr noundef nonnull @.str.50, ptr noundef nonnull @.str.51) #6
   %5 = sext i32 %4 to i64
   ret i64 %5
 }
@@ -2334,12 +2334,12 @@ define internal range(i64 -2147483648, 2147483648) i64 @freq_factor_scale_show(p
 define internal range(i64 -2147483648, 2147483648) i64 @media_RP0_freq_mhz_show(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) #0 align 16 {
   %4 = alloca i32, align 4
   %5 = load ptr, ptr %1, align 8
-  %6 = tail call ptr @intel_gt_sysfs_get_drvdata(ptr noundef %0, ptr noundef %5) #5
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #5
+  %6 = tail call ptr @intel_gt_sysfs_get_drvdata(ptr noundef %0, ptr noundef %5) #6
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #6
   store i32 0, ptr %4, align 4, !annotation !11
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %8 = load ptr, ptr %7, align 8
-  %9 = call i32 @snb_pcode_read_p(ptr noundef %8, i32 noundef 110, i32 noundef 0, i32 noundef 3, ptr noundef nonnull %4) #5
+  %9 = call i32 @snb_pcode_read_p(ptr noundef %8, i32 noundef 110, i32 noundef 0, i32 noundef 3, ptr noundef nonnull %4) #6
   %10 = icmp eq i32 %9, 0
   br i1 %10, label %11, label %15
 
@@ -2347,13 +2347,13 @@ define internal range(i64 -2147483648, 2147483648) i64 @media_RP0_freq_mhz_show(
   %12 = load i32, ptr %4, align 4
   %13 = mul i32 %12, 50
   store i32 %13, ptr %4, align 4
-  %14 = call i32 (ptr, ptr, ...) @sysfs_emit(ptr noundef %2, ptr noundef nonnull @.str.12, i32 noundef %13) #5
+  %14 = call i32 (ptr, ptr, ...) @sysfs_emit(ptr noundef %2, ptr noundef nonnull @.str.12, i32 noundef %13) #6
   br label %15
 
 15:                                               ; preds = %11, %3
   %16 = phi i32 [ %14, %11 ], [ %9, %3 ]
   %17 = sext i32 %16 to i64
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #6
   ret i64 %17
 }
 
@@ -2364,12 +2364,12 @@ declare dso_local i32 @snb_pcode_read_p(ptr noundef, i32 noundef, i32 noundef, i
 define internal range(i64 -2147483648, 2147483648) i64 @media_RPn_freq_mhz_show(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) #0 align 16 {
   %4 = alloca i32, align 4
   %5 = load ptr, ptr %1, align 8
-  %6 = tail call ptr @intel_gt_sysfs_get_drvdata(ptr noundef %0, ptr noundef %5) #5
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #5
+  %6 = tail call ptr @intel_gt_sysfs_get_drvdata(ptr noundef %0, ptr noundef %5) #6
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #6
   store i32 0, ptr %4, align 4, !annotation !11
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %8 = load ptr, ptr %7, align 8
-  %9 = call i32 @snb_pcode_read_p(ptr noundef %8, i32 noundef 110, i32 noundef 1, i32 noundef 3, ptr noundef nonnull %4) #5
+  %9 = call i32 @snb_pcode_read_p(ptr noundef %8, i32 noundef 110, i32 noundef 1, i32 noundef 3, ptr noundef nonnull %4) #6
   %10 = icmp eq i32 %9, 0
   br i1 %10, label %11, label %15
 
@@ -2377,13 +2377,13 @@ define internal range(i64 -2147483648, 2147483648) i64 @media_RPn_freq_mhz_show(
   %12 = load i32, ptr %4, align 4
   %13 = mul i32 %12, 50
   store i32 %13, ptr %4, align 4
-  %14 = call i32 (ptr, ptr, ...) @sysfs_emit(ptr noundef %2, ptr noundef nonnull @.str.12, i32 noundef %13) #5
+  %14 = call i32 (ptr, ptr, ...) @sysfs_emit(ptr noundef %2, ptr noundef nonnull @.str.12, i32 noundef %13) #6
   br label %15
 
 15:                                               ; preds = %11, %3
   %16 = phi i32 [ %14, %11 ], [ %9, %3 ]
   %17 = sext i32 %16 to i64
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #6
   ret i64 %17
 }
 
@@ -2393,7 +2393,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @default_min_freq_mhz_sho
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr i8, ptr %5, i64 64
   %7 = load i32, ptr %6, align 8
-  %8 = tail call i32 (ptr, ptr, ...) @sysfs_emit(ptr noundef %2, ptr noundef nonnull @.str.12, i32 noundef %7) #5
+  %8 = tail call i32 (ptr, ptr, ...) @sysfs_emit(ptr noundef %2, ptr noundef nonnull @.str.12, i32 noundef %7) #6
   %9 = sext i32 %8 to i64
   ret i64 %9
 }
@@ -2404,7 +2404,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @default_max_freq_mhz_sho
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr i8, ptr %5, i64 68
   %7 = load i32, ptr %6, align 4
-  %8 = tail call i32 (ptr, ptr, ...) @sysfs_emit(ptr noundef %2, ptr noundef nonnull @.str.12, i32 noundef %7) #5
+  %8 = tail call i32 (ptr, ptr, ...) @sysfs_emit(ptr noundef %2, ptr noundef nonnull @.str.12, i32 noundef %7) #6
   %9 = sext i32 %8 to i64
   ret i64 %9
 }
@@ -2416,7 +2416,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @default_rps_up_threshold
   %6 = getelementptr i8, ptr %5, i64 72
   %7 = load i8, ptr %6, align 8
   %8 = zext i8 %7 to i32
-  %9 = tail call i32 (ptr, ptr, ...) @sysfs_emit(ptr noundef %2, ptr noundef nonnull @.str.12, i32 noundef %8) #5
+  %9 = tail call i32 (ptr, ptr, ...) @sysfs_emit(ptr noundef %2, ptr noundef nonnull @.str.12, i32 noundef %8) #6
   %10 = sext i32 %9 to i64
   ret i64 %10
 }
@@ -2428,7 +2428,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @default_rps_down_thresho
   %6 = getelementptr i8, ptr %5, i64 73
   %7 = load i8, ptr %6, align 1
   %8 = zext i8 %7 to i32
-  %9 = tail call i32 (ptr, ptr, ...) @sysfs_emit(ptr noundef %2, ptr noundef nonnull @.str.12, i32 noundef %8) #5
+  %9 = tail call i32 (ptr, ptr, ...) @sysfs_emit(ptr noundef %2, ptr noundef nonnull @.str.12, i32 noundef %8) #6
   %10 = sext i32 %9 to i64
   ret i64 %10
 }
@@ -2439,13 +2439,17 @@ declare i32 @llvm.umax.i32(i32, i32) #4
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #4
 
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.cttz.i32(i32, i1 immarg) #5
+
 attributes #0 = { fn_ret_thunk_extern nounwind null_pointer_is_valid "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #2 = { cold null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
 attributes #3 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #5 = { nounwind }
-attributes #6 = { cold nounwind }
+attributes #5 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #6 = { nounwind }
+attributes #7 = { cold nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

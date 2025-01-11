@@ -1782,8 +1782,9 @@ if.then16:                                        ; preds = %if.end14
 
 if.end17:                                         ; preds = %if.end14
   %sub = xor i64 %struct_size.0, 9223372036854775807
-  %div = udiv i64 %sub, %char_size.0
-  %cmp19.not = icmp samesign ult i64 %size, %div
+  %2 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %char_size.0, i1 true)
+  %div36 = lshr i64 %sub, %2
+  %cmp19.not = icmp samesign ult i64 %size, %div36
   br i1 %cmp19.not, label %if.end22, label %if.then20
 
 if.then20:                                        ; preds = %if.end17
@@ -1806,13 +1807,13 @@ if.end28:                                         ; preds = %if.end22
   %ob_type.i.i = getelementptr inbounds nuw i8, ptr %call24, i64 8
   store ptr @PyUnicode_Type, ptr %ob_type.i.i, align 8
   %typeobj.val.i = load i64, ptr getelementptr inbounds nuw (i8, ptr @PyUnicode_Type, i64 168), align 8
-  %2 = and i64 %typeobj.val.i, 512
-  %tobool.not.i = icmp eq i64 %2, 0
+  %3 = and i64 %typeobj.val.i, 512
+  %tobool.not.i = icmp eq i64 %3, 0
   br i1 %tobool.not.i, label %_PyObject_Init.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end28
-  %3 = load i32, ptr @PyUnicode_Type, align 8
-  %add.i.i = add i32 %3, 1
+  %4 = load i32, ptr @PyUnicode_Type, align 8
+  %add.i.i = add i32 %4, 1
   %cmp.i.i = icmp eq i32 %add.i.i, 0
   br i1 %cmp.i.i, label %_PyObject_Init.exit, label %if.end.i.i
 
@@ -46593,8 +46594,8 @@ if.end.i14.i:                                     ; preds = %do.body.i
   ]
 
 if.then31.i.i:                                    ; preds = %if.end.i14.i
-  %unicode.val35.i.i = load i32, ptr %state.i.i, align 8
-  %19 = and i32 %unicode.val35.i.i, 64
+  %unicode.val36.i.i = load i32, ptr %state.i.i, align 8
+  %19 = and i32 %unicode.val36.i.i, 64
   %tobool.not.i.i.i = icmp eq i32 %19, 0
   br label %if.end40.i.i
 
@@ -46604,8 +46605,9 @@ if.else38.i.i:                                    ; preds = %if.end.i14.i
 if.end40.i.i:                                     ; preds = %if.else38.i.i, %if.then31.i.i, %if.end.i14.i
   %tobool.not.i.i = phi i1 [ true, %if.else38.i.i ], [ true, %if.end.i14.i ], [ %tobool.not.i.i.i, %if.then31.i.i ]
   %char_size.0.i.i = phi i64 [ 4, %if.else38.i.i ], [ 2, %if.end.i14.i ], [ 1, %if.then31.i.i ]
-  %div.i.i = udiv i64 9223372036854775807, %char_size.0.i.i
-  %cmp41.not.i.i = icmp slt i64 %unicode.val.i.i, %div.i.i
+  %20 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %char_size.0.i.i, i1 true)
+  %div35.i.i = lshr i64 9223372036854775807, %20
+  %cmp41.not.i.i = icmp slt i64 %unicode.val.i.i, %div35.i.i
   br i1 %cmp41.not.i.i, label %if.end44.i.i, label %onError.i.i
 
 if.end44.i.i:                                     ; preds = %if.end40.i.i
@@ -46626,38 +46628,38 @@ if.then51.i.i:                                    ; preds = %if.end49.i.i
 
 if.end54.i.i:                                     ; preds = %if.then51.i.i, %if.end49.i.i
   %op.val.i.i.i = load i32, ptr %state.i.i, align 8
-  %20 = and i32 %op.val.i.i.i, 32
-  %tobool.not.i37.i.i = icmp eq i32 %20, 0
-  br i1 %tobool.not.i37.i.i, label %if.end.i39.i.i, label %if.then.i.i.i
+  %21 = and i32 %op.val.i.i.i, 32
+  %tobool.not.i38.i.i = icmp eq i32 %21, 0
+  br i1 %tobool.not.i38.i.i, label %if.end.i40.i.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.end54.i.i
-  %21 = and i32 %op.val.i.i.i, 64
-  %tobool.not.i.i.i.i = icmp eq i32 %21, 0
+  %22 = and i32 %op.val.i.i.i, 64
+  %tobool.not.i.i.i.i = icmp eq i32 %22, 0
   %retval.0.v.i.i.i.i = select i1 %tobool.not.i.i.i.i, i64 56, i64 40
   %retval.0.i.i.i.i = getelementptr i8, ptr %unicode.0.i, i64 %retval.0.v.i.i.i.i
   br label %PyUnicode_DATA.exit.i.i
 
-if.end.i39.i.i:                                   ; preds = %if.end54.i.i
-  %22 = getelementptr i8, ptr %unicode.0.i, i64 56
-  %op.val3.i.i.i = load ptr, ptr %22, align 8
+if.end.i40.i.i:                                   ; preds = %if.end54.i.i
+  %23 = getelementptr i8, ptr %unicode.0.i, i64 56
+  %op.val3.i.i.i = load ptr, ptr %23, align 8
   br label %PyUnicode_DATA.exit.i.i
 
-PyUnicode_DATA.exit.i.i:                          ; preds = %if.end.i39.i.i, %if.then.i.i.i
-  %retval.0.i38.i.i = phi ptr [ %retval.0.i.i.i.i, %if.then.i.i.i ], [ %op.val3.i.i.i, %if.end.i39.i.i ]
+PyUnicode_DATA.exit.i.i:                          ; preds = %if.end.i40.i.i, %if.then.i.i.i
+  %retval.0.i39.i.i = phi ptr [ %retval.0.i.i.i.i, %if.then.i.i.i ], [ %op.val3.i.i.i, %if.end.i40.i.i ]
   %conv.i.i = zext nneg i32 %bf.clear.i.i to i64
   %mul57.i.i = mul i64 %add.i.i, %conv.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call45.i.i, ptr align 1 %retval.0.i38.i.i, i64 %mul57.i.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call45.i.i, ptr align 1 %retval.0.i39.i.i, i64 %mul57.i.i, i1 false)
   br label %unicode_subtype_new.exit.i
 
 onError.i.i:                                      ; preds = %if.end44.i.i, %if.end40.i.i
   %call48.i.i = call ptr @PyErr_NoMemory() #35
-  %23 = load i64, ptr %call.i.i, align 8
-  %24 = and i64 %23, 2147483648
-  %cmp.i59.not.i.i = icmp eq i64 %24, 0
+  %24 = load i64, ptr %call.i.i, align 8
+  %25 = and i64 %24, 2147483648
+  %cmp.i59.not.i.i = icmp eq i64 %25, 0
   br i1 %cmp.i59.not.i.i, label %if.end.i.i.i, label %unicode_subtype_new.exit.i
 
 if.end.i.i.i:                                     ; preds = %onError.i.i
-  %dec.i.i.i = add i64 %23, -1
+  %dec.i.i.i = add i64 %24, -1
   store i64 %dec.i.i.i, ptr %call.i.i, align 8
   %cmp.i.i.i = icmp eq i64 %dec.i.i.i, 0
   br i1 %cmp.i.i.i, label %if.then1.i.i.i, label %unicode_subtype_new.exit.i
@@ -46668,13 +46670,13 @@ if.then1.i.i.i:                                   ; preds = %if.end.i.i.i
 
 unicode_subtype_new.exit.i:                       ; preds = %if.then1.i.i.i, %if.end.i.i.i, %onError.i.i, %PyUnicode_DATA.exit.i.i, %do.body.i
   %retval.0.i.i = phi ptr [ %call.i.i, %PyUnicode_DATA.exit.i.i ], [ null, %do.body.i ], [ null, %onError.i.i ], [ null, %if.then1.i.i.i ], [ null, %if.end.i.i.i ]
-  %25 = load i64, ptr %unicode.0.i, align 8
-  %26 = and i64 %25, 2147483648
-  %cmp.i15.not.i = icmp eq i64 %26, 0
+  %26 = load i64, ptr %unicode.0.i, align 8
+  %27 = and i64 %26, 2147483648
+  %cmp.i15.not.i = icmp eq i64 %27, 0
   br i1 %cmp.i15.not.i, label %if.end.i.i, label %exit
 
 if.end.i.i:                                       ; preds = %unicode_subtype_new.exit.i
-  %dec.i.i = add i64 %25, -1
+  %dec.i.i = add i64 %26, -1
   store i64 %dec.i.i, ptr %unicode.0.i, align 8
   %cmp.i.i = icmp eq i64 %dec.i.i, 0
   br i1 %cmp.i.i, label %if.then1.i.i, label %exit
@@ -66799,6 +66801,9 @@ declare void @llvm.va_start.p0(ptr) #29
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #30
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.cttz.i64(i64, i1 immarg) #31
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smax.i64(i64, i64) #31

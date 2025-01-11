@@ -146069,40 +146069,41 @@ switch.lookup:                                    ; preds = %switch.hole_check
   %281 = load i32, ptr %280, align 8
   %.not = icmp eq i32 %281, 0
   %spec.store.select = select i1 %.not, i32 2048, i32 %281
-  %282 = udiv i32 %spec.store.select, %switch.load
-  %283 = tail call noundef range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %282, i1 false)
-  %284 = sub nuw nsw i32 32, %283
-  %285 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %286 = load i32, ptr %285, align 8
-  %287 = icmp ult i32 %284, %286
-  br i1 %287, label %288, label %_ZN4llvm5APIntD2Ev.exit64
+  %282 = tail call range(i32 3, 33) i32 @llvm.cttz.i32(i32 %switch.load, i1 true)
+  %283 = lshr i32 %spec.store.select, %282
+  %284 = tail call noundef range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %283, i1 false)
+  %285 = sub nuw nsw i32 32, %284
+  %286 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %287 = load i32, ptr %286, align 8
+  %288 = icmp ult i32 %285, %287
+  br i1 %288, label %289, label %_ZN4llvm5APIntD2Ev.exit64
 
-288:                                              ; preds = %switch.lookup
-  %289 = icmp ult i32 %286, 65
-  br i1 %289, label %290, label %298
+289:                                              ; preds = %switch.lookup
+  %290 = icmp ult i32 %287, 65
+  br i1 %290, label %291, label %299
 
-290:                                              ; preds = %288
-  %reass.sub = sub nsw i32 %284, %286
-  %291 = add nsw i32 %reass.sub, 64
-  %292 = zext nneg i32 %291 to i64
-  %293 = lshr i64 -1, %292
-  %294 = zext nneg i32 %284 to i64
-  %295 = shl i64 %293, %294
-  %296 = load i64, ptr %5, align 8
-  %297 = or i64 %296, %295
-  store i64 %297, ptr %5, align 8
+291:                                              ; preds = %289
+  %reass.sub = sub nsw i32 %285, %287
+  %292 = add nsw i32 %reass.sub, 64
+  %293 = zext nneg i32 %292 to i64
+  %294 = lshr i64 -1, %293
+  %295 = zext nneg i32 %285 to i64
+  %296 = shl i64 %294, %295
+  %297 = load i64, ptr %5, align 8
+  %298 = or i64 %297, %296
+  store i64 %298, ptr %5, align 8
   br label %_ZN4llvm5APIntD2Ev.exit64
 
-298:                                              ; preds = %288
-  tail call void @_ZN4llvm5APInt15setBitsSlowCaseEjj(ptr noundef nonnull align 8 dereferenceable(12) %5, i32 noundef %284, i32 noundef %286) #33
+299:                                              ; preds = %289
+  tail call void @_ZN4llvm5APInt15setBitsSlowCaseEjj(ptr noundef nonnull align 8 dereferenceable(12) %5, i32 noundef %285, i32 noundef %287) #33
   br label %_ZN4llvm5APIntD2Ev.exit64
 
 _ZL17IsSVECntIntrinsicN4llvm7SDValueE.exit:       ; preds = %switch.hole_check, %_ZL14getIntrinsicIDPKN4llvm6SDNodeE.exit.i, %263, %8
-  %299 = tail call noundef zeroext i1 @_ZNK4llvm14TargetLowering33SimplifyDemandedBitsForTargetNodeENS_7SDValueERKNS_5APIntES4_RNS_9KnownBitsERNS0_17TargetLoweringOptEj(ptr noundef nonnull align 8 dereferenceable(408123) %0, ptr nonnull %1, i32 %2, ptr noundef nonnull align 8 dereferenceable(12) %3, ptr noundef nonnull align 8 dereferenceable(12) %4, ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(48) %6, i32 noundef %7) #33
+  %300 = tail call noundef zeroext i1 @_ZNK4llvm14TargetLowering33SimplifyDemandedBitsForTargetNodeENS_7SDValueERKNS_5APIntES4_RNS_9KnownBitsERNS0_17TargetLoweringOptEj(ptr noundef nonnull align 8 dereferenceable(408123) %0, ptr nonnull %1, i32 %2, ptr noundef nonnull align 8 dereferenceable(12) %3, ptr noundef nonnull align 8 dereferenceable(12) %4, ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(48) %6, i32 noundef %7) #33
   br label %_ZN4llvm5APIntD2Ev.exit64
 
-_ZN4llvm5APIntD2Ev.exit64:                        ; preds = %298, %290, %262, %259, %_ZN4llvm5APIntD2Ev.exit.i80, %116, %113, %_ZN4llvm5APIntD2Ev.exit63, %switch.lookup, %33, %29, %31, %24, %_ZL17IsSVECntIntrinsicN4llvm7SDValueE.exit
-  %.0 = phi i1 [ %299, %_ZL17IsSVECntIntrinsicN4llvm7SDValueE.exit ], [ false, %24 ], [ false, %31 ], [ false, %29 ], [ false, %33 ], [ false, %switch.lookup ], [ %.1, %_ZN4llvm5APIntD2Ev.exit63 ], [ %.1, %113 ], [ %.1, %116 ], [ %.2, %_ZN4llvm5APIntD2Ev.exit.i80 ], [ %.2, %259 ], [ %.2, %262 ], [ false, %290 ], [ false, %298 ]
+_ZN4llvm5APIntD2Ev.exit64:                        ; preds = %299, %291, %262, %259, %_ZN4llvm5APIntD2Ev.exit.i80, %116, %113, %_ZN4llvm5APIntD2Ev.exit63, %switch.lookup, %33, %29, %31, %24, %_ZL17IsSVECntIntrinsicN4llvm7SDValueE.exit
+  %.0 = phi i1 [ %300, %_ZL17IsSVECntIntrinsicN4llvm7SDValueE.exit ], [ false, %24 ], [ false, %31 ], [ false, %29 ], [ false, %33 ], [ false, %switch.lookup ], [ %.1, %_ZN4llvm5APIntD2Ev.exit63 ], [ %.1, %113 ], [ %.1, %116 ], [ %.2, %_ZN4llvm5APIntD2Ev.exit.i80 ], [ %.2, %259 ], [ %.2, %262 ], [ false, %291 ], [ false, %299 ]
   ret i1 %.0
 }
 
@@ -174497,6 +174498,9 @@ declare i8 @llvm.umax.i8(i8, i8) #29
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i16 @llvm.ctpop.i16(i16) #29
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.cttz.i32(i32, i1 immarg) #29
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nofree nounwind }
