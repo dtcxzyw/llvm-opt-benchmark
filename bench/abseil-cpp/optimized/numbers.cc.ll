@@ -1134,7 +1134,7 @@ if.then98.i:                                      ; preds = %if.then92.i
 
 if.else105.i:                                     ; preds = %if.then92.i
   %5 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %conv101.i, i1 true)
-  %6 = tail call i64 @llvm.fshl.i64(i64 %conv101.i, i64 0, i64 %5)
+  %6 = shl i64 %conv101.i, %5
   %sub113.i = sub nsw i32 5, %exp.8.i
   %call114.i = tail call fastcc { i64, i64 } @_ZN4abslL7PowFiveEmi(i64 noundef %shl.i, i32 noundef %sub113.i)
   %7 = extractvalue { i64, i64 } %call114.i, 0
