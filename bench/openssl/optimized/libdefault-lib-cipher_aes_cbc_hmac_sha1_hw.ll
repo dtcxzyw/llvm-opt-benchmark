@@ -1808,33 +1808,30 @@ for.body398.i:                                    ; preds = %for.body398.i, %for
   %add.ptr453.i = getelementptr inbounds nuw i8, ptr %add.ptr423.i, i64 16
   store i32 %64, ptr %add.ptr453.i, align 4
   %add.ptr454.i = getelementptr i8, ptr %add.ptr423.i, i64 20
-  %add455.i = add i32 %cond406.i, 4
-  %rem456.i = and i32 %add455.i, 15
-  %65 = trunc nuw nsw i32 %rem456.i to i8
-  %conv462.i = xor i8 %65, 15
-  %66 = sub i32 11, %cond406.i
-  %67 = and i32 %66, 15
-  %68 = zext nneg i32 %67 to i64
-  %69 = add nuw nsw i64 %68, 1
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %add.ptr454.i, i8 %conv462.i, i64 %69, i1 false)
+  %add455.not.i = sub i32 11, %cond406.i
+  %sub457.i = and i32 %add455.not.i, 15
+  %conv462.i = trunc nuw nsw i32 %sub457.i to i8
+  %65 = zext nneg i32 %sub457.i to i64
+  %66 = add nuw nsw i64 %65, 1
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %add.ptr454.i, i8 %conv462.i, i64 %66, i1 false)
   %scevgep.i = getelementptr i8, ptr %out.addr.0266.i, i64 21
-  %70 = getelementptr i8, ptr %scevgep.i, i64 %idx.ext422.i
-  %scevgep296.i = getelementptr i8, ptr %70, i64 %68
-  %71 = sub i32 %cond406.i, %rem456.i
-  %reass.sub = sub i32 %71, %processed.0.i
-  %sub468.i = add i32 %reass.sub, 36
+  %67 = getelementptr i8, ptr %scevgep.i, i64 %idx.ext422.i
+  %scevgep296.i = getelementptr i8, ptr %67, i64 %65
+  %add466.i = add i32 %sub457.i, %cond406.i
+  %reass.sub = sub i32 %add466.i, %processed.0.i
+  %sub468.i = add i32 %reass.sub, 21
   %div469246.i = lshr i32 %sub468.i, 4
   %blocks472.i = getelementptr inbounds nuw i8, ptr %arrayidx408.i, i64 16
   store i32 %div469246.i, ptr %blocks472.i, align 8
-  %add473.i = add i32 %71, 52
-  %72 = load i8, ptr %arrayidx477.i, align 4
-  store i8 %72, ptr %out.addr.0266.i, align 1
-  %73 = load i8, ptr %arrayidx482.i, align 1
+  %add473.i = add i32 %add466.i, 37
+  %68 = load i8, ptr %arrayidx477.i, align 4
+  store i8 %68, ptr %out.addr.0266.i, align 1
+  %69 = load i8, ptr %arrayidx482.i, align 1
   %arrayidx483.i = getelementptr inbounds nuw i8, ptr %out.addr.0266.i, i64 1
-  store i8 %73, ptr %arrayidx483.i, align 1
-  %74 = load i8, ptr %arrayidx487.i, align 2
+  store i8 %69, ptr %arrayidx483.i, align 1
+  %70 = load i8, ptr %arrayidx487.i, align 2
   %arrayidx488.i = getelementptr inbounds nuw i8, ptr %out.addr.0266.i, i64 2
-  store i8 %74, ptr %arrayidx488.i, align 1
+  store i8 %70, ptr %arrayidx488.i, align 1
   %shr489.i = lshr i32 %add473.i, 8
   %conv490.i = trunc i32 %shr489.i to i8
   %arrayidx491.i = getelementptr inbounds nuw i8, ptr %out.addr.0266.i, i64 3
@@ -1842,7 +1839,7 @@ for.body398.i:                                    ; preds = %for.body398.i, %for
   %conv492.i = trunc i32 %add473.i to i8
   %arrayidx493.i = getelementptr inbounds nuw i8, ptr %out.addr.0266.i, i64 4
   store i8 %conv492.i, ptr %arrayidx493.i, align 1
-  %add494.i = add i32 %71, 57
+  %add494.i = add i32 %add466.i, 42
   %conv495.i = zext i32 %add494.i to i64
   %add496.i = add i64 %ret.0264.i, %conv495.i
   %indvars.iv.next298.i = add nuw nsw i64 %indvars.iv297.i, 1
@@ -1857,11 +1854,11 @@ for.end501.i:                                     ; preds = %for.body398.i, %for
   call void @OPENSSL_cleanse(ptr noundef nonnull %add.ptr5.i, i64 noundef 160) #9
   %multiblock_encrypt_len.i = getelementptr inbounds nuw i8, ptr %ctx, i64 488
   store i64 %ret.0.lcssa.i, ptr %multiblock_encrypt_len.i, align 8
-  %75 = trunc i64 %ret.0.lcssa.i to i32
+  %71 = trunc i64 %ret.0.lcssa.i to i32
   br label %tls1_multi_block_encrypt.exit
 
 tls1_multi_block_encrypt.exit:                    ; preds = %entry, %for.end501.i
-  %retval.0.i = phi i32 [ %75, %for.end501.i ], [ 0, %entry ]
+  %retval.0.i = phi i32 [ %71, %for.end501.i ], [ 0, %entry ]
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %hash_d.i)
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %edges.i)
   call void @llvm.lifetime.end.p0(i64 320, ptr nonnull %ciph_d.i)

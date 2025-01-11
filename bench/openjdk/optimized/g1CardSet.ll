@@ -613,10 +613,9 @@ define hidden void @_ZN22G1CardSetConfigurationC2Ejdjdjj(ptr nocapture noundef n
   %17 = tail call noundef i64 @llvm.umin.i64(i64 %16, i64 %11)
   %18 = tail call noundef i64 @llvm.umax.i64(i64 %17, i64 1)
   %19 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %18, i1 true)
-  %20 = xor i64 %19, 63
-  %21 = shl nuw nsw i64 1, %20
-  %22 = trunc nuw nsw i64 %21 to i32
-  tail call void @_ZN22G1CardSetConfigurationC2Ejjdjdjj(ptr noundef nonnull align 8 dereferenceable(56) %0, i32 noundef %8, i32 noundef %1, double noundef %2, i32 noundef %22, double noundef %4, i32 noundef %5, i32 noundef %6)
+  %20 = lshr exact i64 -9223372036854775808, %19
+  %21 = trunc nuw nsw i64 %20 to i32
+  tail call void @_ZN22G1CardSetConfigurationC2Ejjdjdjj(ptr noundef nonnull align 8 dereferenceable(56) %0, i32 noundef %8, i32 noundef %1, double noundef %2, i32 noundef %21, double noundef %4, i32 noundef %5, i32 noundef %6)
   ret void
 }
 

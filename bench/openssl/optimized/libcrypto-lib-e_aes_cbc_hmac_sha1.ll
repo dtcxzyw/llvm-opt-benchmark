@@ -1759,33 +1759,30 @@ for.body396.i:                                    ; preds = %for.body396.i, %for
   %add.ptr451.i = getelementptr inbounds nuw i8, ptr %add.ptr421.i, i64 16
   store i32 %97, ptr %add.ptr451.i, align 4
   %add.ptr452.i = getelementptr i8, ptr %add.ptr421.i, i64 20
-  %add453.i = add i32 %cond404.i, 4
-  %rem454.i = and i32 %add453.i, 15
-  %98 = trunc nuw nsw i32 %rem454.i to i8
-  %conv460.i = xor i8 %98, 15
-  %99 = sub i32 11, %cond404.i
-  %100 = and i32 %99, 15
-  %101 = zext nneg i32 %100 to i64
-  %102 = add nuw nsw i64 %101, 1
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %add.ptr452.i, i8 %conv460.i, i64 %102, i1 false)
+  %add453.not.i = sub i32 11, %cond404.i
+  %sub455.i = and i32 %add453.not.i, 15
+  %conv460.i = trunc nuw nsw i32 %sub455.i to i8
+  %98 = zext nneg i32 %sub455.i to i64
+  %99 = add nuw nsw i64 %98, 1
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %add.ptr452.i, i8 %conv460.i, i64 %99, i1 false)
   %scevgep.i = getelementptr i8, ptr %out.addr.0263.i, i64 21
-  %103 = getelementptr i8, ptr %scevgep.i, i64 %idx.ext420.i
-  %scevgep293.i = getelementptr i8, ptr %103, i64 %101
-  %104 = sub i32 %cond404.i, %rem454.i
-  %reass.sub = sub i32 %104, %processed.0.i
-  %sub466.i = add i32 %reass.sub, 36
+  %100 = getelementptr i8, ptr %scevgep.i, i64 %idx.ext420.i
+  %scevgep293.i = getelementptr i8, ptr %100, i64 %98
+  %add464.i = add i32 %sub455.i, %cond404.i
+  %reass.sub = sub i32 %add464.i, %processed.0.i
+  %sub466.i = add i32 %reass.sub, 21
   %div467243.i = lshr i32 %sub466.i, 4
   %blocks470.i = getelementptr inbounds nuw i8, ptr %arrayidx406.i, i64 16
   store i32 %div467243.i, ptr %blocks470.i, align 8
-  %add471.i = add i32 %104, 52
-  %105 = load i8, ptr %arrayidx475.i, align 4
-  store i8 %105, ptr %out.addr.0263.i, align 1
-  %106 = load i8, ptr %arrayidx480.i, align 1
+  %add471.i = add i32 %add464.i, 37
+  %101 = load i8, ptr %arrayidx475.i, align 4
+  store i8 %101, ptr %out.addr.0263.i, align 1
+  %102 = load i8, ptr %arrayidx480.i, align 1
   %arrayidx481.i = getelementptr inbounds nuw i8, ptr %out.addr.0263.i, i64 1
-  store i8 %106, ptr %arrayidx481.i, align 1
-  %107 = load i8, ptr %arrayidx485.i, align 2
+  store i8 %102, ptr %arrayidx481.i, align 1
+  %103 = load i8, ptr %arrayidx485.i, align 2
   %arrayidx486.i = getelementptr inbounds nuw i8, ptr %out.addr.0263.i, i64 2
-  store i8 %107, ptr %arrayidx486.i, align 1
+  store i8 %103, ptr %arrayidx486.i, align 1
   %shr487.i = lshr i32 %add471.i, 8
   %conv488.i = trunc i32 %shr487.i to i8
   %arrayidx489.i = getelementptr inbounds nuw i8, ptr %out.addr.0263.i, i64 3
@@ -1793,8 +1790,8 @@ for.body396.i:                                    ; preds = %for.body396.i, %for
   %conv490.i = trunc i32 %add471.i to i8
   %arrayidx491.i = getelementptr inbounds nuw i8, ptr %out.addr.0263.i, i64 4
   store i8 %conv490.i, ptr %arrayidx491.i, align 1
-  %add492.i = add i32 %ret.0261.i, 57
-  %add494.i = add i32 %add492.i, %104
+  %add492.i = add i32 %ret.0261.i, 42
+  %add494.i = add i32 %add492.i, %add464.i
   %indvars.iv.next295.i = add nuw nsw i64 %indvars.iv294.i, 1
   %exitcond298.not.i = icmp eq i64 %indvars.iv.next295.i, %wide.trip.count286.i
   br i1 %exitcond298.not.i, label %for.end499.i, label %for.body396.i, !llvm.loop !36

@@ -5224,9 +5224,8 @@ define dso_local noundef range(i32 1, 9) i32 @_ZNK4llvm14RISCVSubtarget31getMaxL
   %.sroa.speculate.load.false.sroa.speculated = tail call i32 @llvm.umax.i32(i32 %2, i32 1)
   %.sroa.speculated = tail call i32 @llvm.umin.i32(i32 %.sroa.speculate.load.false.sroa.speculated, i32 8)
   %3 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %.sroa.speculated, i1 true)
-  %4 = xor i32 %3, 31
-  %5 = shl nuw nsw i32 1, %4
-  ret i32 %5
+  %4 = lshr exact i32 -2147483648, %3
+  ret i32 %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

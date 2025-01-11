@@ -12456,7 +12456,7 @@ _ZN5tokio7runtime4time5entry11TimerHandle9sync_when17h0571d1d2a675f99eE.exit: ; 
   %spec.store.select.i.i = tail call i64 @llvm.umin.i64(i64 %14, i64 68719476734)
   %15 = tail call range(i64 28, 59) i64 @llvm.ctlz.i64(i64 %spec.store.select.i.i, i1 true)
   %16 = trunc nuw nsw i64 %15 to i8
-  %.lhs.trunc.i.i = xor i8 %16, 62
+  %.lhs.trunc.i.i = sub nuw nsw i8 63, %16
   %17 = udiv i8 %.lhs.trunc.i.i, 6
   %.zext.i.i = zext nneg i8 %17 to i64
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2328)
@@ -12554,7 +12554,7 @@ define hidden void @_ZN5tokio7runtime4time5wheel5Wheel6remove17h49ff6cdd64480a3e
   %spec.store.select.i.i = tail call i64 @llvm.umin.i64(i64 %10, i64 68719476734)
   %11 = tail call range(i64 28, 59) i64 @llvm.ctlz.i64(i64 %spec.store.select.i.i, i1 true)
   %12 = trunc nuw nsw i64 %11 to i8
-  %.lhs.trunc.i.i = xor i8 %12, 62
+  %.lhs.trunc.i.i = sub nuw nsw i8 63, %12
   %13 = udiv i8 %.lhs.trunc.i.i, 6
   %.zext.i.i = zext nneg i8 %13 to i64
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2349)
@@ -13025,7 +13025,7 @@ _ZN5tokio7runtime4time5wheel5Wheel12take_entries17ha5a01c22d961034bE.llvm.760049
   %spec.store.select.i = call i64 @llvm.umin.i64(i64 %63, i64 68719476734)
   %64 = call range(i64 28, 59) i64 @llvm.ctlz.i64(i64 %spec.store.select.i, i1 true)
   %65 = trunc nuw nsw i64 %64 to i8
-  %.lhs.trunc.i = xor i8 %65, 62
+  %.lhs.trunc.i = sub nuw nsw i8 63, %65
   %66 = udiv i8 %.lhs.trunc.i, 6
   %.zext.i = zext nneg i8 %66 to i64
   call void @llvm.experimental.noalias.scope.decl(metadata !2425)
@@ -13190,7 +13190,7 @@ _ZN5tokio7runtime4time5wheel5level5Level9take_slot17h53d97e9b1f364fc5E.exit: ; p
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden noundef range(i64 0, 11) i64 @_ZN5tokio7runtime4time5wheel5Wheel9level_for17hd258798a270d4423E.llvm.7600499188078001995(ptr noalias nocapture noundef readonly align 8 dereferenceable(48) %0, i64 noundef %1) unnamed_addr #9 {
+define hidden noundef range(i64 0, 6) i64 @_ZN5tokio7runtime4time5wheel5Wheel9level_for17hd258798a270d4423E.llvm.7600499188078001995(ptr noalias nocapture noundef readonly align 8 dereferenceable(48) %0, i64 noundef %1) unnamed_addr #9 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load i64, ptr %3, align 8, !noundef !5
   %5 = xor i64 %4, %1
@@ -13198,20 +13198,20 @@ define hidden noundef range(i64 0, 11) i64 @_ZN5tokio7runtime4time5wheel5Wheel9l
   %spec.store.select.i = tail call i64 @llvm.umin.i64(i64 %6, i64 68719476734)
   %7 = tail call range(i64 28, 59) i64 @llvm.ctlz.i64(i64 %spec.store.select.i, i1 true)
   %8 = trunc nuw nsw i64 %7 to i8
-  %.lhs.trunc.i = xor i8 %8, 62
+  %.lhs.trunc.i = sub nuw nsw i8 63, %8
   %9 = udiv i8 %.lhs.trunc.i, 6
   %.zext.i = zext nneg i8 %9 to i64
   ret i64 %.zext.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef range(i64 0, 11) i64 @_ZN5tokio7runtime4time5wheel9level_for17h0456cfaf9af5afd1E.llvm.7600499188078001995(i64 noundef %0, i64 noundef %1) unnamed_addr #10 {
+define hidden noundef range(i64 0, 6) i64 @_ZN5tokio7runtime4time5wheel9level_for17h0456cfaf9af5afd1E.llvm.7600499188078001995(i64 noundef %0, i64 noundef %1) unnamed_addr #10 {
   %3 = xor i64 %1, %0
   %4 = or i64 %3, 63
   %spec.store.select = tail call i64 @llvm.umin.i64(i64 %4, i64 68719476734)
   %5 = tail call range(i64 28, 59) i64 @llvm.ctlz.i64(i64 %spec.store.select, i1 true)
   %6 = trunc nuw nsw i64 %5 to i8
-  %.lhs.trunc = xor i8 %6, 62
+  %.lhs.trunc = sub nuw nsw i8 63, %6
   %7 = udiv i8 %.lhs.trunc, 6
   %.zext = zext nneg i8 %7 to i64
   ret i64 %.zext

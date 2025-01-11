@@ -93514,8 +93514,7 @@ if.then7.i.i:                                     ; preds = %_ZN4absl10CordBuffe
 
 if.else12.i.i:                                    ; preds = %if.then7.i.i
   %7 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %.sroa.speculated.i.i, i1 true)
-  %sub.i7.i.i = xor i64 %7, 63
-  %shl14.i.i = shl nuw nsw i64 1, %sub.i7.i.i
+  %shl14.i.i = lshr exact i64 -9223372036854775808, %7
   br label %_ZN4absl10CordBuffer21CreateWithCustomLimitEmm.exit
 
 _ZN4absl10CordBuffer21CreateWithCustomLimitEmm.exit: ; preds = %cond.true, %if.else.i.i, %_ZN4absl10CordBuffer6IsPow2Em.exit.i.i, %if.then7.i.i, %if.else12.i.i

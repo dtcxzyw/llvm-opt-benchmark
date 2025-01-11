@@ -2177,7 +2177,7 @@ Vec_WecPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
 
 92:                                               ; preds = %22, %17
   %93 = trunc nuw nsw i64 %indvars.iv58 to i32
-  %94 = xor i32 %93, 1
+  %94 = sub nuw nsw i32 1, %93
   %95 = select i1 %.not, i32 0, i32 %94
   %96 = sub nsw i64 %indvars.iv61, %indvars.iv58
   %97 = zext nneg i32 %95 to i64

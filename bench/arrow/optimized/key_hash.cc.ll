@@ -1883,9 +1883,8 @@ cond.false.i:                                     ; preds = %while.end
 
 _ZN5arrow8bit_util7CeilDivEll.exit:               ; preds = %while.end, %cond.false.i
   %cond.i = phi i64 [ %add.i, %cond.false.i ], [ 0, %while.end ]
-  %3 = add i64 %length, 15
-  %4 = and i64 %3, 15
-  %sub.i32 = xor i64 %4, 15
+  %.not = sub i64 0, %length
+  %sub.i32 = and i64 %.not, 15
   %add.ptr.i = getelementptr inbounds nuw i8, ptr @_ZZN5arrow7compute9Hashing3210StripeMaskEiPjS2_S2_S2_E5bytes, i64 %sub.i32
   %ret.0.copyload.i.i = load i32, ptr %add.ptr.i, align 1
   %add.ptr7.i = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 4
@@ -1899,7 +1898,7 @@ _ZN5arrow8bit_util7CeilDivEll.exit:               ; preds = %while.end, %cond.fa
 
 for.body.lr.ph:                                   ; preds = %_ZN5arrow8bit_util7CeilDivEll.exit
   %cmp25.i = icmp sgt i64 %cond.i, 1
-  %5 = add nsw i64 %cond.i, -2
+  %3 = add nsw i64 %cond.i, -2
   %sub7 = shl i64 %cond.i, 4
   %wide.trip.count = zext i32 %num_rows_safe.0.lcssa to i64
   br label %for.body
@@ -1910,11 +1909,11 @@ for.cond16.preheader:                             ; preds = %_ZN5arrow7compute9H
 
 for.body18.lr.ph:                                 ; preds = %for.cond16.preheader
   %cmp25.i48 = icmp sgt i64 %cond.i, 1
-  %6 = add nsw i64 %cond.i, -2
+  %4 = add nsw i64 %cond.i, -2
   %sub27 = shl i64 %cond.i, 4
   %mul28 = add i64 %sub27, -16
   %sub32 = sub i64 %length, %mul28
-  %7 = zext i32 %num_rows_safe.0.lcssa to i64
+  %5 = zext i32 %num_rows_safe.0.lcssa to i64
   %wide.trip.count164 = zext i32 %num_rows to i64
   %last_stripe_copy.4.last_stripe_copy.4.last_stripe_copy.4.add.ptr.i89.sroa_idx = getelementptr inbounds nuw i8, ptr %last_stripe_copy, i64 4
   %last_stripe_copy.8.last_stripe_copy.8.last_stripe_copy.8.add.ptr2.i91.sroa_idx = getelementptr inbounds nuw i8, ptr %last_stripe_copy, i64 8
@@ -1959,7 +1958,7 @@ for.body.i:                                       ; preds = %for.body, %for.body
   %or.i23.i = tail call i32 @llvm.fshl.i32(i32 %add.i22.i, i32 %add.i22.i, i32 13)
   %mul1.i24.i = mul i32 %or.i23.i, -1640531535
   %inc.i = add nuw nsw i64 %istripe.026.i, 1
-  %exitcond.not.i = icmp eq i64 %istripe.026.i, %5
+  %exitcond.not.i = icmp eq i64 %istripe.026.i, %3
   br i1 %exitcond.not.i, label %_ZN5arrow7compute9Hashing3218ProcessFullStripesEmPKhPjS4_S4_S4_.exit, label %for.body.i, !llvm.loop !6
 
 _ZN5arrow7compute9Hashing3218ProcessFullStripesEmPKhPjS4_S4_S4_.exit: ; preds = %for.body.i, %for.body
@@ -1967,14 +1966,14 @@ _ZN5arrow7compute9Hashing3218ProcessFullStripesEmPKhPjS4_S4_S4_.exit: ; preds = 
   %acc3.0.lcssa.i = phi i32 [ 0, %for.body ], [ %mul1.i20.i, %for.body.i ]
   %acc2.0.lcssa.i = phi i32 [ -2048144777, %for.body ], [ %mul1.i16.i, %for.body.i ]
   %acc1.0.lcssa.i = phi i32 [ 606290984, %for.body ], [ %mul1.i.i, %for.body.i ]
-  %8 = getelementptr i8, ptr %add.ptr, i64 %sub7
-  %add.ptr9 = getelementptr i8, ptr %8, i64 -16
+  %6 = getelementptr i8, ptr %add.ptr, i64 %sub7
+  %add.ptr9 = getelementptr i8, ptr %6, i64 -16
   %ret.0.copyload.i.i35 = load i32, ptr %add.ptr9, align 1
-  %add.ptr.i36 = getelementptr i8, ptr %8, i64 -12
+  %add.ptr.i36 = getelementptr i8, ptr %6, i64 -12
   %ret.0.copyload.i12.i37 = load i32, ptr %add.ptr.i36, align 1
-  %add.ptr2.i38 = getelementptr i8, ptr %8, i64 -8
+  %add.ptr2.i38 = getelementptr i8, ptr %6, i64 -8
   %ret.0.copyload.i13.i = load i32, ptr %add.ptr2.i38, align 1
-  %add.ptr4.i39 = getelementptr i8, ptr %8, i64 -4
+  %add.ptr4.i39 = getelementptr i8, ptr %6, i64 -4
   %ret.0.copyload.i14.i = load i32, ptr %add.ptr4.i39, align 1
   %and.i = and i32 %ret.0.copyload.i.i35, %ret.0.copyload.i.i
   %and6.i = and i32 %ret.0.copyload.i12.i37, %ret.0.copyload.i4.i
@@ -2012,20 +2011,20 @@ _ZN5arrow7compute9Hashing3218ProcessFullStripesEmPKhPjS4_S4_S4_.exit: ; preds = 
   %shr4.i = lshr i32 %mul3.i, 16
   %xor5.i = xor i32 %shr4.i, %mul3.i
   %arrayidx = getelementptr inbounds nuw i32, ptr %hashes, i64 %indvars.iv156
-  %9 = load i32, ptr %arrayidx, align 4
-  %shl.i = shl i32 %9, 6
-  %shr.i46 = lshr i32 %9, 2
+  %7 = load i32, ptr %arrayidx, align 4
+  %shl.i = shl i32 %7, 6
+  %shr.i46 = lshr i32 %7, 2
   %add.i45 = add i32 %shl.i, -1640531527
   %add1.i = add i32 %add.i45, %shr.i46
   %add2.i = add i32 %add1.i, %xor5.i
-  %xor.i47 = xor i32 %add2.i, %9
+  %xor.i47 = xor i32 %add2.i, %7
   store i32 %xor.i47, ptr %arrayidx, align 4
   %indvars.iv.next157 = add nuw nsw i64 %indvars.iv156, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next157, %wide.trip.count
   br i1 %exitcond.not, label %for.cond16.preheader, label %for.body, !llvm.loop !29
 
 for.body18:                                       ; preds = %for.body18.lr.ph, %_ZN5arrow7compute9Hashing3218ProcessFullStripesEmPKhPjS4_S4_S4_.exit87
-  %indvars.iv160 = phi i64 [ %7, %for.body18.lr.ph ], [ %indvars.iv.next161, %_ZN5arrow7compute9Hashing3218ProcessFullStripesEmPKhPjS4_S4_S4_.exit87 ]
+  %indvars.iv160 = phi i64 [ %5, %for.body18.lr.ph ], [ %indvars.iv.next161, %_ZN5arrow7compute9Hashing3218ProcessFullStripesEmPKhPjS4_S4_S4_.exit87 ]
   %mul21 = mul i64 %length, %indvars.iv160
   %add.ptr22 = getelementptr inbounds i8, ptr %keys, i64 %mul21
   br i1 %cmp25.i48, label %for.body.i54, label %_ZN5arrow7compute9Hashing3218ProcessFullStripesEmPKhPjS4_S4_S4_.exit87
@@ -2062,7 +2061,7 @@ for.body.i54:                                     ; preds = %for.body18, %for.bo
   %or.i23.i83 = tail call i32 @llvm.fshl.i32(i32 %add.i22.i82, i32 %add.i22.i82, i32 13)
   %mul1.i24.i84 = mul i32 %or.i23.i83, -1640531535
   %inc.i85 = add nuw nsw i64 %istripe.026.i59, 1
-  %exitcond.not.i86 = icmp eq i64 %istripe.026.i59, %6
+  %exitcond.not.i86 = icmp eq i64 %istripe.026.i59, %4
   br i1 %exitcond.not.i86, label %_ZN5arrow7compute9Hashing3218ProcessFullStripesEmPKhPjS4_S4_S4_.exit87, label %for.body.i54, !llvm.loop !6
 
 _ZN5arrow7compute9Hashing3218ProcessFullStripesEmPKhPjS4_S4_S4_.exit87: ; preds = %for.body.i54, %for.body18
@@ -2112,13 +2111,13 @@ _ZN5arrow7compute9Hashing3218ProcessFullStripesEmPKhPjS4_S4_S4_.exit87: ; preds 
   %shr4.i128 = lshr i32 %mul3.i127, 16
   %xor5.i129 = xor i32 %shr4.i128, %mul3.i127
   %arrayidx38 = getelementptr inbounds nuw i32, ptr %hashes, i64 %indvars.iv160
-  %10 = load i32, ptr %arrayidx38, align 4
-  %shl.i131 = shl i32 %10, 6
-  %shr.i133 = lshr i32 %10, 2
+  %8 = load i32, ptr %arrayidx38, align 4
+  %shl.i131 = shl i32 %8, 6
+  %shr.i133 = lshr i32 %8, 2
   %add.i130 = add i32 %shl.i131, -1640531527
   %add1.i132 = add i32 %add.i130, %shr.i133
   %add2.i134 = add i32 %add1.i132, %xor5.i129
-  %xor.i135 = xor i32 %add2.i134, %10
+  %xor.i135 = xor i32 %add2.i134, %8
   store i32 %xor.i135, ptr %arrayidx38, align 4
   %indvars.iv.next161 = add nuw nsw i64 %indvars.iv160, 1
   %exitcond165.not = icmp eq i64 %indvars.iv.next161, %wide.trip.count164
@@ -2167,9 +2166,8 @@ cond.false.i:                                     ; preds = %while.end
 
 _ZN5arrow8bit_util7CeilDivEll.exit:               ; preds = %while.end, %cond.false.i
   %cond.i = phi i64 [ %add.i, %cond.false.i ], [ 0, %while.end ]
-  %3 = add i64 %length, 15
-  %4 = and i64 %3, 15
-  %sub.i28 = xor i64 %4, 15
+  %.not = sub i64 0, %length
+  %sub.i28 = and i64 %.not, 15
   %add.ptr.i = getelementptr inbounds nuw i8, ptr @_ZZN5arrow7compute9Hashing3210StripeMaskEiPjS2_S2_S2_E5bytes, i64 %sub.i28
   %ret.0.copyload.i.i = load i32, ptr %add.ptr.i, align 1
   %add.ptr7.i = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 4
@@ -2183,7 +2181,7 @@ _ZN5arrow8bit_util7CeilDivEll.exit:               ; preds = %while.end, %cond.fa
 
 for.body.lr.ph:                                   ; preds = %_ZN5arrow8bit_util7CeilDivEll.exit
   %cmp25.i = icmp sgt i64 %cond.i, 1
-  %5 = add nsw i64 %cond.i, -2
+  %3 = add nsw i64 %cond.i, -2
   %sub7 = shl i64 %cond.i, 4
   br i1 %cmp25.i, label %for.body.us.preheader, label %for.body.lr.ph.split
 
@@ -2229,18 +2227,18 @@ for.body.i.us:                                    ; preds = %for.body.i.us, %for
   %or.i23.i.us = tail call i32 @llvm.fshl.i32(i32 %add.i22.i.us, i32 %add.i22.i.us, i32 13)
   %mul1.i24.i.us = mul i32 %or.i23.i.us, -1640531535
   %inc.i.us = add nuw nsw i64 %istripe.026.i.us, 1
-  %exitcond.not.i.us = icmp eq i64 %istripe.026.i.us, %5
+  %exitcond.not.i.us = icmp eq i64 %istripe.026.i.us, %3
   br i1 %exitcond.not.i.us, label %_ZN5arrow7compute9Hashing3218ProcessFullStripesEmPKhPjS4_S4_S4_.exit.loopexit.us, label %for.body.i.us, !llvm.loop !6
 
 _ZN5arrow7compute9Hashing3218ProcessFullStripesEmPKhPjS4_S4_S4_.exit.loopexit.us: ; preds = %for.body.i.us
-  %6 = getelementptr i8, ptr %add.ptr.us, i64 %sub7
-  %add.ptr9.us = getelementptr i8, ptr %6, i64 -16
+  %4 = getelementptr i8, ptr %add.ptr.us, i64 %sub7
+  %add.ptr9.us = getelementptr i8, ptr %4, i64 -16
   %ret.0.copyload.i.i31.us = load i32, ptr %add.ptr9.us, align 1
-  %add.ptr.i32.us = getelementptr i8, ptr %6, i64 -12
+  %add.ptr.i32.us = getelementptr i8, ptr %4, i64 -12
   %ret.0.copyload.i12.i33.us = load i32, ptr %add.ptr.i32.us, align 1
-  %add.ptr2.i34.us = getelementptr i8, ptr %6, i64 -8
+  %add.ptr2.i34.us = getelementptr i8, ptr %4, i64 -8
   %ret.0.copyload.i13.i.us = load i32, ptr %add.ptr2.i34.us, align 1
-  %add.ptr4.i35.us = getelementptr i8, ptr %6, i64 -4
+  %add.ptr4.i35.us = getelementptr i8, ptr %4, i64 -4
   %ret.0.copyload.i14.i.us = load i32, ptr %add.ptr4.i35.us, align 1
   %and.i.us = and i32 %ret.0.copyload.i.i31.us, %ret.0.copyload.i.i
   %and6.i.us = and i32 %ret.0.copyload.i12.i33.us, %ret.0.copyload.i4.i
@@ -2294,11 +2292,11 @@ for.cond13.preheader:                             ; preds = %for.body, %_ZN5arro
 
 for.body15.lr.ph:                                 ; preds = %for.cond13.preheader
   %cmp25.i41 = icmp sgt i64 %cond.i, 1
-  %7 = add nsw i64 %cond.i, -2
+  %5 = add nsw i64 %cond.i, -2
   %sub24 = shl i64 %cond.i, 4
   %mul25 = add i64 %sub24, -16
   %sub29 = sub i64 %length, %mul25
-  %8 = zext i32 %num_rows_safe.0.lcssa to i64
+  %6 = zext i32 %num_rows_safe.0.lcssa to i64
   %wide.trip.count158 = zext i32 %num_rows to i64
   %last_stripe_copy.4.last_stripe_copy.4.last_stripe_copy.4.add.ptr.i82.sroa_idx = getelementptr inbounds nuw i8, ptr %last_stripe_copy, i64 4
   %last_stripe_copy.8.last_stripe_copy.8.last_stripe_copy.8.add.ptr2.i84.sroa_idx = getelementptr inbounds nuw i8, ptr %last_stripe_copy, i64 8
@@ -2358,7 +2356,7 @@ for.body:                                         ; preds = %for.body.lr.ph.spli
   br i1 %exitcond.not, label %for.cond13.preheader, label %for.body, !llvm.loop !32
 
 for.body15:                                       ; preds = %for.body15.lr.ph, %_ZN5arrow7compute9Hashing3218ProcessFullStripesEmPKhPjS4_S4_S4_.exit80
-  %indvars.iv154 = phi i64 [ %8, %for.body15.lr.ph ], [ %indvars.iv.next155, %_ZN5arrow7compute9Hashing3218ProcessFullStripesEmPKhPjS4_S4_S4_.exit80 ]
+  %indvars.iv154 = phi i64 [ %6, %for.body15.lr.ph ], [ %indvars.iv.next155, %_ZN5arrow7compute9Hashing3218ProcessFullStripesEmPKhPjS4_S4_S4_.exit80 ]
   %mul18 = mul i64 %length, %indvars.iv154
   %add.ptr19 = getelementptr inbounds i8, ptr %keys, i64 %mul18
   br i1 %cmp25.i41, label %for.body.i47, label %_ZN5arrow7compute9Hashing3218ProcessFullStripesEmPKhPjS4_S4_S4_.exit80
@@ -2395,7 +2393,7 @@ for.body.i47:                                     ; preds = %for.body15, %for.bo
   %or.i23.i76 = tail call i32 @llvm.fshl.i32(i32 %add.i22.i75, i32 %add.i22.i75, i32 13)
   %mul1.i24.i77 = mul i32 %or.i23.i76, -1640531535
   %inc.i78 = add nuw nsw i64 %istripe.026.i52, 1
-  %exitcond.not.i79 = icmp eq i64 %istripe.026.i52, %7
+  %exitcond.not.i79 = icmp eq i64 %istripe.026.i52, %5
   br i1 %exitcond.not.i79, label %_ZN5arrow7compute9Hashing3218ProcessFullStripesEmPKhPjS4_S4_S4_.exit80, label %for.body.i47, !llvm.loop !6
 
 _ZN5arrow7compute9Hashing3218ProcessFullStripesEmPKhPjS4_S4_S4_.exit80: ; preds = %for.body.i47, %for.body15
@@ -5134,9 +5132,8 @@ cond.false.i:                                     ; preds = %while.end
 
 _ZN5arrow8bit_util7CeilDivEll.exit:               ; preds = %while.end, %cond.false.i
   %cond.i = phi i64 [ %add.i, %cond.false.i ], [ 0, %while.end ]
-  %3 = add i64 %length, 31
-  %4 = and i64 %3, 31
-  %sub.i32 = xor i64 %4, 31
+  %.not = sub i64 0, %length
+  %sub.i32 = and i64 %.not, 31
   %add.ptr.i = getelementptr inbounds nuw i8, ptr @_ZZN5arrow7compute9Hashing6410StripeMaskEiPmS2_S2_S2_E5bytes, i64 %sub.i32
   %ret.0.copyload.i.i = load i64, ptr %add.ptr.i, align 1
   %add.ptr7.i = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 8
@@ -5150,7 +5147,7 @@ _ZN5arrow8bit_util7CeilDivEll.exit:               ; preds = %while.end, %cond.fa
 
 for.body.lr.ph:                                   ; preds = %_ZN5arrow8bit_util7CeilDivEll.exit
   %cmp25.i = icmp sgt i64 %cond.i, 1
-  %5 = add nsw i64 %cond.i, -2
+  %3 = add nsw i64 %cond.i, -2
   %sub7 = shl i64 %cond.i, 5
   %wide.trip.count = zext i32 %num_rows_safe.0.lcssa to i64
   br label %for.body
@@ -5161,11 +5158,11 @@ for.cond16.preheader:                             ; preds = %_ZN5arrow7compute9H
 
 for.body18.lr.ph:                                 ; preds = %for.cond16.preheader
   %cmp25.i55 = icmp sgt i64 %cond.i, 1
-  %6 = add nsw i64 %cond.i, -2
+  %4 = add nsw i64 %cond.i, -2
   %sub27 = shl i64 %cond.i, 5
   %mul28 = add i64 %sub27, -32
   %sub32 = sub i64 %length, %mul28
-  %7 = zext i32 %num_rows_safe.0.lcssa to i64
+  %5 = zext i32 %num_rows_safe.0.lcssa to i64
   %wide.trip.count195 = zext i32 %num_rows to i64
   %last_stripe_copy.8.last_stripe_copy.8.last_stripe_copy.8.add.ptr.i96.sroa_idx = getelementptr inbounds nuw i8, ptr %last_stripe_copy, i64 8
   %last_stripe_copy.16.last_stripe_copy.16.last_stripe_copy.16.add.ptr2.i98.sroa_idx = getelementptr inbounds nuw i8, ptr %last_stripe_copy, i64 16
@@ -5210,7 +5207,7 @@ for.body.i:                                       ; preds = %for.body, %for.body
   %or.i23.i = tail call i64 @llvm.fshl.i64(i64 %add.i22.i, i64 %add.i22.i, i64 31)
   %mul1.i24.i = mul i64 %or.i23.i, -7046029288634856825
   %inc.i = add nuw nsw i64 %istripe.026.i, 1
-  %exitcond.not.i = icmp eq i64 %istripe.026.i, %5
+  %exitcond.not.i = icmp eq i64 %istripe.026.i, %3
   br i1 %exitcond.not.i, label %_ZN5arrow7compute9Hashing6418ProcessFullStripesEmPKhPmS4_S4_S4_.exit, label %for.body.i, !llvm.loop !48
 
 _ZN5arrow7compute9Hashing6418ProcessFullStripesEmPKhPmS4_S4_S4_.exit: ; preds = %for.body.i, %for.body
@@ -5218,14 +5215,14 @@ _ZN5arrow7compute9Hashing6418ProcessFullStripesEmPKhPmS4_S4_S4_.exit: ; preds = 
   %acc3.0.lcssa.i = phi i64 [ 0, %for.body ], [ %mul1.i20.i, %for.body.i ]
   %acc2.0.lcssa.i = phi i64 [ -4417276706812531889, %for.body ], [ %mul1.i16.i, %for.body.i ]
   %acc1.0.lcssa.i = phi i64 [ -2239933958592612906, %for.body ], [ %mul1.i.i, %for.body.i ]
-  %8 = getelementptr i8, ptr %add.ptr, i64 %sub7
-  %add.ptr9 = getelementptr i8, ptr %8, i64 -32
+  %6 = getelementptr i8, ptr %add.ptr, i64 %sub7
+  %add.ptr9 = getelementptr i8, ptr %6, i64 -32
   %ret.0.copyload.i.i35 = load i64, ptr %add.ptr9, align 1
-  %add.ptr.i36 = getelementptr i8, ptr %8, i64 -24
+  %add.ptr.i36 = getelementptr i8, ptr %6, i64 -24
   %ret.0.copyload.i12.i37 = load i64, ptr %add.ptr.i36, align 1
-  %add.ptr2.i = getelementptr i8, ptr %8, i64 -16
+  %add.ptr2.i = getelementptr i8, ptr %6, i64 -16
   %ret.0.copyload.i13.i = load i64, ptr %add.ptr2.i, align 1
-  %add.ptr4.i = getelementptr i8, ptr %8, i64 -8
+  %add.ptr4.i = getelementptr i8, ptr %6, i64 -8
   %ret.0.copyload.i14.i = load i64, ptr %add.ptr4.i, align 1
   %and.i = and i64 %ret.0.copyload.i.i35, %ret.0.copyload.i.i
   %and6.i = and i64 %ret.0.copyload.i12.i37, %ret.0.copyload.i4.i
@@ -5287,20 +5284,20 @@ _ZN5arrow7compute9Hashing6418ProcessFullStripesEmPKhPmS4_S4_S4_.exit: ; preds = 
   %shr4.i = lshr i64 %mul3.i, 32
   %xor5.i = xor i64 %shr4.i, %mul3.i
   %arrayidx = getelementptr inbounds nuw i64, ptr %hashes, i64 %indvars.iv187
-  %9 = load i64, ptr %arrayidx, align 8
-  %shl.i = shl i64 %9, 6
-  %shr.i53 = lshr i64 %9, 2
+  %7 = load i64, ptr %arrayidx, align 8
+  %shl.i = shl i64 %7, 6
+  %shr.i53 = lshr i64 %7, 2
   %add.i52 = add i64 %shl.i, 2654435769
   %add1.i = add i64 %add.i52, %shr.i53
   %add2.i = add i64 %add1.i, %xor5.i
-  %xor.i54 = xor i64 %add2.i, %9
+  %xor.i54 = xor i64 %add2.i, %7
   store i64 %xor.i54, ptr %arrayidx, align 8
   %indvars.iv.next188 = add nuw nsw i64 %indvars.iv187, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next188, %wide.trip.count
   br i1 %exitcond.not, label %for.cond16.preheader, label %for.body, !llvm.loop !71
 
 for.body18:                                       ; preds = %for.body18.lr.ph, %_ZN5arrow7compute9Hashing6418ProcessFullStripesEmPKhPmS4_S4_S4_.exit94
-  %indvars.iv191 = phi i64 [ %7, %for.body18.lr.ph ], [ %indvars.iv.next192, %_ZN5arrow7compute9Hashing6418ProcessFullStripesEmPKhPmS4_S4_S4_.exit94 ]
+  %indvars.iv191 = phi i64 [ %5, %for.body18.lr.ph ], [ %indvars.iv.next192, %_ZN5arrow7compute9Hashing6418ProcessFullStripesEmPKhPmS4_S4_S4_.exit94 ]
   %mul21 = mul i64 %length, %indvars.iv191
   %add.ptr22 = getelementptr inbounds i8, ptr %keys, i64 %mul21
   br i1 %cmp25.i55, label %for.body.i61, label %_ZN5arrow7compute9Hashing6418ProcessFullStripesEmPKhPmS4_S4_S4_.exit94
@@ -5337,7 +5334,7 @@ for.body.i61:                                     ; preds = %for.body18, %for.bo
   %or.i23.i90 = tail call i64 @llvm.fshl.i64(i64 %add.i22.i89, i64 %add.i22.i89, i64 31)
   %mul1.i24.i91 = mul i64 %or.i23.i90, -7046029288634856825
   %inc.i92 = add nuw nsw i64 %istripe.026.i66, 1
-  %exitcond.not.i93 = icmp eq i64 %istripe.026.i66, %6
+  %exitcond.not.i93 = icmp eq i64 %istripe.026.i66, %4
   br i1 %exitcond.not.i93, label %_ZN5arrow7compute9Hashing6418ProcessFullStripesEmPKhPmS4_S4_S4_.exit94, label %for.body.i61, !llvm.loop !48
 
 _ZN5arrow7compute9Hashing6418ProcessFullStripesEmPKhPmS4_S4_S4_.exit94: ; preds = %for.body.i61, %for.body18
@@ -5411,13 +5408,13 @@ _ZN5arrow7compute9Hashing6418ProcessFullStripesEmPKhPmS4_S4_S4_.exit94: ; preds 
   %shr4.i159 = lshr i64 %mul3.i158, 32
   %xor5.i160 = xor i64 %shr4.i159, %mul3.i158
   %arrayidx38 = getelementptr inbounds nuw i64, ptr %hashes, i64 %indvars.iv191
-  %10 = load i64, ptr %arrayidx38, align 8
-  %shl.i162 = shl i64 %10, 6
-  %shr.i164 = lshr i64 %10, 2
+  %8 = load i64, ptr %arrayidx38, align 8
+  %shl.i162 = shl i64 %8, 6
+  %shr.i164 = lshr i64 %8, 2
   %add.i161 = add i64 %shl.i162, 2654435769
   %add1.i163 = add i64 %add.i161, %shr.i164
   %add2.i165 = add i64 %add1.i163, %xor5.i160
-  %xor.i166 = xor i64 %add2.i165, %10
+  %xor.i166 = xor i64 %add2.i165, %8
   store i64 %xor.i166, ptr %arrayidx38, align 8
   %indvars.iv.next192 = add nuw nsw i64 %indvars.iv191, 1
   %exitcond196.not = icmp eq i64 %indvars.iv.next192, %wide.trip.count195
@@ -5466,9 +5463,8 @@ cond.false.i:                                     ; preds = %while.end
 
 _ZN5arrow8bit_util7CeilDivEll.exit:               ; preds = %while.end, %cond.false.i
   %cond.i = phi i64 [ %add.i, %cond.false.i ], [ 0, %while.end ]
-  %3 = add i64 %length, 31
-  %4 = and i64 %3, 31
-  %sub.i28 = xor i64 %4, 31
+  %.not = sub i64 0, %length
+  %sub.i28 = and i64 %.not, 31
   %add.ptr.i = getelementptr inbounds nuw i8, ptr @_ZZN5arrow7compute9Hashing6410StripeMaskEiPmS2_S2_S2_E5bytes, i64 %sub.i28
   %ret.0.copyload.i.i = load i64, ptr %add.ptr.i, align 1
   %add.ptr7.i = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 8
@@ -5482,7 +5478,7 @@ _ZN5arrow8bit_util7CeilDivEll.exit:               ; preds = %while.end, %cond.fa
 
 for.body.lr.ph:                                   ; preds = %_ZN5arrow8bit_util7CeilDivEll.exit
   %cmp25.i = icmp sgt i64 %cond.i, 1
-  %5 = add nsw i64 %cond.i, -2
+  %3 = add nsw i64 %cond.i, -2
   %sub7 = shl i64 %cond.i, 5
   %wide.trip.count = zext i32 %num_rows_safe.0.lcssa to i64
   br label %for.body
@@ -5493,11 +5489,11 @@ for.cond13.preheader:                             ; preds = %_ZN5arrow7compute9H
 
 for.body15.lr.ph:                                 ; preds = %for.cond13.preheader
   %cmp25.i48 = icmp sgt i64 %cond.i, 1
-  %6 = add nsw i64 %cond.i, -2
+  %4 = add nsw i64 %cond.i, -2
   %sub24 = shl i64 %cond.i, 5
   %mul25 = add i64 %sub24, -32
   %sub29 = sub i64 %length, %mul25
-  %7 = zext i32 %num_rows_safe.0.lcssa to i64
+  %5 = zext i32 %num_rows_safe.0.lcssa to i64
   %wide.trip.count182 = zext i32 %num_rows to i64
   %last_stripe_copy.8.last_stripe_copy.8.last_stripe_copy.8.add.ptr.i89.sroa_idx = getelementptr inbounds nuw i8, ptr %last_stripe_copy, i64 8
   %last_stripe_copy.16.last_stripe_copy.16.last_stripe_copy.16.add.ptr2.i91.sroa_idx = getelementptr inbounds nuw i8, ptr %last_stripe_copy, i64 16
@@ -5542,7 +5538,7 @@ for.body.i:                                       ; preds = %for.body, %for.body
   %or.i23.i = tail call i64 @llvm.fshl.i64(i64 %add.i22.i, i64 %add.i22.i, i64 31)
   %mul1.i24.i = mul i64 %or.i23.i, -7046029288634856825
   %inc.i = add nuw nsw i64 %istripe.026.i, 1
-  %exitcond.not.i = icmp eq i64 %istripe.026.i, %5
+  %exitcond.not.i = icmp eq i64 %istripe.026.i, %3
   br i1 %exitcond.not.i, label %_ZN5arrow7compute9Hashing6418ProcessFullStripesEmPKhPmS4_S4_S4_.exit, label %for.body.i, !llvm.loop !48
 
 _ZN5arrow7compute9Hashing6418ProcessFullStripesEmPKhPmS4_S4_S4_.exit: ; preds = %for.body.i, %for.body
@@ -5550,14 +5546,14 @@ _ZN5arrow7compute9Hashing6418ProcessFullStripesEmPKhPmS4_S4_S4_.exit: ; preds = 
   %acc3.0.lcssa.i = phi i64 [ 0, %for.body ], [ %mul1.i20.i, %for.body.i ]
   %acc2.0.lcssa.i = phi i64 [ -4417276706812531889, %for.body ], [ %mul1.i16.i, %for.body.i ]
   %acc1.0.lcssa.i = phi i64 [ -2239933958592612906, %for.body ], [ %mul1.i.i, %for.body.i ]
-  %8 = getelementptr i8, ptr %add.ptr, i64 %sub7
-  %add.ptr9 = getelementptr i8, ptr %8, i64 -32
+  %6 = getelementptr i8, ptr %add.ptr, i64 %sub7
+  %add.ptr9 = getelementptr i8, ptr %6, i64 -32
   %ret.0.copyload.i.i31 = load i64, ptr %add.ptr9, align 1
-  %add.ptr.i32 = getelementptr i8, ptr %8, i64 -24
+  %add.ptr.i32 = getelementptr i8, ptr %6, i64 -24
   %ret.0.copyload.i12.i33 = load i64, ptr %add.ptr.i32, align 1
-  %add.ptr2.i = getelementptr i8, ptr %8, i64 -16
+  %add.ptr2.i = getelementptr i8, ptr %6, i64 -16
   %ret.0.copyload.i13.i = load i64, ptr %add.ptr2.i, align 1
-  %add.ptr4.i = getelementptr i8, ptr %8, i64 -8
+  %add.ptr4.i = getelementptr i8, ptr %6, i64 -8
   %ret.0.copyload.i14.i = load i64, ptr %add.ptr4.i, align 1
   %and.i = and i64 %ret.0.copyload.i.i31, %ret.0.copyload.i.i
   %and6.i = and i64 %ret.0.copyload.i12.i33, %ret.0.copyload.i4.i
@@ -5625,7 +5621,7 @@ _ZN5arrow7compute9Hashing6418ProcessFullStripesEmPKhPmS4_S4_S4_.exit: ; preds = 
   br i1 %exitcond.not, label %for.cond13.preheader, label %for.body, !llvm.loop !74
 
 for.body15:                                       ; preds = %for.body15.lr.ph, %_ZN5arrow7compute9Hashing6418ProcessFullStripesEmPKhPmS4_S4_S4_.exit87
-  %indvars.iv178 = phi i64 [ %7, %for.body15.lr.ph ], [ %indvars.iv.next179, %_ZN5arrow7compute9Hashing6418ProcessFullStripesEmPKhPmS4_S4_S4_.exit87 ]
+  %indvars.iv178 = phi i64 [ %5, %for.body15.lr.ph ], [ %indvars.iv.next179, %_ZN5arrow7compute9Hashing6418ProcessFullStripesEmPKhPmS4_S4_S4_.exit87 ]
   %mul18 = mul i64 %length, %indvars.iv178
   %add.ptr19 = getelementptr inbounds i8, ptr %keys, i64 %mul18
   br i1 %cmp25.i48, label %for.body.i54, label %_ZN5arrow7compute9Hashing6418ProcessFullStripesEmPKhPmS4_S4_S4_.exit87
@@ -5662,7 +5658,7 @@ for.body.i54:                                     ; preds = %for.body15, %for.bo
   %or.i23.i83 = tail call i64 @llvm.fshl.i64(i64 %add.i22.i82, i64 %add.i22.i82, i64 31)
   %mul1.i24.i84 = mul i64 %or.i23.i83, -7046029288634856825
   %inc.i85 = add nuw nsw i64 %istripe.026.i59, 1
-  %exitcond.not.i86 = icmp eq i64 %istripe.026.i59, %6
+  %exitcond.not.i86 = icmp eq i64 %istripe.026.i59, %4
   br i1 %exitcond.not.i86, label %_ZN5arrow7compute9Hashing6418ProcessFullStripesEmPKhPmS4_S4_S4_.exit87, label %for.body.i54, !llvm.loop !48
 
 _ZN5arrow7compute9Hashing6418ProcessFullStripesEmPKhPmS4_S4_S4_.exit87: ; preds = %for.body.i54, %for.body15

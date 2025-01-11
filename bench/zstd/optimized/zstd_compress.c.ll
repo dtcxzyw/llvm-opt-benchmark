@@ -3825,7 +3825,7 @@ ZSTD_LLcode.exit:                                 ; preds = %cond.true.i, %cond.
   %arrayidx14 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv
   store i8 %cond.i, ptr %arrayidx14, align 1
   %14 = trunc nuw nsw i32 %8 to i8
-  %conv15 = xor i8 %14, 31
+  %conv15 = sub nuw nsw i8 31, %14
   %arrayidx17 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv
   store i8 %conv15, ptr %arrayidx17, align 1
   %cmp.i22 = icmp ugt i16 %9, 127
@@ -5654,7 +5654,7 @@ do.end196:                                        ; preds = %ZSTD_dictNCountRepe
   %conv = trunc nuw i64 %sub.ptr.sub210 to i32
   %add = add nuw i32 %conv, 131072
   %11 = call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %add, i1 true)
-  %sub.i = xor i32 %11, 31
+  %sub.i = sub nuw nsw i32 31, %11
   %offcodeMax.0 = select i1 %cmp211, i32 %sub.i, i32 31
   %12 = load i32, ptr %offcodeMaxValue, align 4
   %cmp.i80 = icmp ult i32 %12, %offcodeMax.0
@@ -10544,7 +10544,6 @@ if.then29:                                        ; preds = %for.body
 
 if.else33:                                        ; preds = %for.body
   %cmp34 = icmp eq i32 %12, 0
-  %conv35 = zext i1 %cmp34 to i32
   %14 = load i32, ptr %arrayidx, align 4
   %add.i = add i32 %14, 3
   %cmp.i = icmp ne i32 %14, %9
@@ -10564,7 +10563,7 @@ if.else4.i:                                       ; preds = %if.else.i135
   br i1 %cmp6.i, label %if.then7.i, label %if.else9.i
 
 if.then7.i:                                       ; preds = %if.else4.i
-  %sub8.i = xor i32 %conv35, 3
+  %sub8.i = select i1 %cmp34, i32 2, i32 3
   br label %if.else.i139
 
 if.else9.i:                                       ; preds = %if.else4.i
@@ -11050,7 +11049,6 @@ if.end83:                                         ; preds = %if.then54, %if.then
   %startPosInSequence.1 = phi i32 [ 0, %if.then25 ], [ %startPosInSequence.0198, %if.then54 ]
   %endPosInSequence.1 = sub i32 %endPosInSequence.0197, %add22.pn
   %cmp84 = icmp eq i32 %litLength.1, 0
-  %conv85 = zext i1 %cmp84 to i32
   %add.i = add i32 %currSeq.sroa.0.0.copyload, 3
   %cmp.i = icmp ne i32 %currSeq.sroa.0.0.copyload, %10
   %or.cond173.not = select i1 %cmp84, i1 true, i1 %cmp.i
@@ -11069,7 +11067,7 @@ if.else4.i:                                       ; preds = %if.else.i136
   br i1 %cmp6.i, label %if.then7.i, label %if.else9.i
 
 if.then7.i:                                       ; preds = %if.else4.i
-  %sub8.i = xor i32 %conv85, 3
+  %sub8.i = select i1 %cmp84, i32 2, i32 3
   br label %if.else.i140
 
 if.else9.i:                                       ; preds = %if.else4.i
@@ -14255,7 +14253,7 @@ ZSTD_LLcode.exit.i:                               ; preds = %cond.false.i.i, %co
   %arrayidx14.i = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv.i
   store i8 %cond.i.i, ptr %arrayidx14.i, align 1
   %14 = trunc nuw nsw i32 %8 to i8
-  %conv15.i = xor i8 %14, 31
+  %conv15.i = sub nuw nsw i8 31, %14
   %arrayidx17.i = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv.i
   store i8 %conv15.i, ptr %arrayidx17.i, align 1
   %cmp.i22.i = icmp ugt i16 %9, 127

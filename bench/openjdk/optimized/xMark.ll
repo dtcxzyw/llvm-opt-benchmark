@@ -565,11 +565,10 @@ declare noundef zeroext i1 @_ZNK19XMarkStackAllocator14is_initializedEv(ptr noun
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define hidden noundef range(i64 1, 17) i64 @_ZNK5XMark18calculate_nstripesEj(ptr nocapture noundef nonnull readnone align 64 dereferenceable(2492) %0, i32 noundef %1) local_unnamed_addr #2 align 2 {
   %3 = tail call noundef range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %1, i1 true)
-  %4 = xor i32 %3, 31
-  %5 = shl nuw i32 1, %4
-  %6 = tail call i32 @llvm.umin.i32(i32 %5, i32 16)
-  %7 = zext nneg i32 %6 to i64
-  ret i64 %7
+  %4 = lshr exact i32 -2147483648, %3
+  %5 = tail call i32 @llvm.umin.i32(i32 %4, i32 16)
+  %6 = zext nneg i32 %5 to i64
+  ret i64 %6
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -611,43 +610,42 @@ _ZNK5XMark23verify_all_stacks_emptyEv.exit:       ; preds = %5
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 2488
   store i32 %16, ptr %17, align 8
   %18 = call noundef range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %16, i1 true)
-  %19 = xor i32 %18, 31
-  %20 = shl nuw i32 1, %19
-  %21 = call i32 @llvm.umin.i32(i32 %20, i32 16)
-  %22 = zext nneg i32 %21 to i64
-  %23 = getelementptr inbounds nuw i8, ptr %0, i64 192
-  call void @_ZN14XMarkStripeSet12set_nstripesEm(ptr noundef nonnull align 64 dereferenceable(2112) %23, i64 noundef %22) #17
-  call void @_ZN9XStatMark17set_at_mark_startEm(i64 noundef %22) #17
-  %24 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_80ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
-  %.not = icmp eq ptr %24, null
-  br i1 %.not, label %.loopexit, label %25
+  %19 = lshr exact i32 -2147483648, %18
+  %20 = call i32 @llvm.umin.i32(i32 %19, i32 16)
+  %21 = zext nneg i32 %20 to i64
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 192
+  call void @_ZN14XMarkStripeSet12set_nstripesEm(ptr noundef nonnull align 64 dereferenceable(2112) %22, i64 noundef %21) #17
+  call void @_ZN9XStatMark17set_at_mark_startEm(i64 noundef %21) #17
+  %23 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_80ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
+  %.not = icmp eq ptr %23, null
+  br i1 %.not, label %.loopexit, label %24
 
-25:                                               ; preds = %11
+24:                                               ; preds = %11
   call void (ptr, ...) @_ZN13LogTargetImplILN8LogLevel4typeE2ELN6LogTag4typeE49ELS3_80ELS3_0ELS3_0ELS3_0ELS3_0EE5printEPKcz(ptr noundef nonnull @.str.11)
-  %26 = load i32, ptr %17, align 8
-  %.not11 = icmp eq i32 %26, 0
+  %25 = load i32, ptr %17, align 8
+  %.not11 = icmp eq i32 %25, 0
   br i1 %.not11, label %.loopexit, label %.lr.ph
 
-.lr.ph:                                           ; preds = %25
-  %27 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %28 = ptrtoint ptr %27 to i64
-  br label %29
+.lr.ph:                                           ; preds = %24
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 256
+  %27 = ptrtoint ptr %26 to i64
+  br label %28
 
-29:                                               ; preds = %.lr.ph, %29
-  %30 = phi i32 [ %26, %.lr.ph ], [ %37, %29 ]
-  %.010 = phi i32 [ 0, %.lr.ph ], [ %36, %29 ]
-  %31 = call noundef ptr @_ZN14XMarkStripeSet17stripe_for_workerEjj(ptr noundef nonnull align 64 dereferenceable(2112) %23, i32 noundef %30, i32 noundef %.010) #17
-  %32 = ptrtoint ptr %31 to i64
-  %33 = sub i64 %32, %28
-  %34 = lshr i64 %33, 7
-  %35 = load i32, ptr %17, align 8
-  call void (ptr, ...) @_ZN13LogTargetImplILN8LogLevel4typeE2ELN6LogTag4typeE49ELS3_80ELS3_0ELS3_0ELS3_0ELS3_0EE5printEPKcz(ptr noundef nonnull @.str.12, i32 noundef %.010, i32 noundef %35, i64 noundef %34, i64 noundef %22)
-  %36 = add nuw i32 %.010, 1
-  %37 = load i32, ptr %17, align 8
-  %38 = icmp ult i32 %36, %37
-  br i1 %38, label %29, label %.loopexit, !llvm.loop !6
+28:                                               ; preds = %.lr.ph, %28
+  %29 = phi i32 [ %25, %.lr.ph ], [ %36, %28 ]
+  %.010 = phi i32 [ 0, %.lr.ph ], [ %35, %28 ]
+  %30 = call noundef ptr @_ZN14XMarkStripeSet17stripe_for_workerEjj(ptr noundef nonnull align 64 dereferenceable(2112) %22, i32 noundef %29, i32 noundef %.010) #17
+  %31 = ptrtoint ptr %30 to i64
+  %32 = sub i64 %31, %27
+  %33 = lshr i64 %32, 7
+  %34 = load i32, ptr %17, align 8
+  call void (ptr, ...) @_ZN13LogTargetImplILN8LogLevel4typeE2ELN6LogTag4typeE49ELS3_80ELS3_0ELS3_0ELS3_0ELS3_0EE5printEPKcz(ptr noundef nonnull @.str.12, i32 noundef %.010, i32 noundef %34, i64 noundef %33, i64 noundef %21)
+  %35 = add nuw i32 %.010, 1
+  %36 = load i32, ptr %17, align 8
+  %37 = icmp ult i32 %35, %36
+  br i1 %37, label %28, label %.loopexit, !llvm.loop !6
 
-.loopexit:                                        ; preds = %29, %25, %11
+.loopexit:                                        ; preds = %28, %24, %11
   ret void
 }
 

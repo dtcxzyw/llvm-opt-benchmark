@@ -1781,7 +1781,7 @@ if.then16:                                        ; preds = %if.end14
   br label %return
 
 if.end17:                                         ; preds = %if.end14
-  %sub = xor i64 %struct_size.0, 9223372036854775807
+  %sub = sub nuw nsw i64 9223372036854775807, %struct_size.0
   %2 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %char_size.0, i1 true)
   %div36 = lshr i64 %sub, %2
   %cmp19.not = icmp samesign ult i64 %size, %div36
@@ -41984,7 +41984,7 @@ entry:
   %0 = and i32 %bf.load, 64
   %tobool.not = icmp eq i32 %0, 0
   %. = select i1 %tobool.not, i64 56, i64 40
-  %sub = xor i64 %., 9223372036854775807
+  %sub = sub nuw nsw i64 9223372036854775807, %.
   %div = udiv i64 %sub, %conv
   %cmp.not = icmp slt i64 %length, %div
   br i1 %cmp.not, label %if.end5, label %if.then3
@@ -43661,7 +43661,7 @@ PyUnicode_READ.exit177.i.i:                       ; preds = %if.end6.i175.i.i, %
 if.end142.i.i:                                    ; preds = %PyUnicode_READ.exit177.i.i
   %sub145.i.i = add nsw i32 %retval.0.i171.i.i, -48
   %conv146.i.i = zext nneg i32 %sub145.i.i to i64
-  %sub147.i.i = xor i64 %conv146.i.i, 9223372036854775806
+  %sub147.i.i = sub nuw nsw i64 9223372036854775807, %conv146.i.i
   %div.i.i = udiv i64 %sub147.i.i, 10
   %cmp148.i.i = icmp sgt i64 %add156.i190.i, %div.i.i
   br i1 %cmp148.i.i, label %return.sink.split.i.i, label %if.end151.i.i
@@ -45430,7 +45430,7 @@ sw.epilog:                                        ; preds = %if.else17, %if.else
   %dquote.1 = phi i64 [ %dquote.0816, %if.else ], [ %dquote.0816, %if.then12 ], [ %inc4, %sw.bb3 ], [ %dquote.0816, %sw.bb ], [ %dquote.0816, %PyUnicode_READ.exit ], [ %dquote.0816, %PyUnicode_READ.exit ], [ %dquote.0816, %PyUnicode_READ.exit ], [ %dquote.0816, %PyUnicode_READ.exit ], [ %dquote.0816, %sw.default ], [ %dquote.0816, %if.else14 ], [ %dquote.0816, %if.else17 ]
   %squote.1 = phi i64 [ %squote.0817, %if.else ], [ %squote.0817, %if.then12 ], [ %squote.0817, %sw.bb3 ], [ %inc, %sw.bb ], [ %squote.0817, %PyUnicode_READ.exit ], [ %squote.0817, %PyUnicode_READ.exit ], [ %squote.0817, %PyUnicode_READ.exit ], [ %squote.0817, %PyUnicode_READ.exit ], [ %squote.0817, %sw.default ], [ %squote.0817, %if.else14 ], [ %squote.0817, %if.else17 ]
   %incr.0 = phi i64 [ 1, %if.else ], [ 1, %if.then12 ], [ 1, %sw.bb3 ], [ 1, %sw.bb ], [ 2, %PyUnicode_READ.exit ], [ 2, %PyUnicode_READ.exit ], [ 2, %PyUnicode_READ.exit ], [ 2, %PyUnicode_READ.exit ], [ 4, %sw.default ], [ 4, %if.else14 ], [ %., %if.else17 ]
-  %sub = xor i64 %incr.0, 9223372036854775807
+  %sub = sub nuw nsw i64 9223372036854775807, %incr.0
   %cmp25 = icmp sgt i64 %osize.0818, %sub
   br i1 %cmp25, label %if.then26, label %if.end27
 
@@ -50197,7 +50197,7 @@ for.body.us67:                                    ; preds = %for.body.lr.ph, %if
   %5 = load i16, ptr %arrayidx4.i.us, align 2
   %cmp2.us72 = icmp ult i16 %5, 256
   %incr.0.us75 = select i1 %cmp2.us72, i64 4, i64 6
-  %sub.us76 = xor i64 %incr.0.us75, 9223372036854775807
+  %sub.us76 = sub nuw nsw i64 9223372036854775807, %incr.0.us75
   %cmp7.us77 = icmp sgt i64 %size.064.us69, %sub.us76
   br i1 %cmp7.us77, label %if.then8, label %if.end9.us78
 
@@ -50216,7 +50216,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %if
   %cmp3 = icmp ult i32 %6, 65536
   %. = select i1 %cmp3, i64 6, i64 10
   %incr.0 = select i1 %cmp2, i64 4, i64 %.
-  %sub = xor i64 %incr.0, 9223372036854775807
+  %sub = sub nuw nsw i64 9223372036854775807, %incr.0
   %cmp7 = icmp sgt i64 %size.064, %sub
   br i1 %cmp7, label %if.then8, label %if.end9
 
@@ -50438,7 +50438,7 @@ for.body.us:                                      ; preds = %for.body.lr.ph, %if
   %cmp3.us = icmp ult i8 %3, 100
   %spec.select = select i1 %cmp3.us, i64 5, i64 6
   %incr.0.us = select i1 %cmp2.us, i64 4, i64 %spec.select
-  %sub.us = xor i64 %incr.0.us, 9223372036854775807
+  %sub.us = sub nuw nsw i64 9223372036854775807, %incr.0.us
   %cmp23.us = icmp sgt i64 %size.040.us, %sub.us
   br i1 %cmp23.us, label %if.then24, label %if.end25.us
 
@@ -50471,7 +50471,7 @@ if.else8.us52:                                    ; preds = %if.else5.us50
 
 if.end22.us59:                                    ; preds = %if.else8.us52, %if.else5.us50, %if.else.us48, %for.body.us42
   %incr.0.us60 = phi i64 [ 4, %for.body.us42 ], [ 5, %if.else.us48 ], [ 6, %if.else5.us50 ], [ %spec.select93, %if.else8.us52 ]
-  %sub.us61 = xor i64 %incr.0.us60, 9223372036854775807
+  %sub.us61 = sub nuw nsw i64 9223372036854775807, %incr.0.us60
   %cmp23.us62 = icmp sgt i64 %size.040.us43, %sub.us61
   br i1 %cmp23.us62, label %if.then24, label %if.end25.us63
 
@@ -50512,7 +50512,7 @@ if.else14:                                        ; preds = %if.else11
 
 if.end22:                                         ; preds = %if.else14, %if.else11, %if.else8, %if.else5, %if.else, %for.body
   %incr.0 = phi i64 [ 4, %for.body ], [ 5, %if.else ], [ 6, %if.else5 ], [ 7, %if.else8 ], [ 8, %if.else11 ], [ %., %if.else14 ]
-  %sub = xor i64 %incr.0, 9223372036854775807
+  %sub = sub nuw nsw i64 9223372036854775807, %incr.0
   %cmp23 = icmp sgt i64 %size.040, %sub
   br i1 %cmp23, label %if.then24, label %if.end25
 

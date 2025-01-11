@@ -76,7 +76,8 @@ if.then:                                          ; preds = %land.end
   %3 = load ptr, ptr %bufs, align 8
   %4 = ptrtoint ptr %3 to i64
   %5 = and i64 %4, 7
-  %sub9 = xor i64 %5, 3
+  %rem = xor i64 %5, 4
+  %sub9 = sub nuw nsw i64 7, %rem
   %offset = getelementptr inbounds nuw i8, ptr %bufs, i64 24
   store i64 %sub9, ptr %offset, align 8
   %len = getelementptr inbounds nuw i8, ptr %bufs, i64 16

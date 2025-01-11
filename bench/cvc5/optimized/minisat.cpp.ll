@@ -1354,7 +1354,7 @@ if.end.i.i.i:                                     ; preds = %for.body.i
   %shr.i.i.i = lshr i32 %minisat_clause.sroa.9.0, 1
   %4 = and i32 %shr.i.i.i, 1073741822
   %add.i.i.i.i = add nuw nsw i32 %4, 2
-  %sub8.i.i.i = xor i32 %minisat_clause.sroa.9.0, 2147483647
+  %sub8.i.i.i = sub nuw nsw i32 2147483647, %minisat_clause.sroa.9.0
   %cmp9.i.i.i = icmp samesign ugt i32 %add.i.i.i.i, %sub8.i.i.i
   br i1 %cmp9.i.i.i, label %if.then17.i.i.i, label %lor.lhs.false.i.i.i
 
@@ -1646,8 +1646,9 @@ if.end.i.i:                                       ; preds = %invoke.cont
   %shr.i.i = lshr i32 %9, 1
   %10 = and i32 %shr.i.i, 1073741822
   %add.i.i.i = add nuw nsw i32 %10, 2
-  %sub8.i.i = xor i32 %9, 2147483647
-  %cmp9.i.i = icmp samesign ugt i32 %add.i.i.i, %sub8.i.i
+  %11 = sub nuw nsw i64 2147483647, %indvars.iv
+  %12 = zext nneg i32 %add.i.i.i to i64
+  %cmp9.i.i = icmp samesign ult i64 %11, %12
   br i1 %cmp9.i.i, label %if.then17.i.i, label %lor.lhs.false.i.i
 
 lor.lhs.false.i.i:                                ; preds = %if.end.i.i
@@ -1660,8 +1661,8 @@ lor.lhs.false.i.i:                                ; preds = %if.end.i.i
 
 land.lhs.true.i.i:                                ; preds = %lor.lhs.false.i.i
   %call15.i.i = tail call ptr @__errno_location() #32
-  %11 = load i32, ptr %call15.i.i, align 4
-  %cmp16.i.i = icmp eq i32 %11, 12
+  %13 = load i32, ptr %call15.i.i, align 4
+  %cmp16.i.i = icmp eq i32 %13, 12
   tail call void @llvm.assume(i1 %cmp16.i.i)
   br label %if.then17.i.i
 
@@ -1701,32 +1702,32 @@ lpad:                                             ; preds = %_ZNK4cvc58internal7
   br i1 %cmp.not.i.i, label %_ZN4cvc58internal7Minisat3vecINS1_3LitEED2Ev.exit, label %for.cond.preheader.i.i
 
 for.cond.preheader.i.i:                           ; preds = %lpad.thread, %lpad
-  %lpad.phi51 = phi { ptr, i32 } [ %lpad.loopexit28, %lpad.thread ], [ %lpad.loopexit.split-lp29, %lpad ]
-  %assumps.sroa.0.150 = phi ptr [ %assumps.sroa.0.3, %lpad.thread ], [ %assumps.sroa.0.1.ph, %lpad ]
-  tail call void @free(ptr noundef nonnull %assumps.sroa.0.150) #28
+  %lpad.phi52 = phi { ptr, i32 } [ %lpad.loopexit28, %lpad.thread ], [ %lpad.loopexit.split-lp29, %lpad ]
+  %assumps.sroa.0.151 = phi ptr [ %assumps.sroa.0.3, %lpad.thread ], [ %assumps.sroa.0.1.ph, %lpad ]
+  tail call void @free(ptr noundef nonnull %assumps.sroa.0.151) #28
   br label %_ZN4cvc58internal7Minisat3vecINS1_3LitEED2Ev.exit
 
 _ZN4cvc58internal7Minisat3vecINS1_3LitEED2Ev.exit: ; preds = %lpad, %for.cond.preheader.i.i
-  %lpad.phi52 = phi { ptr, i32 } [ %lpad.loopexit.split-lp29, %lpad ], [ %lpad.phi51, %for.cond.preheader.i.i ]
-  resume { ptr, i32 } %lpad.phi52
+  %lpad.phi53 = phi { ptr, i32 } [ %lpad.loopexit.split-lp29, %lpad ], [ %lpad.phi52, %for.cond.preheader.i.i ]
+  resume { ptr, i32 } %lpad.phi53
 
 for.end.loopexit:                                 ; preds = %invoke.cont11
-  %12 = trunc nuw i64 %indvars.iv.next to i32
+  %14 = trunc nuw i64 %indvars.iv.next to i32
   br label %for.end
 
 for.end:                                          ; preds = %for.end.loopexit, %_ZNSt13unordered_setIN4cvc58internal4prop10SatLiteralENS2_22SatLiteralHashFunctionESt8equal_toIS3_ESaIS3_EE5clearEv.exit
-  %assumps.sroa.9.0.lcssa = phi i32 [ 0, %_ZNSt13unordered_setIN4cvc58internal4prop10SatLiteralENS2_22SatLiteralHashFunctionESt8equal_toIS3_ESaIS3_EE5clearEv.exit ], [ %12, %for.end.loopexit ]
+  %assumps.sroa.9.0.lcssa = phi i32 [ 0, %_ZNSt13unordered_setIN4cvc58internal4prop10SatLiteralENS2_22SatLiteralHashFunctionESt8equal_toIS3_ESaIS3_EE5clearEv.exit ], [ %14, %for.end.loopexit ]
   %assumps.sroa.0.0.lcssa = phi ptr [ null, %_ZNSt13unordered_setIN4cvc58internal4prop10SatLiteralENS2_22SatLiteralHashFunctionESt8equal_toIS3_ESaIS3_EE5clearEv.exit ], [ %assumps.sroa.0.3, %for.end.loopexit ]
-  %13 = load ptr, ptr %d_minisat, align 8
-  %conflict_budget.i.i = getelementptr inbounds nuw i8, ptr %13, i64 832
+  %15 = load ptr, ptr %d_minisat, align 8
+  %conflict_budget.i.i = getelementptr inbounds nuw i8, ptr %15, i64 832
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %conflict_budget.i.i, i8 -1, i64 16, i1 false)
-  %assumptions.i = getelementptr inbounds nuw i8, ptr %13, i64 632
-  %14 = load ptr, ptr %assumptions.i, align 8
-  %cmp.not.i.i.i = icmp eq ptr %14, null
+  %assumptions.i = getelementptr inbounds nuw i8, ptr %15, i64 632
+  %16 = load ptr, ptr %assumptions.i, align 8
+  %cmp.not.i.i.i = icmp eq ptr %16, null
   br i1 %cmp.not.i.i.i, label %_ZN4cvc58internal7Minisat3vecINS1_3LitEE5clearEb.exit.i.i, label %for.cond.preheader.i.i.i
 
 for.cond.preheader.i.i.i:                         ; preds = %for.end
-  %sz.le.i.i.i = getelementptr inbounds nuw i8, ptr %13, i64 640
+  %sz.le.i.i.i = getelementptr inbounds nuw i8, ptr %15, i64 640
   store i32 0, ptr %sz.le.i.i.i, align 8
   br label %_ZN4cvc58internal7Minisat3vecINS1_3LitEE5clearEb.exit.i.i
 
@@ -1739,27 +1740,27 @@ _ZN4cvc58internal7Minisat3vecINS1_3LitEE5clearEb.exit.i.i: ; preds = %for.cond.p
   br i1 %cmp6.i.i.not, label %_ZNK4cvc58internal7Minisat3vecINS1_3LitEE6copyToERS4_.exit.i, label %for.body.i.i.preheader
 
 for.body.i.i.preheader:                           ; preds = %.noexc7
-  %15 = zext nneg i32 %assumps.sroa.9.0.lcssa to i64
+  %17 = zext nneg i32 %assumps.sroa.9.0.lcssa to i64
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.body.i.i.preheader, %for.body.i.i
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %for.body.i.i ], [ 0, %for.body.i.i.preheader ]
   %arrayidx.i.i = getelementptr inbounds nuw %"struct.cvc5::internal::Minisat::Lit", ptr %assumps.sroa.0.0.lcssa, i64 %indvars.iv.i.i
-  %16 = load ptr, ptr %assumptions.i, align 8
-  %arrayidx.i.i.i = getelementptr inbounds nuw %"struct.cvc5::internal::Minisat::Lit", ptr %16, i64 %indvars.iv.i.i
-  %17 = load i32, ptr %arrayidx.i.i, align 4
-  store i32 %17, ptr %arrayidx.i.i.i, align 4
+  %18 = load ptr, ptr %assumptions.i, align 8
+  %arrayidx.i.i.i = getelementptr inbounds nuw %"struct.cvc5::internal::Minisat::Lit", ptr %18, i64 %indvars.iv.i.i
+  %19 = load i32, ptr %arrayidx.i.i, align 4
+  store i32 %19, ptr %arrayidx.i.i.i, align 4
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next.i.i, %15
+  %exitcond.not = icmp eq i64 %indvars.iv.next.i.i, %17
   br i1 %exitcond.not, label %_ZNK4cvc58internal7Minisat3vecINS1_3LitEE6copyToERS4_.exit.i, label %for.body.i.i, !llvm.loop !14
 
 _ZNK4cvc58internal7Minisat3vecINS1_3LitEE6copyToERS4_.exit.i: ; preds = %for.body.i.i, %.noexc7
-  %call.i8 = invoke i8 @_ZN4cvc58internal7Minisat10SimpSolver6solve_Ebb(ptr noundef nonnull align 8 dereferenceable(1108) %13, i1 noundef zeroext true, i1 noundef zeroext false)
+  %call.i8 = invoke i8 @_ZN4cvc58internal7Minisat10SimpSolver6solve_Ebb(ptr noundef nonnull align 8 dereferenceable(1108) %15, i1 noundef zeroext true, i1 noundef zeroext false)
           to label %invoke.cont20 unwind label %lpad
 
 invoke.cont20:                                    ; preds = %_ZNK4cvc58internal7Minisat3vecINS1_3LitEE6copyToERS4_.exit.i
-  %18 = load ptr, ptr %d_minisat, align 8
-  %asynch_interrupt.i = getelementptr inbounds nuw i8, ptr %18, i64 848
+  %20 = load ptr, ptr %d_minisat, align 8
+  %asynch_interrupt.i = getelementptr inbounds nuw i8, ptr %20, i64 848
   store i8 0, ptr %asynch_interrupt.i, align 8
   %cmp.not.i.i10 = icmp eq ptr %assumps.sroa.0.0.lcssa, null
   br i1 %cmp.not.i.i10, label %_ZN4cvc58internal7Minisat3vecINS1_3LitEED2Ev.exit14, label %for.cond.preheader.i.i11
@@ -1771,8 +1772,8 @@ for.cond.preheader.i.i11:                         ; preds = %invoke.cont20
 _ZN4cvc58internal7Minisat3vecINS1_3LitEED2Ev.exit14: ; preds = %invoke.cont20, %for.cond.preheader.i.i11
   %cmp.i.i9 = icmp eq i8 %call.i8, 0
   %and53.i1.i = and i8 %call.i8, 2
-  %19 = xor i8 %and53.i1.i, 2
-  %narrow.i = select i1 %cmp.i.i9, i8 1, i8 %19
+  %21 = xor i8 %and53.i1.i, 2
+  %narrow.i = select i1 %cmp.i.i9, i8 1, i8 %21
   %retval.0.i = zext nneg i8 %narrow.i to i32
   ret i32 %retval.0.i
 }

@@ -2587,27 +2587,27 @@ add_edges_in_G.exit.thread:                       ; preds = %.loopexit.i, %8, %.
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 -1, 1) i32 @add_p_edges(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
   %3 = tail call ptr @dtflatten(ptr noundef %0) #17
-  %.not95 = icmp eq ptr %3, null
-  br i1 %.not95, label %addPEdges.exit, label %.lr.ph98
+  %.not94 = icmp eq ptr %3, null
+  br i1 %.not94, label %addPEdges.exit, label %.lr.ph97
 
-.lr.ph98:                                         ; preds = %2, %._crit_edge
-  %.0996 = phi ptr [ %335, %._crit_edge ], [ %3, %2 ]
-  %4 = getelementptr inbounds nuw i8, ptr %.0996, i64 24
+.lr.ph97:                                         ; preds = %2, %._crit_edge
+  %.0995 = phi ptr [ %335, %._crit_edge ], [ %3, %2 ]
+  %4 = getelementptr inbounds nuw i8, ptr %.0995, i64 24
   %5 = load ptr, ptr %4, align 8
   %6 = tail call ptr @dtflatten(ptr noundef %5) #17
-  %.not1193 = icmp eq ptr %6, null
-  br i1 %.not1193, label %._crit_edge, label %.lr.ph
+  %.not1192 = icmp eq ptr %6, null
+  br i1 %.not1192, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph98, %.loopexit86
-  %.094 = phi ptr [ %334, %.loopexit86 ], [ %6, %.lr.ph98 ]
-  %7 = getelementptr inbounds nuw i8, ptr %.094, i64 48
+.lr.ph:                                           ; preds = %.lr.ph97, %.loopexit85
+  %.093 = phi ptr [ %334, %.loopexit85 ], [ %6, %.lr.ph97 ]
+  %7 = getelementptr inbounds nuw i8, ptr %.093, i64 48
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds nuw i8, ptr %.094, i64 40
+  %9 = getelementptr inbounds nuw i8, ptr %.093, i64 40
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds nuw i8, ptr %.094, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %.093, i64 32
   %12 = load i32, ptr %11, align 8
   %13 = icmp sgt i32 %12, 1
-  br i1 %13, label %.preheader.i, label %.loopexit86
+  br i1 %13, label %.preheader.i, label %.loopexit85
 
 .loopexit.loopexit.i:                             ; preds = %is_parallel.exit.thread.i
   %.pre.i = sext i32 %331 to i64
@@ -2619,7 +2619,7 @@ define internal fastcc range(i32 -1, 1) i32 @add_p_edges(ptr noundef %0, ptr noc
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %15 = icmp slt i64 %indvars.iv.next.i, %.pre-phi.i
   %indvars.iv.next160.i = add nuw nsw i64 %indvars.iv159.i, 1
-  br i1 %15, label %.preheader.i, label %.loopexit86
+  br i1 %15, label %.preheader.i, label %.loopexit85
 
 .preheader.i:                                     ; preds = %.lr.ph, %.loopexit.i
   %16 = phi i32 [ %14, %.loopexit.i ], [ %12, %.lr.ph ]
@@ -2693,7 +2693,7 @@ is_parallel.exit.i:                               ; preds = %41
 
 60:                                               ; preds = %52
   %61 = icmp ne ptr %57, null
-  br label %.loopexit84
+  br label %.loopexit83
 
 .lr.ph.i21:                                       ; preds = %58
   %62 = getelementptr inbounds nuw i8, ptr %54, i64 8
@@ -2706,71 +2706,71 @@ is_parallel.exit.i:                               ; preds = %41
   br label %.lr.ph.i21.thread
 
 .lr.ph.i21.thread:                                ; preds = %.lr.ph.i21, %58
-  %.0129.shrunk.i.ph109 = phi i1 [ true, %58 ], [ %cond.fr, %.lr.ph.i21 ]
+  %.0129.shrunk.i.ph108 = phi i1 [ true, %58 ], [ %cond.fr, %.lr.ph.i21 ]
   %67 = phi i64 [ 56, %58 ], [ %spec.select, %.lr.ph.i21 ]
   br label %68
 
 68:                                               ; preds = %92, %.lr.ph.i21.thread
-  %.0.i54.i24 = phi ptr [ %54, %.lr.ph.i21.thread ], [ %.0.i.i48, %92 ]
-  %.02453.i25 = phi i32 [ 0, %.lr.ph.i21.thread ], [ %93, %92 ]
-  %.02652.i26 = phi ptr [ %29, %.lr.ph.i21.thread ], [ %.0.i37.i28, %92 ]
-  %.0.in.i36.i27 = getelementptr inbounds nuw i8, ptr %.02652.i26, i64 %67
-  %.0.i37.i28 = load ptr, ptr %.0.in.i36.i27, align 8
-  %.not32.i29 = icmp eq ptr %.0.i37.i28, null
-  br i1 %.not32.i29, label %.loopexit84, label %69
+  %.0.i54.i23 = phi ptr [ %54, %.lr.ph.i21.thread ], [ %.0.i.i47, %92 ]
+  %.02453.i24 = phi i32 [ 0, %.lr.ph.i21.thread ], [ %93, %92 ]
+  %.02652.i25 = phi ptr [ %29, %.lr.ph.i21.thread ], [ %.0.i37.i27, %92 ]
+  %.0.in.i36.i26 = getelementptr inbounds nuw i8, ptr %.02652.i25, i64 %67
+  %.0.i37.i27 = load ptr, ptr %.0.in.i36.i26, align 8
+  %.not32.i28 = icmp eq ptr %.0.i37.i27, null
+  br i1 %.not32.i28, label %.loopexit83, label %69
 
 69:                                               ; preds = %68
-  %70 = getelementptr inbounds nuw i8, ptr %.0.i54.i24, i64 16
+  %70 = getelementptr inbounds nuw i8, ptr %.0.i54.i23, i64 16
   %71 = load double, ptr %70, align 8
-  %72 = getelementptr inbounds nuw i8, ptr %.0.i37.i28, i64 16
+  %72 = getelementptr inbounds nuw i8, ptr %.0.i37.i27, i64 16
   %73 = load double, ptr %72, align 8
   %74 = fcmp oeq double %71, %73
-  br i1 %74, label %75, label %.critedge.i30
+  br i1 %74, label %75, label %.critedge.i29
 
 75:                                               ; preds = %69
-  %76 = getelementptr inbounds nuw i8, ptr %.0.i54.i24, i64 24
+  %76 = getelementptr inbounds nuw i8, ptr %.0.i54.i23, i64 24
   %77 = load double, ptr %76, align 8
-  %78 = getelementptr inbounds nuw i8, ptr %.0.i37.i28, i64 24
+  %78 = getelementptr inbounds nuw i8, ptr %.0.i37.i27, i64 24
   %79 = load double, ptr %78, align 8
   %80 = fcmp oeq double %77, %79
-  br i1 %80, label %81, label %.critedge.i30
+  br i1 %80, label %81, label %.critedge.i29
 
 81:                                               ; preds = %75
-  %82 = getelementptr inbounds nuw i8, ptr %.0.i54.i24, i64 32
+  %82 = getelementptr inbounds nuw i8, ptr %.0.i54.i23, i64 32
   %83 = load i32, ptr %82, align 8
-  %84 = getelementptr inbounds nuw i8, ptr %.0.i37.i28, i64 32
+  %84 = getelementptr inbounds nuw i8, ptr %.0.i37.i27, i64 32
   %85 = load i32, ptr %84, align 8
   %86 = icmp eq i32 %83, %85
-  br i1 %86, label %is_parallel.exit.i46, label %.critedge.i30
+  br i1 %86, label %is_parallel.exit.i45, label %.critedge.i29
 
-is_parallel.exit.i46:                             ; preds = %81
-  %87 = getelementptr inbounds nuw i8, ptr %.0.i54.i24, i64 36
+is_parallel.exit.i45:                             ; preds = %81
+  %87 = getelementptr inbounds nuw i8, ptr %.0.i54.i23, i64 36
   %88 = load i32, ptr %87, align 4
-  %89 = getelementptr inbounds nuw i8, ptr %.0.i37.i28, i64 36
+  %89 = getelementptr inbounds nuw i8, ptr %.0.i37.i27, i64 36
   %90 = load i32, ptr %89, align 4
   %91 = icmp eq i32 %88, %90
-  br i1 %91, label %92, label %.critedge.i30
+  br i1 %91, label %92, label %.critedge.i29
 
-92:                                               ; preds = %is_parallel.exit.i46
-  %93 = add nuw nsw i32 %.02453.i25, 1
-  %.0.in.i.i47 = getelementptr inbounds nuw i8, ptr %.0.i54.i24, i64 48
-  %.0.i.i48 = load ptr, ptr %.0.in.i.i47, align 8
-  %.not.i49 = icmp eq ptr %.0.i.i48, null
-  br i1 %.not.i49, label %.loopexit84, label %68
+92:                                               ; preds = %is_parallel.exit.i45
+  %93 = add nuw nsw i32 %.02453.i24, 1
+  %.0.in.i.i46 = getelementptr inbounds nuw i8, ptr %.0.i54.i23, i64 48
+  %.0.i.i47 = load ptr, ptr %.0.in.i.i46, align 8
+  %.not.i48 = icmp eq ptr %.0.i.i47, null
+  br i1 %.not.i48, label %.loopexit83, label %68
 
-.critedge.i30:                                    ; preds = %is_parallel.exit.i46, %81, %75, %69
-  %94 = load i8, ptr %.0.i54.i24, align 8
+.critedge.i29:                                    ; preds = %is_parallel.exit.i45, %81, %75, %69
+  %94 = load i8, ptr %.0.i54.i23, align 8
   %95 = trunc i8 %94 to i1
-  %96 = load i8, ptr %.0.i37.i28, align 8
+  %96 = load i8, ptr %.0.i37.i27, align 8
   %97 = xor i8 %96, %94
   %98 = and i8 %97, 1
-  %.not.i38.i31 = icmp eq i8 %98, 0
-  br i1 %.not.i38.i31, label %99, label %addPEdges.exit.sink.split
+  %.not.i38.i30 = icmp eq i8 %98, 0
+  br i1 %.not.i38.i30, label %99, label %addPEdges.exit.sink.split
 
-99:                                               ; preds = %.critedge.i30
-  %100 = getelementptr inbounds nuw i8, ptr %.0.i54.i24, i64 8
+99:                                               ; preds = %.critedge.i29
+  %100 = getelementptr inbounds nuw i8, ptr %.0.i54.i23, i64 8
   %101 = load double, ptr %100, align 8
-  %102 = getelementptr inbounds nuw i8, ptr %.0.i37.i28, i64 8
+  %102 = getelementptr inbounds nuw i8, ptr %.0.i37.i27, i64 8
   %103 = load double, ptr %102, align 8
   %104 = fcmp une double %101, %103
   br i1 %104, label %addPEdges.exit.sink.split, label %105
@@ -2779,45 +2779,45 @@ is_parallel.exit.i46:                             ; preds = %81
   br i1 %95, label %106, label %108
 
 106:                                              ; preds = %105
-  %107 = tail call fastcc i32 @segCmp(ptr noundef nonnull readonly %.0.i54.i24, ptr noundef nonnull readonly %.0.i37.i28, i32 noundef 4, i32 noundef 2)
+  %107 = tail call fastcc i32 @segCmp(ptr noundef nonnull readonly %.0.i54.i23, ptr noundef nonnull readonly %.0.i37.i27, i32 noundef 4, i32 noundef 2)
   br label %110
 
 108:                                              ; preds = %105
-  %109 = tail call fastcc i32 @segCmp(ptr noundef nonnull readonly %.0.i54.i24, ptr noundef nonnull readonly %.0.i37.i28, i32 noundef 3, i32 noundef 1)
+  %109 = tail call fastcc i32 @segCmp(ptr noundef nonnull readonly %.0.i54.i23, ptr noundef nonnull readonly %.0.i37.i27, i32 noundef 3, i32 noundef 1)
   br label %110
 
 110:                                              ; preds = %108, %106
-  %.0.i39.ph.i34 = phi i32 [ %109, %108 ], [ %107, %106 ]
-  %111 = add nuw nsw i32 %.02453.i25, 1
+  %.0.i39.ph.i33 = phi i32 [ %109, %108 ], [ %107, %106 ]
+  %111 = add nuw nsw i32 %.02453.i24, 1
   br label %112
 
 112:                                              ; preds = %139, %110
-  %.029.i.i35 = phi ptr [ %.0.i54.i24, %110 ], [ %.0.i.i.i39, %139 ]
-  %.02128.i.i36 = phi i32 [ 1, %110 ], [ %140, %139 ]
-  %.02227.i.i37 = phi i32 [ %.0.i39.ph.i34, %110 ], [ %spec.select25.i.i41, %139 ]
-  %.0.in.i.i.i38 = getelementptr inbounds nuw i8, ptr %.029.i.i35, i64 56
-  %.0.i.i.i39 = load ptr, ptr %.0.in.i.i.i38, align 8
-  %113 = load i8, ptr %.029.i.i35, align 8
+  %.029.i.i34 = phi ptr [ %.0.i54.i23, %110 ], [ %.0.i.i.i38, %139 ]
+  %.02128.i.i35 = phi i32 [ 1, %110 ], [ %140, %139 ]
+  %.02227.i.i36 = phi i32 [ %.0.i39.ph.i33, %110 ], [ %spec.select25.i.i40, %139 ]
+  %.0.in.i.i.i37 = getelementptr inbounds nuw i8, ptr %.029.i.i34, i64 56
+  %.0.i.i.i38 = load ptr, ptr %.0.in.i.i.i37, align 8
+  %113 = load i8, ptr %.029.i.i34, align 8
   %114 = trunc i8 %113 to i1
-  %115 = getelementptr inbounds nuw i8, ptr %.0.i.i.i39, i64 8
+  %115 = getelementptr inbounds nuw i8, ptr %.0.i.i.i38, i64 8
   %116 = load double, ptr %115, align 8
-  %117 = getelementptr inbounds nuw i8, ptr %.029.i.i35, i64 16
+  %117 = getelementptr inbounds nuw i8, ptr %.029.i.i34, i64 16
   %118 = load double, ptr %117, align 8
   %119 = fcmp oeq double %116, %118
-  %120 = sub nsw i32 0, %.02227.i.i37
+  %120 = sub nsw i32 0, %.02227.i.i36
   br i1 %114, label %130, label %121
 
 121:                                              ; preds = %112
   br i1 %119, label %122, label %126
 
 122:                                              ; preds = %121
-  %123 = getelementptr inbounds nuw i8, ptr %.029.i.i35, i64 32
+  %123 = getelementptr inbounds nuw i8, ptr %.029.i.i34, i64 32
   %124 = load i32, ptr %123, align 8
   %125 = icmp eq i32 %124, 1
   br label %139
 
 126:                                              ; preds = %121
-  %127 = getelementptr inbounds nuw i8, ptr %.029.i.i35, i64 36
+  %127 = getelementptr inbounds nuw i8, ptr %.029.i.i34, i64 36
   %128 = load i32, ptr %127, align 4
   %129 = icmp eq i32 %128, 3
   br label %139
@@ -2826,37 +2826,38 @@ is_parallel.exit.i46:                             ; preds = %81
   br i1 %119, label %131, label %135
 
 131:                                              ; preds = %130
-  %132 = getelementptr inbounds nuw i8, ptr %.029.i.i35, i64 32
+  %132 = getelementptr inbounds nuw i8, ptr %.029.i.i34, i64 32
   %133 = load i32, ptr %132, align 8
   %134 = icmp eq i32 %133, 4
   br label %139
 
 135:                                              ; preds = %130
-  %136 = getelementptr inbounds nuw i8, ptr %.029.i.i35, i64 36
+  %136 = getelementptr inbounds nuw i8, ptr %.029.i.i34, i64 36
   %137 = load i32, ptr %136, align 4
   %138 = icmp eq i32 %137, 2
   br label %139
 
 139:                                              ; preds = %135, %131, %126, %122
-  %.sink.i.i40 = phi i1 [ %138, %135 ], [ %134, %131 ], [ %129, %126 ], [ %125, %122 ]
-  %spec.select25.i.i41 = select i1 %.sink.i.i40, i32 %120, i32 %.02227.i.i37
-  %140 = add nuw i32 %.02128.i.i36, 1
-  %exitcond.not.i.i42 = icmp eq i32 %.02128.i.i36, %111
-  br i1 %exitcond.not.i.i42, label %.loopexit84, label %112
+  %.sink.i.i39 = phi i1 [ %138, %135 ], [ %134, %131 ], [ %129, %126 ], [ %125, %122 ]
+  %spec.select25.i.i40 = select i1 %.sink.i.i39, i32 %120, i32 %.02227.i.i36
+  %140 = add nuw i32 %.02128.i.i35, 1
+  %exitcond.not.i.i41 = icmp eq i32 %.02128.i.i35, %111
+  br i1 %exitcond.not.i.i41, label %.loopexit83, label %112
 
-.loopexit84:                                      ; preds = %92, %68, %139, %60
-  %.0129.shrunk.i55.ph = phi i1 [ %61, %60 ], [ %.0129.shrunk.i.ph109, %139 ], [ %.0129.shrunk.i.ph109, %68 ], [ %.0129.shrunk.i.ph109, %92 ]
-  %.sroa.6.8.ph = phi i32 [ 0, %60 ], [ %spec.select25.i.i41, %139 ], [ 0, %68 ], [ 0, %92 ]
-  %.sroa.0.8.ph = phi i32 [ 0, %60 ], [ %.02453.i25, %139 ], [ %93, %92 ], [ %.02453.i25, %68 ]
-  %.0129.i58.ph = zext i1 %.0129.shrunk.i55.ph to i32
-  %141 = xor i32 %.0129.i58.ph, 1
+.loopexit83:                                      ; preds = %92, %68, %139, %60
+  %.0129.shrunk.i54.ph = phi i1 [ %61, %60 ], [ %.0129.shrunk.i.ph108, %139 ], [ %.0129.shrunk.i.ph108, %68 ], [ %.0129.shrunk.i.ph108, %92 ]
+  %.sroa.6.8.ph = phi i32 [ 0, %60 ], [ %spec.select25.i.i40, %139 ], [ 0, %68 ], [ 0, %92 ]
+  %.sroa.0.8.ph = phi i32 [ 0, %60 ], [ %.02453.i24, %139 ], [ %93, %92 ], [ %.02453.i24, %68 ]
+  %.0129.i57.ph = zext i1 %.0129.shrunk.i54.ph to i32
+  %not..0129.shrunk.i = xor i1 %.0129.shrunk.i54.ph, true
+  %141 = zext i1 %not..0129.shrunk.i to i32
   %.0.in.i49.i = getelementptr inbounds nuw i8, ptr %27, i64 56
   %.0.i50.i = load ptr, ptr %.0.in.i49.i, align 8
   %.not51.i = icmp eq ptr %.0.i50.i, null
   br i1 %.not51.i, label %.loopexit, label %.lr.ph.i13
 
-.lr.ph.i13:                                       ; preds = %.loopexit84
-  %.0.in.v.i35.i = select i1 %.0129.shrunk.i55.ph, i64 48, i64 56
+.lr.ph.i13:                                       ; preds = %.loopexit83
+  %.0.in.v.i35.i = select i1 %.0129.shrunk.i54.ph, i64 48, i64 56
   br label %142
 
 142:                                              ; preds = %166, %.lr.ph.i13
@@ -2993,9 +2994,9 @@ is_parallel.exit.i16:                             ; preds = %155
   %exitcond.not.i.i = icmp eq i32 %.02128.i.i, %185
   br i1 %exitcond.not.i.i, label %.loopexit, label %186
 
-.loopexit:                                        ; preds = %166, %142, %213, %.loopexit84
-  %.sroa.6.7.ph = phi i32 [ 0, %.loopexit84 ], [ %spec.select25.i.i, %213 ], [ 0, %142 ], [ 0, %166 ]
-  %.sroa.0.7.ph = phi i32 [ 0, %.loopexit84 ], [ %.02453.i, %213 ], [ %167, %166 ], [ %.02453.i, %142 ]
+.loopexit:                                        ; preds = %166, %142, %213, %.loopexit83
+  %.sroa.6.7.ph = phi i32 [ 0, %.loopexit83 ], [ %spec.select25.i.i, %213 ], [ 0, %142 ], [ 0, %166 ]
+  %.sroa.0.7.ph = phi i32 [ 0, %.loopexit83 ], [ %.02453.i, %213 ], [ %167, %166 ], [ %.02453.i, %142 ]
   switch i32 %.sroa.6.8.ph, label %default.unreachable [
     i32 -1, label %215
     i32 0, label %268
@@ -3003,7 +3004,7 @@ is_parallel.exit.i16:                             ; preds = %155
   ]
 
 215:                                              ; preds = %.loopexit
-  tail call fastcc void @set_parallel_edges(ptr noundef %29, ptr noundef %27, i32 noundef %.0129.i58.ph, i32 noundef 0, i32 noundef %.sroa.0.8.ph, ptr noundef readonly %1)
+  tail call fastcc void @set_parallel_edges(ptr noundef %29, ptr noundef %27, i32 noundef %.0129.i57.ph, i32 noundef 0, i32 noundef %.sroa.0.8.ph, ptr noundef readonly %1)
   %216 = load ptr, ptr %28, align 8
   %217 = load ptr, ptr %19, align 8
   tail call fastcc void @set_parallel_edges(ptr noundef %216, ptr noundef %217, i32 noundef %141, i32 noundef 1, i32 noundef %.sroa.0.7.ph, ptr noundef readonly %1)
@@ -3021,7 +3022,7 @@ is_parallel.exit.i16:                             ; preds = %155
   br i1 %226, label %.lr.ph.i.i, label %removeEdge.exit.i
 
 .lr.ph.i.i:                                       ; preds = %219
-  %.0.in.v.i.i.i = select i1 %.0129.shrunk.i55.ph, i64 48, i64 56
+  %.0.in.v.i.i.i = select i1 %.0129.shrunk.i54.ph, i64 48, i64 56
   br label %227
 
 227:                                              ; preds = %244, %.lr.ph.i.i
@@ -3095,28 +3096,28 @@ removeEdge.exit.i:                                ; preds = %244, %is_parallel.e
   ]
 
 269:                                              ; preds = %268
-  tail call fastcc void @set_parallel_edges(ptr noundef %29, ptr noundef %27, i32 noundef %.0129.i58.ph, i32 noundef 0, i32 noundef %.sroa.0.8.ph, ptr noundef readonly %1)
+  tail call fastcc void @set_parallel_edges(ptr noundef %29, ptr noundef %27, i32 noundef %.0129.i57.ph, i32 noundef 0, i32 noundef %.sroa.0.8.ph, ptr noundef readonly %1)
   %270 = load ptr, ptr %28, align 8
   %271 = load ptr, ptr %19, align 8
   tail call fastcc void @set_parallel_edges(ptr noundef %270, ptr noundef %271, i32 noundef %141, i32 noundef 1, i32 noundef %.sroa.0.7.ph, ptr noundef readonly %1)
   br label %is_parallel.exit.thread.i
 
 272:                                              ; preds = %268
-  tail call fastcc void @set_parallel_edges(ptr noundef %27, ptr noundef %29, i32 noundef 0, i32 noundef %.0129.i58.ph, i32 noundef %.sroa.0.8.ph, ptr noundef readonly %1)
+  tail call fastcc void @set_parallel_edges(ptr noundef %27, ptr noundef %29, i32 noundef 0, i32 noundef %.0129.i57.ph, i32 noundef %.sroa.0.8.ph, ptr noundef readonly %1)
   %273 = load ptr, ptr %19, align 8
   %274 = load ptr, ptr %28, align 8
   tail call fastcc void @set_parallel_edges(ptr noundef %273, ptr noundef %274, i32 noundef 1, i32 noundef %141, i32 noundef %.sroa.0.7.ph, ptr noundef readonly %1)
   br label %is_parallel.exit.thread.i
 
 275:                                              ; preds = %268
-  tail call fastcc void @set_parallel_edges(ptr noundef %27, ptr noundef %29, i32 noundef 0, i32 noundef %.0129.i58.ph, i32 noundef %.sroa.0.8.ph, ptr noundef readonly %1)
+  tail call fastcc void @set_parallel_edges(ptr noundef %27, ptr noundef %29, i32 noundef 0, i32 noundef %.0129.i57.ph, i32 noundef %.sroa.0.8.ph, ptr noundef readonly %1)
   %276 = load ptr, ptr %19, align 8
   %277 = load ptr, ptr %28, align 8
   tail call fastcc void @set_parallel_edges(ptr noundef %276, ptr noundef %277, i32 noundef 1, i32 noundef %141, i32 noundef %.sroa.0.7.ph, ptr noundef readonly %1)
   br label %is_parallel.exit.thread.i
 
 278:                                              ; preds = %.loopexit
-  tail call fastcc void @set_parallel_edges(ptr noundef %27, ptr noundef %29, i32 noundef 0, i32 noundef %.0129.i58.ph, i32 noundef %.sroa.0.8.ph, ptr noundef readonly %1)
+  tail call fastcc void @set_parallel_edges(ptr noundef %27, ptr noundef %29, i32 noundef 0, i32 noundef %.0129.i57.ph, i32 noundef %.sroa.0.8.ph, ptr noundef readonly %1)
   %279 = load ptr, ptr %19, align 8
   %280 = load ptr, ptr %28, align 8
   tail call fastcc void @set_parallel_edges(ptr noundef %279, ptr noundef %280, i32 noundef 1, i32 noundef %141, i32 noundef %.sroa.0.7.ph, ptr noundef readonly %1)
@@ -3134,7 +3135,7 @@ removeEdge.exit.i:                                ; preds = %244, %is_parallel.e
   br i1 %289, label %.lr.ph.i140.i, label %removeEdge.exit150.i
 
 .lr.ph.i140.i:                                    ; preds = %282
-  %.0.in.v.i.i142.i = select i1 %.0129.shrunk.i55.ph, i64 48, i64 56
+  %.0.in.v.i.i142.i = select i1 %.0129.shrunk.i54.ph, i64 48, i64 56
   br label %290
 
 290:                                              ; preds = %307, %.lr.ph.i140.i
@@ -3210,17 +3211,17 @@ is_parallel.exit.thread.i:                        ; preds = %removeEdge.exit150.
   %333 = icmp sgt i32 %331, %332
   br i1 %333, label %21, label %.loopexit.loopexit.i
 
-.loopexit86:                                      ; preds = %.loopexit.i, %.lr.ph
-  %334 = load ptr, ptr %.094, align 8
+.loopexit85:                                      ; preds = %.loopexit.i, %.lr.ph
+  %334 = load ptr, ptr %.093, align 8
   %.not11 = icmp eq ptr %334, null
   br i1 %.not11, label %._crit_edge, label %.lr.ph
 
-._crit_edge:                                      ; preds = %.loopexit86, %.lr.ph98
-  %335 = load ptr, ptr %.0996, align 8
+._crit_edge:                                      ; preds = %.loopexit85, %.lr.ph97
+  %335 = load ptr, ptr %.0995, align 8
   %.not = icmp eq ptr %335, null
-  br i1 %.not, label %addPEdges.exit, label %.lr.ph98
+  br i1 %.not, label %addPEdges.exit, label %.lr.ph97
 
-addPEdges.exit.sink.split:                        ; preds = %173, %.critedge.i, %99, %.critedge.i30
+addPEdges.exit.sink.split:                        ; preds = %173, %.critedge.i, %99, %.critedge.i29
   %336 = tail call i32 (i32, ptr, ...) @agerr(i32 noundef 1, ptr noundef nonnull @.str.4) #17
   br label %addPEdges.exit
 

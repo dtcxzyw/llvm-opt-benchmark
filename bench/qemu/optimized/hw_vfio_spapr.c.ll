@@ -187,8 +187,7 @@ for.end:                                          ; preds = %for.cond, %if.end7
 
 cond.end.i:                                       ; preds = %for.end
   %11 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 range(i64 1, 0) %and.i, i1 true)
-  %sub4.i = xor i64 %11, 63
-  %shl.i = shl nuw i64 1, %sub4.i
+  %shl.i = lshr exact i64 -9223372036854775808, %11
   %12 = load i128, ptr %section, align 16
   %cmp.i.i = icmp ult i128 %12, 18446744073709551616
   br i1 %cmp.i.i, label %int128_get64.exit.i, label %if.else.i.i
@@ -207,19 +206,21 @@ int128_get64.exit.i:                              ; preds = %cond.end.i
   %coerce.sroa.0.0.extract.trunc.i = trunc nuw i128 %12 to i64
   %window_size.i = getelementptr inbounds nuw i8, ptr %create.i, i64 16
   store i64 %coerce.sroa.0.0.extract.trunc.i, ptr %window_size.i, align 8
-  %cast.i20.i = trunc nuw nsw i64 %sub4.i to i32
+  %14 = trunc nuw nsw i64 %11 to i32
+  %cast.i20.i = sub nuw nsw i32 63, %14
   %page_shift.i = getelementptr inbounds nuw i8, ptr %create.i, i64 8
   store i32 %cast.i20.i, ptr %page_shift.i, align 8
-  %shr.i = lshr i64 %coerce.sroa.0.0.extract.trunc.i, %sub4.i
+  %sh_prom14.i = zext nneg i32 %cast.i20.i to i64
+  %shr.i = lshr i64 %coerce.sroa.0.0.extract.trunc.i, %sh_prom14.i
   %conv15.i = shl i64 %shr.i, 3
   %mul.i = and i64 %conv15.i, 34359738360
-  %14 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 -2147483648, -9223372036854775807) %mul.i, i1 false)
+  %15 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 -2147483648, -9223372036854775807) %mul.i, i1 false)
   %call.i22.i = tail call i32 @getpagesize() #15
-  %15 = zext i32 %call.i22.i to i64
-  %16 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %15, i1 false)
-  %cast.i23.i = trunc nuw nsw i64 %16 to i8
+  %16 = zext i32 %call.i22.i to i64
+  %17 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %16, i1 false)
+  %cast.i23.i = trunc nuw nsw i64 %17 to i8
   %add.i = add nuw nsw i8 %cast.i23.i, 8
-  %div.lhs.trunc.i = trunc nuw nsw i64 %14 to i8
+  %div.lhs.trunc.i = trunc nuw nsw i64 %15 to i8
   %div31.i = udiv i8 %div.lhs.trunc.i, %add.i
   %div.zext.i = zext nneg i8 %div31.i to i32
   %levels.i = getelementptr inbounds nuw i8, ptr %create.i, i64 24
@@ -228,8 +229,8 @@ int128_get64.exit.i:                              ; preds = %cond.end.i
   %inc.i = zext i1 %tobool19.not.i to i32
   %spec.select19.i = add nuw nsw i32 %inc.i, %div.zext.i
   store i32 %spec.select19.i, ptr %levels.i, align 8
-  %17 = trunc nuw nsw i64 %sub4.i to i8
-  %div27.lhs.trunc.i = sub nuw nsw i8 64, %17
+  %18 = trunc nuw nsw i64 %11 to i8
+  %div27.lhs.trunc.i = add nuw nsw i8 %18, 1
   %div2733.i = udiv i8 %div27.lhs.trunc.i, %cast.i23.i
   %div27.zext.i = zext nneg i8 %div2733.i to i32
   %cmp29.not35.i = icmp samesign ugt i32 %spec.select19.i, %div27.zext.i
@@ -240,14 +241,14 @@ for.body.lr.ph.i:                                 ; preds = %int128_get64.exit.i
   br label %for.body.i37
 
 for.body.i37:                                     ; preds = %for.inc.i38, %for.body.lr.ph.i
-  %18 = load i32, ptr %fd.i, align 8
-  %call31.i = call i32 (i32, i64, ...) @ioctl(i32 noundef %18, i64 noundef 15223, ptr noundef nonnull %create.i) #14
+  %19 = load i32, ptr %fd.i, align 8
+  %call31.i = call i32 (i32, i64, ...) @ioctl(i32 noundef %19, i64 noundef 15223, ptr noundef nonnull %create.i) #14
   %tobool32.not.i = icmp eq i32 %call31.i, 0
   br i1 %tobool32.not.i, label %if.end41.i.loopexit, label %for.inc.i38
 
 for.inc.i38:                                      ; preds = %for.body.i37
-  %19 = load i32, ptr %levels.i, align 8
-  %inc36.i = add i32 %19, 1
+  %20 = load i32, ptr %levels.i, align 8
+  %inc36.i = add i32 %20, 1
   store i32 %inc36.i, ptr %levels.i, align 8
   %cmp29.not.i = icmp ugt i32 %inc36.i, %div27.zext.i
   br i1 %cmp29.not.i, label %vfio_spapr_create_window.exit, label %for.body.i37, !llvm.loop !8
@@ -258,56 +259,56 @@ if.end41.i.loopexit:                              ; preds = %for.body.i37
   br label %if.end41.i
 
 if.end41.i:                                       ; preds = %if.end41.i.loopexit, %int128_get64.exit.i
-  %20 = phi i64 [ %.pre, %if.end41.i.loopexit ], [ 0, %int128_get64.exit.i ]
+  %21 = phi i64 [ %.pre, %if.end41.i.loopexit ], [ 0, %int128_get64.exit.i ]
   %offset_within_address_space.i = getelementptr inbounds nuw i8, ptr %section, i64 40
-  %21 = load i64, ptr %offset_within_address_space.i, align 8
-  %cmp42.not.i = icmp eq i64 %20, %21
+  %22 = load i64, ptr %offset_within_address_space.i, align 8
+  %cmp42.not.i = icmp eq i64 %21, %22
   br i1 %cmp42.not.i, label %if.end49.i, label %if.then44.i
 
 if.then44.i:                                      ; preds = %if.end41.i
   %start_addr.i = getelementptr inbounds nuw i8, ptr %create.i, i64 32
-  %22 = getelementptr i8, ptr %container, i64 8
-  %container.val.i = load i32, ptr %22, align 8
-  %23 = call fastcc i32 @vfio_spapr_remove_window(i32 %container.val.i, i64 noundef %20)
-  %24 = load i64, ptr %offset_within_address_space.i, align 8
-  %25 = load i64, ptr %start_addr.i, align 8
-  call void (ptr, ...) @error_report(ptr noundef nonnull @.str.13, i64 noundef %24, i64 noundef %25) #14
+  %23 = getelementptr i8, ptr %container, i64 8
+  %container.val.i = load i32, ptr %23, align 8
+  %24 = call fastcc i32 @vfio_spapr_remove_window(i32 %container.val.i, i64 noundef %21)
+  %25 = load i64, ptr %offset_within_address_space.i, align 8
+  %26 = load i64, ptr %start_addr.i, align 8
+  call void (ptr, ...) @error_report(ptr noundef nonnull @.str.13, i64 noundef %25, i64 noundef %26) #14
   br label %vfio_spapr_create_window.exit.thread
 
 if.end49.i:                                       ; preds = %if.end41.i
-  %26 = load i32, ptr %page_shift.i, align 8
-  %27 = load i32, ptr %levels.i, align 8
-  %28 = load i64, ptr %window_size.i, align 8
+  %27 = load i32, ptr %page_shift.i, align 8
+  %28 = load i32, ptr %levels.i, align 8
+  %29 = load i64, ptr %window_size.i, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i.i)
-  %29 = load i32, ptr @trace_events_enabled_count, align 4
-  %tobool.i.i.i = icmp ne i32 %29, 0
-  %30 = load i16, ptr @_TRACE_VFIO_SPAPR_CREATE_WINDOW_DSTATE, align 2
-  %tobool4.i.i.i = icmp ne i16 %30, 0
+  %30 = load i32, ptr @trace_events_enabled_count, align 4
+  %tobool.i.i.i = icmp ne i32 %30, 0
+  %31 = load i16, ptr @_TRACE_VFIO_SPAPR_CREATE_WINDOW_DSTATE, align 2
+  %tobool4.i.i.i = icmp ne i16 %31, 0
   %or.cond.i.i.i = select i1 %tobool.i.i.i, i1 %tobool4.i.i.i, i1 false
   br i1 %or.cond.i.i.i, label %land.lhs.true5.i.i.i, label %vfio_spapr_create_window.exit.thread56
 
 land.lhs.true5.i.i.i:                             ; preds = %if.end49.i
-  %31 = load i32, ptr @qemu_loglevel, align 4
-  %and.i.i.i.i = and i32 %31, 32768
+  %32 = load i32, ptr @qemu_loglevel, align 4
+  %and.i.i.i.i = and i32 %32, 32768
   %cmp.i.not.i.i.i = icmp eq i32 %and.i.i.i.i, 0
   br i1 %cmp.i.not.i.i.i, label %vfio_spapr_create_window.exit.thread56, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %land.lhs.true5.i.i.i
-  %32 = load i8, ptr @message_with_timestamp, align 1
-  %tobool7.i.i.i = trunc i8 %32 to i1
+  %33 = load i8, ptr @message_with_timestamp, align 1
+  %tobool7.i.i.i = trunc i8 %33 to i1
   br i1 %tobool7.i.i.i, label %if.then8.i.i.i, label %if.else.i.i.i
 
 if.then8.i.i.i:                                   ; preds = %if.then.i.i.i
   %call9.i.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i, ptr noundef null) #14
   %call10.i.i.i = call i32 @qemu_get_thread_id() #14
-  %33 = load i64, ptr %_now.i.i.i, align 8
+  %34 = load i64, ptr %_now.i.i.i, align 8
   %tv_usec.i.i.i = getelementptr inbounds nuw i8, ptr %_now.i.i.i, i64 8
-  %34 = load i64, ptr %tv_usec.i.i.i, align 8
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.16, i32 noundef %call10.i.i.i, i64 noundef %33, i64 noundef %34, i32 noundef %26, i32 noundef %27, i64 noundef %28, i64 noundef %20) #14
+  %35 = load i64, ptr %tv_usec.i.i.i, align 8
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.16, i32 noundef %call10.i.i.i, i64 noundef %34, i64 noundef %35, i32 noundef %27, i32 noundef %28, i64 noundef %29, i64 noundef %21) #14
   br label %vfio_spapr_create_window.exit.thread56
 
 if.else.i.i.i:                                    ; preds = %if.then.i.i.i
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.17, i32 noundef %26, i32 noundef %27, i64 noundef %28, i64 noundef %20) #14
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.17, i32 noundef %27, i32 noundef %28, i64 noundef %29, i64 noundef %21) #14
   br label %vfio_spapr_create_window.exit.thread56
 
 vfio_spapr_create_window.exit.thread56:           ; preds = %if.end49.i, %land.lhs.true5.i.i.i, %if.then8.i.i.i, %if.else.i.i.i
@@ -322,10 +323,10 @@ vfio_spapr_create_window.exit.thread:             ; preds = %if.then44.i, %if.th
 vfio_spapr_create_window.exit:                    ; preds = %for.inc.i38
   call void (ptr, ...) @error_report(ptr noundef nonnull @.str.12, i32 noundef %call31.i) #14
   %call39.i = tail call ptr @__errno_location() #15
-  %35 = load i32, ptr %call39.i, align 4
-  %sub40.i = sub i32 0, %35
+  %36 = load i32, ptr %call39.i, align 4
+  %sub40.i = sub i32 0, %36
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %create.i)
-  %tobool30.not = icmp eq i32 %35, 0
+  %tobool30.not = icmp eq i32 %36, 0
   br i1 %tobool30.not, label %if.end33, label %if.then31
 
 if.then31:                                        ; preds = %vfio_spapr_create_window.exit.thread, %vfio_spapr_create_window.exit
@@ -337,9 +338,9 @@ if.then31:                                        ; preds = %vfio_spapr_create_w
 if.end33:                                         ; preds = %vfio_spapr_create_window.exit.thread56, %vfio_spapr_create_window.exit
   %pgsize.060 = phi i64 [ %shl.i, %vfio_spapr_create_window.exit.thread56 ], [ 0, %vfio_spapr_create_window.exit ]
   %offset_within_address_space34 = getelementptr inbounds nuw i8, ptr %section, i64 40
-  %36 = load i64, ptr %offset_within_address_space34, align 8
-  %37 = load i128, ptr %section, align 16
-  %cmp.i39 = icmp ult i128 %37, 18446744073709551616
+  %37 = load i64, ptr %offset_within_address_space34, align 8
+  %38 = load i128, ptr %section, align 16
+  %cmp.i39 = icmp ult i128 %38, 18446744073709551616
   br i1 %cmp.i39, label %int128_get64.exit41, label %if.else.i40
 
 if.else.i40:                                      ; preds = %if.end33
@@ -347,8 +348,8 @@ if.else.i40:                                      ; preds = %if.end33
   unreachable
 
 int128_get64.exit41:                              ; preds = %if.end33
-  %coerce37.sroa.0.0.extract.trunc = trunc nuw i128 %37 to i64
-  %add39 = add i64 %36, -1
+  %coerce37.sroa.0.0.extract.trunc = trunc nuw i128 %38 to i64
+  %add39 = add i64 %37, -1
   %sub40 = add i64 %add39, %coerce37.sroa.0.0.extract.trunc
   %hostwin.019.i = load ptr, ptr %hostwin_list, align 8
   %tobool.not20.i = icmp eq ptr %hostwin.019.i, null
@@ -362,11 +363,11 @@ for.cond.i:                                       ; preds = %for.body.i43
 
 for.body.i43:                                     ; preds = %int128_get64.exit41, %for.cond.i
   %hostwin.021.i = phi ptr [ %hostwin.0.i46, %for.cond.i ], [ %hostwin.019.i, %int128_get64.exit41 ]
-  %38 = load i64, ptr %hostwin.021.i, align 8
+  %39 = load i64, ptr %hostwin.021.i, align 8
   %max_iova2.i = getelementptr inbounds nuw i8, ptr %hostwin.021.i, i64 8
-  %39 = load i64, ptr %max_iova2.i, align 8
-  %cmp.i.i44 = icmp ult i64 %sub40, %38
-  %cmp2.i.i = icmp ult i64 %39, %36
+  %40 = load i64, ptr %max_iova2.i, align 8
+  %cmp.i.i44 = icmp ult i64 %sub40, %39
+  %cmp2.i.i = icmp ult i64 %40, %37
   %.not.i.not.i = or i1 %cmp.i.i44, %cmp2.i.i
   br i1 %.not.i.not.i, label %for.cond.i, label %if.then.i
 
@@ -376,19 +377,19 @@ if.then.i:                                        ; preds = %for.body.i43
 
 for.end.i:                                        ; preds = %for.cond.i, %int128_get64.exit41
   %call7.i48 = call noalias dereferenceable_or_null(40) ptr @g_malloc0(i64 noundef 40) #16
-  store i64 %36, ptr %call7.i48, align 8
+  store i64 %37, ptr %call7.i48, align 8
   %max_iova9.i = getelementptr inbounds nuw i8, ptr %call7.i48, i64 8
   store i64 %sub40, ptr %max_iova9.i, align 8
   %iova_pgsizes10.i = getelementptr inbounds nuw i8, ptr %call7.i48, i64 16
   store i64 %pgsize.060, ptr %iova_pgsizes10.i, align 8
-  %40 = load ptr, ptr %hostwin_list, align 8
+  %41 = load ptr, ptr %hostwin_list, align 8
   %hostwin_next13.i = getelementptr inbounds nuw i8, ptr %call7.i48, i64 24
-  store ptr %40, ptr %hostwin_next13.i, align 8
-  %cmp.not.i49 = icmp eq ptr %40, null
+  store ptr %41, ptr %hostwin_next13.i, align 8
+  %cmp.not.i49 = icmp eq ptr %41, null
   br i1 %cmp.not.i49, label %vfio_host_win_add.exit, label %if.then15.i
 
 if.then15.i:                                      ; preds = %for.end.i
-  %le_prev.i = getelementptr inbounds nuw i8, ptr %40, i64 32
+  %le_prev.i = getelementptr inbounds nuw i8, ptr %41, i64 32
   store ptr %hostwin_next13.i, ptr %le_prev.i, align 8
   br label %vfio_host_win_add.exit
 

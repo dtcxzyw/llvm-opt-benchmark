@@ -148,75 +148,47 @@ _ZNSt12_Vector_baseIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8N
   %vertIdx.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 112
   store i32 4, ptr %vertIdx.i.i, align 8, !noalias !5
   %call5.i.i.i.i3.i.i = invoke noalias noundef nonnull dereferenceable(1024) ptr @_Znwm(i64 noundef 1024) #26
-          to label %invoke.cont5.i.i unwind label %lpad4.i.i, !noalias !5
+          to label %_ZNSt10unique_ptrIN3ue212_GLOBAL__N_114NFABuilderImplESt14default_deleteIS2_EED2Ev.exit unwind label %_ZNSt10unique_ptrIN3ue28NGHolderESt14default_deleteIS1_EED2Ev.exit.i.i, !noalias !5
 
-invoke.cont5.i.i:                                 ; preds = %_ZNSt12_Vector_baseIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEESaIS8_EE11_M_allocateEm.exit.i.i.i
-  %_M_finish.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 96
-  %_M_end_of_storage.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 104
-  store ptr %call5.i.i.i.i3.i.i, ptr %id2vertex.i.i, align 8, !noalias !5
-  store ptr %call5.i.i.i.i3.i.i, ptr %_M_finish.i.i.i.i, align 8, !noalias !5
-  %add.ptr21.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i3.i.i, i64 1024
-  store ptr %add.ptr21.i.i.i, ptr %_M_end_of_storage.i.i.i.i, align 8, !noalias !5
-  invoke void @_ZNSt6vectorIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEESaIS8_EE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %id2vertex.i.i, i64 noundef 4)
-          to label %_ZNSt10unique_ptrIN3ue212_GLOBAL__N_114NFABuilderImplESt14default_deleteIS2_EED2Ev.exit unwind label %lpad4.i.i, !noalias !5
-
-lpad4.i.i:                                        ; preds = %invoke.cont5.i.i, %_ZNSt12_Vector_baseIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEESaIS8_EE11_M_allocateEm.exit.i.i.i
+_ZNSt10unique_ptrIN3ue28NGHolderESt14default_deleteIS1_EED2Ev.exit.i.i: ; preds = %_ZNSt12_Vector_baseIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEESaIS8_EE11_M_allocateEm.exit.i.i.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  %2 = load ptr, ptr %id2vertex.i.i, align 8, !noalias !5
-  %tobool.not.i.i.i.i.i = icmp eq ptr %2, null
-  br i1 %tobool.not.i.i.i.i.i, label %_ZNSt6vectorIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEESaIS8_EED2Ev.exit.i.i, label %if.then.i.i.i.i.i
-
-if.then.i.i.i.i.i:                                ; preds = %lpad4.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %2) #27, !noalias !5
-  br label %_ZNSt6vectorIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEESaIS8_EED2Ev.exit.i.i
-
-_ZNSt6vectorIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEESaIS8_EED2Ev.exit.i.i: ; preds = %if.then.i.i.i.i.i, %lpad4.i.i
-  %3 = load ptr, ptr %graph.i.i, align 8, !noalias !5
-  %cmp.not.i.i.i = icmp eq ptr %3, null
-  br i1 %cmp.not.i.i.i, label %_ZNSt10unique_ptrIN3ue28NGHolderESt14default_deleteIS1_EED2Ev.exit.i.i, label %_ZNKSt14default_deleteIN3ue28NGHolderEEclEPS1_.exit.i.i.i
-
-_ZNKSt14default_deleteIN3ue28NGHolderEEclEPS1_.exit.i.i.i: ; preds = %_ZNSt6vectorIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEESaIS8_EED2Ev.exit.i.i
-  %vtable.i.i.i.i = load ptr, ptr %3, align 8, !noalias !5
+  %vtable.i.i.i.i = load ptr, ptr %call.i2.i1.i, align 8, !noalias !5
   %vfn.i.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i.i, i64 8
-  %4 = load ptr, ptr %vfn.i.i.i.i, align 8, !noalias !5
-  tail call void %4(ptr noundef nonnull align 8 dereferenceable(136) %3) #25, !noalias !5
-  br label %_ZNSt10unique_ptrIN3ue28NGHolderESt14default_deleteIS1_EED2Ev.exit.i.i
-
-_ZNSt10unique_ptrIN3ue28NGHolderESt14default_deleteIS1_EED2Ev.exit.i.i: ; preds = %_ZNKSt14default_deleteIN3ue28NGHolderEEclEPS1_.exit.i.i.i, %_ZNSt6vectorIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEESaIS8_EED2Ev.exit.i.i
+  %2 = load ptr, ptr %vfn.i.i.i.i, align 8, !noalias !5
+  tail call void %2(ptr noundef nonnull align 8 dereferenceable(136) %call.i2.i1.i) #25, !noalias !5
   store ptr null, ptr %graph.i.i, align 8, !noalias !5
   br label %lpad.body.i
 
 lpad.i:                                           ; preds = %entry
-  %5 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           cleanup
   br label %lpad.body.i
 
 lpad.body.i:                                      ; preds = %lpad.i, %_ZNSt10unique_ptrIN3ue28NGHolderESt14default_deleteIS1_EED2Ev.exit.i.i, %lpad.i.i.i
-  %eh.lpad-body.i = phi { ptr, i32 } [ %5, %lpad.i ], [ %1, %_ZNSt10unique_ptrIN3ue28NGHolderESt14default_deleteIS1_EED2Ev.exit.i.i ], [ %0, %lpad.i.i.i ]
+  %eh.lpad-body.i = phi { ptr, i32 } [ %3, %lpad.i ], [ %1, %_ZNSt10unique_ptrIN3ue28NGHolderESt14default_deleteIS1_EED2Ev.exit.i.i ], [ %0, %lpad.i.i.i ]
   tail call void @_ZdlPv(ptr noundef nonnull %call.i) #27, !noalias !5
   resume { ptr, i32 } %eh.lpad-body.i
 
-_ZNSt10unique_ptrIN3ue212_GLOBAL__N_114NFABuilderImplESt14default_deleteIS2_EED2Ev.exit: ; preds = %invoke.cont5.i.i
-  %6 = load ptr, ptr %graph.i.i, align 8, !noalias !5
-  %start.i.i = getelementptr inbounds nuw i8, ptr %6, i64 72
-  %7 = load ptr, ptr %id2vertex.i.i, align 8, !noalias !5
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %start.i.i, i64 16, i1 false), !noalias !5
-  %8 = load ptr, ptr %graph.i.i, align 8, !noalias !5
-  %startDs.i.i = getelementptr inbounds nuw i8, ptr %8, i64 88
-  %9 = load ptr, ptr %id2vertex.i.i, align 8, !noalias !5
-  %add.ptr.i5.i.i = getelementptr inbounds nuw i8, ptr %9, i64 16
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i5.i.i, ptr noundef nonnull align 8 dereferenceable(16) %startDs.i.i, i64 16, i1 false), !noalias !5
-  %10 = load ptr, ptr %graph.i.i, align 8, !noalias !5
-  %accept.i.i = getelementptr inbounds nuw i8, ptr %10, i64 104
-  %11 = load ptr, ptr %id2vertex.i.i, align 8, !noalias !5
-  %add.ptr.i6.i.i = getelementptr inbounds nuw i8, ptr %11, i64 32
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i6.i.i, ptr noundef nonnull align 8 dereferenceable(16) %accept.i.i, i64 16, i1 false), !noalias !5
-  %12 = load ptr, ptr %graph.i.i, align 8, !noalias !5
-  %acceptEod.i.i = getelementptr inbounds nuw i8, ptr %12, i64 120
-  %13 = load ptr, ptr %id2vertex.i.i, align 8, !noalias !5
-  %add.ptr.i7.i.i = getelementptr inbounds nuw i8, ptr %13, i64 48
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i7.i.i, ptr noundef nonnull align 8 dereferenceable(16) %acceptEod.i.i, i64 16, i1 false), !noalias !5
+_ZNSt10unique_ptrIN3ue212_GLOBAL__N_114NFABuilderImplESt14default_deleteIS2_EED2Ev.exit: ; preds = %_ZNSt12_Vector_baseIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEESaIS8_EE11_M_allocateEm.exit.i.i.i
+  %_M_end_of_storage.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 104
+  store ptr %call5.i.i.i.i3.i.i, ptr %id2vertex.i.i, align 8, !noalias !5
+  %add.ptr21.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i3.i.i, i64 1024
+  store ptr %add.ptr21.i.i.i, ptr %_M_end_of_storage.i.i.i.i, align 8, !noalias !5
+  %_M_finish.i.i4.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 96
+  %scevgep.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i3.i.i, i64 64
+  store ptr %scevgep.i.i.i.i.i.i.i, ptr %_M_finish.i.i4.i.i, align 8, !noalias !5
+  %start.i.i = getelementptr inbounds nuw i8, ptr %call.i2.i1.i, i64 72
+  %4 = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i3.i.i, i64 16
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i.i3.i.i, ptr noundef nonnull align 8 dereferenceable(16) %start.i.i, i64 16, i1 false), !noalias !5
+  %startDs.i.i = getelementptr inbounds nuw i8, ptr %call.i2.i1.i, i64 88
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %startDs.i.i, i64 16, i1 false), !noalias !5
+  %accept.i.i = getelementptr inbounds nuw i8, ptr %call.i2.i1.i, i64 104
+  %add.ptr.i15.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i3.i.i, i64 32
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i15.i.i, ptr noundef nonnull align 8 dereferenceable(16) %accept.i.i, i64 16, i1 false), !noalias !5
+  %acceptEod.i.i = getelementptr inbounds nuw i8, ptr %call.i2.i1.i, i64 120
+  %add.ptr.i16.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i3.i.i, i64 48
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i16.i.i, ptr noundef nonnull align 8 dereferenceable(16) %acceptEod.i.i, i64 16, i1 false), !noalias !5
   store ptr %call.i, ptr %agg.result, align 8
   ret void
 }
@@ -270,7 +242,7 @@ if.then:                                          ; preds = %entry
   %sub.ptr.div.i11 = ashr exact i64 %sub.ptr.sub.i10, 4
   %cmp4.i = icmp ult i64 %sub.ptr.div.i, 576460752303423488
   tail call void @llvm.assume(i1 %cmp4.i)
-  %sub.i = xor i64 %sub.ptr.div.i, 576460752303423487
+  %sub.i = sub nuw nsw i64 576460752303423487, %sub.ptr.div.i
   %cmp6.i = icmp ule i64 %sub.ptr.div.i11, %sub.i
   tail call void @llvm.assume(i1 %cmp6.i)
   %cmp8.not.i = icmp ult i64 %sub.ptr.div.i11, %sub
@@ -284,7 +256,7 @@ _ZSt27__uninitialized_default_n_aIPN3ue212graph_detail17vertex_descriptorINS0_9u
   br label %if.end6
 
 if.else.i:                                        ; preds = %if.then
-  %cmp.i.i = icmp ult i64 %sub.i, %sub
+  %cmp.i.i = icmp ugt i64 %__new_size, 576460752303423487
   br i1 %cmp.i.i, label %if.then.i.i, label %_ZNKSt6vectorIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEESaIS8_EE12_M_check_lenEmPKc.exit.i
 
 if.then.i.i:                                      ; preds = %if.else.i
@@ -322,7 +294,7 @@ if.then.i28.i:                                    ; preds = %_ZNSt6vectorIN3ue21
 
 _ZNSt12_Vector_baseIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEESaIS8_EE13_M_deallocateEPS8_m.exit29.i: ; preds = %if.then.i28.i, %_ZNSt6vectorIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit.i
   store ptr %call5.i.i.i.i, ptr %this, align 8
-  %add.ptr37.i = getelementptr inbounds %"class.ue2::graph_detail::vertex_descriptor", ptr %add.ptr.i, i64 %sub
+  %add.ptr37.i = getelementptr inbounds nuw %"class.ue2::graph_detail::vertex_descriptor", ptr %add.ptr.i, i64 %sub
   store ptr %add.ptr37.i, ptr %_M_finish.i, align 8
   %add.ptr40.i = getelementptr inbounds nuw %"class.ue2::graph_detail::vertex_descriptor", ptr %call5.i.i.i.i, i64 %4
   store ptr %add.ptr40.i, ptr %_M_end_of_storage.i, align 8

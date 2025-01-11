@@ -1616,24 +1616,24 @@ declare i32 @VP8PutBit(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
 define hidden i64 @VP8EstimateTokenSize(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #3 {
   %3 = load ptr, ptr %0, align 8
-  %.not30 = icmp eq ptr %3, null
-  br i1 %.not30, label %._crit_edge, label %.lr.ph33
+  %.not31 = icmp eq ptr %3, null
+  br i1 %.not31, label %._crit_edge, label %.lr.ph34
 
-.lr.ph33:                                         ; preds = %2
+.lr.ph34:                                         ; preds = %2
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %6 = load i32, ptr %5, align 4
   %7 = sext i32 %6 to i64
   br label %8
 
-.loopexit:                                        ; preds = %32, %13
-  %.1.lcssa = phi i64 [ %.032, %13 ], [ %.2, %32 ]
+.loopexit:                                        ; preds = %31, %13
+  %.1.lcssa = phi i64 [ %.033, %13 ], [ %.2, %31 ]
   br i1 %10, label %._crit_edge, label %8, !llvm.loop !10
 
-8:                                                ; preds = %.lr.ph33, %.loopexit
-  %.032 = phi i64 [ 0, %.lr.ph33 ], [ %.1.lcssa, %.loopexit ]
-  %.02131 = phi ptr [ %3, %.lr.ph33 ], [ %9, %.loopexit ]
-  %9 = load ptr, ptr %.02131, align 8
+8:                                                ; preds = %.lr.ph34, %.loopexit
+  %.033 = phi i64 [ 0, %.lr.ph34 ], [ %.1.lcssa, %.loopexit ]
+  %.02132 = phi ptr [ %3, %.lr.ph34 ], [ %9, %.loopexit ]
+  %9 = load ptr, ptr %.02132, align 8
   %10 = icmp eq ptr %9, null
   br i1 %10, label %11, label %13
 
@@ -1643,7 +1643,7 @@ define hidden i64 @VP8EstimateTokenSize(ptr nocapture noundef readonly %0, ptr n
 
 13:                                               ; preds = %8, %11
   %14 = phi i32 [ %12, %11 ], [ 0, %8 ]
-  %15 = getelementptr inbounds nuw i8, ptr %.02131, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %.02132, i64 8
   %16 = icmp sgt i32 %6, %14
   br i1 %16, label %.lr.ph.preheader, label %.loopexit
 
@@ -1651,9 +1651,9 @@ define hidden i64 @VP8EstimateTokenSize(ptr nocapture noundef readonly %0, ptr n
   %17 = sext i32 %14 to i64
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %32
-  %indvars.iv = phi i64 [ %7, %.lr.ph.preheader ], [ %indvars.iv.next, %32 ]
-  %.129 = phi i64 [ %.032, %.lr.ph.preheader ], [ %.2, %32 ]
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %31
+  %indvars.iv = phi i64 [ %7, %.lr.ph.preheader ], [ %indvars.iv.next, %31 ]
+  %.130 = phi i64 [ %.033, %.lr.ph.preheader ], [ %.2, %31 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %18 = getelementptr inbounds i16, ptr %15, i64 %indvars.iv.next
   %19 = load i16, ptr %18, align 2
@@ -1668,7 +1668,7 @@ define hidden i64 @VP8EstimateTokenSize(ptr nocapture noundef readonly %0, ptr n
   %24 = xor i32 %sext, %20
   %25 = and i32 %24, 255
   %.pn.i = zext nneg i32 %25 to i64
-  br label %32
+  br label %31
 
 26:                                               ; preds = %.lr.ph
   %27 = and i32 %20, 16383
@@ -1676,19 +1676,19 @@ define hidden i64 @VP8EstimateTokenSize(ptr nocapture noundef readonly %0, ptr n
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 %28
   %30 = load i8, ptr %29, align 1
   %.lobit = ashr i16 %19, 15
-  %31 = trunc nsw i16 %.lobit to i8
-  %.pn.in.i25 = xor i8 %30, %31
-  %.pn.i26 = zext i8 %.pn.in.i25 to i64
-  br label %32
+  %narrow.i25 = trunc nsw i16 %.lobit to i8
+  %.pn.in.i26 = xor i8 %30, %narrow.i25
+  %.pn.i27 = zext i8 %.pn.in.i26 to i64
+  br label %31
 
-32:                                               ; preds = %26, %22
-  %.pn.i.pn = phi i64 [ %.pn.i, %22 ], [ %.pn.i26, %26 ]
+31:                                               ; preds = %26, %22
+  %.pn.i.pn = phi i64 [ %.pn.i, %22 ], [ %.pn.i27, %26 ]
   %.pn.in.in.in = getelementptr inbounds nuw [256 x i16], ptr @VP8EntropyCost, i64 0, i64 %.pn.i.pn
   %.pn.in.in = load i16, ptr %.pn.in.in.in, align 2
   %.pn = zext i16 %.pn.in.in to i64
-  %.2 = add i64 %.129, %.pn
-  %33 = icmp sgt i64 %indvars.iv.next, %17
-  br i1 %33, label %.lr.ph, label %.loopexit, !llvm.loop !11
+  %.2 = add i64 %.130, %.pn
+  %32 = icmp sgt i64 %indvars.iv.next, %17
+  br i1 %32, label %.lr.ph, label %.loopexit, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %.loopexit, %2
   %.0.lcssa = phi i64 [ 0, %2 ], [ %.1.lcssa, %.loopexit ]

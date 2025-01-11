@@ -410,35 +410,34 @@ define internal fastcc void @BBox_Cubic_Check(i64 noundef %0, i64 noundef %1, i6
   %21 = or i64 %19, %20
   %22 = trunc i64 %21 to i32
   %23 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %22, i1 true)
-  %24 = xor i32 %23, 31
-  %25 = sub nsw i32 27, %24
-  %26 = icmp samesign ult i32 %24, 27
-  br i1 %26, label %27, label %33
+  %24 = add nsw i32 %23, -4
+  %25 = icmp ult i32 %22, 134217728
+  br i1 %25, label %26, label %32
 
-27:                                               ; preds = %10
-  %spec.store.select.i = tail call i32 @llvm.smin.i32(i32 %25, i32 2)
-  %28 = zext nneg i32 %spec.store.select.i to i64
-  %29 = shl i64 %11, %28
-  %30 = shl i64 %12, %28
-  %31 = shl i64 %13, %28
-  %32 = shl i64 %14, %28
+26:                                               ; preds = %10
+  %spec.store.select.i = tail call i32 @llvm.smin.i32(i32 %24, i32 2)
+  %27 = zext nneg i32 %spec.store.select.i to i64
+  %28 = shl i64 %11, %27
+  %29 = shl i64 %12, %27
+  %30 = shl i64 %13, %27
+  %31 = shl i64 %14, %27
   br label %39
 
-33:                                               ; preds = %10
-  %.neg.i = sub nsw i32 4, %23
-  %34 = zext nneg i32 %.neg.i to i64
+32:                                               ; preds = %10
+  %33 = sub nsw i32 4, %23
+  %34 = zext nneg i32 %33 to i64
   %35 = ashr i64 %11, %34
   %36 = ashr i64 %12, %34
   %37 = ashr i64 %13, %34
   %38 = ashr i64 %14, %34
   br label %39
 
-39:                                               ; preds = %33, %27
-  %.089.i = phi i64 [ %29, %27 ], [ %35, %33 ]
-  %.086.i = phi i64 [ %30, %27 ], [ %36, %33 ]
-  %.083.i = phi i64 [ %31, %27 ], [ %37, %33 ]
-  %.081.i = phi i64 [ %32, %27 ], [ %38, %33 ]
-  %.0.i = phi i32 [ %spec.store.select.i, %27 ], [ %25, %33 ]
+39:                                               ; preds = %32, %26
+  %.089.i = phi i64 [ %28, %26 ], [ %35, %32 ]
+  %.086.i = phi i64 [ %29, %26 ], [ %36, %32 ]
+  %.083.i = phi i64 [ %30, %26 ], [ %37, %32 ]
+  %.081.i = phi i64 [ %31, %26 ], [ %38, %32 ]
+  %.0.i = phi i32 [ %spec.store.select.i, %26 ], [ %24, %32 ]
   br label %40
 
 40:                                               ; preds = %65, %39
@@ -526,52 +525,51 @@ cubic_peak.exit:                                  ; preds = %40, %63, %65
   %89 = or i64 %87, %88
   %90 = trunc i64 %89 to i32
   %91 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %90, i1 true)
-  %92 = xor i32 %91, 31
-  %93 = sub nsw i32 27, %92
-  %94 = icmp samesign ult i32 %92, 27
-  br i1 %94, label %95, label %101
+  %92 = add nsw i32 %91, -4
+  %93 = icmp ult i32 %90, 134217728
+  br i1 %93, label %94, label %100
 
-95:                                               ; preds = %78
-  %spec.store.select.i47 = tail call i32 @llvm.smin.i32(i32 %93, i32 2)
-  %96 = zext nneg i32 %spec.store.select.i47 to i64
-  %97 = shl i64 %79, %96
-  %98 = shl i64 %80, %96
-  %99 = shl i64 %81, %96
-  %100 = shl i64 %82, %96
+94:                                               ; preds = %78
+  %spec.store.select.i46 = tail call i32 @llvm.smin.i32(i32 %92, i32 2)
+  %95 = zext nneg i32 %spec.store.select.i46 to i64
+  %96 = shl i64 %79, %95
+  %97 = shl i64 %80, %95
+  %98 = shl i64 %81, %95
+  %99 = shl i64 %82, %95
   br label %107
 
-101:                                              ; preds = %78
-  %.neg.i27 = sub nsw i32 4, %91
-  %102 = zext nneg i32 %.neg.i27 to i64
+100:                                              ; preds = %78
+  %101 = sub nsw i32 4, %91
+  %102 = zext nneg i32 %101 to i64
   %103 = ashr i64 %79, %102
   %104 = ashr i64 %80, %102
   %105 = ashr i64 %81, %102
   %106 = ashr i64 %82, %102
   br label %107
 
-107:                                              ; preds = %101, %95
-  %.089.i28 = phi i64 [ %97, %95 ], [ %103, %101 ]
-  %.086.i29 = phi i64 [ %98, %95 ], [ %104, %101 ]
-  %.083.i30 = phi i64 [ %99, %95 ], [ %105, %101 ]
-  %.081.i31 = phi i64 [ %100, %95 ], [ %106, %101 ]
-  %.0.i32 = phi i32 [ %spec.store.select.i47, %95 ], [ %93, %101 ]
+107:                                              ; preds = %100, %94
+  %.089.i27 = phi i64 [ %96, %94 ], [ %103, %100 ]
+  %.086.i28 = phi i64 [ %97, %94 ], [ %104, %100 ]
+  %.083.i29 = phi i64 [ %98, %94 ], [ %105, %100 ]
+  %.081.i30 = phi i64 [ %99, %94 ], [ %106, %100 ]
+  %.0.i31 = phi i32 [ %spec.store.select.i46, %94 ], [ %92, %100 ]
   br label %108
 
 108:                                              ; preds = %133, %107
-  %.190.i33 = phi i64 [ %.089.i28, %107 ], [ %.291.i39, %133 ]
-  %.187.i34 = phi i64 [ %.086.i29, %107 ], [ %.288.i40, %133 ]
-  %.184.i35 = phi i64 [ %.083.i30, %107 ], [ %.285.i41, %133 ]
-  %.182.i36 = phi i64 [ %.081.i31, %107 ], [ %.2.i42, %133 ]
-  %109 = icmp sgt i64 %.187.i34, 0
-  %110 = icmp sgt i64 %.184.i35, 0
+  %.190.i32 = phi i64 [ %.089.i27, %107 ], [ %.291.i38, %133 ]
+  %.187.i33 = phi i64 [ %.086.i28, %107 ], [ %.288.i39, %133 ]
+  %.184.i34 = phi i64 [ %.083.i29, %107 ], [ %.285.i40, %133 ]
+  %.182.i35 = phi i64 [ %.081.i30, %107 ], [ %.2.i41, %133 ]
+  %109 = icmp sgt i64 %.187.i33, 0
+  %110 = icmp sgt i64 %.184.i34, 0
   %111 = select i1 %109, i1 true, i1 %110
-  br i1 %111, label %112, label %cubic_peak.exit48
+  br i1 %111, label %112, label %cubic_peak.exit47
 
 112:                                              ; preds = %108
-  %113 = add nsw i64 %.187.i34, %.190.i33
-  %114 = add nsw i64 %.182.i36, %.184.i35
+  %113 = add nsw i64 %.187.i33, %.190.i32
+  %114 = add nsw i64 %.182.i35, %.184.i34
   %115 = icmp sgt i64 %113, %114
-  %116 = add nsw i64 %.184.i35, %.187.i34
+  %116 = add nsw i64 %.184.i34, %.187.i33
   br i1 %115, label %117, label %124
 
 117:                                              ; preds = %112
@@ -593,35 +591,35 @@ cubic_peak.exit:                                  ; preds = %40, %63, %65
   br label %131
 
 131:                                              ; preds = %124, %117
-  %.291.i39 = phi i64 [ %.190.i33, %117 ], [ %128, %124 ]
-  %.288.i40 = phi i64 [ %123, %117 ], [ %129, %124 ]
-  %.285.i41 = phi i64 [ %122, %117 ], [ %130, %124 ]
-  %.2.i42 = phi i64 [ %121, %117 ], [ %.182.i36, %124 ]
-  %132 = icmp ne i64 %.291.i39, %.288.i40
-  %.not.i43 = icmp slt i64 %.291.i39, %.285.i41
-  %or.cond.i44 = select i1 %132, i1 true, i1 %.not.i43
-  br i1 %or.cond.i44, label %133, label %cubic_peak.exit48
+  %.291.i38 = phi i64 [ %.190.i32, %117 ], [ %128, %124 ]
+  %.288.i39 = phi i64 [ %123, %117 ], [ %129, %124 ]
+  %.285.i40 = phi i64 [ %122, %117 ], [ %130, %124 ]
+  %.2.i41 = phi i64 [ %121, %117 ], [ %.182.i35, %124 ]
+  %132 = icmp ne i64 %.291.i38, %.288.i39
+  %.not.i42 = icmp slt i64 %.291.i38, %.285.i40
+  %or.cond.i43 = select i1 %132, i1 true, i1 %.not.i42
+  br i1 %or.cond.i43, label %133, label %cubic_peak.exit47
 
 133:                                              ; preds = %131
-  %134 = icmp ne i64 %.285.i41, %.2.i42
-  %.not98.i45 = icmp sgt i64 %.288.i40, %.2.i42
-  %or.cond99.i46 = or i1 %134, %.not98.i45
-  br i1 %or.cond99.i46, label %108, label %cubic_peak.exit48, !llvm.loop !6
+  %134 = icmp ne i64 %.285.i40, %.2.i41
+  %.not98.i44 = icmp sgt i64 %.288.i39, %.2.i41
+  %or.cond99.i45 = or i1 %134, %.not98.i44
+  br i1 %or.cond99.i45, label %108, label %cubic_peak.exit47, !llvm.loop !6
 
-cubic_peak.exit48:                                ; preds = %108, %131, %133
-  %.080.i37 = phi i64 [ 0, %108 ], [ %.291.i39, %131 ], [ %.285.i41, %133 ]
-  %135 = icmp sgt i32 %.0.i32, 0
-  %136 = zext nneg i32 %.0.i32 to i64
-  %137 = ashr i64 %.080.i37, %136
-  %138 = sub nsw i32 0, %.0.i32
+cubic_peak.exit47:                                ; preds = %108, %131, %133
+  %.080.i36 = phi i64 [ 0, %108 ], [ %.291.i38, %131 ], [ %.285.i40, %133 ]
+  %135 = icmp sgt i32 %.0.i31, 0
+  %136 = zext nneg i32 %.0.i31 to i64
+  %137 = ashr i64 %.080.i36, %136
+  %138 = sub nsw i32 0, %.0.i31
   %139 = zext nneg i32 %138 to i64
-  %140 = shl i64 %.080.i37, %139
-  %.1.i38 = select i1 %135, i64 %137, i64 %140
-  %141 = sub nsw i64 %75, %.1.i38
+  %140 = shl i64 %.080.i36, %139
+  %.1.i37 = select i1 %135, i64 %137, i64 %140
+  %141 = sub nsw i64 %75, %.1.i37
   store i64 %141, ptr %4, align 8
   br label %142
 
-142:                                              ; preds = %74, %cubic_peak.exit48
+142:                                              ; preds = %74, %cubic_peak.exit47
   ret void
 }
 

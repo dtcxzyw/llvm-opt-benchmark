@@ -1504,7 +1504,7 @@ if.then.i.i358:                                   ; preds = %while.body.i
   %sub.i.i = sub nuw nsw i64 %add.i349, %sub.ptr.div.i32.i
   %sub.ptr.sub.i14.i.i = sub i64 %sub.ptr.lhs.cast.i7.i, %sub.ptr.lhs.cast.i29.i
   %sub.ptr.div.i15.i.i = ashr exact i64 %sub.ptr.sub.i14.i.i, 3
-  %sub.i.i.i = xor i64 %sub.ptr.div.i32.i, 1152921504606846975
+  %sub.i.i.i = sub nuw nsw i64 1152921504606846975, %sub.ptr.div.i32.i
   %cmp6.i.i.i = icmp ule i64 %sub.ptr.div.i15.i.i, %sub.i.i.i
   call void @llvm.assume(i1 %cmp6.i.i.i)
   %cmp8.not.i.i.i = icmp ult i64 %sub.ptr.div.i15.i.i, %sub.i.i
@@ -1573,7 +1573,7 @@ _ZSt27__uninitialized_default_n_aIPN12_GLOBAL__N_111MovableTypeEmS1_ET_S3_T0_RSa
   br label %_ZNSt6vectorIN12_GLOBAL__N_111MovableTypeESaIS1_EE6resizeEm.exit.i
 
 if.else.i.i11.i:                                  ; preds = %if.then.i.i358
-  %cmp.i.i.i12.i = icmp ult i64 %sub.i.i.i, %sub.i.i
+  %cmp.i.i.i12.i = icmp ugt i64 %add.i349, 1152921504606846975
   br i1 %cmp.i.i.i12.i, label %if.then.i.i.i14.i, label %_ZNKSt6vectorIN12_GLOBAL__N_111MovableTypeESaIS1_EE12_M_check_lenEmPKc.exit.i.i.i
 
 if.then.i.i.i14.i:                                ; preds = %if.else.i.i11.i
@@ -1692,7 +1692,7 @@ if.then.i52.i.i.i:                                ; preds = %_ZNSt6vectorIN12_GL
 
 _ZNSt12_Vector_baseIN12_GLOBAL__N_111MovableTypeESaIS1_EE13_M_deallocateEPS1_m.exit53.i.i.i: ; preds = %if.then.i52.i.i.i, %_ZNSt6vectorIN12_GLOBAL__N_111MovableTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.i.i.i
   store ptr %call5.i.i.i.i.i.i364, ptr %stdVectorMovableType, align 8
-  %add.ptr37.i.i.i = getelementptr inbounds %"struct.(anonymous namespace)::MovableType", ptr %add.ptr.i.i.i359, i64 %sub.i.i
+  %add.ptr37.i.i.i = getelementptr inbounds nuw %"struct.(anonymous namespace)::MovableType", ptr %add.ptr.i.i.i359, i64 %sub.i.i
   store ptr %add.ptr37.i.i.i, ptr %0, align 8
   %add.ptr40.i.i.i = getelementptr inbounds nuw %"struct.(anonymous namespace)::MovableType", ptr %call5.i.i.i.i.i.i364, i64 %112
   store ptr %add.ptr40.i.i.i, ptr %1, align 8

@@ -11890,7 +11890,7 @@ define internal fastcc i64 @af_loader_compute_darkening(ptr nocapture readonly %
   %7 = shl nuw nsw i64 %6, 16
   %8 = tail call i64 @FT_DivFix(i64 noundef 65536000, i64 noundef %7) #20
   %9 = icmp slt i64 %8, 655
-  br i1 %9, label %127, label %10
+  br i1 %9, label %125, label %10
 
 10:                                               ; preds = %1
   %11 = getelementptr inbounds nuw i8, ptr %.8.val.792.val, i64 36
@@ -11930,140 +11930,138 @@ define internal fastcc i64 @af_loader_compute_darkening(ptr nocapture readonly %
   %.078 = phi i64 [ %38, %28 ], [ 4915200, %10 ]
   %40 = trunc nsw i64 %.078 to i32
   %41 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %40, i1 true)
-  %42 = xor i32 %41, 31
-  %43 = trunc nuw i64 %5 to i32
-  %44 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %43, i1 true)
-  %45 = xor i32 %44, 31
-  %46 = add nuw nsw i32 %42, %45
-  %47 = icmp samesign ugt i32 %46, 45
-  br i1 %47, label %48, label %51
+  %42 = trunc nuw i64 %5 to i32
+  %43 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %42, i1 true)
+  %44 = add nuw nsw i32 %41, %43
+  %45 = icmp samesign ult i32 %44, 17
+  br i1 %45, label %46, label %49
 
-48:                                               ; preds = %39
-  %49 = shl i32 %24, 16
-  %50 = zext i32 %49 to i64
-  br label %59
+46:                                               ; preds = %39
+  %47 = shl i32 %24, 16
+  %48 = zext i32 %47 to i64
+  br label %57
 
-51:                                               ; preds = %39
+49:                                               ; preds = %39
   %sext3 = shl nuw i64 %5, 32
-  %52 = ashr exact i64 %sext3, 32
-  %53 = mul nsw i64 %.078, %52
-  %54 = ashr i64 %53, 63
-  %55 = or disjoint i64 %53, 32768
-  %56 = add nsw i64 %55, %54
-  %57 = shl i64 %56, 16
-  %58 = ashr i64 %57, 32
-  br label %59
+  %50 = ashr exact i64 %sext3, 32
+  %51 = mul nsw i64 %.078, %50
+  %52 = ashr i64 %51, 63
+  %53 = or disjoint i64 %51, 32768
+  %54 = add nsw i64 %53, %52
+  %55 = shl i64 %54, 16
+  %56 = ashr i64 %55, 32
+  br label %57
 
-59:                                               ; preds = %51, %48
-  %.079 = phi i64 [ %50, %48 ], [ %58, %51 ]
-  %60 = shl i32 %12, 16
-  %61 = zext i32 %60 to i64
-  %62 = icmp slt i64 %.079, %61
-  br i1 %62, label %63, label %67
+57:                                               ; preds = %49, %46
+  %.079 = phi i64 [ %48, %46 ], [ %56, %49 ]
+  %58 = shl i32 %12, 16
+  %59 = zext i32 %58 to i64
+  %60 = icmp slt i64 %.079, %59
+  br i1 %60, label %61, label %65
 
-63:                                               ; preds = %59
-  %64 = shl i32 %14, 16
-  %65 = zext i32 %64 to i64
-  %66 = tail call i64 @FT_DivFix(i64 noundef %65, i64 noundef %5) #20
-  br label %125
+61:                                               ; preds = %57
+  %62 = shl i32 %14, 16
+  %63 = zext i32 %62 to i64
+  %64 = tail call i64 @FT_DivFix(i64 noundef %63, i64 noundef %5) #20
+  br label %123
 
-67:                                               ; preds = %59
-  %68 = shl i32 %16, 16
-  %69 = zext i32 %68 to i64
-  %70 = icmp samesign ult i64 %.079, %69
-  br i1 %70, label %71, label %85
+65:                                               ; preds = %57
+  %66 = shl i32 %16, 16
+  %67 = zext i32 %66 to i64
+  %68 = icmp samesign ult i64 %.079, %67
+  br i1 %68, label %69, label %83
 
-71:                                               ; preds = %67
-  %72 = tail call i64 @FT_DivFix(i64 noundef %61, i64 noundef %5) #20
+69:                                               ; preds = %65
+  %70 = tail call i64 @FT_DivFix(i64 noundef %59, i64 noundef %5) #20
   %.not = icmp eq i32 %16, %12
-  br i1 %.not, label %89, label %73
+  br i1 %.not, label %87, label %71
 
-73:                                               ; preds = %71
-  %74 = sub nsw i32 %16, %12
-  %75 = sub nsw i64 %.078, %72
-  %76 = sub nsw i32 %18, %14
-  %sext91 = shl i64 %75, 32
-  %77 = ashr exact i64 %sext91, 32
-  %78 = sext i32 %76 to i64
-  %79 = sext i32 %74 to i64
-  %80 = tail call i64 @FT_MulDiv(i64 noundef %77, i64 noundef %78, i64 noundef %79) #20
-  %81 = shl i32 %14, 16
-  %82 = zext i32 %81 to i64
-  %83 = tail call i64 @FT_DivFix(i64 noundef %82, i64 noundef %5) #20
-  %84 = add nsw i64 %83, %80
-  br label %125
+71:                                               ; preds = %69
+  %72 = sub nsw i32 %16, %12
+  %73 = sub nsw i64 %.078, %70
+  %74 = sub nsw i32 %18, %14
+  %sext91 = shl i64 %73, 32
+  %75 = ashr exact i64 %sext91, 32
+  %76 = sext i32 %74 to i64
+  %77 = sext i32 %72 to i64
+  %78 = tail call i64 @FT_MulDiv(i64 noundef %75, i64 noundef %76, i64 noundef %77) #20
+  %79 = shl i32 %14, 16
+  %80 = zext i32 %79 to i64
+  %81 = tail call i64 @FT_DivFix(i64 noundef %80, i64 noundef %5) #20
+  %82 = add nsw i64 %81, %78
+  br label %123
 
-85:                                               ; preds = %67
-  %86 = shl i32 %20, 16
-  %87 = zext i32 %86 to i64
-  %88 = icmp samesign ult i64 %.079, %87
-  br i1 %88, label %89, label %103
+83:                                               ; preds = %65
+  %84 = shl i32 %20, 16
+  %85 = zext i32 %84 to i64
+  %86 = icmp samesign ult i64 %.079, %85
+  br i1 %86, label %87, label %101
 
-89:                                               ; preds = %85, %71
-  %90 = tail call i64 @FT_DivFix(i64 noundef %69, i64 noundef %5) #20
+87:                                               ; preds = %83, %69
+  %88 = tail call i64 @FT_DivFix(i64 noundef %67, i64 noundef %5) #20
   %.not88 = icmp eq i32 %20, %16
-  br i1 %.not88, label %._crit_edge, label %91
+  br i1 %.not88, label %._crit_edge, label %89
 
-._crit_edge:                                      ; preds = %89
+._crit_edge:                                      ; preds = %87
   %.pre = shl i32 %20, 16
   %.pre5 = zext i32 %.pre to i64
-  br label %107
+  br label %105
 
-91:                                               ; preds = %89
-  %92 = sub nsw i32 %20, %16
-  %93 = sub nsw i64 %.078, %90
-  %94 = sub nsw i32 %22, %18
-  %sext90 = shl i64 %93, 32
-  %95 = ashr exact i64 %sext90, 32
-  %96 = sext i32 %94 to i64
-  %97 = sext i32 %92 to i64
-  %98 = tail call i64 @FT_MulDiv(i64 noundef %95, i64 noundef %96, i64 noundef %97) #20
-  %99 = shl i32 %18, 16
-  %100 = zext i32 %99 to i64
-  %101 = tail call i64 @FT_DivFix(i64 noundef %100, i64 noundef %5) #20
-  %102 = add nsw i64 %101, %98
-  br label %125
+89:                                               ; preds = %87
+  %90 = sub nsw i32 %20, %16
+  %91 = sub nsw i64 %.078, %88
+  %92 = sub nsw i32 %22, %18
+  %sext90 = shl i64 %91, 32
+  %93 = ashr exact i64 %sext90, 32
+  %94 = sext i32 %92 to i64
+  %95 = sext i32 %90 to i64
+  %96 = tail call i64 @FT_MulDiv(i64 noundef %93, i64 noundef %94, i64 noundef %95) #20
+  %97 = shl i32 %18, 16
+  %98 = zext i32 %97 to i64
+  %99 = tail call i64 @FT_DivFix(i64 noundef %98, i64 noundef %5) #20
+  %100 = add nsw i64 %99, %96
+  br label %123
 
-103:                                              ; preds = %85
-  %104 = shl i32 %24, 16
-  %105 = zext i32 %104 to i64
-  %106 = icmp samesign ult i64 %.079, %105
-  br i1 %106, label %107, label %121
+101:                                              ; preds = %83
+  %102 = shl i32 %24, 16
+  %103 = zext i32 %102 to i64
+  %104 = icmp samesign ult i64 %.079, %103
+  br i1 %104, label %105, label %119
 
-107:                                              ; preds = %._crit_edge, %103
-  %.pre-phi6 = phi i64 [ %.pre5, %._crit_edge ], [ %87, %103 ]
-  %108 = tail call i64 @FT_DivFix(i64 noundef %.pre-phi6, i64 noundef %5) #20
+105:                                              ; preds = %._crit_edge, %101
+  %.pre-phi6 = phi i64 [ %.pre5, %._crit_edge ], [ %85, %101 ]
+  %106 = tail call i64 @FT_DivFix(i64 noundef %.pre-phi6, i64 noundef %5) #20
   %.not89 = icmp eq i32 %24, %20
-  br i1 %.not89, label %121, label %109
+  br i1 %.not89, label %119, label %107
 
-109:                                              ; preds = %107
-  %110 = sub nsw i32 %24, %20
-  %111 = sub nsw i64 %.078, %108
-  %112 = sub nsw i32 %26, %22
-  %sext = shl i64 %111, 32
-  %113 = ashr exact i64 %sext, 32
-  %114 = sext i32 %112 to i64
-  %115 = sext i32 %110 to i64
-  %116 = tail call i64 @FT_MulDiv(i64 noundef %113, i64 noundef %114, i64 noundef %115) #20
-  %117 = shl i32 %22, 16
-  %118 = zext i32 %117 to i64
-  %119 = tail call i64 @FT_DivFix(i64 noundef %118, i64 noundef %5) #20
-  %120 = add nsw i64 %119, %116
+107:                                              ; preds = %105
+  %108 = sub nsw i32 %24, %20
+  %109 = sub nsw i64 %.078, %106
+  %110 = sub nsw i32 %26, %22
+  %sext = shl i64 %109, 32
+  %111 = ashr exact i64 %sext, 32
+  %112 = sext i32 %110 to i64
+  %113 = sext i32 %108 to i64
+  %114 = tail call i64 @FT_MulDiv(i64 noundef %111, i64 noundef %112, i64 noundef %113) #20
+  %115 = shl i32 %22, 16
+  %116 = zext i32 %115 to i64
+  %117 = tail call i64 @FT_DivFix(i64 noundef %116, i64 noundef %5) #20
+  %118 = add nsw i64 %117, %114
+  br label %123
+
+119:                                              ; preds = %101, %105
+  %120 = shl i32 %26, 16
+  %121 = zext i32 %120 to i64
+  %122 = tail call i64 @FT_DivFix(i64 noundef %121, i64 noundef %5) #20
+  br label %123
+
+123:                                              ; preds = %71, %107, %119, %89, %61
+  %.080 = phi i64 [ %64, %61 ], [ %82, %71 ], [ %100, %89 ], [ %118, %107 ], [ %122, %119 ]
+  %124 = tail call i64 @FT_DivFix(i64 noundef %.080, i64 noundef %8) #20
   br label %125
 
-121:                                              ; preds = %103, %107
-  %122 = shl i32 %26, 16
-  %123 = zext i32 %122 to i64
-  %124 = tail call i64 @FT_DivFix(i64 noundef %123, i64 noundef %5) #20
-  br label %125
-
-125:                                              ; preds = %73, %109, %121, %91, %63
-  %.080 = phi i64 [ %66, %63 ], [ %84, %73 ], [ %102, %91 ], [ %120, %109 ], [ %124, %121 ]
-  %126 = tail call i64 @FT_DivFix(i64 noundef %.080, i64 noundef %8) #20
-  br label %127
-
-127:                                              ; preds = %1, %125
-  %.0 = phi i64 [ %126, %125 ], [ 0, %1 ]
+125:                                              ; preds = %1, %123
+  %.0 = phi i64 [ %124, %123 ], [ 0, %1 ]
   ret i64 %.0
 }
 
