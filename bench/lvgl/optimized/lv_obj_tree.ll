@@ -990,58 +990,54 @@ lv_obj_get_parent.exit:                           ; preds = %2
 
 28:                                               ; preds = %22
   %29 = icmp samesign ult i32 %spec.select, %23
-  br i1 %29, label %.preheader, label %.preheader46
+  br i1 %29, label %.preheader.preheader, label %.preheader46
+
+.preheader.preheader:                             ; preds = %28
+  %sext = shl i64 %indvars.iv.i, 32
+  %30 = ashr exact i64 %sext, 32
+  %31 = zext nneg i32 %spec.select to i64
+  br label %.preheader
 
 .preheader46:                                     ; preds = %28
-  %30 = icmp samesign ugt i32 %spec.select, %23
-  br i1 %30, label %.lr.ph.preheader, label %.loopexit
+  %32 = icmp samesign ugt i32 %spec.select, %23
+  br i1 %32, label %.lr.ph.preheader, label %.loopexit
 
 .lr.ph.preheader:                                 ; preds = %.preheader46
-  %31 = and i64 %indvars.iv.i, 4294967295
+  %33 = and i64 %indvars.iv.i, 4294967295
   %wide.trip.count = zext nneg i32 %spec.select to i64
   br label %.lr.ph
 
-.preheader:                                       ; preds = %28
-  %32 = icmp slt i32 %spec.select, %23
-  br i1 %32, label %.lr.ph52.preheader, label %.loopexit
-
-.lr.ph52.preheader:                               ; preds = %.preheader
-  %sext = shl i64 %indvars.iv.i, 32
-  %33 = ashr exact i64 %sext, 32
-  %34 = zext nneg i32 %spec.select to i64
-  br label %.lr.ph52
-
-.lr.ph52:                                         ; preds = %.lr.ph52.preheader, %.lr.ph52
-  %indvars.iv56 = phi i64 [ %33, %.lr.ph52.preheader ], [ %indvars.iv.next57, %.lr.ph52 ]
-  %35 = load ptr, ptr %7, align 8, !tbaa !26
-  %36 = load ptr, ptr %35, align 8, !tbaa !30
-  %37 = getelementptr ptr, ptr %36, i64 %indvars.iv56
-  %38 = getelementptr i8, ptr %37, i64 -8
-  %39 = load ptr, ptr %38, align 8, !tbaa !22
-  store ptr %39, ptr %37, align 8, !tbaa !22
-  %indvars.iv.next57 = add nsw i64 %indvars.iv56, -1
-  %40 = icmp sgt i64 %indvars.iv.next57, %34
-  br i1 %40, label %.lr.ph52, label %.loopexit, !llvm.loop !53
+.preheader:                                       ; preds = %.preheader.preheader, %.preheader
+  %indvars.iv55 = phi i64 [ %30, %.preheader.preheader ], [ %indvars.iv.next56, %.preheader ]
+  %34 = load ptr, ptr %7, align 8, !tbaa !26
+  %35 = load ptr, ptr %34, align 8, !tbaa !30
+  %36 = getelementptr ptr, ptr %35, i64 %indvars.iv55
+  %37 = getelementptr i8, ptr %36, i64 -8
+  %38 = load ptr, ptr %37, align 8, !tbaa !22
+  store ptr %38, ptr %36, align 8, !tbaa !22
+  %indvars.iv.next56 = add nsw i64 %indvars.iv55, -1
+  %39 = icmp sgt i64 %indvars.iv.next56, %31
+  br i1 %39, label %.preheader, label %.loopexit, !llvm.loop !53
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %indvars.iv = phi i64 [ %31, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %41 = load ptr, ptr %7, align 8, !tbaa !26
-  %42 = load ptr, ptr %41, align 8, !tbaa !30
+  %indvars.iv = phi i64 [ %33, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
+  %40 = load ptr, ptr %7, align 8, !tbaa !26
+  %41 = load ptr, ptr %40, align 8, !tbaa !30
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %43 = getelementptr inbounds nuw ptr, ptr %42, i64 %indvars.iv.next
-  %44 = load ptr, ptr %43, align 8, !tbaa !22
-  %45 = getelementptr inbounds nuw ptr, ptr %42, i64 %indvars.iv
-  store ptr %44, ptr %45, align 8, !tbaa !22
+  %42 = getelementptr inbounds nuw ptr, ptr %41, i64 %indvars.iv.next
+  %43 = load ptr, ptr %42, align 8, !tbaa !22
+  %44 = getelementptr inbounds nuw ptr, ptr %41, i64 %indvars.iv
+  store ptr %43, ptr %44, align 8, !tbaa !22
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !54
 
-.loopexit:                                        ; preds = %.lr.ph, %.lr.ph52, %.preheader46, %.preheader
-  %46 = load ptr, ptr %7, align 8, !tbaa !26
-  %47 = load ptr, ptr %46, align 8, !tbaa !30
-  %48 = zext nneg i32 %spec.select to i64
-  %49 = getelementptr inbounds nuw ptr, ptr %47, i64 %48
-  store ptr %0, ptr %49, align 8, !tbaa !22
-  %50 = tail call i32 @lv_obj_send_event(ptr noundef nonnull %5, i32 noundef 42, ptr noundef null) #7
+.loopexit:                                        ; preds = %.lr.ph, %.preheader, %.preheader46
+  %45 = load ptr, ptr %7, align 8, !tbaa !26
+  %46 = load ptr, ptr %45, align 8, !tbaa !30
+  %47 = zext nneg i32 %spec.select to i64
+  %48 = getelementptr inbounds nuw ptr, ptr %46, i64 %47
+  store ptr %0, ptr %48, align 8, !tbaa !22
+  %49 = tail call i32 @lv_obj_send_event(ptr noundef nonnull %5, i32 noundef 42, ptr noundef null) #7
   tail call void @lv_obj_invalidate(ptr noundef nonnull %5) #7
   br label %lv_obj_get_parent.exit.thread
 

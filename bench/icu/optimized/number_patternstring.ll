@@ -3304,7 +3304,7 @@ lpad48.loopexit.split-lp.loopexit:                ; preds = %for.body200
           cleanup
   br label %ehcleanup321
 
-lpad48.loopexit.split-lp.loopexit.split-lp.loopexit: ; preds = %if.then142, %if.else145, %if.then158, %if.else161, %if.then172, %if.then182
+lpad48.loopexit.split-lp.loopexit.split-lp.loopexit: ; preds = %if.then142, %if.then.i.i165, %if.then158, %if.else161, %if.then172, %if.then182
   %lpad.loopexit288 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup321
@@ -3581,7 +3581,7 @@ invoke.cont133:                                   ; preds = %invoke.cont133.lr.p
   %cmp138 = icmp sgt i32 %sub137, -1
   %cmp141.not = icmp slt i32 %sub137, %cond.i149
   %or.cond284 = and i1 %cmp138, %cmp141.not
-  br i1 %or.cond284, label %if.else145, label %if.then142
+  br i1 %or.cond284, label %if.then.i.i165, label %if.then142
 
 if.then142:                                       ; preds = %invoke.cont133
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %srcChar.addr.i155)
@@ -3593,7 +3593,7 @@ _ZN6icu_7513UnicodeString6appendEDs.exit157:      ; preds = %if.then142
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %srcChar.addr.i155)
   br label %if.end150
 
-if.else145:                                       ; preds = %invoke.cont133
+if.then.i.i165:                                   ; preds = %invoke.cont133
   %65 = and i16 %62, 2
   %tobool.not.i.i.i166 = icmp eq i16 %65, 0
   %66 = load ptr, ptr %fArray.i.i.i168, align 8
@@ -3606,7 +3606,7 @@ if.else145:                                       ; preds = %invoke.cont133
   %call.i172 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeString8doAppendEPKDsii(ptr noundef nonnull align 8 dereferenceable(64) %agg.result, ptr noundef nonnull %srcChar.addr.i171, i32 noundef 0, i32 noundef 1)
           to label %_ZN6icu_7513UnicodeString6appendEDs.exit173 unwind label %lpad48.loopexit.split-lp.loopexit.split-lp.loopexit
 
-_ZN6icu_7513UnicodeString6appendEDs.exit173:      ; preds = %if.else145
+_ZN6icu_7513UnicodeString6appendEDs.exit173:      ; preds = %if.then.i.i165
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %srcChar.addr.i171)
   br label %if.end150
 

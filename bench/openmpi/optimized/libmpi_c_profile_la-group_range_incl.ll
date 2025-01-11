@@ -112,13 +112,9 @@ define i32 @PMPI_Group_range_incl(ptr noundef %0, i32 noundef %1, ptr noundef %2
 
 46:                                               ; preds = %44
   %47 = icmp slt i32 %42, 0
-  br i1 %47, label %.loopexit102, label %.preheader
+  br i1 %47, label %.loopexit102, label %.lr.ph116.preheader
 
-.preheader:                                       ; preds = %46
-  %.not97114 = icmp samesign ugt i32 %32, %37
-  br i1 %.not97114, label %.loopexit, label %.lr.ph116.preheader
-
-.lr.ph116.preheader:                              ; preds = %.preheader
+.lr.ph116.preheader:                              ; preds = %46
   %48 = zext nneg i32 %32 to i64
   %49 = zext nneg i32 %42 to i64
   %50 = trunc nuw nsw i64 %indvars.iv129 to i32
@@ -144,13 +140,9 @@ define i32 @PMPI_Group_range_incl(ptr noundef %0, i32 noundef %1, ptr noundef %2
 
 57:                                               ; preds = %55
   %58 = icmp sgt i32 %42, 0
-  br i1 %58, label %.loopexit102, label %.preheader103
+  br i1 %58, label %.loopexit102, label %.lr.ph113.preheader
 
-.preheader103:                                    ; preds = %57
-  %.not95111 = icmp samesign ult i32 %32, %37
-  br i1 %.not95111, label %.loopexit, label %.lr.ph113.preheader
-
-.lr.ph113.preheader:                              ; preds = %.preheader103
+.lr.ph113.preheader:                              ; preds = %57
   %59 = zext nneg i32 %32 to i64
   %60 = sext i32 %42 to i64
   %61 = zext nneg i32 %37 to i64
@@ -182,13 +174,13 @@ define i32 @PMPI_Group_range_incl(ptr noundef %0, i32 noundef %1, ptr noundef %2
   store i32 %71, ptr %68, align 4
   br label %.loopexit
 
-.loopexit:                                        ; preds = %65, %53, %.preheader103, %.preheader, %70
+.loopexit:                                        ; preds = %65, %53, %70
   %indvars.iv.next130 = add nuw nsw i64 %indvars.iv129, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next130, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph119, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %.loopexit, %.preheader106
-  tail call void @free(ptr noundef %23) #7
+  tail call void @free(ptr noundef nonnull %23) #7
   br label %72
 
 72:                                               ; preds = %._crit_edge, %4

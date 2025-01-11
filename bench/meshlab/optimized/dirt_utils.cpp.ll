@@ -24518,8 +24518,8 @@ _ZNSt6vectorIN3vcg6Point3IfEESaIS2_EE5clearEv.exit: ; preds = %_ZNSt6vectorIfSaI
   %40 = load i8, ptr %39, align 8
   %41 = trunc i8 %40 to i1
   %42 = icmp eq i32 %3, 0
-  %.not1856 = or i1 %42, %41
-  br i1 %.not1856, label %._crit_edge, label %.lr.ph
+  %.not1854 = or i1 %42, %41
+  br i1 %.not1854, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EE5clearEv.exit
   %43 = getelementptr inbounds nuw i8, ptr %6, i64 16
@@ -24534,7 +24534,7 @@ _ZNSt6vectorIN3vcg6Point3IfEESaIS2_EE5clearEv.exit: ; preds = %_ZNSt6vectorIfSaI
   br label %52
 
 52:                                               ; preds = %.lr.ph, %_ZN3vcg15ClosestIteratorINS_13GridStaticPtrI8CVertexOfEENS_6vertex20PointDistanceFunctorIfEENS_3tri10EmptyTMarkI6CMeshOEEEppEv.exit
-  %.057 = phi i32 [ 0, %.lr.ph ], [ %268, %_ZN3vcg15ClosestIteratorINS_13GridStaticPtrI8CVertexOfEENS_6vertex20PointDistanceFunctorIfEENS_3tri10EmptyTMarkI6CMeshOEEEppEv.exit ]
+  %.055 = phi i32 [ 0, %.lr.ph ], [ %268, %_ZN3vcg15ClosestIteratorINS_13GridStaticPtrI8CVertexOfEENS_6vertex20PointDistanceFunctorIfEENS_3tri10EmptyTMarkI6CMeshOEEEppEv.exit ]
   %53 = load i64, ptr %25, align 8
   %54 = inttoptr i64 %53 to ptr
   %55 = getelementptr inbounds i8, ptr %54, i64 -24
@@ -24724,8 +24724,8 @@ _ZNKSt6vectorIN3vcg6Point3IfEESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i: ; preds = 
 .noexc33:                                         ; preds = %_ZNKSt6vectorIN3vcg6Point3IfEESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i
   %133 = getelementptr inbounds i8, ptr %132, i64 %124
   store <2 x float> %.sroa.01.0.copyload.i, ptr %133, align 4
-  %.sroa.3.0..sroa_idx43 = getelementptr inbounds nuw i8, ptr %133, i64 8
-  store float %.sroa.22.0.copyload.i, ptr %.sroa.3.0..sroa_idx43, align 4
+  %.sroa.3.0..sroa_idx41 = getelementptr inbounds nuw i8, ptr %133, i64 8
+  store float %.sroa.22.0.copyload.i, ptr %.sroa.3.0..sroa_idx41, align 4
   %.not10.i.i.i.i.i.i.i = icmp eq ptr %121, %115
   br i1 %.not10.i.i.i.i.i.i.i, label %_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i.i, label %.lr.ph.i.i.i.i.i.i.i
 
@@ -24919,12 +24919,12 @@ _ZN3vcg15ClosestIteratorINS_13GridStaticPtrI8CVertexOfEENS_6vertex20PointDistanc
 
 236:                                              ; preds = %235, %233
   %237 = phi i32 [ %216, %235 ], [ %207, %233 ]
-  %238 = icmp sgt i32 %220, %231
-  %239 = icmp sgt i32 %224, %234
-  %or.cond.i.i40 = or i1 %238, %239
-  %240 = icmp sgt i32 %228, %237
-  %or.cond13.i.i = or i1 %or.cond.i.i40, %240
-  br i1 %or.cond13.i.i, label %_ZN3vcg4Box3IiE9IntersectERKS1_.exit.thread.i, label %.noexc34
+  %238 = icmp sle i32 %220, %231
+  %239 = icmp sle i32 %224, %234
+  %or.cond.i.not23.i = and i1 %238, %239
+  %240 = icmp sle i32 %228, %237
+  %or.cond13.i.not.i = and i1 %or.cond.i.not23.i, %240
+  br i1 %or.cond13.i.not.i, label %.noexc34, label %_ZN3vcg4Box3IiE9IntersectERKS1_.exit.thread.i
 
 _ZN3vcg4Box3IiE9IntersectERKS1_.exit.thread.i:    ; preds = %236
   store i32 1, ptr %18, align 8
@@ -24935,7 +24935,7 @@ _ZN3vcg4Box3IiE9IntersectERKS1_.exit.thread.i:    ; preds = %236
   store i32 -1, ptr %23, align 4
   br label %.noexc34
 
-.noexc34:                                         ; preds = %236, %_ZN3vcg4Box3IiE9IntersectERKS1_.exit.thread.i
+.noexc34:                                         ; preds = %_ZN3vcg4Box3IiE9IntersectERKS1_.exit.thread.i, %236
   %241 = invoke noundef zeroext i1 @_ZN3vcg15ClosestIteratorINS_13GridStaticPtrI8CVertexOfEENS_6vertex20PointDistanceFunctorIfEENS_3tri10EmptyTMarkI6CMeshOEEE7RefreshEv(ptr noundef nonnull align 8 dereferenceable(128) %10)
           to label %.noexc35 unwind label %.loopexit
 
@@ -24944,7 +24944,7 @@ _ZN3vcg4Box3IiE9IntersectERKS1_.exit.thread.i:    ; preds = %236
 
 .noexc35._ZN3vcg15ClosestIteratorINS_13GridStaticPtrI8CVertexOfEENS_6vertex20PointDistanceFunctorIfEENS_3tri10EmptyTMarkI6CMeshOEEEppEv.exit.loopexit_crit_edge: ; preds = %.noexc35
   %.pre.pre = load i8, ptr %39, align 8
-  %.pre61 = trunc i8 %.pre.pre to i1
+  %.pre59 = trunc i8 %.pre.pre to i1
   br label %_ZN3vcg15ClosestIteratorINS_13GridStaticPtrI8CVertexOfEENS_6vertex20PointDistanceFunctorIfEENS_3tri10EmptyTMarkI6CMeshOEEEppEv.exit
 
 242:                                              ; preds = %.noexc35
@@ -24990,12 +24990,12 @@ _ZN3vcg15ClosestIteratorINS_13GridStaticPtrI8CVertexOfEENS_6vertex20PointDistanc
   br i1 %266, label %_ZN3vcg15ClosestIteratorINS_13GridStaticPtrI8CVertexOfEENS_6vertex20PointDistanceFunctorIfEENS_3tri10EmptyTMarkI6CMeshOEEEppEv.exit.thread, label %_ZN3vcg15ClosestIteratorINS_13GridStaticPtrI8CVertexOfEENS_6vertex20PointDistanceFunctorIfEENS_3tri10EmptyTMarkI6CMeshOEEE8ToUpdateEv.exit.i, !llvm.loop !317
 
 _ZN3vcg15ClosestIteratorINS_13GridStaticPtrI8CVertexOfEENS_6vertex20PointDistanceFunctorIfEENS_3tri10EmptyTMarkI6CMeshOEEEppEv.exit.thread: ; preds = %144, %_ZN3vcg15ClosestIteratorINS_13GridStaticPtrI8CVertexOfEENS_6vertex20PointDistanceFunctorIfEENS_3tri10EmptyTMarkI6CMeshOEEE8_EndGridEv.exit.i
-  %267 = add nuw i32 %.057, 1
+  %267 = add nuw i32 %.055, 1
   br label %._crit_edge
 
 _ZN3vcg15ClosestIteratorINS_13GridStaticPtrI8CVertexOfEENS_6vertex20PointDistanceFunctorIfEENS_3tri10EmptyTMarkI6CMeshOEEEppEv.exit: ; preds = %.noexc35._ZN3vcg15ClosestIteratorINS_13GridStaticPtrI8CVertexOfEENS_6vertex20PointDistanceFunctorIfEENS_3tri10EmptyTMarkI6CMeshOEEEppEv.exit.loopexit_crit_edge, %_ZN3vcg15ClosestIteratorINS_13GridStaticPtrI8CVertexOfEENS_6vertex20PointDistanceFunctorIfEENS_3tri10EmptyTMarkI6CMeshOEEE4DistEv.exit.i.i
-  %.pre-phi = phi i1 [ false, %_ZN3vcg15ClosestIteratorINS_13GridStaticPtrI8CVertexOfEENS_6vertex20PointDistanceFunctorIfEENS_3tri10EmptyTMarkI6CMeshOEEE4DistEv.exit.i.i ], [ %.pre61, %.noexc35._ZN3vcg15ClosestIteratorINS_13GridStaticPtrI8CVertexOfEENS_6vertex20PointDistanceFunctorIfEENS_3tri10EmptyTMarkI6CMeshOEEEppEv.exit.loopexit_crit_edge ]
-  %268 = add nuw i32 %.057, 1
+  %.pre-phi = phi i1 [ false, %_ZN3vcg15ClosestIteratorINS_13GridStaticPtrI8CVertexOfEENS_6vertex20PointDistanceFunctorIfEENS_3tri10EmptyTMarkI6CMeshOEEE4DistEv.exit.i.i ], [ %.pre59, %.noexc35._ZN3vcg15ClosestIteratorINS_13GridStaticPtrI8CVertexOfEENS_6vertex20PointDistanceFunctorIfEENS_3tri10EmptyTMarkI6CMeshOEEEppEv.exit.loopexit_crit_edge ]
+  %268 = add nuw i32 %.055, 1
   %269 = icmp uge i32 %268, %3
   %.not18 = select i1 %.pre-phi, i1 true, i1 %269
   br i1 %.not18, label %._crit_edge, label %52, !llvm.loop !318
@@ -25006,17 +25006,17 @@ _ZN3vcg15ClosestIteratorINS_13GridStaticPtrI8CVertexOfEENS_6vertex20PointDistanc
   br label %.loopexit.split-lp
 
 .loopexit.split-lp.loopexit:                      ; preds = %_ZNKSt6vectorIN3vcg6Point3IfEESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i, %_ZNKSt6vectorIfSaIfEE12_M_check_lenEmPKc.exit.i.i.i, %_ZNKSt6vectorIP8CVertexOSaIS1_EE12_M_check_lenEmPKc.exit.i.i.i
-  %lpad.loopexit48 = landingpad { ptr, i32 }
+  %lpad.loopexit46 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
 
 .loopexit.split-lp.loopexit.split-lp:             ; preds = %.invoke, %9
-  %lpad.loopexit.split-lp49 = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp47 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
 
 .loopexit.split-lp:                               ; preds = %.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp, %.loopexit
-  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit48, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp49, %.loopexit.split-lp.loopexit.split-lp ]
+  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit46, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp47, %.loopexit.split-lp.loopexit.split-lp ]
   %270 = load ptr, ptr %24, align 8
   %.not.i.i.i.i36 = icmp eq ptr %270, null
   br i1 %.not.i.i.i.i36, label %_ZN3vcg15ClosestIteratorINS_13GridStaticPtrI8CVertexOfEENS_6vertex20PointDistanceFunctorIfEENS_3tri10EmptyTMarkI6CMeshOEEED2Ev.exit, label %271
@@ -25320,12 +25320,12 @@ define linkonce_odr noundef zeroext i1 @_ZN3vcg15ClosestIteratorINS_13GridStatic
 
 97:                                               ; preds = %96, %94
   %98 = phi i32 [ %77, %96 ], [ %67, %94 ]
-  %99 = icmp sgt i32 %81, %92
-  %100 = icmp sgt i32 %85, %95
-  %or.cond.i = or i1 %99, %100
-  %101 = icmp sgt i32 %89, %98
-  %or.cond13.i = or i1 %or.cond.i, %101
-  br i1 %or.cond13.i, label %_ZN3vcg4Box3IiE9IntersectERKS1_.exit.thread, label %_ZN3vcg4Box3IiE9IntersectERKS1_.exit
+  %99 = icmp sle i32 %81, %92
+  %100 = icmp sle i32 %85, %95
+  %or.cond.i.not23 = and i1 %99, %100
+  %101 = icmp sle i32 %89, %98
+  %or.cond13.i.not = and i1 %or.cond.i.not23, %101
+  br i1 %or.cond13.i.not, label %_ZNK3vcg4Box3IiE6IsNullEv.exit, label %_ZN3vcg4Box3IiE9IntersectERKS1_.exit.thread
 
 _ZN3vcg4Box3IiE9IntersectERKS1_.exit.thread:      ; preds = %97
   store i32 1, ptr %2, align 8
@@ -25336,17 +25336,8 @@ _ZN3vcg4Box3IiE9IntersectERKS1_.exit.thread:      ; preds = %97
   store i32 -1, ptr %68, align 4
   br label %_ZNK3vcg4Box3IiE6IsNullEv.exit
 
-_ZN3vcg4Box3IiE9IntersectERKS1_.exit:             ; preds = %97
-  %102 = icmp samesign ule i32 %81, %92
-  %103 = icmp samesign ule i32 %85, %95
-  %or.cond.not = select i1 %102, i1 %103, i1 false
-  %104 = icmp samesign ule i32 %89, %98
-  %spec.select = select i1 %or.cond.not, i1 %104, i1 false
-  br label %_ZNK3vcg4Box3IiE6IsNullEv.exit
-
-_ZNK3vcg4Box3IiE6IsNullEv.exit:                   ; preds = %_ZN3vcg4Box3IiE9IntersectERKS1_.exit, %_ZN3vcg4Box3IiE9IntersectERKS1_.exit.thread
-  %.0 = phi i1 [ false, %_ZN3vcg4Box3IiE9IntersectERKS1_.exit.thread ], [ %spec.select, %_ZN3vcg4Box3IiE9IntersectERKS1_.exit ]
-  ret i1 %.0
+_ZNK3vcg4Box3IiE6IsNullEv.exit:                   ; preds = %97, %_ZN3vcg4Box3IiE9IntersectERKS1_.exit.thread
+  ret i1 %or.cond13.i.not
 }
 
 ; Function Attrs: mustprogress uwtable
