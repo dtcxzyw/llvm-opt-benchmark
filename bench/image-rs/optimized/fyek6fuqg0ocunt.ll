@@ -2886,41 +2886,41 @@ define void @_ZN5image6codecs4jpeg7decoder11cmyk_to_rgb17hf2ac327e65bba46aE(ptr 
   ret void
 
 9:                                                ; preds = %.lr.ph, %9
-  %.sroa.16.043 = phi i64 [ 0, %.lr.ph ], [ %10, %9 ]
-  %10 = add nuw nsw i64 %.sroa.16.043, 1
-  %11 = shl i64 %.sroa.16.043, 2
+  %.sroa.16.046 = phi i64 [ 0, %.lr.ph ], [ %10, %9 ]
+  %10 = add nuw nsw i64 %.sroa.16.046, 1
+  %11 = shl i64 %.sroa.16.046, 2
   %12 = getelementptr inbounds i8, ptr %1, i64 %11
-  %13 = mul nuw i64 %.sroa.16.043, 3
+  %13 = mul nuw i64 %.sroa.16.046, 3
   %14 = getelementptr inbounds i8, ptr %7, i64 %13
   %15 = load i8, ptr %12, align 1, !noundef !4
-  %16 = xor i8 %15, -1
-  %17 = zext i8 %16 to i16
-  %18 = getelementptr inbounds nuw i8, ptr %12, i64 1
-  %19 = load i8, ptr %18, align 1, !noundef !4
-  %20 = xor i8 %19, -1
-  %21 = zext i8 %20 to i16
-  %22 = getelementptr inbounds nuw i8, ptr %12, i64 2
-  %23 = load i8, ptr %22, align 1, !noundef !4
-  %24 = xor i8 %23, -1
-  %25 = zext i8 %24 to i16
-  %26 = getelementptr inbounds nuw i8, ptr %12, i64 3
-  %27 = load i8, ptr %26, align 1, !noundef !4
-  %28 = xor i8 %27, -1
-  %29 = zext i8 %28 to i16
-  %30 = mul nuw i16 %29, %21
+  %narrow = xor i8 %15, -1
+  %16 = zext i8 %narrow to i16
+  %17 = getelementptr inbounds nuw i8, ptr %12, i64 1
+  %18 = load i8, ptr %17, align 1, !noundef !4
+  %narrow5 = xor i8 %18, -1
+  %19 = zext i8 %narrow5 to i16
+  %20 = getelementptr inbounds nuw i8, ptr %12, i64 2
+  %21 = load i8, ptr %20, align 1, !noundef !4
+  %narrow6 = xor i8 %21, -1
+  %22 = zext i8 %narrow6 to i16
+  %23 = getelementptr inbounds nuw i8, ptr %12, i64 3
+  %24 = load i8, ptr %23, align 1, !noundef !4
+  %narrow8 = xor i8 %24, -1
+  %25 = zext i8 %narrow8 to i16
+  %26 = mul nuw i16 %25, %19
+  %27 = udiv i16 %26, 255
+  %28 = mul nuw i16 %25, %22
+  %29 = udiv i16 %28, 255
+  %30 = mul nuw i16 %25, %16
   %31 = udiv i16 %30, 255
-  %32 = mul nuw i16 %29, %25
-  %33 = udiv i16 %32, 255
-  %34 = mul nuw i16 %29, %17
-  %35 = udiv i16 %34, 255
-  %36 = trunc nuw i16 %35 to i8
-  store i8 %36, ptr %14, align 1
-  %37 = getelementptr inbounds nuw i8, ptr %14, i64 1
-  %38 = trunc nuw i16 %31 to i8
-  store i8 %38, ptr %37, align 1
-  %39 = getelementptr inbounds nuw i8, ptr %14, i64 2
-  %40 = trunc nuw i16 %33 to i8
-  store i8 %40, ptr %39, align 1
+  %32 = trunc nuw i16 %31 to i8
+  store i8 %32, ptr %14, align 1
+  %33 = getelementptr inbounds nuw i8, ptr %14, i64 1
+  %34 = trunc nuw i16 %27 to i8
+  store i8 %34, ptr %33, align 1
+  %35 = getelementptr inbounds nuw i8, ptr %14, i64 2
+  %36 = trunc nuw i16 %29 to i8
+  store i8 %36, ptr %35, align 1
   %exitcond.not = icmp eq i64 %10, %4
   br i1 %exitcond.not, label %._crit_edge, label %9
 }

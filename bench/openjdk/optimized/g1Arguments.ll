@@ -449,7 +449,7 @@ define hidden void @_ZN11G1Arguments33initialize_card_set_configurationEv() loca
 
 15:                                               ; preds = %7, %0
   %16 = call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 968) #13
-  br i1 %16, label %17, label %35
+  br i1 %16, label %17, label %34
 
 17:                                               ; preds = %15
   %18 = load i64, ptr @_ZN12G1HeapRegion14CardsPerRegionE, align 8
@@ -465,40 +465,39 @@ define hidden void @_ZN11G1Arguments33initialize_card_set_configurationEv() loca
   %28 = call noundef i64 @llvm.umin.i64(i64 %27, i64 %22)
   %29 = call noundef i64 @llvm.umax.i64(i64 %28, i64 1)
   %30 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %29, i1 true)
-  %31 = xor i64 %30, 63
-  %32 = shl nuw nsw i64 1, %31
-  %33 = trunc nuw i64 %32 to i32
+  %31 = lshr exact i64 -9223372036854775808, %30
+  %32 = trunc nuw i64 %31 to i32
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2)
-  store i32 %33, ptr %2, align 4
-  %34 = call noundef i32 @_ZN13JVMFlagAccess13set_or_assertE12JVMFlagsEnumiPv13JVMFlagOrigin(i32 noundef 968, i32 noundef 2, ptr noundef nonnull %2, i32 noundef 5) #13
+  store i32 %32, ptr %2, align 4
+  %33 = call noundef i32 @_ZN13JVMFlagAccess13set_or_assertE12JVMFlagsEnumiPv13JVMFlagOrigin(i32 noundef 968, i32 noundef 2, ptr noundef nonnull %2, i32 noundef 5) #13
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2)
-  br label %35
+  br label %34
 
-35:                                               ; preds = %17, %15
-  %36 = call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 967) #13
-  %37 = load i32, ptr @G1RemSetHowlMaxNumBuckets, align 4
-  %38 = load i32, ptr @G1RemSetHowlNumBuckets, align 4
-  br i1 %36, label %39, label %42
+34:                                               ; preds = %17, %15
+  %35 = call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 967) #13
+  %36 = load i32, ptr @G1RemSetHowlMaxNumBuckets, align 4
+  %37 = load i32, ptr @G1RemSetHowlNumBuckets, align 4
+  br i1 %35, label %38, label %41
 
-39:                                               ; preds = %35
-  %40 = call noundef i32 @llvm.umax.i32(i32 %37, i32 %38)
+38:                                               ; preds = %34
+  %39 = call noundef i32 @llvm.umax.i32(i32 %36, i32 %37)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1)
-  store i32 %40, ptr %1, align 4
-  %41 = call noundef i32 @_ZN13JVMFlagAccess13set_or_assertE12JVMFlagsEnumiPv13JVMFlagOrigin(i32 noundef 967, i32 noundef 2, ptr noundef nonnull %1, i32 noundef 5) #13
+  store i32 %39, ptr %1, align 4
+  %40 = call noundef i32 @_ZN13JVMFlagAccess13set_or_assertE12JVMFlagsEnumiPv13JVMFlagOrigin(i32 noundef 967, i32 noundef 2, ptr noundef nonnull %1, i32 noundef 5) #13
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1)
-  br label %46
+  br label %45
 
-42:                                               ; preds = %35
-  %43 = icmp ult i32 %37, %38
-  br i1 %43, label %44, label %46
+41:                                               ; preds = %34
+  %42 = icmp ult i32 %36, %37
+  br i1 %42, label %43, label %45
 
-44:                                               ; preds = %42
-  call void (ptr, ptr, ...) @_ZN12FormatBufferILm256EEC2EPKcz(ptr noundef nonnull align 8 dereferenceable(264) %4, ptr noundef nonnull @.str.11, i32 noundef %37, i32 noundef %38)
-  %45 = load ptr, ptr %4, align 8
-  call void @_Z29vm_exit_during_initializationPKcS0_(ptr noundef %45, ptr noundef null) #13
-  br label %46
+43:                                               ; preds = %41
+  call void (ptr, ptr, ...) @_ZN12FormatBufferILm256EEC2EPKcz(ptr noundef nonnull align 8 dereferenceable(264) %4, ptr noundef nonnull @.str.11, i32 noundef %36, i32 noundef %37)
+  %44 = load ptr, ptr %4, align 8
+  call void @_Z29vm_exit_during_initializationPKcS0_(ptr noundef %44, ptr noundef null) #13
+  br label %45
 
-46:                                               ; preds = %42, %44, %39
+45:                                               ; preds = %41, %43, %38
   ret void
 }
 

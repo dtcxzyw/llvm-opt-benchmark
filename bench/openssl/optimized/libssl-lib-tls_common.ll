@@ -455,7 +455,8 @@ if.end:                                           ; preds = %entry
   %1 = load ptr, ptr %rbuf, align 8
   %2 = ptrtoint ptr %1 to i64
   %3 = and i64 %2, 7
-  %sub2 = xor i64 %3, 3
+  %rem = xor i64 %3, 4
+  %sub2 = sub nuw nsw i64 7, %rem
   %tobool = icmp ne i32 %extend, 0
   br i1 %tobool, label %if.end.if.end9_crit_edge, label %if.then3
 
@@ -2548,7 +2549,8 @@ for.body:                                         ; preds = %entry, %for.cond
   %1 = load ptr, ptr %arrayidx1, align 8
   %2 = ptrtoint ptr %1 to i64
   %3 = and i64 %2, 7
-  %sub5 = xor i64 %3, 3
+  %rem = xor i64 %3, 4
+  %sub5 = sub nuw nsw i64 7, %rem
   %offset = getelementptr inbounds nuw i8, ptr %arrayidx1, i64 24
   store i64 %sub5, ptr %offset, align 8
   %len = getelementptr inbounds nuw i8, ptr %arrayidx1, i64 16

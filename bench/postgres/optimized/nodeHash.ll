@@ -1219,7 +1219,7 @@ list_length.exit.split:                           ; preds = %list_length.exit, %
   %218 = call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %217)
   %219 = icmp samesign ult i32 %218, 2
   %220 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %217, i1 true)
-  %221 = xor i32 %220, 31
+  %221 = sub nuw nsw i32 31, %220
   %222 = shl nuw i32 2, %221
   %.0.i.i = select i1 %219, i32 %217, i32 %222
   %223 = shl i32 %.0.i.i, 2
@@ -1364,9 +1364,9 @@ define dso_local void @ExecChooseHashTableSize(double noundef %0, i32 noundef %1
   %17 = add nsw i64 %16, 84
   br label %tailrecurse
 
-tailrecurse:                                      ; preds = %67, %9
-  %.tr = phi double [ %0, %9 ], [ %.0, %67 ]
-  %.tr92 = phi i1 [ %3, %9 ], [ false, %67 ]
+tailrecurse:                                      ; preds = %66, %9
+  %.tr = phi double [ %0, %9 ], [ %.0, %66 ]
+  %.tr92 = phi i1 [ %3, %9 ], [ false, %66 ]
   %18 = fcmp ugt double %.tr, 0.000000e+00
   %.0 = select i1 %18, double %.tr, double 1.000000e+03
   %19 = fmul double %.0, %13
@@ -1416,77 +1416,76 @@ tailrecurse:                                      ; preds = %67, %9
   %45 = lshr i64 %.1, 3
   %46 = tail call i64 @llvm.umin.i64(i64 %45, i64 134217727)
   %47 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 range(i64 0, 2305843009213693952) %46, i1 true)
-  %48 = xor i64 %47, 63
-  %49 = shl nuw nsw i64 1, %48
-  %50 = tail call double @llvm.ceil.f64(double %.0)
-  %51 = uitofp nneg i64 %49 to double
-  %52 = fcmp olt double %50, %51
-  %53 = select i1 %52, double %50, double %51
-  %54 = fptosi double %53 to i32
-  %55 = tail call i32 @llvm.smax.i32(i32 %54, i32 1024)
-  %56 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %55)
-  %57 = icmp samesign ult i32 %56, 2
-  %58 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %55, i1 true)
-  %59 = xor i32 %58, 31
-  %60 = shl nuw i32 2, %59
-  %.0.i = select i1 %57, i32 %55, i32 %60
-  %61 = sext i32 %.0.i to i64
-  %62 = shl nsw i64 %61, 3
-  %63 = uitofp i64 %62 to double
-  %64 = fadd double %19, %63
-  %65 = uitofp i64 %.1 to double
-  %66 = fcmp ogt double %64, %65
-  br i1 %66, label %67, label %.loopexit
+  %48 = lshr exact i64 -9223372036854775808, %47
+  %49 = tail call double @llvm.ceil.f64(double %.0)
+  %50 = uitofp nneg i64 %48 to double
+  %51 = fcmp olt double %49, %50
+  %52 = select i1 %51, double %49, double %50
+  %53 = fptosi double %52 to i32
+  %54 = tail call i32 @llvm.smax.i32(i32 %53, i32 1024)
+  %55 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %54)
+  %56 = icmp samesign ult i32 %55, 2
+  %57 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %54, i1 true)
+  %58 = sub nuw nsw i32 31, %57
+  %59 = shl nuw i32 2, %58
+  %.0.i = select i1 %56, i32 %54, i32 %59
+  %60 = sext i32 %.0.i to i64
+  %61 = shl nsw i64 %60, 3
+  %62 = uitofp i64 %61 to double
+  %63 = fadd double %19, %62
+  %64 = uitofp i64 %.1 to double
+  %65 = fcmp ogt double %63, %64
+  br i1 %65, label %66, label %.loopexit
 
-67:                                               ; preds = %44
-  br i1 %.tr92, label %tailrecurse, label %68
+66:                                               ; preds = %44
+  br i1 %.tr92, label %tailrecurse, label %67
 
-68:                                               ; preds = %67
-  %69 = add nsw i64 %16, 8
-  %.not86 = icmp ugt i64 %.1, %69
-  br i1 %.not86, label %70, label %77
+67:                                               ; preds = %66
+  %68 = add nsw i64 %16, 8
+  %.not86 = icmp ugt i64 %.1, %68
+  br i1 %.not86, label %69, label %76
 
-70:                                               ; preds = %68
-  %71 = udiv i64 %.1, %69
-  %72 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %71)
-  %73 = icmp samesign ult i64 %72, 2
-  %74 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %71, i1 true)
-  %75 = sub nuw nsw i64 64, %74
-  %76 = shl nuw i64 1, %75
-  %.0.i87 = select i1 %73, i64 %71, i64 %76
-  br label %77
+69:                                               ; preds = %67
+  %70 = udiv i64 %.1, %68
+  %71 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %70)
+  %72 = icmp samesign ult i64 %71, 2
+  %73 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %70, i1 true)
+  %74 = sub nuw nsw i64 64, %73
+  %75 = shl nuw i64 1, %74
+  %.0.i87 = select i1 %72, i64 %70, i64 %75
+  br label %76
 
-77:                                               ; preds = %68, %70
-  %.080 = phi i64 [ %.0.i87, %70 ], [ 1, %68 ]
-  %78 = tail call i64 @llvm.umin.i64(i64 %.080, i64 %49)
-  %79 = trunc nuw nsw i64 %78 to i32
-  %80 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %79)
-  %81 = icmp samesign ult i32 %80, 2
-  %82 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %79, i1 true)
-  %83 = xor i32 %82, 31
-  %84 = shl nuw nsw i32 2, %83
-  %.0.i88 = select i1 %81, i32 %79, i32 %84
-  %85 = zext nneg i32 %.0.i88 to i64
-  %86 = shl nuw nsw i64 %85, 3
-  %87 = sub i64 %.1, %86
-  %88 = uitofp i64 %87 to double
-  %89 = fdiv double %19, %88
-  %90 = tail call double @llvm.ceil.f64(double %89)
-  %91 = fcmp olt double %90, %51
-  %92 = select i1 %91, double %90, double %51
-  %93 = fptosi double %92 to i32
-  %94 = tail call i32 @llvm.smax.i32(i32 %93, i32 2)
-  %95 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %94)
-  %96 = icmp samesign ult i32 %95, 2
-  %97 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %94, i1 true)
-  %98 = xor i32 %97, 31
-  %99 = shl nuw i32 2, %98
-  %.0.i89 = select i1 %96, i32 %94, i32 %99
+76:                                               ; preds = %67, %69
+  %.080 = phi i64 [ %.0.i87, %69 ], [ 1, %67 ]
+  %77 = tail call i64 @llvm.umin.i64(i64 %.080, i64 %48)
+  %78 = trunc nuw nsw i64 %77 to i32
+  %79 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %78)
+  %80 = icmp samesign ult i32 %79, 2
+  %81 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %78, i1 true)
+  %82 = sub nuw nsw i32 31, %81
+  %83 = shl nuw nsw i32 2, %82
+  %.0.i88 = select i1 %80, i32 %78, i32 %83
+  %84 = zext nneg i32 %.0.i88 to i64
+  %85 = shl nuw nsw i64 %84, 3
+  %86 = sub i64 %.1, %85
+  %87 = uitofp i64 %86 to double
+  %88 = fdiv double %19, %87
+  %89 = tail call double @llvm.ceil.f64(double %88)
+  %90 = fcmp olt double %89, %50
+  %91 = select i1 %90, double %89, double %50
+  %92 = fptosi double %91 to i32
+  %93 = tail call i32 @llvm.smax.i32(i32 %92, i32 2)
+  %94 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %93)
+  %95 = icmp samesign ult i32 %94, 2
+  %96 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %93, i1 true)
+  %97 = sub nuw nsw i32 31, %96
+  %98 = shl nuw i32 2, %97
+  %.0.i89 = select i1 %95, i32 %93, i32 %98
   br label %.loopexit
 
-.loopexit:                                        ; preds = %44, %77
-  %.082 = phi i32 [ %.0.i88, %77 ], [ %.0.i, %44 ]
-  %.081 = phi i32 [ %.0.i89, %77 ], [ 1, %44 ]
+.loopexit:                                        ; preds = %44, %76
+  %.082 = phi i32 [ %.0.i88, %76 ], [ %.0.i, %44 ]
+  %.081 = phi i32 [ %.0.i89, %76 ], [ 1, %44 ]
   store i32 %.082, ptr %6, align 4
   store i32 %.081, ptr %7, align 4
   ret void
@@ -4081,7 +4080,7 @@ ExecParallelHashCloseBatchAccessors.exit:         ; preds = %.lr.ph.i, %11
   %53 = tail call range(i32 0, 32) i32 @llvm.ctpop.i32(i32 %52)
   %54 = icmp samesign ult i32 %53, 2
   %55 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %52, i1 true)
-  %56 = xor i32 %55, 31
+  %56 = sub nuw nsw i32 31, %55
   %57 = shl nuw i32 2, %56
   %.0.i = select i1 %54, i32 %52, i32 %57
   br label %60
@@ -4112,7 +4111,7 @@ ExecParallelHashCloseBatchAccessors.exit:         ; preds = %.lr.ph.i, %11
   %75 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %74)
   %76 = icmp samesign ult i32 %75, 2
   %77 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %74, i1 true)
-  %78 = xor i32 %77, 31
+  %78 = sub nuw nsw i32 31, %77
   %79 = shl nuw i32 2, %78
   %.0.i96 = select i1 %76, i32 %74, i32 %79
   %80 = getelementptr inbounds nuw i8, ptr %0, i64 240

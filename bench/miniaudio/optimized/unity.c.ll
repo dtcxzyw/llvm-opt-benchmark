@@ -103892,7 +103892,7 @@ if.end.i191.i:                                    ; preds = %ma_dr_mp3_bs_get_bi
   %p.0.i214.i = getelementptr inbounds nuw i8, ptr %add.ptr.i194.i, i64 1
   %118 = load i8, ptr %p.0.i214.i, align 1
   %conv10.i218.i = zext i8 %118 to i32
-  %sub11.i205.i = xor i32 %and.i195.i, 7
+  %sub11.i205.i = sub nuw nsw i32 7, %and.i195.i
   %shr12.i206.i = lshr i32 %conv10.i218.i, %sub11.i205.i
   %or13.i207.i = or i32 %shr12.i206.i, %shl8.i216.i
   %conv38.i = trunc nuw i32 %or13.i207.i to i16
@@ -103999,7 +103999,7 @@ if.end.i293.i:                                    ; preds = %ma_dr_mp3_bs_get_bi
   %conv.i299.i = zext i8 %128 to i32
   %shr4.i300.i = lshr i32 255, %and.i297.i
   %and5.i301.i = and i32 %shr4.i300.i, %conv.i299.i
-  %sub11.i307.i = xor i32 %and.i297.i, 7
+  %sub11.i307.i = sub nuw nsw i32 7, %and.i297.i
   %shr12.i308.i = lshr i32 %and5.i301.i, %sub11.i307.i
   %tobool56.not.i = icmp eq i32 %shr12.i308.i, 0
   br i1 %tobool56.not.i, label %if.else114.i, label %if.then57.i
@@ -104061,7 +104061,7 @@ ma_dr_mp3_bs_get_bits.exit390.i:                  ; preds = %if.end63.i
   %conv.i367.i = zext i8 %131 to i32
   %shr4.i368.i = lshr i32 255, %and.i365.i
   %and5.i369.i = and i32 %shr4.i368.i, %conv.i367.i
-  %sub11.i375.i = xor i32 %and.i365.i, 7
+  %sub11.i375.i = sub nuw nsw i32 7, %and.i365.i
   %shr12.i376.i = lshr i32 %and5.i369.i, %sub11.i375.i
   %132 = trunc nuw i32 %shr12.i376.i to i8
   %mixed_block_flag.i = getelementptr inbounds nuw i8, ptr %gr.addr.0.i, i64 16
@@ -104427,7 +104427,7 @@ if.end.i633.i:                                    ; preds = %cond.true.i173
   %conv.i639.i = zext i8 %155 to i32
   %shr4.i640.i = lshr i32 255, %and.i637.i
   %and5.i641.i = and i32 %shr4.i640.i, %conv.i639.i
-  %sub11.i647.i = xor i32 %and.i637.i, 7
+  %sub11.i647.i = sub nuw nsw i32 7, %and.i637.i
   %shr12.i648.i = lshr i32 %and5.i641.i, %sub11.i647.i
   br label %cond.end.i
 
@@ -104456,7 +104456,7 @@ if.end.i667.i:                                    ; preds = %cond.end.i
   %conv.i673.i = zext i8 %157 to i32
   %shr4.i674.i = lshr i32 255, %and.i671.i
   %and5.i675.i = and i32 %shr4.i674.i, %conv.i673.i
-  %sub11.i681.i = xor i32 %and.i671.i, 7
+  %sub11.i681.i = sub nuw nsw i32 7, %and.i671.i
   %shr12.i682.i = lshr i32 %and5.i675.i, %sub11.i681.i
   %158 = trunc nuw i32 %shr12.i682.i to i8
   br label %ma_dr_mp3_bs_get_bits.exit696.i
@@ -104478,7 +104478,7 @@ if.end.i701.i:                                    ; preds = %ma_dr_mp3_bs_get_bi
   %conv.i707.i = zext i8 %159 to i32
   %shr4.i708.i = lshr i32 255, %and.i705.i
   %and5.i709.i = and i32 %shr4.i708.i, %conv.i707.i
-  %sub11.i715.i = xor i32 %and.i705.i, 7
+  %sub11.i715.i = sub nuw nsw i32 7, %and.i705.i
   %shr12.i716.i = lshr i32 %and5.i709.i, %sub11.i715.i
   %160 = trunc nuw i32 %shr12.i716.i to i8
   br label %ma_dr_mp3_bs_get_bits.exit730.i

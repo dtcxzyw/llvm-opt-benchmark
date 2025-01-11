@@ -2672,37 +2672,37 @@ sw.bb:                                            ; preds = %entry
   %1 = load i8, ptr %t, align 4
   %2 = and i8 %1, 31
   %and = zext nneg i8 %2 to i32
-  %3 = mul nuw nsw i32 %and, 16777217
-  %add = xor i32 %3, 32767
+  %reass.sub = mul nuw nsw i32 %and, 16777215
+  %add = add nuw nsw i32 %reass.sub, 32767
   br label %return
 
 sw.bb6:                                           ; preds = %entry
-  %4 = load i32, ptr %ir, align 8
-  %call = tail call i32 @lj_ir_kint(ptr noundef %J, i32 noundef %4) #10
+  %3 = load i32, ptr %ir, align 8
+  %call = tail call i32 @lj_ir_kint(ptr noundef %J, i32 noundef %3) #10
   br label %return
 
 sw.bb7:                                           ; preds = %entry
   %arrayidx = getelementptr inbounds nuw i8, ptr %ir, i64 8
-  %5 = load i64, ptr %arrayidx, align 8
-  %6 = inttoptr i64 %5 to ptr
+  %4 = load i64, ptr %arrayidx, align 8
+  %5 = inttoptr i64 %4 to ptr
   %t8 = getelementptr inbounds nuw i8, ptr %ir, i64 4
-  %7 = load i8, ptr %t8, align 4
-  %conv10 = zext i8 %7 to i32
-  %call11 = tail call i32 @lj_ir_kgc(ptr noundef %J, ptr noundef %6, i32 noundef %conv10) #10
+  %6 = load i8, ptr %t8, align 4
+  %conv10 = zext i8 %6 to i32
+  %call11 = tail call i32 @lj_ir_kgc(ptr noundef %J, ptr noundef %5, i32 noundef %conv10) #10
   br label %return
 
 sw.bb12:                                          ; preds = %entry, %entry
   %conv14 = zext nneg i8 %0 to i32
   %arrayidx15 = getelementptr inbounds nuw i8, ptr %ir, i64 8
-  %8 = load i64, ptr %arrayidx15, align 8
-  %call16 = tail call i32 @lj_ir_k64(ptr noundef %J, i32 noundef %conv14, i64 noundef %8) #10
+  %7 = load i64, ptr %arrayidx15, align 8
+  %call16 = tail call i32 @lj_ir_k64(ptr noundef %J, i32 noundef %conv14, i64 noundef %7) #10
   br label %return
 
 sw.bb17:                                          ; preds = %entry
   %arrayidx18 = getelementptr inbounds nuw i8, ptr %ir, i64 8
-  %9 = load i64, ptr %arrayidx18, align 8
-  %10 = inttoptr i64 %9 to ptr
-  %call19 = tail call i32 @lj_ir_kptr_(ptr noundef %J, i32 noundef 25, ptr noundef %10) #10
+  %8 = load i64, ptr %arrayidx18, align 8
+  %9 = inttoptr i64 %8 to ptr
+  %call19 = tail call i32 @lj_ir_kptr_(ptr noundef %J, i32 noundef 25, ptr noundef %9) #10
   br label %return
 
 return:                                           ; preds = %entry, %sw.bb17, %sw.bb12, %sw.bb7, %sw.bb6, %sw.bb

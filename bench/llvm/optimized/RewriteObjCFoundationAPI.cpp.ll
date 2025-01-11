@@ -2766,15 +2766,14 @@ define linkonce_odr hidden void @_ZNK5clang12APIntStorage8getValueEv(ptr dead_on
   %13 = load i64, ptr %1, align 8, !noalias !11
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %4, ptr %14, align 8, !alias.scope !11
-  %15 = add nuw nsw i32 %4, 63
-  %16 = and i32 %15, 63
-  %17 = xor i32 %16, 63
-  %18 = zext nneg i32 %17 to i64
-  %19 = lshr i64 -1, %18
-  %20 = icmp eq i32 %4, 0
-  %spec.store.select.i.i.i = select i1 %20, i64 0, i64 %19
-  %21 = and i64 %13, %spec.store.select.i.i.i
-  store i64 %21, ptr %0, align 8, !alias.scope !11
+  %.not.i.i.i = sub nsw i32 0, %4
+  %15 = and i32 %.not.i.i.i, 63
+  %16 = zext nneg i32 %15 to i64
+  %17 = lshr i64 -1, %16
+  %18 = icmp eq i32 %4, 0
+  %spec.store.select.i.i.i = select i1 %18, i64 0, i64 %17
+  %19 = and i64 %13, %spec.store.select.i.i.i
+  store i64 %19, ptr %0, align 8, !alias.scope !11
   br label %_ZNK5clang16APNumericStorage11getIntValueEv.exit
 
 _ZNK5clang16APNumericStorage11getIntValueEv.exit: ; preds = %6, %12

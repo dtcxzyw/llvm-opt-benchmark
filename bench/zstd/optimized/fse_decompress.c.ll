@@ -221,6 +221,7 @@ for.end144.if.end149_crit_edge:                   ; preds = %for.end144
 
 if.end149:                                        ; preds = %for.cond88.preheader, %for.end144.if.end149_crit_edge
   %wide.trip.count121.pre-phi = phi i64 [ %.pre, %for.end144.if.end149_crit_edge ], [ %conv84, %for.cond88.preheader ]
+  %sub.i.neg = add nuw nsw i32 %tableLog, -31
   br label %for.body154
 
 for.body154:                                      ; preds = %if.end149, %for.body154
@@ -235,8 +236,7 @@ for.body154:                                      ; preds = %if.end149, %for.bod
   store i16 %inc161, ptr %arrayidx160, align 2
   %conv162 = zext i16 %9 to i32
   %10 = tail call range(i32 16, 32) i32 @llvm.ctlz.i32(i32 range(i32 0, 65536) %conv162, i1 true)
-  %sub.i = xor i32 %10, 31
-  %sub163 = sub nsw i32 %tableLog, %sub.i
+  %sub163 = add nsw i32 %sub.i.neg, %10
   %conv164 = trunc nsw i32 %sub163 to i8
   %nbBits = getelementptr inbounds nuw i8, ptr %arrayidx157, i64 3
   store i8 %conv164, ptr %nbBits, align 1
@@ -1792,8 +1792,7 @@ cond.end.thread:                                  ; preds = %if.then3
 cond.end:                                         ; preds = %if.then3
   %conv = zext i8 %0 to i32
   %1 = tail call range(i32 16, 32) i32 @llvm.ctlz.i32(i32 range(i32 0, 65536) %conv, i1 true)
-  %sub.i = xor i32 %1, 31
-  %sub9 = sub nuw nsw i32 8, %sub.i
+  %sub9 = add nsw i32 %1, -23
   %bitsConsumed = getelementptr inbounds nuw i8, ptr %bitD, i64 8
   store i32 %sub9, ptr %bitsConsumed, align 8
   br label %return
@@ -1890,8 +1889,8 @@ if.end70:                                         ; preds = %sw.epilog
   %bitsConsumed65 = getelementptr inbounds nuw i8, ptr %bitD, i64 8
   %17 = trunc nuw i64 %srcSize to i32
   %18 = shl nuw nsw i32 %17, 3
-  %19 = sub nsw i32 %16, %18
-  %add74 = add nsw i32 %19, 41
+  %reass.sub46 = sub nsw i32 %16, %18
+  %add74 = add nsw i32 %reass.sub46, 41
   store i32 %add74, ptr %bitsConsumed65, align 8
   br label %return
 

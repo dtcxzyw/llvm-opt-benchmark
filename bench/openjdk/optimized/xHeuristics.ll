@@ -22,27 +22,26 @@ define hidden void @_ZN11XHeuristics20set_medium_page_sizeEv() local_unnamed_add
   %2 = uitofp i64 %1 to double
   %3 = fmul double %2, 3.125000e-02
   %4 = fptoui double %3 to i64
-  %5 = tail call noundef i64 @llvm.umax.i64(i64 %4, i64 2097152)
-  %6 = tail call noundef i64 @llvm.umin.i64(i64 %5, i64 33554432)
-  %7 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %6, i1 true)
-  %8 = xor i64 %7, 63
-  %9 = icmp samesign ugt i64 %8, 21
-  br i1 %9, label %10, label %16
+  %5 = icmp ugt i64 %4, 4194303
+  br i1 %5, label %6, label %15
 
-10:                                               ; preds = %0
-  %11 = shl nuw nsw i64 1, %8
-  store i64 %11, ptr @XPageSizeMedium, align 8
-  %12 = trunc nuw nsw i64 %8 to i32
-  store i64 %8, ptr @XPageSizeMediumShift, align 8
-  %13 = lshr i64 %11, 3
-  store i64 %13, ptr @XObjectSizeLimitMedium, align 8
-  %14 = add nsw i32 %12, -13
-  store i32 %14, ptr @XObjectAlignmentMediumShift, align 4
-  %15 = shl nuw nsw i32 1, %14
-  store i32 %15, ptr @XObjectAlignmentMedium, align 4
-  br label %16
+6:                                                ; preds = %0
+  %7 = tail call noundef i64 @llvm.umin.i64(i64 %4, i64 33554432)
+  %8 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %7, i1 true)
+  %9 = lshr exact i64 -9223372036854775808, %8
+  store i64 %9, ptr @XPageSizeMedium, align 8
+  %10 = trunc nuw nsw i64 %8 to i32
+  %11 = sub nuw nsw i64 63, %8
+  store i64 %11, ptr @XPageSizeMediumShift, align 8
+  %12 = lshr i64 1152921504606846976, %8
+  store i64 %12, ptr @XObjectSizeLimitMedium, align 8
+  %13 = sub nuw nsw i32 50, %10
+  store i32 %13, ptr @XObjectAlignmentMediumShift, align 4
+  %14 = shl nuw nsw i32 1, %13
+  store i32 %14, ptr @XObjectAlignmentMedium, align 4
+  br label %15
 
-16:                                               ; preds = %10, %0
+15:                                               ; preds = %6, %0
   ret void
 }
 
@@ -130,9 +129,6 @@ declare i32 @llvm.smax.i32(i32, i32) #3
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #3
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #3
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

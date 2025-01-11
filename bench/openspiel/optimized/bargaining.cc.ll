@@ -1933,96 +1933,98 @@ define void @_ZNK10open_spiel10bargaining15BargainingState7ReturnsEv(ptr dead_on
   %11 = ptrtoint ptr %9 to i64
   %12 = sub i64 %10, %11
   %13 = sdiv exact i64 %12, 24
-  %14 = and i64 %13, 1
-  %15 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #27
-  store ptr %15, ptr %0, align 8
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %17 = getelementptr inbounds nuw i8, ptr %15, i64 16
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %17, ptr %18, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %15, i8 0, i64 16, i1 false)
-  %19 = xor i64 %14, 1
-  store ptr %17, ptr %16, align 8
-  %20 = getelementptr inbounds nuw i8, ptr %1, i64 80
-  %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds nuw %"class.std::vector.9", ptr %21, i64 %19
-  %23 = getelementptr inbounds i8, ptr %8, i64 -24
-  %24 = getelementptr inbounds nuw double, ptr %15, i64 %19
-  %25 = getelementptr inbounds nuw %"class.std::vector.9", ptr %21, i64 %14
-  %26 = getelementptr inbounds nuw i8, ptr %1, i64 104
-  %27 = load ptr, ptr %26, align 8
-  %28 = getelementptr inbounds nuw double, ptr %15, i64 %14
-  %.pre = load ptr, ptr %23, align 8
-  %.pre35 = load double, ptr %24, align 8
-  %.pre36 = load double, ptr %28, align 8
-  br label %29
+  %14 = trunc i64 %13 to i32
+  %15 = and i32 %14, 1
+  %16 = xor i32 %15, 1
+  %17 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #27
+  store ptr %17, ptr %0, align 8
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %17, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %19, ptr %20, align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %17, i8 0, i64 16, i1 false)
+  %21 = sub nuw nsw i32 1, %16
+  store ptr %19, ptr %18, align 8
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 80
+  %23 = zext nneg i32 %16 to i64
+  %24 = load ptr, ptr %22, align 8
+  %25 = getelementptr inbounds nuw %"class.std::vector.9", ptr %24, i64 %23
+  %26 = getelementptr inbounds i8, ptr %8, i64 -24
+  %27 = getelementptr inbounds nuw double, ptr %17, i64 %23
+  %28 = zext nneg i32 %21 to i64
+  %29 = getelementptr inbounds nuw %"class.std::vector.9", ptr %24, i64 %28
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 104
+  %31 = load ptr, ptr %30, align 8
+  %32 = getelementptr inbounds nuw double, ptr %17, i64 %28
+  %.pre = load ptr, ptr %26, align 8
+  br label %33
 
-29:                                               ; preds = %.noexc, %29
-  %30 = phi double [ %.pre36, %.noexc ], [ %49, %29 ]
-  %31 = phi double [ %.pre35, %.noexc ], [ %39, %29 ]
-  %indvars.iv = phi i64 [ 0, %.noexc ], [ %indvars.iv.next, %29 ]
-  %32 = load ptr, ptr %22, align 8
-  %33 = getelementptr inbounds nuw i32, ptr %32, i64 %indvars.iv
-  %34 = load i32, ptr %33, align 4
-  %35 = getelementptr inbounds nuw i32, ptr %.pre, i64 %indvars.iv
+33:                                               ; preds = %.noexc, %33
+  %indvars.iv = phi i64 [ 0, %.noexc ], [ %indvars.iv.next, %33 ]
+  %34 = load ptr, ptr %25, align 8
+  %35 = getelementptr inbounds nuw i32, ptr %34, i64 %indvars.iv
   %36 = load i32, ptr %35, align 4
-  %37 = mul nsw i32 %36, %34
-  %38 = sitofp i32 %37 to double
-  %39 = fadd double %31, %38
-  store double %39, ptr %24, align 8
-  %40 = load ptr, ptr %25, align 8
-  %41 = getelementptr inbounds nuw i32, ptr %40, i64 %indvars.iv
-  %42 = load i32, ptr %41, align 4
-  %43 = getelementptr inbounds nuw i32, ptr %27, i64 %indvars.iv
-  %44 = load i32, ptr %43, align 4
-  %45 = load i32, ptr %35, align 4
-  %46 = sub nsw i32 %44, %45
-  %47 = mul nsw i32 %46, %42
-  %48 = sitofp i32 %47 to double
-  %49 = fadd double %30, %48
-  store double %49, ptr %28, align 8
+  %37 = getelementptr inbounds nuw i32, ptr %.pre, i64 %indvars.iv
+  %38 = load i32, ptr %37, align 4
+  %39 = mul nsw i32 %38, %36
+  %40 = sitofp i32 %39 to double
+  %41 = load double, ptr %27, align 8
+  %42 = fadd double %41, %40
+  store double %42, ptr %27, align 8
+  %43 = load ptr, ptr %29, align 8
+  %44 = getelementptr inbounds nuw i32, ptr %43, i64 %indvars.iv
+  %45 = load i32, ptr %44, align 4
+  %46 = getelementptr inbounds nuw i32, ptr %31, i64 %indvars.iv
+  %47 = load i32, ptr %46, align 4
+  %48 = load i32, ptr %37, align 4
+  %49 = sub nsw i32 %47, %48
+  %50 = mul nsw i32 %49, %45
+  %51 = sitofp i32 %50 to double
+  %52 = load double, ptr %32, align 8
+  %53 = fadd double %52, %51
+  store double %53, ptr %32, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %50, label %29, !llvm.loop !86
+  br i1 %exitcond.not, label %54, label %33, !llvm.loop !86
 
-50:                                               ; preds = %29
-  %51 = getelementptr inbounds nuw i8, ptr %1, i64 160
-  %52 = load double, ptr %51, align 8
-  %53 = fcmp olt double %52, 1.000000e+00
-  br i1 %53, label %.preheader, label %.loopexit
+54:                                               ; preds = %33
+  %55 = getelementptr inbounds nuw i8, ptr %1, i64 160
+  %56 = load double, ptr %55, align 8
+  %57 = fcmp olt double %56, 1.000000e+00
+  br i1 %57, label %.preheader, label %.loopexit
 
-.preheader:                                       ; preds = %50
-  %54 = getelementptr inbounds nuw i8, ptr %1, i64 28
-  %55 = load i32, ptr %54, align 4
-  %56 = icmp sgt i32 %55, 0
-  br i1 %56, label %.lr.ph, label %.loopexit
+.preheader:                                       ; preds = %54
+  %58 = getelementptr inbounds nuw i8, ptr %1, i64 28
+  %59 = load i32, ptr %58, align 4
+  %60 = icmp sgt i32 %59, 0
+  br i1 %60, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %.preheader
-  %wide.trip.count = zext nneg i32 %55 to i64
-  br label %57
+  %wide.trip.count = zext nneg i32 %59 to i64
+  br label %61
 
-57:                                               ; preds = %.lr.ph, %57
-  %indvars.iv31 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next32, %57 ]
-  %58 = getelementptr inbounds nuw double, ptr %15, i64 %indvars.iv31
-  %59 = load double, ptr %58, align 8
-  %60 = fmul double %52, %59
-  store double %60, ptr %58, align 8
+61:                                               ; preds = %.lr.ph, %61
+  %indvars.iv31 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next32, %61 ]
+  %62 = getelementptr inbounds nuw double, ptr %17, i64 %indvars.iv31
+  %63 = load double, ptr %62, align 8
+  %64 = fmul double %56, %63
+  store double %64, ptr %62, align 8
   %indvars.iv.next32 = add nuw nsw i64 %indvars.iv31, 1
   %exitcond34.not = icmp eq i64 %indvars.iv.next32, %wide.trip.count
-  br i1 %exitcond34.not, label %.loopexit, label %57, !llvm.loop !87
+  br i1 %exitcond34.not, label %.loopexit, label %61, !llvm.loop !87
 
 .noexc25:                                         ; preds = %2
-  %61 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #27
-  store ptr %61, ptr %0, align 8
-  %62 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %63 = getelementptr inbounds nuw i8, ptr %61, i64 16
-  %64 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %63, ptr %64, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %61, i8 0, i64 16, i1 false)
-  store ptr %63, ptr %62, align 8
+  %65 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #27
+  store ptr %65, ptr %0, align 8
+  %66 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %67 = getelementptr inbounds nuw i8, ptr %65, i64 16
+  %68 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %67, ptr %68, align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %65, i8 0, i64 16, i1 false)
+  store ptr %67, ptr %66, align 8
   br label %.loopexit
 
-.loopexit:                                        ; preds = %57, %.preheader, %50, %.noexc25
+.loopexit:                                        ; preds = %61, %.preheader, %54, %.noexc25
   ret void
 }
 

@@ -164,33 +164,26 @@ define dso_local void @addHyperLogLog(ptr nocapture noundef readonly %0, i32 nou
   %7 = shl i32 %1, %6
   %8 = trunc i64 %5 to i8
   %9 = icmp eq i32 %7, 0
-  br i1 %9, label %10, label %12
+  br i1 %9, label %rho.exit, label %10
 
 10:                                               ; preds = %2
-  %11 = add i8 %8, 1
+  %11 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 range(i32 1, 0) %7, i1 true)
+  %12 = trunc nuw nsw i32 %11 to i8
+  %spec.select.v.i = tail call i8 @llvm.umin.i8(i8 %8, i8 %12)
   br label %rho.exit
 
-12:                                               ; preds = %2
-  %13 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 range(i32 1, 0) %7, i1 true)
-  %14 = trunc nuw nsw i32 %13 to i8
-  %15 = xor i8 %14, 31
-  %16 = sub nuw nsw i8 32, %15
-  %17 = icmp ugt i8 %16, %8
-  %18 = add i8 %8, 1
-  %spec.select.i = select i1 %17, i8 %18, i8 %16
-  br label %rho.exit
-
-rho.exit:                                         ; preds = %10, %12
-  %.0.i = phi i8 [ %11, %10 ], [ %spec.select.i, %12 ]
-  %19 = trunc nsw i64 %5 to i32
-  %20 = lshr i32 %1, %19
-  %21 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %22 = load ptr, ptr %21, align 8
-  %23 = zext i32 %20 to i64
-  %24 = getelementptr i8, ptr %22, i64 %23
-  %25 = load i8, ptr %24, align 1
-  %. = tail call i8 @llvm.umax.i8(i8 %.0.i, i8 %25)
-  store i8 %., ptr %24, align 1
+rho.exit:                                         ; preds = %2, %10
+  %.0.in.i = phi i8 [ %spec.select.v.i, %10 ], [ %8, %2 ]
+  %13 = trunc nsw i64 %5 to i32
+  %14 = lshr i32 %1, %13
+  %.0.i = add i8 %.0.in.i, 1
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %16 = load ptr, ptr %15, align 8
+  %17 = zext i32 %14 to i64
+  %18 = getelementptr i8, ptr %16, i64 %17
+  %19 = load i8, ptr %18, align 1
+  %. = tail call i8 @llvm.umax.i8(i8 %.0.i, i8 %19)
+  store i8 %., ptr %18, align 1
   ret void
 }
 
@@ -306,6 +299,9 @@ declare double @ldexp(double, i32) local_unnamed_addr #8
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.sqrt.f64(double) #9
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i8 @llvm.umin.i8(i8, i8) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i8 @llvm.umax.i8(i8, i8) #9

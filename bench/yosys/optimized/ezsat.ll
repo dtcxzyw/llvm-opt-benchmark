@@ -1285,26 +1285,23 @@ _ZSt4sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEEvT_S7_.exit: ; pr
   %.143 = phi i32 [ %89, %87 ], [ %spec.select, %92 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEEvT_S7_.exit._crit_edge.loopexit, label %79, !llvm.loop !12
+  br i1 %exitcond.not, label %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEEvT_S7_.exit._crit_edge, label %79, !llvm.loop !12
 
-_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEEvT_S7_.exit._crit_edge.loopexit: ; preds = %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEEvT_S7_.exit
-  %93 = add nsw i32 %.143, 1
+_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEEvT_S7_.exit._crit_edge: ; preds = %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEEvT_S7_.exit, %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEEvT_S7_.exit.preheader
+  %.042.lcssa = phi i32 [ 0, %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEEvT_S7_.exit.preheader ], [ %.143, %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEEvT_S7_.exit ]
+  %93 = add nsw i32 %.042.lcssa, 1
   %94 = sext i32 %93 to i64
-  br label %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEEvT_S7_.exit._crit_edge
-
-_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEEvT_S7_.exit._crit_edge: ; preds = %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEEvT_S7_.exit._crit_edge.loopexit, %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEEvT_S7_.exit.preheader
-  %.042.lcssa = phi i64 [ 1, %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEEvT_S7_.exit.preheader ], [ %94, %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEEvT_S7_.exit._crit_edge.loopexit ]
-  %95 = icmp ult i64 %72, %.042.lcssa
+  %95 = icmp ult i64 %72, %94
   br i1 %95, label %96, label %126
 
 96:                                               ; preds = %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEEvT_S7_.exit._crit_edge
-  %97 = sub nuw nsw i64 %.042.lcssa, %72
+  %97 = sub nuw nsw i64 %94, %72
   %98 = ptrtoint ptr %.sroa.59.1 to i64
   %99 = sub i64 %98, %69
   %100 = ashr exact i64 %99, 2
   %101 = icmp ult i64 %72, 2305843009213693952
   tail call void @llvm.assume(i1 %101)
-  %102 = xor i64 %72, 2305843009213693951
+  %102 = sub nuw nsw i64 2305843009213693951, %72
   %103 = icmp ule i64 %100, %102
   tail call void @llvm.assume(i1 %103)
   %.not28.i = icmp ult i64 %100, %97
@@ -1324,7 +1321,7 @@ _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i: ; preds = %104
   br label %_ZNSt6vectorIiSaIiEE6resizeEm.exit
 
 110:                                              ; preds = %96
-  %111 = icmp ult i64 %102, %97
+  %111 = icmp slt i32 %.042.lcssa, -1
   br i1 %111, label %112, label %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i
 
 112:                                              ; preds = %110
@@ -1376,8 +1373,8 @@ _ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit35.i: ; preds = %124, %_ZNSt6
   br label %_ZNSt6vectorIiSaIiEE6resizeEm.exit
 
 126:                                              ; preds = %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEEvT_S7_.exit._crit_edge
-  %127 = icmp ugt i64 %72, %.042.lcssa
-  %128 = getelementptr inbounds i32, ptr %.sroa.0106.2, i64 %.042.lcssa
+  %127 = icmp ugt i64 %72, %94
+  %128 = getelementptr inbounds i32, ptr %.sroa.0106.2, i64 %94
   %spec.select180 = select i1 %127, ptr %128, ptr %.sroa.36.1
   br label %_ZNSt6vectorIiSaIiEE6resizeEm.exit
 
@@ -17627,7 +17624,7 @@ define linkonce_odr void @_ZSt6__sortIN9__gnu_cxx17__normal_iteratorIPiSt6vector
   %7 = ashr exact i64 %6, 2
   %8 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %7, i1 true)
   %9 = shl nuw nsw i64 %8, 1
-  %10 = xor i64 %9, 126
+  %10 = sub nuw nsw i64 126, %9
   tail call void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElNS0_5__ops15_Iter_less_iterEEvT_S9_T0_T1_(ptr %0, ptr %1, i64 noundef %10)
   %11 = icmp sgt i64 %6, 64
   %scevgep.i = getelementptr i8, ptr %0, i64 4
@@ -18126,7 +18123,7 @@ define linkonce_odr void @_ZNSt6vectorIiSaIiEE17_M_default_appendEm(ptr noundef 
   %15 = ashr exact i64 %14, 2
   %16 = icmp ult i64 %10, 2305843009213693952
   tail call void @llvm.assume(i1 %16)
-  %17 = xor i64 %10, 2305843009213693951
+  %17 = sub nuw nsw i64 2305843009213693951, %10
   %18 = icmp ule i64 %15, %17
   tail call void @llvm.assume(i1 %18)
   %.not28 = icmp ult i64 %15, %1

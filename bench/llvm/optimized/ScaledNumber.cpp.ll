@@ -85,23 +85,22 @@ define dso_local { i64, i16 } @_ZN4llvm13ScaledNumbers10multiply64Emm(i64 nounde
   %33 = or i64 %32, %30
   %.0 = select i1 %.not29, i64 %25, i64 %33
   %34 = trunc nuw nsw i32 %29 to i16
-  %35 = xor i64 %27, 63
-  %36 = shl nuw i64 1, %35
-  %37 = and i64 %36, %19
-  %.not48 = icmp eq i64 %37, 0
-  br i1 %.not48, label %_ZN4llvm13ScaledNumbers10getRoundedImEESt4pairIT_sES3_sb.exit, label %38
+  %35 = lshr exact i64 -9223372036854775808, %27
+  %36 = and i64 %35, %19
+  %.not48 = icmp eq i64 %36, 0
+  br i1 %.not48, label %_ZN4llvm13ScaledNumbers10getRoundedImEESt4pairIT_sES3_sb.exit, label %37
 
-38:                                               ; preds = %26
-  %39 = add i64 %.0, 1
-  %.not.i = icmp eq i64 %39, 0
-  %spec.select.i = select i1 %.not.i, i64 -9223372036854775808, i64 %39
-  %40 = zext i1 %.not.i to i16
-  %spec.select13.i = add nuw nsw i16 %40, %34
+37:                                               ; preds = %26
+  %38 = add i64 %.0, 1
+  %.not.i = icmp eq i64 %38, 0
+  %spec.select.i = select i1 %.not.i, i64 -9223372036854775808, i64 %38
+  %39 = zext i1 %.not.i to i16
+  %spec.select13.i = add nuw nsw i16 %39, %34
   br label %_ZN4llvm13ScaledNumbers10getRoundedImEESt4pairIT_sES3_sb.exit
 
-_ZN4llvm13ScaledNumbers10getRoundedImEESt4pairIT_sES3_sb.exit: ; preds = %38, %26, %2
-  %.sroa.037.0 = phi i64 [ %19, %2 ], [ %.0, %26 ], [ %spec.select.i, %38 ]
-  %.sroa.338.0 = phi i16 [ 0, %2 ], [ %34, %26 ], [ %spec.select13.i, %38 ]
+_ZN4llvm13ScaledNumbers10getRoundedImEESt4pairIT_sES3_sb.exit: ; preds = %37, %26, %2
+  %.sroa.037.0 = phi i64 [ %19, %2 ], [ %.0, %26 ], [ %spec.select.i, %37 ]
+  %.sroa.338.0 = phi i16 [ 0, %2 ], [ %34, %26 ], [ %spec.select13.i, %37 ]
   %.fca.0.insert = insertvalue { i64, i16 } poison, i64 %.sroa.037.0, 0
   %.fca.1.insert = insertvalue { i64, i16 } %.fca.0.insert, i16 %.sroa.338.0, 1
   ret { i64, i16 } %.fca.1.insert

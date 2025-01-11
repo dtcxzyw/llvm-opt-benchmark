@@ -433,7 +433,7 @@ define hidden range(i32 0, 5) i32 @av1_get_reference_mode_context(ptr nocapture 
   %10 = load i8, ptr %9, align 1
   %11 = trunc i8 %10 to i1
   %or.cond = select i1 %8, i1 %11, i1 false
-  br i1 %or.cond, label %12, label %43
+  br i1 %or.cond, label %12, label %41
 
 12:                                               ; preds = %1
   %13 = getelementptr i8, ptr %3, i64 17
@@ -442,7 +442,7 @@ define hidden range(i32 0, 5) i32 @av1_get_reference_mode_context(ptr nocapture 
   %15 = getelementptr i8, ptr %5, i64 17
   %.val44 = load i8, ptr %15, align 1
   %16 = icmp slt i8 %.val44, 1
-  br i1 %14, label %17, label %33
+  br i1 %14, label %17, label %32
 
 17:                                               ; preds = %12
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -458,10 +458,10 @@ define hidden range(i32 0, 5) i32 @av1_get_reference_mode_context(ptr nocapture 
   %narrow54 = icmp ult i8 %24, 3
   %25 = xor i1 %narrow53, %narrow54
   %26 = zext i1 %25 to i32
-  br label %53
+  br label %51
 
 27:                                               ; preds = %17
-  br i1 %narrow53, label %53, label %is_inter_block.exit
+  br i1 %narrow53, label %51, label %is_inter_block.exit
 
 is_inter_block.exit:                              ; preds = %27
   %28 = getelementptr i8, ptr %3, i64 175
@@ -470,52 +470,50 @@ is_inter_block.exit:                              ; preds = %27
   %.not.i = icmp ne i16 %29, 0
   %30 = icmp sgt i8 %19, 0
   %narrow52 = or i1 %30, %.not.i
-  %31 = zext i1 %narrow52 to i32
-  %32 = xor i32 %31, 3
-  br label %53
+  %31 = select i1 %narrow52, i32 2, i32 3
+  br label %51
 
-33:                                               ; preds = %12
-  br i1 %16, label %34, label %53
+32:                                               ; preds = %12
+  br i1 %16, label %33, label %51
 
-34:                                               ; preds = %33
-  %35 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %36 = load i8, ptr %35, align 8
-  %37 = add i8 %36, -5
-  %or.cond43 = icmp ult i8 %37, 3
-  br i1 %or.cond43, label %53, label %is_inter_block.exit50
+33:                                               ; preds = %32
+  %34 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %35 = load i8, ptr %34, align 8
+  %36 = add i8 %35, -5
+  %or.cond43 = icmp ult i8 %36, 3
+  br i1 %or.cond43, label %51, label %is_inter_block.exit50
 
-is_inter_block.exit50:                            ; preds = %34
-  %38 = getelementptr i8, ptr %5, i64 175
-  %.val.i48 = load i16, ptr %38, align 1
-  %39 = and i16 %.val.i48, 128
-  %.not.i49 = icmp ne i16 %39, 0
-  %40 = icmp sgt i8 %36, 0
-  %narrow51 = or i1 %40, %.not.i49
-  %41 = zext i1 %narrow51 to i32
-  %42 = xor i32 %41, 3
-  br label %53
+is_inter_block.exit50:                            ; preds = %33
+  %37 = getelementptr i8, ptr %5, i64 175
+  %.val.i48 = load i16, ptr %37, align 1
+  %38 = and i16 %.val.i48, 128
+  %.not.i49 = icmp ne i16 %38, 0
+  %39 = icmp sgt i8 %35, 0
+  %narrow51 = or i1 %39, %.not.i49
+  %40 = select i1 %narrow51, i32 2, i32 3
+  br label %51
 
-43:                                               ; preds = %1
+41:                                               ; preds = %1
   %or.cond3 = select i1 %8, i1 true, i1 %11
-  br i1 %or.cond3, label %44, label %53
+  br i1 %or.cond3, label %42, label %51
 
-44:                                               ; preds = %43
-  %45 = select i1 %8, ptr %3, ptr %5
-  %46 = getelementptr i8, ptr %45, i64 17
-  %.val47 = load i8, ptr %46, align 1
-  %47 = icmp slt i8 %.val47, 1
-  br i1 %47, label %48, label %53
+42:                                               ; preds = %41
+  %43 = select i1 %8, ptr %3, ptr %5
+  %44 = getelementptr i8, ptr %43, i64 17
+  %.val47 = load i8, ptr %44, align 1
+  %45 = icmp slt i8 %.val47, 1
+  br i1 %45, label %46, label %51
 
-48:                                               ; preds = %44
-  %49 = getelementptr inbounds nuw i8, ptr %45, i64 16
-  %50 = load i8, ptr %49, align 8
-  %51 = add i8 %50, -5
-  %narrow = icmp ult i8 %51, 3
-  %52 = zext i1 %narrow to i32
-  br label %53
+46:                                               ; preds = %42
+  %47 = getelementptr inbounds nuw i8, ptr %43, i64 16
+  %48 = load i8, ptr %47, align 8
+  %49 = add i8 %48, -5
+  %narrow = icmp ult i8 %49, 3
+  %50 = zext i1 %narrow to i32
+  br label %51
 
-53:                                               ; preds = %43, %44, %33, %is_inter_block.exit50, %34, %is_inter_block.exit, %27, %48, %21
-  %.0 = phi i32 [ %26, %21 ], [ %52, %48 ], [ %32, %is_inter_block.exit ], [ 3, %27 ], [ %42, %is_inter_block.exit50 ], [ 3, %34 ], [ 4, %33 ], [ 3, %44 ], [ 1, %43 ]
+51:                                               ; preds = %41, %42, %32, %is_inter_block.exit50, %33, %is_inter_block.exit, %27, %46, %21
+  %.0 = phi i32 [ %26, %21 ], [ %50, %46 ], [ %31, %is_inter_block.exit ], [ 3, %27 ], [ %40, %is_inter_block.exit50 ], [ 3, %33 ], [ 4, %32 ], [ 3, %42 ], [ 1, %41 ]
   ret i32 %.0
 }
 

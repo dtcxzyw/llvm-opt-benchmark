@@ -8536,7 +8536,7 @@ if.then:                                          ; preds = %entry
   %sub.ptr.div.i11 = ashr exact i64 %sub.ptr.sub.i10, 3
   %cmp4.i = icmp ult i64 %sub.ptr.div.i, 1152921504606846976
   tail call void @llvm.assume(i1 %cmp4.i)
-  %sub.i = xor i64 %sub.ptr.div.i, 1152921504606846975
+  %sub.i = sub nuw nsw i64 1152921504606846975, %sub.ptr.div.i
   %cmp6.i = icmp ule i64 %sub.ptr.div.i11, %sub.i
   tail call void @llvm.assume(i1 %cmp6.i)
   %cmp8.not.i = icmp ult i64 %sub.ptr.div.i11, %sub
@@ -8550,7 +8550,7 @@ _ZSt27__uninitialized_default_n_aIPSt10unique_ptrIN4toml2v34nodeESt14default_del
   br label %if.end6
 
 if.else.i:                                        ; preds = %if.then
-  %cmp.i.i = icmp ult i64 %sub.i, %sub
+  %cmp.i.i = icmp ugt i64 %__new_size, 1152921504606846975
   br i1 %cmp.i.i, label %if.then.i.i, label %_ZNKSt6vectorISt10unique_ptrIN4toml2v34nodeESt14default_deleteIS3_EESaIS6_EE12_M_check_lenEmPKc.exit.i
 
 if.then.i.i:                                      ; preds = %if.else.i
@@ -8592,7 +8592,7 @@ if.then.i28.i:                                    ; preds = %_ZNSt6vectorISt10un
 
 _ZNSt12_Vector_baseISt10unique_ptrIN4toml2v34nodeESt14default_deleteIS3_EESaIS6_EE13_M_deallocateEPS6_m.exit29.i: ; preds = %if.then.i28.i, %_ZNSt6vectorISt10unique_ptrIN4toml2v34nodeESt14default_deleteIS3_EESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit.i
   store ptr %call5.i.i.i.i, ptr %this, align 8
-  %add.ptr37.i = getelementptr inbounds %"class.std::unique_ptr", ptr %add.ptr.i, i64 %sub
+  %add.ptr37.i = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %add.ptr.i, i64 %sub
   store ptr %add.ptr37.i, ptr %_M_finish.i, align 8
   %add.ptr40.i = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %call5.i.i.i.i, i64 %4
   store ptr %add.ptr40.i, ptr %_M_end_of_storage.i, align 8
@@ -27903,7 +27903,7 @@ while.cond.preheader.i:                           ; preds = %sw.bb10
   br i1 %tobool.not11.i, label %return.sink.split, label %while.body.preheader.i62
 
 while.body.preheader.i62:                         ; preds = %while.cond.preheader.i
-  %__pos.010.i = xor i64 %20, 63
+  %__pos.010.i = sub nuw nsw i64 63, %20
   br label %while.body.i63
 
 while.body.i63:                                   ; preds = %while.body.i63, %while.body.preheader.i62
@@ -39742,7 +39742,7 @@ while.cond.preheader.i:                           ; preds = %sw.bb11
   br i1 %tobool.not11.i, label %return.sink.split, label %while.body.preheader.i55
 
 while.body.preheader.i55:                         ; preds = %while.cond.preheader.i
-  %__pos.010.i = xor i32 %20, 31
+  %__pos.010.i = sub nuw nsw i32 31, %20
   %21 = zext nneg i32 %__pos.010.i to i64
   br label %while.body.i56
 
@@ -40089,7 +40089,7 @@ while.cond.preheader.i:                           ; preds = %sw.bb11
   br i1 %tobool.not11.i, label %return.sink.split, label %while.body.preheader.i71
 
 while.body.preheader.i71:                         ; preds = %while.cond.preheader.i
-  %__pos.010.i = xor i32 %21, 31
+  %__pos.010.i = sub nuw nsw i32 31, %21
   %22 = zext nneg i32 %__pos.010.i to i64
   br label %while.body.i72
 
@@ -40462,7 +40462,7 @@ while.cond.preheader.i:                           ; preds = %sw.bb10
   br i1 %tobool.not11.i, label %return.sink.split, label %while.body.preheader.i71
 
 while.body.preheader.i71:                         ; preds = %while.cond.preheader.i
-  %__pos.010.i = xor i32 %20, 31
+  %__pos.010.i = sub nuw nsw i32 31, %20
   %21 = zext nneg i32 %__pos.010.i to i64
   br label %while.body.i72
 
@@ -40827,7 +40827,7 @@ while.cond.preheader.i:                           ; preds = %sw.bb10
   br i1 %tobool.not11.i, label %return.sink.split, label %while.body.preheader.i62
 
 while.body.preheader.i62:                         ; preds = %while.cond.preheader.i
-  %__pos.010.i = xor i64 %20, 63
+  %__pos.010.i = sub nuw nsw i64 63, %20
   br label %while.body.i63
 
 while.body.i63:                                   ; preds = %while.body.i63, %while.body.preheader.i62

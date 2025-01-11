@@ -1747,24 +1747,23 @@ define dso_local void @_ZNK4llvm11IntegerType7getMaskEv(ptr dead_on_unwind noali
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %5, ptr %6, align 8, !alias.scope !19
   %7 = icmp ult i32 %4, 16640
-  br i1 %7, label %8, label %15
+  br i1 %7, label %8, label %13
 
 8:                                                ; preds = %2
-  %9 = add nuw nsw i32 %5, 63
-  %10 = and i32 %9, 63
-  %11 = xor i32 %10, 63
-  %12 = zext nneg i32 %11 to i64
-  %13 = lshr i64 -1, %12
-  %14 = icmp samesign ult i32 %4, 256
-  %spec.store.select.i.i.i = select i1 %14, i64 0, i64 %13
+  %.not.i.i.i = sub nsw i32 0, %5
+  %9 = and i32 %.not.i.i.i, 63
+  %10 = zext nneg i32 %9 to i64
+  %11 = lshr i64 -1, %10
+  %12 = icmp samesign ult i32 %4, 256
+  %spec.store.select.i.i.i = select i1 %12, i64 0, i64 %11
   store i64 %spec.store.select.i.i.i, ptr %0, align 8, !alias.scope !19
   br label %_ZN4llvm5APInt10getAllOnesEj.exit
 
-15:                                               ; preds = %2
+13:                                               ; preds = %2
   tail call void @_ZN4llvm5APInt12initSlowCaseEmb(ptr noundef nonnull align 8 dereferenceable(12) %0, i64 noundef -1, i1 noundef zeroext true) #21
   br label %_ZN4llvm5APInt10getAllOnesEj.exit
 
-_ZN4llvm5APInt10getAllOnesEj.exit:                ; preds = %8, %15
+_ZN4llvm5APInt10getAllOnesEj.exit:                ; preds = %8, %13
   ret void
 }
 

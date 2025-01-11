@@ -949,11 +949,12 @@ _ZL14isVtableAccessPN4llvm11InstructionE.exit71.i.i: ; preds = %_ZNK4llvm11Instr
 
 320:                                              ; preds = %.thread104.i.i, %315, %.thread.i.i, %290
   %321 = phi i1 [ %300, %290 ], [ %300, %315 ], [ %312, %.thread104.i.i ], [ %312, %.thread.i.i ]
-  %storemerge102.in.in.in.i.i = phi i16 [ %293, %290 ], [ %293, %315 ], [ %305, %.thread104.i.i ], [ %305, %.thread.i.i ]
+  %.pn.in.in.in.in.i.i = phi i16 [ %293, %290 ], [ %293, %315 ], [ %305, %.thread104.i.i ], [ %305, %.thread.i.i ]
   %322 = phi i1 [ false, %290 ], [ %317, %315 ], [ %319, %.thread104.i.i ], [ false, %.thread.i.i ]
-  %storemerge102.in.in.i.i = trunc i16 %storemerge102.in.in.in.i.i to i8
-  %storemerge102.in.i.i = lshr i8 %storemerge102.in.in.i.i, 1
-  %storemerge102.i.i = and i8 %storemerge102.in.i.i, 63
+  %.pn.in.in.in.i.i = trunc i16 %.pn.in.in.in.in.i.i to i8
+  %.pn.in.in.i.i = lshr i8 %.pn.in.in.in.i.i, 1
+  %.pn.in.i.i = and i8 %.pn.in.in.i.i, 63
+  %.pn.i.i = xor i8 %.pn.in.i.i, 63
   %323 = call { i64, i8 } @_ZNK4llvm10DataLayout17getTypeSizeInBitsEPNS_4TypeE(ptr noundef nonnull align 8 dereferenceable(512) %104, ptr noundef nonnull %.0.i.i112.i)
   %.fca.0.extract.i.i.i = extractvalue { i64, i8 } %323, 0
   %.fca.1.extract.i.i.i = extractvalue { i64, i8 } %323, 1
@@ -963,10 +964,11 @@ _ZL14isVtableAccessPN4llvm11InstructionE.exit71.i.i: ; preds = %_ZNK4llvm11Instr
   store i64 %325, ptr %52, align 8
   store i8 %326, ptr %.sroa.23.0..sroa_idx.i.i, align 8
   %327 = call noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9) %52) #17
-  %328 = icmp samesign ugt i8 %storemerge102.i.i, 2
+  %328 = icmp samesign ult i8 %.pn.i.i, 61
   br i1 %328, label %336, label %329
 
 329:                                              ; preds = %320
+  %storemerge102.i.i = sub nuw nsw i8 63, %.pn.i.i
   %330 = zext nneg i8 %storemerge102.i.i to i64
   %331 = shl nuw nsw i64 1, %330
   %.lhs.trunc.i.i = trunc nuw i64 %331 to i32

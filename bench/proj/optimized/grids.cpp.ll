@@ -3991,7 +3991,7 @@ define linkonce_odr void @_ZNSt6vectorIhSaIhEE6resizeEm(ptr noundef nonnull alig
   %15 = sub i64 %14, %6
   %16 = icmp sgt i64 %8, -1
   tail call void @llvm.assume(i1 %16)
-  %17 = xor i64 %8, 9223372036854775807
+  %17 = sub nuw nsw i64 9223372036854775807, %8
   %18 = icmp ule i64 %15, %17
   tail call void @llvm.assume(i1 %18)
   %.not28.i = icmp ult i64 %15, %11
@@ -4015,7 +4015,7 @@ _ZSt27__uninitialized_default_n_aIPhmhET_S1_T0_RSaIT1_E.exit.i: ; preds = %23, %
   br label %_ZNSt6vectorIhSaIhEE17_M_default_appendEm.exit
 
 25:                                               ; preds = %10
-  %26 = icmp ult i64 %17, %11
+  %26 = icmp slt i64 %1, 0
   br i1 %26, label %27, label %_ZNKSt6vectorIhSaIhEE12_M_check_lenEmPKc.exit.i
 
 27:                                               ; preds = %25
@@ -4056,7 +4056,7 @@ _ZNSt6vectorIhSaIhEE11_S_relocateEPhS2_S2_RS0_.exit.i: ; preds = %36, %_ZSt27__u
 
 _ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit34.i: ; preds = %37, %_ZNSt6vectorIhSaIhEE11_S_relocateEPhS2_S2_RS0_.exit.i
   store ptr %30, ptr %0, align 8
-  %38 = getelementptr inbounds i8, ptr %30, i64 %1
+  %38 = getelementptr inbounds nuw i8, ptr %30, i64 %1
   store ptr %38, ptr %3, align 8
   %39 = getelementptr inbounds nuw i8, ptr %30, i64 %29
   store ptr %39, ptr %12, align 8
@@ -22047,7 +22047,7 @@ define linkonce_odr void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef 
   %15 = ashr exact i64 %14, 2
   %16 = icmp ult i64 %10, 2305843009213693952
   tail call void @llvm.assume(i1 %16)
-  %17 = xor i64 %10, 2305843009213693951
+  %17 = sub nuw nsw i64 2305843009213693951, %10
   %18 = icmp ule i64 %15, %17
   tail call void @llvm.assume(i1 %18)
   %.not28 = icmp ult i64 %15, %1
@@ -23068,7 +23068,7 @@ define linkonce_odr void @_ZNSt6vectorIdSaIdEE17_M_default_appendEm(ptr noundef 
   %15 = ashr exact i64 %14, 3
   %16 = icmp ult i64 %10, 1152921504606846976
   tail call void @llvm.assume(i1 %16)
-  %17 = xor i64 %10, 1152921504606846975
+  %17 = sub nuw nsw i64 1152921504606846975, %10
   %18 = icmp ule i64 %15, %17
   tail call void @llvm.assume(i1 %18)
   %.not28 = icmp ult i64 %15, %1

@@ -64,28 +64,21 @@ define void @_ZN5boost9container3pmr25monotonic_buffer_resource32increase_next_b
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load i64, ptr %3, align 8, !tbaa !3
   %5 = icmp ult i64 %4, %1
-  br i1 %5, label %6, label %15
+  br i1 %5, label %.sink.split, label %12
 
-6:                                                ; preds = %2
-  %7 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %1)
-  %8 = icmp samesign ult i64 %7, 2
-  %9 = icmp slt i64 %1, 0
-  %or.cond = or i1 %8, %9
-  br i1 %or.cond, label %.sink.split, label %10
-
-10:                                               ; preds = %6
-  %11 = add nsw i64 %1, -1
-  %12 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %11, i1 false)
-  %13 = sub nuw nsw i64 64, %12
-  %14 = shl nuw i64 1, %13
-  br label %.sink.split
-
-.sink.split:                                      ; preds = %6, %10
-  %.sink = phi i64 [ %14, %10 ], [ %1, %6 ]
+.sink.split:                                      ; preds = %2
+  %6 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %1)
+  %7 = icmp samesign ult i64 %6, 2
+  %8 = icmp slt i64 %1, 0
+  %or.cond = or i1 %7, %8
+  %9 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %1, i1 true)
+  %10 = sub nuw nsw i64 64, %9
+  %11 = shl nuw i64 1, %10
+  %.sink = select i1 %or.cond, i64 %1, i64 %11
   store i64 %.sink, ptr %3, align 8, !tbaa !3
-  br label %15
+  br label %12
 
-15:                                               ; preds = %.sink.split, %2
+12:                                               ; preds = %.sink.split, %2
   ret void
 }
 
@@ -152,27 +145,19 @@ define void @_ZN5boost9container3pmr25monotonic_buffer_resourceC2EmPNS1_15memory
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %10, i8 0, i64 16, i1 false)
   store i64 16, ptr %11, align 8, !tbaa !3
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %13 = tail call i64 @llvm.umax.i64(i64 %1, i64 1)
-  %14 = icmp ugt i64 %1, 16
+  %13 = icmp ugt i64 %1, 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %12, i8 0, i64 16, i1 false)
-  br i1 %14, label %15, label %_ZN5boost9container3pmr25monotonic_buffer_resource32increase_next_buffer_at_least_toEm.exit
+  br i1 %13, label %.sink.split.i, label %_ZN5boost9container3pmr25monotonic_buffer_resource32increase_next_buffer_at_least_toEm.exit
 
-15:                                               ; preds = %7
-  %16 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %13)
-  %17 = icmp samesign ult i64 %16, 2
-  %18 = icmp slt i64 %13, 0
-  %or.cond.i = or i1 %18, %17
-  br i1 %or.cond.i, label %.sink.split.i, label %19
-
-19:                                               ; preds = %15
-  %20 = add nsw i64 %13, -1
-  %21 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %20, i1 false)
-  %22 = sub nuw nsw i64 64, %21
-  %23 = shl nuw i64 1, %22
-  br label %.sink.split.i
-
-.sink.split.i:                                    ; preds = %19, %15
-  %.sink.i = phi i64 [ %23, %19 ], [ %13, %15 ]
+.sink.split.i:                                    ; preds = %7
+  %14 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %1)
+  %15 = icmp samesign ult i64 %14, 2
+  %16 = icmp slt i64 %1, 0
+  %or.cond.i = or i1 %16, %15
+  %17 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %1, i1 true)
+  %18 = sub nuw nsw i64 64, %17
+  %19 = shl nuw i64 1, %18
+  %.sink.i = select i1 %or.cond.i, i64 %1, i64 %19
   store i64 %.sink.i, ptr %11, align 8, !tbaa !3
   br label %_ZN5boost9container3pmr25monotonic_buffer_resource32increase_next_buffer_at_least_toEm.exit
 
@@ -202,13 +187,13 @@ define void @_ZN5boost9container3pmr25monotonic_buffer_resourceC2EPvmPNS1_15memo
   store i64 %2, ptr %12, align 8, !tbaa !18
   %.sroa.speculated = tail call i64 @llvm.umax.i64(i64 %2, i64 256)
   %13 = tail call noundef range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %.sroa.speculated, i1 true)
-  %14 = xor i64 %13, 63
+  %14 = lshr exact i64 -9223372036854775808, %13
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr %1, ptr %16, align 8, !tbaa !19
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i64 %2, ptr %17, align 8, !tbaa !20
-  %18 = shl nuw i64 2, %14
+  %18 = shl nuw i64 %14, 1
   %.inv.i.not = icmp eq i64 %13, 0
   %spec.select.i = select i1 %.inv.i.not, i64 -1, i64 %18
   store i64 %spec.select.i, ptr %15, align 8, !tbaa !3
@@ -409,75 +394,68 @@ define noundef ptr @_ZN5boost9container3pmr25monotonic_buffer_resource11do_alloc
   %17 = load i64, ptr %16, align 8, !tbaa !18
   %spec.select.i = tail call noundef i64 @llvm.usub.sat.i64(i64 %17, i64 %15)
   %18 = icmp ult i64 %spec.select.i, %1
-  br i1 %18, label %19, label %48
+  br i1 %18, label %19, label %45
 
 19:                                               ; preds = %7
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %21 = load i64, ptr %20, align 8, !tbaa !3
   %22 = icmp ult i64 %21, %1
-  br i1 %22, label %23, label %_ZN5boost9container3pmr25monotonic_buffer_resource32increase_next_buffer_at_least_toEm.exit
+  br i1 %22, label %.sink.split.i, label %_ZN5boost9container3pmr25monotonic_buffer_resource32increase_next_buffer_at_least_toEm.exit
 
-23:                                               ; preds = %19
-  %24 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %1)
-  %25 = icmp samesign ult i64 %24, 2
-  %26 = icmp slt i64 %1, 0
-  %or.cond.i = or i1 %26, %25
-  br i1 %or.cond.i, label %.sink.split.i, label %27
-
-27:                                               ; preds = %23
-  %28 = add nsw i64 %1, -1
-  %29 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %28, i1 false)
-  %30 = sub nuw nsw i64 64, %29
-  %31 = shl nuw i64 1, %30
-  br label %.sink.split.i
-
-.sink.split.i:                                    ; preds = %27, %23
-  %.sink.i = phi i64 [ %31, %27 ], [ %1, %23 ]
+.sink.split.i:                                    ; preds = %19
+  %23 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %1)
+  %24 = icmp samesign ult i64 %23, 2
+  %25 = icmp slt i64 %1, 0
+  %or.cond.i = or i1 %25, %24
+  %26 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %1, i1 true)
+  %27 = sub nuw nsw i64 64, %26
+  %28 = shl nuw i64 1, %27
+  %.sink.i = select i1 %or.cond.i, i64 %1, i64 %28
   store i64 %.sink.i, ptr %20, align 8, !tbaa !3
   br label %_ZN5boost9container3pmr25monotonic_buffer_resource32increase_next_buffer_at_least_toEm.exit
 
 _ZN5boost9container3pmr25monotonic_buffer_resource32increase_next_buffer_at_least_toEm.exit: ; preds = %19, %.sink.split.i
-  %32 = phi i64 [ %21, %19 ], [ %.sink.i, %.sink.split.i ]
-  %33 = icmp ugt i64 %32, -17
-  br i1 %33, label %34, label %_ZN5boost9container3pmr11block_slist8allocateEm.exit
+  %29 = phi i64 [ %21, %19 ], [ %.sink.i, %.sink.split.i ]
+  %30 = icmp ugt i64 %29, -17
+  br i1 %30, label %31, label %_ZN5boost9container3pmr11block_slist8allocateEm.exit
 
-34:                                               ; preds = %_ZN5boost9container3pmr25monotonic_buffer_resource32increase_next_buffer_at_least_toEm.exit
+31:                                               ; preds = %_ZN5boost9container3pmr25monotonic_buffer_resource32increase_next_buffer_at_least_toEm.exit
   tail call void @_ZN5boost9container15throw_bad_allocEv() #18
   unreachable
 
 _ZN5boost9container3pmr11block_slist8allocateEm.exit: ; preds = %_ZN5boost9container3pmr25monotonic_buffer_resource32increase_next_buffer_at_least_toEm.exit
-  %35 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %36 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %37 = load ptr, ptr %36, align 8, !tbaa !21
-  %38 = add nuw i64 %32, 16
-  %39 = load ptr, ptr %37, align 8, !tbaa !13
-  %40 = getelementptr inbounds nuw i8, ptr %39, i64 16
-  %41 = load ptr, ptr %40, align 8
-  %42 = tail call noundef ptr %41(ptr noundef nonnull align 8 dereferenceable(8) %37, i64 noundef %38, i64 noundef 16)
-  %43 = getelementptr inbounds nuw i8, ptr %42, i64 8
-  store i64 %38, ptr %43, align 8, !tbaa !22
-  %44 = load ptr, ptr %35, align 8, !tbaa !15
-  store ptr %44, ptr %42, align 8, !tbaa !15
-  store ptr %42, ptr %35, align 8, !tbaa !15
-  %45 = getelementptr inbounds nuw i8, ptr %42, i64 16
-  %46 = load i64, ptr %20, align 8, !tbaa !3
-  %47 = shl nuw i64 %46, 1
-  %.inv.i = icmp sgt i64 %46, -1
-  %spec.select.i6 = select i1 %.inv.i, i64 %47, i64 -1
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %34 = load ptr, ptr %33, align 8, !tbaa !21
+  %35 = add nuw i64 %29, 16
+  %36 = load ptr, ptr %34, align 8, !tbaa !13
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 16
+  %38 = load ptr, ptr %37, align 8
+  %39 = tail call noundef ptr %38(ptr noundef nonnull align 8 dereferenceable(8) %34, i64 noundef %35, i64 noundef 16)
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 8
+  store i64 %35, ptr %40, align 8, !tbaa !22
+  %41 = load ptr, ptr %32, align 8, !tbaa !15
+  store ptr %41, ptr %39, align 8, !tbaa !15
+  store ptr %39, ptr %32, align 8, !tbaa !15
+  %42 = getelementptr inbounds nuw i8, ptr %39, i64 16
+  %43 = load i64, ptr %20, align 8, !tbaa !3
+  %44 = shl nuw i64 %43, 1
+  %.inv.i = icmp sgt i64 %43, -1
+  %spec.select.i6 = select i1 %.inv.i, i64 %44, i64 -1
   store i64 %spec.select.i6, ptr %20, align 8, !tbaa !3
-  br label %48
+  br label %45
 
-48:                                               ; preds = %_ZN5boost9container3pmr11block_slist8allocateEm.exit, %7
-  %49 = phi i64 [ %46, %_ZN5boost9container3pmr11block_slist8allocateEm.exit ], [ %17, %7 ]
-  %50 = phi ptr [ %45, %_ZN5boost9container3pmr11block_slist8allocateEm.exit ], [ %11, %7 ]
+45:                                               ; preds = %_ZN5boost9container3pmr11block_slist8allocateEm.exit, %7
+  %46 = phi i64 [ %43, %_ZN5boost9container3pmr11block_slist8allocateEm.exit ], [ %17, %7 ]
+  %47 = phi ptr [ %42, %_ZN5boost9container3pmr11block_slist8allocateEm.exit ], [ %11, %7 ]
   %.0 = phi i64 [ 0, %_ZN5boost9container3pmr11block_slist8allocateEm.exit ], [ %15, %7 ]
-  %51 = getelementptr inbounds nuw i8, ptr %50, i64 %.0
-  %52 = getelementptr inbounds nuw i8, ptr %51, i64 %1
-  store ptr %52, ptr %10, align 8, !tbaa !17
-  %53 = add i64 %.0, %1
-  %54 = sub i64 %49, %53
-  store i64 %54, ptr %16, align 8, !tbaa !18
-  ret ptr %51
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 %.0
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 %1
+  store ptr %49, ptr %10, align 8, !tbaa !17
+  %50 = add i64 %.0, %1
+  %51 = sub i64 %46, %50
+  store i64 %51, ptr %16, align 8, !tbaa !18
+  ret ptr %48
 }
 
 declare ptr @__cxa_allocate_exception(i64) local_unnamed_addr

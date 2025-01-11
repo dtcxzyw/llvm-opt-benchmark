@@ -1105,7 +1105,7 @@ define dso_local noundef range(i32 0, -7) i32 @_ZN4llvm10RISCVVType15getSEWLMULR
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local range(i16 0, 272) i16 @_ZN4llvm10RISCVVType16getSameRatioLMULEjNS_7RISCVII5VLMULEj(i32 noundef %0, i8 noundef zeroext %1, i32 noundef %2) local_unnamed_addr #5 {
+define dso_local range(i16 0, 512) i16 @_ZN4llvm10RISCVVType16getSameRatioLMULEjNS_7RISCVII5VLMULEj(i32 noundef %0, i8 noundef zeroext %1, i32 noundef %2) local_unnamed_addr #5 {
   %4 = zext i8 %1 to i32
   %switch.i.i = icmp ugt i8 %1, 3
   %5 = sub nsw i32 8, %4
@@ -1143,16 +1143,17 @@ define dso_local range(i16 0, 272) i16 @_ZN4llvm10RISCVVType16getSameRatioLMULEj
 
 26:                                               ; preds = %19
   %27 = tail call noundef range(i32 0, 33) i32 @llvm.ctlz.i32(i32 range(i32 1, 536870912) %20, i1 true)
-  %28 = xor i32 %27, 31
-  %29 = sub nuw nsw i32 8, %28
+  %28 = sub nuw nsw i32 31, %27
+  %29 = add nuw nsw i32 %27, 233
   %30 = select i1 %14, i32 %28, i32 %29
   %31 = trunc nuw nsw i32 %30 to i16
+  %32 = and i16 %31, 255
   br label %_ZN4llvm10RISCVVTypeL11isValidLMULEjb.exit.thread
 
 _ZN4llvm10RISCVVTypeL11isValidLMULEjb.exit.thread: ; preds = %19, %26
-  %.sroa.0.0 = phi i16 [ %31, %26 ], [ 0, %19 ]
+  %.sroa.0.0 = phi i16 [ %32, %26 ], [ 0, %19 ]
   %.sroa.2.0 = phi i16 [ 256, %26 ], [ 0, %19 ]
-  %.sroa.0.0.insert.insert = or i16 %.sroa.2.0, %.sroa.0.0
+  %.sroa.0.0.insert.insert = or disjoint i16 %.sroa.2.0, %.sroa.0.0
   ret i16 %.sroa.0.0.insert.insert
 }
 

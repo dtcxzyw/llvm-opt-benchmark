@@ -18942,7 +18942,7 @@ if.then:                                          ; preds = %entry
   %sub.ptr.sub.i9 = sub i64 %sub.ptr.lhs.cast.i8, %sub.ptr.lhs.cast.i
   %cmp4.i = icmp sgt i64 %sub.ptr.sub.i, -1
   tail call void @llvm.assume(i1 %cmp4.i)
-  %sub.i = xor i64 %sub.ptr.sub.i, 9223372036854775807
+  %sub.i = sub nuw nsw i64 9223372036854775807, %sub.ptr.sub.i
   %cmp6.i = icmp ule i64 %sub.ptr.sub.i9, %sub.i
   tail call void @llvm.assume(i1 %cmp6.i)
   %cmp8.not.i = icmp ult i64 %sub.ptr.sub.i9, %sub
@@ -18966,7 +18966,7 @@ _ZSt27__uninitialized_default_n_aIPhmhET_S1_T0_RSaIT1_E.exit.i: ; preds = %if.th
   br label %if.end6
 
 if.else.i:                                        ; preds = %if.then
-  %cmp.i.i = icmp ult i64 %sub.i, %sub
+  %cmp.i.i = icmp slt i64 %__new_size, 0
   br i1 %cmp.i.i, label %if.then.i.i, label %_ZNKSt6vectorIhSaIhEE12_M_check_lenEmPKc.exit.i
 
 if.then.i.i:                                      ; preds = %if.else.i
@@ -19007,7 +19007,7 @@ if.then.i32.i:                                    ; preds = %_ZNSt6vectorIhSaIhE
 
 _ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit33.i: ; preds = %if.then.i32.i, %_ZNSt6vectorIhSaIhEE11_S_relocateEPhS2_S2_RS0_.exit.i
   store ptr %call5.i.i.i.i, ptr %this, align 8
-  %add.ptr36.i = getelementptr inbounds i8, ptr %call5.i.i.i.i, i64 %__new_size
+  %add.ptr36.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i, i64 %__new_size
   store ptr %add.ptr36.i, ptr %_M_finish.i, align 8
   %add.ptr39.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i, i64 %3
   store ptr %add.ptr39.i, ptr %_M_end_of_storage.i, align 8
@@ -23406,7 +23406,7 @@ for.body71:                                       ; preds = %for.cond68.preheade
   %arrayidx75 = getelementptr inbounds nuw i8, ptr %7, i64 %conv6954
   %10 = load i8, ptr %arrayidx75, align 1
   %conv76 = zext i8 %10 to i32
-  %sub80 = xor i32 %conv76, 255
+  %sub80 = sub nuw nsw i32 255, %conv76
   %cmp77189 = icmp slt i8 %10, 0
   %cond = select i1 %cmp77189, i32 %sub80, i32 %conv76
   %conv81 = zext nneg i32 %cond to i64

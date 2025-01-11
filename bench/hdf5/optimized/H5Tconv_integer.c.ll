@@ -22763,7 +22763,7 @@ define range(i32 -1, 1) i32 @H5T__conv_short__Float16(ptr noundef readonly %0, p
   br i1 %.not564.us.us, label %124, label %122
 
 122:                                              ; preds = %120
-  %123 = xor i32 %.0460667.us.us, 15
+  %123 = sub nuw nsw i32 15, %.0460667.us.us
   br label %.loopexit592.us.us
 
 124:                                              ; preds = %120
@@ -23005,7 +23005,7 @@ define range(i32 -1, 1) i32 @H5T__conv_short__Float16(ptr noundef readonly %0, p
   br i1 %.not545.us.us, label %223, label %221
 
 221:                                              ; preds = %219
-  %222 = xor i32 %.0429658.us.us, 15
+  %222 = sub nuw nsw i32 15, %.0429658.us.us
   br label %.loopexit595.us.us
 
 223:                                              ; preds = %219
@@ -23237,7 +23237,7 @@ define range(i32 -1, 1) i32 @H5T__conv_short__Float16(ptr noundef readonly %0, p
   br i1 %.not526.us.us, label %317, label %315
 
 315:                                              ; preds = %313
-  %316 = xor i32 %.0422650.us.us, 15
+  %316 = sub nuw nsw i32 15, %.0422650.us.us
   br label %.loopexit598.us.us
 
 317:                                              ; preds = %313
@@ -23467,7 +23467,7 @@ define range(i32 -1, 1) i32 @H5T__conv_short__Float16(ptr noundef readonly %0, p
   br i1 %.not507.us, label %415, label %413
 
 413:                                              ; preds = %411
-  %414 = xor i32 %.0415642.us, 15
+  %414 = sub nuw nsw i32 15, %.0415642.us
   br label %.loopexit601.us
 
 415:                                              ; preds = %411
@@ -23953,7 +23953,7 @@ define range(i32 -1, 1) i32 @H5T__conv_short_float(ptr noundef readonly %0, ptr 
   br i1 %.not564.us.us, label %147, label %145
 
 145:                                              ; preds = %143
-  %146 = xor i32 %.0460668.us.us, 15
+  %146 = sub nuw nsw i32 15, %.0460668.us.us
   br label %.loopexit593.us.us
 
 147:                                              ; preds = %143
@@ -24250,7 +24250,7 @@ define range(i32 -1, 1) i32 @H5T__conv_short_float(ptr noundef readonly %0, ptr 
   br i1 %.not545.us.us, label %270, label %268
 
 268:                                              ; preds = %266
-  %269 = xor i32 %.0429659.us.us, 15
+  %269 = sub nuw nsw i32 15, %.0429659.us.us
   br label %.loopexit596.us.us
 
 270:                                              ; preds = %266
@@ -24532,7 +24532,7 @@ define range(i32 -1, 1) i32 @H5T__conv_short_float(ptr noundef readonly %0, ptr 
   br i1 %.not526.us.us, label %388, label %386
 
 386:                                              ; preds = %384
-  %387 = xor i32 %.0422651.us.us, 15
+  %387 = sub nuw nsw i32 15, %.0422651.us.us
   br label %.loopexit599.us.us
 
 388:                                              ; preds = %384
@@ -24802,7 +24802,7 @@ define range(i32 -1, 1) i32 @H5T__conv_short_float(ptr noundef readonly %0, ptr 
   br i1 %.not507.us, label %509, label %507
 
 507:                                              ; preds = %505
-  %508 = xor i32 %.0415643.us, 15
+  %508 = sub nuw nsw i32 15, %.0415643.us
   br label %.loopexit602.us
 
 509:                                              ; preds = %505
@@ -25293,7 +25293,7 @@ define range(i32 -1, 1) i32 @H5T__conv_short_double(ptr noundef readonly %0, ptr
   br i1 %.not564.us.us, label %147, label %145
 
 145:                                              ; preds = %143
-  %146 = xor i32 %.0460668.us.us, 15
+  %146 = sub nuw nsw i32 15, %.0460668.us.us
   br label %.loopexit593.us.us
 
 147:                                              ; preds = %143
@@ -25590,7 +25590,7 @@ define range(i32 -1, 1) i32 @H5T__conv_short_double(ptr noundef readonly %0, ptr
   br i1 %.not545.us.us, label %270, label %268
 
 268:                                              ; preds = %266
-  %269 = xor i32 %.0429659.us.us, 15
+  %269 = sub nuw nsw i32 15, %.0429659.us.us
   br label %.loopexit596.us.us
 
 270:                                              ; preds = %266
@@ -25872,7 +25872,7 @@ define range(i32 -1, 1) i32 @H5T__conv_short_double(ptr noundef readonly %0, ptr
   br i1 %.not526.us.us, label %388, label %386
 
 386:                                              ; preds = %384
-  %387 = xor i32 %.0422651.us.us, 15
+  %387 = sub nuw nsw i32 15, %.0422651.us.us
   br label %.loopexit599.us.us
 
 388:                                              ; preds = %384
@@ -26142,7 +26142,7 @@ define range(i32 -1, 1) i32 @H5T__conv_short_double(ptr noundef readonly %0, ptr
   br i1 %.not507.us, label %509, label %507
 
 507:                                              ; preds = %505
-  %508 = xor i32 %.0415643.us, 15
+  %508 = sub nuw nsw i32 15, %.0415643.us
   br label %.loopexit602.us
 
 509:                                              ; preds = %505
@@ -26635,7 +26635,7 @@ define range(i32 -1, 1) i32 @H5T__conv_short_ldouble(ptr noundef readonly %0, pt
   br i1 %.not564.us.us, label %147, label %145
 
 145:                                              ; preds = %143
-  %146 = xor i32 %.0460667.us.us, 15
+  %146 = sub nuw nsw i32 15, %.0460667.us.us
   br label %.loopexit593.us.us
 
 147:                                              ; preds = %143
@@ -26919,7 +26919,7 @@ define range(i32 -1, 1) i32 @H5T__conv_short_ldouble(ptr noundef readonly %0, pt
   br i1 %.not545.us.us, label %265, label %263
 
 263:                                              ; preds = %261
-  %264 = xor i32 %.0429659.us.us, 15
+  %264 = sub nuw nsw i32 15, %.0429659.us.us
   br label %.loopexit596.us.us
 
 265:                                              ; preds = %261
@@ -27198,7 +27198,7 @@ define range(i32 -1, 1) i32 @H5T__conv_short_ldouble(ptr noundef readonly %0, pt
   br i1 %.not526.us.us, label %383, label %381
 
 381:                                              ; preds = %379
-  %382 = xor i32 %.0422651.us.us, 15
+  %382 = sub nuw nsw i32 15, %.0422651.us.us
   br label %.loopexit599.us.us
 
 383:                                              ; preds = %379
@@ -27460,7 +27460,7 @@ define range(i32 -1, 1) i32 @H5T__conv_short_ldouble(ptr noundef readonly %0, pt
   br i1 %.not507.us, label %499, label %497
 
 497:                                              ; preds = %495
-  %498 = xor i32 %.0415643.us, 15
+  %498 = sub nuw nsw i32 15, %.0415643.us
   br label %.loopexit602.us
 
 499:                                              ; preds = %495
@@ -32583,7 +32583,7 @@ define range(i32 -1, 1) i32 @H5T__conv_ushort_float(ptr noundef readonly %0, ptr
   br i1 %.not564.us.us, label %147, label %145
 
 145:                                              ; preds = %143
-  %146 = xor i32 %.0460668.us.us, 15
+  %146 = sub nuw nsw i32 15, %.0460668.us.us
   br label %.loopexit593.us.us
 
 147:                                              ; preds = %143
@@ -32880,7 +32880,7 @@ define range(i32 -1, 1) i32 @H5T__conv_ushort_float(ptr noundef readonly %0, ptr
   br i1 %.not545.us.us, label %270, label %268
 
 268:                                              ; preds = %266
-  %269 = xor i32 %.0429659.us.us, 15
+  %269 = sub nuw nsw i32 15, %.0429659.us.us
   br label %.loopexit596.us.us
 
 270:                                              ; preds = %266
@@ -33162,7 +33162,7 @@ define range(i32 -1, 1) i32 @H5T__conv_ushort_float(ptr noundef readonly %0, ptr
   br i1 %.not526.us.us, label %388, label %386
 
 386:                                              ; preds = %384
-  %387 = xor i32 %.0422651.us.us, 15
+  %387 = sub nuw nsw i32 15, %.0422651.us.us
   br label %.loopexit599.us.us
 
 388:                                              ; preds = %384
@@ -33432,7 +33432,7 @@ define range(i32 -1, 1) i32 @H5T__conv_ushort_float(ptr noundef readonly %0, ptr
   br i1 %.not507.us, label %509, label %507
 
 507:                                              ; preds = %505
-  %508 = xor i32 %.0415643.us, 15
+  %508 = sub nuw nsw i32 15, %.0415643.us
   br label %.loopexit602.us
 
 509:                                              ; preds = %505
@@ -33923,7 +33923,7 @@ define range(i32 -1, 1) i32 @H5T__conv_ushort_double(ptr noundef readonly %0, pt
   br i1 %.not564.us.us, label %147, label %145
 
 145:                                              ; preds = %143
-  %146 = xor i32 %.0460668.us.us, 15
+  %146 = sub nuw nsw i32 15, %.0460668.us.us
   br label %.loopexit593.us.us
 
 147:                                              ; preds = %143
@@ -34220,7 +34220,7 @@ define range(i32 -1, 1) i32 @H5T__conv_ushort_double(ptr noundef readonly %0, pt
   br i1 %.not545.us.us, label %270, label %268
 
 268:                                              ; preds = %266
-  %269 = xor i32 %.0429659.us.us, 15
+  %269 = sub nuw nsw i32 15, %.0429659.us.us
   br label %.loopexit596.us.us
 
 270:                                              ; preds = %266
@@ -34502,7 +34502,7 @@ define range(i32 -1, 1) i32 @H5T__conv_ushort_double(ptr noundef readonly %0, pt
   br i1 %.not526.us.us, label %388, label %386
 
 386:                                              ; preds = %384
-  %387 = xor i32 %.0422651.us.us, 15
+  %387 = sub nuw nsw i32 15, %.0422651.us.us
   br label %.loopexit599.us.us
 
 388:                                              ; preds = %384
@@ -34772,7 +34772,7 @@ define range(i32 -1, 1) i32 @H5T__conv_ushort_double(ptr noundef readonly %0, pt
   br i1 %.not507.us, label %509, label %507
 
 507:                                              ; preds = %505
-  %508 = xor i32 %.0415643.us, 15
+  %508 = sub nuw nsw i32 15, %.0415643.us
   br label %.loopexit602.us
 
 509:                                              ; preds = %505
@@ -35265,7 +35265,7 @@ define range(i32 -1, 1) i32 @H5T__conv_ushort_ldouble(ptr noundef readonly %0, p
   br i1 %.not564.us.us, label %147, label %145
 
 145:                                              ; preds = %143
-  %146 = xor i32 %.0460667.us.us, 15
+  %146 = sub nuw nsw i32 15, %.0460667.us.us
   br label %.loopexit593.us.us
 
 147:                                              ; preds = %143
@@ -35549,7 +35549,7 @@ define range(i32 -1, 1) i32 @H5T__conv_ushort_ldouble(ptr noundef readonly %0, p
   br i1 %.not545.us.us, label %265, label %263
 
 263:                                              ; preds = %261
-  %264 = xor i32 %.0429659.us.us, 15
+  %264 = sub nuw nsw i32 15, %.0429659.us.us
   br label %.loopexit596.us.us
 
 265:                                              ; preds = %261
@@ -35828,7 +35828,7 @@ define range(i32 -1, 1) i32 @H5T__conv_ushort_ldouble(ptr noundef readonly %0, p
   br i1 %.not526.us.us, label %383, label %381
 
 381:                                              ; preds = %379
-  %382 = xor i32 %.0422651.us.us, 15
+  %382 = sub nuw nsw i32 15, %.0422651.us.us
   br label %.loopexit599.us.us
 
 383:                                              ; preds = %379
@@ -36090,7 +36090,7 @@ define range(i32 -1, 1) i32 @H5T__conv_ushort_ldouble(ptr noundef readonly %0, p
   br i1 %.not507.us, label %499, label %497
 
 497:                                              ; preds = %495
-  %498 = xor i32 %.0415643.us, 15
+  %498 = sub nuw nsw i32 15, %.0415643.us
   br label %.loopexit602.us
 
 499:                                              ; preds = %495

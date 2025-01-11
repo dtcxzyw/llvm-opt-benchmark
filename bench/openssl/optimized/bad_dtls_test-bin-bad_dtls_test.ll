@@ -779,10 +779,9 @@ entry:
   store i8 %conv12, ptr getelementptr inbounds nuw (i8, ptr @send_record.seq, i64 4), align 1
   %conv14 = trunc i64 %seqnr to i8
   store i8 %conv14, ptr getelementptr inbounds nuw (i8, ptr @send_record.seq, i64 5), align 1
-  %add = add nuw nsw i64 %len, 20
-  %0 = trunc nuw nsw i64 %add to i8
-  %1 = and i8 %0, 15
-  %conv15 = xor i8 %1, 15
+  %0 = trunc nuw nsw i64 %len to i8
+  %1 = sub nsw i8 11, %0
+  %conv15 = and i8 %1, 15
   %add17 = add nuw nsw i64 %len, 21
   %conv18 = zext nneg i8 %conv15 to i64
   %add19 = add nuw nsw i64 %add17, %conv18
@@ -810,9 +809,8 @@ if.end27:                                         ; preds = %lor.lhs.false
   call void @OSSL_PARAM_construct_end(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp29) #6
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %arrayidx28, ptr noundef nonnull align 8 dereferenceable(40) %tmp29, i64 40, i1 false)
   store i8 0, ptr %lenbytes, align 1
-  %conv33 = trunc nuw nsw i64 %len to i8
   %arrayidx34 = getelementptr inbounds nuw i8, ptr %lenbytes, i64 1
-  store i8 %conv33, ptr %arrayidx34, align 1
+  store i8 %0, ptr %arrayidx34, align 1
   %call35 = call i32 @EVP_MAC_init(ptr noundef %call23, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @key_block, i64 20), i64 noundef 20, ptr noundef nonnull %params) #6
   %tobool36.not = icmp eq i32 %call35, 0
   br i1 %tobool36.not, label %end, label %lor.lhs.false37
@@ -854,12 +852,13 @@ lor.lhs.false56:                                  ; preds = %lor.lhs.false53
   br i1 %tobool58.not, label %end, label %do.body.preheader
 
 do.body.preheader:                                ; preds = %lor.lhs.false56
-  %scevgep = getelementptr i8, ptr %call, i64 %add
-  %2 = sub nsw i64 11, %len
-  %3 = and i64 %2, 15
-  %4 = add nuw nsw i64 %3, 1
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %scevgep, i8 %conv15, i64 %4, i1 false)
-  %5 = add nuw nsw i64 %len, %3
+  %2 = getelementptr i8, ptr %call, i64 %len
+  %scevgep = getelementptr i8, ptr %2, i64 20
+  %3 = sub nsw i64 11, %len
+  %4 = and i64 %3, 15
+  %5 = add nuw nsw i64 %4, 1
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %scevgep, i8 %conv15, i64 %5, i1 false)
+  %6 = add nuw nsw i64 %len, %4
   %call66 = call i32 @RAND_bytes(ptr noundef nonnull %iv, i32 noundef 16) #6
   %call67 = call i32 @test_int_gt(ptr noundef nonnull @.str.1, i32 noundef 334, ptr noundef nonnull @.str.41, ptr noundef nonnull @.str.18, i32 noundef %call66, i32 noundef 0) #6
   %tobool68.not = icmp eq i32 %call67, 0
@@ -881,8 +880,8 @@ lor.lhs.false73:                                  ; preds = %lor.lhs.false69
   br i1 %tobool80.not, label %end, label %lor.lhs.false81
 
 lor.lhs.false81:                                  ; preds = %lor.lhs.false73
-  %6 = trunc nuw nsw i64 %5 to i32
-  %conv82 = add nuw nsw i32 %6, 21
+  %7 = trunc nuw nsw i64 %6 to i32
+  %conv82 = add nuw nsw i32 %7, 21
   %call83 = call i32 @EVP_Cipher(ptr noundef %call70, ptr noundef nonnull %call, ptr noundef nonnull %call, i32 noundef %conv82) #6
   %call84 = call i32 @test_int_ge(ptr noundef nonnull @.str.1, i32 noundef 338, ptr noundef nonnull @.str.44, ptr noundef nonnull @.str.18, i32 noundef %call83, i32 noundef 0) #6
   %tobool85.not = icmp eq i32 %call84, 0
@@ -894,8 +893,8 @@ if.end87:                                         ; preds = %lor.lhs.false81
   %call90 = call i32 @BIO_write(ptr noundef %rbio, ptr noundef nonnull @send_record.epoch, i32 noundef 2) #6
   %call91 = call i32 @BIO_write(ptr noundef %rbio, ptr noundef nonnull @send_record.seq, i32 noundef 6) #6
   store i8 0, ptr %lenbytes, align 1
-  %7 = trunc nuw nsw i64 %5 to i8
-  %conv97 = add nuw nsw i8 %7, 37
+  %8 = trunc nuw nsw i64 %6 to i8
+  %conv97 = add nuw nsw i8 %8, 37
   store i8 %conv97, ptr %arrayidx34, align 1
   %call100 = call i32 @BIO_write(ptr noundef %rbio, ptr noundef nonnull %lenbytes, i32 noundef 2) #6
   %call102 = call i32 @BIO_write(ptr noundef %rbio, ptr noundef nonnull %iv, i32 noundef 16) #6

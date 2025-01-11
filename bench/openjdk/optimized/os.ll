@@ -3472,51 +3472,48 @@ define hidden noundef i64 @_ZN2os20page_size_for_regionEmmb(i64 noundef %0, i64 
 9:                                                ; preds = %6
   %10 = icmp eq i64 %8, 0
   %11 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %8, i1 true)
-  %12 = xor i64 %11, 63
-  %13 = shl nuw nsw i64 1, %12
+  %12 = lshr exact i64 -9223372036854775808, %11
   br i1 %10, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %9, %6
-  %.0.i.ph = phi i64 [ -9223372036854775808, %6 ], [ %13, %9 ]
+  %.0.i.ph = phi i64 [ -9223372036854775808, %6 ], [ %12, %9 ]
   br i1 %2, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %select.unfold.us
-  %.017.us = phi i64 [ %20, %select.unfold.us ], [ %.0.i.ph, %.lr.ph ]
+  %.017.us = phi i64 [ %18, %select.unfold.us ], [ %.0.i.ph, %.lr.ph ]
   %.not12.us = icmp ule i64 %.017.us, %7
   %.pre = add i64 %.017.us, -1
-  %14 = and i64 %.pre, %0
-  %15 = icmp eq i64 %14, 0
-  %or.cond = and i1 %.not12.us, %15
+  %13 = and i64 %.pre, %0
+  %14 = icmp eq i64 %13, 0
+  %or.cond = and i1 %.not12.us, %14
   br i1 %or.cond, label %.loopexit14, label %select.unfold.us
 
 select.unfold.us:                                 ; preds = %.lr.ph.split.us
-  %16 = and i64 %.pre, %8
-  %17 = icmp eq i64 %16, 0
-  %18 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %16, i1 true)
-  %19 = xor i64 %18, 63
-  %20 = shl nuw i64 1, %19
-  br i1 %17, label %.loopexit, label %.lr.ph.split.us
+  %15 = and i64 %.pre, %8
+  %16 = icmp eq i64 %15, 0
+  %17 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %15, i1 true)
+  %18 = lshr exact i64 -9223372036854775808, %17
+  br i1 %16, label %.loopexit, label %.lr.ph.split.us
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %select.unfold
-  %.017 = phi i64 [ %26, %select.unfold ], [ %.0.i.ph, %.lr.ph ]
+  %.017 = phi i64 [ %23, %select.unfold ], [ %.0.i.ph, %.lr.ph ]
   %.not12 = icmp ugt i64 %.017, %7
   br i1 %.not12, label %select.unfold, label %.loopexit14
 
 select.unfold:                                    ; preds = %.lr.ph.split
-  %21 = add i64 %.017, -1
-  %22 = and i64 %21, %8
-  %23 = icmp eq i64 %22, 0
-  %24 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %22, i1 true)
-  %25 = xor i64 %24, 63
-  %26 = shl nuw i64 1, %25
-  br i1 %23, label %.loopexit, label %.lr.ph.split
+  %19 = add i64 %.017, -1
+  %20 = and i64 %19, %8
+  %21 = icmp eq i64 %20, 0
+  %22 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %20, i1 true)
+  %23 = lshr exact i64 -9223372036854775808, %22
+  br i1 %21, label %.loopexit, label %.lr.ph.split
 
 .loopexit:                                        ; preds = %select.unfold, %select.unfold.us, %9, %3
-  %27 = load i64, ptr @_ZN6OSInfo13_vm_page_sizeE, align 8
+  %24 = load i64, ptr @_ZN6OSInfo13_vm_page_sizeE, align 8
   br label %.loopexit14
 
 .loopexit14:                                      ; preds = %.lr.ph.split, %.lr.ph.split.us, %.loopexit
-  %.011 = phi i64 [ %27, %.loopexit ], [ %.017.us, %.lr.ph.split.us ], [ %.017, %.lr.ph.split ]
+  %.011 = phi i64 [ %24, %.loopexit ], [ %.017.us, %.lr.ph.split.us ], [ %.017, %.lr.ph.split ]
   ret i64 %.011
 }
 
@@ -3524,17 +3521,16 @@ select.unfold:                                    ; preds = %.lr.ph.split
 define hidden noundef range(i64 0, -9223372036854775807) i64 @_ZNK2os9PageSizes7largestEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0) local_unnamed_addr #19 align 2 {
   %2 = load i64, ptr %0, align 8
   %.not = icmp sgt i64 %2, -1
-  br i1 %.not, label %3, label %8
+  br i1 %.not, label %3, label %7
 
 3:                                                ; preds = %1
   %4 = icmp eq i64 %2, 0
   %5 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %2, i1 true)
-  %6 = xor i64 %5, 63
-  %7 = shl nuw nsw i64 1, %6
-  %.0.i = select i1 %4, i64 0, i64 %7
-  br label %8
+  %6 = lshr exact i64 -9223372036854775808, %5
+  %.0.i = select i1 %4, i64 0, i64 %6
+  br label %7
 
-8:                                                ; preds = %1, %3
+7:                                                ; preds = %1, %3
   %.0 = phi i64 [ %.0.i, %3 ], [ -9223372036854775808, %1 ]
   ret i64 %.0
 }
@@ -3546,9 +3542,8 @@ define hidden noundef range(i64 0, -9223372036854775807) i64 @_ZNK2os9PageSizes1
   %5 = and i64 %3, %4
   %6 = icmp eq i64 %5, 0
   %7 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %5, i1 true)
-  %8 = xor i64 %7, 63
-  %9 = shl nuw i64 1, %8
-  %.0 = select i1 %6, i64 0, i64 %9
+  %8 = lshr exact i64 -9223372036854775808, %7
+  %.0 = select i1 %6, i64 0, i64 %8
   ret i64 %.0
 }
 
@@ -3567,37 +3562,35 @@ define hidden noundef i64 @_ZN2os28page_size_for_region_alignedEmm(i64 noundef %
 8:                                                ; preds = %5
   %9 = icmp eq i64 %7, 0
   %10 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %7, i1 true)
-  %11 = xor i64 %10, 63
-  %12 = shl nuw nsw i64 1, %11
+  %11 = lshr exact i64 -9223372036854775808, %10
   br i1 %9, label %.loopexit.i, label %.lr.ph.split.us.i.preheader
 
 .lr.ph.split.us.i.preheader:                      ; preds = %8, %5
-  %.017.us.i.ph = phi i64 [ %12, %8 ], [ -9223372036854775808, %5 ]
+  %.017.us.i.ph = phi i64 [ %11, %8 ], [ -9223372036854775808, %5 ]
   br label %.lr.ph.split.us.i
 
 .lr.ph.split.us.i:                                ; preds = %.lr.ph.split.us.i.preheader, %select.unfold.us.i
-  %.017.us.i = phi i64 [ %19, %select.unfold.us.i ], [ %.017.us.i.ph, %.lr.ph.split.us.i.preheader ]
+  %.017.us.i = phi i64 [ %17, %select.unfold.us.i ], [ %.017.us.i.ph, %.lr.ph.split.us.i.preheader ]
   %.not12.us.i = icmp ule i64 %.017.us.i, %6
   %.pre.i = add i64 %.017.us.i, -1
-  %13 = and i64 %.pre.i, %0
-  %14 = icmp eq i64 %13, 0
-  %or.cond.i = and i1 %.not12.us.i, %14
+  %12 = and i64 %.pre.i, %0
+  %13 = icmp eq i64 %12, 0
+  %or.cond.i = and i1 %.not12.us.i, %13
   br i1 %or.cond.i, label %_ZN2os20page_size_for_regionEmmb.exit, label %select.unfold.us.i
 
 select.unfold.us.i:                               ; preds = %.lr.ph.split.us.i
-  %15 = and i64 %.pre.i, %7
-  %16 = icmp eq i64 %15, 0
-  %17 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %15, i1 true)
-  %18 = xor i64 %17, 63
-  %19 = shl nuw nsw i64 1, %18
-  br i1 %16, label %.loopexit.i, label %.lr.ph.split.us.i
+  %14 = and i64 %.pre.i, %7
+  %15 = icmp eq i64 %14, 0
+  %16 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %14, i1 true)
+  %17 = lshr exact i64 -9223372036854775808, %16
+  br i1 %15, label %.loopexit.i, label %.lr.ph.split.us.i
 
 .loopexit.i:                                      ; preds = %select.unfold.us.i, %8, %2
-  %20 = load i64, ptr @_ZN6OSInfo13_vm_page_sizeE, align 8
+  %18 = load i64, ptr @_ZN6OSInfo13_vm_page_sizeE, align 8
   br label %_ZN2os20page_size_for_regionEmmb.exit
 
 _ZN2os20page_size_for_regionEmmb.exit:            ; preds = %.lr.ph.split.us.i, %.loopexit.i
-  %.011.i = phi i64 [ %20, %.loopexit.i ], [ %.017.us.i, %.lr.ph.split.us.i ]
+  %.011.i = phi i64 [ %18, %.loopexit.i ], [ %.017.us.i, %.lr.ph.split.us.i ]
   ret i64 %.011.i
 }
 
@@ -3616,34 +3609,32 @@ define hidden noundef i64 @_ZN2os30page_size_for_region_unalignedEmm(i64 noundef
 8:                                                ; preds = %5
   %9 = icmp eq i64 %7, 0
   %10 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %7, i1 true)
-  %11 = xor i64 %10, 63
-  %12 = shl nuw nsw i64 1, %11
+  %11 = lshr exact i64 -9223372036854775808, %10
   br i1 %9, label %.loopexit.i, label %.lr.ph.split.i.preheader
 
 .lr.ph.split.i.preheader:                         ; preds = %8, %5
-  %.017.i.ph = phi i64 [ %12, %8 ], [ -9223372036854775808, %5 ]
+  %.017.i.ph = phi i64 [ %11, %8 ], [ -9223372036854775808, %5 ]
   br label %.lr.ph.split.i
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.split.i.preheader, %select.unfold.i
-  %.017.i = phi i64 [ %18, %select.unfold.i ], [ %.017.i.ph, %.lr.ph.split.i.preheader ]
+  %.017.i = phi i64 [ %16, %select.unfold.i ], [ %.017.i.ph, %.lr.ph.split.i.preheader ]
   %.not12.i = icmp ugt i64 %.017.i, %6
   br i1 %.not12.i, label %select.unfold.i, label %_ZN2os20page_size_for_regionEmmb.exit
 
 select.unfold.i:                                  ; preds = %.lr.ph.split.i
-  %13 = add i64 %.017.i, -1
-  %14 = and i64 %13, %7
-  %15 = icmp eq i64 %14, 0
-  %16 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %14, i1 true)
-  %17 = xor i64 %16, 63
-  %18 = shl nuw nsw i64 1, %17
-  br i1 %15, label %.loopexit.i, label %.lr.ph.split.i
+  %12 = add i64 %.017.i, -1
+  %13 = and i64 %12, %7
+  %14 = icmp eq i64 %13, 0
+  %15 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %13, i1 true)
+  %16 = lshr exact i64 -9223372036854775808, %15
+  br i1 %14, label %.loopexit.i, label %.lr.ph.split.i
 
 .loopexit.i:                                      ; preds = %select.unfold.i, %8, %2
-  %19 = load i64, ptr @_ZN6OSInfo13_vm_page_sizeE, align 8
+  %17 = load i64, ptr @_ZN6OSInfo13_vm_page_sizeE, align 8
   br label %_ZN2os20page_size_for_regionEmmb.exit
 
 _ZN2os20page_size_for_regionEmmb.exit:            ; preds = %.lr.ph.split.i, %.loopexit.i
-  %.011.i = phi i64 [ %19, %.loopexit.i ], [ %.017.i, %.lr.ph.split.i ]
+  %.011.i = phi i64 [ %17, %.loopexit.i ], [ %.017.i, %.lr.ph.split.i ]
   ret i64 %.011.i
 }
 

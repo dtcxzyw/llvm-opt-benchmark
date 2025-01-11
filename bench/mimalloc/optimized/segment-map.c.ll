@@ -127,28 +127,28 @@ if.end32.i.i:                                     ; preds = %do.end.i.i, %if.end
   %.lcssa.sink.i.i = phi i64 [ %and11.i.i, %if.end9.i.i ], [ %4, %do.end.i.i ]
   %loindex.0.i.i = phi i64 [ %retval.0.i.i.i, %if.end9.i.i ], [ %dec.i.i, %do.end.i.i ]
   %6 = tail call range(i64 0, 64) i64 @llvm.ctlz.i64(i64 range(i64 1, 0) %.lcssa.sink.i.i, i1 true)
-  %lobitidx.0.i.i = xor i64 %6, 63
-  %sub33.neg.i.i = sub i64 %loindex.0.i.i, %retval.0.i.i.i
-  %add.neg.i.i = sub nsw i64 %lobitidx.0.i.i, %rem.sink.i.i.i
-  %7 = shl i64 %sub33.neg.i.i, 31
-  %8 = shl nsw i64 %add.neg.i.i, 25
-  %9 = getelementptr i8, ptr %1, i64 %7
-  %add.ptr.i.i = getelementptr i8, ptr %9, i64 %8
+  %sub33.i.neg.i = sub i64 %loindex.0.i.i, %retval.0.i.i.i
+  %add.i.i = add nuw nsw i64 %6, %rem.sink.i.i.i
+  %.neg.i = shl i64 %sub33.i.neg.i, 31
+  %7 = shl nuw nsw i64 %add.i.i, 25
+  %reass.sub.i = sub i64 %.neg.i, %7
+  %8 = getelementptr i8, ptr %1, i64 %reass.sub.i
+  %add.ptr.i.i = getelementptr i8, ptr %8, i64 2113929216
   %cmp36.i.i = icmp eq i64 %and.i.i.i, 0
   br i1 %cmp36.i.i, label %lor.rhs.i, label %if.end39.i.i
 
 if.end39.i.i:                                     ; preds = %if.end32.i.i
-  %10 = ptrtoint ptr %add.ptr.i.i to i64
-  %11 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_mi_heap_main, i64 2864), align 8
-  %xor.i.i.i = xor i64 %11, %10
-  %cookie.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i, i64 216
-  %12 = load i64, ptr %cookie.i.i, align 8
-  %cmp41.not.i.i = icmp eq i64 %xor.i.i.i, %12
+  %9 = ptrtoint ptr %add.ptr.i.i to i64
+  %10 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_mi_heap_main, i64 2864), align 8
+  %xor.i.i.i = xor i64 %10, %9
+  %cookie.i.i = getelementptr i8, ptr %8, i64 2113929432
+  %11 = load i64, ptr %cookie.i.i, align 8
+  %cmp41.not.i.i = icmp eq i64 %xor.i.i.i, %11
   br i1 %cmp41.not.i.i, label %if.end53.i.i, label %lor.rhs.i
 
 if.end53.i.i:                                     ; preds = %if.end39.i.i
-  %13 = getelementptr i8, ptr %add.ptr.i.i, i64 224
-  %add.ptr.val.i.i = load i64, ptr %13, align 32
+  %12 = getelementptr i8, ptr %8, i64 2113929440
+  %add.ptr.val.i.i = load i64, ptr %12, align 32
   %mul.i.i.i = shl i64 %add.ptr.val.i.i, 16
   %add.ptr55.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 %mul.i.i.i
   %cmp56.not.i.i = icmp ugt ptr %add.ptr55.i.i, %p
@@ -163,8 +163,8 @@ lor.rhs.i:                                        ; preds = %_mi_segment_of.exit
   br label %mi_is_valid_pointer.exit
 
 mi_is_valid_pointer.exit:                         ; preds = %if.end53.i.i, %_mi_segment_of.exit.i, %lor.rhs.i
-  %14 = phi i1 [ true, %_mi_segment_of.exit.i ], [ %call1.i, %lor.rhs.i ], [ true, %if.end53.i.i ]
-  ret i1 %14
+  %13 = phi i1 [ true, %_mi_segment_of.exit.i ], [ %call1.i, %lor.rhs.i ], [ true, %if.end53.i.i ]
+  ret i1 %13
 }
 
 declare zeroext i1 @_mi_arena_contains(ptr noundef) local_unnamed_addr #2

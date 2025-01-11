@@ -849,14 +849,15 @@ _ZL13isAllTrueMaskPN4llvm5ValueE.exit.thread.i37.i.i: ; preds = %_ZL13isAllTrueM
   br i1 %315, label %_ZN4llvm5APInt10getAllOnesEj.exit.thread.i.i.i.i.i, label %_ZN4llvm5APInt10getAllOnesEj.exit.i.i.i.i.i
 
 _ZN4llvm5APInt10getAllOnesEj.exit.thread.i.i.i.i.i: ; preds = %312
-  %316 = add nuw nsw i32 %295, 63
-  %317 = and i32 %316, 63
-  %318 = xor i32 %317, 63
-  %319 = zext nneg i32 %318 to i64
-  %320 = lshr i64 -1, %319
-  %321 = icmp eq i32 %295, 0
-  %spec.store.select.i.i.i.i.i.i.i.i = select i1 %321, i64 0, i64 %320
-  %322 = zext nneg i32 %317 to i64
+  %.not.i.i.i.i.i.i.i.i = sub nsw i32 0, %295
+  %316 = and i32 %.not.i.i.i.i.i.i.i.i, 63
+  %317 = zext nneg i32 %316 to i64
+  %318 = lshr i64 -1, %317
+  %319 = icmp eq i32 %295, 0
+  %spec.store.select.i.i.i.i.i.i.i.i = select i1 %319, i64 0, i64 %318
+  %320 = add nuw nsw i32 %295, 63
+  %321 = and i32 %320, 63
+  %322 = zext nneg i32 %321 to i64
   %323 = shl nuw i64 1, %322
   %324 = xor i64 %323, -1
   br label %331

@@ -11535,16 +11535,15 @@ _ZN9Node_List4pushEP4Node.exit16:                 ; preds = %44, %47
 .critedge:                                        ; preds = %_ZN9Node_List4pushEP4Node.exit16, %_ZNK25MergePrimitiveArrayStores23find_adjacent_def_storeEPK9StoreNode.exit, %_ZN9Node_List4pushEP4Node.exit
   %53 = phi i32 [ %21, %_ZN9Node_List4pushEP4Node.exit ], [ %43, %_ZNK25MergePrimitiveArrayStores23find_adjacent_def_storeEPK9StoreNode.exit ], [ %.pre.pre, %_ZN9Node_List4pushEP4Node.exit16 ]
   %54 = tail call noundef range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %53, i1 true)
-  %55 = xor i32 %54, 31
-  %56 = shl nuw i32 1, %55
-  %57 = icmp ugt i32 %53, %56
-  br i1 %57, label %.lr.ph21.preheader, label %58
+  %55 = lshr exact i32 -2147483648, %54
+  %56 = icmp ugt i32 %53, %55
+  br i1 %56, label %.lr.ph21.preheader, label %57
 
 .lr.ph21.preheader:                               ; preds = %.critedge
-  store i32 %56, ptr %11, align 8
-  br label %58
+  store i32 %55, ptr %11, align 8
+  br label %57
 
-58:                                               ; preds = %.lr.ph21.preheader, %.critedge
+57:                                               ; preds = %.lr.ph21.preheader, %.critedge
   ret void
 }
 

@@ -1079,15 +1079,15 @@ _RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE4pushCs8mTrBI1stz4_15turborepo_vt10
 _RNvXs5_CsfbvjWzJraAt_4itoahNtNtB5_7private6Sealed5write.llvm.2772946472389925136.exit.i91: ; preds = %291, %286
   %.sink = phi i16 [ %297, %291 ], [ %290, %286 ]
   %.sroa.07.1.i.i92.sroa.phi = phi ptr [ %21, %291 ], [ %.sroa.07.1.i.i92.sroa.gep242, %286 ]
-  %.sroa.07.1.i.i92 = phi i64 [ 3, %291 ], [ 2, %286 ]
+  %.sroa.07.1.i.i92.neg = phi i64 [ 3, %291 ], [ 2, %286 ]
   store i16 %.sink, ptr %.sroa.07.1.i.i92.sroa.gep242, align 1, !alias.scope !148, !noalias !145
   %299 = load i64, ptr %1, align 8, !alias.scope !152, !noundef !4
   %300 = sub i64 %299, %284
-  %301 = icmp ugt i64 %.sroa.07.1.i.i92, %300
+  %301 = icmp ugt i64 %.sroa.07.1.i.i92.neg, %300
   br i1 %301, label %302, label %_RINvNtCs8mTrBI1stz4_15turborepo_vt1004term11extend_itoahEB4_.exit99
 
 302:                                              ; preds = %_RNvXs5_CsfbvjWzJraAt_4itoahNtNtB5_7private6Sealed5write.llvm.2772946472389925136.exit.i91
-  call void @_RINvNvMs0_NtCs68wO5nsWeTG_5alloc7raw_vecINtB8_6RawVecppE7reserve21do_reserve_and_handlehNtNtBa_5alloc6GlobalECscjWV1zBNszQ_8bitflags(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, i64 noundef %284, i64 noundef %.sroa.07.1.i.i92)
+  call void @_RINvNvMs0_NtCs68wO5nsWeTG_5alloc7raw_vecINtB8_6RawVecppE7reserve21do_reserve_and_handlehNtNtBa_5alloc6GlobalECscjWV1zBNszQ_8bitflags(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, i64 noundef %284, i64 noundef %.sroa.07.1.i.i92.neg)
   %.pre.i.i94 = load i64, ptr %62, align 8, !alias.scope !152
   br label %_RINvNtCs8mTrBI1stz4_15turborepo_vt1004term11extend_itoahEB4_.exit99
 
@@ -1095,9 +1095,9 @@ _RINvNtCs8mTrBI1stz4_15turborepo_vt1004term11extend_itoahEB4_.exit99: ; preds = 
   %303 = phi i64 [ %.pre.i.i94, %302 ], [ %284, %_RNvXs5_CsfbvjWzJraAt_4itoahNtNtB5_7private6Sealed5write.llvm.2772946472389925136.exit.i91 ]
   %304 = load ptr, ptr %69, align 8, !alias.scope !152, !nonnull !4, !noundef !4
   %305 = getelementptr inbounds i8, ptr %304, i64 %303
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %305, ptr noundef nonnull align 1 dereferenceable(1) %.sroa.07.1.i.i92.sroa.phi, i64 %.sroa.07.1.i.i92, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %305, ptr noundef nonnull align 1 dereferenceable(1) %.sroa.07.1.i.i92.sroa.phi, i64 %.sroa.07.1.i.i92.neg, i1 false)
   %306 = load i64, ptr %62, align 8, !alias.scope !152, !noundef !4
-  %307 = add i64 %306, %.sroa.07.1.i.i92
+  %307 = add i64 %306, %.sroa.07.1.i.i92.neg
   store i64 %307, ptr %62, align 8, !alias.scope !152
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %21), !noalias !145
   br label %74
@@ -1343,15 +1343,15 @@ _RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE4pushCs8mTrBI1stz4_15turborepo_vt10
 _RNvXs5_CsfbvjWzJraAt_4itoahNtNtB5_7private6Sealed5write.llvm.2772946472389925136.exit.i119: ; preds = %414, %409
   %.sink252 = phi i16 [ %420, %414 ], [ %413, %409 ]
   %.sroa.07.1.i.i120.sroa.phi = phi ptr [ %18, %414 ], [ %.sroa.07.1.i.i120.sroa.gep246, %409 ]
-  %.sroa.07.1.i.i120 = phi i64 [ 3, %414 ], [ 2, %409 ]
+  %.sroa.07.1.i.i120.neg = phi i64 [ 3, %414 ], [ 2, %409 ]
   store i16 %.sink252, ptr %.sroa.07.1.i.i120.sroa.gep246, align 1, !alias.scope !191, !noalias !188
   %422 = load i64, ptr %1, align 8, !alias.scope !195, !noundef !4
   %423 = sub i64 %422, %407
-  %424 = icmp ugt i64 %.sroa.07.1.i.i120, %423
+  %424 = icmp ugt i64 %.sroa.07.1.i.i120.neg, %423
   br i1 %424, label %425, label %_RINvNtCs8mTrBI1stz4_15turborepo_vt1004term11extend_itoahEB4_.exit127
 
 425:                                              ; preds = %_RNvXs5_CsfbvjWzJraAt_4itoahNtNtB5_7private6Sealed5write.llvm.2772946472389925136.exit.i119
-  call void @_RINvNvMs0_NtCs68wO5nsWeTG_5alloc7raw_vecINtB8_6RawVecppE7reserve21do_reserve_and_handlehNtNtBa_5alloc6GlobalECscjWV1zBNszQ_8bitflags(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, i64 noundef %407, i64 noundef %.sroa.07.1.i.i120)
+  call void @_RINvNvMs0_NtCs68wO5nsWeTG_5alloc7raw_vecINtB8_6RawVecppE7reserve21do_reserve_and_handlehNtNtBa_5alloc6GlobalECscjWV1zBNszQ_8bitflags(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, i64 noundef %407, i64 noundef %.sroa.07.1.i.i120.neg)
   %.pre.i.i122 = load i64, ptr %376, align 8, !alias.scope !195
   br label %_RINvNtCs8mTrBI1stz4_15turborepo_vt1004term11extend_itoahEB4_.exit127
 
@@ -1359,9 +1359,9 @@ _RINvNtCs8mTrBI1stz4_15turborepo_vt1004term11extend_itoahEB4_.exit127: ; preds =
   %426 = phi i64 [ %.pre.i.i122, %425 ], [ %407, %_RNvXs5_CsfbvjWzJraAt_4itoahNtNtB5_7private6Sealed5write.llvm.2772946472389925136.exit.i119 ]
   %427 = load ptr, ptr %381, align 8, !alias.scope !195, !nonnull !4, !noundef !4
   %428 = getelementptr inbounds i8, ptr %427, i64 %426
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %428, ptr noundef nonnull align 1 dereferenceable(1) %.sroa.07.1.i.i120.sroa.phi, i64 %.sroa.07.1.i.i120, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %428, ptr noundef nonnull align 1 dereferenceable(1) %.sroa.07.1.i.i120.sroa.phi, i64 %.sroa.07.1.i.i120.neg, i1 false)
   %429 = load i64, ptr %376, align 8, !alias.scope !195, !noundef !4
-  %430 = add i64 %429, %.sroa.07.1.i.i120
+  %430 = add i64 %429, %.sroa.07.1.i.i120.neg
   store i64 %430, ptr %376, align 8, !alias.scope !195
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %18), !noalias !188
   br label %323
