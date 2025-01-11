@@ -1476,7 +1476,7 @@ define hidden void @_ZN5zxing6qrcode22DecodedBitStreamParser25decodeAlphanumeric
 
 50:                                               ; preds = %48
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8)
-  %51 = icmp ugt i32 %37, 44
+  %51 = icmp slt i32 %37, 0
   br i1 %51, label %52, label %57
 
 52:                                               ; preds = %50

@@ -3202,7 +3202,7 @@ _ZNK10open_spiel4skat9SkatState7IsTrumpEi.exit.thread.thread: ; preds = %3
 
 .thread:                                          ; preds = %_ZNK10open_spiel4skat9SkatState7IsTrumpEi.exit.thread.thread
   %33 = srem i32 %1, 8
-  %34 = icmp ult i32 %33, 8
+  %34 = icmp sgt i32 %33, -1
   br i1 %34, label %switch.lookup, label %_ZNK10open_spiel4skat9SkatState9NullOrderENS0_4RankE.exit
 
 35:                                               ; preds = %_ZNK10open_spiel4skat9SkatState7IsTrumpEi.exit.thread
@@ -3341,7 +3341,7 @@ _ZNK10open_spiel4skat9SkatState7IsTrumpEi.exit.thread.thread.i.us: ; preds = %.l
   %27 = sdiv i32 %26, 8
   %28 = srem i32 %26, 8
   %29 = icmp eq i32 %27, %24
-  %30 = icmp ult i32 %28, 8
+  %30 = icmp sgt i32 %28, -1
   %or.cond = and i1 %29, %30
   br i1 %or.cond, label %switch.lookup, label %_ZNK10open_spiel4skat9SkatState7IsTrumpEi.exit.thread.thread.i20.us
 
@@ -3359,7 +3359,7 @@ _ZNK10open_spiel4skat9SkatState7IsTrumpEi.exit.thread.thread.i20.us: ; preds = %
   %35 = sdiv i32 %34, 8
   %36 = srem i32 %34, 8
   %37 = icmp eq i32 %35, %24
-  %38 = icmp ult i32 %36, 8
+  %38 = icmp sgt i32 %36, -1
   %or.cond60 = and i1 %37, %38
   br i1 %or.cond60, label %switch.lookup56, label %_ZNK10open_spiel4skat9SkatState9CardOrderEii.exit22.us
 
