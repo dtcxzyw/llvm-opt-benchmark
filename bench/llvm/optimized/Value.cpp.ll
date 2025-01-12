@@ -7444,12 +7444,12 @@ _ZN4llvm16dyn_cast_or_nullINS_11ConstantIntENS_8ConstantEEEDaPT0_.exit: ; preds 
 
 _ZNK4llvm5APInt11countr_zeroEv.exit:              ; preds = %149, %153
   %.0.i90 = phi i32 [ %..i91, %149 ], [ %154, %153 ]
-  %155 = tail call i32 @llvm.umin.i32(i32 %.0.i90, i32 32)
-  %156 = trunc nuw nsw i32 %155 to i8
+  %narrow = tail call i32 @llvm.umin.i32(i32 %.0.i90, i32 32)
+  %155 = trunc nuw nsw i32 %narrow to i8
   br label %_ZNK4llvm11Instruction11getMetadataEj.exit.thread
 
 _ZNK4llvm11Instruction11getMetadataEj.exit.thread: ; preds = %78, %_ZNK4llvm8CallBase11getRetAlignEv.exit, %_ZNK4llvm8CallBase17getCalledFunctionEv.exit, %95, %97, %_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i, %52, %55, %_ZNK4llvm4Type7isSizedEPNS_15SmallPtrSetImplIPS0_EE.exit68, %68, %19, %_ZNK4llvm4Type7isSizedEPNS_15SmallPtrSetImplIPS0_EE.exit, %26, %39, %136, %142, %109, %_ZNK4llvm11Instruction11getMetadataEj.exit, %134, %6, %_ZNK4llvm5APInt11countr_zeroEv.exit, %_ZNK4llvm6MDNode10getOperandEj.exit, %71, %_ZNK4llvm4Type7isSizedEPNS_15SmallPtrSetImplIPS0_EE.exit68.thread, %50, %_ZNK4llvm11GlobalValue27isStrongDefinitionForLinkerEv.exit, %11
-  %.sroa.0113.0 = phi i8 [ %156, %_ZNK4llvm5APInt11countr_zeroEv.exit ], [ %133, %_ZNK4llvm6MDNode10getOperandEj.exit ], [ %75, %71 ], [ %70, %_ZNK4llvm4Type7isSizedEPNS_15SmallPtrSetImplIPS0_EE.exit68.thread ], [ %.sroa.speculated, %11 ], [ %49, %_ZNK4llvm11GlobalValue27isStrongDefinitionForLinkerEv.exit ], [ %51, %50 ], [ %.sroa.0.0.i.i, %6 ], [ 0, %134 ], [ 0, %_ZNK4llvm11Instruction11getMetadataEj.exit ], [ 0, %109 ], [ 0, %142 ], [ 0, %136 ], [ 0, %39 ], [ 0, %26 ], [ 0, %_ZNK4llvm4Type7isSizedEPNS_15SmallPtrSetImplIPS0_EE.exit ], [ %25, %19 ], [ 0, %68 ], [ 0, %_ZNK4llvm4Type7isSizedEPNS_15SmallPtrSetImplIPS0_EE.exit68 ], [ 0, %55 ], [ %.sroa.096.0.extract.trunc, %52 ], [ %.sroa.0.0.extract.trunc92, %_ZNK4llvm8CallBase11getRetAlignEv.exit ], [ %108, %_ZNK4llvm8CallBase17getCalledFunctionEv.exit ], [ 0, %95 ], [ 0, %97 ], [ 0, %_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i ], [ 0, %78 ]
+  %.sroa.0113.0 = phi i8 [ %155, %_ZNK4llvm5APInt11countr_zeroEv.exit ], [ %133, %_ZNK4llvm6MDNode10getOperandEj.exit ], [ %75, %71 ], [ %70, %_ZNK4llvm4Type7isSizedEPNS_15SmallPtrSetImplIPS0_EE.exit68.thread ], [ %.sroa.speculated, %11 ], [ %49, %_ZNK4llvm11GlobalValue27isStrongDefinitionForLinkerEv.exit ], [ %51, %50 ], [ %.sroa.0.0.i.i, %6 ], [ 0, %134 ], [ 0, %_ZNK4llvm11Instruction11getMetadataEj.exit ], [ 0, %109 ], [ 0, %142 ], [ 0, %136 ], [ 0, %39 ], [ 0, %26 ], [ 0, %_ZNK4llvm4Type7isSizedEPNS_15SmallPtrSetImplIPS0_EE.exit ], [ %25, %19 ], [ 0, %68 ], [ 0, %_ZNK4llvm4Type7isSizedEPNS_15SmallPtrSetImplIPS0_EE.exit68 ], [ 0, %55 ], [ %.sroa.096.0.extract.trunc, %52 ], [ %.sroa.0.0.extract.trunc92, %_ZNK4llvm8CallBase11getRetAlignEv.exit ], [ %108, %_ZNK4llvm8CallBase17getCalledFunctionEv.exit ], [ 0, %95 ], [ 0, %97 ], [ 0, %_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i ], [ 0, %78 ]
   ret i8 %.sroa.0113.0
 }
 
