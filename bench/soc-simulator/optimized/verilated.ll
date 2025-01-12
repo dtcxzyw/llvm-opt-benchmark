@@ -29822,92 +29822,81 @@ _ZNK17VerilatedVarProps3lowEi.exit:               ; preds = %6
   %17 = load i32, ptr %16, align 4
   %..i4.i = tail call noundef i32 @llvm.smin.i32(i32 %15, i32 %17)
   %18 = icmp slt i32 %3, %..i4.i
-  br i1 %18, label %.critedge, label %19
+  %..i4.i26 = tail call i32 @llvm.smax.i32(i32 %15, i32 %17)
+  %19 = icmp sgt i32 %3, %..i4.i26
+  %or.cond = or i1 %18, %19
+  br i1 %or.cond, label %.critedge, label %_ZNK17VerilatedVarProps3lowEi.exit31
 
-19:                                               ; preds = %_ZNK17VerilatedVarProps3lowEi.exit
-  %.not = icmp samesign ugt i32 %2, %8
-  br i1 %.not, label %_ZNK17VerilatedVarProps4highEi.exit, label %_ZNK17VerilatedVarProps4highEi.exit.thread
-
-_ZNK17VerilatedVarProps4highEi.exit:              ; preds = %19
-  %20 = icmp sgt i32 %3, 0
-  br i1 %20, label %.critedge, label %_ZNK17VerilatedVarProps3lowEi.exit31
-
-_ZNK17VerilatedVarProps4highEi.exit.thread:       ; preds = %19
-  %..i4.i26 = tail call noundef i32 @llvm.smax.i32(i32 %15, i32 %17)
-  %21 = icmp sgt i32 %3, %..i4.i26
-  br i1 %21, label %.critedge, label %_ZNK17VerilatedVarProps3lowEi.exit31
-
-_ZNK17VerilatedVarProps3lowEi.exit31:             ; preds = %_ZNK17VerilatedVarProps4highEi.exit.thread, %_ZNK17VerilatedVarProps4highEi.exit
-  %22 = phi i32 [ 0, %_ZNK17VerilatedVarProps4highEi.exit ], [ %..i4.i, %_ZNK17VerilatedVarProps4highEi.exit.thread ]
-  %23 = sub nsw i32 %3, %22
-  %24 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %25 = load i8, ptr %24, align 4
-  switch i8 %25, label %39 [
+_ZNK17VerilatedVarProps3lowEi.exit31:             ; preds = %_ZNK17VerilatedVarProps3lowEi.exit
+  %20 = sub nsw i32 %3, %..i4.i
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %22 = load i8, ptr %21, align 4
+  switch i8 %22, label %36 [
     i8 1, label %_ZNK17VerilatedVarProps7entSizeEv.exit
-    i8 2, label %26
-    i8 3, label %27
-    i8 4, label %28
+    i8 2, label %23
+    i8 3, label %24
+    i8 4, label %25
     i8 5, label %_ZNK17VerilatedVarProps7entSizeEv.exit
-    i8 6, label %29
+    i8 6, label %26
   ]
 
+23:                                               ; preds = %_ZNK17VerilatedVarProps3lowEi.exit31
+  br label %_ZNK17VerilatedVarProps7entSizeEv.exit
+
+24:                                               ; preds = %_ZNK17VerilatedVarProps3lowEi.exit31
+  br label %_ZNK17VerilatedVarProps7entSizeEv.exit
+
+25:                                               ; preds = %_ZNK17VerilatedVarProps3lowEi.exit31
+  br label %_ZNK17VerilatedVarProps7entSizeEv.exit
+
 26:                                               ; preds = %_ZNK17VerilatedVarProps3lowEi.exit31
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  %28 = load i32, ptr %27, align 4
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %30 = load i32, ptr %29, align 8
+  %31 = sub nsw i32 %28, %30
+  %.in.i.i = tail call i32 @llvm.abs.i32(i32 %31, i1 true)
+  %32 = add nuw nsw i32 %.in.i.i, 32
+  %33 = lshr i32 %32, 3
+  %34 = and i32 %33, 268435452
+  %35 = zext nneg i32 %34 to i64
   br label %_ZNK17VerilatedVarProps7entSizeEv.exit
 
-27:                                               ; preds = %_ZNK17VerilatedVarProps3lowEi.exit31
+36:                                               ; preds = %_ZNK17VerilatedVarProps3lowEi.exit31
   br label %_ZNK17VerilatedVarProps7entSizeEv.exit
 
-28:                                               ; preds = %_ZNK17VerilatedVarProps3lowEi.exit31
-  br label %_ZNK17VerilatedVarProps7entSizeEv.exit
-
-29:                                               ; preds = %_ZNK17VerilatedVarProps3lowEi.exit31
-  %30 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %31 = load i32, ptr %30, align 4
-  %32 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %33 = load i32, ptr %32, align 8
-  %34 = sub nsw i32 %31, %33
-  %.in.i.i = tail call i32 @llvm.abs.i32(i32 %34, i1 true)
-  %35 = add nuw nsw i32 %.in.i.i, 32
-  %36 = lshr i32 %35, 3
-  %37 = and i32 %36, 268435452
-  %38 = zext nneg i32 %37 to i64
-  br label %_ZNK17VerilatedVarProps7entSizeEv.exit
-
-39:                                               ; preds = %_ZNK17VerilatedVarProps3lowEi.exit31
-  br label %_ZNK17VerilatedVarProps7entSizeEv.exit
-
-_ZNK17VerilatedVarProps7entSizeEv.exit:           ; preds = %_ZNK17VerilatedVarProps3lowEi.exit31, %_ZNK17VerilatedVarProps3lowEi.exit31, %26, %27, %28, %29, %39
-  %.0.i = phi i64 [ 0, %39 ], [ %38, %29 ], [ 4, %28 ], [ 2, %27 ], [ 1, %26 ], [ 8, %_ZNK17VerilatedVarProps3lowEi.exit31 ], [ 8, %_ZNK17VerilatedVarProps3lowEi.exit31 ]
+_ZNK17VerilatedVarProps7entSizeEv.exit:           ; preds = %_ZNK17VerilatedVarProps3lowEi.exit31, %_ZNK17VerilatedVarProps3lowEi.exit31, %23, %24, %25, %26, %36
+  %.0.i = phi i64 [ 0, %36 ], [ %35, %26 ], [ 4, %25 ], [ 2, %24 ], [ 1, %23 ], [ 8, %_ZNK17VerilatedVarProps3lowEi.exit31 ], [ 8, %_ZNK17VerilatedVarProps3lowEi.exit31 ]
   %.not.not35 = icmp samesign ult i32 %2, %8
   br i1 %.not.not35, label %_ZNK17VerilatedVarProps8elementsEi.exit, label %._crit_edge
 
 _ZNK17VerilatedVarProps8elementsEi.exit:          ; preds = %_ZNK17VerilatedVarProps7entSizeEv.exit, %_ZNK17VerilatedVarProps8elementsEi.exit
   %indvars.iv = phi i64 [ %indvars.iv.next, %_ZNK17VerilatedVarProps8elementsEi.exit ], [ %12, %_ZNK17VerilatedVarProps7entSizeEv.exit ]
-  %.01936 = phi i64 [ %48, %_ZNK17VerilatedVarProps8elementsEi.exit ], [ %.0.i, %_ZNK17VerilatedVarProps7entSizeEv.exit ]
+  %.01936 = phi i64 [ %45, %_ZNK17VerilatedVarProps8elementsEi.exit ], [ %.0.i, %_ZNK17VerilatedVarProps7entSizeEv.exit ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %40 = getelementptr %class.VerilatedRange, ptr %11, i64 %indvars.iv.next
-  %41 = getelementptr i8, ptr %40, i64 -8
-  %42 = load i32, ptr %41, align 4
-  %43 = getelementptr i8, ptr %40, i64 -4
-  %44 = load i32, ptr %43, align 4
-  %45 = sub nsw i32 %42, %44
-  %.in.i4.i = tail call i32 @llvm.abs.i32(i32 %45, i1 true)
-  %46 = add nuw nsw i32 %.in.i4.i, 1
-  %47 = zext nneg i32 %46 to i64
-  %48 = mul i64 %.01936, %47
-  %49 = trunc nuw i64 %indvars.iv.next to i32
-  %.not.not = icmp sgt i32 %8, %49
+  %37 = getelementptr %class.VerilatedRange, ptr %11, i64 %indvars.iv.next
+  %38 = getelementptr i8, ptr %37, i64 -8
+  %39 = load i32, ptr %38, align 4
+  %40 = getelementptr i8, ptr %37, i64 -4
+  %41 = load i32, ptr %40, align 4
+  %42 = sub nsw i32 %39, %41
+  %.in.i4.i = tail call i32 @llvm.abs.i32(i32 %42, i1 true)
+  %43 = add nuw nsw i32 %.in.i4.i, 1
+  %44 = zext nneg i32 %43 to i64
+  %45 = mul i64 %.01936, %44
+  %46 = trunc nuw i64 %indvars.iv.next to i32
+  %.not.not = icmp sgt i32 %8, %46
   br i1 %.not.not, label %_ZNK17VerilatedVarProps8elementsEi.exit, label %._crit_edge, !llvm.loop !183
 
 ._crit_edge:                                      ; preds = %_ZNK17VerilatedVarProps8elementsEi.exit, %_ZNK17VerilatedVarProps7entSizeEv.exit
-  %.019.lcssa = phi i64 [ %.0.i, %_ZNK17VerilatedVarProps7entSizeEv.exit ], [ %48, %_ZNK17VerilatedVarProps8elementsEi.exit ]
-  %50 = sext i32 %23 to i64
-  %51 = mul i64 %.019.lcssa, %50
-  %52 = getelementptr inbounds i8, ptr %1, i64 %51
+  %.019.lcssa = phi i64 [ %.0.i, %_ZNK17VerilatedVarProps7entSizeEv.exit ], [ %45, %_ZNK17VerilatedVarProps8elementsEi.exit ]
+  %47 = sext i32 %20 to i64
+  %48 = mul i64 %.019.lcssa, %47
+  %49 = getelementptr inbounds i8, ptr %1, i64 %48
   br label %.critedge
 
-.critedge:                                        ; preds = %_ZNK17VerilatedVarProps4highEi.exit.thread, %_ZNK17VerilatedVarProps3lowEi.exit, %4, %_ZNK17VerilatedVarProps4highEi.exit, %6, %._crit_edge
-  %.020 = phi ptr [ %52, %._crit_edge ], [ null, %6 ], [ null, %_ZNK17VerilatedVarProps4highEi.exit ], [ null, %4 ], [ null, %_ZNK17VerilatedVarProps3lowEi.exit ], [ null, %_ZNK17VerilatedVarProps4highEi.exit.thread ]
+.critedge:                                        ; preds = %_ZNK17VerilatedVarProps3lowEi.exit, %4, %6, %._crit_edge
+  %.020 = phi ptr [ %49, %._crit_edge ], [ null, %6 ], [ null, %4 ], [ null, %_ZNK17VerilatedVarProps3lowEi.exit ]
   ret ptr %.020
 }
 
