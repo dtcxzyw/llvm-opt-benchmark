@@ -8334,10 +8334,10 @@ define weak_odr hidden void @_ZN5boost14static_strings19basic_static_stringILm42
   br i1 %8, label %9, label %_ZN5boost14static_strings19basic_static_stringILm420EcSt11char_traitsIcEE6resizeEmc.exit
 
 9:                                                ; preds = %5
-  %10 = sub nuw nsw i64 %1, %7
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  %12 = getelementptr inbounds nuw i8, ptr %11, i64 %7
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %12, i8 0, i64 %10, i1 false)
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 2
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 %7
+  %12 = sub nuw nsw i64 %1, %7
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %11, i8 0, i64 %12, i1 false)
   br label %_ZN5boost14static_strings19basic_static_stringILm420EcSt11char_traitsIcEE6resizeEmc.exit
 
 _ZN5boost14static_strings19basic_static_stringILm420EcSt11char_traitsIcEE6resizeEmc.exit: ; preds = %5, %9
@@ -8365,10 +8365,10 @@ define weak_odr hidden void @_ZN5boost14static_strings19basic_static_stringILm42
   br i1 %9, label %10, label %_ZNSt11char_traitsIcE6assignEPcmc.exit
 
 10:                                               ; preds = %6
-  %11 = sub nuw nsw i64 %1, %8
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  %13 = getelementptr inbounds nuw i8, ptr %12, i64 %8
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %13, i8 %2, i64 %11, i1 false)
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 2
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 %8
+  %13 = sub nuw nsw i64 %1, %8
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %12, i8 %2, i64 %13, i1 false)
   br label %_ZNSt11char_traitsIcE6assignEPcmc.exit
 
 _ZNSt11char_traitsIcE6assignEPcmc.exit:           ; preds = %10, %6

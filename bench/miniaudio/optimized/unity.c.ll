@@ -150746,13 +150746,9 @@ if.end53:                                         ; preds = %if.end46, %if.end33
   %.pre.i169 = phi i64 [ %.pre.i169261, %if.end46 ], [ %.pre.i169260, %if.end33 ]
   %riceParam.0 = phi i8 [ %conv.i130, %if.end46 ], [ %conv.i80, %if.end33 ]
   %cmp55.not = icmp eq i8 %riceParam.0, -1
-  br i1 %cmp55.not, label %if.else62, label %if.then57
+  br i1 %cmp55.not, label %if.else62, label %for.body.lr.ph.i
 
-if.then57:                                        ; preds = %if.end53
-  %cmp194.not.i = icmp eq i32 %samplesInPartition.0, 0
-  br i1 %cmp194.not.i, label %if.end73, label %for.body.lr.ph.i
-
-for.body.lr.ph.i:                                 ; preds = %if.then57
+for.body.lr.ph.i:                                 ; preds = %if.end53
   %conv.i.i = zext i8 %riceParam.0 to i32
   %add.i.i165 = add nuw nsw i32 %conv.i.i, 1
   %conv1.i.i = zext nneg i32 %add.i.i165 to i64
@@ -151417,7 +151413,7 @@ if.end66:                                         ; preds = %if.end42.i.i208, %i
   %tobool70.not = icmp eq i32 %call69, 0
   br i1 %tobool70.not, label %return, label %if.end73
 
-if.end73:                                         ; preds = %if.end36.i.i, %if.then57, %if.end66
+if.end73:                                         ; preds = %if.end36.i.i, %if.end66
   %cmp74 = icmp eq i32 %partitionsRemaining.0, 1
   %sub78 = add nsw i32 %partitionsRemaining.0, -1
   br i1 %cmp74, label %return, label %for.cond
