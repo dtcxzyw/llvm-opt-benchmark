@@ -107,7 +107,7 @@ define linkonce_odr hidden void @_ZN4ncnn12InnerProductD2Ev(ptr noundef nonnull 
   br i1 %.not45, label %18, label %17
 
 17:                                               ; preds = %16
-  tail call void @free(ptr noundef nonnull %11) #18
+  tail call void @free(ptr noundef nonnull %11) #17
   br label %18
 
 18:                                               ; preds = %12, %17, %16, %5, %1
@@ -126,7 +126,7 @@ define linkonce_odr hidden void @_ZN4ncnn12InnerProductD2Ev(ptr noundef nonnull 
   %25 = landingpad { ptr, i32 }
           catch ptr null
   %26 = extractvalue { ptr, i32 } %25, 0
-  tail call void @__clang_call_terminate(ptr %26) #19
+  tail call void @__clang_call_terminate(ptr %26) #18
   unreachable
 
 27:                                               ; preds = %18
@@ -153,7 +153,7 @@ define linkonce_odr hidden void @_ZN4ncnn12InnerProductD2Ev(ptr noundef nonnull 
   br i1 %.not48, label %40, label %39
 
 39:                                               ; preds = %38
-  tail call void @free(ptr noundef nonnull %33) #18
+  tail call void @free(ptr noundef nonnull %33) #17
   br label %40
 
 40:                                               ; preds = %34, %39, %38, %27, %18
@@ -172,7 +172,7 @@ define linkonce_odr hidden void @_ZN4ncnn12InnerProductD2Ev(ptr noundef nonnull 
   %47 = landingpad { ptr, i32 }
           catch ptr null
   %48 = extractvalue { ptr, i32 } %47, 0
-  tail call void @__clang_call_terminate(ptr %48) #19
+  tail call void @__clang_call_terminate(ptr %48) #18
   unreachable
 
 49:                                               ; preds = %40
@@ -199,7 +199,7 @@ define linkonce_odr hidden void @_ZN4ncnn12InnerProductD2Ev(ptr noundef nonnull 
   br i1 %.not51, label %62, label %61
 
 61:                                               ; preds = %60
-  tail call void @free(ptr noundef nonnull %55) #18
+  tail call void @free(ptr noundef nonnull %55) #17
   br label %62
 
 62:                                               ; preds = %56, %61, %60, %49, %40
@@ -218,7 +218,7 @@ define linkonce_odr hidden void @_ZN4ncnn12InnerProductD2Ev(ptr noundef nonnull 
   %69 = landingpad { ptr, i32 }
           catch ptr null
   %70 = extractvalue { ptr, i32 } %69, 0
-  tail call void @__clang_call_terminate(ptr %70) #19
+  tail call void @__clang_call_terminate(ptr %70) #18
   unreachable
 
 71:                                               ; preds = %62
@@ -245,7 +245,7 @@ define linkonce_odr hidden void @_ZN4ncnn12InnerProductD2Ev(ptr noundef nonnull 
   br i1 %.not54, label %84, label %83
 
 83:                                               ; preds = %82
-  tail call void @free(ptr noundef nonnull %77) #18
+  tail call void @free(ptr noundef nonnull %77) #17
   br label %84
 
 84:                                               ; preds = %78, %83, %82, %71, %62
@@ -264,7 +264,7 @@ define linkonce_odr hidden void @_ZN4ncnn12InnerProductD2Ev(ptr noundef nonnull 
   %91 = landingpad { ptr, i32 }
           catch ptr null
   %92 = extractvalue { ptr, i32 } %91, 0
-  tail call void @__clang_call_terminate(ptr %92) #19
+  tail call void @__clang_call_terminate(ptr %92) #18
   unreachable
 
 93:                                               ; preds = %84
@@ -291,7 +291,7 @@ define linkonce_odr hidden void @_ZN4ncnn12InnerProductD2Ev(ptr noundef nonnull 
   br i1 %.not57, label %106, label %105
 
 105:                                              ; preds = %104
-  tail call void @free(ptr noundef nonnull %99) #18
+  tail call void @free(ptr noundef nonnull %99) #17
   br label %106
 
 106:                                              ; preds = %100, %105, %104, %93, %84
@@ -300,14 +300,14 @@ define linkonce_odr hidden void @_ZN4ncnn12InnerProductD2Ev(ptr noundef nonnull 
   store i64 0, ptr %108, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %87, i8 0, i64 28, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %107, i8 0, i64 20, i1 false)
-  tail call void @_ZN4ncnn5LayerD2Ev(ptr noundef nonnull align 8 dereferenceable(208) %0) #18
+  tail call void @_ZN4ncnn5LayerD2Ev(ptr noundef nonnull align 8 dereferenceable(208) %0) #17
   ret void
 
 109:                                              ; preds = %100
   %110 = landingpad { ptr, i32 }
           catch ptr null
   %111 = extractvalue { ptr, i32 } %110, 0
-  tail call void @__clang_call_terminate(ptr %111) #19
+  tail call void @__clang_call_terminate(ptr %111) #18
   unreachable
 }
 
@@ -337,7 +337,7 @@ define hidden noundef i32 @_ZN4ncnn23InnerProduct_x86_avx51215create_pipelineERK
           to label %20 unwind label %29
 
 20:                                               ; preds = %14
-  call void @_ZN4ncnn9ParamDictD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #18
+  call void @_ZN4ncnn9ParamDictD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #17
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 30
   %22 = load i8, ptr %21, align 2
   %23 = trunc i8 %22 to i1
@@ -358,7 +358,7 @@ common.resume:                                    ; preds = %246, %250, %257, %2
 29:                                               ; preds = %14, %2
   %30 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN4ncnn9ParamDictD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #18
+  call void @_ZN4ncnn9ParamDictD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #17
   br label %common.resume
 
 31:                                               ; preds = %20
@@ -701,7 +701,7 @@ common.resume:                                    ; preds = %246, %250, %257, %2
   %263 = landingpad { ptr, i32 }
           catch ptr null
   %264 = extractvalue { ptr, i32 } %263, 0
-  call void @__clang_call_terminate(ptr %264) #19
+  call void @__clang_call_terminate(ptr %264) #18
   unreachable
 
 .preheader.i:                                     ; preds = %.lr.ph149.i, %.preheader9.i
@@ -985,14 +985,14 @@ common.resume:                                    ; preds = %246, %250, %257, %2
   br i1 %.not1380.i, label %_ZN4ncnnL33innerproduct_transform_kernel_sseERKNS_3MatERS0_iiRKNS_6OptionE.exit, label %430
 
 430:                                              ; preds = %429
-  call void @free(ptr noundef nonnull %424) #18
+  call void @free(ptr noundef nonnull %424) #17
   br label %_ZN4ncnnL33innerproduct_transform_kernel_sseERKNS_3MatERS0_iiRKNS_6OptionE.exit
 
 431:                                              ; preds = %425
   %432 = landingpad { ptr, i32 }
           catch ptr null
   %433 = extractvalue { ptr, i32 } %432, 0
-  call void @__clang_call_terminate(ptr %433) #19
+  call void @__clang_call_terminate(ptr %433) #18
   unreachable
 
 434:                                              ; preds = %52
@@ -1185,7 +1185,7 @@ common.resume:                                    ; preds = %246, %250, %257, %2
   %559 = landingpad { ptr, i32 }
           catch ptr null
   %560 = extractvalue { ptr, i32 } %559, 0
-  call void @__clang_call_terminate(ptr %560) #19
+  call void @__clang_call_terminate(ptr %560) #18
   unreachable
 
 .preheader11.i:                                   ; preds = %.lr.ph67.i, %.preheader12.i
@@ -1357,14 +1357,14 @@ common.resume:                                    ; preds = %246, %250, %257, %2
   br i1 %.not1386.i, label %_ZN4ncnnL33innerproduct_transform_kernel_sseERKNS_3MatERS0_iiRKNS_6OptionE.exit, label %654
 
 654:                                              ; preds = %653
-  call void @free(ptr noundef nonnull %648) #18
+  call void @free(ptr noundef nonnull %648) #17
   br label %_ZN4ncnnL33innerproduct_transform_kernel_sseERKNS_3MatERS0_iiRKNS_6OptionE.exit
 
 655:                                              ; preds = %649
   %656 = landingpad { ptr, i32 }
           catch ptr null
   %657 = extractvalue { ptr, i32 } %656, 0
-  call void @__clang_call_terminate(ptr %657) #19
+  call void @__clang_call_terminate(ptr %657) #18
   unreachable
 
 658:                                              ; preds = %55
@@ -1591,7 +1591,7 @@ common.resume:                                    ; preds = %246, %250, %257, %2
   %788 = landingpad { ptr, i32 }
           catch ptr null
   %789 = extractvalue { ptr, i32 } %788, 0
-  call void @__clang_call_terminate(ptr %789) #19
+  call void @__clang_call_terminate(ptr %789) #18
   unreachable
 
 ._crit_edge36.i:                                  ; preds = %._crit_edge.i.loopexit.us, %._crit_edge.us.i, %.lr.ph35.split.i, %.preheader15.i
@@ -1624,14 +1624,14 @@ common.resume:                                    ; preds = %246, %250, %257, %2
   br i1 %.not1393.i, label %_ZN4ncnnL33innerproduct_transform_kernel_sseERKNS_3MatERS0_iiRKNS_6OptionE.exit, label %804
 
 804:                                              ; preds = %803
-  call void @free(ptr noundef nonnull %798) #18
+  call void @free(ptr noundef nonnull %798) #17
   br label %_ZN4ncnnL33innerproduct_transform_kernel_sseERKNS_3MatERS0_iiRKNS_6OptionE.exit
 
 805:                                              ; preds = %799
   %806 = landingpad { ptr, i32 }
           catch ptr null
   %807 = extractvalue { ptr, i32 } %806, 0
-  call void @__clang_call_terminate(ptr %807) #19
+  call void @__clang_call_terminate(ptr %807) #18
   unreachable
 
 808:                                              ; preds = %55, %39
@@ -1674,7 +1674,7 @@ common.resume:                                    ; preds = %246, %250, %257, %2
   br i1 %.not1397.i, label %829, label %828
 
 828:                                              ; preds = %827
-  call void @free(ptr noundef nonnull %822) #18
+  call void @free(ptr noundef nonnull %822) #17
   br label %829
 
 829:                                              ; preds = %828, %827, %823, %816, %813
@@ -1722,7 +1722,7 @@ common.resume:                                    ; preds = %246, %250, %257, %2
 .sink.split.i:                                    ; preds = %786, %557, %261
   %.sink.i = phi ptr [ %256, %261 ], [ %552, %557 ], [ %781, %786 ]
   %.pn.ph.i = phi { ptr, i32 } [ %247, %261 ], [ %543, %557 ], [ %772, %786 ]
-  call void @free(ptr noundef nonnull %.sink.i) #18
+  call void @free(ptr noundef nonnull %.sink.i) #17
   br label %common.resume
 
 _ZN4ncnnL33innerproduct_transform_kernel_sseERKNS_3MatERS0_iiRKNS_6OptionE.exit: ; preds = %._crit_edge36.i, %792, %799, %803, %804, %._crit_edge92.i, %642, %649, %653, %654, %._crit_edge190.i, %418, %425, %429, %430, %829
@@ -1763,7 +1763,7 @@ _ZN4ncnnL33innerproduct_transform_kernel_sseERKNS_3MatERS0_iiRKNS_6OptionE.exit:
   br i1 %.not21, label %876, label %875
 
 875:                                              ; preds = %874
-  call void @free(ptr noundef nonnull %869) #18
+  call void @free(ptr noundef nonnull %869) #17
   br label %876
 
 876:                                              ; preds = %870, %875, %874, %863, %860
@@ -1815,7 +1815,7 @@ define hidden noundef i32 @_ZN4ncnn23InnerProduct_x86_avx51224create_pipeline_in
   br i1 %.not93, label %._crit_edge90, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader84
-  %21 = call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %.065, i1 true)
+  %21 = select i1 %14, i32 3, i32 0
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 644
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 616
   %24 = icmp sgt i32 %8, 0
@@ -1911,7 +1911,7 @@ define hidden noundef i32 @_ZN4ncnn23InnerProduct_x86_avx51224create_pipeline_in
   br i1 %.not77, label %69, label %68
 
 68:                                               ; preds = %67
-  call void @free(ptr noundef nonnull %62) #18
+  call void @free(ptr noundef nonnull %62) #17
   br label %69
 
 69:                                               ; preds = %63, %68, %67, %56, %52
@@ -1921,7 +1921,7 @@ define hidden noundef i32 @_ZN4ncnn23InnerProduct_x86_avx51224create_pipeline_in
   %71 = landingpad { ptr, i32 }
           catch ptr null
   %72 = extractvalue { ptr, i32 } %71, 0
-  call void @__clang_call_terminate(ptr %72) #19
+  call void @__clang_call_terminate(ptr %72) #18
   unreachable
 
 ._crit_edge90:                                    ; preds = %._crit_edge.us, %.lr.ph, %.preheader84
@@ -1954,7 +1954,7 @@ define hidden noundef i32 @_ZN4ncnn23InnerProduct_x86_avx51224create_pipeline_in
   br i1 %.not80, label %88, label %87
 
 87:                                               ; preds = %86
-  call void @free(ptr noundef nonnull %81) #18
+  call void @free(ptr noundef nonnull %81) #17
   br label %88
 
 88:                                               ; preds = %82, %87, %86, %75, %._crit_edge90
@@ -1979,7 +1979,7 @@ define hidden noundef i32 @_ZN4ncnn23InnerProduct_x86_avx51224create_pipeline_in
   %98 = landingpad { ptr, i32 }
           catch ptr null
   %99 = extractvalue { ptr, i32 } %98, 0
-  call void @__clang_call_terminate(ptr %99) #19
+  call void @__clang_call_terminate(ptr %99) #18
   unreachable
 
 100:                                              ; preds = %.lr.ph92, %110
@@ -2043,7 +2043,7 @@ define hidden noundef i32 @_ZN4ncnn23InnerProduct_x86_avx51224create_pipeline_in
   br i1 %.not83, label %134, label %133
 
 133:                                              ; preds = %132
-  call void @free(ptr noundef nonnull %127) #18
+  call void @free(ptr noundef nonnull %127) #17
   br label %134
 
 134:                                              ; preds = %128, %133, %132, %121, %118
@@ -2431,7 +2431,7 @@ define hidden noundef i32 @_ZN4ncnn23InnerProduct_x86_avx51221create_pipeline_fp
   %261 = landingpad { ptr, i32 }
           catch ptr null
   %262 = extractvalue { ptr, i32 } %261, 0
-  call void @__clang_call_terminate(ptr %262) #19
+  call void @__clang_call_terminate(ptr %262) #18
   unreachable
 
 .preheader.i:                                     ; preds = %.lr.ph1594.i, %.preheader1442.i
@@ -2775,7 +2775,7 @@ define hidden noundef i32 @_ZN4ncnn23InnerProduct_x86_avx51221create_pipeline_fp
   %462 = landingpad { ptr, i32 }
           catch ptr null
   %463 = extractvalue { ptr, i32 } %462, 0
-  call void @__clang_call_terminate(ptr %463) #19
+  call void @__clang_call_terminate(ptr %463) #18
   unreachable
 
 464:                                              ; preds = %20
@@ -2984,7 +2984,7 @@ define hidden noundef i32 @_ZN4ncnn23InnerProduct_x86_avx51221create_pipeline_fp
   %595 = landingpad { ptr, i32 }
           catch ptr null
   %596 = extractvalue { ptr, i32 } %595, 0
-  call void @__clang_call_terminate(ptr %596) #19
+  call void @__clang_call_terminate(ptr %596) #18
   unreachable
 
 .preheader1444.i:                                 ; preds = %.lr.ph1512.i, %.preheader1450.i
@@ -3208,7 +3208,7 @@ define hidden noundef i32 @_ZN4ncnn23InnerProduct_x86_avx51221create_pipeline_fp
   %724 = landingpad { ptr, i32 }
           catch ptr null
   %725 = extractvalue { ptr, i32 } %724, 0
-  call void @__clang_call_terminate(ptr %725) #19
+  call void @__clang_call_terminate(ptr %725) #18
   unreachable
 
 726:                                              ; preds = %23
@@ -3344,7 +3344,7 @@ define hidden noundef i32 @_ZN4ncnn23InnerProduct_x86_avx51221create_pipeline_fp
   %798 = landingpad { ptr, i32 }
           catch ptr null
   %799 = extractvalue { ptr, i32 } %798, 0
-  call void @__clang_call_terminate(ptr %799) #19
+  call void @__clang_call_terminate(ptr %799) #18
   unreachable
 
 .lr.ph1476.i:                                     ; preds = %.preheader1452.i, %816
@@ -3430,7 +3430,7 @@ define hidden noundef i32 @_ZN4ncnn23InnerProduct_x86_avx51221create_pipeline_fp
   %839 = landingpad { ptr, i32 }
           catch ptr null
   %840 = extractvalue { ptr, i32 } %839, 0
-  call void @__clang_call_terminate(ptr %840) #19
+  call void @__clang_call_terminate(ptr %840) #18
   unreachable
 
 841:                                              ; preds = %23, %2
@@ -3471,7 +3471,7 @@ define hidden noundef i32 @_ZN4ncnn23InnerProduct_x86_avx51221create_pipeline_fp
   %858 = landingpad { ptr, i32 }
           catch ptr null
   %859 = extractvalue { ptr, i32 } %858, 0
-  call void @__clang_call_terminate(ptr %859) #19
+  call void @__clang_call_terminate(ptr %859) #18
   unreachable
 
 860:                                              ; preds = %841
@@ -3509,18 +3509,18 @@ define hidden noundef i32 @_ZN4ncnn23InnerProduct_x86_avx51221create_pipeline_fp
   %877 = landingpad { ptr, i32 }
           catch ptr null
   %878 = extractvalue { ptr, i32 } %877, 0
-  call void @__clang_call_terminate(ptr %878) #19
+  call void @__clang_call_terminate(ptr %878) #18
   unreachable
 
 .sink.split.i:                                    ; preds = %856, %837, %722, %460
   %.sink.i = phi ptr [ %455, %460 ], [ %717, %722 ], [ %832, %837 ], [ %851, %856 ]
-  call void @free(ptr noundef nonnull %.sink.i) #18
+  call void @free(ptr noundef nonnull %.sink.i) #17
   br label %_ZN4ncnnL39innerproduct_transform_kernel_fp16s_sseERKNS_3MatERS0_iiRKNS_6OptionE.exit
 
 .sink.split1775.i:                                ; preds = %875, %796, %593, %259
   %.sink1776.i = phi ptr [ %254, %259 ], [ %588, %593 ], [ %791, %796 ], [ %870, %875 ]
   %.pn.ph.i = phi { ptr, i32 } [ %lpad.phi.i, %259 ], [ %lpad.phi1449.i, %593 ], [ %lpad.phi1457.i, %796 ], [ %861, %875 ]
-  call void @free(ptr noundef nonnull %.sink1776.i) #18
+  call void @free(ptr noundef nonnull %.sink1776.i) #17
   br label %879
 
 879:                                              ; preds = %.sink.split1775.i, %875, %871, %864, %860, %796, %792, %785, %782, %593, %589, %582, %579, %259, %255, %248, %245
@@ -3566,7 +3566,7 @@ _ZN4ncnnL39innerproduct_transform_kernel_fp16s_sseERKNS_3MatERS0_iiRKNS_6OptionE
   br i1 %.not11, label %898, label %897
 
 897:                                              ; preds = %896
-  call void @free(ptr noundef nonnull %891) #18
+  call void @free(ptr noundef nonnull %891) #17
   br label %898
 
 898:                                              ; preds = %892, %897, %896, %885, %882
@@ -3601,7 +3601,7 @@ define hidden noundef i32 @_ZN4ncnn23InnerProduct_x86_avx51216destroy_pipelineER
   %13 = load ptr, ptr %10, align 8
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %15 = load ptr, ptr %14, align 8
-  tail call void %15(ptr noundef nonnull align 8 dereferenceable(208) %10) #18
+  tail call void %15(ptr noundef nonnull align 8 dereferenceable(208) %10) #17
   br label %16
 
 16:                                               ; preds = %12, %5
@@ -3812,7 +3812,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn23InnerProduct_x86_avx512
   br i1 %.not92, label %128, label %127
 
 127:                                              ; preds = %126
-  call void @free(ptr noundef nonnull %121) #18
+  call void @free(ptr noundef nonnull %121) #17
   br label %128
 
 128:                                              ; preds = %122, %127, %126, %116, %113
@@ -3822,7 +3822,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn23InnerProduct_x86_avx512
   %130 = landingpad { ptr, i32 }
           catch ptr null
   %131 = extractvalue { ptr, i32 } %130, 0
-  call void @__clang_call_terminate(ptr %131) #19
+  call void @__clang_call_terminate(ptr %131) #18
   unreachable
 
 132:                                              ; preds = %107, %92
@@ -6060,14 +6060,14 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn23InnerProduct_x86_avx512
   br i1 %.not95, label %.critedge, label %1665
 
 1665:                                             ; preds = %1664
-  call void @free(ptr noundef nonnull %1659) #18
+  call void @free(ptr noundef nonnull %1659) #17
   br label %.critedge
 
 1666:                                             ; preds = %1660
   %1667 = landingpad { ptr, i32 }
           catch ptr null
   %1668 = extractvalue { ptr, i32 } %1667, 0
-  call void @__clang_call_terminate(ptr %1668) #19
+  call void @__clang_call_terminate(ptr %1668) #18
   unreachable
 
 .critedge:                                        ; preds = %.critedge2, %1654, %1664, %1665, %1660, %46, %35, %54, %20, %12
@@ -6251,7 +6251,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn23InnerProduct_x86_avx512
   br i1 %.not9287, label %109, label %108
 
 108:                                              ; preds = %107
-  call void @free(ptr noundef nonnull %102) #18
+  call void @free(ptr noundef nonnull %102) #17
   br label %109
 
 109:                                              ; preds = %103, %108, %107, %97, %94
@@ -6264,7 +6264,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn23InnerProduct_x86_avx512
   %111 = landingpad { ptr, i32 }
           catch ptr null
   %112 = extractvalue { ptr, i32 } %111, 0
-  call void @__clang_call_terminate(ptr %112) #19
+  call void @__clang_call_terminate(ptr %112) #18
   unreachable
 
 113:                                              ; preds = %88
@@ -8812,7 +8812,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn23InnerProduct_x86_avx512
   br i1 %.not9310, label %2152, label %2151
 
 2151:                                             ; preds = %2150
-  call void @free(ptr noundef nonnull %2145) #18
+  call void @free(ptr noundef nonnull %2145) #17
   br label %2152
 
 2152:                                             ; preds = %2146, %2151, %2150, %2140, %.critedge2
@@ -8823,7 +8823,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn23InnerProduct_x86_avx512
   %2154 = landingpad { ptr, i32 }
           catch ptr null
   %2155 = extractvalue { ptr, i32 } %2154, 0
-  call void @__clang_call_terminate(ptr %2155) #19
+  call void @__clang_call_terminate(ptr %2155) #18
   unreachable
 
 2156:                                             ; preds = %68
@@ -8927,7 +8927,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn23InnerProduct_x86_avx512
   br i1 %.not9278, label %2214, label %2213
 
 2213:                                             ; preds = %2212
-  call void @free(ptr noundef nonnull %2207) #18
+  call void @free(ptr noundef nonnull %2207) #17
   br label %2214
 
 2214:                                             ; preds = %2208, %2213, %2212, %2202, %2199
@@ -8940,7 +8940,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn23InnerProduct_x86_avx512
   %2216 = landingpad { ptr, i32 }
           catch ptr null
   %2217 = extractvalue { ptr, i32 } %2216, 0
-  call void @__clang_call_terminate(ptr %2217) #19
+  call void @__clang_call_terminate(ptr %2217) #18
   unreachable
 
 2218:                                             ; preds = %2193, %2178
@@ -9584,7 +9584,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn23InnerProduct_x86_avx512
   br i1 %.not9284, label %2696, label %2695
 
 2695:                                             ; preds = %2694
-  call void @free(ptr noundef nonnull %2689) #18
+  call void @free(ptr noundef nonnull %2689) #17
   br label %2696
 
 2696:                                             ; preds = %2690, %2695, %2694, %2684, %.critedge13
@@ -9595,7 +9595,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn23InnerProduct_x86_avx512
   %2698 = landingpad { ptr, i32 }
           catch ptr null
   %2699 = extractvalue { ptr, i32 } %2698, 0
-  call void @__clang_call_terminate(ptr %2699) #19
+  call void @__clang_call_terminate(ptr %2699) #18
   unreachable
 
 .critedge.sink.split:                             ; preds = %2152, %2696
@@ -9635,7 +9635,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn23InnerProduct_x86_avx512
   br i1 %.not9313, label %2713, label %2712
 
 2712:                                             ; preds = %2711
-  call void @free(ptr noundef nonnull %2706) #18
+  call void @free(ptr noundef nonnull %2706) #17
   br label %2713
 
 2713:                                             ; preds = %2707, %2712, %2711, %2701, %.critedge
@@ -9645,7 +9645,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn23InnerProduct_x86_avx512
   %2715 = landingpad { ptr, i32 }
           catch ptr null
   %2716 = extractvalue { ptr, i32 } %2715, 0
-  call void @__clang_call_terminate(ptr %2716) #19
+  call void @__clang_call_terminate(ptr %2716) #18
   unreachable
 
 2717:                                             ; preds = %2214, %109, %66
@@ -9677,7 +9677,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn23InnerProduct_x86_avx512
   br i1 %.not9291, label %2731, label %2730
 
 2730:                                             ; preds = %2729
-  call void @free(ptr noundef nonnull %2724) #18
+  call void @free(ptr noundef nonnull %2724) #17
   br label %2731
 
 2731:                                             ; preds = %2725, %2730, %2729, %2719, %2717
@@ -9687,7 +9687,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn23InnerProduct_x86_avx512
   %2733 = landingpad { ptr, i32 }
           catch ptr null
   %2734 = extractvalue { ptr, i32 } %2733, 0
-  call void @__clang_call_terminate(ptr %2734) #19
+  call void @__clang_call_terminate(ptr %2734) #18
   unreachable
 }
 
@@ -9881,7 +9881,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn23InnerProduct_x86_avx512
   br i1 %.not82, label %110, label %109
 
 109:                                              ; preds = %108
-  call void @free(ptr noundef nonnull %103) #18
+  call void @free(ptr noundef nonnull %103) #17
   br label %110
 
 110:                                              ; preds = %104, %109, %108, %98, %.loopexit.split-lp
@@ -9891,7 +9891,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn23InnerProduct_x86_avx512
   %112 = landingpad { ptr, i32 }
           catch ptr null
   %113 = extractvalue { ptr, i32 } %112, 0
-  call void @__clang_call_terminate(ptr %113) #19
+  call void @__clang_call_terminate(ptr %113) #18
   unreachable
 
 114:                                              ; preds = %91, %76
@@ -12302,14 +12302,14 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn23InnerProduct_x86_avx512
   br i1 %.not85, label %.critedge, label %1781
 
 1781:                                             ; preds = %1780
-  call void @free(ptr noundef nonnull %1775) #18
+  call void @free(ptr noundef nonnull %1775) #17
   br label %.critedge
 
 1782:                                             ; preds = %1776
   %1783 = landingpad { ptr, i32 }
           catch ptr null
   %1784 = extractvalue { ptr, i32 } %1783, 0
-  call void @__clang_call_terminate(ptr %1784) #19
+  call void @__clang_call_terminate(ptr %1784) #18
   unreachable
 
 .critedge:                                        ; preds = %.critedge2, %1770, %1780, %1781, %1776, %30, %19, %38
@@ -34260,7 +34260,7 @@ define linkonce_odr hidden void @_ZN4ncnn23InnerProduct_x86_avx512D2Ev(ptr nound
   br i1 %.not18, label %18, label %17
 
 17:                                               ; preds = %16
-  tail call void @free(ptr noundef nonnull %11) #18
+  tail call void @free(ptr noundef nonnull %11) #17
   br label %18
 
 18:                                               ; preds = %12, %17, %16, %5, %1
@@ -34279,7 +34279,7 @@ define linkonce_odr hidden void @_ZN4ncnn23InnerProduct_x86_avx512D2Ev(ptr nound
   %25 = landingpad { ptr, i32 }
           catch ptr null
   %26 = extractvalue { ptr, i32 } %25, 0
-  tail call void @__clang_call_terminate(ptr %26) #19
+  tail call void @__clang_call_terminate(ptr %26) #18
   unreachable
 
 27:                                               ; preds = %18
@@ -34306,7 +34306,7 @@ define linkonce_odr hidden void @_ZN4ncnn23InnerProduct_x86_avx512D2Ev(ptr nound
   br i1 %.not21, label %40, label %39
 
 39:                                               ; preds = %38
-  tail call void @free(ptr noundef nonnull %33) #18
+  tail call void @free(ptr noundef nonnull %33) #17
   br label %40
 
 40:                                               ; preds = %34, %39, %38, %27, %18
@@ -34315,21 +34315,21 @@ define linkonce_odr hidden void @_ZN4ncnn23InnerProduct_x86_avx512D2Ev(ptr nound
   store i64 0, ptr %42, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %21, i8 0, i64 28, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %41, i8 0, i64 20, i1 false)
-  tail call void @_ZN4ncnn12InnerProductD2Ev(ptr noundef nonnull align 8 dereferenceable(592) %0) #18
+  tail call void @_ZN4ncnn12InnerProductD2Ev(ptr noundef nonnull align 8 dereferenceable(592) %0) #17
   ret void
 
 43:                                               ; preds = %34
   %44 = landingpad { ptr, i32 }
           catch ptr null
   %45 = extractvalue { ptr, i32 } %44, 0
-  tail call void @__clang_call_terminate(ptr %45) #19
+  tail call void @__clang_call_terminate(ptr %45) #18
   unreachable
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4ncnn23InnerProduct_x86_avx512D0Ev(ptr noundef nonnull align 8 dereferenceable(744) %0) unnamed_addr #2 comdat align 2 {
-  tail call void @_ZN4ncnn23InnerProduct_x86_avx512D2Ev(ptr noundef nonnull align 8 dereferenceable(744) %0) #18
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 744) #20
+  tail call void @_ZN4ncnn23InnerProduct_x86_avx512D2Ev(ptr noundef nonnull align 8 dereferenceable(744) %0) #17
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 744) #19
   ret void
 }
 
@@ -34345,8 +34345,8 @@ declare noundef i32 @_ZNK4ncnn5Layer15forward_inplaceERNS_3MatERKNS_6OptionE(ptr
 
 ; Function Attrs: noreturn nounwind uwtable
 define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #8 comdat {
-  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #18
-  tail call void @_ZSt9terminatev() #19
+  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #17
+  tail call void @_ZSt9terminatev() #18
   unreachable
 }
 
@@ -34442,17 +34442,14 @@ declare float @llvm.tanh.f32(float) #11
 ; Function Attrs: nobuiltin nounwind
 declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #14
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.cttz.i32(i32, i1 immarg) #15
-
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #16
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #17
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #17
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #16
 
 attributes #0 = { mustprogress uwtable "approx-func-fp-math"="true" "frame-pointer"="all" "min-legal-vector-width"="0" "no-infs-fp-math"="true" "no-nans-fp-math"="true" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512vl,+cmov,+crc32,+cx8,+evex512,+f16c,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" "unsafe-fp-math"="true" }
 attributes #1 = { "approx-func-fp-math"="true" "frame-pointer"="all" "no-infs-fp-math"="true" "no-nans-fp-math"="true" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512vl,+cmov,+crc32,+cx8,+evex512,+f16c,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" "unsafe-fp-math"="true" }
@@ -34469,12 +34466,11 @@ attributes #11 = { mustprogress nocallback nofree nosync nounwind speculatable w
 attributes #12 = { mustprogress nocallback nofree nosync nounwind willreturn memory(none) }
 attributes #13 = { mustprogress nocallback nofree nosync nounwind willreturn memory(read) }
 attributes #14 = { nobuiltin nounwind "approx-func-fp-math"="true" "frame-pointer"="all" "no-infs-fp-math"="true" "no-nans-fp-math"="true" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512vl,+cmov,+crc32,+cx8,+evex512,+f16c,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" "unsafe-fp-math"="true" }
-attributes #15 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #16 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #17 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #18 = { nounwind }
-attributes #19 = { noreturn nounwind }
-attributes #20 = { builtin nounwind }
+attributes #15 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #16 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #17 = { nounwind }
+attributes #18 = { noreturn nounwind }
+attributes #19 = { builtin nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 
