@@ -2377,12 +2377,12 @@ define weak_odr void @_ZN10OpenSubdiv6v3_6_03Far8internal14StencilBuilderIfE5Ind
   %wide.trip.count = zext nneg i32 %18 to i64
   br label %25
 
-25:                                               ; preds = %.lr.ph, %42
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %42 ]
+25:                                               ; preds = %.lr.ph, %41
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %41 ]
   %26 = getelementptr inbounds nuw float, ptr %22, i64 %indvars.iv
   %27 = load float, ptr %26, align 4
   %28 = fcmp oeq float %27, 0.000000e+00
-  br i1 %28, label %42, label %29
+  br i1 %28, label %41, label %29
 
 29:                                               ; preds = %25
   %30 = getelementptr inbounds nuw i32, ptr %20, i64 %indvars.iv
@@ -2402,16 +2402,15 @@ define weak_odr void @_ZN10OpenSubdiv6v3_6_03Far8internal14StencilBuilderIfE5Ind
   store float %35, ptr %.sroa.434.0..sroa_idx, align 4
   store float %36, ptr %.sroa.535.0..sroa_idx, align 8
   store float %37, ptr %.sroa.636.0..sroa_idx, align 4
-  %41 = load ptr, ptr %38, align 8
-  tail call void @_ZN10OpenSubdiv6v3_6_03Far8internal11WeightTableIfE13AddWithWeightINS2_19Point2ndDerivWeightIfEENS4_24Point2ndDerivAccumulatorEEEviiT_T0_(ptr noundef nonnull align 8 dereferenceable(253) %39, i32 noundef %31, i32 noundef %40, ptr noundef nonnull byval(%"struct.OpenSubdiv::v3_6_0::Far::internal::Point2ndDerivWeight") align 8 %9, ptr %41)
-  br label %42
+  tail call void @_ZN10OpenSubdiv6v3_6_03Far8internal11WeightTableIfE13AddWithWeightINS2_19Point2ndDerivWeightIfEENS4_24Point2ndDerivAccumulatorEEEviiT_T0_(ptr noundef nonnull align 8 dereferenceable(253) %39, i32 noundef %31, i32 noundef %40, ptr noundef nonnull byval(%"struct.OpenSubdiv::v3_6_0::Far::internal::Point2ndDerivWeight") align 8 %9, ptr %39)
+  br label %41
 
-42:                                               ; preds = %25, %29
+41:                                               ; preds = %25, %29
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %25, !llvm.loop !13
 
-.loopexit:                                        ; preds = %42, %16, %8
+.loopexit:                                        ; preds = %41, %16, %8
   ret void
 }
 
@@ -4742,12 +4741,12 @@ define weak_odr void @_ZN10OpenSubdiv6v3_6_03Far8internal14StencilBuilderIdE5Ind
   %wide.trip.count = zext nneg i32 %12 to i64
   br label %19
 
-19:                                               ; preds = %.lr.ph, %33
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %33 ]
+19:                                               ; preds = %.lr.ph, %32
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %32 ]
   %20 = getelementptr inbounds nuw double, ptr %16, i64 %indvars.iv
   %21 = load double, ptr %20, align 8
   %22 = fcmp oeq double %21, 0.000000e+00
-  br i1 %22, label %33, label %23
+  br i1 %22, label %32, label %23
 
 23:                                               ; preds = %19
   %24 = getelementptr inbounds nuw i32, ptr %14, i64 %indvars.iv
@@ -4761,16 +4760,15 @@ define weak_odr void @_ZN10OpenSubdiv6v3_6_03Far8internal14StencilBuilderIdE5Ind
   store double %26, ptr %6, align 8
   store double %27, ptr %.sroa.223.0..sroa_idx, align 8
   store double %28, ptr %.sroa.324.0..sroa_idx, align 8
-  %32 = load ptr, ptr %29, align 8
-  tail call void @_ZN10OpenSubdiv6v3_6_03Far8internal11WeightTableIdE13AddWithWeightINS2_19Point1stDerivWeightIdEENS4_24Point1stDerivAccumulatorEEEviiT_T0_(ptr noundef nonnull align 8 dereferenceable(253) %30, i32 noundef %25, i32 noundef %31, ptr noundef nonnull byval(%"struct.OpenSubdiv::v3_6_0::Far::internal::Point1stDerivWeight.17") align 8 %6, ptr %32)
-  br label %33
+  tail call void @_ZN10OpenSubdiv6v3_6_03Far8internal11WeightTableIdE13AddWithWeightINS2_19Point1stDerivWeightIdEENS4_24Point1stDerivAccumulatorEEEviiT_T0_(ptr noundef nonnull align 8 dereferenceable(253) %30, i32 noundef %25, i32 noundef %31, ptr noundef nonnull byval(%"struct.OpenSubdiv::v3_6_0::Far::internal::Point1stDerivWeight.17") align 8 %6, ptr %30)
+  br label %32
 
-33:                                               ; preds = %19, %23
+32:                                               ; preds = %19, %23
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %19, !llvm.loop !29
 
-.loopexit:                                        ; preds = %33, %10, %5
+.loopexit:                                        ; preds = %32, %10, %5
   ret void
 }
 
@@ -5495,12 +5493,12 @@ define weak_odr void @_ZN10OpenSubdiv6v3_6_03Far8internal14StencilBuilderIdE5Ind
   %wide.trip.count = zext nneg i32 %18 to i64
   br label %25
 
-25:                                               ; preds = %.lr.ph, %42
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %42 ]
+25:                                               ; preds = %.lr.ph, %41
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %41 ]
   %26 = getelementptr inbounds nuw double, ptr %22, i64 %indvars.iv
   %27 = load double, ptr %26, align 8
   %28 = fcmp oeq double %27, 0.000000e+00
-  br i1 %28, label %42, label %29
+  br i1 %28, label %41, label %29
 
 29:                                               ; preds = %25
   %30 = getelementptr inbounds nuw i32, ptr %20, i64 %indvars.iv
@@ -5520,16 +5518,15 @@ define weak_odr void @_ZN10OpenSubdiv6v3_6_03Far8internal14StencilBuilderIdE5Ind
   store double %35, ptr %.sroa.434.0..sroa_idx, align 8
   store double %36, ptr %.sroa.535.0..sroa_idx, align 8
   store double %37, ptr %.sroa.636.0..sroa_idx, align 8
-  %41 = load ptr, ptr %38, align 8
-  tail call void @_ZN10OpenSubdiv6v3_6_03Far8internal11WeightTableIdE13AddWithWeightINS2_19Point2ndDerivWeightIdEENS4_24Point2ndDerivAccumulatorEEEviiT_T0_(ptr noundef nonnull align 8 dereferenceable(253) %39, i32 noundef %31, i32 noundef %40, ptr noundef nonnull byval(%"struct.OpenSubdiv::v3_6_0::Far::internal::Point2ndDerivWeight.18") align 8 %9, ptr %41)
-  br label %42
+  tail call void @_ZN10OpenSubdiv6v3_6_03Far8internal11WeightTableIdE13AddWithWeightINS2_19Point2ndDerivWeightIdEENS4_24Point2ndDerivAccumulatorEEEviiT_T0_(ptr noundef nonnull align 8 dereferenceable(253) %39, i32 noundef %31, i32 noundef %40, ptr noundef nonnull byval(%"struct.OpenSubdiv::v3_6_0::Far::internal::Point2ndDerivWeight.18") align 8 %9, ptr %39)
+  br label %41
 
-42:                                               ; preds = %25, %29
+41:                                               ; preds = %25, %29
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %25, !llvm.loop !35
 
-.loopexit:                                        ; preds = %42, %16, %8
+.loopexit:                                        ; preds = %41, %16, %8
   ret void
 }
 

@@ -3100,9 +3100,9 @@ _ZN4llvm16dyn_cast_or_nullIN5clang10ReturnStmtENS1_4StmtEEEDaPT0_.exit.i2.i: ; p
   %678 = load ptr, ptr %677, align 8, !nonnull !140, !noundef !140
   %679 = load i8, ptr %678, align 8
   %680 = icmp eq i8 %679, -118
+  call void @llvm.assume(i1 %680)
   %681 = getelementptr inbounds nuw i8, ptr %678, i64 8
   %682 = load ptr, ptr %681, align 8
-  call void @llvm.assume(i1 %680)
   %683 = getelementptr inbounds nuw i8, ptr %682, i64 8
   %.sroa.0.0.copyload.i.i170 = load i64, ptr %683, align 8
   %684 = and i64 %.sroa.0.0.copyload.i.i170, -16

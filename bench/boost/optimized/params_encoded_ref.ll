@@ -417,115 +417,117 @@ define noundef i64 @_ZN5boost4urls18params_encoded_ref5eraseENS0_15pct_string_vi
   %14 = alloca %"class.boost::urls::params_encoded_base::iterator", align 8
   %15 = alloca %"class.boost::urls::params_encoded_base::iterator", align 8
   %16 = alloca %"class.boost::urls::params_encoded_base::iterator", align 8
-  %.sroa.015 = alloca %"struct.boost::urls::detail::params_iter_impl", align 8
-  %17 = alloca %"struct.boost::urls::param_pct_view", align 8
-  %18 = alloca %"class.boost::urls::params_encoded_base::iterator", align 8
-  call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %14) #12
-  %19 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(41) %19, i8 0, i64 41, i1 false)
-  %20 = getelementptr inbounds nuw i8, ptr %14, i64 56
-  store i64 0, ptr %20, align 8, !tbaa !41
+  %17 = alloca %"class.boost::urls::params_encoded_base::iterator", align 8
+  %18 = alloca %"struct.boost::urls::param_pct_view", align 8
+  %19 = alloca %"class.boost::urls::params_encoded_base::iterator", align 8
   call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %15) #12
-  call void @_ZNK5boost4urls19params_encoded_base3endEv(ptr dead_on_unwind nonnull writable sret(%"class.boost::urls::params_encoded_base::iterator") align 8 %15, ptr noundef nonnull align 8 dereferenceable(48) %0) #12
-  call void @_ZNK5boost4urls19params_encoded_base14find_last_implENS0_6detail16params_iter_implENS0_15pct_string_viewENS0_17ignore_case_paramE(ptr dead_on_unwind nonnull writable sret(%"struct.boost::urls::detail::params_iter_impl") align 8 %14, ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull byval(%"struct.boost::urls::detail::params_iter_impl") align 8 %15, ptr noundef nonnull byval(%"class.boost::urls::pct_string_view") align 8 %1, i8 %2) #12
-  %21 = load i64, ptr %20, align 8, !tbaa !41
-  %22 = getelementptr inbounds nuw i8, ptr %15, i64 56
-  %23 = load i64, ptr %22, align 8, !tbaa !41
-  %24 = icmp eq i64 %21, %23
-  call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %15) #12
-  br i1 %24, label %44, label %.preheader
+  %20 = getelementptr inbounds nuw i8, ptr %15, i64 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(41) %20, i8 0, i64 41, i1 false)
+  %21 = getelementptr inbounds nuw i8, ptr %15, i64 56
+  store i64 0, ptr %21, align 8, !tbaa !41
+  call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %16) #12
+  call void @_ZNK5boost4urls19params_encoded_base3endEv(ptr dead_on_unwind nonnull writable sret(%"class.boost::urls::params_encoded_base::iterator") align 8 %16, ptr noundef nonnull align 8 dereferenceable(48) %0) #12
+  call void @_ZNK5boost4urls19params_encoded_base14find_last_implENS0_6detail16params_iter_implENS0_15pct_string_viewENS0_17ignore_case_paramE(ptr dead_on_unwind nonnull writable sret(%"struct.boost::urls::detail::params_iter_impl") align 8 %15, ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull byval(%"struct.boost::urls::detail::params_iter_impl") align 8 %16, ptr noundef nonnull byval(%"class.boost::urls::pct_string_view") align 8 %1, i8 %2) #12
+  %22 = load i64, ptr %21, align 8, !tbaa !41
+  %23 = getelementptr inbounds nuw i8, ptr %16, i64 56
+  %24 = load i64, ptr %23, align 8, !tbaa !41
+  %25 = icmp eq i64 %22, %24
+  call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %16) #12
+  br i1 %25, label %45, label %.preheader
 
 .preheader:                                       ; preds = %3
-  %25 = getelementptr inbounds nuw i8, ptr %16, i64 56
-  %26 = getelementptr inbounds nuw i8, ptr %18, i64 56
-  %27 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  br label %28
+  %26 = getelementptr inbounds nuw i8, ptr %17, i64 56
+  %27 = getelementptr inbounds nuw i8, ptr %19, i64 56
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  br label %29
 
-28:                                               ; preds = %.preheader, %38
-  %.08 = phi i64 [ %29, %38 ], [ 0, %.preheader ]
-  %29 = add i64 %.08, 1
-  call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %16) #12
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %.sroa.015, ptr noundef nonnull align 8 dereferenceable(104) %14, i64 104, i1 false)
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %17) #12
-  call void @_ZNK5boost4urls6detail16params_iter_impl11dereferenceEv(ptr dead_on_unwind nonnull writable sret(%"struct.boost::urls::param_pct_view") align 8 %17, ptr noundef nonnull align 8 dereferenceable(104) %14) #12
-  call void @_ZNK5boost4urls19params_encoded_base14find_last_implENS0_6detail16params_iter_implENS0_15pct_string_viewENS0_17ignore_case_paramE(ptr dead_on_unwind nonnull writable sret(%"struct.boost::urls::detail::params_iter_impl") align 8 %16, ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull byval(%"struct.boost::urls::detail::params_iter_impl") align 8 %.sroa.015, ptr noundef nonnull byval(%"class.boost::urls::pct_string_view") align 8 %17, i8 %2) #12
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %17) #12
-  call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %18) #12
-  call void @_ZNK5boost4urls19params_encoded_base3endEv(ptr dead_on_unwind nonnull writable sret(%"class.boost::urls::params_encoded_base::iterator") align 8 %18, ptr noundef nonnull align 8 dereferenceable(48) %0) #12
-  %30 = load i64, ptr %25, align 8, !tbaa !41
+29:                                               ; preds = %.preheader, %39
+  %.08 = phi i64 [ %30, %39 ], [ 0, %.preheader ]
+  %30 = add i64 %.08, 1
+  call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %17) #12
+  call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %14)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %14, ptr noundef nonnull align 8 dereferenceable(104) %15, i64 104, i1 false)
+  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %18) #12
+  call void @_ZNK5boost4urls6detail16params_iter_impl11dereferenceEv(ptr dead_on_unwind nonnull writable sret(%"struct.boost::urls::param_pct_view") align 8 %18, ptr noundef nonnull align 8 dereferenceable(104) %15) #12
+  call void @_ZNK5boost4urls19params_encoded_base14find_last_implENS0_6detail16params_iter_implENS0_15pct_string_viewENS0_17ignore_case_paramE(ptr dead_on_unwind nonnull writable sret(%"struct.boost::urls::detail::params_iter_impl") align 8 %17, ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull byval(%"struct.boost::urls::detail::params_iter_impl") align 8 %14, ptr noundef nonnull byval(%"class.boost::urls::pct_string_view") align 8 %18, i8 %2) #12
+  call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %18) #12
+  call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %19) #12
+  call void @_ZNK5boost4urls19params_encoded_base3endEv(ptr dead_on_unwind nonnull writable sret(%"class.boost::urls::params_encoded_base::iterator") align 8 %19, ptr noundef nonnull align 8 dereferenceable(48) %0) #12
   %31 = load i64, ptr %26, align 8, !tbaa !41
-  %32 = icmp eq i64 %30, %31
-  call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %18) #12
-  br i1 %32, label %39, label %33
+  %32 = load i64, ptr %27, align 8, !tbaa !41
+  %33 = icmp eq i64 %31, %32
+  call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %19) #12
+  br i1 %33, label %40, label %34
 
-33:                                               ; preds = %28
+34:                                               ; preds = %29
   call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %13), !noalias !43
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %13, ptr noundef nonnull align 8 dereferenceable(104) %14, i64 104, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %13, ptr noundef nonnull align 8 dereferenceable(104) %15, i64 104, i1 false)
   call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %12), !noalias !43
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %12, ptr noundef nonnull align 8 dereferenceable(104) %14, i64 104, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %12, ptr noundef nonnull align 8 dereferenceable(104) %15, i64 104, i1 false)
   call void @_ZN5boost4urls6detail16params_iter_impl9incrementEv(ptr noundef nonnull align 8 dereferenceable(104) %13) #12, !noalias !46
   call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %11), !noalias !43
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %11, ptr noundef nonnull align 8 dereferenceable(104) %13, i64 104, i1 false), !noalias !43
   call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %13), !noalias !43
   call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %9) #12, !noalias !49
-  %34 = load ptr, ptr %27, align 8, !tbaa !3, !noalias !49
+  %35 = load ptr, ptr %28, align 8, !tbaa !3, !noalias !49
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %10) #12, !noalias !49
   call void @_ZN5boost4urls6detail10query_iterC1ENS_4core17basic_string_viewIcEEb(ptr noundef nonnull align 8 dereferenceable(81) %10, ptr nonnull @.str, i64 0, i1 noundef zeroext false) #12, !noalias !49
-  invoke void @_ZN5boost4urls8url_base11edit_paramsERKNS0_6detail16params_iter_implES5_ONS2_15any_params_iterE(ptr dead_on_unwind nonnull writable sret(%"struct.boost::urls::detail::params_iter_impl") align 8 %9, ptr noundef nonnull align 8 dereferenceable(216) %34, ptr noundef nonnull align 8 dereferenceable(104) %12, ptr noundef nonnull align 8 dereferenceable(104) %11, ptr noundef nonnull align 8 dereferenceable(41) %10)
-          to label %38 unwind label %35, !noalias !49
+  invoke void @_ZN5boost4urls8url_base11edit_paramsERKNS0_6detail16params_iter_implES5_ONS2_15any_params_iterE(ptr dead_on_unwind nonnull writable sret(%"struct.boost::urls::detail::params_iter_impl") align 8 %9, ptr noundef nonnull align 8 dereferenceable(216) %35, ptr noundef nonnull align 8 dereferenceable(104) %12, ptr noundef nonnull align 8 dereferenceable(104) %11, ptr noundef nonnull align 8 dereferenceable(41) %10)
+          to label %39 unwind label %36, !noalias !49
 
-35:                                               ; preds = %33
-  %36 = landingpad { ptr, i32 }
+36:                                               ; preds = %34
+  %37 = landingpad { ptr, i32 }
           catch ptr null
-  %37 = extractvalue { ptr, i32 } %36, 0
-  call void @__clang_call_terminate(ptr %37) #13
+  %38 = extractvalue { ptr, i32 } %37, 0
+  call void @__clang_call_terminate(ptr %38) #13
   unreachable
 
-38:                                               ; preds = %33
+39:                                               ; preds = %34
   call void @_ZN5boost4urls6detail15any_params_iterD2Ev(ptr noundef nonnull align 8 dereferenceable(81) %10) #12, !noalias !49
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %10) #12, !noalias !49
   call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %9) #12, !noalias !49
   call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %12), !noalias !43
   call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %11), !noalias !43
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %14, ptr noundef nonnull align 8 dereferenceable(104) %16, i64 104, i1 false)
-  call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %16) #12
-  br label %28
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %15, ptr noundef nonnull align 8 dereferenceable(104) %17, i64 104, i1 false)
+  call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %17) #12
+  br label %29
 
-39:                                               ; preds = %28
-  call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %16) #12
+40:                                               ; preds = %29
+  call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %17) #12
   call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %8), !noalias !52
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %8, ptr noundef nonnull align 8 dereferenceable(104) %14, i64 104, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %8, ptr noundef nonnull align 8 dereferenceable(104) %15, i64 104, i1 false)
   call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %7), !noalias !52
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %7, ptr noundef nonnull align 8 dereferenceable(104) %14, i64 104, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %7, ptr noundef nonnull align 8 dereferenceable(104) %15, i64 104, i1 false)
   call void @_ZN5boost4urls6detail16params_iter_impl9incrementEv(ptr noundef nonnull align 8 dereferenceable(104) %8) #12, !noalias !55
   call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %6), !noalias !52
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %6, ptr noundef nonnull align 8 dereferenceable(104) %8, i64 104, i1 false), !noalias !52
   call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %8), !noalias !52
   call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %4) #12, !noalias !58
-  %40 = load ptr, ptr %27, align 8, !tbaa !3, !noalias !58
+  %41 = load ptr, ptr %28, align 8, !tbaa !3, !noalias !58
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %5) #12, !noalias !58
   call void @_ZN5boost4urls6detail10query_iterC1ENS_4core17basic_string_viewIcEEb(ptr noundef nonnull align 8 dereferenceable(81) %5, ptr nonnull @.str, i64 0, i1 noundef zeroext false) #12, !noalias !58
-  invoke void @_ZN5boost4urls8url_base11edit_paramsERKNS0_6detail16params_iter_implES5_ONS2_15any_params_iterE(ptr dead_on_unwind nonnull writable sret(%"struct.boost::urls::detail::params_iter_impl") align 8 %4, ptr noundef nonnull align 8 dereferenceable(216) %40, ptr noundef nonnull align 8 dereferenceable(104) %7, ptr noundef nonnull align 8 dereferenceable(104) %6, ptr noundef nonnull align 8 dereferenceable(41) %5)
-          to label %_ZN5boost4urls18params_encoded_ref5eraseENS0_19params_encoded_base8iteratorE.exit11 unwind label %41, !noalias !58
+  invoke void @_ZN5boost4urls8url_base11edit_paramsERKNS0_6detail16params_iter_implES5_ONS2_15any_params_iterE(ptr dead_on_unwind nonnull writable sret(%"struct.boost::urls::detail::params_iter_impl") align 8 %4, ptr noundef nonnull align 8 dereferenceable(216) %41, ptr noundef nonnull align 8 dereferenceable(104) %7, ptr noundef nonnull align 8 dereferenceable(104) %6, ptr noundef nonnull align 8 dereferenceable(41) %5)
+          to label %_ZN5boost4urls18params_encoded_ref5eraseENS0_19params_encoded_base8iteratorE.exit11 unwind label %42, !noalias !58
 
-41:                                               ; preds = %39
-  %42 = landingpad { ptr, i32 }
+42:                                               ; preds = %40
+  %43 = landingpad { ptr, i32 }
           catch ptr null
-  %43 = extractvalue { ptr, i32 } %42, 0
-  call void @__clang_call_terminate(ptr %43) #13
+  %44 = extractvalue { ptr, i32 } %43, 0
+  call void @__clang_call_terminate(ptr %44) #13
   unreachable
 
-_ZN5boost4urls18params_encoded_ref5eraseENS0_19params_encoded_base8iteratorE.exit11: ; preds = %39
+_ZN5boost4urls18params_encoded_ref5eraseENS0_19params_encoded_base8iteratorE.exit11: ; preds = %40
   call void @_ZN5boost4urls6detail15any_params_iterD2Ev(ptr noundef nonnull align 8 dereferenceable(81) %5) #12, !noalias !58
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %5) #12, !noalias !58
   call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %4) #12, !noalias !58
   call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %7), !noalias !52
   call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %6), !noalias !52
-  br label %44
+  br label %45
 
-44:                                               ; preds = %3, %_ZN5boost4urls18params_encoded_ref5eraseENS0_19params_encoded_base8iteratorE.exit11
-  %.1 = phi i64 [ %29, %_ZN5boost4urls18params_encoded_ref5eraseENS0_19params_encoded_base8iteratorE.exit11 ], [ 0, %3 ]
-  call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %14) #12
+45:                                               ; preds = %3, %_ZN5boost4urls18params_encoded_ref5eraseENS0_19params_encoded_base8iteratorE.exit11
+  %.1 = phi i64 [ %30, %_ZN5boost4urls18params_encoded_ref5eraseENS0_19params_encoded_base8iteratorE.exit11 ], [ 0, %3 ]
+  call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %15) #12
   ret i64 %.1
 }
 

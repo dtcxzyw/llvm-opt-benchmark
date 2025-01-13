@@ -210,7 +210,7 @@ declare double @sqrt(double noundef) local_unnamed_addr #2
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @layoutTree(ptr noundef %0) unnamed_addr #0 {
+define internal fastcc void @layoutTree(ptr nocapture noundef readonly %0) unnamed_addr #0 {
   %2 = alloca %struct.rectangle, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %4 = load i64, ptr %3, align 8

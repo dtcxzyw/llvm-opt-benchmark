@@ -81,7 +81,7 @@ define dso_local void @COVER_warnOnSmallCorpus(i64 noundef %0, i64 noundef %1, i
   %10 = load ptr, ptr @stderr, align 8
   %11 = trunc i64 %0 to i32
   %12 = trunc i64 %1 to i32
-  %13 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %10, ptr noundef nonnull @.str, i32 noundef %11, i32 noundef %12, double noundef %6) #23
+  %13 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %10, ptr noundef nonnull @.str, i32 noundef %11, i32 noundef %12, double noundef %6) #22
   %14 = load ptr, ptr @stderr, align 8
   %15 = tail call i32 @fflush(ptr noundef %14)
   br label %16
@@ -129,7 +129,7 @@ define dso_local i64 @COVER_computeEpochs(i32 noundef %0, i32 noundef %1, i32 no
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @ZDICT_trainFromBuffer_cover(ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef byval(%struct.ZDICT_cover_params_t) align 8 initializes((16, 24)) %5) local_unnamed_addr #4 {
+define dso_local i64 @ZDICT_trainFromBuffer_cover(ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr nocapture noundef byval(%struct.ZDICT_cover_params_t) align 8 initializes((16, 24)) %5) local_unnamed_addr #4 {
   %7 = alloca %struct.COVER_ctx_t, align 8
   %8 = alloca %struct.COVER_map_s, align 8
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -157,7 +157,7 @@ define dso_local i64 @ZDICT_trainFromBuffer_cover(ptr noundef %0, i64 noundef %1
 
 25:                                               ; preds = %23
   %26 = load ptr, ptr @stderr, align 8
-  %27 = tail call i64 @fwrite(ptr nonnull @.str.1, i64 27, i64 1, ptr %26) #24
+  %27 = tail call i64 @fwrite(ptr nonnull @.str.1, i64 27, i64 1, ptr %26) #23
   %28 = load ptr, ptr @stderr, align 8
   %29 = tail call i32 @fflush(ptr noundef %28)
   br label %COVER_ctx_destroy.exit
@@ -172,7 +172,7 @@ COVER_checkParameters.exit:                       ; preds = %6
 
 33:                                               ; preds = %31
   %34 = load ptr, ptr @stderr, align 8
-  %35 = tail call i64 @fwrite(ptr nonnull @.str.2, i64 40, i64 1, ptr %34) #24
+  %35 = tail call i64 @fwrite(ptr nonnull @.str.2, i64 40, i64 1, ptr %34) #23
   %36 = load ptr, ptr @stderr, align 8
   %37 = tail call i32 @fflush(ptr noundef %36)
   br label %COVER_ctx_destroy.exit
@@ -187,7 +187,7 @@ COVER_checkParameters.exit:                       ; preds = %6
 
 42:                                               ; preds = %40
   %43 = load ptr, ptr @stderr, align 8
-  %44 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %43, ptr noundef nonnull @.str.3, i32 noundef 256) #23
+  %44 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %43, ptr noundef nonnull @.str.3, i32 noundef 256) #22
   %45 = load ptr, ptr @stderr, align 8
   %46 = tail call i32 @fflush(ptr noundef %45)
   br label %COVER_ctx_destroy.exit
@@ -213,169 +213,169 @@ COVER_checkParameters.exit:                       ; preds = %6
   %60 = load ptr, ptr @stderr, align 8
   %61 = trunc i64 %1 to i32
   %62 = trunc i64 %52 to i32
-  %63 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %60, ptr noundef nonnull @.str, i32 noundef %61, i32 noundef %62, double noundef %56) #23
+  %63 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %60, ptr noundef nonnull @.str, i32 noundef %61, i32 noundef %62, double noundef %56) #22
   %64 = load ptr, ptr @stderr, align 8
   %65 = call i32 @fflush(ptr noundef %64)
   br label %COVER_warnOnSmallCorpus.exit
 
 COVER_warnOnSmallCorpus.exit:                     ; preds = %50, %59
-  %66 = add i32 %16, 1
-  %67 = sub i32 %66, %14
-  %68 = call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %67, i1 true)
-  %69 = xor i32 %68, 31
-  %70 = sub nuw nsw i32 33, %68
-  %71 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store i32 %70, ptr %71, align 8
-  %72 = shl nuw i32 4, %69
-  %73 = getelementptr inbounds nuw i8, ptr %8, i64 12
-  store i32 %72, ptr %73, align 4
-  %74 = add i32 %72, -1
-  %75 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  store i32 %74, ptr %75, align 8
-  %76 = zext i32 %72 to i64
-  %77 = shl nuw nsw i64 %76, 3
-  %78 = call noalias ptr @malloc(i64 noundef %77) #25
-  store ptr %78, ptr %8, align 8
-  %.not.i = icmp eq ptr %78, null
-  br i1 %.not.i, label %79, label %103
+  %reass.sub = sub i32 %16, %14
+  %66 = add i32 %reass.sub, 1
+  %67 = call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %66, i1 true)
+  %68 = xor i32 %67, 31
+  %69 = sub nuw nsw i32 33, %67
+  %70 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  store i32 %69, ptr %70, align 8
+  %71 = shl nuw i32 4, %68
+  %72 = getelementptr inbounds nuw i8, ptr %8, i64 12
+  store i32 %71, ptr %72, align 4
+  %73 = add i32 %71, -1
+  %74 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  store i32 %73, ptr %74, align 8
+  %75 = zext i32 %71 to i64
+  %76 = shl nuw nsw i64 %75, 3
+  %77 = call noalias ptr @malloc(i64 noundef %76) #24
+  store ptr %77, ptr %8, align 8
+  %.not.i = icmp eq ptr %77, null
+  br i1 %.not.i, label %78, label %102
 
-79:                                               ; preds = %COVER_warnOnSmallCorpus.exit
-  %80 = load i32, ptr @g_displayLevel, align 4
-  %81 = icmp sgt i32 %80, 0
-  br i1 %81, label %82, label %87
+78:                                               ; preds = %COVER_warnOnSmallCorpus.exit
+  %79 = load i32, ptr @g_displayLevel, align 4
+  %80 = icmp sgt i32 %79, 0
+  br i1 %80, label %81, label %86
 
-82:                                               ; preds = %79
-  %83 = load ptr, ptr @stderr, align 8
-  %84 = call i64 @fwrite(ptr nonnull @.str.4, i64 43, i64 1, ptr %83) #24
-  %85 = load ptr, ptr @stderr, align 8
-  %86 = call i32 @fflush(ptr noundef %85)
-  br label %87
+81:                                               ; preds = %78
+  %82 = load ptr, ptr @stderr, align 8
+  %83 = call i64 @fwrite(ptr nonnull @.str.4, i64 43, i64 1, ptr %82) #23
+  %84 = load ptr, ptr @stderr, align 8
+  %85 = call i32 @fflush(ptr noundef %84)
+  br label %86
 
-87:                                               ; preds = %82, %79
-  %88 = getelementptr inbounds nuw i8, ptr %7, i64 48
-  %89 = load ptr, ptr %88, align 8
-  %.not.i31 = icmp eq ptr %89, null
-  br i1 %.not.i31, label %91, label %90
+86:                                               ; preds = %81, %78
+  %87 = getelementptr inbounds nuw i8, ptr %7, i64 48
+  %88 = load ptr, ptr %87, align 8
+  %.not.i31 = icmp eq ptr %88, null
+  br i1 %.not.i31, label %90, label %89
 
-90:                                               ; preds = %87
-  call void @free(ptr noundef nonnull %89) #26
-  store ptr null, ptr %88, align 8
-  br label %91
+89:                                               ; preds = %86
+  call void @free(ptr noundef nonnull %88) #25
+  store ptr null, ptr %87, align 8
+  br label %90
 
-91:                                               ; preds = %90, %87
-  %92 = getelementptr inbounds nuw i8, ptr %7, i64 64
-  %93 = load ptr, ptr %92, align 8
-  %.not17.i = icmp eq ptr %93, null
-  br i1 %.not17.i, label %95, label %94
+90:                                               ; preds = %89, %86
+  %91 = getelementptr inbounds nuw i8, ptr %7, i64 64
+  %92 = load ptr, ptr %91, align 8
+  %.not17.i = icmp eq ptr %92, null
+  br i1 %.not17.i, label %94, label %93
 
-94:                                               ; preds = %91
-  call void @free(ptr noundef nonnull %93) #26
-  store ptr null, ptr %92, align 8
-  br label %95
+93:                                               ; preds = %90
+  call void @free(ptr noundef nonnull %92) #25
+  store ptr null, ptr %91, align 8
+  br label %94
 
-95:                                               ; preds = %94, %91
-  %96 = getelementptr inbounds nuw i8, ptr %7, i64 72
-  %97 = load ptr, ptr %96, align 8
-  %.not18.i = icmp eq ptr %97, null
-  br i1 %.not18.i, label %99, label %98
+94:                                               ; preds = %93, %90
+  %95 = getelementptr inbounds nuw i8, ptr %7, i64 72
+  %96 = load ptr, ptr %95, align 8
+  %.not18.i = icmp eq ptr %96, null
+  br i1 %.not18.i, label %98, label %97
 
-98:                                               ; preds = %95
-  call void @free(ptr noundef nonnull %97) #26
-  store ptr null, ptr %96, align 8
-  br label %99
+97:                                               ; preds = %94
+  call void @free(ptr noundef nonnull %96) #25
+  store ptr null, ptr %95, align 8
+  br label %98
 
-99:                                               ; preds = %98, %95
-  %100 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %101 = load ptr, ptr %100, align 8
-  %.not19.i = icmp eq ptr %101, null
-  br i1 %.not19.i, label %COVER_ctx_destroy.exit, label %102
+98:                                               ; preds = %97, %94
+  %99 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %100 = load ptr, ptr %99, align 8
+  %.not19.i = icmp eq ptr %100, null
+  br i1 %.not19.i, label %COVER_ctx_destroy.exit, label %101
 
-102:                                              ; preds = %99
-  call void @free(ptr noundef nonnull %101) #26
+101:                                              ; preds = %98
+  call void @free(ptr noundef nonnull %100) #25
   br label %COVER_ctx_destroy.exit
 
-103:                                              ; preds = %COVER_warnOnSmallCorpus.exit
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %78, i8 -1, i64 %77, i1 false)
-  %104 = load i32, ptr @g_displayLevel, align 4
-  %105 = icmp sgt i32 %104, 1
-  br i1 %105, label %106, label %111
+102:                                              ; preds = %COVER_warnOnSmallCorpus.exit
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %77, i8 -1, i64 %76, i1 false)
+  %103 = load i32, ptr @g_displayLevel, align 4
+  %104 = icmp sgt i32 %103, 1
+  br i1 %104, label %105, label %110
 
-106:                                              ; preds = %103
-  %107 = load ptr, ptr @stderr, align 8
-  %108 = call i64 @fwrite(ptr nonnull @.str.5, i64 20, i64 1, ptr %107) #24
-  %109 = load ptr, ptr @stderr, align 8
-  %110 = call i32 @fflush(ptr noundef %109)
-  br label %111
+105:                                              ; preds = %102
+  %106 = load ptr, ptr @stderr, align 8
+  %107 = call i64 @fwrite(ptr nonnull @.str.5, i64 20, i64 1, ptr %106) #23
+  %108 = load ptr, ptr @stderr, align 8
+  %109 = call i32 @fflush(ptr noundef %108)
+  br label %110
 
-111:                                              ; preds = %106, %103
-  %112 = getelementptr inbounds nuw i8, ptr %7, i64 64
-  %113 = load ptr, ptr %112, align 8
-  %114 = call fastcc i64 @COVER_buildDictionary(ptr noundef nonnull %7, ptr noundef %113, ptr noundef %8, ptr noundef %0, i64 noundef %1, i32 %16, i32 %14)
-  %115 = getelementptr inbounds i8, ptr %0, i64 %114
-  %116 = sub i64 %1, %114
-  %117 = call i64 @ZDICT_finalizeDictionary(ptr noundef %0, i64 noundef %1, ptr noundef %115, i64 noundef %116, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef nonnull byval(%struct.ZDICT_params_t) align 8 %10) #26
-  %118 = icmp ult i64 %117, -119
-  %119 = load i32, ptr @g_displayLevel, align 4
-  %120 = icmp sgt i32 %119, 1
-  %or.cond = select i1 %118, i1 %120, i1 false
-  br i1 %or.cond, label %121, label %127
+110:                                              ; preds = %105, %102
+  %111 = getelementptr inbounds nuw i8, ptr %7, i64 64
+  %112 = load ptr, ptr %111, align 8
+  %113 = call fastcc i64 @COVER_buildDictionary(ptr noundef nonnull %7, ptr noundef %112, ptr noundef %8, ptr noundef %0, i64 noundef %1, i32 %16, i32 %14)
+  %114 = getelementptr inbounds i8, ptr %0, i64 %113
+  %115 = sub i64 %1, %113
+  %116 = call i64 @ZDICT_finalizeDictionary(ptr noundef %0, i64 noundef %1, ptr noundef %114, i64 noundef %115, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef nonnull byval(%struct.ZDICT_params_t) align 8 %10) #25
+  %117 = icmp ult i64 %116, -119
+  %118 = load i32, ptr @g_displayLevel, align 4
+  %119 = icmp sgt i32 %118, 1
+  %or.cond = select i1 %117, i1 %119, i1 false
+  br i1 %or.cond, label %120, label %126
 
-121:                                              ; preds = %111
-  %122 = load ptr, ptr @stderr, align 8
-  %123 = trunc i64 %117 to i32
-  %124 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %122, ptr noundef nonnull @.str.6, i32 noundef %123) #23
-  %125 = load ptr, ptr @stderr, align 8
-  %126 = call i32 @fflush(ptr noundef %125)
-  br label %127
+120:                                              ; preds = %110
+  %121 = load ptr, ptr @stderr, align 8
+  %122 = trunc i64 %116 to i32
+  %123 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %121, ptr noundef nonnull @.str.6, i32 noundef %122) #22
+  %124 = load ptr, ptr @stderr, align 8
+  %125 = call i32 @fflush(ptr noundef %124)
+  br label %126
 
-127:                                              ; preds = %121, %111
-  %128 = getelementptr inbounds nuw i8, ptr %7, i64 48
-  %129 = load ptr, ptr %128, align 8
-  %.not.i32 = icmp eq ptr %129, null
-  br i1 %.not.i32, label %131, label %130
+126:                                              ; preds = %120, %110
+  %127 = getelementptr inbounds nuw i8, ptr %7, i64 48
+  %128 = load ptr, ptr %127, align 8
+  %.not.i32 = icmp eq ptr %128, null
+  br i1 %.not.i32, label %130, label %129
 
-130:                                              ; preds = %127
-  call void @free(ptr noundef nonnull %129) #26
-  store ptr null, ptr %128, align 8
-  br label %131
+129:                                              ; preds = %126
+  call void @free(ptr noundef nonnull %128) #25
+  store ptr null, ptr %127, align 8
+  br label %130
 
-131:                                              ; preds = %130, %127
-  %132 = load ptr, ptr %112, align 8
-  %.not17.i33 = icmp eq ptr %132, null
-  br i1 %.not17.i33, label %134, label %133
+130:                                              ; preds = %129, %126
+  %131 = load ptr, ptr %111, align 8
+  %.not17.i33 = icmp eq ptr %131, null
+  br i1 %.not17.i33, label %133, label %132
 
-133:                                              ; preds = %131
-  call void @free(ptr noundef nonnull %132) #26
-  store ptr null, ptr %112, align 8
-  br label %134
+132:                                              ; preds = %130
+  call void @free(ptr noundef nonnull %131) #25
+  store ptr null, ptr %111, align 8
+  br label %133
 
-134:                                              ; preds = %133, %131
-  %135 = getelementptr inbounds nuw i8, ptr %7, i64 72
-  %136 = load ptr, ptr %135, align 8
-  %.not18.i34 = icmp eq ptr %136, null
-  br i1 %.not18.i34, label %138, label %137
+133:                                              ; preds = %132, %130
+  %134 = getelementptr inbounds nuw i8, ptr %7, i64 72
+  %135 = load ptr, ptr %134, align 8
+  %.not18.i34 = icmp eq ptr %135, null
+  br i1 %.not18.i34, label %137, label %136
 
-137:                                              ; preds = %134
-  call void @free(ptr noundef nonnull %136) #26
-  store ptr null, ptr %135, align 8
-  br label %138
+136:                                              ; preds = %133
+  call void @free(ptr noundef nonnull %135) #25
+  store ptr null, ptr %134, align 8
+  br label %137
 
-138:                                              ; preds = %137, %134
-  %139 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %140 = load ptr, ptr %139, align 8
-  %.not19.i35 = icmp eq ptr %140, null
-  br i1 %.not19.i35, label %COVER_map_destroy.exit, label %141
+137:                                              ; preds = %136, %133
+  %138 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %139 = load ptr, ptr %138, align 8
+  %.not19.i35 = icmp eq ptr %139, null
+  br i1 %.not19.i35, label %COVER_map_destroy.exit, label %140
 
-141:                                              ; preds = %138
-  call void @free(ptr noundef nonnull %140) #26
+140:                                              ; preds = %137
+  call void @free(ptr noundef nonnull %139) #25
   br label %COVER_map_destroy.exit
 
-COVER_map_destroy.exit:                           ; preds = %138, %141
-  call void @free(ptr noundef nonnull %78) #26
+COVER_map_destroy.exit:                           ; preds = %137, %140
+  call void @free(ptr noundef nonnull %77) #25
   br label %COVER_ctx_destroy.exit
 
-COVER_ctx_destroy.exit:                           ; preds = %102, %99, %47, %40, %42, %31, %33, %23, %25, %COVER_map_destroy.exit
-  %.0 = phi i64 [ %117, %COVER_map_destroy.exit ], [ -42, %25 ], [ -42, %23 ], [ -72, %33 ], [ -72, %31 ], [ -70, %42 ], [ -70, %40 ], [ %48, %47 ], [ -64, %99 ], [ -64, %102 ]
+COVER_ctx_destroy.exit:                           ; preds = %101, %98, %47, %40, %42, %31, %33, %23, %25, %COVER_map_destroy.exit
+  %.0 = phi i64 [ %116, %COVER_map_destroy.exit ], [ -42, %25 ], [ -42, %23 ], [ -72, %33 ], [ -72, %31 ], [ -70, %42 ], [ -70, %40 ], [ %48, %47 ], [ -64, %98 ], [ -64, %101 ]
   ret i64 %.0
 }
 
@@ -462,7 +462,7 @@ COVER_sum.exit117:                                ; preds = %.lr.ph.i111, %COVER
   %36 = load ptr, ptr @stderr, align 8
   %37 = lshr i64 %9, 20
   %38 = trunc i64 %37 to i32
-  %39 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %36, ptr noundef nonnull @.str.16, i32 noundef %38, i32 noundef 4095) #23
+  %39 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %36, ptr noundef nonnull @.str.16, i32 noundef %38, i32 noundef 4095) #22
   %40 = load ptr, ptr @stderr, align 8
   %41 = tail call i32 @fflush(ptr noundef %40)
   br label %COVER_ctx_destroy.exit
@@ -478,7 +478,7 @@ COVER_sum.exit117:                                ; preds = %.lr.ph.i111, %COVER
 
 47:                                               ; preds = %44
   %48 = load ptr, ptr @stderr, align 8
-  %49 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %48, ptr noundef nonnull @.str.17, i32 noundef %15) #23
+  %49 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %48, ptr noundef nonnull @.str.17, i32 noundef %15) #22
   %50 = load ptr, ptr @stderr, align 8
   %51 = tail call i32 @fflush(ptr noundef %50)
   br label %COVER_ctx_destroy.exit
@@ -494,7 +494,7 @@ COVER_sum.exit117:                                ; preds = %.lr.ph.i111, %COVER
 
 57:                                               ; preds = %54
   %58 = load ptr, ptr @stderr, align 8
-  %59 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %58, ptr noundef nonnull @.str.18, i32 noundef 0) #23
+  %59 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %58, ptr noundef nonnull @.str.18, i32 noundef 0) #22
   %60 = load ptr, ptr @stderr, align 8
   %61 = tail call i32 @fflush(ptr noundef %60)
   br label %COVER_ctx_destroy.exit
@@ -508,7 +508,7 @@ COVER_sum.exit117:                                ; preds = %.lr.ph.i111, %COVER
 65:                                               ; preds = %62
   %66 = load ptr, ptr @stderr, align 8
   %67 = trunc i64 %26 to i32
-  %68 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %66, ptr noundef nonnull @.str.19, i32 noundef %15, i32 noundef %67) #23
+  %68 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %66, ptr noundef nonnull @.str.19, i32 noundef %15, i32 noundef %67) #22
   %69 = load ptr, ptr @stderr, align 8
   %70 = tail call i32 @fflush(ptr noundef %69)
   %.pr = load i32, ptr @g_displayLevel, align 4
@@ -518,7 +518,7 @@ COVER_sum.exit117:                                ; preds = %.lr.ph.i111, %COVER
 72:                                               ; preds = %65
   %73 = load ptr, ptr @stderr, align 8
   %74 = trunc i64 %27 to i32
-  %75 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %73, ptr noundef nonnull @.str.20, i32 noundef %16, i32 noundef %74) #23
+  %75 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %73, ptr noundef nonnull @.str.20, i32 noundef %16, i32 noundef %74) #22
   %76 = load ptr, ptr @stderr, align 8
   %77 = tail call i32 @fflush(ptr noundef %76)
   br label %.thread
@@ -540,16 +540,16 @@ COVER_sum.exit117:                                ; preds = %.lr.ph.i111, %COVER
   %86 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i64 %85, ptr %86, align 8
   %87 = shl i64 %85, 2
-  %88 = tail call noalias ptr @malloc(i64 noundef %87) #25
+  %88 = tail call noalias ptr @malloc(i64 noundef %87) #24
   %89 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr %88, ptr %89, align 8
-  %90 = tail call noalias ptr @malloc(i64 noundef %87) #25
+  %90 = tail call noalias ptr @malloc(i64 noundef %87) #24
   %91 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store ptr %90, ptr %91, align 8
   %92 = add i32 %3, 1
   %93 = zext i32 %92 to i64
   %94 = shl nuw nsw i64 %93, 3
-  %95 = tail call noalias ptr @malloc(i64 noundef %94) #25
+  %95 = tail call noalias ptr @malloc(i64 noundef %94) #24
   %96 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %95, ptr %96, align 8
   %.not = icmp eq ptr %88, null
@@ -568,7 +568,7 @@ COVER_sum.exit117:                                ; preds = %.lr.ph.i111, %COVER
 
 101:                                              ; preds = %98
   %102 = load ptr, ptr @stderr, align 8
-  %103 = tail call i64 @fwrite(ptr nonnull @.str.21, i64 35, i64 1, ptr %102) #24
+  %103 = tail call i64 @fwrite(ptr nonnull @.str.21, i64 35, i64 1, ptr %102) #23
   %104 = load ptr, ptr @stderr, align 8
   %105 = tail call i32 @fflush(ptr noundef %104)
   %.pre133 = load ptr, ptr %89, align 8
@@ -580,7 +580,7 @@ COVER_sum.exit117:                                ; preds = %.lr.ph.i111, %COVER
   br i1 %.not.i118, label %109, label %108
 
 108:                                              ; preds = %106
-  tail call void @free(ptr noundef nonnull %107) #26
+  tail call void @free(ptr noundef nonnull %107) #25
   store ptr null, ptr %89, align 8
   br label %109
 
@@ -591,7 +591,7 @@ COVER_sum.exit117:                                ; preds = %.lr.ph.i111, %COVER
   br i1 %.not17.i, label %113, label %112
 
 112:                                              ; preds = %109
-  tail call void @free(ptr noundef nonnull %111) #26
+  tail call void @free(ptr noundef nonnull %111) #25
   store ptr null, ptr %110, align 8
   br label %113
 
@@ -601,7 +601,7 @@ COVER_sum.exit117:                                ; preds = %.lr.ph.i111, %COVER
   br i1 %.not18.i, label %116, label %115
 
 115:                                              ; preds = %113
-  tail call void @free(ptr noundef nonnull %114) #26
+  tail call void @free(ptr noundef nonnull %114) #25
   store ptr null, ptr %91, align 8
   br label %116
 
@@ -611,7 +611,7 @@ COVER_sum.exit117:                                ; preds = %.lr.ph.i111, %COVER
   br i1 %.not19.i, label %COVER_ctx_destroy.exit, label %118
 
 118:                                              ; preds = %116
-  tail call void @free(ptr noundef nonnull %117) #26
+  tail call void @free(ptr noundef nonnull %117) #25
   store ptr null, ptr %96, align 8
   br label %COVER_ctx_destroy.exit
 
@@ -647,7 +647,7 @@ COVER_sum.exit117:                                ; preds = %.lr.ph.i111, %COVER
 
 134:                                              ; preds = %131
   %135 = load ptr, ptr @stderr, align 8
-  %136 = tail call i64 @fwrite(ptr nonnull @.str.22, i64 34, i64 1, ptr %135) #24
+  %136 = tail call i64 @fwrite(ptr nonnull @.str.22, i64 34, i64 1, ptr %135) #23
   %137 = load ptr, ptr @stderr, align 8
   %138 = tail call i32 @fflush(ptr noundef %137)
   br label %139
@@ -676,14 +676,14 @@ COVER_sum.exit117:                                ; preds = %.lr.ph.i111, %COVER
   %149 = load i32, ptr %121, align 8
   %150 = icmp ult i32 %149, 9
   %151 = select i1 %150, ptr @COVER_strict_cmp8, ptr @COVER_strict_cmp
-  tail call void @qsort(ptr noundef %148, i64 noundef %.lcssa, i64 noundef 4, ptr noundef nonnull %151) #26
+  tail call void @qsort(ptr noundef %148, i64 noundef %.lcssa, i64 noundef 4, ptr noundef nonnull %151) #25
   %152 = load i32, ptr @g_displayLevel, align 4
   %153 = icmp sgt i32 %152, 1
   br i1 %153, label %154, label %159
 
 154:                                              ; preds = %._crit_edge
   %155 = load ptr, ptr @stderr, align 8
-  %156 = tail call i64 @fwrite(ptr nonnull @.str.23, i64 22, i64 1, ptr %155) #24
+  %156 = tail call i64 @fwrite(ptr nonnull @.str.23, i64 22, i64 1, ptr %155) #23
   %157 = load ptr, ptr @stderr, align 8
   %158 = tail call i32 @fflush(ptr noundef %157)
   br label %159
@@ -714,7 +714,7 @@ COVER_sum.exit117:                                ; preds = %.lr.ph.i111, %COVER
 
 168:                                              ; preds = %167
   %.1.i = add i64 %.1.in.i, 1
-  %169 = tail call i32 %164(ptr noundef nonnull %0, ptr noundef %.0201.i, ptr noundef nonnull %.0.i) #26, !callees !9
+  %169 = tail call i32 %164(ptr noundef nonnull %0, ptr noundef %.0201.i, ptr noundef nonnull %.0.i) #25, !callees !9
   %170 = icmp eq i32 %169, 0
   br i1 %170, label %167, label %.critedge.i, !llvm.loop !10
 
@@ -849,7 +849,7 @@ COVER_computeEpochs.exit:                         ; preds = %5, %14
 
 23:                                               ; preds = %COVER_computeEpochs.exit
   %24 = load ptr, ptr @stderr, align 8
-  %25 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %24, ptr noundef nonnull @.str.24, i32 noundef %.sroa.0.0.i, i32 noundef %.sroa.4.0.i) #23
+  %25 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %24, ptr noundef nonnull @.str.24, i32 noundef %.sroa.0.0.i, i32 noundef %.sroa.4.0.i) #22
   %26 = load ptr, ptr @stderr, align 8
   %27 = tail call i32 @fflush(ptr noundef %26)
   br label %28
@@ -1203,7 +1203,7 @@ COVER_selectSegment.exit.thread:                  ; preds = %37, %COVER_selectSe
   br i1 %209, label %210, label %227
 
 210:                                              ; preds = %203
-  %211 = tail call i64 @clock() #26
+  %211 = tail call i64 @clock() #25
   %212 = load i64, ptr @g_time, align 8
   %213 = sub nsw i64 %211, %212
   %214 = icmp sgt i64 %213, 150000
@@ -1213,14 +1213,14 @@ COVER_selectSegment.exit.thread:                  ; preds = %37, %COVER_selectSe
   br i1 %or.cond, label %217, label %227
 
 217:                                              ; preds = %210
-  %218 = tail call i64 @clock() #26
+  %218 = tail call i64 @clock() #25
   store i64 %218, ptr @g_time, align 8
   %219 = load ptr, ptr @stderr, align 8
   %220 = sub i64 %4, %204
   %221 = mul i64 %220, 100
   %222 = udiv i64 %221, %4
   %223 = trunc i64 %222 to i32
-  %224 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %219, ptr noundef nonnull @.str.13, i32 noundef %223) #23
+  %224 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %219, ptr noundef nonnull @.str.13, i32 noundef %223) #22
   %225 = load ptr, ptr @stderr, align 8
   %226 = tail call i32 @fflush(ptr noundef %225)
   br label %227
@@ -1241,7 +1241,7 @@ COVER_selectSegment.exit.thread:                  ; preds = %37, %COVER_selectSe
 
 232:                                              ; preds = %._crit_edge
   %233 = load ptr, ptr @stderr, align 8
-  %234 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %233, ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.15) #23
+  %234 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %233, ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.15) #22
   %235 = load ptr, ptr @stderr, align 8
   %236 = tail call i32 @fflush(ptr noundef %235)
   br label %237
@@ -1273,12 +1273,12 @@ define dso_local i64 @COVER_checkTotalCompressedSize(ptr nocapture noundef reado
 
 ._crit_edge:                                      ; preds = %.lr.ph, %8
   %.042.lcssa = phi i64 [ 0, %8 ], [ %..042, %.lr.ph ]
-  %17 = tail call i64 @ZSTD_compressBound(i64 noundef %.042.lcssa) #26
-  %18 = tail call noalias ptr @malloc(i64 noundef %17) #25
-  %19 = tail call ptr @ZSTD_createCCtx() #26
+  %17 = tail call i64 @ZSTD_compressBound(i64 noundef %.042.lcssa) #25
+  %18 = tail call noalias ptr @malloc(i64 noundef %17) #24
+  %19 = tail call ptr @ZSTD_createCCtx() #25
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %21 = load i32, ptr %20, align 8
-  %22 = tail call ptr @ZSTD_createCDict(ptr noundef %6, i64 noundef %7, i32 noundef %21) #26
+  %22 = tail call ptr @ZSTD_createCDict(ptr noundef %6, i64 noundef %7, i32 noundef %21) #25
   %23 = icmp eq ptr %18, null
   %24 = icmp eq ptr %19, null
   %or.cond.not = select i1 %23, i1 true, i1 %24
@@ -1296,7 +1296,7 @@ define dso_local i64 @COVER_checkTotalCompressedSize(ptr nocapture noundef reado
   %28 = getelementptr inbounds i8, ptr %2, i64 %27
   %29 = getelementptr inbounds i64, ptr %1, i64 %.14453
   %30 = load i64, ptr %29, align 8
-  %31 = tail call i64 @ZSTD_compress_usingCDict(ptr noundef nonnull %19, ptr noundef nonnull %18, i64 noundef %17, ptr noundef %28, i64 noundef %30, ptr noundef nonnull %22) #26
+  %31 = tail call i64 @ZSTD_compress_usingCDict(ptr noundef nonnull %19, ptr noundef nonnull %18, i64 noundef %17, ptr noundef %28, i64 noundef %30, ptr noundef nonnull %22) #25
   %32 = icmp ult i64 %31, -119
   br i1 %32, label %33, label %.loopexit
 
@@ -1308,12 +1308,12 @@ define dso_local i64 @COVER_checkTotalCompressedSize(ptr nocapture noundef reado
 
 .loopexit:                                        ; preds = %33, %.lr.ph55, %._crit_edge
   %.0 = phi i64 [ %.mux, %._crit_edge ], [ %34, %33 ], [ %31, %.lr.ph55 ]
-  %36 = tail call i64 @ZSTD_freeCCtx(ptr noundef %19) #26
-  %37 = tail call i64 @ZSTD_freeCDict(ptr noundef %22) #26
+  %36 = tail call i64 @ZSTD_freeCCtx(ptr noundef %19) #25
+  %37 = tail call i64 @ZSTD_freeCDict(ptr noundef %22) #25
   br i1 %23, label %39, label %38
 
 38:                                               ; preds = %.loopexit
-  tail call void @free(ptr noundef nonnull %18) #26
+  tail call void @free(ptr noundef nonnull %18) #25
   br label %39
 
 39:                                               ; preds = %38, %.loopexit
@@ -1398,7 +1398,7 @@ COVER_best_wait.exit:                             ; preds = %.preheader.i
   br i1 %.not5, label %7, label %6
 
 6:                                                ; preds = %COVER_best_wait.exit
-  tail call void @free(ptr noundef nonnull %5) #26
+  tail call void @free(ptr noundef nonnull %5) #25
   br label %7
 
 7:                                                ; preds = %COVER_best_wait.exit, %6, %1
@@ -1454,11 +1454,11 @@ define dso_local void @COVER_best_finish(ptr noundef %0, ptr nocapture noundef r
   br i1 %22, label %23, label %27
 
 23:                                               ; preds = %19
-  tail call void @free(ptr noundef nonnull %18) #26
+  tail call void @free(ptr noundef nonnull %18) #25
   br label %.thread
 
 .thread:                                          ; preds = %16, %23
-  %24 = tail call noalias ptr @malloc(i64 noundef %8) #25
+  %24 = tail call noalias ptr @malloc(i64 noundef %8) #24
   store ptr %24, ptr %17, align 8
   %.not29 = icmp eq ptr %24, null
   br i1 %.not29, label %25, label %27
@@ -1513,15 +1513,15 @@ define dso_local range(i32 0, 2) i32 @COVER_dictSelectionIsError(ptr nocapture n
 ; Function Attrs: mustprogress nounwind willreturn uwtable
 define dso_local void @COVER_dictSelectionFree(ptr nocapture noundef readonly byval(%struct.COVER_dictSelection) align 8 %0) local_unnamed_addr #11 {
   %2 = load ptr, ptr %0, align 8
-  tail call void @free(ptr noundef %2) #26
+  tail call void @free(ptr noundef %2) #25
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @COVER_selectDict(ptr dead_on_unwind noalias nocapture writable writeonly sret(%struct.COVER_dictSelection) align 8 %0, ptr noundef %1, i64 noundef %2, i64 noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i64 noundef %7, i64 noundef %8, ptr noundef byval(%struct.ZDICT_cover_params_t) align 8 %9, ptr nocapture noundef readonly %10, i64 %11) local_unnamed_addr #4 {
+define dso_local void @COVER_selectDict(ptr dead_on_unwind noalias nocapture writable writeonly sret(%struct.COVER_dictSelection) align 8 %0, ptr noundef %1, i64 noundef %2, i64 noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i64 noundef %7, i64 noundef %8, ptr nocapture noundef readonly byval(%struct.ZDICT_cover_params_t) align 8 %9, ptr nocapture noundef readonly %10, i64 %11) local_unnamed_addr #4 {
   %13 = getelementptr inbounds i8, ptr %1, i64 %3
-  %14 = tail call noalias ptr @malloc(i64 noundef %2) #25
-  %15 = tail call noalias ptr @malloc(i64 noundef %2) #25
+  %14 = tail call noalias ptr @malloc(i64 noundef %2) #24
+  %15 = tail call noalias ptr @malloc(i64 noundef %2) #24
   %16 = getelementptr inbounds nuw i8, ptr %9, i64 28
   %17 = load i32, ptr %16, align 4
   %18 = uitofp i32 %17 to double
@@ -1533,8 +1533,8 @@ define dso_local void @COVER_selectDict(ptr dead_on_unwind noalias nocapture wri
   br i1 %or.cond, label %25, label %23
 
 23:                                               ; preds = %12
-  tail call void @free(ptr noundef %14) #26
-  tail call void @free(ptr noundef %15) #26
+  tail call void @free(ptr noundef %14) #25
+  tail call void @free(ptr noundef %15) #25
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false), !alias.scope !24
   store i64 %3, ptr %24, align 8, !alias.scope !27
@@ -1543,14 +1543,14 @@ define dso_local void @COVER_selectDict(ptr dead_on_unwind noalias nocapture wri
 25:                                               ; preds = %12
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %14, ptr align 1 %1, i64 %3, i1 false)
   %26 = getelementptr inbounds nuw i8, ptr %9, i64 32
-  %27 = tail call i64 @ZDICT_finalizeDictionary(ptr noundef nonnull %14, i64 noundef %2, ptr noundef %1, i64 noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef nonnull byval(%struct.ZDICT_params_t) align 8 %26) #26
-  %28 = tail call i32 @ZDICT_isError(i64 noundef %27) #26
+  %27 = tail call i64 @ZDICT_finalizeDictionary(ptr noundef nonnull %14, i64 noundef %2, ptr noundef %1, i64 noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef nonnull byval(%struct.ZDICT_params_t) align 8 %26) #25
+  %28 = tail call i32 @ZDICT_isError(i64 noundef %27) #25
   %.not = icmp eq i32 %28, 0
   br i1 %.not, label %31, label %29
 
 29:                                               ; preds = %25
-  tail call void @free(ptr noundef nonnull %14) #26
-  tail call void @free(ptr noundef nonnull %15) #26
+  tail call void @free(ptr noundef nonnull %14) #25
+  tail call void @free(ptr noundef nonnull %15) #25
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false), !alias.scope !30
   store i64 %27, ptr %30, align 8, !alias.scope !33
@@ -1562,8 +1562,8 @@ define dso_local void @COVER_selectDict(ptr dead_on_unwind noalias nocapture wri
   br i1 %33, label %36, label %34
 
 34:                                               ; preds = %31
-  tail call void @free(ptr noundef nonnull %14) #26
-  tail call void @free(ptr noundef nonnull %15) #26
+  tail call void @free(ptr noundef nonnull %14) #25
+  tail call void @free(ptr noundef nonnull %15) #25
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false), !alias.scope !36
   store i64 %32, ptr %35, align 8, !alias.scope !39
@@ -1585,7 +1585,7 @@ define dso_local void @COVER_selectDict(ptr dead_on_unwind noalias nocapture wri
   br label %46
 
 43:                                               ; preds = %36
-  tail call void @free(ptr noundef nonnull %15) #26
+  tail call void @free(ptr noundef nonnull %15) #25
   store ptr %14, ptr %0, align 8, !alias.scope !42
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %27, ptr %44, align 8, !alias.scope !42
@@ -1598,14 +1598,14 @@ define dso_local void @COVER_selectDict(ptr dead_on_unwind noalias nocapture wri
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %15, ptr nonnull align 1 %14, i64 %27, i1 false)
   %47 = sub i64 0, %.092
   %48 = getelementptr inbounds i8, ptr %13, i64 %47
-  %49 = tail call i64 @ZDICT_finalizeDictionary(ptr noundef nonnull %15, i64 noundef %2, ptr noundef %48, i64 noundef %.092, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef nonnull byval(%struct.ZDICT_params_t) align 8 %26) #26
-  %50 = tail call i32 @ZDICT_isError(i64 noundef %49) #26
+  %49 = tail call i64 @ZDICT_finalizeDictionary(ptr noundef nonnull %15, i64 noundef %2, ptr noundef %48, i64 noundef %.092, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef nonnull byval(%struct.ZDICT_params_t) align 8 %26) #25
+  %50 = tail call i32 @ZDICT_isError(i64 noundef %49) #25
   %.not86 = icmp eq i32 %50, 0
   br i1 %.not86, label %53, label %51
 
 51:                                               ; preds = %46
-  tail call void @free(ptr noundef %14) #26
-  tail call void @free(ptr noundef %15) #26
+  tail call void @free(ptr noundef %14) #25
+  tail call void @free(ptr noundef %15) #25
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false), !alias.scope !45
   store i64 %49, ptr %52, align 8, !alias.scope !48
@@ -1617,8 +1617,8 @@ define dso_local void @COVER_selectDict(ptr dead_on_unwind noalias nocapture wri
   br i1 %55, label %58, label %56
 
 56:                                               ; preds = %53
-  tail call void @free(ptr noundef %14) #26
-  tail call void @free(ptr noundef %15) #26
+  tail call void @free(ptr noundef %14) #25
+  tail call void @free(ptr noundef %15) #25
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false), !alias.scope !51
   store i64 %54, ptr %57, align 8, !alias.scope !54
@@ -1630,7 +1630,7 @@ define dso_local void @COVER_selectDict(ptr dead_on_unwind noalias nocapture wri
   br i1 %60, label %64, label %61
 
 61:                                               ; preds = %58
-  tail call void @free(ptr noundef %14) #26
+  tail call void @free(ptr noundef %14) #25
   store ptr %15, ptr %0, align 8, !alias.scope !57
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %49, ptr %62, align 8, !alias.scope !57
@@ -1644,7 +1644,7 @@ define dso_local void @COVER_selectDict(ptr dead_on_unwind noalias nocapture wri
   br i1 %66, label %46, label %._crit_edge, !llvm.loop !60
 
 ._crit_edge:                                      ; preds = %64, %.preheader
-  tail call void @free(ptr noundef %15) #26
+  tail call void @free(ptr noundef %15) #25
   store ptr %14, ptr %0, align 8, !alias.scope !61
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %27, ptr %67, align 8, !alias.scope !61
@@ -1702,7 +1702,7 @@ define dso_local i64 @ZDICT_optimizeTrainFromBuffer_cover(ptr nocapture noundef 
 
 40:                                               ; preds = %38
   %41 = load ptr, ptr @stderr, align 8
-  %42 = tail call i64 @fwrite(ptr nonnull @.str.7, i64 21, i64 1, ptr %41) #24
+  %42 = tail call i64 @fwrite(ptr nonnull @.str.7, i64 21, i64 1, ptr %41) #23
   %43 = load ptr, ptr @stderr, align 8
   %44 = tail call i32 @fflush(ptr noundef %43)
   br label %239
@@ -1719,7 +1719,7 @@ define dso_local i64 @ZDICT_optimizeTrainFromBuffer_cover(ptr nocapture noundef 
 
 50:                                               ; preds = %48
   %51 = load ptr, ptr @stderr, align 8
-  %52 = tail call i64 @fwrite(ptr nonnull @.str.7, i64 21, i64 1, ptr %51) #24
+  %52 = tail call i64 @fwrite(ptr nonnull @.str.7, i64 21, i64 1, ptr %51) #23
   %53 = load ptr, ptr @stderr, align 8
   %54 = tail call i32 @fflush(ptr noundef %53)
   br label %239
@@ -1735,7 +1735,7 @@ define dso_local i64 @ZDICT_optimizeTrainFromBuffer_cover(ptr nocapture noundef 
 
 60:                                               ; preds = %57
   %61 = load ptr, ptr @stderr, align 8
-  %62 = tail call i64 @fwrite(ptr nonnull @.str.2, i64 40, i64 1, ptr %61) #24
+  %62 = tail call i64 @fwrite(ptr nonnull @.str.2, i64 40, i64 1, ptr %61) #23
   %63 = load ptr, ptr @stderr, align 8
   %64 = tail call i32 @fflush(ptr noundef %63)
   br label %239
@@ -1751,7 +1751,7 @@ define dso_local i64 @ZDICT_optimizeTrainFromBuffer_cover(ptr nocapture noundef 
 
 70:                                               ; preds = %67
   %71 = load ptr, ptr @stderr, align 8
-  %72 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %71, ptr noundef nonnull @.str.3, i32 noundef 256) #23
+  %72 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %71, ptr noundef nonnull @.str.3, i32 noundef 256) #22
   %73 = load ptr, ptr @stderr, align 8
   %74 = tail call i32 @fflush(ptr noundef %73)
   br label %239
@@ -1762,7 +1762,7 @@ define dso_local i64 @ZDICT_optimizeTrainFromBuffer_cover(ptr nocapture noundef 
 
 77:                                               ; preds = %75
   %78 = zext i32 %10 to i64
-  %79 = tail call ptr @POOL_create(i64 noundef %78, i64 noundef 1) #26
+  %79 = tail call ptr @POOL_create(i64 noundef %78, i64 noundef 1) #25
   %.not = icmp eq ptr %79, null
   br i1 %.not, label %239, label %80
 
@@ -1781,7 +1781,7 @@ define dso_local i64 @ZDICT_optimizeTrainFromBuffer_cover(ptr nocapture noundef 
 
 86:                                               ; preds = %80
   %87 = load ptr, ptr @stderr, align 8
-  %88 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %87, ptr noundef nonnull @.str.8, i32 noundef %34) #23
+  %88 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %87, ptr noundef nonnull @.str.8, i32 noundef %34) #22
   %89 = load ptr, ptr @stderr, align 8
   %90 = tail call i32 @fflush(ptr noundef %89)
   br label %91
@@ -1812,7 +1812,7 @@ define dso_local i64 @ZDICT_optimizeTrainFromBuffer_cover(ptr nocapture noundef 
 
 103:                                              ; preds = %102
   %104 = load ptr, ptr @stderr, align 8
-  %105 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %104, ptr noundef nonnull @.str.9, i32 noundef %.0110177) #23
+  %105 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %104, ptr noundef nonnull @.str.9, i32 noundef %.0110177) #22
   %106 = load ptr, ptr @stderr, align 8
   %107 = call i32 @fflush(ptr noundef %106)
   br label %108
@@ -1827,7 +1827,7 @@ define dso_local i64 @ZDICT_optimizeTrainFromBuffer_cover(ptr nocapture noundef 
 
 112:                                              ; preds = %111
   %113 = load ptr, ptr @stderr, align 8
-  %114 = call i64 @fwrite(ptr nonnull @.str.10, i64 29, i64 1, ptr %113) #24
+  %114 = call i64 @fwrite(ptr nonnull @.str.10, i64 29, i64 1, ptr %113) #23
   %115 = load ptr, ptr @stderr, align 8
   %116 = call i32 @fflush(ptr noundef %115)
   br label %117
@@ -1847,11 +1847,11 @@ COVER_best_wait.exit.i:                           ; preds = %117
   br i1 %.not5.i, label %COVER_best_destroy.exit, label %121
 
 121:                                              ; preds = %COVER_best_wait.exit.i
-  call void @free(ptr noundef nonnull %120) #26
+  call void @free(ptr noundef nonnull %120) #25
   br label %COVER_best_destroy.exit
 
 COVER_best_destroy.exit:                          ; preds = %COVER_best_wait.exit.i, %121
-  call void @POOL_free(ptr noundef %.0114) #26
+  call void @POOL_free(ptr noundef %.0114) #25
   br label %239
 
 122:                                              ; preds = %108
@@ -1868,7 +1868,7 @@ COVER_best_destroy.exit:                          ; preds = %COVER_best_wait.exi
 128:                                              ; preds = %123
   %129 = load ptr, ptr @stderr, align 8
   %130 = trunc i64 %124 to i32
-  %131 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %129, ptr noundef nonnull @.str, i32 noundef %96, i32 noundef %130, double noundef %126) #23
+  %131 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %129, ptr noundef nonnull @.str, i32 noundef %96, i32 noundef %130, double noundef %126) #22
   %132 = load ptr, ptr @stderr, align 8
   %133 = call i32 @fflush(ptr noundef %132)
   br label %.lr.ph.preheader
@@ -1880,12 +1880,12 @@ COVER_best_destroy.exit:                          ; preds = %COVER_best_wait.exi
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %204
   %.1174 = phi i32 [ %.2, %204 ], [ %.0109178, %.lr.ph.preheader ]
   %.0111173 = phi i32 [ %205, %204 ], [ %22, %.lr.ph.preheader ]
-  %135 = call noalias dereferenceable_or_null(72) ptr @malloc(i64 noundef 72) #25
+  %135 = call noalias dereferenceable_or_null(72) ptr @malloc(i64 noundef 72) #24
   br i1 %92, label %136, label %141
 
 136:                                              ; preds = %.lr.ph
   %137 = load ptr, ptr @stderr, align 8
-  %138 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %137, ptr noundef nonnull @.str.11, i32 noundef %.0111173) #23
+  %138 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %137, ptr noundef nonnull @.str.11, i32 noundef %.0111173) #22
   %139 = load ptr, ptr @stderr, align 8
   %140 = call i32 @fflush(ptr noundef %139)
   br label %141
@@ -1899,7 +1899,7 @@ COVER_best_destroy.exit:                          ; preds = %COVER_best_wait.exi
 
 143:                                              ; preds = %142
   %144 = load ptr, ptr @stderr, align 8
-  %145 = call i64 @fwrite(ptr nonnull @.str.12, i64 30, i64 1, ptr %144) #24
+  %145 = call i64 @fwrite(ptr nonnull @.str.12, i64 30, i64 1, ptr %144) #23
   %146 = load ptr, ptr @stderr, align 8
   %147 = call i32 @fflush(ptr noundef %146)
   br label %148
@@ -1919,7 +1919,7 @@ COVER_best_wait.exit.i142:                        ; preds = %148
   br i1 %.not5.i143, label %COVER_best_destroy.exit144, label %152
 
 152:                                              ; preds = %COVER_best_wait.exit.i142
-  call void @free(ptr noundef nonnull %151) #26
+  call void @free(ptr noundef nonnull %151) #25
   br label %COVER_best_destroy.exit144
 
 COVER_best_destroy.exit144:                       ; preds = %COVER_best_wait.exit.i142, %152
@@ -1928,7 +1928,7 @@ COVER_best_destroy.exit144:                       ; preds = %COVER_best_wait.exi
   br i1 %.not.i, label %155, label %154
 
 154:                                              ; preds = %COVER_best_destroy.exit144
-  call void @free(ptr noundef nonnull %153) #26
+  call void @free(ptr noundef nonnull %153) #25
   store ptr null, ptr %98, align 8
   br label %155
 
@@ -1938,7 +1938,7 @@ COVER_best_destroy.exit144:                       ; preds = %COVER_best_wait.exi
   br i1 %.not17.i, label %158, label %157
 
 157:                                              ; preds = %155
-  call void @free(ptr noundef nonnull %156) #26
+  call void @free(ptr noundef nonnull %156) #25
   store ptr null, ptr %99, align 8
   br label %158
 
@@ -1948,7 +1948,7 @@ COVER_best_destroy.exit144:                       ; preds = %COVER_best_wait.exi
   br i1 %.not18.i, label %161, label %160
 
 160:                                              ; preds = %158
-  call void @free(ptr noundef nonnull %159) #26
+  call void @free(ptr noundef nonnull %159) #25
   store ptr null, ptr %100, align 8
   br label %161
 
@@ -1958,12 +1958,12 @@ COVER_best_destroy.exit144:                       ; preds = %COVER_best_wait.exi
   br i1 %.not19.i, label %COVER_ctx_destroy.exit, label %163
 
 163:                                              ; preds = %161
-  call void @free(ptr noundef nonnull %162) #26
+  call void @free(ptr noundef nonnull %162) #25
   store ptr null, ptr %101, align 8
   br label %COVER_ctx_destroy.exit
 
 COVER_ctx_destroy.exit:                           ; preds = %161, %163
-  call void @POOL_free(ptr noundef %.0114) #26
+  call void @POOL_free(ptr noundef %.0114) #25
   br label %239
 
 164:                                              ; preds = %141
@@ -1998,13 +1998,13 @@ COVER_checkParameters.exit.thread:                ; preds = %164
 
 178:                                              ; preds = %COVER_checkParameters.exit.thread
   %179 = load ptr, ptr @stderr, align 8
-  %180 = call i64 @fwrite(ptr nonnull @.str.1, i64 27, i64 1, ptr %179) #24
+  %180 = call i64 @fwrite(ptr nonnull @.str.1, i64 27, i64 1, ptr %179) #23
   %181 = load ptr, ptr @stderr, align 8
   %182 = call i32 @fflush(ptr noundef %181)
   br label %183
 
 183:                                              ; preds = %178, %COVER_checkParameters.exit.thread
-  call void @free(ptr noundef nonnull %135) #26
+  call void @free(ptr noundef nonnull %135) #25
   br label %204
 
 COVER_checkParameters.exit:                       ; preds = %164
@@ -2014,7 +2014,7 @@ COVER_checkParameters.exit:                       ; preds = %164
   br i1 %.not139, label %187, label %186
 
 186:                                              ; preds = %COVER_checkParameters.exit
-  call void @POOL_add(ptr noundef nonnull %.0114, ptr noundef nonnull @COVER_tryParameters, ptr noundef nonnull %135) #26
+  call void @POOL_add(ptr noundef nonnull %.0114, ptr noundef nonnull @COVER_tryParameters, ptr noundef nonnull %135) #25
   br label %188
 
 187:                                              ; preds = %COVER_checkParameters.exit
@@ -2025,7 +2025,7 @@ COVER_checkParameters.exit:                       ; preds = %164
   br i1 %85, label %189, label %202
 
 189:                                              ; preds = %188
-  %190 = call i64 @clock() #26
+  %190 = call i64 @clock() #25
   %191 = load i64, ptr @g_time, align 8
   %192 = sub nsw i64 %190, %191
   %193 = icmp sgt i64 %192, 150000
@@ -2033,12 +2033,12 @@ COVER_checkParameters.exit:                       ; preds = %164
   br i1 %or.cond3, label %194, label %202
 
 194:                                              ; preds = %189
-  %195 = call i64 @clock() #26
+  %195 = call i64 @clock() #25
   store i64 %195, ptr @g_time, align 8
   %196 = load ptr, ptr @stderr, align 8
   %197 = mul i32 %.1174, 100
   %198 = udiv i32 %197, %34
-  %199 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %196, ptr noundef nonnull @.str.13, i32 noundef %198) #23
+  %199 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %196, ptr noundef nonnull @.str.13, i32 noundef %198) #22
   %200 = load ptr, ptr @stderr, align 8
   %201 = call i32 @fflush(ptr noundef %200)
   br label %202
@@ -2067,7 +2067,7 @@ COVER_best_wait.exit:                             ; preds = %._crit_edge
   br i1 %.not.i147, label %209, label %208
 
 208:                                              ; preds = %COVER_best_wait.exit
-  call void @free(ptr noundef nonnull %207) #26
+  call void @free(ptr noundef nonnull %207) #25
   store ptr null, ptr %98, align 8
   br label %209
 
@@ -2077,7 +2077,7 @@ COVER_best_wait.exit:                             ; preds = %._crit_edge
   br i1 %.not17.i148, label %212, label %211
 
 211:                                              ; preds = %209
-  call void @free(ptr noundef nonnull %210) #26
+  call void @free(ptr noundef nonnull %210) #25
   store ptr null, ptr %99, align 8
   br label %212
 
@@ -2087,7 +2087,7 @@ COVER_best_wait.exit:                             ; preds = %._crit_edge
   br i1 %.not18.i149, label %215, label %214
 
 214:                                              ; preds = %212
-  call void @free(ptr noundef nonnull %213) #26
+  call void @free(ptr noundef nonnull %213) #25
   store ptr null, ptr %100, align 8
   br label %215
 
@@ -2097,7 +2097,7 @@ COVER_best_wait.exit:                             ; preds = %._crit_edge
   br i1 %.not19.i150, label %COVER_ctx_destroy.exit151, label %217
 
 217:                                              ; preds = %215
-  call void @free(ptr noundef nonnull %216) #26
+  call void @free(ptr noundef nonnull %216) #25
   store ptr null, ptr %101, align 8
   br label %COVER_ctx_destroy.exit151
 
@@ -2111,7 +2111,7 @@ COVER_ctx_destroy.exit151:                        ; preds = %215, %217
 
 219:                                              ; preds = %._crit_edge181
   %220 = load ptr, ptr @stderr, align 8
-  %221 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %220, ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.15) #23
+  %221 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %220, ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.15) #22
   %222 = load ptr, ptr @stderr, align 8
   %223 = call i32 @fflush(ptr noundef %222)
   br label %224
@@ -2138,11 +2138,11 @@ COVER_best_wait.exit.i155:                        ; preds = %229
   br i1 %.not5.i156, label %COVER_best_destroy.exit157, label %233
 
 233:                                              ; preds = %COVER_best_wait.exit.i155
-  call void @free(ptr noundef nonnull %232) #26
+  call void @free(ptr noundef nonnull %232) #25
   br label %COVER_best_destroy.exit157
 
 COVER_best_destroy.exit157:                       ; preds = %COVER_best_wait.exit.i155, %233
-  call void @POOL_free(ptr noundef %.0114) #26
+  call void @POOL_free(ptr noundef %.0114) #25
   br label %239
 
 234:                                              ; preds = %224
@@ -2162,11 +2162,11 @@ COVER_best_wait.exit.i161:                        ; preds = %234
   br i1 %.not5.i162, label %COVER_best_destroy.exit163, label %238
 
 238:                                              ; preds = %COVER_best_wait.exit.i161
-  call void @free(ptr noundef nonnull %236) #26
+  call void @free(ptr noundef nonnull %236) #25
   br label %COVER_best_destroy.exit163
 
 COVER_best_destroy.exit163:                       ; preds = %COVER_best_wait.exit.i161, %238
-  call void @POOL_free(ptr noundef %.0114) #26
+  call void @POOL_free(ptr noundef %.0114) #25
   br label %239
 
 239:                                              ; preds = %77, %67, %70, %57, %60, %48, %50, %38, %40, %COVER_best_destroy.exit163, %COVER_best_destroy.exit157, %COVER_ctx_destroy.exit, %COVER_best_destroy.exit
@@ -2183,189 +2183,185 @@ declare void @POOL_add(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr
 ; Function Attrs: nounwind uwtable
 define internal void @COVER_tryParameters(ptr nocapture noundef %0) #4 {
   %2 = alloca %struct.ZDICT_cover_params_t, align 8
-  %3 = alloca %struct.ZDICT_cover_params_t, align 8
-  %4 = alloca %struct.COVER_map_s, align 8
-  %5 = alloca %struct.COVER_dictSelection, align 8
-  %6 = load ptr, ptr %0, align 8
-  %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %3, ptr noundef nonnull align 8 dereferenceable(48) %7, i64 48, i1 false)
-  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %9 = load i64, ptr %8, align 8
-  %10 = tail call noalias ptr @malloc(i64 noundef %9) #25
-  %11 = getelementptr inbounds nuw i8, ptr %6, i64 56
-  %12 = load i64, ptr %11, align 8
-  %13 = shl i64 %12, 2
-  %14 = tail call noalias ptr @malloc(i64 noundef %13) #25
-  %15 = load i32, ptr %3, align 8
-  %16 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  %17 = load i32, ptr %16, align 4
-  %18 = add i32 %15, 1
-  %19 = sub i32 %18, %17
-  %20 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %19, i1 true)
-  %21 = xor i32 %20, 31
-  %22 = sub nuw nsw i32 33, %20
-  %23 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store i32 %22, ptr %23, align 8
-  %24 = shl nuw i32 4, %21
-  %25 = getelementptr inbounds nuw i8, ptr %4, i64 12
-  store i32 %24, ptr %25, align 4
-  %26 = add i32 %24, -1
-  %27 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store i32 %26, ptr %27, align 8
-  %28 = zext i32 %24 to i64
-  %29 = shl nuw nsw i64 %28, 3
-  %30 = tail call noalias ptr @malloc(i64 noundef %29) #25
-  store ptr %30, ptr %4, align 8
-  %.not.i = icmp eq ptr %30, null
-  br i1 %.not.i, label %31, label %37
+  %3 = alloca %struct.COVER_map_s, align 8
+  %4 = alloca %struct.COVER_dictSelection, align 8
+  %5 = load ptr, ptr %0, align 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %2, ptr noundef nonnull align 8 dereferenceable(48) %6, i64 48, i1 false)
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %8 = load i64, ptr %7, align 8
+  %9 = tail call noalias ptr @malloc(i64 noundef %8) #24
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 56
+  %11 = load i64, ptr %10, align 8
+  %12 = shl i64 %11, 2
+  %13 = tail call noalias ptr @malloc(i64 noundef %12) #24
+  %14 = load i32, ptr %2, align 8
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 4
+  %16 = load i32, ptr %15, align 4
+  %17 = add i32 %14, 1
+  %18 = sub i32 %17, %16
+  %19 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %18, i1 true)
+  %20 = xor i32 %19, 31
+  %21 = sub nuw nsw i32 33, %19
+  %22 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store i32 %21, ptr %22, align 8
+  %23 = shl nuw i32 4, %20
+  %24 = getelementptr inbounds nuw i8, ptr %3, i64 12
+  store i32 %23, ptr %24, align 4
+  %25 = add i32 %23, -1
+  %26 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  store i32 %25, ptr %26, align 8
+  %27 = zext i32 %23 to i64
+  %28 = shl nuw nsw i64 %27, 3
+  %29 = tail call noalias ptr @malloc(i64 noundef %28) #24
+  store ptr %29, ptr %3, align 8
+  %.not.i = icmp eq ptr %29, null
+  br i1 %.not.i, label %30, label %36
 
-31:                                               ; preds = %1
-  %32 = load i32, ptr @g_displayLevel, align 4
-  %33 = icmp sgt i32 %32, 0
-  br i1 %33, label %34, label %71
+30:                                               ; preds = %1
+  %31 = load i32, ptr @g_displayLevel, align 4
+  %32 = icmp sgt i32 %31, 0
+  br i1 %32, label %33, label %70
 
-34:                                               ; preds = %31
-  %35 = load ptr, ptr @stderr, align 8
-  %36 = tail call i64 @fwrite(ptr nonnull @.str.4, i64 43, i64 1, ptr %35) #24
+33:                                               ; preds = %30
+  %34 = load ptr, ptr @stderr, align 8
+  %35 = tail call i64 @fwrite(ptr nonnull @.str.4, i64 43, i64 1, ptr %34) #23
   br label %.sink.split
 
-37:                                               ; preds = %1
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %30, i8 -1, i64 %29, i1 false)
-  %38 = icmp ne ptr %10, null
-  %39 = icmp ne ptr %14, null
-  %or.cond = and i1 %38, %39
-  br i1 %or.cond, label %46, label %40
+36:                                               ; preds = %1
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %29, i8 -1, i64 %28, i1 false)
+  %37 = icmp ne ptr %9, null
+  %38 = icmp ne ptr %13, null
+  %or.cond = and i1 %37, %38
+  br i1 %or.cond, label %45, label %39
 
-40:                                               ; preds = %37
-  %41 = load i32, ptr @g_displayLevel, align 4
-  %42 = icmp sgt i32 %41, 0
-  br i1 %42, label %43, label %71
+39:                                               ; preds = %36
+  %40 = load i32, ptr @g_displayLevel, align 4
+  %41 = icmp sgt i32 %40, 0
+  br i1 %41, label %42, label %70
 
-43:                                               ; preds = %40
-  %44 = load ptr, ptr @stderr, align 8
-  %45 = tail call i64 @fwrite(ptr nonnull @.str.25, i64 42, i64 1, ptr %44) #24
+42:                                               ; preds = %39
+  %43 = load ptr, ptr @stderr, align 8
+  %44 = tail call i64 @fwrite(ptr nonnull @.str.25, i64 42, i64 1, ptr %43) #23
   br label %.sink.split
 
-46:                                               ; preds = %37
-  %47 = getelementptr inbounds nuw i8, ptr %6, i64 64
-  %48 = load ptr, ptr %47, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %14, ptr align 4 %48, i64 %13, i1 false)
-  %49 = call fastcc i64 @COVER_buildDictionary(ptr noundef nonnull %6, ptr noundef nonnull %14, ptr noundef %4, ptr noundef nonnull %10, i64 noundef %9, i32 %15, i32 %17)
-  %50 = getelementptr inbounds i8, ptr %10, i64 %49
-  %51 = sub i64 %9, %49
-  %52 = load ptr, ptr %6, align 8
-  %53 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %54 = load ptr, ptr %53, align 8
-  %55 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  %56 = load i64, ptr %55, align 8
-  %57 = trunc i64 %56 to i32
-  %58 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  %59 = load i64, ptr %58, align 8
-  %60 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %61 = load ptr, ptr %60, align 8
-  call void @COVER_selectDict(ptr dead_on_unwind nonnull writable sret(%struct.COVER_dictSelection) align 8 %5, ptr noundef nonnull %50, i64 noundef %9, i64 noundef %51, ptr noundef %52, ptr noundef %54, i32 noundef %57, i64 noundef %56, i64 noundef %59, ptr noundef nonnull byval(%struct.ZDICT_cover_params_t) align 8 %3, ptr noundef %61, i64 poison)
-  %.sroa.0.0.copyload = load ptr, ptr %5, align 8
-  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
+45:                                               ; preds = %36
+  %46 = getelementptr inbounds nuw i8, ptr %5, i64 64
+  %47 = load ptr, ptr %46, align 8
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %13, ptr align 4 %47, i64 %12, i1 false)
+  %48 = call fastcc i64 @COVER_buildDictionary(ptr noundef nonnull %5, ptr noundef nonnull %13, ptr noundef %3, ptr noundef nonnull %9, i64 noundef %8, i32 %14, i32 %16)
+  %49 = getelementptr inbounds i8, ptr %9, i64 %48
+  %50 = sub i64 %8, %48
+  %51 = load ptr, ptr %5, align 8
+  %52 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %53 = load ptr, ptr %52, align 8
+  %54 = getelementptr inbounds nuw i8, ptr %5, i64 32
+  %55 = load i64, ptr %54, align 8
+  %56 = trunc i64 %55 to i32
+  %57 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  %58 = load i64, ptr %57, align 8
+  %59 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %60 = load ptr, ptr %59, align 8
+  call void @COVER_selectDict(ptr dead_on_unwind nonnull writable sret(%struct.COVER_dictSelection) align 8 %4, ptr noundef nonnull %49, i64 noundef %8, i64 noundef %50, ptr noundef %51, ptr noundef %53, i32 noundef %56, i64 noundef %55, i64 noundef %58, ptr noundef nonnull byval(%struct.ZDICT_cover_params_t) align 8 %2, ptr noundef %60, i64 poison)
+  %.sroa.0.0.copyload = load ptr, ptr %4, align 8
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 8
   %.sroa.5.0.copyload = load i64, ptr %.sroa.5.0..sroa_idx, align 8
-  %.sroa.544.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %.sroa.544.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 16
   %.sroa.544.0.copyload = load i64, ptr %.sroa.544.0..sroa_idx, align 8
-  %62 = icmp ugt i64 %.sroa.544.0.copyload, -120
+  %61 = icmp ugt i64 %.sroa.544.0.copyload, -120
   %.not.i35 = icmp eq ptr %.sroa.0.0.copyload, null
-  %63 = select i1 %62, i1 true, i1 %.not.i35
-  %64 = load i32, ptr @g_displayLevel, align 4
-  %65 = icmp sgt i32 %64, 0
-  %or.cond3 = select i1 %63, i1 %65, i1 false
-  br i1 %or.cond3, label %66, label %71
+  %62 = select i1 %61, i1 true, i1 %.not.i35
+  %63 = load i32, ptr @g_displayLevel, align 4
+  %64 = icmp sgt i32 %63, 0
+  %or.cond3 = select i1 %62, i1 %64, i1 false
+  br i1 %or.cond3, label %65, label %70
 
-66:                                               ; preds = %46
-  %67 = load ptr, ptr @stderr, align 8
-  %68 = tail call i64 @fwrite(ptr nonnull @.str.26, i64 28, i64 1, ptr %67) #24
+65:                                               ; preds = %45
+  %66 = load ptr, ptr @stderr, align 8
+  %67 = tail call i64 @fwrite(ptr nonnull @.str.26, i64 28, i64 1, ptr %66) #23
   br label %.sink.split
 
-.sink.split:                                      ; preds = %34, %43, %66
-  %.sroa.0.0.ph = phi ptr [ null, %43 ], [ %.sroa.0.0.copyload, %66 ], [ null, %34 ]
-  %.sroa.5.0.ph = phi i64 [ 0, %43 ], [ %.sroa.5.0.copyload, %66 ], [ 0, %34 ]
-  %.sroa.544.0.ph = phi i64 [ -1, %43 ], [ %.sroa.544.0.copyload, %66 ], [ -1, %34 ]
-  %69 = load ptr, ptr @stderr, align 8
-  %70 = tail call i32 @fflush(ptr noundef %69)
-  br label %71
+.sink.split:                                      ; preds = %33, %42, %65
+  %.sroa.0.0.ph = phi ptr [ null, %42 ], [ %.sroa.0.0.copyload, %65 ], [ null, %33 ]
+  %.sroa.5.0.ph = phi i64 [ 0, %42 ], [ %.sroa.5.0.copyload, %65 ], [ 0, %33 ]
+  %.sroa.544.0.ph = phi i64 [ -1, %42 ], [ %.sroa.544.0.copyload, %65 ], [ -1, %33 ]
+  %68 = load ptr, ptr @stderr, align 8
+  %69 = tail call i32 @fflush(ptr noundef %68)
+  br label %70
 
-71:                                               ; preds = %.sink.split, %46, %40, %31
-  %.sroa.0.0 = phi ptr [ null, %31 ], [ %.sroa.0.0.copyload, %46 ], [ null, %40 ], [ %.sroa.0.0.ph, %.sink.split ]
-  %.sroa.5.0 = phi i64 [ 0, %31 ], [ %.sroa.5.0.copyload, %46 ], [ 0, %40 ], [ %.sroa.5.0.ph, %.sink.split ]
-  %.sroa.544.0 = phi i64 [ -1, %31 ], [ %.sroa.544.0.copyload, %46 ], [ -1, %40 ], [ %.sroa.544.0.ph, %.sink.split ]
-  tail call void @free(ptr noundef %10) #26
-  %72 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %73 = load ptr, ptr %72, align 8
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %2)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %2, ptr noundef nonnull align 8 dereferenceable(48) %3, i64 48, i1 false)
-  %.not.i36 = icmp eq ptr %73, null
-  br i1 %.not.i36, label %COVER_best_finish.exit, label %74
+70:                                               ; preds = %.sink.split, %45, %39, %30
+  %.sroa.0.0 = phi ptr [ null, %30 ], [ %.sroa.0.0.copyload, %45 ], [ null, %39 ], [ %.sroa.0.0.ph, %.sink.split ]
+  %.sroa.5.0 = phi i64 [ 0, %30 ], [ %.sroa.5.0.copyload, %45 ], [ 0, %39 ], [ %.sroa.5.0.ph, %.sink.split ]
+  %.sroa.544.0 = phi i64 [ -1, %30 ], [ %.sroa.544.0.copyload, %45 ], [ -1, %39 ], [ %.sroa.544.0.ph, %.sink.split ]
+  tail call void @free(ptr noundef %9) #25
+  %71 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %72 = load ptr, ptr %71, align 8
+  %.not.i36 = icmp eq ptr %72, null
+  br i1 %.not.i36, label %COVER_best_finish.exit, label %73
 
-74:                                               ; preds = %71
-  %75 = getelementptr inbounds nuw i8, ptr %73, i64 8
-  %76 = load i64, ptr %75, align 8
-  %77 = add i64 %76, -1
-  store i64 %77, ptr %75, align 8
-  %78 = getelementptr inbounds nuw i8, ptr %73, i64 80
-  %79 = load i64, ptr %78, align 8
-  %80 = icmp ult i64 %.sroa.544.0, %79
-  br i1 %80, label %81, label %COVER_best_finish.exit
+73:                                               ; preds = %70
+  %74 = getelementptr inbounds nuw i8, ptr %72, i64 8
+  %75 = load i64, ptr %74, align 8
+  %76 = add i64 %75, -1
+  store i64 %76, ptr %74, align 8
+  %77 = getelementptr inbounds nuw i8, ptr %72, i64 80
+  %78 = load i64, ptr %77, align 8
+  %79 = icmp ult i64 %.sroa.544.0, %78
+  br i1 %79, label %80, label %COVER_best_finish.exit
 
-81:                                               ; preds = %74
-  %82 = getelementptr inbounds nuw i8, ptr %73, i64 16
-  %83 = load ptr, ptr %82, align 8
-  %.not27.i = icmp eq ptr %83, null
-  br i1 %.not27.i, label %.thread.i, label %84
+80:                                               ; preds = %73
+  %81 = getelementptr inbounds nuw i8, ptr %72, i64 16
+  %82 = load ptr, ptr %81, align 8
+  %.not27.i = icmp eq ptr %82, null
+  br i1 %.not27.i, label %.thread.i, label %83
 
-84:                                               ; preds = %81
-  %85 = getelementptr inbounds nuw i8, ptr %73, i64 24
-  %86 = load i64, ptr %85, align 8
-  %87 = icmp ult i64 %86, %.sroa.5.0
-  br i1 %87, label %88, label %92
+83:                                               ; preds = %80
+  %84 = getelementptr inbounds nuw i8, ptr %72, i64 24
+  %85 = load i64, ptr %84, align 8
+  %86 = icmp ult i64 %85, %.sroa.5.0
+  br i1 %86, label %87, label %91
 
-88:                                               ; preds = %84
-  tail call void @free(ptr noundef nonnull %83) #26
+87:                                               ; preds = %83
+  tail call void @free(ptr noundef nonnull %82) #25
   br label %.thread.i
 
-.thread.i:                                        ; preds = %88, %81
-  %89 = tail call noalias ptr @malloc(i64 noundef %.sroa.5.0) #25
-  store ptr %89, ptr %82, align 8
-  %.not29.i = icmp eq ptr %89, null
-  br i1 %.not29.i, label %90, label %92
+.thread.i:                                        ; preds = %87, %80
+  %88 = tail call noalias ptr @malloc(i64 noundef %.sroa.5.0) #24
+  store ptr %88, ptr %81, align 8
+  %.not29.i = icmp eq ptr %88, null
+  br i1 %.not29.i, label %89, label %91
 
-90:                                               ; preds = %.thread.i
-  store i64 -1, ptr %78, align 8
-  %91 = getelementptr inbounds nuw i8, ptr %73, i64 24
-  store i64 0, ptr %91, align 8
+89:                                               ; preds = %.thread.i
+  store i64 -1, ptr %77, align 8
+  %90 = getelementptr inbounds nuw i8, ptr %72, i64 24
+  store i64 0, ptr %90, align 8
   br label %COVER_best_finish.exit
 
-92:                                               ; preds = %.thread.i, %84
-  %93 = phi ptr [ %89, %.thread.i ], [ %83, %84 ]
+91:                                               ; preds = %.thread.i, %83
+  %92 = phi ptr [ %88, %.thread.i ], [ %82, %83 ]
   %.not30.i = icmp eq ptr %.sroa.0.0, null
-  br i1 %.not30.i, label %COVER_best_finish.exit, label %94
+  br i1 %.not30.i, label %COVER_best_finish.exit, label %93
 
-94:                                               ; preds = %92
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %93, ptr nonnull align 1 %.sroa.0.0, i64 %.sroa.5.0, i1 false)
-  %95 = getelementptr inbounds nuw i8, ptr %73, i64 24
-  store i64 %.sroa.5.0, ptr %95, align 8
-  %96 = getelementptr inbounds nuw i8, ptr %73, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %96, ptr noundef nonnull readonly align 8 dereferenceable(48) %2, i64 48, i1 false)
-  store i64 %.sroa.544.0, ptr %78, align 8
+93:                                               ; preds = %91
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %92, ptr nonnull align 1 %.sroa.0.0, i64 %.sroa.5.0, i1 false)
+  %94 = getelementptr inbounds nuw i8, ptr %72, i64 24
+  store i64 %.sroa.5.0, ptr %94, align 8
+  %95 = getelementptr inbounds nuw i8, ptr %72, i64 32
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %95, ptr noundef nonnull readonly align 8 dereferenceable(48) %2, i64 48, i1 false)
+  store i64 %.sroa.544.0, ptr %77, align 8
   br label %COVER_best_finish.exit
 
-COVER_best_finish.exit:                           ; preds = %71, %74, %90, %92, %94
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %2)
-  tail call void @free(ptr noundef nonnull %0) #26
-  br i1 %.not.i, label %COVER_map_destroy.exit, label %97
+COVER_best_finish.exit:                           ; preds = %70, %73, %89, %91, %93
+  tail call void @free(ptr noundef nonnull %0) #25
+  br i1 %.not.i, label %COVER_map_destroy.exit, label %96
 
-97:                                               ; preds = %COVER_best_finish.exit
-  tail call void @free(ptr noundef nonnull %30) #26
+96:                                               ; preds = %COVER_best_finish.exit
+  tail call void @free(ptr noundef nonnull %29) #25
   br label %COVER_map_destroy.exit
 
-COVER_map_destroy.exit:                           ; preds = %COVER_best_finish.exit, %97
-  tail call void @free(ptr noundef %.sroa.0.0) #26
-  tail call void @free(ptr noundef %14) #26
+COVER_map_destroy.exit:                           ; preds = %COVER_best_finish.exit, %96
+  tail call void @free(ptr noundef %.sroa.0.0) #25
+  tail call void @free(ptr noundef %13) #25
   ret void
 }
 
@@ -2418,7 +2414,7 @@ define internal i32 @COVER_strict_cmp(ptr noundef readonly %0, ptr noundef reado
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 80
   %12 = load i32, ptr %11, align 8
   %13 = zext i32 %12 to i64
-  %14 = tail call i32 @memcmp(ptr noundef %8, ptr noundef %10, i64 noundef %13) #27
+  %14 = tail call i32 @memcmp(ptr noundef %8, ptr noundef %10, i64 noundef %13) #26
   %15 = icmp eq i32 %14, 0
   %16 = icmp ult ptr %0, %1
   %17 = select i1 %16, i32 -1, i32 1
@@ -2463,7 +2459,7 @@ define internal i32 @COVER_cmp(ptr nocapture noundef readonly %0, ptr nocapture 
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %12 = load i32, ptr %11, align 8
   %13 = zext i32 %12 to i64
-  %14 = tail call i32 @memcmp(ptr noundef %8, ptr noundef %10, i64 noundef %13) #27
+  %14 = tail call i32 @memcmp(ptr noundef %8, ptr noundef %10, i64 noundef %13) #26
   ret i32 %14
 }
 
@@ -2494,12 +2490,6 @@ declare i32 @llvm.ucmp.i32.i64(i64, i64) #20
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #20
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #22
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #22
-
 attributes #0 = { nofree norecurse nosync nounwind memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nofree nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -2522,12 +2512,11 @@ attributes #18 = { mustprogress nofree nounwind willreturn memory(argmem: read) 
 attributes #19 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #20 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #21 = { nofree nounwind }
-attributes #22 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #23 = { cold nounwind }
-attributes #24 = { cold }
-attributes #25 = { nounwind allocsize(0) }
-attributes #26 = { nounwind }
-attributes #27 = { nounwind willreturn memory(read) }
+attributes #22 = { cold nounwind }
+attributes #23 = { cold }
+attributes #24 = { nounwind allocsize(0) }
+attributes #25 = { nounwind }
+attributes #26 = { nounwind willreturn memory(read) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

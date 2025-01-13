@@ -7941,7 +7941,7 @@ cl_vninside.exit80.thread:                        ; preds = %cl_vninside.exit80,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @completeregularpath(ptr noundef nonnull %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %6) unnamed_addr #1 {
+define internal fastcc void @completeregularpath(ptr noundef nonnull %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef nonnull readonly %3, ptr nocapture noundef nonnull readonly %4, ptr nocapture noundef readonly %5, i32 noundef %6) unnamed_addr #1 {
   %8 = load i32, ptr %1, align 8
   %9 = and i32 %8, 3
   %10 = icmp eq i32 %9, 3

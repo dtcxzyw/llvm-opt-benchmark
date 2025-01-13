@@ -8244,7 +8244,7 @@ return:                                           ; preds = %if.end3, %if.end, %
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @_mi_arena_free(ptr noundef %p, i64 noundef %size, i64 noundef %committed_size, ptr noundef byval(%struct.mi_memid_s) align 8 %memid, ptr noundef %stats) local_unnamed_addr #0 {
+define hidden void @_mi_arena_free(ptr noundef %p, i64 noundef %size, i64 noundef %committed_size, ptr nocapture noundef readonly byval(%struct.mi_memid_s) align 8 %memid, ptr noundef %stats) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %p, null
   %cmp1 = icmp eq i64 %size, 0

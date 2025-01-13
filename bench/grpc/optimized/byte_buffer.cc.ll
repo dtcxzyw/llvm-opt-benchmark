@@ -78,7 +78,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define ptr @grpc_raw_byte_buffer_create(ptr noundef %slices, i64 noundef %nslices) local_unnamed_addr #3 {
+define ptr @grpc_raw_byte_buffer_create(ptr nocapture noundef readonly %slices, i64 noundef %nslices) local_unnamed_addr #3 {
 entry:
   %call.i = tail call ptr @gpr_malloc(i64 noundef 288)
   %type.i = getelementptr inbounds nuw i8, ptr %call.i, i64 8

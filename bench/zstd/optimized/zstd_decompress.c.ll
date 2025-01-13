@@ -3357,7 +3357,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i64 -64, 1) i64 @ZSTD_DCtx_loadDictionary_advanced(ptr noundef %dctx, ptr noundef %dict, i64 noundef %dictSize, i32 noundef %dictLoadMethod, i32 noundef %dictContentType) local_unnamed_addr #0 {
+define range(i64 -64, 1) i64 @ZSTD_DCtx_loadDictionary_advanced(ptr nocapture noundef %dctx, ptr noundef %dict, i64 noundef %dictSize, i32 noundef %dictLoadMethod, i32 noundef %dictContentType) local_unnamed_addr #0 {
 entry:
   %streamStage = getelementptr inbounds nuw i8, ptr %dctx, i64 30236
   %0 = load i32, ptr %streamStage, align 4
@@ -3397,7 +3397,7 @@ return:                                           ; preds = %do.end8, %do.end24,
 declare ptr @ZSTD_createDDict_advanced(ptr noundef, i64 noundef, i32 noundef, i32 noundef, ptr noundef byval(%struct.ZSTD_customMem) align 8) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i64 -64, 1) i64 @ZSTD_DCtx_loadDictionary_byReference(ptr noundef %dctx, ptr noundef %dict, i64 noundef %dictSize) local_unnamed_addr #0 {
+define range(i64 -64, 1) i64 @ZSTD_DCtx_loadDictionary_byReference(ptr nocapture noundef %dctx, ptr noundef %dict, i64 noundef %dictSize) local_unnamed_addr #0 {
 entry:
   %streamStage.i = getelementptr inbounds nuw i8, ptr %dctx, i64 30236
   %0 = load i32, ptr %streamStage.i, align 4
@@ -3435,7 +3435,7 @@ ZSTD_DCtx_loadDictionary_advanced.exit:           ; preds = %entry, %do.end8.i, 
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i64 -64, 1) i64 @ZSTD_DCtx_loadDictionary(ptr noundef %dctx, ptr noundef %dict, i64 noundef %dictSize) local_unnamed_addr #0 {
+define range(i64 -64, 1) i64 @ZSTD_DCtx_loadDictionary(ptr nocapture noundef %dctx, ptr noundef %dict, i64 noundef %dictSize) local_unnamed_addr #0 {
 entry:
   %streamStage.i = getelementptr inbounds nuw i8, ptr %dctx, i64 30236
   %0 = load i32, ptr %streamStage.i, align 4
@@ -3473,7 +3473,7 @@ ZSTD_DCtx_loadDictionary_advanced.exit:           ; preds = %entry, %do.end8.i, 
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i64 -64, 1) i64 @ZSTD_DCtx_refPrefix_advanced(ptr noundef %dctx, ptr noundef %prefix, i64 noundef %prefixSize, i32 noundef %dictContentType) local_unnamed_addr #0 {
+define range(i64 -64, 1) i64 @ZSTD_DCtx_refPrefix_advanced(ptr nocapture noundef %dctx, ptr noundef %prefix, i64 noundef %prefixSize, i32 noundef %dictContentType) local_unnamed_addr #0 {
 entry:
   %streamStage.i = getelementptr inbounds nuw i8, ptr %dctx, i64 30236
   %0 = load i32, ptr %streamStage.i, align 4
@@ -3514,7 +3514,7 @@ return:                                           ; preds = %if.then10.i, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i64 -64, 1) i64 @ZSTD_DCtx_refPrefix(ptr noundef %dctx, ptr noundef %prefix, i64 noundef %prefixSize) local_unnamed_addr #0 {
+define range(i64 -64, 1) i64 @ZSTD_DCtx_refPrefix(ptr nocapture noundef %dctx, ptr noundef %prefix, i64 noundef %prefixSize) local_unnamed_addr #0 {
 entry:
   %streamStage.i.i = getelementptr inbounds nuw i8, ptr %dctx, i64 30236
   %0 = load i32, ptr %streamStage.i.i, align 4
@@ -3555,7 +3555,7 @@ ZSTD_DCtx_refPrefix_advanced.exit:                ; preds = %entry, %if.then10.i
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i64 -64, 6) i64 @ZSTD_initDStream_usingDict(ptr noundef initializes((30176, 30180), (30192, 30200), (30208, 30212), (30236, 30240), (30332, 30336)) %zds, ptr noundef %dict, i64 noundef %dictSize) local_unnamed_addr #0 {
+define range(i64 -64, 6) i64 @ZSTD_initDStream_usingDict(ptr nocapture noundef initializes((30176, 30180), (30192, 30200), (30208, 30212), (30236, 30240), (30332, 30336)) %zds, ptr noundef %dict, i64 noundef %dictSize) local_unnamed_addr #0 {
 do.end8.i.i:
   %streamStage.i = getelementptr inbounds nuw i8, ptr %zds, i64 30236
   store i32 0, ptr %streamStage.i, align 4

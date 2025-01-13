@@ -1119,7 +1119,7 @@ reftable_record_data.exit:                        ; preds = %sw.bb3.i, %sw.bb2.i
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @reftable_record_decode(ptr noundef %rec, ptr noundef byval(%struct.strbuf) align 8 %key, i8 noundef zeroext %extra, ptr %src.coerce0, i64 %src.coerce1, i32 noundef %hash_size) local_unnamed_addr #6 {
+define dso_local i32 @reftable_record_decode(ptr noundef %rec, ptr nocapture noundef readonly byval(%struct.strbuf) align 8 %key, i8 noundef zeroext %extra, ptr %src.coerce0, i64 %src.coerce1, i32 noundef %hash_size) local_unnamed_addr #6 {
 entry:
   %rec.val = load i8, ptr %rec, align 8
   switch i8 %rec.val, label %sw.epilog.i [

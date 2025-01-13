@@ -10347,7 +10347,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZNK18OpenImageIO_v2_6_08ImageBuf10get_pixelsENS_3ROIENS_8TypeDescEPvlll(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, ptr noundef %format, ptr noundef %result, i64 noundef %xstride, i64 noundef %ystride, i64 noundef %zstride) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZNK18OpenImageIO_v2_6_08ImageBuf10get_pixelsENS_3ROIENS_8TypeDescEPvlll(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr nocapture noundef byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, ptr noundef %format, ptr noundef %result, i64 noundef %xstride, i64 noundef %ystride, i64 noundef %zstride) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ok.i923 = alloca %"struct.std::atomic.229", align 1
   %agg.tmp1.i924 = alloca %"class.OpenImageIO_v2_6_0::paropt", align 8

@@ -8156,9 +8156,9 @@ _ZN4llvm13IRBuilderBase19CreateInsertElementEPNS_5ValueES2_S2_RKNS_5TwineE.exit:
 
 3446:                                             ; preds = %3436
   store i16 257, ptr %1474, align 8
-  %3447 = call noundef ptr @_ZN4llvm4UsernwEmj(i64 noundef 88, i32 noundef 2) #19
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false)
+  %3447 = call noundef ptr @_ZN4llvm4UsernwEmj(i64 noundef 88, i32 noundef 2) #19
   %3448 = load ptr, ptr %3411, align 8
   %3449 = getelementptr inbounds nuw i8, ptr %3448, i64 8
   %3450 = load i32, ptr %3449, align 8
@@ -8301,9 +8301,9 @@ _ZN4llvm13IRBuilderBase18CreateAlignedStoreEPNS_5ValueES2_NS_10MaybeAlignEb.exit
 
 3511:                                             ; preds = %3498
   store i16 257, ptr %1477, align 8
-  %3512 = call noundef ptr @_ZN4llvm4UsernwEmj(i64 noundef 88, i32 noundef 2) #19
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, i8 0, i64 16, i1 false)
+  %3512 = call noundef ptr @_ZN4llvm4UsernwEmj(i64 noundef 88, i32 noundef 2) #19
   %3513 = load ptr, ptr %3497, align 8
   %3514 = getelementptr inbounds nuw i8, ptr %3513, i64 8
   %3515 = load i32, ptr %3514, align 8

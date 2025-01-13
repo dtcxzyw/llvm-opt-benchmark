@@ -320,7 +320,7 @@ entry:
 declare i32 @_mi_arena_id_none() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden zeroext i1 @_mi_heap_memid_is_suitable(ptr nocapture noundef readonly %heap, ptr noundef byval(%struct.mi_memid_s) align 8 %memid) local_unnamed_addr #0 {
+define hidden zeroext i1 @_mi_heap_memid_is_suitable(ptr nocapture noundef readonly %heap, ptr nocapture noundef readonly byval(%struct.mi_memid_s) align 8 %memid) local_unnamed_addr #0 {
 entry:
   %arena_id = getelementptr inbounds nuw i8, ptr %heap, i64 2856
   %0 = load i32, ptr %arena_id, align 8

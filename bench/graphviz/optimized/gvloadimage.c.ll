@@ -16,7 +16,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.3 = private unnamed_addr constant [49 x i8] c"out of memory when trying to allocate %zu bytes\0A\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define void @gvloadimage(ptr noundef %0, ptr noundef %1, ptr noundef byval(%struct.boxf) align 8 %2, i1 noundef zeroext %3, ptr noundef %4) local_unnamed_addr #0 {
+define void @gvloadimage(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly byval(%struct.boxf) align 8 %2, i1 noundef zeroext %3, ptr noundef %4) local_unnamed_addr #0 {
 agxbsizeof.exit.i.i:
   %5 = alloca %struct.agxbuf, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, i8 0, i64 32, i1 false)

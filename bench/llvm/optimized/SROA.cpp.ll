@@ -23298,9 +23298,9 @@ _ZN4llvmplERKNS_5TwineES2_.exit.i:                ; preds = %1112, %1111, %_ZNK4
 
 1122:                                             ; preds = %_ZN4llvmplERKNS_5TwineES2_.exit.i
   store i16 257, ptr %971, align 8
-  %1123 = call noundef ptr @_ZN4llvm4UsernwEmj(i64 noundef 88, i32 noundef 2) #25
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, i8 0, i64 16, i1 false)
+  %1123 = call noundef ptr @_ZN4llvm4UsernwEmj(i64 noundef 88, i32 noundef 2) #25
   %1124 = load ptr, ptr %1066, align 8
   %1125 = getelementptr inbounds nuw i8, ptr %1124, i64 8
   %1126 = load i32, ptr %1125, align 8
@@ -24169,9 +24169,9 @@ _ZN4llvmplERKNS_5TwineES2_.exit.i606:             ; preds = %1498, %1497, %_ZNK4
 
 1508:                                             ; preds = %_ZN4llvmplERKNS_5TwineES2_.exit.i606
   store i16 257, ptr %994, align 8
-  %1509 = call noundef ptr @_ZN4llvm4UsernwEmj(i64 noundef 88, i32 noundef 2) #25
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, i8 0, i64 16, i1 false)
+  %1509 = call noundef ptr @_ZN4llvm4UsernwEmj(i64 noundef 88, i32 noundef 2) #25
   %1510 = load ptr, ptr %1446, align 8
   %1511 = getelementptr inbounds nuw i8, ptr %1510, i64 8
   %1512 = load i32, ptr %1511, align 8
@@ -25384,9 +25384,9 @@ _ZN4llvmplERKNS_5TwineES2_.exit.i726:             ; preds = %2035, %2034, %_ZNK4
 
 2045:                                             ; preds = %_ZN4llvmplERKNS_5TwineES2_.exit.i726
   store i16 257, ptr %1741, align 8
-  %2046 = call noundef ptr @_ZN4llvm4UsernwEmj(i64 noundef 88, i32 noundef 2) #25
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false)
+  %2046 = call noundef ptr @_ZN4llvm4UsernwEmj(i64 noundef 88, i32 noundef 2) #25
   %2047 = load ptr, ptr %1869, align 8
   %2048 = getelementptr inbounds nuw i8, ptr %2047, i64 8
   %2049 = load i32, ptr %2048, align 8
@@ -26022,9 +26022,9 @@ _ZN4llvmplERKNS_5TwineES2_.exit.i787:             ; preds = %2304, %2303, %_ZNK4
 
 2314:                                             ; preds = %_ZN4llvmplERKNS_5TwineES2_.exit.i787
   store i16 257, ptr %1760, align 8
-  %2315 = call noundef ptr @_ZN4llvm4UsernwEmj(i64 noundef 88, i32 noundef 2) #25
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false)
+  %2315 = call noundef ptr @_ZN4llvm4UsernwEmj(i64 noundef 88, i32 noundef 2) #25
   %2316 = load ptr, ptr %1873, align 8
   %2317 = getelementptr inbounds nuw i8, ptr %2316, i64 8
   %2318 = load i32, ptr %2317, align 8

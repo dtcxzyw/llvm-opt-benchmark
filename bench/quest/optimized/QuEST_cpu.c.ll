@@ -3580,7 +3580,7 @@ define internal void @statevec_setAmps.omp_outlined(ptr noalias nocapture nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define void @statevec_createQureg(ptr noundef initializes((0, 4), (8, 12), (16, 56)) %0, i32 noundef %1, ptr noundef byval(%struct.QuESTEnv) align 8 %2) local_unnamed_addr #1 {
+define void @statevec_createQureg(ptr noundef initializes((0, 4), (8, 12), (16, 56)) %0, i32 noundef %1, ptr nocapture noundef readonly byval(%struct.QuESTEnv) align 8 %2) local_unnamed_addr #1 {
   %4 = zext nneg i32 %1 to i64
   %5 = shl nuw i64 1, %4
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 4
@@ -3798,7 +3798,7 @@ define internal void @statevec_applySubDiagonalOp.omp_outlined(ptr noalias nocap
 }
 
 ; Function Attrs: nounwind uwtable
-define void @agnostic_createDiagonalOp(ptr dead_on_unwind noalias writable sret(%struct.DiagonalOp) align 8 initializes((0, 4), (8, 40)) %0, i32 noundef %1, ptr noundef byval(%struct.QuESTEnv) align 8 %2) local_unnamed_addr #1 {
+define void @agnostic_createDiagonalOp(ptr dead_on_unwind noalias writable sret(%struct.DiagonalOp) align 8 initializes((0, 4), (8, 40)) %0, i32 noundef %1, ptr nocapture noundef readonly byval(%struct.QuESTEnv) align 8 %2) local_unnamed_addr #1 {
   store i32 %1, ptr %0, align 8
   %4 = zext nneg i32 %1 to i64
   %5 = shl nuw i64 1, %4
@@ -4010,7 +4010,7 @@ define internal void @agnostic_initDiagonalOpFromPauliHamil.omp_outlined(ptr noa
 }
 
 ; Function Attrs: nounwind uwtable
-define void @statevec_reportStateToScreen(ptr nocapture noundef readonly byval(%struct.Qureg) align 8 %0, ptr noundef byval(%struct.QuESTEnv) align 8 %1, i32 noundef %2) local_unnamed_addr #1 {
+define void @statevec_reportStateToScreen(ptr nocapture noundef readonly byval(%struct.Qureg) align 8 %0, ptr nocapture noundef readonly byval(%struct.QuESTEnv) align 8 %1, i32 noundef %2) local_unnamed_addr #1 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i32, ptr %4, align 8
   %6 = icmp slt i32 %5, 6

@@ -4161,7 +4161,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @__ia32_sys_setsockopt(p
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @do_sock_getsockopt(ptr noundef %0, i1 zeroext %1, i32 noundef %2, i32 noundef %3, ptr %4, i8 %5, ptr noundef byval(%struct.sockptr_t) align 8 %6) #0 align 16 {
+define dso_local i32 @do_sock_getsockopt(ptr noundef %0, i1 zeroext %1, i32 noundef %2, i32 noundef %3, ptr %4, i8 %5, ptr nocapture noundef readonly byval(%struct.sockptr_t) align 8 %6) #0 align 16 {
   %8 = tail call i32 @security_socket_getsockopt(ptr noundef %0, i32 noundef %2, i32 noundef %3) #20
   %9 = icmp eq i32 %8, 0
   br i1 %9, label %10, label %38

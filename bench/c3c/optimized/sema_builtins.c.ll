@@ -3552,7 +3552,7 @@ define internal fastcc noundef zeroext i1 @sema_check_alignment_expression(ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i1 @is_valid_atomicity(ptr noundef %0) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @is_valid_atomicity(ptr nocapture noundef readonly %0) unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i16, ptr %2, align 8
   %4 = and i16 %3, 255

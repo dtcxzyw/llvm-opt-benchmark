@@ -45846,7 +45846,7 @@ _ZN5clang13TreeTransformIN12_GLOBAL__N_130SubstituteDeducedTypeTransformEE26Tran
   br label %70
 
 70:                                               ; preds = %56, %64, %_ZN5clang13TreeTransformIN12_GLOBAL__N_130SubstituteDeducedTypeTransformEE26TransformTypeInObjectScopeEPNS_14TypeSourceInfoENS_8QualTypeEPNS_9NamedDeclERNS_12CXXScopeSpecE.exit.thread
-  %.sroa.0.0.copyload.i61.i = phi i32 [ %.sroa.5.0.copyload85, %64 ], [ %.sroa.0.0.copyload.i.i, %56 ], [ %.sroa.5.0.copyload83, %_ZN5clang13TreeTransformIN12_GLOBAL__N_130SubstituteDeducedTypeTransformEE26TransformTypeInObjectScopeEPNS_14TypeSourceInfoENS_8QualTypeEPNS_9NamedDeclERNS_12CXXScopeSpecE.exit.thread ]
+  %.sroa.5.0 = phi i32 [ %.sroa.5.0.copyload85, %64 ], [ %.sroa.0.0.copyload.i.i, %56 ], [ %.sroa.5.0.copyload83, %_ZN5clang13TreeTransformIN12_GLOBAL__N_130SubstituteDeducedTypeTransformEE26TransformTypeInObjectScopeEPNS_14TypeSourceInfoENS_8QualTypeEPNS_9NamedDeclERNS_12CXXScopeSpecE.exit.thread ]
   %.sroa.079.0 = phi i64 [ %.sroa.079.0.copyload81, %64 ], [ %59, %56 ], [ %.sroa.079.0.copyload80, %_ZN5clang13TreeTransformIN12_GLOBAL__N_130SubstituteDeducedTypeTransformEE26TransformTypeInObjectScopeEPNS_14TypeSourceInfoENS_8QualTypeEPNS_9NamedDeclERNS_12CXXScopeSpecE.exit.thread ]
   %71 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %72 = load ptr, ptr %71, align 8
@@ -45897,7 +45897,7 @@ _ZN5clang12CXXScopeSpecD2Ev.exit.thread:          ; preds = %73, %78, %_ZN5clang
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
   store i64 %.sroa.079.0, ptr %8, align 8
   %.sroa.287.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store i32 %.sroa.0.0.copyload.i61.i, ptr %.sroa.287.0..sroa_idx, align 8
+  store i32 %.sroa.5.0, ptr %.sroa.287.0..sroa_idx, align 8
   %87 = getelementptr inbounds nuw i8, ptr %82, i64 8
   %.sroa.0.0.copyload.i.i62 = load i64, ptr %87, align 8
   %88 = getelementptr inbounds nuw i8, ptr %82, i64 1
@@ -46008,7 +46008,7 @@ _ZNK5clang4Type6castAsINS_11PointerTypeEEEPKT_v.exit.i: ; preds = %119, %_ZNK5cl
   %145 = call i64 @_ZN5clang20DeclarationNameTable20getCXXDestructorNameENS_7CanQualINS_4TypeEEE(ptr noundef nonnull align 8 dereferenceable(824) %138, i64 %144) #21
   store i64 %145, ptr %3, align 8
   %146 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store i32 %.sroa.0.0.copyload.i61.i, ptr %146, align 8
+  store i32 %.sroa.5.0, ptr %146, align 8
   %147 = getelementptr inbounds nuw i8, ptr %3, i64 16
   call void @_ZN5clang18DeclarationNameLocC1ENS_15DeclarationNameE(ptr noundef nonnull align 8 dereferenceable(8) %147, i64 %145) #21
   store ptr %.0.i.i.i.i.i59.i, ptr %147, align 8
@@ -118890,7 +118890,7 @@ define internal void @_ZN4llvm12function_refIFvvEE11callback_fnIZL23DeduceTempla
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef range(i32 0, 16) i32 @_ZL31FinishTemplateArgumentDeductionIN5clang38ClassTemplatePartialSpecializationDeclEENSt9enable_ifIXsr23IsPartialSpecializationIT_EE5valueENS0_23TemplateDeductionResultEE4typeERNS0_4SemaEPS3_bN4llvm8ArrayRefINS0_16TemplateArgumentEEERNSA_15SmallVectorImplINS0_23DeducedTemplateArgumentEEERNS0_4sema21TemplateDeductionInfoE(ptr noundef nonnull align 8 dereferenceable(17560) %0, ptr noundef %1, i1 noundef zeroext %2, ptr %3, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(504) %5) unnamed_addr #0 {
+define internal fastcc noundef range(i32 0, 16) i32 @_ZL31FinishTemplateArgumentDeductionIN5clang38ClassTemplatePartialSpecializationDeclEENSt9enable_ifIXsr23IsPartialSpecializationIT_EE5valueENS0_23TemplateDeductionResultEE4typeERNS0_4SemaEPS3_bN4llvm8ArrayRefINS0_16TemplateArgumentEEERNSA_15SmallVectorImplINS0_23DeducedTemplateArgumentEEERNS0_4sema21TemplateDeductionInfoE(ptr noundef nonnull align 8 dereferenceable(17560) %0, ptr noundef %1, i1 noundef zeroext %2, ptr nocapture readonly %3, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(504) %5) unnamed_addr #0 {
   %7 = alloca %"struct.clang::MultiLevelTemplateArgumentList::ArgumentListLevel", align 8
   %8 = alloca %"class.(anonymous namespace)::PackDeductionScope", align 8
   %9 = alloca i8, align 1
@@ -120798,7 +120798,7 @@ define internal void @_ZN4llvm12function_refIFvvEE11callback_fnIZL23DeduceTempla
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef range(i32 0, 16) i32 @_ZL31FinishTemplateArgumentDeductionIN5clang36VarTemplatePartialSpecializationDeclEENSt9enable_ifIXsr23IsPartialSpecializationIT_EE5valueENS0_23TemplateDeductionResultEE4typeERNS0_4SemaEPS3_bN4llvm8ArrayRefINS0_16TemplateArgumentEEERNSA_15SmallVectorImplINS0_23DeducedTemplateArgumentEEERNS0_4sema21TemplateDeductionInfoE(ptr noundef nonnull align 8 dereferenceable(17560) %0, ptr noundef %1, i1 noundef zeroext %2, ptr %3, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(504) %5) unnamed_addr #0 {
+define internal fastcc noundef range(i32 0, 16) i32 @_ZL31FinishTemplateArgumentDeductionIN5clang36VarTemplatePartialSpecializationDeclEENSt9enable_ifIXsr23IsPartialSpecializationIT_EE5valueENS0_23TemplateDeductionResultEE4typeERNS0_4SemaEPS3_bN4llvm8ArrayRefINS0_16TemplateArgumentEEERNSA_15SmallVectorImplINS0_23DeducedTemplateArgumentEEERNS0_4sema21TemplateDeductionInfoE(ptr noundef nonnull align 8 dereferenceable(17560) %0, ptr noundef %1, i1 noundef zeroext %2, ptr nocapture readonly %3, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(504) %5) unnamed_addr #0 {
   %7 = alloca %"struct.clang::MultiLevelTemplateArgumentList::ArgumentListLevel", align 8
   %8 = alloca %"class.(anonymous namespace)::PackDeductionScope", align 8
   %9 = alloca i8, align 1
@@ -124721,7 +124721,7 @@ define internal void @_ZN4llvm12function_refIFvvEE11callback_fnIZL24isAtLeastAsS
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef range(i32 0, 11) i32 @_ZL31FinishTemplateArgumentDeductionRN5clang4SemaEPNS_12TemplateDeclEbN4llvm8ArrayRefINS_16TemplateArgumentEEERNS4_15SmallVectorImplINS_23DeducedTemplateArgumentEEERNS_4sema21TemplateDeductionInfoE(ptr noundef nonnull align 8 dereferenceable(17560) %0, ptr noundef %1, ptr %2, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(504) %4) unnamed_addr #0 {
+define internal fastcc noundef range(i32 0, 11) i32 @_ZL31FinishTemplateArgumentDeductionRN5clang4SemaEPNS_12TemplateDeclEbN4llvm8ArrayRefINS_16TemplateArgumentEEERNS4_15SmallVectorImplINS_23DeducedTemplateArgumentEEERNS_4sema21TemplateDeductionInfoE(ptr noundef nonnull align 8 dereferenceable(17560) %0, ptr noundef %1, ptr nocapture readonly %2, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(504) %4) unnamed_addr #0 {
   %6 = alloca %"class.llvm::SmallVector.998", align 8
   %7 = alloca %"class.llvm::SmallVector.998", align 8
   %8 = alloca %"class.clang::TemplateArgument", align 8

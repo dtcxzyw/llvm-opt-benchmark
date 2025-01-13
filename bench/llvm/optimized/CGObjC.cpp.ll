@@ -984,17 +984,14 @@ define dso_local noundef ptr @_ZN5clang7CodeGen15CodeGenFunction25EmitObjCCollec
   %25 = alloca %"class.clang::CodeGen::RawAddress", align 8
   %26 = alloca %"class.llvm::Twine", align 8
   %27 = alloca %"class.llvm::SmallVector.922", align 8
-  %.sroa.8263 = alloca %"struct.clang::CodeGen::TBAAAccessInfo", align 8
   %.sroa.6254 = alloca [23 x i8], align 1
   %28 = alloca %"class.llvm::Twine", align 8
   %29 = alloca %"class.clang::CodeGen::RValue", align 8
   %30 = alloca %"class.clang::CodeGen::LValue", align 8
-  %.sroa.8242 = alloca %"struct.clang::CodeGen::TBAAAccessInfo", align 8
   %.sroa.6233 = alloca [23 x i8], align 1
   %31 = alloca %"class.llvm::Twine", align 8
   %32 = alloca %"class.clang::CodeGen::RValue", align 8
   %33 = alloca %"class.clang::CodeGen::LValue", align 8
-  %.sroa.8 = alloca %"struct.clang::CodeGen::TBAAAccessInfo", align 8
   %.sroa.6 = alloca [23 x i8], align 1
   %34 = alloca %"class.llvm::Twine", align 8
   %35 = alloca %"class.clang::CodeGen::RValue", align 8
@@ -1380,7 +1377,8 @@ _ZN5clang7CodeGen15CodeGenFunction14MakeAddrLValueENS0_7AddressENS_8QualTypeENS0
   %230 = shl i32 %228, 4
   %231 = sext i32 %230 to i64
   %232 = or i64 %229, %231
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.8242, ptr noundef nonnull align 8 dereferenceable(40) %12, i64 40, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.8242.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(40) %12, i64 40, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(23) %.sroa.2235.sroa.5.0..sroa.2235.0..sroa_idx.sroa_idx, ptr noundef nonnull align 1 dereferenceable(23) %.sroa.6233, i64 23, i1 false)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %12)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %13)
   %233 = call noundef ptr @_ZN5clang7CodeGen15CodeGenFunction14EmitScalarExprEPKNS_4ExprEb(ptr noundef nonnull align 8 dereferenceable(6488) %0, ptr noundef %183, i1 noundef zeroext false) #20
@@ -1394,12 +1392,10 @@ _ZN5clang7CodeGen15CodeGenFunction14MakeAddrLValueENS0_7AddressENS_8QualTypeENS0
   store ptr %208, ptr %.sroa.2235.sroa.2.0..sroa.2235.0..sroa_idx.sroa_idx, align 8
   store i64 %212, ptr %.sroa.2235.sroa.3.0..sroa.2235.0..sroa_idx.sroa_idx, align 8
   store i8 0, ptr %.sroa.2235.sroa.4.0..sroa.2235.0..sroa_idx.sroa_idx, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(23) %.sroa.2235.sroa.5.0..sroa.2235.0..sroa_idx.sroa_idx, ptr noundef nonnull align 1 dereferenceable(23) %.sroa.6233, i64 23, i1 false)
   store i64 %128, ptr %.sroa.3237.0..sroa_idx, align 8
   store i64 %232, ptr %.sroa.4238.0..sroa_idx, align 8
   store i8 0, ptr %.sroa.5239.0..sroa_idx, align 8
   store i32 0, ptr %.sroa.7241.0..sroa_idx, align 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.8242.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(40) %.sroa.8242, i64 40, i1 false)
   store ptr null, ptr %.sroa.9243.0..sroa_idx, align 8
   call void @_ZN5clang7CodeGen15CodeGenFunction22EmitStoreThroughLValueENS0_6RValueENS0_6LValueEb(ptr noundef nonnull align 8 dereferenceable(6488) %0, ptr noundef nonnull byval(%"class.clang::CodeGen::RValue") align 8 %32, ptr noundef nonnull byval(%"class.clang::CodeGen::LValue") align 8 %33, i1 noundef zeroext true) #20
   %236 = load ptr, ptr %184, align 8, !noalias !31
@@ -1478,7 +1474,8 @@ _ZN5clang7CodeGen15CodeGenFunction14MakeAddrLValueENS0_7AddressENS_8QualTypeENS0
   %282 = shl i32 %280, 4
   %283 = sext i32 %282 to i64
   %284 = or i64 %281, %283
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.8, ptr noundef nonnull align 8 dereferenceable(40) %8, i64 40, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.8.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(40) %8, i64 40, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(23) %.sroa.2218.sroa.5.0..sroa.2218.0..sroa_idx.sroa_idx, ptr noundef nonnull align 1 dereferenceable(23) %.sroa.6, i64 23, i1 false)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %9)
   %285 = call noundef ptr @_ZN5clang7CodeGen15CodeGenFunction14EmitScalarExprEPKNS_4ExprEb(ptr noundef nonnull align 8 dereferenceable(6488) %0, ptr noundef %236, i1 noundef zeroext false) #20
@@ -1492,12 +1489,10 @@ _ZN5clang7CodeGen15CodeGenFunction14MakeAddrLValueENS0_7AddressENS_8QualTypeENS0
   store ptr %260, ptr %.sroa.2218.sroa.2.0..sroa.2218.0..sroa_idx.sroa_idx, align 8
   store i64 %264, ptr %.sroa.2218.sroa.3.0..sroa.2218.0..sroa_idx.sroa_idx, align 8
   store i8 0, ptr %.sroa.2218.sroa.4.0..sroa.2218.0..sroa_idx.sroa_idx, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(23) %.sroa.2218.sroa.5.0..sroa.2218.0..sroa_idx.sroa_idx, ptr noundef nonnull align 1 dereferenceable(23) %.sroa.6, i64 23, i1 false)
   store i64 %128, ptr %.sroa.3220.0..sroa_idx, align 8
   store i64 %284, ptr %.sroa.4221.0..sroa_idx, align 8
   store i8 0, ptr %.sroa.5222.0..sroa_idx, align 8
   store i32 0, ptr %.sroa.7223.0..sroa_idx, align 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.8.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(40) %.sroa.8, i64 40, i1 false)
   store ptr null, ptr %.sroa.9.0..sroa_idx, align 8
   call void @_ZN5clang7CodeGen15CodeGenFunction22EmitStoreThroughLValueENS0_6RValueENS0_6LValueEb(ptr noundef nonnull align 8 dereferenceable(6488) %0, ptr noundef nonnull byval(%"class.clang::CodeGen::RValue") align 8 %35, ptr noundef nonnull byval(%"class.clang::CodeGen::LValue") align 8 %36, i1 noundef zeroext true) #20
   br i1 %153, label %288, label %309
@@ -1627,7 +1622,8 @@ _ZN5clang7CodeGen15CodeGenFunction14MakeAddrLValueENS0_7AddressENS_8QualTypeENS0
   %358 = shl i32 %356, 4
   %359 = sext i32 %358 to i64
   %360 = or i64 %357, %359
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.8263, ptr noundef nonnull align 8 dereferenceable(40) %16, i64 40, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.8263.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(40) %16, i64 40, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(23) %.sroa.2256.sroa.5.0..sroa.2256.0..sroa_idx.sroa_idx, ptr noundef nonnull align 1 dereferenceable(23) %.sroa.6254, i64 23, i1 false)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %16)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %17)
   %361 = call noundef ptr @_ZN5clang7CodeGen15CodeGenFunction14EmitScalarExprEPKNS_4ExprEb(ptr noundef nonnull align 8 dereferenceable(6488) %0, ptr noundef %312, i1 noundef zeroext false) #20
@@ -1641,12 +1637,10 @@ _ZN5clang7CodeGen15CodeGenFunction14MakeAddrLValueENS0_7AddressENS_8QualTypeENS0
   store ptr %336, ptr %.sroa.2256.sroa.2.0..sroa.2256.0..sroa_idx.sroa_idx, align 8
   store i64 %340, ptr %.sroa.2256.sroa.3.0..sroa.2256.0..sroa_idx.sroa_idx, align 8
   store i8 0, ptr %.sroa.2256.sroa.4.0..sroa.2256.0..sroa_idx.sroa_idx, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(23) %.sroa.2256.sroa.5.0..sroa.2256.0..sroa_idx.sroa_idx, ptr noundef nonnull align 1 dereferenceable(23) %.sroa.6254, i64 23, i1 false)
   store i64 %128, ptr %.sroa.3258.0..sroa_idx, align 8
   store i64 %360, ptr %.sroa.4259.0..sroa_idx, align 8
   store i8 0, ptr %.sroa.5260.0..sroa_idx, align 8
   store i32 0, ptr %.sroa.7262.0..sroa_idx, align 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.8263.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(40) %.sroa.8263, i64 40, i1 false)
   store ptr null, ptr %.sroa.9264.0..sroa_idx, align 8
   call void @_ZN5clang7CodeGen15CodeGenFunction22EmitStoreThroughLValueENS0_6RValueENS0_6LValueEb(ptr noundef nonnull align 8 dereferenceable(6488) %0, ptr noundef nonnull byval(%"class.clang::CodeGen::RValue") align 8 %29, ptr noundef nonnull byval(%"class.clang::CodeGen::LValue") align 8 %30, i1 noundef zeroext true) #20
   br i1 %153, label %364, label %375

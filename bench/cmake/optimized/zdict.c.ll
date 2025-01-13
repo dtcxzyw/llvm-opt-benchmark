@@ -327,12 +327,12 @@ ZDICT_totalSampleSize.exit:                       ; preds = %.lr.ph.i, %9
   br i1 %.not.i, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader191
-  %.not63.i = icmp eq i32 %8, 0
-  %49 = icmp ugt i32 %8, 2
-  %wide.trip.count229 = zext i32 %5 to i64
-  %50 = shl nuw i32 1, %.sroa.0.0.copyload
-  %narrow.i = call i32 @llvm.smin.i32(i32 %50, i32 131072)
+  %49 = shl nuw i32 1, %.sroa.0.0.copyload
+  %narrow.i = call i32 @llvm.smin.i32(i32 %49, i32 131072)
   %spec.select.i = sext i32 %narrow.i to i64
+  %.not63.i = icmp eq i32 %8, 0
+  %50 = icmp ugt i32 %8, 2
+  %wide.trip.count229 = zext i32 %5 to i64
   br label %57
 
 51:                                               ; preds = %38
@@ -373,7 +373,7 @@ ZDICT_totalSampleSize.exit:                       ; preds = %.lr.ph.i, %9
   br i1 %71, label %79, label %72
 
 72:                                               ; preds = %68
-  br i1 %49, label %73, label %ZDICT_countEStats.exit
+  br i1 %50, label %73, label %ZDICT_countEStats.exit
 
 73:                                               ; preds = %72
   %74 = load ptr, ptr @stderr, align 8

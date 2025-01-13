@@ -2087,7 +2087,7 @@ declare ptr @val_to_str_ext_const(i32 noundef, ptr noundef, ptr noundef) local_u
 declare ptr @proto_tree_add_subtree(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 65540) i32 @dhcpv6_option(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef nonnull %5, i32 noundef %6, ptr nocapture noundef byval(%struct.hopcount_info_t) align 8 %7, i8 noundef zeroext %8) unnamed_addr #0 {
+define internal fastcc range(i32 0, 65540) i32 @dhcpv6_option(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef nonnull %5, i32 noundef %6, ptr nocapture noundef readonly byval(%struct.hopcount_info_t) align 8 %7, i8 noundef zeroext %8) unnamed_addr #0 {
   %10 = alloca i8, align 1
   %11 = alloca ptr, align 8
   %12 = alloca i32, align 4

@@ -37,7 +37,7 @@ declare ptr @psprintf(ptr noundef, ...) local_unnamed_addr #1
 declare ptr @get_compress_algorithm_name(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @AllocateCompressor(ptr noundef byval(%struct.pg_compress_specification) align 8 %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define dso_local ptr @AllocateCompressor(ptr nocapture noundef readonly byval(%struct.pg_compress_specification) align 8 %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = tail call ptr @pg_malloc0(i64 noundef 80) #9
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store ptr %1, ptr %5, align 8
@@ -93,7 +93,7 @@ define dso_local void @EndCompressor(ptr noundef %0, ptr noundef %1) local_unnam
 declare void @pg_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @InitCompressFileHandle(ptr noundef byval(%struct.pg_compress_specification) align 8 %0) local_unnamed_addr #0 {
+define dso_local ptr @InitCompressFileHandle(ptr nocapture noundef readonly byval(%struct.pg_compress_specification) align 8 %0) local_unnamed_addr #0 {
   %2 = tail call ptr @pg_malloc0(i64 noundef 112) #9
   %3 = load i32, ptr %0, align 8
   switch i32 %3, label %8 [
@@ -162,8 +162,8 @@ hasSuffix.exit16:                                 ; preds = %hasSuffix.exit.thre
   %15 = ashr exact i64 %sext.i12, 32
   %16 = getelementptr i8, ptr %6, i64 %15
   %bcmp.i14 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(4) %16, ptr noundef nonnull dereferenceable(4) @.str.2, i64 4)
-  %.not28 = icmp eq i32 %bcmp.i14, 0
-  br i1 %.not28, label %36, label %hasSuffix.exit21
+  %.not38 = icmp eq i32 %bcmp.i14, 0
+  br i1 %.not38, label %36, label %hasSuffix.exit21
 
 hasSuffix.exit21:                                 ; preds = %hasSuffix.exit16
   %17 = shl i64 %7, 32
@@ -171,8 +171,8 @@ hasSuffix.exit21:                                 ; preds = %hasSuffix.exit16
   %18 = ashr exact i64 %sext.i17, 32
   %19 = getelementptr i8, ptr %6, i64 %18
   %bcmp.i19 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(4) %19, ptr noundef nonnull dereferenceable(4) @.str.3, i64 4)
-  %.not29 = icmp eq i32 %bcmp.i19, 0
-  br i1 %.not29, label %select.unfold, label %hasSuffix.exit21.thread
+  %.not39 = icmp eq i32 %bcmp.i19, 0
+  br i1 %.not39, label %38, label %hasSuffix.exit21.thread
 
 hasSuffix.exit21.thread:                          ; preds = %2, %hasSuffix.exit.thread, %hasSuffix.exit21
   %20 = call i32 @stat(ptr noundef %0, ptr noundef nonnull %4) #9
@@ -196,9 +196,9 @@ hasSuffix.exit21.thread:                          ; preds = %2, %hasSuffix.exit.
 
 30:                                               ; preds = %28
   %31 = call fastcc zeroext i1 @check_compressed_file(ptr noundef %0, ptr noundef %5, ptr noundef nonnull @.str.6)
-  br i1 %31, label %select.unfold, label %32
+  br i1 %31, label %38, label %32
 
-32:                                               ; preds = %hasSuffix.exit21.thread, %30
+32:                                               ; preds = %30, %hasSuffix.exit21.thread
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 32, i1 false)
   %33 = tail call ptr @pg_malloc0(i64 noundef 112) #9
@@ -208,8 +208,8 @@ hasSuffix.exit21.thread:                          ; preds = %2, %hasSuffix.exit.
 34:                                               ; preds = %hasSuffix.exit, %22
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
   store i32 1, ptr %3, align 8
-  %.sroa.10.0..sroa_idx35 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %.sroa.10.0..sroa_idx35, i8 0, i64 28, i1 false)
+  %.sroa.10.0..sroa_idx33 = getelementptr inbounds nuw i8, ptr %3, i64 4
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %.sroa.10.0..sroa_idx33, i8 0, i64 28, i1 false)
   %35 = tail call ptr @pg_malloc0(i64 noundef 112) #9
   tail call void @InitCompressFileHandleGzip(ptr noundef %35, ptr noundef nonnull byval(%struct.pg_compress_specification) align 8 %3) #9
   br label %InitCompressFileHandle.exit
@@ -217,41 +217,41 @@ hasSuffix.exit21.thread:                          ; preds = %2, %hasSuffix.exit.
 36:                                               ; preds = %hasSuffix.exit16, %28
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
   store i32 2, ptr %3, align 8
-  %.sroa.10.0..sroa_idx39 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %.sroa.10.0..sroa_idx39, i8 0, i64 28, i1 false)
+  %.sroa.10.0..sroa_idx37 = getelementptr inbounds nuw i8, ptr %3, i64 4
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %.sroa.10.0..sroa_idx37, i8 0, i64 28, i1 false)
   %37 = tail call ptr @pg_malloc0(i64 noundef 112) #9
   tail call void @InitCompressFileHandleLZ4(ptr noundef %37, ptr noundef nonnull byval(%struct.pg_compress_specification) align 8 %3) #9
   br label %InitCompressFileHandle.exit
 
-select.unfold:                                    ; preds = %30, %hasSuffix.exit21
+38:                                               ; preds = %30, %hasSuffix.exit21
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
   store i32 3, ptr %3, align 8
   %.sroa.10.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %.sroa.10.0..sroa_idx, i8 0, i64 28, i1 false)
-  %38 = tail call ptr @pg_malloc0(i64 noundef 112) #9
-  tail call void @InitCompressFileHandleZstd(ptr noundef %38, ptr noundef nonnull byval(%struct.pg_compress_specification) align 8 %3) #9
+  %39 = tail call ptr @pg_malloc0(i64 noundef 112) #9
+  tail call void @InitCompressFileHandleZstd(ptr noundef %39, ptr noundef nonnull byval(%struct.pg_compress_specification) align 8 %3) #9
   br label %InitCompressFileHandle.exit
 
-InitCompressFileHandle.exit:                      ; preds = %32, %34, %36, %select.unfold
-  %39 = phi ptr [ %33, %32 ], [ %35, %34 ], [ %37, %36 ], [ %38, %select.unfold ]
+InitCompressFileHandle.exit:                      ; preds = %32, %34, %36, %38
+  %40 = phi ptr [ %33, %32 ], [ %35, %34 ], [ %37, %36 ], [ %39, %38 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
-  %40 = load ptr, ptr %39, align 8
-  %41 = load ptr, ptr %5, align 8
-  %42 = tail call zeroext i1 %40(ptr noundef %41, i32 noundef -1, ptr noundef %1, ptr noundef nonnull %39) #9
+  %41 = load ptr, ptr %40, align 8
+  %42 = load ptr, ptr %5, align 8
+  %43 = tail call zeroext i1 %41(ptr noundef %42, i32 noundef -1, ptr noundef %1, ptr noundef nonnull %40) #9
   %.pre = tail call ptr @__errno_location() #11
-  br i1 %42, label %InitCompressFileHandle.exit._crit_edge, label %43
+  br i1 %43, label %InitCompressFileHandle.exit._crit_edge, label %44
 
-43:                                               ; preds = %InitCompressFileHandle.exit
-  %44 = load i32, ptr %.pre, align 4
-  tail call void @free(ptr noundef nonnull %39) #9
-  store i32 %44, ptr %.pre, align 4
+44:                                               ; preds = %InitCompressFileHandle.exit
+  %45 = load i32, ptr %.pre, align 4
+  tail call void @free(ptr noundef nonnull %40) #9
+  store i32 %45, ptr %.pre, align 4
   br label %InitCompressFileHandle.exit._crit_edge
 
-InitCompressFileHandle.exit._crit_edge:           ; preds = %InitCompressFileHandle.exit, %43
-  %.0 = phi ptr [ null, %43 ], [ %39, %InitCompressFileHandle.exit ]
-  %45 = load i32, ptr %.pre, align 4
-  tail call void @free(ptr noundef %41) #9
-  store i32 %45, ptr %.pre, align 4
+InitCompressFileHandle.exit._crit_edge:           ; preds = %InitCompressFileHandle.exit, %44
+  %.0 = phi ptr [ null, %44 ], [ %40, %InitCompressFileHandle.exit ]
+  %46 = load i32, ptr %.pre, align 4
+  tail call void @free(ptr noundef %42) #9
+  store i32 %46, ptr %.pre, align 4
   ret ptr %.0
 }
 

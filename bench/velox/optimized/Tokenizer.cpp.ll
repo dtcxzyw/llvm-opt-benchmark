@@ -2087,7 +2087,7 @@ entry:
   %call.i.i3.i = tail call ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE3endEv(ptr noundef nonnull align 8 dereferenceable(32) %Input) #21, !noalias !49
   %cmp.i.not22.i.i = icmp eq ptr %call.i.i.i, %call.i.i3.i
   %cmp.i4.i.i = icmp eq i64 %call.i.i.i.i, 0
-  %or.cond = or i1 %cmp.i.not22.i.i, %cmp.i4.i.i
+  %or.cond = or i1 %cmp.i4.i.i, %cmp.i.not22.i.i
   br i1 %or.cond, label %_ZNK5boost9algorithm6detail13first_finderFIPKcNS0_8is_equalEEclIN9__gnu_cxx17__normal_iteratorIS4_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS_14iterator_rangeIT_EESI_SI_.exit.i.thread, label %for.body13.preheader.i.i
 
 for.body13.preheader.i.i:                         ; preds = %entry, %for.inc28.i.i

@@ -938,7 +938,7 @@ define dso_local void @_ZN4llvm6object12readIRSymtabENS_15MemoryBufferRefE(ptr d
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %11 = load i8, ptr %10, align 8
   %12 = trunc i8 %11 to i1
-  br i1 %12, label %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i15, label %13
+  br i1 %12, label %115, label %13
 
 13:                                               ; preds = %2
   call void @_ZN4llvm22getBitcodeFileContentsENS_15MemoryBufferRefE(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Expected.202") align 8 %5, ptr noundef nonnull byval(%"class.llvm::MemoryBufferRef") align 8 %4) #15
@@ -1158,53 +1158,52 @@ _ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i12: ;
   store ptr null, ptr %5, align 8
   br label %_ZN4llvm8ExpectedINS_15MemoryBufferRefEED2Ev.exit
 
-_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i15: ; preds = %2
-  %115 = load i64, ptr %4, align 8, !noalias !69
-  %116 = inttoptr i64 %115 to ptr
+115:                                              ; preds = %2
+  %116 = load i64, ptr %4, align 8, !noalias !69
+  %117 = inttoptr i64 %116 to ptr
   store ptr null, ptr %4, align 8, !noalias !69
-  %117 = getelementptr inbounds nuw i8, ptr %0, i64 184
-  %118 = load i8, ptr %117, align 8
-  %119 = or i8 %118, 1
-  store i8 %119, ptr %117, align 8
-  store ptr %116, ptr %0, align 8, !alias.scope !72
-  store ptr null, ptr %4, align 8
+  %118 = getelementptr inbounds nuw i8, ptr %0, i64 184
+  %119 = load i8, ptr %118, align 8
+  %120 = or i8 %119, 1
+  store i8 %120, ptr %118, align 8
+  store ptr %117, ptr %0, align 8, !alias.scope !72
   br label %_ZN4llvm8ExpectedINS_15MemoryBufferRefEED2Ev.exit
 
-_ZN4llvm8ExpectedINS_15MemoryBufferRefEED2Ev.exit: ; preds = %104, %105, %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i12, %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i15
-  %120 = call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %8) #15
-  %121 = load ptr, ptr %8, align 8
-  %122 = icmp eq ptr %121, %9
-  br i1 %122, label %_ZN4llvm11SmallVectorIcLj0EED2Ev.exit.i, label %123
+_ZN4llvm8ExpectedINS_15MemoryBufferRefEED2Ev.exit: ; preds = %115, %104, %105, %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i12
+  %121 = call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %8) #15
+  %122 = load ptr, ptr %8, align 8
+  %123 = icmp eq ptr %122, %9
+  br i1 %123, label %_ZN4llvm11SmallVectorIcLj0EED2Ev.exit.i, label %124
 
-123:                                              ; preds = %_ZN4llvm8ExpectedINS_15MemoryBufferRefEED2Ev.exit
-  call void @free(ptr noundef %121) #15
+124:                                              ; preds = %_ZN4llvm8ExpectedINS_15MemoryBufferRefEED2Ev.exit
+  call void @free(ptr noundef %122) #15
   br label %_ZN4llvm11SmallVectorIcLj0EED2Ev.exit.i
 
-_ZN4llvm11SmallVectorIcLj0EED2Ev.exit.i:          ; preds = %123, %_ZN4llvm8ExpectedINS_15MemoryBufferRefEED2Ev.exit
-  %124 = call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %7) #15
-  %125 = load ptr, ptr %7, align 8
-  %126 = icmp eq ptr %125, %8
-  br i1 %126, label %_ZN4llvm11SmallVectorIcLj0EED2Ev.exit1.i, label %127
+_ZN4llvm11SmallVectorIcLj0EED2Ev.exit.i:          ; preds = %124, %_ZN4llvm8ExpectedINS_15MemoryBufferRefEED2Ev.exit
+  %125 = call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %7) #15
+  %126 = load ptr, ptr %7, align 8
+  %127 = icmp eq ptr %126, %8
+  br i1 %127, label %_ZN4llvm11SmallVectorIcLj0EED2Ev.exit1.i, label %128
 
-127:                                              ; preds = %_ZN4llvm11SmallVectorIcLj0EED2Ev.exit.i
-  call void @free(ptr noundef %125) #15
+128:                                              ; preds = %_ZN4llvm11SmallVectorIcLj0EED2Ev.exit.i
+  call void @free(ptr noundef %126) #15
   br label %_ZN4llvm11SmallVectorIcLj0EED2Ev.exit1.i
 
-_ZN4llvm11SmallVectorIcLj0EED2Ev.exit1.i:         ; preds = %127, %_ZN4llvm11SmallVectorIcLj0EED2Ev.exit.i
-  %128 = load ptr, ptr %3, align 8
-  %.not.i.i.i.i = icmp eq ptr %128, null
-  br i1 %.not.i.i.i.i, label %_ZN4llvm6object12IRSymtabFileD2Ev.exit, label %129
+_ZN4llvm11SmallVectorIcLj0EED2Ev.exit1.i:         ; preds = %128, %_ZN4llvm11SmallVectorIcLj0EED2Ev.exit.i
+  %129 = load ptr, ptr %3, align 8
+  %.not.i.i.i.i = icmp eq ptr %129, null
+  br i1 %.not.i.i.i.i, label %_ZN4llvm6object12IRSymtabFileD2Ev.exit, label %130
 
-129:                                              ; preds = %_ZN4llvm11SmallVectorIcLj0EED2Ev.exit1.i
-  %130 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %131 = load ptr, ptr %130, align 8
-  %132 = ptrtoint ptr %131 to i64
-  %133 = ptrtoint ptr %128 to i64
-  %134 = sub i64 %132, %133
-  call void @_ZdlPvm(ptr noundef nonnull %128, i64 noundef %134) #16
+130:                                              ; preds = %_ZN4llvm11SmallVectorIcLj0EED2Ev.exit1.i
+  %131 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %132 = load ptr, ptr %131, align 8
+  %133 = ptrtoint ptr %132 to i64
+  %134 = ptrtoint ptr %129 to i64
+  %135 = sub i64 %133, %134
+  call void @_ZdlPvm(ptr noundef nonnull %129, i64 noundef %135) #16
   br label %_ZN4llvm6object12IRSymtabFileD2Ev.exit
 
-_ZN4llvm6object12IRSymtabFileD2Ev.exit:           ; preds = %_ZN4llvm11SmallVectorIcLj0EED2Ev.exit1.i, %129
+_ZN4llvm6object12IRSymtabFileD2Ev.exit:           ; preds = %_ZN4llvm11SmallVectorIcLj0EED2Ev.exit1.i, %130
   ret void
 }
 

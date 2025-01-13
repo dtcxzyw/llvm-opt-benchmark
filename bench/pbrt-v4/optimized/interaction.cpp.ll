@@ -928,7 +928,7 @@ return:                                           ; preds = %if.end90, %if.then
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZNK4pbrt18SurfaceInteraction16SkipIntersectionEPNS_15RayDifferentialEf(ptr noundef nonnull align 8 dereferenceable(248) %this, ptr nocapture noundef initializes((0, 12), (24, 28), (32, 40)) %ray, float noundef %t) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZNK4pbrt18SurfaceInteraction16SkipIntersectionEPNS_15RayDifferentialEf(ptr nocapture noundef nonnull readonly align 8 dereferenceable(248) %this, ptr nocapture noundef initializes((0, 12), (24, 28), (32, 40)) %ray, float noundef %t) local_unnamed_addr #3 align 2 {
 entry:
   %d = getelementptr inbounds nuw i8, ptr %ray, i64 12
   %agg.tmp.sroa.0.0.copyload = load <2 x float>, ptr %d, align 4
@@ -1039,7 +1039,7 @@ if.end:                                           ; preds = %if.then, %_ZNK4pbrt
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZNK4pbrt18SurfaceInteraction8SpawnRayERKNS_15RayDifferentialERKNS_4BSDFENS_7Vector3IfEEif(ptr noalias nocapture sret(%"class.pbrt::RayDifferential") align 8 initializes((0, 28), (32, 41), (44, 92)) %agg.result, ptr noundef nonnull align 8 dereferenceable(248) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(92) %rayi, ptr nocapture noundef nonnull readnone align 8 dereferenceable(44) %bsdf, <2 x float> %wi.coerce0, float %wi.coerce1, i32 noundef %flags, float noundef %eta) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZNK4pbrt18SurfaceInteraction8SpawnRayERKNS_15RayDifferentialERKNS_4BSDFENS_7Vector3IfEEif(ptr noalias nocapture sret(%"class.pbrt::RayDifferential") align 8 initializes((0, 28), (32, 41), (44, 92)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(248) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(92) %rayi, ptr nocapture noundef nonnull readnone align 8 dereferenceable(44) %bsdf, <2 x float> %wi.coerce0, float %wi.coerce1, i32 noundef %flags, float noundef %eta) local_unnamed_addr #3 align 2 {
 entry:
   tail call void @llvm.experimental.noalias.scope.decl(metadata !11)
   %n.i.i = getelementptr inbounds nuw i8, ptr %this, i64 40

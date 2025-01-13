@@ -2596,12 +2596,11 @@ entry:
   %task.i.i = alloca %"class.std::_Bind.181", align 8
   %__s.i.i = alloca %"class.arrow::Status", align 8
   %ref.tmp4.i.i = alloca %"class.arrow::Status", align 8
-  %agg.tmp.i.i = alloca %"struct.arrow::internal::TaskHints", align 8
   %agg.tmp5.i.i = alloca %"class.arrow::internal::FnOnce", align 8
   %agg.tmp6.i.i = alloca %"class.std::_Bind.181", align 8
   %agg.tmp9.i.i = alloca %"class.arrow::StopToken", align 8
   %ref.tmp10.i.i = alloca %"class.arrow::internal::FnOnce.132", align 8
-  %agg.tmp1.sroa.4.i = alloca [20 x i8], align 4
+  %agg.tmp1.i = alloca %"struct.arrow::internal::TaskHints", align 8
   %hints.sroa.2.i = alloca [20 x i8], align 4
   %agg.tmp.sroa.2.i = alloca [20 x i8], align 4
   %agg.tmp2.i = alloca %"class.arrow::StopToken", align 8
@@ -2832,17 +2831,20 @@ if.else.i.i.i.i.i.i.i.i:                          ; preds = %if.then.i.i.i.i.i.i
 
 _ZNK5arrow2io9IOContext10stop_tokenEv.exit.i:     ; preds = %if.else.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i, %_ZNSt10shared_ptrIN5arrow2io11InputStreamEEC2ERKS3_.exit
   tail call void @llvm.experimental.noalias.scope.decl(metadata !56)
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %agg.tmp1.sroa.4.i)
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp1.i), !noalias !49
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %future.i.i), !noalias !49
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %task.i.i), !noalias !49
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__s.i.i), !noalias !49
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp4.i.i), !noalias !49
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp.i.i), !noalias !49
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp5.i.i), !noalias !49
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %agg.tmp6.i.i), !noalias !49
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp9.i.i), !noalias !49
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp10.i.i), !noalias !49
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %agg.tmp1.sroa.4.i, ptr noundef nonnull align 4 dereferenceable(20) %agg.tmp.sroa.2.i, i64 20, i1 false), !noalias !49
+  store i32 0, ptr %agg.tmp1.i, align 8, !noalias !49
+  %agg.tmp.sroa.2.0.agg.tmp1.sroa_idx.i = getelementptr inbounds nuw i8, ptr %agg.tmp1.i, i64 4
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %agg.tmp.sroa.2.0.agg.tmp1.sroa_idx.i, ptr noundef nonnull align 4 dereferenceable(20) %agg.tmp.sroa.2.i, i64 20, i1 false), !noalias !49
+  %agg.tmp.sroa.3.0.agg.tmp1.sroa_idx.i = getelementptr inbounds nuw i8, ptr %agg.tmp1.i, i64 24
+  store i64 %32, ptr %agg.tmp.sroa.3.0.agg.tmp1.sroa_idx.i, align 8, !noalias !49
   tail call void @llvm.experimental.noalias.scope.decl(metadata !59)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i.i.i), !noalias !62
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %future.i.i, i8 0, i64 16, i1 false), !alias.scope !59, !noalias !62
@@ -2960,11 +2962,6 @@ if.else.i.i.i.i.i.i.i8.i:                         ; preds = %if.then.i.i.i.i.i3.
 _ZN5arrow10WeakFutureISt10shared_ptrIKNS_16KeyValueMetadataEEEC2ERKNS_6FutureIS4_EE.exit.i.i: ; preds = %if.else.i.i.i.i.i.i.i8.i, %if.then.i.i.i.i.i.i.i5.i, %invoke.cont.i.i, %_ZN5arrow6FutureISt10shared_ptrIKNS_16KeyValueMetadataEEE4MakeEv.exit.i.i
   %54 = phi ptr [ %.pre210.i.i, %invoke.cont.i.i ], [ %51, %if.then.i.i.i.i.i.i.i5.i ], [ %.pre210.i.i, %if.else.i.i.i.i.i.i.i8.i ], [ %39, %_ZN5arrow6FutureISt10shared_ptrIKNS_16KeyValueMetadataEEE4MakeEv.exit.i.i ]
   %55 = phi ptr [ null, %invoke.cont.i.i ], [ %.pr.i14.i127, %if.then.i.i.i.i.i.i.i5.i ], [ %.pr.i.pre.i, %if.else.i.i.i.i.i.i.i8.i ], [ null, %_ZN5arrow6FutureISt10shared_ptrIKNS_16KeyValueMetadataEEE4MakeEv.exit.i.i ]
-  store i32 0, ptr %agg.tmp.i.i, align 8, !noalias !62
-  %agg.tmp1.sroa.4.0.agg.tmp.i.sroa_idx.i = getelementptr inbounds nuw i8, ptr %agg.tmp.i.i, i64 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %agg.tmp1.sroa.4.0.agg.tmp.i.sroa_idx.i, ptr noundef nonnull align 4 dereferenceable(20) %agg.tmp1.sroa.4.i, i64 20, i1 false), !noalias !62
-  %agg.tmp1.sroa.5.0.agg.tmp.i.sroa_idx.i = getelementptr inbounds nuw i8, ptr %agg.tmp.i.i, i64 24
-  store i64 %32, ptr %agg.tmp1.sroa.5.0.agg.tmp.i.sroa_idx.i, align 8, !noalias !62
   %_M_bound_args.i.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp6.i.i, i64 8
   store ptr %27, ptr %_M_bound_args.i.i.i, align 8, !noalias !62
   %_M_refcount.i.i.i.i.i.i.i.i6.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp6.i.i, i64 16
@@ -3023,7 +3020,7 @@ invoke.cont13.i.i:                                ; preds = %invoke.cont8.i.i
   %vtable.i.i = load ptr, ptr %33, align 8, !noalias !56
   %vfn.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i, i64 48
   %61 = load ptr, ptr %vfn.i.i, align 8, !noalias !56
-  invoke void %61(ptr nonnull sret(%"class.arrow::Status") align 8 %ref.tmp4.i.i, ptr noundef nonnull align 8 dereferenceable(8) %33, ptr noundef nonnull byval(%"struct.arrow::internal::TaskHints") align 8 %agg.tmp.i.i, ptr noundef nonnull %agg.tmp5.i.i, ptr noundef nonnull %agg.tmp9.i.i, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp10.i.i)
+  invoke void %61(ptr nonnull sret(%"class.arrow::Status") align 8 %ref.tmp4.i.i, ptr noundef nonnull align 8 dereferenceable(8) %33, ptr noundef nonnull byval(%"struct.arrow::internal::TaskHints") align 8 %agg.tmp1.i, ptr noundef nonnull %agg.tmp5.i.i, ptr noundef nonnull %agg.tmp9.i.i, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp10.i.i)
           to label %_ZN5arrow6StatusD2Ev.exit.i.i unwind label %lpad14.i.i, !noalias !56
 
 _ZN5arrow6StatusD2Ev.exit.i.i:                    ; preds = %invoke.cont13.i.i
@@ -3423,12 +3420,11 @@ if.end8.sink.split.i.i.i.i.i191.i.i:              ; preds = %_ZN9__gnu_cxx27__ex
   br label %invoke.cont.i
 
 invoke.cont.i:                                    ; preds = %if.end8.sink.split.i.i.i.i.i191.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i188.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i178.i.i, %"_ZZN5arrow8internal8Executor6SubmitIZNS_2io11InputStream17ReadMetadataAsyncERKNS3_9IOContextEE3$_0JENS_6FutureISt10shared_ptrIKNS_16KeyValueMetadataEEEEEENS_6ResultIT1_EENS0_9TaskHintsENS_9StopTokenEOT_DpOT0_EN3$_0D2Ev.exit168.i.i"
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %agg.tmp1.sroa.4.i)
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp1.i), !noalias !49
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %future.i.i), !noalias !49
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %task.i.i), !noalias !49
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__s.i.i), !noalias !49
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp4.i.i), !noalias !49
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp.i.i), !noalias !49
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp5.i.i), !noalias !49
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %agg.tmp6.i.i), !noalias !49
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp9.i.i), !noalias !49
@@ -5122,12 +5118,11 @@ entry:
   %task.i.i = alloca %"class.std::_Bind.197", align 8
   %__s.i.i = alloca %"class.arrow::Status", align 8
   %ref.tmp4.i.i = alloca %"class.arrow::Status", align 8
-  %agg.tmp.i.i = alloca %"struct.arrow::internal::TaskHints", align 8
   %agg.tmp5.i.i = alloca %"class.arrow::internal::FnOnce", align 8
   %agg.tmp6.i.i = alloca %"class.std::_Bind.197", align 8
   %agg.tmp9.i.i = alloca %"class.arrow::StopToken", align 8
   %ref.tmp10.i.i = alloca %"class.arrow::internal::FnOnce.132", align 8
-  %agg.tmp1.sroa.4.i = alloca [20 x i8], align 4
+  %agg.tmp1.i = alloca %"struct.arrow::internal::TaskHints", align 8
   %hints.sroa.2.i = alloca [20 x i8], align 4
   %agg.tmp.sroa.2.i = alloca [20 x i8], align 4
   %agg.tmp2.i = alloca %"class.arrow::StopToken", align 8
@@ -5358,17 +5353,20 @@ if.else.i.i.i.i.i.i.i.i:                          ; preds = %if.then.i.i.i.i.i.i
 
 _ZNK5arrow2io9IOContext10stop_tokenEv.exit.i:     ; preds = %if.else.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i, %_ZNSt10shared_ptrIN5arrow2io16RandomAccessFileEEC2ERKS3_.exit
   tail call void @llvm.experimental.noalias.scope.decl(metadata !109)
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %agg.tmp1.sroa.4.i)
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp1.i), !noalias !102
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %future.i.i), !noalias !102
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %task.i.i), !noalias !102
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__s.i.i), !noalias !102
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp4.i.i), !noalias !102
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp.i.i), !noalias !102
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp5.i.i), !noalias !102
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %agg.tmp6.i.i), !noalias !102
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp9.i.i), !noalias !102
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp10.i.i), !noalias !102
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %agg.tmp1.sroa.4.i, ptr noundef nonnull align 4 dereferenceable(20) %agg.tmp.sroa.2.i, i64 20, i1 false), !noalias !102
+  store i32 0, ptr %agg.tmp1.i, align 8, !noalias !102
+  %agg.tmp.sroa.2.0.agg.tmp1.sroa_idx.i = getelementptr inbounds nuw i8, ptr %agg.tmp1.i, i64 4
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %agg.tmp.sroa.2.0.agg.tmp1.sroa_idx.i, ptr noundef nonnull align 4 dereferenceable(20) %agg.tmp.sroa.2.i, i64 20, i1 false), !noalias !102
+  %agg.tmp.sroa.3.0.agg.tmp1.sroa_idx.i = getelementptr inbounds nuw i8, ptr %agg.tmp1.i, i64 24
+  store i64 %32, ptr %agg.tmp.sroa.3.0.agg.tmp1.sroa_idx.i, align 8, !noalias !102
   tail call void @llvm.experimental.noalias.scope.decl(metadata !112)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i.i.i), !noalias !115
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %future.i.i, i8 0, i64 16, i1 false), !alias.scope !112, !noalias !115
@@ -5490,11 +5488,6 @@ if.else.i.i.i.i.i.i.i8.i:                         ; preds = %if.then.i.i.i.i.i3.
 _ZN5arrow10WeakFutureISt10shared_ptrINS_6BufferEEEC2ERKNS_6FutureIS3_EE.exit.i.i: ; preds = %if.else.i.i.i.i.i.i.i8.i, %if.then.i.i.i.i.i.i.i5.i, %invoke.cont.i.i, %_ZN5arrow6FutureISt10shared_ptrINS_6BufferEEE4MakeEv.exit.i.i
   %55 = phi ptr [ %.pre210.i.i, %invoke.cont.i.i ], [ %52, %if.then.i.i.i.i.i.i.i5.i ], [ %.pre210.i.i, %if.else.i.i.i.i.i.i.i8.i ], [ %39, %_ZN5arrow6FutureISt10shared_ptrINS_6BufferEEE4MakeEv.exit.i.i ]
   %56 = phi ptr [ null, %invoke.cont.i.i ], [ %.pr.i14.i127, %if.then.i.i.i.i.i.i.i5.i ], [ %.pr.i.pre.i, %if.else.i.i.i.i.i.i.i8.i ], [ null, %_ZN5arrow6FutureISt10shared_ptrINS_6BufferEEE4MakeEv.exit.i.i ]
-  store i32 0, ptr %agg.tmp.i.i, align 8, !noalias !115
-  %agg.tmp1.sroa.4.0.agg.tmp.i.sroa_idx.i = getelementptr inbounds nuw i8, ptr %agg.tmp.i.i, i64 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %agg.tmp1.sroa.4.0.agg.tmp.i.sroa_idx.i, ptr noundef nonnull align 4 dereferenceable(20) %agg.tmp1.sroa.4.i, i64 20, i1 false), !noalias !115
-  %agg.tmp1.sroa.5.0.agg.tmp.i.sroa_idx.i = getelementptr inbounds nuw i8, ptr %agg.tmp.i.i, i64 24
-  store i64 %32, ptr %agg.tmp1.sroa.5.0.agg.tmp.i.sroa_idx.i, align 8, !noalias !115
   %_M_bound_args.i.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp6.i.i, i64 8
   store ptr %27, ptr %_M_bound_args.i.i.i, align 8, !noalias !115
   %_M_refcount.i.i.i.i.i.i.i.i6.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp6.i.i, i64 16
@@ -5560,7 +5553,7 @@ invoke.cont13.i.i:                                ; preds = %invoke.cont8.i.i
   %vtable.i.i = load ptr, ptr %33, align 8, !noalias !109
   %vfn.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i, i64 48
   %65 = load ptr, ptr %vfn.i.i, align 8, !noalias !109
-  invoke void %65(ptr nonnull sret(%"class.arrow::Status") align 8 %ref.tmp4.i.i, ptr noundef nonnull align 8 dereferenceable(8) %33, ptr noundef nonnull byval(%"struct.arrow::internal::TaskHints") align 8 %agg.tmp.i.i, ptr noundef nonnull %agg.tmp5.i.i, ptr noundef nonnull %agg.tmp9.i.i, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp10.i.i)
+  invoke void %65(ptr nonnull sret(%"class.arrow::Status") align 8 %ref.tmp4.i.i, ptr noundef nonnull align 8 dereferenceable(8) %33, ptr noundef nonnull byval(%"struct.arrow::internal::TaskHints") align 8 %agg.tmp1.i, ptr noundef nonnull %agg.tmp5.i.i, ptr noundef nonnull %agg.tmp9.i.i, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp10.i.i)
           to label %_ZN5arrow6StatusD2Ev.exit.i.i unwind label %lpad14.i.i, !noalias !109
 
 _ZN5arrow6StatusD2Ev.exit.i.i:                    ; preds = %invoke.cont13.i.i
@@ -5960,12 +5953,11 @@ if.end8.sink.split.i.i.i.i.i191.i.i:              ; preds = %_ZN9__gnu_cxx27__ex
   br label %invoke.cont.i
 
 invoke.cont.i:                                    ; preds = %if.end8.sink.split.i.i.i.i.i191.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i188.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i178.i.i, %"_ZZN5arrow8internal8Executor6SubmitIZNS_2io16RandomAccessFile9ReadAsyncERKNS3_9IOContextEllE3$_0JENS_6FutureISt10shared_ptrINS_6BufferEEEEEENS_6ResultIT1_EENS0_9TaskHintsENS_9StopTokenEOT_DpOT0_EN3$_0D2Ev.exit168.i.i"
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %agg.tmp1.sroa.4.i)
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp1.i), !noalias !102
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %future.i.i), !noalias !102
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %task.i.i), !noalias !102
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__s.i.i), !noalias !102
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp4.i.i), !noalias !102
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp.i.i), !noalias !102
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp5.i.i), !noalias !102
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %agg.tmp6.i.i), !noalias !102
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp9.i.i), !noalias !102

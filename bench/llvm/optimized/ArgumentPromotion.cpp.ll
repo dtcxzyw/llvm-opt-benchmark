@@ -4199,9 +4199,9 @@ _ZN4llvm5APIntC2Ejmbb.exit.i:                     ; preds = %563, %555
 
 573:                                              ; preds = %_ZN4llvm5APIntC2Ejmbb.exit.i
   store i16 257, ptr %440, align 8
-  %574 = call noundef ptr @_ZN4llvm4UsernwEmj(i64 noundef 88, i32 noundef 2) #17
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false)
+  %574 = call noundef ptr @_ZN4llvm4UsernwEmj(i64 noundef 88, i32 noundef 2) #17
   %575 = load ptr, ptr %546, align 8
   %576 = getelementptr inbounds nuw i8, ptr %575, i64 8
   %577 = load i32, ptr %576, align 8

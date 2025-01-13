@@ -2015,7 +2015,7 @@ QuESTAssert.exit:                                 ; preds = %5, %12
 }
 
 ; Function Attrs: nounwind uwtable
-define void @validateVector(ptr noundef byval(%struct.Vector) align 8 %0, ptr noundef %1) local_unnamed_addr #3 {
+define void @validateVector(ptr nocapture noundef readonly byval(%struct.Vector) align 8 %0, ptr noundef %1) local_unnamed_addr #3 {
   %3 = tail call double @getVectorMagnitude(ptr noundef nonnull byval(%struct.Vector) align 8 %0) #13
   %4 = fcmp ule double %3, 1.000000e-13
   br i1 %4, label %5, label %QuESTAssert.exit
@@ -2975,7 +2975,7 @@ define void @validateHamilFileParams(i32 noundef %0, i32 noundef %1, ptr nocaptu
 declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @validateHamilFileCoeffParsed(i32 noundef %0, ptr noundef byval(%struct.PauliHamil) align 8 %1, ptr nocapture noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #3 {
+define void @validateHamilFileCoeffParsed(i32 noundef %0, ptr nocapture noundef readonly byval(%struct.PauliHamil) align 8 %1, ptr nocapture noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #3 {
   %.not = icmp eq i32 %0, 0
   br i1 %.not, label %6, label %9
 
@@ -2993,7 +2993,7 @@ define void @validateHamilFileCoeffParsed(i32 noundef %0, ptr noundef byval(%str
 declare void @destroyPauliHamil(ptr noundef byval(%struct.PauliHamil) align 8) local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
-define void @validateHamilFilePauliParsed(i32 noundef %0, ptr noundef byval(%struct.PauliHamil) align 8 %1, ptr nocapture noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #3 {
+define void @validateHamilFilePauliParsed(i32 noundef %0, ptr nocapture noundef readonly byval(%struct.PauliHamil) align 8 %1, ptr nocapture noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #3 {
   %.not = icmp eq i32 %0, 0
   br i1 %.not, label %6, label %9
 
@@ -3009,7 +3009,7 @@ define void @validateHamilFilePauliParsed(i32 noundef %0, ptr noundef byval(%str
 }
 
 ; Function Attrs: nounwind uwtable
-define void @validateHamilFilePauliCode(i32 noundef %0, ptr noundef byval(%struct.PauliHamil) align 8 %1, ptr nocapture noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #3 {
+define void @validateHamilFilePauliCode(i32 noundef %0, ptr nocapture noundef readonly byval(%struct.PauliHamil) align 8 %1, ptr nocapture noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #3 {
   %narrow.i = icmp ugt i32 %0, 3
   br i1 %narrow.i, label %6, label %9
 
@@ -3148,7 +3148,7 @@ QuESTAssert.exit7:                                ; preds = %13, %13, %16
 }
 
 ; Function Attrs: nounwind uwtable
-define void @validateDiagPauliHamilFromFile(ptr noundef byval(%struct.PauliHamil) align 8 %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #3 {
+define void @validateDiagPauliHamilFromFile(ptr nocapture noundef readonly byval(%struct.PauliHamil) align 8 %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #3 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %5 = load i32, ptr %4, align 4
   %6 = icmp ult i32 %5, 64
@@ -3945,7 +3945,7 @@ define void @validateMemoryAllocationSize(i64 noundef %0, ptr nocapture noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define void @validateQuregAllocation(ptr noundef %0, ptr noundef byval(%struct.QuESTEnv) align 8 %1, ptr noundef %2) local_unnamed_addr #3 {
+define void @validateQuregAllocation(ptr nocapture noundef %0, ptr nocapture noundef readonly byval(%struct.QuESTEnv) align 8 %1, ptr noundef %2) local_unnamed_addr #3 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i64, ptr %4, align 8
   %.not = icmp eq i64 %5, 0
@@ -4007,7 +4007,7 @@ define void @validateQuregAllocation(ptr noundef %0, ptr noundef byval(%struct.Q
 declare void @destroyQureg(ptr noundef byval(%struct.Qureg) align 8, ptr noundef byval(%struct.QuESTEnv) align 8) local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
-define void @validateQuregGPUAllocation(ptr noundef %0, ptr noundef byval(%struct.QuESTEnv) align 8 %1, ptr noundef %2) local_unnamed_addr #3 {
+define void @validateQuregGPUAllocation(ptr nocapture noundef %0, ptr nocapture noundef readonly byval(%struct.QuESTEnv) align 8 %1, ptr noundef %2) local_unnamed_addr #3 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %5 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %5, null
@@ -4043,7 +4043,7 @@ QuESTAssert.exit:                                 ; preds = %12, %.thread
 }
 
 ; Function Attrs: nounwind uwtable
-define void @validateDiagonalOpAllocation(ptr noundef %0, ptr noundef byval(%struct.QuESTEnv) align 8 %1, ptr noundef %2) local_unnamed_addr #3 {
+define void @validateDiagonalOpAllocation(ptr nocapture noundef %0, ptr nocapture noundef readonly byval(%struct.QuESTEnv) align 8 %1, ptr noundef %2) local_unnamed_addr #3 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %5, null
@@ -4068,7 +4068,7 @@ QuESTAssert.exit:                                 ; preds = %6, %.thread
 declare void @destroyDiagonalOp(ptr noundef byval(%struct.DiagonalOp) align 8, ptr noundef byval(%struct.QuESTEnv) align 8) local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
-define void @validateDiagonalOpGPUAllocation(ptr noundef %0, ptr noundef byval(%struct.QuESTEnv) align 8 %1, ptr noundef %2) local_unnamed_addr #3 {
+define void @validateDiagonalOpGPUAllocation(ptr nocapture noundef %0, ptr nocapture noundef readonly byval(%struct.QuESTEnv) align 8 %1, ptr noundef %2) local_unnamed_addr #3 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %5 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %5, null

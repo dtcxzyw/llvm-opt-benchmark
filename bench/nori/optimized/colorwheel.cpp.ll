@@ -417,7 +417,6 @@ define hidden void @_ZN7nanogui10ColorWheel4drawEP10NVGcontext(ptr noundef nonnu
   %106 = extractvalue { <2 x float>, <2 x float> } %105, 0
   %107 = extractvalue { <2 x float>, <2 x float> } %105, 1
   call void @nvgLinearGradient(ptr dead_on_unwind nonnull writable sret(%struct.NVGpaint) align 4 %7, ptr noundef %1, float noundef %98, float noundef 0.000000e+00, float noundef %99, float noundef %100, <2 x float> %103, <2 x float> %104, <2 x float> %106, <2 x float> %107)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(76) %3, ptr noundef nonnull align 8 dereferenceable(76) %7, i64 76, i1 false)
   call void @nvgFillPaint(ptr noundef %1, ptr noundef nonnull byval(%struct.NVGpaint) align 8 %7)
   call void @nvgFill(ptr noundef %1)
   %108 = fadd float %98, %99
@@ -431,7 +430,6 @@ define hidden void @_ZN7nanogui10ColorWheel4drawEP10NVGcontext(ptr noundef nonnu
   %116 = extractvalue { <2 x float>, <2 x float> } %115, 0
   %117 = extractvalue { <2 x float>, <2 x float> } %115, 1
   call void @nvgLinearGradient(ptr dead_on_unwind nonnull writable sret(%struct.NVGpaint) align 4 %8, ptr noundef %1, float noundef %109, float noundef %111, float noundef %99, float noundef %101, <2 x float> %113, <2 x float> %114, <2 x float> %116, <2 x float> %117)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(76) %3, ptr noundef nonnull align 8 dereferenceable(76) %8, i64 76, i1 false)
   call void @nvgFillPaint(ptr noundef %1, ptr noundef nonnull byval(%struct.NVGpaint) align 8 %8)
   call void @nvgFill(ptr noundef %1)
   %118 = call { <2 x float>, <2 x float> } @nvgRGBA(i8 noundef zeroext 0, i8 noundef zeroext 0, i8 noundef zeroext 0, i8 noundef zeroext 64)

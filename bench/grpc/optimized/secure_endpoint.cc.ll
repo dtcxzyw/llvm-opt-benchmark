@@ -120,7 +120,7 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 declare void @_ZN9grpc_core9TraceFlagC1EbPKc(ptr noundef nonnull align 8 dereferenceable(17), i1 noundef zeroext, ptr noundef) unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull ptr @_Z27grpc_secure_endpoint_createP19tsi_frame_protectorP28tsi_zero_copy_grpc_protectorP13grpc_endpointP10grpc_slicePK17grpc_channel_argsm(ptr noundef %protector, ptr noundef %zero_copy_protector, ptr noundef %to_wrap, ptr noundef %leftover_slices, ptr noundef %channel_args, i64 noundef %leftover_nslices) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define noundef nonnull ptr @_Z27grpc_secure_endpoint_createP19tsi_frame_protectorP28tsi_zero_copy_grpc_protectorP13grpc_endpointP10grpc_slicePK17grpc_channel_argsm(ptr noundef %protector, ptr noundef %zero_copy_protector, ptr noundef %to_wrap, ptr nocapture noundef readonly %leftover_slices, ptr noundef %channel_args, i64 noundef %leftover_nslices) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.i.i = alloca %"class.std::shared_ptr", align 8
   %ref.tmp.i = alloca %"class.grpc_core::MemoryOwner", align 8

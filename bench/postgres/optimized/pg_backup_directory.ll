@@ -291,7 +291,7 @@ define internal void @_ArchiveEntry(ptr nocapture readnone %0, ptr nocapture nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @_StartData(ptr noundef %0, ptr nocapture noundef readonly %1) #0 {
+define internal void @_StartData(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #0 {
   %3 = alloca [1024 x i8], align 16
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 144
   %5 = load ptr, ptr %4, align 8
@@ -767,7 +767,7 @@ define internal void @_StartLOs(ptr nocapture noundef readonly %0, ptr nocapture
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @_StartLO(ptr noundef %0, ptr nocapture readnone %1, i32 noundef %2) #0 {
+define internal void @_StartLO(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, i32 noundef %2) #0 {
   %4 = alloca [1024 x i8], align 16
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 592
   %6 = load ptr, ptr %5, align 8

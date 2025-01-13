@@ -8715,17 +8715,20 @@ entry:
 
 if.end.lr.ph:                                     ; preds = %entry
   %1 = getelementptr inbounds nuw i8, ptr %clip, i64 16
+  %addr.phi.trans.insert = getelementptr inbounds nuw i8, ptr %mr, i64 128
+  %.pre = load i64, ptr %addr.phi.trans.insert, align 16
   %clip.promoted = load i128, ptr %clip, align 16
   %.promoted = load i128, ptr %1, align 16
-  %clip.promoted412 = load i128, ptr %clip, align 1
-  %.promoted415 = load i128, ptr %1, align 1
+  %clip.promoted413 = load i128, ptr %clip, align 1
+  %.promoted416 = load i128, ptr %1, align 1
   br label %if.end
 
 if.end:                                           ; preds = %if.end.lr.ph, %if.then35
-  %size.sroa.0.0.insert.insert.i.i417 = phi i128 [ %.promoted415, %if.end.lr.ph ], [ %size.sroa.0.0.insert.insert.i.i, %if.then35 ]
-  %cond.i.i414 = phi i128 [ %clip.promoted412, %if.end.lr.ph ], [ %cond.i.i, %if.then35 ]
-  %clip.val54374 = phi i128 [ %.promoted, %if.end.lr.ph ], [ %size.sroa.0.0.insert.insert.i.i, %if.then35 ]
-  %cond.i.i373 = phi i128 [ %clip.promoted, %if.end.lr.ph ], [ %cond.i.i, %if.then35 ]
+  %size.sroa.0.0.insert.insert.i.i418 = phi i128 [ %.promoted416, %if.end.lr.ph ], [ %size.sroa.0.0.insert.insert.i.i, %if.then35 ]
+  %cond.i.i415 = phi i128 [ %clip.promoted413, %if.end.lr.ph ], [ %cond.i.i, %if.then35 ]
+  %clip.val54375 = phi i128 [ %.promoted, %if.end.lr.ph ], [ %size.sroa.0.0.insert.insert.i.i, %if.then35 ]
+  %cond.i.i374 = phi i128 [ %clip.promoted, %if.end.lr.ph ], [ %cond.i.i, %if.then35 ]
+  %2 = phi i64 [ %.pre, %if.end.lr.ph ], [ %20, %if.then35 ]
   %unmergeable.tr308 = phi i1 [ %unmergeable, %if.end.lr.ph ], [ %tobool25, %if.then35 ]
   %nonvolatile.tr307 = phi i1 [ %nonvolatile, %if.end.lr.ph ], [ %tobool17, %if.then35 ]
   %readonly.tr306 = phi i1 [ %readonly, %if.end.lr.ph ], [ %tobool9, %if.then35 ]
@@ -8736,8 +8739,6 @@ if.end:                                           ; preds = %if.end.lr.ph, %if.t
   %base.sroa.2.0.insert.shift = shl nuw i128 %base.sroa.2.0.insert.ext, 64
   %base.sroa.0.0.insert.ext = zext i64 %base.coerce0.tr304 to i128
   %base.sroa.0.0.insert.insert = or disjoint i128 %base.sroa.2.0.insert.shift, %base.sroa.0.0.insert.ext
-  %addr = getelementptr inbounds nuw i8, ptr %mr.tr303, i64 128
-  %2 = load i64, ptr %addr, align 16
   %b.sroa.0.0.insert.ext.i = zext i64 %2 to i128
   %add.i = add i128 %base.sroa.0.0.insert.insert, %b.sroa.0.0.insert.ext.i
   %readonly5 = getelementptr inbounds nuw i8, ptr %mr.tr303, i64 43
@@ -8763,7 +8764,7 @@ if.end:                                           ; preds = %if.end.lr.ph, %if.t
   %coerce29.sroa.2.0.extract.shift = lshr i128 %15, 64
   %coerce29.sroa.2.0.extract.trunc = trunc nuw i128 %coerce29.sroa.2.0.extract.shift to i64
   %size.sroa.0.0.insert.ext.i = and i128 %15, 18446744073709551615
-  %cmp.i.not.i.i = icmp slt i128 %cond.i.i373, %add.i
+  %cmp.i.not.i.i = icmp slt i128 %cond.i.i374, %add.i
   br i1 %cmp.i.not.i.i, label %lor.rhs.i, label %addrrange_contains.exit.i
 
 addrrange_contains.exit.i:                        ; preds = %if.end
@@ -8775,32 +8776,32 @@ addrrange_contains.exit.i:                        ; preds = %if.end
   %b.sroa.2.0.insert.shift.i8.i.i = shl nuw i128 %b.sroa.2.0.insert.ext.i7.i.i, 64
   %b.sroa.0.0.insert.ext.i9.i.i = and i128 %a.sroa.0.0.insert.insert.i.i.i.i, 18446744073709551615
   %b.sroa.0.0.insert.insert.i10.i.i = or disjoint i128 %b.sroa.2.0.insert.shift.i8.i.i, %b.sroa.0.0.insert.ext.i9.i.i
-  %cmp.i11.i.i = icmp slt i128 %cond.i.i373, %b.sroa.0.0.insert.insert.i10.i.i
+  %cmp.i11.i.i = icmp slt i128 %cond.i.i374, %b.sroa.0.0.insert.insert.i10.i.i
   br i1 %cmp.i11.i.i, label %addrrange_contains.exit.i.if.end32_crit_edge, label %lor.rhs.i
 
 addrrange_contains.exit.i.if.end32_crit_edge:     ; preds = %addrrange_contains.exit.i
-  %.pre345 = lshr i128 %clip.val54374, 64
-  %.pre346 = trunc nuw i128 %.pre345 to i64
-  %.pre347 = and i128 %clip.val54374, 18446744073709551615
-  %.pre348 = add i128 %.pre347, %cond.i.i373
-  %.pre349 = lshr i128 %.pre348, 64
-  %.pre351 = trunc nuw i128 %.pre349 to i64
-  %.pre352 = add i64 %.pre351, %.pre346
-  %.pre357 = zext i64 %.pre352 to i128
-  %.pre358 = shl nuw i128 %.pre357, 64
-  %.pre359 = and i128 %.pre348, 18446744073709551615
-  %.pre360 = or disjoint i128 %.pre358, %.pre359
+  %.pre346 = lshr i128 %clip.val54375, 64
+  %.pre347 = trunc nuw i128 %.pre346 to i64
+  %.pre348 = and i128 %clip.val54375, 18446744073709551615
+  %.pre349 = add i128 %.pre348, %cond.i.i374
+  %.pre350 = lshr i128 %.pre349, 64
+  %.pre352 = trunc nuw i128 %.pre350 to i64
+  %.pre353 = add i64 %.pre352, %.pre347
+  %.pre358 = zext i64 %.pre353 to i128
+  %.pre359 = shl nuw i128 %.pre358, 64
+  %.pre360 = and i128 %.pre349, 18446744073709551615
+  %.pre361 = or disjoint i128 %.pre359, %.pre360
   br label %if.end32
 
 lor.rhs.i:                                        ; preds = %addrrange_contains.exit.i, %if.end
-  %cmp.i.not.i7.i = icmp slt i128 %add.i, %cond.i.i373
+  %cmp.i.not.i7.i = icmp slt i128 %add.i, %cond.i.i374
   br i1 %cmp.i.not.i7.i, label %if.end160.loopexit, label %addrrange_intersects.exit
 
 addrrange_intersects.exit:                        ; preds = %lor.rhs.i
-  %coerce1.sroa.2.0.extract.shift.i.i9.i = lshr i128 %clip.val54374, 64
+  %coerce1.sroa.2.0.extract.shift.i.i9.i = lshr i128 %clip.val54375, 64
   %coerce1.sroa.2.0.extract.trunc.i.i10.i = trunc nuw i128 %coerce1.sroa.2.0.extract.shift.i.i9.i to i64
-  %b.sroa.0.0.insert.ext.i.i.i11.i = and i128 %clip.val54374, 18446744073709551615
-  %a.sroa.0.0.insert.insert.i.i.i12.i = add i128 %b.sroa.0.0.insert.ext.i.i.i11.i, %cond.i.i373
+  %b.sroa.0.0.insert.ext.i.i.i11.i = and i128 %clip.val54375, 18446744073709551615
+  %a.sroa.0.0.insert.insert.i.i.i12.i = add i128 %b.sroa.0.0.insert.ext.i.i.i11.i, %cond.i.i374
   %17 = lshr i128 %a.sroa.0.0.insert.insert.i.i.i12.i, 64
   %.tr.i.i.i13.i = trunc nuw i128 %17 to i64
   %.narrow.i.i.i14.i = add i64 %.tr.i.i.i13.i, %coerce1.sroa.2.0.extract.trunc.i.i10.i
@@ -8812,20 +8813,20 @@ addrrange_intersects.exit:                        ; preds = %lor.rhs.i
   br i1 %cmp.i11.i19.i, label %addrrange_intersects.exit.if.end32_crit_edge, label %if.end160.loopexit
 
 addrrange_intersects.exit.if.end32_crit_edge:     ; preds = %addrrange_intersects.exit
-  %.pre341 = add i128 %size.sroa.0.0.insert.ext.i, %add.i
-  %.pre342 = lshr i128 %.pre341, 64
-  %.pre343 = trunc nuw i128 %.pre342 to i64
-  %.pre344 = add i64 %.pre343, %coerce29.sroa.2.0.extract.trunc
-  %.pre353 = zext i64 %.pre344 to i128
-  %.pre354 = shl nuw i128 %.pre353, 64
-  %.pre355 = and i128 %.pre341, 18446744073709551615
-  %.pre356 = or disjoint i128 %.pre354, %.pre355
+  %.pre342 = add i128 %size.sroa.0.0.insert.ext.i, %add.i
+  %.pre343 = lshr i128 %.pre342, 64
+  %.pre344 = trunc nuw i128 %.pre343 to i64
+  %.pre345 = add i64 %.pre344, %coerce29.sroa.2.0.extract.trunc
+  %.pre354 = zext i64 %.pre345 to i128
+  %.pre355 = shl nuw i128 %.pre354, 64
+  %.pre356 = and i128 %.pre342, 18446744073709551615
+  %.pre357 = or disjoint i128 %.pre355, %.pre356
   br label %if.end32
 
 if.end32:                                         ; preds = %addrrange_intersects.exit.if.end32_crit_edge, %addrrange_contains.exit.i.if.end32_crit_edge
-  %b.sroa.0.0.insert.insert.i20.i.pre-phi = phi i128 [ %b.sroa.0.0.insert.insert.i10.i18.i, %addrrange_intersects.exit.if.end32_crit_edge ], [ %.pre360, %addrrange_contains.exit.i.if.end32_crit_edge ]
-  %a.sroa.0.0.insert.insert.i16.i.pre-phi = phi i128 [ %.pre356, %addrrange_intersects.exit.if.end32_crit_edge ], [ %b.sroa.0.0.insert.insert.i10.i.i, %addrrange_contains.exit.i.if.end32_crit_edge ]
-  %cond.i.i = tail call i128 @llvm.smax.i128(i128 %add.i, i128 %cond.i.i373)
+  %b.sroa.0.0.insert.insert.i20.i.pre-phi = phi i128 [ %b.sroa.0.0.insert.insert.i10.i18.i, %addrrange_intersects.exit.if.end32_crit_edge ], [ %.pre361, %addrrange_contains.exit.i.if.end32_crit_edge ]
+  %a.sroa.0.0.insert.insert.i16.i.pre-phi = phi i128 [ %.pre357, %addrrange_intersects.exit.if.end32_crit_edge ], [ %b.sroa.0.0.insert.insert.i10.i.i, %addrrange_contains.exit.i.if.end32_crit_edge ]
+  %cond.i.i = tail call i128 @llvm.smax.i128(i128 %add.i, i128 %cond.i.i374)
   %retval.sroa.2.0.extract.shift.i.i = lshr i128 %cond.i.i, 64
   %retval.sroa.2.0.extract.trunc.i.i = trunc nuw i128 %retval.sroa.2.0.extract.shift.i.i to i64
   %cond.i21.i = tail call i128 @llvm.smin.i128(i128 %a.sroa.0.0.insert.insert.i16.i.pre-phi, i128 %b.sroa.0.0.insert.insert.i20.i.pre-phi)
@@ -8959,13 +8960,13 @@ for.body85.lr.ph:                                 ; preds = %memory_region_get_d
   %ranges = getelementptr inbounds nuw i8, ptr %view, i64 24
   %nr_allocated.i = getelementptr inbounds nuw i8, ptr %view, i64 36
   %owner.i.i = getelementptr inbounds nuw i8, ptr %mr.tr303, i64 64
-  %.pre = load ptr, ptr %ranges, align 8
+  %.pre336 = load ptr, ptr %ranges, align 8
   br label %for.body85
 
 for.body85:                                       ; preds = %for.body85.lr.ph, %for.inc149
   %38 = phi i32 [ %37, %for.body85.lr.ph ], [ %56, %for.inc149 ]
-  %39 = phi ptr [ %.pre, %for.body85.lr.ph ], [ %57, %for.inc149 ]
-  %40 = phi ptr [ %.pre, %for.body85.lr.ph ], [ %58, %for.inc149 ]
+  %39 = phi ptr [ %.pre336, %for.body85.lr.ph ], [ %57, %for.inc149 ]
+  %40 = phi ptr [ %.pre336, %for.body85.lr.ph ], [ %58, %for.inc149 ]
   %i.0318 = phi i32 [ 0, %for.body85.lr.ph ], [ %inc150, %for.inc149 ]
   %offset_in_region.0317 = phi i64 [ %retval.sroa.0.0.extract.trunc.i, %for.body85.lr.ph ], [ %offset_in_region.1, %for.inc149 ]
   %base.addr.0316 = phi i128 [ %25, %for.body85.lr.ph ], [ %base.addr.1, %for.inc149 ]
@@ -9075,19 +9076,19 @@ int128_get64.exit138:                             ; preds = %flatview_insert.exi
   %inc = add nuw i32 %i.0318, 1
   %add = add i64 %offset_in_region.0317, %retval.sroa.0.0.extract.trunc.i112
   %sub.i141 = sub i128 %remain.0315, %size.sroa.0.0.insert.ext.i121
-  %.pre336 = load ptr, ptr %ranges, align 8
-  %.pre337 = zext i32 %inc to i64
-  %.pre338 = lshr i128 %add.i134, 64
-  %.pre339 = trunc nuw i128 %.pre338 to i64
-  %.pre340 = and i128 %add.i134, 18446744073709551615
+  %.pre337 = load ptr, ptr %ranges, align 8
+  %.pre338 = zext i32 %inc to i64
+  %.pre339 = lshr i128 %add.i134, 64
+  %.pre340 = trunc nuw i128 %.pre339 to i64
+  %.pre341 = and i128 %add.i134, 18446744073709551615
   br label %if.end125
 
 if.end125:                                        ; preds = %int128_get64.exit138, %if.end93
-  %a.sroa.0.0.insert.ext.i144.pre-phi = phi i128 [ %.pre340, %int128_get64.exit138 ], [ %a.sroa.0.0.insert.ext.i80, %if.end93 ]
-  %coerce126.sroa.2.0.extract.trunc.pre-phi = phi i64 [ %.pre339, %int128_get64.exit138 ], [ %coerce89.sroa.2.0.extract.trunc, %if.end93 ]
+  %a.sroa.0.0.insert.ext.i144.pre-phi = phi i128 [ %.pre341, %int128_get64.exit138 ], [ %a.sroa.0.0.insert.ext.i80, %if.end93 ]
+  %coerce126.sroa.2.0.extract.trunc.pre-phi = phi i64 [ %.pre340, %int128_get64.exit138 ], [ %coerce89.sroa.2.0.extract.trunc, %if.end93 ]
   %50 = phi i32 [ %inc.i, %int128_get64.exit138 ], [ %38, %if.end93 ]
-  %idxprom131.pre-phi = phi i64 [ %.pre337, %int128_get64.exit138 ], [ %idxprom, %if.end93 ]
-  %51 = phi ptr [ %.pre336, %int128_get64.exit138 ], [ %39, %if.end93 ]
+  %idxprom131.pre-phi = phi i64 [ %.pre338, %int128_get64.exit138 ], [ %idxprom, %if.end93 ]
+  %51 = phi ptr [ %.pre337, %int128_get64.exit138 ], [ %39, %if.end93 ]
   %remain.2 = phi i128 [ %sub.i141, %int128_get64.exit138 ], [ %remain.0315, %if.end93 ]
   %base.addr.2 = phi i128 [ %add.i134, %int128_get64.exit138 ], [ %base.addr.0316, %if.end93 ]
   %offset_in_region.2 = phi i64 [ %add, %int128_get64.exit138 ], [ %offset_in_region.0317, %if.end93 ]
@@ -9234,10 +9235,10 @@ flatview_insert.exit246:                          ; preds = %if.end.i222, %land.
   br label %if.end160
 
 if.end160.loopexit:                               ; preds = %lor.rhs.i, %addrrange_intersects.exit, %if.then35
-  %size.sroa.0.0.insert.insert.i.i416 = phi i128 [ %size.sroa.0.0.insert.insert.i.i417, %lor.rhs.i ], [ %size.sroa.0.0.insert.insert.i.i417, %addrrange_intersects.exit ], [ %size.sroa.0.0.insert.insert.i.i, %if.then35 ]
-  %cond.i.i413 = phi i128 [ %cond.i.i414, %lor.rhs.i ], [ %cond.i.i414, %addrrange_intersects.exit ], [ %cond.i.i, %if.then35 ]
-  store i128 %cond.i.i413, ptr %clip, align 1
-  store i128 %size.sroa.0.0.insert.insert.i.i416, ptr %1, align 1
+  %size.sroa.0.0.insert.insert.i.i417 = phi i128 [ %size.sroa.0.0.insert.insert.i.i418, %lor.rhs.i ], [ %size.sroa.0.0.insert.insert.i.i418, %addrrange_intersects.exit ], [ %size.sroa.0.0.insert.insert.i.i, %if.then35 ]
+  %cond.i.i414 = phi i128 [ %cond.i.i415, %lor.rhs.i ], [ %cond.i.i415, %addrrange_intersects.exit ], [ %cond.i.i, %if.then35 ]
+  store i128 %cond.i.i414, ptr %clip, align 1
+  store i128 %size.sroa.0.0.insert.insert.i.i417, ptr %1, align 1
   br label %if.end160
 
 if.end160:                                        ; preds = %if.end160.loopexit, %entry, %for.end, %flatview_insert.exit246, %for.end151

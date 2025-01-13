@@ -334,12 +334,12 @@ for.cond64.preheader:                             ; preds = %for.end33
   br i1 %cmp4.not.i, label %for.end80, label %for.body67.lr.ph
 
 for.body67.lr.ph:                                 ; preds = %for.cond64.preheader
-  %cmp8.not.i = icmp eq i32 %notificationLevel, 0
-  %cmp23.i = icmp ugt i32 %notificationLevel, 2
-  %wide.trip.count188 = zext i32 %nbFiles to i64
   %shl.i = shl nuw i32 1, %params.sroa.0.0.copyload
   %narrow.i = call i32 @llvm.smin.i32(i32 %shl.i, i32 131072)
   %spec.select.i = sext i32 %narrow.i to i64
+  %cmp8.not.i = icmp eq i32 %notificationLevel, 0
+  %cmp23.i = icmp ugt i32 %notificationLevel, 2
+  %wide.trip.count188 = zext i32 %nbFiles to i64
   br label %for.body67
 
 if.then52:                                        ; preds = %for.end33

@@ -2686,7 +2686,7 @@ _ZN9grpc_core11HPackParser6StringD2Ev.exit:       ; preds = %entry, %_ZSt10__do_
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN9grpc_core11HPackParser6String4TakeEv(ptr noalias nocapture writeonly sret(%"class.grpc_core::Slice") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(40) %this) local_unnamed_addr #3 align 2 {
+define void @_ZN9grpc_core11HPackParser6String4TakeEv(ptr noalias nocapture writeonly sret(%"class.grpc_core::Slice") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this) local_unnamed_addr #3 align 2 {
 entry:
   %ref.tmp.i.i10 = alloca %struct.grpc_slice, align 8
   %ref.tmp.i.i = alloca %struct.grpc_slice, align 8

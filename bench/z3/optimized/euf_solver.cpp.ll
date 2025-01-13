@@ -6326,10 +6326,10 @@ land.lhs.true:                                    ; preds = %if.end20
 sw.bb55.thread:                                   ; preds = %land.lhs.true
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %agg.tmp5830)
   store i32 %17, ptr %agg.tmp5830, align 8
-  %agg.tmp58.sroa.233.0.agg.tmp5830.sroa_idx46 = getelementptr inbounds nuw i8, ptr %agg.tmp5830, i64 8
-  store i64 %cnstr.0, ptr %agg.tmp58.sroa.233.0.agg.tmp5830.sroa_idx46, align 8
-  %agg.tmp58.sroa.3.0.agg.tmp5830.sroa_idx47 = getelementptr inbounds nuw i8, ptr %agg.tmp5830, i64 16
-  store i32 3, ptr %agg.tmp58.sroa.3.0.agg.tmp5830.sroa_idx47, align 8
+  %agg.tmp58.sroa.233.0.agg.tmp5830.sroa_idx45 = getelementptr inbounds nuw i8, ptr %agg.tmp5830, i64 8
+  store i64 %cnstr.0, ptr %agg.tmp58.sroa.233.0.agg.tmp5830.sroa_idx45, align 8
+  %agg.tmp58.sroa.3.0.agg.tmp5830.sroa_idx46 = getelementptr inbounds nuw i8, ptr %agg.tmp5830, i64 16
+  store i32 3, ptr %agg.tmp58.sroa.3.0.agg.tmp5830.sroa_idx46, align 8
   br label %sw.bb.i
 
 if.then31:                                        ; preds = %land.lhs.true
@@ -6423,7 +6423,7 @@ sw.bb55:                                          ; preds = %if.end34, %if.end34
   %switch = icmp eq i32 %21, -1
   br i1 %switch, label %sw.bb.i, label %sw.bb10.i
 
-sw.bb.i:                                          ; preds = %sw.bb55, %sw.bb55.thread
+sw.bb.i:                                          ; preds = %sw.bb55.thread, %sw.bb55
   %35 = phi ptr [ %16, %sw.bb55.thread ], [ %22, %sw.bb55 ]
   %xor.i.i = xor i32 %storemerge.in.sroa.speculated, 1
   tail call void @_ZN3sat6solver12set_conflictENS_13justificationENS_7literalE(ptr noundef nonnull align 8 dereferenceable(4408) %35, ptr noundef nonnull byval(%"class.sat::justification") align 8 %agg.tmp5830, i32 %xor.i.i)

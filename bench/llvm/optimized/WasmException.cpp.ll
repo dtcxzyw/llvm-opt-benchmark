@@ -104,7 +104,6 @@ _ZN4llvm5TwineC2EPKc.exit:                        ; preds = %20, %23
 
 32:                                               ; preds = %_ZN4llvm5TwineC2EPKc.exit
   %33 = load ptr, ptr %7, align 8
-  store i8 1, ptr %18, align 8
   store i8 1, ptr %19, align 1
   %34 = load i8, ptr %21, align 1
   %.not.i11 = icmp eq i8 %34, 0

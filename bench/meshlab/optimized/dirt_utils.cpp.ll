@@ -47,13 +47,6 @@ module asm ".previous"
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
 %"class.std::allocator.161" = type { i8 }
-%"class.vcg::face::NormalAbs" = type { %"class.vcg::Arity3.base", %"class.vcg::Point3" }
-%"class.vcg::Arity3.base" = type { %"class.vcg::face::BitFlags.base" }
-%"class.vcg::face::BitFlags.base" = type <{ %"class.vcg::Arity2", i32 }>
-%"class.vcg::Arity2" = type { %"class.vcg::face::VertexRef" }
-%"class.vcg::face::VertexRef" = type { %"class.vcg::Arity1", [3 x ptr] }
-%"class.vcg::Arity1" = type { %"class.vcg::face::InfoOcf" }
-%"class.vcg::face::InfoOcf" = type { ptr }
 %"class.vcg::face::vector_ocf<CFaceO>::WedgeTexTypePack" = type { [3 x %"class.vcg::TexCoord2"] }
 %"class.vcg::TexCoord2" = type <{ [1 x %"class.vcg::Point2.151"], [1 x i16], [2 x i8] }>
 %"class.vcg::Point2.151" = type { [2 x float] }
@@ -81,6 +74,13 @@ module asm ".previous"
 %"class.vcg::face::QualityOcf" = type { %"class.vcg::Arity4" }
 %"class.vcg::Arity4" = type { %"class.vcg::face::Normal3m" }
 %"class.vcg::face::Normal3m" = type { %"class.vcg::face::NormalAbs" }
+%"class.vcg::face::NormalAbs" = type { %"class.vcg::Arity3.base", %"class.vcg::Point3" }
+%"class.vcg::Arity3.base" = type { %"class.vcg::face::BitFlags.base" }
+%"class.vcg::face::BitFlags.base" = type <{ %"class.vcg::Arity2", i32 }>
+%"class.vcg::Arity2" = type { %"class.vcg::face::VertexRef" }
+%"class.vcg::face::VertexRef" = type { %"class.vcg::Arity1", [3 x ptr] }
+%"class.vcg::Arity1" = type { %"class.vcg::face::InfoOcf" }
+%"class.vcg::face::InfoOcf" = type { ptr }
 %"struct.std::_Rb_tree<vcg::PointerToAttribute, vcg::PointerToAttribute, std::_Identity<vcg::PointerToAttribute>, std::less<vcg::PointerToAttribute>>::_Alloc_node" = type { ptr }
 %"class.vcg::PointerToAttribute" = type { ptr, %"class.std::__cxx11::basic_string", i32, i32, i32, %"struct.std::type_index" }
 %"struct.std::type_index" = type { ptr }
@@ -1772,7 +1772,6 @@ define void @_Z8DrawDustP9MeshModelS0_(ptr noundef %0, ptr noundef %1) local_unn
   %8 = alloca %"class.std::__cxx11::basic_string", align 8
   %9 = alloca %"class.std::allocator.161", align 1
   %10 = alloca %"class.vcg::Point3", align 4
-  %.sroa.043 = alloca %"class.vcg::face::NormalAbs", align 8
   %11 = alloca %"class.std::__cxx11::basic_string", align 8
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 575
   %13 = load i8, ptr %12, align 1
@@ -1842,9 +1841,6 @@ define void @_Z8DrawDustP9MeshModelS0_(ptr noundef %0, ptr noundef %1) local_unn
   %41 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %42 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %43 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  %.sroa.3.0..sroa.043.sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.043, i64 8
-  %.sroa.4.0..sroa.043.sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.043, i64 16
-  %.sroa.5.0..sroa.043.sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.043, i64 24
   br label %44
 
 44:                                               ; preds = %.lr.ph, %124
@@ -1877,12 +1873,14 @@ define void @_Z8DrawDustP9MeshModelS0_(ptr noundef %0, ptr noundef %1) local_unn
   %.sroa.050.0.copyload = load float, ptr %63, align 4
   %.sroa.251.0..sroa_idx = getelementptr inbounds nuw i8, ptr %61, i64 28
   %.sroa.251.0.copyload = load float, ptr %.sroa.251.0..sroa_idx, align 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.043, ptr noundef nonnull align 8 dereferenceable(48) %52, i64 48, i1 false)
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %52, i64 8
+  %.sroa.3.0.copyload = load ptr, ptr %.sroa.3.0..sroa_idx, align 8
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %52, i64 16
+  %.sroa.4.0.copyload = load ptr, ptr %.sroa.4.0..sroa_idx, align 8
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %52, i64 24
+  %.sroa.5.0.copyload = load ptr, ptr %.sroa.5.0..sroa_idx, align 8
   %64 = getelementptr inbounds nuw i8, ptr %.sroa.059.067, i64 8
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %4)
-  %.sroa.3.0.copyload = load ptr, ptr %.sroa.3.0..sroa.043.sroa_idx, align 8
-  %.sroa.4.0.copyload = load ptr, ptr %.sroa.4.0..sroa.043.sroa_idx, align 8
-  %.sroa.5.0.copyload = load ptr, ptr %.sroa.5.0..sroa.043.sroa_idx, align 8
   %65 = getelementptr inbounds nuw i8, ptr %.sroa.4.0.copyload, i64 8
   %66 = getelementptr inbounds nuw i8, ptr %.sroa.3.0.copyload, i64 8
   %67 = load float, ptr %65, align 4
@@ -1920,7 +1918,7 @@ define void @_Z8DrawDustP9MeshModelS0_(ptr noundef %0, ptr noundef %1) local_unn
   %.sroa.0.4.vec.insert.i21.i.i = insertelement <2 x float> %.sroa.0.0.vec.insert.i20.i.i, float %94, i64 1
   store <2 x float> %.sroa.0.4.vec.insert.i21.i.i, ptr %4, align 8
   store float %97, ptr %.sroa.2.0..sroa_idx.i, align 8
-  %98 = invoke noundef zeroext i1 @_ZN3vcg23InterpolationParametersI6CFaceOfEEbT_RKNS_6Point3IT0_EES7_RS5_(ptr noundef nonnull byval(%class.CFaceO) align 8 %.sroa.043, ptr noundef nonnull align 4 dereferenceable(12) %4, ptr noundef nonnull align 4 dereferenceable(12) %64, ptr noundef nonnull align 4 dereferenceable(12) %10)
+  %98 = invoke noundef zeroext i1 @_ZN3vcg23InterpolationParametersI6CFaceOfEEbT_RKNS_6Point3IT0_EES7_RS5_(ptr noundef nonnull byval(%class.CFaceO) align 8 %52, ptr noundef nonnull align 4 dereferenceable(12) %4, ptr noundef nonnull align 4 dereferenceable(12) %64, ptr noundef nonnull align 4 dereferenceable(12) %10)
           to label %99 unwind label %.loopexit
 
 99:                                               ; preds = %44

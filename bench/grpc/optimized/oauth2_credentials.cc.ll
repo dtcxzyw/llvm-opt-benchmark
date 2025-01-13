@@ -4296,7 +4296,7 @@ _ZN37grpc_oauth2_token_fetcher_credentialsC2Ev.exit: ; preds = %invoke.cont4.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_Z61grpc_refresh_token_credentials_create_from_auth_refresh_token23grpc_auth_refresh_token(ptr noalias nocapture writeonly sret(%"class.grpc_core::RefCountedPtr") align 8 %agg.result, ptr noundef byval(%struct.grpc_auth_refresh_token) align 8 %refresh_token) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define void @_Z61grpc_refresh_token_credentials_create_from_auth_refresh_token23grpc_auth_refresh_token(ptr noalias nocapture writeonly sret(%"class.grpc_core::RefCountedPtr") align 8 %agg.result, ptr nocapture noundef readonly byval(%struct.grpc_auth_refresh_token) align 8 %refresh_token) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %refresh_token, align 8
   %call.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(8) @.str) #29

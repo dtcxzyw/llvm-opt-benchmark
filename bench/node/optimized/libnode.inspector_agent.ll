@@ -4172,7 +4172,7 @@ declare void @_ZN4node20PrintCaughtExceptionEPN2v87IsolateENS0_5LocalINS0_7Conte
 declare void @_ZN2v88TryCatchD1Ev(ptr noundef nonnull align 8 dereferenceable(41)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node9inspector5Agent18AsyncTaskScheduledERKN12v8_inspector10StringViewEPvb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(186) %this, ptr noundef nonnull align 8 dereferenceable(24) %task_name, ptr noundef %task, i1 noundef zeroext %recurring) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZN4node9inspector5Agent18AsyncTaskScheduledERKN12v8_inspector10StringViewEPvb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(186) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %task_name, ptr noundef %task, i1 noundef zeroext %recurring) local_unnamed_addr #3 align 2 {
 entry:
   %client_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %client_, align 8

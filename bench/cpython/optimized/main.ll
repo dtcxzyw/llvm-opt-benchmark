@@ -2797,7 +2797,7 @@ declare i32 @kill(i32 noundef, i32 noundef) local_unnamed_addr #4
 declare i32 @getpid() local_unnamed_addr #4
 
 ; Function Attrs: noreturn nounwind uwtable
-define internal fastcc void @pymain_exit_error(ptr noundef byval(%struct.PyStatus) align 8 %status) unnamed_addr #8 {
+define internal fastcc void @pymain_exit_error(ptr nocapture noundef readonly byval(%struct.PyStatus) align 8 %status) unnamed_addr #8 {
 entry:
   %0 = load i32, ptr %status, align 8
   %cmp = icmp eq i32 %0, 2

@@ -5147,13 +5147,13 @@ _ZNSt12_Vector_baseIjSaIjEE13_M_deallocateEPjm.exit.i: ; preds = %if.then.i.i121
   store ptr %add.ptr21.i123, ptr %_M_end_of_storage.i.i109, align 8
   %.pre1172 = load ptr, ptr %_M_finish.i961071, align 8
   %.pre1173 = load ptr, ptr %curve, align 8
-  %.pre1202 = ptrtoint ptr %.pre1172 to i64
-  %.pre1203 = ptrtoint ptr %.pre1173 to i64
-  %.pre1204 = sub i64 %.pre1202, %.pre1203
+  %.pre1204 = ptrtoint ptr %.pre1172 to i64
+  %.pre1205 = ptrtoint ptr %.pre1173 to i64
+  %.pre1206 = sub i64 %.pre1204, %.pre1205
   br label %_ZNSt6vectorIjSaIjEE7reserveEm.exit
 
 _ZNSt6vectorIjSaIjEE7reserveEm.exit:              ; preds = %if.end.i108, %_ZNSt12_Vector_baseIjSaIjEE13_M_deallocateEPjm.exit.i
-  %sub.ptr.sub.i.i128.pre-phi = phi i64 [ %sub.ptr.sub.i105, %if.end.i108 ], [ %.pre1204, %_ZNSt12_Vector_baseIjSaIjEE13_M_deallocateEPjm.exit.i ]
+  %sub.ptr.sub.i.i128.pre-phi = phi i64 [ %sub.ptr.sub.i105, %if.end.i108 ], [ %.pre1206, %_ZNSt12_Vector_baseIjSaIjEE13_M_deallocateEPjm.exit.i ]
   %24 = phi ptr [ %19, %if.end.i108 ], [ %.pre1173, %_ZNSt12_Vector_baseIjSaIjEE13_M_deallocateEPjm.exit.i ]
   %25 = phi ptr [ %20, %if.end.i108 ], [ %.pre1172, %_ZNSt12_Vector_baseIjSaIjEE13_M_deallocateEPjm.exit.i ]
   %cmp.not.i.i.i.i129 = icmp eq ptr %25, %24
@@ -5469,10 +5469,10 @@ if.else.i.i.i:                                    ; preds = %.noexc191
 _ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN6Assimp3IFC11TempOpeningESt6vectorIS4_SaIS4_EEEENS4_14DistanceSorterEEvT_SB_T0_.exit: ; preds = %_ZSt26__unguarded_insertion_sortIN9__gnu_cxx17__normal_iteratorIPN6Assimp3IFC11TempOpeningESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterINS4_14DistanceSorterEEEEvT_SE_T0_.exit.i.i.i, %if.else.i.i.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %agg.tmp101.i.sroa.0.i)
   %.pre1183.pre = load ptr, ptr %apply_openings, align 8
+  %.pre1185.pre = load ptr, ptr %.pre1183.pre, align 8
+  %_M_finish.i195.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre1183.pre, i64 8
+  %.pre1184.pre = load ptr, ptr %_M_finish.i195.phi.trans.insert.phi.trans.insert, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %agg.tmp32.i)
-  %_M_finish.i195.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre1183.pre, i64 8
-  %.pre1184 = load ptr, ptr %_M_finish.i195.phi.trans.insert, align 8
-  %.pre1185 = load ptr, ptr %.pre1183.pre, align 8
   br label %if.end79
 
 lpad74.loopexit:                                  ; preds = %if.then152
@@ -5497,8 +5497,8 @@ lpad74.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; preds = %if.then
   br label %ehcleanup418
 
 if.end79:                                         ; preds = %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN6Assimp3IFC11TempOpeningESt6vectorIS4_SaIS4_EEEENS4_14DistanceSorterEEvT_SB_T0_.exit, %if.then61
-  %90 = phi ptr [ %.pre1185, %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN6Assimp3IFC11TempOpeningESt6vectorIS4_SaIS4_EEEENS4_14DistanceSorterEEvT_SB_T0_.exit ], [ %86, %if.then61 ]
-  %91 = phi ptr [ %.pre1184, %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN6Assimp3IFC11TempOpeningESt6vectorIS4_SaIS4_EEEENS4_14DistanceSorterEEvT_SB_T0_.exit ], [ %85, %if.then61 ]
+  %90 = phi ptr [ %.pre1185.pre, %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN6Assimp3IFC11TempOpeningESt6vectorIS4_SaIS4_EEEENS4_14DistanceSorterEEvT_SB_T0_.exit ], [ %86, %if.then61 ]
+  %91 = phi ptr [ %.pre1184.pre, %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN6Assimp3IFC11TempOpeningESt6vectorIS4_SaIS4_EEEENS4_14DistanceSorterEEvT_SB_T0_.exit ], [ %85, %if.then61 ]
   %92 = phi ptr [ %.pre1183.pre, %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN6Assimp3IFC11TempOpeningESt6vectorIS4_SaIS4_EEEENS4_14DistanceSorterEEvT_SB_T0_.exit ], [ %84, %if.then61 ]
   %_M_finish.i195 = getelementptr inbounds nuw i8, ptr %92, i64 8
   %sub.ptr.lhs.cast.i196 = ptrtoint ptr %91 to i64

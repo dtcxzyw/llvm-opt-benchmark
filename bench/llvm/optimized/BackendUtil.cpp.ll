@@ -8735,7 +8735,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_118EmitAssemblyHelper23RunOptimizat
   %82 = alloca %"class.std::allocator", align 1
   %83 = alloca %"class.llvm::IntrusiveRefCntPtr", align 8
   %84 = alloca %"class.std::optional.527", align 8
-  %85 = alloca %"class.llvm::PipelineTuningOptions", align 4
+  %85 = alloca %"class.llvm::PipelineTuningOptions", align 8
   %86 = alloca %"class.llvm::AnalysisManager", align 8
   %87 = alloca %"class.llvm::AnalysisManager.566", align 8
   %88 = alloca %"class.llvm::AnalysisManager.576", align 8
@@ -9465,7 +9465,7 @@ _ZNSt8optionalIN4llvm10PGOOptionsEED2Ev.exit:     ; preds = %428, %_ZN4llvm13Tar
   %433 = trunc i64 %431 to i8
   %434 = and i8 %433, 1
   store i8 %434, ptr %432, align 1
-  store i8 %434, ptr %85, align 4
+  store i8 %434, ptr %85, align 8
   %435 = getelementptr inbounds nuw i8, ptr %85, i64 1
   %436 = lshr i8 %433, 6
   %437 = and i8 %436, 1
@@ -9487,7 +9487,7 @@ _ZNSt8optionalIN4llvm10PGOOptionsEED2Ev.exit:     ; preds = %428, %_ZN4llvm13Tar
   %450 = trunc i64 %448 to i8
   %451 = and i8 %450, 1
   %452 = xor i8 %451, 1
-  store i8 %452, ptr %449, align 4
+  store i8 %452, ptr %449, align 8
   %453 = getelementptr inbounds nuw i8, ptr %85, i64 17
   %454 = lshr i64 %443, 45
   %455 = trunc i64 %454 to i8
@@ -9518,7 +9518,7 @@ _ZNSt8optionalIN4llvm10PGOOptionsEED2Ev.exit:     ; preds = %428, %_ZN4llvm13Tar
   call void @_ZN4llvm24StandardInstrumentationsC1ERNS_11LLVMContextEbbNS_16PrintPassOptionsE(ptr noundef nonnull align 8 dereferenceable(1066) %91, ptr noundef nonnull align 8 dereferenceable(8) %463, i1 noundef zeroext %468, i1 noundef zeroext %472, i24 %.sroa.2515.0.insert.insert) #22
   call void @_ZN4llvm24StandardInstrumentations17registerCallbacksERNS_28PassInstrumentationCallbacksEPNS_15AnalysisManagerINS_6ModuleEJEEE(ptr noundef nonnull align 8 dereferenceable(1066) %91, ptr noundef nonnull align 8 dereferenceable(1464) %90, ptr noundef nonnull %89) #22
   %473 = load ptr, ptr %410, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %93, ptr noundef nonnull align 4 dereferenceable(28) %85, i64 28, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %93, ptr noundef nonnull align 8 dereferenceable(28) %85, i64 28, i1 false)
   %474 = getelementptr inbounds nuw i8, ptr %94, i64 152
   store i8 0, ptr %474, align 8
   %475 = load i8, ptr %133, align 8

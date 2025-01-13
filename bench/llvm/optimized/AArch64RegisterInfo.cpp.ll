@@ -5595,8 +5595,6 @@ define dso_local noundef zeroext i1 @_ZNK4llvm19AArch64RegisterInfo19eliminateFr
   %76 = zext i32 %75 to i64
   %77 = add nsw i64 %73, %76
   store i64 %77, ptr %10, align 8
-  %.sroa.212.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 8
-  store i64 0, ptr %.sroa.212.0..sroa_idx, align 8
   br label %143
 
 78:                                               ; preds = %59

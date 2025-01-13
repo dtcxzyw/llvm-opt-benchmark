@@ -73398,8 +73398,8 @@ terminate.lpad:                                   ; preds = %entry
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto217ForeignEnumProto2EE5clearEv(ptr noundef nonnull align 8 dereferenceable(24) %this) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %agg.tmp.i.i = alloca %"class.google::protobuf::Map<std::__cxx11::basic_string<char>, protobuf_test_messages::proto2::ForeignEnumProto2>::InnerMap::iterator_base.300", align 8
   %agg.tmp1.i = alloca %"class.google::protobuf::Map<std::__cxx11::basic_string<char>, protobuf_test_messages::proto2::ForeignEnumProto2>::iterator", align 8
+  %agg.tmp1 = alloca %"class.google::protobuf::Map<std::__cxx11::basic_string<char>, protobuf_test_messages::proto2::ForeignEnumProto2>::iterator", align 8
   %elements_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %elements_.i, align 8, !noalias !857
   %index_of_first_non_null_.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -73407,7 +73407,7 @@ entry:
   %num_buckets_14.i.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   %2 = load i64, ptr %num_buckets_14.i.i.i.i, align 8, !noalias !860
   %cmp153.i.i.i.i = icmp ult i64 %1, %2
-  br i1 %cmp153.i.i.i.i, label %for.body.lr.ph.i.i.i.i, label %_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto217ForeignEnumProto2EE5eraseENSB_8iteratorESC_.exit
+  br i1 %cmp153.i.i.i.i, label %for.body.lr.ph.i.i.i.i, label %_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto217ForeignEnumProto2EE5beginEv.exit.thread
 
 for.body.lr.ph.i.i.i.i:                           ; preds = %entry
   %table_.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -73426,84 +73426,89 @@ _ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22
   %arrayidx2.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %3, i64 %xor.i.i.i.i.i.i
   %5 = load ptr, ptr %arrayidx2.i.i.i.i.i.i, align 8, !noalias !860
   %cmp3.i.i.not.i.i.i.i = icmp eq ptr %4, %5
-  br i1 %cmp3.i.i.not.i.i.i.i, label %_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto217ForeignEnumProto2EE5beginEv.exit, label %while.body.lr.ph.i
+  br i1 %cmp3.i.i.not.i.i.i.i, label %_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto217ForeignEnumProto2EE5beginEv.exit, label %_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto217ForeignEnumProto2EE5beginEv.exit.thread12
+
+_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto217ForeignEnumProto2EE5beginEv.exit.thread12: ; preds = %_ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto217ForeignEnumProto2EE8InnerMap24TableEntryIsNonEmptyListEm.exit.i.i.i.i
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %agg.tmp1)
+  store ptr %4, ptr %agg.tmp1, align 8
+  %agg.tmp.sroa.2.0.agg.tmp1.sroa_idx15 = getelementptr inbounds nuw i8, ptr %agg.tmp1, i64 8
+  store ptr %0, ptr %agg.tmp.sroa.2.0.agg.tmp1.sroa_idx15, align 8
+  %agg.tmp.sroa.3.0.agg.tmp1.sroa_idx16 = getelementptr inbounds nuw i8, ptr %agg.tmp1, i64 16
+  store i64 %ref.tmp.sroa.4.0.i, ptr %agg.tmp.sroa.3.0.agg.tmp1.sroa_idx16, align 8
+  br label %while.body.i.preheader
 
 for.inc.i.i.i.i:                                  ; preds = %for.body.i.i.i.i
   %inc.i.i.i.i = add i64 %ref.tmp.sroa.4.0.i, 1
   %exitcond.not.i.i = icmp eq i64 %inc.i.i.i.i, %2
-  br i1 %exitcond.not.i.i, label %_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto217ForeignEnumProto2EE5eraseENSB_8iteratorESC_.exit, label %for.body.i.i.i.i, !llvm.loop !542
+  br i1 %exitcond.not.i.i, label %_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto217ForeignEnumProto2EE5beginEv.exit.thread, label %for.body.i.i.i.i, !llvm.loop !542
+
+_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto217ForeignEnumProto2EE5beginEv.exit.thread: ; preds = %for.inc.i.i.i.i, %entry
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %agg.tmp1)
+  br label %_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto217ForeignEnumProto2EE5eraseENSB_8iteratorESC_.exit
 
 _ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto217ForeignEnumProto2EE5beginEv.exit: ; preds = %_ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto217ForeignEnumProto2EE8InnerMap24TableEntryIsNonEmptyListEm.exit.i.i.i.i
   %_M_left.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %4, i64 32
   %6 = load ptr, ptr %_M_left.i.i.i.i.i.i, align 8, !noalias !860
   %_M_storage.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %6, i64 32
   %7 = load ptr, ptr %_M_storage.i.i.i.i.i.i, align 8, !noalias !860
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %agg.tmp1)
+  store ptr %7, ptr %agg.tmp1, align 8
+  %agg.tmp.sroa.2.0.agg.tmp1.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.tmp1, i64 8
+  store ptr %0, ptr %agg.tmp.sroa.2.0.agg.tmp1.sroa_idx, align 8
+  %agg.tmp.sroa.3.0.agg.tmp1.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.tmp1, i64 16
+  store i64 %ref.tmp.sroa.4.0.i, ptr %agg.tmp.sroa.3.0.agg.tmp1.sroa_idx, align 8
   %cmp.i.i.i.not2.i = icmp eq ptr %7, null
-  br i1 %cmp.i.i.i.not2.i, label %_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto217ForeignEnumProto2EE5eraseENSB_8iteratorESC_.exit, label %while.body.lr.ph.i
+  br i1 %cmp.i.i.i.not2.i, label %_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto217ForeignEnumProto2EE5eraseENSB_8iteratorESC_.exit, label %while.body.i.preheader
 
-while.body.lr.ph.i:                               ; preds = %_ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto217ForeignEnumProto2EE8InnerMap24TableEntryIsNonEmptyListEm.exit.i.i.i.i, %_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto217ForeignEnumProto2EE5beginEv.exit
-  %ref.tmp.sroa.0.0.i20 = phi ptr [ %7, %_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto217ForeignEnumProto2EE5beginEv.exit ], [ %4, %_ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto217ForeignEnumProto2EE8InnerMap24TableEntryIsNonEmptyListEm.exit.i.i.i.i ]
-  %agg.tmp1.sroa.8.0.agg.tmp1.i.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.tmp1.i, i64 8
-  %agg.tmp1.sroa.9.0.agg.tmp1.i.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.tmp1.i, i64 16
-  %agg.tmp1.sroa.8.0.agg.tmp.i.i.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.tmp.i.i, i64 8
-  %agg.tmp1.sroa.9.0.agg.tmp.i.i.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.tmp.i.i, i64 16
+while.body.i.preheader:                           ; preds = %_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto217ForeignEnumProto2EE5beginEv.exit.thread12, %_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto217ForeignEnumProto2EE5beginEv.exit
   br label %while.body.i
 
-while.body.i:                                     ; preds = %_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto217ForeignEnumProto2EE5eraseENSB_8iteratorE.exit.i, %while.body.lr.ph.i
-  %agg.tmp1.sroa.0.0 = phi ptr [ %ref.tmp.sroa.0.0.i20, %while.body.lr.ph.i ], [ %agg.tmp1.sroa.0.0.copyload5, %_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto217ForeignEnumProto2EE5eraseENSB_8iteratorE.exit.i ]
-  %agg.tmp1.sroa.8.0 = phi ptr [ %0, %while.body.lr.ph.i ], [ %agg.tmp1.sroa.8.0.copyload8, %_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto217ForeignEnumProto2EE5eraseENSB_8iteratorE.exit.i ]
-  %agg.tmp1.sroa.9.0 = phi i64 [ %ref.tmp.sroa.4.0.i, %while.body.lr.ph.i ], [ %agg.tmp1.sroa.9.0.copyload11, %_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto217ForeignEnumProto2EE5eraseENSB_8iteratorE.exit.i ]
+while.body.i:                                     ; preds = %while.body.i.preheader, %_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto217ForeignEnumProto2EE5eraseENSB_8iteratorE.exit.i
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %agg.tmp1.i)
-  store ptr %agg.tmp1.sroa.0.0, ptr %agg.tmp1.i, align 8
-  store ptr %agg.tmp1.sroa.8.0, ptr %agg.tmp1.sroa.8.0.agg.tmp1.i.sroa_idx, align 8
-  store i64 %agg.tmp1.sroa.9.0, ptr %agg.tmp1.sroa.9.0.agg.tmp1.i.sroa_idx, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %agg.tmp.i.i)
-  %v_.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp1.sroa.0.0, i64 8
-  %8 = load ptr, ptr %v_.i.i.i.i.i, align 8, !noalias !863
-  store ptr %agg.tmp1.sroa.0.0, ptr %agg.tmp.i.i, align 8
-  store ptr %agg.tmp1.sroa.8.0, ptr %agg.tmp1.sroa.8.0.agg.tmp.i.i.sroa_idx, align 8
-  store i64 %agg.tmp1.sroa.9.0, ptr %agg.tmp1.sroa.9.0.agg.tmp.i.i.sroa_idx, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp1.i, ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp1, i64 24, i1 false)
+  %8 = load ptr, ptr %agg.tmp1.i, align 8, !noalias !863
+  %v_.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %9 = load ptr, ptr %v_.i.i.i.i.i, align 8, !noalias !863
   %call.i.i.i.i = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto217ForeignEnumProto2EE8InnerMap13iterator_baseINSB_12KeyValuePairEEppEv(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp1.i), !noalias !866
-  %9 = load ptr, ptr %elements_.i, align 8, !noalias !863
-  call void @_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto217ForeignEnumProto2EE8InnerMap5eraseENSC_13iterator_baseINSB_12KeyValuePairEEE(ptr noundef nonnull align 8 dereferenceable(48) %9, ptr noundef nonnull byval(%"class.google::protobuf::Map<std::__cxx11::basic_string<char>, protobuf_test_messages::proto2::ForeignEnumProto2>::InnerMap::iterator_base.300") align 8 %agg.tmp.i.i), !noalias !863
-  %10 = load ptr, ptr %this, align 8, !noalias !863
-  %cmp.i.i = icmp ne ptr %10, null
-  %isnull.i.i = icmp eq ptr %8, null
+  %10 = load ptr, ptr %elements_.i, align 8, !noalias !863
+  call void @_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto217ForeignEnumProto2EE8InnerMap5eraseENSC_13iterator_baseINSB_12KeyValuePairEEE(ptr noundef nonnull align 8 dereferenceable(48) %10, ptr noundef nonnull byval(%"class.google::protobuf::Map<std::__cxx11::basic_string<char>, protobuf_test_messages::proto2::ForeignEnumProto2>::InnerMap::iterator_base.300") align 8 %agg.tmp1)
+  %11 = load ptr, ptr %this, align 8, !noalias !863
+  %cmp.i.i = icmp ne ptr %11, null
+  %isnull.i.i = icmp eq ptr %9, null
   %or.cond.i.i = or i1 %isnull.i.i, %cmp.i.i
   br i1 %or.cond.i.i, label %_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto217ForeignEnumProto2EE5eraseENSB_8iteratorE.exit.i, label %delete.notnull.i.i
 
 delete.notnull.i.i:                               ; preds = %while.body.i
-  %11 = load ptr, ptr %8, align 8, !noalias !863
-  %12 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  %cmp.i.i.i.i.i.i = icmp eq ptr %11, %12
+  %12 = load ptr, ptr %9, align 8, !noalias !863
+  %13 = getelementptr inbounds nuw i8, ptr %9, i64 16
+  %cmp.i.i.i.i.i.i = icmp eq ptr %12, %13
   br i1 %cmp.i.i.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i, label %if.then.i.i.i.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i: ; preds = %delete.notnull.i.i
-  %_M_string_length.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %13 = load i64, ptr %_M_string_length.i.i.i.i.i.i, align 8, !noalias !863
-  %cmp3.i.i.i.i.i.i = icmp ult i64 %13, 16
+  %_M_string_length.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %14 = load i64, ptr %_M_string_length.i.i.i.i.i.i, align 8, !noalias !863
+  %cmp3.i.i.i.i.i.i = icmp ult i64 %14, 16
   call void @llvm.assume(i1 %cmp3.i.i.i.i.i.i)
   br label %_ZN6google8protobuf7MapPairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto217ForeignEnumProto2EED2Ev.exit.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %delete.notnull.i.i
-  call void @_ZdlPv(ptr noundef %11) #29, !noalias !863
+  call void @_ZdlPv(ptr noundef %12) #29, !noalias !863
   br label %_ZN6google8protobuf7MapPairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto217ForeignEnumProto2EED2Ev.exit.i.i
 
 _ZN6google8protobuf7MapPairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto217ForeignEnumProto2EED2Ev.exit.i.i: ; preds = %if.then.i.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(36) %8) #28, !noalias !863
-  call void @_ZdlPv(ptr noundef nonnull %8) #29, !noalias !863
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(36) %9) #28, !noalias !863
+  call void @_ZdlPv(ptr noundef nonnull %9) #29, !noalias !863
   br label %_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto217ForeignEnumProto2EE5eraseENSB_8iteratorE.exit.i
 
 _ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto217ForeignEnumProto2EE5eraseENSB_8iteratorE.exit.i: ; preds = %_ZN6google8protobuf7MapPairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto217ForeignEnumProto2EED2Ev.exit.i.i, %while.body.i
-  %agg.tmp1.sroa.0.0.copyload5 = load ptr, ptr %agg.tmp1.i, align 8
-  %agg.tmp1.sroa.8.0.copyload8 = load ptr, ptr %agg.tmp1.sroa.8.0.agg.tmp1.i.sroa_idx, align 8
-  %agg.tmp1.sroa.9.0.copyload11 = load i64, ptr %agg.tmp1.sroa.9.0.agg.tmp1.i.sroa_idx, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp1, ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp1.i, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %agg.tmp1.i)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %agg.tmp.i.i)
-  %cmp.i.i.i.not.i = icmp eq ptr %agg.tmp1.sroa.0.0.copyload5, null
+  %15 = load ptr, ptr %agg.tmp1, align 8
+  %cmp.i.i.i.not.i = icmp eq ptr %15, null
   br i1 %cmp.i.i.i.not.i, label %_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto217ForeignEnumProto2EE5eraseENSB_8iteratorESC_.exit, label %while.body.i, !llvm.loop !871
 
-_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto217ForeignEnumProto2EE5eraseENSB_8iteratorESC_.exit: ; preds = %for.inc.i.i.i.i, %_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto217ForeignEnumProto2EE5eraseENSB_8iteratorE.exit.i, %entry, %_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto217ForeignEnumProto2EE5beginEv.exit
+_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto217ForeignEnumProto2EE5eraseENSB_8iteratorESC_.exit: ; preds = %_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto217ForeignEnumProto2EE5eraseENSB_8iteratorE.exit.i, %_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto217ForeignEnumProto2EE5beginEv.exit.thread, %_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto217ForeignEnumProto2EE5beginEv.exit
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %agg.tmp1)
   ret void
 }
 
@@ -77388,8 +77393,8 @@ terminate.lpad:                                   ; preds = %entry
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto229TestAllTypesProto2_NestedEnumEE5clearEv(ptr noundef nonnull align 8 dereferenceable(24) %this) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %agg.tmp.i.i = alloca %"class.google::protobuf::Map<std::__cxx11::basic_string<char>, protobuf_test_messages::proto2::TestAllTypesProto2_NestedEnum>::InnerMap::iterator_base.328", align 8
   %agg.tmp1.i = alloca %"class.google::protobuf::Map<std::__cxx11::basic_string<char>, protobuf_test_messages::proto2::TestAllTypesProto2_NestedEnum>::iterator", align 8
+  %agg.tmp1 = alloca %"class.google::protobuf::Map<std::__cxx11::basic_string<char>, protobuf_test_messages::proto2::TestAllTypesProto2_NestedEnum>::iterator", align 8
   %elements_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %elements_.i, align 8, !noalias !991
   %index_of_first_non_null_.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -77397,7 +77402,7 @@ entry:
   %num_buckets_14.i.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   %2 = load i64, ptr %num_buckets_14.i.i.i.i, align 8, !noalias !994
   %cmp153.i.i.i.i = icmp ult i64 %1, %2
-  br i1 %cmp153.i.i.i.i, label %for.body.lr.ph.i.i.i.i, label %_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto229TestAllTypesProto2_NestedEnumEE5eraseENSB_8iteratorESC_.exit
+  br i1 %cmp153.i.i.i.i, label %for.body.lr.ph.i.i.i.i, label %_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto229TestAllTypesProto2_NestedEnumEE5beginEv.exit.thread
 
 for.body.lr.ph.i.i.i.i:                           ; preds = %entry
   %table_.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -77416,84 +77421,89 @@ _ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22
   %arrayidx2.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %3, i64 %xor.i.i.i.i.i.i
   %5 = load ptr, ptr %arrayidx2.i.i.i.i.i.i, align 8, !noalias !994
   %cmp3.i.i.not.i.i.i.i = icmp eq ptr %4, %5
-  br i1 %cmp3.i.i.not.i.i.i.i, label %_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto229TestAllTypesProto2_NestedEnumEE5beginEv.exit, label %while.body.lr.ph.i
+  br i1 %cmp3.i.i.not.i.i.i.i, label %_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto229TestAllTypesProto2_NestedEnumEE5beginEv.exit, label %_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto229TestAllTypesProto2_NestedEnumEE5beginEv.exit.thread12
+
+_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto229TestAllTypesProto2_NestedEnumEE5beginEv.exit.thread12: ; preds = %_ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto229TestAllTypesProto2_NestedEnumEE8InnerMap24TableEntryIsNonEmptyListEm.exit.i.i.i.i
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %agg.tmp1)
+  store ptr %4, ptr %agg.tmp1, align 8
+  %agg.tmp.sroa.2.0.agg.tmp1.sroa_idx15 = getelementptr inbounds nuw i8, ptr %agg.tmp1, i64 8
+  store ptr %0, ptr %agg.tmp.sroa.2.0.agg.tmp1.sroa_idx15, align 8
+  %agg.tmp.sroa.3.0.agg.tmp1.sroa_idx16 = getelementptr inbounds nuw i8, ptr %agg.tmp1, i64 16
+  store i64 %ref.tmp.sroa.4.0.i, ptr %agg.tmp.sroa.3.0.agg.tmp1.sroa_idx16, align 8
+  br label %while.body.i.preheader
 
 for.inc.i.i.i.i:                                  ; preds = %for.body.i.i.i.i
   %inc.i.i.i.i = add i64 %ref.tmp.sroa.4.0.i, 1
   %exitcond.not.i.i = icmp eq i64 %inc.i.i.i.i, %2
-  br i1 %exitcond.not.i.i, label %_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto229TestAllTypesProto2_NestedEnumEE5eraseENSB_8iteratorESC_.exit, label %for.body.i.i.i.i, !llvm.loop !520
+  br i1 %exitcond.not.i.i, label %_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto229TestAllTypesProto2_NestedEnumEE5beginEv.exit.thread, label %for.body.i.i.i.i, !llvm.loop !520
+
+_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto229TestAllTypesProto2_NestedEnumEE5beginEv.exit.thread: ; preds = %for.inc.i.i.i.i, %entry
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %agg.tmp1)
+  br label %_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto229TestAllTypesProto2_NestedEnumEE5eraseENSB_8iteratorESC_.exit
 
 _ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto229TestAllTypesProto2_NestedEnumEE5beginEv.exit: ; preds = %_ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto229TestAllTypesProto2_NestedEnumEE8InnerMap24TableEntryIsNonEmptyListEm.exit.i.i.i.i
   %_M_left.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %4, i64 32
   %6 = load ptr, ptr %_M_left.i.i.i.i.i.i, align 8, !noalias !994
   %_M_storage.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %6, i64 32
   %7 = load ptr, ptr %_M_storage.i.i.i.i.i.i, align 8, !noalias !994
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %agg.tmp1)
+  store ptr %7, ptr %agg.tmp1, align 8
+  %agg.tmp.sroa.2.0.agg.tmp1.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.tmp1, i64 8
+  store ptr %0, ptr %agg.tmp.sroa.2.0.agg.tmp1.sroa_idx, align 8
+  %agg.tmp.sroa.3.0.agg.tmp1.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.tmp1, i64 16
+  store i64 %ref.tmp.sroa.4.0.i, ptr %agg.tmp.sroa.3.0.agg.tmp1.sroa_idx, align 8
   %cmp.i.i.i.not2.i = icmp eq ptr %7, null
-  br i1 %cmp.i.i.i.not2.i, label %_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto229TestAllTypesProto2_NestedEnumEE5eraseENSB_8iteratorESC_.exit, label %while.body.lr.ph.i
+  br i1 %cmp.i.i.i.not2.i, label %_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto229TestAllTypesProto2_NestedEnumEE5eraseENSB_8iteratorESC_.exit, label %while.body.i.preheader
 
-while.body.lr.ph.i:                               ; preds = %_ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto229TestAllTypesProto2_NestedEnumEE8InnerMap24TableEntryIsNonEmptyListEm.exit.i.i.i.i, %_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto229TestAllTypesProto2_NestedEnumEE5beginEv.exit
-  %ref.tmp.sroa.0.0.i20 = phi ptr [ %7, %_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto229TestAllTypesProto2_NestedEnumEE5beginEv.exit ], [ %4, %_ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto229TestAllTypesProto2_NestedEnumEE8InnerMap24TableEntryIsNonEmptyListEm.exit.i.i.i.i ]
-  %agg.tmp1.sroa.8.0.agg.tmp1.i.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.tmp1.i, i64 8
-  %agg.tmp1.sroa.9.0.agg.tmp1.i.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.tmp1.i, i64 16
-  %agg.tmp1.sroa.8.0.agg.tmp.i.i.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.tmp.i.i, i64 8
-  %agg.tmp1.sroa.9.0.agg.tmp.i.i.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.tmp.i.i, i64 16
+while.body.i.preheader:                           ; preds = %_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto229TestAllTypesProto2_NestedEnumEE5beginEv.exit.thread12, %_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto229TestAllTypesProto2_NestedEnumEE5beginEv.exit
   br label %while.body.i
 
-while.body.i:                                     ; preds = %_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto229TestAllTypesProto2_NestedEnumEE5eraseENSB_8iteratorE.exit.i, %while.body.lr.ph.i
-  %agg.tmp1.sroa.0.0 = phi ptr [ %ref.tmp.sroa.0.0.i20, %while.body.lr.ph.i ], [ %agg.tmp1.sroa.0.0.copyload5, %_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto229TestAllTypesProto2_NestedEnumEE5eraseENSB_8iteratorE.exit.i ]
-  %agg.tmp1.sroa.8.0 = phi ptr [ %0, %while.body.lr.ph.i ], [ %agg.tmp1.sroa.8.0.copyload8, %_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto229TestAllTypesProto2_NestedEnumEE5eraseENSB_8iteratorE.exit.i ]
-  %agg.tmp1.sroa.9.0 = phi i64 [ %ref.tmp.sroa.4.0.i, %while.body.lr.ph.i ], [ %agg.tmp1.sroa.9.0.copyload11, %_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto229TestAllTypesProto2_NestedEnumEE5eraseENSB_8iteratorE.exit.i ]
+while.body.i:                                     ; preds = %while.body.i.preheader, %_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto229TestAllTypesProto2_NestedEnumEE5eraseENSB_8iteratorE.exit.i
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %agg.tmp1.i)
-  store ptr %agg.tmp1.sroa.0.0, ptr %agg.tmp1.i, align 8
-  store ptr %agg.tmp1.sroa.8.0, ptr %agg.tmp1.sroa.8.0.agg.tmp1.i.sroa_idx, align 8
-  store i64 %agg.tmp1.sroa.9.0, ptr %agg.tmp1.sroa.9.0.agg.tmp1.i.sroa_idx, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %agg.tmp.i.i)
-  %v_.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp1.sroa.0.0, i64 8
-  %8 = load ptr, ptr %v_.i.i.i.i.i, align 8, !noalias !997
-  store ptr %agg.tmp1.sroa.0.0, ptr %agg.tmp.i.i, align 8
-  store ptr %agg.tmp1.sroa.8.0, ptr %agg.tmp1.sroa.8.0.agg.tmp.i.i.sroa_idx, align 8
-  store i64 %agg.tmp1.sroa.9.0, ptr %agg.tmp1.sroa.9.0.agg.tmp.i.i.sroa_idx, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp1.i, ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp1, i64 24, i1 false)
+  %8 = load ptr, ptr %agg.tmp1.i, align 8, !noalias !997
+  %v_.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %9 = load ptr, ptr %v_.i.i.i.i.i, align 8, !noalias !997
   %call.i.i.i.i = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto229TestAllTypesProto2_NestedEnumEE8InnerMap13iterator_baseINSB_12KeyValuePairEEppEv(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp1.i), !noalias !1000
-  %9 = load ptr, ptr %elements_.i, align 8, !noalias !997
-  call void @_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto229TestAllTypesProto2_NestedEnumEE8InnerMap5eraseENSC_13iterator_baseINSB_12KeyValuePairEEE(ptr noundef nonnull align 8 dereferenceable(48) %9, ptr noundef nonnull byval(%"class.google::protobuf::Map<std::__cxx11::basic_string<char>, protobuf_test_messages::proto2::TestAllTypesProto2_NestedEnum>::InnerMap::iterator_base.328") align 8 %agg.tmp.i.i), !noalias !997
-  %10 = load ptr, ptr %this, align 8, !noalias !997
-  %cmp.i.i = icmp ne ptr %10, null
-  %isnull.i.i = icmp eq ptr %8, null
+  %10 = load ptr, ptr %elements_.i, align 8, !noalias !997
+  call void @_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto229TestAllTypesProto2_NestedEnumEE8InnerMap5eraseENSC_13iterator_baseINSB_12KeyValuePairEEE(ptr noundef nonnull align 8 dereferenceable(48) %10, ptr noundef nonnull byval(%"class.google::protobuf::Map<std::__cxx11::basic_string<char>, protobuf_test_messages::proto2::TestAllTypesProto2_NestedEnum>::InnerMap::iterator_base.328") align 8 %agg.tmp1)
+  %11 = load ptr, ptr %this, align 8, !noalias !997
+  %cmp.i.i = icmp ne ptr %11, null
+  %isnull.i.i = icmp eq ptr %9, null
   %or.cond.i.i = or i1 %isnull.i.i, %cmp.i.i
   br i1 %or.cond.i.i, label %_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto229TestAllTypesProto2_NestedEnumEE5eraseENSB_8iteratorE.exit.i, label %delete.notnull.i.i
 
 delete.notnull.i.i:                               ; preds = %while.body.i
-  %11 = load ptr, ptr %8, align 8, !noalias !997
-  %12 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  %cmp.i.i.i.i.i.i = icmp eq ptr %11, %12
+  %12 = load ptr, ptr %9, align 8, !noalias !997
+  %13 = getelementptr inbounds nuw i8, ptr %9, i64 16
+  %cmp.i.i.i.i.i.i = icmp eq ptr %12, %13
   br i1 %cmp.i.i.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i, label %if.then.i.i.i.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i: ; preds = %delete.notnull.i.i
-  %_M_string_length.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %13 = load i64, ptr %_M_string_length.i.i.i.i.i.i, align 8, !noalias !997
-  %cmp3.i.i.i.i.i.i = icmp ult i64 %13, 16
+  %_M_string_length.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %14 = load i64, ptr %_M_string_length.i.i.i.i.i.i, align 8, !noalias !997
+  %cmp3.i.i.i.i.i.i = icmp ult i64 %14, 16
   call void @llvm.assume(i1 %cmp3.i.i.i.i.i.i)
   br label %_ZN6google8protobuf7MapPairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto229TestAllTypesProto2_NestedEnumEED2Ev.exit.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %delete.notnull.i.i
-  call void @_ZdlPv(ptr noundef %11) #29, !noalias !997
+  call void @_ZdlPv(ptr noundef %12) #29, !noalias !997
   br label %_ZN6google8protobuf7MapPairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto229TestAllTypesProto2_NestedEnumEED2Ev.exit.i.i
 
 _ZN6google8protobuf7MapPairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto229TestAllTypesProto2_NestedEnumEED2Ev.exit.i.i: ; preds = %if.then.i.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(36) %8) #28, !noalias !997
-  call void @_ZdlPv(ptr noundef nonnull %8) #29, !noalias !997
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(36) %9) #28, !noalias !997
+  call void @_ZdlPv(ptr noundef nonnull %9) #29, !noalias !997
   br label %_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto229TestAllTypesProto2_NestedEnumEE5eraseENSB_8iteratorE.exit.i
 
 _ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto229TestAllTypesProto2_NestedEnumEE5eraseENSB_8iteratorE.exit.i: ; preds = %_ZN6google8protobuf7MapPairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto229TestAllTypesProto2_NestedEnumEED2Ev.exit.i.i, %while.body.i
-  %agg.tmp1.sroa.0.0.copyload5 = load ptr, ptr %agg.tmp1.i, align 8
-  %agg.tmp1.sroa.8.0.copyload8 = load ptr, ptr %agg.tmp1.sroa.8.0.agg.tmp1.i.sroa_idx, align 8
-  %agg.tmp1.sroa.9.0.copyload11 = load i64, ptr %agg.tmp1.sroa.9.0.agg.tmp1.i.sroa_idx, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp1, ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp1.i, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %agg.tmp1.i)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %agg.tmp.i.i)
-  %cmp.i.i.i.not.i = icmp eq ptr %agg.tmp1.sroa.0.0.copyload5, null
+  %15 = load ptr, ptr %agg.tmp1, align 8
+  %cmp.i.i.i.not.i = icmp eq ptr %15, null
   br i1 %cmp.i.i.i.not.i, label %_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto229TestAllTypesProto2_NestedEnumEE5eraseENSB_8iteratorESC_.exit, label %while.body.i, !llvm.loop !1005
 
-_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto229TestAllTypesProto2_NestedEnumEE5eraseENSB_8iteratorESC_.exit: ; preds = %for.inc.i.i.i.i, %_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto229TestAllTypesProto2_NestedEnumEE5eraseENSB_8iteratorE.exit.i, %entry, %_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto229TestAllTypesProto2_NestedEnumEE5beginEv.exit
+_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto229TestAllTypesProto2_NestedEnumEE5eraseENSB_8iteratorESC_.exit: ; preds = %_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto229TestAllTypesProto2_NestedEnumEE5eraseENSB_8iteratorE.exit.i, %_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto229TestAllTypesProto2_NestedEnumEE5beginEv.exit.thread, %_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto229TestAllTypesProto2_NestedEnumEE5beginEv.exit
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %agg.tmp1)
   ret void
 }
 
@@ -80620,8 +80630,8 @@ terminate.lpad:                                   ; preds = %entry
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto220ForeignMessageProto2EE5clearEv(ptr noundef nonnull align 8 dereferenceable(24) %this) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %agg.tmp.i.i = alloca %"class.google::protobuf::Map<std::__cxx11::basic_string<char>, protobuf_test_messages::proto2::ForeignMessageProto2>::InnerMap::iterator_base.339", align 8
   %agg.tmp1.i = alloca %"class.google::protobuf::Map<std::__cxx11::basic_string<char>, protobuf_test_messages::proto2::ForeignMessageProto2>::iterator", align 8
+  %agg.tmp1 = alloca %"class.google::protobuf::Map<std::__cxx11::basic_string<char>, protobuf_test_messages::proto2::ForeignMessageProto2>::iterator", align 8
   %elements_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %elements_.i, align 8, !noalias !1116
   %index_of_first_non_null_.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -80629,7 +80639,7 @@ entry:
   %num_buckets_14.i.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   %2 = load i64, ptr %num_buckets_14.i.i.i.i, align 8, !noalias !1119
   %cmp153.i.i.i.i = icmp ult i64 %1, %2
-  br i1 %cmp153.i.i.i.i, label %for.body.lr.ph.i.i.i.i, label %_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto220ForeignMessageProto2EE5eraseENSB_8iteratorESC_.exit
+  br i1 %cmp153.i.i.i.i, label %for.body.lr.ph.i.i.i.i, label %_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto220ForeignMessageProto2EE5beginEv.exit.thread
 
 for.body.lr.ph.i.i.i.i:                           ; preds = %entry
   %table_.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -80648,67 +80658,72 @@ _ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22
   %arrayidx2.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %3, i64 %xor.i.i.i.i.i.i
   %5 = load ptr, ptr %arrayidx2.i.i.i.i.i.i, align 8, !noalias !1119
   %cmp3.i.i.not.i.i.i.i = icmp eq ptr %4, %5
-  br i1 %cmp3.i.i.not.i.i.i.i, label %_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto220ForeignMessageProto2EE5beginEv.exit, label %while.body.lr.ph.i
+  br i1 %cmp3.i.i.not.i.i.i.i, label %_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto220ForeignMessageProto2EE5beginEv.exit, label %_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto220ForeignMessageProto2EE5beginEv.exit.thread12
+
+_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto220ForeignMessageProto2EE5beginEv.exit.thread12: ; preds = %_ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto220ForeignMessageProto2EE8InnerMap24TableEntryIsNonEmptyListEm.exit.i.i.i.i
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %agg.tmp1)
+  store ptr %4, ptr %agg.tmp1, align 8
+  %agg.tmp.sroa.2.0.agg.tmp1.sroa_idx15 = getelementptr inbounds nuw i8, ptr %agg.tmp1, i64 8
+  store ptr %0, ptr %agg.tmp.sroa.2.0.agg.tmp1.sroa_idx15, align 8
+  %agg.tmp.sroa.3.0.agg.tmp1.sroa_idx16 = getelementptr inbounds nuw i8, ptr %agg.tmp1, i64 16
+  store i64 %ref.tmp.sroa.4.0.i, ptr %agg.tmp.sroa.3.0.agg.tmp1.sroa_idx16, align 8
+  br label %while.body.i.preheader
 
 for.inc.i.i.i.i:                                  ; preds = %for.body.i.i.i.i
   %inc.i.i.i.i = add i64 %ref.tmp.sroa.4.0.i, 1
   %exitcond.not.i.i = icmp eq i64 %inc.i.i.i.i, %2
-  br i1 %exitcond.not.i.i, label %_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto220ForeignMessageProto2EE5eraseENSB_8iteratorESC_.exit, label %for.body.i.i.i.i, !llvm.loop !498
+  br i1 %exitcond.not.i.i, label %_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto220ForeignMessageProto2EE5beginEv.exit.thread, label %for.body.i.i.i.i, !llvm.loop !498
+
+_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto220ForeignMessageProto2EE5beginEv.exit.thread: ; preds = %for.inc.i.i.i.i, %entry
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %agg.tmp1)
+  br label %_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto220ForeignMessageProto2EE5eraseENSB_8iteratorESC_.exit
 
 _ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto220ForeignMessageProto2EE5beginEv.exit: ; preds = %_ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto220ForeignMessageProto2EE8InnerMap24TableEntryIsNonEmptyListEm.exit.i.i.i.i
   %_M_left.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %4, i64 32
   %6 = load ptr, ptr %_M_left.i.i.i.i.i.i, align 8, !noalias !1119
   %_M_storage.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %6, i64 32
   %7 = load ptr, ptr %_M_storage.i.i.i.i.i.i, align 8, !noalias !1119
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %agg.tmp1)
+  store ptr %7, ptr %agg.tmp1, align 8
+  %agg.tmp.sroa.2.0.agg.tmp1.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.tmp1, i64 8
+  store ptr %0, ptr %agg.tmp.sroa.2.0.agg.tmp1.sroa_idx, align 8
+  %agg.tmp.sroa.3.0.agg.tmp1.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.tmp1, i64 16
+  store i64 %ref.tmp.sroa.4.0.i, ptr %agg.tmp.sroa.3.0.agg.tmp1.sroa_idx, align 8
   %cmp.i.i.i.not2.i = icmp eq ptr %7, null
-  br i1 %cmp.i.i.i.not2.i, label %_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto220ForeignMessageProto2EE5eraseENSB_8iteratorESC_.exit, label %while.body.lr.ph.i
+  br i1 %cmp.i.i.i.not2.i, label %_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto220ForeignMessageProto2EE5eraseENSB_8iteratorESC_.exit, label %while.body.i.preheader
 
-while.body.lr.ph.i:                               ; preds = %_ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto220ForeignMessageProto2EE8InnerMap24TableEntryIsNonEmptyListEm.exit.i.i.i.i, %_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto220ForeignMessageProto2EE5beginEv.exit
-  %ref.tmp.sroa.0.0.i20 = phi ptr [ %7, %_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto220ForeignMessageProto2EE5beginEv.exit ], [ %4, %_ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto220ForeignMessageProto2EE8InnerMap24TableEntryIsNonEmptyListEm.exit.i.i.i.i ]
-  %agg.tmp1.sroa.8.0.agg.tmp1.i.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.tmp1.i, i64 8
-  %agg.tmp1.sroa.9.0.agg.tmp1.i.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.tmp1.i, i64 16
-  %agg.tmp1.sroa.8.0.agg.tmp.i.i.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.tmp.i.i, i64 8
-  %agg.tmp1.sroa.9.0.agg.tmp.i.i.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.tmp.i.i, i64 16
+while.body.i.preheader:                           ; preds = %_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto220ForeignMessageProto2EE5beginEv.exit.thread12, %_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto220ForeignMessageProto2EE5beginEv.exit
   br label %while.body.i
 
-while.body.i:                                     ; preds = %_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto220ForeignMessageProto2EE5eraseENSB_8iteratorE.exit.i, %while.body.lr.ph.i
-  %agg.tmp1.sroa.0.0 = phi ptr [ %ref.tmp.sroa.0.0.i20, %while.body.lr.ph.i ], [ %agg.tmp1.sroa.0.0.copyload5, %_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto220ForeignMessageProto2EE5eraseENSB_8iteratorE.exit.i ]
-  %agg.tmp1.sroa.8.0 = phi ptr [ %0, %while.body.lr.ph.i ], [ %agg.tmp1.sroa.8.0.copyload8, %_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto220ForeignMessageProto2EE5eraseENSB_8iteratorE.exit.i ]
-  %agg.tmp1.sroa.9.0 = phi i64 [ %ref.tmp.sroa.4.0.i, %while.body.lr.ph.i ], [ %agg.tmp1.sroa.9.0.copyload11, %_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto220ForeignMessageProto2EE5eraseENSB_8iteratorE.exit.i ]
+while.body.i:                                     ; preds = %while.body.i.preheader, %_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto220ForeignMessageProto2EE5eraseENSB_8iteratorE.exit.i
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %agg.tmp1.i)
-  store ptr %agg.tmp1.sroa.0.0, ptr %agg.tmp1.i, align 8
-  store ptr %agg.tmp1.sroa.8.0, ptr %agg.tmp1.sroa.8.0.agg.tmp1.i.sroa_idx, align 8
-  store i64 %agg.tmp1.sroa.9.0, ptr %agg.tmp1.sroa.9.0.agg.tmp1.i.sroa_idx, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %agg.tmp.i.i)
-  %v_.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp1.sroa.0.0, i64 8
-  %8 = load ptr, ptr %v_.i.i.i.i.i, align 8, !noalias !1122
-  store ptr %agg.tmp1.sroa.0.0, ptr %agg.tmp.i.i, align 8
-  store ptr %agg.tmp1.sroa.8.0, ptr %agg.tmp1.sroa.8.0.agg.tmp.i.i.sroa_idx, align 8
-  store i64 %agg.tmp1.sroa.9.0, ptr %agg.tmp1.sroa.9.0.agg.tmp.i.i.sroa_idx, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp1.i, ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp1, i64 24, i1 false)
+  %8 = load ptr, ptr %agg.tmp1.i, align 8, !noalias !1122
+  %v_.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %9 = load ptr, ptr %v_.i.i.i.i.i, align 8, !noalias !1122
   %call.i.i.i.i = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto220ForeignMessageProto2EE8InnerMap13iterator_baseINSB_12KeyValuePairEEppEv(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp1.i), !noalias !1125
-  %9 = load ptr, ptr %elements_.i, align 8, !noalias !1122
-  call void @_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto220ForeignMessageProto2EE8InnerMap5eraseENSC_13iterator_baseINSB_12KeyValuePairEEE(ptr noundef nonnull align 8 dereferenceable(48) %9, ptr noundef nonnull byval(%"class.google::protobuf::Map<std::__cxx11::basic_string<char>, protobuf_test_messages::proto2::ForeignMessageProto2>::InnerMap::iterator_base.339") align 8 %agg.tmp.i.i), !noalias !1122
-  %10 = load ptr, ptr %this, align 8, !noalias !1122
-  %cmp.i.i = icmp ne ptr %10, null
-  %isnull.i.i = icmp eq ptr %8, null
+  %10 = load ptr, ptr %elements_.i, align 8, !noalias !1122
+  call void @_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto220ForeignMessageProto2EE8InnerMap5eraseENSC_13iterator_baseINSB_12KeyValuePairEEE(ptr noundef nonnull align 8 dereferenceable(48) %10, ptr noundef nonnull byval(%"class.google::protobuf::Map<std::__cxx11::basic_string<char>, protobuf_test_messages::proto2::ForeignMessageProto2>::InnerMap::iterator_base.339") align 8 %agg.tmp1)
+  %11 = load ptr, ptr %this, align 8, !noalias !1122
+  %cmp.i.i = icmp ne ptr %11, null
+  %isnull.i.i = icmp eq ptr %9, null
   %or.cond.i.i = or i1 %isnull.i.i, %cmp.i.i
   br i1 %or.cond.i.i, label %_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto220ForeignMessageProto2EE5eraseENSB_8iteratorE.exit.i, label %delete.notnull.i.i
 
 delete.notnull.i.i:                               ; preds = %while.body.i
-  call void @_ZN6google8protobuf7MapPairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto220ForeignMessageProto2EED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %8) #28, !noalias !1122
-  call void @_ZdlPv(ptr noundef nonnull %8) #29, !noalias !1122
+  call void @_ZN6google8protobuf7MapPairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto220ForeignMessageProto2EED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %9) #28, !noalias !1122
+  call void @_ZdlPv(ptr noundef nonnull %9) #29, !noalias !1122
   br label %_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto220ForeignMessageProto2EE5eraseENSB_8iteratorE.exit.i
 
 _ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto220ForeignMessageProto2EE5eraseENSB_8iteratorE.exit.i: ; preds = %delete.notnull.i.i, %while.body.i
-  %agg.tmp1.sroa.0.0.copyload5 = load ptr, ptr %agg.tmp1.i, align 8
-  %agg.tmp1.sroa.8.0.copyload8 = load ptr, ptr %agg.tmp1.sroa.8.0.agg.tmp1.i.sroa_idx, align 8
-  %agg.tmp1.sroa.9.0.copyload11 = load i64, ptr %agg.tmp1.sroa.9.0.agg.tmp1.i.sroa_idx, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp1, ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp1.i, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %agg.tmp1.i)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %agg.tmp.i.i)
-  %cmp.i.i.i.not.i = icmp eq ptr %agg.tmp1.sroa.0.0.copyload5, null
+  %12 = load ptr, ptr %agg.tmp1, align 8
+  %cmp.i.i.i.not.i = icmp eq ptr %12, null
   br i1 %cmp.i.i.i.not.i, label %_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto220ForeignMessageProto2EE5eraseENSB_8iteratorESC_.exit, label %while.body.i, !llvm.loop !1130
 
-_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto220ForeignMessageProto2EE5eraseENSB_8iteratorESC_.exit: ; preds = %for.inc.i.i.i.i, %_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto220ForeignMessageProto2EE5eraseENSB_8iteratorE.exit.i, %entry, %_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto220ForeignMessageProto2EE5beginEv.exit
+_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto220ForeignMessageProto2EE5eraseENSB_8iteratorESC_.exit: ; preds = %_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto220ForeignMessageProto2EE5eraseENSB_8iteratorE.exit.i, %_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto220ForeignMessageProto2EE5beginEv.exit.thread, %_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto220ForeignMessageProto2EE5beginEv.exit
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %agg.tmp1)
   ret void
 }
 
@@ -91527,8 +91542,8 @@ terminate.lpad:                                   ; preds = %entry
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN6google8protobuf3MapIbbE5clearEv(ptr noundef nonnull align 8 dereferenceable(24) %this) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %agg.tmp.i.i = alloca %"class.google::protobuf::Map<bool, bool>::InnerMap::iterator_base.376", align 8
   %agg.tmp1.i = alloca %"class.google::protobuf::Map<bool, bool>::iterator", align 8
+  %agg.tmp1 = alloca %"class.google::protobuf::Map<bool, bool>::iterator", align 8
   %elements_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %elements_.i, align 8, !noalias !1567
   %index_of_first_non_null_.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -91536,7 +91551,7 @@ entry:
   %num_buckets_14.i.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   %2 = load i64, ptr %num_buckets_14.i.i.i.i, align 8, !noalias !1570
   %cmp153.i.i.i.i = icmp ult i64 %1, %2
-  br i1 %cmp153.i.i.i.i, label %for.body.lr.ph.i.i.i.i, label %_ZN6google8protobuf3MapIbbE5eraseENS2_8iteratorES3_.exit
+  br i1 %cmp153.i.i.i.i, label %for.body.lr.ph.i.i.i.i, label %_ZN6google8protobuf3MapIbbE5beginEv.exit.thread
 
 for.body.lr.ph.i.i.i.i:                           ; preds = %entry
   %table_.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -91555,66 +91570,71 @@ _ZNK6google8protobuf3MapIbbE8InnerMap24TableEntryIsNonEmptyListEm.exit.i.i.i.i: 
   %arrayidx2.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %3, i64 %xor.i.i.i.i.i.i
   %5 = load ptr, ptr %arrayidx2.i.i.i.i.i.i, align 8, !noalias !1570
   %cmp3.i.i.not.i.i.i.i = icmp eq ptr %4, %5
-  br i1 %cmp3.i.i.not.i.i.i.i, label %_ZN6google8protobuf3MapIbbE5beginEv.exit, label %while.body.lr.ph.i
+  br i1 %cmp3.i.i.not.i.i.i.i, label %_ZN6google8protobuf3MapIbbE5beginEv.exit, label %_ZN6google8protobuf3MapIbbE5beginEv.exit.thread12
+
+_ZN6google8protobuf3MapIbbE5beginEv.exit.thread12: ; preds = %_ZNK6google8protobuf3MapIbbE8InnerMap24TableEntryIsNonEmptyListEm.exit.i.i.i.i
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %agg.tmp1)
+  store ptr %4, ptr %agg.tmp1, align 8
+  %agg.tmp.sroa.2.0.agg.tmp1.sroa_idx15 = getelementptr inbounds nuw i8, ptr %agg.tmp1, i64 8
+  store ptr %0, ptr %agg.tmp.sroa.2.0.agg.tmp1.sroa_idx15, align 8
+  %agg.tmp.sroa.3.0.agg.tmp1.sroa_idx16 = getelementptr inbounds nuw i8, ptr %agg.tmp1, i64 16
+  store i64 %ref.tmp.sroa.4.0.i, ptr %agg.tmp.sroa.3.0.agg.tmp1.sroa_idx16, align 8
+  br label %while.body.i.preheader
 
 for.inc.i.i.i.i:                                  ; preds = %for.body.i.i.i.i
   %inc.i.i.i.i = add i64 %ref.tmp.sroa.4.0.i, 1
   %exitcond.not.i.i = icmp eq i64 %inc.i.i.i.i, %2
-  br i1 %exitcond.not.i.i, label %_ZN6google8protobuf3MapIbbE5eraseENS2_8iteratorES3_.exit, label %for.body.i.i.i.i, !llvm.loop !56
+  br i1 %exitcond.not.i.i, label %_ZN6google8protobuf3MapIbbE5beginEv.exit.thread, label %for.body.i.i.i.i, !llvm.loop !56
+
+_ZN6google8protobuf3MapIbbE5beginEv.exit.thread:  ; preds = %for.inc.i.i.i.i, %entry
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %agg.tmp1)
+  br label %_ZN6google8protobuf3MapIbbE5eraseENS2_8iteratorES3_.exit
 
 _ZN6google8protobuf3MapIbbE5beginEv.exit:         ; preds = %_ZNK6google8protobuf3MapIbbE8InnerMap24TableEntryIsNonEmptyListEm.exit.i.i.i.i
   %_M_left.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %4, i64 32
   %6 = load ptr, ptr %_M_left.i.i.i.i.i.i, align 8, !noalias !1570
   %_M_storage.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %6, i64 32
   %7 = load ptr, ptr %_M_storage.i.i.i.i.i.i, align 8, !noalias !1570
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %agg.tmp1)
+  store ptr %7, ptr %agg.tmp1, align 8
+  %agg.tmp.sroa.2.0.agg.tmp1.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.tmp1, i64 8
+  store ptr %0, ptr %agg.tmp.sroa.2.0.agg.tmp1.sroa_idx, align 8
+  %agg.tmp.sroa.3.0.agg.tmp1.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.tmp1, i64 16
+  store i64 %ref.tmp.sroa.4.0.i, ptr %agg.tmp.sroa.3.0.agg.tmp1.sroa_idx, align 8
   %cmp.i.i.i.not2.i = icmp eq ptr %7, null
-  br i1 %cmp.i.i.i.not2.i, label %_ZN6google8protobuf3MapIbbE5eraseENS2_8iteratorES3_.exit, label %while.body.lr.ph.i
+  br i1 %cmp.i.i.i.not2.i, label %_ZN6google8protobuf3MapIbbE5eraseENS2_8iteratorES3_.exit, label %while.body.i.preheader
 
-while.body.lr.ph.i:                               ; preds = %_ZNK6google8protobuf3MapIbbE8InnerMap24TableEntryIsNonEmptyListEm.exit.i.i.i.i, %_ZN6google8protobuf3MapIbbE5beginEv.exit
-  %ref.tmp.sroa.0.0.i20 = phi ptr [ %7, %_ZN6google8protobuf3MapIbbE5beginEv.exit ], [ %4, %_ZNK6google8protobuf3MapIbbE8InnerMap24TableEntryIsNonEmptyListEm.exit.i.i.i.i ]
-  %agg.tmp1.sroa.8.0.agg.tmp1.i.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.tmp1.i, i64 8
-  %agg.tmp1.sroa.9.0.agg.tmp1.i.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.tmp1.i, i64 16
-  %agg.tmp1.sroa.8.0.agg.tmp.i.i.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.tmp.i.i, i64 8
-  %agg.tmp1.sroa.9.0.agg.tmp.i.i.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.tmp.i.i, i64 16
+while.body.i.preheader:                           ; preds = %_ZN6google8protobuf3MapIbbE5beginEv.exit.thread12, %_ZN6google8protobuf3MapIbbE5beginEv.exit
   br label %while.body.i
 
-while.body.i:                                     ; preds = %_ZN6google8protobuf3MapIbbE5eraseENS2_8iteratorE.exit.i, %while.body.lr.ph.i
-  %agg.tmp1.sroa.0.0 = phi ptr [ %ref.tmp.sroa.0.0.i20, %while.body.lr.ph.i ], [ %agg.tmp1.sroa.0.0.copyload5, %_ZN6google8protobuf3MapIbbE5eraseENS2_8iteratorE.exit.i ]
-  %agg.tmp1.sroa.8.0 = phi ptr [ %0, %while.body.lr.ph.i ], [ %agg.tmp1.sroa.8.0.copyload8, %_ZN6google8protobuf3MapIbbE5eraseENS2_8iteratorE.exit.i ]
-  %agg.tmp1.sroa.9.0 = phi i64 [ %ref.tmp.sroa.4.0.i, %while.body.lr.ph.i ], [ %agg.tmp1.sroa.9.0.copyload11, %_ZN6google8protobuf3MapIbbE5eraseENS2_8iteratorE.exit.i ]
+while.body.i:                                     ; preds = %while.body.i.preheader, %_ZN6google8protobuf3MapIbbE5eraseENS2_8iteratorE.exit.i
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %agg.tmp1.i)
-  store ptr %agg.tmp1.sroa.0.0, ptr %agg.tmp1.i, align 8
-  store ptr %agg.tmp1.sroa.8.0, ptr %agg.tmp1.sroa.8.0.agg.tmp1.i.sroa_idx, align 8
-  store i64 %agg.tmp1.sroa.9.0, ptr %agg.tmp1.sroa.9.0.agg.tmp1.i.sroa_idx, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %agg.tmp.i.i)
-  %v_.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp1.sroa.0.0, i64 8
-  %8 = load ptr, ptr %v_.i.i.i.i.i, align 8, !noalias !1573
-  store ptr %agg.tmp1.sroa.0.0, ptr %agg.tmp.i.i, align 8
-  store ptr %agg.tmp1.sroa.8.0, ptr %agg.tmp1.sroa.8.0.agg.tmp.i.i.sroa_idx, align 8
-  store i64 %agg.tmp1.sroa.9.0, ptr %agg.tmp1.sroa.9.0.agg.tmp.i.i.sroa_idx, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp1.i, ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp1, i64 24, i1 false)
+  %8 = load ptr, ptr %agg.tmp1.i, align 8, !noalias !1573
+  %v_.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %9 = load ptr, ptr %v_.i.i.i.i.i, align 8, !noalias !1573
   %call.i.i.i.i = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN6google8protobuf3MapIbbE8InnerMap13iterator_baseINS2_12KeyValuePairEEppEv(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp1.i), !noalias !1576
-  %9 = load ptr, ptr %elements_.i, align 8, !noalias !1573
-  call void @_ZN6google8protobuf3MapIbbE8InnerMap5eraseENS3_13iterator_baseINS2_12KeyValuePairEEE(ptr noundef nonnull align 8 dereferenceable(48) %9, ptr noundef nonnull byval(%"class.google::protobuf::Map<bool, bool>::InnerMap::iterator_base.376") align 8 %agg.tmp.i.i), !noalias !1573
-  %10 = load ptr, ptr %this, align 8, !noalias !1573
-  %cmp.i.i = icmp ne ptr %10, null
-  %isnull.i.i = icmp eq ptr %8, null
+  %10 = load ptr, ptr %elements_.i, align 8, !noalias !1573
+  call void @_ZN6google8protobuf3MapIbbE8InnerMap5eraseENS3_13iterator_baseINS2_12KeyValuePairEEE(ptr noundef nonnull align 8 dereferenceable(48) %10, ptr noundef nonnull byval(%"class.google::protobuf::Map<bool, bool>::InnerMap::iterator_base.376") align 8 %agg.tmp1)
+  %11 = load ptr, ptr %this, align 8, !noalias !1573
+  %cmp.i.i = icmp ne ptr %11, null
+  %isnull.i.i = icmp eq ptr %9, null
   %or.cond.i.i = or i1 %isnull.i.i, %cmp.i.i
   br i1 %or.cond.i.i, label %_ZN6google8protobuf3MapIbbE5eraseENS2_8iteratorE.exit.i, label %delete.notnull.i.i
 
 delete.notnull.i.i:                               ; preds = %while.body.i
-  call void @_ZdlPv(ptr noundef nonnull %8) #29, !noalias !1573
+  call void @_ZdlPv(ptr noundef nonnull %9) #29, !noalias !1573
   br label %_ZN6google8protobuf3MapIbbE5eraseENS2_8iteratorE.exit.i
 
 _ZN6google8protobuf3MapIbbE5eraseENS2_8iteratorE.exit.i: ; preds = %delete.notnull.i.i, %while.body.i
-  %agg.tmp1.sroa.0.0.copyload5 = load ptr, ptr %agg.tmp1.i, align 8
-  %agg.tmp1.sroa.8.0.copyload8 = load ptr, ptr %agg.tmp1.sroa.8.0.agg.tmp1.i.sroa_idx, align 8
-  %agg.tmp1.sroa.9.0.copyload11 = load i64, ptr %agg.tmp1.sroa.9.0.agg.tmp1.i.sroa_idx, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp1, ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp1.i, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %agg.tmp1.i)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %agg.tmp.i.i)
-  %cmp.i.i.i.not.i = icmp eq ptr %agg.tmp1.sroa.0.0.copyload5, null
+  %12 = load ptr, ptr %agg.tmp1, align 8
+  %cmp.i.i.i.not.i = icmp eq ptr %12, null
   br i1 %cmp.i.i.i.not.i, label %_ZN6google8protobuf3MapIbbE5eraseENS2_8iteratorES3_.exit, label %while.body.i, !llvm.loop !1581
 
-_ZN6google8protobuf3MapIbbE5eraseENS2_8iteratorES3_.exit: ; preds = %for.inc.i.i.i.i, %_ZN6google8protobuf3MapIbbE5eraseENS2_8iteratorE.exit.i, %entry, %_ZN6google8protobuf3MapIbbE5beginEv.exit
+_ZN6google8protobuf3MapIbbE5eraseENS2_8iteratorES3_.exit: ; preds = %_ZN6google8protobuf3MapIbbE5eraseENS2_8iteratorE.exit.i, %_ZN6google8protobuf3MapIbbE5beginEv.exit.thread, %_ZN6google8protobuf3MapIbbE5beginEv.exit
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %agg.tmp1)
   ret void
 }
 
@@ -95178,8 +95198,8 @@ terminate.lpad:                                   ; preds = %entry
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN6google8protobuf3MapIidE5clearEv(ptr noundef nonnull align 8 dereferenceable(24) %this) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %agg.tmp.i.i = alloca %"class.google::protobuf::Map<int, double>::InnerMap::iterator_base.409", align 8
   %agg.tmp1.i = alloca %"class.google::protobuf::Map<int, double>::iterator", align 8
+  %agg.tmp1 = alloca %"class.google::protobuf::Map<int, double>::iterator", align 8
   %elements_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %elements_.i, align 8, !noalias !1728
   %index_of_first_non_null_.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -95187,7 +95207,7 @@ entry:
   %num_buckets_14.i.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   %2 = load i64, ptr %num_buckets_14.i.i.i.i, align 8, !noalias !1731
   %cmp153.i.i.i.i = icmp ult i64 %1, %2
-  br i1 %cmp153.i.i.i.i, label %for.body.lr.ph.i.i.i.i, label %_ZN6google8protobuf3MapIidE5eraseENS2_8iteratorES3_.exit
+  br i1 %cmp153.i.i.i.i, label %for.body.lr.ph.i.i.i.i, label %_ZN6google8protobuf3MapIidE5beginEv.exit.thread
 
 for.body.lr.ph.i.i.i.i:                           ; preds = %entry
   %table_.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -95206,66 +95226,71 @@ _ZNK6google8protobuf3MapIidE8InnerMap24TableEntryIsNonEmptyListEm.exit.i.i.i.i: 
   %arrayidx2.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %3, i64 %xor.i.i.i.i.i.i
   %5 = load ptr, ptr %arrayidx2.i.i.i.i.i.i, align 8, !noalias !1731
   %cmp3.i.i.not.i.i.i.i = icmp eq ptr %4, %5
-  br i1 %cmp3.i.i.not.i.i.i.i, label %_ZN6google8protobuf3MapIidE5beginEv.exit, label %while.body.lr.ph.i
+  br i1 %cmp3.i.i.not.i.i.i.i, label %_ZN6google8protobuf3MapIidE5beginEv.exit, label %_ZN6google8protobuf3MapIidE5beginEv.exit.thread12
+
+_ZN6google8protobuf3MapIidE5beginEv.exit.thread12: ; preds = %_ZNK6google8protobuf3MapIidE8InnerMap24TableEntryIsNonEmptyListEm.exit.i.i.i.i
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %agg.tmp1)
+  store ptr %4, ptr %agg.tmp1, align 8
+  %agg.tmp.sroa.2.0.agg.tmp1.sroa_idx15 = getelementptr inbounds nuw i8, ptr %agg.tmp1, i64 8
+  store ptr %0, ptr %agg.tmp.sroa.2.0.agg.tmp1.sroa_idx15, align 8
+  %agg.tmp.sroa.3.0.agg.tmp1.sroa_idx16 = getelementptr inbounds nuw i8, ptr %agg.tmp1, i64 16
+  store i64 %ref.tmp.sroa.4.0.i, ptr %agg.tmp.sroa.3.0.agg.tmp1.sroa_idx16, align 8
+  br label %while.body.i.preheader
 
 for.inc.i.i.i.i:                                  ; preds = %for.body.i.i.i.i
   %inc.i.i.i.i = add i64 %ref.tmp.sroa.4.0.i, 1
   %exitcond.not.i.i = icmp eq i64 %inc.i.i.i.i, %2
-  br i1 %exitcond.not.i.i, label %_ZN6google8protobuf3MapIidE5eraseENS2_8iteratorES3_.exit, label %for.body.i.i.i.i, !llvm.loop !392
+  br i1 %exitcond.not.i.i, label %_ZN6google8protobuf3MapIidE5beginEv.exit.thread, label %for.body.i.i.i.i, !llvm.loop !392
+
+_ZN6google8protobuf3MapIidE5beginEv.exit.thread:  ; preds = %for.inc.i.i.i.i, %entry
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %agg.tmp1)
+  br label %_ZN6google8protobuf3MapIidE5eraseENS2_8iteratorES3_.exit
 
 _ZN6google8protobuf3MapIidE5beginEv.exit:         ; preds = %_ZNK6google8protobuf3MapIidE8InnerMap24TableEntryIsNonEmptyListEm.exit.i.i.i.i
   %_M_left.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %4, i64 32
   %6 = load ptr, ptr %_M_left.i.i.i.i.i.i, align 8, !noalias !1731
   %_M_storage.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %6, i64 32
   %7 = load ptr, ptr %_M_storage.i.i.i.i.i.i, align 8, !noalias !1731
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %agg.tmp1)
+  store ptr %7, ptr %agg.tmp1, align 8
+  %agg.tmp.sroa.2.0.agg.tmp1.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.tmp1, i64 8
+  store ptr %0, ptr %agg.tmp.sroa.2.0.agg.tmp1.sroa_idx, align 8
+  %agg.tmp.sroa.3.0.agg.tmp1.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.tmp1, i64 16
+  store i64 %ref.tmp.sroa.4.0.i, ptr %agg.tmp.sroa.3.0.agg.tmp1.sroa_idx, align 8
   %cmp.i.i.i.not2.i = icmp eq ptr %7, null
-  br i1 %cmp.i.i.i.not2.i, label %_ZN6google8protobuf3MapIidE5eraseENS2_8iteratorES3_.exit, label %while.body.lr.ph.i
+  br i1 %cmp.i.i.i.not2.i, label %_ZN6google8protobuf3MapIidE5eraseENS2_8iteratorES3_.exit, label %while.body.i.preheader
 
-while.body.lr.ph.i:                               ; preds = %_ZNK6google8protobuf3MapIidE8InnerMap24TableEntryIsNonEmptyListEm.exit.i.i.i.i, %_ZN6google8protobuf3MapIidE5beginEv.exit
-  %ref.tmp.sroa.0.0.i20 = phi ptr [ %7, %_ZN6google8protobuf3MapIidE5beginEv.exit ], [ %4, %_ZNK6google8protobuf3MapIidE8InnerMap24TableEntryIsNonEmptyListEm.exit.i.i.i.i ]
-  %agg.tmp1.sroa.8.0.agg.tmp1.i.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.tmp1.i, i64 8
-  %agg.tmp1.sroa.9.0.agg.tmp1.i.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.tmp1.i, i64 16
-  %agg.tmp1.sroa.8.0.agg.tmp.i.i.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.tmp.i.i, i64 8
-  %agg.tmp1.sroa.9.0.agg.tmp.i.i.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.tmp.i.i, i64 16
+while.body.i.preheader:                           ; preds = %_ZN6google8protobuf3MapIidE5beginEv.exit.thread12, %_ZN6google8protobuf3MapIidE5beginEv.exit
   br label %while.body.i
 
-while.body.i:                                     ; preds = %_ZN6google8protobuf3MapIidE5eraseENS2_8iteratorE.exit.i, %while.body.lr.ph.i
-  %agg.tmp1.sroa.0.0 = phi ptr [ %ref.tmp.sroa.0.0.i20, %while.body.lr.ph.i ], [ %agg.tmp1.sroa.0.0.copyload5, %_ZN6google8protobuf3MapIidE5eraseENS2_8iteratorE.exit.i ]
-  %agg.tmp1.sroa.8.0 = phi ptr [ %0, %while.body.lr.ph.i ], [ %agg.tmp1.sroa.8.0.copyload8, %_ZN6google8protobuf3MapIidE5eraseENS2_8iteratorE.exit.i ]
-  %agg.tmp1.sroa.9.0 = phi i64 [ %ref.tmp.sroa.4.0.i, %while.body.lr.ph.i ], [ %agg.tmp1.sroa.9.0.copyload11, %_ZN6google8protobuf3MapIidE5eraseENS2_8iteratorE.exit.i ]
+while.body.i:                                     ; preds = %while.body.i.preheader, %_ZN6google8protobuf3MapIidE5eraseENS2_8iteratorE.exit.i
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %agg.tmp1.i)
-  store ptr %agg.tmp1.sroa.0.0, ptr %agg.tmp1.i, align 8
-  store ptr %agg.tmp1.sroa.8.0, ptr %agg.tmp1.sroa.8.0.agg.tmp1.i.sroa_idx, align 8
-  store i64 %agg.tmp1.sroa.9.0, ptr %agg.tmp1.sroa.9.0.agg.tmp1.i.sroa_idx, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %agg.tmp.i.i)
-  %v_.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp1.sroa.0.0, i64 8
-  %8 = load ptr, ptr %v_.i.i.i.i.i, align 8, !noalias !1734
-  store ptr %agg.tmp1.sroa.0.0, ptr %agg.tmp.i.i, align 8
-  store ptr %agg.tmp1.sroa.8.0, ptr %agg.tmp1.sroa.8.0.agg.tmp.i.i.sroa_idx, align 8
-  store i64 %agg.tmp1.sroa.9.0, ptr %agg.tmp1.sroa.9.0.agg.tmp.i.i.sroa_idx, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp1.i, ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp1, i64 24, i1 false)
+  %8 = load ptr, ptr %agg.tmp1.i, align 8, !noalias !1734
+  %v_.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %9 = load ptr, ptr %v_.i.i.i.i.i, align 8, !noalias !1734
   %call.i.i.i.i = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN6google8protobuf3MapIidE8InnerMap13iterator_baseINS2_12KeyValuePairEEppEv(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp1.i), !noalias !1737
-  %9 = load ptr, ptr %elements_.i, align 8, !noalias !1734
-  call void @_ZN6google8protobuf3MapIidE8InnerMap5eraseENS3_13iterator_baseINS2_12KeyValuePairEEE(ptr noundef nonnull align 8 dereferenceable(48) %9, ptr noundef nonnull byval(%"class.google::protobuf::Map<int, double>::InnerMap::iterator_base.409") align 8 %agg.tmp.i.i), !noalias !1734
-  %10 = load ptr, ptr %this, align 8, !noalias !1734
-  %cmp.i.i = icmp ne ptr %10, null
-  %isnull.i.i = icmp eq ptr %8, null
+  %10 = load ptr, ptr %elements_.i, align 8, !noalias !1734
+  call void @_ZN6google8protobuf3MapIidE8InnerMap5eraseENS3_13iterator_baseINS2_12KeyValuePairEEE(ptr noundef nonnull align 8 dereferenceable(48) %10, ptr noundef nonnull byval(%"class.google::protobuf::Map<int, double>::InnerMap::iterator_base.409") align 8 %agg.tmp1)
+  %11 = load ptr, ptr %this, align 8, !noalias !1734
+  %cmp.i.i = icmp ne ptr %11, null
+  %isnull.i.i = icmp eq ptr %9, null
   %or.cond.i.i = or i1 %isnull.i.i, %cmp.i.i
   br i1 %or.cond.i.i, label %_ZN6google8protobuf3MapIidE5eraseENS2_8iteratorE.exit.i, label %delete.notnull.i.i
 
 delete.notnull.i.i:                               ; preds = %while.body.i
-  call void @_ZdlPv(ptr noundef nonnull %8) #29, !noalias !1734
+  call void @_ZdlPv(ptr noundef nonnull %9) #29, !noalias !1734
   br label %_ZN6google8protobuf3MapIidE5eraseENS2_8iteratorE.exit.i
 
 _ZN6google8protobuf3MapIidE5eraseENS2_8iteratorE.exit.i: ; preds = %delete.notnull.i.i, %while.body.i
-  %agg.tmp1.sroa.0.0.copyload5 = load ptr, ptr %agg.tmp1.i, align 8
-  %agg.tmp1.sroa.8.0.copyload8 = load ptr, ptr %agg.tmp1.sroa.8.0.agg.tmp1.i.sroa_idx, align 8
-  %agg.tmp1.sroa.9.0.copyload11 = load i64, ptr %agg.tmp1.sroa.9.0.agg.tmp1.i.sroa_idx, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp1, ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp1.i, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %agg.tmp1.i)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %agg.tmp.i.i)
-  %cmp.i.i.i.not.i = icmp eq ptr %agg.tmp1.sroa.0.0.copyload5, null
+  %12 = load ptr, ptr %agg.tmp1, align 8
+  %cmp.i.i.i.not.i = icmp eq ptr %12, null
   br i1 %cmp.i.i.i.not.i, label %_ZN6google8protobuf3MapIidE5eraseENS2_8iteratorES3_.exit, label %while.body.i, !llvm.loop !1742
 
-_ZN6google8protobuf3MapIidE5eraseENS2_8iteratorES3_.exit: ; preds = %for.inc.i.i.i.i, %_ZN6google8protobuf3MapIidE5eraseENS2_8iteratorE.exit.i, %entry, %_ZN6google8protobuf3MapIidE5beginEv.exit
+_ZN6google8protobuf3MapIidE5eraseENS2_8iteratorES3_.exit: ; preds = %_ZN6google8protobuf3MapIidE5eraseENS2_8iteratorE.exit.i, %_ZN6google8protobuf3MapIidE5beginEv.exit.thread, %_ZN6google8protobuf3MapIidE5beginEv.exit
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %agg.tmp1)
   ret void
 }
 
@@ -98773,8 +98798,8 @@ terminate.lpad:                                   ; preds = %entry
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN6google8protobuf3MapIifE5clearEv(ptr noundef nonnull align 8 dereferenceable(24) %this) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %agg.tmp.i.i = alloca %"class.google::protobuf::Map<int, float>::InnerMap::iterator_base.441", align 8
   %agg.tmp1.i = alloca %"class.google::protobuf::Map<int, float>::iterator", align 8
+  %agg.tmp1 = alloca %"class.google::protobuf::Map<int, float>::iterator", align 8
   %elements_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %elements_.i, align 8, !noalias !1888
   %index_of_first_non_null_.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -98782,7 +98807,7 @@ entry:
   %num_buckets_14.i.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   %2 = load i64, ptr %num_buckets_14.i.i.i.i, align 8, !noalias !1891
   %cmp153.i.i.i.i = icmp ult i64 %1, %2
-  br i1 %cmp153.i.i.i.i, label %for.body.lr.ph.i.i.i.i, label %_ZN6google8protobuf3MapIifE5eraseENS2_8iteratorES3_.exit
+  br i1 %cmp153.i.i.i.i, label %for.body.lr.ph.i.i.i.i, label %_ZN6google8protobuf3MapIifE5beginEv.exit.thread
 
 for.body.lr.ph.i.i.i.i:                           ; preds = %entry
   %table_.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -98801,66 +98826,71 @@ _ZNK6google8protobuf3MapIifE8InnerMap24TableEntryIsNonEmptyListEm.exit.i.i.i.i: 
   %arrayidx2.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %3, i64 %xor.i.i.i.i.i.i
   %5 = load ptr, ptr %arrayidx2.i.i.i.i.i.i, align 8, !noalias !1891
   %cmp3.i.i.not.i.i.i.i = icmp eq ptr %4, %5
-  br i1 %cmp3.i.i.not.i.i.i.i, label %_ZN6google8protobuf3MapIifE5beginEv.exit, label %while.body.lr.ph.i
+  br i1 %cmp3.i.i.not.i.i.i.i, label %_ZN6google8protobuf3MapIifE5beginEv.exit, label %_ZN6google8protobuf3MapIifE5beginEv.exit.thread12
+
+_ZN6google8protobuf3MapIifE5beginEv.exit.thread12: ; preds = %_ZNK6google8protobuf3MapIifE8InnerMap24TableEntryIsNonEmptyListEm.exit.i.i.i.i
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %agg.tmp1)
+  store ptr %4, ptr %agg.tmp1, align 8
+  %agg.tmp.sroa.2.0.agg.tmp1.sroa_idx15 = getelementptr inbounds nuw i8, ptr %agg.tmp1, i64 8
+  store ptr %0, ptr %agg.tmp.sroa.2.0.agg.tmp1.sroa_idx15, align 8
+  %agg.tmp.sroa.3.0.agg.tmp1.sroa_idx16 = getelementptr inbounds nuw i8, ptr %agg.tmp1, i64 16
+  store i64 %ref.tmp.sroa.4.0.i, ptr %agg.tmp.sroa.3.0.agg.tmp1.sroa_idx16, align 8
+  br label %while.body.i.preheader
 
 for.inc.i.i.i.i:                                  ; preds = %for.body.i.i.i.i
   %inc.i.i.i.i = add i64 %ref.tmp.sroa.4.0.i, 1
   %exitcond.not.i.i = icmp eq i64 %inc.i.i.i.i, %2
-  br i1 %exitcond.not.i.i, label %_ZN6google8protobuf3MapIifE5eraseENS2_8iteratorES3_.exit, label %for.body.i.i.i.i, !llvm.loop !370
+  br i1 %exitcond.not.i.i, label %_ZN6google8protobuf3MapIifE5beginEv.exit.thread, label %for.body.i.i.i.i, !llvm.loop !370
+
+_ZN6google8protobuf3MapIifE5beginEv.exit.thread:  ; preds = %for.inc.i.i.i.i, %entry
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %agg.tmp1)
+  br label %_ZN6google8protobuf3MapIifE5eraseENS2_8iteratorES3_.exit
 
 _ZN6google8protobuf3MapIifE5beginEv.exit:         ; preds = %_ZNK6google8protobuf3MapIifE8InnerMap24TableEntryIsNonEmptyListEm.exit.i.i.i.i
   %_M_left.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %4, i64 32
   %6 = load ptr, ptr %_M_left.i.i.i.i.i.i, align 8, !noalias !1891
   %_M_storage.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %6, i64 32
   %7 = load ptr, ptr %_M_storage.i.i.i.i.i.i, align 8, !noalias !1891
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %agg.tmp1)
+  store ptr %7, ptr %agg.tmp1, align 8
+  %agg.tmp.sroa.2.0.agg.tmp1.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.tmp1, i64 8
+  store ptr %0, ptr %agg.tmp.sroa.2.0.agg.tmp1.sroa_idx, align 8
+  %agg.tmp.sroa.3.0.agg.tmp1.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.tmp1, i64 16
+  store i64 %ref.tmp.sroa.4.0.i, ptr %agg.tmp.sroa.3.0.agg.tmp1.sroa_idx, align 8
   %cmp.i.i.i.not2.i = icmp eq ptr %7, null
-  br i1 %cmp.i.i.i.not2.i, label %_ZN6google8protobuf3MapIifE5eraseENS2_8iteratorES3_.exit, label %while.body.lr.ph.i
+  br i1 %cmp.i.i.i.not2.i, label %_ZN6google8protobuf3MapIifE5eraseENS2_8iteratorES3_.exit, label %while.body.i.preheader
 
-while.body.lr.ph.i:                               ; preds = %_ZNK6google8protobuf3MapIifE8InnerMap24TableEntryIsNonEmptyListEm.exit.i.i.i.i, %_ZN6google8protobuf3MapIifE5beginEv.exit
-  %ref.tmp.sroa.0.0.i20 = phi ptr [ %7, %_ZN6google8protobuf3MapIifE5beginEv.exit ], [ %4, %_ZNK6google8protobuf3MapIifE8InnerMap24TableEntryIsNonEmptyListEm.exit.i.i.i.i ]
-  %agg.tmp1.sroa.8.0.agg.tmp1.i.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.tmp1.i, i64 8
-  %agg.tmp1.sroa.9.0.agg.tmp1.i.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.tmp1.i, i64 16
-  %agg.tmp1.sroa.8.0.agg.tmp.i.i.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.tmp.i.i, i64 8
-  %agg.tmp1.sroa.9.0.agg.tmp.i.i.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.tmp.i.i, i64 16
+while.body.i.preheader:                           ; preds = %_ZN6google8protobuf3MapIifE5beginEv.exit.thread12, %_ZN6google8protobuf3MapIifE5beginEv.exit
   br label %while.body.i
 
-while.body.i:                                     ; preds = %_ZN6google8protobuf3MapIifE5eraseENS2_8iteratorE.exit.i, %while.body.lr.ph.i
-  %agg.tmp1.sroa.0.0 = phi ptr [ %ref.tmp.sroa.0.0.i20, %while.body.lr.ph.i ], [ %agg.tmp1.sroa.0.0.copyload5, %_ZN6google8protobuf3MapIifE5eraseENS2_8iteratorE.exit.i ]
-  %agg.tmp1.sroa.8.0 = phi ptr [ %0, %while.body.lr.ph.i ], [ %agg.tmp1.sroa.8.0.copyload8, %_ZN6google8protobuf3MapIifE5eraseENS2_8iteratorE.exit.i ]
-  %agg.tmp1.sroa.9.0 = phi i64 [ %ref.tmp.sroa.4.0.i, %while.body.lr.ph.i ], [ %agg.tmp1.sroa.9.0.copyload11, %_ZN6google8protobuf3MapIifE5eraseENS2_8iteratorE.exit.i ]
+while.body.i:                                     ; preds = %while.body.i.preheader, %_ZN6google8protobuf3MapIifE5eraseENS2_8iteratorE.exit.i
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %agg.tmp1.i)
-  store ptr %agg.tmp1.sroa.0.0, ptr %agg.tmp1.i, align 8
-  store ptr %agg.tmp1.sroa.8.0, ptr %agg.tmp1.sroa.8.0.agg.tmp1.i.sroa_idx, align 8
-  store i64 %agg.tmp1.sroa.9.0, ptr %agg.tmp1.sroa.9.0.agg.tmp1.i.sroa_idx, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %agg.tmp.i.i)
-  %v_.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp1.sroa.0.0, i64 8
-  %8 = load ptr, ptr %v_.i.i.i.i.i, align 8, !noalias !1894
-  store ptr %agg.tmp1.sroa.0.0, ptr %agg.tmp.i.i, align 8
-  store ptr %agg.tmp1.sroa.8.0, ptr %agg.tmp1.sroa.8.0.agg.tmp.i.i.sroa_idx, align 8
-  store i64 %agg.tmp1.sroa.9.0, ptr %agg.tmp1.sroa.9.0.agg.tmp.i.i.sroa_idx, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp1.i, ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp1, i64 24, i1 false)
+  %8 = load ptr, ptr %agg.tmp1.i, align 8, !noalias !1894
+  %v_.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %9 = load ptr, ptr %v_.i.i.i.i.i, align 8, !noalias !1894
   %call.i.i.i.i = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN6google8protobuf3MapIifE8InnerMap13iterator_baseINS2_12KeyValuePairEEppEv(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp1.i), !noalias !1897
-  %9 = load ptr, ptr %elements_.i, align 8, !noalias !1894
-  call void @_ZN6google8protobuf3MapIifE8InnerMap5eraseENS3_13iterator_baseINS2_12KeyValuePairEEE(ptr noundef nonnull align 8 dereferenceable(48) %9, ptr noundef nonnull byval(%"class.google::protobuf::Map<int, float>::InnerMap::iterator_base.441") align 8 %agg.tmp.i.i), !noalias !1894
-  %10 = load ptr, ptr %this, align 8, !noalias !1894
-  %cmp.i.i = icmp ne ptr %10, null
-  %isnull.i.i = icmp eq ptr %8, null
+  %10 = load ptr, ptr %elements_.i, align 8, !noalias !1894
+  call void @_ZN6google8protobuf3MapIifE8InnerMap5eraseENS3_13iterator_baseINS2_12KeyValuePairEEE(ptr noundef nonnull align 8 dereferenceable(48) %10, ptr noundef nonnull byval(%"class.google::protobuf::Map<int, float>::InnerMap::iterator_base.441") align 8 %agg.tmp1)
+  %11 = load ptr, ptr %this, align 8, !noalias !1894
+  %cmp.i.i = icmp ne ptr %11, null
+  %isnull.i.i = icmp eq ptr %9, null
   %or.cond.i.i = or i1 %isnull.i.i, %cmp.i.i
   br i1 %or.cond.i.i, label %_ZN6google8protobuf3MapIifE5eraseENS2_8iteratorE.exit.i, label %delete.notnull.i.i
 
 delete.notnull.i.i:                               ; preds = %while.body.i
-  call void @_ZdlPv(ptr noundef nonnull %8) #29, !noalias !1894
+  call void @_ZdlPv(ptr noundef nonnull %9) #29, !noalias !1894
   br label %_ZN6google8protobuf3MapIifE5eraseENS2_8iteratorE.exit.i
 
 _ZN6google8protobuf3MapIifE5eraseENS2_8iteratorE.exit.i: ; preds = %delete.notnull.i.i, %while.body.i
-  %agg.tmp1.sroa.0.0.copyload5 = load ptr, ptr %agg.tmp1.i, align 8
-  %agg.tmp1.sroa.8.0.copyload8 = load ptr, ptr %agg.tmp1.sroa.8.0.agg.tmp1.i.sroa_idx, align 8
-  %agg.tmp1.sroa.9.0.copyload11 = load i64, ptr %agg.tmp1.sroa.9.0.agg.tmp1.i.sroa_idx, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp1, ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp1.i, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %agg.tmp1.i)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %agg.tmp.i.i)
-  %cmp.i.i.i.not.i = icmp eq ptr %agg.tmp1.sroa.0.0.copyload5, null
+  %12 = load ptr, ptr %agg.tmp1, align 8
+  %cmp.i.i.i.not.i = icmp eq ptr %12, null
   br i1 %cmp.i.i.i.not.i, label %_ZN6google8protobuf3MapIifE5eraseENS2_8iteratorES3_.exit, label %while.body.i, !llvm.loop !1902
 
-_ZN6google8protobuf3MapIifE5eraseENS2_8iteratorES3_.exit: ; preds = %for.inc.i.i.i.i, %_ZN6google8protobuf3MapIifE5eraseENS2_8iteratorE.exit.i, %entry, %_ZN6google8protobuf3MapIifE5beginEv.exit
+_ZN6google8protobuf3MapIifE5eraseENS2_8iteratorES3_.exit: ; preds = %_ZN6google8protobuf3MapIifE5eraseENS2_8iteratorE.exit.i, %_ZN6google8protobuf3MapIifE5beginEv.exit.thread, %_ZN6google8protobuf3MapIifE5beginEv.exit
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %agg.tmp1)
   ret void
 }
 
@@ -102025,8 +102055,8 @@ terminate.lpad:                                   ; preds = %entry
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN6google8protobuf3MapIllE5clearEv(ptr noundef nonnull align 8 dereferenceable(24) %this) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %agg.tmp.i.i = alloca %"class.google::protobuf::Map<long, long>::InnerMap::iterator_base.455", align 8
   %agg.tmp1.i = alloca %"class.google::protobuf::Map<long, long>::iterator", align 8
+  %agg.tmp1 = alloca %"class.google::protobuf::Map<long, long>::iterator", align 8
   %elements_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %elements_.i, align 8, !noalias !2044
   %index_of_first_non_null_.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -102034,7 +102064,7 @@ entry:
   %num_buckets_14.i.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   %2 = load i64, ptr %num_buckets_14.i.i.i.i, align 8, !noalias !2047
   %cmp153.i.i.i.i = icmp ult i64 %1, %2
-  br i1 %cmp153.i.i.i.i, label %for.body.lr.ph.i.i.i.i, label %_ZN6google8protobuf3MapIllE5eraseENS2_8iteratorES3_.exit
+  br i1 %cmp153.i.i.i.i, label %for.body.lr.ph.i.i.i.i, label %_ZN6google8protobuf3MapIllE5beginEv.exit.thread
 
 for.body.lr.ph.i.i.i.i:                           ; preds = %entry
   %table_.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -102053,66 +102083,71 @@ _ZNK6google8protobuf3MapIllE8InnerMap24TableEntryIsNonEmptyListEm.exit.i.i.i.i: 
   %arrayidx2.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %3, i64 %xor.i.i.i.i.i.i
   %5 = load ptr, ptr %arrayidx2.i.i.i.i.i.i, align 8, !noalias !2047
   %cmp3.i.i.not.i.i.i.i = icmp eq ptr %4, %5
-  br i1 %cmp3.i.i.not.i.i.i.i, label %_ZN6google8protobuf3MapIllE5beginEv.exit, label %while.body.lr.ph.i
+  br i1 %cmp3.i.i.not.i.i.i.i, label %_ZN6google8protobuf3MapIllE5beginEv.exit, label %_ZN6google8protobuf3MapIllE5beginEv.exit.thread12
+
+_ZN6google8protobuf3MapIllE5beginEv.exit.thread12: ; preds = %_ZNK6google8protobuf3MapIllE8InnerMap24TableEntryIsNonEmptyListEm.exit.i.i.i.i
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %agg.tmp1)
+  store ptr %4, ptr %agg.tmp1, align 8
+  %agg.tmp.sroa.2.0.agg.tmp1.sroa_idx15 = getelementptr inbounds nuw i8, ptr %agg.tmp1, i64 8
+  store ptr %0, ptr %agg.tmp.sroa.2.0.agg.tmp1.sroa_idx15, align 8
+  %agg.tmp.sroa.3.0.agg.tmp1.sroa_idx16 = getelementptr inbounds nuw i8, ptr %agg.tmp1, i64 16
+  store i64 %ref.tmp.sroa.4.0.i, ptr %agg.tmp.sroa.3.0.agg.tmp1.sroa_idx16, align 8
+  br label %while.body.i.preheader
 
 for.inc.i.i.i.i:                                  ; preds = %for.body.i.i.i.i
   %inc.i.i.i.i = add i64 %ref.tmp.sroa.4.0.i, 1
   %exitcond.not.i.i = icmp eq i64 %inc.i.i.i.i, %2
-  br i1 %exitcond.not.i.i, label %_ZN6google8protobuf3MapIllE5eraseENS2_8iteratorES3_.exit, label %for.body.i.i.i.i, !llvm.loop !178
+  br i1 %exitcond.not.i.i, label %_ZN6google8protobuf3MapIllE5beginEv.exit.thread, label %for.body.i.i.i.i, !llvm.loop !178
+
+_ZN6google8protobuf3MapIllE5beginEv.exit.thread:  ; preds = %for.inc.i.i.i.i, %entry
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %agg.tmp1)
+  br label %_ZN6google8protobuf3MapIllE5eraseENS2_8iteratorES3_.exit
 
 _ZN6google8protobuf3MapIllE5beginEv.exit:         ; preds = %_ZNK6google8protobuf3MapIllE8InnerMap24TableEntryIsNonEmptyListEm.exit.i.i.i.i
   %_M_left.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %4, i64 32
   %6 = load ptr, ptr %_M_left.i.i.i.i.i.i, align 8, !noalias !2047
   %_M_storage.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %6, i64 32
   %7 = load ptr, ptr %_M_storage.i.i.i.i.i.i, align 8, !noalias !2047
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %agg.tmp1)
+  store ptr %7, ptr %agg.tmp1, align 8
+  %agg.tmp.sroa.2.0.agg.tmp1.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.tmp1, i64 8
+  store ptr %0, ptr %agg.tmp.sroa.2.0.agg.tmp1.sroa_idx, align 8
+  %agg.tmp.sroa.3.0.agg.tmp1.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.tmp1, i64 16
+  store i64 %ref.tmp.sroa.4.0.i, ptr %agg.tmp.sroa.3.0.agg.tmp1.sroa_idx, align 8
   %cmp.i.i.i.not2.i = icmp eq ptr %7, null
-  br i1 %cmp.i.i.i.not2.i, label %_ZN6google8protobuf3MapIllE5eraseENS2_8iteratorES3_.exit, label %while.body.lr.ph.i
+  br i1 %cmp.i.i.i.not2.i, label %_ZN6google8protobuf3MapIllE5eraseENS2_8iteratorES3_.exit, label %while.body.i.preheader
 
-while.body.lr.ph.i:                               ; preds = %_ZNK6google8protobuf3MapIllE8InnerMap24TableEntryIsNonEmptyListEm.exit.i.i.i.i, %_ZN6google8protobuf3MapIllE5beginEv.exit
-  %ref.tmp.sroa.0.0.i20 = phi ptr [ %7, %_ZN6google8protobuf3MapIllE5beginEv.exit ], [ %4, %_ZNK6google8protobuf3MapIllE8InnerMap24TableEntryIsNonEmptyListEm.exit.i.i.i.i ]
-  %agg.tmp1.sroa.8.0.agg.tmp1.i.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.tmp1.i, i64 8
-  %agg.tmp1.sroa.9.0.agg.tmp1.i.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.tmp1.i, i64 16
-  %agg.tmp1.sroa.8.0.agg.tmp.i.i.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.tmp.i.i, i64 8
-  %agg.tmp1.sroa.9.0.agg.tmp.i.i.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.tmp.i.i, i64 16
+while.body.i.preheader:                           ; preds = %_ZN6google8protobuf3MapIllE5beginEv.exit.thread12, %_ZN6google8protobuf3MapIllE5beginEv.exit
   br label %while.body.i
 
-while.body.i:                                     ; preds = %_ZN6google8protobuf3MapIllE5eraseENS2_8iteratorE.exit.i, %while.body.lr.ph.i
-  %agg.tmp1.sroa.0.0 = phi ptr [ %ref.tmp.sroa.0.0.i20, %while.body.lr.ph.i ], [ %agg.tmp1.sroa.0.0.copyload5, %_ZN6google8protobuf3MapIllE5eraseENS2_8iteratorE.exit.i ]
-  %agg.tmp1.sroa.8.0 = phi ptr [ %0, %while.body.lr.ph.i ], [ %agg.tmp1.sroa.8.0.copyload8, %_ZN6google8protobuf3MapIllE5eraseENS2_8iteratorE.exit.i ]
-  %agg.tmp1.sroa.9.0 = phi i64 [ %ref.tmp.sroa.4.0.i, %while.body.lr.ph.i ], [ %agg.tmp1.sroa.9.0.copyload11, %_ZN6google8protobuf3MapIllE5eraseENS2_8iteratorE.exit.i ]
+while.body.i:                                     ; preds = %while.body.i.preheader, %_ZN6google8protobuf3MapIllE5eraseENS2_8iteratorE.exit.i
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %agg.tmp1.i)
-  store ptr %agg.tmp1.sroa.0.0, ptr %agg.tmp1.i, align 8
-  store ptr %agg.tmp1.sroa.8.0, ptr %agg.tmp1.sroa.8.0.agg.tmp1.i.sroa_idx, align 8
-  store i64 %agg.tmp1.sroa.9.0, ptr %agg.tmp1.sroa.9.0.agg.tmp1.i.sroa_idx, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %agg.tmp.i.i)
-  %v_.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp1.sroa.0.0, i64 8
-  %8 = load ptr, ptr %v_.i.i.i.i.i, align 8, !noalias !2050
-  store ptr %agg.tmp1.sroa.0.0, ptr %agg.tmp.i.i, align 8
-  store ptr %agg.tmp1.sroa.8.0, ptr %agg.tmp1.sroa.8.0.agg.tmp.i.i.sroa_idx, align 8
-  store i64 %agg.tmp1.sroa.9.0, ptr %agg.tmp1.sroa.9.0.agg.tmp.i.i.sroa_idx, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp1.i, ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp1, i64 24, i1 false)
+  %8 = load ptr, ptr %agg.tmp1.i, align 8, !noalias !2050
+  %v_.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %9 = load ptr, ptr %v_.i.i.i.i.i, align 8, !noalias !2050
   %call.i.i.i.i = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN6google8protobuf3MapIllE8InnerMap13iterator_baseINS2_12KeyValuePairEEppEv(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp1.i), !noalias !2053
-  %9 = load ptr, ptr %elements_.i, align 8, !noalias !2050
-  call void @_ZN6google8protobuf3MapIllE8InnerMap5eraseENS3_13iterator_baseINS2_12KeyValuePairEEE(ptr noundef nonnull align 8 dereferenceable(48) %9, ptr noundef nonnull byval(%"class.google::protobuf::Map<long, long>::InnerMap::iterator_base.455") align 8 %agg.tmp.i.i), !noalias !2050
-  %10 = load ptr, ptr %this, align 8, !noalias !2050
-  %cmp.i.i = icmp ne ptr %10, null
-  %isnull.i.i = icmp eq ptr %8, null
+  %10 = load ptr, ptr %elements_.i, align 8, !noalias !2050
+  call void @_ZN6google8protobuf3MapIllE8InnerMap5eraseENS3_13iterator_baseINS2_12KeyValuePairEEE(ptr noundef nonnull align 8 dereferenceable(48) %10, ptr noundef nonnull byval(%"class.google::protobuf::Map<long, long>::InnerMap::iterator_base.455") align 8 %agg.tmp1)
+  %11 = load ptr, ptr %this, align 8, !noalias !2050
+  %cmp.i.i = icmp ne ptr %11, null
+  %isnull.i.i = icmp eq ptr %9, null
   %or.cond.i.i = or i1 %isnull.i.i, %cmp.i.i
   br i1 %or.cond.i.i, label %_ZN6google8protobuf3MapIllE5eraseENS2_8iteratorE.exit.i, label %delete.notnull.i.i
 
 delete.notnull.i.i:                               ; preds = %while.body.i
-  call void @_ZdlPv(ptr noundef nonnull %8) #29, !noalias !2050
+  call void @_ZdlPv(ptr noundef nonnull %9) #29, !noalias !2050
   br label %_ZN6google8protobuf3MapIllE5eraseENS2_8iteratorE.exit.i
 
 _ZN6google8protobuf3MapIllE5eraseENS2_8iteratorE.exit.i: ; preds = %delete.notnull.i.i, %while.body.i
-  %agg.tmp1.sroa.0.0.copyload5 = load ptr, ptr %agg.tmp1.i, align 8
-  %agg.tmp1.sroa.8.0.copyload8 = load ptr, ptr %agg.tmp1.sroa.8.0.agg.tmp1.i.sroa_idx, align 8
-  %agg.tmp1.sroa.9.0.copyload11 = load i64, ptr %agg.tmp1.sroa.9.0.agg.tmp1.i.sroa_idx, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp1, ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp1.i, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %agg.tmp1.i)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %agg.tmp.i.i)
-  %cmp.i.i.i.not.i = icmp eq ptr %agg.tmp1.sroa.0.0.copyload5, null
+  %12 = load ptr, ptr %agg.tmp1, align 8
+  %cmp.i.i.i.not.i = icmp eq ptr %12, null
   br i1 %cmp.i.i.i.not.i, label %_ZN6google8protobuf3MapIllE5eraseENS2_8iteratorES3_.exit, label %while.body.i, !llvm.loop !2058
 
-_ZN6google8protobuf3MapIllE5eraseENS2_8iteratorES3_.exit: ; preds = %for.inc.i.i.i.i, %_ZN6google8protobuf3MapIllE5eraseENS2_8iteratorE.exit.i, %entry, %_ZN6google8protobuf3MapIllE5beginEv.exit
+_ZN6google8protobuf3MapIllE5eraseENS2_8iteratorES3_.exit: ; preds = %_ZN6google8protobuf3MapIllE5eraseENS2_8iteratorE.exit.i, %_ZN6google8protobuf3MapIllE5beginEv.exit.thread, %_ZN6google8protobuf3MapIllE5beginEv.exit
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %agg.tmp1)
   ret void
 }
 
@@ -105614,8 +105649,8 @@ terminate.lpad:                                   ; preds = %entry
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN6google8protobuf3MapIiiE5clearEv(ptr noundef nonnull align 8 dereferenceable(24) %this) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %agg.tmp.i.i = alloca %"class.google::protobuf::Map<int, int>::InnerMap::iterator_base.487", align 8
   %agg.tmp1.i = alloca %"class.google::protobuf::Map<int, int>::iterator", align 8
+  %agg.tmp1 = alloca %"class.google::protobuf::Map<int, int>::iterator", align 8
   %elements_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %elements_.i, align 8, !noalias !2204
   %index_of_first_non_null_.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -105623,7 +105658,7 @@ entry:
   %num_buckets_14.i.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   %2 = load i64, ptr %num_buckets_14.i.i.i.i, align 8, !noalias !2207
   %cmp153.i.i.i.i = icmp ult i64 %1, %2
-  br i1 %cmp153.i.i.i.i, label %for.body.lr.ph.i.i.i.i, label %_ZN6google8protobuf3MapIiiE5eraseENS2_8iteratorES3_.exit
+  br i1 %cmp153.i.i.i.i, label %for.body.lr.ph.i.i.i.i, label %_ZN6google8protobuf3MapIiiE5beginEv.exit.thread
 
 for.body.lr.ph.i.i.i.i:                           ; preds = %entry
   %table_.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -105642,66 +105677,71 @@ _ZNK6google8protobuf3MapIiiE8InnerMap24TableEntryIsNonEmptyListEm.exit.i.i.i.i: 
   %arrayidx2.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %3, i64 %xor.i.i.i.i.i.i
   %5 = load ptr, ptr %arrayidx2.i.i.i.i.i.i, align 8, !noalias !2207
   %cmp3.i.i.not.i.i.i.i = icmp eq ptr %4, %5
-  br i1 %cmp3.i.i.not.i.i.i.i, label %_ZN6google8protobuf3MapIiiE5beginEv.exit, label %while.body.lr.ph.i
+  br i1 %cmp3.i.i.not.i.i.i.i, label %_ZN6google8protobuf3MapIiiE5beginEv.exit, label %_ZN6google8protobuf3MapIiiE5beginEv.exit.thread12
+
+_ZN6google8protobuf3MapIiiE5beginEv.exit.thread12: ; preds = %_ZNK6google8protobuf3MapIiiE8InnerMap24TableEntryIsNonEmptyListEm.exit.i.i.i.i
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %agg.tmp1)
+  store ptr %4, ptr %agg.tmp1, align 8
+  %agg.tmp.sroa.2.0.agg.tmp1.sroa_idx15 = getelementptr inbounds nuw i8, ptr %agg.tmp1, i64 8
+  store ptr %0, ptr %agg.tmp.sroa.2.0.agg.tmp1.sroa_idx15, align 8
+  %agg.tmp.sroa.3.0.agg.tmp1.sroa_idx16 = getelementptr inbounds nuw i8, ptr %agg.tmp1, i64 16
+  store i64 %ref.tmp.sroa.4.0.i, ptr %agg.tmp.sroa.3.0.agg.tmp1.sroa_idx16, align 8
+  br label %while.body.i.preheader
 
 for.inc.i.i.i.i:                                  ; preds = %for.body.i.i.i.i
   %inc.i.i.i.i = add i64 %ref.tmp.sroa.4.0.i, 1
   %exitcond.not.i.i = icmp eq i64 %inc.i.i.i.i, %2
-  br i1 %exitcond.not.i.i, label %_ZN6google8protobuf3MapIiiE5eraseENS2_8iteratorES3_.exit, label %for.body.i.i.i.i, !llvm.loop !156
+  br i1 %exitcond.not.i.i, label %_ZN6google8protobuf3MapIiiE5beginEv.exit.thread, label %for.body.i.i.i.i, !llvm.loop !156
+
+_ZN6google8protobuf3MapIiiE5beginEv.exit.thread:  ; preds = %for.inc.i.i.i.i, %entry
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %agg.tmp1)
+  br label %_ZN6google8protobuf3MapIiiE5eraseENS2_8iteratorES3_.exit
 
 _ZN6google8protobuf3MapIiiE5beginEv.exit:         ; preds = %_ZNK6google8protobuf3MapIiiE8InnerMap24TableEntryIsNonEmptyListEm.exit.i.i.i.i
   %_M_left.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %4, i64 32
   %6 = load ptr, ptr %_M_left.i.i.i.i.i.i, align 8, !noalias !2207
   %_M_storage.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %6, i64 32
   %7 = load ptr, ptr %_M_storage.i.i.i.i.i.i, align 8, !noalias !2207
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %agg.tmp1)
+  store ptr %7, ptr %agg.tmp1, align 8
+  %agg.tmp.sroa.2.0.agg.tmp1.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.tmp1, i64 8
+  store ptr %0, ptr %agg.tmp.sroa.2.0.agg.tmp1.sroa_idx, align 8
+  %agg.tmp.sroa.3.0.agg.tmp1.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.tmp1, i64 16
+  store i64 %ref.tmp.sroa.4.0.i, ptr %agg.tmp.sroa.3.0.agg.tmp1.sroa_idx, align 8
   %cmp.i.i.i.not2.i = icmp eq ptr %7, null
-  br i1 %cmp.i.i.i.not2.i, label %_ZN6google8protobuf3MapIiiE5eraseENS2_8iteratorES3_.exit, label %while.body.lr.ph.i
+  br i1 %cmp.i.i.i.not2.i, label %_ZN6google8protobuf3MapIiiE5eraseENS2_8iteratorES3_.exit, label %while.body.i.preheader
 
-while.body.lr.ph.i:                               ; preds = %_ZNK6google8protobuf3MapIiiE8InnerMap24TableEntryIsNonEmptyListEm.exit.i.i.i.i, %_ZN6google8protobuf3MapIiiE5beginEv.exit
-  %ref.tmp.sroa.0.0.i20 = phi ptr [ %7, %_ZN6google8protobuf3MapIiiE5beginEv.exit ], [ %4, %_ZNK6google8protobuf3MapIiiE8InnerMap24TableEntryIsNonEmptyListEm.exit.i.i.i.i ]
-  %agg.tmp1.sroa.8.0.agg.tmp1.i.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.tmp1.i, i64 8
-  %agg.tmp1.sroa.9.0.agg.tmp1.i.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.tmp1.i, i64 16
-  %agg.tmp1.sroa.8.0.agg.tmp.i.i.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.tmp.i.i, i64 8
-  %agg.tmp1.sroa.9.0.agg.tmp.i.i.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.tmp.i.i, i64 16
+while.body.i.preheader:                           ; preds = %_ZN6google8protobuf3MapIiiE5beginEv.exit.thread12, %_ZN6google8protobuf3MapIiiE5beginEv.exit
   br label %while.body.i
 
-while.body.i:                                     ; preds = %_ZN6google8protobuf3MapIiiE5eraseENS2_8iteratorE.exit.i, %while.body.lr.ph.i
-  %agg.tmp1.sroa.0.0 = phi ptr [ %ref.tmp.sroa.0.0.i20, %while.body.lr.ph.i ], [ %agg.tmp1.sroa.0.0.copyload5, %_ZN6google8protobuf3MapIiiE5eraseENS2_8iteratorE.exit.i ]
-  %agg.tmp1.sroa.8.0 = phi ptr [ %0, %while.body.lr.ph.i ], [ %agg.tmp1.sroa.8.0.copyload8, %_ZN6google8protobuf3MapIiiE5eraseENS2_8iteratorE.exit.i ]
-  %agg.tmp1.sroa.9.0 = phi i64 [ %ref.tmp.sroa.4.0.i, %while.body.lr.ph.i ], [ %agg.tmp1.sroa.9.0.copyload11, %_ZN6google8protobuf3MapIiiE5eraseENS2_8iteratorE.exit.i ]
+while.body.i:                                     ; preds = %while.body.i.preheader, %_ZN6google8protobuf3MapIiiE5eraseENS2_8iteratorE.exit.i
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %agg.tmp1.i)
-  store ptr %agg.tmp1.sroa.0.0, ptr %agg.tmp1.i, align 8
-  store ptr %agg.tmp1.sroa.8.0, ptr %agg.tmp1.sroa.8.0.agg.tmp1.i.sroa_idx, align 8
-  store i64 %agg.tmp1.sroa.9.0, ptr %agg.tmp1.sroa.9.0.agg.tmp1.i.sroa_idx, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %agg.tmp.i.i)
-  %v_.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp1.sroa.0.0, i64 8
-  %8 = load ptr, ptr %v_.i.i.i.i.i, align 8, !noalias !2210
-  store ptr %agg.tmp1.sroa.0.0, ptr %agg.tmp.i.i, align 8
-  store ptr %agg.tmp1.sroa.8.0, ptr %agg.tmp1.sroa.8.0.agg.tmp.i.i.sroa_idx, align 8
-  store i64 %agg.tmp1.sroa.9.0, ptr %agg.tmp1.sroa.9.0.agg.tmp.i.i.sroa_idx, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp1.i, ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp1, i64 24, i1 false)
+  %8 = load ptr, ptr %agg.tmp1.i, align 8, !noalias !2210
+  %v_.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %9 = load ptr, ptr %v_.i.i.i.i.i, align 8, !noalias !2210
   %call.i.i.i.i = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN6google8protobuf3MapIiiE8InnerMap13iterator_baseINS2_12KeyValuePairEEppEv(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp1.i), !noalias !2213
-  %9 = load ptr, ptr %elements_.i, align 8, !noalias !2210
-  call void @_ZN6google8protobuf3MapIiiE8InnerMap5eraseENS3_13iterator_baseINS2_12KeyValuePairEEE(ptr noundef nonnull align 8 dereferenceable(48) %9, ptr noundef nonnull byval(%"class.google::protobuf::Map<int, int>::InnerMap::iterator_base.487") align 8 %agg.tmp.i.i), !noalias !2210
-  %10 = load ptr, ptr %this, align 8, !noalias !2210
-  %cmp.i.i = icmp ne ptr %10, null
-  %isnull.i.i = icmp eq ptr %8, null
+  %10 = load ptr, ptr %elements_.i, align 8, !noalias !2210
+  call void @_ZN6google8protobuf3MapIiiE8InnerMap5eraseENS3_13iterator_baseINS2_12KeyValuePairEEE(ptr noundef nonnull align 8 dereferenceable(48) %10, ptr noundef nonnull byval(%"class.google::protobuf::Map<int, int>::InnerMap::iterator_base.487") align 8 %agg.tmp1)
+  %11 = load ptr, ptr %this, align 8, !noalias !2210
+  %cmp.i.i = icmp ne ptr %11, null
+  %isnull.i.i = icmp eq ptr %9, null
   %or.cond.i.i = or i1 %isnull.i.i, %cmp.i.i
   br i1 %or.cond.i.i, label %_ZN6google8protobuf3MapIiiE5eraseENS2_8iteratorE.exit.i, label %delete.notnull.i.i
 
 delete.notnull.i.i:                               ; preds = %while.body.i
-  call void @_ZdlPv(ptr noundef nonnull %8) #29, !noalias !2210
+  call void @_ZdlPv(ptr noundef nonnull %9) #29, !noalias !2210
   br label %_ZN6google8protobuf3MapIiiE5eraseENS2_8iteratorE.exit.i
 
 _ZN6google8protobuf3MapIiiE5eraseENS2_8iteratorE.exit.i: ; preds = %delete.notnull.i.i, %while.body.i
-  %agg.tmp1.sroa.0.0.copyload5 = load ptr, ptr %agg.tmp1.i, align 8
-  %agg.tmp1.sroa.8.0.copyload8 = load ptr, ptr %agg.tmp1.sroa.8.0.agg.tmp1.i.sroa_idx, align 8
-  %agg.tmp1.sroa.9.0.copyload11 = load i64, ptr %agg.tmp1.sroa.9.0.agg.tmp1.i.sroa_idx, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp1, ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp1.i, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %agg.tmp1.i)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %agg.tmp.i.i)
-  %cmp.i.i.i.not.i = icmp eq ptr %agg.tmp1.sroa.0.0.copyload5, null
+  %12 = load ptr, ptr %agg.tmp1, align 8
+  %cmp.i.i.i.not.i = icmp eq ptr %12, null
   br i1 %cmp.i.i.i.not.i, label %_ZN6google8protobuf3MapIiiE5eraseENS2_8iteratorES3_.exit, label %while.body.i, !llvm.loop !2218
 
-_ZN6google8protobuf3MapIiiE5eraseENS2_8iteratorES3_.exit: ; preds = %for.inc.i.i.i.i, %_ZN6google8protobuf3MapIiiE5eraseENS2_8iteratorE.exit.i, %entry, %_ZN6google8protobuf3MapIiiE5beginEv.exit
+_ZN6google8protobuf3MapIiiE5eraseENS2_8iteratorES3_.exit: ; preds = %_ZN6google8protobuf3MapIiiE5eraseENS2_8iteratorE.exit.i, %_ZN6google8protobuf3MapIiiE5beginEv.exit.thread, %_ZN6google8protobuf3MapIiiE5beginEv.exit
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %agg.tmp1)
   ret void
 }
 
@@ -108866,8 +108906,8 @@ terminate.lpad:                                   ; preds = %entry
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN6google8protobuf3MapImmE5clearEv(ptr noundef nonnull align 8 dereferenceable(24) %this) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %agg.tmp.i.i = alloca %"class.google::protobuf::Map<unsigned long, unsigned long>::InnerMap::iterator_base.501", align 8
   %agg.tmp1.i = alloca %"class.google::protobuf::Map<unsigned long, unsigned long>::iterator", align 8
+  %agg.tmp1 = alloca %"class.google::protobuf::Map<unsigned long, unsigned long>::iterator", align 8
   %elements_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %elements_.i, align 8, !noalias !2360
   %index_of_first_non_null_.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -108875,7 +108915,7 @@ entry:
   %num_buckets_14.i.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   %2 = load i64, ptr %num_buckets_14.i.i.i.i, align 8, !noalias !2363
   %cmp153.i.i.i.i = icmp ult i64 %1, %2
-  br i1 %cmp153.i.i.i.i, label %for.body.lr.ph.i.i.i.i, label %_ZN6google8protobuf3MapImmE5eraseENS2_8iteratorES3_.exit
+  br i1 %cmp153.i.i.i.i, label %for.body.lr.ph.i.i.i.i, label %_ZN6google8protobuf3MapImmE5beginEv.exit.thread
 
 for.body.lr.ph.i.i.i.i:                           ; preds = %entry
   %table_.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -108894,66 +108934,71 @@ _ZNK6google8protobuf3MapImmE8InnerMap24TableEntryIsNonEmptyListEm.exit.i.i.i.i: 
   %arrayidx2.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %3, i64 %xor.i.i.i.i.i.i
   %5 = load ptr, ptr %arrayidx2.i.i.i.i.i.i, align 8, !noalias !2363
   %cmp3.i.i.not.i.i.i.i = icmp eq ptr %4, %5
-  br i1 %cmp3.i.i.not.i.i.i.i, label %_ZN6google8protobuf3MapImmE5beginEv.exit, label %while.body.lr.ph.i
+  br i1 %cmp3.i.i.not.i.i.i.i, label %_ZN6google8protobuf3MapImmE5beginEv.exit, label %_ZN6google8protobuf3MapImmE5beginEv.exit.thread12
+
+_ZN6google8protobuf3MapImmE5beginEv.exit.thread12: ; preds = %_ZNK6google8protobuf3MapImmE8InnerMap24TableEntryIsNonEmptyListEm.exit.i.i.i.i
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %agg.tmp1)
+  store ptr %4, ptr %agg.tmp1, align 8
+  %agg.tmp.sroa.2.0.agg.tmp1.sroa_idx15 = getelementptr inbounds nuw i8, ptr %agg.tmp1, i64 8
+  store ptr %0, ptr %agg.tmp.sroa.2.0.agg.tmp1.sroa_idx15, align 8
+  %agg.tmp.sroa.3.0.agg.tmp1.sroa_idx16 = getelementptr inbounds nuw i8, ptr %agg.tmp1, i64 16
+  store i64 %ref.tmp.sroa.4.0.i, ptr %agg.tmp.sroa.3.0.agg.tmp1.sroa_idx16, align 8
+  br label %while.body.i.preheader
 
 for.inc.i.i.i.i:                                  ; preds = %for.body.i.i.i.i
   %inc.i.i.i.i = add i64 %ref.tmp.sroa.4.0.i, 1
   %exitcond.not.i.i = icmp eq i64 %inc.i.i.i.i, %2
-  br i1 %exitcond.not.i.i, label %_ZN6google8protobuf3MapImmE5eraseENS2_8iteratorES3_.exit, label %for.body.i.i.i.i, !llvm.loop !222
+  br i1 %exitcond.not.i.i, label %_ZN6google8protobuf3MapImmE5beginEv.exit.thread, label %for.body.i.i.i.i, !llvm.loop !222
+
+_ZN6google8protobuf3MapImmE5beginEv.exit.thread:  ; preds = %for.inc.i.i.i.i, %entry
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %agg.tmp1)
+  br label %_ZN6google8protobuf3MapImmE5eraseENS2_8iteratorES3_.exit
 
 _ZN6google8protobuf3MapImmE5beginEv.exit:         ; preds = %_ZNK6google8protobuf3MapImmE8InnerMap24TableEntryIsNonEmptyListEm.exit.i.i.i.i
   %_M_left.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %4, i64 32
   %6 = load ptr, ptr %_M_left.i.i.i.i.i.i, align 8, !noalias !2363
   %_M_storage.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %6, i64 32
   %7 = load ptr, ptr %_M_storage.i.i.i.i.i.i, align 8, !noalias !2363
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %agg.tmp1)
+  store ptr %7, ptr %agg.tmp1, align 8
+  %agg.tmp.sroa.2.0.agg.tmp1.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.tmp1, i64 8
+  store ptr %0, ptr %agg.tmp.sroa.2.0.agg.tmp1.sroa_idx, align 8
+  %agg.tmp.sroa.3.0.agg.tmp1.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.tmp1, i64 16
+  store i64 %ref.tmp.sroa.4.0.i, ptr %agg.tmp.sroa.3.0.agg.tmp1.sroa_idx, align 8
   %cmp.i.i.i.not2.i = icmp eq ptr %7, null
-  br i1 %cmp.i.i.i.not2.i, label %_ZN6google8protobuf3MapImmE5eraseENS2_8iteratorES3_.exit, label %while.body.lr.ph.i
+  br i1 %cmp.i.i.i.not2.i, label %_ZN6google8protobuf3MapImmE5eraseENS2_8iteratorES3_.exit, label %while.body.i.preheader
 
-while.body.lr.ph.i:                               ; preds = %_ZNK6google8protobuf3MapImmE8InnerMap24TableEntryIsNonEmptyListEm.exit.i.i.i.i, %_ZN6google8protobuf3MapImmE5beginEv.exit
-  %ref.tmp.sroa.0.0.i20 = phi ptr [ %7, %_ZN6google8protobuf3MapImmE5beginEv.exit ], [ %4, %_ZNK6google8protobuf3MapImmE8InnerMap24TableEntryIsNonEmptyListEm.exit.i.i.i.i ]
-  %agg.tmp1.sroa.8.0.agg.tmp1.i.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.tmp1.i, i64 8
-  %agg.tmp1.sroa.9.0.agg.tmp1.i.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.tmp1.i, i64 16
-  %agg.tmp1.sroa.8.0.agg.tmp.i.i.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.tmp.i.i, i64 8
-  %agg.tmp1.sroa.9.0.agg.tmp.i.i.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.tmp.i.i, i64 16
+while.body.i.preheader:                           ; preds = %_ZN6google8protobuf3MapImmE5beginEv.exit.thread12, %_ZN6google8protobuf3MapImmE5beginEv.exit
   br label %while.body.i
 
-while.body.i:                                     ; preds = %_ZN6google8protobuf3MapImmE5eraseENS2_8iteratorE.exit.i, %while.body.lr.ph.i
-  %agg.tmp1.sroa.0.0 = phi ptr [ %ref.tmp.sroa.0.0.i20, %while.body.lr.ph.i ], [ %agg.tmp1.sroa.0.0.copyload5, %_ZN6google8protobuf3MapImmE5eraseENS2_8iteratorE.exit.i ]
-  %agg.tmp1.sroa.8.0 = phi ptr [ %0, %while.body.lr.ph.i ], [ %agg.tmp1.sroa.8.0.copyload8, %_ZN6google8protobuf3MapImmE5eraseENS2_8iteratorE.exit.i ]
-  %agg.tmp1.sroa.9.0 = phi i64 [ %ref.tmp.sroa.4.0.i, %while.body.lr.ph.i ], [ %agg.tmp1.sroa.9.0.copyload11, %_ZN6google8protobuf3MapImmE5eraseENS2_8iteratorE.exit.i ]
+while.body.i:                                     ; preds = %while.body.i.preheader, %_ZN6google8protobuf3MapImmE5eraseENS2_8iteratorE.exit.i
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %agg.tmp1.i)
-  store ptr %agg.tmp1.sroa.0.0, ptr %agg.tmp1.i, align 8
-  store ptr %agg.tmp1.sroa.8.0, ptr %agg.tmp1.sroa.8.0.agg.tmp1.i.sroa_idx, align 8
-  store i64 %agg.tmp1.sroa.9.0, ptr %agg.tmp1.sroa.9.0.agg.tmp1.i.sroa_idx, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %agg.tmp.i.i)
-  %v_.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp1.sroa.0.0, i64 8
-  %8 = load ptr, ptr %v_.i.i.i.i.i, align 8, !noalias !2366
-  store ptr %agg.tmp1.sroa.0.0, ptr %agg.tmp.i.i, align 8
-  store ptr %agg.tmp1.sroa.8.0, ptr %agg.tmp1.sroa.8.0.agg.tmp.i.i.sroa_idx, align 8
-  store i64 %agg.tmp1.sroa.9.0, ptr %agg.tmp1.sroa.9.0.agg.tmp.i.i.sroa_idx, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp1.i, ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp1, i64 24, i1 false)
+  %8 = load ptr, ptr %agg.tmp1.i, align 8, !noalias !2366
+  %v_.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %9 = load ptr, ptr %v_.i.i.i.i.i, align 8, !noalias !2366
   %call.i.i.i.i = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN6google8protobuf3MapImmE8InnerMap13iterator_baseINS2_12KeyValuePairEEppEv(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp1.i), !noalias !2369
-  %9 = load ptr, ptr %elements_.i, align 8, !noalias !2366
-  call void @_ZN6google8protobuf3MapImmE8InnerMap5eraseENS3_13iterator_baseINS2_12KeyValuePairEEE(ptr noundef nonnull align 8 dereferenceable(48) %9, ptr noundef nonnull byval(%"class.google::protobuf::Map<unsigned long, unsigned long>::InnerMap::iterator_base.501") align 8 %agg.tmp.i.i), !noalias !2366
-  %10 = load ptr, ptr %this, align 8, !noalias !2366
-  %cmp.i.i = icmp ne ptr %10, null
-  %isnull.i.i = icmp eq ptr %8, null
+  %10 = load ptr, ptr %elements_.i, align 8, !noalias !2366
+  call void @_ZN6google8protobuf3MapImmE8InnerMap5eraseENS3_13iterator_baseINS2_12KeyValuePairEEE(ptr noundef nonnull align 8 dereferenceable(48) %10, ptr noundef nonnull byval(%"class.google::protobuf::Map<unsigned long, unsigned long>::InnerMap::iterator_base.501") align 8 %agg.tmp1)
+  %11 = load ptr, ptr %this, align 8, !noalias !2366
+  %cmp.i.i = icmp ne ptr %11, null
+  %isnull.i.i = icmp eq ptr %9, null
   %or.cond.i.i = or i1 %isnull.i.i, %cmp.i.i
   br i1 %or.cond.i.i, label %_ZN6google8protobuf3MapImmE5eraseENS2_8iteratorE.exit.i, label %delete.notnull.i.i
 
 delete.notnull.i.i:                               ; preds = %while.body.i
-  call void @_ZdlPv(ptr noundef nonnull %8) #29, !noalias !2366
+  call void @_ZdlPv(ptr noundef nonnull %9) #29, !noalias !2366
   br label %_ZN6google8protobuf3MapImmE5eraseENS2_8iteratorE.exit.i
 
 _ZN6google8protobuf3MapImmE5eraseENS2_8iteratorE.exit.i: ; preds = %delete.notnull.i.i, %while.body.i
-  %agg.tmp1.sroa.0.0.copyload5 = load ptr, ptr %agg.tmp1.i, align 8
-  %agg.tmp1.sroa.8.0.copyload8 = load ptr, ptr %agg.tmp1.sroa.8.0.agg.tmp1.i.sroa_idx, align 8
-  %agg.tmp1.sroa.9.0.copyload11 = load i64, ptr %agg.tmp1.sroa.9.0.agg.tmp1.i.sroa_idx, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp1, ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp1.i, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %agg.tmp1.i)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %agg.tmp.i.i)
-  %cmp.i.i.i.not.i = icmp eq ptr %agg.tmp1.sroa.0.0.copyload5, null
+  %12 = load ptr, ptr %agg.tmp1, align 8
+  %cmp.i.i.i.not.i = icmp eq ptr %12, null
   br i1 %cmp.i.i.i.not.i, label %_ZN6google8protobuf3MapImmE5eraseENS2_8iteratorES3_.exit, label %while.body.i, !llvm.loop !2374
 
-_ZN6google8protobuf3MapImmE5eraseENS2_8iteratorES3_.exit: ; preds = %for.inc.i.i.i.i, %_ZN6google8protobuf3MapImmE5eraseENS2_8iteratorE.exit.i, %entry, %_ZN6google8protobuf3MapImmE5beginEv.exit
+_ZN6google8protobuf3MapImmE5eraseENS2_8iteratorES3_.exit: ; preds = %_ZN6google8protobuf3MapImmE5eraseENS2_8iteratorE.exit.i, %_ZN6google8protobuf3MapImmE5beginEv.exit.thread, %_ZN6google8protobuf3MapImmE5beginEv.exit
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %agg.tmp1)
   ret void
 }
 
@@ -112455,8 +112500,8 @@ terminate.lpad:                                   ; preds = %entry
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN6google8protobuf3MapIjjE5clearEv(ptr noundef nonnull align 8 dereferenceable(24) %this) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %agg.tmp.i.i = alloca %"class.google::protobuf::Map<unsigned int, unsigned int>::InnerMap::iterator_base.536", align 8
   %agg.tmp1.i = alloca %"class.google::protobuf::Map<unsigned int, unsigned int>::iterator", align 8
+  %agg.tmp1 = alloca %"class.google::protobuf::Map<unsigned int, unsigned int>::iterator", align 8
   %elements_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %elements_.i, align 8, !noalias !2521
   %index_of_first_non_null_.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -112464,7 +112509,7 @@ entry:
   %num_buckets_14.i.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   %2 = load i64, ptr %num_buckets_14.i.i.i.i, align 8, !noalias !2524
   %cmp153.i.i.i.i = icmp ult i64 %1, %2
-  br i1 %cmp153.i.i.i.i, label %for.body.lr.ph.i.i.i.i, label %_ZN6google8protobuf3MapIjjE5eraseENS2_8iteratorES3_.exit
+  br i1 %cmp153.i.i.i.i, label %for.body.lr.ph.i.i.i.i, label %_ZN6google8protobuf3MapIjjE5beginEv.exit.thread
 
 for.body.lr.ph.i.i.i.i:                           ; preds = %entry
   %table_.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -112483,66 +112528,71 @@ _ZNK6google8protobuf3MapIjjE8InnerMap24TableEntryIsNonEmptyListEm.exit.i.i.i.i: 
   %arrayidx2.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %3, i64 %xor.i.i.i.i.i.i
   %5 = load ptr, ptr %arrayidx2.i.i.i.i.i.i, align 8, !noalias !2524
   %cmp3.i.i.not.i.i.i.i = icmp eq ptr %4, %5
-  br i1 %cmp3.i.i.not.i.i.i.i, label %_ZN6google8protobuf3MapIjjE5beginEv.exit, label %while.body.lr.ph.i
+  br i1 %cmp3.i.i.not.i.i.i.i, label %_ZN6google8protobuf3MapIjjE5beginEv.exit, label %_ZN6google8protobuf3MapIjjE5beginEv.exit.thread12
+
+_ZN6google8protobuf3MapIjjE5beginEv.exit.thread12: ; preds = %_ZNK6google8protobuf3MapIjjE8InnerMap24TableEntryIsNonEmptyListEm.exit.i.i.i.i
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %agg.tmp1)
+  store ptr %4, ptr %agg.tmp1, align 8
+  %agg.tmp.sroa.2.0.agg.tmp1.sroa_idx15 = getelementptr inbounds nuw i8, ptr %agg.tmp1, i64 8
+  store ptr %0, ptr %agg.tmp.sroa.2.0.agg.tmp1.sroa_idx15, align 8
+  %agg.tmp.sroa.3.0.agg.tmp1.sroa_idx16 = getelementptr inbounds nuw i8, ptr %agg.tmp1, i64 16
+  store i64 %ref.tmp.sroa.4.0.i, ptr %agg.tmp.sroa.3.0.agg.tmp1.sroa_idx16, align 8
+  br label %while.body.i.preheader
 
 for.inc.i.i.i.i:                                  ; preds = %for.body.i.i.i.i
   %inc.i.i.i.i = add i64 %ref.tmp.sroa.4.0.i, 1
   %exitcond.not.i.i = icmp eq i64 %inc.i.i.i.i, %2
-  br i1 %exitcond.not.i.i, label %_ZN6google8protobuf3MapIjjE5eraseENS2_8iteratorES3_.exit, label %for.body.i.i.i.i, !llvm.loop !200
+  br i1 %exitcond.not.i.i, label %_ZN6google8protobuf3MapIjjE5beginEv.exit.thread, label %for.body.i.i.i.i, !llvm.loop !200
+
+_ZN6google8protobuf3MapIjjE5beginEv.exit.thread:  ; preds = %for.inc.i.i.i.i, %entry
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %agg.tmp1)
+  br label %_ZN6google8protobuf3MapIjjE5eraseENS2_8iteratorES3_.exit
 
 _ZN6google8protobuf3MapIjjE5beginEv.exit:         ; preds = %_ZNK6google8protobuf3MapIjjE8InnerMap24TableEntryIsNonEmptyListEm.exit.i.i.i.i
   %_M_left.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %4, i64 32
   %6 = load ptr, ptr %_M_left.i.i.i.i.i.i, align 8, !noalias !2524
   %_M_storage.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %6, i64 32
   %7 = load ptr, ptr %_M_storage.i.i.i.i.i.i, align 8, !noalias !2524
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %agg.tmp1)
+  store ptr %7, ptr %agg.tmp1, align 8
+  %agg.tmp.sroa.2.0.agg.tmp1.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.tmp1, i64 8
+  store ptr %0, ptr %agg.tmp.sroa.2.0.agg.tmp1.sroa_idx, align 8
+  %agg.tmp.sroa.3.0.agg.tmp1.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.tmp1, i64 16
+  store i64 %ref.tmp.sroa.4.0.i, ptr %agg.tmp.sroa.3.0.agg.tmp1.sroa_idx, align 8
   %cmp.i.i.i.not2.i = icmp eq ptr %7, null
-  br i1 %cmp.i.i.i.not2.i, label %_ZN6google8protobuf3MapIjjE5eraseENS2_8iteratorES3_.exit, label %while.body.lr.ph.i
+  br i1 %cmp.i.i.i.not2.i, label %_ZN6google8protobuf3MapIjjE5eraseENS2_8iteratorES3_.exit, label %while.body.i.preheader
 
-while.body.lr.ph.i:                               ; preds = %_ZNK6google8protobuf3MapIjjE8InnerMap24TableEntryIsNonEmptyListEm.exit.i.i.i.i, %_ZN6google8protobuf3MapIjjE5beginEv.exit
-  %ref.tmp.sroa.0.0.i20 = phi ptr [ %7, %_ZN6google8protobuf3MapIjjE5beginEv.exit ], [ %4, %_ZNK6google8protobuf3MapIjjE8InnerMap24TableEntryIsNonEmptyListEm.exit.i.i.i.i ]
-  %agg.tmp1.sroa.8.0.agg.tmp1.i.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.tmp1.i, i64 8
-  %agg.tmp1.sroa.9.0.agg.tmp1.i.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.tmp1.i, i64 16
-  %agg.tmp1.sroa.8.0.agg.tmp.i.i.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.tmp.i.i, i64 8
-  %agg.tmp1.sroa.9.0.agg.tmp.i.i.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.tmp.i.i, i64 16
+while.body.i.preheader:                           ; preds = %_ZN6google8protobuf3MapIjjE5beginEv.exit.thread12, %_ZN6google8protobuf3MapIjjE5beginEv.exit
   br label %while.body.i
 
-while.body.i:                                     ; preds = %_ZN6google8protobuf3MapIjjE5eraseENS2_8iteratorE.exit.i, %while.body.lr.ph.i
-  %agg.tmp1.sroa.0.0 = phi ptr [ %ref.tmp.sroa.0.0.i20, %while.body.lr.ph.i ], [ %agg.tmp1.sroa.0.0.copyload5, %_ZN6google8protobuf3MapIjjE5eraseENS2_8iteratorE.exit.i ]
-  %agg.tmp1.sroa.8.0 = phi ptr [ %0, %while.body.lr.ph.i ], [ %agg.tmp1.sroa.8.0.copyload8, %_ZN6google8protobuf3MapIjjE5eraseENS2_8iteratorE.exit.i ]
-  %agg.tmp1.sroa.9.0 = phi i64 [ %ref.tmp.sroa.4.0.i, %while.body.lr.ph.i ], [ %agg.tmp1.sroa.9.0.copyload11, %_ZN6google8protobuf3MapIjjE5eraseENS2_8iteratorE.exit.i ]
+while.body.i:                                     ; preds = %while.body.i.preheader, %_ZN6google8protobuf3MapIjjE5eraseENS2_8iteratorE.exit.i
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %agg.tmp1.i)
-  store ptr %agg.tmp1.sroa.0.0, ptr %agg.tmp1.i, align 8
-  store ptr %agg.tmp1.sroa.8.0, ptr %agg.tmp1.sroa.8.0.agg.tmp1.i.sroa_idx, align 8
-  store i64 %agg.tmp1.sroa.9.0, ptr %agg.tmp1.sroa.9.0.agg.tmp1.i.sroa_idx, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %agg.tmp.i.i)
-  %v_.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp1.sroa.0.0, i64 8
-  %8 = load ptr, ptr %v_.i.i.i.i.i, align 8, !noalias !2527
-  store ptr %agg.tmp1.sroa.0.0, ptr %agg.tmp.i.i, align 8
-  store ptr %agg.tmp1.sroa.8.0, ptr %agg.tmp1.sroa.8.0.agg.tmp.i.i.sroa_idx, align 8
-  store i64 %agg.tmp1.sroa.9.0, ptr %agg.tmp1.sroa.9.0.agg.tmp.i.i.sroa_idx, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp1.i, ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp1, i64 24, i1 false)
+  %8 = load ptr, ptr %agg.tmp1.i, align 8, !noalias !2527
+  %v_.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %9 = load ptr, ptr %v_.i.i.i.i.i, align 8, !noalias !2527
   %call.i.i.i.i = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN6google8protobuf3MapIjjE8InnerMap13iterator_baseINS2_12KeyValuePairEEppEv(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp1.i), !noalias !2530
-  %9 = load ptr, ptr %elements_.i, align 8, !noalias !2527
-  call void @_ZN6google8protobuf3MapIjjE8InnerMap5eraseENS3_13iterator_baseINS2_12KeyValuePairEEE(ptr noundef nonnull align 8 dereferenceable(48) %9, ptr noundef nonnull byval(%"class.google::protobuf::Map<unsigned int, unsigned int>::InnerMap::iterator_base.536") align 8 %agg.tmp.i.i), !noalias !2527
-  %10 = load ptr, ptr %this, align 8, !noalias !2527
-  %cmp.i.i = icmp ne ptr %10, null
-  %isnull.i.i = icmp eq ptr %8, null
+  %10 = load ptr, ptr %elements_.i, align 8, !noalias !2527
+  call void @_ZN6google8protobuf3MapIjjE8InnerMap5eraseENS3_13iterator_baseINS2_12KeyValuePairEEE(ptr noundef nonnull align 8 dereferenceable(48) %10, ptr noundef nonnull byval(%"class.google::protobuf::Map<unsigned int, unsigned int>::InnerMap::iterator_base.536") align 8 %agg.tmp1)
+  %11 = load ptr, ptr %this, align 8, !noalias !2527
+  %cmp.i.i = icmp ne ptr %11, null
+  %isnull.i.i = icmp eq ptr %9, null
   %or.cond.i.i = or i1 %isnull.i.i, %cmp.i.i
   br i1 %or.cond.i.i, label %_ZN6google8protobuf3MapIjjE5eraseENS2_8iteratorE.exit.i, label %delete.notnull.i.i
 
 delete.notnull.i.i:                               ; preds = %while.body.i
-  call void @_ZdlPv(ptr noundef nonnull %8) #29, !noalias !2527
+  call void @_ZdlPv(ptr noundef nonnull %9) #29, !noalias !2527
   br label %_ZN6google8protobuf3MapIjjE5eraseENS2_8iteratorE.exit.i
 
 _ZN6google8protobuf3MapIjjE5eraseENS2_8iteratorE.exit.i: ; preds = %delete.notnull.i.i, %while.body.i
-  %agg.tmp1.sroa.0.0.copyload5 = load ptr, ptr %agg.tmp1.i, align 8
-  %agg.tmp1.sroa.8.0.copyload8 = load ptr, ptr %agg.tmp1.sroa.8.0.agg.tmp1.i.sroa_idx, align 8
-  %agg.tmp1.sroa.9.0.copyload11 = load i64, ptr %agg.tmp1.sroa.9.0.agg.tmp1.i.sroa_idx, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp1, ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp1.i, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %agg.tmp1.i)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %agg.tmp.i.i)
-  %cmp.i.i.i.not.i = icmp eq ptr %agg.tmp1.sroa.0.0.copyload5, null
+  %12 = load ptr, ptr %agg.tmp1, align 8
+  %cmp.i.i.i.not.i = icmp eq ptr %12, null
   br i1 %cmp.i.i.i.not.i, label %_ZN6google8protobuf3MapIjjE5eraseENS2_8iteratorES3_.exit, label %while.body.i, !llvm.loop !2535
 
-_ZN6google8protobuf3MapIjjE5eraseENS2_8iteratorES3_.exit: ; preds = %for.inc.i.i.i.i, %_ZN6google8protobuf3MapIjjE5eraseENS2_8iteratorE.exit.i, %entry, %_ZN6google8protobuf3MapIjjE5beginEv.exit
+_ZN6google8protobuf3MapIjjE5eraseENS2_8iteratorES3_.exit: ; preds = %_ZN6google8protobuf3MapIjjE5eraseENS2_8iteratorE.exit.i, %_ZN6google8protobuf3MapIjjE5beginEv.exit.thread, %_ZN6google8protobuf3MapIjjE5beginEv.exit
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %agg.tmp1)
   ret void
 }
 

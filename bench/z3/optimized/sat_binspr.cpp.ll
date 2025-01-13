@@ -102,7 +102,6 @@ entry:
   %agg.tmp1.i = alloca %"class.sat::justification", align 8
   %_rep = alloca %"struct.sat::binspr::report", align 8
   %p = alloca %class.params_ref, align 8
-  %agg.tmp96 = alloca %"class.sat::justification", align 8
   %call = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 4408)
   %0 = load ptr, ptr %this, align 8
   %m_params.i = getelementptr inbounds nuw i8, ptr %0, i64 4048
@@ -532,7 +531,6 @@ cond.false.i:                                     ; preds = %invoke.cont77
 _ZNK3sat6solver15init_trail_sizeEv.exit:          ; preds = %cond.true.i, %if.end.i.i36, %cond.false.i
   %cond.i = phi i32 [ %56, %cond.false.i ], [ %54, %if.end.i.i36 ], [ 0, %cond.true.i ]
   %57 = zext i32 %cond.i to i64
-  %agg.tmp9654.sroa.4.0.agg.tmp96.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.tmp96, i64 4
   br label %for.cond81
 
 for.cond81:                                       ; preds = %_ZNK3sat6solver15init_trail_sizeEv.exit, %for.inc105
@@ -577,10 +575,10 @@ invoke.cont102:                                   ; preds = %invoke.cont85
   %67 = load ptr, ptr %m_justification.i51, align 8, !noalias !7
   %idxprom.i.i52 = zext nneg i32 %shr.i.i to i64
   %arrayidx.i.i53 = getelementptr inbounds nuw %"class.sat::justification", ptr %67, i64 %idxprom.i.i52
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp96, ptr noundef nonnull align 8 dereferenceable(24) %arrayidx.i.i53, i64 24, i1 false)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp9654.sroa.4)
-  %agg.tmp9654.sroa.0.0.copyload = load i32, ptr %agg.tmp96, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %agg.tmp9654.sroa.4, ptr noundef nonnull align 4 dereferenceable(16) %agg.tmp9654.sroa.4.0.agg.tmp96.sroa_idx, i64 16, i1 false)
+  %agg.tmp9654.sroa.0.0.copyload = load i32, ptr %arrayidx.i.i53, align 8
+  %agg.tmp9654.sroa.4.0.arrayidx.i.i53.sroa_idx = getelementptr inbounds nuw i8, ptr %arrayidx.i.i53, i64 4
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %agg.tmp9654.sroa.4, ptr noundef nonnull align 4 dereferenceable(16) %agg.tmp9654.sroa.4.0.arrayidx.i.i53.sroa_idx, i64 16, i1 false)
   %m_assignment.i.i = getelementptr inbounds nuw i8, ptr %66, i64 3440
   %68 = load ptr, ptr %m_assignment.i.i, align 8
   %idxprom.i.i.i = zext i32 %retval.sroa.0.0.copyload.i to i64
@@ -594,11 +592,11 @@ invoke.cont102:                                   ; preds = %invoke.cont85
 
 sw.bb.i:                                          ; preds = %invoke.cont102
   %xor.i.i = xor i32 %retval.sroa.0.0.copyload.i, 1
-  invoke void @_ZN3sat6solver12set_conflictENS_13justificationENS_7literalE(ptr noundef nonnull align 8 dereferenceable(4408) %66, ptr noundef nonnull byval(%"class.sat::justification") align 8 %agg.tmp96, i32 %xor.i.i)
+  invoke void @_ZN3sat6solver12set_conflictENS_13justificationENS_7literalE(ptr noundef nonnull align 8 dereferenceable(4408) %66, ptr noundef nonnull byval(%"class.sat::justification") align 8 %arrayidx.i.i53, i32 %xor.i.i)
           to label %for.inc105 unwind label %lpad.loopexit
 
 sw.bb10.i:                                        ; preds = %invoke.cont102
-  invoke void @_ZN3sat6solver11assign_coreENS_7literalENS_13justificationE(ptr noundef nonnull align 8 dereferenceable(4408) %66, i32 %retval.sroa.0.0.copyload.i, ptr noundef nonnull byval(%"class.sat::justification") align 8 %agg.tmp96)
+  invoke void @_ZN3sat6solver11assign_coreENS_7literalENS_13justificationE(ptr noundef nonnull align 8 dereferenceable(4408) %66, i32 %retval.sroa.0.0.copyload.i, ptr noundef nonnull byval(%"class.sat::justification") align 8 %arrayidx.i.i53)
           to label %for.inc105 unwind label %lpad.loopexit
 
 sw.bb14.i:                                        ; preds = %invoke.cont102

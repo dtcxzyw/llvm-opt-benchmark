@@ -138,7 +138,7 @@ return:                                           ; preds = %cond.end, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @ZDICT_trainFromBuffer_cover(ptr noundef %dictBuffer, i64 noundef %dictBufferCapacity, ptr noundef %samplesBuffer, ptr noundef %samplesSizes, i32 noundef %nbSamples, ptr noundef byval(%struct.ZDICT_cover_params_t) align 8 initializes((16, 24)) %parameters) local_unnamed_addr #4 {
+define i64 @ZDICT_trainFromBuffer_cover(ptr noundef %dictBuffer, i64 noundef %dictBufferCapacity, ptr noundef %samplesBuffer, ptr noundef %samplesSizes, i32 noundef %nbSamples, ptr nocapture noundef byval(%struct.ZDICT_cover_params_t) align 8 initializes((16, 24)) %parameters) local_unnamed_addr #4 {
 entry:
   %ctx = alloca %struct.COVER_ctx_t, align 8
   %activeDmers = alloca %struct.COVER_map_s, align 8
@@ -229,8 +229,8 @@ if.then5.i:                                       ; preds = %if.end26
   br label %COVER_warnOnSmallCorpus.exit
 
 COVER_warnOnSmallCorpus.exit:                     ; preds = %if.end26, %if.then5.i
-  %sub = add i32 %2, 1
-  %add = sub i32 %sub, %1
+  %reass.sub = sub i32 %2, %1
+  %add = add i32 %reass.sub, 1
   %17 = call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %add, i1 true)
   %sub.i.i = xor i32 %17, 31
   %add.i = sub nuw nsw i32 33, %17
@@ -1613,7 +1613,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define void @COVER_selectDict(ptr noalias nocapture writeonly sret(%struct.COVER_dictSelection) align 8 %agg.result, ptr noundef %customDictContent, i64 noundef %dictBufferCapacity, i64 noundef %dictContentSize, ptr noundef %samplesBuffer, ptr noundef %samplesSizes, i32 noundef %nbFinalizeSamples, i64 noundef %nbCheckSamples, i64 noundef %nbSamples, ptr noundef byval(%struct.ZDICT_cover_params_t) align 8 %params, ptr nocapture noundef readonly %offsets, i64 %totalCompressedSize) local_unnamed_addr #4 {
+define void @COVER_selectDict(ptr noalias nocapture writeonly sret(%struct.COVER_dictSelection) align 8 %agg.result, ptr noundef %customDictContent, i64 noundef %dictBufferCapacity, i64 noundef %dictContentSize, ptr noundef %samplesBuffer, ptr noundef %samplesSizes, i32 noundef %nbFinalizeSamples, i64 noundef %nbCheckSamples, i64 noundef %nbSamples, ptr nocapture noundef readonly byval(%struct.ZDICT_cover_params_t) align 8 %params, ptr nocapture noundef readonly %offsets, i64 %totalCompressedSize) local_unnamed_addr #4 {
 entry:
   %add.ptr = getelementptr inbounds i8, ptr %customDictContent, i64 %dictContentSize
   %call = tail call noalias ptr @malloc(i64 noundef %dictBufferCapacity) #22
@@ -2416,7 +2416,7 @@ if.then29.i:                                      ; preds = %if.end27.i
   %dictSize31.i = getelementptr inbounds nuw i8, ptr %23, i64 104
   store i64 %selection.sroa.5.0, ptr %dictSize31.i, align 8
   %parameters32.i = getelementptr inbounds nuw i8, ptr %23, i64 112
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %parameters32.i, ptr noundef nonnull align 8 dereferenceable(48) %parameters, i64 48, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %parameters32.i, ptr noundef nonnull readonly align 8 dereferenceable(48) %parameters, i64 48, i1 false)
   store i64 %selection.sroa.539.0, ptr %compressedSize4.i, align 8
   br label %if.end35.i
 

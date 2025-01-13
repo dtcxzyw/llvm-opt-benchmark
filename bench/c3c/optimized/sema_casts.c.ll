@@ -5686,7 +5686,7 @@ define internal void @cast_expand_to_vec(ptr noundef %0, ptr noundef %1, ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @cast_int_to_bool(ptr nocapture readnone %0, ptr noundef %1, ptr noundef %2) #0 {
+define internal void @cast_int_to_bool(ptr nocapture readnone %0, ptr nocapture noundef %1, ptr noundef %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = load i16, ptr %4, align 8
   %6 = and i16 %5, 255
@@ -5745,7 +5745,7 @@ define internal void @cast_int_to_bool(ptr nocapture readnone %0, ptr noundef %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @cast_int_to_int(ptr nocapture readnone %0, ptr noundef %1, ptr noundef %2) #0 {
+define internal void @cast_int_to_int(ptr nocapture readnone %0, ptr nocapture noundef %1, ptr noundef %2) #0 {
   %4 = alloca %struct.Int, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load i16, ptr %5, align 8
@@ -5875,7 +5875,7 @@ type_flatten_to_int.exit:                         ; preds = %.preheader
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @cast_int_to_float(ptr nocapture readnone %0, ptr noundef %1, ptr noundef %2) #0 {
+define internal void @cast_int_to_float(ptr nocapture readnone %0, ptr nocapture noundef %1, ptr noundef %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = load i16, ptr %4, align 8
   %6 = and i16 %5, 255
@@ -8189,7 +8189,7 @@ define internal void @cast_fault_to_anyfault(ptr nocapture readnone %0, ptr noca
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @cast_enum_to_int(ptr nocapture readnone %0, ptr noundef %1, ptr noundef %2) #0 {
+define internal void @cast_enum_to_int(ptr nocapture readnone %0, ptr nocapture noundef %1, ptr noundef %2) #0 {
   br label %4
 
 4:                                                ; preds = %.backedge, %3

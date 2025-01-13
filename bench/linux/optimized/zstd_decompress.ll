@@ -2751,7 +2751,7 @@ define dso_local noundef i64 @ZSTD_DStreamOutSize() local_unnamed_addr #2 align 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i64 -64, 1) i64 @ZSTD_DCtx_loadDictionary_advanced(ptr noundef %0, ptr noundef %1, i64 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i64 -64, 1) i64 @ZSTD_DCtx_loadDictionary_advanced(ptr nocapture noundef %0, ptr noundef %1, i64 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 align 16 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 30212
   %7 = load i32, ptr %6, align 4
   %8 = icmp eq i32 %7, 0
@@ -2791,7 +2791,7 @@ define dso_local noundef range(i64 -64, 1) i64 @ZSTD_DCtx_loadDictionary_advance
 declare dso_local ptr @ZSTD_createDDict_advanced(ptr noundef, i64 noundef, i32 noundef, i32 noundef, ptr noundef byval(%struct.ZSTD_customMem) align 8) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i64 -64, 1) i64 @ZSTD_DCtx_loadDictionary_byReference(ptr noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i64 -64, 1) i64 @ZSTD_DCtx_loadDictionary_byReference(ptr nocapture noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 30212
   %5 = load i32, ptr %4, align 4
   %6 = icmp eq i32 %5, 0
@@ -2828,7 +2828,7 @@ define dso_local noundef range(i64 -64, 1) i64 @ZSTD_DCtx_loadDictionary_byRefer
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i64 -64, 1) i64 @ZSTD_DCtx_loadDictionary(ptr noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i64 -64, 1) i64 @ZSTD_DCtx_loadDictionary(ptr nocapture noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 30212
   %5 = load i32, ptr %4, align 4
   %6 = icmp eq i32 %5, 0
@@ -2865,7 +2865,7 @@ define dso_local noundef range(i64 -64, 1) i64 @ZSTD_DCtx_loadDictionary(ptr nou
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i64 -64, 1) i64 @ZSTD_DCtx_refPrefix_advanced(ptr noundef %0, ptr noundef %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i64 -64, 1) i64 @ZSTD_DCtx_refPrefix_advanced(ptr nocapture noundef %0, ptr noundef %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #0 align 16 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 30212
   %6 = load i32, ptr %5, align 4
   %7 = icmp eq i32 %6, 0
@@ -2905,7 +2905,7 @@ define dso_local noundef range(i64 -64, 1) i64 @ZSTD_DCtx_refPrefix_advanced(ptr
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i64 -64, 1) i64 @ZSTD_DCtx_refPrefix(ptr noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i64 -64, 1) i64 @ZSTD_DCtx_refPrefix(ptr nocapture noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 30212
   %5 = load i32, ptr %4, align 4
   %6 = icmp eq i32 %5, 0
@@ -2945,7 +2945,7 @@ define dso_local noundef range(i64 -64, 1) i64 @ZSTD_DCtx_refPrefix(ptr noundef 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local range(i64 -64, 6) i64 @ZSTD_initDStream_usingDict(ptr noundef initializes((30176, 30184), (30192, 30196), (30212, 30216), (30292, 30296)) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 align 16 {
+define dso_local range(i64 -64, 6) i64 @ZSTD_initDStream_usingDict(ptr nocapture noundef initializes((30176, 30184), (30192, 30196), (30212, 30216), (30292, 30296)) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 30212
   store i32 0, ptr %4, align 4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 30292

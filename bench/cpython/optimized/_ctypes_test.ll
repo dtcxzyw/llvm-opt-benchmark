@@ -87,7 +87,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define void @_testfunc_cbk_large_struct(ptr noundef byval(%struct.Test) align 8 %in, ptr nocapture noundef readonly %func) local_unnamed_addr #0 {
+define void @_testfunc_cbk_large_struct(ptr nocapture noundef readonly byval(%struct.Test) align 8 %in, ptr nocapture noundef readonly %func) local_unnamed_addr #0 {
 entry:
   tail call void %func(ptr noundef nonnull byval(%struct.Test) align 8 %in) #33
   ret void

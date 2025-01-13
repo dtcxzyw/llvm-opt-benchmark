@@ -5624,7 +5624,7 @@ return:                                           ; preds = %entry, %if.then
 declare noundef zeroext i1 @_ZNK4pbrt9Primitive10IntersectPERKNS_3RayEf(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(40), float noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local { <2 x float>, <2 x float> } @_ZNK4pbrt10Integrator2TrERKNS_11InteractionES3_RKNS_18SampledWavelengthsE(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr noundef nonnull align 8 dereferenceable(80) %p0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %p1, ptr noundef nonnull align 4 dereferenceable(32) %lambda) local_unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local { <2 x float>, <2 x float> } @_ZNK4pbrt10Integrator2TrERKNS_11InteractionES3_RKNS_18SampledWavelengthsE(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %p0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %p1, ptr noundef nonnull align 4 dereferenceable(32) %lambda) local_unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ret.i337 = alloca %"class.pbrt::SampledSpectrum", align 8
   %agg.tmp33.i230 = alloca %"class.pbrt::Point3fi", align 8
@@ -32958,7 +32958,7 @@ return:                                           ; preds = %land.rhs.i, %if.end
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local { <2 x float>, <2 x float> } @_ZN4pbrt1GERKNS_10IntegratorENS_7SamplerERKNS_6VertexES6_RKNS_18SampledWavelengthsE(ptr noundef nonnull align 8 dereferenceable(64) %integrator, ptr nocapture readnone %sampler, ptr noundef nonnull align 8 dereferenceable(332) %v0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(332) %v1, ptr noundef nonnull align 4 dereferenceable(32) %lambda) local_unnamed_addr #9 {
+define dso_local { <2 x float>, <2 x float> } @_ZN4pbrt1GERKNS_10IntegratorENS_7SamplerERKNS_6VertexES6_RKNS_18SampledWavelengthsE(ptr noundef nonnull align 8 dereferenceable(64) %integrator, ptr nocapture readnone %sampler, ptr nocapture noundef nonnull readonly align 8 dereferenceable(332) %v0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(332) %v1, ptr noundef nonnull align 4 dereferenceable(32) %lambda) local_unnamed_addr #9 {
 entry:
   %retval.i.i = alloca %"class.pbrt::SampledSpectrum", align 8
   %retval.0.i.i = getelementptr inbounds nuw i8, ptr %v0, i64 24

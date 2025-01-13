@@ -3560,7 +3560,7 @@ define internal fastcc void @buildTocEntryArrays(ptr nocapture noundef initializ
 declare void @ConnectDatabase(ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @SetOutput(ptr nocapture noundef %0, ptr noundef %1, ptr noundef byval(%struct.pg_compress_specification) align 8 %2) unnamed_addr #0 {
+define internal fastcc void @SetOutput(ptr nocapture noundef %0, ptr noundef %1, ptr nocapture noundef readonly byval(%struct.pg_compress_specification) align 8 %2) unnamed_addr #0 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %10, label %sub_0
 

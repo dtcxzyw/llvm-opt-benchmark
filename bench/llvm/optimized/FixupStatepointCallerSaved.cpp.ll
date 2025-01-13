@@ -44,6 +44,13 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.llvm::SmallSetIterator.350" = type <{ %union.anon.352, i8, [7 x i8] }>
 %union.anon.352 = type { %"struct.std::_Rb_tree_const_iterator.345" }
 %"struct.std::_Rb_tree_const_iterator.345" = type { ptr }
+%"struct.llvm::MachinePointerInfo" = type <{ %"class.llvm::PointerUnion", i64, i32, i8, [3 x i8] }>
+%"class.llvm::PointerUnion" = type { %"class.llvm::pointer_union_detail::PointerUnionMembers" }
+%"class.llvm::pointer_union_detail::PointerUnionMembers" = type { %"class.llvm::pointer_union_detail::PointerUnionMembers.324" }
+%"class.llvm::pointer_union_detail::PointerUnionMembers.324" = type { %"class.llvm::pointer_union_detail::PointerUnionMembers.325" }
+%"class.llvm::pointer_union_detail::PointerUnionMembers.325" = type { %"class.llvm::PointerIntPair.326" }
+%"class.llvm::PointerIntPair.326" = type { %"struct.llvm::detail::PunnedPointer.327" }
+%"struct.llvm::detail::PunnedPointer.327" = type { [8 x i8] }
 %"class.llvm::MachineOperand" = type { i32, %union.anon.245, ptr, %"union.llvm::MachineOperand::ContentsUnion" }
 %union.anon.245 = type { i32 }
 %"union.llvm::MachineOperand::ContentsUnion" = type { %"class.llvm::ArrayRef.246" }
@@ -56,13 +63,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.llvm::SmallVectorTemplateBase.233" = type { %"class.llvm::SmallVectorTemplateCommon.234" }
 %"class.llvm::SmallVectorTemplateCommon.234" = type { %"class.llvm::SmallVectorBase" }
 %"struct.llvm::SmallVectorStorage.235" = type { [32 x i8] }
-%"struct.llvm::MachinePointerInfo" = type <{ %"class.llvm::PointerUnion", i64, i32, i8, [3 x i8] }>
-%"class.llvm::PointerUnion" = type { %"class.llvm::pointer_union_detail::PointerUnionMembers" }
-%"class.llvm::pointer_union_detail::PointerUnionMembers" = type { %"class.llvm::pointer_union_detail::PointerUnionMembers.324" }
-%"class.llvm::pointer_union_detail::PointerUnionMembers.324" = type { %"class.llvm::pointer_union_detail::PointerUnionMembers.325" }
-%"class.llvm::pointer_union_detail::PointerUnionMembers.325" = type { %"class.llvm::PointerIntPair.326" }
-%"class.llvm::PointerIntPair.326" = type { %"struct.llvm::detail::PunnedPointer.327" }
-%"struct.llvm::detail::PunnedPointer.327" = type { [8 x i8] }
 %"struct.llvm::AAMDNodes" = type { ptr, ptr, ptr, ptr }
 %"class.std::optional.314" = type { %"struct.std::_Optional_base.315" }
 %"struct.std::_Optional_base.315" = type { %"struct.std::_Optional_payload.317" }
@@ -509,16 +509,16 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_126FixupStatepointCallerSave
   %6 = alloca ptr, align 8
   %7 = alloca %"struct.std::pair.261", align 4
   %8 = alloca %"class.llvm::Register", align 4
-  %9 = alloca %"class.llvm::MachineOperand", align 8
+  %9 = alloca %"struct.llvm::MachinePointerInfo", align 8
   %10 = alloca %"class.llvm::MachineOperand", align 8
   %11 = alloca %"class.llvm::MachineOperand", align 8
   %12 = alloca %"class.llvm::MachineOperand", align 8
   %13 = alloca %"class.llvm::MachineOperand", align 8
   %14 = alloca %"class.llvm::MachineOperand", align 8
-  %15 = alloca %"class.llvm::DebugLoc", align 8
-  %16 = alloca %"class.llvm::SmallVector.231", align 8
-  %17 = alloca %"class.llvm::Register", align 4
-  %18 = alloca %"struct.llvm::MachinePointerInfo", align 8
+  %15 = alloca %"class.llvm::MachineOperand", align 8
+  %16 = alloca %"class.llvm::DebugLoc", align 8
+  %17 = alloca %"class.llvm::SmallVector.231", align 8
+  %18 = alloca %"class.llvm::Register", align 4
   %19 = alloca %"struct.llvm::MachinePointerInfo", align 8
   %20 = alloca %"struct.llvm::AAMDNodes", align 8
   %21 = alloca %"class.std::optional.314", align 8
@@ -714,20 +714,20 @@ _ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEppEv.exit: ; preds =
   %137 = getelementptr inbounds nuw i8, ptr %32, i64 232
   %.phi.trans.insert.i.i.i = getelementptr inbounds nuw i8, ptr %21, i64 16
   %.sroa.2.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %21, i64 8
-  %138 = getelementptr inbounds nuw i8, ptr %16, i64 16
-  %139 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %140 = getelementptr inbounds nuw i8, ptr %14, i64 4
-  %141 = getelementptr inbounds nuw i8, ptr %14, i64 16
-  %142 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %143 = getelementptr inbounds nuw i8, ptr %13, i64 4
-  %144 = getelementptr inbounds nuw i8, ptr %13, i64 16
-  %145 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  %146 = getelementptr inbounds nuw i8, ptr %12, i64 16
-  %147 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  %148 = getelementptr inbounds nuw i8, ptr %11, i64 16
-  %149 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %150 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  %151 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %138 = getelementptr inbounds nuw i8, ptr %17, i64 16
+  %139 = getelementptr inbounds nuw i8, ptr %15, i64 8
+  %140 = getelementptr inbounds nuw i8, ptr %15, i64 4
+  %141 = getelementptr inbounds nuw i8, ptr %15, i64 16
+  %142 = getelementptr inbounds nuw i8, ptr %14, i64 8
+  %143 = getelementptr inbounds nuw i8, ptr %14, i64 4
+  %144 = getelementptr inbounds nuw i8, ptr %14, i64 16
+  %145 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  %146 = getelementptr inbounds nuw i8, ptr %13, i64 16
+  %147 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  %148 = getelementptr inbounds nuw i8, ptr %12, i64 16
+  %149 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  %150 = getelementptr inbounds nuw i8, ptr %11, i64 16
+  %151 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %152 = getelementptr inbounds nuw i8, ptr %32, i64 224
   %153 = getelementptr inbounds nuw i8, ptr %7, i64 4
   %154 = getelementptr inbounds nuw i8, ptr %34, i64 192
@@ -2470,10 +2470,9 @@ _ZL22performCopyPropagationN4llvm8RegisterERNS_26MachineInstrBundleIteratorINS_1
 
 _ZN12_GLOBAL__N_115StatepointState14spillRegistersEv.exit.i: ; preds = %_ZL22performCopyPropagationN4llvm8RegisterERNS_26MachineInstrBundleIteratorINS_12MachineInstrELb0EEERbRKNS_15TargetInstrInfoERKNS_18TargetRegisterInfoE.exit.i.i, %513
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %23)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15)
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %16)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %17)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %18)
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %16)
+  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %17)
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %18)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %19)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %20)
   %1029 = load ptr, ptr %101, align 8
@@ -2488,22 +2487,22 @@ _ZN12_GLOBAL__N_115StatepointState14spillRegistersEv.exit.i: ; preds = %_ZL22per
   %1038 = getelementptr inbounds %"class.llvm::MCInstrDesc", ptr %1035, i64 %1037
   %1039 = getelementptr inbounds nuw i8, ptr %1032, i64 56
   %1040 = load ptr, ptr %1039, align 8
-  store ptr %1040, ptr %15, align 8
+  store ptr %1040, ptr %16, align 8
   %.not.i.i.i.i.i32.i = icmp eq ptr %1040, null
   br i1 %.not.i.i.i.i.i32.i, label %_ZN4llvm8DebugLocC2ERKS0_.exit.i.i, label %1041
 
 1041:                                             ; preds = %_ZN12_GLOBAL__N_115StatepointState14spillRegistersEv.exit.i
-  %1042 = call noundef zeroext i1 @_ZN4llvm16MetadataTracking5trackEPvRNS_8MetadataENS_12PointerUnionIJPNS_15MetadataAsValueEPS2_PNS_14DebugValueUserEEEE(ptr noundef nonnull align 8 dereferenceable(8) %15, ptr noundef nonnull align 4 dereferenceable(8) %1040, i64 1) #18
+  %1042 = call noundef zeroext i1 @_ZN4llvm16MetadataTracking5trackEPvRNS_8MetadataENS_12PointerUnionIJPNS_15MetadataAsValueEPS2_PNS_14DebugValueUserEEEE(ptr noundef nonnull align 8 dereferenceable(8) %16, ptr noundef nonnull align 4 dereferenceable(8) %1040, i64 1) #18
   br label %_ZN4llvm8DebugLocC2ERKS0_.exit.i.i
 
 _ZN4llvm8DebugLocC2ERKS0_.exit.i.i:               ; preds = %1041, %_ZN12_GLOBAL__N_115StatepointState14spillRegistersEv.exit.i
-  %1043 = call noundef ptr @_ZN4llvm15MachineFunction18CreateMachineInstrERKNS_11MCInstrDescENS_8DebugLocEb(ptr noundef nonnull align 8 dereferenceable(1041) %1029, ptr noundef nonnull align 8 dereferenceable(32) %1038, ptr noundef nonnull %15, i1 noundef zeroext true) #18
-  %1044 = load ptr, ptr %15, align 8
+  %1043 = call noundef ptr @_ZN4llvm15MachineFunction18CreateMachineInstrERKNS_11MCInstrDescENS_8DebugLocEb(ptr noundef nonnull align 8 dereferenceable(1041) %1029, ptr noundef nonnull align 8 dereferenceable(32) %1038, ptr noundef nonnull %16, i1 noundef zeroext true) #18
+  %1044 = load ptr, ptr %16, align 8
   %.not.i.i.i.i51.i.i = icmp eq ptr %1044, null
   br i1 %.not.i.i.i.i51.i.i, label %_ZN4llvm8DebugLocD2Ev.exit.i.i, label %1045
 
 1045:                                             ; preds = %_ZN4llvm8DebugLocC2ERKS0_.exit.i.i
-  call void @_ZN4llvm16MetadataTracking7untrackEPvRNS_8MetadataE(ptr noundef nonnull align 8 dereferenceable(8) %15, ptr noundef nonnull align 4 dereferenceable(8) %1044) #18
+  call void @_ZN4llvm16MetadataTracking7untrackEPvRNS_8MetadataE(ptr noundef nonnull align 8 dereferenceable(8) %16, ptr noundef nonnull align 4 dereferenceable(8) %1044) #18
   br label %_ZN4llvm8DebugLocD2Ev.exit.i.i
 
 _ZN4llvm8DebugLocD2Ev.exit.i.i:                   ; preds = %1045, %_ZN4llvm8DebugLocC2ERKS0_.exit.i.i
@@ -2512,7 +2511,7 @@ _ZN4llvm8DebugLocD2Ev.exit.i.i:                   ; preds = %1045, %_ZN4llvm8Deb
   %1048 = getelementptr inbounds nuw i8, ptr %1047, i64 40
   %1049 = load i24, ptr %1048, align 8
   %1050 = zext i24 %1049 to i32
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(48) %16, ptr noundef nonnull %138, i64 noundef 8) #18
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(48) %17, ptr noundef nonnull %138, i64 noundef 8) #18
   %1051 = load ptr, ptr %32, align 8
   %1052 = call noundef i32 @_ZNK4llvm12MachineInstr18getNumExplicitDefsEv(ptr noundef nonnull align 8 dereferenceable(70) %1051) #18
   %1053 = getelementptr inbounds nuw i8, ptr %1051, i64 16
@@ -2554,31 +2553,31 @@ _ZN4llvm8DebugLocD2Ev.exit.i.i:                   ; preds = %1045, %_ZN4llvm8Deb
 1076:                                             ; preds = %1075
   %1077 = load i24, ptr %1059, align 8
   %1078 = zext i24 %1077 to i32
-  %1079 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %16) #18
+  %1079 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %17) #18
   %1080 = add i64 %1079, 1
-  %1081 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE8capacityEv(ptr noundef nonnull align 8 dereferenceable(16) %16) #18
+  %1081 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE8capacityEv(ptr noundef nonnull align 8 dereferenceable(16) %17) #18
   %.not.i.i.i.i61.i = icmp ugt i64 %1080, %1081
   br i1 %.not.i.i.i.i61.i, label %1082, label %_ZN4llvm23SmallVectorTemplateBaseIjLb1EE9push_backEj.exit.i62.i
 
 1082:                                             ; preds = %1076
-  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %16, ptr noundef nonnull %138, i64 noundef %1080, i64 noundef 4) #18
+  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %17, ptr noundef nonnull %138, i64 noundef %1080, i64 noundef 4) #18
   br label %_ZN4llvm23SmallVectorTemplateBaseIjLb1EE9push_backEj.exit.i62.i
 
 _ZN4llvm23SmallVectorTemplateBaseIjLb1EE9push_backEj.exit.i62.i: ; preds = %1082, %1076
-  %1083 = load ptr, ptr %16, align 8
-  %1084 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %16) #18
+  %1083 = load ptr, ptr %17, align 8
+  %1084 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %17) #18
   %1085 = getelementptr inbounds i32, ptr %1083, i64 %1084
   store i32 %1078, ptr %1085, align 1
-  %1086 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %16) #18
+  %1086 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %17) #18
   %1087 = add i64 %1086, 1
-  call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %16, i64 noundef %1087) #18
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %14)
+  call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %17, i64 noundef %1087) #18
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %15)
   store ptr null, ptr %139, align 8, !alias.scope !27
   store i32 %1065, ptr %140, align 4, !alias.scope !27
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %141, i8 0, i64 16, i1 false), !alias.scope !27
-  store i32 16777216, ptr %14, align 8, !alias.scope !27
-  call void @_ZN4llvm12MachineInstr10addOperandERNS_15MachineFunctionERKNS_14MachineOperandE(ptr noundef nonnull align 8 dereferenceable(70) %1043, ptr noundef nonnull align 8 dereferenceable(1041) %1046, ptr noundef nonnull align 8 dereferenceable(32) %14) #18
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %14)
+  store i32 16777216, ptr %15, align 8, !alias.scope !27
+  call void @_ZN4llvm12MachineInstr10addOperandERNS_15MachineFunctionERKNS_14MachineOperandE(ptr noundef nonnull align 8 dereferenceable(70) %1043, ptr noundef nonnull align 8 dereferenceable(1041) %1046, ptr noundef nonnull align 8 dereferenceable(32) %15) #18
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %15)
   br label %1138
 
 1088:                                             ; preds = %1060
@@ -2620,52 +2619,52 @@ _ZN4llvm23SmallVectorTemplateBaseINS_8RegisterELb1EE9push_backES1_.exit.i63.i: ;
 1107:                                             ; preds = %1099
   %1108 = load i24, ptr %1059, align 8
   %1109 = zext i24 %1108 to i32
-  %1110 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %16) #18
+  %1110 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %17) #18
   %1111 = add i64 %1110, 1
-  %1112 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE8capacityEv(ptr noundef nonnull align 8 dereferenceable(16) %16) #18
+  %1112 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE8capacityEv(ptr noundef nonnull align 8 dereferenceable(16) %17) #18
   %.not.i.i.i53.i.i = icmp ugt i64 %1111, %1112
   br i1 %.not.i.i.i53.i.i, label %1113, label %_ZN4llvm23SmallVectorTemplateBaseIjLb1EE9push_backEj.exit54.i.i
 
 1113:                                             ; preds = %1107
-  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %16, ptr noundef nonnull %138, i64 noundef %1111, i64 noundef 4) #18
+  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %17, ptr noundef nonnull %138, i64 noundef %1111, i64 noundef 4) #18
   br label %_ZN4llvm23SmallVectorTemplateBaseIjLb1EE9push_backEj.exit54.i.i
 
 _ZN4llvm23SmallVectorTemplateBaseIjLb1EE9push_backEj.exit54.i.i: ; preds = %1113, %1107
-  %1114 = load ptr, ptr %16, align 8
-  %1115 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %16) #18
+  %1114 = load ptr, ptr %17, align 8
+  %1115 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %17) #18
   %1116 = getelementptr inbounds i32, ptr %1114, i64 %1115
   store i32 %1109, ptr %1116, align 1
-  %1117 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %16) #18
+  %1117 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %17) #18
   %1118 = add i64 %1117, 1
-  call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %16, i64 noundef %1118) #18
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %13)
+  call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %17, i64 noundef %1118) #18
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %14)
   store ptr null, ptr %142, align 8, !alias.scope !30
   store i32 %1065, ptr %143, align 4, !alias.scope !30
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %144, i8 0, i64 16, i1 false), !alias.scope !30
-  store i32 16777216, ptr %13, align 8, !alias.scope !30
-  call void @_ZN4llvm12MachineInstr10addOperandERNS_15MachineFunctionERKNS_14MachineOperandE(ptr noundef nonnull align 8 dereferenceable(70) %1043, ptr noundef nonnull align 8 dereferenceable(1041) %1046, ptr noundef nonnull align 8 dereferenceable(32) %13) #18
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %13)
+  store i32 16777216, ptr %14, align 8, !alias.scope !30
+  call void @_ZN4llvm12MachineInstr10addOperandERNS_15MachineFunctionERKNS_14MachineOperandE(ptr noundef nonnull align 8 dereferenceable(70) %1043, ptr noundef nonnull align 8 dereferenceable(1041) %1046, ptr noundef nonnull align 8 dereferenceable(32) %14) #18
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %14)
   br label %1138
 
 1119:                                             ; preds = %1099
-  %1120 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %16) #18
+  %1120 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %17) #18
   %1121 = add i64 %1120, 1
-  %1122 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE8capacityEv(ptr noundef nonnull align 8 dereferenceable(16) %16) #18
+  %1122 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE8capacityEv(ptr noundef nonnull align 8 dereferenceable(16) %17) #18
   %.not.i.i.i55.i.i = icmp ugt i64 %1121, %1122
   br i1 %.not.i.i.i55.i.i, label %1123, label %_ZN4llvm23SmallVectorTemplateBaseIjLb1EE9push_backEj.exit56.i.i
 
 1123:                                             ; preds = %1119
-  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %16, ptr noundef nonnull %138, i64 noundef %1121, i64 noundef 4) #18
+  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %17, ptr noundef nonnull %138, i64 noundef %1121, i64 noundef 4) #18
   br label %_ZN4llvm23SmallVectorTemplateBaseIjLb1EE9push_backEj.exit56.i.i
 
 _ZN4llvm23SmallVectorTemplateBaseIjLb1EE9push_backEj.exit56.i.i: ; preds = %1123, %1119
-  %1124 = load ptr, ptr %16, align 8
-  %1125 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %16) #18
+  %1124 = load ptr, ptr %17, align 8
+  %1125 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %17) #18
   %1126 = getelementptr inbounds i32, ptr %1124, i64 %1125
   store i32 %1050, ptr %1126, align 1
-  %1127 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %16) #18
+  %1127 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %17) #18
   %1128 = add i64 %1127, 1
-  call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %16, i64 noundef %1128) #18
+  call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %17, i64 noundef %1128) #18
   %1129 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %112) #18
   %1130 = add i64 %1129, 1
   %1131 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE8capacityEv(ptr noundef nonnull align 8 dereferenceable(16) %112) #18
@@ -2744,7 +2743,7 @@ _ZN4llvm23SmallVectorTemplateBaseIjLb1EE9push_backEj.exit60.i.i: ; preds = %1146
 1170:                                             ; preds = %1159
   %1171 = getelementptr inbounds nuw i8, ptr %1163, i64 4
   %1172 = load i32, ptr %1171, align 4
-  store i32 %1172, ptr %17, align 4
+  store i32 %1172, ptr %18, align 4
   %1173 = load ptr, ptr %114, align 8
   %1174 = load i32, ptr %137, align 8
   %1175 = icmp eq i32 %1174, 0
@@ -2790,8 +2789,8 @@ _ZN4llvm23SmallVectorTemplateBaseIjLb1EE9push_backEj.exit60.i.i: ; preds = %1146
 
 _ZN4llvm12DenseMapBaseINS_8DenseMapINS_8RegisterEiNS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_iEEEES2_iS4_S7_E15LookupBucketForIS2_EEbRKT_RPS7_.exit.i.i.i59.i: ; preds = %1186, %1170
   %.sink.i.i.i.i.i60.i = phi ptr [ %1187, %1186 ], [ null, %1170 ]
-  %1197 = call noundef ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapINS_8RegisterEiNS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_iEEEES2_iS4_S7_E20InsertIntoBucketImplIS2_EEPS7_RKS2_RKT_SB_(ptr noundef nonnull align 1 dereferenceable(1) %114, ptr noundef nonnull align 4 dereferenceable(4) %17, ptr noundef nonnull align 4 dereferenceable(4) %17, ptr noundef %.sink.i.i.i.i.i60.i)
-  %1198 = load i32, ptr %17, align 4
+  %1197 = call noundef ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapINS_8RegisterEiNS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_iEEEES2_iS4_S7_E20InsertIntoBucketImplIS2_EEPS7_RKS2_RKT_SB_(ptr noundef nonnull align 1 dereferenceable(1) %114, ptr noundef nonnull align 4 dereferenceable(4) %18, ptr noundef nonnull align 4 dereferenceable(4) %18, ptr noundef %.sink.i.i.i.i.i60.i)
+  %1198 = load i32, ptr %18, align 4
   store i32 %1198, ptr %1197, align 4
   %1199 = getelementptr inbounds nuw i8, ptr %1197, i64 4
   store i32 0, ptr %1199, align 4
@@ -2801,12 +2800,12 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapINS_8RegisterEiNS_12DenseMapInfoIS2_vEENS_6de
   %.0.i.i.i58.i = phi ptr [ %1197, %_ZN4llvm12DenseMapBaseINS_8DenseMapINS_8RegisterEiNS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_iEEEES2_iS4_S7_E15LookupBucketForIS2_EEbRKT_RPS7_.exit.i.i.i59.i ], [ %1180, %1176 ], [ %1194, %1188 ]
   %1200 = getelementptr inbounds nuw i8, ptr %.0.i.i.i58.i, i64 4
   %1201 = load i32, ptr %1200, align 4
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %12)
-  store i32 1, ptr %12, align 8, !alias.scope !34
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %13)
+  store i32 1, ptr %13, align 8, !alias.scope !34
   store ptr null, ptr %145, align 8, !alias.scope !34
   store i64 1, ptr %146, align 8, !alias.scope !34
-  call void @_ZN4llvm12MachineInstr10addOperandERNS_15MachineFunctionERKNS_14MachineOperandE(ptr noundef nonnull align 8 dereferenceable(70) %1043, ptr noundef nonnull align 8 dereferenceable(1041) %1046, ptr noundef nonnull align 8 dereferenceable(32) %12) #18
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %12)
+  call void @_ZN4llvm12MachineInstr10addOperandERNS_15MachineFunctionERKNS_14MachineOperandE(ptr noundef nonnull align 8 dereferenceable(70) %1043, ptr noundef nonnull align 8 dereferenceable(1041) %1046, ptr noundef nonnull align 8 dereferenceable(32) %13) #18
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %13)
   %1202 = load ptr, ptr %102, align 8
   %1203 = load i32, ptr %1171, align 4
   %1204 = call noundef ptr @_ZNK4llvm18TargetRegisterInfo22getMinimalPhysRegClassENS_10MCRegisterENS_3MVTE(ptr noundef nonnull align 8 dereferenceable(308) %1202, i32 %1203, i16 1) #18
@@ -2834,23 +2833,23 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapINS_8RegisterEiNS_12DenseMapInfoIS2_vEENS_6de
   %1226 = load i32, ptr %1225, align 4
   %1227 = lshr i32 %1226, 3
   %1228 = zext nneg i32 %1227 to i64
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11)
-  store i32 1, ptr %11, align 8, !alias.scope !37
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %12)
+  store i32 1, ptr %12, align 8, !alias.scope !37
   store ptr null, ptr %147, align 8, !alias.scope !37
   store i64 %1228, ptr %148, align 8, !alias.scope !37
+  call void @_ZN4llvm12MachineInstr10addOperandERNS_15MachineFunctionERKNS_14MachineOperandE(ptr noundef nonnull align 8 dereferenceable(70) %1043, ptr noundef nonnull align 8 dereferenceable(1041) %1046, ptr noundef nonnull align 8 dereferenceable(32) %12) #18
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11)
+  store i32 5, ptr %11, align 8, !alias.scope !40
+  store ptr null, ptr %149, align 8, !alias.scope !40
+  store i32 %1201, ptr %150, align 8, !alias.scope !40
   call void @_ZN4llvm12MachineInstr10addOperandERNS_15MachineFunctionERKNS_14MachineOperandE(ptr noundef nonnull align 8 dereferenceable(70) %1043, ptr noundef nonnull align 8 dereferenceable(1041) %1046, ptr noundef nonnull align 8 dereferenceable(32) %11) #18
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10)
-  store i32 5, ptr %10, align 8, !alias.scope !40
-  store ptr null, ptr %149, align 8, !alias.scope !40
-  store i32 %1201, ptr %150, align 8, !alias.scope !40
+  store i32 1, ptr %10, align 8, !alias.scope !43
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %151, i8 0, i64 16, i1 false)
   call void @_ZN4llvm12MachineInstr10addOperandERNS_15MachineFunctionERKNS_14MachineOperandE(ptr noundef nonnull align 8 dereferenceable(70) %1043, ptr noundef nonnull align 8 dereferenceable(1041) %1046, ptr noundef nonnull align 8 dereferenceable(32) %10) #18
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9)
-  store i32 1, ptr %9, align 8, !alias.scope !43
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %151, i8 0, i64 16, i1 false)
-  call void @_ZN4llvm12MachineInstr10addOperandERNS_15MachineFunctionERKNS_14MachineOperandE(ptr noundef nonnull align 8 dereferenceable(70) %1043, ptr noundef nonnull align 8 dereferenceable(1041) %1046, ptr noundef nonnull align 8 dereferenceable(32) %9) #18
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9)
   %1229 = add i32 %.048103.i.i, 1
   br label %_ZNK4llvm12MachineInstr21isRegTiedToDefOperandEjPj.exit.i.i
 
@@ -2877,7 +2876,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapINS_8RegisterEiNS_12DenseMapInfoIS2_vEENS_6de
   %1243 = trunc nuw i64 %indvars.iv128.i.i to i32
   %1244 = call noundef i32 @_ZNK4llvm12MachineInstr18findTiedOperandIdxEj(ptr noundef nonnull align 8 dereferenceable(70) %1234, i32 noundef %1243) #18
   %1245 = zext i32 %1244 to i64
-  %1246 = load ptr, ptr %16, align 8
+  %1246 = load ptr, ptr %17, align 8
   %1247 = getelementptr inbounds nuw i32, ptr %1246, i64 %1245
   %1248 = load i32, ptr %1247, align 4
   %1249 = load i24, ptr %1157, align 8
@@ -2966,7 +2965,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapINS_8RegisterEiNS_12DenseMapInfoIS2_vEENS_6de
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %.sroa.070.0115.i.i, i64 4
   %.sroa.2.0.copyload.i.i = load i32, ptr %.sroa.2.0..sroa_idx.i.i, align 4
   %1280 = load ptr, ptr %101, align 8
-  call void @_ZN4llvm18MachinePointerInfo13getFixedStackERNS_15MachineFunctionEil(ptr dead_on_unwind nonnull writable sret(%"struct.llvm::MachinePointerInfo") align 8 %18, ptr noundef nonnull align 8 dereferenceable(1041) %1280, i32 noundef %.sroa.2.0.copyload.i.i, i64 noundef 0) #18
+  call void @_ZN4llvm18MachinePointerInfo13getFixedStackERNS_15MachineFunctionEil(ptr dead_on_unwind nonnull writable sret(%"struct.llvm::MachinePointerInfo") align 8 %19, ptr noundef nonnull align 8 dereferenceable(1041) %1280, i32 noundef %.sroa.2.0.copyload.i.i, i64 noundef 0) #18
   %1281 = load ptr, ptr %112, align 8
   %1282 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(48) %112) #18
   %.idx4.i.i.i = shl nsw i64 %1282, 2
@@ -3072,7 +3071,8 @@ _ZN4llvm12is_containedIRNS_11SmallVectorINS_8RegisterELj8EEES2_EEbOT_RKT0_.exit.
   %.not94.i.i = icmp eq ptr %.028.i.i.i.i.i40.i, %1324
   %spec.select.i.i = select i1 %.not94.i.i, i16 1, i16 3
   %1325 = load ptr, ptr %101, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %19, ptr noundef nonnull align 8 dereferenceable(24) %18, i64 24, i1 false)
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(24) %19, i64 24, i1 false)
   %1326 = load ptr, ptr %102, align 8
   %1327 = call noundef ptr @_ZNK4llvm18TargetRegisterInfo22getMinimalPhysRegClassENS_10MCRegisterENS_3MVTE(ptr noundef nonnull align 8 dereferenceable(308) %1326, i32 %.sroa.04.0.copyload.i.i, i16 1) #18
   %1328 = getelementptr inbounds nuw i8, ptr %1326, i64 288
@@ -3109,7 +3109,8 @@ _ZN4llvm12is_containedIRNS_11SmallVectorINS_8RegisterELj8EEES2_EEbOT_RKT0_.exit.
   %1359 = getelementptr inbounds nuw %"struct.llvm::MachineFrameInfo::StackObject", ptr %1358, i64 %1357, i32 2
   %.sroa.0.0.copyload.i.i.i = load i8, ptr %1359, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %20, i8 0, i64 32, i1 false)
-  %1360 = call noundef ptr @_ZN4llvm15MachineFunction20getMachineMemOperandENS_18MachinePointerInfoENS_17MachineMemOperand5FlagsENS_12LocationSizeENS_5AlignERKNS_9AAMDNodesEPKNS_6MDNodeEhNS_14AtomicOrderingESC_(ptr noundef nonnull align 8 dereferenceable(1041) %1325, ptr noundef nonnull byval(%"struct.llvm::MachinePointerInfo") align 8 %19, i16 noundef zeroext %spec.select.i.i, i64 %1351, i8 %.sroa.0.0.copyload.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %20, ptr noundef null, i8 noundef zeroext 1, i32 noundef 0, i32 noundef 0) #18
+  %1360 = call noundef ptr @_ZN4llvm15MachineFunction20getMachineMemOperandENS_18MachinePointerInfoENS_17MachineMemOperand5FlagsENS_12LocationSizeENS_5AlignERKNS_9AAMDNodesEPKNS_6MDNodeEhNS_14AtomicOrderingESC_(ptr noundef nonnull align 8 dereferenceable(1041) %1325, ptr noundef nonnull byval(%"struct.llvm::MachinePointerInfo") align 8 %9, i16 noundef zeroext %spec.select.i.i, i64 %1351, i8 %.sroa.0.0.copyload.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %20, ptr noundef null, i8 noundef zeroext 1, i32 noundef 0, i32 noundef 0) #18
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9)
   %1361 = load ptr, ptr %101, align 8
   call void @_ZN4llvm12MachineInstr13addMemOperandERNS_15MachineFunctionEPNS_17MachineMemOperandE(ptr noundef nonnull align 8 dereferenceable(70) %1043, ptr noundef nonnull align 8 dereferenceable(1041) %1361, ptr noundef %1360) #18
   %1362 = getelementptr inbounds nuw i8, ptr %.sroa.070.0115.i.i, i64 8
@@ -3155,8 +3156,8 @@ _ZN4llvm16DenseMapIteratorINS_8RegisterEiNS_12DenseMapInfoIS1_vEENS_6detail12Den
   store i64 %1377, ptr %1365, align 8
   %1378 = load ptr, ptr %32, align 8
   call void @_ZN4llvm12MachineInstr15eraseFromParentEv(ptr noundef nonnull align 8 dereferenceable(70) %1378) #18
-  %1379 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(48) %16) #18
-  %1380 = load ptr, ptr %16, align 8
+  %1379 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(48) %17) #18
+  %1380 = load ptr, ptr %17, align 8
   %1381 = icmp eq ptr %1380, %138
   br i1 %1381, label %_ZN12_GLOBAL__N_115StatepointState17rewriteStatepointEv.exit.i, label %1382
 
@@ -3165,10 +3166,9 @@ _ZN4llvm16DenseMapIteratorINS_8RegisterEiNS_12DenseMapInfoIS1_vEENS_6detail12Den
   br label %_ZN12_GLOBAL__N_115StatepointState17rewriteStatepointEv.exit.i
 
 _ZN12_GLOBAL__N_115StatepointState17rewriteStatepointEv.exit.i: ; preds = %1382, %._crit_edge117.i.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15)
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %16)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %17)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %18)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %17)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %18)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %19)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %20)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8)

@@ -1873,9 +1873,9 @@ _ZN4llvm13IRBuilderBase14SetInsertPointEPNS_11InstructionE.exit.i: ; preds = %73
 
 761:                                              ; preds = %748
   store i16 257, ptr %272, align 8
-  %762 = call noundef ptr @_ZN4llvm4UsernwEmj(i64 noundef 88, i32 noundef 4) #17
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false)
+  %762 = call noundef ptr @_ZN4llvm4UsernwEmj(i64 noundef 88, i32 noundef 4) #17
   %763 = load ptr, ptr %584, align 8
   %764 = getelementptr inbounds nuw i8, ptr %763, i64 8
   %765 = load i32, ptr %764, align 8

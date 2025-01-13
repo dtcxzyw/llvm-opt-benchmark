@@ -19314,9 +19314,9 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapIPNS_11InstructionESt8optionalINS_5APIntEENS
 
 8279:                                             ; preds = %.lr.ph648.i
   store i16 257, ptr %8235, align 8
-  %8280 = call noundef ptr @_ZN4llvm4UsernwEmj(i64 noundef 88, i32 noundef 2) #19
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %18)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %18, i8 0, i64 16, i1 false)
+  %8280 = call noundef ptr @_ZN4llvm4UsernwEmj(i64 noundef 88, i32 noundef 2) #19
   %8281 = getelementptr inbounds nuw i8, ptr %8266, i64 8
   %8282 = load ptr, ptr %8281, align 8
   %8283 = getelementptr inbounds nuw i8, ptr %8282, i64 8

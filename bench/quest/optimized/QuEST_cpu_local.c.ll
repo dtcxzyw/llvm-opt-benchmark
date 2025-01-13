@@ -20,7 +20,7 @@ target triple = "x86_64-pc-linux-gnu"
 @str.2 = private unnamed_addr constant [15 x i8] c"OpenMP enabled\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define void @densmatr_mixDepolarising(ptr noundef byval(%struct.Qureg) align 8 %0, i32 noundef %1, double noundef %2) local_unnamed_addr #0 {
+define void @densmatr_mixDepolarising(ptr nocapture noundef readonly byval(%struct.Qureg) align 8 %0, i32 noundef %1, double noundef %2) local_unnamed_addr #0 {
   %4 = fcmp oeq double %2, 0.000000e+00
   br i1 %4, label %6, label %5
 
@@ -35,7 +35,7 @@ define void @densmatr_mixDepolarising(ptr noundef byval(%struct.Qureg) align 8 %
 declare void @densmatr_mixDepolarisingLocal(ptr noundef byval(%struct.Qureg) align 8, i32 noundef, double noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @densmatr_mixDamping(ptr noundef byval(%struct.Qureg) align 8 %0, i32 noundef %1, double noundef %2) local_unnamed_addr #0 {
+define void @densmatr_mixDamping(ptr nocapture noundef readonly byval(%struct.Qureg) align 8 %0, i32 noundef %1, double noundef %2) local_unnamed_addr #0 {
   %4 = fcmp oeq double %2, 0.000000e+00
   br i1 %4, label %6, label %5
 
@@ -50,7 +50,7 @@ define void @densmatr_mixDamping(ptr noundef byval(%struct.Qureg) align 8 %0, i3
 declare void @densmatr_mixDampingLocal(ptr noundef byval(%struct.Qureg) align 8, i32 noundef, double noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @densmatr_mixTwoQubitDepolarising(ptr noundef byval(%struct.Qureg) align 8 %0, i32 noundef %1, i32 noundef %2, double noundef %3) local_unnamed_addr #0 {
+define void @densmatr_mixTwoQubitDepolarising(ptr nocapture noundef readonly byval(%struct.Qureg) align 8 %0, i32 noundef %1, i32 noundef %2, double noundef %3) local_unnamed_addr #0 {
   %5 = fcmp oeq double %3, 0.000000e+00
   br i1 %5, label %16, label %6
 
@@ -83,7 +83,7 @@ declare void @densmatr_mixTwoQubitDephasing(ptr noundef byval(%struct.Qureg) ali
 declare void @densmatr_mixTwoQubitDepolarisingLocal(ptr noundef byval(%struct.Qureg) align 8, i32 noundef, i32 noundef, double noundef, double noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define double @densmatr_calcPurity(ptr noundef byval(%struct.Qureg) align 8 %0) local_unnamed_addr #0 {
+define double @densmatr_calcPurity(ptr nocapture noundef readonly byval(%struct.Qureg) align 8 %0) local_unnamed_addr #0 {
   %2 = tail call double @densmatr_calcPurityLocal(ptr noundef nonnull byval(%struct.Qureg) align 8 %0) #14
   ret double %2
 }
@@ -91,7 +91,7 @@ define double @densmatr_calcPurity(ptr noundef byval(%struct.Qureg) align 8 %0) 
 declare double @densmatr_calcPurityLocal(ptr noundef byval(%struct.Qureg) align 8) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define double @densmatr_calcHilbertSchmidtDistance(ptr noundef byval(%struct.Qureg) align 8 %0, ptr noundef byval(%struct.Qureg) align 8 %1) local_unnamed_addr #0 {
+define double @densmatr_calcHilbertSchmidtDistance(ptr nocapture noundef readonly byval(%struct.Qureg) align 8 %0, ptr nocapture noundef readonly byval(%struct.Qureg) align 8 %1) local_unnamed_addr #0 {
   %3 = tail call double @densmatr_calcHilbertSchmidtDistanceSquaredLocal(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, ptr noundef nonnull byval(%struct.Qureg) align 8 %1) #14
   %4 = tail call double @sqrt(double noundef %3) #14
   ret double %4
@@ -100,7 +100,7 @@ define double @densmatr_calcHilbertSchmidtDistance(ptr noundef byval(%struct.Qur
 declare double @densmatr_calcHilbertSchmidtDistanceSquaredLocal(ptr noundef byval(%struct.Qureg) align 8, ptr noundef byval(%struct.Qureg) align 8) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define double @densmatr_calcInnerProduct(ptr noundef byval(%struct.Qureg) align 8 %0, ptr noundef byval(%struct.Qureg) align 8 %1) local_unnamed_addr #0 {
+define double @densmatr_calcInnerProduct(ptr nocapture noundef readonly byval(%struct.Qureg) align 8 %0, ptr nocapture noundef readonly byval(%struct.Qureg) align 8 %1) local_unnamed_addr #0 {
   %3 = tail call double @densmatr_calcInnerProductLocal(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, ptr noundef nonnull byval(%struct.Qureg) align 8 %1) #14
   ret double %3
 }
@@ -108,7 +108,7 @@ define double @densmatr_calcInnerProduct(ptr noundef byval(%struct.Qureg) align 
 declare double @densmatr_calcInnerProductLocal(ptr noundef byval(%struct.Qureg) align 8, ptr noundef byval(%struct.Qureg) align 8) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define double @densmatr_calcFidelity(ptr noundef byval(%struct.Qureg) align 8 initializes((56, 72)) %0, ptr noundef byval(%struct.Qureg) align 8 %1) local_unnamed_addr #0 {
+define double @densmatr_calcFidelity(ptr nocapture noundef byval(%struct.Qureg) align 8 initializes((56, 72)) %0, ptr nocapture noundef readonly byval(%struct.Qureg) align 8 %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 40
@@ -124,7 +124,7 @@ define double @densmatr_calcFidelity(ptr noundef byval(%struct.Qureg) align 8 in
 declare double @densmatr_calcFidelityLocal(ptr noundef byval(%struct.Qureg) align 8, ptr noundef byval(%struct.Qureg) align 8) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @densmatr_initPureState(ptr noundef byval(%struct.Qureg) align 8 initializes((56, 72)) %0, ptr noundef byval(%struct.Qureg) align 8 %1) local_unnamed_addr #0 {
+define void @densmatr_initPureState(ptr nocapture noundef byval(%struct.Qureg) align 8 initializes((56, 72)) %0, ptr nocapture noundef readonly byval(%struct.Qureg) align 8 %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 40
@@ -140,7 +140,7 @@ define void @densmatr_initPureState(ptr noundef byval(%struct.Qureg) align 8 ini
 declare void @densmatr_initPureStateLocal(ptr noundef byval(%struct.Qureg) align 8, ptr noundef byval(%struct.Qureg) align 8) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define { double, double } @statevec_calcInnerProduct(ptr noundef byval(%struct.Qureg) align 8 %0, ptr noundef byval(%struct.Qureg) align 8 %1) local_unnamed_addr #0 {
+define { double, double } @statevec_calcInnerProduct(ptr nocapture noundef readonly byval(%struct.Qureg) align 8 %0, ptr nocapture noundef readonly byval(%struct.Qureg) align 8 %1) local_unnamed_addr #0 {
   %3 = tail call { double, double } @statevec_calcInnerProductLocal(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, ptr noundef nonnull byval(%struct.Qureg) align 8 %1) #14
   ret { double, double } %3
 }
@@ -309,7 +309,7 @@ define double @statevec_getImagAmp(ptr nocapture noundef readonly byval(%struct.
 }
 
 ; Function Attrs: nounwind uwtable
-define void @statevec_compactUnitary(ptr noundef byval(%struct.Qureg) align 8 %0, i32 noundef %1, double %2, double %3, double %4, double %5) local_unnamed_addr #0 {
+define void @statevec_compactUnitary(ptr nocapture noundef readonly byval(%struct.Qureg) align 8 %0, i32 noundef %1, double %2, double %3, double %4, double %5) local_unnamed_addr #0 {
   tail call void @statevec_compactUnitaryLocal(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, i32 noundef %1, double %2, double %3, double %4, double %5) #14
   ret void
 }
@@ -317,7 +317,7 @@ define void @statevec_compactUnitary(ptr noundef byval(%struct.Qureg) align 8 %0
 declare void @statevec_compactUnitaryLocal(ptr noundef byval(%struct.Qureg) align 8, i32 noundef, double, double, double, double) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @statevec_unitary(ptr noundef byval(%struct.Qureg) align 8 %0, i32 noundef %1, ptr noundef byval(%struct.ComplexMatrix2) align 8 %2) local_unnamed_addr #0 {
+define void @statevec_unitary(ptr nocapture noundef readonly byval(%struct.Qureg) align 8 %0, i32 noundef %1, ptr nocapture noundef readonly byval(%struct.ComplexMatrix2) align 8 %2) local_unnamed_addr #0 {
   tail call void @statevec_unitaryLocal(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, i32 noundef %1, ptr noundef nonnull byval(%struct.ComplexMatrix2) align 8 %2) #14
   ret void
 }
@@ -325,7 +325,7 @@ define void @statevec_unitary(ptr noundef byval(%struct.Qureg) align 8 %0, i32 n
 declare void @statevec_unitaryLocal(ptr noundef byval(%struct.Qureg) align 8, i32 noundef, ptr noundef byval(%struct.ComplexMatrix2) align 8) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @statevec_controlledCompactUnitary(ptr noundef byval(%struct.Qureg) align 8 %0, i32 noundef %1, i32 noundef %2, double %3, double %4, double %5, double %6) local_unnamed_addr #0 {
+define void @statevec_controlledCompactUnitary(ptr nocapture noundef readonly byval(%struct.Qureg) align 8 %0, i32 noundef %1, i32 noundef %2, double %3, double %4, double %5, double %6) local_unnamed_addr #0 {
   tail call void @statevec_controlledCompactUnitaryLocal(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, i32 noundef %1, i32 noundef %2, double %3, double %4, double %5, double %6) #14
   ret void
 }
@@ -333,7 +333,7 @@ define void @statevec_controlledCompactUnitary(ptr noundef byval(%struct.Qureg) 
 declare void @statevec_controlledCompactUnitaryLocal(ptr noundef byval(%struct.Qureg) align 8, i32 noundef, i32 noundef, double, double, double, double) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @statevec_controlledUnitary(ptr noundef byval(%struct.Qureg) align 8 %0, i32 noundef %1, i32 noundef %2, ptr noundef byval(%struct.ComplexMatrix2) align 8 %3) local_unnamed_addr #0 {
+define void @statevec_controlledUnitary(ptr nocapture noundef readonly byval(%struct.Qureg) align 8 %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef readonly byval(%struct.ComplexMatrix2) align 8 %3) local_unnamed_addr #0 {
   tail call void @statevec_controlledUnitaryLocal(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, i32 noundef %1, i32 noundef %2, ptr noundef nonnull byval(%struct.ComplexMatrix2) align 8 %3) #14
   ret void
 }
@@ -341,7 +341,7 @@ define void @statevec_controlledUnitary(ptr noundef byval(%struct.Qureg) align 8
 declare void @statevec_controlledUnitaryLocal(ptr noundef byval(%struct.Qureg) align 8, i32 noundef, i32 noundef, ptr noundef byval(%struct.ComplexMatrix2) align 8) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @statevec_multiControlledUnitary(ptr noundef byval(%struct.Qureg) align 8 %0, i64 noundef %1, i64 noundef %2, i32 noundef %3, ptr noundef byval(%struct.ComplexMatrix2) align 8 %4) local_unnamed_addr #0 {
+define void @statevec_multiControlledUnitary(ptr nocapture noundef readonly byval(%struct.Qureg) align 8 %0, i64 noundef %1, i64 noundef %2, i32 noundef %3, ptr nocapture noundef readonly byval(%struct.ComplexMatrix2) align 8 %4) local_unnamed_addr #0 {
   tail call void @statevec_multiControlledUnitaryLocal(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, i32 noundef %3, i64 noundef %1, i64 noundef %2, ptr noundef nonnull byval(%struct.ComplexMatrix2) align 8 %4) #14
   ret void
 }
@@ -349,7 +349,7 @@ define void @statevec_multiControlledUnitary(ptr noundef byval(%struct.Qureg) al
 declare void @statevec_multiControlledUnitaryLocal(ptr noundef byval(%struct.Qureg) align 8, i32 noundef, i64 noundef, i64 noundef, ptr noundef byval(%struct.ComplexMatrix2) align 8) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @statevec_pauliX(ptr noundef byval(%struct.Qureg) align 8 %0, i32 noundef %1) local_unnamed_addr #0 {
+define void @statevec_pauliX(ptr nocapture noundef readonly byval(%struct.Qureg) align 8 %0, i32 noundef %1) local_unnamed_addr #0 {
   tail call void @statevec_pauliXLocal(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, i32 noundef %1) #14
   ret void
 }
@@ -357,7 +357,7 @@ define void @statevec_pauliX(ptr noundef byval(%struct.Qureg) align 8 %0, i32 no
 declare void @statevec_pauliXLocal(ptr noundef byval(%struct.Qureg) align 8, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @statevec_pauliY(ptr noundef byval(%struct.Qureg) align 8 %0, i32 noundef %1) local_unnamed_addr #0 {
+define void @statevec_pauliY(ptr nocapture noundef readonly byval(%struct.Qureg) align 8 %0, i32 noundef %1) local_unnamed_addr #0 {
   tail call void @statevec_pauliYLocal(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, i32 noundef %1, i32 noundef 1) #14
   ret void
 }
@@ -365,13 +365,13 @@ define void @statevec_pauliY(ptr noundef byval(%struct.Qureg) align 8 %0, i32 no
 declare void @statevec_pauliYLocal(ptr noundef byval(%struct.Qureg) align 8, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @statevec_pauliYConj(ptr noundef byval(%struct.Qureg) align 8 %0, i32 noundef %1) local_unnamed_addr #0 {
+define void @statevec_pauliYConj(ptr nocapture noundef readonly byval(%struct.Qureg) align 8 %0, i32 noundef %1) local_unnamed_addr #0 {
   tail call void @statevec_pauliYLocal(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, i32 noundef %1, i32 noundef -1) #14
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define void @statevec_controlledPauliY(ptr noundef byval(%struct.Qureg) align 8 %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define void @statevec_controlledPauliY(ptr nocapture noundef readonly byval(%struct.Qureg) align 8 %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   tail call void @statevec_controlledPauliYLocal(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, i32 noundef %1, i32 noundef %2, i32 noundef 1) #14
   ret void
 }
@@ -379,13 +379,13 @@ define void @statevec_controlledPauliY(ptr noundef byval(%struct.Qureg) align 8 
 declare void @statevec_controlledPauliYLocal(ptr noundef byval(%struct.Qureg) align 8, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @statevec_controlledPauliYConj(ptr noundef byval(%struct.Qureg) align 8 %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define void @statevec_controlledPauliYConj(ptr nocapture noundef readonly byval(%struct.Qureg) align 8 %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   tail call void @statevec_controlledPauliYLocal(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, i32 noundef %1, i32 noundef %2, i32 noundef -1) #14
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define void @statevec_hadamard(ptr noundef byval(%struct.Qureg) align 8 %0, i32 noundef %1) local_unnamed_addr #0 {
+define void @statevec_hadamard(ptr nocapture noundef readonly byval(%struct.Qureg) align 8 %0, i32 noundef %1) local_unnamed_addr #0 {
   tail call void @statevec_hadamardLocal(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, i32 noundef %1) #14
   ret void
 }
@@ -393,7 +393,7 @@ define void @statevec_hadamard(ptr noundef byval(%struct.Qureg) align 8 %0, i32 
 declare void @statevec_hadamardLocal(ptr noundef byval(%struct.Qureg) align 8, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @statevec_controlledNot(ptr noundef byval(%struct.Qureg) align 8 %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define void @statevec_controlledNot(ptr nocapture noundef readonly byval(%struct.Qureg) align 8 %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   tail call void @statevec_controlledNotLocal(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, i32 noundef %1, i32 noundef %2) #14
   ret void
 }
@@ -401,7 +401,7 @@ define void @statevec_controlledNot(ptr noundef byval(%struct.Qureg) align 8 %0,
 declare void @statevec_controlledNotLocal(ptr noundef byval(%struct.Qureg) align 8, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @statevec_multiControlledMultiQubitNot(ptr noundef byval(%struct.Qureg) align 8 %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define void @statevec_multiControlledMultiQubitNot(ptr nocapture noundef readonly byval(%struct.Qureg) align 8 %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   tail call void @statevec_multiControlledMultiQubitNotLocal(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, i32 noundef %1, i32 noundef %2) #14
   ret void
 }
@@ -409,7 +409,7 @@ define void @statevec_multiControlledMultiQubitNot(ptr noundef byval(%struct.Qur
 declare void @statevec_multiControlledMultiQubitNotLocal(ptr noundef byval(%struct.Qureg) align 8, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define double @statevec_calcProbOfOutcome(ptr noundef byval(%struct.Qureg) align 8 %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define double @statevec_calcProbOfOutcome(ptr nocapture noundef readonly byval(%struct.Qureg) align 8 %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = tail call double @statevec_findProbabilityOfZeroLocal(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, i32 noundef %1) #14
   %5 = icmp eq i32 %2, 1
   %6 = fsub double 1.000000e+00, %4
@@ -420,7 +420,7 @@ define double @statevec_calcProbOfOutcome(ptr noundef byval(%struct.Qureg) align
 declare double @statevec_findProbabilityOfZeroLocal(ptr noundef byval(%struct.Qureg) align 8, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define double @densmatr_calcProbOfOutcome(ptr noundef byval(%struct.Qureg) align 8 %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define double @densmatr_calcProbOfOutcome(ptr nocapture noundef readonly byval(%struct.Qureg) align 8 %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = tail call double @densmatr_findProbabilityOfZeroLocal(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, i32 noundef %1) #14
   %5 = icmp eq i32 %2, 1
   %6 = fsub double 1.000000e+00, %4
@@ -431,7 +431,7 @@ define double @densmatr_calcProbOfOutcome(ptr noundef byval(%struct.Qureg) align
 declare double @densmatr_findProbabilityOfZeroLocal(ptr noundef byval(%struct.Qureg) align 8, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @statevec_calcProbOfAllOutcomes(ptr noundef %0, ptr noundef byval(%struct.Qureg) align 8 %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define void @statevec_calcProbOfAllOutcomes(ptr noundef %0, ptr nocapture noundef readonly byval(%struct.Qureg) align 8 %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   tail call void @statevec_calcProbOfAllOutcomesLocal(ptr noundef %0, ptr noundef nonnull byval(%struct.Qureg) align 8 %1, ptr noundef %2, i32 noundef %3) #14
   ret void
 }
@@ -439,7 +439,7 @@ define void @statevec_calcProbOfAllOutcomes(ptr noundef %0, ptr noundef byval(%s
 declare void @statevec_calcProbOfAllOutcomesLocal(ptr noundef, ptr noundef byval(%struct.Qureg) align 8, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @densmatr_calcProbOfAllOutcomes(ptr noundef %0, ptr noundef byval(%struct.Qureg) align 8 %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define void @densmatr_calcProbOfAllOutcomes(ptr noundef %0, ptr nocapture noundef readonly byval(%struct.Qureg) align 8 %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   tail call void @densmatr_calcProbOfAllOutcomesLocal(ptr noundef %0, ptr noundef nonnull byval(%struct.Qureg) align 8 %1, ptr noundef %2, i32 noundef %3) #14
   ret void
 }
@@ -447,7 +447,7 @@ define void @densmatr_calcProbOfAllOutcomes(ptr noundef %0, ptr noundef byval(%s
 declare void @densmatr_calcProbOfAllOutcomesLocal(ptr noundef, ptr noundef byval(%struct.Qureg) align 8, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @statevec_collapseToKnownProbOutcome(ptr noundef byval(%struct.Qureg) align 8 %0, i32 noundef %1, i32 noundef %2, double noundef %3) local_unnamed_addr #0 {
+define void @statevec_collapseToKnownProbOutcome(ptr nocapture noundef readonly byval(%struct.Qureg) align 8 %0, i32 noundef %1, i32 noundef %2, double noundef %3) local_unnamed_addr #0 {
   tail call void @statevec_collapseToKnownProbOutcomeLocal(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, i32 noundef %1, i32 noundef %2, double noundef %3) #14
   ret void
 }
@@ -501,7 +501,7 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #11
 declare void @init_by_array(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @statevec_multiControlledTwoQubitUnitary(ptr noundef byval(%struct.Qureg) align 8 %0, i64 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef byval(%struct.ComplexMatrix4) align 8 %4) local_unnamed_addr #0 {
+define void @statevec_multiControlledTwoQubitUnitary(ptr nocapture noundef readonly byval(%struct.Qureg) align 8 %0, i64 noundef %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef readonly byval(%struct.ComplexMatrix4) align 8 %4) local_unnamed_addr #0 {
   tail call void @statevec_multiControlledTwoQubitUnitaryLocal(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, i64 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef nonnull byval(%struct.ComplexMatrix4) align 8 %4) #14
   ret void
 }
@@ -509,7 +509,7 @@ define void @statevec_multiControlledTwoQubitUnitary(ptr noundef byval(%struct.Q
 declare void @statevec_multiControlledTwoQubitUnitaryLocal(ptr noundef byval(%struct.Qureg) align 8, i64 noundef, i32 noundef, i32 noundef, ptr noundef byval(%struct.ComplexMatrix4) align 8) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @statevec_multiControlledMultiQubitUnitary(ptr noundef byval(%struct.Qureg) align 8 %0, i64 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef byval(%struct.ComplexMatrixN) align 8 %4) local_unnamed_addr #0 {
+define void @statevec_multiControlledMultiQubitUnitary(ptr nocapture noundef readonly byval(%struct.Qureg) align 8 %0, i64 noundef %1, ptr noundef %2, i32 noundef %3, ptr nocapture noundef readonly byval(%struct.ComplexMatrixN) align 8 %4) local_unnamed_addr #0 {
   tail call void @statevec_multiControlledMultiQubitUnitaryLocal(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, i64 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef nonnull byval(%struct.ComplexMatrixN) align 8 %4) #14
   ret void
 }
@@ -517,7 +517,7 @@ define void @statevec_multiControlledMultiQubitUnitary(ptr noundef byval(%struct
 declare void @statevec_multiControlledMultiQubitUnitaryLocal(ptr noundef byval(%struct.Qureg) align 8, i64 noundef, ptr noundef, i32 noundef, ptr noundef byval(%struct.ComplexMatrixN) align 8) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @statevec_swapQubitAmps(ptr noundef byval(%struct.Qureg) align 8 %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define void @statevec_swapQubitAmps(ptr nocapture noundef readonly byval(%struct.Qureg) align 8 %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   tail call void @statevec_swapQubitAmpsLocal(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, i32 noundef %1, i32 noundef %2) #14
   ret void
 }
@@ -525,7 +525,7 @@ define void @statevec_swapQubitAmps(ptr noundef byval(%struct.Qureg) align 8 %0,
 declare void @statevec_swapQubitAmpsLocal(ptr noundef byval(%struct.Qureg) align 8, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @densmatr_applyDiagonalOp(ptr noundef byval(%struct.Qureg) align 8 initializes((56, 72)) %0, ptr noundef byval(%struct.DiagonalOp) align 8 %1) local_unnamed_addr #0 {
+define void @densmatr_applyDiagonalOp(ptr nocapture noundef byval(%struct.Qureg) align 8 initializes((56, 72)) %0, ptr nocapture noundef readonly byval(%struct.DiagonalOp) align 8 %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -541,7 +541,7 @@ define void @densmatr_applyDiagonalOp(ptr noundef byval(%struct.Qureg) align 8 i
 declare void @densmatr_applyDiagonalOpLocal(ptr noundef byval(%struct.Qureg) align 8, ptr noundef byval(%struct.DiagonalOp) align 8) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define { double, double } @statevec_calcExpecDiagonalOp(ptr noundef byval(%struct.Qureg) align 8 %0, ptr noundef byval(%struct.DiagonalOp) align 8 %1) local_unnamed_addr #0 {
+define { double, double } @statevec_calcExpecDiagonalOp(ptr nocapture noundef readonly byval(%struct.Qureg) align 8 %0, ptr nocapture noundef readonly byval(%struct.DiagonalOp) align 8 %1) local_unnamed_addr #0 {
   %3 = tail call { double, double } @statevec_calcExpecDiagonalOpLocal(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, ptr noundef nonnull byval(%struct.DiagonalOp) align 8 %1) #14
   ret { double, double } %3
 }
@@ -549,7 +549,7 @@ define { double, double } @statevec_calcExpecDiagonalOp(ptr noundef byval(%struc
 declare { double, double } @statevec_calcExpecDiagonalOpLocal(ptr noundef byval(%struct.Qureg) align 8, ptr noundef byval(%struct.DiagonalOp) align 8) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define { double, double } @densmatr_calcExpecDiagonalOp(ptr noundef byval(%struct.Qureg) align 8 %0, ptr noundef byval(%struct.DiagonalOp) align 8 %1) local_unnamed_addr #0 {
+define { double, double } @densmatr_calcExpecDiagonalOp(ptr nocapture noundef readonly byval(%struct.Qureg) align 8 %0, ptr nocapture noundef readonly byval(%struct.DiagonalOp) align 8 %1) local_unnamed_addr #0 {
   %3 = tail call { double, double } @densmatr_calcExpecDiagonalOpLocal(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, ptr noundef nonnull byval(%struct.DiagonalOp) align 8 %1) #14
   ret { double, double } %3
 }

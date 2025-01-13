@@ -3525,9 +3525,9 @@ declare i32 @call_dissector(ptr noundef, ptr noundef, ptr noundef, ptr noundef) 
 declare ptr @proto_tree_add_expert(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_q931_number_ie(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2, i32 noundef range(i32 0, 256) %3, ptr noundef %4, i32 noundef %5, ptr noundef byval(%struct.e164_info_t) align 8 %6, ptr noundef writeonly %7) unnamed_addr #0 {
+define internal fastcc void @dissect_q931_number_ie(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2, i32 noundef range(i32 0, 256) %3, ptr noundef %4, i32 noundef %5, ptr nocapture noundef byval(%struct.e164_info_t) align 8 %6, ptr noundef writeonly %7) unnamed_addr #0 {
   %9 = icmp eq i32 %3, 0
-  br i1 %9, label %77, label %10
+  br i1 %9, label %75, label %10
 
 10:                                               ; preds = %8
   %11 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %2) #5
@@ -3551,7 +3551,7 @@ define internal fastcc void @dissect_q931_number_ie(ptr nocapture noundef readon
 
 26:                                               ; preds = %10
   %27 = icmp eq i32 %25, 0
-  br i1 %27, label %77, label %28
+  br i1 %27, label %75, label %28
 
 28:                                               ; preds = %26
   %29 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %24) #5
@@ -3570,7 +3570,7 @@ define internal fastcc void @dissect_q931_number_ie(ptr nocapture noundef readon
 
 41:                                               ; preds = %28
   %42 = icmp eq i32 %39, 0
-  br i1 %42, label %77, label %43
+  br i1 %42, label %75, label %43
 
 43:                                               ; preds = %41
   %44 = load i32, ptr @hf_q931_extension_reason, align 4
@@ -3583,7 +3583,7 @@ define internal fastcc void @dissect_q931_number_ie(ptr nocapture noundef readon
   %.184 = phi i32 [ %39, %28 ], [ %47, %43 ], [ %25, %10 ]
   %.1 = phi i32 [ %38, %28 ], [ %46, %43 ], [ %24, %10 ]
   %48 = icmp eq i32 %.184, 0
-  br i1 %48, label %77, label %49
+  br i1 %48, label %75, label %49
 
 49:                                               ; preds = %.thread
   %50 = tail call ptr @proto_tree_add_item(ptr noundef %4, i32 noundef %5, ptr noundef %1, i32 noundef %.1, i32 noundef %.184, i32 noundef 0) #5
@@ -3614,29 +3614,27 @@ define internal fastcc void @dissect_q931_number_ie(ptr nocapture noundef readon
   %65 = icmp eq i32 %64, 1
   %66 = icmp ne ptr %7, null
   %or.cond = and i1 %66, %65
-  br i1 %or.cond, label %67, label %70
+  br i1 %or.cond, label %.thread93, label %69
 
-67:                                               ; preds = %63
-  %68 = load ptr, ptr %52, align 8
-  %69 = tail call ptr @tvb_get_string_enc(ptr noundef %68, ptr noundef %1, i32 noundef %.1, i32 noundef %.184, i32 noundef 0) #5
-  store ptr %69, ptr %7, align 8
-  %.pre93 = load i32, ptr %6, align 8
-  br label %70
+.thread93:                                        ; preds = %63
+  %67 = load ptr, ptr %52, align 8
+  %68 = tail call ptr @tvb_get_string_enc(ptr noundef %67, ptr noundef %1, i32 noundef %.1, i32 noundef %.184, i32 noundef 0) #5
+  store ptr %68, ptr %7, align 8
+  br label %75
 
-70:                                               ; preds = %67, %63
-  %71 = phi i32 [ %.pre93, %67 ], [ %64, %63 ]
-  %72 = icmp eq i32 %71, 2
-  %or.cond3 = and i1 %66, %72
-  br i1 %or.cond3, label %73, label %77
+69:                                               ; preds = %63
+  %70 = icmp eq i32 %64, 2
+  %or.cond3 = and i1 %66, %70
+  br i1 %or.cond3, label %71, label %75
 
-73:                                               ; preds = %70
-  %74 = load ptr, ptr %52, align 8
-  %75 = tail call ptr @tvb_get_string_enc(ptr noundef %74, ptr noundef %1, i32 noundef %.1, i32 noundef %.184, i32 noundef 0) #5
-  %76 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store ptr %75, ptr %76, align 8
-  br label %77
+71:                                               ; preds = %69
+  %72 = load ptr, ptr %52, align 8
+  %73 = tail call ptr @tvb_get_string_enc(ptr noundef %72, ptr noundef %1, i32 noundef %.1, i32 noundef %.184, i32 noundef 0) #5
+  %74 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  store ptr %73, ptr %74, align 8
+  br label %75
 
-77:                                               ; preds = %.thread, %41, %26, %8, %73, %70
+75:                                               ; preds = %.thread93, %.thread, %41, %26, %8, %71, %69
   ret void
 }
 

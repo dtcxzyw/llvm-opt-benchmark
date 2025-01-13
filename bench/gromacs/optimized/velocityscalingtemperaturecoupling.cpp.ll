@@ -1254,7 +1254,7 @@ define linkonce_odr void @_ZThn8_N3gmx34VelocityScalingTemperatureCouplingD0Ev(p
 }
 
 ; Function Attrs: uwtable
-define void @_ZThn8_N3gmx34VelocityScalingTemperatureCoupling19saveCheckpointStateESt8optionalINS_14CheckpointDataILNS_23CheckpointDataOperationE1EEEEPK9t_commrec(ptr noundef %0, ptr noundef byval(%"class.std::optional") align 8 %1, ptr noundef %2) unnamed_addr #5 align 2 {
+define void @_ZThn8_N3gmx34VelocityScalingTemperatureCoupling19saveCheckpointStateESt8optionalINS_14CheckpointDataILNS_23CheckpointDataOperationE1EEEEPK9t_commrec(ptr noundef %0, ptr nocapture noundef readonly byval(%"class.std::optional") align 8 %1, ptr noundef %2) unnamed_addr #5 align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 -8
   tail call void @_ZN3gmx34VelocityScalingTemperatureCoupling19saveCheckpointStateESt8optionalINS_14CheckpointDataILNS_23CheckpointDataOperationE1EEEEPK9t_commrec(ptr noundef nonnull align 8 dereferenceable(256) %4, ptr noundef nonnull byval(%"class.std::optional") align 8 %1, ptr noundef %2)
   ret void

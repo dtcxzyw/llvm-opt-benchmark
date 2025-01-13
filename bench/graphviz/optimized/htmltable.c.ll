@@ -554,7 +554,6 @@ mkPts.exit:                                       ; preds = %._crit_edge.i, %103
   %145 = phi ptr [ %126, %.lr.ph ], [ %243, %emit_html_cell.exit ]
   %.096 = phi ptr [ %19, %.lr.ph ], [ %242, %emit_html_cell.exit ]
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %8)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %10)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11)
   %146 = getelementptr inbounds nuw i8, ptr %145, i64 72
@@ -792,7 +791,6 @@ emit_html_img.exit:                               ; preds = %219, %228
 
 emit_html_cell.exit:                              ; preds = %235, %236, %239, %241
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %8)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %10)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11)
   %242 = getelementptr inbounds nuw i8, ptr %.096, i64 8
@@ -4248,7 +4246,7 @@ declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readon
 declare void @abort() local_unnamed_addr #10
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @initAnchor(ptr noundef %0, ptr nocapture noundef nonnull %1, ptr nocapture noundef readonly %2, ptr noundef byval(%struct.boxf) align 8 %3, ptr nocapture noundef nonnull writeonly initializes((0, 33)) %4) unnamed_addr #0 {
+define internal fastcc i32 @initAnchor(ptr noundef %0, ptr nocapture noundef nonnull %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly byval(%struct.boxf) align 8 %3, ptr nocapture noundef nonnull writeonly initializes((0, 33)) %4) unnamed_addr #0 {
   %6 = alloca %struct.agxbuf, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %8 = load ptr, ptr %7, align 8
@@ -4376,7 +4374,7 @@ declare void @gvrender_box(ptr noundef, ptr noundef byval(%struct.boxf) align 8,
 declare void @gvrender_set_penwidth(ptr noundef, double noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @doBorder(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef byval(%struct.boxf) align 8 %2) unnamed_addr #0 {
+define internal fastcc void @doBorder(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef byval(%struct.boxf) align 8 %2) unnamed_addr #0 {
   %4 = alloca [7 x %struct.pointf_s], align 16
   %5 = alloca [2 x ptr], align 16
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 48

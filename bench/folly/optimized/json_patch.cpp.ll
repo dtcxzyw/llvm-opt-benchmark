@@ -4119,7 +4119,7 @@ return:                                           ; preds = %_ZN5folly7dynamic5e
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc range(i24 1, 3) i24 @_ZN5folly12_GLOBAL__N_16do_addERNS_8ExpectedINS_7dynamic27json_pointer_resolved_valueIS2_EENS2_29json_pointer_resolution_errorIS2_EEEERKS2_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(48) %ptr, ptr noundef nonnull align 8 dereferenceable(40) %value, ptr noundef nonnull align 8 dereferenceable(32) %last_token) unnamed_addr #8 personality ptr @__gxx_personality_v0 {
+define internal fastcc range(i24 1, 3) i24 @_ZN5folly12_GLOBAL__N_16do_addERNS_8ExpectedINS_7dynamic27json_pointer_resolved_valueIS2_EENS2_29json_pointer_resolution_errorIS2_EEEERKS2_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %ptr, ptr noundef nonnull align 8 dereferenceable(40) %value, ptr noundef nonnull align 8 dereferenceable(32) %last_token) unnamed_addr #8 personality ptr @__gxx_personality_v0 {
 entry:
   %seed.addr.i.i.i.i.i.i.i.i.i = alloca i64, align 8
   %hash1.i.i.i.i.i.i.i.i.i = alloca i64, align 8

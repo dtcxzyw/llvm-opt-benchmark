@@ -67,7 +67,7 @@ if.end9.i:                                        ; preds = %ZSTD_customCalloc.e
   %params.i = getelementptr inbounds nuw i8, ptr %retval.0.i44.i, i64 40
   %call.i37.i = tail call i64 @ZSTD_CCtxParams_setParameter(ptr noundef nonnull %params.i, i32 noundef 400, i32 noundef %cond.i) #14
   %cMem11.i = getelementptr inbounds nuw i8, ptr %retval.0.i44.i, i64 3056
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %cMem11.i, ptr noundef nonnull align 8 dereferenceable(24) %cMem1, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %cMem11.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %cMem1, i64 24, i1 false)
   %allJobsCompleted.i = getelementptr inbounds nuw i8, ptr %retval.0.i44.i, i64 3024
   store i32 1, ptr %allJobsCompleted.i, align 8
   %cmp12.not.i = icmp eq ptr %pool, null
@@ -2971,15 +2971,15 @@ return:                                           ; preds = %if.else.i, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @ZSTDMT_createCCtxPool(i32 noundef %nbWorkers, ptr noundef byval(%struct.ZSTD_customMem) align 8 %cMem) unnamed_addr #0 {
+define internal fastcc noundef ptr @ZSTDMT_createCCtxPool(i32 noundef %nbWorkers, ptr nocapture noundef readonly byval(%struct.ZSTD_customMem) align 8 %cMem) unnamed_addr #0 {
 entry:
   %cMem.val15 = load ptr, ptr %cMem, align 8
   %0 = getelementptr inbounds nuw i8, ptr %cMem, i64 16
+  %cMem.val16 = load ptr, ptr %0, align 8
   %tobool.not.i = icmp eq ptr %cMem.val15, null
   br i1 %tobool.not.i, label %ZSTD_customCalloc.exit, label %ZSTD_customCalloc.exit.thread
 
 ZSTD_customCalloc.exit.thread:                    ; preds = %entry
-  %cMem.val16 = load ptr, ptr %0, align 8
   %call.i = tail call ptr %cMem.val15(ptr noundef %cMem.val16, i64 noundef 80) #14
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(80) %call.i, i8 0, i64 80, i1 false)
   br label %if.end
@@ -3002,8 +3002,7 @@ if.then.i19:                                      ; preds = %if.end
   br i1 %tobool.not.i20, label %if.else.i, label %if.then1.i
 
 if.then1.i:                                       ; preds = %if.then.i19
-  %cMem.val18 = load ptr, ptr %0, align 8
-  tail call void %cMem.val17(ptr noundef %cMem.val18, ptr noundef nonnull %retval.0.i30) #14
+  tail call void %cMem.val17(ptr noundef %cMem.val16, ptr noundef nonnull %retval.0.i30) #14
   br label %return
 
 if.else.i:                                        ; preds = %if.then.i19
@@ -3018,8 +3017,7 @@ if.end4:                                          ; preds = %if.end
   br i1 %tobool.not.i, label %if.end.i25, label %if.then.i22
 
 if.then.i22:                                      ; preds = %if.end4
-  %cMem.val14 = load ptr, ptr %0, align 8
-  %call.i23 = tail call ptr %cMem.val15(ptr noundef %cMem.val14, i64 noundef range(i64 -17179869184, 1924145348161) %mul) #14
+  %call.i23 = tail call ptr %cMem.val15(ptr noundef %cMem.val16, i64 noundef range(i64 -17179869184, 1924145348161) %mul) #14
   tail call void @llvm.memset.p0.i64(ptr align 1 %call.i23, i8 0, i64 range(i64 -17179869184, 1924145348161) %mul, i1 false)
   br label %ZSTD_customCalloc.exit27
 

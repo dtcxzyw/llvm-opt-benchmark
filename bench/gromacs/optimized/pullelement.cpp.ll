@@ -1109,7 +1109,7 @@ define linkonce_odr void @_ZThn8_N3gmx11PullElementD0Ev(ptr noundef %0) unnamed_
 }
 
 ; Function Attrs: uwtable
-define void @_ZThn8_N3gmx11PullElement19saveCheckpointStateESt8optionalINS_14CheckpointDataILNS_23CheckpointDataOperationE1EEEEPK9t_commrec(ptr nocapture noundef readonly %0, ptr noundef byval(%"class.std::optional") align 8 %1, ptr nocapture noundef readonly %2) unnamed_addr #4 align 2 {
+define void @_ZThn8_N3gmx11PullElement19saveCheckpointStateESt8optionalINS_14CheckpointDataILNS_23CheckpointDataOperationE1EEEEPK9t_commrec(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly byval(%"class.std::optional") align 8 %1, ptr nocapture noundef readonly %2) unnamed_addr #4 align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 -8
   tail call void @_ZN3gmx11PullElement19saveCheckpointStateESt8optionalINS_14CheckpointDataILNS_23CheckpointDataOperationE1EEEEPK9t_commrec(ptr noundef nonnull align 8 dereferenceable(96) %4, ptr noundef nonnull byval(%"class.std::optional") align 8 %1, ptr noundef %2)
   ret void

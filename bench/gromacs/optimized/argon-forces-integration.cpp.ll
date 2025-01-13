@@ -518,7 +518,7 @@ define dso_local noundef i32 @main() local_unnamed_addr #3 personality ptr @__gx
   %13 = alloca %"struct.nblib::StrongType", align 8
   %14 = alloca %"class.nblib::TopologyBuilder", align 8
   %15 = alloca %"class.nblib::Topology", align 8
-  %16 = alloca %"class.nblib::Box", align 4
+  %16 = alloca %"class.nblib::Box", align 8
   %17 = alloca %"class.std::vector.304", align 8
   %18 = alloca %"class.std::vector.304", align 8
   %19 = alloca %"class.std::vector.304", align 8
@@ -697,7 +697,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit50: ; 
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(144) %67, i8 0, i64 144, i1 false)
   %73 = getelementptr inbounds nuw i8, ptr %19, i64 8
   store ptr %71, ptr %73, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %21, ptr noundef nonnull align 4 dereferenceable(36) %16, i64 36, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %21, ptr noundef nonnull align 8 dereferenceable(36) %16, i64 36, i1 false)
   invoke void @_ZN5nblib8TopologyC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(1104) %22, ptr noundef nonnull align 8 dereferenceable(1104) %15)
           to label %74 unwind label %286
 

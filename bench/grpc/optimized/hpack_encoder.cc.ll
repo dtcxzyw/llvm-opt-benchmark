@@ -1985,7 +1985,7 @@ _ZNK9grpc_core12VarintWriterILh3EE5WriteEhPh.exit: ; preds = %if.then.i, %if.els
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN9grpc_core20hpack_encoder_detail10SliceIndex6EmitToESt17basic_string_viewIcSt11char_traitsIcEERKNS_5SliceEPNS0_7EncoderE(ptr noundef nonnull align 8 dereferenceable(24) %this, i64 %key.coerce0, ptr %key.coerce1, ptr noundef nonnull align 8 dereferenceable(32) %value, ptr nocapture noundef readonly %encoder) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN9grpc_core20hpack_encoder_detail10SliceIndex6EmitToESt17basic_string_viewIcSt11char_traitsIcEERKNS_5SliceEPNS0_7EncoderE(ptr noundef nonnull align 8 dereferenceable(24) %this, i64 %key.coerce0, ptr %key.coerce1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %value, ptr nocapture noundef readonly %encoder) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i.sroa.4.i.i.i = alloca %"union.grpc_slice::grpc_slice_data", align 8
   %__tmp.i.i.i.i5.sroa.4.i = alloca %"union.grpc_slice::grpc_slice_data", align 8

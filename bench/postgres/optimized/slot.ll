@@ -2310,6 +2310,11 @@ define dso_local noundef zeroext i1 @InvalidateObsoleteReplicationSlots(i32 noun
     i32 3, label %67
   ]
 
+InvalidatePossiblyObsoleteSlot.exit.thread:       ; preds = %54
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !35
+  store i8 0, ptr %25, align 8
+  br label %.sink.split
+
 55:                                               ; preds = %54
   %.not89.i = icmp ne i64 %.2.i, 0
   %56 = icmp ult i64 %.2.i, %12
@@ -2445,11 +2450,6 @@ ReplicationSlotMarkDirty.exit.i:                  ; preds = %98, %93
   call void @pgstat_drop_replslot(ptr noundef nonnull %25) #15
   call fastcc void @ReportSlotInvalidation(i32 noundef %0, i1 noundef zeroext false, i32 noundef 0, ptr noundef nonnull byval(%struct.nameData) align 8 %6, i64 noundef %45, i64 noundef %12, i32 noundef %3)
   br label %.loopexit
-
-InvalidatePossiblyObsoleteSlot.exit.thread:       ; preds = %54
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !35
-  store i8 0, ptr %25, align 8
-  br label %.sink.split
 
 .sink.split:                                      ; preds = %.thread.i, %InvalidatePossiblyObsoleteSlot.exit.thread
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6)

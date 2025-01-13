@@ -33748,9 +33748,9 @@ _ZN4llvm15OpenMPIRBuilder9emitBlockEPNS_10BasicBlockEPNS_8FunctionEb.exit209: ; 
 
 911:                                              ; preds = %_ZN4llvm15OpenMPIRBuilder9emitBlockEPNS_10BasicBlockEPNS_8FunctionEb.exit209
   store i16 257, ptr %301, align 8
-  %912 = call noundef ptr @_ZN4llvm4UsernwEmj(i64 noundef 88, i32 noundef 3) #26
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, i8 0, i64 16, i1 false)
+  %912 = call noundef ptr @_ZN4llvm4UsernwEmj(i64 noundef 88, i32 noundef 3) #26
   %913 = load ptr, ptr %302, align 8
   %914 = getelementptr inbounds nuw i8, ptr %913, i64 8
   %915 = load i32, ptr %914, align 8
@@ -33883,9 +33883,9 @@ _ZN4llvm13IRBuilderBase17CreateAlignedLoadEPNS_4TypeEPNS_5ValueENS_10MaybeAlignE
 
 971:                                              ; preds = %963
   store i16 257, ptr %307, align 8
-  %972 = call noundef ptr @_ZN4llvm4UsernwEmj(i64 noundef 88, i32 noundef 2) #26
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %35)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %35, i8 0, i64 16, i1 false)
+  %972 = call noundef ptr @_ZN4llvm4UsernwEmj(i64 noundef 88, i32 noundef 2) #26
   %973 = getelementptr inbounds nuw i8, ptr %951, i64 8
   %974 = load ptr, ptr %973, align 8
   %975 = getelementptr inbounds nuw i8, ptr %974, i64 8
@@ -33977,9 +33977,9 @@ _ZN4llvm13IRBuilderBase9CreateGEPEPNS_4TypeEPNS_5ValueENS_8ArrayRefIS4_EERKNS_5T
 
 1015:                                             ; preds = %1006
   store i16 257, ptr %310, align 8
-  %1016 = call noundef ptr @_ZN4llvm4UsernwEmj(i64 noundef 88, i32 noundef 3) #26
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, i8 0, i64 16, i1 false)
+  %1016 = call noundef ptr @_ZN4llvm4UsernwEmj(i64 noundef 88, i32 noundef 3) #26
   %1017 = load ptr, ptr %311, align 8
   %1018 = getelementptr inbounds nuw i8, ptr %1017, i64 8
   %1019 = load i32, ptr %1018, align 8
@@ -34654,9 +34654,9 @@ _ZN4llvm15OpenMPIRBuilder9emitBlockEPNS_10BasicBlockEPNS_8FunctionEb.exit266: ; 
 
 1309:                                             ; preds = %_ZN4llvm15OpenMPIRBuilder9emitBlockEPNS_10BasicBlockEPNS_8FunctionEb.exit266
   store i16 257, ptr %338, align 8
-  %1310 = call noundef ptr @_ZN4llvm4UsernwEmj(i64 noundef 88, i32 noundef 3) #26
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, i8 0, i64 16, i1 false)
+  %1310 = call noundef ptr @_ZN4llvm4UsernwEmj(i64 noundef 88, i32 noundef 3) #26
   %1311 = load ptr, ptr %311, align 8
   %1312 = getelementptr inbounds nuw i8, ptr %1311, i64 8
   %1313 = load i32, ptr %1312, align 8
@@ -34749,9 +34749,9 @@ _ZN4llvm13IRBuilderBase9CreateGEPEPNS_4TypeEPNS_5ValueENS_8ArrayRefIS4_EERKNS_5T
 
 1351:                                             ; preds = %_ZN4llvm13IRBuilderBase9CreateGEPEPNS_4TypeEPNS_5ValueENS_8ArrayRefIS4_EERKNS_5TwineENS_14GEPNoWrapFlagsE.exit536
   store i16 257, ptr %341, align 8
-  %1352 = call noundef ptr @_ZN4llvm4UsernwEmj(i64 noundef 88, i32 noundef 3) #26
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, i8 0, i64 16, i1 false)
+  %1352 = call noundef ptr @_ZN4llvm4UsernwEmj(i64 noundef 88, i32 noundef 3) #26
   %1353 = load ptr, ptr %302, align 8
   %1354 = getelementptr inbounds nuw i8, ptr %1353, i64 8
   %1355 = load i32, ptr %1354, align 8
@@ -34884,9 +34884,9 @@ _ZN4llvm13IRBuilderBase17CreateAlignedLoadEPNS_4TypeEPNS_5ValueENS_10MaybeAlignE
 
 1411:                                             ; preds = %1403
   store i16 257, ptr %346, align 8
-  %1412 = call noundef ptr @_ZN4llvm4UsernwEmj(i64 noundef 88, i32 noundef 2) #26
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %18)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %18, i8 0, i64 16, i1 false)
+  %1412 = call noundef ptr @_ZN4llvm4UsernwEmj(i64 noundef 88, i32 noundef 2) #26
   %1413 = getelementptr inbounds nuw i8, ptr %1391, i64 8
   %1414 = load ptr, ptr %1413, align 8
   %1415 = getelementptr inbounds nuw i8, ptr %1414, i64 8
@@ -61076,9 +61076,9 @@ _ZN4llvm13IRBuilderBase9restoreIPENS0_11InsertPointE.exit63: ; preds = %71, %72
 
 95:                                               ; preds = %80
   store i16 257, ptr %42, align 8
-  %96 = call noundef ptr @_ZN4llvm4UsernwEmj(i64 noundef 88, i32 noundef 3) #26
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, i8 0, i64 16, i1 false)
+  %96 = call noundef ptr @_ZN4llvm4UsernwEmj(i64 noundef 88, i32 noundef 3) #26
   %97 = load ptr, ptr %78, align 8
   %98 = getelementptr inbounds nuw i8, ptr %97, i64 8
   %99 = load i32, ptr %98, align 8

@@ -7081,7 +7081,6 @@ define dso_local void @_ZN5clang7CodeGen15CodeGenFunction11EmitAsmStmtERKNS_7Asm
   %46 = alloca %"class.llvm::Twine", align 8
   %47 = alloca %"class.std::__cxx11::basic_string", align 8
   %.sroa.2751 = alloca [52 x i8], align 4
-  %.sroa.9 = alloca [36 x i8], align 4
   %48 = alloca %"class.clang::CodeGen::LValue", align 8
   %49 = alloca %"class.std::__cxx11::basic_string", align 8
   %50 = alloca %"class.std::allocator", align 1
@@ -8914,7 +8913,8 @@ _ZN5clang7CodeGen15CodeGenFunction25MakeAddrLValueWithoutTBAAENS0_7AddressENS_8Q
   %897 = shl i32 %895, 4
   %898 = sext i32 %897 to i64
   %899 = or i64 %896, %898
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %.sroa.9, ptr noundef nonnull align 4 dereferenceable(36) %.sroa.2.i, i64 36, i1 false)
+  %.sroa.9.0..sroa_idx = getelementptr inbounds nuw i8, ptr %48, i64 92
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %.sroa.9.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(36) %.sroa.2.i, i64 36, i1 false)
   %.sroa.2751.8..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.2751, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(48) %.sroa.2751.8..sroa_idx, ptr noundef nonnull align 8 dereferenceable(48) %8, i64 48, i1 false)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %8)
@@ -8934,8 +8934,6 @@ _ZN5clang7CodeGen15CodeGenFunction25MakeAddrLValueWithoutTBAAENS0_7AddressENS_8Q
   store i32 2, ptr %.sroa.7755.0..sroa_idx, align 4
   %.sroa.8756.0..sroa_idx = getelementptr inbounds nuw i8, ptr %48, i64 88
   store i32 0, ptr %.sroa.8756.0..sroa_idx, align 8
-  %.sroa.9.0..sroa_idx = getelementptr inbounds nuw i8, ptr %48, i64 92
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %.sroa.9.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(36) %.sroa.9, i64 36, i1 false)
   %.sroa.10757.0..sroa_idx = getelementptr inbounds nuw i8, ptr %48, i64 128
   store ptr null, ptr %.sroa.10757.0..sroa_idx, align 8
   %902 = load i32, ptr %124, align 8
@@ -12369,7 +12367,6 @@ define dso_local void @_ZN5clang7CodeGen15CodeGenFunction12EmitCaseStmtERKNS_8Ca
   %6 = alloca %"class.llvm::APSInt", align 8
   %7 = alloca %"class.clang::APValue", align 8
   %8 = alloca %"class.llvm::APInt", align 8
-  %.sroa.4 = alloca <{ %"class.clang::CodeGen::EHScopeStack::stable_iterator", i32, [4 x i8] }>, align 8
   %9 = alloca %"struct.clang::CodeGen::CodeGenFunction::JumpDest", align 8
   %10 = alloca %"class.llvm::Twine", align 8
   %11 = alloca %"class.llvm::APSInt", align 8
@@ -12598,10 +12595,9 @@ _ZN4llvm23SmallVectorTemplateBaseIN5clang4Stmt10LikelihoodELb1EE9push_backES3_.e
   %133 = getelementptr inbounds i8, ptr %132, i64 -48
   %.sroa.0100.0.copyload = load ptr, ptr %133, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %132, i64 -40
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.4, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.4.0..sroa_idx, i64 16, i1 false)
-  store ptr %.sroa.0100.0.copyload, ptr %9, align 8
   %.sroa.4.0..sroa_idx103 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.4.0..sroa_idx103, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.4, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.4.0..sroa_idx103, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.4.0..sroa_idx, i64 16, i1 false)
+  store ptr %.sroa.0100.0.copyload, ptr %9, align 8
   %134 = call noundef zeroext i1 @_ZNK5clang7CodeGen15CodeGenFunction32isObviouslyBranchWithoutCleanupsENS1_8JumpDestE(ptr noundef nonnull align 8 dereferenceable(6488) %0, ptr noundef nonnull byval(%"struct.clang::CodeGen::CodeGenFunction::JumpDest") align 8 %9) #17
   br i1 %134, label %135, label %..critedge_crit_edge
 

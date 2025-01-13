@@ -16702,7 +16702,7 @@ define void @ImageText(ptr dead_on_unwind noalias nocapture writable writeonly s
 }
 
 ; Function Attrs: nounwind uwtable
-define void @ImageTextEx(ptr dead_on_unwind noalias writable sret(%struct.Image) align 8 initializes((0, 24)) %0, ptr noundef byval(%struct.Font) align 8 %1, ptr noundef %2, float noundef %3, float noundef %4, i32 %5) local_unnamed_addr #27 {
+define void @ImageTextEx(ptr dead_on_unwind noalias writable sret(%struct.Image) align 8 initializes((0, 24)) %0, ptr nocapture noundef readonly byval(%struct.Font) align 8 %1, ptr noundef %2, float noundef %3, float noundef %4, i32 %5) local_unnamed_addr #27 {
 GenImageColor.exit:
   %6 = alloca i32, align 4
   %7 = alloca %struct.Font, align 8
@@ -23655,7 +23655,7 @@ define void @ImageDrawText(ptr nocapture noundef readonly %0, ptr noundef %1, i3
 declare void @LoadFontDefault() local_unnamed_addr #19
 
 ; Function Attrs: nounwind uwtable
-define void @ImageDrawTextEx(ptr nocapture noundef readonly %0, ptr noundef byval(%struct.Font) align 8 %1, ptr noundef %2, <2 x float> %3, float noundef %4, float noundef %5, i32 %6) local_unnamed_addr #27 {
+define void @ImageDrawTextEx(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly byval(%struct.Font) align 8 %1, ptr noundef %2, <2 x float> %3, float noundef %4, float noundef %5, i32 %6) local_unnamed_addr #27 {
   %8 = alloca %struct.Image, align 8
   call void @ImageTextEx(ptr dead_on_unwind nonnull writable sret(%struct.Image) align 8 %8, ptr noundef nonnull byval(%struct.Font) align 8 %1, ptr noundef %2, float noundef %4, float noundef %5, i32 %6)
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 8

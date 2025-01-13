@@ -1954,19 +1954,19 @@ define dso_local noundef ptr @_ZNK4llvm20AArch64TargetMachine16getSubtargetImplE
 31:                                               ; preds = %29
   %32 = call { ptr, i64 } @_ZNK4llvm9Attribute16getValueAsStringEv(ptr noundef nonnull align 8 dereferenceable(8) %5) #21
   %33 = extractvalue { ptr, i64 } %32, 0
-  store ptr %33, ptr %6, align 8
   %34 = extractvalue { ptr, i64 } %32, 1
   br label %39
 
 35:                                               ; preds = %29
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 616
   %37 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %36) #21
-  store ptr %37, ptr %6, align 8
   %38 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %36) #21
   br label %39
 
 39:                                               ; preds = %35, %31
+  %.sink86 = phi ptr [ %37, %35 ], [ %33, %31 ]
   %.sink = phi i64 [ %38, %35 ], [ %34, %31 ]
+  store ptr %.sink86, ptr %6, align 8
   %40 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i64 %.sink, ptr %40, align 8
   %41 = call noundef zeroext i1 @_ZNK4llvm8Function14hasFnAttributeENS_9Attribute8AttrKindE(ptr noundef nonnull align 8 dereferenceable(136) %1, i32 noundef 17) #21
@@ -2192,7 +2192,7 @@ _ZN4llvmlsINS_19raw_svector_ostreamEA23_cEENSt9enable_ifIXaantsr3stdE14is_refere
 
 158:                                              ; preds = %_ZN4llvmlsINS_19raw_svector_ostreamEA23_cEENSt9enable_ifIXaantsr3stdE14is_reference_vIT_Esr3stdE12is_base_of_vINS_11raw_ostreamES4_EEOS4_E4typeES6_RKT0_.exit
   %159 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(56) %11, ptr noundef %.sroa.070.0, i64 noundef %.sroa.5.0) #21
-  %.pre86 = load ptr, ptr %100, align 8
+  %.pre87 = load ptr, ptr %100, align 8
   br label %_ZN4llvmlsINS_19raw_svector_ostreamENS_9StringRefEEENSt9enable_ifIXaantsr3stdE14is_reference_vIT_Esr3stdE12is_base_of_vINS_11raw_ostreamES4_EEOS4_E4typeES6_RKT0_.exit
 
 160:                                              ; preds = %_ZN4llvmlsINS_19raw_svector_ostreamEA23_cEENSt9enable_ifIXaantsr3stdE14is_reference_vIT_Esr3stdE12is_base_of_vINS_11raw_ostreamES4_EEOS4_E4typeES6_RKT0_.exit
@@ -2207,7 +2207,7 @@ _ZN4llvmlsINS_19raw_svector_ostreamEA23_cEENSt9enable_ifIXaantsr3stdE14is_refere
   br label %_ZN4llvmlsINS_19raw_svector_ostreamENS_9StringRefEEENSt9enable_ifIXaantsr3stdE14is_reference_vIT_Esr3stdE12is_base_of_vINS_11raw_ostreamES4_EEOS4_E4typeES6_RKT0_.exit
 
 _ZN4llvmlsINS_19raw_svector_ostreamENS_9StringRefEEENSt9enable_ifIXaantsr3stdE14is_reference_vIT_Esr3stdE12is_base_of_vINS_11raw_ostreamES4_EEOS4_E4typeES6_RKT0_.exit: ; preds = %158, %160, %161
-  %164 = phi ptr [ %.pre86, %158 ], [ %153, %160 ], [ %163, %161 ]
+  %164 = phi ptr [ %.pre87, %158 ], [ %153, %160 ], [ %163, %161 ]
   %165 = load ptr, ptr %98, align 8
   %166 = ptrtoint ptr %165 to i64
   %167 = ptrtoint ptr %164 to i64
@@ -2217,7 +2217,7 @@ _ZN4llvmlsINS_19raw_svector_ostreamENS_9StringRefEEENSt9enable_ifIXaantsr3stdE14
 
 170:                                              ; preds = %_ZN4llvmlsINS_19raw_svector_ostreamENS_9StringRefEEENSt9enable_ifIXaantsr3stdE14is_reference_vIT_Esr3stdE12is_base_of_vINS_11raw_ostreamES4_EEOS4_E4typeES6_RKT0_.exit
   %171 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(56) %11, ptr noundef %.sroa.068.0, i64 noundef %.sroa.4.0) #21
-  %.pre87 = load ptr, ptr %100, align 8
+  %.pre88 = load ptr, ptr %100, align 8
   br label %_ZN4llvmlsINS_19raw_svector_ostreamENS_9StringRefEEENSt9enable_ifIXaantsr3stdE14is_reference_vIT_Esr3stdE12is_base_of_vINS_11raw_ostreamES4_EEOS4_E4typeES6_RKT0_.exit27
 
 172:                                              ; preds = %_ZN4llvmlsINS_19raw_svector_ostreamENS_9StringRefEEENSt9enable_ifIXaantsr3stdE14is_reference_vIT_Esr3stdE12is_base_of_vINS_11raw_ostreamES4_EEOS4_E4typeES6_RKT0_.exit
@@ -2232,7 +2232,7 @@ _ZN4llvmlsINS_19raw_svector_ostreamENS_9StringRefEEENSt9enable_ifIXaantsr3stdE14
   br label %_ZN4llvmlsINS_19raw_svector_ostreamENS_9StringRefEEENSt9enable_ifIXaantsr3stdE14is_reference_vIT_Esr3stdE12is_base_of_vINS_11raw_ostreamES4_EEOS4_E4typeES6_RKT0_.exit27
 
 _ZN4llvmlsINS_19raw_svector_ostreamENS_9StringRefEEENSt9enable_ifIXaantsr3stdE14is_reference_vIT_Esr3stdE12is_base_of_vINS_11raw_ostreamES4_EEOS4_E4typeES6_RKT0_.exit27: ; preds = %170, %172, %173
-  %176 = phi ptr [ %.pre87, %170 ], [ %164, %172 ], [ %175, %173 ]
+  %176 = phi ptr [ %.pre88, %170 ], [ %164, %172 ], [ %175, %173 ]
   %.sroa.0.0.copyload.i28 = load ptr, ptr %6, align 8
   %.sroa.2.0.copyload.i30 = load i64, ptr %40, align 8
   %177 = load ptr, ptr %98, align 8
@@ -2244,7 +2244,7 @@ _ZN4llvmlsINS_19raw_svector_ostreamENS_9StringRefEEENSt9enable_ifIXaantsr3stdE14
 
 182:                                              ; preds = %_ZN4llvmlsINS_19raw_svector_ostreamENS_9StringRefEEENSt9enable_ifIXaantsr3stdE14is_reference_vIT_Esr3stdE12is_base_of_vINS_11raw_ostreamES4_EEOS4_E4typeES6_RKT0_.exit27
   %183 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(56) %11, ptr noundef %.sroa.0.0.copyload.i28, i64 noundef %.sroa.2.0.copyload.i30) #21
-  %.pre88 = load ptr, ptr %100, align 8
+  %.pre89 = load ptr, ptr %100, align 8
   br label %_ZN4llvmlsINS_19raw_svector_ostreamENS_9StringRefEEENSt9enable_ifIXaantsr3stdE14is_reference_vIT_Esr3stdE12is_base_of_vINS_11raw_ostreamES4_EEOS4_E4typeES6_RKT0_.exit32
 
 184:                                              ; preds = %_ZN4llvmlsINS_19raw_svector_ostreamENS_9StringRefEEENSt9enable_ifIXaantsr3stdE14is_reference_vIT_Esr3stdE12is_base_of_vINS_11raw_ostreamES4_EEOS4_E4typeES6_RKT0_.exit27
@@ -2259,7 +2259,7 @@ _ZN4llvmlsINS_19raw_svector_ostreamENS_9StringRefEEENSt9enable_ifIXaantsr3stdE14
   br label %_ZN4llvmlsINS_19raw_svector_ostreamENS_9StringRefEEENSt9enable_ifIXaantsr3stdE14is_reference_vIT_Esr3stdE12is_base_of_vINS_11raw_ostreamES4_EEOS4_E4typeES6_RKT0_.exit32
 
 _ZN4llvmlsINS_19raw_svector_ostreamENS_9StringRefEEENSt9enable_ifIXaantsr3stdE14is_reference_vIT_Esr3stdE12is_base_of_vINS_11raw_ostreamES4_EEOS4_E4typeES6_RKT0_.exit32: ; preds = %182, %184, %185
-  %188 = phi ptr [ %.pre88, %182 ], [ %176, %184 ], [ %187, %185 ]
+  %188 = phi ptr [ %.pre89, %182 ], [ %176, %184 ], [ %187, %185 ]
   %189 = load ptr, ptr %98, align 8
   %190 = ptrtoint ptr %189 to i64
   %191 = ptrtoint ptr %188 to i64
@@ -2312,11 +2312,11 @@ _ZN4llvmlsINS_19raw_svector_ostreamEA12_cEENSt9enable_ifIXaantsr3stdE14is_refere
 _ZNKSt14default_deleteIN4llvm16AArch64SubtargetEEclEPS1_.exit.i.i.i.i: ; preds = %209
   call void @_ZN4llvm16AArch64SubtargetD2Ev(ptr noundef nonnull align 8 dereferenceable(409552) %217) #21
   call void @_ZdlPvm(ptr noundef nonnull %217, i64 noundef 409552) #24
-  %.pre89 = load ptr, ptr %207, align 8
+  %.pre90 = load ptr, ptr %207, align 8
   br label %_ZNSt10unique_ptrIN4llvm16AArch64SubtargetESt14default_deleteIS1_EED2Ev.exit
 
 _ZNSt10unique_ptrIN4llvm16AArch64SubtargetESt14default_deleteIS1_EED2Ev.exit: ; preds = %209, %_ZNKSt14default_deleteIN4llvm16AArch64SubtargetEEclEPS1_.exit.i.i.i.i, %_ZN4llvmlsINS_19raw_svector_ostreamEA12_cEENSt9enable_ifIXaantsr3stdE14is_reference_vIT_Esr3stdE12is_base_of_vINS_11raw_ostreamES4_EEOS4_E4typeES6_RKT0_.exit
-  %218 = phi ptr [ %212, %209 ], [ %.pre89, %_ZNKSt14default_deleteIN4llvm16AArch64SubtargetEEclEPS1_.exit.i.i.i.i ], [ %208, %_ZN4llvmlsINS_19raw_svector_ostreamEA12_cEENSt9enable_ifIXaantsr3stdE14is_reference_vIT_Esr3stdE12is_base_of_vINS_11raw_ostreamES4_EEOS4_E4typeES6_RKT0_.exit ]
+  %218 = phi ptr [ %212, %209 ], [ %.pre90, %_ZNKSt14default_deleteIN4llvm16AArch64SubtargetEEclEPS1_.exit.i.i.i.i ], [ %208, %_ZN4llvmlsINS_19raw_svector_ostreamEA12_cEENSt9enable_ifIXaantsr3stdE14is_reference_vIT_Esr3stdE12is_base_of_vINS_11raw_ostreamES4_EEOS4_E4typeES6_RKT0_.exit ]
   %219 = call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(536) %10) #21
   %220 = load ptr, ptr %10, align 8
   %221 = icmp eq ptr %220, %92

@@ -565,7 +565,7 @@ define void @qasm_recordCompactUnitary(ptr nocapture noundef readonly byval(%str
 declare void @getZYZRotAnglesFromComplexPair(double, double, double, double, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define void @qasm_recordUnitary(ptr nocapture noundef readonly byval(%struct.Qureg) align 8 %0, ptr noundef byval(%struct.ComplexMatrix2) align 8 %1, i32 noundef %2) local_unnamed_addr #0 {
+define void @qasm_recordUnitary(ptr nocapture noundef readonly byval(%struct.Qureg) align 8 %0, ptr nocapture noundef readonly byval(%struct.ComplexMatrix2) align 8 %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca %struct.Complex, align 8
   %5 = alloca %struct.Complex, align 8
   %6 = alloca double, align 8
@@ -607,7 +607,7 @@ define void @qasm_recordUnitary(ptr nocapture noundef readonly byval(%struct.Qur
 declare void @getComplexPairAndPhaseFromUnitary(ptr noundef byval(%struct.ComplexMatrix2) align 8, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define void @qasm_recordAxisRotation(ptr nocapture noundef readonly byval(%struct.Qureg) align 8 %0, double noundef %1, ptr noundef byval(%struct.Vector) align 8 %2, i32 noundef %3) local_unnamed_addr #0 {
+define void @qasm_recordAxisRotation(ptr nocapture noundef readonly byval(%struct.Qureg) align 8 %0, double noundef %1, ptr nocapture noundef readonly byval(%struct.Vector) align 8 %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = alloca %struct.Complex, align 8
   %6 = alloca %struct.Complex, align 8
   %7 = alloca double, align 8
@@ -729,7 +729,7 @@ define void @qasm_recordControlledCompactUnitary(ptr nocapture noundef readonly 
 }
 
 ; Function Attrs: nounwind uwtable
-define void @qasm_recordControlledUnitary(ptr nocapture noundef readonly byval(%struct.Qureg) align 8 %0, ptr noundef byval(%struct.ComplexMatrix2) align 8 %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define void @qasm_recordControlledUnitary(ptr nocapture noundef readonly byval(%struct.Qureg) align 8 %0, ptr nocapture noundef readonly byval(%struct.ComplexMatrix2) align 8 %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = alloca %struct.Complex, align 8
   %6 = alloca %struct.Complex, align 8
   %7 = alloca double, align 8
@@ -776,7 +776,7 @@ define void @qasm_recordControlledUnitary(ptr nocapture noundef readonly byval(%
 }
 
 ; Function Attrs: nounwind uwtable
-define void @qasm_recordControlledAxisRotation(ptr nocapture noundef readonly byval(%struct.Qureg) align 8 %0, double noundef %1, ptr noundef byval(%struct.Vector) align 8 %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
+define void @qasm_recordControlledAxisRotation(ptr nocapture noundef readonly byval(%struct.Qureg) align 8 %0, double noundef %1, ptr nocapture noundef readonly byval(%struct.Vector) align 8 %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = alloca %struct.Complex, align 8
   %7 = alloca %struct.Complex, align 8
   %8 = alloca double, align 8
@@ -862,7 +862,7 @@ define void @qasm_recordMultiControlledParamGate(ptr nocapture noundef readonly 
 }
 
 ; Function Attrs: nounwind uwtable
-define void @qasm_recordMultiControlledUnitary(ptr nocapture noundef readonly byval(%struct.Qureg) align 8 %0, ptr noundef byval(%struct.ComplexMatrix2) align 8 %1, ptr nocapture noundef readonly %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
+define void @qasm_recordMultiControlledUnitary(ptr nocapture noundef readonly byval(%struct.Qureg) align 8 %0, ptr nocapture noundef readonly byval(%struct.ComplexMatrix2) align 8 %1, ptr nocapture noundef readonly %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = alloca %struct.Complex, align 8
   %7 = alloca %struct.Complex, align 8
   %8 = alloca double, align 8

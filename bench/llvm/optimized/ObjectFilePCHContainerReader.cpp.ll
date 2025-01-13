@@ -56,7 +56,7 @@ define dso_local { ptr, i64 } @_ZNK5clang28ObjectFilePCHContainerReader10getForm
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local { ptr, i64 } @_ZNK5clang28ObjectFilePCHContainerReader10ExtractPCHEN4llvm15MemoryBufferRefE(ptr nocapture nonnull readnone align 8 %0, ptr noundef byval(%"class.llvm::MemoryBufferRef") align 8 %1) unnamed_addr #1 align 2 {
+define dso_local { ptr, i64 } @_ZNK5clang28ObjectFilePCHContainerReader10ExtractPCHEN4llvm15MemoryBufferRefE(ptr nocapture nonnull readnone align 8 %0, ptr nocapture noundef readonly byval(%"class.llvm::MemoryBufferRef") align 8 %1) unnamed_addr #1 align 2 {
   %3 = alloca %"class.llvm::Error", align 8
   %4 = alloca %"class.llvm::Error", align 8
   %5 = alloca %"class.llvm::Error", align 8

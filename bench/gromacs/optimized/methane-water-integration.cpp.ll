@@ -807,7 +807,7 @@ define dso_local noundef i32 @main() local_unnamed_addr #3 personality ptr @__gx
   %244 = alloca %"class.std::__cxx11::basic_string", align 8
   %245 = alloca %"class.std::allocator", align 1
   %246 = alloca %"class.std::variant.217", align 4
-  %247 = alloca %"class.nblib::Box", align 4
+  %247 = alloca %"class.nblib::Box", align 8
   %248 = alloca %"struct.nblib::NBKernelOptions", align 4
   %249 = alloca %"class.nblib::TopologyBuilder", align 8
   %250 = alloca %"class.nblib::Topology", align 8
@@ -2762,7 +2762,7 @@ _ZNSt12_Vector_baseIN3gmx11BasicVectorIfEESaIS2_EEC2EmRKS3_.exit.i: ; preds = %_
   %640 = phi ptr [ %634, %_ZNSt12_Vector_baseIN3gmx11BasicVectorIfEESaIS2_EEC2EmRKS3_.exit.thread.i ], [ %637, %.noexc592 ]
   %.0.lcssa.i.i.i.i.i.i = phi ptr [ null, %_ZNSt12_Vector_baseIN3gmx11BasicVectorIfEESaIS2_EEC2EmRKS3_.exit.thread.i ], [ %scevgep, %.noexc592 ]
   store ptr %.0.lcssa.i.i.i.i.i.i, ptr %640, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %255, ptr noundef nonnull align 4 dereferenceable(36) %247, i64 36, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %255, ptr noundef nonnull align 8 dereferenceable(36) %247, i64 36, i1 false)
   invoke void @_ZN5nblib8TopologyC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(1104) %256, ptr noundef nonnull align 8 dereferenceable(1104) %250)
           to label %641 unwind label %970
 

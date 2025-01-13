@@ -1601,19 +1601,19 @@ _ZN4llvmeqENS_9StringRefES0_.exit.thread80:       ; preds = %_ZN4llvmeqENS_9Stri
 31:                                               ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.thread80
   %32 = call { ptr, i64 } @_ZNK4llvm9Attribute16getValueAsStringEv(ptr noundef nonnull align 8 dereferenceable(8) %7) #21
   %33 = extractvalue { ptr, i64 } %32, 0
-  store ptr %33, ptr %8, align 8
   %34 = extractvalue { ptr, i64 } %32, 1
   br label %39
 
 35:                                               ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.thread80
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 616
   %37 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %36) #21
-  store ptr %37, ptr %8, align 8
   %38 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %36) #21
   br label %39
 
 39:                                               ; preds = %35, %31
+  %.sink92 = phi ptr [ %37, %35 ], [ %33, %31 ]
   %.sink = phi i64 [ %38, %35 ], [ %34, %31 ]
+  store ptr %.sink92, ptr %8, align 8
   %40 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i64 %.sink, ptr %40, align 8
   %41 = getelementptr inbounds nuw i8, ptr %9, i64 24

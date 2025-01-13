@@ -1768,7 +1768,7 @@ define dso_local void @_ZN5clang7CodeGen15CodeGenFunction15EmitIgnoredExprEPKNS_
 17:                                               ; preds = %9
   unreachable
 
-_ZN5clang7CodeGen15CodeGenFunction11EmitAnyExprEPKNS_4ExprENS0_12AggValueSlotEb.exit: ; preds = %16, %12, %14
+_ZN5clang7CodeGen15CodeGenFunction11EmitAnyExprEPKNS_4ExprENS0_12AggValueSlotEb.exit: ; preds = %12, %14, %16
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3)
   br label %32
 
@@ -16433,7 +16433,6 @@ _ZNK5clang18ArraySubscriptExpr10getExprLocEv.exit: ; preds = %430, %438, %443, %
   store ptr @.str.68, ptr %20, align 8
   store i8 3, ptr %453, align 8
   call fastcc void @_ZL21emitArraySubscriptGEPRN5clang7CodeGen15CodeGenFunctionENS0_7AddressEN4llvm8ArrayRefIPNS4_5ValueEEENS_8QualTypeEbbNS_14SourceLocationEPS9_PKNS_4ExprERKNS4_5TwineE(ptr dead_on_unwind noalias writable align 8 %19, ptr noundef nonnull align 8 dereferenceable(6488) %1, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %18, ptr nonnull %17, i64 1, i64 %.sroa.0.0.copyload.i173, i1 noundef zeroext true, i1 noundef zeroext %413, i32 %452, ptr noundef null, ptr noundef null, ptr noundef nonnull align 8 dereferenceable(34) %20)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %18, ptr noundef nonnull align 8 dereferenceable(48) %19, i64 48, i1 false)
   %455 = getelementptr inbounds nuw i8, ptr %16, i64 84
   %.sroa.0.0.copyload.i175 = load i32, ptr %455, align 4
   %456 = getelementptr inbounds nuw i8, ptr %1, i64 144

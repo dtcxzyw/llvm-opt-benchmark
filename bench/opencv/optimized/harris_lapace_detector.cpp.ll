@@ -5417,7 +5417,6 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN2cv8KeyPointESt6vectorIS3_S
   %.sroa.0.0.i.i = getelementptr inbounds i8, ptr %.sroa.0.09.i.i, i64 -28
   call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %13)
   call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %14)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %13, ptr noundef nonnull align 8 dereferenceable(28) %15, i64 28, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %14, ptr noundef nonnull align 4 dereferenceable(28) %.sroa.0.0.i.i, i64 28, i1 false)
   %29 = tail call noundef zeroext i1 %2(ptr noundef nonnull byval(%"class.cv::KeyPoint") align 8 %15, ptr noundef nonnull byval(%"class.cv::KeyPoint") align 8 %14)
   call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %13)
@@ -5462,7 +5461,6 @@ _ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPN2cv8KeyPointESt6vectorIS
   %.sroa.0.0.i.i17 = getelementptr inbounds i8, ptr %.sroa.0.09.i.i15, i64 -28
   call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %10)
   call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %11)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %10, ptr noundef nonnull align 8 dereferenceable(28) %12, i64 28, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %11, ptr noundef nonnull align 4 dereferenceable(28) %.sroa.0.0.i.i17, i64 28, i1 false)
   %33 = tail call noundef zeroext i1 %2(ptr noundef nonnull byval(%"class.cv::KeyPoint") align 8 %12, ptr noundef nonnull byval(%"class.cv::KeyPoint") align 8 %11)
   call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %10)
@@ -5527,7 +5525,6 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN2cv8KeyPointESt6vectorIS3_S
   %.sroa.0.0.i.i31 = getelementptr inbounds i8, ptr %.sroa.0.09.i.i29, i64 -28
   call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %5)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %4, ptr noundef nonnull align 8 dereferenceable(28) %6, i64 28, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %5, ptr noundef nonnull align 4 dereferenceable(28) %.sroa.0.0.i.i31, i64 28, i1 false)
   %44 = tail call noundef zeroext i1 %2(ptr noundef nonnull byval(%"class.cv::KeyPoint") align 8 %6, ptr noundef nonnull byval(%"class.cv::KeyPoint") align 8 %5)
   call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %4)
@@ -5559,101 +5556,97 @@ define linkonce_odr hidden void @_ZSt11__sort_heapIN9__gnu_cxx17__normal_iterato
   %5 = alloca %"class.cv::KeyPoint", align 8
   %6 = alloca %"class.cv::KeyPoint", align 8
   %7 = alloca %"class.cv::KeyPoint", align 8
-  %8 = alloca %"class.cv::KeyPoint", align 8
-  %9 = ptrtoint ptr %0 to i64
-  %10 = ptrtoint ptr %1 to i64
-  %11 = sub i64 %10, %9
-  %12 = icmp sgt i64 %11, 28
-  br i1 %12, label %.lr.ph, label %._crit_edge
+  %8 = ptrtoint ptr %0 to i64
+  %9 = ptrtoint ptr %1 to i64
+  %10 = sub i64 %9, %8
+  %11 = icmp sgt i64 %10, 28
+  br i1 %11, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %3, %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN2cv8KeyPointESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbS3_S3_EEEEvT_SE_SE_RT0_.exit
-  %.sroa.0.05 = phi ptr [ %13, %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN2cv8KeyPointESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbS3_S3_EEEEvT_SE_SE_RT0_.exit ], [ %1, %3 ]
-  %13 = getelementptr inbounds i8, ptr %.sroa.0.05, i64 -28
-  call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %8)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %8, ptr noundef nonnull align 4 dereferenceable(28) %13, i64 28, i1 false)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %13, ptr noundef nonnull align 4 dereferenceable(28) %0, i64 28, i1 false)
-  %14 = ptrtoint ptr %13 to i64
-  %15 = sub i64 %14, %9
-  %16 = sdiv exact i64 %15, 28
+  %.sroa.0.05 = phi ptr [ %12, %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN2cv8KeyPointESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbS3_S3_EEEEvT_SE_SE_RT0_.exit ], [ %1, %3 ]
+  %12 = getelementptr inbounds i8, ptr %.sroa.0.05, i64 -28
+  call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %7)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %7, ptr noundef nonnull align 4 dereferenceable(28) %12, i64 28, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %12, ptr noundef nonnull align 4 dereferenceable(28) %0, i64 28, i1 false)
+  %13 = ptrtoint ptr %12 to i64
+  %14 = sub i64 %13, %8
+  %15 = sdiv exact i64 %14, 28
   %.sroa.0.0.copyload.i = load ptr, ptr %2, align 8
-  %17 = add nsw i64 %16, -1
-  %18 = sdiv i64 %17, 2
-  %19 = icmp sgt i64 %15, 56
-  br i1 %19, label %.lr.ph.i.i, label %._crit_edge.i.i
+  %16 = add nsw i64 %15, -1
+  %17 = sdiv i64 %16, 2
+  %18 = icmp sgt i64 %14, 56
+  br i1 %18, label %.lr.ph.i.i, label %._crit_edge.i.i
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph, %.lr.ph.i.i
   %.036.i.i = phi i64 [ %spec.select.i.i, %.lr.ph.i.i ], [ 0, %.lr.ph ]
-  %20 = shl i64 %.036.i.i, 1
-  %21 = add i64 %20, 2
-  %22 = getelementptr inbounds %"class.cv::KeyPoint", ptr %0, i64 %21
-  %23 = or disjoint i64 %20, 1
-  %24 = getelementptr inbounds %"class.cv::KeyPoint", ptr %0, i64 %23
+  %19 = shl i64 %.036.i.i, 1
+  %20 = add i64 %19, 2
+  %21 = getelementptr inbounds %"class.cv::KeyPoint", ptr %0, i64 %20
+  %22 = or disjoint i64 %19, 1
+  %23 = getelementptr inbounds %"class.cv::KeyPoint", ptr %0, i64 %22
+  call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %6)
-  call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %7)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %6, ptr noundef nonnull align 4 dereferenceable(28) %22, i64 28, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %7, ptr noundef nonnull align 4 dereferenceable(28) %24, i64 28, i1 false)
-  %25 = tail call noundef zeroext i1 %.sroa.0.0.copyload.i(ptr noundef nonnull byval(%"class.cv::KeyPoint") align 8 %6, ptr noundef nonnull byval(%"class.cv::KeyPoint") align 8 %7)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %5, ptr noundef nonnull align 4 dereferenceable(28) %21, i64 28, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %6, ptr noundef nonnull align 4 dereferenceable(28) %23, i64 28, i1 false)
+  %24 = tail call noundef zeroext i1 %.sroa.0.0.copyload.i(ptr noundef nonnull byval(%"class.cv::KeyPoint") align 8 %5, ptr noundef nonnull byval(%"class.cv::KeyPoint") align 8 %6)
+  call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %7)
-  %spec.select.i.i = select i1 %25, i64 %23, i64 %21
-  %26 = getelementptr inbounds %"class.cv::KeyPoint", ptr %0, i64 %spec.select.i.i
-  %27 = getelementptr inbounds %"class.cv::KeyPoint", ptr %0, i64 %.036.i.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %27, ptr noundef nonnull align 4 dereferenceable(28) %26, i64 28, i1 false)
-  %28 = icmp slt i64 %spec.select.i.i, %18
-  br i1 %28, label %.lr.ph.i.i, label %._crit_edge.i.i, !llvm.loop !102
+  %spec.select.i.i = select i1 %24, i64 %22, i64 %20
+  %25 = getelementptr inbounds %"class.cv::KeyPoint", ptr %0, i64 %spec.select.i.i
+  %26 = getelementptr inbounds %"class.cv::KeyPoint", ptr %0, i64 %.036.i.i
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %26, ptr noundef nonnull align 4 dereferenceable(28) %25, i64 28, i1 false)
+  %27 = icmp slt i64 %spec.select.i.i, %17
+  br i1 %27, label %.lr.ph.i.i, label %._crit_edge.i.i, !llvm.loop !102
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i, %.lr.ph
   %.0.lcssa.i.i = phi i64 [ 0, %.lr.ph ], [ %spec.select.i.i, %.lr.ph.i.i ]
-  %29 = and i64 %16, 1
-  %30 = icmp eq i64 %29, 0
-  br i1 %30, label %31, label %40
+  %28 = and i64 %15, 1
+  %29 = icmp eq i64 %28, 0
+  br i1 %29, label %30, label %39
 
-31:                                               ; preds = %._crit_edge.i.i
-  %32 = add nsw i64 %16, -2
-  %33 = ashr exact i64 %32, 1
-  %34 = icmp eq i64 %.0.lcssa.i.i, %33
-  br i1 %34, label %35, label %40
+30:                                               ; preds = %._crit_edge.i.i
+  %31 = add nsw i64 %15, -2
+  %32 = ashr exact i64 %31, 1
+  %33 = icmp eq i64 %.0.lcssa.i.i, %32
+  br i1 %33, label %34, label %39
 
-35:                                               ; preds = %31
-  %36 = shl nsw i64 %.0.lcssa.i.i, 1
-  %37 = or disjoint i64 %36, 1
-  %38 = getelementptr inbounds %"class.cv::KeyPoint", ptr %0, i64 %37
-  %39 = getelementptr inbounds %"class.cv::KeyPoint", ptr %0, i64 %.0.lcssa.i.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %39, ptr noundef nonnull align 4 dereferenceable(28) %38, i64 28, i1 false)
-  br label %40
+34:                                               ; preds = %30
+  %35 = shl nsw i64 %.0.lcssa.i.i, 1
+  %36 = or disjoint i64 %35, 1
+  %37 = getelementptr inbounds %"class.cv::KeyPoint", ptr %0, i64 %36
+  %38 = getelementptr inbounds %"class.cv::KeyPoint", ptr %0, i64 %.0.lcssa.i.i
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %38, ptr noundef nonnull align 4 dereferenceable(28) %37, i64 28, i1 false)
+  br label %39
 
-40:                                               ; preds = %35, %31, %._crit_edge.i.i
-  %.1.i.i = phi i64 [ %37, %35 ], [ %.0.lcssa.i.i, %31 ], [ %.0.lcssa.i.i, %._crit_edge.i.i ]
-  call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %5)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %5, ptr noundef nonnull align 8 dereferenceable(28) %8, i64 28, i1 false)
-  %41 = icmp sgt i64 %.1.i.i, 0
-  br i1 %41, label %.lr.ph.i.i.i, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN2cv8KeyPointESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbS3_S3_EEEEvT_SE_SE_RT0_.exit
+39:                                               ; preds = %34, %30, %._crit_edge.i.i
+  %.1.i.i = phi i64 [ %36, %34 ], [ %.0.lcssa.i.i, %30 ], [ %.0.lcssa.i.i, %._crit_edge.i.i ]
+  %40 = icmp sgt i64 %.1.i.i, 0
+  br i1 %40, label %.lr.ph.i.i.i, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN2cv8KeyPointESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbS3_S3_EEEEvT_SE_SE_RT0_.exit
 
-.lr.ph.i.i.i:                                     ; preds = %40, %44
-  %.018.i.i.i = phi i64 [ %.0919.i.i67.i, %44 ], [ %.1.i.i, %40 ]
+.lr.ph.i.i.i:                                     ; preds = %39, %43
+  %.018.i.i.i = phi i64 [ %.0919.i.i67.i, %43 ], [ %.1.i.i, %39 ]
   %.0919.in.i.i.i = add nsw i64 %.018.i.i.i, -1
   %.0919.i.i67.i = lshr i64 %.0919.in.i.i.i, 1
-  %42 = getelementptr inbounds nuw %"class.cv::KeyPoint", ptr %0, i64 %.0919.i.i67.i
+  %41 = getelementptr inbounds nuw %"class.cv::KeyPoint", ptr %0, i64 %.0919.i.i67.i
   call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %4)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %4, ptr noundef nonnull align 4 dereferenceable(28) %42, i64 28, i1 false)
-  %43 = tail call noundef zeroext i1 %.sroa.0.0.copyload.i(ptr noundef nonnull byval(%"class.cv::KeyPoint") align 8 %4, ptr noundef nonnull byval(%"class.cv::KeyPoint") align 8 %5)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %4, ptr noundef nonnull align 4 dereferenceable(28) %41, i64 28, i1 false)
+  %42 = tail call noundef zeroext i1 %.sroa.0.0.copyload.i(ptr noundef nonnull byval(%"class.cv::KeyPoint") align 8 %4, ptr noundef nonnull byval(%"class.cv::KeyPoint") align 8 %7)
   call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %4)
-  br i1 %43, label %44, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN2cv8KeyPointESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbS3_S3_EEEEvT_SE_SE_RT0_.exit
+  br i1 %42, label %43, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN2cv8KeyPointESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbS3_S3_EEEEvT_SE_SE_RT0_.exit
 
-44:                                               ; preds = %.lr.ph.i.i.i
-  %45 = getelementptr inbounds nuw %"class.cv::KeyPoint", ptr %0, i64 %.018.i.i.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %45, ptr noundef nonnull align 4 dereferenceable(28) %42, i64 28, i1 false)
+43:                                               ; preds = %.lr.ph.i.i.i
+  %44 = getelementptr inbounds nuw %"class.cv::KeyPoint", ptr %0, i64 %.018.i.i.i
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %44, ptr noundef nonnull align 4 dereferenceable(28) %41, i64 28, i1 false)
   %.not.i = icmp ult i64 %.0919.in.i.i.i, 2
   br i1 %.not.i, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN2cv8KeyPointESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbS3_S3_EEEEvT_SE_SE_RT0_.exit, label %.lr.ph.i.i.i, !llvm.loop !103
 
-_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN2cv8KeyPointESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbS3_S3_EEEEvT_SE_SE_RT0_.exit: ; preds = %.lr.ph.i.i.i, %44, %40
-  %.0.lcssa.i.i.i = phi i64 [ %.1.i.i, %40 ], [ %.018.i.i.i, %.lr.ph.i.i.i ], [ 0, %44 ]
-  %46 = getelementptr inbounds %"class.cv::KeyPoint", ptr %0, i64 %.0.lcssa.i.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %46, ptr noundef nonnull align 8 dereferenceable(28) %5, i64 28, i1 false)
-  call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %8)
-  %47 = icmp sgt i64 %15, 28
-  br i1 %47, label %.lr.ph, label %._crit_edge, !llvm.loop !104
+_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN2cv8KeyPointESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbS3_S3_EEEEvT_SE_SE_RT0_.exit: ; preds = %.lr.ph.i.i.i, %43, %39
+  %.0.lcssa.i.i.i = phi i64 [ %.1.i.i, %39 ], [ %.018.i.i.i, %.lr.ph.i.i.i ], [ 0, %43 ]
+  %45 = getelementptr inbounds %"class.cv::KeyPoint", ptr %0, i64 %.0.lcssa.i.i.i
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %45, ptr noundef nonnull align 8 dereferenceable(28) %7, i64 28, i1 false)
+  call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %7)
+  %46 = icmp sgt i64 %14, 28
+  br i1 %46, label %.lr.ph, label %._crit_edge, !llvm.loop !104
 
 ._crit_edge:                                      ; preds = %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN2cv8KeyPointESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbS3_S3_EEEEvT_SE_SE_RT0_.exit, %3
   ret void

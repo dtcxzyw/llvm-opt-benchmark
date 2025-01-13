@@ -1622,7 +1622,7 @@ ExtendBufferedRelBy.exit:                         ; preds = %4, %RelationGetSmgr
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @ExtendBufferedRelBy(ptr noundef byval(%struct.BufferManagerRelation) align 8 %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5, ptr nocapture noundef writeonly %6) local_unnamed_addr #0 {
+define dso_local i32 @ExtendBufferedRelBy(ptr nocapture noundef byval(%struct.BufferManagerRelation) align 8 %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5, ptr nocapture noundef writeonly %6) local_unnamed_addr #0 {
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8
   %10 = icmp eq ptr %9, null
@@ -1664,7 +1664,7 @@ RelationGetSmgr.exit:                             ; preds = %11, %16
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @ExtendBufferedRelCommon(ptr noundef byval(%struct.BufferManagerRelation) align 8 %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef %6, ptr nocapture noundef writeonly %7) unnamed_addr #0 {
+define internal fastcc i32 @ExtendBufferedRelCommon(ptr nocapture noundef readonly byval(%struct.BufferManagerRelation) align 8 %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef %6, ptr nocapture noundef writeonly %7) unnamed_addr #0 {
   %9 = alloca %struct.SpinDelayStatus, align 8
   %10 = alloca %struct.SpinDelayStatus, align 8
   %11 = alloca %struct.SpinDelayStatus, align 8
@@ -2288,7 +2288,7 @@ ExtendBufferedRelShared.exit:                     ; preds = %72, %73, %._crit_ed
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @ExtendBufferedRelTo(ptr noundef byval(%struct.BufferManagerRelation) align 8 %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #0 {
+define dso_local i32 @ExtendBufferedRelTo(ptr nocapture noundef byval(%struct.BufferManagerRelation) align 8 %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #0 {
   %7 = alloca i32, align 4
   %8 = alloca [64 x i32], align 16
   %9 = alloca i8, align 1
@@ -2332,156 +2332,150 @@ RelationGetSmgr.exit:                             ; preds = %13, %18
   %29 = phi ptr [ %22, %RelationGetSmgr.exit ], [ %11, %6 ]
   %30 = and i32 %3, 4
   %.not = icmp eq i32 %30, 0
-  br i1 %.not, label %46, label %31
+  br i1 %.not, label %45, label %31
 
 31:                                               ; preds = %28
   %32 = getelementptr inbounds nuw i8, ptr %29, i64 20
   %33 = sext i32 %1 to i64
   %34 = getelementptr [4 x i32], ptr %32, i64 0, i64 %33
   %35 = load i32, ptr %34, align 4
-  switch i32 %35, label %46 [
+  switch i32 %35, label %45 [
     i32 0, label %36
     i32 -1, label %36
   ]
 
 36:                                               ; preds = %31, %31
   %37 = tail call zeroext i1 @smgrexists(ptr noundef nonnull %29, i32 noundef %1) #14
-  br i1 %37, label %._crit_edge59, label %38
-
-._crit_edge59:                                    ; preds = %36
-  %.pre.pre = load ptr, ptr %10, align 8
-  br label %46
+  br i1 %37, label %45, label %38
 
 38:                                               ; preds = %36
   %39 = load ptr, ptr %0, align 8
   tail call void @LockRelationForExtension(ptr noundef %39, i32 noundef 7) #14
-  %40 = load ptr, ptr %10, align 8
-  %41 = tail call zeroext i1 @smgrexists(ptr noundef %40, i32 noundef %1) #14
-  br i1 %41, label %45, label %42
+  %40 = tail call zeroext i1 @smgrexists(ptr noundef nonnull %29, i32 noundef %1) #14
+  br i1 %40, label %44, label %41
 
-42:                                               ; preds = %38
-  %43 = and i32 %3, 2
-  %44 = icmp ne i32 %43, 0
-  tail call void @smgrcreate(ptr noundef %40, i32 noundef %1, i1 noundef zeroext %44) #14
+41:                                               ; preds = %38
+  %42 = and i32 %3, 2
+  %43 = icmp ne i32 %42, 0
+  tail call void @smgrcreate(ptr noundef nonnull %29, i32 noundef %1, i1 noundef zeroext %43) #14
+  br label %44
+
+44:                                               ; preds = %41, %38
+  tail call void @UnlockRelationForExtension(ptr noundef %39, i32 noundef 7) #14
   br label %45
 
-45:                                               ; preds = %42, %38
-  tail call void @UnlockRelationForExtension(ptr noundef %39, i32 noundef 7) #14
-  br label %46
+45:                                               ; preds = %31, %44, %36, %28
+  %46 = and i32 %3, 16
+  %.not46 = icmp eq i32 %46, 0
+  %.pre = load ptr, ptr %10, align 8
+  br i1 %.not46, label %51, label %47
 
-46:                                               ; preds = %._crit_edge59, %31, %45, %28
-  %.pre = phi ptr [ %.pre.pre, %._crit_edge59 ], [ %29, %31 ], [ %40, %45 ], [ %29, %28 ]
-  %47 = and i32 %3, 16
-  %.not46 = icmp eq i32 %47, 0
-  br i1 %.not46, label %52, label %48
+47:                                               ; preds = %45
+  %48 = getelementptr inbounds nuw i8, ptr %.pre, i64 20
+  %49 = sext i32 %1 to i64
+  %50 = getelementptr [4 x i32], ptr %48, i64 0, i64 %49
+  store i32 -1, ptr %50, align 4
+  br label %51
 
-48:                                               ; preds = %46
-  %49 = getelementptr inbounds nuw i8, ptr %.pre, i64 20
-  %50 = sext i32 %1 to i64
-  %51 = getelementptr [4 x i32], ptr %49, i64 0, i64 %50
-  store i32 -1, ptr %51, align 4
-  br label %52
+51:                                               ; preds = %47, %45
+  %52 = tail call i32 @smgrnblocks(ptr noundef %.pre, i32 noundef %1) #14
+  %53 = add i32 %5, -1
+  %or.cond = icmp ult i32 %53, 2
+  %54 = or i32 %3, 32
+  %spec.select = select i1 %or.cond, i32 %54, i32 %3
+  %55 = icmp ult i32 %52, %4
+  br i1 %55, label %.lr.ph55, label %._crit_edge.thread
 
-52:                                               ; preds = %48, %46
-  %53 = tail call i32 @smgrnblocks(ptr noundef %.pre, i32 noundef %1) #14
-  %54 = add i32 %5, -1
-  %or.cond = icmp ult i32 %54, 2
-  %55 = or i32 %3, 32
-  %spec.select = select i1 %or.cond, i32 %55, i32 %3
-  %56 = icmp ult i32 %53, %4
-  br i1 %56, label %.lr.ph55, label %._crit_edge.thread
+.lr.ph55:                                         ; preds = %51
+  %56 = zext i32 %4 to i64
+  %57 = add i32 %4, -1
+  br label %59
 
-.lr.ph55:                                         ; preds = %52
-  %57 = zext i32 %4 to i64
-  %58 = add i32 %4, -1
-  br label %60
+.loopexit:                                        ; preds = %ReleaseBuffer.exit, %59
+  %.1.lcssa = phi i32 [ %.04154, %59 ], [ %.2, %ReleaseBuffer.exit ]
+  %58 = icmp ult i32 %66, %4
+  br i1 %58, label %59, label %._crit_edge, !llvm.loop !16
 
-.loopexit:                                        ; preds = %ReleaseBuffer.exit, %60
-  %.1.lcssa = phi i32 [ %.04154, %60 ], [ %.2, %ReleaseBuffer.exit ]
-  %59 = icmp ult i32 %67, %4
-  br i1 %59, label %60, label %._crit_edge, !llvm.loop !16
-
-60:                                               ; preds = %.lr.ph55, %.loopexit
+59:                                               ; preds = %.lr.ph55, %.loopexit
   %.04154 = phi i32 [ 0, %.lr.ph55 ], [ %.1.lcssa, %.loopexit ]
-  %.04253 = phi i32 [ %53, %.lr.ph55 ], [ %67, %.loopexit ]
-  %61 = zext i32 %.04253 to i64
-  %62 = add nuw nsw i64 %61, 64
-  %63 = icmp samesign ugt i64 %62, %57
-  %64 = sub nuw i32 %4, %.04253
-  %spec.select48 = select i1 %63, i32 %64, i32 64
-  %65 = call fastcc i32 @ExtendBufferedRelCommon(ptr noundef nonnull byval(%struct.BufferManagerRelation) align 8 %0, i32 noundef %1, ptr noundef %2, i32 noundef %spec.select, i32 noundef %spec.select48, i32 noundef %4, ptr noundef nonnull %8, ptr noundef nonnull %7)
-  %66 = load i32, ptr %7, align 4
-  %67 = add i32 %66, %65
-  %.not57 = icmp eq i32 %66, 0
+  %.04253 = phi i32 [ %52, %.lr.ph55 ], [ %66, %.loopexit ]
+  %60 = zext i32 %.04253 to i64
+  %61 = add nuw nsw i64 %60, 64
+  %62 = icmp samesign ugt i64 %61, %56
+  %63 = sub nuw i32 %4, %.04253
+  %spec.select48 = select i1 %62, i32 %63, i32 64
+  %64 = call fastcc i32 @ExtendBufferedRelCommon(ptr noundef nonnull byval(%struct.BufferManagerRelation) align 8 %0, i32 noundef %1, ptr noundef %2, i32 noundef %spec.select, i32 noundef %spec.select48, i32 noundef %4, ptr noundef nonnull %8, ptr noundef nonnull %7)
+  %65 = load i32, ptr %7, align 4
+  %66 = add i32 %65, %64
+  %.not57 = icmp eq i32 %65, 0
   br i1 %.not57, label %.loopexit, label %.lr.ph.preheader
 
-.lr.ph.preheader:                                 ; preds = %60
-  %wide.trip.count = zext i32 %66 to i64
+.lr.ph.preheader:                                 ; preds = %59
+  %wide.trip.count = zext i32 %65 to i64
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %ReleaseBuffer.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %ReleaseBuffer.exit ]
   %.151 = phi i32 [ %.04154, %.lr.ph.preheader ], [ %.2, %ReleaseBuffer.exit ]
   %indvars58 = trunc i64 %indvars.iv to i32
-  %68 = add i32 %65, %indvars58
-  %.not47 = icmp eq i32 %68, %58
-  %69 = getelementptr [64 x i32], ptr %8, i64 0, i64 %indvars.iv
-  %70 = load i32, ptr %69, align 4
-  br i1 %.not47, label %ReleaseBuffer.exit, label %71
+  %67 = add i32 %64, %indvars58
+  %.not47 = icmp eq i32 %67, %57
+  %68 = getelementptr [64 x i32], ptr %8, i64 0, i64 %indvars.iv
+  %69 = load i32, ptr %68, align 4
+  br i1 %.not47, label %ReleaseBuffer.exit, label %70
 
-71:                                               ; preds = %.lr.ph
-  %.not.i = icmp eq i32 %70, 0
-  br i1 %.not.i, label %72, label %75
+70:                                               ; preds = %.lr.ph
+  %.not.i = icmp eq i32 %69, 0
+  br i1 %.not.i, label %71, label %74
 
-72:                                               ; preds = %71
-  %73 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
-  call void @llvm.assume(i1 %73)
-  %74 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.4, i32 noundef 0) #14
+71:                                               ; preds = %70
+  %72 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
+  call void @llvm.assume(i1 %72)
+  %73 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.4, i32 noundef 0) #14
   call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 4564, ptr noundef nonnull @__func__.ReleaseBuffer) #14
   unreachable
 
-75:                                               ; preds = %71
-  %76 = icmp slt i32 %70, 0
-  br i1 %76, label %77, label %78
+74:                                               ; preds = %70
+  %75 = icmp slt i32 %69, 0
+  br i1 %75, label %76, label %77
 
-77:                                               ; preds = %75
-  call void @UnpinLocalBuffer(i32 noundef %70) #14
+76:                                               ; preds = %74
+  call void @UnpinLocalBuffer(i32 noundef %69) #14
   br label %ReleaseBuffer.exit
 
-78:                                               ; preds = %75
-  %79 = load ptr, ptr @BufferDescriptors, align 8
-  %80 = zext nneg i32 %70 to i64
-  %81 = getelementptr %union.BufferDescPadded, ptr %79, i64 %80
-  %82 = getelementptr i8, ptr %81, i64 -64
-  %83 = getelementptr i8, ptr %81, i64 -44
-  %.val.i.i = load i32, ptr %83, align 4
-  %84 = add i32 %.val.i.i, 1
-  %85 = load ptr, ptr @CurrentResourceOwner, align 8
-  %86 = sext i32 %84 to i64
-  call void @ResourceOwnerForget(ptr noundef %85, i64 noundef %86, ptr noundef nonnull @buffer_pin_resowner_desc) #14
-  call fastcc void @UnpinBufferNoOwner(ptr noundef %82)
+77:                                               ; preds = %74
+  %78 = load ptr, ptr @BufferDescriptors, align 8
+  %79 = zext nneg i32 %69 to i64
+  %80 = getelementptr %union.BufferDescPadded, ptr %78, i64 %79
+  %81 = getelementptr i8, ptr %80, i64 -64
+  %82 = getelementptr i8, ptr %80, i64 -44
+  %.val.i.i = load i32, ptr %82, align 4
+  %83 = add i32 %.val.i.i, 1
+  %84 = load ptr, ptr @CurrentResourceOwner, align 8
+  %85 = sext i32 %83 to i64
+  call void @ResourceOwnerForget(ptr noundef %84, i64 noundef %85, ptr noundef nonnull @buffer_pin_resowner_desc) #14
+  call fastcc void @UnpinBufferNoOwner(ptr noundef %81)
   br label %ReleaseBuffer.exit
 
-ReleaseBuffer.exit:                               ; preds = %.lr.ph, %78, %77
-  %.2 = phi i32 [ %.151, %77 ], [ %.151, %78 ], [ %70, %.lr.ph ]
+ReleaseBuffer.exit:                               ; preds = %.lr.ph, %77, %76
+  %.2 = phi i32 [ %.151, %76 ], [ %.151, %77 ], [ %69, %.lr.ph ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %.loopexit
-  %87 = icmp eq i32 %.1.lcssa, 0
-  br i1 %87, label %._crit_edge.thread, label %93
+  %86 = icmp eq i32 %.1.lcssa, 0
+  br i1 %86, label %._crit_edge.thread, label %91
 
-._crit_edge.thread:                               ; preds = %52, %._crit_edge
-  %88 = load ptr, ptr %10, align 8
-  %89 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %90 = load i8, ptr %89, align 8
-  %91 = add i32 %4, -1
-  %92 = call fastcc i32 @ReadBuffer_common(ptr noundef %88, i8 noundef signext %90, i32 noundef %1, i32 noundef %91, i32 noundef %5, ptr noundef %2, ptr noundef %9)
-  br label %93
+._crit_edge.thread:                               ; preds = %51, %._crit_edge
+  %87 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %88 = load i8, ptr %87, align 8
+  %89 = add i32 %4, -1
+  %90 = call fastcc i32 @ReadBuffer_common(ptr noundef %.pre, i8 noundef signext %88, i32 noundef %1, i32 noundef %89, i32 noundef %5, ptr noundef %2, ptr noundef %9)
+  br label %91
 
-93:                                               ; preds = %._crit_edge.thread, %._crit_edge
-  %.3 = phi i32 [ %92, %._crit_edge.thread ], [ %.1.lcssa, %._crit_edge ]
+91:                                               ; preds = %._crit_edge.thread, %._crit_edge
+  %.3 = phi i32 [ %90, %._crit_edge.thread ], [ %.1.lcssa, %._crit_edge ]
   ret i32 %.3
 }
 
