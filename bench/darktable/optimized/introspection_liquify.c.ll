@@ -368,7 +368,6 @@ define internal fastcc void @_build_global_distortion_map(ptr nocapture noundef 
   %78 = sext i32 %75 to i64
   %79 = shl nsw i64 %78, 3
   %80 = call ptr @dt_alloc_aligned(i64 noundef %79) #29
-  call void @llvm.assume(i1 true) [ "align"(ptr %80, i64 64) ]
   call void @llvm.memset.p0.i64(ptr align 64 %80, i8 0, i64 %79, i1 false)
   %81 = icmp eq ptr %68, null
   br i1 %81, label %.loopexit58, label %82
@@ -421,10 +420,8 @@ define internal fastcc void @_build_global_distortion_map(ptr nocapture noundef 
   %120 = sext i32 %119 to i64
   %121 = shl nsw i64 %120, 3
   %122 = call ptr @dt_alloc_aligned(i64 noundef %121) #29, !noalias !74
-  call void @llvm.assume(i1 true) [ "align"(ptr %122, i64 64) ]
   %123 = shl nsw i64 %120, 2
   %124 = call ptr @dt_alloc_aligned(i64 noundef %123) #29, !noalias !74
-  call void @llvm.assume(i1 true) [ "align"(ptr %124, i64 64) ]
   %125 = icmp ne ptr %122, null
   %126 = icmp ne ptr %124, null
   %127 = select i1 %125, i1 %126, i1 false
@@ -896,7 +893,6 @@ define internal fastcc void @_build_global_distortion_map(ptr nocapture noundef 
 
 471:                                              ; preds = %.loopexit58
   %472 = call ptr @dt_alloc_aligned(i64 noundef %79) #29
-  call void @llvm.assume(i1 true) [ "align"(ptr %472, i64 64) ]
   call void @llvm.memset.p0.i64(ptr align 64 %472, i8 0, i64 %79, i1 false)
   %473 = load i32, ptr %73, align 4, !tbaa !32
   %474 = icmp sgt i32 %473, 0

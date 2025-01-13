@@ -13809,9 +13809,9 @@ define hidden { ptr, ptr } @"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !3760
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %1)
   %14 = icmp eq ptr %.sroa.0.0.i, null
-  %spec.select = select i1 %14, ptr undef, ptr %.sroa.3.0.i
+  %spec.select2 = select i1 %14, ptr undef, ptr %.sroa.3.0.i
   %15 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0.i, 0
-  %16 = insertvalue { ptr, ptr } %15, ptr %spec.select, 1
+  %16 = insertvalue { ptr, ptr } %15, ptr %spec.select2, 1
   ret { ptr, ptr } %16
 }
 
@@ -16995,9 +16995,9 @@ define hidden { ptr, ptr } @"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !4692
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %1)
   %14 = icmp eq ptr %.sroa.0.0.i, null
-  %spec.select = select i1 %14, ptr undef, ptr %.sroa.3.0.i
+  %spec.select2 = select i1 %14, ptr undef, ptr %.sroa.3.0.i
   %15 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0.i, 0
-  %16 = insertvalue { ptr, ptr } %15, ptr %spec.select, 1
+  %16 = insertvalue { ptr, ptr } %15, ptr %spec.select2, 1
   ret { ptr, ptr } %16
 }
 

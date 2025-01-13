@@ -360,7 +360,7 @@ if.end.i630:                                      ; preds = %if.then.i87
 
 queue_prev_byte.exit:                             ; preds = %if.then.i87, %if.end.i630
   %retval.i621.0 = phi i8 [ %70, %if.end.i630 ], [ 0, %if.then.i87 ]
-  %call1.i = tail call signext i8 @nfaExpandState(ptr noundef nonnull %add.ptr.i12.i, ptr noundef %add.ptr.i130, ptr noundef %add.ptr4.i, i64 noundef %64, i8 noundef zeroext %retval.i621.0) #8
+  %call1.i = tail call signext i8 @nfaExpandState(ptr noundef nonnull %add.ptr.i12.i, ptr noundef %add.ptr.i130, ptr noundef %add.ptr4.i, i64 noundef %64, i8 noundef zeroext %retval.i621.0) #7
   %items.i106 = getelementptr inbounds nuw i8, ptr %1, i64 104
   store i32 0, ptr %items.i106, align 8
   %location.i109 = getelementptr inbounds nuw i8, ptr %1, i64 112
@@ -410,7 +410,7 @@ ensureEnd.exit:                                   ; preds = %if.then.i97, %if.en
   %tctxt = getelementptr inbounds nuw i8, ptr %scratch, i64 32
   store i8 0, ptr %tctxt, align 32
   %77 = load ptr, ptr %1, align 8
-  %call18 = tail call i64 @nfaExecMpv_QueueExecRaw(ptr noundef %77, ptr noundef nonnull %1, i64 noundef %loc) #8
+  %call18 = tail call i64 @nfaExecMpv_QueueExecRaw(ptr noundef %77, ptr noundef nonnull %1, i64 noundef %loc) #7
   %tobool19.not = icmp eq i64 %call18, 0
   br i1 %tobool19.not, label %do.end22, label %if.end30
 
@@ -565,7 +565,7 @@ done:                                             ; preds = %do.body.i348, %if.e
   br i1 %tobool41.not, label %if.end48, label %if.then42
 
 if.then42:                                        ; preds = %done
-  %call43 = tail call i32 @roseRunFlushCombProgram(ptr noundef nonnull %t, ptr noundef %scratch, i64 noundef %add) #8
+  %call43 = tail call i32 @roseRunFlushCombProgram(ptr noundef nonnull %t, ptr noundef %scratch, i64 noundef %add) #7
   %cmp44 = icmp eq i32 %call43, 0
   br i1 %cmp44, label %return, label %if.end48
 
@@ -599,7 +599,7 @@ define internal range(i32 0, 2) i32 @roseNfaFinalBlastAdaptor(i64 noundef %start
 entry:
   %rose = getelementptr inbounds nuw i8, ptr %context, i64 248
   %0 = load ptr, ptr %rose, align 8
-  %call.i = tail call i64 @roseRunProgram(ptr noundef %0, ptr noundef %context, i32 noundef %id, i64 noundef %start, i64 noundef %end, i8 noundef zeroext 6) #8
+  %call.i = tail call i64 @roseRunProgram(ptr noundef %0, ptr noundef %context, i32 noundef %id, i64 noundef %start, i64 noundef %end, i8 noundef zeroext 6) #7
   %status.i.i = getelementptr inbounds nuw i8, ptr %context, i64 328
   %1 = load i8, ptr %status.i.i, align 8
   %2 = and i8 %1, 11
@@ -714,7 +714,7 @@ define hidden range(i32 0, 2) i32 @roseNfaAdaptor(i64 noundef %start, i64 nounde
 entry:
   %rose = getelementptr inbounds nuw i8, ptr %context, i64 248
   %0 = load ptr, ptr %rose, align 8
-  %call.i = tail call i64 @roseRunProgram(ptr noundef %0, ptr noundef %context, i32 noundef %id, i64 noundef %start, i64 noundef %end, i8 noundef zeroext 2) #8
+  %call.i = tail call i64 @roseRunProgram(ptr noundef %0, ptr noundef %context, i32 noundef %id, i64 noundef %start, i64 noundef %end, i8 noundef zeroext 2) #7
   %status.i.i = getelementptr inbounds nuw i8, ptr %context, i64 328
   %1 = load i8, ptr %status.i.i, align 8
   %2 = and i8 %1, 11
@@ -1255,7 +1255,7 @@ if.end.i259:                                      ; preds = %if.then.i
 
 queue_prev_byte.exit:                             ; preds = %if.then.i, %if.end.i259
   %retval.i251.0 = phi i8 [ %69, %if.end.i259 ], [ 0, %if.then.i ]
-  %call1.i = tail call signext i8 @nfaExpandState(ptr noundef nonnull %add.ptr.i12.i, ptr noundef %add.ptr.i80, ptr noundef %add.ptr4.i, i64 noundef %63, i8 noundef zeroext %retval.i251.0) #8
+  %call1.i = tail call signext i8 @nfaExpandState(ptr noundef nonnull %add.ptr.i12.i, ptr noundef %add.ptr.i80, ptr noundef %add.ptr4.i, i64 noundef %63, i8 noundef zeroext %retval.i251.0) #7
   %items.i30 = getelementptr inbounds nuw i8, ptr %add.ptr, i64 104
   store i32 0, ptr %items.i30, align 8
   %location.i33 = getelementptr inbounds nuw i8, ptr %add.ptr, i64 112
@@ -1290,7 +1290,7 @@ if.then.i28:                                      ; preds = %ensureQueueActive.e
 
 ensureEnd.exit:                                   ; preds = %if.then.i28, %ensureQueueActive.exit
   %73 = load ptr, ptr %add.ptr, align 8
-  %call6 = tail call signext i8 @nfaQueueExecToMatch(ptr noundef %73, ptr noundef nonnull %add.ptr, i64 noundef %4) #8
+  %call6 = tail call signext i8 @nfaQueueExecToMatch(ptr noundef %73, ptr noundef nonnull %add.ptr, i64 noundef %4) #7
   switch i8 %call6, label %do.end15 [
     i8 2, label %do.end10
     i8 0, label %if.then12
@@ -1968,7 +1968,6 @@ for.cond.i743:                                    ; preds = %for.cond.i743.prehe
 for.body.i747:                                    ; preds = %for.cond.i743
   %buf_end.addr.i739.0.add = add nsw i64 %buf_end.addr.i739.0.idx, -16
   %add.ptr1.i748.ptr = getelementptr inbounds i8, ptr %15, i64 %buf_end.addr.i739.0.add
-  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr1.i748.ptr, i64 16) ]
   %25 = load <16 x i8>, ptr %add.ptr1.i748.ptr, align 16
   %cmp.i1180 = icmp eq <16 x i8> %vecinit15.i953, %25
   %26 = bitcast <16 x i1> %cmp.i1180 to i16
@@ -1976,8 +1975,9 @@ for.body.i747:                                    ; preds = %for.cond.i743
   br i1 %tobool4.i754.not, label %for.cond.i743, label %cond.end35.i, !llvm.loop !14
 
 cond.end35.i:                                     ; preds = %for.body.i747
+  %add.ptr1.i748.ptr.le = getelementptr inbounds i8, ptr %15, i64 %buf_end.addr.i739.0.add
   %27 = zext i16 %26 to i32
-  %add.ptr1.i1244 = getelementptr inbounds nuw i8, ptr %add.ptr1.i748.ptr, i64 31
+  %add.ptr1.i1244 = getelementptr inbounds nuw i8, ptr %add.ptr1.i748.ptr.le, i64 31
   %28 = tail call range(i32 16, 33) i32 @llvm.ctlz.i32(i32 %27, i1 true)
   %idx.ext.i1245 = zext nneg i32 %28 to i64
   %idx.neg.i1246 = sub nsw i64 0, %idx.ext.i1245
@@ -2073,7 +2073,6 @@ for.cond.i657:                                    ; preds = %for.cond.i657.prehe
 for.body.i661:                                    ; preds = %for.cond.i657
   %buf_end.addr.i651.0.add = add nsw i64 %buf_end.addr.i651.0.idx, -16
   %add.ptr1.i.ptr = getelementptr inbounds i8, ptr %15, i64 %buf_end.addr.i651.0.add
-  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr1.i.ptr, i64 16) ]
   %42 = load <16 x i8>, ptr %add.ptr1.i.ptr, align 16
   %43 = and <16 x i8> %42, splat (i8 -33)
   %cmp.i1191 = icmp eq <16 x i8> %vecinit15.i920, %43
@@ -2082,8 +2081,9 @@ for.body.i661:                                    ; preds = %for.cond.i657
   br i1 %tobool6.i668.not, label %for.cond.i657, label %cond.end35.i330, !llvm.loop !15
 
 cond.end35.i330:                                  ; preds = %for.body.i661
+  %add.ptr1.i.ptr.le = getelementptr inbounds i8, ptr %15, i64 %buf_end.addr.i651.0.add
   %45 = zext i16 %44 to i32
-  %add.ptr1.i1267 = getelementptr inbounds nuw i8, ptr %add.ptr1.i.ptr, i64 31
+  %add.ptr1.i1267 = getelementptr inbounds nuw i8, ptr %add.ptr1.i.ptr.le, i64 31
   %46 = tail call range(i32 16, 33) i32 @llvm.ctlz.i32(i32 %45, i1 true)
   %idx.ext.i1268 = zext nneg i32 %46 to i64
   %idx.neg.i1269 = sub nsw i64 0, %idx.ext.i1268
@@ -2177,7 +2177,6 @@ for.cond.i1793:                                   ; preds = %for.cond.i1793.preh
 for.body.i1797:                                   ; preds = %for.cond.i1793
   %buf_end.addr.i1790.0.add = add nsw i64 %buf_end.addr.i1790.0.idx, -16
   %add.ptr1.i1798.ptr = getelementptr inbounds i8, ptr %15, i64 %buf_end.addr.i1790.0.add
-  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr1.i1798.ptr, i64 16) ]
   %62 = load <16 x i8>, ptr %add.ptr1.i1798.ptr, align 16
   %cmp.i25.i1799 = icmp eq <16 x i8> %vecinit15.i854, %62
   %cmp.i.i1801 = icmp eq <16 x i8> %vecinit15.i887, %62
@@ -2204,8 +2203,9 @@ if.then18.i1817.split.loop.exit:                  ; preds = %for.body.i1797
 
 if.then18.i1817:                                  ; preds = %if.end.i1810, %if.then18.i1817.split.loop.exit
   %z.i1792.0727.in = phi i16 [ %68, %if.then18.i1817.split.loop.exit ], [ %65, %if.end.i1810 ]
+  %add.ptr1.i1798.ptr891 = getelementptr inbounds i8, ptr %15, i64 %buf_end.addr.i1790.0.add
   %z.i1792.0727 = zext i16 %z.i1792.0727.in to i32
-  %add.ptr1.i.i1819 = getelementptr inbounds nuw i8, ptr %add.ptr1.i1798.ptr, i64 31
+  %add.ptr1.i.i1819 = getelementptr inbounds nuw i8, ptr %add.ptr1.i1798.ptr891, i64 31
   %69 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %z.i1792.0727, i1 true)
   %idx.ext.i.i1820 = zext nneg i32 %69 to i64
   %idx.neg.i.i1821 = sub nsw i64 0, %idx.ext.i.i1820
@@ -2285,7 +2285,6 @@ for.cond.i1596:                                   ; preds = %for.cond.i1596.preh
 for.body.i1600:                                   ; preds = %for.cond.i1596
   %buf_end.addr.i1575.0.add = add nsw i64 %buf_end.addr.i1575.0.idx, -16
   %add.ptr1.i1601.ptr = getelementptr inbounds i8, ptr %15, i64 %buf_end.addr.i1575.0.add
-  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr1.i1601.ptr, i64 16) ]
   %81 = load <16 x i8>, ptr %add.ptr1.i1601.ptr, align 16
   %82 = and <16 x i8> %81, splat (i8 -33)
   %cmp.i30.i = icmp eq <16 x i8> %vecinit15.i, %82
@@ -2302,8 +2301,8 @@ for.body.i1600:                                   ; preds = %for.cond.i1596
   %88 = extractelement <16 x i8> %81, i64 0
   %89 = and i8 %88, -33
   %cmp16.i = icmp eq i8 %89, %72
-  %or.cond923 = select i1 %cmp10.i, i1 %cmp16.i, i1 false
-  br i1 %or.cond923, label %if.then21.i1614.split.loop.exit, label %if.end.i1609
+  %or.cond927 = select i1 %cmp10.i, i1 %cmp16.i, i1 false
+  br i1 %or.cond927, label %if.then21.i1614.split.loop.exit, label %if.end.i1609
 
 if.end.i1609:                                     ; preds = %for.body.i1600
   %tobool.i1610.not = icmp eq i16 %85, 0
@@ -2315,8 +2314,9 @@ if.then21.i1614.split.loop.exit:                  ; preds = %for.body.i1600
 
 if.then21.i1614:                                  ; preds = %if.end.i1609, %if.then21.i1614.split.loop.exit
   %z.i1579.0731.in = phi i16 [ %90, %if.then21.i1614.split.loop.exit ], [ %85, %if.end.i1609 ]
+  %add.ptr1.i1601.ptr885 = getelementptr inbounds i8, ptr %15, i64 %buf_end.addr.i1575.0.add
   %z.i1579.0731 = zext i16 %z.i1579.0731.in to i32
-  %add.ptr1.i.i1616 = getelementptr inbounds nuw i8, ptr %add.ptr1.i1601.ptr, i64 31
+  %add.ptr1.i.i1616 = getelementptr inbounds nuw i8, ptr %add.ptr1.i1601.ptr885, i64 31
   %91 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %z.i1579.0731, i1 true)
   %idx.ext.i.i1617 = zext nneg i32 %91 to i64
   %idx.neg.i.i1618 = sub nsw i64 0, %idx.ext.i.i1617
@@ -2607,7 +2607,7 @@ mmbit_set_i.exit:                                 ; preds = %if.end.i1999, %whil
   %report_current.i = getelementptr inbounds nuw i8, ptr %add.ptr, i64 80
   store i8 0, ptr %report_current.i, align 8
   store i64 %retval.i.0, ptr %length.i, align 8
-  %call20 = tail call signext i8 @nfaQueueInitState(ptr noundef %add.ptr.i91, ptr noundef nonnull %add.ptr) #8
+  %call20 = tail call signext i8 @nfaQueueInitState(ptr noundef %add.ptr.i91, ptr noundef nonnull %add.ptr) #7
   %items.i80 = getelementptr inbounds nuw i8, ptr %add.ptr, i64 104
   store i32 0, ptr %items.i80, align 8
   %location.i83 = getelementptr inbounds nuw i8, ptr %add.ptr, i64 112
@@ -2624,7 +2624,7 @@ mmbit_set_i.exit:                                 ; preds = %if.end.i1999, %whil
   store i64 0, ptr %som.i60, align 8
   store i32 3, ptr %end.i100, align 4
   %147 = load ptr, ptr %add.ptr, align 8
-  %call24 = tail call signext i8 @nfaQueueExecToMatch(ptr noundef %147, ptr noundef %add.ptr, i64 noundef %3) #8
+  %call24 = tail call signext i8 @nfaQueueExecToMatch(ptr noundef %147, ptr noundef %add.ptr, i64 noundef %3) #7
   switch i8 %call24, label %do.end36 [
     i8 2, label %do.end30
     i8 0, label %if.then33
@@ -2720,12 +2720,12 @@ if.else.i:                                        ; preds = %if.then33
 
 if.end.i192.preheader:                            ; preds = %if.else.i
   %169 = zext i8 %163 to i64
-  %cmp.i193965 = icmp eq i8 %163, 0
-  br i1 %cmp.i193965, label %if.end6.i194.thread, label %do.body.i178
+  %cmp.i193969 = icmp eq i8 %163, 0
+  br i1 %cmp.i193969, label %if.end6.i194.thread, label %do.body.i178
 
 do.body.i178:                                     ; preds = %if.end.i192.preheader, %if.end.i192
-  %indvars.iv864966 = phi i64 [ %indvars.iv.next865, %if.end.i192 ], [ 0, %if.end.i192.preheader ]
-  %indvars.iv.next865 = add nuw nsw i64 %indvars.iv864966, 1
+  %indvars.iv864970 = phi i64 [ %indvars.iv.next865, %if.end.i192 ], [ 0, %if.end.i192.preheader ]
+  %indvars.iv.next865 = add nuw nsw i64 %indvars.iv864970, 1
   %arrayidx.i248 = getelementptr inbounds nuw [7 x i32], ptr @mmbit_root_offset_from_level, i64 0, i64 %indvars.iv.next865
   %170 = load i32, ptr %arrayidx.i248, align 4
   %conv.i249 = zext i32 %170 to i64
@@ -2752,14 +2752,14 @@ if.end.i192:                                      ; preds = %do.body.i178
   br i1 %cmp.i193, label %if.end6.i194.thread, label %do.body.i178
 
 if.end6.i194.thread:                              ; preds = %if.end.i192, %if.end.i192.preheader
-  %.lcssa956 = phi i64 [ %167, %if.end.i192.preheader ], [ %177, %if.end.i192 ]
-  %.lcssa954 = phi i64 [ %166, %if.end.i192.preheader ], [ %176, %if.end.i192 ]
+  %.lcssa960 = phi i64 [ %167, %if.end.i192.preheader ], [ %177, %if.end.i192 ]
+  %.lcssa958 = phi i64 [ %166, %if.end.i192.preheader ], [ %176, %if.end.i192 ]
   %mul.i792.lcssa = phi i64 [ %mul.i785, %if.end.i192.preheader ], [ %mul.i, %if.end.i192 ]
-  %.lcssa951 = phi i64 [ %mul.i250779, %if.end.i192.preheader ], [ %mul.i250, %if.end.i192 ]
-  %179 = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 %.lcssa951
+  %.lcssa955 = phi i64 [ %mul.i250779, %if.end.i192.preheader ], [ %mul.i250, %if.end.i192 ]
+  %179 = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 %.lcssa955
   %add.ptr.i208.le = getelementptr inbounds nuw i8, ptr %179, i64 %mul.i792.lcssa
-  %not.i227 = xor i64 %.lcssa956, -1
-  %and.i228 = and i64 %.lcssa954, %not.i227
+  %not.i227 = xor i64 %.lcssa960, -1
+  %and.i228 = and i64 %.lcssa958, %not.i227
   store i64 %and.i228, ptr %add.ptr.i208.le, align 1
   br label %mmbit_unset.exit
 
@@ -2807,12 +2807,12 @@ if.else.i.i:                                      ; preds = %mmbit_unset.exit
 
 if.end.i148.preheader:                            ; preds = %if.else.i.i
   %191 = zext i8 %185 to i64
-  %cmp.i149970 = icmp eq i8 %185, 0
-  br i1 %cmp.i149970, label %if.end6.i.thread, label %do.body.i
+  %cmp.i149974 = icmp eq i8 %185, 0
+  br i1 %cmp.i149974, label %if.end6.i.thread, label %do.body.i
 
 do.body.i:                                        ; preds = %if.end.i148.preheader, %if.end.i148
-  %indvars.iv870971 = phi i64 [ %indvars.iv.next871, %if.end.i148 ], [ 0, %if.end.i148.preheader ]
-  %indvars.iv.next871 = add nuw nsw i64 %indvars.iv870971, 1
+  %indvars.iv870975 = phi i64 [ %indvars.iv.next871, %if.end.i148 ], [ 0, %if.end.i148.preheader ]
+  %indvars.iv.next871 = add nuw nsw i64 %indvars.iv870975, 1
   %arrayidx.i241 = getelementptr inbounds nuw [7 x i32], ptr @mmbit_root_offset_from_level, i64 0, i64 %indvars.iv.next871
   %192 = load i32, ptr %arrayidx.i241, align 4
   %conv.i242 = zext i32 %192 to i64
@@ -2839,14 +2839,14 @@ if.end.i148:                                      ; preds = %do.body.i
   br i1 %cmp.i149, label %if.end6.i.thread, label %do.body.i
 
 if.end6.i.thread:                                 ; preds = %if.end.i148, %if.end.i148.preheader
-  %.lcssa963 = phi i64 [ %189, %if.end.i148.preheader ], [ %199, %if.end.i148 ]
-  %.lcssa961 = phi i64 [ %188, %if.end.i148.preheader ], [ %198, %if.end.i148 ]
+  %.lcssa967 = phi i64 [ %189, %if.end.i148.preheader ], [ %199, %if.end.i148 ]
+  %.lcssa965 = phi i64 [ %188, %if.end.i148.preheader ], [ %198, %if.end.i148 ]
   %mul.i224807.lcssa = phi i64 [ %mul.i224800, %if.end.i148.preheader ], [ %mul.i224, %if.end.i148 ]
-  %.lcssa958 = phi i64 [ %mul.i250779, %if.end.i148.preheader ], [ %mul.i243, %if.end.i148 ]
-  %201 = getelementptr inbounds nuw i8, ptr %180, i64 %.lcssa958
+  %.lcssa962 = phi i64 [ %mul.i250779, %if.end.i148.preheader ], [ %mul.i243, %if.end.i148 ]
+  %201 = getelementptr inbounds nuw i8, ptr %180, i64 %.lcssa962
   %add.ptr.i225.le = getelementptr inbounds nuw i8, ptr %201, i64 %mul.i224807.lcssa
-  %not.i232 = xor i64 %.lcssa963, -1
-  %and.i233 = and i64 %.lcssa961, %not.i232
+  %not.i232 = xor i64 %.lcssa967, -1
+  %and.i233 = and i64 %.lcssa965, %not.i232
   store i64 %and.i233, ptr %add.ptr.i225.le, align 1
   br label %for.inc
 
@@ -3244,7 +3244,7 @@ if.then.i15:                                      ; preds = %do.body.i.i1362, %i
   br i1 %tobool1.i.not, label %if.end5.i, label %if.then2.i
 
 if.then2.i:                                       ; preds = %if.then.i15
-  %call3.i = tail call i32 @roseRunFlushCombProgram(ptr noundef nonnull %0, ptr noundef %scratch, i64 noundef %add.i) #8
+  %call3.i = tail call i32 @roseRunFlushCombProgram(ptr noundef nonnull %0, ptr noundef %scratch, i64 noundef %add.i) #7
   %cmp.i18 = icmp eq i32 %call3.i, 0
   br i1 %cmp.i18, label %return, label %if.then2.i.if.end5.i_crit_edge
 
@@ -4032,7 +4032,7 @@ if.end.i591.i:                                    ; preds = %if.then.i56.i
 
 queue_prev_byte.exit.i:                           ; preds = %if.then.i56.i, %if.end.i591.i
   %retval.i582.i.0 = phi i8 [ %175, %if.end.i591.i ], [ 0, %if.then.i56.i ]
-  %call1.i.i = tail call signext i8 @nfaExpandState(ptr noundef nonnull %add.ptr.i12.i.i, ptr noundef %add.ptr.i92.i, ptr noundef %add.ptr4.i.i, i64 noundef %169, i8 noundef zeroext %retval.i582.i.0) #8
+  %call1.i.i = tail call signext i8 @nfaExpandState(ptr noundef nonnull %add.ptr.i12.i.i, ptr noundef %add.ptr.i92.i, ptr noundef %add.ptr4.i.i, i64 noundef %169, i8 noundef zeroext %retval.i582.i.0) #7
   %items.i69.i = getelementptr inbounds nuw i8, ptr %add.ptr.i326, i64 104
   store i32 0, ptr %items.i69.i, align 8
   %location.i72.i = getelementptr inbounds nuw i8, ptr %add.ptr.i326, i64 112
@@ -4084,7 +4084,7 @@ ensureEnd.exit.i:                                 ; preds = %if.then.i66.i, %if.
   %report_current1.i = getelementptr inbounds nuw i8, ptr %add.ptr.i326, i64 80
   store i8 0, ptr %report_current1.i, align 8
   %182 = load ptr, ptr %add.ptr.i326, align 8
-  %call.i752 = tail call signext i8 @nfaQueueExec(ptr noundef %182, ptr noundef nonnull %add.ptr.i326, i64 noundef %cond27.i) #8
+  %call.i752 = tail call signext i8 @nfaQueueExec(ptr noundef %182, ptr noundef nonnull %add.ptr.i326, i64 noundef %cond27.i) #7
   store ptr @roseNfaAdaptor, ptr %cb.i, align 8
   %tobool10.i.not = icmp eq i8 %call.i752, 0
   br i1 %tobool10.i.not, label %if.then11.i, label %if.else.i341
@@ -4296,7 +4296,7 @@ if.then20.i:                                      ; preds = %if.else.i341
 
 restart.i1030:                                    ; preds = %restart.i1030.preheader, %if.then9.i1223
   %232 = load ptr, ptr %add.ptr.i326, align 8
-  %call.i1031 = tail call signext i8 @nfaQueueExecToMatch(ptr noundef %232, ptr noundef nonnull %add.ptr.i326, i64 noundef %loc) #8
+  %call.i1031 = tail call signext i8 @nfaQueueExecToMatch(ptr noundef %232, ptr noundef nonnull %add.ptr.i326, i64 noundef %loc) #7
   switch i8 %call.i1031, label %if.else19.i1160 [
     i8 2, label %if.then.i1193
     i8 0, label %if.then12.i1036
@@ -4998,7 +4998,7 @@ if.end.i312.i:                                    ; preds = %if.then.i16.i
 
 queue_prev_byte.exit.i505:                        ; preds = %if.then.i16.i, %if.end.i312.i
   %retval.i303.i.0 = phi i8 [ %387, %if.end.i312.i ], [ 0, %if.then.i16.i ]
-  %call1.i.i506 = tail call signext i8 @nfaExpandState(ptr noundef nonnull %add.ptr.i12.i.i475, ptr noundef %add.ptr.i39.i, ptr noundef %add.ptr4.i.i483, i64 noundef %381, i8 noundef zeroext %retval.i303.i.0) #8
+  %call1.i.i506 = tail call signext i8 @nfaExpandState(ptr noundef nonnull %add.ptr.i12.i.i475, ptr noundef %add.ptr.i39.i, ptr noundef %add.ptr4.i.i483, i64 noundef %381, i8 noundef zeroext %retval.i303.i.0) #7
   %items.i28.i = getelementptr inbounds nuw i8, ptr %add.ptr.i448, i64 104
   store i32 0, ptr %items.i28.i, align 8
   %location.i31.i = getelementptr inbounds nuw i8, ptr %add.ptr.i448, i64 112
@@ -5049,7 +5049,7 @@ ensureEnd.exit.i519:                              ; preds = %if.then.i26.i, %if.
 
 restart.i:                                        ; preds = %if.then9.i893, %ensureEnd.exit.i519
   %394 = load ptr, ptr %add.ptr.i448, align 8
-  %call.i807 = tail call signext i8 @nfaQueueExecToMatch(ptr noundef %394, ptr noundef nonnull %add.ptr.i448, i64 noundef %loc) #8
+  %call.i807 = tail call signext i8 @nfaQueueExecToMatch(ptr noundef %394, ptr noundef nonnull %add.ptr.i448, i64 noundef %loc) #7
   switch i8 %call.i807, label %if.else19.i [
     i8 2, label %if.then.i881
     i8 0, label %if.then12.i
@@ -5403,7 +5403,7 @@ if.then.i34:                                      ; preds = %do.body.i.i1269, %i
   br i1 %tobool1.i36.not, label %if.end5.i37, label %if.then2.i48
 
 if.then2.i48:                                     ; preds = %if.then.i34
-  %call3.i49 = tail call i32 @roseRunFlushCombProgram(ptr noundef nonnull %0, ptr noundef %scratch, i64 noundef %add.i29) #8
+  %call3.i49 = tail call i32 @roseRunFlushCombProgram(ptr noundef nonnull %0, ptr noundef %scratch, i64 noundef %add.i29) #7
   %cmp.i50 = icmp eq i32 %call3.i49, 0
   br i1 %cmp.i50, label %return, label %if.end5.i37
 
@@ -5530,7 +5530,7 @@ if.then.i:                                        ; preds = %do.body.i.i993, %if
   br i1 %tobool1.i.not, label %if.end5.i, label %if.then2.i
 
 if.then2.i:                                       ; preds = %if.then.i
-  %call3.i = tail call i32 @roseRunFlushCombProgram(ptr noundef nonnull %t, ptr noundef %scratch, i64 noundef %add.i80) #8
+  %call3.i = tail call i32 @roseRunFlushCombProgram(ptr noundef nonnull %t, ptr noundef %scratch, i64 noundef %add.i80) #7
   %cmp.i = icmp eq i32 %call3.i, 0
   br i1 %cmp.i, label %return, label %if.end5.i
 
@@ -5600,7 +5600,7 @@ if.then.i592:                                     ; preds = %findSecondPlace.exi
   %report_current.i594 = getelementptr inbounds nuw i8, ptr %add.ptr, i64 80
   store i8 1, ptr %report_current.i594, align 8
   %34 = load ptr, ptr %add.ptr, align 8
-  %call.i419 = tail call signext i8 @nfaQueueExecToMatch(ptr noundef %34, ptr noundef nonnull %add.ptr, i64 noundef %cond) #8
+  %call.i419 = tail call signext i8 @nfaQueueExecToMatch(ptr noundef %34, ptr noundef nonnull %add.ptr, i64 noundef %cond) #7
   switch i8 %call.i419, label %if.else17.i552 [
     i8 2, label %if.then4.i585
     i8 0, label %land.lhs.true.i543
@@ -5982,7 +5982,7 @@ if.end35:                                         ; preds = %findSecondPlace.exi
   %report_current1.i = getelementptr inbounds nuw i8, ptr %add.ptr, i64 80
   store i8 1, ptr %report_current1.i, align 8
   %100 = load ptr, ptr %add.ptr, align 8
-  %call.i241 = tail call signext i8 @nfaQueueExec(ptr noundef %100, ptr noundef nonnull %add.ptr, i64 noundef %retval.i242.0) #8
+  %call.i241 = tail call signext i8 @nfaQueueExec(ptr noundef %100, ptr noundef nonnull %add.ptr, i64 noundef %retval.i242.0) #7
   store ptr @roseNfaAdaptor, ptr %cb.i, align 8
   %tobool37.not = icmp eq i8 %call.i241, 0
   br i1 %tobool37.not, label %if.then38, label %if.else
@@ -6404,7 +6404,7 @@ pq_pop.exit843:                                   ; preds = %pq_pop.exit843.loop
 
 if.end.i266:                                      ; preds = %if.else53
   %169 = load ptr, ptr %add.ptr, align 8
-  %call.i267 = tail call signext i8 @nfaQueueExecToMatch(ptr noundef %169, ptr noundef nonnull %add.ptr, i64 noundef %cond) #8
+  %call.i267 = tail call signext i8 @nfaQueueExecToMatch(ptr noundef %169, ptr noundef nonnull %add.ptr, i64 noundef %cond) #7
   switch i8 %call.i267, label %if.else17.i [
     i8 2, label %if.then4.i288
     i8 0, label %if.end16.i
@@ -7170,7 +7170,7 @@ if.then.i11:                                      ; preds = %do.body.i.i1231, %i
   br i1 %tobool1.i.not, label %if.end5.i, label %if.then2.i
 
 if.then2.i:                                       ; preds = %if.then.i11
-  %call3.i = tail call i32 @roseRunFlushCombProgram(ptr noundef nonnull %0, ptr noundef %scratch, i64 noundef %add.i) #8
+  %call3.i = tail call i32 @roseRunFlushCombProgram(ptr noundef nonnull %0, ptr noundef %scratch, i64 noundef %add.i) #7
   %cmp.i14 = icmp eq i32 %call3.i, 0
   br i1 %cmp.i14, label %return, label %if.then2.i.if.end5.i_crit_edge
 
@@ -7958,7 +7958,7 @@ if.end.i591.i:                                    ; preds = %if.then.i56.i
 
 queue_prev_byte.exit.i:                           ; preds = %if.then.i56.i, %if.end.i591.i
   %retval.i582.i.0 = phi i8 [ %175, %if.end.i591.i ], [ 0, %if.then.i56.i ]
-  %call1.i.i = tail call signext i8 @nfaExpandState(ptr noundef nonnull %add.ptr.i12.i.i, ptr noundef %add.ptr.i92.i, ptr noundef %add.ptr4.i.i, i64 noundef %169, i8 noundef zeroext %retval.i582.i.0) #8
+  %call1.i.i = tail call signext i8 @nfaExpandState(ptr noundef nonnull %add.ptr.i12.i.i, ptr noundef %add.ptr.i92.i, ptr noundef %add.ptr4.i.i, i64 noundef %169, i8 noundef zeroext %retval.i582.i.0) #7
   %items.i69.i = getelementptr inbounds nuw i8, ptr %add.ptr.i288, i64 104
   store i32 0, ptr %items.i69.i, align 8
   %location.i72.i = getelementptr inbounds nuw i8, ptr %add.ptr.i288, i64 112
@@ -8010,7 +8010,7 @@ ensureEnd.exit.i:                                 ; preds = %if.then.i66.i, %if.
   %report_current1.i = getelementptr inbounds nuw i8, ptr %add.ptr.i288, i64 80
   store i8 0, ptr %report_current1.i, align 8
   %182 = load ptr, ptr %add.ptr.i288, align 8
-  %call.i714 = tail call signext i8 @nfaQueueExec(ptr noundef %182, ptr noundef nonnull %add.ptr.i288, i64 noundef %cond27.i) #8
+  %call.i714 = tail call signext i8 @nfaQueueExec(ptr noundef %182, ptr noundef nonnull %add.ptr.i288, i64 noundef %cond27.i) #7
   store ptr @roseNfaAdaptor, ptr %cb.i, align 8
   %tobool10.i.not = icmp eq i8 %call.i714, 0
   br i1 %tobool10.i.not, label %if.then11.i, label %if.else.i303
@@ -8222,7 +8222,7 @@ if.then20.i:                                      ; preds = %if.else.i303
 
 restart.i992:                                     ; preds = %restart.i992.preheader, %if.then9.i1185
   %232 = load ptr, ptr %add.ptr.i288, align 8
-  %call.i993 = tail call signext i8 @nfaQueueExecToMatch(ptr noundef %232, ptr noundef nonnull %add.ptr.i288, i64 noundef %loc) #8
+  %call.i993 = tail call signext i8 @nfaQueueExecToMatch(ptr noundef %232, ptr noundef nonnull %add.ptr.i288, i64 noundef %loc) #7
   switch i8 %call.i993, label %if.else19.i1122 [
     i8 2, label %if.then.i1155
     i8 0, label %if.then12.i998
@@ -8924,7 +8924,7 @@ if.end.i312.i:                                    ; preds = %if.then.i16.i
 
 queue_prev_byte.exit.i467:                        ; preds = %if.then.i16.i, %if.end.i312.i
   %retval.i303.i.0 = phi i8 [ %387, %if.end.i312.i ], [ 0, %if.then.i16.i ]
-  %call1.i.i468 = tail call signext i8 @nfaExpandState(ptr noundef nonnull %add.ptr.i12.i.i437, ptr noundef %add.ptr.i39.i, ptr noundef %add.ptr4.i.i445, i64 noundef %381, i8 noundef zeroext %retval.i303.i.0) #8
+  %call1.i.i468 = tail call signext i8 @nfaExpandState(ptr noundef nonnull %add.ptr.i12.i.i437, ptr noundef %add.ptr.i39.i, ptr noundef %add.ptr4.i.i445, i64 noundef %381, i8 noundef zeroext %retval.i303.i.0) #7
   %items.i28.i = getelementptr inbounds nuw i8, ptr %add.ptr.i410, i64 104
   store i32 0, ptr %items.i28.i, align 8
   %location.i31.i = getelementptr inbounds nuw i8, ptr %add.ptr.i410, i64 112
@@ -8975,7 +8975,7 @@ ensureEnd.exit.i481:                              ; preds = %if.then.i26.i, %if.
 
 restart.i:                                        ; preds = %if.then9.i855, %ensureEnd.exit.i481
   %394 = load ptr, ptr %add.ptr.i410, align 8
-  %call.i769 = tail call signext i8 @nfaQueueExecToMatch(ptr noundef %394, ptr noundef nonnull %add.ptr.i410, i64 noundef %loc) #8
+  %call.i769 = tail call signext i8 @nfaQueueExecToMatch(ptr noundef %394, ptr noundef nonnull %add.ptr.i410, i64 noundef %loc) #7
   switch i8 %call.i769, label %if.else19.i [
     i8 2, label %if.then.i843
     i8 0, label %if.then12.i
@@ -9282,9 +9282,6 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.cttz.i64(i64, i1 immarg) #3
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #5
-
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @roseNfaBlastAdaptor(i64 noundef %start, i64 noundef %end, i32 noundef %id, ptr noundef %context) #0 {
 entry:
@@ -9296,7 +9293,7 @@ entry:
   %2 = load i32, ptr %outfixBeginQueue.i, align 4
   %cmp.i.not = icmp ult i32 %1, %2
   %flags.i.0 = select i1 %cmp.i.not, i8 6, i8 2
-  %call.i = tail call i64 @roseRunProgram(ptr noundef %0, ptr noundef %context, i32 noundef %id, i64 noundef %start, i64 noundef %end, i8 noundef zeroext %flags.i.0) #8
+  %call.i = tail call i64 @roseRunProgram(ptr noundef %0, ptr noundef %context, i32 noundef %id, i64 noundef %start, i64 noundef %end, i8 noundef zeroext %flags.i.0) #7
   %status.i.i = getelementptr inbounds nuw i8, ptr %context, i64 328
   %3 = load i8, ptr %status.i.i, align 8
   %4 = and i8 %3, 11
@@ -9407,32 +9404,31 @@ return:                                           ; preds = %if.end9.i.i.loopexi
 declare signext i8 @nfaQueueExec(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #6
+declare i64 @llvm.umax.i64(i64, i64) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.usub.sat.i64(i64, i64) #6
+declare i64 @llvm.usub.sat.i64(i64, i64) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umin.i32(i32, i32) #6
+declare i32 @llvm.umin.i32(i32, i32) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #6
+declare i64 @llvm.umin.i64(i64, i64) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.smin.i64(i64, i64) #6
+declare i64 @llvm.smin.i64(i64, i64) #5
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="corei7" "target-features"="+cmov,+crc32,+cx16,+cx8,+fxsr,+mmx,+popcnt,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="corei7" "target-features"="+cmov,+crc32,+cx16,+cx8,+fxsr,+mmx,+popcnt,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" }
 attributes #2 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="corei7" "target-features"="+cmov,+crc32,+cx16,+cx8,+fxsr,+mmx,+popcnt,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" }
 attributes #3 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #6 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #7 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #8 = { nounwind }
+attributes #5 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #6 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #7 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

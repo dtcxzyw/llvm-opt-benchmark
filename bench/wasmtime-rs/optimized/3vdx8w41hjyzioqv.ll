@@ -33664,11 +33664,6 @@ default.unreachable:                              ; preds = %tailrecurse
   %brmerge = or i1 %203, %205
   br i1 %brmerge, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h6ffe68b6c1363049E.exit.loopexit499.split.loop.exit673", label %tailrecurse.backedge
 
-tailrecurse.backedge:                             ; preds = %200, %213, %229, %235
-  %.tr.be = phi ptr [ %202, %200 ], [ %216, %213 ], [ %231, %229 ], [ %237, %235 ]
-  %.tr143.be = phi ptr [ %204, %200 ], [ %218, %213 ], [ %233, %229 ], [ %239, %235 ]
-  br label %tailrecurse
-
 206:                                              ; preds = %40
   %207 = getelementptr inbounds nuw i8, ptr %.tr, i64 24
   %.val89 = load i64, ptr %207, align 8, !noundef !4
@@ -33725,6 +33720,11 @@ tailrecurse.backedge:                             ; preds = %200, %213, %229, %2
   %234 = icmp eq ptr %233, null
   %brmerge489 = or i1 %232, %234
   br i1 %brmerge489, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h6ffe68b6c1363049E.exit.loopexit499.split.loop.exit677", label %tailrecurse.backedge
+
+tailrecurse.backedge:                             ; preds = %229, %213, %200, %235
+  %.tr.be = phi ptr [ %202, %200 ], [ %216, %213 ], [ %231, %229 ], [ %237, %235 ]
+  %.tr143.be = phi ptr [ %204, %200 ], [ %218, %213 ], [ %233, %229 ], [ %239, %235 ]
+  br label %tailrecurse
 
 235:                                              ; preds = %226
   %236 = icmp ne i64 %223, 0
