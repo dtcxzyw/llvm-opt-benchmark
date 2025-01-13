@@ -110558,7 +110558,7 @@ define internal fastcc { i64, i64 } @js_string___GetSubstitution(ptr noundef %0,
   %.sroa.3102.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.3102.0.copyload = load i64, ptr %.sroa.3102.0..sroa_idx, align 8
   %7 = getelementptr i8, ptr %1, i64 16
-  %.sroa.097.0.copyload308 = load i64, ptr %7, align 8
+  %.sroa.097.0.copyload306 = load i64, ptr %7, align 8
   %.sroa.399.0..sroa_idx = getelementptr i8, ptr %1, i64 24
   %.sroa.399.0.copyload = load i64, ptr %.sroa.399.0..sroa_idx, align 8
   %8 = getelementptr i8, ptr %1, i64 48
@@ -110570,17 +110570,17 @@ define internal fastcc { i64, i64 } @js_string___GetSubstitution(ptr noundef %0,
   %.sroa.389.0..sroa_idx = getelementptr i8, ptr %1, i64 72
   %.sroa.389.0.copyload = load i64, ptr %.sroa.389.0..sroa_idx, align 8
   %10 = getelementptr i8, ptr %1, i64 80
-  %.sroa.084.0.copyload309 = load i64, ptr %10, align 8
+  %.sroa.084.0.copyload307 = load i64, ptr %10, align 8
   %.sroa.386.0..sroa_idx = getelementptr i8, ptr %1, i64 88
   %.sroa.386.0.copyload = load i64, ptr %.sroa.386.0..sroa_idx, align 8
   %11 = and i64 %.sroa.386.0.copyload, 4294967295
   %.not = icmp eq i64 %11, 4294967289
   %12 = and i64 %.sroa.399.0.copyload, 4294967295
   %.not249 = icmp eq i64 %12, 4294967289
-  %or.cond259 = select i1 %.not, i1 %.not249, i1 false
-  %13 = inttoptr i64 %.sroa.097.0.copyload308 to ptr
-  %14 = inttoptr i64 %.sroa.084.0.copyload309 to ptr
-  br i1 %or.cond259, label %17, label %15
+  %or.cond260 = select i1 %.not, i1 %.not249, i1 false
+  %13 = inttoptr i64 %.sroa.097.0.copyload306 to ptr
+  %14 = inttoptr i64 %.sroa.084.0.copyload307 to ptr
+  br i1 %or.cond260, label %17, label %15
 
 15:                                               ; preds = %2
   %16 = tail call { i64, i64 } (ptr, ptr, ...) @JS_ThrowTypeError(ptr noundef %0, ptr noundef nonnull @.str.234)
@@ -110885,11 +110885,11 @@ string_get.exit:                                  ; preds = %142, %146
   br i1 %.not13.i, label %._crit_edge, label %string_buffer_putc8.exit
 
 ._crit_edge:                                      ; preds = %154
-  %.pre306 = load i32, ptr %19, align 8
+  %.pre303 = load i32, ptr %19, align 8
   br label %157
 
 157:                                              ; preds = %._crit_edge, %151
-  %158 = phi i32 [ %.pre306, %._crit_edge ], [ %152, %151 ]
+  %158 = phi i32 [ %.pre303, %._crit_edge ], [ %152, %151 ]
   %159 = load i32, ptr %20, align 8
   %.not14.i = icmp eq i32 %159, 0
   %160 = load ptr, ptr %70, align 8
@@ -111112,8 +111112,8 @@ string_get.exit198:                               ; preds = %243, %247
   %264 = zext nneg i32 %.0127 to i64
   %265 = tail call fastcc { i64, i64 } @JS_GetPropertyInt64(ptr noundef %0, i64 %.sroa.091.0.copyload, i64 %.sroa.494.0.copyload, i64 noundef %264)
   %266 = extractvalue { i64, i64 } %265, 1
-  %trunc284 = trunc i64 %266 to i32
-  switch i32 %trunc284, label %267 [
+  %trunc282 = trunc i64 %266 to i32
+  switch i32 %trunc282, label %267 [
     i32 6, label %.loopexit
     i32 3, label %string_buffer_putc8.exit
   ]
@@ -111126,8 +111126,8 @@ string_get.exit198:                               ; preds = %243, %247
 
 270:                                              ; preds = %237
   %271 = icmp ne i32 %150, 60
-  %or.cond260 = select i1 %271, i1 true, i1 %.not253
-  br i1 %or.cond260, label %.thread, label %272
+  %or.cond261 = select i1 %271, i1 true, i1 %.not253
+  br i1 %or.cond261, label %.thread, label %272
 
 272:                                              ; preds = %270
   %273 = tail call fastcc i32 @string_indexof_char(ptr noundef nonnull %14, i32 noundef 62, i32 noundef %138)
@@ -111145,8 +111145,8 @@ string_get.exit198:                               ; preds = %243, %247
   %280 = extractvalue { i64, i64 } %276, 0
   %281 = tail call fastcc { i64, i64 } @JS_GetPropertyValue(ptr noundef %0, i64 %.sroa.087.0.copyload, i64 %.sroa.389.0.copyload, i64 %280, i64 %277)
   %282 = extractvalue { i64, i64 } %281, 1
-  %trunc283 = trunc i64 %282 to i32
-  switch i32 %trunc283, label %283 [
+  %trunc281 = trunc i64 %282 to i32
+  switch i32 %trunc281, label %283 [
     i32 6, label %.loopexit
     i32 3, label %286
   ]
@@ -111242,10 +111242,10 @@ string_indexof_char.exit.thread:                  ; preds = %string_indexof_char
   br i1 %.not.i214, label %324, label %string_buffer_concat.exit228
 
 string_indexof_char.exit.thread.thread:           ; preds = %93
-  %.not.i214311 = icmp ugt i32 %86, %.0
-  br i1 %.not.i214311, label %.thread313, label %string_buffer_concat.exit228
+  %.not.i214309 = icmp ugt i32 %86, %.0
+  br i1 %.not.i214309, label %.thread311, label %string_buffer_concat.exit228
 
-.thread313:                                       ; preds = %string_indexof_char.exit.thread.thread
+.thread311:                                       ; preds = %string_indexof_char.exit.thread.thread
   %322 = zext i32 %.0 to i64
   %323 = sub nuw i32 %86, %.0
   br label %327
@@ -111255,9 +111255,9 @@ string_indexof_char.exit.thread.thread:           ; preds = %93
   %326 = sub nuw i32 %86, %.0
   br i1 %.not.i160271, label %332, label %327
 
-327:                                              ; preds = %.thread313, %324
-  %328 = phi i32 [ %323, %.thread313 ], [ %326, %324 ]
-  %329 = phi i64 [ %322, %.thread313 ], [ %325, %324 ]
+327:                                              ; preds = %.thread311, %324
+  %328 = phi i32 [ %323, %.thread311 ], [ %326, %324 ]
+  %329 = phi i64 [ %322, %.thread311 ], [ %325, %324 ]
   %330 = getelementptr i16, ptr %69, i64 %329
   %331 = call fastcc i32 @string_buffer_write16(ptr noundef nonnull %6, ptr noundef readonly %330, i32 noundef %328)
   br label %string_buffer_concat.exit228
@@ -111278,13 +111278,9 @@ string_indexof_char.exit.thread.thread:           ; preds = %93
 340:                                              ; preds = %338, %332
   %341 = load i32, ptr %20, align 8
   %.not26.i.i217 = icmp eq i32 %341, 0
-  br i1 %.not26.i.i217, label %353, label %.preheader.i.i218
+  br i1 %.not26.i.i217, label %353, label %.lr.ph.i.i222
 
-.preheader.i.i218:                                ; preds = %340
-  %.not285 = icmp eq i32 %86, %.0
-  br i1 %.not285, label %.loopexit.i.i219, label %.lr.ph.i.i222
-
-.lr.ph.i.i222:                                    ; preds = %.preheader.i.i218
+.lr.ph.i.i222:                                    ; preds = %340
   %wide.trip.count.i.i223 = zext nneg i32 %326 to i64
   %342 = load ptr, ptr %70, align 8
   %343 = getelementptr inbounds nuw i8, ptr %342, i64 16
@@ -111303,7 +111299,7 @@ string_indexof_char.exit.thread.thread:           ; preds = %93
   store i16 %348, ptr %352, align 2
   %indvars.iv.next.i.i225 = add nuw nsw i64 %indvars.iv.i.i224, 1
   %exitcond.not.i.i226 = icmp eq i64 %indvars.iv.next.i.i225, %wide.trip.count.i.i223
-  br i1 %exitcond.not.i.i226, label %.loopexit.i.i219, label %345, !llvm.loop !48
+  br i1 %exitcond.not.i.i226, label %.loopexit.i.i219.loopexit, label %345, !llvm.loop !48
 
 353:                                              ; preds = %340
   %354 = load ptr, ptr %70, align 8
@@ -111315,8 +111311,12 @@ string_indexof_char.exit.thread.thread:           ; preds = %93
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %358, ptr readonly align 1 %333, i64 %359, i1 false)
   br label %.loopexit.i.i219
 
-.loopexit.i.i219:                                 ; preds = %345, %353, %.preheader.i.i218
-  %.pn.i.i220 = load i32, ptr %19, align 8
+.loopexit.i.i219.loopexit:                        ; preds = %345
+  %.pn.i.i220.pre = load i32, ptr %19, align 8
+  br label %.loopexit.i.i219
+
+.loopexit.i.i219:                                 ; preds = %.loopexit.i.i219.loopexit, %353
+  %.pn.i.i220 = phi i32 [ %.pn.i.i220.pre, %.loopexit.i.i219.loopexit ], [ %356, %353 ]
   %storemerge.i.i221 = add i32 %.pn.i.i220, %326
   store i32 %storemerge.i.i221, ptr %19, align 8
   br label %string_buffer_concat.exit228
@@ -111354,16 +111354,16 @@ __JS_AtomToValue.exit.i:                          ; preds = %362
 378:                                              ; preds = %362
   %379 = load i32, ptr %18, align 4
   %380 = icmp slt i32 %363, %379
-  %.pre307 = load i32, ptr %20, align 8
+  %.pre305 = load i32, ptr %20, align 8
   br i1 %380, label %381, label %394
 
 381:                                              ; preds = %378
   %382 = load ptr, ptr %6, align 8
   %383 = getelementptr inbounds nuw i8, ptr %382, i64 24
   %384 = load ptr, ptr %383, align 8
-  %385 = shl i32 %363, %.pre307
+  %385 = shl i32 %363, %.pre305
   %386 = sext i32 %385 to i64
-  %387 = sext i32 %.pre307 to i64
+  %387 = sext i32 %.pre305 to i64
   %reass.sub = sub nsw i64 %386, %387
   %388 = add nsw i64 %reass.sub, 17
   %389 = getelementptr inbounds nuw i8, ptr %384, i64 16
@@ -111376,7 +111376,7 @@ __JS_AtomToValue.exit.i:                          ; preds = %362
 
 394:                                              ; preds = %381, %378
   %.0.i230 = phi ptr [ %spec.select248, %381 ], [ %360, %378 ]
-  %.not29.i = icmp eq i32 %.pre307, 0
+  %.not29.i = icmp eq i32 %.pre305, 0
   br i1 %.not29.i, label %395, label %399
 
 395:                                              ; preds = %394
@@ -111388,7 +111388,7 @@ __JS_AtomToValue.exit.i:                          ; preds = %362
   br label %399
 
 399:                                              ; preds = %395, %394
-  %400 = phi i32 [ %.pre.i, %395 ], [ %.pre307, %394 ]
+  %400 = phi i32 [ %.pre.i, %395 ], [ %.pre305, %394 ]
   %401 = getelementptr inbounds nuw i8, ptr %.0.i230, i64 4
   %402 = load i64, ptr %401, align 4
   %403 = shl i32 %400, 31

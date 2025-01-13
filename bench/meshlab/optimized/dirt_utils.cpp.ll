@@ -24921,9 +24921,9 @@ _ZN3vcg15ClosestIteratorINS_13GridStaticPtrI8CVertexOfEENS_6vertex20PointDistanc
   %237 = phi i32 [ %216, %235 ], [ %207, %233 ]
   %238 = icmp sle i32 %220, %231
   %239 = icmp sle i32 %224, %234
-  %or.cond.i.not23.i = and i1 %238, %239
+  %or.cond.i.not21.i = and i1 %238, %239
   %240 = icmp sle i32 %228, %237
-  %or.cond13.i.not.i = and i1 %or.cond.i.not23.i, %240
+  %or.cond13.i.not.i = and i1 %or.cond.i.not21.i, %240
   br i1 %or.cond13.i.not.i, label %.noexc34, label %_ZN3vcg4Box3IiE9IntersectERKS1_.exit.thread.i
 
 _ZN3vcg4Box3IiE9IntersectERKS1_.exit.thread.i:    ; preds = %236
@@ -25322,9 +25322,9 @@ define linkonce_odr noundef zeroext i1 @_ZN3vcg15ClosestIteratorINS_13GridStatic
   %98 = phi i32 [ %77, %96 ], [ %67, %94 ]
   %99 = icmp sle i32 %81, %92
   %100 = icmp sle i32 %85, %95
-  %or.cond.i.not23 = and i1 %99, %100
+  %or.cond.i.not21 = and i1 %99, %100
   %101 = icmp sle i32 %89, %98
-  %or.cond13.i.not = and i1 %or.cond.i.not23, %101
+  %or.cond13.i.not = and i1 %or.cond.i.not21, %101
   br i1 %or.cond13.i.not, label %_ZNK3vcg4Box3IiE6IsNullEv.exit, label %_ZN3vcg4Box3IiE9IntersectERKS1_.exit.thread
 
 _ZN3vcg4Box3IiE9IntersectERKS1_.exit.thread:      ; preds = %97
