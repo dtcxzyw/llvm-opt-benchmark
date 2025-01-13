@@ -9401,9 +9401,9 @@ define internal fastcc void @_ZL14set_zones_sizeP12gmx_domdec_tPA3_fPK11gmx_ddbo
 
 .lr.ph380:                                        ; preds = %73
   %79 = trunc nuw nsw i64 %indvars.iv436 to i32
-  %invariant.gep495 = getelementptr [3 x float], ptr %41, i64 0, i64 %78
-  %invariant.gep497 = getelementptr [3 x float], ptr %41, i64 0, i64 %78
-  %invariant.gep499 = getelementptr [3 x float], ptr %41, i64 0, i64 %78
+  %invariant.gep494 = getelementptr [3 x float], ptr %41, i64 0, i64 %78
+  %invariant.gep496 = getelementptr [3 x float], ptr %41, i64 0, i64 %78
+  %invariant.gep498 = getelementptr [3 x float], ptr %41, i64 0, i64 %78
   br label %80
 
 80:                                               ; preds = %.lr.ph380, %129
@@ -9435,8 +9435,8 @@ define internal fastcc void @_ZL14set_zones_sizeP12gmx_domdec_tPA3_fPK11gmx_ddbo
   %94 = sext i32 %93 to i64
   %95 = getelementptr inbounds [2 x %struct.gmx_ddzone_t], ptr %42, i64 0, i64 %94
   %96 = load float, ptr %95, align 4
-  %gep498 = getelementptr [8 x %struct.gmx_domdec_zone_size], ptr %invariant.gep497, i64 0, i64 %indvars.iv425
-  store float %96, ptr %gep498, align 4
+  %gep497 = getelementptr [8 x %struct.gmx_domdec_zone_size], ptr %invariant.gep496, i64 0, i64 %indvars.iv425
+  store float %96, ptr %gep497, align 4
   %97 = load i32, ptr %37, align 4
   %98 = sext i32 %97 to i64
   %99 = getelementptr inbounds [8 x [3 x i32]], ptr %38, i64 0, i64 %indvars.iv425, i64 %98
@@ -9458,8 +9458,8 @@ define internal fastcc void @_ZL14set_zones_sizeP12gmx_domdec_tPA3_fPK11gmx_ddbo
   %112 = sext i32 %111 to i64
   %113 = getelementptr inbounds [2 x [2 x %struct.gmx_ddzone_t]], ptr %39, i64 0, i64 %107, i64 %112
   %114 = load float, ptr %113, align 8
-  %gep496 = getelementptr [8 x %struct.gmx_domdec_zone_size], ptr %invariant.gep495, i64 0, i64 %indvars.iv425
-  store float %114, ptr %gep496, align 4
+  %gep495 = getelementptr [8 x %struct.gmx_domdec_zone_size], ptr %invariant.gep494, i64 0, i64 %indvars.iv425
+  store float %114, ptr %gep495, align 4
   %115 = load i32, ptr %37, align 4
   %116 = sext i32 %115 to i64
   %117 = getelementptr inbounds [8 x [3 x i32]], ptr %38, i64 0, i64 %indvars.iv425, i64 %116
@@ -9482,10 +9482,10 @@ define internal fastcc void @_ZL14set_zones_sizeP12gmx_domdec_tPA3_fPK11gmx_ddbo
   %.offs309 = or disjoint i64 %.offs.sink, 4
   %127 = getelementptr inbounds i8, ptr %126, i64 %.offs309
   %128 = load float, ptr %127, align 4
-  %.idx493 = mul nuw nsw i64 %indvars.iv425, 48
-  %.offs494 = or disjoint i64 %.idx493, 12
-  %gep500 = getelementptr i8, ptr %invariant.gep499, i64 %.offs494
-  store float %128, ptr %gep500, align 4
+  %.idx492 = mul nuw nsw i64 %indvars.iv425, 48
+  %.offs493 = or disjoint i64 %.idx492, 12
+  %gep499 = getelementptr i8, ptr %invariant.gep498, i64 %.offs493
+  store float %128, ptr %gep499, align 4
   br label %129
 
 129:                                              ; preds = %.sink.split, %88, %80, %84
@@ -9773,12 +9773,12 @@ _ZN3gmx5RangeIiEC2Eii.exit:                       ; preds = %253, %257
   %271 = load i32, ptr %34, align 8
   %272 = icmp eq i32 %271, 1
   %273 = load i32, ptr %2, align 4
+  %invariant.smin = tail call i32 @llvm.smin.i32(i32 %273, i32 3)
   %274 = icmp sgt i32 %273, 1
-  %.not483 = icmp eq i32 %273, 2
-  %wide.trip.count447 = select i1 %.not483, i64 2, i64 3
   %smax = tail call i32 @llvm.smax.i32(i32 %270, i32 1)
-  %invariant.gep485 = getelementptr i8, ptr %11, i64 %.idx342
-  %invariant.gep487 = getelementptr i8, ptr %11, i64 %.idx342
+  %invariant.gep484 = getelementptr i8, ptr %11, i64 %.idx342
+  %invariant.gep486 = getelementptr i8, ptr %11, i64 %.idx342
+  %wide.trip.count447 = zext nneg i32 %invariant.smin to i64
   br label %278
 
 .preheader371:                                    ; preds = %.loopexit370, %267
@@ -9793,14 +9793,14 @@ _ZN3gmx5RangeIiEC2Eii.exit:                       ; preds = %253, %257
   %279 = and i32 %.0288407, 1
   %280 = icmp eq i32 %279, 0
   %spec.select = select i1 %280, i64 828, i64 840
-  %gep486 = getelementptr i8, ptr %invariant.gep485, i64 %spec.select
-  %storemerge = load float, ptr %gep486, align 4
+  %gep485 = getelementptr i8, ptr %invariant.gep484, i64 %spec.select
+  %storemerge = load float, ptr %gep485, align 4
   store float %storemerge, ptr %61, align 4
   %281 = and i32 %.0288407, 2
   %282 = icmp eq i32 %281, 0
   %283 = select i1 %282, i64 832, i64 844
-  %gep488 = getelementptr i8, ptr %invariant.gep487, i64 %283
-  %284 = load float, ptr %gep488, align 4
+  %gep487 = getelementptr i8, ptr %invariant.gep486, i64 %283
+  %284 = load float, ptr %gep487, align 4
   store float %284, ptr %62, align 4
   br i1 %272, label %285, label %304
 

@@ -813,10 +813,10 @@ get_soi.exit:                                     ; preds = %91, %100
   br i1 %230, label %.lr.ph.preheader.i, label %._crit_edge.i
 
 .lr.ph.preheader.i:                               ; preds = %225
-  %231 = add nsw i32 %229, -1
-  %umin.i = tail call i32 @llvm.umin.i32(i32 %231, i32 3)
-  %232 = add nuw nsw i32 %umin.i, 1
-  %wide.trip.count.i = zext nneg i32 %232 to i64
+  %231 = tail call i32 @llvm.umin.i32(i32 %229, i32 4)
+  %wide.trip.count.i = zext nneg i32 %231 to i64
+  %232 = mul nuw nsw i64 %wide.trip.count.i, 96
+  %scevgep = getelementptr i8, ptr %228, i64 %232
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %238, %.lr.ph.preheader.i
@@ -839,7 +839,7 @@ get_soi.exit:                                     ; preds = %91, %100
   br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !7
 
 ._crit_edge.i:                                    ; preds = %238, %225
-  %.0169.lcssa.i = phi ptr [ %228, %225 ], [ %239, %238 ]
+  %.0169.lcssa.i = phi ptr [ %228, %225 ], [ %scevgep, %238 ]
   %240 = load ptr, ptr %0, align 8
   %241 = getelementptr inbounds nuw i8, ptr %240, i64 40
   store i32 5, ptr %241, align 8

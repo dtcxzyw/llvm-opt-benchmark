@@ -5104,8 +5104,7 @@ if.then43:                                        ; preds = %if.end41
   br i1 %cmp44, label %if.then45, label %for.body50.preheader
 
 for.body50.preheader:                             ; preds = %if.then43
-  %15 = add nsw i32 %MCount.1, -1
-  %umin = call i32 @llvm.umin.i32(i32 %15, i32 4)
+  %15 = call i32 @llvm.umin.i32(i32 %MCount.1, i32 5)
   br label %for.body50
 
 if.then45:                                        ; preds = %if.then43
@@ -5122,8 +5121,8 @@ for.body50:                                       ; preds = %for.body50.preheade
   %call.i83 = call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeString8doAppendEPKDsii(ptr noundef nonnull align 8 dereferenceable(64) %normalizedDateSkeleton, ptr noundef nonnull %srcChar.addr.i82, i32 noundef 0, i32 noundef 1)
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %srcChar.addr.i82)
   %inc53 = add nuw nsw i32 %j.0121, 1
-  %exitcond123.not = icmp eq i32 %j.0121, %umin
-  br i1 %exitcond123.not, label %if.end56, label %for.body50, !llvm.loop !29
+  %exitcond125.not = icmp eq i32 %inc53, %15
+  br i1 %exitcond125.not, label %if.end56, label %for.body50, !llvm.loop !29
 
 if.end56:                                         ; preds = %for.body50, %if.then45, %if.end41
   %cmp57.not = icmp eq i32 %ECount.1, 0
@@ -5134,8 +5133,7 @@ if.then58:                                        ; preds = %if.end56
   br i1 %cmp59, label %if.then60, label %for.body69.preheader
 
 for.body69.preheader:                             ; preds = %if.then58
-  %16 = add nsw i32 %ECount.1, -1
-  %umin124 = call i32 @llvm.umin.i32(i32 %16, i32 4)
+  %16 = call i32 @llvm.umin.i32(i32 %ECount.1, i32 5)
   br label %for.body69
 
 if.then60:                                        ; preds = %if.then58
@@ -5146,14 +5144,14 @@ if.then60:                                        ; preds = %if.then58
   br i1 %11, label %if.end79, label %if.then77
 
 for.body69:                                       ; preds = %for.body69.preheader, %for.body69
-  %j63.0122 = phi i32 [ %inc72, %for.body69 ], [ 0, %for.body69.preheader ]
+  %j63.0124 = phi i32 [ %inc72, %for.body69 ], [ 0, %for.body69.preheader ]
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %srcChar.addr.i86)
   store i16 69, ptr %srcChar.addr.i86, align 2
   %call.i87 = call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeString8doAppendEPKDsii(ptr noundef nonnull align 8 dereferenceable(64) %normalizedDateSkeleton, ptr noundef nonnull %srcChar.addr.i86, i32 noundef 0, i32 noundef 1)
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %srcChar.addr.i86)
-  %inc72 = add nuw nsw i32 %j63.0122, 1
-  %exitcond125.not = icmp eq i32 %j63.0122, %umin124
-  br i1 %exitcond125.not, label %if.end75, label %for.body69, !llvm.loop !30
+  %inc72 = add nuw nsw i32 %j63.0124, 1
+  %exitcond126.not = icmp eq i32 %inc72, %16
+  br i1 %exitcond126.not, label %if.end75, label %for.body69, !llvm.loop !30
 
 if.end75:                                         ; preds = %for.body69, %if.end56
   br i1 %11, label %if.end79, label %if.then77

@@ -580,20 +580,19 @@ if.end3:                                          ; preds = %if.end
   %cmp = icmp sgt i32 %length, -1
   %1 = load i32, ptr %inData, align 4
   %call4 = tail call i32 @udata_readInt32_75(ptr noundef %ds, i32 noundef %1)
-  store i32 %call4, ptr %indexes, align 16
-  %mul = shl nsw i32 %call4, 2
+  %call4.fr = freeze i32 %call4
+  store i32 %call4.fr, ptr %indexes, align 16
+  %mul = shl nsw i32 %call4.fr, 2
   %cmp8 = icmp slt i32 %length, %mul
   %or.cond167 = select i1 %cmp, i1 %cmp8, i1 false
   br i1 %or.cond167, label %if.then9, label %for.cond.preheader
 
 for.cond.preheader:                               ; preds = %if.end3
-  %cmp12168 = icmp sgt i32 %call4, 1
-  br i1 %cmp12168, label %for.body.preheader, label %if.else
+  %2 = icmp sgt i32 %call4.fr, 1
+  br i1 %2, label %for.body.preheader, label %if.else
 
 for.body.preheader:                               ; preds = %for.cond.preheader
-  %2 = add nsw i32 %call4, -2
-  %umin = tail call i32 @llvm.umin.i32(i32 %2, i32 18)
-  %3 = add nuw nsw i32 %umin, 2
+  %3 = tail call i32 @llvm.umin.i32(i32 %call4.fr, i32 20)
   %wide.trip.count = zext nneg i32 %3 to i64
   br label %for.body
 
@@ -602,8 +601,8 @@ if.then9:                                         ; preds = %if.end3
   br label %return.sink.split
 
 for.cond18.preheader:                             ; preds = %for.body
-  %cmp19170 = icmp slt i32 %call4, 20
-  br i1 %cmp19170, label %if.else, label %if.then27
+  %cmp19169 = icmp slt i32 %call4.fr, 20
+  br i1 %cmp19169, label %if.else, label %if.then27
 
 for.body:                                         ; preds = %for.body.preheader, %for.body
   %indvars.iv = phi i64 [ 1, %for.body.preheader ], [ %indvars.iv.next, %for.body ]
@@ -622,19 +621,19 @@ if.then27:                                        ; preds = %for.cond18.preheade
   br label %if.end36
 
 if.else:                                          ; preds = %for.cond.preheader, %for.cond18.preheader
-  %6 = sext i32 %call4 to i64
+  %6 = sext i32 %call4.fr to i64
   %7 = shl nsw i64 %6, 2
   %scevgep = getelementptr i8, ptr %indexes, i64 %7
-  %8 = sub i32 19, %call4
+  %8 = sub i32 19, %call4.fr
   %9 = zext i32 %8 to i64
   %10 = shl nuw nsw i64 %9, 2
   %11 = add nuw nsw i64 %10, 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %scevgep, i8 -1, i64 %11, i1 false)
-  %cmp29 = icmp sgt i32 %call4, 5
+  %cmp29 = icmp sgt i32 %call4.fr, 5
   br i1 %cmp29, label %if.then30, label %if.end36
 
 if.then30:                                        ; preds = %if.else
-  %sub = add nsw i32 %call4, -1
+  %sub = add nsw i32 %call4.fr, -1
   %idxprom31 = zext nneg i32 %sub to i64
   %arrayidx32 = getelementptr inbounds nuw [20 x i32], ptr %indexes, i64 0, i64 %idxprom31
   %12 = load i32, ptr %arrayidx32, align 4

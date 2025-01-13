@@ -139,7 +139,7 @@ switch.lookup:                                    ; preds = %4
 
 15:                                               ; preds = %switch.lookup
   tail call void @g_free(ptr noundef %12) #11
-  br label %78
+  br label %76
 
 16:                                               ; preds = %switch.lookup
   %17 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.9, i32 noundef 1) #11
@@ -173,7 +173,7 @@ switch.lookup:                                    ; preds = %4
   call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef nonnull @.str, i32 noundef 4, ptr noundef null, i64 noundef -1, ptr noundef null, ptr noundef nonnull @.str.10, ptr noundef nonnull %23, ptr noundef %26) #11
   br label %.backedge.sink.split
 
-.backedge.sink.split:                             ; preds = %74, %pass_plugin_compatibility.exit, %type_to_name.exit67, %37, %33, %28
+.backedge.sink.split:                             ; preds = %72, %pass_plugin_compatibility.exit, %type_to_name.exit67, %37, %33, %28
   call void @g_free(ptr noundef %26) #11
   br label %.backedge
 
@@ -244,66 +244,64 @@ type_to_name.exit67:                              ; preds = %type_to_name.exit, 
   br label %pass_plugin_compatibility.exit
 
 50:                                               ; preds = %46
-  %51 = icmp sgt i32 %48, 0
-  %52 = icmp samesign ugt i32 %48, %..i16.i
-  %or.cond = select i1 %51, i1 %52, i1 false
-  br i1 %or.cond, label %53, label %55
+  %or.cond = icmp sgt i32 %48, %..i16.i
+  br i1 %or.cond, label %51, label %53
 
-53:                                               ; preds = %50
+51:                                               ; preds = %50
   call void (ptr, ...) @report_failure(ptr noundef nonnull @.str.24, ptr noundef nonnull %23, i32 noundef %48, i32 noundef %..i16.i) #11
   br label %pass_plugin_compatibility.exit
 
-pass_plugin_compatibility.exit:                   ; preds = %53, %49
-  %54 = call i32 @g_module_close(ptr noundef nonnull %31) #11
+pass_plugin_compatibility.exit:                   ; preds = %51, %49
+  %52 = call i32 @g_module_close(ptr noundef nonnull %31) #11
   br label %.backedge.sink.split
 
-55:                                               ; preds = %50
-  %56 = load ptr, ptr %8, align 8
-  %57 = getelementptr inbounds nuw i8, ptr %56, i64 40
-  %58 = load ptr, ptr %57, align 8
-  call void %58() #11
-  %59 = call noalias dereferenceable_or_null(32) ptr @g_malloc_n(i64 noundef 1, i64 noundef 32) #14
-  store ptr %31, ptr %59, align 8
-  %60 = call noalias ptr @g_strdup(ptr noundef nonnull %23) #11
-  %61 = getelementptr inbounds nuw i8, ptr %59, i64 8
+53:                                               ; preds = %50
+  %54 = load ptr, ptr %8, align 8
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 40
+  %56 = load ptr, ptr %55, align 8
+  call void %56() #11
+  %57 = call noalias dereferenceable_or_null(32) ptr @g_malloc_n(i64 noundef 1, i64 noundef 32) #14
+  store ptr %31, ptr %57, align 8
+  %58 = call noalias ptr @g_strdup(ptr noundef nonnull %23) #11
+  %59 = getelementptr inbounds nuw i8, ptr %57, i64 8
+  store ptr %58, ptr %59, align 8
+  %60 = load ptr, ptr %8, align 8
+  %61 = getelementptr inbounds nuw i8, ptr %57, i64 16
   store ptr %60, ptr %61, align 8
-  %62 = load ptr, ptr %8, align 8
-  %63 = getelementptr inbounds nuw i8, ptr %59, i64 16
-  store ptr %62, ptr %63, align 8
-  %64 = getelementptr inbounds nuw i8, ptr %59, i64 24
-  store i32 %3, ptr %64, align 8
-  %65 = call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %60, i32 noundef 46) #12
-  %.not63 = icmp eq ptr %65, null
-  br i1 %.not63, label %74, label %66
+  %62 = getelementptr inbounds nuw i8, ptr %57, i64 24
+  store i32 %3, ptr %62, align 8
+  %63 = call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %58, i32 noundef 46) #12
+  %.not63 = icmp eq ptr %63, null
+  br i1 %.not63, label %72, label %64
 
-66:                                               ; preds = %55
-  %67 = getelementptr i8, ptr %65, i64 1
-  %68 = load i8, ptr %67, align 1
-  %69 = zext i8 %68 to i64
-  %70 = getelementptr i16, ptr %19, i64 %69
-  %71 = load i16, ptr %70, align 2
-  %72 = and i16 %71, 8
-  %.not64 = icmp eq i16 %72, 0
-  br i1 %.not64, label %74, label %73
+64:                                               ; preds = %53
+  %65 = getelementptr i8, ptr %63, i64 1
+  %66 = load i8, ptr %65, align 1
+  %67 = zext i8 %66 to i64
+  %68 = getelementptr i16, ptr %19, i64 %67
+  %69 = load i16, ptr %68, align 2
+  %70 = and i16 %69, 8
+  %.not64 = icmp eq i16 %70, 0
+  br i1 %.not64, label %72, label %71
 
-73:                                               ; preds = %66
-  store i8 0, ptr %65, align 1
-  br label %74
+71:                                               ; preds = %64
+  store i8 0, ptr %63, align 1
+  br label %72
 
-74:                                               ; preds = %73, %66, %55
-  %75 = call noalias ptr @g_strdup(ptr noundef nonnull %23) #11
-  %76 = call i32 @g_hash_table_replace(ptr noundef %0, ptr noundef %75, ptr noundef nonnull %59) #11
-  %77 = load ptr, ptr %61, align 8
-  call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef nonnull @.str, i32 noundef 3, ptr noundef null, i64 noundef -1, ptr noundef null, ptr noundef nonnull @.str.14, ptr noundef %77, ptr noundef %26) #11
+72:                                               ; preds = %71, %64, %53
+  %73 = call noalias ptr @g_strdup(ptr noundef nonnull %23) #11
+  %74 = call i32 @g_hash_table_replace(ptr noundef %0, ptr noundef %73, ptr noundef nonnull %57) #11
+  %75 = load ptr, ptr %59, align 8
+  call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef nonnull @.str, i32 noundef 3, ptr noundef null, i64 noundef -1, ptr noundef null, ptr noundef nonnull @.str.14, ptr noundef %75, ptr noundef %26) #11
   br label %.backedge.sink.split
 
 ._crit_edge:                                      ; preds = %.backedge, %16
   call void @g_dir_close(ptr noundef nonnull %13) #11
   call void @wmem_free(ptr noundef null, ptr noundef %17) #11
   call void @g_free(ptr noundef %12) #11
-  br label %78
+  br label %76
 
-78:                                               ; preds = %._crit_edge, %15
+76:                                               ; preds = %._crit_edge, %15
   ret void
 }
 

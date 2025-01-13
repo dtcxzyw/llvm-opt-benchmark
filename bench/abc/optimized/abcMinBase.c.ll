@@ -644,70 +644,66 @@ define i32 @Abc_NtkRemoveDupFanins(ptr nocapture noundef readonly %0) local_unna
   %14 = getelementptr i8, ptr %9, i64 28
   %.val38.i21 = load i32, ptr %14, align 4
   %15 = icmp sgt i32 %.val38.i21, 0
-  br i1 %15, label %.lr.ph49.split.preheader.i.lr.ph, label %Abc_NodeRemoveDupFanins.exit
+  br i1 %15, label %.lr.ph48.i.lr.ph, label %Abc_NodeRemoveDupFanins.exit
 
-.lr.ph49.split.preheader.i.lr.ph:                 ; preds = %.preheader
+.lr.ph48.i.lr.ph:                                 ; preds = %.preheader
   %16 = getelementptr i8, ptr %9, i64 32
   %17 = getelementptr inbounds nuw i8, ptr %9, i64 56
-  br label %.lr.ph49.split.preheader.i
+  br label %.lr.ph48.i
 
-.lr.ph49.split.preheader.i:                       ; preds = %.lr.ph49.split.preheader.i.lr.ph, %Abc_NodeRemoveDupFanins_int.exit
-  %.val38.i23 = phi i32 [ %.val38.i21, %.lr.ph49.split.preheader.i.lr.ph ], [ %.val38.i, %Abc_NodeRemoveDupFanins_int.exit ]
-  %.0.i22 = phi i32 [ 0, %.lr.ph49.split.preheader.i.lr.ph ], [ %44, %Abc_NodeRemoveDupFanins_int.exit ]
+.lr.ph48.i:                                       ; preds = %.lr.ph48.i.lr.ph, %Abc_NodeRemoveDupFanins_int.exit
+  %.val38.i23 = phi i32 [ %.val38.i21, %.lr.ph48.i.lr.ph ], [ %.val38.i, %Abc_NodeRemoveDupFanins_int.exit ]
+  %.0.i22 = phi i32 [ 0, %.lr.ph48.i.lr.ph ], [ %44, %Abc_NodeRemoveDupFanins_int.exit ]
   %.val39.i = load ptr, ptr %9, align 8
   %.val40.i = load ptr, ptr %16, align 8
   %18 = getelementptr i8, ptr %.val39.i, i64 32
   %.val39.val.i = load ptr, ptr %18, align 8
   %19 = getelementptr i8, ptr %.val39.val.i, i64 8
   %.val39.val.val.i = load ptr, ptr %19, align 8
-  %20 = add nsw i32 %.val38.i23, -1
-  %wide.trip.count59.i = zext nneg i32 %.val38.i23 to i64
-  br label %.lr.ph49.split.i
+  %wide.trip.count.i = zext nneg i32 %.val38.i23 to i64
+  %20 = zext nneg i32 %.val38.i23 to i64
+  br label %21
 
-.lr.ph49.split.i:                                 ; preds = %.critedge2.i, %.lr.ph49.split.preheader.i
-  %indvars.iv56.i = phi i64 [ 0, %.lr.ph49.split.preheader.i ], [ %indvars.iv.next57.i, %.critedge2.i ]
-  %indvars.iv54.i = phi i32 [ -1, %.lr.ph49.split.preheader.i ], [ %indvars.iv.next55.i, %.critedge2.i ]
-  %21 = getelementptr inbounds nuw i32, ptr %.val40.i, i64 %indvars.iv56.i
-  %22 = load i32, ptr %21, align 4
-  %23 = sext i32 %22 to i64
-  %24 = getelementptr inbounds ptr, ptr %.val39.val.val.i, i64 %23
-  %25 = load ptr, ptr %24, align 8
-  %.not45.not.i = icmp eq i64 %indvars.iv56.i, 0
-  br i1 %.not45.not.i, label %.critedge2.i, label %.lr.ph.preheader.i
+21:                                               ; preds = %.critedge2.i, %.lr.ph48.i
+  %indvars.iv52.i = phi i64 [ 0, %.lr.ph48.i ], [ %indvars.iv.next53.i, %.critedge2.i ]
+  %sext = shl i64 %indvars.iv52.i, 32
+  %22 = ashr exact i64 %sext, 32
+  %smin = tail call i64 @llvm.smin.i64(i64 %20, i64 %22)
+  %smax = tail call i64 @llvm.smax.i64(i64 %smin, i64 1)
+  %23 = getelementptr inbounds nuw i32, ptr %.val40.i, i64 %indvars.iv52.i
+  %24 = load i32, ptr %23, align 4
+  %25 = sext i32 %24 to i64
+  %26 = getelementptr inbounds ptr, ptr %.val39.val.val.i, i64 %25
+  %27 = load ptr, ptr %26, align 8
+  %or.cond45.not.i = icmp eq i64 %indvars.iv52.i, 0
+  br i1 %or.cond45.not.i, label %.critedge2.i, label %.lr.ph.i
 
-.lr.ph.preheader.i:                               ; preds = %.lr.ph49.split.i
-  %umin.i = tail call i32 @llvm.umin.i32(i32 %indvars.iv54.i, i32 %20)
-  %26 = add i32 %umin.i, 1
-  %wide.trip.count.i = zext i32 %26 to i64
-  br label %.lr.ph.i
+.lr.ph.i:                                         ; preds = %21, %34
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %34 ], [ 0, %21 ]
+  %28 = getelementptr inbounds nuw i32, ptr %.val40.i, i64 %indvars.iv.i
+  %29 = load i32, ptr %28, align 4
+  %30 = sext i32 %29 to i64
+  %31 = getelementptr inbounds ptr, ptr %.val39.val.val.i, i64 %30
+  %32 = load ptr, ptr %31, align 8
+  %33 = icmp eq ptr %32, %27
+  br i1 %33, label %Abc_NodeRemoveDupFanins_int.exit, label %34
 
-.lr.ph.i:                                         ; preds = %33, %.lr.ph.preheader.i
-  %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %33 ]
-  %27 = getelementptr inbounds nuw i32, ptr %.val40.i, i64 %indvars.iv.i
-  %28 = load i32, ptr %27, align 4
-  %29 = sext i32 %28 to i64
-  %30 = getelementptr inbounds ptr, ptr %.val39.val.val.i, i64 %29
-  %31 = load ptr, ptr %30, align 8
-  %32 = icmp eq ptr %31, %25
-  br i1 %32, label %Abc_NodeRemoveDupFanins_int.exit, label %33
-
-33:                                               ; preds = %.lr.ph.i
+34:                                               ; preds = %.lr.ph.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %.critedge2.i, label %.lr.ph.i, !llvm.loop !14
+  %exitcond.not = icmp eq i64 %indvars.iv.next.i, %smax
+  br i1 %exitcond.not, label %.critedge2.i, label %.lr.ph.i, !llvm.loop !14
 
-.critedge2.i:                                     ; preds = %33, %.lr.ph49.split.i
-  %indvars.iv.next57.i = add nuw nsw i64 %indvars.iv56.i, 1
-  %indvars.iv.next55.i = add nsw i32 %indvars.iv54.i, 1
-  %exitcond60.not.i = icmp eq i64 %indvars.iv.next57.i, %wide.trip.count59.i
-  br i1 %exitcond60.not.i, label %Abc_NodeRemoveDupFanins.exit, label %.lr.ph49.split.i, !llvm.loop !15
+.critedge2.i:                                     ; preds = %34, %21
+  %indvars.iv.next53.i = add nuw i64 %indvars.iv52.i, 1
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next53.i, %wide.trip.count.i
+  br i1 %exitcond.not.i, label %Abc_NodeRemoveDupFanins.exit, label %21, !llvm.loop !15
 
 Abc_NodeRemoveDupFanins_int.exit:                 ; preds = %.lr.ph.i
-  %34 = trunc nuw nsw i64 %indvars.iv56.i to i32
+  %indvars33.le = trunc i64 %indvars.iv52.i to i32
   %35 = trunc nuw nsw i64 %indvars.iv.i to i32
   %36 = getelementptr inbounds nuw i8, ptr %.val39.i, i64 256
   %37 = load ptr, ptr %36, align 8
-  %38 = tail call ptr @Cudd_bddIthVar(ptr noundef %37, i32 noundef %34) #15
+  %38 = tail call ptr @Cudd_bddIthVar(ptr noundef %37, i32 noundef %indvars33.le) #15
   %39 = tail call ptr @Cudd_bddIthVar(ptr noundef %37, i32 noundef %35) #15
   %40 = tail call ptr @Cudd_bddXnor(ptr noundef %37, ptr noundef %38, ptr noundef %39) #15
   tail call void @Cudd_Ref(ptr noundef %40) #15
@@ -721,7 +717,7 @@ Abc_NodeRemoveDupFanins_int.exit:                 ; preds = %.lr.ph.i
   %44 = add nuw nsw i32 %.0.i22, 1
   %.val38.i = load i32, ptr %14, align 4
   %45 = icmp sgt i32 %.val38.i, 0
-  br i1 %45, label %.lr.ph49.split.preheader.i, label %Abc_NodeRemoveDupFanins.exit, !llvm.loop !16
+  br i1 %45, label %.lr.ph48.i, label %Abc_NodeRemoveDupFanins.exit, !llvm.loop !16
 
 Abc_NodeRemoveDupFanins.exit:                     ; preds = %Abc_NodeRemoveDupFanins_int.exit, %.critedge2.i, %.preheader
   %.0.i20 = phi i32 [ 0, %.preheader ], [ %.0.i22, %.critedge2.i ], [ %44, %Abc_NodeRemoveDupFanins_int.exit ]
@@ -764,9 +760,9 @@ define range(i32 0, 2) i32 @Abc_NodeRemoveDupFanins_int(ptr nocapture noundef %0
   %2 = getelementptr i8, ptr %0, i64 28
   %.val38 = load i32, ptr %2, align 4
   %3 = icmp sgt i32 %.val38, 0
-  br i1 %3, label %.lr.ph49.split.preheader, label %.critedge
+  br i1 %3, label %.lr.ph48, label %.critedge
 
-.lr.ph49.split.preheader:                         ; preds = %1
+.lr.ph48:                                         ; preds = %1
   %.val39 = load ptr, ptr %0, align 8
   %4 = getelementptr i8, ptr %0, i64 32
   %.val40 = load ptr, ptr %4, align 8
@@ -774,43 +770,40 @@ define range(i32 0, 2) i32 @Abc_NodeRemoveDupFanins_int(ptr nocapture noundef %0
   %.val39.val = load ptr, ptr %5, align 8
   %6 = getelementptr i8, ptr %.val39.val, i64 8
   %.val39.val.val = load ptr, ptr %6, align 8
-  %7 = add nsw i32 %.val38, -1
-  %wide.trip.count59 = zext nneg i32 %.val38 to i64
-  br label %.lr.ph49.split
+  %wide.trip.count = zext nneg i32 %.val38 to i64
+  br label %7
 
-.lr.ph49.split:                                   ; preds = %.lr.ph49.split.preheader, %.critedge2
-  %indvars.iv56 = phi i64 [ 0, %.lr.ph49.split.preheader ], [ %indvars.iv.next57, %.critedge2 ]
-  %indvars.iv54 = phi i32 [ -1, %.lr.ph49.split.preheader ], [ %indvars.iv.next55, %.critedge2 ]
-  %8 = getelementptr inbounds nuw i32, ptr %.val40, i64 %indvars.iv56
+7:                                                ; preds = %.lr.ph48, %.critedge2
+  %indvars.iv52 = phi i64 [ 0, %.lr.ph48 ], [ %indvars.iv.next53, %.critedge2 ]
+  %8 = getelementptr inbounds nuw i32, ptr %.val40, i64 %indvars.iv52
   %9 = load i32, ptr %8, align 4
   %10 = sext i32 %9 to i64
   %11 = getelementptr inbounds ptr, ptr %.val39.val.val, i64 %10
   %12 = load ptr, ptr %11, align 8
-  %.not45.not = icmp eq i64 %indvars.iv56, 0
-  br i1 %.not45.not, label %.critedge2, label %.lr.ph.preheader
+  %13 = trunc nuw nsw i64 %indvars.iv52 to i32
+  %or.cond45.not = icmp eq i64 %indvars.iv52, 0
+  br i1 %or.cond45.not, label %.critedge2, label %.lr.ph.preheader
 
-.lr.ph.preheader:                                 ; preds = %.lr.ph49.split
-  %umin = tail call i32 @llvm.umin.i32(i32 %indvars.iv54, i32 %7)
-  %13 = add i32 %umin, 1
-  %wide.trip.count = zext i32 %13 to i64
+.lr.ph.preheader:                                 ; preds = %7
+  %invariant.smin = tail call i32 @llvm.smin.i32(i32 %.val38, i32 %13)
+  %14 = sext i32 %invariant.smin to i64
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %32
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %32 ]
-  %14 = getelementptr inbounds nuw i32, ptr %.val40, i64 %indvars.iv
-  %15 = load i32, ptr %14, align 4
-  %16 = sext i32 %15 to i64
-  %17 = getelementptr inbounds ptr, ptr %.val39.val.val, i64 %16
-  %18 = load ptr, ptr %17, align 8
-  %19 = icmp eq ptr %18, %12
-  br i1 %19, label %20, label %32
+  %15 = getelementptr inbounds nuw i32, ptr %.val40, i64 %indvars.iv
+  %16 = load i32, ptr %15, align 4
+  %17 = sext i32 %16 to i64
+  %18 = getelementptr inbounds ptr, ptr %.val39.val.val, i64 %17
+  %19 = load ptr, ptr %18, align 8
+  %20 = icmp eq ptr %19, %12
+  br i1 %20, label %21, label %32
 
-20:                                               ; preds = %.lr.ph
-  %21 = trunc nuw nsw i64 %indvars.iv56 to i32
+21:                                               ; preds = %.lr.ph
   %22 = trunc nuw nsw i64 %indvars.iv to i32
   %23 = getelementptr inbounds nuw i8, ptr %.val39, i64 256
   %24 = load ptr, ptr %23, align 8
-  %25 = tail call ptr @Cudd_bddIthVar(ptr noundef %24, i32 noundef %21) #15
+  %25 = tail call ptr @Cudd_bddIthVar(ptr noundef %24, i32 noundef %13) #15
   %26 = tail call ptr @Cudd_bddIthVar(ptr noundef %24, i32 noundef %22) #15
   %27 = tail call ptr @Cudd_bddXnor(ptr noundef %24, ptr noundef %25, ptr noundef %26) #15
   tail call void @Cudd_Ref(ptr noundef %27) #15
@@ -826,17 +819,16 @@ define range(i32 0, 2) i32 @Abc_NodeRemoveDupFanins_int(ptr nocapture noundef %0
 
 32:                                               ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.critedge2, label %.lr.ph, !llvm.loop !14
+  %or.cond = icmp slt i64 %indvars.iv.next, %14
+  br i1 %or.cond, label %.lr.ph, label %.critedge2, !llvm.loop !14
 
-.critedge2:                                       ; preds = %32, %.lr.ph49.split
-  %indvars.iv.next57 = add nuw nsw i64 %indvars.iv56, 1
-  %indvars.iv.next55 = add nsw i32 %indvars.iv54, 1
-  %exitcond60.not = icmp eq i64 %indvars.iv.next57, %wide.trip.count59
-  br i1 %exitcond60.not, label %.critedge, label %.lr.ph49.split, !llvm.loop !15
+.critedge2:                                       ; preds = %32, %7
+  %indvars.iv.next53 = add nuw nsw i64 %indvars.iv52, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next53, %wide.trip.count
+  br i1 %exitcond.not, label %.critedge, label %7, !llvm.loop !15
 
-.critedge:                                        ; preds = %.critedge2, %1, %20
-  %.0 = phi i32 [ 1, %20 ], [ 0, %1 ], [ 0, %.critedge2 ]
+.critedge:                                        ; preds = %.critedge2, %1, %21
+  %.0 = phi i32 [ 1, %21 ], [ 0, %1 ], [ 0, %.critedge2 ]
   ret i32 %.0
 }
 
@@ -3875,7 +3867,13 @@ declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr nocapture noundef
 declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #12
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umin.i32(i32, i32) #13
+declare i32 @llvm.smin.i32(i32, i32) #13
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.smin.i64(i64, i64) #13
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.smax.i64(i64, i64) #13
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

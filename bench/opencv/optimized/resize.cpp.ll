@@ -16460,6 +16460,8 @@ _ZN2cv17ResizeAreaFastVecIhNS_19ResizeAreaFastNoVecIhhEEEC2Eiiii.exit: ; preds =
   %124 = zext nneg i32 %.fr157 to i64
   %wide.trip.count147 = zext nneg i32 %116 to i64
   %invariant.op = sub nsw i64 %58, %120
+  %invariant.op.fr = freeze i64 %invariant.op
+  %invariant.smin = call i64 @llvm.smin.i64(i64 %124, i64 %invariant.op.fr)
   br label %.lr.ph113.split.us
 
 .lr.ph113.split.us:                               ; preds = %.lr.ph113.split.us.preheader, %._crit_edge106.us
@@ -16486,9 +16488,7 @@ _ZN2cv17ResizeAreaFastVecIhNS_19ResizeAreaFastNoVecIhhEEEC2Eiiii.exit: ; preds =
   %132 = add nsw i32 %.173101.us, %131
   %133 = add nsw i32 %.1102.us, 1
   %indvars.iv.next142 = add nuw nsw i64 %indvars.iv141, %57
-  %134 = icmp samesign ult i64 %indvars.iv.next142, %124
-  %.not84.us = icmp slt i64 %indvars.iv.next142, %invariant.op
-  %or.cond.us = select i1 %134, i1 %.not84.us, i1 false
+  %or.cond.us = icmp slt i64 %indvars.iv.next142, %invariant.smin
   br i1 %or.cond.us, label %128, label %._crit_edge106.us, !llvm.loop !277
 
 ._crit_edge106.us:                                ; preds = %128
@@ -16499,31 +16499,31 @@ _ZN2cv17ResizeAreaFastVecIhNS_19ResizeAreaFastNoVecIhhEEEC2Eiiii.exit: ; preds =
 ._crit_edge114.loopexit:                          ; preds = %.lr.ph113.split.us, %._crit_edge106.us
   %.072.lcssa.ph = phi i32 [ %132, %._crit_edge106.us ], [ %.072109.us, %.lr.ph113.split.us ]
   %.071.lcssa.ph = phi i32 [ %133, %._crit_edge106.us ], [ %.071110.us, %.lr.ph113.split.us ]
-  %135 = sitofp i32 %.072.lcssa.ph to float
-  %136 = sitofp i32 %.071.lcssa.ph to float
+  %134 = sitofp i32 %.072.lcssa.ph to float
+  %135 = sitofp i32 %.071.lcssa.ph to float
   br label %._crit_edge114
 
 ._crit_edge114:                                   ; preds = %.lr.ph113, %._crit_edge114.loopexit, %115
-  %.072.lcssa = phi float [ 0.000000e+00, %115 ], [ %135, %._crit_edge114.loopexit ], [ 0.000000e+00, %.lr.ph113 ]
-  %.071.lcssa = phi float [ 0.000000e+00, %115 ], [ %136, %._crit_edge114.loopexit ], [ 0.000000e+00, %.lr.ph113 ]
-  %137 = fdiv float %.072.lcssa, %.071.lcssa
-  %138 = insertelement <4 x float> poison, float %137, i64 0
-  %139 = call noundef i32 @llvm.x86.sse.cvtss2si(<4 x float> %138)
-  %140 = call i32 @llvm.smax.i32(i32 %139, i32 0)
-  %141 = call i32 @llvm.umin.i32(i32 %140, i32 255)
-  %142 = trunc nuw i32 %141 to i8
-  %143 = getelementptr inbounds i8, ptr %65, i64 %indvars.iv149
-  store i8 %142, ptr %143, align 1
+  %.072.lcssa = phi float [ 0.000000e+00, %115 ], [ %134, %._crit_edge114.loopexit ], [ 0.000000e+00, %.lr.ph113 ]
+  %.071.lcssa = phi float [ 0.000000e+00, %115 ], [ %135, %._crit_edge114.loopexit ], [ 0.000000e+00, %.lr.ph113 ]
+  %136 = fdiv float %.072.lcssa, %.071.lcssa
+  %137 = insertelement <4 x float> poison, float %136, i64 0
+  %138 = call noundef i32 @llvm.x86.sse.cvtss2si(<4 x float> %137)
+  %139 = call i32 @llvm.smax.i32(i32 %138, i32 0)
+  %140 = call i32 @llvm.umin.i32(i32 %139, i32 255)
+  %141 = trunc nuw i32 %140 to i8
+  %142 = getelementptr inbounds i8, ptr %65, i64 %indvars.iv149
+  store i8 %141, ptr %142, align 1
   %indvars.iv.next150 = add nsw i64 %indvars.iv149, 1
   %exitcond153.not = icmp eq i64 %indvars.iv.next150, %wide.trip.count152
   br i1 %exitcond153.not, label %.loopexit, label %.lr.ph124, !llvm.loop !279
 
 .loopexit:                                        ; preds = %._crit_edge114, %.lr.ph.preheader, %.preheader89, %.preheader
   %indvars.iv.next155 = add nsw i64 %indvars.iv154, 1
-  %144 = load i32, ptr %44, align 4
-  %145 = sext i32 %144 to i64
-  %146 = icmp slt i64 %indvars.iv.next155, %145
-  br i1 %146, label %61, label %._crit_edge127, !llvm.loop !280
+  %143 = load i32, ptr %44, align 4
+  %144 = sext i32 %143 to i64
+  %145 = icmp slt i64 %indvars.iv.next155, %144
+  br i1 %145, label %61, label %._crit_edge127, !llvm.loop !280
 
 ._crit_edge127:                                   ; preds = %.loopexit, %_ZN2cv17ResizeAreaFastVecIhNS_19ResizeAreaFastNoVecIhhEEEC2Eiiii.exit
   ret void
@@ -17045,6 +17045,8 @@ _ZN2cv17ResizeAreaFastVecItNS_19ResizeAreaFastNoVecIttEEEC2Eiiii.exit: ; preds =
   %124 = zext nneg i32 %.fr157 to i64
   %wide.trip.count147 = zext nneg i32 %116 to i64
   %invariant.op = sub nsw i64 %59, %120
+  %invariant.op.fr = freeze i64 %invariant.op
+  %invariant.smin = call i64 @llvm.smin.i64(i64 %124, i64 %invariant.op.fr)
   br label %.lr.ph113.split.us
 
 .lr.ph113.split.us:                               ; preds = %.lr.ph113.split.us.preheader, %._crit_edge106.us
@@ -17071,9 +17073,7 @@ _ZN2cv17ResizeAreaFastVecItNS_19ResizeAreaFastNoVecIttEEEC2Eiiii.exit: ; preds =
   %132 = fadd float %.173101.us, %131
   %133 = add nsw i32 %.1102.us, 1
   %indvars.iv.next142 = add nuw nsw i64 %indvars.iv141, %58
-  %134 = icmp samesign ult i64 %indvars.iv.next142, %124
-  %.not84.us = icmp slt i64 %indvars.iv.next142, %invariant.op
-  %or.cond.us = select i1 %134, i1 %.not84.us, i1 false
+  %or.cond.us = icmp slt i64 %indvars.iv.next142, %invariant.smin
   br i1 %or.cond.us, label %128, label %._crit_edge106.us, !llvm.loop !286
 
 ._crit_edge106.us:                                ; preds = %128
@@ -17084,30 +17084,30 @@ _ZN2cv17ResizeAreaFastVecItNS_19ResizeAreaFastNoVecIttEEEC2Eiiii.exit: ; preds =
 ._crit_edge114.loopexit:                          ; preds = %.lr.ph113.split.us, %._crit_edge106.us
   %.072.lcssa.ph = phi float [ %132, %._crit_edge106.us ], [ %.072109.us, %.lr.ph113.split.us ]
   %.071.lcssa.ph = phi i32 [ %133, %._crit_edge106.us ], [ %.071110.us, %.lr.ph113.split.us ]
-  %135 = sitofp i32 %.071.lcssa.ph to float
+  %134 = sitofp i32 %.071.lcssa.ph to float
   br label %._crit_edge114
 
 ._crit_edge114:                                   ; preds = %.lr.ph113, %._crit_edge114.loopexit, %115
   %.072.lcssa = phi float [ 0.000000e+00, %115 ], [ %.072.lcssa.ph, %._crit_edge114.loopexit ], [ 0.000000e+00, %.lr.ph113 ]
-  %.071.lcssa = phi float [ 0.000000e+00, %115 ], [ %135, %._crit_edge114.loopexit ], [ 0.000000e+00, %.lr.ph113 ]
-  %136 = fdiv float %.072.lcssa, %.071.lcssa
-  %137 = insertelement <4 x float> poison, float %136, i64 0
-  %138 = call noundef i32 @llvm.x86.sse.cvtss2si(<4 x float> %137)
-  %139 = call i32 @llvm.smax.i32(i32 %138, i32 0)
-  %140 = call i32 @llvm.umin.i32(i32 %139, i32 65535)
-  %141 = trunc nuw i32 %140 to i16
-  %142 = getelementptr inbounds i16, ptr %66, i64 %indvars.iv149
-  store i16 %141, ptr %142, align 2
+  %.071.lcssa = phi float [ 0.000000e+00, %115 ], [ %134, %._crit_edge114.loopexit ], [ 0.000000e+00, %.lr.ph113 ]
+  %135 = fdiv float %.072.lcssa, %.071.lcssa
+  %136 = insertelement <4 x float> poison, float %135, i64 0
+  %137 = call noundef i32 @llvm.x86.sse.cvtss2si(<4 x float> %136)
+  %138 = call i32 @llvm.smax.i32(i32 %137, i32 0)
+  %139 = call i32 @llvm.umin.i32(i32 %138, i32 65535)
+  %140 = trunc nuw i32 %139 to i16
+  %141 = getelementptr inbounds i16, ptr %66, i64 %indvars.iv149
+  store i16 %140, ptr %141, align 2
   %indvars.iv.next150 = add nsw i64 %indvars.iv149, 1
   %exitcond153.not = icmp eq i64 %indvars.iv.next150, %wide.trip.count152
   br i1 %exitcond153.not, label %.loopexit, label %.lr.ph124, !llvm.loop !288
 
 .loopexit:                                        ; preds = %._crit_edge114, %.lr.ph.preheader, %.preheader89, %.preheader
   %indvars.iv.next155 = add nsw i64 %indvars.iv154, 1
-  %143 = load i32, ptr %44, align 4
-  %144 = sext i32 %143 to i64
-  %145 = icmp slt i64 %indvars.iv.next155, %144
-  br i1 %145, label %62, label %._crit_edge127, !llvm.loop !289
+  %142 = load i32, ptr %44, align 4
+  %143 = sext i32 %142 to i64
+  %144 = icmp slt i64 %indvars.iv.next155, %143
+  br i1 %144, label %62, label %._crit_edge127, !llvm.loop !289
 
 ._crit_edge127:                                   ; preds = %.loopexit, %_ZN2cv17ResizeAreaFastVecItNS_19ResizeAreaFastNoVecIttEEEC2Eiiii.exit
   ret void
@@ -17629,6 +17629,8 @@ _ZN2cv17ResizeAreaFastVecIsNS_19ResizeAreaFastNoVecIssEEEC2Eiiii.exit: ; preds =
   %124 = zext nneg i32 %.fr157 to i64
   %wide.trip.count147 = zext nneg i32 %116 to i64
   %invariant.op = sub nsw i64 %59, %120
+  %invariant.op.fr = freeze i64 %invariant.op
+  %invariant.smin = call i64 @llvm.smin.i64(i64 %124, i64 %invariant.op.fr)
   br label %.lr.ph113.split.us
 
 .lr.ph113.split.us:                               ; preds = %.lr.ph113.split.us.preheader, %._crit_edge106.us
@@ -17655,9 +17657,7 @@ _ZN2cv17ResizeAreaFastVecIsNS_19ResizeAreaFastNoVecIssEEEC2Eiiii.exit: ; preds =
   %132 = fadd float %.173101.us, %131
   %133 = add nsw i32 %.1102.us, 1
   %indvars.iv.next142 = add nuw nsw i64 %indvars.iv141, %58
-  %134 = icmp samesign ult i64 %indvars.iv.next142, %124
-  %.not84.us = icmp slt i64 %indvars.iv.next142, %invariant.op
-  %or.cond.us = select i1 %134, i1 %.not84.us, i1 false
+  %or.cond.us = icmp slt i64 %indvars.iv.next142, %invariant.smin
   br i1 %or.cond.us, label %128, label %._crit_edge106.us, !llvm.loop !295
 
 ._crit_edge106.us:                                ; preds = %128
@@ -17668,30 +17668,30 @@ _ZN2cv17ResizeAreaFastVecIsNS_19ResizeAreaFastNoVecIssEEEC2Eiiii.exit: ; preds =
 ._crit_edge114.loopexit:                          ; preds = %.lr.ph113.split.us, %._crit_edge106.us
   %.072.lcssa.ph = phi float [ %132, %._crit_edge106.us ], [ %.072109.us, %.lr.ph113.split.us ]
   %.071.lcssa.ph = phi i32 [ %133, %._crit_edge106.us ], [ %.071110.us, %.lr.ph113.split.us ]
-  %135 = sitofp i32 %.071.lcssa.ph to float
+  %134 = sitofp i32 %.071.lcssa.ph to float
   br label %._crit_edge114
 
 ._crit_edge114:                                   ; preds = %.lr.ph113, %._crit_edge114.loopexit, %115
   %.072.lcssa = phi float [ 0.000000e+00, %115 ], [ %.072.lcssa.ph, %._crit_edge114.loopexit ], [ 0.000000e+00, %.lr.ph113 ]
-  %.071.lcssa = phi float [ 0.000000e+00, %115 ], [ %135, %._crit_edge114.loopexit ], [ 0.000000e+00, %.lr.ph113 ]
-  %136 = fdiv float %.072.lcssa, %.071.lcssa
-  %137 = insertelement <4 x float> poison, float %136, i64 0
-  %138 = call noundef i32 @llvm.x86.sse.cvtss2si(<4 x float> %137)
-  %139 = call i32 @llvm.smax.i32(i32 %138, i32 -32768)
-  %140 = call i32 @llvm.smin.i32(i32 %139, i32 32767)
-  %141 = trunc nsw i32 %140 to i16
-  %142 = getelementptr inbounds i16, ptr %66, i64 %indvars.iv149
-  store i16 %141, ptr %142, align 2
+  %.071.lcssa = phi float [ 0.000000e+00, %115 ], [ %134, %._crit_edge114.loopexit ], [ 0.000000e+00, %.lr.ph113 ]
+  %135 = fdiv float %.072.lcssa, %.071.lcssa
+  %136 = insertelement <4 x float> poison, float %135, i64 0
+  %137 = call noundef i32 @llvm.x86.sse.cvtss2si(<4 x float> %136)
+  %138 = call i32 @llvm.smax.i32(i32 %137, i32 -32768)
+  %139 = call i32 @llvm.smin.i32(i32 %138, i32 32767)
+  %140 = trunc nsw i32 %139 to i16
+  %141 = getelementptr inbounds i16, ptr %66, i64 %indvars.iv149
+  store i16 %140, ptr %141, align 2
   %indvars.iv.next150 = add nsw i64 %indvars.iv149, 1
   %exitcond153.not = icmp eq i64 %indvars.iv.next150, %wide.trip.count152
   br i1 %exitcond153.not, label %.loopexit, label %.lr.ph124, !llvm.loop !297
 
 .loopexit:                                        ; preds = %._crit_edge114, %.lr.ph.preheader, %.preheader89, %.preheader
   %indvars.iv.next155 = add nsw i64 %indvars.iv154, 1
-  %143 = load i32, ptr %44, align 4
-  %144 = sext i32 %143 to i64
-  %145 = icmp slt i64 %indvars.iv.next155, %144
-  br i1 %145, label %62, label %._crit_edge127, !llvm.loop !298
+  %142 = load i32, ptr %44, align 4
+  %143 = sext i32 %142 to i64
+  %144 = icmp slt i64 %indvars.iv.next155, %143
+  br i1 %144, label %62, label %._crit_edge127, !llvm.loop !298
 
 ._crit_edge127:                                   ; preds = %.loopexit, %_ZN2cv17ResizeAreaFastVecIsNS_19ResizeAreaFastNoVecIssEEEC2Eiiii.exit
   ret void
@@ -18166,6 +18166,8 @@ define linkonce_odr hidden void @_ZNK2cv22resizeAreaFast_InvokerIffNS_19ResizeAr
   %96 = zext nneg i32 %.fr165 to i64
   %wide.trip.count155 = zext nneg i32 %88 to i64
   %invariant.op = sub nsw i64 %45, %92
+  %invariant.op.fr = freeze i64 %invariant.op
+  %invariant.smin = tail call i64 @llvm.smin.i64(i64 %96, i64 %invariant.op.fr)
   br label %.lr.ph113.split.us
 
 .lr.ph113.split.us:                               ; preds = %.lr.ph113.split.us.preheader, %._crit_edge106.us
@@ -18191,9 +18193,7 @@ define linkonce_odr hidden void @_ZNK2cv22resizeAreaFast_InvokerIffNS_19ResizeAr
   %103 = fadd float %.173101.us, %102
   %104 = add nsw i32 %.1102.us, 1
   %indvars.iv.next150 = add nuw nsw i64 %indvars.iv149, %44
-  %105 = icmp samesign ult i64 %indvars.iv.next150, %96
-  %.not84.us = icmp slt i64 %indvars.iv.next150, %invariant.op
-  %or.cond.us = select i1 %105, i1 %.not84.us, i1 false
+  %or.cond.us = icmp slt i64 %indvars.iv.next150, %invariant.smin
   br i1 %or.cond.us, label %100, label %._crit_edge106.us, !llvm.loop !304
 
 ._crit_edge106.us:                                ; preds = %100
@@ -18204,25 +18204,25 @@ define linkonce_odr hidden void @_ZNK2cv22resizeAreaFast_InvokerIffNS_19ResizeAr
 ._crit_edge114.loopexit:                          ; preds = %.lr.ph113.split.us, %._crit_edge106.us
   %.072.lcssa.ph = phi float [ %103, %._crit_edge106.us ], [ %.072109.us, %.lr.ph113.split.us ]
   %.071.lcssa.ph = phi i32 [ %104, %._crit_edge106.us ], [ %.071110.us, %.lr.ph113.split.us ]
-  %106 = sitofp i32 %.071.lcssa.ph to float
+  %105 = sitofp i32 %.071.lcssa.ph to float
   br label %._crit_edge114
 
 ._crit_edge114:                                   ; preds = %.lr.ph113, %._crit_edge114.loopexit, %87
   %.072.lcssa = phi float [ 0.000000e+00, %87 ], [ %.072.lcssa.ph, %._crit_edge114.loopexit ], [ 0.000000e+00, %.lr.ph113 ]
-  %.071.lcssa = phi float [ 0.000000e+00, %87 ], [ %106, %._crit_edge114.loopexit ], [ 0.000000e+00, %.lr.ph113 ]
-  %107 = fdiv float %.072.lcssa, %.071.lcssa
-  %108 = getelementptr inbounds nuw float, ptr %52, i64 %indvars.iv157
-  store float %107, ptr %108, align 4
+  %.071.lcssa = phi float [ 0.000000e+00, %87 ], [ %105, %._crit_edge114.loopexit ], [ 0.000000e+00, %.lr.ph113 ]
+  %106 = fdiv float %.072.lcssa, %.071.lcssa
+  %107 = getelementptr inbounds nuw float, ptr %52, i64 %indvars.iv157
+  store float %106, ptr %107, align 4
   %indvars.iv.next158 = add nuw nsw i64 %indvars.iv157, 1
   %exitcond161.not = icmp eq i64 %indvars.iv.next158, %41
   br i1 %exitcond161.not, label %.loopexit, label %.lr.ph125, !llvm.loop !306
 
 .loopexit:                                        ; preds = %._crit_edge114, %.lr.ph.preheader, %.preheader89, %.preheader
   %indvars.iv.next163 = add nsw i64 %indvars.iv162, 1
-  %109 = load i32, ptr %29, align 4
-  %110 = sext i32 %109 to i64
-  %111 = icmp slt i64 %indvars.iv.next163, %110
-  br i1 %111, label %48, label %._crit_edge129, !llvm.loop !307
+  %108 = load i32, ptr %29, align 4
+  %109 = sext i32 %108 to i64
+  %110 = icmp slt i64 %indvars.iv.next163, %109
+  br i1 %110, label %48, label %._crit_edge129, !llvm.loop !307
 
 ._crit_edge129:                                   ; preds = %.loopexit, %2
   ret void
@@ -18417,6 +18417,8 @@ define linkonce_odr hidden void @_ZNK2cv22resizeAreaFast_InvokerIddNS_19ResizeAr
   %97 = zext nneg i32 %.fr165 to i64
   %wide.trip.count155 = zext nneg i32 %89 to i64
   %invariant.op = sub nsw i64 %46, %93
+  %invariant.op.fr = freeze i64 %invariant.op
+  %invariant.smin = tail call i64 @llvm.smin.i64(i64 %97, i64 %invariant.op.fr)
   br label %.lr.ph113.split.us
 
 .lr.ph113.split.us:                               ; preds = %.lr.ph113.split.us.preheader, %._crit_edge106.us
@@ -18442,9 +18444,7 @@ define linkonce_odr hidden void @_ZNK2cv22resizeAreaFast_InvokerIddNS_19ResizeAr
   %104 = fadd double %.173101.us, %103
   %105 = add nsw i32 %.1102.us, 1
   %indvars.iv.next150 = add nuw nsw i64 %indvars.iv149, %45
-  %106 = icmp samesign ult i64 %indvars.iv.next150, %97
-  %.not84.us = icmp slt i64 %indvars.iv.next150, %invariant.op
-  %or.cond.us = select i1 %106, i1 %.not84.us, i1 false
+  %or.cond.us = icmp slt i64 %indvars.iv.next150, %invariant.smin
   br i1 %or.cond.us, label %101, label %._crit_edge106.us, !llvm.loop !310
 
 ._crit_edge106.us:                                ; preds = %101
@@ -18455,27 +18455,27 @@ define linkonce_odr hidden void @_ZNK2cv22resizeAreaFast_InvokerIddNS_19ResizeAr
 ._crit_edge114.loopexit:                          ; preds = %.lr.ph113.split.us, %._crit_edge106.us
   %.072.lcssa.ph = phi double [ %104, %._crit_edge106.us ], [ %.072109.us, %.lr.ph113.split.us ]
   %.071.lcssa.ph = phi i32 [ %105, %._crit_edge106.us ], [ %.071110.us, %.lr.ph113.split.us ]
-  %107 = fptrunc double %.072.lcssa.ph to float
-  %108 = sitofp i32 %.071.lcssa.ph to float
+  %106 = fptrunc double %.072.lcssa.ph to float
+  %107 = sitofp i32 %.071.lcssa.ph to float
   br label %._crit_edge114
 
 ._crit_edge114:                                   ; preds = %.lr.ph113, %._crit_edge114.loopexit, %88
-  %.072.lcssa = phi float [ 0.000000e+00, %88 ], [ %107, %._crit_edge114.loopexit ], [ 0.000000e+00, %.lr.ph113 ]
-  %.071.lcssa = phi float [ 0.000000e+00, %88 ], [ %108, %._crit_edge114.loopexit ], [ 0.000000e+00, %.lr.ph113 ]
-  %109 = fdiv float %.072.lcssa, %.071.lcssa
-  %110 = fpext float %109 to double
-  %111 = getelementptr inbounds nuw double, ptr %53, i64 %indvars.iv157
-  store double %110, ptr %111, align 8
+  %.072.lcssa = phi float [ 0.000000e+00, %88 ], [ %106, %._crit_edge114.loopexit ], [ 0.000000e+00, %.lr.ph113 ]
+  %.071.lcssa = phi float [ 0.000000e+00, %88 ], [ %107, %._crit_edge114.loopexit ], [ 0.000000e+00, %.lr.ph113 ]
+  %108 = fdiv float %.072.lcssa, %.071.lcssa
+  %109 = fpext float %108 to double
+  %110 = getelementptr inbounds nuw double, ptr %53, i64 %indvars.iv157
+  store double %109, ptr %110, align 8
   %indvars.iv.next158 = add nuw nsw i64 %indvars.iv157, 1
   %exitcond161.not = icmp eq i64 %indvars.iv.next158, %42
   br i1 %exitcond161.not, label %.loopexit, label %.lr.ph125, !llvm.loop !312
 
 .loopexit:                                        ; preds = %._crit_edge114, %.lr.ph.preheader, %.preheader89, %.preheader
   %indvars.iv.next163 = add nsw i64 %indvars.iv162, 1
-  %112 = load i32, ptr %25, align 4
-  %113 = sext i32 %112 to i64
-  %114 = icmp slt i64 %indvars.iv.next163, %113
-  br i1 %114, label %49, label %._crit_edge129, !llvm.loop !313
+  %111 = load i32, ptr %25, align 4
+  %112 = sext i32 %111 to i64
+  %113 = icmp slt i64 %indvars.iv.next163, %112
+  br i1 %113, label %49, label %._crit_edge129, !llvm.loop !313
 
 ._crit_edge129:                                   ; preds = %.loopexit, %2
   ret void
@@ -30239,10 +30239,10 @@ declare i32 @llvm.umin.i32(i32, i32) #17
 declare i32 @llvm.umax.i32(i32, i32) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.smax.i64(i64, i64) #17
+declare i64 @llvm.smin.i64(i64, i64) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.smin.i64(i64, i64) #17
+declare i64 @llvm.smax.i64(i64, i64) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.abs.i64(i64, i1 immarg) #17

@@ -4242,20 +4242,18 @@ if.then10:                                        ; preds = %if.end5
 
 if.end12:                                         ; preds = %if.then10, %if.end5
   %sourceLength.addr.0 = phi i32 [ %conv, %if.then10 ], [ %sourceLength, %if.end5 ]
-  %cmp1343 = icmp sgt i32 %sourceLength.addr.0, 0
-  br i1 %cmp1343, label %while.end, label %if.else41.thread
+  %1 = icmp sgt i32 %sourceLength.addr.0, 0
+  br i1 %1, label %while.end, label %if.else41.thread
 
 if.else41.thread:                                 ; preds = %if.end12
-  %start.2.start.2.arrayidx50.sroa_idx79 = getelementptr inbounds nuw i8, ptr %start, i64 2
-  %start.2.start.2.72 = load i8, ptr %start.2.start.2.arrayidx50.sroa_idx79, align 1
+  %start.2.start.2.arrayidx50.sroa_idx78 = getelementptr inbounds nuw i8, ptr %start, i64 2
+  %start.2.start.2.71 = load i8, ptr %start.2.start.2.arrayidx50.sroa_idx78, align 1
   br label %if.else54
 
 while.end:                                        ; preds = %if.end12
-  %1 = add nsw i32 %sourceLength.addr.0, -1
-  %2 = tail call i32 @llvm.umin.i32(i32 %1, i32 4)
-  %narrow = add nuw nsw i32 %2, 1
-  %3 = zext nneg i32 %narrow to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %start, ptr noundef nonnull align 1 dereferenceable(1) %source, i64 %3, i1 false)
+  %2 = tail call i32 @llvm.umin.i32(i32 %sourceLength.addr.0, i32 5)
+  %3 = zext nneg i32 %2 to i64
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %start, ptr nonnull align 1 %source, i64 %3, i1 false)
   %start.0.start.0..pre = load i8, ptr %start, align 1
   %start.1.start.1.arrayidx20.sroa_idx = getelementptr inbounds nuw i8, ptr %start, i64 1
   %start.1.start.1..pre = load i8, ptr %start.1.start.1.arrayidx20.sroa_idx, align 1
@@ -4279,11 +4277,11 @@ if.else:                                          ; preds = %while.end
 
 if.then31:                                        ; preds = %if.else
   %start.2.start.2.arrayidx32.sroa_idx = getelementptr inbounds nuw i8, ptr %start, i64 2
-  %start.2.start.2.46 = load i8, ptr %start.2.start.2.arrayidx32.sroa_idx, align 1
-  %cmp34 = icmp eq i8 %start.2.start.2.46, 0
+  %start.2.start.2.45 = load i8, ptr %start.2.start.2.arrayidx32.sroa_idx, align 1
+  %cmp34 = icmp eq i8 %start.2.start.2.45, 0
   %start.3.start.3.arrayidx36.sroa_idx = getelementptr inbounds nuw i8, ptr %start, i64 3
-  %start.3.start.3.47 = load i8, ptr %start.3.start.3.arrayidx36.sroa_idx, align 1
-  %cmp38 = icmp eq i8 %start.3.start.3.47, 0
+  %start.3.start.3.46 = load i8, ptr %start.3.start.3.arrayidx36.sroa_idx, align 1
+  %cmp38 = icmp eq i8 %start.3.start.3.46, 0
   %or.cond3 = select i1 %cmp34, i1 %cmp38, i1 false
   br i1 %or.cond3, label %if.then39, label %if.else40
 
@@ -4319,14 +4317,14 @@ if.then53.else:                                   ; preds = %if.then53
   br label %return
 
 if.else54:                                        ; preds = %if.else41.thread, %if.else41
-  %start.2.78 = phi i8 [ %start.2.start.2.72, %if.else41.thread ], [ %start.2.start.2., %if.else41 ]
-  %start.0.566277 = phi i8 [ -91, %if.else41.thread ], [ %start.0.start.0..pre, %if.else41 ]
-  %start.1.556376 = phi i8 [ -91, %if.else41.thread ], [ %start.1.start.1..pre, %if.else41 ]
-  %cmp306475 = phi i1 [ false, %if.else41.thread ], [ %cmp30, %if.else41 ]
-  %cmp57 = icmp eq i8 %start.0.566277, 0
-  %cmp61 = icmp eq i8 %start.1.556376, 0
+  %start.2.77 = phi i8 [ %start.2.start.2.71, %if.else41.thread ], [ %start.2.start.2., %if.else41 ]
+  %start.0.556176 = phi i8 [ -91, %if.else41.thread ], [ %start.0.start.0..pre, %if.else41 ]
+  %start.1.546275 = phi i8 [ -91, %if.else41.thread ], [ %start.1.start.1..pre, %if.else41 ]
+  %cmp306374 = phi i1 [ false, %if.else41.thread ], [ %cmp30, %if.else41 ]
+  %cmp57 = icmp eq i8 %start.0.556176, 0
+  %cmp61 = icmp eq i8 %start.1.546275, 0
   %or.cond6 = select i1 %cmp57, i1 %cmp61, i1 false
-  %cmp65 = icmp eq i8 %start.2.78, -2
+  %cmp65 = icmp eq i8 %start.2.77, -2
   %or.cond7 = select i1 %or.cond6, i1 %cmp65, i1 false
   %start.3.start.3.arrayidx67.sroa_idx = getelementptr inbounds nuw i8, ptr %start, i64 3
   %start.3.start.3. = load i8, ptr %start.3.start.3.arrayidx67.sroa_idx, align 1
@@ -4342,9 +4340,9 @@ if.then70.else:                                   ; preds = %if.then70
   br label %return
 
 if.else71:                                        ; preds = %if.else54
-  %cmp74 = icmp eq i8 %start.0.566277, 14
-  %or.cond9 = select i1 %cmp74, i1 %cmp306475, i1 false
-  %cmp82 = icmp eq i8 %start.2.78, -1
+  %cmp74 = icmp eq i8 %start.0.556176, 14
+  %or.cond9 = select i1 %cmp74, i1 %cmp306374, i1 false
+  %cmp82 = icmp eq i8 %start.2.77, -1
   %or.cond10 = select i1 %or.cond9, i1 %cmp82, i1 false
   br i1 %or.cond10, label %if.then83, label %if.else84
 
@@ -4356,10 +4354,10 @@ if.then83.else:                                   ; preds = %if.then83
   br label %return
 
 if.else84:                                        ; preds = %if.else71
-  %cmp87 = icmp eq i8 %start.0.566277, -5
-  %cmp91 = icmp eq i8 %start.1.556376, -18
+  %cmp87 = icmp eq i8 %start.0.556176, -5
+  %cmp91 = icmp eq i8 %start.1.546275, -18
   %or.cond11 = select i1 %cmp87, i1 %cmp91, i1 false
-  %cmp95 = icmp eq i8 %start.2.78, 40
+  %cmp95 = icmp eq i8 %start.2.77, 40
   %or.cond12 = select i1 %or.cond11, i1 %cmp95, i1 false
   br i1 %or.cond12, label %if.then96, label %if.else97
 
@@ -4371,10 +4369,10 @@ if.then96.else:                                   ; preds = %if.then96
   br label %return
 
 if.else97:                                        ; preds = %if.else84
-  %cmp100 = icmp eq i8 %start.0.566277, 43
-  %cmp104 = icmp eq i8 %start.1.556376, 47
+  %cmp100 = icmp eq i8 %start.0.556176, 43
+  %cmp104 = icmp eq i8 %start.1.546275, 47
   %or.cond13 = select i1 %cmp100, i1 %cmp104, i1 false
-  %cmp108 = icmp eq i8 %start.2.78, 118
+  %cmp108 = icmp eq i8 %start.2.77, 118
   %or.cond14 = select i1 %or.cond13, i1 %cmp108, i1 false
   br i1 %or.cond14, label %if.then109, label %if.else137
 
@@ -4409,10 +4407,10 @@ if.then134.else:                                  ; preds = %if.then134
   br label %return
 
 if.else137:                                       ; preds = %if.else97
-  %cmp140 = icmp eq i8 %start.0.566277, -35
-  %cmp144 = icmp eq i8 %start.1.556376, 115
+  %cmp140 = icmp eq i8 %start.0.556176, -35
+  %cmp144 = icmp eq i8 %start.1.546275, 115
   %or.cond19 = select i1 %cmp140, i1 %cmp144, i1 false
-  %cmp148 = icmp eq i8 %start.2.78, 102
+  %cmp148 = icmp eq i8 %start.2.77, 102
   %or.cond20 = select i1 %or.cond19, i1 %cmp148, i1 false
   %cmp152 = icmp eq i8 %start.3.start.3., 115
   %or.cond21 = select i1 %or.cond20, i1 %cmp152, i1 false

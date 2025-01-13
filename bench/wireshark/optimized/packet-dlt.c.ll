@@ -348,28 +348,26 @@ define hidden i32 @dlt_ecu_id_to_gint32(ptr noundef readonly %0) local_unnamed_a
   br i1 %5, label %.lr.ph.preheader, label %.loopexit
 
 .lr.ph.preheader:                                 ; preds = %.preheader
-  %6 = add nsw i32 %4, -1
-  %umin = tail call i32 @llvm.umin.i32(i32 %6, i32 3)
-  %7 = add nuw nsw i32 %umin, 1
-  %wide.trip.count = zext nneg i32 %7 to i64
+  %6 = tail call i32 @llvm.umin.i32(i32 %4, i32 4)
+  %wide.trip.count = zext nneg i32 %6 to i64
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %.017 = phi i32 [ 32, %.lr.ph.preheader ], [ %8, %.lr.ph ]
-  %.01215 = phi i32 [ 0, %.lr.ph.preheader ], [ %13, %.lr.ph ]
-  %8 = add nsw i32 %.017, -8
-  %9 = getelementptr i8, ptr %0, i64 %indvars.iv
-  %10 = load i8, ptr %9, align 1
-  %11 = sext i8 %10 to i32
-  %12 = shl i32 %11, %8
-  %13 = or i32 %12, %.01215
+  %.017 = phi i32 [ 32, %.lr.ph.preheader ], [ %7, %.lr.ph ]
+  %.01215 = phi i32 [ 0, %.lr.ph.preheader ], [ %12, %.lr.ph ]
+  %7 = add nsw i32 %.017, -8
+  %8 = getelementptr i8, ptr %0, i64 %indvars.iv
+  %9 = load i8, ptr %8, align 1
+  %10 = sext i8 %9 to i32
+  %11 = shl i32 %10, %7
+  %12 = or i32 %11, %.01215
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !4
 
 .loopexit:                                        ; preds = %.lr.ph, %.preheader, %1
-  %.013 = phi i32 [ 0, %1 ], [ 0, %.preheader ], [ %13, %.lr.ph ]
+  %.013 = phi i32 [ 0, %1 ], [ 0, %.preheader ], [ %12, %.lr.ph ]
   ret i32 %.013
 }
 

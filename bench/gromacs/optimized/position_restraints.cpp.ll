@@ -297,49 +297,49 @@ define internal fastcc void @_ZN12_GLOBAL__N_19posres_dxEPKfS1_S1_S1_S1_fPK5t_pb
   %15 = fsub float 1.000000e+00, %5
   %16 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %17 = sext i32 %8 to i64
-  %invariant.op117 = add nsw i64 %17, -1
-  %invariant.op = add nsw i64 %17, -1
-  br label %18
+  %18 = tail call i64 @llvm.smin.i64(i64 %17, i64 3)
+  %invariant.smin119 = add nsw i64 %18, -1
+  %19 = tail call i64 @llvm.smin.i64(i64 %17, i64 3)
+  %invariant.smin = add nsw i64 %19, -1
+  br label %20
 
-18:                                               ; preds = %12, %77
-  %indvars.iv112 = phi i64 [ 0, %12 ], [ %indvars.iv.next113, %77 ]
-  %indvars.iv = phi i64 [ 1, %12 ], [ %indvars.iv.next, %77 ]
-  %19 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv112
-  %20 = load float, ptr %19, align 4
-  %21 = getelementptr inbounds nuw float, ptr %2, i64 %indvars.iv112
+20:                                               ; preds = %12, %75
+  %indvars.iv112 = phi i64 [ 0, %12 ], [ %indvars.iv.next113, %75 ]
+  %indvars.iv = phi i64 [ 1, %12 ], [ %indvars.iv.next, %75 ]
+  %21 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv112
   %22 = load float, ptr %21, align 4
-  %23 = icmp slt i64 %indvars.iv112, %17
-  br i1 %23, label %24, label %72
+  %23 = getelementptr inbounds nuw float, ptr %2, i64 %indvars.iv112
+  %24 = load float, ptr %23, align 4
+  %25 = icmp slt i64 %indvars.iv112, %17
+  br i1 %25, label %26, label %70
 
-24:                                               ; preds = %18
-  switch i32 %7, label %68 [
-    i32 0, label %25
-    i32 1, label %30
-    i32 2, label %53
+26:                                               ; preds = %20
+  switch i32 %7, label %66 [
+    i32 0, label %27
+    i32 1, label %32
+    i32 2, label %51
   ]
 
-25:                                               ; preds = %24
-  %26 = fmul float %5, %22
-  %27 = tail call float @llvm.fmuladd.f32(float %15, float %20, float %26)
-  %28 = getelementptr inbounds nuw float, ptr %10, i64 %indvars.iv112
-  store float %27, ptr %28, align 4
-  %29 = fsub float %22, %20
-  br label %77
+27:                                               ; preds = %26
+  %28 = fmul float %5, %24
+  %29 = tail call float @llvm.fmuladd.f32(float %15, float %22, float %28)
+  %30 = getelementptr inbounds nuw float, ptr %10, i64 %indvars.iv112
+  store float %29, ptr %30, align 4
+  %31 = fsub float %24, %22
+  br label %75
 
-30:                                               ; preds = %24
-  %31 = getelementptr inbounds nuw [3 x [3 x float]], ptr %16, i64 0, i64 %indvars.iv112, i64 %indvars.iv112
-  %32 = load float, ptr %31, align 4
-  %33 = fmul float %20, %32
-  %34 = fmul float %22, %32
-  %35 = icmp slt i64 %indvars.iv112, %invariant.op117
-  %36 = icmp samesign ult i64 %indvars.iv112, 2
-  %37 = select i1 %35, i1 %36, i1 false
+32:                                               ; preds = %26
+  %33 = getelementptr inbounds nuw [3 x [3 x float]], ptr %16, i64 0, i64 %indvars.iv112, i64 %indvars.iv112
+  %34 = load float, ptr %33, align 4
+  %35 = fmul float %22, %34
+  %36 = fmul float %24, %34
+  %37 = icmp slt i64 %indvars.iv112, %invariant.smin119
   br i1 %37, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %30, %.lr.ph
-  %indvars.iv109 = phi i64 [ 2, %.lr.ph ], [ %indvars.iv, %30 ]
-  %.098104 = phi float [ %42, %.lr.ph ], [ %33, %30 ]
-  %.099103 = phi float [ %45, %.lr.ph ], [ %34, %30 ]
+.lr.ph:                                           ; preds = %32, %.lr.ph
+  %indvars.iv109 = phi i64 [ 2, %.lr.ph ], [ %indvars.iv, %32 ]
+  %.098104 = phi float [ %42, %.lr.ph ], [ %35, %32 ]
+  %.099103 = phi float [ %45, %.lr.ph ], [ %36, %32 ]
   %38 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv109
   %39 = load float, ptr %38, align 4
   %40 = getelementptr inbounds nuw [3 x [3 x float]], ptr %16, i64 0, i64 %indvars.iv109, i64 %indvars.iv112
@@ -348,106 +348,104 @@ define internal fastcc void @_ZN12_GLOBAL__N_19posres_dxEPKfS1_S1_S1_S1_fPK5t_pb
   %43 = getelementptr inbounds nuw float, ptr %2, i64 %indvars.iv109
   %44 = load float, ptr %43, align 4
   %45 = tail call float @llvm.fmuladd.f32(float %44, float %41, float %.099103)
-  %46 = icmp slt i64 %indvars.iv109, %invariant.op
-  %47 = icmp samesign ult i64 %indvars.iv109, 2
-  %48 = select i1 %46, i1 %47, i1 false
-  br i1 %48, label %.lr.ph, label %._crit_edge, !llvm.loop !11
+  %46 = icmp slt i64 %indvars.iv109, %invariant.smin
+  br i1 %46, label %.lr.ph, label %._crit_edge, !llvm.loop !11
 
-._crit_edge:                                      ; preds = %.lr.ph, %30
-  %.099.lcssa = phi float [ %34, %30 ], [ %45, %.lr.ph ]
-  %.098.lcssa = phi float [ %33, %30 ], [ %42, %.lr.ph ]
-  %49 = fmul float %5, %.099.lcssa
-  %50 = tail call float @llvm.fmuladd.f32(float %15, float %.098.lcssa, float %49)
-  %51 = getelementptr inbounds nuw float, ptr %10, i64 %indvars.iv112
-  store float 0.000000e+00, ptr %51, align 4
-  %52 = fsub float %.099.lcssa, %.098.lcssa
-  br label %77
+._crit_edge:                                      ; preds = %.lr.ph, %32
+  %.099.lcssa = phi float [ %36, %32 ], [ %45, %.lr.ph ]
+  %.098.lcssa = phi float [ %35, %32 ], [ %42, %.lr.ph ]
+  %47 = fmul float %5, %.099.lcssa
+  %48 = tail call float @llvm.fmuladd.f32(float %15, float %.098.lcssa, float %47)
+  %49 = getelementptr inbounds nuw float, ptr %10, i64 %indvars.iv112
+  store float 0.000000e+00, ptr %49, align 4
+  %50 = fsub float %.099.lcssa, %.098.lcssa
+  br label %75
 
-53:                                               ; preds = %24
-  %54 = getelementptr inbounds nuw float, ptr %3, i64 %indvars.iv112
+51:                                               ; preds = %26
+  %52 = getelementptr inbounds nuw float, ptr %3, i64 %indvars.iv112
+  %53 = load float, ptr %52, align 4
+  %54 = getelementptr inbounds nuw float, ptr %4, i64 %indvars.iv112
   %55 = load float, ptr %54, align 4
-  %56 = getelementptr inbounds nuw float, ptr %4, i64 %indvars.iv112
-  %57 = load float, ptr %56, align 4
-  %58 = fmul float %5, %57
-  %59 = tail call float @llvm.fmuladd.f32(float %15, float %55, float %58)
-  %60 = fmul float %5, %22
-  %61 = tail call float @llvm.fmuladd.f32(float %15, float %20, float %60)
-  %62 = getelementptr inbounds nuw float, ptr %10, i64 %indvars.iv112
-  store float %61, ptr %62, align 4
-  %63 = load float, ptr %56, align 4
-  %64 = load float, ptr %54, align 4
-  %65 = fsub float %63, %64
-  %66 = fadd float %22, %65
-  %67 = fsub float %66, %20
-  br label %77
+  %56 = fmul float %5, %55
+  %57 = tail call float @llvm.fmuladd.f32(float %15, float %53, float %56)
+  %58 = fmul float %5, %24
+  %59 = tail call float @llvm.fmuladd.f32(float %15, float %22, float %58)
+  %60 = getelementptr inbounds nuw float, ptr %10, i64 %indvars.iv112
+  store float %59, ptr %60, align 4
+  %61 = load float, ptr %54, align 4
+  %62 = load float, ptr %52, align 4
+  %63 = fsub float %61, %62
+  %64 = fadd float %24, %63
+  %65 = fsub float %64, %22
+  br label %75
 
-68:                                               ; preds = %24
+66:                                               ; preds = %26
   call void @_ZNSt10filesystem7__cxx114pathC2IA143_cS1_EERKT_NS1_6formatE(ptr noundef nonnull align 8 dereferenceable(40) %14, ptr noundef nonnull align 1 dereferenceable(143) @.str, i8 noundef zeroext 2)
   invoke void (i32, ptr, i32, ptr, ...) @_Z9gmx_fataliRKNSt10filesystem7__cxx114pathEiPKcz(i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(40) %14, i32 noundef 124, ptr noundef nonnull @.str.1) #12
-          to label %69 unwind label %70
+          to label %67 unwind label %68
 
-69:                                               ; preds = %68
+67:                                               ; preds = %66
   unreachable
 
-70:                                               ; preds = %68
-  %71 = landingpad { ptr, i32 }
+68:                                               ; preds = %66
+  %69 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt10filesystem7__cxx114pathD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %14) #13
-  resume { ptr, i32 } %71
+  resume { ptr, i32 } %69
 
-72:                                               ; preds = %18
-  %73 = fmul float %5, %22
-  %74 = tail call float @llvm.fmuladd.f32(float %15, float %20, float %73)
-  %75 = getelementptr inbounds nuw float, ptr %10, i64 %indvars.iv112
-  store float 0.000000e+00, ptr %75, align 4
-  %76 = fsub float %22, %20
-  br label %77
+70:                                               ; preds = %20
+  %71 = fmul float %5, %24
+  %72 = tail call float @llvm.fmuladd.f32(float %15, float %22, float %71)
+  %73 = getelementptr inbounds nuw float, ptr %10, i64 %indvars.iv112
+  store float 0.000000e+00, ptr %73, align 4
+  %74 = fsub float %24, %22
+  br label %75
 
-77:                                               ; preds = %25, %._crit_edge, %53, %72
-  %.sink = phi float [ %29, %25 ], [ %52, %._crit_edge ], [ %67, %53 ], [ %76, %72 ]
-  %.097 = phi float [ 0.000000e+00, %25 ], [ %50, %._crit_edge ], [ %59, %53 ], [ %74, %72 ]
-  %78 = getelementptr inbounds nuw float, ptr %11, i64 %indvars.iv112
-  store float %.sink, ptr %78, align 4
-  %79 = getelementptr inbounds nuw float, ptr %10, i64 %indvars.iv112
-  %80 = load float, ptr %79, align 4
-  %81 = fadd float %.097, %80
-  %82 = getelementptr inbounds nuw [3 x float], ptr %13, i64 0, i64 %indvars.iv112
-  store float %81, ptr %82, align 4
+75:                                               ; preds = %27, %._crit_edge, %51, %70
+  %.sink = phi float [ %31, %27 ], [ %50, %._crit_edge ], [ %65, %51 ], [ %74, %70 ]
+  %.097 = phi float [ 0.000000e+00, %27 ], [ %48, %._crit_edge ], [ %57, %51 ], [ %72, %70 ]
+  %76 = getelementptr inbounds nuw float, ptr %11, i64 %indvars.iv112
+  store float %.sink, ptr %76, align 4
+  %77 = getelementptr inbounds nuw float, ptr %10, i64 %indvars.iv112
+  %78 = load float, ptr %77, align 4
+  %79 = fadd float %.097, %78
+  %80 = getelementptr inbounds nuw [3 x float], ptr %13, i64 0, i64 %indvars.iv112
+  store float %79, ptr %80, align 4
   %indvars.iv.next113 = add nuw nsw i64 %indvars.iv112, 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next113, 3
-  br i1 %exitcond.not, label %83, label %18, !llvm.loop !12
+  br i1 %exitcond.not, label %81, label %20, !llvm.loop !12
 
-83:                                               ; preds = %77
+81:                                               ; preds = %75
   %.not = icmp eq ptr %6, null
-  br i1 %.not, label %85, label %84
+  br i1 %.not, label %83, label %82
 
-84:                                               ; preds = %83
+82:                                               ; preds = %81
   call void @_Z6pbc_dxPK5t_pbcPKfS3_Pf(ptr noundef nonnull %6, ptr noundef %0, ptr noundef nonnull %13, ptr noundef nonnull %9)
-  br label %101
+  br label %99
 
-85:                                               ; preds = %83
-  %86 = load float, ptr %0, align 4
-  %87 = load float, ptr %13, align 4
-  %88 = fsub float %86, %87
-  %89 = getelementptr inbounds nuw i8, ptr %0, i64 4
+83:                                               ; preds = %81
+  %84 = load float, ptr %0, align 4
+  %85 = load float, ptr %13, align 4
+  %86 = fsub float %84, %85
+  %87 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %88 = load float, ptr %87, align 4
+  %89 = getelementptr inbounds nuw i8, ptr %13, i64 4
   %90 = load float, ptr %89, align 4
-  %91 = getelementptr inbounds nuw i8, ptr %13, i64 4
-  %92 = load float, ptr %91, align 4
-  %93 = fsub float %90, %92
-  %94 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %91 = fsub float %88, %90
+  %92 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %93 = load float, ptr %92, align 4
+  %94 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %95 = load float, ptr %94, align 4
-  %96 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %97 = load float, ptr %96, align 4
-  %98 = fsub float %95, %97
-  store float %88, ptr %9, align 4
-  %99 = getelementptr inbounds nuw i8, ptr %9, i64 4
-  store float %93, ptr %99, align 4
-  %100 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  store float %98, ptr %100, align 4
-  br label %101
+  %96 = fsub float %93, %95
+  store float %86, ptr %9, align 4
+  %97 = getelementptr inbounds nuw i8, ptr %9, i64 4
+  store float %91, ptr %97, align 4
+  %98 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  store float %96, ptr %98, align 4
+  br label %99
 
-101:                                              ; preds = %85, %84
+99:                                               ; preds = %83, %82
   ret void
 }
 
@@ -704,234 +702,231 @@ define void @_Z21posres_wrapper_lambdaP13gmx_wallcycleRK22InteractionDefinitions
 .lr.ph.i.preheader:                               ; preds = %.loopexit1.i
   %84 = getelementptr inbounds nuw i8, ptr %61, i64 16
   %85 = sext i32 %63 to i64
-  %invariant.op117.i = add nsw i64 %85, -1
+  %86 = call i64 @llvm.smin.i64(i64 %85, i64 3)
+  %invariant.smin119.i = add nsw i64 %86, -1
   %.not.i = icmp eq ptr %61, null
   br label %.lr.ph.i
 
-.loopexit.i:                                      ; preds = %172
+.loopexit.i:                                      ; preds = %169
   %indvars.iv.next24.i = add nuw nsw i64 %indvars.iv23.i, 2
-  %86 = trunc nuw i64 %indvars.iv.next24.i to i32
-  %87 = icmp sgt i32 %57, %86
-  br i1 %87, label %.lr.ph.i, label %_ZN12_GLOBAL__N_16posresILb0EEEfiPKiPK9t_iparamsPA3_KfPN3gmx15ForceWithVirialEPK5t_pbcfPf15RefCoordScaling7PbcTypePS6_SI_.exit.loopexit, !llvm.loop !15
+  %87 = trunc nuw i64 %indvars.iv.next24.i to i32
+  %88 = icmp sgt i32 %57, %87
+  br i1 %88, label %.lr.ph.i, label %_ZN12_GLOBAL__N_16posresILb0EEEfiPKiPK9t_iparamsPA3_KfPN3gmx15ForceWithVirialEPK5t_pbcfPf15RefCoordScaling7PbcTypePS6_SI_.exit.loopexit, !llvm.loop !15
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %.loopexit.i
-  %.026 = phi float [ %202, %.loopexit.i ], [ 0.000000e+00, %.lr.ph.i.preheader ]
+  %.026 = phi float [ %199, %.loopexit.i ], [ 0.000000e+00, %.lr.ph.i.preheader ]
   %indvars.iv23.i = phi i64 [ %indvars.iv.next24.i, %.loopexit.i ], [ 0, %.lr.ph.i.preheader ]
-  %.010.i = phi float [ %190, %.loopexit.i ], [ 0.000000e+00, %.lr.ph.i.preheader ]
-  %88 = or disjoint i64 %indvars.iv23.i, 1
-  %89 = getelementptr inbounds nuw i32, ptr %52, i64 %indvars.iv23.i
-  %90 = load i32, ptr %89, align 4
-  %91 = getelementptr inbounds nuw i32, ptr %52, i64 %88
-  %92 = load i32, ptr %91, align 4
-  %93 = sext i32 %90 to i64
-  %94 = getelementptr inbounds %union.t_iparams, ptr %58, i64 %93
-  %95 = sext i32 %92 to i64
-  %96 = getelementptr inbounds [3 x float], ptr %3, i64 %95
-  %97 = getelementptr inbounds nuw i8, ptr %94, i64 24
+  %.010.i = phi float [ %187, %.loopexit.i ], [ 0.000000e+00, %.lr.ph.i.preheader ]
+  %89 = or disjoint i64 %indvars.iv23.i, 1
+  %90 = getelementptr inbounds nuw i32, ptr %52, i64 %indvars.iv23.i
+  %91 = load i32, ptr %90, align 4
+  %92 = getelementptr inbounds nuw i32, ptr %52, i64 %89
+  %93 = load i32, ptr %92, align 4
+  %94 = sext i32 %91 to i64
+  %95 = getelementptr inbounds %union.t_iparams, ptr %58, i64 %94
+  %96 = sext i32 %93 to i64
+  %97 = getelementptr inbounds [3 x float], ptr %3, i64 %96
+  %98 = getelementptr inbounds nuw i8, ptr %95, i64 24
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %8)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %9)
-  br label %98
+  br label %99
 
-98:                                               ; preds = %151, %.lr.ph.i
-  %indvars.iv112.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next113.i, %151 ]
-  %indvars.iv.i22 = phi i64 [ 1, %.lr.ph.i ], [ %indvars.iv.next.i23, %151 ]
-  %99 = getelementptr inbounds nuw float, ptr %94, i64 %indvars.iv112.i
-  %100 = load float, ptr %99, align 4
-  %101 = getelementptr inbounds nuw float, ptr %97, i64 %indvars.iv112.i
-  %102 = load float, ptr %101, align 4
-  %103 = icmp slt i64 %indvars.iv112.i, %85
-  br i1 %103, label %104, label %147
+99:                                               ; preds = %148, %.lr.ph.i
+  %indvars.iv112.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next113.i, %148 ]
+  %indvars.iv.i22 = phi i64 [ 1, %.lr.ph.i ], [ %indvars.iv.next.i23, %148 ]
+  %100 = getelementptr inbounds nuw float, ptr %95, i64 %indvars.iv112.i
+  %101 = load float, ptr %100, align 4
+  %102 = getelementptr inbounds nuw float, ptr %98, i64 %indvars.iv112.i
+  %103 = load float, ptr %102, align 4
+  %104 = icmp slt i64 %indvars.iv112.i, %85
+  br i1 %104, label %105, label %144
 
-104:                                              ; preds = %98
-  switch i32 %62, label %143 [
-    i32 0, label %105
-    i32 1, label %109
-    i32 2, label %131
+105:                                              ; preds = %99
+  switch i32 %62, label %140 [
+    i32 0, label %106
+    i32 1, label %110
+    i32 2, label %128
   ]
 
-105:                                              ; preds = %104
-  %106 = fmul float %50, %102
-  %107 = call float @llvm.fmuladd.f32(float %82, float %100, float %106)
-  %108 = fsub float %102, %100
-  br label %151
+106:                                              ; preds = %105
+  %107 = fmul float %50, %103
+  %108 = call float @llvm.fmuladd.f32(float %82, float %101, float %107)
+  %109 = fsub float %103, %101
+  br label %148
 
-109:                                              ; preds = %104
-  %110 = getelementptr inbounds nuw [3 x [3 x float]], ptr %84, i64 0, i64 %indvars.iv112.i, i64 %indvars.iv112.i
-  %111 = load float, ptr %110, align 4
-  %112 = fmul float %100, %111
-  %113 = fmul float %102, %111
-  %114 = icmp slt i64 %indvars.iv112.i, %invariant.op117.i
-  %115 = icmp samesign ult i64 %indvars.iv112.i, 2
-  %116 = select i1 %114, i1 %115, i1 false
-  br i1 %116, label %.lr.ph.i25, label %._crit_edge.i
+110:                                              ; preds = %105
+  %111 = getelementptr inbounds nuw [3 x [3 x float]], ptr %84, i64 0, i64 %indvars.iv112.i, i64 %indvars.iv112.i
+  %112 = load float, ptr %111, align 4
+  %113 = fmul float %101, %112
+  %114 = fmul float %103, %112
+  %115 = icmp slt i64 %indvars.iv112.i, %invariant.smin119.i
+  br i1 %115, label %.lr.ph.i25, label %._crit_edge.i
 
-.lr.ph.i25:                                       ; preds = %109, %.lr.ph.i25
-  %indvars.iv109.i = phi i64 [ 2, %.lr.ph.i25 ], [ %indvars.iv.i22, %109 ]
-  %.098104.i = phi float [ %121, %.lr.ph.i25 ], [ %112, %109 ]
-  %.099103.i = phi float [ %124, %.lr.ph.i25 ], [ %113, %109 ]
-  %117 = getelementptr inbounds nuw float, ptr %94, i64 %indvars.iv109.i
-  %118 = load float, ptr %117, align 4
-  %119 = getelementptr inbounds nuw [3 x [3 x float]], ptr %84, i64 0, i64 %indvars.iv109.i, i64 %indvars.iv112.i
-  %120 = load float, ptr %119, align 4
-  %121 = call float @llvm.fmuladd.f32(float %118, float %120, float %.098104.i)
-  %122 = getelementptr inbounds nuw float, ptr %97, i64 %indvars.iv109.i
-  %123 = load float, ptr %122, align 4
-  %124 = call float @llvm.fmuladd.f32(float %123, float %120, float %.099103.i)
-  %125 = icmp slt i64 %indvars.iv109.i, %invariant.op117.i
-  %126 = icmp samesign ult i64 %indvars.iv109.i, 2
-  %127 = select i1 %125, i1 %126, i1 false
-  br i1 %127, label %.lr.ph.i25, label %._crit_edge.i, !llvm.loop !11
+.lr.ph.i25:                                       ; preds = %110, %.lr.ph.i25
+  %indvars.iv109.i = phi i64 [ 2, %.lr.ph.i25 ], [ %indvars.iv.i22, %110 ]
+  %.098104.i = phi float [ %120, %.lr.ph.i25 ], [ %113, %110 ]
+  %.099103.i = phi float [ %123, %.lr.ph.i25 ], [ %114, %110 ]
+  %116 = getelementptr inbounds nuw float, ptr %95, i64 %indvars.iv109.i
+  %117 = load float, ptr %116, align 4
+  %118 = getelementptr inbounds nuw [3 x [3 x float]], ptr %84, i64 0, i64 %indvars.iv109.i, i64 %indvars.iv112.i
+  %119 = load float, ptr %118, align 4
+  %120 = call float @llvm.fmuladd.f32(float %117, float %119, float %.098104.i)
+  %121 = getelementptr inbounds nuw float, ptr %98, i64 %indvars.iv109.i
+  %122 = load float, ptr %121, align 4
+  %123 = call float @llvm.fmuladd.f32(float %122, float %119, float %.099103.i)
+  %124 = icmp slt i64 %indvars.iv109.i, %invariant.smin119.i
+  br i1 %124, label %.lr.ph.i25, label %._crit_edge.i, !llvm.loop !11
 
-._crit_edge.i:                                    ; preds = %.lr.ph.i25, %109
-  %.099.lcssa.i = phi float [ %113, %109 ], [ %124, %.lr.ph.i25 ]
-  %.098.lcssa.i = phi float [ %112, %109 ], [ %121, %.lr.ph.i25 ]
-  %128 = fmul float %50, %.099.lcssa.i
-  %129 = call float @llvm.fmuladd.f32(float %82, float %.098.lcssa.i, float %128)
-  %130 = fsub float %.099.lcssa.i, %.098.lcssa.i
-  br label %151
+._crit_edge.i:                                    ; preds = %.lr.ph.i25, %110
+  %.099.lcssa.i = phi float [ %114, %110 ], [ %123, %.lr.ph.i25 ]
+  %.098.lcssa.i = phi float [ %113, %110 ], [ %120, %.lr.ph.i25 ]
+  %125 = fmul float %50, %.099.lcssa.i
+  %126 = call float @llvm.fmuladd.f32(float %82, float %.098.lcssa.i, float %125)
+  %127 = fsub float %.099.lcssa.i, %.098.lcssa.i
+  br label %148
 
-131:                                              ; preds = %104
-  %132 = getelementptr inbounds nuw float, ptr %10, i64 %indvars.iv112.i
-  %133 = load float, ptr %132, align 4
-  %134 = getelementptr inbounds nuw float, ptr %11, i64 %indvars.iv112.i
-  %135 = load float, ptr %134, align 4
-  %136 = fmul float %50, %135
-  %137 = call float @llvm.fmuladd.f32(float %82, float %133, float %136)
-  %138 = fmul float %50, %102
-  %139 = call float @llvm.fmuladd.f32(float %82, float %100, float %138)
-  %140 = fsub float %135, %133
-  %141 = fadd float %102, %140
-  %142 = fsub float %141, %100
-  br label %151
+128:                                              ; preds = %105
+  %129 = getelementptr inbounds nuw float, ptr %10, i64 %indvars.iv112.i
+  %130 = load float, ptr %129, align 4
+  %131 = getelementptr inbounds nuw float, ptr %11, i64 %indvars.iv112.i
+  %132 = load float, ptr %131, align 4
+  %133 = fmul float %50, %132
+  %134 = call float @llvm.fmuladd.f32(float %82, float %130, float %133)
+  %135 = fmul float %50, %103
+  %136 = call float @llvm.fmuladd.f32(float %82, float %101, float %135)
+  %137 = fsub float %132, %130
+  %138 = fadd float %103, %137
+  %139 = fsub float %138, %101
+  br label %148
 
-143:                                              ; preds = %104
+140:                                              ; preds = %105
   call void @_ZNSt10filesystem7__cxx114pathC2IA143_cS1_EERKT_NS1_6formatE(ptr noundef nonnull align 8 dereferenceable(40) %9, ptr noundef nonnull align 1 dereferenceable(143) @.str, i8 noundef zeroext 2)
   invoke void (i32, ptr, i32, ptr, ...) @_Z9gmx_fataliRKNSt10filesystem7__cxx114pathEiPKcz(i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(40) %9, i32 noundef 124, ptr noundef nonnull @.str.1) #12
-          to label %144 unwind label %145
+          to label %141 unwind label %142
 
-144:                                              ; preds = %143
+141:                                              ; preds = %140
   unreachable
 
-145:                                              ; preds = %143
-  %146 = landingpad { ptr, i32 }
+142:                                              ; preds = %140
+  %143 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt10filesystem7__cxx114pathD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %9) #13
-  resume { ptr, i32 } %146
+  resume { ptr, i32 } %143
 
-147:                                              ; preds = %98
-  %148 = fmul float %50, %102
-  %149 = call float @llvm.fmuladd.f32(float %82, float %100, float %148)
-  %150 = fsub float %102, %100
-  br label %151
+144:                                              ; preds = %99
+  %145 = fmul float %50, %103
+  %146 = call float @llvm.fmuladd.f32(float %82, float %101, float %145)
+  %147 = fsub float %103, %101
+  br label %148
 
-151:                                              ; preds = %147, %131, %._crit_edge.i, %105
-  %152 = phi float [ %107, %105 ], [ 0.000000e+00, %._crit_edge.i ], [ %139, %131 ], [ 0.000000e+00, %147 ]
-  %.sink.i = phi float [ %108, %105 ], [ %130, %._crit_edge.i ], [ %142, %131 ], [ %150, %147 ]
-  %.097.i = phi float [ 0.000000e+00, %105 ], [ %129, %._crit_edge.i ], [ %137, %131 ], [ %149, %147 ]
-  %153 = getelementptr inbounds nuw float, ptr %12, i64 %indvars.iv112.i
-  store float %.sink.i, ptr %153, align 4
-  %154 = fadd float %.097.i, %152
-  %155 = getelementptr inbounds nuw [3 x float], ptr %8, i64 0, i64 %indvars.iv112.i
-  store float %154, ptr %155, align 4
+148:                                              ; preds = %144, %128, %._crit_edge.i, %106
+  %149 = phi float [ %108, %106 ], [ 0.000000e+00, %._crit_edge.i ], [ %136, %128 ], [ 0.000000e+00, %144 ]
+  %.sink.i = phi float [ %109, %106 ], [ %127, %._crit_edge.i ], [ %139, %128 ], [ %147, %144 ]
+  %.097.i = phi float [ 0.000000e+00, %106 ], [ %126, %._crit_edge.i ], [ %134, %128 ], [ %146, %144 ]
+  %150 = getelementptr inbounds nuw float, ptr %12, i64 %indvars.iv112.i
+  store float %.sink.i, ptr %150, align 4
+  %151 = fadd float %.097.i, %149
+  %152 = getelementptr inbounds nuw [3 x float], ptr %8, i64 0, i64 %indvars.iv112.i
+  store float %151, ptr %152, align 4
   %indvars.iv.next113.i = add nuw nsw i64 %indvars.iv112.i, 1
   %indvars.iv.next.i23 = add nuw nsw i64 %indvars.iv.i22, 1
   %exitcond.not.i24 = icmp eq i64 %indvars.iv.next113.i, 3
-  br i1 %exitcond.not.i24, label %156, label %98, !llvm.loop !12
+  br i1 %exitcond.not.i24, label %153, label %99, !llvm.loop !12
 
-156:                                              ; preds = %151
-  br i1 %.not.i, label %158, label %157
+153:                                              ; preds = %148
+  br i1 %.not.i, label %155, label %154
 
-157:                                              ; preds = %156
-  call void @_Z6pbc_dxPK5t_pbcPKfS3_Pf(ptr noundef nonnull %61, ptr noundef %96, ptr noundef nonnull %8, ptr noundef nonnull %13)
+154:                                              ; preds = %153
+  call void @_Z6pbc_dxPK5t_pbcPKfS3_Pf(ptr noundef nonnull %61, ptr noundef %97, ptr noundef nonnull %8, ptr noundef nonnull %13)
   br label %_ZN12_GLOBAL__N_19posres_dxEPKfS1_S1_S1_S1_fPK5t_pbc15RefCoordScalingiPfS6_S6_.exit
 
-158:                                              ; preds = %156
-  %159 = load float, ptr %96, align 4
-  %160 = load float, ptr %8, align 4
-  %161 = fsub float %159, %160
-  %162 = getelementptr inbounds nuw i8, ptr %96, i64 4
-  %163 = load float, ptr %162, align 4
-  %164 = load float, ptr %31, align 4
-  %165 = fsub float %163, %164
-  %166 = getelementptr inbounds nuw i8, ptr %96, i64 8
-  %167 = load float, ptr %166, align 4
-  %168 = load float, ptr %32, align 4
-  %169 = fsub float %167, %168
-  store float %161, ptr %13, align 4
-  store float %165, ptr %33, align 4
-  store float %169, ptr %34, align 4
+155:                                              ; preds = %153
+  %156 = load float, ptr %97, align 4
+  %157 = load float, ptr %8, align 4
+  %158 = fsub float %156, %157
+  %159 = getelementptr inbounds nuw i8, ptr %97, i64 4
+  %160 = load float, ptr %159, align 4
+  %161 = load float, ptr %31, align 4
+  %162 = fsub float %160, %161
+  %163 = getelementptr inbounds nuw i8, ptr %97, i64 8
+  %164 = load float, ptr %163, align 4
+  %165 = load float, ptr %32, align 4
+  %166 = fsub float %164, %165
+  store float %158, ptr %13, align 4
+  store float %162, ptr %33, align 4
+  store float %166, ptr %34, align 4
   br label %_ZN12_GLOBAL__N_19posres_dxEPKfS1_S1_S1_S1_fPK5t_pbc15RefCoordScalingiPfS6_S6_.exit
 
-_ZN12_GLOBAL__N_19posres_dxEPKfS1_S1_S1_S1_fPK5t_pbc15RefCoordScalingiPfS6_S6_.exit: ; preds = %157, %158
+_ZN12_GLOBAL__N_19posres_dxEPKfS1_S1_S1_S1_fPK5t_pbc15RefCoordScalingiPfS6_S6_.exit: ; preds = %154, %155
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %9)
-  %170 = getelementptr inbounds nuw i8, ptr %94, i64 12
-  %171 = getelementptr inbounds nuw i8, ptr %94, i64 36
-  br label %172
+  %167 = getelementptr inbounds nuw i8, ptr %95, i64 12
+  %168 = getelementptr inbounds nuw i8, ptr %95, i64 36
+  br label %169
 
-172:                                              ; preds = %172, %_ZN12_GLOBAL__N_19posres_dxEPKfS1_S1_S1_S1_fPK5t_pbc15RefCoordScalingiPfS6_S6_.exit
-  %indvars.iv19.i = phi i64 [ 0, %_ZN12_GLOBAL__N_19posres_dxEPKfS1_S1_S1_S1_fPK5t_pbc15RefCoordScalingiPfS6_S6_.exit ], [ %indvars.iv.next20.i, %172 ]
-  %.18.i = phi float [ %.010.i, %_ZN12_GLOBAL__N_19posres_dxEPKfS1_S1_S1_S1_fPK5t_pbc15RefCoordScalingiPfS6_S6_.exit ], [ %190, %172 ]
-  %173 = phi float [ %.026, %_ZN12_GLOBAL__N_19posres_dxEPKfS1_S1_S1_S1_fPK5t_pbc15RefCoordScalingiPfS6_S6_.exit ], [ %202, %172 ]
-  %174 = getelementptr inbounds nuw [3 x float], ptr %170, i64 0, i64 %indvars.iv19.i
-  %175 = load float, ptr %174, align 4
-  %176 = getelementptr inbounds nuw [3 x float], ptr %171, i64 0, i64 %indvars.iv19.i
-  %177 = load float, ptr %176, align 4
-  %178 = fmul float %50, %177
-  %179 = call float @llvm.fmuladd.f32(float %82, float %175, float %178)
-  %180 = fneg float %179
-  %181 = getelementptr inbounds nuw [3 x float], ptr %13, i64 0, i64 %indvars.iv19.i
-  %182 = load float, ptr %181, align 4
-  %183 = fmul float %182, %180
-  %184 = fpext float %179 to double
-  %185 = fmul double %184, 5.000000e-01
-  %186 = fpext float %182 to double
-  %187 = fmul double %185, %186
-  %188 = fpext float %.18.i to double
-  %189 = call double @llvm.fmuladd.f64(double %187, double %186, double %188)
-  %190 = fptrunc double %189 to float
-  %191 = fsub float %177, %175
-  %192 = fpext float %191 to double
-  %193 = fmul double %192, 5.000000e-01
-  %194 = fmul double %193, %186
-  %195 = getelementptr inbounds nuw [3 x float], ptr %12, i64 0, i64 %indvars.iv19.i
-  %196 = load float, ptr %195, align 4
-  %197 = fmul float %196, %183
-  %198 = fpext float %197 to double
-  %199 = call double @llvm.fmuladd.f64(double %194, double %186, double %198)
-  %200 = fpext float %173 to double
-  %201 = fadd double %199, %200
-  %202 = fptrunc double %201 to float
+169:                                              ; preds = %169, %_ZN12_GLOBAL__N_19posres_dxEPKfS1_S1_S1_S1_fPK5t_pbc15RefCoordScalingiPfS6_S6_.exit
+  %indvars.iv19.i = phi i64 [ 0, %_ZN12_GLOBAL__N_19posres_dxEPKfS1_S1_S1_S1_fPK5t_pbc15RefCoordScalingiPfS6_S6_.exit ], [ %indvars.iv.next20.i, %169 ]
+  %.18.i = phi float [ %.010.i, %_ZN12_GLOBAL__N_19posres_dxEPKfS1_S1_S1_S1_fPK5t_pbc15RefCoordScalingiPfS6_S6_.exit ], [ %187, %169 ]
+  %170 = phi float [ %.026, %_ZN12_GLOBAL__N_19posres_dxEPKfS1_S1_S1_S1_fPK5t_pbc15RefCoordScalingiPfS6_S6_.exit ], [ %199, %169 ]
+  %171 = getelementptr inbounds nuw [3 x float], ptr %167, i64 0, i64 %indvars.iv19.i
+  %172 = load float, ptr %171, align 4
+  %173 = getelementptr inbounds nuw [3 x float], ptr %168, i64 0, i64 %indvars.iv19.i
+  %174 = load float, ptr %173, align 4
+  %175 = fmul float %50, %174
+  %176 = call float @llvm.fmuladd.f32(float %82, float %172, float %175)
+  %177 = fneg float %176
+  %178 = getelementptr inbounds nuw [3 x float], ptr %13, i64 0, i64 %indvars.iv19.i
+  %179 = load float, ptr %178, align 4
+  %180 = fmul float %179, %177
+  %181 = fpext float %176 to double
+  %182 = fmul double %181, 5.000000e-01
+  %183 = fpext float %179 to double
+  %184 = fmul double %182, %183
+  %185 = fpext float %.18.i to double
+  %186 = call double @llvm.fmuladd.f64(double %184, double %183, double %185)
+  %187 = fptrunc double %186 to float
+  %188 = fsub float %174, %172
+  %189 = fpext float %188 to double
+  %190 = fmul double %189, 5.000000e-01
+  %191 = fmul double %190, %183
+  %192 = getelementptr inbounds nuw [3 x float], ptr %12, i64 0, i64 %indvars.iv19.i
+  %193 = load float, ptr %192, align 4
+  %194 = fmul float %193, %180
+  %195 = fpext float %194 to double
+  %196 = call double @llvm.fmuladd.f64(double %191, double %183, double %195)
+  %197 = fpext float %170 to double
+  %198 = fadd double %196, %197
+  %199 = fptrunc double %198 to float
   %indvars.iv.next20.i = add nuw nsw i64 %indvars.iv19.i, 1
   %exitcond22.not.i = icmp eq i64 %indvars.iv.next20.i, 3
-  br i1 %exitcond22.not.i, label %.loopexit.i, label %172, !llvm.loop !16
+  br i1 %exitcond22.not.i, label %.loopexit.i, label %169, !llvm.loop !16
 
 _ZN12_GLOBAL__N_16posresILb0EEEfiPKiPK9t_iparamsPA3_KfPN3gmx15ForceWithVirialEPK5t_pbcfPf15RefCoordScaling7PbcTypePS6_SI_.exit.loopexit: ; preds = %.loopexit.i
-  %203 = fpext float %190 to double
-  %204 = fpext float %202 to double
+  %200 = fpext float %187 to double
+  %201 = fpext float %199 to double
   br label %_ZN12_GLOBAL__N_16posresILb0EEEfiPKiPK9t_iparamsPA3_KfPN3gmx15ForceWithVirialEPK5t_pbcfPf15RefCoordScaling7PbcTypePS6_SI_.exit
 
 _ZN12_GLOBAL__N_16posresILb0EEEfiPKiPK9t_iparamsPA3_KfPN3gmx15ForceWithVirialEPK5t_pbcfPf15RefCoordScaling7PbcTypePS6_SI_.exit: ; preds = %_ZN12_GLOBAL__N_16posresILb0EEEfiPKiPK9t_iparamsPA3_KfPN3gmx15ForceWithVirialEPK5t_pbcfPf15RefCoordScaling7PbcTypePS6_SI_.exit.loopexit, %.loopexit1.i
-  %.1 = phi double [ 0.000000e+00, %.loopexit1.i ], [ %204, %_ZN12_GLOBAL__N_16posresILb0EEEfiPKiPK9t_iparamsPA3_KfPN3gmx15ForceWithVirialEPK5t_pbcfPf15RefCoordScaling7PbcTypePS6_SI_.exit.loopexit ]
-  %.0.lcssa.i = phi double [ 0.000000e+00, %.loopexit1.i ], [ %203, %_ZN12_GLOBAL__N_16posresILb0EEEfiPKiPK9t_iparamsPA3_KfPN3gmx15ForceWithVirialEPK5t_pbcfPf15RefCoordScaling7PbcTypePS6_SI_.exit.loopexit ]
+  %.1 = phi double [ 0.000000e+00, %.loopexit1.i ], [ %201, %_ZN12_GLOBAL__N_16posresILb0EEEfiPKiPK9t_iparamsPA3_KfPN3gmx15ForceWithVirialEPK5t_pbcfPf15RefCoordScaling7PbcTypePS6_SI_.exit.loopexit ]
+  %.0.lcssa.i = phi double [ 0.000000e+00, %.loopexit1.i ], [ %200, %_ZN12_GLOBAL__N_16posresILb0EEEfiPKiPK9t_iparamsPA3_KfPN3gmx15ForceWithVirialEPK5t_pbcfPf15RefCoordScaling7PbcTypePS6_SI_.exit.loopexit ]
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %10)
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %11)
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %12)
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %13)
-  %205 = load ptr, ptr %35, align 8
-  %206 = getelementptr inbounds nuw double, ptr %205, i64 %indvars.iv
-  %207 = load double, ptr %206, align 8
-  %208 = fadd double %207, %.0.lcssa.i
-  store double %208, ptr %206, align 8
-  %209 = load ptr, ptr %36, align 8
-  %210 = getelementptr inbounds nuw %"struct.gmx::EnumerationArray.132", ptr %209, i64 %indvars.iv, i32 0, i64 5
-  %211 = load double, ptr %210, align 8
-  %212 = fadd double %211, %.1
-  store double %212, ptr %210, align 8
+  %202 = load ptr, ptr %35, align 8
+  %203 = getelementptr inbounds nuw double, ptr %202, i64 %indvars.iv
+  %204 = load double, ptr %203, align 8
+  %205 = fadd double %204, %.0.lcssa.i
+  store double %205, ptr %203, align 8
+  %206 = load ptr, ptr %36, align 8
+  %207 = getelementptr inbounds nuw %"struct.gmx::EnumerationArray.132", ptr %206, i64 %indvars.iv, i32 0, i64 5
+  %208 = load double, ptr %207, align 8
+  %209 = fadd double %208, %.1
+  store double %209, ptr %207, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %213 = load i32, ptr %14, align 8
-  %214 = sext i32 %213 to i64
-  %.not.not = icmp slt i64 %indvars.iv, %214
+  %210 = load i32, ptr %14, align 8
+  %211 = sext i32 %210 to i64
+  %.not.not = icmp slt i64 %indvars.iv, %211
   br i1 %.not.not, label %37, label %._crit_edge, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %_ZN12_GLOBAL__N_16posresILb0EEEfiPKiPK9t_iparamsPA3_KfPN3gmx15ForceWithVirialEPK5t_pbcfPf15RefCoordScaling7PbcTypePS6_SI_.exit, %7
@@ -1467,6 +1462,9 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #10
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.smin.i64(i64, i64) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare float @llvm.sqrt.f32(float) #11

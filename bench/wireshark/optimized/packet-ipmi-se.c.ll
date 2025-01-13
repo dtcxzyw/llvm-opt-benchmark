@@ -1599,12 +1599,12 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define hidden void @proto_register_ipmi_se() local_unnamed_addr #0 {
   %1 = load i32, ptr @proto_ipmi, align 4
-  tail call void @proto_register_field_array(i32 noundef %1, ptr noundef nonnull @proto_register_ipmi_se.hf, i32 noundef 281) #2
-  tail call void @proto_register_subtree_array(ptr noundef nonnull @proto_register_ipmi_se.ett, i32 noundef 47) #2
+  tail call void @proto_register_field_array(i32 noundef %1, ptr noundef nonnull @proto_register_ipmi_se.hf, i32 noundef 281) #3
+  tail call void @proto_register_subtree_array(ptr noundef nonnull @proto_register_ipmi_se.ett, i32 noundef 47) #3
   %2 = load i32, ptr @proto_ipmi, align 4
-  %3 = tail call ptr @expert_register_protocol(i32 noundef %2) #2
-  tail call void @expert_register_field_array(ptr noundef %3, ptr noundef nonnull @proto_register_ipmi_se.ei, i32 noundef 2) #2
-  tail call void @ipmi_register_netfn_cmdtab(i32 noundef 4, i32 noundef 0, ptr noundef null, i32 noundef 0, ptr noundef null, ptr noundef nonnull @cmd_se, i32 noundef 27) #2
+  %3 = tail call ptr @expert_register_protocol(i32 noundef %2) #3
+  tail call void @expert_register_field_array(ptr noundef %3, ptr noundef nonnull @proto_register_ipmi_se.ei, i32 noundef 2) #3
+  tail call void @ipmi_register_netfn_cmdtab(i32 noundef 4, i32 noundef 0, ptr noundef null, i32 noundef 0, ptr noundef null, ptr noundef nonnull @cmd_se, i32 noundef 27) #3
   ret void
 }
 
@@ -1627,18 +1627,18 @@ declare void @ipmi_register_netfn_cmdtab(i32 noundef, i32 noundef, ptr noundef, 
 ; Function Attrs: nounwind uwtable
 define internal void @rq00(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2) #0 {
   %4 = load i32, ptr @hf_ipmi_se_00_addr, align 4
-  %5 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %4, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef -2147483648) #2
+  %5 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %4, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef -2147483648) #3
   %6 = load i32, ptr @hf_ipmi_se_00_lun, align 4
-  %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %6, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef -2147483648) #2
+  %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %6, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef -2147483648) #3
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define internal void @rs01(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2) #0 {
   %4 = load i32, ptr @hf_ipmi_se_01_addr, align 4
-  %5 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %4, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef -2147483648) #2
+  %5 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %4, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef -2147483648) #3
   %6 = load i32, ptr @hf_ipmi_se_01_lun, align 4
-  %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %6, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef -2147483648) #2
+  %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %6, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef -2147483648) #3
   ret void
 }
 
@@ -1651,37 +1651,37 @@ define internal void @rq02(ptr noundef %0, ptr nocapture readnone %1, ptr nounde
 ; Function Attrs: nounwind uwtable
 define internal void @rs10(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2) #0 {
   %4 = load i32, ptr @hf_ipmi_se_10_pef_version, align 4
-  %5 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %4, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef -2147483648) #2
+  %5 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %4, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef -2147483648) #3
   %6 = load i32, ptr @ett_ipmi_se_10_action, align 4
-  %7 = tail call ptr @proto_tree_add_bitmask_text(ptr noundef %2, ptr noundef %0, i32 noundef 1, i32 noundef 1, ptr noundef nonnull @.str.1052, ptr noundef nonnull @.str.656, i32 noundef %6, ptr noundef nonnull @rs10.byte2, i32 noundef -2147483648, i32 noundef 0) #2
+  %7 = tail call ptr @proto_tree_add_bitmask_text(ptr noundef %2, ptr noundef %0, i32 noundef 1, i32 noundef 1, ptr noundef nonnull @.str.1052, ptr noundef nonnull @.str.656, i32 noundef %6, ptr noundef nonnull @rs10.byte2, i32 noundef -2147483648, i32 noundef 0) #3
   %8 = load i32, ptr @hf_ipmi_se_10_entries, align 4
-  %9 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %8, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef -2147483648) #2
+  %9 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %8, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef -2147483648) #3
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define internal void @rq11(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2) #0 {
-  %4 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 0) #2
+  %4 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 0) #3
   %5 = load i32, ptr @hf_ipmi_se_11_rq_timeout, align 4
   %6 = zext i8 %4 to i32
-  %7 = tail call ptr @val_to_str(i32 noundef %6, ptr noundef nonnull @vals_11_pef_timer, ptr noundef nonnull @.str.1054) #2
-  %8 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef %6, ptr noundef nonnull @.str.1053, ptr noundef %7) #2
+  %7 = tail call ptr @val_to_str(i32 noundef %6, ptr noundef nonnull @vals_11_pef_timer, ptr noundef nonnull @.str.1054) #3
+  %8 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef %6, ptr noundef nonnull @.str.1053, ptr noundef %7) #3
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define internal void @rs11(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2) #0 {
-  %4 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 0) #2
+  %4 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 0) #3
   %5 = load i32, ptr @hf_ipmi_se_11_rs_timeout, align 4
   %6 = zext i8 %4 to i32
-  %7 = tail call ptr @val_to_str(i32 noundef %6, ptr noundef nonnull @vals_11_pef_timer, ptr noundef nonnull @.str.1058) #2
-  %8 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef %6, ptr noundef nonnull @.str.1053, ptr noundef %7) #2
+  %7 = tail call ptr @val_to_str(i32 noundef %6, ptr noundef nonnull @vals_11_pef_timer, ptr noundef nonnull @.str.1058) #3
+  %8 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef %6, ptr noundef nonnull @.str.1053, ptr noundef %7) #3
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define internal void @rq12(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
-  %4 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 0) #2
+  %4 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 0) #3
   %5 = and i8 %4, 127
   %6 = zext nneg i8 %5 to i64
   %7 = icmp samesign ult i8 %5, 16
@@ -1701,23 +1701,23 @@ define internal void @rq12(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
   %.0 = phi ptr [ %10, %8 ], [ %.str.637..str.507, %11 ]
   %14 = load i32, ptr @hf_ipmi_se_12_byte1, align 4
   %15 = zext nneg i8 %5 to i32
-  %16 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %2, i32 noundef %14, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef %15, ptr noundef nonnull @.str.755, ptr noundef %.0, i32 noundef %15) #2
+  %16 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %2, i32 noundef %14, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef %15, ptr noundef nonnull @.str.755, ptr noundef %.0, i32 noundef %15) #3
   %17 = load i32, ptr @ett_ipmi_se_12_byte1, align 4
-  %18 = tail call ptr @proto_item_add_subtree(ptr noundef %16, i32 noundef %17) #2
+  %18 = tail call ptr @proto_item_add_subtree(ptr noundef %16, i32 noundef %17) #3
   %19 = load i32, ptr @hf_ipmi_se_12_param, align 4
-  %20 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %18, i32 noundef %19, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef %15, ptr noundef nonnull @.str.1059, ptr noundef %.0, i32 noundef %15) #2
+  %20 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %18, i32 noundef %19, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef %15, ptr noundef nonnull @.str.1059, ptr noundef %.0, i32 noundef %15) #3
   br i1 %7, label %21, label %25
 
 21:                                               ; preds = %13
-  %22 = tail call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef 1) #2
+  %22 = tail call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef 1) #3
   %23 = getelementptr [16 x %struct.anon.1], ptr @conf_params, i64 0, i64 %6
   %24 = load ptr, ptr %23, align 16
-  tail call void %24(ptr noundef %22, ptr noundef %1, ptr noundef %2) #2
+  tail call void %24(ptr noundef %22, ptr noundef %1, ptr noundef %2) #3
   br label %28
 
 25:                                               ; preds = %13
   %26 = load i32, ptr @hf_ipmi_se_12_data, align 4
-  %27 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_none_format(ptr noundef %2, i32 noundef %26, ptr noundef %0, i32 noundef 1, i32 noundef -1, ptr noundef nonnull @.str.1060, ptr noundef %.0) #2
+  %27 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_none_format(ptr noundef %2, i32 noundef %26, ptr noundef %0, i32 noundef 1, i32 noundef -1, ptr noundef nonnull @.str.1060, ptr noundef %.0) #3
   br label %28
 
 28:                                               ; preds = %25, %21
@@ -1726,9 +1726,9 @@ define internal void @rq12(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
 
 ; Function Attrs: nounwind uwtable
 define internal void @rq13(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
-  %4 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 0) #2
+  %4 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 0) #3
   %5 = zext i8 %4 to i32
-  tail call void @ipmi_set_data(ptr noundef %1, i32 noundef 0, i32 noundef %5) #2
+  tail call void @ipmi_set_data(ptr noundef %1, i32 noundef 0, i32 noundef %5) #3
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %28, label %6
 
@@ -1751,17 +1751,17 @@ define internal void @rq13(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
 15:                                               ; preds = %13, %9
   %.0 = phi ptr [ %12, %9 ], [ %.str.637..str.507, %13 ]
   %16 = load i32, ptr @hf_ipmi_se_13_byte1, align 4
-  %17 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef nonnull %2, i32 noundef %16, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef %7, ptr noundef nonnull @.str.755, ptr noundef %.0, i32 noundef %7) #2
+  %17 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef nonnull %2, i32 noundef %16, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef %7, ptr noundef nonnull @.str.755, ptr noundef %.0, i32 noundef %7) #3
   %18 = load i32, ptr @ett_ipmi_se_13_byte1, align 4
-  %19 = tail call ptr @proto_item_add_subtree(ptr noundef %17, i32 noundef %18) #2
+  %19 = tail call ptr @proto_item_add_subtree(ptr noundef %17, i32 noundef %18) #3
   %20 = load i32, ptr @hf_ipmi_se_13_getrev, align 4
-  %21 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %20, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef -2147483648) #2
+  %21 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %20, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef -2147483648) #3
   %22 = load i32, ptr @hf_ipmi_se_13_param, align 4
-  %23 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %19, i32 noundef %22, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef %7, ptr noundef nonnull @.str.755, ptr noundef %.0, i32 noundef %7) #2
+  %23 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %19, i32 noundef %22, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef %7, ptr noundef nonnull @.str.755, ptr noundef %.0, i32 noundef %7) #3
   %24 = load i32, ptr @hf_ipmi_se_13_set, align 4
-  %25 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %2, i32 noundef %24, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef -2147483648) #2
+  %25 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %2, i32 noundef %24, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef -2147483648) #3
   %26 = load i32, ptr @hf_ipmi_se_13_block, align 4
-  %27 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %2, i32 noundef %26, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef -2147483648) #2
+  %27 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %2, i32 noundef %26, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef -2147483648) #3
   br label %28
 
 28:                                               ; preds = %3, %15
@@ -1772,19 +1772,19 @@ define internal void @rq13(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
 define internal void @rs13(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
   %4 = alloca i32, align 4
   %5 = load i32, ptr @ett_ipmi_se_13_rev, align 4
-  %6 = tail call ptr @proto_tree_add_bitmask_text(ptr noundef %2, ptr noundef %0, i32 noundef 0, i32 noundef 1, ptr noundef nonnull @.str.1080, ptr noundef null, i32 noundef %5, ptr noundef nonnull @rs13.byte1, i32 noundef -2147483648, i32 noundef 0) #2
-  %7 = call i32 @ipmi_get_data(ptr noundef %1, i32 noundef 0, ptr noundef nonnull %4) #2
+  %6 = tail call ptr @proto_tree_add_bitmask_text(ptr noundef %2, ptr noundef %0, i32 noundef 0, i32 noundef 1, ptr noundef nonnull @.str.1080, ptr noundef null, i32 noundef %5, ptr noundef nonnull @rs13.byte1, i32 noundef -2147483648, i32 noundef 0) #3
+  %7 = call i32 @ipmi_get_data(ptr noundef %1, i32 noundef 0, ptr noundef nonnull %4) #3
   %.not = icmp eq i32 %7, 0
   br i1 %.not, label %8, label %14
 
 8:                                                ; preds = %3
-  %9 = call i32 @tvb_captured_length(ptr noundef %0) #2
+  %9 = call i32 @tvb_captured_length(ptr noundef %0) #3
   %10 = icmp ugt i32 %9, 1
   br i1 %10, label %11, label %61
 
 11:                                               ; preds = %8
   %12 = load i32, ptr @hf_ipmi_se_13_data, align 4
-  %13 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %12, ptr noundef %0, i32 noundef 1, i32 noundef -1, i32 noundef 0) #2
+  %13 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %12, ptr noundef %0, i32 noundef 1, i32 noundef -1, i32 noundef 0) #3
   br label %61
 
 14:                                               ; preds = %3
@@ -1794,7 +1794,7 @@ define internal void @rs13(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
   br i1 %.not25, label %20, label %17
 
 17:                                               ; preds = %14
-  %18 = call i32 @tvb_captured_length(ptr noundef %0) #2
+  %18 = call i32 @tvb_captured_length(ptr noundef %0) #3
   %19 = icmp ugt i32 %18, 1
   br i1 %19, label %.sink.split, label %._crit_edge
 
@@ -1809,13 +1809,13 @@ define internal void @rs13(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
   br i1 %.not26, label %23, label %27
 
 23:                                               ; preds = %20
-  %24 = call i32 @tvb_captured_length(ptr noundef %0) #2
+  %24 = call i32 @tvb_captured_length(ptr noundef %0) #3
   %25 = icmp eq i32 %24, 1
   br i1 %25, label %.sink.split, label %27
 
 .sink.split:                                      ; preds = %23, %17
   %ei_ipmi_se_13_request_param_data.sink = phi ptr [ @ei_ipmi_se_13_request_param_rev, %17 ], [ @ei_ipmi_se_13_request_param_data, %23 ]
-  %26 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %6, ptr noundef nonnull %ei_ipmi_se_13_request_param_data.sink) #2
+  %26 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %6, ptr noundef nonnull %ei_ipmi_se_13_request_param_data.sink) #3
   br label %27
 
 27:                                               ; preds = %.sink.split, %20, %23
@@ -1839,7 +1839,7 @@ define internal void @rs13(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
 37:                                               ; preds = %35, %31
   %.0 = phi ptr [ %34, %31 ], [ %.str.637..str.507, %35 ]
   %38 = load i32, ptr @hf_ipmi_se_13_parameter, align 4
-  %39 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %2, i32 noundef %38, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef %29, ptr noundef nonnull @.str.1053, ptr noundef %.0) #2
+  %39 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %2, i32 noundef %38, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef %29, ptr noundef nonnull @.str.1053, ptr noundef %.0) #3
   %.not.i = icmp eq ptr %39, null
   br i1 %.not.i, label %proto_item_set_generated.exit, label %40
 
@@ -1857,7 +1857,7 @@ define internal void @rs13(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
   br label %proto_item_set_generated.exit
 
 proto_item_set_generated.exit:                    ; preds = %37, %40, %43
-  %47 = call i32 @tvb_captured_length(ptr noundef %0) #2
+  %47 = call i32 @tvb_captured_length(ptr noundef %0) #3
   %48 = icmp ugt i32 %47, 1
   br i1 %48, label %49, label %61
 
@@ -1867,17 +1867,17 @@ proto_item_set_generated.exit:                    ; preds = %37, %40, %43
   br i1 %51, label %52, label %58
 
 52:                                               ; preds = %49
-  %53 = call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef 1) #2
+  %53 = call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef 1) #3
   %54 = load i32, ptr %4, align 4
   %55 = zext i32 %54 to i64
   %56 = getelementptr [16 x %struct.anon.1], ptr @conf_params, i64 0, i64 %55
   %57 = load ptr, ptr %56, align 16
-  call void %57(ptr noundef %53, ptr noundef %1, ptr noundef %2) #2
+  call void %57(ptr noundef %53, ptr noundef %1, ptr noundef %2) #3
   br label %61
 
 58:                                               ; preds = %49
   %59 = load i32, ptr @hf_ipmi_se_13_data, align 4
-  %60 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %59, ptr noundef %0, i32 noundef 1, i32 noundef -1, i32 noundef 0) #2
+  %60 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %59, ptr noundef %0, i32 noundef 1, i32 noundef -1, i32 noundef 0) #3
   br label %61
 
 61:                                               ; preds = %52, %58, %8, %11, %proto_item_set_generated.exit
@@ -1887,49 +1887,49 @@ proto_item_set_generated.exit:                    ; preds = %37, %40, %43
 ; Function Attrs: nounwind uwtable
 define internal void @rq14(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2) #0 {
   %4 = load i32, ptr @hf_ipmi_se_14_processed_by, align 4
-  %5 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %4, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef -2147483648) #2
+  %5 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %4, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef -2147483648) #3
   %6 = load i32, ptr @hf_ipmi_se_14_rid, align 4
-  %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %6, ptr noundef %0, i32 noundef 1, i32 noundef 2, i32 noundef -2147483648) #2
+  %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %6, ptr noundef %0, i32 noundef 1, i32 noundef 2, i32 noundef -2147483648) #3
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define internal void @rs15(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
   %4 = load i32, ptr @hf_ipmi_se_15_tstamp, align 4
-  tail call void @ipmi_add_timestamp(ptr noundef %1, ptr noundef %2, i32 noundef %4, ptr noundef %0, i32 noundef 0) #2
+  tail call void @ipmi_add_timestamp(ptr noundef %1, ptr noundef %2, i32 noundef %4, ptr noundef %0, i32 noundef 0) #3
   %5 = load i32, ptr @hf_ipmi_se_15_lastrec, align 4
-  %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 4, i32 noundef 2, i32 noundef -2147483648) #2
+  %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 4, i32 noundef 2, i32 noundef -2147483648) #3
   %7 = load i32, ptr @hf_ipmi_se_15_proc_sw, align 4
-  %8 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %7, ptr noundef %0, i32 noundef 6, i32 noundef 2, i32 noundef -2147483648) #2
+  %8 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %7, ptr noundef %0, i32 noundef 6, i32 noundef 2, i32 noundef -2147483648) #3
   %9 = load i32, ptr @hf_ipmi_se_15_proc_bmc, align 4
-  %10 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %9, ptr noundef %0, i32 noundef 8, i32 noundef 2, i32 noundef -2147483648) #2
+  %10 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %9, ptr noundef %0, i32 noundef 8, i32 noundef 2, i32 noundef -2147483648) #3
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define internal void @rq16(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
-  %4 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 1) #2
+  %4 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 1) #3
   %5 = lshr i8 %4, 6
   %6 = zext nneg i8 %5 to i32
-  tail call void @ipmi_set_data(ptr noundef %1, i32 noundef 0, i32 noundef %6) #2
+  tail call void @ipmi_set_data(ptr noundef %1, i32 noundef 0, i32 noundef %6) #3
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %20, label %7
 
 7:                                                ; preds = %3
   %8 = load i32, ptr @ett_ipmi_se_16_byte1, align 4
-  %9 = tail call ptr @proto_tree_add_bitmask_text(ptr noundef nonnull %2, ptr noundef %0, i32 noundef 0, i32 noundef 1, ptr noundef null, ptr noundef null, i32 noundef %8, ptr noundef nonnull @rq16.byte1, i32 noundef -2147483648, i32 noundef 0) #2
+  %9 = tail call ptr @proto_tree_add_bitmask_text(ptr noundef nonnull %2, ptr noundef %0, i32 noundef 0, i32 noundef 1, ptr noundef null, ptr noundef null, i32 noundef %8, ptr noundef nonnull @rq16.byte1, i32 noundef -2147483648, i32 noundef 0) #3
   %10 = load i32, ptr @ett_ipmi_se_16_byte2, align 4
-  %11 = tail call ptr @proto_tree_add_bitmask_text(ptr noundef nonnull %2, ptr noundef %0, i32 noundef 1, i32 noundef 1, ptr noundef null, ptr noundef null, i32 noundef %10, ptr noundef nonnull @rq16.byte2, i32 noundef -2147483648, i32 noundef 0) #2
+  %11 = tail call ptr @proto_tree_add_bitmask_text(ptr noundef nonnull %2, ptr noundef %0, i32 noundef 1, i32 noundef 1, ptr noundef null, ptr noundef null, i32 noundef %10, ptr noundef nonnull @rq16.byte2, i32 noundef -2147483648, i32 noundef 0) #3
   %12 = load i32, ptr @ett_ipmi_se_16_byte3, align 4
-  %13 = tail call ptr @proto_tree_add_bitmask_text(ptr noundef nonnull %2, ptr noundef %0, i32 noundef 2, i32 noundef 1, ptr noundef null, ptr noundef null, i32 noundef %12, ptr noundef nonnull @rq16.byte3, i32 noundef -2147483648, i32 noundef 0) #2
-  %14 = tail call i32 @tvb_captured_length(ptr noundef %0) #2
+  %13 = tail call ptr @proto_tree_add_bitmask_text(ptr noundef nonnull %2, ptr noundef %0, i32 noundef 2, i32 noundef 1, ptr noundef null, ptr noundef null, i32 noundef %12, ptr noundef nonnull @rq16.byte3, i32 noundef -2147483648, i32 noundef 0) #3
+  %14 = tail call i32 @tvb_captured_length(ptr noundef %0) #3
   %15 = icmp ugt i32 %14, 3
   br i1 %15, label %16, label %20
 
 16:                                               ; preds = %7
   %17 = load i32, ptr @hf_ipmi_se_16_gen, align 4
-  %18 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %2, i32 noundef %17, ptr noundef %0, i32 noundef 3, i32 noundef 1, i32 noundef -2147483648) #2
-  %19 = tail call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef 4) #2
+  %18 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %2, i32 noundef %17, ptr noundef %0, i32 noundef 3, i32 noundef 1, i32 noundef -2147483648) #3
+  %19 = tail call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef 4) #3
   tail call fastcc void @parse_platform_event(ptr noundef %19, ptr noundef nonnull %2)
   br label %20
 
@@ -1940,7 +1940,7 @@ define internal void @rq16(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
 ; Function Attrs: nounwind uwtable
 define internal void @rs16(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
   %4 = alloca i32, align 4
-  %5 = call i32 @ipmi_get_data(ptr noundef %1, i32 noundef 0, ptr noundef nonnull %4) #2
+  %5 = call i32 @ipmi_get_data(ptr noundef %1, i32 noundef 0, ptr noundef nonnull %4) #3
   %6 = icmp ne i32 %5, 0
   %7 = load i32, ptr %4, align 4
   %8 = icmp eq i32 %7, 1
@@ -1949,7 +1949,7 @@ define internal void @rs16(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
 
 9:                                                ; preds = %3
   %10 = load i32, ptr @hf_ipmi_se_16_status, align 4
-  %11 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %10, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef -2147483648) #2
+  %11 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %10, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef -2147483648) #3
   br label %12
 
 12:                                               ; preds = %9, %3
@@ -1959,37 +1959,37 @@ define internal void @rs16(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
 ; Function Attrs: nounwind uwtable
 define internal void @rq17(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
   %4 = load i32, ptr @hf_ipmi_se_17_seq, align 4
-  %5 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %4, ptr noundef %0, i32 noundef 0, i32 noundef 2, i32 noundef -2147483648) #2
+  %5 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %4, ptr noundef %0, i32 noundef 0, i32 noundef 2, i32 noundef -2147483648) #3
   %6 = load i32, ptr @hf_ipmi_se_17_tstamp, align 4
-  tail call void @ipmi_add_timestamp(ptr noundef %1, ptr noundef %2, i32 noundef %6, ptr noundef %0, i32 noundef 2) #2
+  tail call void @ipmi_add_timestamp(ptr noundef %1, ptr noundef %2, i32 noundef %6, ptr noundef %0, i32 noundef 2) #3
   %7 = load i32, ptr @hf_ipmi_se_17_evsrc, align 4
-  %8 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %7, ptr noundef %0, i32 noundef 6, i32 noundef 1, i32 noundef -2147483648) #2
+  %8 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %7, ptr noundef %0, i32 noundef 6, i32 noundef 1, i32 noundef -2147483648) #3
   %9 = load i32, ptr @hf_ipmi_se_17_sensor_dev, align 4
-  %10 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %9, ptr noundef %0, i32 noundef 7, i32 noundef 1, i32 noundef -2147483648) #2
+  %10 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %9, ptr noundef %0, i32 noundef 7, i32 noundef 1, i32 noundef -2147483648) #3
   %11 = load i32, ptr @hf_ipmi_se_17_sensor_num, align 4
-  %12 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %11, ptr noundef %0, i32 noundef 8, i32 noundef 1, i32 noundef -2147483648) #2
+  %12 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %11, ptr noundef %0, i32 noundef 8, i32 noundef 1, i32 noundef -2147483648) #3
   %13 = load i32, ptr @hf_ipmi_se_17_evdata1, align 4
-  %14 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %13, ptr noundef %0, i32 noundef 9, i32 noundef 1, i32 noundef -2147483648) #2
+  %14 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %13, ptr noundef %0, i32 noundef 9, i32 noundef 1, i32 noundef -2147483648) #3
   %15 = load i32, ptr @hf_ipmi_se_17_evdata2, align 4
-  %16 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %15, ptr noundef %0, i32 noundef 10, i32 noundef 1, i32 noundef -2147483648) #2
+  %16 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %15, ptr noundef %0, i32 noundef 10, i32 noundef 1, i32 noundef -2147483648) #3
   %17 = load i32, ptr @hf_ipmi_se_17_evdata3, align 4
-  %18 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %17, ptr noundef %0, i32 noundef 11, i32 noundef 1, i32 noundef -2147483648) #2
+  %18 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %17, ptr noundef %0, i32 noundef 11, i32 noundef 1, i32 noundef -2147483648) #3
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define internal void @rq20(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
-  %4 = tail call i32 @tvb_captured_length(ptr noundef %0) #2
+  %4 = tail call i32 @tvb_captured_length(ptr noundef %0) #3
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %11, label %5
 
 5:                                                ; preds = %3
-  %6 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 0) #2
+  %6 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 0) #3
   %7 = and i8 %6, 1
   %8 = zext nneg i8 %7 to i32
-  tail call void @ipmi_set_data(ptr noundef %1, i32 noundef 0, i32 noundef %8) #2
+  tail call void @ipmi_set_data(ptr noundef %1, i32 noundef 0, i32 noundef %8) #3
   %9 = load i32, ptr @hf_ipmi_se_20_rq_op, align 4
-  %10 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %9, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef -2147483648) #2
+  %10 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %9, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef -2147483648) #3
   br label %11
 
 11:                                               ; preds = %5, %3
@@ -1999,7 +1999,7 @@ define internal void @rq20(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
 ; Function Attrs: nounwind uwtable
 define internal void @rs20(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
   %4 = alloca i32, align 4
-  %5 = call i32 @ipmi_get_data(ptr noundef %1, i32 noundef 0, ptr noundef nonnull %4) #2
+  %5 = call i32 @ipmi_get_data(ptr noundef %1, i32 noundef 0, ptr noundef nonnull %4) #3
   %6 = icmp ne i32 %5, 0
   %7 = load i32, ptr %4, align 4
   %8 = icmp ne i32 %7, 0
@@ -2007,16 +2007,16 @@ define internal void @rs20(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
   %hf_ipmi_se_20_rs_sdr.val = load i32, ptr @hf_ipmi_se_20_rs_sdr, align 4
   %hf_ipmi_se_20_rs_num.val = load i32, ptr @hf_ipmi_se_20_rs_num, align 4
   %9 = select i1 %or.cond, i32 %hf_ipmi_se_20_rs_sdr.val, i32 %hf_ipmi_se_20_rs_num.val
-  %10 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %9, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef -2147483648) #2
+  %10 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %9, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef -2147483648) #3
   %11 = load i32, ptr @ett_ipmi_se_20_rs_byte2, align 4
-  %12 = call ptr @proto_tree_add_bitmask_text(ptr noundef %2, ptr noundef %0, i32 noundef 1, i32 noundef 1, ptr noundef null, ptr noundef null, i32 noundef %11, ptr noundef nonnull @rs20.byte2, i32 noundef -2147483648, i32 noundef 0) #2
-  %13 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 1) #2
+  %12 = call ptr @proto_tree_add_bitmask_text(ptr noundef %2, ptr noundef %0, i32 noundef 1, i32 noundef 1, ptr noundef null, ptr noundef null, i32 noundef %11, ptr noundef nonnull @rs20.byte2, i32 noundef -2147483648, i32 noundef 0) #3
+  %13 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 1) #3
   %.not = icmp sgt i8 %13, -1
   br i1 %.not, label %17, label %14
 
 14:                                               ; preds = %3
   %15 = load i32, ptr @hf_ipmi_se_20_rs_change, align 4
-  %16 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %15, ptr noundef %0, i32 noundef 2, i32 noundef 4, i32 noundef -2147483648) #2
+  %16 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %15, ptr noundef %0, i32 noundef 2, i32 noundef 4, i32 noundef -2147483648) #3
   br label %17
 
 17:                                               ; preds = %14, %3
@@ -2025,65 +2025,65 @@ define internal void @rs20(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
 
 ; Function Attrs: nounwind uwtable
 define internal void @rq21(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2) #0 {
-  %4 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 5) #2
+  %4 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 5) #3
   %5 = load i32, ptr @hf_ipmi_se_21_rid, align 4
-  %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 2, i32 noundef -2147483648) #2
+  %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 2, i32 noundef -2147483648) #3
   %7 = load i32, ptr @hf_ipmi_se_21_record, align 4
-  %8 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %7, ptr noundef %0, i32 noundef 2, i32 noundef 2, i32 noundef -2147483648) #2
+  %8 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %7, ptr noundef %0, i32 noundef 2, i32 noundef 2, i32 noundef -2147483648) #3
   %9 = load i32, ptr @hf_ipmi_se_21_offset, align 4
-  %10 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %9, ptr noundef %0, i32 noundef 4, i32 noundef 1, i32 noundef -2147483648) #2
+  %10 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %9, ptr noundef %0, i32 noundef 4, i32 noundef 1, i32 noundef -2147483648) #3
   %11 = load i32, ptr @hf_ipmi_se_21_len, align 4
   %12 = zext i8 %4 to i32
   %13 = icmp eq i8 %4, -1
   %14 = select i1 %13, ptr @.str.1086, ptr @.str.1074
-  %15 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %2, i32 noundef %11, ptr noundef %0, i32 noundef 5, i32 noundef 1, i32 noundef %12, ptr noundef nonnull @.str.1085, i32 noundef %12, ptr noundef nonnull %14) #2
+  %15 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %2, i32 noundef %11, ptr noundef %0, i32 noundef 5, i32 noundef 1, i32 noundef %12, ptr noundef nonnull @.str.1085, i32 noundef %12, ptr noundef nonnull %14) #3
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define internal void @rs21(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2) #0 {
   %4 = load i32, ptr @hf_ipmi_se_21_next, align 4
-  %5 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %4, ptr noundef %0, i32 noundef 0, i32 noundef 2, i32 noundef -2147483648) #2
+  %5 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %4, ptr noundef %0, i32 noundef 0, i32 noundef 2, i32 noundef -2147483648) #3
   %6 = load i32, ptr @hf_ipmi_se_21_recdata, align 4
-  %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %6, ptr noundef %0, i32 noundef 2, i32 noundef -1, i32 noundef 0) #2
+  %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %6, ptr noundef %0, i32 noundef 2, i32 noundef -1, i32 noundef 0) #3
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define internal void @rs22(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2) #0 {
   %4 = load i32, ptr @hf_ipmi_se_22_resid, align 4
-  %5 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %4, ptr noundef %0, i32 noundef 0, i32 noundef 2, i32 noundef -2147483648) #2
+  %5 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %4, ptr noundef %0, i32 noundef 0, i32 noundef 2, i32 noundef -2147483648) #3
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define internal void @rq23(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2) #0 {
   %4 = load i32, ptr @hf_ipmi_se_23_rq_sensor, align 4
-  %5 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %4, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef -2147483648) #2
+  %5 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %4, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef -2147483648) #3
   %6 = load i32, ptr @hf_ipmi_se_23_rq_reading, align 4
-  %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %6, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef -2147483648) #2
+  %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %6, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef -2147483648) #3
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define internal void @rs23(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2) #0 {
   %4 = load i32, ptr @hf_ipmi_se_23_rs_next_reading, align 4
-  %5 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %4, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef -2147483648) #2
-  %6 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 1) #2
-  %7 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 2) #2
+  %5 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %4, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef -2147483648) #3
+  %6 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 1) #3
+  %7 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 2) #3
   %8 = zext i8 %7 to i16
   %9 = shl nuw nsw i16 %8, 2
   %10 = and i16 %9, 768
   %11 = zext i8 %6 to i16
   %12 = and i8 %7, 63
-  %13 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 3) #2
-  %14 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 4) #2
+  %13 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 3) #3
+  %14 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 4) #3
   %15 = zext i8 %14 to i16
   %16 = shl nuw nsw i16 %15, 2
   %17 = and i16 %16, 768
   %18 = zext i8 %13 to i16
   %19 = and i8 %14, 63
-  %20 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 5) #2
+  %20 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 5) #3
   %21 = zext i8 %20 to i32
   %22 = shl nuw nsw i32 %21, 4
   %23 = and i32 %22, 3840
@@ -2091,7 +2091,7 @@ define internal void @rs23(ptr noundef %0, ptr nocapture readnone %1, ptr nounde
   %25 = or disjoint i32 %23, %24
   %26 = lshr i8 %20, 2
   %27 = and i8 %26, 3
-  %28 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 6) #2
+  %28 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 6) #3
   %29 = lshr i8 %28, 4
   %30 = zext nneg i8 %29 to i32
   %31 = and i8 %28, 15
@@ -2116,59 +2116,59 @@ define internal void @rs23(ptr noundef %0, ptr nocapture readnone %1, ptr nounde
   %46 = sext i16 %.0.i45 to i32
   %47 = zext nneg i8 %27 to i32
   %48 = zext nneg i8 %12 to i32
-  %49 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %2, ptr noundef %0, i32 noundef 1, i32 noundef 6, i32 noundef %44, ptr noundef null, ptr noundef nonnull @.str.1088, i32 noundef %45, i32 noundef %46, i32 noundef %.0.i46, i32 noundef %.0.i47, i32 noundef %25, i32 noundef %47, i32 noundef %48) #2
+  %49 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %2, ptr noundef %0, i32 noundef 1, i32 noundef 6, i32 noundef %44, ptr noundef null, ptr noundef nonnull @.str.1088, i32 noundef %45, i32 noundef %46, i32 noundef %.0.i46, i32 noundef %.0.i47, i32 noundef %25, i32 noundef %47, i32 noundef %48) #3
   %50 = load i32, ptr @hf_ipmi_se_23_m, align 4
-  %51 = tail call ptr @proto_tree_add_item(ptr noundef %49, i32 noundef %50, ptr noundef %0, i32 noundef 1, i32 noundef 2, i32 noundef -2147483648) #2
+  %51 = tail call ptr @proto_tree_add_item(ptr noundef %49, i32 noundef %50, ptr noundef %0, i32 noundef 1, i32 noundef 2, i32 noundef -2147483648) #3
   %52 = load i32, ptr @hf_ipmi_se_23_tolerance, align 4
-  %53 = tail call ptr @proto_tree_add_item(ptr noundef %49, i32 noundef %52, ptr noundef %0, i32 noundef 1, i32 noundef 2, i32 noundef -2147483648) #2
+  %53 = tail call ptr @proto_tree_add_item(ptr noundef %49, i32 noundef %52, ptr noundef %0, i32 noundef 1, i32 noundef 2, i32 noundef -2147483648) #3
   %54 = load i32, ptr @hf_ipmi_se_23_b, align 4
-  %55 = tail call ptr @proto_tree_add_item(ptr noundef %49, i32 noundef %54, ptr noundef %0, i32 noundef 3, i32 noundef 2, i32 noundef -2147483648) #2
+  %55 = tail call ptr @proto_tree_add_item(ptr noundef %49, i32 noundef %54, ptr noundef %0, i32 noundef 3, i32 noundef 2, i32 noundef -2147483648) #3
   %56 = load i32, ptr @hf_ipmi_se_23_accuracy, align 4
-  %57 = tail call ptr @proto_tree_add_item(ptr noundef %49, i32 noundef %56, ptr noundef %0, i32 noundef 4, i32 noundef 2, i32 noundef -2147483648) #2
+  %57 = tail call ptr @proto_tree_add_item(ptr noundef %49, i32 noundef %56, ptr noundef %0, i32 noundef 4, i32 noundef 2, i32 noundef -2147483648) #3
   %58 = load i32, ptr @hf_ipmi_se_23_accuracy_exponent, align 4
-  %59 = tail call ptr @proto_tree_add_item(ptr noundef %49, i32 noundef %58, ptr noundef %0, i32 noundef 5, i32 noundef 1, i32 noundef -2147483648) #2
+  %59 = tail call ptr @proto_tree_add_item(ptr noundef %49, i32 noundef %58, ptr noundef %0, i32 noundef 5, i32 noundef 1, i32 noundef -2147483648) #3
   %60 = load i32, ptr @hf_ipmi_se_23_r_exponent, align 4
-  %61 = tail call ptr @proto_tree_add_item(ptr noundef %49, i32 noundef %60, ptr noundef %0, i32 noundef 6, i32 noundef 1, i32 noundef -2147483648) #2
+  %61 = tail call ptr @proto_tree_add_item(ptr noundef %49, i32 noundef %60, ptr noundef %0, i32 noundef 6, i32 noundef 1, i32 noundef -2147483648) #3
   %62 = load i32, ptr @hf_ipmi_se_23_b_exponent, align 4
-  %63 = tail call ptr @proto_tree_add_item(ptr noundef %49, i32 noundef %62, ptr noundef %0, i32 noundef 6, i32 noundef 1, i32 noundef -2147483648) #2
+  %63 = tail call ptr @proto_tree_add_item(ptr noundef %49, i32 noundef %62, ptr noundef %0, i32 noundef 6, i32 noundef 1, i32 noundef -2147483648) #3
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define internal void @rq24(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2) #0 {
   %4 = load i32, ptr @hf_ipmi_se_24_sensor, align 4
-  %5 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %4, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef -2147483648) #2
+  %5 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %4, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef -2147483648) #3
   %6 = load i32, ptr @hf_ipmi_se_24_mask, align 4
-  %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %6, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef -2147483648) #2
+  %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %6, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef -2147483648) #3
   %8 = load i32, ptr @hf_ipmi_se_24_hyst_pos, align 4
-  %9 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %8, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef -2147483648) #2
+  %9 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %8, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef -2147483648) #3
   %10 = load i32, ptr @hf_ipmi_se_24_hyst_neg, align 4
-  %11 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %10, ptr noundef %0, i32 noundef 3, i32 noundef 1, i32 noundef -2147483648) #2
+  %11 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %10, ptr noundef %0, i32 noundef 3, i32 noundef 1, i32 noundef -2147483648) #3
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define internal void @rq25(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2) #0 {
   %4 = load i32, ptr @hf_ipmi_se_25_sensor, align 4
-  %5 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %4, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef -2147483648) #2
+  %5 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %4, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef -2147483648) #3
   %6 = load i32, ptr @hf_ipmi_se_25_mask, align 4
-  %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %6, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef -2147483648) #2
+  %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %6, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef -2147483648) #3
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define internal void @rs25(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2) #0 {
   %4 = load i32, ptr @hf_ipmi_se_25_hyst_pos, align 4
-  %5 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %4, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef -2147483648) #2
+  %5 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %4, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef -2147483648) #3
   %6 = load i32, ptr @hf_ipmi_se_25_hyst_neg, align 4
-  %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %6, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef -2147483648) #2
+  %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %6, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef -2147483648) #3
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define internal void @rq26(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2) #0 {
   %4 = load i32, ptr @hf_ipmi_se_26_sensor, align 4
-  %5 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %4, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef -2147483648) #2
+  %5 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %4, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef -2147483648) #3
   tail call fastcc void @add_thresholds(ptr noundef %0, i32 noundef 1, ptr noundef %2, ptr noundef nonnull @.str.1089)
   ret void
 }
@@ -2176,7 +2176,7 @@ define internal void @rq26(ptr noundef %0, ptr nocapture readnone %1, ptr nounde
 ; Function Attrs: nounwind uwtable
 define internal void @rq27(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2) #0 {
   %4 = load i32, ptr @hf_ipmi_se_27_sensor, align 4
-  %5 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %4, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef -2147483648) #2
+  %5 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %4, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef -2147483648) #3
   ret void
 }
 
@@ -2189,9 +2189,9 @@ define internal void @rs27(ptr noundef %0, ptr nocapture readnone %1, ptr nounde
 ; Function Attrs: nounwind uwtable
 define internal void @rq28(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2) #0 {
   %4 = load i32, ptr @hf_ipmi_se_28_sensor, align 4
-  %5 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %4, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef -2147483648) #2
+  %5 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %4, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef -2147483648) #3
   %6 = load i32, ptr @ett_ipmi_se_28_byte2, align 4
-  %7 = tail call ptr @proto_tree_add_bitmask_text(ptr noundef %2, ptr noundef %0, i32 noundef 1, i32 noundef 1, ptr noundef null, ptr noundef null, i32 noundef %6, ptr noundef nonnull @rq28.byte2, i32 noundef -2147483648, i32 noundef 0) #2
+  %7 = tail call ptr @proto_tree_add_bitmask_text(ptr noundef %2, ptr noundef %0, i32 noundef 1, i32 noundef 1, ptr noundef null, ptr noundef null, i32 noundef %6, ptr noundef nonnull @rq28.byte2, i32 noundef -2147483648, i32 noundef 0) #3
   tail call fastcc void @add_events(ptr noundef %0, i32 noundef 2, ptr noundef %2, ptr noundef nonnull @rq28.tfs_lect, ptr noundef nonnull @.str.1093)
   ret void
 }
@@ -2199,14 +2199,14 @@ define internal void @rq28(ptr noundef %0, ptr nocapture readnone %1, ptr nounde
 ; Function Attrs: nounwind uwtable
 define internal void @rq29(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2) #0 {
   %4 = load i32, ptr @hf_ipmi_se_29_sensor, align 4
-  %5 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %4, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef -2147483648) #2
+  %5 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %4, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef -2147483648) #3
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define internal void @rs29(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2) #0 {
   %4 = load i32, ptr @ett_ipmi_se_29_byte1, align 4
-  %5 = tail call ptr @proto_tree_add_bitmask_text(ptr noundef %2, ptr noundef %0, i32 noundef 0, i32 noundef 1, ptr noundef null, ptr noundef null, i32 noundef %4, ptr noundef nonnull @rs29.byte1, i32 noundef -2147483648, i32 noundef 0) #2
+  %5 = tail call ptr @proto_tree_add_bitmask_text(ptr noundef %2, ptr noundef %0, i32 noundef 0, i32 noundef 1, ptr noundef null, ptr noundef null, i32 noundef %4, ptr noundef nonnull @rs29.byte1, i32 noundef -2147483648, i32 noundef 0) #3
   tail call fastcc void @add_events(ptr noundef %0, i32 noundef 1, ptr noundef %2, ptr noundef nonnull @tfs_29_enabled, ptr noundef nonnull @.str.1095)
   ret void
 }
@@ -2214,9 +2214,9 @@ define internal void @rs29(ptr noundef %0, ptr nocapture readnone %1, ptr nounde
 ; Function Attrs: nounwind uwtable
 define internal void @rq2a(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2) #0 {
   %4 = load i32, ptr @hf_ipmi_se_2a_sensor, align 4
-  %5 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %4, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef -2147483648) #2
+  %5 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %4, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef -2147483648) #3
   %6 = load i32, ptr @hf_ipmi_se_2a_fl_sel, align 4
-  %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %6, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef -2147483648) #2
+  %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %6, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef -2147483648) #3
   tail call fastcc void @add_events(ptr noundef %0, i32 noundef 2, ptr noundef %2, ptr noundef nonnull @rq2a.rearm_tfs, ptr noundef nonnull @.str.328)
   ret void
 }
@@ -2224,14 +2224,14 @@ define internal void @rq2a(ptr noundef %0, ptr nocapture readnone %1, ptr nounde
 ; Function Attrs: nounwind uwtable
 define internal void @rq2b(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2) #0 {
   %4 = load i32, ptr @hf_ipmi_se_2b_sensor, align 4
-  %5 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %4, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef -2147483648) #2
+  %5 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %4, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef -2147483648) #3
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define internal void @rs2b(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2) #0 {
   %4 = load i32, ptr @ett_ipmi_se_2b_byte1, align 4
-  %5 = tail call ptr @proto_tree_add_bitmask_text(ptr noundef %2, ptr noundef %0, i32 noundef 0, i32 noundef 1, ptr noundef null, ptr noundef null, i32 noundef %4, ptr noundef nonnull @rs2b.byte1, i32 noundef -2147483648, i32 noundef 0) #2
+  %5 = tail call ptr @proto_tree_add_bitmask_text(ptr noundef %2, ptr noundef %0, i32 noundef 0, i32 noundef 1, ptr noundef null, ptr noundef null, i32 noundef %4, ptr noundef nonnull @rs2b.byte1, i32 noundef -2147483648, i32 noundef 0) #3
   tail call fastcc void @add_events(ptr noundef %0, i32 noundef 1, ptr noundef %2, ptr noundef nonnull @rs2b.occur_tfs, ptr noundef nonnull @.str.1100)
   ret void
 }
@@ -2239,67 +2239,68 @@ define internal void @rs2b(ptr noundef %0, ptr nocapture readnone %1, ptr nounde
 ; Function Attrs: nounwind uwtable
 define internal void @rq2d(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2) #0 {
   %4 = load i32, ptr @hf_ipmi_se_2d_sensor, align 4
-  %5 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %4, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef -2147483648) #2
+  %5 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %4, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef -2147483648) #3
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define internal void @rs2d(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2) #0 {
   %4 = load i32, ptr @hf_ipmi_se_2d_reading, align 4
-  %5 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %4, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef -2147483648) #2
+  %5 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %4, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef -2147483648) #3
   %6 = load i32, ptr @ett_ipmi_se_2d_byte2, align 4
-  %7 = tail call ptr @proto_tree_add_bitmask_text(ptr noundef %2, ptr noundef %0, i32 noundef 1, i32 noundef 1, ptr noundef null, ptr noundef null, i32 noundef %6, ptr noundef nonnull @rs2d.byte2, i32 noundef -2147483648, i32 noundef 0) #2
-  %8 = tail call i32 @tvb_captured_length(ptr noundef %0) #2
-  %9 = add i32 %8, -2
+  %7 = tail call ptr @proto_tree_add_bitmask_text(ptr noundef %2, ptr noundef %0, i32 noundef 1, i32 noundef 1, ptr noundef null, ptr noundef null, i32 noundef %6, ptr noundef nonnull @rs2d.byte2, i32 noundef -2147483648, i32 noundef 0) #3
+  %8 = tail call i32 @tvb_captured_length(ptr noundef %0) #3
+  %.fr26 = freeze i32 %8
+  %9 = add i32 %.fr26, -2
   %10 = icmp sgt i32 %9, 0
   br i1 %10, label %.lr.ph.preheader, label %._crit_edge
 
 .lr.ph.preheader:                                 ; preds = %3
-  %.not30 = icmp eq i32 %8, 3
-  %wide.trip.count = select i1 %.not30, i64 1, i64 2
+  %11 = tail call i32 @llvm.umin.i32(i32 %9, i32 2)
+  %wide.trip.count = zext nneg i32 %11 to i64
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %25
-  %indvars.iv27 = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next28, %25 ]
-  %indvars29 = trunc i64 %indvars.iv27 to i32
-  %11 = or disjoint i32 %indvars29, 2
-  %12 = getelementptr [2 x ptr], ptr @rs2d.tsel, i64 0, i64 %indvars.iv27
-  %13 = load ptr, ptr %12, align 8
-  %14 = load i32, ptr %13, align 4
-  %15 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %2, ptr noundef %0, i32 noundef %11, i32 noundef 1, i32 noundef %14, ptr noundef null, ptr noundef nonnull @.str.1101, i32 noundef %indvars29) #2
-  %16 = trunc i64 %indvars.iv27 to i32
-  %17 = or i32 %16, 2
-  br label %18
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %26
+  %indvars.iv28 = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next29, %26 ]
+  %indvars30 = trunc i64 %indvars.iv28 to i32
+  %12 = or disjoint i32 %indvars30, 2
+  %13 = getelementptr [2 x ptr], ptr @rs2d.tsel, i64 0, i64 %indvars.iv28
+  %14 = load ptr, ptr %13, align 8
+  %15 = load i32, ptr %14, align 4
+  %16 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %2, ptr noundef %0, i32 noundef %12, i32 noundef 1, i32 noundef %15, ptr noundef null, ptr noundef nonnull @.str.1101, i32 noundef %indvars30) #3
+  %17 = trunc i64 %indvars.iv28 to i32
+  %18 = or i32 %17, 2
+  br label %19
 
-18:                                               ; preds = %.lr.ph, %24
-  %indvars.iv = phi i64 [ 7, %.lr.ph ], [ %indvars.iv.next, %24 ]
-  %19 = getelementptr [2 x [8 x ptr]], ptr @rs2d.bsel, i64 0, i64 %indvars.iv27, i64 %indvars.iv
-  %20 = load ptr, ptr %19, align 8
-  %.not = icmp eq ptr %20, null
-  br i1 %.not, label %24, label %21
+19:                                               ; preds = %.lr.ph, %25
+  %indvars.iv = phi i64 [ 7, %.lr.ph ], [ %indvars.iv.next, %25 ]
+  %20 = getelementptr [2 x [8 x ptr]], ptr @rs2d.bsel, i64 0, i64 %indvars.iv28, i64 %indvars.iv
+  %21 = load ptr, ptr %20, align 8
+  %.not = icmp eq ptr %21, null
+  br i1 %.not, label %25, label %22
 
-21:                                               ; preds = %18
-  %22 = load i32, ptr %20, align 4
-  %23 = tail call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %22, ptr noundef %0, i32 noundef %17, i32 noundef 1, i32 noundef -2147483648) #2
-  br label %24
+22:                                               ; preds = %19
+  %23 = load i32, ptr %21, align 4
+  %24 = tail call ptr @proto_tree_add_item(ptr noundef %16, i32 noundef %23, ptr noundef %0, i32 noundef %18, i32 noundef 1, i32 noundef -2147483648) #3
+  br label %25
 
-24:                                               ; preds = %18, %21
+25:                                               ; preds = %19, %22
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %.not31 = icmp eq i64 %indvars.iv, 0
-  br i1 %.not31, label %25, label %18, !llvm.loop !4
+  br i1 %.not31, label %26, label %19, !llvm.loop !4
 
-25:                                               ; preds = %24
-  %indvars.iv.next28 = add nuw nsw i64 %indvars.iv27, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next28, %wide.trip.count
+26:                                               ; preds = %25
+  %indvars.iv.next29 = add nuw nsw i64 %indvars.iv28, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next29, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !6
 
-._crit_edge:                                      ; preds = %25, %3
+._crit_edge:                                      ; preds = %26, %3
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define internal void @rq2e(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2) #0 {
-  %4 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 1) #2
+  %4 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 1) #3
   %5 = zext i8 %4 to i32
   br label %7
 
@@ -2327,26 +2328,26 @@ define internal void @rq2e(ptr noundef %0, ptr nocapture readnone %1, ptr nounde
 get_sensor_info.exit:                             ; preds = %11, %13
   %.08.i = phi ptr [ %12, %11 ], [ %get_sensor_info.si_oem.get_sensor_info.si_rsrv.i, %13 ]
   %15 = load i32, ptr @hf_ipmi_se_2e_sensor, align 4
-  %16 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %15, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef -2147483648) #2
+  %16 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %15, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef -2147483648) #3
   %17 = load i32, ptr @hf_ipmi_se_2e_stype, align 4
   %18 = getelementptr inbounds nuw i8, ptr %.08.i, i64 24
   %19 = load ptr, ptr %18, align 8
-  %20 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %2, i32 noundef %17, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef %5, ptr noundef nonnull @.str.755, ptr noundef %19, i32 noundef %5) #2
+  %20 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %2, i32 noundef %17, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef %5, ptr noundef nonnull @.str.755, ptr noundef %19, i32 noundef %5) #3
   %21 = load i32, ptr @hf_ipmi_se_2e_evtype, align 4
-  %22 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %21, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef -2147483648) #2
+  %22 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %21, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef -2147483648) #3
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define internal void @rq2f(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2) #0 {
   %4 = load i32, ptr @hf_ipmi_se_2f_sensor, align 4
-  %5 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %4, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef -2147483648) #2
+  %5 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %4, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef -2147483648) #3
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define internal void @rs2f(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2) #0 {
-  %4 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 0) #2
+  %4 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 0) #3
   %5 = zext i8 %4 to i32
   br label %7
 
@@ -2376,9 +2377,9 @@ get_sensor_info.exit:                             ; preds = %11, %13
   %15 = load i32, ptr @hf_ipmi_se_2f_stype, align 4
   %16 = getelementptr inbounds nuw i8, ptr %.08.i, i64 24
   %17 = load ptr, ptr %16, align 8
-  %18 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %2, i32 noundef %15, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef %5, ptr noundef nonnull @.str.755, ptr noundef %17, i32 noundef %5) #2
+  %18 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %2, i32 noundef %15, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef %5, ptr noundef nonnull @.str.755, ptr noundef %17, i32 noundef %5) #3
   %19 = load i32, ptr @hf_ipmi_se_2f_evtype, align 4
-  %20 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %19, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef -2147483648) #2
+  %20 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %19, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef -2147483648) #3
   ret void
 }
 
@@ -2388,7 +2389,7 @@ declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noun
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @parse_platform_event(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
-  %3 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 1) #2
+  %3 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 1) #3
   %4 = zext i8 %3 to i32
   br label %6
 
@@ -2415,7 +2416,7 @@ define internal fastcc void @parse_platform_event(ptr noundef %0, ptr noundef %1
 
 get_sensor_info.exit:                             ; preds = %10, %12
   %.08.i = phi ptr [ %11, %10 ], [ %get_sensor_info.si_oem.get_sensor_info.si_rsrv.i, %12 ]
-  %14 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 3) #2
+  %14 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 3) #3
   %15 = and i8 %14, 127
   %16 = zext nneg i8 %15 to i32
   br label %18
@@ -2445,22 +2446,22 @@ get_sensor_info.exit:                             ; preds = %10, %12
 get_evtype_info.exit:                             ; preds = %22, %24
   %.08.i113 = phi ptr [ %23, %22 ], [ %get_evtype_info.eti_oem.get_evtype_info.eti_rsrv.i, %24 ]
   %26 = load i32, ptr @hf_ipmi_se_evt_rev, align 4
-  %27 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %26, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef -2147483648) #2
+  %27 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %26, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef -2147483648) #3
   %28 = load i32, ptr @hf_ipmi_se_evt_sensor_type, align 4
   %29 = getelementptr inbounds nuw i8, ptr %.08.i, i64 24
   %30 = load ptr, ptr %29, align 8
-  %31 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %1, i32 noundef %28, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef %4, ptr noundef nonnull @.str.755, ptr noundef %30, i32 noundef %4) #2
+  %31 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %1, i32 noundef %28, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef %4, ptr noundef nonnull @.str.755, ptr noundef %30, i32 noundef %4) #3
   %32 = load i32, ptr @hf_ipmi_se_evt_sensor_num, align 4
-  %33 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %32, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef -2147483648) #2
+  %33 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %32, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef -2147483648) #3
   %34 = load i32, ptr @hf_ipmi_se_evt_byte3, align 4
-  %35 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %34, ptr noundef %0, i32 noundef 3, i32 noundef 1, i32 noundef -2147483648) #2
+  %35 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %34, ptr noundef %0, i32 noundef 3, i32 noundef 1, i32 noundef -2147483648) #3
   %36 = load i32, ptr @ett_ipmi_se_evt_byte3, align 4
-  %37 = tail call ptr @proto_item_add_subtree(ptr noundef %35, i32 noundef %36) #2
+  %37 = tail call ptr @proto_item_add_subtree(ptr noundef %35, i32 noundef %36) #3
   %38 = load i32, ptr @hf_ipmi_se_evt_dir, align 4
-  %39 = tail call ptr @proto_tree_add_item(ptr noundef %37, i32 noundef %38, ptr noundef %0, i32 noundef 3, i32 noundef 1, i32 noundef -2147483648) #2
+  %39 = tail call ptr @proto_tree_add_item(ptr noundef %37, i32 noundef %38, ptr noundef %0, i32 noundef 3, i32 noundef 1, i32 noundef -2147483648) #3
   %40 = load i32, ptr @hf_ipmi_se_evt_type, align 4
-  %41 = tail call ptr @proto_tree_add_item(ptr noundef %37, i32 noundef %40, ptr noundef %0, i32 noundef 3, i32 noundef 1, i32 noundef -2147483648) #2
-  %42 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 4) #2
+  %41 = tail call ptr @proto_tree_add_item(ptr noundef %37, i32 noundef %40, ptr noundef %0, i32 noundef 3, i32 noundef 1, i32 noundef -2147483648) #3
+  %42 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 4) #3
   %43 = zext i8 %42 to i32
   %44 = lshr i32 %43, 6
   %45 = lshr i32 %43, 4
@@ -2479,31 +2480,31 @@ get_evtype_info.exit:                             ; preds = %22, %24
 51:                                               ; preds = %49, %get_evtype_info.exit
   %52 = phi ptr [ %48, %get_evtype_info.exit ], [ %spec.select, %49 ]
   %53 = load i32, ptr @hf_ipmi_se_evt_data1, align 4
-  %54 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %53, ptr noundef %0, i32 noundef 4, i32 noundef 1, i32 noundef -2147483648) #2
+  %54 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %53, ptr noundef %0, i32 noundef 4, i32 noundef 1, i32 noundef -2147483648) #3
   %55 = load i32, ptr @ett_ipmi_se_evt_evd_byte1, align 4
-  %56 = tail call ptr @proto_item_add_subtree(ptr noundef %54, i32 noundef %55) #2
+  %56 = tail call ptr @proto_item_add_subtree(ptr noundef %54, i32 noundef %55) #3
   %57 = load i32, ptr @hf_ipmi_se_evt_data1_b2, align 4
   %58 = load ptr, ptr %.08.i113, align 8
-  %59 = tail call ptr @val_to_str_const(i32 noundef %44, ptr noundef %58, ptr noundef nonnull @.str.507) #2
-  %60 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %56, i32 noundef %57, ptr noundef %0, i32 noundef 4, i32 noundef 1, i32 noundef %43, ptr noundef nonnull @.str.755, ptr noundef %59, i32 noundef %44) #2
+  %59 = tail call ptr @val_to_str_const(i32 noundef %44, ptr noundef %58, ptr noundef nonnull @.str.507) #3
+  %60 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %56, i32 noundef %57, ptr noundef %0, i32 noundef 4, i32 noundef 1, i32 noundef %43, ptr noundef nonnull @.str.755, ptr noundef %59, i32 noundef %44) #3
   %61 = load i32, ptr @hf_ipmi_se_evt_data1_b3, align 4
   %62 = getelementptr inbounds nuw i8, ptr %.08.i113, i64 8
   %63 = load ptr, ptr %62, align 8
-  %64 = tail call ptr @val_to_str_const(i32 noundef %46, ptr noundef %63, ptr noundef nonnull @.str.507) #2
-  %65 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %56, i32 noundef %61, ptr noundef %0, i32 noundef 4, i32 noundef 1, i32 noundef %43, ptr noundef nonnull @.str.755, ptr noundef %64, i32 noundef %46) #2
+  %64 = tail call ptr @val_to_str_const(i32 noundef %46, ptr noundef %63, ptr noundef nonnull @.str.507) #3
+  %65 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %56, i32 noundef %61, ptr noundef %0, i32 noundef 4, i32 noundef 1, i32 noundef %43, ptr noundef nonnull @.str.755, ptr noundef %64, i32 noundef %46) #3
   %66 = and i32 %43, 15
   %67 = load i32, ptr @hf_ipmi_se_evt_data1_offs, align 4
-  %68 = tail call ptr @val_to_str_const(i32 noundef %66, ptr noundef nonnull %52, ptr noundef nonnull @.str.507) #2
-  %69 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %56, i32 noundef %67, ptr noundef %0, i32 noundef 4, i32 noundef 1, i32 noundef %66, ptr noundef nonnull @.str.755, ptr noundef %68, i32 noundef %66) #2
+  %68 = tail call ptr @val_to_str_const(i32 noundef %66, ptr noundef nonnull %52, ptr noundef nonnull @.str.507) #3
+  %69 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %56, i32 noundef %67, ptr noundef %0, i32 noundef 4, i32 noundef 1, i32 noundef %66, ptr noundef nonnull @.str.755, ptr noundef %68, i32 noundef %66) #3
   store ptr null, ptr @ssi_10_saveptr, align 8
   store i32 -1, ptr @ssi28_is_logical_fru, align 4
-  %70 = tail call i32 @tvb_captured_length(ptr noundef %0) #2
+  %70 = tail call i32 @tvb_captured_length(ptr noundef %0) #3
   %71 = icmp ult i32 %70, 6
   br i1 %71, label %proto_item_set_hidden.exit116, label %72
 
 72:                                               ; preds = %51
-  %73 = tail call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef 5, i32 noundef 1) #2
-  %74 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %73, i32 noundef 0) #2
+  %73 = tail call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef 5, i32 noundef 1) #3
+  %74 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %73, i32 noundef 0) #3
   %75 = zext i8 %74 to i32
   %76 = getelementptr inbounds nuw i8, ptr %.08.i113, i64 24
   %77 = load ptr, ptr %76, align 8
@@ -2511,7 +2512,7 @@ get_evtype_info.exit:                             ; preds = %22, %24
   br i1 %.not102, label %80, label %78
 
 78:                                               ; preds = %72
-  %79 = tail call i32 %77(ptr noundef %1, ptr noundef %73, ptr noundef nonnull %.08.i, i32 noundef %44, i32 noundef %66, i32 noundef %75) #2
+  %79 = tail call i32 %77(ptr noundef %1, ptr noundef %73, ptr noundef nonnull %.08.i, i32 noundef %44, i32 noundef %66, i32 noundef %75) #3
   %.not103 = icmp eq i32 %79, 0
   br i1 %.not103, label %80, label %85
 
@@ -2522,13 +2523,13 @@ get_evtype_info.exit:                             ; preds = %22, %24
   br i1 %.not104, label %95, label %83
 
 83:                                               ; preds = %80
-  %84 = tail call i32 %82(ptr noundef %1, ptr noundef %73, ptr noundef nonnull %.08.i, i32 noundef %44, i32 noundef %66, i32 noundef %75) #2
+  %84 = tail call i32 %82(ptr noundef %1, ptr noundef %73, ptr noundef nonnull %.08.i, i32 noundef %44, i32 noundef %66, i32 noundef %75) #3
   %.not105 = icmp eq i32 %84, 0
   br i1 %.not105, label %95, label %85
 
 85:                                               ; preds = %83, %78
   %86 = load i32, ptr @hf_ipmi_se_evt_data2, align 4
-  %87 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %86, ptr noundef %73, i32 noundef 0, i32 noundef 1, i32 noundef -2147483648) #2
+  %87 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %86, ptr noundef %73, i32 noundef 0, i32 noundef 1, i32 noundef -2147483648) #3
   %.not.i = icmp eq ptr %87, null
   br i1 %.not.i, label %proto_item_set_hidden.exit, label %88
 
@@ -2547,17 +2548,17 @@ get_evtype_info.exit:                             ; preds = %22, %24
 
 95:                                               ; preds = %83, %80
   %96 = load i32, ptr @hf_ipmi_se_evt_data2, align 4
-  %97 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %96, ptr noundef %73, i32 noundef 0, i32 noundef 1, i32 noundef -2147483648) #2
+  %97 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %96, ptr noundef %73, i32 noundef 0, i32 noundef 1, i32 noundef -2147483648) #3
   br label %proto_item_set_hidden.exit
 
 proto_item_set_hidden.exit:                       ; preds = %91, %88, %85, %95
-  %98 = tail call i32 @tvb_captured_length(ptr noundef %0) #2
+  %98 = tail call i32 @tvb_captured_length(ptr noundef %0) #3
   %99 = icmp ult i32 %98, 7
   br i1 %99, label %proto_item_set_hidden.exit116, label %100
 
 100:                                              ; preds = %proto_item_set_hidden.exit
-  %101 = tail call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef 6, i32 noundef 1) #2
-  %102 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %101, i32 noundef 0) #2
+  %101 = tail call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef 6, i32 noundef 1) #3
+  %102 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %101, i32 noundef 0) #3
   %103 = zext i8 %102 to i32
   %104 = getelementptr inbounds nuw i8, ptr %.08.i113, i64 32
   %105 = load ptr, ptr %104, align 8
@@ -2565,7 +2566,7 @@ proto_item_set_hidden.exit:                       ; preds = %91, %88, %85, %95
   br i1 %.not106, label %108, label %106
 
 106:                                              ; preds = %100
-  %107 = tail call i32 %105(ptr noundef %1, ptr noundef %101, ptr noundef nonnull %.08.i, i32 noundef %46, i32 noundef %66, i32 noundef %103) #2
+  %107 = tail call i32 %105(ptr noundef %1, ptr noundef %101, ptr noundef nonnull %.08.i, i32 noundef %46, i32 noundef %66, i32 noundef %103) #3
   %.not107 = icmp eq i32 %107, 0
   br i1 %.not107, label %108, label %113
 
@@ -2576,13 +2577,13 @@ proto_item_set_hidden.exit:                       ; preds = %91, %88, %85, %95
   br i1 %.not108, label %123, label %111
 
 111:                                              ; preds = %108
-  %112 = tail call i32 %110(ptr noundef %1, ptr noundef %101, ptr noundef nonnull %.08.i, i32 noundef %46, i32 noundef %66, i32 noundef %103) #2
+  %112 = tail call i32 %110(ptr noundef %1, ptr noundef %101, ptr noundef nonnull %.08.i, i32 noundef %46, i32 noundef %66, i32 noundef %103) #3
   %.not109 = icmp eq i32 %112, 0
   br i1 %.not109, label %123, label %113
 
 113:                                              ; preds = %111, %106
   %114 = load i32, ptr @hf_ipmi_se_evt_data3, align 4
-  %115 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %114, ptr noundef %101, i32 noundef 0, i32 noundef 1, i32 noundef -2147483648) #2
+  %115 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %114, ptr noundef %101, i32 noundef 0, i32 noundef 1, i32 noundef -2147483648) #3
   %.not.i114 = icmp eq ptr %115, null
   br i1 %.not.i114, label %proto_item_set_hidden.exit116, label %116
 
@@ -2601,7 +2602,7 @@ proto_item_set_hidden.exit:                       ; preds = %91, %88, %85, %95
 
 123:                                              ; preds = %111, %108
   %124 = load i32, ptr @hf_ipmi_se_evt_data3, align 4
-  %125 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %124, ptr noundef %101, i32 noundef 0, i32 noundef 1, i32 noundef -2147483648) #2
+  %125 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %124, ptr noundef %101, i32 noundef 0, i32 noundef 1, i32 noundef -2147483648) #3
   br label %proto_item_set_hidden.exit116
 
 proto_item_set_hidden.exit116:                    ; preds = %119, %116, %113, %proto_item_set_hidden.exit, %51, %123
@@ -2629,7 +2630,7 @@ define internal range(i32 0, 2) i32 @ssi_05_2(ptr noundef %0, ptr noundef %1, pt
 
 9:                                                ; preds = %6
   %10 = load i32, ptr @hf_ipmi_se_05_network_controller, align 4
-  %11 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %10, ptr noundef %1, i32 noundef 0, i32 noundef 1, i32 noundef -2147483648) #2
+  %11 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %10, ptr noundef %1, i32 noundef 0, i32 noundef 1, i32 noundef -2147483648) #3
   br label %12
 
 12:                                               ; preds = %6, %9
@@ -2646,7 +2647,7 @@ define internal range(i32 0, 2) i32 @ssi_08_3(ptr noundef %0, ptr noundef %1, pt
 
 9:                                                ; preds = %6
   %10 = load i32, ptr @hf_ipmi_se_08_error_type, align 4
-  %11 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %10, ptr noundef %1, i32 noundef 0, i32 noundef 1, i32 noundef -2147483648) #2
+  %11 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %10, ptr noundef %1, i32 noundef 0, i32 noundef 1, i32 noundef -2147483648) #3
   br label %12
 
 12:                                               ; preds = %6, %9
@@ -2661,7 +2662,7 @@ define internal range(i32 0, 2) i32 @ssi_0c_3(ptr noundef %0, ptr noundef %1, pt
 
 8:                                                ; preds = %6
   %9 = load i32, ptr @hf_ipmi_se_0c_memory_module, align 4
-  %10 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %9, ptr noundef %1, i32 noundef 0, i32 noundef 1, i32 noundef -2147483648) #2
+  %10 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %9, ptr noundef %1, i32 noundef 0, i32 noundef 1, i32 noundef -2147483648) #3
   br label %11
 
 11:                                               ; preds = %6, %8
@@ -2685,7 +2686,7 @@ define internal range(i32 0, 2) i32 @ssi_0f_2(ptr noundef %0, ptr noundef %1, pt
 .sink.split:                                      ; preds = %9, %6
   %hf_ipmi_se_0f_extension_code_progress.sink = phi ptr [ @hf_ipmi_se_0f_extension_code_err, %6 ], [ @hf_ipmi_se_0f_extension_code_progress, %9 ]
   %11 = load i32, ptr %hf_ipmi_se_0f_extension_code_progress.sink, align 4
-  %12 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %11, ptr noundef %1, i32 noundef 0, i32 noundef 1, i32 noundef -2147483648) #2
+  %12 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %11, ptr noundef %1, i32 noundef 0, i32 noundef 1, i32 noundef -2147483648) #3
   br label %13
 
 13:                                               ; preds = %.sink.split, %9
@@ -2735,7 +2736,7 @@ get_evtype_info.exit:                             ; preds = %15, %17
 .sink.split:                                      ; preds = %6, %get_evtype_info.exit
   %hf_ipmi_se_10_evtype.sink = phi ptr [ @hf_ipmi_se_10_evtype, %get_evtype_info.exit ], [ @hf_ipmi_se_10_memory_module, %6 ]
   %19 = load i32, ptr %hf_ipmi_se_10_evtype.sink, align 4
-  %20 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %19, ptr noundef %1, i32 noundef 0, i32 noundef 1, i32 noundef -2147483648) #2
+  %20 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %19, ptr noundef %1, i32 noundef 0, i32 noundef 1, i32 noundef -2147483648) #3
   br label %21
 
 21:                                               ; preds = %.sink.split, %9
@@ -2761,15 +2762,15 @@ define internal range(i32 0, 2) i32 @ssi_10_3(ptr noundef %0, ptr noundef %1, pt
   %.not24 = icmp eq ptr %13, null
   %spec.select = select i1 %.not24, ptr @et_empty, ptr %13
   %14 = load i32, ptr @ett_ipmi_se_evt_evd_byte3, align 4
-  %15 = tail call ptr @proto_tree_add_subtree(ptr noundef %0, ptr noundef %1, i32 noundef 0, i32 noundef 1, i32 noundef %14, ptr noundef null, ptr noundef nonnull @.str.869) #2
+  %15 = tail call ptr @proto_tree_add_subtree(ptr noundef %0, ptr noundef %1, i32 noundef 0, i32 noundef 1, i32 noundef %14, ptr noundef null, ptr noundef nonnull @.str.869) #3
   %16 = load i32, ptr @hf_ipmi_se_10_logging_disable, align 4
-  %17 = tail call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %16, ptr noundef %1, i32 noundef 0, i32 noundef 1, i32 noundef 0) #2
+  %17 = tail call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %16, ptr noundef %1, i32 noundef 0, i32 noundef 1, i32 noundef 0) #3
   %18 = load i32, ptr @hf_ipmi_se_10_event, align 4
-  %19 = tail call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %18, ptr noundef %1, i32 noundef 0, i32 noundef 1, i32 noundef 0) #2
+  %19 = tail call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %18, ptr noundef %1, i32 noundef 0, i32 noundef 1, i32 noundef 0) #3
   %20 = and i32 %5, 15
   %21 = load i32, ptr @hf_ipmi_se_10_event_offset, align 4
-  %22 = tail call ptr @val_to_str_const(i32 noundef %20, ptr noundef nonnull %spec.select, ptr noundef nonnull @.str.632) #2
-  %23 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %15, i32 noundef %21, ptr noundef %1, i32 noundef 0, i32 noundef 1, i32 noundef %20, ptr noundef nonnull @.str.755, ptr noundef %22, i32 noundef %20) #2
+  %22 = tail call ptr @val_to_str_const(i32 noundef %20, ptr noundef nonnull %spec.select, ptr noundef nonnull @.str.632) #3
+  %23 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %15, i32 noundef %21, ptr noundef %1, i32 noundef 0, i32 noundef 1, i32 noundef %20, ptr noundef nonnull @.str.755, ptr noundef %22, i32 noundef %20) #3
   br label %29
 
 24:                                               ; preds = %6
@@ -2779,7 +2780,7 @@ define internal range(i32 0, 2) i32 @ssi_10_3(ptr noundef %0, ptr noundef %1, pt
 
 26:                                               ; preds = %24
   %27 = load i32, ptr @hf_ipmi_se_10_sel_filled, align 4
-  %28 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %27, ptr noundef %1, i32 noundef 0, i32 noundef 1, i32 noundef -2147483648) #2
+  %28 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %27, ptr noundef %1, i32 noundef 0, i32 noundef 1, i32 noundef -2147483648) #3
   br label %29
 
 29:                                               ; preds = %24, %9, %26, %11
@@ -2796,11 +2797,11 @@ define internal range(i32 0, 2) i32 @ssi_12_2(ptr noundef %0, ptr noundef %1, pt
 
 9:                                                ; preds = %6
   %10 = load i32, ptr @ett_ipmi_se_evt_evd_byte2, align 4
-  %11 = tail call ptr @proto_tree_add_subtree(ptr noundef %0, ptr noundef %1, i32 noundef 0, i32 noundef 1, i32 noundef %10, ptr noundef null, ptr noundef nonnull @.str.884) #2
+  %11 = tail call ptr @proto_tree_add_subtree(ptr noundef %0, ptr noundef %1, i32 noundef 0, i32 noundef 1, i32 noundef %10, ptr noundef null, ptr noundef nonnull @.str.884) #3
   %12 = load i32, ptr @hf_ipmi_se_12_log_entry_action, align 4
-  %13 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %12, ptr noundef %1, i32 noundef 0, i32 noundef 1, i32 noundef -2147483648) #2
+  %13 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %12, ptr noundef %1, i32 noundef 0, i32 noundef 1, i32 noundef -2147483648) #3
   %14 = load i32, ptr @hf_ipmi_se_12_log_type, align 4
-  %15 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %14, ptr noundef %1, i32 noundef 0, i32 noundef 1, i32 noundef -2147483648) #2
+  %15 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %14, ptr noundef %1, i32 noundef 0, i32 noundef 1, i32 noundef -2147483648) #3
   br label %42
 
 16:                                               ; preds = %6
@@ -2810,19 +2811,19 @@ define internal range(i32 0, 2) i32 @ssi_12_2(ptr noundef %0, ptr noundef %1, pt
 
 18:                                               ; preds = %16
   %19 = load i32, ptr @ett_ipmi_se_evt_evd_byte2, align 4
-  %20 = tail call ptr @proto_tree_add_subtree(ptr noundef %0, ptr noundef %1, i32 noundef 0, i32 noundef 1, i32 noundef %19, ptr noundef null, ptr noundef nonnull @.str.885) #2
+  %20 = tail call ptr @proto_tree_add_subtree(ptr noundef %0, ptr noundef %1, i32 noundef 0, i32 noundef 1, i32 noundef %19, ptr noundef null, ptr noundef nonnull @.str.885) #3
   %21 = load i32, ptr @hf_ipmi_se_12_diagnostic_interrupt, align 4
-  %22 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %21, ptr noundef %1, i32 noundef 0, i32 noundef 1, i32 noundef 0) #2
+  %22 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %21, ptr noundef %1, i32 noundef 0, i32 noundef 1, i32 noundef 0) #3
   %23 = load i32, ptr @hf_ipmi_se_12_oem_action, align 4
-  %24 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %23, ptr noundef %1, i32 noundef 0, i32 noundef 1, i32 noundef 0) #2
+  %24 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %23, ptr noundef %1, i32 noundef 0, i32 noundef 1, i32 noundef 0) #3
   %25 = load i32, ptr @hf_ipmi_se_12_power_cycle, align 4
-  %26 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %25, ptr noundef %1, i32 noundef 0, i32 noundef 1, i32 noundef 0) #2
+  %26 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %25, ptr noundef %1, i32 noundef 0, i32 noundef 1, i32 noundef 0) #3
   %27 = load i32, ptr @hf_ipmi_se_12_reset, align 4
-  %28 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %27, ptr noundef %1, i32 noundef 0, i32 noundef 1, i32 noundef 0) #2
+  %28 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %27, ptr noundef %1, i32 noundef 0, i32 noundef 1, i32 noundef 0) #3
   %29 = load i32, ptr @hf_ipmi_se_12_power_off, align 4
-  %30 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %29, ptr noundef %1, i32 noundef 0, i32 noundef 1, i32 noundef 0) #2
+  %30 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %29, ptr noundef %1, i32 noundef 0, i32 noundef 1, i32 noundef 0) #3
   %31 = load i32, ptr @hf_ipmi_se_12_alert, align 4
-  %32 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %31, ptr noundef %1, i32 noundef 0, i32 noundef 1, i32 noundef 0) #2
+  %32 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %31, ptr noundef %1, i32 noundef 0, i32 noundef 1, i32 noundef 0) #3
   br label %42
 
 33:                                               ; preds = %16
@@ -2832,11 +2833,11 @@ define internal range(i32 0, 2) i32 @ssi_12_2(ptr noundef %0, ptr noundef %1, pt
 
 35:                                               ; preds = %33
   %36 = load i32, ptr @ett_ipmi_se_evt_evd_byte2, align 4
-  %37 = tail call ptr @proto_tree_add_subtree(ptr noundef %0, ptr noundef %1, i32 noundef 0, i32 noundef 1, i32 noundef %36, ptr noundef null, ptr noundef nonnull @.str.886) #2
+  %37 = tail call ptr @proto_tree_add_subtree(ptr noundef %0, ptr noundef %1, i32 noundef 0, i32 noundef 1, i32 noundef %36, ptr noundef null, ptr noundef nonnull @.str.886) #3
   %38 = load i32, ptr @hf_ipmi_se_12_event, align 4
-  %39 = tail call ptr @proto_tree_add_item(ptr noundef %37, i32 noundef %38, ptr noundef %1, i32 noundef 0, i32 noundef 1, i32 noundef 0) #2
+  %39 = tail call ptr @proto_tree_add_item(ptr noundef %37, i32 noundef %38, ptr noundef %1, i32 noundef 0, i32 noundef 1, i32 noundef 0) #3
   %40 = load i32, ptr @hf_ipmi_se_12_timestamp_clock_type, align 4
-  %41 = tail call ptr @proto_tree_add_item(ptr noundef %37, i32 noundef %40, ptr noundef %1, i32 noundef 0, i32 noundef 1, i32 noundef -2147483648) #2
+  %41 = tail call ptr @proto_tree_add_item(ptr noundef %37, i32 noundef %40, ptr noundef %1, i32 noundef 0, i32 noundef 1, i32 noundef -2147483648) #3
   br label %42
 
 42:                                               ; preds = %33, %35, %18, %9
@@ -2853,7 +2854,7 @@ define internal range(i32 0, 2) i32 @ssi_19_2(ptr noundef %0, ptr noundef %1, pt
 
 9:                                                ; preds = %6
   %10 = load i32, ptr @hf_ipmi_se_19_requested_power_state, align 4
-  %11 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %10, ptr noundef %1, i32 noundef 0, i32 noundef 1, i32 noundef -2147483648) #2
+  %11 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %10, ptr noundef %1, i32 noundef 0, i32 noundef 1, i32 noundef -2147483648) #3
   br label %12
 
 12:                                               ; preds = %6, %9
@@ -2870,7 +2871,7 @@ define internal range(i32 0, 2) i32 @ssi_19_3(ptr noundef %0, ptr noundef %1, pt
 
 9:                                                ; preds = %6
   %10 = load i32, ptr @hf_ipmi_se_19_power_state, align 4
-  %11 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %10, ptr noundef %1, i32 noundef 0, i32 noundef 1, i32 noundef -2147483648) #2
+  %11 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %10, ptr noundef %1, i32 noundef 0, i32 noundef 1, i32 noundef -2147483648) #3
   br label %12
 
 12:                                               ; preds = %6, %9
@@ -2887,7 +2888,7 @@ define internal range(i32 0, 2) i32 @ssi_1d_2(ptr noundef %0, ptr noundef %1, pt
 
 9:                                                ; preds = %6
   %10 = load i32, ptr @hf_ipmi_se_1d_restart_cause, align 4
-  %11 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %10, ptr noundef %1, i32 noundef 0, i32 noundef 1, i32 noundef -2147483648) #2
+  %11 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %10, ptr noundef %1, i32 noundef 0, i32 noundef 1, i32 noundef -2147483648) #3
   br label %12
 
 12:                                               ; preds = %6, %9
@@ -2898,7 +2899,7 @@ define internal range(i32 0, 2) i32 @ssi_1d_2(ptr noundef %0, ptr noundef %1, pt
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @ssi_1d_3(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) #0 {
   %7 = alloca [240 x i8], align 16
-  call void @ipmi_fmt_channel(ptr noundef nonnull %7, i32 noundef %5) #2
+  call void @ipmi_fmt_channel(ptr noundef nonnull %7, i32 noundef %5) #3
   %8 = icmp eq i32 %3, 3
   %9 = icmp eq i32 %4, 7
   %or.cond = and i1 %8, %9
@@ -2906,7 +2907,7 @@ define internal range(i32 0, 2) i32 @ssi_1d_3(ptr noundef %0, ptr noundef %1, pt
 
 10:                                               ; preds = %6
   %11 = load i32, ptr @hf_ipmi_se_1d_channel, align 4
-  %12 = call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %11, ptr noundef %1, i32 noundef 0, i32 noundef 1, i32 noundef -2147483648) #2
+  %12 = call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %11, ptr noundef %1, i32 noundef 0, i32 noundef 1, i32 noundef -2147483648) #3
   br label %13
 
 13:                                               ; preds = %6, %10
@@ -2921,7 +2922,7 @@ define internal range(i32 0, 2) i32 @ssi_21_2(ptr noundef %0, ptr noundef %1, pt
 
 8:                                                ; preds = %6
   %9 = load i32, ptr @hf_ipmi_se_21_slot_connector_type, align 4
-  %10 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %9, ptr noundef %1, i32 noundef 0, i32 noundef 1, i32 noundef -2147483648) #2
+  %10 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %9, ptr noundef %1, i32 noundef 0, i32 noundef 1, i32 noundef -2147483648) #3
   br label %11
 
 11:                                               ; preds = %6, %8
@@ -2936,7 +2937,7 @@ define internal range(i32 0, 2) i32 @ssi_21_3(ptr noundef %0, ptr noundef %1, pt
 
 8:                                                ; preds = %6
   %9 = load i32, ptr @hf_ipmi_se_21_slot_connector, align 4
-  %10 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %9, ptr noundef %1, i32 noundef 0, i32 noundef 1, i32 noundef -2147483648) #2
+  %10 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %9, ptr noundef %1, i32 noundef 0, i32 noundef 1, i32 noundef -2147483648) #3
   br label %11
 
 11:                                               ; preds = %6, %8
@@ -2951,11 +2952,11 @@ define internal range(i32 0, 2) i32 @ssi_23_2(ptr noundef %0, ptr noundef %1, pt
 
 8:                                                ; preds = %6
   %9 = load i32, ptr @ett_ipmi_se_evt_evd_byte2, align 4
-  %10 = tail call ptr @proto_tree_add_subtree(ptr noundef %0, ptr noundef %1, i32 noundef 0, i32 noundef 1, i32 noundef %9, ptr noundef null, ptr noundef nonnull @.str.945) #2
+  %10 = tail call ptr @proto_tree_add_subtree(ptr noundef %0, ptr noundef %1, i32 noundef 0, i32 noundef 1, i32 noundef %9, ptr noundef null, ptr noundef nonnull @.str.945) #3
   %11 = load i32, ptr @hf_ipmi_se_23_interrupt_type, align 4
-  %12 = tail call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %11, ptr noundef %1, i32 noundef 0, i32 noundef 1, i32 noundef -2147483648) #2
+  %12 = tail call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %11, ptr noundef %1, i32 noundef 0, i32 noundef 1, i32 noundef -2147483648) #3
   %13 = load i32, ptr @hf_ipmi_se_23_timer_use_at_expiration, align 4
-  %14 = tail call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %13, ptr noundef %1, i32 noundef 0, i32 noundef 1, i32 noundef -2147483648) #2
+  %14 = tail call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %13, ptr noundef %1, i32 noundef 0, i32 noundef 1, i32 noundef -2147483648) #3
   br label %15
 
 15:                                               ; preds = %6, %8
@@ -2978,21 +2979,21 @@ define internal range(i32 0, 2) i32 @ssi_28_2(ptr noundef %0, ptr noundef %1, pt
 
 11:                                               ; preds = %9
   %12 = load i32, ptr @ett_ipmi_se_evt_evd_byte2, align 4
-  %13 = tail call ptr @proto_tree_add_subtree(ptr noundef %0, ptr noundef %1, i32 noundef 0, i32 noundef 1, i32 noundef %12, ptr noundef null, ptr noundef nonnull @.str.961) #2
+  %13 = tail call ptr @proto_tree_add_subtree(ptr noundef %0, ptr noundef %1, i32 noundef 0, i32 noundef 1, i32 noundef %12, ptr noundef null, ptr noundef nonnull @.str.961) #3
   %14 = lshr i32 %5, 7
   %.lobit = and i32 %14, 1
   store i32 %.lobit, ptr @ssi28_is_logical_fru, align 4
   %15 = load i32, ptr @hf_ipmi_se_28_logical_fru_device, align 4
-  %16 = tail call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %15, ptr noundef %1, i32 noundef 0, i32 noundef 1, i32 noundef 0) #2
+  %16 = tail call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %15, ptr noundef %1, i32 noundef 0, i32 noundef 1, i32 noundef 0) #3
   %17 = load i32, ptr @hf_ipmi_se_28_lun_for_master_read_write_command, align 4
-  %18 = tail call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %17, ptr noundef %1, i32 noundef 0, i32 noundef 1, i32 noundef -2147483648) #2
+  %18 = tail call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %17, ptr noundef %1, i32 noundef 0, i32 noundef 1, i32 noundef -2147483648) #3
   br label %.sink.split
 
 .sink.split:                                      ; preds = %6, %11
   %hf_ipmi_se_28_private_bus_id.sink = phi ptr [ @hf_ipmi_se_28_private_bus_id, %11 ], [ @hf_ipmi_se_28_sensor_number, %6 ]
   %.sink = phi ptr [ %13, %11 ], [ %0, %6 ]
   %19 = load i32, ptr %hf_ipmi_se_28_private_bus_id.sink, align 4
-  %20 = tail call ptr @proto_tree_add_item(ptr noundef %.sink, i32 noundef %19, ptr noundef %1, i32 noundef 0, i32 noundef 1, i32 noundef -2147483648) #2
+  %20 = tail call ptr @proto_tree_add_item(ptr noundef %.sink, i32 noundef %19, ptr noundef %1, i32 noundef 0, i32 noundef 1, i32 noundef -2147483648) #3
   br label %21
 
 21:                                               ; preds = %.sink.split, %9
@@ -3020,7 +3021,7 @@ define internal range(i32 0, 2) i32 @ssi_28_3(ptr noundef %0, ptr noundef %1, pt
 .sink.split:                                      ; preds = %9, %11
   %hf_ipmi_se_28_fru_device_id_within_controller.sink = phi ptr [ @hf_ipmi_se_28_i2c_slave_address, %11 ], [ @hf_ipmi_se_28_fru_device_id_within_controller, %9 ]
   %12 = load i32, ptr %hf_ipmi_se_28_fru_device_id_within_controller.sink, align 4
-  %13 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %12, ptr noundef %1, i32 noundef 0, i32 noundef 1, i32 noundef -2147483648) #2
+  %13 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %12, ptr noundef %1, i32 noundef 0, i32 noundef 1, i32 noundef -2147483648) #3
   br label %14
 
 14:                                               ; preds = %.sink.split, %6, %9
@@ -3035,13 +3036,13 @@ define internal noundef i32 @ssi_2a_2(ptr noundef %0, ptr noundef %1, ptr nocapt
 
 8:                                                ; preds = %6
   %9 = load i32, ptr @hf_ipmi_se_2a_user_id, align 4
-  %10 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %9, ptr noundef %1, i32 noundef 0, i32 noundef 1, i32 noundef -2147483648) #2
+  %10 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %9, ptr noundef %1, i32 noundef 0, i32 noundef 1, i32 noundef -2147483648) #3
   %11 = and i32 %5, 63
   %12 = icmp eq i32 %11, 0
   br i1 %12, label %13, label %14
 
 13:                                               ; preds = %8
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %10, ptr noundef nonnull @.str.967) #2
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %10, ptr noundef nonnull @.str.967) #3
   br label %14
 
 14:                                               ; preds = %8, %13, %6
@@ -3055,11 +3056,11 @@ define internal range(i32 0, 2) i32 @ssi_2a_3(ptr noundef %0, ptr noundef %1, pt
 
 8:                                                ; preds = %6
   %9 = load i32, ptr @ett_ipmi_se_evt_evd_byte3, align 4
-  %10 = tail call ptr @proto_tree_add_subtree(ptr noundef %0, ptr noundef %1, i32 noundef 0, i32 noundef 1, i32 noundef %9, ptr noundef null, ptr noundef nonnull @.str.968) #2
+  %10 = tail call ptr @proto_tree_add_subtree(ptr noundef %0, ptr noundef %1, i32 noundef 0, i32 noundef 1, i32 noundef %9, ptr noundef null, ptr noundef nonnull @.str.968) #3
   %11 = load i32, ptr @hf_ipmi_se_2a_session_deactivated_by, align 4
-  %12 = tail call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %11, ptr noundef %1, i32 noundef 0, i32 noundef 1, i32 noundef -2147483648) #2
+  %12 = tail call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %11, ptr noundef %1, i32 noundef 0, i32 noundef 1, i32 noundef -2147483648) #3
   %13 = load i32, ptr @hf_ipmi_se_2a_channel, align 4
-  %14 = tail call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %13, ptr noundef %1, i32 noundef 0, i32 noundef 1, i32 noundef -2147483648) #2
+  %14 = tail call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %13, ptr noundef %1, i32 noundef 0, i32 noundef 1, i32 noundef -2147483648) #3
   br label %15
 
 15:                                               ; preds = %6, %8
@@ -3074,7 +3075,7 @@ define internal range(i32 0, 2) i32 @ssi_2b_2(ptr noundef %0, ptr noundef %1, pt
 
 8:                                                ; preds = %6
   %9 = load i32, ptr @hf_ipmi_se_2b_version_change_type, align 4
-  %10 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %9, ptr noundef %1, i32 noundef 0, i32 noundef 1, i32 noundef -2147483648) #2
+  %10 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %9, ptr noundef %1, i32 noundef 0, i32 noundef 1, i32 noundef -2147483648) #3
   br label %11
 
 11:                                               ; preds = %6, %8
@@ -3089,14 +3090,14 @@ define internal range(i32 0, 2) i32 @ssi_2c_2(ptr noundef %0, ptr noundef %1, pt
 
 8:                                                ; preds = %6
   %9 = load i32, ptr @ett_ipmi_se_evt_evd_byte2, align 4
-  %10 = tail call ptr @proto_tree_add_subtree(ptr noundef %0, ptr noundef %1, i32 noundef 0, i32 noundef 1, i32 noundef %9, ptr noundef null, ptr noundef nonnull @.str.985) #2
+  %10 = tail call ptr @proto_tree_add_subtree(ptr noundef %0, ptr noundef %1, i32 noundef 0, i32 noundef 1, i32 noundef %9, ptr noundef null, ptr noundef nonnull @.str.985) #3
   %11 = load i32, ptr @hf_ipmi_se_2c_cause, align 4
-  %12 = tail call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %11, ptr noundef %1, i32 noundef 0, i32 noundef 1, i32 noundef -2147483648) #2
+  %12 = tail call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %11, ptr noundef %1, i32 noundef 0, i32 noundef 1, i32 noundef -2147483648) #3
   %13 = and i32 %5, 15
   %14 = load i32, ptr @hf_ipmi_se_2c_previous_state, align 4
   %15 = load ptr, ptr %2, align 8
-  %16 = tail call ptr @val_to_str_const(i32 noundef %13, ptr noundef %15, ptr noundef nonnull @.str.507) #2
-  %17 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %10, i32 noundef %14, ptr noundef %1, i32 noundef 0, i32 noundef 1, i32 noundef %13, ptr noundef nonnull @.str.755, ptr noundef %16, i32 noundef %13) #2
+  %16 = tail call ptr @val_to_str_const(i32 noundef %13, ptr noundef %15, ptr noundef nonnull @.str.507) #3
+  %17 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %10, i32 noundef %14, ptr noundef %1, i32 noundef 0, i32 noundef 1, i32 noundef %13, ptr noundef nonnull @.str.755, ptr noundef %16, i32 noundef %13) #3
   br label %18
 
 18:                                               ; preds = %6, %8
@@ -3111,14 +3112,14 @@ define internal range(i32 0, 2) i32 @ssi_f0_2(ptr noundef %0, ptr noundef %1, pt
 
 8:                                                ; preds = %6
   %9 = load i32, ptr @ett_ipmi_se_evt_evd_byte2, align 4
-  %10 = tail call ptr @proto_tree_add_subtree(ptr noundef %0, ptr noundef %1, i32 noundef 0, i32 noundef 1, i32 noundef %9, ptr noundef null, ptr noundef nonnull @.str.985) #2
+  %10 = tail call ptr @proto_tree_add_subtree(ptr noundef %0, ptr noundef %1, i32 noundef 0, i32 noundef 1, i32 noundef %9, ptr noundef null, ptr noundef nonnull @.str.985) #3
   %11 = load i32, ptr @hf_ipmi_se_f0_cause, align 4
-  %12 = tail call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %11, ptr noundef %1, i32 noundef 0, i32 noundef 1, i32 noundef -2147483648) #2
+  %12 = tail call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %11, ptr noundef %1, i32 noundef 0, i32 noundef 1, i32 noundef -2147483648) #3
   %13 = and i32 %5, 15
   %14 = load i32, ptr @hf_ipmi_se_f0_previous_state, align 4
   %15 = load ptr, ptr %2, align 8
-  %16 = tail call ptr @val_to_str_const(i32 noundef %13, ptr noundef %15, ptr noundef nonnull @.str.507) #2
-  %17 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %10, i32 noundef %14, ptr noundef %1, i32 noundef 0, i32 noundef 1, i32 noundef %13, ptr noundef nonnull @.str.755, ptr noundef %16, i32 noundef %13) #2
+  %16 = tail call ptr @val_to_str_const(i32 noundef %13, ptr noundef %15, ptr noundef nonnull @.str.507) #3
+  %17 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %10, i32 noundef %14, ptr noundef %1, i32 noundef 0, i32 noundef 1, i32 noundef %13, ptr noundef nonnull @.str.755, ptr noundef %16, i32 noundef %13) #3
   br label %18
 
 18:                                               ; preds = %6, %8
@@ -3133,7 +3134,7 @@ define internal range(i32 0, 2) i32 @ssi_f0_3(ptr noundef %0, ptr noundef %1, pt
 
 8:                                                ; preds = %6
   %9 = load i32, ptr @hf_ipmi_se_f0_fru_id, align 4
-  %10 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %9, ptr noundef %1, i32 noundef 0, i32 noundef 1, i32 noundef -2147483648) #2
+  %10 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %9, ptr noundef %1, i32 noundef 0, i32 noundef 1, i32 noundef -2147483648) #3
   br label %11
 
 11:                                               ; preds = %6, %8
@@ -3148,7 +3149,7 @@ define internal range(i32 0, 2) i32 @ssi_f1_2(ptr noundef %0, ptr noundef %1, pt
 
 8:                                                ; preds = %6
   %9 = load i32, ptr @hf_ipmi_se_f1_channel, align 4
-  %10 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %9, ptr noundef %1, i32 noundef 0, i32 noundef 1, i32 noundef -2147483648) #2
+  %10 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %9, ptr noundef %1, i32 noundef 0, i32 noundef 1, i32 noundef -2147483648) #3
   br label %11
 
 11:                                               ; preds = %6, %8
@@ -3163,15 +3164,15 @@ define internal range(i32 0, 2) i32 @ssi_f1_3(ptr noundef %0, ptr noundef %1, pt
 
 8:                                                ; preds = %6
   %9 = load i32, ptr @ett_ipmi_se_evt_evd_byte3, align 4
-  %10 = tail call ptr @proto_tree_add_subtree(ptr noundef %0, ptr noundef %1, i32 noundef 0, i32 noundef 1, i32 noundef %9, ptr noundef null, ptr noundef nonnull @.str.990) #2
+  %10 = tail call ptr @proto_tree_add_subtree(ptr noundef %0, ptr noundef %1, i32 noundef 0, i32 noundef 1, i32 noundef %9, ptr noundef null, ptr noundef nonnull @.str.990) #3
   %11 = load i32, ptr @hf_ipmi_se_f1_ipmb_b_override_state, align 4
-  %12 = tail call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %11, ptr noundef %1, i32 noundef 0, i32 noundef 1, i32 noundef 0) #2
+  %12 = tail call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %11, ptr noundef %1, i32 noundef 0, i32 noundef 1, i32 noundef 0) #3
   %13 = load i32, ptr @hf_ipmi_se_f1_ipmb_b_local_status, align 4
-  %14 = tail call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %13, ptr noundef %1, i32 noundef 0, i32 noundef 1, i32 noundef -2147483648) #2
+  %14 = tail call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %13, ptr noundef %1, i32 noundef 0, i32 noundef 1, i32 noundef -2147483648) #3
   %15 = load i32, ptr @hf_ipmi_se_f1_ipmb_a_override_state, align 4
-  %16 = tail call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %15, ptr noundef %1, i32 noundef 0, i32 noundef 1, i32 noundef 0) #2
+  %16 = tail call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %15, ptr noundef %1, i32 noundef 0, i32 noundef 1, i32 noundef 0) #3
   %17 = load i32, ptr @hf_ipmi_se_f1_ipmb_a_local_status, align 4
-  %18 = tail call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %17, ptr noundef %1, i32 noundef 0, i32 noundef 1, i32 noundef -2147483648) #2
+  %18 = tail call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %17, ptr noundef %1, i32 noundef 0, i32 noundef 1, i32 noundef -2147483648) #3
   br label %19
 
 19:                                               ; preds = %6, %8
@@ -3188,9 +3189,9 @@ define internal range(i32 0, 2) i32 @ssi_f3_2(ptr noundef %0, ptr noundef %1, pt
 
 9:                                                ; preds = %6
   %10 = load i32, ptr @hf_ipmi_se_f3_global_status, align 4
-  %11 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %10, ptr noundef %1, i32 noundef 0, i32 noundef 1, i32 noundef -2147483648) #2
+  %11 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %10, ptr noundef %1, i32 noundef 0, i32 noundef 1, i32 noundef -2147483648) #3
   %12 = load i32, ptr @ett_ipmi_se_evt_evd_byte2, align 4
-  %13 = tail call ptr @proto_item_add_subtree(ptr noundef %11, i32 noundef %12) #2
+  %13 = tail call ptr @proto_item_add_subtree(ptr noundef %11, i32 noundef %12) #3
   br label %.sink.split
 
 14:                                               ; preds = %6
@@ -3200,15 +3201,15 @@ define internal range(i32 0, 2) i32 @ssi_f3_2(ptr noundef %0, ptr noundef %1, pt
 
 16:                                               ; preds = %14
   %17 = load i32, ptr @hf_ipmi_se_f3_channel_status, align 4
-  %18 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %17, ptr noundef %1, i32 noundef 0, i32 noundef 1, i32 noundef -2147483648) #2
+  %18 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %17, ptr noundef %1, i32 noundef 0, i32 noundef 1, i32 noundef -2147483648) #3
   %19 = load i32, ptr @ett_ipmi_se_evt_evd_byte2, align 4
-  %20 = tail call ptr @proto_item_add_subtree(ptr noundef %18, i32 noundef %19) #2
+  %20 = tail call ptr @proto_item_add_subtree(ptr noundef %18, i32 noundef %19) #3
   %21 = load i32, ptr @hf_ipmi_se_f3_pwr_on, align 4
-  %22 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %21, ptr noundef %1, i32 noundef 0, i32 noundef 1, i32 noundef 0) #2
+  %22 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %21, ptr noundef %1, i32 noundef 0, i32 noundef 1, i32 noundef 0) #3
   %23 = load i32, ptr @hf_ipmi_se_f3_payload_power_overcurrent, align 4
-  %24 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %23, ptr noundef %1, i32 noundef 0, i32 noundef 1, i32 noundef 0) #2
+  %24 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %23, ptr noundef %1, i32 noundef 0, i32 noundef 1, i32 noundef 0) #3
   %25 = load i32, ptr @hf_ipmi_se_f3_channel_payload_power, align 4
-  %26 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %25, ptr noundef %1, i32 noundef 0, i32 noundef 1, i32 noundef 0) #2
+  %26 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %25, ptr noundef %1, i32 noundef 0, i32 noundef 1, i32 noundef 0) #3
   br label %.sink.split
 
 .sink.split:                                      ; preds = %9, %16
@@ -3218,13 +3219,13 @@ define internal range(i32 0, 2) i32 @ssi_f3_2(ptr noundef %0, ptr noundef %1, pt
   %hf_ipmi_se_f3_channel_management_power.sink = phi ptr [ @hf_ipmi_se_f3_channel_management_power, %16 ], [ @hf_ipmi_se_f3_gs_management_power, %9 ]
   %hf_ipmi_se_f3_ps1.sink = phi ptr [ @hf_ipmi_se_f3_ps1, %16 ], [ @hf_ipmi_se_f3_role, %9 ]
   %27 = load i32, ptr %hf_ipmi_se_f3_enable.sink, align 4
-  %28 = tail call ptr @proto_tree_add_item(ptr noundef %.sink40, i32 noundef %27, ptr noundef %1, i32 noundef 0, i32 noundef 1, i32 noundef 0) #2
+  %28 = tail call ptr @proto_tree_add_item(ptr noundef %.sink40, i32 noundef %27, ptr noundef %1, i32 noundef 0, i32 noundef 1, i32 noundef 0) #3
   %29 = load i32, ptr %hf_ipmi_se_f3_management_power_overcurrent.sink, align 4
-  %30 = tail call ptr @proto_tree_add_item(ptr noundef %.sink40, i32 noundef %29, ptr noundef %1, i32 noundef 0, i32 noundef 1, i32 noundef 0) #2
+  %30 = tail call ptr @proto_tree_add_item(ptr noundef %.sink40, i32 noundef %29, ptr noundef %1, i32 noundef 0, i32 noundef 1, i32 noundef 0) #3
   %31 = load i32, ptr %hf_ipmi_se_f3_channel_management_power.sink, align 4
-  %32 = tail call ptr @proto_tree_add_item(ptr noundef %.sink40, i32 noundef %31, ptr noundef %1, i32 noundef 0, i32 noundef 1, i32 noundef 0) #2
+  %32 = tail call ptr @proto_tree_add_item(ptr noundef %.sink40, i32 noundef %31, ptr noundef %1, i32 noundef 0, i32 noundef 1, i32 noundef 0) #3
   %33 = load i32, ptr %hf_ipmi_se_f3_ps1.sink, align 4
-  %34 = tail call ptr @proto_tree_add_item(ptr noundef %.sink40, i32 noundef %33, ptr noundef %1, i32 noundef 0, i32 noundef 1, i32 noundef 0) #2
+  %34 = tail call ptr @proto_tree_add_item(ptr noundef %.sink40, i32 noundef %33, ptr noundef %1, i32 noundef 0, i32 noundef 1, i32 noundef 0) #3
   br label %35
 
 35:                                               ; preds = %.sink.split, %14
@@ -3241,7 +3242,7 @@ define internal range(i32 0, 2) i32 @ssi_f3_3(ptr noundef %0, ptr noundef %1, pt
 
 9:                                                ; preds = %6
   %10 = load i32, ptr @hf_ipmi_se_f3_power_channel_number, align 4
-  %11 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %10, ptr noundef %1, i32 noundef 0, i32 noundef 1, i32 noundef -2147483648) #2
+  %11 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %10, ptr noundef %1, i32 noundef 0, i32 noundef 1, i32 noundef -2147483648) #3
   br label %12
 
 12:                                               ; preds = %6, %9
@@ -3260,12 +3261,12 @@ define internal range(i32 0, 2) i32 @eti_thr_2(ptr noundef %0, ptr noundef %1, p
 
 8:                                                ; preds = %6
   %9 = load i32, ptr @hf_ipmi_se_evt_trigger_reading, align 4
-  %10 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %9, ptr noundef %1, i32 noundef 0, i32 noundef 1, i32 noundef -2147483648) #2
+  %10 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %9, ptr noundef %1, i32 noundef 0, i32 noundef 1, i32 noundef -2147483648) #3
   %11 = icmp eq i32 %5, 255
   br i1 %11, label %12, label %13
 
 12:                                               ; preds = %8
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %10, ptr noundef nonnull @.str.967) #2
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %10, ptr noundef nonnull @.str.967) #3
   br label %13
 
 13:                                               ; preds = %6, %8, %12
@@ -3280,12 +3281,12 @@ define internal range(i32 0, 2) i32 @eti_thr_3(ptr noundef %0, ptr noundef %1, p
 
 8:                                                ; preds = %6
   %9 = load i32, ptr @hf_ipmi_se_evt_trigger_threshold, align 4
-  %10 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %9, ptr noundef %1, i32 noundef 0, i32 noundef 1, i32 noundef -2147483648) #2
+  %10 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %9, ptr noundef %1, i32 noundef 0, i32 noundef 1, i32 noundef -2147483648) #3
   %11 = icmp eq i32 %5, 255
   br i1 %11, label %12, label %13
 
 12:                                               ; preds = %8
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %10, ptr noundef nonnull @.str.967) #2
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %10, ptr noundef nonnull @.str.967) #3
   br label %13
 
 13:                                               ; preds = %6, %8, %12
@@ -3300,22 +3301,22 @@ define internal range(i32 0, 2) i32 @eti_2_pst_sev(ptr noundef %0, ptr noundef %
 
 8:                                                ; preds = %6
   %9 = load i32, ptr @ett_ipmi_se_evt_evd_byte2, align 4
-  %10 = tail call ptr @proto_tree_add_subtree(ptr noundef %0, ptr noundef %1, i32 noundef 0, i32 noundef 1, i32 noundef %9, ptr noundef null, ptr noundef nonnull @.str.1018) #2
+  %10 = tail call ptr @proto_tree_add_subtree(ptr noundef %0, ptr noundef %1, i32 noundef 0, i32 noundef 1, i32 noundef %9, ptr noundef null, ptr noundef nonnull @.str.1018) #3
   %11 = load i32, ptr @hf_ipmi_se_pst_severity, align 4
-  %12 = tail call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %11, ptr noundef %1, i32 noundef 0, i32 noundef 1, i32 noundef -2147483648) #2
+  %12 = tail call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %11, ptr noundef %1, i32 noundef 0, i32 noundef 1, i32 noundef -2147483648) #3
   %13 = and i32 %5, 15
   %14 = icmp eq i32 %13, 15
   br i1 %14, label %18, label %15
 
 15:                                               ; preds = %8
   %16 = load ptr, ptr %2, align 8
-  %17 = tail call ptr @val_to_str_const(i32 noundef %13, ptr noundef %16, ptr noundef nonnull @.str.632) #2
+  %17 = tail call ptr @val_to_str_const(i32 noundef %13, ptr noundef %16, ptr noundef nonnull @.str.632) #3
   br label %18
 
 18:                                               ; preds = %8, %15
   %19 = phi ptr [ %17, %15 ], [ @.str.563, %8 ]
   %20 = load i32, ptr @hf_ipmi_se_pst_previous_state, align 4
-  %21 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %10, i32 noundef %20, ptr noundef %1, i32 noundef 0, i32 noundef 1, i32 noundef %13, ptr noundef nonnull @.str.755, ptr noundef %19, i32 noundef %13) #2
+  %21 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %10, i32 noundef %20, ptr noundef %1, i32 noundef 0, i32 noundef 1, i32 noundef %13, ptr noundef nonnull @.str.755, ptr noundef %19, i32 noundef %13) #3
   br label %22
 
 22:                                               ; preds = %6, %18
@@ -3336,192 +3337,192 @@ declare ptr @proto_tree_add_none_format(ptr noundef, i32 noundef, ptr noundef, i
 ; Function Attrs: nounwind uwtable
 define internal void @cfgparam_00(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2) #0 {
   %4 = load i32, ptr @hf_ipmi_se_cp00_sip, align 4
-  %5 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %4, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef -2147483648) #2
+  %5 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %4, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef -2147483648) #3
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define internal void @cfgparam_01(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2) #0 {
   %4 = load i32, ptr @hf_ipmi_se_cp01_alert_startup, align 4
-  %5 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %4, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef -2147483648) #2
+  %5 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %4, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef -2147483648) #3
   %6 = load i32, ptr @hf_ipmi_se_cp01_startup, align 4
-  %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %6, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef -2147483648) #2
+  %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %6, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef -2147483648) #3
   %8 = load i32, ptr @hf_ipmi_se_cp01_event_msg, align 4
-  %9 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %8, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef -2147483648) #2
+  %9 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %8, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef -2147483648) #3
   %10 = load i32, ptr @hf_ipmi_se_cp01_pef, align 4
-  %11 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %10, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef -2147483648) #2
+  %11 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %10, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef -2147483648) #3
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define internal void @cfgparam_02(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2) #0 {
   %4 = load i32, ptr @hf_ipmi_se_cp02_diag_intr, align 4
-  %5 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %4, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef -2147483648) #2
+  %5 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %4, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef -2147483648) #3
   %6 = load i32, ptr @hf_ipmi_se_cp02_oem_action, align 4
-  %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %6, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef -2147483648) #2
+  %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %6, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef -2147483648) #3
   %8 = load i32, ptr @hf_ipmi_se_cp02_pwr_cycle, align 4
-  %9 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %8, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef -2147483648) #2
+  %9 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %8, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef -2147483648) #3
   %10 = load i32, ptr @hf_ipmi_se_cp02_reset, align 4
-  %11 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %10, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef -2147483648) #2
+  %11 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %10, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef -2147483648) #3
   %12 = load i32, ptr @hf_ipmi_se_cp02_pwr_down, align 4
-  %13 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %12, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef -2147483648) #2
+  %13 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %12, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef -2147483648) #3
   %14 = load i32, ptr @hf_ipmi_se_cp02_alert, align 4
-  %15 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %14, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef -2147483648) #2
+  %15 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %14, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef -2147483648) #3
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define internal void @cfgparam_03(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2) #0 {
   %4 = load i32, ptr @hf_ipmi_se_cp03_startup, align 4
-  %5 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %4, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef -2147483648) #2
+  %5 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %4, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef -2147483648) #3
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define internal void @cfgparam_04(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2) #0 {
   %4 = load i32, ptr @hf_ipmi_se_cp04_alert_startup, align 4
-  %5 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %4, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef -2147483648) #2
+  %5 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %4, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef -2147483648) #3
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define internal void @cfgparam_05(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2) #0 {
   %4 = load i32, ptr @hf_ipmi_se_cp05_num_evfilters, align 4
-  %5 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %4, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef -2147483648) #2
+  %5 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %4, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef -2147483648) #3
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define internal void @cfgparam_06(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2) #0 {
   %4 = load i32, ptr @hf_ipmi_se_cp06_filter, align 4
-  %5 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %4, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef -2147483648) #2
+  %5 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %4, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef -2147483648) #3
   %6 = load i32, ptr @hf_ipmi_se_cp06_data, align 4
-  %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %6, ptr noundef %0, i32 noundef 1, i32 noundef 20, i32 noundef 0) #2
+  %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %6, ptr noundef %0, i32 noundef 1, i32 noundef 20, i32 noundef 0) #3
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define internal void @cfgparam_07(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2) #0 {
   %4 = load i32, ptr @hf_ipmi_se_cp07_filter, align 4
-  %5 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %4, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef -2147483648) #2
+  %5 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %4, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef -2147483648) #3
   %6 = load i32, ptr @hf_ipmi_se_cp06_data, align 4
-  %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %6, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #2
+  %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %6, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #3
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define internal void @cfgparam_08(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2) #0 {
   %4 = load i32, ptr @hf_ipmi_se_cp08_policies, align 4
-  %5 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %4, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef -2147483648) #2
+  %5 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %4, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef -2147483648) #3
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define internal void @cfgparam_09(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2) #0 {
   %4 = load i32, ptr @hf_ipmi_se_cp09_entry, align 4
-  %5 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %4, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef -2147483648) #2
+  %5 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %4, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef -2147483648) #3
   %6 = load i32, ptr @hf_ipmi_se_cp09_data, align 4
-  %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %6, ptr noundef %0, i32 noundef 1, i32 noundef 3, i32 noundef 0) #2
+  %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %6, ptr noundef %0, i32 noundef 1, i32 noundef 3, i32 noundef 0) #3
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define internal void @cfgparam_10(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2) #0 {
   %4 = load i32, ptr @hf_ipmi_se_cp10_useval, align 4
-  %5 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %4, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0) #2
+  %5 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %4, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0) #3
   %6 = load i32, ptr @hf_ipmi_se_cp10_guid, align 4
-  tail call void @ipmi_add_guid(ptr noundef %2, i32 noundef %6, ptr noundef %0, i32 noundef 1) #2
+  tail call void @ipmi_add_guid(ptr noundef %2, i32 noundef %6, ptr noundef %0, i32 noundef 1) #3
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define internal void @cfgparam_11(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2) #0 {
   %4 = load i32, ptr @hf_ipmi_se_cp11_num_alertstr, align 4
-  %5 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %4, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef -2147483648) #2
+  %5 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %4, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef -2147483648) #3
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define internal void @cfgparam_12(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2) #0 {
   %4 = load i32, ptr @hf_ipmi_se_cp12_byte1, align 4
-  %5 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %4, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef -2147483648) #2
+  %5 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %4, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef -2147483648) #3
   %6 = load i32, ptr @ett_ipmi_se_cp12_byte1, align 4
-  %7 = tail call ptr @proto_item_add_subtree(ptr noundef %5, i32 noundef %6) #2
+  %7 = tail call ptr @proto_item_add_subtree(ptr noundef %5, i32 noundef %6) #3
   %8 = load i32, ptr @hf_ipmi_se_cp12_alert_stringsel, align 4
-  %9 = tail call ptr @proto_tree_add_item(ptr noundef %7, i32 noundef %8, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef -2147483648) #2
+  %9 = tail call ptr @proto_tree_add_item(ptr noundef %7, i32 noundef %8, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef -2147483648) #3
   %10 = load i32, ptr @hf_ipmi_se_cp12_evfilter, align 4
-  %11 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %10, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef -2147483648) #2
+  %11 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %10, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef -2147483648) #3
   %12 = load i32, ptr @hf_ipmi_se_cp12_alert_stringset, align 4
-  %13 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %12, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef -2147483648) #2
+  %13 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %12, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef -2147483648) #3
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define internal void @cfgparam_13(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2) #0 {
   %4 = load i32, ptr @hf_ipmi_se_cp13_stringsel, align 4
-  %5 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %4, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef -2147483648) #2
+  %5 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %4, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef -2147483648) #3
   %6 = load i32, ptr @hf_ipmi_se_cp13_blocksel, align 4
-  %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %6, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef -2147483648) #2
+  %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %6, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef -2147483648) #3
   %8 = load i32, ptr @hf_ipmi_se_cp13_string, align 4
-  %9 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %8, ptr noundef %0, i32 noundef 2, i32 noundef -1, i32 noundef 0) #2
+  %9 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %8, ptr noundef %0, i32 noundef 2, i32 noundef -1, i32 noundef 0) #3
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define internal void @cfgparam_14(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2) #0 {
   %4 = load i32, ptr @hf_ipmi_se_cp14_num_gct, align 4
-  %5 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %4, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef -2147483648) #2
+  %5 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %4, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef -2147483648) #3
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define internal void @cfgparam_15(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2) #0 {
   %4 = load i32, ptr @hf_ipmi_se_cp15_gctsel, align 4
-  %5 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %4, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef -2147483648) #2
+  %5 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %4, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef -2147483648) #3
   %6 = load i32, ptr @ett_ipmi_se_cp15_byte2, align 4
-  %7 = tail call ptr @proto_tree_add_bitmask_text(ptr noundef %2, ptr noundef %0, i32 noundef 1, i32 noundef 1, ptr noundef null, ptr noundef null, i32 noundef %6, ptr noundef nonnull @cfgparam_15.byte2, i32 noundef -2147483648, i32 noundef 0) #2
-  %8 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 2) #2
+  %7 = tail call ptr @proto_tree_add_bitmask_text(ptr noundef %2, ptr noundef %0, i32 noundef 1, i32 noundef 1, ptr noundef null, ptr noundef null, i32 noundef %6, ptr noundef nonnull @cfgparam_15.byte2, i32 noundef -2147483648, i32 noundef 0) #3
+  %8 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 2) #3
   %switch.selectcmp.i = icmp eq i8 %8, -1
   %switch.select.i = select i1 %switch.selectcmp.i, ptr @.str.1073, ptr @.str.1074
   %switch.selectcmp14.i = icmp eq i8 %8, 0
   %switch.select15.i = select i1 %switch.selectcmp14.i, ptr @.str.967, ptr %switch.select.i
   %9 = zext i8 %8 to i32
   %10 = load i32, ptr @hf_ipmi_se_cp15_group, align 4
-  %11 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %2, i32 noundef %10, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef %9, ptr noundef nonnull @.str.1075, i32 noundef 0, i32 noundef %9, ptr noundef nonnull %switch.select15.i) #2
+  %11 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %2, i32 noundef %10, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef %9, ptr noundef nonnull @.str.1075, i32 noundef 0, i32 noundef %9, ptr noundef nonnull %switch.select15.i) #3
   %12 = load i32, ptr @ett_ipmi_se_cp15_member, align 4
-  %13 = tail call ptr @proto_tree_add_bitmask_text(ptr noundef %2, ptr noundef %0, i32 noundef 3, i32 noundef 1, ptr noundef null, ptr noundef null, i32 noundef %12, ptr noundef nonnull @cp15_add_group_and_member.byte2, i32 noundef -2147483648, i32 noundef 0) #2
-  %14 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 4) #2
+  %13 = tail call ptr @proto_tree_add_bitmask_text(ptr noundef %2, ptr noundef %0, i32 noundef 3, i32 noundef 1, ptr noundef null, ptr noundef null, i32 noundef %12, ptr noundef nonnull @cp15_add_group_and_member.byte2, i32 noundef -2147483648, i32 noundef 0) #3
+  %14 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 4) #3
   %switch.selectcmp.i14 = icmp eq i8 %14, -1
   %switch.select.i15 = select i1 %switch.selectcmp.i14, ptr @.str.1073, ptr @.str.1074
   %switch.selectcmp14.i16 = icmp eq i8 %14, 0
   %switch.select15.i17 = select i1 %switch.selectcmp14.i16, ptr @.str.967, ptr %switch.select.i15
   %15 = zext i8 %14 to i32
   %16 = load i32, ptr @hf_ipmi_se_cp15_group, align 4
-  %17 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %2, i32 noundef %16, ptr noundef %0, i32 noundef 4, i32 noundef 1, i32 noundef %15, ptr noundef nonnull @.str.1075, i32 noundef 1, i32 noundef %15, ptr noundef nonnull %switch.select15.i17) #2
+  %17 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %2, i32 noundef %16, ptr noundef %0, i32 noundef 4, i32 noundef 1, i32 noundef %15, ptr noundef nonnull @.str.1075, i32 noundef 1, i32 noundef %15, ptr noundef nonnull %switch.select15.i17) #3
   %18 = load i32, ptr @ett_ipmi_se_cp15_member, align 4
-  %19 = tail call ptr @proto_tree_add_bitmask_text(ptr noundef %2, ptr noundef %0, i32 noundef 5, i32 noundef 1, ptr noundef null, ptr noundef null, i32 noundef %18, ptr noundef nonnull @cp15_add_group_and_member.byte2, i32 noundef -2147483648, i32 noundef 0) #2
-  %20 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 6) #2
+  %19 = tail call ptr @proto_tree_add_bitmask_text(ptr noundef %2, ptr noundef %0, i32 noundef 5, i32 noundef 1, ptr noundef null, ptr noundef null, i32 noundef %18, ptr noundef nonnull @cp15_add_group_and_member.byte2, i32 noundef -2147483648, i32 noundef 0) #3
+  %20 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 6) #3
   %switch.selectcmp.i18 = icmp eq i8 %20, -1
   %switch.select.i19 = select i1 %switch.selectcmp.i18, ptr @.str.1073, ptr @.str.1074
   %switch.selectcmp14.i20 = icmp eq i8 %20, 0
   %switch.select15.i21 = select i1 %switch.selectcmp14.i20, ptr @.str.967, ptr %switch.select.i19
   %21 = zext i8 %20 to i32
   %22 = load i32, ptr @hf_ipmi_se_cp15_group, align 4
-  %23 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %2, i32 noundef %22, ptr noundef %0, i32 noundef 6, i32 noundef 1, i32 noundef %21, ptr noundef nonnull @.str.1075, i32 noundef 2, i32 noundef %21, ptr noundef nonnull %switch.select15.i21) #2
+  %23 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %2, i32 noundef %22, ptr noundef %0, i32 noundef 6, i32 noundef 1, i32 noundef %21, ptr noundef nonnull @.str.1075, i32 noundef 2, i32 noundef %21, ptr noundef nonnull %switch.select15.i21) #3
   %24 = load i32, ptr @ett_ipmi_se_cp15_member, align 4
-  %25 = tail call ptr @proto_tree_add_bitmask_text(ptr noundef %2, ptr noundef %0, i32 noundef 7, i32 noundef 1, ptr noundef null, ptr noundef null, i32 noundef %24, ptr noundef nonnull @cp15_add_group_and_member.byte2, i32 noundef -2147483648, i32 noundef 0) #2
-  %26 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 8) #2
+  %25 = tail call ptr @proto_tree_add_bitmask_text(ptr noundef %2, ptr noundef %0, i32 noundef 7, i32 noundef 1, ptr noundef null, ptr noundef null, i32 noundef %24, ptr noundef nonnull @cp15_add_group_and_member.byte2, i32 noundef -2147483648, i32 noundef 0) #3
+  %26 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 8) #3
   %switch.selectcmp.i22 = icmp eq i8 %26, -1
   %switch.select.i23 = select i1 %switch.selectcmp.i22, ptr @.str.1073, ptr @.str.1074
   %switch.selectcmp14.i24 = icmp eq i8 %26, 0
   %switch.select15.i25 = select i1 %switch.selectcmp14.i24, ptr @.str.967, ptr %switch.select.i23
   %27 = zext i8 %26 to i32
   %28 = load i32, ptr @hf_ipmi_se_cp15_group, align 4
-  %29 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %2, i32 noundef %28, ptr noundef %0, i32 noundef 8, i32 noundef 1, i32 noundef %27, ptr noundef nonnull @.str.1075, i32 noundef 3, i32 noundef %27, ptr noundef nonnull %switch.select15.i25) #2
+  %29 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %2, i32 noundef %28, ptr noundef %0, i32 noundef 8, i32 noundef 1, i32 noundef %27, ptr noundef nonnull @.str.1075, i32 noundef 3, i32 noundef %27, ptr noundef nonnull %switch.select15.i25) #3
   %30 = load i32, ptr @ett_ipmi_se_cp15_member, align 4
-  %31 = tail call ptr @proto_tree_add_bitmask_text(ptr noundef %2, ptr noundef %0, i32 noundef 9, i32 noundef 1, ptr noundef null, ptr noundef null, i32 noundef %30, ptr noundef nonnull @cp15_add_group_and_member.byte2, i32 noundef -2147483648, i32 noundef 0) #2
+  %31 = tail call ptr @proto_tree_add_bitmask_text(ptr noundef %2, ptr noundef %0, i32 noundef 9, i32 noundef 1, ptr noundef null, ptr noundef null, i32 noundef %30, ptr noundef nonnull @cp15_add_group_and_member.byte2, i32 noundef -2147483648, i32 noundef 0) #3
   %32 = load i32, ptr @ett_ipmi_se_cp15_byte11, align 4
-  %33 = tail call ptr @proto_tree_add_bitmask_text(ptr noundef %2, ptr noundef %0, i32 noundef 10, i32 noundef 1, ptr noundef null, ptr noundef null, i32 noundef %32, ptr noundef nonnull @cfgparam_15.byte11, i32 noundef -2147483648, i32 noundef 0) #2
+  %33 = tail call ptr @proto_tree_add_bitmask_text(ptr noundef %2, ptr noundef %0, i32 noundef 10, i32 noundef 1, ptr noundef null, ptr noundef null, i32 noundef %32, ptr noundef nonnull @cfgparam_15.byte11, i32 noundef -2147483648, i32 noundef 0) #3
   ret void
 }
 
@@ -3540,44 +3541,44 @@ declare ptr @proto_tree_add_subtree_format(ptr noundef, ptr noundef, i32 noundef
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @add_thresholds(ptr noundef %0, i32 noundef range(i32 0, 2) %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
   %5 = load i32, ptr @ett_ipmi_se_XX_mask, align 4
-  %6 = tail call ptr @proto_tree_add_bitmask_text(ptr noundef %2, ptr noundef %0, i32 noundef %1, i32 noundef 1, ptr noundef %3, ptr noundef nonnull @.str.656, i32 noundef %5, ptr noundef nonnull @add_thresholds.threshold_mask, i32 noundef -2147483648, i32 noundef 0) #2
+  %6 = tail call ptr @proto_tree_add_bitmask_text(ptr noundef %2, ptr noundef %0, i32 noundef %1, i32 noundef 1, ptr noundef %3, ptr noundef nonnull @.str.656, i32 noundef %5, ptr noundef nonnull @add_thresholds.threshold_mask, i32 noundef -2147483648, i32 noundef 0) #3
   %7 = load i32, ptr @hf_ipmi_se_XX_thr_lnc, align 4
   %8 = add nuw nsw i32 %1, 1
-  %9 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %7, ptr noundef %0, i32 noundef %8, i32 noundef 1, i32 noundef -2147483648) #2
+  %9 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %7, ptr noundef %0, i32 noundef %8, i32 noundef 1, i32 noundef -2147483648) #3
   %10 = load i32, ptr @hf_ipmi_se_XX_thr_lc, align 4
   %11 = or disjoint i32 %1, 2
-  %12 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %10, ptr noundef %0, i32 noundef %11, i32 noundef 1, i32 noundef -2147483648) #2
+  %12 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %10, ptr noundef %0, i32 noundef %11, i32 noundef 1, i32 noundef -2147483648) #3
   %13 = load i32, ptr @hf_ipmi_se_XX_thr_lnr, align 4
   %14 = add nuw nsw i32 %1, 3
-  %15 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %13, ptr noundef %0, i32 noundef %14, i32 noundef 1, i32 noundef -2147483648) #2
+  %15 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %13, ptr noundef %0, i32 noundef %14, i32 noundef 1, i32 noundef -2147483648) #3
   %16 = load i32, ptr @hf_ipmi_se_XX_thr_unc, align 4
   %17 = or disjoint i32 %1, 4
-  %18 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %16, ptr noundef %0, i32 noundef %17, i32 noundef 1, i32 noundef -2147483648) #2
+  %18 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %16, ptr noundef %0, i32 noundef %17, i32 noundef 1, i32 noundef -2147483648) #3
   %19 = load i32, ptr @hf_ipmi_se_XX_thr_uc, align 4
   %20 = add nuw nsw i32 %1, 5
-  %21 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %19, ptr noundef %0, i32 noundef %20, i32 noundef 1, i32 noundef -2147483648) #2
+  %21 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %19, ptr noundef %0, i32 noundef %20, i32 noundef 1, i32 noundef -2147483648) #3
   %22 = load i32, ptr @hf_ipmi_se_XX_thr_unr, align 4
   %23 = or disjoint i32 %1, 6
-  %24 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %22, ptr noundef %0, i32 noundef %23, i32 noundef 1, i32 noundef -2147483648) #2
+  %24 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %22, ptr noundef %0, i32 noundef %23, i32 noundef 1, i32 noundef -2147483648) #3
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @add_events(ptr noundef %0, i32 noundef range(i32 1, 3) %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 {
-  %6 = tail call i32 @tvb_captured_length(ptr noundef %0) #2
+  %6 = tail call i32 @tvb_captured_length(ptr noundef %0) #3
   %7 = icmp slt i32 %1, %6
   br i1 %7, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %5, %27
   %indvars.iv35 = phi i64 [ %indvars.iv.next36, %27 ], [ 0, %5 ]
   %.033 = phi i32 [ %28, %27 ], [ %1, %5 ]
-  %8 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.033) #2
+  %8 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.033) #3
   %9 = zext i8 %8 to i32
   %10 = getelementptr [4 x ptr], ptr @add_events.tsel, i64 0, i64 %indvars.iv35
   %11 = load ptr, ptr %10, align 8
   %12 = load i32, ptr %11, align 4
   %13 = trunc nuw nsw i64 %indvars.iv35 to i32
-  %14 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %2, ptr noundef %0, i32 noundef %.033, i32 noundef 1, i32 noundef %12, ptr noundef null, ptr noundef nonnull @.str.1094, ptr noundef %4, i32 noundef %13) #2
+  %14 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %2, ptr noundef %0, i32 noundef %.033, i32 noundef 1, i32 noundef %12, ptr noundef null, ptr noundef nonnull @.str.1094, ptr noundef %4, i32 noundef %13) #3
   br label %15
 
 15:                                               ; preds = %.lr.ph, %26
@@ -3593,8 +3594,8 @@ define internal fastcc void @add_events(ptr noundef %0, i32 noundef range(i32 1,
   %21 = load i32, ptr %17, align 4
   %22 = and i32 %20, %9
   %23 = zext nneg i32 %22 to i64
-  %24 = tail call ptr @tfs_get_string(i32 noundef %22, ptr noundef %3) #2
-  %25 = tail call ptr (ptr, i32, ptr, i32, i32, i64, ptr, ...) @proto_tree_add_boolean_format_value(ptr noundef %14, i32 noundef %21, ptr noundef %0, i32 noundef %.033, i32 noundef 1, i64 noundef %23, ptr noundef nonnull @.str.1053, ptr noundef %24) #2
+  %24 = tail call ptr @tfs_get_string(i32 noundef %22, ptr noundef %3) #3
+  %25 = tail call ptr (ptr, i32, ptr, i32, i32, i64, ptr, ...) @proto_tree_add_boolean_format_value(ptr noundef %14, i32 noundef %21, ptr noundef %0, i32 noundef %.033, i32 noundef 1, i64 noundef %23, ptr noundef nonnull @.str.1053, ptr noundef %24) #3
   br label %26
 
 26:                                               ; preds = %15, %18
@@ -3618,9 +3619,13 @@ declare ptr @proto_tree_add_boolean_format_value(ptr noundef, i32 noundef, ptr n
 
 declare ptr @tfs_get_string(i32 noundef, ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.umin.i32(i32, i32) #2
+
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nounwind }
+attributes #2 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #3 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 
