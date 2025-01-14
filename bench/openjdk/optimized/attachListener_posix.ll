@@ -316,7 +316,7 @@ define hidden noundef ptr @_ZN19PosixAttachListener12read_requestEi(i32 noundef 
   br i1 %.not, label %28, label %30
 
 28:                                               ; preds = %25
-  %29 = call i32 @atoi(ptr nocapture noundef nonnull %3) #20
+  %29 = call i32 @atoi(ptr noundef nonnull %3) #20
   %.not55 = icmp eq i32 %29, 1
   br i1 %.not55, label %43, label %30
 

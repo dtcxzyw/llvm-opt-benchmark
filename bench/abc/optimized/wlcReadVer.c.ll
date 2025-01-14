@@ -2440,7 +2440,7 @@ Wlc_PrsSkipSpaces.exit34:                         ; preds = %.preheader
   br i1 %or.cond, label %10, label %Wlc_PrsFindSymbol.exit43.thread
 
 10:                                               ; preds = %Wlc_PrsSkipSpaces.exit34
-  %11 = tail call i32 @atoi(ptr nocapture noundef nonnull %.0.i32) #26
+  %11 = tail call i32 @atoi(ptr noundef nonnull %.0.i32) #26
   store i32 %11, ptr %2, align 4
   store i32 %11, ptr %1, align 4
   %12 = load i8, ptr %.0.i32, align 1
@@ -2517,7 +2517,7 @@ Wlc_PrsSkipSpaces.exit55:                         ; preds = %Wlc_PrsFindSymbol.e
   br i1 %or.cond69, label %36, label %Wlc_PrsFindSymbol.exit43.thread
 
 36:                                               ; preds = %Wlc_PrsSkipSpaces.exit55
-  %37 = tail call i32 @atoi(ptr nocapture noundef nonnull %.0.i53) #26
+  %37 = tail call i32 @atoi(ptr noundef nonnull %.0.i53) #26
   store i32 %37, ptr %2, align 4
   %38 = load i8, ptr %.0.i53, align 1
   %.not15.i57 = icmp eq i8 %38, 0
@@ -3818,7 +3818,7 @@ Wlc_PrsFindSymbol.exit:                           ; preds = %.lr.ph.i
 
 Wlc_PrsFindSymbol.exit1086:                       ; preds = %.lr.ph.i1079
   %129 = getelementptr inbounds i8, ptr %.01016.i1081, i64 -1
-  %130 = call i32 @atoi(ptr nocapture noundef nonnull %129) #26
+  %130 = call i32 @atoi(ptr noundef nonnull %129) #26
   %131 = getelementptr inbounds nuw i8, ptr %.01016.i1081, i64 2
   %132 = load i8, ptr %131, align 1
   %133 = add i8 %132, -58
@@ -4896,7 +4896,7 @@ Wlc_PrsIsChar.exit32.thread.i:                    ; preds = %530
 
 573:                                              ; preds = %571
   %574 = getelementptr inbounds nuw i8, ptr %.07292337, i64 5
-  %575 = call i32 @atoi(ptr nocapture noundef nonnull %574) #26
+  %575 = call i32 @atoi(ptr noundef nonnull %574) #26
   %.not15.i1153 = icmp eq i8 %502, 0
   br i1 %.not15.i1153, label %.loopexit1926, label %.lr.ph.i1154
 
@@ -6039,7 +6039,7 @@ Wlc_PrsSkipSpaces.exit1803.outer:                 ; preds = %975, %973
 
 989:                                              ; preds = %985
   %990 = getelementptr inbounds nuw i8, ptr %.07292337, i64 7
-  %991 = call i32 @atoi(ptr nocapture noundef nonnull %990) #26
+  %991 = call i32 @atoi(ptr noundef nonnull %990) #26
   br label %992
 
 992:                                              ; preds = %989, %985
@@ -8693,7 +8693,7 @@ Wlc_PrsSkipSpaces.exit42:                         ; preds = %117, %83, %75, %52,
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @Wlc_PrsReadConstant(ptr nocapture noundef %0, ptr noundef %1, ptr nocapture noundef %2, ptr nocapture noundef nonnull writeonly initializes((0, 4)) %3, ptr nocapture noundef nonnull writeonly initializes((0, 4)) %4, ptr nocapture noundef nonnull writeonly initializes((0, 4)) %5) unnamed_addr #0 {
-  %7 = tail call i32 @atoi(ptr nocapture noundef %1) #26
+  %7 = tail call i32 @atoi(ptr noundef %1) #26
   store i32 -1, ptr %3, align 4
   store i32 0, ptr %4, align 4
   store i32 0, ptr %5, align 4
@@ -8730,7 +8730,7 @@ define internal fastcc ptr @Wlc_PrsReadConstant(ptr nocapture noundef %0, ptr no
   br i1 %.not.i, label %.loopexit108, label %.lr.ph.i, !llvm.loop !7
 
 .loopexit108:                                     ; preds = %8, %14
-  %19 = tail call i32 @atoi(ptr nocapture noundef nonnull %.0.i) #26
+  %19 = tail call i32 @atoi(ptr noundef nonnull %.0.i) #26
   %20 = add nsw i32 %19, 1
   %21 = icmp ult i32 %20, 2
   %22 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %19, i1 true)

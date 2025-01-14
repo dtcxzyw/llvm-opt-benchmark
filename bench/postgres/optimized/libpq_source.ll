@@ -232,7 +232,7 @@ define internal void @libpq_traverse_files(ptr nocapture noundef readonly %0, pt
 sub_0:                                            ; preds = %.lr.ph
   %15 = tail call ptr @PQgetvalue(ptr noundef %5, i32 noundef %.02732, i32 noundef 0) #9
   %16 = tail call ptr @PQgetvalue(ptr noundef %5, i32 noundef %.02732, i32 noundef 1) #9
-  %17 = tail call i64 @atol(ptr nocapture noundef %16) #11
+  %17 = tail call i64 @atol(ptr noundef %16) #11
   %18 = tail call ptr @PQgetvalue(ptr noundef %5, i32 noundef %.02732, i32 noundef 2) #9
   %19 = load i8, ptr %18, align 1
   %.not33 = icmp eq i8 %19, 116

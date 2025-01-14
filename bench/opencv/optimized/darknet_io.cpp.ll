@@ -3227,7 +3227,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit529:                 ; preds = %1003, %1001, %981, 
 
 1054:                                             ; preds = %1044
   %1055 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %132) #20
-  %1056 = call i32 @atoi(ptr nocapture noundef %1055) #24
+  %1056 = call i32 @atoi(ptr noundef %1055) #24
   %1057 = icmp slt i32 %1056, 0
   %1058 = load i32, ptr %9, align 4
   %1059 = select i1 %1057, i32 %1058, i32 0
@@ -3333,7 +3333,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit529:                 ; preds = %1003, %1001, %981, 
 
 1089:                                             ; preds = %1071
   %1090 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %145) #20
-  %1091 = call i32 @atoi(ptr nocapture noundef %1090) #24
+  %1091 = call i32 @atoi(ptr noundef %1090) #24
   %1092 = icmp slt i32 %1091, 0
   %1093 = load i32, ptr %9, align 4
   %1094 = select i1 %1092, i32 %1093, i32 0
@@ -3439,7 +3439,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit529:                 ; preds = %1003, %1001, %981, 
 
 1124:                                             ; preds = %1106
   %1125 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %152) #20
-  %1126 = call i32 @atoi(ptr nocapture noundef %1125) #24
+  %1126 = call i32 @atoi(ptr noundef %1125) #24
   %1127 = icmp slt i32 %1126, 0
   %1128 = load i32, ptr %9, align 4
   %1129 = select i1 %1127, i32 %1128, i32 0

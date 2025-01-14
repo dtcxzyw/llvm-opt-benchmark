@@ -2761,7 +2761,7 @@ lstopo_busid_snprintf.exit:                       ; preds = %49, %76, %87
   store i32 %279, ptr %15, align 4
   %280 = zext i32 %278 to i64
   %281 = getelementptr inbounds nuw [4 x %struct.lstopo_text_line], ptr %277, i64 0, i64 %280
-  %282 = call i32 @atoi(ptr nocapture noundef nonnull %268) #23
+  %282 = call i32 @atoi(ptr noundef nonnull %268) #23
   %283 = icmp sgt i32 %282, 1
   %284 = select i1 %283, ptr @.str.63, ptr @.str.64
   %285 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %281, i64 noundef 128, ptr noundef nonnull @.str.62, ptr noundef nonnull %268, ptr noundef nonnull %284, ptr noundef nonnull %269, ptr noundef nonnull %270, ptr noundef nonnull %271) #25

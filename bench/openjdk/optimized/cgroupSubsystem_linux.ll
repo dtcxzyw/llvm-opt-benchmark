@@ -758,7 +758,7 @@ define hidden noundef zeroext i1 @_ZN22CgroupSubsystemFactory14determine_typeEP1
 
 158:                                              ; preds = %.lr.ph245, %.backedge235
   %159 = call ptr @strsep(ptr noundef nonnull %13, ptr noundef nonnull @.str.21) #13
-  %160 = call i32 @atoi(ptr nocapture noundef %159) #14
+  %160 = call i32 @atoi(ptr noundef %159) #14
   %161 = call ptr @strsep(ptr noundef nonnull %13, ptr noundef nonnull @.str.21) #13
   store ptr %161, ptr %17, align 8
   %162 = call ptr @strsep(ptr noundef nonnull %13, ptr noundef nonnull @.str.22) #13

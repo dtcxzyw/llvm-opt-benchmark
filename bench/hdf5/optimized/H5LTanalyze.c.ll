@@ -554,7 +554,7 @@ yy_get_next_buffer.exit.thread:                   ; preds = %yy_get_next_buffer.
 
 173:                                              ; preds = %yy_get_next_buffer.exit.thread
   %174 = load ptr, ptr @H5LTyytext, align 8
-  %175 = tail call i32 @atoi(ptr nocapture noundef %174) #27
+  %175 = tail call i32 @atoi(ptr noundef %174) #27
   store i32 %175, ptr @H5LTyylval, align 8
   br label %358
 

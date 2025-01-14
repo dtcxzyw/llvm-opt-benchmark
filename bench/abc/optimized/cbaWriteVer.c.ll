@@ -2028,7 +2028,7 @@ define internal fastcc i32 @Cba_FonRangeSize(ptr nocapture noundef %0, i32 nound
   %.val.val = load ptr, ptr %4, align 8
   %5 = xor i32 %1, -1
   %6 = tail call ptr @Abc_NamStr(ptr noundef %.val.val, i32 noundef range(i32 -2147483648, 2147483647) %5) #15
-  %7 = tail call i32 @atoi(ptr nocapture noundef %6) #18
+  %7 = tail call i32 @atoi(ptr noundef %6) #18
   br label %31
 
 8:                                                ; preds = %2
@@ -2138,7 +2138,7 @@ Cba_FonObj.exit43:                                ; preds = %Cba_FonObj.exit.thr
   %.val.val.i = load ptr, ptr %25, align 8
   %26 = xor i32 %1, -1
   %27 = tail call ptr @Abc_NamStr(ptr noundef %.val.val.i, i32 noundef range(i32 -2147483648, 2147483647) %26) #15
-  %28 = tail call i32 @atoi(ptr nocapture noundef %27) #18
+  %28 = tail call i32 @atoi(ptr noundef %27) #18
   br label %52
 
 29:                                               ; preds = %.thread54
@@ -4213,7 +4213,7 @@ Vec_StrPush.exit1057:                             ; preds = %.Vec_StrGrow.exit10
   %.val.val.i1061 = load ptr, ptr %635, align 8
   %636 = xor i32 %631, -1
   %637 = tail call ptr @Abc_NamStr(ptr noundef %.val.val.i1061, i32 noundef range(i32 -2147483648, 2147483647) %636) #15
-  %638 = tail call i32 @atoi(ptr nocapture noundef %637) #18
+  %638 = tail call i32 @atoi(ptr noundef %637) #18
   br label %Cba_FonRangeSize.exit
 
 639:                                              ; preds = %626
@@ -4261,7 +4261,7 @@ Cba_FonRangeSize.exit:                            ; preds = %634, %Cba_NtkRangeS
   %.val.val.i1066 = load ptr, ptr %662, align 8
   %663 = xor i32 %633, -1
   %664 = tail call ptr @Abc_NamStr(ptr noundef %.val.val.i1066, i32 noundef range(i32 -2147483648, 2147483647) %663) #15
-  %665 = tail call i32 @atoi(ptr nocapture noundef %664) #18
+  %665 = tail call i32 @atoi(ptr noundef %664) #18
   br label %Cba_FonRangeSize.exit1072
 
 666:                                              ; preds = %Cba_FonRangeSize.exit
@@ -4413,7 +4413,7 @@ Cba_FonRangeSize.exit1072:                        ; preds = %661, %Cba_NtkRangeS
   %.val.val.i1075 = load ptr, ptr %728, align 8
   %729 = xor i32 %715, -1
   %730 = tail call ptr @Abc_NamStr(ptr noundef %.val.val.i1075, i32 noundef range(i32 -2147483648, 2147483647) %729) #15
-  %731 = tail call i32 @atoi(ptr nocapture noundef %730) #18
+  %731 = tail call i32 @atoi(ptr noundef %730) #18
   br label %Cba_FonRangeSize.exit1081
 
 732:                                              ; preds = %713
@@ -4592,7 +4592,7 @@ Cba_FonRangeSize.exit1081:                        ; preds = %727, %Cba_NtkRangeS
   %.val.val.i1084 = load ptr, ptr %776, align 8
   %777 = xor i32 %773, -1
   %778 = tail call ptr @Abc_NamStr(ptr noundef %.val.val.i1084, i32 noundef range(i32 -2147483648, 2147483647) %777) #15
-  %779 = tail call i32 @atoi(ptr nocapture noundef %778) #18
+  %779 = tail call i32 @atoi(ptr noundef %778) #18
   br label %Cba_FonRangeSize.exit1090
 
 780:                                              ; preds = %771

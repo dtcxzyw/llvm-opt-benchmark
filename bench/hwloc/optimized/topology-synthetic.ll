@@ -111,7 +111,7 @@ define i32 @hwloc_topology_export_synthetic(ptr noundef %0, ptr nocapture nounde
   br i1 %.not, label %9, label %7
 
 7:                                                ; preds = %4
-  %8 = tail call i32 @atoi(ptr nocapture noundef nonnull %6) #21
+  %8 = tail call i32 @atoi(ptr noundef nonnull %6) #21
   br label %9
 
 9:                                                ; preds = %7, %4
@@ -1352,7 +1352,7 @@ define internal ptr @hwloc_synthetic_component_instantiate(ptr noundef %0, ptr n
   br i1 %.not.i, label %24, label %22
 
 22:                                               ; preds = %19
-  %23 = tail call i32 @atoi(ptr nocapture noundef nonnull %21) #21
+  %23 = tail call i32 @atoi(ptr noundef nonnull %21) #21
   br label %24
 
 24:                                               ; preds = %22, %19

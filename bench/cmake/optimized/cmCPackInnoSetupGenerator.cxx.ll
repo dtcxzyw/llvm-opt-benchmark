@@ -1326,7 +1326,7 @@ _ZN5cmsys17RegularExpression4findERKNSt7__cxx1112basic_stringIcSt11char_traitsIc
 189:                                              ; preds = %186, %179
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2), !noalias !17
   %190 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %27) #21
-  %191 = call i32 @atoi(ptr nocapture noundef %190) #24
+  %191 = call i32 @atoi(ptr noundef %190) #24
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %27) #21
   invoke void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(112) %28)
           to label %192 unwind label %168

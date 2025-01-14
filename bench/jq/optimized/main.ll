@@ -627,7 +627,7 @@ isoption.exit731:                                 ; preds = %isoption.exit724
   %219 = sext i32 %218 to i64
   %220 = getelementptr inbounds ptr, ptr %1, i64 %219
   %221 = load ptr, ptr %220, align 8
-  %222 = tail call i32 @atoi(ptr nocapture noundef %221) #23
+  %222 = tail call i32 @atoi(ptr noundef %221) #23
   %223 = add i32 %222, -8
   %or.cond = icmp ult i32 %223, -9
   br i1 %or.cond, label %224, label %228

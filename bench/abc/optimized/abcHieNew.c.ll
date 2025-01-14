@@ -3851,7 +3851,7 @@ Au_ManAlloc.exit:                                 ; preds = %49, %51
 .preheader:                                       ; preds = %81, %Vec_IntPush.exit209
   %83 = phi i1 [ false, %Vec_IntPush.exit209 ], [ true, %81 ]
   %84 = tail call ptr @strtok(ptr noundef null, ptr noundef nonnull @.str.28) #31
-  %85 = tail call i32 @atoi(ptr nocapture noundef %84) #29
+  %85 = tail call i32 @atoi(ptr noundef %84) #29
   %.val193 = load ptr, ptr %64, align 8
   %86 = ashr i32 %85, 1
   %87 = sext i32 %86 to i64
@@ -4031,7 +4031,7 @@ Vec_IntPush.exit216:                              ; preds = %.Vec_IntGrow.exit10
 .preheader296:                                    ; preds = %167, %Vec_IntPush.exit223
   %169 = phi i1 [ false, %Vec_IntPush.exit223 ], [ true, %167 ]
   %170 = tail call ptr @strtok(ptr noundef null, ptr noundef nonnull @.str.28) #31
-  %171 = tail call i32 @atoi(ptr nocapture noundef %170) #29
+  %171 = tail call i32 @atoi(ptr noundef %170) #29
   %.val194 = load ptr, ptr %64, align 8
   %172 = ashr i32 %171, 1
   %173 = sext i32 %172 to i64
@@ -4211,7 +4211,7 @@ Vec_IntPush.exit239:                              ; preds = %.Vec_IntGrow.exit10
 .preheader297:                                    ; preds = %253, %Vec_IntPush.exit246
   %.2316 = phi i32 [ %291, %Vec_IntPush.exit246 ], [ 0, %253 ]
   %255 = tail call ptr @strtok(ptr noundef null, ptr noundef nonnull @.str.28) #31
-  %256 = tail call i32 @atoi(ptr nocapture noundef %255) #29
+  %256 = tail call i32 @atoi(ptr noundef %255) #29
   %.val195 = load ptr, ptr %64, align 8
   %257 = ashr i32 %256, 1
   %258 = sext i32 %257 to i64
@@ -4397,7 +4397,7 @@ Vec_IntPush.exit262:                              ; preds = %.Vec_IntGrow.exit10
   %345 = trunc i64 %344 to i32
   %346 = tail call ptr @strtok(ptr noundef null, ptr noundef nonnull @.str.28) #31
   %347 = tail call ptr @strtok(ptr noundef null, ptr noundef nonnull @.str.28) #31
-  %348 = tail call i32 @atoi(ptr nocapture noundef %347) #29
+  %348 = tail call i32 @atoi(ptr noundef %347) #29
   %349 = tail call ptr @strtok(ptr noundef null, ptr noundef nonnull @.str.28) #31
   %350 = icmp eq ptr %349, null
   br i1 %350, label %._crit_edge311, label %.lr.ph310
@@ -4555,7 +4555,7 @@ Vec_IntPush.exit276:                              ; preds = %413, %Vec_IntGrow.e
 
 429:                                              ; preds = %427
   %430 = tail call ptr @strtok(ptr noundef null, ptr noundef nonnull @.str.28) #31
-  %431 = tail call i32 @atoi(ptr nocapture noundef %430) #29
+  %431 = tail call i32 @atoi(ptr noundef %430) #29
   %432 = icmp sgt i32 %431, 0
   br i1 %432, label %.lr.ph308, label %.critedge2
 
@@ -4913,7 +4913,7 @@ declare i32 @atoi(ptr nocapture noundef) local_unnamed_addr #15
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @Au_NtkParseCBlifNum(ptr nocapture noundef %0, ptr nocapture noundef nonnull readonly %1, ptr nocapture noundef readonly %2) unnamed_addr #2 {
-  %4 = tail call i32 @atoi(ptr nocapture noundef nonnull %1) #29
+  %4 = tail call i32 @atoi(ptr noundef nonnull %1) #29
   br label %5
 
 5:                                                ; preds = %94, %3
@@ -4927,7 +4927,7 @@ define internal fastcc void @Au_NtkParseCBlifNum(ptr nocapture noundef %0, ptr n
 
 7:                                                ; preds = %5
   %8 = getelementptr inbounds nuw i8, ptr %.024, i64 1
-  %9 = tail call i32 @atoi(ptr nocapture noundef nonnull %8) #29
+  %9 = tail call i32 @atoi(ptr noundef nonnull %8) #29
   %10 = icmp sgt i32 %9, 0
   br i1 %10, label %.lr.ph48, label %.loopexit
 
@@ -5017,7 +5017,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
 
 51:                                               ; preds = %5
   %52 = getelementptr inbounds nuw i8, ptr %.024, i64 1
-  %53 = tail call i32 @atoi(ptr nocapture noundef nonnull %52) #29
+  %53 = tail call i32 @atoi(ptr noundef nonnull %52) #29
   %54 = icmp sgt i32 %53, 0
   br i1 %54, label %.lr.ph, label %.loopexit
 

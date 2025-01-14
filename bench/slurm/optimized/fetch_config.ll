@@ -112,7 +112,7 @@ define ptr @fetch_config(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
 21:                                               ; preds = %.lr.ph
   store i8 0, ptr %20, align 1
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 1
-  %23 = call i32 @atoi(ptr nocapture noundef nonnull %22) #14
+  %23 = call i32 @atoi(ptr noundef nonnull %22) #14
   %24 = trunc i32 %23 to i16
   br label %25
 

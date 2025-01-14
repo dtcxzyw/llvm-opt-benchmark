@@ -263,7 +263,7 @@ sub_1:                                            ; preds = %sub_0
 
 91:                                               ; preds = %88
   %92 = getelementptr inbounds nuw i8, ptr %90, i64 1
-  %93 = call i32 @atoi(ptr nocapture noundef nonnull %92) #9
+  %93 = call i32 @atoi(ptr noundef nonnull %92) #9
   %.fr = freeze i32 %93
   store i8 0, ptr %90, align 1
   br i1 %24, label %94, label %122

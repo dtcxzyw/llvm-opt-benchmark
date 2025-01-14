@@ -522,7 +522,7 @@ _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS
 
 81:                                               ; preds = %51
   %82 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %9) #17
-  %83 = call i32 @atoi(ptr nocapture noundef %82) #21
+  %83 = call i32 @atoi(ptr noundef %82) #21
   %84 = load ptr, ptr %20, align 8
   %85 = load ptr, ptr %21, align 8
   %.not.i.i23 = icmp eq ptr %84, %85

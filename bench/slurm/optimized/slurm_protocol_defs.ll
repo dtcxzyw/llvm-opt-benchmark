@@ -4494,7 +4494,7 @@ define ptr @slurm_parse_step_str(ptr noundef %0) local_unnamed_addr #1 {
   br i1 %.not49, label %24, label %22
 
 22:                                               ; preds = %14
-  %23 = tail call i32 @atoi(ptr nocapture noundef nonnull %6) #23
+  %23 = tail call i32 @atoi(ptr noundef nonnull %6) #23
   br label %25
 
 24:                                               ; preds = %14
@@ -4552,7 +4552,7 @@ define ptr @slurm_parse_step_str(ptr noundef %0) local_unnamed_addr #1 {
   br i1 %.not55, label %52, label %50
 
 50:                                               ; preds = %40
-  %51 = tail call i32 @atoi(ptr nocapture noundef nonnull %42) #23
+  %51 = tail call i32 @atoi(ptr noundef nonnull %42) #23
   store i32 %51, ptr %2, align 4
   br label %71
 
@@ -4580,7 +4580,7 @@ define ptr @slurm_parse_step_str(ptr noundef %0) local_unnamed_addr #1 {
   br i1 %.not54, label %66, label %64
 
 64:                                               ; preds = %55
-  %65 = tail call i32 @atoi(ptr nocapture noundef nonnull %56) #23
+  %65 = tail call i32 @atoi(ptr noundef nonnull %56) #23
   br label %71
 
 66:                                               ; preds = %55
@@ -4605,7 +4605,7 @@ define ptr @slurm_parse_step_str(ptr noundef %0) local_unnamed_addr #1 {
   %72 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 %.sink62, ptr %72, align 4
   %73 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %74 = tail call i32 @atoi(ptr nocapture noundef %0) #23
+  %74 = tail call i32 @atoi(ptr noundef %0) #23
   store i32 %74, ptr %73, align 4
   ret ptr %2
 }
@@ -8317,7 +8317,7 @@ define zeroext i16 @log_string2num(ptr noundef %0) local_unnamed_addr #1 {
   br i1 %or.cond, label %6, label %9
 
 6:                                                ; preds = %3
-  %7 = tail call i32 @atoi(ptr nocapture noundef nonnull %0) #23
+  %7 = tail call i32 @atoi(ptr noundef nonnull %0) #23
   %8 = trunc i32 %7 to i16
   br label %29
 
@@ -12743,7 +12743,7 @@ define void @xlate_array_task_str(ptr noundef %0, i32 noundef %1, ptr noundef wr
   br i1 %.not73, label %.thread77, label %61
 
 61:                                               ; preds = %59
-  %62 = tail call i32 @atoi(ptr nocapture noundef nonnull %60) #23
+  %62 = tail call i32 @atoi(ptr noundef nonnull %60) #23
   %63 = icmp slt i32 %62, 0
   br i1 %63, label %.thread77, label %64
 

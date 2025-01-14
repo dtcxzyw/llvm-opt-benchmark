@@ -88,7 +88,7 @@ _ZNK6icu_7513UnicodeString9getBufferEv.exit:      ; preds = %entry, %if.then7.i,
   %idxprom = sext i32 %cond.i to i64
   %arrayidx = getelementptr inbounds [256 x i8], ptr %ch, i64 0, i64 %idxprom
   store i8 0, ptr %arrayidx, align 1
-  %call5 = call i32 @atoi(ptr nocapture noundef nonnull %ch) #17
+  %call5 = call i32 @atoi(ptr noundef nonnull %ch) #17
   ret i32 %call5
 }
 
@@ -678,7 +678,7 @@ _ZNK7DataMap4utoiERKN6icu_7513UnicodeStringE.exit: ; preds = %_ZNK6icu_7513Unico
   %idxprom.i = sext i32 %cond.i.i to i64
   %arrayidx.i = getelementptr inbounds [256 x i8], ptr %ch.i, i64 0, i64 %idxprom.i
   store i8 0, ptr %arrayidx.i, align 1
-  %call5.i = call noundef i32 @atoi(ptr nocapture noundef nonnull %ch.i) #17
+  %call5.i = call noundef i32 @atoi(ptr noundef nonnull %ch.i) #17
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %ch.i)
   br label %cleanup
 
@@ -835,7 +835,7 @@ invoke.cont8:                                     ; preds = %invoke.cont
   %idxprom.i = sext i32 %cond.i.i to i64
   %arrayidx.i = getelementptr inbounds [256 x i8], ptr %ch.i, i64 0, i64 %idxprom.i
   store i8 0, ptr %arrayidx.i, align 1
-  %call5.i = call noundef i32 @atoi(ptr nocapture noundef nonnull %ch.i) #17
+  %call5.i = call noundef i32 @atoi(ptr noundef nonnull %ch.i) #17
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %ch.i)
   %arrayidx = getelementptr inbounds nuw i32, ptr %call5, i64 %indvars.iv
   store i32 %call5.i, ptr %arrayidx, align 4

@@ -8562,13 +8562,13 @@ _Z18cmHasLiteralPrefixILm10EEbSt17basic_string_viewIcSt11char_traitsIcEERAT__Kc.
 
 1050:                                             ; preds = %1049
   %1051 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %122) #21
-  %1052 = call i32 @atoi(ptr nocapture noundef %1051) #25
+  %1052 = call i32 @atoi(ptr noundef %1051) #25
   invoke void @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6substrEmm(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %123, ptr noundef nonnull align 8 dereferenceable(32) %121, i64 noundef 10, i64 noundef 5)
           to label %1053 unwind label %1094
 
 1053:                                             ; preds = %1050
   %1054 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %123) #21
-  %1055 = call i32 @atoi(ptr nocapture noundef %1054) #25
+  %1055 = call i32 @atoi(ptr noundef %1054) #25
   %1056 = icmp sgt i32 %1055, 0
   br i1 %1056, label %.preheader, label %1111
 
@@ -11623,13 +11623,13 @@ _ZN2cm6appendISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS
 
 763:                                              ; preds = %762
   %764 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %91) #21
-  %765 = call i32 @atoi(ptr nocapture noundef %764) #25
+  %765 = call i32 @atoi(ptr noundef %764) #25
   invoke void @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6substrEmm(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %92, ptr noundef nonnull align 8 dereferenceable(32) %88, i64 noundef 17, i64 noundef 7)
           to label %766 unwind label %807
 
 766:                                              ; preds = %763
   %767 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %92) #21
-  %768 = call i32 @atoi(ptr nocapture noundef %767) #25
+  %768 = call i32 @atoi(ptr noundef %767) #25
   %769 = icmp sgt i32 %768, 0
   br i1 %769, label %.preheader, label %824
 
@@ -12887,7 +12887,7 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.e
 
 198:                                              ; preds = %196
   %199 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %23) #21
-  %200 = call i32 @atoi(ptr nocapture noundef %199) #25
+  %200 = call i32 @atoi(ptr noundef %199) #25
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %23) #21
   br label %.preheader
 
@@ -21671,7 +21671,7 @@ _ZN22cmCTestCoverageHandler10GetNextIntERKNSt7__cxx1112basic_stringIcSt11char_tr
   %42 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEcm(ptr noundef nonnull align 8 dereferenceable(32) %1, i8 noundef signext 44, i64 noundef %41) #21
   call void @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6substrEmm(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %15, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 noundef %41, i64 noundef %42)
   %43 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %15) #21
-  %44 = call i32 @atoi(ptr nocapture noundef %43) #25
+  %44 = call i32 @atoi(ptr noundef %43) #25
   store i32 %44, ptr %3, align 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %15) #21
   %spec.select = call i64 @llvm.uadd.sat.i64(i64 %42, i64 1)
@@ -21680,7 +21680,7 @@ _ZN22cmCTestCoverageHandler10GetNextIntERKNSt7__cxx1112basic_stringIcSt11char_tr
   %45 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEcm(ptr noundef nonnull align 8 dereferenceable(32) %1, i8 noundef signext 44, i64 noundef %spec.select) #21
   call void @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6substrEmm(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %14, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 noundef %spec.select, i64 noundef %45)
   %46 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %14) #21
-  %47 = call i32 @atoi(ptr nocapture noundef %46) #25
+  %47 = call i32 @atoi(ptr noundef %46) #25
   store i32 %47, ptr %4, align 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %14) #21
   %.1 = call i64 @llvm.uadd.sat.i64(i64 %45, i64 1)
@@ -21689,7 +21689,7 @@ _ZN22cmCTestCoverageHandler10GetNextIntERKNSt7__cxx1112basic_stringIcSt11char_tr
   %48 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEcm(ptr noundef nonnull align 8 dereferenceable(32) %1, i8 noundef signext 44, i64 noundef %.1) #21
   call void @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6substrEmm(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %13, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 noundef %.1, i64 noundef %48)
   %49 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %13) #21
-  %50 = call i32 @atoi(ptr nocapture noundef %49) #25
+  %50 = call i32 @atoi(ptr noundef %49) #25
   store i32 %50, ptr %5, align 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %13) #21
   %.2 = call i64 @llvm.uadd.sat.i64(i64 %48, i64 1)
@@ -21698,7 +21698,7 @@ _ZN22cmCTestCoverageHandler10GetNextIntERKNSt7__cxx1112basic_stringIcSt11char_tr
   %51 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEcm(ptr noundef nonnull align 8 dereferenceable(32) %1, i8 noundef signext 44, i64 noundef %.2) #21
   call void @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6substrEmm(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %12, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 noundef %.2, i64 noundef %51)
   %52 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %12) #21
-  %53 = call i32 @atoi(ptr nocapture noundef %52) #25
+  %53 = call i32 @atoi(ptr noundef %52) #25
   store i32 %53, ptr %6, align 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %12) #21
   %.3 = call i64 @llvm.uadd.sat.i64(i64 %51, i64 1)
@@ -21707,7 +21707,7 @@ _ZN22cmCTestCoverageHandler10GetNextIntERKNSt7__cxx1112basic_stringIcSt11char_tr
   %54 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEcm(ptr noundef nonnull align 8 dereferenceable(32) %1, i8 noundef signext 44, i64 noundef %.3) #21
   call void @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6substrEmm(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %11, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 noundef %.3, i64 noundef %54)
   %55 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %11) #21
-  %56 = call i32 @atoi(ptr nocapture noundef %55) #25
+  %56 = call i32 @atoi(ptr noundef %55) #25
   store i32 %56, ptr %7, align 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %11) #21
   %.4 = call i64 @llvm.uadd.sat.i64(i64 %54, i64 1)
@@ -21716,7 +21716,7 @@ _ZN22cmCTestCoverageHandler10GetNextIntERKNSt7__cxx1112basic_stringIcSt11char_tr
   %57 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEcm(ptr noundef nonnull align 8 dereferenceable(32) %1, i8 noundef signext 44, i64 noundef %.4) #21
   call void @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6substrEmm(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %10, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 noundef %.4, i64 noundef %57)
   %58 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %10) #21
-  %59 = call i32 @atoi(ptr nocapture noundef %58) #25
+  %59 = call i32 @atoi(ptr noundef %58) #25
   store i32 %59, ptr %8, align 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %10) #21
   %60 = icmp eq i64 %57, -1
@@ -21802,7 +21802,7 @@ define dso_local noundef zeroext i1 @_ZN22cmCTestCoverageHandler10GetNextIntERKN
   store i64 %7, ptr %2, align 8
   call void @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6substrEmm(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %5, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 noundef %6, i64 noundef %7)
   %8 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %5) #21
-  %9 = call i32 @atoi(ptr nocapture noundef %8) #25
+  %9 = call i32 @atoi(ptr noundef %8) #25
   store i32 %9, ptr %3, align 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #21
   %10 = load i64, ptr %2, align 8

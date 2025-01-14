@@ -1122,7 +1122,7 @@ list_head.exit60.i:                               ; preds = %458, %list_head.exi
   %spec.store.select.i.i = select i1 %496, ptr @.str.54, ptr %490
   %spec.store.select6.i.i = select i1 %497, ptr @.str.55, ptr %494
   store i32 2, ptr %467, align 8
-  %498 = call i32 @atoi(ptr nocapture noundef nonnull %spec.store.select.i.i) #19
+  %498 = call i32 @atoi(ptr noundef nonnull %spec.store.select.i.i) #19
   %499 = call i32 @pg_getaddrinfo_all(ptr noundef %485, ptr noundef nonnull %spec.store.select.i.i, ptr noundef nonnull %8, ptr noundef nonnull %9) #16
   %500 = icmp eq i32 %499, 0
   %501 = load ptr, ptr %9, align 8

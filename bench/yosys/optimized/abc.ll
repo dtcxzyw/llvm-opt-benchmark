@@ -7919,7 +7919,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_b
 
 1356:                                             ; preds = %1355
   %1357 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %230) #27
-  %1358 = call i32 @atoi(ptr nocapture noundef %1357) #32
+  %1358 = call i32 @atoi(ptr noundef %1357) #32
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %230) #27
   %1359 = add nuw i64 %1354, 1
   invoke void @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6substrEmm(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %231, ptr noundef nonnull align 8 dereferenceable(32) %119, i64 noundef %1359, i64 noundef -1)
@@ -7927,13 +7927,13 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_b
 
 1360:                                             ; preds = %1356
   %1361 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %231) #27
-  %1362 = call i32 @atoi(ptr nocapture noundef %1361) #32
+  %1362 = call i32 @atoi(ptr noundef %1361) #32
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %231) #27
   br label %_ZNSt6vectorIiSaIiEE5clearEv.exit
 
 1363:                                             ; preds = %1353
   %1364 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %119) #27
-  %1365 = call i32 @atoi(ptr nocapture noundef %1364) #32
+  %1365 = call i32 @atoi(ptr noundef %1364) #32
   br label %_ZNSt6vectorIiSaIiEE5clearEv.exit
 
 _ZNSt6vectorIiSaIiEE5clearEv.exit:                ; preds = %1360, %1363
@@ -8278,7 +8278,7 @@ _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIP
 
 _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE2atEm.exit: ; preds = %1460
   %1462 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %1423) #27
-  %1463 = call i32 @atoi(ptr nocapture noundef %1462) #32
+  %1463 = call i32 @atoi(ptr noundef %1462) #32
   %.not.i.i816 = icmp eq ptr %.sroa.22.48121, %.sroa.54.38120
   br i1 %.not.i.i816, label %1466, label %1464
 
@@ -8354,7 +8354,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE2atEm.e
   %1486 = lshr exact i64 %1485, 2
   %1487 = trunc i64 %1486 to i32
   %1488 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %1484) #27
-  %1489 = call i32 @atoi(ptr nocapture noundef %1488) #32
+  %1489 = call i32 @atoi(ptr noundef %1488) #32
   %1490 = icmp sgt i32 %1489, %1487
   br i1 %1490, label %1491, label %_ZNSt6vectorIiSaIiEE9push_backERKi.exit
 
@@ -8378,7 +8378,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE2atEm.e
 1499:                                             ; preds = %1491
   %1500 = getelementptr inbounds nuw i8, ptr %1493, i64 32
   %1501 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %1500) #27
-  %1502 = call i32 @atoi(ptr nocapture noundef %1501) #32
+  %1502 = call i32 @atoi(ptr noundef %1501) #32
   %.not.i.i832 = icmp eq ptr %.sroa.22.68113, %.sroa.54.58112
   br i1 %.not.i.i832, label %1504, label %1503
 
@@ -76993,7 +76993,7 @@ _ZNK5Yosys5RTLIL8IdString6substrB5cxx11Emm.exit:  ; preds = %_ZNK5Yosys5RTLIL8Id
 
 33:                                               ; preds = %30
   %34 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %5) #27
-  %35 = call i32 @atoi(ptr nocapture noundef %34) #32
+  %35 = call i32 @atoi(ptr noundef %34) #32
   %36 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE17find_first_not_ofEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull @.str.406, i64 noundef 0) #27
   %.not = icmp eq i64 %36, -1
   br i1 %.not, label %38, label %37

@@ -3634,7 +3634,7 @@ Io_ReadBlifCleanName.exit.i:                      ; preds = %648, %652, %.lr.ph.
   %731 = getelementptr ptr, ptr %729, i64 %730
   %732 = getelementptr i8, ptr %731, i64 -8
   %733 = load ptr, ptr %732, align 8
-  %734 = tail call i32 @atoi(ptr nocapture noundef %733) #17
+  %734 = tail call i32 @atoi(ptr noundef %733) #17
   %or.cond3.i = icmp ugt i32 %734, 2
   br i1 %or.cond3.i, label %735, label %750
 

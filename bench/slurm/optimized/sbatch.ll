@@ -153,7 +153,7 @@ define dso_local i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0
   br i1 %.not.i, label %_set_exit_code.exit, label %34
 
 34:                                               ; preds = %32
-  %35 = tail call i32 @atoi(ptr nocapture noundef nonnull %33) #16
+  %35 = tail call i32 @atoi(ptr noundef nonnull %33) #16
   %36 = icmp eq i32 %35, 0
   br i1 %36, label %37, label %39
 

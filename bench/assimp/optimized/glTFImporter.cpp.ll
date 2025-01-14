@@ -37447,7 +37447,7 @@ if.then21:                                        ; preds = %if.end, %if.else.i6
 
 cond.true:                                        ; preds = %if.then21
   %add.ptr24 = getelementptr inbounds nuw i8, ptr %arrayidx, i64 1
-  %call25 = call i32 @atoi(ptr nocapture noundef nonnull %add.ptr24) #30
+  %call25 = call i32 @atoi(ptr noundef nonnull %add.ptr24) #30
   %44 = sext i32 %call25 to i64
   br label %cond.end
 

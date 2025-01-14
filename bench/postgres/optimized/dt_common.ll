@@ -3094,16 +3094,16 @@ define internal fastcc range(i32 -1, 4) i32 @DecodeNumberField(i32 noundef %0, p
 23:                                               ; preds = %22
   store i32 14, ptr %3, align 4
   %24 = getelementptr i8, ptr %1, i64 6
-  %25 = tail call i32 @atoi(ptr nocapture noundef %24) #17
+  %25 = tail call i32 @atoi(ptr noundef %24) #17
   %26 = getelementptr inbounds nuw i8, ptr %4, i64 12
   store i32 %25, ptr %26, align 4
   store i8 0, ptr %24, align 1
   %27 = getelementptr i8, ptr %1, i64 4
-  %28 = tail call i32 @atoi(ptr nocapture noundef %27) #17
+  %28 = tail call i32 @atoi(ptr noundef %27) #17
   %29 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i32 %28, ptr %29, align 8
   store i8 0, ptr %27, align 1
-  %30 = tail call i32 @atoi(ptr nocapture noundef %1) #17
+  %30 = tail call i32 @atoi(ptr noundef %1) #17
   %31 = getelementptr inbounds nuw i8, ptr %4, i64 20
   store i32 %30, ptr %31, align 4
   br label %65
@@ -3111,16 +3111,16 @@ define internal fastcc range(i32 -1, 4) i32 @DecodeNumberField(i32 noundef %0, p
 32:                                               ; preds = %22
   store i32 14, ptr %3, align 4
   %33 = getelementptr i8, ptr %1, i64 4
-  %34 = tail call i32 @atoi(ptr nocapture noundef %33) #17
+  %34 = tail call i32 @atoi(ptr noundef %33) #17
   %35 = getelementptr inbounds nuw i8, ptr %4, i64 12
   store i32 %34, ptr %35, align 4
   store i8 0, ptr %33, align 1
   %36 = getelementptr i8, ptr %1, i64 2
-  %37 = tail call i32 @atoi(ptr nocapture noundef %36) #17
+  %37 = tail call i32 @atoi(ptr noundef %36) #17
   %38 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i32 %37, ptr %38, align 8
   store i8 0, ptr %36, align 1
-  %39 = tail call i32 @atoi(ptr nocapture noundef %1) #17
+  %39 = tail call i32 @atoi(ptr noundef %1) #17
   %40 = getelementptr inbounds nuw i8, ptr %4, i64 20
   store i32 %39, ptr %40, align 4
   store i8 1, ptr %6, align 1
@@ -3129,13 +3129,13 @@ define internal fastcc range(i32 -1, 4) i32 @DecodeNumberField(i32 noundef %0, p
 41:                                               ; preds = %22
   store i32 14, ptr %3, align 4
   %42 = getelementptr i8, ptr %1, i64 2
-  %43 = tail call i32 @atoi(ptr nocapture noundef %42) #17
+  %43 = tail call i32 @atoi(ptr noundef %42) #17
   %44 = getelementptr inbounds nuw i8, ptr %4, i64 12
   store i32 %43, ptr %44, align 4
   store i8 0, ptr %42, align 1
   %45 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i32 1, ptr %45, align 8
-  %46 = tail call i32 @atoi(ptr nocapture noundef %1) #17
+  %46 = tail call i32 @atoi(ptr noundef %1) #17
   %47 = getelementptr inbounds nuw i8, ptr %4, i64 20
   store i32 %46, ptr %47, align 4
   store i8 1, ptr %6, align 1
@@ -3156,15 +3156,15 @@ define internal fastcc range(i32 -1, 4) i32 @DecodeNumberField(i32 noundef %0, p
 51:                                               ; preds = %50
   store i32 7168, ptr %3, align 4
   %52 = getelementptr i8, ptr %1, i64 4
-  %53 = call i32 @atoi(ptr nocapture noundef %52) #17
+  %53 = call i32 @atoi(ptr noundef %52) #17
   store i32 %53, ptr %4, align 8
   store i8 0, ptr %52, align 1
   %54 = getelementptr i8, ptr %1, i64 2
-  %55 = call i32 @atoi(ptr nocapture noundef %54) #17
+  %55 = call i32 @atoi(ptr noundef %54) #17
   %56 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 %55, ptr %56, align 4
   store i8 0, ptr %54, align 1
-  %57 = call i32 @atoi(ptr nocapture noundef %1) #17
+  %57 = call i32 @atoi(ptr noundef %1) #17
   %58 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 %57, ptr %58, align 8
   br label %65
@@ -3173,11 +3173,11 @@ define internal fastcc range(i32 -1, 4) i32 @DecodeNumberField(i32 noundef %0, p
   store i32 7168, ptr %3, align 4
   store i32 0, ptr %4, align 8
   %60 = getelementptr i8, ptr %1, i64 2
-  %61 = call i32 @atoi(ptr nocapture noundef %60) #17
+  %61 = call i32 @atoi(ptr noundef %60) #17
   %62 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 %61, ptr %62, align 4
   store i8 0, ptr %60, align 1
-  %63 = call i32 @atoi(ptr nocapture noundef %1) #17
+  %63 = call i32 @atoi(ptr noundef %1) #17
   %64 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 %63, ptr %64, align 8
   br label %65

@@ -104,7 +104,7 @@ entry.if.end_crit_edge:                           ; preds = %entry
   br label %if.end
 
 if.then:                                          ; preds = %entry
-  %call3 = tail call i32 @atoi(ptr nocapture noundef nonnull %call2) #14
+  %call3 = tail call i32 @atoi(ptr noundef nonnull %call2) #14
   %mul = shl nsw i32 %call3, 2
   store i32 %mul, ptr @level, align 4
   br label %if.end
@@ -117,7 +117,7 @@ if.end:                                           ; preds = %entry.if.end_crit_e
 
 if.then5:                                         ; preds = %if.end
   store i1 true, ptr @rand_order, align 4
-  %call6 = tail call i32 @atoi(ptr nocapture noundef nonnull %call) #14
+  %call6 = tail call i32 @atoi(ptr noundef nonnull %call) #14
   store i32 %call6, ptr @seed, align 4
   %cmp.i = icmp slt i32 %call6, 1
   br i1 %cmp.i, label %if.end12.sink.split, label %if.end12
@@ -127,7 +127,7 @@ if.else:                                          ; preds = %if.end
   br i1 %cmp7.not, label %if.else10, label %if.then8
 
 if.then8:                                         ; preds = %if.else
-  %call9 = tail call i32 @atoi(ptr nocapture noundef nonnull %call1) #14
+  %call9 = tail call i32 @atoi(ptr noundef nonnull %call1) #14
   store i32 %call9, ptr @seed, align 4
   %cmp.i4 = icmp slt i32 %call9, 1
   br i1 %cmp.i4, label %if.end12.sink.split, label %if.end12
@@ -321,7 +321,7 @@ for.inc.i.i:                                      ; preds = %for.body.i.i
   br i1 %exitcond.not.i.i, label %if.then5.i.i, label %for.body.i.i, !llvm.loop !6
 
 if.then5.i.i:                                     ; preds = %for.inc.i.i, %for.cond.preheader.i.i
-  %call6.i.i = call i32 @atoi(ptr nocapture noundef nonnull readonly %testname.0.i.ph) #14
+  %call6.i.i = call i32 @atoi(ptr noundef nonnull readonly %testname.0.i.ph) #14
   store i32 %call6.i.i, ptr @single_test, align 4
   br label %if.end8.i.i
 

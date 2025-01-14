@@ -4427,7 +4427,7 @@ Vec_IntStart.exit:
   %.166 = phi i32 [ 1, %.lr.ph67 ], [ %24, %15 ]
   %16 = load ptr, ptr %7, align 8
   %17 = tail call ptr @Abc_NamStr(ptr noundef %16, i32 noundef %.166) #26
-  %18 = tail call i32 @atoi(ptr nocapture noundef %17) #27
+  %18 = tail call i32 @atoi(ptr noundef %17) #27
   %19 = tail call range(i32 -2147483648, 536870913) i32 @llvm.smin.i32(i32 %18, i32 999)
   %20 = sext i32 %19 to i64
   %21 = getelementptr inbounds i32, ptr %calloc, i64 %20
@@ -4912,7 +4912,7 @@ Abc_Clock.exit127:                                ; preds = %Vec_WecSizeSize.exi
   %170 = getelementptr %struct.Vec_Int_t_, ptr %.val115, i64 %indvars.iv155, i32 1
   %.val100 = load i32, ptr %170, align 4
   %171 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.25, i32 noundef %.val100)
-  %172 = call i32 @atoi(ptr nocapture noundef %168) #27
+  %172 = call i32 @atoi(ptr noundef %168) #27
   %173 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.26, i32 noundef %172)
   %puts = call i32 @puts(ptr nonnull dereferenceable(1) %168)
   %indvars.iv.next156 = add nuw nsw i64 %indvars.iv155, 1
@@ -4935,7 +4935,7 @@ Abc_Clock.exit127:                                ; preds = %Vec_WecSizeSize.exi
   br i1 %181, label %182, label %.critedge4
 
 182:                                              ; preds = %.lr.ph149
-  %183 = call i32 @atoi(ptr nocapture noundef %179) #27
+  %183 = call i32 @atoi(ptr noundef %179) #27
   %184 = icmp sgt i32 %183, 5
   br i1 %184, label %185, label %.critedge4
 

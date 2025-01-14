@@ -922,7 +922,7 @@ define internal fastcc void @_setup_print_fields_list(ptr noundef %0) unnamed_ad
 
 16:                                               ; preds = %.lr.ph
   %17 = getelementptr inbounds nuw i8, ptr %strchr, i64 1
-  %18 = call i32 @atoi(ptr nocapture noundef nonnull %17) #11
+  %18 = call i32 @atoi(ptr noundef nonnull %17) #11
   store i8 0, ptr %strchr, align 1
   br label %19
 

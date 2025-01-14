@@ -89,7 +89,7 @@ define range(i32 0, 2) i32 @Abc_RealMain(i32 noundef %0, ptr noundef %1) local_u
 
 22:                                               ; preds = %17
   %23 = load ptr, ptr @globalUtilOptarg, align 8
-  %24 = call i32 @atoi(ptr nocapture noundef %23) #13
+  %24 = call i32 @atoi(ptr noundef %23) #13
   %25 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.3, i32 noundef %24)
   %26 = sext i32 %24 to i64
   %27 = shl nsw i64 %26, 20
@@ -100,7 +100,7 @@ define range(i32 0, 2) i32 @Abc_RealMain(i32 noundef %0, ptr noundef %1) local_u
 
 29:                                               ; preds = %17
   %30 = load ptr, ptr @globalUtilOptarg, align 8
-  %31 = call i32 @atoi(ptr nocapture noundef %30) #13
+  %31 = call i32 @atoi(ptr noundef %30) #13
   %32 = sext i32 %31 to i64
   %33 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.4, i32 noundef %31)
   store i64 %32, ptr %7, align 8

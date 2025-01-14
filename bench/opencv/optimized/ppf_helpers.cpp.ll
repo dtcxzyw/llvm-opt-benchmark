@@ -1943,7 +1943,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_b
   %112 = load ptr, ptr %15, align 8
   %113 = getelementptr inbounds nuw i8, ptr %112, i64 64
   %114 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %113) #32
-  %115 = call i32 @atoi(ptr nocapture noundef %114) #36
+  %115 = call i32 @atoi(ptr noundef %114) #36
   br label %175
 
 .loopexit.split:                                  ; preds = %.lr.ph

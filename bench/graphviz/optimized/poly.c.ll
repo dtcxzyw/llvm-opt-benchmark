@@ -481,7 +481,7 @@ define internal fastcc noalias noundef ptr @genRound(ptr noundef %0, ptr nocaptu
   br i1 %.not, label %.thread28, label %6
 
 6:                                                ; preds = %4
-  %7 = tail call i32 @atoi(ptr nocapture noundef nonnull %5) #19
+  %7 = tail call i32 @atoi(ptr noundef nonnull %5) #19
   %.fr = freeze i32 %7
   %8 = icmp slt i32 %.fr, 3
   %narrow = select i1 %8, i32 20, i32 %.fr

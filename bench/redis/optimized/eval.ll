@@ -2898,7 +2898,7 @@ if.end4:                                          ; preds = %if.end
 if.end8:                                          ; preds = %if.end4
   %add.ptr = getelementptr inbounds nuw i8, ptr %call2, i64 1
   store i8 0, ptr %call5, align 1
-  %call10 = tail call i32 @atoi(ptr nocapture noundef nonnull %add.ptr) #16
+  %call10 = tail call i32 @atoi(ptr noundef nonnull %add.ptr) #16
   store i32 %call10, ptr %argcp, align 4
   %6 = add i32 %call10, -1025
   %or.cond37 = icmp ult i32 %6, -1024
@@ -2941,7 +2941,7 @@ if.end32:                                         ; preds = %if.end27
   %add.ptr28 = getelementptr inbounds nuw i8, ptr %p.0, i64 1
   store i8 0, ptr %call29, align 1
   %add.ptr33 = getelementptr inbounds nuw i8, ptr %call29, i64 2
-  %call34 = tail call i32 @atoi(ptr nocapture noundef nonnull %add.ptr28) #16
+  %call34 = tail call i32 @atoi(ptr noundef nonnull %add.ptr28) #16
   %11 = add i32 %call34, -1025
   %or.cond = icmp ult i32 %11, -1024
   br i1 %or.cond, label %protoerr.loopexit, label %if.end41
@@ -4688,7 +4688,7 @@ entry:
 if.then:                                          ; preds = %entry
   %arrayidx = getelementptr inbounds nuw i8, ptr %argv, i64 8
   %0 = load ptr, ptr %arrayidx, align 8
-  %call = tail call i32 @atoi(ptr nocapture noundef %0) #16
+  %call = tail call i32 @atoi(ptr noundef %0) #16
   store i32 1, ptr getelementptr inbounds nuw (i8, ptr @ldb, i64 344), align 8
   %cmp1 = icmp ne i32 %call, 0
   %cmp2 = icmp slt i32 %call, 61
@@ -4982,7 +4982,7 @@ if.then96:                                        ; preds = %lor.lhs.false92, %i
 if.then.i:                                        ; preds = %if.then96
   %arrayidx.i77 = getelementptr inbounds nuw i8, ptr %call.lcssa, i64 8
   %42 = load ptr, ptr %arrayidx.i77, align 8
-  %call.i78 = call i32 @atoi(ptr nocapture noundef %42) #16
+  %call.i78 = call i32 @atoi(ptr noundef %42) #16
   store i32 1, ptr getelementptr inbounds nuw (i8, ptr @ldb, i64 344), align 8
   %cmp1.i = icmp ne i32 %call.i78, 0
   %cmp2.i = icmp slt i32 %call.i78, 61
@@ -5131,7 +5131,7 @@ if.then159:                                       ; preds = %lor.lhs.false155, %
 if.end169:                                        ; preds = %if.then159
   %arrayidx163 = getelementptr inbounds nuw i8, ptr %call.lcssa, i64 8
   %52 = load ptr, ptr %arrayidx163, align 8
-  %call164 = call i32 @atoi(ptr nocapture noundef %52) #16
+  %call164 = call i32 @atoi(ptr noundef %52) #16
   %cmp165 = icmp sgt i32 %call164, 0
   %spec.select = select i1 %cmp165, i32 %call164, i32 %51
   %cmp170.not = icmp eq i32 %49, 2
@@ -5140,7 +5140,7 @@ if.end169:                                        ; preds = %if.then159
 if.then172:                                       ; preds = %if.end169
   %arrayidx173 = getelementptr inbounds nuw i8, ptr %call.lcssa, i64 16
   %53 = load ptr, ptr %arrayidx173, align 8
-  %call174 = call i32 @atoi(ptr nocapture noundef %53) #16
+  %call174 = call i32 @atoi(ptr noundef %53) #16
   br label %if.end175
 
 if.end175:                                        ; preds = %if.then159, %if.then172, %if.end169

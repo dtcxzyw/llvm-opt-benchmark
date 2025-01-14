@@ -465,7 +465,7 @@ uv__cpu_num.exit.thread:                          ; preds = %21, %._crit_edge.i,
   br i1 %.not.us.us.us.i, label %.outer34._crit_edge.loopexit91.i, label %.lr.ph.split.us.split.us.us.i, !llvm.loop !10
 
 .split41.us.split.us.us.i:                        ; preds = %46
-  %50 = call i32 @atoi(ptr nocapture noundef nonnull %37) #16
+  %50 = call i32 @atoi(ptr noundef nonnull %37) #16
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %51 = getelementptr inbounds nuw %struct.uv_cpu_info_s, ptr %30, i64 %indvars.iv.i, i32 1
   store i32 %50, ptr %51, align 8
@@ -511,7 +511,7 @@ uv__cpu_num.exit.thread:                          ; preds = %21, %._crit_edge.i,
   br i1 %.not.us44.i, label %.outer34._crit_edge.i, label %.lr.ph.split.split.us.i, !llvm.loop !10
 
 .split41.split.us.i:                              ; preds = %.lr.ph.split.split.us.i
-  %63 = call i32 @atoi(ptr nocapture noundef nonnull %37) #16
+  %63 = call i32 @atoi(ptr noundef nonnull %37) #16
   %indvars.iv.next122.i = add nuw nsw i64 %indvars.iv121.i, 1
   %64 = getelementptr inbounds nuw %struct.uv_cpu_info_s, ptr %30, i64 %indvars.iv121.i, i32 1
   store i32 %63, ptr %64, align 8

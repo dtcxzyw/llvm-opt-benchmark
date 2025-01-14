@@ -112,7 +112,7 @@ land.lhs.true:                                    ; preds = %if.end
   br i1 %tobool3.not, label %if.end8, label %land.lhs.true4
 
 land.lhs.true4:                                   ; preds = %land.lhs.true
-  %call5 = tail call i32 @atoi(ptr nocapture noundef nonnull %call1) #8
+  %call5 = tail call i32 @atoi(ptr noundef nonnull %call1) #8
   %cmp = icmp sgt i32 %call5, 0
   br i1 %cmp, label %if.then7, label %if.end8
 

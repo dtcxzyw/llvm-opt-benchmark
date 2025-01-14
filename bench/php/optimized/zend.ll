@@ -4793,7 +4793,7 @@ define internal noundef i32 @OnUpdateErrorReporting(ptr nocapture readnone %0, p
 
 7:                                                ; preds = %6
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %9 = tail call i32 @atoi(ptr nocapture noundef nonnull %8) #36
+  %9 = tail call i32 @atoi(ptr noundef nonnull %8) #36
   br label %10
 
 10:                                               ; preds = %6, %7
@@ -4900,7 +4900,7 @@ define internal i32 @OnUpdateScriptEncoding(ptr nocapture readnone %0, ptr nound
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(readwrite, argmem: read, inaccessiblemem: read) uwtable
 define internal range(i32 -1, 1) i32 @OnSetExceptionStringParamMaxLen(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture readnone %4, i32 %5) #28 {
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %8 = tail call i64 @atoll(ptr nocapture noundef nonnull %7) #36
+  %8 = tail call i64 @atoll(ptr noundef nonnull %7) #36
   %or.cond = icmp ult i64 %8, 1000001
   br i1 %or.cond, label %9, label %10
 

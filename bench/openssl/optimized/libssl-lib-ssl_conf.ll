@@ -2261,7 +2261,7 @@ return:                                           ; preds = %entry, %end
 ; Function Attrs: nounwind uwtable
 define internal i32 @cmd_RecordPadding(ptr nocapture noundef readonly %cctx, ptr nocapture noundef readonly %value) #0 {
 entry:
-  %call = tail call i32 @atoi(ptr nocapture noundef %value) #9
+  %call = tail call i32 @atoi(ptr noundef %value) #9
   %cmp = icmp sgt i32 %call, -1
   br i1 %cmp, label %if.then, label %if.end10
 
@@ -2296,7 +2296,7 @@ if.end10:                                         ; preds = %if.end, %if.then5, 
 ; Function Attrs: nounwind uwtable
 define internal i32 @cmd_NumTickets(ptr nocapture noundef readonly %cctx, ptr nocapture noundef readonly %value) #0 {
 entry:
-  %call = tail call i32 @atoi(ptr nocapture noundef %value) #9
+  %call = tail call i32 @atoi(ptr noundef %value) #9
   %cmp = icmp sgt i32 %call, -1
   br i1 %cmp, label %if.then, label %if.end10
 

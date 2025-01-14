@@ -8199,7 +8199,7 @@ define void @start_memory_manager() local_unnamed_addr #0 {
   br i1 %.not.i, label %19, label %2
 
 2:                                                ; preds = %0
-  %3 = tail call i64 @atoll(ptr nocapture noundef nonnull %1) #48
+  %3 = tail call i64 @atoll(ptr noundef nonnull %1) #48
   %.not21.i = icmp eq i64 %3, 0
   br i1 %.not21.i, label %4, label %19
 
@@ -8209,7 +8209,7 @@ define void @start_memory_manager() local_unnamed_addr #0 {
   br i1 %.not22.i, label %9, label %6
 
 6:                                                ; preds = %4
-  %7 = tail call i64 @atoll(ptr nocapture noundef nonnull %5) #48
+  %7 = tail call i64 @atoll(ptr noundef nonnull %5) #48
   %8 = icmp ne i64 %7, 0
   br label %9
 
@@ -8247,7 +8247,7 @@ define void @start_memory_manager() local_unnamed_addr #0 {
   br i1 %.not23.i, label %24, label %21
 
 21:                                               ; preds = %19
-  %22 = tail call i64 @atoll(ptr nocapture noundef nonnull %20) #48
+  %22 = tail call i64 @atoll(ptr noundef nonnull %20) #48
   %.not24.i = icmp eq i64 %22, 0
   br i1 %.not24.i, label %24, label %23
 

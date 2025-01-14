@@ -1675,7 +1675,7 @@ define internal void @_ZN12_GLOBAL__N_17SccPass7executeESt6vectorINSt7__cxx1112b
 59:                                               ; preds = %51
   %60 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %.pre, i64 %52
   %61 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %60) #24
-  %62 = call i32 @atoi(ptr nocapture noundef %61) #26
+  %62 = call i32 @atoi(ptr noundef %61) #26
   br label %117
 
 .loopexit223:                                     ; preds = %101, %105
@@ -1708,7 +1708,7 @@ define internal void @_ZN12_GLOBAL__N_17SccPass7executeESt6vectorINSt7__cxx1112b
 75:                                               ; preds = %67
   %76 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %.pre731, i64 %68
   %77 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %76) #24
-  %78 = call i32 @atoi(ptr nocapture noundef %77) #26
+  %78 = call i32 @atoi(ptr noundef %77) #26
   br label %117
 
 79:                                               ; preds = %67, %63

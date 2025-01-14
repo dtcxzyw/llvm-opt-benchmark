@@ -260,7 +260,7 @@ define hidden void @_ZN6pj_ctx13createDefaultEv(ptr dead_on_unwind noalias nonnu
   br i1 %or.cond14, label %40, label %45
 
 40:                                               ; preds = %36
-  %41 = tail call i32 @atoi(ptr nocapture noundef nonnull %27) #18
+  %41 = tail call i32 @atoi(ptr noundef nonnull %27) #18
   %42 = icmp sgt i32 %41, -4
   br i1 %42, label %43, label %44
 

@@ -292,28 +292,28 @@ define hidden noundef range(i32 -2, 1) i32 @main(i32 noundef %0, ptr nocapture n
 70:                                               ; preds = %68
   %71 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %72 = load ptr, ptr %71, align 8
-  %73 = call i32 @atoi(ptr nocapture noundef %72) #18
+  %73 = call i32 @atoi(ptr noundef %72) #18
   %.not.i = icmp eq i32 %0, 3
   br i1 %.not.i, label %101, label %74
 
 74:                                               ; preds = %70
   %75 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %76 = load ptr, ptr %75, align 8
-  %77 = call i32 @atoi(ptr nocapture noundef %76) #18
+  %77 = call i32 @atoi(ptr noundef %76) #18
   %78 = icmp samesign ugt i32 %0, 4
   br i1 %78, label %79, label %101
 
 79:                                               ; preds = %74
   %80 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %81 = load ptr, ptr %80, align 8
-  %82 = call i32 @atoi(ptr nocapture noundef %81) #18
+  %82 = call i32 @atoi(ptr noundef %81) #18
   %83 = icmp eq i32 %0, 6
   br i1 %83, label %84, label %101
 
 84:                                               ; preds = %79
   %85 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %86 = load ptr, ptr %85, align 8
-  %87 = call i32 @atoi(ptr nocapture noundef %86) #18
+  %87 = call i32 @atoi(ptr noundef %86) #18
   br label %101
 
 88:                                               ; preds = %.noexc24.invoke

@@ -439,7 +439,7 @@ define void @Npn_ManRead(ptr nocapture noundef %0, ptr noundef %1) local_unnamed
   %20 = load i64, ptr %4, align 8
   %21 = call ptr @Npn_ManAdd(ptr noundef %0, i64 noundef %20)
   %22 = call ptr @strtok(ptr noundef null, ptr noundef nonnull @.str.3) #22
-  %23 = call i32 @atoi(ptr nocapture noundef %22) #20
+  %23 = call i32 @atoi(ptr noundef %22) #20
   %24 = getelementptr inbounds nuw i8, ptr %21, i64 8
   store i32 %23, ptr %24, align 8
   br label %.backedge

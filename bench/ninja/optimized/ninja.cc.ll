@@ -4571,7 +4571,7 @@ _ZN12_GLOBAL__N_121ToolTargetsSourceListEP5State.exit: ; preds = %._crit_edge.i,
 148:                                              ; preds = %147
   %149 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %150 = load ptr, ptr %149, align 8
-  %151 = call i32 @atoi(ptr nocapture noundef %150) #34
+  %151 = call i32 @atoi(ptr noundef %150) #34
   br label %_ZN12_GLOBAL__N_115ToolTargetsListEP5State.exit
 
 152:                                              ; preds = %144

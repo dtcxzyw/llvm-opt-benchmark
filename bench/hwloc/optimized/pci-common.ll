@@ -1164,7 +1164,7 @@ hwloc_obj_get_info_by_name.exit.thread.i:         ; preds = %36, %45, %43, %hwlo
   br i1 %.not58.i, label %52, label %48
 
 48:                                               ; preds = %hwloc_obj_get_info_by_name.exit.thread.i
-  %49 = tail call i32 @atoi(ptr nocapture noundef nonnull %47) #24
+  %49 = tail call i32 @atoi(ptr noundef nonnull %47) #24
   %.not59.i = icmp eq i32 %49, 0
   br i1 %.not59.i, label %52, label %50
 

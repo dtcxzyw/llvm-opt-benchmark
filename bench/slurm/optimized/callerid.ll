@@ -396,7 +396,7 @@ define range(i32 -1, 1) i32 @find_pid_by_inode(ptr nocapture noundef writeonly %
   br i1 %.not, label %.loopexit, label %13
 
 23:                                               ; preds = %13
-  %24 = call i32 @atoi(ptr nocapture noundef nonnull %16) #12
+  %24 = call i32 @atoi(ptr noundef nonnull %16) #12
   call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 4096, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %5)

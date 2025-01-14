@@ -2927,7 +2927,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %60 = getelementptr inbounds i32, ptr %57, i64 %59
   store i32 %33, ptr %60, align 4
   %61 = call ptr @strtok(ptr noundef null, ptr noundef nonnull @.str.10) #15
-  %62 = call i32 @atoi(ptr nocapture noundef %61) #17
+  %62 = call i32 @atoi(ptr noundef %61) #17
   %63 = load i32, ptr %19, align 4
   %64 = load i32, ptr %18, align 8
   %65 = icmp eq i32 %63, %64
@@ -2998,7 +2998,7 @@ Vec_IntPush.exit56:                               ; preds = %.Vec_IntGrow.exit10
   %94 = add nsw i32 %93, 1
   %95 = call range(i32 -2147483647, -2147483648) i32 @llvm.smax.i32(i32 range(i32 -2147483647, -2147483648) %.037.ph80, i32 range(i32 -2147483647, -2147483648) %94)
   %96 = call ptr @strtok(ptr noundef null, ptr noundef nonnull @.str.10) #15
-  %97 = call i32 @atoi(ptr nocapture noundef %96) #17
+  %97 = call i32 @atoi(ptr noundef %96) #17
   %98 = load i32, ptr %18, align 8
   %99 = icmp eq i32 %.val, %98
   br i1 %99, label %Vec_IntPush.exit63.sink.split, label %Vec_IntPush.exit63

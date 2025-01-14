@@ -5155,7 +5155,7 @@ GetTempNamespaceProcNumber.exit.thread11:         ; preds = %6
 GetTempNamespaceProcNumber.exit:                  ; preds = %3, %6
   %.sink10.i = phi i64 [ 8, %3 ], [ 14, %6 ]
   %9 = getelementptr i8, ptr %2, i64 %.sink10.i
-  %10 = tail call i32 @atoi(ptr nocapture noundef %9) #19
+  %10 = tail call i32 @atoi(ptr noundef %9) #19
   tail call void @pfree(ptr noundef nonnull %2) #18
   %11 = icmp eq i32 %10, -1
   br i1 %11, label %GetTempNamespaceProcNumber.exit.thread, label %12
@@ -5203,7 +5203,7 @@ define dso_local i32 @GetTempNamespaceProcNumber(i32 noundef %0) local_unnamed_a
 .sink.split:                                      ; preds = %6, %3
   %.sink10 = phi i64 [ 8, %3 ], [ 14, %6 ]
   %9 = getelementptr i8, ptr %2, i64 %.sink10
-  %10 = tail call i32 @atoi(ptr nocapture noundef %9) #19
+  %10 = tail call i32 @atoi(ptr noundef %9) #19
   br label %11
 
 11:                                               ; preds = %.sink.split, %6

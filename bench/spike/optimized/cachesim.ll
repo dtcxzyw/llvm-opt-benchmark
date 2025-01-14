@@ -432,7 +432,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm.exit.i.i: ; 
   %35 = getelementptr inbounds i8, ptr %29, i64 %19
   store i8 0, ptr %35, align 1
   %36 = load ptr, ptr %3, align 8
-  %37 = call i32 @atoi(ptr nocapture noundef %36) #25
+  %37 = call i32 @atoi(ptr noundef %36) #25
   %38 = sext i32 %37 to i64
   %39 = icmp eq ptr %36, %15
   br i1 %39, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
@@ -521,7 +521,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm.exit.i.i27: 
   %61 = getelementptr inbounds i8, ptr %55, i64 %45
   store i8 0, ptr %61, align 1
   %62 = load ptr, ptr %5, align 8
-  %63 = call i32 @atoi(ptr nocapture noundef %62) #25
+  %63 = call i32 @atoi(ptr noundef %62) #25
   %64 = sext i32 %63 to i64
   %65 = icmp eq ptr %62, %42
   br i1 %65, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i35, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i34
@@ -539,7 +539,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i34
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit36: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i35, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i34
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #21
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #21
-  %68 = call i32 @atoi(ptr nocapture noundef nonnull %12) #25
+  %68 = call i32 @atoi(ptr noundef nonnull %12) #25
   %69 = sext i32 %68 to i64
   %70 = icmp ugt i32 %63, 4
   %71 = icmp eq i32 %37, 1

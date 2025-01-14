@@ -427,7 +427,7 @@ sw.bb7:                                           ; preds = %mygetopt.exit
   br label %if.end.i.backedge
 
 sw.bb8:                                           ; preds = %mygetopt.exit
-  %call9 = tail call i32 @atoi(ptr nocapture noundef %26) #17
+  %call9 = tail call i32 @atoi(ptr noundef %26) #17
   br label %if.end.i.backedge
 
 sw.bb11:                                          ; preds = %mygetopt.exit
@@ -455,7 +455,7 @@ sw.bb14:                                          ; preds = %mygetopt.exit
   br label %if.end.i.backedge
 
 sw.bb15:                                          ; preds = %mygetopt.exit
-  %call16 = tail call i32 @atoi(ptr nocapture noundef %26) #17
+  %call16 = tail call i32 @atoi(ptr noundef %26) #17
   %cmp17 = icmp sgt i32 %call16, 16384
   br i1 %cmp17, label %if.then18, label %if.end.i.backedge
 
@@ -466,18 +466,18 @@ if.then18:                                        ; preds = %sw.bb15
   br label %exit
 
 sw.bb21:                                          ; preds = %mygetopt.exit
-  %call22 = tail call i32 @atoi(ptr nocapture noundef %26) #17
+  %call22 = tail call i32 @atoi(ptr noundef %26) #17
   br label %if.end.i.backedge
 
 sw.bb23:                                          ; preds = %mygetopt.exit
-  %call24 = tail call i32 @atoi(ptr nocapture noundef %26) #17
+  %call24 = tail call i32 @atoi(ptr noundef %26) #17
   br label %if.end.i.backedge
 
 sw.bb25:                                          ; preds = %mygetopt.exit
   br label %if.end.i.backedge
 
 sw.bb26:                                          ; preds = %mygetopt.exit
-  %call27 = tail call i32 @atoi(ptr nocapture noundef %26) #17
+  %call27 = tail call i32 @atoi(ptr noundef %26) #17
   br label %if.end.i.backedge
 
 sw.bb28:                                          ; preds = %mygetopt.exit

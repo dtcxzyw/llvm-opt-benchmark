@@ -3225,7 +3225,7 @@ set_unicode_line_style.exit189:                   ; preds = %89
   br i1 %97, label %.thread250, label %sub_0
 
 .thread250:                                       ; preds = %.thread249
-  %98 = tail call i32 @atoi(ptr nocapture noundef nonnull %1) #18
+  %98 = tail call i32 @atoi(ptr noundef nonnull %1) #18
   %99 = trunc i32 %98 to i16
   %100 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i16 %99, ptr %100, align 8
@@ -3328,7 +3328,7 @@ sub_0:                                            ; preds = %.thread249, %93
   br label %305
 
 146:                                              ; preds = %141
-  %147 = tail call i32 @atoi(ptr nocapture noundef nonnull %1) #18
+  %147 = tail call i32 @atoi(ptr noundef nonnull %1) #18
   %148 = icmp eq i32 %147, 0
   br i1 %148, label %149, label %150
 
@@ -3674,7 +3674,7 @@ sub_0203:                                         ; preds = %.tail198.thread
   br i1 %.not, label %305, label %301
 
 301:                                              ; preds = %300
-  %302 = tail call i32 @atoi(ptr nocapture noundef nonnull %1) #18
+  %302 = tail call i32 @atoi(ptr noundef nonnull %1) #18
   %303 = getelementptr inbounds nuw i8, ptr %2, i64 104
   store i32 %302, ptr %303, align 8
   br label %305
@@ -4809,7 +4809,7 @@ define internal fastcc range(i32 2, 6) i32 @exec_command_edit(ptr noundef %0, i1
 
 20:                                               ; preds = %19, %10
   %.020 = phi ptr [ %9, %19 ], [ %11, %10 ]
-  %21 = tail call i32 @atoi(ptr nocapture noundef nonnull %.020) #18
+  %21 = tail call i32 @atoi(ptr noundef nonnull %.020) #18
   %22 = icmp slt i32 %21, 1
   br i1 %22, label %.thread46, label %.thread
 
@@ -4990,7 +4990,7 @@ define internal fastcc range(i32 2, 6) i32 @exec_command_ef_ev(ptr noundef %0, i
 
 60:                                               ; preds = %54
   %61 = getelementptr i8, ptr %.1.lcssa.i, i64 1
-  %62 = tail call i32 @atoi(ptr nocapture noundef %61) #18
+  %62 = tail call i32 @atoi(ptr noundef %61) #18
   %63 = icmp slt i32 %62, 1
   br i1 %63, label %strip_lineno_from_objdesc.exit, label %64
 

@@ -551,7 +551,7 @@ define ptr @client_req_parse_spawn_req(ptr nocapture noundef readonly %0) local_
   %16 = load ptr, ptr %9, align 8
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %18 = load ptr, ptr %17, align 8
-  %19 = tail call i32 @atoi(ptr nocapture noundef %18) #12
+  %19 = tail call i32 @atoi(ptr noundef %18) #12
   %20 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store i32 %19, ptr %20, align 8
   %21 = zext i32 %19 to i64
@@ -574,7 +574,7 @@ define ptr @client_req_parse_spawn_req(ptr nocapture noundef readonly %0) local_
   %32 = load ptr, ptr %9, align 8
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 24
   %34 = load ptr, ptr %33, align 8
-  %35 = tail call i32 @atoi(ptr nocapture noundef %34) #12
+  %35 = tail call i32 @atoi(ptr noundef %34) #12
   %36 = getelementptr inbounds nuw i8, ptr %8, i64 20
   store i32 %35, ptr %36, align 4
   %37 = load i32, ptr %2, align 4
@@ -632,7 +632,7 @@ define ptr @client_req_parse_spawn_req(ptr nocapture noundef readonly %0) local_
   %66 = getelementptr inbounds nuw ptr, ptr %65, i64 %60
   %67 = load ptr, ptr %66, align 8
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 5
-  %69 = tail call i32 @atoi(ptr nocapture noundef nonnull %68) #12
+  %69 = tail call i32 @atoi(ptr noundef nonnull %68) #12
   %70 = zext i32 %69 to i64
   %.not167 = icmp eq i64 %indvars.iv224, %70
   br i1 %.not167, label %74, label %71
@@ -663,7 +663,7 @@ define ptr @client_req_parse_spawn_req(ptr nocapture noundef readonly %0) local_
   %88 = getelementptr inbounds nuw ptr, ptr %87, i64 %82
   %89 = load ptr, ptr %88, align 8
   %90 = getelementptr inbounds nuw i8, ptr %89, i64 5
-  %91 = tail call i32 @atoi(ptr nocapture noundef nonnull %90) #12
+  %91 = tail call i32 @atoi(ptr noundef nonnull %90) #12
   %92 = zext i32 %91 to i64
   %.not169 = icmp eq i64 %indvars.iv224, %92
   br i1 %.not169, label %96, label %93
@@ -738,7 +738,7 @@ define ptr @client_req_parse_spawn_req(ptr nocapture noundef readonly %0) local_
   %138 = sext i32 %137 to i64
   %139 = getelementptr inbounds ptr, ptr %136, i64 %138
   %140 = load ptr, ptr %139, align 8
-  %141 = tail call i32 @atoi(ptr nocapture noundef %140) #12
+  %141 = tail call i32 @atoi(ptr noundef %140) #12
   %142 = getelementptr inbounds nuw i8, ptr %111, i64 8
   store i32 %141, ptr %142, align 8
   %143 = load ptr, ptr %9, align 8
@@ -760,7 +760,7 @@ define ptr @client_req_parse_spawn_req(ptr nocapture noundef readonly %0) local_
   %154 = sext i32 %153 to i64
   %155 = getelementptr inbounds ptr, ptr %152, i64 %154
   %156 = load ptr, ptr %155, align 8
-  %157 = tail call i32 @atoi(ptr nocapture noundef %156) #12
+  %157 = tail call i32 @atoi(ptr noundef %156) #12
   %158 = getelementptr inbounds nuw i8, ptr %111, i64 12
   store i32 %157, ptr %158, align 4
   %159 = add nsw i32 %.1202, 3
@@ -825,7 +825,7 @@ define ptr @client_req_parse_spawn_req(ptr nocapture noundef readonly %0) local_
   %194 = getelementptr inbounds ptr, ptr %193, i64 %188
   %195 = load ptr, ptr %194, align 8
   %196 = getelementptr inbounds nuw i8, ptr %195, i64 4
-  %197 = tail call i32 @atoi(ptr nocapture noundef nonnull %196) #12
+  %197 = tail call i32 @atoi(ptr noundef nonnull %196) #12
   %198 = zext i32 %197 to i64
   %.not165 = icmp eq i64 %indvars.iv231, %198
   br i1 %.not165, label %202, label %199
@@ -900,7 +900,7 @@ define ptr @client_req_parse_spawn_req(ptr nocapture noundef readonly %0) local_
   %236 = sext i32 %235 to i64
   %237 = getelementptr inbounds ptr, ptr %234, i64 %236
   %238 = load ptr, ptr %237, align 8
-  %239 = tail call i32 @atoi(ptr nocapture noundef %238) #12
+  %239 = tail call i32 @atoi(ptr noundef %238) #12
   %240 = getelementptr inbounds nuw i8, ptr %111, i64 24
   store i32 %239, ptr %240, align 8
   %241 = add nsw i32 %.2.lcssa, 1
@@ -960,7 +960,7 @@ define ptr @client_req_parse_spawn_req(ptr nocapture noundef readonly %0) local_
   %275 = getelementptr inbounds ptr, ptr %274, i64 %269
   %276 = load ptr, ptr %275, align 8
   %277 = getelementptr inbounds nuw i8, ptr %276, i64 7
-  %278 = tail call i32 @atoi(ptr nocapture noundef nonnull %277) #12
+  %278 = tail call i32 @atoi(ptr noundef nonnull %277) #12
   %279 = zext i32 %278 to i64
   %.not160 = icmp eq i64 %indvars.iv238, %279
   br i1 %.not160, label %283, label %280
@@ -993,7 +993,7 @@ define ptr @client_req_parse_spawn_req(ptr nocapture noundef readonly %0) local_
   %299 = getelementptr inbounds ptr, ptr %298, i64 %293
   %300 = load ptr, ptr %299, align 8
   %301 = getelementptr inbounds nuw i8, ptr %300, i64 7
-  %302 = tail call i32 @atoi(ptr nocapture noundef nonnull %301) #12
+  %302 = tail call i32 @atoi(ptr noundef nonnull %301) #12
   %303 = zext i32 %302 to i64
   %.not162 = icmp eq i64 %indvars.iv238, %303
   br i1 %.not162, label %307, label %304
@@ -1149,7 +1149,7 @@ _client_req_get_val.exit.i37:                     ; preds = %.lr.ph.i.i33
   br i1 %.not.i38, label %client_req_get_int.exitthread-pre-split, label %41
 
 41:                                               ; preds = %_client_req_get_val.exit.i37
-  %42 = tail call i32 @atoi(ptr nocapture noundef nonnull %40) #12
+  %42 = tail call i32 @atoi(ptr noundef nonnull %40) #12
   store i32 %42, ptr %26, align 4
   br label %client_req_get_int.exitthread-pre-split
 
@@ -1190,7 +1190,7 @@ _client_req_get_val.exit.i44:                     ; preds = %.lr.ph.i.i40
   br i1 %.not.i45, label %client_req_get_int.exit46, label %59
 
 59:                                               ; preds = %_client_req_get_val.exit.i44
-  %60 = tail call i32 @atoi(ptr nocapture noundef nonnull %58) #12
+  %60 = tail call i32 @atoi(ptr noundef nonnull %58) #12
   store i32 %60, ptr %44, align 4
   br label %client_req_get_int.exit46
 
@@ -1295,7 +1295,7 @@ _client_req_get_val.exit.i60:                     ; preds = %101
   br i1 %.not.i61, label %client_req_get_int.exit62, label %112
 
 112:                                              ; preds = %_client_req_get_val.exit.i60
-  %113 = call i32 @atoi(ptr nocapture noundef nonnull %111) #12
+  %113 = call i32 @atoi(ptr noundef nonnull %111) #12
   store i32 %113, ptr %94, align 4
   br label %client_req_get_int.exit62
 
@@ -1496,7 +1496,7 @@ _client_req_get_val.exit:                         ; preds = %11
   br i1 %.not, label %_client_req_get_val.exit.thread, label %22
 
 22:                                               ; preds = %_client_req_get_val.exit
-  %23 = tail call i32 @atoi(ptr nocapture noundef nonnull %21) #12
+  %23 = tail call i32 @atoi(ptr noundef nonnull %21) #12
   store i32 %23, ptr %2, align 4
   br label %_client_req_get_val.exit.thread
 

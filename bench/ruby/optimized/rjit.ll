@@ -139,7 +139,7 @@ define hidden void @rb_rjit_setup_options(ptr noundef %0, ptr nocapture noundef 
 
 20:                                               ; preds = %15
   %21 = getelementptr i8, ptr %0, i64 14
-  %22 = tail call i32 @atoi(ptr nocapture noundef %21) #14
+  %22 = tail call i32 @atoi(ptr noundef %21) #14
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 4
   store i32 %22, ptr %23, align 4
   br label %128
@@ -176,7 +176,7 @@ define hidden void @rb_rjit_setup_options(ptr noundef %0, ptr nocapture noundef 
 
 39:                                               ; preds = %34
   %40 = getelementptr i8, ptr %0, i64 15
-  %41 = tail call i32 @atoi(ptr nocapture noundef %40) #14
+  %41 = tail call i32 @atoi(ptr noundef %40) #14
   %42 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 %41, ptr %42, align 4
   br label %128

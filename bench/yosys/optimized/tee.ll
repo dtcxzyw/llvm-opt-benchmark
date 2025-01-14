@@ -656,7 +656,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_b
 207:                                              ; preds = %204
   %208 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %.pre220.pre224, i64 %.038170
   %209 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %208) #21
-  %210 = call i32 @atoi(ptr nocapture noundef %209) #25
+  %210 = call i32 @atoi(ptr noundef %209) #25
   %211 = load i32, ptr @_ZN5Yosys17log_verbose_levelE, align 4
   %212 = add nsw i32 %211, %210
   store i32 %212, ptr @_ZN5Yosys17log_verbose_levelE, align 4

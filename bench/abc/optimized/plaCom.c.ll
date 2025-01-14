@@ -519,7 +519,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandGen(ptr nocapture noundef %0, i3
   %9 = sext i32 %7 to i64
   %10 = getelementptr inbounds ptr, ptr %2, i64 %9
   %11 = load ptr, ptr %10, align 8
-  %12 = tail call i32 @atoi(ptr nocapture noundef %11) #9
+  %12 = tail call i32 @atoi(ptr noundef %11) #9
   %13 = add nsw i32 %7, 1
   store i32 %13, ptr @globalUtilOptind, align 4
   %14 = icmp slt i32 %12, 0
@@ -534,7 +534,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandGen(ptr nocapture noundef %0, i3
   %18 = sext i32 %16 to i64
   %19 = getelementptr inbounds ptr, ptr %2, i64 %18
   %20 = load ptr, ptr %19, align 8
-  %21 = tail call i32 @atoi(ptr nocapture noundef %20) #9
+  %21 = tail call i32 @atoi(ptr noundef %20) #9
   %22 = add nsw i32 %16, 1
   store i32 %22, ptr @globalUtilOptind, align 4
   %23 = icmp slt i32 %21, 0
@@ -549,7 +549,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandGen(ptr nocapture noundef %0, i3
   %27 = sext i32 %25 to i64
   %28 = getelementptr inbounds ptr, ptr %2, i64 %27
   %29 = load ptr, ptr %28, align 8
-  %30 = tail call i32 @atoi(ptr nocapture noundef %29) #9
+  %30 = tail call i32 @atoi(ptr noundef %29) #9
   %31 = add nsw i32 %25, 1
   store i32 %31, ptr @globalUtilOptind, align 4
   %32 = icmp slt i32 %30, 0
@@ -564,7 +564,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandGen(ptr nocapture noundef %0, i3
   %36 = sext i32 %34 to i64
   %37 = getelementptr inbounds ptr, ptr %2, i64 %36
   %38 = load ptr, ptr %37, align 8
-  %39 = tail call i32 @atoi(ptr nocapture noundef %38) #9
+  %39 = tail call i32 @atoi(ptr noundef %38) #9
   %40 = add nsw i32 %34, 1
   store i32 %40, ptr @globalUtilOptind, align 4
   %41 = icmp slt i32 %39, 0
@@ -736,7 +736,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandTest(ptr nocapture readnone %0, 
   %10 = sext i32 %7 to i64
   %11 = getelementptr inbounds ptr, ptr %2, i64 %10
   %12 = load ptr, ptr %11, align 8
-  %13 = tail call i32 @atoi(ptr nocapture noundef %12) #9
+  %13 = tail call i32 @atoi(ptr noundef %12) #9
   %14 = add nsw i32 %7, 1
   store i32 %14, ptr @globalUtilOptind, align 4
   %15 = icmp slt i32 %13, 0

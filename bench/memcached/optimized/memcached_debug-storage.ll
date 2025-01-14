@@ -2435,7 +2435,7 @@ sw.default:                                       ; preds = %if.end7
 
 sw.epilog:                                        ; preds = %if.end7, %sw.bb17, %sw.bb16, %sw.bb15
   %multiplier.0 = phi i64 [ 1125899906842624, %sw.bb17 ], [ 1099511627776, %sw.bb16 ], [ 1073741824, %sw.bb15 ], [ 1048576, %if.end7 ]
-  %call20 = call i32 @atoi(ptr nocapture noundef nonnull %call3) #28
+  %call20 = call i32 @atoi(ptr noundef nonnull %call3) #28
   %conv21 = sext i32 %call20 to i64
   %mul22 = mul i64 %multiplier.0, %conv21
   %conv23 = zext i32 %page_size to i64

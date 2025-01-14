@@ -184,7 +184,7 @@ define hidden void @_ZN2cv8datasets11TR_charsImp9parseLineERKNSt7__cxx1112basic_
   %18 = sext i32 %3 to i64
   %19 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %9, i64 %18
   %20 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %19) #17
-  %21 = call i32 @atoi(ptr nocapture noundef %20) #18
+  %21 = call i32 @atoi(ptr noundef %20) #18
   %.not8 = icmp eq i32 %21, 0
   br i1 %.not8, label %_ZNSt6vectorIiSaIiEE9push_backEOi.exit, label %22
 
@@ -1202,7 +1202,7 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.e
 
 222:                                              ; preds = %219
   %223 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %20) #17
-  %224 = call i32 @atoi(ptr nocapture noundef %223) #18
+  %224 = call i32 @atoi(ptr noundef %223) #18
   %225 = load ptr, ptr %190, align 8
   %.not.i.i78 = icmp eq ptr %194, %225
   br i1 %.not.i.i78, label %229, label %226
@@ -1309,7 +1309,7 @@ _ZNSt6vectorIiSaIiEE9push_backEOi.exit:           ; preds = %_ZNSt6vectorIiSaIiE
 
 254:                                              ; preds = %253
   %255 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %14) #17
-  %256 = call i32 @atoi(ptr nocapture noundef %255) #18
+  %256 = call i32 @atoi(ptr noundef %255) #18
   %257 = load ptr, ptr %190, align 8
   %.not.i.i82 = icmp eq ptr %194, %257
   br i1 %.not.i.i82, label %261, label %258

@@ -984,13 +984,13 @@ _Z18cmHasLiteralPrefixILm7EEbSt17basic_string_viewIcSt11char_traitsIcEERAT__Kc.e
   %262 = load ptr, ptr %9, align 8
   %263 = getelementptr inbounds nuw i8, ptr %262, i64 32
   %264 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %263) #19
-  %265 = call i32 @atoi(ptr nocapture noundef %264) #22
+  %265 = call i32 @atoi(ptr noundef %264) #22
   %266 = add nsw i32 %265, -1
   %267 = sext i32 %266 to i64
   %268 = load ptr, ptr %9, align 8
   %269 = getelementptr inbounds nuw i8, ptr %268, i64 64
   %270 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %269) #19
-  %271 = call i32 @atoi(ptr nocapture noundef %270) #22
+  %271 = call i32 @atoi(ptr noundef %270) #22
   %272 = getelementptr inbounds nuw i8, ptr %260, i64 8
   %273 = load ptr, ptr %272, align 8
   %274 = load ptr, ptr %260, align 8

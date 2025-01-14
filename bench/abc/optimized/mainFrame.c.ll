@@ -1710,7 +1710,7 @@ define i32 @Abc_FrameReadMode(ptr noundef %0) local_unnamed_addr #1 {
   br i1 %3, label %6, label %4
 
 4:                                                ; preds = %1
-  %5 = tail call i32 @atoi(ptr nocapture noundef nonnull %2) #21
+  %5 = tail call i32 @atoi(ptr noundef nonnull %2) #21
   br label %6
 
 6:                                                ; preds = %1, %4
@@ -1729,7 +1729,7 @@ define i32 @Abc_FrameSetMode(ptr noundef %0, i32 noundef %1) local_unnamed_addr 
   br i1 %5, label %Abc_FrameReadMode.exit, label %6
 
 6:                                                ; preds = %2
-  %7 = tail call i32 @atoi(ptr nocapture noundef nonnull %4) #21
+  %7 = tail call i32 @atoi(ptr noundef nonnull %4) #21
   br label %Abc_FrameReadMode.exit
 
 Abc_FrameReadMode.exit:                           ; preds = %2, %6
@@ -1765,7 +1765,7 @@ define void @Abc_FrameSetCurrentNetwork(ptr noundef %0, ptr noundef %1) local_un
   br i1 %13, label %16, label %14
 
 14:                                               ; preds = %6
-  %15 = tail call i32 @atoi(ptr nocapture noundef nonnull %12) #21
+  %15 = tail call i32 @atoi(ptr noundef nonnull %12) #21
   br label %16
 
 16:                                               ; preds = %6, %14

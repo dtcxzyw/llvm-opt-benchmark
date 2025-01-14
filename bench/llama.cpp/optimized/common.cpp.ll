@@ -5719,7 +5719,7 @@ if.end1580:                                       ; preds = %lor.lhs.false1571
 if.then1599:                                      ; preds = %if.end1580
   %add.ptr1600 = getelementptr inbounds nuw i8, ptr %call1569, i64 5
   store i32 0, ptr %tag1614, align 8
-  %call1601 = call i64 @atol(ptr nocapture noundef nonnull %add.ptr1600) #41
+  %call1601 = call i64 @atol(ptr noundef nonnull %add.ptr1600) #41
   store i64 %call1601, ptr %0, align 8
   br label %if.end1636
 

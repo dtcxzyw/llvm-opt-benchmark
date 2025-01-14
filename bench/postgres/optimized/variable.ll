@@ -796,13 +796,13 @@ declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @adjust_array(i32 noundef %0, ptr nocapture noundef %1, ptr nocapture noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5, i1 noundef zeroext %6) local_unnamed_addr #0 {
-  %8 = tail call i32 @atoi(ptr nocapture noundef %4) #9
+  %8 = tail call i32 @atoi(ptr noundef %4) #9
   %9 = icmp sgt i32 %8, -1
   br i1 %9, label %10, label %16
 
 10:                                               ; preds = %7
   %11 = load ptr, ptr %2, align 8
-  %12 = tail call i32 @atoi(ptr nocapture noundef %11) #9
+  %12 = tail call i32 @atoi(ptr noundef %11) #9
   %13 = icmp sgt i32 %12, -1
   br i1 %13, label %14, label %15
 
@@ -815,19 +815,19 @@ define dso_local void @adjust_array(i32 noundef %0, ptr nocapture noundef %1, pt
   br label %16
 
 16:                                               ; preds = %15, %7
-  %17 = tail call i32 @atoi(ptr nocapture noundef %3) #9
+  %17 = tail call i32 @atoi(ptr noundef %3) #9
   %18 = icmp sgt i32 %17, -1
   br i1 %18, label %19, label %30
 
 19:                                               ; preds = %16
   %20 = load ptr, ptr %1, align 8
-  %21 = tail call i32 @atoi(ptr nocapture noundef %20) #9
+  %21 = tail call i32 @atoi(ptr noundef %20) #9
   %22 = icmp sgt i32 %21, -1
   br i1 %22, label %23, label %29
 
 23:                                               ; preds = %19
   %24 = load ptr, ptr %2, align 8
-  %25 = tail call i32 @atoi(ptr nocapture noundef %24) #9
+  %25 = tail call i32 @atoi(ptr noundef %24) #9
   %26 = icmp sgt i32 %25, -1
   br i1 %26, label %27, label %28
 
@@ -872,13 +872,13 @@ switch.early.test:                                ; preds = %33
 
 36:                                               ; preds = %switch.early.test, %switch.early.test, %switch.early.test
   %37 = load ptr, ptr %2, align 8
-  %38 = tail call i32 @atoi(ptr nocapture noundef %37) #9
+  %38 = tail call i32 @atoi(ptr noundef %37) #9
   %39 = icmp sgt i32 %38, -1
   br i1 %39, label %44, label %40
 
 40:                                               ; preds = %36
   %41 = load ptr, ptr %1, align 8
-  %42 = tail call i32 @atoi(ptr nocapture noundef %41) #9
+  %42 = tail call i32 @atoi(ptr noundef %41) #9
   %43 = icmp sgt i32 %42, -1
   br i1 %43, label %44, label %.critedge
 
@@ -888,13 +888,13 @@ switch.early.test:                                ; preds = %33
 
 .critedge:                                        ; preds = %..critedge_crit_edge, %40
   %45 = phi ptr [ %.pre, %..critedge_crit_edge ], [ %37, %40 ]
-  %46 = tail call i32 @atoi(ptr nocapture noundef %45) #9
+  %46 = tail call i32 @atoi(ptr noundef %45) #9
   %47 = icmp sgt i32 %46, -1
   br i1 %47, label %48, label %54
 
 48:                                               ; preds = %.critedge
   %49 = load ptr, ptr %1, align 8
-  %50 = tail call i32 @atoi(ptr nocapture noundef %49) #9
+  %50 = tail call i32 @atoi(ptr noundef %49) #9
   %51 = icmp sgt i32 %50, -1
   %52 = icmp ne i32 %5, 0
   %or.cond7 = and i1 %52, %51
@@ -929,7 +929,7 @@ switch.early.test:                                ; preds = %33
 
 59:                                               ; preds = %56, %55
   %60 = phi ptr [ %.pre67, %56 ], [ %45, %55 ]
-  %61 = tail call i32 @atoi(ptr nocapture noundef %60) #9
+  %61 = tail call i32 @atoi(ptr noundef %60) #9
   %62 = icmp sgt i32 %61, -1
   br i1 %62, label %63, label %102
 
@@ -949,7 +949,7 @@ switch.early.test:                                ; preds = %33
 
 67:                                               ; preds = %65, %64
   %68 = phi ptr [ %.pre66, %65 ], [ %45, %64 ]
-  %69 = tail call i32 @atoi(ptr nocapture noundef %68) #9
+  %69 = tail call i32 @atoi(ptr noundef %68) #9
   %70 = icmp slt i32 %69, 0
   br i1 %70, label %71, label %102
 
@@ -979,13 +979,13 @@ switch.early.test:                                ; preds = %33
 
 79:                                               ; preds = %74, %77
   %80 = phi ptr [ %45, %74 ], [ %78, %77 ]
-  %81 = tail call i32 @atoi(ptr nocapture noundef %80) #9
+  %81 = tail call i32 @atoi(ptr noundef %80) #9
   %82 = icmp slt i32 %81, 0
   br i1 %82, label %83, label %102
 
 83:                                               ; preds = %79
   %84 = load ptr, ptr %1, align 8
-  %85 = tail call i32 @atoi(ptr nocapture noundef %84) #9
+  %85 = tail call i32 @atoi(ptr noundef %84) #9
   %86 = icmp sgt i32 %85, -1
   %brmerge = or i1 %6, %86
   br i1 %brmerge, label %sub_0, label %.tail.thread.sink.split
@@ -1027,7 +1027,7 @@ sub_0:                                            ; preds = %83
 
 97:                                               ; preds = %94, %93
   %98 = phi ptr [ %.pre68, %94 ], [ %45, %93 ]
-  %99 = tail call i32 @atoi(ptr nocapture noundef %98) #9
+  %99 = tail call i32 @atoi(ptr noundef %98) #9
   %100 = icmp sgt i32 %99, -1
   br i1 %100, label %101, label %102
 

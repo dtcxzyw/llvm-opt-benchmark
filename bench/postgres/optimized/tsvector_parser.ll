@@ -816,7 +816,7 @@ define dso_local noundef zeroext i1 @gettoken_tsvector(ptr noundef %0, ptr nound
   %382 = load i16, ptr %381, align 2
   %383 = and i16 %382, -16384
   %384 = load ptr, ptr %0, align 8
-  %385 = tail call i32 @atoi(ptr nocapture noundef %384) #8
+  %385 = tail call i32 @atoi(ptr noundef %384) #8
   %386 = icmp sgt i32 %385, 16383
   %387 = trunc i32 %385 to i16
   %388 = and i16 %387, 16383

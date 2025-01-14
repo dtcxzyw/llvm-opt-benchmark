@@ -4096,7 +4096,7 @@ define range(i32 -805306369, 268435457) i32 @str_2_federation_flags(ptr noundef 
   br label %14
 
 7:                                                ; preds = %2
-  %8 = tail call i32 @atoi(ptr nocapture noundef nonnull %0) #21
+  %8 = tail call i32 @atoi(ptr noundef nonnull %0) #21
   %9 = icmp eq i32 %8, -1
   br i1 %9, label %14, label %10
 
@@ -4495,7 +4495,7 @@ define i32 @str_2_qos_flags(ptr noundef %0, i32 noundef %1) local_unnamed_addr #
   br label %41
 
 7:                                                ; preds = %2
-  %8 = tail call i32 @atoi(ptr nocapture noundef nonnull %0) #21
+  %8 = tail call i32 @atoi(ptr noundef nonnull %0) #21
   %9 = icmp eq i32 %8, -1
   br i1 %9, label %41, label %10
 
@@ -4669,7 +4669,7 @@ define range(i32 1, 1073741826) i32 @str_2_res_flags(ptr noundef %0, i32 noundef
   br label %18
 
 7:                                                ; preds = %2
-  %8 = tail call i32 @atoi(ptr nocapture noundef nonnull %0) #21
+  %8 = tail call i32 @atoi(ptr noundef nonnull %0) #21
   %9 = icmp eq i32 %8, -1
   br i1 %9, label %18, label %10
 
@@ -5230,7 +5230,7 @@ define range(i32 -1, 1) i32 @set_qos_bitstr_from_list(ptr noundef %0, ptr nounde
 12:                                               ; preds = %10, %8, %.lr.ph
   %.010.i = phi ptr [ %9, %8 ], [ %11, %10 ], [ %6, %.lr.ph ]
   %.0.i = phi ptr [ @bit_clear, %8 ], [ @bit_set, %10 ], [ @bit_set, %.lr.ph ]
-  %13 = tail call i32 @atoi(ptr nocapture noundef nonnull %.010.i) #21
+  %13 = tail call i32 @atoi(ptr noundef nonnull %.010.i) #21
   %14 = sext i32 %13 to i64
   %15 = tail call i64 @bit_size(ptr noundef %0) #20
   %.not15.i = icmp sgt i64 %15, %14
@@ -5330,7 +5330,7 @@ define range(i32 -1, 1) i32 @set_qos_bitstr_from_string(ptr noundef %0, ptr noun
 28:                                               ; preds = %26, %24, %22
   %.010.i = phi ptr [ %25, %24 ], [ %27, %26 ], [ %21, %22 ]
   %.0.i = phi ptr [ @bit_clear, %24 ], [ @bit_set, %26 ], [ @bit_set, %22 ]
-  %29 = call i32 @atoi(ptr nocapture noundef nonnull %.010.i) #21
+  %29 = call i32 @atoi(ptr noundef nonnull %.010.i) #21
   %30 = sext i32 %29 to i64
   %31 = call i64 @bit_size(ptr noundef %0) #20
   %.not15.i = icmp sgt i64 %31, %30
@@ -5378,7 +5378,7 @@ _set_qos_bit_from_string.exit:                    ; preds = %16, %28, %32
 47:                                               ; preds = %45, %43, %41
   %.010.i33 = phi ptr [ %44, %43 ], [ %46, %45 ], [ %40, %41 ]
   %.0.i34 = phi ptr [ @bit_clear, %43 ], [ @bit_set, %45 ], [ @bit_set, %41 ]
-  %48 = call i32 @atoi(ptr nocapture noundef nonnull %.010.i33) #21
+  %48 = call i32 @atoi(ptr noundef nonnull %.010.i33) #21
   %49 = sext i32 %48 to i64
   %50 = call i64 @bit_size(ptr noundef %0) #20
   %.not15.i35 = icmp sgt i64 %50, %49
@@ -5448,7 +5448,7 @@ define ptr @get_qos_name_list(ptr noundef %0, ptr noundef %1) local_unnamed_addr
 19:                                               ; preds = %16, %.lr.ph
   %.023 = phi ptr [ %18, %16 ], [ %14, %.lr.ph ]
   %.0 = phi i32 [ %17, %16 ], [ 0, %.lr.ph ]
-  %20 = call i32 @atoi(ptr nocapture noundef nonnull %.023) #21
+  %20 = call i32 @atoi(ptr noundef nonnull %.023) #21
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
   store i32 %20, ptr %3, align 4
   %.not7.i = icmp eq i32 %20, 0
@@ -8810,7 +8810,7 @@ define ptr @slurmdb_make_tres_string_from_simple(ptr noundef %0, ptr noundef %1,
 19:                                               ; preds = %86, %.preheader
   %.048 = phi ptr [ %88, %86 ], [ %0, %.preheader ]
   %.0 = phi ptr [ %.2, %86 ], [ null, %.preheader ]
-  %20 = call i32 @atoi(ptr nocapture noundef nonnull %.048) #21
+  %20 = call i32 @atoi(ptr noundef nonnull %.048) #21
   store i32 %20, ptr %8, align 4
   %21 = icmp slt i32 %20, 1
   br i1 %21, label %22, label %24
@@ -9038,7 +9038,7 @@ define ptr @slurmdb_format_tres_str(ptr noundef %0, ptr noundef %1, i1 noundef z
   br i1 %or.cond75, label %17, label %.preheader
 
 17:                                               ; preds = %14
-  %18 = call i32 @atoi(ptr nocapture noundef nonnull %.1) #21
+  %18 = call i32 @atoi(ptr noundef nonnull %.1) #21
   store i32 %18, ptr %6, align 4
   %19 = icmp slt i32 %18, 1
   br i1 %19, label %20, label %22
@@ -9369,7 +9369,7 @@ define void @slurmdb_tres_list_from_string(ptr nocapture noundef %0, ptr noundef
   br i1 %or.cond117, label %21, label %23
 
 21:                                               ; preds = %18
-  %22 = call i32 @atoi(ptr nocapture noundef nonnull %.1) #21
+  %22 = call i32 @atoi(ptr noundef nonnull %.1) #21
   store i32 %22, ptr %4, align 4
   br label %44
 
@@ -9700,13 +9700,13 @@ define ptr @slurmdb_find_tres_in_string(ptr noundef readonly %0, i32 noundef %1)
   br i1 %.not21, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %3
-  %5 = tail call i32 @atoi(ptr nocapture noundef nonnull %0) #21
+  %5 = tail call i32 @atoi(ptr noundef nonnull %0) #21
   %6 = icmp eq i32 %1, %5
   br i1 %6, label %._crit_edge, label %.lr.ph
 
 7:                                                ; preds = %.lr.ph
   %8 = getelementptr inbounds nuw i8, ptr %20, i64 1
-  %9 = tail call i32 @atoi(ptr nocapture noundef nonnull %8) #21
+  %9 = tail call i32 @atoi(ptr noundef nonnull %8) #21
   %10 = icmp eq i32 %1, %9
   br i1 %10, label %._crit_edge, label %.lr.ph, !llvm.loop !50
 
@@ -9752,13 +9752,13 @@ define i64 @slurmdb_find_tres_count_in_string(ptr noundef readonly %0, i32 nound
   br i1 %.not14, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %3
-  %5 = tail call i32 @atoi(ptr nocapture noundef nonnull %0) #21
+  %5 = tail call i32 @atoi(ptr noundef nonnull %0) #21
   %6 = icmp eq i32 %1, %5
   br i1 %6, label %._crit_edge, label %.lr.ph
 
 7:                                                ; preds = %.lr.ph
   %8 = getelementptr inbounds nuw i8, ptr %17, i64 1
-  %9 = tail call i32 @atoi(ptr nocapture noundef nonnull %8) #21
+  %9 = tail call i32 @atoi(ptr noundef nonnull %8) #21
   %10 = icmp eq i32 %1, %9
   br i1 %10, label %._crit_edge, label %.lr.ph, !llvm.loop !51
 

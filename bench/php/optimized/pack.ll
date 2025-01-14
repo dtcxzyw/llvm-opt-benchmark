@@ -140,7 +140,7 @@ define hidden void @zif_pack(ptr noundef %0, ptr nocapture noundef writeonly %1)
   br i1 %or.cond, label %42, label %.critedge
 
 42:                                               ; preds = %40
-  %43 = call i32 @atoi(ptr nocapture noundef nonnull %35) #13
+  %43 = call i32 @atoi(ptr noundef nonnull %35) #13
   br label %44
 
 44:                                               ; preds = %44, %42

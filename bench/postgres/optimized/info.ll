@@ -535,7 +535,7 @@ free_db_and_rel_infos.exit:                       ; preds = %free_db_and_rel_inf
   %60 = tail call i32 @PQfnumber(ptr noundef %52, ptr noundef nonnull @.str.20) #8
   %61 = tail call i32 @PQfnumber(ptr noundef %52, ptr noundef nonnull @.str.21) #8
   %62 = tail call ptr @PQgetvalue(ptr noundef %52, i32 noundef 0, i32 noundef %57) #8
-  %63 = tail call i32 @atoi(ptr nocapture noundef %62) #9
+  %63 = tail call i32 @atoi(ptr noundef %62) #9
   %64 = getelementptr inbounds nuw i8, ptr %56, i64 32
   store i32 %63, ptr %64, align 8
   %65 = tail call ptr @PQgetvalue(ptr noundef %52, i32 noundef 0, i32 noundef %58) #8
@@ -904,7 +904,7 @@ get_old_cluster_logical_slot_infos.exit:          ; preds = %.tail.i, %202, %207
   %263 = load i32, ptr %116, align 8
   %264 = call ptr (ptr, ptr, ...) @executeQueryOrDie(ptr noundef %262, ptr noundef nonnull @.str.51, i32 noundef %263) #8
   %265 = call ptr @PQgetvalue(ptr noundef %264, i32 noundef 0, i32 noundef 0) #8
-  %266 = call i32 @atoi(ptr nocapture noundef %265) #9
+  %266 = call i32 @atoi(ptr noundef %265) #9
   %267 = getelementptr inbounds nuw i8, ptr %116, i64 1072
   store i32 %266, ptr %267, align 8
   call void @PQclear(ptr noundef %264) #8

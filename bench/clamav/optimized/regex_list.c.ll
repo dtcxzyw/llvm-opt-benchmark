@@ -655,14 +655,14 @@ define i32 @load_regex_matcher(ptr nocapture noundef readonly %0, ptr noundef %1
 
 ._crit_edge.i:                                    ; preds = %74, %.preheader.i
   store i8 0, ptr %53, align 1
-  %83 = call i32 @atoi(ptr nocapture noundef nonnull %52) #14
+  %83 = call i32 @atoi(ptr noundef nonnull %52) #14
   %84 = sext i32 %83 to i64
   %char0.i = load i8, ptr %56, align 1
   %85 = icmp eq i8 %char0.i, 0
   br i1 %85, label %89, label %86
 
 86:                                               ; preds = %._crit_edge.i
-  %87 = call i32 @atoi(ptr nocapture noundef nonnull %56) #14
+  %87 = call i32 @atoi(ptr noundef nonnull %56) #14
   %88 = sext i32 %87 to i64
   br label %89
 

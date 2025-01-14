@@ -451,7 +451,7 @@ sub_1166:                                         ; preds = %.tail159.thread.thr
   br i1 %.not127, label %113, label %110
 
 110:                                              ; preds = %106
-  %111 = tail call i32 @atoi(ptr nocapture noundef %108) #16
+  %111 = tail call i32 @atoi(ptr noundef %108) #16
   %112 = sext i32 %111 to i64
   br label %113
 
@@ -570,7 +570,7 @@ sub_0170:                                         ; preds = %129
 160:                                              ; preds = %156
   %161 = getelementptr inbounds nuw i8, ptr %.095232, i64 8
   %162 = load ptr, ptr %161, align 8
-  %163 = tail call i32 @atoi(ptr nocapture noundef %162) #16
+  %163 = tail call i32 @atoi(ptr noundef %162) #16
   store i32 %163, ptr @json_port, align 4
   br label %hwloc_utils_check_api_version.exit
 
@@ -863,7 +863,7 @@ hwloc_utils_check_api_version.exit._crit_edge:    ; preds = %hwloc_utils_check_a
 
 272:                                              ; preds = %.outer.split.split.split.split.split.i
   %273 = getelementptr inbounds nuw i8, ptr %.039.ph70.i, i64 4
-  %274 = call i32 @atoi(ptr nocapture noundef nonnull %273) #16
+  %274 = call i32 @atoi(ptr noundef nonnull %273) #16
   %275 = sext i32 %274 to i64
   store i64 %275, ptr @only_pid, align 8
   %276 = or i64 %.0.ph71.i, 1
@@ -871,7 +871,7 @@ hwloc_utils_check_api_version.exit._crit_edge:    ; preds = %hwloc_utils_check_a
 
 277:                                              ; preds = %.outer.split.split.split.split.split.split.i
   %278 = getelementptr inbounds nuw i8, ptr %.039.ph70.i, i64 14
-  %279 = call i32 @atoi(ptr nocapture noundef nonnull %278) #16
+  %279 = call i32 @atoi(ptr noundef nonnull %278) #16
   %280 = sext i32 %279 to i64
   store i64 %280, ptr @children_of_pid, align 8
   br label %.loopexit.sink.split.i

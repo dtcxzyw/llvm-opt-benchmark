@@ -1528,7 +1528,7 @@ define range(i32 -1, 1) i32 @xcpuinfo_abs_to_map(ptr noundef %0, ptr nocapture n
 
 30:                                               ; preds = %27
   store i8 0, ptr %.04575.i.lcssa, align 1
-  %31 = tail call i32 @atoi(ptr nocapture noundef nonnull %.04376.i.lcssa) #13
+  %31 = tail call i32 @atoi(ptr noundef nonnull %.04376.i.lcssa) #13
   %32 = trunc i32 %31 to i16
   br label %.outer.backedge.i
 
@@ -1541,7 +1541,7 @@ define range(i32 -1, 1) i32 @xcpuinfo_abs_to_map(ptr noundef %0, ptr nocapture n
 
 37:                                               ; preds = %33
   store i8 0, ptr %.04575.i.lcssa, align 1
-  %38 = tail call i32 @atoi(ptr nocapture noundef nonnull %.04376.i.lcssa) #13
+  %38 = tail call i32 @atoi(ptr noundef nonnull %.04376.i.lcssa) #13
   %39 = trunc i32 %38 to i16
   %.not58.i = icmp eq i32 %.04973.ph.i, 0
   %spec.select61.i = select i1 %.not58.i, i16 %39, i16 %.03977.ph.i

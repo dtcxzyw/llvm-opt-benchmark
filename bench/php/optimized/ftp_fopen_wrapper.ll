@@ -174,7 +174,7 @@ define hidden ptr @php_stream_url_wrap_ftp(ptr noundef %0, ptr noundef %1, ptr n
 
 50:                                               ; preds = %48
   %51 = getelementptr inbounds nuw i8, ptr %49, i64 1
-  %52 = call i32 @atoi(ptr nocapture noundef nonnull %51) #14
+  %52 = call i32 @atoi(ptr noundef nonnull %51) #14
   %53 = sext i32 %52 to i64
   br i1 %.not164, label %78, label %54
 
@@ -1462,7 +1462,7 @@ define internal range(i32 -1, 1) i32 @php_stream_ftp_url_stat(ptr noundef %0, pt
 
 38:                                               ; preds = %27
   %39 = getelementptr inbounds nuw i8, ptr %7, i64 4
-  %40 = call i32 @atoi(ptr nocapture noundef nonnull %39) #14
+  %40 = call i32 @atoi(ptr noundef nonnull %39) #14
   %41 = sext i32 %40 to i64
   br label %42
 

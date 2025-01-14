@@ -1650,7 +1650,7 @@ define noalias noundef ptr @Abc_SuppReadMin(ptr noundef %0, ptr nocapture nounde
 12:                                               ; preds = %7
   %13 = getelementptr inbounds nuw i8, ptr %8, i64 13
   %14 = tail call ptr @strtok(ptr noundef nonnull %13, ptr noundef nonnull @.str.17) #24
-  %15 = tail call i32 @atoi(ptr nocapture noundef %14) #26
+  %15 = tail call i32 @atoi(ptr noundef %14) #26
   %16 = add i32 %15, -1000001
   %or.cond = icmp ult i32 %16, -1000000
   br i1 %or.cond, label %17, label %18

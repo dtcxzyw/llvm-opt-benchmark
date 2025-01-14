@@ -390,7 +390,7 @@ sub_1:                                            ; preds = %sub_0
 75:                                               ; preds = %71, %70
   %76 = phi ptr [ %.pre191, %71 ], [ %55, %70 ]
   %77 = getelementptr inbounds nuw i8, ptr %76, i64 2
-  %78 = tail call i32 @atoi(ptr nocapture noundef nonnull %77) #13
+  %78 = tail call i32 @atoi(ptr noundef nonnull %77) #13
   store i32 %78, ptr %44, align 4
   br label %.loopexit
 
@@ -398,7 +398,7 @@ sub_1:                                            ; preds = %sub_0
   br i1 %.not162, label %81, label %79
 
 79:                                               ; preds = %.tail170.thread
-  %80 = tail call i32 @atoi(ptr nocapture noundef nonnull %53) #13
+  %80 = tail call i32 @atoi(ptr noundef nonnull %53) #13
   br label %81
 
 81:                                               ; preds = %.tail170.thread, %79
@@ -430,7 +430,7 @@ sub_1:                                            ; preds = %sub_0
   br i1 %.not157, label %90, label %88
 
 88:                                               ; preds = %86
-  %89 = tail call i32 @atoi(ptr nocapture noundef nonnull %87) #13
+  %89 = tail call i32 @atoi(ptr noundef nonnull %87) #13
   store i32 %89, ptr @enable_error_stack, align 4
   br label %.loopexit
 
@@ -654,7 +654,7 @@ check_n_input.exit:                               ; preds = %169, %159, %173
 180:                                              ; preds = %45
   store i32 1, ptr %26, align 8
   %181 = load ptr, ptr @H5_optarg, align 8
-  %182 = tail call i32 @atoi(ptr nocapture noundef %181) #13
+  %182 = tail call i32 @atoi(ptr noundef %181) #13
   store i32 %182, ptr %27, align 8
   store i8 1, ptr %28, align 8
   br label %.loopexit
@@ -674,7 +674,7 @@ check_n_input.exit:                               ; preds = %169, %159, %173
 187:                                              ; preds = %45
   store i32 1, ptr %22, align 8
   %188 = load ptr, ptr @H5_optarg, align 8
-  %189 = tail call i32 @atoi(ptr nocapture noundef %188) #13
+  %189 = tail call i32 @atoi(ptr noundef %188) #13
   store i32 %189, ptr %23, align 8
   store i8 1, ptr %24, align 1
   br label %.loopexit
@@ -694,7 +694,7 @@ check_n_input.exit:                               ; preds = %169, %159, %173
 194:                                              ; preds = %45
   store i32 1, ptr %18, align 8
   %195 = load ptr, ptr @H5_optarg, align 8
-  %196 = tail call i32 @atoi(ptr nocapture noundef %195) #13
+  %196 = tail call i32 @atoi(ptr noundef %195) #13
   store i32 %196, ptr %19, align 8
   store i8 1, ptr %20, align 2
   br label %.loopexit
@@ -714,7 +714,7 @@ check_n_input.exit:                               ; preds = %169, %159, %173
 201:                                              ; preds = %45
   store i32 1, ptr %14, align 8
   %202 = load ptr, ptr @H5_optarg, align 8
-  %203 = tail call i32 @atoi(ptr nocapture noundef %202) #13
+  %203 = tail call i32 @atoi(ptr noundef %202) #13
   store i32 %203, ptr %15, align 8
   store i8 1, ptr %16, align 1
   br label %.loopexit

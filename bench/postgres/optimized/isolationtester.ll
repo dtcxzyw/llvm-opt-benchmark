@@ -110,7 +110,7 @@ define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef %1) local
   br i1 %.not43, label %26, label %22
 
 22:                                               ; preds = %20
-  %23 = tail call i32 @atoi(ptr nocapture noundef nonnull %21) #19
+  %23 = tail call i32 @atoi(ptr noundef nonnull %21) #19
   %24 = sext i32 %23 to i64
   %25 = mul nsw i64 %24, 2000000
   store i64 %25, ptr @max_step_wait, align 8

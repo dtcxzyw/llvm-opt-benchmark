@@ -53,7 +53,7 @@ thread-pre-split187:                              ; preds = %.preheader191, %thr
 
 ._crit_edge:                                      ; preds = %thread-pre-split187, %.preheader191
   %.lcssa201 = phi ptr [ %12, %.preheader191 ], [ %19, %thread-pre-split187 ]
-  %20 = tail call i32 @atoi(ptr nocapture noundef nonnull %.lcssa201) #10
+  %20 = tail call i32 @atoi(ptr noundef nonnull %.lcssa201) #10
   br label %21
 
 21:                                               ; preds = %21, %._crit_edge
@@ -64,7 +64,7 @@ thread-pre-split187:                              ; preds = %.preheader191, %thr
   br i1 %.not135, label %24, label %21, !llvm.loop !8
 
 24:                                               ; preds = %21
-  %25 = tail call i32 @atoi(ptr nocapture noundef nonnull %22) #10
+  %25 = tail call i32 @atoi(ptr noundef nonnull %22) #10
   br label %26
 
 26:                                               ; preds = %26, %24
@@ -75,7 +75,7 @@ thread-pre-split187:                              ; preds = %.preheader191, %thr
   br i1 %.not136, label %29, label %26, !llvm.loop !9
 
 29:                                               ; preds = %26
-  %30 = tail call i32 @atoi(ptr nocapture noundef nonnull %27) #10
+  %30 = tail call i32 @atoi(ptr noundef nonnull %27) #10
   br label %31
 
 31:                                               ; preds = %31, %29
@@ -86,7 +86,7 @@ thread-pre-split187:                              ; preds = %.preheader191, %thr
   br i1 %.not137, label %34, label %31, !llvm.loop !10
 
 34:                                               ; preds = %31
-  %35 = tail call i32 @atoi(ptr nocapture noundef nonnull %32) #10
+  %35 = tail call i32 @atoi(ptr noundef nonnull %32) #10
   br label %36
 
 36:                                               ; preds = %36, %34

@@ -2014,7 +2014,7 @@ sub_0136:                                         ; preds = %439
 
 650:                                              ; preds = %647
   %651 = call ptr @PQgetvalue(ptr noundef %632, i32 noundef 0, i32 noundef 1) #18
-  %652 = call i32 @atoi(ptr nocapture noundef %651) #19
+  %652 = call i32 @atoi(ptr noundef %651) #19
   br label %655
 
 653:                                              ; preds = %647
@@ -2071,7 +2071,7 @@ sub_0136:                                         ; preds = %439
 .lr.ph.i76:                                       ; preds = %672, %703
   %.0145237.i = phi i32 [ %704, %703 ], [ 0, %672 ]
   %676 = call ptr @PQgetvalue(ptr noundef %663, i32 noundef %.0145237.i, i32 noundef 2) #18
-  %677 = call i64 @atol(ptr nocapture noundef %676) #19
+  %677 = call i64 @atol(ptr noundef %676) #19
   %678 = load i64, ptr @totalsize_kb, align 8
   %679 = add i64 %678, %677
   store i64 %679, ptr @totalsize_kb, align 8

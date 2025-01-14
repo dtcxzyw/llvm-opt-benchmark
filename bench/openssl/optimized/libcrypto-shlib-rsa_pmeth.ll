@@ -1436,7 +1436,7 @@ if.else43:                                        ; preds = %if.else39
   br i1 %tobool45.not, label %if.end51, label %if.else47
 
 if.else47:                                        ; preds = %if.else43
-  %call48 = tail call i32 @atoi(ptr nocapture noundef nonnull %value) #10
+  %call48 = tail call i32 @atoi(ptr noundef nonnull %value) #10
   br label %if.end51
 
 if.end51:                                         ; preds = %if.else43, %if.else39, %if.then36, %if.else47
@@ -1450,7 +1450,7 @@ if.end53:                                         ; preds = %if.end33
   br i1 %cmp55, label %if.then56, label %if.end59
 
 if.then56:                                        ; preds = %if.end53
-  %call57 = tail call i32 @atoi(ptr nocapture noundef nonnull %value) #10
+  %call57 = tail call i32 @atoi(ptr noundef nonnull %value) #10
   %call58 = tail call i32 @EVP_PKEY_CTX_set_rsa_keygen_bits(ptr noundef %ctx, i32 noundef %call57) #8
   br label %return
 
@@ -1478,7 +1478,7 @@ if.end68:                                         ; preds = %if.end59
   br i1 %cmp70, label %if.then71, label %if.end74
 
 if.then71:                                        ; preds = %if.end68
-  %call72 = tail call i32 @atoi(ptr nocapture noundef nonnull %value) #10
+  %call72 = tail call i32 @atoi(ptr noundef nonnull %value) #10
   %call73 = tail call i32 @EVP_PKEY_CTX_set_rsa_keygen_primes(ptr noundef %ctx, i32 noundef %call72) #8
   br label %return
 
@@ -1522,7 +1522,7 @@ if.end91:                                         ; preds = %if.end86
   br i1 %cmp93, label %if.then94, label %if.end99
 
 if.then94:                                        ; preds = %if.end91
-  %call96 = tail call i32 @atoi(ptr nocapture noundef nonnull %value) #10
+  %call96 = tail call i32 @atoi(ptr noundef nonnull %value) #10
   %call97 = tail call i32 @EVP_PKEY_CTX_set_rsa_pss_keygen_saltlen(ptr noundef nonnull %ctx, i32 noundef %call96) #8
   br label %return
 

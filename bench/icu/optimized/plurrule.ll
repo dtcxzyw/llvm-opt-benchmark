@@ -1544,7 +1544,7 @@ if.then66:                                        ; preds = %land.lhs.true
   %idxprom.i110 = sext i32 %call1.i to i64
   %arrayidx.i111 = getelementptr inbounds [128 x i8], ptr %digits.i, i64 0, i64 %idxprom.i110
   store i8 0, ptr %arrayidx.i111, align 1
-  %call3.i112 = call noundef i32 @atoi(ptr nocapture noundef nonnull %digits.i) #30
+  %call3.i112 = call noundef i32 @atoi(ptr noundef nonnull %digits.i) #30
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %digits.i)
   %51 = load ptr, ptr %curAndConstraint198, align 8
   %opNum69 = getelementptr inbounds nuw i8, ptr %51, i64 12
@@ -1569,7 +1569,7 @@ if.then73:                                        ; preds = %if.else
   %idxprom.i120 = sext i32 %call1.i119 to i64
   %arrayidx.i121 = getelementptr inbounds [128 x i8], ptr %digits.i113, i64 0, i64 %idxprom.i120
   store i8 0, ptr %arrayidx.i121, align 1
-  %call3.i122 = call noundef i32 @atoi(ptr nocapture noundef nonnull %digits.i113) #30
+  %call3.i122 = call noundef i32 @atoi(ptr noundef nonnull %digits.i113) #30
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %digits.i113)
   %56 = load ptr, ptr %curAndConstraint198, align 8
   %value77 = getelementptr inbounds nuw i8, ptr %56, i64 16
@@ -1606,7 +1606,7 @@ if.then84:                                        ; preds = %_ZNK6icu_759UVector
   %idxprom.i137 = sext i32 %call1.i136 to i64
   %arrayidx.i138 = getelementptr inbounds [128 x i8], ptr %digits.i130, i64 0, i64 %idxprom.i137
   store i8 0, ptr %arrayidx.i138, align 1
-  %call3.i139 = call noundef i32 @atoi(ptr nocapture noundef nonnull %digits.i130) #30
+  %call3.i139 = call noundef i32 @atoi(ptr noundef nonnull %digits.i130) #30
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %digits.i130)
   %64 = load i32, ptr %rangeLowIdx126, align 8
   call void @_ZN6icu_759UVector3212setElementAtEii(ptr noundef nonnull align 8 dereferenceable(32) %52, i32 noundef %call3.i139, i32 noundef %64)
@@ -1624,7 +1624,7 @@ if.then84:                                        ; preds = %_ZNK6icu_759UVector
   %idxprom.i147 = sext i32 %call1.i146 to i64
   %arrayidx.i148 = getelementptr inbounds [128 x i8], ptr %digits.i140, i64 0, i64 %idxprom.i147
   store i8 0, ptr %arrayidx.i148, align 1
-  %call3.i149 = call noundef i32 @atoi(ptr nocapture noundef nonnull %digits.i140) #30
+  %call3.i149 = call noundef i32 @atoi(ptr noundef nonnull %digits.i140) #30
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %digits.i140)
   %70 = load i32, ptr %rangeHiIdx132, align 4
   call void @_ZN6icu_759UVector3212setElementAtEii(ptr noundef nonnull align 8 dereferenceable(32) %66, i32 noundef %call3.i149, i32 noundef %70)
@@ -1642,7 +1642,7 @@ if.else95:                                        ; preds = %if.else78, %_ZNK6ic
   %idxprom.i157 = sext i32 %call1.i156 to i64
   %arrayidx.i158 = getelementptr inbounds [128 x i8], ptr %digits.i150, i64 0, i64 %idxprom.i157
   store i8 0, ptr %arrayidx.i158, align 1
-  %call3.i159 = call noundef i32 @atoi(ptr nocapture noundef nonnull %digits.i150) #30
+  %call3.i159 = call noundef i32 @atoi(ptr noundef nonnull %digits.i150) #30
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %digits.i150)
   %74 = load i32, ptr %rangeHiIdx132, align 4
   call void @_ZN6icu_759UVector3212setElementAtEii(ptr noundef nonnull align 8 dereferenceable(32) %52, i32 noundef %call3.i159, i32 noundef %74)
@@ -5262,7 +5262,7 @@ entry:
   %idxprom = sext i32 %call1 to i64
   %arrayidx = getelementptr inbounds [128 x i8], ptr %digits, i64 0, i64 %idxprom
   store i8 0, ptr %arrayidx, align 1
-  %call3 = call i32 @atoi(ptr nocapture noundef nonnull %digits) #30
+  %call3 = call i32 @atoi(ptr noundef nonnull %digits) #30
   ret i32 %call3
 }
 
@@ -8751,7 +8751,7 @@ for.end.i:                                        ; preds = %for.inc.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(30) %buf.i, i8 0, i64 30, i1 false)
   %call.i = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %buf.i, i64 noundef 30, ptr noundef nonnull @.str.17, double noundef %0) #27
   %add.ptr.i = getelementptr inbounds nuw i8, ptr %buf.i, i64 18
-  %call3.i = call i32 @atoi(ptr nocapture noundef nonnull %add.ptr.i) #30
+  %call3.i = call i32 @atoi(ptr noundef nonnull %add.ptr.i) #30
   %arrayidx612.i = getelementptr inbounds nuw i8, ptr %buf.i, i64 16
   %3 = load i8, ptr %arrayidx612.i, align 16
   %cmp8.not13.i = icmp eq i8 %3, 48
@@ -9583,7 +9583,7 @@ for.end:                                          ; preds = %for.inc
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(30) %buf, i8 0, i64 30, i1 false)
   %call = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %buf, i64 noundef 30, ptr noundef nonnull @.str.17, double noundef %0) #27
   %add.ptr = getelementptr inbounds nuw i8, ptr %buf, i64 18
-  %call3 = call i32 @atoi(ptr nocapture noundef nonnull %add.ptr) #30
+  %call3 = call i32 @atoi(ptr noundef nonnull %add.ptr) #30
   %arrayidx612 = getelementptr inbounds nuw i8, ptr %buf, i64 16
   %3 = load i8, ptr %arrayidx612, align 16
   %cmp8.not13 = icmp eq i8 %3, 48

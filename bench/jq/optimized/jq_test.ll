@@ -286,7 +286,7 @@ jv_test.exit:                                     ; preds = %57
   %196 = sext i32 %195 to i64
   %197 = getelementptr inbounds ptr, ptr %4, i64 %196
   %198 = load ptr, ptr %197, align 8
-  %199 = call i32 @atoi(ptr nocapture noundef %198) #14
+  %199 = call i32 @atoi(ptr noundef %198) #14
   br label %211
 
 200:                                              ; preds = %.preheader
@@ -299,7 +299,7 @@ jv_test.exit:                                     ; preds = %57
   %204 = sext i32 %203 to i64
   %205 = getelementptr inbounds ptr, ptr %4, i64 %204
   %206 = load ptr, ptr %205, align 8
-  %207 = call i32 @atoi(ptr nocapture noundef %206) #14
+  %207 = call i32 @atoi(ptr noundef %206) #14
   br label %211
 
 208:                                              ; preds = %200

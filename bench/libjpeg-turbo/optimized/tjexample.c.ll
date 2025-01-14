@@ -280,7 +280,7 @@ define dso_local range(i32 -1, 1) i32 @main(i32 noundef %0, ptr nocapture nounde
   %83 = sext i32 %82 to i64
   %84 = getelementptr inbounds ptr, ptr %1, i64 %83
   %85 = load ptr, ptr %84, align 8
-  %86 = call i32 @atoi(ptr nocapture noundef %85) #14
+  %86 = call i32 @atoi(ptr noundef %85) #14
   %87 = add i32 %86, -101
   %or.cond = icmp ult i32 %87, -100
   br i1 %or.cond, label %88, label %.thread

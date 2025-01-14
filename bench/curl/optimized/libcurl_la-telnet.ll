@@ -361,7 +361,7 @@ sw.bb94.i:                                        ; preds = %if.end23.i
   br i1 %tobool96.not.i, label %if.then113.i, label %if.then97.i
 
 if.then97.i:                                      ; preds = %sw.bb94.i
-  %call98.i = call i32 @atoi(ptr nocapture noundef nonnull %incdec.ptr.i) #11
+  %call98.i = call i32 @atoi(ptr noundef nonnull %incdec.ptr.i) #11
   %cmp99.not.i = icmp eq i32 %call98.i, 1
   br i1 %cmp99.not.i, label %for.inc.i, label %if.then101.i
 

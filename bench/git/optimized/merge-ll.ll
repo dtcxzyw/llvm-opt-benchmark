@@ -163,7 +163,7 @@ if.end3:                                          ; preds = %normalize_file.exit
   br i1 %tobool7.not, label %if.end15, label %if.then8
 
 if.then8:                                         ; preds = %if.end3
-  %call12 = call i32 @atoi(ptr nocapture noundef nonnull %17) #14
+  %call12 = call i32 @atoi(ptr noundef nonnull %17) #14
   %cmp = icmp slt i32 %call12, 1
   %spec.store.select1 = select i1 %cmp, i32 7, i32 %call12
   br label %if.end15
@@ -336,7 +336,7 @@ if.end:                                           ; preds = %if.then, %entry
   br i1 %tobool1.not, label %if.end9, label %if.then2
 
 if.then2:                                         ; preds = %if.end
-  %call6 = tail call i32 @atoi(ptr nocapture noundef nonnull %4) #14
+  %call6 = tail call i32 @atoi(ptr noundef nonnull %4) #14
   %cmp = icmp slt i32 %call6, 1
   %spec.store.select = select i1 %cmp, i32 7, i32 %call6
   br label %if.end9

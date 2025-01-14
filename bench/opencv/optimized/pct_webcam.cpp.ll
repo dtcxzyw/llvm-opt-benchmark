@@ -175,7 +175,7 @@ define hidden noundef range(i32 0, 2) i32 @main(i32 noundef %0, ptr nocapture no
 ._crit_edge:                                      ; preds = %29
   %47 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %48 = load ptr, ptr %47, align 8
-  %49 = call i32 @atoi(ptr nocapture noundef %48) #10
+  %49 = call i32 @atoi(ptr noundef %48) #10
   %50 = icmp slt i32 %49, 1
   br i1 %50, label %51, label %55
 
@@ -198,7 +198,7 @@ define hidden noundef range(i32 0, 2) i32 @main(i32 noundef %0, ptr nocapture no
 59:                                               ; preds = %55
   %60 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %61 = load ptr, ptr %60, align 8
-  %62 = call i32 @atoi(ptr nocapture noundef %61) #10
+  %62 = call i32 @atoi(ptr noundef %61) #10
   %63 = icmp slt i32 %62, 1
   br i1 %63, label %64, label %68
 

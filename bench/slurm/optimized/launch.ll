@@ -2933,7 +2933,7 @@ _find_srun_job.exit.thread:                       ; preds = %1, %_find_srun_job.
   br i1 %.not80, label %20, label %18
 
 18:                                               ; preds = %16
-  %19 = tail call i32 @atoi(ptr nocapture noundef nonnull %17) #21
+  %19 = tail call i32 @atoi(ptr noundef nonnull %17) #21
   %.not81 = icmp eq i32 %19, 0
   br i1 %.not81, label %20, label %.sink.split
 
@@ -3690,7 +3690,7 @@ define internal fastcc range(i32 0, -2147483648) i32 @_parse_gpu_request(ptr nou
   %.not14 = icmp eq ptr %6, null
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1
   %.01216.sink = select i1 %.not14, ptr %.01216, ptr %7
-  %8 = call i32 @atoi(ptr nocapture noundef nonnull %.01216.sink) #21
+  %8 = call i32 @atoi(ptr noundef nonnull %.01216.sink) #21
   %9 = call i32 @llvm.smax.i32(i32 %8, i32 0)
   %spec.select = add nuw nsw i32 %9, %.01117
   %10 = call ptr @strtok_r(ptr noundef null, ptr noundef nonnull @.str.45, ptr noundef nonnull %2) #18

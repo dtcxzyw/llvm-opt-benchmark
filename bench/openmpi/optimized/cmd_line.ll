@@ -1743,7 +1743,7 @@ declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 -43, 1) i32 @set_dest(ptr nocapture noundef nonnull readonly %0, ptr noundef %1) unnamed_addr #2 {
-  %3 = tail call i64 @atol(ptr nocapture noundef %1) #22
+  %3 = tail call i64 @atol(ptr noundef %1) #22
   %4 = trunc i64 %3 to i32
   %5 = tail call i64 @strtoul(ptr nocapture noundef %1, ptr noundef null, i32 noundef 10) #21
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 88

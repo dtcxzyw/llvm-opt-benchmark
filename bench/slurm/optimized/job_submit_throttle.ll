@@ -91,7 +91,7 @@ define range(i32 0, 2051) i32 @job_submit(ptr nocapture noundef readonly %0, i32
 
 8:                                                ; preds = %5
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 23
-  %10 = tail call i32 @atoi(ptr nocapture noundef nonnull %9) #11
+  %10 = tail call i32 @atoi(ptr noundef nonnull %9) #11
   store i32 %10, ptr @jobs_per_user_per_hour, align 4
   br label %11
 

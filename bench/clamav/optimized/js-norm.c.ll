@@ -4343,7 +4343,7 @@ textbuffer_putc.exit83:                           ; preds = %111, %116
 127:                                              ; preds = %122
   store i32 5, ptr %123, align 4
   %128 = load ptr, ptr %1, align 8
-  %129 = tail call i32 @atoi(ptr nocapture noundef %128) #20
+  %129 = tail call i32 @atoi(ptr noundef %128) #20
   %130 = sext i32 %129 to i64
   store i64 %130, ptr %0, align 8
   br label %132

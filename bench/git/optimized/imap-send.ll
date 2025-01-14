@@ -2530,7 +2530,7 @@ if.end29.i38:                                     ; preds = %if.then25.i34
 
 lor.lhs.false18:                                  ; preds = %while.body20.i50, %if.end29.i38, %if.then25.i34, %if.end23.i30
   %retval.0.i4299 = phi ptr [ %incdec.ptr10.i31, %if.end23.i30 ], [ %ret.039.i35, %if.then25.i34 ], [ %ret.039.i35, %if.end29.i38 ], [ %s.promoted33.i29, %while.body20.i50 ]
-  %call19 = tail call i32 @atoi(ptr nocapture noundef nonnull %retval.0.i4299) #22
+  %call19 = tail call i32 @atoi(ptr noundef nonnull %retval.0.i4299) #22
   %uidvalidity = getelementptr inbounds nuw i8, ptr %ctx, i64 8
   store i32 %call19, ptr %uidvalidity, align 8
   %tobool20.not = icmp eq i32 %call19, 0
@@ -2620,7 +2620,7 @@ if.end29.i74:                                     ; preds = %if.then25.i70
 
 lor.lhs.false29:                                  ; preds = %while.body20.i86, %if.end29.i74, %if.then25.i70, %if.end23.i66
   %retval.0.i78109 = phi ptr [ %incdec.ptr10.i67, %if.end23.i66 ], [ %ret.039.i71, %if.then25.i70 ], [ %ret.039.i71, %if.end29.i74 ], [ %s.promoted33.i65, %while.body20.i86 ]
-  %call30 = tail call i32 @atoi(ptr nocapture noundef nonnull %retval.0.i78109) #22
+  %call30 = tail call i32 @atoi(ptr noundef nonnull %retval.0.i78109) #22
   store i32 %call30, ptr %0, align 8
   %tobool31.not = icmp eq i32 %call30, 0
   br i1 %tobool31.not, label %if.then32, label %return
@@ -2681,7 +2681,7 @@ if.then55:                                        ; preds = %land.lhs.true52
   br i1 %tobool57.not, label %if.then69, label %lor.lhs.false58
 
 lor.lhs.false58:                                  ; preds = %if.then55
-  %call59 = tail call i32 @atoi(ptr nocapture noundef nonnull %call56) #22
+  %call59 = tail call i32 @atoi(ptr noundef nonnull %call56) #22
   %uidvalidity60 = getelementptr inbounds nuw i8, ptr %ctx, i64 8
   store i32 %call59, ptr %uidvalidity60, align 8
   %tobool61.not = icmp eq i32 %call59, 0
@@ -2693,7 +2693,7 @@ lor.lhs.false62:                                  ; preds = %lor.lhs.false58
   br i1 %tobool64.not, label %if.then69, label %lor.lhs.false65
 
 lor.lhs.false65:                                  ; preds = %lor.lhs.false62
-  %call66 = tail call i32 @atoi(ptr nocapture noundef nonnull %call63) #22
+  %call66 = tail call i32 @atoi(ptr noundef nonnull %call63) #22
   %56 = load ptr, ptr %ctx50, align 8
   store i32 %call66, ptr %56, align 4
   %tobool68.not = icmp eq i32 %call66, 0
@@ -3778,7 +3778,7 @@ if.end99:                                         ; preds = %if.then98, %if.end9
   br i1 %tobool166.not, label %return, label %if.end174
 
 if.else103:                                       ; preds = %if.else52
-  %call104 = tail call i32 @atoi(ptr nocapture noundef nonnull %retval.0.i171) #22
+  %call104 = tail call i32 @atoi(ptr noundef nonnull %retval.0.i171) #22
   br label %for.cond106
 
 for.cond106:                                      ; preds = %for.body, %if.else103

@@ -4916,7 +4916,7 @@ Vec_StrFill.exit.i134:                            ; preds = %221, %Vec_StrGrow.e
 Scl_LibertyReadString.exit144:                    ; preds = %238, %242
   %.0.i137 = phi ptr [ %241, %238 ], [ %.val22.i135, %242 ]
   %244 = tail call ptr @strtok(ptr noundef nonnull %.0.i137, ptr noundef nonnull @.str.66) #29
-  %245 = tail call i32 @atoi(ptr nocapture noundef %244) #30
+  %245 = tail call i32 @atoi(ptr noundef %244) #30
   %246 = tail call ptr @strtok(ptr noundef null, ptr noundef nonnull @.str.43) #29
   %247 = tail call double @atof(ptr noundef %246) #30
   %248 = fptrunc double %247 to float
@@ -5732,7 +5732,7 @@ Scl_LibertyItem.exit:                             ; preds = %2
   %21 = getelementptr inbounds nuw i8, ptr %.016, i64 16
   %22 = load i64, ptr %21, align 4
   %23 = tail call ptr @Scl_LibertyReadString(ptr noundef nonnull %0, i64 %22)
-  %24 = tail call i32 @atoi(ptr nocapture noundef %23) #30
+  %24 = tail call i32 @atoi(ptr noundef %23) #30
   br label %.loopexit
 
 Scl_LibertyCompare.exit.thread:                   ; preds = %12
@@ -10069,7 +10069,7 @@ Scl_LibertyItem.exit11.i:                         ; preds = %Scl_LibertyCompare.
   %234 = getelementptr inbounds nuw i8, ptr %.016.i, i64 16
   %235 = load i64, ptr %234, align 4
   %236 = tail call ptr @Scl_LibertyReadString(ptr noundef nonnull readonly %0, i64 %235)
-  %237 = tail call i32 @atoi(ptr nocapture noundef %236) #30
+  %237 = tail call i32 @atoi(ptr noundef %236) #30
   br label %Scl_LibertyReadDeriveStrength.exit
 
 Scl_LibertyCompare.exit.thread.i496:              ; preds = %Scl_LibertyItem.exit11.i

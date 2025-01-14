@@ -4310,7 +4310,7 @@ php_network_listen_socket.exit.i:                 ; preds = %146
   br i1 %.not.i74.i, label %php_cli_server_startup_workers.exit.i, label %174
 
 174:                                              ; preds = %172
-  %175 = call i64 @atoll(ptr nocapture noundef nonnull %173) #30
+  %175 = call i64 @atoll(ptr noundef nonnull %173) #30
   store i64 %175, ptr @php_cli_server_workers_max, align 8
   %176 = icmp sgt i64 %175, 1
   br i1 %176, label %177, label %199

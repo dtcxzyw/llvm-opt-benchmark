@@ -164,7 +164,7 @@ define dso_local range(i32 0, 256) i32 @main(i32 noundef %0, ptr noundef %1) loc
   br i1 %.not.i, label %29, label %23
 
 23:                                               ; preds = %20
-  %24 = tail call i32 @atoi(ptr nocapture noundef nonnull %22) #18
+  %24 = tail call i32 @atoi(ptr noundef nonnull %22) #18
   %25 = icmp eq i32 %24, 0
   br i1 %25, label %26, label %28
 
@@ -182,7 +182,7 @@ define dso_local range(i32 0, 256) i32 @main(i32 noundef %0, ptr noundef %1) loc
   br i1 %.not8.i, label %_set_exit_code.exit, label %31
 
 31:                                               ; preds = %29
-  %32 = tail call i32 @atoi(ptr nocapture noundef nonnull %30) #18
+  %32 = tail call i32 @atoi(ptr noundef nonnull %30) #18
   %33 = icmp eq i32 %32, 0
   br i1 %33, label %34, label %36
 

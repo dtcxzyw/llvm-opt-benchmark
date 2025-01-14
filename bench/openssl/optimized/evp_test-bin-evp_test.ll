@@ -1238,7 +1238,7 @@ if.then254.i:                                     ; preds = %if.else249.i
   %88 = load ptr, ptr @libctx, align 8
   %value255.i = getelementptr inbounds nuw i8, ptr %pp.0.pn262.i, i64 24
   %89 = load ptr, ptr %value255.i, align 8
-  %call256.i = tail call i32 @atoi(ptr nocapture noundef %89) #12
+  %call256.i = tail call i32 @atoi(ptr noundef %89) #12
   %conv257.i = sext i32 %call256.i to i64
   %call258.i = tail call i32 @OSSL_set_max_threads(ptr noundef %88, i64 noundef %conv257.i) #11
   %cmp259.i = icmp eq i32 %call258.i, 0
@@ -1932,7 +1932,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %incdec.ptr = getelementptr inbounds nuw i8, ptr %call, i64 1
-  %call1 = tail call i32 @atoi(ptr nocapture noundef nonnull %incdec.ptr) #12
+  %call1 = tail call i32 @atoi(ptr noundef nonnull %incdec.ptr) #12
   %cmp2 = icmp sgt i32 %call1, 14
   br i1 %cmp2, label %return, label %if.end
 
@@ -2088,7 +2088,7 @@ if.end71:                                         ; preds = %if.end65
   br i1 %cmp73, label %if.then74, label %if.end77
 
 if.then74:                                        ; preds = %if.end71
-  %call75 = tail call i32 @atoi(ptr nocapture noundef %value) #12
+  %call75 = tail call i32 @atoi(ptr noundef %value) #12
   %cmp76 = icmp ne i32 %call75, 0
   %conv = zext i1 %cmp76 to i32
   %use_df = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -2101,7 +2101,7 @@ if.end77:                                         ; preds = %if.end71
   br i1 %cmp79, label %if.then81, label %if.end89
 
 if.then81:                                        ; preds = %if.end77
-  %call82 = tail call i32 @atoi(ptr nocapture noundef %value) #12
+  %call82 = tail call i32 @atoi(ptr noundef %value) #12
   %cmp83 = icmp sgt i32 %call82, 0
   %rem = and i32 %call82, 7
   %cmp85.not = icmp eq i32 %rem, 0
@@ -2119,7 +2119,7 @@ if.end89:                                         ; preds = %if.end77
   br i1 %cmp91, label %if.then93, label %return
 
 if.then93:                                        ; preds = %if.end89
-  %call94 = tail call i32 @atoi(ptr nocapture noundef %value) #12
+  %call94 = tail call i32 @atoi(ptr noundef %value) #12
   %cmp95 = icmp ne i32 %call94, 0
   %conv96 = zext i1 %cmp95 to i32
   %prediction_resistance = getelementptr inbounds nuw i8, ptr %0, i64 20
@@ -2636,7 +2636,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp3, label %if.then4, label %sub_0
 
 if.then4:                                         ; preds = %if.end
-  %call5 = tail call i32 @atoi(ptr nocapture noundef %value) #12
+  %call5 = tail call i32 @atoi(ptr noundef %value) #12
   %cmp6 = icmp slt i32 %call5, 0
   br i1 %cmp6, label %return, label %if.end8
 
@@ -2707,7 +2707,7 @@ if.end30:                                         ; preds = %if.end25
   br i1 %cmp32, label %if.then33, label %if.end38
 
 if.then33:                                        ; preds = %if.end30
-  %call34 = tail call i32 @atoi(ptr nocapture noundef %value) #12
+  %call34 = tail call i32 @atoi(ptr noundef %value) #12
   %cmp35 = icmp slt i32 %call34, 0
   br i1 %cmp35, label %return, label %if.end37
 
@@ -4152,7 +4152,7 @@ if.end6:                                          ; preds = %if.end
 if.then9:                                         ; preds = %if.end6
   %input10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %1 = load ptr, ptr %input10, align 8
-  %call.i = tail call i32 @atoi(ptr nocapture noundef readonly %value) #12
+  %call.i = tail call i32 @atoi(ptr noundef readonly %value) #12
   %cmp.i = icmp slt i32 %call.i, 1
   %cmp1.i = icmp eq ptr %1, null
   %or.cond.i = or i1 %cmp1.i, %cmp.i
@@ -4196,7 +4196,7 @@ if.end18:                                         ; preds = %if.end12
   br i1 %cmp20, label %if.then21, label %if.end24
 
 if.then21:                                        ; preds = %if.end18
-  %call22 = tail call i32 @atoi(ptr nocapture noundef %value) #12
+  %call22 = tail call i32 @atoi(ptr noundef %value) #12
   %pad_type = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i32 %call22, ptr %pad_type, align 8
   %cmp23 = icmp sgt i32 %call22, 0
@@ -4209,7 +4209,7 @@ if.end24:                                         ; preds = %if.end18
   br i1 %cmp26, label %if.then28, label %if.end32
 
 if.then28:                                        ; preds = %if.end24
-  %call29 = tail call i32 @atoi(ptr nocapture noundef %value) #12
+  %call29 = tail call i32 @atoi(ptr noundef %value) #12
   %xof = getelementptr inbounds nuw i8, ptr %0, i64 44
   store i32 %call29, ptr %xof, align 4
   %cmp30 = icmp sgt i32 %call29, 0
@@ -4222,7 +4222,7 @@ if.end32:                                         ; preds = %if.end24
   br i1 %cmp34, label %if.then36, label %return
 
 if.then36:                                        ; preds = %if.end32
-  %call37 = tail call i32 @atoi(ptr nocapture noundef %value) #12
+  %call37 = tail call i32 @atoi(ptr noundef %value) #12
   %cmp38 = icmp slt i32 %call37, 0
   br i1 %cmp38, label %return, label %if.end41
 
@@ -4664,7 +4664,7 @@ return:                                           ; preds = %if.then.i, %err, %i
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 0, 2) i32 @evp_test_buffer_ncopy(ptr nocapture noundef readonly %value, ptr noundef %sk) unnamed_addr #1 {
 entry:
-  %call = tail call i32 @atoi(ptr nocapture noundef %value) #12
+  %call = tail call i32 @atoi(ptr noundef %value) #12
   %cmp = icmp slt i32 %call, 1
   %cmp1 = icmp eq ptr %sk, null
   %or.cond = or i1 %cmp1, %cmp
@@ -4927,7 +4927,7 @@ if.then46:                                        ; preds = %if.end43
 if.then49:                                        ; preds = %if.then46
   %input50 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %14 = load ptr, ptr %input50, align 8
-  %call.i59 = tail call i32 @atoi(ptr nocapture noundef readonly %value) #12
+  %call.i59 = tail call i32 @atoi(ptr noundef readonly %value) #12
   %cmp.i = icmp slt i32 %call.i59, 1
   %cmp1.i = icmp eq ptr %14, null
   %or.cond.i = or i1 %cmp1.i, %cmp.i
@@ -6925,7 +6925,7 @@ if.end56:                                         ; preds = %if.end43
   br i1 %cmp58, label %if.then60, label %if.end67
 
 if.then60:                                        ; preds = %if.end56
-  %call61 = tail call i32 @atoi(ptr nocapture noundef %value) #12
+  %call61 = tail call i32 @atoi(ptr noundef %value) #12
   %output_size = getelementptr inbounds nuw i8, ptr %0, i64 144
   store i32 %call61, ptr %output_size, align 8
   %cmp63.inv = icmp sgt i32 %call61, -1
@@ -6938,7 +6938,7 @@ if.end67:                                         ; preds = %if.end56
   br i1 %cmp69, label %if.then71, label %return
 
 if.then71:                                        ; preds = %if.end67
-  %call72 = tail call i32 @atoi(ptr nocapture noundef %value) #12
+  %call72 = tail call i32 @atoi(ptr noundef %value) #12
   %block_size = getelementptr inbounds nuw i8, ptr %0, i64 148
   store i32 %call72, ptr %block_size, align 4
   %cmp74.inv = icmp sgt i32 %call72, -1
@@ -8113,7 +8113,7 @@ if.then13:                                        ; preds = %if.end11
   br i1 %cmp.i, label %if.then.i, label %sub_0.i
 
 if.then.i:                                        ; preds = %if.then13
-  %call1.i = tail call i32 @atoi(ptr nocapture noundef %value) #12
+  %call1.i = tail call i32 @atoi(ptr noundef %value) #12
   %iter.i = getelementptr inbounds nuw i8, ptr %0, i64 44
   store i32 %call1.i, ptr %iter.i, align 4
   %cmp3.i = icmp slt i32 %call1.i, 1
@@ -8163,7 +8163,7 @@ entry.tail.i:                                     ; preds = %sub_1.i25
   br i1 %13, label %if.then.i26, label %if.end5.i
 
 if.then.i26:                                      ; preds = %entry.tail.i
-  %call1.i27 = tail call i32 @atoi(ptr nocapture noundef %value) #12
+  %call1.i27 = tail call i32 @atoi(ptr noundef %value) #12
   %id.i = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i32 %call1.i27, ptr %id.i, align 8
   %cmp3.i28 = icmp slt i32 %call1.i27, 1
@@ -8176,7 +8176,7 @@ if.end5.i:                                        ; preds = %entry.tail.i, %sub_
   br i1 %cmp.i.i, label %if.then.i.i, label %sub_0.i.i
 
 if.then.i.i:                                      ; preds = %if.end5.i
-  %call1.i.i = tail call i32 @atoi(ptr nocapture noundef %value) #12
+  %call1.i.i = tail call i32 @atoi(ptr noundef %value) #12
   %iter.i.i = getelementptr inbounds nuw i8, ptr %0, i64 44
   store i32 %call1.i.i, ptr %iter.i.i, align 4
   %cmp3.i.i = icmp slt i32 %call1.i.i, 1

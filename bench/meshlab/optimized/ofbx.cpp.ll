@@ -775,7 +775,7 @@ define noundef i64 @_ZNK4ofbx8DataView5toI64Ev(ptr nocapture noundef nonnull rea
   br label %10
 
 8:                                                ; preds = %1
-  %9 = tail call i64 @atoll(ptr nocapture noundef %5) #30
+  %9 = tail call i64 @atoll(ptr noundef %5) #30
   br label %10
 
 10:                                               ; preds = %8, %6
@@ -799,7 +799,7 @@ define noundef i32 @_ZNK4ofbx8DataView5toIntEv(ptr nocapture noundef nonnull rea
   br label %10
 
 8:                                                ; preds = %1
-  %9 = tail call i32 @atoi(ptr nocapture noundef %5) #30
+  %9 = tail call i32 @atoi(ptr noundef %5) #30
   br label %10
 
 10:                                               ; preds = %8, %6
@@ -823,7 +823,7 @@ define noundef i32 @_ZNK4ofbx8DataView5toU32Ev(ptr nocapture noundef nonnull rea
   br label %11
 
 8:                                                ; preds = %1
-  %9 = tail call i64 @atoll(ptr nocapture noundef %5) #30
+  %9 = tail call i64 @atoll(ptr noundef %5) #30
   %10 = trunc i64 %9 to i32
   br label %11
 
@@ -2085,7 +2085,7 @@ define linkonce_odr void @_ZNK4ofbx11TextureImpl19getRelativeFileNameEv(ptr dead
 
 ; Function Attrs: mustprogress nofree nounwind memory(read, argmem: readwrite) uwtable
 define noundef ptr @_ZN4ofbx10fromStringIiEEPKcS2_S2_PT_(ptr noundef readonly %0, ptr noundef readnone %1, ptr nocapture noundef writeonly initializes((0, 4)) %2) local_unnamed_addr #12 {
-  %4 = tail call i32 @atoi(ptr nocapture noundef %0) #30
+  %4 = tail call i32 @atoi(ptr noundef %0) #30
   store i32 %4, ptr %2, align 4
   %5 = icmp ult ptr %0, %1
   br i1 %5, label %.lr.ph.preheader, label %.critedge
@@ -2149,7 +2149,7 @@ define noundef ptr @_ZN4ofbx10fromStringIyEEPKcS2_S2_PT_(ptr noundef readonly %0
 
 ; Function Attrs: mustprogress nofree nounwind memory(read, argmem: readwrite) uwtable
 define noundef ptr @_ZN4ofbx10fromStringIxEEPKcS2_S2_PT_(ptr noundef readonly %0, ptr noundef readnone %1, ptr nocapture noundef writeonly initializes((0, 8)) %2) local_unnamed_addr #12 {
-  %4 = tail call i64 @atoll(ptr nocapture noundef %0) #30
+  %4 = tail call i64 @atoll(ptr noundef %0) #30
   store i64 %4, ptr %2, align 8
   %5 = icmp ult ptr %0, %1
   br i1 %5, label %.lr.ph.preheader, label %.critedge
@@ -2606,7 +2606,7 @@ _ZNK4ofbx7Element11getPropertyEi.exit.i:          ; preds = %34
   br label %_ZN4ofbxL19resolveEnumPropertyERKNS_6ObjectEPKci.exit
 
 48:                                               ; preds = %40
-  %49 = tail call i32 @atoi(ptr nocapture noundef %45) #30
+  %49 = tail call i32 @atoi(ptr noundef %45) #30
   br label %_ZN4ofbxL19resolveEnumPropertyERKNS_6ObjectEPKci.exit
 
 _ZN4ofbxL19resolveEnumPropertyERKNS_6ObjectEPKci.exit: ; preds = %_ZNK4ofbx8DataVieweqEPKc.exit.thread.i.i.i, %_ZNK4ofbx8DataVieweqEPKc.exit.thread.i.i, %.lr.ph.i11.i, %1, %_ZN4ofbxL9findChildERKNS_7ElementEPKc.exit.i.i, %_ZNK4ofbx7Element11getPropertyEi.exit.i, %46, %48
@@ -5972,7 +5972,7 @@ _ZN4ofbxL6isLongEPKNS_8PropertyE.exit77.i:        ; preds = %332
   br label %_ZNK4ofbx8DataView5toI64Ev.exit.i
 
 350:                                              ; preds = %341
-  %351 = tail call i64 @atoll(ptr nocapture noundef %347) #30
+  %351 = tail call i64 @atoll(ptr noundef %347) #30
   br label %_ZNK4ofbx8DataView5toI64Ev.exit.i
 
 _ZNK4ofbx8DataView5toI64Ev.exit.i:                ; preds = %350, %348
@@ -5993,7 +5993,7 @@ _ZNK4ofbx8DataView5toI64Ev.exit.i:                ; preds = %350, %348
   br label %_ZNK4ofbx8DataView5toI64Ev.exit80.i
 
 363:                                              ; preds = %_ZNK4ofbx8DataView5toI64Ev.exit.i
-  %364 = tail call i64 @atoll(ptr nocapture noundef %360) #30
+  %364 = tail call i64 @atoll(ptr noundef %360) #30
   br label %_ZNK4ofbx8DataView5toI64Ev.exit80.i
 
 _ZNK4ofbx8DataView5toI64Ev.exit80.i:              ; preds = %363, %361
@@ -6095,7 +6095,7 @@ _ZN4ofbxL6isLongEPKNS_8PropertyE.exit102.i:       ; preds = %388
   br label %_ZNK4ofbx8DataView5toI64Ev.exit104.i
 
 406:                                              ; preds = %397
-  %407 = tail call i64 @atoll(ptr nocapture noundef %403) #30
+  %407 = tail call i64 @atoll(ptr noundef %403) #30
   br label %_ZNK4ofbx8DataView5toI64Ev.exit104.i
 
 _ZNK4ofbx8DataView5toI64Ev.exit104.i:             ; preds = %406, %404
@@ -6116,7 +6116,7 @@ _ZNK4ofbx8DataView5toI64Ev.exit104.i:             ; preds = %406, %404
   br label %_ZNK4ofbx8DataView5toI64Ev.exit106.i
 
 419:                                              ; preds = %_ZNK4ofbx8DataView5toI64Ev.exit104.i
-  %420 = tail call i64 @atoll(ptr nocapture noundef %416) #30
+  %420 = tail call i64 @atoll(ptr noundef %416) #30
   br label %_ZNK4ofbx8DataView5toI64Ev.exit106.i
 
 _ZNK4ofbx8DataView5toI64Ev.exit106.i:             ; preds = %419, %417
@@ -8758,7 +8758,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit222.i:               ; preds = %_ZNK4ofbx8DataViewe
   br label %_ZNK4ofbx8DataView5toIntEv.exit.i
 
 535:                                              ; preds = %529
-  %536 = call i32 @atoi(ptr nocapture noundef %532) #30
+  %536 = call i32 @atoi(ptr noundef %532) #30
   br label %_ZNK4ofbx8DataView5toIntEv.exit.i
 
 _ZNK4ofbx8DataView5toIntEv.exit.i:                ; preds = %535, %533
@@ -13876,7 +13876,7 @@ _ZN4ofbxL10decompressEPKhmPhm.exit.i:             ; preds = %46, %40
   br i1 %57, label %.lr.ph.preheader.i.i.i, label %70
 
 .lr.ph.preheader.i.i.i:                           ; preds = %55
-  %58 = tail call i64 @atoll(ptr nocapture noundef readonly %.014.i.i) #30
+  %58 = tail call i64 @atoll(ptr noundef readonly %.014.i.i) #30
   store i64 %58, ptr %.0.i34.i, align 8
   %59 = ptrtoint ptr %56 to i64
   %60 = ptrtoint ptr %.014.i.i to i64
@@ -14184,7 +14184,7 @@ _ZN4ofbxL10decompressEPKhmPhm.exit:               ; preds = %40, %46
   br i1 %57, label %.lr.ph.preheader.i.i, label %70
 
 .lr.ph.preheader.i.i:                             ; preds = %55
-  %58 = tail call i32 @atoi(ptr nocapture noundef readonly %.014.i) #30
+  %58 = tail call i32 @atoi(ptr noundef readonly %.014.i) #30
   store i32 %58, ptr %.0.i34, align 4
   %59 = ptrtoint ptr %56 to i64
   %60 = ptrtoint ptr %.014.i to i64
@@ -17363,7 +17363,7 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit:               ; preds = %28, %30, %32, %34
   %.010.i = phi i32 [ 0, %.lr.ph.i ], [ %89, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit.i ]
   %.069.i = phi ptr [ %50, %.lr.ph.i ], [ %spec.select.i.i, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit.i ]
   %55 = load ptr, ptr %51, align 8
-  %56 = tail call i32 @atoi(ptr nocapture noundef readonly %.069.i) #30
+  %56 = tail call i32 @atoi(ptr noundef readonly %.069.i) #30
   %57 = icmp ult ptr %.069.i, %55
   br i1 %57, label %.lr.ph.preheader.i.i, label %_ZN4ofbx10fromStringIiEEPKcS2_S2_PT_.exit.i
 

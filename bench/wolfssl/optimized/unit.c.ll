@@ -142,7 +142,7 @@ if.else32:                                        ; preds = %if.else26
   br i1 %or.cond21, label %if.then43, label %if.else51
 
 if.then43:                                        ; preds = %if.else32
-  %call45 = tail call i32 @atoi(ptr nocapture noundef nonnull %arrayidx34) #10
+  %call45 = tail call i32 @atoi(ptr noundef nonnull %arrayidx34) #10
   %call46 = tail call i32 @ApiTest_RunIdx(i32 noundef %call45) #8
   %cmp47.not = icmp eq i32 %call46, 0
   br i1 %cmp47.not, label %if.end63, label %if.end97

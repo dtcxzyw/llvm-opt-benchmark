@@ -285,7 +285,7 @@ if.then.i:                                        ; preds = %entry
   br i1 %cmp3.not.i, label %if.end.i, label %if.then4.i
 
 if.then4.i:                                       ; preds = %if.then.i
-  %call5.i = tail call i32 @atoi(ptr nocapture noundef nonnull %call2.i) #19
+  %call5.i = tail call i32 @atoi(ptr noundef nonnull %call2.i) #19
   %tobool.not.i = icmp eq i32 %call5.i, 0
   %cond6.i = select i1 %tobool.not.i, i32 -1, i32 1
   br label %if.end.i

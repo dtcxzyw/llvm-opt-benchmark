@@ -617,7 +617,7 @@ if.end116:                                        ; preds = %if.then112
   %incdec.ptr117 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %incdec.ptr117, ptr %argv.addr, align 8
   %28 = load ptr, ptr %incdec.ptr117, align 8
-  %call118 = call i32 @atoi(ptr nocapture noundef %28) #25
+  %call118 = call i32 @atoi(ptr noundef %28) #25
   %spec.store.select = call i32 @llvm.umax.i32(i32 %call118, i32 1)
   br label %if.end641
 
@@ -636,7 +636,7 @@ if.end129:                                        ; preds = %if.then125
   %incdec.ptr130 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %incdec.ptr130, ptr %argv.addr, align 8
   %29 = load ptr, ptr %incdec.ptr130, align 8
-  %call131 = call i64 @atol(ptr nocapture noundef %29) #25
+  %call131 = call i64 @atol(ptr noundef %29) #25
   %spec.store.select2 = call i64 @llvm.umax.i64(i64 %call131, i64 1)
   %call135 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %29) #25
   %sub = shl i64 %call135, 32
@@ -1175,7 +1175,7 @@ if.end482:                                        ; preds = %if.then477
   %incdec.ptr483 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %incdec.ptr483, ptr %argv.addr, align 8
   %57 = load ptr, ptr %incdec.ptr483, align 8
-  %call484 = call i32 @atoi(ptr nocapture noundef %57) #25
+  %call484 = call i32 @atoi(ptr noundef %57) #25
   %tobool485 = icmp ne i32 %call484, 0
   %lnot.ext = zext i1 %tobool485 to i32
   br label %if.end641

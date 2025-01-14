@@ -880,7 +880,7 @@ Prs_ManUtilSkipComments.exit.i99:                 ; preds = %.lr.ph38.i.i101, %1
   br i1 %134, label %216, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %132
-  %135 = tail call i32 @atoi(ptr nocapture noundef nonnull %128) #31
+  %135 = tail call i32 @atoi(ptr noundef nonnull %128) #31
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
@@ -3924,7 +3924,7 @@ define i32 @Prs_CreateCatIn(ptr noundef %0, ptr nocapture noundef readonly %1, i
   %.val.val.i = load ptr, ptr %39, align 8
   %40 = xor i32 %30, -1
   %41 = tail call ptr @Abc_NamStr(ptr noundef %.val.val.i, i32 noundef range(i32 -2147483648, 2147483647) %40) #28
-  %42 = tail call i32 @atoi(ptr nocapture noundef %41) #31
+  %42 = tail call i32 @atoi(ptr noundef %41) #31
   br label %Cba_FonRangeSize.exit
 
 43:                                               ; preds = %31
@@ -4201,7 +4201,7 @@ Cba_FonRangeSize.exit:                            ; preds = %12, %Cba_FonRange.e
   %.val.val.i23 = load ptr, ptr %51, align 8
   %52 = xor i32 %1, -1
   %53 = tail call ptr @Abc_NamStr(ptr noundef %.val.val.i23, i32 noundef range(i32 -2147483648, 2147483647) %52) #28
-  %54 = tail call i32 @atoi(ptr nocapture noundef %53) #31
+  %54 = tail call i32 @atoi(ptr noundef %53) #31
   br label %Cba_FonRangeSize.exit30
 
 55:                                               ; preds = %44
@@ -5619,9 +5619,9 @@ define i32 @Prs_CreateGetMemSize(ptr noundef readonly %0) local_unnamed_addr #5 
   %2 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %0, i32 noundef 95) #31
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 1
   %4 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %3, i32 noundef 95) #31
-  %5 = tail call i32 @atoi(ptr nocapture noundef nonnull %3) #31
+  %5 = tail call i32 @atoi(ptr noundef nonnull %3) #31
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 1
-  %7 = tail call i32 @atoi(ptr nocapture noundef nonnull %6) #31
+  %7 = tail call i32 @atoi(ptr noundef nonnull %6) #31
   %8 = shl i32 %7, %5
   ret i32 %8
 }
@@ -5935,9 +5935,9 @@ Vec_PtrPush.exit81:                               ; preds = %133, %.thread, %.cr
   %140 = tail call ptr @strchr(ptr noundef nonnull readonly dereferenceable(1) %30, i32 noundef 95) #31
   %141 = getelementptr inbounds nuw i8, ptr %140, i64 1
   %142 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %141, i32 noundef 95) #31
-  %143 = tail call i32 @atoi(ptr nocapture noundef nonnull %141) #31
+  %143 = tail call i32 @atoi(ptr noundef nonnull %141) #31
   %144 = getelementptr inbounds nuw i8, ptr %142, i64 1
-  %145 = tail call i32 @atoi(ptr nocapture noundef nonnull %144) #31
+  %145 = tail call i32 @atoi(ptr noundef nonnull %144) #31
   %146 = shl i32 %145, %143
   %147 = sext i32 %146 to i64
   %148 = inttoptr i64 %147 to ptr
@@ -7496,7 +7496,7 @@ Cba_ManNtkFind.exit.thread:                       ; preds = %Prs_ManFindType.exi
 
 391:                                              ; preds = %389
   %392 = getelementptr inbounds nuw i8, ptr %364, i64 9
-  %393 = tail call i32 @atoi(ptr nocapture noundef nonnull %392) #31
+  %393 = tail call i32 @atoi(ptr noundef nonnull %392) #31
   %394 = shl nuw i32 1, %393
   %395 = add nuw nsw i32 %394, 1
   br label %.critedge533
@@ -7508,7 +7508,7 @@ Cba_ManNtkFind.exit.thread:                       ; preds = %Prs_ManFindType.exi
 
 398:                                              ; preds = %396
   %399 = getelementptr inbounds nuw i8, ptr %364, i64 4
-  %400 = tail call i32 @atoi(ptr nocapture noundef nonnull %399) #31
+  %400 = tail call i32 @atoi(ptr noundef nonnull %399) #31
   %401 = shl nuw i32 1, %400
   %402 = add nuw nsw i32 %401, 1
   br label %.critedge533
@@ -7520,7 +7520,7 @@ Cba_ManNtkFind.exit.thread:                       ; preds = %Prs_ManFindType.exi
 
 405:                                              ; preds = %403
   %406 = getelementptr inbounds nuw i8, ptr %364, i64 12
-  %407 = tail call i32 @atoi(ptr nocapture noundef nonnull %406) #31
+  %407 = tail call i32 @atoi(ptr noundef nonnull %406) #31
   %408 = add nsw i32 %407, 1
   br label %.critedge533
 
@@ -7531,7 +7531,7 @@ Cba_ManNtkFind.exit.thread:                       ; preds = %Prs_ManFindType.exi
 
 411:                                              ; preds = %409
   %412 = getelementptr inbounds nuw i8, ptr %364, i64 7
-  %413 = tail call i32 @atoi(ptr nocapture noundef nonnull %412) #31
+  %413 = tail call i32 @atoi(ptr noundef nonnull %412) #31
   %414 = add nsw i32 %413, 1
   br label %.critedge533
 
@@ -7555,7 +7555,7 @@ Cba_ManNtkFind.exit.thread:                       ; preds = %Prs_ManFindType.exi
 421:                                              ; preds = %419
   %422 = select i1 %416, i64 11, i64 13
   %423 = getelementptr inbounds nuw i8, ptr %364, i64 %422
-  %424 = tail call i32 @atoi(ptr nocapture noundef nonnull %423) #31
+  %424 = tail call i32 @atoi(ptr noundef nonnull %423) #31
   br label %.critedge533
 
 425:                                              ; preds = %Cba_ManNtkFind.exit
@@ -8590,7 +8590,7 @@ Prs_ManFindType.exit748:                          ; preds = %849, %846
 874:                                              ; preds = %863
   %875 = select i1 %860, i64 11, i64 13
   %876 = getelementptr inbounds nuw i8, ptr %847, i64 %875
-  %877 = call i32 @atoi(ptr nocapture noundef nonnull %876) #31
+  %877 = call i32 @atoi(ptr noundef nonnull %876) #31
   %.val614 = load ptr, ptr %0, align 8
   %878 = getelementptr i8, ptr %.val614, i64 100
   %.val9.i.i749 = load i32, ptr %878, align 4
@@ -10288,7 +10288,7 @@ Vec_IntFillExtra.exit1101:                        ; preds = %1514, %._crit_edge.
   %.val.val.i801 = load ptr, ptr %1576, align 8
   %1577 = xor i32 %1574, -1
   %1578 = call ptr @Abc_NamStr(ptr noundef %.val.val.i801, i32 noundef range(i32 -2147483648, 2147483647) %1577) #28
-  %1579 = call i32 @atoi(ptr nocapture noundef %1578) #31
+  %1579 = call i32 @atoi(ptr noundef %1578) #31
   br label %Cba_FonRangeSize.exit
 
 1580:                                             ; preds = %1567
@@ -12488,7 +12488,7 @@ Prs_ManUtilSkipComments.exit.i:                   ; preds = %.lr.ph38.i.i, %23
   br label %124
 
 .lr.ph.preheader:                                 ; preds = %.loopexit144
-  %33 = tail call i32 @atoi(ptr nocapture noundef nonnull %.promoted) #31
+  %33 = tail call i32 @atoi(ptr noundef nonnull %.promoted) #31
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
@@ -12708,7 +12708,7 @@ Prs_ManUtilSkipComments.exit.i82:                 ; preds = %.lr.ph38.i.i84, %77
   br label %124
 
 .lr.ph174.preheader:                              ; preds = %.loopexit132
-  %87 = tail call i32 @atoi(ptr nocapture noundef nonnull %.promoted169) #31
+  %87 = tail call i32 @atoi(ptr noundef nonnull %.promoted169) #31
   br label %.lr.ph174
 
 .lr.ph174:                                        ; preds = %.lr.ph174.preheader, %.lr.ph174

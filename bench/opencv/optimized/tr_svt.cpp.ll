@@ -345,25 +345,25 @@ _ZN2cv8tinyxml27XMLNode17FirstChildElementEPKc.exit42: ; preds = %.lr.ph
           to label %82 unwind label %122
 
 82:                                               ; preds = %80
-  %83 = call i32 @atoi(ptr nocapture noundef %81) #21
+  %83 = call i32 @atoi(ptr noundef %81) #21
   store i32 %83, ptr %31, align 8
   %84 = invoke noundef ptr @_ZNK2cv8tinyxml210XMLElement9AttributeEPKcS3_(ptr noundef nonnull align 8 dereferenceable(104) %.062, ptr noundef nonnull @.str.8, ptr noundef null)
           to label %85 unwind label %122
 
 85:                                               ; preds = %82
-  %86 = call i32 @atoi(ptr nocapture noundef %84) #21
+  %86 = call i32 @atoi(ptr noundef %84) #21
   store i32 %86, ptr %32, align 4
   %87 = invoke noundef ptr @_ZNK2cv8tinyxml210XMLElement9AttributeEPKcS3_(ptr noundef nonnull align 8 dereferenceable(104) %.062, ptr noundef nonnull @.str.9, ptr noundef null)
           to label %88 unwind label %122
 
 88:                                               ; preds = %85
-  %89 = call i32 @atoi(ptr nocapture noundef %87) #21
+  %89 = call i32 @atoi(ptr noundef %87) #21
   store i32 %89, ptr %33, align 8
   %90 = invoke noundef ptr @_ZNK2cv8tinyxml210XMLElement9AttributeEPKcS3_(ptr noundef nonnull align 8 dereferenceable(104) %.062, ptr noundef nonnull @.str.10, ptr noundef null)
           to label %91 unwind label %122
 
 91:                                               ; preds = %88
-  %92 = call i32 @atoi(ptr nocapture noundef %90) #21
+  %92 = call i32 @atoi(ptr noundef %90) #21
   store i32 %92, ptr %34, align 4
   %93 = load ptr, ptr %73, align 8
   %94 = load ptr, ptr %74, align 8

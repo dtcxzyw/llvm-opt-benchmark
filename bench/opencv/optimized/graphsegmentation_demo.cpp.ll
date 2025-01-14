@@ -253,7 +253,7 @@ define hidden noundef range(i32 -3, 1) i32 @main(i32 noundef %0, ptr nocapture n
   %54 = load ptr, ptr %7, align 8
   %55 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %56 = load ptr, ptr %55, align 8
-  %57 = call i32 @atoi(ptr nocapture noundef %56) #14
+  %57 = call i32 @atoi(ptr noundef %56) #14
   %58 = sitofp i32 %57 to float
   %59 = load ptr, ptr %54, align 8
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 88
@@ -269,7 +269,7 @@ define hidden noundef range(i32 -3, 1) i32 @main(i32 noundef %0, ptr nocapture n
   %65 = load ptr, ptr %7, align 8
   %66 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %67 = load ptr, ptr %66, align 8
-  %68 = call i32 @atoi(ptr nocapture noundef %67) #14
+  %68 = call i32 @atoi(ptr noundef %67) #14
   %69 = load ptr, ptr %65, align 8
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 104
   %71 = load ptr, ptr %70, align 8

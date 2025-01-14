@@ -2361,7 +2361,7 @@ Io_MvGetLine.exit.i.i:                            ; preds = %970, %.critedge.loo
   %974 = sext i32 %957 to i64
   %975 = getelementptr inbounds ptr, ptr %.val107.i.i, i64 %974
   %976 = load ptr, ptr %975, align 8
-  %977 = tail call i32 @atoi(ptr nocapture noundef %976) #19
+  %977 = tail call i32 @atoi(ptr noundef %976) #19
   %978 = add i32 %977, -257
   %or.cond.i.i = icmp ult i32 %978, -255
   br i1 %or.cond.i.i, label %979, label %994
@@ -3194,7 +3194,7 @@ Io_MvGetLine.exit62.i.i:                          ; preds = %1322, %.critedge.lo
   %1329 = getelementptr ptr, ptr %.val51.i.i, i64 %1328
   %1330 = getelementptr i8, ptr %1329, i64 -8
   %1331 = load ptr, ptr %1330, align 8
-  %1332 = tail call i32 @atoi(ptr nocapture noundef %1331) #19
+  %1332 = tail call i32 @atoi(ptr noundef %1331) #19
   %or.cond.i265.i = icmp ugt i32 %1332, 3
   br i1 %or.cond.i265.i, label %1333, label %1350
 

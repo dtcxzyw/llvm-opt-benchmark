@@ -768,7 +768,7 @@ _ZNK6icu_7513UnicodeString9getBufferEv.exit:      ; preds = %entry, %if.then7.i,
   %idxprom = sext i32 %cond.i to i64
   %arrayidx = getelementptr inbounds [256 x i8], ptr %ch, i64 0, i64 %idxprom
   store i8 0, ptr %arrayidx, align 1
-  %call4 = call i32 @atoi(ptr nocapture noundef nonnull %ch) #17
+  %call4 = call i32 @atoi(ptr noundef nonnull %ch) #17
   ret i32 %call4
 }
 

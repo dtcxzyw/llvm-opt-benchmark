@@ -1747,7 +1747,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit.sink.split:     ; preds = %685, %698
   %.1234.ph = phi i64 [ %691, %698 ], [ %678, %685 ]
   %.1230.ph = phi i8 [ 115, %698 ], [ 100, %685 ]
   %731 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %.sink7496) #21
-  %732 = call i32 @atoi(ptr nocapture noundef %731) #24
+  %732 = call i32 @atoi(ptr noundef %731) #24
   br label %_ZN5Yosys5RTLIL8IdStringD2Ev.exit
 
 _ZN5Yosys5RTLIL8IdStringD2Ev.exit:                ; preds = %_ZN5Yosys5RTLIL8IdStringD2Ev.exit.sink.split, %655, %648, %.loopexit3601, %567, %560, %.loopexit3600, %479, %472, %.loopexit3599, %391, %384, %.loopexit3598, %301, %294, %.loopexit3597, %726, %720, %714, %708, %.critedge444.thread, %.critedge443, %668, %663

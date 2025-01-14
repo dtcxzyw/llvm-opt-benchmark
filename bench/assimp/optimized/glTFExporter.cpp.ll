@@ -7808,7 +7808,7 @@ if.then77:                                        ; preds = %invoke.cont73
           to label %invoke.cont79 unwind label %lpad67
 
 invoke.cont79:                                    ; preds = %if.then77
-  %call81 = call i32 @atoi(ptr nocapture noundef nonnull %call80) #33
+  %call81 = call i32 @atoi(ptr noundef nonnull %call80) #33
   %idxprom = sext i32 %call81 to i64
   %arrayidx = getelementptr inbounds ptr, ptr %31, i64 %idxprom
   %32 = load ptr, ptr %arrayidx, align 8
@@ -23557,7 +23557,7 @@ if.then21:                                        ; preds = %if.end, %if.else.i6
 
 cond.true:                                        ; preds = %if.then21
   %add.ptr24 = getelementptr inbounds nuw i8, ptr %arrayidx, i64 1
-  %call25 = call i32 @atoi(ptr nocapture noundef nonnull %add.ptr24) #33
+  %call25 = call i32 @atoi(ptr noundef nonnull %add.ptr24) #33
   %44 = sext i32 %call25 to i64
   br label %cond.end
 

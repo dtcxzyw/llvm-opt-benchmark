@@ -323,7 +323,7 @@ _Z15pj_param_existsP8ARG_listPKc.exit:            ; preds = %30, %33, %15, %28
   ]
 
 55:                                               ; preds = %45
-  %56 = tail call i32 @atoi(ptr nocapture noundef nonnull %spec.select) #14
+  %56 = tail call i32 @atoi(ptr noundef nonnull %spec.select) #14
   store i32 %56, ptr %.sroa.0, align 8
   %57 = load i8, ptr %spec.select, align 1
   %.not37 = icmp eq i8 %57, 0

@@ -332,7 +332,7 @@ define hidden range(i32 -1, -2147483648) i32 @fcgi_listen(ptr noundef %0, i32 no
 
 9:                                                ; preds = %2
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 1
-  %11 = tail call i32 @atoi(ptr nocapture noundef nonnull %10) #35
+  %11 = tail call i32 @atoi(ptr noundef nonnull %10) #35
   %sext.mask82 = and i32 %11, 65535
   %.not81 = icmp eq i32 %sext.mask82, 0
   br i1 %.not81, label %.loopexit, label %12
@@ -363,7 +363,7 @@ define hidden range(i32 -1, -2147483648) i32 @fcgi_listen(ptr noundef %0, i32 no
   br i1 %or.cond.i, label %.loopexit, label %19
 
 .loopexit106:                                     ; preds = %19, %17
-  %24 = tail call i32 @atoi(ptr nocapture noundef nonnull %0) #35
+  %24 = tail call i32 @atoi(ptr noundef nonnull %0) #35
   %sext.mask = and i32 %24, 65535
   %.not80 = icmp eq i32 %sext.mask, 0
   br i1 %.not80, label %.loopexit, label %is_port_number.exit.thread

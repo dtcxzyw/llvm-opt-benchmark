@@ -206,7 +206,7 @@ _ZNK2cv17CommandLineParser3getINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIc
 
 53:                                               ; preds = %52
   %54 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %17) #10
-  %55 = call i32 @atoi(ptr nocapture noundef %54) #11
+  %55 = call i32 @atoi(ptr noundef %54) #11
   %56 = invoke noundef zeroext i1 @_ZN2cv12VideoCapture4openEii(ptr noundef nonnull align 8 dereferenceable(41) %20, i32 noundef %55, i32 noundef 0)
           to label %59 unwind label %57
 

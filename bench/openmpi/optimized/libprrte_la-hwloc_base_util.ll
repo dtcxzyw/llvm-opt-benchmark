@@ -1425,7 +1425,7 @@ define range(i32 -13, 1) i32 @prte_hwloc_base_cpu_list_parse(ptr noundef %0, ptr
 
 prte_hwloc_base_get_obj_by_type.exit.i:           ; preds = %54
   %57 = load ptr, ptr %55, align 8
-  %58 = tail call i32 @atoi(ptr nocapture noundef %57) #17
+  %58 = tail call i32 @atoi(ptr noundef %57) #17
   tail call void @llvm.assume(i1 %23)
   %59 = tail call i32 @hwloc_get_type_depth(ptr noundef nonnull %1, i32 noundef 1) #16
   %switch.i.i.i = icmp ult i32 %59, -2
@@ -1438,10 +1438,10 @@ prte_hwloc_base_get_obj_by_type.exit.i:           ; preds = %54
 
 64:                                               ; preds = %54
   %65 = load ptr, ptr %55, align 8
-  %66 = tail call i32 @atoi(ptr nocapture noundef %65) #17
+  %66 = tail call i32 @atoi(ptr noundef %65) #17
   %67 = getelementptr inbounds nuw i8, ptr %55, i64 8
   %68 = load ptr, ptr %67, align 8
-  %69 = tail call i32 @atoi(ptr nocapture noundef %68) #17
+  %69 = tail call i32 @atoi(ptr noundef %68) #17
   %.not31.i = icmp sgt i32 %66, %69
   br i1 %.not31.i, label %.loopexit.i, label %prte_hwloc_base_get_obj_by_type.exit30.lr.ph.i
 
@@ -1489,7 +1489,7 @@ prte_hwloc_base_get_obj_by_type.exit30.i:         ; preds = %prte_hwloc_base_get
   %.0103 = phi ptr [ %81, %80 ], [ %35, %79 ]
   %83 = tail call ptr @PMIx_Argv_split(ptr noundef nonnull %.0103, i32 noundef 58) #16
   %84 = load ptr, ptr %83, align 8
-  %85 = tail call i32 @atoi(ptr nocapture noundef %84) #17
+  %85 = tail call i32 @atoi(ptr noundef %84) #17
   br i1 %22, label %.sink.split212.sink.split, label %86
 
 86:                                               ; preds = %82
@@ -1568,7 +1568,7 @@ hwloc_get_obj_by_type.exit.thread.i:              ; preds = %hwloc_get_obj_by_ty
 .lr.ph103.i:                                      ; preds = %113, %123
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %123 ], [ 0, %113 ]
   %117 = phi ptr [ %128, %123 ], [ %116, %113 ]
-  %118 = tail call i32 @atoi(ptr nocapture noundef nonnull %117) #17
+  %118 = tail call i32 @atoi(ptr noundef nonnull %117) #17
   %119 = tail call i32 @hwloc_get_type_depth(ptr noundef nonnull %1, i32 noundef %94) #16
   %switch.i.i85.i = icmp ugt i32 %119, -3
   br i1 %switch.i.i85.i, label %prte_hwloc_base_get_obj_by_type.exit87.thread.i, label %prte_hwloc_base_get_obj_by_type.exit87.i
@@ -1615,10 +1615,10 @@ prte_hwloc_base_get_obj_by_type.exit87.thread.i:  ; preds = %123, %prte_hwloc_ba
 
 140:                                              ; preds = %136, %131, %129
   %141 = load ptr, ptr %111, align 8
-  %142 = tail call i32 @atoi(ptr nocapture noundef %141) #17
+  %142 = tail call i32 @atoi(ptr noundef %141) #17
   %143 = getelementptr inbounds nuw i8, ptr %111, i64 8
   %144 = load ptr, ptr %143, align 8
-  %145 = tail call i32 @atoi(ptr nocapture noundef %144) #17
+  %145 = tail call i32 @atoi(ptr noundef %144) #17
   %.not8296.i = icmp sgt i32 %142, %145
   br i1 %.not8296.i, label %prte_hwloc_base_get_obj_by_type.exit90.thread.i, label %.lr.ph.i
 
@@ -1682,7 +1682,7 @@ package_core_to_cpu_set.exit:                     ; preds = %prte_hwloc_base_get
 .lr.ph162:                                        ; preds = %163, %172
   %indvars.iv189 = phi i64 [ %indvars.iv.next190, %172 ], [ 0, %163 ]
   %167 = phi ptr [ %177, %172 ], [ %166, %163 ]
-  %168 = tail call i32 @atoi(ptr nocapture noundef nonnull %167) #17
+  %168 = tail call i32 @atoi(ptr noundef nonnull %167) #17
   %169 = tail call ptr @prte_hwloc_base_get_pu(ptr noundef %1, i1 noundef zeroext %2, i32 noundef %168)
   %170 = icmp eq ptr %169, null
   br i1 %170, label %171, label %172
@@ -1707,10 +1707,10 @@ package_core_to_cpu_set.exit:                     ; preds = %prte_hwloc_base_get
 
 178:                                              ; preds = %.lr.ph167
   %179 = load ptr, ptr %161, align 8
-  %180 = tail call i32 @atoi(ptr nocapture noundef %179) #17
+  %180 = tail call i32 @atoi(ptr noundef %179) #17
   %181 = getelementptr inbounds nuw i8, ptr %161, i64 8
   %182 = load ptr, ptr %181, align 8
-  %183 = tail call i32 @atoi(ptr nocapture noundef %182) #17
+  %183 = tail call i32 @atoi(ptr noundef %182) #17
   %.not122155 = icmp sgt i32 %180, %183
   br i1 %.not122155, label %.loopexit, label %.lr.ph158
 

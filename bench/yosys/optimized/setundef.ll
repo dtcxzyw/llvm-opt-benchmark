@@ -1760,7 +1760,7 @@ define internal void @_ZN12_GLOBAL__N_112SetundefPass7executeESt6vectorINSt7__cx
   store i32 3, ptr %79, align 8
   %245 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %239, i64 %237
   %246 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %245) #25
-  %247 = tail call i32 @atoi(ptr nocapture noundef %246) #27
+  %247 = tail call i32 @atoi(ptr noundef %246) #27
   %248 = add nsw i32 %247, 1
   br label %_ZN12_GLOBAL__N_114SetundefWorker8next_bitEv.exit
 

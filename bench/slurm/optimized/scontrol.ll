@@ -1360,7 +1360,7 @@ define internal fastcc void @_process_command(i32 noundef %0, ptr noundef %1) un
 205:                                              ; preds = %203
   %206 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %207 = load ptr, ptr %206, align 8
-  %208 = tail call i32 @atoi(ptr nocapture noundef %207) #22
+  %208 = tail call i32 @atoi(ptr noundef %207) #22
   %209 = trunc i32 %208 to i8
   store i8 %209, ptr %4, align 1
   br label %210
@@ -1443,7 +1443,7 @@ define internal fastcc void @_process_command(i32 noundef %0, ptr noundef %1) un
 247:                                              ; preds = %245
   %248 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %249 = load ptr, ptr %248, align 8
-  %250 = tail call i32 @atoi(ptr nocapture noundef %249) #22
+  %250 = tail call i32 @atoi(ptr noundef %249) #22
   %251 = trunc i32 %250 to i8
   store i8 %251, ptr %5, align 1
   br label %252
@@ -1552,7 +1552,7 @@ define internal fastcc void @_process_command(i32 noundef %0, ptr noundef %1) un
 294:                                              ; preds = %289
   %295 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %296 = load ptr, ptr %295, align 8
-  %297 = tail call i64 @atol(ptr nocapture noundef %296) #22
+  %297 = tail call i64 @atol(ptr noundef %296) #22
   %298 = trunc i64 %297 to i32
   tail call void @scontrol_pid_info(i32 noundef %298) #17
   br label %_create_it.exit
@@ -2284,7 +2284,7 @@ define internal fastcc void @_process_command(i32 noundef %0, ptr noundef %1) un
 600:                                              ; preds = %598
   %601 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %602 = load ptr, ptr %601, align 8
-  %603 = tail call i32 @atoi(ptr nocapture noundef %602) #22
+  %603 = tail call i32 @atoi(ptr noundef %602) #22
   %604 = icmp sgt i32 %603, 0
   %.not503 = icmp slt i32 %603, %593
   %or.cond526 = select i1 %604, i1 %.not503, i1 false

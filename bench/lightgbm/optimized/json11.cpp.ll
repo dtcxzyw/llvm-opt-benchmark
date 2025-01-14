@@ -4793,7 +4793,7 @@ define internal fastcc void @_ZN24json11_internal_lightgbm12_GLOBAL__N_110JsonPa
   br i1 %109, label %110, label %112
 
 110:                                              ; preds = %107
-  %111 = tail call i32 @atoi(ptr nocapture noundef nonnull %63) #28, !noalias !54
+  %111 = tail call i32 @atoi(ptr noundef nonnull %63) #28, !noalias !54
   tail call void @_ZN24json11_internal_lightgbm4JsonC1Ei(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %111)
   br label %_ZN24json11_internal_lightgbm12_GLOBAL__N_110JsonParser12parse_numberEv.exit
 

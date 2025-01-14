@@ -1562,7 +1562,7 @@ addlit.exit:                                      ; preds = %._crit_edge.i, %229
 558:                                              ; preds = %.loopexit525
   %559 = load ptr, ptr @base_yytext, align 8
   %560 = getelementptr i8, ptr %559, i64 1
-  %561 = tail call i64 @atol(ptr nocapture noundef %560) #30
+  %561 = tail call i64 @atol(ptr noundef %560) #30
   %562 = trunc i64 %561 to i32
   store i32 %562, ptr @base_yylval, align 8
   br label %1446

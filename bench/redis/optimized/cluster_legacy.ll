@@ -617,7 +617,7 @@ if.end:                                           ; preds = %entry
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %vla, ptr align 1 %value, i64 %conv, i1 false)
   %arrayidx = getelementptr inbounds nuw i8, ptr %vla, i64 %conv
   store i8 0, ptr %arrayidx, align 1
-  %call = call i32 @atoi(ptr nocapture noundef nonnull %vla) #34
+  %call = call i32 @atoi(ptr noundef nonnull %vla) #34
   %tcp_port = getelementptr inbounds nuw i8, ptr %n, i64 2328
   store i32 %call, ptr %tcp_port, align 8
   %narrow = icmp ugt i32 %call, 65535
@@ -665,7 +665,7 @@ if.end:                                           ; preds = %entry
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %vla, ptr align 1 %value, i64 %conv, i1 false)
   %arrayidx = getelementptr inbounds nuw i8, ptr %vla, i64 %conv
   store i8 0, ptr %arrayidx, align 1
-  %call = call i32 @atoi(ptr nocapture noundef nonnull %vla) #34
+  %call = call i32 @atoi(ptr noundef nonnull %vla) #34
   %tls_port = getelementptr inbounds nuw i8, ptr %n, i64 2332
   store i32 %call, ptr %tls_port, align 4
   %narrow = icmp ugt i32 %call, 65535
@@ -1659,7 +1659,7 @@ if.end236:                                        ; preds = %if.then235, %if.end
 if.then240:                                       ; preds = %if.end236
   %106 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 5448), align 8
   %tobool241.not = icmp eq i32 %106, 0
-  %call245 = call i32 @atoi(ptr nocapture noundef nonnull %add.ptr) #34
+  %call245 = call i32 @atoi(ptr noundef nonnull %add.ptr) #34
   br i1 %tobool241.not, label %if.else244, label %if.then242
 
 if.then242:                                       ; preds = %if.then240
@@ -1676,7 +1676,7 @@ if.else247:                                       ; preds = %if.end236
   br i1 %aux_tcp_port.0.lcssa, label %if.else252, label %if.then249
 
 if.then249:                                       ; preds = %if.else247
-  %call250 = call i32 @atoi(ptr nocapture noundef nonnull %add.ptr) #34
+  %call250 = call i32 @atoi(ptr noundef nonnull %add.ptr) #34
   %tcp_port251 = getelementptr inbounds nuw i8, ptr %n.0, i64 2328
   store i32 %call250, ptr %tcp_port251, align 8
   br label %if.end259
@@ -1685,7 +1685,7 @@ if.else252:                                       ; preds = %if.else247
   br i1 %aux_tls_port.0.lcssa, label %if.end259, label %if.then254
 
 if.then254:                                       ; preds = %if.else252
-  %call255 = call i32 @atoi(ptr nocapture noundef nonnull %add.ptr) #34
+  %call255 = call i32 @atoi(ptr noundef nonnull %add.ptr) #34
   %tls_port256 = getelementptr inbounds nuw i8, ptr %n.0, i64 2332
   store i32 %call255, ptr %tls_port256, align 4
   br label %if.end259
@@ -1695,7 +1695,7 @@ if.end259:                                        ; preds = %if.then249, %if.the
   br i1 %tobool260.not, label %cond.false, label %cond.true
 
 cond.true:                                        ; preds = %if.end259
-  %call261 = call i32 @atoi(ptr nocapture noundef nonnull %busp.0) #34
+  %call261 = call i32 @atoi(ptr noundef nonnull %busp.0) #34
   br label %cond.end
 
 cond.false:                                       ; preds = %if.end259
@@ -2087,7 +2087,7 @@ if.then400:                                       ; preds = %if.else396
 if.end404:                                        ; preds = %for.body.i, %for.end.i, %if.else396, %if.then400
   %arrayidx405 = getelementptr inbounds nuw i8, ptr %call38, i64 32
   %149 = load ptr, ptr %arrayidx405, align 8
-  %call406 = call i32 @atoi(ptr nocapture noundef %149) #34
+  %call406 = call i32 @atoi(ptr noundef %149) #34
   %tobool407.not = icmp eq i32 %call406, 0
   br i1 %tobool407.not, label %if.end410, label %if.then408
 
@@ -2100,7 +2100,7 @@ if.then408:                                       ; preds = %if.end404
 if.end410:                                        ; preds = %if.then408, %if.end404
   %arrayidx411 = getelementptr inbounds nuw i8, ptr %call38, i64 40
   %150 = load ptr, ptr %arrayidx411, align 8
-  %call412 = call i32 @atoi(ptr nocapture noundef %150) #34
+  %call412 = call i32 @atoi(ptr noundef %150) #34
   %tobool413.not = icmp eq i32 %call412, 0
   br i1 %tobool413.not, label %if.end416, label %if.then414
 
@@ -2166,7 +2166,7 @@ cond.end452:                                      ; preds = %if.then438
   %157 = load i8, ptr %arrayidx453, align 1
   %158 = load ptr, ptr %arrayidx433, align 8
   %add.ptr456 = getelementptr inbounds nuw i8, ptr %158, i64 1
-  %call457 = call i32 @atoi(ptr nocapture noundef nonnull %add.ptr456) #34
+  %call457 = call i32 @atoi(ptr noundef nonnull %add.ptr456) #34
   %or.cond2 = icmp ugt i32 %call457, 16383
   br i1 %or.cond2, label %if.then463, label %if.end464
 
@@ -2280,13 +2280,13 @@ if.else491:                                       ; preds = %for.body431
 if.then497:                                       ; preds = %if.else491
   store i8 0, ptr %call441, align 1
   %166 = load ptr, ptr %arrayidx433, align 8
-  %call500 = call i32 @atoi(ptr nocapture noundef %166) #34
+  %call500 = call i32 @atoi(ptr noundef %166) #34
   %add.ptr501 = getelementptr inbounds nuw i8, ptr %call441, i64 1
-  %call502 = call i32 @atoi(ptr nocapture noundef nonnull %add.ptr501) #34
+  %call502 = call i32 @atoi(ptr noundef nonnull %add.ptr501) #34
   br label %if.end508
 
 if.else503:                                       ; preds = %if.else491
-  %call506 = call i32 @atoi(ptr nocapture noundef nonnull %155) #34
+  %call506 = call i32 @atoi(ptr noundef nonnull %155) #34
   br label %if.end508
 
 if.end508:                                        ; preds = %if.then497, %if.else503

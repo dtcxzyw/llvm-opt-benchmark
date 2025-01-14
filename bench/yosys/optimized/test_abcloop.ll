@@ -349,7 +349,7 @@ define internal void @_ZN12_GLOBAL__N_115TestAbcloopPass7executeESt6vectorINSt7_
   %28 = sext i32 %19 to i64
   %29 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %.pre, i64 %28
   %30 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %29) #23
-  %31 = tail call i32 @atoi(ptr nocapture noundef %30) #25
+  %31 = tail call i32 @atoi(ptr noundef %30) #25
   br label %51
 
 32:                                               ; preds = %18, %.lr.ph
@@ -374,7 +374,7 @@ define internal void @_ZN12_GLOBAL__N_115TestAbcloopPass7executeESt6vectorINSt7_
   %47 = sext i32 %37 to i64
   %48 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %39, i64 %47
   %49 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %48) #23
-  %50 = tail call i32 @atoi(ptr nocapture noundef %49) #25
+  %50 = tail call i32 @atoi(ptr noundef %49) #25
   store i32 %50, ptr @_ZN12_GLOBAL__N_116xorshift32_stateE, align 4
   br label %51
 

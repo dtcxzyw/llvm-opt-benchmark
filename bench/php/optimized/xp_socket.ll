@@ -1659,7 +1659,7 @@ define internal fastcc noalias ptr @parse_ip_address_ex(ptr noundef %0, i64 noun
 
 19:                                               ; preds = %13
   %20 = getelementptr inbounds nuw i8, ptr %12, i64 2
-  %21 = tail call i32 @atoi(ptr nocapture noundef nonnull %20) #16
+  %21 = tail call i32 @atoi(ptr noundef nonnull %20) #16
   store i32 %21, ptr %2, align 4
   %22 = ptrtoint ptr %12 to i64
   %23 = ptrtoint ptr %0 to i64
@@ -1680,7 +1680,7 @@ define internal fastcc noalias ptr @parse_ip_address_ex(ptr noundef %0, i64 noun
 
 31:                                               ; preds = %28
   %32 = getelementptr inbounds nuw i8, ptr %30, i64 1
-  %33 = tail call i32 @atoi(ptr nocapture noundef nonnull %32) #16
+  %33 = tail call i32 @atoi(ptr noundef nonnull %32) #16
   store i32 %33, ptr %2, align 4
   %34 = ptrtoint ptr %30 to i64
   %35 = ptrtoint ptr %0 to i64

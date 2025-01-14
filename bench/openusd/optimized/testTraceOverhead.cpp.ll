@@ -318,7 +318,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr nocapture noundef readonl
 8:                                                ; preds = %2
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %10 = load ptr, ptr %9, align 8
-  %11 = tail call i32 @atoi(ptr nocapture noundef %10) #22
+  %11 = tail call i32 @atoi(ptr noundef %10) #22
   br label %12
 
 12:                                               ; preds = %2, %8

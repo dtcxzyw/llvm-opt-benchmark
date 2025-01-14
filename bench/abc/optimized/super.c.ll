@@ -111,7 +111,7 @@ define internal range(i32 0, 2) i32 @Super_CommandSupergates(ptr noundef %0, i32
   %10 = sext i32 %9 to i64
   %11 = getelementptr inbounds ptr, ptr %2, i64 %10
   %12 = load ptr, ptr %11, align 8
-  %13 = tail call i32 @atoi(ptr nocapture noundef %12) #7
+  %13 = tail call i32 @atoi(ptr noundef %12) #7
   %14 = add nsw i32 %9, 1
   store i32 %14, ptr @globalUtilOptind, align 4
   %15 = icmp slt i32 %13, 0
@@ -122,7 +122,7 @@ define internal range(i32 0, 2) i32 @Super_CommandSupergates(ptr noundef %0, i32
   %18 = sext i32 %17 to i64
   %19 = getelementptr inbounds ptr, ptr %2, i64 %18
   %20 = load ptr, ptr %19, align 8
-  %21 = tail call i32 @atoi(ptr nocapture noundef %20) #7
+  %21 = tail call i32 @atoi(ptr noundef %20) #7
   %22 = add nsw i32 %17, 1
   store i32 %22, ptr @globalUtilOptind, align 4
   %23 = icmp slt i32 %21, 0
@@ -133,7 +133,7 @@ define internal range(i32 0, 2) i32 @Super_CommandSupergates(ptr noundef %0, i32
   %26 = sext i32 %25 to i64
   %27 = getelementptr inbounds ptr, ptr %2, i64 %26
   %28 = load ptr, ptr %27, align 8
-  %29 = tail call i32 @atoi(ptr nocapture noundef %28) #7
+  %29 = tail call i32 @atoi(ptr noundef %28) #7
   %30 = add nsw i32 %25, 1
   store i32 %30, ptr @globalUtilOptind, align 4
   %31 = icmp slt i32 %29, 0
@@ -144,7 +144,7 @@ define internal range(i32 0, 2) i32 @Super_CommandSupergates(ptr noundef %0, i32
   %34 = sext i32 %33 to i64
   %35 = getelementptr inbounds ptr, ptr %2, i64 %34
   %36 = load ptr, ptr %35, align 8
-  %37 = tail call i32 @atoi(ptr nocapture noundef %36) #7
+  %37 = tail call i32 @atoi(ptr noundef %36) #7
   %38 = add nsw i32 %33, 1
   store i32 %38, ptr @globalUtilOptind, align 4
   %39 = icmp slt i32 %37, 0
@@ -363,7 +363,7 @@ define internal range(i32 0, 2) i32 @Super_CommandSupergatesAnd(ptr noundef %0, 
   %10 = sext i32 %9 to i64
   %11 = getelementptr inbounds ptr, ptr %2, i64 %10
   %12 = load ptr, ptr %11, align 8
-  %13 = tail call i32 @atoi(ptr nocapture noundef %12) #7
+  %13 = tail call i32 @atoi(ptr noundef %12) #7
   %14 = add nsw i32 %9, 1
   store i32 %14, ptr @globalUtilOptind, align 4
   %15 = icmp slt i32 %13, 0
@@ -374,7 +374,7 @@ define internal range(i32 0, 2) i32 @Super_CommandSupergatesAnd(ptr noundef %0, 
   %18 = sext i32 %17 to i64
   %19 = getelementptr inbounds ptr, ptr %2, i64 %18
   %20 = load ptr, ptr %19, align 8
-  %21 = tail call i32 @atoi(ptr nocapture noundef %20) #7
+  %21 = tail call i32 @atoi(ptr noundef %20) #7
   %22 = add nsw i32 %17, 1
   store i32 %22, ptr @globalUtilOptind, align 4
   %23 = icmp slt i32 %21, 0

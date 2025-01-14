@@ -1162,7 +1162,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit81: ; 
   br i1 %.not35, label %210, label %203
 
 203:                                              ; preds = %200
-  %204 = call i32 @atoi(ptr nocapture noundef nonnull %202) #31
+  %204 = call i32 @atoi(ptr noundef nonnull %202) #31
   %.not36 = icmp eq i32 %204, 0
   br i1 %.not36, label %210, label %205
 

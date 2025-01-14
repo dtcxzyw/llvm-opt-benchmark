@@ -1215,7 +1215,7 @@ define void @_print_topo_record(ptr nocapture noundef readonly %0, ptr noundef %
   br i1 %.not13, label %23, label %20
 
 20:                                               ; preds = %18
-  %21 = call i32 @atoi(ptr nocapture noundef nonnull %19) #13
+  %21 = call i32 @atoi(ptr noundef nonnull %19) #13
   %22 = load ptr, ptr %3, align 8
   call void (ptr, ptr, ...) @slurm_xstrfmtcat(ptr noundef %1, ptr noundef nonnull @.str.19, i32 noundef %21, ptr noundef %22) #10
   br label %25

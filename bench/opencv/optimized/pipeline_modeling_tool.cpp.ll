@@ -19109,7 +19109,7 @@ define internal fastcc void @"_ZZ4readI4EdgeET_RKN2cv8FileNodeEENK3$_0clERKNSt7_
   %9 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #33
   %10 = getelementptr inbounds i8, ptr %9, i64 %5
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 1
-  %12 = call i32 @atoi(ptr nocapture noundef nonnull %11) #38
+  %12 = call i32 @atoi(ptr noundef nonnull %11) #38
   %13 = sext i32 %12 to i64
   br label %.critedge
 

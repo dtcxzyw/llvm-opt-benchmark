@@ -1038,7 +1038,7 @@ define noundef i32 @_ZN7glslang22TDefaultIoResolverBase10resolveSetE11EShLanguag
 
 42:                                               ; preds = %27
   %43 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %37) #22
-  %44 = tail call i32 @atoi(ptr nocapture noundef %43) #23
+  %44 = tail call i32 @atoi(ptr noundef %43) #23
   br label %45
 
 45:                                               ; preds = %27, %42, %17

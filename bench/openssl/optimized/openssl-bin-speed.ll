@@ -6010,7 +6010,7 @@ lor.lhs.false3598:                                ; preds = %if.then3594
   br i1 %cmp3600, label %if.end3801.thread, label %lor.lhs.false3602
 
 lor.lhs.false3602:                                ; preds = %lor.lhs.false3598
-  %call3604 = call i32 @atoi(ptr nocapture noundef nonnull %add.ptr3603) #16
+  %call3604 = call i32 @atoi(ptr noundef nonnull %add.ptr3603) #16
   %call3605 = call i32 @EVP_PKEY_CTX_set_dsa_paramgen_bits(ptr noundef nonnull %call3595, i32 noundef %call3604) #15
   %cmp3606 = icmp slt i32 %call3605, 1
   br i1 %cmp3606, label %if.end3801.thread, label %lor.lhs.false3608

@@ -64,7 +64,7 @@ define void @fdp_xLayout(ptr noundef %0, ptr nocapture noundef readonly %1) loca
 
 22:                                               ; preds = %17, %15
   %23 = getelementptr inbounds nuw i8, ptr %14, i64 1
-  %24 = tail call i32 @atoi(ptr nocapture noundef nonnull %.019) #12
+  %24 = tail call i32 @atoi(ptr noundef nonnull %.019) #12
   %spec.store.select = tail call i32 @llvm.smax.i32(i32 %24, i32 0)
   br label %25
 

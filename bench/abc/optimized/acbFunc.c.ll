@@ -622,10 +622,10 @@ Acb_VerilogRemoveComments.exit:                   ; preds = %.preheader67
 .split.us:                                        ; preds = %.lr.ph76.split.split, %.lr.ph76.split.split.us, %.lr.ph76.split.us
   %.us-phi = phi ptr [ %.048.ph94, %.lr.ph76.split.us ], [ %.04875.us81, %.lr.ph76.split.split.us ], [ %.04875, %.lr.ph76.split.split ]
   %40 = getelementptr inbounds nuw i8, ptr %.us-phi, i64 1
-  %41 = call i32 @atoi(ptr nocapture noundef nonnull %40) #32
+  %41 = call i32 @atoi(ptr noundef nonnull %40) #32
   %strchr = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.us-phi, i32 58)
   %42 = getelementptr inbounds nuw i8, ptr %strchr, i64 1
-  %43 = call i32 @atoi(ptr nocapture noundef nonnull %42) #32
+  %43 = call i32 @atoi(ptr noundef nonnull %42) #32
   br label %.outer.backedge
 
 .outer.backedge:                                  ; preds = %.critedge, %.split.us, %118
@@ -3884,7 +3884,7 @@ Vec_IntStartFull.exit:                            ; preds = %Vec_IntAlloc.exit.t
 
 .outer:                                           ; preds = %.lr.ph21, %.lr.ph.split
   %.us-phi = phi i32 [ %20, %.lr.ph.split ], [ %23, %.lr.ph21 ]
-  %25 = tail call i32 @atoi(ptr nocapture noundef %.016.ph24) #32
+  %25 = tail call i32 @atoi(ptr noundef %.016.ph24) #32
   %26 = zext nneg i32 %.us-phi to i64
   %27 = getelementptr inbounds nuw i32, ptr %.val, i64 %26
   store i32 %25, ptr %27, align 4

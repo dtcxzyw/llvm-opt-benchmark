@@ -91,12 +91,12 @@ define noalias noundef ptr @Vec_WrdReadLayerText(ptr noundef %0, ptr nocapture n
 17:                                               ; preds = %.lr.ph35
   %strchr = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %4, i32 91)
   %18 = getelementptr inbounds nuw i8, ptr %strchr, i64 1
-  %19 = call i32 @atoi(ptr nocapture noundef nonnull %18) #24
+  %19 = call i32 @atoi(ptr noundef nonnull %18) #24
   %20 = add nsw i32 %19, 1
   store i32 %20, ptr %1, align 4
   %strchr28 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %18, i32 91)
   %21 = getelementptr inbounds nuw i8, ptr %strchr28, i64 1
-  %22 = call i32 @atoi(ptr nocapture noundef nonnull %21) #24
+  %22 = call i32 @atoi(ptr noundef nonnull %21) #24
   %23 = add nsw i32 %22, 1
   store i32 %23, ptr %2, align 4
   br label %Vec_IntReverseOrder.exit
@@ -185,7 +185,7 @@ Vec_WecPushLevel.exit:                            ; preds = %.Vec_WecGrow.exit12
 63:                                               ; preds = %Vec_WecPushLevel.exit, %.lr.ph
   %.1 = phi ptr [ %62, %Vec_WecPushLevel.exit ], [ %.031, %.lr.ph ]
   %64 = getelementptr inbounds nuw i8, ptr %24, i64 3
-  %65 = call i32 @atoi(ptr nocapture noundef nonnull %64) #24
+  %65 = call i32 @atoi(ptr noundef nonnull %64) #24
   %66 = getelementptr inbounds nuw i8, ptr %.1, i64 4
   %67 = load i32, ptr %66, align 4
   %68 = load i32, ptr %.1, align 8
@@ -1583,7 +1583,7 @@ define noalias noundef ptr @Vec_WrdReadNumsOut(ptr noundef %0, i32 noundef %1) l
   br i1 %.not14, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %8, %Vec_IntPush.exit
-  %14 = call i32 @atoi(ptr nocapture noundef nonnull %3) #24
+  %14 = call i32 @atoi(ptr noundef nonnull %3) #24
   %15 = load i32, ptr %10, align 4
   %16 = load i32, ptr %9, align 8
   %17 = icmp eq i32 %15, %16

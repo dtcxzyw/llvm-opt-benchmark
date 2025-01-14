@@ -59,7 +59,7 @@ define i32 @slurm_pmi_send_kvs_comm_set(ptr noundef %0, i32 noundef %1, i32 noun
   br i1 %or.cond.i, label %15, label %_get_addr.exit
 
 15:                                               ; preds = %10
-  %16 = tail call i64 @atol(ptr nocapture noundef nonnull %12) #12
+  %16 = tail call i64 @atol(ptr noundef nonnull %12) #12
   %17 = trunc i64 %16 to i16
   store i16 %17, ptr @srun_port, align 2
   tail call void @slurm_set_addr(ptr noundef nonnull @srun_addr, i16 noundef zeroext %17, ptr noundef nonnull %11) #11
@@ -354,7 +354,7 @@ define i32 @slurm_pmi_get_kvs_comm_set(ptr noundef writeonly %0, i32 noundef %1,
   br i1 %or.cond.i, label %20, label %23
 
 20:                                               ; preds = %15
-  %21 = tail call i64 @atol(ptr nocapture noundef nonnull %17) #12
+  %21 = tail call i64 @atol(ptr noundef nonnull %17) #12
   %22 = trunc i64 %21 to i16
   store i16 %22, ptr @srun_port, align 2
   tail call void @slurm_set_addr(ptr noundef nonnull @srun_addr, i16 noundef zeroext %22, ptr noundef nonnull %16) #11

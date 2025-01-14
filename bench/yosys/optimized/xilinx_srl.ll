@@ -880,7 +880,7 @@ define internal void @_ZN12_GLOBAL__N_113XilinxSrlPass7executeESt6vectorINSt7__c
 93:                                               ; preds = %85
   %94 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %.pre, i64 %86
   %95 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %94) #24
-  %96 = tail call i32 @atoi(ptr nocapture noundef %95) #26
+  %96 = tail call i32 @atoi(ptr noundef %95) #26
   br label %106
 
 97:                                               ; preds = %85, %.lr.ph

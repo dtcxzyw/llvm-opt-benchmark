@@ -249,7 +249,7 @@ define dso_local range(i32 -1, 1) i32 @reserve_port_config(ptr noundef %0) local
 
 .lr.ph.i.i.i:                                     ; preds = %104, %119
   %110 = phi ptr [ %121, %119 ], [ %109, %104 ]
-  %111 = call i32 @atoi(ptr nocapture noundef nonnull %110) #8
+  %111 = call i32 @atoi(ptr noundef nonnull %110) #8
   %112 = icmp sgt i32 %111, 0
   br i1 %112, label %113, label %119
 

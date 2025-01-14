@@ -904,7 +904,7 @@ define internal noalias noundef ptr @_agent(ptr noundef %0) #0 {
   br i1 %.not, label %14, label %11
 
 11:                                               ; preds = %1
-  %12 = tail call i32 @atoi(ptr nocapture noundef nonnull %10) #15
+  %12 = tail call i32 @atoi(ptr noundef nonnull %10) #15
   %13 = icmp slt i32 %12, 1
   %spec.store.select = select i1 %13, i32 32, i32 %12
   br label %14

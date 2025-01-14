@@ -11911,7 +11911,7 @@ if.end7:                                          ; preds = %do.body
 
 if.end8:                                          ; preds = %if.end
   %add.ptr10 = getelementptr inbounds nuw i8, ptr %buf, i64 5
-  %call11 = call i32 @atoi(ptr nocapture noundef nonnull %add.ptr10) #27
+  %call11 = call i32 @atoi(ptr noundef nonnull %add.ptr10) #27
   %10 = add i32 %call11, -13
   %or.cond = icmp ult i32 %10, -12
   br i1 %or.cond, label %do.body15, label %if.end20
@@ -12363,7 +12363,7 @@ if.then159:                                       ; preds = %if.else155
 if.then161:                                       ; preds = %if.then159
   %ptr162 = getelementptr inbounds nuw i8, ptr %call.i245, i64 8
   %66 = load ptr, ptr %ptr162, align 8
-  %call163 = call i32 @atoi(ptr nocapture noundef %66) #27
+  %call163 = call i32 @atoi(ptr noundef %66) #27
   store i32 %call163, ptr %rsi, align 8
   br label %if.end293
 

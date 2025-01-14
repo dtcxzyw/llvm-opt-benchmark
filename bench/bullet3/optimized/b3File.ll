@@ -842,7 +842,7 @@ if.then13.i:                                      ; preds = %if.end10.i
 if.end14.i:                                       ; preds = %if.then13.i, %if.end10.i
   %2 = phi i32 [ %or.i, %if.then13.i ], [ %.pre, %if.end10.i ]
   %add.ptr.i = getelementptr inbounds nuw i8, ptr %header.i, i64 9
-  %call16.i = call i32 @atoi(ptr nocapture noundef nonnull %add.ptr.i) #29
+  %call16.i = call i32 @atoi(ptr noundef nonnull %add.ptr.i) #29
   %mVersion.i = getelementptr inbounds nuw i8, ptr %this, i64 28
   store i32 %call16.i, ptr %mVersion.i, align 4
   %arrayidx23.i = getelementptr inbounds nuw i8, ptr %header.i, i64 7
@@ -1064,7 +1064,7 @@ if.then13:                                        ; preds = %if.end10
 
 if.end14:                                         ; preds = %if.then13, %if.end10
   %add.ptr = getelementptr inbounds nuw i8, ptr %header, i64 9
-  %call16 = call i32 @atoi(ptr nocapture noundef nonnull %add.ptr) #29
+  %call16 = call i32 @atoi(ptr noundef nonnull %add.ptr) #29
   %mVersion = getelementptr inbounds nuw i8, ptr %this, i64 28
   store i32 %call16, ptr %mVersion, align 4
   %arrayidx23 = getelementptr inbounds nuw i8, ptr %header, i64 7

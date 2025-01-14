@@ -859,7 +859,7 @@ land.lhs.true:                                    ; preds = %entry
 
 land.rhs:                                         ; preds = %land.lhs.true
   %add.ptr = getelementptr inbounds nuw i8, ptr %call, i64 2
-  %call6 = tail call i32 @atoi(ptr nocapture noundef nonnull %add.ptr) #14
+  %call6 = tail call i32 @atoi(ptr noundef nonnull %add.ptr) #14
   %cmp7 = icmp slt i32 %call6, 21
   %2 = zext i1 %cmp7 to i32
   br label %land.end

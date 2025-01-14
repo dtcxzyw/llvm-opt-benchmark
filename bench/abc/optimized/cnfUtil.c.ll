@@ -1688,9 +1688,9 @@ define noalias noundef ptr @Cnf_DataReadFromFile(ptr noundef %0) local_unnamed_a
 
 20:                                               ; preds = %16
   %21 = tail call ptr @strtok(ptr noundef null, ptr noundef nonnull @.str.16) #22
-  %22 = tail call i32 @atoi(ptr nocapture noundef %21) #27
+  %22 = tail call i32 @atoi(ptr noundef %21) #27
   %23 = tail call ptr @strtok(ptr noundef null, ptr noundef nonnull @.str.16) #22
-  %24 = tail call i32 @atoi(ptr nocapture noundef %23) #27
+  %24 = tail call i32 @atoi(ptr noundef %23) #27
   %25 = icmp slt i32 %22, 1
   %26 = icmp slt i32 %24, 1
   %or.cond = select i1 %25, i1 true, i1 %26
@@ -1807,7 +1807,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
 
 77:                                               ; preds = %Vec_IntPush.exit, %Vec_IntPush.exit93
   %.053153 = phi ptr [ %45, %Vec_IntPush.exit ], [ %122, %Vec_IntPush.exit93 ]
-  %78 = tail call i32 @atoi(ptr nocapture noundef nonnull %.053153) #27
+  %78 = tail call i32 @atoi(ptr noundef nonnull %.053153) #27
   %79 = icmp eq i32 %78, 0
   br i1 %79, label %.backedge, label %80
 

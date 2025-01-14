@@ -2304,7 +2304,7 @@ _.exit6.i.i:                                      ; preds = %if.end3.i3.i.i, %if
 if.end15.i.i:                                     ; preds = %if.end.i.i
   call void @strbuf_remove(ptr noundef nonnull %buffer.i.i, i64 noundef 0, i64 noundef 11) #14
   %7 = load ptr, ptr %buf.i.i, align 8
-  %call17.i.i = call i32 @atoi(ptr nocapture noundef %7) #16
+  %call17.i.i = call i32 @atoi(ptr noundef %7) #16
   %cmp.i.i = icmp slt i32 %call17.i.i, 22
   call void @strbuf_release(ptr noundef nonnull %buffer.i.i) #14
   br i1 %cmp.i.i, label %if.then18.i.i, label %if.then.i15

@@ -1925,7 +1925,7 @@ sub_1:                                            ; preds = %sub_0
 
 50:                                               ; preds = %.tail221
   %51 = getelementptr inbounds nuw i8, ptr %30, i64 2
-  %52 = call i32 @atoi(ptr nocapture noundef nonnull %51) #28
+  %52 = call i32 @atoi(ptr noundef nonnull %51) #28
   %or.cond = icmp ugt i32 %52, 2
   br i1 %or.cond, label %53, label %56
 
@@ -1946,7 +1946,7 @@ sub_1:                                            ; preds = %sub_0
 
 60:                                               ; preds = %.tail225
   %61 = getelementptr inbounds nuw i8, ptr %30, i64 2
-  %62 = call i32 @atoi(ptr nocapture noundef nonnull %61) #28
+  %62 = call i32 @atoi(ptr noundef nonnull %61) #28
   %or.cond3 = icmp ugt i32 %62, 2
   br i1 %or.cond3, label %63, label %66
 
@@ -1967,7 +1967,7 @@ sub_1:                                            ; preds = %sub_0
 
 70:                                               ; preds = %.tail229
   %71 = getelementptr inbounds nuw i8, ptr %30, i64 2
-  %72 = call i32 @atoi(ptr nocapture noundef nonnull %71) #28
+  %72 = call i32 @atoi(ptr noundef nonnull %71) #28
   %or.cond5 = icmp ugt i32 %72, 1
   br i1 %or.cond5, label %73, label %76
 

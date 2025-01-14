@@ -2124,7 +2124,7 @@ define dso_local i32 @Curl_follow(ptr noundef %0, ptr noundef %1, i32 noundef %2
 
 111:                                              ; preds = %104
   %112 = load ptr, ptr %6, align 8
-  %113 = call i32 @atoi(ptr nocapture noundef %112) #11
+  %113 = call i32 @atoi(ptr noundef %112) #11
   %114 = load ptr, ptr @Curl_cfree, align 8
   call void %114(ptr noundef %112) #10
   br label %115

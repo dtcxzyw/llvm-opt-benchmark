@@ -760,7 +760,7 @@ dyn_allocate.exit:                                ; preds = %35, %160
   br i1 %.not, label %198, label %193
 
 193:                                              ; preds = %191
-  %194 = tail call i32 @atoi(ptr nocapture noundef nonnull %192) #21
+  %194 = tail call i32 @atoi(ptr noundef nonnull %192) #21
   %195 = icmp slt i32 %194, 1
   br i1 %195, label %196, label %198
 
@@ -2869,7 +2869,7 @@ define internal fastcc noundef i32 @prte_ras_slurm_parse_range(ptr nocapture nou
 
 18:                                               ; preds = %9
   %19 = getelementptr inbounds i8, ptr %1, i64 %.06391
-  %20 = tail call i32 @atoi(ptr nocapture noundef nonnull %19) #21
+  %20 = tail call i32 @atoi(ptr noundef nonnull %19) #21
   %21 = sext i32 %20 to i64
   %22 = icmp ult i64 %.06391, %5
   br i1 %22, label %.lr.ph95, label %.thread78
@@ -2914,7 +2914,7 @@ define internal fastcc noundef i32 @prte_ras_slurm_parse_range(ptr nocapture nou
 
 40:                                               ; preds = %.lr.ph97
   %41 = getelementptr inbounds i8, ptr %1, i64 %.296
-  %42 = tail call i32 @atoi(ptr nocapture noundef nonnull %41) #21
+  %42 = tail call i32 @atoi(ptr noundef nonnull %41) #21
   %43 = sext i32 %42 to i64
   br label %.thread78
 

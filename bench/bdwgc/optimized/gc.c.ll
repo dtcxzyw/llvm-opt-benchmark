@@ -1114,7 +1114,7 @@ GC_setpagesize.exit:                              ; preds = %.lr.ph.i, %.prehead
   br i1 %.not88, label %76, label %72
 
 72:                                               ; preds = %70
-  %73 = call i64 @atol(ptr nocapture noundef nonnull %71) #49
+  %73 = call i64 @atol(ptr noundef nonnull %71) #49
   %74 = icmp sgt i64 %73, 0
   br i1 %74, label %75, label %76
 
@@ -1128,7 +1128,7 @@ GC_setpagesize.exit:                              ; preds = %.lr.ph.i, %.prehead
   br i1 %.not89, label %82, label %78
 
 78:                                               ; preds = %76
-  %79 = call i32 @atoi(ptr nocapture noundef nonnull %77) #49
+  %79 = call i32 @atoi(ptr noundef nonnull %77) #49
   %80 = icmp sgt i32 %79, 0
   br i1 %80, label %81, label %82
 
@@ -1142,7 +1142,7 @@ GC_setpagesize.exit:                              ; preds = %.lr.ph.i, %.prehead
   br i1 %.not90, label %90, label %84
 
 84:                                               ; preds = %82
-  %85 = call i64 @atol(ptr nocapture noundef nonnull %83) #49
+  %85 = call i64 @atol(ptr noundef nonnull %83) #49
   %86 = icmp slt i64 %85, 1
   br i1 %86, label %87, label %89
 
@@ -1161,7 +1161,7 @@ GC_setpagesize.exit:                              ; preds = %.lr.ph.i, %.prehead
   br i1 %.not91, label %97, label %92
 
 92:                                               ; preds = %90
-  %93 = call i32 @atoi(ptr nocapture noundef nonnull %91) #49
+  %93 = call i32 @atoi(ptr noundef nonnull %91) #49
   %94 = icmp sgt i32 %93, 0
   br i1 %94, label %95, label %97
 
@@ -1187,7 +1187,7 @@ GC_setpagesize.exit:                              ; preds = %.lr.ph.i, %.prehead
   br i1 %105, label %.sink.split159, label %106
 
 106:                                              ; preds = %102, %99
-  %107 = call i32 @atoi(ptr nocapture noundef nonnull %98) #49
+  %107 = call i32 @atoi(ptr noundef nonnull %98) #49
   %108 = icmp sgt i32 %107, 0
   br i1 %108, label %.sink.split159, label %109
 
@@ -1668,7 +1668,7 @@ GC_setup_atfork.exit:                             ; preds = %GC_init_size_map.ex
   br i1 %.not.i118, label %.thread153, label %274
 
 274:                                              ; preds = %GC_setup_atfork.exit
-  %275 = call i32 @atoi(ptr nocapture noundef nonnull %273) #49
+  %275 = call i32 @atoi(ptr noundef nonnull %273) #49
   store i32 %275, ptr @GC_nprocs, align 4
   %276 = icmp slt i32 %275, 1
   br i1 %276, label %.thread153, label %.thread154
@@ -1744,7 +1744,7 @@ GC_setup_atfork.exit:                             ; preds = %GC_init_size_map.ex
 315:                                              ; preds = %310
   %316 = add nuw nsw i64 %indvars.iv.i138, 4
   %317 = getelementptr inbounds nuw [1701 x i8], ptr %1, i64 0, i64 %316
-  %318 = call i32 @atoi(ptr nocapture noundef nonnull %317) #49
+  %318 = call i32 @atoi(ptr noundef nonnull %317) #49
   %.not.i141 = icmp slt i32 %318, %.01925.i
   %319 = add nuw nsw i32 %318, 1
   %spec.select.i = select i1 %.not.i141, i32 %.01925.i, i32 %319
@@ -1780,7 +1780,7 @@ GC_setup_atfork.exit:                             ; preds = %GC_init_size_map.ex
   br i1 %.not18.i, label %333, label %327
 
 327:                                              ; preds = %.thread154
-  %328 = call i32 @atoi(ptr nocapture noundef nonnull %326) #49
+  %328 = call i32 @atoi(ptr noundef nonnull %326) #49
   %329 = add i32 %328, -17
   %or.cond.i119 = icmp ult i32 %329, -16
   br i1 %or.cond.i119, label %330, label %338

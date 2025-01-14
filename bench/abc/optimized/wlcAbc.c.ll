@@ -773,7 +773,7 @@ Vec_IntAlloc.exit:                                ; preds = %10, %25
   %92 = sext i32 %.087.lcssa to i64
   %93 = getelementptr inbounds i8, ptr %58, i64 %92
   %94 = getelementptr inbounds nuw i8, ptr %93, i64 1
-  %95 = tail call i32 @atoi(ptr nocapture noundef nonnull %94) #12
+  %95 = tail call i32 @atoi(ptr noundef nonnull %94) #12
   br label %96
 
 96:                                               ; preds = %86, %89, %67, %70, %91, %60

@@ -365,7 +365,7 @@ define internal fastcc noundef ptr @create_syncrep_config(ptr nocapture noundef 
   %16 = sext i32 %.0.lcssa to i64
   %17 = tail call ptr @palloc(i64 noundef %16) #7
   store i32 %.0.lcssa, ptr %17, align 4
-  %18 = tail call i32 @atoi(ptr nocapture noundef %0) #8
+  %18 = tail call i32 @atoi(ptr noundef %0) #8
   %19 = getelementptr inbounds nuw i8, ptr %17, i64 4
   store i32 %18, ptr %19, align 4
   %20 = getelementptr inbounds nuw i8, ptr %17, i64 8

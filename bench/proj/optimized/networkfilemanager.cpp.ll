@@ -703,7 +703,7 @@ _ZNSt10unique_ptrIN5osgeo4proj10SQLite3VFSESt14default_deleteIS2_EED2Ev.exit: ; 
   br i1 %.not17, label %51, label %49
 
 49:                                               ; preds = %47
-  %50 = call i32 @atoi(ptr nocapture noundef nonnull %46) #30
+  %50 = call i32 @atoi(ptr noundef nonnull %46) #30
   br label %51
 
 51:                                               ; preds = %45, %47, %49
@@ -8901,7 +8901,7 @@ define void @proj_grid_cache_set_max_size(ptr noundef %0, i32 noundef %1) local_
   br i1 %.not11, label %20, label %17
 
 17:                                               ; preds = %15
-  %18 = tail call i32 @atoi(ptr nocapture noundef nonnull %14) #30
+  %18 = tail call i32 @atoi(ptr noundef nonnull %14) #30
   %19 = sext i32 %18 to i64
   store i64 %19, ptr %11, align 8
   br label %20
@@ -9890,7 +9890,7 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.e
   br i1 %.not116, label %_ZNSt6vectorIhSaIhEE6resizeEm.exit, label %73
 
 73:                                               ; preds = %71
-  %74 = call i32 @atoi(ptr nocapture noundef nonnull %70) #30
+  %74 = call i32 @atoi(ptr noundef nonnull %70) #30
   %75 = sext i32 %74 to i64
   %76 = icmp ugt i32 %74, 1048576
   br i1 %76, label %77, label %93

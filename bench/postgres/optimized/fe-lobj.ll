@@ -148,7 +148,7 @@ define internal fastcc range(i32 -1, 1) i32 @lo_initialize(ptr noundef %0) unnam
   %.0105110 = phi i32 [ 0, %.lr.ph ], [ %105, %96 ]
   %42 = tail call ptr @PQgetvalue(ptr noundef nonnull %12, i32 noundef %.0105110, i32 noundef 0) #10
   %43 = tail call ptr @PQgetvalue(ptr noundef nonnull %12, i32 noundef %.0105110, i32 noundef 1) #10
-  %44 = tail call i32 @atoi(ptr nocapture noundef %43) #11
+  %44 = tail call i32 @atoi(ptr noundef %43) #11
   %45 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %42, ptr noundef nonnull dereferenceable(8) @.str.15) #11
   %46 = icmp eq i32 %45, 0
   br i1 %46, label %47, label %48

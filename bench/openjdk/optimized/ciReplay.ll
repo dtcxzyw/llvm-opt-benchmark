@@ -4782,7 +4782,7 @@ sub_0213:                                         ; preds = %_ZNK5Klass11java_mi
   br i1 %163, label %164, label %.tail240.thread
 
 164:                                              ; preds = %.tail212
-  %165 = call i32 @atoi(ptr nocapture noundef %159) #19
+  %165 = call i32 @atoi(ptr noundef %159) #19
   %.sroa.1.0..sroa_idx.i140 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %.sroa.1.0.copyload.i141 = load i32, ptr %.sroa.1.0..sroa_idx.i140, align 8
   %166 = ptrtoint ptr %71 to i64
@@ -4799,7 +4799,7 @@ sub_0213:                                         ; preds = %_ZNK5Klass11java_mi
   br i1 %172, label %173, label %.tail240.thread
 
 173:                                              ; preds = %.tail216
-  %174 = call i32 @atoi(ptr nocapture noundef %159) #19
+  %174 = call i32 @atoi(ptr noundef %159) #19
   %.sroa.1.0..sroa_idx.i142 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %.sroa.1.0.copyload.i143 = load i32, ptr %.sroa.1.0..sroa_idx.i142, align 8
   %175 = trunc i32 %174 to i8
@@ -4817,7 +4817,7 @@ sub_0213:                                         ; preds = %_ZNK5Klass11java_mi
   br i1 %182, label %183, label %.tail240.thread
 
 183:                                              ; preds = %.tail220
-  %184 = call i32 @atoi(ptr nocapture noundef %159) #19
+  %184 = call i32 @atoi(ptr noundef %159) #19
   %.sroa.1.0..sroa_idx.i144 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %.sroa.1.0.copyload.i145 = load i32, ptr %.sroa.1.0..sroa_idx.i144, align 8
   %185 = trunc i32 %184 to i16
@@ -4835,7 +4835,7 @@ sub_0213:                                         ; preds = %_ZNK5Klass11java_mi
   br i1 %192, label %193, label %.tail240.thread
 
 193:                                              ; preds = %.tail224
-  %194 = call i32 @atoi(ptr nocapture noundef %159) #19
+  %194 = call i32 @atoi(ptr noundef %159) #19
   %.sroa.1.0..sroa_idx.i146 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %.sroa.1.0.copyload.i147 = load i32, ptr %.sroa.1.0..sroa_idx.i146, align 8
   %195 = trunc i32 %194 to i16
@@ -4853,7 +4853,7 @@ sub_0213:                                         ; preds = %_ZNK5Klass11java_mi
   br i1 %202, label %203, label %.tail240.thread
 
 203:                                              ; preds = %.tail228
-  %204 = call i32 @atoi(ptr nocapture noundef %159) #19
+  %204 = call i32 @atoi(ptr noundef %159) #19
   %.sroa.1.0..sroa_idx.i148 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %.sroa.1.0.copyload.i149 = load i32, ptr %.sroa.1.0..sroa_idx.i148, align 8
   %205 = trunc i32 %204 to i8

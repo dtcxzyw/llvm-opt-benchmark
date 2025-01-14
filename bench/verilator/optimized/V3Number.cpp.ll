@@ -1985,19 +1985,19 @@ _ZN12V3NumberData8setLogicEv.exit:                ; preds = %18, %23, %_ZN12V3Nu
   %64 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %3) #30
   %65 = icmp ne i64 %64, 0
   %66 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %3) #30
-  %67 = call i32 @atoi(ptr nocapture noundef %66) #35
+  %67 = call i32 @atoi(ptr noundef %66) #35
   %.not299 = icmp eq i32 %67, 0
   br i1 %.not299, label %_ZN8V3Number5widthEib.exit, label %68
 
 68:                                               ; preds = %.loopexit459
   %69 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %3) #30
-  %70 = call i32 @atoi(ptr nocapture noundef %69) #35
+  %70 = call i32 @atoi(ptr noundef %69) #35
   %71 = icmp slt i32 %70, 0
   br i1 %71, label %77, label %72
 
 72:                                               ; preds = %68
   %73 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %3) #30
-  %74 = call i32 @atoi(ptr nocapture noundef %73) #35
+  %74 = call i32 @atoi(ptr noundef %73) #35
   %75 = load i32, ptr getelementptr inbounds nuw (i8, ptr @v3Global, i64 976), align 8
   %76 = icmp sgt i32 %74, %75
   br i1 %76, label %77, label %94
@@ -2041,7 +2041,7 @@ _ZN12V3NumberData8setLogicEv.exit:                ; preds = %18, %23, %_ZN12V3Nu
 
 94:                                               ; preds = %72
   %95 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %3) #30
-  %96 = call i32 @atoi(ptr nocapture noundef %95) #35
+  %96 = call i32 @atoi(ptr noundef %95) #35
   br label %.invoke
 
 _ZN8V3Number5widthEib.exit:                       ; preds = %.invoke, %.loopexit459
@@ -7145,7 +7145,7 @@ _ZNK8V3Number9bitsValueEii.exit279.thread:        ; preds = %.thread505, %_ZNK8V
 
 .loopexit:                                        ; preds = %228, %147, %312, %.preheader567, %.preheader562
   %315 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %7) #30
-  %316 = call i32 @atoi(ptr nocapture noundef %315) #35
+  %316 = call i32 @atoi(ptr noundef %315) #35
   %317 = sext i32 %316 to i64
   %318 = select i1 %37, i8 32, i8 48
   invoke void @_ZN8V3Number10displayPadEmcbRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %9, i64 noundef %317, i8 noundef signext %318, i1 noundef zeroext %37, ptr noundef nonnull align 8 dereferenceable(32) %8)
@@ -7406,7 +7406,7 @@ _ZNK8V3Number9bitsValueEii.exit320:               ; preds = %_ZNK8V3Number6bitIs
 
 ._crit_edge610:                                   ; preds = %410
   %413 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %7) #30
-  %414 = call i32 @atoi(ptr nocapture noundef %413) #35
+  %414 = call i32 @atoi(ptr noundef %413) #35
   %415 = sext i32 %414 to i64
   invoke void @_ZN8V3Number10displayPadEmcbRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %13, i64 noundef %415, i8 noundef signext 32, i1 noundef zeroext %37, ptr noundef nonnull align 8 dereferenceable(32) %8)
           to label %416 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
@@ -7658,7 +7658,7 @@ _ZNK8V3Number6bitIsZEi.exit.thread.i374:          ; preds = %_ZNK8V3Number6bitIs
 507:                                              ; preds = %503, %499
   %508 = phi i8 [ 32, %499 ], [ %spec.select, %503 ]
   %509 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %7) #30
-  %510 = call i32 @atoi(ptr nocapture noundef %509) #35
+  %510 = call i32 @atoi(ptr noundef %509) #35
   %511 = sext i32 %510 to i64
   invoke void @_ZN8V3Number10displayPadEmcbRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %21, i64 noundef %511, i8 noundef signext %508, i1 noundef zeroext %37, ptr noundef nonnull align 8 dereferenceable(32) %8)
           to label %512 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
@@ -8022,7 +8022,7 @@ _ZNK8V3Number6bitIsZEi.exit444.thread:            ; preds = %626, %_ZNK12V3Numbe
 
 674:                                              ; preds = %.critedge
   %675 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %7) #30
-  %676 = call i32 @atoi(ptr nocapture noundef %675) #35
+  %676 = call i32 @atoi(ptr noundef %675) #35
   invoke void @_ZNK8V3Number8toStringB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %25, ptr noundef nonnull align 8 dereferenceable(56) %1)
           to label %677 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 

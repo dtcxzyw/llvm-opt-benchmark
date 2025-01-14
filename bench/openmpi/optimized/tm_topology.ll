@@ -481,7 +481,7 @@ define hidden noalias noundef ptr @tm_load_topology(ptr noundef %0, i32 noundef 
   %45 = getelementptr inbounds nuw i8, ptr %42, i64 72
   store ptr null, ptr %45, align 8
   %46 = call ptr @strtok(ptr noundef nonnull %.039.i, ptr noundef nonnull @.str.24) #22
-  %47 = call i32 @atoi(ptr nocapture noundef %46) #23
+  %47 = call i32 @atoi(ptr noundef %46) #23
   %48 = add nsw i32 %47, 1
   %49 = getelementptr inbounds nuw i8, ptr %42, i64 8
   store i32 %48, ptr %49, align 8
@@ -506,11 +506,11 @@ define hidden noalias noundef ptr @tm_load_topology(ptr noundef %0, i32 noundef 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
   %57 = call ptr @strtok(ptr noundef null, ptr noundef nonnull @.str.24) #22
-  %58 = call i32 @atoi(ptr nocapture noundef %57) #23
+  %58 = call i32 @atoi(ptr noundef %57) #23
   %59 = getelementptr inbounds nuw i32, ptr %52, i64 %indvars.iv.i
   store i32 %58, ptr %59, align 4
   %60 = call ptr @strtok(ptr noundef null, ptr noundef nonnull @.str.24) #22
-  %61 = call i32 @atoi(ptr nocapture noundef %60) #23
+  %61 = call i32 @atoi(ptr noundef %60) #23
   %62 = sitofp i32 %61 to double
   %63 = getelementptr inbounds nuw double, ptr %53, i64 %indvars.iv.i
   store double %62, ptr %63, align 8
@@ -1219,7 +1219,7 @@ define hidden range(i32 0, 2) i32 @tm_topology_add_binding_constraints(ptr nound
   br i1 %48, label %49, label %54
 
 49:                                               ; preds = %47
-  %50 = call i32 @atoi(ptr nocapture noundef nonnull %38) #23
+  %50 = call i32 @atoi(ptr noundef nonnull %38) #23
   %51 = sext i32 %.04067 to i64
   %52 = getelementptr inbounds i32, ptr %31, i64 %51
   store i32 %50, ptr %52, align 4

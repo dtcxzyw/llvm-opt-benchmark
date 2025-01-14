@@ -4771,7 +4771,7 @@ invoke.cont34:                                    ; preds = %_ZN13string_bufferI
   %arrayidx.i.i47 = getelementptr inbounds i8, ptr %32, i64 %31
   store i8 0, ptr %arrayidx.i.i47, align 1
   %33 = load ptr, ptr %m_buffer.i.i46, align 8
-  %call36 = call i32 @atoi(ptr nocapture noundef %33) #26
+  %call36 = call i32 @atoi(ptr noundef %33) #26
   %call38 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %domain_name) #23
   invoke void @_ZN6symbolC1EPKc(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp37, ptr noundef %call38)
           to label %invoke.cont39 unwind label %lpad

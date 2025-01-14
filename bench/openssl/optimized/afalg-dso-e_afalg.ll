@@ -130,7 +130,7 @@ if.end.i.i:                                       ; preds = %if.end.i
 for.body.i.i:                                     ; preds = %if.end.i.i, %for.body.i.i
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %for.body.i.i ], [ 0, %if.end.i.i ]
   %str.015.i.i = phi ptr [ %call5.i.i, %for.body.i.i ], [ %call1.i.i, %if.end.i.i ]
-  %call4.i.i = call i32 @atoi(ptr nocapture noundef nonnull %str.015.i.i) #15
+  %call4.i.i = call i32 @atoi(ptr noundef nonnull %str.015.i.i) #15
   %arrayidx.i.i = getelementptr inbounds nuw [3 x i32], ptr %kver.i.i, i64 0, i64 %indvars.iv.i.i
   store i32 %call4.i.i, ptr %arrayidx.i.i, align 4
   %call5.i.i = call ptr @strtok(ptr noundef null, ptr noundef nonnull @.str.2) #14

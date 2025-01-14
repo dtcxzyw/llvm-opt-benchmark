@@ -3216,7 +3216,7 @@ while.body.i31:                                   ; preds = %while.cond.i
   br i1 %cmp22.i, label %if.then23.i, label %while.cond.i, !llvm.loop !19
 
 if.then23.i:                                      ; preds = %while.body.i31
-  %call24.i = tail call i32 @atoi(ptr nocapture noundef nonnull %incdec.ptr.i29) #31
+  %call24.i = tail call i32 @atoi(ptr noundef nonnull %incdec.ptr.i29) #31
   %conv25.i = sext i32 %call24.i to i64
   %incdec.ptr26.i = getelementptr inbounds nuw i8, ptr %in.addr.0.i, i64 2
   br label %if.then5
@@ -3631,7 +3631,7 @@ while.body:                                       ; preds = %while.cond
   br i1 %cmp22, label %if.then23, label %while.cond, !llvm.loop !19
 
 if.then23:                                        ; preds = %while.body
-  %call24 = tail call i32 @atoi(ptr nocapture noundef nonnull %incdec.ptr) #31
+  %call24 = tail call i32 @atoi(ptr noundef nonnull %incdec.ptr) #31
   %conv25 = sext i32 %call24 to i64
   store i64 %conv25, ptr %len, align 8
   %incdec.ptr26 = getelementptr inbounds nuw i8, ptr %in.addr.0, i64 2
@@ -4980,7 +4980,7 @@ _ZN10ODDLParser9isNumericIcEEbT_.exit:            ; preds = %while.end
   br i1 %cmp4.i, label %if.then10, label %return
 
 if.then10:                                        ; preds = %_ZN10ODDLParser9isNumericIcEEbT_.exit
-  %call11 = tail call i64 @atoll(ptr nocapture noundef nonnull %in.addr.0.lcssa.i) #31
+  %call11 = tail call i64 @atoll(ptr noundef nonnull %in.addr.0.lcssa.i) #31
   %call12 = tail call i64 @strtoull(ptr nocapture noundef nonnull %in.addr.0.lcssa.i, ptr noundef null, i32 noundef 10) #26
   %call13 = tail call noundef ptr @_ZN10ODDLParser14ValueAllocator13allocPrimDataENS_5Value9ValueTypeEm(i32 noundef %integerType, i64 noundef 1)
   store ptr %call13, ptr %integer, align 8

@@ -668,7 +668,7 @@ define range(i32 -1, 1) i32 @php_network_parse_network_address_with_port(ptr nou
   %.sink = phi ptr [ %21, %20 ], [ %17, %16 ]
   %.051 = phi ptr [ %19, %20 ], [ %12, %16 ]
   %.050 = phi ptr [ %0, %20 ], [ %10, %16 ]
-  %23 = tail call i32 @atoi(ptr nocapture noundef nonnull %.sink) #22
+  %23 = tail call i32 @atoi(ptr noundef nonnull %.sink) #22
   %.052 = trunc i32 %23 to i16
   %24 = ptrtoint ptr %.051 to i64
   %25 = ptrtoint ptr %.050 to i64

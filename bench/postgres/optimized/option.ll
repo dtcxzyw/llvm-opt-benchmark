@@ -133,7 +133,7 @@ define dso_local void @parseCommandLine(i32 noundef %0, ptr noundef %1) local_un
   br i1 %.not, label %12, label %9
 
 9:                                                ; preds = %2
-  %10 = tail call i32 @atoi(ptr nocapture noundef nonnull %8) #13
+  %10 = tail call i32 @atoi(ptr noundef nonnull %8) #13
   %11 = trunc i32 %10 to i16
   br label %12
 
@@ -145,7 +145,7 @@ define dso_local void @parseCommandLine(i32 noundef %0, ptr noundef %1) local_un
   br i1 %.not23, label %18, label %15
 
 15:                                               ; preds = %12
-  %16 = tail call i32 @atoi(ptr nocapture noundef nonnull %14) #13
+  %16 = tail call i32 @atoi(ptr noundef nonnull %14) #13
   %17 = trunc i32 %16 to i16
   br label %18
 
@@ -294,7 +294,7 @@ sub_152:                                          ; preds = %.tail.thread, %.thr
 
 70:                                               ; preds = %.preheader
   %71 = load ptr, ptr @optarg, align 8
-  %72 = call i32 @atoi(ptr nocapture noundef %71) #13
+  %72 = call i32 @atoi(ptr noundef %71) #13
   store i32 %72, ptr getelementptr inbounds nuw (i8, ptr @user_opts, i64 8), align 8
   br label %.preheader.backedge
 
@@ -342,7 +342,7 @@ sub_152:                                          ; preds = %.tail.thread, %.thr
 
 89:                                               ; preds = %.preheader
   %90 = load ptr, ptr @optarg, align 8
-  %91 = call i32 @atoi(ptr nocapture noundef %90) #13
+  %91 = call i32 @atoi(ptr noundef %90) #13
   %92 = trunc i32 %91 to i16
   store i16 %92, ptr getelementptr inbounds nuw (i8, ptr @old_cluster, i64 176), align 8
   %93 = and i32 %91, 65535
@@ -355,7 +355,7 @@ sub_152:                                          ; preds = %.tail.thread, %.thr
 
 96:                                               ; preds = %.preheader
   %97 = load ptr, ptr @optarg, align 8
-  %98 = call i32 @atoi(ptr nocapture noundef %97) #13
+  %98 = call i32 @atoi(ptr noundef %97) #13
   %99 = trunc i32 %98 to i16
   store i16 %99, ptr getelementptr inbounds nuw (i8, ptr @new_cluster, i64 176), align 8
   %100 = and i32 %98, 65535

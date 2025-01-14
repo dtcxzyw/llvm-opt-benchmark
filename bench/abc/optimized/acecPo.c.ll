@@ -65,7 +65,7 @@ define void @Acec_ParseSignatureMono(ptr noundef readonly %0, ptr noundef readno
 
 13:                                               ; preds = %11
   %14 = getelementptr inbounds nuw i8, ptr %.143, i64 1
-  %15 = tail call i32 @atoi(ptr nocapture noundef nonnull %14) #23
+  %15 = tail call i32 @atoi(ptr noundef nonnull %14) #23
   %16 = xor i32 %15, -1
   %17 = load i32, ptr %10, align 4
   %18 = load i32, ptr %2, align 8
@@ -133,7 +133,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
 
 45:                                               ; preds = %11
   %46 = getelementptr inbounds nuw i8, ptr %.143, i64 1
-  %47 = tail call i32 @atoi(ptr nocapture noundef nonnull %46) #23
+  %47 = tail call i32 @atoi(ptr noundef nonnull %46) #23
   %48 = load i32, ptr %10, align 4
   %49 = load i32, ptr %2, align 8
   %50 = icmp eq i32 %48, %49
@@ -199,7 +199,7 @@ Vec_IntPush.exit34:                               ; preds = %.Vec_IntGrow.exit10
   br label %79
 
 76:                                               ; preds = %11
-  %77 = tail call i32 @atoi(ptr nocapture noundef nonnull %.143) #23
+  %77 = tail call i32 @atoi(ptr noundef nonnull %.143) #23
   %78 = add nsw i32 %77, 1
   br label %79
 

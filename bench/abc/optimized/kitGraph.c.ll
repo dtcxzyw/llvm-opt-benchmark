@@ -1381,7 +1381,7 @@ define i32 @Kit_TruthFindVarNum(ptr nocapture noundef readonly %0) local_unnamed
 
 9:                                                ; preds = %.lr.ph
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv
-  %11 = tail call i32 @atoi(ptr nocapture noundef nonnull %10) #23
+  %11 = tail call i32 @atoi(ptr noundef nonnull %10) #23
   br label %.loopexit
 
 .loopexit:                                        ; preds = %5, %1, %9
@@ -1441,7 +1441,7 @@ Abc_Clock.exit:                                   ; preds = %1, %6
 
 Kit_TruthFindVarNum.exit:                         ; preds = %.lr.ph.i
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv.i
-  %19 = call i32 @atoi(ptr nocapture noundef nonnull readonly %18) #23
+  %19 = call i32 @atoi(ptr noundef nonnull readonly %18) #23
   %.fr = freeze i32 %19
   %20 = icmp slt i32 %.fr, 6
   %21 = add nsw i32 %.fr, -5

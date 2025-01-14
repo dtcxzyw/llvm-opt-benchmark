@@ -342,7 +342,7 @@ _get_device_name.exit.i:                          ; preds = %56, %48
 .lr.ph.i17.i:                                     ; preds = %73, %.lr.ph.i17.i
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %.lr.ph.i17.i ], [ 0, %73 ]
   %.02030.i.i = phi ptr [ %85, %.lr.ph.i17.i ], [ %74, %73 ]
-  %83 = call i32 @atoi(ptr nocapture noundef nonnull %.02030.i.i) #9
+  %83 = call i32 @atoi(ptr noundef nonnull %.02030.i.i) #9
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %84 = getelementptr inbounds nuw [100 x i32], ptr %5, i64 0, i64 %indvars.iv.i.i
   store i32 %83, ptr %84, align 4

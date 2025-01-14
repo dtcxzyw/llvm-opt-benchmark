@@ -11093,7 +11093,7 @@ define i32 @Gia_ManReadRangeNum(ptr nocapture noundef readonly %0, i32 noundef %
 
 7:                                                ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 1
-  %9 = tail call i32 @atoi(ptr nocapture noundef nonnull %8) #26
+  %9 = tail call i32 @atoi(ptr noundef nonnull %8) #26
   br label %10
 
 10:                                               ; preds = %2, %7
@@ -11617,7 +11617,7 @@ define void @Gia_ManDumpIoRanges(ptr nocapture noundef readonly %0, ptr nocaptur
 
 46:                                               ; preds = %26
   %47 = getelementptr inbounds nuw i8, ptr %43, i64 1
-  %48 = tail call i32 @atoi(ptr nocapture noundef nonnull readonly %47) #26
+  %48 = tail call i32 @atoi(ptr noundef nonnull readonly %47) #26
   br label %Gia_ManReadRangeNum.exit
 
 Gia_ManReadRangeNum.exit:                         ; preds = %26, %46
@@ -11629,7 +11629,7 @@ Gia_ManReadRangeNum.exit:                         ; preds = %26, %46
 
 52:                                               ; preds = %Gia_ManReadRangeNum.exit
   %53 = getelementptr inbounds nuw i8, ptr %49, i64 1
-  %54 = tail call i32 @atoi(ptr nocapture noundef nonnull readonly %53) #26
+  %54 = tail call i32 @atoi(ptr noundef nonnull readonly %53) #26
   br label %Gia_ManReadRangeNum.exit60
 
 Gia_ManReadRangeNum.exit60:                       ; preds = %Gia_ManReadRangeNum.exit, %52

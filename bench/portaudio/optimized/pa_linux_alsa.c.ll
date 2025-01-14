@@ -282,14 +282,14 @@ define i32 @PaAlsa_Initialize(ptr nocapture noundef %0, i32 noundef %1) local_un
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 272
   store i32 %1, ptr %11, align 8
   %12 = tail call ptr @snd_asoundlib_version() #25, !callees !4
-  %13 = tail call i32 @atoi(ptr nocapture noundef %12) #26
+  %13 = tail call i32 @atoi(ptr noundef %12) #26
   %14 = shl i32 %13, 16
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 2
-  %16 = tail call i32 @atoi(ptr nocapture noundef nonnull %15) #26
+  %16 = tail call i32 @atoi(ptr noundef nonnull %15) #26
   %17 = shl i32 %16, 8
   %18 = or i32 %17, %14
   %19 = getelementptr inbounds nuw i8, ptr %12, i64 4
-  %20 = tail call i32 @atoi(ptr nocapture noundef nonnull %19) #26
+  %20 = tail call i32 @atoi(ptr noundef nonnull %19) #26
   %21 = or i32 %18, %20
   %22 = getelementptr inbounds nuw i8, ptr %3, i64 276
   store i32 %21, ptr %22, align 4
@@ -542,7 +542,7 @@ define internal i32 @OpenStream(ptr noundef %0, ptr nocapture noundef writeonly 
   br i1 %.not73, label %79, label %76
 
 76:                                               ; preds = %74
-  %77 = tail call i32 @atoi(ptr nocapture noundef nonnull %75) #26
+  %77 = tail call i32 @atoi(ptr noundef nonnull %75) #26
   %78 = sext i32 %77 to i64
   br label %79
 
@@ -885,7 +885,7 @@ define internal fastcc i32 @BuildDeviceList(ptr nocapture noundef nonnull initia
   br i1 %.not, label %15, label %13
 
 13:                                               ; preds = %1
-  %14 = tail call i32 @atoi(ptr nocapture noundef nonnull %12) #26
+  %14 = tail call i32 @atoi(ptr noundef nonnull %12) #26
   %.not167 = icmp eq i32 %14, 0
   %spec.select = zext i1 %.not167 to i32
   br label %15
@@ -897,7 +897,7 @@ define internal fastcc i32 @BuildDeviceList(ptr nocapture noundef nonnull initia
   br i1 %.not168, label %19, label %17
 
 17:                                               ; preds = %15
-  %18 = tail call i32 @atoi(ptr nocapture noundef nonnull %16) #26
+  %18 = tail call i32 @atoi(ptr noundef nonnull %16) #26
   %.not169 = icmp ne i32 %18, 0
   %spec.select184 = select i1 %.not169, ptr @.str.39, ptr @.str.36
   %spec.select185 = zext i1 %.not169 to i32
@@ -1300,7 +1300,7 @@ SkipCardDetailsInName.exit:                       ; preds = %.preheader.i, %._cr
   br i1 %.not.i, label %.preheader, label %196
 
 196:                                              ; preds = %193
-  %197 = call i32 @atoi(ptr nocapture noundef nonnull %195) #26
+  %197 = call i32 @atoi(ptr noundef nonnull %195) #26
   %.not7.i = icmp eq i32 %197, 0
   br i1 %.not7.i, label %.preheader, label %IgnorePlugin.exit.thread
 

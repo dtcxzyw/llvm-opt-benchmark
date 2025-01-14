@@ -1126,7 +1126,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit123: ;
 
 377:                                              ; preds = %374
   %378 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %375) #23
-  %379 = call i32 @atoi(ptr nocapture noundef %378) #24
+  %379 = call i32 @atoi(ptr noundef %378) #24
   %380 = getelementptr inbounds nuw i8, ptr %314, i64 280
   store i32 %379, ptr %380, align 8
   br label %381

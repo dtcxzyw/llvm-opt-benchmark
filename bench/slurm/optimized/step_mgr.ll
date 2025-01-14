@@ -2645,7 +2645,7 @@ define internal fastcc range(i32 0, 2013) i32 @_test_step_desc_fields(ptr nocapt
 
 7:                                                ; preds = %4
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 21
-  %9 = tail call i32 @atoi(ptr nocapture noundef nonnull %8) #16
+  %9 = tail call i32 @atoi(ptr noundef nonnull %8) #16
   br label %.sink.split
 
 .sink.split:                                      ; preds = %4, %7

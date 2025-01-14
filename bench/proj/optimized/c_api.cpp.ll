@@ -11819,7 +11819,7 @@ _ZL14getOptionValuePKcS0_.exit.thread:            ; preds = %.lr.ph108
 _ZL14getOptionValuePKcS0_.exit70:                 ; preds = %_ZL14getOptionValuePKcS0_.exit.thread
   %78 = getelementptr inbounds nuw i8, ptr %76, i64 18
   %79 = load ptr, ptr %6, align 8
-  %80 = call i32 @atoi(ptr nocapture noundef nonnull %78) #35
+  %80 = call i32 @atoi(ptr noundef nonnull %78) #35
   %81 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN5osgeo4proj2io12WKTFormatter19setIndentationWidthEi(ptr noundef nonnull align 8 dereferenceable(8) %79, i32 noundef %80) #30
   br label %.lr.ph
 
@@ -12286,7 +12286,7 @@ _ZL14getOptionValuePKcS0_.exit.thread:            ; preds = %.lr.ph95
 _ZL14getOptionValuePKcS0_.exit61:                 ; preds = %_ZL14getOptionValuePKcS0_.exit.thread
   %74 = getelementptr inbounds nuw i8, ptr %72, i64 18
   %75 = load ptr, ptr %6, align 8
-  %76 = call i32 @atoi(ptr nocapture noundef nonnull %74) #35
+  %76 = call i32 @atoi(ptr noundef nonnull %74) #35
   %77 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN5osgeo4proj2io19PROJStringFormatter19setIndentationWidthEi(ptr noundef nonnull align 8 dereferenceable(8) %75, i32 noundef %76) #30
   br label %.lr.ph
 
@@ -12298,7 +12298,7 @@ _ZL14getOptionValuePKcS0_.exit61.thread:          ; preds = %_ZL14getOptionValue
 _ZL14getOptionValuePKcS0_.exit63:                 ; preds = %_ZL14getOptionValuePKcS0_.exit61.thread
   %80 = getelementptr inbounds nuw i8, ptr %78, i64 16
   %81 = load ptr, ptr %6, align 8
-  %82 = call i32 @atoi(ptr nocapture noundef nonnull %80) #35
+  %82 = call i32 @atoi(ptr noundef nonnull %80) #35
   %83 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN5osgeo4proj2io19PROJStringFormatter16setMaxLineLengthEi(ptr noundef nonnull align 8 dereferenceable(8) %81, i32 noundef %82) #30
   br label %.lr.ph
 
@@ -12691,7 +12691,7 @@ _ZL14getOptionValuePKcS0_.exit.thread:            ; preds = %.lr.ph84
 _ZL14getOptionValuePKcS0_.exit54:                 ; preds = %_ZL14getOptionValuePKcS0_.exit.thread
   %77 = getelementptr inbounds nuw i8, ptr %75, i64 18
   %78 = load ptr, ptr %5, align 8
-  %79 = call i32 @atoi(ptr nocapture noundef nonnull %77) #35
+  %79 = call i32 @atoi(ptr noundef nonnull %77) #35
   %80 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN5osgeo4proj2io13JSONFormatter19setIndentationWidthEi(ptr noundef nonnull align 8 dereferenceable(8) %78, i32 noundef %79) #30
   br label %.lr.ph
 

@@ -638,7 +638,7 @@ sw.bb129:                                         ; preds = %while.cond
 
 sw.bb131:                                         ; preds = %while.cond
   %call132 = call ptr @opt_arg() #10
-  %call133 = call i32 @atoi(ptr nocapture noundef %call132) #11
+  %call133 = call i32 @atoi(ptr noundef %call132) #11
   %cmp134 = icmp slt i32 %call133, -1
   br i1 %cmp134, label %if.then135, label %while.cond.backedge
 
@@ -2239,7 +2239,7 @@ if.then50:                                        ; preds = %if.else, %land.lhs.
   %keytype.090140 = phi ptr [ %gstr, %land.lhs.true40 ], [ @.str.144, %if.else ]
   %keytypelen.091139 = phi i64 [ %conv16, %land.lhs.true40 ], [ 0, %if.else ]
   %gstr.addr.092138 = phi ptr [ %add.ptr3298, %land.lhs.true40 ], [ %gstr, %if.else ]
-  %call51 = tail call i64 @atol(ptr nocapture noundef nonnull %gstr.addr.092138) #11
+  %call51 = tail call i64 @atol(ptr noundef nonnull %gstr.addr.092138) #11
   br label %if.end93
 
 if.then57:                                        ; preds = %land.lhs.true40, %if.then39

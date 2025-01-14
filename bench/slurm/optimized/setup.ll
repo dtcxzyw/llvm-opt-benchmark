@@ -235,7 +235,7 @@ define i32 @pmi2_setup_stepd(ptr nocapture noundef readonly %0, ptr noundef %1) 
   br i1 %.not67.i, label %79, label %77
 
 77:                                               ; preds = %.loopexit.i
-  %78 = tail call i32 @atoi(ptr nocapture noundef nonnull %76) #14
+  %78 = tail call i32 @atoi(ptr noundef nonnull %76) #14
   br label %79
 
 79:                                               ; preds = %77, %.loopexit.i
@@ -247,7 +247,7 @@ define i32 @pmi2_setup_stepd(ptr nocapture noundef readonly %0, ptr noundef %1) 
   br i1 %.not69.i, label %89, label %82
 
 82:                                               ; preds = %79
-  %83 = tail call i32 @atoi(ptr nocapture noundef nonnull %81) #14
+  %83 = tail call i32 @atoi(ptr noundef nonnull %81) #14
   store i32 %83, ptr getelementptr inbounds nuw (i8, ptr @job_info, i64 40), align 8
   %84 = load ptr, ptr %1, align 8
   tail call void @slurm_unsetenvp(ptr noundef %84, ptr noundef nonnull @.str.12) #13
@@ -356,7 +356,7 @@ define i32 @pmi2_setup_stepd(ptr nocapture noundef readonly %0, ptr noundef %1) 
   br i1 %.not.i26, label %145, label %135
 
 135:                                              ; preds = %127
-  %136 = tail call i32 @atoi(ptr nocapture noundef nonnull %134) #14
+  %136 = tail call i32 @atoi(ptr noundef nonnull %134) #14
   %137 = icmp slt i32 %136, 2
   br i1 %137, label %138, label %148
 
@@ -426,7 +426,7 @@ define i32 @pmi2_setup_stepd(ptr nocapture noundef readonly %0, ptr noundef %1) 
   br label %_setup_stepd_job_info.exit
 
 170:                                              ; preds = %165
-  %171 = tail call i32 @atoi(ptr nocapture noundef nonnull %167) #14
+  %171 = tail call i32 @atoi(ptr noundef nonnull %167) #14
   %172 = trunc i32 %171 to i16
   %173 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 128, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.7, i32 noundef 270, ptr noundef nonnull @__func__._setup_stepd_tree_info) #13
   store ptr %173, ptr getelementptr inbounds nuw (i8, ptr @tree_info, i64 40), align 8
@@ -573,7 +573,7 @@ _setup_stepd_sockets.exit.thread:                 ; preds = %185, %201, %214, %2
   br i1 %.not24.i, label %.loopexit, label %251
 
 251:                                              ; preds = %248
-  %252 = call i32 @atoi(ptr nocapture noundef nonnull %250) #14
+  %252 = call i32 @atoi(ptr noundef nonnull %250) #14
   %253 = icmp sgt i32 %252, 0
   br i1 %253, label %.lr.ph.i34, label %.loopexit
 
@@ -687,7 +687,7 @@ define i32 @pmi2_setup_srun(ptr nocapture noundef readonly %0, ptr noundef %1) l
   br i1 %.not33.i, label %32, label %30
 
 30:                                               ; preds = %18
-  %31 = tail call i32 @atoi(ptr nocapture noundef nonnull %29) #14
+  %31 = tail call i32 @atoi(ptr noundef nonnull %29) #14
   br label %32
 
 32:                                               ; preds = %30, %18
@@ -698,7 +698,7 @@ define i32 @pmi2_setup_srun(ptr nocapture noundef readonly %0, ptr noundef %1) l
   br i1 %.not35.i, label %38, label %34
 
 34:                                               ; preds = %32
-  %35 = tail call i32 @atoi(ptr nocapture noundef nonnull %33) #14
+  %35 = tail call i32 @atoi(ptr noundef nonnull %33) #14
   store i32 %35, ptr getelementptr inbounds nuw (i8, ptr @job_info, i64 40), align 8
   %36 = tail call ptr @getenv(ptr noundef nonnull @.str.13) #13
   %37 = tail call ptr @slurm_xstrdup(ptr noundef %36) #13
@@ -1186,7 +1186,7 @@ _get_proc_mapping.exit.i:                         ; preds = %201, %198
   br i1 %.not.i, label %241, label %237
 
 237:                                              ; preds = %233
-  %238 = call i32 @atoi(ptr nocapture noundef nonnull %236) #14
+  %238 = call i32 @atoi(ptr noundef nonnull %236) #14
   %239 = trunc i32 %238 to i16
   %240 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 128, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.7, i32 noundef 688, ptr noundef nonnull @__func__._setup_srun_tree_info) #13
   store ptr %240, ptr getelementptr inbounds nuw (i8, ptr @tree_info, i64 40), align 8

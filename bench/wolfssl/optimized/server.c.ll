@@ -1018,7 +1018,7 @@ sw.bb:                                            ; preds = %if.end102.i, %if.el
   br i1 %cmp3.not, label %if.end8, label %if.then
 
 if.then:                                          ; preds = %sw.bb
-  %call4 = tail call i32 @atoi(ptr nocapture noundef nonnull %32) #26
+  %call4 = tail call i32 @atoi(ptr noundef nonnull %32) #26
   %or.cond = icmp ugt i32 %call4, 1
   %spec.store.select39 = select i1 %or.cond, i32 0, i32 %call4
   store i32 %spec.store.select39, ptr @lng_index, align 4
@@ -1072,7 +1072,7 @@ sw.bb21:                                          ; preds = %while.body
 
 sw.bb23:                                          ; preds = %while.body
   %34 = load ptr, ptr @myoptarg, align 8
-  %call24 = tail call i32 @atoi(ptr nocapture noundef %34) #26
+  %call24 = tail call i32 @atoi(ptr noundef %34) #26
   %conv = trunc i32 %call24 to i16
   br label %if.end.i.backedge
 
@@ -1127,7 +1127,7 @@ if.end.i.backedge:                                ; preds = %sw.bb26, %sw.bb156,
   br label %if.end.i
 
 if.end31:                                         ; preds = %sw.bb26
-  %call32 = tail call i32 @atoi(ptr nocapture noundef nonnull %35) #26
+  %call32 = tail call i32 @atoi(ptr noundef nonnull %35) #26
   %or.cond1 = icmp ugt i32 %call32, 4
   br i1 %or.cond1, label %if.then38, label %if.end.i.backedge
 
@@ -1238,7 +1238,7 @@ sw.bb99:                                          ; preds = %while.body
 
 sw.bb100:                                         ; preds = %while.body
   %43 = load ptr, ptr @myoptarg, align 8
-  %call101 = tail call i32 @atoi(ptr nocapture noundef %43) #26
+  %call101 = tail call i32 @atoi(ptr noundef %43) #26
   %44 = add i32 %call101, -16001
   %or.cond2 = icmp ult i32 %44, -16000
   br i1 %or.cond2, label %if.then107, label %if.end.i.backedge
@@ -1260,7 +1260,7 @@ sw.bb116:                                         ; preds = %while.body
 
 sw.bb117:                                         ; preds = %while.body
   %46 = load ptr, ptr @myoptarg, align 8
-  %call118 = tail call i32 @atoi(ptr nocapture noundef %46) #26
+  %call118 = tail call i32 @atoi(ptr noundef %46) #26
   %cmp119 = icmp slt i32 %call118, 1
   br i1 %cmp119, label %if.then121, label %if.end.i.backedge
 
@@ -1274,7 +1274,7 @@ sw.bb123:                                         ; preds = %while.body
 
 sw.bb124:                                         ; preds = %while.body
   %47 = load ptr, ptr @myoptarg, align 8
-  %call125 = tail call i64 @atol(ptr nocapture noundef %47) #26
+  %call125 = tail call i64 @atol(ptr noundef %47) #26
   br label %for.cond
 
 for.cond:                                         ; preds = %for.inc, %sw.bb124
@@ -1287,7 +1287,7 @@ for.cond:                                         ; preds = %for.inc, %sw.bb124
 
 if.then132:                                       ; preds = %for.cond
   %add.ptr = getelementptr inbounds nuw i8, ptr %incdec.ptr1388, i64 1
-  %call133 = tail call i32 @atoi(ptr nocapture noundef nonnull %add.ptr) #26
+  %call133 = tail call i32 @atoi(ptr noundef nonnull %add.ptr) #26
   br label %for.end
 
 for.inc:                                          ; preds = %for.cond
@@ -1327,7 +1327,7 @@ sw.bb150:                                         ; preds = %while.body
 
 sw.bb156:                                         ; preds = %while.body
   %49 = load ptr, ptr @myoptarg, align 8
-  %call157 = tail call i32 @atoi(ptr nocapture noundef %49) #26
+  %call157 = tail call i32 @atoi(ptr noundef %49) #26
   %or.cond4 = icmp ugt i32 %call157, 1
   %spec.store.select40 = select i1 %or.cond4, i32 0, i32 %call157
   store i32 %spec.store.select40, ptr @lng_index, align 4
@@ -1341,7 +1341,7 @@ sw.bb169:                                         ; preds = %while.body
 
 sw.bb170:                                         ; preds = %while.body
   %50 = load ptr, ptr @myoptarg, align 8
-  %call171 = tail call i32 @atoi(ptr nocapture noundef %50) #26
+  %call171 = tail call i32 @atoi(ptr noundef %50) #26
   %or.cond5 = icmp ugt i32 %call171, 4
   br i1 %or.cond5, label %if.then177, label %if.end.i.backedge
 

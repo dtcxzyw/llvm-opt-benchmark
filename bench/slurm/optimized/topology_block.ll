@@ -475,7 +475,7 @@ define internal fastcc void @_print_topo_record(ptr nocapture noundef readonly %
   br i1 %.not8, label %17, label %14
 
 14:                                               ; preds = %12
-  %15 = call i32 @atoi(ptr nocapture noundef nonnull %13) #9
+  %15 = call i32 @atoi(ptr noundef nonnull %13) #9
   %16 = load ptr, ptr %3, align 8
   call void (ptr, ptr, ...) @slurm_xstrfmtcat(ptr noundef %1, ptr noundef nonnull @.str.9, i32 noundef %15, ptr noundef %16) #8
   br label %19

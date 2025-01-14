@@ -5991,7 +5991,7 @@ define noalias noundef ptr @Gia_MiniAigProcessFile() local_unnamed_addr #1 {
 
 .lr.ph:                                           ; preds = %15, %Vec_IntPush.exit
   %.019 = phi ptr [ %46, %Vec_IntPush.exit ], [ %17, %15 ]
-  %18 = call i32 @atoi(ptr nocapture noundef nonnull %.019) #29
+  %18 = call i32 @atoi(ptr noundef nonnull %.019) #29
   %19 = load i32, ptr %3, align 4
   %20 = load i32, ptr %2, align 8
   %21 = icmp eq i32 %19, %20

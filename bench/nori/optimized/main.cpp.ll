@@ -411,7 +411,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit75: ; 
   %71 = sext i32 %61 to i64
   %72 = getelementptr inbounds ptr, ptr %1, i64 %71
   %73 = load ptr, ptr %72, align 8
-  %74 = call i32 @atoi(ptr nocapture noundef %73) #25
+  %74 = call i32 @atoi(ptr noundef %73) #25
   store i32 %74, ptr @_ZL11threadCount, align 4
   %75 = icmp slt i32 %74, 1
   br i1 %75, label %.invoke127, label %_ZN10filesystem4pathD2Ev.exit85.thread101

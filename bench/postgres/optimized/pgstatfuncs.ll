@@ -1303,7 +1303,7 @@ define dso_local noundef i64 @pg_stat_get_activity(ptr noundef %0) local_unnamed
   br label %229
 
 229:                                              ; preds = %228, %225
-  %230 = call i32 @atoi(ptr nocapture noundef nonnull %6) #11
+  %230 = call i32 @atoi(ptr noundef nonnull %6) #11
   %231 = sext i32 %230 to i64
   store i64 %231, ptr %55, align 16
   br label %235

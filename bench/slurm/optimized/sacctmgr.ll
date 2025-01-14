@@ -1099,7 +1099,7 @@ define internal fastcc void @_process_command(i32 noundef %0, ptr noundef %1) un
   %206 = phi i64 [ %189, %.thread153 ], [ %197, %199 ]
   %207 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %208 = load ptr, ptr %207, align 8
-  %209 = tail call i32 @atoi(ptr nocapture noundef %208) #21
+  %209 = tail call i32 @atoi(ptr noundef %208) #21
   %210 = trunc i32 %209 to i16
   br label %.thread148
 

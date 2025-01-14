@@ -1675,7 +1675,7 @@ if.else88:                                        ; preds = %if.else83
   br i1 %cmp91, label %if.end104.sink.split, label %if.else93
 
 if.else93:                                        ; preds = %if.else88
-  %call95 = call i32 @atoi(ptr nocapture noundef %11) #12
+  %call95 = call i32 @atoi(ptr noundef %11) #12
   store i32 %call95, ptr %saltlen, align 4
   br label %sw.epilog101
 

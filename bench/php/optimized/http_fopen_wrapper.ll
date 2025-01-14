@@ -3117,7 +3117,7 @@ define internal fastcc ptr @php_stream_url_wrap_http_ex(ptr noundef %0, ptr noun
 
 1380:                                             ; preds = %1377
   %1381 = getelementptr inbounds nuw i8, ptr %15, i64 9
-  %1382 = call i32 @atoi(ptr nocapture noundef nonnull %1381) #16
+  %1382 = call i32 @atoi(ptr noundef nonnull %1381) #16
   br label %1383
 
 1383:                                             ; preds = %1377, %1380
@@ -3179,7 +3179,7 @@ define internal fastcc ptr @php_stream_url_wrap_http_ex(ptr noundef %0, ptr noun
 
 1403:                                             ; preds = %.critedge71
   %1404 = getelementptr inbounds nuw i8, ptr %15, i64 9
-  %1405 = call i32 @atoi(ptr nocapture noundef nonnull %1404) #16
+  %1405 = call i32 @atoi(ptr noundef nonnull %1404) #16
   br label %1406
 
 1406:                                             ; preds = %1403, %1389
@@ -3449,7 +3449,7 @@ define internal fastcc ptr @php_stream_url_wrap_http_ex(ptr noundef %0, ptr noun
   br i1 %.not2971, label %1494, label %1500
 
 1494:                                             ; preds = %1492
-  %1495 = call i32 @atoi(ptr nocapture noundef nonnull %.12370) #16
+  %1495 = call i32 @atoi(ptr noundef nonnull %.12370) #16
   %1496 = sext i32 %1495 to i64
   br i1 %148, label %1497, label %1515
 

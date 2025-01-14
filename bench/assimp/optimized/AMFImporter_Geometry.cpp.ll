@@ -1514,7 +1514,7 @@ if.then48:                                        ; preds = %if.else45
 
 invoke.cont49:                                    ; preds = %if.then48
   %call51 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %v) #19
-  %call52 = call i32 @atoi(ptr nocapture noundef %call51) #17
+  %call52 = call i32 @atoi(ptr noundef %call51) #17
   %conv = sext i32 %call52 to i64
   store i64 %conv, ptr %V, align 8
   br label %if.end80
@@ -1530,7 +1530,7 @@ if.then56:                                        ; preds = %if.else53
 
 invoke.cont57:                                    ; preds = %if.then56
   %call59 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %v) #19
-  %call60 = call i32 @atoi(ptr nocapture noundef %call59) #17
+  %call60 = call i32 @atoi(ptr noundef %call59) #17
   %conv61 = sext i32 %call60 to i64
   store i64 %conv61, ptr %arrayidx63, align 8
   br label %if.end80
@@ -1546,7 +1546,7 @@ if.then67:                                        ; preds = %if.else64
 
 invoke.cont68:                                    ; preds = %if.then67
   %call70 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %v) #19
-  %call71 = call i32 @atoi(ptr nocapture noundef %call70) #17
+  %call71 = call i32 @atoi(ptr noundef %call70) #17
   %conv72 = sext i32 %call71 to i64
   store i64 %conv72, ptr %arrayidx74, align 8
   br label %if.end80

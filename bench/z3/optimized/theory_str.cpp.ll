@@ -115970,7 +115970,7 @@ lpad.i:                                           ; preds = %.noexc
 invoke.cont18:                                    ; preds = %.noexc
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #23
   %call19 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %sDigit) #23
-  %call20 = call i32 @atoi(ptr nocapture noundef %call19) #27
+  %call20 = call i32 @atoi(ptr noundef %call19) #27
   invoke void @_ZmlRK8rationalS1_(ptr nonnull sret(%class.rational) align 8 %ref.tmp22, ptr noundef nonnull align 8 dereferenceable(32) %ten, ptr noundef nonnull align 8 dereferenceable(32) %converted)
           to label %invoke.cont24 unwind label %lpad23
 

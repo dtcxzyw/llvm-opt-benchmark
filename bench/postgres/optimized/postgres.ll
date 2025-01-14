@@ -2266,7 +2266,7 @@ define dso_local void @process_postgres_switches(i32 noundef %0, ptr noundef %1,
 
 42:                                               ; preds = %.backedge
   %43 = load ptr, ptr @optarg, align 8
-  %44 = call i32 @atoi(ptr nocapture noundef %43) #29
+  %44 = call i32 @atoi(ptr noundef %43) #29
   call void @set_debug_options(i32 noundef %44, i32 noundef %2, i32 noundef %.070)
   br label %.backedge.backedge
 
@@ -2394,7 +2394,7 @@ get_stats_option_name.exit.thread:                ; preds = %78, %get_stats_opti
 
 82:                                               ; preds = %81
   %83 = load ptr, ptr @optarg, align 8
-  %84 = call i32 @atoi(ptr nocapture noundef %83) #29
+  %84 = call i32 @atoi(ptr noundef %83) #29
   store i32 %84, ptr @FrontendProtocol, align 4
   br label %.backedge.backedge
 

@@ -909,7 +909,7 @@ php_ini_builder_finish.exit:                      ; preds = %.critedge2.thread, 
   br i1 %.not282, label %97, label %95
 
 95:                                               ; preds = %93
-  %96 = call i32 @atoi(ptr nocapture noundef nonnull %94) #29
+  %96 = call i32 @atoi(ptr noundef nonnull %94) #29
   br label %97
 
 97:                                               ; preds = %95, %93
@@ -942,7 +942,7 @@ php_ini_builder_finish.exit:                      ; preds = %.critedge2.thread, 
   br i1 %.not283, label %116, label %110
 
 110:                                              ; preds = %108
-  %111 = call i32 @atoi(ptr nocapture noundef nonnull %109) #29
+  %111 = call i32 @atoi(ptr noundef nonnull %109) #29
   %112 = icmp slt i32 %111, 0
   br i1 %112, label %113, label %116
 
@@ -959,7 +959,7 @@ php_ini_builder_finish.exit:                      ; preds = %.critedge2.thread, 
   br i1 %.not284, label %128, label %119
 
 119:                                              ; preds = %116
-  %120 = call i32 @atoi(ptr nocapture noundef nonnull %118) #29
+  %120 = call i32 @atoi(ptr noundef nonnull %118) #29
   store i32 %120, ptr @children, align 4
   %121 = icmp slt i32 %120, 0
   br i1 %121, label %122, label %125
@@ -1124,12 +1124,12 @@ php_ini_builder_finish.exit:                      ; preds = %.critedge2.thread, 
   %169 = load ptr, ptr @php_optarg, align 8
   %170 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %169, i32 noundef 44) #29
   %.not292.us = icmp eq ptr %170, null
-  %171 = call i32 @atoi(ptr nocapture noundef %169) #29
+  %171 = call i32 @atoi(ptr noundef %169) #29
   br i1 %.not292.us, label %175, label %172
 
 172:                                              ; preds = %168
   %173 = getelementptr inbounds nuw i8, ptr %170, i64 1
-  %174 = call i32 @atoi(ptr nocapture noundef nonnull %173) #29
+  %174 = call i32 @atoi(ptr noundef nonnull %173) #29
   br label %175
 
 175:                                              ; preds = %168, %172
@@ -1948,7 +1948,7 @@ is_valid_path.exit.thread.i:                      ; preds = %458, %458, %is_vali
   br i1 %.not396.i, label %477, label %475
 
 475:                                              ; preds = %472
-  %476 = call i64 @atol(ptr nocapture noundef nonnull %465) #29
+  %476 = call i64 @atol(ptr noundef nonnull %465) #29
   br label %477
 
 477:                                              ; preds = %475, %472
@@ -3343,7 +3343,7 @@ define internal noundef i32 @sapi_cgi_send_headers(ptr noundef %0) #0 {
 
 19:                                               ; preds = %15
   %20 = getelementptr inbounds nuw i8, ptr %18, i64 1
-  %21 = call i32 @atoi(ptr nocapture noundef nonnull %20) #29
+  %21 = call i32 @atoi(ptr noundef nonnull %20) #29
   br label %22
 
 22:                                               ; preds = %19, %15
@@ -3372,7 +3372,7 @@ define internal noundef i32 @sapi_cgi_send_headers(ptr noundef %0) #0 {
 33:                                               ; preds = %30
   %34 = call i32 (ptr, i64, ptr, ...) @ap_php_slprintf(ptr noundef nonnull %3, i64 noundef 1024, ptr noundef nonnull @.str.56, ptr noundef nonnull %25) #28
   %35 = getelementptr inbounds nuw i8, ptr %25, i64 1
-  %36 = call i32 @atoi(ptr nocapture noundef nonnull %35) #29
+  %36 = call i32 @atoi(ptr noundef nonnull %35) #29
   br label %.thread70
 
 .thread:                                          ; preds = %14, %30, %24, %23

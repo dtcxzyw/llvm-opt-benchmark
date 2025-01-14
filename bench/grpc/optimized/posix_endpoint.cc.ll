@@ -8870,7 +8870,7 @@ lpad24:                                           ; preds = %"_ZSt7find_ifISt16r
 
 if.else:                                          ; preds = %lor.lhs.false
   %call31 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %memlock_value_string) #29
-  %call32 = call i32 @atoi(ptr nocapture noundef %call31) #35
+  %call32 = call i32 @atoi(ptr noundef %call31) #35
   %conv33 = sext i32 %call32 to i64
   br label %cleanup
 

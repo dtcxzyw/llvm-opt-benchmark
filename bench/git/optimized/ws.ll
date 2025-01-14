@@ -111,7 +111,7 @@ skip_prefix.exit:                                 ; preds = %do.body.i, %do.cond
   br i1 %tobool.not.i, label %if.then22, label %if.end37
 
 if.then22:                                        ; preds = %skip_prefix.exit
-  %call23 = tail call i32 @atoi(ptr nocapture noundef %arg.1) #10
+  %call23 = tail call i32 @atoi(ptr noundef %arg.1) #10
   %5 = add i32 %call23, -1
   %or.cond = icmp ult i32 %5, 63
   br i1 %or.cond, label %if.then28, label %if.else31

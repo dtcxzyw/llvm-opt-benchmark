@@ -13809,7 +13809,7 @@ define dso_local i32 @job_allocate(ptr noundef %0, i32 noundef %1, i32 noundef %
 
 52:                                               ; preds = %49
   %53 = getelementptr inbounds nuw i8, ptr %51, i64 19
-  %54 = tail call i32 @atoi(ptr nocapture noundef nonnull %53) #31
+  %54 = tail call i32 @atoi(ptr noundef nonnull %53) #31
   %55 = icmp sgt i32 %54, 0
   br i1 %55, label %56, label %57
 
@@ -15465,7 +15465,7 @@ _has_deadline.exit:                               ; preds = %772
 
 859:                                              ; preds = %857
   %860 = getelementptr inbounds nuw i8, ptr %858, i64 1
-  %861 = call i32 @atoi(ptr nocapture noundef nonnull %860) #31
+  %861 = call i32 @atoi(ptr noundef nonnull %860) #31
   %862 = icmp sgt i32 %861, 0
   br i1 %862, label %863, label %.thread.i206
 
@@ -15491,7 +15491,7 @@ _has_deadline.exit:                               ; preds = %772
 
 870:                                              ; preds = %868
   %871 = getelementptr inbounds nuw i8, ptr %869, i64 1
-  %872 = call i32 @atoi(ptr nocapture noundef nonnull %871) #31
+  %872 = call i32 @atoi(ptr noundef nonnull %871) #31
   br label %873
 
 873:                                              ; preds = %870, %868, %866
@@ -20050,7 +20050,7 @@ define internal fastcc range(i32 0, 2013) i32 @_test_job_desc_fields(ptr nocaptu
 
 7:                                                ; preds = %4
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %9 = tail call i32 @atoi(ptr nocapture noundef nonnull %8) #31
+  %9 = tail call i32 @atoi(ptr noundef nonnull %8) #31
   br label %10
 
 10:                                               ; preds = %4, %7
@@ -20063,7 +20063,7 @@ define internal fastcc range(i32 0, 2013) i32 @_test_job_desc_fields(ptr nocaptu
 
 13:                                               ; preds = %10
   %14 = getelementptr inbounds nuw i8, ptr %12, i64 21
-  %15 = tail call i32 @atoi(ptr nocapture noundef nonnull %14) #31
+  %15 = tail call i32 @atoi(ptr noundef nonnull %14) #31
   br label %.sink.split
 
 .sink.split:                                      ; preds = %10, %13
@@ -20456,7 +20456,7 @@ define internal fastcc noundef zeroext i1 @_valid_array_inx(ptr noundef %0) unna
 
 35:                                               ; preds = %32
   %36 = getelementptr inbounds nuw i8, ptr %34, i64 16
-  %37 = tail call i32 @atoi(ptr nocapture noundef nonnull %36) #31
+  %37 = tail call i32 @atoi(ptr noundef nonnull %36) #31
   store i32 %37, ptr @_valid_array_inx.max_task_cnt, align 4
   br label %38
 
@@ -38803,7 +38803,7 @@ define dso_local void @init_depend_policy() local_unnamed_addr #0 {
 
 11:                                               ; preds = %0
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 17
-  %13 = tail call i32 @atoi(ptr nocapture noundef nonnull readonly %12) #31
+  %13 = tail call i32 @atoi(ptr noundef nonnull readonly %12) #31
   %14 = icmp slt i32 %13, 0
   br i1 %14, label %15, label %17
 
@@ -43658,7 +43658,7 @@ define internal fastcc range(i32 0, -2147483648) i32 @_max_switch_wait(i32 nound
 
 7:                                                ; preds = %4
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %9 = tail call i32 @atoi(ptr nocapture noundef nonnull %8) #31
+  %9 = tail call i32 @atoi(ptr noundef nonnull %8) #31
   %10 = icmp slt i32 %9, 0
   br i1 %10, label %11, label %13
 

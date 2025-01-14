@@ -432,7 +432,7 @@ define dso_local i32 @uv__tcp_listen(ptr noundef %0, i32 noundef %1, ptr noundef
   br i1 %.not25, label %15, label %11
 
 11:                                               ; preds = %9
-  %12 = tail call i32 @atoi(ptr nocapture noundef nonnull %10) #10
+  %12 = tail call i32 @atoi(ptr noundef nonnull %10) #10
   %13 = icmp ne i32 %12, 0
   %14 = zext i1 %13 to i32
   br label %15

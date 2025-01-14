@@ -1014,11 +1014,11 @@ if.then:                                          ; preds = %entry
 if.end:                                           ; preds = %entry
   %arrayidx = getelementptr inbounds nuw i8, ptr %argv, i64 8
   %0 = load ptr, ptr %arrayidx, align 8
-  %call1 = tail call i32 @atoi(ptr nocapture noundef %0) #34
+  %call1 = tail call i32 @atoi(ptr noundef %0) #34
   %conv = sext i32 %call1 to i64
   %arrayidx2 = getelementptr inbounds nuw i8, ptr %argv, i64 16
   %1 = load ptr, ptr %arrayidx2, align 8
-  %call3 = tail call i32 @atoi(ptr nocapture noundef %1) #34
+  %call3 = tail call i32 @atoi(ptr noundef %1) #34
   %conv4 = sext i32 %call3 to i64
   call void @_ZN2tf8ExecutorC2Em(ptr noundef nonnull align 128 dereferenceable(1344) %executor, i64 noundef %conv)
   %_graph.i = getelementptr inbounds nuw i8, ptr %taskflow, i64 80

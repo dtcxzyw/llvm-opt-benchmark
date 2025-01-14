@@ -2055,7 +2055,7 @@ if.else:                                          ; preds = %for.body
   br i1 %or.cond, label %if.then9, label %for.inc
 
 if.then9:                                         ; preds = %if.else
-  %call10 = tail call i32 @atoi(ptr nocapture noundef nonnull %next.010) #22
+  %call10 = tail call i32 @atoi(ptr noundef nonnull %next.010) #22
   %mul = mul nsw i32 %call10, %ret.012
   br label %for.inc
 

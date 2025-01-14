@@ -1721,7 +1721,7 @@ define void @pqBuildErrorMessage3(ptr noundef %0, ptr noundef %1, i32 noundef %2
   br i1 %.not147, label %39, label %37
 
 37:                                               ; preds = %34
-  %38 = tail call i32 @atoi(ptr nocapture noundef nonnull %32) #17
+  %38 = tail call i32 @atoi(ptr noundef nonnull %32) #17
   br label %49
 
 39:                                               ; preds = %34, %33
@@ -1741,7 +1741,7 @@ define void @pqBuildErrorMessage3(ptr noundef %0, ptr noundef %1, i32 noundef %2
   br i1 %or.cond, label %46, label %48
 
 46:                                               ; preds = %42
-  %47 = tail call i32 @atoi(ptr nocapture noundef nonnull %41) #17
+  %47 = tail call i32 @atoi(ptr noundef nonnull %41) #17
   br label %49
 
 48:                                               ; preds = %42

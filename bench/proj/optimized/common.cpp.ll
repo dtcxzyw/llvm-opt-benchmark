@@ -2845,7 +2845,7 @@ define noundef i32 @_ZNK5osgeo4proj6common16IdentifiedObject11getEPSGCodeEv(ptr 
   %13 = load ptr, ptr %.sroa.05.010, align 8
   %14 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNK5osgeo4proj8metadata10Identifier4codeB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(40) %13) #40
   %15 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %14) #35
-  %16 = tail call i32 @atoi(ptr nocapture noundef %15) #40
+  %16 = tail call i32 @atoi(ptr noundef %15) #40
   br label %.loopexit
 
 17:                                               ; preds = %.lr.ph

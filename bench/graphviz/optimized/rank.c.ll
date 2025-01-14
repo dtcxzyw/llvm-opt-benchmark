@@ -1029,7 +1029,7 @@ add_fast_edges.exit.i:                            ; preds = %._crit_edge.i43.i, 
   br i1 %.not27.i, label %462, label %460
 
 460:                                              ; preds = %add_fast_edges.exit.i
-  %461 = call i32 @atoi(ptr nocapture noundef nonnull %459) #15
+  %461 = call i32 @atoi(ptr noundef nonnull %459) #15
   br label %462
 
 462:                                              ; preds = %460, %add_fast_edges.exit.i

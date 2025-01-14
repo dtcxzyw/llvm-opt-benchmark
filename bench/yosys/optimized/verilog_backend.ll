@@ -5060,7 +5060,7 @@ _ZNK5Yosys5RTLIL8IdString5c_strEv.exit.i.i:       ; preds = %_ZN5Yosys5RTLIL8IdS
   br label %.preheader.i.i, !llvm.loop !38
 
 203:                                              ; preds = %.preheader.i.i
-  %204 = call i32 @atoi(ptr nocapture noundef nonnull %194) #32
+  %204 = call i32 @atoi(ptr noundef nonnull %194) #32
   %.not24.i.i = icmp slt i32 %204, 0
   br i1 %.not24.i.i, label %_ZN12_GLOBAL__N_121reset_auto_counter_idEN5Yosys5RTLIL8IdStringEb.exit.i, label %205
 
@@ -5375,7 +5375,7 @@ _ZNK5Yosys5RTLIL8IdString5c_strEv.exit.i59.i:     ; preds = %_ZN5Yosys5RTLIL8IdS
   br label %.preheader.i64.i, !llvm.loop !38
 
 355:                                              ; preds = %.preheader.i64.i
-  %356 = call i32 @atoi(ptr nocapture noundef nonnull %346) #32
+  %356 = call i32 @atoi(ptr noundef nonnull %346) #32
   %357 = load i32, ptr @_ZN12_GLOBAL__N_116auto_name_offsetE, align 4
   %.not24.i71.i = icmp slt i32 %356, %357
   br i1 %.not24.i71.i, label %_ZN12_GLOBAL__N_121reset_auto_counter_idEN5Yosys5RTLIL8IdStringEb.exit74.i, label %358
@@ -5520,7 +5520,7 @@ _ZNK5Yosys5RTLIL8IdString5c_strEv.exit.i84.i:     ; preds = %_ZN5Yosys5RTLIL8IdS
   br label %.preheader.i89.i, !llvm.loop !38
 
 414:                                              ; preds = %.preheader.i89.i
-  %415 = call i32 @atoi(ptr nocapture noundef nonnull %405) #32
+  %415 = call i32 @atoi(ptr noundef nonnull %405) #32
   %416 = load i32, ptr @_ZN12_GLOBAL__N_116auto_name_offsetE, align 4
   %.not24.i96.i = icmp slt i32 %415, %416
   br i1 %.not24.i96.i, label %_ZN12_GLOBAL__N_121reset_auto_counter_idEN5Yosys5RTLIL8IdStringEb.exit99.i, label %417
@@ -31147,7 +31147,7 @@ thread-pre-split:                                 ; preds = %17, %_ZNK5Yosys5RTL
   br label %.preheader, !llvm.loop !38
 
 35:                                               ; preds = %.preheader
-  %36 = tail call i32 @atoi(ptr nocapture noundef nonnull %26) #32
+  %36 = tail call i32 @atoi(ptr noundef nonnull %26) #32
   %37 = load i32, ptr @_ZN12_GLOBAL__N_116auto_name_offsetE, align 4
   %.not24 = icmp slt i32 %36, %37
   br i1 %.not24, label %.thread, label %38

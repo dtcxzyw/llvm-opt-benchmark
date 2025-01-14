@@ -618,7 +618,7 @@ sw.bb31:                                          ; preds = %while.cond
 
 sw.bb33:                                          ; preds = %while.cond
   %call34 = call ptr @opt_arg() #12
-  %call35 = call i32 @atoi(ptr nocapture noundef %call34) #13
+  %call35 = call i32 @atoi(ptr noundef %call34) #13
   %conv = sext i32 %call35 to i64
   store i64 %conv, ptr %days, align 8
   br label %while.cond.backedge
@@ -739,19 +739,19 @@ sw.bb114:                                         ; preds = %while.cond
 
 sw.bb116:                                         ; preds = %while.cond
   %call117 = call ptr @opt_arg() #12
-  %call118 = call i64 @atol(ptr nocapture noundef %call117) #13
+  %call118 = call i64 @atol(ptr noundef %call117) #13
   store i64 %call118, ptr %crldays, align 8
   br label %while.cond.backedge
 
 sw.bb119:                                         ; preds = %while.cond
   %call120 = call ptr @opt_arg() #12
-  %call121 = call i64 @atol(ptr nocapture noundef %call120) #13
+  %call121 = call i64 @atol(ptr noundef %call120) #13
   store i64 %call121, ptr %crlhours, align 8
   br label %while.cond.backedge
 
 sw.bb122:                                         ; preds = %while.cond
   %call123 = call ptr @opt_arg() #12
-  %call124 = call i64 @atol(ptr nocapture noundef %call123) #13
+  %call124 = call i64 @atol(ptr noundef %call123) #13
   br label %while.cond.backedge
 
 sw.bb126:                                         ; preds = %while.cond

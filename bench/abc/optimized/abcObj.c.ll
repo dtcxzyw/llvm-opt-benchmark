@@ -1926,7 +1926,7 @@ define ptr @Abc_NtkFindNode(ptr nocapture noundef readonly %0, ptr noundef %1) l
 
 49:                                               ; preds = %45
   %50 = getelementptr inbounds nuw i8, ptr %1, i64 1
-  %51 = tail call i32 @atoi(ptr nocapture noundef nonnull %50) #13
+  %51 = tail call i32 @atoi(ptr noundef nonnull %50) #13
   %52 = icmp slt i32 %51, 0
   br i1 %52, label %56, label %53
 

@@ -2484,7 +2484,7 @@ define internal fastcc range(i32 -1, 2) i32 @_is_a_lwp(i32 noundef %0) unnamed_a
 
 28:                                               ; preds = %24
   %29 = getelementptr inbounds nuw i8, ptr %27, i64 5
-  %30 = call i32 @atoi(ptr nocapture noundef nonnull %29) #20
+  %30 = call i32 @atoi(ptr noundef nonnull %29) #20
   br label %33
 
 31:                                               ; preds = %24

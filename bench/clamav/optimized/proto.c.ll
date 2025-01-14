@@ -603,7 +603,7 @@ define internal fastcc range(i32 0, 3) i32 @dspresult(ptr noundef %0) unnamed_ad
 
 15:                                               ; preds = %14
   %16 = load ptr, ptr %2, align 8
-  %17 = call i32 @atoi(ptr nocapture noundef %16) #14
+  %17 = call i32 @atoi(ptr noundef %16) #14
   %.not33 = icmp eq i32 %17, 0
   br i1 %.not33, label %27, label %18
 

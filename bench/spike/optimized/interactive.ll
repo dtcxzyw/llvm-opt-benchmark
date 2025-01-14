@@ -5953,7 +5953,7 @@ define void @_ZN5sim_t15interactive_runERKNSt7__cxx1112basic_stringIcSt11char_tr
 
 12:                                               ; preds = %4
   %13 = load ptr, ptr %11, align 8
-  %14 = tail call i64 @atoll(ptr nocapture noundef %13) #33
+  %14 = tail call i64 @atoll(ptr noundef %13) #33
   %.fr = freeze i64 %14
   tail call void @_ZN5sim_t15set_procs_debugEb(ptr noundef nonnull align 8 dereferenceable(2888) %0, i1 noundef zeroext %3)
   %spec.select = tail call i64 @llvm.umin.i64(i64 %.fr, i64 5000)
@@ -11076,7 +11076,7 @@ _ZN5sim_t8get_coreERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: 
   %45 = load ptr, ptr %1, align 8
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 32
   %47 = load ptr, ptr %46, align 8
-  %48 = tail call i32 @atoi(ptr nocapture noundef %47) #33
+  %48 = tail call i32 @atoi(ptr noundef %47) #33
   br label %49
 
 49:                                               ; preds = %44, %37
@@ -11156,7 +11156,7 @@ _ZN5sim_t8get_coreERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: 
   %96 = load ptr, ptr %1, align 8
   %97 = getelementptr inbounds nuw i8, ptr %96, i64 32
   %98 = load ptr, ptr %97, align 8
-  %99 = tail call i32 @atoi(ptr nocapture noundef %98) #33
+  %99 = tail call i32 @atoi(ptr noundef %98) #33
   br label %100
 
 100:                                              ; preds = %95, %88

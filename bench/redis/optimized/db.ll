@@ -9181,7 +9181,7 @@ entry:
   %0 = load ptr, ptr %arrayidx, align 8
   %ptr = getelementptr inbounds nuw i8, ptr %0, i64 8
   %1 = load ptr, ptr %ptr, align 8
-  %call = tail call i32 @atoi(ptr nocapture noundef %1) #21
+  %call = tail call i32 @atoi(ptr noundef %1) #21
   %cmp = icmp slt i32 %call, 1
   br i1 %cmp, label %if.then, label %lor.lhs.false
 

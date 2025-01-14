@@ -4518,7 +4518,7 @@ while.end:                                        ; preds = %land.rhs, %while.bo
   br i1 %cmp.i40.not, label %if.else70, label %if.then66
 
 if.then66:                                        ; preds = %while.end
-  %call69 = call i32 @atoi(ptr nocapture noundef nonnull %12) #28
+  %call69 = call i32 @atoi(ptr noundef nonnull %12) #28
   br label %if.end81
 
 if.else70:                                        ; preds = %while.end
@@ -4531,7 +4531,7 @@ if.else70:                                        ; preds = %while.end
 invoke.cont78:                                    ; preds = %if.else70
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp76) #24
   %call79 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %number) #24
-  %call80 = call i32 @atoi(ptr nocapture noundef %call79) #28
+  %call80 = call i32 @atoi(ptr noundef %call79) #28
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %number) #24
   br label %if.end81
 

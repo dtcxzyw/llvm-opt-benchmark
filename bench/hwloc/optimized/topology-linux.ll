@@ -2942,7 +2942,7 @@ sub_135:                                          ; preds = %.tail
 
 .outer:                                           ; preds = %sub_0, %sub_135, %.tail33
   %41 = getelementptr inbounds nuw i8, ptr %23, i64 19
-  %42 = tail call i32 @atoi(ptr nocapture noundef nonnull %41) #29
+  %42 = tail call i32 @atoi(ptr noundef nonnull %41) #29
   %43 = add i32 %.025.ph47, 1
   %44 = zext i32 %.025.ph47 to i64
   %45 = getelementptr inbounds nuw i32, ptr %.1, i64 %44
@@ -3969,7 +3969,7 @@ sub_0:                                            ; preds = %6
   br i1 %.not58, label %61, label %52
 
 52:                                               ; preds = %45
-  %53 = tail call i32 @atoi(ptr nocapture noundef nonnull %51) #29
+  %53 = tail call i32 @atoi(ptr noundef nonnull %51) #29
   %54 = and i32 %53, 3
   %55 = icmp ne i32 %54, 0
   %56 = zext i1 %55 to i32
@@ -4255,7 +4255,7 @@ hwloc_fopen.exit.i:                               ; preds = %hwloc_openat.exit.i
   br label %153
 
 153:                                              ; preds = %152, %151
-  %154 = call i32 @atoi(ptr nocapture noundef nonnull %111) #29
+  %154 = call i32 @atoi(ptr noundef nonnull %111) #29
   store i32 %154, ptr %90, align 4
   br label %161
 
@@ -5074,7 +5074,7 @@ hwloc_open.exit.i138.i:                           ; preds = %.preheader.i.i.i.i1
 514:                                              ; preds = %510
   %515 = getelementptr inbounds nuw i8, ptr %70, i64 %511
   store i8 0, ptr %515, align 1
-  %516 = call i32 @atoi(ptr nocapture noundef nonnull %70) #29
+  %516 = call i32 @atoi(ptr noundef nonnull %70) #29
   %517 = uitofp i32 %516 to float
   br label %hwloc_read_path_by_length.exit143.thread.i
 
@@ -6829,7 +6829,7 @@ hwloc_open.exit.i47.i.i:                          ; preds = %.preheader.i.i.i.i5
 1202:                                             ; preds = %1198
   %1203 = getelementptr inbounds nuw i8, ptr %19, i64 %1199
   store i8 0, ptr %1203, align 1
-  %1204 = call i32 @atoi(ptr nocapture noundef nonnull %19) #29
+  %1204 = call i32 @atoi(ptr noundef nonnull %19) #29
   %1205 = icmp sgt i32 %1204, 0
   br i1 %1205, label %1206, label %hwloc_read_path_by_length.exit52.thread.i.i
 
@@ -8910,7 +8910,7 @@ hwloc_open.exit.i.i118:                           ; preds = %.preheader.i.i.i.i.
 385:                                              ; preds = %381
   %386 = getelementptr inbounds nuw i8, ptr %85, i64 %382
   store i8 0, ptr %386, align 1
-  %387 = call i32 @atoi(ptr nocapture noundef nonnull %85) #29
+  %387 = call i32 @atoi(ptr noundef nonnull %85) #29
   %.not397.i = icmp eq i32 %387, 0
   br i1 %.not397.i, label %.backedge.i106, label %hwloc_read_path_by_length.exit.thread.i
 
@@ -8961,7 +8961,7 @@ hwloc_access.exit.i:                              ; preds = %.preheader.i.i.i410
   br i1 %.not351.i, label %413, label %409
 
 409:                                              ; preds = %._crit_edge.i
-  %410 = call i32 @atoi(ptr nocapture noundef nonnull %408) #29
+  %410 = call i32 @atoi(ptr noundef nonnull %408) #29
   %411 = icmp ne i32 %410, 0
   %412 = zext i1 %411 to i8
   br label %413
@@ -9048,7 +9048,7 @@ hwloc_open.exit.i.i.i107:                         ; preds = %.preheader.i.i.i.i.
 448:                                              ; preds = %444
   %449 = getelementptr inbounds nuw i8, ptr %82, i64 %445
   store i8 0, ptr %449, align 1
-  %450 = call i32 @atoi(ptr nocapture noundef nonnull %82) #29
+  %450 = call i32 @atoi(ptr noundef nonnull %82) #29
   br label %hwloc_read_path_as_int.exit.thread.i
 
 hwloc_read_path_as_int.exit.thread.i:             ; preds = %448, %444, %hwloc_open.exit.i.i.i107
@@ -9092,7 +9092,7 @@ hwloc_open.exit.i.i415.i:                         ; preds = %.preheader.i.i.i.i.
 469:                                              ; preds = %465
   %470 = getelementptr inbounds nuw i8, ptr %81, i64 %466
   store i8 0, ptr %470, align 1
-  %471 = call i32 @atoi(ptr nocapture noundef nonnull %81) #29
+  %471 = call i32 @atoi(ptr noundef nonnull %81) #29
   br label %hwloc_read_path_as_int.exit420.thread.i
 
 hwloc_read_path_as_int.exit420.thread.i:          ; preds = %469, %465, %hwloc_open.exit.i.i415.i
@@ -9143,7 +9143,7 @@ hwloc_open.exit.i.i421.i:                         ; preds = %.preheader.i.i.i.i.
 492:                                              ; preds = %488
   %493 = getelementptr inbounds nuw i8, ptr %80, i64 %489
   store i8 0, ptr %493, align 1
-  %494 = call i32 @atoi(ptr nocapture noundef nonnull %80) #29
+  %494 = call i32 @atoi(ptr noundef nonnull %80) #29
   br label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %492, %488, %hwloc_open.exit.i.i421.i
@@ -9346,7 +9346,7 @@ hwloc_open.exit.i.i436.i:                         ; preds = %.preheader.i.i.i.i.
 567:                                              ; preds = %563
   %568 = getelementptr inbounds nuw i8, ptr %76, i64 %564
   store i8 0, ptr %568, align 1
-  %569 = call i32 @atoi(ptr nocapture noundef nonnull %76) #29
+  %569 = call i32 @atoi(ptr noundef nonnull %76) #29
   br label %hwloc_read_path_as_int.exit441.thread.i
 
 hwloc_read_path_as_int.exit441.thread.i:          ; preds = %567, %563, %hwloc_open.exit.i.i436.i
@@ -9425,7 +9425,7 @@ hwloc_open.exit.i.i442.i:                         ; preds = %.preheader.i.i.i.i.
 597:                                              ; preds = %593
   %598 = getelementptr inbounds nuw i8, ptr %75, i64 %594
   store i8 0, ptr %598, align 1
-  %599 = call i32 @atoi(ptr nocapture noundef nonnull %75) #29
+  %599 = call i32 @atoi(ptr noundef nonnull %75) #29
   br label %hwloc_read_path_as_int.exit447.thread.i
 
 hwloc_read_path_as_int.exit447.thread.i:          ; preds = %597, %593, %hwloc_open.exit.i.i442.i
@@ -9480,7 +9480,7 @@ hwloc_open.exit.i.i448.i:                         ; preds = %.preheader.i.i.i.i.
 625:                                              ; preds = %621
   %626 = getelementptr inbounds nuw i8, ptr %74, i64 %622
   store i8 0, ptr %626, align 1
-  %627 = call i32 @atoi(ptr nocapture noundef nonnull %74) #29
+  %627 = call i32 @atoi(ptr noundef nonnull %74) #29
   br label %hwloc_read_path_as_int.exit453.thread.i
 
 hwloc_read_path_as_int.exit453.thread.i:          ; preds = %625, %621, %hwloc_open.exit.i.i448.i
@@ -9558,7 +9558,7 @@ hwloc_read_path_as_int.exit462.thread.i:          ; preds = %656, %hwloc_open.ex
 660:                                              ; preds = %656
   %661 = getelementptr inbounds nuw i8, ptr %72, i64 %657
   store i8 0, ptr %661, align 1
-  %662 = call i32 @atoi(ptr nocapture noundef nonnull %72) #29
+  %662 = call i32 @atoi(ptr noundef nonnull %72) #29
   call void @llvm.lifetime.end.p0(i64 11, ptr nonnull %72)
   %663 = call ptr @hwloc_alloc_setup_object(ptr noundef %96, i32 noundef 12, i32 noundef %662) #26
   %664 = getelementptr inbounds nuw i8, ptr %663, i64 184
@@ -9629,7 +9629,7 @@ hwloc_read_path_as_int.exit471.thread.i:          ; preds = %692, %hwloc_open.ex
 696:                                              ; preds = %692
   %697 = getelementptr inbounds nuw i8, ptr %71, i64 %693
   store i8 0, ptr %697, align 1
-  %698 = call i32 @atoi(ptr nocapture noundef nonnull %71) #29
+  %698 = call i32 @atoi(ptr noundef nonnull %71) #29
   call void @llvm.lifetime.end.p0(i64 11, ptr nonnull %71)
   %699 = call ptr @hwloc_alloc_setup_object(ptr noundef %96, i32 noundef 12, i32 noundef %698) #26
   %700 = getelementptr inbounds nuw i8, ptr %699, i64 184
@@ -10129,7 +10129,7 @@ sub_0.i120:                                       ; preds = %902
 
 912:                                              ; preds = %.tail307.thread.i
   %913 = getelementptr inbounds nuw i8, ptr %903, i64 7
-  %914 = call i32 @atoi(ptr nocapture noundef nonnull %913) #29
+  %914 = call i32 @atoi(ptr noundef nonnull %913) #29
   %915 = uitofp i32 %914 to float
   br label %916
 
@@ -10347,7 +10347,7 @@ hwloc_obj_get_info_by_name.exit.thread.i:         ; preds = %1000, %1007, %hwloc
   br i1 %.not114.i, label %1014, label %1012
 
 1012:                                             ; preds = %hwloc_obj_get_info_by_name.exit.thread.i
-  %1013 = call i32 @atoi(ptr nocapture noundef nonnull %1011) #29
+  %1013 = call i32 @atoi(ptr noundef nonnull %1011) #29
   br label %1014
 
 1014:                                             ; preds = %1012, %hwloc_obj_get_info_by_name.exit.thread.i
@@ -11432,7 +11432,7 @@ hwloc_get_nbobjs_by_type.exit.thread:             ; preds = %1314, %hwloc_get_nb
   br i1 %.not233.i, label %1393, label %1391
 
 1391:                                             ; preds = %1389
-  %1392 = call i32 @atoi(ptr nocapture noundef nonnull %1390) #29
+  %1392 = call i32 @atoi(ptr noundef nonnull %1390) #29
   br label %1393
 
 1393:                                             ; preds = %1391, %1389
@@ -11583,7 +11583,7 @@ hwloc_opendir.exit.i164:                          ; preds = %._crit_edge.i163
   br i1 %.not236.i, label %1467, label %1464
 
 1464:                                             ; preds = %1460
-  %1465 = call i32 @atoi(ptr nocapture noundef nonnull %1461) #29
+  %1465 = call i32 @atoi(ptr noundef nonnull %1461) #29
   %1466 = icmp eq i32 %1465, 0
   br label %1467
 
@@ -11649,7 +11649,7 @@ hwloc_read_path_by_length.exit.i167:              ; preds = %1479
   br label %1490, !llvm.loop !64
 
 1493:                                             ; preds = %1490
-  %1494 = call i32 @atoi(ptr nocapture noundef nonnull %.0210.i) #29
+  %1494 = call i32 @atoi(ptr noundef nonnull %.0210.i) #29
   %1495 = load i32, ptr %26, align 4
   %.not367.i195 = icmp eq i32 %1495, 0
   br i1 %.not367.i195, label %hwloc_read_path_by_length.exit.thread.i168, label %.lr.ph327.preheader.i
@@ -11815,7 +11815,7 @@ hwloc_read_path_as_int.exit.thread.i.i:           ; preds = %1543, %hwloc_open.e
 hwloc_read_path_as_int.exit.i.i:                  ; preds = %1543
   %1547 = getelementptr inbounds nuw i8, ptr %21, i64 %1544
   store i8 0, ptr %1547, align 1
-  %1548 = call i32 @atoi(ptr nocapture noundef nonnull %21) #29
+  %1548 = call i32 @atoi(ptr noundef nonnull %21) #29
   call void @llvm.lifetime.end.p0(i64 11, ptr nonnull %21)
   %1549 = icmp slt i32 %1548, 0
   %brmerge.i.i = or i1 %.not11.i.i, %1549
@@ -11903,7 +11903,7 @@ annotate_dax_nodes.exit.i:                        ; preds = %.split.us.i.i, %hwl
   br i1 %.not241.i, label %.critedge266.i, label %1581
 
 1581:                                             ; preds = %1579
-  %1582 = call i32 @atoi(ptr nocapture noundef nonnull %1580) #29
+  %1582 = call i32 @atoi(ptr noundef nonnull %1580) #29
   %.not242.i = icmp eq i32 %1582, 0
   br i1 %.not242.i, label %2050, label %.critedge266.i
 
@@ -11919,7 +11919,7 @@ annotate_dax_nodes.exit.i:                        ; preds = %.split.us.i.i, %hwl
   br i1 %.not.i269.i, label %1586, label %1584
 
 1584:                                             ; preds = %.critedge266.i
-  %1585 = call i32 @atoi(ptr nocapture noundef nonnull %1583) #29
+  %1585 = call i32 @atoi(ptr noundef nonnull %1583) #29
   br label %1586
 
 1586:                                             ; preds = %1584, %.critedge266.i
@@ -11929,7 +11929,7 @@ annotate_dax_nodes.exit.i:                        ; preds = %.split.us.i.i, %hwl
   br i1 %.not108.i.i, label %1591, label %1589
 
 1589:                                             ; preds = %1586
-  %1590 = call i32 @atoi(ptr nocapture noundef nonnull %1588) #29
+  %1590 = call i32 @atoi(ptr noundef nonnull %1588) #29
   br label %1591
 
 1591:                                             ; preds = %1589, %1586
@@ -15038,7 +15038,7 @@ hwloc_opendir.exit:                               ; preds = %hwloc_checkat.exit.
 
 30:                                               ; preds = %25
   %31 = getelementptr inbounds nuw i8, ptr %26, i64 24
-  %32 = call i32 @atoi(ptr nocapture noundef nonnull %31) #29
+  %32 = call i32 @atoi(ptr noundef nonnull %31) #29
   %33 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull dereferenceable(1) @.str.393, i32 noundef %10, i32 noundef %32) #26
   %34 = load i32, ptr %12, align 8
   call void @llvm.lifetime.start.p0(i64 22, ptr nonnull %6)
@@ -16216,7 +16216,7 @@ hwloc_read_path_as_int.exit.thread.i:             ; preds = %69, %hwloc_open.exi
 hwloc_read_path_as_int.exit.i:                    ; preds = %69
   %73 = getelementptr inbounds nuw i8, ptr %6, i64 %70
   store i8 0, ptr %73, align 1
-  %74 = call i32 @atoi(ptr nocapture noundef nonnull %6) #29
+  %74 = call i32 @atoi(ptr noundef nonnull %6) #29
   call void @llvm.lifetime.end.p0(i64 11, ptr nonnull %6)
   %75 = icmp sgt i32 %74, -1
   br i1 %75, label %.preheader.i, label %.loopexit
@@ -16288,7 +16288,7 @@ hwloc_read_path_as_int.exit29.thread.i:           ; preds = %97, %hwloc_open.exi
 hwloc_read_path_as_int.exit29.i:                  ; preds = %97
   %101 = getelementptr inbounds nuw i8, ptr %5, i64 %98
   store i8 0, ptr %101, align 1
-  %102 = call i32 @atoi(ptr nocapture noundef nonnull %5) #29
+  %102 = call i32 @atoi(ptr noundef nonnull %5) #29
   call void @llvm.lifetime.end.p0(i64 11, ptr nonnull %5)
   %103 = icmp sgt i32 %102, -1
   br i1 %103, label %.preheader70.i, label %118
@@ -16365,7 +16365,7 @@ hwloc_read_path_as_int.exit44.thread.i:           ; preds = %127, %hwloc_open.ex
 hwloc_read_path_as_int.exit44.i:                  ; preds = %127
   %131 = getelementptr inbounds nuw i8, ptr %4, i64 %128
   store i8 0, ptr %131, align 1
-  %132 = call i32 @atoi(ptr nocapture noundef nonnull %4) #29
+  %132 = call i32 @atoi(ptr noundef nonnull %4) #29
   call void @llvm.lifetime.end.p0(i64 11, ptr nonnull %4)
   %133 = icmp sgt i32 %132, -1
   br i1 %133, label %.preheader67.i, label %.loopexit

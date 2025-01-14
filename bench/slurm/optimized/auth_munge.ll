@@ -59,7 +59,7 @@ define range(i32 -1, 1) i32 @init() local_unnamed_addr #0 {
   br i1 %.not, label %6, label %4
 
 4:                                                ; preds = %0
-  %5 = tail call i32 @atoi(ptr nocapture noundef nonnull %3) #13
+  %5 = tail call i32 @atoi(ptr noundef nonnull %3) #13
   br label %6
 
 6:                                                ; preds = %0, %4

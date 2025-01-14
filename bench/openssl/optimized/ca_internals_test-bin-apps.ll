@@ -850,7 +850,7 @@ if.else.tail:                                     ; preds = %sub_1
 
 cond.true30:                                      ; preds = %if.else.tail
   %add.ptr31 = getelementptr inbounds nuw i8, ptr %arg, i64 3
-  %call34 = tail call i32 @atoi(ptr nocapture noundef nonnull %add.ptr31) #30
+  %call34 = tail call i32 @atoi(ptr noundef nonnull %add.ptr31) #30
   %cmp35 = icmp sgt i32 %call34, -1
   br i1 %cmp35, label %if.end38, label %if.then42
 

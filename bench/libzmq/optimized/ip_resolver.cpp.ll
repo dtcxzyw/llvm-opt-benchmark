@@ -347,7 +347,7 @@ if.else19:                                        ; preds = %invoke.cont9
 
 if.else23:                                        ; preds = %if.else19
   %call24 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %port_str) #18
-  %call25 = call i32 @atoi(ptr nocapture noundef %call24) #19
+  %call25 = call i32 @atoi(ptr noundef %call24) #19
   %conv = trunc i32 %call25 to i16
   %conv26 = and i32 %call25, 65535
   %cmp27 = icmp eq i32 %conv26, 0
@@ -489,7 +489,7 @@ lpad81:                                           ; preds = %if.then88, %invoke.
   br label %ehcleanup
 
 if.else92:                                        ; preds = %invoke.cont84
-  %call94 = call i32 @atoi(ptr nocapture noundef %call93) #19
+  %call94 = call i32 @atoi(ptr noundef %call93) #19
   br label %if.end95
 
 if.end95:                                         ; preds = %if.then88, %if.else92

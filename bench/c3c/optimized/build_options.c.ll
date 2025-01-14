@@ -1288,7 +1288,7 @@ sub_1308.i:                                       ; preds = %100
   %325 = add nsw i32 %311, 1
   store i32 %325, ptr @arg_index, align 4
   store ptr %320, ptr @current_arg, align 8
-  %326 = tail call i32 @atoi(ptr nocapture noundef nonnull %320) #18
+  %326 = tail call i32 @atoi(ptr noundef nonnull %320) #18
   %327 = icmp slt i32 %326, 1024
   br i1 %327, label %328, label %331
 
@@ -1793,7 +1793,7 @@ match_argopt.exit.thread:                         ; preds = %368, %match_argopt.
   %558 = add nsw i32 %544, 1
   store i32 %558, ptr @arg_index, align 4
   store ptr %553, ptr @current_arg, align 8
-  %559 = tail call i32 @atoi(ptr nocapture noundef nonnull %553) #18
+  %559 = tail call i32 @atoi(ptr noundef nonnull %553) #18
   %560 = icmp slt i32 %559, 1
   br i1 %560, label %.thread.i, label %563
 

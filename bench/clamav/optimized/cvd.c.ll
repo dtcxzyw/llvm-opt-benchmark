@@ -171,7 +171,7 @@ define noalias noundef ptr @cl_cvdparse(ptr noundef %0) local_unnamed_addr #0 {
   br label %43
 
 13:                                               ; preds = %10
-  %14 = tail call i32 @atoi(ptr nocapture noundef nonnull %11) #18
+  %14 = tail call i32 @atoi(ptr noundef nonnull %11) #18
   %15 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 %14, ptr %15, align 8
   tail call void @free(ptr noundef nonnull %11) #19
@@ -186,7 +186,7 @@ define noalias noundef ptr @cl_cvdparse(ptr noundef %0) local_unnamed_addr #0 {
   br label %43
 
 18:                                               ; preds = %13
-  %19 = tail call i32 @atoi(ptr nocapture noundef nonnull %16) #18
+  %19 = tail call i32 @atoi(ptr noundef nonnull %16) #18
   %20 = getelementptr inbounds nuw i8, ptr %5, i64 12
   store i32 %19, ptr %20, align 4
   tail call void @free(ptr noundef nonnull %16) #19
@@ -201,7 +201,7 @@ define noalias noundef ptr @cl_cvdparse(ptr noundef %0) local_unnamed_addr #0 {
   br label %43
 
 23:                                               ; preds = %18
-  %24 = tail call i32 @atoi(ptr nocapture noundef nonnull %21) #18
+  %24 = tail call i32 @atoi(ptr noundef nonnull %21) #18
   %25 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i32 %24, ptr %25, align 8
   tail call void @free(ptr noundef nonnull %21) #19
@@ -253,7 +253,7 @@ define noalias noundef ptr @cl_cvdparse(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not57, label %42, label %40
 
 40:                                               ; preds = %37
-  %41 = tail call i32 @atoi(ptr nocapture noundef nonnull %38) #18
+  %41 = tail call i32 @atoi(ptr noundef nonnull %38) #18
   store i32 %41, ptr %39, align 8
   tail call void @free(ptr noundef nonnull %38) #19
   br label %43

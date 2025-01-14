@@ -1679,7 +1679,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
 
 517:                                              ; preds = %516
   %518 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %136) #25
-  %519 = call i32 @atoi(ptr nocapture noundef %518) #29
+  %519 = call i32 @atoi(ptr noundef %518) #29
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %136) #25
   %520 = add nuw i64 %515, 1
   invoke void @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6substrEmm(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %137, ptr noundef nonnull align 8 dereferenceable(32) %135, i64 noundef %520, i64 noundef -1)
@@ -1687,7 +1687,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
 
 521:                                              ; preds = %517
   %522 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %137) #25
-  %523 = call i32 @atoi(ptr nocapture noundef %522) #29
+  %523 = call i32 @atoi(ptr noundef %522) #29
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %137) #25
   br label %_ZNSt6vectorIiSaIiEE5clearEv.exit
 
@@ -1709,7 +1709,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
 
 524:                                              ; preds = %514
   %525 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %135) #25
-  %526 = call i32 @atoi(ptr nocapture noundef %525) #29
+  %526 = call i32 @atoi(ptr noundef %525) #29
   br label %_ZNSt6vectorIiSaIiEE5clearEv.exit
 
 _ZNSt6vectorIiSaIiEE5clearEv.exit:                ; preds = %521, %524
@@ -2153,7 +2153,7 @@ _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIP
 
 _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE2atEm.exit: ; preds = %651
   %653 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %614) #25
-  %654 = call i32 @atoi(ptr nocapture noundef %653) #29
+  %654 = call i32 @atoi(ptr noundef %653) #29
   %.not.i.i225 = icmp eq ptr %.sroa.19.5511, %.sroa.48.4510
   br i1 %.not.i.i225, label %657, label %655
 
@@ -2229,7 +2229,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE2atEm.e
   %677 = lshr exact i64 %676, 2
   %678 = trunc i64 %677 to i32
   %679 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %675) #25
-  %680 = call i32 @atoi(ptr nocapture noundef %679) #29
+  %680 = call i32 @atoi(ptr noundef %679) #29
   %681 = icmp sgt i32 %680, %678
   br i1 %681, label %682, label %_ZNSt6vectorIiSaIiEE9push_backERKi.exit
 
@@ -2253,7 +2253,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE2atEm.e
 690:                                              ; preds = %682
   %691 = getelementptr inbounds nuw i8, ptr %684, i64 32
   %692 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %691) #25
-  %693 = call i32 @atoi(ptr nocapture noundef %692) #29
+  %693 = call i32 @atoi(ptr noundef %692) #29
   %.not.i.i241 = icmp eq ptr %.sroa.19.7504, %.sroa.48.6503
   br i1 %.not.i.i241, label %695, label %694
 

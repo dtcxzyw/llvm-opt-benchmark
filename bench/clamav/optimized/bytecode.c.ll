@@ -2277,7 +2277,7 @@ readNumber.exit193.i:                             ; preds = %._crit_edge.i183.lo
 
 413:                                              ; preds = %410
   %414 = getelementptr inbounds nuw i8, ptr %411, i64 1
-  %415 = call i32 @atoi(ptr nocapture noundef nonnull %414) #27
+  %415 = call i32 @atoi(ptr noundef nonnull %414) #27
   %spec.select358 = call i32 @llvm.umax.i32(i32 %415, i32 4096)
   br label %.thread320
 

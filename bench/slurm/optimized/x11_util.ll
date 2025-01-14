@@ -163,7 +163,7 @@ define void @x11_get_display(ptr nocapture noundef writeonly %0, ptr noundef ini
   br label %30
 
 30:                                               ; preds = %29, %26
-  %31 = tail call i32 @atoi(ptr nocapture noundef nonnull %27) #16
+  %31 = tail call i32 @atoi(ptr noundef nonnull %27) #16
   %32 = trunc i32 %31 to i16
   %33 = add i16 %32, 6000
   store i16 %33, ptr %0, align 2

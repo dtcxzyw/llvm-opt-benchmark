@@ -64,7 +64,7 @@ define noundef i32 @pmix_ring_init(ptr nocapture noundef readonly %0, ptr nocapt
   br i1 %.not, label %14, label %5
 
 5:                                                ; preds = %2
-  %6 = tail call i32 @atoi(ptr nocapture noundef nonnull %4) #9
+  %6 = tail call i32 @atoi(ptr noundef nonnull %4) #9
   %7 = icmp sgt i32 %6, 1
   br i1 %7, label %8, label %9
 

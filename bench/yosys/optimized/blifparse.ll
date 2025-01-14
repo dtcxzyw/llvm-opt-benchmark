@@ -11347,7 +11347,7 @@ define internal fastcc void @_ZN5YosysL15wideports_splitENSt7__cxx1112basic_stri
   %71 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #28
   %72 = getelementptr inbounds nuw i8, ptr %71, i64 %68
   %73 = getelementptr inbounds nuw i8, ptr %72, i64 1
-  %74 = call i32 @atoi(ptr nocapture noundef nonnull %73) #30
+  %74 = call i32 @atoi(ptr noundef nonnull %73) #30
   %75 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %3) #28
   %76 = invoke noundef i32 @_ZN5Yosys5RTLIL8IdString13get_referenceEPKc(ptr noundef %75)
           to label %77 unwind label %81
@@ -11655,7 +11655,7 @@ define internal fastcc noundef ptr @"_ZZN5Yosys10parse_blifEPNS_5RTLIL6DesignERS
   %34 = and i64 %.028.lcssa.ph.in, 4294967295
   call void @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6substrEmm(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %2, ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %indvars.iv13, i64 noundef %34)
   %35 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %2) #28
-  %36 = call i32 @atoi(ptr nocapture noundef %35) #30
+  %36 = call i32 @atoi(ptr noundef %35) #30
   %37 = and i32 %36, 268435455
   %38 = load i32, ptr %.0.val, align 4
   %.sroa.speculated = call i32 @llvm.smax.i32(i32 %38, i32 %37)

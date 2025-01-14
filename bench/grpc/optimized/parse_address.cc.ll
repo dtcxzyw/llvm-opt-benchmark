@@ -1366,7 +1366,7 @@ if.else:                                          ; preds = %entry
   br i1 %cmp3, label %return, label %if.end6
 
 if.end6:                                          ; preds = %if.else
-  %call7 = tail call i32 @atoi(ptr nocapture noundef %port) #23
+  %call7 = tail call i32 @atoi(ptr noundef %port) #23
   %conv = trunc i32 %call7 to i16
   br label %return
 

@@ -59,7 +59,7 @@ define i32 @gvParseArgs(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_un
   br i1 %.not31.i, label %27, label %22
 
 22:                                               ; preds = %19
-  %23 = tail call i32 @atoi(ptr nocapture noundef nonnull %20) #5
+  %23 = tail call i32 @atoi(ptr noundef nonnull %20) #5
   store i32 %23, ptr @Nop, align 4
   %24 = icmp slt i32 %23, 1
   br i1 %24, label %neato_extra_args.exit.thread, label %40
@@ -347,7 +347,7 @@ fdp_extra_args.exit:                              ; preds = %setFDPAttr.exit.thr
   br i1 %133, label %134, label %150
 
 134:                                              ; preds = %128
-  %135 = tail call i32 @atoi(ptr nocapture noundef nonnull %129) #5
+  %135 = tail call i32 @atoi(ptr noundef nonnull %129) #5
   store i32 %135, ptr %119, align 8
   br label %150
 

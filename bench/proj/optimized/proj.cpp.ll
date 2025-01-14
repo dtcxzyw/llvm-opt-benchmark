@@ -629,7 +629,7 @@ sub_1333:                                         ; preds = %.tail327
 200:                                              ; preds = %197
   %201 = getelementptr inbounds nuw i8, ptr %.1170, i64 8
   %202 = load ptr, ptr %201, align 8
-  %203 = tail call i32 @atoi(ptr nocapture noundef %202) #22
+  %203 = tail call i32 @atoi(ptr noundef %202) #22
   %204 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) @_ZL12oform_buffer, i64 noundef 16, ptr noundef nonnull @.str.18, i32 noundef %203) #25
   store ptr @_ZL12oform_buffer, ptr @_ZL5oform, align 8
   br label %_ZNSt6vectorIPcSaIS0_EE9push_backEOS0_.exit

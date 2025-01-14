@@ -798,7 +798,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_b
   %236 = load ptr, ptr %45, align 8
   %237 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %236, i64 %indvars.iv
   %238 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %237) #19
-  %239 = call i32 @atoi(ptr nocapture noundef %238) #21
+  %239 = call i32 @atoi(ptr noundef %238) #21
   %240 = getelementptr inbounds nuw [4 x i32], ptr %47, i64 0, i64 %indvars.iv
   store i32 %239, ptr %240, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

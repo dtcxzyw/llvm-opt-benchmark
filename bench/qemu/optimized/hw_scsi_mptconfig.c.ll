@@ -1385,7 +1385,7 @@ if.end49:                                         ; preds = %if.then47, %sw.bb45
   br label %while.cond.outer.backedge
 
 sw.bb51:                                          ; preds = %sw.epilog
-  %call = tail call i32 @atoi(ptr nocapture noundef %incdec.ptr27) #16
+  %call = tail call i32 @atoi(ptr noundef %incdec.ptr27) #16
   br i1 %tobool52.not, label %sw.bb51.if.end62_crit_edge, label %if.then53
 
 sw.bb51.if.end62_crit_edge:                       ; preds = %sw.bb51

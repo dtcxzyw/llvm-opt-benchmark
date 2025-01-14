@@ -875,7 +875,7 @@ if.then62:                                        ; preds = %if.else57
   %15 = or disjoint i64 %indvars.iv, 1
   %arrayidx65 = getelementptr inbounds nuw ptr, ptr %call33, i64 %15
   %16 = load ptr, ptr %arrayidx65, align 8
-  %call66 = call i64 @atoll(ptr nocapture noundef %16) #24
+  %call66 = call i64 @atoll(ptr noundef %16) #24
   store i64 %call66, ptr %file_seq, align 8
   br label %for.inc
 
@@ -4410,7 +4410,7 @@ if.end112:                                        ; preds = %if.end102
   br i1 %cmp115, label %readerr, label %if.end118
 
 if.end118:                                        ; preds = %if.end112
-  %call120 = call i32 @atoi(ptr nocapture noundef nonnull %arrayidx113) #24
+  %call120 = call i32 @atoi(ptr noundef nonnull %arrayidx113) #24
   %cmp121 = icmp slt i32 %call120, 1
   br i1 %cmp121, label %do.body330, label %if.end129
 

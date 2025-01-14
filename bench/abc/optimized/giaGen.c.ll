@@ -2632,15 +2632,15 @@ define void @Gia_ManReadSimFile(ptr noundef %0, ptr nocapture noundef writeonly 
   ]
 
 21:                                               ; preds = %19
-  %22 = call i32 @atoi(ptr nocapture noundef nonnull %12) #24
+  %22 = call i32 @atoi(ptr noundef nonnull %12) #24
   br label %.outer87
 
 23:                                               ; preds = %19
-  %24 = call i32 @atoi(ptr nocapture noundef nonnull %12) #24
+  %24 = call i32 @atoi(ptr noundef nonnull %12) #24
   br label %.outer87
 
 25:                                               ; preds = %19
-  %26 = call i32 @atoi(ptr nocapture noundef nonnull %12) #24
+  %26 = call i32 @atoi(ptr noundef nonnull %12) #24
   %27 = and i32 %26, 63
   %28 = icmp eq i32 %27, 0
   br i1 %28, label %29, label %30
@@ -2650,7 +2650,7 @@ define void @Gia_ManReadSimFile(ptr noundef %0, ptr nocapture noundef writeonly 
   br label %30
 
 30:                                               ; preds = %29, %25
-  %31 = call i32 @atoi(ptr nocapture noundef nonnull %12) #24
+  %31 = call i32 @atoi(ptr noundef nonnull %12) #24
   %32 = sdiv i32 %31, 64
   br label %.outer87
 

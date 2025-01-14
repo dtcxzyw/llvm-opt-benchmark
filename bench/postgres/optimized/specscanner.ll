@@ -516,7 +516,7 @@ addlitchar.exit65:                                ; preds = %184, %192
 
 200:                                              ; preds = %118
   %201 = load ptr, ptr @spec_yytext, align 8
-  %202 = tail call i32 @atoi(ptr nocapture noundef %201) #25
+  %202 = tail call i32 @atoi(ptr noundef %201) #25
   store i32 %202, ptr @spec_yylval, align 8
   br label %612
 

@@ -26,7 +26,7 @@ define i32 @PMPI_Init(ptr noundef readonly %0, ptr noundef readonly %1) #0 {
   br i1 %.not, label %7, label %5
 
 5:                                                ; preds = %2
-  %6 = tail call i32 @atoi(ptr nocapture noundef nonnull %4) #8
+  %6 = tail call i32 @atoi(ptr noundef nonnull %4) #8
   %spec.store.select = tail call i32 @llvm.umin.i32(i32 %6, i32 3)
   br label %7
 

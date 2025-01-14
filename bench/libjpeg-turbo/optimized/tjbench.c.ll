@@ -408,7 +408,7 @@ define dso_local range(i32 -1, 1) i32 @main(i32 noundef %0, ptr nocapture nounde
 42:                                               ; preds = %38
   %43 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %44 = load ptr, ptr %43, align 8
-  %45 = tail call i32 @atoi(ptr nocapture noundef %44) #22
+  %45 = tail call i32 @atoi(ptr noundef %44) #22
   %46 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %44, i32 noundef 45) #22
   %.not474 = icmp eq ptr %46, null
   br i1 %.not474, label %56, label %47
@@ -470,7 +470,7 @@ define dso_local range(i32 -1, 1) i32 @main(i32 noundef %0, ptr nocapture nounde
   %73 = sext i32 %72 to i64
   %74 = getelementptr inbounds ptr, ptr %1, i64 %73
   %75 = load ptr, ptr %74, align 8
-  %76 = call i32 @atoi(ptr nocapture noundef %75) #22
+  %76 = call i32 @atoi(ptr noundef %75) #22
   switch i32 %76, label %77 [
     i32 16, label %79
     i32 12, label %79
@@ -941,7 +941,7 @@ define dso_local range(i32 -1, 1) i32 @main(i32 noundef %0, ptr nocapture nounde
   %258 = sext i32 %257 to i64
   %259 = getelementptr inbounds ptr, ptr %1, i64 %258
   %260 = load ptr, ptr %259, align 8
-  %261 = call i32 @atoi(ptr nocapture noundef %260) #22
+  %261 = call i32 @atoi(ptr noundef %260) #22
   %262 = icmp sgt i32 %261, 0
   %263 = call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %261)
   %264 = icmp samesign ult i32 %263, 2
@@ -975,7 +975,7 @@ define dso_local range(i32 -1, 1) i32 @main(i32 noundef %0, ptr nocapture nounde
   br i1 %278, label %347, label %279
 
 279:                                              ; preds = %270
-  %280 = call i32 @atoi(ptr nocapture noundef nonnull %274) #22
+  %280 = call i32 @atoi(ptr noundef nonnull %274) #22
   switch i32 %280, label %286 [
     i32 444, label %347
     i32 422, label %281
@@ -1043,7 +1043,7 @@ define dso_local range(i32 -1, 1) i32 @main(i32 noundef %0, ptr nocapture nounde
   %301 = sext i32 %300 to i64
   %302 = getelementptr inbounds ptr, ptr %1, i64 %301
   %303 = load ptr, ptr %302, align 8
-  %304 = call i32 @atoi(ptr nocapture noundef %303) #22
+  %304 = call i32 @atoi(ptr noundef %303) #22
   %305 = icmp slt i32 %304, 0
   br i1 %305, label %306, label %308
 
@@ -1067,7 +1067,7 @@ define dso_local range(i32 -1, 1) i32 @main(i32 noundef %0, ptr nocapture nounde
   %313 = sext i32 %312 to i64
   %314 = getelementptr inbounds ptr, ptr %1, i64 %313
   %315 = load ptr, ptr %314, align 8
-  %316 = call i32 @atoi(ptr nocapture noundef %315) #22
+  %316 = call i32 @atoi(ptr noundef %315) #22
   %317 = icmp slt i32 %316, 0
   br i1 %317, label %318, label %320
 

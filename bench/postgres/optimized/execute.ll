@@ -736,7 +736,7 @@ ecpg_type_infocache_push.exit152.thread.i:        ; preds = %310
 
 356:                                              ; preds = %353
   %357 = tail call ptr @PQgetvalue(ptr noundef %342, i32 noundef 0, i32 noundef 0) #14
-  %358 = tail call i64 @atol(ptr nocapture noundef %357) #15
+  %358 = tail call i64 @atol(ptr noundef %357) #15
   %359 = tail call i32 @ecpg_dynamic_type(i32 noundef %6) #14
   %360 = icmp eq i32 %359, 1
   br i1 %360, label %366, label %361
@@ -4462,7 +4462,7 @@ define zeroext i1 @ecpg_process_output(ptr noundef %0, i1 noundef zeroext %1) lo
   store i64 %118, ptr %119, align 8
   %120 = load ptr, ptr %11, align 8
   %121 = tail call ptr @PQcmdTuples(ptr noundef %120) #14
-  %122 = tail call i64 @atol(ptr nocapture noundef %121) #15
+  %122 = tail call i64 @atol(ptr noundef %121) #15
   %123 = getelementptr i8, ptr %4, i64 208
   store i64 %122, ptr %123, align 8
   %124 = load i32, ptr %0, align 8

@@ -866,7 +866,7 @@ define internal void @_ZN12_GLOBAL__N_115Pmux2ShiftxPass7executeESt6vectorINSt7_
 159:                                              ; preds = %151
   %160 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %.pre, i64 %152
   %161 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %160) #23
-  %162 = tail call i32 @atoi(ptr nocapture noundef %161) #25
+  %162 = tail call i32 @atoi(ptr noundef %161) #25
   br label %244
 
 163:                                              ; preds = %151, %.lr.ph
@@ -889,7 +889,7 @@ define internal void @_ZN12_GLOBAL__N_115Pmux2ShiftxPass7executeESt6vectorINSt7_
 175:                                              ; preds = %167
   %176 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %.pre6571, i64 %168
   %177 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %176) #23
-  %178 = tail call i32 @atoi(ptr nocapture noundef %177) #25
+  %178 = tail call i32 @atoi(ptr noundef %177) #25
   br label %244
 
 179:                                              ; preds = %167, %163

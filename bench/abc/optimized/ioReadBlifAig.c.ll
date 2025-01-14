@@ -1611,7 +1611,7 @@ Io_BlifGetLine.exit.i147.i:                       ; preds = %668, %.critedge.loo
 672:                                              ; preds = %671
   %673 = getelementptr inbounds nuw i8, ptr %.val53.i.i, i64 24
   %674 = load ptr, ptr %673, align 8
-  %675 = tail call i32 @atoi(ptr nocapture noundef %674) #14
+  %675 = tail call i32 @atoi(ptr noundef %674) #14
   %.fr.i.i = freeze i32 %675
   %or.cond.i.i = icmp ugt i32 %.fr.i.i, 2
   br i1 %or.cond.i.i, label %676, label %689

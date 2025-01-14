@@ -2414,7 +2414,7 @@ if.end9:                                          ; preds = %if.end20.i, %if.end
   tail call void @_Z11init_tables5Gamut(i32 noundef %gamut.0.ph)
   %arrayidx10 = getelementptr inbounds nuw i8, ptr %argv, i64 8
   %2 = load ptr, ptr %arrayidx10, align 8
-  %call11 = tail call i32 @atoi(ptr nocapture noundef %2) #40
+  %call11 = tail call i32 @atoi(ptr noundef %2) #40
   store i32 %call11, ptr %res, align 4
   %cmp12 = icmp eq i32 %call11, 0
   br i1 %cmp12, label %if.then13, label %if.end15

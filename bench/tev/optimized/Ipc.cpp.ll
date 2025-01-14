@@ -8618,7 +8618,7 @@ _ZN4tlog6StreamlsINSt3__112basic_stringIcNS2_11char_traitsIcEENS2_9allocatorIcEE
   %197 = load ptr, ptr %196, align 8
   %198 = getelementptr inbounds nuw i8, ptr %0, i64 97
   %199 = select i1 %.not.i.i.i161, ptr %198, ptr %197
-  %200 = call i32 @atoi(ptr nocapture noundef %199) #33
+  %200 = call i32 @atoi(ptr noundef %199) #33
   %201 = trunc i32 %200 to i16
   %202 = call zeroext i16 @htons(i16 noundef zeroext %201) #34
   %203 = getelementptr inbounds nuw i8, ptr %20, i64 2

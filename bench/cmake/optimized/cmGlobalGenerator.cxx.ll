@@ -23050,7 +23050,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit22: ; 
 
 70:                                               ; preds = %49
   %71 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %48) #25
-  %72 = call i32 @atoi(ptr nocapture noundef %71) #26
+  %72 = call i32 @atoi(ptr noundef %71) #26
   %73 = load ptr, ptr %11, align 8
   %74 = load ptr, ptr %10, align 8
   %75 = ptrtoint ptr %73 to i64

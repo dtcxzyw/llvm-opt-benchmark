@@ -34933,7 +34933,7 @@ define hidden void @Init_BareVM() local_unnamed_addr #2 {
   br i1 %.not.i.i.i, label %get_param.exit.i.i, label %20
 
 20:                                               ; preds = %8
-  %21 = tail call i64 @atol(ptr nocapture noundef nonnull %19) #48
+  %21 = tail call i64 @atol(ptr noundef nonnull %19) #48
   %spec.select.i.i.i = tail call i64 @llvm.smax.i64(i64 %21, i64 16384)
   %22 = add nuw i64 %spec.select.i.i.i, 4095
   %23 = sdiv i64 %22, 4096
@@ -34949,7 +34949,7 @@ get_param.exit.i.i:                               ; preds = %20, %8
   br i1 %.not.i6.i.i, label %get_param.exit9.i.i, label %27
 
 27:                                               ; preds = %get_param.exit.i.i
-  %28 = tail call i64 @atol(ptr nocapture noundef nonnull %26) #48
+  %28 = tail call i64 @atol(ptr noundef nonnull %26) #48
   %spec.select.i7.i.i = tail call i64 @llvm.smax.i64(i64 %28, i64 131072)
   %29 = add nuw i64 %spec.select.i7.i.i, 4095
   %30 = sdiv i64 %29, 4096
@@ -34965,7 +34965,7 @@ get_param.exit9.i.i:                              ; preds = %27, %get_param.exit
   br i1 %.not.i10.i.i, label %get_param.exit13.i.i, label %34
 
 34:                                               ; preds = %get_param.exit9.i.i
-  %35 = tail call i64 @atol(ptr nocapture noundef nonnull %33) #48
+  %35 = tail call i64 @atol(ptr noundef nonnull %33) #48
   %spec.select.i11.i.i = tail call i64 @llvm.smax.i64(i64 %35, i64 16384)
   %36 = add nuw i64 %spec.select.i11.i.i, 4095
   %37 = sdiv i64 %36, 4096
@@ -34981,7 +34981,7 @@ get_param.exit13.i.i:                             ; preds = %34, %get_param.exit
   br i1 %.not.i14.i.i, label %get_param.exit17.i.i, label %41
 
 41:                                               ; preds = %get_param.exit13.i.i
-  %42 = tail call i64 @atol(ptr nocapture noundef nonnull %40) #48
+  %42 = tail call i64 @atol(ptr noundef nonnull %40) #48
   %spec.select.i15.i.i = tail call i64 @llvm.smax.i64(i64 %42, i64 131072)
   %43 = add nuw i64 %spec.select.i15.i.i, 4095
   %44 = sdiv i64 %43, 4096

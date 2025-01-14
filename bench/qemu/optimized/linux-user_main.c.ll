@@ -1455,7 +1455,7 @@ entry:
 ; Function Attrs: nofree nounwind sspstrong uwtable
 define internal void @handle_arg_pagesize(ptr nocapture noundef readonly %arg) #20 {
 entry:
-  %call = tail call i32 @atoi(ptr nocapture noundef %arg) #30
+  %call = tail call i32 @atoi(ptr noundef %arg) #30
   %conv = sext i32 %call to i64
   store i64 %conv, ptr @qemu_host_page_size, align 8
   %cmp = icmp ne i32 %call, 0

@@ -79,7 +79,7 @@ define range(i32 0, 2) i32 @BacManReadBacNameAndNums(ptr nocapture noundef %0, p
 10:                                               ; preds = %6
   store i8 0, ptr %.035, align 1
   %11 = getelementptr inbounds nuw i8, ptr %.035, i64 1
-  %12 = tail call i32 @atoi(ptr nocapture noundef nonnull %11) #17
+  %12 = tail call i32 @atoi(ptr noundef nonnull %11) #17
   store i32 %12, ptr %1, align 4
   br label %13
 
@@ -97,7 +97,7 @@ define range(i32 0, 2) i32 @BacManReadBacNameAndNums(ptr nocapture noundef %0, p
 
 17:                                               ; preds = %13
   %18 = getelementptr inbounds nuw i8, ptr %.1, i64 1
-  %19 = tail call i32 @atoi(ptr nocapture noundef nonnull %18) #17
+  %19 = tail call i32 @atoi(ptr noundef nonnull %18) #17
   store i32 %19, ptr %2, align 4
   br label %20
 
@@ -115,7 +115,7 @@ define range(i32 0, 2) i32 @BacManReadBacNameAndNums(ptr nocapture noundef %0, p
 
 24:                                               ; preds = %20
   %25 = getelementptr inbounds nuw i8, ptr %.2, i64 1
-  %26 = tail call i32 @atoi(ptr nocapture noundef nonnull %25) #17
+  %26 = tail call i32 @atoi(ptr noundef nonnull %25) #17
   store i32 %26, ptr %3, align 4
   br label %27
 
@@ -133,7 +133,7 @@ define range(i32 0, 2) i32 @BacManReadBacNameAndNums(ptr nocapture noundef %0, p
 
 31:                                               ; preds = %27
   %32 = getelementptr inbounds nuw i8, ptr %.3, i64 1
-  %33 = tail call i32 @atoi(ptr nocapture noundef nonnull %32) #17
+  %33 = tail call i32 @atoi(ptr noundef nonnull %32) #17
   store i32 %33, ptr %4, align 4
   br label %.loopexit
 
@@ -482,7 +482,7 @@ BacManReadBacLine.exit:                           ; preds = %.lr.ph.i
 24:                                               ; preds = %20
   store i8 0, ptr %.035.i, align 1
   %25 = getelementptr inbounds nuw i8, ptr %.035.i, i64 1
-  %26 = call i32 @atoi(ptr nocapture noundef nonnull %25) #17
+  %26 = call i32 @atoi(ptr noundef nonnull %25) #17
   br label %27
 
 27:                                               ; preds = %29, %24
@@ -611,7 +611,7 @@ BacManReadBacLine.exit37:                         ; preds = %.lr.ph.i34
 73:                                               ; preds = %69
   store i8 0, ptr %.035.i38, align 1
   %74 = getelementptr inbounds nuw i8, ptr %.035.i38, i64 1
-  %75 = call i32 @atoi(ptr nocapture noundef nonnull %74) #17
+  %75 = call i32 @atoi(ptr noundef nonnull %74) #17
   br label %76
 
 76:                                               ; preds = %78, %73
@@ -628,7 +628,7 @@ BacManReadBacLine.exit37:                         ; preds = %.lr.ph.i34
 
 80:                                               ; preds = %76
   %81 = getelementptr inbounds nuw i8, ptr %.1.i39, i64 1
-  %82 = call i32 @atoi(ptr nocapture noundef nonnull %81) #17
+  %82 = call i32 @atoi(ptr noundef nonnull %81) #17
   br label %83
 
 83:                                               ; preds = %85, %80
@@ -645,7 +645,7 @@ BacManReadBacLine.exit37:                         ; preds = %.lr.ph.i34
 
 87:                                               ; preds = %83
   %88 = getelementptr inbounds nuw i8, ptr %.2.i40, i64 1
-  %89 = call i32 @atoi(ptr nocapture noundef nonnull %88) #17
+  %89 = call i32 @atoi(ptr noundef nonnull %88) #17
   br label %90
 
 90:                                               ; preds = %92, %87
@@ -662,7 +662,7 @@ BacManReadBacLine.exit37:                         ; preds = %.lr.ph.i34
 
 94:                                               ; preds = %90
   %95 = getelementptr inbounds nuw i8, ptr %.3.i41, i64 1
-  %96 = call i32 @atoi(ptr nocapture noundef nonnull %95) #17
+  %96 = call i32 @atoi(ptr noundef nonnull %95) #17
   %97 = mul nsw i32 %96, 3
   br label %.loopexit
 

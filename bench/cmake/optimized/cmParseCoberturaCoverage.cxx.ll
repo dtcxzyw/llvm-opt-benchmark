@@ -903,7 +903,7 @@ _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS
 221:                                              ; preds = %.lr.ph.split
   %222 = getelementptr inbounds nuw i8, ptr %217, i64 8
   %223 = load ptr, ptr %222, align 8
-  %224 = call i32 @atoi(ptr nocapture noundef %223) #21
+  %224 = call i32 @atoi(ptr noundef %223) #21
   br label %232
 
 225:                                              ; preds = %.lr.ph.split
@@ -914,7 +914,7 @@ _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS
 228:                                              ; preds = %225
   %229 = getelementptr inbounds nuw i8, ptr %217, i64 8
   %230 = load ptr, ptr %229, align 8
-  %231 = call i32 @atoi(ptr nocapture noundef %230) #21
+  %231 = call i32 @atoi(ptr noundef %230) #21
   br label %232
 
 232:                                              ; preds = %225, %228, %221

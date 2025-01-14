@@ -144,7 +144,7 @@ sub_1:                                            ; preds = %.lr.ph
 
 15:                                               ; preds = %.tail
   %16 = getelementptr inbounds nuw i8, ptr %.059, i64 3
-  %17 = call i32 @atoi(ptr nocapture noundef nonnull %16) #16
+  %17 = call i32 @atoi(ptr noundef nonnull %16) #16
   store i32 %17, ptr %2, align 4
   br label %50
 
@@ -162,7 +162,7 @@ sub_146:                                          ; preds = %sub_1, %.tail
 
 23:                                               ; preds = %.tail44
   %24 = getelementptr inbounds nuw i8, ptr %.059, i64 3
-  %25 = call i32 @atoi(ptr nocapture noundef nonnull %24) #16
+  %25 = call i32 @atoi(ptr noundef nonnull %24) #16
   store i32 %25, ptr %3, align 4
   br label %50
 
@@ -180,7 +180,7 @@ sub_151:                                          ; preds = %sub_146, %.tail44
 
 31:                                               ; preds = %.tail49
   %32 = getelementptr inbounds nuw i8, ptr %.059, i64 3
-  %33 = call i32 @atoi(ptr nocapture noundef nonnull %32) #16
+  %33 = call i32 @atoi(ptr noundef nonnull %32) #16
   store i32 %33, ptr %4, align 4
   br label %50
 

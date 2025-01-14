@@ -1476,7 +1476,7 @@ define internal noalias noundef ptr @_ume_agent(ptr nocapture readnone %0) #0 {
 65:                                               ; preds = %55
   %66 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 0, i64 %63
   store i8 0, ptr %66, align 1
-  %67 = call i32 @atoi(ptr nocapture noundef nonnull %4) #17
+  %67 = call i32 @atoi(ptr noundef nonnull %4) #17
   %68 = add nsw i32 %67, %.03743.us
   br label %69
 

@@ -81173,7 +81173,7 @@ js_ecvt1.exit38.i:                                ; preds = %114, %108
 
 js_ecvt1.exit39.i:                                ; preds = %134, %128
   store i8 0, ptr %119, align 1
-  %137 = call i32 @atoi(ptr nocapture noundef %123) #43
+  %137 = call i32 @atoi(ptr noundef %123) #43
   %138 = tail call i32 @fesetround(i32 noundef 2048) #42
   %139 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %6, i64 noundef 128, ptr noundef nonnull @.str.124, i32 noundef %3, double noundef %.1) #42
   %140 = tail call i32 @fesetround(i32 noundef 0) #42
@@ -81190,7 +81190,7 @@ js_ecvt1.exit39.i:                                ; preds = %134, %128
 js_ecvt1.exit40.i:                                ; preds = %142, %js_ecvt1.exit39.i
   %145 = getelementptr i8, ptr %8, i64 %118
   store i8 0, ptr %145, align 1
-  %146 = call i32 @atoi(ptr nocapture noundef %123) #43
+  %146 = call i32 @atoi(ptr noundef %123) #43
   %bcmp.i110 = call i32 @bcmp(ptr nonnull %7, ptr nonnull %8, i64 %118)
   %147 = icmp eq i32 %bcmp.i110, 0
   %148 = icmp eq i32 %137, %146
@@ -81240,7 +81240,7 @@ js_ecvt.exit:                                     ; preds = %156, %162
   %169 = getelementptr i8, ptr %168, i64 2
   %170 = zext i1 %161 to i64
   %171 = getelementptr i8, ptr %169, i64 %170
-  %172 = call i32 @atoi(ptr nocapture noundef %171) #43
+  %172 = call i32 @atoi(ptr noundef %171) #43
   %173 = add i32 %172, 1
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %7)

@@ -524,7 +524,7 @@ _addto_job_list.exit57:                           ; preds = %42, %47
 
 99:                                               ; preds = %98
   %100 = getelementptr inbounds nuw i8, ptr %strchr50, i64 1
-  %101 = call i32 @atoi(ptr nocapture noundef nonnull %100) #19
+  %101 = call i32 @atoi(ptr noundef nonnull %100) #19
   store i8 0, ptr %strchr50, align 1
   br label %102
 

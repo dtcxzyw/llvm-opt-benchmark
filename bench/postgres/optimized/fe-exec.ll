@@ -1826,7 +1826,7 @@ sub_272:                                          ; preds = %sub_171
   br i1 %110, label %111, label %114
 
 111:                                              ; preds = %108
-  %112 = tail call i32 @atoi(ptr nocapture noundef %2) #27
+  %112 = tail call i32 @atoi(ptr noundef %2) #27
   %113 = getelementptr inbounds nuw i8, ptr %0, i64 992
   store i32 %112, ptr %113, align 8
   br label %114

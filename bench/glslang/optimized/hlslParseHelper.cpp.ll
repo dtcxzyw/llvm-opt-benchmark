@@ -51282,7 +51282,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i:   ; preds = %_ZNSt11char_traitsI
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE16find_last_not_ofEPKcm.exit.i: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i
   %84 = getelementptr inbounds i8, ptr %76, i64 %.1.i.i.in.i
-  %85 = call i32 @atoi(ptr nocapture noundef nonnull %84) #28
+  %85 = call i32 @atoi(ptr noundef nonnull %84) #28
   %86 = freeze i32 %85
   %87 = and i32 %86, 4095
   br label %"_ZZN7glslang16HlslParseContext14handleSemanticENS_10TSourceLocERNS_10TQualifierENS_16TBuiltInVariableERKNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEEENK3$_0clESD_jPKc.exit"
@@ -51340,7 +51340,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i90: ; preds = %99, %106
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE16find_last_not_ofEPKcm.exit.i98: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i90
   %107 = getelementptr inbounds i8, ptr %97, i64 %.1.i.i.in.i91
-  %108 = call i32 @atoi(ptr nocapture noundef nonnull %107) #28
+  %108 = call i32 @atoi(ptr noundef nonnull %107) #28
   %109 = freeze i32 %108
   %or.cond.not.i = icmp ugt i32 %109, 1
   br i1 %or.cond.not.i, label %110, label %"_ZZN7glslang16HlslParseContext14handleSemanticENS_10TSourceLocERNS_10TQualifierENS_16TBuiltInVariableERKNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEEENK3$_0clESD_jPKc.exit99"
@@ -51391,7 +51391,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i111: ; preds = %119, %126
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE16find_last_not_ofEPKcm.exit.i119: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i111
   %127 = getelementptr inbounds i8, ptr %97, i64 %.1.i.i.in.i112
-  %128 = call i32 @atoi(ptr nocapture noundef nonnull %127) #28
+  %128 = call i32 @atoi(ptr noundef nonnull %127) #28
   %129 = freeze i32 %128
   %or.cond.not.i120 = icmp ugt i32 %129, 1
   br i1 %or.cond.not.i120, label %130, label %"_ZZN7glslang16HlslParseContext14handleSemanticENS_10TSourceLocERNS_10TQualifierENS_16TBuiltInVariableERKNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEEENK3$_0clESD_jPKc.exit121"
@@ -51539,7 +51539,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i:     ; preds = %3, %10
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE16find_last_not_ofEPKcm.exit: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i
   %11 = getelementptr inbounds i8, ptr %.8.val, i64 %.1.i.i.in
-  %12 = tail call i32 @atoi(ptr nocapture noundef nonnull %11) #28
+  %12 = tail call i32 @atoi(ptr noundef nonnull %11) #28
   %13 = freeze i32 %12
   %14 = add nsw i32 %1, -1
   %or.cond.not = icmp ult i32 %14, %13
@@ -51603,7 +51603,7 @@ define void @_ZN7glslang16HlslParseContext16handlePackOffsetERKNS_10TSourceLocER
   call void @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE6substrEmm(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %6, ptr noundef nonnull align 8 dereferenceable(40) %3, i64 noundef 1, i64 noundef %8)
   %29 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %30 = load ptr, ptr %29, align 8
-  %31 = call i32 @atoi(ptr nocapture noundef %30) #28
+  %31 = call i32 @atoi(ptr noundef %30) #28
   %32 = shl nsw i32 %31, 4
   %33 = getelementptr inbounds nuw i8, ptr %2, i64 20
   store i32 %32, ptr %33, align 4
@@ -51701,7 +51701,7 @@ define void @_ZN7glslang16HlslParseContext14handleRegisterERKNS_10TSourceLocERNS
   call void @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE6substrEmm(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %9, ptr noundef nonnull align 8 dereferenceable(40) %4, i64 noundef 1, i64 noundef %16)
   %28 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %29 = load ptr, ptr %28, align 8
-  %30 = call i32 @atoi(ptr nocapture noundef %29) #28
+  %30 = call i32 @atoi(ptr noundef %29) #28
   %31 = getelementptr inbounds nuw i8, ptr %9, i64 24
   %32 = icmp eq ptr %29, %31
   br i1 %32, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE11_M_is_localEv.exit.thread.i.i, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEED2Ev.exit
@@ -51786,7 +51786,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEED2E
 76:                                               ; preds = %.lr.ph
   %77 = getelementptr inbounds nuw i8, ptr %storemerge45, i64 32
   %78 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %77) #24
-  %79 = call i32 @atoi(ptr nocapture noundef %78) #28
+  %79 = call i32 @atoi(ptr noundef %78) #28
   %80 = load i64, ptr %52, align 4
   %81 = shl i32 %79, 15
   %82 = and i32 %81, 4161536
@@ -51796,7 +51796,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEED2E
   store i64 %85, ptr %52, align 4
   %86 = getelementptr inbounds nuw i8, ptr %storemerge45, i64 64
   %87 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %86) #24
-  %88 = call i32 @atoi(ptr nocapture noundef %87) #28
+  %88 = call i32 @atoi(ptr noundef %87) #28
   %89 = add nsw i32 %88, %5
   %90 = load i64, ptr %52, align 4
   %91 = and i32 %89, 65535
@@ -51857,7 +51857,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE7c
   call void @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE6substrEmm(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %8, ptr noundef nonnull align 8 dereferenceable(40) %6, i64 noundef 5, i64 noundef %109)
   %117 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %118 = load ptr, ptr %117, align 8
-  %119 = call i32 @atoi(ptr nocapture noundef %118) #28
+  %119 = call i32 @atoi(ptr noundef %118) #28
   %120 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %121 = icmp eq ptr %118, %120
   br i1 %121, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE11_M_is_localEv.exit.thread.i.i.i, label %129

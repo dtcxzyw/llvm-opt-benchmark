@@ -177,7 +177,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp.not.i, label %if.end17.sink.split.i, label %if.end.i
 
 if.end.i:                                         ; preds = %if.end
-  %call1.i = tail call i32 @atoi(ptr nocapture noundef nonnull %call.i) #11
+  %call1.i = tail call i32 @atoi(ptr noundef nonnull %call.i) #11
   store i32 %call1.i, ptr @nthreads, align 4
   %cmp2.i = icmp eq i32 %call1.i, 0
   br i1 %cmp2.i, label %if.end17.sink.split.sink.split.i, label %if.end4.i

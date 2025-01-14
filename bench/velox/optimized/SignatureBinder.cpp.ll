@@ -1336,7 +1336,7 @@ invoke.cont.i:                                    ; preds = %for.body.i.i.i.i.i,
 
 if.then.i:                                        ; preds = %invoke.cont.i
   %call2.i = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %variable.i) #24
-  %call3.i = call i32 @atoi(ptr nocapture noundef %call2.i) #26
+  %call3.i = call i32 @atoi(ptr noundef %call2.i) #26
   br label %invoke.cont32
 
 lpad.i.loopexit:                                  ; preds = %if.end.i, %if.then6.i, %if.end9.i, %if.end26.i

@@ -240,7 +240,7 @@ define i32 @ompi_dpm_connect_accept(ptr noundef %0, i32 noundef %1, ptr noundef 
 38:                                               ; preds = %36
   %39 = tail call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %2, i32 noundef 61) #23
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 1
-  %41 = tail call i32 @atoi(ptr nocapture noundef nonnull %40) #23
+  %41 = tail call i32 @atoi(ptr noundef nonnull %40) #23
   store i32 %41, ptr %7, align 4
   %42 = icmp sgt i32 %41, 0
   br i1 %42, label %43, label %163

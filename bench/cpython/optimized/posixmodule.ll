@@ -22561,7 +22561,7 @@ for.end:                                          ; preds = %for.body
   br i1 %2, label %if.end10, label %if.then13
 
 if.end10:                                         ; preds = %for.end
-  %call9 = call i32 @atoi(ptr nocapture noundef nonnull %call6) #25
+  %call9 = call i32 @atoi(ptr noundef nonnull %call6) #25
   %conv = zext nneg i32 %call9 to i64
   %cmp11 = icmp slt i32 %call9, 1
   br i1 %cmp11, label %if.then13, label %if.end28

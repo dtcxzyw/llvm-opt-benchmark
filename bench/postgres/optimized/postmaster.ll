@@ -475,7 +475,7 @@ getInstallationPaths.exit:                        ; preds = %18
 
 68:                                               ; preds = %41
   %69 = load ptr, ptr @optarg, align 8
-  %70 = call i32 @atoi(ptr nocapture noundef %69) #27
+  %70 = call i32 @atoi(ptr noundef %69) #27
   call void @set_debug_options(i32 noundef %70, i32 noundef 1, i32 noundef 4) #25
   br label %.backedge
 

@@ -173,7 +173,7 @@ sfdp_init_graph.exit:                             ; preds = %._crit_edge24.i.i, 
   br i1 %77, label %78, label %81
 
 78:                                               ; preds = %72
-  %79 = call i32 @atoi(ptr nocapture noundef nonnull %73) #13
+  %79 = call i32 @atoi(ptr noundef nonnull %73) #13
   %80 = icmp slt i32 %79, 5
   %..i.i = select i1 %80, i32 %79, i32 0
   br label %late_smooth.exit.i
@@ -227,7 +227,7 @@ late_smooth.exit.i:                               ; preds = %93, %91, %89, %87, 
   br i1 %102, label %103, label %105
 
 103:                                              ; preds = %97
-  %104 = call i32 @atoi(ptr nocapture noundef nonnull %98) #13
+  %104 = call i32 @atoi(ptr noundef nonnull %98) #13
   %or.cond.i.i = icmp ult i32 %104, 3
   %..i34.i = select i1 %or.cond.i.i, i32 %104, i32 1
   br label %late_quadtree_scheme.exit.i

@@ -532,7 +532,7 @@ define internal void @_ZN12_GLOBAL__N_112MuxcoverPass7executeESt6vectorINSt7__cx
 28:                                               ; preds = %25
   call void @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6substrEmm(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %6, ptr noundef nonnull align 8 dereferenceable(32) %22, i64 noundef 6, i64 noundef -1)
   %29 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %6) #22
-  %30 = call i32 @atoi(ptr nocapture noundef %29) #24
+  %30 = call i32 @atoi(ptr noundef %29) #24
   br label %.sink.split
 
 31:                                               ; preds = %25, %.lr.ph
@@ -559,7 +559,7 @@ define internal void @_ZN12_GLOBAL__N_112MuxcoverPass7executeESt6vectorINSt7__cx
 43:                                               ; preds = %40
   call void @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6substrEmm(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %7, ptr noundef nonnull align 8 dereferenceable(32) %22, i64 noundef 6, i64 noundef -1)
   %44 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %7) #22
-  %45 = call i32 @atoi(ptr nocapture noundef %44) #24
+  %45 = call i32 @atoi(ptr noundef %44) #24
   br label %.sink.split
 
 46:                                               ; preds = %34, %31
@@ -586,7 +586,7 @@ define internal void @_ZN12_GLOBAL__N_112MuxcoverPass7executeESt6vectorINSt7__cx
 58:                                               ; preds = %55
   call void @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6substrEmm(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %8, ptr noundef nonnull align 8 dereferenceable(32) %22, i64 noundef 6, i64 noundef -1)
   %59 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %8) #22
-  %60 = call i32 @atoi(ptr nocapture noundef %59) #24
+  %60 = call i32 @atoi(ptr noundef %59) #24
   br label %.sink.split
 
 61:                                               ; preds = %49, %46
@@ -613,7 +613,7 @@ define internal void @_ZN12_GLOBAL__N_112MuxcoverPass7executeESt6vectorINSt7__cx
 73:                                               ; preds = %70
   call void @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6substrEmm(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %9, ptr noundef nonnull align 8 dereferenceable(32) %22, i64 noundef 7, i64 noundef -1)
   %74 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %9) #22
-  %75 = call i32 @atoi(ptr nocapture noundef %74) #24
+  %75 = call i32 @atoi(ptr noundef %74) #24
   br label %.sink.split
 
 76:                                               ; preds = %64, %61
@@ -629,7 +629,7 @@ define internal void @_ZN12_GLOBAL__N_112MuxcoverPass7executeESt6vectorINSt7__cx
 82:                                               ; preds = %79
   call void @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6substrEmm(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %10, ptr noundef nonnull align 8 dereferenceable(32) %22, i64 noundef 6, i64 noundef -1)
   %83 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %10) #22
-  %84 = call i32 @atoi(ptr nocapture noundef %83) #24
+  %84 = call i32 @atoi(ptr noundef %83) #24
   br label %.sink.split
 
 85:                                               ; preds = %79, %76

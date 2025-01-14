@@ -5474,9 +5474,9 @@ _ZN8facebook5velox4type6fbhive14HiveTypeParser8eatTokenENS2_9TokenTypeEb.exit54:
   %remaining.i53 = getelementptr inbounds nuw i8, ptr %token.i46, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %remaining_.i, ptr noundef nonnull align 8 dereferenceable(16) %remaining.i53, i64 16, i1 false), !noalias !113
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %token.i46)
-  %call25 = call i32 @atoi(ptr nocapture noundef %precision.sroa.1.0.copyload) #30
+  %call25 = call i32 @atoi(ptr noundef %precision.sroa.1.0.copyload) #30
   %conv = trunc i32 %call25 to i8
-  %call28 = call i32 @atoi(ptr nocapture noundef %scale.sroa.1.0.copyload) #30
+  %call28 = call i32 @atoi(ptr noundef %scale.sroa.1.0.copyload) #30
   %conv29 = trunc i32 %call28 to i8
   call void @_ZN8facebook5velox7DECIMALEhh(ptr sret(%"class.std::shared_ptr") align 8 %agg.result, i8 noundef zeroext %conv, i8 noundef zeroext %conv29)
   br label %return

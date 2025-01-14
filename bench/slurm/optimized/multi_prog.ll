@@ -691,7 +691,7 @@ define dso_local range(i32 -1, 1) i32 @verify_multi_name(ptr noundef %0, ptr noc
   ]
 
 99:                                               ; preds = %98
-  %100 = call i32 @atoi(ptr nocapture noundef nonnull %.03354.i) #11
+  %100 = call i32 @atoi(ptr noundef nonnull %.03354.i) #11
   br label %119
 
 101:                                              ; preds = %98
@@ -719,8 +719,8 @@ define dso_local range(i32 -1, 1) i32 @verify_multi_name(ptr noundef %0, ptr noc
   br label %_validate_ranks.exit.thread
 
 114:                                              ; preds = %111
-  %115 = call i32 @atoi(ptr nocapture noundef nonnull %.03354.i) #11
-  %116 = call i32 @atoi(ptr nocapture noundef nonnull %102) #11
+  %115 = call i32 @atoi(ptr noundef nonnull %.03354.i) #11
+  %116 = call i32 @atoi(ptr noundef nonnull %102) #11
   br label %119
 
 117:                                              ; preds = %98

@@ -7133,7 +7133,7 @@ if.then:                                          ; preds = %while.body.tail
 if.then5:                                         ; preds = %if.then
   %arrayidx6 = getelementptr inbounds nuw i8, ptr %argv.addr.0187, i64 16
   %9 = load ptr, ptr %arrayidx6, align 8
-  %call7 = tail call i32 @atoi(ptr nocapture noundef %9) #19
+  %call7 = tail call i32 @atoi(ptr noundef %9) #19
   %or.cond = icmp ugt i32 %call7, 1
   %spec.store.select = select i1 %or.cond, i32 0, i32 %call7
   store i32 %spec.store.select, ptr @lng_index, align 4
@@ -7156,7 +7156,7 @@ if.then15:                                        ; preds = %if.else
 if.then19:                                        ; preds = %if.then15
   %arrayidx20 = getelementptr inbounds nuw i8, ptr %argv.addr.0187, i64 16
   %10 = load ptr, ptr %arrayidx20, align 8
-  %call21 = tail call i32 @atoi(ptr nocapture noundef %10) #19
+  %call21 = tail call i32 @atoi(ptr noundef %10) #19
   store i32 %call21, ptr @lng_index, align 4
   %or.cond1 = icmp ugt i32 %call21, 1
   br i1 %or.cond1, label %if.then25, label %if.end285
@@ -7208,7 +7208,7 @@ if.then52:                                        ; preds = %if.then48
   %dec49 = add nsw i32 %argc.addr.0186, -1
   %arrayidx53 = getelementptr inbounds nuw i8, ptr %argv.addr.0187, i64 16
   %12 = load ptr, ptr %arrayidx53, align 8
-  %call54 = tail call i32 @atoi(ptr nocapture noundef %12) #19
+  %call54 = tail call i32 @atoi(ptr noundef %12) #19
   store i32 %call54, ptr @aes_aad_size, align 4
   %13 = load i32, ptr @aes_aad_options, align 4
   %or55 = or i32 %13, 4
@@ -7275,7 +7275,7 @@ if.then91:                                        ; preds = %if.then87
   %dec88 = add nsw i32 %argc.addr.0186, -1
   %arrayidx92 = getelementptr inbounds nuw i8, ptr %argv.addr.0187, i64 16
   %15 = load ptr, ptr %arrayidx92, align 8
-  %call93 = tail call i32 @atoi(ptr nocapture noundef %15) #19
+  %call93 = tail call i32 @atoi(ptr noundef %15) #19
   store i32 %call93, ptr @numBlocks, align 4
   br label %if.end285
 
@@ -7447,7 +7447,7 @@ if.then264:                                       ; preds = %land.rhs240
   br label %return
 
 if.else268:                                       ; preds = %if.else117
-  %call270 = tail call i32 @atoi(ptr nocapture noundef nonnull %2) #19
+  %call270 = tail call i32 @atoi(ptr noundef nonnull %2) #19
   %cmp.not.i = icmp eq i32 %call270, 0
   br i1 %cmp.not.i, label %if.end285, label %if.then.i
 

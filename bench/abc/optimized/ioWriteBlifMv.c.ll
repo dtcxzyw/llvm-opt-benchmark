@@ -1158,7 +1158,7 @@ Io_NtkWriteBlifMvNodeFanins.exit.i.i:             ; preds = %491, %486, %.crited
 
 507:                                              ; preds = %503
   %508 = getelementptr inbounds nuw i8, ptr %.171.i.i, i64 1
-  %509 = tail call i32 @atoi(ptr nocapture noundef nonnull %508) #10
+  %509 = tail call i32 @atoi(ptr noundef nonnull %508) #10
   %.val55.i165.i = load ptr, ptr %392, align 8
   %.val56.i166.i = load ptr, ptr %502, align 8
   %510 = getelementptr i8, ptr %.val55.i165.i, i64 32

@@ -32696,7 +32696,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i: ; preds =
   br i1 %cmp.i.i.i.i.i.i.i.i.i, label %cleanup.sink.split.sink.split, label %cleanup.sink.split
 
 if.end19:                                         ; preds = %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE17find_first_not_ofEPKcm.exit
-  %call22 = call i32 @atoi(ptr nocapture noundef nonnull %add.ptr.i) #38
+  %call22 = call i32 @atoi(ptr noundef nonnull %add.ptr.i) #38
   store i32 %call22, ptr %ref.tmp20, align 4
   %29 = load ptr, ptr %_M_finish.i21, align 8
   %30 = load ptr, ptr %_M_end_of_storage.i22, align 8

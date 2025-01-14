@@ -294,7 +294,7 @@ sub_1:                                            ; preds = %sub_0
 
 18:                                               ; preds = %15
   store ptr %17, ptr %3, align 8
-  %19 = tail call i32 @atoi(ptr nocapture noundef nonnull %17) #16
+  %19 = tail call i32 @atoi(ptr noundef nonnull %17) #16
   br label %20
 
 20:                                               ; preds = %20, %18
@@ -306,7 +306,7 @@ sub_1:                                            ; preds = %sub_0
 
 24:                                               ; preds = %20
   store ptr %23, ptr %3, align 8
-  %25 = tail call i32 @atoi(ptr nocapture noundef nonnull %23) #16
+  %25 = tail call i32 @atoi(ptr noundef nonnull %23) #16
   br label %26
 
 26:                                               ; preds = %26, %24
@@ -318,7 +318,7 @@ sub_1:                                            ; preds = %sub_0
 
 30:                                               ; preds = %26
   store ptr %29, ptr %3, align 8
-  %31 = tail call i32 @atoi(ptr nocapture noundef nonnull %29) #16
+  %31 = tail call i32 @atoi(ptr noundef nonnull %29) #16
   br label %32
 
 32:                                               ; preds = %32, %30
@@ -330,7 +330,7 @@ sub_1:                                            ; preds = %sub_0
 
 36:                                               ; preds = %32
   store ptr %35, ptr %3, align 8
-  %37 = tail call i32 @atoi(ptr nocapture noundef nonnull %35) #16
+  %37 = tail call i32 @atoi(ptr noundef nonnull %35) #16
   br label %38
 
 38:                                               ; preds = %38, %36
@@ -342,7 +342,7 @@ sub_1:                                            ; preds = %sub_0
 
 42:                                               ; preds = %38
   store ptr %41, ptr %3, align 8
-  %43 = tail call i32 @atoi(ptr nocapture noundef nonnull %41) #16
+  %43 = tail call i32 @atoi(ptr noundef nonnull %41) #16
   br label %44
 
 44:                                               ; preds = %47, %42
@@ -360,7 +360,7 @@ sub_1:                                            ; preds = %sub_0
 49:                                               ; preds = %44
   %50 = getelementptr inbounds nuw i8, ptr %45, i64 1
   store ptr %50, ptr %3, align 8
-  %51 = tail call i32 @atoi(ptr nocapture noundef nonnull %50) #16
+  %51 = tail call i32 @atoi(ptr noundef nonnull %50) #16
   br label %52
 
 52:                                               ; preds = %55, %49
@@ -396,7 +396,7 @@ sub_1:                                            ; preds = %sub_0
 63:                                               ; preds = %59
   %64 = getelementptr inbounds nuw i8, ptr %60, i64 1
   store ptr %64, ptr %3, align 8
-  %65 = tail call i32 @atoi(ptr nocapture noundef nonnull %64) #16
+  %65 = tail call i32 @atoi(ptr noundef nonnull %64) #16
   br label %66
 
 66:                                               ; preds = %69, %63
@@ -421,7 +421,7 @@ sub_1:                                            ; preds = %sub_0
 74:                                               ; preds = %71
   %75 = getelementptr inbounds nuw i8, ptr %67, i64 1
   store ptr %75, ptr %3, align 8
-  %76 = tail call i32 @atoi(ptr nocapture noundef nonnull %75) #16
+  %76 = tail call i32 @atoi(ptr noundef nonnull %75) #16
   br label %77
 
 77:                                               ; preds = %80, %74
@@ -447,7 +447,7 @@ sub_1:                                            ; preds = %sub_0
 86:                                               ; preds = %82
   %87 = getelementptr inbounds nuw i8, ptr %78, i64 1
   store ptr %87, ptr %3, align 8
-  %88 = tail call i32 @atoi(ptr nocapture noundef nonnull %87) #16
+  %88 = tail call i32 @atoi(ptr noundef nonnull %87) #16
   br label %89
 
 89:                                               ; preds = %92, %86
@@ -855,7 +855,7 @@ Vec_PtrAlloc.exit236:                             ; preds = %._crit_edge319, %26
 .lr.ph331:                                        ; preds = %273, %Vec_PtrPush.exit243
   %.4329 = phi i32 [ %319, %Vec_PtrPush.exit243 ], [ 0, %273 ]
   %276 = load ptr, ptr %3, align 8
-  %277 = tail call i32 @atoi(ptr nocapture noundef %276) #16
+  %277 = tail call i32 @atoi(ptr noundef %276) #16
   br label %278
 
 278:                                              ; preds = %278, %.lr.ph331
@@ -945,7 +945,7 @@ Vec_PtrPush.exit243:                              ; preds = %.Vec_PtrGrow.exit11
 .lr.ph335:                                        ; preds = %.preheader268, %Vec_PtrPush.exit250
   %.5334 = phi i32 [ %363, %Vec_PtrPush.exit250 ], [ 0, %.preheader268 ]
   %320 = load ptr, ptr %3, align 8
-  %321 = tail call i32 @atoi(ptr nocapture noundef %320) #16
+  %321 = tail call i32 @atoi(ptr noundef %320) #16
   br label %322
 
 322:                                              ; preds = %322, %.lr.ph335

@@ -1813,7 +1813,7 @@ define internal fastcc void @zend_ini_do_op(i8 noundef signext range(i8 33, 127)
 14:                                               ; preds = %4
   %15 = load ptr, ptr %2, align 8
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 24
-  %17 = tail call i32 @atoi(ptr nocapture noundef nonnull %16) #19
+  %17 = tail call i32 @atoi(ptr noundef nonnull %16) #19
   %18 = getelementptr inbounds nuw i8, ptr %15, i64 4
   %19 = load i32, ptr %18, align 4
   %20 = and i32 %19, 64
@@ -1863,7 +1863,7 @@ get_int_val.exit:                                 ; preds = %8, %11, %14, %23, %
 35:                                               ; preds = %26
   %36 = load ptr, ptr %3, align 8
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 24
-  %38 = tail call i32 @atoi(ptr nocapture noundef nonnull %37) #19
+  %38 = tail call i32 @atoi(ptr noundef nonnull %37) #19
   %39 = getelementptr inbounds nuw i8, ptr %36, i64 4
   %40 = load i32, ptr %39, align 4
   %41 = and i32 %40, 64

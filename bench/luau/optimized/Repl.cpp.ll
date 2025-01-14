@@ -2452,7 +2452,7 @@ sub_1123:                                         ; preds = %.tail.thread, %.thr
 
 48:                                               ; preds = %.tail126
   %49 = getelementptr inbounds nuw i8, ptr %19, i64 2
-  %50 = tail call i32 @atoi(ptr nocapture noundef nonnull %49) #26
+  %50 = tail call i32 @atoi(ptr noundef nonnull %49) #26
   %or.cond = icmp ugt i32 %50, 2
   br i1 %or.cond, label %51, label %54
 
@@ -2473,7 +2473,7 @@ sub_1123:                                         ; preds = %.tail.thread, %.thr
 
 58:                                               ; preds = %.tail130
   %59 = getelementptr inbounds nuw i8, ptr %19, i64 2
-  %60 = tail call i32 @atoi(ptr nocapture noundef nonnull %59) #26
+  %60 = tail call i32 @atoi(ptr noundef nonnull %59) #26
   %or.cond3 = icmp ugt i32 %60, 2
   br i1 %or.cond3, label %61, label %64
 
@@ -2498,7 +2498,7 @@ sub_1123:                                         ; preds = %.tail.thread, %.thr
 
 70:                                               ; preds = %67
   %71 = getelementptr inbounds nuw i8, ptr %19, i64 10
-  %72 = tail call i32 @atoi(ptr nocapture noundef nonnull %71) #26
+  %72 = tail call i32 @atoi(ptr noundef nonnull %71) #26
   br label %106
 
 73:                                               ; preds = %67

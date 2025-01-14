@@ -5985,7 +5985,7 @@ define range(i32 1, -2) i32 @Rtl_NtkReadConst(ptr nocapture noundef readonly %0,
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %6 = getelementptr i8, ptr %4, i64 28
   %.val27 = load i32, ptr %6, align 4
-  %7 = tail call i32 @atoi(ptr nocapture noundef %1) #38
+  %7 = tail call i32 @atoi(ptr noundef %1) #38
   %strchr = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %1, i32 39)
   %.not = icmp eq ptr %strchr, null
   br i1 %.not, label %65, label %8
@@ -6347,14 +6347,14 @@ define range(i32 2, 0) i32 @Rtl_NtkReadSlice(ptr nocapture noundef readonly %0, 
   %7 = getelementptr i8, ptr %5, i64 44
   %.val = load i32, ptr %7, align 4
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 1
-  %9 = tail call i32 @atoi(ptr nocapture noundef nonnull %8) #38
+  %9 = tail call i32 @atoi(ptr noundef nonnull %8) #38
   %strchr = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %1, i32 58)
   %.not = icmp eq ptr %strchr, null
   br i1 %.not, label %13, label %10
 
 10:                                               ; preds = %3
   %11 = getelementptr inbounds nuw i8, ptr %strchr, i64 1
-  %12 = tail call i32 @atoi(ptr nocapture noundef nonnull %11) #38
+  %12 = tail call i32 @atoi(ptr noundef nonnull %11) #38
   br label %13
 
 13:                                               ; preds = %3, %10
@@ -6903,7 +6903,7 @@ define i32 @Rtl_NtkReadWire(ptr nocapture noundef %0, i32 noundef %1) local_unna
 
 Rtl_NtkTokStr.exit:                               ; preds = %28, %31
   %37 = phi ptr [ %36, %31 ], [ null, %28 ]
-  %38 = tail call i32 @atoi(ptr nocapture noundef %37) #38
+  %38 = tail call i32 @atoi(ptr noundef %37) #38
   br label %91
 
 39:                                               ; preds = %.lr.ph161
@@ -6928,7 +6928,7 @@ Rtl_NtkTokStr.exit:                               ; preds = %28, %31
 
 Rtl_NtkTokStr.exit79:                             ; preds = %42, %45
   %51 = phi ptr [ %50, %45 ], [ null, %42 ]
-  %52 = tail call i32 @atoi(ptr nocapture noundef %51) #38
+  %52 = tail call i32 @atoi(ptr noundef %51) #38
   br label %91
 
 53:                                               ; preds = %39
@@ -6953,7 +6953,7 @@ Rtl_NtkTokStr.exit79:                             ; preds = %42, %45
 
 Rtl_NtkTokStr.exit83:                             ; preds = %56, %59
   %65 = phi ptr [ %64, %59 ], [ null, %56 ]
-  %66 = tail call i32 @atoi(ptr nocapture noundef %65) #38
+  %66 = tail call i32 @atoi(ptr noundef %65) #38
   %67 = load i32, ptr %12, align 4
   %68 = add nsw i32 %67, 1
   store i32 %68, ptr %12, align 4
@@ -6981,7 +6981,7 @@ Rtl_NtkTokStr.exit83:                             ; preds = %56, %59
 
 Rtl_NtkTokStr.exit87:                             ; preds = %72, %75
   %81 = phi ptr [ %80, %75 ], [ null, %72 ]
-  %82 = tail call i32 @atoi(ptr nocapture noundef %81) #38
+  %82 = tail call i32 @atoi(ptr noundef %81) #38
   %83 = load i32, ptr %11, align 8
   %84 = add nsw i32 %83, 1
   store i32 %84, ptr %11, align 8

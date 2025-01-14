@@ -601,12 +601,12 @@ define internal fastcc noundef ptr @_process_grouped_report(ptr noundef %0, ptr 
 231:                                              ; preds = %.lr.ph400
   %232 = getelementptr inbounds nuw i8, ptr %228, i64 16
   store i32 %.0230398, ptr %232, align 8
-  %233 = call i32 @atoi(ptr nocapture noundef nonnull %227) #13
+  %233 = call i32 @atoi(ptr noundef nonnull %227) #13
   %234 = add i32 %233, -1
   br label %238
 
 235:                                              ; preds = %.lr.ph400
-  %236 = call i32 @atoi(ptr nocapture noundef nonnull %227) #13
+  %236 = call i32 @atoi(ptr noundef nonnull %227) #13
   %237 = getelementptr inbounds nuw i8, ptr %228, i64 16
   store i32 %236, ptr %237, align 8
   br label %238
@@ -1249,8 +1249,8 @@ declare void @list_sort(ptr noundef, ptr noundef) local_unnamed_addr #2
 define internal range(i32 -1, 2) i32 @_sort_group_asc(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #3 {
   %3 = load ptr, ptr %0, align 8
   %4 = load ptr, ptr %1, align 8
-  %5 = tail call i32 @atoi(ptr nocapture noundef %3) #13
-  %6 = tail call i32 @atoi(ptr nocapture noundef %4) #13
+  %5 = tail call i32 @atoi(ptr noundef %3) #13
+  %6 = tail call i32 @atoi(ptr noundef %4) #13
   %.0 = tail call i32 @llvm.scmp.i32.i32(i32 %5, i32 %6)
   ret i32 %.0
 }
@@ -1357,7 +1357,7 @@ define internal fastcc void @_check_create_grouping(ptr noundef %0, ptr noundef 
   %45 = tail call ptr @list_create(ptr noundef null) #11
   %46 = getelementptr inbounds nuw i8, ptr %44, i64 8
   store ptr %45, ptr %46, align 8
-  %47 = tail call i32 @atoi(ptr nocapture noundef nonnull %43) #13
+  %47 = tail call i32 @atoi(ptr noundef nonnull %43) #13
   %48 = getelementptr inbounds nuw i8, ptr %44, i64 20
   store i32 %47, ptr %48, align 4
   %49 = getelementptr inbounds nuw i8, ptr %44, i64 16
@@ -1377,7 +1377,7 @@ define internal fastcc void @_check_create_grouping(ptr noundef %0, ptr noundef 
   store ptr %54, ptr %55, align 8
   %56 = getelementptr inbounds nuw i8, ptr %53, i64 16
   store i32 %.061, ptr %56, align 8
-  %57 = tail call i32 @atoi(ptr nocapture noundef nonnull %52) #13
+  %57 = tail call i32 @atoi(ptr noundef nonnull %52) #13
   %58 = add i32 %57, -1
   %59 = getelementptr inbounds nuw i8, ptr %53, i64 20
   store i32 %58, ptr %59, align 4

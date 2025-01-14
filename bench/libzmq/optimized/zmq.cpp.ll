@@ -1444,7 +1444,7 @@ sw.bb1:                                           ; preds = %entry
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %sw.bb1
-  %call3 = tail call i32 @atoi(ptr nocapture noundef nonnull %call2) #24
+  %call3 = tail call i32 @atoi(ptr noundef nonnull %call2) #24
   br label %return
 
 sw.bb4:                                           ; preds = %entry

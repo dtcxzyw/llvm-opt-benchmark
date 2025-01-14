@@ -102,7 +102,7 @@ define range(i32 0, 2) i32 @dlp_is_valid_cc(ptr noundef readonly %0, i64 noundef
 37:                                               ; preds = %._crit_edge
   %38 = getelementptr inbounds nuw i8, ptr %4, i64 6
   store i8 0, ptr %38, align 2
-  %39 = call i32 @atoi(ptr nocapture noundef nonnull %4) #10
+  %39 = call i32 @atoi(ptr noundef nonnull %4) #10
   %40 = freeze i32 %39
   %or.cond.not18.i = icmp ugt i32 %40, 99999
   br i1 %or.cond.not18.i, label %.lr.ph.i, label %.thread.sink.split

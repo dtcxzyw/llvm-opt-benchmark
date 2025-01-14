@@ -364,7 +364,7 @@ define internal fastcc void @_xlate_dependency(ptr noundef %0, i32 noundef %1, i
 
 .lr.ph.i:                                         ; preds = %53, %144
   %.077.i = phi ptr [ %145, %144 ], [ %54, %53 ]
-  %55 = call i32 @atoi(ptr nocapture noundef nonnull %.077.i) #14
+  %55 = call i32 @atoi(ptr noundef nonnull %.077.i) #14
   %56 = call ptr @find_job_record(i32 noundef %55) #13
   %.not62.i = icmp eq ptr %56, null
   br i1 %.not62.i, label %57, label %61

@@ -86,7 +86,7 @@ define internal noundef i32 @rte_init(i32 %0, ptr nocapture readnone %1) #0 {
   %23 = tail call i64 @strtoul(ptr nocapture noundef nonnull %18, ptr noundef null, i32 noundef 10) #7
   %24 = trunc i64 %23 to i32
   %25 = tail call ptr @getenv(ptr noundef nonnull @.str.7) #7
-  %26 = tail call i32 @atoi(ptr nocapture noundef %25) #8
+  %26 = tail call i32 @atoi(ptr noundef %25) #8
   %27 = add i32 %26, %24
   store i32 %27, ptr getelementptr inbounds nuw (i8, ptr @prte_process_info, i64 256), align 8
   %28 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prte_ess_base_framework, i64 76), align 4

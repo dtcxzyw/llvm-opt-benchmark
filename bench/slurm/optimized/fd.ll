@@ -135,7 +135,7 @@ _slow_closeall.exit:                              ; preds = %.lr.ph.i, %14
 
 25:                                               ; preds = %.lr.ph
   %26 = getelementptr inbounds nuw i8, ptr %22, i64 19
-  %27 = tail call i32 @atoi(ptr nocapture noundef nonnull %26) #11
+  %27 = tail call i32 @atoi(ptr noundef nonnull %26) #11
   %.not12 = icmp slt i32 %27, %0
   br i1 %.not12, label %30, label %28
 

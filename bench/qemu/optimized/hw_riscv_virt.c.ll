@@ -1088,7 +1088,7 @@ entry:
 define internal void @virt_set_aia_guests(ptr noundef %obj, ptr nocapture noundef readonly %val, ptr noundef %errp) #1 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str, ptr noundef nonnull @.str.5, i32 noundef 35, ptr noundef nonnull @__func__.RISCV_VIRT_MACHINE) #14
-  %call1 = tail call i32 @atoi(ptr nocapture noundef %val) #18
+  %call1 = tail call i32 @atoi(ptr noundef %val) #18
   %aia_guests = getelementptr inbounds nuw i8, ptr %call.i, i64 3836
   store i32 %call1, ptr %aia_guests, align 4
   %cmp4 = icmp ugt i32 %call1, 7

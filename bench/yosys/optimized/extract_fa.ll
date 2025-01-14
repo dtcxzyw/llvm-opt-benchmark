@@ -2358,7 +2358,7 @@ define internal void @_ZN12_GLOBAL__N_113ExtractFaPass7executeESt6vectorINSt7__c
   %75 = add nuw i64 %.0632, 1
   %76 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %.pre, i64 %75
   %77 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %76) #22
-  %78 = tail call i32 @atoi(ptr nocapture noundef %77) #24
+  %78 = tail call i32 @atoi(ptr noundef %77) #24
   store i32 %78, ptr %35, align 4
   br label %97
 
@@ -2383,7 +2383,7 @@ define internal void @_ZN12_GLOBAL__N_113ExtractFaPass7executeESt6vectorINSt7__c
   %93 = add nuw i64 %.0632, 1
   %94 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %86, i64 %93
   %95 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %94) #22
-  %96 = tail call i32 @atoi(ptr nocapture noundef %95) #24
+  %96 = tail call i32 @atoi(ptr noundef %95) #24
   store i32 %96, ptr %36, align 4
   br label %97
 

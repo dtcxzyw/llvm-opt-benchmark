@@ -16622,7 +16622,7 @@ if.end:                                           ; preds = %if.then
   %idxprom4 = sext i32 %inc to i64
   %arrayidx5 = getelementptr inbounds ptr, ptr %argv, i64 %idxprom4
   %7 = load ptr, ptr %arrayidx5, align 8
-  %call6 = tail call i32 @atoi(ptr nocapture noundef %7) #21
+  %call6 = tail call i32 @atoi(ptr noundef %7) #21
   store i32 %call6, ptr getelementptr inbounds nuw (i8, ptr @config, i64 120), align 8
   br label %for.inc
 
@@ -16680,7 +16680,7 @@ if.end26:                                         ; preds = %if.then23
   %idxprom28 = sext i32 %inc27 to i64
   %arrayidx29 = getelementptr inbounds ptr, ptr %argv, i64 %idxprom28
   %18 = load ptr, ptr %arrayidx29, align 8
-  %call30 = tail call i32 @atoi(ptr nocapture noundef %18) #21
+  %call30 = tail call i32 @atoi(ptr noundef %18) #21
   store i32 %call30, ptr getelementptr inbounds nuw (i8, ptr @config, i64 128), align 8
   br label %for.inc
 
@@ -16704,7 +16704,7 @@ if.end39:                                         ; preds = %if.then36
   %idxprom41 = sext i32 %inc40 to i64
   %arrayidx42 = getelementptr inbounds ptr, ptr %argv, i64 %idxprom41
   %24 = load ptr, ptr %arrayidx42, align 8
-  %call43 = tail call i32 @atoi(ptr nocapture noundef %24) #21
+  %call43 = tail call i32 @atoi(ptr noundef %24) #21
   store i32 %call43, ptr getelementptr inbounds nuw (i8, ptr @config, i64 176), align 8
   br label %for.inc
 
@@ -16754,7 +16754,7 @@ if.end65:                                         ; preds = %if.then62
   %idxprom67 = sext i32 %inc66 to i64
   %arrayidx68 = getelementptr inbounds ptr, ptr %argv, i64 %idxprom67
   %37 = load ptr, ptr %arrayidx68, align 8
-  %call69 = tail call i32 @atoi(ptr nocapture noundef %37) #21
+  %call69 = tail call i32 @atoi(ptr noundef %37) #21
   store i32 %call69, ptr getelementptr inbounds nuw (i8, ptr @config, i64 16), align 8
   %or.cond = icmp ugt i32 %call69, 65535
   br i1 %or.cond, label %if.then75, label %for.inc
@@ -16928,7 +16928,7 @@ if.end157:                                        ; preds = %if.then154
   %idxprom159 = sext i32 %inc158 to i64
   %arrayidx160 = getelementptr inbounds ptr, ptr %argv, i64 %idxprom159
   %79 = load ptr, ptr %arrayidx160, align 8
-  %call161 = tail call i32 @atoi(ptr nocapture noundef %79) #21
+  %call161 = tail call i32 @atoi(ptr noundef %79) #21
   %spec.select = tail call i32 @llvm.smax.i32(i32 %call161, i32 1)
   %spec.store.select131 = tail call i32 @llvm.umin.i32(i32 %spec.select, i32 1073741824)
   store i32 %spec.store.select131, ptr getelementptr inbounds nuw (i8, ptr @config, i64 164), align 4
@@ -16954,7 +16954,7 @@ if.end178:                                        ; preds = %if.then175
   %idxprom180 = sext i32 %inc179 to i64
   %arrayidx181 = getelementptr inbounds ptr, ptr %argv, i64 %idxprom180
   %85 = load ptr, ptr %arrayidx181, align 8
-  %call182 = tail call i32 @atoi(ptr nocapture noundef %85) #21
+  %call182 = tail call i32 @atoi(ptr noundef %85) #21
   %spec.store.select = tail call i32 @llvm.smax.i32(i32 %call182, i32 1)
   store i32 %spec.store.select, ptr getelementptr inbounds nuw (i8, ptr @config, i64 180), align 4
   br label %for.inc
@@ -16992,7 +16992,7 @@ if.then202:                                       ; preds = %if.end195
 
 if.end212:                                        ; preds = %if.then202, %if.end195
   store i32 1, ptr getelementptr inbounds nuw (i8, ptr @config, i64 168), align 8
-  %call213 = tail call i32 @atoi(ptr nocapture noundef nonnull %91) #21
+  %call213 = tail call i32 @atoi(ptr noundef nonnull %91) #21
   %spec.store.select129 = tail call i32 @llvm.smax.i32(i32 %call213, i32 0)
   store i32 %spec.store.select129, ptr getelementptr inbounds nuw (i8, ptr @config, i64 172), align 4
   br label %for.inc
@@ -17104,7 +17104,7 @@ if.end257:                                        ; preds = %if.then254
   %idxprom259 = sext i32 %inc258 to i64
   %arrayidx260 = getelementptr inbounds ptr, ptr %argv, i64 %idxprom259
   %117 = load ptr, ptr %arrayidx260, align 8
-  %call261 = tail call i32 @atoi(ptr nocapture noundef %117) #21
+  %call261 = tail call i32 @atoi(ptr noundef %117) #21
   tail call void @srandom(i32 noundef %call261) #22
   %conv262 = sext i32 %call261 to i64
   tail call void @init_genrand64(i64 noundef %conv262) #22
@@ -17155,7 +17155,7 @@ if.end286:                                        ; preds = %if.then283
   %idxprom288 = sext i32 %inc287 to i64
   %arrayidx289 = getelementptr inbounds ptr, ptr %argv, i64 %idxprom288
   %124 = load ptr, ptr %arrayidx289, align 8
-  %call290 = tail call i32 @atoi(ptr nocapture noundef %124) #21
+  %call290 = tail call i32 @atoi(ptr noundef %124) #21
   store i32 %call290, ptr getelementptr inbounds nuw (i8, ptr @config, i64 20), align 4
   %conv291 = sext i32 %call290 to i64
   %call292 = tail call ptr @hi_sdsfromlonglong(i64 noundef %conv291) #22
@@ -17175,7 +17175,7 @@ if.end301:                                        ; preds = %if.then298
   %idxprom303 = sext i32 %inc302 to i64
   %arrayidx304 = getelementptr inbounds ptr, ptr %argv, i64 %idxprom303
   %125 = load ptr, ptr %arrayidx304, align 8
-  %call305 = tail call i32 @atoi(ptr nocapture noundef %125) #21
+  %call305 = tail call i32 @atoi(ptr noundef %125) #21
   %cmp306 = icmp slt i32 %call305, 0
   %126 = tail call i32 @llvm.umin.i32(i32 %call305, i32 4)
   %spec.store.select132 = select i1 %cmp306, i32 3, i32 %126
@@ -17195,7 +17195,7 @@ if.end322:                                        ; preds = %if.then319
   %idxprom324 = sext i32 %inc323 to i64
   %arrayidx325 = getelementptr inbounds ptr, ptr %argv, i64 %idxprom324
   %127 = load ptr, ptr %arrayidx325, align 8
-  %call326 = tail call i32 @atoi(ptr nocapture noundef %127) #21
+  %call326 = tail call i32 @atoi(ptr noundef %127) #21
   store i32 %call326, ptr getelementptr inbounds nuw (i8, ptr @config, i64 256), align 8
   %cmp327 = icmp sgt i32 %call326, 500
   br i1 %cmp327, label %if.then329, label %if.else331
@@ -17767,7 +17767,7 @@ if.then69.i:                                      ; preds = %if.then64.i
   br label %if.end72.i
 
 if.end72.i:                                       ; preds = %if.then69.i, %if.then64.i
-  %call71.i = tail call i32 @atoi(ptr nocapture noundef nonnull %add.ptr65.i) #21
+  %call71.i = tail call i32 @atoi(ptr noundef nonnull %add.ptr65.i) #21
   br i1 %cmp43.not.i, label %if.else86.i, label %land.lhs.true.i
 
 if.end72.thread.i:                                ; preds = %if.end60.i
@@ -17954,9 +17954,9 @@ if.else181.i:                                     ; preds = %while.body108.i
 
 if.then185.i:                                     ; preds = %if.else181.i
   store i8 0, ptr %call182.i, align 1
-  %call186.i = tail call i32 @atoi(ptr nocapture noundef nonnull %line.2144.i) #21
+  %call186.i = tail call i32 @atoi(ptr noundef nonnull %line.2144.i) #21
   %add.ptr187.i = getelementptr inbounds nuw i8, ptr %call182.i, i64 1
-  %call188.i = tail call i32 @atoi(ptr nocapture noundef nonnull %add.ptr187.i) #21
+  %call188.i = tail call i32 @atoi(ptr noundef nonnull %add.ptr187.i) #21
   %cmp190.not140.i = icmp sgt i32 %call186.i, %call188.i
   br i1 %cmp190.not140.i, label %if.end212.i, label %while.body192.i
 
@@ -17978,7 +17978,7 @@ if.else199.i:                                     ; preds = %if.else181.i
   br i1 %cmp200.i, label %if.then202.i, label %if.end212.i
 
 if.then202.i:                                     ; preds = %if.else199.i
-  %call204.i = tail call i32 @atoi(ptr nocapture noundef nonnull %line.2144.i) #21
+  %call204.i = tail call i32 @atoi(ptr noundef nonnull %line.2144.i) #21
   %45 = load ptr, ptr %slots.i, align 8
   %46 = load i32, ptr %slots_count.i, align 8
   %inc207.i = add nsw i32 %46, 1

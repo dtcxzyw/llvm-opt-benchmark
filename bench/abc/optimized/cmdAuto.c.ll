@@ -436,7 +436,7 @@ define noalias noundef ptr @Cmd_DeriveOptionFromSettings(i32 noundef %0, ptr nou
   %27 = sext i32 %24 to i64
   %28 = getelementptr inbounds ptr, ptr %1, i64 %27
   %29 = load ptr, ptr %28, align 8
-  %30 = call i32 @atoi(ptr nocapture noundef %29) #24
+  %30 = call i32 @atoi(ptr noundef %29) #24
   %31 = sext i32 %30 to i64
   store i64 %31, ptr %3, align 8
   %32 = add nsw i32 %24, 1
@@ -457,7 +457,7 @@ define noalias noundef ptr @Cmd_DeriveOptionFromSettings(i32 noundef %0, ptr nou
   %38 = sext i32 %35 to i64
   %39 = getelementptr inbounds ptr, ptr %1, i64 %38
   %40 = load ptr, ptr %39, align 8
-  %41 = call i32 @atoi(ptr nocapture noundef %40) #24
+  %41 = call i32 @atoi(ptr noundef %40) #24
   %42 = sext i32 %41 to i64
   store i64 %42, ptr %20, align 8
   %43 = add nsw i32 %35, 1
@@ -518,7 +518,7 @@ define noalias noundef ptr @Cmd_DeriveOptionFromSettings(i32 noundef %0, ptr nou
   %69 = sext i32 %66 to i64
   %70 = getelementptr inbounds ptr, ptr %1, i64 %69
   %71 = load ptr, ptr %70, align 8
-  %72 = call i32 @atoi(ptr nocapture noundef %71) #24
+  %72 = call i32 @atoi(ptr noundef %71) #24
   store i32 %72, ptr %17, align 8
   %73 = add nsw i32 %66, 1
   store i32 %73, ptr @globalUtilOptind, align 4
@@ -537,7 +537,7 @@ define noalias noundef ptr @Cmd_DeriveOptionFromSettings(i32 noundef %0, ptr nou
   %78 = sext i32 %75 to i64
   %79 = getelementptr inbounds ptr, ptr %1, i64 %78
   %80 = load ptr, ptr %79, align 8
-  %81 = call i32 @atoi(ptr nocapture noundef %80) #24
+  %81 = call i32 @atoi(ptr noundef %80) #24
   store i32 %81, ptr %16, align 4
   %82 = add nsw i32 %75, 1
   store i32 %82, ptr @globalUtilOptind, align 4
@@ -556,7 +556,7 @@ define noalias noundef ptr @Cmd_DeriveOptionFromSettings(i32 noundef %0, ptr nou
   %87 = sext i32 %84 to i64
   %88 = getelementptr inbounds ptr, ptr %1, i64 %87
   %89 = load ptr, ptr %88, align 8
-  %90 = call i32 @atoi(ptr nocapture noundef %89) #24
+  %90 = call i32 @atoi(ptr noundef %89) #24
   store i32 %90, ptr %15, align 8
   %91 = add nsw i32 %84, 1
   store i32 %91, ptr @globalUtilOptind, align 4
@@ -575,7 +575,7 @@ define noalias noundef ptr @Cmd_DeriveOptionFromSettings(i32 noundef %0, ptr nou
   %96 = sext i32 %93 to i64
   %97 = getelementptr inbounds ptr, ptr %1, i64 %96
   %98 = load ptr, ptr %97, align 8
-  %99 = call i32 @atoi(ptr nocapture noundef %98) #24
+  %99 = call i32 @atoi(ptr noundef %98) #24
   store i32 %99, ptr %14, align 4
   %100 = add nsw i32 %93, 1
   store i32 %100, ptr @globalUtilOptind, align 4
@@ -594,7 +594,7 @@ define noalias noundef ptr @Cmd_DeriveOptionFromSettings(i32 noundef %0, ptr nou
   %105 = sext i32 %102 to i64
   %106 = getelementptr inbounds ptr, ptr %1, i64 %105
   %107 = load ptr, ptr %106, align 8
-  %108 = call i32 @atoi(ptr nocapture noundef %107) #24
+  %108 = call i32 @atoi(ptr noundef %107) #24
   store i32 %108, ptr %13, align 8
   %109 = add nsw i32 %102, 1
   store i32 %109, ptr @globalUtilOptind, align 4
@@ -613,7 +613,7 @@ define noalias noundef ptr @Cmd_DeriveOptionFromSettings(i32 noundef %0, ptr nou
   %114 = sext i32 %111 to i64
   %115 = getelementptr inbounds ptr, ptr %1, i64 %114
   %116 = load ptr, ptr %115, align 8
-  %117 = call i32 @atoi(ptr nocapture noundef %116) #24
+  %117 = call i32 @atoi(ptr noundef %116) #24
   store i32 %117, ptr %12, align 4
   %118 = add nsw i32 %111, 1
   store i32 %118, ptr @globalUtilOptind, align 4
@@ -632,7 +632,7 @@ define noalias noundef ptr @Cmd_DeriveOptionFromSettings(i32 noundef %0, ptr nou
   %123 = sext i32 %120 to i64
   %124 = getelementptr inbounds ptr, ptr %1, i64 %123
   %125 = load ptr, ptr %124, align 8
-  %126 = call i32 @atoi(ptr nocapture noundef %125) #24
+  %126 = call i32 @atoi(ptr noundef %125) #24
   store i32 %126, ptr %11, align 8
   %127 = add nsw i32 %120, 1
   store i32 %127, ptr @globalUtilOptind, align 4
@@ -695,7 +695,7 @@ define noalias noundef ptr @Cmd_DeriveOptionFromSettings(i32 noundef %0, ptr nou
   %156 = sext i32 %153 to i64
   %157 = getelementptr inbounds ptr, ptr %1, i64 %156
   %158 = load ptr, ptr %157, align 8
-  %159 = call i32 @atoi(ptr nocapture noundef %158) #24
+  %159 = call i32 @atoi(ptr noundef %158) #24
   store i32 %159, ptr %8, align 8
   %160 = add nsw i32 %153, 1
   store i32 %160, ptr @globalUtilOptind, align 4
@@ -714,7 +714,7 @@ define noalias noundef ptr @Cmd_DeriveOptionFromSettings(i32 noundef %0, ptr nou
   %165 = sext i32 %162 to i64
   %166 = getelementptr inbounds ptr, ptr %1, i64 %165
   %167 = load ptr, ptr %166, align 8
-  %168 = call i32 @atoi(ptr nocapture noundef %167) #24
+  %168 = call i32 @atoi(ptr noundef %167) #24
   store i32 %168, ptr %7, align 4
   %169 = add nsw i32 %162, 1
   store i32 %169, ptr @globalUtilOptind, align 4

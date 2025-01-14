@@ -9173,7 +9173,7 @@ define internal fastcc noundef range(i32 -1, 1) i32 @_ZL12parseCmdArgsiPPc(i32 n
   %479 = sext i32 %478 to i64
   %480 = getelementptr inbounds ptr, ptr %1, i64 %479
   %481 = load ptr, ptr %480, align 8
-  %482 = call i32 @atoi(ptr nocapture noundef %481) #30
+  %482 = call i32 @atoi(ptr noundef %481) #30
   store i32 %482, ptr @expos_comp_nr_feeds, align 4
   br label %682
 
@@ -9200,7 +9200,7 @@ define internal fastcc noundef range(i32 -1, 1) i32 @_ZL12parseCmdArgsiPPc(i32 n
   %492 = sext i32 %491 to i64
   %493 = getelementptr inbounds ptr, ptr %1, i64 %492
   %494 = load ptr, ptr %493, align 8
-  %495 = call i32 @atoi(ptr nocapture noundef %494) #30
+  %495 = call i32 @atoi(ptr noundef %494) #30
   store i32 %495, ptr @expos_comp_nr_filtering, align 4
   br label %682
 
@@ -9227,7 +9227,7 @@ define internal fastcc noundef range(i32 -1, 1) i32 @_ZL12parseCmdArgsiPPc(i32 n
   %505 = sext i32 %504 to i64
   %506 = getelementptr inbounds ptr, ptr %1, i64 %505
   %507 = load ptr, ptr %506, align 8
-  %508 = call i32 @atoi(ptr nocapture noundef %507) #30
+  %508 = call i32 @atoi(ptr noundef %507) #30
   store i32 %508, ptr @expos_comp_block_size, align 4
   br label %682
 
@@ -9601,7 +9601,7 @@ define internal fastcc noundef range(i32 -1, 1) i32 @_ZL12parseCmdArgsiPPc(i32 n
   %641 = sext i32 %640 to i64
   %642 = getelementptr inbounds ptr, ptr %1, i64 %641
   %643 = load ptr, ptr %642, align 8
-  %644 = call i32 @atoi(ptr nocapture noundef %643) #30
+  %644 = call i32 @atoi(ptr noundef %643) #30
   store i32 %644, ptr @range_width, align 4
   br label %682
 

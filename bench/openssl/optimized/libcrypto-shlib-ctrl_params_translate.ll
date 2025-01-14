@@ -1732,7 +1732,7 @@ if.end3.split:                                    ; preds = %if.end3
 if.then5:                                         ; preds = %if.end3
   %p2 = getelementptr inbounds nuw i8, ptr %ctx, i64 32
   %1 = load ptr, ptr %p2, align 8
-  %call6 = tail call i32 @atoi(ptr nocapture noundef %1) #9
+  %call6 = tail call i32 @atoi(ptr noundef %1) #9
   %call7 = tail call ptr @ossl_dh_gen_type_id2name(i32 noundef %call6) #8
   store ptr %call7, ptr %p2, align 8
   %cmp9 = icmp eq ptr %call7, null
@@ -1803,7 +1803,7 @@ sw.bb10:                                          ; preds = %if.end3
   br i1 %cmp12, label %return, label %if.end14
 
 if.end14:                                         ; preds = %sw.bb10
-  %call16 = tail call i32 @atoi(ptr nocapture noundef nonnull %2) #9
+  %call16 = tail call i32 @atoi(ptr noundef nonnull %2) #9
   %call17 = tail call ptr @ossl_ffc_uid_to_dh_named_group(i32 noundef %call16) #8
   %call18 = tail call ptr @ossl_ffc_named_group_get_name(ptr noundef %call17) #8
   store ptr %call18, ptr %p211, align 8
@@ -2439,7 +2439,7 @@ for.inc73:                                        ; preds = %for.body64
   br i1 %exitcond64.not, label %cond.true, label %for.body64, !llvm.loop !9
 
 cond.true:                                        ; preds = %for.inc73
-  %call79 = tail call i32 @atoi(ptr nocapture noundef %6) #9
+  %call79 = tail call i32 @atoi(ptr noundef %6) #9
   br label %cond.end
 
 cond.false:                                       ; preds = %for.body64

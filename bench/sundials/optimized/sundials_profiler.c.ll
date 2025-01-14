@@ -43,7 +43,7 @@ define range(i32 -9988, 1) i32 @SUNProfiler_Create(i32 noundef %0, ptr nocapture
   br i1 %.not28, label %.thread, label %14
 
 14:                                               ; preds = %6
-  %15 = tail call i32 @atoi(ptr nocapture noundef nonnull %13) #20
+  %15 = tail call i32 @atoi(ptr noundef nonnull %13) #20
   %.fr = freeze i32 %15
   %16 = icmp slt i32 %.fr, 1
   %spec.select = select i1 %16, i32 2560, i32 %.fr

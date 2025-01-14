@@ -310,7 +310,7 @@ sw.bb41:                                          ; preds = %while.cond
 
 sw.bb42:                                          ; preds = %while.cond
   %call43 = call ptr @opt_arg() #6
-  %call44 = call i32 @atoi(ptr nocapture noundef %call43) #7
+  %call44 = call i32 @atoi(ptr noundef %call43) #7
   br label %while.cond.backedge
 
 sw.bb45:                                          ; preds = %while.cond

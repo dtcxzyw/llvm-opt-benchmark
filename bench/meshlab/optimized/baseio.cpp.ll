@@ -13184,12 +13184,12 @@ _ZNSt6vectorIN3vcg6Point3IfEESaIS2_EE9push_backERKS2_.exit: ; preds = %_ZNSt6vec
   %367 = load ptr, ptr %13, align 8
   %368 = getelementptr inbounds nuw i8, ptr %367, i64 32
   %369 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %368) #33
-  %370 = call i32 @atoi(ptr nocapture noundef %369) #35
+  %370 = call i32 @atoi(ptr noundef %369) #35
   %371 = add nsw i32 %370, -1
   %372 = load ptr, ptr %13, align 8
   %373 = getelementptr inbounds nuw i8, ptr %372, i64 64
   %374 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %373) #33
-  %375 = call i32 @atoi(ptr nocapture noundef %374) #35
+  %375 = call i32 @atoi(ptr noundef %374) #35
   %376 = add nsw i32 %375, -1
   %.not.i417 = icmp eq ptr %.sroa.6655.0.ph, %.sroa.10657.0.ph
   br i1 %.not.i417, label %378, label %377
@@ -27759,7 +27759,7 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
   %2664 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %22, ptr noundef nonnull align 8 dereferenceable(32) %25) #33
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %25) #33
   %2665 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %22) #33
-  %2666 = call i32 @atoi(ptr nocapture noundef %2665) #35
+  %2666 = call i32 @atoi(ptr noundef %2665) #35
   br label %2673
 
 2667:                                             ; preds = %.lr.ph888
@@ -27825,7 +27825,7 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
   %2689 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %22, ptr noundef nonnull align 8 dereferenceable(32) %27) #33
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %27) #33
   %2690 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %22) #33
-  %2691 = call i32 @atoi(ptr nocapture noundef %2690) #35
+  %2691 = call i32 @atoi(ptr noundef %2690) #35
   br label %2692
 
 2692:                                             ; preds = %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit669.thread780, %2688, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit669
@@ -41227,7 +41227,7 @@ define linkonce_odr void @_ZN3vcg3tri2io11ImporterOBJI6CMeshOE10SplitTokenERKNSt
   %25 = phi i1 [ true, %._crit_edge ], [ %23, %21 ]
   call void @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6substrEmm(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %6, ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef 0, i64 noundef %11)
   %26 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %6) #33
-  %27 = call i32 @atoi(ptr nocapture noundef %26) #35
+  %27 = call i32 @atoi(ptr noundef %26) #35
   %28 = add nsw i32 %27, -1
   store i32 %28, ptr %1, align 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #33
@@ -41238,7 +41238,7 @@ define linkonce_odr void @_ZN3vcg3tri2io11ImporterOBJI6CMeshOE10SplitTokenERKNSt
   %31 = add i64 %16, %30
   call void @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6substrEmm(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %7, ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %.pre-phi, i64 noundef %31)
   %32 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %7) #33
-  %33 = call i32 @atoi(ptr nocapture noundef %32) #35
+  %33 = call i32 @atoi(ptr noundef %32) #35
   %34 = add nsw i32 %33, -1
   store i32 %34, ptr %3, align 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #33
@@ -41251,7 +41251,7 @@ define linkonce_odr void @_ZN3vcg3tri2io11ImporterOBJI6CMeshOE10SplitTokenERKNSt
   %37 = add i64 %16, 1
   call void @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6substrEmm(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %8, ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %37, i64 noundef -1)
   %38 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %8) #33
-  %39 = call i32 @atoi(ptr nocapture noundef %38) #35
+  %39 = call i32 @atoi(ptr noundef %38) #35
   %40 = add nsw i32 %39, -1
   store i32 %40, ptr %2, align 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #33
@@ -42638,7 +42638,7 @@ _ZNSt16allocator_traitsISaIN3vcg3tri2io8MaterialEEE9constructIS3_JRKS3_EEEvRS4_P
 229:                                              ; preds = %222
   %230 = getelementptr inbounds nuw i8, ptr %224, i64 32
   %231 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %230) #33
-  %232 = call i32 @atoi(ptr nocapture noundef %231) #35
+  %232 = call i32 @atoi(ptr noundef %231) #35
   %233 = sitofp i32 %232 to float
   store float %233, ptr %40, align 4
   br label %.backedge
@@ -42660,7 +42660,7 @@ _ZNSt16allocator_traitsISaIN3vcg3tri2io8MaterialEEE9constructIS3_JRKS3_EEEvRS4_P
 244:                                              ; preds = %237
   %245 = getelementptr inbounds nuw i8, ptr %239, i64 32
   %246 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %245) #33
-  %247 = call i32 @atoi(ptr nocapture noundef %246) #35
+  %247 = call i32 @atoi(ptr noundef %246) #35
   store i32 %247, ptr %39, align 8
   br label %.backedge
 
@@ -48757,11 +48757,11 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE5eraseE
 
 101:                                              ; preds = %94
   %102 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %96) #33
-  %103 = call i32 @atoi(ptr nocapture noundef %102) #35
+  %103 = call i32 @atoi(ptr noundef %102) #35
   %104 = load ptr, ptr %6, align 8
   %105 = getelementptr inbounds nuw i8, ptr %104, i64 32
   %106 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %105) #33
-  %107 = call i32 @atoi(ptr nocapture noundef %106) #35
+  %107 = call i32 @atoi(ptr noundef %106) #35
   %108 = load ptr, ptr %6, align 8
   %109 = getelementptr inbounds nuw i8, ptr %108, i64 64
   %110 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %109) #33
@@ -48946,7 +48946,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE5eraseE
   %195 = getelementptr inbounds nuw i8, ptr %.sroa.0475.0572, i64 40
   %196 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %181, i64 %.3344
   %197 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %196) #33
-  %198 = call i32 @atoi(ptr nocapture noundef %197) #35
+  %198 = call i32 @atoi(ptr noundef %197) #35
   %199 = sext i32 %198 to i64
   %200 = getelementptr inbounds [148 x [4 x float]], ptr @_ZZN3vcg3tri2io11ImporterOFFI6CMeshOE8ColorMapEiE8colorMap, i64 0, i64 %199
   %201 = load float, ptr %200, align 16
@@ -48985,16 +48985,16 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE5eraseE
   br i1 %221, label %229, label %243
 
 229:                                              ; preds = %218
-  %230 = call i32 @atoi(ptr nocapture noundef %224) #35
+  %230 = call i32 @atoi(ptr noundef %224) #35
   %231 = trunc i32 %230 to i8
   %232 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %227) #33
-  %233 = call i32 @atoi(ptr nocapture noundef %232) #35
+  %233 = call i32 @atoi(ptr noundef %232) #35
   %234 = trunc i32 %233 to i8
   %235 = load ptr, ptr %6, align 8
   %236 = getelementptr %"class.std::__cxx11::basic_string", ptr %235, i64 %.3344
   %237 = getelementptr i8, ptr %236, i64 64
   %238 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %237) #33
-  %239 = call i32 @atoi(ptr nocapture noundef %238) #35
+  %239 = call i32 @atoi(ptr noundef %238) #35
   %240 = trunc i32 %239 to i8
   store i8 %231, ptr %228, align 1
   %241 = getelementptr inbounds nuw i8, ptr %.sroa.0475.0572, i64 41
@@ -49042,22 +49042,22 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE5eraseE
   br i1 %266, label %274, label %294
 
 274:                                              ; preds = %263
-  %275 = call i32 @atoi(ptr nocapture noundef %269) #35
+  %275 = call i32 @atoi(ptr noundef %269) #35
   %276 = trunc i32 %275 to i8
   %277 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %272) #33
-  %278 = call i32 @atoi(ptr nocapture noundef %277) #35
+  %278 = call i32 @atoi(ptr noundef %277) #35
   %279 = trunc i32 %278 to i8
   %280 = load ptr, ptr %6, align 8
   %281 = getelementptr %"class.std::__cxx11::basic_string", ptr %280, i64 %.3344
   %282 = getelementptr i8, ptr %281, i64 64
   %283 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %282) #33
-  %284 = call i32 @atoi(ptr nocapture noundef %283) #35
+  %284 = call i32 @atoi(ptr noundef %283) #35
   %285 = trunc i32 %284 to i8
   %286 = load ptr, ptr %6, align 8
   %287 = getelementptr %"class.std::__cxx11::basic_string", ptr %286, i64 %.3344
   %288 = getelementptr i8, ptr %287, i64 96
   %289 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %288) #33
-  %290 = call i32 @atoi(ptr nocapture noundef %289) #35
+  %290 = call i32 @atoi(ptr noundef %289) #35
   %291 = trunc i32 %290 to i8
   store i8 %276, ptr %273, align 1
   %292 = getelementptr inbounds nuw i8, ptr %.sroa.0475.0572, i64 41
@@ -49227,7 +49227,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE5eraseE
 371:                                              ; preds = %370
   %372 = load ptr, ptr %6, align 8
   %373 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %372) #33
-  %374 = call i32 @atoi(ptr nocapture noundef %373) #35
+  %374 = call i32 @atoi(ptr noundef %373) #35
   %375 = icmp slt i32 %374, 3
   br i1 %375, label %.loopexit505, label %376
 
@@ -49266,7 +49266,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE5eraseE
   %.13 = phi i64 [ %.12592, %379 ], [ 0, %388 ]
   %394 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %393, i64 %.13
   %395 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %394) #33
-  %396 = call i32 @atoi(ptr nocapture noundef %395) #35
+  %396 = call i32 @atoi(ptr noundef %395) #35
   %397 = sext i32 %396 to i64
   %398 = load ptr, ptr %349, align 8
   %399 = getelementptr inbounds %class.CVertexO, ptr %398, i64 %397
@@ -49336,7 +49336,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE5eraseE
   %.15 = phi i64 [ %.14579, %.lr.ph582 ], [ 0, %419 ]
   %431 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %430, i64 %.15
   %432 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %431) #33
-  %433 = call i32 @atoi(ptr nocapture noundef %432) #35
+  %433 = call i32 @atoi(ptr noundef %432) #35
   %434 = load ptr, ptr %10, align 8
   %435 = getelementptr inbounds nuw i32, ptr %434, i64 %indvars.iv646
   store i32 %433, ptr %435, align 4
@@ -49748,7 +49748,7 @@ _ZNSt6vectorIN3vcg6Point3IfEESaIS2_EED2Ev.exit417: ; preds = %624, %_ZNSt6vector
   %657 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %656, i64 %642
   %658 = getelementptr inbounds nuw i8, ptr %657, i64 32
   %659 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %658) #33
-  %660 = call i32 @atoi(ptr nocapture noundef %659) #35
+  %660 = call i32 @atoi(ptr noundef %659) #35
   %661 = sext i32 %660 to i64
   %662 = getelementptr inbounds [148 x [4 x float]], ptr @_ZZN3vcg3tri2io11ImporterOFFI6CMeshOE8ColorMapEiE8colorMap, i64 0, i64 %661
   %663 = load float, ptr %662, align 16
@@ -49794,9 +49794,9 @@ _ZNSt6vectorIN3vcg6Point3IfEESaIS2_EED2Ev.exit417: ; preds = %624, %_ZNSt6vector
   br i1 %687, label %695, label %718
 
 695:                                              ; preds = %682
-  %696 = call i32 @atoi(ptr nocapture noundef %690) #35
+  %696 = call i32 @atoi(ptr noundef %690) #35
   %697 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %694) #33
-  %698 = call i32 @atoi(ptr nocapture noundef %697) #35
+  %698 = call i32 @atoi(ptr noundef %697) #35
   %699 = load ptr, ptr %6, align 8
   %700 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %699, i64 %692
   %701 = getelementptr inbounds nuw i8, ptr %700, i64 96
@@ -49804,7 +49804,7 @@ _ZNSt6vectorIN3vcg6Point3IfEESaIS2_EED2Ev.exit417: ; preds = %624, %_ZNSt6vector
   br i1 %.not379598, label %.loopexit, label %.lr.ph601
 
 .lr.ph601:                                        ; preds = %695
-  %703 = call i32 @atoi(ptr nocapture noundef %702) #35
+  %703 = call i32 @atoi(ptr noundef %702) #35
   %.sroa.4441.0.insert.ext = shl i32 %703, 16
   %.sroa.3440.0.insert.ext = shl i32 %698, 8
   %.sroa.3440.0.insert.shift = and i32 %.sroa.3440.0.insert.ext, 65280
@@ -49898,14 +49898,14 @@ _ZNSt6vectorIN3vcg6Point3IfEESaIS2_EED2Ev.exit417: ; preds = %624, %_ZNSt6vector
   br i1 %758, label %766, label %794
 
 766:                                              ; preds = %753
-  %767 = call i32 @atoi(ptr nocapture noundef %761) #35
+  %767 = call i32 @atoi(ptr noundef %761) #35
   %768 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %765) #33
-  %769 = call i32 @atoi(ptr nocapture noundef %768) #35
+  %769 = call i32 @atoi(ptr noundef %768) #35
   %770 = load ptr, ptr %6, align 8
   %771 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %770, i64 %763
   %772 = getelementptr inbounds nuw i8, ptr %771, i64 96
   %773 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %772) #33
-  %774 = call i32 @atoi(ptr nocapture noundef %773) #35
+  %774 = call i32 @atoi(ptr noundef %773) #35
   %775 = load ptr, ptr %6, align 8
   %776 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %775, i64 %763
   %777 = getelementptr inbounds nuw i8, ptr %776, i64 128
@@ -49913,7 +49913,7 @@ _ZNSt6vectorIN3vcg6Point3IfEESaIS2_EED2Ev.exit417: ; preds = %624, %_ZNSt6vector
   br i1 %.not382609, label %.loopexit, label %.lr.ph612
 
 .lr.ph612:                                        ; preds = %766
-  %779 = call i32 @atoi(ptr nocapture noundef %778) #35
+  %779 = call i32 @atoi(ptr noundef %778) #35
   %.sroa.4434.0.insert.ext = shl i32 %779, 24
   %.sroa.3.0.insert.ext = shl i32 %774, 16
   %.sroa.3.0.insert.shift = and i32 %.sroa.3.0.insert.ext, 16711680

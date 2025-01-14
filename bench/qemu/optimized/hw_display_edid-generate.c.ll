@@ -218,7 +218,7 @@ if.end62:                                         ; preds = %if.end48, %if.then.
   br i1 %tobool88.not, label %cond.end93, label %cond.true89
 
 cond.true89:                                      ; preds = %if.end62
-  %call91 = tail call i32 @atoi(ptr nocapture noundef nonnull %19) #9
+  %call91 = tail call i32 @atoi(ptr noundef nonnull %19) #9
   br label %cond.end93
 
 cond.end93:                                       ; preds = %if.end62, %cond.true89

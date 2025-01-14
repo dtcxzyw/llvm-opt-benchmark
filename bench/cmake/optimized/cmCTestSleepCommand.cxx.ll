@@ -111,7 +111,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 
 21:                                               ; preds = %3
   %22 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %8) #12
-  %23 = tail call i32 @atoi(ptr nocapture noundef %22) #13
+  %23 = tail call i32 @atoi(ptr noundef %22) #13
   %24 = load ptr, ptr %9, align 8
   %25 = load ptr, ptr %1, align 8
   %26 = ptrtoint ptr %24 to i64
@@ -133,11 +133,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 33:                                               ; preds = %21
   %34 = getelementptr inbounds nuw i8, ptr %25, i64 32
   %35 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %34) #12
-  %36 = tail call i32 @atoi(ptr nocapture noundef %35) #13
+  %36 = tail call i32 @atoi(ptr noundef %35) #13
   %37 = load ptr, ptr %1, align 8
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 64
   %39 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %38) #12
-  %40 = tail call i32 @atoi(ptr nocapture noundef %39) #13
+  %40 = tail call i32 @atoi(ptr noundef %39) #13
   %41 = add i32 %36, %23
   %42 = icmp ugt i32 %41, %40
   br i1 %42, label %43, label %56

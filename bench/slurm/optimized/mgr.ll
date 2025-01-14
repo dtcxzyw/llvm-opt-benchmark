@@ -1614,7 +1614,7 @@ define dso_local i32 @job_manager(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not111, label %55, label %46
 
 46:                                               ; preds = %44
-  %47 = tail call i32 @atoi(ptr nocapture noundef nonnull %45) #18
+  %47 = tail call i32 @atoi(ptr noundef nonnull %45) #18
   %48 = add i32 %47, 999
   %or.cond = icmp ult i32 %48, 2000
   br i1 %or.cond, label %49, label %55
@@ -3152,7 +3152,7 @@ _setup_normal_io.exit.i:                          ; preds = %604, %601
 781:                                              ; preds = %776
   %782 = load ptr, ptr %754, align 8
   call void @unsetenvp(ptr noundef %782, ptr noundef nonnull @.str.127) #15
-  %783 = call i32 @atoi(ptr nocapture noundef nonnull %778) #18
+  %783 = call i32 @atoi(ptr noundef nonnull %778) #18
   br label %784
 
 784:                                              ; preds = %781, %779

@@ -3011,7 +3011,7 @@ _ZSt12regex_searchISt11char_traitsIcESaIcEcNSt7__cxx1112regex_traitsIcEEEbRKNS3_
   br i1 %.not12, label %97, label %94
 
 94:                                               ; preds = %89
-  %95 = call i32 @atoi(ptr nocapture noundef nonnull %93) #33
+  %95 = call i32 @atoi(ptr noundef nonnull %93) #33
   %.not13 = icmp eq i32 %95, 0
   br i1 %.not13, label %97, label %96
 

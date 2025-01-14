@@ -3665,7 +3665,7 @@ define range(i32 -1, 1) i32 @slurm_get_end_time(i32 noundef %0, ptr noundef writ
   br i1 %.not28, label %.thread, label %14
 
 14:                                               ; preds = %12
-  %15 = call i64 @atol(ptr nocapture noundef nonnull %13) #22
+  %15 = call i64 @atol(ptr noundef nonnull %13) #22
   %16 = trunc i64 %15 to i32
   store i32 %16, ptr @slurm_get_end_time.jobid_env, align 4
   %17 = icmp eq i32 %16, 0
@@ -3799,7 +3799,7 @@ define range(i32 0, -2147483648) i32 @islurm_get_rem_time2__() local_unnamed_add
   br i1 %3, label %13, label %4
 
 4:                                                ; preds = %0
-  %5 = tail call i64 @atol(ptr nocapture noundef nonnull %2) #22
+  %5 = tail call i64 @atol(ptr noundef nonnull %2) #22
   %6 = trunc i64 %5 to i32
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1)
   %7 = tail call i64 @time(ptr noundef null) #19

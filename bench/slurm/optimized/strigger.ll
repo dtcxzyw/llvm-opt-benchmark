@@ -515,7 +515,7 @@ _set_trigger.exit:                                ; preds = %.lr.ph.i, %._crit_e
 260:                                              ; preds = %254
   %261 = getelementptr inbounds nuw i8, ptr %257, i64 16
   %262 = load ptr, ptr %261, align 8
-  %263 = call i64 @atol(ptr nocapture noundef %262) #9
+  %263 = call i64 @atol(ptr noundef %262) #9
   %264 = zext i32 %253 to i64
   %.not72.i = icmp eq i64 %263, %264
   br i1 %.not72.i, label %265, label %558

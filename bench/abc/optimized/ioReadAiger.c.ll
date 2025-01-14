@@ -457,7 +457,7 @@ sub_1468:                                         ; preds = %sub_0467
 
 100:                                              ; preds = %97
   store ptr %99, ptr %4, align 8
-  %101 = call i32 @atoi(ptr nocapture noundef nonnull %99) #14
+  %101 = call i32 @atoi(ptr noundef nonnull %99) #14
   br label %102
 
 102:                                              ; preds = %102, %100
@@ -469,7 +469,7 @@ sub_1468:                                         ; preds = %sub_0467
 
 106:                                              ; preds = %102
   store ptr %105, ptr %4, align 8
-  %107 = call i32 @atoi(ptr nocapture noundef nonnull %105) #14
+  %107 = call i32 @atoi(ptr noundef nonnull %105) #14
   br label %108
 
 108:                                              ; preds = %108, %106
@@ -481,7 +481,7 @@ sub_1468:                                         ; preds = %sub_0467
 
 112:                                              ; preds = %108
   store ptr %111, ptr %4, align 8
-  %113 = call i32 @atoi(ptr nocapture noundef nonnull %111) #14
+  %113 = call i32 @atoi(ptr noundef nonnull %111) #14
   br label %114
 
 114:                                              ; preds = %114, %112
@@ -493,7 +493,7 @@ sub_1468:                                         ; preds = %sub_0467
 
 118:                                              ; preds = %114
   store ptr %117, ptr %4, align 8
-  %119 = call i32 @atoi(ptr nocapture noundef nonnull %117) #14
+  %119 = call i32 @atoi(ptr noundef nonnull %117) #14
   br label %120
 
 120:                                              ; preds = %120, %118
@@ -505,7 +505,7 @@ sub_1468:                                         ; preds = %sub_0467
 
 124:                                              ; preds = %120
   store ptr %123, ptr %4, align 8
-  %125 = call i32 @atoi(ptr nocapture noundef nonnull %123) #14
+  %125 = call i32 @atoi(ptr noundef nonnull %123) #14
   br label %126
 
 126:                                              ; preds = %129, %124
@@ -523,7 +523,7 @@ sub_1468:                                         ; preds = %sub_0467
 131:                                              ; preds = %126
   %132 = getelementptr inbounds nuw i8, ptr %127, i64 1
   store ptr %132, ptr %4, align 8
-  %133 = call i32 @atoi(ptr nocapture noundef nonnull %132) #14
+  %133 = call i32 @atoi(ptr noundef nonnull %132) #14
   br label %134
 
 134:                                              ; preds = %137, %131
@@ -559,7 +559,7 @@ sub_1468:                                         ; preds = %sub_0467
 145:                                              ; preds = %141
   %146 = getelementptr inbounds nuw i8, ptr %142, i64 1
   store ptr %146, ptr %4, align 8
-  %147 = call i32 @atoi(ptr nocapture noundef nonnull %146) #14
+  %147 = call i32 @atoi(ptr noundef nonnull %146) #14
   br label %148
 
 148:                                              ; preds = %151, %145
@@ -584,7 +584,7 @@ sub_1468:                                         ; preds = %sub_0467
 156:                                              ; preds = %153
   %157 = getelementptr inbounds nuw i8, ptr %149, i64 1
   store ptr %157, ptr %4, align 8
-  %158 = call i32 @atoi(ptr nocapture noundef nonnull %157) #14
+  %158 = call i32 @atoi(ptr noundef nonnull %157) #14
   br label %159
 
 159:                                              ; preds = %162, %156
@@ -610,7 +610,7 @@ sub_1468:                                         ; preds = %sub_0467
 168:                                              ; preds = %164
   %169 = getelementptr inbounds nuw i8, ptr %160, i64 1
   store ptr %169, ptr %4, align 8
-  %170 = call i32 @atoi(ptr nocapture noundef nonnull %169) #14
+  %170 = call i32 @atoi(ptr noundef nonnull %169) #14
   br label %171
 
 171:                                              ; preds = %174, %168
@@ -1148,7 +1148,7 @@ Vec_PtrPush.exit455:                              ; preds = %Vec_PtrPush.exit455
   %412 = sext i32 %.val385.val to i64
   %413 = getelementptr inbounds ptr, ptr %.val384.val.val, i64 %412
   %414 = load ptr, ptr %413, align 8
-  %415 = call i32 @atoi(ptr nocapture noundef %.lcssa558561564) #14
+  %415 = call i32 @atoi(ptr noundef %.lcssa558561564) #14
   br label %416
 
 416:                                              ; preds = %419, %408
@@ -1166,7 +1166,7 @@ Vec_PtrPush.exit455:                              ; preds = %Vec_PtrPush.exit455
 421:                                              ; preds = %416
   %422 = getelementptr inbounds nuw i8, ptr %417, i64 1
   store ptr %422, ptr %4, align 8
-  %423 = call i32 @atoi(ptr nocapture noundef nonnull %422) #14
+  %423 = call i32 @atoi(ptr noundef nonnull %422) #14
   %424 = getelementptr inbounds nuw i8, ptr %405, i64 56
   switch i32 %423, label %426 [
     i32 0, label %427
@@ -1244,7 +1244,7 @@ Vec_PtrPush.exit455:                              ; preds = %Vec_PtrPush.exit455
   %.val402.val = load ptr, ptr %455, align 8
   %456 = getelementptr inbounds nuw ptr, ptr %.val402.val, i64 %indvars.iv667
   %457 = load ptr, ptr %456, align 8
-  %458 = call i32 @atoi(ptr nocapture noundef %.lcssa568570573) #14
+  %458 = call i32 @atoi(ptr noundef %.lcssa568570573) #14
   br label %459
 
 459:                                              ; preds = %459, %454
@@ -1439,7 +1439,7 @@ thread-pre-split:                                 ; preds = %.preheader754, %thr
   %.0276 = load ptr, ptr %.0276.in, align 8
   %551 = getelementptr inbounds nuw i8, ptr %.promoted587, i64 1
   store ptr %551, ptr %4, align 8
-  %552 = call i32 @atoi(ptr nocapture noundef nonnull %551) #14
+  %552 = call i32 @atoi(ptr noundef nonnull %551) #14
   br label %553
 
 553:                                              ; preds = %553, %550

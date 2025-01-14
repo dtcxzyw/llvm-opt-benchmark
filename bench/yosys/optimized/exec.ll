@@ -1192,7 +1192,7 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.e
 86:                                               ; preds = %78
   %87 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %81, i64 %79
   %88 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %87) #27
-  %89 = call i32 @atoi(ptr nocapture noundef %88) #30
+  %89 = call i32 @atoi(ptr noundef %88) #30
   br label %395
 
 90:                                               ; preds = %73

@@ -523,7 +523,7 @@ define i32 @Saig_ManReadNumber(ptr nocapture noundef readnone %0, ptr nocapture 
 .sink.split:                                      ; preds = %2, %4
   %.sink7 = phi i64 [ 2, %4 ], [ 1, %2 ]
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 %.sink7
-  %6 = tail call i32 @atoi(ptr nocapture noundef nonnull %5) #14
+  %6 = tail call i32 @atoi(ptr noundef nonnull %5) #14
   br label %7
 
 7:                                                ; preds = %.sink.split, %2
@@ -551,7 +551,7 @@ define ptr @Saig_ManReadNode(ptr nocapture noundef readonly %0, ptr nocapture no
 
 7:                                                ; preds = %5
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 1
-  %9 = tail call i32 @atoi(ptr nocapture noundef nonnull %8) #14
+  %9 = tail call i32 @atoi(ptr noundef nonnull %8) #14
   %10 = sext i32 %9 to i64
   %11 = getelementptr inbounds i32, ptr %1, i64 %10
   %12 = load i32, ptr %11, align 4
@@ -566,7 +566,7 @@ define ptr @Saig_ManReadNode(ptr nocapture noundef readonly %0, ptr nocapture no
 
 18:                                               ; preds = %14
   %19 = getelementptr inbounds nuw i8, ptr %2, i64 2
-  %20 = tail call i32 @atoi(ptr nocapture noundef nonnull %19) #14
+  %20 = tail call i32 @atoi(ptr noundef nonnull %19) #14
   %21 = getelementptr i8, ptr %0, i64 16
   %.val18 = load ptr, ptr %21, align 8
   %22 = getelementptr i8, ptr %.val18, i64 8
@@ -580,7 +580,7 @@ define ptr @Saig_ManReadNode(ptr nocapture noundef readonly %0, ptr nocapture no
 
 27:                                               ; preds = %23
   %28 = getelementptr inbounds nuw i8, ptr %2, i64 2
-  %29 = tail call i32 @atoi(ptr nocapture noundef nonnull %28) #14
+  %29 = tail call i32 @atoi(ptr noundef nonnull %28) #14
   %30 = getelementptr i8, ptr %0, i64 16
   %.val19 = load ptr, ptr %30, align 8
   %31 = getelementptr i8, ptr %0, i64 108
@@ -907,7 +907,7 @@ Abc_UtilStrsav.exit213:                           ; preds = %Abc_UtilStrsav.exit
 .sink.split.i:                                    ; preds = %97, %.thread
   %.sink7.i = phi i64 [ 2, %97 ], [ 1, %.thread ]
   %98 = getelementptr inbounds nuw i8, ptr %Saig_ManReadToken.Buffer..i228, i64 %.sink7.i
-  %99 = tail call i32 @atoi(ptr nocapture noundef nonnull readonly %98) #14
+  %99 = tail call i32 @atoi(ptr noundef nonnull readonly %98) #14
   %100 = sext i32 %99 to i64
   br label %Saig_ManReadNumber.exit
 

@@ -2221,7 +2221,7 @@ _ZNSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN5Yosys
 216:                                              ; preds = %207
   %217 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %210, i64 %208
   %218 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %217) #27
-  %219 = call i32 @atoi(ptr nocapture noundef %218) #29
+  %219 = call i32 @atoi(ptr noundef %218) #29
   br label %220
 
 220:                                              ; preds = %216, %220

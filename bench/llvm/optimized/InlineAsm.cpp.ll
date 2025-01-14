@@ -969,7 +969,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_b
   %199 = load ptr, ptr %191, align 8
   %200 = getelementptr inbounds i8, ptr %199, i64 -32
   %201 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %200) #17
-  %202 = call i32 @atoi(ptr nocapture noundef %201) #19
+  %202 = call i32 @atoi(ptr noundef %201) #19
   %203 = zext i32 %202 to i64
   %204 = load ptr, ptr %106, align 8
   %205 = load ptr, ptr %3, align 8

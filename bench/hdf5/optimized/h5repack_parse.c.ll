@@ -468,7 +468,7 @@ define dso_local noundef ptr @parse_filter(ptr noundef %0, ptr nocapture noundef
   br i1 %182, label %183, label %185
 
 183:                                              ; preds = %179
-  %184 = call i32 @atoi(ptr nocapture noundef nonnull %8) #12
+  %184 = call i32 @atoi(ptr noundef nonnull %8) #12
   store i32 %184, ptr %2, align 8
   br label %200
 

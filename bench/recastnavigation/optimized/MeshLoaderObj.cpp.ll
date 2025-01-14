@@ -476,7 +476,7 @@ _ZN15rcMeshLoaderObj9addVertexEfffRi.exit:        ; preds = %._crit_edge18.i, %7
   br i1 %103, label %94, label %104, !llvm.loop !9
 
 104:                                              ; preds = %.critedge4.i
-  %105 = call i32 @atoi(ptr nocapture noundef nonnull %.1.i108) #15
+  %105 = call i32 @atoi(ptr noundef nonnull %.1.i108) #15
   %.inv.i = icmp sgt i32 %105, -1
   %..i = select i1 %.inv.i, i32 -1, i32 %93
   %106 = add nsw i32 %..i, %105

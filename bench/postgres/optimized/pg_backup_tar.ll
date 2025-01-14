@@ -1066,7 +1066,7 @@ define internal fastcc ptr @tarOpen(ptr noundef %0, ptr noundef %1, i8 noundef s
 
 52:                                               ; preds = %51, %48
   %53 = phi ptr [ %46, %48 ], [ %.pre59.i, %51 ]
-  %54 = tail call i32 @atoi(ptr nocapture noundef %53) #20
+  %54 = tail call i32 @atoi(ptr noundef %53) #20
   %55 = tail call i32 @TocIDRequired(ptr noundef %0, i32 noundef %54) #18
   %56 = and i32 %55, 2
   %.not50.i = icmp eq i32 %56, 0

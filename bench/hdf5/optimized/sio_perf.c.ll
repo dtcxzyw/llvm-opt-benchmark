@@ -523,7 +523,7 @@ define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef %1) local
   unreachable
 
 .critedge17.i:                                    ; preds = %147, %145
-  %160 = call i32 @atoi(ptr nocapture noundef nonnull %7) #22
+  %160 = call i32 @atoi(ptr noundef nonnull %7) #22
   store i32 %160, ptr @sio_debug_level, align 4
   %161 = icmp sgt i32 %160, 4
   br i1 %161, label %162, label %163
@@ -642,7 +642,7 @@ define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef %1) local
 
 203:                                              ; preds = %.lr.ph334.i
   %204 = load ptr, ptr @H5_optarg, align 8
-  %205 = call i32 @atoi(ptr nocapture noundef %204) #22
+  %205 = call i32 @atoi(ptr noundef %204) #22
   store i32 %205, ptr %15, align 8
   br label %.critedge.i
 

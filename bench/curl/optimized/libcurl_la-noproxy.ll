@@ -264,7 +264,7 @@ if.end116:                                        ; preds = %while.end69
 
 if.end125:                                        ; preds = %if.end116
   %add.ptr123 = getelementptr inbounds nuw i8, ptr %call120, i64 1
-  %call124 = call i32 @atoi(ptr nocapture noundef nonnull %add.ptr123) #9
+  %call124 = call i32 @atoi(ptr noundef nonnull %add.ptr123) #9
   %call124.fr = freeze i32 %call124
   store i8 0, ptr %call120, align 1
   br i1 %cmp12, label %if.then128, label %if.else131

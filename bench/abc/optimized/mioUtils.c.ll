@@ -4951,7 +4951,7 @@ define void @Mio_LibraryReadProfile(ptr nocapture noundef %0, ptr noundef %1) lo
 
 17:                                               ; preds = %10
   %18 = call ptr @strtok(ptr noundef null, ptr noundef nonnull @.str.59) #30
-  %19 = call i32 @atoi(ptr nocapture noundef %18) #32
+  %19 = call i32 @atoi(ptr noundef %18) #32
   call void @Mio_GateSetProfile(ptr noundef nonnull %11, i32 noundef %19) #30
   br label %.backedge
 

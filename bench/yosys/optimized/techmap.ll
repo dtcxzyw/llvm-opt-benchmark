@@ -1400,7 +1400,7 @@ define internal void @_ZN12_GLOBAL__N_111TechmapPass7executeESt6vectorINSt7__cxx
 111:                                              ; preds = %103
   %112 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %.pre1067, i64 %104
   %113 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %112) #27
-  %114 = call i32 @atoi(ptr nocapture noundef %113) #29
+  %114 = call i32 @atoi(ptr noundef %113) #29
   br label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_backERKS5_.exit
 
 115:                                              ; preds = %103, %99

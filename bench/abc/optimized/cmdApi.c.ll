@@ -159,7 +159,7 @@ define range(i32 0, 2) i32 @Cmd_CommandHandleSpecial(ptr noundef %0, ptr noundef
 
 38:                                               ; preds = %37
   %39 = getelementptr inbounds nuw i8, ptr %35, i64 1
-  %40 = tail call i32 @atoi(ptr nocapture noundef nonnull %39) #9
+  %40 = tail call i32 @atoi(ptr noundef nonnull %39) #9
   br label %41
 
 41:                                               ; preds = %37, %38
@@ -192,7 +192,7 @@ define range(i32 0, 2) i32 @Cmd_CommandHandleSpecial(ptr noundef %0, ptr noundef
 
 52:                                               ; preds = %51
   %53 = getelementptr inbounds nuw i8, ptr %35, i64 1
-  %54 = tail call i32 @atoi(ptr nocapture noundef nonnull %53) #9
+  %54 = tail call i32 @atoi(ptr noundef nonnull %53) #9
   br label %55
 
 55:                                               ; preds = %51, %52
@@ -225,7 +225,7 @@ define range(i32 0, 2) i32 @Cmd_CommandHandleSpecial(ptr noundef %0, ptr noundef
 
 66:                                               ; preds = %65
   %67 = getelementptr inbounds nuw i8, ptr %35, i64 1
-  %68 = tail call i32 @atoi(ptr nocapture noundef nonnull %67) #9
+  %68 = tail call i32 @atoi(ptr noundef nonnull %67) #9
   br label %69
 
 69:                                               ; preds = %65, %66
@@ -296,7 +296,7 @@ define range(i32 0, 2) i32 @Cmd_CommandHandleSpecial(ptr noundef %0, ptr noundef
 
 100:                                              ; preds = %99
   %101 = getelementptr inbounds nuw i8, ptr %35, i64 1
-  %102 = tail call i32 @atoi(ptr nocapture noundef nonnull %101) #9
+  %102 = tail call i32 @atoi(ptr noundef nonnull %101) #9
   br label %103
 
 103:                                              ; preds = %99, %100

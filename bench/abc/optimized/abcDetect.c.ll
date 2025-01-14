@@ -509,7 +509,7 @@ Vec_IntPush.exit91:                               ; preds = %.Vec_IntGrow.exit10
 
 79:                                               ; preds = %76
   %80 = add nuw nsw i32 %.057115, 1
-  %81 = call i32 @atoi(ptr nocapture noundef nonnull %77) #32
+  %81 = call i32 @atoi(ptr noundef nonnull %77) #32
   %.not65 = icmp eq i32 %.057115, %81
   br i1 %.not65, label %85, label %82
 

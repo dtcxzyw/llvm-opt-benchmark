@@ -11358,7 +11358,7 @@ _validate_bcast_exclude.exit:                     ; preds = %.lr.ph.i1260
 
 291:                                              ; preds = %288
   %292 = getelementptr inbounds nuw i8, ptr %290, i64 26
-  %293 = call i32 @atoi(ptr nocapture noundef nonnull %292) #19
+  %293 = call i32 @atoi(ptr noundef nonnull %292) #19
   %294 = trunc i32 %293 to i16
   br label %295
 
@@ -13699,7 +13699,7 @@ _validate_bcast_exclude.exit:                     ; preds = %.lr.ph.i1260
 
 1317:                                             ; preds = %1313
   %1318 = getelementptr inbounds nuw i8, ptr %1316, i64 16
-  %1319 = call i32 @atoi(ptr nocapture noundef nonnull %1318) #19
+  %1319 = call i32 @atoi(ptr noundef nonnull %1318) #19
   %1320 = icmp sgt i32 %1319, 536870912
   br i1 %1320, label %1321, label %1322
 
@@ -13716,7 +13716,7 @@ _validate_bcast_exclude.exit:                     ; preds = %.lr.ph.i1260
 
 1325:                                             ; preds = %1322
   %1326 = getelementptr inbounds nuw i8, ptr %1324, i64 21
-  %1327 = call i32 @atoi(ptr nocapture noundef nonnull %1326) #19
+  %1327 = call i32 @atoi(ptr noundef nonnull %1326) #19
   %1328 = icmp sgt i32 %1327, 2097152
   br i1 %1328, label %1329, label %1330
 
@@ -14672,7 +14672,7 @@ _normalize_debug_level.exit1263:                  ; preds = %_normalize_debug_le
   br label %1752
 
 1749:                                             ; preds = %1747
-  %1750 = call i32 @atoi(ptr nocapture noundef nonnull %1748) #19
+  %1750 = call i32 @atoi(ptr noundef nonnull %1748) #19
   %1751 = trunc i32 %1750 to i16
   store i16 %1751, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 1472), align 8
   %.not1248 = icmp eq i16 %1751, 0

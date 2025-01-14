@@ -162,7 +162,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
 
 33:                                               ; preds = %19
   %34 = load ptr, ptr @H5_optarg, align 8
-  %35 = tail call i32 @atoi(ptr nocapture noundef %34) #13
+  %35 = tail call i32 @atoi(ptr noundef %34) #13
   store i32 %35, ptr %18, align 8
   br label %49
 
@@ -177,7 +177,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
 
 40:                                               ; preds = %19
   %41 = load ptr, ptr @H5_optarg, align 8
-  %42 = tail call i32 @atoi(ptr nocapture noundef %41) #13
+  %42 = tail call i32 @atoi(ptr noundef %41) #13
   store i32 %42, ptr %16, align 8
   br label %49
 

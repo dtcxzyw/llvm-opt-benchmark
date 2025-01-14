@@ -515,7 +515,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   br i1 %.not171.i, label %.loopexit185.i, label %21
 
 21:                                               ; preds = %19
-  %22 = tail call i32 @atoi(ptr nocapture noundef nonnull %20) #24
+  %22 = tail call i32 @atoi(ptr noundef nonnull %20) #24
   tail call void @h5trav_set_verbose(i32 noundef %22) #22
   br label %.loopexit185.i
 
@@ -542,7 +542,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   br i1 %.not170.i, label %33, label %29
 
 29:                                               ; preds = %27
-  %30 = tail call i32 @atoi(ptr nocapture noundef nonnull %28) #24
+  %30 = tail call i32 @atoi(ptr noundef nonnull %28) #24
   %31 = icmp eq i32 %30, 0
   br i1 %31, label %32, label %.loopexit185.i
 
@@ -571,7 +571,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
 
 38:                                               ; preds = %.loopexit.i
   %39 = load ptr, ptr @H5_optarg, align 8
-  %40 = tail call i32 @atoi(ptr nocapture noundef %39) #24
+  %40 = tail call i32 @atoi(ptr noundef %39) #24
   %41 = icmp slt i32 %40, 1
   %..i = select i1 %41, i32 65535, i32 %40
   store i32 %..i, ptr @h5tools_nCols, align 4
@@ -928,7 +928,7 @@ set_sort_order.exit.thread.i:                     ; preds = %161, %157
   br label %238
 
 181:                                              ; preds = %173
-  %182 = tail call i32 @atoi(ptr nocapture noundef nonnull %.069.i.i) #24
+  %182 = tail call i32 @atoi(ptr noundef nonnull %.069.i.i) #24
   %183 = icmp ugt i32 %182, 63
   br i1 %183, label %184, label %.preheader52.i.i
 
@@ -970,7 +970,7 @@ set_sort_order.exit.thread.i:                     ; preds = %161, %157
   br label %238
 
 201:                                              ; preds = %194
-  %202 = tail call i32 @atoi(ptr nocapture noundef nonnull %192) #24
+  %202 = tail call i32 @atoi(ptr noundef nonnull %192) #24
   %203 = icmp slt i32 %202, 1
   br i1 %203, label %204, label %205
 
@@ -1072,7 +1072,7 @@ parse_mask_list.exit.i:                           ; preds = %._crit_edge.i.i
 
 241:                                              ; preds = %.loopexit.i
   %242 = load ptr, ptr @H5_optarg, align 8
-  %243 = tail call i32 @atoi(ptr nocapture noundef %242) #24
+  %243 = tail call i32 @atoi(ptr noundef %242) #24
   store i32 %243, ptr getelementptr inbounds nuw (i8, ptr @dump_opts, i64 64), align 4
   %244 = icmp slt i32 %243, 0
   br i1 %244, label %245, label %.loopexit185.i
@@ -1231,7 +1231,7 @@ sub_1.i:                                          ; preds = %sub_0.i
   br i1 %.not146.i, label %295, label %293
 
 293:                                              ; preds = %291
-  %294 = tail call i32 @atoi(ptr nocapture noundef nonnull %292) #24
+  %294 = tail call i32 @atoi(ptr noundef nonnull %292) #24
   store i32 %294, ptr @enable_error_stack, align 4
   br label %.loopexit185.i
 
@@ -1260,7 +1260,7 @@ sub_1.i:                                          ; preds = %sub_0.i
 301:                                              ; preds = %.loopexit.i
   store i32 1, ptr @vol_info_g, align 8
   %302 = load ptr, ptr @H5_optarg, align 8
-  %303 = tail call i32 @atoi(ptr nocapture noundef %302) #24
+  %303 = tail call i32 @atoi(ptr noundef %302) #24
   store i32 %303, ptr getelementptr inbounds nuw (i8, ptr @vol_info_g, i64 16), align 8
   store i1 true, ptr @use_custom_vol_g, align 1
   br label %.loopexit185.i
@@ -1280,7 +1280,7 @@ sub_1.i:                                          ; preds = %sub_0.i
 308:                                              ; preds = %.loopexit.i
   store i32 1, ptr @vfd_info_g, align 8
   %309 = load ptr, ptr @H5_optarg, align 8
-  %310 = tail call i32 @atoi(ptr nocapture noundef %309) #24
+  %310 = tail call i32 @atoi(ptr noundef %309) #24
   store i32 %310, ptr getelementptr inbounds nuw (i8, ptr @vfd_info_g, i64 16), align 8
   store i1 true, ptr @use_custom_vfd_g, align 1
   br label %.loopexit185.i

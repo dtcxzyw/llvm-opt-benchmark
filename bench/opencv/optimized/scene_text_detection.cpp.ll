@@ -1408,7 +1408,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12empla
   %.sroa.13.3290 = phi ptr [ %.sroa.13.4, %_ZNSt6vectorIiSaIiEE9push_backEOi.exit ], [ null, %462 ]
   %.sroa.0241.0289 = phi ptr [ %491, %_ZNSt6vectorIiSaIiEE9push_backEOi.exit ], [ %463, %462 ]
   %470 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0241.0289) #19
-  %471 = call i32 @atoi(ptr nocapture noundef %470) #23
+  %471 = call i32 @atoi(ptr noundef %470) #23
   %.not.i.i172 = icmp eq ptr %.sroa.8.3291, %.sroa.13.3290
   br i1 %.not.i.i172, label %473, label %472
 

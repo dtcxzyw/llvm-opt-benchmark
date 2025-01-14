@@ -216,7 +216,7 @@ define dso_local range(i32 -1, 1) i32 @main(i32 noundef %0, ptr nocapture nounde
   %25 = sext i32 %24 to i64
   %26 = getelementptr inbounds ptr, ptr %1, i64 %25
   %27 = load ptr, ptr %26, align 8
-  %28 = tail call i32 @atoi(ptr nocapture noundef %27) #19
+  %28 = tail call i32 @atoi(ptr noundef %27) #19
   switch i32 %28, label %29 [
     i32 16, label %31
     i32 12, label %31

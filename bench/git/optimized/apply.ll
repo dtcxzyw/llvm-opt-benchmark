@@ -7575,7 +7575,7 @@ if.then:                                          ; preds = %entry
 do.end:                                           ; preds = %entry
   %value = getelementptr inbounds nuw i8, ptr %opt, i64 16
   %0 = load ptr, ptr %value, align 8
-  %call = tail call i32 @atoi(ptr nocapture noundef %arg) #22
+  %call = tail call i32 @atoi(ptr noundef %arg) #22
   %p_value = getelementptr inbounds nuw i8, ptr %0, i64 160
   store i32 %call, ptr %p_value, align 8
   %p_value_known = getelementptr inbounds nuw i8, ptr %0, i64 164

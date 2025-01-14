@@ -1876,7 +1876,7 @@ define internal fastcc range(i32 0, 3) i32 @pmix_bfrops_base_tma_value_true(ptr 
   br i1 %.not18, label %29, label %26
 
 26:                                               ; preds = %24
-  %27 = tail call i32 @atoi(ptr nocapture noundef nonnull %.0) #36
+  %27 = tail call i32 @atoi(ptr noundef nonnull %.0) #36
   %28 = icmp eq i32 %27, 0
   %.19 = zext i1 %28 to i32
   br label %42

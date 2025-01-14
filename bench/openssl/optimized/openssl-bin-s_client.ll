@@ -1208,7 +1208,7 @@ sw.bb142:                                         ; preds = %if.end119, %if.end1
 
 sw.bb144:                                         ; preds = %if.end119
   %call145 = call ptr @opt_arg() #16
-  %call146 = call i32 @atoi(ptr nocapture noundef %call145) #17
+  %call146 = call i32 @atoi(ptr noundef %call145) #17
   store i32 %call146, ptr @verify_args, align 4
   %.b688 = load i1, ptr @c_quiet, align 4
   br i1 %.b688, label %sw.epilog485, label %if.then148
@@ -1468,7 +1468,7 @@ sw.bb297:                                         ; preds = %if.end119
 
 sw.bb303:                                         ; preds = %if.end119
   %call304 = call ptr @opt_arg() #16
-  %call305 = call i32 @atoi(ptr nocapture noundef %call304) #17
+  %call305 = call i32 @atoi(ptr noundef %call304) #17
   store i32 %call305, ptr %strength, align 4
   %22 = load ptr, ptr @bio_err, align 8
   %call307 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %22, ptr noundef nonnull @.str.410, i32 noundef %call305) #16
@@ -1524,7 +1524,7 @@ sw.bb339:                                         ; preds = %if.end119
 
 sw.bb340:                                         ; preds = %if.end119
   %call341 = call ptr @opt_arg() #16
-  %call342 = call i64 @atol(ptr nocapture noundef %call341) #17
+  %call342 = call i64 @atol(ptr noundef %call341) #17
   br label %sw.epilog485
 
 sw.bb343:                                         ; preds = %if.end119
@@ -1684,7 +1684,7 @@ lor.lhs.false419.for.inc436_crit_edge:            ; preds = %lor.lhs.false419
 if.then425:                                       ; preds = %lor.lhs.false419, %for.body416
   %idx.ext = sext i32 %start.02217 to i64
   %add.ptr = getelementptr inbounds i8, ptr %call410, i64 %idx.ext
-  %call426 = call i32 @atoi(ptr nocapture noundef %add.ptr) #17
+  %call426 = call i32 @atoi(ptr noundef %add.ptr) #17
   %conv427 = trunc i32 %call426 to i16
   %idxprom428 = sext i32 %serverinfo_count.22216 to i64
   %arrayidx429 = getelementptr inbounds [100 x i16], ptr %serverinfo_types, i64 0, i64 %idxprom428
@@ -1732,7 +1732,7 @@ sw.bb451:                                         ; preds = %if.end119
 
 sw.bb453:                                         ; preds = %if.end119
   %call454 = call ptr @opt_arg() #16
-  %call455 = call i32 @atoi(ptr nocapture noundef %call454) #17
+  %call455 = call i32 @atoi(ptr noundef %call454) #17
   store i32 %call455, ptr @keymatexportlen, align 4
   br label %sw.epilog485
 
@@ -1741,7 +1741,7 @@ sw.bb456:                                         ; preds = %if.end119
 
 sw.bb457:                                         ; preds = %if.end119
   %call458 = call ptr @opt_arg() #16
-  %call459 = call i32 @atoi(ptr nocapture noundef %call458) #17
+  %call459 = call i32 @atoi(ptr noundef %call458) #17
   %31 = add i32 %call459, -512
   %32 = call i32 @llvm.fshl.i32(i32 %31, i32 %31, i32 23)
   switch i32 %32, label %sw.default [
@@ -1768,22 +1768,22 @@ sw.default:                                       ; preds = %sw.bb457
 
 sw.bb465:                                         ; preds = %if.end119
   %call466 = call ptr @opt_arg() #16
-  %call467 = call i32 @atoi(ptr nocapture noundef %call466) #17
+  %call467 = call i32 @atoi(ptr noundef %call466) #17
   br label %sw.epilog485
 
 sw.bb468:                                         ; preds = %if.end119
   %call469 = call ptr @opt_arg() #16
-  %call470 = call i32 @atoi(ptr nocapture noundef %call469) #17
+  %call470 = call i32 @atoi(ptr noundef %call469) #17
   br label %sw.epilog485
 
 sw.bb471:                                         ; preds = %if.end119
   %call472 = call ptr @opt_arg() #16
-  %call473 = call i32 @atoi(ptr nocapture noundef %call472) #17
+  %call473 = call i32 @atoi(ptr noundef %call472) #17
   br label %sw.epilog485
 
 sw.bb474:                                         ; preds = %if.end119
   %call475 = call ptr @opt_arg() #16
-  %call476 = call i32 @atoi(ptr nocapture noundef %call475) #17
+  %call476 = call i32 @atoi(ptr noundef %call475) #17
   br label %sw.epilog485
 
 sw.bb477:                                         ; preds = %if.end119

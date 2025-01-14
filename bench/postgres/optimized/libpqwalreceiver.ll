@@ -494,7 +494,7 @@ define internal void @libpqrcv_get_senderinfo(ptr nocapture noundef readonly %0,
   br i1 %.not16, label %15, label %13
 
 13:                                               ; preds = %12
-  %14 = tail call i32 @atoi(ptr nocapture noundef nonnull %11) #12
+  %14 = tail call i32 @atoi(ptr noundef nonnull %11) #12
   store i32 %14, ptr %2, align 4
   br label %15
 

@@ -895,7 +895,7 @@ define range(i32 0, 7) i32 @MPL_str_get_int_arg(ptr noundef %0, ptr noundef %1, 
   br i1 %6, label %7, label %9
 
 7:                                                ; preds = %3
-  %8 = call i32 @atoi(ptr nocapture noundef nonnull %4) #9
+  %8 = call i32 @atoi(ptr noundef nonnull %4) #9
   store i32 %8, ptr %2, align 4
   br label %9
 

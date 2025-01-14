@@ -1425,7 +1425,7 @@ sub_1.i:                                          ; preds = %sub_0.i
 
 37:                                               ; preds = %.tail51.i
   %38 = getelementptr inbounds nuw i8, ptr %21, i64 2
-  %39 = call i32 @atoi(ptr nocapture noundef nonnull %38) #24
+  %39 = call i32 @atoi(ptr noundef nonnull %38) #24
   %or.cond.i = icmp ugt i32 %39, 2
   br i1 %or.cond.i, label %40, label %43
 
@@ -1440,7 +1440,7 @@ sub_1.i:                                          ; preds = %sub_0.i
 
 44:                                               ; preds = %.tail51.i
   %45 = getelementptr inbounds nuw i8, ptr %21, i64 2
-  %46 = call i32 @atoi(ptr nocapture noundef nonnull %45) #24
+  %46 = call i32 @atoi(ptr noundef nonnull %45) #24
   %or.cond3.i = icmp ugt i32 %46, 2
   br i1 %or.cond3.i, label %47, label %50
 

@@ -1527,7 +1527,7 @@ define i64 @rsock_ipaddr(ptr nocapture noundef readonly %0, i32 noundef %1, i32 
   %25 = call i64 @rb_str_new_cstr(ptr noundef nonnull %4) #19
   %26 = icmp eq i64 %.018, 4
   %spec.select = select i1 %26, i64 %25, i64 %.018
-  %27 = call i32 @atoi(ptr nocapture noundef nonnull %5) #22
+  %27 = call i32 @atoi(ptr noundef nonnull %5) #22
   %28 = sext i32 %27 to i64
   %29 = shl nsw i64 %28, 1
   %30 = or disjoint i64 %29, 1
@@ -3872,7 +3872,7 @@ ai_get_afamily.exit.thread:                       ; preds = %get_addrinfo.exit, 
   %16 = call i64 @rb_ary_entry(i64 noundef %15, i64 noundef 1) #22
   store i64 %16, ptr %3, align 8
   %17 = call ptr @rb_string_value_cstr(ptr noundef nonnull %3) #19
-  %18 = call i32 @atoi(ptr nocapture noundef %17) #22
+  %18 = call i32 @atoi(ptr noundef %17) #22
   %19 = sext i32 %18 to i64
   %20 = shl nsw i64 %19, 1
   %21 = or disjoint i64 %20, 1
@@ -5840,7 +5840,7 @@ RSTRING_PTR.exit144:                              ; preds = %39, %42
   br i1 %.not148, label %51, label %46
 
 46:                                               ; preds = %.critedge134
-  %47 = call i32 @atoi(ptr nocapture noundef nonnull %6) #22
+  %47 = call i32 @atoi(ptr noundef nonnull %6) #22
   %48 = call i64 @rb_fix2int(i64 noundef %1) #19
   %49 = trunc i64 %48 to i32
   %50 = icmp eq i32 %47, %49

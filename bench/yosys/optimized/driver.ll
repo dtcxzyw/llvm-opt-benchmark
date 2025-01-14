@@ -2238,7 +2238,7 @@ _ZNSt6vectorIP8_IO_FILESaIS1_EE9push_backEOS1_.exit: ; preds = %_ZNSt6vectorIP8_
   %332 = load ptr, ptr @stderr, align 8
   store ptr %332, ptr @_ZN5Yosys11log_errfileE, align 8
   %333 = load ptr, ptr @optarg, align 8
-  %334 = call i32 @atoi(ptr nocapture noundef %333) #35
+  %334 = call i32 @atoi(ptr noundef %333) #35
   store i32 %334, ptr @_ZN5Yosys17log_verbose_levelE, align 4
   br label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit
 

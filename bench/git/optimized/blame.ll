@@ -2653,7 +2653,7 @@ if.then.i90.us:                                   ; preds = %strbuf_setlen.exit.
   br label %format_time.exit115.us
 
 if.else.i92.us:                                   ; preds = %strbuf_setlen.exit.i88.us
-  %call.i93.us = call i32 @atoi(ptr nocapture noundef %30) #16
+  %call.i93.us = call i32 @atoi(ptr noundef %30) #16
   %call1.i94.us = call ptr @show_date(i64 noundef %29, i32 noundef %call.i93.us, ptr noundef nonnull @blame_date_mode) #17
   %call.i.i95.us = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %call1.i94.us) #16
   call void @strbuf_add(ptr noundef nonnull @format_time.time_buf, ptr noundef %call1.i94.us, i64 noundef %call.i.i95.us) #17
@@ -2764,7 +2764,7 @@ if.then.i73.us:                                   ; preds = %strbuf_setlen.exit.
   br label %format_time.exit.us
 
 if.else.i.us:                                     ; preds = %strbuf_setlen.exit.i.us
-  %call.i75.us = call i32 @atoi(ptr nocapture noundef %54) #16
+  %call.i75.us = call i32 @atoi(ptr noundef %54) #16
   %call1.i.us = call ptr @show_date(i64 noundef %53, i32 noundef %call.i75.us, ptr noundef nonnull @blame_date_mode) #17
   %call.i.i76.us = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %call1.i.us) #16
   call void @strbuf_add(ptr noundef nonnull @format_time.time_buf, ptr noundef %call1.i.us, i64 noundef %call.i.i76.us) #17

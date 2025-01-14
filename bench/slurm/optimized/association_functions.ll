@@ -418,7 +418,7 @@ define dso_local range(i32 0, 2) i32 @sacctmgr_set_assoc_rec(ptr noundef %0, ptr
 
 24:                                               ; preds = %21, %19
   %25 = phi ptr [ %23, %21 ], [ %20, %19 ]
-  %26 = tail call i32 @atoi(ptr nocapture noundef %2) #10
+  %26 = tail call i32 @atoi(ptr noundef %2) #10
   %27 = icmp eq i32 %26, -1
   br i1 %27, label %.thread, label %29
 

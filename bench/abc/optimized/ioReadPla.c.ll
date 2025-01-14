@@ -1742,7 +1742,7 @@ sub_1286.i:                                       ; preds = %sub_0285.i
 63:                                               ; preds = %.tail.i
   %64 = getelementptr inbounds nuw i8, ptr %31, i64 8
   %65 = load ptr, ptr %64, align 8
-  %66 = call i32 @atoi(ptr nocapture noundef %65) #18
+  %66 = call i32 @atoi(ptr noundef %65) #18
   br label %.outer.i
 
 .tail288.i:                                       ; preds = %sub_1286.i
@@ -1754,7 +1754,7 @@ sub_1286.i:                                       ; preds = %sub_0285.i
 70:                                               ; preds = %.tail288.i
   %71 = getelementptr inbounds nuw i8, ptr %31, i64 8
   %72 = load ptr, ptr %71, align 8
-  %73 = call i32 @atoi(ptr nocapture noundef %72) #18
+  %73 = call i32 @atoi(ptr noundef %72) #18
   br label %.outer.i
 
 .tail293.i:                                       ; preds = %sub_1286.i
@@ -1766,7 +1766,7 @@ sub_1286.i:                                       ; preds = %sub_0285.i
 77:                                               ; preds = %.tail293.i
   %78 = getelementptr inbounds nuw i8, ptr %31, i64 8
   %79 = load ptr, ptr %78, align 8
-  %80 = call i32 @atoi(ptr nocapture noundef %79) #18
+  %80 = call i32 @atoi(ptr noundef %79) #18
   br label %.outer.i
 
 .tail293.thread.i:                                ; preds = %sub_1286.i, %.tail.i, %.tail288.i, %.tail293.i, %sub_0285.i

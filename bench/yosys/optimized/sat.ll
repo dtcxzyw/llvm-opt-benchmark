@@ -2450,7 +2450,7 @@ define internal void @_ZN12_GLOBAL__N_17SatPass7executeESt6vectorINSt7__cxx1112b
 163:                                              ; preds = %155
   %164 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %.pre, i64 %156
   %165 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %164) #26
-  %166 = call i32 @atoi(ptr nocapture noundef %165) #28
+  %166 = call i32 @atoi(ptr noundef %165) #28
   br label %722
 
 167:                                              ; preds = %155, %150
@@ -2473,7 +2473,7 @@ define internal void @_ZN12_GLOBAL__N_17SatPass7executeESt6vectorINSt7__cxx1112b
 179:                                              ; preds = %171
   %180 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %.pre2156, i64 %172
   %181 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %180) #26
-  %182 = call i32 @atoi(ptr nocapture noundef %181) #28
+  %182 = call i32 @atoi(ptr noundef %181) #28
   br label %722
 
 183:                                              ; preds = %171, %167
@@ -2496,7 +2496,7 @@ define internal void @_ZN12_GLOBAL__N_17SatPass7executeESt6vectorINSt7__cxx1112b
 195:                                              ; preds = %187
   %196 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %.pre2157, i64 %188
   %197 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %196) #26
-  %198 = call i32 @atoi(ptr nocapture noundef %197) #28
+  %198 = call i32 @atoi(ptr noundef %197) #28
   br label %722
 
 199:                                              ; preds = %187, %183
@@ -2519,7 +2519,7 @@ define internal void @_ZN12_GLOBAL__N_17SatPass7executeESt6vectorINSt7__cxx1112b
 211:                                              ; preds = %203
   %212 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %.pre2158, i64 %204
   %213 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %212) #26
-  %214 = call i32 @atoi(ptr nocapture noundef %213) #28
+  %214 = call i32 @atoi(ptr noundef %213) #28
   br label %722
 
 215:                                              ; preds = %203, %199
@@ -2542,7 +2542,7 @@ define internal void @_ZN12_GLOBAL__N_17SatPass7executeESt6vectorINSt7__cxx1112b
 227:                                              ; preds = %219
   %228 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %.pre2159, i64 %220
   %229 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %228) #26
-  %230 = call i32 @atoi(ptr nocapture noundef %229) #28
+  %230 = call i32 @atoi(ptr noundef %229) #28
   %.sroa.speculated = call i32 @llvm.smax.i32(i32 %230, i32 1)
   br label %722
 
@@ -2773,7 +2773,7 @@ define internal void @_ZN12_GLOBAL__N_17SatPass7executeESt6vectorINSt7__cxx1112b
 364:                                              ; preds = %356
   %365 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %.pre2164, i64 %357
   %366 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %365) #26
-  %367 = call i32 @atoi(ptr nocapture noundef %366) #28
+  %367 = call i32 @atoi(ptr noundef %366) #28
   br label %722
 
 368:                                              ; preds = %356, %351
@@ -2945,7 +2945,7 @@ define internal void @_ZN12_GLOBAL__N_17SatPass7executeESt6vectorINSt7__cxx1112b
 443:                                              ; preds = %435
   %444 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %.pre2167, i64 %436
   %445 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %444) #26
-  %446 = call i32 @atoi(ptr nocapture noundef %445) #28
+  %446 = call i32 @atoi(ptr noundef %445) #28
   br label %722
 
 447:                                              ; preds = %435, %430
@@ -2968,7 +2968,7 @@ define internal void @_ZN12_GLOBAL__N_17SatPass7executeESt6vectorINSt7__cxx1112b
 459:                                              ; preds = %451
   %460 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %.pre2168, i64 %452
   %461 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %460) #26
-  %462 = call i32 @atoi(ptr nocapture noundef %461) #28
+  %462 = call i32 @atoi(ptr noundef %461) #28
   br label %722
 
 463:                                              ; preds = %451, %447
@@ -2992,7 +2992,7 @@ define internal void @_ZN12_GLOBAL__N_17SatPass7executeESt6vectorINSt7__cxx1112b
   %476 = getelementptr %"class.std::__cxx11::basic_string", ptr %.pre2169, i64 %.03871743
   %477 = getelementptr i8, ptr %476, i64 32
   %478 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %477) #26
-  %479 = call i32 @atoi(ptr nocapture noundef %478) #28
+  %479 = call i32 @atoi(ptr noundef %478) #28
   store i32 %479, ptr %49, align 4
   %480 = load ptr, ptr %1, align 8
   %481 = getelementptr %"class.std::__cxx11::basic_string", ptr %480, i64 %.03871743
@@ -3073,7 +3073,7 @@ define internal void @_ZN12_GLOBAL__N_17SatPass7executeESt6vectorINSt7__cxx1112b
   %512 = getelementptr %"class.std::__cxx11::basic_string", ptr %.pre2170, i64 %.03871743
   %513 = getelementptr i8, ptr %512, i64 32
   %514 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %513) #26
-  %515 = call i32 @atoi(ptr nocapture noundef %514) #28
+  %515 = call i32 @atoi(ptr noundef %514) #28
   store i32 %515, ptr %53, align 4
   %516 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt3mapIiSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EESt4lessIiESaISt4pairIKiS8_EEEixERSC_(ptr noundef nonnull align 8 dereferenceable(48) %29, ptr noundef nonnull align 4 dereferenceable(4) %53)
           to label %517 unwind label %.loopexit1017
@@ -3105,7 +3105,7 @@ define internal void @_ZN12_GLOBAL__N_17SatPass7executeESt6vectorINSt7__cxx1112b
   %533 = getelementptr %"class.std::__cxx11::basic_string", ptr %.pre2171, i64 %.03871743
   %534 = getelementptr i8, ptr %533, i64 32
   %535 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %534) #26
-  %536 = call i32 @atoi(ptr nocapture noundef %535) #28
+  %536 = call i32 @atoi(ptr noundef %535) #28
   store i32 %536, ptr %54, align 4
   %537 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt3mapIiSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EESt4lessIiESaISt4pairIKiS8_EEEixERSC_(ptr noundef nonnull align 8 dereferenceable(48) %30, ptr noundef nonnull align 4 dereferenceable(4) %54)
           to label %538 unwind label %.loopexit1017
@@ -3137,7 +3137,7 @@ define internal void @_ZN12_GLOBAL__N_17SatPass7executeESt6vectorINSt7__cxx1112b
   %554 = getelementptr %"class.std::__cxx11::basic_string", ptr %.pre2172, i64 %.03871743
   %555 = getelementptr i8, ptr %554, i64 32
   %556 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %555) #26
-  %557 = call i32 @atoi(ptr nocapture noundef %556) #28
+  %557 = call i32 @atoi(ptr noundef %556) #28
   store i32 %557, ptr %55, align 4
   %558 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt3mapIiSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EESt4lessIiESaISt4pairIKiS8_EEEixERSC_(ptr noundef nonnull align 8 dereferenceable(48) %31, ptr noundef nonnull align 4 dereferenceable(4) %55)
           to label %559 unwind label %.loopexit1017
@@ -3169,7 +3169,7 @@ define internal void @_ZN12_GLOBAL__N_17SatPass7executeESt6vectorINSt7__cxx1112b
   %575 = getelementptr %"class.std::__cxx11::basic_string", ptr %.pre2173, i64 %.03871743
   %576 = getelementptr i8, ptr %575, i64 32
   %577 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %576) #26
-  %578 = call i32 @atoi(ptr nocapture noundef %577) #28
+  %578 = call i32 @atoi(ptr noundef %577) #28
   store i32 %578, ptr %56, align 4
   %579 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt3mapIiSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EESt4lessIiESaISt4pairIKiS8_EEEixERSC_(ptr noundef nonnull align 8 dereferenceable(48) %32, ptr noundef nonnull align 4 dereferenceable(4) %56)
           to label %580 unwind label %.loopexit1017

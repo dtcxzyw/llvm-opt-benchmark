@@ -198,7 +198,7 @@ define internal noundef zeroext i1 @Check_Integer_Field(ptr noundef %0, ptr noca
   br label %._crit_edge, !llvm.loop !8
 
 31:                                               ; preds = %._crit_edge
-  %32 = tail call i64 @atol(ptr nocapture noundef %9) #15
+  %32 = tail call i64 @atol(ptr noundef %9) #15
   %33 = icmp slt i64 %5, %7
   br i1 %33, label %34, label %37
 

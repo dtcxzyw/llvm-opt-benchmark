@@ -2738,7 +2738,7 @@ if.then25:                                        ; preds = %land.lhs.true
 
 if.else50:                                        ; preds = %if.end7
   %add.ptr15 = getelementptr inbounds nuw i8, ptr %call2, i64 2
-  %call51 = tail call i32 @atoi(ptr nocapture noundef nonnull %add.ptr15) #32
+  %call51 = tail call i32 @atoi(ptr noundef nonnull %add.ptr15) #32
   %2 = add i32 %call51, -65536
   %or.cond = icmp ult i32 %2, -65535
   br i1 %or.cond, label %return, label %if.end61
@@ -2747,7 +2747,7 @@ if.else50.thread:                                 ; preds = %if.then25
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %buf, ptr nonnull align 1 %ip_as_string, i64 %sub.ptr.sub28, i1 false)
   %arrayidx40 = getelementptr inbounds [128 x i8], ptr %buf, i64 0, i64 %sub.ptr.sub28
   store i8 0, ptr %arrayidx40, align 1
-  %call5155 = tail call i32 @atoi(ptr nocapture noundef nonnull %add.ptr19) #32
+  %call5155 = tail call i32 @atoi(ptr noundef nonnull %add.ptr19) #32
   %3 = add i32 %call5155, -65536
   %or.cond56 = icmp ult i32 %3, -65535
   br i1 %or.cond56, label %return, label %if.else76

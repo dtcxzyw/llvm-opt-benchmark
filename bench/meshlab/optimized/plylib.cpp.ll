@@ -1159,7 +1159,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_b
 
 122:                                              ; preds = %119
   %123 = call ptr @strtok_r(ptr noundef null, ptr noundef nonnull @.str.18, ptr noundef nonnull %4) #28
-  %124 = call i32 @atoi(ptr nocapture noundef %123) #33
+  %124 = call i32 @atoi(ptr noundef %123) #33
   call void @_ZN3vcg3ply10PlyElementC2EPKci(ptr noundef nonnull align 8 dereferenceable(64) %11, ptr noundef nonnull %120, i32 noundef %124)
   invoke void @_ZNSt6vectorIN3vcg3ply10PlyElementESaIS2_EE9push_backERKS2_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(64) %11)
           to label %125 unwind label %128

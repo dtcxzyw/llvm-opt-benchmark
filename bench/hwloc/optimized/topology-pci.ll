@@ -539,7 +539,7 @@ hwloc_linux_pci_link_speed_from_string.exit:      ; preds = %sub_0.i, %.tail.thr
   br i1 %.not146, label %265, label %262
 
 262:                                              ; preds = %259
-  %263 = call i32 @atoi(ptr nocapture noundef nonnull %20) #11
+  %263 = call i32 @atoi(ptr noundef nonnull %20) #11
   %264 = uitofp i32 %263 to float
   br label %265
 

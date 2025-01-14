@@ -770,7 +770,7 @@ if.then159:                                       ; preds = %land.lhs.true151, %
   %call.i60 = call i64 @strspn(ptr noundef nonnull %arrayidx152, ptr noundef nonnull @.str) #27
   %add.ptr.i61 = getelementptr inbounds i8, ptr %arrayidx152, i64 %call.i60
   store ptr %add.ptr.i61, ptr %token, align 8
-  %call1.i62 = call noundef i32 @atoi(ptr nocapture noundef nonnull %add.ptr.i61) #27
+  %call1.i62 = call noundef i32 @atoi(ptr noundef nonnull %add.ptr.i61) #27
   %call2.i = call i64 @strcspn(ptr noundef nonnull %add.ptr.i61, ptr noundef nonnull @.str.12) #27
   %add.ptr3.i = getelementptr inbounds i8, ptr %add.ptr.i61, i64 %call2.i
   store ptr %add.ptr3.i, ptr %token, align 8
@@ -1019,7 +1019,7 @@ entry:
   %call = tail call i64 @strspn(ptr noundef %0, ptr noundef nonnull @.str) #27
   %add.ptr = getelementptr inbounds i8, ptr %0, i64 %call
   store ptr %add.ptr, ptr %token, align 8
-  %call1 = tail call i32 @atoi(ptr nocapture noundef %add.ptr) #27
+  %call1 = tail call i32 @atoi(ptr noundef %add.ptr) #27
   %call2 = tail call i64 @strcspn(ptr noundef %add.ptr, ptr noundef nonnull @.str.12) #27
   %add.ptr3 = getelementptr inbounds i8, ptr %add.ptr, i64 %call2
   store ptr %add.ptr3, ptr %token, align 8
@@ -1831,7 +1831,7 @@ if.then290:                                       ; preds = %land.lhs.true282, %
   %add.ptr291 = getelementptr inbounds nuw i8, ptr %add.ptr, i64 6
   %call.i114 = call i64 @strspn(ptr noundef nonnull %add.ptr291, ptr noundef nonnull @.str) #27
   %add.ptr.i115 = getelementptr inbounds i8, ptr %add.ptr291, i64 %call.i114
-  %call1.i116 = call noundef i32 @atoi(ptr nocapture noundef nonnull %add.ptr.i115) #27
+  %call1.i116 = call noundef i32 @atoi(ptr noundef nonnull %add.ptr.i115) #27
   %call2.i = call i64 @strcspn(ptr noundef nonnull %add.ptr.i115, ptr noundef nonnull @.str.12) #27
   %add.ptr3.i = getelementptr inbounds i8, ptr %add.ptr.i115, i64 %call2.i
   store ptr %add.ptr3.i, ptr %token, align 8
@@ -5352,7 +5352,7 @@ if.then138:                                       ; preds = %land.lhs.true130, %
   %add.ptr139 = getelementptr inbounds nuw i8, ptr %add.ptr, i64 3
   %call.i = call i64 @strspn(ptr noundef nonnull %add.ptr139, ptr noundef nonnull @.str) #27
   %add.ptr.i = getelementptr inbounds i8, ptr %add.ptr139, i64 %call.i
-  %call1.i = call noundef i32 @atoi(ptr nocapture noundef nonnull %add.ptr.i) #27
+  %call1.i = call noundef i32 @atoi(ptr noundef nonnull %add.ptr.i) #27
   %call2.i = call i64 @strcspn(ptr noundef nonnull %add.ptr.i, ptr noundef nonnull @.str.12) #27
   %add.ptr3.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 %call2.i
   store ptr %add.ptr3.i, ptr %token, align 8
@@ -7604,7 +7604,7 @@ invoke.cont725:                                   ; preds = %if.then721
   %241 = load ptr, ptr %token, align 8
   %call.i1010 = call i64 @strspn(ptr noundef %241, ptr noundef nonnull @.str) #27
   %add.ptr.i1011 = getelementptr inbounds i8, ptr %241, i64 %call.i1010
-  %call1.i1012 = call i32 @atoi(ptr nocapture noundef %add.ptr.i1011) #27
+  %call1.i1012 = call i32 @atoi(ptr noundef %add.ptr.i1011) #27
   %call2.i1013 = call i64 @strcspn(ptr noundef %add.ptr.i1011, ptr noundef nonnull @.str.80) #27
   %add.ptr3.i1014 = getelementptr inbounds i8, ptr %add.ptr.i1011, i64 %call2.i1013
   store ptr %add.ptr3.i1014, ptr %token, align 8
@@ -7616,7 +7616,7 @@ if.end.i1017:                                     ; preds = %invoke.cont725
   %incdec.ptr.i1018 = getelementptr inbounds nuw i8, ptr %add.ptr3.i1014, i64 1
   %call4.i = call i64 @strspn(ptr noundef nonnull %incdec.ptr.i1018, ptr noundef nonnull @.str) #27
   %add.ptr5.i = getelementptr inbounds i8, ptr %incdec.ptr.i1018, i64 %call4.i
-  %call6.i = call i32 @atoi(ptr nocapture noundef nonnull %add.ptr5.i) #27
+  %call6.i = call i32 @atoi(ptr noundef nonnull %add.ptr5.i) #27
   %call7.i = call i64 @strcspn(ptr noundef nonnull %add.ptr5.i, ptr noundef nonnull @.str.80) #27
   %add.ptr8.i = getelementptr inbounds i8, ptr %add.ptr5.i, i64 %call7.i
   store ptr %add.ptr8.i, ptr %token, align 8
@@ -7629,7 +7629,7 @@ if.end13.i:                                       ; preds = %if.end.i1017
   %call.i.i1019 = call i64 @strspn(ptr noundef nonnull %incdec.ptr14.i, ptr noundef nonnull @.str) #27
   %add.ptr.i.i1020 = getelementptr inbounds i8, ptr %incdec.ptr14.i, i64 %call.i.i1019
   store ptr %add.ptr.i.i1020, ptr %token, align 8
-  %call1.i.i1021 = call noundef i32 @atoi(ptr nocapture noundef nonnull %add.ptr.i.i1020) #27
+  %call1.i.i1021 = call noundef i32 @atoi(ptr noundef nonnull %add.ptr.i.i1020) #27
   %call2.i.i = call i64 @strcspn(ptr noundef nonnull %add.ptr.i.i1020, ptr noundef nonnull @.str.12) #27
   %add.ptr3.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i1020, i64 %call2.i.i
   store ptr %add.ptr3.i.i, ptr %token, align 8
@@ -7767,7 +7767,7 @@ for.body765:                                      ; preds = %_ZNSt6vectorIiSaIiE
   %add.ptr3.i103827692771 = phi ptr [ %add.ptr3.i1038, %for.body765 ], [ %token.promoted2768, %_ZNSt6vectorIiSaIiEE6resizeEm.exit ]
   %call.i1034 = call i64 @strspn(ptr noundef %add.ptr3.i103827692771, ptr noundef nonnull @.str) #27
   %add.ptr.i1035 = getelementptr inbounds i8, ptr %add.ptr3.i103827692771, i64 %call.i1034
-  %call1.i1036 = call noundef i32 @atoi(ptr nocapture noundef %add.ptr.i1035) #27
+  %call1.i1036 = call noundef i32 @atoi(ptr noundef %add.ptr.i1035) #27
   %call2.i1037 = call i64 @strcspn(ptr noundef %add.ptr.i1035, ptr noundef nonnull @.str.12) #27
   %add.ptr3.i1038 = getelementptr inbounds i8, ptr %add.ptr.i1035, i64 %call2.i1037
   %251 = load ptr, ptr %intValues.i, align 8
@@ -8762,7 +8762,7 @@ entry:
   %vn_idx.i = getelementptr inbounds nuw i8, ptr %vi, i64 8
   store i32 -1, ptr %vn_idx.i, align 4
   %0 = load ptr, ptr %token, align 8
-  %call = tail call i32 @atoi(ptr nocapture noundef %0) #27
+  %call = tail call i32 @atoi(ptr noundef %0) #27
   %call1 = call fastcc noundef zeroext i1 @_ZN7tinyobjL8fixIndexEiiPibRKNS_15warning_contextE(i32 noundef %call, i32 noundef %vsize, ptr noundef %vi, i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(16) %context)
   br i1 %call1, label %if.end3, label %return
 
@@ -8785,12 +8785,12 @@ if.end6:                                          ; preds = %if.end3
 if.then10:                                        ; preds = %if.end6
   %incdec.ptr11 = getelementptr inbounds nuw i8, ptr %add.ptr, i64 2
   store ptr %incdec.ptr11, ptr %token, align 8
-  %call12 = tail call i32 @atoi(ptr nocapture noundef nonnull %incdec.ptr11) #27
+  %call12 = tail call i32 @atoi(ptr noundef nonnull %incdec.ptr11) #27
   %call13 = call fastcc noundef zeroext i1 @_ZN7tinyobjL8fixIndexEiiPibRKNS_15warning_contextE(i32 noundef %call12, i32 noundef %vnsize, ptr noundef %vn_idx.i, i1 noundef zeroext true, ptr noundef nonnull align 8 dereferenceable(16) %context)
   br i1 %call13, label %return.sink.split.sink.split, label %return
 
 if.end18:                                         ; preds = %if.end6
-  %call19 = tail call i32 @atoi(ptr nocapture noundef nonnull %incdec.ptr) #27
+  %call19 = tail call i32 @atoi(ptr noundef nonnull %incdec.ptr) #27
   %call20 = call fastcc noundef zeroext i1 @_ZN7tinyobjL8fixIndexEiiPibRKNS_15warning_contextE(i32 noundef %call19, i32 noundef %vtsize, ptr noundef %vt_idx.i, i1 noundef zeroext true, ptr noundef nonnull align 8 dereferenceable(16) %context)
   br i1 %call20, label %if.end22, label %return
 
@@ -8806,7 +8806,7 @@ if.end22:                                         ; preds = %if.end18
 if.end29:                                         ; preds = %if.end22
   %incdec.ptr30 = getelementptr inbounds nuw i8, ptr %add.ptr24, i64 1
   store ptr %incdec.ptr30, ptr %token, align 8
-  %call31 = tail call i32 @atoi(ptr nocapture noundef nonnull %incdec.ptr30) #27
+  %call31 = tail call i32 @atoi(ptr noundef nonnull %incdec.ptr30) #27
   %call33 = call fastcc noundef zeroext i1 @_ZN7tinyobjL8fixIndexEiiPibRKNS_15warning_contextE(i32 noundef %call31, i32 noundef %vnsize, ptr noundef %vn_idx.i, i1 noundef zeroext true, ptr noundef nonnull align 8 dereferenceable(16) %context)
   br i1 %call33, label %return.sink.split.sink.split, label %return
 
@@ -13106,7 +13106,7 @@ while.cond140:                                    ; preds = %invoke.cont154, %if
   ]
 
 lor.rhs:                                          ; preds = %while.cond140
-  %call.i = call i32 @atoi(ptr nocapture noundef nonnull %storemerge) #27
+  %call.i = call i32 @atoi(ptr noundef nonnull %storemerge) #27
   %call1.i = call i64 @strcspn(ptr noundef nonnull %storemerge, ptr noundef nonnull @.str.80) #27
   %add.ptr.i102 = getelementptr inbounds i8, ptr %storemerge, i64 %call1.i
   store ptr %add.ptr.i102, ptr %token, align 8
@@ -13126,7 +13126,7 @@ if.then5.i:                                       ; preds = %if.end.i
   br label %return.sink.split.i
 
 if.end10.i:                                       ; preds = %if.end.i
-  %call11.i = call i32 @atoi(ptr nocapture noundef nonnull %incdec.ptr.i) #27
+  %call11.i = call i32 @atoi(ptr noundef nonnull %incdec.ptr.i) #27
   %call12.i = call i64 @strcspn(ptr noundef nonnull %incdec.ptr.i, ptr noundef nonnull @.str.80) #27
   %add.ptr13.i = getelementptr inbounds i8, ptr %incdec.ptr.i, i64 %call12.i
   store ptr %add.ptr13.i, ptr %token, align 8
@@ -13142,7 +13142,7 @@ return.sink.split.i:                              ; preds = %if.end18.i, %if.the
   %incdec.ptr19.sink20.i = phi ptr [ %incdec.ptr19.i, %if.end18.i ], [ %incdec.ptr6.i, %if.then5.i ]
   %retval.sroa.3.0.ph.i = phi i32 [ %call11.i, %if.end18.i ], [ 0, %if.then5.i ]
   store ptr %incdec.ptr19.sink20.i, ptr %token, align 8
-  %call20.i = call i32 @atoi(ptr nocapture noundef nonnull %incdec.ptr19.sink20.i) #27
+  %call20.i = call i32 @atoi(ptr noundef nonnull %incdec.ptr19.sink20.i) #27
   %call22.i = call i64 @strcspn(ptr noundef nonnull %incdec.ptr19.sink20.i, ptr noundef nonnull @.str.80) #27
   %add.ptr23.i = getelementptr inbounds i8, ptr %incdec.ptr19.sink20.i, i64 %call22.i
   store ptr %add.ptr23.i, ptr %token, align 8

@@ -11611,7 +11611,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %add.ptr6 = getelementptr inbounds nuw i8, ptr %spec.select, i64 60
   store ptr %add.ptr6, ptr %body, align 8
   %ar_size = getelementptr inbounds nuw i8, ptr %spec.select, i64 48
-  %call = call i64 @atol(ptr nocapture noundef nonnull %ar_size) #31
+  %call = call i64 @atol(ptr noundef nonnull %ar_size) #31
   %add.ptr8 = getelementptr inbounds i8, ptr %add.ptr6, i64 %call
   %bcmp.i.i.i = call i32 @bcmp(ptr noundef nonnull align 1 dereferenceable(60) %spec.select, ptr noundef nonnull dereferenceable(3) @.str.71, i64 3)
   %cmp.i.i.i.i = icmp eq i32 %bcmp.i.i.i, 0
@@ -11842,7 +11842,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %add.ptr3 = getelementptr inbounds nuw i8, ptr %spec.select, i64 60
   store ptr %add.ptr3, ptr %body, align 8
   %ar_size = getelementptr inbounds nuw i8, ptr %spec.select, i64 48
-  %call = call i64 @atol(ptr nocapture noundef nonnull %ar_size) #31
+  %call = call i64 @atol(ptr noundef nonnull %ar_size) #31
   %bcmp.i.i.i = call i32 @bcmp(ptr noundef nonnull align 1 dereferenceable(60) %spec.select, ptr noundef nonnull dereferenceable(3) @.str.71, i64 3)
   %cmp.i.i.i.i = icmp eq i32 %bcmp.i.i.i, 0
   br i1 %cmp.i.i.i.i, label %if.then6, label %if.end8
@@ -12903,7 +12903,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %add.ptr = getelementptr inbounds nuw i8, ptr %this, i64 3
-  %call2 = tail call i32 @atoi(ptr nocapture noundef nonnull %add.ptr) #31
+  %call2 = tail call i32 @atoi(ptr noundef nonnull %add.ptr) #31
   %0 = load ptr, ptr %ptr, align 8
   %conv = sext i32 %call2 to i64
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #17
@@ -13096,7 +13096,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i23: ; preds = %entry
 
 if.then11:                                        ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i23
   %add.ptr15 = getelementptr inbounds nuw i8, ptr %this, i64 1
-  %call16 = tail call i32 @atoi(ptr nocapture noundef nonnull %add.ptr15) #31
+  %call16 = tail call i32 @atoi(ptr noundef nonnull %add.ptr15) #31
   %idx.ext17 = sext i32 %call16 to i64
   %add.ptr18 = getelementptr inbounds i8, ptr %strtab.coerce1, i64 %idx.ext17
   %call19 = tail call noundef ptr @strstr(ptr noundef nonnull dereferenceable(1) %add.ptr18, ptr noundef nonnull dereferenceable(1) @.str.75) #31

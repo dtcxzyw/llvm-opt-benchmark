@@ -1398,7 +1398,7 @@ if.end619:                                        ; preds = %if.end605, %if.else
   br i1 %tobool620.not, label %if.end626, label %land.lhs.true621
 
 land.lhs.true621:                                 ; preds = %if.end619
-  %call622 = call i32 @atoi(ptr nocapture noundef nonnull %18) #19
+  %call622 = call i32 @atoi(ptr noundef nonnull %18) #19
   %cmp623 = icmp slt i32 %call622, 1
   br i1 %cmp623, label %if.then624, label %if.end626
 

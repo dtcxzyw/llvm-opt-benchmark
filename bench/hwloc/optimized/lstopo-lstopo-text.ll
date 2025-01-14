@@ -805,7 +805,7 @@ hwloc_obj_get_info_by_name.exit.i:                ; preds = %34
   br i1 %.not42.i, label %hwloc_calc_check_object_filtered.exit.thread, label %40
 
 40:                                               ; preds = %hwloc_obj_get_info_by_name.exit.i
-  %41 = tail call i32 @atoi(ptr nocapture noundef nonnull %39) #17
+  %41 = tail call i32 @atoi(ptr noundef nonnull %39) #17
   %.not43.i = icmp eq i32 %41, %26
   br i1 %.not43.i, label %42, label %hwloc_calc_check_object_filtered.exit.thread
 

@@ -1239,7 +1239,7 @@ lpad:                                             ; preds = %_ZNKSt6vectorIPN6As
 
 if.end12:                                         ; preds = %if.then3
   %call6 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %value) #25
-  %call7 = call i32 @atoi(ptr nocapture noundef %call6) #26
+  %call7 = call i32 @atoi(ptr noundef %call6) #26
   %mId.i.i = getelementptr inbounds nuw i8, ptr %call5, i64 8
   store i32 %call7, ptr %mId.i.i, align 8
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6Assimp4D3MF15EmbeddedTextureE, i64 16), ptr %call5, align 8
@@ -2315,7 +2315,7 @@ _ZNK4pugi13xml_attribute9as_stringEPKc.exit.i.i:  ; preds = %land.lhs.true.i.i.i
 
 if.then.i175:                                     ; preds = %_ZNK4pugi13xml_attribute9as_stringEPKc.exit.i.i
   %call1.i = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %strValue.i) #25
-  %call2.i176 = call i32 @atoi(ptr nocapture noundef %call1.i) #26
+  %call2.i176 = call i32 @atoi(ptr noundef %call1.i) #26
   br label %invoke.cont118
 
 lpad.i174:                                        ; preds = %_ZNK4pugi13xml_attribute9as_stringEPKc.exit.i.i
@@ -3104,7 +3104,7 @@ _ZNK4pugi13xml_attribute9as_stringEPKc.exit.i:    ; preds = %land.lhs.true.i.i
 
 if.then:                                          ; preds = %_ZNK4pugi13xml_attribute9as_stringEPKc.exit.i
   %call1 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %strValue) #25
-  %call2 = call i32 @atoi(ptr nocapture noundef %call1) #26
+  %call2 = call i32 @atoi(ptr noundef %call1) #26
   store i32 %call2, ptr %value, align 4
   br label %cleanup
 
@@ -4613,7 +4613,7 @@ if.end.i10.i:                                     ; preds = %land.lhs.true.i.tai
 
 if.end.i13.i:                                     ; preds = %for.inc.i.i, %if.end.i10.i, %call.i62.noexc
   %retval.0.i.sink.i = phi ptr [ @.str.21, %call.i62.noexc ], [ %cond.i.i64, %if.end.i10.i ], [ @.str.21, %for.inc.i.i ]
-  %call5.i = call i32 @atoi(ptr nocapture noundef nonnull %retval.0.i.sink.i) #26, !noalias !59
+  %call5.i = call i32 @atoi(ptr noundef nonnull %retval.0.i.sink.i) #26, !noalias !59
   store i32 %call5.i, ptr %call.i6265, align 4, !noalias !59
   %i.06.i15.i = load ptr, ptr %first_attribute.i.i, align 8, !noalias !59
   %tobool3.not7.i16.i = icmp eq ptr %i.06.i15.i, null
@@ -4668,7 +4668,7 @@ if.end.i31.i:                                     ; preds = %land.lhs.true.i21.t
 
 if.end.i38.i:                                     ; preds = %for.inc.i24.i, %if.end.i31.i, %if.end.i13.i
   %retval.0.i35.sink.i = phi ptr [ @.str.21, %if.end.i13.i ], [ %cond.i34.i, %if.end.i31.i ], [ @.str.21, %for.inc.i24.i ]
-  %call12.i = call i32 @atoi(ptr nocapture noundef nonnull %retval.0.i35.sink.i) #26, !noalias !59
+  %call12.i = call i32 @atoi(ptr noundef nonnull %retval.0.i35.sink.i) #26, !noalias !59
   %arrayidx14.i = getelementptr inbounds nuw i8, ptr %call.i6265, i64 4
   store i32 %call12.i, ptr %arrayidx14.i, align 4, !noalias !59
   %i.06.i40.i = load ptr, ptr %first_attribute.i.i, align 8, !noalias !59
@@ -4724,7 +4724,7 @@ if.end.i56.i:                                     ; preds = %land.lhs.true.i46.t
 
 if.end.i.i.i:                                     ; preds = %for.inc.i49.i, %if.end.i56.i, %if.end.i38.i
   %retval.0.i60.i.sink = phi ptr [ @.str.21, %if.end.i38.i ], [ %cond.i59.i, %if.end.i56.i ], [ @.str.21, %for.inc.i49.i ]
-  %call20.i = call i32 @atoi(ptr nocapture noundef nonnull %retval.0.i60.i.sink) #26, !noalias !59
+  %call20.i = call i32 @atoi(ptr noundef nonnull %retval.0.i60.i.sink) #26, !noalias !59
   %arrayidx22.i = getelementptr inbounds nuw i8, ptr %call.i6265, i64 8
   store i32 %call20.i, ptr %arrayidx22.i, align 4, !noalias !59
   %i.06.i.i.i = load ptr, ptr %first_attribute.i.i, align 8, !noalias !59

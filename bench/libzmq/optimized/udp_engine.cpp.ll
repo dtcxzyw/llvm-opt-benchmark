@@ -1958,7 +1958,7 @@ invoke.cont:                                      ; preds = %if.end8
 invoke.cont16:                                    ; preds = %invoke.cont
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp14) #19
   %call17 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %port_str) #19
-  %call18 = call i32 @atoi(ptr nocapture noundef %call17) #26
+  %call18 = call i32 @atoi(ptr noundef %call17) #26
   %conv20 = and i32 %call18, 65535
   %cmp21 = icmp eq i32 %conv20, 0
   br i1 %cmp21, label %cleanup.sink.split, label %if.end24

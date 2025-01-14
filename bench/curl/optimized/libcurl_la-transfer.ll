@@ -2162,7 +2162,7 @@ if.then138:                                       ; preds = %if.else133
 
 if.end140:                                        ; preds = %if.else133
   %32 = load ptr, ptr %portnum, align 8
-  %call141 = call i32 @atoi(ptr nocapture noundef %32) #11
+  %call141 = call i32 @atoi(ptr noundef %32) #11
   %33 = load ptr, ptr @Curl_cfree, align 8
   call void %33(ptr noundef %32) #10
   br label %if.end142

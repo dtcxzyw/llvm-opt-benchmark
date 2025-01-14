@@ -1689,7 +1689,7 @@ define void @Io_TransformSF2PLA(ptr noundef %0, ptr noundef %1) local_unnamed_ad
   br i1 %.not44, label %28, label %25
 
 25:                                               ; preds = %22
-  %26 = tail call i32 @atoi(ptr nocapture noundef nonnull %24) #15
+  %26 = tail call i32 @atoi(ptr noundef nonnull %24) #15
   %27 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %4, ptr noundef nonnull @.str.61, i32 noundef %26) #14
   br label %28
 
@@ -1699,7 +1699,7 @@ define void @Io_TransformSF2PLA(ptr noundef %0, ptr noundef %1) local_unnamed_ad
   br i1 %.not45, label %33, label %30
 
 30:                                               ; preds = %28
-  %31 = tail call i32 @atoi(ptr nocapture noundef nonnull %29) #15
+  %31 = tail call i32 @atoi(ptr noundef nonnull %29) #15
   %32 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %4, ptr noundef nonnull @.str.62, i32 noundef %31) #14
   br label %33
 
@@ -1709,7 +1709,7 @@ define void @Io_TransformSF2PLA(ptr noundef %0, ptr noundef %1) local_unnamed_ad
   br i1 %.not46, label %40, label %35
 
 35:                                               ; preds = %33
-  %36 = tail call i32 @atoi(ptr nocapture noundef nonnull %34) #15
+  %36 = tail call i32 @atoi(ptr noundef nonnull %34) #15
   %37 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %4, ptr noundef nonnull @.str.63, i32 noundef %36) #14
   br label %40
 
@@ -2075,9 +2075,9 @@ Vec_WecFree.exit:                                 ; preds = %._crit_edge.i.i, %.
 
 .outer:                                           ; preds = %16
   %30 = call ptr @strtok(ptr noundef null, ptr noundef nonnull @.str.66) #14
-  %31 = call i32 @atoi(ptr nocapture noundef %30) #15
+  %31 = call i32 @atoi(ptr noundef %30) #15
   %32 = call ptr @strtok(ptr noundef null, ptr noundef nonnull @.str.66) #14
-  %33 = call i32 @atoi(ptr nocapture noundef %32) #15
+  %33 = call i32 @atoi(ptr noundef %32) #15
   %34 = call ptr @fgets(ptr noundef nonnull %3, i32 noundef 10000, ptr noundef nonnull %8)
   %.not60 = icmp eq ptr %34, null
   br i1 %.not60, label %.outer._crit_edge, label %.lr.ph, !llvm.loop !18
@@ -2171,7 +2171,7 @@ Vec_WecPushLevel.exit:                            ; preds = %.Vec_WecGrow.exit12
 
 76:                                               ; preds = %Vec_WecPushLevel.exit, %Vec_IntPush.exit
   %.03859 = phi ptr [ %36, %Vec_WecPushLevel.exit ], [ %112, %Vec_IntPush.exit ]
-  %77 = call i32 @atoi(ptr nocapture noundef nonnull %.03859) #15
+  %77 = call i32 @atoi(ptr noundef nonnull %.03859) #15
   %78 = icmp eq i32 %77, 0
   br i1 %78, label %.backedge, label %79
 

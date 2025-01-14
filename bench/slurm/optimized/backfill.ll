@@ -700,7 +700,7 @@ define internal fastcc void @_load_config() unnamed_addr #0 {
 
 3:                                                ; preds = %0
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 12
-  %5 = tail call i32 @atoi(ptr nocapture noundef nonnull %4) #19
+  %5 = tail call i32 @atoi(ptr noundef nonnull %4) #19
   store i32 %5, ptr @backfill_interval, align 4
   %6 = icmp ne i32 %5, -1
   %7 = icmp slt i32 %5, 1
@@ -724,7 +724,7 @@ define internal fastcc void @_load_config() unnamed_addr #0 {
 
 13:                                               ; preds = %11
   %14 = getelementptr inbounds nuw i8, ptr %12, i64 12
-  %15 = tail call i32 @atoi(ptr nocapture noundef nonnull %14) #19
+  %15 = tail call i32 @atoi(ptr noundef nonnull %14) #19
   store i32 %15, ptr @bf_max_time, align 4
   %16 = add i32 %15, -3601
   %or.cond5 = icmp ult i32 %16, -3600
@@ -746,7 +746,7 @@ define internal fastcc void @_load_config() unnamed_addr #0 {
 
 22:                                               ; preds = %20
   %23 = getelementptr inbounds nuw i8, ptr %21, i64 10
-  %24 = tail call i32 @atoi(ptr nocapture noundef nonnull %23) #19
+  %24 = tail call i32 @atoi(ptr noundef nonnull %23) #19
   %25 = mul nsw i32 %24, 60
   store i32 %25, ptr @backfill_window, align 4
   %26 = add i32 %24, -43201
@@ -777,7 +777,7 @@ define internal fastcc void @_load_config() unnamed_addr #0 {
 
 34:                                               ; preds = %29
   %35 = getelementptr inbounds nuw i8, ptr %30, i64 16
-  %36 = tail call i32 @atoi(ptr nocapture noundef nonnull %35) #19
+  %36 = tail call i32 @atoi(ptr noundef nonnull %35) #19
   store i32 %36, ptr @max_backfill_job_cnt, align 4
   %37 = add i32 %36, -1000001
   %or.cond9 = icmp ult i32 %37, -1000000
@@ -798,7 +798,7 @@ define internal fastcc void @_load_config() unnamed_addr #0 {
 
 42:                                               ; preds = %40
   %43 = getelementptr inbounds nuw i8, ptr %41, i64 19
-  %44 = tail call i32 @atoi(ptr nocapture noundef nonnull %43) #19
+  %44 = tail call i32 @atoi(ptr noundef nonnull %43) #19
   br label %47
 
 45:                                               ; preds = %40
@@ -825,7 +825,7 @@ define internal fastcc void @_load_config() unnamed_addr #0 {
 
 54:                                               ; preds = %52
   %55 = getelementptr inbounds nuw i8, ptr %53, i64 14
-  %56 = tail call i32 @atoi(ptr nocapture noundef nonnull %55) #19
+  %56 = tail call i32 @atoi(ptr noundef nonnull %55) #19
   store i32 %56, ptr @backfill_resolution, align 4
   %57 = add i32 %56, -3601
   %or.cond13 = icmp ult i32 %57, -3600
@@ -846,7 +846,7 @@ define internal fastcc void @_load_config() unnamed_addr #0 {
 
 62:                                               ; preds = %60
   %63 = getelementptr inbounds nuw i8, ptr %61, i64 22
-  %64 = tail call i32 @atoi(ptr nocapture noundef nonnull %63) #19
+  %64 = tail call i32 @atoi(ptr noundef nonnull %63) #19
   store i32 %64, ptr @bf_max_job_array_resv, align 4
   %or.cond15 = icmp ugt i32 %64, 1000
   br i1 %or.cond15, label %65, label %67
@@ -866,7 +866,7 @@ define internal fastcc void @_load_config() unnamed_addr #0 {
 
 69:                                               ; preds = %67
   %70 = getelementptr inbounds nuw i8, ptr %68, i64 16
-  %71 = tail call i32 @atoi(ptr nocapture noundef nonnull %70) #19
+  %71 = tail call i32 @atoi(ptr noundef nonnull %70) #19
   store i32 %71, ptr @max_backfill_job_per_part, align 4
   %72 = icmp slt i32 %71, 0
   br i1 %72, label %73, label %76
@@ -900,7 +900,7 @@ define internal fastcc void @_load_config() unnamed_addr #0 {
 
 82:                                               ; preds = %.thread176
   %83 = getelementptr inbounds nuw i8, ptr %81, i64 17
-  %84 = tail call i32 @atoi(ptr nocapture noundef nonnull %83) #19
+  %84 = tail call i32 @atoi(ptr noundef nonnull %83) #19
   store i32 %84, ptr @max_backfill_jobs_start, align 4
   %or.cond17 = icmp ugt i32 %84, 10000
   br i1 %or.cond17, label %85, label %87
@@ -920,7 +920,7 @@ define internal fastcc void @_load_config() unnamed_addr #0 {
 
 89:                                               ; preds = %87
   %90 = getelementptr inbounds nuw i8, ptr %88, i64 16
-  %91 = tail call i32 @atoi(ptr nocapture noundef nonnull %90) #19
+  %91 = tail call i32 @atoi(ptr noundef nonnull %90) #19
   store i32 %91, ptr @max_backfill_job_per_user, align 4
   %92 = icmp slt i32 %91, 0
   br i1 %92, label %93, label %96
@@ -955,7 +955,7 @@ define internal fastcc void @_load_config() unnamed_addr #0 {
 
 102:                                              ; preds = %.thread179
   %103 = getelementptr inbounds nuw i8, ptr %101, i64 26
-  %104 = tail call i32 @atoi(ptr nocapture noundef nonnull %103) #19
+  %104 = tail call i32 @atoi(ptr noundef nonnull %103) #19
   %or.cond19 = icmp ugt i32 %104, 100000
   br i1 %or.cond19, label %105, label %107
 
@@ -974,7 +974,7 @@ define internal fastcc void @_load_config() unnamed_addr #0 {
 
 110:                                              ; preds = %108
   %111 = getelementptr inbounds nuw i8, ptr %109, i64 21
-  %112 = tail call i32 @atoi(ptr nocapture noundef nonnull %111) #19
+  %112 = tail call i32 @atoi(ptr noundef nonnull %111) #19
   store i32 %112, ptr @max_backfill_job_per_user_part, align 4
   %113 = icmp slt i32 %112, 0
   br i1 %113, label %114, label %117
@@ -1008,7 +1008,7 @@ define internal fastcc void @_load_config() unnamed_addr #0 {
 
 123:                                              ; preds = %.thread182
   %124 = getelementptr inbounds nuw i8, ptr %122, i64 17
-  %125 = tail call i32 @atoi(ptr nocapture noundef nonnull %124) #19
+  %125 = tail call i32 @atoi(ptr noundef nonnull %124) #19
   store i32 %125, ptr @max_backfill_job_per_assoc, align 4
   %126 = icmp slt i32 %125, 0
   br i1 %126, label %127, label %129
@@ -1056,7 +1056,7 @@ define internal fastcc void @_load_config() unnamed_addr #0 {
 
 141:                                              ; preds = %.thread185.thread
   %142 = getelementptr inbounds nuw i8, ptr %140, i64 19
-  %143 = tail call i32 @atoi(ptr nocapture noundef nonnull %142) #19
+  %143 = tail call i32 @atoi(ptr noundef nonnull %142) #19
   %or.cond23 = icmp ugt i32 %143, 2592000
   br i1 %or.cond23, label %144, label %146
 
@@ -1103,7 +1103,7 @@ define internal fastcc void @_load_config() unnamed_addr #0 {
 
 161:                                              ; preds = %157
   %162 = getelementptr inbounds nuw i8, ptr %160, i64 18
-  %163 = tail call i32 @atoi(ptr nocapture noundef nonnull %162) #19
+  %163 = tail call i32 @atoi(ptr noundef nonnull %162) #19
   store i32 %163, ptr @yield_interval, align 4
   %164 = add i32 %163, -10000001
   %or.cond27 = icmp ult i32 %164, -10000000
@@ -1124,7 +1124,7 @@ define internal fastcc void @_load_config() unnamed_addr #0 {
 
 169:                                              ; preds = %167
   %170 = getelementptr inbounds nuw i8, ptr %168, i64 15
-  %171 = tail call i64 @atoll(ptr nocapture noundef nonnull %170) #19
+  %171 = tail call i64 @atoll(ptr noundef nonnull %170) #19
   %172 = trunc i64 %171 to i32
   store i32 %172, ptr @yield_sleep, align 4
   %173 = add i32 %172, -10000001
@@ -1250,7 +1250,7 @@ define internal fastcc void @_load_config() unnamed_addr #0 {
 
 219:                                              ; preds = %217, %213
   %.sink = phi ptr [ %218, %217 ], [ %214, %213 ]
-  %220 = tail call i32 @atoi(ptr nocapture noundef nonnull %.sink) #19
+  %220 = tail call i32 @atoi(ptr noundef nonnull %.sink) #19
   store i32 %220, ptr @max_rpc_cnt, align 4
   %or.cond33 = icmp ugt i32 %220, 1000
   br i1 %or.cond33, label %221, label %223

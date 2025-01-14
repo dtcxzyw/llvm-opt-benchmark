@@ -710,7 +710,7 @@ _ZN17cmExecutionStatus8SetErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcES
 
 .thread:                                          ; preds = %._crit_edge.i.i.i.i, %.loopexit144
   %167 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %60) #18
-  %168 = call i32 @atoi(ptr nocapture noundef %167) #21
+  %168 = call i32 @atoi(ptr noundef %167) #21
   %.not68 = icmp eq i32 %168, 1
   br i1 %.not68, label %183, label %169
 
@@ -1193,7 +1193,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_125processObjectKindVersionsER9cmFi
 .preheader:                                       ; preds = %5, %36
   %.sroa.01.09 = phi ptr [ %37, %36 ], [ %.0.val, %5 ]
   %10 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.01.09) #18
-  %11 = tail call i32 @atoi(ptr nocapture noundef %10) #21
+  %11 = tail call i32 @atoi(ptr noundef %10) #21
   %12 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEcm(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.01.09, i8 noundef signext 46, i64 noundef 0) #18
   %.not = icmp eq i64 %12, -1
   br i1 %.not, label %17, label %13
@@ -1201,7 +1201,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_125processObjectKindVersionsER9cmFi
 13:                                               ; preds = %.preheader
   %14 = getelementptr i8, ptr %10, i64 %12
   %15 = getelementptr i8, ptr %14, i64 1
-  %16 = tail call i32 @atoi(ptr nocapture noundef %15) #21
+  %16 = tail call i32 @atoi(ptr noundef %15) #21
   br label %17
 
 17:                                               ; preds = %13, %.preheader

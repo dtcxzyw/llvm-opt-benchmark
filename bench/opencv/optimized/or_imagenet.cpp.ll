@@ -667,7 +667,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
   %217 = load ptr, ptr %16, align 8
   %218 = getelementptr inbounds nuw i8, ptr %217, i64 32
   %219 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %218) #19
-  %220 = call i32 @atoi(ptr nocapture noundef %219) #21
+  %220 = call i32 @atoi(ptr noundef %219) #21
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(36) %18, ptr noundef nonnull align 8 dereferenceable(32) %17)
           to label %221 unwind label %240
 
@@ -1376,7 +1376,7 @@ _ZN2cv3PtrINS_8datasets14OR_imagenetObjEED2Ev.exit152: ; preds = %_ZN2cv3PtrINS_
   store ptr %428, ptr %445, align 8
   store ptr %431, ptr %417, align 8
   %446 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %15) #19
-  %447 = call i32 @atoi(ptr nocapture noundef %446) #21
+  %447 = call i32 @atoi(ptr noundef %446) #21
   store i32 %447, ptr %428, align 8
   %448 = load ptr, ptr %140, align 8
   %449 = getelementptr inbounds i8, ptr %448, i64 -24
@@ -1699,7 +1699,7 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.e
 
 585:                                              ; preds = %584
   %586 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %15) #19
-  %587 = call i32 @atoi(ptr nocapture noundef %586) #21
+  %587 = call i32 @atoi(ptr noundef %586) #21
   %.not.i.i157 = icmp eq ptr %.sroa.9.0, %.sroa.19.0
   br i1 %.not.i.i157, label %589, label %588
 

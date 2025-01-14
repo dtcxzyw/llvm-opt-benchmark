@@ -3723,7 +3723,7 @@ declare i32 @OnUpdateLong(ptr noundef, ptr noundef, ptr noundef, ptr noundef, pt
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(readwrite, argmem: read, inaccessiblemem: read) uwtable
 define internal range(i32 -1, 1) i32 @OnSetSerializePrecision(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture readnone %4, i32 %5) #20 {
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %8 = tail call i64 @atoll(ptr nocapture noundef nonnull %7) #28
+  %8 = tail call i64 @atoll(ptr noundef nonnull %7) #28
   %9 = icmp sgt i64 %8, -2
   br i1 %9, label %10, label %11
 
@@ -3880,14 +3880,14 @@ define internal noundef i32 @OnUpdateTimeout(ptr nocapture readnone %0, ptr noca
 
 8:                                                ; preds = %6
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %10 = tail call i64 @atoll(ptr nocapture noundef nonnull %9) #28
+  %10 = tail call i64 @atoll(ptr noundef nonnull %9) #28
   store i64 %10, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 808), align 8
   br label %15
 
 11:                                               ; preds = %6
   tail call void @zend_unset_timeout() #29
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %13 = tail call i64 @atoll(ptr nocapture noundef nonnull %12) #28
+  %13 = tail call i64 @atoll(ptr noundef nonnull %12) #28
   store i64 %13, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 808), align 8
   %.not = icmp eq i32 %5, 8
   br i1 %.not, label %15, label %14
@@ -3968,7 +3968,7 @@ define internal range(i32 -1, 1) i32 @OnChangeMemoryLimit(ptr nocapture noundef 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(readwrite, argmem: read, inaccessiblemem: read) uwtable
 define internal range(i32 -1, 1) i32 @OnSetPrecision(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture readnone %4, i32 %5) #20 {
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %8 = tail call i64 @atoll(ptr nocapture noundef nonnull %7) #28
+  %8 = tail call i64 @atoll(ptr noundef nonnull %7) #28
   %9 = icmp sgt i64 %8, -2
   br i1 %9, label %10, label %11
 
@@ -4394,7 +4394,7 @@ thread-pre-split37:                               ; preds = %18
 
 .thread:                                          ; preds = %21, %29, %27
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %33 = tail call i64 @atoll(ptr nocapture noundef nonnull %32) #28
+  %33 = tail call i64 @atoll(ptr noundef nonnull %32) #28
   %34 = and i64 %33, 255
   %or.cond5 = icmp samesign ugt i64 %34, 2
   %35 = trunc i64 %33 to i8

@@ -1187,7 +1187,7 @@ define dso_local noundef range(i32 0, 3) i32 @_ZN8BuildLog4LoadERKNSt7__cxx1112b
 
 73:                                               ; preds = %67
   store i8 0, ptr %72, align 1
-  %74 = call i32 @atoi(ptr nocapture noundef %68) #28
+  %74 = call i32 @atoi(ptr noundef %68) #28
   %75 = getelementptr inbounds nuw i8, ptr %72, i64 1
   %76 = load ptr, ptr %10, align 8
   %77 = ptrtoint ptr %76 to i64
@@ -1209,7 +1209,7 @@ define dso_local noundef range(i32 0, 3) i32 @_ZN8BuildLog4LoadERKNSt7__cxx1112b
   br i1 %.not86, label %.backedge.backedge, label %88
 
 88:                                               ; preds = %81
-  %89 = call i32 @atoi(ptr nocapture noundef nonnull %75) #28
+  %89 = call i32 @atoi(ptr noundef nonnull %75) #28
   store i8 0, ptr %87, align 1
   %90 = call i64 @strtoll(ptr nocapture noundef nonnull %82, ptr noundef null, i32 noundef 10) #22
   %91 = getelementptr inbounds nuw i8, ptr %87, i64 1

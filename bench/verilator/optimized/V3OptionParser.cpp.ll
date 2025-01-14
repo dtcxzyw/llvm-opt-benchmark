@@ -7500,7 +7500,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK14V3OptionParser4Impl10Act
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN14V3OptionParser4Impl9ActionSetIiE4execEPKcS4_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #7 comdat align 2 {
-  %4 = tail call i32 @atoi(ptr nocapture noundef %2) #22
+  %4 = tail call i32 @atoi(ptr noundef %2) #22
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load ptr, ptr %5, align 8
   store i32 %4, ptr %6, align 4
@@ -8990,7 +8990,7 @@ _ZN14V3OptionParser4Impl11ActionCbValIiED2Ev.exit: ; preds = %1, %4
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN14V3OptionParser4Impl11ActionCbValIiE4execEPKcS4_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #3 comdat align 2 {
   %4 = alloca i32, align 4
-  %5 = tail call i32 @atoi(ptr nocapture noundef %2) #22
+  %5 = tail call i32 @atoi(ptr noundef %2) #22
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
   store i32 %5, ptr %4, align 4
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32

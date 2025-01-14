@@ -819,7 +819,7 @@ skipfile.exit.backedge:                           ; preds = %.preheader, %.tail,
 58:                                               ; preds = %55
   %59 = getelementptr i8, ptr %57, i64 1
   store i8 0, ptr %57, align 1
-  %60 = call i32 @atoi(ptr nocapture noundef %59) #13
+  %60 = call i32 @atoi(ptr noundef %59) #13
   %61 = icmp eq i32 %60, 0
   br i1 %61, label %62, label %63
 

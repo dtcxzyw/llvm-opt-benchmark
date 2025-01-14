@@ -3819,7 +3819,7 @@ if.end8.sink.split.i.i.i.i:                       ; preds = %_ZN9__gnu_cxx27__ex
 
 sw.bb249:                                         ; preds = %if.end243
   %call250 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %value) #22
-  %call251 = call i64 @atoll(ptr nocapture noundef %call250) #26
+  %call251 = call i64 @atoll(ptr noundef %call250) #26
   %field253 = getelementptr inbounds nuw i8, ptr %call.i127, i64 48
   %111 = load ptr, ptr %field253, align 8
   %_M_refcount3.i.i206 = getelementptr inbounds nuw i8, ptr %call.i127, i64 56
@@ -5319,7 +5319,7 @@ if.end8.sink.split.i.i.i.i:                       ; preds = %_ZN9__gnu_cxx27__ex
 
 sw.bb249:                                         ; preds = %if.end243
   %call250 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %value) #22
-  %call251 = call i64 @atoll(ptr nocapture noundef %call250) #26
+  %call251 = call i64 @atoll(ptr noundef %call250) #26
   %field253 = getelementptr inbounds nuw i8, ptr %call.i127, i64 48
   %111 = load ptr, ptr %field253, align 8
   %_M_refcount3.i.i206 = getelementptr inbounds nuw i8, ptr %call.i127, i64 56
@@ -6805,7 +6805,7 @@ if.end8.sink.split.i.i.i.i:                       ; preds = %_ZN9__gnu_cxx27__ex
 
 sw.bb249:                                         ; preds = %if.end243
   %call250 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %value) #22
-  %call251 = call i64 @atoll(ptr nocapture noundef %call250) #26
+  %call251 = call i64 @atoll(ptr noundef %call250) #26
   %field253 = getelementptr inbounds nuw i8, ptr %call.i127, i64 48
   %111 = load ptr, ptr %field253, align 8
   %_M_refcount3.i.i206 = getelementptr inbounds nuw i8, ptr %call.i127, i64 56

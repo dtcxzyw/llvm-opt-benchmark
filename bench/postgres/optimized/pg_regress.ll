@@ -544,7 +544,7 @@ add_stringlist_item.exit:                         ; preds = %add_stringlist_item
 
 64:                                               ; preds = %add_stringlist_item.exit
   %65 = load ptr, ptr @optarg, align 8
-  %66 = call i32 @atoi(ptr nocapture noundef %65) #27
+  %66 = call i32 @atoi(ptr noundef %65) #27
   store i32 %66, ptr @max_connections, align 4
   br label %add_stringlist_item.exit.backedge
 
@@ -605,7 +605,7 @@ add_stringlist_item.exit:                         ; preds = %add_stringlist_item
 
 92:                                               ; preds = %add_stringlist_item.exit
   %93 = load ptr, ptr @optarg, align 8
-  %94 = call i32 @atoi(ptr nocapture noundef %93) #27
+  %94 = call i32 @atoi(ptr noundef %93) #27
   store i32 %94, ptr @port, align 4
   store i1 true, ptr @port_specified_by_user, align 1
   br label %add_stringlist_item.exit.backedge
@@ -717,7 +717,7 @@ add_stringlist_item.exit.backedge:                ; preds = %134, %131, %118, %1
 
 139:                                              ; preds = %add_stringlist_item.exit
   %140 = load ptr, ptr @optarg, align 8
-  %141 = call i32 @atoi(ptr nocapture noundef %140) #27
+  %141 = call i32 @atoi(ptr noundef %140) #27
   store i32 %141, ptr @max_concurrent_tests, align 4
   br label %add_stringlist_item.exit.backedge
 
@@ -1549,7 +1549,7 @@ split:                                            ; preds = %527, %._crit_edge27
   br i1 %.not121, label %.lr.ph276.preheader, label %551
 
 551:                                              ; preds = %split
-  %552 = call i32 @atoi(ptr nocapture noundef nonnull %550) #27
+  %552 = call i32 @atoi(ptr noundef nonnull %550) #27
   %553 = icmp slt i32 %552, 1
   %spec.store.select = select i1 %553, i32 60, i32 %552
   %554 = mul i32 %spec.store.select, 20

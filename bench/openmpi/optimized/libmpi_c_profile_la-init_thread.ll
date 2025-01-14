@@ -33,7 +33,7 @@ define i32 @PMPI_Init_thread(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr
   br i1 %.not, label %9, label %7
 
 7:                                                ; preds = %5
-  %8 = tail call i32 @atoi(ptr nocapture noundef nonnull %6) #7
+  %8 = tail call i32 @atoi(ptr noundef nonnull %6) #7
   br label %9
 
 9:                                                ; preds = %4, %5, %7

@@ -130,7 +130,7 @@ if.else15.tail:                                   ; preds = %sub_1171
 
 if.then22:                                        ; preds = %if.else15.tail
   %add.ptr25 = getelementptr inbounds nuw i8, ptr %0, i64 3
-  %call26 = tail call i32 @atoi(ptr nocapture noundef nonnull %add.ptr25) #11
+  %call26 = tail call i32 @atoi(ptr noundef nonnull %add.ptr25) #11
   store i32 %call26, ptr @gEASTL_TestLevel, align 4
   %cmp27 = icmp slt i32 %call26, 1
   br i1 %cmp27, label %if.end32.sink.split, label %if.else29
@@ -162,7 +162,7 @@ if.else34.tail:                                   ; preds = %sub_1174
 
 if.then41:                                        ; preds = %if.else34.tail
   %add.ptr44 = getelementptr inbounds nuw i8, ptr %0, i64 3
-  %call45 = tail call i32 @atoi(ptr nocapture noundef nonnull %add.ptr44) #11
+  %call45 = tail call i32 @atoi(ptr noundef nonnull %add.ptr44) #11
   tail call void @_ZN2EA8UnitTest11SetRandSeedEj(i32 noundef %call45)
   %inc47 = add nsw i32 %nOptionCount.0185, 1
   br label %for.inc

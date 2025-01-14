@@ -847,7 +847,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_b
 52:                                               ; preds = %48, %47
   %.sink71 = phi ptr [ %9, %47 ], [ %10, %48 ]
   %53 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %.sink71) #18
-  %54 = call i32 @atoi(ptr nocapture noundef %53) #20
+  %54 = call i32 @atoi(ptr noundef %53) #20
   store i32 %54, ptr %5, align 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink71) #18
   %55 = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -934,7 +934,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_b
 94:                                               ; preds = %86
   %95 = getelementptr inbounds nuw i8, ptr %88, i64 64
   %96 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %95) #18
-  %97 = call i32 @atoi(ptr nocapture noundef %96) #20
+  %97 = call i32 @atoi(ptr noundef %96) #20
   store i32 %97, ptr %4, align 4
   br label %99
 

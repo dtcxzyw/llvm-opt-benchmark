@@ -251,7 +251,7 @@ define void @ADIOI_GEN_WriteStridedColl(ptr noundef %0, ptr noundef %1, i32 noun
   %153 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %154 = load ptr, ptr %153, align 8
   %155 = call i32 @PMPI_Info_get(ptr noundef %154, ptr noundef nonnull @.str.1, i32 noundef 256, ptr noundef %152, ptr noundef nonnull %16) #6
-  %156 = call i32 @atoi(ptr nocapture noundef %152) #7
+  %156 = call i32 @atoi(ptr noundef %152) #7
   call void @ADIOI_Free_fn(ptr noundef %152, i32 noundef 305, ptr noundef nonnull @.str) #6
   %157 = icmp sgt i32 %141, 0
   br i1 %157, label %.lr.ph.preheader.i, label %._crit_edge321.i

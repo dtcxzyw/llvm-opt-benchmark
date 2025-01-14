@@ -1742,7 +1742,7 @@ parse_boolean.exit:                               ; preds = %if.then.i, %if.then
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, argmem: readwrite) uwtable
 define internal noundef i32 @parse_test_app_data_size(ptr nocapture noundef writeonly initializes((8, 12)) %ctx, ptr nocapture noundef readonly %value) #5 {
 entry:
-  %call = tail call i32 @atoi(ptr nocapture noundef %value) #8
+  %call = tail call i32 @atoi(ptr noundef %value) #8
   %app_data_size = getelementptr inbounds nuw i8, ptr %ctx, i64 8
   store i32 %call, ptr %app_data_size, align 8
   ret i32 1
@@ -1751,7 +1751,7 @@ entry:
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, argmem: readwrite) uwtable
 define internal noundef i32 @parse_test_max_fragment_size(ptr nocapture noundef writeonly initializes((12, 16)) %ctx, ptr nocapture noundef readonly %value) #5 {
 entry:
-  %call = tail call i32 @atoi(ptr nocapture noundef %value) #8
+  %call = tail call i32 @atoi(ptr noundef %value) #8
   %max_fragment_size = getelementptr inbounds nuw i8, ptr %ctx, i64 12
   store i32 %call, ptr %max_fragment_size, align 4
   ret i32 1

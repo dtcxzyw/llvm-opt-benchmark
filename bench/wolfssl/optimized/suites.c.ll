@@ -812,7 +812,7 @@ IsSslVersion.exit:                                ; preds = %if.end25
   %switch.i.i = icmp eq i8 %6, 100
   %add.ptr6.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 5
   %spec.select.i.i = select i1 %switch.i.i, ptr %add.ptr6.i.i, ptr %add.ptr.i.i
-  %call7.i.i = call i32 @atoi(ptr nocapture noundef nonnull %spec.select.i.i) #20
+  %call7.i.i = call i32 @atoi(ptr noundef nonnull %spec.select.i.i) #20
   %switch = icmp ult i32 %call7.i.i, 2
   br i1 %switch, label %return, label %if.end35
 

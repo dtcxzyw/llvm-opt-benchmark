@@ -510,7 +510,7 @@ hwloc_utils_check_api_version.exit:               ; preds = %2
   br i1 %or.cond357, label %74, label %76
 
 74:                                               ; preds = %71
-  %75 = tail call i32 @atoi(ptr nocapture noundef nonnull %67) #25
+  %75 = tail call i32 @atoi(ptr noundef nonnull %67) #25
   br label %hwloc_utils_parse_input_format.exit.i
 
 76:                                               ; preds = %71
@@ -958,7 +958,7 @@ sub_1382:                                         ; preds = %.tail375.thread
 
 249:                                              ; preds = %247
   %250 = getelementptr inbounds nuw i8, ptr %208, i64 9
-  %251 = call i32 @atoi(ptr nocapture noundef nonnull %250) #25
+  %251 = call i32 @atoi(ptr noundef nonnull %250) #25
   store i32 %251, ptr @no_smt, align 4
   br label %412
 
@@ -1570,7 +1570,7 @@ sub_1412:                                         ; preds = %351
   br i1 %or.cond.i, label %hwloc_utils_parse_memattr_name.exit.thread, label %495
 
 495:                                              ; preds = %._crit_edge.i
-  %496 = call i32 @atoi(ptr nocapture noundef nonnull readonly %.1255) #25
+  %496 = call i32 @atoi(ptr noundef nonnull readonly %.1255) #25
   %497 = call i32 @hwloc_memattr_get_name(ptr noundef %484, i32 noundef %496, ptr noundef nonnull %3) #24
   %.inv.i = icmp sgt i32 %497, -1
   br i1 %.inv.i, label %hwloc_utils_parse_memattr_name.exit, label %hwloc_utils_parse_memattr_name.exit.thread
@@ -2969,7 +2969,7 @@ define internal fastcc range(i32 -1, 1) i32 @hwloc_calc_parse_level(ptr noundef 
 
 40:                                               ; preds = %37
   %41 = getelementptr inbounds nuw i8, ptr %36, i64 6
-  %42 = call i32 @atoi(ptr nocapture noundef nonnull %41) #25
+  %42 = call i32 @atoi(ptr noundef nonnull %41) #25
   store i32 %42, ptr %11, align 8
   br label %hwloc_calc_parse_level_filter.exit.thread
 
@@ -4792,7 +4792,7 @@ hwloc_obj_get_info_by_name.exit:                  ; preds = %23
   br i1 %.not42, label %hwloc_obj_get_info_by_name.exit.thread, label %29
 
 29:                                               ; preds = %hwloc_obj_get_info_by_name.exit
-  %30 = tail call i32 @atoi(ptr nocapture noundef nonnull %28) #25
+  %30 = tail call i32 @atoi(ptr noundef nonnull %28) #25
   %.not43 = icmp eq i32 %30, %15
   br i1 %.not43, label %31, label %hwloc_obj_get_info_by_name.exit.thread
 

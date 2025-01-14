@@ -3662,7 +3662,7 @@ define dso_local i32 @scontrol_job_notify(i32 noundef %0, ptr nocapture noundef 
   %3 = alloca ptr, align 8
   store ptr null, ptr %3, align 8
   %4 = load ptr, ptr %1, align 8
-  %5 = tail call i32 @atoi(ptr nocapture noundef %4) #16
+  %5 = tail call i32 @atoi(ptr noundef %4) #16
   %6 = icmp eq i32 %5, 0
   br i1 %6, label %8, label %.preheader
 

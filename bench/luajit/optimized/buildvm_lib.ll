@@ -1197,7 +1197,7 @@ if.end58:                                         ; preds = %if.then52
   store ptr %incdec.ptr59, ptr @optr, align 8
   store i8 -4, ptr %17, align 1
   %add.ptr60 = getelementptr inbounds nuw i8, ptr %p, i64 4
-  %call61 = tail call i32 @atoi(ptr nocapture noundef nonnull %add.ptr60) #18
+  %call61 = tail call i32 @atoi(ptr noundef nonnull %add.ptr60) #18
   %conv62 = trunc i32 %call61 to i8
   store ptr %add.ptr53, ptr @optr, align 8
   store i8 %conv62, ptr %incdec.ptr59, align 1

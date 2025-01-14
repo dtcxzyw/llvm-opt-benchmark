@@ -2177,7 +2177,7 @@ define internal fastcc range(i32 0, 2116) i32 @_parse_tres_str(ptr noundef %0) u
 
 22:                                               ; preds = %19
   %23 = getelementptr inbounds nuw i8, ptr %18, i64 1
-  %24 = tail call i32 @atoi(ptr nocapture noundef nonnull %23) #22
+  %24 = tail call i32 @atoi(ptr noundef nonnull %23) #22
   store i32 %24, ptr %20, align 8
   call void @slurm_xfree(ptr noundef nonnull %2) #21
   br label %25
@@ -2197,7 +2197,7 @@ define internal fastcc range(i32 0, 2116) i32 @_parse_tres_str(ptr noundef %0) u
 
 31:                                               ; preds = %28
   %32 = getelementptr inbounds nuw i8, ptr %27, i64 1
-  %33 = call i32 @atoi(ptr nocapture noundef nonnull %32) #22
+  %33 = call i32 @atoi(ptr noundef nonnull %32) #22
   store i32 %33, ptr %29, align 8
   call void @slurm_xfree(ptr noundef nonnull %2) #21
   br label %34

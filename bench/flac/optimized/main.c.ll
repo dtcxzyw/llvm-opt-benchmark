@@ -4321,7 +4321,7 @@ if.else218:                                       ; preds = %if.else213
 
 if.then222:                                       ; preds = %if.else218
   store i32 1, ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 72), align 8
-  %call223 = tail call i64 @atol(ptr nocapture noundef %option_argument) #25
+  %call223 = tail call i64 @atol(ptr noundef %option_argument) #25
   store i64 %call223, ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 80), align 8
   br label %return
 
@@ -4359,7 +4359,7 @@ if.else244:                                       ; preds = %if.else224
   br i1 %cmp246, label %if.then248, label %if.else250
 
 if.then248:                                       ; preds = %if.else244
-  %call249 = tail call i32 @atoi(ptr nocapture noundef %option_argument) #25
+  %call249 = tail call i32 @atoi(ptr noundef %option_argument) #25
   store i32 %call249, ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 1256), align 8
   br label %return
 
@@ -4369,7 +4369,7 @@ if.else250:                                       ; preds = %if.else244
   br i1 %cmp252, label %if.then254, label %if.else256
 
 if.then254:                                       ; preds = %if.else250
-  %call255 = tail call i32 @atoi(ptr nocapture noundef %option_argument) #25
+  %call255 = tail call i32 @atoi(ptr noundef %option_argument) #25
   store i32 %call255, ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 1260), align 4
   br label %return
 
@@ -4379,7 +4379,7 @@ if.else256:                                       ; preds = %if.else250
   br i1 %cmp258, label %if.then260, label %if.else262
 
 if.then260:                                       ; preds = %if.else256
-  %call261 = tail call i32 @atoi(ptr nocapture noundef %option_argument) #25
+  %call261 = tail call i32 @atoi(ptr noundef %option_argument) #25
   store i32 %call261, ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 1264), align 8
   br label %return
 
@@ -4811,7 +4811,7 @@ if.else540:                                       ; preds = %if.else527
   br label %return
 
 sw.bb546:                                         ; preds = %entry
-  %call547 = tail call i32 @atoi(ptr nocapture noundef %option_argument) #25
+  %call547 = tail call i32 @atoi(ptr noundef %option_argument) #25
   store i32 %call547, ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 176), align 8
   %cmp548 = icmp slt i32 %call547, 0
   br i1 %cmp548, label %if.then550, label %return
@@ -4821,7 +4821,7 @@ if.then550:                                       ; preds = %sw.bb546
   br label %return
 
 sw.bb553:                                         ; preds = %entry
-  %call554 = tail call i32 @atoi(ptr nocapture noundef %option_argument) #25
+  %call554 = tail call i32 @atoi(ptr noundef %option_argument) #25
   %22 = add i32 %call554, -65536
   %or.cond = icmp ult i32 %22, -65520
   br i1 %or.cond, label %if.then560, label %if.end562
@@ -4875,7 +4875,7 @@ add_compression_setting_bool.exit150:             ; preds = %sw.bb564
   br label %return
 
 sw.bb565:                                         ; preds = %entry
-  %call567 = tail call i32 @atoi(ptr nocapture noundef %option_argument) #25
+  %call567 = tail call i32 @atoi(ptr noundef %option_argument) #25
   %cmp568 = icmp ugt i32 %call567, 32
   br i1 %cmp568, label %if.then570, label %if.end572
 
@@ -5000,7 +5000,7 @@ add_compression_setting_bool.exit197:             ; preds = %sw.bb576
   br label %return
 
 sw.bb577:                                         ; preds = %entry
-  %call579 = tail call i32 @atoi(ptr nocapture noundef %option_argument) #25
+  %call579 = tail call i32 @atoi(ptr noundef %option_argument) #25
   %cmp580.not = icmp ne i32 %call579, 0
   %29 = add i32 %call579, -16
   %or.cond1 = icmp ult i32 %29, -11
@@ -5022,7 +5022,7 @@ sw.bb591:                                         ; preds = %entry
 
 if.then597:                                       ; preds = %sw.bb591
   tail call fastcc void @add_compression_setting_uint32_t(i32 noundef 10, i32 noundef 0)
-  %call598 = tail call i32 @atoi(ptr nocapture noundef %option_argument) #25
+  %call598 = tail call i32 @atoi(ptr noundef %option_argument) #25
   %cmp599 = icmp ugt i32 %call598, 15
   br i1 %cmp599, label %if.then601, label %if.end603
 
@@ -5035,7 +5035,7 @@ if.end603:                                        ; preds = %if.then597
   br label %return
 
 if.else604:                                       ; preds = %sw.bb591
-  %call605 = tail call i32 @atoi(ptr nocapture noundef %option_argument) #25
+  %call605 = tail call i32 @atoi(ptr noundef %option_argument) #25
   %cmp606 = icmp ugt i32 %call605, 15
   br i1 %cmp606, label %if.then608, label %if.end610
 
@@ -5046,7 +5046,7 @@ if.then608:                                       ; preds = %if.else604
 if.end610:                                        ; preds = %if.else604
   tail call fastcc void @add_compression_setting_uint32_t(i32 noundef 10, i32 noundef %call605)
   %incdec.ptr611 = getelementptr inbounds nuw i8, ptr %call594, i64 1
-  %call612 = tail call i32 @atoi(ptr nocapture noundef nonnull %incdec.ptr611) #25
+  %call612 = tail call i32 @atoi(ptr noundef nonnull %incdec.ptr611) #25
   %cmp613 = icmp ugt i32 %call612, 15
   br i1 %cmp613, label %if.then615, label %if.end617
 
@@ -5068,7 +5068,7 @@ if.then.i201:                                     ; preds = %sw.bb619
   unreachable
 
 add_compression_setting_uint32_t.exit202:         ; preds = %sw.bb619
-  %call621 = tail call i32 @atoi(ptr nocapture noundef %option_argument) #25
+  %call621 = tail call i32 @atoi(ptr noundef %option_argument) #25
   %arrayidx.i199 = getelementptr inbounds nuw [64 x %struct.compression_setting_t], ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 192), i64 0, i64 %30
   store i32 12, ptr %arrayidx.i199, align 8
   %value5.idx.i = shl nuw nsw i64 %30, 4
@@ -5080,7 +5080,7 @@ add_compression_setting_uint32_t.exit202:         ; preds = %sw.bb619
   br label %return
 
 sw.bb622:                                         ; preds = %entry
-  %call623 = tail call i32 @atoi(ptr nocapture noundef %option_argument) #25
+  %call623 = tail call i32 @atoi(ptr noundef %option_argument) #25
   store i32 %call623, ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 1216), align 8
   br label %return
 

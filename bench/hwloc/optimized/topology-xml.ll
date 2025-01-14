@@ -301,7 +301,7 @@ define i32 @hwloc__xml_verbose() local_unnamed_addr #0 {
   br i1 %.not, label %5, label %3
 
 3:                                                ; preds = %1
-  %4 = tail call i32 @atoi(ptr nocapture noundef nonnull %2) #22
+  %4 = tail call i32 @atoi(ptr noundef nonnull %2) #22
   store i32 %4, ptr @hwloc__xml_verbose.verbose, align 4
   br label %5
 
@@ -481,7 +481,7 @@ define range(i32 -2147483648, 1) i32 @hwloc__xml_import_diff(ptr noundef %0, ptr
   br i1 %.not.i.i, label %60, label %58
 
 58:                                               ; preds = %56
-  %59 = call i32 @atoi(ptr nocapture noundef nonnull %57) #22
+  %59 = call i32 @atoi(ptr noundef nonnull %57) #22
   store i32 %59, ptr @hwloc__xml_verbose.verbose, align 4
   br label %60
 
@@ -522,7 +522,7 @@ hwloc__xml_verbose.exit.i:                        ; preds = %60, %55
   br i1 %.not75.i, label %152, label %74
 
 74:                                               ; preds = %._crit_edge.i
-  %75 = call i32 @atoi(ptr nocapture noundef nonnull %.1.i) #22
+  %75 = call i32 @atoi(ptr noundef nonnull %.1.i) #22
   %cond.i = icmp eq i32 %75, 0
   br i1 %cond.i, label %76, label %152
 
@@ -544,7 +544,7 @@ hwloc__xml_verbose.exit.i:                        ; preds = %60, %55
   br i1 %.not.i82.i, label %85, label %83
 
 83:                                               ; preds = %81
-  %84 = call i32 @atoi(ptr nocapture noundef nonnull %82) #22
+  %84 = call i32 @atoi(ptr noundef nonnull %82) #22
   store i32 %84, ptr @hwloc__xml_verbose.verbose, align 4
   br label %85
 
@@ -581,7 +581,7 @@ hwloc__xml_verbose.exit83.i:                      ; preds = %85, %80
   br i1 %.not.i85.i, label %101, label %99
 
 99:                                               ; preds = %97
-  %100 = call i32 @atoi(ptr nocapture noundef nonnull %98) #22
+  %100 = call i32 @atoi(ptr noundef nonnull %98) #22
   store i32 %100, ptr @hwloc__xml_verbose.verbose, align 4
   br label %101
 
@@ -603,7 +603,7 @@ hwloc__xml_verbose.exit86.i:                      ; preds = %101, %96
   br label %152
 
 109:                                              ; preds = %93
-  %110 = call i32 @atoi(ptr nocapture noundef nonnull %.161.i) #22
+  %110 = call i32 @atoi(ptr noundef nonnull %.161.i) #22
   %111 = icmp ne i32 %110, 2
   %112 = icmp ne ptr %.159.i, null
   %or.cond7.i = select i1 %111, i1 true, i1 %112
@@ -619,7 +619,7 @@ hwloc__xml_verbose.exit86.i:                      ; preds = %101, %96
   br i1 %.not.i88.i, label %118, label %116
 
 116:                                              ; preds = %114
-  %117 = call i32 @atoi(ptr nocapture noundef nonnull %115) #22
+  %117 = call i32 @atoi(ptr noundef nonnull %115) #22
   store i32 %117, ptr @hwloc__xml_verbose.verbose, align 4
   br label %118
 
@@ -647,10 +647,10 @@ hwloc__xml_verbose.exit89.i:                      ; preds = %118, %113
 
 128:                                              ; preds = %126
   store i32 0, ptr %127, align 8
-  %129 = call i32 @atoi(ptr nocapture noundef nonnull %.165.i) #22
+  %129 = call i32 @atoi(ptr noundef nonnull %.165.i) #22
   %130 = getelementptr inbounds nuw i8, ptr %127, i64 16
   store i32 %129, ptr %130, align 8
-  %131 = call i32 @atoi(ptr nocapture noundef nonnull %.163.i) #22
+  %131 = call i32 @atoi(ptr noundef nonnull %.163.i) #22
   %132 = getelementptr inbounds nuw i8, ptr %127, i64 20
   store i32 %131, ptr %132, align 4
   %133 = getelementptr inbounds nuw i8, ptr %127, i64 24
@@ -782,7 +782,7 @@ define i32 @hwloc_topology_diff_load_xml(ptr noundef %0, ptr noundef initializes
 
 .sink.split.i:                                    ; preds = %17, %15
   %.sink8.i = phi ptr [ %16, %15 ], [ %18, %17 ]
-  %19 = call i32 @atoi(ptr nocapture noundef nonnull %.sink8.i) #22
+  %19 = call i32 @atoi(ptr noundef nonnull %.sink8.i) #22
   %.not6.i = icmp eq i32 %19, 0
   %20 = zext i1 %.not6.i to i32
   store i32 %20, ptr @hwloc_nolibxml_import.nolibxml, align 4
@@ -922,7 +922,7 @@ define i32 @hwloc_topology_diff_load_xmlbuffer(ptr noundef %0, i32 noundef %1, p
 
 .sink.split.i:                                    ; preds = %16, %14
   %.sink8.i = phi ptr [ %15, %14 ], [ %17, %16 ]
-  %18 = call i32 @atoi(ptr nocapture noundef nonnull %.sink8.i) #22
+  %18 = call i32 @atoi(ptr noundef nonnull %.sink8.i) #22
   %.not6.i = icmp eq i32 %18, 0
   %19 = zext i1 %.not6.i to i32
   store i32 %19, ptr @hwloc_nolibxml_import.nolibxml, align 4
@@ -1066,7 +1066,7 @@ hwloc__xml_v2export_distances.exit:               ; preds = %25, %3, %.preheader
   br i1 %.not, label %30, label %28
 
 28:                                               ; preds = %hwloc__xml_v2export_distances.exit
-  %29 = tail call i32 @atoi(ptr nocapture noundef nonnull %27) #22
+  %29 = tail call i32 @atoi(ptr noundef nonnull %27) #22
   %.not17 = icmp eq i32 %29, 0
   br i1 %.not17, label %641, label %30
 
@@ -3517,7 +3517,7 @@ define i32 @hwloc_topology_export_xml(ptr noundef %0, ptr noundef %1, i64 nounde
 
 .sink.split.i:                                    ; preds = %21, %19
   %.sink8.i = phi ptr [ %20, %19 ], [ %22, %21 ]
-  %23 = tail call i32 @atoi(ptr nocapture noundef nonnull %.sink8.i) #22
+  %23 = tail call i32 @atoi(ptr noundef nonnull %.sink8.i) #22
   %.not6.i = icmp eq i32 %23, 0
   %24 = zext i1 %.not6.i to i32
   store i32 %24, ptr @hwloc_nolibxml_export.nolibxml, align 4
@@ -3647,7 +3647,7 @@ define i32 @hwloc_topology_export_xmlbuffer(ptr noundef %0, ptr noundef %1, ptr 
 
 .sink.split.i:                                    ; preds = %22, %20
   %.sink8.i = phi ptr [ %21, %20 ], [ %23, %22 ]
-  %24 = tail call i32 @atoi(ptr nocapture noundef nonnull %.sink8.i) #22
+  %24 = tail call i32 @atoi(ptr noundef nonnull %.sink8.i) #22
   %.not6.i = icmp eq i32 %24, 0
   %25 = zext i1 %.not6.i to i32
   store i32 %25, ptr @hwloc_nolibxml_export.nolibxml, align 4
@@ -3773,7 +3773,7 @@ define i32 @hwloc_topology_diff_export_xml(ptr noundef %0, ptr noundef %1, ptr n
 
 .sink.split.i:                                    ; preds = %17, %15
   %.sink8.i = phi ptr [ %16, %15 ], [ %18, %17 ]
-  %19 = tail call i32 @atoi(ptr nocapture noundef nonnull %.sink8.i) #22
+  %19 = tail call i32 @atoi(ptr noundef nonnull %.sink8.i) #22
   %.not6.i = icmp eq i32 %19, 0
   %20 = zext i1 %.not6.i to i32
   store i32 %20, ptr @hwloc_nolibxml_export.nolibxml, align 4
@@ -3903,7 +3903,7 @@ define i32 @hwloc_topology_diff_export_xmlbuffer(ptr noundef %0, ptr noundef %1,
 
 .sink.split.i:                                    ; preds = %18, %16
   %.sink8.i = phi ptr [ %17, %16 ], [ %19, %18 ]
-  %20 = tail call i32 @atoi(ptr nocapture noundef nonnull %.sink8.i) #22
+  %20 = tail call i32 @atoi(ptr noundef nonnull %.sink8.i) #22
   %.not6.i = icmp eq i32 %20, 0
   %21 = zext i1 %.not6.i to i32
   store i32 %21, ptr @hwloc_nolibxml_export.nolibxml, align 4
@@ -4001,7 +4001,7 @@ define void @hwloc_free_xmlbuffer(ptr nocapture noundef readnone %0, ptr noundef
 
 .sink.split.i:                                    ; preds = %5, %3
   %.sink8.i = phi ptr [ %4, %3 ], [ %6, %5 ]
-  %7 = tail call i32 @atoi(ptr nocapture noundef nonnull %.sink8.i) #22
+  %7 = tail call i32 @atoi(ptr noundef nonnull %.sink8.i) #22
   %.not6.i = icmp eq i32 %7, 0
   %8 = zext i1 %.not6.i to i32
   store i32 %8, ptr @hwloc_nolibxml_export.nolibxml, align 4
@@ -4813,7 +4813,7 @@ define internal ptr @hwloc_xml_component_instantiate(ptr noundef %0, ptr noundef
 
 .sink.split.i:                                    ; preds = %30, %28
   %.sink8.i = phi ptr [ %29, %28 ], [ %31, %30 ]
-  %32 = tail call i32 @atoi(ptr nocapture noundef nonnull %.sink8.i) #22
+  %32 = tail call i32 @atoi(ptr noundef nonnull %.sink8.i) #22
   %.not6.i = icmp eq i32 %32, 0
   %33 = zext i1 %.not6.i to i32
   store i32 %33, ptr @hwloc_nolibxml_import.nolibxml, align 4
@@ -4957,7 +4957,7 @@ define internal range(i32 -1, 1) i32 @hwloc_look_xml(ptr noundef %0, ptr nocaptu
   br i1 %.not.i, label %53, label %51
 
 51:                                               ; preds = %49
-  %52 = call i32 @atoi(ptr nocapture noundef nonnull %50) #22
+  %52 = call i32 @atoi(ptr noundef nonnull %50) #22
   store i32 %52, ptr @hwloc__xml_verbose.verbose, align 4
   br label %53
 
@@ -4993,7 +4993,7 @@ hwloc__xml_verbose.exit:                          ; preds = %48, %53
   br i1 %.not.i174, label %69, label %67
 
 67:                                               ; preds = %65
-  %68 = call i32 @atoi(ptr nocapture noundef nonnull %66) #22
+  %68 = call i32 @atoi(ptr noundef nonnull %66) #22
   store i32 %68, ptr @hwloc__xml_verbose.verbose, align 4
   br label %69
 
@@ -5123,7 +5123,7 @@ hwloc__xml_verbose.exit175:                       ; preds = %64, %69
 
 139:                                              ; preds = %137
   %140 = load ptr, ptr %18, align 8
-  %141 = call i32 @atoi(ptr nocapture noundef %140) #22
+  %141 = call i32 @atoi(ptr noundef %140) #22
   br label %155
 
 142:                                              ; preds = %137
@@ -5136,7 +5136,7 @@ hwloc__xml_verbose.exit175:                       ; preds = %64, %69
   br i1 %.not.i.i, label %147, label %145
 
 145:                                              ; preds = %143
-  %146 = call i32 @atoi(ptr nocapture noundef nonnull %144) #22
+  %146 = call i32 @atoi(ptr noundef nonnull %144) #22
   store i32 %146, ptr @hwloc__xml_verbose.verbose, align 4
   br label %147
 
@@ -5593,7 +5593,7 @@ hwloc__xml_import_support.exit:                   ; preds = %127, %._crit_edge.i
   br i1 %.not.i.i180, label %348, label %346
 
 346:                                              ; preds = %344
-  %347 = call i32 @atoi(ptr nocapture noundef nonnull %345) #22
+  %347 = call i32 @atoi(ptr noundef nonnull %345) #22
   store i32 %347, ptr @hwloc__xml_verbose.verbose, align 4
   br label %348
 
@@ -5764,7 +5764,7 @@ hwloc__xml_verbose.exit.i181:                     ; preds = %348, %343
   br i1 %.not.i.i.i, label %423, label %421
 
 421:                                              ; preds = %419
-  %422 = call i32 @atoi(ptr nocapture noundef nonnull %420) #22
+  %422 = call i32 @atoi(ptr noundef nonnull %420) #22
   store i32 %422, ptr @hwloc__xml_verbose.verbose, align 4
   br label %423
 
@@ -5813,7 +5813,7 @@ hwloc__xml_verbose.exit.i.i:                      ; preds = %423, %418
   br i1 %.not.i65.i.i, label %441, label %439
 
 439:                                              ; preds = %437
-  %440 = call i32 @atoi(ptr nocapture noundef nonnull %438) #22
+  %440 = call i32 @atoi(ptr noundef nonnull %438) #22
   store i32 %440, ptr @hwloc__xml_verbose.verbose, align 4
   br label %441
 
@@ -5849,7 +5849,7 @@ hwloc__xml_verbose.exit66.i.i:                    ; preds = %441, %._crit_edge.t
   br i1 %.not.i68.i.i, label %457, label %455
 
 455:                                              ; preds = %453
-  %456 = call i32 @atoi(ptr nocapture noundef nonnull %454) #22
+  %456 = call i32 @atoi(ptr noundef nonnull %454) #22
   store i32 %456, ptr @hwloc__xml_verbose.verbose, align 4
   br label %457
 
@@ -5886,7 +5886,7 @@ hwloc__xml_verbose.exit69.i.i:                    ; preds = %457, %452
   br i1 %.not.i71.i.i, label %473, label %471
 
 471:                                              ; preds = %469
-  %472 = call i32 @atoi(ptr nocapture noundef nonnull %470) #22
+  %472 = call i32 @atoi(ptr noundef nonnull %470) #22
   store i32 %472, ptr @hwloc__xml_verbose.verbose, align 4
   br label %473
 
@@ -5932,7 +5932,7 @@ hwloc__xml_verbose.exit72.i.i:                    ; preds = %473, %468
   br i1 %.not.i53.i, label %493, label %491
 
 491:                                              ; preds = %489
-  %492 = call i32 @atoi(ptr nocapture noundef nonnull %490) #22
+  %492 = call i32 @atoi(ptr noundef nonnull %490) #22
   store i32 %492, ptr @hwloc__xml_verbose.verbose, align 4
   br label %493
 
@@ -5970,7 +5970,7 @@ hwloc__xml_verbose.exit54.i:                      ; preds = %493, %488
   br i1 %.not.i74.i.i, label %507, label %505
 
 505:                                              ; preds = %503
-  %506 = call i32 @atoi(ptr nocapture noundef nonnull %504) #22
+  %506 = call i32 @atoi(ptr noundef nonnull %504) #22
   store i32 %506, ptr @hwloc__xml_verbose.verbose, align 4
   br label %507
 
@@ -6098,7 +6098,7 @@ hwloc___xml_import_info.exit.i:                   ; preds = %549, %._crit_edge.i
   br i1 %.not.i50.i, label %566, label %564
 
 564:                                              ; preds = %562
-  %565 = call i32 @atoi(ptr nocapture noundef nonnull %563) #22
+  %565 = call i32 @atoi(ptr noundef nonnull %563) #22
   store i32 %565, ptr @hwloc__xml_verbose.verbose, align 4
   br label %566
 
@@ -6554,7 +6554,7 @@ sub_1:                                            ; preds = %sub_0
   br i1 %.not.i189, label %771, label %769
 
 769:                                              ; preds = %767
-  %770 = call i32 @atoi(ptr nocapture noundef nonnull %768) #22
+  %770 = call i32 @atoi(ptr noundef nonnull %768) #22
   store i32 %770, ptr @hwloc__xml_verbose.verbose, align 4
   br label %771
 
@@ -6773,7 +6773,7 @@ define internal fastcc i32 @hwloc__xml_import_object(ptr noundef %0, ptr nocaptu
   br i1 %.not.i, label %96, label %94
 
 94:                                               ; preds = %92
-  %95 = call i32 @atoi(ptr nocapture noundef nonnull %93) #22
+  %95 = call i32 @atoi(ptr noundef nonnull %93) #22
   store i32 %95, ptr @hwloc__xml_verbose.verbose, align 4
   br label %96
 
@@ -6804,7 +6804,7 @@ hwloc__xml_verbose.exit:                          ; preds = %91, %96
   br i1 %.not.i299, label %109, label %107
 
 107:                                              ; preds = %105
-  %108 = call i32 @atoi(ptr nocapture noundef nonnull %106) #22
+  %108 = call i32 @atoi(ptr noundef nonnull %106) #22
   store i32 %108, ptr @hwloc__xml_verbose.verbose, align 4
   br label %109
 
@@ -6840,7 +6840,7 @@ hwloc__xml_verbose.exit300:                       ; preds = %104, %109
   br i1 %.not.i302, label %125, label %123
 
 123:                                              ; preds = %121
-  %124 = call i32 @atoi(ptr nocapture noundef nonnull %122) #22
+  %124 = call i32 @atoi(ptr noundef nonnull %122) #22
   store i32 %124, ptr @hwloc__xml_verbose.verbose, align 4
   br label %125
 
@@ -6916,7 +6916,7 @@ hwloc__xml_verbose.exit303:                       ; preds = %120, %125
   br i1 %.not.i.i, label %150, label %148
 
 148:                                              ; preds = %146
-  %149 = call i32 @atoi(ptr nocapture noundef nonnull %147) #22
+  %149 = call i32 @atoi(ptr noundef nonnull %147) #22
   store i32 %149, ptr @hwloc__xml_verbose.verbose, align 4
   br label %150
 
@@ -7024,7 +7024,7 @@ sub_1292.i:                                       ; preds = %sub_0291.i
   br i1 %.not.i288.i, label %195, label %193
 
 193:                                              ; preds = %191
-  %194 = call i32 @atoi(ptr nocapture noundef nonnull %192) #22
+  %194 = call i32 @atoi(ptr noundef nonnull %192) #22
   store i32 %194, ptr @hwloc__xml_verbose.verbose, align 4
   br label %195
 
@@ -7273,7 +7273,7 @@ hwloc__xml_verbose.exit289.i:                     ; preds = %195, %.tail290.thre
   br i1 %.not240.i, label %306, label %322
 
 306:                                              ; preds = %304
-  %307 = call i32 @atoi(ptr nocapture noundef %134) #22
+  %307 = call i32 @atoi(ptr noundef %134) #22
   %308 = add i32 %118, -12
   %309 = icmp ult i32 %308, -8
   br i1 %309, label %310, label %311
@@ -7947,7 +7947,7 @@ hwloc__xml_import_object_attr.exit:               ; preds = %584, %586, %450, %4
   br i1 %.not.i306, label %671, label %669
 
 669:                                              ; preds = %667
-  %670 = call i32 @atoi(ptr nocapture noundef nonnull %668) #22
+  %670 = call i32 @atoi(ptr noundef nonnull %668) #22
   store i32 %670, ptr @hwloc__xml_verbose.verbose, align 4
   br label %671
 
@@ -8365,7 +8365,7 @@ hwloc__xml_import_userdata.exit:                  ; preds = %759, %.thread.i, %.
   br i1 %.not.i315, label %855, label %853
 
 853:                                              ; preds = %851
-  %854 = call i32 @atoi(ptr nocapture noundef nonnull %852) #22
+  %854 = call i32 @atoi(ptr noundef nonnull %852) #22
   store i32 %854, ptr @hwloc__xml_verbose.verbose, align 4
   br label %855
 
@@ -8441,7 +8441,7 @@ hwloc__xml_import_obj_info.exit.thread344:        ; preds = %706, %738, %736, %h
   br i1 %.not.i318, label %889, label %887
 
 887:                                              ; preds = %885
-  %888 = call i32 @atoi(ptr nocapture noundef nonnull %886) #22
+  %888 = call i32 @atoi(ptr noundef nonnull %886) #22
   store i32 %888, ptr @hwloc__xml_verbose.verbose, align 4
   br label %889
 
@@ -8483,7 +8483,7 @@ hwloc__xml_verbose.exit319:                       ; preds = %884, %889
   br i1 %.not.i321, label %905, label %903
 
 903:                                              ; preds = %901
-  %904 = call i32 @atoi(ptr nocapture noundef nonnull %902) #22
+  %904 = call i32 @atoi(ptr noundef nonnull %902) #22
   store i32 %904, ptr @hwloc__xml_verbose.verbose, align 4
   br label %905
 
@@ -8716,7 +8716,7 @@ hwloc_cache_type_by_depth_type.exit:              ; preds = %995, %997
   br i1 %.not.i328, label %1004, label %1002
 
 1002:                                             ; preds = %1000
-  %1003 = call i32 @atoi(ptr nocapture noundef nonnull %1001) #22
+  %1003 = call i32 @atoi(ptr noundef nonnull %1001) #22
   store i32 %1003, ptr @hwloc__xml_verbose.verbose, align 4
   br label %1004
 
@@ -8759,7 +8759,7 @@ hwloc__xml_verbose.exit329:                       ; preds = %999, %1004
   br i1 %.not.i331, label %1024, label %1022
 
 1022:                                             ; preds = %1020
-  %1023 = call i32 @atoi(ptr nocapture noundef nonnull %1021) #22
+  %1023 = call i32 @atoi(ptr noundef nonnull %1021) #22
   store i32 %1023, ptr @hwloc__xml_verbose.verbose, align 4
   br label %1024
 
@@ -8796,7 +8796,7 @@ hwloc__xml_verbose.exit332:                       ; preds = %1019, %1024
   br i1 %.not.i334, label %1041, label %1039
 
 1039:                                             ; preds = %1037
-  %1040 = call i32 @atoi(ptr nocapture noundef nonnull %1038) #22
+  %1040 = call i32 @atoi(ptr noundef nonnull %1038) #22
   store i32 %1040, ptr @hwloc__xml_verbose.verbose, align 4
   br label %1041
 
@@ -9369,7 +9369,7 @@ define internal fastcc i32 @hwloc__xml_import_distances(ptr noundef %0, ptr noun
   br i1 %.not.i, label %42, label %40
 
 40:                                               ; preds = %38
-  %41 = call i32 @atoi(ptr nocapture noundef nonnull %39) #22
+  %41 = call i32 @atoi(ptr noundef nonnull %39) #22
   store i32 %41, ptr @hwloc__xml_verbose.verbose, align 4
   br label %42
 
@@ -9459,7 +9459,7 @@ sub_2245:                                         ; preds = %sub_1244
   br i1 %.not.i228, label %80, label %78
 
 78:                                               ; preds = %76
-  %79 = call i32 @atoi(ptr nocapture noundef nonnull %77) #22
+  %79 = call i32 @atoi(ptr noundef nonnull %77) #22
   store i32 %79, ptr @hwloc__xml_verbose.verbose, align 4
   br label %80
 
@@ -9521,7 +9521,7 @@ hwloc__xml_verbose.exit229:                       ; preds = %75, %80
   br i1 %.not.i231, label %104, label %102
 
 102:                                              ; preds = %100
-  %103 = call i32 @atoi(ptr nocapture noundef nonnull %101) #22
+  %103 = call i32 @atoi(ptr noundef nonnull %101) #22
   store i32 %103, ptr @hwloc__xml_verbose.verbose, align 4
   br label %104
 
@@ -9579,7 +9579,7 @@ hwloc__xml_verbose.exit232:                       ; preds = %._crit_edge.thread,
   br i1 %.not.i234, label %133, label %131
 
 131:                                              ; preds = %129
-  %132 = call i32 @atoi(ptr nocapture noundef nonnull %130) #22
+  %132 = call i32 @atoi(ptr noundef nonnull %130) #22
   store i32 %132, ptr @hwloc__xml_verbose.verbose, align 4
   br label %133
 
@@ -9708,7 +9708,7 @@ hwloc___xml_import_info.exit:                     ; preds = %161, %151
   br i1 %.not.i238, label %199, label %197
 
 197:                                              ; preds = %195
-  %198 = call i32 @atoi(ptr nocapture noundef nonnull %196) #22
+  %198 = call i32 @atoi(ptr noundef nonnull %196) #22
   store i32 %198, ptr @hwloc__xml_verbose.verbose, align 4
   br label %199
 
@@ -9732,7 +9732,7 @@ hwloc__xml_verbose.exit239:                       ; preds = %194, %199
 
 208:                                              ; preds = %191
   %209 = load ptr, ptr %11, align 8
-  %210 = call i32 @atoi(ptr nocapture noundef %209) #22
+  %210 = call i32 @atoi(ptr noundef %209) #22
   %211 = load ptr, ptr %17, align 8
   %212 = getelementptr inbounds nuw i8, ptr %211, i64 56
   %213 = load ptr, ptr %212, align 8
@@ -10144,7 +10144,7 @@ define internal fastcc i32 @hwloc__xml_import_cpukind(ptr noundef %0, ptr nounde
 
 32:                                               ; preds = %30
   %33 = load ptr, ptr %7, align 8
-  %34 = call i32 @atoi(ptr nocapture noundef %33) #22
+  %34 = call i32 @atoi(ptr noundef %33) #22
   br label %49
 
 35:                                               ; preds = %30
@@ -10157,7 +10157,7 @@ define internal fastcc i32 @hwloc__xml_import_cpukind(ptr noundef %0, ptr nounde
   br i1 %.not.i, label %40, label %38
 
 38:                                               ; preds = %36
-  %39 = call i32 @atoi(ptr nocapture noundef nonnull %37) #22
+  %39 = call i32 @atoi(ptr noundef nonnull %37) #22
   store i32 %39, ptr @hwloc__xml_verbose.verbose, align 4
   br label %40
 
@@ -10274,7 +10274,7 @@ hwloc___xml_import_info.exit:                     ; preds = %72, %58
   br i1 %.not.i43, label %91, label %89
 
 89:                                               ; preds = %87
-  %90 = call i32 @atoi(ptr nocapture noundef nonnull %88) #22
+  %90 = call i32 @atoi(ptr noundef nonnull %88) #22
   store i32 %90, ptr @hwloc__xml_verbose.verbose, align 4
   br label %91
 
@@ -10325,7 +10325,7 @@ hwloc__xml_verbose.exit44:                        ; preds = %86, %91
   br i1 %.not.i46, label %115, label %113
 
 113:                                              ; preds = %111
-  %114 = call i32 @atoi(ptr nocapture noundef nonnull %112) #22
+  %114 = call i32 @atoi(ptr noundef nonnull %112) #22
   store i32 %114, ptr @hwloc__xml_verbose.verbose, align 4
   br label %115
 

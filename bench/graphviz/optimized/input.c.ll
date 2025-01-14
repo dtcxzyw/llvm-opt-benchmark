@@ -896,7 +896,7 @@ getFlagOpt.exit158:                               ; preds = %227, %223
   br i1 %.not135, label %254, label %242
 
 242:                                              ; preds = %240
-  %243 = tail call i32 @atoi(ptr nocapture noundef nonnull %107) #27
+  %243 = tail call i32 @atoi(ptr noundef nonnull %107) #27
   %244 = icmp slt i32 %243, 1
   br i1 %244, label %245, label %248
 
@@ -1746,7 +1746,7 @@ setRatio.exit:                                    ; preds = %110, %133, %141, %1
   br i1 %.not161, label %205, label %197
 
 197:                                              ; preds = %setRatio.exit
-  %198 = call i32 @atoi(ptr nocapture noundef nonnull %196) #27
+  %198 = call i32 @atoi(ptr noundef nonnull %196) #27
   %199 = icmp eq i32 %198, 90
   %200 = load ptr, ptr %10, align 8
   %201 = getelementptr inbounds nuw i8, ptr %200, i64 16

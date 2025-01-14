@@ -7184,7 +7184,7 @@ thread-pre-split:                                 ; preds = %.lr.ph79
   br label %40
 
 31:                                               ; preds = %.critedge
-  %32 = tail call i32 @atoi(ptr nocapture noundef nonnull %29) #25
+  %32 = tail call i32 @atoi(ptr noundef nonnull %29) #25
   store i32 %32, ptr %3, align 4
   br label %33
 
@@ -7210,7 +7210,7 @@ thread-pre-split:                                 ; preds = %.lr.ph79
   br label %40
 
 38:                                               ; preds = %.critedge2
-  %39 = tail call i32 @atoi(ptr nocapture noundef nonnull %36) #25
+  %39 = tail call i32 @atoi(ptr noundef nonnull %36) #25
   store i32 %39, ptr %4, align 4
   tail call void @free(ptr noundef nonnull %7) #22
   br label %40

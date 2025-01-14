@@ -325,7 +325,7 @@ define internal fastcc i32 @indexOfColumn(ptr noundef nonnull %0, ptr noundef %1
   br i1 %7, label %8, label %16
 
 8:                                                ; preds = %4
-  %9 = tail call i32 @atoi(ptr nocapture noundef nonnull %0) #11
+  %9 = tail call i32 @atoi(ptr noundef nonnull %0) #11
   %10 = add i32 %9, -1
   %11 = icmp slt i32 %10, 0
   br i1 %11, label %14, label %12
@@ -461,7 +461,7 @@ define internal fastcc void @rankSort(i32 noundef %0, ptr nocapture noundef %1) 
   br i1 %20, label %21, label %23
 
 21:                                               ; preds = %17, %12
-  %22 = tail call i32 @atoi(ptr nocapture noundef nonnull %8) #11
+  %22 = tail call i32 @atoi(ptr noundef nonnull %8) #11
   br label %23
 
 23:                                               ; preds = %.lr.ph, %17, %21

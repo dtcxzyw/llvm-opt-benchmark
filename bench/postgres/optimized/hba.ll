@@ -2531,7 +2531,7 @@ sub_0727.i:                                       ; preds = %729
   br label %parse_hba_auth_opt.exit.thread
 
 802:                                              ; preds = %791
-  %803 = call i32 @atoi(ptr nocapture noundef %583) #15
+  %803 = call i32 @atoi(ptr noundef %583) #15
   store i32 %803, ptr %541, align 8
   %804 = icmp eq i32 %803, 0
   br i1 %804, label %805, label %1167
@@ -3144,7 +3144,7 @@ sub_0739.i:                                       ; preds = %983
   %indvars.iv.i = phi i64 [ 0, %.lr.ph747.i ], [ %indvars.iv.next.i, %1091 ]
   %1093 = getelementptr %union.ListCell, ptr %1090, i64 %indvars.iv.i
   %1094 = load ptr, ptr %1093, align 8
-  %1095 = call i32 @atoi(ptr nocapture noundef %1094) #15
+  %1095 = call i32 @atoi(ptr noundef %1094) #15
   %1096 = icmp eq i32 %1095, 0
   br i1 %1096, label %.split.i, label %1091
 

@@ -493,7 +493,7 @@ sw.bb11:                                          ; preds = %while.body
 
 sw.bb13:                                          ; preds = %while.body
   %call14 = call ptr @opt_arg() #9
-  %call15 = call i32 @atoi(ptr nocapture noundef %call14) #10
+  %call15 = call i32 @atoi(ptr noundef %call14) #10
   br label %sw.epilog
 
 sw.bb16:                                          ; preds = %while.body
@@ -856,7 +856,7 @@ sw.bb165:                                         ; preds = %while.body
 
 sw.bb167:                                         ; preds = %while.body
   %call168 = call ptr @opt_arg() #9
-  %call169 = call i32 @atoi(ptr nocapture noundef %call168) #10
+  %call169 = call i32 @atoi(ptr noundef %call168) #10
   br label %sw.epilog
 
 sw.bb170:                                         ; preds = %while.body
@@ -937,7 +937,7 @@ if.end215:                                        ; preds = %sw.bb211
 
 sw.bb221:                                         ; preds = %while.body
   %call222 = call ptr @opt_arg() #9
-  %call223 = call i32 @atoi(ptr nocapture noundef %call222) #10
+  %call223 = call i32 @atoi(ptr noundef %call222) #10
   store i32 %call223, ptr @n_responders, align 4
   br label %sw.epilog
 

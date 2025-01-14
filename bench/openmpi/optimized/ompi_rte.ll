@@ -884,7 +884,7 @@ define i32 @ompi_rte_init(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 
 
 .thread:                                          ; preds = %104, %107
   %.0114315 = phi ptr [ %108, %107 ], [ %105, %104 ]
-  %109 = call i32 @atoi(ptr nocapture noundef nonnull %.0114315) #21
+  %109 = call i32 @atoi(ptr noundef nonnull %.0114315) #21
   %110 = icmp sgt i32 %109, 1
   br i1 %110, label %111, label %.critedge
 
@@ -900,7 +900,7 @@ define i32 @ompi_rte_init(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 
 
 .thread317:                                       ; preds = %111, %114
   %.0112320 = phi ptr [ %115, %114 ], [ %112, %111 ]
-  %116 = call i32 @atoi(ptr nocapture noundef nonnull %.0112320) #21
+  %116 = call i32 @atoi(ptr noundef nonnull %.0112320) #21
   %117 = icmp eq i32 %116, 0
   br i1 %117, label %.critedge295, label %.critedge
 

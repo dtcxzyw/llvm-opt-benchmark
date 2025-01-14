@@ -115,7 +115,7 @@ define hidden range(i32 -1, 1) i32 @output_x11(ptr noundef %0, ptr nocapture nou
 39:                                               ; preds = %36
   %40 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %41 = load ptr, ptr %40, align 8
-  %42 = call i32 @atoi(ptr nocapture noundef %41) #15
+  %42 = call i32 @atoi(ptr noundef %41) #15
   call void @XrmDestroyDatabase(ptr noundef %31) #13
   %43 = icmp eq i32 %42, 0
   br i1 %43, label %.thread, label %66

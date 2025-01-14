@@ -654,7 +654,7 @@ define void @_ZN6htif_t15parse_argumentsEiPPc(ptr noundef nonnull align 8 derefe
   br i1 %.not33, label %80, label %50
 
 50:                                               ; preds = %47
-  %51 = call i32 @atoi(ptr nocapture noundef nonnull %48) #37
+  %51 = call i32 @atoi(ptr noundef nonnull %48) #37
   invoke void @_ZN5rfb_tC1Ei(ptr noundef nonnull align 8 dereferenceable(168) %49, i32 noundef %51)
           to label %52 unwind label %78
 
@@ -912,7 +912,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 
 148:                                              ; preds = %.preheader
   %149 = load ptr, ptr @optarg, align 8
-  %150 = call i32 @atoi(ptr nocapture noundef %149) #37
+  %150 = call i32 @atoi(ptr noundef %149) #37
   store i32 %150, ptr %29, align 8
   br label %_ZNSt6vectorIP8device_tSaIS1_EE9push_backEOS1_.exit
 

@@ -630,7 +630,7 @@ define internal void @_ZN12_GLOBAL__N_17QwpPass7executeESt6vectorINSt7__cxx1112b
 87:                                               ; preds = %79
   %88 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %.pre, i64 %80
   %89 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %88) #24
-  %90 = call i32 @atoi(ptr nocapture noundef %89) #26
+  %90 = call i32 @atoi(ptr noundef %89) #26
   %91 = sitofp i32 %90 to double
   %92 = fdiv double 1.000000e+00, %91
   store double %92, ptr %49, align 8

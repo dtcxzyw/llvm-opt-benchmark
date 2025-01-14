@@ -2374,7 +2374,7 @@ addlit.exit807:                                   ; preds = %1136, %1145
   store i32 %1350, ptr %1351, align 4
   %1352 = load ptr, ptr %79, align 8
   %1353 = getelementptr i8, ptr %1352, i64 1
-  %1354 = tail call i64 @atol(ptr nocapture noundef %1353) #26
+  %1354 = tail call i64 @atol(ptr noundef %1353) #26
   %1355 = trunc i64 %1354 to i32
   %1356 = load ptr, ptr %9, align 8
   store i32 %1355, ptr %1356, align 8

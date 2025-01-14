@@ -681,7 +681,7 @@ define hidden i32 @unix_getChildren(ptr noundef %0, i64 noundef %1, ptr noundef 
   store i64 0, ptr %6, align 8
   store i64 0, ptr %7, align 8
   %68 = getelementptr inbounds nuw i8, ptr %87, i64 19
-  %69 = call i32 @atoi(ptr nocapture noundef nonnull %68) #13
+  %69 = call i32 @atoi(ptr noundef nonnull %68) #13
   %70 = icmp slt i32 %69, 1
   br i1 %70, label %86, label %71, !llvm.loop !11
 
@@ -733,7 +733,7 @@ define hidden i32 @unix_getChildren(ptr noundef %0, i64 noundef %1, ptr noundef 
   store i64 0, ptr %6, align 8
   store i64 0, ptr %7, align 8
   %89 = getelementptr inbounds nuw i8, ptr %107, i64 19
-  %90 = call i32 @atoi(ptr nocapture noundef nonnull %89) #13
+  %90 = call i32 @atoi(ptr noundef nonnull %89) #13
   %91 = icmp slt i32 %90, 1
   br i1 %91, label %106, label %92, !llvm.loop !11
 
@@ -786,7 +786,7 @@ define hidden i32 @unix_getChildren(ptr noundef %0, i64 noundef %1, ptr noundef 
   store i64 0, ptr %6, align 8
   store i64 0, ptr %7, align 8
   %110 = getelementptr inbounds nuw i8, ptr %129, i64 19
-  %111 = call i32 @atoi(ptr nocapture noundef nonnull %110) #13
+  %111 = call i32 @atoi(ptr noundef nonnull %110) #13
   %112 = icmp slt i32 %111, 1
   br i1 %112, label %128, label %113, !llvm.loop !11
 
@@ -837,7 +837,7 @@ define hidden i32 @unix_getChildren(ptr noundef %0, i64 noundef %1, ptr noundef 
   store i64 0, ptr %6, align 8
   store i64 0, ptr %7, align 8
   %133 = getelementptr inbounds nuw i8, ptr %131, i64 19
-  %134 = call i32 @atoi(ptr nocapture noundef nonnull %133) #13
+  %134 = call i32 @atoi(ptr noundef nonnull %133) #13
   %135 = icmp slt i32 %134, 1
   br i1 %135, label %130, label %136, !llvm.loop !11
 

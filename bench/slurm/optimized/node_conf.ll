@@ -949,7 +949,7 @@ define i32 @expand_nodeline_info(ptr noundef %0, ptr noundef %1, ptr noundef %2,
 107:                                              ; preds = %106, %103
   %108 = call ptr @hostlist_shift(ptr noundef nonnull %.0119) #15
   store ptr %108, ptr %5, align 8
-  %109 = call i32 @atoi(ptr nocapture noundef %108) #17
+  %109 = call i32 @atoi(ptr noundef %108) #17
   %110 = add i32 %109, -65536
   %or.cond3 = icmp ult i32 %110, -65535
   br i1 %or.cond3, label %111, label %113

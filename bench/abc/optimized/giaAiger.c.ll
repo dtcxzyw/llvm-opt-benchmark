@@ -784,7 +784,7 @@ define ptr @Gia_AigerReadFromMemory(ptr noundef %0, i32 noundef %1, i32 noundef 
   br i1 %.not, label %11, label %8, !llvm.loop !13
 
 11:                                               ; preds = %8
-  %12 = tail call i32 @atoi(ptr nocapture noundef nonnull %10) #21
+  %12 = tail call i32 @atoi(ptr noundef nonnull %10) #21
   %13 = load i8, ptr %10, align 1
   %.not6501336 = icmp eq i8 %13, 32
   br i1 %.not6501336, label %._crit_edge, label %.lr.ph
@@ -801,7 +801,7 @@ define ptr @Gia_AigerReadFromMemory(ptr noundef %0, i32 noundef %1, i32 noundef 
   %17 = phi ptr [ %storemerge, %11 ], [ %14, %.lr.ph ]
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 2
   store ptr %18, ptr %6, align 8
-  %19 = tail call i32 @atoi(ptr nocapture noundef nonnull %18) #21
+  %19 = tail call i32 @atoi(ptr noundef nonnull %18) #21
   %20 = load i8, ptr %18, align 1
   %.not6511338 = icmp eq i8 %20, 32
   br i1 %.not6511338, label %._crit_edge1341, label %.lr.ph1340
@@ -818,7 +818,7 @@ define ptr @Gia_AigerReadFromMemory(ptr noundef %0, i32 noundef %1, i32 noundef 
   %.lcssa1333 = phi ptr [ %18, %._crit_edge ], [ %22, %.lr.ph1340 ]
   %24 = getelementptr inbounds nuw i8, ptr %.lcssa1333, i64 1
   store ptr %24, ptr %6, align 8
-  %25 = tail call i32 @atoi(ptr nocapture noundef nonnull %24) #21
+  %25 = tail call i32 @atoi(ptr noundef nonnull %24) #21
   %26 = load i8, ptr %24, align 1
   %.not6521344 = icmp eq i8 %26, 32
   br i1 %.not6521344, label %._crit_edge1347, label %.lr.ph1346
@@ -835,7 +835,7 @@ define ptr @Gia_AigerReadFromMemory(ptr noundef %0, i32 noundef %1, i32 noundef 
   %30 = phi ptr [ %.lcssa1333, %._crit_edge1341 ], [ %27, %.lr.ph1346 ]
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 2
   store ptr %31, ptr %6, align 8
-  %32 = tail call i32 @atoi(ptr nocapture noundef nonnull %31) #21
+  %32 = tail call i32 @atoi(ptr noundef nonnull %31) #21
   %33 = load i8, ptr %31, align 1
   %.not6531350 = icmp eq i8 %33, 32
   br i1 %.not6531350, label %._crit_edge1353, label %.lr.ph1352
@@ -852,7 +852,7 @@ define ptr @Gia_AigerReadFromMemory(ptr noundef %0, i32 noundef %1, i32 noundef 
   %.lcssa1331 = phi ptr [ %31, %._crit_edge1347 ], [ %35, %.lr.ph1352 ]
   %37 = getelementptr inbounds nuw i8, ptr %.lcssa1331, i64 1
   store ptr %37, ptr %6, align 8
-  %38 = tail call i32 @atoi(ptr nocapture noundef nonnull %37) #21
+  %38 = tail call i32 @atoi(ptr noundef nonnull %37) #21
   br label %39
 
 39:                                               ; preds = %42, %._crit_edge1353
@@ -871,7 +871,7 @@ define ptr @Gia_AigerReadFromMemory(ptr noundef %0, i32 noundef %1, i32 noundef 
 44:                                               ; preds = %39
   %45 = getelementptr inbounds nuw i8, ptr %40, i64 1
   store ptr %45, ptr %6, align 8
-  %46 = tail call i32 @atoi(ptr nocapture noundef nonnull %45) #21
+  %46 = tail call i32 @atoi(ptr noundef nonnull %45) #21
   br label %47
 
 47:                                               ; preds = %50, %44
@@ -896,7 +896,7 @@ define ptr @Gia_AigerReadFromMemory(ptr noundef %0, i32 noundef %1, i32 noundef 
 55:                                               ; preds = %.loopexit1278
   %56 = getelementptr inbounds nuw i8, ptr %48, i64 1
   store ptr %56, ptr %6, align 8
-  %57 = tail call i32 @atoi(ptr nocapture noundef nonnull %56) #21
+  %57 = tail call i32 @atoi(ptr noundef nonnull %56) #21
   br label %58
 
 58:                                               ; preds = %61, %55
@@ -920,7 +920,7 @@ define ptr @Gia_AigerReadFromMemory(ptr noundef %0, i32 noundef %1, i32 noundef 
 66:                                               ; preds = %63
   %67 = getelementptr inbounds nuw i8, ptr %59, i64 1
   store ptr %67, ptr %6, align 8
-  %68 = tail call i32 @atoi(ptr nocapture noundef nonnull %67) #21
+  %68 = tail call i32 @atoi(ptr noundef nonnull %67) #21
   br label %69
 
 69:                                               ; preds = %72, %66
@@ -945,7 +945,7 @@ define ptr @Gia_AigerReadFromMemory(ptr noundef %0, i32 noundef %1, i32 noundef 
 78:                                               ; preds = %74
   %79 = getelementptr inbounds nuw i8, ptr %70, i64 1
   store ptr %79, ptr %6, align 8
-  %80 = tail call i32 @atoi(ptr nocapture noundef nonnull %79) #21
+  %80 = tail call i32 @atoi(ptr noundef nonnull %79) #21
   br label %81
 
 81:                                               ; preds = %84, %78
@@ -1724,7 +1724,7 @@ Vec_IntAlloc.exit826:                             ; preds = %492, %496
 .lr.ph1378:                                       ; preds = %Vec_IntAlloc.exit826, %Vec_IntPush.exit847
   %.45941377 = phi i32 [ %606, %Vec_IntPush.exit847 ], [ 0, %Vec_IntAlloc.exit826 ]
   %504 = load ptr, ptr %6, align 8
-  %505 = tail call i32 @atoi(ptr nocapture noundef %504) #21
+  %505 = tail call i32 @atoi(ptr noundef %504) #21
   br label %506
 
 506:                                              ; preds = %506, %.lr.ph1378
@@ -1738,7 +1738,7 @@ Vec_IntAlloc.exit826:                             ; preds = %492, %496
   ], !llvm.loop !26
 
 510:                                              ; preds = %506
-  %511 = tail call i32 @atoi(ptr nocapture noundef nonnull %509) #21
+  %511 = tail call i32 @atoi(ptr noundef nonnull %509) #21
   %512 = load i32, ptr %495, align 4
   %513 = load i32, ptr %493, align 8
   %514 = icmp eq i32 %512, %513
@@ -1953,7 +1953,7 @@ Vec_IntPush.exit847:                              ; preds = %.Vec_IntGrow.exit10
 .lr.ph1381:                                       ; preds = %.preheader1271, %Vec_IntPush.exit854
   %.55951380 = phi i32 [ %647, %Vec_IntPush.exit854 ], [ 0, %.preheader1271 ]
   %607 = load ptr, ptr %6, align 8
-  %608 = tail call i32 @atoi(ptr nocapture noundef %607) #21
+  %608 = tail call i32 @atoi(ptr noundef %607) #21
   br label %609
 
 609:                                              ; preds = %609, %.lr.ph1381
@@ -2318,7 +2318,7 @@ Vec_IntFree.exit871:                              ; preds = %._crit_edge1387, %.
 
 753:                                              ; preds = %750, %750, %750, %750
   %754 = getelementptr inbounds nuw i8, ptr %751, i64 1
-  %755 = tail call i32 @atoi(ptr nocapture noundef nonnull %754) #21
+  %755 = tail call i32 @atoi(ptr noundef nonnull %754) #21
   br label %756
 
 756:                                              ; preds = %756, %753

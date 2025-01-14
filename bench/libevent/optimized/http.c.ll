@@ -2059,7 +2059,7 @@ if.end8.i25:                                      ; preds = %if.end.i20
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %major.i.i14)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %minor.i.i15)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ch.i.i16)
-  %call9.i30 = call i32 @atoi(ptr nocapture noundef %call1.i) #18
+  %call9.i30 = call i32 @atoi(ptr noundef %call1.i) #18
   %response_code.i = getelementptr inbounds nuw i8, ptr %req, i64 116
   store i32 %call9.i30, ptr %response_code.i, align 4
   %cmp.i8.not.i = icmp eq i32 %call9.i30, 0
@@ -6593,7 +6593,7 @@ if.end45.i.i:                                     ; preds = %if.then40.i.i, %lan
   %bev.addr.1.i.i = phi ptr [ %bev.0, %do.end34.i.i ], [ %call44.i.i, %if.then40.i.i ], [ null, %land.lhs.true36.i.i ]
   %base46.i.i = getelementptr inbounds nuw i8, ptr %0, i64 264
   %14 = load ptr, ptr %base46.i.i, align 8
-  %call47.i.i = call i32 @atoi(ptr nocapture noundef nonnull %call8.i.i.i) #18
+  %call47.i.i = call i32 @atoi(ptr noundef nonnull %call8.i.i.i) #18
   %conv48.i.i = trunc i32 %call47.i.i to i16
   %15 = load i32, ptr @event_debug_logging_mask_, align 4
   %tobool.not.i.i.i = icmp eq i32 %15, 0

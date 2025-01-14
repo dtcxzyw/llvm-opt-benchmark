@@ -2139,7 +2139,7 @@ if.then60:                                        ; preds = %lor.lhs.false57, %i
 
 if.then63:                                        ; preds = %if.then60
   %47 = load ptr, ptr %incdec.ptr61, align 8
-  %call64 = call i32 @atoi(ptr nocapture noundef %47) #23
+  %call64 = call i32 @atoi(ptr noundef %47) #23
   %conv = zext nneg i32 %call64 to i64
   %cmp66 = icmp slt i32 %call64, 1
   br i1 %cmp66, label %if.then67, label %for.inc

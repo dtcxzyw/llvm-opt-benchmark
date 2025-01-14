@@ -1120,7 +1120,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
 
 356:                                              ; preds = %.lr.ph.i
   %357 = call ptr @PQgetvalue(ptr noundef %347, i32 noundef %.090.i, i32 noundef 0) #12
-  %358 = call i32 @atoi(ptr nocapture noundef %357) #16
+  %358 = call i32 @atoi(ptr noundef %357) #16
   br label %359
 
 359:                                              ; preds = %356, %.lr.ph.i
@@ -1184,7 +1184,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
 
 385:                                              ; preds = %383
   %386 = call ptr @PQgetvalue(ptr noundef %347, i32 noundef %.090.i, i32 noundef 6) #12
-  %387 = call i32 @atoi(ptr nocapture noundef %386) #16
+  %387 = call i32 @atoi(ptr noundef %386) #16
   br label %388
 
 388:                                              ; preds = %385, %383
@@ -2093,7 +2093,7 @@ append_db_pattern_cte.exit56:                     ; preds = %._crit_edge.i54, %.
 
 78:                                               ; preds = %.lr.ph
   %79 = call ptr @PQgetvalue(ptr noundef %69, i32 noundef %.059, i32 noundef 0) #12
-  %80 = call i32 @atoi(ptr nocapture noundef %79) #16
+  %80 = call i32 @atoi(ptr noundef %79) #16
   br label %81
 
 81:                                               ; preds = %78, %.lr.ph

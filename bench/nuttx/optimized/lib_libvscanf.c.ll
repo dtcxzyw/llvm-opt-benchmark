@@ -150,7 +150,7 @@ define i32 @lib_vscanf(ptr noundef %0, ptr noundef writeonly %1, ptr noundef %2,
   %reass.sub = sub i64 %51, %52
   %53 = add i64 %reass.sub, 1
   %54 = call i64 @strlcpy(ptr noundef nonnull %5, ptr noundef nonnull dereferenceable(1) %.2394640, i64 noundef %53) #7
-  %55 = call i32 @atoi(ptr nocapture noundef nonnull %5)
+  %55 = call i32 @atoi(ptr noundef nonnull %5)
   %56 = getelementptr inbounds i8, ptr %.3395, i64 -1
   br label %57
 

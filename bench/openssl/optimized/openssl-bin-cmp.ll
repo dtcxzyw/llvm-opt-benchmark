@@ -788,7 +788,7 @@ land.lhs.true:                                    ; preds = %if.else21
   %idxprom29 = sext i32 %inc28 to i64
   %arrayidx30 = getelementptr inbounds ptr, ptr %argv, i64 %idxprom29
   %5 = load ptr, ptr %arrayidx30, align 8
-  %call31 = tail call i32 @atoi(ptr nocapture noundef %5) #14
+  %call31 = tail call i32 @atoi(ptr noundef %5) #14
   %or.cond.i = icmp ugt i32 %call31, 8
   br i1 %or.cond.i, label %if.then.i, label %set_verbosity.exit
 

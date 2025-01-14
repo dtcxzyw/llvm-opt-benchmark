@@ -294,7 +294,7 @@ define i32 @pmix_mca_base_open(ptr noundef %0) local_unnamed_addr #0 {
 
 112:                                              ; preds = %108
   %113 = getelementptr inbounds nuw i8, ptr %.03441.i26, i64 6
-  %114 = call i32 @atoi(ptr nocapture noundef nonnull %113) #9
+  %114 = call i32 @atoi(ptr noundef nonnull %113) #9
   store i32 %114, ptr %58, align 8
   br label %115
 

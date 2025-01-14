@@ -321,7 +321,7 @@ entry:
   br i1 %cmp.not, label %if.end4, label %if.then
 
 if.then:                                          ; preds = %entry
-  %call1 = tail call i32 @atoi(ptr nocapture noundef nonnull %call) #19
+  %call1 = tail call i32 @atoi(ptr noundef nonnull %call) #19
   %spec.store.select = tail call i32 @llvm.umax.i32(i32 %call1, i32 1)
   store i32 %spec.store.select, ptr @hash_bulk_move, align 4
   br label %if.end4

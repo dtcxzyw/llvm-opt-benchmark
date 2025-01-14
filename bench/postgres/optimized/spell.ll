@@ -1222,7 +1222,7 @@ sub_0156.i:                                       ; preds = %353, %parse_ooaffen
 
 363:                                              ; preds = %360
   store i8 1, ptr %26, align 8
-  %364 = call i32 @atoi(ptr nocapture noundef nonnull %9) #17
+  %364 = call i32 @atoi(ptr noundef nonnull %9) #17
   %365 = icmp slt i32 %364, 1
   br i1 %365, label %366, label %370
 

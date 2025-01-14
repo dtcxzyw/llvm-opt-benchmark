@@ -79225,7 +79225,7 @@ if.then44:                                        ; preds = %if.end40, %if.else.
 
 cond.end:                                         ; preds = %if.then44
   %add.ptr47 = getelementptr inbounds nuw i8, ptr %arrayidx, i64 1
-  %call48 = call i32 @atoi(ptr nocapture noundef nonnull %add.ptr47) #40
+  %call48 = call i32 @atoi(ptr noundef nonnull %add.ptr47) #40
   %57 = sext i32 %call48 to i64
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %attributes.i, i64 8
   %58 = load ptr, ptr %_M_finish.i, align 8
@@ -79477,7 +79477,7 @@ if.then92:                                        ; preds = %if.then11.i, %if.th
 
 cond.true98:                                      ; preds = %if.then92
   %add.ptr101 = getelementptr inbounds nuw i8, ptr %arrayidx95, i64 1
-  %call102 = call i32 @atoi(ptr nocapture noundef nonnull %add.ptr101) #40
+  %call102 = call i32 @atoi(ptr noundef nonnull %add.ptr101) #40
   %101 = sext i32 %call102 to i64
   br label %cond.end104
 

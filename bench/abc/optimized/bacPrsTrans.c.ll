@@ -48,14 +48,14 @@ define i32 @Psr_ManRangeSizeArray(ptr nocapture noundef readonly %0, ptr nocaptu
   %.val.i10 = load ptr, ptr %8, align 8
   %23 = tail call ptr @Abc_NamStr(ptr noundef %.val.i10, i32 noundef %20) #5
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 1
-  %25 = tail call i32 @atoi(ptr nocapture noundef nonnull %24) #6
+  %25 = tail call i32 @atoi(ptr noundef nonnull %24) #6
   %strchr.i = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %23, i32 61)
   %.not.i = icmp eq ptr %strchr.i, null
   br i1 %.not.i, label %29, label %26
 
 26:                                               ; preds = %22
   %27 = getelementptr inbounds nuw i8, ptr %strchr.i, i64 1
-  %28 = tail call i32 @atoi(ptr nocapture noundef nonnull %27) #6
+  %28 = tail call i32 @atoi(ptr noundef nonnull %27) #6
   br label %29
 
 29:                                               ; preds = %26, %22
@@ -68,7 +68,7 @@ define i32 @Psr_ManRangeSizeArray(ptr nocapture noundef readonly %0, ptr nocaptu
 33:                                               ; preds = %11
   %.val16.i = load ptr, ptr %8, align 8
   %34 = tail call ptr @Abc_NamStr(ptr noundef %.val16.i, i32 noundef range(i32 -536870912, 536870912) %14) #5
-  %35 = tail call i32 @atoi(ptr nocapture noundef %34) #6
+  %35 = tail call i32 @atoi(ptr noundef %34) #6
   br label %Psr_ManRangeSizeSignal.exit
 
 36:                                               ; preds = %11

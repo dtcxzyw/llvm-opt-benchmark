@@ -455,7 +455,7 @@ _get_resv_list.exit.thread:                       ; preds = %_set_resv_cond.exit
 
 193:                                              ; preds = %.lr.ph.i
   %194 = getelementptr inbounds nuw i8, ptr %strchr.i, i64 1
-  %195 = call i32 @atoi(ptr nocapture noundef nonnull %194) #11
+  %195 = call i32 @atoi(ptr noundef nonnull %194) #11
   store i8 0, ptr %strchr.i, align 1
   br label %196
 

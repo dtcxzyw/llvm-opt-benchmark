@@ -3009,7 +3009,7 @@ default.unreachable762:                           ; preds = %196
 
 618:                                              ; preds = %15
   %619 = load ptr, ptr %4, align 8
-  %620 = tail call i32 @atoi(ptr nocapture noundef %619) #27
+  %620 = tail call i32 @atoi(ptr noundef %619) #27
   %621 = sext i32 %620 to i64
   store i64 %621, ptr %10, align 8
   br label %1134

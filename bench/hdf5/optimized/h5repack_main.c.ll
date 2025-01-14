@@ -454,7 +454,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   br i1 %.not144.i, label %76, label %72
 
 72:                                               ; preds = %70
-  %73 = call i32 @atoi(ptr nocapture noundef nonnull %71) #16
+  %73 = call i32 @atoi(ptr noundef nonnull %71) #16
   %74 = icmp eq i32 %73, 2
   br i1 %74, label %75, label %.loopexit.i
 
@@ -650,7 +650,7 @@ read_info.exit.i:                                 ; preds = %.loopexit.i.i, %.th
 
 143:                                              ; preds = %54
   %144 = load ptr, ptr @H5_optarg, align 8
-  %145 = call i32 @atoi(ptr nocapture noundef %144) #16
+  %145 = call i32 @atoi(ptr noundef %144) #16
   %or.cond.i = icmp ugt i32 %145, 5
   br i1 %or.cond.i, label %146, label %147
 
@@ -664,7 +664,7 @@ read_info.exit.i:                                 ; preds = %.loopexit.i.i, %.th
 
 148:                                              ; preds = %54
   %149 = load ptr, ptr @H5_optarg, align 8
-  %150 = call i32 @atoi(ptr nocapture noundef %149) #16
+  %150 = call i32 @atoi(ptr noundef %149) #16
   %or.cond3.i = icmp ugt i32 %150, 5
   br i1 %or.cond3.i, label %151, label %152
 
@@ -686,7 +686,7 @@ read_info.exit.i:                                 ; preds = %.loopexit.i.i, %.th
 
 155:                                              ; preds = %54
   %156 = load ptr, ptr @H5_optarg, align 8
-  %157 = call i32 @atoi(ptr nocapture noundef %156) #16
+  %157 = call i32 @atoi(ptr noundef %156) #16
   store i32 %157, ptr %46, align 8
   %158 = icmp sgt i32 %157, 0
   br i1 %158, label %159, label %.loopexit.i
@@ -697,7 +697,7 @@ read_info.exit.i:                                 ; preds = %.loopexit.i.i, %.th
 
 160:                                              ; preds = %54
   %161 = load ptr, ptr @H5_optarg, align 8
-  %162 = call i32 @atoi(ptr nocapture noundef %161) #16
+  %162 = call i32 @atoi(ptr noundef %161) #16
   store i32 %162, ptr %45, align 4
   %163 = icmp sgt i32 %162, 0
   br i1 %163, label %164, label %.loopexit.i
@@ -714,7 +714,7 @@ read_info.exit.i:                                 ; preds = %.loopexit.i.i, %.th
   br i1 %168, label %169, label %173
 
 169:                                              ; preds = %165
-  %170 = call i32 @atoi(ptr nocapture noundef %166) #16
+  %170 = call i32 @atoi(ptr noundef %166) #16
   br label %171
 
 171:                                              ; preds = %171, %169
@@ -730,7 +730,7 @@ read_info.exit.i:                                 ; preds = %.loopexit.i.i, %.th
   %175 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %10, ptr noundef nonnull dereferenceable(1) %174) #15
   store i8 0, ptr %167, align 1
   %176 = load ptr, ptr @H5_optarg, align 8
-  %177 = call i32 @atoi(ptr nocapture noundef %176) #16
+  %177 = call i32 @atoi(ptr noundef %176) #16
   %bcmp134.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(6) %10, ptr noundef nonnull dereferenceable(6) @.str.11, i64 6)
   %.not135.i = icmp eq i32 %bcmp134.i, 0
   br i1 %.not135.i, label %178, label %179
@@ -782,19 +782,19 @@ read_info.exit.i:                                 ; preds = %.loopexit.i.i, %.th
 
 189:                                              ; preds = %54
   %190 = load ptr, ptr @H5_optarg, align 8
-  %191 = call i64 @atol(ptr nocapture noundef %190) #16
+  %191 = call i64 @atol(ptr noundef %190) #16
   store i64 %191, ptr %37, align 8
   br label %.loopexit.i
 
 192:                                              ; preds = %54
   %193 = load ptr, ptr @H5_optarg, align 8
-  %194 = call i64 @atol(ptr nocapture noundef %193) #16
+  %194 = call i64 @atol(ptr noundef %193) #16
   store i64 %194, ptr %36, align 8
   br label %.loopexit.i
 
 195:                                              ; preds = %54
   %196 = load ptr, ptr @H5_optarg, align 8
-  %197 = call i64 @atol(ptr nocapture noundef %196) #16
+  %197 = call i64 @atol(ptr noundef %196) #16
   store i64 %197, ptr %35, align 8
   br label %.loopexit.i
 
@@ -854,7 +854,7 @@ read_info.exit.i:                                 ; preds = %.loopexit.i.i, %.th
 
 215:                                              ; preds = %54
   %216 = load ptr, ptr @H5_optarg, align 8
-  %217 = call i32 @atoi(ptr nocapture noundef %216) #16
+  %217 = call i32 @atoi(ptr noundef %216) #16
   %218 = icmp eq i32 %217, 0
   %spec.store.select.i = select i1 %218, i32 -1, i32 %217
   store i32 %spec.store.select.i, ptr %32, align 4
@@ -862,7 +862,7 @@ read_info.exit.i:                                 ; preds = %.loopexit.i.i, %.th
 
 219:                                              ; preds = %54
   %220 = load ptr, ptr @H5_optarg, align 8
-  %221 = call i64 @atol(ptr nocapture noundef %220) #16
+  %221 = call i64 @atol(ptr noundef %220) #16
   %222 = icmp eq i64 %221, 0
   %spec.store.select145.i = select i1 %222, i64 -1, i64 %221
   store i64 %spec.store.select145.i, ptr %31, align 8
@@ -924,7 +924,7 @@ set_sort_order.exit.thread.i:                     ; preds = %236, %233
   br i1 %.not126.i, label %243, label %241
 
 241:                                              ; preds = %239
-  %242 = call i32 @atoi(ptr nocapture noundef nonnull %240) #16
+  %242 = call i32 @atoi(ptr noundef nonnull %240) #16
   store i32 %242, ptr @enable_error_stack, align 4
   br label %.loopexit.i
 
@@ -935,7 +935,7 @@ set_sort_order.exit.thread.i:                     ; preds = %236, %233
 244:                                              ; preds = %54
   store i32 1, ptr %6, align 8
   %245 = load ptr, ptr @H5_optarg, align 8
-  %246 = call i32 @atoi(ptr nocapture noundef %245) #16
+  %246 = call i32 @atoi(ptr noundef %245) #16
   store i32 %246, ptr %29, align 8
   br label %.loopexit.i
 
@@ -953,7 +953,7 @@ set_sort_order.exit.thread.i:                     ; preds = %236, %233
 251:                                              ; preds = %54
   store i32 1, ptr %7, align 8
   %252 = load ptr, ptr @H5_optarg, align 8
-  %253 = call i32 @atoi(ptr nocapture noundef %252) #16
+  %253 = call i32 @atoi(ptr noundef %252) #16
   store i32 %253, ptr %27, align 8
   br label %.loopexit.i
 
@@ -971,7 +971,7 @@ set_sort_order.exit.thread.i:                     ; preds = %236, %233
 258:                                              ; preds = %54
   store i32 1, ptr %8, align 8
   %259 = load ptr, ptr @H5_optarg, align 8
-  %260 = call i32 @atoi(ptr nocapture noundef %259) #16
+  %260 = call i32 @atoi(ptr noundef %259) #16
   store i32 %260, ptr %25, align 8
   br label %.loopexit.i
 
@@ -989,7 +989,7 @@ set_sort_order.exit.thread.i:                     ; preds = %236, %233
 265:                                              ; preds = %54
   store i32 1, ptr %9, align 8
   %266 = load ptr, ptr @H5_optarg, align 8
-  %267 = call i32 @atoi(ptr nocapture noundef %266) #16
+  %267 = call i32 @atoi(ptr noundef %266) #16
   store i32 %267, ptr %23, align 8
   br label %.loopexit.i
 

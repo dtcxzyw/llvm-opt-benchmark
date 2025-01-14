@@ -1086,7 +1086,7 @@ define dso_local range(i32 0, 2) i32 @localnets_init(ptr noundef %0) local_unnam
   br label %36
 
 32:                                               ; preds = %28
-  %33 = tail call i32 @atoi(ptr nocapture noundef nonnull %.0) #16
+  %33 = tail call i32 @atoi(ptr noundef nonnull %.0) #16
   %34 = icmp eq i32 %23, 2
   %35 = icmp ugt i32 %33, 128
   %or.cond.i = select i1 %34, i1 %35, i1 false

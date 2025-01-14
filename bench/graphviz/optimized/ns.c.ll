@@ -2572,7 +2572,7 @@ define range(i32 0, 3) i32 @rank(ptr noundef %0, i32 noundef %1, i32 noundef %2)
   br i1 %.not, label %7, label %5
 
 5:                                                ; preds = %3
-  %6 = tail call i32 @atoi(ptr nocapture noundef nonnull %4) #22
+  %6 = tail call i32 @atoi(ptr noundef nonnull %4) #22
   br label %7
 
 7:                                                ; preds = %3, %5

@@ -1341,7 +1341,7 @@ if.then7:                                         ; preds = %ucnv_getName_75.exi
 
 if.then10:                                        ; preds = %if.then7
   %add.ptr = getelementptr inbounds nuw i8, ptr %call8, i64 1
-  %call11 = tail call i64 @atol(ptr nocapture noundef nonnull %add.ptr) #18
+  %call11 = tail call i64 @atol(ptr noundef nonnull %add.ptr) #18
   %conv = trunc i64 %call11 to i32
   br label %return
 

@@ -700,30 +700,30 @@ _ZSt6removeIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char
 235:                                              ; preds = %231
   %236 = load ptr, ptr %15, align 8
   %237 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %236) #18
-  %238 = call i32 @atoi(ptr nocapture noundef %237) #22
+  %238 = call i32 @atoi(ptr noundef %237) #22
   store i32 %238, ptr %94, align 8
   %239 = load ptr, ptr %15, align 8
   %240 = getelementptr inbounds nuw i8, ptr %239, i64 32
   %241 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %240) #18
-  %242 = call i32 @atoi(ptr nocapture noundef %241) #22
+  %242 = call i32 @atoi(ptr noundef %241) #22
   store i32 %242, ptr %95, align 4
   %243 = load ptr, ptr %15, align 8
   %244 = getelementptr inbounds nuw i8, ptr %243, i64 64
   %245 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %244) #18
-  %246 = call i32 @atoi(ptr nocapture noundef %245) #22
+  %246 = call i32 @atoi(ptr noundef %245) #22
   %247 = load ptr, ptr %15, align 8
   %248 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %247) #18
-  %249 = call i32 @atoi(ptr nocapture noundef %248) #22
+  %249 = call i32 @atoi(ptr noundef %248) #22
   %250 = sub nsw i32 %246, %249
   store i32 %250, ptr %96, align 4
   %251 = load ptr, ptr %15, align 8
   %252 = getelementptr inbounds nuw i8, ptr %251, i64 224
   %253 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %252) #18
-  %254 = call i32 @atoi(ptr nocapture noundef %253) #22
+  %254 = call i32 @atoi(ptr noundef %253) #22
   %255 = load ptr, ptr %15, align 8
   %256 = getelementptr inbounds nuw i8, ptr %255, i64 32
   %257 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %256) #18
-  %258 = call i32 @atoi(ptr nocapture noundef %257) #22
+  %258 = call i32 @atoi(ptr noundef %257) #22
   %259 = sub nsw i32 %254, %258
   store i32 %259, ptr %97, align 8
   %260 = load ptr, ptr %5, align 8

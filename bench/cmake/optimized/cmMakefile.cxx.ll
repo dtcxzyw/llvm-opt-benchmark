@@ -30017,7 +30017,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit20: ; 
 
 26:                                               ; preds = %25
   %27 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %24) #31
-  %28 = call i32 @atoi(ptr nocapture noundef %27) #36
+  %28 = call i32 @atoi(ptr noundef %27) #36
   %29 = icmp eq i32 %28, 4
   br label %_ZSteqIcSt11char_traitsIcEEbNSt15__type_identityISt17basic_string_viewIT_T0_EE4typeES6_.exit
 
@@ -30080,7 +30080,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 
 9:                                                ; preds = %8
   %10 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %7) #31
-  %11 = call i32 @atoi(ptr nocapture noundef %10) #36
+  %11 = call i32 @atoi(ptr noundef %10) #36
   %12 = icmp eq i32 %11, 8
   br label %17
 
@@ -41211,7 +41211,7 @@ define dso_local void @_ZN10cmMakefile12ClearMatchesEv(ptr noundef nonnull align
 
 3:                                                ; preds = %1
   %4 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %2) #31
-  %5 = tail call i32 @atoi(ptr nocapture noundef %4) #36
+  %5 = tail call i32 @atoi(ptr noundef %4) #36
   %.not17 = icmp slt i32 %5, 0
   br i1 %.not17, label %._crit_edge, label %.lr.ph
 

@@ -170,7 +170,7 @@ define range(i32 -9999, 1) i32 @SUNLogger_CreateFromEnv(i32 noundef %0, ptr noca
   br i1 %.not, label %7, label %5
 
 5:                                                ; preds = %2
-  %6 = tail call i32 @atoi(ptr nocapture noundef nonnull %4) #17
+  %6 = tail call i32 @atoi(ptr noundef nonnull %4) #17
   br label %7
 
 7:                                                ; preds = %2, %5

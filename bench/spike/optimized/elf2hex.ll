@@ -74,7 +74,7 @@ define noundef range(i32 0, 2) i32 @main(i32 noundef %0, ptr nocapture noundef r
 13:                                               ; preds = %2
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %15 = load ptr, ptr %14, align 8
-  %16 = tail call i32 @atoi(ptr nocapture noundef %15) #13
+  %16 = tail call i32 @atoi(ptr noundef %15) #13
   %17 = icmp eq i32 %16, 0
   br i1 %17, label %21, label %18
 
@@ -95,7 +95,7 @@ define noundef range(i32 0, 2) i32 @main(i32 noundef %0, ptr nocapture noundef r
 25:                                               ; preds = %23
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %27 = load ptr, ptr %26, align 8
-  %28 = tail call i64 @atoll(ptr nocapture noundef %27) #13
+  %28 = tail call i64 @atoll(ptr noundef %27) #13
   %29 = zext i32 %19 to i64
   %30 = and i64 %28, %29
   %.not26 = icmp eq i64 %30, 0
@@ -109,7 +109,7 @@ define noundef range(i32 0, 2) i32 @main(i32 noundef %0, ptr nocapture noundef r
   %.022 = phi i64 [ %28, %25 ], [ 0, %23 ]
   %34 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %35 = load ptr, ptr %34, align 8
-  %36 = tail call i32 @atoi(ptr nocapture noundef %35) #13
+  %36 = tail call i32 @atoi(ptr noundef %35) #13
   %37 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %36)
   %or.cond28 = icmp eq i32 %37, 1
   br i1 %or.cond28, label %40, label %38

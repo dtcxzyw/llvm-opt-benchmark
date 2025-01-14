@@ -85,7 +85,7 @@ define hidden void @hwloc_components_init() local_unnamed_addr #0 {
   br i1 %.not21, label %8, label %6
 
 6:                                                ; preds = %4
-  %7 = tail call i32 @atoi(ptr nocapture noundef nonnull %5) #23
+  %7 = tail call i32 @atoi(ptr noundef nonnull %5) #23
   br label %8
 
 8:                                                ; preds = %4, %6
@@ -808,7 +808,7 @@ hwloc_backends_disable_all.exit:                  ; preds = %hwloc_backend_disab
   br i1 %.not26, label %60, label %54
 
 54:                                               ; preds = %52
-  %55 = tail call i32 @atoi(ptr nocapture noundef nonnull %53) #23
+  %55 = tail call i32 @atoi(ptr noundef nonnull %53) #23
   %.not27 = icmp eq i32 %55, 0
   br i1 %.not27, label %60, label %56
 
@@ -1595,7 +1595,7 @@ define hidden void @hwloc_backends_is_thissystem(ptr nocapture noundef %0) local
   br i1 %.not20, label %25, label %23
 
 23:                                               ; preds = %._crit_edge36
-  %24 = tail call i32 @atoi(ptr nocapture noundef nonnull %22) #23
+  %24 = tail call i32 @atoi(ptr noundef nonnull %22) #23
   br label %25
 
 25:                                               ; preds = %23, %._crit_edge36

@@ -407,7 +407,7 @@ pushG.exit:                                       ; preds = %gv_alloc.exit.i, %1
 
 132:                                              ; preds = %79
   %133 = load ptr, ptr %.2187, align 8
-  %134 = call i32 @atoi(ptr nocapture noundef %133) #24
+  %134 = call i32 @atoi(ptr noundef %133) #24
   call void @free(ptr noundef %133) #20
   %135 = icmp sgt i32 %134, -1
   %.not.i220 = icmp ne i32 %134, 0

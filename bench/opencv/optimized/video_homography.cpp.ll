@@ -186,7 +186,7 @@ define hidden noundef range(i32 0, 2) i32 @main(i32 noundef %0, ptr nocapture no
 65:                                               ; preds = %64
   %66 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %67 = load ptr, ptr %66, align 8
-  %68 = call i32 @atoi(ptr nocapture noundef %67) #19
+  %68 = call i32 @atoi(ptr noundef %67) #19
   %69 = invoke noundef zeroext i1 @_ZN2cv12VideoCapture4openEii(ptr noundef nonnull align 8 dereferenceable(41) %17, i32 noundef %68, i32 noundef 0)
           to label %70 unwind label %86
 
@@ -207,7 +207,7 @@ define hidden noundef range(i32 0, 2) i32 @main(i32 noundef %0, ptr nocapture no
 
 76:                                               ; preds = %74
   %77 = load ptr, ptr %66, align 8
-  %78 = call i32 @atoi(ptr nocapture noundef %77) #19
+  %78 = call i32 @atoi(ptr noundef %77) #19
   %79 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %75, i32 noundef %78)
           to label %80 unwind label %86
 

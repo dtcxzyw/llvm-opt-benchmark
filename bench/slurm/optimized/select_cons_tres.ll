@@ -256,7 +256,7 @@ define noundef i32 @select_p_node_init() local_unnamed_addr #0 {
 
 29:                                               ; preds = %26
   %30 = getelementptr inbounds nuw i8, ptr %28, i64 14
-  %31 = tail call i32 @atoi(ptr nocapture noundef nonnull %30) #11
+  %31 = tail call i32 @atoi(ptr noundef nonnull %30) #11
   store i32 %31, ptr @preempt_reorder_cnt, align 4
   br label %38
 
@@ -268,7 +268,7 @@ define noundef i32 @select_p_node_init() local_unnamed_addr #0 {
 
 35:                                               ; preds = %32
   %36 = getelementptr inbounds nuw i8, ptr %34, i64 22
-  %37 = tail call i32 @atoi(ptr nocapture noundef nonnull %36) #11
+  %37 = tail call i32 @atoi(ptr noundef nonnull %36) #11
   store i32 %37, ptr @preempt_reorder_cnt, align 4
   br label %38
 
@@ -294,7 +294,7 @@ thread-pre-split:                                 ; preds = %32
 
 46:                                               ; preds = %43
   %47 = getelementptr inbounds nuw i8, ptr %45, i64 17
-  %48 = tail call i32 @atoi(ptr nocapture noundef nonnull %47) #11
+  %48 = tail call i32 @atoi(ptr noundef nonnull %47) #11
   store i32 %48, ptr @bf_window_scale, align 4
   %49 = icmp slt i32 %48, 1
   br i1 %49, label %50, label %52

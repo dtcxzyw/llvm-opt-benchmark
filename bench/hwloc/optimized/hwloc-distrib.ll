@@ -603,7 +603,7 @@ hwloc_utils_lookup_input_option.exit:             ; preds = %73
   br label %hwloc_utils_disable_input_format.exit
 
 185:                                              ; preds = %180
-  %186 = call i64 @atol(ptr nocapture noundef nonnull %30) #19
+  %186 = call i64 @atol(ptr noundef nonnull %30) #19
   br label %hwloc_utils_parse_input_format.exit.i
 
 hwloc_utils_parse_input_format.exit.i:            ; preds = %79, %83, %85, %87, %89, %91, %93, %156, %158, %109, %113, %69, %144, %46, %48, %.tail209, %.tail209.thread, %38, %.thread629, %185, %168, %141, %132, %123

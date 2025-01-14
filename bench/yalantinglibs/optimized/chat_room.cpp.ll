@@ -54468,7 +54468,7 @@ _ZNK7cinatra11http_parser16get_header_valueESt17basic_string_viewIcSt11char_trai
 if.else60:                                        ; preds = %_ZNK7cinatra11http_parser16get_header_valueESt17basic_string_viewIcSt11char_traitsIcEE.exit
   %retval.sroa.3.0.value.sroa_idx.i = getelementptr inbounds nuw i8, ptr %arrayidx.i.i.i, i64 24
   %retval.sroa.3.0.copyload.i = load ptr, ptr %retval.sroa.3.0.value.sroa_idx.i, align 8
-  %call62 = call i32 @atoi(ptr nocapture noundef %retval.sroa.3.0.copyload.i) #42
+  %call62 = call i32 @atoi(ptr noundef %retval.sroa.3.0.copyload.i) #42
   br label %if.end64
 
 if.end64:                                         ; preds = %for.inc.i, %_ZNK7cinatra11http_parser16get_header_valueESt17basic_string_viewIcSt11char_traitsIcEE.exit, %if.end52, %if.else60

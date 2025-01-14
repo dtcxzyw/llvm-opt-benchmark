@@ -1769,7 +1769,7 @@ if.end44:                                         ; preds = %sw.bb37
 
 sw.bb46:                                          ; preds = %cond.end9
   %8 = load ptr, ptr @arg, align 8
-  %call48 = tail call i32 @atoi(ptr nocapture noundef %8) #20
+  %call48 = tail call i32 @atoi(ptr noundef %8) #20
   %cmp49 = icmp sgt i32 %call48, -1
   br i1 %cmp49, label %if.then50, label %sw.epilog
 
@@ -1779,7 +1779,7 @@ if.then50:                                        ; preds = %sw.bb46
 
 sw.bb52:                                          ; preds = %cond.end9
   %9 = load ptr, ptr @arg, align 8
-  %call54 = tail call i32 @atoi(ptr nocapture noundef %9) #20
+  %call54 = tail call i32 @atoi(ptr noundef %9) #20
   %cmp55 = icmp sgt i32 %call54, -1
   br i1 %cmp55, label %if.then56, label %sw.epilog
 

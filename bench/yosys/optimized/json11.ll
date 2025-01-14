@@ -1873,7 +1873,7 @@ define internal fastcc void @_ZN6json1112_GLOBAL__N_110JsonParser10parse_jsonEi(
   %135 = load ptr, ptr %1, align 8, !noalias !38
   %136 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %135) #22, !noalias !38
   %137 = getelementptr inbounds i8, ptr %136, i64 %61
-  %138 = tail call i32 @atoi(ptr nocapture noundef %137) #26, !noalias !38
+  %138 = tail call i32 @atoi(ptr noundef %137) #26, !noalias !38
   tail call void @_ZN6json114JsonC1Ei(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %138)
   br label %_ZN6json1112_GLOBAL__N_110JsonParser12parse_numberEv.exit
 

@@ -2366,7 +2366,7 @@ _ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit: ; preds = %22
 32:                                               ; preds = %31, %30
   %33 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #15
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 5
-  %35 = tail call i32 @atoi(ptr nocapture noundef nonnull %34) #24
+  %35 = tail call i32 @atoi(ptr noundef nonnull %34) #24
   br label %38
 
 36:                                               ; preds = %27

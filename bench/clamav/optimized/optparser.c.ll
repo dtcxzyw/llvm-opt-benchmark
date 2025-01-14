@@ -1772,7 +1772,7 @@ optget_i.exit._crit_edge:                         ; preds = %optget_i.exit, %277
   br i1 %.not359, label %.thread405, label %387
 
 387:                                              ; preds = %386
-  %388 = call i32 @atoi(ptr nocapture noundef nonnull %.1283) #16
+  %388 = call i32 @atoi(ptr noundef nonnull %.1283) #16
   %389 = sext i32 %388 to i64
   br label %.thread405
 
@@ -2696,7 +2696,7 @@ optget_i.exit._crit_edge:                         ; preds = %optget_i.exit, %101
   br i1 %.not125, label %177, label %142
 
 142:                                              ; preds = %141
-  %143 = call i32 @atoi(ptr nocapture noundef nonnull %1) #16
+  %143 = call i32 @atoi(ptr noundef nonnull %1) #16
   %144 = sext i32 %143 to i64
   br label %177
 

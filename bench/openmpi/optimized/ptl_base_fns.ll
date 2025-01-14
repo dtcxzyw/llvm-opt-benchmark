@@ -1836,7 +1836,7 @@ define range(i32 -32, 1) i32 @pmix_ptl_base_setup_connection(ptr noundef %0, ptr
 56:                                               ; preds = %48, %31
   %.sink53 = phi ptr [ %32, %31 ], [ %37, %48 ]
   %storemerge = phi i64 [ 16, %31 ], [ 28, %48 ]
-  %57 = tail call i32 @atoi(ptr nocapture noundef nonnull %.sink53) #21
+  %57 = tail call i32 @atoi(ptr noundef nonnull %.sink53) #21
   %58 = trunc i32 %57 to i16
   %59 = tail call zeroext i16 @htons(i16 noundef zeroext %58) #22
   %60 = getelementptr inbounds nuw i8, ptr %1, i64 2
@@ -4675,7 +4675,7 @@ define ptr @pmix_ptl_base_split_and_resolve(ptr noundef %0, ptr noundef %1) loca
 38:                                               ; preds = %32
   store i8 0, ptr %33, align 1
   %39 = getelementptr inbounds nuw i8, ptr %33, i64 1
-  %40 = call i32 @atoi(ptr nocapture noundef nonnull %39) #21
+  %40 = call i32 @atoi(ptr noundef nonnull %39) #21
   store i16 2, ptr %5, align 8
   %41 = load ptr, ptr %15, align 8
   %42 = call i32 @inet_pton(i32 noundef 2, ptr noundef %41, ptr noundef nonnull %12) #20

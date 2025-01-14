@@ -20311,7 +20311,7 @@ sub_1:                                            ; preds = %sub_0
   br i1 %isdigit, label %3195, label %3202
 
 3195:                                             ; preds = %3189
-  %3196 = call i32 @atoi(ptr nocapture noundef nonnull %3192) #33
+  %3196 = call i32 @atoi(ptr noundef nonnull %3192) #33
   %3197 = icmp eq i32 %3196, 0
   br i1 %3197, label %3198, label %3200
 
@@ -31388,7 +31388,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZN9V3Options13
 define internal void @"_ZNSt17_Function_handlerIFvPKcEZN9V3Options13parseOptsListEP8FileLineRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiPPcE4$_18E9_M_invokeERKSt9_Any_dataOS1_"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1) #5 align 2 {
   %.val = load ptr, ptr %0, align 8
   %.val3 = load ptr, ptr %1, align 8
-  %3 = tail call i32 @atoi(ptr nocapture noundef %.val3) #33
+  %3 = tail call i32 @atoi(ptr noundef %.val3) #33
   %4 = icmp slt i32 %3, 0
   br i1 %4, label %5, label %12
 
@@ -31926,7 +31926,7 @@ define internal void @"_ZNSt17_Function_handlerIFvPKcS1_EZN9V3Options13parseOpts
   %.val4 = load ptr, ptr %2, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5)
-  %6 = tail call i32 @atoi(ptr nocapture noundef readonly %.val4) #33
+  %6 = tail call i32 @atoi(ptr noundef readonly %.val4) #33
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #34
   %7 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %4)
           to label %.noexc.i.i.i unwind label %18
@@ -32564,7 +32564,7 @@ define internal void @"_ZNSt17_Function_handlerIFvPKcS1_EZN9V3Options13parseOpts
   %.val4 = load ptr, ptr %2, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5)
-  %6 = tail call i32 @atoi(ptr nocapture noundef readonly %.val4) #33
+  %6 = tail call i32 @atoi(ptr noundef readonly %.val4) #33
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #34
   %7 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %4)
           to label %.noexc.i.i.i unwind label %18
@@ -32731,7 +32731,7 @@ _ZNSt14_Function_base13_Base_managerIPFviEE10_M_managerERSt9_Any_dataRKS4_St18_M
 define internal void @"_ZNSt17_Function_handlerIFvPKcEZN9V3Options13parseOptsListEP8FileLineRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiPPcE4$_36E9_M_invokeERKSt9_Any_dataOS1_"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1) #26 align 2 {
   %.val = load ptr, ptr %0, align 8
   %.val2 = load ptr, ptr %1, align 8
-  %3 = tail call i32 @atoi(ptr nocapture noundef readonly %.val2) #33
+  %3 = tail call i32 @atoi(ptr noundef readonly %.val2) #33
   %4 = getelementptr inbounds nuw i8, ptr %.val, i64 796
   store i32 %3, ptr %4, align 4
   ret void
@@ -36000,7 +36000,7 @@ define internal void @"_ZNSt17_Function_handlerIFvPKcEZN9V3Options13parseOptsLis
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5)
   %6 = load ptr, ptr %0, align 8
-  %7 = tail call i32 @atoi(ptr nocapture noundef %.val) #33
+  %7 = tail call i32 @atoi(ptr noundef %.val) #33
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 836
   store i32 %7, ptr %8, align 4
   %9 = icmp slt i32 %7, 0
@@ -36116,7 +36116,7 @@ define internal void @"_ZNSt17_Function_handlerIFvPKcEZN9V3Options13parseOptsLis
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5)
   %6 = load ptr, ptr %0, align 8
-  %7 = tail call i32 @atoi(ptr nocapture noundef %.val) #33
+  %7 = tail call i32 @atoi(ptr noundef %.val) #33
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 840
   store i32 %7, ptr %8, align 8
   %9 = icmp slt i32 %7, 0
@@ -36385,7 +36385,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZN9V3Options13
 define internal void @"_ZNSt17_Function_handlerIFvPKcEZN9V3Options13parseOptsListEP8FileLineRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiPPcE4$_69E9_M_invokeERKSt9_Any_dataOS1_"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1) #5 align 2 {
   %.val = load ptr, ptr %1, align 8
   %3 = load ptr, ptr %0, align 8
-  %4 = tail call i32 @atoi(ptr nocapture noundef %.val) #33
+  %4 = tail call i32 @atoi(ptr noundef %.val) #33
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 844
   store i32 %4, ptr %5, align 4
   %6 = icmp sgt i32 %4, 65
@@ -36769,7 +36769,7 @@ define internal void @"_ZNSt17_Function_handlerIFvPKcEZN9V3Options13parseOptsLis
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5)
   %6 = load ptr, ptr %0, align 8
-  %7 = tail call i32 @atoi(ptr nocapture noundef %.val) #33
+  %7 = tail call i32 @atoi(ptr noundef %.val) #33
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 852
   store i32 %7, ptr %8, align 4
   %9 = icmp slt i32 %7, 2
@@ -37649,7 +37649,7 @@ define internal void @"_ZNSt17_Function_handlerIFvPKcEZN9V3Options13parseOptsLis
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5)
   %6 = load ptr, ptr %0, align 8
-  %7 = tail call i32 @atoi(ptr nocapture noundef %.val) #33
+  %7 = tail call i32 @atoi(ptr noundef %.val) #33
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 860
   store i32 %7, ptr %8, align 4
   %9 = icmp slt i32 %7, 0
@@ -37859,7 +37859,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvPKcEZN9V3Options
 define internal void @"_ZNSt17_Function_handlerIFvPKcEZN9V3Options13parseOptsListEP8FileLineRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiPPcE4$_88E9_M_invokeERKSt9_Any_dataOS1_"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1) #5 align 2 {
   %.val = load ptr, ptr %1, align 8
   %3 = load ptr, ptr %0, align 8
-  %4 = tail call i32 @atoi(ptr nocapture noundef %.val) #33
+  %4 = tail call i32 @atoi(ptr noundef %.val) #33
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 864
   store i32 %4, ptr %5, align 8
   %6 = icmp slt i32 %4, 1
@@ -38374,7 +38374,7 @@ define internal void @"_ZNSt17_Function_handlerIFvPKcEZN9V3Options13parseOptsLis
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 771
   store i8 1, ptr %4, align 1
-  %5 = tail call i32 @atoi(ptr nocapture noundef %.val) #33
+  %5 = tail call i32 @atoi(ptr noundef %.val) #33
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 888
   store i32 %5, ptr %6, align 8
   %7 = icmp slt i32 %5, 1
@@ -38714,7 +38714,7 @@ define internal void @"_ZNSt17_Function_handlerIFvPKcEZN9V3Options13parseOptsLis
   %.val3 = load ptr, ptr %1, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5)
-  %7 = tail call i32 @atoi(ptr nocapture noundef %.val3) #33
+  %7 = tail call i32 @atoi(ptr noundef %.val3) #33
   %8 = icmp slt i32 %7, 0
   br i1 %8, label %9, label %29
 

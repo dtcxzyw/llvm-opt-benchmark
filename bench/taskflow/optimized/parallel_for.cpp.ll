@@ -3270,10 +3270,10 @@ if.then:                                          ; preds = %entry
 if.end:                                           ; preds = %entry
   %arrayidx = getelementptr inbounds nuw i8, ptr %argv, i64 8
   %0 = load ptr, ptr %arrayidx, align 8
-  %call2 = tail call i32 @atoi(ptr nocapture noundef %0) #38
+  %call2 = tail call i32 @atoi(ptr noundef %0) #38
   tail call void @_Z8for_eachi(i32 noundef %call2)
   %1 = load ptr, ptr %arrayidx, align 8
-  %call4 = tail call i32 @atoi(ptr nocapture noundef %1) #38
+  %call4 = tail call i32 @atoi(ptr noundef %1) #38
   tail call void @_Z14for_each_indexi(i32 noundef %call4)
   ret i32 0
 }

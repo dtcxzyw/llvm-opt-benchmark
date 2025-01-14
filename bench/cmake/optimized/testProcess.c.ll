@@ -399,7 +399,7 @@ define dso_local range(i32 0, 124) i32 @main(i32 noundef %0, ptr noundef %1) loc
   %.sink = phi i64 [ 8, %2 ], [ 16, %13 ]
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 %.sink
   %19 = load ptr, ptr %18, align 8
-  %20 = tail call i32 @atoi(ptr nocapture noundef %19) #17
+  %20 = tail call i32 @atoi(ptr noundef %19) #17
   br label %21
 
 21:                                               ; preds = %.sink.split, %2, %13

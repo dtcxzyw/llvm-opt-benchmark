@@ -1455,7 +1455,7 @@ process_file.exit:                                ; preds = %141, %143
 
 277:                                              ; preds = %66
   %278 = load ptr, ptr @optarg, align 8
-  %279 = call i32 @atoi(ptr nocapture noundef %278) #28
+  %279 = call i32 @atoi(ptr noundef %278) #28
   %280 = icmp slt i32 %279, 0
   br i1 %280, label %281, label %282
 
@@ -2308,7 +2308,7 @@ printVersion.exit:                                ; preds = %608, %610
 
 639:                                              ; preds = %627
   %640 = call ptr @PQgetvalue(ptr noundef %628, i32 noundef 0, i32 noundef 0) #26
-  %641 = call i32 @atoi(ptr nocapture noundef %640) #28
+  %641 = call i32 @atoi(ptr noundef %640) #28
   store i32 %641, ptr @scale, align 4
   %642 = icmp slt i32 %641, 0
   br i1 %642, label %643, label %645
@@ -2384,7 +2384,7 @@ sub_0.i:                                          ; preds = %657
   %.sink.i = phi i32 [ 0, %657 ], [ 1, %.tail.i297 ], [ 2, %.tail24.i ]
   store i32 %.sink.i, ptr @partition_method, align 4
   %668 = call ptr @PQgetvalue(ptr noundef %649, i32 noundef 0, i32 noundef 2) #26
-  %669 = call i32 @atoi(ptr nocapture noundef %668) #28
+  %669 = call i32 @atoi(ptr noundef %668) #28
   br label %GetTableInfo.exit
 
 GetTableInfo.exit:                                ; preds = %651, %667
@@ -5499,7 +5499,7 @@ sendCommand.exit.i:                               ; preds = %513
   br label %evaluateSleep.exit.i.i
 
 571:                                              ; preds = %563
-  %572 = call i32 @atoi(ptr nocapture noundef nonnull %565) #28
+  %572 = call i32 @atoi(ptr noundef nonnull %565) #28
   %573 = icmp eq i32 %572, 0
   br i1 %573, label %574, label %588
 
@@ -5522,7 +5522,7 @@ sendCommand.exit.i:                               ; preds = %513
   br label %evaluateSleep.exit.i.i
 
 586:                                              ; preds = %558
-  %587 = call i32 @atoi(ptr nocapture noundef nonnull %560) #28
+  %587 = call i32 @atoi(ptr noundef nonnull %560) #28
   br label %588
 
 588:                                              ; preds = %586, %574, %571

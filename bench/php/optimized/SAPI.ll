@@ -1624,7 +1624,7 @@ define internal fastcc i32 @sapi_extract_response_code(ptr nocapture noundef rea
 
 7:                                                ; preds = %4
   %8 = getelementptr inbounds nuw i8, ptr %.0, i64 1
-  %9 = tail call i32 @atoi(ptr nocapture noundef nonnull %8) #19
+  %9 = tail call i32 @atoi(ptr noundef nonnull %8) #19
   br label %.loopexit
 
 10:                                               ; preds = %2, %4

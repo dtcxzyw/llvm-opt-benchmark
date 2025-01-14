@@ -160,7 +160,7 @@ if.then9.i:                                       ; preds = %if.end5.i
   br label %if.end5.thread24
 
 if.else:                                          ; preds = %entry
-  %call3 = tail call i32 @atoi(ptr nocapture noundef %1) #21
+  %call3 = tail call i32 @atoi(ptr noundef %1) #21
   %cmp = icmp slt i32 %call3, 0
   br i1 %cmp, label %if.end5.thread, label %if.end8
 

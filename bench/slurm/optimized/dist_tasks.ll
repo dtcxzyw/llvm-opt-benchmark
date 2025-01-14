@@ -1093,7 +1093,7 @@ _validate_mask.exit:                              ; preds = %103, %105, %108, %1
 
 .lr.ph.i152:                                      ; preds = %173, %188
   %.02437.i = phi ptr [ %189, %188 ], [ %176, %173 ]
-  %177 = call i32 @atoi(ptr nocapture noundef nonnull %.02437.i) #9
+  %177 = call i32 @atoi(ptr noundef nonnull %.02437.i) #9
   %178 = icmp ult i32 %177, 1024
   br i1 %178, label %179, label %190
 

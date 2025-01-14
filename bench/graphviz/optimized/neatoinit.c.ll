@@ -1987,7 +1987,7 @@ define internal fastcc void @neatoLayout(ptr noundef %0, ptr noundef %1, i32 nou
   br i1 %.not, label %15, label %13
 
 13:                                               ; preds = %5
-  %14 = tail call i32 @atoi(ptr nocapture noundef nonnull %12) #24
+  %14 = tail call i32 @atoi(ptr noundef nonnull %12) #24
   br label %20
 
 15:                                               ; preds = %5

@@ -429,7 +429,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %call1 = tail call i32 @atoi(ptr nocapture noundef %value) #7
+  %call1 = tail call i32 @atoi(ptr noundef %value) #7
   %call2 = tail call i32 @EVP_PKEY_CTX_set_dsa_paramgen_bits(ptr noundef %ctx, i32 noundef %call1) #6
   br label %return
 
@@ -439,7 +439,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp4, label %if.then5, label %if.end8
 
 if.then5:                                         ; preds = %if.end
-  %call6 = tail call i32 @atoi(ptr nocapture noundef %value) #7
+  %call6 = tail call i32 @atoi(ptr noundef %value) #7
   %call7 = tail call i32 @EVP_PKEY_CTX_set_dsa_paramgen_q_bits(ptr noundef %ctx, i32 noundef %call6) #6
   br label %return
 

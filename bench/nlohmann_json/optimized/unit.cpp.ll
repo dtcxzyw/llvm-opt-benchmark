@@ -11686,7 +11686,7 @@ if.end12.us:                                      ; preds = %for.body.us
   br i1 %cmp18.us, label %if.then19, label %for.cond.us
 
 if.then1:                                         ; preds = %if.end
-  %call3 = call i32 @atoi(ptr nocapture noundef %retval.0.i.i.i) #48
+  %call3 = call i32 @atoi(ptr noundef %retval.0.i.i.i) #48
   %cmp.not = icmp eq i32 %call3, 0
   br i1 %cmp.not, label %cleanup, label %if.then4
 

@@ -870,7 +870,7 @@ select.unfold.i.i:                                ; preds = %59, %57, %55, %53
   br label %74
 
 70:                                               ; preds = %66
-  %71 = call i32 @atoi(ptr nocapture noundef nonnull %62) #27
+  %71 = call i32 @atoi(ptr noundef nonnull %62) #27
   %72 = call i32 (i32, ptr, ...) @logg(i32 noundef 2, ptr noundef nonnull @.str.94, ptr noundef nonnull %14, i32 noundef %71) #23
   call void @free(ptr noundef nonnull %62) #23
   %73 = icmp eq i32 %71, 0
@@ -899,7 +899,7 @@ select.unfold.i.i:                                ; preds = %59, %57, %55, %53
   br label %.sink.split.i.i
 
 88:                                               ; preds = %83
-  %89 = call i32 @atoi(ptr nocapture noundef nonnull %84) #27
+  %89 = call i32 @atoi(ptr noundef nonnull %84) #27
   call void @free(ptr noundef nonnull %84) #23
   %90 = call i64 @time(ptr noundef nonnull %17) #23
   %91 = load i64, ptr %17, align 8
@@ -932,7 +932,7 @@ select.unfold.i.i:                                ; preds = %59, %57, %55, %53
   br label %.sink.split.i.i
 
 104:                                              ; preds = %99
-  %105 = call i32 @atoi(ptr nocapture noundef nonnull %98) #27
+  %105 = call i32 @atoi(ptr noundef nonnull %98) #27
   %106 = call i32 (i32, ptr, ...) @logg(i32 noundef 2, ptr noundef nonnull @.str.100, ptr noundef nonnull %14, i32 noundef %105) #23
   call void @free(ptr noundef nonnull %98) #23
   %107 = icmp eq i32 %105, 0

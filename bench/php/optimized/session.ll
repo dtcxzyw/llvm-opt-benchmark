@@ -10981,7 +10981,7 @@ define internal i32 @OnUpdateCookieLifetime(ptr noundef %0, ptr noundef %1, ptr 
 
 15:                                               ; preds = %10
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %17 = tail call i64 @atol(ptr nocapture noundef nonnull %16) #26
+  %17 = tail call i64 @atol(ptr noundef nonnull %16) #26
   %18 = icmp slt i64 %17, 0
   br i1 %18, label %19, label %20
 
@@ -11165,7 +11165,7 @@ declare i32 @OnUpdateString(ptr noundef, ptr noundef, ptr noundef, ptr noundef, 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -1, 1) i32 @OnUpdateRfc1867Freq(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture readnone %4, i32 %5) #0 {
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %8 = tail call i64 @atoll(ptr nocapture noundef nonnull %7) #26
+  %8 = tail call i64 @atoll(ptr noundef nonnull %7) #26
   %9 = trunc i64 %8 to i32
   %10 = icmp slt i32 %9, 0
   br i1 %10, label %11, label %12

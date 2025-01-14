@@ -18764,7 +18764,7 @@ if.else1378:                                      ; preds = %invoke.cont1368, %_
 
 nrvo.unused1394.invoke:                           ; preds = %if.else1509, %if.else1641, %if.else1575, %if.else1443, %if.else1378
   %call1649.sink = phi ptr [ %call1385, %if.else1378 ], [ %call1451, %if.else1443 ], [ %call1517, %if.else1509 ], [ %call1583, %if.else1575 ], [ %call1649, %if.else1641 ]
-  %call.i1086 = call i32 @atoi(ptr nocapture noundef readonly %call1649.sink) #36, !noalias !155
+  %call.i1086 = call i32 @atoi(ptr noundef readonly %call1649.sink) #36, !noalias !155
   %conv.i1087 = sext i32 %call.i1086 to i64
   store i8 0, ptr %agg.result, align 1
   store i8 1, ptr %has_been_checked_.i1366, align 1
@@ -18848,7 +18848,7 @@ _ZN11flatbuffers21FlatBufferBuilderImplILb0EE7ReferToEm.exit.i.invoke: ; preds =
 
 nrvo.unused1418.invoke:                           ; preds = %if.else1641, %if.else1575, %if.else1443, %if.else1378
   %call1673.sink = phi ptr [ %call1385, %if.else1378 ], [ %call1451, %if.else1443 ], [ %call1583, %if.else1575 ], [ %call1649, %if.else1641 ]
-  %call.i1091 = call i32 @atoi(ptr nocapture noundef readonly %call1673.sink) #36, !noalias !155
+  %call.i1091 = call i32 @atoi(ptr noundef readonly %call1673.sink) #36, !noalias !155
   store i8 0, ptr %agg.result, align 1
   store i8 1, ptr %has_been_checked_.i1366, align 1
   %offset1688 = getelementptr inbounds i8, ptr %it.sroa.0.01327, i64 -16
@@ -21071,7 +21071,7 @@ nrvo.unused457:                                   ; preds = %for.body
   %constant447 = getelementptr inbounds i8, ptr %66, i64 -48
   %call448 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %constant447) #30
   call void @llvm.experimental.noalias.scope.decl(metadata !425)
-  %call.i782 = call i32 @atoi(ptr nocapture noundef readonly %call448) #36, !noalias !425
+  %call.i782 = call i32 @atoi(ptr noundef readonly %call448) #36, !noalias !425
   store i8 0, ptr %agg.result, align 1, !alias.scope !428
   store i8 1, ptr %has_been_checked_.i.i1021, align 1
   %call465 = call noundef i32 @_ZN11flatbuffers21FlatBufferBuilderImplILb0EE11PushElementIvNS_6OffsetEEEjT0_IT_E(ptr noundef nonnull align 8 dereferenceable(128) %builder_39, i32 %call.i782)
@@ -21081,7 +21081,7 @@ nrvo.unused489:                                   ; preds = %for.body
   %constant479 = getelementptr inbounds i8, ptr %66, i64 -48
   %call480 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %constant479) #30
   call void @llvm.experimental.noalias.scope.decl(metadata !431)
-  %call.i794 = call i32 @atoi(ptr nocapture noundef readonly %call480) #36, !noalias !431
+  %call.i794 = call i32 @atoi(ptr noundef readonly %call480) #36, !noalias !431
   store i8 0, ptr %agg.result, align 1, !alias.scope !434
   store i8 1, ptr %has_been_checked_.i.i1021, align 1
   %call498 = call noundef i32 @_ZN11flatbuffers21FlatBufferBuilderImplILb0EE11PushElementIvNS_6OffsetEEEjT0_IT_E(ptr noundef nonnull align 8 dereferenceable(128) %builder_39, i32 %call.i794)
@@ -21091,7 +21091,7 @@ nrvo.unused522:                                   ; preds = %for.body
   %constant512 = getelementptr inbounds i8, ptr %66, i64 -48
   %call513 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %constant512) #30
   call void @llvm.experimental.noalias.scope.decl(metadata !437)
-  %call.i807 = call i32 @atoi(ptr nocapture noundef readonly %call513) #36, !noalias !437
+  %call.i807 = call i32 @atoi(ptr noundef readonly %call513) #36, !noalias !437
   %conv.i = sext i32 %call.i807 to i64
   store i8 0, ptr %agg.result, align 1, !alias.scope !440
   store i8 1, ptr %has_been_checked_.i.i1021, align 1
@@ -21114,7 +21114,7 @@ nrvo.unused555:                                   ; preds = %_ZN11flatbuffers8Is
   %constant545 = getelementptr inbounds i8, ptr %66, i64 -48
   %call546 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %constant545) #30
   call void @llvm.experimental.noalias.scope.decl(metadata !443)
-  %call.i820 = call i32 @atoi(ptr nocapture noundef readonly %call546) #36, !noalias !443
+  %call.i820 = call i32 @atoi(ptr noundef readonly %call546) #36, !noalias !443
   store i8 0, ptr %agg.result, align 1, !alias.scope !446
   store i8 1, ptr %has_been_checked_.i.i1021, align 1
   %call564 = call noundef i32 @_ZN11flatbuffers21FlatBufferBuilderImplILb0EE11PushElementIvNS_6OffsetEEEjT0_IT_E(ptr noundef nonnull align 8 dereferenceable(128) %builder_39, i32 %call.i820)
@@ -21124,7 +21124,7 @@ nrvo.unused588:                                   ; preds = %for.body
   %constant578 = getelementptr inbounds i8, ptr %66, i64 -48
   %call579 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %constant578) #30
   call void @llvm.experimental.noalias.scope.decl(metadata !449)
-  %call.i833 = call i32 @atoi(ptr nocapture noundef readonly %call579) #36, !noalias !449
+  %call.i833 = call i32 @atoi(ptr noundef readonly %call579) #36, !noalias !449
   store i8 0, ptr %agg.result, align 1, !alias.scope !452
   store i8 1, ptr %has_been_checked_.i.i1021, align 1
   %call597 = call noundef i32 @_ZN11flatbuffers21FlatBufferBuilderImplILb0EE11PushElementIvNS_6OffsetEEEjT0_IT_E(ptr noundef nonnull align 8 dereferenceable(128) %builder_39, i32 %call.i833)
@@ -24395,7 +24395,7 @@ _ZN11flatbuffers21FlatBufferBuilderImplILb0EE11PushElementIdjEET0_T_.exit: ; pre
 nrvo.unused421.invoke:                            ; preds = %for.body, %for.body, %_ZN11flatbuffers8IsStructERKNS_4TypeE.exit674, %for.body
   %constant538 = getelementptr inbounds i8, ptr %it.sroa.0.02012, i64 -40
   %call539 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %constant538) #30
-  %call.i685 = call i32 @atoi(ptr nocapture noundef readonly %call539) #36, !noalias !155
+  %call.i685 = call i32 @atoi(ptr noundef readonly %call539) #36, !noalias !155
   store i8 0, ptr %agg.result, align 1
   store i8 1, ptr %has_been_checked_.i.i2055, align 1
   %330 = invoke noundef i32 @_ZN11flatbuffers21FlatBufferBuilderImplILb0EE11PushElementIvNS_6OffsetEEEjT0_IT_E(ptr noundef nonnull align 8 dereferenceable(128) %builder, i32 %call.i685)
@@ -24405,7 +24405,7 @@ nrvo.unused484:                                   ; preds = %for.body
   %constant474 = getelementptr inbounds i8, ptr %it.sroa.0.02012, i64 -40
   %call475 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %constant474) #30
   call void @llvm.experimental.noalias.scope.decl(metadata !490)
-  %call.i665 = call i32 @atoi(ptr nocapture noundef readonly %call475) #36, !noalias !490
+  %call.i665 = call i32 @atoi(ptr noundef readonly %call475) #36, !noalias !490
   %conv.i = sext i32 %call.i665 to i64
   store i8 0, ptr %agg.result, align 1, !alias.scope !493
   store i8 1, ptr %has_been_checked_.i.i2055, align 1
@@ -40869,7 +40869,7 @@ _ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN11flatbuffers5V
   %6 = load ptr, ptr %second.i, align 8
   %constant = getelementptr inbounds nuw i8, ptr %6, i64 32
   %call4 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %constant) #30
-  %call5 = call i32 @atoi(ptr nocapture noundef %call4) #36
+  %call5 = call i32 @atoi(ptr noundef %call4) #36
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #30
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1) #30
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp8) #30
@@ -40940,7 +40940,7 @@ _ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN11flatbuffers5V
   %13 = load ptr, ptr %second.i39, align 8
   %constant14 = getelementptr inbounds nuw i8, ptr %13, i64 32
   %call15 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %constant14) #30
-  %call16 = call i32 @atoi(ptr nocapture noundef %call15) #36
+  %call16 = call i32 @atoi(ptr noundef %call15) #36
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp7) #30
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp8) #30
   %cmp = icmp slt i32 %call5, %call16

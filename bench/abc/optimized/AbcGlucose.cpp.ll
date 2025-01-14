@@ -1248,7 +1248,7 @@ _ZN5Gluco3vecINS_3LitEE5clearEb.exit:             ; preds = %2, %.preheader.i
   %22 = icmp eq i8 %21, 43
   %spec.select.idx = zext i1 %22 to i64
   %spec.select = getelementptr inbounds nuw i8, ptr %.4, i64 %spec.select.idx
-  %23 = tail call i32 @atoi(ptr nocapture noundef nonnull %spec.select) #34
+  %23 = tail call i32 @atoi(ptr noundef nonnull %spec.select) #34
   %24 = icmp eq i32 %23, 0
   br i1 %24, label %25, label %46
 

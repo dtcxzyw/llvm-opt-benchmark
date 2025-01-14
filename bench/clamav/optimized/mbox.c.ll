@@ -5951,7 +5951,7 @@ define internal fastcc range(i32 -1, 21) i32 @rfc1341(ptr nocapture noundef nonn
   br label %59
 
 59:                                               ; preds = %58, %57
-  %60 = call i32 @atoi(ptr nocapture noundef nonnull %45) #21
+  %60 = call i32 @atoi(ptr noundef nonnull %45) #21
   %61 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %13) #21
   %62 = call ptr @cl_hash_data(ptr noundef nonnull @.str.283, ptr noundef nonnull %13, i64 noundef %61, ptr noundef nonnull %4, ptr noundef null) #19
   %63 = call ptr @cli_str2hex(ptr noundef nonnull %4, i32 noundef 16) #19
@@ -5982,7 +5982,7 @@ define internal fastcc range(i32 -1, 21) i32 @rfc1341(ptr nocapture noundef nonn
   br i1 %.not139, label %184, label %72
 
 72:                                               ; preds = %69
-  %73 = call i32 @atoi(ptr nocapture noundef nonnull %70) #21
+  %73 = call i32 @atoi(ptr noundef nonnull %70) #21
   call void @free(ptr noundef nonnull %70) #19
   %74 = icmp eq i32 %60, %73
   br i1 %74, label %75, label %184

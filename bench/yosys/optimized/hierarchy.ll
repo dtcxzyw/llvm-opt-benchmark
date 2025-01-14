@@ -5864,7 +5864,7 @@ _ZNK5Yosys5RTLIL8IdString5c_strEv.exit.i:         ; preds = %_ZN5Yosys5RTLIL8IdS
   br i1 %or.cond.i1149, label %2233, label %_ZN12_GLOBAL__N_111read_id_numEN5Yosys5RTLIL8IdStringEPi.exit
 
 2233:                                             ; preds = %2229
-  %2234 = call i32 @atoi(ptr nocapture noundef nonnull %2230) #30
+  %2234 = call i32 @atoi(ptr noundef nonnull %2230) #30
   br label %_ZN12_GLOBAL__N_111read_id_numEN5Yosys5RTLIL8IdStringEPi.exit
 
 _ZN12_GLOBAL__N_111read_id_numEN5Yosys5RTLIL8IdStringEPi.exit: ; preds = %2233, %2229, %_ZNK5Yosys5RTLIL8IdString5c_strEv.exit.i
@@ -7152,7 +7152,7 @@ _ZNK5Yosys5RTLIL8IdString5c_strEv.exit.i1226:     ; preds = %_ZN5Yosys5RTLIL8IdS
   br i1 %or.cond.i1229, label %2820, label %_ZN12_GLOBAL__N_111read_id_numEN5Yosys5RTLIL8IdStringEPi.exit1231
 
 2820:                                             ; preds = %2816
-  %2821 = call i32 @atoi(ptr nocapture noundef nonnull %2817) #30
+  %2821 = call i32 @atoi(ptr noundef nonnull %2817) #30
   br label %_ZN12_GLOBAL__N_111read_id_numEN5Yosys5RTLIL8IdStringEPi.exit1231
 
 _ZN12_GLOBAL__N_111read_id_numEN5Yosys5RTLIL8IdStringEPi.exit1231: ; preds = %2820, %2816, %_ZNK5Yosys5RTLIL8IdString5c_strEv.exit.i1226
@@ -27901,7 +27901,7 @@ _ZNSt6vectorIPcSaIS0_EE2atEm.exit.i:              ; preds = %_ZNK5Yosys5RTLIL8Id
 
 405:                                              ; preds = %396
   %406 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %70) #25
-  %407 = call i32 @atoi(ptr nocapture noundef %406) #30
+  %407 = call i32 @atoi(ptr noundef %406) #30
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %70) #25
   %408 = load ptr, ptr %66, align 8
   %409 = getelementptr inbounds nuw i8, ptr %408, i64 76
@@ -27913,7 +27913,7 @@ _ZNSt6vectorIPcSaIS0_EE2atEm.exit.i:              ; preds = %_ZNK5Yosys5RTLIL8Id
 
 413:                                              ; preds = %405
   %414 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %71) #25
-  %415 = call i32 @atoi(ptr nocapture noundef %414) #30
+  %415 = call i32 @atoi(ptr noundef %414) #30
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %71) #25
   %416 = invoke noundef nonnull align 4 dereferenceable(8) ptr @_ZNSt3mapIPN5Yosys5RTLIL4CellESt4pairIiiESt4lessIS3_ESaIS4_IKS3_S5_EEEixERS8_(ptr noundef nonnull align 8 dereferenceable(48) %63, ptr noundef nonnull align 8 dereferenceable(8) %66)
           to label %417 unwind label %.loopexit.split-lp566.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
@@ -30585,7 +30585,7 @@ _ZNK5Yosys5RTLIL8IdString5c_strEv.exit.i.i:       ; preds = %_ZN5Yosys5RTLIL8IdS
   br i1 %or.cond.i.i, label %1573, label %_ZN12_GLOBAL__N_111read_id_numEN5Yosys5RTLIL8IdStringEPi.exit.i
 
 1573:                                             ; preds = %1569
-  %1574 = call i32 @atoi(ptr nocapture noundef nonnull %1570) #30
+  %1574 = call i32 @atoi(ptr noundef nonnull %1570) #30
   br label %_ZN12_GLOBAL__N_111read_id_numEN5Yosys5RTLIL8IdStringEPi.exit.i
 
 _ZN12_GLOBAL__N_111read_id_numEN5Yosys5RTLIL8IdStringEPi.exit.i: ; preds = %1573, %1569, %_ZNK5Yosys5RTLIL8IdString5c_strEv.exit.i.i
@@ -30873,7 +30873,7 @@ _ZNK5Yosys5RTLIL8IdString5c_strEv.exit.i51.i:     ; preds = %_ZN5Yosys5RTLIL8IdS
   br i1 %or.cond.i54.i, label %1727, label %_ZN12_GLOBAL__N_111read_id_numEN5Yosys5RTLIL8IdStringEPi.exit56.i
 
 1727:                                             ; preds = %1723
-  %1728 = call i32 @atoi(ptr nocapture noundef nonnull %1724) #30
+  %1728 = call i32 @atoi(ptr noundef nonnull %1724) #30
   br label %_ZN12_GLOBAL__N_111read_id_numEN5Yosys5RTLIL8IdStringEPi.exit56.i
 
 _ZN12_GLOBAL__N_111read_id_numEN5Yosys5RTLIL8IdStringEPi.exit56.i: ; preds = %1727, %1723, %_ZNK5Yosys5RTLIL8IdString5c_strEv.exit.i51.i
@@ -32102,7 +32102,7 @@ _ZNK5Yosys5RTLIL8IdString5c_strEv.exit12.i301:    ; preds = %_ZNK5Yosys5RTLIL8Id
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %18) #25
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %18)
   %2353 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %75) #25
-  %2354 = call i32 @atoi(ptr nocapture noundef %2353) #30
+  %2354 = call i32 @atoi(ptr noundef %2353) #30
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %75) #25
   %2355 = load ptr, ptr %2320, align 8, !noalias !279
   %2356 = load ptr, ptr %2321, align 8, !noalias !279

@@ -54,7 +54,7 @@ define dso_local void @rate_limit_init() local_unnamed_addr #0 {
 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 14
-  %8 = tail call i32 @atoi(ptr nocapture noundef nonnull %7) #8
+  %8 = tail call i32 @atoi(ptr noundef nonnull %7) #8
   store i32 %8, ptr @table_size, align 4
   br label %9
 
@@ -66,7 +66,7 @@ define dso_local void @rate_limit_init() local_unnamed_addr #0 {
 
 12:                                               ; preds = %9
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 15
-  %14 = tail call i32 @atoi(ptr nocapture noundef nonnull %13) #8
+  %14 = tail call i32 @atoi(ptr noundef nonnull %13) #8
   store i32 %14, ptr @bucket_size, align 4
   br label %15
 
@@ -78,7 +78,7 @@ define dso_local void @rate_limit_init() local_unnamed_addr #0 {
 
 18:                                               ; preds = %15
   %19 = getelementptr inbounds nuw i8, ptr %17, i64 12
-  %20 = tail call i32 @atoi(ptr nocapture noundef nonnull %19) #8
+  %20 = tail call i32 @atoi(ptr noundef nonnull %19) #8
   store i32 %20, ptr @log_freq, align 4
   br label %21
 
@@ -90,7 +90,7 @@ define dso_local void @rate_limit_init() local_unnamed_addr #0 {
 
 24:                                               ; preds = %21
   %25 = getelementptr inbounds nuw i8, ptr %23, i64 15
-  %26 = tail call i32 @atoi(ptr nocapture noundef nonnull %25) #8
+  %26 = tail call i32 @atoi(ptr noundef nonnull %25) #8
   store i32 %26, ptr @refill_rate, align 4
   br label %27
 
@@ -102,7 +102,7 @@ define dso_local void @rate_limit_init() local_unnamed_addr #0 {
 
 30:                                               ; preds = %27
   %31 = getelementptr inbounds nuw i8, ptr %29, i64 17
-  %32 = tail call i32 @atoi(ptr nocapture noundef nonnull %31) #8
+  %32 = tail call i32 @atoi(ptr noundef nonnull %31) #8
   store i32 %32, ptr @refill_period, align 4
   br label %33
 

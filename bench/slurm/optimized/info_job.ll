@@ -2307,7 +2307,7 @@ declare noundef i64 @read(i32 noundef, ptr nocapture noundef, i64 noundef) local
 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i32 -1, 1) i32 @scontrol_job_ready(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = tail call i32 @atoi(ptr nocapture noundef %0) #17
+  %2 = tail call i32 @atoi(ptr noundef %0) #17
   %3 = icmp eq i32 %2, 0
   br i1 %3, label %4, label %7
 
@@ -2573,7 +2573,7 @@ define dso_local i32 @scontrol_batch_script(i32 noundef %0, ptr nocapture nounde
 
 5:                                                ; preds = %2
   %6 = load ptr, ptr %1, align 8
-  %7 = tail call i64 @atoll(ptr nocapture noundef %6) #17
+  %7 = tail call i64 @atoll(ptr noundef %6) #17
   %8 = trunc i64 %7 to i32
   %.not = icmp eq i32 %0, 1
   br i1 %.not, label %13, label %9

@@ -428,7 +428,7 @@ prte_rmaps_rank_file__create_buffer.exit:         ; preds = %36
 
 154:                                              ; preds = %120
   %155 = load ptr, ptr @prte_rmaps_rank_file_text, align 8
-  %156 = tail call i64 @atol(ptr nocapture noundef %155) #24
+  %156 = tail call i64 @atol(ptr noundef %155) #24
   %157 = trunc i64 %156 to i32
   store i32 %157, ptr @prte_rmaps_rank_file_value, align 8
   br label %.loopexit102

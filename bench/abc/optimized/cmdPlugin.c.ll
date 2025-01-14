@@ -494,7 +494,7 @@ define i32 @Abc_ManReadInteger(ptr noundef %0, ptr nocapture noundef readonly %1
 8:                                                ; preds = %5
   %9 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #13
   %10 = getelementptr inbounds i8, ptr %7, i64 %9
-  %11 = tail call i32 @atoi(ptr nocapture noundef nonnull %10) #13
+  %11 = tail call i32 @atoi(ptr noundef nonnull %10) #13
   br label %12
 
 12:                                               ; preds = %8, %5
@@ -1446,7 +1446,7 @@ Vec_StrFree.exit143:                              ; preds = %Abc_Clock.exit141, 
 
 194:                                              ; preds = %191
   %195 = getelementptr inbounds nuw i8, ptr %193, i64 15
-  %196 = call i32 @atoi(ptr nocapture noundef nonnull %195) #13
+  %196 = call i32 @atoi(ptr noundef nonnull %195) #13
   br label %197
 
 197:                                              ; preds = %194, %191

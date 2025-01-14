@@ -6691,7 +6691,7 @@ _ZN5cmsys17RegularExpression4findERKNSt7__cxx1112basic_stringIcSt11char_traitsIc
 184:                                              ; preds = %181, %173
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %15), !noalias !58
   %185 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %35) #22
-  %186 = call i32 @atoi(ptr nocapture noundef %185) #26
+  %186 = call i32 @atoi(ptr noundef %185) #26
   %187 = getelementptr inbounds nuw i8, ptr %.sroa.0229.0244, i64 104
   store i32 %186, ptr %187, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %35) #22

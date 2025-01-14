@@ -236,7 +236,7 @@ if.end.i4:                                        ; preds = %if.end
   br i1 %tobool1.not.i6, label %if.else.i, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %if.end.i4
-  %call2.i = tail call i32 @atoi(ptr nocapture noundef nonnull %call.i5) #13
+  %call2.i = tail call i32 @atoi(ptr noundef nonnull %call.i5) #13
   %cmp.i = icmp sgt i32 %call2.i, 0
   br i1 %cmp.i, label %if.then3.i, label %if.else.i
 
@@ -329,7 +329,7 @@ if.end:                                           ; preds = %entry
   br i1 %tobool1.not, label %if.else, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end
-  %call2 = tail call i32 @atoi(ptr nocapture noundef nonnull %call) #13
+  %call2 = tail call i32 @atoi(ptr noundef nonnull %call) #13
   %cmp = icmp sgt i32 %call2, 0
   br i1 %cmp, label %if.then3, label %if.else
 
@@ -441,7 +441,7 @@ if.end.i:                                         ; preds = %if.then
   br i1 %tobool1.not.i, label %if.else.i, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %if.end.i
-  %call2.i = tail call i32 @atoi(ptr nocapture noundef nonnull %call.i) #13
+  %call2.i = tail call i32 @atoi(ptr noundef nonnull %call.i) #13
   %cmp.i = icmp sgt i32 %call2.i, 0
   br i1 %cmp.i, label %if.then3.i, label %if.else.i
 

@@ -440,7 +440,7 @@ if.then.i65.i.i:                                  ; preds = %if.then93.i.i
   %sext22.i.i.i = add i64 %sext.i.i.i, 4294967296
   %idx.ext.i.i.i = ashr exact i64 %sext22.i.i.i, 32
   %add.ptr3.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 %idx.ext.i.i.i
-  %call4.i.i.i = call i32 @atoi(ptr nocapture noundef nonnull readonly %add.ptr3.i.i.i) #10
+  %call4.i.i.i = call i32 @atoi(ptr noundef nonnull readonly %add.ptr3.i.i.i) #10
   %call5.i.i.i = call i64 @strspn(ptr noundef nonnull readonly %add.ptr3.i.i.i, ptr noundef nonnull @scan_hunk_header.digits) #10
   br label %if.end.i.i.i
 
@@ -482,7 +482,7 @@ if.then33.i.i.i:                                  ; preds = %if.end22.i.i.i
   %sext26.i.i.i = add i64 %sext25.i.i.i, 4294967296
   %idx.ext35.i.i.i = ashr exact i64 %sext26.i.i.i, 32
   %add.ptr36.i.i.i = getelementptr inbounds i8, ptr %add.ptr25.i.i.i, i64 %idx.ext35.i.i.i
-  %call37.i.i.i = call i32 @atoi(ptr nocapture noundef nonnull %add.ptr36.i.i.i) #10
+  %call37.i.i.i = call i32 @atoi(ptr noundef nonnull %add.ptr36.i.i.i) #10
   br label %while.cond.outer.outer.backedge.i.i
 
 if.end95.i.i:                                     ; preds = %if.then90.i.i

@@ -5701,7 +5701,7 @@ isRect.exit.thread.i:                             ; preds = %147, %isRect.exit.i
   br i1 %.not177.i, label %161, label %159
 
 159:                                              ; preds = %151
-  %160 = tail call i32 @atoi(ptr nocapture noundef nonnull %158) #32
+  %160 = tail call i32 @atoi(ptr noundef nonnull %158) #32
   br label %161
 
 161:                                              ; preds = %159, %151
@@ -12079,7 +12079,7 @@ is_natural_number.exit.i:                         ; preds = %.preheader14.i
   br i1 %.not.i.i, label %34, label %36
 
 34:                                               ; preds = %is_natural_number.exit.i
-  %35 = call i32 @atoi(ptr nocapture noundef nonnull readonly %22) #32
+  %35 = call i32 @atoi(ptr noundef nonnull readonly %22) #32
   br label %layer_index.exit
 
 36:                                               ; preds = %is_natural_number.exit.i
@@ -12134,7 +12134,7 @@ is_natural_number.exit.i50:                       ; preds = %.preheader14.i48
   br i1 %.not.i.i51, label %53, label %55
 
 53:                                               ; preds = %is_natural_number.exit.i50
-  %54 = call i32 @atoi(ptr nocapture noundef nonnull readonly %25) #32
+  %54 = call i32 @atoi(ptr noundef nonnull readonly %25) #32
   br label %layer_index.exit63
 
 55:                                               ; preds = %is_natural_number.exit.i50
@@ -12207,7 +12207,7 @@ is_natural_number.exit.i66:                       ; preds = %.preheader14.i64
   br i1 %.not.i.i67, label %79, label %81
 
 79:                                               ; preds = %is_natural_number.exit.i66
-  %80 = call i32 @atoi(ptr nocapture noundef nonnull readonly %22) #32
+  %80 = call i32 @atoi(ptr noundef nonnull readonly %22) #32
   br label %layer_index.exit79
 
 81:                                               ; preds = %is_natural_number.exit.i66

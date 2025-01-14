@@ -933,7 +933,7 @@ define i32 @Gls_ManParseOne(ptr nocapture noundef %0) local_unnamed_addr #7 {
 
 7:                                                ; preds = %3
   %8 = getelementptr inbounds nuw i8, ptr %.0, i64 1
-  %9 = tail call i32 @atoi(ptr nocapture noundef nonnull %8) #26
+  %9 = tail call i32 @atoi(ptr noundef nonnull %8) #26
   br label %.fold.split
 
 .fold.split.loopexit:                             ; preds = %3
@@ -1024,7 +1024,7 @@ define noundef i32 @Gls_ManParse(ptr nocapture noundef %0, ptr nocapture noundef
 
 31:                                               ; preds = %27
   %32 = getelementptr inbounds nuw i8, ptr %.0.i, i64 1
-  %33 = tail call i32 @atoi(ptr nocapture noundef nonnull %32) #26
+  %33 = tail call i32 @atoi(ptr noundef nonnull %32) #26
   br label %.fold.split.i
 
 .fold.split.i.loopexit:                           ; preds = %27
@@ -1171,7 +1171,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
 
 90:                                               ; preds = %86
   %91 = getelementptr inbounds nuw i8, ptr %.0.i129, i64 1
-  %92 = tail call i32 @atoi(ptr nocapture noundef nonnull %91) #26
+  %92 = tail call i32 @atoi(ptr noundef nonnull %91) #26
   br label %.fold.split.i131
 
 .fold.split.i131.loopexit:                        ; preds = %86
@@ -1695,7 +1695,7 @@ Vec_IntPush.exit183:                              ; preds = %.Vec_IntGrow.exit10
 
 317:                                              ; preds = %.preheader
   %318 = getelementptr inbounds nuw i8, ptr %.2357.pn, i64 2
-  %319 = tail call i32 @atoi(ptr nocapture noundef nonnull %318) #26
+  %319 = tail call i32 @atoi(ptr noundef nonnull %318) #26
   br label %.fold.split.i186
 
 .fold.split.i186.loopexit449:                     ; preds = %.preheader
@@ -2052,7 +2052,7 @@ Vec_IntPush.exit224:                              ; preds = %.Vec_IntGrow.exit10
 
 473:                                              ; preds = %.preheader358
   %474 = getelementptr inbounds nuw i8, ptr %.5.pn, i64 2
-  %475 = tail call i32 @atoi(ptr nocapture noundef nonnull %474) #26
+  %475 = tail call i32 @atoi(ptr noundef nonnull %474) #26
   br label %.fold.split.i227
 
 .fold.split.i227.loopexit450:                     ; preds = %.preheader358
@@ -2410,7 +2410,7 @@ Vec_IntPush.exit262:                              ; preds = %.Vec_IntGrow.exit10
 
 630:                                              ; preds = %628
   %631 = getelementptr inbounds nuw i8, ptr %.8.pn, i64 2
-  %632 = tail call i32 @atoi(ptr nocapture noundef nonnull %631) #26
+  %632 = tail call i32 @atoi(ptr noundef nonnull %631) #26
   br label %.fold.split.i265
 
 .fold.split.i265.loopexit:                        ; preds = %628
@@ -2762,7 +2762,7 @@ Vec_IntPush.exit303:                              ; preds = %.Vec_IntGrow.exit10
 
 783:                                              ; preds = %.preheader360
   %784 = getelementptr inbounds nuw i8, ptr %.10.pn, i64 2
-  %785 = tail call i32 @atoi(ptr nocapture noundef nonnull %784) #26
+  %785 = tail call i32 @atoi(ptr noundef nonnull %784) #26
   br label %.fold.split.i306
 
 .fold.split.i306.loopexit452:                     ; preds = %.preheader360
@@ -2878,7 +2878,7 @@ Vec_IntPush.exit323:                              ; preds = %.Vec_IntGrow.exit10
 
 827:                                              ; preds = %824, %822
   %.12 = phi ptr [ %.11, %822 ], [ %825, %824 ]
-  %828 = tail call i32 @atoi(ptr nocapture noundef nonnull %.12) #26
+  %828 = tail call i32 @atoi(ptr noundef nonnull %.12) #26
   %829 = load ptr, ptr %10, align 8
   %830 = getelementptr inbounds nuw i8, ptr %829, i64 4
   %831 = load i32, ptr %830, align 4

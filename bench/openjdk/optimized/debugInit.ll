@@ -656,7 +656,7 @@ get_tok.exit217.i:                                ; preds = %.lr.ph.i211.i, %.lr
   br i1 %.not174.i, label %get_tok.exit.thread.i, label %227
 
 227:                                              ; preds = %get_tok.exit217.i
-  %228 = tail call i64 @atol(ptr nocapture noundef nonnull %.0106410.i) #19
+  %228 = tail call i64 @atol(ptr noundef nonnull %.0106410.i) #19
   %229 = getelementptr inbounds nuw i8, ptr %.0105413.i, i64 16
   store i64 %228, ptr %229, align 8
   %230 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0106410.i) #19

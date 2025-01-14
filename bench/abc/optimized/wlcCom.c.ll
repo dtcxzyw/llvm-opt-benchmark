@@ -781,7 +781,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandCone(ptr nocapture noundef %0, i
   %10 = sext i32 %8 to i64
   %11 = getelementptr inbounds ptr, ptr %2, i64 %10
   %12 = load ptr, ptr %11, align 8
-  %13 = tail call i32 @atoi(ptr nocapture noundef %12) #17
+  %13 = tail call i32 @atoi(ptr noundef %12) #17
   %14 = add nsw i32 %8, 1
   store i32 %14, ptr @globalUtilOptind, align 4
   %15 = icmp slt i32 %13, 0
@@ -796,7 +796,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandCone(ptr nocapture noundef %0, i
   %19 = sext i32 %17 to i64
   %20 = getelementptr inbounds ptr, ptr %2, i64 %19
   %21 = load ptr, ptr %20, align 8
-  %22 = tail call i32 @atoi(ptr nocapture noundef %21) #17
+  %22 = tail call i32 @atoi(ptr noundef %21) #17
   %23 = add nsw i32 %17, 1
   store i32 %23, ptr @globalUtilOptind, align 4
   %24 = icmp slt i32 %22, 0
@@ -948,7 +948,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbs(ptr nocapture noundef readon
   %20 = sext i32 %18 to i64
   %21 = getelementptr inbounds ptr, ptr %2, i64 %20
   %22 = load ptr, ptr %21, align 8
-  %23 = call i32 @atoi(ptr nocapture noundef %22) #17
+  %23 = call i32 @atoi(ptr noundef %22) #17
   store i32 %23, ptr %4, align 8
   %24 = add nsw i32 %18, 1
   store i32 %24, ptr @globalUtilOptind, align 4
@@ -964,7 +964,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbs(ptr nocapture noundef readon
   %29 = sext i32 %27 to i64
   %30 = getelementptr inbounds ptr, ptr %2, i64 %29
   %31 = load ptr, ptr %30, align 8
-  %32 = call i32 @atoi(ptr nocapture noundef %31) #17
+  %32 = call i32 @atoi(ptr noundef %31) #17
   store i32 %32, ptr %14, align 4
   %33 = add nsw i32 %27, 1
   store i32 %33, ptr @globalUtilOptind, align 4
@@ -980,7 +980,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbs(ptr nocapture noundef readon
   %38 = sext i32 %36 to i64
   %39 = getelementptr inbounds ptr, ptr %2, i64 %38
   %40 = load ptr, ptr %39, align 8
-  %41 = call i32 @atoi(ptr nocapture noundef %40) #17
+  %41 = call i32 @atoi(ptr noundef %40) #17
   store i32 %41, ptr %13, align 8
   %42 = add nsw i32 %36, 1
   store i32 %42, ptr @globalUtilOptind, align 4
@@ -996,7 +996,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbs(ptr nocapture noundef readon
   %47 = sext i32 %45 to i64
   %48 = getelementptr inbounds ptr, ptr %2, i64 %47
   %49 = load ptr, ptr %48, align 8
-  %50 = call i32 @atoi(ptr nocapture noundef %49) #17
+  %50 = call i32 @atoi(ptr noundef %49) #17
   store i32 %50, ptr %12, align 4
   %51 = add nsw i32 %45, 1
   store i32 %51, ptr @globalUtilOptind, align 4
@@ -1012,7 +1012,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbs(ptr nocapture noundef readon
   %56 = sext i32 %54 to i64
   %57 = getelementptr inbounds ptr, ptr %2, i64 %56
   %58 = load ptr, ptr %57, align 8
-  %59 = call i32 @atoi(ptr nocapture noundef %58) #17
+  %59 = call i32 @atoi(ptr noundef %58) #17
   store i32 %59, ptr %11, align 8
   %60 = add nsw i32 %54, 1
   store i32 %60, ptr @globalUtilOptind, align 4
@@ -1028,7 +1028,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbs(ptr nocapture noundef readon
   %65 = sext i32 %63 to i64
   %66 = getelementptr inbounds ptr, ptr %2, i64 %65
   %67 = load ptr, ptr %66, align 8
-  %68 = call i32 @atoi(ptr nocapture noundef %67) #17
+  %68 = call i32 @atoi(ptr noundef %67) #17
   store i32 %68, ptr %10, align 4
   %69 = add nsw i32 %63, 1
   store i32 %69, ptr @globalUtilOptind, align 4
@@ -1185,7 +1185,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandPdrAbs(ptr nocapture noundef rea
   %32 = sext i32 %30 to i64
   %33 = getelementptr inbounds ptr, ptr %2, i64 %32
   %34 = load ptr, ptr %33, align 8
-  %35 = call i32 @atoi(ptr nocapture noundef %34) #17
+  %35 = call i32 @atoi(ptr noundef %34) #17
   store i32 %35, ptr %4, align 8
   %36 = add nsw i32 %30, 1
   store i32 %36, ptr @globalUtilOptind, align 4
@@ -1201,7 +1201,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandPdrAbs(ptr nocapture noundef rea
   %41 = sext i32 %39 to i64
   %42 = getelementptr inbounds ptr, ptr %2, i64 %41
   %43 = load ptr, ptr %42, align 8
-  %44 = call i32 @atoi(ptr nocapture noundef %43) #17
+  %44 = call i32 @atoi(ptr noundef %43) #17
   store i32 %44, ptr %26, align 4
   %45 = add nsw i32 %39, 1
   store i32 %45, ptr @globalUtilOptind, align 4
@@ -1217,7 +1217,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandPdrAbs(ptr nocapture noundef rea
   %50 = sext i32 %48 to i64
   %51 = getelementptr inbounds ptr, ptr %2, i64 %50
   %52 = load ptr, ptr %51, align 8
-  %53 = call i32 @atoi(ptr nocapture noundef %52) #17
+  %53 = call i32 @atoi(ptr noundef %52) #17
   store i32 %53, ptr %25, align 8
   %54 = add nsw i32 %48, 1
   store i32 %54, ptr @globalUtilOptind, align 4
@@ -1233,7 +1233,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandPdrAbs(ptr nocapture noundef rea
   %59 = sext i32 %57 to i64
   %60 = getelementptr inbounds ptr, ptr %2, i64 %59
   %61 = load ptr, ptr %60, align 8
-  %62 = call i32 @atoi(ptr nocapture noundef %61) #17
+  %62 = call i32 @atoi(ptr noundef %61) #17
   store i32 %62, ptr %24, align 4
   %63 = add nsw i32 %57, 1
   store i32 %63, ptr @globalUtilOptind, align 4
@@ -1249,7 +1249,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandPdrAbs(ptr nocapture noundef rea
   %68 = sext i32 %66 to i64
   %69 = getelementptr inbounds ptr, ptr %2, i64 %68
   %70 = load ptr, ptr %69, align 8
-  %71 = call i32 @atoi(ptr nocapture noundef %70) #17
+  %71 = call i32 @atoi(ptr noundef %70) #17
   store i32 %71, ptr %23, align 8
   %72 = add nsw i32 %66, 1
   store i32 %72, ptr @globalUtilOptind, align 4
@@ -1265,7 +1265,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandPdrAbs(ptr nocapture noundef rea
   %77 = sext i32 %75 to i64
   %78 = getelementptr inbounds ptr, ptr %2, i64 %77
   %79 = load ptr, ptr %78, align 8
-  %80 = call i32 @atoi(ptr nocapture noundef %79) #17
+  %80 = call i32 @atoi(ptr noundef %79) #17
   store i32 %80, ptr %22, align 4
   %81 = add nsw i32 %75, 1
   store i32 %81, ptr @globalUtilOptind, align 4
@@ -1514,7 +1514,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbs2(ptr nocapture noundef reado
   %18 = sext i32 %16 to i64
   %19 = getelementptr inbounds ptr, ptr %2, i64 %18
   %20 = load ptr, ptr %19, align 8
-  %21 = call i32 @atoi(ptr nocapture noundef %20) #17
+  %21 = call i32 @atoi(ptr noundef %20) #17
   store i32 %21, ptr %4, align 8
   %22 = add nsw i32 %16, 1
   store i32 %22, ptr @globalUtilOptind, align 4
@@ -1530,7 +1530,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbs2(ptr nocapture noundef reado
   %27 = sext i32 %25 to i64
   %28 = getelementptr inbounds ptr, ptr %2, i64 %27
   %29 = load ptr, ptr %28, align 8
-  %30 = call i32 @atoi(ptr nocapture noundef %29) #17
+  %30 = call i32 @atoi(ptr noundef %29) #17
   store i32 %30, ptr %12, align 4
   %31 = add nsw i32 %25, 1
   store i32 %31, ptr @globalUtilOptind, align 4
@@ -1546,7 +1546,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbs2(ptr nocapture noundef reado
   %36 = sext i32 %34 to i64
   %37 = getelementptr inbounds ptr, ptr %2, i64 %36
   %38 = load ptr, ptr %37, align 8
-  %39 = call i32 @atoi(ptr nocapture noundef %38) #17
+  %39 = call i32 @atoi(ptr noundef %38) #17
   store i32 %39, ptr %11, align 8
   %40 = add nsw i32 %34, 1
   store i32 %40, ptr @globalUtilOptind, align 4
@@ -1562,7 +1562,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbs2(ptr nocapture noundef reado
   %45 = sext i32 %43 to i64
   %46 = getelementptr inbounds ptr, ptr %2, i64 %45
   %47 = load ptr, ptr %46, align 8
-  %48 = call i32 @atoi(ptr nocapture noundef %47) #17
+  %48 = call i32 @atoi(ptr noundef %47) #17
   store i32 %48, ptr %10, align 4
   %49 = add nsw i32 %43, 1
   store i32 %49, ptr @globalUtilOptind, align 4
@@ -1578,7 +1578,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbs2(ptr nocapture noundef reado
   %54 = sext i32 %52 to i64
   %55 = getelementptr inbounds ptr, ptr %2, i64 %54
   %56 = load ptr, ptr %55, align 8
-  %57 = call i32 @atoi(ptr nocapture noundef %56) #17
+  %57 = call i32 @atoi(ptr noundef %56) #17
   store i32 %57, ptr %9, align 8
   %58 = add nsw i32 %52, 1
   store i32 %58, ptr @globalUtilOptind, align 4
@@ -1705,7 +1705,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandMemAbs(ptr nocapture noundef rea
   %11 = sext i32 %8 to i64
   %12 = getelementptr inbounds ptr, ptr %2, i64 %11
   %13 = load ptr, ptr %12, align 8
-  %14 = tail call i32 @atoi(ptr nocapture noundef %13) #17
+  %14 = tail call i32 @atoi(ptr noundef %13) #17
   %15 = add nsw i32 %8, 1
   store i32 %15, ptr @globalUtilOptind, align 4
   %16 = icmp slt i32 %14, 1
@@ -1791,7 +1791,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandMemAbs2(ptr nocapture noundef %0
   %11 = sext i32 %8 to i64
   %12 = getelementptr inbounds ptr, ptr %2, i64 %11
   %13 = load ptr, ptr %12, align 8
-  %14 = tail call i32 @atoi(ptr nocapture noundef %13) #17
+  %14 = tail call i32 @atoi(ptr noundef %13) #17
   %15 = add nsw i32 %8, 1
   store i32 %15, ptr @globalUtilOptind, align 4
   %16 = icmp slt i32 %14, 1
@@ -1958,7 +1958,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandBlast(ptr noundef %0, i32 nounde
   %56 = sext i32 %53 to i64
   %57 = getelementptr inbounds ptr, ptr %2, i64 %56
   %58 = load ptr, ptr %57, align 8
-  %59 = tail call i32 @atoi(ptr nocapture noundef %58) #17
+  %59 = tail call i32 @atoi(ptr noundef %58) #17
   store i32 %59, ptr %4, align 8
   %60 = add nsw i32 %53, 1
   store i32 %60, ptr @globalUtilOptind, align 4
@@ -1988,7 +1988,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandBlast(ptr noundef %0, i32 nounde
   %66 = sext i32 %63 to i64
   %67 = getelementptr inbounds ptr, ptr %2, i64 %66
   %68 = load ptr, ptr %67, align 8
-  %69 = tail call i32 @atoi(ptr nocapture noundef %68) #17
+  %69 = tail call i32 @atoi(ptr noundef %68) #17
   store i32 %69, ptr %9, align 4
   %70 = add nsw i32 %63, 1
   store i32 %70, ptr @globalUtilOptind, align 4
@@ -2018,7 +2018,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandBlast(ptr noundef %0, i32 nounde
   %76 = sext i32 %73 to i64
   %77 = getelementptr inbounds ptr, ptr %2, i64 %76
   %78 = load ptr, ptr %77, align 8
-  %79 = tail call i32 @atoi(ptr nocapture noundef %78) #17
+  %79 = tail call i32 @atoi(ptr noundef %78) #17
   store i32 %79, ptr %23, align 8
   %80 = add nsw i32 %73, 1
   store i32 %80, ptr @globalUtilOptind, align 4
@@ -2048,7 +2048,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandBlast(ptr noundef %0, i32 nounde
   %86 = sext i32 %83 to i64
   %87 = getelementptr inbounds ptr, ptr %2, i64 %86
   %88 = load ptr, ptr %87, align 8
-  %89 = tail call i32 @atoi(ptr nocapture noundef %88) #17
+  %89 = tail call i32 @atoi(ptr noundef %88) #17
   store i32 %89, ptr %22, align 4
   %90 = add nsw i32 %83, 1
   store i32 %90, ptr @globalUtilOptind, align 4

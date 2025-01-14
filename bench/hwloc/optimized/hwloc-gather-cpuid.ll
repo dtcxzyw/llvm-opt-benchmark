@@ -127,7 +127,7 @@ hwloc_utils_check_api_version.exit.preheader:     ; preds = %2
 25:                                               ; preds = %.tail
   %26 = getelementptr inbounds nuw i8, ptr %.080154, i64 8
   %27 = load ptr, ptr %26, align 8
-  %28 = tail call i32 @atoi(ptr nocapture noundef %27) #15
+  %28 = tail call i32 @atoi(ptr noundef %27) #15
   br label %hwloc_utils_check_api_version.exit
 
 sub_1131:                                         ; preds = %21

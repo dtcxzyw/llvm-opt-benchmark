@@ -3693,7 +3693,7 @@ define dso_local void @_ZN8FileLine18lineDirectiveParseEPKcRNSt7__cxx1112basic_s
   br i1 %isdigittmp, label %53, label %.critedge8.thread
 
 53:                                               ; preds = %52
-  %54 = tail call i32 @atoi(ptr nocapture noundef nonnull %.2.lcssa170) #25
+  %54 = tail call i32 @atoi(ptr noundef nonnull %.2.lcssa170) #25
   br label %55
 
 55:                                               ; preds = %53, %48
@@ -3867,7 +3867,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   br i1 %isdigit101, label %102, label %.critedge12.thread
 
 102:                                              ; preds = %.critedge12
-  %103 = call i32 @atoi(ptr nocapture noundef nonnull %.6) #25
+  %103 = call i32 @atoi(ptr noundef nonnull %.6) #25
   %or.cond = icmp ugt i32 %103, 2
   br i1 %or.cond, label %.critedge12.thread, label %104
 

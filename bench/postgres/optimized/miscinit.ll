@@ -1064,7 +1064,7 @@ define internal fastcc void @CreateLockFile(ptr noundef %0, i1 noundef zeroext %
   br i1 %.not, label %14, label %12
 
 12:                                               ; preds = %5
-  %13 = tail call i32 @atoi(ptr nocapture noundef nonnull %11) #24
+  %13 = tail call i32 @atoi(ptr noundef nonnull %11) #24
   br label %14
 
 14:                                               ; preds = %5, %12
@@ -1157,7 +1157,7 @@ define internal fastcc void @CreateLockFile(ptr noundef %0, i1 noundef zeroext %
   %59 = and i64 %42, 2147483647
   %60 = getelementptr [2304 x i8], ptr %6, i64 0, i64 %59
   store i8 0, ptr %60, align 1
-  %61 = call i32 @atoi(ptr nocapture noundef nonnull %6) #24
+  %61 = call i32 @atoi(ptr noundef nonnull %6) #24
   %62 = call i32 @llvm.abs.i32(i32 %61, i1 false)
   %63 = icmp slt i32 %62, 1
   br i1 %63, label %64, label %67
@@ -1695,7 +1695,7 @@ define dso_local noundef zeroext i1 @RecheckDataDirLockFile() local_unnamed_addr
   %31 = getelementptr [8192 x i8], ptr %1, i64 0, i64 %30
   store i8 0, ptr %31, align 1
   %32 = tail call i32 @close(i32 noundef %2) #21
-  %33 = call i64 @atol(ptr nocapture noundef nonnull %1) #24
+  %33 = call i64 @atol(ptr noundef nonnull %1) #24
   %34 = tail call i32 @getpid() #21
   %35 = sext i32 %34 to i64
   %36 = icmp eq i64 %33, %35

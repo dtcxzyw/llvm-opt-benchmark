@@ -2093,7 +2093,7 @@ rb_current_ractor.exit:                           ; preds = %0, %3, %7
   br i1 %.not, label %15, label %11
 
 11:                                               ; preds = %rb_current_ractor.exit
-  %12 = tail call i32 @atoi(ptr nocapture noundef nonnull %10) #44
+  %12 = tail call i32 @atoi(ptr noundef nonnull %10) #44
   %13 = icmp sgt i32 %12, 0
   br i1 %13, label %14, label %15
 
@@ -2110,7 +2110,7 @@ rb_current_ractor.exit:                           ; preds = %0, %3, %7
   br i1 %.not13, label %21, label %18
 
 18:                                               ; preds = %15
-  %19 = tail call i32 @atoi(ptr nocapture noundef nonnull %17) #44
+  %19 = tail call i32 @atoi(ptr noundef nonnull %17) #44
   %20 = icmp sgt i32 %19, 0
   %spec.select = select i1 %20, i32 %19, i32 8
   br label %21

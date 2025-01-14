@@ -2666,7 +2666,7 @@ define hidden void @Init_IO_Buffer() local_unnamed_addr #0 {
   br i1 %.not.i, label %28, label %23
 
 23:                                               ; preds = %0
-  %24 = tail call i32 @atoi(ptr nocapture noundef nonnull %22) #26
+  %24 = tail call i32 @atoi(ptr noundef nonnull %22) #26
   %25 = icmp sgt i32 %24, 0
   br i1 %25, label %26, label %28
 

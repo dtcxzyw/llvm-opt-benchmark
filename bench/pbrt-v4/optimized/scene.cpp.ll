@@ -11808,7 +11808,7 @@ if.else132:                                       ; preds = %if.else93
 
 if.then135:                                       ; preds = %if.else132
   %call136 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %value) #29
-  %call137 = call i32 @atoi(ptr nocapture noundef %call136) #33
+  %call137 = call i32 @atoi(ptr noundef %call136) #33
   %32 = load ptr, ptr @_ZN4pbrt7OptionsE, align 8
   store i32 %call137, ptr %32, align 8
   br label %if.end198

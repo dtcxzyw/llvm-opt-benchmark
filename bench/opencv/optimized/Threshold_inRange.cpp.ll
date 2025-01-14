@@ -101,7 +101,7 @@ define hidden noundef i32 @main(i32 noundef %0, ptr nocapture noundef readonly %
 30:                                               ; preds = %2
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %32 = load ptr, ptr %31, align 8
-  %33 = tail call i32 @atoi(ptr nocapture noundef %32) #9
+  %33 = tail call i32 @atoi(ptr noundef %32) #9
   br label %34
 
 34:                                               ; preds = %2, %30

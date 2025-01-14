@@ -511,7 +511,7 @@ if.then47:                                        ; preds = %if.then43
 
 if.then52:                                        ; preds = %if.then47
   %add.ptr53 = getelementptr inbounds nuw i8, ptr %call45, i64 2
-  %call54 = tail call i32 @atoi(ptr nocapture noundef nonnull %add.ptr53) #15
+  %call54 = tail call i32 @atoi(ptr noundef nonnull %add.ptr53) #15
   %hostport = getelementptr inbounds nuw i8, ptr %connInfo, i64 8
   store i32 %call54, ptr %hostport, align 8
   br label %if.end55
@@ -527,7 +527,7 @@ if.else58:                                        ; preds = %if.then37
 
 if.then61:                                        ; preds = %if.else58
   %add.ptr62 = getelementptr inbounds nuw i8, ptr %call59, i64 1
-  %call63 = tail call i32 @atoi(ptr nocapture noundef nonnull %add.ptr62) #15
+  %call63 = tail call i32 @atoi(ptr noundef nonnull %add.ptr62) #15
   %hostport64 = getelementptr inbounds nuw i8, ptr %connInfo, i64 8
   store i32 %call63, ptr %hostport64, align 8
   %add.ptr65 = getelementptr inbounds i8, ptr %call59, i64 -1
@@ -554,7 +554,7 @@ if.end73:                                         ; preds = %if.end67, %if.end33
   br i1 %cmp80, label %return, label %if.end83
 
 if.end83:                                         ; preds = %if.end73
-  %call84 = tail call i32 @atoi(ptr nocapture noundef nonnull %add.ptr76) #15
+  %call84 = tail call i32 @atoi(ptr noundef nonnull %add.ptr76) #15
   %input_dbnum = getelementptr inbounds nuw i8, ptr %connInfo, i64 12
   store i32 %call84, ptr %input_dbnum, align 4
   br label %return

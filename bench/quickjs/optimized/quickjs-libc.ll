@@ -3524,7 +3524,7 @@ get_bool_option.exit190.thread:                   ; preds = %.thread.i, %40, %35
   br i1 %89, label %.preheaderthread-pre-split.i, label %90, !llvm.loop !26
 
 90:                                               ; preds = %.preheaderthread-pre-split.i
-  %91 = call i32 @atoi(ptr nocapture noundef nonnull %88) #32
+  %91 = call i32 @atoi(ptr noundef nonnull %88) #32
   br label %http_get_status.exit
 
 http_get_status.exit:                             ; preds = %84, %90

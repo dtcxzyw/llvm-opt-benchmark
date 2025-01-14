@@ -1176,7 +1176,7 @@ HandleCopyStream.exit:                            ; preds = %HandleEndOfCopyStre
 
 514:                                              ; preds = %509
   %515 = call ptr @PQgetvalue(ptr noundef nonnull %.0.i49.i, i32 noundef 0, i32 noundef 0) #11
-  %516 = call i32 @atoi(ptr nocapture noundef %515) #12
+  %516 = call i32 @atoi(ptr noundef %515) #12
   %517 = call ptr @PQgetvalue(ptr noundef nonnull %.0.i49.i, i32 noundef 0, i32 noundef 1) #11
   %518 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %517, ptr noundef nonnull @.str.29, ptr noundef nonnull %6, ptr noundef nonnull %7) #11
   %.not10.i = icmp eq i32 %518, 2

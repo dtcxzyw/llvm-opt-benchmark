@@ -316,7 +316,7 @@ sub_158:                                          ; preds = %.tail.thread, %.thr
   br i1 %.not, label %.preheader, label %44
 
 44:                                               ; preds = %42
-  %45 = tail call i32 @atoi(ptr nocapture noundef nonnull %43) #18
+  %45 = tail call i32 @atoi(ptr noundef nonnull %43) #18
   store i32 %45, ptr @wait_seconds, align 4
   br label %.preheader
 
@@ -489,7 +489,7 @@ set_mode.exit:                                    ; preds = %.tail.i, %.tail.thr
 
 104:                                              ; preds = %46
   %105 = load ptr, ptr @optarg, align 8
-  %106 = call i32 @atoi(ptr nocapture noundef %105) #18
+  %106 = call i32 @atoi(ptr noundef %105) #18
   store i32 %106, ptr @wait_seconds, align 4
   br label %.backedge
 
@@ -645,7 +645,7 @@ set_mode.exit:                                    ; preds = %.tail.i, %.tail.thr
   %174 = sext i32 %173 to i64
   %175 = getelementptr ptr, ptr %1, i64 %174
   %176 = load ptr, ptr %175, align 8
-  %177 = call i64 @atol(ptr nocapture noundef %176) #18
+  %177 = call i64 @atol(ptr noundef %176) #18
   %178 = trunc i64 %177 to i32
   br label %181
 
@@ -1481,7 +1481,7 @@ print_msg.exit:                                   ; preds = %101, %103
 115:                                              ; preds = %.lr.ph.i
   %116 = getelementptr i8, ptr %111, i64 16
   %117 = load ptr, ptr %116, align 8
-  %118 = call i64 @atol(ptr nocapture noundef %117) #18
+  %118 = call i64 @atol(ptr noundef %117) #18
   %119 = load i64, ptr @start_time, align 8
   %120 = add i64 %119, -2
   %.not.i9 = icmp slt i64 %118, %120
@@ -1489,7 +1489,7 @@ print_msg.exit:                                   ; preds = %101, %103
   br i1 %.not.i9, label %.preheader.i19.i, label %121
 
 121:                                              ; preds = %115
-  %122 = call i64 @atol(ptr nocapture noundef %.pr.pre32.i) #18
+  %122 = call i64 @atol(ptr noundef %.pr.pre32.i) #18
   %123 = trunc i64 %122 to i32
   %124 = icmp eq i32 %70, %123
   br i1 %124, label %125, label %.preheader.i19.i

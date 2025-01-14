@@ -5088,7 +5088,7 @@ define noundef i32 @_ZN7glslang10TPpContext10CPPversionEPNS_8TPpTokenE(ptr nound
 
 33:                                               ; preds = %19, %27
   %34 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %35 = tail call i32 @atoi(ptr nocapture noundef nonnull %34) #19
+  %35 = tail call i32 @atoi(ptr noundef nonnull %34) #19
   %36 = getelementptr inbounds nuw i8, ptr %1, i64 32
   store i32 %35, ptr %36, align 8
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 12

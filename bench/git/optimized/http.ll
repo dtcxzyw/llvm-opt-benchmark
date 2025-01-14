@@ -828,7 +828,7 @@ http_copy_default_headers.exit26:                 ; preds = %for.body.i23, %http
   br i1 %tobool30.not, label %if.end33, label %if.then31
 
 if.then31:                                        ; preds = %http_copy_default_headers.exit26
-  %call32 = call i32 @atoi(ptr nocapture noundef nonnull %call29) #22
+  %call32 = call i32 @atoi(ptr noundef nonnull %call29) #22
   store i32 %call32, ptr @max_requests, align 4
   br label %if.end33
 

@@ -855,7 +855,7 @@ yypop_buffer_state.exit:                          ; preds = %295, %292, %274
 
 354:                                              ; preds = %.loopexit415
   %355 = load ptr, ptr %61, align 8
-  %356 = call i64 @atol(ptr nocapture noundef %355) #29
+  %356 = call i64 @atol(ptr noundef %355) #29
   %357 = load ptr, ptr %6, align 8
   store i64 %356, ptr %357, align 8
   %358 = load ptr, ptr %61, align 8

@@ -644,7 +644,7 @@ define dso_local noundef zeroext i1 @RunIdentifySystem(ptr noundef %0, ptr nound
 
 25:                                               ; preds = %24
   %26 = tail call ptr @PQgetvalue(ptr noundef %8, i32 noundef 0, i32 noundef 1) #15
-  %27 = tail call i32 @atoi(ptr nocapture noundef %26) #17
+  %27 = tail call i32 @atoi(ptr noundef %26) #17
   store i32 %27, ptr %2, align 4
   br label %28
 
@@ -831,7 +831,7 @@ define dso_local noundef zeroext i1 @GetSlotInformation(ptr noundef %0, ptr noun
 
 48:                                               ; preds = %46
   %49 = call ptr @PQgetvalue(ptr noundef %13, i32 noundef 0, i32 noundef 2) #15
-  %50 = call i64 @atol(ptr nocapture noundef %49) #17
+  %50 = call i64 @atol(ptr noundef %49) #17
   %51 = trunc i64 %50 to i32
   br label %52
 

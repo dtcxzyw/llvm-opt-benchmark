@@ -1410,7 +1410,7 @@ define i32 @cli_add_content_match_pattern(ptr noundef %0, ptr noundef %1, ptr no
   br i1 %.not275, label %.critedge, label %83
 
 83:                                               ; preds = %81
-  %84 = call i32 @atoi(ptr nocapture noundef nonnull %69) #20
+  %84 = call i32 @atoi(ptr noundef nonnull %69) #20
   %85 = icmp slt i32 %84, 0
   br i1 %85, label %.critedge, label %.lr.ph355
 
@@ -1425,7 +1425,7 @@ define i32 @cli_add_content_match_pattern(ptr noundef %0, ptr noundef %1, ptr no
   br i1 %.not277, label %93, label %90
 
 90:                                               ; preds = %88
-  %91 = call i32 @atoi(ptr nocapture noundef nonnull %87) #20
+  %91 = call i32 @atoi(ptr noundef nonnull %87) #20
   %92 = icmp slt i32 %91, 0
   br i1 %92, label %93, label %94
 
@@ -1449,7 +1449,7 @@ define i32 @cli_add_content_match_pattern(ptr noundef %0, ptr noundef %1, ptr no
   br i1 %.not279, label %102, label %99
 
 99:                                               ; preds = %97
-  %100 = call i32 @atoi(ptr nocapture noundef nonnull %96) #20
+  %100 = call i32 @atoi(ptr noundef nonnull %96) #20
   %101 = icmp slt i32 %100, 0
   br i1 %101, label %102, label %103
 
@@ -4820,7 +4820,7 @@ define internal fastcc range(i32 0, 21) i32 @cli_loadcrt(ptr noundef %0, ptr nou
 
 68:                                               ; preds = %63
   %69 = load ptr, ptr %26, align 8
-  %70 = call i32 @atoi(ptr nocapture noundef %69) #20
+  %70 = call i32 @atoi(ptr noundef %69) #20
   %71 = call i32 @cl_retflevel() #21
   %72 = icmp ugt i32 %70, %71
   br i1 %72, label %73, label %77
@@ -4853,7 +4853,7 @@ define internal fastcc range(i32 0, 21) i32 @cli_loadcrt(ptr noundef %0, ptr nou
 
 84:                                               ; preds = %79
   %85 = load ptr, ptr %27, align 16
-  %86 = call i32 @atoi(ptr nocapture noundef %85) #20
+  %86 = call i32 @atoi(ptr noundef %85) #20
   %87 = call i32 @cl_retflevel() #21
   %88 = icmp ult i32 %86, %87
   br i1 %88, label %89, label %92
@@ -5039,7 +5039,7 @@ set_sha1.exit52.thread:                           ; preds = %116, %113
   br i1 %.not49, label %154, label %151
 
 151:                                              ; preds = %148
-  %152 = call i32 @atoi(ptr nocapture noundef nonnull %143) #20
+  %152 = call i32 @atoi(ptr noundef nonnull %143) #20
   %153 = sext i32 %152 to i64
   store i64 %153, ptr %45, align 8
   br label %154
@@ -5201,7 +5201,7 @@ define internal fastcc i32 @cli_loadhash(ptr noundef %0, ptr nocapture noundef %
 
 61:                                               ; preds = %60
   %62 = load ptr, ptr %31, align 8
-  %63 = call i32 @atoi(ptr nocapture noundef %62) #20
+  %63 = call i32 @atoi(ptr noundef %62) #20
   %64 = icmp ugt i32 %58, 5
   br i1 %64, label %.loopexit, label %65
 
@@ -5220,7 +5220,7 @@ define internal fastcc i32 @cli_loadhash(ptr noundef %0, ptr nocapture noundef %
 
 70:                                               ; preds = %68
   %71 = load ptr, ptr %32, align 16
-  %72 = call i32 @atoi(ptr nocapture noundef %71) #20
+  %72 = call i32 @atoi(ptr noundef %71) #20
   %73 = call i32 @cl_retflevel() #21
   %74 = icmp ugt i32 %73, %72
   br i1 %74, label %.outer155.backedge, label %sub_0
@@ -5539,13 +5539,13 @@ define internal fastcc i32 @cli_loadndb(ptr noundef %0, ptr nocapture noundef %1
   br i1 %.not114, label %._crit_edge, label %73
 
 73:                                               ; preds = %70
-  %74 = call i32 @atoi(ptr nocapture noundef %71) #20
+  %74 = call i32 @atoi(ptr noundef %71) #20
   %75 = call i32 @cl_retflevel() #21
   %76 = icmp ugt i32 %74, %75
   br i1 %76, label %77, label %79
 
 77:                                               ; preds = %73
-  %78 = call i32 @atoi(ptr nocapture noundef %71) #20
+  %78 = call i32 @atoi(ptr noundef %71) #20
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.305, ptr noundef %53, i32 noundef %78) #21
   br label %.backedge
 
@@ -5560,7 +5560,7 @@ define internal fastcc i32 @cli_loadndb(ptr noundef %0, ptr nocapture noundef %1
   br i1 %.not115, label %._crit_edge, label %84
 
 84:                                               ; preds = %81
-  %85 = call i32 @atoi(ptr nocapture noundef %82) #20
+  %85 = call i32 @atoi(ptr noundef %82) #20
   %86 = call i32 @cl_retflevel() #21
   %87 = icmp ult i32 %85, %86
   br i1 %87, label %.backedge, label %88
@@ -5587,7 +5587,7 @@ sub_0:                                            ; preds = %88
   br i1 %.not118, label %._crit_edge, label %95
 
 95:                                               ; preds = %.tail.thread, %.tail
-  %96 = call i32 @atoi(ptr nocapture noundef nonnull %89) #20
+  %96 = call i32 @atoi(ptr noundef nonnull %89) #20
   %97 = icmp ugt i32 %96, 14
   br i1 %97, label %98, label %99
 
@@ -6401,7 +6401,7 @@ sub_022:                                          ; preds = %106, %104
   br i1 %116, label %sub_026, label %.tail21.thread
 
 .tail21.thread:                                   ; preds = %sub_022, %.tail21
-  %117 = call i32 @atoi(ptr nocapture noundef nonnull %112) #20
+  %117 = call i32 @atoi(ptr noundef nonnull %112) #20
   br label %sub_026
 
 sub_026:                                          ; preds = %.tail21, %.tail21.thread
@@ -6453,7 +6453,7 @@ sub_030:                                          ; preds = %.tail25.thread, %.t
   br i1 %139, label %sub_034, label %.tail29.thread
 
 .tail29.thread:                                   ; preds = %sub_030, %.tail29
-  %140 = call i32 @atoi(ptr nocapture noundef nonnull %135) #20
+  %140 = call i32 @atoi(ptr noundef nonnull %135) #20
   %141 = sext i32 %140 to i64
   br label %sub_034
 
@@ -6475,7 +6475,7 @@ sub_034:                                          ; preds = %.tail29, %.tail29.t
   br i1 %148, label %sub_038, label %.tail33.thread
 
 .tail33.thread:                                   ; preds = %sub_034, %.tail33
-  %149 = call i32 @atoi(ptr nocapture noundef nonnull %144) #20
+  %149 = call i32 @atoi(ptr noundef nonnull %144) #20
   %150 = sext i32 %149 to i64
   br label %sub_038
 
@@ -6531,7 +6531,7 @@ sub_042:                                          ; preds = %.tail37.thread, %.t
   br i1 %172, label %.outer, label %.tail41.thread
 
 .tail41.thread:                                   ; preds = %sub_042, %.tail41
-  %173 = call i32 @atoi(ptr nocapture noundef nonnull %168) #20
+  %173 = call i32 @atoi(ptr noundef nonnull %168) #20
   br label %.outer
 
 .outer:                                           ; preds = %.tail41, %.tail41.thread
@@ -6772,7 +6772,7 @@ define internal fastcc range(i32 0, 21) i32 @cli_loadinfo(ptr noundef %0, ptr no
 
 83:                                               ; preds = %76
   %84 = load ptr, ptr %15, align 8
-  %85 = call i32 @atoi(ptr nocapture noundef %84) #20
+  %85 = call i32 @atoi(ptr noundef %84) #20
   %86 = sext i32 %85 to i64
   %87 = getelementptr inbounds nuw i8, ptr %69, i64 16
   store i64 %86, ptr %87, align 8
@@ -7002,14 +7002,14 @@ define internal fastcc i32 @cli_loadftm(ptr noundef %0, ptr nocapture noundef %1
   br i1 %.not87, label %.loopexit, label %44
 
 44:                                               ; preds = %41
-  %45 = call i32 @atoi(ptr nocapture noundef %42) #20
+  %45 = call i32 @atoi(ptr noundef %42) #20
   %46 = call i32 @cl_retflevel() #21
   %47 = icmp ugt i32 %45, %46
   br i1 %47, label %48, label %51
 
 48:                                               ; preds = %44
   %49 = load ptr, ptr %14, align 8
-  %50 = call i32 @atoi(ptr nocapture noundef %42) #20
+  %50 = call i32 @atoi(ptr noundef %42) #20
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.365, ptr noundef %49, i32 noundef %50) #21
   br label %.outer102.backedge
 
@@ -7027,7 +7027,7 @@ define internal fastcc i32 @cli_loadftm(ptr noundef %0, ptr nocapture noundef %1
   br i1 %.not88, label %.loopexit, label %56
 
 56:                                               ; preds = %53
-  %57 = call i32 @atoi(ptr nocapture noundef %54) #20
+  %57 = call i32 @atoi(ptr noundef %54) #20
   %58 = call i32 @cl_retflevel() #21
   %59 = icmp ult i32 %57, %58
   br i1 %59, label %.outer102.backedge, label %60
@@ -7054,7 +7054,7 @@ define internal fastcc i32 @cli_loadftm(ptr noundef %0, ptr nocapture noundef %1
 
 71:                                               ; preds = %67
   %72 = load ptr, ptr %6, align 16
-  %73 = call i32 @atoi(ptr nocapture noundef %72) #20
+  %73 = call i32 @atoi(ptr noundef %72) #20
   switch i32 %73, label %122 [
     i32 1, label %74
     i32 4, label %83
@@ -7093,7 +7093,7 @@ define internal fastcc i32 @cli_loadftm(ptr noundef %0, ptr nocapture noundef %1
 91:                                               ; preds = %88
   store i32 %64, ptr %90, align 8
   %92 = load ptr, ptr %15, align 8
-  %93 = call i32 @atoi(ptr nocapture noundef %92) #20
+  %93 = call i32 @atoi(ptr noundef %92) #20
   %94 = getelementptr inbounds nuw i8, ptr %90, i64 4
   store i32 %93, ptr %94, align 4
   %95 = load ptr, ptr %16, align 8
@@ -8258,7 +8258,7 @@ define internal fastcc range(i32 0, 21) i32 @cli_loadcdb(ptr noundef %0, ptr noc
 
 51:                                               ; preds = %48
   %52 = load ptr, ptr %17, align 16
-  %53 = call i32 @atoi(ptr nocapture noundef %52) #20
+  %53 = call i32 @atoi(ptr noundef %52) #20
   %54 = call i32 @cl_retflevel() #21
   %55 = icmp ugt i32 %53, %54
   br i1 %55, label %56, label %61
@@ -8266,7 +8266,7 @@ define internal fastcc range(i32 0, 21) i32 @cli_loadcdb(ptr noundef %0, ptr noc
 56:                                               ; preds = %51
   %57 = load ptr, ptr %6, align 16
   %58 = load ptr, ptr %17, align 16
-  %59 = call i32 @atoi(ptr nocapture noundef %58) #20
+  %59 = call i32 @atoi(ptr noundef %58) #20
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.665, ptr noundef %57, i32 noundef %59) #21
   br label %.backedge
 
@@ -8287,7 +8287,7 @@ define internal fastcc range(i32 0, 21) i32 @cli_loadcdb(ptr noundef %0, ptr noc
 
 66:                                               ; preds = %63
   %67 = load ptr, ptr %18, align 8
-  %68 = call i32 @atoi(ptr nocapture noundef %67) #20
+  %68 = call i32 @atoi(ptr noundef %67) #20
   %69 = call i32 @cl_retflevel() #21
   %70 = icmp ult i32 %68, %69
   br i1 %70, label %.backedge, label %71
@@ -8440,7 +8440,7 @@ sub_0202:                                         ; preds = %.tail197.thread, %.
 
 137:                                              ; preds = %135
   %138 = load ptr, ptr %26, align 16
-  %139 = call i32 @atoi(ptr nocapture noundef %138) #20
+  %139 = call i32 @atoi(ptr noundef %138) #20
   %140 = zext i32 %139 to i64
   %141 = getelementptr inbounds nuw i8, ptr %73, i64 48
   %142 = getelementptr inbounds nuw i8, ptr %73, i64 56
@@ -8508,7 +8508,7 @@ sub_0202:                                         ; preds = %.tail197.thread, %.
 
 169:                                              ; preds = %167
   %170 = load ptr, ptr %27, align 16
-  %171 = call i32 @atoi(ptr nocapture noundef %170) #20
+  %171 = call i32 @atoi(ptr noundef %170) #20
   %172 = zext i32 %171 to i64
   %173 = getelementptr inbounds nuw i8, ptr %73, i64 64
   %174 = getelementptr inbounds nuw i8, ptr %73, i64 72
@@ -8576,7 +8576,7 @@ sub_0202:                                         ; preds = %.tail197.thread, %.
 
 201:                                              ; preds = %199
   %202 = load ptr, ptr %28, align 8
-  %203 = call i32 @atoi(ptr nocapture noundef %202) #20
+  %203 = call i32 @atoi(ptr noundef %202) #20
   %204 = zext i32 %203 to i64
   %205 = getelementptr inbounds nuw i8, ptr %73, i64 80
   %206 = getelementptr inbounds nuw i8, ptr %73, i64 88
@@ -8642,7 +8642,7 @@ sub_0202:                                         ; preds = %.tail197.thread, %.
 
 231:                                              ; preds = %229
   %232 = load ptr, ptr %29, align 8
-  %233 = call i32 @atoi(ptr nocapture noundef %232) #20
+  %233 = call i32 @atoi(ptr noundef %232) #20
   %234 = getelementptr inbounds nuw i8, ptr %73, i64 100
   %235 = getelementptr inbounds nuw i8, ptr %73, i64 104
   store i32 %233, ptr %235, align 4
@@ -9097,7 +9097,7 @@ define internal fastcc range(i32 0, 23) i32 @cli_loadpwdb(ptr noundef %0, ptr no
 
 96:                                               ; preds = %92
   %97 = load ptr, ptr %24, align 16
-  %98 = call i32 @atoi(ptr nocapture noundef %97) #20
+  %98 = call i32 @atoi(ptr noundef %97) #20
   %or.cond = icmp ult i32 %98, 2
   br i1 %or.cond, label %99, label %.outer117
 
@@ -14357,7 +14357,7 @@ define internal fastcc range(i32 0, 23) i32 @init_tdb(ptr noundef nonnull initia
   br label %276
 
 96:                                               ; preds = %86
-  %97 = call i32 @atoi(ptr nocapture noundef nonnull %64) #20
+  %97 = call i32 @atoi(ptr noundef nonnull %64) #20
   %98 = zext i32 %87 to i64
   %99 = getelementptr inbounds nuw i32, ptr %94, i64 %98
   store i32 %97, ptr %99, align 4
@@ -14511,12 +14511,12 @@ define internal fastcc range(i32 0, 23) i32 @init_tdb(ptr noundef nonnull initia
   br label %276
 
 171:                                              ; preds = %167
-  %172 = call i32 @atoi(ptr nocapture noundef nonnull %64) #20
+  %172 = call i32 @atoi(ptr noundef nonnull %64) #20
   %173 = load ptr, ptr %57, align 8
   %174 = zext i32 %156 to i64
   %175 = getelementptr inbounds nuw i32, ptr %173, i64 %174
   store i32 %172, ptr %175, align 4
-  %176 = call i32 @atoi(ptr nocapture noundef nonnull %155) #20
+  %176 = call i32 @atoi(ptr noundef nonnull %155) #20
   %177 = load ptr, ptr %57, align 8
   %178 = add i32 %156, 1
   %179 = zext i32 %178 to i64

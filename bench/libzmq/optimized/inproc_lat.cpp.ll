@@ -41,11 +41,11 @@ if.then:                                          ; preds = %entry
 if.end:                                           ; preds = %entry
   %arrayidx = getelementptr inbounds nuw i8, ptr %argv, i64 8
   %0 = load ptr, ptr %arrayidx, align 8
-  %call1 = tail call i32 @atoi(ptr nocapture noundef %0) #10
+  %call1 = tail call i32 @atoi(ptr noundef %0) #10
   %conv = sext i32 %call1 to i64
   %arrayidx2 = getelementptr inbounds nuw i8, ptr %argv, i64 16
   %1 = load ptr, ptr %arrayidx2, align 8
-  %call3 = tail call i32 @atoi(ptr nocapture noundef %1) #10
+  %call3 = tail call i32 @atoi(ptr noundef %1) #10
   store i32 %call3, ptr @_ZL15roundtrip_count, align 4
   %call4 = tail call ptr @zmq_init(i32 noundef 1)
   %tobool.not = icmp eq ptr %call4, null

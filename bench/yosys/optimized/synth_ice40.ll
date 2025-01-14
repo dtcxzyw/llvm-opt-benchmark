@@ -830,7 +830,7 @@ define internal void @_ZN12_GLOBAL__N_114SynthIce40Pass7executeESt6vectorINSt7__
 177:                                              ; preds = %169
   %178 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %.pre80, i64 %170
   %179 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %178) #25
-  %180 = call i32 @atoi(ptr nocapture noundef %179) #27
+  %180 = call i32 @atoi(ptr noundef %179) #27
   store i32 %180, ptr %33, align 8
   br label %260
 

@@ -32460,7 +32460,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit139: ;
 
 236:                                              ; preds = %235
   %237 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %234) #25
-  %238 = call i32 @atoi(ptr nocapture noundef %237) #31
+  %238 = call i32 @atoi(ptr noundef %237) #31
   %239 = sext i32 %238 to i64
   br label %240
 

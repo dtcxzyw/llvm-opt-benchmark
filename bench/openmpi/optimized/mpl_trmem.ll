@@ -183,7 +183,7 @@ define void @MPL_trinit() local_unnamed_addr #0 {
   br i1 %.not29, label %39, label %37
 
 37:                                               ; preds = %35
-  %38 = tail call i32 @atoi(ptr nocapture noundef nonnull %34) #18
+  %38 = tail call i32 @atoi(ptr noundef nonnull %34) #18
   store volatile i32 %38, ptr @TRlevel, align 4
   br label %39
 
@@ -198,7 +198,7 @@ define void @MPL_trinit() local_unnamed_addr #0 {
   br i1 %.not31, label %45, label %43
 
 43:                                               ; preds = %41
-  %44 = tail call i64 @atol(ptr nocapture noundef nonnull %40) #18
+  %44 = tail call i64 @atol(ptr noundef nonnull %40) #18
   store volatile i64 %44, ptr @TRMaxOverhead, align 8
   br label %45
 

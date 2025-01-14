@@ -318,7 +318,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   br i1 %.not30.i, label %18, label %16
 
 16:                                               ; preds = %14
-  %17 = tail call i32 @atoi(ptr nocapture noundef nonnull %15) #16
+  %17 = tail call i32 @atoi(ptr noundef nonnull %15) #16
   store i32 %17, ptr @enable_error_stack, align 4
   br label %.loopexit.i
 
@@ -352,7 +352,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   br i1 %.not29.i, label %29, label %25
 
 25:                                               ; preds = %23
-  %26 = tail call i32 @atoi(ptr nocapture noundef nonnull %24) #16
+  %26 = tail call i32 @atoi(ptr noundef nonnull %24) #16
   store i32 %26, ptr @sgroups_threshold, align 4
   %27 = icmp slt i32 %26, 1
   br i1 %27, label %28, label %.loopexit.i
@@ -381,7 +381,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   br i1 %.not28.i, label %38, label %34
 
 34:                                               ; preds = %32
-  %35 = tail call i32 @atoi(ptr nocapture noundef nonnull %33) #16
+  %35 = tail call i32 @atoi(ptr noundef nonnull %33) #16
   store i32 %35, ptr @sdsets_threshold, align 4
   %36 = icmp slt i32 %35, 1
   br i1 %36, label %37, label %.loopexit.i
@@ -410,7 +410,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   br i1 %.not27.i, label %47, label %43
 
 43:                                               ; preds = %41
-  %44 = tail call i32 @atoi(ptr nocapture noundef nonnull %42) #16
+  %44 = tail call i32 @atoi(ptr noundef nonnull %42) #16
   store i32 %44, ptr @sattrs_threshold, align 4
   %45 = icmp slt i32 %44, 1
   br i1 %45, label %46, label %.loopexit.i

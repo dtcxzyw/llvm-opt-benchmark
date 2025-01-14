@@ -1422,7 +1422,7 @@ thread-pre-split:                                 ; preds = %5
 
 20:                                               ; preds = %17, %14
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %22 = tail call i32 @atoi(ptr nocapture noundef nonnull %21) #22
+  %22 = tail call i32 @atoi(ptr noundef nonnull %21) #22
   %23 = icmp ne i32 %22, 0
   br label %24
 
@@ -2432,7 +2432,7 @@ thread-pre-split.i:                               ; preds = %14
 
 zend_ini_parse_bool.exit:                         ; preds = %23, %26
   %29 = getelementptr inbounds nuw i8, ptr %.0, i64 24
-  %30 = tail call i32 @atoi(ptr nocapture noundef nonnull %29) #22
+  %30 = tail call i32 @atoi(ptr noundef nonnull %29) #22
   %.not16 = icmp eq i32 %30, 0
   br i1 %.not16, label %.critedge, label %zend_ini_parse_bool.exit.thread
 
@@ -2536,7 +2536,7 @@ define void @display_link_numbers(ptr nocapture noundef readonly %0, i32 noundef
 13:                                               ; preds = %7, %10
   %.pn = phi ptr [ %12, %10 ], [ %9, %7 ]
   %.0.ph = getelementptr inbounds nuw i8, ptr %.pn, i64 24
-  %14 = tail call i32 @atoi(ptr nocapture noundef nonnull %.0.ph) #22
+  %14 = tail call i32 @atoi(ptr noundef nonnull %.0.ph) #22
   %15 = icmp eq i32 %14, -1
   br i1 %15, label %16, label %19
 
@@ -2599,7 +2599,7 @@ thread-pre-split.i:                               ; preds = %10
 
 25:                                               ; preds = %22, %19
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %27 = tail call i32 @atoi(ptr nocapture noundef nonnull %26) #22
+  %27 = tail call i32 @atoi(ptr noundef nonnull %26) #22
   %28 = icmp ne i32 %27, 0
   %29 = zext i1 %28 to i8
   br label %zend_ini_parse_bool.exit

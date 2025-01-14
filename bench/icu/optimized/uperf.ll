@@ -233,7 +233,7 @@ if.end27:                                         ; preds = %if.then26, %if.end2
 
 if.then29:                                        ; preds = %if.end27
   %14 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZL7options, i64 288), align 16
-  %call30 = tail call i32 @atoi(ptr nocapture noundef %14) #22
+  %call30 = tail call i32 @atoi(ptr noundef %14) #22
   %passes = getelementptr inbounds nuw i8, ptr %this, i64 120
   store i32 %call30, ptr %passes, align 8
   br label %if.end31
@@ -245,7 +245,7 @@ if.end31:                                         ; preds = %if.then29, %if.end2
 
 if.then33:                                        ; preds = %if.end31
   %16 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZL7options, i64 328), align 8
-  %call34 = tail call i32 @atoi(ptr nocapture noundef %16) #22
+  %call34 = tail call i32 @atoi(ptr noundef %16) #22
   %iterations = getelementptr inbounds nuw i8, ptr %this, i64 124
   store i32 %call34, ptr %iterations, align 4
   %17 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL7options, i64 394), align 2
@@ -263,7 +263,7 @@ if.else:                                          ; preds = %if.end31
 
 if.then39:                                        ; preds = %if.else
   %19 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZL7options, i64 368), align 16
-  %call40 = tail call i32 @atoi(ptr nocapture noundef %19) #22
+  %call40 = tail call i32 @atoi(ptr noundef %19) #22
   %time = getelementptr inbounds nuw i8, ptr %this, i64 128
   store i32 %call40, ptr %time, align 8
   br label %if.end44

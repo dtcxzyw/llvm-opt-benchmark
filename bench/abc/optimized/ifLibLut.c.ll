@@ -189,7 +189,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   br i1 %60, label %94, label %61
 
 61:                                               ; preds = %58
-  %62 = tail call i32 @atoi(ptr nocapture noundef nonnull %56) #19
+  %62 = tail call i32 @atoi(ptr noundef nonnull %56) #19
   %.not135 = icmp eq i32 %.0110172, %62
   br i1 %.not135, label %66, label %63
 
@@ -654,7 +654,7 @@ Abc_UtilStrsav.exit:                              ; preds = %6, %7
   br i1 %25, label %.backedge, label %26
 
 26:                                               ; preds = %23
-  %27 = call i32 @atoi(ptr nocapture noundef nonnull %20) #19
+  %27 = call i32 @atoi(ptr noundef nonnull %20) #19
   %28 = zext i32 %27 to i64
   %.not108 = icmp eq i64 %indvars.iv149, %28
   br i1 %.not108, label %33, label %29

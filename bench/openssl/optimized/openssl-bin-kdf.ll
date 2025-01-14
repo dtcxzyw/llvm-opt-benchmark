@@ -112,7 +112,7 @@ sw.bb3:                                           ; preds = %while.cond
 
 sw.bb4:                                           ; preds = %while.cond
   %call5 = tail call ptr @opt_arg() #4
-  %call6 = tail call i32 @atoi(ptr nocapture noundef %call5) #5
+  %call6 = tail call i32 @atoi(ptr noundef %call5) #5
   %conv = sext i32 %call6 to i64
   br label %while.cond.backedge
 

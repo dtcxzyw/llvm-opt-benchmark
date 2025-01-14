@@ -553,7 +553,7 @@ lor.lhs.false75:                                  ; preds = %sw.bb69, %if.end73
 
 sw.bb83:                                          ; preds = %while.body
   %call84 = call ptr @opt_arg() #7
-  %call85 = call i32 @atoi(ptr nocapture noundef %call84) #8
+  %call85 = call i32 @atoi(ptr noundef %call84) #8
   %cmp86 = icmp slt i32 %call85, -1
   br i1 %cmp86, label %if.then87, label %sw.epilog
 

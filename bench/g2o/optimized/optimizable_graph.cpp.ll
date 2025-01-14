@@ -2924,7 +2924,7 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit:               ; preds = %170
 
 193:                                              ; preds = %190
   %194 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %12) #38
-  %195 = call i32 @atoi(ptr nocapture noundef %194) #40
+  %195 = call i32 @atoi(ptr noundef %194) #40
   %196 = load ptr, ptr %25, align 8
   %197 = load ptr, ptr %26, align 8
   %.not.i.i130 = icmp eq ptr %196, %197

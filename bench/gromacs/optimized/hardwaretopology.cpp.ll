@@ -2430,9 +2430,9 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.e
 
 237:                                              ; preds = %228
   %238 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %26) #21
-  %239 = call i32 @atoi(ptr nocapture noundef %238) #27
+  %239 = call i32 @atoi(ptr noundef %238) #27
   %240 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %27) #21
-  %241 = call i32 @atoi(ptr nocapture noundef %240) #27
+  %241 = call i32 @atoi(ptr noundef %240) #27
   %242 = icmp ne i32 %239, 0
   %243 = icmp sgt i32 %241, 0
   %or.cond.i = select i1 %242, i1 %243, i1 false
@@ -2841,9 +2841,9 @@ _ZSt7getlineIcSt11char_traitsIcESaIcEERSt13basic_istreamIT_T0_EOS6_RNSt7__cxx111
   call void @_ZNSt14basic_ifstreamIcSt11char_traitsIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(256) %14) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %15) #21
   %361 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %10) #21
-  %362 = call i32 @atoi(ptr nocapture noundef %361) #27
+  %362 = call i32 @atoi(ptr noundef %361) #27
   %363 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %11) #21
-  %364 = call i32 @atoi(ptr nocapture noundef %363) #27
+  %364 = call i32 @atoi(ptr noundef %363) #27
   %365 = icmp slt i32 %362, 1
   %366 = icmp slt i32 %364, 1
   %or.cond.not.i = select i1 %365, i1 true, i1 %366
@@ -5660,7 +5660,7 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.e
 
 17:                                               ; preds = %15
   %18 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %7) #21
-  %19 = call i32 @atoi(ptr nocapture noundef %18) #27
+  %19 = call i32 @atoi(ptr noundef %18) #27
   %20 = load ptr, ptr %1, align 8
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %22 = load ptr, ptr %21, align 8
@@ -5742,7 +5742,7 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.e
 
 51:                                               ; preds = %50
   %52 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %10) #21
-  %53 = call i32 @atoi(ptr nocapture noundef %52) #27
+  %53 = call i32 @atoi(ptr noundef %52) #27
   %54 = icmp eq i32 %53, %19
   br i1 %54, label %65, label %63
 

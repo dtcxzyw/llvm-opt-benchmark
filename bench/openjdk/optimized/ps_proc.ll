@@ -235,7 +235,7 @@ read_lib_info.exit:                               ; preds = %26, %fgets_no_cr.ex
   br i1 %80, label %.backedge, label %81
 
 81:                                               ; preds = %.lr.ph
-  %82 = call i32 @atoi(ptr nocapture noundef nonnull %78) #17
+  %82 = call i32 @atoi(ptr noundef nonnull %78) #17
   %83 = load i32, ptr %18, align 8
   %84 = icmp eq i32 %82, %83
   br i1 %84, label %.backedge, label %85

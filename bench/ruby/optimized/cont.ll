@@ -2364,7 +2364,7 @@ define hidden void @Init_Cont() local_unnamed_addr #0 {
   br i1 %.not, label %30, label %24
 
 24:                                               ; preds = %0
-  %25 = tail call i32 @atoi(ptr nocapture noundef nonnull %23) #35
+  %25 = tail call i32 @atoi(ptr noundef nonnull %23) #35
   store i32 %25, ptr getelementptr inbounds nuw (i8, ptr @shared_fiber_pool, i64 40), align 8
   %26 = icmp slt i32 %25, 0
   br i1 %26, label %.thread, label %27

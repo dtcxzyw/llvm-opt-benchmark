@@ -733,7 +733,7 @@ if.then9:                                         ; preds = %for.body
   br i1 %tobool10.not, label %for.inc, label %if.then11
 
 if.then11:                                        ; preds = %if.then9
-  %call13 = tail call i32 @atoi(ptr nocapture noundef nonnull %1) #5
+  %call13 = tail call i32 @atoi(ptr noundef nonnull %1) #5
   br label %for.inc
 
 if.else:                                          ; preds = %for.body
@@ -748,7 +748,7 @@ if.then18:                                        ; preds = %if.else
   br i1 %tobool20.not, label %for.inc, label %if.then21
 
 if.then21:                                        ; preds = %if.then18
-  %call23 = tail call i32 @atoi(ptr nocapture noundef nonnull %2) #5
+  %call23 = tail call i32 @atoi(ptr noundef nonnull %2) #5
   br label %for.inc
 
 if.else25:                                        ; preds = %if.else
@@ -763,7 +763,7 @@ if.then29:                                        ; preds = %if.else25
   br i1 %tobool31.not, label %for.inc, label %if.then32
 
 if.then32:                                        ; preds = %if.then29
-  %call34 = tail call i32 @atoi(ptr nocapture noundef nonnull %3) #5
+  %call34 = tail call i32 @atoi(ptr noundef nonnull %3) #5
   br label %for.inc
 
 if.else36:                                        ; preds = %if.else25

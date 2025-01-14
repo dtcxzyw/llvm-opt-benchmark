@@ -1145,13 +1145,13 @@ sw.bb83:                                          ; preds = %if.end46
 
 sw.bb84:                                          ; preds = %if.end46
   %call85 = call ptr @opt_arg() #14
-  %call86 = call i64 @atol(ptr nocapture noundef %call85) #15
+  %call86 = call i64 @atol(ptr noundef %call85) #15
   %conv = trunc i64 %call86 to i32
   br label %sw.epilog
 
 sw.bb87:                                          ; preds = %if.end46
   %call88 = call ptr @opt_arg() #14
-  %call89 = call i32 @atoi(ptr nocapture noundef %call88) #15
+  %call89 = call i32 @atoi(ptr noundef %call88) #15
   store i32 %call89, ptr @verify_args, align 4
   %.b203 = load i1, ptr @s_quiet, align 4
   br i1 %.b203, label %sw.epilog, label %if.then91
@@ -1163,7 +1163,7 @@ if.then91:                                        ; preds = %sw.bb87
 
 sw.bb94:                                          ; preds = %if.end46
   %call95 = call ptr @opt_arg() #14
-  %call96 = call i32 @atoi(ptr nocapture noundef %call95) #15
+  %call96 = call i32 @atoi(ptr noundef %call95) #15
   store i32 %call96, ptr @verify_args, align 4
   %.b202 = load i1, ptr @s_quiet, align 4
   br i1 %.b202, label %sw.epilog, label %if.then98
@@ -1401,7 +1401,7 @@ sw.bb233:                                         ; preds = %if.end46
 
 sw.bb234:                                         ; preds = %if.end46
   %call235 = call ptr @opt_arg() #14
-  %call236 = call i32 @atoi(ptr nocapture noundef %call235) #15
+  %call236 = call i32 @atoi(ptr noundef %call235) #15
   store i32 %call236, ptr @tlscstatp, align 8
   br label %sw.epilog
 
@@ -1589,7 +1589,7 @@ sw.bb316:                                         ; preds = %if.end46
 
 sw.bb317:                                         ; preds = %if.end46
   %call318 = call ptr @opt_arg() #14
-  %call319 = call i64 @atol(ptr nocapture noundef %call318) #15
+  %call319 = call i64 @atol(ptr noundef %call318) #15
   store i64 %call319, ptr @socket_mtu, align 8
   br label %sw.epilog
 
@@ -1659,7 +1659,7 @@ sw.bb352:                                         ; preds = %if.end46
 
 sw.bb354:                                         ; preds = %if.end46
   %call355 = call ptr @opt_arg() #14
-  %call356 = call i32 @atoi(ptr nocapture noundef %call355) #15
+  %call356 = call i32 @atoi(ptr noundef %call355) #15
   store i32 %call356, ptr @keymatexportlen, align 4
   br label %sw.epilog
 
@@ -1669,22 +1669,22 @@ sw.bb357:                                         ; preds = %if.end46
 
 sw.bb358:                                         ; preds = %if.end46
   %call359 = call ptr @opt_arg() #14
-  %call360 = call i32 @atoi(ptr nocapture noundef %call359) #15
+  %call360 = call i32 @atoi(ptr noundef %call359) #15
   br label %sw.epilog
 
 sw.bb361:                                         ; preds = %if.end46
   %call362 = call ptr @opt_arg() #14
-  %call363 = call i32 @atoi(ptr nocapture noundef %call362) #15
+  %call363 = call i32 @atoi(ptr noundef %call362) #15
   br label %sw.epilog
 
 sw.bb364:                                         ; preds = %if.end46
   %call365 = call ptr @opt_arg() #14
-  %call366 = call i32 @atoi(ptr nocapture noundef %call365) #15
+  %call366 = call i32 @atoi(ptr noundef %call365) #15
   br label %sw.epilog
 
 sw.bb367:                                         ; preds = %if.end46
   %call368 = call ptr @opt_arg() #14
-  %call369 = call i32 @atoi(ptr nocapture noundef %call368) #15
+  %call369 = call i32 @atoi(ptr noundef %call368) #15
   br label %sw.epilog
 
 sw.bb370:                                         ; preds = %if.end46
@@ -1693,7 +1693,7 @@ sw.bb370:                                         ; preds = %if.end46
 
 sw.bb372:                                         ; preds = %if.end46
   %call373 = call ptr @opt_arg() #14
-  %call374 = call i32 @atoi(ptr nocapture noundef %call373) #15
+  %call374 = call i32 @atoi(ptr noundef %call373) #15
   %cmp375 = icmp slt i32 %call374, 0
   br i1 %cmp375, label %if.then377, label %sw.epilog
 
@@ -1704,7 +1704,7 @@ if.then377:                                       ; preds = %sw.bb372
 
 sw.bb380:                                         ; preds = %if.end46
   %call381 = call ptr @opt_arg() #14
-  %call382 = call i32 @atoi(ptr nocapture noundef %call381) #15
+  %call382 = call i32 @atoi(ptr noundef %call381) #15
   %cmp383 = icmp slt i32 %call382, 0
   br i1 %cmp383, label %if.then385, label %sw.epilog
 

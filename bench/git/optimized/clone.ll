@@ -503,7 +503,7 @@ if.end49:                                         ; preds = %if.then44, %do.body
   br i1 %tobool50.not, label %if.end56, label %land.lhs.true51
 
 land.lhs.true51:                                  ; preds = %if.end49
-  %call52 = tail call i32 @atoi(ptr nocapture noundef nonnull %10) #19
+  %call52 = tail call i32 @atoi(ptr noundef nonnull %10) #19
   %cmp53 = icmp slt i32 %call52, 1
   br i1 %cmp53, label %if.then54, label %if.end56
 

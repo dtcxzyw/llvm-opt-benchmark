@@ -434,7 +434,7 @@ unescape_string.exit:                             ; preds = %.loopexit, %67
   %167 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %167, i8 0, i64 80, i1 false)
   %168 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 792), align 8
-  %169 = tail call i32 @atoi(ptr nocapture noundef %168) #7
+  %169 = tail call i32 @atoi(ptr noundef %168) #7
   %170 = sext i32 %169 to i64
   store i64 %170, ptr %167, align 8
   br label %1248
@@ -1379,7 +1379,7 @@ unescape_string.exit:                             ; preds = %.loopexit, %67
   br i1 %554, label %551, label %555
 
 555:                                              ; preds = %551
-  %556 = tail call i32 @atoi(ptr nocapture noundef nonnull %552) #7
+  %556 = tail call i32 @atoi(ptr noundef nonnull %552) #7
   %557 = sext i32 %556 to i64
   %558 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %557, ptr %558, align 8
@@ -1968,7 +1968,7 @@ unescape_string.exit:                             ; preds = %.loopexit, %67
   br i1 %829, label %826, label %830
 
 830:                                              ; preds = %826
-  %831 = tail call i32 @atoi(ptr nocapture noundef nonnull %827) #7
+  %831 = tail call i32 @atoi(ptr noundef nonnull %827) #7
   %832 = sext i32 %831 to i64
   %833 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %832, ptr %833, align 8

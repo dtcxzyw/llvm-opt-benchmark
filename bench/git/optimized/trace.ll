@@ -183,7 +183,7 @@ land.lhs.true:                                    ; preds = %if.else21
   br i1 %cmp23.not, label %if.else28, label %if.then25
 
 if.then25:                                        ; preds = %land.lhs.true
-  %call26 = tail call i32 @atoi(ptr nocapture noundef nonnull %cond30) #15
+  %call26 = tail call i32 @atoi(ptr noundef nonnull %cond30) #15
   %fd27 = getelementptr inbounds nuw i8, ptr %key, i64 8
   store i32 %call26, ptr %fd27, align 8
   br label %if.end50

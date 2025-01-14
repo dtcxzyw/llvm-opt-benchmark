@@ -12369,7 +12369,7 @@ define internal fastcc void @getAdditionalACLs(ptr noundef %0) unnamed_addr #4 {
   %30 = tail call i64 @strtoul(ptr nocapture noundef %29, ptr noundef null, i32 noundef 10) #14
   %31 = trunc i64 %30 to i32
   %32 = tail call ptr @PQgetvalue(ptr noundef %23, i32 noundef %.169, i32 noundef 2) #14
-  %33 = tail call i32 @atoi(ptr nocapture noundef %32) #15
+  %33 = tail call i32 @atoi(ptr noundef %32) #15
   %34 = tail call ptr @PQgetvalue(ptr noundef %23, i32 noundef %.169, i32 noundef 3) #14
   %35 = load i8, ptr %34, align 1
   %36 = tail call ptr @PQgetvalue(ptr noundef %23, i32 noundef %.169, i32 noundef 4) #14
@@ -12476,7 +12476,7 @@ define internal fastcc void @collectComments(ptr noundef %0) unnamed_addr #4 {
   %18 = tail call i64 @strtoul(ptr nocapture noundef %17, ptr noundef null, i32 noundef 10) #14
   %19 = trunc i64 %18 to i32
   %20 = tail call ptr @PQgetvalue(ptr noundef %4, i32 noundef %.049, i32 noundef %8) #14
-  %21 = tail call i32 @atoi(ptr nocapture noundef %20) #15
+  %21 = tail call i32 @atoi(ptr noundef %20) #15
   %22 = icmp eq ptr %.04048, null
   br i1 %22, label %29, label %23
 
@@ -12591,7 +12591,7 @@ define internal fastcc void @collectSecLabels(ptr noundef %0) unnamed_addr #4 {
   %19 = tail call i64 @strtoul(ptr nocapture noundef %18, ptr noundef null, i32 noundef 10) #14
   %20 = trunc i64 %19 to i32
   %21 = tail call ptr @PQgetvalue(ptr noundef %4, i32 noundef %.053, i32 noundef %9) #14
-  %22 = tail call i32 @atoi(ptr nocapture noundef %21) #15
+  %22 = tail call i32 @atoi(ptr noundef %21) #15
   %23 = icmp eq ptr %.04452, null
   br i1 %23, label %30, label %24
 
@@ -14688,7 +14688,7 @@ sub_1.i:                                          ; preds = %sub_0.i
 is_superuser.exit:                                ; preds = %.tail.i, %sub_1.i, %sub_0.i, %9
   %18 = tail call ptr @ExecuteSqlQuery(ptr noundef nonnull %0, ptr noundef nonnull @.str.137, i32 noundef 2) #14
   %19 = tail call ptr @PQgetvalue(ptr noundef %18, i32 noundef 0, i32 noundef 0) #14
-  %20 = tail call i32 @atoi(ptr nocapture noundef %19) #15
+  %20 = tail call i32 @atoi(ptr noundef %19) #15
   %21 = icmp sgt i32 %20, 0
   br i1 %21, label %22, label %23
 
@@ -17290,7 +17290,7 @@ getRoleName.exit:                                 ; preds = %81
   %90 = getelementptr inbounds nuw i8, ptr %33, i64 120
   store i32 0, ptr %90, align 8
   %91 = tail call ptr @PQgetvalue(ptr noundef %18, i32 noundef %34, i32 noundef %27) #14
-  %92 = tail call i32 @atoi(ptr nocapture noundef %91) #15
+  %92 = tail call i32 @atoi(ptr noundef %91) #15
   %93 = getelementptr inbounds nuw i8, ptr %33, i64 108
   store i32 %92, ptr %93, align 4
   %94 = icmp eq i32 %92, 0
@@ -17585,7 +17585,7 @@ getRoleName.exit:                                 ; preds = %91
   %106 = getelementptr inbounds nuw i8, ptr %43, i64 120
   store i32 %105, ptr %106, align 8
   %107 = tail call ptr @PQgetvalue(ptr noundef %26, i32 noundef %44, i32 noundef %37) #14
-  %108 = tail call i32 @atoi(ptr nocapture noundef %107) #15
+  %108 = tail call i32 @atoi(ptr noundef %107) #15
   %109 = getelementptr inbounds nuw i8, ptr %43, i64 108
   store i32 %108, ptr %109, align 4
   %110 = icmp eq i32 %108, 0
@@ -17926,7 +17926,7 @@ getRoleName.exit:                                 ; preds = %136
   %143 = getelementptr inbounds nuw i8, ptr %81, i64 96
   store ptr %142, ptr %143, align 8
   %144 = tail call ptr @PQgetvalue(ptr noundef %29, i32 noundef %82, i32 noundef %41) #14
-  %145 = tail call i32 @atoi(ptr nocapture noundef %144) #15
+  %145 = tail call i32 @atoi(ptr noundef %144) #15
   %146 = getelementptr inbounds nuw i8, ptr %81, i64 172
   store i32 %145, ptr %146, align 4
   %147 = tail call ptr @PQgetvalue(ptr noundef %29, i32 noundef %82, i32 noundef %42) #14
@@ -17962,7 +17962,7 @@ getRoleName.exit.tail:                            ; preds = %getRoleName.exit.ta
   %162 = getelementptr inbounds nuw i8, ptr %81, i64 145
   store i8 %161, ptr %162, align 1
   %163 = tail call ptr @PQgetvalue(ptr noundef %29, i32 noundef %82, i32 noundef %44) #14
-  %164 = tail call i32 @atoi(ptr nocapture noundef %163) #15
+  %164 = tail call i32 @atoi(ptr noundef %163) #15
   %165 = getelementptr inbounds nuw i8, ptr %81, i64 200
   store i32 %164, ptr %165, align 8
   %166 = tail call i32 @PQgetisnull(ptr noundef %29, i32 noundef %82, i32 noundef %45) #14
@@ -17971,7 +17971,7 @@ getRoleName.exit.tail:                            ; preds = %getRoleName.exit.ta
 
 167:                                              ; preds = %getRoleName.exit.tail
   %168 = tail call ptr @PQgetvalue(ptr noundef %29, i32 noundef %82, i32 noundef %45) #14
-  %169 = tail call i32 @atoi(ptr nocapture noundef %168) #15
+  %169 = tail call i32 @atoi(ptr noundef %168) #15
   br label %170
 
 170:                                              ; preds = %getRoleName.exit.tail, %167
@@ -17994,7 +17994,7 @@ getRoleName.exit.tail:                            ; preds = %getRoleName.exit.ta
   %179 = getelementptr inbounds nuw i8, ptr %81, i64 188
   store i32 %178, ptr %179, align 4
   %180 = tail call ptr @PQgetvalue(ptr noundef %29, i32 noundef %82, i32 noundef %47) #14
-  %181 = tail call i32 @atoi(ptr nocapture noundef %180) #15
+  %181 = tail call i32 @atoi(ptr noundef %180) #15
   br label %sub_0388
 
 sub_0388:                                         ; preds = %175, %173
@@ -18775,11 +18775,11 @@ define dso_local void @getIndexes(ptr noundef %0, ptr noundef %1, i32 noundef %2
   %130 = getelementptr inbounds nuw i8, ptr %111, i64 72
   store ptr %129, ptr %130, align 8
   %131 = tail call ptr @PQgetvalue(ptr noundef %38, i32 noundef %.1257280, i32 noundef %46) #14
-  %132 = tail call i32 @atoi(ptr nocapture noundef %131) #15
+  %132 = tail call i32 @atoi(ptr noundef %131) #15
   %133 = getelementptr inbounds nuw i8, ptr %111, i64 112
   store i32 %132, ptr %133, align 8
   %134 = tail call ptr @PQgetvalue(ptr noundef %38, i32 noundef %.1257280, i32 noundef %47) #14
-  %135 = tail call i32 @atoi(ptr nocapture noundef %134) #15
+  %135 = tail call i32 @atoi(ptr noundef %134) #15
   %136 = getelementptr inbounds nuw i8, ptr %111, i64 116
   store i32 %135, ptr %136, align 4
   %137 = tail call ptr @PQgetvalue(ptr noundef %38, i32 noundef %.1257280, i32 noundef %60) #14
@@ -19061,7 +19061,7 @@ getRoleName.exit:                                 ; preds = %63
   %75 = getelementptr inbounds nuw i8, ptr %23, i64 72
   store ptr %74, ptr %75, align 8
   %76 = tail call ptr @PQgetvalue(ptr noundef %10, i32 noundef %24, i32 noundef %18) #14
-  %77 = tail call i32 @atoi(ptr nocapture noundef %76) #15
+  %77 = tail call i32 @atoi(ptr noundef %76) #15
   %78 = getelementptr inbounds nuw i8, ptr %23, i64 80
   store i32 %77, ptr %78, align 8
   %79 = load i64, ptr %28, align 4
@@ -20795,7 +20795,7 @@ define dso_local void @getTableAttrs(ptr noundef %0, ptr noundef %1, i32 noundef
   %.0549660 = phi i32 [ 0, %116 ], [ %.1550622, %312 ]
   %indvars.iv.next723 = add nuw nsw i64 %indvars.iv722, 1
   %167 = tail call ptr @PQgetvalue(ptr noundef %54, i32 noundef %.1543662, i32 noundef %57) #14
-  %168 = tail call i32 @atoi(ptr nocapture noundef %167) #15
+  %168 = tail call i32 @atoi(ptr noundef %167) #15
   %169 = zext i32 %168 to i64
   %.not579 = icmp eq i64 %indvars.iv.next723, %169
   br i1 %.not579, label %172, label %170
@@ -20823,7 +20823,7 @@ define dso_local void @getTableAttrs(ptr noundef %0, ptr noundef %1, i32 noundef
 
 182:                                              ; preds = %172
   %183 = tail call ptr @PQgetvalue(ptr noundef %54, i32 noundef %.1543662, i32 noundef %60) #14
-  %184 = tail call i32 @atoi(ptr nocapture noundef %183) #15
+  %184 = tail call i32 @atoi(ptr noundef %183) #15
   br label %185
 
 185:                                              ; preds = %172, %182
@@ -20874,7 +20874,7 @@ define dso_local void @getTableAttrs(ptr noundef %0, ptr noundef %1, i32 noundef
   %219 = zext i1 %216 to i8
   store i8 %219, ptr %218, align 1
   %220 = tail call ptr @PQgetvalue(ptr noundef %54, i32 noundef %.1543662, i32 noundef %66) #14
-  %221 = tail call i32 @atoi(ptr nocapture noundef %220) #15
+  %221 = tail call i32 @atoi(ptr noundef %220) #15
   %222 = load ptr, ptr %138, align 8
   %223 = getelementptr i32, ptr %222, i64 %indvars.iv722
   store i32 %221, ptr %223, align 4
@@ -21131,7 +21131,7 @@ define dso_local void @getTableAttrs(ptr noundef %0, ptr noundef %1, i32 noundef
   %378 = tail call i64 @strtoul(ptr nocapture noundef %377, ptr noundef null, i32 noundef 10) #14
   %379 = trunc i64 %378 to i32
   %380 = tail call ptr @PQgetvalue(ptr noundef %362, i32 noundef %370, i32 noundef 3) #14
-  %381 = tail call i32 @atoi(ptr nocapture noundef %380) #15
+  %381 = tail call i32 @atoi(ptr noundef %380) #15
   %382 = tail call ptr @PQgetvalue(ptr noundef %362, i32 noundef %370, i32 noundef 4) #14
   %383 = icmp eq ptr %.0555671, null
   br i1 %383, label %.preheader, label %384
@@ -24787,7 +24787,7 @@ findComments.exit.i.i:                            ; preds = %667, %664, %.lr.ph7
 694:                                              ; preds = %729, %.preheader.us.i.i
   %.04662.us.i.i = phi i32 [ 0, %.preheader.us.i.i ], [ %730, %729 ]
   %695 = call ptr @PQgetvalue(ptr noundef %473, i32 noundef %.04662.us.i.i, i32 noundef %675) #14
-  %696 = call i32 @atoi(ptr nocapture noundef %695) #15
+  %696 = call i32 @atoi(ptr noundef %695) #15
   %697 = load i32, ptr %693, align 8
   %698 = icmp eq i32 %696, %697
   br i1 %698, label %699, label %729

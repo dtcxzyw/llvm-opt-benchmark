@@ -299,7 +299,7 @@ Vec_IntStart.exit:
   %.val.val.i.i = load ptr, ptr %43, align 8
   %44 = xor i32 %41, -1
   %45 = call ptr @Abc_NamStr(ptr noundef %.val.val.i.i, i32 noundef range(i32 -2147483648, 2147483647) %44) #26
-  %46 = call i32 @atoi(ptr nocapture noundef %45) #27
+  %46 = call i32 @atoi(ptr noundef %45) #27
   br label %Cba_ObjRangeSize.exit
 
 47:                                               ; preds = %39
@@ -355,7 +355,7 @@ Cba_ObjRangeSize.exit:                            ; preds = %42, %Cba_NtkRangeSi
   %.val.val.i.i499 = load ptr, ptr %75, align 8
   %76 = xor i32 %73, -1
   %77 = call ptr @Abc_NamStr(ptr noundef %.val.val.i.i499, i32 noundef range(i32 -2147483648, 2147483647) %76) #26
-  %78 = call i32 @atoi(ptr nocapture noundef %77) #27
+  %78 = call i32 @atoi(ptr noundef %77) #27
   br label %Cba_ObjRangeSize.exit506
 
 79:                                               ; preds = %Cba_ObjRangeSize.exit
@@ -803,7 +803,7 @@ Cba_NtkPrintDistribAddOne.exit:                   ; preds = %219, %Vec_WrdPush.e
   %.val.val.i.i520 = load ptr, ptr %288, align 8
   %289 = xor i32 %286, -1
   %290 = call ptr @Abc_NamStr(ptr noundef %.val.val.i.i520, i32 noundef range(i32 -2147483648, 2147483647) %289) #26
-  %291 = call i32 @atoi(ptr nocapture noundef %290) #27
+  %291 = call i32 @atoi(ptr noundef %290) #27
   br label %Cba_ObjRangeSize.exit527
 
 292:                                              ; preds = %284
@@ -884,7 +884,7 @@ Cba_ObjRangeSize.exit527:                         ; preds = %287, %Cba_NtkRangeS
   %.val.val.i.i531 = load ptr, ptr %338, align 8
   %339 = xor i32 %336, -1
   %340 = call ptr @Abc_NamStr(ptr noundef %.val.val.i.i531, i32 noundef range(i32 -2147483648, 2147483647) %339) #26
-  %341 = call i32 @atoi(ptr nocapture noundef %340) #27
+  %341 = call i32 @atoi(ptr noundef %340) #27
   br label %Cba_ObjRangeSize.exit538
 
 342:                                              ; preds = %328
@@ -940,7 +940,7 @@ Cba_ObjRangeSize.exit538:                         ; preds = %337, %Cba_NtkRangeS
   %.val.val.i.i542 = load ptr, ptr %370, align 8
   %371 = xor i32 %368, -1
   %372 = call ptr @Abc_NamStr(ptr noundef %.val.val.i.i542, i32 noundef range(i32 -2147483648, 2147483647) %371) #26
-  %373 = call i32 @atoi(ptr nocapture noundef %372) #27
+  %373 = call i32 @atoi(ptr noundef %372) #27
   br label %Cba_ObjRangeSize.exit549
 
 374:                                              ; preds = %Cba_ObjRangeSize.exit538
@@ -1011,7 +1011,7 @@ Cba_ObjRangeSize.exit549:                         ; preds = %369, %Cba_NtkRangeS
   %.val.val.i.i553 = load ptr, ptr %412, align 8
   %413 = xor i32 %410, -1
   %414 = call ptr @Abc_NamStr(ptr noundef %.val.val.i.i553, i32 noundef range(i32 -2147483648, 2147483647) %413) #26
-  %415 = call i32 @atoi(ptr nocapture noundef %414) #27
+  %415 = call i32 @atoi(ptr noundef %414) #27
   br label %Cba_ObjRangeSize.exit560
 
 416:                                              ; preds = %408
@@ -1075,7 +1075,7 @@ Cba_ObjRangeSize.exit560:                         ; preds = %411, %Cba_NtkRangeS
   %.val.val.i.i564 = load ptr, ptr %450, align 8
   %451 = xor i32 %448, -1
   %452 = call ptr @Abc_NamStr(ptr noundef %.val.val.i.i564, i32 noundef range(i32 -2147483648, 2147483647) %451) #26
-  %453 = call i32 @atoi(ptr nocapture noundef %452) #27
+  %453 = call i32 @atoi(ptr noundef %452) #27
   br label %Cba_ObjRangeSize.exit571
 
 454:                                              ; preds = %Cba_ObjRangeSize.exit560
@@ -1131,7 +1131,7 @@ Cba_ObjRangeSize.exit571:                         ; preds = %449, %Cba_NtkRangeS
   %.val.val.i.i575 = load ptr, ptr %482, align 8
   %483 = xor i32 %480, -1
   %484 = call ptr @Abc_NamStr(ptr noundef %.val.val.i.i575, i32 noundef range(i32 -2147483648, 2147483647) %483) #26
-  %485 = call i32 @atoi(ptr nocapture noundef %484) #27
+  %485 = call i32 @atoi(ptr noundef %484) #27
   br label %Cba_ObjRangeSize.exit582
 
 486:                                              ; preds = %Cba_ObjRangeSize.exit571
@@ -1203,7 +1203,7 @@ Cba_ObjRangeSize.exit582:                         ; preds = %481, %Cba_NtkRangeS
   %.val.val.i.i587 = load ptr, ptr %525, align 8
   %526 = xor i32 %523, -1
   %527 = call ptr @Abc_NamStr(ptr noundef %.val.val.i.i587, i32 noundef range(i32 -2147483648, 2147483647) %526) #26
-  %528 = call i32 @atoi(ptr nocapture noundef %527) #27
+  %528 = call i32 @atoi(ptr noundef %527) #27
   br label %Cba_ObjRangeSize.exit594
 
 529:                                              ; preds = %521
@@ -1267,7 +1267,7 @@ Cba_ObjRangeSize.exit594:                         ; preds = %524, %Cba_NtkRangeS
   %.val.val.i.i598 = load ptr, ptr %563, align 8
   %564 = xor i32 %561, -1
   %565 = call ptr @Abc_NamStr(ptr noundef %.val.val.i.i598, i32 noundef range(i32 -2147483648, 2147483647) %564) #26
-  %566 = call i32 @atoi(ptr nocapture noundef %565) #27
+  %566 = call i32 @atoi(ptr noundef %565) #27
   br label %Cba_ObjRangeSize.exit605
 
 567:                                              ; preds = %Cba_ObjRangeSize.exit594
@@ -1323,7 +1323,7 @@ Cba_ObjRangeSize.exit605:                         ; preds = %562, %Cba_NtkRangeS
   %.val.val.i.i609 = load ptr, ptr %595, align 8
   %596 = xor i32 %593, -1
   %597 = call ptr @Abc_NamStr(ptr noundef %.val.val.i.i609, i32 noundef range(i32 -2147483648, 2147483647) %596) #26
-  %598 = call i32 @atoi(ptr nocapture noundef %597) #27
+  %598 = call i32 @atoi(ptr noundef %597) #27
   br label %Cba_ObjRangeSize.exit616
 
 599:                                              ; preds = %Cba_ObjRangeSize.exit605
@@ -1395,7 +1395,7 @@ Cba_ObjRangeSize.exit616:                         ; preds = %594, %Cba_NtkRangeS
   %.val.val.i.i621 = load ptr, ptr %638, align 8
   %639 = xor i32 %636, -1
   %640 = call ptr @Abc_NamStr(ptr noundef %.val.val.i.i621, i32 noundef range(i32 -2147483648, 2147483647) %639) #26
-  %641 = call i32 @atoi(ptr nocapture noundef %640) #27
+  %641 = call i32 @atoi(ptr noundef %640) #27
   br label %Cba_ObjRangeSize.exit628
 
 642:                                              ; preds = %634
@@ -1459,7 +1459,7 @@ Cba_ObjRangeSize.exit628:                         ; preds = %637, %Cba_NtkRangeS
   %.val.val.i.i632 = load ptr, ptr %676, align 8
   %677 = xor i32 %674, -1
   %678 = call ptr @Abc_NamStr(ptr noundef %.val.val.i.i632, i32 noundef range(i32 -2147483648, 2147483647) %677) #26
-  %679 = call i32 @atoi(ptr nocapture noundef %678) #27
+  %679 = call i32 @atoi(ptr noundef %678) #27
   br label %Cba_ObjRangeSize.exit639
 
 680:                                              ; preds = %Cba_ObjRangeSize.exit628
@@ -1515,7 +1515,7 @@ Cba_ObjRangeSize.exit639:                         ; preds = %675, %Cba_NtkRangeS
   %.val.val.i.i643 = load ptr, ptr %708, align 8
   %709 = xor i32 %706, -1
   %710 = call ptr @Abc_NamStr(ptr noundef %.val.val.i.i643, i32 noundef range(i32 -2147483648, 2147483647) %709) #26
-  %711 = call i32 @atoi(ptr nocapture noundef %710) #27
+  %711 = call i32 @atoi(ptr noundef %710) #27
   br label %Cba_ObjRangeSize.exit650
 
 712:                                              ; preds = %Cba_ObjRangeSize.exit639
@@ -1587,7 +1587,7 @@ Cba_ObjRangeSize.exit650:                         ; preds = %707, %Cba_NtkRangeS
   %.val.val.i.i655 = load ptr, ptr %751, align 8
   %752 = xor i32 %749, -1
   %753 = call ptr @Abc_NamStr(ptr noundef %.val.val.i.i655, i32 noundef range(i32 -2147483648, 2147483647) %752) #26
-  %754 = call i32 @atoi(ptr nocapture noundef %753) #27
+  %754 = call i32 @atoi(ptr noundef %753) #27
   br label %Cba_ObjRangeSize.exit662
 
 755:                                              ; preds = %747
@@ -1651,7 +1651,7 @@ Cba_ObjRangeSize.exit662:                         ; preds = %750, %Cba_NtkRangeS
   %.val.val.i.i666 = load ptr, ptr %789, align 8
   %790 = xor i32 %787, -1
   %791 = call ptr @Abc_NamStr(ptr noundef %.val.val.i.i666, i32 noundef range(i32 -2147483648, 2147483647) %790) #26
-  %792 = call i32 @atoi(ptr nocapture noundef %791) #27
+  %792 = call i32 @atoi(ptr noundef %791) #27
   br label %Cba_ObjRangeSize.exit673
 
 793:                                              ; preds = %Cba_ObjRangeSize.exit662
@@ -1707,7 +1707,7 @@ Cba_ObjRangeSize.exit673:                         ; preds = %788, %Cba_NtkRangeS
   %.val.val.i.i677 = load ptr, ptr %821, align 8
   %822 = xor i32 %819, -1
   %823 = call ptr @Abc_NamStr(ptr noundef %.val.val.i.i677, i32 noundef range(i32 -2147483648, 2147483647) %822) #26
-  %824 = call i32 @atoi(ptr nocapture noundef %823) #27
+  %824 = call i32 @atoi(ptr noundef %823) #27
   br label %Cba_ObjRangeSize.exit684
 
 825:                                              ; preds = %Cba_ObjRangeSize.exit673
@@ -1779,7 +1779,7 @@ Cba_ObjRangeSize.exit684:                         ; preds = %820, %Cba_NtkRangeS
   %.val.val.i.i689 = load ptr, ptr %864, align 8
   %865 = xor i32 %862, -1
   %866 = call ptr @Abc_NamStr(ptr noundef %.val.val.i.i689, i32 noundef range(i32 -2147483648, 2147483647) %865) #26
-  %867 = call i32 @atoi(ptr nocapture noundef %866) #27
+  %867 = call i32 @atoi(ptr noundef %866) #27
   br label %Cba_ObjRangeSize.exit696
 
 868:                                              ; preds = %860
@@ -1843,7 +1843,7 @@ Cba_ObjRangeSize.exit696:                         ; preds = %863, %Cba_NtkRangeS
   %.val.val.i.i700 = load ptr, ptr %902, align 8
   %903 = xor i32 %900, -1
   %904 = call ptr @Abc_NamStr(ptr noundef %.val.val.i.i700, i32 noundef range(i32 -2147483648, 2147483647) %903) #26
-  %905 = call i32 @atoi(ptr nocapture noundef %904) #27
+  %905 = call i32 @atoi(ptr noundef %904) #27
   br label %Cba_ObjRangeSize.exit707
 
 906:                                              ; preds = %Cba_ObjRangeSize.exit696
@@ -1899,7 +1899,7 @@ Cba_ObjRangeSize.exit707:                         ; preds = %901, %Cba_NtkRangeS
   %.val.val.i.i711 = load ptr, ptr %934, align 8
   %935 = xor i32 %932, -1
   %936 = call ptr @Abc_NamStr(ptr noundef %.val.val.i.i711, i32 noundef range(i32 -2147483648, 2147483647) %935) #26
-  %937 = call i32 @atoi(ptr nocapture noundef %936) #27
+  %937 = call i32 @atoi(ptr noundef %936) #27
   br label %Cba_ObjRangeSize.exit718
 
 938:                                              ; preds = %Cba_ObjRangeSize.exit707
@@ -1979,7 +1979,7 @@ Cba_ObjRangeSize.exit718:                         ; preds = %933, %Cba_NtkRangeS
   %.val.val.i.i723 = load ptr, ptr %983, align 8
   %984 = xor i32 %981, -1
   %985 = call ptr @Abc_NamStr(ptr noundef %.val.val.i.i723, i32 noundef range(i32 -2147483648, 2147483647) %984) #26
-  %986 = call i32 @atoi(ptr nocapture noundef %985) #27
+  %986 = call i32 @atoi(ptr noundef %985) #27
   br label %Cba_ObjRangeSize.exit730
 
 987:                                              ; preds = %973
@@ -2051,7 +2051,7 @@ Cba_ObjRangeSize.exit730:                         ; preds = %982, %Cba_NtkRangeS
   %.val.val.i.i734 = load ptr, ptr %1025, align 8
   %1026 = xor i32 %1023, -1
   %1027 = call ptr @Abc_NamStr(ptr noundef %.val.val.i.i734, i32 noundef range(i32 -2147483648, 2147483647) %1026) #26
-  %1028 = call i32 @atoi(ptr nocapture noundef %1027) #27
+  %1028 = call i32 @atoi(ptr noundef %1027) #27
   br label %Cba_ObjRangeSize.exit741
 
 1029:                                             ; preds = %1015
@@ -2123,7 +2123,7 @@ Cba_ObjRangeSize.exit741:                         ; preds = %1024, %Cba_NtkRange
   %.val.val.i.i745 = load ptr, ptr %1067, align 8
   %1068 = xor i32 %1065, -1
   %1069 = call ptr @Abc_NamStr(ptr noundef %.val.val.i.i745, i32 noundef range(i32 -2147483648, 2147483647) %1068) #26
-  %1070 = call i32 @atoi(ptr nocapture noundef %1069) #27
+  %1070 = call i32 @atoi(ptr noundef %1069) #27
   br label %Cba_ObjRangeSize.exit752
 
 1071:                                             ; preds = %1057
@@ -2196,7 +2196,7 @@ Cba_ObjRangeSize.exit752:                         ; preds = %1066, %Cba_NtkRange
   %.val.val.i.i756 = load ptr, ptr %1110, align 8
   %1111 = xor i32 %1108, -1
   %1112 = call ptr @Abc_NamStr(ptr noundef %.val.val.i.i756, i32 noundef range(i32 -2147483648, 2147483647) %1111) #26
-  %1113 = call i32 @atoi(ptr nocapture noundef %1112) #27
+  %1113 = call i32 @atoi(ptr noundef %1112) #27
   %1114 = add nsw i32 %1113, -1
   br label %Cba_ObjRangeSize.exit763
 
@@ -2268,7 +2268,7 @@ Cba_ObjRangeSize.exit763:                         ; preds = %1109, %Cba_NtkRange
   %.val.val.i.i767 = load ptr, ptr %1152, align 8
   %1153 = xor i32 %1150, -1
   %1154 = call ptr @Abc_NamStr(ptr noundef %.val.val.i.i767, i32 noundef range(i32 -2147483648, 2147483647) %1153) #26
-  %1155 = call i32 @atoi(ptr nocapture noundef %1154) #27
+  %1155 = call i32 @atoi(ptr noundef %1154) #27
   %1156 = add i32 %1155, -1
   br label %Cba_ObjRangeSize.exit774
 
@@ -2333,7 +2333,7 @@ Cba_ObjRangeSize.exit774:                         ; preds = %1151, %Cba_NtkRange
   %.val.val.i.i778 = load ptr, ptr %1191, align 8
   %1192 = xor i32 %1189, -1
   %1193 = call ptr @Abc_NamStr(ptr noundef %.val.val.i.i778, i32 noundef range(i32 -2147483648, 2147483647) %1192) #26
-  %1194 = call i32 @atoi(ptr nocapture noundef %1193) #27
+  %1194 = call i32 @atoi(ptr noundef %1193) #27
   br label %Cba_ObjRangeSize.exit785
 
 1195:                                             ; preds = %Cba_ObjRangeSize.exit774
@@ -2406,7 +2406,7 @@ Cba_ObjRangeSize.exit785:                         ; preds = %1190, %Cba_NtkRange
   %.val.val.i.i789 = load ptr, ptr %1234, align 8
   %1235 = xor i32 %1232, -1
   %1236 = call ptr @Abc_NamStr(ptr noundef %.val.val.i.i789, i32 noundef range(i32 -2147483648, 2147483647) %1235) #26
-  %1237 = call i32 @atoi(ptr nocapture noundef %1236) #27
+  %1237 = call i32 @atoi(ptr noundef %1236) #27
   %1238 = add i32 %1237, -1
   br label %Cba_ObjRangeSize.exit796
 
@@ -2471,7 +2471,7 @@ Cba_ObjRangeSize.exit796:                         ; preds = %1233, %Cba_NtkRange
   %.val.val.i.i800 = load ptr, ptr %1273, align 8
   %1274 = xor i32 %1271, -1
   %1275 = call ptr @Abc_NamStr(ptr noundef %.val.val.i.i800, i32 noundef range(i32 -2147483648, 2147483647) %1274) #26
-  %1276 = call i32 @atoi(ptr nocapture noundef %1275) #27
+  %1276 = call i32 @atoi(ptr noundef %1275) #27
   br label %Cba_ObjRangeSize.exit807
 
 1277:                                             ; preds = %Cba_ObjRangeSize.exit796
@@ -2544,7 +2544,7 @@ Cba_ObjRangeSize.exit807:                         ; preds = %1272, %Cba_NtkRange
   %.val.val.i.i811 = load ptr, ptr %1316, align 8
   %1317 = xor i32 %1314, -1
   %1318 = call ptr @Abc_NamStr(ptr noundef %.val.val.i.i811, i32 noundef range(i32 -2147483648, 2147483647) %1317) #26
-  %1319 = call i32 @atoi(ptr nocapture noundef %1318) #27
+  %1319 = call i32 @atoi(ptr noundef %1318) #27
   br label %Cba_ObjRangeSize.exit818
 
 1320:                                             ; preds = %1306
@@ -2609,7 +2609,7 @@ Cba_ObjRangeSize.exit818:                         ; preds = %1315, %Cba_NtkRange
   %.val.val.i.i822 = load ptr, ptr %1355, align 8
   %1356 = xor i32 %1353, -1
   %1357 = call ptr @Abc_NamStr(ptr noundef %.val.val.i.i822, i32 noundef range(i32 -2147483648, 2147483647) %1356) #26
-  %1358 = call i32 @atoi(ptr nocapture noundef %1357) #27
+  %1358 = call i32 @atoi(ptr noundef %1357) #27
   br label %Cba_ObjRangeSize.exit829
 
 1359:                                             ; preds = %Cba_ObjRangeSize.exit818
@@ -2683,7 +2683,7 @@ Cba_ObjRangeSize.exit829:                         ; preds = %1354, %Cba_NtkRange
   %.val.val.i.i833 = load ptr, ptr %1399, align 8
   %1400 = xor i32 %1397, -1
   %1401 = call ptr @Abc_NamStr(ptr noundef %.val.val.i.i833, i32 noundef range(i32 -2147483648, 2147483647) %1400) #26
-  %1402 = call i32 @atoi(ptr nocapture noundef %1401) #27
+  %1402 = call i32 @atoi(ptr noundef %1401) #27
   br label %Cba_ObjRangeSize.exit840
 
 1403:                                             ; preds = %1389
@@ -2757,7 +2757,7 @@ Cba_ObjRangeSize.exit840:                         ; preds = %1398, %Cba_NtkRange
   %.val.val.i.i844 = load ptr, ptr %1443, align 8
   %1444 = xor i32 %1441, -1
   %1445 = call ptr @Abc_NamStr(ptr noundef %.val.val.i.i844, i32 noundef range(i32 -2147483648, 2147483647) %1444) #26
-  %1446 = call i32 @atoi(ptr nocapture noundef %1445) #27
+  %1446 = call i32 @atoi(ptr noundef %1445) #27
   br label %Cba_ObjRangeSize.exit851
 
 1447:                                             ; preds = %1433
@@ -2831,7 +2831,7 @@ Cba_ObjRangeSize.exit851:                         ; preds = %1442, %Cba_NtkRange
   %.val.val.i.i855 = load ptr, ptr %1487, align 8
   %1488 = xor i32 %1485, -1
   %1489 = call ptr @Abc_NamStr(ptr noundef %.val.val.i.i855, i32 noundef range(i32 -2147483648, 2147483647) %1488) #26
-  %1490 = call i32 @atoi(ptr nocapture noundef %1489) #27
+  %1490 = call i32 @atoi(ptr noundef %1489) #27
   br label %Cba_ObjRangeSize.exit862
 
 1491:                                             ; preds = %1477
@@ -2905,7 +2905,7 @@ Cba_ObjRangeSize.exit862:                         ; preds = %1486, %Cba_NtkRange
   %.val.val.i.i866 = load ptr, ptr %1531, align 8
   %1532 = xor i32 %1529, -1
   %1533 = call ptr @Abc_NamStr(ptr noundef %.val.val.i.i866, i32 noundef range(i32 -2147483648, 2147483647) %1532) #26
-  %1534 = call i32 @atoi(ptr nocapture noundef %1533) #27
+  %1534 = call i32 @atoi(ptr noundef %1533) #27
   br label %Cba_ObjRangeSize.exit873
 
 1535:                                             ; preds = %1521
@@ -2979,7 +2979,7 @@ Cba_ObjRangeSize.exit873:                         ; preds = %1530, %Cba_NtkRange
   %.val.val.i.i877 = load ptr, ptr %1575, align 8
   %1576 = xor i32 %1573, -1
   %1577 = call ptr @Abc_NamStr(ptr noundef %.val.val.i.i877, i32 noundef range(i32 -2147483648, 2147483647) %1576) #26
-  %1578 = call i32 @atoi(ptr nocapture noundef %1577) #27
+  %1578 = call i32 @atoi(ptr noundef %1577) #27
   br label %Cba_ObjRangeSize.exit884
 
 1579:                                             ; preds = %1565
@@ -3053,7 +3053,7 @@ Cba_ObjRangeSize.exit884:                         ; preds = %1574, %Cba_NtkRange
   %.val.val.i.i888 = load ptr, ptr %1619, align 8
   %1620 = xor i32 %1617, -1
   %1621 = call ptr @Abc_NamStr(ptr noundef %.val.val.i.i888, i32 noundef range(i32 -2147483648, 2147483647) %1620) #26
-  %1622 = call i32 @atoi(ptr nocapture noundef %1621) #27
+  %1622 = call i32 @atoi(ptr noundef %1621) #27
   br label %Cba_ObjRangeSize.exit895
 
 1623:                                             ; preds = %1609
@@ -3127,7 +3127,7 @@ Cba_ObjRangeSize.exit895:                         ; preds = %1618, %Cba_NtkRange
   %.val.val.i.i899 = load ptr, ptr %1663, align 8
   %1664 = xor i32 %1661, -1
   %1665 = call ptr @Abc_NamStr(ptr noundef %.val.val.i.i899, i32 noundef range(i32 -2147483648, 2147483647) %1664) #26
-  %1666 = call i32 @atoi(ptr nocapture noundef %1665) #27
+  %1666 = call i32 @atoi(ptr noundef %1665) #27
   %1667 = add nsw i32 %1666, -1
   br label %Cba_ObjRangeSize.exit906
 
@@ -3199,7 +3199,7 @@ Cba_ObjRangeSize.exit906:                         ; preds = %1662, %Cba_NtkRange
   %.val.val.i.i910 = load ptr, ptr %1705, align 8
   %1706 = xor i32 %1703, -1
   %1707 = call ptr @Abc_NamStr(ptr noundef %.val.val.i.i910, i32 noundef range(i32 -2147483648, 2147483647) %1706) #26
-  %1708 = call i32 @atoi(ptr nocapture noundef %1707) #27
+  %1708 = call i32 @atoi(ptr noundef %1707) #27
   %1709 = add nsw i32 %1708, -1
   br label %Cba_ObjRangeSize.exit917
 
@@ -3271,7 +3271,7 @@ Cba_ObjRangeSize.exit917:                         ; preds = %1704, %Cba_NtkRange
   %.val.val.i.i921 = load ptr, ptr %1747, align 8
   %1748 = xor i32 %1745, -1
   %1749 = call ptr @Abc_NamStr(ptr noundef %.val.val.i.i921, i32 noundef range(i32 -2147483648, 2147483647) %1748) #26
-  %1750 = call i32 @atoi(ptr nocapture noundef %1749) #27
+  %1750 = call i32 @atoi(ptr noundef %1749) #27
   br label %Cba_ObjRangeSize.exit928
 
 1751:                                             ; preds = %1737
@@ -3345,7 +3345,7 @@ Cba_ObjRangeSize.exit928:                         ; preds = %1746, %Cba_NtkRange
   %.val.val.i.i932 = load ptr, ptr %1791, align 8
   %1792 = xor i32 %1789, -1
   %1793 = call ptr @Abc_NamStr(ptr noundef %.val.val.i.i932, i32 noundef range(i32 -2147483648, 2147483647) %1792) #26
-  %1794 = call i32 @atoi(ptr nocapture noundef %1793) #27
+  %1794 = call i32 @atoi(ptr noundef %1793) #27
   br label %Cba_ObjRangeSize.exit939
 
 1795:                                             ; preds = %1781
@@ -3418,7 +3418,7 @@ Cba_ObjRangeSize.exit939:                         ; preds = %1790, %Cba_NtkRange
   %.val.val.i.i943 = load ptr, ptr %1834, align 8
   %1835 = xor i32 %1832, -1
   %1836 = call ptr @Abc_NamStr(ptr noundef %.val.val.i.i943, i32 noundef range(i32 -2147483648, 2147483647) %1835) #26
-  %1837 = call i32 @atoi(ptr nocapture noundef %1836) #27
+  %1837 = call i32 @atoi(ptr noundef %1836) #27
   br label %Cba_ObjRangeSize.exit950
 
 1838:                                             ; preds = %1824
@@ -3491,7 +3491,7 @@ Cba_ObjRangeSize.exit950:                         ; preds = %1833, %Cba_NtkRange
   %.val.val.i.i954 = load ptr, ptr %1877, align 8
   %1878 = xor i32 %1875, -1
   %1879 = call ptr @Abc_NamStr(ptr noundef %.val.val.i.i954, i32 noundef range(i32 -2147483648, 2147483647) %1878) #26
-  %1880 = call i32 @atoi(ptr nocapture noundef %1879) #27
+  %1880 = call i32 @atoi(ptr noundef %1879) #27
   br label %Cba_ObjRangeSize.exit961
 
 1881:                                             ; preds = %1867
@@ -3557,7 +3557,7 @@ Cba_ObjRangeSize.exit961:                         ; preds = %1876, %Cba_NtkRange
   %.val.val.i.i965 = load ptr, ptr %1917, align 8
   %1918 = xor i32 %1915, -1
   %1919 = call ptr @Abc_NamStr(ptr noundef %.val.val.i.i965, i32 noundef range(i32 -2147483648, 2147483647) %1918) #26
-  %1920 = call i32 @atoi(ptr nocapture noundef %1919) #27
+  %1920 = call i32 @atoi(ptr noundef %1919) #27
   br label %Cba_ObjRangeSize.exit972
 
 1921:                                             ; preds = %Cba_ObjRangeSize.exit961
@@ -3630,7 +3630,7 @@ Cba_ObjRangeSize.exit972:                         ; preds = %1916, %Cba_NtkRange
   %.val.val.i.i976 = load ptr, ptr %1960, align 8
   %1961 = xor i32 %1958, -1
   %1962 = call ptr @Abc_NamStr(ptr noundef %.val.val.i.i976, i32 noundef range(i32 -2147483648, 2147483647) %1961) #26
-  %1963 = call i32 @atoi(ptr nocapture noundef %1962) #27
+  %1963 = call i32 @atoi(ptr noundef %1962) #27
   br label %Cba_ObjRangeSize.exit983
 
 1964:                                             ; preds = %1950
@@ -3695,7 +3695,7 @@ Cba_ObjRangeSize.exit983:                         ; preds = %1959, %Cba_NtkRange
   %.val.val.i.i987 = load ptr, ptr %1999, align 8
   %2000 = xor i32 %1997, -1
   %2001 = call ptr @Abc_NamStr(ptr noundef %.val.val.i.i987, i32 noundef range(i32 -2147483648, 2147483647) %2000) #26
-  %2002 = call i32 @atoi(ptr nocapture noundef %2001) #27
+  %2002 = call i32 @atoi(ptr noundef %2001) #27
   br label %Cba_ObjRangeSize.exit994
 
 2003:                                             ; preds = %Cba_ObjRangeSize.exit983
@@ -3760,7 +3760,7 @@ Cba_ObjRangeSize.exit994:                         ; preds = %1998, %Cba_NtkRange
   %.val.val.i.i998 = load ptr, ptr %2038, align 8
   %2039 = xor i32 %2036, -1
   %2040 = call ptr @Abc_NamStr(ptr noundef %.val.val.i.i998, i32 noundef range(i32 -2147483648, 2147483647) %2039) #26
-  %2041 = call i32 @atoi(ptr nocapture noundef %2040) #27
+  %2041 = call i32 @atoi(ptr noundef %2040) #27
   br label %Cba_ObjRangeSize.exit1005
 
 2042:                                             ; preds = %Cba_ObjRangeSize.exit994
@@ -3835,7 +3835,7 @@ Cba_ObjRangeSize.exit1005:                        ; preds = %2037, %Cba_NtkRange
   %.val.val.i.i1009 = load ptr, ptr %2082, align 8
   %2083 = xor i32 %2080, -1
   %2084 = call ptr @Abc_NamStr(ptr noundef %.val.val.i.i1009, i32 noundef range(i32 -2147483648, 2147483647) %2083) #26
-  %2085 = call i32 @atoi(ptr nocapture noundef %2084) #27
+  %2085 = call i32 @atoi(ptr noundef %2084) #27
   br label %Cba_ObjRangeSize.exit1016
 
 2086:                                             ; preds = %2072
@@ -3900,7 +3900,7 @@ Cba_ObjRangeSize.exit1016:                        ; preds = %2081, %Cba_NtkRange
   %.val.val.i.i1020 = load ptr, ptr %2121, align 8
   %2122 = xor i32 %2119, -1
   %2123 = call ptr @Abc_NamStr(ptr noundef %.val.val.i.i1020, i32 noundef range(i32 -2147483648, 2147483647) %2122) #26
-  %2124 = call i32 @atoi(ptr nocapture noundef %2123) #27
+  %2124 = call i32 @atoi(ptr noundef %2123) #27
   br label %Cba_ObjRangeSize.exit1027
 
 2125:                                             ; preds = %Cba_ObjRangeSize.exit1016
@@ -3965,7 +3965,7 @@ Cba_ObjRangeSize.exit1027:                        ; preds = %2120, %Cba_NtkRange
   %.val.val.i.i1031 = load ptr, ptr %2160, align 8
   %2161 = xor i32 %2158, -1
   %2162 = call ptr @Abc_NamStr(ptr noundef %.val.val.i.i1031, i32 noundef range(i32 -2147483648, 2147483647) %2161) #26
-  %2163 = call i32 @atoi(ptr nocapture noundef %2162) #27
+  %2163 = call i32 @atoi(ptr noundef %2162) #27
   br label %Cba_ObjRangeSize.exit1038
 
 2164:                                             ; preds = %Cba_ObjRangeSize.exit1027
@@ -4040,7 +4040,7 @@ Cba_ObjRangeSize.exit1038:                        ; preds = %2159, %Cba_NtkRange
   %.val.val.i.i1042 = load ptr, ptr %2204, align 8
   %2205 = xor i32 %2202, -1
   %2206 = call ptr @Abc_NamStr(ptr noundef %.val.val.i.i1042, i32 noundef range(i32 -2147483648, 2147483647) %2205) #26
-  %2207 = call i32 @atoi(ptr nocapture noundef %2206) #27
+  %2207 = call i32 @atoi(ptr noundef %2206) #27
   br label %Cba_ObjRangeSize.exit1049
 
 2208:                                             ; preds = %2194
@@ -4105,7 +4105,7 @@ Cba_ObjRangeSize.exit1049:                        ; preds = %2203, %Cba_NtkRange
   %.val.val.i.i1053 = load ptr, ptr %2243, align 8
   %2244 = xor i32 %2241, -1
   %2245 = call ptr @Abc_NamStr(ptr noundef %.val.val.i.i1053, i32 noundef range(i32 -2147483648, 2147483647) %2244) #26
-  %2246 = call i32 @atoi(ptr nocapture noundef %2245) #27
+  %2246 = call i32 @atoi(ptr noundef %2245) #27
   br label %Cba_ObjRangeSize.exit1060
 
 2247:                                             ; preds = %Cba_ObjRangeSize.exit1049
@@ -4181,7 +4181,7 @@ Cba_ObjRangeSize.exit1060:                        ; preds = %2242, %Cba_NtkRange
   %.val.val.i.i1064 = load ptr, ptr %2289, align 8
   %2290 = xor i32 %2287, -1
   %2291 = call ptr @Abc_NamStr(ptr noundef %.val.val.i.i1064, i32 noundef range(i32 -2147483648, 2147483647) %2290) #26
-  %2292 = call i32 @atoi(ptr nocapture noundef %2291) #27
+  %2292 = call i32 @atoi(ptr noundef %2291) #27
   br label %Cba_ObjRangeSize.exit1071
 
 2293:                                             ; preds = %2279
@@ -4254,7 +4254,7 @@ Cba_ObjRangeSize.exit1071:                        ; preds = %2288, %Cba_NtkRange
   %.val.val.i.i1075 = load ptr, ptr %2332, align 8
   %2333 = xor i32 %2330, -1
   %2334 = call ptr @Abc_NamStr(ptr noundef %.val.val.i.i1075, i32 noundef range(i32 -2147483648, 2147483647) %2333) #26
-  %2335 = call i32 @atoi(ptr nocapture noundef %2334) #27
+  %2335 = call i32 @atoi(ptr noundef %2334) #27
   br label %Cba_ObjRangeSize.exit1082
 
 2336:                                             ; preds = %2322
@@ -4319,7 +4319,7 @@ Cba_ObjRangeSize.exit1082:                        ; preds = %2331, %Cba_NtkRange
   %.val.val.i.i1086 = load ptr, ptr %2371, align 8
   %2372 = xor i32 %2369, -1
   %2373 = call ptr @Abc_NamStr(ptr noundef %.val.val.i.i1086, i32 noundef range(i32 -2147483648, 2147483647) %2372) #26
-  %2374 = call i32 @atoi(ptr nocapture noundef %2373) #27
+  %2374 = call i32 @atoi(ptr noundef %2373) #27
   br label %Cba_ObjRangeSize.exit1093
 
 2375:                                             ; preds = %Cba_ObjRangeSize.exit1082
@@ -4385,7 +4385,7 @@ Cba_ObjRangeSize.exit1093:                        ; preds = %2370, %Cba_NtkRange
   %.val.val.i.i1097 = load ptr, ptr %2411, align 8
   %2412 = xor i32 %2409, -1
   %2413 = call ptr @Abc_NamStr(ptr noundef %.val.val.i.i1097, i32 noundef range(i32 -2147483648, 2147483647) %2412) #26
-  %2414 = call i32 @atoi(ptr nocapture noundef %2413) #27
+  %2414 = call i32 @atoi(ptr noundef %2413) #27
   br label %Cba_ObjRangeSize.exit1104
 
 2415:                                             ; preds = %Cba_ObjRangeSize.exit1093
@@ -4484,7 +4484,7 @@ Cba_ObjRangeSize.exit1104:                        ; preds = %2410, %Cba_NtkRange
   %.val.val.i.i1109 = load ptr, ptr %2467, align 8
   %2468 = xor i32 %2465, -1
   %2469 = call ptr @Abc_NamStr(ptr noundef %.val.val.i.i1109, i32 noundef range(i32 -2147483648, 2147483647) %2468) #26
-  %2470 = call i32 @atoi(ptr nocapture noundef %2469) #27
+  %2470 = call i32 @atoi(ptr noundef %2469) #27
   br label %Cba_ObjRangeSize.exit1116
 
 2471:                                             ; preds = %2450
@@ -4840,7 +4840,7 @@ define internal fastcc i32 @Cba_ObjSign(ptr nocapture noundef %0, i32 noundef %1
   %.val.val.i = load ptr, ptr %4, align 8
   %5 = xor i32 %1, -1
   %6 = tail call ptr @Abc_NamStr(ptr noundef %.val.val.i, i32 noundef range(i32 -2147483648, 2147483647) %5) #26
-  %7 = tail call i32 @atoi(ptr nocapture noundef %6) #27
+  %7 = tail call i32 @atoi(ptr noundef %6) #27
   br label %Cba_FonRangeSize.exit
 
 8:                                                ; preds = %2
@@ -5004,7 +5004,7 @@ define void @Cba_NtkPrintNodes(ptr nocapture noundef %0, i32 noundef %1) local_u
   %.val.val.i.i = load ptr, ptr %39, align 8
   %40 = xor i32 %37, -1
   %41 = call ptr @Abc_NamStr(ptr noundef %.val.val.i.i, i32 noundef range(i32 -2147483648, 2147483647) %40) #26
-  %42 = call i32 @atoi(ptr nocapture noundef %41) #27
+  %42 = call i32 @atoi(ptr noundef %41) #27
   br label %Cba_ObjRangeSize.exit
 
 43:                                               ; preds = %24
@@ -5108,7 +5108,7 @@ Cba_ObjSigned.exit.thread:                        ; preds = %70, %75, %Cba_ObjSi
   %.val.val.i.i66 = load ptr, ptr %95, align 8
   %96 = xor i32 %93, -1
   %97 = call ptr @Abc_NamStr(ptr noundef %.val.val.i.i66, i32 noundef range(i32 -2147483648, 2147483647) %96) #26
-  %98 = call i32 @atoi(ptr nocapture noundef %97) #27
+  %98 = call i32 @atoi(ptr noundef %97) #27
   br label %Cba_ObjRangeSize.exit73
 
 99:                                               ; preds = %83
@@ -5215,7 +5215,7 @@ Cba_ObjSigned.exit80.thread:                      ; preds = %127, %132, %Cba_Obj
   %.val.val.i.i84 = load ptr, ptr %154, align 8
   %155 = xor i32 %152, -1
   %156 = call ptr @Abc_NamStr(ptr noundef %.val.val.i.i84, i32 noundef range(i32 -2147483648, 2147483647) %155) #26
-  %157 = call i32 @atoi(ptr nocapture noundef %156) #27
+  %157 = call i32 @atoi(ptr noundef %156) #27
   br label %Cba_ObjRangeSize.exit91
 
 158:                                              ; preds = %140
@@ -6276,9 +6276,9 @@ define range(i32 -1, 2) i32 @Cba_StrCmpInt(ptr nocapture noundef readonly %0, pt
   %.033.in.lcssa = phi i32 [ %28, %30 ], [ %smin, %27 ]
   %37 = sext i32 %.033.in.lcssa to i64
   %38 = getelementptr inbounds i8, ptr %0, i64 %37
-  %39 = tail call i32 @atoi(ptr nocapture noundef %38) #27
+  %39 = tail call i32 @atoi(ptr noundef %38) #27
   %40 = getelementptr inbounds i8, ptr %1, i64 %37
-  %41 = tail call i32 @atoi(ptr nocapture noundef %40) #27
+  %41 = tail call i32 @atoi(ptr noundef %40) #27
   %42 = icmp slt i32 %39, %41
   br i1 %42, label %49, label %43
 
@@ -6381,9 +6381,9 @@ define range(i32 -1, 2) i32 @Cba_StrCmp(ptr nocapture noundef readonly %0, ptr n
   %.033.in.lcssa.i = phi i64 [ %indvars.iv.i, %32 ], [ 0, %._crit_edge47.i ]
   %39 = and i64 %.033.in.lcssa.i, 2147483647
   %40 = getelementptr inbounds nuw i8, ptr %3, i64 %39
-  %41 = tail call i32 @atoi(ptr nocapture noundef nonnull readonly %40) #27
+  %41 = tail call i32 @atoi(ptr noundef nonnull readonly %40) #27
   %42 = getelementptr inbounds nuw i8, ptr %4, i64 %39
-  %43 = tail call i32 @atoi(ptr nocapture noundef readonly %42) #27
+  %43 = tail call i32 @atoi(ptr noundef readonly %42) #27
   %44 = icmp slt i32 %41, %43
   br i1 %44, label %Cba_StrCmpInt.exit, label %45
 
@@ -6484,9 +6484,9 @@ define range(i32 -1, 2) i32 @Cba_StrCmp(ptr nocapture noundef readonly %0, ptr n
   %.033.in.lcssa.i29 = phi i64 [ %indvars.iv.i28, %82 ], [ 0, %._crit_edge47.i25 ]
   %89 = and i64 %.033.in.lcssa.i29, 2147483647
   %90 = getelementptr inbounds nuw i8, ptr %3, i64 %89
-  %91 = tail call i32 @atoi(ptr nocapture noundef nonnull readonly %90) #27
+  %91 = tail call i32 @atoi(ptr noundef nonnull readonly %90) #27
   %92 = getelementptr inbounds nuw i8, ptr %4, i64 %89
-  %93 = tail call i32 @atoi(ptr nocapture noundef readonly %92) #27
+  %93 = tail call i32 @atoi(ptr noundef readonly %92) #27
   %94 = icmp slt i32 %91, %93
   br i1 %94, label %Cba_StrCmpInt.exit, label %95
 
@@ -6678,7 +6678,7 @@ Vec_PtrSort.exit:                                 ; preds = %.critedge
   %76 = load ptr, ptr %75, align 8
   %77 = tail call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %76, i32 noundef 95) #27
   %78 = getelementptr inbounds nuw i8, ptr %77, i64 1
-  %79 = tail call i32 @atoi(ptr nocapture noundef nonnull %78) #27
+  %79 = tail call i32 @atoi(ptr noundef nonnull %78) #27
   %80 = load i32, ptr %5, align 4
   %81 = load i32, ptr %1, align 8
   %82 = icmp eq i32 %80, %81

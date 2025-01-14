@@ -4090,7 +4090,7 @@ _ZNSt10unique_ptrI12cmConsoleBufSt14default_deleteIS0_EE5resetEPS0_.exit785: ; p
   %1140 = load ptr, ptr %0, align 8
   %1141 = getelementptr inbounds nuw i8, ptr %1140, i64 96
   %1142 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %1141) #23
-  %1143 = call i32 @atoi(ptr nocapture noundef %1142) #24
+  %1143 = call i32 @atoi(ptr noundef %1142) #24
   store i32 %1143, ptr %56, align 4
   br label %1144
 

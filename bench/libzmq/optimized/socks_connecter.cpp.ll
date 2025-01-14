@@ -873,7 +873,7 @@ if.end14:                                         ; preds = %if.else, %if.then9
   %add = add nuw i64 %call, 1
   call void @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6substrEmm(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %port_str, ptr noundef nonnull align 8 dereferenceable(32) %address_, i64 noundef %add, i64 noundef -1)
   %call15 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %port_str) #13
-  %call16 = call i32 @atoi(ptr nocapture noundef %call15) #17
+  %call16 = call i32 @atoi(ptr noundef %call15) #17
   %conv17 = trunc i32 %call16 to i16
   store i16 %conv17, ptr %port_, align 2
   %conv18 = and i32 %call16, 65535

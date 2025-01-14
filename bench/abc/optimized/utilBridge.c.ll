@@ -2158,10 +2158,10 @@ define range(i32 0, 2) i32 @Gia_ManFromBridgeReadPackage(ptr nocapture noundef %
   store i8 0, ptr %9, align 2
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 23
   store i8 0, ptr %10, align 1
-  %11 = call i32 @atoi(ptr nocapture noundef nonnull %5) #20
+  %11 = call i32 @atoi(ptr noundef nonnull %5) #20
   store i32 %11, ptr %1, align 4
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 7
-  %13 = call i32 @atoi(ptr nocapture noundef nonnull %12) #20
+  %13 = call i32 @atoi(ptr noundef nonnull %12) #20
   store i32 %13, ptr %2, align 4
   %14 = sext i32 %13 to i64
   %15 = tail call noalias ptr @malloc(i64 noundef %14) #15

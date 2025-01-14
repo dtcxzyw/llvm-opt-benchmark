@@ -353,10 +353,10 @@ define i32 @Mop_ManReadParams(ptr noundef readonly %0, ptr nocapture noundef wri
 
 8:                                                ; preds = %3
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 2
-  %10 = tail call i32 @atoi(ptr nocapture noundef nonnull %9) #25
+  %10 = tail call i32 @atoi(ptr noundef nonnull %9) #25
   store i32 %10, ptr %1, align 4
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 2
-  %12 = tail call i32 @atoi(ptr nocapture noundef nonnull %11) #25
+  %12 = tail call i32 @atoi(ptr noundef nonnull %11) #25
   store i32 %12, ptr %2, align 4
   %13 = load i8, ptr %0, align 1
   %.not19 = icmp eq i8 %13, 0
@@ -405,9 +405,9 @@ define noalias noundef ptr @Mop_ManRead(ptr nocapture noundef readonly %0) local
 
 9:                                                ; preds = %4
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 2
-  %11 = tail call i32 @atoi(ptr nocapture noundef nonnull %10) #25
+  %11 = tail call i32 @atoi(ptr noundef nonnull %10) #25
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 2
-  %13 = tail call i32 @atoi(ptr nocapture noundef nonnull %12) #25
+  %13 = tail call i32 @atoi(ptr noundef nonnull %12) #25
   %14 = load i8, ptr %2, align 1
   %.not19.i = icmp eq i8 %14, 0
   br i1 %.not19.i, label %.loopexit103, label %.lr.ph.i

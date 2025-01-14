@@ -2569,7 +2569,7 @@ define hidden void @_ZN5osgeo4proj9GTiffGridC2EP6pj_ctxP4tiffRNS0_10BlockCacheEP
   %161 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %17) #30
   %162 = getelementptr inbounds i8, ptr %161, i64 %159
   %163 = getelementptr inbounds nuw i8, ptr %162, i64 8
-  %164 = call i32 @atoi(ptr nocapture noundef nonnull %163) #35
+  %164 = call i32 @atoi(ptr noundef nonnull %163) #35
   br label %167
 
 165:                                              ; preds = %167, %179, %155

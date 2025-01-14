@@ -1446,7 +1446,7 @@ define noalias noundef ptr @Gia_ManComputeSwitchProbs(ptr noundef %0, i32 nounde
 
 10:                                               ; preds = %4
   %11 = tail call ptr @Abc_FrameReadFlag(ptr noundef nonnull @.str.8) #15
-  %12 = tail call i32 @atoi(ptr nocapture noundef %11) #18
+  %12 = tail call i32 @atoi(ptr noundef %11) #18
   store i32 %12, ptr %6, align 4
   br label %13
 
@@ -1488,7 +1488,7 @@ define noalias noundef ptr @Saig_ManComputeSwitchProbs(ptr noundef %0, i32 nound
 
 11:                                               ; preds = %4
   %12 = tail call ptr @Abc_FrameReadFlag(ptr noundef nonnull @.str.8) #15
-  %13 = tail call i32 @atoi(ptr nocapture noundef %12) #18
+  %13 = tail call i32 @atoi(ptr noundef %12) #18
   store i32 %13, ptr %7, align 4
   br label %Gia_ManComputeSwitchProbs.exit
 
@@ -1667,7 +1667,7 @@ define float @Gia_ManComputeSwitching(ptr noundef %0, i32 noundef %1, i32 nounde
 
 10:                                               ; preds = %4
   %11 = tail call ptr @Abc_FrameReadFlag(ptr noundef nonnull @.str.8) #15
-  %12 = tail call i32 @atoi(ptr nocapture noundef %11) #18
+  %12 = tail call i32 @atoi(ptr noundef %11) #18
   store i32 %12, ptr %6, align 4
   br label %Gia_ManComputeSwitchProbs.exit
 
@@ -1828,7 +1828,7 @@ define noalias noundef ptr @Gia_ManPrintOutputProb(ptr noundef %0) local_unnamed
 
 10:                                               ; preds = %1
   %11 = tail call ptr @Abc_FrameReadFlag(ptr noundef nonnull @.str.8) #15
-  %12 = tail call i32 @atoi(ptr nocapture noundef %11) #18
+  %12 = tail call i32 @atoi(ptr noundef %11) #18
   store i32 %12, ptr %6, align 4
   br label %Gia_ManComputeSwitchProbs.exit
 

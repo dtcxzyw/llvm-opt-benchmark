@@ -932,7 +932,7 @@ pmix_pointer_array_get_item.exit418.thread:       ; preds = %358, %pmix_pointer_
 
 412:                                              ; preds = %410, %410
   %413 = call ptr @strtok(ptr noundef nonnull %401, ptr noundef nonnull @.str.14) #18
-  %414 = call i32 @atoi(ptr nocapture noundef %413) #20
+  %414 = call i32 @atoi(ptr noundef %413) #20
   %415 = load volatile i64, ptr %324, align 8
   %416 = trunc i64 %415 to i32
   %417 = icmp sge i32 %414, %416

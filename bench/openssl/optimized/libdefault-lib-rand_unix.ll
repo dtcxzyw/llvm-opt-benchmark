@@ -289,14 +289,14 @@ if.then1.i:                                       ; preds = %if.then.i33
 
 if.then4.i:                                       ; preds = %if.then1.i
   %release.i = getelementptr inbounds nuw i8, ptr %un.i, i64 130
-  %call5.i = call i32 @atoi(ptr nocapture noundef nonnull %release.i) #13
+  %call5.i = call i32 @atoi(ptr noundef nonnull %release.i) #13
   %call8.i = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %release.i, i32 noundef 46) #13
   %cmp9.i = icmp eq ptr %call8.i, null
   br i1 %cmp9.i, label %cond.end.i, label %cond.false.i
 
 cond.false.i:                                     ; preds = %if.then4.i
   %add.ptr.i = getelementptr inbounds nuw i8, ptr %call8.i, i64 1
-  %call10.i = call i32 @atoi(ptr nocapture noundef nonnull %add.ptr.i) #13
+  %call10.i = call i32 @atoi(ptr noundef nonnull %add.ptr.i) #13
   %2 = icmp slt i32 %call10.i, 8
   br label %cond.end.i
 

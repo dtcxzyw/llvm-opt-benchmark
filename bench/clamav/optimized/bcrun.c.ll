@@ -598,7 +598,7 @@ print_src.exit:                                   ; preds = %116, %169
   br i1 %.not181, label %241, label %239
 
 239:                                              ; preds = %221
-  %240 = call i32 @atoi(ptr nocapture noundef nonnull %238) #21
+  %240 = call i32 @atoi(ptr noundef nonnull %238) #21
   br label %241
 
 241:                                              ; preds = %239, %221
@@ -628,7 +628,7 @@ print_src.exit:                                   ; preds = %116, %169
   %251 = phi ptr [ %265, %260 ], [ %250, %.preheader ]
   %.0129204 = phi i32 [ %261, %260 ], [ 2, %.preheader ]
   %252 = add i32 %.0129204, -2
-  %253 = call i32 @atoi(ptr nocapture noundef nonnull %251) #21
+  %253 = call i32 @atoi(ptr noundef nonnull %251) #21
   %254 = sext i32 %253 to i64
   %255 = call i32 @cli_bytecode_context_setparam_int(ptr noundef nonnull %202, i32 noundef %252, i64 noundef %254) #15
   %.not190 = icmp eq i32 %255, 0

@@ -362,7 +362,7 @@ _establish_config_source.exit:                    ; preds = %59, %62, %65, %81
   br i1 %.not.i14, label %101, label %99
 
 99:                                               ; preds = %97
-  %100 = call i32 @atoi(ptr nocapture noundef nonnull %98) #17
+  %100 = call i32 @atoi(ptr noundef nonnull %98) #17
   store i32 %100, ptr @listen_fd, align 4
   br label %108
 
@@ -404,7 +404,7 @@ _listen_for_reconf.exit:                          ; preds = %108, %106, %96
 
 117:                                              ; preds = %114
   %118 = call ptr @getenv(ptr noundef nonnull @.str.34) #14
-  %119 = call i32 @atoi(ptr nocapture noundef %118) #17
+  %119 = call i32 @atoi(ptr noundef %118) #17
   %120 = call i32 @get_log_level() #14
   %121 = icmp sgt i32 %120, 2
   br i1 %121, label %122, label %.lr.ph.split.us.i.preheader

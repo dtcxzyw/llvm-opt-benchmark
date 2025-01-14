@@ -1340,7 +1340,7 @@ switch.early.test:                                ; preds = %.thread, %15
   br i1 %.not45, label %111, label %96
 
 96:                                               ; preds = %93
-  %97 = call i32 @atoi(ptr nocapture noundef nonnull %.0) #12
+  %97 = call i32 @atoi(ptr noundef nonnull %.0) #12
   %98 = load i16, ptr @cpu_freq_count, align 2
   %99 = zext i16 %98 to i32
   %.not48 = icmp slt i32 %97, %99

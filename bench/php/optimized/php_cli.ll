@@ -876,7 +876,7 @@ print_modules.exit:                               ; preds = %56, %37
 
 128:                                              ; preds = %64
   %129 = load ptr, ptr %7, align 8
-  %130 = call i32 @atoi(ptr nocapture noundef %129) #25
+  %130 = call i32 @atoi(ptr noundef %129) #25
   br label %.backedge
 
 131:                                              ; preds = %64

@@ -113,7 +113,7 @@ define noundef ptr @Map_LibraryReadGateTree(ptr nocapture noundef readonly %0, p
   br label %94
 
 46:                                               ; preds = %43
-  %47 = tail call i32 @atoi(ptr nocapture noundef nonnull %41) #17
+  %47 = tail call i32 @atoi(ptr noundef nonnull %41) #17
   %48 = icmp slt i32 %47, 0
   br i1 %48, label %49, label %50
 

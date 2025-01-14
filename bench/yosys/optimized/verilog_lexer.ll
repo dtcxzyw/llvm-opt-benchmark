@@ -1148,12 +1148,12 @@ _Z33frontend_verilog_yy_create_bufferP8_IO_FILEi.exit: ; preds = %177
   br label %407, !llvm.loop !15
 
 410:                                              ; preds = %407
-  %411 = call i32 @atoi(ptr nocapture noundef nonnull %.01374) #41
+  %411 = call i32 @atoi(ptr noundef nonnull %.01374) #41
   store i32 %411, ptr @frontend_verilog_yylineno, align 4
-  %412 = call i32 @atoi(ptr nocapture noundef nonnull %.01374) #41
+  %412 = call i32 @atoi(ptr noundef nonnull %.01374) #41
   store i32 %412, ptr %199, align 4
   store i32 %412, ptr %1, align 4
-  %413 = call i32 @atoi(ptr nocapture noundef nonnull %.01374) #41
+  %413 = call i32 @atoi(ptr noundef nonnull %.01374) #41
   store i32 %413, ptr getelementptr inbounds nuw (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 8), align 4
   store i32 %413, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, align 4
   br label %414

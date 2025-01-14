@@ -2536,7 +2536,7 @@ for.end.i77:                                      ; preds = %for.cond18.i
   br i1 %tobool37.not.i, label %if.else41.i, label %if.then38.i
 
 if.then38.i:                                      ; preds = %for.end.i77
-  %call40.i = call i32 @atoi(ptr nocapture noundef %83) #16
+  %call40.i = call i32 @atoi(ptr noundef %83) #16
   br label %if.end68.i
 
 if.else41.i:                                      ; preds = %for.end.i77
@@ -2544,7 +2544,7 @@ if.else41.i:                                      ; preds = %for.end.i77
   br i1 %tobool42.not.i, label %sub_0.i, label %if.then43.i
 
 if.then43.i:                                      ; preds = %if.else41.i
-  %call45.i = call i32 @atoi(ptr nocapture noundef %83) #16
+  %call45.i = call i32 @atoi(ptr noundef %83) #16
   %call47.i = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %83, i32 noundef 45) #16
   %add.ptr.i78 = getelementptr inbounds nuw i8, ptr %call47.i, i64 1
   %87 = load i8, ptr %add.ptr.i78, align 1
@@ -2556,7 +2556,7 @@ if.then49.i:                                      ; preds = %if.then43.i
   br label %if.end68.i
 
 if.else51.i:                                      ; preds = %if.then43.i
-  %call55.i = call i32 @atoi(ptr nocapture noundef nonnull %add.ptr.i78) #16
+  %call55.i = call i32 @atoi(ptr noundef nonnull %add.ptr.i78) #16
   br label %if.end68.i
 
 sub_0.i:                                          ; preds = %if.else29.i, %if.then24.i, %if.else41.i

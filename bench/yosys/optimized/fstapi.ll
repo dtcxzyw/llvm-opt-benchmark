@@ -189,7 +189,7 @@ define noundef ptr @fstWriterCreate(ptr noundef readonly %0, i32 noundef %1) loc
 
 28:                                               ; preds = %26
   %29 = getelementptr inbounds nuw i8, ptr %23, i64 10
-  %30 = call i64 @atol(ptr nocapture noundef nonnull %29) #38
+  %30 = call i64 @atol(ptr noundef nonnull %29) #38
   %31 = shl i64 %30, 7
   %32 = and i64 %31, 2305843009213693824
   %33 = icmp samesign ugt i64 %32, 134217728
@@ -4363,7 +4363,7 @@ define void @fstWriterSetTimescaleFromString(ptr noundef %0, ptr noundef readonl
   br i1 %or.cond, label %5, label %fstWriterSetTimescale.exit
 
 5:                                                ; preds = %2
-  %6 = tail call i32 @atoi(ptr nocapture noundef nonnull %1) #38
+  %6 = tail call i32 @atoi(ptr noundef nonnull %1) #38
   br label %7
 
 7:                                                ; preds = %10, %5
@@ -14996,7 +14996,7 @@ define noalias ptr @fstUtilityExtractEnumTableFromString(ptr noundef readonly %0
 2:                                                ; preds = %1
   %3 = tail call noundef ptr @strchr(ptr noundef nonnull dereferenceable(1) %0, i32 noundef 32) #38
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 1
-  %5 = tail call i32 @atoi(ptr nocapture noundef nonnull %4) #38
+  %5 = tail call i32 @atoi(ptr noundef nonnull %4) #38
   br label %6
 
 6:                                                ; preds = %6, %2

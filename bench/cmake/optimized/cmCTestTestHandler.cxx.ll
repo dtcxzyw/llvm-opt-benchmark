@@ -17008,7 +17008,7 @@ _ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.
 
 162:                                              ; preds = %160
   %163 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %20) #27
-  %164 = call i32 @atoi(ptr nocapture noundef %163) #30
+  %164 = call i32 @atoi(ptr noundef %163) #30
   %165 = load ptr, ptr %150, align 8
   %166 = load ptr, ptr %151, align 8
   %.not.i = icmp eq ptr %165, %166
@@ -22146,7 +22146,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @_ZN12_GLOBAL__N_113GetNextNu
   %14 = sub i64 %8, %10
   call void @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6substrEmm(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %5, ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %10, i64 noundef %14)
   %15 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %5) #27
-  %16 = call i32 @atoi(ptr nocapture noundef %15) #30
+  %16 = call i32 @atoi(ptr noundef %15) #30
   store i32 %16, ptr %1, align 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #27
   br label %17
@@ -22173,7 +22173,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @_ZN12_GLOBAL__N_113GetNextNu
   %28 = sub i64 %26, %27
   call void @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6substrEmm(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %6, ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %22, i64 noundef %28)
   %29 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %6) #27
-  %30 = call i32 @atoi(ptr nocapture noundef %29) #30
+  %30 = call i32 @atoi(ptr noundef %29) #30
   store i32 %30, ptr %1, align 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #27
   br label %31
@@ -25101,7 +25101,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i693: ; preds = %878
 
 _ZSteqIcSt11char_traitsIcEEbNSt15__type_identityISt17basic_string_viewIT_T0_EE4typeES6_.exit696: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i693
   %884 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %99) #27
-  %885 = call i32 @atoi(ptr nocapture noundef %884) #30
+  %885 = call i32 @atoi(ptr noundef %884) #30
   %886 = getelementptr inbounds nuw i8, ptr %.sroa.0865.01012, i64 476
   %spec.store.select = call i32 @llvm.smax.i32(i32 %885, i32 1)
   store i32 %spec.store.select, ptr %886, align 4
@@ -25181,7 +25181,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i709: ; preds = %916
 
 _ZSteqIcSt11char_traitsIcEEbNSt15__type_identityISt17basic_string_viewIT_T0_EE4typeES6_.exit712: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i709
   %922 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %99) #27
-  %923 = call i32 @atoi(ptr nocapture noundef %922) #30
+  %923 = call i32 @atoi(ptr noundef %922) #30
   %924 = getelementptr inbounds nuw i8, ptr %.sroa.0865.01012, i64 512
   %or.cond = icmp ugt i32 %923, 255
   %spec.store.select467 = select i1 %or.cond, i32 -1, i32 %923

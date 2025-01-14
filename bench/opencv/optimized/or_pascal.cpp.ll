@@ -1850,7 +1850,7 @@ _ZN2cv8tinyxml27XMLNode17FirstChildElementEPKc.exit96: ; preds = %_ZN2cv8tinyxml
           to label %103 unwind label %236
 
 103:                                              ; preds = %_ZN2cv8tinyxml27XMLNode17FirstChildElementEPKc.exit96
-  %104 = call i32 @atoi(ptr nocapture noundef %102) #20
+  %104 = call i32 @atoi(ptr noundef %102) #20
   %105 = invoke noundef ptr @_ZNK2cv8tinyxml27XMLNode17FirstChildElementEPKc(ptr noundef nonnull align 8 dereferenceable(88) %100, ptr noundef nonnull @.str.17)
           to label %_ZN2cv8tinyxml27XMLNode17FirstChildElementEPKc.exit98 unwind label %236
 
@@ -1859,7 +1859,7 @@ _ZN2cv8tinyxml27XMLNode17FirstChildElementEPKc.exit98: ; preds = %103
           to label %107 unwind label %236
 
 107:                                              ; preds = %_ZN2cv8tinyxml27XMLNode17FirstChildElementEPKc.exit98
-  %108 = call i32 @atoi(ptr nocapture noundef %106) #20
+  %108 = call i32 @atoi(ptr noundef %106) #20
   %109 = invoke noundef ptr @_ZNK2cv8tinyxml27XMLNode17FirstChildElementEPKc(ptr noundef nonnull align 8 dereferenceable(88) %100, ptr noundef nonnull @.str.18)
           to label %_ZN2cv8tinyxml27XMLNode17FirstChildElementEPKc.exit100 unwind label %236
 
@@ -1868,7 +1868,7 @@ _ZN2cv8tinyxml27XMLNode17FirstChildElementEPKc.exit100: ; preds = %107
           to label %111 unwind label %236
 
 111:                                              ; preds = %_ZN2cv8tinyxml27XMLNode17FirstChildElementEPKc.exit100
-  %112 = call i32 @atoi(ptr nocapture noundef %110) #20
+  %112 = call i32 @atoi(ptr noundef %110) #20
   %113 = getelementptr inbounds nuw i8, ptr %42, i64 32
   store i32 %104, ptr %113, align 8
   %114 = getelementptr inbounds nuw i8, ptr %42, i64 36
@@ -1991,7 +1991,7 @@ _ZN2cv8datasets12OR_pascalImp13parseNodeTextEPNS_8tinyxml210XMLElementERKNSt7__c
 
 _ZN2cv8datasets12OR_pascalImp13parseNodeTextEPNS_8tinyxml210XMLElementERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESC_.exit111: ; preds = %.sink.split.i108, %.noexc110
   %.0.i107 = phi ptr [ %156, %.noexc110 ], [ %158, %.sink.split.i108 ]
-  %159 = call i32 @atoi(ptr nocapture noundef %.0.i107) #20
+  %159 = call i32 @atoi(ptr noundef %.0.i107) #20
   %160 = icmp sgt i32 %159, 0
   %161 = zext i1 %160 to i8
   store i8 %161, ptr %119, align 8
@@ -2031,7 +2031,7 @@ _ZN2cv8datasets12OR_pascalImp13parseNodeTextEPNS_8tinyxml210XMLElementERKNSt7__c
 
 _ZN2cv8datasets12OR_pascalImp13parseNodeTextEPNS_8tinyxml210XMLElementERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESC_.exit116: ; preds = %.sink.split.i113, %.noexc115
   %.0.i112 = phi ptr [ %168, %.noexc115 ], [ %170, %.sink.split.i113 ]
-  %171 = call i32 @atoi(ptr nocapture noundef %.0.i112) #20
+  %171 = call i32 @atoi(ptr noundef %.0.i112) #20
   %172 = icmp sgt i32 %171, 0
   %173 = zext i1 %172 to i8
   store i8 %173, ptr %120, align 1
@@ -2071,7 +2071,7 @@ _ZN2cv8datasets12OR_pascalImp13parseNodeTextEPNS_8tinyxml210XMLElementERKNSt7__c
 
 _ZN2cv8datasets12OR_pascalImp13parseNodeTextEPNS_8tinyxml210XMLElementERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESC_.exit121: ; preds = %.sink.split.i118, %.noexc120
   %.0.i117 = phi ptr [ %180, %.noexc120 ], [ %182, %.sink.split.i118 ]
-  %183 = call i32 @atoi(ptr nocapture noundef %.0.i117) #20
+  %183 = call i32 @atoi(ptr noundef %.0.i117) #20
   %184 = icmp sgt i32 %183, 0
   %185 = zext i1 %184 to i8
   store i8 %185, ptr %121, align 2
@@ -2091,7 +2091,7 @@ _ZN2cv8tinyxml27XMLNode17FirstChildElementEPKc.exit125: ; preds = %_ZN2cv8tinyxm
           to label %189 unwind label %240
 
 189:                                              ; preds = %_ZN2cv8tinyxml27XMLNode17FirstChildElementEPKc.exit125
-  %190 = call i32 @atoi(ptr nocapture noundef %188) #20
+  %190 = call i32 @atoi(ptr noundef %188) #20
   store i32 %190, ptr %122, align 8
   %191 = invoke noundef ptr @_ZNK2cv8tinyxml27XMLNode17FirstChildElementEPKc(ptr noundef nonnull align 8 dereferenceable(88) %186, ptr noundef nonnull @.str.29)
           to label %_ZN2cv8tinyxml27XMLNode17FirstChildElementEPKc.exit127 unwind label %240
@@ -2101,7 +2101,7 @@ _ZN2cv8tinyxml27XMLNode17FirstChildElementEPKc.exit127: ; preds = %189
           to label %193 unwind label %240
 
 193:                                              ; preds = %_ZN2cv8tinyxml27XMLNode17FirstChildElementEPKc.exit127
-  %194 = call i32 @atoi(ptr nocapture noundef %192) #20
+  %194 = call i32 @atoi(ptr noundef %192) #20
   store i32 %194, ptr %123, align 4
   %195 = invoke noundef ptr @_ZNK2cv8tinyxml27XMLNode17FirstChildElementEPKc(ptr noundef nonnull align 8 dereferenceable(88) %186, ptr noundef nonnull @.str.30)
           to label %_ZN2cv8tinyxml27XMLNode17FirstChildElementEPKc.exit129 unwind label %240
@@ -2111,7 +2111,7 @@ _ZN2cv8tinyxml27XMLNode17FirstChildElementEPKc.exit129: ; preds = %193
           to label %197 unwind label %240
 
 197:                                              ; preds = %_ZN2cv8tinyxml27XMLNode17FirstChildElementEPKc.exit129
-  %198 = call i32 @atoi(ptr nocapture noundef %196) #20
+  %198 = call i32 @atoi(ptr noundef %196) #20
   store i32 %198, ptr %124, align 8
   %199 = invoke noundef ptr @_ZNK2cv8tinyxml27XMLNode17FirstChildElementEPKc(ptr noundef nonnull align 8 dereferenceable(88) %186, ptr noundef nonnull @.str.31)
           to label %_ZN2cv8tinyxml27XMLNode17FirstChildElementEPKc.exit131 unwind label %240
@@ -2121,7 +2121,7 @@ _ZN2cv8tinyxml27XMLNode17FirstChildElementEPKc.exit131: ; preds = %197
           to label %201 unwind label %240
 
 201:                                              ; preds = %_ZN2cv8tinyxml27XMLNode17FirstChildElementEPKc.exit131
-  %202 = call i32 @atoi(ptr nocapture noundef %200) #20
+  %202 = call i32 @atoi(ptr noundef %200) #20
   store i32 %202, ptr %125, align 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %34, i8 0, i64 24, i1 false)
   %203 = invoke noundef ptr @_ZNK2cv8tinyxml27XMLNode17FirstChildElementEPKc(ptr noundef nonnull align 8 dereferenceable(88) %.037165, ptr noundef nonnull @.str.32)
@@ -2158,7 +2158,7 @@ _ZN2cv8tinyxml27XMLNode17FirstChildElementEPKc.exit139: ; preds = %_ZN2cv8tinyxm
           to label %212 unwind label %276
 
 212:                                              ; preds = %_ZN2cv8tinyxml27XMLNode17FirstChildElementEPKc.exit139
-  %213 = call i32 @atoi(ptr nocapture noundef %211) #20
+  %213 = call i32 @atoi(ptr noundef %211) #20
   store i32 %213, ptr %126, align 8
   %214 = invoke noundef ptr @_ZNK2cv8tinyxml27XMLNode17FirstChildElementEPKc(ptr noundef nonnull align 8 dereferenceable(88) %209, ptr noundef nonnull @.str.29)
           to label %_ZN2cv8tinyxml27XMLNode17FirstChildElementEPKc.exit141 unwind label %276
@@ -2168,7 +2168,7 @@ _ZN2cv8tinyxml27XMLNode17FirstChildElementEPKc.exit141: ; preds = %212
           to label %216 unwind label %276
 
 216:                                              ; preds = %_ZN2cv8tinyxml27XMLNode17FirstChildElementEPKc.exit141
-  %217 = call i32 @atoi(ptr nocapture noundef %215) #20
+  %217 = call i32 @atoi(ptr noundef %215) #20
   store i32 %217, ptr %127, align 4
   %218 = invoke noundef ptr @_ZNK2cv8tinyxml27XMLNode17FirstChildElementEPKc(ptr noundef nonnull align 8 dereferenceable(88) %209, ptr noundef nonnull @.str.30)
           to label %_ZN2cv8tinyxml27XMLNode17FirstChildElementEPKc.exit143 unwind label %276
@@ -2178,7 +2178,7 @@ _ZN2cv8tinyxml27XMLNode17FirstChildElementEPKc.exit143: ; preds = %216
           to label %220 unwind label %276
 
 220:                                              ; preds = %_ZN2cv8tinyxml27XMLNode17FirstChildElementEPKc.exit143
-  %221 = call i32 @atoi(ptr nocapture noundef %219) #20
+  %221 = call i32 @atoi(ptr noundef %219) #20
   store i32 %221, ptr %128, align 8
   %222 = invoke noundef ptr @_ZNK2cv8tinyxml27XMLNode17FirstChildElementEPKc(ptr noundef nonnull align 8 dereferenceable(88) %209, ptr noundef nonnull @.str.31)
           to label %_ZN2cv8tinyxml27XMLNode17FirstChildElementEPKc.exit145 unwind label %276
@@ -2188,7 +2188,7 @@ _ZN2cv8tinyxml27XMLNode17FirstChildElementEPKc.exit145: ; preds = %220
           to label %224 unwind label %276
 
 224:                                              ; preds = %_ZN2cv8tinyxml27XMLNode17FirstChildElementEPKc.exit145
-  %225 = call i32 @atoi(ptr nocapture noundef %223) #20
+  %225 = call i32 @atoi(ptr noundef %223) #20
   store i32 %225, ptr %129, align 4
   %226 = load ptr, ptr %130, align 8
   %227 = load ptr, ptr %131, align 8

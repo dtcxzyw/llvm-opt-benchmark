@@ -268,7 +268,7 @@ _get_system_gpu_list_fake.exit.thread:            ; preds = %17
   br label %.backedge.i.i
 
 56:                                               ; preds = %53
-  %57 = call i32 @atoi(ptr nocapture noundef nonnull %.02835.i.i) #15
+  %57 = call i32 @atoi(ptr noundef nonnull %.02835.i.i) #15
   store i32 %57, ptr %34, align 8
   br label %.backedge.i.i
 

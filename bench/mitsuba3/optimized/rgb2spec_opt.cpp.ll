@@ -1657,7 +1657,7 @@ select.unfold:                                    ; preds = %22, %9, %10, %14, %
   tail call void @_Z11init_tables5Gamut(i32 noundef %.0.ph)
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %27 = load ptr, ptr %26, align 8
-  %28 = tail call i32 @atoi(ptr nocapture noundef %27) #31
+  %28 = tail call i32 @atoi(ptr noundef %27) #31
   store i32 %28, ptr %3, align 4
   %29 = icmp eq i32 %28, 0
   br i1 %29, label %30, label %31

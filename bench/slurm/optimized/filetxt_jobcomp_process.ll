@@ -99,7 +99,7 @@ _open_log_file.exit.preheader:                    ; preds = %1
 
 22:                                               ; preds = %17
   %23 = load ptr, ptr %19, align 8
-  %24 = call i32 @atoi(ptr nocapture noundef %23) #10
+  %24 = call i32 @atoi(ptr noundef %23) #10
   br label %30
 
 25:                                               ; preds = %17
@@ -264,7 +264,7 @@ _open_log_file.exit.backedge:                     ; preds = %50, %65, %293, %40,
 98:                                               ; preds = %94
   %99 = getelementptr inbounds nuw i8, ptr %95, i64 8
   %100 = load ptr, ptr %99, align 8
-  %101 = call i32 @atoi(ptr nocapture noundef %100) #10
+  %101 = call i32 @atoi(ptr noundef %100) #10
   store i32 %101, ptr %67, align 8
   br label %286
 
@@ -323,7 +323,7 @@ _open_log_file.exit.backedge:                     ; preds = %50, %65, %293, %40,
   br i1 %.not112.i, label %131, label %135
 
 131:                                              ; preds = %128
-  %132 = call i32 @atoi(ptr nocapture noundef %130) #10
+  %132 = call i32 @atoi(ptr noundef %130) #10
   store i32 %132, ptr %89, align 8
   %133 = load ptr, ptr %129, align 8
   %134 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.11, ptr noundef %133) #7
@@ -331,7 +331,7 @@ _open_log_file.exit.backedge:                     ; preds = %50, %65, %293, %40,
 
 135:                                              ; preds = %128
   %136 = getelementptr inbounds nuw i8, ptr %strchr.i, i64 1
-  %137 = call i32 @atoi(ptr nocapture noundef nonnull %136) #10
+  %137 = call i32 @atoi(ptr noundef nonnull %136) #10
   store i32 %137, ptr %89, align 8
   %138 = load ptr, ptr %129, align 8
   %139 = call ptr @xstrdup(ptr noundef %138) #7
@@ -352,7 +352,7 @@ _open_log_file.exit.backedge:                     ; preds = %50, %65, %293, %40,
   br i1 %.not115.i, label %146, label %150
 
 146:                                              ; preds = %143
-  %147 = call i32 @atoi(ptr nocapture noundef %145) #10
+  %147 = call i32 @atoi(ptr noundef %145) #10
   store i32 %147, ptr %87, align 8
   %148 = load ptr, ptr %144, align 8
   %149 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.13, ptr noundef %148) #7
@@ -360,7 +360,7 @@ _open_log_file.exit.backedge:                     ; preds = %50, %65, %293, %40,
 
 150:                                              ; preds = %143
   %151 = getelementptr inbounds nuw i8, ptr %strchr114.i, i64 1
-  %152 = call i32 @atoi(ptr nocapture noundef nonnull %151) #10
+  %152 = call i32 @atoi(ptr noundef nonnull %151) #10
   store i32 %152, ptr %87, align 8
   %153 = load ptr, ptr %144, align 8
   %154 = call ptr @xstrdup(ptr noundef %153) #7
@@ -402,7 +402,7 @@ _open_log_file.exit.backedge:                     ; preds = %50, %65, %293, %40,
 172:                                              ; preds = %169
   %173 = getelementptr inbounds nuw i8, ptr %95, i64 8
   %174 = load ptr, ptr %173, align 8
-  %175 = call i32 @atoi(ptr nocapture noundef %174) #10
+  %175 = call i32 @atoi(ptr noundef %174) #10
   store i32 %175, ptr %84, align 8
   br label %286
 
@@ -415,7 +415,7 @@ _open_log_file.exit.backedge:                     ; preds = %50, %65, %293, %40,
 179:                                              ; preds = %176
   %180 = getelementptr inbounds nuw i8, ptr %95, i64 8
   %181 = load ptr, ptr %180, align 8
-  %182 = call i32 @atoi(ptr nocapture noundef %181) #10
+  %182 = call i32 @atoi(ptr noundef %181) #10
   store i32 %182, ptr %83, align 4
   br label %286
 

@@ -3676,7 +3676,7 @@ define internal range(i32 0, 2) i32 @IoCommandWriteCnf2(ptr nocapture noundef re
   %10 = sext i32 %7 to i64
   %11 = getelementptr inbounds ptr, ptr %2, i64 %10
   %12 = load ptr, ptr %11, align 8
-  %13 = tail call i32 @atoi(ptr nocapture noundef %12) #16
+  %13 = tail call i32 @atoi(ptr noundef %12) #16
   %14 = add nsw i32 %7, 1
   store i32 %14, ptr @globalUtilOptind, align 4
   br label %.outer, !llvm.loop !31
@@ -4077,7 +4077,7 @@ define internal range(i32 0, 2) i32 @IoCommandWritePla(ptr nocapture noundef rea
   %10 = sext i32 %7 to i64
   %11 = getelementptr inbounds ptr, ptr %2, i64 %10
   %12 = load ptr, ptr %11, align 8
-  %13 = tail call i32 @atoi(ptr nocapture noundef %12) #16
+  %13 = tail call i32 @atoi(ptr noundef %12) #16
   %14 = add nsw i32 %7, 1
   store i32 %14, ptr @globalUtilOptind, align 4
   br label %4, !llvm.loop !33
@@ -4208,7 +4208,7 @@ define internal range(i32 0, 2) i32 @IoCommandWriteVerilog(ptr nocapture noundef
   %10 = sext i32 %7 to i64
   %11 = getelementptr inbounds ptr, ptr %2, i64 %10
   %12 = load ptr, ptr %11, align 8
-  %13 = tail call i32 @atoi(ptr nocapture noundef %12) #16
+  %13 = tail call i32 @atoi(ptr noundef %12) #16
   %14 = add nsw i32 %7, 1
   store i32 %14, ptr @globalUtilOptind, align 4
   %15 = add i32 %13, -7
@@ -4342,7 +4342,7 @@ define internal range(i32 0, 2) i32 @IoCommandWriteSortCnf(ptr nocapture noundef
   %9 = sext i32 %7 to i64
   %10 = getelementptr inbounds ptr, ptr %2, i64 %9
   %11 = load ptr, ptr %10, align 8
-  %12 = tail call i32 @atoi(ptr nocapture noundef %11) #16
+  %12 = tail call i32 @atoi(ptr noundef %11) #16
   %13 = add nsw i32 %7, 1
   store i32 %13, ptr @globalUtilOptind, align 4
   %14 = icmp slt i32 %12, 1
@@ -4357,7 +4357,7 @@ define internal range(i32 0, 2) i32 @IoCommandWriteSortCnf(ptr nocapture noundef
   %18 = sext i32 %16 to i64
   %19 = getelementptr inbounds ptr, ptr %2, i64 %18
   %20 = load ptr, ptr %19, align 8
-  %21 = tail call i32 @atoi(ptr nocapture noundef %20) #16
+  %21 = tail call i32 @atoi(ptr noundef %20) #16
   %22 = add nsw i32 %16, 1
   store i32 %22, ptr @globalUtilOptind, align 4
   %23 = icmp slt i32 %21, 1

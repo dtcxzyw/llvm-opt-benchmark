@@ -645,7 +645,7 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_SA_.exi
 
 206:                                              ; preds = %.lr.ph
   %207 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %11) #15
-  %208 = call i32 @atoi(ptr nocapture noundef %207) #20
+  %208 = call i32 @atoi(ptr noundef %207) #20
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %11) #15
   %.not = icmp eq i32 %208, %.013145
   br i1 %.not, label %_ZN2cv8datasets9cameraPosD2Ev.exit, label %209

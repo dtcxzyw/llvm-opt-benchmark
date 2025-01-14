@@ -337,7 +337,7 @@ define i32 @revert_num_unit(ptr noundef readonly %0) #1 {
 
 .split.loop.exit24:                               ; preds = %13, %.split.loop.exit
   %18 = phi i32 [ %17, %.split.loop.exit ], [ 1, %13 ]
-  %19 = tail call i32 @atoi(ptr nocapture noundef nonnull %0) #22
+  %19 = tail call i32 @atoi(ptr noundef nonnull %0) #22
   %.0 = mul nsw i32 %19, %18
   br label %20
 
@@ -780,7 +780,7 @@ define range(i32 0, -2147483648) i32 @slurm_get_auth_ttl() local_unnamed_addr #7
 
 7:                                                ; preds = %5
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 4
-  %9 = tail call i32 @atoi(ptr nocapture noundef nonnull %8) #22
+  %9 = tail call i32 @atoi(ptr noundef nonnull %8) #22
   %spec.store.select = tail call i32 @llvm.smax.i32(i32 %9, i32 0)
   br label %10
 

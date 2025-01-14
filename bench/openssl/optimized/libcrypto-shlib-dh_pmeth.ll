@@ -739,7 +739,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %call1 = tail call i32 @atoi(ptr nocapture noundef %value) #7
+  %call1 = tail call i32 @atoi(ptr noundef %value) #7
   %call2 = tail call i32 @EVP_PKEY_CTX_set_dh_paramgen_prime_len(ptr noundef %ctx, i32 noundef %call1) #6
   br label %return
 
@@ -749,7 +749,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp4, label %if.then5, label %if.end11
 
 if.then5:                                         ; preds = %if.end
-  %call6 = tail call i32 @atoi(ptr nocapture noundef %value) #7
+  %call6 = tail call i32 @atoi(ptr noundef %value) #7
   %or.cond = icmp ugt i32 %call6, 3
   br i1 %or.cond, label %return, label %if.end10
 
@@ -789,7 +789,7 @@ if.end22:                                         ; preds = %if.end11
   br i1 %cmp24, label %if.then25, label %if.end29
 
 if.then25:                                        ; preds = %if.end22
-  %call27 = tail call i32 @atoi(ptr nocapture noundef %value) #7
+  %call27 = tail call i32 @atoi(ptr noundef %value) #7
   %call28 = tail call i32 @EVP_PKEY_CTX_set_dh_paramgen_generator(ptr noundef %ctx, i32 noundef %call27) #6
   br label %return
 
@@ -799,7 +799,7 @@ if.end29:                                         ; preds = %if.end22
   br i1 %cmp31, label %if.then32, label %if.end36
 
 if.then32:                                        ; preds = %if.end29
-  %call34 = tail call i32 @atoi(ptr nocapture noundef %value) #7
+  %call34 = tail call i32 @atoi(ptr noundef %value) #7
   %call35 = tail call i32 @EVP_PKEY_CTX_set_dh_paramgen_subprime_len(ptr noundef %ctx, i32 noundef %call34) #6
   br label %return
 
@@ -809,7 +809,7 @@ if.end36:                                         ; preds = %if.end29
   br i1 %cmp38, label %if.then39, label %if.end42
 
 if.then39:                                        ; preds = %if.end36
-  %call40 = tail call i32 @atoi(ptr nocapture noundef %value) #7
+  %call40 = tail call i32 @atoi(ptr noundef %value) #7
   %call41 = tail call i32 @EVP_PKEY_CTX_set_dh_paramgen_type(ptr noundef %ctx, i32 noundef %call40) #6
   br label %return
 
@@ -819,7 +819,7 @@ if.end42:                                         ; preds = %if.end36
   br i1 %cmp44, label %if.then45, label %return
 
 if.then45:                                        ; preds = %if.end42
-  %call46 = tail call i32 @atoi(ptr nocapture noundef %value) #7
+  %call46 = tail call i32 @atoi(ptr noundef %value) #7
   %call47 = tail call i32 @EVP_PKEY_CTX_set_dh_pad(ptr noundef %ctx, i32 noundef %call46) #6
   br label %return
 

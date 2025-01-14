@@ -2140,7 +2140,7 @@ declare i32 @OnUpdateLong(ptr noundef, ptr noundef, ptr noundef, ptr noundef, pt
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -1, 1) i32 @OnUpdateMemoryConsumption(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture noundef writeonly %3, ptr nocapture readnone %4, i32 %5) #0 {
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %8 = tail call i32 @atoi(ptr nocapture noundef nonnull %7) #15
+  %8 = tail call i32 @atoi(ptr noundef nonnull %7) #15
   %9 = icmp slt i32 %8, 8
   br i1 %9, label %10, label %11
 
@@ -2196,7 +2196,7 @@ define internal range(i32 -1, 1) i32 @OnUpdateMaxAcceleratedFiles(ptr nocapture 
   %7 = ptrtoint ptr %2 to i64
   %8 = getelementptr inbounds i8, ptr %3, i64 %7
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %10 = tail call i32 @atoi(ptr nocapture noundef nonnull %9) #15
+  %10 = tail call i32 @atoi(ptr noundef nonnull %9) #15
   %11 = sext i32 %10 to i64
   %12 = icmp slt i32 %10, 200
   br i1 %12, label %13, label %14
@@ -2225,7 +2225,7 @@ define internal range(i32 -1, 1) i32 @OnUpdateMaxAcceleratedFiles(ptr nocapture 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -1, 1) i32 @OnUpdateMaxWastedPercentage(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture noundef writeonly %3, ptr nocapture readnone %4, i32 %5) #0 {
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %8 = tail call i32 @atoi(ptr nocapture noundef nonnull %7) #15
+  %8 = tail call i32 @atoi(ptr noundef nonnull %7) #15
   %9 = add i32 %8, -51
   %or.cond = icmp ult i32 %9, -50
   br i1 %or.cond, label %10, label %11

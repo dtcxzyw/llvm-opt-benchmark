@@ -701,7 +701,7 @@ sw.bb:                                            ; preds = %if.end102.i, %if.el
   br i1 %cmp3.not, label %if.end8, label %if.then
 
 if.then:                                          ; preds = %sw.bb
-  %call4 = tail call i32 @atoi(ptr nocapture noundef nonnull %31) #20
+  %call4 = tail call i32 @atoi(ptr noundef nonnull %31) #20
   %or.cond = icmp ugt i32 %call4, 1
   %spec.store.select37 = select i1 %or.cond, i32 0, i32 %call4
   store i32 %spec.store.select37, ptr @lng_index, align 4
@@ -760,7 +760,7 @@ sw.bb25:                                          ; preds = %while.body
 
 sw.bb26:                                          ; preds = %while.body
   %33 = load ptr, ptr @myoptarg, align 8
-  %call27 = tail call i32 @atoi(ptr nocapture noundef %33) #20
+  %call27 = tail call i32 @atoi(ptr noundef %33) #20
   %conv = trunc i32 %call27 to i16
   br label %if.end.i.backedge
 
@@ -771,7 +771,7 @@ sw.bb28:                                          ; preds = %while.body
   br i1 %cmp30, label %if.end.i.backedge, label %if.end33
 
 if.end33:                                         ; preds = %sw.bb28
-  %call34 = tail call i32 @atoi(ptr nocapture noundef nonnull %34) #20
+  %call34 = tail call i32 @atoi(ptr noundef nonnull %34) #20
   %or.cond1 = icmp ugt i32 %call34, 4
   br i1 %or.cond1, label %if.then40, label %if.end.i.backedge
 
@@ -874,7 +874,7 @@ sw.bb95:                                          ; preds = %while.body
 
 sw.bb96:                                          ; preds = %while.body
   %41 = load ptr, ptr @myoptarg, align 8
-  %call97 = tail call i32 @atoi(ptr nocapture noundef %41) #20
+  %call97 = tail call i32 @atoi(ptr noundef %41) #20
   %42 = add i32 %call97, -16001
   %or.cond2 = icmp ult i32 %42, -16000
   br i1 %or.cond2, label %if.then103, label %if.end.i.backedge
@@ -886,7 +886,7 @@ if.then103:                                       ; preds = %sw.bb96
 
 sw.bb105:                                         ; preds = %while.body
   %43 = load ptr, ptr @myoptarg, align 8
-  %call106 = tail call i32 @atoi(ptr nocapture noundef %43) #20
+  %call106 = tail call i32 @atoi(ptr noundef %43) #20
   %or.cond3 = icmp ugt i32 %call106, 1000000
   br i1 %or.cond3, label %if.then112, label %if.end.i.backedge
 
@@ -897,7 +897,7 @@ if.then112:                                       ; preds = %sw.bb105
 
 sw.bb114:                                         ; preds = %while.body
   %44 = load ptr, ptr @myoptarg, align 8
-  %call115 = tail call i64 @atol(ptr nocapture noundef %44) #20
+  %call115 = tail call i64 @atol(ptr noundef %44) #20
   br label %for.cond
 
 for.cond:                                         ; preds = %for.inc, %sw.bb114
@@ -910,7 +910,7 @@ for.cond:                                         ; preds = %for.inc, %sw.bb114
 
 if.then122:                                       ; preds = %for.cond
   %add.ptr = getelementptr inbounds nuw i8, ptr %incdec.ptr1453, i64 1
-  %call123 = tail call i32 @atoi(ptr nocapture noundef nonnull %add.ptr) #20
+  %call123 = tail call i32 @atoi(ptr noundef nonnull %add.ptr) #20
   br label %for.end
 
 for.inc:                                          ; preds = %for.cond
@@ -988,7 +988,7 @@ sw.bb166:                                         ; preds = %while.body
 
 sw.bb170:                                         ; preds = %while.body
   %48 = load ptr, ptr @myoptarg, align 8
-  %call171 = tail call i32 @atoi(ptr nocapture noundef %48) #20
+  %call171 = tail call i32 @atoi(ptr noundef %48) #20
   %or.cond5 = icmp ugt i32 %call171, 1
   %spec.store.select38 = select i1 %or.cond5, i32 0, i32 %call171
   store i32 %spec.store.select38, ptr @lng_index, align 4
@@ -1002,7 +1002,7 @@ sw.bb183:                                         ; preds = %while.body
 
 sw.bb184:                                         ; preds = %while.body
   %49 = load ptr, ptr @myoptarg, align 8
-  %call185 = tail call i32 @atoi(ptr nocapture noundef %49) #20
+  %call185 = tail call i32 @atoi(ptr noundef %49) #20
   %or.cond6 = icmp ugt i32 %call185, 4
   br i1 %or.cond6, label %if.then191, label %if.end.i.backedge
 

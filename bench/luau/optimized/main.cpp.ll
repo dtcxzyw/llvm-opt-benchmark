@@ -11954,7 +11954,7 @@ _ZN7doctest6StringD2Ev.exit.thread:               ; preds = %.noexc21, %_ZN7doct
   br i1 %29, label %.split56.us, label %23
 
 30:                                               ; preds = %_ZN7doctest6StringD2Ev.exit.thread
-  %31 = call i32 @atoi(ptr nocapture noundef %.0.i.i.i) #52
+  %31 = call i32 @atoi(ptr noundef %.0.i.i.i) #52
   %.not20 = icmp eq i32 %31, 0
   br i1 %.not20, label %.loopexit50, label %32
 
@@ -16356,7 +16356,7 @@ _ZL15debuggerPresentv.exit.thread16:              ; preds = %.preheader.i
 
 _ZL15debuggerPresentv.exit:                       ; preds = %13
   %15 = getelementptr inbounds nuw i8, ptr %6, i64 11
-  %16 = call i32 @atoi(ptr nocapture noundef nonnull %15) #52
+  %16 = call i32 @atoi(ptr noundef nonnull %15) #52
   %.not = icmp eq i32 %16, 0
   %17 = call i32 @fclose(ptr noundef nonnull %10)
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %6)

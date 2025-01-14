@@ -91,7 +91,7 @@ define noundef zeroext i1 @pmix_output_init() local_unnamed_addr #2 {
   br i1 %.not, label %6, label %4
 
 4:                                                ; preds = %2
-  %5 = tail call i32 @atoi(ptr nocapture noundef nonnull %3) #22
+  %5 = tail call i32 @atoi(ptr noundef nonnull %3) #22
   store i32 %5, ptr @default_stderr_fd, align 4
   br label %6
 
@@ -518,7 +518,7 @@ define void @pmix_output_reopen_all() local_unnamed_addr #2 {
   br i1 %.not, label %5, label %3
 
 3:                                                ; preds = %0
-  %4 = tail call i32 @atoi(ptr nocapture noundef nonnull %2) #22
+  %4 = tail call i32 @atoi(ptr noundef nonnull %2) #22
   br label %5
 
 5:                                                ; preds = %0, %3

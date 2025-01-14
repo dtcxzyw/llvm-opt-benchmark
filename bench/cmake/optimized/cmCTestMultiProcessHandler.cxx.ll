@@ -1742,7 +1742,7 @@ define dso_local void @_ZN26cmCTestMultiProcessHandler12ReadCostDataEv(ptr nound
   %47 = load ptr, ptr %5, align 8
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 32
   %49 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %48) #26
-  %50 = call i32 @atoi(ptr nocapture noundef %49) #29
+  %50 = call i32 @atoi(ptr noundef %49) #29
   %51 = load ptr, ptr %5, align 8
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 64
   %53 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %52) #26
@@ -3565,7 +3565,7 @@ define dso_local void @_ZN26cmCTestMultiProcessHandler11CheckResumeEv(ptr nounde
 
 41:                                               ; preds = %40
   %42 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %5) #26
-  %43 = call i32 @atoi(ptr nocapture noundef %42) #29
+  %43 = call i32 @atoi(ptr noundef %42) #29
   invoke void @_ZN26cmCTestMultiProcessHandler10RemoveTestEi(ptr noundef nonnull align 8 dereferenceable(870) %0, i32 noundef %43)
           to label %32 unwind label %.loopexit, !llvm.loop !20
 
@@ -3908,7 +3908,7 @@ _ZN26cmCTestMultiProcessHandler13PropertiesMapC2ERKS0_.exit: ; preds = %35, %19
   %75 = load ptr, ptr %9, align 8
   %76 = getelementptr inbounds nuw i8, ptr %75, i64 32
   %77 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %76) #26
-  %78 = call i32 @atoi(ptr nocapture noundef %77) #29
+  %78 = call i32 @atoi(ptr noundef %77) #29
   %79 = load ptr, ptr %9, align 8
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 64
   %81 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %80) #26

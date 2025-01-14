@@ -3025,7 +3025,7 @@ _ZNSt6vectorIiSaIiEE7reserveEm.exit:              ; preds = %_ZNSt12_Vector_base
   %21 = phi ptr [ %18, %.lr.ph ], [ %47, %_ZNSt6vectorIiSaIiEE9push_backEOi.exit ]
   %.sroa.02.06 = phi ptr [ %5, %.lr.ph ], [ %48, %_ZNSt6vectorIiSaIiEE9push_backEOi.exit ]
   %22 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.02.06) #21
-  %23 = tail call i32 @atoi(ptr nocapture noundef %22) #26
+  %23 = tail call i32 @atoi(ptr noundef %22) #26
   %24 = load ptr, ptr %13, align 8
   %.not.i.i = icmp eq ptr %21, %24
   br i1 %.not.i.i, label %27, label %25

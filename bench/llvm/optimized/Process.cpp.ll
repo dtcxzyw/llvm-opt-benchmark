@@ -1019,7 +1019,7 @@ define dso_local noundef range(i32 0, -2147483648) i32 @_ZN4llvm3sys7Process18St
   br i1 %.not.i, label %7, label %4
 
 4:                                                ; preds = %2
-  %5 = tail call i32 @atoi(ptr nocapture noundef nonnull %3) #26
+  %5 = tail call i32 @atoi(ptr noundef nonnull %3) #26
   %6 = icmp sgt i32 %5, 0
   br i1 %6, label %_ZL10getColumnsv.exit, label %7
 
@@ -1043,7 +1043,7 @@ define dso_local noundef range(i32 0, -2147483648) i32 @_ZN4llvm3sys7Process18St
   br i1 %.not.i, label %7, label %4
 
 4:                                                ; preds = %2
-  %5 = tail call i32 @atoi(ptr nocapture noundef nonnull %3) #26
+  %5 = tail call i32 @atoi(ptr noundef nonnull %3) #26
   %6 = icmp sgt i32 %5, 0
   br i1 %6, label %_ZL10getColumnsv.exit, label %7
 

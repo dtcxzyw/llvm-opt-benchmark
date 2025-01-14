@@ -1483,7 +1483,7 @@ declare i32 @st__insert(ptr noundef, ptr noundef, ptr noundef) local_unnamed_add
 define range(i32 0, 2) i32 @Ver_ParseSignalPrefix(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #0 {
   %5 = load ptr, ptr %1, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 1
-  %7 = tail call i32 @atoi(ptr nocapture noundef nonnull %6) #21
+  %7 = tail call i32 @atoi(ptr noundef nonnull %6) #21
   br label %8
 
 8:                                                ; preds = %10, %4
@@ -1537,7 +1537,7 @@ define range(i32 0, 2) i32 @Ver_ParseSignalPrefix(ptr noundef %0, ptr nocapture 
 
 32:                                               ; preds = %8
   %33 = getelementptr inbounds nuw i8, ptr %.039, i64 1
-  %34 = tail call i32 @atoi(ptr nocapture noundef nonnull %33) #21
+  %34 = tail call i32 @atoi(ptr noundef nonnull %33) #21
   br label %35
 
 35:                                               ; preds = %37, %32
@@ -1692,7 +1692,7 @@ define range(i32 0, 2) i32 @Ver_ParseSignalSuffix(ptr noundef %0, ptr noundef %1
 
 32:                                               ; preds = %.lr.ph
   %33 = getelementptr inbounds nuw i8, ptr %.03448, i64 1
-  %34 = tail call i32 @atoi(ptr nocapture noundef nonnull %33) #21
+  %34 = tail call i32 @atoi(ptr noundef nonnull %33) #21
   store i32 %34, ptr %3, align 4
   store i32 %34, ptr %2, align 4
   store i8 0, ptr %.03448, align 1
@@ -1700,7 +1700,7 @@ define range(i32 0, 2) i32 @Ver_ParseSignalSuffix(ptr noundef %0, ptr noundef %1
 
 .lr.ph52.preheader:                               ; preds = %.lr.ph
   %35 = getelementptr inbounds nuw i8, ptr %.03448, i64 1
-  %36 = tail call i32 @atoi(ptr nocapture noundef nonnull %35) #21
+  %36 = tail call i32 @atoi(ptr noundef nonnull %35) #21
   store i32 %36, ptr %3, align 4
   br label %.lr.ph52
 
@@ -1753,7 +1753,7 @@ define range(i32 0, 2) i32 @Ver_ParseSignalSuffix(ptr noundef %0, ptr noundef %1
 
 61:                                               ; preds = %.lr.ph52
   %62 = getelementptr inbounds nuw i8, ptr %.150, i64 1
-  %63 = tail call i32 @atoi(ptr nocapture noundef nonnull %62) #21
+  %63 = tail call i32 @atoi(ptr noundef nonnull %62) #21
   store i32 %63, ptr %2, align 4
   store i8 0, ptr %.150, align 1
   br label %Ver_ParsePrintErrorMessage.exit
@@ -1768,7 +1768,7 @@ declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @Ver_ParseConstant(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
-  %3 = tail call i32 @atoi(ptr nocapture noundef %1) #21
+  %3 = tail call i32 @atoi(ptr noundef %1) #21
   br label %4
 
 4:                                                ; preds = %6, %2

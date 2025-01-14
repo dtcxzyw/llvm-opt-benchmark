@@ -649,7 +649,7 @@ if.then32:                                        ; preds = %if.end30
   br i1 %cmp33.not, label %if.else36, label %if.then34
 
 if.then34:                                        ; preds = %if.then32
-  %call35 = tail call i32 @atoi(ptr nocapture noundef nonnull %14) #17
+  %call35 = tail call i32 @atoi(ptr noundef nonnull %14) #17
   store i32 %call35, ptr @_ZL9truncsize, align 4
   br label %if.end39
 

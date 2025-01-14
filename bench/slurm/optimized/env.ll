@@ -3690,7 +3690,7 @@ getenvp.exit:                                     ; preds = %.critedge.i.i
   br i1 %.not94, label %getenvp.exit.thread, label %43
 
 43:                                               ; preds = %getenvp.exit
-  %44 = tail call i32 @atoi(ptr nocapture noundef nonnull %42) #19
+  %44 = tail call i32 @atoi(ptr noundef nonnull %42) #19
   %45 = mul i32 %24, %44
   store i32 %45, ptr %13, align 4
   br label %getenvp.exit.thread

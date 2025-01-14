@@ -2647,7 +2647,7 @@ define dso_local noundef zeroext i1 @_ZNK20cmConditionEvaluator18GetBooleanValue
 13:                                               ; preds = %11
   %14 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNK25cmExpandedCommandArgument8GetValueB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(33) %1)
   %15 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %14) #19
-  %16 = tail call i32 @atoi(ptr nocapture noundef %15) #23
+  %16 = tail call i32 @atoi(ptr noundef %15) #23
   %.not = icmp eq i32 %16, 0
   br i1 %.not, label %_Z7cmIsOff7cmValue.exit, label %17
 

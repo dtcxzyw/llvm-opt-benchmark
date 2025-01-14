@@ -90,7 +90,7 @@ define i32 @hwloc_hide_errors() local_unnamed_addr #2 {
   br i1 %.not, label %5, label %3
 
 3:                                                ; preds = %1
-  %4 = tail call i32 @atoi(ptr nocapture noundef nonnull %2) #34
+  %4 = tail call i32 @atoi(ptr noundef nonnull %2) #34
   store i32 %4, ptr @hwloc_hide_errors.hide, align 4
   br label %5
 
@@ -5650,7 +5650,7 @@ hwloc_type_cmp.exit209:                           ; preds = %153, %143
   br i1 %.not.i210, label %227, label %225
 
 225:                                              ; preds = %223
-  %226 = tail call i32 @atoi(ptr nocapture noundef nonnull %224) #34
+  %226 = tail call i32 @atoi(ptr noundef nonnull %224) #34
   store i32 %226, ptr @hwloc_hide_errors.hide, align 4
   br label %227
 
@@ -6956,7 +6956,7 @@ hwloc_discover_by_phase.exit170.i:                ; preds = %116, %.lr.ph.i163.i
   br i1 %.not139.i, label %137, label %131
 
 131:                                              ; preds = %129
-  %132 = call i32 @atoi(ptr nocapture noundef nonnull %130) #34
+  %132 = call i32 @atoi(ptr noundef nonnull %130) #34
   %.not140.i = icmp eq i32 %132, 0
   br i1 %.not140.i, label %137, label %133
 
@@ -7485,7 +7485,7 @@ hwloc_discover_by_phase.exit214.i:                ; preds = %364, %.lr.ph.i207.i
   br i1 %.not.i215.i, label %385, label %383
 
 383:                                              ; preds = %381
-  %384 = call i32 @atoi(ptr nocapture noundef nonnull %382) #34
+  %384 = call i32 @atoi(ptr noundef nonnull %382) #34
   store i32 %384, ptr @hwloc_hide_errors.hide, align 4
   br label %385
 
@@ -7520,7 +7520,7 @@ hwloc_hide_errors.exit.i:                         ; preds = %385, %380
   br i1 %.not.i217.i, label %400, label %398
 
 398:                                              ; preds = %396
-  %399 = call i32 @atoi(ptr nocapture noundef nonnull %397) #34
+  %399 = call i32 @atoi(ptr noundef nonnull %397) #34
   store i32 %399, ptr @hwloc_hide_errors.hide, align 4
   br label %400
 
@@ -7555,7 +7555,7 @@ hwloc_hide_errors.exit218.i:                      ; preds = %400, %395
   br i1 %.not.i220.i, label %415, label %413
 
 413:                                              ; preds = %411
-  %414 = call i32 @atoi(ptr nocapture noundef nonnull %412) #34
+  %414 = call i32 @atoi(ptr noundef nonnull %412) #34
   store i32 %414, ptr @hwloc_hide_errors.hide, align 4
   br label %415
 
@@ -9912,7 +9912,7 @@ define internal fastcc void @report_insert_error(ptr noundef %0, ptr noundef non
   br i1 %.not.i, label %13, label %11
 
 11:                                               ; preds = %9
-  %12 = tail call i32 @atoi(ptr nocapture noundef nonnull %10) #34
+  %12 = tail call i32 @atoi(ptr noundef nonnull %10) #34
   store i32 %12, ptr @hwloc_hide_errors.hide, align 4
   br label %13
 

@@ -2726,7 +2726,7 @@ if.then.i.i13:                                    ; preds = %if.then4
 _ZN3zmq13scoped_lock_tC2ERNS_7mutex_tE.exit17:    ; preds = %if.then4, %if.then.i.i13
   %_thread_name_prefix = getelementptr inbounds nuw i8, ptr %this, i64 104
   %call = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %_thread_name_prefix) #20
-  %call7 = tail call i32 @atoi(ptr nocapture noundef %call) #24
+  %call7 = tail call i32 @atoi(ptr noundef %call) #24
   store i32 %call7, ptr %optval_, align 4
   %call.i.i18 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(44) %this) #20
   %tobool.not.i.i19 = icmp eq i32 %call.i.i18, 0

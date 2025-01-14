@@ -975,7 +975,7 @@ define range(i32 0, 17) i32 @fc_dns_query_update_info(ptr noundef %0, ptr nounde
   br label %78
 
 27:                                               ; preds = %20
-  %28 = call i32 @atoi(ptr nocapture noundef nonnull %23) #17
+  %28 = call i32 @atoi(ptr noundef nonnull %23) #17
   call void @free(ptr noundef nonnull %23) #15
   %29 = call i64 @time(ptr noundef nonnull %5) #15
   %30 = load i64, ptr %5, align 8

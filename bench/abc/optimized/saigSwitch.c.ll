@@ -379,7 +379,7 @@ Vec_IntStart.exit:                                ; preds = %Vec_IntAlloc.exit.t
 
 26:                                               ; preds = %Vec_IntStart.exit
   %27 = call ptr @Abc_FrameReadFlag(ptr noundef nonnull @.str) #19
-  %28 = call i32 @atoi(ptr nocapture noundef %27) #21
+  %28 = call i32 @atoi(ptr noundef %27) #21
   br label %29
 
 29:                                               ; preds = %26, %Vec_IntStart.exit

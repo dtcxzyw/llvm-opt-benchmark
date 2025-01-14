@@ -419,7 +419,7 @@ define ptr @If_LibBoxRead2(ptr noundef %0) local_unnamed_addr #5 {
   br i1 %17, label %20, label %18
 
 18:                                               ; preds = %._crit_edge.us
-  %19 = tail call i32 @atoi(ptr nocapture noundef nonnull %.2.lcssa.us) #22
+  %19 = tail call i32 @atoi(ptr noundef nonnull %.2.lcssa.us) #22
   br label %20
 
 20:                                               ; preds = %18, %._crit_edge.us
@@ -491,7 +491,7 @@ define ptr @If_LibBoxRead2(ptr noundef %0) local_unnamed_addr #5 {
 
 45:                                               ; preds = %.split.us
   %46 = tail call ptr @strtok(ptr noundef null, ptr noundef nonnull @.str.2) #20
-  %47 = tail call i32 @atoi(ptr nocapture noundef %46) #22
+  %47 = tail call i32 @atoi(ptr noundef %46) #22
   %48 = tail call ptr @strtok(ptr noundef null, ptr noundef nonnull @.str.2) #20
   %.not.i = icmp eq ptr %48, null
   br i1 %.not.i, label %Abc_UtilStrsav.exit, label %49
@@ -506,9 +506,9 @@ define ptr @If_LibBoxRead2(ptr noundef %0) local_unnamed_addr #5 {
 Abc_UtilStrsav.exit:                              ; preds = %45, %49
   %54 = phi ptr [ %52, %49 ], [ null, %45 ]
   %55 = tail call ptr @strtok(ptr noundef null, ptr noundef nonnull @.str.2) #20
-  %56 = tail call i32 @atoi(ptr nocapture noundef %55) #22
+  %56 = tail call i32 @atoi(ptr noundef %55) #22
   %57 = tail call ptr @strtok(ptr noundef null, ptr noundef nonnull @.str.2) #20
-  %58 = tail call i32 @atoi(ptr nocapture noundef %57) #22
+  %58 = tail call i32 @atoi(ptr noundef %57) #22
   %59 = tail call ptr @strtok(ptr noundef null, ptr noundef nonnull @.str.2) #20
   %.not6884 = icmp eq ptr %59, null
   br i1 %.not6884, label %._crit_edge, label %.lr.ph
@@ -750,14 +750,14 @@ Abc_UtilStrsav.exit:                              ; preds = %17, %._crit_edge
   %26 = tail call noalias ptr @malloc(i64 noundef %25) #21
   %27 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %26, ptr noundef nonnull readonly dereferenceable(1) %.03848) #20
   %28 = tail call ptr @If_LibBoxGetToken(ptr noundef nonnull %2)
-  %29 = tail call i32 @atoi(ptr nocapture noundef %28) #22
+  %29 = tail call i32 @atoi(ptr noundef %28) #22
   %30 = tail call ptr @If_LibBoxGetToken(ptr noundef nonnull %2)
-  %31 = tail call i32 @atoi(ptr nocapture noundef %30) #22
+  %31 = tail call i32 @atoi(ptr noundef %30) #22
   %.not42 = icmp eq i32 %31, 0
   %32 = tail call ptr @If_LibBoxGetToken(ptr noundef nonnull %2)
-  %33 = tail call i32 @atoi(ptr nocapture noundef %32) #22
+  %33 = tail call i32 @atoi(ptr noundef %32) #22
   %34 = tail call ptr @If_LibBoxGetToken(ptr noundef nonnull %2)
-  %35 = tail call i32 @atoi(ptr nocapture noundef %34) #22
+  %35 = tail call i32 @atoi(ptr noundef %34) #22
   %36 = tail call noalias dereferenceable_or_null(32) ptr @calloc(i64 noundef 1, i64 noundef 32) #19
   store ptr %26, ptr %36, align 8
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 12
@@ -859,7 +859,7 @@ If_LibBoxGetToken.exit:                           ; preds = %.outer.split.us.i, 
   br i1 %58, label %61, label %59
 
 59:                                               ; preds = %If_LibBoxGetToken.exit
-  %60 = tail call i32 @atoi(ptr nocapture noundef nonnull %56) #22
+  %60 = tail call i32 @atoi(ptr noundef nonnull %56) #22
   br label %61
 
 61:                                               ; preds = %If_LibBoxGetToken.exit, %59

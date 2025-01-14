@@ -1980,7 +1980,7 @@ _ZN6Assimp18ObjFileMtlImporter20getIlluminationModelERi.exit: ; preds = %while.c
   store i8 0, ptr %arrayidx15.i.i520, align 1
   store ptr %it.sroa.0.0.i.i516, ptr %m_DataIt, align 8
   %122 = load ptr, ptr %m_buffer.i568, align 8
-  %call9.i = call i32 @atoi(ptr nocapture noundef nonnull %122) #23
+  %call9.i = call i32 @atoi(ptr noundef nonnull %122) #23
   store i32 %call9.i, ptr %illumination_model, align 4
   %agg.tmp312.sroa.0.0.copyload.pre = load ptr, ptr %m_DataIt, align 8
   %agg.tmp314.sroa.0.0.copyload.pre = load ptr, ptr %m_DataItEnd, align 8
@@ -3624,7 +3624,7 @@ _ZN6Assimp12CopyNextWordIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEEEET
   store i8 0, ptr %arrayidx15.i, align 1
   store ptr %it.sroa.0.0.i, ptr %m_DataIt, align 8
   %3 = load ptr, ptr %m_buffer, align 8
-  %call9 = tail call i32 @atoi(ptr nocapture noundef nonnull %3) #23
+  %call9 = tail call i32 @atoi(ptr noundef nonnull %3) #23
   store i32 %call9, ptr %illum_model, align 4
   ret void
 }

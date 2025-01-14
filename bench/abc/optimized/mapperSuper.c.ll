@@ -177,7 +177,7 @@ define range(i32 0, 2) i32 @Map_LibraryRead(ptr noundef %0, ptr noundef %1) loca
   %61 = call ptr @Extra_MmFixedEntryFetch(ptr noundef %60) #12
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(256) %61, i8 0, i64 256, i1 false)
   %62 = call ptr @strtok(ptr noundef nonnull %.3.i, ptr noundef nonnull @.str.17) #12
-  %63 = call i32 @atoi(ptr nocapture noundef %62) #13
+  %63 = call i32 @atoi(ptr noundef %62) #13
   store i32 %63, ptr %61, align 8
   %64 = call ptr @strtok(ptr noundef null, ptr noundef nonnull @.str.17) #12
   %65 = load i32, ptr %35, align 8

@@ -536,7 +536,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 
 64:                                               ; preds = %62
   %65 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %10) #16
-  %66 = call i64 @atol(ptr nocapture noundef %65) #18
+  %66 = call i64 @atol(ptr noundef %65) #18
   %67 = trunc i64 %66 to i32
   %68 = icmp sgt i32 %67, -1
   br i1 %68, label %.sink.split, label %69

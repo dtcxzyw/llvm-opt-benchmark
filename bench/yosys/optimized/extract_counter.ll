@@ -1565,7 +1565,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit102:             ; preds = %.loopexit199, %399,
 429:                                              ; preds = %421
   %430 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %.pre, i64 %422
   %431 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %430) #25
-  %432 = call i32 @atoi(ptr nocapture noundef %431) #29
+  %432 = call i32 @atoi(ptr noundef %431) #29
   br label %505
 
 433:                                              ; preds = %421, %416
@@ -1588,7 +1588,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit102:             ; preds = %.loopexit199, %399,
 445:                                              ; preds = %437
   %446 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %.pre352, i64 %438
   %447 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %446) #25
-  %448 = call i32 @atoi(ptr nocapture noundef %447) #29
+  %448 = call i32 @atoi(ptr noundef %447) #29
   br label %505
 
 449:                                              ; preds = %437, %433

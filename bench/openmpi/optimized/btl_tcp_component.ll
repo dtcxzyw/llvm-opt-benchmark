@@ -2004,7 +2004,7 @@ define internal fastcc ptr @split_and_resolve(ptr noundef %0, ptr noundef %1, i1
 53:                                               ; preds = %45
   store i8 0, ptr %47, align 1
   %54 = getelementptr inbounds nuw i8, ptr %47, i64 1
-  %55 = call i32 @atoi(ptr nocapture noundef nonnull %54) #17
+  %55 = call i32 @atoi(ptr noundef nonnull %54) #17
   store i16 2, ptr %7, align 8
   %56 = call i32 @inet_pton(i32 noundef 2, ptr noundef nonnull %21, ptr noundef nonnull %19) #15
   call void @free(ptr noundef nonnull %21) #15

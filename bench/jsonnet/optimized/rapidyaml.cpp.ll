@@ -1894,7 +1894,7 @@ define dso_local noundef zeroext i1 @_ZN2c420is_debugger_attachedEv() local_unna
 
 14:                                               ; preds = %12
   %15 = getelementptr inbounds nuw i8, ptr %13, i64 10
-  %16 = call i32 @atoi(ptr nocapture noundef nonnull %15) #40
+  %16 = call i32 @atoi(ptr noundef nonnull %15) #40
   %17 = icmp ne i32 %16, 0
   %18 = zext i1 %17 to i8
   store i8 %18, ptr @_ZZN2c420is_debugger_attachedEvE17first_call_result, align 1
@@ -17558,7 +17558,7 @@ _ZN2c43yml4Tree6to_valEmNS_15basic_substringIKcEEm.exit: ; preds = %99, %104, %1
 
 144:                                              ; preds = %142
   %145 = getelementptr inbounds nuw i8, ptr %143, i64 10
-  %146 = call i32 @atoi(ptr nocapture noundef nonnull %145) #40
+  %146 = call i32 @atoi(ptr noundef nonnull %145) #40
   %147 = icmp ne i32 %146, 0
   %148 = zext i1 %147 to i8
   store i8 %148, ptr @_ZZN2c420is_debugger_attachedEvE17first_call_result, align 1
@@ -18820,7 +18820,7 @@ _ZNK2c415basic_substringIKcE11begins_withES2_.exit94: ; preds = %338
 
 358:                                              ; preds = %356
   %359 = getelementptr inbounds nuw i8, ptr %357, i64 10
-  %360 = call i32 @atoi(ptr nocapture noundef nonnull %359) #40
+  %360 = call i32 @atoi(ptr noundef nonnull %359) #40
   %361 = icmp ne i32 %360, 0
   %362 = zext i1 %361 to i8
   store i8 %362, ptr @_ZZN2c420is_debugger_attachedEvE17first_call_result, align 1
@@ -22407,7 +22407,7 @@ _ZNK2c415basic_substringIKcE11begins_withES2_.exit195: ; preds = %642
 
 662:                                              ; preds = %660
   %663 = getelementptr inbounds nuw i8, ptr %661, i64 10
-  %664 = call i32 @atoi(ptr nocapture noundef nonnull %663) #40
+  %664 = call i32 @atoi(ptr noundef nonnull %663) #40
   %665 = icmp ne i32 %664, 0
   %666 = zext i1 %665 to i8
   store i8 %666, ptr @_ZZN2c420is_debugger_attachedEvE17first_call_result, align 1
@@ -25344,7 +25344,7 @@ define dso_local void @_ZN2c43yml6Parser30_move_key_anchor_to_val_anchorEv(ptr n
 
 32:                                               ; preds = %30
   %33 = getelementptr inbounds nuw i8, ptr %31, i64 10
-  %34 = call i32 @atoi(ptr nocapture noundef nonnull %33) #40
+  %34 = call i32 @atoi(ptr noundef nonnull %33) #40
   %35 = icmp ne i32 %34, 0
   %36 = zext i1 %35 to i8
   store i8 %36, ptr @_ZZN2c420is_debugger_attachedEvE17first_call_result, align 1
@@ -32018,7 +32018,7 @@ _ZNK2c415basic_substringIKcE11begins_withEc.exit83: ; preds = %216
 
 242:                                              ; preds = %240
   %243 = getelementptr inbounds nuw i8, ptr %241, i64 10
-  %244 = call i32 @atoi(ptr nocapture noundef nonnull %243) #40
+  %244 = call i32 @atoi(ptr noundef nonnull %243) #40
   %245 = icmp ne i32 %244, 0
   %246 = zext i1 %245 to i8
   store i8 %246, ptr @_ZZN2c420is_debugger_attachedEvE17first_call_result, align 1
@@ -32745,7 +32745,7 @@ _ZNK2c43yml6Parser24_token_is_from_this_lineENS_15basic_substringIKcEE.exit: ; p
 
 41:                                               ; preds = %39
   %42 = getelementptr inbounds nuw i8, ptr %40, i64 10
-  %43 = call i32 @atoi(ptr nocapture noundef nonnull %42) #40
+  %43 = call i32 @atoi(ptr noundef nonnull %42) #40
   %44 = icmp ne i32 %43, 0
   %45 = zext i1 %44 to i8
   store i8 %45, ptr @_ZZN2c420is_debugger_attachedEvE17first_call_result, align 1
@@ -35358,7 +35358,7 @@ _ZNK2c415basic_substringIKcE11begins_withEc.exit.thread: ; preds = %_ZNK2c415bas
 
 32:                                               ; preds = %30
   %33 = getelementptr inbounds nuw i8, ptr %31, i64 10
-  %34 = call i32 @atoi(ptr nocapture noundef nonnull %33) #40
+  %34 = call i32 @atoi(ptr noundef nonnull %33) #40
   %35 = icmp ne i32 %34, 0
   %36 = zext i1 %35 to i8
   store i8 %36, ptr @_ZZN2c420is_debugger_attachedEvE17first_call_result, align 1
@@ -35444,7 +35444,7 @@ _ZNK2c415basic_substringIKcE4findEcm.exit.thread: ; preds = %40, %46, %37, %_ZNK
 
 61:                                               ; preds = %59
   %62 = getelementptr inbounds nuw i8, ptr %60, i64 10
-  %63 = call i32 @atoi(ptr nocapture noundef nonnull %62) #40
+  %63 = call i32 @atoi(ptr noundef nonnull %62) #40
   %64 = icmp ne i32 %63, 0
   %65 = zext i1 %64 to i8
   store i8 %65, ptr @_ZZN2c420is_debugger_attachedEvE17first_call_result, align 1
@@ -36946,7 +36946,7 @@ _ZN2c43yml6Parser10_scan_lineEv.exit:             ; preds = %.lr.ph.i.i.i.i, %28
 
 368:                                              ; preds = %366
   %369 = getelementptr inbounds nuw i8, ptr %367, i64 10
-  %370 = call i32 @atoi(ptr nocapture noundef nonnull %369) #40
+  %370 = call i32 @atoi(ptr noundef nonnull %369) #40
   %371 = icmp ne i32 %370, 0
   %372 = zext i1 %371 to i8
   store i8 %372, ptr @_ZZN2c420is_debugger_attachedEvE17first_call_result, align 1
@@ -37868,7 +37868,7 @@ _ZN2c43yml6Parser10_scan_lineEv.exit:             ; preds = %.lr.ph.i.i.i.i, %28
 
 366:                                              ; preds = %364
   %367 = getelementptr inbounds nuw i8, ptr %365, i64 10
-  %368 = call i32 @atoi(ptr nocapture noundef nonnull %367) #40
+  %368 = call i32 @atoi(ptr noundef nonnull %367) #40
   %369 = icmp ne i32 %368, 0
   %370 = zext i1 %369 to i8
   store i8 %370, ptr @_ZZN2c420is_debugger_attachedEvE17first_call_result, align 1
@@ -38382,7 +38382,7 @@ _ZNK2c415basic_substringIKcE12first_not_ofES2_m.exit: ; preds = %111
 
 134:                                              ; preds = %132
   %135 = getelementptr inbounds nuw i8, ptr %133, i64 10
-  %136 = call i32 @atoi(ptr nocapture noundef nonnull %135) #40
+  %136 = call i32 @atoi(ptr noundef nonnull %135) #40
   %137 = icmp ne i32 %136, 0
   %138 = zext i1 %137 to i8
   store i8 %138, ptr @_ZZN2c420is_debugger_attachedEvE17first_call_result, align 1
@@ -41334,7 +41334,7 @@ _ZN2c43yml6Parser16_line_progressedEm.exit:       ; preds = %_ZNK2c415basic_subs
 
 203:                                              ; preds = %201
   %204 = getelementptr inbounds nuw i8, ptr %202, i64 10
-  %205 = call i32 @atoi(ptr nocapture noundef nonnull %204) #40
+  %205 = call i32 @atoi(ptr noundef nonnull %204) #40
   %206 = icmp ne i32 %205, 0
   %207 = zext i1 %206 to i8
   store i8 %207, ptr @_ZZN2c420is_debugger_attachedEvE17first_call_result, align 1
@@ -41470,7 +41470,7 @@ _ZN2c43yml6Parser16_line_progressedEm.exit79:     ; preds = %_ZNK2c415basic_subs
 
 262:                                              ; preds = %260
   %263 = getelementptr inbounds nuw i8, ptr %261, i64 10
-  %264 = call i32 @atoi(ptr nocapture noundef nonnull %263) #40
+  %264 = call i32 @atoi(ptr noundef nonnull %263) #40
   %265 = icmp ne i32 %264, 0
   %266 = zext i1 %265 to i8
   store i8 %266, ptr @_ZZN2c420is_debugger_attachedEvE17first_call_result, align 1
@@ -42156,7 +42156,7 @@ _ZN2c43yml6Parser16_line_progressedEm.exit82:     ; preds = %151, %170
 
 210:                                              ; preds = %208
   %211 = getelementptr inbounds nuw i8, ptr %209, i64 10
-  %212 = call i32 @atoi(ptr nocapture noundef nonnull %211) #40
+  %212 = call i32 @atoi(ptr noundef nonnull %211) #40
   %213 = icmp ne i32 %212, 0
   %214 = zext i1 %213 to i8
   store i8 %214, ptr @_ZZN2c420is_debugger_attachedEvE17first_call_result, align 1
@@ -43335,7 +43335,7 @@ _ZNK2c415basic_substringIKcE11begins_withEc.exit58.thread: ; preds = %.lr.ph, %_
 
 129:                                              ; preds = %127
   %130 = getelementptr inbounds nuw i8, ptr %128, i64 10
-  %131 = call i32 @atoi(ptr nocapture noundef nonnull %130) #40
+  %131 = call i32 @atoi(ptr noundef nonnull %130) #40
   %132 = icmp ne i32 %131, 0
   %133 = zext i1 %132 to i8
   store i8 %133, ptr @_ZZN2c420is_debugger_attachedEvE17first_call_result, align 1
@@ -44556,7 +44556,7 @@ _ZN2c43yml6Parser18_grow_filter_arenaEm.exit:     ; preds = %_ZNK2c415basic_subs
 
 178:                                              ; preds = %176
   %179 = getelementptr inbounds nuw i8, ptr %177, i64 10
-  %180 = call i32 @atoi(ptr nocapture noundef nonnull %179) #40
+  %180 = call i32 @atoi(ptr noundef nonnull %179) #40
   %181 = icmp ne i32 %180, 0
   %182 = zext i1 %181 to i8
   store i8 %182, ptr @_ZZN2c420is_debugger_attachedEvE17first_call_result, align 1
@@ -44664,7 +44664,7 @@ _ZNK2c43yml6Parser4_errIJEEEvNS_15basic_substringIKcEEDprRKT_.exit: ; preds = %1
 
 225:                                              ; preds = %223
   %226 = getelementptr inbounds nuw i8, ptr %224, i64 10
-  %227 = call i32 @atoi(ptr nocapture noundef nonnull %226) #40
+  %227 = call i32 @atoi(ptr noundef nonnull %226) #40
   %228 = icmp ne i32 %227, 0
   %229 = zext i1 %228 to i8
   store i8 %229, ptr @_ZZN2c420is_debugger_attachedEvE17first_call_result, align 1
@@ -44748,7 +44748,7 @@ _ZNK2c43yml6Parser4_errIJEEEvNS_15basic_substringIKcEEDprRKT_.exit260: ; preds =
 
 260:                                              ; preds = %258
   %261 = getelementptr inbounds nuw i8, ptr %259, i64 10
-  %262 = call i32 @atoi(ptr nocapture noundef nonnull %261) #40
+  %262 = call i32 @atoi(ptr noundef nonnull %261) #40
   %263 = icmp ne i32 %262, 0
   %264 = zext i1 %263 to i8
   store i8 %264, ptr @_ZZN2c420is_debugger_attachedEvE17first_call_result, align 1
@@ -44850,7 +44850,7 @@ _ZNK2c43yml6Parser4_errIJEEEvNS_15basic_substringIKcEEDprRKT_.exit269: ; preds =
 
 305:                                              ; preds = %303
   %306 = getelementptr inbounds nuw i8, ptr %304, i64 10
-  %307 = call i32 @atoi(ptr nocapture noundef nonnull %306) #40
+  %307 = call i32 @atoi(ptr noundef nonnull %306) #40
   %308 = icmp ne i32 %307, 0
   %309 = zext i1 %308 to i8
   store i8 %309, ptr @_ZZN2c420is_debugger_attachedEvE17first_call_result, align 1
@@ -45005,7 +45005,7 @@ _ZN2c417decode_code_pointEPhmj.exit:              ; preds = %320, %324, %333, %3
 
 383:                                              ; preds = %381
   %384 = getelementptr inbounds nuw i8, ptr %382, i64 10
-  %385 = call i32 @atoi(ptr nocapture noundef nonnull %384) #40
+  %385 = call i32 @atoi(ptr noundef nonnull %384) #40
   %386 = icmp ne i32 %385, 0
   %387 = zext i1 %386 to i8
   store i8 %387, ptr @_ZZN2c420is_debugger_attachedEvE17first_call_result, align 1
@@ -45107,7 +45107,7 @@ _ZNK2c43yml6Parser4_errIJEEEvNS_15basic_substringIKcEEDprRKT_.exit290: ; preds =
 
 428:                                              ; preds = %426
   %429 = getelementptr inbounds nuw i8, ptr %427, i64 10
-  %430 = call i32 @atoi(ptr nocapture noundef nonnull %429) #40
+  %430 = call i32 @atoi(ptr noundef nonnull %429) #40
   %431 = icmp ne i32 %430, 0
   %432 = zext i1 %431 to i8
   store i8 %432, ptr @_ZZN2c420is_debugger_attachedEvE17first_call_result, align 1
@@ -46870,7 +46870,7 @@ _ZN2c43yml6Parser20_finish_filter_arenaENS_15basic_substringIcEEm.exit289: ; pre
 
 504:                                              ; preds = %502
   %505 = getelementptr inbounds nuw i8, ptr %503, i64 10
-  %506 = call i32 @atoi(ptr nocapture noundef nonnull %505) #40
+  %506 = call i32 @atoi(ptr noundef nonnull %505) #40
   %507 = icmp ne i32 %506, 0
   %508 = zext i1 %507 to i8
   store i8 %508, ptr @_ZZN2c420is_debugger_attachedEvE17first_call_result, align 1
@@ -47701,7 +47701,7 @@ _ZNK2c415basic_substringIcE5trimrEc.exit:         ; preds = %.preheader.i, %5, %
 
 42:                                               ; preds = %40
   %43 = getelementptr inbounds nuw i8, ptr %41, i64 10
-  %44 = call i32 @atoi(ptr nocapture noundef nonnull %43) #40
+  %44 = call i32 @atoi(ptr noundef nonnull %43) #40
   %45 = icmp ne i32 %44, 0
   %46 = zext i1 %45 to i8
   store i8 %46, ptr @_ZZN2c420is_debugger_attachedEvE17first_call_result, align 1

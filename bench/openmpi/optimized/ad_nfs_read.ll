@@ -166,7 +166,7 @@ define void @ADIOI_NFS_ReadStrided(ptr noundef %0, ptr noundef %1, i32 noundef %
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %36 = load ptr, ptr %35, align 8
   %37 = call i32 @PMPI_Info_get(ptr noundef %36, ptr noundef nonnull @.str.3, i32 noundef 256, ptr noundef %34, ptr noundef nonnull %16) #8
-  %38 = call i32 @atoi(ptr nocapture noundef %34) #10
+  %38 = call i32 @atoi(ptr noundef %34) #10
   call void @ADIOI_Free_fn(ptr noundef %34, i32 noundef 208, ptr noundef nonnull @.str.2) #8
   %39 = load i32, ptr %14, align 4
   %40 = icmp eq i32 %39, 0

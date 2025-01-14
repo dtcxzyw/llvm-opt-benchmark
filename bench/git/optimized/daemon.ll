@@ -423,7 +423,7 @@ do.body.i103.preheader:                           ; preds = %do.cond.i97
   br label %do.body.i103
 
 if.then49:                                        ; preds = %do.body.i93
-  %call50 = call i32 @atoi(ptr nocapture noundef %scevgep447) #20
+  %call50 = call i32 @atoi(ptr noundef %scevgep447) #20
   store i32 %call50, ptr @timeout, align 4
   br label %for.inc
 
@@ -443,7 +443,7 @@ do.cond.i107:                                     ; preds = %do.body.i103
   br i1 %cmp.i110, label %do.body.i103, label %do.body.i113, !llvm.loop !5
 
 if.then53:                                        ; preds = %do.body.i103
-  %call54 = call i32 @atoi(ptr nocapture noundef %scevgep449) #20
+  %call54 = call i32 @atoi(ptr noundef %scevgep449) #20
   store i32 %call54, ptr @init_timeout, align 4
   br label %for.inc
 
@@ -463,7 +463,7 @@ do.cond.i117:                                     ; preds = %do.body.i113
   br i1 %cmp.i120, label %do.body.i113, label %if.end63, !llvm.loop !5
 
 if.then57:                                        ; preds = %do.body.i113
-  %call58 = call i32 @atoi(ptr nocapture noundef %scevgep443) #20
+  %call58 = call i32 @atoi(ptr noundef %scevgep443) #20
   %spec.store.select = call i32 @llvm.smax.i32(i32 %call58, i32 0)
   store i32 %spec.store.select, ptr @max_connections, align 4
   br label %for.inc

@@ -44,7 +44,7 @@ define hidden void @hwloc_internal_distances_prepare(ptr nocapture noundef initi
   br i1 %.not, label %thread-pre-split, label %7
 
 7:                                                ; preds = %1
-  %8 = tail call i32 @atoi(ptr nocapture noundef nonnull %6) #26
+  %8 = tail call i32 @atoi(ptr noundef nonnull %6) #26
   %.not33 = icmp eq i32 %8, 0
   br i1 %.not33, label %.thread, label %thread-pre-split
 
@@ -116,7 +116,7 @@ thread-pre-split:                                 ; preds = %7, %1
   br i1 %.not38, label %36, label %34
 
 34:                                               ; preds = %31
-  %35 = tail call i32 @atoi(ptr nocapture noundef nonnull %33) #26
+  %35 = tail call i32 @atoi(ptr noundef nonnull %33) #26
   store i32 %35, ptr %32, align 4
   br label %36
 

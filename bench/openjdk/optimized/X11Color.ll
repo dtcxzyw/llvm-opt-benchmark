@@ -1131,7 +1131,7 @@ define hidden range(i32 0, 2) i32 @awt_allocate_colors(ptr nocapture noundef %0)
   br i1 %.not402, label %.thread414, label %390
 
 390:                                              ; preds = %388
-  %391 = call i32 @atoi(ptr nocapture noundef nonnull %389) #16
+  %391 = call i32 @atoi(ptr noundef nonnull %389) #16
   %.fr = freeze i32 %391
   %392 = icmp slt i32 %.fr, 1
   br i1 %392, label %.thread414, label %393
@@ -1156,7 +1156,7 @@ define hidden range(i32 0, 2) i32 @awt_allocate_colors(ptr nocapture noundef %0)
   br i1 %.not403, label %.thread417, label %400
 
 400:                                              ; preds = %398
-  %401 = call i32 @atoi(ptr nocapture noundef nonnull %399) #16
+  %401 = call i32 @atoi(ptr noundef nonnull %399) #16
   %402 = icmp eq i32 %401, 0
   br i1 %402, label %.thread417, label %403
 

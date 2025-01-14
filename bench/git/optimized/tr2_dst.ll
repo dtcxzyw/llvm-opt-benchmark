@@ -143,7 +143,7 @@ land.lhs.true:                                    ; preds = %if.end25
   br i1 %cmp27.not, label %if.end33, label %if.then29
 
 if.then29:                                        ; preds = %land.lhs.true
-  %call30 = tail call i32 @atoi(ptr nocapture noundef nonnull %call) #13
+  %call30 = tail call i32 @atoi(ptr noundef nonnull %call) #13
   %fd31 = getelementptr inbounds nuw i8, ptr %dst, i64 4
   store i32 %call30, ptr %fd31, align 4
   br label %return
@@ -271,7 +271,7 @@ land.lhs.true.i:                                  ; preds = %if.end5
   br i1 %tobool1.not.i, label %if.endthread-pre-split.i, label %land.lhs.true2.i
 
 land.lhs.true2.i:                                 ; preds = %land.lhs.true.i
-  %call3.i = call i32 @atoi(ptr nocapture noundef nonnull %call.i20) #13
+  %call3.i = call i32 @atoi(ptr noundef nonnull %call.i20) #13
   %cmp.i22 = icmp sgt i32 %call3.i, -1
   br i1 %cmp.i22, label %if.then.i28, label %if.endthread-pre-split.i
 
@@ -455,7 +455,7 @@ lor.lhs.false.i:                                  ; preds = %if.then.i35
   br i1 %tobool1.not.i38, label %if.end5.sink.split.i, label %if.else.i
 
 if.else.i:                                        ; preds = %lor.lhs.false.i
-  %call3.i39 = call i32 @atoi(ptr nocapture noundef nonnull %call.i36) #13
+  %call3.i39 = call i32 @atoi(ptr noundef nonnull %call.i36) #13
   %cmp4.i = icmp sgt i32 %call3.i39, 0
   %conv.i40 = zext i1 %cmp4.i to i32
   br label %if.end5.sink.split.i
@@ -512,7 +512,7 @@ lor.lhs.false.i45:                                ; preds = %if.then.i42
   br i1 %tobool1.not.i46, label %if.end5.sink.split.i51, label %if.else.i47
 
 if.else.i47:                                      ; preds = %lor.lhs.false.i45
-  %call3.i48 = call i32 @atoi(ptr nocapture noundef nonnull %call.i43) #13
+  %call3.i48 = call i32 @atoi(ptr noundef nonnull %call.i43) #13
   %cmp4.i49 = icmp sgt i32 %call3.i48, 0
   %conv.i50 = zext i1 %cmp4.i49 to i32
   br label %if.end5.sink.split.i51
@@ -598,7 +598,7 @@ lor.lhs.false.i:                                  ; preds = %if.then.i
   br i1 %tobool1.not.i, label %if.end5.sink.split.i, label %if.else.i
 
 if.else.i:                                        ; preds = %lor.lhs.false.i
-  %call3.i = tail call i32 @atoi(ptr nocapture noundef nonnull %call.i) #13
+  %call3.i = tail call i32 @atoi(ptr noundef nonnull %call.i) #13
   %cmp4.i = icmp sgt i32 %call3.i, 0
   %conv.i = zext i1 %cmp4.i to i32
   br label %if.end5.sink.split.i
@@ -748,7 +748,7 @@ lor.lhs.false.i:                                  ; preds = %if.then.i39
   br i1 %tobool1.not.i, label %if.end5.sink.split.i, label %if.else.i
 
 if.else.i:                                        ; preds = %lor.lhs.false.i
-  %call3.i = tail call i32 @atoi(ptr nocapture noundef nonnull %call.i) #13
+  %call3.i = tail call i32 @atoi(ptr noundef nonnull %call.i) #13
   %cmp4.i = icmp sgt i32 %call3.i, 0
   %conv.i = zext i1 %cmp4.i to i32
   br label %if.end5.sink.split.i
@@ -813,7 +813,7 @@ lor.lhs.false.i48:                                ; preds = %if.then.i45
   br i1 %tobool1.not.i49, label %if.end5.sink.split.i54, label %if.else.i50
 
 if.else.i50:                                      ; preds = %lor.lhs.false.i48
-  %call3.i51 = tail call i32 @atoi(ptr nocapture noundef nonnull %call.i46) #13
+  %call3.i51 = tail call i32 @atoi(ptr noundef nonnull %call.i46) #13
   %cmp4.i52 = icmp sgt i32 %call3.i51, 0
   %conv.i53 = zext i1 %cmp4.i52 to i32
   br label %if.end5.sink.split.i54
@@ -945,7 +945,7 @@ lor.lhs.false.i89:                                ; preds = %if.then.i86
   br i1 %tobool1.not.i90, label %if.end5.sink.split.i95, label %if.else.i91
 
 if.else.i91:                                      ; preds = %lor.lhs.false.i89
-  %call3.i92 = call i32 @atoi(ptr nocapture noundef nonnull %call.i87) #13
+  %call3.i92 = call i32 @atoi(ptr noundef nonnull %call.i87) #13
   %cmp4.i93 = icmp sgt i32 %call3.i92, 0
   %conv.i94 = zext i1 %cmp4.i93 to i32
   br label %if.end5.sink.split.i95
@@ -1108,7 +1108,7 @@ lor.lhs.false.i:                                  ; preds = %if.then.i5
   br i1 %tobool1.not.i, label %if.end5.sink.split.i, label %if.else.i
 
 if.else.i:                                        ; preds = %lor.lhs.false.i
-  %call3.i = tail call i32 @atoi(ptr nocapture noundef nonnull %call.i6) #13
+  %call3.i = tail call i32 @atoi(ptr noundef nonnull %call.i6) #13
   %cmp4.i = icmp sgt i32 %call3.i, 0
   %conv.i = zext i1 %cmp4.i to i32
   br label %if.end5.sink.split.i

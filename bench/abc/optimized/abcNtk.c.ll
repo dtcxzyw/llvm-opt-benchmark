@@ -8462,7 +8462,7 @@ Vec_IntAlloc.exit:                                ; preds = %8, %12
   br i1 %.not, label %.outer._crit_edge, label %19
 
 22:                                               ; preds = %19
-  %23 = call i32 @atoi(ptr nocapture noundef nonnull %3) #19
+  %23 = call i32 @atoi(ptr noundef nonnull %3) #19
   %24 = icmp sgt i32 %23, -1
   %.not32 = icmp slt i32 %23, %1
   %or.cond = and i1 %24, %.not32

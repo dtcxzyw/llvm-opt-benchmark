@@ -1010,7 +1010,7 @@ if.end:                                           ; preds = %entry
   br i1 %tobool.not.i, label %if.end3.i, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end
-  %call1.i = tail call i32 @atoi(ptr nocapture noundef nonnull %call.i) #19
+  %call1.i = tail call i32 @atoi(ptr noundef nonnull %call.i) #19
   %cmp.i = icmp sgt i32 %call1.i, 0
   br i1 %cmp.i, label %_ZL10getColumnsi.exit, label %if.end3.i
 
@@ -1048,7 +1048,7 @@ if.end:                                           ; preds = %entry
   br i1 %tobool.not.i, label %if.end3.i, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end
-  %call1.i = tail call i32 @atoi(ptr nocapture noundef nonnull %call.i) #19
+  %call1.i = tail call i32 @atoi(ptr noundef nonnull %call.i) #19
   %cmp.i = icmp sgt i32 %call1.i, 0
   br i1 %cmp.i, label %_ZL10getColumnsi.exit, label %if.end3.i
 

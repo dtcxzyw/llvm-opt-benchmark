@@ -519,7 +519,7 @@ hwloc_utils_parse_restrict_flags.exit:            ; preds = %.preheader.i.i, %87
 
 132:                                              ; preds = %130
   %133 = getelementptr inbounds nuw i8, ptr %39, i64 9
-  %134 = tail call i32 @atoi(ptr nocapture noundef nonnull %133) #22
+  %134 = tail call i32 @atoi(ptr noundef nonnull %133) #22
   br label %148
 
 135:                                              ; preds = %130
@@ -783,7 +783,7 @@ sub_1518:                                         ; preds = %216
 235:                                              ; preds = %231
   %236 = getelementptr inbounds nuw i8, ptr %.13261199, i64 8
   %237 = load ptr, ptr %236, align 8
-  %238 = call i32 @atoi(ptr nocapture noundef %237) #22
+  %238 = call i32 @atoi(ptr noundef %237) #22
   br label %603
 
 239:                                              ; preds = %229
@@ -804,7 +804,7 @@ sub_1518:                                         ; preds = %216
 245:                                              ; preds = %241
   %246 = getelementptr inbounds nuw i8, ptr %.13261199, i64 8
   %247 = load ptr, ptr %246, align 8
-  %248 = call i32 @atoi(ptr nocapture noundef %247) #22
+  %248 = call i32 @atoi(ptr noundef %247) #22
   br label %603
 
 249:                                              ; preds = %239
@@ -2103,7 +2103,7 @@ switch.lookup:                                    ; preds = %737
   br i1 %or.cond.i474, label %hwloc_utils_parse_memattr_name.exit.thread, label %771
 
 771:                                              ; preds = %._crit_edge.i
-  %772 = call i32 @atoi(ptr nocapture noundef nonnull readonly %.0346.lcssa) #22
+  %772 = call i32 @atoi(ptr noundef nonnull readonly %.0346.lcssa) #22
   %773 = call i32 @hwloc_memattr_get_name(ptr noundef %760, i32 noundef %772, ptr noundef nonnull %3) #21
   %.inv.i = icmp sgt i32 %773, -1
   br i1 %.inv.i, label %hwloc_utils_parse_memattr_name.exit, label %hwloc_utils_parse_memattr_name.exit.thread
@@ -2992,7 +2992,7 @@ define internal fastcc range(i32 -1, 1) i32 @hwloc_calc_parse_level(ptr nocaptur
 
 38:                                               ; preds = %35
   %39 = getelementptr inbounds nuw i8, ptr %34, i64 6
-  %40 = call i32 @atoi(ptr nocapture noundef nonnull %39) #22
+  %40 = call i32 @atoi(ptr noundef nonnull %39) #22
   store i32 %40, ptr %11, align 8
   br label %hwloc_calc_parse_level_filter.exit.thread
 
@@ -3874,7 +3874,7 @@ hwloc_obj_get_info_by_name.exit:                  ; preds = %23
   br i1 %.not42, label %hwloc_obj_get_info_by_name.exit.thread, label %29
 
 29:                                               ; preds = %hwloc_obj_get_info_by_name.exit
-  %30 = tail call i32 @atoi(ptr nocapture noundef nonnull %28) #22
+  %30 = tail call i32 @atoi(ptr noundef nonnull %28) #22
   %.not43 = icmp eq i32 %30, %15
   br i1 %.not43, label %31, label %hwloc_obj_get_info_by_name.exit.thread
 

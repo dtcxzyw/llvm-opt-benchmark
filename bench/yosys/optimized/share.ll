@@ -7402,7 +7402,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit576:             ; preds = %.loopexit, %2543, %
 2654:                                             ; preds = %2645
   %2655 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %2648, i64 %2646
   %2656 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %2655) #25
-  %2657 = call i32 @atoi(ptr nocapture noundef %2656) #28
+  %2657 = call i32 @atoi(ptr noundef %2656) #28
   store i32 %2657, ptr %48, align 8
   br label %2658
 

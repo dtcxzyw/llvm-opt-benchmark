@@ -812,7 +812,7 @@ define dso_local range(i32 0, 2018) i32 @trigger_clear(i32 noundef %0, ptr nound
 19:                                               ; preds = %13
   %20 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %21 = load ptr, ptr %20, align 8
-  %22 = tail call i64 @atol(ptr nocapture noundef %21) #17
+  %22 = tail call i64 @atol(ptr noundef %21) #17
   %23 = trunc i64 %22 to i32
   %24 = icmp eq i32 %23, 0
   br i1 %24, label %127, label %33
@@ -1324,7 +1324,7 @@ define dso_local range(i32 0, 2090) i32 @trigger_set(i32 noundef %0, i32 noundef
   br i1 %32, label %35, label %45
 
 35:                                               ; preds = %27
-  %36 = call i64 @atol(ptr nocapture noundef %34) #17
+  %36 = call i64 @atol(ptr noundef %34) #17
   %37 = trunc i64 %36 to i32
   %38 = call ptr @find_job_record(i32 noundef %37) #14
   %39 = icmp eq ptr %38, null
@@ -2891,7 +2891,7 @@ _open_trigger_state_file.exit.thread:             ; preds = %0, %_open_trigger_s
 
 102:                                              ; preds = %101
   %103 = load ptr, ptr %72, align 8
-  %104 = call i64 @atol(ptr nocapture noundef %103) #17
+  %104 = call i64 @atol(ptr noundef %103) #17
   %105 = trunc i64 %104 to i32
   %106 = getelementptr inbounds nuw i8, ptr %52, i64 32
   store i32 %105, ptr %106, align 8

@@ -6827,7 +6827,7 @@ if.else62:                                        ; preds = %if.else
 
 if.then65:                                        ; preds = %if.else62
   %39 = load ptr, ptr %data.i101, align 8
-  %call67 = call i32 @atoi(ptr nocapture noundef %39) #29
+  %call67 = call i32 @atoi(ptr noundef %39) #29
   %call68 = call ptr @get_fid(ptr noundef nonnull %opaque, i32 noundef %call67)
   %cmp69 = icmp eq ptr %call68, null
   br i1 %cmp69, label %out, label %if.end72

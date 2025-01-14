@@ -246,7 +246,7 @@ parse_flag.exit:                                  ; preds = %15, %19, %22, %25, 
   br i1 %.not120, label %57, label %55
 
 55:                                               ; preds = %53
-  %56 = tail call i32 @atoi(ptr nocapture noundef nonnull %54) #14
+  %56 = tail call i32 @atoi(ptr noundef nonnull %54) #14
   store i32 %56, ptr @enable_error_stack, align 4
   br label %59
 

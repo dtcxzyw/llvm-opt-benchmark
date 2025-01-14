@@ -412,7 +412,7 @@ define internal range(i32 0, 2) i32 @CmdCommandSleep(ptr nocapture noundef reado
   %12 = sext i32 %9 to i64
   %13 = getelementptr inbounds ptr, ptr %2, i64 %12
   %14 = load ptr, ptr %13, align 8
-  %15 = tail call i32 @atoi(ptr nocapture noundef %14) #19
+  %15 = tail call i32 @atoi(ptr noundef %14) #19
   %16 = add nsw i32 %9, 1
   store i32 %16, ptr @globalUtilOptind, align 4
   %17 = icmp slt i32 %15, 0
@@ -674,7 +674,7 @@ define internal range(i32 0, 2) i32 @CmdCommandHistory(ptr nocapture noundef rea
   %12 = sext i32 %6 to i64
   %13 = getelementptr inbounds ptr, ptr %2, i64 %12
   %14 = load ptr, ptr %13, align 8
-  %15 = tail call i32 @atoi(ptr nocapture noundef %14) #19
+  %15 = tail call i32 @atoi(ptr noundef %14) #19
   br label %16
 
 16:                                               ; preds = %11, %9
@@ -1504,7 +1504,7 @@ define internal range(i32 0, 2) i32 @CmdCommandRecall(ptr noundef %0, i32 nounde
   br i1 %15, label %18, label %16
 
 16:                                               ; preds = %13
-  %17 = tail call i32 @atoi(ptr nocapture noundef nonnull %14) #19
+  %17 = tail call i32 @atoi(ptr noundef nonnull %14) #19
   br label %18
 
 18:                                               ; preds = %13, %16
@@ -1535,7 +1535,7 @@ define internal range(i32 0, 2) i32 @CmdCommandRecall(ptr noundef %0, i32 nounde
 29:                                               ; preds = %18
   %30 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %31 = load ptr, ptr %30, align 8
-  %32 = tail call i32 @atoi(ptr nocapture noundef %31) #19
+  %32 = tail call i32 @atoi(ptr noundef %31) #19
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %34 = load i32, ptr %33, align 8
   %.not70 = icmp slt i32 %32, %34
@@ -2142,7 +2142,7 @@ define internal range(i32 0, 2) i32 @CmdCommandSGen(ptr noundef %0, i32 noundef 
   %9 = sext i32 %7 to i64
   %10 = getelementptr inbounds ptr, ptr %2, i64 %9
   %11 = load ptr, ptr %10, align 8
-  %12 = tail call i32 @atoi(ptr nocapture noundef %11) #19
+  %12 = tail call i32 @atoi(ptr noundef %11) #19
   %13 = add nsw i32 %7, 1
   store i32 %13, ptr @globalUtilOptind, align 4
   %14 = icmp slt i32 %12, 0
@@ -2157,7 +2157,7 @@ define internal range(i32 0, 2) i32 @CmdCommandSGen(ptr noundef %0, i32 noundef 
   %18 = sext i32 %16 to i64
   %19 = getelementptr inbounds ptr, ptr %2, i64 %18
   %20 = load ptr, ptr %19, align 8
-  %21 = tail call i32 @atoi(ptr nocapture noundef %20) #19
+  %21 = tail call i32 @atoi(ptr noundef %20) #19
   %22 = add nsw i32 %16, 1
   store i32 %22, ptr @globalUtilOptind, align 4
   br label %.outer73, !llvm.loop !26
@@ -2989,7 +2989,7 @@ define internal range(i32 0, 2) i32 @CmdCommandStarter(ptr nocapture noundef rea
   %9 = sext i32 %7 to i64
   %10 = getelementptr inbounds ptr, ptr %2, i64 %9
   %11 = load ptr, ptr %10, align 8
-  %12 = tail call i32 @atoi(ptr nocapture noundef %11) #19
+  %12 = tail call i32 @atoi(ptr noundef %11) #19
   %13 = add nsw i32 %7, 1
   store i32 %13, ptr @globalUtilOptind, align 4
   %14 = icmp slt i32 %12, 0
@@ -3117,7 +3117,7 @@ define internal range(i32 0, 2) i32 @CmdCommandAutoTuner(ptr nocapture readnone 
   %9 = sext i32 %7 to i64
   %10 = getelementptr inbounds ptr, ptr %2, i64 %9
   %11 = load ptr, ptr %10, align 8
-  %12 = tail call i32 @atoi(ptr nocapture noundef %11) #19
+  %12 = tail call i32 @atoi(ptr noundef %11) #19
   %13 = add nsw i32 %7, 1
   store i32 %13, ptr @globalUtilOptind, align 4
   %14 = icmp slt i32 %12, 0

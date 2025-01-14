@@ -75,7 +75,7 @@ if.end23:                                         ; preds = %if.then22, %if.then
   br i1 %tobool52.not, label %if.then25, label %if.end107
 
 if.then25:                                        ; preds = %if.end23
-  %call26 = tail call i32 @atoi(ptr nocapture noundef nonnull %pt.04447) #6
+  %call26 = tail call i32 @atoi(ptr noundef nonnull %pt.04447) #6
   %cmp27 = icmp sgt i32 %call26, 0
   br i1 %cmp27, label %if.then29, label %if.end107
 

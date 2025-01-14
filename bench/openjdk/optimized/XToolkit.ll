@@ -985,7 +985,7 @@ awt_pipe_init.exit:                               ; preds = %2, %7, %18
   br label %24
 
 21:                                               ; preds = %19
-  %22 = tail call i32 @atoi(ptr nocapture noundef nonnull %20) #15
+  %22 = tail call i32 @atoi(ptr noundef nonnull %20) #15
   %23 = icmp eq i32 %22, 0
   %spec.store.select.i = select i1 %23, i32 500, i32 %22
   store i32 %spec.store.select.i, ptr @AWT_MAX_POLL_TIMEOUT, align 4
@@ -1000,7 +1000,7 @@ awt_pipe_init.exit:                               ; preds = %2, %7, %18
   br i1 %.not17.i, label %31, label %28
 
 28:                                               ; preds = %24
-  %29 = tail call i32 @atoi(ptr nocapture noundef nonnull %27) #15
+  %29 = tail call i32 @atoi(ptr noundef nonnull %27) #15
   %30 = icmp eq i32 %29, 0
   %spec.store.select1.i = select i1 %30, i32 100, i32 %29
   store i32 %spec.store.select1.i, ptr @AWT_FLUSH_TIMEOUT, align 4
@@ -1012,7 +1012,7 @@ awt_pipe_init.exit:                               ; preds = %2, %7, %18
   br i1 %.not18.i, label %35, label %33
 
 33:                                               ; preds = %31
-  %34 = tail call i32 @atoi(ptr nocapture noundef nonnull %32) #15
+  %34 = tail call i32 @atoi(ptr noundef nonnull %32) #15
   store i32 %34, ptr @tracing, align 4
   br label %35
 
@@ -1022,7 +1022,7 @@ awt_pipe_init.exit:                               ; preds = %2, %7, %18
   br i1 %.not19.i, label %thread-pre-split.i, label %37
 
 37:                                               ; preds = %35
-  %38 = tail call i32 @atoi(ptr nocapture noundef nonnull %36) #15
+  %38 = tail call i32 @atoi(ptr noundef nonnull %36) #15
   store i32 %38, ptr @static_poll_timeout, align 4
   br label %39
 
@@ -1045,7 +1045,7 @@ thread-pre-split.i:                               ; preds = %35
   br i1 %.not21.i, label %readEnv.exit, label %44
 
 44:                                               ; preds = %42
-  %45 = tail call i32 @atoi(ptr nocapture noundef nonnull %43) #15
+  %45 = tail call i32 @atoi(ptr noundef nonnull %43) #15
   %.off.i = add i32 %45, -1
   %switch.i = icmp ult i32 %.off.i, 3
   br i1 %switch.i, label %.sink.split.i, label %46

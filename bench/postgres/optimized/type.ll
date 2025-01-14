@@ -1110,7 +1110,7 @@ mm_alloc.exit:                                    ; preds = %13
   unreachable
 
 mm_alloc.exit75:                                  ; preds = %24
-  %31 = tail call i32 @atoi(ptr nocapture noundef %3) #12
+  %31 = tail call i32 @atoi(ptr noundef %3) #12
   %32 = icmp eq i32 %31, 1
   %33 = select i1 %10, ptr @.str.37, ptr %6
   %.str.79..str.80 = select i1 %32, ptr @.str.79, ptr @.str.80
@@ -1123,7 +1123,7 @@ mm_alloc.exit75:                                  ; preds = %24
   br i1 %.not70, label %44, label %37
 
 37:                                               ; preds = %36
-  %38 = tail call i32 @atoi(ptr nocapture noundef %3) #12
+  %38 = tail call i32 @atoi(ptr noundef %3) #12
   %39 = icmp eq i32 %38, 1
   %40 = select i1 %21, ptr @.str.37, ptr %7
   %.str.79..str.8085 = select i1 %39, ptr @.str.79, ptr @.str.80
@@ -1282,7 +1282,7 @@ mm_alloc.exit143:                                 ; preds = %mm_alloc.exit
   ]
 
 33:                                               ; preds = %mm_alloc.exit143, %mm_alloc.exit143
-  %34 = tail call i32 @atoi(ptr nocapture noundef %4) #12
+  %34 = tail call i32 @atoi(ptr noundef %4) #12
   %35 = icmp sgt i32 %34, 0
   br i1 %35, label %44, label %36
 
@@ -1332,12 +1332,12 @@ sub_1:                                            ; preds = %sub_0
   br label %129
 
 54:                                               ; preds = %mm_alloc.exit143, %mm_alloc.exit143, %mm_alloc.exit143, %mm_alloc.exit143
-  %55 = tail call i32 @atoi(ptr nocapture noundef %3) #12
+  %55 = tail call i32 @atoi(ptr noundef %3) #12
   %56 = icmp sgt i32 %55, 1
   br i1 %56, label %.tail146.thread, label %57
 
 57:                                               ; preds = %54
-  %58 = tail call i32 @atoi(ptr nocapture noundef %4) #12
+  %58 = tail call i32 @atoi(ptr noundef %4) #12
   %59 = icmp sgt i32 %58, 0
   br i1 %59, label %.tail146.thread, label %60
 
@@ -1455,7 +1455,7 @@ sub_1160:                                         ; preds = %sub_0159.thread, %s
   br label %129
 
 111:                                              ; preds = %mm_alloc.exit143
-  %112 = tail call i32 @atoi(ptr nocapture noundef %4) #12
+  %112 = tail call i32 @atoi(ptr noundef %4) #12
   %113 = icmp sgt i32 %112, 0
   br i1 %113, label %122, label %114
 
@@ -1496,7 +1496,7 @@ sub_1164:                                         ; preds = %sub_0163
   br label %129
 
 129:                                              ; preds = %50, %52, %124, %108, %104, %100, %96, %92, %.tail158
-  %130 = tail call i32 @atoi(ptr nocapture noundef %4) #12
+  %130 = tail call i32 @atoi(ptr noundef %4) #12
   %131 = icmp sgt i32 %130, -1
   %132 = icmp ne ptr %5, null
   %or.cond13 = or i1 %132, %131

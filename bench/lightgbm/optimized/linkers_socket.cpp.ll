@@ -1244,7 +1244,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_b
   %201 = load ptr, ptr %11, align 8
   %202 = getelementptr inbounds nuw i8, ptr %201, i64 32
   %203 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %202) #26
-  %204 = call i32 @atoi(ptr nocapture noundef %203) #31
+  %204 = call i32 @atoi(ptr noundef %203) #31
   %205 = load ptr, ptr %86, align 8
   %206 = load ptr, ptr %87, align 8
   %.not.i.i = icmp eq ptr %205, %206

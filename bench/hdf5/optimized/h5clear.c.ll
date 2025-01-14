@@ -142,7 +142,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   br i1 %.not11.i, label %36, label %27
 
 27:                                               ; preds = %25
-  %28 = tail call i32 @atoi(ptr nocapture noundef nonnull %26) #11
+  %28 = tail call i32 @atoi(ptr noundef nonnull %26) #11
   %29 = icmp slt i32 %28, 0
   br i1 %29, label %30, label %32
 

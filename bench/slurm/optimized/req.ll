@@ -801,7 +801,7 @@ define dso_local void @set_msg_node_id(ptr nocapture noundef readonly %0) local_
   br i1 %.not, label %7, label %5
 
 5:                                                ; preds = %1
-  %6 = tail call i32 @atoi(ptr nocapture noundef nonnull %4) #16
+  %6 = tail call i32 @atoi(ptr noundef nonnull %4) #16
   store i32 %6, ptr @msg_target_node_id, align 4
   br label %7
 

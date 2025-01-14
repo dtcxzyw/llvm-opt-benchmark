@@ -260,7 +260,7 @@ sub_1137:                                         ; preds = %sub_0136
   br i1 %.not, label %37, label %35
 
 35:                                               ; preds = %.tail135.thread
-  %36 = tail call i32 @atoi(ptr nocapture noundef nonnull %34) #16
+  %36 = tail call i32 @atoi(ptr noundef nonnull %34) #16
   br label %37
 
 37:                                               ; preds = %.tail135.thread, %35

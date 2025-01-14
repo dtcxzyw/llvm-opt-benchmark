@@ -546,7 +546,7 @@ thread-pre-split:                                 ; preds = %10
 
 189:                                              ; preds = %44
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
-  %190 = call i32 @atoi(ptr nocapture noundef nonnull %.059) #13
+  %190 = call i32 @atoi(ptr noundef nonnull %.059) #13
   %191 = call ptr @makeInteger(i32 noundef %190) #11
   br label %.loopexit
 

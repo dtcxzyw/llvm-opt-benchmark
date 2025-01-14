@@ -1413,7 +1413,7 @@ rb_array_len.exit.i:                              ; preds = %62, %59
   br i1 %.not22.i.i, label %94, label %92
 
 92:                                               ; preds = %90
-  %93 = call i32 @atoi(ptr nocapture noundef nonnull %91) #24
+  %93 = call i32 @atoi(ptr noundef nonnull %91) #24
   br label %94
 
 94:                                               ; preds = %92, %90

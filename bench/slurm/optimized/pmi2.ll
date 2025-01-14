@@ -262,7 +262,7 @@ define i32 @handle_pmi2_cmd(i32 noundef %0, i32 noundef %1) local_unnamed_addr #
 .outer74._crit_edge:                              ; preds = %.split97.us
   %46 = getelementptr inbounds nuw i8, ptr %3, i64 6
   store i8 0, ptr %46, align 1
-  %47 = call i32 @atoi(ptr nocapture noundef nonnull %3) #8
+  %47 = call i32 @atoi(ptr noundef nonnull %3) #8
   %48 = add nsw i32 %47, 1
   %49 = sext i32 %48 to i64
   %50 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef %49, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.2, i32 noundef 596, ptr noundef nonnull @__func__.handle_pmi2_cmd) #6

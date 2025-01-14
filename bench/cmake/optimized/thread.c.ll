@@ -668,7 +668,7 @@ define internal void @glibc_version_check() #0 {
 
 8:                                                ; preds = %4
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 2
-  %10 = tail call i32 @atoi(ptr nocapture noundef nonnull %9) #13
+  %10 = tail call i32 @atoi(ptr noundef nonnull %9) #13
   %11 = icmp slt i32 %10, 21
   %12 = zext i1 %11 to i32
   br label %13

@@ -1675,7 +1675,7 @@ define internal void @_ZN12_GLOBAL__N_115DffLegalizePass7executeESt6vectorINSt7_
 504:                                              ; preds = %496
   %505 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %.pre541, i64 %497
   %506 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %505) #22
-  %507 = call i32 @atoi(ptr nocapture noundef %506) #24
+  %507 = call i32 @atoi(ptr noundef %506) #24
   store i32 %507, ptr %43, align 8
   br label %525
 
@@ -1699,7 +1699,7 @@ define internal void @_ZN12_GLOBAL__N_115DffLegalizePass7executeESt6vectorINSt7_
 521:                                              ; preds = %512
   %522 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %515, i64 %513
   %523 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %522) #22
-  %524 = call i32 @atoi(ptr nocapture noundef %523) #24
+  %524 = call i32 @atoi(ptr noundef %523) #24
   store i32 %524, ptr %47, align 4
   br label %525
 

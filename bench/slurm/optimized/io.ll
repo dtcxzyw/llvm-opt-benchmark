@@ -1862,10 +1862,10 @@ io_get_file_flags.exit.i:                         ; preds = %30, %29, %24
   br label %105
 
 .thread57.i.i:                                    ; preds = %.thread55.i.i
-  %88 = call i32 @atoi(ptr nocapture noundef nonnull %80) #12
+  %88 = call i32 @atoi(ptr noundef nonnull %80) #12
   %89 = trunc i32 %88 to i16
   store i16 %89, ptr %17, align 2
-  %90 = call i32 @atoi(ptr nocapture noundef nonnull %86) #12
+  %90 = call i32 @atoi(ptr noundef nonnull %86) #12
   %91 = trunc i32 %90 to i16
   store i16 %91, ptr %3, align 2
   %92 = call i32 @get_log_level() #9
@@ -1892,7 +1892,7 @@ io_get_file_flags.exit.i:                         ; preds = %30, %29, %24
   br label %105
 
 105:                                              ; preds = %100, %97, %.thread.i.i, %81
-  %106 = call i32 @atoi(ptr nocapture noundef nonnull %75) #12
+  %106 = call i32 @atoi(ptr noundef nonnull %75) #12
   %107 = trunc i32 %106 to i16
   call void @slurm_set_addr(ptr noundef nonnull %2, i16 noundef zeroext %107, ptr noundef nonnull %70) #9
   %108 = call i32 @slurm_open_msg_conn(ptr noundef nonnull %2) #9

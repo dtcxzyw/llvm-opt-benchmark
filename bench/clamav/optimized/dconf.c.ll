@@ -1091,7 +1091,7 @@ define internal fastcc range(i32 0, 2) i32 @chkflevel(ptr noundef nonnull %0) un
   br label %28
 
 12:                                               ; preds = %3
-  %13 = tail call i32 @atoi(ptr nocapture noundef nonnull %2) #9
+  %13 = tail call i32 @atoi(ptr noundef nonnull %2) #9
   %14 = icmp ugt i32 %13, 210
   tail call void @free(ptr noundef nonnull %2) #8
   br i1 %14, label %28, label %15
@@ -1116,7 +1116,7 @@ define internal fastcc range(i32 0, 2) i32 @chkflevel(ptr noundef nonnull %0) un
   br label %28
 
 25:                                               ; preds = %17
-  %26 = tail call i32 @atoi(ptr nocapture noundef nonnull %16) #9
+  %26 = tail call i32 @atoi(ptr noundef nonnull %16) #9
   %27 = icmp ugt i32 %26, 209
   tail call void @free(ptr noundef nonnull %16) #8
   %. = zext i1 %27 to i32

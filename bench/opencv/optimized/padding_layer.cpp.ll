@@ -3274,7 +3274,7 @@ _ZNK2cv3dnn14dnn4_v202405219DictValue4sizeEv.exit29: ; preds = %26, %26, %26
   %71 = load ptr, ptr %44, align 8
   %72 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %71, i64 %70
   %73 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %72) #22
-  %74 = tail call i32 @atoi(ptr nocapture noundef %73) #26
+  %74 = tail call i32 @atoi(ptr noundef %73) #26
   %75 = sext i32 %74 to i64
   br label %86
 

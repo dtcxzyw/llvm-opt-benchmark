@@ -3637,7 +3637,7 @@ common.resume:                                    ; preds = %329, %439, %327, %3
 192:                                              ; preds = %184
   %193 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %183, i64 %191
   %194 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %193) #28
-  %195 = call i32 @atoi(ptr nocapture noundef %194) #31
+  %195 = call i32 @atoi(ptr noundef %194) #31
   %196 = icmp sgt i32 %195, 0
   br i1 %196, label %197, label %.invoke53.i
 
@@ -4680,7 +4680,7 @@ _ZNKSt7__cxx1113match_resultsIN9__gnu_cxx17__normal_iteratorIPKcNS_12basic_strin
 
 .critedge78.i:                                    ; preds = %_ZNKSt7__cxx1113match_resultsIN9__gnu_cxx17__normal_iteratorIPKcNS_12basic_stringIcSt11char_traitsIcESaIcEEEEESaINS_9sub_matchISA_EEEEixEm.exit111.i
   %601 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %16) #28
-  %602 = call i32 @atoi(ptr nocapture noundef %601) #31
+  %602 = call i32 @atoi(ptr noundef %601) #31
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %16) #28
   %603 = load ptr, ptr %8, align 8
   %604 = load ptr, ptr %518, align 8
@@ -4707,7 +4707,7 @@ _ZNKSt7__cxx1113match_resultsIN9__gnu_cxx17__normal_iteratorIPKcNS_12basic_strin
 
 .critedge76.i:                                    ; preds = %_ZNKSt7__cxx1113match_resultsIN9__gnu_cxx17__normal_iteratorIPKcNS_12basic_stringIcSt11char_traitsIcESaIcEEEEESaINS_9sub_matchISA_EEEEixEm.exit105.i
   %613 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %15) #28
-  %614 = call i32 @atoi(ptr nocapture noundef %613) #31
+  %614 = call i32 @atoi(ptr noundef %613) #31
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %15) #28
   %615 = load ptr, ptr %7, align 8
   %616 = load ptr, ptr %519, align 8
@@ -4773,7 +4773,7 @@ _ZNKSt7__cxx1113match_resultsIN9__gnu_cxx17__normal_iteratorIPKcNS_12basic_strin
 
 639:                                              ; preds = %_ZNKSt7__cxx1113match_resultsIN9__gnu_cxx17__normal_iteratorIPKcNS_12basic_stringIcSt11char_traitsIcESaIcEEEEESaINS_9sub_matchISA_EEEEixEm.exit129.i
   %640 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %18) #28
-  %641 = call i32 @atoi(ptr nocapture noundef %640) #31
+  %641 = call i32 @atoi(ptr noundef %640) #31
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %18) #28
   %642 = load ptr, ptr %7, align 8
   %643 = load ptr, ptr %519, align 8
@@ -4834,13 +4834,13 @@ _ZNKSt7__cxx1113match_resultsIN9__gnu_cxx17__normal_iteratorIPKcNS_12basic_strin
 
 664:                                              ; preds = %_ZNKSt7__cxx1113match_resultsIN9__gnu_cxx17__normal_iteratorIPKcNS_12basic_stringIcSt11char_traitsIcESaIcEEEEESaINS_9sub_matchISA_EEEEixEm.exit141.i
   %665 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %20) #28
-  %666 = call i32 @atoi(ptr nocapture noundef %665) #31
+  %666 = call i32 @atoi(ptr noundef %665) #31
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %20) #28
   br label %670
 
 .critedge82.i:                                    ; preds = %_ZNKSt7__cxx1113match_resultsIN9__gnu_cxx17__normal_iteratorIPKcNS_12basic_stringIcSt11char_traitsIcESaIcEEEEESaINS_9sub_matchISA_EEEEixEm.exit135.i
   %667 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %19) #28
-  %668 = call i32 @atoi(ptr nocapture noundef %667) #31
+  %668 = call i32 @atoi(ptr noundef %667) #31
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %19) #28
   %669 = sext i32 %641 to i64
   br label %670

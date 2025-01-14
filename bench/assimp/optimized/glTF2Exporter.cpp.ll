@@ -43557,7 +43557,7 @@ if.end:                                           ; preds = %entry
 
 if.then5:                                         ; preds = %if.end
   %add.ptr = getelementptr inbounds nuw i8, ptr %filename, i64 1
-  %call = tail call i32 @atoi(ptr nocapture noundef nonnull %add.ptr) #32
+  %call = tail call i32 @atoi(ptr noundef nonnull %add.ptr) #32
   %cmp6 = icmp sgt i32 %call, -1
   %mNumTextures = getelementptr inbounds nuw i8, ptr %this, i64 64
   %1 = load i32, ptr %mNumTextures, align 8

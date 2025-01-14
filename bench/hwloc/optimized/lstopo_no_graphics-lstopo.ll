@@ -2009,7 +2009,7 @@ lstopo_update_factorize_bounds.exit.i789:         ; preds = %.preheader930, %swi
   %.0563831 = phi i32 [ 20, %.thread ], [ %465, %463 ]
   %.0564829 = phi i32 [ 0, %.thread ], [ %464, %463 ]
   %468 = getelementptr inbounds nuw i8, ptr %.0556832, i64 1
-  %469 = call i32 @atoi(ptr nocapture noundef nonnull %468) #28
+  %469 = call i32 @atoi(ptr noundef nonnull %468) #28
   %470 = icmp ult i32 %469, 4
   br i1 %470, label %switch.lookup1711, label %lstopo_update_factorize_bounds.exit
 
@@ -2028,14 +2028,14 @@ lstopo_update_factorize_bounds.exit:              ; preds = %467, %switch.lookup
 
 473:                                              ; preds = %lstopo_update_factorize_bounds.exit
   %474 = getelementptr inbounds nuw i8, ptr %472, i64 1
-  %475 = call i32 @atoi(ptr nocapture noundef nonnull %474) #28
+  %475 = call i32 @atoi(ptr noundef nonnull %474) #28
   %476 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %474, i32 noundef 44) #28
   %.not720 = icmp eq ptr %476, null
   br i1 %.not720, label %480, label %477
 
 477:                                              ; preds = %473
   %478 = getelementptr inbounds nuw i8, ptr %476, i64 1
-  %479 = call i32 @atoi(ptr nocapture noundef nonnull %478) #28
+  %479 = call i32 @atoi(ptr noundef nonnull %478) #28
   br label %480
 
 480:                                              ; preds = %463, %lstopo_update_factorize_bounds.exit, %477, %473
@@ -2695,7 +2695,7 @@ lstopo_update_factorize_bounds.exit:              ; preds = %467, %switch.lookup
 764:                                              ; preds = %762
   %765 = getelementptr inbounds nuw i8, ptr %.05281177, i64 8
   %766 = load ptr, ptr %765, align 8
-  %767 = call i32 @atoi(ptr nocapture noundef %766) #28
+  %767 = call i32 @atoi(ptr noundef %766) #28
   store i32 %767, ptr %79, align 8
   store i32 1, ptr %18, align 4
   br label %lstopo_update_factorize_alltypes_bounds.exit794
@@ -2712,7 +2712,7 @@ lstopo_update_factorize_bounds.exit:              ; preds = %467, %switch.lookup
 772:                                              ; preds = %770
   %773 = getelementptr inbounds nuw i8, ptr %.05281177, i64 8
   %774 = load ptr, ptr %773, align 8
-  %775 = call i32 @atoi(ptr nocapture noundef %774) #28
+  %775 = call i32 @atoi(ptr noundef %774) #28
   store i32 %775, ptr %80, align 4
   store i32 1, ptr %18, align 4
   br label %lstopo_update_factorize_alltypes_bounds.exit794
@@ -2729,7 +2729,7 @@ lstopo_update_factorize_bounds.exit:              ; preds = %467, %switch.lookup
 780:                                              ; preds = %778
   %781 = getelementptr inbounds nuw i8, ptr %.05281177, i64 8
   %782 = load ptr, ptr %781, align 8
-  %783 = call i32 @atoi(ptr nocapture noundef %782) #28
+  %783 = call i32 @atoi(ptr noundef %782) #28
   store i32 %783, ptr %81, align 4
   store i32 1, ptr %18, align 4
   br label %lstopo_update_factorize_alltypes_bounds.exit794
@@ -2746,7 +2746,7 @@ lstopo_update_factorize_bounds.exit:              ; preds = %467, %switch.lookup
 788:                                              ; preds = %786
   %789 = getelementptr inbounds nuw i8, ptr %.05281177, i64 8
   %790 = load ptr, ptr %789, align 8
-  %791 = call i32 @atoi(ptr nocapture noundef %790) #28
+  %791 = call i32 @atoi(ptr noundef %790) #28
   store i32 %791, ptr %82, align 8
   store i32 1, ptr %18, align 4
   br label %lstopo_update_factorize_alltypes_bounds.exit794
@@ -2845,7 +2845,7 @@ lstopo_update_factorize_bounds.exit:              ; preds = %467, %switch.lookup
 836:                                              ; preds = %834
   %837 = getelementptr inbounds nuw i8, ptr %.05281177, i64 8
   %838 = load ptr, ptr %837, align 8
-  %839 = call i32 @atoi(ptr nocapture noundef %838) #28
+  %839 = call i32 @atoi(ptr noundef %838) #28
   store i32 %839, ptr %42, align 8
   store i32 1, ptr %18, align 4
   br label %lstopo_update_factorize_alltypes_bounds.exit794
@@ -4043,7 +4043,7 @@ lstopo_add_collapse_attributes.exit:              ; preds = %1327, %._crit_edge.
 
 1352:                                             ; preds = %1349
   %1353 = getelementptr inbounds nuw i8, ptr %1348, i64 6
-  %1354 = call i32 @atoi(ptr nocapture noundef nonnull %1353) #28
+  %1354 = call i32 @atoi(ptr noundef nonnull %1353) #28
   store i32 %1354, ptr %968, align 8
   br label %hwloc_calc_parse_level_filter.exit.thread.i
 

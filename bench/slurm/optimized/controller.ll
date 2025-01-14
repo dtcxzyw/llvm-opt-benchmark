@@ -1204,7 +1204,7 @@ _become_slurm_user.exit:                          ; preds = %283, %280
   %324 = call ptr @getenv(ptr noundef nonnull @.str.98) #21
   store ptr %324, ptr %25, align 8
   %325 = call ptr @getenv(ptr noundef nonnull @.str.96) #21
-  %326 = call i32 @atoi(ptr nocapture noundef %325) #25
+  %326 = call i32 @atoi(ptr noundef %325) #25
   store i32 %326, ptr @listen_nports, align 4
   %327 = sext i32 %326 to i64
   %328 = call ptr @slurm_xcalloc(i64 noundef %327, i64 noundef 8, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.53, i32 noundef 1281, ptr noundef nonnull @__func__._open_ports) #21
@@ -2439,7 +2439,7 @@ _restore_job_dependencies.exit:                   ; preds = %704, %_send_future_
   br label %_update_pidfile.exit
 
 836:                                              ; preds = %830
-  %837 = call i32 @atoi(ptr nocapture noundef nonnull %831) #25
+  %837 = call i32 @atoi(ptr noundef nonnull %831) #25
   store i32 %837, ptr @pidfd, align 4
   %838 = call i32 @update_pidfile(i32 noundef %837) #21
   br label %_update_pidfile.exit
@@ -5802,7 +5802,7 @@ define dso_local void @notify_parent_of_success() local_unnamed_addr #4 {
 
 6:                                                ; preds = %5
   store i1 true, ptr @notify_parent_of_success.notified, align 1
-  %7 = tail call i32 @atoi(ptr nocapture noundef nonnull %2) #25
+  %7 = tail call i32 @atoi(ptr noundef nonnull %2) #25
   %8 = tail call i32 @get_log_level() #21
   %9 = icmp sgt i32 %8, 2
   br i1 %9, label %10, label %.lr.ph.split.us.preheader

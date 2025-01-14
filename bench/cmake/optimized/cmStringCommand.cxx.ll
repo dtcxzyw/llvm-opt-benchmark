@@ -2250,7 +2250,7 @@ _ZN17cmExecutionStatus8SetErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcES
   %.02439 = phi i64 [ %60, %59 ], [ 1, %25 ]
   %36 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %35, i64 %.02439
   %37 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %36) #22
-  %38 = call i32 @atoi(ptr nocapture noundef %37) #26
+  %38 = call i32 @atoi(ptr noundef %37) #26
   %39 = add i32 %38, -1
   %or.cond = icmp ult i32 %39, 255
   br i1 %or.cond, label %40, label %43
@@ -3316,12 +3316,12 @@ _ZN17cmExecutionStatus8SetErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcES
   %29 = getelementptr inbounds nuw i8, ptr %14, i64 32
   %30 = getelementptr inbounds nuw i8, ptr %14, i64 64
   %31 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %30) #22
-  %32 = tail call i32 @atoi(ptr nocapture noundef %31) #26
+  %32 = tail call i32 @atoi(ptr noundef %31) #26
   store i32 %32, ptr %7, align 4
   %33 = load ptr, ptr %0, align 8
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 96
   %35 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %34) #22
-  %36 = tail call i32 @atoi(ptr nocapture noundef %35) #26
+  %36 = tail call i32 @atoi(ptr noundef %35) #26
   %37 = load ptr, ptr %0, align 8
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 128
   %39 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %29) #22
@@ -3934,7 +3934,7 @@ _ZN17cmExecutionStatus8SetErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcES
   %46 = load ptr, ptr %0, align 8
   %47 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %46, i64 %45
   %48 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %47) #22
-  %49 = call i32 @atoi(ptr nocapture noundef %48) #26
+  %49 = call i32 @atoi(ptr noundef %48) #26
   br label %71
 
 50:                                               ; preds = %.lr.ph
@@ -3973,7 +3973,7 @@ _ZN17cmExecutionStatus8SetErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcES
   %67 = load ptr, ptr %0, align 8
   %68 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %67, i64 %66
   %69 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %68) #22
-  %70 = call i32 @atoi(ptr nocapture noundef %69) #26
+  %70 = call i32 @atoi(ptr noundef %69) #26
   br label %71
 
 71:                                               ; preds = %44, %60, %65, %55

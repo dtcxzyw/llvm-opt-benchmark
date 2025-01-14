@@ -412,7 +412,7 @@ define internal void @_ZN12_GLOBAL__N_117TestAutotbBackend7executeERPSoNSt7__cxx
   %31 = sext i32 %22 to i64
   %32 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %.pre, i64 %31
   %33 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %32) #21
-  %34 = tail call i32 @atoi(ptr nocapture noundef %33) #23
+  %34 = tail call i32 @atoi(ptr noundef %33) #23
   br label %54
 
 35:                                               ; preds = %21, %.lr.ph
@@ -437,7 +437,7 @@ define internal void @_ZN12_GLOBAL__N_117TestAutotbBackend7executeERPSoNSt7__cxx
   %50 = sext i32 %40 to i64
   %51 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %42, i64 %50
   %52 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %51) #21
-  %53 = tail call i32 @atoi(ptr nocapture noundef %52) #23
+  %53 = tail call i32 @atoi(ptr noundef %52) #23
   br label %54
 
 54:                                               ; preds = %49, %30

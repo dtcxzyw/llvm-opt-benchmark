@@ -434,14 +434,14 @@ define internal fastcc void @_run_report(i32 noundef range(i32 0, 3) %0, i32 nou
 179:                                              ; preds = %171
   %180 = getelementptr inbounds nuw i8, ptr %strchr232.i, i64 1
   store i8 0, ptr %strchr232.i, align 1
-  %181 = tail call i32 @atoi(ptr nocapture noundef nonnull %180) #13
+  %181 = tail call i32 @atoi(ptr noundef nonnull %180) #13
   br label %182
 
 182:                                              ; preds = %179, %178, %175
   %.sink.i = phi i32 [ %181, %179 ], [ -2, %178 ], [ -2, %175 ]
   %183 = getelementptr inbounds nuw i8, ptr %172, i64 16
   store i32 %.sink.i, ptr %183, align 4
-  %184 = tail call i32 @atoi(ptr nocapture noundef nonnull %.1.i) #13
+  %184 = tail call i32 @atoi(ptr noundef nonnull %.1.i) #13
   %185 = getelementptr inbounds nuw i8, ptr %172, i64 8
   store i32 %184, ptr %185, align 4
   %186 = getelementptr inbounds nuw i8, ptr %172, i64 12
@@ -956,7 +956,7 @@ _merge_cluster_groups.exit:                       ; preds = %.outer._crit_edge.i
 
 395:                                              ; preds = %.lr.ph.i176
   %396 = getelementptr inbounds nuw i8, ptr %strchr.i177, i64 1
-  %397 = call i32 @atoi(ptr nocapture noundef nonnull %396) #13
+  %397 = call i32 @atoi(ptr noundef nonnull %396) #13
   store i8 0, ptr %strchr.i177, align 1
   br label %398
 
@@ -1127,7 +1127,7 @@ _setup_print_fields_list.exit:                    ; preds = %384, %._crit_edge.i
   %462 = phi ptr [ %481, %479 ], [ %461, %459 ]
   %.05184.i = phi i32 [ %464, %479 ], [ 0, %459 ]
   %463 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 32, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str, i32 noundef 460, ptr noundef nonnull @__func__._setup_grouping_print_fields_list) #12
-  %464 = call i32 @atoi(ptr nocapture noundef nonnull %462) #13
+  %464 = call i32 @atoi(ptr noundef nonnull %462) #13
   %.b64.i = load i1, ptr @print_job_count, align 4
   %spec.select94.i = select i1 %.b64.i, i16 2, i16 5
   %465 = getelementptr inbounds nuw i8, ptr %463, i64 24
@@ -1163,7 +1163,7 @@ _setup_print_fields_list.exit:                    ; preds = %384, %._crit_edge.i
 
 475:                                              ; preds = %471
   %476 = getelementptr inbounds nuw i8, ptr %strchr76.i, i64 1
-  %477 = call i32 @atoi(ptr nocapture noundef nonnull %476) #13
+  %477 = call i32 @atoi(ptr noundef nonnull %476) #13
   %.not78.i = icmp eq i32 %477, 0
   br i1 %.not78.i, label %479, label %478
 
@@ -1211,7 +1211,7 @@ _setup_print_fields_list.exit:                    ; preds = %384, %._crit_edge.i
 
 490:                                              ; preds = %483
   %491 = getelementptr inbounds nuw i8, ptr %strchr.i183, i64 1
-  %492 = call i32 @atoi(ptr nocapture noundef nonnull %491) #13
+  %492 = call i32 @atoi(ptr noundef nonnull %491) #13
   %.not73.i = icmp eq i32 %492, 0
   br i1 %.not73.i, label %494, label %493
 

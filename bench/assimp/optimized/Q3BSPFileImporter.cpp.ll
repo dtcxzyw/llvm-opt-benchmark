@@ -1484,9 +1484,9 @@ if.end43.thread:                                  ; preds = %if.end.i23, %invoke
 
 invoke.cont21:                                    ; preds = %.noexc
   %call6.i = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %tmp1.i) #22
-  %call7.i = call i32 @atoi(ptr nocapture noundef %call6.i) #24
+  %call7.i = call i32 @atoi(ptr noundef %call6.i) #24
   %call8.i = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %tmp2.i) #22
-  %call9.i = call i32 @atoi(ptr nocapture noundef %call8.i) #24
+  %call9.i = call i32 @atoi(ptr noundef %call8.i) #24
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %tmp2.i) #22
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %tmp1.i) #22
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %tmp1.i)

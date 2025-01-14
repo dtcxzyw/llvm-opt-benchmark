@@ -131,7 +131,7 @@ define zeroext i1 @zend_gdb_present() local_unnamed_addr #0 {
   br label %13
 
 16:                                               ; preds = %13
-  %17 = call i32 @atoi(ptr nocapture noundef nonnull %.013) #11
+  %17 = call i32 @atoi(ptr noundef nonnull %.013) #11
   %.not19 = icmp eq i32 %17, 0
   br i1 %.not19, label %24, label %18
 

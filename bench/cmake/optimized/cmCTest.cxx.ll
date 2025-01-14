@@ -6435,7 +6435,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit100: ;
 
 245:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit100
   %246 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %26) #29
-  %247 = call i32 @atoi(ptr nocapture noundef %246) #32
+  %247 = call i32 @atoi(ptr noundef %246) #32
   %248 = sitofp i32 %247 to double
   %249 = load ptr, ptr %0, align 8
   %250 = getelementptr inbounds nuw i8, ptr %249, i64 14976
@@ -13196,7 +13196,7 @@ _ZNSt6vectorIP21cmCTestGenericHandlerSaIS1_EED2Ev.exit172: ; preds = %.loopexit,
 
 346:                                              ; preds = %345
   %347 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %22) #29
-  %348 = call i32 @atoi(ptr nocapture noundef %347) #32
+  %348 = call i32 @atoi(ptr noundef %347) #32
   %349 = call i32 @llvm.smax.i32(i32 %348, i32 1)
   %350 = load ptr, ptr %0, align 8
   %351 = getelementptr inbounds nuw i8, ptr %350, i64 14996
@@ -20408,7 +20408,7 @@ _ZN7cmCTest13CheckArgumentERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE
   %128 = load ptr, ptr %2, align 8
   %129 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %128, i64 %127
   %130 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %129) #29
-  %131 = call i32 @atoi(ptr nocapture noundef %130) #32
+  %131 = call i32 @atoi(ptr noundef %130) #32
   %132 = call i32 @llvm.smax.i32(i32 %131, i32 1)
   %133 = load ptr, ptr %0, align 8
   %134 = getelementptr inbounds nuw i8, ptr %133, i64 14996
@@ -20439,7 +20439,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i594: ; preds = %.critedge
 
 144:                                              ; preds = %143
   %145 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %8) #29
-  %146 = call i32 @atoi(ptr nocapture noundef %145) #32
+  %146 = call i32 @atoi(ptr noundef %145) #32
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #29
   %147 = call i32 @llvm.smax.i32(i32 %146, i32 1)
   %148 = load ptr, ptr %0, align 8
@@ -21413,7 +21413,7 @@ _Z18cmHasLiteralPrefixILm13EEbSt17basic_string_viewIcSt11char_traitsIcEERAT__Kc.
   %646 = load ptr, ptr %2, align 8
   %647 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %646, i64 %645
   %648 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %647) #29
-  %649 = call i32 @atoi(ptr nocapture noundef %648) #32
+  %649 = call i32 @atoi(ptr noundef %648) #32
   %650 = load ptr, ptr %0, align 8
   %651 = getelementptr inbounds nuw i8, ptr %650, i64 14992
   store i32 %649, ptr %651, align 8
@@ -21474,7 +21474,7 @@ _Z18cmHasLiteralPrefixILm13EEbSt17basic_string_viewIcSt11char_traitsIcEERAT__Kc.
   %689 = load ptr, ptr %2, align 8
   %690 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %689, i64 %688
   %691 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %690) #29
-  %692 = call i32 @atoi(ptr nocapture noundef %691) #32
+  %692 = call i32 @atoi(ptr noundef %691) #32
   %693 = load ptr, ptr %0, align 8
   %694 = getelementptr inbounds nuw i8, ptr %693, i64 15208
   store i32 %692, ptr %694, align 8
@@ -28010,7 +28010,7 @@ define dso_local void @_ZN7cmCTest21PopulateCustomIntegerEP10cmMakefileRKNSt7__c
 
 6:                                                ; preds = %4
   %7 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %5) #29
-  %8 = tail call i32 @atoi(ptr nocapture noundef %7) #32
+  %8 = tail call i32 @atoi(ptr noundef %7) #32
   store i32 %8, ptr %3, align 4
   br label %9
 

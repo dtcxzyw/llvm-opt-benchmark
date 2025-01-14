@@ -1904,7 +1904,7 @@ if.then:                                          ; preds = %entry
 if.end:                                           ; preds = %entry
   %arrayidx = getelementptr inbounds nuw i8, ptr %argv, i64 8
   %0 = load ptr, ptr %arrayidx, align 8
-  %call1 = tail call i32 @atoi(ptr nocapture noundef %0) #38
+  %call1 = tail call i32 @atoi(ptr noundef %0) #38
   %cmp2 = icmp slt i32 %call1, 0
   br i1 %cmp2, label %if.then3, label %if.end4
 

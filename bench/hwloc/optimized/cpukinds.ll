@@ -1455,7 +1455,7 @@ define internal fastcc void @hwloc__cpukinds_summarize_info(ptr nocapture nounde
 18:                                               ; preds = %.lr.ph
   %19 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %20 = load ptr, ptr %19, align 8
-  %21 = tail call i32 @atoi(ptr nocapture noundef %20) #21
+  %21 = tail call i32 @atoi(ptr noundef %20) #21
   %22 = load ptr, ptr %8, align 8
   %23 = getelementptr inbounds nuw %struct.hwloc_cpukind_info_summary, ptr %22, i64 %indvars.iv59, i32 1
   store i32 %21, ptr %23, align 4
@@ -1469,7 +1469,7 @@ define internal fastcc void @hwloc__cpukinds_summarize_info(ptr nocapture nounde
 26:                                               ; preds = %24
   %27 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %28 = load ptr, ptr %27, align 8
-  %29 = tail call i32 @atoi(ptr nocapture noundef %28) #21
+  %29 = tail call i32 @atoi(ptr noundef %28) #21
   %30 = load ptr, ptr %8, align 8
   %31 = getelementptr inbounds nuw %struct.hwloc_cpukind_info_summary, ptr %30, i64 %indvars.iv59, i32 2
   store i32 %29, ptr %31, align 4

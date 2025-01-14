@@ -145,7 +145,7 @@ define hidden noundef ptr @_Z37pj_projection_specific_setup_axisswapP8PJconsts(p
 .lr.ph160:                                        ; preds = %.preheader149, %.critedge
   %indvars.iv174 = phi i64 [ %indvars.iv.next175, %.critedge ], [ 0, %.preheader149 ]
   %.0129159 = phi ptr [ %spec.select, %.critedge ], [ %.sroa.01.0..sroa.01.0..cast, %.preheader149 ]
-  %46 = tail call i32 @atoi(ptr nocapture noundef nonnull %.0129159) #11
+  %46 = tail call i32 @atoi(ptr noundef nonnull %.0129159) #11
   %47 = tail call i32 @llvm.abs.i32(i32 %46, i1 true)
   %48 = add nsw i32 %47, -1
   %49 = getelementptr inbounds nuw [4 x i32], ptr %2, i64 0, i64 %indvars.iv174
@@ -159,7 +159,7 @@ define hidden noundef ptr @_Z37pj_projection_specific_setup_axisswapP8PJconsts(p
   br label %151
 
 53:                                               ; preds = %.lr.ph160
-  %54 = tail call i32 @atoi(ptr nocapture noundef nonnull %.0129159) #11
+  %54 = tail call i32 @atoi(ptr noundef nonnull %.0129159) #11
   %.lobit.neg.i = ashr i32 %54, 31
   %isnotnull.i = icmp ne i32 %54, 0
   %isnotnull.zext.i = zext i1 %isnotnull.i to i32

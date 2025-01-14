@@ -1866,7 +1866,7 @@ for.end34.i:                                      ; preds = %if.end29.i, %for.co
   %idxprom36.i = sext i32 %sub.i.i to i64
   %arrayidx37.i = getelementptr inbounds [6 x i8], ptr %digits.i, i64 0, i64 %idxprom36.i
   store i8 0, ptr %arrayidx37.i, align 1
-  %call38.i = call i32 @atoi(ptr nocapture noundef nonnull %digits.i) #16
+  %call38.i = call i32 @atoi(ptr noundef nonnull %digits.i) #16
   %cmp39.i = icmp sgt i32 %call38.i, 65535
   %.call38.i = select i1 %cmp39.i, i32 -2, i32 %call38.i
   br label %_ZN3url12_GLOBAL__N_111DoParsePortIcEEiPKT_RKNS_9ComponentE.exit
@@ -1945,7 +1945,7 @@ for.end34.i:                                      ; preds = %if.end28.i, %for.co
   %idxprom36.i = sext i32 %sub.i.i to i64
   %arrayidx37.i = getelementptr inbounds [6 x i8], ptr %digits.i, i64 0, i64 %idxprom36.i
   store i8 0, ptr %arrayidx37.i, align 1
-  %call38.i = call i32 @atoi(ptr nocapture noundef nonnull %digits.i) #16
+  %call38.i = call i32 @atoi(ptr noundef nonnull %digits.i) #16
   %cmp39.i = icmp sgt i32 %call38.i, 65535
   %.call38.i = select i1 %cmp39.i, i32 -2, i32 %call38.i
   br label %_ZN3url12_GLOBAL__N_111DoParsePortItEEiPKT_RKNS_9ComponentE.exit

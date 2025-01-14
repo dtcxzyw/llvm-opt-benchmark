@@ -28,7 +28,7 @@ define ptr @mca_mpool_base_alloc(i64 noundef %0, ptr noundef %1, ptr noundef %2)
 11:                                               ; preds = %8
   %12 = load ptr, ptr %4, align 8
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 25
-  %14 = call i64 @atoll(ptr nocapture noundef nonnull %13) #6
+  %14 = call i64 @atoll(ptr noundef nonnull %13) #6
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %16 = load i8, ptr @opal_uses_threads, align 1
   %17 = trunc i8 %16 to i1

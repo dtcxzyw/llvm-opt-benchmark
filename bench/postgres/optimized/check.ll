@@ -1539,7 +1539,7 @@ check_for_new_tablespace_dir.exit:                ; preds = %28, %25
 
 53:                                               ; preds = %48
   %54 = call ptr @PQgetvalue(ptr noundef %50, i32 noundef 0, i32 noundef 0) #12
-  %55 = call i32 @atoi(ptr nocapture noundef %54) #13
+  %55 = call i32 @atoi(ptr noundef %54) #13
   %.not20.i = icmp eq i32 %55, 0
   br i1 %.not20.i, label %57, label %56
 
@@ -1570,7 +1570,7 @@ check_for_new_tablespace_dir.exit:                ; preds = %28, %25
 
 65:                                               ; preds = %61
   %66 = call ptr @PQgetvalue(ptr noundef %58, i32 noundef 1, i32 noundef 0) #12
-  %67 = call i32 @atoi(ptr nocapture noundef %66) #13
+  %67 = call i32 @atoi(ptr noundef %66) #13
   %68 = icmp sgt i32 %46, %67
   br i1 %68, label %69, label %70
 
@@ -1608,7 +1608,7 @@ check_new_cluster_logical_replication_slots.exit: ; preds = %45, %70
 
 80:                                               ; preds = %75
   %81 = call ptr @PQgetvalue(ptr noundef %77, i32 noundef 0, i32 noundef 0) #12
-  %82 = call i32 @atoi(ptr nocapture noundef %81) #13
+  %82 = call i32 @atoi(ptr noundef %81) #13
   %83 = icmp sgt i32 %73, %82
   br i1 %83, label %84, label %85
 

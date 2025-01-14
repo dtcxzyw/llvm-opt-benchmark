@@ -2279,10 +2279,10 @@ define dso_local noundef zeroext i1 @_ZN10cmCTestSVN13LoadRevisionsERNS_7SVNInfo
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #21
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 128
   %12 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %11) #21
-  %13 = call i32 @atoi(ptr nocapture noundef %12) #24
+  %13 = call i32 @atoi(ptr noundef %12) #24
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 160
   %15 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %14) #21
-  %16 = call i32 @atoi(ptr nocapture noundef %15) #24
+  %16 = call i32 @atoi(ptr noundef %15) #24
   %17 = icmp slt i32 %13, %16
   br i1 %17, label %18, label %32
 

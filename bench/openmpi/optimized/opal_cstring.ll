@@ -264,7 +264,7 @@ define internal fastcc range(i32 -5, 1) i32 @opal_str_to_bool_impl(ptr noundef r
   br i1 %.not19, label %20, label %16
 
 16:                                               ; preds = %14
-  %17 = tail call i32 @atoi(ptr nocapture noundef nonnull %.0) #13
+  %17 = tail call i32 @atoi(ptr noundef nonnull %.0) #13
   %18 = icmp ne i32 %17, 0
   %19 = zext i1 %18 to i8
   br label %33

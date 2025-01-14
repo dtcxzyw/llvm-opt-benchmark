@@ -4161,7 +4161,7 @@ if.end8.i.i:                                      ; preds = %if.end6.i.i, %if.en
   %4 = extractvalue { i64, ptr } %call10.i.i, 0
   %5 = extractvalue { i64, ptr } %call10.i.i, 1
   %call11.i.i = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %port.i) #24
-  %call12.i.i = call i32 @atoi(ptr nocapture noundef %call11.i.i) #29
+  %call12.i.i = call i32 @atoi(ptr noundef %call11.i.i) #29
   invoke void @_ZN9grpc_core12JoinHostPortB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEEi(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i.i, i64 %4, ptr %5, i32 noundef %call12.i.i)
           to label %.noexc4.i unwind label %lpad.i
 

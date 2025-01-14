@@ -705,7 +705,7 @@ sub_1:                                            ; preds = %38
 94:                                               ; preds = %92
   store i32 1, ptr %6, align 8
   %95 = getelementptr inbounds nuw i8, ptr %41, i64 12
-  %96 = call i32 @atoi(ptr nocapture noundef nonnull %95) #23
+  %96 = call i32 @atoi(ptr noundef nonnull %95) #23
   store i32 %96, ptr %37, align 8
   br label %.loopexit
 
@@ -749,7 +749,7 @@ sub_1:                                            ; preds = %38
 111:                                              ; preds = %109
   store i32 1, ptr %7, align 8
   %112 = getelementptr inbounds nuw i8, ptr %41, i64 12
-  %113 = call i32 @atoi(ptr nocapture noundef nonnull %112) #23
+  %113 = call i32 @atoi(ptr noundef nonnull %112) #23
   store i32 %113, ptr %35, align 8
   br label %.loopexit
 

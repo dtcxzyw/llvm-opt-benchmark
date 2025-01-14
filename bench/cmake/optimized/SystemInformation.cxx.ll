@@ -1642,7 +1642,7 @@ define dso_local void @_ZN5cmsys17SystemInformation20GetMemoryDescriptionB5cxx11
   br i1 %.not11.i.i, label %_ZN5cmsys17SystemInformation22GetHostMemoryAvailableEPKc.exit, label %25
 
 25:                                               ; preds = %23
-  %26 = call i64 @atoll(ptr nocapture noundef nonnull %24) #32
+  %26 = call i64 @atoll(ptr noundef nonnull %24) #32
   %27 = icmp sgt i64 %26, 0
   br i1 %27, label %28, label %_ZN5cmsys17SystemInformation22GetHostMemoryAvailableEPKc.exit
 
@@ -1732,7 +1732,7 @@ define dso_local noundef i64 @_ZN5cmsys17SystemInformation22GetHostMemoryAvailab
   br i1 %.not11.i, label %_ZN5cmsys31SystemInformationImplementation22GetHostMemoryAvailableEPKc.exit, label %10
 
 10:                                               ; preds = %8
-  %11 = call i64 @atoll(ptr nocapture noundef nonnull %9) #32
+  %11 = call i64 @atoll(ptr noundef nonnull %9) #32
   %12 = icmp sgt i64 %11, 0
   br i1 %12, label %13, label %_ZN5cmsys31SystemInformationImplementation22GetHostMemoryAvailableEPKc.exit
 
@@ -1796,7 +1796,7 @@ define dso_local noundef i64 @_ZN5cmsys31SystemInformationImplementation22GetHos
   br i1 %.not11, label %15, label %10
 
 10:                                               ; preds = %8
-  %11 = call i64 @atoll(ptr nocapture noundef nonnull %9) #32
+  %11 = call i64 @atoll(ptr noundef nonnull %9) #32
   %12 = icmp sgt i64 %11, 0
   br i1 %12, label %13, label %15
 
@@ -1927,7 +1927,7 @@ define dso_local noundef i64 @_ZN5cmsys31SystemInformationImplementation22GetPro
   br i1 %.not11.i, label %_ZN5cmsys31SystemInformationImplementation22GetHostMemoryAvailableEPKc.exit, label %12
 
 12:                                               ; preds = %10
-  %13 = call i64 @atoll(ptr nocapture noundef nonnull %11) #32
+  %13 = call i64 @atoll(ptr noundef nonnull %11) #32
   %14 = icmp sgt i64 %13, 0
   br i1 %14, label %15, label %_ZN5cmsys31SystemInformationImplementation22GetHostMemoryAvailableEPKc.exit
 
@@ -1946,7 +1946,7 @@ _ZN5cmsys31SystemInformationImplementation22GetHostMemoryAvailableEPKc.exit: ; p
   br i1 %.not23, label %24, label %19
 
 19:                                               ; preds = %17
-  %20 = call i64 @atoll(ptr nocapture noundef nonnull %18) #32
+  %20 = call i64 @atoll(ptr noundef nonnull %18) #32
   %21 = icmp sgt i64 %20, 0
   br i1 %21, label %22, label %24
 
@@ -2785,7 +2785,7 @@ define dso_local noundef zeroext i1 @_ZN5cmsys31SystemInformationImplementation3
 
 .lr.ph159:                                        ; preds = %69, %98
   %72 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %4) #31
-  %73 = call i32 @atoi(ptr nocapture noundef %72) #32
+  %73 = call i32 @atoi(ptr noundef %72) #32
   %.02022.i.i.i = load ptr, ptr %64, align 8
   %.not23.i.i.i = icmp eq ptr %.02022.i.i.i, null
   br i1 %.not23.i.i.i, label %._crit_edge.thread.i.i.i, label %.lr.ph.i.i.i
@@ -2940,7 +2940,7 @@ _ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE10_M_insert_IRKiNS5_11_Alloc_nod
 
 121:                                              ; preds = %113, %109
   %122 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %8) #31
-  %123 = call i32 @atoi(ptr nocapture noundef %122) #32
+  %123 = call i32 @atoi(ptr noundef %122) #32
   %.sroa.speculated = call i32 @llvm.umax.i32(i32 %123, i32 1)
   %124 = trunc i64 %.sroa.speculated115 to i32
   %125 = mul i32 %.sroa.speculated, %124
@@ -3091,7 +3091,7 @@ _ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE10_M_insert_IRKiNS5_11_Alloc_nod
 
 183:                                              ; preds = %175, %171
   %184 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %18) #31
-  %185 = call i32 @atoi(ptr nocapture noundef %184) #32
+  %185 = call i32 @atoi(ptr noundef %184) #32
   %186 = getelementptr inbounds nuw i8, ptr %0, i64 60
   store i32 %185, ptr %186, align 4
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %23, ptr noundef nonnull align 8 dereferenceable(32) %2)
@@ -3148,7 +3148,7 @@ _ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE10_M_insert_IRKiNS5_11_Alloc_nod
 
 206:                                              ; preds = %205
   %207 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %24) #31
-  %208 = call i32 @atoi(ptr nocapture noundef %207) #32
+  %208 = call i32 @atoi(ptr noundef %207) #32
   %209 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i32 %208, ptr %209, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %24) #31
@@ -3245,7 +3245,7 @@ _ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE10_M_insert_IRKiNS5_11_Alloc_nod
 
 240:                                              ; preds = %232, %228
   %241 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %28) #31
-  %242 = call i32 @atoi(ptr nocapture noundef %241) #32
+  %242 = call i32 @atoi(ptr noundef %241) #32
   %243 = getelementptr inbounds nuw i8, ptr %0, i64 68
   store i32 %242, ptr %243, align 4
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %33, ptr noundef nonnull align 8 dereferenceable(32) %2)
@@ -3330,7 +3330,7 @@ _ZNKSt6vectorIPKcSaIS1_EE12_M_check_lenEmS1_.exit.i.i.i63: ; preds = %_ZNKSt6vec
 
 267:                                              ; preds = %260, %258
   %268 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %34) #31
-  %269 = call i32 @atoi(ptr nocapture noundef %268) #32
+  %269 = call i32 @atoi(ptr noundef %268) #32
   %270 = load i32, ptr %252, align 8
   %271 = add nsw i32 %270, %269
   store i32 %271, ptr %252, align 8
@@ -6903,7 +6903,7 @@ define dso_local noundef zeroext i1 @_ZN5cmsys31SystemInformationImplementation2
   store i32 %9, ptr %11, align 4
   call void @_ZN5cmsys31SystemInformationImplementation19ParseValueFromKStatB5cxx11EPKc(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %2, ptr nonnull align 8 poison, ptr noundef nonnull @.str.207)
   %12 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %2) #31
-  %13 = call i32 @atoi(ptr nocapture noundef %12) #32
+  %13 = call i32 @atoi(ptr noundef %12) #32
   %14 = sitofp i32 %13 to float
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 208
   store float %14, ptr %15, align 8

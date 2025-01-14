@@ -26989,7 +26989,7 @@ sub_14878:                                        ; preds = %sub_04873
   %14052 = load ptr, ptr %14051, align 8
   %14053 = getelementptr inbounds nuw i8, ptr %14052, i64 16
   %14054 = load ptr, ptr %14053, align 8
-  %14055 = call i64 @atol(ptr nocapture noundef %14054) #20
+  %14055 = call i64 @atol(ptr noundef %14054) #20
   %14056 = icmp eq i64 %14055, 1
   br i1 %14056, label %14057, label %14058
 
@@ -28584,7 +28584,7 @@ sub_04886:                                        ; preds = %14099, %14095
 
 14978:                                            ; preds = %14956, %14956
   %14979 = load ptr, ptr %5, align 8
-  %14980 = call i32 @atoi(ptr nocapture noundef %14979) #20
+  %14980 = call i32 @atoi(ptr noundef %14979) #20
   %14981 = icmp slt i32 %14980, 0
   %14982 = getelementptr [128 x ptr], ptr @struct_member_list, i64 0, i64 %14975
   %14983 = load ptr, ptr %14982, align 8
@@ -28620,7 +28620,7 @@ sub_04886:                                        ; preds = %14099, %14095
   %varchar_counter.bytea_counter = select i1 %15005, ptr @varchar_counter, ptr @bytea_counter
   %.str.1221..str.1222 = select i1 %15005, ptr @.str.1221, ptr @.str.1222
   %15006 = load ptr, ptr %5, align 8
-  %15007 = call i32 @atoi(ptr nocapture noundef %15006) #20
+  %15007 = call i32 @atoi(ptr noundef %15006) #20
   %15008 = icmp slt i32 %15007, 0
   %15009 = load ptr, ptr %6, align 8
   %15010 = load i32, ptr %varchar_counter.bytea_counter, align 4
@@ -28646,7 +28646,7 @@ sub_04890:                                        ; preds = %15004, %15012
   br i1 %15019, label %15023, label %.tail4889.thread
 
 .tail4889.thread:                                 ; preds = %sub_04890, %.tail4889
-  %15020 = call i32 @atoi(ptr nocapture noundef nonnull %15015) #20
+  %15020 = call i32 @atoi(ptr noundef nonnull %15015) #20
   %15021 = call i32 @llvm.abs.i32(i32 %15020, i1 false)
   %15022 = icmp eq i32 %15021, 1
   br i1 %15022, label %15023, label %15025
@@ -28666,7 +28666,7 @@ sub_04890:                                        ; preds = %15004, %15012
 15031:                                            ; preds = %15025, %15023
   %.04618 = phi ptr [ %15024, %15023 ], [ %15030, %15025 ]
   %15032 = load ptr, ptr %6, align 8
-  %15033 = call i32 @atoi(ptr nocapture noundef %15032) #20
+  %15033 = call i32 @atoi(ptr noundef %15032) #20
   %15034 = icmp slt i32 %15033, 0
   br i1 %15034, label %15039, label %sub_04894
 
@@ -28741,7 +28741,7 @@ sub_04898:                                        ; preds = %sub_04894, %15039, 
 
 15078:                                            ; preds = %14956, %14956, %14956
   %15079 = load ptr, ptr %5, align 8
-  %15080 = call i32 @atoi(ptr nocapture noundef %15079) #20
+  %15080 = call i32 @atoi(ptr noundef %15079) #20
   %15081 = icmp eq i32 %15080, -1
   br i1 %15081, label %15082, label %15101
 
@@ -28750,7 +28750,7 @@ sub_04898:                                        ; preds = %sub_04894, %15039, 
   %15084 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %15083) #20
   %15085 = trunc i64 %15084 to i32
   %15086 = load ptr, ptr %6, align 8
-  %15087 = call i32 @atoi(ptr nocapture noundef %15086) #20
+  %15087 = call i32 @atoi(ptr noundef %15086) #20
   %15088 = icmp eq i32 %15087, -1
   %15089 = icmp sgt i32 %15085, 0
   %or.cond13 = select i1 %15088, i1 %15089, i1 false
@@ -28801,7 +28801,7 @@ sub_04898:                                        ; preds = %sub_04894, %15039, 
 
 15117:                                            ; preds = %14956
   %15118 = load ptr, ptr %5, align 8
-  %15119 = call i32 @atoi(ptr nocapture noundef %15118) #20
+  %15119 = call i32 @atoi(ptr noundef %15118) #20
   %15120 = icmp slt i32 %15119, 0
   %15121 = call ptr @mm_strdup(ptr noundef nonnull @.str.1229) #17
   %15122 = call ptr @ECPGmake_simple_type(i32 noundef %14977, ptr noundef %15121, i32 noundef 0) #17
@@ -29518,7 +29518,7 @@ sub_04898:                                        ; preds = %sub_04894, %15039, 
 
 15535:                                            ; preds = %15526, %15526
   %15536 = load ptr, ptr %7, align 8
-  %15537 = call i32 @atoi(ptr nocapture noundef %15536) #20
+  %15537 = call i32 @atoi(ptr noundef %15536) #20
   %15538 = icmp slt i32 %15537, 0
   %15539 = load i32, ptr @struct_level, align 4
   %15540 = sext i32 %15539 to i64
@@ -29533,7 +29533,7 @@ sub_04898:                                        ; preds = %sub_04894, %15039, 
 
 15548:                                            ; preds = %15526, %15526
   %15549 = load ptr, ptr %7, align 8
-  %15550 = call i32 @atoi(ptr nocapture noundef %15549) #20
+  %15550 = call i32 @atoi(ptr noundef %15549) #20
   %15551 = icmp eq i32 %15550, -1
   %15552 = load ptr, ptr %8, align 8
   %15553 = call ptr @ECPGmake_simple_type(i32 noundef %15534, ptr noundef %15552, i32 noundef 0) #17
@@ -29541,7 +29541,7 @@ sub_04898:                                        ; preds = %sub_04894, %15039, 
 
 15554:                                            ; preds = %15526, %15526, %15526
   %15555 = load ptr, ptr %7, align 8
-  %15556 = call i32 @atoi(ptr nocapture noundef %15555) #20
+  %15556 = call i32 @atoi(ptr noundef %15555) #20
   %15557 = icmp eq i32 %15556, -1
   %15558 = load ptr, ptr %8, align 8
   %15559 = call ptr @ECPGmake_simple_type(i32 noundef %15534, ptr noundef %15558, i32 noundef 0) #17
@@ -29549,7 +29549,7 @@ sub_04898:                                        ; preds = %sub_04894, %15039, 
 
 15560:                                            ; preds = %15526
   %15561 = load ptr, ptr %8, align 8
-  %15562 = call i32 @atoi(ptr nocapture noundef %15561) #20
+  %15562 = call i32 @atoi(ptr noundef %15561) #20
   %15563 = icmp sgt i32 %15562, -1
   br i1 %15563, label %15564, label %15565
 
@@ -29559,7 +29559,7 @@ sub_04898:                                        ; preds = %sub_04894, %15039, 
 
 15565:                                            ; preds = %15564, %15560
   %15566 = load ptr, ptr %7, align 8
-  %15567 = call i32 @atoi(ptr nocapture noundef %15566) #20
+  %15567 = call i32 @atoi(ptr noundef %15566) #20
   %15568 = icmp slt i32 %15567, 0
   %15569 = load i32, ptr %15519, align 8
   %15570 = call ptr @mm_strdup(ptr noundef nonnull @.str.1229) #17
@@ -31296,7 +31296,7 @@ define internal fastcc ptr @adjust_outofscope_cursor_vars(ptr nocapture noundef 
 .thread:                                          ; preds = %15, %19
   %23 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %24 = load ptr, ptr %23, align 8
-  %25 = call i32 @atoi(ptr nocapture noundef %24) #20
+  %25 = call i32 @atoi(ptr noundef %24) #20
   %26 = icmp sgt i32 %25, 1
   br i1 %26, label %27, label %62
 
@@ -31350,7 +31350,7 @@ define internal fastcc ptr @adjust_outofscope_cursor_vars(ptr nocapture noundef 
 63:                                               ; preds = %62, %62, %62, %15, %15, %15, %15, %15
   %64 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %65 = load ptr, ptr %64, align 8
-  %66 = call i32 @atoi(ptr nocapture noundef %65) #20
+  %66 = call i32 @atoi(ptr noundef %65) #20
   %67 = icmp sgt i32 %66, 1
   br i1 %67, label %68, label %94
 
@@ -31659,7 +31659,7 @@ define internal fastcc ptr @adjust_outofscope_cursor_vars(ptr nocapture noundef 
 320:                                              ; preds = %224
   %321 = getelementptr inbounds nuw i8, ptr %230, i64 16
   %322 = load ptr, ptr %321, align 8
-  %323 = call i32 @atoi(ptr nocapture noundef %322) #20
+  %323 = call i32 @atoi(ptr noundef %322) #20
   %324 = icmp sgt i32 %323, 1
   br i1 %324, label %325, label %349
 
@@ -31911,7 +31911,7 @@ define internal fastcc void @add_typedef(ptr noundef %0, ptr noundef %1, ptr nou
   %58 = load ptr, ptr %34, align 8
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 32
   %60 = load ptr, ptr %59, align 8
-  %61 = call i32 @atoi(ptr nocapture noundef %60) #20
+  %61 = call i32 @atoi(ptr noundef %60) #20
   %62 = icmp sgt i32 %61, -1
   br i1 %62, label %63, label %64
 

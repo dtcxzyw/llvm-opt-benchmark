@@ -8378,7 +8378,7 @@ define noalias ptr @Exa4_ManParse(ptr noundef %0) local_unnamed_addr #2 {
 
 21:                                               ; preds = %.lr.ph, %Vec_IntSetEntryFull.exit
   %.01420 = phi ptr [ %18, %.lr.ph ], [ %57, %Vec_IntSetEntryFull.exit ]
-  %22 = call i32 @atoi(ptr nocapture noundef nonnull %.01420) #34
+  %22 = call i32 @atoi(ptr noundef nonnull %.01420) #34
   %23 = icmp eq i32 %22, 0
   br i1 %23, label %.loopexit, label %24
 

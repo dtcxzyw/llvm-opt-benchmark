@@ -146,7 +146,7 @@ define dso_local noundef signext i16 @_ZN13cmCursesColor8GetColorEcs(i8 noundef 
 
 41:                                               ; preds = %36, %28
   %.1 = phi ptr [ %32, %28 ], [ %40, %36 ]
-  %42 = call i32 @atoi(ptr nocapture noundef nonnull %4) #15
+  %42 = call i32 @atoi(ptr noundef nonnull %4) #15
   %.not34 = icmp ne i32 %42, 0
   %43 = load i32, ptr @COLORS, align 4
   %44 = icmp slt i32 %42, %43

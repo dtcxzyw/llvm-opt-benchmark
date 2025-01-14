@@ -305,7 +305,7 @@ define ptr @Gia_ManSatokoFromDimacs(ptr noundef %0, ptr nocapture readnone %1) l
   %19 = icmp eq i8 %18, 43
   %spec.select.idx = zext i1 %19 to i64
   %spec.select = getelementptr inbounds nuw i8, ptr %.4, i64 %spec.select.idx
-  %20 = tail call i32 @atoi(ptr nocapture noundef nonnull %spec.select) #16
+  %20 = tail call i32 @atoi(ptr noundef nonnull %spec.select) #16
   %21 = icmp eq i32 %20, 0
   br i1 %21, label %22, label %30
 

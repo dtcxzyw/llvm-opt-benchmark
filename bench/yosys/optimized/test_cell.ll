@@ -2725,7 +2725,7 @@ define internal void @_ZN12_GLOBAL__N_112TestCellPass7executeESt6vectorINSt7__cx
   %259 = sext i32 %250 to i64
   %260 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %.pre, i64 %259
   %261 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %260) #24
-  %262 = call i32 @atoi(ptr nocapture noundef %261) #26
+  %262 = call i32 @atoi(ptr noundef %261) #26
   br label %425
 
 263:                                              ; preds = %3
@@ -2771,7 +2771,7 @@ define internal void @_ZN12_GLOBAL__N_112TestCellPass7executeESt6vectorINSt7__cx
   %281 = sext i32 %272 to i64
   %282 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %.pre3852, i64 %281
   %283 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %282) #24
-  %284 = call i32 @atoi(ptr nocapture noundef %283) #26
+  %284 = call i32 @atoi(ptr noundef %283) #26
   store i32 %284, ptr @_ZN12_GLOBAL__N_116xorshift32_stateE, align 4
   br label %425
 

@@ -1417,7 +1417,7 @@ token.exit40.i:                                   ; preds = %431
 
 token.exit47.i:                                   ; preds = %452
   store i8 0, ptr %.0.i41.i, align 1
-  %469 = tail call i32 @atoi(ptr nocapture noundef nonnull %.0.i.i35.i) #21
+  %469 = tail call i32 @atoi(ptr noundef nonnull %.0.i.i35.i) #21
   br label %470
 
 470:                                              ; preds = %token.exit47.i, %token.exit40.i

@@ -1702,7 +1702,7 @@ _ZNK11StringPieceeqERKS_.exit.thread:             ; preds = %.preheader, %_ZNK11
 39:                                               ; preds = %36, %.thread.i
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
   %40 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %6) #32
-  %41 = call i32 @atoi(ptr nocapture noundef %40) #33
+  %41 = call i32 @atoi(ptr noundef %40) #33
   store i32 %41, ptr %0, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #32
   %42 = load ptr, ptr %5, align 8
@@ -1736,7 +1736,7 @@ _ZNK11StringPieceeqERKS_.exit.thread:             ; preds = %.preheader, %_ZNK11
 51:                                               ; preds = %48, %.thread.i22
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3)
   %52 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %7) #32
-  %53 = call i32 @atoi(ptr nocapture noundef %52) #33
+  %53 = call i32 @atoi(ptr noundef %52) #33
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %53, ptr %54, align 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #32
@@ -2475,7 +2475,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN12CGroupSubSys5parseERNSt7_
   %15 = tail call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %1, i64 noundef %12)
   store i8 0, ptr %15, align 1
   %16 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #32
-  %17 = tail call i32 @atoi(ptr nocapture noundef %16) #33
+  %17 = tail call i32 @atoi(ptr noundef %16) #33
   store i32 %17, ptr %0, align 8
   %18 = add nuw i64 %12, 1
   call void @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6substrEmm(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %4, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 noundef %18, i64 noundef -1)

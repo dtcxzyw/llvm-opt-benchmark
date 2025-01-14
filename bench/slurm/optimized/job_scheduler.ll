@@ -4660,7 +4660,7 @@ define dso_local range(i32 0, 2072) i32 @update_job_dependency(ptr noundef %0, p
   br i1 %or.cond.i, label %65, label %113
 
 65:                                               ; preds = %60
-  %66 = call i64 @atol(ptr nocapture noundef nonnull %.03858.i) #19
+  %66 = call i64 @atol(ptr noundef nonnull %.03858.i) #19
   %67 = trunc i64 %66 to i32
   %68 = add nsw i32 %.04057.i, 2
   %69 = sext i32 %68 to i64
@@ -9065,7 +9065,7 @@ define internal fastcc i32 @_schedule(i1 noundef zeroext %0) unnamed_addr #0 {
 
 42:                                               ; preds = %37
   %43 = getelementptr inbounds nuw i8, ptr %41, i64 18
-  %44 = tail call i32 @atoi(ptr nocapture noundef nonnull %43) #19
+  %44 = tail call i32 @atoi(ptr noundef nonnull %43) #19
   store i32 %44, ptr @batch_sched_delay, align 4
   %45 = icmp slt i32 %44, 0
   br i1 %45, label %46, label %48
@@ -9087,7 +9087,7 @@ define internal fastcc i32 @_schedule(i1 noundef zeroext %0) unnamed_addr #0 {
 
 51:                                               ; preds = %48
   %52 = getelementptr inbounds nuw i8, ptr %50, i64 19
-  %53 = tail call i32 @atoi(ptr nocapture noundef nonnull %52) #19
+  %53 = tail call i32 @atoi(ptr noundef nonnull %52) #19
   %54 = icmp sgt i32 %53, 0
   br i1 %54, label %55, label %56
 
@@ -9104,7 +9104,7 @@ define internal fastcc i32 @_schedule(i1 noundef zeroext %0) unnamed_addr #0 {
 
 59:                                               ; preds = %56
   %60 = getelementptr inbounds nuw i8, ptr %58, i64 19
-  %61 = tail call i32 @atoi(ptr nocapture noundef nonnull %60) #19
+  %61 = tail call i32 @atoi(ptr noundef nonnull %60) #19
   %62 = icmp sgt i32 %61, 0
   br i1 %62, label %63, label %64
 
@@ -9121,7 +9121,7 @@ define internal fastcc i32 @_schedule(i1 noundef zeroext %0) unnamed_addr #0 {
 
 67:                                               ; preds = %64
   %68 = getelementptr inbounds nuw i8, ptr %66, i64 20
-  %69 = tail call i64 @atoll(ptr nocapture noundef nonnull %68) #19
+  %69 = tail call i64 @atoll(ptr noundef nonnull %68) #19
   %70 = icmp sgt i64 %69, 0
   br i1 %70, label %71, label %73
 
@@ -9159,7 +9159,7 @@ define internal fastcc i32 @_schedule(i1 noundef zeroext %0) unnamed_addr #0 {
 
 85:                                               ; preds = %82
   %86 = getelementptr inbounds nuw i8, ptr %84, i64 20
-  %87 = tail call i32 @atoi(ptr nocapture noundef nonnull %86) #19
+  %87 = tail call i32 @atoi(ptr noundef nonnull %86) #19
   store i32 %87, ptr @build_queue_timeout, align 4
   %88 = icmp slt i32 %87, 100
   br i1 %88, label %89, label %91
@@ -9180,7 +9180,7 @@ define internal fastcc i32 @_schedule(i1 noundef zeroext %0) unnamed_addr #0 {
 
 94:                                               ; preds = %91
   %95 = getelementptr inbounds nuw i8, ptr %93, i64 26
-  %96 = tail call i32 @atoi(ptr nocapture noundef nonnull %95) #19
+  %96 = tail call i32 @atoi(ptr noundef nonnull %95) #19
   store i32 %96, ptr @correspond_after_task_cnt, align 4
   %97 = icmp slt i32 %96, 10
   br i1 %97, label %98, label %100
@@ -9201,7 +9201,7 @@ define internal fastcc i32 @_schedule(i1 noundef zeroext %0) unnamed_addr #0 {
 
 103:                                              ; preds = %100
   %104 = getelementptr inbounds nuw i8, ptr %102, i64 20
-  %105 = tail call i32 @atoi(ptr nocapture noundef nonnull %104) #19
+  %105 = tail call i32 @atoi(ptr noundef nonnull %104) #19
   store i32 %105, ptr @_schedule.def_job_limit, align 4
   %106 = icmp slt i32 %105, 0
   br i1 %106, label %107, label %109
@@ -9299,7 +9299,7 @@ define internal fastcc i32 @_schedule(i1 noundef zeroext %0) unnamed_addr #0 {
 
 144:                                              ; preds = %141
   %145 = getelementptr inbounds nuw i8, ptr %143, i64 20
-  %146 = tail call i32 @atoi(ptr nocapture noundef nonnull %145) #19
+  %146 = tail call i32 @atoi(ptr noundef nonnull %145) #19
   store i32 %146, ptr @_schedule.max_jobs_per_part, align 4
   %147 = icmp slt i32 %146, 0
   br i1 %147, label %148, label %150
@@ -9338,7 +9338,7 @@ define internal fastcc i32 @_schedule(i1 noundef zeroext %0) unnamed_addr #0 {
 
 162:                                              ; preds = %160, %155
   %.sink = phi ptr [ %161, %160 ], [ %156, %155 ]
-  %163 = tail call i32 @atoi(ptr nocapture noundef nonnull %.sink) #19
+  %163 = tail call i32 @atoi(ptr noundef nonnull %.sink) #19
   store i32 %163, ptr @_schedule.defer_rpc_cnt, align 4
   %164 = icmp slt i32 %163, 0
   br i1 %164, label %165, label %167
@@ -9362,7 +9362,7 @@ define internal fastcc i32 @_schedule(i1 noundef zeroext %0) unnamed_addr #0 {
   %172 = lshr i16 %168, 1
   %173 = zext nneg i16 %172 to i32
   %174 = getelementptr inbounds nuw i8, ptr %170, i64 15
-  %175 = tail call i32 @atoi(ptr nocapture noundef nonnull %174) #19
+  %175 = tail call i32 @atoi(ptr noundef nonnull %174) #19
   store i32 %175, ptr @_schedule.sched_timeout, align 4
   %176 = icmp slt i32 %175, 1
   %177 = icmp sgt i32 %175, %173
@@ -9387,7 +9387,7 @@ define internal fastcc i32 @_schedule(i1 noundef zeroext %0) unnamed_addr #0 {
 
 186:                                              ; preds = %183
   %187 = getelementptr inbounds nuw i8, ptr %185, i64 15
-  %188 = tail call i32 @atoi(ptr nocapture noundef nonnull %187) #19
+  %188 = tail call i32 @atoi(ptr noundef nonnull %187) #19
   store i32 %188, ptr @sched_interval, align 4
   %189 = icmp eq i32 %188, -1
   br i1 %189, label %190, label %194
@@ -9421,7 +9421,7 @@ define internal fastcc i32 @_schedule(i1 noundef zeroext %0) unnamed_addr #0 {
 
 201:                                              ; preds = %198
   %202 = getelementptr inbounds nuw i8, ptr %200, i64 19
-  %203 = tail call i32 @atoi(ptr nocapture noundef nonnull %202) #19
+  %203 = tail call i32 @atoi(ptr noundef nonnull %202) #19
   %204 = icmp slt i32 %203, 0
   br i1 %204, label %205, label %207
 
@@ -9445,7 +9445,7 @@ define internal fastcc i32 @_schedule(i1 noundef zeroext %0) unnamed_addr #0 {
 
 212:                                              ; preds = %209
   %213 = getelementptr inbounds nuw i8, ptr %211, i64 20
-  %214 = tail call i32 @atoi(ptr nocapture noundef nonnull %213) #19
+  %214 = tail call i32 @atoi(ptr noundef nonnull %213) #19
   store i32 %214, ptr @_schedule.sched_max_job_start, align 4
   %215 = icmp slt i32 %214, 0
   br i1 %215, label %216, label %218

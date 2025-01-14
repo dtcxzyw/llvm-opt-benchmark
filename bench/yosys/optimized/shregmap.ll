@@ -1314,7 +1314,7 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSa
 344:                                              ; preds = %336
   %345 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %.pre415, i64 %337
   %346 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %345) #24
-  %347 = call i32 @atoi(ptr nocapture noundef %346) #27
+  %347 = call i32 @atoi(ptr noundef %346) #27
   store i32 %347, ptr %4, align 8
   br label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit
 
@@ -1338,7 +1338,7 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSa
 360:                                              ; preds = %352
   %361 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %.pre416, i64 %353
   %362 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %361) #24
-  %363 = call i32 @atoi(ptr nocapture noundef %362) #27
+  %363 = call i32 @atoi(ptr noundef %362) #27
   store i32 %363, ptr %48, align 4
   br label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit
 
@@ -1362,7 +1362,7 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSa
 376:                                              ; preds = %368
   %377 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %.pre417, i64 %369
   %378 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %377) #24
-  %379 = call i32 @atoi(ptr nocapture noundef %378) #27
+  %379 = call i32 @atoi(ptr noundef %378) #27
   store i32 %379, ptr %61, align 8
   br label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit
 
@@ -1386,7 +1386,7 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSa
 392:                                              ; preds = %384
   %393 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %.pre418, i64 %385
   %394 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %393) #24
-  %395 = call i32 @atoi(ptr nocapture noundef %394) #27
+  %395 = call i32 @atoi(ptr noundef %394) #27
   store i32 %395, ptr %60, align 4
   br label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit
 

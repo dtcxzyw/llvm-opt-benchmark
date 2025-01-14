@@ -790,7 +790,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %while.body
-  %call5 = call i64 @atoll(ptr nocapture noundef nonnull %add.ptr) #27
+  %call5 = call i64 @atoll(ptr noundef nonnull %add.ptr) #27
   %add = add i64 %call5, %sum.05
   br label %if.end
 

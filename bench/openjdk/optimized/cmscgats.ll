@@ -1982,13 +1982,13 @@ WriteStr.exit66:                                  ; preds = %143, %146, %147, %1
   br label %177
 
 satoi.exit:                                       ; preds = %160
-  %165 = tail call i32 @atoi(ptr nocapture noundef nonnull readonly %159) #19
+  %165 = tail call i32 @atoi(ptr noundef nonnull readonly %159) #19
   %spec.select.i = tail call i32 @llvm.smax.i32(i32 %165, i32 -2147483646)
   tail call void (ptr, ptr, ...) @Writef(ptr noundef %1, ptr noundef nonnull @.str.91, i32 noundef %spec.select.i)
   br label %177
 
 166:                                              ; preds = %160
-  %167 = tail call i32 @atoi(ptr nocapture noundef nonnull readonly %159) #19
+  %167 = tail call i32 @atoi(ptr noundef nonnull readonly %159) #19
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @satob.buf, i64 32), align 16
   %.not.i68 = icmp eq i32 %167, 0
   br i1 %.not.i68, label %.thread.i, label %.lr.ph.i
@@ -2227,7 +2227,7 @@ cmsIT8GetProperty.exit:                           ; preds = %.lr.ph.split.i.i
   br i1 %72, label %.loopexit, label %satoi.exit
 
 satoi.exit:                                       ; preds = %cmsIT8GetProperty.exit
-  %73 = tail call i32 @atoi(ptr nocapture noundef nonnull readonly %71) #19
+  %73 = tail call i32 @atoi(ptr noundef nonnull readonly %71) #19
   %spec.select.i = tail call i32 @llvm.smax.i32(i32 %73, i32 -2147483646)
   %74 = getelementptr inbounds nuw i8, ptr %.0.i, i64 1024
   %75 = load i32, ptr %74, align 8
@@ -2510,7 +2510,7 @@ cmsIT8GetProperty.exit:                           ; preds = %.lr.ph.split.i.i
   br i1 %53, label %.loopexit, label %satoi.exit
 
 satoi.exit:                                       ; preds = %cmsIT8GetProperty.exit
-  %54 = tail call i32 @atoi(ptr nocapture noundef nonnull readonly %52) #19
+  %54 = tail call i32 @atoi(ptr noundef nonnull readonly %52) #19
   %spec.select.i = tail call i32 @llvm.smax.i32(i32 %54, i32 -2147483646)
   %55 = getelementptr inbounds nuw i8, ptr %.0.i, i64 1028
   %56 = load i32, ptr %55, align 4
@@ -5913,7 +5913,7 @@ satoi.exit.thread:                                ; preds = %28, %cmsIT8GetPrope
   br label %37
 
 satoi.exit:                                       ; preds = %cmsIT8GetProperty.exit
-  %34 = tail call i32 @atoi(ptr nocapture noundef nonnull readonly %31) #19
+  %34 = tail call i32 @atoi(ptr noundef nonnull readonly %31) #19
   %spec.select.i = tail call i32 @llvm.smax.i32(i32 %34, i32 -2147483646)
   %35 = getelementptr inbounds nuw i8, ptr %.0.i, i64 1024
   store i32 %spec.select.i, ptr %35, align 8
@@ -6073,7 +6073,7 @@ cmsIT8GetProperty.exit:                           ; preds = %.lr.ph.split.i.i
   br i1 %32, label %satoi.exit, label %33
 
 33:                                               ; preds = %cmsIT8GetProperty.exit
-  %34 = tail call i32 @atoi(ptr nocapture noundef nonnull readonly %31) #19
+  %34 = tail call i32 @atoi(ptr noundef nonnull readonly %31) #19
   %spec.select.i = tail call i32 @llvm.smax.i32(i32 %34, i32 -2147483646)
   br label %satoi.exit
 
@@ -6124,7 +6124,7 @@ cmsIT8GetProperty.exit34:                         ; preds = %.lr.ph.split.i.i28
   br i1 %54, label %satoi.exit37, label %55
 
 55:                                               ; preds = %cmsIT8GetProperty.exit34
-  %56 = tail call i32 @atoi(ptr nocapture noundef nonnull readonly %53) #19
+  %56 = tail call i32 @atoi(ptr noundef nonnull readonly %53) #19
   %spec.select.i35 = tail call i32 @llvm.smax.i32(i32 %56, i32 -2147483646)
   br label %satoi.exit37
 

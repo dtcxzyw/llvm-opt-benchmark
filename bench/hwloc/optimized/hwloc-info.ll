@@ -1019,7 +1019,7 @@ sub_1377:                                         ; preds = %sub_0376
 275:                                              ; preds = %271
   %276 = getelementptr inbounds nuw i8, ptr %.0212514, i64 8
   %277 = load ptr, ptr %276, align 8
-  %278 = call i32 @atoi(ptr nocapture noundef %277) #26
+  %278 = call i32 @atoi(ptr noundef %277) #26
   store i32 %278, ptr @pid_number, align 4
   store i32 1, ptr %18, align 4
   br label %304
@@ -1381,7 +1381,7 @@ hwloc_utils_disable_input_format.exit:            ; preds = %338, %331, %330
   br i1 %or.cond.i, label %hwloc_utils_parse_memattr_name.exit.thread, label %422
 
 422:                                              ; preds = %._crit_edge.i
-  %423 = call i32 @atoi(ptr nocapture noundef nonnull readonly %.0226.lcssa592) #26
+  %423 = call i32 @atoi(ptr noundef nonnull readonly %.0226.lcssa592) #26
   %424 = call i32 @hwloc_memattr_get_name(ptr noundef %411, i32 noundef %423, ptr noundef nonnull %14) #25
   %.inv.i = icmp sgt i32 %424, -1
   br i1 %.inv.i, label %hwloc_utils_parse_memattr_name.exit, label %hwloc_utils_parse_memattr_name.exit.thread
@@ -5180,7 +5180,7 @@ hwloc_obj_get_info_by_name.exit:                  ; preds = %23
   br i1 %.not42, label %hwloc_obj_get_info_by_name.exit.thread, label %29
 
 29:                                               ; preds = %hwloc_obj_get_info_by_name.exit
-  %30 = tail call i32 @atoi(ptr nocapture noundef nonnull %28) #26
+  %30 = tail call i32 @atoi(ptr noundef nonnull %28) #26
   %.not43 = icmp eq i32 %30, %15
   br i1 %.not43, label %31, label %hwloc_obj_get_info_by_name.exit.thread
 
@@ -5330,7 +5330,7 @@ define internal fastcc range(i32 -1, 1) i32 @hwloc_calc_parse_level(ptr nocaptur
 
 38:                                               ; preds = %35
   %39 = getelementptr inbounds nuw i8, ptr %34, i64 6
-  %40 = call i32 @atoi(ptr nocapture noundef nonnull %39) #26
+  %40 = call i32 @atoi(ptr noundef nonnull %39) #26
   store i32 %40, ptr %11, align 8
   br label %hwloc_calc_parse_level_filter.exit.thread
 

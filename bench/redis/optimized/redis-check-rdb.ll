@@ -342,7 +342,7 @@ if.then22:                                        ; preds = %if.end17
 
 if.end23:                                         ; preds = %if.end17
   %add.ptr = getelementptr inbounds nuw i8, ptr %buf, i64 5
-  %call25 = call i32 @atoi(ptr nocapture noundef nonnull %add.ptr) #17
+  %call25 = call i32 @atoi(ptr noundef nonnull %add.ptr) #17
   %8 = add i32 %call25, -13
   %or.cond = icmp ult i32 %8, -12
   br i1 %or.cond, label %if.then30, label %while.body

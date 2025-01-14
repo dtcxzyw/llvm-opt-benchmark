@@ -170,7 +170,7 @@ define internal void @init_once() #0 {
   br i1 %.not.i, label %.sink.split.i, label %6
 
 6:                                                ; preds = %4
-  %7 = tail call i32 @atoi(ptr nocapture noundef nonnull %5) #11
+  %7 = tail call i32 @atoi(ptr noundef nonnull %5) #11
   store i32 %7, ptr @nthreads, align 4
   %8 = icmp eq i32 %7, 0
   br i1 %8, label %.sink.split.sink.split.i, label %9

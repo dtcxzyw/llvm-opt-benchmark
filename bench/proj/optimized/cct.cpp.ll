@@ -1442,7 +1442,7 @@ _Z9opt_givenP7OPTARGSPKc.exit305:                 ; preds = %210
   br i1 %.not357, label %_Z9opt_givenP7OPTARGSPKc.exit305.thread, label %_Z7opt_argP7OPTARGSPKc.exit307
 
 _Z7opt_argP7OPTARGSPKc.exit307:                   ; preds = %219, %_Z9opt_givenP7OPTARGSPKc.exit305
-  %228 = call i32 @atoi(ptr nocapture noundef %214) #26
+  %228 = call i32 @atoi(ptr noundef %214) #26
   br label %_Z9opt_givenP7OPTARGSPKc.exit305.thread
 
 _Z9opt_givenP7OPTARGSPKc.exit305.thread:          ; preds = %219, %_Z9opt_givenP7OPTARGSPKc.exit300.thread, %_Z7opt_argP7OPTARGSPKc.exit307, %_Z9opt_givenP7OPTARGSPKc.exit305
@@ -1480,7 +1480,7 @@ _Z9opt_givenP7OPTARGSPKc.exit310:                 ; preds = %231
   br i1 %.not358, label %_Z9opt_givenP7OPTARGSPKc.exit310.thread, label %_Z7opt_argP7OPTARGSPKc.exit312
 
 _Z7opt_argP7OPTARGSPKc.exit312:                   ; preds = %240, %_Z9opt_givenP7OPTARGSPKc.exit310
-  %249 = call i32 @atoi(ptr nocapture noundef %235) #26
+  %249 = call i32 @atoi(ptr noundef %235) #26
   br label %_Z9opt_givenP7OPTARGSPKc.exit310.thread
 
 _Z9opt_givenP7OPTARGSPKc.exit310.thread:          ; preds = %240, %_Z9opt_givenP7OPTARGSPKc.exit305.thread, %_Z7opt_argP7OPTARGSPKc.exit312, %_Z9opt_givenP7OPTARGSPKc.exit310

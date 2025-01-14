@@ -94,7 +94,7 @@ define range(i32 -1, 1) i32 @cred_g_init() local_unnamed_addr #0 {
 
 4:                                                ; preds = %0
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 12
-  %6 = tail call i32 @atoi(ptr nocapture noundef nonnull %5) #11
+  %6 = tail call i32 @atoi(ptr noundef nonnull %5) #11
   store i32 %6, ptr @cred_expire, align 4
   %7 = icmp slt i32 %6, 5
   br i1 %7, label %8, label %10

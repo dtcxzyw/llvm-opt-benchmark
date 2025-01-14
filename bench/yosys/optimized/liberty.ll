@@ -502,7 +502,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE2atEm.e
 38:                                               ; preds = %35
   %39 = getelementptr inbounds nuw i8, ptr %22, i64 32
   %40 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %39) #24
-  %41 = call i32 @atoi(ptr nocapture noundef %40) #25
+  %41 = call i32 @atoi(ptr noundef %40) #25
   br label %42
 
 42:                                               ; preds = %38, %35
@@ -514,7 +514,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE2atEm.e
 45:                                               ; preds = %42
   %46 = getelementptr inbounds nuw i8, ptr %22, i64 32
   %47 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %46) #24
-  %48 = call i32 @atoi(ptr nocapture noundef %47) #25
+  %48 = call i32 @atoi(ptr noundef %47) #25
   br label %49
 
 49:                                               ; preds = %45, %42
@@ -526,7 +526,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE2atEm.e
 52:                                               ; preds = %49
   %53 = getelementptr inbounds nuw i8, ptr %22, i64 32
   %54 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %53) #24
-  %55 = call i32 @atoi(ptr nocapture noundef %54) #25
+  %55 = call i32 @atoi(ptr noundef %54) #25
   br label %56
 
 56:                                               ; preds = %52, %49

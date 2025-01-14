@@ -126,7 +126,7 @@ Vec_IntAlloc.exit:                                ; preds = %21, %22
 
 .lr.ph:                                           ; preds = %Vec_IntAlloc.exit, %Vec_IntPush.exit
   %.02645 = phi ptr [ %60, %Vec_IntPush.exit ], [ %28, %Vec_IntAlloc.exit ]
-  %29 = tail call i32 @atoi(ptr nocapture noundef nonnull %.02645) #26
+  %29 = tail call i32 @atoi(ptr noundef nonnull %.02645) #26
   %.not32 = icmp slt i32 %29, %3
   br i1 %.not32, label %32, label %30
 

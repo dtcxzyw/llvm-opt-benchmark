@@ -65,7 +65,7 @@ define void @ADIOI_GEN_ReadStrided(ptr noundef %0, ptr noundef %1, i32 noundef %
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %44 = load ptr, ptr %43, align 8
   %45 = call i32 @PMPI_Info_get(ptr noundef %44, ptr noundef nonnull @.str.1, i32 noundef 256, ptr noundef %42, ptr noundef nonnull %16) #5
-  %46 = call i32 @atoi(ptr nocapture noundef %42) #6
+  %46 = call i32 @atoi(ptr noundef %42) #6
   call void @ADIOI_Free_fn(ptr noundef %42, i32 noundef 117, ptr noundef nonnull @.str) #5
   %47 = load i32, ptr %14, align 4
   %48 = icmp eq i32 %47, 0

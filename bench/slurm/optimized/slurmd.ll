@@ -2458,7 +2458,7 @@ _read_config.exit:                                ; preds = %1010
   br i1 %.not42, label %1178, label %1171
 
 1171:                                             ; preds = %1169
-  %1172 = call i32 @atoi(ptr nocapture noundef nonnull %1170) #24
+  %1172 = call i32 @atoi(ptr noundef nonnull %1170) #24
   %1173 = call i32 @get_log_level() #20
   %1174 = icmp sgt i32 %1173, 4
   br i1 %1174, label %1175, label %1176
@@ -2584,7 +2584,7 @@ _read_config.exit:                                ; preds = %1010
   br i1 %.not.i60, label %1236, label %1226
 
 1226:                                             ; preds = %1224
-  %1227 = call i32 @atoi(ptr nocapture noundef nonnull %1225) #24
+  %1227 = call i32 @atoi(ptr noundef nonnull %1225) #24
   %1228 = load ptr, ptr @conf, align 8
   %1229 = getelementptr inbounds nuw i8, ptr %1228, i64 4380
   store i32 %1227, ptr %1229, align 4
@@ -2659,7 +2659,7 @@ _create_msg_socket.exit:                          ; preds = %1226, %1232, %1248,
   br i1 %.not.i61, label %_notify_parent_of_success.exit, label %1268
 
 1268:                                             ; preds = %1265
-  %1269 = call i32 @atoi(ptr nocapture noundef nonnull %1266) #24
+  %1269 = call i32 @atoi(ptr noundef nonnull %1266) #24
   %1270 = call i32 @get_log_level() #20
   %1271 = icmp sgt i32 %1270, 2
   br i1 %1271, label %1272, label %.lr.ph.split.us.i.preheader

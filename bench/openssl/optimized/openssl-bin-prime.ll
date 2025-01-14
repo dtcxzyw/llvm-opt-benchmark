@@ -111,7 +111,7 @@ sw.bb5:                                           ; preds = %while.cond
 
 sw.bb6:                                           ; preds = %while.cond
   %call7 = tail call ptr @opt_arg() #3
-  %call8 = tail call i32 @atoi(ptr nocapture noundef %call7) #4
+  %call8 = tail call i32 @atoi(ptr noundef %call7) #4
   br label %while.cond.outer91, !llvm.loop !5
 
 sw.bb9:                                           ; preds = %while.cond

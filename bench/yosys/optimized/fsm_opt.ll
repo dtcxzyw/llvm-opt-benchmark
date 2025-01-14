@@ -2013,7 +2013,7 @@ _ZNSt3setIiSt4lessIiESaIiEED2Ev.exit.i:           ; preds = %_ZNSt6vectorIN5Yosy
   br i1 %.not11.i.i, label %644, label %641
 
 641:                                              ; preds = %.lr.ph.i.i
-  %642 = call i32 @atoi(ptr nocapture noundef nonnull %.05.i.i) #23
+  %642 = call i32 @atoi(ptr noundef nonnull %.05.i.i) #23
   %643 = icmp eq i32 %580, %642
   br i1 %643, label %_ZNK5Yosys7hashlib4dictINS_5RTLIL8IdStringENS2_5ConstENS0_8hash_opsIS3_EEE5countERKS3_.exit.thread2.sink.split.i.i, label %644
 

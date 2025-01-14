@@ -451,7 +451,7 @@ define internal fastcc void @_load_config() unnamed_addr #0 {
 
 8:                                                ; preds = %0
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 9
-  %10 = tail call i32 @atoi(ptr nocapture noundef nonnull %9) #14
+  %10 = tail call i32 @atoi(ptr noundef nonnull %9) #14
   store i32 %10, ptr @builtin_interval, align 4
   br label %11
 
@@ -477,7 +477,7 @@ thread-pre-split:                                 ; preds = %0
 
 19:                                               ; preds = %16
   %20 = getelementptr inbounds nuw i8, ptr %18, i64 11
-  %21 = tail call i32 @atoi(ptr nocapture noundef nonnull %20) #14
+  %21 = tail call i32 @atoi(ptr noundef nonnull %20) #14
   store i32 %21, ptr @max_sched_job_cnt, align 4
   br label %22
 
@@ -489,7 +489,7 @@ thread-pre-split:                                 ; preds = %0
 
 25:                                               ; preds = %22
   %26 = getelementptr inbounds nuw i8, ptr %24, i64 16
-  %27 = tail call i32 @atoi(ptr nocapture noundef nonnull %26) #14
+  %27 = tail call i32 @atoi(ptr noundef nonnull %26) #14
   store i32 %27, ptr @max_sched_job_cnt, align 4
   br label %28
 

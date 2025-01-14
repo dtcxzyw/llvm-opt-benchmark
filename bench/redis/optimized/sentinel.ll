@@ -4098,7 +4098,7 @@ entry:
 if.then:                                          ; preds = %entry
   %arrayidx1 = getelementptr inbounds nuw i8, ptr %argv, i64 32
   %1 = load ptr, ptr %arrayidx1, align 8
-  %call2 = tail call i32 @atoi(ptr nocapture noundef %1) #33
+  %call2 = tail call i32 @atoi(ptr noundef %1) #33
   %cmp3 = icmp slt i32 %call2, 1
   br i1 %cmp3, label %return, label %if.end
 
@@ -4109,7 +4109,7 @@ if.end:                                           ; preds = %if.then
   %3 = load ptr, ptr %arrayidx6, align 8
   %arrayidx7 = getelementptr inbounds nuw i8, ptr %argv, i64 24
   %4 = load ptr, ptr %arrayidx7, align 8
-  %call8 = tail call i32 @atoi(ptr nocapture noundef %4) #33
+  %call8 = tail call i32 @atoi(ptr noundef %4) #33
   %call9 = tail call ptr @createSentinelRedisInstance(ptr noundef %2, i32 noundef 1, ptr noundef %3, i32 noundef %call8, i32 noundef %call2, ptr noundef null)
   %cmp10 = icmp eq ptr %call9, null
   br i1 %cmp10, label %if.then11, label %if.end428
@@ -4152,7 +4152,7 @@ if.then19:                                        ; preds = %if.else
 if.end24:                                         ; preds = %if.then19
   %arrayidx25 = getelementptr inbounds nuw i8, ptr %argv, i64 16
   %8 = load ptr, ptr %arrayidx25, align 8
-  %call26 = tail call i32 @atoi(ptr nocapture noundef %8) #33
+  %call26 = tail call i32 @atoi(ptr noundef %8) #33
   %conv = sext i32 %call26 to i64
   %down_after_period = getelementptr inbounds nuw i8, ptr %call1.i, i64 88
   store i64 %conv, ptr %down_after_period, align 8
@@ -4221,7 +4221,7 @@ if.then39:                                        ; preds = %if.else32
 if.end44:                                         ; preds = %if.then39
   %arrayidx45 = getelementptr inbounds nuw i8, ptr %argv, i64 16
   %16 = load ptr, ptr %arrayidx45, align 8
-  %call46 = tail call i32 @atoi(ptr nocapture noundef %16) #33
+  %call46 = tail call i32 @atoi(ptr noundef %16) #33
   %conv47 = sext i32 %call46 to i64
   %failover_timeout = getelementptr inbounds nuw i8, ptr %call1.i175, i64 296
   store i64 %conv47, ptr %failover_timeout, align 8
@@ -4247,7 +4247,7 @@ if.then60:                                        ; preds = %if.else53
 if.end65:                                         ; preds = %if.then60
   %arrayidx66 = getelementptr inbounds nuw i8, ptr %argv, i64 16
   %19 = load ptr, ptr %arrayidx66, align 8
-  %call67 = tail call i32 @atoi(ptr nocapture noundef %19) #33
+  %call67 = tail call i32 @atoi(ptr noundef %19) #33
   %parallel_syncs = getelementptr inbounds nuw i8, ptr %call1.i177, i64 172
   store i32 %call67, ptr %parallel_syncs, align 4
   br label %if.end428
@@ -4463,7 +4463,7 @@ if.end220:                                        ; preds = %if.then215
   %40 = load ptr, ptr %arrayidx221, align 8
   %arrayidx222 = getelementptr inbounds nuw i8, ptr %argv, i64 24
   %41 = load ptr, ptr %arrayidx222, align 8
-  %call223 = tail call i32 @atoi(ptr nocapture noundef %41) #33
+  %call223 = tail call i32 @atoi(ptr noundef %41) #33
   %quorum224 = getelementptr inbounds nuw i8, ptr %call217, i64 168
   %42 = load i32, ptr %quorum224, align 8
   %call225 = tail call ptr @createSentinelRedisInstance(ptr noundef null, i32 noundef 2, ptr noundef %40, i32 noundef %call223, i32 noundef %42, ptr noundef nonnull %call217)
@@ -4513,7 +4513,7 @@ if.end249:                                        ; preds = %if.then244
   %47 = load ptr, ptr %arrayidx251, align 8
   %arrayidx252 = getelementptr inbounds nuw i8, ptr %argv, i64 24
   %48 = load ptr, ptr %arrayidx252, align 8
-  %call253 = tail call i32 @atoi(ptr nocapture noundef %48) #33
+  %call253 = tail call i32 @atoi(ptr noundef %48) #33
   %quorum254 = getelementptr inbounds nuw i8, ptr %call246, i64 168
   %49 = load i32, ptr %quorum254, align 8
   %call255 = tail call ptr @createSentinelRedisInstance(ptr noundef %46, i32 noundef 4, ptr noundef %47, i32 noundef %call253, i32 noundef %49, ptr noundef nonnull %call246)
@@ -4605,7 +4605,7 @@ if.else302:                                       ; preds = %if.else287
 if.then309:                                       ; preds = %if.else302
   %arrayidx310 = getelementptr inbounds nuw i8, ptr %argv, i64 8
   %57 = load ptr, ptr %arrayidx310, align 8
-  %call311 = tail call i32 @atoi(ptr nocapture noundef %57) #33
+  %call311 = tail call i32 @atoi(ptr noundef %57) #33
   store i32 %call311, ptr getelementptr inbounds nuw (i8, ptr @sentinel, i64 104), align 8
   br label %if.end428
 
@@ -4703,7 +4703,7 @@ if.then391:                                       ; preds = %if.else384
 if.end396:                                        ; preds = %if.then391
   %arrayidx397 = getelementptr inbounds nuw i8, ptr %argv, i64 16
   %64 = load ptr, ptr %arrayidx397, align 8
-  %call398 = tail call i32 @atoi(ptr nocapture noundef %64) #33
+  %call398 = tail call i32 @atoi(ptr noundef %64) #33
   %conv399 = sext i32 %call398 to i64
   %master_reboot_down_after_period = getelementptr inbounds nuw i8, ptr %call393, i64 96
   store i64 %conv399, ptr %master_reboot_down_after_period, align 8
@@ -6105,13 +6105,13 @@ if.end84.sink.split:                              ; preds = %if.end79, %if.end59
 if.end84:                                         ; preds = %if.end84.sink.split, %if.end79
   %port.0 = phi ptr [ %add.ptr75, %if.end79 ], [ %port.0.ph, %if.end84.sink.split ]
   %ip.0 = phi ptr [ %add.ptr70, %if.end79 ], [ %ip.0.ph, %if.end84.sink.split ]
-  %call85 = call i32 @atoi(ptr nocapture noundef nonnull %port.0) #33
+  %call85 = call i32 @atoi(ptr noundef nonnull %port.0) #33
   %call86 = call ptr @sentinelRedisInstanceLookupSlave(ptr noundef nonnull %ri, ptr noundef nonnull %ip.0, i32 noundef %call85)
   %cmp87 = icmp eq ptr %call86, null
   br i1 %cmp87, label %if.then89, label %if.end98
 
 if.then89:                                        ; preds = %if.end84
-  %call90 = call i32 @atoi(ptr nocapture noundef nonnull %port.0) #33
+  %call90 = call i32 @atoi(ptr noundef nonnull %port.0) #33
   %23 = load i32, ptr %quorum, align 8
   %call91 = call ptr @createSentinelRedisInstance(ptr noundef null, i32 noundef 2, ptr noundef nonnull %ip.0, i32 noundef %call90, i32 noundef %23, ptr noundef nonnull %ri)
   %cmp92.not = icmp eq ptr %call91, null
@@ -6424,7 +6424,7 @@ land.lhs.true154:                                 ; preds = %sdslen.exit290
 
 if.then157:                                       ; preds = %land.lhs.true154
   %add.ptr158 = getelementptr inbounds nuw i8, ptr %2, i64 12
-  %call159 = call i32 @atoi(ptr nocapture noundef nonnull %add.ptr158) #33
+  %call159 = call i32 @atoi(ptr noundef nonnull %add.ptr158) #33
   %52 = load i32, ptr %slave_master_port160, align 8
   %cmp161.not = icmp eq i32 %52, %call159
   br i1 %cmp161.not, label %if.end168, label %if.then163
@@ -6547,7 +6547,7 @@ land.lhs.true184:                                 ; preds = %sdslen.exit328
 
 if.then187:                                       ; preds = %land.lhs.true184
   %add.ptr188 = getelementptr inbounds nuw i8, ptr %2, i64 15
-  %call189 = call i32 @atoi(ptr nocapture noundef nonnull %add.ptr188) #33
+  %call189 = call i32 @atoi(ptr noundef nonnull %add.ptr188) #33
   store i32 %call189, ptr %slave_priority, align 8
   %.pre479 = load i8, ptr %arrayidx.i, align 1
   %.pre486 = zext i8 %.pre479 to i32
@@ -6661,7 +6661,7 @@ land.lhs.true204:                                 ; preds = %sdslen.exit366
 
 if.then207:                                       ; preds = %land.lhs.true204
   %add.ptr208 = getelementptr inbounds nuw i8, ptr %2, i64 18
-  %call209 = call i32 @atoi(ptr nocapture noundef nonnull %add.ptr208) #33
+  %call209 = call i32 @atoi(ptr noundef nonnull %add.ptr208) #33
   store i32 %call209, ptr %replica_announced, align 4
   br label %for.inc
 
@@ -7565,10 +7565,10 @@ if.then:                                          ; preds = %entry
 if.end:                                           ; preds = %if.then
   %arrayidx4 = getelementptr inbounds nuw i8, ptr %call, i64 8
   %3 = load ptr, ptr %arrayidx4, align 8
-  %call5 = call i32 @atoi(ptr nocapture noundef %3) #33
+  %call5 = call i32 @atoi(ptr noundef %3) #33
   %arrayidx6 = getelementptr inbounds nuw i8, ptr %call, i64 48
   %4 = load ptr, ptr %arrayidx6, align 8
-  %call7 = call i32 @atoi(ptr nocapture noundef %4) #33
+  %call7 = call i32 @atoi(ptr noundef %4) #33
   %sentinels = getelementptr inbounds nuw i8, ptr %call1.i, i64 152
   %5 = load ptr, ptr %sentinels, align 8
   %6 = load ptr, ptr %call, align 8

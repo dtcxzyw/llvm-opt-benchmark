@@ -9139,7 +9139,7 @@ if.end109:                                        ; preds = %if.else102, %if.the
 if.then117:                                       ; preds = %if.end109
   %buf = getelementptr inbounds nuw i8, ptr %sb_rev_list, i64 16
   %24 = load ptr, ptr %buf, align 8
-  %call118 = call i32 @atoi(ptr nocapture noundef %24) #21
+  %call118 = call i32 @atoi(ptr noundef %24) #21
   br label %if.end119
 
 if.end119:                                        ; preds = %if.then117, %if.end109

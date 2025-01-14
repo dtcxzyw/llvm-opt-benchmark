@@ -353,7 +353,7 @@ define hidden noundef i32 @main(i32 noundef %0, ptr nocapture noundef readonly %
 _ZNSt6vectorIN2cv3MatESaIS1_EE9push_backEOS1_.exit.i: ; preds = %149, %146
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %14) #21
   %150 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %12) #21
-  %151 = call i32 @atoi(ptr nocapture noundef %150) #23
+  %151 = call i32 @atoi(ptr noundef %150) #23
   %152 = load ptr, ptr %122, align 8
   %153 = load ptr, ptr %123, align 8
   %.not.i.i12.i = icmp eq ptr %152, %153

@@ -4433,7 +4433,7 @@ define dso_local ptr @sacctmgr_process_format_list(ptr noundef %0) local_unnamed
 
 7:                                                ; preds = %.lr.ph
   %8 = getelementptr inbounds nuw i8, ptr %strchr.i, i64 1
-  %9 = tail call i32 @atoi(ptr nocapture noundef nonnull %8) #19
+  %9 = tail call i32 @atoi(ptr noundef nonnull %8) #19
   store i8 0, ptr %strchr.i, align 1
   br label %10
 

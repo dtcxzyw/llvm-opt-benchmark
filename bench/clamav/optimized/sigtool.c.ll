@@ -6766,7 +6766,7 @@ sub_084.i:                                        ; preds = %182
   br label %decodecdb.exit
 
 192:                                              ; preds = %182
-  %193 = call i32 @atoi(ptr nocapture noundef %186) #31
+  %193 = call i32 @atoi(ptr noundef %186) #31
   %.not59.i = icmp eq i32 %193, 0
   %194 = select i1 %.not59.i, ptr @.str.463, ptr @.str.462
   call void (i32, ptr, ...) @mprintf(i32 noundef 0, ptr noundef nonnull @.str.108, ptr noundef nonnull %194) #25
@@ -6964,7 +6964,7 @@ decodecdb.exit:                                   ; preds = %120, %124, %149, %1
 271:                                              ; preds = %266
   call void (i32, ptr, ...) @mprintf(i32 noundef 0, ptr noundef nonnull @.str.360) #25
   %272 = load ptr, ptr %267, align 8
-  %273 = call i32 @atoi(ptr nocapture noundef %272) #31
+  %273 = call i32 @atoi(ptr noundef %272) #31
   %274 = icmp ult i32 %273, 13
   br i1 %274, label %switch.lookup, label %275
 
@@ -7420,7 +7420,7 @@ define internal fastcc void @decodehex(ptr noundef %0) unnamed_addr #0 {
   br i1 %.not229, label %.loopexit250, label %118
 
 118:                                              ; preds = %116
-  %119 = tail call i32 @atoi(ptr nocapture noundef %.1) #31
+  %119 = tail call i32 @atoi(ptr noundef %.1) #31
   %120 = icmp slt i32 %119, 0
   br i1 %120, label %.loopexit250, label %139
 
@@ -7435,7 +7435,7 @@ define internal fastcc void @decodehex(ptr noundef %0) unnamed_addr #0 {
   br i1 %.not231, label %.loopexit250.sink.split, label %125
 
 125:                                              ; preds = %123
-  %126 = tail call i32 @atoi(ptr nocapture noundef nonnull %122) #31
+  %126 = tail call i32 @atoi(ptr noundef nonnull %122) #31
   %127 = icmp slt i32 %126, 0
   br i1 %127, label %.loopexit250.sink.split, label %128
 
@@ -7455,7 +7455,7 @@ define internal fastcc void @decodehex(ptr noundef %0) unnamed_addr #0 {
   br i1 %.not233, label %.loopexit250.sink.split, label %133
 
 133:                                              ; preds = %131
-  %134 = tail call i32 @atoi(ptr nocapture noundef nonnull %130) #31
+  %134 = tail call i32 @atoi(ptr noundef nonnull %130) #31
   %135 = icmp slt i32 %134, 0
   br i1 %135, label %.loopexit250.sink.split, label %136
 

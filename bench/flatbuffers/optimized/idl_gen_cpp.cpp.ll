@@ -65768,7 +65768,7 @@ invoke.cont4:                                     ; preds = %cond.false.i, %_ZNK
 cond.end:                                         ; preds = %invoke.cont4
   %constant = getelementptr inbounds nuw i8, ptr %cond.i, i64 32
   %call5 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %constant) #23
-  %call6 = call i32 @atoi(ptr nocapture noundef %call5) #26
+  %call6 = call i32 @atoi(ptr noundef %call5) #26
   %cmp = icmp sgt i32 %call6, 1
   br i1 %cmp, label %if.then, label %if.end
 

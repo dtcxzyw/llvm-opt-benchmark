@@ -85,7 +85,7 @@ define dso_local i64 @pg_regerror(i32 noundef %0, ptr nocapture noundef readnone
   br label %41
 
 16:                                               ; preds = %4
-  %17 = tail call i32 @atoi(ptr nocapture noundef %2) #6
+  %17 = tail call i32 @atoi(ptr noundef %2) #6
   br label %18
 
 18:                                               ; preds = %18, %16

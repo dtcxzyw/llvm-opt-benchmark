@@ -386,7 +386,7 @@ define dso_local ptr @stepd_step_rec_create(ptr noundef %0, i16 noundef zeroext 
   %230 = getelementptr inbounds nuw ptr, ptr %229, i64 %indvars.iv279
   %231 = load ptr, ptr %230, align 8
   %232 = getelementptr inbounds nuw i8, ptr %231, i64 19
-  %233 = tail call i32 @atoi(ptr nocapture noundef nonnull %232) #12
+  %233 = tail call i32 @atoi(ptr noundef nonnull %232) #12
   store i32 %233, ptr %144, align 4
   br label %234
 
@@ -403,7 +403,7 @@ define dso_local ptr @stepd_step_rec_create(ptr noundef %0, i16 noundef zeroext 
   %241 = getelementptr inbounds nuw ptr, ptr %240, i64 %indvars.iv279
   %242 = load ptr, ptr %241, align 8
   %243 = getelementptr inbounds nuw i8, ptr %242, i64 20
-  %244 = tail call i32 @atoi(ptr nocapture noundef nonnull %243) #12
+  %244 = tail call i32 @atoi(ptr noundef nonnull %243) #12
   store i32 %244, ptr %145, align 8
   br label %245
 

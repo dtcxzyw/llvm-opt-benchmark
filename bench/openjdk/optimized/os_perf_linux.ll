@@ -743,7 +743,7 @@ define hidden noundef zeroext i1 @_ZNK22SystemProcessInterface15SystemProcesses1
   %4 = alloca %struct.stat, align 8
   %5 = alloca [4096 x i8], align 16
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 19
-  %7 = tail call i32 @atoi(ptr nocapture noundef nonnull %6) #19
+  %7 = tail call i32 @atoi(ptr noundef nonnull %6) #19
   %.not = icmp eq i32 %7, 0
   br i1 %.not, label %21, label %8
 
@@ -969,7 +969,7 @@ define hidden noundef range(i32 -1, 1) i32 @_ZN22SystemProcessInterface15SystemP
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 19
-  %11 = tail call i32 @atoi(ptr nocapture noundef nonnull %10) #19
+  %11 = tail call i32 @atoi(ptr noundef nonnull %10) #19
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 %11, ptr %12, align 8
   tail call void @_ZN22SystemProcessInterface15SystemProcesses15ProcessIterator12get_exe_nameEv(ptr noundef nonnull align 8 dereferenceable(8209) %0)
@@ -1039,7 +1039,7 @@ define hidden noundef range(i32 -1, 1) i32 @_ZN22SystemProcessInterface15SystemP
   %15 = phi ptr [ %9, %.lr.ph ], [ %30, %.backedge ]
   call void @llvm.lifetime.start.p0(i64 4096, ptr nonnull %4)
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 19
-  %17 = call i32 @atoi(ptr nocapture noundef nonnull %16) #19
+  %17 = call i32 @atoi(ptr noundef nonnull %16) #19
   %.not.i = icmp eq i32 %17, 0
   br i1 %.not.i, label %_ZNK22SystemProcessInterface15SystemProcesses15ProcessIterator14is_valid_entryEP6dirent.exit, label %18
 

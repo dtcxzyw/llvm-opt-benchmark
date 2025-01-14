@@ -128,7 +128,7 @@ define dso_local i32 @srun(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0
   br i1 %.not.i, label %28, label %22
 
 22:                                               ; preds = %2
-  %23 = tail call i32 @atoi(ptr nocapture noundef nonnull %21) #16
+  %23 = tail call i32 @atoi(ptr noundef nonnull %21) #16
   %24 = icmp eq i32 %23, 0
   br i1 %24, label %25, label %27
 
@@ -146,7 +146,7 @@ define dso_local i32 @srun(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0
   br i1 %.not8.i, label %_set_exit_code.exit, label %30
 
 30:                                               ; preds = %28
-  %31 = tail call i32 @atoi(ptr nocapture noundef nonnull %29) #16
+  %31 = tail call i32 @atoi(ptr noundef nonnull %29) #16
   %32 = icmp eq i32 %31, 0
   br i1 %32, label %33, label %35
 
@@ -2057,7 +2057,7 @@ _uint16_array_to_str.exit:                        ; preds = %206, %._crit_edge.l
   unreachable
 
 286:                                              ; preds = %278
-  %287 = call i32 @atoi(ptr nocapture noundef nonnull %275) #16
+  %287 = call i32 @atoi(ptr noundef nonnull %275) #16
   br label %288
 
 288:                                              ; preds = %286, %276

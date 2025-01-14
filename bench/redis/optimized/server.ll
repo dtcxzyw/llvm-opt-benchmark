@@ -6398,7 +6398,7 @@ do.end:                                           ; preds = %do.body, %if.end19
   br i1 %cmp22.not, label %return, label %return.sink.split
 
 if.end27:                                         ; preds = %lor.lhs.false
-  %call29 = call i32 @atoi(ptr nocapture noundef nonnull %buf) #41
+  %call29 = call i32 @atoi(ptr noundef nonnull %buf) #41
   store i32 %call29, ptr @setOOMScoreAdj.oom_score_adj_base, align 4
   %call30 = tail call i32 @close(i32 noundef %call) #40
   %.pre = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 4868), align 4
@@ -6615,7 +6615,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp.not, label %if.end12, label %if.then2
 
 if.then2:                                         ; preds = %if.end
-  %call4 = call i32 @atoi(ptr nocapture noundef nonnull %buf) #41
+  %call4 = call i32 @atoi(ptr noundef nonnull %buf) #41
   %cmp5 = icmp sgt i32 %call4, 0
   br i1 %cmp5, label %land.lhs.true, label %if.end12
 
@@ -16202,7 +16202,7 @@ define dso_local void @version() local_unnamed_addr #10 {
 entry:
   %call = tail call ptr @redisGitSHA1() #40
   %call1 = tail call ptr @redisGitDirty() #40
-  %call2 = tail call i32 @atoi(ptr nocapture noundef %call1) #41
+  %call2 = tail call i32 @atoi(ptr noundef %call1) #41
   %cmp = icmp sgt i32 %call2, 0
   %conv = zext i1 %cmp to i32
   %call3 = tail call i64 @redisBuildId() #40
@@ -17737,7 +17737,7 @@ lor.lhs.false:                                    ; preds = %sub_1, %if.then54, 
 if.then64:                                        ; preds = %lor.lhs.false, %if.then54.tail
   %call.i104 = call ptr @redisGitSHA1() #40
   %call1.i = call ptr @redisGitDirty() #40
-  %call2.i105 = call i32 @atoi(ptr nocapture noundef %call1.i) #41
+  %call2.i105 = call i32 @atoi(ptr noundef %call1.i) #41
   %cmp.i = icmp sgt i32 %call2.i105, 0
   %conv.i = zext i1 %cmp.i to i32
   %call3.i = call i64 @redisBuildId() #40
@@ -17781,7 +17781,7 @@ if.then81:                                        ; preds = %if.end76
 if.then84:                                        ; preds = %if.then81
   %arrayidx85 = getelementptr inbounds nuw i8, ptr %argv, i64 16
   %21 = load ptr, ptr %arrayidx85, align 8
-  %call86 = call i32 @atoi(ptr nocapture noundef %21) #41
+  %call86 = call i32 @atoi(ptr noundef %21) #41
   %conv87 = sext i32 %call86 to i64
   call void @memtest(i64 noundef %conv87, i32 noundef 50) #40
   call void @exit(i32 noundef 0) #42
@@ -18153,7 +18153,7 @@ if.end.i:                                         ; preds = %if.end323
   br i1 %cmp.not.i113, label %if.end12.i, label %if.then2.i
 
 if.then2.i:                                       ; preds = %if.end.i
-  %call4.i114 = call i32 @atoi(ptr nocapture noundef nonnull %buf.i) #41
+  %call4.i114 = call i32 @atoi(ptr noundef nonnull %buf.i) #41
   %cmp5.i = icmp sgt i32 %call4.i114, 0
   br i1 %cmp5.i, label %land.lhs.true.i, label %if.end12.i
 

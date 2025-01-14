@@ -247,7 +247,7 @@ entry:
   %sin6_addr = getelementptr inbounds nuw i8, ptr %addr, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %sin6_addr, ptr noundef nonnull align 4 dereferenceable(16) @in6addr_any, i64 16, i1 false)
   %call = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %port) #13
-  %call1 = tail call i32 @atoi(ptr nocapture noundef %call) #16
+  %call1 = tail call i32 @atoi(ptr noundef %call) #16
   %conv = trunc i32 %call1 to i16
   %call2 = tail call zeroext i16 @htons(i16 noundef zeroext %conv) #15
   %sin6_port = getelementptr inbounds nuw i8, ptr %addr, i64 2

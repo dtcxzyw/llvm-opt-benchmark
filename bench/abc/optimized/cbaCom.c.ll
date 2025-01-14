@@ -3304,7 +3304,7 @@ define internal range(i32 0, 2) i32 @Cba_CommandPs(ptr nocapture noundef readonl
   %11 = sext i32 %8 to i64
   %12 = getelementptr inbounds ptr, ptr %2, i64 %11
   %13 = load ptr, ptr %12, align 8
-  %14 = tail call i32 @atoi(ptr nocapture noundef %13) #19
+  %14 = tail call i32 @atoi(ptr noundef %13) #19
   %15 = add nsw i32 %8, 1
   store i32 %15, ptr @globalUtilOptind, align 4
   %16 = icmp slt i32 %14, 0

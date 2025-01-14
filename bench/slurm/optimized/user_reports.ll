@@ -414,7 +414,7 @@ _set_cond.exit:                                   ; preds = %19, %151
 
 176:                                              ; preds = %.lr.ph.i58
   %177 = getelementptr inbounds nuw i8, ptr %strchr.i, i64 1
-  %178 = call i32 @atoi(ptr nocapture noundef nonnull %177) #11
+  %178 = call i32 @atoi(ptr noundef nonnull %177) #11
   store i8 0, ptr %strchr.i, align 1
   br label %179
 

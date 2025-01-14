@@ -3064,7 +3064,7 @@ if.then562:                                       ; preds = %land.lhs.true559
 
 if.end563:                                        ; preds = %land.lhs.true559, %sw.bb556
   %394 = load ptr, ptr %optarg, align 8
-  %call564 = call i32 @atoi(ptr nocapture noundef %394) #23
+  %call564 = call i32 @atoi(ptr noundef %394) #23
   store i32 %call564, ptr @xen_domid, align 4
   br label %if.end651
 

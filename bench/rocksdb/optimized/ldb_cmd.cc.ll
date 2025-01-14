@@ -29046,7 +29046,7 @@ invoke.cont80:                                    ; preds = %invoke.cont75
 
 invoke.cont91:                                    ; preds = %invoke.cont80
   %call93 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %property) #30
-  %call94 = call i32 @atoi(ptr nocapture noundef %call93) #34
+  %call94 = call i32 @atoi(ptr noundef %call93) #34
   %cmp96 = icmp ne i32 %call94, 1
   %or.cond = select i1 %tobool86.not, i1 %cmp96, i1 false
   br i1 %or.cond, label %if.then97, label %if.end113

@@ -117,13 +117,13 @@ if.end:                                           ; preds = %land.lhs.true.tail
   br i1 %cmp4.not, label %if.then9, label %if.end8
 
 if.end8.thread265:                                ; preds = %land.lhs.true.tail, %land.lhs.true, %sub_1
-  %call7267 = tail call i32 @atoi(ptr nocapture noundef nonnull %0) #13
+  %call7267 = tail call i32 @atoi(ptr noundef nonnull %0) #13
   br label %if.end10.sink.split
 
 if.end8:                                          ; preds = %if.end
   %incdec.ptr2 = getelementptr inbounds nuw i8, ptr %argv, i64 16
   %.pre = load ptr, ptr %incdec.ptr2, align 8
-  %call7 = tail call i32 @atoi(ptr nocapture noundef %.pre) #13
+  %call7 = tail call i32 @atoi(ptr noundef %.pre) #13
   br label %if.then9
 
 if.then9:                                         ; preds = %if.end, %if.end8

@@ -3881,7 +3881,7 @@ parse_opts.exit:                                  ; preds = %153, %._crit_edge.i
   br i1 %269, label %270, label %.critedge
 
 270:                                              ; preds = %267
-  %271 = call i32 @atoi(ptr nocapture noundef nonnull %.0354) #19
+  %271 = call i32 @atoi(ptr noundef nonnull %.0354) #19
   %272 = load ptr, ptr %1, align 8
   %273 = sext i32 %271 to i64
   %274 = call ptr @zend_hash_index_find(ptr noundef %272, i64 noundef %273) #18

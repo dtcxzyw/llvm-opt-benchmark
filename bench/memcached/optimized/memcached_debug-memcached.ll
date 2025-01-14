@@ -7192,13 +7192,13 @@ sw.bb16:                                          ; preds = %while.cond
 
 sw.bb18:                                          ; preds = %while.cond
   %10 = load ptr, ptr @optarg, align 8
-  %call19 = call i32 @atoi(ptr nocapture noundef %10) #43
+  %call19 = call i32 @atoi(ptr noundef %10) #43
   store i32 %call19, ptr getelementptr inbounds nuw (i8, ptr @settings, i64 16), align 8
   br label %while.cond.backedge
 
 sw.bb20:                                          ; preds = %while.cond
   %11 = load ptr, ptr @optarg, align 8
-  %call21 = call i32 @atoi(ptr nocapture noundef %11) #43
+  %call21 = call i32 @atoi(ptr noundef %11) #43
   store i32 %call21, ptr getelementptr inbounds nuw (i8, ptr @settings, i64 12), align 4
   br label %while.cond.backedge
 
@@ -7209,7 +7209,7 @@ sw.bb22:                                          ; preds = %while.cond
 
 sw.bb23:                                          ; preds = %while.cond
   %13 = load ptr, ptr @optarg, align 8
-  %call24 = call i32 @atoi(ptr nocapture noundef %13) #43
+  %call24 = call i32 @atoi(ptr noundef %13) #43
   %conv25 = sext i32 %call24 to i64
   %mul26 = shl nsw i64 %conv25, 20
   store i64 %mul26, ptr @settings, align 8
@@ -7221,7 +7221,7 @@ sw.bb27:                                          ; preds = %while.cond
 
 sw.bb28:                                          ; preds = %while.cond
   %14 = load ptr, ptr @optarg, align 8
-  %call29 = call i32 @atoi(ptr nocapture noundef %14) #43
+  %call29 = call i32 @atoi(ptr noundef %14) #43
   store i32 %call29, ptr getelementptr inbounds nuw (i8, ptr @settings, i64 8), align 8
   %cmp30 = icmp slt i32 %call29, 1
   br i1 %cmp30, label %if.then32, label %while.cond.backedge
@@ -7297,7 +7297,7 @@ sw.bb63:                                          ; preds = %while.cond
 
 sw.bb64:                                          ; preds = %while.cond
   %23 = load ptr, ptr @optarg, align 8
-  %call65 = call i32 @atoi(ptr nocapture noundef %23) #43
+  %call65 = call i32 @atoi(ptr noundef %23) #43
   store i32 %call65, ptr getelementptr inbounds nuw (i8, ptr @settings, i64 108), align 4
   %cmp66 = icmp eq i32 %call65, 0
   br i1 %cmp66, label %if.then68, label %while.cond.backedge
@@ -7339,7 +7339,7 @@ if.end80:                                         ; preds = %sw.bb74
 
 sw.bb83:                                          ; preds = %while.cond
   %32 = load ptr, ptr @optarg, align 8
-  %call84 = call i32 @atoi(ptr nocapture noundef %32) #43
+  %call84 = call i32 @atoi(ptr noundef %32) #43
   store i32 %call84, ptr getelementptr inbounds nuw (i8, ptr @settings, i64 88), align 8
   %cmp85 = icmp eq i32 %call84, 0
   br i1 %cmp85, label %if.then87, label %while.cond.backedge
@@ -7351,7 +7351,7 @@ if.then87:                                        ; preds = %sw.bb83
 
 sw.bb90:                                          ; preds = %while.cond
   %35 = load ptr, ptr @optarg, align 8
-  %call91 = call i32 @atoi(ptr nocapture noundef %35) #43
+  %call91 = call i32 @atoi(ptr noundef %35) #43
   store i32 %call91, ptr getelementptr inbounds nuw (i8, ptr @settings, i64 92), align 4
   %cmp92 = icmp slt i32 %call91, 1
   br i1 %cmp92, label %if.then94, label %if.end96
@@ -7472,7 +7472,7 @@ sw.bb116:                                         ; preds = %while.cond
 
 sw.bb117:                                         ; preds = %while.cond
   %56 = load ptr, ptr @optarg, align 8
-  %call118 = call i32 @atoi(ptr nocapture noundef %56) #43
+  %call118 = call i32 @atoi(ptr noundef %56) #43
   store i32 %call118, ptr getelementptr inbounds nuw (i8, ptr @settings, i64 120), align 8
   br label %while.cond.backedge
 
@@ -7526,7 +7526,7 @@ sw.bb139:                                         ; preds = %while.cond
 
 if.then158:                                       ; preds = %sw.bb139, %sw.bb139, %sw.bb139, %sw.bb139
   store i8 0, ptr %arrayidx142, align 1
-  %call162 = call i32 @atoi(ptr nocapture noundef nonnull %call140) #43
+  %call162 = call i32 @atoi(ptr noundef nonnull %call140) #43
   switch i8 %61, label %if.end172 [
     i8 107, label %if.then170
     i8 75, label %if.then170
@@ -7548,7 +7548,7 @@ if.then180:                                       ; preds = %if.end172, %if.end1
   br label %if.end185
 
 if.else183:                                       ; preds = %sw.bb139
-  %call184 = call i32 @atoi(ptr nocapture noundef nonnull %call140) #43
+  %call184 = call i32 @atoi(ptr noundef nonnull %call140) #43
   br label %if.end185
 
 if.end185:                                        ; preds = %if.then180, %if.end172, %if.else183
@@ -7583,7 +7583,7 @@ sw.bb191:                                         ; preds = %while.cond
 
 sw.bb193:                                         ; preds = %while.cond
   %65 = load ptr, ptr @optarg, align 8
-  %call194 = call i32 @atoi(ptr nocapture noundef %65) #43
+  %call194 = call i32 @atoi(ptr noundef %65) #43
   store i32 %call194, ptr getelementptr inbounds nuw (i8, ptr @settings, i64 320), align 8
   %cmp195 = icmp slt i32 %call194, 1
   br i1 %cmp195, label %if.then197, label %while.cond.backedge
@@ -7670,7 +7670,7 @@ if.then214:                                       ; preds = %sw.bb211
   br label %return
 
 if.end216:                                        ; preds = %sw.bb211
-  %call217 = call i32 @atoi(ptr nocapture noundef nonnull %71) #43
+  %call217 = call i32 @atoi(ptr noundef nonnull %71) #43
   store i32 %call217, ptr getelementptr inbounds nuw (i8, ptr @settings, i64 164), align 4
   %cmp218 = icmp slt i32 %call217, 12
   br i1 %cmp218, label %if.then220, label %if.else222
@@ -7706,7 +7706,7 @@ if.then234:                                       ; preds = %sw.bb231
   br label %sw.epilog
 
 if.end235:                                        ; preds = %sw.bb231
-  %call236 = call i32 @atoi(ptr nocapture noundef nonnull %76) #43
+  %call236 = call i32 @atoi(ptr noundef nonnull %76) #43
   store i32 %call236, ptr getelementptr inbounds nuw (i8, ptr @settings, i64 148), align 4
   %or.cond6 = icmp ugt i32 %call236, 2
   br i1 %or.cond6, label %if.then242, label %sw.epilog
@@ -7750,7 +7750,7 @@ if.then263:                                       ; preds = %sw.bb260
   br label %return
 
 if.end265:                                        ; preds = %sw.bb260
-  %call266 = call i32 @atoi(ptr nocapture noundef nonnull %84) #43
+  %call266 = call i32 @atoi(ptr noundef nonnull %84) #43
   store i32 %call266, ptr getelementptr inbounds nuw (i8, ptr @settings, i64 160), align 8
   %cmp267 = icmp ult i32 %call266, 3
   br i1 %cmp267, label %if.then269, label %sw.epilog
@@ -7771,7 +7771,7 @@ if.then275:                                       ; preds = %sw.bb272
   br label %return
 
 if.end277:                                        ; preds = %sw.bb272
-  %call278 = call i32 @atoi(ptr nocapture noundef nonnull %89) #43
+  %call278 = call i32 @atoi(ptr noundef nonnull %89) #43
   store i32 %call278, ptr getelementptr inbounds nuw (i8, ptr @settings, i64 172), align 4
   %cmp279 = icmp slt i32 %call278, 10
   br i1 %cmp279, label %if.then281, label %sw.epilog
@@ -7825,7 +7825,7 @@ if.then313:                                       ; preds = %sw.bb310
   br label %return
 
 if.end315:                                        ; preds = %sw.bb310
-  %call316 = call i32 @atoi(ptr nocapture noundef nonnull %99) #43
+  %call316 = call i32 @atoi(ptr noundef nonnull %99) #43
   store i32 %call316, ptr getelementptr inbounds nuw (i8, ptr @settings, i64 192), align 8
   %or.cond10 = icmp ugt i32 %call316, 1000000
   br i1 %or.cond10, label %if.then322, label %sw.epilog
@@ -7874,7 +7874,7 @@ if.then339:                                       ; preds = %sw.bb336
   br label %return
 
 if.end341:                                        ; preds = %sw.bb336
-  %call342 = call i32 @atoi(ptr nocapture noundef nonnull %110) #43
+  %call342 = call i32 @atoi(ptr noundef nonnull %110) #43
   store i32 %call342, ptr getelementptr inbounds nuw (i8, ptr @settings, i64 200), align 8
   %113 = add i32 %call342, -80
   %or.cond12 = icmp ult i32 %113, -79
@@ -7896,7 +7896,7 @@ if.then354:                                       ; preds = %sw.bb351
   br label %return
 
 if.end356:                                        ; preds = %sw.bb351
-  %call357 = call i32 @atoi(ptr nocapture noundef nonnull %116) #43
+  %call357 = call i32 @atoi(ptr noundef nonnull %116) #43
   store i32 %call357, ptr getelementptr inbounds nuw (i8, ptr @settings, i64 204), align 4
   %119 = add i32 %call357, -80
   %or.cond14 = icmp ult i32 %119, -79
@@ -7961,7 +7961,7 @@ if.then393:                                       ; preds = %sw.bb390
 
 if.end395:                                        ; preds = %sw.bb390
   store i8 1, ptr getelementptr inbounds nuw (i8, ptr @settings, i64 228), align 4
-  %call396 = call i32 @atoi(ptr nocapture noundef nonnull %132) #43
+  %call396 = call i32 @atoi(ptr noundef nonnull %132) #43
   store i32 %call396, ptr getelementptr inbounds nuw (i8, ptr @settings, i64 232), align 8
   br label %sw.epilog
 
@@ -7976,7 +7976,7 @@ if.then400:                                       ; preds = %sw.bb397
   br label %return
 
 if.end402:                                        ; preds = %sw.bb397
-  %call403 = call i32 @atoi(ptr nocapture noundef nonnull %135) #43
+  %call403 = call i32 @atoi(ptr noundef nonnull %135) #43
   store i32 %call403, ptr getelementptr inbounds nuw (i8, ptr @settings, i64 236), align 4
   br label %sw.epilog
 

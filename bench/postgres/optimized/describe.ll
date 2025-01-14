@@ -2321,7 +2321,7 @@ define internal fastcc noundef zeroext i1 @describeOneTableDetails(ptr noundef %
 
 sub_01205:                                        ; preds = %35
   %42 = call ptr @PQgetvalue(ptr noundef nonnull %34, i32 noundef 0, i32 noundef 0) #9
-  %43 = call i32 @atoi(ptr nocapture noundef %42) #10
+  %43 = call i32 @atoi(ptr noundef %42) #10
   %44 = call ptr @PQgetvalue(ptr noundef nonnull %34, i32 noundef 0, i32 noundef 1) #9
   %45 = load i8, ptr %44, align 1
   %46 = call ptr @PQgetvalue(ptr noundef nonnull %34, i32 noundef 0, i32 noundef 2) #9
@@ -5122,7 +5122,7 @@ add_role_attribute.exit78:                        ; preds = %93, %95
 
 .tail100.thread:                                  ; preds = %sub_0101, %.tail100, %add_role_attribute.exit78, %.tail96.thread
   %96 = call ptr @PQgetvalue(ptr noundef nonnull %25, i32 noundef %38, i32 noundef 6) #9
-  %97 = call i32 @atoi(ptr nocapture noundef %96) #10
+  %97 = call i32 @atoi(ptr noundef %96) #10
   %98 = icmp sgt i32 %97, -1
   br i1 %98, label %99, label %108
 

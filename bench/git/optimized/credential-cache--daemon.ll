@@ -392,7 +392,7 @@ if.then6.i.i.i.i:                                 ; preds = %do.cond.i7.i.i.i.i
   br label %serve_one_client.exit.i.i
 
 read_request.exit.i.i.i:                          ; preds = %do.body.i3.i.i.i.i
-  %call10.i.i.i.i = call i32 @atoi(ptr nocapture noundef %scevgep22.i.i.i.i) #18
+  %call10.i.i.i.i = call i32 @atoi(ptr noundef %scevgep22.i.i.i.i) #18
   %call11.i.i.i.i = call i32 @credential_read(ptr noundef nonnull %c.i.i.i, ptr noundef %call25.i.i) #15
   %cmp.i10.i.i = icmp slt i32 %call11.i.i.i.i, 0
   br i1 %cmp.i10.i.i, label %serve_one_client.exit.i.i, label %if.else.i11.i.i

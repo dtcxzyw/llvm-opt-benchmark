@@ -203,7 +203,7 @@ Smt_VecEntryName.exit153:                         ; preds = %Smt_VecEntryName.ex
 Smt_VecEntryName.exit156:                         ; preds = %56, %60
   %63 = phi ptr [ %62, %60 ], [ null, %56 ]
   %64 = getelementptr inbounds nuw i8, ptr %43, i64 2
-  %65 = tail call i32 @atoi(ptr nocapture noundef %63) #18
+  %65 = tail call i32 @atoi(ptr noundef %63) #18
   %66 = tail call fastcc i32 @Smt_PrsBuildConstant(ptr noundef %0, ptr noundef nonnull %64, i32 noundef %65, ptr noundef %4)
   br label %259
 
@@ -335,7 +335,7 @@ Smt_VecEntryName.exit31.i:                        ; preds = %111, %Smt_VecEntryN
 
 Smt_VecEntryName.exit34.i:                        ; preds = %121, %117
   %124 = phi ptr [ %123, %121 ], [ null, %117 ]
-  %125 = tail call i32 @atoi(ptr nocapture noundef %124) #18
+  %125 = tail call i32 @atoi(ptr noundef %124) #18
   %126 = getelementptr i8, ptr %101, i64 4
   %.val.i = load i32, ptr %126, align 4
   %127 = icmp sgt i32 %.val.i, 3
@@ -357,7 +357,7 @@ Smt_VecEntryName.exit34.i:                        ; preds = %121, %117
 
 Smt_VecEntryName.exit37.i:                        ; preds = %132, %128
   %135 = phi ptr [ %134, %132 ], [ null, %128 ]
-  %136 = tail call i32 @atoi(ptr nocapture noundef %135) #18
+  %136 = tail call i32 @atoi(ptr noundef %135) #18
   br label %Smt_PrsReadType.exit
 
 Smt_PrsReadType.exit:                             ; preds = %96, %Smt_VecEntryName.exit31.i, %Smt_VecEntryName.exit34.i, %Smt_VecEntryName.exit37.i
@@ -2269,7 +2269,7 @@ Smt_VecEntryNode.exit:                            ; preds = %Smt_VecEntryNode.ex
   %.val221 = load ptr, ptr %33, align 8
   %59 = ashr i32 %58, 1
   %60 = tail call ptr @Abc_NamStr(ptr noundef %.val221, i32 noundef %59) #17
-  %61 = tail call i32 @atoi(ptr nocapture noundef %60) #18
+  %61 = tail call i32 @atoi(ptr noundef %60) #18
   br label %62
 
 62:                                               ; preds = %45, %53
@@ -2555,7 +2555,7 @@ Smt_VecEntryNode.exit257:                         ; preds = %163
   %.val219 = load ptr, ptr %37, align 8
   %189 = ashr i32 %188, 1
   %190 = tail call ptr @Abc_NamStr(ptr noundef %.val219, i32 noundef %189) #17
-  %191 = tail call i32 @atoi(ptr nocapture noundef %190) #18
+  %191 = tail call i32 @atoi(ptr noundef %190) #18
   %.val192 = load ptr, ptr %161, align 8
   %192 = getelementptr inbounds nuw i8, ptr %.val192, i64 16
   %193 = load i32, ptr %192, align 4
@@ -3429,7 +3429,7 @@ Smt_VecEntryName.exit:                            ; preds = %153
 Smt_VecEntryName.exit298:                         ; preds = %167, %171
   %174 = phi ptr [ %173, %171 ], [ null, %167 ]
   %175 = getelementptr inbounds nuw i8, ptr %160, i64 2
-  %176 = tail call i32 @atoi(ptr nocapture noundef %174) #18
+  %176 = tail call i32 @atoi(ptr noundef %174) #18
   %.not243 = icmp eq ptr %4, null
   br i1 %.not243, label %177, label %184
 
@@ -3499,7 +3499,7 @@ Smt_VecEntryName.exit298:                         ; preds = %167, %171
   br label %246
 
 218:                                              ; preds = %195
-  %219 = tail call i32 @atoi(ptr nocapture noundef %200) #18
+  %219 = tail call i32 @atoi(ptr noundef %200) #18
   %220 = getelementptr i8, ptr %0, i64 640
   %.val275 = load ptr, ptr %220, align 8
   %221 = sext i32 %.tr304326 to i64
@@ -3530,8 +3530,8 @@ Smt_VecEntryName.exit298:                         ; preds = %167, %171
   %239 = load ptr, ptr %15, align 8
   %240 = ashr i32 %235, 1
   %241 = tail call ptr @Abc_NamStr(ptr noundef %239, i32 noundef %240) #17
-  %242 = tail call i32 @atoi(ptr nocapture noundef %238) #18
-  %243 = tail call i32 @atoi(ptr nocapture noundef %241) #18
+  %242 = tail call i32 @atoi(ptr noundef %238) #18
+  %243 = tail call i32 @atoi(ptr noundef %241) #18
   %244 = add i32 %242, 1
   %245 = sub i32 %244, %243
   tail call fastcc void @Vec_IntPushTwo(ptr noundef nonnull %191, i32 noundef %242, i32 noundef %243)
@@ -4199,7 +4199,7 @@ Smt_VecEntryNode.exit:                            ; preds = %19, %23
   %.val134 = load ptr, ptr %16, align 8
   %49 = ashr i32 %48, 1
   %50 = tail call ptr @Abc_NamStr(ptr noundef %.val134, i32 noundef %49) #17
-  %51 = tail call i32 @atoi(ptr nocapture noundef %50) #18
+  %51 = tail call i32 @atoi(ptr noundef %50) #18
   br label %52
 
 52:                                               ; preds = %31, %43
@@ -4430,7 +4430,7 @@ Smt_VecEntryNode.exit155:                         ; preds = %143
   %.val132 = load ptr, ptr %16, align 8
   %160 = ashr i32 %159, 1
   %161 = tail call ptr @Abc_NamStr(ptr noundef %.val132, i32 noundef %160) #17
-  %162 = tail call i32 @atoi(ptr nocapture noundef %161) #18
+  %162 = tail call i32 @atoi(ptr noundef %161) #18
   %.val113.pre = load ptr, ptr %28, align 8
   br label %163
 

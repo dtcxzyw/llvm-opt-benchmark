@@ -700,7 +700,7 @@ while.body.i:                                     ; preds = %if.end45.i, %while.
   br i1 %tobool14.not.i, label %if.then15.i, label %if.else18.i
 
 if.then15.i:                                      ; preds = %while.body.i
-  %call17.i = call i32 @atoi(ptr nocapture noundef nonnull %add.ptr24.i) #16
+  %call17.i = call i32 @atoi(ptr noundef nonnull %add.ptr24.i) #16
   store i32 %call17.i, ptr %st_uid.i, align 4
   br label %if.end45.i
 
@@ -710,7 +710,7 @@ if.else18.i:                                      ; preds = %while.body.i
   br i1 %tobool21.not.i, label %if.then22.i, label %if.else26.i
 
 if.then22.i:                                      ; preds = %if.else18.i
-  %call25.i = call i32 @atoi(ptr nocapture noundef nonnull %add.ptr24.i) #16
+  %call25.i = call i32 @atoi(ptr noundef nonnull %add.ptr24.i) #16
   store i32 %call25.i, ptr %st_gid.i, align 8
   br label %if.end45.i
 
@@ -720,7 +720,7 @@ if.else26.i:                                      ; preds = %if.else18.i
   br i1 %tobool29.not.i, label %if.then30.i, label %if.else34.i
 
 if.then30.i:                                      ; preds = %if.else26.i
-  %call33.i = call i32 @atoi(ptr nocapture noundef nonnull %add.ptr40.i) #16
+  %call33.i = call i32 @atoi(ptr noundef nonnull %add.ptr40.i) #16
   store i32 %call33.i, ptr %st_mode.i, align 8
   br label %if.end45.i
 
@@ -730,7 +730,7 @@ if.else34.i:                                      ; preds = %if.else26.i
   br i1 %tobool37.not.i, label %if.then38.i, label %if.end45.i
 
 if.then38.i:                                      ; preds = %if.else34.i
-  %call41.i = call i32 @atoi(ptr nocapture noundef nonnull %add.ptr40.i) #16
+  %call41.i = call i32 @atoi(ptr noundef nonnull %add.ptr40.i) #16
   %conv.i = sext i32 %call41.i to i64
   store i64 %conv.i, ptr %st_rdev.i, align 8
   br label %if.end45.i
@@ -2661,7 +2661,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   br i1 %tobool32.not, label %if.then33, label %if.else36
 
 if.then33:                                        ; preds = %while.body
-  %call35 = call i32 @atoi(ptr nocapture noundef nonnull %add.ptr42) #16
+  %call35 = call i32 @atoi(ptr noundef nonnull %add.ptr42) #16
   br label %if.end63
 
 if.else36:                                        ; preds = %while.body
@@ -2670,7 +2670,7 @@ if.else36:                                        ; preds = %while.body
   br i1 %tobool39.not, label %if.then40, label %if.else44
 
 if.then40:                                        ; preds = %if.else36
-  %call43 = call i32 @atoi(ptr nocapture noundef nonnull %add.ptr42) #16
+  %call43 = call i32 @atoi(ptr noundef nonnull %add.ptr42) #16
   br label %if.end63
 
 if.else44:                                        ; preds = %if.else36
@@ -2679,7 +2679,7 @@ if.else44:                                        ; preds = %if.else36
   br i1 %tobool47.not, label %if.then48, label %if.else52
 
 if.then48:                                        ; preds = %if.else44
-  %call51 = call i32 @atoi(ptr nocapture noundef nonnull %add.ptr58) #16
+  %call51 = call i32 @atoi(ptr noundef nonnull %add.ptr58) #16
   br label %if.end63
 
 if.else52:                                        ; preds = %if.else44
@@ -2688,7 +2688,7 @@ if.else52:                                        ; preds = %if.else44
   br i1 %tobool55.not, label %if.then56, label %if.end63
 
 if.then56:                                        ; preds = %if.else52
-  %call59 = call i32 @atoi(ptr nocapture noundef nonnull %add.ptr58) #16
+  %call59 = call i32 @atoi(ptr noundef nonnull %add.ptr58) #16
   br label %if.end63
 
 if.end63:                                         ; preds = %if.then40, %if.else52, %if.then56, %if.then48, %if.then33

@@ -2663,7 +2663,7 @@ define void @slurm_option_update_tres_per_task_cpu(i32 noundef %0, ptr nocapture
 
 11:                                               ; preds = %2
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 4
-  %13 = tail call i32 @atoi(ptr nocapture noundef nonnull %12) #26
+  %13 = tail call i32 @atoi(ptr noundef nonnull %12) #26
   %14 = icmp eq i32 %13, %0
   br i1 %14, label %45, label %15
 
@@ -5023,7 +5023,7 @@ slurm_option_set_by_env.exit.i.i:                 ; preds = %.preheader.i49.i.i
 
 slurm_option_set_by_cli.exit47.thread.i.i:        ; preds = %930, %946, %slurm_option_set_by_env.exit.i.i, %slurm_option_set_by_cli.exit47.i.i, %939, %936
   %965 = getelementptr inbounds nuw i8, ptr %892, i64 4
-  %966 = tail call i32 @atoi(ptr nocapture noundef nonnull %965) #26
+  %966 = tail call i32 @atoi(ptr noundef nonnull %965) #26
   %967 = icmp slt i32 %966, 1
   br i1 %967, label %968, label %.preheader.i54.i.i
 
@@ -16282,7 +16282,7 @@ tailrecurse.i.i:                                  ; preds = %tailrecurse.i.i, %.
   br i1 %.not.i.i, label %_handle_data_switches_str.exit.i, label %tailrecurse.i.i
 
 _handle_data_switches_str.exit.i:                 ; preds = %tailrecurse.i.i, %32
-  %40 = call i32 @atoi(ptr nocapture noundef %33) #26
+  %40 = call i32 @atoi(ptr noundef %33) #26
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 624
   store i32 %40, ptr %41, align 8
   br label %_handle_data_switches_data.exit

@@ -3179,7 +3179,7 @@ _init_gres_device.exit.thread:                    ; preds = %59, %78
   %.015.lcssa29.i = phi i64 [ %97, %._crit_edge.i ], [ 0, %.lr.ph119 ]
   %107 = and i64 %.015.lcssa29.i, 4294967295
   %108 = getelementptr inbounds nuw i8, ptr %38, i64 %107
-  %109 = call i32 @atoi(ptr nocapture noundef nonnull %108) #28
+  %109 = call i32 @atoi(ptr noundef nonnull %108) #28
   br label %_init_gres_device.exit.thread78
 
 _init_gres_device.exit.thread78:                  ; preds = %._crit_edge.thread.i, %._crit_edge.i, %.lr.ph.i, %.loopexit84
@@ -27469,7 +27469,7 @@ define internal fastcc ptr @_get_usable_gres_map_or_mask(ptr noundef nonnull %0,
 
 26:                                               ; preds = %.lr.ph
   %27 = getelementptr inbounds nuw i8, ptr %25, i64 1
-  %28 = call i32 @atoi(ptr nocapture noundef nonnull %27) #28
+  %28 = call i32 @atoi(ptr noundef nonnull %27) #28
   %29 = icmp eq i32 %28, 0
   br i1 %29, label %30, label %.thread
 

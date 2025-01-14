@@ -2882,7 +2882,7 @@ if.then368:                                       ; preds = %if.end364
   %64 = load ptr, ptr %arrayidx370, align 8
   %ptr371 = getelementptr inbounds nuw i8, ptr %64, i64 8
   %65 = load ptr, ptr %ptr371, align 8
-  %call372 = tail call i32 @atoi(ptr nocapture noundef %65) #24
+  %call372 = tail call i32 @atoi(ptr noundef %65) #24
   br label %if.end373
 
 if.end373:                                        ; preds = %if.then368, %if.end364
@@ -3358,7 +3358,7 @@ if.then723:                                       ; preds = %if.else713
   %111 = load ptr, ptr %arrayidx725, align 8
   %ptr726 = getelementptr inbounds nuw i8, ptr %111, i64 8
   %112 = load ptr, ptr %ptr726, align 8
-  %call727 = tail call i32 @atoi(ptr nocapture noundef %112) #24
+  %call727 = tail call i32 @atoi(ptr noundef %112) #24
   store i32 %call727, ptr getelementptr inbounds nuw (i8, ptr @server, i64 3708), align 4
   %113 = load ptr, ptr @shared, align 8
   tail call void @addReply(ptr noundef nonnull %c, ptr noundef %113) #22
@@ -3405,7 +3405,7 @@ if.then761:                                       ; preds = %if.else751
   %118 = load ptr, ptr %arrayidx763, align 8
   %ptr764 = getelementptr inbounds nuw i8, ptr %118, i64 8
   %119 = load ptr, ptr %ptr764, align 8
-  %call765 = tail call i32 @atoi(ptr nocapture noundef %119) #24
+  %call765 = tail call i32 @atoi(ptr noundef %119) #24
   store i32 %call765, ptr getelementptr inbounds nuw (i8, ptr @server, i64 3728), align 8
   %120 = load ptr, ptr @shared, align 8
   tail call void @addReply(ptr noundef nonnull %c, ptr noundef %120) #22
@@ -3422,7 +3422,7 @@ if.then776:                                       ; preds = %if.else766
   %121 = load ptr, ptr %arrayidx778, align 8
   %ptr779 = getelementptr inbounds nuw i8, ptr %121, i64 8
   %122 = load ptr, ptr %ptr779, align 8
-  %call780 = tail call i32 @atoi(ptr nocapture noundef %122) #24
+  %call780 = tail call i32 @atoi(ptr noundef %122) #24
   store i32 %call780, ptr getelementptr inbounds nuw (i8, ptr @server, i64 3976), align 8
   %123 = load ptr, ptr @shared, align 8
   tail call void @addReply(ptr noundef nonnull %c, ptr noundef %123) #22
@@ -3660,7 +3660,7 @@ if.then973:                                       ; preds = %if.else963
   %148 = load ptr, ptr %arrayidx975, align 8
   %ptr976 = getelementptr inbounds nuw i8, ptr %148, i64 8
   %149 = load ptr, ptr %ptr976, align 8
-  %call977 = tail call i32 @atoi(ptr nocapture noundef %149) #24
+  %call977 = tail call i32 @atoi(ptr noundef %149) #24
   store i32 %call977, ptr getelementptr inbounds nuw (i8, ptr @server, i64 5324), align 4
   %150 = load ptr, ptr @shared, align 8
   tail call void @addReply(ptr noundef nonnull %c, ptr noundef %150) #22
@@ -3793,7 +3793,7 @@ if.then1087:                                      ; preds = %if.else1077
   %159 = load ptr, ptr %arrayidx1089, align 8
   %ptr1090 = getelementptr inbounds nuw i8, ptr %159, i64 8
   %160 = load ptr, ptr %ptr1090, align 8
-  %call1091 = tail call i32 @atoi(ptr nocapture noundef %160) #24
+  %call1091 = tail call i32 @atoi(ptr noundef %160) #24
   store i32 %call1091, ptr getelementptr inbounds nuw (i8, ptr @server, i64 3880), align 8
   %161 = load ptr, ptr @shared, align 8
   tail call void @addReply(ptr noundef nonnull %c, ptr noundef %161) #22
@@ -3852,7 +3852,7 @@ if.then1138:                                      ; preds = %if.else1132
   %166 = load ptr, ptr %arrayidx1140, align 8
   %ptr1141 = getelementptr inbounds nuw i8, ptr %166, i64 8
   %167 = load ptr, ptr %ptr1141, align 8
-  %call1142 = tail call i32 @atoi(ptr nocapture noundef %167) #24
+  %call1142 = tail call i32 @atoi(ptr noundef %167) #24
   store i32 %call1142, ptr getelementptr inbounds nuw (i8, ptr @server, i64 5664), align 8
   br label %if.end1145
 

@@ -252,7 +252,7 @@ entry:
   br i1 %tobool.not.i, label %if.else.i, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %call1.i = tail call i32 @atoi(ptr nocapture noundef nonnull %call.i) #20
+  %call1.i = tail call i32 @atoi(ptr noundef nonnull %call.i) #20
   %conv.i = sext i32 %call1.i to i64
   br label %get_time.exit
 
@@ -591,7 +591,7 @@ if.then3:                                         ; preds = %entry
   br i1 %tobool.not.i, label %if.else.i, label %if.then.i
 
 if.then.i:                                        ; preds = %if.then3
-  %call1.i = tail call i32 @atoi(ptr nocapture noundef nonnull %call.i) #20
+  %call1.i = tail call i32 @atoi(ptr noundef nonnull %call.i) #20
   %conv.i = sext i32 %call1.i to i64
   store i64 %conv.i, ptr %now, align 8
   %tv_usec.i = getelementptr inbounds nuw i8, ptr %now, i64 8
@@ -2270,7 +2270,7 @@ if.end3:                                          ; preds = %entry
   br i1 %tobool.not.i, label %if.else.i, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end3
-  %call1.i = call i32 @atoi(ptr nocapture noundef nonnull %call.i) #20
+  %call1.i = call i32 @atoi(ptr noundef nonnull %call.i) #20
   %conv.i = sext i32 %call1.i to i64
   store i64 %conv.i, ptr %tv, align 8
   %tv_usec.i = getelementptr inbounds nuw i8, ptr %tv, i64 8

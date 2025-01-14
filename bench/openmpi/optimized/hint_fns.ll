@@ -42,7 +42,7 @@ define range(i32 -1, 1) i32 @ADIOI_Info_check_and_install_int(ptr nocapture noun
   br i1 %.not, label %30, label %17
 
 17:                                               ; preds = %14
-  %18 = call i32 @atoi(ptr nocapture noundef nonnull %9) #5
+  %18 = call i32 @atoi(ptr noundef nonnull %9) #5
   store i32 %18, ptr %7, align 4
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %20 = load ptr, ptr %19, align 8

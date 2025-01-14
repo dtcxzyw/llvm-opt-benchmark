@@ -515,7 +515,7 @@ define dso_local noundef zeroext i1 @_ZN18cmParsePHPCoverage7ReadIntERSiRi(ptr n
 
 .critedge:                                        ; preds = %14
   %22 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %4) #20
-  %23 = call i32 @atoi(ptr nocapture noundef %22) #25
+  %23 = call i32 @atoi(ptr noundef %22) #25
   store i32 %23, ptr %2, align 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #20
   ret i1 true

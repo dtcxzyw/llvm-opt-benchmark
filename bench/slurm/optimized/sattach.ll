@@ -109,7 +109,7 @@ define dso_local i32 @sattach(i32 noundef %0, ptr noundef %1) local_unnamed_addr
   br i1 %.not.i, label %_set_exit_code.exit, label %17
 
 17:                                               ; preds = %2
-  %18 = tail call i32 @atoi(ptr nocapture noundef nonnull %16) #15
+  %18 = tail call i32 @atoi(ptr noundef nonnull %16) #15
   %19 = icmp eq i32 %18, 0
   br i1 %19, label %20, label %22
 

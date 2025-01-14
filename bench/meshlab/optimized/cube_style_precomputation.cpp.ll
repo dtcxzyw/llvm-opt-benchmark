@@ -13118,7 +13118,7 @@ define linkonce_odr void @_ZZN3igl19default_num_threadsEjEN11MySingletonC2Ej(ptr
   br i1 %.not11, label %8, label %5
 
 5:                                                ; preds = %3
-  %6 = tail call i32 @atoi(ptr nocapture noundef nonnull %4) #41
+  %6 = tail call i32 @atoi(ptr noundef nonnull %4) #41
   %7 = icmp sgt i32 %6, 0
   br i1 %7, label %10, label %8
 

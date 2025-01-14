@@ -539,7 +539,7 @@ sub_0:                                            ; preds = %10
   br label %.critedge
 
 27:                                               ; preds = %23
-  %28 = call i32 @atoi(ptr nocapture noundef nonnull %24) #13
+  %28 = call i32 @atoi(ptr noundef nonnull %24) #13
   %29 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 %28, ptr %29, align 4
   store i8 0, ptr %22, align 1
@@ -578,7 +578,7 @@ sub_0:                                            ; preds = %10
   br label %.critedge
 
 41:                                               ; preds = %34
-  %42 = call i32 @atoi(ptr nocapture noundef nonnull %38) #13
+  %42 = call i32 @atoi(ptr noundef nonnull %38) #13
   %43 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i32 %42, ptr %43, align 4
   br label %109
@@ -606,7 +606,7 @@ sub_0:                                            ; preds = %10
 
 55:                                               ; preds = %51
   store i32 9, ptr %3, align 4
-  %56 = call i32 @atoi(ptr nocapture noundef nonnull %52) #13
+  %56 = call i32 @atoi(ptr noundef nonnull %52) #13
   %57 = getelementptr inbounds nuw i8, ptr %3, i64 12
   store i32 %56, ptr %57, align 4
   br label %.thread
@@ -640,7 +640,7 @@ sub_1138:                                         ; preds = %sub_0137
   br label %.critedge
 
 68:                                               ; preds = %64
-  %69 = call i32 @atoi(ptr nocapture noundef nonnull %65) #13
+  %69 = call i32 @atoi(ptr noundef nonnull %65) #13
   %70 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i32 %69, ptr %70, align 4
   br label %109
@@ -681,7 +681,7 @@ sub_1138:                                         ; preds = %sub_0137
   br label %.critedge
 
 84:                                               ; preds = %80
-  %85 = call i32 @atoi(ptr nocapture noundef nonnull %81) #13
+  %85 = call i32 @atoi(ptr noundef nonnull %81) #13
   %86 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i32 %85, ptr %86, align 4
   br label %109
@@ -735,7 +735,7 @@ sub_1138:                                         ; preds = %sub_0137
   br label %.critedge
 
 103:                                              ; preds = %100
-  %104 = call i32 @atoi(ptr nocapture noundef nonnull %7) #13
+  %104 = call i32 @atoi(ptr noundef nonnull %7) #13
   %105 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i32 %104, ptr %105, align 4
   store i32 %104, ptr %4, align 4

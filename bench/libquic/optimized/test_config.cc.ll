@@ -298,7 +298,7 @@ if.end62:                                         ; preds = %if.then57
   %idxprom63 = sext i32 %inc58 to i64
   %arrayidx64 = getelementptr inbounds ptr, ptr %argv, i64 %idxprom63
   %25 = load ptr, ptr %arrayidx64, align 8
-  %call65 = call i32 @atoi(ptr nocapture noundef %25) #8
+  %call65 = call i32 @atoi(ptr noundef %25) #8
   store i32 %call65, ptr %memptr.offset.i79, align 4
   br label %for.inc
 

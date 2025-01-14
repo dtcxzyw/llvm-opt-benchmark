@@ -1535,7 +1535,7 @@ define internal void @_ZN12_GLOBAL__N_115EquivSimplePass7executeESt6vectorINSt7_
 87:                                               ; preds = %78
   %88 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %81, i64 %79
   %89 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %88) #25
-  %90 = tail call i32 @atoi(ptr nocapture noundef %89) #27
+  %90 = tail call i32 @atoi(ptr noundef %89) #27
   br label %91
 
 91:                                               ; preds = %68, %63, %58, %.lr.ph, %87

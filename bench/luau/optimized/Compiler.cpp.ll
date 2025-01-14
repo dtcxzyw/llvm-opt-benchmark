@@ -2061,7 +2061,7 @@ define dso_local void @_ZN4Luau14compileOrThrowERNS_15BytecodeBuilderERKNS_11Par
 35:                                               ; preds = %31
   %36 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %32) #24
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 9
-  %38 = tail call i32 @atoi(ptr nocapture noundef nonnull %37) #27
+  %38 = tail call i32 @atoi(ptr noundef nonnull %37) #27
   %39 = tail call i32 @llvm.smin.i32(i32 %38, i32 2)
   %.sroa.speculated = tail call i32 @llvm.smax.i32(i32 %39, i32 0)
   store i32 %.sroa.speculated, ptr %5, align 8

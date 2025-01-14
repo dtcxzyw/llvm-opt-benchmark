@@ -13716,13 +13716,13 @@ define internal fastcc void @_set_usage_tres_raw(ptr nocapture noundef writeonly
 
 8:                                                ; preds = %4, %6
   %.0 = phi ptr [ %7, %6 ], [ %1, %4 ]
-  %9 = tail call i32 @atoi(ptr nocapture noundef nonnull %.0) #22
+  %9 = tail call i32 @atoi(ptr noundef nonnull %.0) #22
   %10 = icmp slt i32 %9, 1
   br i1 %10, label %._crit_edge, label %.lr.ph
 
 11:                                               ; preds = %46
   %12 = getelementptr inbounds nuw i8, ptr %47, i64 1
-  %13 = tail call i32 @atoi(ptr nocapture noundef nonnull %12) #22
+  %13 = tail call i32 @atoi(ptr noundef nonnull %12) #22
   %14 = icmp slt i32 %13, 1
   br i1 %14, label %._crit_edge, label %.lr.ph, !llvm.loop !110
 

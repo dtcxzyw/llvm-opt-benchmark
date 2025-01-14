@@ -743,7 +743,7 @@ _readRangeVar.exit:                               ; preds = %nullable_string.exi
   store ptr %147, ptr %148, align 8
   %149 = call ptr @pg_strtok(ptr noundef nonnull %9) #10
   %150 = call ptr @pg_strtok(ptr noundef nonnull %9) #10
-  %151 = call i32 @atoi(ptr nocapture noundef %150) #12
+  %151 = call i32 @atoi(ptr noundef %150) #12
   %152 = getelementptr inbounds nuw i8, ptr %115, i64 96
   store i32 %151, ptr %152, align 8
   %153 = call ptr @pg_strtok(ptr noundef nonnull %9) #10
@@ -807,7 +807,7 @@ nullable_string.exit.i602:                        ; preds = %178, %176, %158
   store ptr %182, ptr %183, align 8
   %184 = call ptr @pg_strtok(ptr noundef nonnull %8) #10
   %185 = call ptr @pg_strtok(ptr noundef nonnull %8) #10
-  %186 = call i32 @atoi(ptr nocapture noundef %185) #12
+  %186 = call i32 @atoi(ptr noundef %185) #12
   %187 = getelementptr inbounds nuw i8, ptr %159, i64 40
   store i32 %186, ptr %187, align 8
   %188 = call ptr @pg_strtok(ptr noundef nonnull %8) #10
@@ -866,12 +866,12 @@ _readIntoClause.exit:                             ; preds = %nullable_string.exi
   store i32 6, ptr %215, align 4
   %216 = call ptr @pg_strtok(ptr noundef nonnull %7) #10
   %217 = call ptr @pg_strtok(ptr noundef nonnull %7) #10
-  %218 = call i32 @atoi(ptr nocapture noundef %217) #12
+  %218 = call i32 @atoi(ptr noundef %217) #12
   %219 = getelementptr inbounds nuw i8, ptr %215, i64 4
   store i32 %218, ptr %219, align 4
   %220 = call ptr @pg_strtok(ptr noundef nonnull %7) #10
   %221 = call ptr @pg_strtok(ptr noundef nonnull %7) #10
-  %222 = call i32 @atoi(ptr nocapture noundef %221) #12
+  %222 = call i32 @atoi(ptr noundef %221) #12
   %223 = trunc i32 %222 to i16
   %224 = getelementptr inbounds nuw i8, ptr %215, i64 8
   store i16 %223, ptr %224, align 8
@@ -883,7 +883,7 @@ _readIntoClause.exit:                             ; preds = %nullable_string.exi
   store i32 %228, ptr %229, align 4
   %230 = call ptr @pg_strtok(ptr noundef nonnull %7) #10
   %231 = call ptr @pg_strtok(ptr noundef nonnull %7) #10
-  %232 = call i32 @atoi(ptr nocapture noundef %231) #12
+  %232 = call i32 @atoi(ptr noundef %231) #12
   %233 = getelementptr inbounds nuw i8, ptr %215, i64 16
   store i32 %232, ptr %233, align 8
   %234 = call ptr @pg_strtok(ptr noundef nonnull %7) #10
@@ -910,7 +910,7 @@ _readIntoClause.exit:                             ; preds = %nullable_string.exi
   store i32 %250, ptr %251, align 4
   %252 = call ptr @pg_strtok(ptr noundef nonnull %7) #10
   %253 = call ptr @pg_strtok(ptr noundef nonnull %7) #10
-  %254 = call i32 @atoi(ptr nocapture noundef %253) #12
+  %254 = call i32 @atoi(ptr noundef %253) #12
   %255 = trunc i32 %254 to i16
   %256 = getelementptr inbounds nuw i8, ptr %215, i64 40
   store i16 %255, ptr %256, align 8
@@ -938,7 +938,7 @@ _readIntoClause.exit:                             ; preds = %nullable_string.exi
   store i32 %267, ptr %268, align 4
   %269 = call ptr @pg_strtok(ptr noundef nonnull %6) #10
   %270 = call ptr @pg_strtok(ptr noundef nonnull %6) #10
-  %271 = call i32 @atoi(ptr nocapture noundef %270) #12
+  %271 = call i32 @atoi(ptr noundef %270) #12
   %272 = getelementptr inbounds nuw i8, ptr %263, i64 8
   store i32 %271, ptr %272, align 8
   %273 = call ptr @pg_strtok(ptr noundef nonnull %6) #10
@@ -949,7 +949,7 @@ _readIntoClause.exit:                             ; preds = %nullable_string.exi
   store i32 %276, ptr %277, align 4
   %278 = call ptr @pg_strtok(ptr noundef nonnull %6) #10
   %279 = call ptr @pg_strtok(ptr noundef nonnull %6) #10
-  %280 = call i32 @atoi(ptr nocapture noundef %279) #12
+  %280 = call i32 @atoi(ptr noundef %279) #12
   %281 = getelementptr inbounds nuw i8, ptr %263, i64 16
   store i32 %280, ptr %281, align 8
   %282 = call ptr @pg_strtok(ptr noundef nonnull %6) #10
@@ -1002,12 +1002,12 @@ _readConst.exit:                                  ; preds = %300, %302
   store i32 8, ptr %310, align 4
   %311 = call ptr @pg_strtok(ptr noundef nonnull %5) #10
   %312 = call ptr @pg_strtok(ptr noundef nonnull %5) #10
-  %313 = call i32 @atoi(ptr nocapture noundef %312) #12
+  %313 = call i32 @atoi(ptr noundef %312) #12
   %314 = getelementptr inbounds nuw i8, ptr %310, i64 4
   store i32 %313, ptr %314, align 4
   %315 = call ptr @pg_strtok(ptr noundef nonnull %5) #10
   %316 = call ptr @pg_strtok(ptr noundef nonnull %5) #10
-  %317 = call i32 @atoi(ptr nocapture noundef %316) #12
+  %317 = call i32 @atoi(ptr noundef %316) #12
   %318 = getelementptr inbounds nuw i8, ptr %310, i64 8
   store i32 %317, ptr %318, align 4
   %319 = call ptr @pg_strtok(ptr noundef nonnull %5) #10
@@ -1018,7 +1018,7 @@ _readConst.exit:                                  ; preds = %300, %302
   store i32 %322, ptr %323, align 4
   %324 = call ptr @pg_strtok(ptr noundef nonnull %5) #10
   %325 = call ptr @pg_strtok(ptr noundef nonnull %5) #10
-  %326 = call i32 @atoi(ptr nocapture noundef %325) #12
+  %326 = call i32 @atoi(ptr noundef %325) #12
   %327 = getelementptr inbounds nuw i8, ptr %310, i64 16
   store i32 %326, ptr %327, align 4
   %328 = call ptr @pg_strtok(ptr noundef nonnull %5) #10
@@ -1146,17 +1146,17 @@ _readAggref.exit:                                 ; preds = %338, %399, %402
   store i32 %416, ptr %417, align 4
   %418 = call ptr @pg_strtok(ptr noundef nonnull %4) #10
   %419 = call ptr @pg_strtok(ptr noundef nonnull %4) #10
-  %420 = call i32 @atoi(ptr nocapture noundef %419) #12
+  %420 = call i32 @atoi(ptr noundef %419) #12
   %421 = getelementptr inbounds nuw i8, ptr %339, i64 80
   store i32 %420, ptr %421, align 8
   %422 = call ptr @pg_strtok(ptr noundef nonnull %4) #10
   %423 = call ptr @pg_strtok(ptr noundef nonnull %4) #10
-  %424 = call i32 @atoi(ptr nocapture noundef %423) #12
+  %424 = call i32 @atoi(ptr noundef %423) #12
   %425 = getelementptr inbounds nuw i8, ptr %339, i64 84
   store i32 %424, ptr %425, align 4
   %426 = call ptr @pg_strtok(ptr noundef nonnull %4) #10
   %427 = call ptr @pg_strtok(ptr noundef nonnull %4) #10
-  %428 = call i32 @atoi(ptr nocapture noundef %427) #12
+  %428 = call i32 @atoi(ptr noundef %427) #12
   %429 = getelementptr inbounds nuw i8, ptr %339, i64 88
   store i32 %428, ptr %429, align 8
   %430 = call ptr @pg_strtok(ptr noundef nonnull %4) #10
@@ -1297,7 +1297,7 @@ _readAggref.exit:                                 ; preds = %338, %399, %402
   store i32 %520, ptr %521, align 4
   %522 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %523 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %524 = call i32 @atoi(ptr nocapture noundef %523) #12
+  %524 = call i32 @atoi(ptr noundef %523) #12
   %525 = getelementptr inbounds nuw i8, ptr %506, i64 16
   store i32 %524, ptr %525, align 8
   %526 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
@@ -4759,7 +4759,7 @@ define internal fastcc noundef ptr @_readFuncExpr() unnamed_addr #0 {
   store i8 %24, ptr %23, align 1
   %25 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %26 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %27 = call i32 @atoi(ptr nocapture noundef %26) #12
+  %27 = call i32 @atoi(ptr noundef %26) #12
   %28 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i32 %27, ptr %28, align 8
   %29 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
@@ -4827,7 +4827,7 @@ nullable_string.exit:                             ; preds = %0, %16, %18
   store ptr %.0.i, ptr %20, align 8
   %21 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %22 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %23 = call i32 @atoi(ptr nocapture noundef %22) #12
+  %23 = call i32 @atoi(ptr noundef %22) #12
   %24 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store i32 %23, ptr %24, align 8
   %25 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
@@ -5134,12 +5134,12 @@ define internal fastcc noundef ptr @_readSubLink() unnamed_addr #0 {
   store i32 20, ptr %2, align 4
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %5 = call i32 @atoi(ptr nocapture noundef %4) #12
+  %5 = call i32 @atoi(ptr noundef %4) #12
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 %5, ptr %6, align 4
   %7 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %8 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %9 = call i32 @atoi(ptr nocapture noundef %8) #12
+  %9 = call i32 @atoi(ptr noundef %8) #12
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 %9, ptr %10, align 8
   %11 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
@@ -5168,7 +5168,7 @@ define internal fastcc noundef ptr @_readSubPlan() unnamed_addr #0 {
   store i32 21, ptr %2, align 4
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %5 = call i32 @atoi(ptr nocapture noundef %4) #12
+  %5 = call i32 @atoi(ptr noundef %4) #12
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 %5, ptr %6, align 4
   %7 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
@@ -5181,7 +5181,7 @@ define internal fastcc noundef ptr @_readSubPlan() unnamed_addr #0 {
   store ptr %11, ptr %12, align 8
   %13 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %14 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %15 = call i32 @atoi(ptr nocapture noundef %14) #12
+  %15 = call i32 @atoi(ptr noundef %14) #12
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store i32 %15, ptr %16, align 8
   %17 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
@@ -5223,7 +5223,7 @@ nullable_string.exit:                             ; preds = %0, %27, %29
   store i32 %35, ptr %36, align 8
   %37 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %38 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %39 = call i32 @atoi(ptr nocapture noundef %38) #12
+  %39 = call i32 @atoi(ptr noundef %38) #12
   %40 = getelementptr inbounds nuw i8, ptr %2, i64 44
   store i32 %39, ptr %40, align 4
   %41 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
@@ -5301,7 +5301,7 @@ define internal fastcc noundef ptr @_readFieldSelect() unnamed_addr #0 {
   store ptr %4, ptr %5, align 8
   %6 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %7 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %8 = call i32 @atoi(ptr nocapture noundef %7) #12
+  %8 = call i32 @atoi(ptr noundef %7) #12
   %9 = trunc i32 %8 to i16
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i16 %9, ptr %10, align 8
@@ -5313,7 +5313,7 @@ define internal fastcc noundef ptr @_readFieldSelect() unnamed_addr #0 {
   store i32 %14, ptr %15, align 4
   %16 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %17 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %18 = call i32 @atoi(ptr nocapture noundef %17) #12
+  %18 = call i32 @atoi(ptr noundef %17) #12
   %19 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store i32 %18, ptr %19, align 8
   %20 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
@@ -5368,7 +5368,7 @@ define internal fastcc noundef ptr @_readRelabelType() unnamed_addr #0 {
   store i32 %9, ptr %10, align 8
   %11 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %12 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %13 = call i32 @atoi(ptr nocapture noundef %12) #12
+  %13 = call i32 @atoi(ptr noundef %12) #12
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 20
   store i32 %13, ptr %14, align 4
   %15 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
@@ -5379,7 +5379,7 @@ define internal fastcc noundef ptr @_readRelabelType() unnamed_addr #0 {
   store i32 %18, ptr %19, align 8
   %20 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %21 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %22 = call i32 @atoi(ptr nocapture noundef %21) #12
+  %22 = call i32 @atoi(ptr noundef %21) #12
   %23 = getelementptr inbounds nuw i8, ptr %2, i64 28
   store i32 %22, ptr %23, align 4
   %24 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
@@ -5412,7 +5412,7 @@ define internal fastcc noundef ptr @_readCoerceViaIO() unnamed_addr #0 {
   store i32 %14, ptr %15, align 4
   %16 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %17 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %18 = call i32 @atoi(ptr nocapture noundef %17) #12
+  %18 = call i32 @atoi(ptr noundef %17) #12
   %19 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store i32 %18, ptr %19, align 8
   %20 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
@@ -5443,7 +5443,7 @@ define internal fastcc noundef ptr @_readArrayCoerceExpr() unnamed_addr #0 {
   store i32 %12, ptr %13, align 8
   %14 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %15 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %16 = call i32 @atoi(ptr nocapture noundef %15) #12
+  %16 = call i32 @atoi(ptr noundef %15) #12
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 28
   store i32 %16, ptr %17, align 4
   %18 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
@@ -5454,7 +5454,7 @@ define internal fastcc noundef ptr @_readArrayCoerceExpr() unnamed_addr #0 {
   store i32 %21, ptr %22, align 8
   %23 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %24 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %25 = call i32 @atoi(ptr nocapture noundef %24) #12
+  %25 = call i32 @atoi(ptr noundef %24) #12
   %26 = getelementptr inbounds nuw i8, ptr %2, i64 36
   store i32 %25, ptr %26, align 4
   %27 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
@@ -5481,7 +5481,7 @@ define internal fastcc noundef ptr @_readConvertRowtypeExpr() unnamed_addr #0 {
   store i32 %9, ptr %10, align 8
   %11 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %12 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %13 = call i32 @atoi(ptr nocapture noundef %12) #12
+  %13 = call i32 @atoi(ptr noundef %12) #12
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 20
   store i32 %13, ptr %14, align 4
   %15 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
@@ -5582,7 +5582,7 @@ define internal fastcc noundef ptr @_readCaseTestExpr() unnamed_addr #0 {
   store i32 %6, ptr %7, align 4
   %8 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %9 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %10 = call i32 @atoi(ptr nocapture noundef %9) #12
+  %10 = call i32 @atoi(ptr noundef %9) #12
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 %10, ptr %11, align 4
   %12 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
@@ -5652,7 +5652,7 @@ define internal fastcc noundef ptr @_readRowExpr() unnamed_addr #0 {
   store i32 %9, ptr %10, align 8
   %11 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %12 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %13 = call i32 @atoi(ptr nocapture noundef %12) #12
+  %13 = call i32 @atoi(ptr noundef %12) #12
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 20
   store i32 %13, ptr %14, align 4
   %15 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
@@ -5673,7 +5673,7 @@ define internal fastcc noundef ptr @_readRowCompareExpr() unnamed_addr #0 {
   store i32 35, ptr %2, align 4
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %5 = call i32 @atoi(ptr nocapture noundef %4) #12
+  %5 = call i32 @atoi(ptr noundef %4) #12
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 %5, ptr %6, align 4
   %7 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
@@ -5752,7 +5752,7 @@ define internal fastcc noundef ptr @_readMinMaxExpr() unnamed_addr #0 {
   store i32 %16, ptr %17, align 4
   %18 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %19 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %20 = call i32 @atoi(ptr nocapture noundef %19) #12
+  %20 = call i32 @atoi(ptr noundef %19) #12
   %21 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i32 %20, ptr %21, align 8
   %22 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
@@ -5773,7 +5773,7 @@ define internal fastcc noundef ptr @_readSQLValueFunction() unnamed_addr #0 {
   store i32 38, ptr %2, align 4
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %5 = call i32 @atoi(ptr nocapture noundef %4) #12
+  %5 = call i32 @atoi(ptr noundef %4) #12
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 %5, ptr %6, align 4
   %7 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
@@ -5784,7 +5784,7 @@ define internal fastcc noundef ptr @_readSQLValueFunction() unnamed_addr #0 {
   store i32 %10, ptr %11, align 4
   %12 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %13 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %14 = call i32 @atoi(ptr nocapture noundef %13) #12
+  %14 = call i32 @atoi(ptr noundef %13) #12
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 12
   store i32 %14, ptr %15, align 4
   %16 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
@@ -5801,7 +5801,7 @@ define internal fastcc noundef ptr @_readXmlExpr() unnamed_addr #0 {
   store i32 39, ptr %2, align 4
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %5 = call i32 @atoi(ptr nocapture noundef %4) #12
+  %5 = call i32 @atoi(ptr noundef %4) #12
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 %5, ptr %6, align 4
   %7 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
@@ -5849,7 +5849,7 @@ nullable_string.exit:                             ; preds = %0, %17, %19
   store ptr %29, ptr %30, align 8
   %31 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %32 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %33 = call i32 @atoi(ptr nocapture noundef %32) #12
+  %33 = call i32 @atoi(ptr noundef %32) #12
   %34 = getelementptr inbounds nuw i8, ptr %2, i64 40
   store i32 %33, ptr %34, align 8
   %35 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
@@ -5867,7 +5867,7 @@ nullable_string.exit:                             ; preds = %0, %17, %19
   store i32 %44, ptr %45, align 8
   %46 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %47 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %48 = call i32 @atoi(ptr nocapture noundef %47) #12
+  %48 = call i32 @atoi(ptr noundef %47) #12
   %49 = getelementptr inbounds nuw i8, ptr %2, i64 52
   store i32 %48, ptr %49, align 4
   %50 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
@@ -5884,12 +5884,12 @@ define internal fastcc noundef ptr @_readJsonFormat() unnamed_addr #0 {
   store i32 40, ptr %2, align 4
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %5 = call i32 @atoi(ptr nocapture noundef %4) #12
+  %5 = call i32 @atoi(ptr noundef %4) #12
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 %5, ptr %6, align 4
   %7 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %8 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %9 = call i32 @atoi(ptr nocapture noundef %8) #12
+  %9 = call i32 @atoi(ptr noundef %8) #12
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 %9, ptr %10, align 4
   %11 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
@@ -5916,7 +5916,7 @@ define internal fastcc noundef ptr @_readJsonReturning() unnamed_addr #0 {
   store i32 %9, ptr %10, align 8
   %11 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %12 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %13 = call i32 @atoi(ptr nocapture noundef %12) #12
+  %13 = call i32 @atoi(ptr noundef %12) #12
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 20
   store i32 %13, ptr %14, align 4
   ret ptr %2
@@ -5949,7 +5949,7 @@ define internal fastcc noundef ptr @_readJsonConstructorExpr() unnamed_addr #0 {
   store i32 43, ptr %2, align 4
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %5 = call i32 @atoi(ptr nocapture noundef %4) #12
+  %5 = call i32 @atoi(ptr noundef %4) #12
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 %5, ptr %6, align 4
   %7 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
@@ -6004,7 +6004,7 @@ define internal fastcc noundef ptr @_readJsonIsPredicate() unnamed_addr #0 {
   store ptr %7, ptr %8, align 8
   %9 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %10 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %11 = call i32 @atoi(ptr nocapture noundef %10) #12
+  %11 = call i32 @atoi(ptr noundef %10) #12
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store i32 %11, ptr %12, align 8
   %13 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
@@ -6032,7 +6032,7 @@ define internal fastcc noundef ptr @_readNullTest() unnamed_addr #0 {
   store ptr %4, ptr %5, align 8
   %6 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %7 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %8 = call i32 @atoi(ptr nocapture noundef %7) #12
+  %8 = call i32 @atoi(ptr noundef %7) #12
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i32 %8, ptr %9, align 8
   %10 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
@@ -6060,7 +6060,7 @@ define internal fastcc noundef ptr @_readBooleanTest() unnamed_addr #0 {
   store ptr %4, ptr %5, align 8
   %6 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %7 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %8 = call i32 @atoi(ptr nocapture noundef %7) #12
+  %8 = call i32 @atoi(ptr noundef %7) #12
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i32 %8, ptr %9, align 8
   %10 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
@@ -6084,12 +6084,12 @@ define internal fastcc noundef ptr @_readMergeAction() unnamed_addr #0 {
   store i8 %8, ptr %7, align 4
   %9 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %10 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %11 = call i32 @atoi(ptr nocapture noundef %10) #12
+  %11 = call i32 @atoi(ptr noundef %10) #12
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 %11, ptr %12, align 8
   %13 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %14 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %15 = call i32 @atoi(ptr nocapture noundef %14) #12
+  %15 = call i32 @atoi(ptr noundef %14) #12
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 12
   store i32 %15, ptr %16, align 4
   %17 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
@@ -6124,7 +6124,7 @@ define internal fastcc noundef ptr @_readCoerceToDomain() unnamed_addr #0 {
   store i32 %9, ptr %10, align 8
   %11 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %12 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %13 = call i32 @atoi(ptr nocapture noundef %12) #12
+  %13 = call i32 @atoi(ptr noundef %12) #12
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 20
   store i32 %13, ptr %14, align 4
   %15 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
@@ -6135,7 +6135,7 @@ define internal fastcc noundef ptr @_readCoerceToDomain() unnamed_addr #0 {
   store i32 %18, ptr %19, align 8
   %20 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %21 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %22 = call i32 @atoi(ptr nocapture noundef %21) #12
+  %22 = call i32 @atoi(ptr noundef %21) #12
   %23 = getelementptr inbounds nuw i8, ptr %2, i64 28
   store i32 %22, ptr %23, align 4
   %24 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
@@ -6158,7 +6158,7 @@ define internal fastcc noundef ptr @_readCoerceToDomainValue() unnamed_addr #0 {
   store i32 %6, ptr %7, align 4
   %8 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %9 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %10 = call i32 @atoi(ptr nocapture noundef %9) #12
+  %10 = call i32 @atoi(ptr noundef %9) #12
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 %10, ptr %11, align 4
   %12 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
@@ -6187,7 +6187,7 @@ define internal fastcc noundef ptr @_readSetToDefault() unnamed_addr #0 {
   store i32 %6, ptr %7, align 4
   %8 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %9 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %10 = call i32 @atoi(ptr nocapture noundef %9) #12
+  %10 = call i32 @atoi(ptr noundef %9) #12
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 %10, ptr %11, align 4
   %12 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
@@ -6247,7 +6247,7 @@ nullable_string.exit:                             ; preds = %0, %18, %20
   store ptr %.0.i, ptr %22, align 8
   %23 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %24 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %25 = call i32 @atoi(ptr nocapture noundef %24) #12
+  %25 = call i32 @atoi(ptr noundef %24) #12
   %26 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i32 %25, ptr %26, align 8
   ret ptr %2
@@ -6308,7 +6308,7 @@ define internal fastcc noundef ptr @_readTargetEntry() unnamed_addr #0 {
   store ptr %4, ptr %5, align 8
   %6 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %7 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %8 = call i32 @atoi(ptr nocapture noundef %7) #12
+  %8 = call i32 @atoi(ptr noundef %7) #12
   %9 = trunc i32 %8 to i16
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i16 %9, ptr %10, align 8
@@ -6357,7 +6357,7 @@ nullable_string.exit:                             ; preds = %0, %21, %23
   store i32 %34, ptr %35, align 4
   %36 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %37 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %38 = call i32 @atoi(ptr nocapture noundef %37) #12
+  %38 = call i32 @atoi(ptr noundef %37) #12
   %39 = trunc i32 %38 to i16
   %40 = getelementptr inbounds nuw i8, ptr %2, i64 40
   store i16 %39, ptr %40, align 8
@@ -6378,7 +6378,7 @@ define internal fastcc noundef ptr @_readRangeTblRef() unnamed_addr #0 {
   store i32 55, ptr %2, align 4
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %5 = call i32 @atoi(ptr nocapture noundef %4) #12
+  %5 = call i32 @atoi(ptr noundef %4) #12
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 %5, ptr %6, align 4
   ret ptr %2
@@ -6391,7 +6391,7 @@ define internal fastcc noundef ptr @_readJoinExpr() unnamed_addr #0 {
   store i32 56, ptr %2, align 4
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %5 = call i32 @atoi(ptr nocapture noundef %4) #12
+  %5 = call i32 @atoi(ptr noundef %4) #12
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 %5, ptr %6, align 4
   %7 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
@@ -6427,7 +6427,7 @@ define internal fastcc noundef ptr @_readJoinExpr() unnamed_addr #0 {
   store ptr %29, ptr %30, align 8
   %31 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %32 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %33 = call i32 @atoi(ptr nocapture noundef %32) #12
+  %33 = call i32 @atoi(ptr noundef %32) #12
   %34 = getelementptr inbounds nuw i8, ptr %2, i64 64
   store i32 %33, ptr %34, align 8
   ret ptr %2
@@ -6456,7 +6456,7 @@ define internal fastcc noundef ptr @_readOnConflictExpr() unnamed_addr #0 {
   store i32 58, ptr %2, align 4
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %5 = call i32 @atoi(ptr nocapture noundef %4) #12
+  %5 = call i32 @atoi(ptr noundef %4) #12
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 %5, ptr %6, align 4
   %7 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
@@ -6483,7 +6483,7 @@ define internal fastcc noundef ptr @_readOnConflictExpr() unnamed_addr #0 {
   store ptr %22, ptr %23, align 8
   %24 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %25 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %26 = call i32 @atoi(ptr nocapture noundef %25) #12
+  %26 = call i32 @atoi(ptr noundef %25) #12
   %27 = getelementptr inbounds nuw i8, ptr %2, i64 48
   store i32 %26, ptr %27, align 8
   %28 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
@@ -6500,12 +6500,12 @@ define internal fastcc noundef ptr @_readQuery() unnamed_addr #0 {
   store i32 59, ptr %2, align 4
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %5 = call i32 @atoi(ptr nocapture noundef %4) #12
+  %5 = call i32 @atoi(ptr noundef %4) #12
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 %5, ptr %6, align 4
   %7 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %8 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %9 = call i32 @atoi(ptr nocapture noundef %8) #12
+  %9 = call i32 @atoi(ptr noundef %8) #12
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 %9, ptr %10, align 8
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 16
@@ -6523,7 +6523,7 @@ define internal fastcc noundef ptr @_readQuery() unnamed_addr #0 {
   store ptr %19, ptr %20, align 8
   %21 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %22 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %23 = call i32 @atoi(ptr nocapture noundef %22) #12
+  %23 = call i32 @atoi(ptr noundef %22) #12
   %24 = getelementptr inbounds nuw i8, ptr %2, i64 40
   store i32 %23, ptr %24, align 8
   %25 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
@@ -6625,7 +6625,7 @@ define internal fastcc noundef ptr @_readQuery() unnamed_addr #0 {
   store i8 %105, ptr %104, align 8
   %106 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %107 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %108 = call i32 @atoi(ptr nocapture noundef %107) #12
+  %108 = call i32 @atoi(ptr noundef %107) #12
   %109 = getelementptr inbounds nuw i8, ptr %2, i64 100
   store i32 %108, ptr %109, align 4
   %110 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
@@ -6634,7 +6634,7 @@ define internal fastcc noundef ptr @_readQuery() unnamed_addr #0 {
   store ptr %111, ptr %112, align 8
   %113 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %114 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %115 = call i32 @atoi(ptr nocapture noundef %114) #12
+  %115 = call i32 @atoi(ptr noundef %114) #12
   %116 = getelementptr inbounds nuw i8, ptr %2, i64 112
   store i32 %115, ptr %116, align 8
   %117 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
@@ -6686,7 +6686,7 @@ define internal fastcc noundef ptr @_readQuery() unnamed_addr #0 {
   store ptr %151, ptr %152, align 8
   %153 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %154 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %155 = call i32 @atoi(ptr nocapture noundef %154) #12
+  %155 = call i32 @atoi(ptr noundef %154) #12
   %156 = getelementptr inbounds nuw i8, ptr %2, i64 208
   store i32 %155, ptr %156, align 8
   %157 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
@@ -6711,7 +6711,7 @@ define internal fastcc noundef ptr @_readQuery() unnamed_addr #0 {
   store i32 -1, ptr %171, align 8
   %172 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %173 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %174 = call i32 @atoi(ptr nocapture noundef %173) #12
+  %174 = call i32 @atoi(ptr noundef %173) #12
   %175 = getelementptr inbounds nuw i8, ptr %2, i64 252
   store i32 %174, ptr %175, align 4
   ret ptr %2
@@ -6752,7 +6752,7 @@ define internal fastcc noundef ptr @_readTypeName() unnamed_addr #0 {
   store ptr %24, ptr %25, align 8
   %26 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %27 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %28 = call i32 @atoi(ptr nocapture noundef %27) #12
+  %28 = call i32 @atoi(ptr noundef %27) #12
   %29 = getelementptr inbounds nuw i8, ptr %2, i64 32
   store i32 %28, ptr %29, align 8
   %30 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
@@ -6789,7 +6789,7 @@ define internal fastcc noundef ptr @_readParamRef() unnamed_addr #0 {
   store i32 62, ptr %2, align 4
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %5 = call i32 @atoi(ptr nocapture noundef %4) #12
+  %5 = call i32 @atoi(ptr noundef %4) #12
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 %5, ptr %6, align 4
   %7 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
@@ -7145,7 +7145,7 @@ define internal fastcc noundef ptr @_readRoleSpec() unnamed_addr #0 {
   store i32 67, ptr %2, align 4
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %5 = call i32 @atoi(ptr nocapture noundef %4) #12
+  %5 = call i32 @atoi(ptr noundef %4) #12
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 %5, ptr %6, align 4
   %7 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
@@ -7241,7 +7241,7 @@ define internal fastcc noundef ptr @_readFuncCall() unnamed_addr #0 {
   store i8 %41, ptr %40, align 1
   %42 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %43 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %44 = call i32 @atoi(ptr nocapture noundef %43) #12
+  %44 = call i32 @atoi(ptr noundef %43) #12
   %45 = getelementptr inbounds nuw i8, ptr %2, i64 52
   store i32 %44, ptr %45, align 4
   %46 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
@@ -7368,12 +7368,12 @@ define internal fastcc noundef ptr @_readMultiAssignRef() unnamed_addr #0 {
   store ptr %4, ptr %5, align 8
   %6 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %7 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %8 = call i32 @atoi(ptr nocapture noundef %7) #12
+  %8 = call i32 @atoi(ptr noundef %7) #12
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i32 %8, ptr %9, align 8
   %10 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %11 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %12 = call i32 @atoi(ptr nocapture noundef %11) #12
+  %12 = call i32 @atoi(ptr noundef %11) #12
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 20
   store i32 %12, ptr %13, align 4
   ret ptr %2
@@ -7390,12 +7390,12 @@ define internal fastcc noundef ptr @_readSortBy() unnamed_addr #0 {
   store ptr %4, ptr %5, align 8
   %6 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %7 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %8 = call i32 @atoi(ptr nocapture noundef %7) #12
+  %8 = call i32 @atoi(ptr noundef %7) #12
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i32 %8, ptr %9, align 8
   %10 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %11 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %12 = call i32 @atoi(ptr nocapture noundef %11) #12
+  %12 = call i32 @atoi(ptr noundef %11) #12
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 20
   store i32 %12, ptr %13, align 4
   %14 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
@@ -7486,7 +7486,7 @@ nullable_string.exit13:                           ; preds = %nullable_string.exi
   store ptr %37, ptr %38, align 8
   %39 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %40 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %41 = call i32 @atoi(ptr nocapture noundef %40) #12
+  %41 = call i32 @atoi(ptr noundef %40) #12
   %42 = getelementptr inbounds nuw i8, ptr %2, i64 40
   store i32 %41, ptr %42, align 8
   %43 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
@@ -7777,7 +7777,7 @@ nullable_string.exit40:                           ; preds = %nullable_string.exi
   store ptr %.0.i39, ptr %35, align 8
   %36 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %37 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %38 = call i32 @atoi(ptr nocapture noundef %37) #12
+  %38 = call i32 @atoi(ptr noundef %37) #12
   %39 = getelementptr inbounds nuw i8, ptr %2, i64 32
   store i32 %38, ptr %39, align 8
   %40 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
@@ -8038,12 +8038,12 @@ nullable_string.exit14:                           ; preds = %nullable_string.exi
   store ptr %43, ptr %44, align 8
   %45 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %46 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %47 = call i32 @atoi(ptr nocapture noundef %46) #12
+  %47 = call i32 @atoi(ptr noundef %46) #12
   %48 = getelementptr inbounds nuw i8, ptr %2, i64 56
   store i32 %47, ptr %48, align 8
   %49 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %50 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %51 = call i32 @atoi(ptr nocapture noundef %50) #12
+  %51 = call i32 @atoi(ptr noundef %50) #12
   %52 = getelementptr inbounds nuw i8, ptr %2, i64 60
   store i32 %51, ptr %52, align 4
   ret ptr %2
@@ -8122,7 +8122,7 @@ nullable_string.exit10:                           ; preds = %nullable_string.exi
   store ptr %34, ptr %35, align 8
   %36 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %37 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %38 = call i32 @atoi(ptr nocapture noundef %37) #12
+  %38 = call i32 @atoi(ptr noundef %37) #12
   %39 = getelementptr inbounds nuw i8, ptr %2, i64 32
   store i32 %38, ptr %39, align 8
   %40 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
@@ -8143,12 +8143,12 @@ define internal fastcc noundef ptr @_readLockingClause() unnamed_addr #0 {
   store ptr %4, ptr %5, align 8
   %6 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %7 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %8 = call i32 @atoi(ptr nocapture noundef %7) #12
+  %8 = call i32 @atoi(ptr noundef %7) #12
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i32 %8, ptr %9, align 8
   %10 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %11 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %12 = call i32 @atoi(ptr nocapture noundef %11) #12
+  %12 = call i32 @atoi(ptr noundef %11) #12
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 20
   store i32 %12, ptr %13, align 4
   ret ptr %2
@@ -8161,7 +8161,7 @@ define internal fastcc noundef ptr @_readXmlSerialize() unnamed_addr #0 {
   store i32 87, ptr %2, align 4
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %5 = call i32 @atoi(ptr nocapture noundef %4) #12
+  %5 = call i32 @atoi(ptr noundef %4) #12
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 %5, ptr %6, align 4
   %7 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
@@ -8248,7 +8248,7 @@ define internal fastcc noundef ptr @_readPartitionSpec() unnamed_addr #0 {
   store i32 89, ptr %2, align 4
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %5 = call i32 @atoi(ptr nocapture noundef %4) #12
+  %5 = call i32 @atoi(ptr noundef %4) #12
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 %5, ptr %6, align 4
   %7 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
@@ -8296,12 +8296,12 @@ define internal fastcc noundef ptr @_readPartitionBoundSpec() unnamed_addr #0 {
   store i8 %21, ptr %20, align 1
   %22 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %23 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %24 = call i32 @atoi(ptr nocapture noundef %23) #12
+  %24 = call i32 @atoi(ptr noundef %23) #12
   %25 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 %24, ptr %25, align 8
   %26 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %27 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %28 = call i32 @atoi(ptr nocapture noundef %27) #12
+  %28 = call i32 @atoi(ptr noundef %27) #12
   %29 = getelementptr inbounds nuw i8, ptr %2, i64 12
   store i32 %28, ptr %29, align 4
   %30 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
@@ -8330,7 +8330,7 @@ define internal fastcc noundef ptr @_readPartitionRangeDatum() unnamed_addr #0 {
   store i32 91, ptr %2, align 4
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %5 = call i32 @atoi(ptr nocapture noundef %4) #12
+  %5 = call i32 @atoi(ptr noundef %4) #12
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 %5, ptr %6, align 4
   %7 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
@@ -8382,7 +8382,7 @@ define internal fastcc noundef ptr @_readRangeTblEntry() unnamed_addr #0 {
   store ptr %7, ptr %8, align 8
   %9 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %10 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %11 = call i32 @atoi(ptr nocapture noundef %10) #12
+  %11 = call i32 @atoi(ptr noundef %10) #12
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 %11, ptr %12, align 4
   switch i32 %11, label %209 [
@@ -8426,7 +8426,7 @@ define internal fastcc noundef ptr @_readRangeTblEntry() unnamed_addr #0 {
   store i8 %30, ptr %31, align 4
   %32 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %33 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %34 = call i32 @atoi(ptr nocapture noundef %33) #12
+  %34 = call i32 @atoi(ptr noundef %33) #12
   %35 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i32 %34, ptr %35, align 8
   %36 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
@@ -8481,7 +8481,7 @@ define internal fastcc noundef ptr @_readRangeTblEntry() unnamed_addr #0 {
   store i8 %70, ptr %71, align 4
   %72 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %73 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %74 = call i32 @atoi(ptr nocapture noundef %73) #12
+  %74 = call i32 @atoi(ptr noundef %73) #12
   %75 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i32 %74, ptr %75, align 8
   %76 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
@@ -8495,12 +8495,12 @@ define internal fastcc noundef ptr @_readRangeTblEntry() unnamed_addr #0 {
 81:                                               ; preds = %0
   %82 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %83 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %84 = call i32 @atoi(ptr nocapture noundef %83) #12
+  %84 = call i32 @atoi(ptr noundef %83) #12
   %85 = getelementptr inbounds nuw i8, ptr %2, i64 52
   store i32 %84, ptr %85, align 4
   %86 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %87 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %88 = call i32 @atoi(ptr nocapture noundef %87) #12
+  %88 = call i32 @atoi(ptr noundef %87) #12
   %89 = getelementptr inbounds nuw i8, ptr %2, i64 56
   store i32 %88, ptr %89, align 8
   %90 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
@@ -8785,7 +8785,7 @@ define internal fastcc noundef ptr @_readRangeTblFunction() unnamed_addr #0 {
   store ptr %4, ptr %5, align 8
   %6 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %7 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %8 = call i32 @atoi(ptr nocapture noundef %7) #12
+  %8 = call i32 @atoi(ptr noundef %7) #12
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i32 %8, ptr %9, align 8
   %10 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
@@ -8840,7 +8840,7 @@ define internal fastcc noundef ptr @_readWithCheckOption() unnamed_addr #0 {
   store i32 97, ptr %2, align 4
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %5 = call i32 @atoi(ptr nocapture noundef %4) #12
+  %5 = call i32 @atoi(ptr noundef %4) #12
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 %5, ptr %6, align 4
   %7 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
@@ -8966,7 +8966,7 @@ define internal fastcc noundef ptr @_readGroupingSet() unnamed_addr #0 {
   store i32 99, ptr %2, align 4
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %5 = call i32 @atoi(ptr nocapture noundef %4) #12
+  %5 = call i32 @atoi(ptr noundef %4) #12
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 %5, ptr %6, align 4
   %7 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
@@ -9057,7 +9057,7 @@ nullable_string.exit27:                           ; preds = %nullable_string.exi
   store ptr %37, ptr %38, align 8
   %39 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %40 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %41 = call i32 @atoi(ptr nocapture noundef %40) #12
+  %41 = call i32 @atoi(ptr noundef %40) #12
   %42 = getelementptr inbounds nuw i8, ptr %2, i64 40
   store i32 %41, ptr %42, align 8
   %43 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
@@ -9133,12 +9133,12 @@ define internal fastcc noundef ptr @_readRowMarkClause() unnamed_addr #0 {
   store i32 %6, ptr %7, align 4
   %8 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %9 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %10 = call i32 @atoi(ptr nocapture noundef %9) #12
+  %10 = call i32 @atoi(ptr noundef %9) #12
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 %10, ptr %11, align 4
   %12 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %13 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %14 = call i32 @atoi(ptr nocapture noundef %13) #12
+  %14 = call i32 @atoi(ptr noundef %13) #12
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 12
   store i32 %14, ptr %15, align 4
   %16 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
@@ -9232,7 +9232,7 @@ define internal fastcc noundef ptr @_readOnConflictClause() unnamed_addr #0 {
   store i32 104, ptr %2, align 4
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %5 = call i32 @atoi(ptr nocapture noundef %4) #12
+  %5 = call i32 @atoi(ptr noundef %4) #12
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 %5, ptr %6, align 4
   %7 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
@@ -9399,7 +9399,7 @@ nullable_string.exit18:                           ; preds = %nullable_string.exi
   store i32 %48, ptr %49, align 4
   %50 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %51 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %52 = call i32 @atoi(ptr nocapture noundef %51) #12
+  %52 = call i32 @atoi(ptr noundef %51) #12
   %53 = getelementptr inbounds nuw i8, ptr %2, i64 56
   store i32 %52, ptr %53, align 8
   %54 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
@@ -9459,7 +9459,7 @@ nullable_string.exit:                             ; preds = %0, %13, %15
   store ptr %19, ptr %20, align 8
   %21 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %22 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %23 = call i32 @atoi(ptr nocapture noundef %22) #12
+  %23 = call i32 @atoi(ptr noundef %22) #12
   %24 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store i32 %23, ptr %24, align 8
   %25 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
@@ -9487,7 +9487,7 @@ nullable_string.exit:                             ; preds = %0, %13, %15
   store i8 %42, ptr %41, align 4
   %43 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %44 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %45 = call i32 @atoi(ptr nocapture noundef %44) #12
+  %45 = call i32 @atoi(ptr noundef %44) #12
   %46 = getelementptr inbounds nuw i8, ptr %2, i64 64
   store i32 %45, ptr %46, align 8
   %47 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
@@ -9523,12 +9523,12 @@ define internal fastcc noundef ptr @_readMergeWhenClause() unnamed_addr #0 {
   store i8 %8, ptr %7, align 4
   %9 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %10 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %11 = call i32 @atoi(ptr nocapture noundef %10) #12
+  %11 = call i32 @atoi(ptr noundef %10) #12
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 %11, ptr %12, align 8
   %13 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %14 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %15 = call i32 @atoi(ptr nocapture noundef %14) #12
+  %15 = call i32 @atoi(ptr noundef %14) #12
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 12
   store i32 %15, ptr %16, align 4
   %17 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
@@ -9886,7 +9886,7 @@ define internal fastcc noundef ptr @_readRawStmt() unnamed_addr #0 {
   store i32 -1, ptr %8, align 8
   %9 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %10 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %11 = call i32 @atoi(ptr nocapture noundef %10) #12
+  %11 = call i32 @atoi(ptr noundef %10) #12
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 20
   store i32 %11, ptr %12, align 4
   ret ptr %2
@@ -9923,7 +9923,7 @@ define internal fastcc noundef ptr @_readInsertStmt() unnamed_addr #0 {
   store ptr %19, ptr %20, align 8
   %21 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %22 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %23 = call i32 @atoi(ptr nocapture noundef %22) #12
+  %23 = call i32 @atoi(ptr noundef %22) #12
   %24 = getelementptr inbounds nuw i8, ptr %2, i64 56
   store i32 %23, ptr %24, align 8
   ret ptr %2
@@ -10079,7 +10079,7 @@ define internal fastcc noundef ptr @_readSelectStmt() unnamed_addr #0 {
   store ptr %43, ptr %44, align 8
   %45 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %46 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %47 = call i32 @atoi(ptr nocapture noundef %46) #12
+  %47 = call i32 @atoi(ptr noundef %46) #12
   %48 = getelementptr inbounds nuw i8, ptr %2, i64 112
   store i32 %47, ptr %48, align 8
   %49 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
@@ -10092,7 +10092,7 @@ define internal fastcc noundef ptr @_readSelectStmt() unnamed_addr #0 {
   store ptr %53, ptr %54, align 8
   %55 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %56 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %57 = call i32 @atoi(ptr nocapture noundef %56) #12
+  %57 = call i32 @atoi(ptr noundef %56) #12
   %58 = getelementptr inbounds nuw i8, ptr %2, i64 136
   store i32 %57, ptr %58, align 8
   %59 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
@@ -10120,7 +10120,7 @@ define internal fastcc noundef ptr @_readSetOperationStmt() unnamed_addr #0 {
   store i32 127, ptr %2, align 4
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %5 = call i32 @atoi(ptr nocapture noundef %4) #12
+  %5 = call i32 @atoi(ptr noundef %4) #12
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 %5, ptr %6, align 4
   %7 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
@@ -10211,7 +10211,7 @@ nullable_string.exit:                             ; preds = %0, %13, %15
   store ptr %19, ptr %20, align 8
   %21 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %22 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %23 = call i32 @atoi(ptr nocapture noundef %22) #12
+  %23 = call i32 @atoi(ptr noundef %22) #12
   %24 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store i32 %23, ptr %24, align 8
   %25 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
@@ -10294,7 +10294,7 @@ define internal fastcc noundef ptr @_readAlterTableStmt() unnamed_addr #0 {
   store ptr %7, ptr %8, align 8
   %9 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %10 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %11 = call i32 @atoi(ptr nocapture noundef %10) #12
+  %11 = call i32 @atoi(ptr noundef %10) #12
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store i32 %11, ptr %12, align 8
   %13 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
@@ -10373,7 +10373,7 @@ define internal fastcc noundef ptr @_readAlterTableCmd() unnamed_addr #0 {
   store i32 133, ptr %2, align 4
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %5 = call i32 @atoi(ptr nocapture noundef %4) #12
+  %5 = call i32 @atoi(ptr noundef %4) #12
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 %5, ptr %6, align 4
   %7 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
@@ -10409,7 +10409,7 @@ nullable_string.exit:                             ; preds = %0, %17, %19
   store ptr %.0.i, ptr %21, align 8
   %22 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %23 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %24 = call i32 @atoi(ptr nocapture noundef %23) #12
+  %24 = call i32 @atoi(ptr noundef %23) #12
   %25 = trunc i32 %24 to i16
   %26 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i16 %25, ptr %26, align 8
@@ -10423,7 +10423,7 @@ nullable_string.exit:                             ; preds = %0, %17, %19
   store ptr %31, ptr %32, align 8
   %33 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %34 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %35 = call i32 @atoi(ptr nocapture noundef %34) #12
+  %35 = call i32 @atoi(ptr noundef %34) #12
   %36 = getelementptr inbounds nuw i8, ptr %2, i64 40
   store i32 %35, ptr %36, align 8
   %37 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
@@ -10521,7 +10521,7 @@ nullable_string.exit:                             ; preds = %13, %29, %31
   store ptr %35, ptr %36, align 8
   %37 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %38 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %39 = call i32 @atoi(ptr nocapture noundef %38) #12
+  %39 = call i32 @atoi(ptr noundef %38) #12
   %40 = getelementptr inbounds nuw i8, ptr %2, i64 32
   store i32 %39, ptr %40, align 8
   %41 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
@@ -10548,12 +10548,12 @@ define internal fastcc noundef ptr @_readGrantStmt() unnamed_addr #0 {
   store i8 %8, ptr %7, align 4
   %9 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %10 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %11 = call i32 @atoi(ptr nocapture noundef %10) #12
+  %11 = call i32 @atoi(ptr noundef %10) #12
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 %11, ptr %12, align 8
   %13 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %14 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %15 = call i32 @atoi(ptr nocapture noundef %14) #12
+  %15 = call i32 @atoi(ptr noundef %14) #12
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 12
   store i32 %15, ptr %16, align 4
   %17 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
@@ -10581,7 +10581,7 @@ define internal fastcc noundef ptr @_readGrantStmt() unnamed_addr #0 {
   store ptr %33, ptr %34, align 8
   %35 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %36 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %37 = call i32 @atoi(ptr nocapture noundef %36) #12
+  %37 = call i32 @atoi(ptr noundef %36) #12
   %38 = getelementptr inbounds nuw i8, ptr %2, i64 56
   store i32 %37, ptr %38, align 8
   ret ptr %2
@@ -10687,7 +10687,7 @@ define internal fastcc noundef ptr @_readGrantRoleStmt() unnamed_addr #0 {
   store ptr %19, ptr %20, align 8
   %21 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %22 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %23 = call i32 @atoi(ptr nocapture noundef %22) #12
+  %23 = call i32 @atoi(ptr noundef %22) #12
   %24 = getelementptr inbounds nuw i8, ptr %2, i64 48
   store i32 %23, ptr %24, align 8
   ret ptr %2
@@ -10789,7 +10789,7 @@ define internal fastcc noundef ptr @_readVariableSetStmt() unnamed_addr #0 {
   store i32 142, ptr %2, align 4
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %5 = call i32 @atoi(ptr nocapture noundef %4) #12
+  %5 = call i32 @atoi(ptr noundef %4) #12
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 %5, ptr %6, align 4
   %7 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
@@ -10919,7 +10919,7 @@ define internal fastcc noundef ptr @_readCreateStmt() unnamed_addr #0 {
   store ptr %28, ptr %29, align 8
   %30 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %31 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %32 = call i32 @atoi(ptr nocapture noundef %31) #12
+  %32 = call i32 @atoi(ptr noundef %31) #12
   %33 = getelementptr inbounds nuw i8, ptr %2, i64 80
   store i32 %32, ptr %33, align 8
   %34 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
@@ -11001,7 +11001,7 @@ define internal fastcc noundef ptr @_readConstraint() unnamed_addr #0 {
   store i32 145, ptr %2, align 4
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %5 = call i32 @atoi(ptr nocapture noundef %4) #12
+  %5 = call i32 @atoi(ptr noundef %4) #12
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 %5, ptr %6, align 4
   %7 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
@@ -11127,7 +11127,7 @@ nullable_string.exit65:                           ; preds = %nullable_string.exi
   store i8 %81, ptr %82, align 8
   %83 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %84 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %85 = call i32 @atoi(ptr nocapture noundef %84) #12
+  %85 = call i32 @atoi(ptr noundef %84) #12
   %86 = getelementptr inbounds nuw i8, ptr %2, i64 44
   store i32 %85, ptr %86, align 4
   %87 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
@@ -11569,7 +11569,7 @@ nullable_string.exit:                             ; preds = %0, %13, %15
   store ptr %.0.i, ptr %17, align 8
   %18 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %19 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %20 = call i32 @atoi(ptr nocapture noundef %19) #12
+  %20 = call i32 @atoi(ptr noundef %19) #12
   %21 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i32 %20, ptr %21, align 8
   %22 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
@@ -11748,12 +11748,12 @@ nullable_string.exit:                             ; preds = %0, %13, %15
   store ptr %.0.i, ptr %17, align 8
   %18 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %19 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %20 = call i32 @atoi(ptr nocapture noundef %19) #12
+  %20 = call i32 @atoi(ptr noundef %19) #12
   %21 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i32 %20, ptr %21, align 8
   %22 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %23 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %24 = call i32 @atoi(ptr nocapture noundef %23) #12
+  %24 = call i32 @atoi(ptr noundef %23) #12
   %25 = getelementptr inbounds nuw i8, ptr %2, i64 20
   store i32 %24, ptr %25, align 4
   %26 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
@@ -12124,7 +12124,7 @@ define internal fastcc noundef ptr @_readCreateForeignTableStmt() unnamed_addr #
   store ptr %28, ptr %29, align 8
   %30 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %31 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %32 = call i32 @atoi(ptr nocapture noundef %31) #12
+  %32 = call i32 @atoi(ptr noundef %31) #12
   %33 = getelementptr inbounds nuw i8, ptr %2, i64 80
   store i32 %32, ptr %33, align 8
   %34 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
@@ -12485,7 +12485,7 @@ nullable_string.exit14:                           ; preds = %nullable_string.exi
   store ptr %.0.i13, ptr %47, align 8
   %48 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %49 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %50 = call i32 @atoi(ptr nocapture noundef %49) #12
+  %50 = call i32 @atoi(ptr noundef %49) #12
   %51 = getelementptr inbounds nuw i8, ptr %2, i64 32
   store i32 %50, ptr %51, align 8
   %52 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
@@ -12781,13 +12781,13 @@ nullable_string.exit:                             ; preds = %0, %25, %27
   store i8 %44, ptr %43, align 8
   %45 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %46 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %47 = call i32 @atoi(ptr nocapture noundef %46) #12
+  %47 = call i32 @atoi(ptr noundef %46) #12
   %48 = trunc i32 %47 to i16
   %49 = getelementptr inbounds nuw i8, ptr %2, i64 42
   store i16 %48, ptr %49, align 2
   %50 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %51 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %52 = call i32 @atoi(ptr nocapture noundef %51) #12
+  %52 = call i32 @atoi(ptr noundef %51) #12
   %53 = trunc i32 %52 to i16
   %54 = getelementptr inbounds nuw i8, ptr %2, i64 44
   store i16 %53, ptr %54, align 4
@@ -13033,7 +13033,7 @@ define internal fastcc noundef ptr @_readCreateRoleStmt() unnamed_addr #0 {
   store i32 169, ptr %2, align 4
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %5 = call i32 @atoi(ptr nocapture noundef %4) #12
+  %5 = call i32 @atoi(ptr noundef %4) #12
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 %5, ptr %6, align 4
   %7 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
@@ -13089,7 +13089,7 @@ define internal fastcc noundef ptr @_readAlterRoleStmt() unnamed_addr #0 {
   store ptr %7, ptr %8, align 8
   %9 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %10 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %11 = call i32 @atoi(ptr nocapture noundef %10) #12
+  %11 = call i32 @atoi(ptr noundef %10) #12
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store i32 %11, ptr %12, align 8
   ret ptr %2
@@ -13234,7 +13234,7 @@ define internal fastcc noundef ptr @_readDefineStmt() unnamed_addr #0 {
   store i32 175, ptr %2, align 4
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %5 = call i32 @atoi(ptr nocapture noundef %4) #12
+  %5 = call i32 @atoi(ptr noundef %4) #12
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 %5, ptr %6, align 4
   %7 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
@@ -13366,7 +13366,7 @@ define internal fastcc noundef ptr @_readCreateOpClassItem() unnamed_addr #0 {
   store i32 178, ptr %2, align 4
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %5 = call i32 @atoi(ptr nocapture noundef %4) #12
+  %5 = call i32 @atoi(ptr noundef %4) #12
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 %5, ptr %6, align 4
   %7 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
@@ -13375,7 +13375,7 @@ define internal fastcc noundef ptr @_readCreateOpClassItem() unnamed_addr #0 {
   store ptr %8, ptr %9, align 8
   %10 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %11 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %12 = call i32 @atoi(ptr nocapture noundef %11) #12
+  %12 = call i32 @atoi(ptr noundef %11) #12
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i32 %12, ptr %13, align 8
   %14 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
@@ -13501,12 +13501,12 @@ define internal fastcc noundef ptr @_readDropStmt() unnamed_addr #0 {
   store ptr %4, ptr %5, align 8
   %6 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %7 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %8 = call i32 @atoi(ptr nocapture noundef %7) #12
+  %8 = call i32 @atoi(ptr noundef %7) #12
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i32 %8, ptr %9, align 8
   %10 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %11 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %12 = call i32 @atoi(ptr nocapture noundef %11) #12
+  %12 = call i32 @atoi(ptr noundef %11) #12
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 20
   store i32 %12, ptr %13, align 4
   %14 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
@@ -13544,7 +13544,7 @@ define internal fastcc noundef ptr @_readTruncateStmt() unnamed_addr #0 {
   store i8 %11, ptr %10, align 8
   %12 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %13 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %14 = call i32 @atoi(ptr nocapture noundef %13) #12
+  %14 = call i32 @atoi(ptr noundef %13) #12
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 20
   store i32 %14, ptr %15, align 4
   ret ptr %2
@@ -13557,7 +13557,7 @@ define internal fastcc noundef ptr @_readCommentStmt() unnamed_addr #0 {
   store i32 183, ptr %2, align 4
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %5 = call i32 @atoi(ptr nocapture noundef %4) #12
+  %5 = call i32 @atoi(ptr noundef %4) #12
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 %5, ptr %6, align 4
   %7 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
@@ -13605,7 +13605,7 @@ define internal fastcc noundef ptr @_readSecLabelStmt() unnamed_addr #0 {
   store i32 184, ptr %2, align 4
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %5 = call i32 @atoi(ptr nocapture noundef %4) #12
+  %5 = call i32 @atoi(ptr noundef %4) #12
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 %5, ptr %6, align 4
   %7 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
@@ -13715,7 +13715,7 @@ nullable_string.exit:                             ; preds = %0, %13, %15
   store ptr %.0.i, ptr %17, align 8
   %18 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %19 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %20 = call i32 @atoi(ptr nocapture noundef %19) #12
+  %20 = call i32 @atoi(ptr noundef %19) #12
   %21 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i32 %20, ptr %21, align 8
   %22 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
@@ -13771,12 +13771,12 @@ define internal fastcc noundef ptr @_readFetchStmt() unnamed_addr #0 {
   store i32 187, ptr %2, align 4
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %5 = call i32 @atoi(ptr nocapture noundef %4) #12
+  %5 = call i32 @atoi(ptr noundef %4) #12
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 %5, ptr %6, align 4
   %7 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %8 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %9 = call i64 @atol(ptr nocapture noundef %8) #12
+  %9 = call i64 @atol(ptr noundef %8) #12
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i64 %9, ptr %10, align 8
   %11 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
@@ -14200,7 +14200,7 @@ define internal fastcc noundef ptr @_readAlterStatsStmt() unnamed_addr #0 {
   store ptr %4, ptr %5, align 8
   %6 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %7 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %8 = call i32 @atoi(ptr nocapture noundef %7) #12
+  %8 = call i32 @atoi(ptr noundef %7) #12
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i32 %8, ptr %9, align 8
   %10 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
@@ -14297,7 +14297,7 @@ nullable_string.exit:                             ; preds = %0, %13, %15
   store ptr %19, ptr %20, align 8
   %21 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %22 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %23 = call i32 @atoi(ptr nocapture noundef %22) #12
+  %23 = call i32 @atoi(ptr noundef %22) #12
   %24 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store i32 %23, ptr %24, align 8
   %25 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
@@ -14314,7 +14314,7 @@ define internal fastcc noundef ptr @_readAlterFunctionStmt() unnamed_addr #0 {
   store i32 194, ptr %2, align 4
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %5 = call i32 @atoi(ptr nocapture noundef %4) #12
+  %5 = call i32 @atoi(ptr noundef %4) #12
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 %5, ptr %6, align 4
   %7 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
@@ -14367,12 +14367,12 @@ define internal fastcc noundef ptr @_readRenameStmt() unnamed_addr #0 {
   store i32 199, ptr %2, align 4
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %5 = call i32 @atoi(ptr nocapture noundef %4) #12
+  %5 = call i32 @atoi(ptr noundef %4) #12
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 %5, ptr %6, align 4
   %7 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %8 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %9 = call i32 @atoi(ptr nocapture noundef %8) #12
+  %9 = call i32 @atoi(ptr noundef %8) #12
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 %9, ptr %10, align 8
   %11 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
@@ -14447,7 +14447,7 @@ nullable_string.exit16:                           ; preds = %nullable_string.exi
   store ptr %.0.i15, ptr %46, align 8
   %47 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %48 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %49 = call i32 @atoi(ptr nocapture noundef %48) #12
+  %49 = call i32 @atoi(ptr noundef %48) #12
   %50 = getelementptr inbounds nuw i8, ptr %2, i64 48
   store i32 %49, ptr %50, align 8
   %51 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
@@ -14467,7 +14467,7 @@ define internal fastcc noundef ptr @_readAlterObjectDependsStmt() unnamed_addr #
   store i32 200, ptr %2, align 4
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %5 = call i32 @atoi(ptr nocapture noundef %4) #12
+  %5 = call i32 @atoi(ptr noundef %4) #12
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 %5, ptr %6, align 4
   %7 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
@@ -14499,7 +14499,7 @@ define internal fastcc noundef ptr @_readAlterObjectSchemaStmt() unnamed_addr #0
   store i32 201, ptr %2, align 4
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %5 = call i32 @atoi(ptr nocapture noundef %4) #12
+  %5 = call i32 @atoi(ptr noundef %4) #12
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 %5, ptr %6, align 4
   %7 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
@@ -14558,7 +14558,7 @@ define internal fastcc noundef ptr @_readAlterOwnerStmt() unnamed_addr #0 {
   store i32 202, ptr %2, align 4
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %5 = call i32 @atoi(ptr nocapture noundef %4) #12
+  %5 = call i32 @atoi(ptr noundef %4) #12
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 %5, ptr %6, align 4
   %7 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
@@ -14654,7 +14654,7 @@ nullable_string.exit:                             ; preds = %0, %16, %18
   store ptr %22, ptr %23, align 8
   %24 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %25 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %26 = call i32 @atoi(ptr nocapture noundef %25) #12
+  %26 = call i32 @atoi(ptr noundef %25) #12
   %27 = getelementptr inbounds nuw i8, ptr %2, i64 32
   store i32 %26, ptr %27, align 8
   %28 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
@@ -14833,7 +14833,7 @@ define internal fastcc noundef ptr @_readTransactionStmt() unnamed_addr #0 {
   store i32 209, ptr %2, align 4
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %5 = call i32 @atoi(ptr nocapture noundef %4) #12
+  %5 = call i32 @atoi(ptr noundef %4) #12
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 %5, ptr %6, align 4
   %7 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
@@ -15113,7 +15113,7 @@ define internal fastcc noundef ptr @_readViewStmt() unnamed_addr #0 {
   store ptr %19, ptr %20, align 8
   %21 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %22 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %23 = call i32 @atoi(ptr nocapture noundef %22) #12
+  %23 = call i32 @atoi(ptr noundef %22) #12
   %24 = getelementptr inbounds nuw i8, ptr %2, i64 48
   store i32 %23, ptr %24, align 8
   ret ptr %2
@@ -15511,7 +15511,7 @@ define internal fastcc noundef ptr @_readCreateTableAsStmt() unnamed_addr #0 {
   store ptr %7, ptr %8, align 8
   %9 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %10 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %11 = call i32 @atoi(ptr nocapture noundef %10) #12
+  %11 = call i32 @atoi(ptr noundef %10) #12
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store i32 %11, ptr %12, align 8
   %13 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
@@ -15564,7 +15564,7 @@ define internal fastcc noundef ptr @_readDiscardStmt() unnamed_addr #0 {
   store i32 229, ptr %2, align 4
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %5 = call i32 @atoi(ptr nocapture noundef %4) #12
+  %5 = call i32 @atoi(ptr noundef %4) #12
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 %5, ptr %6, align 4
   ret ptr %2
@@ -15581,7 +15581,7 @@ define internal fastcc noundef ptr @_readLockStmt() unnamed_addr #0 {
   store ptr %4, ptr %5, align 8
   %6 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %7 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %8 = call i32 @atoi(ptr nocapture noundef %7) #12
+  %8 = call i32 @atoi(ptr noundef %7) #12
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i32 %8, ptr %9, align 8
   %10 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
@@ -15620,7 +15620,7 @@ define internal fastcc noundef ptr @_readReindexStmt() unnamed_addr #0 {
   store i32 232, ptr %2, align 4
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %5 = call i32 @atoi(ptr nocapture noundef %4) #12
+  %5 = call i32 @atoi(ptr noundef %4) #12
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 %5, ptr %6, align 4
   %7 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
@@ -15769,7 +15769,7 @@ define internal fastcc noundef ptr @_readCreateCastStmt() unnamed_addr #0 {
   store ptr %10, ptr %11, align 8
   %12 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %13 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %14 = call i32 @atoi(ptr nocapture noundef %13) #12
+  %14 = call i32 @atoi(ptr noundef %13) #12
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 32
   store i32 %14, ptr %15, align 8
   %16 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
@@ -15991,7 +15991,7 @@ define internal fastcc noundef ptr @_readDropOwnedStmt() unnamed_addr #0 {
   store ptr %4, ptr %5, align 8
   %6 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %7 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %8 = call i32 @atoi(ptr nocapture noundef %7) #12
+  %8 = call i32 @atoi(ptr noundef %7) #12
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i32 %8, ptr %9, align 8
   ret ptr %2
@@ -16036,7 +16036,7 @@ define internal fastcc noundef ptr @_readAlterTSConfigurationStmt() unnamed_addr
   store i32 242, ptr %2, align 4
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %5 = call i32 @atoi(ptr nocapture noundef %4) #12
+  %5 = call i32 @atoi(ptr noundef %4) #12
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 %5, ptr %6, align 4
   %7 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
@@ -16102,7 +16102,7 @@ define internal fastcc noundef ptr @_readPublicationObjSpec() unnamed_addr #0 {
   store i32 244, ptr %2, align 4
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %5 = call i32 @atoi(ptr nocapture noundef %4) #12
+  %5 = call i32 @atoi(ptr noundef %4) #12
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 %5, ptr %6, align 4
   %7 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
@@ -16254,7 +16254,7 @@ nullable_string.exit:                             ; preds = %0, %13, %15
   store i8 %29, ptr %28, align 8
   %30 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %31 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %32 = call i32 @atoi(ptr nocapture noundef %31) #12
+  %32 = call i32 @atoi(ptr noundef %31) #12
   %33 = getelementptr inbounds nuw i8, ptr %2, i64 36
   store i32 %32, ptr %33, align 4
   ret ptr %2
@@ -16345,7 +16345,7 @@ define internal fastcc noundef ptr @_readAlterSubscriptionStmt() unnamed_addr #0
   store i32 248, ptr %2, align 4
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %5 = call i32 @atoi(ptr nocapture noundef %4) #12
+  %5 = call i32 @atoi(ptr noundef %4) #12
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 %5, ptr %6, align 4
   %7 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
@@ -16466,7 +16466,7 @@ nullable_string.exit:                             ; preds = %0, %13, %15
   store i8 %23, ptr %22, align 8
   %24 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %25 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %26 = call i32 @atoi(ptr nocapture noundef %25) #12
+  %26 = call i32 @atoi(ptr noundef %25) #12
   %27 = getelementptr inbounds nuw i8, ptr %2, i64 20
   store i32 %26, ptr %27, align 4
   ret ptr %2
@@ -16555,7 +16555,7 @@ define internal fastcc noundef ptr @_readAppendRelInfo() unnamed_addr #0 {
   store ptr %24, ptr %25, align 8
   %26 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %27 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %28 = call i32 @atoi(ptr nocapture noundef %27) #12
+  %28 = call i32 @atoi(ptr noundef %27) #12
   %29 = getelementptr inbounds nuw i8, ptr %2, i64 32
   store i32 %28, ptr %29, align 8
   %30 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
@@ -16579,7 +16579,7 @@ define internal fastcc noundef ptr @_readPlannedStmt() unnamed_addr #0 {
   store i32 314, ptr %2, align 4
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %5 = call i32 @atoi(ptr nocapture noundef %4) #12
+  %5 = call i32 @atoi(ptr noundef %4) #12
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 %5, ptr %6, align 4
   %7 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
@@ -16631,7 +16631,7 @@ define internal fastcc noundef ptr @_readPlannedStmt() unnamed_addr #0 {
   store i8 %46, ptr %45, align 1
   %47 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %48 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %49 = call i32 @atoi(ptr nocapture noundef %48) #12
+  %49 = call i32 @atoi(ptr noundef %48) #12
   %50 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store i32 %49, ptr %50, align 8
   %51 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
@@ -16688,7 +16688,7 @@ define internal fastcc noundef ptr @_readPlannedStmt() unnamed_addr #0 {
   store i32 -1, ptr %89, align 8
   %90 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %91 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %92 = call i32 @atoi(ptr nocapture noundef %91) #12
+  %92 = call i32 @atoi(ptr noundef %91) #12
   %93 = getelementptr inbounds nuw i8, ptr %2, i64 132
   store i32 %92, ptr %93, align 4
   ret ptr %2
@@ -16716,7 +16716,7 @@ define internal fastcc noundef ptr @_readResult() unnamed_addr #0 {
   store double %13, ptr %14, align 8
   %15 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %16 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %17 = call i32 @atoi(ptr nocapture noundef %16) #12
+  %17 = call i32 @atoi(ptr noundef %16) #12
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 32
   store i32 %17, ptr %18, align 8
   %19 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
@@ -16742,7 +16742,7 @@ define internal fastcc noundef ptr @_readResult() unnamed_addr #0 {
   store i8 %36, ptr %35, align 2
   %37 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %38 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %39 = call i32 @atoi(ptr nocapture noundef %38) #12
+  %39 = call i32 @atoi(ptr noundef %38) #12
   %40 = getelementptr inbounds nuw i8, ptr %2, i64 40
   store i32 %39, ptr %40, align 8
   %41 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
@@ -16802,7 +16802,7 @@ define internal fastcc noundef ptr @_readProjectSet() unnamed_addr #0 {
   store double %13, ptr %14, align 8
   %15 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %16 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %17 = call i32 @atoi(ptr nocapture noundef %16) #12
+  %17 = call i32 @atoi(ptr noundef %16) #12
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 32
   store i32 %17, ptr %18, align 8
   %19 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
@@ -16828,7 +16828,7 @@ define internal fastcc noundef ptr @_readProjectSet() unnamed_addr #0 {
   store i8 %36, ptr %35, align 2
   %37 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %38 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %39 = call i32 @atoi(ptr nocapture noundef %38) #12
+  %39 = call i32 @atoi(ptr noundef %38) #12
   %40 = getelementptr inbounds nuw i8, ptr %2, i64 40
   store i32 %39, ptr %40, align 8
   %41 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
@@ -16884,7 +16884,7 @@ define internal fastcc noundef ptr @_readModifyTable() unnamed_addr #0 {
   store double %13, ptr %14, align 8
   %15 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %16 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %17 = call i32 @atoi(ptr nocapture noundef %16) #12
+  %17 = call i32 @atoi(ptr noundef %16) #12
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 32
   store i32 %17, ptr %18, align 8
   %19 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
@@ -16910,7 +16910,7 @@ define internal fastcc noundef ptr @_readModifyTable() unnamed_addr #0 {
   store i8 %36, ptr %35, align 2
   %37 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %38 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %39 = call i32 @atoi(ptr nocapture noundef %38) #12
+  %39 = call i32 @atoi(ptr noundef %38) #12
   %40 = getelementptr inbounds nuw i8, ptr %2, i64 40
   store i32 %39, ptr %40, align 8
   %41 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
@@ -16943,7 +16943,7 @@ define internal fastcc noundef ptr @_readModifyTable() unnamed_addr #0 {
   store ptr %60, ptr %61, align 8
   %62 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %63 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %64 = call i32 @atoi(ptr nocapture noundef %63) #12
+  %64 = call i32 @atoi(ptr noundef %63) #12
   %65 = getelementptr inbounds nuw i8, ptr %2, i64 104
   store i32 %64, ptr %65, align 8
   %66 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
@@ -17002,12 +17002,12 @@ define internal fastcc noundef ptr @_readModifyTable() unnamed_addr #0 {
   store ptr %107, ptr %108, align 8
   %109 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %110 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %111 = call i32 @atoi(ptr nocapture noundef %110) #12
+  %111 = call i32 @atoi(ptr noundef %110) #12
   %112 = getelementptr inbounds nuw i8, ptr %2, i64 184
   store i32 %111, ptr %112, align 8
   %113 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %114 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %115 = call i32 @atoi(ptr nocapture noundef %114) #12
+  %115 = call i32 @atoi(ptr noundef %114) #12
   %116 = getelementptr inbounds nuw i8, ptr %2, i64 188
   store i32 %115, ptr %116, align 4
   %117 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
@@ -17065,7 +17065,7 @@ define internal fastcc noundef ptr @_readAppend() unnamed_addr #0 {
   store double %13, ptr %14, align 8
   %15 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %16 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %17 = call i32 @atoi(ptr nocapture noundef %16) #12
+  %17 = call i32 @atoi(ptr noundef %16) #12
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 32
   store i32 %17, ptr %18, align 8
   %19 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
@@ -17091,7 +17091,7 @@ define internal fastcc noundef ptr @_readAppend() unnamed_addr #0 {
   store i8 %36, ptr %35, align 2
   %37 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %38 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %39 = call i32 @atoi(ptr nocapture noundef %38) #12
+  %39 = call i32 @atoi(ptr noundef %38) #12
   %40 = getelementptr inbounds nuw i8, ptr %2, i64 40
   store i32 %39, ptr %40, align 8
   %41 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
@@ -17132,12 +17132,12 @@ define internal fastcc noundef ptr @_readAppend() unnamed_addr #0 {
   store ptr %66, ptr %67, align 8
   %68 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %69 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %70 = call i32 @atoi(ptr nocapture noundef %69) #12
+  %70 = call i32 @atoi(ptr noundef %69) #12
   %71 = getelementptr inbounds nuw i8, ptr %2, i64 120
   store i32 %70, ptr %71, align 8
   %72 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %73 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %74 = call i32 @atoi(ptr nocapture noundef %73) #12
+  %74 = call i32 @atoi(ptr noundef %73) #12
   %75 = getelementptr inbounds nuw i8, ptr %2, i64 124
   store i32 %74, ptr %75, align 4
   %76 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
@@ -17169,7 +17169,7 @@ define internal fastcc noundef ptr @_readMergeAppend() unnamed_addr #0 {
   store double %13, ptr %14, align 8
   %15 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %16 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %17 = call i32 @atoi(ptr nocapture noundef %16) #12
+  %17 = call i32 @atoi(ptr noundef %16) #12
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 32
   store i32 %17, ptr %18, align 8
   %19 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
@@ -17195,7 +17195,7 @@ define internal fastcc noundef ptr @_readMergeAppend() unnamed_addr #0 {
   store i8 %36, ptr %35, align 2
   %37 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %38 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %39 = call i32 @atoi(ptr nocapture noundef %38) #12
+  %39 = call i32 @atoi(ptr noundef %38) #12
   %40 = getelementptr inbounds nuw i8, ptr %2, i64 40
   store i32 %39, ptr %40, align 8
   %41 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
@@ -17236,7 +17236,7 @@ define internal fastcc noundef ptr @_readMergeAppend() unnamed_addr #0 {
   store ptr %66, ptr %67, align 8
   %68 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %69 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %70 = call i32 @atoi(ptr nocapture noundef %69) #12
+  %70 = call i32 @atoi(ptr noundef %69) #12
   %71 = getelementptr inbounds nuw i8, ptr %2, i64 120
   store i32 %70, ptr %71, align 8
   %72 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
@@ -17288,7 +17288,7 @@ define internal fastcc noundef ptr @_readRecursiveUnion() unnamed_addr #0 {
   store double %13, ptr %14, align 8
   %15 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %16 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %17 = call i32 @atoi(ptr nocapture noundef %16) #12
+  %17 = call i32 @atoi(ptr noundef %16) #12
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 32
   store i32 %17, ptr %18, align 8
   %19 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
@@ -17314,7 +17314,7 @@ define internal fastcc noundef ptr @_readRecursiveUnion() unnamed_addr #0 {
   store i8 %36, ptr %35, align 2
   %37 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %38 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %39 = call i32 @atoi(ptr nocapture noundef %38) #12
+  %39 = call i32 @atoi(ptr noundef %38) #12
   %40 = getelementptr inbounds nuw i8, ptr %2, i64 40
   store i32 %39, ptr %40, align 8
   %41 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
@@ -17347,12 +17347,12 @@ define internal fastcc noundef ptr @_readRecursiveUnion() unnamed_addr #0 {
   store ptr %60, ptr %61, align 8
   %62 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %63 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %64 = call i32 @atoi(ptr nocapture noundef %63) #12
+  %64 = call i32 @atoi(ptr noundef %63) #12
   %65 = getelementptr inbounds nuw i8, ptr %2, i64 104
   store i32 %64, ptr %65, align 8
   %66 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %67 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %68 = call i32 @atoi(ptr nocapture noundef %67) #12
+  %68 = call i32 @atoi(ptr noundef %67) #12
   %69 = getelementptr inbounds nuw i8, ptr %2, i64 108
   store i32 %68, ptr %69, align 4
   %70 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
@@ -17372,7 +17372,7 @@ define internal fastcc noundef ptr @_readRecursiveUnion() unnamed_addr #0 {
   store ptr %80, ptr %81, align 8
   %82 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %83 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %84 = call i64 @atol(ptr nocapture noundef %83) #12
+  %84 = call i64 @atol(ptr noundef %83) #12
   %85 = getelementptr inbounds nuw i8, ptr %2, i64 136
   store i64 %84, ptr %85, align 8
   ret ptr %2
@@ -17400,7 +17400,7 @@ define internal fastcc noundef ptr @_readBitmapAnd() unnamed_addr #0 {
   store double %13, ptr %14, align 8
   %15 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %16 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %17 = call i32 @atoi(ptr nocapture noundef %16) #12
+  %17 = call i32 @atoi(ptr noundef %16) #12
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 32
   store i32 %17, ptr %18, align 8
   %19 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
@@ -17426,7 +17426,7 @@ define internal fastcc noundef ptr @_readBitmapAnd() unnamed_addr #0 {
   store i8 %36, ptr %35, align 2
   %37 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %38 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %39 = call i32 @atoi(ptr nocapture noundef %38) #12
+  %39 = call i32 @atoi(ptr noundef %38) #12
   %40 = getelementptr inbounds nuw i8, ptr %2, i64 40
   store i32 %39, ptr %40, align 8
   %41 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
@@ -17486,7 +17486,7 @@ define internal fastcc noundef ptr @_readBitmapOr() unnamed_addr #0 {
   store double %13, ptr %14, align 8
   %15 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %16 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %17 = call i32 @atoi(ptr nocapture noundef %16) #12
+  %17 = call i32 @atoi(ptr noundef %16) #12
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 32
   store i32 %17, ptr %18, align 8
   %19 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
@@ -17512,7 +17512,7 @@ define internal fastcc noundef ptr @_readBitmapOr() unnamed_addr #0 {
   store i8 %36, ptr %35, align 2
   %37 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %38 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %39 = call i32 @atoi(ptr nocapture noundef %38) #12
+  %39 = call i32 @atoi(ptr noundef %38) #12
   %40 = getelementptr inbounds nuw i8, ptr %2, i64 40
   store i32 %39, ptr %40, align 8
   %41 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
@@ -17579,7 +17579,7 @@ define internal fastcc noundef ptr @_readSeqScan() unnamed_addr #0 {
   store double %13, ptr %14, align 8
   %15 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %16 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %17 = call i32 @atoi(ptr nocapture noundef %16) #12
+  %17 = call i32 @atoi(ptr noundef %16) #12
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 32
   store i32 %17, ptr %18, align 8
   %19 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
@@ -17605,7 +17605,7 @@ define internal fastcc noundef ptr @_readSeqScan() unnamed_addr #0 {
   store i8 %36, ptr %35, align 2
   %37 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %38 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %39 = call i32 @atoi(ptr nocapture noundef %38) #12
+  %39 = call i32 @atoi(ptr noundef %38) #12
   %40 = getelementptr inbounds nuw i8, ptr %2, i64 40
   store i32 %39, ptr %40, align 8
   %41 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
@@ -17667,7 +17667,7 @@ define internal fastcc noundef ptr @_readSampleScan() unnamed_addr #0 {
   store double %13, ptr %14, align 8
   %15 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %16 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %17 = call i32 @atoi(ptr nocapture noundef %16) #12
+  %17 = call i32 @atoi(ptr noundef %16) #12
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 32
   store i32 %17, ptr %18, align 8
   %19 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
@@ -17693,7 +17693,7 @@ define internal fastcc noundef ptr @_readSampleScan() unnamed_addr #0 {
   store i8 %36, ptr %35, align 2
   %37 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %38 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %39 = call i32 @atoi(ptr nocapture noundef %38) #12
+  %39 = call i32 @atoi(ptr noundef %38) #12
   %40 = getelementptr inbounds nuw i8, ptr %2, i64 40
   store i32 %39, ptr %40, align 8
   %41 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
@@ -17759,7 +17759,7 @@ define internal fastcc noundef ptr @_readIndexScan() unnamed_addr #0 {
   store double %13, ptr %14, align 8
   %15 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %16 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %17 = call i32 @atoi(ptr nocapture noundef %16) #12
+  %17 = call i32 @atoi(ptr noundef %16) #12
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 32
   store i32 %17, ptr %18, align 8
   %19 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
@@ -17785,7 +17785,7 @@ define internal fastcc noundef ptr @_readIndexScan() unnamed_addr #0 {
   store i8 %36, ptr %35, align 2
   %37 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %38 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %39 = call i32 @atoi(ptr nocapture noundef %38) #12
+  %39 = call i32 @atoi(ptr noundef %38) #12
   %40 = getelementptr inbounds nuw i8, ptr %2, i64 40
   store i32 %39, ptr %40, align 8
   %41 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
@@ -17850,7 +17850,7 @@ define internal fastcc noundef ptr @_readIndexScan() unnamed_addr #0 {
   store ptr %85, ptr %86, align 8
   %87 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %88 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %89 = call i32 @atoi(ptr nocapture noundef %88) #12
+  %89 = call i32 @atoi(ptr noundef %88) #12
   %90 = getelementptr inbounds nuw i8, ptr %2, i64 160
   store i32 %89, ptr %90, align 8
   ret ptr %2
@@ -17878,7 +17878,7 @@ define internal fastcc noundef ptr @_readIndexOnlyScan() unnamed_addr #0 {
   store double %13, ptr %14, align 8
   %15 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %16 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %17 = call i32 @atoi(ptr nocapture noundef %16) #12
+  %17 = call i32 @atoi(ptr noundef %16) #12
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 32
   store i32 %17, ptr %18, align 8
   %19 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
@@ -17904,7 +17904,7 @@ define internal fastcc noundef ptr @_readIndexOnlyScan() unnamed_addr #0 {
   store i8 %36, ptr %35, align 2
   %37 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %38 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %39 = call i32 @atoi(ptr nocapture noundef %38) #12
+  %39 = call i32 @atoi(ptr noundef %38) #12
   %40 = getelementptr inbounds nuw i8, ptr %2, i64 40
   store i32 %39, ptr %40, align 8
   %41 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
@@ -17965,7 +17965,7 @@ define internal fastcc noundef ptr @_readIndexOnlyScan() unnamed_addr #0 {
   store ptr %82, ptr %83, align 8
   %84 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %85 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %86 = call i32 @atoi(ptr nocapture noundef %85) #12
+  %86 = call i32 @atoi(ptr noundef %85) #12
   %87 = getelementptr inbounds nuw i8, ptr %2, i64 152
   store i32 %86, ptr %87, align 8
   ret ptr %2
@@ -17993,7 +17993,7 @@ define internal fastcc noundef ptr @_readBitmapIndexScan() unnamed_addr #0 {
   store double %13, ptr %14, align 8
   %15 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %16 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %17 = call i32 @atoi(ptr nocapture noundef %16) #12
+  %17 = call i32 @atoi(ptr noundef %16) #12
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 32
   store i32 %17, ptr %18, align 8
   %19 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
@@ -18019,7 +18019,7 @@ define internal fastcc noundef ptr @_readBitmapIndexScan() unnamed_addr #0 {
   store i8 %36, ptr %35, align 2
   %37 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %38 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %39 = call i32 @atoi(ptr nocapture noundef %38) #12
+  %39 = call i32 @atoi(ptr noundef %38) #12
   %40 = getelementptr inbounds nuw i8, ptr %2, i64 40
   store i32 %39, ptr %40, align 8
   %41 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
@@ -18102,7 +18102,7 @@ define internal fastcc noundef ptr @_readBitmapHeapScan() unnamed_addr #0 {
   store double %13, ptr %14, align 8
   %15 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %16 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %17 = call i32 @atoi(ptr nocapture noundef %16) #12
+  %17 = call i32 @atoi(ptr noundef %16) #12
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 32
   store i32 %17, ptr %18, align 8
   %19 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
@@ -18128,7 +18128,7 @@ define internal fastcc noundef ptr @_readBitmapHeapScan() unnamed_addr #0 {
   store i8 %36, ptr %35, align 2
   %37 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %38 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %39 = call i32 @atoi(ptr nocapture noundef %38) #12
+  %39 = call i32 @atoi(ptr noundef %38) #12
   %40 = getelementptr inbounds nuw i8, ptr %2, i64 40
   store i32 %39, ptr %40, align 8
   %41 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
@@ -18194,7 +18194,7 @@ define internal fastcc noundef ptr @_readTidScan() unnamed_addr #0 {
   store double %13, ptr %14, align 8
   %15 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %16 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %17 = call i32 @atoi(ptr nocapture noundef %16) #12
+  %17 = call i32 @atoi(ptr noundef %16) #12
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 32
   store i32 %17, ptr %18, align 8
   %19 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
@@ -18220,7 +18220,7 @@ define internal fastcc noundef ptr @_readTidScan() unnamed_addr #0 {
   store i8 %36, ptr %35, align 2
   %37 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %38 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %39 = call i32 @atoi(ptr nocapture noundef %38) #12
+  %39 = call i32 @atoi(ptr noundef %38) #12
   %40 = getelementptr inbounds nuw i8, ptr %2, i64 40
   store i32 %39, ptr %40, align 8
   %41 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
@@ -18286,7 +18286,7 @@ define internal fastcc noundef ptr @_readTidRangeScan() unnamed_addr #0 {
   store double %13, ptr %14, align 8
   %15 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %16 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %17 = call i32 @atoi(ptr nocapture noundef %16) #12
+  %17 = call i32 @atoi(ptr noundef %16) #12
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 32
   store i32 %17, ptr %18, align 8
   %19 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
@@ -18312,7 +18312,7 @@ define internal fastcc noundef ptr @_readTidRangeScan() unnamed_addr #0 {
   store i8 %36, ptr %35, align 2
   %37 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %38 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %39 = call i32 @atoi(ptr nocapture noundef %38) #12
+  %39 = call i32 @atoi(ptr noundef %38) #12
   %40 = getelementptr inbounds nuw i8, ptr %2, i64 40
   store i32 %39, ptr %40, align 8
   %41 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
@@ -18378,7 +18378,7 @@ define internal fastcc noundef ptr @_readSubqueryScan() unnamed_addr #0 {
   store double %13, ptr %14, align 8
   %15 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %16 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %17 = call i32 @atoi(ptr nocapture noundef %16) #12
+  %17 = call i32 @atoi(ptr noundef %16) #12
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 32
   store i32 %17, ptr %18, align 8
   %19 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
@@ -18404,7 +18404,7 @@ define internal fastcc noundef ptr @_readSubqueryScan() unnamed_addr #0 {
   store i8 %36, ptr %35, align 2
   %37 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %38 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %39 = call i32 @atoi(ptr nocapture noundef %38) #12
+  %39 = call i32 @atoi(ptr noundef %38) #12
   %40 = getelementptr inbounds nuw i8, ptr %2, i64 40
   store i32 %39, ptr %40, align 8
   %41 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
@@ -18447,7 +18447,7 @@ define internal fastcc noundef ptr @_readSubqueryScan() unnamed_addr #0 {
   store ptr %68, ptr %69, align 8
   %70 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %71 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %72 = call i32 @atoi(ptr nocapture noundef %71) #12
+  %72 = call i32 @atoi(ptr noundef %71) #12
   %73 = getelementptr inbounds nuw i8, ptr %2, i64 120
   store i32 %72, ptr %73, align 8
   ret ptr %2
@@ -18475,7 +18475,7 @@ define internal fastcc noundef ptr @_readFunctionScan() unnamed_addr #0 {
   store double %13, ptr %14, align 8
   %15 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %16 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %17 = call i32 @atoi(ptr nocapture noundef %16) #12
+  %17 = call i32 @atoi(ptr noundef %16) #12
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 32
   store i32 %17, ptr %18, align 8
   %19 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
@@ -18501,7 +18501,7 @@ define internal fastcc noundef ptr @_readFunctionScan() unnamed_addr #0 {
   store i8 %36, ptr %35, align 2
   %37 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %38 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %39 = call i32 @atoi(ptr nocapture noundef %38) #12
+  %39 = call i32 @atoi(ptr noundef %38) #12
   %40 = getelementptr inbounds nuw i8, ptr %2, i64 40
   store i32 %39, ptr %40, align 8
   %41 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
@@ -18574,7 +18574,7 @@ define internal fastcc noundef ptr @_readValuesScan() unnamed_addr #0 {
   store double %13, ptr %14, align 8
   %15 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %16 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %17 = call i32 @atoi(ptr nocapture noundef %16) #12
+  %17 = call i32 @atoi(ptr noundef %16) #12
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 32
   store i32 %17, ptr %18, align 8
   %19 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
@@ -18600,7 +18600,7 @@ define internal fastcc noundef ptr @_readValuesScan() unnamed_addr #0 {
   store i8 %36, ptr %35, align 2
   %37 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %38 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %39 = call i32 @atoi(ptr nocapture noundef %38) #12
+  %39 = call i32 @atoi(ptr noundef %38) #12
   %40 = getelementptr inbounds nuw i8, ptr %2, i64 40
   store i32 %39, ptr %40, align 8
   %41 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
@@ -18666,7 +18666,7 @@ define internal fastcc noundef ptr @_readTableFuncScan() unnamed_addr #0 {
   store double %13, ptr %14, align 8
   %15 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %16 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %17 = call i32 @atoi(ptr nocapture noundef %16) #12
+  %17 = call i32 @atoi(ptr noundef %16) #12
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 32
   store i32 %17, ptr %18, align 8
   %19 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
@@ -18692,7 +18692,7 @@ define internal fastcc noundef ptr @_readTableFuncScan() unnamed_addr #0 {
   store i8 %36, ptr %35, align 2
   %37 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %38 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %39 = call i32 @atoi(ptr nocapture noundef %38) #12
+  %39 = call i32 @atoi(ptr noundef %38) #12
   %40 = getelementptr inbounds nuw i8, ptr %2, i64 40
   store i32 %39, ptr %40, align 8
   %41 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
@@ -18758,7 +18758,7 @@ define internal fastcc noundef ptr @_readCteScan() unnamed_addr #0 {
   store double %13, ptr %14, align 8
   %15 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %16 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %17 = call i32 @atoi(ptr nocapture noundef %16) #12
+  %17 = call i32 @atoi(ptr noundef %16) #12
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 32
   store i32 %17, ptr %18, align 8
   %19 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
@@ -18784,7 +18784,7 @@ define internal fastcc noundef ptr @_readCteScan() unnamed_addr #0 {
   store i8 %36, ptr %35, align 2
   %37 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %38 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %39 = call i32 @atoi(ptr nocapture noundef %38) #12
+  %39 = call i32 @atoi(ptr noundef %38) #12
   %40 = getelementptr inbounds nuw i8, ptr %2, i64 40
   store i32 %39, ptr %40, align 8
   %41 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
@@ -18823,12 +18823,12 @@ define internal fastcc noundef ptr @_readCteScan() unnamed_addr #0 {
   store i32 %65, ptr %66, align 8
   %67 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %68 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %69 = call i32 @atoi(ptr nocapture noundef %68) #12
+  %69 = call i32 @atoi(ptr noundef %68) #12
   %70 = getelementptr inbounds nuw i8, ptr %2, i64 112
   store i32 %69, ptr %70, align 8
   %71 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %72 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %73 = call i32 @atoi(ptr nocapture noundef %72) #12
+  %73 = call i32 @atoi(ptr noundef %72) #12
   %74 = getelementptr inbounds nuw i8, ptr %2, i64 116
   store i32 %73, ptr %74, align 4
   ret ptr %2
@@ -18856,7 +18856,7 @@ define internal fastcc noundef ptr @_readNamedTuplestoreScan() unnamed_addr #0 {
   store double %13, ptr %14, align 8
   %15 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %16 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %17 = call i32 @atoi(ptr nocapture noundef %16) #12
+  %17 = call i32 @atoi(ptr noundef %16) #12
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 32
   store i32 %17, ptr %18, align 8
   %19 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
@@ -18882,7 +18882,7 @@ define internal fastcc noundef ptr @_readNamedTuplestoreScan() unnamed_addr #0 {
   store i8 %36, ptr %35, align 2
   %37 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %38 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %39 = call i32 @atoi(ptr nocapture noundef %38) #12
+  %39 = call i32 @atoi(ptr noundef %38) #12
   %40 = getelementptr inbounds nuw i8, ptr %2, i64 40
   store i32 %39, ptr %40, align 8
   %41 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
@@ -18975,7 +18975,7 @@ define internal fastcc noundef ptr @_readWorkTableScan() unnamed_addr #0 {
   store double %13, ptr %14, align 8
   %15 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %16 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %17 = call i32 @atoi(ptr nocapture noundef %16) #12
+  %17 = call i32 @atoi(ptr noundef %16) #12
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 32
   store i32 %17, ptr %18, align 8
   %19 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
@@ -19001,7 +19001,7 @@ define internal fastcc noundef ptr @_readWorkTableScan() unnamed_addr #0 {
   store i8 %36, ptr %35, align 2
   %37 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %38 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %39 = call i32 @atoi(ptr nocapture noundef %38) #12
+  %39 = call i32 @atoi(ptr noundef %38) #12
   %40 = getelementptr inbounds nuw i8, ptr %2, i64 40
   store i32 %39, ptr %40, align 8
   %41 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
@@ -19040,7 +19040,7 @@ define internal fastcc noundef ptr @_readWorkTableScan() unnamed_addr #0 {
   store i32 %65, ptr %66, align 8
   %67 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %68 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %69 = call i32 @atoi(ptr nocapture noundef %68) #12
+  %69 = call i32 @atoi(ptr noundef %68) #12
   %70 = getelementptr inbounds nuw i8, ptr %2, i64 112
   store i32 %69, ptr %70, align 8
   ret ptr %2
@@ -19068,7 +19068,7 @@ define internal fastcc noundef ptr @_readForeignScan() unnamed_addr #0 {
   store double %13, ptr %14, align 8
   %15 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %16 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %17 = call i32 @atoi(ptr nocapture noundef %16) #12
+  %17 = call i32 @atoi(ptr noundef %16) #12
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 32
   store i32 %17, ptr %18, align 8
   %19 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
@@ -19094,7 +19094,7 @@ define internal fastcc noundef ptr @_readForeignScan() unnamed_addr #0 {
   store i8 %36, ptr %35, align 2
   %37 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %38 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %39 = call i32 @atoi(ptr nocapture noundef %38) #12
+  %39 = call i32 @atoi(ptr noundef %38) #12
   %40 = getelementptr inbounds nuw i8, ptr %2, i64 40
   store i32 %39, ptr %40, align 8
   %41 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
@@ -19133,7 +19133,7 @@ define internal fastcc noundef ptr @_readForeignScan() unnamed_addr #0 {
   store i32 %65, ptr %66, align 8
   %67 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %68 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %69 = call i32 @atoi(ptr nocapture noundef %68) #12
+  %69 = call i32 @atoi(ptr noundef %68) #12
   %70 = getelementptr inbounds nuw i8, ptr %2, i64 112
   store i32 %69, ptr %70, align 8
   %71 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
@@ -19210,7 +19210,7 @@ define internal fastcc noundef ptr @_readCustomScan() unnamed_addr #0 {
   store double %13, ptr %14, align 8
   %15 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %16 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %17 = call i32 @atoi(ptr nocapture noundef %16) #12
+  %17 = call i32 @atoi(ptr noundef %16) #12
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 32
   store i32 %17, ptr %18, align 8
   %19 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
@@ -19236,7 +19236,7 @@ define internal fastcc noundef ptr @_readCustomScan() unnamed_addr #0 {
   store i8 %36, ptr %35, align 2
   %37 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %38 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %39 = call i32 @atoi(ptr nocapture noundef %38) #12
+  %39 = call i32 @atoi(ptr noundef %38) #12
   %40 = getelementptr inbounds nuw i8, ptr %2, i64 40
   store i32 %39, ptr %40, align 8
   %41 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
@@ -19356,7 +19356,7 @@ define internal fastcc noundef ptr @_readNestLoop() unnamed_addr #0 {
   store double %13, ptr %14, align 8
   %15 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %16 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %17 = call i32 @atoi(ptr nocapture noundef %16) #12
+  %17 = call i32 @atoi(ptr noundef %16) #12
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 32
   store i32 %17, ptr %18, align 8
   %19 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
@@ -19382,7 +19382,7 @@ define internal fastcc noundef ptr @_readNestLoop() unnamed_addr #0 {
   store i8 %36, ptr %35, align 2
   %37 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %38 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %39 = call i32 @atoi(ptr nocapture noundef %38) #12
+  %39 = call i32 @atoi(ptr noundef %38) #12
   %40 = getelementptr inbounds nuw i8, ptr %2, i64 40
   store i32 %39, ptr %40, align 8
   %41 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
@@ -19415,7 +19415,7 @@ define internal fastcc noundef ptr @_readNestLoop() unnamed_addr #0 {
   store ptr %60, ptr %61, align 8
   %62 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %63 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %64 = call i32 @atoi(ptr nocapture noundef %63) #12
+  %64 = call i32 @atoi(ptr noundef %63) #12
   %65 = getelementptr inbounds nuw i8, ptr %2, i64 104
   store i32 %64, ptr %65, align 8
   %66 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
@@ -19443,7 +19443,7 @@ define internal fastcc noundef ptr @_readNestLoopParam() unnamed_addr #0 {
   store i32 341, ptr %2, align 4
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %5 = call i32 @atoi(ptr nocapture noundef %4) #12
+  %5 = call i32 @atoi(ptr noundef %4) #12
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 %5, ptr %6, align 4
   %7 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
@@ -19475,7 +19475,7 @@ define internal fastcc noundef ptr @_readMergeJoin() unnamed_addr #0 {
   store double %13, ptr %14, align 8
   %15 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %16 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %17 = call i32 @atoi(ptr nocapture noundef %16) #12
+  %17 = call i32 @atoi(ptr noundef %16) #12
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 32
   store i32 %17, ptr %18, align 8
   %19 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
@@ -19501,7 +19501,7 @@ define internal fastcc noundef ptr @_readMergeJoin() unnamed_addr #0 {
   store i8 %36, ptr %35, align 2
   %37 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %38 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %39 = call i32 @atoi(ptr nocapture noundef %38) #12
+  %39 = call i32 @atoi(ptr noundef %38) #12
   %40 = getelementptr inbounds nuw i8, ptr %2, i64 40
   store i32 %39, ptr %40, align 8
   %41 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
@@ -19534,7 +19534,7 @@ define internal fastcc noundef ptr @_readMergeJoin() unnamed_addr #0 {
   store ptr %60, ptr %61, align 8
   %62 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %63 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %64 = call i32 @atoi(ptr nocapture noundef %63) #12
+  %64 = call i32 @atoi(ptr noundef %63) #12
   %65 = getelementptr inbounds nuw i8, ptr %2, i64 104
   store i32 %64, ptr %65, align 8
   %66 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
@@ -19644,7 +19644,7 @@ define internal fastcc noundef ptr @_readHashJoin() unnamed_addr #0 {
   store double %13, ptr %14, align 8
   %15 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %16 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %17 = call i32 @atoi(ptr nocapture noundef %16) #12
+  %17 = call i32 @atoi(ptr noundef %16) #12
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 32
   store i32 %17, ptr %18, align 8
   %19 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
@@ -19670,7 +19670,7 @@ define internal fastcc noundef ptr @_readHashJoin() unnamed_addr #0 {
   store i8 %36, ptr %35, align 2
   %37 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %38 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %39 = call i32 @atoi(ptr nocapture noundef %38) #12
+  %39 = call i32 @atoi(ptr noundef %38) #12
   %40 = getelementptr inbounds nuw i8, ptr %2, i64 40
   store i32 %39, ptr %40, align 8
   %41 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
@@ -19703,7 +19703,7 @@ define internal fastcc noundef ptr @_readHashJoin() unnamed_addr #0 {
   store ptr %60, ptr %61, align 8
   %62 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %63 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %64 = call i32 @atoi(ptr nocapture noundef %63) #12
+  %64 = call i32 @atoi(ptr noundef %63) #12
   %65 = getelementptr inbounds nuw i8, ptr %2, i64 104
   store i32 %64, ptr %65, align 8
   %66 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
@@ -19758,7 +19758,7 @@ define internal fastcc noundef ptr @_readMaterial() unnamed_addr #0 {
   store double %13, ptr %14, align 8
   %15 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %16 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %17 = call i32 @atoi(ptr nocapture noundef %16) #12
+  %17 = call i32 @atoi(ptr noundef %16) #12
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 32
   store i32 %17, ptr %18, align 8
   %19 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
@@ -19784,7 +19784,7 @@ define internal fastcc noundef ptr @_readMaterial() unnamed_addr #0 {
   store i8 %36, ptr %35, align 2
   %37 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %38 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %39 = call i32 @atoi(ptr nocapture noundef %38) #12
+  %39 = call i32 @atoi(ptr noundef %38) #12
   %40 = getelementptr inbounds nuw i8, ptr %2, i64 40
   store i32 %39, ptr %40, align 8
   %41 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
@@ -19840,7 +19840,7 @@ define internal fastcc noundef ptr @_readMemoize() unnamed_addr #0 {
   store double %13, ptr %14, align 8
   %15 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %16 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %17 = call i32 @atoi(ptr nocapture noundef %16) #12
+  %17 = call i32 @atoi(ptr noundef %16) #12
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 32
   store i32 %17, ptr %18, align 8
   %19 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
@@ -19866,7 +19866,7 @@ define internal fastcc noundef ptr @_readMemoize() unnamed_addr #0 {
   store i8 %36, ptr %35, align 2
   %37 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %38 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %39 = call i32 @atoi(ptr nocapture noundef %38) #12
+  %39 = call i32 @atoi(ptr noundef %38) #12
   %40 = getelementptr inbounds nuw i8, ptr %2, i64 40
   store i32 %39, ptr %40, align 8
   %41 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
@@ -19899,7 +19899,7 @@ define internal fastcc noundef ptr @_readMemoize() unnamed_addr #0 {
   store ptr %60, ptr %61, align 8
   %62 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %63 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %64 = call i32 @atoi(ptr nocapture noundef %63) #12
+  %64 = call i32 @atoi(ptr noundef %63) #12
   %65 = getelementptr inbounds nuw i8, ptr %2, i64 104
   store i32 %64, ptr %65, align 8
   %66 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
@@ -19965,7 +19965,7 @@ define internal fastcc noundef ptr @_readSort() unnamed_addr #0 {
   store double %13, ptr %14, align 8
   %15 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %16 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %17 = call i32 @atoi(ptr nocapture noundef %16) #12
+  %17 = call i32 @atoi(ptr noundef %16) #12
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 32
   store i32 %17, ptr %18, align 8
   %19 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
@@ -19991,7 +19991,7 @@ define internal fastcc noundef ptr @_readSort() unnamed_addr #0 {
   store i8 %36, ptr %35, align 2
   %37 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %38 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %39 = call i32 @atoi(ptr nocapture noundef %38) #12
+  %39 = call i32 @atoi(ptr noundef %38) #12
   %40 = getelementptr inbounds nuw i8, ptr %2, i64 40
   store i32 %39, ptr %40, align 8
   %41 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
@@ -20024,7 +20024,7 @@ define internal fastcc noundef ptr @_readSort() unnamed_addr #0 {
   store ptr %60, ptr %61, align 8
   %62 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %63 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %64 = call i32 @atoi(ptr nocapture noundef %63) #12
+  %64 = call i32 @atoi(ptr noundef %63) #12
   %65 = getelementptr inbounds nuw i8, ptr %2, i64 104
   store i32 %64, ptr %65, align 8
   %66 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
@@ -20072,7 +20072,7 @@ define internal fastcc noundef ptr @_readIncrementalSort() unnamed_addr #0 {
   store double %13, ptr %14, align 8
   %15 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %16 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %17 = call i32 @atoi(ptr nocapture noundef %16) #12
+  %17 = call i32 @atoi(ptr noundef %16) #12
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 32
   store i32 %17, ptr %18, align 8
   %19 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
@@ -20098,7 +20098,7 @@ define internal fastcc noundef ptr @_readIncrementalSort() unnamed_addr #0 {
   store i8 %36, ptr %35, align 2
   %37 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %38 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %39 = call i32 @atoi(ptr nocapture noundef %38) #12
+  %39 = call i32 @atoi(ptr noundef %38) #12
   %40 = getelementptr inbounds nuw i8, ptr %2, i64 40
   store i32 %39, ptr %40, align 8
   %41 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
@@ -20131,7 +20131,7 @@ define internal fastcc noundef ptr @_readIncrementalSort() unnamed_addr #0 {
   store ptr %60, ptr %61, align 8
   %62 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %63 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %64 = call i32 @atoi(ptr nocapture noundef %63) #12
+  %64 = call i32 @atoi(ptr noundef %63) #12
   %65 = getelementptr inbounds nuw i8, ptr %2, i64 104
   store i32 %64, ptr %65, align 8
   %66 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
@@ -20156,7 +20156,7 @@ define internal fastcc noundef ptr @_readIncrementalSort() unnamed_addr #0 {
   store ptr %80, ptr %81, align 8
   %82 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %83 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %84 = call i32 @atoi(ptr nocapture noundef %83) #12
+  %84 = call i32 @atoi(ptr noundef %83) #12
   %85 = getelementptr inbounds nuw i8, ptr %2, i64 144
   store i32 %84, ptr %85, align 8
   ret ptr %2
@@ -20184,7 +20184,7 @@ define internal fastcc noundef ptr @_readGroup() unnamed_addr #0 {
   store double %13, ptr %14, align 8
   %15 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %16 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %17 = call i32 @atoi(ptr nocapture noundef %16) #12
+  %17 = call i32 @atoi(ptr noundef %16) #12
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 32
   store i32 %17, ptr %18, align 8
   %19 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
@@ -20210,7 +20210,7 @@ define internal fastcc noundef ptr @_readGroup() unnamed_addr #0 {
   store i8 %36, ptr %35, align 2
   %37 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %38 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %39 = call i32 @atoi(ptr nocapture noundef %38) #12
+  %39 = call i32 @atoi(ptr noundef %38) #12
   %40 = getelementptr inbounds nuw i8, ptr %2, i64 40
   store i32 %39, ptr %40, align 8
   %41 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
@@ -20243,7 +20243,7 @@ define internal fastcc noundef ptr @_readGroup() unnamed_addr #0 {
   store ptr %60, ptr %61, align 8
   %62 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %63 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %64 = call i32 @atoi(ptr nocapture noundef %63) #12
+  %64 = call i32 @atoi(ptr noundef %63) #12
   %65 = getelementptr inbounds nuw i8, ptr %2, i64 104
   store i32 %64, ptr %65, align 8
   %66 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
@@ -20286,7 +20286,7 @@ define internal fastcc noundef ptr @_readAgg() unnamed_addr #0 {
   store double %13, ptr %14, align 8
   %15 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %16 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %17 = call i32 @atoi(ptr nocapture noundef %16) #12
+  %17 = call i32 @atoi(ptr noundef %16) #12
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 32
   store i32 %17, ptr %18, align 8
   %19 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
@@ -20312,7 +20312,7 @@ define internal fastcc noundef ptr @_readAgg() unnamed_addr #0 {
   store i8 %36, ptr %35, align 2
   %37 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %38 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %39 = call i32 @atoi(ptr nocapture noundef %38) #12
+  %39 = call i32 @atoi(ptr noundef %38) #12
   %40 = getelementptr inbounds nuw i8, ptr %2, i64 40
   store i32 %39, ptr %40, align 8
   %41 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
@@ -20345,17 +20345,17 @@ define internal fastcc noundef ptr @_readAgg() unnamed_addr #0 {
   store ptr %60, ptr %61, align 8
   %62 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %63 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %64 = call i32 @atoi(ptr nocapture noundef %63) #12
+  %64 = call i32 @atoi(ptr noundef %63) #12
   %65 = getelementptr inbounds nuw i8, ptr %2, i64 104
   store i32 %64, ptr %65, align 8
   %66 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %67 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %68 = call i32 @atoi(ptr nocapture noundef %67) #12
+  %68 = call i32 @atoi(ptr noundef %67) #12
   %69 = getelementptr inbounds nuw i8, ptr %2, i64 108
   store i32 %68, ptr %69, align 4
   %70 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %71 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %72 = call i32 @atoi(ptr nocapture noundef %71) #12
+  %72 = call i32 @atoi(ptr noundef %71) #12
   %73 = getelementptr inbounds nuw i8, ptr %2, i64 112
   store i32 %72, ptr %73, align 8
   %74 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
@@ -20375,7 +20375,7 @@ define internal fastcc noundef ptr @_readAgg() unnamed_addr #0 {
   store ptr %84, ptr %85, align 8
   %86 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %87 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %88 = call i64 @atol(ptr nocapture noundef %87) #12
+  %88 = call i64 @atol(ptr noundef %87) #12
   %89 = getelementptr inbounds nuw i8, ptr %2, i64 144
   store i64 %88, ptr %89, align 8
   %90 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
@@ -20420,7 +20420,7 @@ define internal fastcc noundef ptr @_readWindowAgg() unnamed_addr #0 {
   store double %13, ptr %14, align 8
   %15 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %16 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %17 = call i32 @atoi(ptr nocapture noundef %16) #12
+  %17 = call i32 @atoi(ptr noundef %16) #12
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 32
   store i32 %17, ptr %18, align 8
   %19 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
@@ -20446,7 +20446,7 @@ define internal fastcc noundef ptr @_readWindowAgg() unnamed_addr #0 {
   store i8 %36, ptr %35, align 2
   %37 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %38 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %39 = call i32 @atoi(ptr nocapture noundef %38) #12
+  %39 = call i32 @atoi(ptr noundef %38) #12
   %40 = getelementptr inbounds nuw i8, ptr %2, i64 40
   store i32 %39, ptr %40, align 8
   %41 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
@@ -20485,7 +20485,7 @@ define internal fastcc noundef ptr @_readWindowAgg() unnamed_addr #0 {
   store i32 %65, ptr %66, align 8
   %67 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %68 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %69 = call i32 @atoi(ptr nocapture noundef %68) #12
+  %69 = call i32 @atoi(ptr noundef %68) #12
   %70 = getelementptr inbounds nuw i8, ptr %2, i64 108
   store i32 %69, ptr %70, align 4
   %71 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
@@ -20505,7 +20505,7 @@ define internal fastcc noundef ptr @_readWindowAgg() unnamed_addr #0 {
   store ptr %81, ptr %82, align 8
   %83 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %84 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %85 = call i32 @atoi(ptr nocapture noundef %84) #12
+  %85 = call i32 @atoi(ptr noundef %84) #12
   %86 = getelementptr inbounds nuw i8, ptr %2, i64 136
   store i32 %85, ptr %86, align 8
   %87 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
@@ -20525,7 +20525,7 @@ define internal fastcc noundef ptr @_readWindowAgg() unnamed_addr #0 {
   store ptr %97, ptr %98, align 8
   %99 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %100 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %101 = call i32 @atoi(ptr nocapture noundef %100) #12
+  %101 = call i32 @atoi(ptr noundef %100) #12
   %102 = getelementptr inbounds nuw i8, ptr %2, i64 168
   store i32 %101, ptr %102, align 8
   %103 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
@@ -20608,7 +20608,7 @@ define internal fastcc noundef ptr @_readUnique() unnamed_addr #0 {
   store double %13, ptr %14, align 8
   %15 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %16 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %17 = call i32 @atoi(ptr nocapture noundef %16) #12
+  %17 = call i32 @atoi(ptr noundef %16) #12
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 32
   store i32 %17, ptr %18, align 8
   %19 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
@@ -20634,7 +20634,7 @@ define internal fastcc noundef ptr @_readUnique() unnamed_addr #0 {
   store i8 %36, ptr %35, align 2
   %37 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %38 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %39 = call i32 @atoi(ptr nocapture noundef %38) #12
+  %39 = call i32 @atoi(ptr noundef %38) #12
   %40 = getelementptr inbounds nuw i8, ptr %2, i64 40
   store i32 %39, ptr %40, align 8
   %41 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
@@ -20667,7 +20667,7 @@ define internal fastcc noundef ptr @_readUnique() unnamed_addr #0 {
   store ptr %60, ptr %61, align 8
   %62 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %63 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %64 = call i32 @atoi(ptr nocapture noundef %63) #12
+  %64 = call i32 @atoi(ptr noundef %63) #12
   %65 = getelementptr inbounds nuw i8, ptr %2, i64 104
   store i32 %64, ptr %65, align 8
   %66 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
@@ -20710,7 +20710,7 @@ define internal fastcc noundef ptr @_readGather() unnamed_addr #0 {
   store double %13, ptr %14, align 8
   %15 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %16 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %17 = call i32 @atoi(ptr nocapture noundef %16) #12
+  %17 = call i32 @atoi(ptr noundef %16) #12
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 32
   store i32 %17, ptr %18, align 8
   %19 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
@@ -20736,7 +20736,7 @@ define internal fastcc noundef ptr @_readGather() unnamed_addr #0 {
   store i8 %36, ptr %35, align 2
   %37 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %38 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %39 = call i32 @atoi(ptr nocapture noundef %38) #12
+  %39 = call i32 @atoi(ptr noundef %38) #12
   %40 = getelementptr inbounds nuw i8, ptr %2, i64 40
   store i32 %39, ptr %40, align 8
   %41 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
@@ -20769,12 +20769,12 @@ define internal fastcc noundef ptr @_readGather() unnamed_addr #0 {
   store ptr %60, ptr %61, align 8
   %62 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %63 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %64 = call i32 @atoi(ptr nocapture noundef %63) #12
+  %64 = call i32 @atoi(ptr noundef %63) #12
   %65 = getelementptr inbounds nuw i8, ptr %2, i64 104
   store i32 %64, ptr %65, align 8
   %66 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %67 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %68 = call i32 @atoi(ptr nocapture noundef %67) #12
+  %68 = call i32 @atoi(ptr noundef %67) #12
   %69 = getelementptr inbounds nuw i8, ptr %2, i64 108
   store i32 %68, ptr %69, align 4
   %70 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
@@ -20820,7 +20820,7 @@ define internal fastcc noundef ptr @_readGatherMerge() unnamed_addr #0 {
   store double %13, ptr %14, align 8
   %15 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %16 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %17 = call i32 @atoi(ptr nocapture noundef %16) #12
+  %17 = call i32 @atoi(ptr noundef %16) #12
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 32
   store i32 %17, ptr %18, align 8
   %19 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
@@ -20846,7 +20846,7 @@ define internal fastcc noundef ptr @_readGatherMerge() unnamed_addr #0 {
   store i8 %36, ptr %35, align 2
   %37 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %38 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %39 = call i32 @atoi(ptr nocapture noundef %38) #12
+  %39 = call i32 @atoi(ptr noundef %38) #12
   %40 = getelementptr inbounds nuw i8, ptr %2, i64 40
   store i32 %39, ptr %40, align 8
   %41 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
@@ -20879,17 +20879,17 @@ define internal fastcc noundef ptr @_readGatherMerge() unnamed_addr #0 {
   store ptr %60, ptr %61, align 8
   %62 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %63 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %64 = call i32 @atoi(ptr nocapture noundef %63) #12
+  %64 = call i32 @atoi(ptr noundef %63) #12
   %65 = getelementptr inbounds nuw i8, ptr %2, i64 104
   store i32 %64, ptr %65, align 8
   %66 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %67 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %68 = call i32 @atoi(ptr nocapture noundef %67) #12
+  %68 = call i32 @atoi(ptr noundef %67) #12
   %69 = getelementptr inbounds nuw i8, ptr %2, i64 108
   store i32 %68, ptr %69, align 4
   %70 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %71 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %72 = call i32 @atoi(ptr nocapture noundef %71) #12
+  %72 = call i32 @atoi(ptr noundef %71) #12
   %73 = getelementptr inbounds nuw i8, ptr %2, i64 112
   store i32 %72, ptr %73, align 8
   %74 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
@@ -20941,7 +20941,7 @@ define internal fastcc noundef ptr @_readHash() unnamed_addr #0 {
   store double %13, ptr %14, align 8
   %15 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %16 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %17 = call i32 @atoi(ptr nocapture noundef %16) #12
+  %17 = call i32 @atoi(ptr noundef %16) #12
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 32
   store i32 %17, ptr %18, align 8
   %19 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
@@ -20967,7 +20967,7 @@ define internal fastcc noundef ptr @_readHash() unnamed_addr #0 {
   store i8 %36, ptr %35, align 2
   %37 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %38 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %39 = call i32 @atoi(ptr nocapture noundef %38) #12
+  %39 = call i32 @atoi(ptr noundef %38) #12
   %40 = getelementptr inbounds nuw i8, ptr %2, i64 40
   store i32 %39, ptr %40, align 8
   %41 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
@@ -21010,7 +21010,7 @@ define internal fastcc noundef ptr @_readHash() unnamed_addr #0 {
   store i32 %68, ptr %69, align 8
   %70 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %71 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %72 = call i32 @atoi(ptr nocapture noundef %71) #12
+  %72 = call i32 @atoi(ptr noundef %71) #12
   %73 = trunc i32 %72 to i16
   %74 = getelementptr inbounds nuw i8, ptr %2, i64 116
   store i16 %73, ptr %74, align 4
@@ -21051,7 +21051,7 @@ define internal fastcc noundef ptr @_readSetOp() unnamed_addr #0 {
   store double %13, ptr %14, align 8
   %15 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %16 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %17 = call i32 @atoi(ptr nocapture noundef %16) #12
+  %17 = call i32 @atoi(ptr noundef %16) #12
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 32
   store i32 %17, ptr %18, align 8
   %19 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
@@ -21077,7 +21077,7 @@ define internal fastcc noundef ptr @_readSetOp() unnamed_addr #0 {
   store i8 %36, ptr %35, align 2
   %37 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %38 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %39 = call i32 @atoi(ptr nocapture noundef %38) #12
+  %39 = call i32 @atoi(ptr noundef %38) #12
   %40 = getelementptr inbounds nuw i8, ptr %2, i64 40
   store i32 %39, ptr %40, align 8
   %41 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
@@ -21110,17 +21110,17 @@ define internal fastcc noundef ptr @_readSetOp() unnamed_addr #0 {
   store ptr %60, ptr %61, align 8
   %62 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %63 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %64 = call i32 @atoi(ptr nocapture noundef %63) #12
+  %64 = call i32 @atoi(ptr noundef %63) #12
   %65 = getelementptr inbounds nuw i8, ptr %2, i64 104
   store i32 %64, ptr %65, align 8
   %66 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %67 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %68 = call i32 @atoi(ptr nocapture noundef %67) #12
+  %68 = call i32 @atoi(ptr noundef %67) #12
   %69 = getelementptr inbounds nuw i8, ptr %2, i64 108
   store i32 %68, ptr %69, align 4
   %70 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %71 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %72 = call i32 @atoi(ptr nocapture noundef %71) #12
+  %72 = call i32 @atoi(ptr noundef %71) #12
   %73 = getelementptr inbounds nuw i8, ptr %2, i64 112
   store i32 %72, ptr %73, align 8
   %74 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
@@ -21140,18 +21140,18 @@ define internal fastcc noundef ptr @_readSetOp() unnamed_addr #0 {
   store ptr %84, ptr %85, align 8
   %86 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %87 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %88 = call i32 @atoi(ptr nocapture noundef %87) #12
+  %88 = call i32 @atoi(ptr noundef %87) #12
   %89 = trunc i32 %88 to i16
   %90 = getelementptr inbounds nuw i8, ptr %2, i64 144
   store i16 %89, ptr %90, align 8
   %91 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %92 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %93 = call i32 @atoi(ptr nocapture noundef %92) #12
+  %93 = call i32 @atoi(ptr noundef %92) #12
   %94 = getelementptr inbounds nuw i8, ptr %2, i64 148
   store i32 %93, ptr %94, align 4
   %95 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %96 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %97 = call i64 @atol(ptr nocapture noundef %96) #12
+  %97 = call i64 @atol(ptr noundef %96) #12
   %98 = getelementptr inbounds nuw i8, ptr %2, i64 152
   store i64 %97, ptr %98, align 8
   ret ptr %2
@@ -21179,7 +21179,7 @@ define internal fastcc noundef ptr @_readLockRows() unnamed_addr #0 {
   store double %13, ptr %14, align 8
   %15 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %16 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %17 = call i32 @atoi(ptr nocapture noundef %16) #12
+  %17 = call i32 @atoi(ptr noundef %16) #12
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 32
   store i32 %17, ptr %18, align 8
   %19 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
@@ -21205,7 +21205,7 @@ define internal fastcc noundef ptr @_readLockRows() unnamed_addr #0 {
   store i8 %36, ptr %35, align 2
   %37 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %38 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %39 = call i32 @atoi(ptr nocapture noundef %38) #12
+  %39 = call i32 @atoi(ptr noundef %38) #12
   %40 = getelementptr inbounds nuw i8, ptr %2, i64 40
   store i32 %39, ptr %40, align 8
   %41 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
@@ -21242,7 +21242,7 @@ define internal fastcc noundef ptr @_readLockRows() unnamed_addr #0 {
   store ptr %63, ptr %64, align 8
   %65 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %66 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %67 = call i32 @atoi(ptr nocapture noundef %66) #12
+  %67 = call i32 @atoi(ptr noundef %66) #12
   %68 = getelementptr inbounds nuw i8, ptr %2, i64 112
   store i32 %67, ptr %68, align 8
   ret ptr %2
@@ -21270,7 +21270,7 @@ define internal fastcc noundef ptr @_readLimit() unnamed_addr #0 {
   store double %13, ptr %14, align 8
   %15 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %16 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %17 = call i32 @atoi(ptr nocapture noundef %16) #12
+  %17 = call i32 @atoi(ptr noundef %16) #12
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 32
   store i32 %17, ptr %18, align 8
   %19 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
@@ -21296,7 +21296,7 @@ define internal fastcc noundef ptr @_readLimit() unnamed_addr #0 {
   store i8 %36, ptr %35, align 2
   %37 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %38 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %39 = call i32 @atoi(ptr nocapture noundef %38) #12
+  %39 = call i32 @atoi(ptr noundef %38) #12
   %40 = getelementptr inbounds nuw i8, ptr %2, i64 40
   store i32 %39, ptr %40, align 8
   %41 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
@@ -21337,12 +21337,12 @@ define internal fastcc noundef ptr @_readLimit() unnamed_addr #0 {
   store ptr %66, ptr %67, align 8
   %68 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %69 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %70 = call i32 @atoi(ptr nocapture noundef %69) #12
+  %70 = call i32 @atoi(ptr noundef %69) #12
   %71 = getelementptr inbounds nuw i8, ptr %2, i64 120
   store i32 %70, ptr %71, align 8
   %72 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %73 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %74 = call i32 @atoi(ptr nocapture noundef %73) #12
+  %74 = call i32 @atoi(ptr noundef %73) #12
   %75 = getelementptr inbounds nuw i8, ptr %2, i64 124
   store i32 %74, ptr %75, align 4
   %76 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
@@ -21388,22 +21388,22 @@ define internal fastcc noundef ptr @_readPlanRowMark() unnamed_addr #0 {
   store i32 %16, ptr %17, align 4
   %18 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %19 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %20 = call i32 @atoi(ptr nocapture noundef %19) #12
+  %20 = call i32 @atoi(ptr noundef %19) #12
   %21 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i32 %20, ptr %21, align 4
   %22 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %23 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %24 = call i32 @atoi(ptr nocapture noundef %23) #12
+  %24 = call i32 @atoi(ptr noundef %23) #12
   %25 = getelementptr inbounds nuw i8, ptr %2, i64 20
   store i32 %24, ptr %25, align 4
   %26 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %27 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %28 = call i32 @atoi(ptr nocapture noundef %27) #12
+  %28 = call i32 @atoi(ptr noundef %27) #12
   %29 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store i32 %28, ptr %29, align 4
   %30 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %31 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %32 = call i32 @atoi(ptr nocapture noundef %31) #12
+  %32 = call i32 @atoi(ptr noundef %31) #12
   %33 = getelementptr inbounds nuw i8, ptr %2, i64 28
   store i32 %32, ptr %33, align 4
   %34 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
@@ -21449,7 +21449,7 @@ define internal fastcc noundef ptr @_readPartitionedRelPruneInfo() unnamed_addr 
   store ptr %9, ptr %10, align 8
   %11 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %12 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %13 = call i32 @atoi(ptr nocapture noundef %12) #12
+  %13 = call i32 @atoi(ptr noundef %12) #12
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i32 %13, ptr %14, align 8
   %15 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
@@ -21489,12 +21489,12 @@ define internal fastcc noundef ptr @_readPartitionPruneStepOp() unnamed_addr #0 
   store i32 361, ptr %2, align 4
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %5 = call i32 @atoi(ptr nocapture noundef %4) #12
+  %5 = call i32 @atoi(ptr noundef %4) #12
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 %5, ptr %6, align 4
   %7 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %8 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %9 = call i32 @atoi(ptr nocapture noundef %8) #12
+  %9 = call i32 @atoi(ptr noundef %8) #12
   %10 = trunc i32 %9 to i16
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i16 %10, ptr %11, align 8
@@ -21520,12 +21520,12 @@ define internal fastcc noundef ptr @_readPartitionPruneStepCombine() unnamed_add
   store i32 362, ptr %2, align 4
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %5 = call i32 @atoi(ptr nocapture noundef %4) #12
+  %5 = call i32 @atoi(ptr noundef %4) #12
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 %5, ptr %6, align 4
   %7 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %8 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %9 = call i32 @atoi(ptr nocapture noundef %8) #12
+  %9 = call i32 @atoi(ptr noundef %8) #12
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 %9, ptr %10, align 8
   %11 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
@@ -21542,7 +21542,7 @@ define internal fastcc noundef ptr @_readPlanInvalItem() unnamed_addr #0 {
   store i32 363, ptr %2, align 4
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %5 = call i32 @atoi(ptr nocapture noundef %4) #12
+  %5 = call i32 @atoi(ptr noundef %4) #12
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 %5, ptr %6, align 4
   %7 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
@@ -21662,7 +21662,7 @@ define dso_local i64 @readDatum(i1 noundef zeroext %0) local_unnamed_addr #0 {
 22:                                               ; preds = %21, %22
   %.035 = phi i64 [ 0, %21 ], [ %27, %22 ]
   %23 = call ptr @pg_strtok(ptr noundef nonnull %2) #10
-  %24 = call i32 @atoi(ptr nocapture noundef %23) #12
+  %24 = call i32 @atoi(ptr noundef %23) #12
   %25 = trunc i32 %24 to i8
   %26 = getelementptr i8, ptr %3, i64 %.035
   store i8 %25, ptr %26, align 1
@@ -21681,7 +21681,7 @@ define dso_local i64 @readDatum(i1 noundef zeroext %0) local_unnamed_addr #0 {
 32:                                               ; preds = %30, %32
   %.134 = phi i64 [ 0, %30 ], [ %37, %32 ]
   %33 = call ptr @pg_strtok(ptr noundef nonnull %2) #10
-  %34 = call i32 @atoi(ptr nocapture noundef %33) #12
+  %34 = call i32 @atoi(ptr noundef %33) #12
   %35 = trunc i32 %34 to i8
   %36 = getelementptr i8, ptr %31, i64 %.134
   store i8 %35, ptr %36, align 1
@@ -21793,7 +21793,7 @@ define dso_local ptr @readAttrNumberCols(i32 noundef %0) local_unnamed_addr #0 {
   unreachable
 
 29:                                               ; preds = %23
-  %30 = call i32 @atoi(ptr nocapture noundef nonnull %21) #12
+  %30 = call i32 @atoi(ptr noundef nonnull %21) #12
   %31 = trunc i32 %30 to i16
   %32 = getelementptr i16, ptr %19, i64 %indvars.iv
   store i16 %31, ptr %32, align 2
@@ -21987,7 +21987,7 @@ define dso_local ptr @readIntCols(i32 noundef %0) local_unnamed_addr #0 {
   unreachable
 
 29:                                               ; preds = %23
-  %30 = call i32 @atoi(ptr nocapture noundef nonnull %21) #12
+  %30 = call i32 @atoi(ptr noundef nonnull %21) #12
   %31 = getelementptr i32, ptr %19, i64 %indvars.iv
   store i32 %30, ptr %31, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
