@@ -1960,6 +1960,7 @@ default.unreachable128:                           ; preds = %2
 
 158:                                              ; preds = %154
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7), !noalias !400
+  call void @llvm.assume(i1 true) [ "align"(ptr %156, i64 8) ]
   %159 = load ptr, ptr %156, align 8, !noalias !400, !nonnull !5, !noundef !5
   %160 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %161 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -1998,6 +1999,7 @@ default.unreachable128:                           ; preds = %2
 
 174:                                              ; preds = %170
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6), !noalias !403
+  call void @llvm.assume(i1 true) [ "align"(ptr %172, i64 8) ]
   %175 = load ptr, ptr %172, align 8, !noalias !403, !nonnull !5, !noundef !5
   %176 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %177 = getelementptr inbounds nuw i8, ptr %1, i64 64
@@ -2037,6 +2039,7 @@ default.unreachable128:                           ; preds = %2
 188:                                              ; preds = %186
   tail call void @llvm.experimental.noalias.scope.decl(metadata !415)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !418)
+  call void @llvm.assume(i1 true) [ "align"(ptr %167, i64 8) ]
   %189 = getelementptr inbounds nuw i8, ptr %167, i64 16
   %190 = load ptr, ptr %189, align 8, !noalias !421, !nonnull !5, !noundef !5
   %191 = getelementptr inbounds nuw i8, ptr %8, i64 32
@@ -2121,6 +2124,7 @@ common.resume:                                    ; preds = %245, %247, %249, %1
 
 219:                                              ; preds = %215
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4), !noalias !426
+  call void @llvm.assume(i1 true) [ "align"(ptr %217, i64 8) ]
   %220 = load ptr, ptr %217, align 8, !noalias !426, !nonnull !5, !noundef !5
   %221 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %222 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -2159,6 +2163,7 @@ common.resume:                                    ; preds = %245, %247, %249, %1
 
 235:                                              ; preds = %231
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3), !noalias !429
+  call void @llvm.assume(i1 true) [ "align"(ptr %233, i64 8) ]
   %236 = load ptr, ptr %233, align 8, !noalias !429, !nonnull !5, !noundef !5
   %237 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %238 = getelementptr inbounds nuw i8, ptr %1, i64 64
@@ -2199,6 +2204,7 @@ common.resume:                                    ; preds = %245, %247, %249, %1
 249:                                              ; preds = %247
   tail call void @llvm.experimental.noalias.scope.decl(metadata !444)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !447)
+  call void @llvm.assume(i1 true) [ "align"(ptr %228, i64 8) ]
   %250 = getelementptr inbounds nuw i8, ptr %228, i64 16
   %251 = load ptr, ptr %250, align 8, !noalias !450, !nonnull !5, !noundef !5
   %252 = getelementptr inbounds nuw i8, ptr %5, i64 32
@@ -4980,6 +4986,7 @@ define hidden void @"_ZN7parquet4file6writer33SerializedRowGroupWriter$LT$W$GT$1
 259:                                              ; preds = %256
   call void @llvm.experimental.noalias.scope.decl(metadata !774)
   call void @llvm.experimental.noalias.scope.decl(metadata !777)
+  call void @llvm.assume(i1 true) [ "align"(ptr %257, i64 8) ]
   %260 = getelementptr inbounds nuw i8, ptr %257, i64 16
   %261 = load ptr, ptr %260, align 8, !noalias !780, !nonnull !5, !noundef !5
   %262 = getelementptr inbounds nuw i8, ptr %23, i64 32
@@ -5005,6 +5012,7 @@ define hidden void @"_ZN7parquet4file6writer33SerializedRowGroupWriter$LT$W$GT$1
 272:                                              ; preds = %269
   call void @llvm.experimental.noalias.scope.decl(metadata !790)
   call void @llvm.experimental.noalias.scope.decl(metadata !793)
+  call void @llvm.assume(i1 true) [ "align"(ptr %270, i64 8) ]
   %273 = getelementptr inbounds nuw i8, ptr %270, i64 16
   %274 = load ptr, ptr %273, align 8, !noalias !796, !nonnull !5, !noundef !5
   %275 = getelementptr inbounds nuw i8, ptr %23, i64 32

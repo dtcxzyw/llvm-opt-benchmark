@@ -849,82 +849,89 @@ define void @_RNvXs_NtNtCs68wO5nsWeTG_5alloc11collections9vec_dequeINtB4_8VecDeq
   %5 = extractvalue { i64, i64 } %4, 0
   %6 = extractvalue { i64, i64 } %4, 1
   %7 = icmp eq i64 %6, %5
-  br i1 %7, label %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNvXs_NtNtCs68wO5nsWeTG_5alloc11collections9vec_dequeINtBO_8VecDequeppENtNtNtB4_3ops4drop4Drop4drop7DropperNtNtCs8mTrBI1stz4_15turborepo_vt1003row3RowEEB2v_.exit, label %_RINvMs3_NtNtCs68wO5nsWeTG_5alloc11collections9vec_dequeINtB6_8VecDequeNtNtCs8mTrBI1stz4_15turborepo_vt1003row3RowE12slice_rangesNtNtNtCs1LoaDTb72WA_4core3ops5range9RangeFullEB1a_.exit
+  br i1 %7, label %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeSNtNtCs8mTrBI1stz4_15turborepo_vt1003row3RowEBL_.llvm.2317615445369004925.exit.thread, label %_RINvMs3_NtNtCs68wO5nsWeTG_5alloc11collections9vec_dequeINtB6_8VecDequeNtNtCs8mTrBI1stz4_15turborepo_vt1003row3RowE12slice_rangesNtNtNtCs1LoaDTb72WA_4core3ops5range9RangeFullEB1a_.exit
+
+_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeSNtNtCs8mTrBI1stz4_15turborepo_vt1003row3RowEBL_.llvm.2317615445369004925.exit.thread: ; preds = %1
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %9 = load ptr, ptr %8, align 8, !nonnull !7, !noundef !7
+  call void @llvm.assume(i1 true) [ "align"(ptr %9, i64 8) ]
+  br label %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNvXs_NtNtCs68wO5nsWeTG_5alloc11collections9vec_dequeINtBO_8VecDequeppENtNtNtB4_3ops4drop4Drop4drop7DropperNtNtCs8mTrBI1stz4_15turborepo_vt1003row3RowEEB2v_.exit
 
 _RINvMs3_NtNtCs68wO5nsWeTG_5alloc11collections9vec_dequeINtB6_8VecDequeNtNtCs8mTrBI1stz4_15turborepo_vt1003row3RowE12slice_rangesNtNtNtCs1LoaDTb72WA_4core3ops5range9RangeFullEB1a_.exit: ; preds = %1
-  %8 = sub i64 %6, %5
-  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %10 = load i64, ptr %9, align 8, !alias.scope !347, !noalias !352, !noundef !7
-  %11 = add i64 %10, %5
-  %12 = load i64, ptr %0, align 8, !alias.scope !347, !noalias !352, !noundef !7
-  %.not.i = icmp ult i64 %11, %12
-  %13 = select i1 %.not.i, i64 0, i64 %12
-  %.sroa.0.0.i = sub nuw i64 %11, %13
-  %14 = sub i64 %12, %.sroa.0.0.i
-  %.not11.i = icmp ult i64 %14, %8
-  %15 = add i64 %.sroa.0.0.i, %8
-  %.sroa.5.0 = select i1 %.not11.i, i64 %12, i64 %15
-  %.sroa.11.0 = tail call i64 @llvm.usub.sat.i64(i64 %8, i64 %14)
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %17 = load ptr, ptr %16, align 8, !nonnull !7, !noundef !7
-  %18 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, i8, [7 x i8] }, ptr %17, i64 %.sroa.0.0.i
-  %19 = sub i64 %.sroa.5.0, %.sroa.0.0.i
+  %10 = sub i64 %6, %5
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %12 = load i64, ptr %11, align 8, !alias.scope !347, !noalias !352, !noundef !7
+  %13 = add i64 %12, %5
+  %14 = load i64, ptr %0, align 8, !alias.scope !347, !noalias !352, !noundef !7
+  %.not.i = icmp ult i64 %13, %14
+  %15 = select i1 %.not.i, i64 0, i64 %14
+  %.sroa.0.0.i = sub nuw i64 %13, %15
+  %16 = sub i64 %14, %.sroa.0.0.i
+  %.not11.i = icmp ult i64 %16, %10
+  %17 = add i64 %.sroa.0.0.i, %10
+  %.sroa.5.0 = select i1 %.not11.i, i64 %14, i64 %17
+  %.sroa.11.0 = tail call i64 @llvm.usub.sat.i64(i64 %10, i64 %16)
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %19 = load ptr, ptr %18, align 8, !nonnull !7, !noundef !7
+  %20 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, i8, [7 x i8] }, ptr %19, i64 %.sroa.0.0.i
+  %21 = sub i64 %.sroa.5.0, %.sroa.0.0.i
   tail call void @llvm.experimental.noalias.scope.decl(metadata !353)
-  %20 = icmp eq i64 %.sroa.5.0, %.sroa.0.0.i
-  br i1 %20, label %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeSNtNtCs8mTrBI1stz4_15turborepo_vt1003row3RowEBL_.llvm.2317615445369004925.exit, label %.lr.ph.i
+  %22 = icmp eq i64 %.sroa.5.0, %.sroa.0.0.i
+  br i1 %22, label %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeSNtNtCs8mTrBI1stz4_15turborepo_vt1003row3RowEBL_.llvm.2317615445369004925.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %_RINvMs3_NtNtCs68wO5nsWeTG_5alloc11collections9vec_dequeINtB6_8VecDequeNtNtCs8mTrBI1stz4_15turborepo_vt1003row3RowE12slice_rangesNtNtNtCs1LoaDTb72WA_4core3ops5range9RangeFullEB1a_.exit, %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtCs8mTrBI1stz4_15turborepo_vt1003row3RowEBK_.exit.i
-  %.sroa.0.08.i = phi i64 [ %22, %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtCs8mTrBI1stz4_15turborepo_vt1003row3RowEBK_.exit.i ], [ 0, %_RINvMs3_NtNtCs68wO5nsWeTG_5alloc11collections9vec_dequeINtB6_8VecDequeNtNtCs8mTrBI1stz4_15turborepo_vt1003row3RowE12slice_rangesNtNtNtCs1LoaDTb72WA_4core3ops5range9RangeFullEB1a_.exit ]
-  %21 = getelementptr inbounds [0 x { { { i64, ptr, {} }, i64 }, i8, [7 x i8] }], ptr %18, i64 0, i64 %.sroa.0.08.i
-  %22 = add nuw i64 %.sroa.0.08.i, 1
+  %.sroa.0.08.i = phi i64 [ %24, %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtCs8mTrBI1stz4_15turborepo_vt1003row3RowEBK_.exit.i ], [ 0, %_RINvMs3_NtNtCs68wO5nsWeTG_5alloc11collections9vec_dequeINtB6_8VecDequeNtNtCs8mTrBI1stz4_15turborepo_vt1003row3RowE12slice_rangesNtNtNtCs1LoaDTb72WA_4core3ops5range9RangeFullEB1a_.exit ]
+  %23 = getelementptr inbounds [0 x { { { i64, ptr, {} }, i64 }, i8, [7 x i8] }], ptr %20, i64 0, i64 %.sroa.0.08.i
+  %24 = add nuw i64 %.sroa.0.08.i, 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !356)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !359)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !362)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !365)
-  %23 = load i64, ptr %21, align 8, !alias.scope !368, !noalias !371, !noundef !7
-  %24 = icmp eq i64 %23, 0
-  br i1 %24, label %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtCs8mTrBI1stz4_15turborepo_vt1003row3RowEBK_.exit.i, label %25
+  %25 = load i64, ptr %23, align 8, !alias.scope !368, !noalias !371, !noundef !7
+  %26 = icmp eq i64 %25, 0
+  br i1 %26, label %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtCs8mTrBI1stz4_15turborepo_vt1003row3RowEBK_.exit.i, label %27
 
-25:                                               ; preds = %.lr.ph.i
-  %26 = mul nuw i64 %23, 36
-  %27 = getelementptr inbounds nuw i8, ptr %21, i64 8
-  %28 = load ptr, ptr %27, align 8, !alias.scope !368, !noalias !371, !nonnull !7, !noundef !7
-  tail call void @__rust_dealloc(ptr noundef nonnull %28, i64 noundef %26, i64 noundef 4) #20, !noalias !373
+27:                                               ; preds = %.lr.ph.i
+  %28 = mul nuw i64 %25, 36
+  %29 = getelementptr inbounds nuw i8, ptr %23, i64 8
+  %30 = load ptr, ptr %29, align 8, !alias.scope !368, !noalias !371, !nonnull !7, !noundef !7
+  tail call void @__rust_dealloc(ptr noundef nonnull %30, i64 noundef %28, i64 noundef 4) #20, !noalias !373
   br label %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtCs8mTrBI1stz4_15turborepo_vt1003row3RowEBK_.exit.i
 
-_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtCs8mTrBI1stz4_15turborepo_vt1003row3RowEBK_.exit.i: ; preds = %25, %.lr.ph.i
-  %29 = icmp eq i64 %22, %19
-  br i1 %29, label %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeSNtNtCs8mTrBI1stz4_15turborepo_vt1003row3RowEBL_.llvm.2317615445369004925.exit, label %.lr.ph.i
+_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtCs8mTrBI1stz4_15turborepo_vt1003row3RowEBK_.exit.i: ; preds = %27, %.lr.ph.i
+  %31 = icmp eq i64 %24, %21
+  br i1 %31, label %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeSNtNtCs8mTrBI1stz4_15turborepo_vt1003row3RowEBL_.llvm.2317615445369004925.exit, label %.lr.ph.i
 
 _RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeSNtNtCs8mTrBI1stz4_15turborepo_vt1003row3RowEBL_.llvm.2317615445369004925.exit: ; preds = %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtCs8mTrBI1stz4_15turborepo_vt1003row3RowEBK_.exit.i, %_RINvMs3_NtNtCs68wO5nsWeTG_5alloc11collections9vec_dequeINtB6_8VecDequeNtNtCs8mTrBI1stz4_15turborepo_vt1003row3RowE12slice_rangesNtNtNtCs1LoaDTb72WA_4core3ops5range9RangeFullEB1a_.exit
+  call void @llvm.assume(i1 true) [ "align"(ptr %19, i64 8) ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !374)
-  %.not = icmp ugt i64 %8, %14
+  %.not = icmp ugt i64 %10, %16
   br i1 %.not, label %.lr.ph.i.i.i, label %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNvXs_NtNtCs68wO5nsWeTG_5alloc11collections9vec_dequeINtBO_8VecDequeppENtNtNtB4_3ops4drop4Drop4drop7DropperNtNtCs8mTrBI1stz4_15turborepo_vt1003row3RowEEB2v_.exit
 
 .lr.ph.i.i.i:                                     ; preds = %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeSNtNtCs8mTrBI1stz4_15turborepo_vt1003row3RowEBL_.llvm.2317615445369004925.exit, %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtCs8mTrBI1stz4_15turborepo_vt1003row3RowEBK_.exit.i.i.i
-  %.sroa.0.08.i.i.i = phi i64 [ %31, %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtCs8mTrBI1stz4_15turborepo_vt1003row3RowEBK_.exit.i.i.i ], [ 0, %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeSNtNtCs8mTrBI1stz4_15turborepo_vt1003row3RowEBL_.llvm.2317615445369004925.exit ]
-  %30 = getelementptr inbounds [0 x { { { i64, ptr, {} }, i64 }, i8, [7 x i8] }], ptr %17, i64 0, i64 %.sroa.0.08.i.i.i
-  %31 = add nuw i64 %.sroa.0.08.i.i.i, 1
+  %.sroa.0.08.i.i.i = phi i64 [ %33, %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtCs8mTrBI1stz4_15turborepo_vt1003row3RowEBK_.exit.i.i.i ], [ 0, %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeSNtNtCs8mTrBI1stz4_15turborepo_vt1003row3RowEBL_.llvm.2317615445369004925.exit ]
+  %32 = getelementptr inbounds [0 x { { { i64, ptr, {} }, i64 }, i8, [7 x i8] }], ptr %19, i64 0, i64 %.sroa.0.08.i.i.i
+  %33 = add nuw i64 %.sroa.0.08.i.i.i, 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !377)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !380)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !383)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !386)
-  %32 = load i64, ptr %30, align 8, !alias.scope !389, !noalias !392, !noundef !7
-  %33 = icmp eq i64 %32, 0
-  br i1 %33, label %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtCs8mTrBI1stz4_15turborepo_vt1003row3RowEBK_.exit.i.i.i, label %34
+  %34 = load i64, ptr %32, align 8, !alias.scope !389, !noalias !392, !noundef !7
+  %35 = icmp eq i64 %34, 0
+  br i1 %35, label %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtCs8mTrBI1stz4_15turborepo_vt1003row3RowEBK_.exit.i.i.i, label %36
 
-34:                                               ; preds = %.lr.ph.i.i.i
-  %35 = mul nuw i64 %32, 36
-  %36 = getelementptr inbounds nuw i8, ptr %30, i64 8
-  %37 = load ptr, ptr %36, align 8, !alias.scope !389, !noalias !392, !nonnull !7, !noundef !7
-  tail call void @__rust_dealloc(ptr noundef nonnull %37, i64 noundef %35, i64 noundef 4) #20, !noalias !398
+36:                                               ; preds = %.lr.ph.i.i.i
+  %37 = mul nuw i64 %34, 36
+  %38 = getelementptr inbounds nuw i8, ptr %32, i64 8
+  %39 = load ptr, ptr %38, align 8, !alias.scope !389, !noalias !392, !nonnull !7, !noundef !7
+  tail call void @__rust_dealloc(ptr noundef nonnull %39, i64 noundef %37, i64 noundef 4) #20, !noalias !398
   br label %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtCs8mTrBI1stz4_15turborepo_vt1003row3RowEBK_.exit.i.i.i
 
-_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtCs8mTrBI1stz4_15turborepo_vt1003row3RowEBK_.exit.i.i.i: ; preds = %34, %.lr.ph.i.i.i
-  %38 = icmp eq i64 %31, %.sroa.11.0
-  br i1 %38, label %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNvXs_NtNtCs68wO5nsWeTG_5alloc11collections9vec_dequeINtBO_8VecDequeppENtNtNtB4_3ops4drop4Drop4drop7DropperNtNtCs8mTrBI1stz4_15turborepo_vt1003row3RowEEB2v_.exit, label %.lr.ph.i.i.i
+_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtCs8mTrBI1stz4_15turborepo_vt1003row3RowEBK_.exit.i.i.i: ; preds = %36, %.lr.ph.i.i.i
+  %40 = icmp eq i64 %33, %.sroa.11.0
+  br i1 %40, label %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNvXs_NtNtCs68wO5nsWeTG_5alloc11collections9vec_dequeINtBO_8VecDequeppENtNtNtB4_3ops4drop4Drop4drop7DropperNtNtCs8mTrBI1stz4_15turborepo_vt1003row3RowEEB2v_.exit, label %.lr.ph.i.i.i
 
-_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNvXs_NtNtCs68wO5nsWeTG_5alloc11collections9vec_dequeINtBO_8VecDequeppENtNtNtB4_3ops4drop4Drop4drop7DropperNtNtCs8mTrBI1stz4_15turborepo_vt1003row3RowEEB2v_.exit: ; preds = %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtCs8mTrBI1stz4_15turborepo_vt1003row3RowEBK_.exit.i.i.i, %1, %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeSNtNtCs8mTrBI1stz4_15turborepo_vt1003row3RowEBL_.llvm.2317615445369004925.exit
+_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNvXs_NtNtCs68wO5nsWeTG_5alloc11collections9vec_dequeINtBO_8VecDequeppENtNtNtB4_3ops4drop4Drop4drop7DropperNtNtCs8mTrBI1stz4_15turborepo_vt1003row3RowEEB2v_.exit: ; preds = %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtCs8mTrBI1stz4_15turborepo_vt1003row3RowEBK_.exit.i.i.i, %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeSNtNtCs8mTrBI1stz4_15turborepo_vt1003row3RowEBL_.llvm.2317615445369004925.exit.thread, %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeSNtNtCs8mTrBI1stz4_15turborepo_vt1003row3RowEBL_.llvm.2317615445369004925.exit
   ret void
 }
 

@@ -2133,6 +2133,7 @@ _ZN5alloc5alloc15exchange_malloc17ha641d2894b944555E.exit: ; preds = %2
   store i64 -9223372036854775808, ptr %7, align 8
   %.sroa.46.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %17, ptr %.sroa.46.0..sroa_idx, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr null, i64 8) ]
   %35 = getelementptr inbounds nuw i8, ptr %7, i64 40
   store ptr null, ptr %35, align 8
   %36 = load i32, ptr %30, align 4
@@ -2147,6 +2148,7 @@ _ZN5alloc5alloc15exchange_malloc17ha641d2894b944555E.exit: ; preds = %2
   store i32 %39, ptr %41, align 4
   %42 = getelementptr inbounds nuw i8, ptr %7, i64 56
   store i8 2, ptr %42, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr null, i64 8) ]
   %43 = getelementptr inbounds nuw i8, ptr %7, i64 48
   store ptr null, ptr %43, align 8
   %44 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !419
@@ -2450,6 +2452,7 @@ _ZN5alloc5alloc15exchange_malloc17ha641d2894b944555E.exit: ; preds = %2
   store i64 -9223372036854775808, ptr %7, align 8
   %.sroa.46.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %17, ptr %.sroa.46.0..sroa_idx, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr null, i64 8) ]
   %35 = getelementptr inbounds nuw i8, ptr %7, i64 40
   store ptr null, ptr %35, align 8
   %36 = load i32, ptr %30, align 4
@@ -2464,6 +2467,7 @@ _ZN5alloc5alloc15exchange_malloc17ha641d2894b944555E.exit: ; preds = %2
   store i32 %39, ptr %41, align 4
   %42 = getelementptr inbounds nuw i8, ptr %7, i64 56
   store i8 2, ptr %42, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr null, i64 8) ]
   %43 = getelementptr inbounds nuw i8, ptr %7, i64 48
   store ptr null, ptr %43, align 8
   %44 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !452

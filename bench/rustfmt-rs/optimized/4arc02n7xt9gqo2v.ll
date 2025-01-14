@@ -23032,6 +23032,7 @@ define hidden void @_ZN15rustfmt_nightly5items18format_unit_struct17h7c5e329032e
   br i1 %.not, label %32, label %27
 
 27:                                               ; preds = %5
+  call void @llvm.assume(i1 true) [ "align"(ptr %26, i64 8) ]
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %29 = load ptr, ptr %28, align 8, !nonnull !10, !align !11, !noundef !10
   %30 = getelementptr inbounds nuw i8, ptr %2, i64 40
@@ -23562,6 +23563,7 @@ _RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.llvm.
           to label %123 unwind label %95
 
 129:                                              ; preds = %123
+  call void @llvm.assume(i1 true) [ "align"(ptr %127, i64 8) ]
   %130 = getelementptr inbounds nuw i8, ptr %127, i64 24
   %.sroa.08.0.copyload = load i64, ptr %130, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %47)
@@ -24077,6 +24079,7 @@ _ZN5alloc3fmt6format17h35125637d547cb53E.llvm.5923418642108526555.exit: ; preds 
   %273 = add i32 %.fca.1.extract.i.i166, 1
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %30)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %66)
+  call void @llvm.assume(i1 true) [ "align"(ptr %127, i64 8) ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %65)
   %274 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %275 = load ptr, ptr %274, align 8, !nonnull !10, !align !11, !noundef !10
@@ -26775,6 +26778,7 @@ _RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.llvm.
           to label %312 unwind label %89
 
 305:                                              ; preds = %243
+  call void @llvm.assume(i1 true) [ "align"(ptr %245, i64 8) ]
   %306 = load ptr, ptr %79, align 8, !nonnull !10, !noundef !10
   %307 = load i64, ptr %81, align 8, !noundef !10
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %27), !noalias !4828
@@ -27286,6 +27290,7 @@ _ZN15rustfmt_nightly5utils5mk_sp17h98cfa70ea005048dE.exit323: ; preds = %462
   br i1 %246, label %495, label %478
 
 478:                                              ; preds = %475
+  call void @llvm.assume(i1 true) [ "align"(ptr %245, i64 8) ]
   %.sroa.032.0.copyload = load i64, ptr %245, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %48)
   call void @llvm.experimental.noalias.scope.decl(metadata !4923)
@@ -30466,6 +30471,7 @@ _ZN5alloc3fmt6format17h35125637d547cb53E.llvm.5923418642108526555.exit83: ; pred
   br label %307
 
 192:                                              ; preds = %180
+  call void @llvm.assume(i1 true) [ "align"(ptr %182, i64 8) ]
   %193 = load ptr, ptr %71, align 8, !nonnull !10, !align !11, !noundef !10
   %194 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %.sroa.034.0.copyload = load i64, ptr %194, align 8

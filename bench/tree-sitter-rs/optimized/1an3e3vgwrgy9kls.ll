@@ -9405,6 +9405,7 @@ common.resume:                                    ; preds = %248, %61, %.body140
 99:                                               ; preds = %92
   %100 = getelementptr inbounds nuw i8, ptr %28, i64 16
   %101 = load ptr, ptr %100, align 8, !alias.scope !2153, !nonnull !9, !align !15, !noundef !9
+  call void @llvm.assume(i1 true) [ "align"(ptr %93, i64 8) ]
   invoke void @"_ZN14regex_automata4util4pool5inner17Pool$LT$T$C$F$GT$9put_value17h230c114a5f2525a0E.llvm.15559585470061597875"(ptr noundef nonnull align 8 %101, ptr noalias noundef nonnull align 8 %93)
           to label %.noexc180 unwind label %112
 
@@ -9726,6 +9727,7 @@ common.resume:                                    ; preds = %248, %61, %.body140
 214:                                              ; preds = %207
   %215 = getelementptr inbounds nuw i8, ptr %30, i64 16
   %216 = load ptr, ptr %215, align 8, !alias.scope !2146, !nonnull !9, !align !15, !noundef !9
+  call void @llvm.assume(i1 true) [ "align"(ptr %208, i64 8) ]
   invoke void @"_ZN14regex_automata4util4pool5inner17Pool$LT$T$C$F$GT$9put_value17h230c114a5f2525a0E.llvm.15559585470061597875"(ptr noundef nonnull align 8 %216, ptr noalias noundef nonnull align 8 %208)
           to label %.noexc191 unwind label %227
 
@@ -13668,6 +13670,7 @@ define hidden void @"_ZN94_$LT$tree_sitter_tags..TagsIter$LT$I$GT$$u20$as$u20$co
   br i1 %.not186, label %89, label %85
 
 85:                                               ; preds = %.backedge
+  call void @llvm.assume(i1 true) [ "align"(ptr %84, i64 8) ]
   %86 = load i64, ptr %33, align 8, !noundef !9
   %87 = add i64 %86, 1
   store i64 %87, ptr %33, align 8
@@ -13810,6 +13813,7 @@ common.resume:                                    ; preds = %550, %116, %.thread
   resume { ptr, i32 } %common.resume.op
 
 130:                                              ; preds = %"_ZN97_$LT$tree_sitter..QueryMatches$LT$T$C$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb3356ca6e1acad8dE.exit"
+  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.0.0.copyload, i64 8) ]
   %131 = load ptr, ptr %42, align 8, !nonnull !9, !align !15, !noundef !9
   %132 = getelementptr i8, ptr %131, i64 64
   %.val234 = load i64, ptr %132, align 8, !noundef !9
@@ -14825,7 +14829,7 @@ common.resume:                                    ; preds = %550, %116, %.thread
   store i64 %471, ptr %44, align 8, !alias.scope !4216, !noalias !4219
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.0329)
   %.pre = load ptr, ptr %42, align 8
-  %.val251.pre = load i32, ptr %150, align 4
+  %.val251.pre = load i32, ptr %150, align 8
   br label %.critedge224
 
 .critedge224:                                     ; preds = %467, %458, %.critedge222, %455

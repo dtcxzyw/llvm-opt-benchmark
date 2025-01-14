@@ -8220,6 +8220,7 @@ define noundef nonnull ptr @_ZN9actix_web10middleware15default_headers14DefaultH
   call void @llvm.experimental.noalias.scope.decl(metadata !1225)
   call void @llvm.experimental.noalias.scope.decl(metadata !1228)
   call void @llvm.experimental.noalias.scope.decl(metadata !1231)
+  call void @llvm.assume(i1 true) [ "align"(ptr %48, i64 8) ]
   %51 = getelementptr inbounds nuw i8, ptr %48, i64 24
   %52 = load ptr, ptr %51, align 8, !noalias !1234, !nonnull !4, !noundef !4
   %53 = getelementptr inbounds nuw i8, ptr %8, i64 24
