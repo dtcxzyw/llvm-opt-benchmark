@@ -656,14 +656,14 @@ define void @process(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noun
   %382 = getelementptr %struct.dt_iop_colorreconstruct_Lab_t, ptr %269, i64 %380
   %383 = getelementptr %struct.dt_iop_colorreconstruct_Lab_t, ptr %382, i64 %370
   %384 = insertelement <2 x float> poison, float %350, i64 0
-  %385 = shufflevector <2 x float> %384, <2 x float> poison, <2 x i32> zeroinitializer
-  %386 = fmul reassoc nsz arcp contract afn <2 x float> %385, %321
-  %387 = load <4 x float>, ptr %383, align 16, !tbaa !6
-  %388 = insertelement <4 x float> poison, float %381, i64 0
-  %389 = shufflevector <2 x float> %386, <2 x float> poison, <4 x i32> <i32 0, i32 1, i32 poison, i32 poison>
-  %390 = shufflevector <4 x float> %388, <4 x float> %389, <4 x i32> <i32 0, i32 4, i32 5, i32 poison>
+  %385 = load <4 x float>, ptr %383, align 16, !tbaa !6
+  %386 = insertelement <4 x float> poison, float %381, i64 0
+  %387 = shufflevector <2 x float> %384, <2 x float> poison, <4 x i32> <i32 0, i32 0, i32 poison, i32 poison>
+  %388 = shufflevector <2 x float> %321, <2 x float> poison, <4 x i32> <i32 0, i32 1, i32 poison, i32 poison>
+  %389 = fmul reassoc nsz arcp contract afn <4 x float> %387, %388
+  %390 = shufflevector <4 x float> %386, <4 x float> %389, <4 x i32> <i32 0, i32 4, i32 5, i32 poison>
   %391 = insertelement <4 x float> %390, float %350, i64 3
-  %392 = fadd reassoc nsz arcp contract afn <4 x float> %391, %387
+  %392 = fadd reassoc nsz arcp contract afn <4 x float> %391, %385
   store <4 x float> %392, ptr %383, align 16, !tbaa !6
   br label %393
 

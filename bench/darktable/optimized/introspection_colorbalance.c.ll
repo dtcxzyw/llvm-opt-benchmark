@@ -392,9 +392,9 @@ define void @process(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noun
   %55 = fmul reassoc nsz arcp contract afn <2 x float> %54, %52
   %56 = fsub reassoc nsz arcp contract afn <2 x float> splat (float 2.000000e+00), %52
   %57 = insertelement <2 x float> poison, float %46, i64 0
-  %58 = shufflevector <2 x float> %57, <2 x float> poison, <2 x i32> zeroinitializer
-  %59 = fmul reassoc nsz arcp contract afn <2 x float> %58, %56
-  %60 = shufflevector <2 x float> %59, <2 x float> poison, <4 x i32> <i32 0, i32 1, i32 poison, i32 poison>
+  %58 = shufflevector <2 x float> %57, <2 x float> poison, <4 x i32> <i32 0, i32 0, i32 poison, i32 poison>
+  %59 = shufflevector <2 x float> %56, <2 x float> poison, <4 x i32> <i32 0, i32 1, i32 poison, i32 poison>
+  %60 = fmul reassoc nsz arcp contract afn <4 x float> %58, %59
   %61 = shufflevector <4 x float> %48, <4 x float> %60, <4 x i32> <i32 0, i32 4, i32 5, i32 3>
   %62 = fcmp reassoc nsz arcp contract afn une <2 x float> %55, zeroinitializer
   %63 = fdiv reassoc nsz arcp contract afn <2 x float> splat (float 1.000000e+00), %55
@@ -418,9 +418,9 @@ define void @process(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noun
   %81 = shufflevector <2 x float> %80, <2 x float> poison, <4 x i32> <i32 0, i32 1, i32 poison, i32 poison>
   %82 = shufflevector <4 x float> %35, <4 x float> %81, <4 x i32> <i32 0, i32 4, i32 5, i32 3>
   %83 = insertelement <2 x float> poison, float %36, i64 0
-  %84 = shufflevector <2 x float> %83, <2 x float> poison, <2 x i32> zeroinitializer
-  %85 = fadd reassoc nsz arcp contract afn <2 x float> %76, %84
-  %86 = shufflevector <2 x float> %85, <2 x float> poison, <4 x i32> <i32 0, i32 1, i32 poison, i32 poison>
+  %84 = shufflevector <2 x float> %76, <2 x float> poison, <4 x i32> <i32 0, i32 1, i32 poison, i32 poison>
+  %85 = shufflevector <2 x float> %83, <2 x float> poison, <4 x i32> <i32 0, i32 0, i32 poison, i32 poison>
+  %86 = fadd reassoc nsz arcp contract afn <4 x float> %84, %85
   %87 = shufflevector <4 x float> %38, <4 x float> %86, <4 x i32> <i32 0, i32 4, i32 5, i32 3>
   %88 = load <2 x float>, ptr %75, align 4, !tbaa !6
   %89 = insertelement <2 x float> poison, float %73, i64 0

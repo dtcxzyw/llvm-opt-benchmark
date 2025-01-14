@@ -668,9 +668,9 @@ define hidden void @_process(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr
   %134 = load <2 x i32>, ptr %130, align 16, !tbaa !34
   %135 = sitofp <2 x i32> %134 to <2 x float>
   %136 = insertelement <2 x float> poison, float %84, i64 0
-  %137 = shufflevector <2 x float> %136, <2 x float> poison, <2 x i32> zeroinitializer
-  %138 = fmul reassoc nsz arcp contract afn <2 x float> %137, %135
-  %139 = shufflevector <2 x float> %138, <2 x float> poison, <4 x i32> <i32 0, i32 1, i32 0, i32 1>
+  %137 = shufflevector <2 x float> %136, <2 x float> poison, <4 x i32> zeroinitializer
+  %138 = shufflevector <2 x float> %135, <2 x float> poison, <4 x i32> <i32 0, i32 1, i32 0, i32 1>
+  %139 = fmul reassoc nsz arcp contract afn <4 x float> %137, %138
   %140 = shufflevector <2 x float> %131, <2 x float> %133, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
   %141 = fmul reassoc nsz arcp contract afn <4 x float> %139, %140
   store <4 x float> %141, ptr %15, align 16, !tbaa !23
@@ -1117,9 +1117,9 @@ define hidden void @_process(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr
   %481 = load <2 x i32>, ptr %480, align 16, !tbaa !34
   %482 = sitofp <2 x i32> %481 to <2 x float>
   %483 = insertelement <2 x float> poison, float %457, i64 0
-  %484 = shufflevector <2 x float> %483, <2 x float> poison, <2 x i32> zeroinitializer
-  %485 = fmul reassoc nsz arcp contract afn <2 x float> %484, %482
-  %486 = shufflevector <2 x float> %485, <2 x float> poison, <4 x i32> <i32 0, i32 1, i32 0, i32 1>
+  %484 = shufflevector <2 x float> %483, <2 x float> poison, <4 x i32> zeroinitializer
+  %485 = shufflevector <2 x float> %482, <2 x float> poison, <4 x i32> <i32 0, i32 1, i32 0, i32 1>
+  %486 = fmul reassoc nsz arcp contract afn <4 x float> %484, %485
   %487 = shufflevector <2 x float> %478, <2 x float> %479, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
   %488 = fmul reassoc nsz arcp contract afn <4 x float> %486, %487
   store <4 x float> %488, ptr %10, align 16, !tbaa !23
@@ -1153,9 +1153,9 @@ define hidden void @_process(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr
   %510 = load <2 x i32>, ptr %509, align 16, !tbaa !34
   %511 = sitofp <2 x i32> %510 to <2 x float>
   %512 = insertelement <2 x float> poison, float %457, i64 0
-  %513 = shufflevector <2 x float> %512, <2 x float> poison, <2 x i32> zeroinitializer
-  %514 = fmul reassoc nsz arcp contract afn <2 x float> %513, %511
-  %515 = shufflevector <2 x float> %514, <2 x float> poison, <4 x i32> <i32 0, i32 1, i32 0, i32 1>
+  %513 = shufflevector <2 x float> %512, <2 x float> poison, <4 x i32> zeroinitializer
+  %514 = shufflevector <2 x float> %511, <2 x float> poison, <4 x i32> <i32 0, i32 1, i32 0, i32 1>
+  %515 = fmul reassoc nsz arcp contract afn <4 x float> %513, %514
   %516 = shufflevector <2 x float> %507, <2 x float> %508, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
   %517 = fmul reassoc nsz arcp contract afn <4 x float> %515, %516
   store <4 x float> %517, ptr %9, align 16, !tbaa !23
@@ -1189,9 +1189,9 @@ define hidden void @_process(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr
   %539 = load <2 x i32>, ptr %538, align 16, !tbaa !34
   %540 = sitofp <2 x i32> %539 to <2 x float>
   %541 = insertelement <2 x float> poison, float %457, i64 0
-  %542 = shufflevector <2 x float> %541, <2 x float> poison, <2 x i32> zeroinitializer
-  %543 = fmul reassoc nsz arcp contract afn <2 x float> %542, %540
-  %544 = shufflevector <2 x float> %543, <2 x float> poison, <4 x i32> <i32 0, i32 1, i32 0, i32 1>
+  %542 = shufflevector <2 x float> %541, <2 x float> poison, <4 x i32> zeroinitializer
+  %543 = shufflevector <2 x float> %540, <2 x float> poison, <4 x i32> <i32 0, i32 1, i32 0, i32 1>
+  %544 = fmul reassoc nsz arcp contract afn <4 x float> %542, %543
   %545 = shufflevector <2 x float> %536, <2 x float> %537, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
   %546 = fmul reassoc nsz arcp contract afn <4 x float> %544, %545
   store <4 x float> %546, ptr %8, align 16, !tbaa !23

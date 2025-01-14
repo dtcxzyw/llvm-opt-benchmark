@@ -256,9 +256,9 @@ define hidden void @_fill_box_values(ptr nocapture noundef readonly %0) local_un
   %46 = insertelement <2 x double> %45, double %22, i64 1
   %47 = fptrunc <2 x double> %46 to <2 x float>
   %48 = insertelement <2 x float> poison, float %29, i64 0
-  %49 = shufflevector <2 x float> %48, <2 x float> poison, <2 x i32> zeroinitializer
-  %50 = fmul reassoc nsz arcp contract afn <2 x float> %49, %47
-  %51 = shufflevector <2 x float> %50, <2 x float> poison, <4 x i32> <i32 1, i32 0, i32 1, i32 0>
+  %49 = shufflevector <2 x float> %48, <2 x float> poison, <4 x i32> zeroinitializer
+  %50 = shufflevector <2 x float> %47, <2 x float> poison, <4 x i32> <i32 1, i32 0, i32 1, i32 0>
+  %51 = fmul reassoc nsz arcp contract afn <4 x float> %49, %50
   %52 = load <4 x float>, ptr %24, align 8, !tbaa !38
   %53 = tail call ptr @g_type_check_instance_cast(ptr noundef %36, i64 noundef %31) #21
   %54 = load i32, ptr %32, align 4, !tbaa !40
@@ -2142,9 +2142,9 @@ define void @gui_post_expose(ptr nocapture noundef readonly %0, ptr noundef %1, 
   %326 = load <2 x float>, ptr %318, align 8, !tbaa !38
   %327 = shufflevector <2 x float> %326, <2 x float> poison, <4 x i32> <i32 0, i32 1, i32 0, i32 1>
   %328 = insertelement <2 x float> poison, float %322, i64 0
-  %329 = shufflevector <2 x float> %328, <2 x float> poison, <2 x i32> zeroinitializer
-  %330 = fmul reassoc nsz arcp contract afn <2 x float> %329, %314
-  %331 = shufflevector <2 x float> %330, <2 x float> poison, <4 x i32> <i32 0, i32 1, i32 0, i32 1>
+  %329 = shufflevector <2 x float> %328, <2 x float> poison, <4 x i32> zeroinitializer
+  %330 = shufflevector <2 x float> %314, <2 x float> poison, <4 x i32> <i32 0, i32 1, i32 0, i32 1>
+  %331 = fmul reassoc nsz arcp contract afn <4 x float> %329, %330
   %332 = fsub reassoc nsz arcp contract afn <4 x float> %323, %325
   %333 = fmul reassoc nsz arcp contract afn <4 x float> %331, %332
   %334 = fdiv reassoc nsz arcp contract afn <4 x float> %333, %327

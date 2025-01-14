@@ -1756,14 +1756,14 @@ define void @process(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noun
   %1244 = fmul reassoc nsz arcp contract afn float %1243, %489
   %1245 = fsub reassoc nsz arcp contract afn float %1234, %1244
   %1246 = insertelement <2 x float> poison, float %1244, i64 0
-  %1247 = shufflevector <2 x float> %1246, <2 x float> poison, <2 x i32> zeroinitializer
-  %1248 = fsub reassoc nsz arcp contract afn <2 x float> %1239, %1247
-  %1249 = insertelement <4 x float> poison, float %1244, i64 0
-  %1250 = shufflevector <4 x float> %1249, <4 x float> poison, <4 x i32> zeroinitializer
-  store <4 x float> %1250, ptr %1202, align 4, !tbaa !41, !alias.scope !268, !noalias !271
-  %1251 = insertelement <4 x float> %1249, float %1245, i64 1
-  %1252 = shufflevector <2 x float> %1248, <2 x float> poison, <4 x i32> <i32 0, i32 1, i32 poison, i32 poison>
-  %1253 = shufflevector <4 x float> %1251, <4 x float> %1252, <4 x i32> <i32 0, i32 1, i32 4, i32 5>
+  %1247 = insertelement <4 x float> poison, float %1244, i64 0
+  %1248 = shufflevector <4 x float> %1247, <4 x float> poison, <4 x i32> zeroinitializer
+  store <4 x float> %1248, ptr %1202, align 4, !tbaa !41, !alias.scope !268, !noalias !271
+  %1249 = insertelement <4 x float> %1247, float %1245, i64 1
+  %1250 = shufflevector <2 x float> %1239, <2 x float> poison, <4 x i32> <i32 0, i32 1, i32 poison, i32 poison>
+  %1251 = shufflevector <2 x float> %1246, <2 x float> poison, <4 x i32> <i32 0, i32 0, i32 poison, i32 poison>
+  %1252 = fsub reassoc nsz arcp contract afn <4 x float> %1250, %1251
+  %1253 = shufflevector <4 x float> %1249, <4 x float> %1252, <4 x i32> <i32 0, i32 1, i32 4, i32 5>
   br label %1254
 
 1254:                                             ; preds = %1231, %1204
@@ -2121,14 +2121,14 @@ define void @process(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noun
   %1543 = fmul reassoc nsz arcp contract afn float %1542, %489
   %1544 = fsub reassoc nsz arcp contract afn float %1533, %1543
   %1545 = insertelement <2 x float> poison, float %1543, i64 0
-  %1546 = shufflevector <2 x float> %1545, <2 x float> poison, <2 x i32> zeroinitializer
-  %1547 = fsub reassoc nsz arcp contract afn <2 x float> %1538, %1546
-  %1548 = insertelement <4 x float> poison, float %1543, i64 0
-  %1549 = shufflevector <4 x float> %1548, <4 x float> poison, <4 x i32> zeroinitializer
-  store <4 x float> %1549, ptr %1501, align 4, !tbaa !41, !alias.scope !373, !noalias !376
-  %1550 = insertelement <4 x float> %1548, float %1544, i64 1
-  %1551 = shufflevector <2 x float> %1547, <2 x float> poison, <4 x i32> <i32 0, i32 1, i32 poison, i32 poison>
-  %1552 = shufflevector <4 x float> %1550, <4 x float> %1551, <4 x i32> <i32 0, i32 1, i32 4, i32 5>
+  %1546 = insertelement <4 x float> poison, float %1543, i64 0
+  %1547 = shufflevector <4 x float> %1546, <4 x float> poison, <4 x i32> zeroinitializer
+  store <4 x float> %1547, ptr %1501, align 4, !tbaa !41, !alias.scope !373, !noalias !376
+  %1548 = insertelement <4 x float> %1546, float %1544, i64 1
+  %1549 = shufflevector <2 x float> %1538, <2 x float> poison, <4 x i32> <i32 0, i32 1, i32 poison, i32 poison>
+  %1550 = shufflevector <2 x float> %1545, <2 x float> poison, <4 x i32> <i32 0, i32 0, i32 poison, i32 poison>
+  %1551 = fsub reassoc nsz arcp contract afn <4 x float> %1549, %1550
+  %1552 = shufflevector <4 x float> %1548, <4 x float> %1551, <4 x i32> <i32 0, i32 1, i32 4, i32 5>
   br label %1553
 
 1553:                                             ; preds = %1530, %1503
@@ -2434,14 +2434,14 @@ define void @process(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noun
   %1796 = fmul reassoc nsz arcp contract afn float %1795, %489
   %1797 = fsub reassoc nsz arcp contract afn float %1786, %1796
   %1798 = insertelement <2 x float> poison, float %1796, i64 0
-  %1799 = shufflevector <2 x float> %1798, <2 x float> poison, <2 x i32> zeroinitializer
-  %1800 = fsub reassoc nsz arcp contract afn <2 x float> %1791, %1799
-  %1801 = insertelement <4 x float> poison, float %1796, i64 0
-  %1802 = shufflevector <4 x float> %1801, <4 x float> poison, <4 x i32> zeroinitializer
-  store <4 x float> %1802, ptr %1782, align 4, !tbaa !41, !alias.scope !433, !noalias !436
-  %1803 = insertelement <4 x float> poison, float %1797, i64 1
-  %1804 = shufflevector <2 x float> %1800, <2 x float> poison, <4 x i32> <i32 0, i32 1, i32 poison, i32 poison>
-  %1805 = shufflevector <4 x float> %1803, <4 x float> %1804, <4 x i32> <i32 poison, i32 1, i32 4, i32 5>
+  %1799 = insertelement <4 x float> poison, float %1796, i64 0
+  %1800 = shufflevector <4 x float> %1799, <4 x float> poison, <4 x i32> zeroinitializer
+  store <4 x float> %1800, ptr %1782, align 4, !tbaa !41, !alias.scope !433, !noalias !436
+  %1801 = insertelement <4 x float> poison, float %1797, i64 1
+  %1802 = shufflevector <2 x float> %1791, <2 x float> poison, <4 x i32> <i32 0, i32 1, i32 poison, i32 poison>
+  %1803 = shufflevector <2 x float> %1798, <2 x float> poison, <4 x i32> <i32 0, i32 0, i32 poison, i32 poison>
+  %1804 = fsub reassoc nsz arcp contract afn <4 x float> %1802, %1803
+  %1805 = shufflevector <4 x float> %1801, <4 x float> %1804, <4 x i32> <i32 poison, i32 1, i32 4, i32 5>
   %1806 = fsub reassoc nsz arcp contract afn float %1783, %1796
   %1807 = getelementptr inbounds float, ptr %1782, i64 %710
   %1808 = getelementptr float, ptr %1645, i64 %1781

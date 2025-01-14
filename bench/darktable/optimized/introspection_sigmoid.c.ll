@@ -1054,9 +1054,9 @@ define hidden void @process_loglogistic_per_channel(ptr noundef %0, ptr nocaptur
   %185 = fadd reassoc nsz arcp contract afn <2 x float> %181, %184
   %186 = fadd reassoc nsz arcp contract afn <2 x float> %171, %174
   %187 = load <2 x float>, ptr %158, align 32, !tbaa !19
-  %188 = shufflevector <2 x float> %162, <2 x float> %163, <2 x i32> <i32 1, i32 2>
-  %189 = fmul reassoc nsz arcp contract afn <2 x float> %187, %188
-  %190 = shufflevector <2 x float> %189, <2 x float> poison, <2 x i32> <i32 1, i32 0>
+  %188 = shufflevector <2 x float> %187, <2 x float> poison, <2 x i32> <i32 1, i32 0>
+  %189 = shufflevector <2 x float> %163, <2 x float> %162, <2 x i32> <i32 0, i32 3>
+  %190 = fmul reassoc nsz arcp contract afn <2 x float> %188, %189
   %191 = shufflevector <2 x float> %162, <2 x float> %163, <2 x i32> <i32 0, i32 3>
   %192 = fmul reassoc nsz arcp contract afn <2 x float> %187, %191
   %193 = insertelement <2 x float> poison, float %161, i64 0

@@ -4367,9 +4367,9 @@ if.else192:                                       ; preds = %if.then181
   %div.i.i = fdiv double 1.000000e+00, %sqrt.i
   %conv7.i = fptrunc double %div.i.i to float
   %98 = insertelement <4 x float> poison, float %conv7.i, i64 0
-  %99 = shufflevector <4 x float> %98, <4 x float> poison, <4 x i32> zeroinitializer
-  %100 = fmul <4 x float> %89, %99
-  %101 = shufflevector <4 x float> %100, <4 x float> poison, <4 x i32> <i32 1, i32 0, i32 3, i32 2>
+  %99 = shufflevector <4 x float> %89, <4 x float> poison, <4 x i32> <i32 1, i32 0, i32 3, i32 2>
+  %100 = shufflevector <4 x float> %98, <4 x float> poison, <4 x i32> zeroinitializer
+  %101 = fmul <4 x float> %99, %100
   br label %if.end261
 
 if.else212:                                       ; preds = %if.then174
@@ -4404,9 +4404,9 @@ if.then217:                                       ; preds = %if.else212
   %div.i.i430 = fdiv double 1.000000e+00, %sqrt.i429
   %conv7.i431 = fptrunc double %div.i.i430 to float
   %115 = insertelement <4 x float> poison, float %conv7.i431, i64 0
-  %116 = shufflevector <4 x float> %115, <4 x float> poison, <4 x i32> zeroinitializer
-  %117 = fmul <4 x float> %106, %116
-  %118 = shufflevector <4 x float> %117, <4 x float> poison, <4 x i32> <i32 1, i32 0, i32 3, i32 2>
+  %116 = shufflevector <4 x float> %106, <4 x float> poison, <4 x i32> <i32 1, i32 0, i32 3, i32 2>
+  %117 = shufflevector <4 x float> %115, <4 x float> poison, <4 x i32> zeroinitializer
+  %118 = fmul <4 x float> %116, %117
   br label %if.end261
 
 if.end241:                                        ; preds = %if.else212, %land.lhs.true177
@@ -4437,9 +4437,9 @@ if.end241:                                        ; preds = %if.else212, %land.l
   %div.i.i445 = fdiv double 1.000000e+00, %sqrt.i444
   %conv7.i446 = fptrunc double %div.i.i445 to float
   %132 = insertelement <4 x float> poison, float %conv7.i446, i64 0
-  %133 = shufflevector <4 x float> %132, <4 x float> poison, <4 x i32> zeroinitializer
-  %134 = fmul <4 x float> %123, %133
-  %135 = shufflevector <4 x float> %134, <4 x float> poison, <4 x i32> <i32 1, i32 0, i32 3, i32 2>
+  %133 = shufflevector <4 x float> %123, <4 x float> poison, <4 x i32> <i32 1, i32 0, i32 3, i32 2>
+  %134 = shufflevector <4 x float> %132, <4 x float> poison, <4 x i32> zeroinitializer
+  %135 = fmul <4 x float> %133, %134
   br label %if.end261
 
 if.end261:                                        ; preds = %if.end241, %if.then217, %if.else192, %if.then188, %if.end171
