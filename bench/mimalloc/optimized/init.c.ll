@@ -44,7 +44,7 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: nofree nounwind memory(read) uwtable
 define hidden i64 @_mi_thread_id() local_unnamed_addr #0 {
 entry:
-  %0 = tail call ptr asm "movq %fs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(ptr) null) #12, !srcloc !4
+  %0 = tail call ptr asm "movq %fs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(ptr) null) #11, !srcloc !4
   %1 = ptrtoint ptr %0 to i64
   ret i64 %1
 }
@@ -57,16 +57,16 @@ entry:
   br i1 %cmp.i, label %if.then.i, label %mi_heap_main_init.exit
 
 if.then.i:                                        ; preds = %entry
-  %1 = tail call ptr asm "movq %fs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(ptr) null) #12, !srcloc !4
+  %1 = tail call ptr asm "movq %fs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(ptr) null) #11, !srcloc !4
   %2 = ptrtoint ptr %1 to i64
   store i64 %2, ptr getelementptr inbounds nuw (i8, ptr @_mi_heap_main, i64 2848), align 8
   store i64 1, ptr getelementptr inbounds nuw (i8, ptr @_mi_heap_main, i64 2864), align 8
-  tail call void @_mi_random_init(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_mi_heap_main, i64 2888)) #13
-  %call1.i = tail call i64 @_mi_heap_random_next(ptr noundef nonnull @_mi_heap_main) #13
+  tail call void @_mi_random_init(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_mi_heap_main, i64 2888)) #12
+  %call1.i = tail call i64 @_mi_heap_random_next(ptr noundef nonnull @_mi_heap_main) #12
   store i64 %call1.i, ptr getelementptr inbounds nuw (i8, ptr @_mi_heap_main, i64 2864), align 8
-  %call2.i = tail call i64 @_mi_heap_random_next(ptr noundef nonnull @_mi_heap_main) #13
+  %call2.i = tail call i64 @_mi_heap_random_next(ptr noundef nonnull @_mi_heap_main) #12
   store i64 %call2.i, ptr getelementptr inbounds nuw (i8, ptr @_mi_heap_main, i64 2872), align 8
-  %call3.i = tail call i64 @_mi_heap_random_next(ptr noundef nonnull @_mi_heap_main) #13
+  %call3.i = tail call i64 @_mi_heap_random_next(ptr noundef nonnull @_mi_heap_main) #12
   store i64 %call3.i, ptr getelementptr inbounds nuw (i8, ptr @_mi_heap_main, i64 2880), align 8
   br label %mi_heap_main_init.exit
 
@@ -94,7 +94,7 @@ if.then:                                          ; preds = %for.body
 if.then6:                                         ; preds = %if.then
   %2 = inttoptr i64 %1 to ptr
   %memid = getelementptr inbounds nuw i8, ptr %2, i64 4664
-  tail call void @_mi_os_free(ptr noundef nonnull %2, i64 noundef 4688, ptr noundef nonnull byval(%struct.mi_memid_s) align 8 %memid, ptr noundef nonnull @_mi_stats_main) #13
+  tail call void @_mi_os_free(ptr noundef nonnull %2, i64 noundef 4688, ptr noundef nonnull byval(%struct.mi_memid_s) align 8 %memid, ptr noundef nonnull @_mi_stats_main) #12
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body, %if.then6, %if.then
@@ -116,7 +116,7 @@ entry:
   br i1 %cmp, label %lor.end, label %lor.rhs
 
 lor.rhs:                                          ; preds = %entry
-  %1 = tail call ptr asm "movq %fs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(ptr) null) #12, !srcloc !4
+  %1 = tail call ptr asm "movq %fs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(ptr) null) #11, !srcloc !4
   %2 = ptrtoint ptr %1 to i64
   %cmp1 = icmp eq i64 %0, %2
   br label %lor.end
@@ -137,7 +137,7 @@ entry:
 define void @mi_thread_init() local_unnamed_addr #1 {
 entry:
   %memid.i.i = alloca %struct.mi_memid_s, align 8
-  tail call void @mi_process_init() #14
+  tail call void @mi_process_init() #13
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_mi_heap_default)
   %1 = load ptr, ptr %0, align 8
   %cmp.i.i.not = icmp eq ptr %1, @_mi_heap_empty
@@ -149,7 +149,7 @@ if.end.i:                                         ; preds = %entry
   br i1 %cmp.i24.i, label %if.then3.i, label %_mi_is_main_thread.exit.i
 
 _mi_is_main_thread.exit.i:                        ; preds = %if.end.i
-  %3 = tail call ptr asm "movq %fs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(ptr) null) #12, !srcloc !4
+  %3 = tail call ptr asm "movq %fs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(ptr) null) #11, !srcloc !4
   %4 = ptrtoint ptr %3 to i64
   %cmp1.i.i = icmp eq i64 %2, %4
   br i1 %cmp1.i.i, label %if.then3.i, label %if.else.i
@@ -160,22 +160,22 @@ if.then3.i:                                       ; preds = %_mi_is_main_thread.
   br i1 %cmp.i25.i, label %if.then.i.i, label %_mi_heap_init.exit.thread1
 
 if.then.i.i:                                      ; preds = %if.then3.i
-  %6 = tail call ptr asm "movq %fs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(ptr) null) #12, !srcloc !4
+  %6 = tail call ptr asm "movq %fs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(ptr) null) #11, !srcloc !4
   %7 = ptrtoint ptr %6 to i64
   store i64 %7, ptr getelementptr inbounds nuw (i8, ptr @_mi_heap_main, i64 2848), align 8
   store i64 1, ptr getelementptr inbounds nuw (i8, ptr @_mi_heap_main, i64 2864), align 8
-  tail call void @_mi_random_init(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_mi_heap_main, i64 2888)) #13
-  %call1.i.i = tail call i64 @_mi_heap_random_next(ptr noundef nonnull @_mi_heap_main) #13
+  tail call void @_mi_random_init(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_mi_heap_main, i64 2888)) #12
+  %call1.i.i = tail call i64 @_mi_heap_random_next(ptr noundef nonnull @_mi_heap_main) #12
   store i64 %call1.i.i, ptr getelementptr inbounds nuw (i8, ptr @_mi_heap_main, i64 2864), align 8
-  %call2.i.i = tail call i64 @_mi_heap_random_next(ptr noundef nonnull @_mi_heap_main) #13
+  %call2.i.i = tail call i64 @_mi_heap_random_next(ptr noundef nonnull @_mi_heap_main) #12
   store i64 %call2.i.i, ptr getelementptr inbounds nuw (i8, ptr @_mi_heap_main, i64 2872), align 8
-  %call3.i.i = tail call i64 @_mi_heap_random_next(ptr noundef nonnull @_mi_heap_main) #13
+  %call3.i.i = tail call i64 @_mi_heap_random_next(ptr noundef nonnull @_mi_heap_main) #12
   store i64 %call3.i.i, ptr getelementptr inbounds nuw (i8, ptr @_mi_heap_main, i64 2880), align 8
   br label %_mi_heap_init.exit.thread1
 
 _mi_heap_init.exit.thread1:                       ; preds = %if.then3.i, %if.then.i.i
   store ptr @_mi_heap_main, ptr %0, align 8
-  tail call void @_mi_prim_thread_associate_default_heap(ptr noundef nonnull @_mi_heap_main) #13
+  tail call void @_mi_prim_thread_associate_default_heap(ptr noundef nonnull @_mi_heap_main) #12
   br label %if.end
 
 if.else.i:                                        ; preds = %_mi_is_main_thread.exit.i
@@ -204,12 +204,12 @@ if.end21.thread26.i.i:                            ; preds = %if.then.i26.i
   br label %if.then24.i.i
 
 if.then9.i.i:                                     ; preds = %for.inc.i.i
-  %call.i.i = call ptr @_mi_os_alloc(i64 noundef 4688, ptr noundef nonnull %memid.i.i, ptr noundef nonnull @_mi_stats_main) #13
+  %call.i.i = call ptr @_mi_os_alloc(i64 noundef 4688, ptr noundef nonnull %memid.i.i, ptr noundef nonnull @_mi_stats_main) #12
   %cmp10.i.i = icmp eq ptr %call.i.i, null
   br i1 %cmp10.i.i, label %if.then11.i.i, label %if.end21.i.i
 
 if.then11.i.i:                                    ; preds = %if.then9.i.i
-  %call12.i.i = call ptr @_mi_os_alloc(i64 noundef 4688, ptr noundef nonnull %memid.i.i, ptr noundef nonnull @_mi_stats_main) #13
+  %call12.i.i = call ptr @_mi_os_alloc(i64 noundef 4688, ptr noundef nonnull %memid.i.i, ptr noundef nonnull @_mi_stats_main) #12
   %cmp13.i.i = icmp eq ptr %call12.i.i, null
   br i1 %cmp13.i.i, label %mi_thread_data_zalloc.exit.i, label %if.end21.i.i
 
@@ -224,12 +224,11 @@ if.end21.i.i:                                     ; preds = %if.then11.i.i, %if.
 
 if.then24.i.i:                                    ; preds = %if.end21.i.i, %if.end21.thread26.i.i
   %td.329.i.i = phi ptr [ %10, %if.end21.thread26.i.i ], [ %td.4.ph.i.i, %if.end21.i.i ]
-  call void @llvm.assume(i1 true) [ "align"(ptr %td.329.i.i, i64 8) ]
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(4688) %td.329.i.i, i8 0, i64 4688, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(4688) %td.329.i.i, i8 0, i64 4688, i1 false)
   br label %if.end6.i
 
 mi_thread_data_zalloc.exit.i:                     ; preds = %if.then11.i.i
-  call void (i32, ptr, ...) @_mi_error_message(i32 noundef 12, ptr noundef nonnull @.str.4, i64 noundef 4688) #13
+  call void (i32, ptr, ...) @_mi_error_message(i32 noundef 12, ptr noundef nonnull @.str.4, i64 noundef 4688) #12
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %memid.i.i)
   br label %if.end
 
@@ -237,26 +236,22 @@ if.end6.i:                                        ; preds = %if.then24.i.i, %if.
   %td.323.i.ph.i = phi ptr [ %td.329.i.i, %if.then24.i.i ], [ %td.4.ph.i.i, %if.end21.i.i ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %memid.i.i)
   %tld7.i = getelementptr inbounds nuw i8, ptr %td.323.i.ph.i, i64 3064
-  call void @llvm.assume(i1 true) [ "align"(ptr %tld7.i, i64 8) ]
-  call void @llvm.assume(i1 true) [ "align"(ptr @tld_empty, i64 8) ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1600) %tld7.i, ptr noundef nonnull readonly align 64 dereferenceable(1600) @tld_empty, i64 range(i64 1600, 3065) 1600, i1 false)
-  call void @llvm.assume(i1 true) [ "align"(ptr %td.323.i.ph.i, i64 8) ]
-  call void @llvm.assume(i1 true) [ "align"(ptr @_mi_heap_empty, i64 8) ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(3064) %td.323.i.ph.i, ptr noundef nonnull readonly align 64 dereferenceable(3064) @_mi_heap_empty, i64 range(i64 1600, 3065) 3064, i1 false)
-  %13 = call ptr asm "movq %fs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(ptr) null) #12, !srcloc !4
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1600) %tld7.i, ptr noundef nonnull readonly align 64 dereferenceable(1600) @tld_empty, i64 range(i64 1600, 3065) 1600, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3064) %td.323.i.ph.i, ptr noundef nonnull readonly align 64 dereferenceable(3064) @_mi_heap_empty, i64 range(i64 1600, 3065) 3064, i1 false)
+  %13 = call ptr asm "movq %fs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(ptr) null) #11, !srcloc !4
   %14 = ptrtoint ptr %13 to i64
   %thread_id.i = getelementptr inbounds nuw i8, ptr %td.323.i.ph.i, i64 2848
   store i64 %14, ptr %thread_id.i, align 8
   %random.i = getelementptr inbounds nuw i8, ptr %td.323.i.ph.i, i64 2888
-  call void @_mi_random_init(ptr noundef nonnull %random.i) #13
-  %call10.i = call i64 @_mi_heap_random_next(ptr noundef nonnull %td.323.i.ph.i) #13
+  call void @_mi_random_init(ptr noundef nonnull %random.i) #12
+  %call10.i = call i64 @_mi_heap_random_next(ptr noundef nonnull %td.323.i.ph.i) #12
   %or.i = or i64 %call10.i, 1
   %cookie.i = getelementptr inbounds nuw i8, ptr %td.323.i.ph.i, i64 2864
   store i64 %or.i, ptr %cookie.i, align 8
-  %call11.i = call i64 @_mi_heap_random_next(ptr noundef nonnull %td.323.i.ph.i) #13
+  %call11.i = call i64 @_mi_heap_random_next(ptr noundef nonnull %td.323.i.ph.i) #12
   %keys.i = getelementptr inbounds nuw i8, ptr %td.323.i.ph.i, i64 2872
   store i64 %call11.i, ptr %keys.i, align 8
-  %call12.i = call i64 @_mi_heap_random_next(ptr noundef nonnull %td.323.i.ph.i) #13
+  %call12.i = call i64 @_mi_heap_random_next(ptr noundef nonnull %td.323.i.ph.i) #12
   %arrayidx14.i = getelementptr inbounds nuw i8, ptr %td.323.i.ph.i, i64 2880
   store i64 %call12.i, ptr %arrayidx14.i, align 8
   store ptr %tld7.i, ptr %td.323.i.ph.i, align 8
@@ -273,11 +268,11 @@ if.end6.i:                                        ; preds = %if.then24.i.i, %if.
   %stats21.i = getelementptr inbounds nuw i8, ptr %td.323.i.ph.i, i64 4016
   store ptr %stats.i, ptr %stats21.i, align 8
   store ptr %td.323.i.ph.i, ptr %0, align 8
-  call void @_mi_prim_thread_associate_default_heap(ptr noundef nonnull %td.323.i.ph.i) #13
+  call void @_mi_prim_thread_associate_default_heap(ptr noundef nonnull %td.323.i.ph.i) #12
   br label %if.end
 
 if.end:                                           ; preds = %if.end6.i, %mi_thread_data_zalloc.exit.i, %_mi_heap_init.exit.thread1
-  call void @_mi_stat_increase(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 288), i64 noundef 1) #13
+  call void @_mi_stat_increase(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 288), i64 noundef 1) #12
   %15 = atomicrmw add ptr @thread_count, i64 1 monotonic, align 8
   br label %return
 
@@ -293,16 +288,16 @@ entry:
   br i1 %cmp.i, label %if.then.i, label %mi_heap_main_init.exit
 
 if.then.i:                                        ; preds = %entry
-  %1 = tail call ptr asm "movq %fs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(ptr) null) #12, !srcloc !4
+  %1 = tail call ptr asm "movq %fs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(ptr) null) #11, !srcloc !4
   %2 = ptrtoint ptr %1 to i64
   store i64 %2, ptr getelementptr inbounds nuw (i8, ptr @_mi_heap_main, i64 2848), align 8
   store i64 1, ptr getelementptr inbounds nuw (i8, ptr @_mi_heap_main, i64 2864), align 8
-  tail call void @_mi_random_init(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_mi_heap_main, i64 2888)) #13
-  %call1.i = tail call i64 @_mi_heap_random_next(ptr noundef nonnull @_mi_heap_main) #13
+  tail call void @_mi_random_init(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_mi_heap_main, i64 2888)) #12
+  %call1.i = tail call i64 @_mi_heap_random_next(ptr noundef nonnull @_mi_heap_main) #12
   store i64 %call1.i, ptr getelementptr inbounds nuw (i8, ptr @_mi_heap_main, i64 2864), align 8
-  %call2.i = tail call i64 @_mi_heap_random_next(ptr noundef nonnull @_mi_heap_main) #13
+  %call2.i = tail call i64 @_mi_heap_random_next(ptr noundef nonnull @_mi_heap_main) #12
   store i64 %call2.i, ptr getelementptr inbounds nuw (i8, ptr @_mi_heap_main, i64 2872), align 8
-  %call3.i = tail call i64 @_mi_heap_random_next(ptr noundef nonnull @_mi_heap_main) #13
+  %call3.i = tail call i64 @_mi_heap_random_next(ptr noundef nonnull @_mi_heap_main) #12
   store i64 %call3.i, ptr getelementptr inbounds nuw (i8, ptr @_mi_heap_main, i64 2880), align 8
   br label %mi_heap_main_init.exit
 
@@ -318,77 +313,77 @@ mi_atomic_once.exit:                              ; preds = %mi_heap_main_init.e
 
 if.end:                                           ; preds = %mi_atomic_once.exit
   store i8 1, ptr @_mi_process_is_initialized, align 1
-  %6 = tail call ptr asm "movq %fs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(ptr) null) #12, !srcloc !4
+  %6 = tail call ptr asm "movq %fs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(ptr) null) #11, !srcloc !4
   %7 = ptrtoint ptr %6 to i64
-  tail call void (ptr, ...) @_mi_verbose_message(ptr noundef nonnull @.str, i64 noundef %7) #13
+  tail call void (ptr, ...) @_mi_verbose_message(ptr noundef nonnull @.str, i64 noundef %7) #12
   %.b1.i = load i1, ptr @mi_process_setup_auto_thread_done.tls_initialized, align 1
   br i1 %.b1.i, label %mi_process_setup_auto_thread_done.exit, label %if.end.i6
 
 if.end.i6:                                        ; preds = %if.end
   store i1 true, ptr @mi_process_setup_auto_thread_done.tls_initialized, align 1
-  tail call void @_mi_prim_thread_init_auto_done() #13
+  tail call void @_mi_prim_thread_init_auto_done() #12
   %8 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_mi_heap_default)
   store ptr @_mi_heap_main, ptr %8, align 8
-  tail call void @_mi_prim_thread_associate_default_heap(ptr noundef nonnull @_mi_heap_main) #13
+  tail call void @_mi_prim_thread_associate_default_heap(ptr noundef nonnull @_mi_heap_main) #12
   br label %mi_process_setup_auto_thread_done.exit
 
 mi_process_setup_auto_thread_done.exit:           ; preds = %if.end, %if.end.i6
-  tail call void @_mi_os_init() #13
+  tail call void @_mi_os_init() #12
   %9 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_mi_heap_main, i64 2864), align 8
   %cmp.i7 = icmp eq i64 %9, 0
   br i1 %cmp.i7, label %if.then.i9, label %mi_heap_main_init.exit13
 
 if.then.i9:                                       ; preds = %mi_process_setup_auto_thread_done.exit
-  %10 = tail call ptr asm "movq %fs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(ptr) null) #12, !srcloc !4
+  %10 = tail call ptr asm "movq %fs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(ptr) null) #11, !srcloc !4
   %11 = ptrtoint ptr %10 to i64
   store i64 %11, ptr getelementptr inbounds nuw (i8, ptr @_mi_heap_main, i64 2848), align 8
   store i64 1, ptr getelementptr inbounds nuw (i8, ptr @_mi_heap_main, i64 2864), align 8
-  tail call void @_mi_random_init(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_mi_heap_main, i64 2888)) #13
-  %call1.i10 = tail call i64 @_mi_heap_random_next(ptr noundef nonnull @_mi_heap_main) #13
+  tail call void @_mi_random_init(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_mi_heap_main, i64 2888)) #12
+  %call1.i10 = tail call i64 @_mi_heap_random_next(ptr noundef nonnull @_mi_heap_main) #12
   store i64 %call1.i10, ptr getelementptr inbounds nuw (i8, ptr @_mi_heap_main, i64 2864), align 8
-  %call2.i11 = tail call i64 @_mi_heap_random_next(ptr noundef nonnull @_mi_heap_main) #13
+  %call2.i11 = tail call i64 @_mi_heap_random_next(ptr noundef nonnull @_mi_heap_main) #12
   store i64 %call2.i11, ptr getelementptr inbounds nuw (i8, ptr @_mi_heap_main, i64 2872), align 8
-  %call3.i12 = tail call i64 @_mi_heap_random_next(ptr noundef nonnull @_mi_heap_main) #13
+  %call3.i12 = tail call i64 @_mi_heap_random_next(ptr noundef nonnull @_mi_heap_main) #12
   store i64 %call3.i12, ptr getelementptr inbounds nuw (i8, ptr @_mi_heap_main, i64 2880), align 8
   br label %mi_heap_main_init.exit13
 
 mi_heap_main_init.exit13:                         ; preds = %mi_process_setup_auto_thread_done.exit, %if.then.i9
-  tail call void (ptr, ...) @_mi_verbose_message(ptr noundef nonnull @.str.1, i32 noundef 0) #13
-  tail call void (ptr, ...) @_mi_verbose_message(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3) #13
-  tail call void @mi_thread_init() #14
-  tail call void @mi_stats_reset() #13
-  %call2 = tail call zeroext i1 @mi_option_is_enabled(i32 noundef 7) #13
+  tail call void (ptr, ...) @_mi_verbose_message(ptr noundef nonnull @.str.1, i32 noundef 0) #12
+  tail call void (ptr, ...) @_mi_verbose_message(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3) #12
+  tail call void @mi_thread_init() #13
+  tail call void @mi_stats_reset() #12
+  %call2 = tail call zeroext i1 @mi_option_is_enabled(i32 noundef 7) #12
   br i1 %call2, label %if.then3, label %if.end11
 
 if.then3:                                         ; preds = %mi_heap_main_init.exit13
-  %call4 = tail call i64 @mi_option_get_clamp(i32 noundef 7, i64 noundef 0, i64 noundef 131072) #13
-  %call5 = tail call i64 @mi_option_get(i32 noundef 8) #13
+  %call4 = tail call i64 @mi_option_get_clamp(i32 noundef 7, i64 noundef 0, i64 noundef 131072) #12
+  %call5 = tail call i64 @mi_option_get(i32 noundef 8) #12
   %cmp.not = icmp eq i64 %call5, -1
   br i1 %cmp.not, label %if.else, label %if.then6
 
 if.then6:                                         ; preds = %if.then3
   %conv = trunc i64 %call5 to i32
   %mul = mul i64 %call4, 500
-  %call7 = tail call i32 @mi_reserve_huge_os_pages_at(i64 noundef %call4, i32 noundef %conv, i64 noundef %mul) #13
+  %call7 = tail call i32 @mi_reserve_huge_os_pages_at(i64 noundef %call4, i32 noundef %conv, i64 noundef %mul) #12
   br label %if.end11
 
 if.else:                                          ; preds = %if.then3
   %mul8 = mul i64 %call4, 500
-  %call9 = tail call i32 @mi_reserve_huge_os_pages_interleave(i64 noundef %call4, i64 noundef 0, i64 noundef %mul8) #13
+  %call9 = tail call i32 @mi_reserve_huge_os_pages_interleave(i64 noundef %call4, i64 noundef 0, i64 noundef %mul8) #12
   br label %if.end11
 
 if.end11:                                         ; preds = %if.then6, %if.else, %mi_heap_main_init.exit13
-  %call12 = tail call zeroext i1 @mi_option_is_enabled(i32 noundef 9) #13
+  %call12 = tail call zeroext i1 @mi_option_is_enabled(i32 noundef 9) #12
   br i1 %call12, label %if.then13, label %if.end21
 
 if.then13:                                        ; preds = %if.end11
-  %call14 = tail call i64 @mi_option_get(i32 noundef 9) #13
+  %call14 = tail call i64 @mi_option_get(i32 noundef 9) #12
   %cmp15 = icmp sgt i64 %call14, 0
   br i1 %cmp15, label %if.then17, label %if.end21
 
 if.then17:                                        ; preds = %if.then13
   %mul18 = shl i64 %call14, 10
-  %call19 = tail call i32 @mi_reserve_os_memory(i64 noundef %mul18, i1 noundef zeroext true, i1 noundef zeroext true) #13
+  %call19 = tail call i32 @mi_reserve_os_memory(i64 noundef %mul18, i1 noundef zeroext true, i1 noundef zeroext true) #12
   br label %if.end21
 
 if.end21:                                         ; preds = %mi_heap_main_init.exit, %if.then13, %if.then17, %mi_atomic_once.exit, %if.end11
@@ -400,7 +395,7 @@ declare void @_mi_stat_increase(ptr noundef, i64 noundef) local_unnamed_addr #2
 ; Function Attrs: nounwind uwtable
 define void @mi_thread_done() local_unnamed_addr #1 {
 entry:
-  tail call void @_mi_thread_done(ptr noundef null) #14
+  tail call void @_mi_thread_done(ptr noundef null) #13
   ret void
 }
 
@@ -423,10 +418,10 @@ if.end3:                                          ; preds = %if.then, %entry
 
 if.end6:                                          ; preds = %if.end3
   %2 = atomicrmw sub ptr @thread_count, i64 1 monotonic, align 8
-  tail call void @_mi_stat_decrease(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 288), i64 noundef 1) #13
+  tail call void @_mi_stat_decrease(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 288), i64 noundef 1) #12
   %thread_id = getelementptr inbounds nuw i8, ptr %heap.addr.0, i64 2848
   %3 = load i64, ptr %thread_id, align 8
-  %4 = tail call ptr asm "movq %fs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(ptr) null) #12, !srcloc !4
+  %4 = tail call ptr asm "movq %fs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(ptr) null) #11, !srcloc !4
   %5 = ptrtoint ptr %4 to i64
   %cmp8.not = icmp eq i64 %3, %5
   br i1 %cmp8.not, label %if.end.i, label %if.end13
@@ -448,7 +443,7 @@ _mi_is_main_thread.exit.thread.i:                 ; preds = %_mi_is_main_thread.
   %8 = phi ptr [ @_mi_heap_main, %_mi_is_main_thread.exit.thread.i ], [ @_mi_heap_empty, %_mi_is_main_thread.exit.i ]
   %9 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_mi_heap_default)
   store ptr %8, ptr %9, align 8
-  tail call void @_mi_prim_thread_associate_default_heap(ptr noundef nonnull %8) #13
+  tail call void @_mi_prim_thread_associate_default_heap(ptr noundef nonnull %8) #12
   %10 = load ptr, ptr %heap.addr.0, align 8
   %heap_backing.i = getelementptr inbounds nuw i8, ptr %10, i64 16
   %11 = load ptr, ptr %heap_backing.i, align 8
@@ -470,7 +465,7 @@ while.body.i:                                     ; preds = %if.end4.i, %if.end9
   br i1 %cmp7.not.i, label %if.end9.i, label %if.then8.i
 
 if.then8.i:                                       ; preds = %while.body.i
-  tail call void @mi_heap_delete(ptr noundef nonnull %curr.018.i) #13
+  tail call void @mi_heap_delete(ptr noundef nonnull %curr.018.i) #12
   br label %if.end9.i
 
 if.end9.i:                                        ; preds = %if.then8.i, %while.body.i
@@ -482,10 +477,10 @@ while.end.i:                                      ; preds = %if.end9.i, %if.end4
   br i1 %cmp10.not.i, label %if.end16.critedge.i, label %if.then11.i
 
 if.then11.i:                                      ; preds = %while.end.i
-  tail call void @_mi_heap_collect_abandon(ptr noundef nonnull %11) #13
+  tail call void @_mi_heap_collect_abandon(ptr noundef nonnull %11) #12
   %15 = load ptr, ptr %11, align 8
   %stats.i = getelementptr inbounds nuw i8, ptr %15, i64 960
-  tail call void @_mi_stats_done(ptr noundef nonnull %stats.i) #13
+  tail call void @_mi_stats_done(ptr noundef nonnull %stats.i) #12
   %16 = ptrtoint ptr %11 to i64
   br label %for.body.i.i
 
@@ -508,13 +503,13 @@ for.inc.i.i:                                      ; preds = %if.then.i.i, %for.b
 
 for.end.i.i:                                      ; preds = %for.inc.i.i
   %memid.i.i = getelementptr inbounds nuw i8, ptr %11, i64 4664
-  tail call void @_mi_os_free(ptr noundef nonnull %11, i64 noundef 4688, ptr noundef nonnull byval(%struct.mi_memid_s) align 8 %memid.i.i, ptr noundef nonnull @_mi_stats_main) #13
+  tail call void @_mi_os_free(ptr noundef nonnull %11, i64 noundef 4688, ptr noundef nonnull byval(%struct.mi_memid_s) align 8 %memid.i.i, ptr noundef nonnull @_mi_stats_main) #12
   br label %if.end13
 
 if.end16.critedge.i:                              ; preds = %while.end.i
   %20 = load ptr, ptr @_mi_heap_main, align 8
   %stats.c.i = getelementptr inbounds nuw i8, ptr %20, i64 960
-  tail call void @_mi_stats_done(ptr noundef nonnull %stats.c.i) #13
+  tail call void @_mi_stats_done(ptr noundef nonnull %stats.c.i) #12
   br label %if.end13
 
 if.end13:                                         ; preds = %if.then.i.i, %if.end16.critedge.i, %for.end.i.i, %7, %if.end6, %if.end3, %if.then
@@ -528,7 +523,7 @@ define hidden void @_mi_heap_set_default_direct(ptr noundef %heap) local_unnamed
 entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_mi_heap_default)
   store ptr %heap, ptr %0, align 8
-  tail call void @_mi_prim_thread_associate_default_heap(ptr noundef %heap) #13
+  tail call void @_mi_prim_thread_associate_default_heap(ptr noundef %heap) #12
   ret void
 }
 
@@ -577,37 +572,37 @@ entry:
   br i1 %cmp.i.i, label %if.then.i.i, label %mi_heap_main_init.exit.i
 
 if.then.i.i:                                      ; preds = %entry
-  %1 = tail call ptr asm "movq %fs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(ptr) null) #12, !srcloc !4
+  %1 = tail call ptr asm "movq %fs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(ptr) null) #11, !srcloc !4
   %2 = ptrtoint ptr %1 to i64
   store i64 %2, ptr getelementptr inbounds nuw (i8, ptr @_mi_heap_main, i64 2848), align 8
   store i64 1, ptr getelementptr inbounds nuw (i8, ptr @_mi_heap_main, i64 2864), align 8
-  tail call void @_mi_random_init(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_mi_heap_main, i64 2888)) #13
-  %call1.i.i = tail call i64 @_mi_heap_random_next(ptr noundef nonnull @_mi_heap_main) #13
+  tail call void @_mi_random_init(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_mi_heap_main, i64 2888)) #12
+  %call1.i.i = tail call i64 @_mi_heap_random_next(ptr noundef nonnull @_mi_heap_main) #12
   store i64 %call1.i.i, ptr getelementptr inbounds nuw (i8, ptr @_mi_heap_main, i64 2864), align 8
-  %call2.i.i = tail call i64 @_mi_heap_random_next(ptr noundef nonnull @_mi_heap_main) #13
+  %call2.i.i = tail call i64 @_mi_heap_random_next(ptr noundef nonnull @_mi_heap_main) #12
   store i64 %call2.i.i, ptr getelementptr inbounds nuw (i8, ptr @_mi_heap_main, i64 2872), align 8
-  %call3.i.i = tail call i64 @_mi_heap_random_next(ptr noundef nonnull @_mi_heap_main) #13
+  %call3.i.i = tail call i64 @_mi_heap_random_next(ptr noundef nonnull @_mi_heap_main) #12
   store i64 %call3.i.i, ptr getelementptr inbounds nuw (i8, ptr @_mi_heap_main, i64 2880), align 8
   br label %mi_heap_main_init.exit.i
 
 mi_heap_main_init.exit.i:                         ; preds = %if.then.i.i, %entry
   store i1 true, ptr @os_preloading, align 1
-  %call.i = tail call i32 @atexit(ptr noundef nonnull @mi_process_done) #13
-  tail call void @_mi_options_init() #13
+  %call.i = tail call i32 @atexit(ptr noundef nonnull @mi_process_done) #12
+  tail call void @_mi_options_init() #12
   %.b1.i.i = load i1, ptr @mi_process_setup_auto_thread_done.tls_initialized, align 1
   br i1 %.b1.i.i, label %mi_process_load.exit, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %mi_heap_main_init.exit.i
   store i1 true, ptr @mi_process_setup_auto_thread_done.tls_initialized, align 1
-  tail call void @_mi_prim_thread_init_auto_done() #13
+  tail call void @_mi_prim_thread_init_auto_done() #12
   %3 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_mi_heap_default)
   store ptr @_mi_heap_main, ptr %3, align 8
-  tail call void @_mi_prim_thread_associate_default_heap(ptr noundef nonnull @_mi_heap_main) #13
+  tail call void @_mi_prim_thread_associate_default_heap(ptr noundef nonnull @_mi_heap_main) #12
   br label %mi_process_load.exit
 
 mi_process_load.exit:                             ; preds = %mi_heap_main_init.exit.i, %if.end.i.i
-  tail call void @mi_process_init() #14
-  tail call void @_mi_random_reinit_if_weak(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_mi_heap_main, i64 2888)) #13
+  tail call void @mi_process_init() #13
+  tail call void @_mi_random_reinit_if_weak(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_mi_heap_main, i64 2888)) #12
   ret void
 }
 
@@ -622,11 +617,8 @@ declare void @_mi_error_message(i32 noundef, ptr noundef, ...) local_unnamed_add
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #8
-
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
 
 declare void @mi_heap_delete(ptr noundef) local_unnamed_addr #2
 
@@ -637,7 +629,7 @@ declare void @_mi_stats_done(ptr noundef) local_unnamed_addr #2
 declare void @_mi_prim_thread_init_auto_done() local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare i32 @atexit(ptr noundef) local_unnamed_addr #10
+declare i32 @atexit(ptr noundef) local_unnamed_addr #9
 
 ; Function Attrs: nounwind uwtable
 define internal void @mi_process_done() #1 {
@@ -652,52 +644,52 @@ if.end:                                           ; preds = %entry
 
 if.end3:                                          ; preds = %if.end
   store i1 true, ptr @mi_process_done.process_done, align 1
-  tail call void @_mi_prim_thread_done_auto_done() #13
-  %call = tail call zeroext i1 @mi_option_is_enabled(i32 noundef 22) #13
+  tail call void @_mi_prim_thread_done_auto_done() #12
+  %call = tail call zeroext i1 @mi_option_is_enabled(i32 noundef 22) #12
   br i1 %call, label %if.then4, label %if.end6
 
 if.then4:                                         ; preds = %if.end3
-  tail call void @mi_collect(i1 noundef zeroext true) #13
-  tail call void @_mi_heap_unsafe_destroy_all() #13
+  tail call void @mi_collect(i1 noundef zeroext true) #12
+  tail call void @_mi_heap_unsafe_destroy_all() #12
   %1 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_mi_heap_main, i64 2864), align 8
   %cmp.i.i = icmp eq i64 %1, 0
   br i1 %cmp.i.i, label %if.then.i.i, label %_mi_heap_main_get.exit
 
 if.then.i.i:                                      ; preds = %if.then4
-  %2 = tail call ptr asm "movq %fs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(ptr) null) #12, !srcloc !4
+  %2 = tail call ptr asm "movq %fs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(ptr) null) #11, !srcloc !4
   %3 = ptrtoint ptr %2 to i64
   store i64 %3, ptr getelementptr inbounds nuw (i8, ptr @_mi_heap_main, i64 2848), align 8
   store i64 1, ptr getelementptr inbounds nuw (i8, ptr @_mi_heap_main, i64 2864), align 8
-  tail call void @_mi_random_init(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_mi_heap_main, i64 2888)) #13
-  %call1.i.i = tail call i64 @_mi_heap_random_next(ptr noundef nonnull @_mi_heap_main) #13
+  tail call void @_mi_random_init(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_mi_heap_main, i64 2888)) #12
+  %call1.i.i = tail call i64 @_mi_heap_random_next(ptr noundef nonnull @_mi_heap_main) #12
   store i64 %call1.i.i, ptr getelementptr inbounds nuw (i8, ptr @_mi_heap_main, i64 2864), align 8
-  %call2.i.i = tail call i64 @_mi_heap_random_next(ptr noundef nonnull @_mi_heap_main) #13
+  %call2.i.i = tail call i64 @_mi_heap_random_next(ptr noundef nonnull @_mi_heap_main) #12
   store i64 %call2.i.i, ptr getelementptr inbounds nuw (i8, ptr @_mi_heap_main, i64 2872), align 8
-  %call3.i.i = tail call i64 @_mi_heap_random_next(ptr noundef nonnull @_mi_heap_main) #13
+  %call3.i.i = tail call i64 @_mi_heap_random_next(ptr noundef nonnull @_mi_heap_main) #12
   store i64 %call3.i.i, ptr getelementptr inbounds nuw (i8, ptr @_mi_heap_main, i64 2880), align 8
   br label %_mi_heap_main_get.exit
 
 _mi_heap_main_get.exit:                           ; preds = %if.then4, %if.then.i.i
   %4 = load ptr, ptr @_mi_heap_main, align 8
   %stats = getelementptr inbounds nuw i8, ptr %4, i64 960
-  tail call void @_mi_arena_unsafe_destroy_all(ptr noundef nonnull %stats) #13
+  tail call void @_mi_arena_unsafe_destroy_all(ptr noundef nonnull %stats) #12
   br label %if.end6
 
 if.end6:                                          ; preds = %_mi_heap_main_get.exit, %if.end3
-  %call7 = tail call zeroext i1 @mi_option_is_enabled(i32 noundef 1) #13
+  %call7 = tail call zeroext i1 @mi_option_is_enabled(i32 noundef 1) #12
   br i1 %call7, label %if.then9, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end6
-  %call8 = tail call zeroext i1 @mi_option_is_enabled(i32 noundef 2) #13
+  %call8 = tail call zeroext i1 @mi_option_is_enabled(i32 noundef 2) #12
   br i1 %call8, label %if.then9, label %if.end10
 
 if.then9:                                         ; preds = %lor.lhs.false, %if.end6
-  tail call void @mi_stats_print(ptr noundef null) #13
+  tail call void @mi_stats_print(ptr noundef null) #12
   br label %if.end10
 
 if.end10:                                         ; preds = %if.then9, %lor.lhs.false
   %5 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_mi_heap_main, i64 2848), align 8
-  tail call void (ptr, ...) @_mi_verbose_message(ptr noundef nonnull @.str.6, i64 noundef %5) #13
+  tail call void (ptr, ...) @_mi_verbose_message(ptr noundef nonnull @.str.6, i64 noundef %5) #12
   store i1 false, ptr @os_preloading, align 1
   br label %return
 
@@ -720,10 +712,10 @@ declare void @_mi_arena_unsafe_destroy_all(ptr noundef) local_unnamed_addr #2
 declare void @mi_stats_print(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #10
 
 attributes #0 = { nofree nounwind memory(read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-builtin-malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-builtin-malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -733,13 +725,12 @@ attributes #4 = { mustprogress nocallback nofree nosync nounwind speculatable wi
 attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-builtin-malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-builtin-malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #8 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #10 = { nofree nounwind "frame-pointer"="all" "no-builtin-malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #12 = { nounwind memory(read) }
-attributes #13 = { nounwind "no-builtin-malloc" }
-attributes #14 = { "no-builtin-malloc" }
+attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #9 = { nofree nounwind "frame-pointer"="all" "no-builtin-malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #11 = { nounwind memory(read) }
+attributes #12 = { nounwind "no-builtin-malloc" }
+attributes #13 = { "no-builtin-malloc" }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

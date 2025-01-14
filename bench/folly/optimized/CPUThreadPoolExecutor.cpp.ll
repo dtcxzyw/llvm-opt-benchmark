@@ -1109,7 +1109,6 @@ entry:
   tail call void @llvm.experimental.noalias.scope.decl(metadata !13)
   store ptr null, ptr %agg.result, align 8, !tbaa !16, !alias.scope !13
   %call5.i.i.i17.i.i.i.i = tail call noalias noundef nonnull align 64 dereferenceable(128) ptr @_ZnwmSt11align_val_t(i64 noundef 128, i64 noundef 64) #37, !noalias !13
-  call void @llvm.assume(i1 true) [ "align"(ptr %call5.i.i.i17.i.i.i.i, i64 64) ]
   %_M_use_count.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i17.i.i.i.i, i64 8
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !tbaa !18, !noalias !13
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i17.i.i.i.i, i64 12
@@ -24202,7 +24201,6 @@ _ZNSt12_Vector_baseIN5folly9MPMCQueueINS0_21CPUThreadPoolExecutor7CPUTaskESt6ato
   %sub.ptr.sub.i32 = sub i64 %sub.ptr.lhs.cast.i30, %sub.ptr.rhs.cast.i
   %mul.i.i.i = mul nuw nsw i64 %__n, 640
   %call5.i.i.i = tail call noalias noundef nonnull align 128 ptr @_ZnwmSt11align_val_t(i64 noundef %mul.i.i.i, i64 noundef 128) #37
-  call void @llvm.assume(i1 true) [ "align"(ptr %call5.i.i.i, i64 128) ]
   %cmp.not6.i.i.i = icmp eq ptr %1, %2
   br i1 %cmp.not6.i.i.i, label %_ZNSt6vectorIN5folly9MPMCQueueINS0_21CPUThreadPoolExecutor7CPUTaskESt6atomicLb0EEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit, label %for.body.i.i.i
 
@@ -25337,7 +25335,6 @@ _ZNKSt6vectorIN5folly9MPMCQueueINS0_21CPUThreadPoolExecutor7CPUTaskESt6atomicLb0
   tail call void @llvm.assume(i1 %cmp.not.i)
   %mul.i.i.i = mul nuw nsw i64 %cond.i, 640
   %call5.i.i.i = tail call noalias noundef nonnull align 128 ptr @_ZnwmSt11align_val_t(i64 noundef %mul.i.i.i, i64 noundef 128) #37
-  call void @llvm.assume(i1 true) [ "align"(ptr %call5.i.i.i, i64 128) ]
   %add.ptr = getelementptr inbounds i8, ptr %call5.i.i.i, i64 %sub.ptr.sub.i
   %3 = load i64, ptr %__args, align 8, !tbaa !146
   invoke void @_ZN5folly9MPMCQueueINS_21CPUThreadPoolExecutor7CPUTaskESt6atomicLb0EEC2Em(ptr noundef nonnull align 128 dereferenceable(640) %add.ptr, i64 noundef %3)
@@ -25369,23 +25366,23 @@ for.body.i.i.i:                                   ; preds = %invoke.cont, %for.b
   %dcapacity_.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__cur.08.i.i.i, i64 32
   %dcapacity_4.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.07.i.i.i, i64 32
   %12 = load atomic i64, ptr %dcapacity_4.i.i.i.i.i.i.i.i monotonic, align 8, !alias.scope !771, !noalias !768
-  store i64 %12, ptr %dcapacity_.i.i.i.i.i.i.i.i, align 32, !tbaa !43, !alias.scope !768, !noalias !771
+  store i64 %12, ptr %dcapacity_.i.i.i.i.i.i.i.i, align 8, !tbaa !43, !alias.scope !768, !noalias !771
   %pushTicket_.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__cur.08.i.i.i, i64 128
   %pushTicket_6.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.07.i.i.i, i64 128
   %13 = load atomic i64, ptr %pushTicket_6.i.i.i.i.i.i.i.i monotonic, align 8, !alias.scope !771, !noalias !768
-  store i64 %13, ptr %pushTicket_.i.i.i.i.i.i.i.i, align 128, !tbaa !43, !alias.scope !768, !noalias !771
+  store i64 %13, ptr %pushTicket_.i.i.i.i.i.i.i.i, align 8, !tbaa !43, !alias.scope !768, !noalias !771
   %popTicket_.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__cur.08.i.i.i, i64 256
   %popTicket_8.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.07.i.i.i, i64 256
   %14 = load atomic i64, ptr %popTicket_8.i.i.i.i.i.i.i.i monotonic, align 8, !alias.scope !771, !noalias !768
-  store i64 %14, ptr %popTicket_.i.i.i.i.i.i.i.i, align 128, !tbaa !43, !alias.scope !768, !noalias !771
+  store i64 %14, ptr %popTicket_.i.i.i.i.i.i.i.i, align 8, !tbaa !43, !alias.scope !768, !noalias !771
   %pushSpinCutoff_.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__cur.08.i.i.i, i64 384
   %pushSpinCutoff_10.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.07.i.i.i, i64 384
   %15 = load atomic i32, ptr %pushSpinCutoff_10.i.i.i.i.i.i.i.i monotonic, align 4, !alias.scope !771, !noalias !768
-  store i32 %15, ptr %pushSpinCutoff_.i.i.i.i.i.i.i.i, align 128, !tbaa !44, !alias.scope !768, !noalias !771
+  store i32 %15, ptr %pushSpinCutoff_.i.i.i.i.i.i.i.i, align 4, !tbaa !44, !alias.scope !768, !noalias !771
   %popSpinCutoff_.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__cur.08.i.i.i, i64 512
   %popSpinCutoff_12.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.07.i.i.i, i64 512
   %16 = load atomic i32, ptr %popSpinCutoff_12.i.i.i.i.i.i.i.i monotonic, align 4, !alias.scope !771, !noalias !768
-  store i32 %16, ptr %popSpinCutoff_.i.i.i.i.i.i.i.i, align 128, !tbaa !44, !alias.scope !768, !noalias !771
+  store i32 %16, ptr %popSpinCutoff_.i.i.i.i.i.i.i.i, align 4, !tbaa !44, !alias.scope !768, !noalias !771
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 128 dereferenceable(20) %__first.addr.07.i.i.i, i8 0, i64 20, i1 false), !alias.scope !771, !noalias !768
   store atomic i64 0, ptr %dstate_3.i.i.i.i.i.i.i.i monotonic, align 8, !alias.scope !771, !noalias !768
   store atomic i64 0, ptr %dcapacity_4.i.i.i.i.i.i.i.i monotonic, align 8, !alias.scope !771, !noalias !768

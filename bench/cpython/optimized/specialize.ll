@@ -1855,7 +1855,7 @@ if.then12:                                        ; preds = %if.end8
   br i1 %cmp15.not, label %if.end18, label %fail
 
 if.end18:                                         ; preds = %if.then12
-  %conv13 = trunc i64 %call4 to i16
+  %conv13 = trunc nuw i64 %call4 to i16
   %call19 = tail call i32 @_PyDictKeys_GetVersionForCurrentState(ptr noundef %5, ptr noundef nonnull %1) #7
   %6 = add i32 %call19, -1
   %or.cond38 = icmp ult i32 %6, 65535

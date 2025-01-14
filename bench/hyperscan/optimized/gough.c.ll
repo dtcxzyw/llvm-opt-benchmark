@@ -50,7 +50,7 @@ if.then.i:                                        ; preds = %entry
 
 cond.end.i30:                                     ; preds = %if.then.i
   %12 = load i64, ptr %add.ptr.i12, align 8
-  %call.i = tail call i32 %2(i64 noundef %12, i64 noundef %add.i11, i32 noundef 0, ptr noundef %3) #11
+  %call.i = tail call i32 %2(i64 noundef %12, i64 noundef %add.i11, i32 noundef 0, ptr noundef %3) #10
   %cmp5.i = icmp eq i32 %call.i, 0
   store i8 0, ptr %report_current.i, align 8
   br i1 %cmp5.i, label %nfaExecGough8_Q2i.exit, label %if.end8.i
@@ -113,13 +113,13 @@ cond.false59.i:                                   ; preds = %for.body.i
 cond.end63.i:                                     ; preds = %for.body.i, %cond.false59.i
   %cond64.i = phi i64 [ %20, %cond.false59.i ], [ %add.i11, %for.body.i ]
   %21 = load i32, ptr %arrayidx53.i, align 4
-  %call71.i = tail call i32 %2(i64 noundef %cond64.i, i64 noundef %add.i11, i32 noundef %21, ptr noundef %3) #11
+  %call71.i = tail call i32 %2(i64 noundef %cond64.i, i64 noundef %add.i11, i32 noundef %21, ptr noundef %3) #10
   %cmp72.i23 = icmp eq i32 %call71.i, 0
   br i1 %cmp72.i23, label %if.then7.i.critedge, label %for.cond.i
 
 doReports.exit:                                   ; preds = %cond.false35.i, %if.then26.i
   %cond40.i = phi i64 [ %18, %cond.false35.i ], [ %add.i11, %if.then26.i ]
-  %call43.i = tail call i32 %2(i64 noundef %cond40.i, i64 noundef %add.i11, i32 noundef %16, ptr noundef %3) #11
+  %call43.i = tail call i32 %2(i64 noundef %cond40.i, i64 noundef %add.i11, i32 noundef %16, ptr noundef %3) #10
   %cmp44.i = icmp eq i32 %call43.i, 0
   store i8 0, ptr %report_current.i, align 8
   br i1 %cmp44.i, label %nfaExecGough8_Q2i.exit, label %if.end8.i
@@ -408,7 +408,7 @@ if.then.i:                                        ; preds = %entry
 
 cond.end.i28:                                     ; preds = %if.then.i
   %12 = load i64, ptr %add.ptr.i12, align 8
-  %call.i = tail call i32 %2(i64 noundef %12, i64 noundef %add.i11, i32 noundef 0, ptr noundef %3) #11
+  %call.i = tail call i32 %2(i64 noundef %12, i64 noundef %add.i11, i32 noundef 0, ptr noundef %3) #10
   %cmp5.i = icmp eq i32 %call.i, 0
   store i8 0, ptr %report_current.i, align 8
   br i1 %cmp5.i, label %nfaExecGough16_Q2i.exit, label %if.end7.i
@@ -471,13 +471,13 @@ cond.false59.i:                                   ; preds = %for.body.i
 cond.end63.i:                                     ; preds = %for.body.i, %cond.false59.i
   %cond64.i = phi i64 [ %20, %cond.false59.i ], [ %add.i11, %for.body.i ]
   %21 = load i32, ptr %arrayidx53.i, align 4
-  %call71.i = tail call i32 %2(i64 noundef %cond64.i, i64 noundef %add.i11, i32 noundef %21, ptr noundef %3) #11
+  %call71.i = tail call i32 %2(i64 noundef %cond64.i, i64 noundef %add.i11, i32 noundef %21, ptr noundef %3) #10
   %cmp72.i = icmp eq i32 %call71.i, 0
   br i1 %cmp72.i, label %if.then6.i.critedge, label %for.cond.i
 
 doReports.exit:                                   ; preds = %cond.false35.i, %if.then26.i
   %cond40.i = phi i64 [ %18, %cond.false35.i ], [ %add.i11, %if.then26.i ]
-  %call43.i = tail call i32 %2(i64 noundef %cond40.i, i64 noundef %add.i11, i32 noundef %16, ptr noundef %3) #11
+  %call43.i = tail call i32 %2(i64 noundef %cond40.i, i64 noundef %add.i11, i32 noundef %16, ptr noundef %3) #10
   %cmp44.i22 = icmp eq i32 %call43.i, 0
   store i8 0, ptr %report_current.i, align 8
   br i1 %cmp44.i22, label %nfaExecGough16_Q2i.exit, label %if.end7.i
@@ -765,7 +765,7 @@ if.then.i:                                        ; preds = %entry
 
 cond.end.i30:                                     ; preds = %if.then.i
   %12 = load i64, ptr %add.ptr.i12, align 8
-  %call.i = tail call i32 %2(i64 noundef %12, i64 noundef %add.i11, i32 noundef 0, ptr noundef %3) #11
+  %call.i = tail call i32 %2(i64 noundef %12, i64 noundef %add.i11, i32 noundef 0, ptr noundef %3) #10
   %cmp5.i = icmp eq i32 %call.i, 0
   store i8 0, ptr %report_current.i, align 8
   br i1 %cmp5.i, label %nfaExecGough8_Q2i.exit, label %if.end8.i
@@ -828,13 +828,13 @@ cond.false59.i:                                   ; preds = %for.body.i
 cond.end63.i:                                     ; preds = %for.body.i, %cond.false59.i
   %cond64.i = phi i64 [ %20, %cond.false59.i ], [ %add.i11, %for.body.i ]
   %21 = load i32, ptr %arrayidx53.i, align 4
-  %call71.i = tail call i32 %2(i64 noundef %cond64.i, i64 noundef %add.i11, i32 noundef %21, ptr noundef %3) #11
+  %call71.i = tail call i32 %2(i64 noundef %cond64.i, i64 noundef %add.i11, i32 noundef %21, ptr noundef %3) #10
   %cmp72.i23 = icmp eq i32 %call71.i, 0
   br i1 %cmp72.i23, label %if.then7.i.critedge, label %for.cond.i
 
 doReports.exit:                                   ; preds = %cond.false35.i, %if.then26.i
   %cond40.i = phi i64 [ %18, %cond.false35.i ], [ %add.i11, %if.then26.i ]
-  %call43.i = tail call i32 %2(i64 noundef %cond40.i, i64 noundef %add.i11, i32 noundef %16, ptr noundef %3) #11
+  %call43.i = tail call i32 %2(i64 noundef %cond40.i, i64 noundef %add.i11, i32 noundef %16, ptr noundef %3) #10
   %cmp44.i = icmp eq i32 %call43.i, 0
   store i8 0, ptr %report_current.i, align 8
   br i1 %cmp44.i, label %nfaExecGough8_Q2i.exit, label %if.end8.i
@@ -1148,7 +1148,7 @@ if.then.i:                                        ; preds = %entry
 
 cond.end.i28:                                     ; preds = %if.then.i
   %12 = load i64, ptr %add.ptr.i12, align 8
-  %call.i = tail call i32 %2(i64 noundef %12, i64 noundef %add.i11, i32 noundef 0, ptr noundef %3) #11
+  %call.i = tail call i32 %2(i64 noundef %12, i64 noundef %add.i11, i32 noundef 0, ptr noundef %3) #10
   %cmp5.i = icmp eq i32 %call.i, 0
   store i8 0, ptr %report_current.i, align 8
   br i1 %cmp5.i, label %nfaExecGough16_Q2i.exit, label %if.end7.i
@@ -1211,13 +1211,13 @@ cond.false59.i:                                   ; preds = %for.body.i
 cond.end63.i:                                     ; preds = %for.body.i, %cond.false59.i
   %cond64.i = phi i64 [ %20, %cond.false59.i ], [ %add.i11, %for.body.i ]
   %21 = load i32, ptr %arrayidx53.i, align 4
-  %call71.i = tail call i32 %2(i64 noundef %cond64.i, i64 noundef %add.i11, i32 noundef %21, ptr noundef %3) #11
+  %call71.i = tail call i32 %2(i64 noundef %cond64.i, i64 noundef %add.i11, i32 noundef %21, ptr noundef %3) #10
   %cmp72.i = icmp eq i32 %call71.i, 0
   br i1 %cmp72.i, label %if.then6.i.critedge, label %for.cond.i
 
 doReports.exit:                                   ; preds = %cond.false35.i, %if.then26.i
   %cond40.i = phi i64 [ %18, %cond.false35.i ], [ %add.i11, %if.then26.i ]
-  %call43.i = tail call i32 %2(i64 noundef %cond40.i, i64 noundef %add.i11, i32 noundef %16, ptr noundef %3) #11
+  %call43.i = tail call i32 %2(i64 noundef %cond40.i, i64 noundef %add.i11, i32 noundef %16, ptr noundef %3) #10
   %cmp44.i22 = icmp eq i32 %call43.i, 0
   store i8 0, ptr %report_current.i, align 8
   br i1 %cmp44.i22, label %nfaExecGough16_Q2i.exit, label %if.end7.i
@@ -1530,7 +1530,7 @@ if.then.i:                                        ; preds = %entry
 
 cond.end.i33:                                     ; preds = %if.then.i
   %12 = load i64, ptr %add.ptr.i15, align 8
-  %call.i = tail call i32 %2(i64 noundef %12, i64 noundef %add.i14, i32 noundef 0, ptr noundef %3) #11
+  %call.i = tail call i32 %2(i64 noundef %12, i64 noundef %add.i14, i32 noundef 0, ptr noundef %3) #10
   %cmp5.i = icmp eq i32 %call.i, 0
   store i8 0, ptr %report_current.i, align 8
   br i1 %cmp5.i, label %return, label %if.end8.i
@@ -1593,13 +1593,13 @@ cond.false59.i:                                   ; preds = %for.body.i
 cond.end63.i:                                     ; preds = %for.body.i, %cond.false59.i
   %cond64.i = phi i64 [ %20, %cond.false59.i ], [ %add.i14, %for.body.i ]
   %21 = load i32, ptr %arrayidx53.i, align 4
-  %call71.i = tail call i32 %2(i64 noundef %cond64.i, i64 noundef %add.i14, i32 noundef %21, ptr noundef %3) #11
+  %call71.i = tail call i32 %2(i64 noundef %cond64.i, i64 noundef %add.i14, i32 noundef %21, ptr noundef %3) #10
   %cmp72.i26 = icmp eq i32 %call71.i, 0
   br i1 %cmp72.i26, label %if.then7.i.critedge, label %for.cond.i
 
 doReports.exit:                                   ; preds = %cond.false35.i, %if.then26.i
   %cond40.i = phi i64 [ %18, %cond.false35.i ], [ %add.i14, %if.then26.i ]
-  %call43.i = tail call i32 %2(i64 noundef %cond40.i, i64 noundef %add.i14, i32 noundef %16, ptr noundef %3) #11
+  %call43.i = tail call i32 %2(i64 noundef %cond40.i, i64 noundef %add.i14, i32 noundef %16, ptr noundef %3) #10
   %cmp44.i = icmp eq i32 %call43.i, 0
   store i8 0, ptr %report_current.i, align 8
   br i1 %cmp44.i, label %return, label %if.end8.i
@@ -1803,7 +1803,7 @@ nfaExecGough8_Q2i.exit:                           ; preds = %if.end124.i
   br i1 %tobool149.i.not.not, label %return, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %nfaExecGough8_Q2i.exit
-  %call5 = tail call signext i8 @nfaExecMcClellan8_inAccept(ptr noundef %n, i32 noundef %report, ptr noundef nonnull %q) #11
+  %call5 = tail call signext i8 @nfaExecMcClellan8_inAccept(ptr noundef %n, i32 noundef %report, ptr noundef nonnull %q) #10
   %tobool7.not = icmp eq i8 %call5, 0
   %spec.select130 = select i1 %tobool7.not, i8 1, i8 2
   br label %return
@@ -1858,7 +1858,7 @@ if.then.i:                                        ; preds = %entry
 
 cond.end.i31:                                     ; preds = %if.then.i
   %12 = load i64, ptr %add.ptr.i15, align 8
-  %call.i = tail call i32 %2(i64 noundef %12, i64 noundef %add.i14, i32 noundef 0, ptr noundef %3) #11
+  %call.i = tail call i32 %2(i64 noundef %12, i64 noundef %add.i14, i32 noundef 0, ptr noundef %3) #10
   %cmp5.i = icmp eq i32 %call.i, 0
   store i8 0, ptr %report_current.i, align 8
   br i1 %cmp5.i, label %return, label %if.end7.i
@@ -1921,13 +1921,13 @@ cond.false59.i:                                   ; preds = %for.body.i
 cond.end63.i:                                     ; preds = %for.body.i, %cond.false59.i
   %cond64.i = phi i64 [ %20, %cond.false59.i ], [ %add.i14, %for.body.i ]
   %21 = load i32, ptr %arrayidx53.i, align 4
-  %call71.i = tail call i32 %2(i64 noundef %cond64.i, i64 noundef %add.i14, i32 noundef %21, ptr noundef %3) #11
+  %call71.i = tail call i32 %2(i64 noundef %cond64.i, i64 noundef %add.i14, i32 noundef %21, ptr noundef %3) #10
   %cmp72.i = icmp eq i32 %call71.i, 0
   br i1 %cmp72.i, label %if.then6.i.critedge, label %for.cond.i
 
 doReports.exit:                                   ; preds = %cond.false35.i, %if.then26.i
   %cond40.i = phi i64 [ %18, %cond.false35.i ], [ %add.i14, %if.then26.i ]
-  %call43.i = tail call i32 %2(i64 noundef %cond40.i, i64 noundef %add.i14, i32 noundef %16, ptr noundef %3) #11
+  %call43.i = tail call i32 %2(i64 noundef %cond40.i, i64 noundef %add.i14, i32 noundef %16, ptr noundef %3) #10
   %cmp44.i25 = icmp eq i32 %call43.i, 0
   store i8 0, ptr %report_current.i, align 8
   br i1 %cmp44.i25, label %return, label %if.end7.i
@@ -2130,7 +2130,7 @@ nfaExecGough16_Q2i.exit:                          ; preds = %if.end117.i
   br i1 %tobool139.i.not.not, label %return, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %nfaExecGough16_Q2i.exit
-  %call5 = tail call signext i8 @nfaExecMcClellan16_inAccept(ptr noundef %n, i32 noundef %report, ptr noundef nonnull %q) #11
+  %call5 = tail call signext i8 @nfaExecMcClellan16_inAccept(ptr noundef %n, i32 noundef %report, ptr noundef nonnull %q) #10
   %tobool7.not = icmp eq i8 %call5, 0
   %spec.select130 = select i1 %tobool7.not, i8 1, i8 2
   br label %return
@@ -2226,7 +2226,7 @@ land.lhs.true.i:                                  ; preds = %entry
 
 cond.end.i:                                       ; preds = %land.lhs.true.i
   %10 = load i64, ptr %add.ptr.i, align 8
-  %call.i = tail call i32 %0(i64 noundef %10, i64 noundef %add.i, i32 noundef 0, ptr noundef %1) #11
+  %call.i = tail call i32 %0(i64 noundef %10, i64 noundef %add.i, i32 noundef 0, ptr noundef %1) #10
   br label %if.end
 
 cond.end15.i:                                     ; preds = %land.lhs.true.i
@@ -2267,7 +2267,7 @@ cond.false35.i:                                   ; preds = %if.then26.i
 
 cond.end39.i:                                     ; preds = %if.then26.i, %cond.false35.i
   %cond40.i = phi i64 [ %16, %cond.false35.i ], [ %add.i, %if.then26.i ]
-  %call43.i = tail call i32 %0(i64 noundef %cond40.i, i64 noundef %add.i, i32 noundef %14, ptr noundef %1) #11
+  %call43.i = tail call i32 %0(i64 noundef %cond40.i, i64 noundef %add.i, i32 noundef %14, ptr noundef %1) #10
   br label %if.end
 
 for.body.i:                                       ; preds = %cond.end63.i, %for.body.i.lr.ph
@@ -2287,7 +2287,7 @@ cond.false59.i:                                   ; preds = %for.body.i
 cond.end63.i:                                     ; preds = %for.body.i, %cond.false59.i
   %cond64.i = phi i64 [ %18, %cond.false59.i ], [ %add.i, %for.body.i ]
   %19 = load i32, ptr %arrayidx53.i, align 4
-  %call71.i = tail call i32 %0(i64 noundef %cond64.i, i64 noundef %add.i, i32 noundef %19, ptr noundef %1) #11
+  %call71.i = tail call i32 %0(i64 noundef %cond64.i, i64 noundef %add.i, i32 noundef %19, ptr noundef %1) #10
   %cmp72.i = icmp eq i32 %call71.i, 0
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -2336,7 +2336,7 @@ land.lhs.true.i:                                  ; preds = %entry
 
 cond.end.i:                                       ; preds = %land.lhs.true.i
   %10 = load i64, ptr %add.ptr.i, align 8
-  %call.i = tail call i32 %0(i64 noundef %10, i64 noundef %add.i, i32 noundef 0, ptr noundef %1) #11
+  %call.i = tail call i32 %0(i64 noundef %10, i64 noundef %add.i, i32 noundef 0, ptr noundef %1) #10
   br label %if.end
 
 cond.end15.i:                                     ; preds = %land.lhs.true.i
@@ -2370,7 +2370,7 @@ cond.false35.i:                                   ; preds = %if.then26.i
 
 cond.end39.i:                                     ; preds = %if.then26.i, %cond.false35.i
   %cond40.i = phi i64 [ %14, %cond.false35.i ], [ %add.i, %if.then26.i ]
-  %call43.i = tail call i32 %0(i64 noundef %cond40.i, i64 noundef %add.i, i32 noundef %12, ptr noundef %1) #11
+  %call43.i = tail call i32 %0(i64 noundef %cond40.i, i64 noundef %add.i, i32 noundef %12, ptr noundef %1) #10
   br label %if.end
 
 for.body.i:                                       ; preds = %cond.end63.i, %for.body.i.lr.ph
@@ -2390,7 +2390,7 @@ cond.false59.i:                                   ; preds = %for.body.i
 cond.end63.i:                                     ; preds = %for.body.i, %cond.false59.i
   %cond64.i = phi i64 [ %16, %cond.false59.i ], [ %add.i, %for.body.i ]
   %17 = load i32, ptr %arrayidx53.i, align 4
-  %call71.i = tail call i32 %0(i64 noundef %cond64.i, i64 noundef %add.i, i32 noundef %17, ptr noundef %1) #11
+  %call71.i = tail call i32 %0(i64 noundef %cond64.i, i64 noundef %add.i, i32 noundef %17, ptr noundef %1) #10
   %cmp72.i = icmp eq i32 %call71.i, 0
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -2404,21 +2404,21 @@ if.end:                                           ; preds = %cond.end63.i, %cond
 ; Function Attrs: nounwind uwtable
 define hidden signext i8 @nfaExecGough8_inAccept(ptr noundef %n, i32 noundef %report, ptr noundef %q) local_unnamed_addr #0 {
 entry:
-  %call = tail call signext i8 @nfaExecMcClellan8_inAccept(ptr noundef %n, i32 noundef %report, ptr noundef %q) #11
+  %call = tail call signext i8 @nfaExecMcClellan8_inAccept(ptr noundef %n, i32 noundef %report, ptr noundef %q) #10
   ret i8 %call
 }
 
 ; Function Attrs: nounwind uwtable
 define hidden signext i8 @nfaExecGough16_inAccept(ptr noundef %n, i32 noundef %report, ptr noundef %q) local_unnamed_addr #0 {
 entry:
-  %call = tail call signext i8 @nfaExecMcClellan16_inAccept(ptr noundef %n, i32 noundef %report, ptr noundef %q) #11
+  %call = tail call signext i8 @nfaExecMcClellan16_inAccept(ptr noundef %n, i32 noundef %report, ptr noundef %q) #10
   ret i8 %call
 }
 
 ; Function Attrs: nounwind uwtable
 define hidden signext i8 @nfaExecGough8_inAnyAccept(ptr noundef %n, ptr noundef %q) local_unnamed_addr #0 {
 entry:
-  %call = tail call signext i8 @nfaExecMcClellan8_inAnyAccept(ptr noundef %n, ptr noundef %q) #11
+  %call = tail call signext i8 @nfaExecMcClellan8_inAnyAccept(ptr noundef %n, ptr noundef %q) #10
   ret i8 %call
 }
 
@@ -2427,7 +2427,7 @@ declare signext i8 @nfaExecMcClellan8_inAnyAccept(ptr noundef, ptr noundef) loca
 ; Function Attrs: nounwind uwtable
 define hidden signext i8 @nfaExecGough16_inAnyAccept(ptr noundef %n, ptr noundef %q) local_unnamed_addr #0 {
 entry:
-  %call = tail call signext i8 @nfaExecMcClellan16_inAnyAccept(ptr noundef %n, ptr noundef %q) #11
+  %call = tail call signext i8 @nfaExecMcClellan16_inAnyAccept(ptr noundef %n, ptr noundef %q) #10
   ret i8 %call
 }
 
@@ -2484,7 +2484,7 @@ cond.false59.i.i:                                 ; preds = %for.body.i.i
 cond.end63.i.i:                                   ; preds = %cond.false59.i.i, %for.body.i.i
   %cond64.i.i = phi i64 [ %5, %cond.false59.i.i ], [ %offset, %for.body.i.i ]
   %6 = load i32, ptr %arrayidx53.i.i, align 4
-  %call71.i.i = tail call i32 %callback(i64 noundef %cond64.i.i, i64 noundef %offset, i32 noundef %6, ptr noundef %context) #11
+  %call71.i.i = tail call i32 %callback(i64 noundef %cond64.i.i, i64 noundef %offset, i32 noundef %6, ptr noundef %context) #10
   %cmp72.i.i = icmp eq i32 %call71.i.i, 0
   br i1 %cmp72.i.i, label %goughCheckEOD.exit, label %for.cond.i.i
 
@@ -2544,7 +2544,7 @@ cond.false59.i.i:                                 ; preds = %for.body.i.i
 cond.end63.i.i:                                   ; preds = %cond.false59.i.i, %for.body.i.i
   %cond64.i.i = phi i64 [ %5, %cond.false59.i.i ], [ %offset, %for.body.i.i ]
   %6 = load i32, ptr %arrayidx53.i.i, align 4
-  %call71.i.i = tail call i32 %callback(i64 noundef %cond64.i.i, i64 noundef %offset, i32 noundef %6, ptr noundef %context) #11
+  %call71.i.i = tail call i32 %callback(i64 noundef %cond64.i.i, i64 noundef %offset, i32 noundef %6, ptr noundef %context) #10
   %cmp72.i.i = icmp eq i32 %call71.i.i, 0
   br i1 %cmp72.i.i, label %goughCheckEOD.exit, label %for.cond.i.i
 
@@ -3300,7 +3300,7 @@ cond.false.i226.i:                                ; preds = %if.then.i224.i
 
 cond.end.i229.i:                                  ; preds = %if.then.i224.i, %cond.false.i226.i
   %cond.i230.i = phi i64 [ %45, %cond.false.i226.i ], [ %add36.i, %if.then.i224.i ]
-  %call.i231.i = tail call i32 %cb(i64 noundef %cond.i230.i, i64 noundef %add36.i, i32 noundef %cached_accept_id.i.2317, ptr noundef %ctxt) #11
+  %call.i231.i = tail call i32 %cb(i64 noundef %cond.i230.i, i64 noundef %add36.i, i32 noundef %cached_accept_id.i.2317, ptr noundef %ctxt) #10
   %cmp5.i232.i = icmp eq i32 %call.i231.i, 0
   br i1 %cmp5.i232.i, label %goughExec8_i.exit, label %if.end44.i
 
@@ -3361,13 +3361,13 @@ cond.false59.i193.i:                              ; preds = %for.body.i187.i
 cond.end63.i196.i:                                ; preds = %for.body.i187.i, %cond.false59.i193.i
   %cond64.i197.i = phi i64 [ %53, %cond.false59.i193.i ], [ %add36.i, %for.body.i187.i ]
   %54 = load i32, ptr %arrayidx53.i190.i, align 4
-  %call71.i201.i = tail call i32 %cb(i64 noundef %cond64.i197.i, i64 noundef %add36.i, i32 noundef %54, ptr noundef %ctxt) #11
+  %call71.i201.i = tail call i32 %cb(i64 noundef %cond64.i197.i, i64 noundef %add36.i, i32 noundef %54, ptr noundef %ctxt) #10
   %cmp72.i202.i = icmp eq i32 %call71.i201.i, 0
   br i1 %cmp72.i202.i, label %goughExec8_i.exit, label %for.cond.i184.i
 
 doReports.exit236.i:                              ; preds = %cond.false35.i212.i, %if.then26.i207.i
   %cond40.i216.i = phi i64 [ %51, %cond.false35.i212.i ], [ %add36.i, %if.then26.i207.i ]
-  %call43.i217.i = tail call i32 %cb(i64 noundef %cond40.i216.i, i64 noundef %add36.i, i32 noundef %49, ptr noundef %ctxt) #11
+  %call43.i217.i = tail call i32 %cb(i64 noundef %cond40.i216.i, i64 noundef %add36.i, i32 noundef %49, ptr noundef %ctxt) #10
   %cmp44.i218.i = icmp eq i32 %call43.i217.i, 0
   br i1 %cmp44.i218.i, label %goughExec8_i.exit, label %if.end44.i
 
@@ -3521,7 +3521,7 @@ cond.false.i.i:                                   ; preds = %if.then.i.i
 
 cond.end.i.i:                                     ; preds = %if.then.i.i, %cond.false.i.i
   %cond.i.i = phi i64 [ %69, %cond.false.i.i ], [ %add95.i, %if.then.i.i ]
-  %call.i.i = tail call i32 %cb(i64 noundef %cond.i.i, i64 noundef %add95.i, i32 noundef %cached_accept_id.i.5409, ptr noundef %ctxt) #11
+  %call.i.i = tail call i32 %cb(i64 noundef %cond.i.i, i64 noundef %add95.i, i32 noundef %cached_accept_id.i.5409, ptr noundef %ctxt) #10
   %cmp5.i.i = icmp eq i32 %call.i.i, 0
   br i1 %cmp5.i.i, label %goughExec8_i.exit, label %if.end138.i
 
@@ -3582,13 +3582,13 @@ cond.false59.i.i:                                 ; preds = %for.body.i.i
 cond.end63.i.i:                                   ; preds = %for.body.i.i, %cond.false59.i.i
   %cond64.i.i = phi i64 [ %77, %cond.false59.i.i ], [ %add95.i, %for.body.i.i ]
   %78 = load i32, ptr %arrayidx53.i.i, align 4
-  %call71.i.i = tail call i32 %cb(i64 noundef %cond64.i.i, i64 noundef %add95.i, i32 noundef %78, ptr noundef %ctxt) #11
+  %call71.i.i = tail call i32 %cb(i64 noundef %cond64.i.i, i64 noundef %add95.i, i32 noundef %78, ptr noundef %ctxt) #10
   %cmp72.i.i = icmp eq i32 %call71.i.i, 0
   br i1 %cmp72.i.i, label %goughExec8_i.exit, label %for.cond.i.i
 
 doReports.exit.i:                                 ; preds = %cond.false35.i.i, %if.then26.i.i
   %cond40.i.i = phi i64 [ %75, %cond.false35.i.i ], [ %add95.i, %if.then26.i.i ]
-  %call43.i.i = tail call i32 %cb(i64 noundef %cond40.i.i, i64 noundef %add95.i, i32 noundef %73, ptr noundef %ctxt) #11
+  %call43.i.i = tail call i32 %cb(i64 noundef %cond40.i.i, i64 noundef %add95.i, i32 noundef %73, ptr noundef %ctxt) #10
   %cmp44.i.i = icmp eq i32 %call43.i.i, 0
   br i1 %cmp44.i.i, label %goughExec8_i.exit, label %if.end138.i
 
@@ -3602,7 +3602,7 @@ if.else.i:                                        ; preds = %if.then73.i
 if.then106.i:                                     ; preds = %if.else.i
   %idx.ext112.i = zext i32 %79 to i64
   %add.ptr113.i = getelementptr inbounds nuw i8, ptr %m, i64 %idx.ext112.i
-  %call114.i = tail call ptr @run_accel(ptr noundef nonnull %add.ptr113.i, ptr noundef nonnull %incdec.ptr55.i, ptr noundef nonnull %add.ptr.i) #11
+  %call114.i = tail call ptr @run_accel(ptr noundef nonnull %add.ptr113.i, ptr noundef nonnull %incdec.ptr55.i, ptr noundef nonnull %add.ptr.i) #10
   %cmp115.i.not = icmp eq ptr %call114.i, %incdec.ptr55.i
   br i1 %cmp115.i.not, label %if.end120.i, label %land.lhs.true117.i
 
@@ -4067,7 +4067,6 @@ if.else.i.if.end17.i_crit_edge:                   ; preds = %if.else.i
   br label %if.end17.i
 
 if.then.i19:                                      ; preds = %if.else.i
-  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i3, i64 16) ]
   %19 = load <16 x i8>, ptr %add.ptr.i3, align 16
   %vecinit.i116 = insertelement <16 x i8> poison, i8 %9, i64 0
   %vecinit15.i131 = shufflevector <16 x i8> %vecinit.i116, <16 x i8> poison, <16 x i32> zeroinitializer
@@ -4143,7 +4142,7 @@ cond.false.i267.i:                                ; preds = %if.then.i265.i
 
 cond.end.i270.i:                                  ; preds = %if.then.i265.i, %cond.false.i267.i
   %cond.i271.i = phi i64 [ %28, %cond.false.i267.i ], [ %add51.i, %if.then.i265.i ]
-  %call.i272.i = tail call i32 %cb(i64 noundef %cond.i271.i, i64 noundef %add51.i, i32 noundef %cached_accept_id.i.2389, ptr noundef %ctxt) #11
+  %call.i272.i = tail call i32 %cb(i64 noundef %cond.i271.i, i64 noundef %add51.i, i32 noundef %cached_accept_id.i.2389, ptr noundef %ctxt) #10
   %cmp5.i273.i = icmp eq i32 %call.i272.i, 0
   br i1 %cmp5.i273.i, label %goughExec16_i.exit, label %if.end61.i
 
@@ -4204,13 +4203,13 @@ cond.false59.i234.i:                              ; preds = %for.body.i228.i
 cond.end63.i237.i:                                ; preds = %for.body.i228.i, %cond.false59.i234.i
   %cond64.i238.i = phi i64 [ %36, %cond.false59.i234.i ], [ %add51.i, %for.body.i228.i ]
   %37 = load i32, ptr %arrayidx53.i231.i, align 4
-  %call71.i242.i = tail call i32 %cb(i64 noundef %cond64.i238.i, i64 noundef %add51.i, i32 noundef %37, ptr noundef %ctxt) #11
+  %call71.i242.i = tail call i32 %cb(i64 noundef %cond64.i238.i, i64 noundef %add51.i, i32 noundef %37, ptr noundef %ctxt) #10
   %cmp72.i243.i = icmp eq i32 %call71.i242.i, 0
   br i1 %cmp72.i243.i, label %goughExec16_i.exit, label %for.cond.i225.i
 
 doReports.exit277.i:                              ; preds = %cond.false35.i253.i, %if.then26.i248.i
   %cond40.i257.i = phi i64 [ %34, %cond.false35.i253.i ], [ %add51.i, %if.then26.i248.i ]
-  %call43.i258.i = tail call i32 %cb(i64 noundef %cond40.i257.i, i64 noundef %add51.i, i32 noundef %32, ptr noundef %ctxt) #11
+  %call43.i258.i = tail call i32 %cb(i64 noundef %cond40.i257.i, i64 noundef %add51.i, i32 noundef %32, ptr noundef %ctxt) #10
   %cmp44.i259.i = icmp eq i32 %call43.i258.i, 0
   br i1 %cmp44.i259.i, label %goughExec16_i.exit, label %if.end61.i
 
@@ -4357,7 +4356,6 @@ if.else94.i.if.end17.i46_crit_edge:               ; preds = %if.else94.i
   br label %if.end17.i46
 
 if.then.i55:                                      ; preds = %if.else94.i
-  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i13, i64 16) ]
   %51 = load <16 x i8>, ptr %add.ptr.i13, align 16
   %vecinit.i = insertelement <16 x i8> poison, i8 %41, i64 0
   %vecinit15.i = shufflevector <16 x i8> %vecinit.i, <16 x i8> poison, <16 x i32> zeroinitializer
@@ -4429,7 +4427,7 @@ cond.false.i.i:                                   ; preds = %if.then.i.i
 
 cond.end.i.i:                                     ; preds = %if.then.i.i, %cond.false.i.i
   %cond.i.i = phi i64 [ %60, %cond.false.i.i ], [ %add127.i, %if.then.i.i ]
-  %call.i.i = tail call i32 %cb(i64 noundef %cond.i.i, i64 noundef %add127.i, i32 noundef %cached_accept_id.i.5403, ptr noundef %ctxt) #11
+  %call.i.i = tail call i32 %cb(i64 noundef %cond.i.i, i64 noundef %add127.i, i32 noundef %cached_accept_id.i.5403, ptr noundef %ctxt) #10
   %cmp5.i.i = icmp eq i32 %call.i.i, 0
   br i1 %cmp5.i.i, label %goughExec16_i.exit, label %if.end176.i
 
@@ -4490,13 +4488,13 @@ cond.false59.i.i:                                 ; preds = %for.body.i.i
 cond.end63.i.i:                                   ; preds = %for.body.i.i, %cond.false59.i.i
   %cond64.i.i = phi i64 [ %68, %cond.false59.i.i ], [ %add127.i, %for.body.i.i ]
   %69 = load i32, ptr %arrayidx53.i.i, align 4
-  %call71.i.i = tail call i32 %cb(i64 noundef %cond64.i.i, i64 noundef %add127.i, i32 noundef %69, ptr noundef %ctxt) #11
+  %call71.i.i = tail call i32 %cb(i64 noundef %cond64.i.i, i64 noundef %add127.i, i32 noundef %69, ptr noundef %ctxt) #10
   %cmp72.i.i = icmp eq i32 %call71.i.i, 0
   br i1 %cmp72.i.i, label %goughExec16_i.exit, label %for.cond.i.i
 
 doReports.exit.i:                                 ; preds = %cond.false35.i.i, %if.then26.i.i
   %cond40.i.i = phi i64 [ %66, %cond.false35.i.i ], [ %add127.i, %if.then26.i.i ]
-  %call43.i.i = tail call i32 %cb(i64 noundef %cond40.i.i, i64 noundef %add127.i, i32 noundef %64, ptr noundef %ctxt) #11
+  %call43.i.i = tail call i32 %cb(i64 noundef %cond40.i.i, i64 noundef %add127.i, i32 noundef %64, ptr noundef %ctxt) #10
   %cmp44.i.i = icmp eq i32 %call43.i.i, 0
   br i1 %cmp44.i.i, label %goughExec16_i.exit, label %if.end176.i
 
@@ -4520,7 +4518,7 @@ if.then141.i:                                     ; preds = %if.else137.i
   %71 = load i32, ptr %accel_offset147.i, align 4
   %idx.ext148.i = zext i32 %71 to i64
   %add.ptr149.i = getelementptr inbounds nuw i8, ptr %m, i64 %idx.ext148.i
-  %call150.i = tail call ptr @run_accel(ptr noundef %add.ptr149.i, ptr noundef nonnull %incdec.ptr75.i, ptr noundef nonnull %add.ptr1.i) #11
+  %call150.i = tail call ptr @run_accel(ptr noundef %add.ptr149.i, ptr noundef nonnull %incdec.ptr75.i, ptr noundef nonnull %add.ptr1.i) #10
   %cmp151.i.not = icmp eq ptr %call150.i, %incdec.ptr75.i
   br i1 %cmp151.i.not, label %if.end156.i, label %land.lhs.true153.i
 
@@ -4575,17 +4573,14 @@ goughExec16_i.exit:                               ; preds = %cond.end.i270.i, %d
   ret i8 %retval.i.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #8
-
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.cttz.i32(i32, i1 immarg) #9
+declare i32 @llvm.cttz.i32(i32, i1 immarg) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.smin.i64(i64, i64) #10
+declare i64 @llvm.smin.i64(i64, i64) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #10
+declare i64 @llvm.umin.i64(i64, i64) #9
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="corei7" "target-features"="+cmov,+crc32,+cx16,+cx8,+fxsr,+mmx,+popcnt,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="corei7" "target-features"="+cmov,+crc32,+cx16,+cx8,+fxsr,+mmx,+popcnt,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" }
@@ -4595,10 +4590,9 @@ attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memor
 attributes #5 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="corei7" "target-features"="+cmov,+crc32,+cx16,+cx8,+fxsr,+mmx,+popcnt,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" }
 attributes #6 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="corei7" "target-features"="+cmov,+crc32,+cx16,+cx8,+fxsr,+mmx,+popcnt,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" }
 attributes #7 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="corei7" "target-features"="+cmov,+crc32,+cx16,+cx8,+fxsr,+mmx,+popcnt,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" }
-attributes #8 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #9 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #10 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #11 = { nounwind }
+attributes #8 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #9 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #10 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 
