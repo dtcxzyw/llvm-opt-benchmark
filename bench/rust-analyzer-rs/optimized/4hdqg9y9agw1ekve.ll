@@ -64434,15 +64434,17 @@ switch.lookup274:                                 ; preds = %309
   %switch.masked = trunc i31 %switch.downshift to i1
   br label %switch.lookup
 
-switch.lookup:                                    ; preds = %switch.hole_check, %switch.lookup274, %309, %305, %306, %296
-  %.196 = phi i1 [ false, %296 ], [ false, %309 ], [ false, %306 ], [ false, %305 ], [ %switch.masked, %switch.lookup274 ], [ true, %switch.hole_check ]
+switch.lookup:                                    ; preds = %305, %switch.hole_check, %switch.lookup274, %309, %306, %296
+  %.196 = phi i1 [ false, %296 ], [ false, %309 ], [ false, %306 ], [ %switch.masked, %switch.lookup274 ], [ true, %switch.hole_check ], [ false, %305 ]
   invoke void @"_ZN4core3ptr56drop_in_place$LT$syntax..ast..generated..nodes..Expr$GT$17h87baedda7c371808E.llvm.14339125420948612040"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %298)
           to label %"_ZN4core3ptr106drop_in_place$LT$$LP$$RF$syntax..ast..generated..nodes..Expr$C$syntax..ast..generated..nodes..Expr$RP$$GT$17h92c2b8b059c4aa4aE.exit" unwind label %.thread230
 
 306:                                              ; preds = %switch.hole_check, %307
   switch i64 %300, label %switch.lookup [
-    i64 26, label %309
+    i64 4, label %309
+    i64 8, label %309
     i64 19, label %309
+    i64 26, label %309
   ]
 
 307:                                              ; preds = %305, %305, %305
@@ -64450,7 +64452,7 @@ switch.lookup:                                    ; preds = %switch.hole_check, 
   %308 = icmp ult i64 %switch.tableidx, 29
   br i1 %308, label %switch.hole_check, label %306
 
-309:                                              ; preds = %306, %306, %305, %305, %305
+309:                                              ; preds = %305, %305, %305, %306, %306, %306, %306
   %310 = icmp ult i64 %294, 31
   br i1 %310, label %switch.lookup274, label %switch.lookup
 

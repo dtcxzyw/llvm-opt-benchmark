@@ -19324,7 +19324,7 @@ _ZN3std9panicking11panic_count13count_is_zero17h66cf19443d869469E.llvm.974265445
   br i1 %334, label %_ZN3std4sync6poison4Flag4done17h5bffa24fa61aa5e0E.llvm.9742654456972663382.exit.i.i.i40.i, label %335
 
 335:                                              ; preds = %.noexc16.i.i
-  store atomic i8 1, ptr %315 monotonic, align 1, !noalias !2158
+  store atomic i8 1, ptr %315 monotonic, align 4, !noalias !2158
   br label %_ZN3std4sync6poison4Flag4done17h5bffa24fa61aa5e0E.llvm.9742654456972663382.exit.i.i.i40.i
 
 _ZN3std4sync6poison4Flag4done17h5bffa24fa61aa5e0E.llvm.9742654456972663382.exit.i.i.i40.i: ; preds = %335, %.noexc16.i.i, %330, %328
@@ -19486,7 +19486,7 @@ _ZN3std9panicking11panic_count13count_is_zero17h66cf19443d869469E.llvm.974265445
   br i1 %387, label %_ZN3std4sync6poison4Flag4done17h5bffa24fa61aa5e0E.llvm.9742654456972663382.exit.i.i27.i.i, label %388
 
 388:                                              ; preds = %.noexc50.i
-  store atomic i8 1, ptr %354 monotonic, align 1, !noalias !2191
+  store atomic i8 1, ptr %354 monotonic, align 4, !noalias !2191
   br label %_ZN3std4sync6poison4Flag4done17h5bffa24fa61aa5e0E.llvm.9742654456972663382.exit.i.i27.i.i
 
 _ZN3std4sync6poison4Flag4done17h5bffa24fa61aa5e0E.llvm.9742654456972663382.exit.i.i27.i.i: ; preds = %388, %.noexc50.i, %383, %381
@@ -19656,7 +19656,7 @@ _ZN3std9panicking11panic_count13count_is_zero17h66cf19443d869469E.llvm.974265445
   br i1 %445, label %_ZN3std4sync6poison4Flag4done17h5bffa24fa61aa5e0E.llvm.9742654456972663382.exit.i.i.i.i56.i, label %446
 
 446:                                              ; preds = %.noexc3.i.i
-  store atomic i8 1, ptr %417 monotonic, align 1, !noalias !2239
+  store atomic i8 1, ptr %417 monotonic, align 4, !noalias !2239
   br label %_ZN3std4sync6poison4Flag4done17h5bffa24fa61aa5e0E.llvm.9742654456972663382.exit.i.i.i.i56.i
 
 _ZN3std4sync6poison4Flag4done17h5bffa24fa61aa5e0E.llvm.9742654456972663382.exit.i.i.i.i56.i: ; preds = %446, %.noexc3.i.i, %441, %"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$9pop_front17h5c014464e9a0d41cE.exit.i.i.i"
@@ -20807,7 +20807,7 @@ _ZN3std9panicking11panic_count13count_is_zero17h66cf19443d869469E.llvm.974265445
   br i1 %344, label %_ZN3std4sync6poison4Flag4done17h5bffa24fa61aa5e0E.llvm.9742654456972663382.exit.i.i.i43.i, label %345
 
 345:                                              ; preds = %.noexc15.i.i
-  store atomic i8 1, ptr %325 monotonic, align 1, !noalias !2407
+  store atomic i8 1, ptr %325 monotonic, align 4, !noalias !2407
   br label %_ZN3std4sync6poison4Flag4done17h5bffa24fa61aa5e0E.llvm.9742654456972663382.exit.i.i.i43.i
 
 _ZN3std4sync6poison4Flag4done17h5bffa24fa61aa5e0E.llvm.9742654456972663382.exit.i.i.i43.i: ; preds = %345, %.noexc15.i.i, %340, %338
@@ -20989,7 +20989,7 @@ _ZN3std9panicking11panic_count13count_is_zero17h66cf19443d869469E.llvm.974265445
   br i1 %409, label %_ZN3std4sync6poison4Flag4done17h5bffa24fa61aa5e0E.llvm.9742654456972663382.exit.i.i25.i.i, label %410
 
 410:                                              ; preds = %.noexc54.i
-  store atomic i8 1, ptr %376 monotonic, align 1, !noalias !2445
+  store atomic i8 1, ptr %376 monotonic, align 4, !noalias !2445
   br label %_ZN3std4sync6poison4Flag4done17h5bffa24fa61aa5e0E.llvm.9742654456972663382.exit.i.i25.i.i
 
 _ZN3std4sync6poison4Flag4done17h5bffa24fa61aa5e0E.llvm.9742654456972663382.exit.i.i25.i.i: ; preds = %410, %.noexc54.i, %405, %403
@@ -21153,7 +21153,7 @@ _ZN3std9panicking11panic_count13count_is_zero17h66cf19443d869469E.llvm.974265445
   br i1 %466, label %_ZN3std4sync6poison4Flag4done17h5bffa24fa61aa5e0E.llvm.9742654456972663382.exit.i.i.i.i60.i, label %467
 
 467:                                              ; preds = %.noexc3.i.i
-  store atomic i8 1, ptr %438 monotonic, align 1, !noalias !2493
+  store atomic i8 1, ptr %438 monotonic, align 4, !noalias !2493
   br label %_ZN3std4sync6poison4Flag4done17h5bffa24fa61aa5e0E.llvm.9742654456972663382.exit.i.i.i.i60.i
 
 _ZN3std4sync6poison4Flag4done17h5bffa24fa61aa5e0E.llvm.9742654456972663382.exit.i.i.i.i60.i: ; preds = %467, %.noexc3.i.i, %462, %"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$9pop_front17hf2f96374a50f1700E.exit.i.i.i"

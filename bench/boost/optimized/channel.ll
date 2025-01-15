@@ -4780,7 +4780,6 @@ define linkonce_odr hidden noundef ptr @_ZN5boost4asio6detail16thread_info_base8
   %29 = select i1 %27, i64 0, i64 %28
   %30 = add i64 %29, %24
   %31 = tail call noalias ptr @aligned_alloc(i64 noundef %25, i64 noundef %30) #33
-  call void @llvm.assume(i1 true) [ "align"(ptr %31, i64 %25) ]
   %.not.i = icmp eq ptr %31, null
   br i1 %.not.i, label %32, label %_ZN5boost4asio11aligned_newEmm.exit
 

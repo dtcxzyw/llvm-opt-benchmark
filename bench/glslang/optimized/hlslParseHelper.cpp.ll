@@ -60899,7 +60899,7 @@ _ZN7glslang10TQualifier17getGeometryStringENS_15TLayoutGeometryE.exit10.i: ; pre
   br i1 %58, label %switch.lookup94, label %_ZN7glslang10TQualifier17getGeometryStringENS_15TLayoutGeometryE.exit72
 
 switch.lookup94:                                  ; preds = %57
-  %switch.tableidx95 = add i32 %18, -1
+  %switch.tableidx95 = add nsw i32 %18, -1
   %59 = sext i32 %switch.tableidx95 to i64
   %switch.gep96 = getelementptr inbounds [9 x ptr], ptr @switch.table._ZN7glslang16HlslParseContext33updateStandaloneQualifierDefaultsERKNS_10TSourceLocERKNS_11TPublicTypeE.98, i64 0, i64 %59
   %switch.load97 = load ptr, ptr %switch.gep96, align 8

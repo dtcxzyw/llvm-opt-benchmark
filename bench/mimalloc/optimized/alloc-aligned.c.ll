@@ -132,7 +132,6 @@ if.end52.i:                                       ; preds = %if.then49.i, %if.en
 
 if.then57.i:                                      ; preds = %if.end52.i
   %call58.i = tail call i64 @mi_usable_size(ptr noundef %7) #8
-  call void @llvm.assume(i1 true) [ "align"(ptr %7, i64 8) ]
   tail call void @llvm.memset.p0.i64(ptr align 8 %7, i8 0, i64 %call58.i, i1 false)
   br label %return
 
@@ -398,7 +397,6 @@ if.then18:                                        ; preds = %if.then14
 if.end22:                                         ; preds = %if.then18, %if.then14
   %cond27 = tail call i64 @llvm.umin.i64(i64 %newsize, i64 %call6)
   call void @llvm.assume(i1 true) [ "align"(ptr %call.i, i64 8) ]
-  call void @llvm.assume(i1 true) [ "align"(ptr %p, i64 8) ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %call.i, ptr nonnull readonly align 8 %p, i64 %cond27, i1 false)
   tail call void @mi_free(ptr noundef nonnull %p) #8
   br label %return

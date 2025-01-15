@@ -128513,6 +128513,7 @@ define void @"_ZN5typst5model6figure142_$LT$impl$u20$typst..foundations..element
 89:                                               ; preds = %88
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %17)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %17, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.4.0..sroa_idx91, i64 24, i1 false)
+  call void @llvm.assume(i1 true) [ "align"(ptr %78, i64 16) ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %16)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %15)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %14)

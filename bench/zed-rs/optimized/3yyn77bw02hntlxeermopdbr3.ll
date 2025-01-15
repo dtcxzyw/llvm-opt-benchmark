@@ -2138,6 +2138,8 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
   %60 = getelementptr inbounds nuw i8, ptr %15, i64 48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %60, ptr noundef nonnull align 8 dereferenceable(24) %57, i64 24, i1 false)
   %61 = getelementptr inbounds nuw i8, ptr %15, i64 72
+  call void @llvm.assume(i1 true) [ "align"(ptr null, i64 8) ]
+  call void @llvm.assume(i1 true) [ "align"(ptr null, i64 8) ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %61, i8 0, i64 32, i1 false)
   %62 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !438
   %63 = tail call noalias noundef align 8 dereferenceable_or_null(104) ptr @__rust_alloc(i64 noundef range(i64 1, 721) 104, i64 noundef range(i64 1, 9) 8) #31, !noalias !438
@@ -6311,6 +6313,8 @@ define void @"_ZN4task1_62_$LT$impl$u20$schemars..JsonSchema$u20$for$u20$task..S
   %.sroa.565.0..sroa_idx = getelementptr inbounds nuw i8, ptr %17, i64 64
   store i64 3, ptr %.sroa.565.0..sroa_idx, align 8
   %73 = getelementptr inbounds nuw i8, ptr %17, i64 72
+  call void @llvm.assume(i1 true) [ "align"(ptr null, i64 8) ]
+  call void @llvm.assume(i1 true) [ "align"(ptr null, i64 8) ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %73, i8 0, i64 32, i1 false)
   %74 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !1169
   %75 = call noalias noundef align 8 dereferenceable_or_null(104) ptr @__rust_alloc(i64 noundef range(i64 1, 721) 104, i64 noundef range(i64 1, 9) 8) #31, !noalias !1169

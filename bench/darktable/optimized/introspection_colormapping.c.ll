@@ -210,7 +210,6 @@ define void @process(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noun
   %53 = shl nsw i64 %51, 4
   %54 = mul i64 %53, %52
   %55 = tail call ptr @dt_alloc_aligned(i64 noundef %54) #25
-  call void @llvm.assume(i1 true) [ "align"(ptr %55, i64 64) ]
   store ptr %55, ptr %46, align 8, !tbaa !57
   %56 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store i32 %12, ptr %56, align 8, !tbaa !60
@@ -661,7 +660,6 @@ define void @process(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noun
   %368 = add nsw i64 %367, 63
   %369 = and i64 %368, -64
   %370 = tail call ptr @dt_alloc_aligned(i64 noundef %369) #25
-  call void @llvm.assume(i1 true) [ "align"(ptr %370, i64 64) ]
   call void @llvm.assume(i1 true) [ "align"(ptr %370, i64 64) ]
   br i1 %232, label %.loopexit41, label %371
 
@@ -1782,7 +1780,6 @@ define internal void @process_clusters(ptr nocapture readnone %0, ptr noundef %1
   %34 = shl nsw i64 %30, 2
   %35 = mul i64 %34, %33
   %36 = tail call ptr @dt_alloc_aligned(i64 noundef %35) #25
-  call void @llvm.assume(i1 true) [ "align"(ptr %36, i64 64) ]
   %37 = icmp eq ptr %36, null
   br i1 %37, label %38, label %40
 
@@ -3213,17 +3210,13 @@ define internal fastcc void @kmeans(ptr nocapture noundef nonnull readonly %0, i
 236:                                              ; preds = %.loopexit31, %85
   %237 = phi i32 [ 0, %85 ], [ %509, %.loopexit31 ]
   %238 = tail call ptr @dt_alloc_aligned(i64 noundef %88) #25
-  call void @llvm.assume(i1 true) [ "align"(ptr %238, i64 64) ]
   tail call void @llvm.memset.p0.i64(ptr align 64 %238, i8 0, i64 %88, i1 false)
   %239 = tail call ptr @dt_alloc_aligned(i64 noundef %90) #25
-  call void @llvm.assume(i1 true) [ "align"(ptr %239, i64 64) ]
   tail call void @llvm.memset.p0.i64(ptr align 64 %239, i8 0, i64 %90, i1 false)
   %240 = tail call ptr @dt_alloc_aligned(i64 noundef %90) #25
-  call void @llvm.assume(i1 true) [ "align"(ptr %240, i64 64) ]
   tail call void @llvm.memset.p0.i64(ptr align 64 %240, i8 0, i64 %90, i1 false)
   call void @llvm.assume(i1 true) [ "align"(ptr %239, i64 64) ]
   call void @llvm.assume(i1 true) [ "align"(ptr %240, i64 64) ]
-  call void @llvm.assume(i1 true) [ "align"(ptr %238, i64 64) ]
   br i1 %17, label %.loopexit39, label %.preheader38
 
 .loopexit39:                                      ; preds = %.loopexit28, %236
@@ -3232,7 +3225,6 @@ define internal fastcc void @kmeans(ptr nocapture noundef nonnull readonly %0, i
 241:                                              ; preds = %.loopexit39
   call void @llvm.assume(i1 true) [ "align"(ptr %238, i64 64) ]
   call void @llvm.assume(i1 true) [ "align"(ptr %240, i64 64) ]
-  call void @llvm.assume(i1 true) [ "align"(ptr %239, i64 64) ]
   br i1 %124, label %255, label %.preheader37
 
 .preheader37:                                     ; preds = %241, %.preheader37

@@ -504,23 +504,15 @@ define void @process(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noun
   %143 = fadd reassoc nsz arcp contract afn <2 x float> %128, %131
   %144 = fadd reassoc nsz arcp contract afn <2 x float> %140, %141
   call void @llvm.assume(i1 true) [ "align"(ptr %2, i64 64) ]
-  call void @llvm.assume(i1 true) [ "align"(ptr %3, i64 64) ]
   %145 = getelementptr inbounds nuw i8, ptr %9, i64 168
   %146 = load ptr, ptr %145, align 8, !tbaa !46
   call void @llvm.assume(i1 true) [ "align"(ptr %146, i64 64) ]
-  call void @llvm.assume(i1 true) [ "align"(ptr %9, i64 16) ]
   %147 = getelementptr inbounds nuw i8, ptr %9, i64 32
-  call void @llvm.assume(i1 true) [ "align"(ptr %147, i64 16) ]
   %148 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  call void @llvm.assume(i1 true) [ "align"(ptr %148, i64 16) ]
   %149 = getelementptr inbounds nuw i8, ptr %9, i64 48
-  call void @llvm.assume(i1 true) [ "align"(ptr %149, i64 16) ]
   %150 = getelementptr inbounds nuw i8, ptr %9, i64 72
-  call void @llvm.assume(i1 true) [ "align"(ptr %150, i64 16) ]
   %151 = getelementptr inbounds nuw i8, ptr %9, i64 100
-  call void @llvm.assume(i1 true) [ "align"(ptr %151, i64 16) ]
   %152 = getelementptr inbounds nuw i8, ptr %9, i64 120
-  call void @llvm.assume(i1 true) [ "align"(ptr %152, i64 16) ]
   %153 = load ptr, ptr %12, align 8, !tbaa !45
   %154 = getelementptr inbounds nuw i8, ptr %153, i64 620
   %155 = load i32, ptr %154, align 4, !tbaa !48
@@ -2351,7 +2343,6 @@ define void @commit_params(ptr noundef %0, ptr nocapture noundef readonly %1, pt
 
 490:                                              ; preds = %487, %486
   %491 = tail call ptr @dt_alloc_aligned(i64 noundef 1440) #19
-  call void @llvm.assume(i1 true) [ "align"(ptr %491, i64 64) ]
   %492 = icmp eq ptr %491, null
   br i1 %492, label %494, label %493
 
@@ -2360,7 +2351,6 @@ define void @commit_params(ptr noundef %0, ptr nocapture noundef readonly %1, pt
   br label %494
 
 494:                                              ; preds = %493, %490
-  call void @llvm.assume(i1 true) [ "align"(ptr %491, i64 64) ]
   %495 = getelementptr inbounds nuw i8, ptr %479, i64 576
   %496 = getelementptr inbounds nuw i8, ptr %479, i64 592
   %497 = getelementptr inbounds nuw i8, ptr %479, i64 608
@@ -3037,11 +3027,9 @@ define void @init_pipe(ptr nocapture noundef readnone %0, ptr nocapture noundef 
   br label %7
 
 7:                                                ; preds = %6, %3
-  call void @llvm.assume(i1 true) [ "align"(ptr %4, i64 64) ]
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr %4, ptr %8, align 16, !tbaa !29
   %9 = tail call ptr @dt_alloc_aligned(i64 noundef 1440) #19
-  call void @llvm.assume(i1 true) [ "align"(ptr %9, i64 64) ]
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 168
   store ptr %9, ptr %10, align 8, !tbaa !46
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 240
@@ -5404,11 +5392,8 @@ define internal noundef i32 @dt_iop_tonecurve_draw(ptr noundef %0, ptr noundef %
   %201 = getelementptr inbounds nuw i8, ptr %8, i64 112
   %202 = load float, ptr %201, align 4, !tbaa !21
   %203 = call ptr @dt_alloc_aligned(i64 noundef 1440) #19
-  call void @llvm.assume(i1 true) [ "align"(ptr %203, i64 64) ]
   %204 = call ptr @dt_alloc_aligned(i64 noundef 1440) #19
-  call void @llvm.assume(i1 true) [ "align"(ptr %204, i64 64) ]
   %205 = call ptr @dt_alloc_aligned(i64 noundef 1440) #19
-  call void @llvm.assume(i1 true) [ "align"(ptr %205, i64 64) ]
   %206 = fmul reassoc nsz arcp contract afn float %12, %12
   %207 = fadd reassoc nsz arcp contract afn float %200, %206
   %208 = call reassoc nsz arcp contract afn float @llvm.pow.f32(float %202, float 0x3FDA3F6A60000000)

@@ -17670,7 +17670,7 @@ _ZN3std9panicking9panicking17hfd7edc4736053a04E.llvm.7022646624147239703.exit.th
   br i1 %330, label %332, label %"_ZN4core3ptr226drop_in_place$LT$std..sync..mutex..MutexGuard$LT$flume..Chan$LT$core..result..Result$LT$either..Either$LT$sqlx_sqlite..query_result..SqliteQueryResult$C$sqlx_sqlite..row..SqliteRow$GT$$C$sqlx_core..error..Error$GT$$GT$$GT$$GT$17he9b522039b6b127aE.llvm.7022646624147239703.exit.i.i"
 
 331:                                              ; preds = %.noexc20.i.i
-  store atomic i8 1, ptr %306 monotonic, align 1, !noalias !3133
+  store atomic i8 1, ptr %306 monotonic, align 4, !noalias !3133
   br label %_ZN3std9panicking9panicking17hfd7edc4736053a04E.llvm.7022646624147239703.exit.thread.i.i.i40.i
 
 332:                                              ; preds = %_ZN3std9panicking9panicking17hfd7edc4736053a04E.llvm.7022646624147239703.exit.thread.i.i.i40.i
@@ -17837,7 +17837,7 @@ _ZN3std9panicking9panicking17hfd7edc4736053a04E.llvm.7022646624147239703.exit.th
   br i1 %383, label %385, label %"_ZN5flume15Shared$LT$T$GT$9recv_sync28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd729a6a2ed8caacdE.exit.i"
 
 384:                                              ; preds = %.noexc53.i
-  store atomic i8 1, ptr %348 monotonic, align 1, !noalias !3157
+  store atomic i8 1, ptr %348 monotonic, align 4, !noalias !3157
   br label %_ZN3std9panicking9panicking17hfd7edc4736053a04E.llvm.7022646624147239703.exit.thread.i.i32.i.i
 
 385:                                              ; preds = %_ZN3std9panicking9panicking17hfd7edc4736053a04E.llvm.7022646624147239703.exit.thread.i.i32.i.i
@@ -18003,7 +18003,7 @@ _ZN3std9panicking9panicking17hfd7edc4736053a04E.llvm.7022646624147239703.exit.th
   br i1 %438, label %440, label %"_ZN5flume15Shared$LT$T$GT$9recv_sync28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd7a78f57f2d5ab8aE.exit.i"
 
 439:                                              ; preds = %.noexc71.i
-  store atomic i8 1, ptr %408 monotonic, align 1, !noalias !3188
+  store atomic i8 1, ptr %408 monotonic, align 4, !noalias !3188
   br label %_ZN3std9panicking9panicking17hfd7edc4736053a04E.llvm.7022646624147239703.exit.thread.i.i.i62.i
 
 440:                                              ; preds = %_ZN3std9panicking9panicking17hfd7edc4736053a04E.llvm.7022646624147239703.exit.thread.i.i.i62.i
