@@ -33509,6 +33509,7 @@ _ZN5wasmi5store10StoreInner13unwrap_stored17h49e25a505dbc8bc5E.llvm.245604466996
   store ptr %.val44.i, ptr %35, align 8, !noalias !7488
   %144 = getelementptr inbounds nuw i8, ptr %35, i64 8
   store ptr %.val45.i, ptr %144, align 8, !noalias !7488
+  call void @llvm.assume(i1 true) [ "align"(ptr %.val45.i, i64 8) ]
   %145 = getelementptr inbounds nuw i8, ptr %.val45.i, i64 16
   %146 = load i64, ptr %145, align 8, !range !821, !invariant.load !4, !noalias !7529
   %147 = add i64 %146, -1
@@ -33887,6 +33888,7 @@ _ZN5wasmi5store10StoreInner13unwrap_stored17h49e25a505dbc8bc5E.llvm.245604466996
   call void @llvm.assume(i1 %271)
   store ptr %.val.i.i, ptr %16, align 8, !noalias !7606
   store ptr %.val60.i.i, ptr %203, align 8, !noalias !7606
+  call void @llvm.assume(i1 true) [ "align"(ptr %.val60.i.i, i64 8) ]
   %272 = getelementptr inbounds nuw i8, ptr %.val60.i.i, i64 16
   %273 = load i64, ptr %272, align 8, !range !821, !invariant.load !4, !noalias !7647
   %274 = add i64 %273, -1
@@ -43987,6 +43989,7 @@ define noundef zeroext i1 @_ZN5typst11foundations7content7Content10is_guarded17h
 21:                                               ; preds = %13
   %22 = lshr i64 %1, 6
   %23 = add nsw i64 %22, -1
+  call void @llvm.assume(i1 true) [ "align"(ptr %15, i64 8) ]
   %24 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %25 = load i64, ptr %24, align 8, !noalias !9319, !noundef !4
   %26 = icmp ult i64 %23, %25
@@ -128513,6 +128516,9 @@ define void @"_ZN5typst5model6figure142_$LT$impl$u20$typst..foundations..element
 89:                                               ; preds = %88
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %17)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %17, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.4.0..sroa_idx91, i64 24, i1 false)
+  call void @llvm.assume(i1 true) [ "align"(ptr %77, i64 8) ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %78, i64 16) ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %38, i64 16) ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %16)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %15)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %14)
@@ -135415,6 +135421,7 @@ _ZN5typst11foundations7content7Content4func17hef183a5d0681b689E.exit: ; preds = 
   store ptr %.val143, ptr %143, align 8
   %144 = getelementptr inbounds nuw i8, ptr %59, i64 16
   store i64 %142, ptr %144, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %.val143, i64 8) ]
   %145 = getelementptr inbounds nuw i8, ptr %.val143, i64 16
   %146 = load i64, ptr %145, align 8, !range !821, !invariant.load !4, !noalias !30694
   %147 = tail call i64 @llvm.umax.i64(i64 %146, i64 16)

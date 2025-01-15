@@ -1454,6 +1454,7 @@ _ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.llvm.17757648456425634998.exit
           to label %common.resume.i unwind label %58
 
 _ZN4just17interrupt_handler16InterruptHandler9interrupt17h813565006a81a7e8E.exit.i.i: ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17hb31a7ad420d8af23E.exit.i"
+  call void @llvm.assume(i1 true) [ "align"(ptr %30, i64 4) ]
   %48 = getelementptr inbounds nuw i8, ptr %30, i64 4
   br i1 %31, label %_ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.llvm.17757648456425634998.exit.i.i.i.i, label %49
 
@@ -1468,7 +1469,7 @@ _ZN3std9panicking11panic_count13count_is_zero17h6863efef417c46dbE.llvm.177576484
   br i1 %53, label %_ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.llvm.17757648456425634998.exit.i.i.i.i, label %54
 
 54:                                               ; preds = %_ZN3std9panicking11panic_count13count_is_zero17h6863efef417c46dbE.llvm.17757648456425634998.exit.i.i.i.i.i
-  store atomic i8 1, ptr %48 monotonic, align 1, !noalias !278
+  store atomic i8 1, ptr %48 monotonic, align 4, !noalias !278
   br label %_ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.llvm.17757648456425634998.exit.i.i.i.i
 
 _ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.llvm.17757648456425634998.exit.i.i.i.i: ; preds = %54, %_ZN3std9panicking11panic_count13count_is_zero17h6863efef417c46dbE.llvm.17757648456425634998.exit.i.i.i.i.i, %49, %_ZN4just17interrupt_handler16InterruptHandler9interrupt17h813565006a81a7e8E.exit.i.i
@@ -12101,7 +12102,7 @@ _ZN3std9panicking11panic_count13count_is_zero17h6863efef417c46dbE.llvm.177576484
   br i1 %12, label %_ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.llvm.17757648456425634998.exit.i.i, label %13
 
 13:                                               ; preds = %_ZN3std9panicking11panic_count13count_is_zero17h6863efef417c46dbE.llvm.17757648456425634998.exit.i.i.i
-  store atomic i8 1, ptr %7 monotonic, align 1, !noalias !2112
+  store atomic i8 1, ptr %7 monotonic, align 4, !noalias !2112
   br label %_ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.llvm.17757648456425634998.exit.i.i
 
 _ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.llvm.17757648456425634998.exit.i.i: ; preds = %13, %_ZN3std9panicking11panic_count13count_is_zero17h6863efef417c46dbE.llvm.17757648456425634998.exit.i.i.i, %8, %0

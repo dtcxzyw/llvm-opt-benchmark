@@ -20808,7 +20808,7 @@ _ZN15tree_sitter_cli8generate5dedup21split_state_id_groups17h86004340cfc66be7E.e
   br i1 %667, label %._crit_edge363.i.i, label %.lr.ph362.i.i
 
 .invoke.i119.i:                                   ; preds = %628, %682, %.lr.ph362.i.i, %899, %896, %893, %826, %823, %820, %709, %878, %874, %857, %749, %745, %804, %799, %791, %.noexc61.i152.i
-  %668 = phi i64 [ %.fca.1.extract.i.i.i.us.i.i.i, %.noexc61.i152.i ], [ %.fca.1.extract.i.i.i.i.i.i, %791 ], [ %802, %799 ], [ %805, %804 ], [ %747, %745 ], [ %750, %749 ], [ %859, %857 ], [ %876, %874 ], [ %879, %878 ], [ %.fca.0.extract18.val.i.i.i.i, %820 ], [ %.fca.0.extract18.val.i.i.i.i, %823 ], [ %.fca.0.extract18.val.i.i.i.i, %826 ], [ %.fca.0.extract.val.i.i.i.i, %893 ], [ %.fca.0.extract.val.i.i.i.i, %896 ], [ %.fca.0.extract.val.i.i.i.i, %899 ], [ %700, %709 ], [ %655, %.lr.ph362.i.i ], [ %673, %682 ], [ %.0365.i.i, %628 ]
+  %668 = phi i64 [ %.fca.1.extract.i.i.i.us.i.i.i, %.noexc61.i152.i ], [ %.fca.1.extract.i.i.i.i.i.i, %791 ], [ %802, %799 ], [ %805, %804 ], [ %747, %745 ], [ %750, %749 ], [ %859, %857 ], [ %876, %874 ], [ %881, %878 ], [ %.fca.0.extract18.val.i.i.i.i, %820 ], [ %.fca.0.extract18.val.i.i.i.i, %823 ], [ %.fca.0.extract18.val.i.i.i.i, %826 ], [ %.fca.0.extract.val.i.i.i.i, %893 ], [ %.fca.0.extract.val.i.i.i.i, %896 ], [ %.fca.0.extract.val.i.i.i.i, %899 ], [ %700, %709 ], [ %655, %.lr.ph362.i.i ], [ %673, %682 ], [ %.0365.i.i, %628 ]
   %669 = phi i64 [ %728, %.noexc61.i152.i ], [ %728, %791 ], [ %620, %799 ], [ %620, %804 ], [ %620, %745 ], [ %620, %749 ], [ %719, %857 ], [ %620, %874 ], [ %620, %878 ], [ %565, %820 ], [ %563, %823 ], [ %567, %826 ], [ %565, %893 ], [ %563, %896 ], [ %567, %899 ], [ %618, %709 ], [ %620, %.lr.ph362.i.i ], [ %618, %682 ], [ %.val41.i118.i, %628 ]
   %670 = phi ptr [ @anon.ffc34ad9ea0ca27223c3df7e39c916b2.376.llvm.10393017446704266758, %.noexc61.i152.i ], [ @anon.ffc34ad9ea0ca27223c3df7e39c916b2.376.llvm.10393017446704266758, %791 ], [ @anon.f4ab2160caa6653ef344418ff3b39bb7.225, %799 ], [ @anon.f4ab2160caa6653ef344418ff3b39bb7.226, %804 ], [ @anon.f4ab2160caa6653ef344418ff3b39bb7.225, %745 ], [ @anon.f4ab2160caa6653ef344418ff3b39bb7.226, %749 ], [ @anon.ffc34ad9ea0ca27223c3df7e39c916b2.376.llvm.10393017446704266758, %857 ], [ @anon.f4ab2160caa6653ef344418ff3b39bb7.236, %874 ], [ @anon.f4ab2160caa6653ef344418ff3b39bb7.237, %878 ], [ @anon.f4ab2160caa6653ef344418ff3b39bb7.256, %820 ], [ @anon.f4ab2160caa6653ef344418ff3b39bb7.254, %823 ], [ @anon.f4ab2160caa6653ef344418ff3b39bb7.255, %826 ], [ @anon.f4ab2160caa6653ef344418ff3b39bb7.256, %893 ], [ @anon.f4ab2160caa6653ef344418ff3b39bb7.254, %896 ], [ @anon.f4ab2160caa6653ef344418ff3b39bb7.255, %899 ], [ @anon.f4ab2160caa6653ef344418ff3b39bb7.315, %709 ], [ @anon.f4ab2160caa6653ef344418ff3b39bb7.311, %.lr.ph362.i.i ], [ @anon.f4ab2160caa6653ef344418ff3b39bb7.313, %682 ], [ @anon.f4ab2160caa6653ef344418ff3b39bb7.310, %628 ]
   invoke void @_ZN4core9panicking18panic_bounds_check17h8331054858f0bf20E(i64 noundef %668, i64 noundef %669, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %670) #45
@@ -21342,23 +21342,24 @@ _ZN15tree_sitter_cli8generate12build_tables20minimize_parse_table9Minimizer11sym
   br i1 %877, label %878, label %.invoke.i119.i, !prof !204
 
 878:                                              ; preds = %874
-  %879 = load i64, ptr %875, align 8, !noalias !3850, !noundef !14
-  %880 = icmp ult i64 %879, %620
-  br i1 %880, label %881, label %.invoke.i119.i, !prof !204
+  %879 = getelementptr inbounds [0 x i64], ptr %619, i64 0, i64 %876
+  %880 = load i64, ptr %879, align 8, !alias.scope !3853, !noalias !3854, !noundef !14
+  call void @llvm.assume(i1 true) [ "align"(ptr %875, i64 8) ]
+  %881 = load i64, ptr %875, align 8, !noalias !3850, !noundef !14
+  %882 = icmp ult i64 %881, %620
+  br i1 %882, label %883, label %.invoke.i119.i, !prof !204
 
-881:                                              ; preds = %878
-  %882 = getelementptr inbounds [0 x i64], ptr %619, i64 0, i64 %876
-  %883 = load i64, ptr %882, align 8, !alias.scope !3853, !noalias !3854, !noundef !14
-  %884 = getelementptr inbounds [0 x i64], ptr %619, i64 0, i64 %879
+883:                                              ; preds = %878
+  %884 = getelementptr inbounds [0 x i64], ptr %619, i64 0, i64 %881
   %885 = load i64, ptr %884, align 8, !alias.scope !3853, !noalias !3854, !noundef !14
-  %.not74.i.i.i.i = icmp eq i64 %883, %885
+  %.not74.i.i.i.i = icmp eq i64 %880, %885
   br i1 %.not74.i.i.i.i, label %886, label %.critedge81.i.i.i.i
 
-886:                                              ; preds = %881
+886:                                              ; preds = %883
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %81), !noalias !3852
   br label %"_ZN8indexmap3map25IndexMap$LT$K$C$V$C$S$GT$3get17he3bf4d9ac4ef879aE.exit.thread.i.i.i.i"
 
-.critedge81.i.i.i.i:                              ; preds = %881
+.critedge81.i.i.i.i:                              ; preds = %883
   %887 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h300ea6705dd1f123E monotonic, align 8, !noalias !3852
   %888 = icmp ult i64 %887, 6
   call void @llvm.assume(i1 %888)
@@ -29432,6 +29433,7 @@ _ZN15tree_sitter_cli8generate12build_tables17identify_keywords17hccd3c60996754cb
   br i1 %1355, label %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %1424
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i.i.i.i:               ; preds = %1353
+  call void @llvm.assume(i1 true) [ "align"(ptr %1351, i64 8) ]
   %.val.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i71 = load i64, ptr %1351, align 8, !noalias !5502, !noundef !14
   %1356 = and i64 %.val.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i71, 1
   %1357 = icmp eq i64 %1356, 0
@@ -29602,6 +29604,7 @@ _ZN4core4iter8adapters5chain17and_then_or_clear17h7d874ab85e4ba1ebE.exit.i.i.i.i
   br i1 %1431, label %.lr.ph.i.i.i.i.i.i5.i.i.i.i.i.i.i.i, label %1501
 
 .lr.ph.i.i.i.i.i.i5.i.i.i.i.i.i.i.i:              ; preds = %1429
+  call void @llvm.assume(i1 true) [ "align"(ptr %1427, i64 8) ]
   %.val.i.i.i.i.i.i.i6.i.i.i.i.i.i.i.i = load i64, ptr %1427, align 8, !noalias !5548, !noundef !14
   %1432 = and i64 %.val.i.i.i.i.i.i.i6.i.i.i.i.i.i.i.i, 1
   %1433 = icmp eq i64 %1432, 0

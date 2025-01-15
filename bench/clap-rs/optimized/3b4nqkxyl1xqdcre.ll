@@ -6029,7 +6029,11 @@ _ZN12clap_builder6output13help_template12HelpTemplate14will_args_wrap17h3c3e8e7d
   %261 = getelementptr inbounds nuw i8, ptr %239, i64 504
   %262 = load ptr, ptr %261, align 8, !alias.scope !1269, !noalias !1237, !noundef !12
   %263 = icmp eq ptr %262, null
-  br i1 %263, label %_ZN12clap_builder6output13help_template12HelpTemplate4long17h040d2a9ab23e3d93E.exit.i, label %264
+  br i1 %263, label %_ZN12clap_builder6output13help_template12HelpTemplate5short17h271c5721682fe810E.exit.thread57.i, label %264
+
+_ZN12clap_builder6output13help_template12HelpTemplate5short17h271c5721682fe810E.exit.thread57.i: ; preds = %260
+  call void @llvm.assume(i1 true) [ "align"(ptr %.val18.i, i64 2) ]
+  br label %_ZN12clap_builder6output13help_template12HelpTemplate4long17h040d2a9ab23e3d93E.exit.i
 
 264:                                              ; preds = %260
   %265 = load i64, ptr %228, align 8, !alias.scope !1272, !noalias !1281, !noundef !12
@@ -6051,6 +6055,7 @@ _ZN12clap_builder6output13help_template12HelpTemplate5short17h271c5721682fe810E.
   call void @llvm.lifetime.end.p0(i64 14, ptr nonnull %29), !noalias !1261
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %30), !noalias !1261
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %32), !noalias !1261
+  call void @llvm.assume(i1 true) [ "align"(ptr %.val18.i, i64 2) ]
   %269 = getelementptr inbounds nuw i8, ptr %239, i64 504
   %270 = load ptr, ptr %269, align 8, !alias.scope !1285, !noalias !1237, !noundef !12
   %271 = icmp eq ptr %270, null
@@ -6076,6 +6081,7 @@ _ZN12clap_builder6output13help_template12HelpTemplate5short17h271c5721682fe810E.
   %281 = load i64, ptr %229, align 8, !alias.scope !1284, !noalias !1281, !noundef !12
   %282 = add i64 %281, 4
   store i64 %282, ptr %229, align 8, !alias.scope !1284, !noalias !1281
+  call void @llvm.assume(i1 true) [ "align"(ptr %.val18.i, i64 2) ]
   call void @llvm.experimental.noalias.scope.decl(metadata !1305)
   %283 = getelementptr inbounds nuw i8, ptr %239, i64 512
   %..val2.i.i.i = load i64, ptr %283, align 8, !alias.scope !1290, !noalias !1237
@@ -6145,9 +6151,10 @@ _ZN12clap_builder7builder10styled_str9StyledStr8push_str17hf3025370b2961e87E.exi
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %27), !noalias !1292
   br label %_ZN12clap_builder6output13help_template12HelpTemplate4long17h040d2a9ab23e3d93E.exit.i
 
-_ZN12clap_builder6output13help_template12HelpTemplate4long17h040d2a9ab23e3d93E.exit.i: ; preds = %260, %.noexc41.i, %_ZN12clap_builder6output13help_template12HelpTemplate5short17h271c5721682fe810E.exit.thread.i
-  %295 = phi i1 [ true, %_ZN12clap_builder6output13help_template12HelpTemplate5short17h271c5721682fe810E.exit.thread.i ], [ false, %.noexc41.i ], [ true, %260 ]
+_ZN12clap_builder6output13help_template12HelpTemplate4long17h040d2a9ab23e3d93E.exit.i: ; preds = %.noexc41.i, %_ZN12clap_builder6output13help_template12HelpTemplate5short17h271c5721682fe810E.exit.thread.i, %_ZN12clap_builder6output13help_template12HelpTemplate5short17h271c5721682fe810E.exit.thread57.i
+  %295 = phi i1 [ true, %_ZN12clap_builder6output13help_template12HelpTemplate5short17h271c5721682fe810E.exit.thread.i ], [ false, %.noexc41.i ], [ true, %_ZN12clap_builder6output13help_template12HelpTemplate5short17h271c5721682fe810E.exit.thread57.i ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %33), !noalias !1242
+  call void @llvm.assume(i1 true) [ "align"(ptr %.val18.i, i64 2) ]
   invoke void @_ZN12clap_builder7builder3arg3Arg18stylize_arg_suffix17h7ff50427cdd11f0bE(ptr noalias nocapture noundef nonnull sret({ { { { i64, ptr }, i64 } } }) align 8 dereferenceable(24) %33, ptr noalias noundef nonnull readonly align 8 dereferenceable(552) %239, ptr noalias noundef nonnull readonly align 2 dereferenceable(98) %.val18.i, i8 noundef 2)
           to label %296 unwind label %245, !noalias !1237
 

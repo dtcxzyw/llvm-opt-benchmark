@@ -6514,6 +6514,7 @@ _ZN10actix_http9responses4head17BoxedResponseHead3new17h5f863da7d7dfb636E.exit: 
   %60 = and i8 %59, -17
   %.sink.i = or disjoint i8 %60, %57
   store i8 %.sink.i, ptr %58, align 2, !alias.scope !948
+  call void @llvm.assume(i1 true) [ "align"(ptr %48, i64 8) ]
   store i64 1, ptr %0, align 8
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %48, ptr %61, align 8

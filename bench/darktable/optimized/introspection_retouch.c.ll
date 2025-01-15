@@ -9667,7 +9667,6 @@ define internal fastcc void @_retouch_heal(ptr nocapture noundef %0, ptr nocaptu
   %15 = shl nsw i64 %11, 4
   %16 = mul i64 %15, %14
   %17 = tail call ptr @dt_alloc_aligned(i64 noundef %16) #27
-  call void @llvm.assume(i1 true) [ "align"(ptr %17, i64 64) ]
   %18 = load i32, ptr %9, align 4, !tbaa !218
   %19 = sext i32 %18 to i64
   %20 = load i32, ptr %12, align 4, !tbaa !216
@@ -9777,7 +9776,7 @@ define internal fastcc void @_retouch_heal(ptr nocapture noundef %0, ptr nocaptu
   %.idx10 = shl i64 %92, 4
   %96 = getelementptr inbounds i8, ptr %0, i64 %.idx10
   %97 = getelementptr inbounds float, ptr %17, i64 %95
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 32 %97, ptr align 4 %96, i64 %35, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 16 %97, ptr align 4 %96, i64 %35, i1 false)
   %.pre = load i32, ptr %9, align 4, !tbaa !218
   %.pre29 = load i32, ptr %31, align 4, !tbaa !218
   br label %98

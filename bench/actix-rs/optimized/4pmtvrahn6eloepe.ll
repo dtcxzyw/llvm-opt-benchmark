@@ -5381,24 +5381,26 @@ define internal fastcc noundef i64 @_ZN6brotli3enc19backward_references2hq11Upda
   %39 = fadd float %36, %38
   %40 = getelementptr inbounds nuw i8, ptr %34, i64 16
   %41 = load i64, ptr %40, align 8, !noundef !13
+  call void @llvm.assume(i1 true) [ "align"(ptr %.val165, i64 4) ]
   %42 = icmp ult i64 %2, %.val166
-  br i1 %42, label %43, label %46, !prof !217
+  br i1 %42, label %43, label %47, !prof !217
 
 43:                                               ; preds = %17
   %44 = getelementptr inbounds [0 x float], ptr %.val165, i64 0, i64 %2
-  %45 = icmp ult i64 %41, %.val166
-  br i1 %45, label %_ZN6brotli3enc19backward_references2hq30ZopfliCostModelGetLiteralCosts17h82ae77380cc67f69E.exit, label %47, !prof !217
+  %45 = load float, ptr %44, align 4, !noundef !13
+  call void @llvm.assume(i1 true) [ "align"(ptr %.val165, i64 4) ]
+  %46 = icmp ult i64 %41, %.val166
+  br i1 %46, label %_ZN6brotli3enc19backward_references2hq30ZopfliCostModelGetLiteralCosts17h82ae77380cc67f69E.exit, label %48, !prof !217
 
-46:                                               ; preds = %17
+47:                                               ; preds = %17
   tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %2, i64 noundef %.val166, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.854811f44bca550c56cb6f681a6a9a44.194) #31
   unreachable
 
-47:                                               ; preds = %43
+48:                                               ; preds = %43
   tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %41, i64 noundef %.val166, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.854811f44bca550c56cb6f681a6a9a44.195) #31
   unreachable
 
 _ZN6brotli3enc19backward_references2hq30ZopfliCostModelGetLiteralCosts17h82ae77380cc67f69E.exit: ; preds = %43
-  %48 = load float, ptr %44, align 4, !noundef !13
   %49 = getelementptr inbounds [0 x float], ptr %.val165, i64 0, i64 %41
   %50 = load float, ptr %49, align 4, !noundef !13
   tail call void @llvm.experimental.noalias.scope.decl(metadata !600)
@@ -5407,7 +5409,7 @@ _ZN6brotli3enc19backward_references2hq30ZopfliCostModelGetLiteralCosts17h82ae773
   br i1 %.not.i277, label %_ZN6brotli3enc19backward_references2hq24ComputeMinimumCopyLength17hf9f5703b1fddf642E.exit, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %_ZN6brotli3enc19backward_references2hq30ZopfliCostModelGetLiteralCosts17h82ae77380cc67f69E.exit
-  %52 = fsub float %48, %50
+  %52 = fsub float %45, %50
   %53 = fadd float %39, %52
   br label %.lr.ph
 
@@ -5556,7 +5558,9 @@ _ZN6brotli3enc19backward_references2hq30ZopfliCostModelGetLiteralCosts17h82ae773
   %133 = load i32, ptr %132, align 4, !noundef !13
   %134 = uitofp i32 %133 to float
   %135 = fadd float %131, %134
+  call void @llvm.assume(i1 true) [ "align"(ptr %.val165, i64 4) ]
   %136 = load float, ptr %44, align 4, !noundef !13
+  call void @llvm.assume(i1 true) [ "align"(ptr %.val165, i64 4) ]
   %137 = load float, ptr %.val165, align 4, !noundef !13
   %138 = fsub float %136, %137
   %139 = fadd float %135, %138

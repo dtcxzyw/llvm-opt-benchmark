@@ -1269,6 +1269,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   br i1 %.not5.i, label %214, label %.noexc605
 
 .noexc605:                                        ; preds = %190
+  call void @llvm.assume(i1 true) [ "align"(ptr %192, i64 8) ]
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %16), !noalias !237
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %15), !noalias !237
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %14), !noalias !237
@@ -1981,6 +1982,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit647
   br i1 %.not5.i.i, label %"_ZN4core3ptr43drop_in_place$LT$tracing..span..Entered$GT$17h889725038ea60eb3E.exit", label %429
 
 429:                                              ; preds = %426
+  call void @llvm.assume(i1 true) [ "align"(ptr %428, i64 8) ], !noalias !307
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8), !noalias !310
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7), !noalias !310
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6), !noalias !310
@@ -2036,6 +2038,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit647
   br i1 %.not5.i.i692, label %"_ZN4core3ptr43drop_in_place$LT$tracing..span..Entered$GT$17h889725038ea60eb3E.exit695", label %449
 
 449:                                              ; preds = %446
+  call void @llvm.assume(i1 true) [ "align"(ptr %448, i64 8) ], !noalias !320
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5), !noalias !323
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4), !noalias !323
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3), !noalias !323
@@ -4217,6 +4220,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   br i1 %.not5.i, label %_ZN7tracing4span4Span8do_enter17h91d8a15bd4cd068fE.exit, label %.noexc245
 
 .noexc245:                                        ; preds = %85
+  call void @llvm.assume(i1 true) [ "align"(ptr %87, i64 8) ]
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %17), !noalias !383
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %16), !noalias !383
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %15), !noalias !383
@@ -4856,6 +4860,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit285
   br i1 %.not5.i.i, label %"_ZN4core3ptr43drop_in_place$LT$tracing..span..Entered$GT$17h889725038ea60eb3E.exit", label %301
 
 301:                                              ; preds = %298
+  call void @llvm.assume(i1 true) [ "align"(ptr %300, i64 8) ], !noalias !401
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %10), !noalias !404
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9), !noalias !404
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8), !noalias !404
@@ -5172,6 +5177,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit310
   br i1 %.not5.i.i333, label %"_ZN4core3ptr43drop_in_place$LT$tracing..span..Entered$GT$17h889725038ea60eb3E.exit", label %419
 
 419:                                              ; preds = %416
+  call void @llvm.assume(i1 true) [ "align"(ptr %418, i64 8) ], !noalias !423
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5), !noalias !426
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4), !noalias !426
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3), !noalias !426
@@ -5365,6 +5371,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   br i1 %.not5.i, label %_ZN7tracing4span4Span8do_enter17h91d8a15bd4cd068fE.exit, label %.noexc243
 
 .noexc243:                                        ; preds = %85
+  call void @llvm.assume(i1 true) [ "align"(ptr %87, i64 8) ]
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %17), !noalias !433
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %16), !noalias !433
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %15), !noalias !433
@@ -6004,6 +6011,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit283
   br i1 %.not5.i.i, label %"_ZN4core3ptr43drop_in_place$LT$tracing..span..Entered$GT$17h889725038ea60eb3E.exit", label %301
 
 301:                                              ; preds = %298
+  call void @llvm.assume(i1 true) [ "align"(ptr %300, i64 8) ], !noalias !451
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %10), !noalias !454
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9), !noalias !454
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8), !noalias !454
@@ -6300,6 +6308,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit308
   br i1 %.not5.i.i330, label %"_ZN4core3ptr43drop_in_place$LT$tracing..span..Entered$GT$17h889725038ea60eb3E.exit", label %408
 
 408:                                              ; preds = %405
+  call void @llvm.assume(i1 true) [ "align"(ptr %407, i64 8) ], !noalias !467
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5), !noalias !470
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4), !noalias !470
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3), !noalias !470
@@ -6837,6 +6846,7 @@ define internal fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span
   br i1 %.not5.i, label %"_ZN61_$LT$tracing..span..Span$u20$as$u20$core..ops..drop..Drop$GT$4drop17hbd4300378b7ab871E.exit", label %.noexc3
 
 .noexc3:                                          ; preds = %12
+  call void @llvm.assume(i1 true) [ "align"(ptr %14, i64 8) ]
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4), !noalias !525
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3), !noalias !525
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2), !noalias !525
@@ -6948,6 +6958,7 @@ define internal fastcc void @"_ZN4core3ptr43drop_in_place$LT$tracing..span..Ente
   br i1 %.not5.i, label %_ZN7tracing4span4Span7do_exit17h4f552562a4ef1f62E.exit, label %14
 
 14:                                               ; preds = %11
+  call void @llvm.assume(i1 true) [ "align"(ptr %13, i64 8) ], !noalias !556
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3), !noalias !559
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2), !noalias !559
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %1), !noalias !559
@@ -7468,6 +7479,7 @@ define internal fastcc void @_ZN7tracing4span4Span3log17h8de998eae76ae2c4E(ptr n
   br i1 %.not, label %18, label %12
 
 12:                                               ; preds = %4
+  call void @llvm.assume(i1 true) [ "align"(ptr %11, i64 8) ]
   %13 = load i64, ptr %11, align 8, !range !627, !noundef !10
   %switch.tableidx = add nsw i64 %13, -1
   %14 = icmp ult i64 %switch.tableidx, 4

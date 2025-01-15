@@ -53265,6 +53265,7 @@ _ZN3std9panicking3try17h2c952e8379878044E.exit.i: ; preds = %7
   %23 = load ptr, ptr %2, align 8, !noalias !13844, !nonnull !4, !align !156
   %24 = load ptr, ptr %.sroa.422.0..sroa_idx.i, align 8, !noalias !13844, !nonnull !4, !align !86
   call void @llvm.lifetime.end.p0(i64 328, ptr nonnull %2), !noalias !13844
+  call void @llvm.assume(i1 true) [ "align"(ptr %24, i64 8) ]
   %25 = load ptr, ptr %24, align 8, !invariant.load !4, !noalias !13847, !nonnull !4
   invoke void %25(ptr noundef nonnull align 1 %23)
           to label %34 unwind label %26, !noalias !13847
@@ -53451,6 +53452,7 @@ _ZN3std9panicking3try17hc6b935b33f368dd8E.exit.i: ; preds = %7
   %23 = load ptr, ptr %2, align 8, !noalias !13868, !nonnull !4, !align !156
   %24 = load ptr, ptr %.sroa.422.0..sroa_idx.i, align 8, !noalias !13868, !nonnull !4, !align !86
   call void @llvm.lifetime.end.p0(i64 328, ptr nonnull %2), !noalias !13868
+  call void @llvm.assume(i1 true) [ "align"(ptr %24, i64 8) ]
   %25 = load ptr, ptr %24, align 8, !invariant.load !4, !noalias !13871, !nonnull !4
   invoke void %25(ptr noundef nonnull align 1 %23)
           to label %34 unwind label %26, !noalias !13871
@@ -53637,6 +53639,7 @@ _ZN3std9panicking3try17ha02708916802f6b8E.exit.i: ; preds = %7
   %23 = load ptr, ptr %2, align 8, !noalias !13892, !nonnull !4, !align !156
   %24 = load ptr, ptr %.sroa.422.0..sroa_idx.i, align 8, !noalias !13892, !nonnull !4, !align !86
   call void @llvm.lifetime.end.p0(i64 328, ptr nonnull %2), !noalias !13892
+  call void @llvm.assume(i1 true) [ "align"(ptr %24, i64 8) ]
   %25 = load ptr, ptr %24, align 8, !invariant.load !4, !noalias !13895, !nonnull !4
   invoke void %25(ptr noundef nonnull align 1 %23)
           to label %34 unwind label %26, !noalias !13895
@@ -53823,6 +53826,7 @@ _ZN3std9panicking3try17hb18e4d0922b56f5aE.exit.i: ; preds = %7
   %23 = load ptr, ptr %2, align 8, !noalias !13916, !nonnull !4, !align !156
   %24 = load ptr, ptr %.sroa.422.0..sroa_idx.i, align 8, !noalias !13916, !nonnull !4, !align !86
   call void @llvm.lifetime.end.p0(i64 328, ptr nonnull %2), !noalias !13916
+  call void @llvm.assume(i1 true) [ "align"(ptr %24, i64 8) ]
   %25 = load ptr, ptr %24, align 8, !invariant.load !4, !noalias !13919, !nonnull !4
   invoke void %25(ptr noundef nonnull align 1 %23)
           to label %34 unwind label %26, !noalias !13919
@@ -54009,6 +54013,7 @@ _ZN3std9panicking3try17h382d9799ea0444acE.exit.i: ; preds = %7
   %23 = load ptr, ptr %2, align 16, !noalias !13940, !nonnull !4, !align !156
   %24 = load ptr, ptr %.sroa.423.0..sroa_idx.i, align 8, !noalias !13940, !nonnull !4, !align !86
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %2), !noalias !13940
+  call void @llvm.assume(i1 true) [ "align"(ptr %24, i64 8) ]
   %25 = load ptr, ptr %24, align 8, !invariant.load !4, !noalias !13943, !nonnull !4
   invoke void %25(ptr noundef nonnull align 1 %23)
           to label %34 unwind label %26, !noalias !13943
@@ -54195,6 +54200,7 @@ _ZN3std9panicking3try17h1fe41359de085197E.exit.i: ; preds = %7
   %23 = load ptr, ptr %2, align 8, !noalias !13964, !nonnull !4, !align !156
   %24 = load ptr, ptr %.sroa.422.0..sroa_idx.i, align 8, !noalias !13964, !nonnull !4, !align !86
   call void @llvm.lifetime.end.p0(i64 328, ptr nonnull %2), !noalias !13964
+  call void @llvm.assume(i1 true) [ "align"(ptr %24, i64 8) ]
   %25 = load ptr, ptr %24, align 8, !invariant.load !4, !noalias !13967, !nonnull !4
   invoke void %25(ptr noundef nonnull align 1 %23)
           to label %34 unwind label %26, !noalias !13967
@@ -54381,6 +54387,7 @@ _ZN3std9panicking3try17h97498de86d424b4bE.exit.i: ; preds = %7
   %23 = load ptr, ptr %2, align 8, !noalias !13988, !nonnull !4, !align !156
   %24 = load ptr, ptr %.sroa.422.0..sroa_idx.i, align 8, !noalias !13988, !nonnull !4, !align !86
   call void @llvm.lifetime.end.p0(i64 328, ptr nonnull %2), !noalias !13988
+  call void @llvm.assume(i1 true) [ "align"(ptr %24, i64 8) ]
   %25 = load ptr, ptr %24, align 8, !invariant.load !4, !noalias !13991, !nonnull !4
   invoke void %25(ptr noundef nonnull align 1 %23)
           to label %34 unwind label %26, !noalias !13991
@@ -54565,6 +54572,7 @@ _ZN3std9panicking3try17ha04f1b7fc5df069bE.exit.i: ; preds = %7
   %22 = load ptr, ptr %2, align 8, !noalias !14012, !nonnull !4, !align !156
   %23 = load ptr, ptr %.sroa.426.0..sroa_idx.i, align 8, !noalias !14012, !nonnull !4, !align !86
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %2), !noalias !14012
+  call void @llvm.assume(i1 true) [ "align"(ptr %23, i64 8) ]
   %24 = load ptr, ptr %23, align 8, !invariant.load !4, !noalias !14015, !nonnull !4
   invoke void %24(ptr noundef nonnull align 1 %22)
           to label %33 unwind label %25, !noalias !14015
@@ -54747,6 +54755,7 @@ _ZN3std9panicking3try17h1866a8076fa126a5E.exit.i: ; preds = %7
   %23 = load ptr, ptr %2, align 8, !noalias !14036, !nonnull !4, !align !156
   %24 = load ptr, ptr %.sroa.422.0..sroa_idx.i, align 8, !noalias !14036, !nonnull !4, !align !86
   call void @llvm.lifetime.end.p0(i64 328, ptr nonnull %2), !noalias !14036
+  call void @llvm.assume(i1 true) [ "align"(ptr %24, i64 8) ]
   %25 = load ptr, ptr %24, align 8, !invariant.load !4, !noalias !14039, !nonnull !4
   invoke void %25(ptr noundef nonnull align 1 %23)
           to label %34 unwind label %26, !noalias !14039
@@ -54933,6 +54942,7 @@ _ZN3std9panicking3try17h6c1cc17821aca577E.exit.i: ; preds = %7
   %23 = load ptr, ptr %2, align 8, !noalias !14060, !nonnull !4, !align !156
   %24 = load ptr, ptr %.sroa.422.0..sroa_idx.i, align 8, !noalias !14060, !nonnull !4, !align !86
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %2), !noalias !14060
+  call void @llvm.assume(i1 true) [ "align"(ptr %24, i64 8) ]
   %25 = load ptr, ptr %24, align 8, !invariant.load !4, !noalias !14063, !nonnull !4
   invoke void %25(ptr noundef nonnull align 1 %23)
           to label %34 unwind label %26, !noalias !14063
@@ -55119,6 +55129,7 @@ _ZN3std9panicking3try17h8083b49c61ee8281E.exit.i: ; preds = %7
   %23 = load ptr, ptr %2, align 8, !noalias !14084, !nonnull !4, !align !156
   %24 = load ptr, ptr %.sroa.422.0..sroa_idx.i, align 8, !noalias !14084, !nonnull !4, !align !86
   call void @llvm.lifetime.end.p0(i64 328, ptr nonnull %2), !noalias !14084
+  call void @llvm.assume(i1 true) [ "align"(ptr %24, i64 8) ]
   %25 = load ptr, ptr %24, align 8, !invariant.load !4, !noalias !14087, !nonnull !4
   invoke void %25(ptr noundef nonnull align 1 %23)
           to label %34 unwind label %26, !noalias !14087
@@ -55305,6 +55316,7 @@ _ZN3std9panicking3try17hc041d4860d099586E.exit.i: ; preds = %7
   %23 = load ptr, ptr %2, align 8, !noalias !14108, !nonnull !4, !align !156
   %24 = load ptr, ptr %.sroa.422.0..sroa_idx.i, align 8, !noalias !14108, !nonnull !4, !align !86
   call void @llvm.lifetime.end.p0(i64 328, ptr nonnull %2), !noalias !14108
+  call void @llvm.assume(i1 true) [ "align"(ptr %24, i64 8) ]
   %25 = load ptr, ptr %24, align 8, !invariant.load !4, !noalias !14111, !nonnull !4
   invoke void %25(ptr noundef nonnull align 1 %23)
           to label %34 unwind label %26, !noalias !14111
@@ -55491,6 +55503,7 @@ _ZN3std9panicking3try17h0d66e4b78baafc85E.exit.i: ; preds = %7
   %23 = load ptr, ptr %2, align 8, !noalias !14132, !nonnull !4, !align !156
   %24 = load ptr, ptr %.sroa.422.0..sroa_idx.i, align 8, !noalias !14132, !nonnull !4, !align !86
   call void @llvm.lifetime.end.p0(i64 328, ptr nonnull %2), !noalias !14132
+  call void @llvm.assume(i1 true) [ "align"(ptr %24, i64 8) ]
   %25 = load ptr, ptr %24, align 8, !invariant.load !4, !noalias !14135, !nonnull !4
   invoke void %25(ptr noundef nonnull align 1 %23)
           to label %34 unwind label %26, !noalias !14135
@@ -55677,6 +55690,7 @@ _ZN3std9panicking3try17h4c2446ad7ada5843E.exit.i: ; preds = %7
   %23 = load ptr, ptr %2, align 8, !noalias !14156, !nonnull !4, !align !156
   %24 = load ptr, ptr %.sroa.422.0..sroa_idx.i, align 8, !noalias !14156, !nonnull !4, !align !86
   call void @llvm.lifetime.end.p0(i64 328, ptr nonnull %2), !noalias !14156
+  call void @llvm.assume(i1 true) [ "align"(ptr %24, i64 8) ]
   %25 = load ptr, ptr %24, align 8, !invariant.load !4, !noalias !14159, !nonnull !4
   invoke void %25(ptr noundef nonnull align 1 %23)
           to label %34 unwind label %26, !noalias !14159
@@ -55863,6 +55877,7 @@ _ZN3std9panicking3try17h4dc141300db0a02dE.exit.i: ; preds = %7
   %23 = load ptr, ptr %2, align 8, !noalias !14180, !nonnull !4, !align !156
   %24 = load ptr, ptr %.sroa.422.0..sroa_idx.i, align 8, !noalias !14180, !nonnull !4, !align !86
   call void @llvm.lifetime.end.p0(i64 328, ptr nonnull %2), !noalias !14180
+  call void @llvm.assume(i1 true) [ "align"(ptr %24, i64 8) ]
   %25 = load ptr, ptr %24, align 8, !invariant.load !4, !noalias !14183, !nonnull !4
   invoke void %25(ptr noundef nonnull align 1 %23)
           to label %34 unwind label %26, !noalias !14183
@@ -56049,6 +56064,7 @@ _ZN3std9panicking3try17h7dea2c31544e2a64E.exit.i: ; preds = %7
   %23 = load ptr, ptr %2, align 8, !noalias !14204, !nonnull !4, !align !156
   %24 = load ptr, ptr %.sroa.422.0..sroa_idx.i, align 8, !noalias !14204, !nonnull !4, !align !86
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %2), !noalias !14204
+  call void @llvm.assume(i1 true) [ "align"(ptr %24, i64 8) ]
   %25 = load ptr, ptr %24, align 8, !invariant.load !4, !noalias !14207, !nonnull !4
   invoke void %25(ptr noundef nonnull align 1 %23)
           to label %34 unwind label %26, !noalias !14207
@@ -56235,6 +56251,7 @@ _ZN3std9panicking3try17h470568e479f3b7a6E.exit.i: ; preds = %7
   %23 = load ptr, ptr %2, align 8, !noalias !14228, !nonnull !4, !align !156
   %24 = load ptr, ptr %.sroa.422.0..sroa_idx.i, align 8, !noalias !14228, !nonnull !4, !align !86
   call void @llvm.lifetime.end.p0(i64 328, ptr nonnull %2), !noalias !14228
+  call void @llvm.assume(i1 true) [ "align"(ptr %24, i64 8) ]
   %25 = load ptr, ptr %24, align 8, !invariant.load !4, !noalias !14231, !nonnull !4
   invoke void %25(ptr noundef nonnull align 1 %23)
           to label %34 unwind label %26, !noalias !14231
@@ -56421,6 +56438,7 @@ _ZN3std9panicking3try17hdbee371ed83cfc77E.exit.i: ; preds = %7
   %23 = load ptr, ptr %2, align 8, !noalias !14252, !nonnull !4, !align !156
   %24 = load ptr, ptr %.sroa.422.0..sroa_idx.i, align 8, !noalias !14252, !nonnull !4, !align !86
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %2), !noalias !14252
+  call void @llvm.assume(i1 true) [ "align"(ptr %24, i64 8) ]
   %25 = load ptr, ptr %24, align 8, !invariant.load !4, !noalias !14255, !nonnull !4
   invoke void %25(ptr noundef nonnull align 1 %23)
           to label %34 unwind label %26, !noalias !14255
@@ -56588,6 +56606,7 @@ default.unreachable16:                            ; preds = %60, %1
   %28 = load ptr, ptr %6, align 8, !noalias !14275, !nonnull !4, !align !156
   %29 = load ptr, ptr %.sroa.414.0..sroa_idx.i, align 8, !noalias !14275, !nonnull !4, !align !86
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6), !noalias !14275
+  call void @llvm.assume(i1 true) [ "align"(ptr %29, i64 8) ]
   %30 = load ptr, ptr %29, align 8, !invariant.load !4, !noalias !14278, !nonnull !4
   invoke void %30(ptr noundef nonnull align 1 %28)
           to label %39 unwind label %31, !noalias !14278
@@ -56838,6 +56857,7 @@ _ZN3std9panicking3try17h9d71a4c2ab93b536E.exit.i: ; preds = %7
   %23 = load ptr, ptr %2, align 8, !noalias !14299, !nonnull !4, !align !156
   %24 = load ptr, ptr %.sroa.422.0..sroa_idx.i, align 8, !noalias !14299, !nonnull !4, !align !86
   call void @llvm.lifetime.end.p0(i64 328, ptr nonnull %2), !noalias !14299
+  call void @llvm.assume(i1 true) [ "align"(ptr %24, i64 8) ]
   %25 = load ptr, ptr %24, align 8, !invariant.load !4, !noalias !14302, !nonnull !4
   invoke void %25(ptr noundef nonnull align 1 %23)
           to label %34 unwind label %26, !noalias !14302
@@ -57024,6 +57044,7 @@ _ZN3std9panicking3try17h99c14a81db317553E.exit.i: ; preds = %7
   %23 = load ptr, ptr %2, align 8, !noalias !14323, !nonnull !4, !align !156
   %24 = load ptr, ptr %.sroa.422.0..sroa_idx.i, align 8, !noalias !14323, !nonnull !4, !align !86
   call void @llvm.lifetime.end.p0(i64 328, ptr nonnull %2), !noalias !14323
+  call void @llvm.assume(i1 true) [ "align"(ptr %24, i64 8) ]
   %25 = load ptr, ptr %24, align 8, !invariant.load !4, !noalias !14326, !nonnull !4
   invoke void %25(ptr noundef nonnull align 1 %23)
           to label %34 unwind label %26, !noalias !14326
@@ -57210,6 +57231,7 @@ _ZN3std9panicking3try17h5069f077429734fbE.exit.i: ; preds = %7
   %23 = load ptr, ptr %2, align 8, !noalias !14347, !nonnull !4, !align !156
   %24 = load ptr, ptr %.sroa.422.0..sroa_idx.i, align 8, !noalias !14347, !nonnull !4, !align !86
   call void @llvm.lifetime.end.p0(i64 328, ptr nonnull %2), !noalias !14347
+  call void @llvm.assume(i1 true) [ "align"(ptr %24, i64 8) ]
   %25 = load ptr, ptr %24, align 8, !invariant.load !4, !noalias !14350, !nonnull !4
   invoke void %25(ptr noundef nonnull align 1 %23)
           to label %34 unwind label %26, !noalias !14350
@@ -57396,6 +57418,7 @@ _ZN3std9panicking3try17hc842071ba3c35bc1E.exit.i: ; preds = %7
   %23 = load ptr, ptr %2, align 8, !noalias !14371, !nonnull !4, !align !156
   %24 = load ptr, ptr %.sroa.422.0..sroa_idx.i, align 8, !noalias !14371, !nonnull !4, !align !86
   call void @llvm.lifetime.end.p0(i64 328, ptr nonnull %2), !noalias !14371
+  call void @llvm.assume(i1 true) [ "align"(ptr %24, i64 8) ]
   %25 = load ptr, ptr %24, align 8, !invariant.load !4, !noalias !14374, !nonnull !4
   invoke void %25(ptr noundef nonnull align 1 %23)
           to label %34 unwind label %26, !noalias !14374
@@ -57582,6 +57605,7 @@ _ZN3std9panicking3try17h3b9cbec141dfc3b1E.exit.i: ; preds = %7
   %23 = load ptr, ptr %2, align 8, !noalias !14395, !nonnull !4, !align !156
   %24 = load ptr, ptr %.sroa.422.0..sroa_idx.i, align 8, !noalias !14395, !nonnull !4, !align !86
   call void @llvm.lifetime.end.p0(i64 328, ptr nonnull %2), !noalias !14395
+  call void @llvm.assume(i1 true) [ "align"(ptr %24, i64 8) ]
   %25 = load ptr, ptr %24, align 8, !invariant.load !4, !noalias !14398, !nonnull !4
   invoke void %25(ptr noundef nonnull align 1 %23)
           to label %34 unwind label %26, !noalias !14398
@@ -57768,6 +57792,7 @@ _ZN3std9panicking3try17h9eadc09df73fca32E.exit.i: ; preds = %7
   %23 = load ptr, ptr %2, align 8, !noalias !14419, !nonnull !4, !align !156
   %24 = load ptr, ptr %.sroa.422.0..sroa_idx.i, align 8, !noalias !14419, !nonnull !4, !align !86
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %2), !noalias !14419
+  call void @llvm.assume(i1 true) [ "align"(ptr %24, i64 8) ]
   %25 = load ptr, ptr %24, align 8, !invariant.load !4, !noalias !14422, !nonnull !4
   invoke void %25(ptr noundef nonnull align 1 %23)
           to label %34 unwind label %26, !noalias !14422
@@ -57954,6 +57979,7 @@ _ZN3std9panicking3try17h2f48d7d23348a695E.exit.i: ; preds = %7
   %23 = load ptr, ptr %2, align 8, !noalias !14443, !nonnull !4, !align !156
   %24 = load ptr, ptr %.sroa.422.0..sroa_idx.i, align 8, !noalias !14443, !nonnull !4, !align !86
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %2), !noalias !14443
+  call void @llvm.assume(i1 true) [ "align"(ptr %24, i64 8) ]
   %25 = load ptr, ptr %24, align 8, !invariant.load !4, !noalias !14446, !nonnull !4
   invoke void %25(ptr noundef nonnull align 1 %23)
           to label %34 unwind label %26, !noalias !14446
@@ -58140,6 +58166,7 @@ _ZN3std9panicking3try17h2f90b70e81e065d1E.exit.i: ; preds = %7
   %23 = load ptr, ptr %2, align 8, !noalias !14467, !nonnull !4, !align !156
   %24 = load ptr, ptr %.sroa.422.0..sroa_idx.i, align 8, !noalias !14467, !nonnull !4, !align !86
   call void @llvm.lifetime.end.p0(i64 328, ptr nonnull %2), !noalias !14467
+  call void @llvm.assume(i1 true) [ "align"(ptr %24, i64 8) ]
   %25 = load ptr, ptr %24, align 8, !invariant.load !4, !noalias !14470, !nonnull !4
   invoke void %25(ptr noundef nonnull align 1 %23)
           to label %34 unwind label %26, !noalias !14470
@@ -58326,6 +58353,7 @@ _ZN3std9panicking3try17h0a4b332068533f9eE.exit.i: ; preds = %7
   %23 = load ptr, ptr %2, align 8, !noalias !14491, !nonnull !4, !align !156
   %24 = load ptr, ptr %.sroa.422.0..sroa_idx.i, align 8, !noalias !14491, !nonnull !4, !align !86
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %2), !noalias !14491
+  call void @llvm.assume(i1 true) [ "align"(ptr %24, i64 8) ]
   %25 = load ptr, ptr %24, align 8, !invariant.load !4, !noalias !14494, !nonnull !4
   invoke void %25(ptr noundef nonnull align 1 %23)
           to label %34 unwind label %26, !noalias !14494
@@ -58512,6 +58540,7 @@ _ZN3std9panicking3try17h6327547b65202834E.exit.i: ; preds = %7
   %23 = load ptr, ptr %2, align 8, !noalias !14515, !nonnull !4, !align !156
   %24 = load ptr, ptr %.sroa.422.0..sroa_idx.i, align 8, !noalias !14515, !nonnull !4, !align !86
   call void @llvm.lifetime.end.p0(i64 328, ptr nonnull %2), !noalias !14515
+  call void @llvm.assume(i1 true) [ "align"(ptr %24, i64 8) ]
   %25 = load ptr, ptr %24, align 8, !invariant.load !4, !noalias !14518, !nonnull !4
   invoke void %25(ptr noundef nonnull align 1 %23)
           to label %34 unwind label %26, !noalias !14518
@@ -58698,6 +58727,7 @@ _ZN3std9panicking3try17h575f0750b4a99b86E.exit.i: ; preds = %7
   %23 = load ptr, ptr %2, align 8, !noalias !14539, !nonnull !4, !align !156
   %24 = load ptr, ptr %.sroa.422.0..sroa_idx.i, align 8, !noalias !14539, !nonnull !4, !align !86
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %2), !noalias !14539
+  call void @llvm.assume(i1 true) [ "align"(ptr %24, i64 8) ]
   %25 = load ptr, ptr %24, align 8, !invariant.load !4, !noalias !14542, !nonnull !4
   invoke void %25(ptr noundef nonnull align 1 %23)
           to label %34 unwind label %26, !noalias !14542
@@ -58884,6 +58914,7 @@ _ZN3std9panicking3try17h89229bd15630e010E.exit.i: ; preds = %7
   %23 = load ptr, ptr %2, align 8, !noalias !14563, !nonnull !4, !align !156
   %24 = load ptr, ptr %.sroa.422.0..sroa_idx.i, align 8, !noalias !14563, !nonnull !4, !align !86
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %2), !noalias !14563
+  call void @llvm.assume(i1 true) [ "align"(ptr %24, i64 8) ]
   %25 = load ptr, ptr %24, align 8, !invariant.load !4, !noalias !14566, !nonnull !4
   invoke void %25(ptr noundef nonnull align 1 %23)
           to label %34 unwind label %26, !noalias !14566
@@ -59070,6 +59101,7 @@ _ZN3std9panicking3try17hc2c85c541c1548b1E.exit.i: ; preds = %7
   %23 = load ptr, ptr %2, align 8, !noalias !14587, !nonnull !4, !align !156
   %24 = load ptr, ptr %.sroa.422.0..sroa_idx.i, align 8, !noalias !14587, !nonnull !4, !align !86
   call void @llvm.lifetime.end.p0(i64 328, ptr nonnull %2), !noalias !14587
+  call void @llvm.assume(i1 true) [ "align"(ptr %24, i64 8) ]
   %25 = load ptr, ptr %24, align 8, !invariant.load !4, !noalias !14590, !nonnull !4
   invoke void %25(ptr noundef nonnull align 1 %23)
           to label %34 unwind label %26, !noalias !14590
@@ -59256,6 +59288,7 @@ _ZN3std9panicking3try17hc92d64ff599c4029E.exit.i: ; preds = %7
   %23 = load ptr, ptr %2, align 8, !noalias !14611, !nonnull !4, !align !156
   %24 = load ptr, ptr %.sroa.422.0..sroa_idx.i, align 8, !noalias !14611, !nonnull !4, !align !86
   call void @llvm.lifetime.end.p0(i64 328, ptr nonnull %2), !noalias !14611
+  call void @llvm.assume(i1 true) [ "align"(ptr %24, i64 8) ]
   %25 = load ptr, ptr %24, align 8, !invariant.load !4, !noalias !14614, !nonnull !4
   invoke void %25(ptr noundef nonnull align 1 %23)
           to label %34 unwind label %26, !noalias !14614
@@ -59442,6 +59475,7 @@ _ZN3std9panicking3try17h9065555a62f7a6aaE.exit.i: ; preds = %7
   %23 = load ptr, ptr %2, align 8, !noalias !14635, !nonnull !4, !align !156
   %24 = load ptr, ptr %.sroa.422.0..sroa_idx.i, align 8, !noalias !14635, !nonnull !4, !align !86
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %2), !noalias !14635
+  call void @llvm.assume(i1 true) [ "align"(ptr %24, i64 8) ]
   %25 = load ptr, ptr %24, align 8, !invariant.load !4, !noalias !14638, !nonnull !4
   invoke void %25(ptr noundef nonnull align 1 %23)
           to label %34 unwind label %26, !noalias !14638
@@ -59628,6 +59662,7 @@ _ZN3std9panicking3try17h4be273acc0840216E.exit.i: ; preds = %7
   %23 = load ptr, ptr %2, align 8, !noalias !14659, !nonnull !4, !align !156
   %24 = load ptr, ptr %.sroa.422.0..sroa_idx.i, align 8, !noalias !14659, !nonnull !4, !align !86
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %2), !noalias !14659
+  call void @llvm.assume(i1 true) [ "align"(ptr %24, i64 8) ]
   %25 = load ptr, ptr %24, align 8, !invariant.load !4, !noalias !14662, !nonnull !4
   invoke void %25(ptr noundef nonnull align 1 %23)
           to label %34 unwind label %26, !noalias !14662
@@ -59823,6 +59858,7 @@ _ZN3std9panicking3try17h4e59730a34316385E.exit.i: ; preds = %7
   %23 = load ptr, ptr %2, align 16, !noalias !14683, !nonnull !4, !align !156
   %24 = load ptr, ptr %.sroa.421.sroa.4.0..sroa.421.0..sroa_idx.sroa_idx.i, align 8, !noalias !14683, !nonnull !4, !align !86
   call void @llvm.lifetime.end.p0(i64 240, ptr nonnull %2), !noalias !14683
+  call void @llvm.assume(i1 true) [ "align"(ptr %24, i64 8) ]
   %25 = load ptr, ptr %24, align 8, !invariant.load !4, !noalias !14686, !nonnull !4
   invoke void %25(ptr noundef nonnull align 1 %23)
           to label %34 unwind label %26, !noalias !14686
@@ -60013,6 +60049,7 @@ _ZN3std9panicking3try17h39ec7f5147c24e63E.exit.i: ; preds = %7
   %23 = load ptr, ptr %2, align 8, !noalias !14707, !nonnull !4, !align !156
   %24 = load ptr, ptr %.sroa.422.0..sroa_idx.i, align 8, !noalias !14707, !nonnull !4, !align !86
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %2), !noalias !14707
+  call void @llvm.assume(i1 true) [ "align"(ptr %24, i64 8) ]
   %25 = load ptr, ptr %24, align 8, !invariant.load !4, !noalias !14710, !nonnull !4
   invoke void %25(ptr noundef nonnull align 1 %23)
           to label %34 unwind label %26, !noalias !14710
@@ -60199,6 +60236,7 @@ _ZN3std9panicking3try17h9242a93fef3d4b3aE.exit.i: ; preds = %7
   %23 = load ptr, ptr %2, align 8, !noalias !14731, !nonnull !4, !align !156
   %24 = load ptr, ptr %.sroa.422.0..sroa_idx.i, align 8, !noalias !14731, !nonnull !4, !align !86
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %2), !noalias !14731
+  call void @llvm.assume(i1 true) [ "align"(ptr %24, i64 8) ]
   %25 = load ptr, ptr %24, align 8, !invariant.load !4, !noalias !14734, !nonnull !4
   invoke void %25(ptr noundef nonnull align 1 %23)
           to label %34 unwind label %26, !noalias !14734
@@ -60385,6 +60423,7 @@ _ZN3std9panicking3try17h5a18e90976750432E.exit.i: ; preds = %7
   %23 = load ptr, ptr %2, align 8, !noalias !14755, !nonnull !4, !align !156
   %24 = load ptr, ptr %.sroa.422.0..sroa_idx.i, align 8, !noalias !14755, !nonnull !4, !align !86
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %2), !noalias !14755
+  call void @llvm.assume(i1 true) [ "align"(ptr %24, i64 8) ]
   %25 = load ptr, ptr %24, align 8, !invariant.load !4, !noalias !14758, !nonnull !4
   invoke void %25(ptr noundef nonnull align 1 %23)
           to label %34 unwind label %26, !noalias !14758
@@ -60571,6 +60610,7 @@ _ZN3std9panicking3try17hbc3c7d81f9491b37E.exit.i: ; preds = %7
   %23 = load ptr, ptr %2, align 8, !noalias !14779, !nonnull !4, !align !156
   %24 = load ptr, ptr %.sroa.422.0..sroa_idx.i, align 8, !noalias !14779, !nonnull !4, !align !86
   call void @llvm.lifetime.end.p0(i64 328, ptr nonnull %2), !noalias !14779
+  call void @llvm.assume(i1 true) [ "align"(ptr %24, i64 8) ]
   %25 = load ptr, ptr %24, align 8, !invariant.load !4, !noalias !14782, !nonnull !4
   invoke void %25(ptr noundef nonnull align 1 %23)
           to label %34 unwind label %26, !noalias !14782
@@ -60757,6 +60797,7 @@ _ZN3std9panicking3try17h03aab7c78461fc1aE.exit.i: ; preds = %7
   %23 = load ptr, ptr %2, align 8, !noalias !14803, !nonnull !4, !align !156
   %24 = load ptr, ptr %.sroa.422.0..sroa_idx.i, align 8, !noalias !14803, !nonnull !4, !align !86
   call void @llvm.lifetime.end.p0(i64 328, ptr nonnull %2), !noalias !14803
+  call void @llvm.assume(i1 true) [ "align"(ptr %24, i64 8) ]
   %25 = load ptr, ptr %24, align 8, !invariant.load !4, !noalias !14806, !nonnull !4
   invoke void %25(ptr noundef nonnull align 1 %23)
           to label %34 unwind label %26, !noalias !14806
@@ -60943,6 +60984,7 @@ _ZN3std9panicking3try17hc45f4d5b3e8473bdE.exit.i: ; preds = %7
   %23 = load ptr, ptr %2, align 8, !noalias !14827, !nonnull !4, !align !156
   %24 = load ptr, ptr %.sroa.422.0..sroa_idx.i, align 8, !noalias !14827, !nonnull !4, !align !86
   call void @llvm.lifetime.end.p0(i64 328, ptr nonnull %2), !noalias !14827
+  call void @llvm.assume(i1 true) [ "align"(ptr %24, i64 8) ]
   %25 = load ptr, ptr %24, align 8, !invariant.load !4, !noalias !14830, !nonnull !4
   invoke void %25(ptr noundef nonnull align 1 %23)
           to label %34 unwind label %26, !noalias !14830
@@ -61129,6 +61171,7 @@ _ZN3std9panicking3try17h6308a367eebe36d4E.exit.i: ; preds = %7
   %23 = load ptr, ptr %2, align 8, !noalias !14851, !nonnull !4, !align !156
   %24 = load ptr, ptr %.sroa.422.0..sroa_idx.i, align 8, !noalias !14851, !nonnull !4, !align !86
   call void @llvm.lifetime.end.p0(i64 328, ptr nonnull %2), !noalias !14851
+  call void @llvm.assume(i1 true) [ "align"(ptr %24, i64 8) ]
   %25 = load ptr, ptr %24, align 8, !invariant.load !4, !noalias !14854, !nonnull !4
   invoke void %25(ptr noundef nonnull align 1 %23)
           to label %34 unwind label %26, !noalias !14854
@@ -61315,6 +61358,7 @@ _ZN3std9panicking3try17he81e62fd16a534dfE.exit.i: ; preds = %7
   %23 = load ptr, ptr %2, align 8, !noalias !14875, !nonnull !4, !align !156
   %24 = load ptr, ptr %.sroa.422.0..sroa_idx.i, align 8, !noalias !14875, !nonnull !4, !align !86
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %2), !noalias !14875
+  call void @llvm.assume(i1 true) [ "align"(ptr %24, i64 8) ]
   %25 = load ptr, ptr %24, align 8, !invariant.load !4, !noalias !14878, !nonnull !4
   invoke void %25(ptr noundef nonnull align 1 %23)
           to label %34 unwind label %26, !noalias !14878
@@ -61510,6 +61554,7 @@ _ZN3std9panicking3try17hf91784016dcd7b58E.exit.i: ; preds = %7
   %23 = load ptr, ptr %2, align 16, !noalias !14899, !nonnull !4, !align !156
   %24 = load ptr, ptr %.sroa.421.sroa.4.0..sroa.421.0..sroa_idx.sroa_idx.i, align 8, !noalias !14899, !nonnull !4, !align !86
   call void @llvm.lifetime.end.p0(i64 240, ptr nonnull %2), !noalias !14899
+  call void @llvm.assume(i1 true) [ "align"(ptr %24, i64 8) ]
   %25 = load ptr, ptr %24, align 8, !invariant.load !4, !noalias !14902, !nonnull !4
   invoke void %25(ptr noundef nonnull align 1 %23)
           to label %34 unwind label %26, !noalias !14902
@@ -61700,6 +61745,7 @@ _ZN3std9panicking3try17h9862b904b9eaaef4E.exit.i: ; preds = %7
   %23 = load ptr, ptr %2, align 8, !noalias !14923, !nonnull !4, !align !156
   %24 = load ptr, ptr %.sroa.422.0..sroa_idx.i, align 8, !noalias !14923, !nonnull !4, !align !86
   call void @llvm.lifetime.end.p0(i64 328, ptr nonnull %2), !noalias !14923
+  call void @llvm.assume(i1 true) [ "align"(ptr %24, i64 8) ]
   %25 = load ptr, ptr %24, align 8, !invariant.load !4, !noalias !14926, !nonnull !4
   invoke void %25(ptr noundef nonnull align 1 %23)
           to label %34 unwind label %26, !noalias !14926
@@ -61886,6 +61932,7 @@ _ZN3std9panicking3try17h4957f6649e054187E.exit.i: ; preds = %7
   %23 = load ptr, ptr %2, align 8, !noalias !14947, !nonnull !4, !align !156
   %24 = load ptr, ptr %.sroa.422.0..sroa_idx.i, align 8, !noalias !14947, !nonnull !4, !align !86
   call void @llvm.lifetime.end.p0(i64 328, ptr nonnull %2), !noalias !14947
+  call void @llvm.assume(i1 true) [ "align"(ptr %24, i64 8) ]
   %25 = load ptr, ptr %24, align 8, !invariant.load !4, !noalias !14950, !nonnull !4
   invoke void %25(ptr noundef nonnull align 1 %23)
           to label %34 unwind label %26, !noalias !14950
@@ -62072,6 +62119,7 @@ _ZN3std9panicking3try17h7e3b0add9673d7dfE.exit.i: ; preds = %7
   %23 = load ptr, ptr %2, align 8, !noalias !14971, !nonnull !4, !align !156
   %24 = load ptr, ptr %.sroa.422.0..sroa_idx.i, align 8, !noalias !14971, !nonnull !4, !align !86
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %2), !noalias !14971
+  call void @llvm.assume(i1 true) [ "align"(ptr %24, i64 8) ]
   %25 = load ptr, ptr %24, align 8, !invariant.load !4, !noalias !14974, !nonnull !4
   invoke void %25(ptr noundef nonnull align 1 %23)
           to label %34 unwind label %26, !noalias !14974
@@ -62258,6 +62306,7 @@ _ZN3std9panicking3try17hcfea2626d52c7fb6E.exit.i: ; preds = %7
   %23 = load ptr, ptr %2, align 8, !noalias !14995, !nonnull !4, !align !156
   %24 = load ptr, ptr %.sroa.422.0..sroa_idx.i, align 8, !noalias !14995, !nonnull !4, !align !86
   call void @llvm.lifetime.end.p0(i64 328, ptr nonnull %2), !noalias !14995
+  call void @llvm.assume(i1 true) [ "align"(ptr %24, i64 8) ]
   %25 = load ptr, ptr %24, align 8, !invariant.load !4, !noalias !14998, !nonnull !4
   invoke void %25(ptr noundef nonnull align 1 %23)
           to label %34 unwind label %26, !noalias !14998
@@ -62444,6 +62493,7 @@ _ZN3std9panicking3try17h46106c1a28000e17E.exit.i: ; preds = %7
   %23 = load ptr, ptr %2, align 8, !noalias !15019, !nonnull !4, !align !156
   %24 = load ptr, ptr %.sroa.422.0..sroa_idx.i, align 8, !noalias !15019, !nonnull !4, !align !86
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %2), !noalias !15019
+  call void @llvm.assume(i1 true) [ "align"(ptr %24, i64 8) ]
   %25 = load ptr, ptr %24, align 8, !invariant.load !4, !noalias !15022, !nonnull !4
   invoke void %25(ptr noundef nonnull align 1 %23)
           to label %34 unwind label %26, !noalias !15022
@@ -62630,6 +62680,7 @@ _ZN3std9panicking3try17h0aeade4215a883c4E.exit.i: ; preds = %7
   %23 = load ptr, ptr %2, align 8, !noalias !15043, !nonnull !4, !align !156
   %24 = load ptr, ptr %.sroa.422.0..sroa_idx.i, align 8, !noalias !15043, !nonnull !4, !align !86
   call void @llvm.lifetime.end.p0(i64 328, ptr nonnull %2), !noalias !15043
+  call void @llvm.assume(i1 true) [ "align"(ptr %24, i64 8) ]
   %25 = load ptr, ptr %24, align 8, !invariant.load !4, !noalias !15046, !nonnull !4
   invoke void %25(ptr noundef nonnull align 1 %23)
           to label %34 unwind label %26, !noalias !15046
@@ -62816,6 +62867,7 @@ _ZN3std9panicking3try17ha0c477b04f85bbc3E.exit.i: ; preds = %7
   %23 = load ptr, ptr %2, align 8, !noalias !15067, !nonnull !4, !align !156
   %24 = load ptr, ptr %.sroa.422.0..sroa_idx.i, align 8, !noalias !15067, !nonnull !4, !align !86
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %2), !noalias !15067
+  call void @llvm.assume(i1 true) [ "align"(ptr %24, i64 8) ]
   %25 = load ptr, ptr %24, align 8, !invariant.load !4, !noalias !15070, !nonnull !4
   invoke void %25(ptr noundef nonnull align 1 %23)
           to label %34 unwind label %26, !noalias !15070
@@ -63002,6 +63054,7 @@ _ZN3std9panicking3try17h0219ac73e3bca571E.exit.i: ; preds = %7
   %23 = load ptr, ptr %2, align 8, !noalias !15091, !nonnull !4, !align !156
   %24 = load ptr, ptr %.sroa.422.0..sroa_idx.i, align 8, !noalias !15091, !nonnull !4, !align !86
   call void @llvm.lifetime.end.p0(i64 192, ptr nonnull %2), !noalias !15091
+  call void @llvm.assume(i1 true) [ "align"(ptr %24, i64 8) ]
   %25 = load ptr, ptr %24, align 8, !invariant.load !4, !noalias !15094, !nonnull !4
   invoke void %25(ptr noundef nonnull align 1 %23)
           to label %34 unwind label %26, !noalias !15094
@@ -63188,6 +63241,7 @@ _ZN3std9panicking3try17hf77d4490c1d064b1E.exit.i: ; preds = %7
   %23 = load ptr, ptr %2, align 8, !noalias !15115, !nonnull !4, !align !156
   %24 = load ptr, ptr %.sroa.422.0..sroa_idx.i, align 8, !noalias !15115, !nonnull !4, !align !86
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %2), !noalias !15115
+  call void @llvm.assume(i1 true) [ "align"(ptr %24, i64 8) ]
   %25 = load ptr, ptr %24, align 8, !invariant.load !4, !noalias !15118, !nonnull !4
   invoke void %25(ptr noundef nonnull align 1 %23)
           to label %34 unwind label %26, !noalias !15118
@@ -63374,6 +63428,7 @@ _ZN3std9panicking3try17h210fccc5846e04faE.exit.i: ; preds = %7
   %23 = load ptr, ptr %2, align 8, !noalias !15139, !nonnull !4, !align !156
   %24 = load ptr, ptr %.sroa.422.0..sroa_idx.i, align 8, !noalias !15139, !nonnull !4, !align !86
   call void @llvm.lifetime.end.p0(i64 328, ptr nonnull %2), !noalias !15139
+  call void @llvm.assume(i1 true) [ "align"(ptr %24, i64 8) ]
   %25 = load ptr, ptr %24, align 8, !invariant.load !4, !noalias !15142, !nonnull !4
   invoke void %25(ptr noundef nonnull align 1 %23)
           to label %34 unwind label %26, !noalias !15142
@@ -63569,6 +63624,7 @@ _ZN3std9panicking3try17h0afead1cda3c0bd3E.exit.i: ; preds = %7
   %23 = load ptr, ptr %2, align 16, !noalias !15163, !nonnull !4, !align !156
   %24 = load ptr, ptr %.sroa.421.sroa.4.0..sroa.421.0..sroa_idx.sroa_idx.i, align 8, !noalias !15163, !nonnull !4, !align !86
   call void @llvm.lifetime.end.p0(i64 240, ptr nonnull %2), !noalias !15163
+  call void @llvm.assume(i1 true) [ "align"(ptr %24, i64 8) ]
   %25 = load ptr, ptr %24, align 8, !invariant.load !4, !noalias !15166, !nonnull !4
   invoke void %25(ptr noundef nonnull align 1 %23)
           to label %34 unwind label %26, !noalias !15166
@@ -63759,6 +63815,7 @@ _ZN3std9panicking3try17hff594784987cd476E.exit.i: ; preds = %7
   %23 = load ptr, ptr %2, align 8, !noalias !15187, !nonnull !4, !align !156
   %24 = load ptr, ptr %.sroa.422.0..sroa_idx.i, align 8, !noalias !15187, !nonnull !4, !align !86
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %2), !noalias !15187
+  call void @llvm.assume(i1 true) [ "align"(ptr %24, i64 8) ]
   %25 = load ptr, ptr %24, align 8, !invariant.load !4, !noalias !15190, !nonnull !4
   invoke void %25(ptr noundef nonnull align 1 %23)
           to label %34 unwind label %26, !noalias !15190
@@ -63945,6 +64002,7 @@ _ZN3std9panicking3try17hd4ac189ee422a626E.exit.i: ; preds = %7
   %23 = load ptr, ptr %2, align 8, !noalias !15211, !nonnull !4, !align !156
   %24 = load ptr, ptr %.sroa.422.0..sroa_idx.i, align 8, !noalias !15211, !nonnull !4, !align !86
   call void @llvm.lifetime.end.p0(i64 328, ptr nonnull %2), !noalias !15211
+  call void @llvm.assume(i1 true) [ "align"(ptr %24, i64 8) ]
   %25 = load ptr, ptr %24, align 8, !invariant.load !4, !noalias !15214, !nonnull !4
   invoke void %25(ptr noundef nonnull align 1 %23)
           to label %34 unwind label %26, !noalias !15214
@@ -64131,6 +64189,7 @@ _ZN3std9panicking3try17hdbb76dc38eddcb9aE.exit.i: ; preds = %7
   %23 = load ptr, ptr %2, align 8, !noalias !15235, !nonnull !4, !align !156
   %24 = load ptr, ptr %.sroa.422.0..sroa_idx.i, align 8, !noalias !15235, !nonnull !4, !align !86
   call void @llvm.lifetime.end.p0(i64 328, ptr nonnull %2), !noalias !15235
+  call void @llvm.assume(i1 true) [ "align"(ptr %24, i64 8) ]
   %25 = load ptr, ptr %24, align 8, !invariant.load !4, !noalias !15238, !nonnull !4
   invoke void %25(ptr noundef nonnull align 1 %23)
           to label %34 unwind label %26, !noalias !15238
@@ -64317,6 +64376,7 @@ _ZN3std9panicking3try17h93dfe72c07496a7cE.exit.i: ; preds = %7
   %23 = load ptr, ptr %2, align 8, !noalias !15259, !nonnull !4, !align !156
   %24 = load ptr, ptr %.sroa.422.0..sroa_idx.i, align 8, !noalias !15259, !nonnull !4, !align !86
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %2), !noalias !15259
+  call void @llvm.assume(i1 true) [ "align"(ptr %24, i64 8) ]
   %25 = load ptr, ptr %24, align 8, !invariant.load !4, !noalias !15262, !nonnull !4
   invoke void %25(ptr noundef nonnull align 1 %23)
           to label %34 unwind label %26, !noalias !15262
@@ -64503,6 +64563,7 @@ _ZN3std9panicking3try17h1227f2eabae084baE.exit.i: ; preds = %7
   %23 = load ptr, ptr %2, align 8, !noalias !15283, !nonnull !4, !align !156
   %24 = load ptr, ptr %.sroa.422.0..sroa_idx.i, align 8, !noalias !15283, !nonnull !4, !align !86
   call void @llvm.lifetime.end.p0(i64 328, ptr nonnull %2), !noalias !15283
+  call void @llvm.assume(i1 true) [ "align"(ptr %24, i64 8) ]
   %25 = load ptr, ptr %24, align 8, !invariant.load !4, !noalias !15286, !nonnull !4
   invoke void %25(ptr noundef nonnull align 1 %23)
           to label %34 unwind label %26, !noalias !15286
@@ -64698,6 +64759,7 @@ _ZN3std9panicking3try17h01d1d2f686f912cdE.exit.i: ; preds = %7
   %23 = load ptr, ptr %2, align 8, !noalias !15307, !nonnull !4, !align !156
   %24 = load ptr, ptr %.sroa.420.sroa.4.0..sroa.420.0..sroa_idx.sroa_idx.i, align 8, !noalias !15307, !nonnull !4, !align !86
   call void @llvm.lifetime.end.p0(i64 232, ptr nonnull %2), !noalias !15307
+  call void @llvm.assume(i1 true) [ "align"(ptr %24, i64 8) ]
   %25 = load ptr, ptr %24, align 8, !invariant.load !4, !noalias !15310, !nonnull !4
   invoke void %25(ptr noundef nonnull align 1 %23)
           to label %34 unwind label %26, !noalias !15310
@@ -64888,6 +64950,7 @@ _ZN3std9panicking3try17h5671425cb9cfd08fE.exit.i: ; preds = %7
   %23 = load ptr, ptr %2, align 8, !noalias !15331, !nonnull !4, !align !156
   %24 = load ptr, ptr %.sroa.422.0..sroa_idx.i, align 8, !noalias !15331, !nonnull !4, !align !86
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %2), !noalias !15331
+  call void @llvm.assume(i1 true) [ "align"(ptr %24, i64 8) ]
   %25 = load ptr, ptr %24, align 8, !invariant.load !4, !noalias !15334, !nonnull !4
   invoke void %25(ptr noundef nonnull align 1 %23)
           to label %34 unwind label %26, !noalias !15334
@@ -65083,6 +65146,7 @@ _ZN3std9panicking3try17hf7266875872d9e83E.exit.i: ; preds = %7
   %23 = load ptr, ptr %2, align 16, !noalias !15355, !nonnull !4, !align !156
   %24 = load ptr, ptr %.sroa.421.sroa.4.0..sroa.421.0..sroa_idx.sroa_idx.i, align 8, !noalias !15355, !nonnull !4, !align !86
   call void @llvm.lifetime.end.p0(i64 240, ptr nonnull %2), !noalias !15355
+  call void @llvm.assume(i1 true) [ "align"(ptr %24, i64 8) ]
   %25 = load ptr, ptr %24, align 8, !invariant.load !4, !noalias !15358, !nonnull !4
   invoke void %25(ptr noundef nonnull align 1 %23)
           to label %34 unwind label %26, !noalias !15358
@@ -65273,6 +65337,7 @@ _ZN3std9panicking3try17h303d968be3846d77E.exit.i: ; preds = %7
   %23 = load ptr, ptr %2, align 8, !noalias !15379, !nonnull !4, !align !156
   %24 = load ptr, ptr %.sroa.422.0..sroa_idx.i, align 8, !noalias !15379, !nonnull !4, !align !86
   call void @llvm.lifetime.end.p0(i64 328, ptr nonnull %2), !noalias !15379
+  call void @llvm.assume(i1 true) [ "align"(ptr %24, i64 8) ]
   %25 = load ptr, ptr %24, align 8, !invariant.load !4, !noalias !15382, !nonnull !4
   invoke void %25(ptr noundef nonnull align 1 %23)
           to label %34 unwind label %26, !noalias !15382
@@ -65459,6 +65524,7 @@ _ZN3std9panicking3try17h0c1c511af0fb9aceE.exit.i: ; preds = %7
   %23 = load ptr, ptr %2, align 8, !noalias !15403, !nonnull !4, !align !156
   %24 = load ptr, ptr %.sroa.422.0..sroa_idx.i, align 8, !noalias !15403, !nonnull !4, !align !86
   call void @llvm.lifetime.end.p0(i64 328, ptr nonnull %2), !noalias !15403
+  call void @llvm.assume(i1 true) [ "align"(ptr %24, i64 8) ]
   %25 = load ptr, ptr %24, align 8, !invariant.load !4, !noalias !15406, !nonnull !4
   invoke void %25(ptr noundef nonnull align 1 %23)
           to label %34 unwind label %26, !noalias !15406
@@ -65645,6 +65711,7 @@ _ZN3std9panicking3try17h8a32a3d7c717d0c0E.exit.i: ; preds = %7
   %23 = load ptr, ptr %2, align 8, !noalias !15427, !nonnull !4, !align !156
   %24 = load ptr, ptr %.sroa.422.0..sroa_idx.i, align 8, !noalias !15427, !nonnull !4, !align !86
   call void @llvm.lifetime.end.p0(i64 328, ptr nonnull %2), !noalias !15427
+  call void @llvm.assume(i1 true) [ "align"(ptr %24, i64 8) ]
   %25 = load ptr, ptr %24, align 8, !invariant.load !4, !noalias !15430, !nonnull !4
   invoke void %25(ptr noundef nonnull align 1 %23)
           to label %34 unwind label %26, !noalias !15430
@@ -65831,6 +65898,7 @@ _ZN3std9panicking3try17h27572361395faa7cE.exit.i: ; preds = %7
   %23 = load ptr, ptr %2, align 8, !noalias !15451, !nonnull !4, !align !156
   %24 = load ptr, ptr %.sroa.422.0..sroa_idx.i, align 8, !noalias !15451, !nonnull !4, !align !86
   call void @llvm.lifetime.end.p0(i64 328, ptr nonnull %2), !noalias !15451
+  call void @llvm.assume(i1 true) [ "align"(ptr %24, i64 8) ]
   %25 = load ptr, ptr %24, align 8, !invariant.load !4, !noalias !15454, !nonnull !4
   invoke void %25(ptr noundef nonnull align 1 %23)
           to label %34 unwind label %26, !noalias !15454
@@ -66017,6 +66085,7 @@ _ZN3std9panicking3try17hcee7ac9386fc9edcE.exit.i: ; preds = %7
   %23 = load ptr, ptr %2, align 8, !noalias !15475, !nonnull !4, !align !156
   %24 = load ptr, ptr %.sroa.422.0..sroa_idx.i, align 8, !noalias !15475, !nonnull !4, !align !86
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %2), !noalias !15475
+  call void @llvm.assume(i1 true) [ "align"(ptr %24, i64 8) ]
   %25 = load ptr, ptr %24, align 8, !invariant.load !4, !noalias !15478, !nonnull !4
   invoke void %25(ptr noundef nonnull align 1 %23)
           to label %34 unwind label %26, !noalias !15478
@@ -66203,6 +66272,7 @@ _ZN3std9panicking3try17h3d2024e4c21dfbd5E.exit.i: ; preds = %7
   %23 = load ptr, ptr %2, align 8, !noalias !15499, !nonnull !4, !align !156
   %24 = load ptr, ptr %.sroa.422.0..sroa_idx.i, align 8, !noalias !15499, !nonnull !4, !align !86
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %2), !noalias !15499
+  call void @llvm.assume(i1 true) [ "align"(ptr %24, i64 8) ]
   %25 = load ptr, ptr %24, align 8, !invariant.load !4, !noalias !15502, !nonnull !4
   invoke void %25(ptr noundef nonnull align 1 %23)
           to label %34 unwind label %26, !noalias !15502
@@ -66389,6 +66459,7 @@ _ZN3std9panicking3try17he40ac86a09a41167E.exit.i: ; preds = %7
   %23 = load ptr, ptr %2, align 8, !noalias !15523, !nonnull !4, !align !156
   %24 = load ptr, ptr %.sroa.422.0..sroa_idx.i, align 8, !noalias !15523, !nonnull !4, !align !86
   call void @llvm.lifetime.end.p0(i64 328, ptr nonnull %2), !noalias !15523
+  call void @llvm.assume(i1 true) [ "align"(ptr %24, i64 8) ]
   %25 = load ptr, ptr %24, align 8, !invariant.load !4, !noalias !15526, !nonnull !4
   invoke void %25(ptr noundef nonnull align 1 %23)
           to label %34 unwind label %26, !noalias !15526
@@ -66575,6 +66646,7 @@ _ZN3std9panicking3try17hbf8a47f89f048f04E.exit.i: ; preds = %7
   %23 = load ptr, ptr %2, align 8, !noalias !15547, !nonnull !4, !align !156
   %24 = load ptr, ptr %.sroa.422.0..sroa_idx.i, align 8, !noalias !15547, !nonnull !4, !align !86
   call void @llvm.lifetime.end.p0(i64 328, ptr nonnull %2), !noalias !15547
+  call void @llvm.assume(i1 true) [ "align"(ptr %24, i64 8) ]
   %25 = load ptr, ptr %24, align 8, !invariant.load !4, !noalias !15550, !nonnull !4
   invoke void %25(ptr noundef nonnull align 1 %23)
           to label %34 unwind label %26, !noalias !15550
@@ -66761,6 +66833,7 @@ _ZN3std9panicking3try17h156b848d98eb6ad1E.exit.i: ; preds = %7
   %23 = load ptr, ptr %2, align 8, !noalias !15571, !nonnull !4, !align !156
   %24 = load ptr, ptr %.sroa.422.0..sroa_idx.i, align 8, !noalias !15571, !nonnull !4, !align !86
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %2), !noalias !15571
+  call void @llvm.assume(i1 true) [ "align"(ptr %24, i64 8) ]
   %25 = load ptr, ptr %24, align 8, !invariant.load !4, !noalias !15574, !nonnull !4
   invoke void %25(ptr noundef nonnull align 1 %23)
           to label %34 unwind label %26, !noalias !15574
@@ -66947,6 +67020,7 @@ _ZN3std9panicking3try17hf6122247617f2d90E.exit.i: ; preds = %7
   %23 = load ptr, ptr %2, align 8, !noalias !15595, !nonnull !4, !align !156
   %24 = load ptr, ptr %.sroa.422.0..sroa_idx.i, align 8, !noalias !15595, !nonnull !4, !align !86
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %2), !noalias !15595
+  call void @llvm.assume(i1 true) [ "align"(ptr %24, i64 8) ]
   %25 = load ptr, ptr %24, align 8, !invariant.load !4, !noalias !15598, !nonnull !4
   invoke void %25(ptr noundef nonnull align 1 %23)
           to label %34 unwind label %26, !noalias !15598
@@ -67133,6 +67207,7 @@ _ZN3std9panicking3try17h75d205f242924638E.exit.i: ; preds = %7
   %23 = load ptr, ptr %2, align 8, !noalias !15619, !nonnull !4, !align !156
   %24 = load ptr, ptr %.sroa.422.0..sroa_idx.i, align 8, !noalias !15619, !nonnull !4, !align !86
   call void @llvm.lifetime.end.p0(i64 328, ptr nonnull %2), !noalias !15619
+  call void @llvm.assume(i1 true) [ "align"(ptr %24, i64 8) ]
   %25 = load ptr, ptr %24, align 8, !invariant.load !4, !noalias !15622, !nonnull !4
   invoke void %25(ptr noundef nonnull align 1 %23)
           to label %34 unwind label %26, !noalias !15622
@@ -67319,6 +67394,7 @@ _ZN3std9panicking3try17hbc1a64c7bb15a6d7E.exit.i: ; preds = %7
   %23 = load ptr, ptr %2, align 8, !noalias !15643, !nonnull !4, !align !156
   %24 = load ptr, ptr %.sroa.422.0..sroa_idx.i, align 8, !noalias !15643, !nonnull !4, !align !86
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %2), !noalias !15643
+  call void @llvm.assume(i1 true) [ "align"(ptr %24, i64 8) ]
   %25 = load ptr, ptr %24, align 8, !invariant.load !4, !noalias !15646, !nonnull !4
   invoke void %25(ptr noundef nonnull align 1 %23)
           to label %34 unwind label %26, !noalias !15646
@@ -67505,6 +67581,7 @@ _ZN3std9panicking3try17h520e934a87791c82E.exit.i: ; preds = %7
   %23 = load ptr, ptr %2, align 8, !noalias !15667, !nonnull !4, !align !156
   %24 = load ptr, ptr %.sroa.422.0..sroa_idx.i, align 8, !noalias !15667, !nonnull !4, !align !86
   call void @llvm.lifetime.end.p0(i64 328, ptr nonnull %2), !noalias !15667
+  call void @llvm.assume(i1 true) [ "align"(ptr %24, i64 8) ]
   %25 = load ptr, ptr %24, align 8, !invariant.load !4, !noalias !15670, !nonnull !4
   invoke void %25(ptr noundef nonnull align 1 %23)
           to label %34 unwind label %26, !noalias !15670
@@ -67679,6 +67756,7 @@ _ZN3std9panicking3try17he3feba9baf051087E.exit.i: ; preds = %7
   %22 = load ptr, ptr %2, align 8, !noalias !15691, !nonnull !4, !align !156
   %23 = load ptr, ptr %.sroa.420.0..sroa_idx.i, align 8, !noalias !15691, !nonnull !4, !align !86
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %2), !noalias !15691
+  call void @llvm.assume(i1 true) [ "align"(ptr %23, i64 8) ]
   %24 = load ptr, ptr %23, align 8, !invariant.load !4, !noalias !15694, !nonnull !4
   invoke void %24(ptr noundef nonnull align 1 %22)
           to label %33 unwind label %25, !noalias !15694
@@ -67861,6 +67939,7 @@ _ZN3std9panicking3try17he4bf322d08db78abE.exit.i: ; preds = %7
   %23 = load ptr, ptr %2, align 8, !noalias !15715, !nonnull !4, !align !156
   %24 = load ptr, ptr %.sroa.422.0..sroa_idx.i, align 8, !noalias !15715, !nonnull !4, !align !86
   call void @llvm.lifetime.end.p0(i64 328, ptr nonnull %2), !noalias !15715
+  call void @llvm.assume(i1 true) [ "align"(ptr %24, i64 8) ]
   %25 = load ptr, ptr %24, align 8, !invariant.load !4, !noalias !15718, !nonnull !4
   invoke void %25(ptr noundef nonnull align 1 %23)
           to label %34 unwind label %26, !noalias !15718
@@ -68028,6 +68107,7 @@ default.unreachable16:                            ; preds = %60, %1
   %28 = load ptr, ptr %6, align 8, !noalias !15738, !nonnull !4, !align !156
   %29 = load ptr, ptr %.sroa.414.0..sroa_idx.i, align 8, !noalias !15738, !nonnull !4, !align !86
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6), !noalias !15738
+  call void @llvm.assume(i1 true) [ "align"(ptr %29, i64 8) ]
   %30 = load ptr, ptr %29, align 8, !invariant.load !4, !noalias !15741, !nonnull !4
   invoke void %30(ptr noundef nonnull align 1 %28)
           to label %39 unwind label %31, !noalias !15741
@@ -68278,6 +68358,7 @@ _ZN3std9panicking3try17h3d514a4431dccd02E.exit.i: ; preds = %7
   %23 = load ptr, ptr %2, align 8, !noalias !15762, !nonnull !4, !align !156
   %24 = load ptr, ptr %.sroa.422.0..sroa_idx.i, align 8, !noalias !15762, !nonnull !4, !align !86
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %2), !noalias !15762
+  call void @llvm.assume(i1 true) [ "align"(ptr %24, i64 8) ]
   %25 = load ptr, ptr %24, align 8, !invariant.load !4, !noalias !15765, !nonnull !4
   invoke void %25(ptr noundef nonnull align 1 %23)
           to label %34 unwind label %26, !noalias !15765
@@ -68464,6 +68545,7 @@ _ZN3std9panicking3try17h17156f9d6bb6446eE.exit.i: ; preds = %7
   %23 = load ptr, ptr %2, align 8, !noalias !15786, !nonnull !4, !align !156
   %24 = load ptr, ptr %.sroa.422.0..sroa_idx.i, align 8, !noalias !15786, !nonnull !4, !align !86
   call void @llvm.lifetime.end.p0(i64 328, ptr nonnull %2), !noalias !15786
+  call void @llvm.assume(i1 true) [ "align"(ptr %24, i64 8) ]
   %25 = load ptr, ptr %24, align 8, !invariant.load !4, !noalias !15789, !nonnull !4
   invoke void %25(ptr noundef nonnull align 1 %23)
           to label %34 unwind label %26, !noalias !15789
@@ -68650,6 +68732,7 @@ _ZN3std9panicking3try17h9d5d3053aff347ddE.exit.i: ; preds = %7
   %23 = load ptr, ptr %2, align 8, !noalias !15810, !nonnull !4, !align !156
   %24 = load ptr, ptr %.sroa.422.0..sroa_idx.i, align 8, !noalias !15810, !nonnull !4, !align !86
   call void @llvm.lifetime.end.p0(i64 328, ptr nonnull %2), !noalias !15810
+  call void @llvm.assume(i1 true) [ "align"(ptr %24, i64 8) ]
   %25 = load ptr, ptr %24, align 8, !invariant.load !4, !noalias !15813, !nonnull !4
   invoke void %25(ptr noundef nonnull align 1 %23)
           to label %34 unwind label %26, !noalias !15813
@@ -68836,6 +68919,7 @@ _ZN3std9panicking3try17h514d46e1968bb6ddE.exit.i: ; preds = %7
   %23 = load ptr, ptr %2, align 8, !noalias !15834, !nonnull !4, !align !156
   %24 = load ptr, ptr %.sroa.422.0..sroa_idx.i, align 8, !noalias !15834, !nonnull !4, !align !86
   call void @llvm.lifetime.end.p0(i64 328, ptr nonnull %2), !noalias !15834
+  call void @llvm.assume(i1 true) [ "align"(ptr %24, i64 8) ]
   %25 = load ptr, ptr %24, align 8, !invariant.load !4, !noalias !15837, !nonnull !4
   invoke void %25(ptr noundef nonnull align 1 %23)
           to label %34 unwind label %26, !noalias !15837
@@ -69022,6 +69106,7 @@ _ZN3std9panicking3try17h6e15a034affe8f73E.exit.i: ; preds = %7
   %23 = load ptr, ptr %2, align 8, !noalias !15858, !nonnull !4, !align !156
   %24 = load ptr, ptr %.sroa.422.0..sroa_idx.i, align 8, !noalias !15858, !nonnull !4, !align !86
   call void @llvm.lifetime.end.p0(i64 192, ptr nonnull %2), !noalias !15858
+  call void @llvm.assume(i1 true) [ "align"(ptr %24, i64 8) ]
   %25 = load ptr, ptr %24, align 8, !invariant.load !4, !noalias !15861, !nonnull !4
   invoke void %25(ptr noundef nonnull align 1 %23)
           to label %34 unwind label %26, !noalias !15861
@@ -69208,6 +69293,7 @@ _ZN3std9panicking3try17h5ceacd4696c55d41E.exit.i: ; preds = %7
   %23 = load ptr, ptr %2, align 8, !noalias !15882, !nonnull !4, !align !156
   %24 = load ptr, ptr %.sroa.422.0..sroa_idx.i, align 8, !noalias !15882, !nonnull !4, !align !86
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %2), !noalias !15882
+  call void @llvm.assume(i1 true) [ "align"(ptr %24, i64 8) ]
   %25 = load ptr, ptr %24, align 8, !invariant.load !4, !noalias !15885, !nonnull !4
   invoke void %25(ptr noundef nonnull align 1 %23)
           to label %34 unwind label %26, !noalias !15885
@@ -69394,6 +69480,7 @@ _ZN3std9panicking3try17hfe729e3606927ecbE.exit.i: ; preds = %7
   %23 = load ptr, ptr %2, align 8, !noalias !15906, !nonnull !4, !align !156
   %24 = load ptr, ptr %.sroa.422.0..sroa_idx.i, align 8, !noalias !15906, !nonnull !4, !align !86
   call void @llvm.lifetime.end.p0(i64 328, ptr nonnull %2), !noalias !15906
+  call void @llvm.assume(i1 true) [ "align"(ptr %24, i64 8) ]
   %25 = load ptr, ptr %24, align 8, !invariant.load !4, !noalias !15909, !nonnull !4
   invoke void %25(ptr noundef nonnull align 1 %23)
           to label %34 unwind label %26, !noalias !15909
@@ -69580,6 +69667,7 @@ _ZN3std9panicking3try17hf86eb0105f8117fbE.exit.i: ; preds = %7
   %23 = load ptr, ptr %2, align 8, !noalias !15930, !nonnull !4, !align !156
   %24 = load ptr, ptr %.sroa.422.0..sroa_idx.i, align 8, !noalias !15930, !nonnull !4, !align !86
   call void @llvm.lifetime.end.p0(i64 328, ptr nonnull %2), !noalias !15930
+  call void @llvm.assume(i1 true) [ "align"(ptr %24, i64 8) ]
   %25 = load ptr, ptr %24, align 8, !invariant.load !4, !noalias !15933, !nonnull !4
   invoke void %25(ptr noundef nonnull align 1 %23)
           to label %34 unwind label %26, !noalias !15933
@@ -69766,6 +69854,7 @@ _ZN3std9panicking3try17h69e1a3dbbbb3384dE.exit.i: ; preds = %7
   %23 = load ptr, ptr %2, align 8, !noalias !15954, !nonnull !4, !align !156
   %24 = load ptr, ptr %.sroa.422.0..sroa_idx.i, align 8, !noalias !15954, !nonnull !4, !align !86
   call void @llvm.lifetime.end.p0(i64 192, ptr nonnull %2), !noalias !15954
+  call void @llvm.assume(i1 true) [ "align"(ptr %24, i64 8) ]
   %25 = load ptr, ptr %24, align 8, !invariant.load !4, !noalias !15957, !nonnull !4
   invoke void %25(ptr noundef nonnull align 1 %23)
           to label %34 unwind label %26, !noalias !15957
@@ -69952,6 +70041,7 @@ _ZN3std9panicking3try17hda6e2454f2ebc592E.exit.i: ; preds = %7
   %23 = load ptr, ptr %2, align 8, !noalias !15978, !nonnull !4, !align !156
   %24 = load ptr, ptr %.sroa.422.0..sroa_idx.i, align 8, !noalias !15978, !nonnull !4, !align !86
   call void @llvm.lifetime.end.p0(i64 328, ptr nonnull %2), !noalias !15978
+  call void @llvm.assume(i1 true) [ "align"(ptr %24, i64 8) ]
   %25 = load ptr, ptr %24, align 8, !invariant.load !4, !noalias !15981, !nonnull !4
   invoke void %25(ptr noundef nonnull align 1 %23)
           to label %34 unwind label %26, !noalias !15981

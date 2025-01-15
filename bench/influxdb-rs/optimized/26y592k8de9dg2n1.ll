@@ -10562,6 +10562,7 @@ define internal fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span
   br i1 %.not4.i, label %"_ZN61_$LT$tracing..span..Span$u20$as$u20$core..ops..drop..Drop$GT$4drop17h7d48cf1ab650ff76E.exit", label %20
 
 20:                                               ; preds = %17
+  call void @llvm.assume(i1 true) [ "align"(ptr %19, i64 8) ]
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %9), !noalias !2103
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8), !noalias !2103
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7), !noalias !2103
@@ -10586,6 +10587,7 @@ define internal fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span
   store i64 1, ptr %30, align 8, !alias.scope !2107, !noalias !2110
   call void @llvm.experimental.noalias.scope.decl(metadata !2113)
   call void @llvm.experimental.noalias.scope.decl(metadata !2116)
+  call void @llvm.assume(i1 true) [ "align"(ptr %19, i64 8) ]
   %31 = load i64, ptr %19, align 8, !range !2118, !noalias !2119, !noundef !4
   %switch.tableidx = add nsw i64 %31, -1
   %32 = icmp ult i64 %switch.tableidx, 4

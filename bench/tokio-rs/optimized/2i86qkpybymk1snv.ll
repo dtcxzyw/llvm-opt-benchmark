@@ -7662,7 +7662,7 @@ define hidden void @_ZN5tokio4sync6notify8Notified7project17hf3b50b385244ccedE(p
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef zeroext i1 @_ZN5tokio4sync6notify8Notified13poll_notified17h5d771669cded7b16E.llvm.10338052584253536188(ptr noundef nonnull align 8 %0, ptr noalias nocapture noundef readonly align 8 dereferenceable_or_null(16) %1) unnamed_addr #4 personality ptr @rust_eh_personality {
+define hidden noundef zeroext i1 @_ZN5tokio4sync6notify8Notified13poll_notified17h5d771669cded7b16E.llvm.10338052584253536188(ptr noundef nonnull align 8 %0, ptr noalias noundef readonly align 8 dereferenceable_or_null(16) %1) unnamed_addr #4 personality ptr @rust_eh_personality {
   %3 = alloca { ptr, [5 x i64] }, align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
@@ -8139,6 +8139,7 @@ _ZN5tokio4sync6notify18AtomicNotification4load17h709ace75ec01c33aE.exit128: ; pr
   br i1 %15, label %"_ZN5tokio4sync6notify8Notified13poll_notified28_$u7b$$u7b$closure$u7d$$u7d$17hae86bc2a2c2dbe9bE.exit", label %155
 
 155:                                              ; preds = %154
+  call void @llvm.assume(i1 true) [ "align"(ptr %1, i64 8) ]
   %156 = load ptr, ptr %19, align 8, !noalias !1499, !noundef !4
   %157 = icmp eq ptr %156, null
   %.pre4.i = load ptr, ptr %16, align 8, !noalias !1499

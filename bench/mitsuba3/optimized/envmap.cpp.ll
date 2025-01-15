@@ -2690,13 +2690,10 @@ _ZNK5drjit6TensorINS_12DynamicArrayIfEEE5shapeEm.exit462: ; preds = %.thread516
   %76 = getelementptr inbounds nuw i8, ptr %.0413524, i64 %.idx458
   call void @llvm.assume(i1 true) [ "align"(ptr %.0413524, i64 16) ]
   %77 = load <4 x float>, ptr %.0413524, align 16
-  call void @llvm.assume(i1 true) [ "align"(ptr %76, i64 16) ]
   %78 = load <4 x float>, ptr %76, align 16
   %79 = fadd contract <4 x float> %77, %78
   %80 = fmul contract <4 x float> %79, splat (float 5.000000e-01)
-  call void @llvm.assume(i1 true) [ "align"(ptr %.0413524, i64 16) ]
   store <4 x float> %80, ptr %.0413524, align 16
-  call void @llvm.assume(i1 true) [ "align"(ptr %76, i64 16) ]
   store <4 x float> %80, ptr %76, align 16
   %.not526 = icmp eq i32 %37, 0
   br i1 %.not526, label %._crit_edge, label %.lr.ph
@@ -2705,7 +2702,6 @@ _ZNK5drjit6TensorINS_12DynamicArrayIfEEE5shapeEm.exit462: ; preds = %.thread516
   %.0410520 = phi i64 [ %121, %.lr.ph ], [ 0, %.lr.ph525 ]
   %.1414519 = phi ptr [ %120, %.lr.ph ], [ %.0413524, %.lr.ph525 ]
   %.1416518 = phi ptr [ %119, %.lr.ph ], [ %.0415523, %.lr.ph525 ]
-  call void @llvm.assume(i1 true) [ "align"(ptr %.1414519, i64 16) ]
   %81 = load <4 x float>, ptr %.1414519, align 16
   %82 = shufflevector <4 x float> %81, <4 x float> poison, <16 x i32> zeroinitializer
   %83 = shufflevector <4 x float> %81, <4 x float> poison, <16 x i32> <i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1>

@@ -903,6 +903,7 @@ define hidden { i64, i8 } @"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C
   br i1 %19, label %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i, label %.loopexit.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i.i:                   ; preds = %14
+  call void @llvm.assume(i1 true) [ "align"(ptr %12, i64 8) ]
   %20 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %.promoted.i.i.i.i.i.i.i.i.i.i.i = load i64, ptr %15, align 8, !alias.scope !229, !noalias !230
   br label %21
@@ -989,6 +990,7 @@ _ZN4core4iter8adapters5chain17and_then_or_clear17h5a977efe23e4feffE.exit.i.i.i.i
   br i1 %56, label %.lr.ph.i.i.i.i.i.i5.i.i.i.i.i.i, label %.loopexit.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i5.i.i.i.i.i.i:                  ; preds = %51
+  call void @llvm.assume(i1 true) [ "align"(ptr %49, i64 8) ]
   %57 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %.promoted.i.i.i.i.i6.i.i.i.i.i.i = load i64, ptr %52, align 8, !alias.scope !269, !noalias !270
   br label %58
@@ -1179,6 +1181,7 @@ define hidden { i64, i8 } @"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C
   br i1 %19, label %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i, label %.loopexit.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i.i:                   ; preds = %14
+  call void @llvm.assume(i1 true) [ "align"(ptr %12, i64 8) ]
   %20 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %.promoted.i.i.i.i.i.i.i.i.i.i.i = load i64, ptr %15, align 8, !alias.scope !381, !noalias !382
   br label %21
@@ -1265,6 +1268,7 @@ _ZN4core4iter8adapters5chain17and_then_or_clear17hc2c85acfe796593cE.exit.i.i.i.i
   br i1 %56, label %.lr.ph.i.i.i.i.i.i5.i.i.i.i.i.i, label %.loopexit.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i5.i.i.i.i.i.i:                  ; preds = %51
+  call void @llvm.assume(i1 true) [ "align"(ptr %49, i64 8) ]
   %57 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %.promoted.i.i.i.i.i6.i.i.i.i.i.i = load i64, ptr %52, align 8, !alias.scope !421, !noalias !422
   br label %58
@@ -1595,6 +1599,7 @@ define hidden { i32, i32 } @"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$
   br i1 %13, label %.lr.ph.i.i.i.i.i, label %46
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %8
+  call void @llvm.assume(i1 true) [ "align"(ptr %7, i64 8) ]
   %.val.i.i.i.i.i.i = load i64, ptr %7, align 8, !noalias !552, !noundef !14
   %14 = and i64 %.val.i.i.i.i.i.i, 1
   %15 = icmp eq i64 %14, 0
@@ -1690,6 +1695,7 @@ define hidden { i32, i32 } @"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$
   br i1 %52, label %.lr.ph.i.i.i24.i.i, label %81
 
 .lr.ph.i.i.i24.i.i:                               ; preds = %47
+  call void @llvm.assume(i1 true) [ "align"(ptr %45, i64 8) ]
   %.promoted.i.i25.i.i = load i64, ptr %48, align 8, !alias.scope !587, !noalias !588
   %53 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %54 = load ptr, ptr %53, align 8, !nonnull !14, !align !591

@@ -5775,6 +5775,7 @@ define void @"_ZN3syn4expr7parsing64_$LT$impl$u20$syn..parse..Parse$u20$for$u20$
 
 18:                                               ; preds = %2
   store ptr %14, ptr %10, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %14, i64 8) ]
   %19 = getelementptr inbounds nuw i8, ptr %14, i64 48
   %20 = load i64, ptr %19, align 8, !noalias !1074, !noundef !12
   %21 = icmp eq i64 %20, 0
@@ -5782,6 +5783,7 @@ define void @"_ZN3syn4expr7parsing64_$LT$impl$u20$syn..parse..Parse$u20$for$u20$
 
 22:                                               ; preds = %18
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8)
+  call void @llvm.assume(i1 true) [ "align"(ptr %14, i64 8) ]
   %23 = load i64, ptr %14, align 8, !range !28, !noalias !1077, !noundef !12
   %24 = icmp eq i64 %23, -9223372036854775808
   br i1 %24, label %25, label %_ZN3syn3lit6LitInt4span17h7bd414cc4186bfdcE.exit
@@ -5793,6 +5795,7 @@ define void @"_ZN3syn4expr7parsing64_$LT$impl$u20$syn..parse..Parse$u20$for$u20$
 
 28:                                               ; preds = %18
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %.sroa.8)
+  call void @llvm.assume(i1 true) [ "align"(ptr %14, i64 8) ]
   %29 = getelementptr inbounds nuw i8, ptr %14, i64 24
   %30 = load ptr, ptr %29, align 8, !noalias !1080, !nonnull !12, !align !106, !noundef !12
   %31 = getelementptr inbounds nuw i8, ptr %14, i64 32

@@ -10080,10 +10080,8 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN3pro7details26copying_default_dispatcherILm8ELm8EEEvPSt4bytePKS2_(ptr noundef %0, ptr noundef %1) #6 comdat personality ptr @__gxx_personality_v0 {
-  call void @llvm.assume(i1 true) [ "align"(ptr %1, i64 8) ]
-  call void @llvm.assume(i1 true) [ "align"(ptr %0, i64 8) ]
-  %3 = load i64, ptr %1, align 8
-  store i64 %3, ptr %0, align 8
+  %3 = load i64, ptr %1, align 1
+  store i64 %3, ptr %0, align 1
   ret void
 }
 
@@ -12081,10 +12079,8 @@ define internal void @"_ZN3pro7details25invocation_dispatcher_refINS0_11inplace_
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN3pro7details26copying_default_dispatcherILm4ELm4EEEvPSt4bytePKS2_(ptr noundef %0, ptr noundef %1) #6 comdat personality ptr @__gxx_personality_v0 {
-  call void @llvm.assume(i1 true) [ "align"(ptr %1, i64 4) ]
-  call void @llvm.assume(i1 true) [ "align"(ptr %0, i64 4) ]
-  %3 = load i32, ptr %1, align 4
-  store i32 %3, ptr %0, align 4
+  %3 = load i32, ptr %1, align 1
+  store i32 %3, ptr %0, align 1
   ret void
 }
 

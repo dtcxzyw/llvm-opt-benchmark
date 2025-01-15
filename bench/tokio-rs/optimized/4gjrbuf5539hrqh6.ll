@@ -762,6 +762,7 @@ common.resume:                                    ; preds = %.body, %29
           to label %common.resume unwind label %98
 
 "_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h0214e404d8f68749E.exit": ; preds = %37
+  call void @llvm.assume(i1 true) [ "align"(ptr %15, i64 8) ]
   %44 = getelementptr inbounds nuw i8, ptr %14, i64 40
   %45 = load i64, ptr %44, align 8, !noundef !5
   store i32 0, ptr %7, align 8
@@ -832,6 +833,7 @@ common.resume:                                    ; preds = %.body, %29
   call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %4), !noalias !42
   store ptr %55, ptr %9, align 8
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %8)
+  call void @llvm.assume(i1 true) [ "align"(ptr %15, i64 8) ]
   %63 = atomicrmw add ptr %55, i64 1 monotonic, align 8
   %64 = icmp slt i64 %63, 0
   br i1 %64, label %65, label %"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h0214e404d8f68749E.exit45"
@@ -900,6 +902,7 @@ common.resume:                                    ; preds = %.body, %29
   store i64 %88, ptr %44, align 8, !alias.scope !55
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
+  call void @llvm.assume(i1 true) [ "align"(ptr %15, i64 8) ]
   %89 = trunc nuw i8 %.0.i.i.i to i1
   br i1 %89, label %_ZN3std4sync6poison4Flag4done17h5bffa24fa61aa5e0E.llvm.17688124612483408026.exit.i.i, label %90
 
@@ -984,6 +987,7 @@ _ZN3std4sync6poison4Flag4done17h5bffa24fa61aa5e0E.llvm.17688124612483408026.exit
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %107, ptr noundef nonnull align 8 dereferenceable(112) %2, i64 112, i1 false), !noalias !71
   call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %2), !noalias !71
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %12)
+  call void @llvm.assume(i1 true) [ "align"(ptr %15, i64 8) ]
   %115 = trunc nuw i8 %.0.i.i.i to i1
   br i1 %115, label %_ZN3std4sync6poison4Flag4done17h5bffa24fa61aa5e0E.llvm.17688124612483408026.exit.i.i53, label %116
 

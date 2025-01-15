@@ -257,7 +257,6 @@ entry:
   %mul.i.i = shl nuw nsw i64 %conv.i, 4
   %add.i.i = or disjoint i64 %mul.i.i, 8
   %call.i.i = tail call noalias noundef nonnull align 8 ptr @_ZnwmSt11align_val_t(i64 noundef %add.i.i, i64 noundef 8) #17
-  call void @llvm.assume(i1 true) [ "align"(ptr %call.i.i, i64 8) ]
   store i64 0, ptr %call.i.i, align 8, !tbaa !15
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %p.i) #18
   %promises.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 8
@@ -335,7 +334,6 @@ entry:
   %mul.i = shl nuw nsw i64 %conv, 4
   %add.i = or disjoint i64 %mul.i, 8
   %call.i = tail call noalias noundef nonnull align 8 ptr @_ZnwmSt11align_val_t(i64 noundef %add.i, i64 noundef 8) #17
-  call void @llvm.assume(i1 true) [ "align"(ptr %call.i, i64 8) ]
   store i64 0, ptr %call.i, align 8, !tbaa !15
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %p) #18
   %promises.i = getelementptr inbounds nuw i8, ptr %call.i, i64 8
@@ -1552,7 +1550,6 @@ if.then:                                          ; preds = %entry
           to label %call.i.i.noexc unwind label %lpad16
 
 call.i.i.noexc:                                   ; preds = %if.then
-  call void @llvm.assume(i1 true) [ "align"(ptr %call.i.i52, i64 8) ]
   store i64 0, ptr %call.i.i52, align 8, !tbaa !15
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %p.i) #18
   %promises.i.i = getelementptr inbounds nuw i8, ptr %call.i.i52, i64 8
