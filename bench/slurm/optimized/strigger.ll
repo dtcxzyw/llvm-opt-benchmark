@@ -41,1082 +41,1081 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   tail call void @parse_command_line(i32 noundef %0, ptr noundef %1) #8
   %11 = load i32, ptr getelementptr inbounds nuw (i8, ptr @params, i64 84), align 4
   %.not = icmp eq i32 %11, 0
-  br i1 %.not, label %16, label %12
+  br i1 %.not, label %15, label %12
 
 12:                                               ; preds = %2
-  %13 = load i32, ptr %9, align 8
-  %14 = add i32 %13, %11
-  store i32 %14, ptr %9, align 8
-  %15 = tail call i32 @log_alter(ptr noundef nonnull byval(%struct.log_options_t) align 8 %9, i32 noundef 24, ptr noundef null) #8
-  br label %16
+  %13 = add i32 %11, 3
+  store i32 %13, ptr %9, align 8
+  %14 = tail call i32 @log_alter(ptr noundef nonnull byval(%struct.log_options_t) align 8 %9, i32 noundef 24, ptr noundef null) #8
+  br label %15
 
-16:                                               ; preds = %12, %2
-  %17 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params, i64 24), align 8
-  %18 = trunc i8 %17 to i1
-  br i1 %18, label %19, label %220
+15:                                               ; preds = %12, %2
+  %16 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params, i64 24), align 8
+  %17 = trunc i8 %16 to i1
+  br i1 %17, label %18, label %219
 
-19:                                               ; preds = %16
+18:                                               ; preds = %15
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %8)
   call void @slurm_init_trigger_msg(ptr noundef nonnull %7) #8
-  %20 = load i32, ptr getelementptr inbounds nuw (i8, ptr @params, i64 20), align 4
-  %.not.i = icmp eq i32 %20, 0
-  br i1 %.not.i, label %38, label %21
+  %19 = load i32, ptr getelementptr inbounds nuw (i8, ptr @params, i64 20), align 4
+  %.not.i = icmp eq i32 %19, 0
+  br i1 %.not.i, label %37, label %20
 
-21:                                               ; preds = %19
-  %22 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store i16 1, ptr %22, align 8
-  %23 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %8, i64 noundef 128, ptr noundef nonnull @.str.2, i32 noundef %20) #8
-  %24 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  store ptr %8, ptr %24, align 8
-  %25 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params, i64 19), align 1
-  %26 = trunc i8 %25 to i1
-  br i1 %26, label %27, label %31
+20:                                               ; preds = %18
+  %21 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  store i16 1, ptr %21, align 8
+  %22 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %8, i64 noundef 128, ptr noundef nonnull @.str.2, i32 noundef %19) #8
+  %23 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  store ptr %8, ptr %23, align 8
+  %24 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params, i64 19), align 1
+  %25 = trunc i8 %24 to i1
+  br i1 %25, label %26, label %30
 
-27:                                               ; preds = %21
-  %28 = getelementptr inbounds nuw i8, ptr %7, i64 28
-  %29 = load i32, ptr %28, align 4
-  %30 = or i32 %29, 16
-  store i32 %30, ptr %28, align 4
-  br label %31
+26:                                               ; preds = %20
+  %27 = getelementptr inbounds nuw i8, ptr %7, i64 28
+  %28 = load i32, ptr %27, align 4
+  %29 = or i32 %28, 16
+  store i32 %29, ptr %27, align 4
+  br label %30
 
-31:                                               ; preds = %27, %21
-  %32 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params, i64 74), align 2
-  %33 = trunc i8 %32 to i1
-  br i1 %33, label %34, label %53
+30:                                               ; preds = %26, %20
+  %31 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params, i64 74), align 2
+  %32 = trunc i8 %31 to i1
+  br i1 %32, label %33, label %52
 
-34:                                               ; preds = %31
-  %35 = getelementptr inbounds nuw i8, ptr %7, i64 28
-  %36 = load i32, ptr %35, align 4
-  %37 = or i32 %36, 8
-  store i32 %37, ptr %35, align 4
-  br label %53
+33:                                               ; preds = %30
+  %34 = getelementptr inbounds nuw i8, ptr %7, i64 28
+  %35 = load i32, ptr %34, align 4
+  %36 = or i32 %35, 8
+  store i32 %36, ptr %34, align 4
+  br label %52
 
-38:                                               ; preds = %19
-  %39 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params, i64 18), align 2
-  %40 = trunc i8 %39 to i1
-  br i1 %40, label %41, label %43
+37:                                               ; preds = %18
+  %38 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params, i64 18), align 2
+  %39 = trunc i8 %38 to i1
+  br i1 %39, label %40, label %42
 
-41:                                               ; preds = %38
-  %42 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store i16 6, ptr %42, align 8
-  br label %53
+40:                                               ; preds = %37
+  %41 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  store i16 6, ptr %41, align 8
+  br label %52
 
-43:                                               ; preds = %38
-  %44 = load i8, ptr @params, align 8
-  %45 = trunc i8 %44 to i1
-  %46 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  br i1 %45, label %47, label %48
+42:                                               ; preds = %37
+  %43 = load i8, ptr @params, align 8
+  %44 = trunc i8 %43 to i1
+  %45 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  br i1 %44, label %46, label %47
 
-47:                                               ; preds = %43
-  store i16 7, ptr %46, align 8
-  br label %53
+46:                                               ; preds = %42
+  store i16 7, ptr %45, align 8
+  br label %52
 
-48:                                               ; preds = %43
-  store i16 2, ptr %46, align 8
-  %49 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @params, i64 48), align 8
-  %.not2.i = icmp eq ptr %49, null
-  %50 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  br i1 %.not2.i, label %52, label %51
+47:                                               ; preds = %42
+  store i16 2, ptr %45, align 8
+  %48 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @params, i64 48), align 8
+  %.not2.i = icmp eq ptr %48, null
+  %49 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  br i1 %.not2.i, label %51, label %50
 
-51:                                               ; preds = %48
-  store ptr %49, ptr %50, align 8
-  br label %53
+50:                                               ; preds = %47
+  store ptr %48, ptr %49, align 8
+  br label %52
 
-52:                                               ; preds = %48
-  store ptr @.str.7, ptr %50, align 8
-  br label %53
+51:                                               ; preds = %47
+  store ptr @.str.7, ptr %49, align 8
+  br label %52
 
-53:                                               ; preds = %52, %51, %47, %41, %34, %31
-  %54 = load i8, ptr @params, align 8
-  %55 = trunc i8 %54 to i1
-  br i1 %55, label %56, label %60
+52:                                               ; preds = %51, %50, %46, %40, %33, %30
+  %53 = load i8, ptr @params, align 8
+  %54 = trunc i8 %53 to i1
+  br i1 %54, label %55, label %59
 
-56:                                               ; preds = %53
-  %57 = getelementptr inbounds nuw i8, ptr %7, i64 28
-  %58 = load i32, ptr %57, align 4
-  %59 = or i32 %58, 1048576
-  store i32 %59, ptr %57, align 4
-  br label %60
+55:                                               ; preds = %52
+  %56 = getelementptr inbounds nuw i8, ptr %7, i64 28
+  %57 = load i32, ptr %56, align 4
+  %58 = or i32 %57, 1048576
+  store i32 %58, ptr %56, align 4
+  br label %59
 
-60:                                               ; preds = %56, %53
-  %61 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params, i64 39), align 1
-  %62 = trunc i8 %61 to i1
-  br i1 %62, label %63, label %67
+59:                                               ; preds = %55, %52
+  %60 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params, i64 39), align 1
+  %61 = trunc i8 %60 to i1
+  br i1 %61, label %62, label %66
 
-63:                                               ; preds = %60
-  %64 = getelementptr inbounds nuw i8, ptr %7, i64 28
-  %65 = load i32, ptr %64, align 4
-  %66 = or i32 %65, 2
-  store i32 %66, ptr %64, align 4
-  br label %67
+62:                                               ; preds = %59
+  %63 = getelementptr inbounds nuw i8, ptr %7, i64 28
+  %64 = load i32, ptr %63, align 4
+  %65 = or i32 %64, 2
+  store i32 %65, ptr %63, align 4
+  br label %66
 
-67:                                               ; preds = %63, %60
-  %68 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params, i64 40), align 8
-  %69 = trunc i8 %68 to i1
-  br i1 %69, label %70, label %74
+66:                                               ; preds = %62, %59
+  %67 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params, i64 40), align 8
+  %68 = trunc i8 %67 to i1
+  br i1 %68, label %69, label %73
 
-70:                                               ; preds = %67
-  %71 = getelementptr inbounds nuw i8, ptr %7, i64 28
-  %72 = load i32, ptr %71, align 4
-  %73 = or i32 %72, 256
-  store i32 %73, ptr %71, align 4
-  br label %74
+69:                                               ; preds = %66
+  %70 = getelementptr inbounds nuw i8, ptr %7, i64 28
+  %71 = load i32, ptr %70, align 4
+  %72 = or i32 %71, 256
+  store i32 %72, ptr %70, align 4
+  br label %73
 
-74:                                               ; preds = %70, %67
-  %75 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params, i64 57), align 1
-  %76 = trunc i8 %75 to i1
-  br i1 %76, label %77, label %81
+73:                                               ; preds = %69, %66
+  %74 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params, i64 57), align 1
+  %75 = trunc i8 %74 to i1
+  br i1 %75, label %76, label %80
 
-77:                                               ; preds = %74
-  %78 = getelementptr inbounds nuw i8, ptr %7, i64 28
-  %79 = load i32, ptr %78, align 4
-  %80 = or i32 %79, 4
-  store i32 %80, ptr %78, align 4
-  br label %81
+76:                                               ; preds = %73
+  %77 = getelementptr inbounds nuw i8, ptr %7, i64 28
+  %78 = load i32, ptr %77, align 4
+  %79 = or i32 %78, 4
+  store i32 %79, ptr %77, align 4
+  br label %80
 
-81:                                               ; preds = %77, %74
-  %82 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params, i64 56), align 8
-  %83 = trunc i8 %82 to i1
-  br i1 %83, label %84, label %88
+80:                                               ; preds = %76, %73
+  %81 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params, i64 56), align 8
+  %82 = trunc i8 %81 to i1
+  br i1 %82, label %83, label %87
 
-84:                                               ; preds = %81
-  %85 = getelementptr inbounds nuw i8, ptr %7, i64 28
-  %86 = load i32, ptr %85, align 4
-  %87 = or i32 %86, 128
-  store i32 %87, ptr %85, align 4
-  br label %88
+83:                                               ; preds = %80
+  %84 = getelementptr inbounds nuw i8, ptr %7, i64 28
+  %85 = load i32, ptr %84, align 4
+  %86 = or i32 %85, 128
+  store i32 %86, ptr %84, align 4
+  br label %87
 
-88:                                               ; preds = %84, %81
-  %89 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params, i64 59), align 1
-  %90 = trunc i8 %89 to i1
-  br i1 %90, label %91, label %95
+87:                                               ; preds = %83, %80
+  %88 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params, i64 59), align 1
+  %89 = trunc i8 %88 to i1
+  br i1 %89, label %90, label %94
 
-91:                                               ; preds = %88
-  %92 = getelementptr inbounds nuw i8, ptr %7, i64 28
-  %93 = load i32, ptr %92, align 4
-  %94 = or i32 %93, 1
-  store i32 %94, ptr %92, align 4
-  br label %95
+90:                                               ; preds = %87
+  %91 = getelementptr inbounds nuw i8, ptr %7, i64 28
+  %92 = load i32, ptr %91, align 4
+  %93 = or i32 %92, 1
+  store i32 %93, ptr %91, align 4
+  br label %94
 
-95:                                               ; preds = %91, %88
-  %96 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params, i64 41), align 1
-  %97 = trunc i8 %96 to i1
-  br i1 %97, label %98, label %102
+94:                                               ; preds = %90, %87
+  %95 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params, i64 41), align 1
+  %96 = trunc i8 %95 to i1
+  br i1 %96, label %97, label %101
 
-98:                                               ; preds = %95
-  %99 = getelementptr inbounds nuw i8, ptr %7, i64 28
-  %100 = load i32, ptr %99, align 4
-  %101 = or i32 %100, 2097152
-  store i32 %101, ptr %99, align 4
-  br label %102
+97:                                               ; preds = %94
+  %98 = getelementptr inbounds nuw i8, ptr %7, i64 28
+  %99 = load i32, ptr %98, align 4
+  %100 = or i32 %99, 2097152
+  store i32 %100, ptr %98, align 4
+  br label %101
 
-102:                                              ; preds = %98, %95
-  %103 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params, i64 58), align 2
-  %104 = trunc i8 %103 to i1
-  br i1 %104, label %105, label %109
+101:                                              ; preds = %97, %94
+  %102 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params, i64 58), align 2
+  %103 = trunc i8 %102 to i1
+  br i1 %103, label %104, label %108
 
-105:                                              ; preds = %102
-  %106 = getelementptr inbounds nuw i8, ptr %7, i64 28
-  %107 = load i32, ptr %106, align 4
-  %108 = or i32 %107, 4194304
-  store i32 %108, ptr %106, align 4
-  br label %109
+104:                                              ; preds = %101
+  %105 = getelementptr inbounds nuw i8, ptr %7, i64 28
+  %106 = load i32, ptr %105, align 4
+  %107 = or i32 %106, 4194304
+  store i32 %107, ptr %105, align 4
+  br label %108
 
-109:                                              ; preds = %105, %102
-  %110 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params, i64 73), align 1
-  %111 = trunc i8 %110 to i1
-  br i1 %111, label %112, label %116
+108:                                              ; preds = %104, %101
+  %109 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params, i64 73), align 1
+  %110 = trunc i8 %109 to i1
+  br i1 %110, label %111, label %115
 
-112:                                              ; preds = %109
-  %113 = getelementptr inbounds nuw i8, ptr %7, i64 28
-  %114 = load i32, ptr %113, align 4
-  %115 = or i32 %114, 32
-  store i32 %115, ptr %113, align 4
-  br label %116
+111:                                              ; preds = %108
+  %112 = getelementptr inbounds nuw i8, ptr %7, i64 28
+  %113 = load i32, ptr %112, align 4
+  %114 = or i32 %113, 32
+  store i32 %114, ptr %112, align 4
+  br label %115
 
-116:                                              ; preds = %112, %109
-  %117 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params, i64 27), align 1
-  %118 = trunc i8 %117 to i1
-  br i1 %118, label %119, label %124
+115:                                              ; preds = %111, %108
+  %116 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params, i64 27), align 1
+  %117 = trunc i8 %116 to i1
+  br i1 %117, label %118, label %123
 
-119:                                              ; preds = %116
-  %120 = getelementptr inbounds nuw i8, ptr %7, i64 28
-  %121 = load i32, ptr %120, align 4
-  %122 = or i32 %121, 512
-  store i32 %122, ptr %120, align 4
-  %123 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store i16 3, ptr %123, align 8
-  br label %124
+118:                                              ; preds = %115
+  %119 = getelementptr inbounds nuw i8, ptr %7, i64 28
+  %120 = load i32, ptr %119, align 4
+  %121 = or i32 %120, 512
+  store i32 %121, ptr %119, align 4
+  %122 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  store i16 3, ptr %122, align 8
+  br label %123
 
-124:                                              ; preds = %119, %116
-  %125 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params, i64 28), align 4
-  %126 = trunc i8 %125 to i1
-  br i1 %126, label %127, label %132
+123:                                              ; preds = %118, %115
+  %124 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params, i64 28), align 4
+  %125 = trunc i8 %124 to i1
+  br i1 %125, label %126, label %131
 
-127:                                              ; preds = %124
-  %128 = getelementptr inbounds nuw i8, ptr %7, i64 28
-  %129 = load i32, ptr %128, align 4
-  %130 = or i32 %129, 1024
-  store i32 %130, ptr %128, align 4
-  %131 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store i16 3, ptr %131, align 8
-  br label %132
+126:                                              ; preds = %123
+  %127 = getelementptr inbounds nuw i8, ptr %7, i64 28
+  %128 = load i32, ptr %127, align 4
+  %129 = or i32 %128, 1024
+  store i32 %129, ptr %127, align 4
+  %130 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  store i16 3, ptr %130, align 8
+  br label %131
 
-132:                                              ; preds = %127, %124
-  %133 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params, i64 29), align 1
-  %134 = trunc i8 %133 to i1
-  br i1 %134, label %135, label %140
+131:                                              ; preds = %126, %123
+  %132 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params, i64 29), align 1
+  %133 = trunc i8 %132 to i1
+  br i1 %133, label %134, label %139
 
-135:                                              ; preds = %132
-  %136 = getelementptr inbounds nuw i8, ptr %7, i64 28
-  %137 = load i32, ptr %136, align 4
-  %138 = or i32 %137, 2048
-  store i32 %138, ptr %136, align 4
-  %139 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store i16 3, ptr %139, align 8
-  br label %140
+134:                                              ; preds = %131
+  %135 = getelementptr inbounds nuw i8, ptr %7, i64 28
+  %136 = load i32, ptr %135, align 4
+  %137 = or i32 %136, 2048
+  store i32 %137, ptr %135, align 4
+  %138 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  store i16 3, ptr %138, align 8
+  br label %139
 
-140:                                              ; preds = %135, %132
-  %141 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params, i64 30), align 2
-  %142 = trunc i8 %141 to i1
-  br i1 %142, label %143, label %148
+139:                                              ; preds = %134, %131
+  %140 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params, i64 30), align 2
+  %141 = trunc i8 %140 to i1
+  br i1 %141, label %142, label %147
 
-143:                                              ; preds = %140
-  %144 = getelementptr inbounds nuw i8, ptr %7, i64 28
-  %145 = load i32, ptr %144, align 4
-  %146 = or i32 %145, 4096
-  store i32 %146, ptr %144, align 4
-  %147 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store i16 3, ptr %147, align 8
-  br label %148
+142:                                              ; preds = %139
+  %143 = getelementptr inbounds nuw i8, ptr %7, i64 28
+  %144 = load i32, ptr %143, align 4
+  %145 = or i32 %144, 4096
+  store i32 %145, ptr %143, align 4
+  %146 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  store i16 3, ptr %146, align 8
+  br label %147
 
-148:                                              ; preds = %143, %140
-  %149 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params, i64 31), align 1
-  %150 = trunc i8 %149 to i1
-  br i1 %150, label %151, label %156
+147:                                              ; preds = %142, %139
+  %148 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params, i64 31), align 1
+  %149 = trunc i8 %148 to i1
+  br i1 %149, label %150, label %155
 
-151:                                              ; preds = %148
-  %152 = getelementptr inbounds nuw i8, ptr %7, i64 28
-  %153 = load i32, ptr %152, align 4
-  %154 = or i32 %153, 8192
-  store i32 %154, ptr %152, align 4
-  %155 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store i16 3, ptr %155, align 8
-  br label %156
+150:                                              ; preds = %147
+  %151 = getelementptr inbounds nuw i8, ptr %7, i64 28
+  %152 = load i32, ptr %151, align 4
+  %153 = or i32 %152, 8192
+  store i32 %153, ptr %151, align 4
+  %154 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  store i16 3, ptr %154, align 8
+  br label %155
 
-156:                                              ; preds = %151, %148
-  %157 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params, i64 32), align 8
-  %158 = trunc i8 %157 to i1
-  br i1 %158, label %159, label %164
+155:                                              ; preds = %150, %147
+  %156 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params, i64 32), align 8
+  %157 = trunc i8 %156 to i1
+  br i1 %157, label %158, label %163
 
-159:                                              ; preds = %156
-  %160 = getelementptr inbounds nuw i8, ptr %7, i64 28
-  %161 = load i32, ptr %160, align 4
-  %162 = or i32 %161, 16384
-  store i32 %162, ptr %160, align 4
-  %163 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store i16 3, ptr %163, align 8
-  br label %164
+158:                                              ; preds = %155
+  %159 = getelementptr inbounds nuw i8, ptr %7, i64 28
+  %160 = load i32, ptr %159, align 4
+  %161 = or i32 %160, 16384
+  store i32 %161, ptr %159, align 4
+  %162 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  store i16 3, ptr %162, align 8
+  br label %163
 
-164:                                              ; preds = %159, %156
-  %165 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params, i64 33), align 1
-  %166 = trunc i8 %165 to i1
-  br i1 %166, label %167, label %172
+163:                                              ; preds = %158, %155
+  %164 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params, i64 33), align 1
+  %165 = trunc i8 %164 to i1
+  br i1 %165, label %166, label %171
 
-167:                                              ; preds = %164
-  %168 = getelementptr inbounds nuw i8, ptr %7, i64 28
-  %169 = load i32, ptr %168, align 4
-  %170 = or i32 %169, 32768
-  store i32 %170, ptr %168, align 4
-  %171 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store i16 3, ptr %171, align 8
-  br label %172
+166:                                              ; preds = %163
+  %167 = getelementptr inbounds nuw i8, ptr %7, i64 28
+  %168 = load i32, ptr %167, align 4
+  %169 = or i32 %168, 32768
+  store i32 %169, ptr %167, align 4
+  %170 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  store i16 3, ptr %170, align 8
+  br label %171
 
-172:                                              ; preds = %167, %164
-  %173 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params, i64 34), align 2
-  %174 = trunc i8 %173 to i1
-  br i1 %174, label %175, label %180
+171:                                              ; preds = %166, %163
+  %172 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params, i64 34), align 2
+  %173 = trunc i8 %172 to i1
+  br i1 %173, label %174, label %179
 
-175:                                              ; preds = %172
-  %176 = getelementptr inbounds nuw i8, ptr %7, i64 28
-  %177 = load i32, ptr %176, align 4
-  %178 = or i32 %177, 65536
-  store i32 %178, ptr %176, align 4
-  %179 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store i16 4, ptr %179, align 8
-  br label %180
+174:                                              ; preds = %171
+  %175 = getelementptr inbounds nuw i8, ptr %7, i64 28
+  %176 = load i32, ptr %175, align 4
+  %177 = or i32 %176, 65536
+  store i32 %177, ptr %175, align 4
+  %178 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  store i16 4, ptr %178, align 8
+  br label %179
 
-180:                                              ; preds = %175, %172
-  %181 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params, i64 35), align 1
-  %182 = trunc i8 %181 to i1
-  br i1 %182, label %183, label %188
+179:                                              ; preds = %174, %171
+  %180 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params, i64 35), align 1
+  %181 = trunc i8 %180 to i1
+  br i1 %181, label %182, label %187
 
-183:                                              ; preds = %180
-  %184 = getelementptr inbounds nuw i8, ptr %7, i64 28
-  %185 = load i32, ptr %184, align 4
-  %186 = or i32 %185, 131072
-  store i32 %186, ptr %184, align 4
-  %187 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store i16 4, ptr %187, align 8
-  br label %188
+182:                                              ; preds = %179
+  %183 = getelementptr inbounds nuw i8, ptr %7, i64 28
+  %184 = load i32, ptr %183, align 4
+  %185 = or i32 %184, 131072
+  store i32 %185, ptr %183, align 4
+  %186 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  store i16 4, ptr %186, align 8
+  br label %187
 
-188:                                              ; preds = %183, %180
-  %189 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params, i64 36), align 4
-  %190 = trunc i8 %189 to i1
-  br i1 %190, label %191, label %196
+187:                                              ; preds = %182, %179
+  %188 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params, i64 36), align 4
+  %189 = trunc i8 %188 to i1
+  br i1 %189, label %190, label %195
 
-191:                                              ; preds = %188
-  %192 = getelementptr inbounds nuw i8, ptr %7, i64 28
-  %193 = load i32, ptr %192, align 4
-  %194 = or i32 %193, 262144
-  store i32 %194, ptr %192, align 4
-  %195 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store i16 5, ptr %195, align 8
-  br label %196
+190:                                              ; preds = %187
+  %191 = getelementptr inbounds nuw i8, ptr %7, i64 28
+  %192 = load i32, ptr %191, align 4
+  %193 = or i32 %192, 262144
+  store i32 %193, ptr %191, align 4
+  %194 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  store i16 5, ptr %194, align 8
+  br label %195
 
-196:                                              ; preds = %191, %188
-  %197 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params, i64 37), align 1
-  %198 = trunc i8 %197 to i1
-  br i1 %198, label %199, label %204
+195:                                              ; preds = %190, %187
+  %196 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params, i64 37), align 1
+  %197 = trunc i8 %196 to i1
+  br i1 %197, label %198, label %203
 
-199:                                              ; preds = %196
-  %200 = getelementptr inbounds nuw i8, ptr %7, i64 28
-  %201 = load i32, ptr %200, align 4
-  %202 = or i32 %201, 524288
-  store i32 %202, ptr %200, align 4
-  %203 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store i16 5, ptr %203, align 8
-  br label %204
+198:                                              ; preds = %195
+  %199 = getelementptr inbounds nuw i8, ptr %7, i64 28
+  %200 = load i32, ptr %199, align 4
+  %201 = or i32 %200, 524288
+  store i32 %201, ptr %199, align 4
+  %202 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  store i16 5, ptr %202, align 8
+  br label %203
 
-204:                                              ; preds = %199, %196
-  %205 = load i16, ptr getelementptr inbounds nuw (i8, ptr @params, i64 16), align 8
-  store i16 %205, ptr %7, align 8
-  %206 = load i32, ptr getelementptr inbounds nuw (i8, ptr @params, i64 60), align 4
-  %207 = trunc i32 %206 to i16
-  %208 = xor i16 %207, -32768
-  %209 = getelementptr inbounds nuw i8, ptr %7, i64 32
-  store i16 %208, ptr %209, align 8
-  %210 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @params, i64 64), align 8
-  %211 = getelementptr inbounds nuw i8, ptr %7, i64 40
-  store ptr %210, ptr %211, align 8
-  %212 = call i32 @slurm_set_trigger(ptr noundef nonnull %7) #8
-  %.not35.i = icmp eq i32 %212, 0
+203:                                              ; preds = %198, %195
+  %204 = load i16, ptr getelementptr inbounds nuw (i8, ptr @params, i64 16), align 8
+  store i16 %204, ptr %7, align 8
+  %205 = load i32, ptr getelementptr inbounds nuw (i8, ptr @params, i64 60), align 4
+  %206 = trunc i32 %205 to i16
+  %207 = xor i16 %206, -32768
+  %208 = getelementptr inbounds nuw i8, ptr %7, i64 32
+  store i16 %207, ptr %208, align 8
+  %209 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @params, i64 64), align 8
+  %210 = getelementptr inbounds nuw i8, ptr %7, i64 40
+  store ptr %209, ptr %210, align 8
+  %211 = call i32 @slurm_set_trigger(ptr noundef nonnull %7) #8
+  %.not35.i = icmp eq i32 %211, 0
   br i1 %.not35.i, label %._crit_edge.i, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %204, %214
+.lr.ph.i:                                         ; preds = %203, %213
   call void @slurm_perror(ptr noundef nonnull @.str.8) #8
-  %213 = call i32 @slurm_get_errno() #8
-  %.not4.i = icmp eq i32 %213, 11
-  br i1 %.not4.i, label %214, label %_set_trigger.exit
+  %212 = call i32 @slurm_get_errno() #8
+  %.not4.i = icmp eq i32 %212, 11
+  br i1 %.not4.i, label %213, label %_set_trigger.exit
 
-214:                                              ; preds = %.lr.ph.i
-  %215 = call i32 @sleep(i32 noundef 5) #8
-  %216 = call i32 @slurm_set_trigger(ptr noundef nonnull %7) #8
-  %.not3.i = icmp eq i32 %216, 0
+213:                                              ; preds = %.lr.ph.i
+  %214 = call i32 @sleep(i32 noundef 5) #8
+  %215 = call i32 @slurm_set_trigger(ptr noundef nonnull %7) #8
+  %.not3.i = icmp eq i32 %215, 0
   br i1 %.not3.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !7
 
-._crit_edge.i:                                    ; preds = %214, %204
-  %217 = call i32 @get_log_level() #8
-  %218 = icmp sgt i32 %217, 3
-  br i1 %218, label %219, label %_set_trigger.exit
+._crit_edge.i:                                    ; preds = %213, %203
+  %216 = call i32 @get_log_level() #8
+  %217 = icmp sgt i32 %216, 3
+  br i1 %217, label %218, label %_set_trigger.exit
 
-219:                                              ; preds = %._crit_edge.i
+218:                                              ; preds = %._crit_edge.i
   call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.9) #8
   br label %_set_trigger.exit
 
-_set_trigger.exit:                                ; preds = %.lr.ph.i, %._crit_edge.i, %219
-  %.0.i = phi i32 [ 0, %219 ], [ 0, %._crit_edge.i ], [ 1, %.lr.ph.i ]
+_set_trigger.exit:                                ; preds = %.lr.ph.i, %._crit_edge.i, %218
+  %.0.i = phi i32 [ 0, %218 ], [ 0, %._crit_edge.i ], [ 1, %.lr.ph.i ]
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %8)
-  br label %603
+  br label %602
 
-220:                                              ; preds = %16
-  %221 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params, i64 25), align 1
-  %222 = trunc i8 %221 to i1
-  br i1 %222, label %223, label %564
+219:                                              ; preds = %15
+  %220 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params, i64 25), align 1
+  %221 = trunc i8 %220 to i1
+  br i1 %221, label %222, label %563
 
-223:                                              ; preds = %220
+222:                                              ; preds = %219
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
-  %224 = call i32 @slurm_get_triggers(ptr noundef nonnull %5) #8
-  %.not.i3 = icmp eq i32 %224, 0
-  br i1 %.not.i3, label %226, label %225
+  %223 = call i32 @slurm_get_triggers(ptr noundef nonnull %5) #8
+  %.not.i3 = icmp eq i32 %223, 0
+  br i1 %.not.i3, label %225, label %224
 
-225:                                              ; preds = %223
+224:                                              ; preds = %222
   call void @slurm_perror(ptr noundef nonnull @.str.10) #8
   br label %_get_trigger.exit
 
-226:                                              ; preds = %223
-  %227 = call i32 @get_log_level() #8
-  %228 = icmp sgt i32 %227, 3
-  br i1 %228, label %229, label %232
+225:                                              ; preds = %222
+  %226 = call i32 @get_log_level() #8
+  %227 = icmp sgt i32 %226, 3
+  br i1 %227, label %228, label %231
 
-229:                                              ; preds = %226
-  %230 = load ptr, ptr %5, align 8
-  %231 = load i32, ptr %230, align 8
-  call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.11, i32 noundef %231) #8
-  br label %232
+228:                                              ; preds = %225
+  %229 = load ptr, ptr %5, align 8
+  %230 = load i32, ptr %229, align 8
+  call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.11, i32 noundef %230) #8
+  br label %231
 
-232:                                              ; preds = %229, %226
-  %233 = load ptr, ptr %5, align 8
-  %234 = load i32, ptr %233, align 8
-  %.not121.i = icmp eq i32 %234, 0
+231:                                              ; preds = %228, %225
+  %232 = load ptr, ptr %5, align 8
+  %233 = load i32, ptr %232, align 8
+  %.not121.i = icmp eq i32 %233, 0
   br i1 %.not121.i, label %._crit_edge.i6, label %.lr.ph.preheader.i
 
-.lr.ph.preheader.i:                               ; preds = %232
+.lr.ph.preheader.i:                               ; preds = %231
   %.pre124.i = load i8, ptr @params, align 8
   br label %.lr.ph.i5
 
-.lr.ph.i5:                                        ; preds = %558, %.lr.ph.preheader.i
-  %235 = phi i32 [ %234, %.lr.ph.preheader.i ], [ %559, %558 ]
-  %236 = phi ptr [ %233, %.lr.ph.preheader.i ], [ %560, %558 ]
-  %237 = phi i8 [ %.pre124.i, %.lr.ph.preheader.i ], [ %561, %558 ]
-  %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %558 ]
-  %.062119.i = phi i32 [ 0, %.lr.ph.preheader.i ], [ %.1.i, %558 ]
-  %238 = trunc i8 %237 to i1
-  br i1 %238, label %239, label %244
+.lr.ph.i5:                                        ; preds = %557, %.lr.ph.preheader.i
+  %234 = phi i32 [ %233, %.lr.ph.preheader.i ], [ %558, %557 ]
+  %235 = phi ptr [ %232, %.lr.ph.preheader.i ], [ %559, %557 ]
+  %236 = phi i8 [ %.pre124.i, %.lr.ph.preheader.i ], [ %560, %557 ]
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %557 ]
+  %.062119.i = phi i32 [ 0, %.lr.ph.preheader.i ], [ %.1.i, %557 ]
+  %237 = trunc i8 %236 to i1
+  br i1 %237, label %238, label %243
 
-239:                                              ; preds = %.lr.ph.i5
-  %240 = getelementptr inbounds nuw i8, ptr %236, i64 8
-  %241 = load ptr, ptr %240, align 8
-  %242 = getelementptr inbounds nuw %struct.trigger_info, ptr %241, i64 %indvars.iv.i, i32 5
-  %243 = load i32, ptr %242, align 4
-  %.not68.i = icmp eq i32 %243, 1048576
-  br i1 %.not68.i, label %244, label %558
+238:                                              ; preds = %.lr.ph.i5
+  %239 = getelementptr inbounds nuw i8, ptr %235, i64 8
+  %240 = load ptr, ptr %239, align 8
+  %241 = getelementptr inbounds nuw %struct.trigger_info, ptr %240, i64 %indvars.iv.i, i32 5
+  %242 = load i32, ptr %241, align 4
+  %.not68.i = icmp eq i32 %242, 1048576
+  br i1 %.not68.i, label %243, label %557
 
-244:                                              ; preds = %239, %.lr.ph.i5
-  %245 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params, i64 19), align 1
-  %246 = trunc i8 %245 to i1
-  br i1 %246, label %247, label %252
+243:                                              ; preds = %238, %.lr.ph.i5
+  %244 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params, i64 19), align 1
+  %245 = trunc i8 %244 to i1
+  br i1 %245, label %246, label %251
 
-247:                                              ; preds = %244
-  %248 = getelementptr inbounds nuw i8, ptr %236, i64 8
-  %249 = load ptr, ptr %248, align 8
-  %250 = getelementptr inbounds nuw %struct.trigger_info, ptr %249, i64 %indvars.iv.i, i32 5
-  %251 = load i32, ptr %250, align 4
-  %.not69.i = icmp eq i32 %251, 16
-  br i1 %.not69.i, label %252, label %558
+246:                                              ; preds = %243
+  %247 = getelementptr inbounds nuw i8, ptr %235, i64 8
+  %248 = load ptr, ptr %247, align 8
+  %249 = getelementptr inbounds nuw %struct.trigger_info, ptr %248, i64 %indvars.iv.i, i32 5
+  %250 = load i32, ptr %249, align 4
+  %.not69.i = icmp eq i32 %250, 16
+  br i1 %.not69.i, label %251, label %557
 
-252:                                              ; preds = %247, %244
-  %253 = load i32, ptr getelementptr inbounds nuw (i8, ptr @params, i64 20), align 4
-  %.not70.i = icmp eq i32 %253, 0
-  br i1 %.not70.i, label %265, label %254
+251:                                              ; preds = %246, %243
+  %252 = load i32, ptr getelementptr inbounds nuw (i8, ptr @params, i64 20), align 4
+  %.not70.i = icmp eq i32 %252, 0
+  br i1 %.not70.i, label %264, label %253
 
-254:                                              ; preds = %252
-  %255 = getelementptr inbounds nuw i8, ptr %236, i64 8
-  %256 = load ptr, ptr %255, align 8
-  %257 = getelementptr inbounds nuw %struct.trigger_info, ptr %256, i64 %indvars.iv.i
-  %258 = getelementptr inbounds nuw i8, ptr %257, i64 8
-  %259 = load i16, ptr %258, align 8
-  %.not71.i = icmp eq i16 %259, 1
-  br i1 %.not71.i, label %260, label %558
+253:                                              ; preds = %251
+  %254 = getelementptr inbounds nuw i8, ptr %235, i64 8
+  %255 = load ptr, ptr %254, align 8
+  %256 = getelementptr inbounds nuw %struct.trigger_info, ptr %255, i64 %indvars.iv.i
+  %257 = getelementptr inbounds nuw i8, ptr %256, i64 8
+  %258 = load i16, ptr %257, align 8
+  %.not71.i = icmp eq i16 %258, 1
+  br i1 %.not71.i, label %259, label %557
 
-260:                                              ; preds = %254
-  %261 = getelementptr inbounds nuw i8, ptr %257, i64 16
-  %262 = load ptr, ptr %261, align 8
-  %263 = call i64 @atol(ptr noundef %262) #9
-  %264 = zext i32 %253 to i64
-  %.not72.i = icmp eq i64 %263, %264
-  br i1 %.not72.i, label %265, label %558
+259:                                              ; preds = %253
+  %260 = getelementptr inbounds nuw i8, ptr %256, i64 16
+  %261 = load ptr, ptr %260, align 8
+  %262 = call i64 @atol(ptr noundef %261) #9
+  %263 = zext i32 %252 to i64
+  %.not72.i = icmp eq i64 %262, %263
+  br i1 %.not72.i, label %264, label %557
 
-265:                                              ; preds = %260, %252
-  %266 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params, i64 39), align 1
-  %267 = trunc i8 %266 to i1
-  br i1 %267, label %268, label %276
+264:                                              ; preds = %259, %251
+  %265 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params, i64 39), align 1
+  %266 = trunc i8 %265 to i1
+  br i1 %266, label %267, label %275
 
-268:                                              ; preds = %265
-  %269 = getelementptr inbounds nuw i8, ptr %236, i64 8
-  %270 = load ptr, ptr %269, align 8
-  %271 = getelementptr inbounds nuw %struct.trigger_info, ptr %270, i64 %indvars.iv.i, i32 2
-  %272 = load i16, ptr %271, align 8
-  switch i16 %272, label %558 [
-    i16 2, label %273
-    i16 6, label %273
+267:                                              ; preds = %264
+  %268 = getelementptr inbounds nuw i8, ptr %235, i64 8
+  %269 = load ptr, ptr %268, align 8
+  %270 = getelementptr inbounds nuw %struct.trigger_info, ptr %269, i64 %indvars.iv.i, i32 2
+  %271 = load i16, ptr %270, align 8
+  switch i16 %271, label %557 [
+    i16 2, label %272
+    i16 6, label %272
   ]
 
-273:                                              ; preds = %268, %268
-  %274 = getelementptr inbounds nuw %struct.trigger_info, ptr %270, i64 %indvars.iv.i, i32 5
-  %275 = load i32, ptr %274, align 4
-  %.not75.i = icmp eq i32 %275, 2
-  br i1 %.not75.i, label %276, label %558
+272:                                              ; preds = %267, %267
+  %273 = getelementptr inbounds nuw %struct.trigger_info, ptr %269, i64 %indvars.iv.i, i32 5
+  %274 = load i32, ptr %273, align 4
+  %.not75.i = icmp eq i32 %274, 2
+  br i1 %.not75.i, label %275, label %557
 
-276:                                              ; preds = %273, %265
-  %277 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params, i64 40), align 8
-  %278 = trunc i8 %277 to i1
-  br i1 %278, label %279, label %288
+275:                                              ; preds = %272, %264
+  %276 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params, i64 40), align 8
+  %277 = trunc i8 %276 to i1
+  br i1 %277, label %278, label %287
 
-279:                                              ; preds = %276
-  %280 = getelementptr inbounds nuw i8, ptr %236, i64 8
-  %281 = load ptr, ptr %280, align 8
-  %282 = getelementptr inbounds nuw %struct.trigger_info, ptr %281, i64 %indvars.iv.i
-  %283 = getelementptr inbounds nuw i8, ptr %282, i64 8
-  %284 = load i16, ptr %283, align 8
-  %.not76.i = icmp eq i16 %284, 2
-  br i1 %.not76.i, label %285, label %558
+278:                                              ; preds = %275
+  %279 = getelementptr inbounds nuw i8, ptr %235, i64 8
+  %280 = load ptr, ptr %279, align 8
+  %281 = getelementptr inbounds nuw %struct.trigger_info, ptr %280, i64 %indvars.iv.i
+  %282 = getelementptr inbounds nuw i8, ptr %281, i64 8
+  %283 = load i16, ptr %282, align 8
+  %.not76.i = icmp eq i16 %283, 2
+  br i1 %.not76.i, label %284, label %557
 
-285:                                              ; preds = %279
-  %286 = getelementptr inbounds nuw i8, ptr %282, i64 28
-  %287 = load i32, ptr %286, align 4
-  %.not77.i = icmp eq i32 %287, 256
-  br i1 %.not77.i, label %288, label %558
+284:                                              ; preds = %278
+  %285 = getelementptr inbounds nuw i8, ptr %281, i64 28
+  %286 = load i32, ptr %285, align 4
+  %.not77.i = icmp eq i32 %286, 256
+  br i1 %.not77.i, label %287, label %557
 
-288:                                              ; preds = %285, %276
-  %289 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params, i64 57), align 1
-  %290 = trunc i8 %289 to i1
-  br i1 %290, label %291, label %300
+287:                                              ; preds = %284, %275
+  %288 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params, i64 57), align 1
+  %289 = trunc i8 %288 to i1
+  br i1 %289, label %290, label %299
 
-291:                                              ; preds = %288
-  %292 = getelementptr inbounds nuw i8, ptr %236, i64 8
-  %293 = load ptr, ptr %292, align 8
-  %294 = getelementptr inbounds nuw %struct.trigger_info, ptr %293, i64 %indvars.iv.i
-  %295 = getelementptr inbounds nuw i8, ptr %294, i64 8
-  %296 = load i16, ptr %295, align 8
-  %.not78.i = icmp eq i16 %296, 2
-  br i1 %.not78.i, label %297, label %558
+290:                                              ; preds = %287
+  %291 = getelementptr inbounds nuw i8, ptr %235, i64 8
+  %292 = load ptr, ptr %291, align 8
+  %293 = getelementptr inbounds nuw %struct.trigger_info, ptr %292, i64 %indvars.iv.i
+  %294 = getelementptr inbounds nuw i8, ptr %293, i64 8
+  %295 = load i16, ptr %294, align 8
+  %.not78.i = icmp eq i16 %295, 2
+  br i1 %.not78.i, label %296, label %557
 
-297:                                              ; preds = %291
-  %298 = getelementptr inbounds nuw i8, ptr %294, i64 28
-  %299 = load i32, ptr %298, align 4
-  %.not79.i = icmp eq i32 %299, 4
-  br i1 %.not79.i, label %300, label %558
+296:                                              ; preds = %290
+  %297 = getelementptr inbounds nuw i8, ptr %293, i64 28
+  %298 = load i32, ptr %297, align 4
+  %.not79.i = icmp eq i32 %298, 4
+  br i1 %.not79.i, label %299, label %557
 
-300:                                              ; preds = %297, %288
-  %301 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @params, i64 48), align 8
-  %.not80.i = icmp eq ptr %301, null
-  br i1 %.not80.i, label %307, label %302
+299:                                              ; preds = %296, %287
+  %300 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @params, i64 48), align 8
+  %.not80.i = icmp eq ptr %300, null
+  br i1 %.not80.i, label %306, label %301
 
-302:                                              ; preds = %300
-  %303 = getelementptr inbounds nuw i8, ptr %236, i64 8
-  %304 = load ptr, ptr %303, align 8
-  %305 = getelementptr inbounds nuw %struct.trigger_info, ptr %304, i64 %indvars.iv.i, i32 2
-  %306 = load i16, ptr %305, align 8
-  %.not81.i = icmp eq i16 %306, 2
-  br i1 %.not81.i, label %307, label %558
+301:                                              ; preds = %299
+  %302 = getelementptr inbounds nuw i8, ptr %235, i64 8
+  %303 = load ptr, ptr %302, align 8
+  %304 = getelementptr inbounds nuw %struct.trigger_info, ptr %303, i64 %indvars.iv.i, i32 2
+  %305 = load i16, ptr %304, align 8
+  %.not81.i = icmp eq i16 %305, 2
+  br i1 %.not81.i, label %306, label %557
 
-307:                                              ; preds = %302, %300
-  %308 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params, i64 56), align 8
-  %309 = trunc i8 %308 to i1
-  br i1 %309, label %310, label %319
+306:                                              ; preds = %301, %299
+  %307 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params, i64 56), align 8
+  %308 = trunc i8 %307 to i1
+  br i1 %308, label %309, label %318
 
-310:                                              ; preds = %307
-  %311 = getelementptr inbounds nuw i8, ptr %236, i64 8
-  %312 = load ptr, ptr %311, align 8
-  %313 = getelementptr inbounds nuw %struct.trigger_info, ptr %312, i64 %indvars.iv.i
-  %314 = getelementptr inbounds nuw i8, ptr %313, i64 8
-  %315 = load i16, ptr %314, align 8
-  %.not82.i = icmp eq i16 %315, 2
-  br i1 %.not82.i, label %316, label %558
+309:                                              ; preds = %306
+  %310 = getelementptr inbounds nuw i8, ptr %235, i64 8
+  %311 = load ptr, ptr %310, align 8
+  %312 = getelementptr inbounds nuw %struct.trigger_info, ptr %311, i64 %indvars.iv.i
+  %313 = getelementptr inbounds nuw i8, ptr %312, i64 8
+  %314 = load i16, ptr %313, align 8
+  %.not82.i = icmp eq i16 %314, 2
+  br i1 %.not82.i, label %315, label %557
 
-316:                                              ; preds = %310
-  %317 = getelementptr inbounds nuw i8, ptr %313, i64 28
-  %318 = load i32, ptr %317, align 4
-  %.not83.i = icmp eq i32 %318, 128
-  br i1 %.not83.i, label %319, label %558
+315:                                              ; preds = %309
+  %316 = getelementptr inbounds nuw i8, ptr %312, i64 28
+  %317 = load i32, ptr %316, align 4
+  %.not83.i = icmp eq i32 %317, 128
+  br i1 %.not83.i, label %318, label %557
 
-319:                                              ; preds = %316, %307
-  %320 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params, i64 59), align 1
-  %321 = trunc i8 %320 to i1
-  br i1 %321, label %322, label %330
+318:                                              ; preds = %315, %306
+  %319 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params, i64 59), align 1
+  %320 = trunc i8 %319 to i1
+  br i1 %320, label %321, label %329
 
-322:                                              ; preds = %319
-  %323 = getelementptr inbounds nuw i8, ptr %236, i64 8
-  %324 = load ptr, ptr %323, align 8
-  %325 = getelementptr inbounds nuw %struct.trigger_info, ptr %324, i64 %indvars.iv.i, i32 2
-  %326 = load i16, ptr %325, align 8
-  switch i16 %326, label %558 [
-    i16 2, label %327
-    i16 6, label %327
+321:                                              ; preds = %318
+  %322 = getelementptr inbounds nuw i8, ptr %235, i64 8
+  %323 = load ptr, ptr %322, align 8
+  %324 = getelementptr inbounds nuw %struct.trigger_info, ptr %323, i64 %indvars.iv.i, i32 2
+  %325 = load i16, ptr %324, align 8
+  switch i16 %325, label %557 [
+    i16 2, label %326
+    i16 6, label %326
   ]
 
-327:                                              ; preds = %322, %322
-  %328 = getelementptr inbounds nuw %struct.trigger_info, ptr %324, i64 %indvars.iv.i, i32 5
-  %329 = load i32, ptr %328, align 4
-  %.not86.i = icmp eq i32 %329, 1
-  br i1 %.not86.i, label %330, label %558
+326:                                              ; preds = %321, %321
+  %327 = getelementptr inbounds nuw %struct.trigger_info, ptr %323, i64 %indvars.iv.i, i32 5
+  %328 = load i32, ptr %327, align 4
+  %.not86.i = icmp eq i32 %328, 1
+  br i1 %.not86.i, label %329, label %557
 
-330:                                              ; preds = %327, %319
-  %331 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params, i64 41), align 1
-  %332 = trunc i8 %331 to i1
-  br i1 %332, label %333, label %342
+329:                                              ; preds = %326, %318
+  %330 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params, i64 41), align 1
+  %331 = trunc i8 %330 to i1
+  br i1 %331, label %332, label %341
 
-333:                                              ; preds = %330
-  %334 = getelementptr inbounds nuw i8, ptr %236, i64 8
-  %335 = load ptr, ptr %334, align 8
-  %336 = getelementptr inbounds nuw %struct.trigger_info, ptr %335, i64 %indvars.iv.i
-  %337 = getelementptr inbounds nuw i8, ptr %336, i64 8
-  %338 = load i16, ptr %337, align 8
-  %.not87.i = icmp eq i16 %338, 2
-  br i1 %.not87.i, label %339, label %558
+332:                                              ; preds = %329
+  %333 = getelementptr inbounds nuw i8, ptr %235, i64 8
+  %334 = load ptr, ptr %333, align 8
+  %335 = getelementptr inbounds nuw %struct.trigger_info, ptr %334, i64 %indvars.iv.i
+  %336 = getelementptr inbounds nuw i8, ptr %335, i64 8
+  %337 = load i16, ptr %336, align 8
+  %.not87.i = icmp eq i16 %337, 2
+  br i1 %.not87.i, label %338, label %557
 
-339:                                              ; preds = %333
-  %340 = getelementptr inbounds nuw i8, ptr %336, i64 28
-  %341 = load i32, ptr %340, align 4
-  %.not88.i = icmp eq i32 %341, 2097152
-  br i1 %.not88.i, label %342, label %558
+338:                                              ; preds = %332
+  %339 = getelementptr inbounds nuw i8, ptr %335, i64 28
+  %340 = load i32, ptr %339, align 4
+  %.not88.i = icmp eq i32 %340, 2097152
+  br i1 %.not88.i, label %341, label %557
 
-342:                                              ; preds = %339, %330
-  %343 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params, i64 58), align 2
-  %344 = trunc i8 %343 to i1
-  br i1 %344, label %345, label %354
+341:                                              ; preds = %338, %329
+  %342 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params, i64 58), align 2
+  %343 = trunc i8 %342 to i1
+  br i1 %343, label %344, label %353
 
-345:                                              ; preds = %342
-  %346 = getelementptr inbounds nuw i8, ptr %236, i64 8
-  %347 = load ptr, ptr %346, align 8
-  %348 = getelementptr inbounds nuw %struct.trigger_info, ptr %347, i64 %indvars.iv.i
-  %349 = getelementptr inbounds nuw i8, ptr %348, i64 8
-  %350 = load i16, ptr %349, align 8
-  %.not89.i = icmp eq i16 %350, 2
-  br i1 %.not89.i, label %351, label %558
+344:                                              ; preds = %341
+  %345 = getelementptr inbounds nuw i8, ptr %235, i64 8
+  %346 = load ptr, ptr %345, align 8
+  %347 = getelementptr inbounds nuw %struct.trigger_info, ptr %346, i64 %indvars.iv.i
+  %348 = getelementptr inbounds nuw i8, ptr %347, i64 8
+  %349 = load i16, ptr %348, align 8
+  %.not89.i = icmp eq i16 %349, 2
+  br i1 %.not89.i, label %350, label %557
 
-351:                                              ; preds = %345
-  %352 = getelementptr inbounds nuw i8, ptr %348, i64 28
-  %353 = load i32, ptr %352, align 4
-  %.not90.i = icmp eq i32 %353, 4194304
-  br i1 %.not90.i, label %354, label %558
+350:                                              ; preds = %344
+  %351 = getelementptr inbounds nuw i8, ptr %347, i64 28
+  %352 = load i32, ptr %351, align 4
+  %.not90.i = icmp eq i32 %352, 4194304
+  br i1 %.not90.i, label %353, label %557
 
-354:                                              ; preds = %351, %342
-  %355 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params, i64 74), align 2
-  %356 = trunc i8 %355 to i1
-  br i1 %356, label %357, label %366
+353:                                              ; preds = %350, %341
+  %354 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params, i64 74), align 2
+  %355 = trunc i8 %354 to i1
+  br i1 %355, label %356, label %365
 
-357:                                              ; preds = %354
-  %358 = getelementptr inbounds nuw i8, ptr %236, i64 8
-  %359 = load ptr, ptr %358, align 8
-  %360 = getelementptr inbounds nuw %struct.trigger_info, ptr %359, i64 %indvars.iv.i
-  %361 = getelementptr inbounds nuw i8, ptr %360, i64 8
-  %362 = load i16, ptr %361, align 8
-  %.not91.i = icmp eq i16 %362, 1
-  br i1 %.not91.i, label %363, label %558
+356:                                              ; preds = %353
+  %357 = getelementptr inbounds nuw i8, ptr %235, i64 8
+  %358 = load ptr, ptr %357, align 8
+  %359 = getelementptr inbounds nuw %struct.trigger_info, ptr %358, i64 %indvars.iv.i
+  %360 = getelementptr inbounds nuw i8, ptr %359, i64 8
+  %361 = load i16, ptr %360, align 8
+  %.not91.i = icmp eq i16 %361, 1
+  br i1 %.not91.i, label %362, label %557
 
-363:                                              ; preds = %357
-  %364 = getelementptr inbounds nuw i8, ptr %360, i64 28
-  %365 = load i32, ptr %364, align 4
-  %.not92.i = icmp eq i32 %365, 8
-  br i1 %.not92.i, label %366, label %558
+362:                                              ; preds = %356
+  %363 = getelementptr inbounds nuw i8, ptr %359, i64 28
+  %364 = load i32, ptr %363, align 4
+  %.not92.i = icmp eq i32 %364, 8
+  br i1 %.not92.i, label %365, label %557
 
-366:                                              ; preds = %363, %354
-  %367 = load i32, ptr getelementptr inbounds nuw (i8, ptr @params, i64 76), align 4
-  %.not93.i = icmp eq i32 %367, 0
-  br i1 %.not93.i, label %373, label %368
+365:                                              ; preds = %362, %353
+  %366 = load i32, ptr getelementptr inbounds nuw (i8, ptr @params, i64 76), align 4
+  %.not93.i = icmp eq i32 %366, 0
+  br i1 %.not93.i, label %372, label %367
 
-368:                                              ; preds = %366
-  %369 = getelementptr inbounds nuw i8, ptr %236, i64 8
-  %370 = load ptr, ptr %369, align 8
-  %371 = getelementptr inbounds nuw %struct.trigger_info, ptr %370, i64 %indvars.iv.i, i32 1
-  %372 = load i32, ptr %371, align 4
-  %.not94.i = icmp eq i32 %367, %372
-  br i1 %.not94.i, label %373, label %558
+367:                                              ; preds = %365
+  %368 = getelementptr inbounds nuw i8, ptr %235, i64 8
+  %369 = load ptr, ptr %368, align 8
+  %370 = getelementptr inbounds nuw %struct.trigger_info, ptr %369, i64 %indvars.iv.i, i32 1
+  %371 = load i32, ptr %370, align 4
+  %.not94.i = icmp eq i32 %366, %371
+  br i1 %.not94.i, label %372, label %557
 
-373:                                              ; preds = %368, %366
-  %374 = load i32, ptr getelementptr inbounds nuw (i8, ptr @params, i64 80), align 8
-  %.not95.i = icmp eq i32 %374, -2
-  br i1 %.not95.i, label %380, label %375
+372:                                              ; preds = %367, %365
+  %373 = load i32, ptr getelementptr inbounds nuw (i8, ptr @params, i64 80), align 8
+  %.not95.i = icmp eq i32 %373, -2
+  br i1 %.not95.i, label %379, label %374
 
-375:                                              ; preds = %373
-  %376 = getelementptr inbounds nuw i8, ptr %236, i64 8
-  %377 = load ptr, ptr %376, align 8
-  %378 = getelementptr inbounds nuw %struct.trigger_info, ptr %377, i64 %indvars.iv.i, i32 7
-  %379 = load i32, ptr %378, align 4
-  %.not96.i = icmp eq i32 %374, %379
-  br i1 %.not96.i, label %380, label %558
+374:                                              ; preds = %372
+  %375 = getelementptr inbounds nuw i8, ptr %235, i64 8
+  %376 = load ptr, ptr %375, align 8
+  %377 = getelementptr inbounds nuw %struct.trigger_info, ptr %376, i64 %indvars.iv.i, i32 7
+  %378 = load i32, ptr %377, align 4
+  %.not96.i = icmp eq i32 %373, %378
+  br i1 %.not96.i, label %379, label %557
 
-380:                                              ; preds = %375, %373
-  %381 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params, i64 27), align 1
-  %382 = trunc i8 %381 to i1
-  br i1 %382, label %383, label %392
+379:                                              ; preds = %374, %372
+  %380 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params, i64 27), align 1
+  %381 = trunc i8 %380 to i1
+  br i1 %381, label %382, label %391
 
-383:                                              ; preds = %380
-  %384 = getelementptr inbounds nuw i8, ptr %236, i64 8
-  %385 = load ptr, ptr %384, align 8
-  %386 = getelementptr inbounds nuw %struct.trigger_info, ptr %385, i64 %indvars.iv.i
-  %387 = getelementptr inbounds nuw i8, ptr %386, i64 8
-  %388 = load i16, ptr %387, align 8
-  %.not97.i = icmp eq i16 %388, 3
-  br i1 %.not97.i, label %389, label %558
+382:                                              ; preds = %379
+  %383 = getelementptr inbounds nuw i8, ptr %235, i64 8
+  %384 = load ptr, ptr %383, align 8
+  %385 = getelementptr inbounds nuw %struct.trigger_info, ptr %384, i64 %indvars.iv.i
+  %386 = getelementptr inbounds nuw i8, ptr %385, i64 8
+  %387 = load i16, ptr %386, align 8
+  %.not97.i = icmp eq i16 %387, 3
+  br i1 %.not97.i, label %388, label %557
 
-389:                                              ; preds = %383
-  %390 = getelementptr inbounds nuw i8, ptr %386, i64 28
-  %391 = load i32, ptr %390, align 4
-  %.not98.i = icmp eq i32 %391, 512
-  br i1 %.not98.i, label %392, label %558
+388:                                              ; preds = %382
+  %389 = getelementptr inbounds nuw i8, ptr %385, i64 28
+  %390 = load i32, ptr %389, align 4
+  %.not98.i = icmp eq i32 %390, 512
+  br i1 %.not98.i, label %391, label %557
 
-392:                                              ; preds = %389, %380
-  %393 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params, i64 28), align 4
-  %394 = trunc i8 %393 to i1
-  br i1 %394, label %395, label %404
+391:                                              ; preds = %388, %379
+  %392 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params, i64 28), align 4
+  %393 = trunc i8 %392 to i1
+  br i1 %393, label %394, label %403
 
-395:                                              ; preds = %392
-  %396 = getelementptr inbounds nuw i8, ptr %236, i64 8
-  %397 = load ptr, ptr %396, align 8
-  %398 = getelementptr inbounds nuw %struct.trigger_info, ptr %397, i64 %indvars.iv.i
-  %399 = getelementptr inbounds nuw i8, ptr %398, i64 8
-  %400 = load i16, ptr %399, align 8
-  %.not99.i = icmp eq i16 %400, 3
-  br i1 %.not99.i, label %401, label %558
+394:                                              ; preds = %391
+  %395 = getelementptr inbounds nuw i8, ptr %235, i64 8
+  %396 = load ptr, ptr %395, align 8
+  %397 = getelementptr inbounds nuw %struct.trigger_info, ptr %396, i64 %indvars.iv.i
+  %398 = getelementptr inbounds nuw i8, ptr %397, i64 8
+  %399 = load i16, ptr %398, align 8
+  %.not99.i = icmp eq i16 %399, 3
+  br i1 %.not99.i, label %400, label %557
 
-401:                                              ; preds = %395
-  %402 = getelementptr inbounds nuw i8, ptr %398, i64 28
-  %403 = load i32, ptr %402, align 4
-  %.not100.i = icmp eq i32 %403, 1024
-  br i1 %.not100.i, label %404, label %558
+400:                                              ; preds = %394
+  %401 = getelementptr inbounds nuw i8, ptr %397, i64 28
+  %402 = load i32, ptr %401, align 4
+  %.not100.i = icmp eq i32 %402, 1024
+  br i1 %.not100.i, label %403, label %557
 
-404:                                              ; preds = %401, %392
-  %405 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params, i64 29), align 1
-  %406 = trunc i8 %405 to i1
-  br i1 %406, label %407, label %416
+403:                                              ; preds = %400, %391
+  %404 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params, i64 29), align 1
+  %405 = trunc i8 %404 to i1
+  br i1 %405, label %406, label %415
 
-407:                                              ; preds = %404
-  %408 = getelementptr inbounds nuw i8, ptr %236, i64 8
-  %409 = load ptr, ptr %408, align 8
-  %410 = getelementptr inbounds nuw %struct.trigger_info, ptr %409, i64 %indvars.iv.i
-  %411 = getelementptr inbounds nuw i8, ptr %410, i64 8
-  %412 = load i16, ptr %411, align 8
-  %.not101.i = icmp eq i16 %412, 3
-  br i1 %.not101.i, label %413, label %558
+406:                                              ; preds = %403
+  %407 = getelementptr inbounds nuw i8, ptr %235, i64 8
+  %408 = load ptr, ptr %407, align 8
+  %409 = getelementptr inbounds nuw %struct.trigger_info, ptr %408, i64 %indvars.iv.i
+  %410 = getelementptr inbounds nuw i8, ptr %409, i64 8
+  %411 = load i16, ptr %410, align 8
+  %.not101.i = icmp eq i16 %411, 3
+  br i1 %.not101.i, label %412, label %557
 
-413:                                              ; preds = %407
-  %414 = getelementptr inbounds nuw i8, ptr %410, i64 28
-  %415 = load i32, ptr %414, align 4
-  %.not102.i = icmp eq i32 %415, 2048
-  br i1 %.not102.i, label %416, label %558
+412:                                              ; preds = %406
+  %413 = getelementptr inbounds nuw i8, ptr %409, i64 28
+  %414 = load i32, ptr %413, align 4
+  %.not102.i = icmp eq i32 %414, 2048
+  br i1 %.not102.i, label %415, label %557
 
-416:                                              ; preds = %413, %404
-  %417 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params, i64 30), align 2
-  %418 = trunc i8 %417 to i1
-  br i1 %418, label %419, label %428
+415:                                              ; preds = %412, %403
+  %416 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params, i64 30), align 2
+  %417 = trunc i8 %416 to i1
+  br i1 %417, label %418, label %427
 
-419:                                              ; preds = %416
-  %420 = getelementptr inbounds nuw i8, ptr %236, i64 8
-  %421 = load ptr, ptr %420, align 8
-  %422 = getelementptr inbounds nuw %struct.trigger_info, ptr %421, i64 %indvars.iv.i
-  %423 = getelementptr inbounds nuw i8, ptr %422, i64 8
-  %424 = load i16, ptr %423, align 8
-  %.not103.i = icmp eq i16 %424, 3
-  br i1 %.not103.i, label %425, label %558
+418:                                              ; preds = %415
+  %419 = getelementptr inbounds nuw i8, ptr %235, i64 8
+  %420 = load ptr, ptr %419, align 8
+  %421 = getelementptr inbounds nuw %struct.trigger_info, ptr %420, i64 %indvars.iv.i
+  %422 = getelementptr inbounds nuw i8, ptr %421, i64 8
+  %423 = load i16, ptr %422, align 8
+  %.not103.i = icmp eq i16 %423, 3
+  br i1 %.not103.i, label %424, label %557
 
-425:                                              ; preds = %419
-  %426 = getelementptr inbounds nuw i8, ptr %422, i64 28
-  %427 = load i32, ptr %426, align 4
-  %.not104.i = icmp eq i32 %427, 4096
-  br i1 %.not104.i, label %428, label %558
+424:                                              ; preds = %418
+  %425 = getelementptr inbounds nuw i8, ptr %421, i64 28
+  %426 = load i32, ptr %425, align 4
+  %.not104.i = icmp eq i32 %426, 4096
+  br i1 %.not104.i, label %427, label %557
 
-428:                                              ; preds = %425, %416
-  %429 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params, i64 31), align 1
-  %430 = trunc i8 %429 to i1
-  br i1 %430, label %431, label %440
+427:                                              ; preds = %424, %415
+  %428 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params, i64 31), align 1
+  %429 = trunc i8 %428 to i1
+  br i1 %429, label %430, label %439
 
-431:                                              ; preds = %428
-  %432 = getelementptr inbounds nuw i8, ptr %236, i64 8
-  %433 = load ptr, ptr %432, align 8
-  %434 = getelementptr inbounds nuw %struct.trigger_info, ptr %433, i64 %indvars.iv.i
-  %435 = getelementptr inbounds nuw i8, ptr %434, i64 8
-  %436 = load i16, ptr %435, align 8
-  %.not105.i = icmp eq i16 %436, 3
-  br i1 %.not105.i, label %437, label %558
+430:                                              ; preds = %427
+  %431 = getelementptr inbounds nuw i8, ptr %235, i64 8
+  %432 = load ptr, ptr %431, align 8
+  %433 = getelementptr inbounds nuw %struct.trigger_info, ptr %432, i64 %indvars.iv.i
+  %434 = getelementptr inbounds nuw i8, ptr %433, i64 8
+  %435 = load i16, ptr %434, align 8
+  %.not105.i = icmp eq i16 %435, 3
+  br i1 %.not105.i, label %436, label %557
 
-437:                                              ; preds = %431
-  %438 = getelementptr inbounds nuw i8, ptr %434, i64 28
-  %439 = load i32, ptr %438, align 4
-  %.not106.i = icmp eq i32 %439, 8192
-  br i1 %.not106.i, label %440, label %558
+436:                                              ; preds = %430
+  %437 = getelementptr inbounds nuw i8, ptr %433, i64 28
+  %438 = load i32, ptr %437, align 4
+  %.not106.i = icmp eq i32 %438, 8192
+  br i1 %.not106.i, label %439, label %557
 
-440:                                              ; preds = %437, %428
-  %441 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params, i64 32), align 8
-  %442 = trunc i8 %441 to i1
-  br i1 %442, label %443, label %452
+439:                                              ; preds = %436, %427
+  %440 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params, i64 32), align 8
+  %441 = trunc i8 %440 to i1
+  br i1 %441, label %442, label %451
 
-443:                                              ; preds = %440
-  %444 = getelementptr inbounds nuw i8, ptr %236, i64 8
-  %445 = load ptr, ptr %444, align 8
-  %446 = getelementptr inbounds nuw %struct.trigger_info, ptr %445, i64 %indvars.iv.i
-  %447 = getelementptr inbounds nuw i8, ptr %446, i64 8
-  %448 = load i16, ptr %447, align 8
-  %.not107.i = icmp eq i16 %448, 3
-  br i1 %.not107.i, label %449, label %558
+442:                                              ; preds = %439
+  %443 = getelementptr inbounds nuw i8, ptr %235, i64 8
+  %444 = load ptr, ptr %443, align 8
+  %445 = getelementptr inbounds nuw %struct.trigger_info, ptr %444, i64 %indvars.iv.i
+  %446 = getelementptr inbounds nuw i8, ptr %445, i64 8
+  %447 = load i16, ptr %446, align 8
+  %.not107.i = icmp eq i16 %447, 3
+  br i1 %.not107.i, label %448, label %557
 
-449:                                              ; preds = %443
-  %450 = getelementptr inbounds nuw i8, ptr %446, i64 28
-  %451 = load i32, ptr %450, align 4
-  %.not108.i = icmp eq i32 %451, 16384
-  br i1 %.not108.i, label %452, label %558
+448:                                              ; preds = %442
+  %449 = getelementptr inbounds nuw i8, ptr %445, i64 28
+  %450 = load i32, ptr %449, align 4
+  %.not108.i = icmp eq i32 %450, 16384
+  br i1 %.not108.i, label %451, label %557
 
-452:                                              ; preds = %449, %440
-  %453 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params, i64 33), align 1
-  %454 = trunc i8 %453 to i1
-  br i1 %454, label %455, label %464
+451:                                              ; preds = %448, %439
+  %452 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params, i64 33), align 1
+  %453 = trunc i8 %452 to i1
+  br i1 %453, label %454, label %463
 
-455:                                              ; preds = %452
-  %456 = getelementptr inbounds nuw i8, ptr %236, i64 8
-  %457 = load ptr, ptr %456, align 8
-  %458 = getelementptr inbounds nuw %struct.trigger_info, ptr %457, i64 %indvars.iv.i
-  %459 = getelementptr inbounds nuw i8, ptr %458, i64 8
-  %460 = load i16, ptr %459, align 8
-  %.not109.i = icmp eq i16 %460, 3
-  br i1 %.not109.i, label %461, label %558
+454:                                              ; preds = %451
+  %455 = getelementptr inbounds nuw i8, ptr %235, i64 8
+  %456 = load ptr, ptr %455, align 8
+  %457 = getelementptr inbounds nuw %struct.trigger_info, ptr %456, i64 %indvars.iv.i
+  %458 = getelementptr inbounds nuw i8, ptr %457, i64 8
+  %459 = load i16, ptr %458, align 8
+  %.not109.i = icmp eq i16 %459, 3
+  br i1 %.not109.i, label %460, label %557
 
-461:                                              ; preds = %455
-  %462 = getelementptr inbounds nuw i8, ptr %458, i64 28
-  %463 = load i32, ptr %462, align 4
-  %.not110.i = icmp eq i32 %463, 32768
-  br i1 %.not110.i, label %464, label %558
+460:                                              ; preds = %454
+  %461 = getelementptr inbounds nuw i8, ptr %457, i64 28
+  %462 = load i32, ptr %461, align 4
+  %.not110.i = icmp eq i32 %462, 32768
+  br i1 %.not110.i, label %463, label %557
 
-464:                                              ; preds = %461, %452
-  %465 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params, i64 34), align 2
-  %466 = trunc i8 %465 to i1
-  br i1 %466, label %467, label %476
+463:                                              ; preds = %460, %451
+  %464 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params, i64 34), align 2
+  %465 = trunc i8 %464 to i1
+  br i1 %465, label %466, label %475
 
-467:                                              ; preds = %464
-  %468 = getelementptr inbounds nuw i8, ptr %236, i64 8
-  %469 = load ptr, ptr %468, align 8
-  %470 = getelementptr inbounds nuw %struct.trigger_info, ptr %469, i64 %indvars.iv.i
-  %471 = getelementptr inbounds nuw i8, ptr %470, i64 8
-  %472 = load i16, ptr %471, align 8
-  %.not111.i = icmp eq i16 %472, 4
-  br i1 %.not111.i, label %473, label %558
+466:                                              ; preds = %463
+  %467 = getelementptr inbounds nuw i8, ptr %235, i64 8
+  %468 = load ptr, ptr %467, align 8
+  %469 = getelementptr inbounds nuw %struct.trigger_info, ptr %468, i64 %indvars.iv.i
+  %470 = getelementptr inbounds nuw i8, ptr %469, i64 8
+  %471 = load i16, ptr %470, align 8
+  %.not111.i = icmp eq i16 %471, 4
+  br i1 %.not111.i, label %472, label %557
 
-473:                                              ; preds = %467
-  %474 = getelementptr inbounds nuw i8, ptr %470, i64 28
-  %475 = load i32, ptr %474, align 4
-  %.not112.i = icmp eq i32 %475, 65536
-  br i1 %.not112.i, label %476, label %558
+472:                                              ; preds = %466
+  %473 = getelementptr inbounds nuw i8, ptr %469, i64 28
+  %474 = load i32, ptr %473, align 4
+  %.not112.i = icmp eq i32 %474, 65536
+  br i1 %.not112.i, label %475, label %557
 
-476:                                              ; preds = %473, %464
-  %477 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params, i64 35), align 1
-  %478 = trunc i8 %477 to i1
-  br i1 %478, label %479, label %488
+475:                                              ; preds = %472, %463
+  %476 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params, i64 35), align 1
+  %477 = trunc i8 %476 to i1
+  br i1 %477, label %478, label %487
 
-479:                                              ; preds = %476
-  %480 = getelementptr inbounds nuw i8, ptr %236, i64 8
-  %481 = load ptr, ptr %480, align 8
-  %482 = getelementptr inbounds nuw %struct.trigger_info, ptr %481, i64 %indvars.iv.i
-  %483 = getelementptr inbounds nuw i8, ptr %482, i64 8
-  %484 = load i16, ptr %483, align 8
-  %.not113.i = icmp eq i16 %484, 4
-  br i1 %.not113.i, label %485, label %558
+478:                                              ; preds = %475
+  %479 = getelementptr inbounds nuw i8, ptr %235, i64 8
+  %480 = load ptr, ptr %479, align 8
+  %481 = getelementptr inbounds nuw %struct.trigger_info, ptr %480, i64 %indvars.iv.i
+  %482 = getelementptr inbounds nuw i8, ptr %481, i64 8
+  %483 = load i16, ptr %482, align 8
+  %.not113.i = icmp eq i16 %483, 4
+  br i1 %.not113.i, label %484, label %557
 
-485:                                              ; preds = %479
-  %486 = getelementptr inbounds nuw i8, ptr %482, i64 28
-  %487 = load i32, ptr %486, align 4
-  %.not114.i = icmp eq i32 %487, 131072
-  br i1 %.not114.i, label %488, label %558
+484:                                              ; preds = %478
+  %485 = getelementptr inbounds nuw i8, ptr %481, i64 28
+  %486 = load i32, ptr %485, align 4
+  %.not114.i = icmp eq i32 %486, 131072
+  br i1 %.not114.i, label %487, label %557
 
-488:                                              ; preds = %485, %476
-  %489 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params, i64 36), align 4
-  %490 = trunc i8 %489 to i1
-  br i1 %490, label %491, label %500
+487:                                              ; preds = %484, %475
+  %488 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params, i64 36), align 4
+  %489 = trunc i8 %488 to i1
+  br i1 %489, label %490, label %499
 
-491:                                              ; preds = %488
-  %492 = getelementptr inbounds nuw i8, ptr %236, i64 8
-  %493 = load ptr, ptr %492, align 8
-  %494 = getelementptr inbounds nuw %struct.trigger_info, ptr %493, i64 %indvars.iv.i
-  %495 = getelementptr inbounds nuw i8, ptr %494, i64 8
-  %496 = load i16, ptr %495, align 8
-  %.not115.i = icmp eq i16 %496, 5
-  br i1 %.not115.i, label %497, label %558
+490:                                              ; preds = %487
+  %491 = getelementptr inbounds nuw i8, ptr %235, i64 8
+  %492 = load ptr, ptr %491, align 8
+  %493 = getelementptr inbounds nuw %struct.trigger_info, ptr %492, i64 %indvars.iv.i
+  %494 = getelementptr inbounds nuw i8, ptr %493, i64 8
+  %495 = load i16, ptr %494, align 8
+  %.not115.i = icmp eq i16 %495, 5
+  br i1 %.not115.i, label %496, label %557
 
-497:                                              ; preds = %491
-  %498 = getelementptr inbounds nuw i8, ptr %494, i64 28
-  %499 = load i32, ptr %498, align 4
-  %.not116.i = icmp eq i32 %499, 262144
-  br i1 %.not116.i, label %500, label %558
+496:                                              ; preds = %490
+  %497 = getelementptr inbounds nuw i8, ptr %493, i64 28
+  %498 = load i32, ptr %497, align 4
+  %.not116.i = icmp eq i32 %498, 262144
+  br i1 %.not116.i, label %499, label %557
 
-500:                                              ; preds = %497, %488
-  %501 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params, i64 37), align 1
-  %502 = trunc i8 %501 to i1
-  br i1 %502, label %503, label %512
+499:                                              ; preds = %496, %487
+  %500 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params, i64 37), align 1
+  %501 = trunc i8 %500 to i1
+  br i1 %501, label %502, label %511
 
-503:                                              ; preds = %500
-  %504 = getelementptr inbounds nuw i8, ptr %236, i64 8
-  %505 = load ptr, ptr %504, align 8
-  %506 = getelementptr inbounds nuw %struct.trigger_info, ptr %505, i64 %indvars.iv.i
-  %507 = getelementptr inbounds nuw i8, ptr %506, i64 8
-  %508 = load i16, ptr %507, align 8
-  %.not117.i = icmp eq i16 %508, 5
-  br i1 %.not117.i, label %509, label %558
+502:                                              ; preds = %499
+  %503 = getelementptr inbounds nuw i8, ptr %235, i64 8
+  %504 = load ptr, ptr %503, align 8
+  %505 = getelementptr inbounds nuw %struct.trigger_info, ptr %504, i64 %indvars.iv.i
+  %506 = getelementptr inbounds nuw i8, ptr %505, i64 8
+  %507 = load i16, ptr %506, align 8
+  %.not117.i = icmp eq i16 %507, 5
+  br i1 %.not117.i, label %508, label %557
 
-509:                                              ; preds = %503
-  %510 = getelementptr inbounds nuw i8, ptr %506, i64 28
-  %511 = load i32, ptr %510, align 4
-  %.not118.i = icmp eq i32 %511, 524288
-  br i1 %.not118.i, label %512, label %558
+508:                                              ; preds = %502
+  %509 = getelementptr inbounds nuw i8, ptr %505, i64 28
+  %510 = load i32, ptr %509, align 4
+  %.not118.i = icmp eq i32 %510, 524288
+  br i1 %.not118.i, label %511, label %557
 
-512:                                              ; preds = %509, %500
-  %513 = icmp eq i32 %.062119.i, 0
-  br i1 %513, label %514, label %518
+511:                                              ; preds = %508, %499
+  %512 = icmp eq i32 %.062119.i, 0
+  br i1 %512, label %513, label %517
 
-514:                                              ; preds = %512
-  %515 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params, i64 38), align 2
-  %516 = trunc i8 %515 to i1
-  br i1 %516, label %518, label %517
+513:                                              ; preds = %511
+  %514 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params, i64 38), align 2
+  %515 = trunc i8 %514 to i1
+  br i1 %515, label %517, label %516
 
-517:                                              ; preds = %514
+516:                                              ; preds = %513
   %puts.i = call i32 @puts(ptr nonnull dereferenceable(1) @str)
   %.pre125.i = load ptr, ptr %5, align 8
-  br label %518
+  br label %517
 
-518:                                              ; preds = %517, %514, %512
-  %519 = phi ptr [ %.pre125.i, %517 ], [ %236, %514 ], [ %236, %512 ]
-  %520 = add nsw i32 %.062119.i, 1
-  %521 = getelementptr inbounds nuw i8, ptr %519, i64 8
-  %522 = load ptr, ptr %521, align 8
-  %523 = getelementptr inbounds nuw %struct.trigger_info, ptr %522, i64 %indvars.iv.i, i32 7
-  %524 = load i32, ptr %523, align 4
-  %525 = call ptr @uid_to_string(i32 noundef %524) #8
-  store ptr %525, ptr %6, align 8
-  %526 = load ptr, ptr %5, align 8
-  %527 = getelementptr inbounds nuw i8, ptr %526, i64 8
-  %528 = load ptr, ptr %527, align 8
-  %529 = getelementptr inbounds nuw %struct.trigger_info, ptr %528, i64 %indvars.iv.i
-  %530 = getelementptr inbounds nuw i8, ptr %529, i64 4
-  %531 = load i32, ptr %530, align 4
-  %532 = getelementptr inbounds nuw i8, ptr %529, i64 8
-  %533 = load i16, ptr %532, align 8
-  %534 = call ptr @trigger_res_type(i16 noundef zeroext %533) #8
-  %535 = load ptr, ptr %5, align 8
-  %536 = getelementptr inbounds nuw i8, ptr %535, i64 8
-  %537 = load ptr, ptr %536, align 8
-  %538 = getelementptr inbounds nuw %struct.trigger_info, ptr %537, i64 %indvars.iv.i
-  %539 = getelementptr inbounds nuw i8, ptr %538, i64 16
-  %540 = load ptr, ptr %539, align 8
-  %541 = getelementptr inbounds nuw i8, ptr %538, i64 28
-  %542 = load i32, ptr %541, align 4
-  %543 = call ptr @trigger_type(i32 noundef %542) #8
-  %544 = load ptr, ptr %5, align 8
-  %545 = getelementptr inbounds nuw i8, ptr %544, i64 8
-  %546 = load ptr, ptr %545, align 8
-  %547 = getelementptr inbounds nuw %struct.trigger_info, ptr %546, i64 %indvars.iv.i, i32 6
-  %548 = load i16, ptr %547, align 8
-  %549 = zext i16 %548 to i32
-  %550 = add nsw i32 %549, -32768
-  %551 = load ptr, ptr %6, align 8
-  %552 = getelementptr inbounds nuw %struct.trigger_info, ptr %546, i64 %indvars.iv.i
-  %553 = load i16, ptr %552, align 8
-  %554 = and i16 %553, 1
-  %.not.i.i = icmp eq i16 %554, 0
+517:                                              ; preds = %516, %513, %511
+  %518 = phi ptr [ %.pre125.i, %516 ], [ %235, %513 ], [ %235, %511 ]
+  %519 = add nsw i32 %.062119.i, 1
+  %520 = getelementptr inbounds nuw i8, ptr %518, i64 8
+  %521 = load ptr, ptr %520, align 8
+  %522 = getelementptr inbounds nuw %struct.trigger_info, ptr %521, i64 %indvars.iv.i, i32 7
+  %523 = load i32, ptr %522, align 4
+  %524 = call ptr @uid_to_string(i32 noundef %523) #8
+  store ptr %524, ptr %6, align 8
+  %525 = load ptr, ptr %5, align 8
+  %526 = getelementptr inbounds nuw i8, ptr %525, i64 8
+  %527 = load ptr, ptr %526, align 8
+  %528 = getelementptr inbounds nuw %struct.trigger_info, ptr %527, i64 %indvars.iv.i
+  %529 = getelementptr inbounds nuw i8, ptr %528, i64 4
+  %530 = load i32, ptr %529, align 4
+  %531 = getelementptr inbounds nuw i8, ptr %528, i64 8
+  %532 = load i16, ptr %531, align 8
+  %533 = call ptr @trigger_res_type(i16 noundef zeroext %532) #8
+  %534 = load ptr, ptr %5, align 8
+  %535 = getelementptr inbounds nuw i8, ptr %534, i64 8
+  %536 = load ptr, ptr %535, align 8
+  %537 = getelementptr inbounds nuw %struct.trigger_info, ptr %536, i64 %indvars.iv.i
+  %538 = getelementptr inbounds nuw i8, ptr %537, i64 16
+  %539 = load ptr, ptr %538, align 8
+  %540 = getelementptr inbounds nuw i8, ptr %537, i64 28
+  %541 = load i32, ptr %540, align 4
+  %542 = call ptr @trigger_type(i32 noundef %541) #8
+  %543 = load ptr, ptr %5, align 8
+  %544 = getelementptr inbounds nuw i8, ptr %543, i64 8
+  %545 = load ptr, ptr %544, align 8
+  %546 = getelementptr inbounds nuw %struct.trigger_info, ptr %545, i64 %indvars.iv.i, i32 6
+  %547 = load i16, ptr %546, align 8
+  %548 = zext i16 %547 to i32
+  %549 = add nsw i32 %548, -32768
+  %550 = load ptr, ptr %6, align 8
+  %551 = getelementptr inbounds nuw %struct.trigger_info, ptr %545, i64 %indvars.iv.i
+  %552 = load i16, ptr %551, align 8
+  %553 = and i16 %552, 1
+  %.not.i.i = icmp eq i16 %553, 0
   %.str.15..str.14.i.i = select i1 %.not.i.i, ptr @.str.15, ptr @.str.14
-  %555 = getelementptr inbounds nuw %struct.trigger_info, ptr %546, i64 %indvars.iv.i, i32 8
-  %556 = load ptr, ptr %555, align 8
-  %557 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.13, i32 noundef %531, ptr noundef %534, ptr noundef %540, ptr noundef %543, i32 noundef %550, ptr noundef %551, ptr noundef nonnull %.str.15..str.14.i.i, ptr noundef %556)
+  %554 = getelementptr inbounds nuw %struct.trigger_info, ptr %545, i64 %indvars.iv.i, i32 8
+  %555 = load ptr, ptr %554, align 8
+  %556 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.13, i32 noundef %530, ptr noundef %533, ptr noundef %539, ptr noundef %542, i32 noundef %549, ptr noundef %550, ptr noundef nonnull %.str.15..str.14.i.i, ptr noundef %555)
   call void @slurm_xfree(ptr noundef nonnull %6) #8
   %.pre.i = load i8, ptr @params, align 8
   %.pre126.i = load ptr, ptr %5, align 8
   %.pre127.i = load i32, ptr %.pre126.i, align 8
-  br label %558
+  br label %557
 
-558:                                              ; preds = %518, %509, %503, %497, %491, %485, %479, %473, %467, %461, %455, %449, %443, %437, %431, %425, %419, %413, %407, %401, %395, %389, %383, %375, %368, %363, %357, %351, %345, %339, %333, %327, %322, %316, %310, %302, %297, %291, %285, %279, %273, %268, %260, %254, %247, %239
-  %559 = phi i32 [ %235, %239 ], [ %235, %247 ], [ %235, %254 ], [ %235, %260 ], [ %235, %273 ], [ %235, %279 ], [ %235, %285 ], [ %235, %291 ], [ %235, %297 ], [ %235, %302 ], [ %235, %310 ], [ %235, %316 ], [ %235, %327 ], [ %235, %333 ], [ %235, %339 ], [ %235, %345 ], [ %235, %351 ], [ %235, %357 ], [ %235, %363 ], [ %235, %368 ], [ %235, %375 ], [ %235, %383 ], [ %235, %389 ], [ %235, %395 ], [ %235, %401 ], [ %235, %407 ], [ %235, %413 ], [ %235, %419 ], [ %235, %425 ], [ %235, %431 ], [ %235, %437 ], [ %235, %443 ], [ %235, %449 ], [ %235, %455 ], [ %235, %461 ], [ %235, %467 ], [ %235, %473 ], [ %235, %479 ], [ %235, %485 ], [ %235, %491 ], [ %235, %497 ], [ %235, %503 ], [ %235, %509 ], [ %.pre127.i, %518 ], [ %235, %268 ], [ %235, %322 ]
-  %560 = phi ptr [ %236, %239 ], [ %236, %247 ], [ %236, %254 ], [ %236, %260 ], [ %236, %273 ], [ %236, %279 ], [ %236, %285 ], [ %236, %291 ], [ %236, %297 ], [ %236, %302 ], [ %236, %310 ], [ %236, %316 ], [ %236, %327 ], [ %236, %333 ], [ %236, %339 ], [ %236, %345 ], [ %236, %351 ], [ %236, %357 ], [ %236, %363 ], [ %236, %368 ], [ %236, %375 ], [ %236, %383 ], [ %236, %389 ], [ %236, %395 ], [ %236, %401 ], [ %236, %407 ], [ %236, %413 ], [ %236, %419 ], [ %236, %425 ], [ %236, %431 ], [ %236, %437 ], [ %236, %443 ], [ %236, %449 ], [ %236, %455 ], [ %236, %461 ], [ %236, %467 ], [ %236, %473 ], [ %236, %479 ], [ %236, %485 ], [ %236, %491 ], [ %236, %497 ], [ %236, %503 ], [ %236, %509 ], [ %.pre126.i, %518 ], [ %236, %268 ], [ %236, %322 ]
-  %561 = phi i8 [ %237, %239 ], [ %237, %247 ], [ %237, %254 ], [ %237, %260 ], [ %237, %273 ], [ %237, %279 ], [ %237, %285 ], [ %237, %291 ], [ %237, %297 ], [ %237, %302 ], [ %237, %310 ], [ %237, %316 ], [ %237, %327 ], [ %237, %333 ], [ %237, %339 ], [ %237, %345 ], [ %237, %351 ], [ %237, %357 ], [ %237, %363 ], [ %237, %368 ], [ %237, %375 ], [ %237, %383 ], [ %237, %389 ], [ %237, %395 ], [ %237, %401 ], [ %237, %407 ], [ %237, %413 ], [ %237, %419 ], [ %237, %425 ], [ %237, %431 ], [ %237, %437 ], [ %237, %443 ], [ %237, %449 ], [ %237, %455 ], [ %237, %461 ], [ %237, %467 ], [ %237, %473 ], [ %237, %479 ], [ %237, %485 ], [ %237, %491 ], [ %237, %497 ], [ %237, %503 ], [ %237, %509 ], [ %.pre.i, %518 ], [ %237, %268 ], [ %237, %322 ]
-  %.1.i = phi i32 [ %.062119.i, %239 ], [ %.062119.i, %247 ], [ %.062119.i, %254 ], [ %.062119.i, %260 ], [ %.062119.i, %273 ], [ %.062119.i, %279 ], [ %.062119.i, %285 ], [ %.062119.i, %291 ], [ %.062119.i, %297 ], [ %.062119.i, %302 ], [ %.062119.i, %310 ], [ %.062119.i, %316 ], [ %.062119.i, %327 ], [ %.062119.i, %333 ], [ %.062119.i, %339 ], [ %.062119.i, %345 ], [ %.062119.i, %351 ], [ %.062119.i, %357 ], [ %.062119.i, %363 ], [ %.062119.i, %368 ], [ %.062119.i, %375 ], [ %.062119.i, %383 ], [ %.062119.i, %389 ], [ %.062119.i, %395 ], [ %.062119.i, %401 ], [ %.062119.i, %407 ], [ %.062119.i, %413 ], [ %.062119.i, %419 ], [ %.062119.i, %425 ], [ %.062119.i, %431 ], [ %.062119.i, %437 ], [ %.062119.i, %443 ], [ %.062119.i, %449 ], [ %.062119.i, %455 ], [ %.062119.i, %461 ], [ %.062119.i, %467 ], [ %.062119.i, %473 ], [ %.062119.i, %479 ], [ %.062119.i, %485 ], [ %.062119.i, %491 ], [ %.062119.i, %497 ], [ %.062119.i, %503 ], [ %.062119.i, %509 ], [ %520, %518 ], [ %.062119.i, %268 ], [ %.062119.i, %322 ]
+557:                                              ; preds = %517, %508, %502, %496, %490, %484, %478, %472, %466, %460, %454, %448, %442, %436, %430, %424, %418, %412, %406, %400, %394, %388, %382, %374, %367, %362, %356, %350, %344, %338, %332, %326, %321, %315, %309, %301, %296, %290, %284, %278, %272, %267, %259, %253, %246, %238
+  %558 = phi i32 [ %234, %238 ], [ %234, %246 ], [ %234, %253 ], [ %234, %259 ], [ %234, %272 ], [ %234, %278 ], [ %234, %284 ], [ %234, %290 ], [ %234, %296 ], [ %234, %301 ], [ %234, %309 ], [ %234, %315 ], [ %234, %326 ], [ %234, %332 ], [ %234, %338 ], [ %234, %344 ], [ %234, %350 ], [ %234, %356 ], [ %234, %362 ], [ %234, %367 ], [ %234, %374 ], [ %234, %382 ], [ %234, %388 ], [ %234, %394 ], [ %234, %400 ], [ %234, %406 ], [ %234, %412 ], [ %234, %418 ], [ %234, %424 ], [ %234, %430 ], [ %234, %436 ], [ %234, %442 ], [ %234, %448 ], [ %234, %454 ], [ %234, %460 ], [ %234, %466 ], [ %234, %472 ], [ %234, %478 ], [ %234, %484 ], [ %234, %490 ], [ %234, %496 ], [ %234, %502 ], [ %234, %508 ], [ %.pre127.i, %517 ], [ %234, %267 ], [ %234, %321 ]
+  %559 = phi ptr [ %235, %238 ], [ %235, %246 ], [ %235, %253 ], [ %235, %259 ], [ %235, %272 ], [ %235, %278 ], [ %235, %284 ], [ %235, %290 ], [ %235, %296 ], [ %235, %301 ], [ %235, %309 ], [ %235, %315 ], [ %235, %326 ], [ %235, %332 ], [ %235, %338 ], [ %235, %344 ], [ %235, %350 ], [ %235, %356 ], [ %235, %362 ], [ %235, %367 ], [ %235, %374 ], [ %235, %382 ], [ %235, %388 ], [ %235, %394 ], [ %235, %400 ], [ %235, %406 ], [ %235, %412 ], [ %235, %418 ], [ %235, %424 ], [ %235, %430 ], [ %235, %436 ], [ %235, %442 ], [ %235, %448 ], [ %235, %454 ], [ %235, %460 ], [ %235, %466 ], [ %235, %472 ], [ %235, %478 ], [ %235, %484 ], [ %235, %490 ], [ %235, %496 ], [ %235, %502 ], [ %235, %508 ], [ %.pre126.i, %517 ], [ %235, %267 ], [ %235, %321 ]
+  %560 = phi i8 [ %236, %238 ], [ %236, %246 ], [ %236, %253 ], [ %236, %259 ], [ %236, %272 ], [ %236, %278 ], [ %236, %284 ], [ %236, %290 ], [ %236, %296 ], [ %236, %301 ], [ %236, %309 ], [ %236, %315 ], [ %236, %326 ], [ %236, %332 ], [ %236, %338 ], [ %236, %344 ], [ %236, %350 ], [ %236, %356 ], [ %236, %362 ], [ %236, %367 ], [ %236, %374 ], [ %236, %382 ], [ %236, %388 ], [ %236, %394 ], [ %236, %400 ], [ %236, %406 ], [ %236, %412 ], [ %236, %418 ], [ %236, %424 ], [ %236, %430 ], [ %236, %436 ], [ %236, %442 ], [ %236, %448 ], [ %236, %454 ], [ %236, %460 ], [ %236, %466 ], [ %236, %472 ], [ %236, %478 ], [ %236, %484 ], [ %236, %490 ], [ %236, %496 ], [ %236, %502 ], [ %236, %508 ], [ %.pre.i, %517 ], [ %236, %267 ], [ %236, %321 ]
+  %.1.i = phi i32 [ %.062119.i, %238 ], [ %.062119.i, %246 ], [ %.062119.i, %253 ], [ %.062119.i, %259 ], [ %.062119.i, %272 ], [ %.062119.i, %278 ], [ %.062119.i, %284 ], [ %.062119.i, %290 ], [ %.062119.i, %296 ], [ %.062119.i, %301 ], [ %.062119.i, %309 ], [ %.062119.i, %315 ], [ %.062119.i, %326 ], [ %.062119.i, %332 ], [ %.062119.i, %338 ], [ %.062119.i, %344 ], [ %.062119.i, %350 ], [ %.062119.i, %356 ], [ %.062119.i, %362 ], [ %.062119.i, %367 ], [ %.062119.i, %374 ], [ %.062119.i, %382 ], [ %.062119.i, %388 ], [ %.062119.i, %394 ], [ %.062119.i, %400 ], [ %.062119.i, %406 ], [ %.062119.i, %412 ], [ %.062119.i, %418 ], [ %.062119.i, %424 ], [ %.062119.i, %430 ], [ %.062119.i, %436 ], [ %.062119.i, %442 ], [ %.062119.i, %448 ], [ %.062119.i, %454 ], [ %.062119.i, %460 ], [ %.062119.i, %466 ], [ %.062119.i, %472 ], [ %.062119.i, %478 ], [ %.062119.i, %484 ], [ %.062119.i, %490 ], [ %.062119.i, %496 ], [ %.062119.i, %502 ], [ %.062119.i, %508 ], [ %519, %517 ], [ %.062119.i, %267 ], [ %.062119.i, %321 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %562 = zext i32 %559 to i64
-  %563 = icmp samesign ult i64 %indvars.iv.next.i, %562
-  br i1 %563, label %.lr.ph.i5, label %._crit_edge.i6, !llvm.loop !9
+  %561 = zext i32 %558 to i64
+  %562 = icmp samesign ult i64 %indvars.iv.next.i, %561
+  br i1 %562, label %.lr.ph.i5, label %._crit_edge.i6, !llvm.loop !9
 
-._crit_edge.i6:                                   ; preds = %558, %232
-  %.lcssa.i = phi ptr [ %233, %232 ], [ %560, %558 ]
+._crit_edge.i6:                                   ; preds = %557, %231
+  %.lcssa.i = phi ptr [ %232, %231 ], [ %559, %557 ]
   call void @slurm_free_trigger_msg(ptr noundef nonnull %.lcssa.i) #8
   br label %_get_trigger.exit
 
-_get_trigger.exit:                                ; preds = %225, %._crit_edge.i6
-  %.0.i4 = phi i32 [ 1, %225 ], [ 0, %._crit_edge.i6 ]
+_get_trigger.exit:                                ; preds = %224, %._crit_edge.i6
+  %.0.i4 = phi i32 [ 1, %224 ], [ 0, %._crit_edge.i6 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
-  br label %603
+  br label %602
 
-564:                                              ; preds = %220
-  %565 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params, i64 26), align 2
-  %566 = trunc i8 %565 to i1
-  br i1 %566, label %567, label %601
+563:                                              ; preds = %219
+  %564 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params, i64 26), align 2
+  %565 = trunc i8 %564 to i1
+  br i1 %565, label %566, label %600
 
-567:                                              ; preds = %564
+566:                                              ; preds = %563
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %4)
   call void @slurm_init_trigger_msg(ptr noundef nonnull %3) #8
-  %568 = load i32, ptr getelementptr inbounds nuw (i8, ptr @params, i64 76), align 4
-  %569 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  store i32 %568, ptr %569, align 4
-  %570 = load i32, ptr getelementptr inbounds nuw (i8, ptr @params, i64 80), align 8
-  %571 = getelementptr inbounds nuw i8, ptr %3, i64 36
-  store i32 %570, ptr %571, align 4
-  %572 = load i32, ptr getelementptr inbounds nuw (i8, ptr @params, i64 20), align 4
-  %.not.i7 = icmp eq i32 %572, 0
-  br i1 %.not.i7, label %577, label %573
+  %567 = load i32, ptr getelementptr inbounds nuw (i8, ptr @params, i64 76), align 4
+  %568 = getelementptr inbounds nuw i8, ptr %3, i64 4
+  store i32 %567, ptr %568, align 4
+  %569 = load i32, ptr getelementptr inbounds nuw (i8, ptr @params, i64 80), align 8
+  %570 = getelementptr inbounds nuw i8, ptr %3, i64 36
+  store i32 %569, ptr %570, align 4
+  %571 = load i32, ptr getelementptr inbounds nuw (i8, ptr @params, i64 20), align 4
+  %.not.i7 = icmp eq i32 %571, 0
+  br i1 %.not.i7, label %576, label %572
 
-573:                                              ; preds = %567
-  %574 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store i16 1, ptr %574, align 8
-  %575 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %4, i64 noundef 128, ptr noundef nonnull @.str.2, i32 noundef %572) #8
-  %576 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store ptr %4, ptr %576, align 8
-  br label %577
+572:                                              ; preds = %566
+  %573 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store i16 1, ptr %573, align 8
+  %574 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %4, i64 noundef 128, ptr noundef nonnull @.str.2, i32 noundef %571) #8
+  %575 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  store ptr %4, ptr %575, align 8
+  br label %576
 
-577:                                              ; preds = %573, %567
-  %578 = call i32 @slurm_clear_trigger(ptr noundef nonnull %3) #8
-  %.not1.i = icmp eq i32 %578, 0
-  br i1 %.not1.i, label %583, label %579
+576:                                              ; preds = %572, %566
+  %577 = call i32 @slurm_clear_trigger(ptr noundef nonnull %3) #8
+  %.not1.i = icmp eq i32 %577, 0
+  br i1 %.not1.i, label %582, label %578
 
-579:                                              ; preds = %577
-  %580 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params, i64 72), align 8
-  %581 = trunc i8 %580 to i1
-  br i1 %581, label %_clear_trigger.exit, label %582
+578:                                              ; preds = %576
+  %579 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params, i64 72), align 8
+  %580 = trunc i8 %579 to i1
+  br i1 %580, label %_clear_trigger.exit, label %581
 
-582:                                              ; preds = %579
+581:                                              ; preds = %578
   call void @slurm_perror(ptr noundef nonnull @.str.3) #8
   br label %_clear_trigger.exit
 
-583:                                              ; preds = %577
-  %584 = load i32, ptr getelementptr inbounds nuw (i8, ptr @params, i64 20), align 4
-  %.not2.i9 = icmp eq i32 %584, 0
-  br i1 %.not2.i9, label %591, label %585
+582:                                              ; preds = %576
+  %583 = load i32, ptr getelementptr inbounds nuw (i8, ptr @params, i64 20), align 4
+  %.not2.i9 = icmp eq i32 %583, 0
+  br i1 %.not2.i9, label %590, label %584
 
-585:                                              ; preds = %583
-  %586 = call i32 @get_log_level() #8
-  %587 = icmp sgt i32 %586, 3
-  br i1 %587, label %588, label %_clear_trigger.exit
+584:                                              ; preds = %582
+  %585 = call i32 @get_log_level() #8
+  %586 = icmp sgt i32 %585, 3
+  br i1 %586, label %587, label %_clear_trigger.exit
 
-588:                                              ; preds = %585
-  %589 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %590 = load ptr, ptr %589, align 8
-  call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.4, ptr noundef %590) #8
+587:                                              ; preds = %584
+  %588 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %589 = load ptr, ptr %588, align 8
+  call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.4, ptr noundef %589) #8
   br label %_clear_trigger.exit
 
-591:                                              ; preds = %583
-  %592 = load i32, ptr getelementptr inbounds nuw (i8, ptr @params, i64 80), align 8
-  %.not3.i10 = icmp eq i32 %592, -2
-  %593 = call i32 @get_log_level() #8
-  %594 = icmp sgt i32 %593, 3
-  br i1 %.not3.i10, label %598, label %595
+590:                                              ; preds = %582
+  %591 = load i32, ptr getelementptr inbounds nuw (i8, ptr @params, i64 80), align 8
+  %.not3.i10 = icmp eq i32 %591, -2
+  %592 = call i32 @get_log_level() #8
+  %593 = icmp sgt i32 %592, 3
+  br i1 %.not3.i10, label %597, label %594
 
-595:                                              ; preds = %591
-  br i1 %594, label %596, label %_clear_trigger.exit
+594:                                              ; preds = %590
+  br i1 %593, label %595, label %_clear_trigger.exit
 
-596:                                              ; preds = %595
-  %597 = load i32, ptr %571, align 4
-  call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.5, i32 noundef %597) #8
+595:                                              ; preds = %594
+  %596 = load i32, ptr %570, align 4
+  call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.5, i32 noundef %596) #8
   br label %_clear_trigger.exit
 
-598:                                              ; preds = %591
-  br i1 %594, label %599, label %_clear_trigger.exit
+597:                                              ; preds = %590
+  br i1 %593, label %598, label %_clear_trigger.exit
 
-599:                                              ; preds = %598
-  %600 = load i32, ptr %569, align 4
-  call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.6, i32 noundef %600) #8
+598:                                              ; preds = %597
+  %599 = load i32, ptr %568, align 4
+  call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.6, i32 noundef %599) #8
   br label %_clear_trigger.exit
 
-_clear_trigger.exit:                              ; preds = %579, %582, %585, %588, %595, %596, %598, %599
-  %.0.i8 = phi i32 [ 1, %582 ], [ 0, %579 ], [ 0, %596 ], [ 0, %595 ], [ 0, %599 ], [ 0, %598 ], [ 0, %585 ], [ 0, %588 ]
+_clear_trigger.exit:                              ; preds = %578, %581, %584, %587, %594, %595, %597, %598
+  %.0.i8 = phi i32 [ 1, %581 ], [ 0, %578 ], [ 0, %595 ], [ 0, %594 ], [ 0, %598 ], [ 0, %597 ], [ 0, %584 ], [ 0, %587 ]
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %4)
-  br label %603
+  br label %602
 
-601:                                              ; preds = %564
-  %602 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.1) #8
-  br label %603
+600:                                              ; preds = %563
+  %601 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.1) #8
+  br label %602
 
-603:                                              ; preds = %_get_trigger.exit, %601, %_clear_trigger.exit, %_set_trigger.exit
-  %.0 = phi i32 [ %.0.i, %_set_trigger.exit ], [ %.0.i4, %_get_trigger.exit ], [ %.0.i8, %_clear_trigger.exit ], [ 1, %601 ]
+602:                                              ; preds = %_get_trigger.exit, %600, %_clear_trigger.exit, %_set_trigger.exit
+  %.0 = phi i32 [ %.0.i, %_set_trigger.exit ], [ %.0.i4, %_get_trigger.exit ], [ %.0.i8, %_clear_trigger.exit ], [ 1, %600 ]
   call void @exit(i32 noundef %.0) #10
   unreachable
 }

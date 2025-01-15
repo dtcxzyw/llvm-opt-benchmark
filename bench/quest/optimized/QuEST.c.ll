@@ -1591,19 +1591,18 @@ define void @applyPhaseFunc(ptr nocapture noundef readonly byval(%struct.Qureg) 
   tail call void @statevec_applyPhaseFuncOverrides(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef null, ptr noundef null, i32 noundef 0, i32 noundef 0) #17
   %8 = load i32, ptr %0, align 8
   %.not = icmp eq i32 %8, 0
-  br i1 %.not, label %14, label %9
+  br i1 %.not, label %13, label %9
 
 9:                                                ; preds = %7
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %11 = load i32, ptr %10, align 4
   tail call void @shiftIndices(ptr noundef %1, i32 noundef %2, i32 noundef %11) #17
   tail call void @statevec_applyPhaseFuncOverrides(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef null, ptr noundef null, i32 noundef 0, i32 noundef 1) #17
-  %12 = load i32, ptr %10, align 4
-  %13 = sub nsw i32 0, %12
-  tail call void @shiftIndices(ptr noundef %1, i32 noundef %2, i32 noundef %13) #17
-  br label %14
+  %12 = sub nsw i32 0, %11
+  tail call void @shiftIndices(ptr noundef %1, i32 noundef %2, i32 noundef %12) #17
+  br label %13
 
-14:                                               ; preds = %9, %7
+13:                                               ; preds = %9, %7
   tail call void @qasm_recordPhaseFunc(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef null, ptr noundef null, i32 noundef 0) #17
   ret void
 }
@@ -1625,19 +1624,18 @@ define void @applyPhaseFuncOverrides(ptr nocapture noundef readonly byval(%struc
   tail call void @statevec_applyPhaseFuncOverrides(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef %7, ptr noundef %8, i32 noundef %9, i32 noundef 0) #17
   %11 = load i32, ptr %0, align 8
   %.not = icmp eq i32 %11, 0
-  br i1 %.not, label %17, label %12
+  br i1 %.not, label %16, label %12
 
 12:                                               ; preds = %10
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %14 = load i32, ptr %13, align 4
   tail call void @shiftIndices(ptr noundef %1, i32 noundef %2, i32 noundef %14) #17
   tail call void @statevec_applyPhaseFuncOverrides(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef %7, ptr noundef %8, i32 noundef %9, i32 noundef 1) #17
-  %15 = load i32, ptr %13, align 4
-  %16 = sub nsw i32 0, %15
-  tail call void @shiftIndices(ptr noundef %1, i32 noundef %2, i32 noundef %16) #17
-  br label %17
+  %15 = sub nsw i32 0, %14
+  tail call void @shiftIndices(ptr noundef %1, i32 noundef %2, i32 noundef %15) #17
+  br label %16
 
-17:                                               ; preds = %12, %10
+16:                                               ; preds = %12, %10
   tail call void @qasm_recordPhaseFunc(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef %7, ptr noundef %8, i32 noundef %9) #17
   ret void
 }
@@ -1652,19 +1650,18 @@ define void @applyMultiVarPhaseFunc(ptr nocapture noundef readonly byval(%struct
   tail call void @statevec_applyMultiVarPhaseFuncOverrides(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef null, ptr noundef null, i32 noundef 0, i32 noundef 0) #17
   %9 = load i32, ptr %0, align 8
   %.not = icmp eq i32 %9, 0
-  br i1 %.not, label %15, label %10
+  br i1 %.not, label %14, label %10
 
 10:                                               ; preds = %8
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %12 = load i32, ptr %11, align 4
   tail call void @shiftSubregIndices(ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %12) #17
   tail call void @statevec_applyMultiVarPhaseFuncOverrides(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef null, ptr noundef null, i32 noundef 0, i32 noundef 1) #17
-  %13 = load i32, ptr %11, align 4
-  %14 = sub nsw i32 0, %13
-  tail call void @shiftSubregIndices(ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %14) #17
-  br label %15
+  %13 = sub nsw i32 0, %12
+  tail call void @shiftSubregIndices(ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %13) #17
+  br label %14
 
-15:                                               ; preds = %10, %8
+14:                                               ; preds = %10, %8
   tail call void @qasm_recordMultiVarPhaseFunc(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef null, ptr noundef null, i32 noundef 0) #17
   ret void
 }
@@ -1690,19 +1687,18 @@ define void @applyMultiVarPhaseFuncOverrides(ptr nocapture noundef readonly byva
   tail call void @statevec_applyMultiVarPhaseFuncOverrides(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef %9, i32 noundef %10, i32 noundef 0) #17
   %12 = load i32, ptr %0, align 8
   %.not = icmp eq i32 %12, 0
-  br i1 %.not, label %18, label %13
+  br i1 %.not, label %17, label %13
 
 13:                                               ; preds = %11
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %15 = load i32, ptr %14, align 4
   tail call void @shiftSubregIndices(ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %15) #17
   tail call void @statevec_applyMultiVarPhaseFuncOverrides(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef %9, i32 noundef %10, i32 noundef 1) #17
-  %16 = load i32, ptr %14, align 4
-  %17 = sub nsw i32 0, %16
-  tail call void @shiftSubregIndices(ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %17) #17
-  br label %18
+  %16 = sub nsw i32 0, %15
+  tail call void @shiftSubregIndices(ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %16) #17
+  br label %17
 
-18:                                               ; preds = %13, %11
+17:                                               ; preds = %13, %11
   tail call void @qasm_recordMultiVarPhaseFunc(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef %9, i32 noundef %10) #17
   ret void
 }
@@ -1717,19 +1713,18 @@ define void @applyNamedPhaseFunc(ptr nocapture noundef readonly byval(%struct.Qu
   tail call void @statevec_applyParamNamedPhaseFuncOverrides(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef null, i32 noundef 0, ptr noundef null, ptr noundef null, i32 noundef 0, i32 noundef 0) #17
   %7 = load i32, ptr %0, align 8
   %.not = icmp eq i32 %7, 0
-  br i1 %.not, label %13, label %8
+  br i1 %.not, label %12, label %8
 
 8:                                                ; preds = %6
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %10 = load i32, ptr %9, align 4
   tail call void @shiftSubregIndices(ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %10) #17
   tail call void @statevec_applyParamNamedPhaseFuncOverrides(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef null, i32 noundef 0, ptr noundef null, ptr noundef null, i32 noundef 0, i32 noundef 1) #17
-  %11 = load i32, ptr %9, align 4
-  %12 = sub nsw i32 0, %11
-  tail call void @shiftSubregIndices(ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %12) #17
-  br label %13
+  %11 = sub nsw i32 0, %10
+  tail call void @shiftSubregIndices(ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %11) #17
+  br label %12
 
-13:                                               ; preds = %8, %6
+12:                                               ; preds = %8, %6
   tail call void @qasm_recordNamedPhaseFunc(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef null, i32 noundef 0, ptr noundef null, ptr noundef null, i32 noundef 0) #17
   ret void
 }
@@ -1749,19 +1744,18 @@ define void @applyNamedPhaseFuncOverrides(ptr nocapture noundef readonly byval(%
   tail call void @statevec_applyParamNamedPhaseFuncOverrides(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef null, i32 noundef 0, ptr noundef %6, ptr noundef %7, i32 noundef %8, i32 noundef 0) #17
   %10 = load i32, ptr %0, align 8
   %.not = icmp eq i32 %10, 0
-  br i1 %.not, label %16, label %11
+  br i1 %.not, label %15, label %11
 
 11:                                               ; preds = %9
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %13 = load i32, ptr %12, align 4
   tail call void @shiftSubregIndices(ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %13) #17
   tail call void @statevec_applyParamNamedPhaseFuncOverrides(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef null, i32 noundef 0, ptr noundef %6, ptr noundef %7, i32 noundef %8, i32 noundef 1) #17
-  %14 = load i32, ptr %12, align 4
-  %15 = sub nsw i32 0, %14
-  tail call void @shiftSubregIndices(ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %15) #17
-  br label %16
+  %14 = sub nsw i32 0, %13
+  tail call void @shiftSubregIndices(ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %14) #17
+  br label %15
 
-16:                                               ; preds = %11, %9
+15:                                               ; preds = %11, %9
   tail call void @qasm_recordNamedPhaseFunc(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef null, i32 noundef 0, ptr noundef %6, ptr noundef %7, i32 noundef %8) #17
   ret void
 }
@@ -1774,19 +1768,18 @@ define void @applyParamNamedPhaseFunc(ptr nocapture noundef readonly byval(%stru
   tail call void @statevec_applyParamNamedPhaseFuncOverrides(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef %6, i32 noundef %7, ptr noundef null, ptr noundef null, i32 noundef 0, i32 noundef 0) #17
   %9 = load i32, ptr %0, align 8
   %.not = icmp eq i32 %9, 0
-  br i1 %.not, label %15, label %10
+  br i1 %.not, label %14, label %10
 
 10:                                               ; preds = %8
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %12 = load i32, ptr %11, align 4
   tail call void @shiftSubregIndices(ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %12) #17
   tail call void @statevec_applyParamNamedPhaseFuncOverrides(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef %6, i32 noundef %7, ptr noundef null, ptr noundef null, i32 noundef 0, i32 noundef 1) #17
-  %13 = load i32, ptr %11, align 4
-  %14 = sub nsw i32 0, %13
-  tail call void @shiftSubregIndices(ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %14) #17
-  br label %15
+  %13 = sub nsw i32 0, %12
+  tail call void @shiftSubregIndices(ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %13) #17
+  br label %14
 
-15:                                               ; preds = %10, %8
+14:                                               ; preds = %10, %8
   tail call void @qasm_recordNamedPhaseFunc(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef %6, i32 noundef %7, ptr noundef null, ptr noundef null, i32 noundef 0) #17
   ret void
 }
@@ -1800,19 +1793,18 @@ define void @applyParamNamedPhaseFuncOverrides(ptr nocapture noundef readonly by
   tail call void @statevec_applyParamNamedPhaseFuncOverrides(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef %6, i32 noundef %7, ptr noundef %8, ptr noundef %9, i32 noundef %10, i32 noundef 0) #17
   %12 = load i32, ptr %0, align 8
   %.not = icmp eq i32 %12, 0
-  br i1 %.not, label %18, label %13
+  br i1 %.not, label %17, label %13
 
 13:                                               ; preds = %11
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %15 = load i32, ptr %14, align 4
   tail call void @shiftSubregIndices(ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %15) #17
   tail call void @statevec_applyParamNamedPhaseFuncOverrides(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef %6, i32 noundef %7, ptr noundef %8, ptr noundef %9, i32 noundef %10, i32 noundef 1) #17
-  %16 = load i32, ptr %14, align 4
-  %17 = sub nsw i32 0, %16
-  tail call void @shiftSubregIndices(ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %17) #17
-  br label %18
+  %16 = sub nsw i32 0, %15
+  tail call void @shiftSubregIndices(ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %16) #17
+  br label %17
 
-18:                                               ; preds = %13, %11
+17:                                               ; preds = %13, %11
   tail call void @qasm_recordNamedPhaseFunc(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef %6, i32 noundef %7, ptr noundef %8, ptr noundef %9, i32 noundef %10) #17
   ret void
 }
@@ -2824,46 +2816,45 @@ declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #5
 define void @initComplexMatrixN(ptr nocapture noundef readonly byval(%struct.ComplexMatrixN) align 8 %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 {
   %4 = load i32, ptr %0, align 8
   tail call void @validateMatrixInit(ptr noundef nonnull byval(%struct.ComplexMatrixN) align 8 %0, ptr noundef nonnull @__func__.initComplexMatrixN) #17
-  %5 = load i32, ptr %0, align 8
-  %.not = icmp eq i32 %5, 31
+  %.not = icmp eq i32 %4, 31
   br i1 %.not, label %._crit_edge19, label %.preheader.lr.ph
 
 .preheader.lr.ph:                                 ; preds = %3
-  %6 = shl nuw nsw i32 1, %5
-  %7 = zext nneg i32 %4 to i64
-  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %11 = load ptr, ptr %10, align 8
-  %wide.trip.count24 = zext nneg i32 %6 to i64
+  %5 = shl nuw nsw i32 1, %4
+  %6 = zext nneg i32 %4 to i64
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %8 = load ptr, ptr %7, align 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %10 = load ptr, ptr %9, align 8
+  %wide.trip.count24 = zext nneg i32 %5 to i64
   br label %.preheader.us
 
 .preheader.us:                                    ; preds = %._crit_edge.us, %.preheader.lr.ph
   %indvars.iv21 = phi i64 [ %indvars.iv.next22, %._crit_edge.us ], [ 0, %.preheader.lr.ph ]
-  %12 = shl i64 %indvars.iv21, %7
-  %13 = getelementptr inbounds double, ptr %1, i64 %12
-  %14 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv21
-  %15 = getelementptr inbounds double, ptr %2, i64 %12
-  %16 = getelementptr inbounds nuw ptr, ptr %11, i64 %indvars.iv21
-  br label %17
+  %11 = shl i64 %indvars.iv21, %6
+  %12 = getelementptr inbounds double, ptr %1, i64 %11
+  %13 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv21
+  %14 = getelementptr inbounds double, ptr %2, i64 %11
+  %15 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv21
+  br label %16
 
-17:                                               ; preds = %.preheader.us, %17
-  %indvars.iv = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next, %17 ]
-  %18 = getelementptr inbounds nuw double, ptr %13, i64 %indvars.iv
-  %19 = load double, ptr %18, align 8
-  %20 = load ptr, ptr %14, align 8
-  %21 = getelementptr inbounds nuw double, ptr %20, i64 %indvars.iv
-  store double %19, ptr %21, align 8
-  %22 = getelementptr inbounds nuw double, ptr %15, i64 %indvars.iv
-  %23 = load double, ptr %22, align 8
-  %24 = load ptr, ptr %16, align 8
-  %25 = getelementptr inbounds nuw double, ptr %24, i64 %indvars.iv
-  store double %23, ptr %25, align 8
+16:                                               ; preds = %.preheader.us, %16
+  %indvars.iv = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next, %16 ]
+  %17 = getelementptr inbounds nuw double, ptr %12, i64 %indvars.iv
+  %18 = load double, ptr %17, align 8
+  %19 = load ptr, ptr %13, align 8
+  %20 = getelementptr inbounds nuw double, ptr %19, i64 %indvars.iv
+  store double %18, ptr %20, align 8
+  %21 = getelementptr inbounds nuw double, ptr %14, i64 %indvars.iv
+  %22 = load double, ptr %21, align 8
+  %23 = load ptr, ptr %15, align 8
+  %24 = getelementptr inbounds nuw double, ptr %23, i64 %indvars.iv
+  store double %22, ptr %24, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count24
-  br i1 %exitcond.not, label %._crit_edge.us, label %17
+  br i1 %exitcond.not, label %._crit_edge.us, label %16
 
-._crit_edge.us:                                   ; preds = %17
+._crit_edge.us:                                   ; preds = %16
   %indvars.iv.next22 = add nuw nsw i64 %indvars.iv21, 1
   %exitcond25.not = icmp eq i64 %indvars.iv.next22, %wide.trip.count24
   br i1 %exitcond25.not, label %._crit_edge19, label %.preheader.us
@@ -3022,53 +3013,48 @@ createPauliHamil.exit:                            ; preds = %._crit_edge, %.lr.p
 
 .lr.ph80.us:                                      ; preds = %.lr.ph80.us.preheader, %._crit_edge81.us
   %indvars.iv93 = phi i64 [ 0, %.lr.ph80.us.preheader ], [ %indvars.iv.next94, %._crit_edge81.us ]
-  %41 = load ptr, ptr %31, align 8
-  %42 = getelementptr inbounds nuw double, ptr %41, i64 %indvars.iv93
-  %43 = call i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef %5, ptr noundef nonnull %3, ptr noundef %42) #17
-  %44 = icmp eq i32 %43, 1
-  %45 = zext i1 %44 to i32
-  call void @validateHamilFileCoeffParsed(i32 noundef %45, ptr noundef nonnull byval(%struct.PauliHamil) align 8 %0, ptr noundef %5, ptr noundef %1, ptr noundef nonnull @__func__.createPauliHamilFromFile) #17
-  %46 = mul nuw nsw i64 %indvars.iv93, %40
-  br label %47
+  %41 = getelementptr inbounds nuw double, ptr %30, i64 %indvars.iv93
+  %42 = call i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef %5, ptr noundef nonnull %3, ptr noundef %41) #17
+  %43 = icmp eq i32 %42, 1
+  %44 = zext i1 %43 to i32
+  call void @validateHamilFileCoeffParsed(i32 noundef %44, ptr noundef nonnull byval(%struct.PauliHamil) align 8 %0, ptr noundef %5, ptr noundef %1, ptr noundef nonnull @__func__.createPauliHamilFromFile) #17
+  %45 = mul nuw nsw i64 %indvars.iv93, %40
+  %invariant.gep = getelementptr inbounds nuw i32, ptr %35, i64 %45
+  br label %46
 
-47:                                               ; preds = %.lr.ph80.us, %47
-  %indvars.iv88 = phi i64 [ 0, %.lr.ph80.us ], [ %indvars.iv.next89, %47 ]
-  %48 = add nuw nsw i64 %indvars.iv88, %46
-  %49 = call i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef %5, ptr noundef nonnull @.str.46, ptr noundef nonnull %4) #17
-  %50 = icmp eq i32 %49, 1
-  %51 = zext i1 %50 to i32
-  %52 = load i32, ptr %4, align 4
-  %53 = load ptr, ptr %0, align 8
-  %54 = getelementptr inbounds nuw i32, ptr %53, i64 %48
-  store i32 %52, ptr %54, align 4
-  call void @validateHamilFilePauliParsed(i32 noundef %51, ptr noundef nonnull byval(%struct.PauliHamil) align 8 %0, ptr noundef %5, ptr noundef %1, ptr noundef nonnull @__func__.createPauliHamilFromFile) #17
-  %55 = load ptr, ptr %0, align 8
-  %56 = getelementptr inbounds nuw i32, ptr %55, i64 %48
-  %57 = load i32, ptr %56, align 4
-  call void @validateHamilFilePauliCode(i32 noundef %57, ptr noundef nonnull byval(%struct.PauliHamil) align 8 %0, ptr noundef %5, ptr noundef %1, ptr noundef nonnull @__func__.createPauliHamilFromFile) #17
+46:                                               ; preds = %.lr.ph80.us, %46
+  %indvars.iv88 = phi i64 [ 0, %.lr.ph80.us ], [ %indvars.iv.next89, %46 ]
+  %47 = call i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef %5, ptr noundef nonnull @.str.46, ptr noundef nonnull %4) #17
+  %48 = icmp eq i32 %47, 1
+  %49 = zext i1 %48 to i32
+  %50 = load i32, ptr %4, align 4
+  %gep = getelementptr inbounds nuw i32, ptr %invariant.gep, i64 %indvars.iv88
+  store i32 %50, ptr %gep, align 4
+  call void @validateHamilFilePauliParsed(i32 noundef %49, ptr noundef nonnull byval(%struct.PauliHamil) align 8 %0, ptr noundef %5, ptr noundef %1, ptr noundef nonnull @__func__.createPauliHamilFromFile) #17
+  %51 = load i32, ptr %gep, align 4
+  call void @validateHamilFilePauliCode(i32 noundef %51, ptr noundef nonnull byval(%struct.PauliHamil) align 8 %0, ptr noundef %5, ptr noundef %1, ptr noundef nonnull @__func__.createPauliHamilFromFile) #17
   %indvars.iv.next89 = add nuw nsw i64 %indvars.iv88, 1
   %exitcond92.not = icmp eq i64 %indvars.iv.next89, %40
-  br i1 %exitcond92.not, label %._crit_edge81.us, label %47
+  br i1 %exitcond92.not, label %._crit_edge81.us, label %46
 
-._crit_edge81.us:                                 ; preds = %47
+._crit_edge81.us:                                 ; preds = %46
   %indvars.iv.next94 = add nuw nsw i64 %indvars.iv93, 1
   %exitcond97.not = icmp eq i64 %indvars.iv.next94, %28
   br i1 %exitcond97.not, label %._crit_edge84, label %.lr.ph80.us
 
 .lr.ph83.split:                                   ; preds = %.lr.ph83, %.lr.ph83.split
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph83.split ], [ 0, %.lr.ph83 ]
-  %58 = load ptr, ptr %31, align 8
-  %59 = getelementptr inbounds nuw double, ptr %58, i64 %indvars.iv
-  %60 = call i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef %5, ptr noundef nonnull %3, ptr noundef %59) #17
-  %61 = icmp eq i32 %60, 1
-  %62 = zext i1 %61 to i32
-  call void @validateHamilFileCoeffParsed(i32 noundef %62, ptr noundef nonnull byval(%struct.PauliHamil) align 8 %0, ptr noundef %5, ptr noundef %1, ptr noundef nonnull @__func__.createPauliHamilFromFile) #17
+  %52 = getelementptr inbounds nuw double, ptr %30, i64 %indvars.iv
+  %53 = call i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef %5, ptr noundef nonnull %3, ptr noundef %52) #17
+  %54 = icmp eq i32 %53, 1
+  %55 = zext i1 %54 to i32
+  call void @validateHamilFileCoeffParsed(i32 noundef %55, ptr noundef nonnull byval(%struct.PauliHamil) align 8 %0, ptr noundef %5, ptr noundef %1, ptr noundef nonnull @__func__.createPauliHamilFromFile) #17
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %28
   br i1 %exitcond.not, label %._crit_edge84, label %.lr.ph83.split
 
 ._crit_edge84:                                    ; preds = %.lr.ph83.split, %._crit_edge81.us, %createPauliHamil.exit
-  %63 = call i32 @fclose(ptr noundef %5)
+  %56 = call i32 @fclose(ptr noundef %5)
   ret void
 }
 

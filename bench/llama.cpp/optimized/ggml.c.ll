@@ -15472,8 +15472,8 @@ if.end402:                                        ; preds = %do.body376
   %arrayidx7.i513 = getelementptr inbounds nuw i8, ptr %call.i510, i64 72
   store i64 %conv343, ptr %arrayidx7.i513, align 8
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ne.i506)
-  %.pre632 = load ptr, ptr %grad350, align 8
-  %tobool404.not = icmp eq ptr %.pre632, null
+  %.pre548 = load ptr, ptr %grad350, align 8
+  %tobool404.not = icmp eq ptr %.pre548, null
   br i1 %tobool404.not, label %if.end412, label %if.then405
 
 if.then405:                                       ; preds = %if.end402
@@ -15481,19 +15481,19 @@ if.then405:                                       ; preds = %if.end402
   %106 = load ptr, ptr %grad407, align 8
   %call408 = tail call ptr @ggml_neg(ptr noundef %ctx, ptr noundef nonnull %call.i510)
   %call409 = tail call fastcc ptr @ggml_acc_impl(ptr noundef %ctx, ptr noundef %106, ptr noundef %call408, i64 noundef %conv333, i64 noundef %conv338, i64 noundef %conv343, i64 noundef %conv348, i1 noundef zeroext false)
-  %call410 = tail call fastcc ptr @ggml_add_or_set(ptr noundef %ctx, ptr noundef nonnull %.pre632, ptr noundef %call409, i64 %zero_table.coerce0, ptr %zero_table.coerce1)
+  %call410 = tail call fastcc ptr @ggml_add_or_set(ptr noundef %ctx, ptr noundef nonnull %.pre548, ptr noundef %call409, i64 %zero_table.coerce0, ptr %zero_table.coerce1)
   store ptr %call410, ptr %grad350, align 8
   br label %if.end412
 
 if.end412:                                        ; preds = %lor.lhs.false352, %if.then405, %if.end402
-  %tensor_grad_view349.0635 = phi ptr [ %call.i510, %if.then405 ], [ %call.i510, %if.end402 ], [ null, %lor.lhs.false352 ]
+  %tensor_grad_view349.0551 = phi ptr [ %call.i510, %if.then405 ], [ %call.i510, %if.end402 ], [ null, %lor.lhs.false352 ]
   %grad413 = getelementptr inbounds nuw i8, ptr %1, i64 152
   %107 = load ptr, ptr %grad413, align 8
   %tobool414.not = icmp eq ptr %107, null
   br i1 %tobool414.not, label %for.body.preheader, label %if.then415
 
 if.then415:                                       ; preds = %if.end412
-  %call417 = tail call ptr @ggml_cont(ptr noundef %ctx, ptr noundef %tensor_grad_view349.0635)
+  %call417 = tail call ptr @ggml_cont(ptr noundef %ctx, ptr noundef %tensor_grad_view349.0551)
   %108 = load ptr, ptr %grad413, align 8
   %call419 = tail call ptr @ggml_reshape(ptr noundef %ctx, ptr noundef %call417, ptr noundef %108)
   %call420 = tail call fastcc ptr @ggml_add_or_set(ptr noundef %ctx, ptr noundef nonnull %107, ptr noundef %call419, i64 %zero_table.coerce0, ptr %zero_table.coerce1)
@@ -15566,11 +15566,11 @@ if.then464:                                       ; preds = %sw.bb461
 
 cond.false:                                       ; preds = %if.then464
   %call471 = tail call ptr @ggml_cont(ptr noundef %ctx, ptr noundef %118)
-  %.pre631 = load ptr, ptr %grad462, align 8
+  %.pre547 = load ptr, ptr %grad462, align 8
   br label %cond.end
 
 cond.end:                                         ; preds = %if.then464, %cond.false
-  %119 = phi ptr [ %.pre631, %cond.false ], [ %117, %if.then464 ]
+  %119 = phi ptr [ %.pre547, %cond.false ], [ %117, %if.then464 ]
   %cond = phi ptr [ %call471, %cond.false ], [ %118, %if.then464 ]
   %call473 = tail call ptr @ggml_reshape(ptr noundef %ctx, ptr noundef %cond, ptr noundef %119)
   %call474 = tail call fastcc ptr @ggml_add_or_set(ptr noundef %ctx, ptr noundef nonnull %117, ptr noundef %call473, i64 %zero_table.coerce0, ptr %zero_table.coerce1)

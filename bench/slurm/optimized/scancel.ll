@@ -97,47 +97,46 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   %7 = tail call i32 @initialize_and_process_args(i32 noundef %0, ptr noundef nonnull %1) #13
   %8 = load i32, ptr getelementptr inbounds nuw (i8, ptr @opt, i64 104), align 8
   %.not = icmp eq i32 %8, 0
-  br i1 %.not, label %13, label %9
+  br i1 %.not, label %12, label %9
 
 9:                                                ; preds = %2
-  %10 = load i32, ptr %3, align 8
-  %11 = add i32 %10, %8
-  store i32 %11, ptr %3, align 8
-  %12 = tail call i32 @log_alter(ptr noundef nonnull byval(%struct.log_options_t) align 8 %3, i32 noundef 24, ptr noundef null) #13
-  br label %13
+  %10 = add i32 %8, 3
+  store i32 %10, ptr %3, align 8
+  %11 = tail call i32 @log_alter(ptr noundef nonnull byval(%struct.log_options_t) align 8 %3, i32 noundef 24, ptr noundef null) #13
+  br label %12
 
-13:                                               ; preds = %9, %2
-  %14 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @opt, i64 32), align 8
-  %.not5 = icmp eq ptr %14, null
-  br i1 %.not5, label %21, label %15
+12:                                               ; preds = %9, %2
+  %13 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @opt, i64 32), align 8
+  %.not5 = icmp eq ptr %13, null
+  br i1 %.not5, label %20, label %14
 
-15:                                               ; preds = %13
-  %16 = tail call ptr @list_iterator_create(ptr noundef nonnull %14) #13
-  %17 = tail call ptr @list_next(ptr noundef %16) #13
-  store ptr %17, ptr @working_cluster_rec, align 8
-  %.not7.i = icmp eq ptr %17, null
+14:                                               ; preds = %12
+  %15 = tail call ptr @list_iterator_create(ptr noundef nonnull %13) #13
+  %16 = tail call ptr @list_next(ptr noundef %15) #13
+  store ptr %16, ptr @working_cluster_rec, align 8
+  %.not7.i = icmp eq ptr %16, null
   br i1 %.not7.i, label %_multi_cluster.exit, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %15, %.lr.ph.i
-  %.08.i = phi i32 [ %19, %.lr.ph.i ], [ 0, %15 ]
-  %18 = tail call fastcc i32 @_proc_cluster()
-  %19 = tail call i32 @llvm.smax.i32(i32 %.08.i, i32 %18)
-  %20 = tail call ptr @list_next(ptr noundef %16) #13
-  store ptr %20, ptr @working_cluster_rec, align 8
-  %.not.i = icmp eq ptr %20, null
+.lr.ph.i:                                         ; preds = %14, %.lr.ph.i
+  %.08.i = phi i32 [ %18, %.lr.ph.i ], [ 0, %14 ]
+  %17 = tail call fastcc i32 @_proc_cluster()
+  %18 = tail call i32 @llvm.smax.i32(i32 %.08.i, i32 %17)
+  %19 = tail call ptr @list_next(ptr noundef %15) #13
+  store ptr %19, ptr @working_cluster_rec, align 8
+  %.not.i = icmp eq ptr %19, null
   br i1 %.not.i, label %_multi_cluster.exit, label %.lr.ph.i, !llvm.loop !7
 
-_multi_cluster.exit:                              ; preds = %.lr.ph.i, %15
-  %.0.lcssa.i = phi i32 [ 0, %15 ], [ %19, %.lr.ph.i ]
-  tail call void @list_iterator_destroy(ptr noundef %16) #13
-  br label %23
+_multi_cluster.exit:                              ; preds = %.lr.ph.i, %14
+  %.0.lcssa.i = phi i32 [ 0, %14 ], [ %18, %.lr.ph.i ]
+  tail call void @list_iterator_destroy(ptr noundef %15) #13
+  br label %22
 
-21:                                               ; preds = %13
-  %22 = tail call fastcc i32 @_proc_cluster()
-  br label %23
+20:                                               ; preds = %12
+  %21 = tail call fastcc i32 @_proc_cluster()
+  br label %22
 
-23:                                               ; preds = %21, %_multi_cluster.exit
-  %.0 = phi i32 [ %.0.lcssa.i, %_multi_cluster.exit ], [ %22, %21 ]
+22:                                               ; preds = %20, %_multi_cluster.exit
+  %.0 = phi i32 [ %.0.lcssa.i, %_multi_cluster.exit ], [ %21, %20 ]
   tail call void @exit(i32 noundef %.0) #14
   unreachable
 }

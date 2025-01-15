@@ -46,153 +46,152 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   tail call void @parse_command_line(i32 noundef %0, ptr noundef nonnull %1) #13
   %8 = load i32, ptr getelementptr inbounds nuw (i8, ptr @params, i64 24), align 8
   %.not = icmp eq i32 %8, 0
-  br i1 %.not, label %13, label %9
+  br i1 %.not, label %12, label %9
 
 9:                                                ; preds = %2
-  %10 = load i32, ptr %4, align 8
-  %11 = add i32 %10, %8
-  store i32 %11, ptr %4, align 8
-  %12 = tail call i32 @log_alter(ptr noundef nonnull byval(%struct.log_options_t) align 8 %4, i32 noundef 8, ptr noundef null) #13
-  br label %13
+  %10 = add i32 %8, 3
+  store i32 %10, ptr %4, align 8
+  %11 = tail call i32 @log_alter(ptr noundef nonnull byval(%struct.log_options_t) align 8 %4, i32 noundef 8, ptr noundef null) #13
+  br label %12
 
-13:                                               ; preds = %9, %2
+12:                                               ; preds = %9, %2
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
-  %14 = call i32 (i32, i64, ...) @ioctl(i32 noundef 1, i64 noundef 21523, ptr noundef nonnull %3) #13
-  %15 = icmp eq i32 %14, 0
-  %16 = getelementptr inbounds nuw i8, ptr %3, i64 2
-  %17 = load i16, ptr %16, align 2
-  %18 = zext i16 %17 to i32
-  %.0.i = select i1 %15, i32 %18, i32 80
+  %13 = call i32 (i32, i64, ...) @ioctl(i32 noundef 1, i64 noundef 21523, ptr noundef nonnull %3) #13
+  %14 = icmp eq i32 %13, 0
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 2
+  %16 = load i16, ptr %15, align 2
+  %17 = zext i16 %16 to i32
+  %.0.i = select i1 %14, i32 %17, i32 80
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   store i32 %.0.i, ptr @max_line_size, align 4
-  %19 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @params, i64 40), align 8
-  %.not13 = icmp eq ptr %19, null
-  br i1 %.not13, label %.preheader, label %20
+  %18 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @params, i64 40), align 8
+  %.not13 = icmp eq ptr %18, null
+  br i1 %.not13, label %.preheader, label %19
 
-20:                                               ; preds = %13
-  %21 = call ptr @list_peek(ptr noundef nonnull %19) #13
-  store ptr %21, ptr @working_cluster_rec, align 8
+19:                                               ; preds = %12
+  %20 = call ptr @list_peek(ptr noundef nonnull %18) #13
+  store ptr %20, ptr @working_cluster_rec, align 8
   br label %.preheader
 
-.preheader:                                       ; preds = %20, %13
-  br label %22
+.preheader:                                       ; preds = %19, %12
+  br label %21
 
-22:                                               ; preds = %.preheader, %61
-  %.0 = phi i32 [ %.126, %61 ], [ 0, %.preheader ]
-  %23 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params, i64 20), align 4
-  %24 = trunc i8 %23 to i1
-  br i1 %24, label %34, label %25
+21:                                               ; preds = %.preheader, %60
+  %.0 = phi i32 [ %.126, %60 ], [ 0, %.preheader ]
+  %22 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params, i64 20), align 4
+  %23 = trunc i8 %22 to i1
+  br i1 %23, label %33, label %24
 
-25:                                               ; preds = %22
-  %26 = load i32, ptr getelementptr inbounds nuw (i8, ptr @params, i64 8), align 8
-  %27 = icmp ne i32 %26, 0
-  %28 = load i32, ptr getelementptr inbounds nuw (i8, ptr @params, i64 24), align 8
-  %29 = icmp ne i32 %28, 0
-  %or.cond = select i1 %27, i1 true, i1 %29
-  br i1 %or.cond, label %33, label %30
+24:                                               ; preds = %21
+  %25 = load i32, ptr getelementptr inbounds nuw (i8, ptr @params, i64 8), align 8
+  %26 = icmp ne i32 %25, 0
+  %27 = load i32, ptr getelementptr inbounds nuw (i8, ptr @params, i64 24), align 8
+  %28 = icmp ne i32 %27, 0
+  %or.cond = select i1 %26, i1 true, i1 %28
+  br i1 %or.cond, label %32, label %29
 
-30:                                               ; preds = %25
-  %31 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params, i64 19), align 1
-  %32 = trunc i8 %31 to i1
-  br i1 %32, label %33, label %34
+29:                                               ; preds = %24
+  %30 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params, i64 19), align 1
+  %31 = trunc i8 %30 to i1
+  br i1 %31, label %32, label %33
 
-33:                                               ; preds = %30, %25
+32:                                               ; preds = %29, %24
   call void @print_date() #13
-  br label %34
+  br label %33
 
-34:                                               ; preds = %33, %30, %22
-  %35 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @params, i64 40), align 8
-  %.not14 = icmp eq ptr %35, null
-  br i1 %.not14, label %36, label %38
+33:                                               ; preds = %32, %29, %21
+  %34 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @params, i64 40), align 8
+  %.not14 = icmp eq ptr %34, null
+  br i1 %.not14, label %35, label %37
 
-36:                                               ; preds = %34
-  %37 = call fastcc i32 @_get_info(i1 noundef zeroext false, i1 noundef zeroext false, i32 noundef %0, ptr noundef nonnull %1)
-  %.not15 = icmp eq i32 %37, 0
+35:                                               ; preds = %33
+  %36 = call fastcc i32 @_get_info(i1 noundef zeroext false, i1 noundef zeroext false, i32 noundef %0, ptr noundef nonnull %1)
+  %.not15 = icmp eq i32 %36, 0
   %spec.select = select i1 %.not15, i32 %.0, i32 1
-  br label %58
+  br label %57
 
-38:                                               ; preds = %34
-  %39 = call i32 @list_count(ptr noundef nonnull %35) #13
-  %40 = icmp sgt i32 %39, 1
-  %41 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params, i64 20), align 4
-  %42 = trunc i8 %41 to i1
-  %.0.i20 = select i1 %40, i1 %42, i1 false
-  %43 = call ptr @list_iterator_create(ptr noundef nonnull %35) #13
-  %44 = call ptr @list_next(ptr noundef %43) #13
-  store ptr %44, ptr @working_cluster_rec, align 8
-  %.not14.i = icmp eq ptr %44, null
+37:                                               ; preds = %33
+  %38 = call i32 @list_count(ptr noundef nonnull %34) #13
+  %39 = icmp sgt i32 %38, 1
+  %40 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params, i64 20), align 4
+  %41 = trunc i8 %40 to i1
+  %.0.i20 = select i1 %39, i1 %41, i1 false
+  %42 = call ptr @list_iterator_create(ptr noundef nonnull %34) #13
+  %43 = call ptr @list_next(ptr noundef %42) #13
+  store ptr %43, ptr @working_cluster_rec, align 8
+  %.not14.i = icmp eq ptr %43, null
   br i1 %.not14.i, label %_multi_cluster.exit.thread, label %.lr.ph.i
 
-_multi_cluster.exit.thread:                       ; preds = %38
-  call void @list_iterator_destroy(ptr noundef %43) #13
-  br label %58
+_multi_cluster.exit.thread:                       ; preds = %37
+  call void @list_iterator_destroy(ptr noundef %42) #13
+  br label %57
 
-.lr.ph.i:                                         ; preds = %38, %55
-  %45 = phi ptr [ %57, %55 ], [ %44, %38 ]
-  %.0916.i = phi i32 [ %spec.select13.i, %55 ], [ 0, %38 ]
-  %.01015.i = phi i1 [ %.111.i, %55 ], [ true, %38 ]
-  %46 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params, i64 20), align 4
-  %47 = trunc i8 %46 to i1
-  br i1 %47, label %55, label %48
+.lr.ph.i:                                         ; preds = %37, %54
+  %44 = phi ptr [ %56, %54 ], [ %43, %37 ]
+  %.0916.i = phi i32 [ %spec.select13.i, %54 ], [ 0, %37 ]
+  %.01015.i = phi i1 [ %.111.i, %54 ], [ true, %37 ]
+  %45 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params, i64 20), align 4
+  %46 = trunc i8 %45 to i1
+  br i1 %46, label %54, label %47
 
-48:                                               ; preds = %.lr.ph.i
-  br i1 %.01015.i, label %50, label %49
+47:                                               ; preds = %.lr.ph.i
+  br i1 %.01015.i, label %49, label %48
 
-49:                                               ; preds = %48
+48:                                               ; preds = %47
   %putchar.i = call i32 @putchar(i32 10)
   %.pre.i = load ptr, ptr @working_cluster_rec, align 8
-  br label %50
+  br label %49
 
-50:                                               ; preds = %49, %48
-  %51 = phi ptr [ %45, %48 ], [ %.pre.i, %49 ]
-  %52 = getelementptr inbounds nuw i8, ptr %51, i64 272
-  %53 = load ptr, ptr %52, align 8
-  %54 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1, ptr noundef %53)
-  br label %55
+49:                                               ; preds = %48, %47
+  %50 = phi ptr [ %44, %47 ], [ %.pre.i, %48 ]
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 272
+  %52 = load ptr, ptr %51, align 8
+  %53 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1, ptr noundef %52)
+  br label %54
 
-55:                                               ; preds = %50, %.lr.ph.i
-  %.111.i = phi i1 [ %.01015.i, %.lr.ph.i ], [ false, %50 ]
-  %56 = call fastcc i32 @_get_info(i1 noundef zeroext true, i1 noundef zeroext %.0.i20, i32 noundef %0, ptr noundef nonnull %1)
-  %.fr = freeze i32 %56
+54:                                               ; preds = %49, %.lr.ph.i
+  %.111.i = phi i1 [ %.01015.i, %.lr.ph.i ], [ false, %49 ]
+  %55 = call fastcc i32 @_get_info(i1 noundef zeroext true, i1 noundef zeroext %.0.i20, i32 noundef %0, ptr noundef nonnull %1)
+  %.fr = freeze i32 %55
   %.not12.i = icmp eq i32 %.fr, 0
   %spec.select13.i = select i1 %.not12.i, i32 %.0916.i, i32 1
-  %57 = call ptr @list_next(ptr noundef %43) #13
-  store ptr %57, ptr @working_cluster_rec, align 8
-  %.not.i = icmp eq ptr %57, null
+  %56 = call ptr @list_next(ptr noundef %42) #13
+  store ptr %56, ptr @working_cluster_rec, align 8
+  %.not.i = icmp eq ptr %56, null
   br i1 %.not.i, label %_multi_cluster.exit, label %.lr.ph.i, !llvm.loop !7
 
-_multi_cluster.exit:                              ; preds = %55
-  call void @list_iterator_destroy(ptr noundef %43) #13
+_multi_cluster.exit:                              ; preds = %54
+  call void @list_iterator_destroy(ptr noundef %42) #13
   %.not16 = icmp eq i32 %spec.select13.i, 0
-  br i1 %.not16, label %58, label %.thread
+  br i1 %.not16, label %57, label %.thread
 
-58:                                               ; preds = %_multi_cluster.exit, %_multi_cluster.exit.thread, %36
-  %.1 = phi i32 [ %spec.select, %36 ], [ %.0, %_multi_cluster.exit.thread ], [ %.0, %_multi_cluster.exit ]
-  %59 = load i32, ptr getelementptr inbounds nuw (i8, ptr @params, i64 8), align 8
-  %.not17 = icmp eq i32 %59, 0
-  br i1 %.not17, label %64, label %61
+57:                                               ; preds = %_multi_cluster.exit, %_multi_cluster.exit.thread, %35
+  %.1 = phi i32 [ %spec.select, %35 ], [ %.0, %_multi_cluster.exit.thread ], [ %.0, %_multi_cluster.exit ]
+  %58 = load i32, ptr getelementptr inbounds nuw (i8, ptr @params, i64 8), align 8
+  %.not17 = icmp eq i32 %58, 0
+  br i1 %.not17, label %63, label %60
 
 .thread:                                          ; preds = %_multi_cluster.exit
-  %60 = load i32, ptr getelementptr inbounds nuw (i8, ptr @params, i64 8), align 8
-  %.not1725 = icmp eq i32 %60, 0
-  br i1 %.not1725, label %.thread28, label %61
+  %59 = load i32, ptr getelementptr inbounds nuw (i8, ptr @params, i64 8), align 8
+  %.not1725 = icmp eq i32 %59, 0
+  br i1 %.not1725, label %.thread28, label %60
 
-61:                                               ; preds = %.thread, %58
-  %.126 = phi i32 [ 1, %.thread ], [ %.1, %58 ]
+60:                                               ; preds = %.thread, %57
+  %.126 = phi i32 [ 1, %.thread ], [ %.1, %57 ]
   %putchar = call i32 @putchar(i32 10)
-  %62 = load i32, ptr getelementptr inbounds nuw (i8, ptr @params, i64 8), align 8
-  %63 = call i32 @sleep(i32 noundef %62) #13
-  br label %22
+  %61 = load i32, ptr getelementptr inbounds nuw (i8, ptr @params, i64 8), align 8
+  %62 = call i32 @sleep(i32 noundef %61) #13
+  br label %21
 
-64:                                               ; preds = %58
+63:                                               ; preds = %57
   %.not18 = icmp eq i32 %.1, 0
-  br i1 %.not18, label %65, label %.thread28
+  br i1 %.not18, label %64, label %.thread28
 
-.thread28:                                        ; preds = %.thread, %64
+.thread28:                                        ; preds = %.thread, %63
   call void @exit(i32 noundef 1) #14
   unreachable
 
-65:                                               ; preds = %64
+64:                                               ; preds = %63
   call void @exit(i32 noundef 0) #15
   unreachable
 }

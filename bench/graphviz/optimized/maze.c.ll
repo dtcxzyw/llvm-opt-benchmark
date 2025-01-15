@@ -254,17 +254,17 @@ gv_alloc.exit:                                    ; preds = %1
   %20 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %21 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %22 = tail call ptr @agfstnode(ptr noundef %0) #19
-  %.not54 = icmp eq ptr %22, null
-  br i1 %.not54, label %._crit_edge, label %.lr.ph
+  %.not58 = icmp eq ptr %22, null
+  br i1 %.not58, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %gv_alloc.exit, %.lr.ph
-  %.04056 = phi ptr [ %58, %.lr.ph ], [ %22, %gv_alloc.exit ]
-  %.04155 = phi ptr [ %57, %.lr.ph ], [ %17, %gv_alloc.exit ]
   %23 = phi double [ %48, %.lr.ph ], [ 0x7FEFFFFFFFFFFFFF, %gv_alloc.exit ]
   %24 = phi double [ %49, %.lr.ph ], [ 0x7FEFFFFFFFFFFFFF, %gv_alloc.exit ]
   %25 = phi double [ %50, %.lr.ph ], [ 0xFFEFFFFFFFFFFFFF, %gv_alloc.exit ]
   %26 = phi double [ %51, %.lr.ph ], [ 0xFFEFFFFFFFFFFFFF, %gv_alloc.exit ]
-  %27 = getelementptr inbounds nuw i8, ptr %.04056, i64 16
+  %.04060 = phi ptr [ %58, %.lr.ph ], [ %22, %gv_alloc.exit ]
+  %.04159 = phi ptr [ %57, %.lr.ph ], [ %17, %gv_alloc.exit ]
+  %27 = getelementptr inbounds nuw i8, ptr %.04060, i64 16
   %28 = load ptr, ptr %27, align 8
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 104
   %30 = load double, ptr %29, align 8
@@ -289,22 +289,22 @@ gv_alloc.exit:                                    ; preds = %1
   %49 = tail call double @llvm.minnum.f64(double %24, double %46)
   %50 = tail call double @llvm.maxnum.f64(double %25, double %43)
   %51 = tail call double @llvm.maxnum.f64(double %26, double %47)
-  %52 = getelementptr inbounds nuw i8, ptr %.04155, i64 72
+  %52 = getelementptr inbounds nuw i8, ptr %.04159, i64 72
   store double %42, ptr %52, align 8
-  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.04155, i64 80
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.04159, i64 80
   store double %46, ptr %.sroa.3.0..sroa_idx, align 8
-  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.04155, i64 88
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.04159, i64 88
   store double %43, ptr %.sroa.5.0..sroa_idx, align 8
-  %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.04155, i64 96
+  %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.04159, i64 96
   store double %47, ptr %.sroa.7.0..sroa_idx, align 8
-  %53 = load i32, ptr %.04155, align 8
+  %53 = load i32, ptr %.04159, align 8
   %54 = or i32 %53, 1
-  store i32 %54, ptr %.04155, align 8
+  store i32 %54, ptr %.04159, align 8
   %55 = load ptr, ptr %27, align 8
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 152
-  store ptr %.04155, ptr %56, align 8
-  %57 = getelementptr inbounds nuw i8, ptr %.04155, i64 104
-  %58 = tail call ptr @agnxtnode(ptr noundef %0, ptr noundef nonnull %.04056) #19
+  store ptr %.04159, ptr %56, align 8
+  %57 = getelementptr inbounds nuw i8, ptr %.04159, i64 104
+  %58 = tail call ptr @agnxtnode(ptr noundef %0, ptr noundef nonnull %.04060) #19
   %.not = icmp eq ptr %58, null
   br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph
 
@@ -316,14 +316,14 @@ gv_alloc.exit:                                    ; preds = %1
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %gv_alloc.exit
-  %.lcssa53 = phi double [ 0xFFEFFFFFFFFFFFFF, %gv_alloc.exit ], [ %62, %._crit_edge.loopexit ]
-  %.lcssa51 = phi double [ 0xFFEFFFFFFFFFFFFF, %gv_alloc.exit ], [ %61, %._crit_edge.loopexit ]
-  %.lcssa49 = phi double [ 0x7FEFFFFFFFFFFFFF, %gv_alloc.exit ], [ %60, %._crit_edge.loopexit ]
+  %.lcssa53 = phi double [ 0x7FEFFFFFFFFFFFFF, %gv_alloc.exit ], [ %60, %._crit_edge.loopexit ]
+  %.lcssa50 = phi double [ 0xFFEFFFFFFFFFFFFF, %gv_alloc.exit ], [ %62, %._crit_edge.loopexit ]
+  %.lcssa49 = phi double [ 0xFFEFFFFFFFFFFFFF, %gv_alloc.exit ], [ %61, %._crit_edge.loopexit ]
   %.lcssa47 = phi double [ 0x7FEFFFFFFFFFFFFF, %gv_alloc.exit ], [ %59, %._crit_edge.loopexit ]
   store double %.lcssa47, ptr %7, align 8
-  store double %.lcssa49, ptr %19, align 8
-  store double %.lcssa51, ptr %20, align 8
-  store double %.lcssa53, ptr %21, align 8
+  store double %.lcssa53, ptr %19, align 8
+  store double %.lcssa49, ptr %20, align 8
+  store double %.lcssa50, ptr %21, align 8
   %63 = call ptr @partition(ptr noundef %17, i32 noundef %14, ptr noundef nonnull %8, ptr noundef nonnull byval(%struct.boxf) align 8 %7) #19
   %64 = load i32, ptr @odb_flags, align 4
   %65 = and i32 %64, 1
@@ -343,25 +343,21 @@ gv_alloc.exit:                                    ; preds = %1
   %72 = load i64, ptr %8, align 8
   %73 = trunc i64 %72 to i32
   store i32 %73, ptr %9, align 8
-  %.not64 = icmp eq i64 %72, 0
-  br i1 %.not64, label %._crit_edge63, label %.lr.ph62
+  %.not72 = icmp eq i64 %72, 0
+  br i1 %.not72, label %._crit_edge71, label %.lr.ph70
 
-.lr.ph62:                                         ; preds = %68, %.lr.ph62
-  %.060 = phi i64 [ %76, %.lr.ph62 ], [ 0, %68 ]
-  %74 = getelementptr inbounds %struct.cell, ptr %70, i64 %.060, i32 5
-  %75 = getelementptr inbounds %struct.boxf, ptr %63, i64 %.060
+.lr.ph70:                                         ; preds = %68, %.lr.ph70
+  %.068 = phi i64 [ %76, %.lr.ph70 ], [ 0, %68 ]
+  %74 = getelementptr inbounds %struct.cell, ptr %70, i64 %.068, i32 5
+  %75 = getelementptr inbounds %struct.boxf, ptr %63, i64 %.068
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %74, ptr noundef nonnull align 8 dereferenceable(32) %75, i64 32, i1 false)
-  %76 = add nuw i64 %.060, 1
+  %76 = add nuw i64 %.068, 1
   %exitcond.not = icmp eq i64 %76, %72
-  br i1 %exitcond.not, label %._crit_edge63, label %.lr.ph62
+  br i1 %exitcond.not, label %._crit_edge71, label %.lr.ph70
 
-._crit_edge63:                                    ; preds = %.lr.ph62, %68
+._crit_edge71:                                    ; preds = %.lr.ph70, %68
   call void @free(ptr noundef %63) #19
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
-  %.sroa.0.0.copyload = load double, ptr %7, align 8
-  %.sroa.4.0.copyload = load double, ptr %19, align 8
-  %.sroa.5.0.copyload = load double, ptr %20, align 8
-  %.sroa.6.0.copyload = load double, ptr %21, align 8
   %77 = shl nsw i32 %73, 2
   %78 = or disjoint i32 %77, 2
   %79 = call ptr @createSGraph(i32 noundef %78) #19
@@ -375,7 +371,7 @@ gv_alloc.exit:                                    ; preds = %1
   %87 = icmp sgt i32 %73, 0
   br i1 %87, label %.lr.ph.i, label %._crit_edge.i
 
-.lr.ph.i:                                         ; preds = %._crit_edge63
+.lr.ph.i:                                         ; preds = %._crit_edge71
   %88 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %89 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %90 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -396,7 +392,7 @@ gv_alloc.exit:                                    ; preds = %1
   %98 = getelementptr inbounds nuw i8, ptr %94, i64 72
   %99 = getelementptr inbounds nuw i8, ptr %94, i64 88
   %100 = load double, ptr %99, align 8
-  %101 = fcmp olt double %100, %.sroa.5.0.copyload
+  %101 = fcmp olt double %100, %.lcssa49
   br i1 %101, label %102, label %120
 
 102:                                              ; preds = %93
@@ -438,7 +434,7 @@ findSVert.exit.i:                                 ; preds = %107, %102
 120:                                              ; preds = %findSVert.exit.i, %93
   %121 = getelementptr inbounds nuw i8, ptr %94, i64 96
   %122 = load double, ptr %121, align 8
-  %123 = fcmp olt double %122, %.sroa.6.0.copyload
+  %123 = fcmp olt double %122, %.lcssa50
   br i1 %123, label %124, label %142
 
 124:                                              ; preds = %120
@@ -479,7 +475,7 @@ findSVert.exit172.i:                              ; preds = %128, %124
 
 142:                                              ; preds = %findSVert.exit172.i, %120
   %143 = load double, ptr %98, align 8
-  %144 = fcmp ogt double %143, %.sroa.0.0.copyload
+  %144 = fcmp ogt double %143, %.lcssa47
   br i1 %144, label %145, label %164
 
 145:                                              ; preds = %142
@@ -522,7 +518,7 @@ findSVert.exit175.i:                              ; preds = %150, %145
 164:                                              ; preds = %findSVert.exit175.i, %142
   %165 = getelementptr inbounds nuw i8, ptr %94, i64 80
   %166 = load double, ptr %165, align 8
-  %167 = fcmp ogt double %166, %.sroa.4.0.copyload
+  %167 = fcmp ogt double %166, %.lcssa53
   br i1 %167, label %168, label %186
 
 168:                                              ; preds = %164
@@ -563,10 +559,10 @@ findSVert.exit178.i:                              ; preds = %172, %168
 
 186:                                              ; preds = %findSVert.exit178.i, %164
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %exitcond70.not = icmp eq i64 %indvars.iv.next.i, %umax
-  br i1 %exitcond70.not, label %._crit_edge.i, label %93
+  %exitcond78.not = icmp eq i64 %indvars.iv.next.i, %umax
+  br i1 %exitcond78.not, label %._crit_edge.i, label %93
 
-._crit_edge.i:                                    ; preds = %186, %._crit_edge63
+._crit_edge.i:                                    ; preds = %186, %._crit_edge71
   %187 = load i32, ptr %79, align 8
   %188 = sext i32 %187 to i64
   %189 = call fastcc ptr @gv_calloc(i64 noundef %188, i64 noundef 8)
@@ -745,8 +741,8 @@ findSVert.exit178.i:                              ; preds = %172, %168
   %285 = add nsw i32 %284, %.0209.i
   %spec.select.i = call i32 @llvm.smax.i32(i32 %284, i32 %.0160207.i)
   %indvars.iv.next223.i = add nuw nsw i64 %indvars.iv222.i, 1
-  %exitcond71.not = icmp eq i64 %indvars.iv.next223.i, %192
-  br i1 %exitcond71.not, label %.lr.ph213.i, label %193
+  %exitcond79.not = icmp eq i64 %indvars.iv.next223.i, %192
+  br i1 %exitcond79.not, label %.lr.ph213.i, label %193
 
 .lr.ph213.i:                                      ; preds = %.critedge6.i, %markSmall.exit.i
   %indvars.iv225.i = phi i64 [ %indvars.iv.next226.i, %markSmall.exit.i ], [ 0, %.critedge6.i ]
@@ -962,8 +958,8 @@ findSVert.exit178.i:                              ; preds = %172, %168
 
 markSmall.exit.i:                                 ; preds = %.critedge4.i.i, %.preheader.i.i, %.loopexit67.i.i
   %indvars.iv.next226.i = add nuw nsw i64 %indvars.iv225.i, 1
-  %exitcond72.not = icmp eq i64 %indvars.iv.next226.i, %192
-  br i1 %exitcond72.not, label %._crit_edge214.i, label %.lr.ph213.i
+  %exitcond80.not = icmp eq i64 %indvars.iv.next226.i, %192
+  br i1 %exitcond80.not, label %._crit_edge214.i, label %.lr.ph213.i
 
 ._crit_edge214.i:                                 ; preds = %markSmall.exit.i, %._crit_edge.i
   %.0160.lcssa232.i = phi i32 [ 0, %._crit_edge.i ], [ %spec.select.i, %markSmall.exit.i ]
@@ -1189,8 +1185,8 @@ markSmall.exit.i:                                 ; preds = %.critedge4.i.i, %.p
 
 createSEdges.exit.i:                              ; preds = %525, %523, %519
   %indvars.iv.next229.i = add nuw nsw i64 %indvars.iv228.i, 1
-  %exitcond73.not = icmp eq i64 %indvars.iv.next229.i, %422
-  br i1 %exitcond73.not, label %._crit_edge218.i, label %.lr.ph217.i
+  %exitcond81.not = icmp eq i64 %indvars.iv.next229.i, %422
+  br i1 %exitcond81.not, label %._crit_edge218.i, label %.lr.ph217.i
 
 ._crit_edge218.i:                                 ; preds = %createSEdges.exit.i, %._crit_edge214.i
   %533 = call i32 @dtclose(ptr noundef %81) #19

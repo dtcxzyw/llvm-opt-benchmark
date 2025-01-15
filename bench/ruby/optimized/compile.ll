@@ -15981,12 +15981,12 @@ tailrecurse:                                      ; preds = %100, %10
   %15 = getelementptr inbounds nuw i8, ptr %.tr250, i64 40
   %16 = getelementptr i8, ptr %8, i64 8
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %18 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  %19 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %20 = load i64, ptr %5, align 8
-  %21 = lshr i64 %20, 15
-  %22 = trunc i64 %21 to i32
-  %23 = load i32, ptr %18, align 8
+  %18 = load i64, ptr %5, align 8
+  %19 = lshr i64 %18, 15
+  %20 = trunc i64 %19 to i32
+  %21 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  %22 = load i32, ptr %21, align 8
+  %23 = getelementptr inbounds nuw i8, ptr %2, i64 24
   br label %24
 
 24:                                               ; preds = %.lr.ph305, %75
@@ -16098,13 +16098,13 @@ new_label_body.exit:                              ; preds = %ISEQ_COMPILE_DATA.e
 75:                                               ; preds = %new_label_body.exit, %24
   %76 = phi ptr [ %59, %new_label_body.exit ], [ %28, %24 ]
   %77 = ptrtoint ptr %76 to i64
-  %78 = tail call ptr (ptr, i32, i32, i32, i32, ...) @new_insn_body(ptr noundef %0, i32 noundef %22, i32 noundef %23, i32 noundef 68, i32 noundef 1, i64 noundef %77)
-  %79 = load ptr, ptr %19, align 8
+  %78 = tail call ptr (ptr, i32, i32, i32, i32, ...) @new_insn_body(ptr noundef %0, i32 noundef %20, i32 noundef %22, i32 noundef 68, i32 noundef 1, i64 noundef %77)
+  %79 = load ptr, ptr %23, align 8
   %80 = getelementptr inbounds nuw i8, ptr %78, i64 16
   store ptr %79, ptr %80, align 8
   %81 = getelementptr inbounds nuw i8, ptr %79, i64 8
   store ptr %78, ptr %81, align 8
-  store ptr %78, ptr %19, align 8
+  store ptr %78, ptr %23, align 8
   %82 = load ptr, ptr %16, align 8
   %83 = getelementptr inbounds nuw i8, ptr %82, i64 40
   %84 = load i32, ptr %83, align 8
@@ -16155,12 +16155,12 @@ new_label_body.exit:                              ; preds = %ISEQ_COMPILE_DATA.e
   %110 = getelementptr inbounds nuw i8, ptr %.tr250, i64 40
   %111 = getelementptr i8, ptr %8, i64 8
   %112 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %113 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  %114 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %115 = load i64, ptr %5, align 8
-  %116 = lshr i64 %115, 15
-  %117 = trunc i64 %116 to i32
-  %118 = load i32, ptr %113, align 8
+  %113 = load i64, ptr %5, align 8
+  %114 = lshr i64 %113, 15
+  %115 = trunc i64 %114 to i32
+  %116 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  %117 = load i32, ptr %116, align 8
+  %118 = getelementptr inbounds nuw i8, ptr %2, i64 24
   br label %119
 
 119:                                              ; preds = %.lr.ph, %170
@@ -16272,13 +16272,13 @@ new_label_body.exit249:                           ; preds = %ISEQ_COMPILE_DATA.e
 170:                                              ; preds = %new_label_body.exit249, %119
   %171 = phi ptr [ %154, %new_label_body.exit249 ], [ %123, %119 ]
   %172 = ptrtoint ptr %171 to i64
-  %173 = tail call ptr (ptr, i32, i32, i32, i32, ...) @new_insn_body(ptr noundef %0, i32 noundef %117, i32 noundef %118, i32 noundef 68, i32 noundef 1, i64 noundef %172)
-  %174 = load ptr, ptr %114, align 8
+  %173 = tail call ptr (ptr, i32, i32, i32, i32, ...) @new_insn_body(ptr noundef %0, i32 noundef %115, i32 noundef %117, i32 noundef 68, i32 noundef 1, i64 noundef %172)
+  %174 = load ptr, ptr %118, align 8
   %175 = getelementptr inbounds nuw i8, ptr %173, i64 16
   store ptr %174, ptr %175, align 8
   %176 = getelementptr inbounds nuw i8, ptr %174, i64 8
   store ptr %173, ptr %176, align 8
-  store ptr %173, ptr %114, align 8
+  store ptr %173, ptr %118, align 8
   %177 = load ptr, ptr %111, align 8
   %178 = getelementptr inbounds nuw i8, ptr %177, i64 40
   %179 = load i32, ptr %178, align 8

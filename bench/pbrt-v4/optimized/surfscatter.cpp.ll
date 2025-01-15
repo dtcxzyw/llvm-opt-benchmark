@@ -142,8 +142,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.pbrt::MaterialEvalWorkItem.233" = type { ptr, %"class.pbrt::Point3fi", %"class.pbrt::Normal3", %"class.pbrt::Vector3", %"class.pbrt::Vector3", float, i32, %"class.pbrt::Normal3", %"class.pbrt::Vector3", %"class.pbrt::Vector3", %"class.pbrt::Normal3", %"class.pbrt::Normal3", %"class.pbrt::Point2", i32, %"class.pbrt::SampledWavelengths", i32, i32, %"class.pbrt::Vector3", %"class.pbrt::SampledSpectrum", %"class.pbrt::SampledSpectrum", float, %"struct.pbrt::MediumInterface" }
 %"class.pbrt::ThinDielectricBxDF" = type { float }
 
-$_ZN4pbrt11ForEachTypeINS_24EvaluateMaterialCallbackENS_23CoatedConductorMaterialEJNS_17ConductorMaterialENS_18DielectricMaterialENS_15DiffuseMaterialENS_27DiffuseTransmissionMaterialENS_12HairMaterialENS_16MeasuredMaterialENS_18SubsurfaceMaterialENS_22ThinDielectricMaterialENS_11MixMaterialEEEEvT_NS_8TypePackIJT0_DpT1_EEE = comdat any
-
 $_ZN4pbrt23WavefrontPathIntegrator23EvaluateMaterialAndBSDFINS_21CoatedDiffuseMaterialEEEviNS_9TransformE = comdat any
 
 $_ZN4pbrt12ForAllQueuedIZNS_23WavefrontPathIntegrator23EvaluateMaterialAndBSDFINS_21CoatedDiffuseMaterialENS_21BasicTextureEvaluatorEEEvPNS_14MultiWorkQueueINS_8TypePackIJNS_20MaterialEvalWorkItemIS3_EENS7_INS_23CoatedConductorMaterialEEENS7_INS_17ConductorMaterialEEENS7_INS_18DielectricMaterialEEENS7_INS_15DiffuseMaterialEEENS7_INS_27DiffuseTransmissionMaterialEEENS7_INS_12HairMaterialEEENS7_INS_16MeasuredMaterialEEENS7_INS_18SubsurfaceMaterialEEENS7_INS_22ThinDielectricMaterialEEENS7_INS_11MixMaterialEEEEEEEENS_9TransformEiEUlS8_E_S8_EEvPKcPKNS_9WorkQueueIT0_EEiOT_ = comdat any
@@ -287,6 +285,8 @@ $_ZZN4pbrt12ForAllQueuedIZNS_23WavefrontPathIntegrator23EvaluateMaterialAndBSDFI
 $_ZZN4pbrt23WavefrontPathIntegrator23EvaluateMaterialAndBSDFINS_21CoatedDiffuseMaterialENS_25UniversalTextureEvaluatorEEEvPNS_14MultiWorkQueueINS_8TypePackIJNS_20MaterialEvalWorkItemIS2_EENS6_INS_23CoatedConductorMaterialEEENS6_INS_17ConductorMaterialEEENS6_INS_18DielectricMaterialEEENS6_INS_15DiffuseMaterialEEENS6_INS_27DiffuseTransmissionMaterialEEENS6_INS_12HairMaterialEEENS6_INS_16MeasuredMaterialEEENS6_INS_18SubsurfaceMaterialEEENS6_INS_22ThinDielectricMaterialEEENS6_INS_11MixMaterialEEEEEEEENS_9TransformEiENKUlS7_E_clES7_ = comdat any
 
 $_ZN4pbrt7BumpMapINS_25UniversalTextureEvaluatorEEEvT_NS_12FloatTextureERKNS_21NormalBumpEvalContextEPNS_7Vector3IfEES9_ = comdat any
+
+$_ZN4pbrt11ForEachTypeINS_24EvaluateMaterialCallbackENS_17ConductorMaterialEJNS_18DielectricMaterialENS_15DiffuseMaterialENS_27DiffuseTransmissionMaterialENS_12HairMaterialENS_16MeasuredMaterialENS_18SubsurfaceMaterialENS_22ThinDielectricMaterialENS_11MixMaterialEEEEvT_NS_8TypePackIJT0_DpT1_EEE = comdat any
 
 $_ZN4pbrt23WavefrontPathIntegrator23EvaluateMaterialAndBSDFINS_23CoatedConductorMaterialEEEviNS_9TransformE = comdat any
 
@@ -794,14 +794,14 @@ define dso_local void @_ZN4pbrt23WavefrontPathIntegrator25EvaluateMaterialsAndBS
 entry:
   %agg.tmp1 = alloca %"struct.pbrt::EvaluateMaterialCallback", align 8
   %agg.tmp.sroa.3.0.agg.tmp1.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.tmp1, i64 16
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %agg.tmp1)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %agg.tmp.sroa.3.0.agg.tmp1.sroa_idx, ptr noundef nonnull align 8 dereferenceable(128) %movingFromCamera, i64 128, i1 false)
   store i32 %wavefrontDepth, ptr %agg.tmp1, align 8
   %agg.tmp.sroa.22.0.agg.tmp1.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.tmp1, i64 8
   store ptr %this, ptr %agg.tmp.sroa.22.0.agg.tmp1.sroa_idx, align 8
   tail call void @_ZN4pbrt23WavefrontPathIntegrator23EvaluateMaterialAndBSDFINS_21CoatedDiffuseMaterialEEEviNS_9TransformE(ptr noundef nonnull align 8 dereferenceable(648) %this, i32 noundef %wavefrontDepth, ptr noundef nonnull byval(%"class.pbrt::Transform") align 8 %movingFromCamera)
-  tail call void @_ZN4pbrt11ForEachTypeINS_24EvaluateMaterialCallbackENS_23CoatedConductorMaterialEJNS_17ConductorMaterialENS_18DielectricMaterialENS_15DiffuseMaterialENS_27DiffuseTransmissionMaterialENS_12HairMaterialENS_16MeasuredMaterialENS_18SubsurfaceMaterialENS_22ThinDielectricMaterialENS_11MixMaterialEEEEvT_NS_8TypePackIJT0_DpT1_EEE(ptr noundef nonnull byval(%"struct.pbrt::EvaluateMaterialCallback") align 8 %agg.tmp1)
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %agg.tmp1)
+  %movingFromCamera.i.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp1, i64 16
+  tail call void @_ZN4pbrt23WavefrontPathIntegrator23EvaluateMaterialAndBSDFINS_23CoatedConductorMaterialEEEviNS_9TransformE(ptr noundef nonnull align 8 dereferenceable(648) %this, i32 noundef %wavefrontDepth, ptr noundef nonnull byval(%"class.pbrt::Transform") align 8 %movingFromCamera.i.i.i)
+  tail call void @_ZN4pbrt11ForEachTypeINS_24EvaluateMaterialCallbackENS_17ConductorMaterialEJNS_18DielectricMaterialENS_15DiffuseMaterialENS_27DiffuseTransmissionMaterialENS_12HairMaterialENS_16MeasuredMaterialENS_18SubsurfaceMaterialENS_22ThinDielectricMaterialENS_11MixMaterialEEEEvT_NS_8TypePackIJT0_DpT1_EEE(ptr noundef nonnull byval(%"struct.pbrt::EvaluateMaterialCallback") align 8 %agg.tmp1)
   ret void
 }
 
@@ -837,47 +837,6 @@ entry:
 }
 
 declare void @_ZN4pbrt16StatsAccumulator16ReportPercentageEPKcll(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #0
-
-; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZN4pbrt11ForEachTypeINS_24EvaluateMaterialCallbackENS_23CoatedConductorMaterialEJNS_17ConductorMaterialENS_18DielectricMaterialENS_15DiffuseMaterialENS_27DiffuseTransmissionMaterialENS_12HairMaterialENS_16MeasuredMaterialENS_18SubsurfaceMaterialENS_22ThinDielectricMaterialENS_11MixMaterialEEEEvT_NS_8TypePackIJT0_DpT1_EEE(ptr noundef byval(%"struct.pbrt::EvaluateMaterialCallback") align 8 %func) local_unnamed_addr #1 comdat {
-entry:
-  %agg.tmp1 = alloca %"struct.pbrt::EvaluateMaterialCallback", align 8
-  %integrator.i = getelementptr inbounds nuw i8, ptr %func, i64 8
-  %0 = load ptr, ptr %integrator.i, align 8
-  %1 = load i32, ptr %func, align 8
-  %movingFromCamera.i = getelementptr inbounds nuw i8, ptr %func, i64 16
-  tail call void @_ZN4pbrt23WavefrontPathIntegrator23EvaluateMaterialAndBSDFINS_23CoatedConductorMaterialEEEviNS_9TransformE(ptr noundef nonnull align 8 dereferenceable(648) %0, i32 noundef %1, ptr noundef nonnull byval(%"class.pbrt::Transform") align 8 %movingFromCamera.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %agg.tmp1, ptr noundef nonnull align 8 dereferenceable(144) %func, i64 144, i1 false)
-  %integrator.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp1, i64 8
-  %2 = load ptr, ptr %integrator.i.i, align 8
-  %3 = load i32, ptr %agg.tmp1, align 8
-  %movingFromCamera.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp1, i64 16
-  tail call void @_ZN4pbrt23WavefrontPathIntegrator23EvaluateMaterialAndBSDFINS_17ConductorMaterialEEEviNS_9TransformE(ptr noundef nonnull align 8 dereferenceable(648) %2, i32 noundef %3, ptr noundef nonnull byval(%"class.pbrt::Transform") align 8 %movingFromCamera.i.i)
-  %integrator.i.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp1, i64 8
-  %4 = load ptr, ptr %integrator.i.i.i, align 8
-  %5 = load i32, ptr %agg.tmp1, align 8
-  %movingFromCamera.i.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp1, i64 16
-  tail call void @_ZN4pbrt23WavefrontPathIntegrator23EvaluateMaterialAndBSDFINS_18DielectricMaterialEEEviNS_9TransformE(ptr noundef nonnull align 8 dereferenceable(648) %4, i32 noundef %5, ptr noundef nonnull byval(%"class.pbrt::Transform") align 8 %movingFromCamera.i.i.i)
-  %6 = load ptr, ptr %integrator.i.i.i, align 8
-  %7 = load i32, ptr %agg.tmp1, align 8
-  tail call void @_ZN4pbrt23WavefrontPathIntegrator23EvaluateMaterialAndBSDFINS_15DiffuseMaterialEEEviNS_9TransformE(ptr noundef nonnull align 8 dereferenceable(648) %6, i32 noundef %7, ptr noundef nonnull byval(%"class.pbrt::Transform") align 8 %movingFromCamera.i.i.i)
-  %8 = load ptr, ptr %integrator.i.i.i, align 8
-  %9 = load i32, ptr %agg.tmp1, align 8
-  tail call void @_ZN4pbrt23WavefrontPathIntegrator23EvaluateMaterialAndBSDFINS_27DiffuseTransmissionMaterialEEEviNS_9TransformE(ptr noundef nonnull align 8 dereferenceable(648) %8, i32 noundef %9, ptr noundef nonnull byval(%"class.pbrt::Transform") align 8 %movingFromCamera.i.i.i)
-  %10 = load ptr, ptr %integrator.i.i.i, align 8
-  %11 = load i32, ptr %agg.tmp1, align 8
-  tail call void @_ZN4pbrt23WavefrontPathIntegrator23EvaluateMaterialAndBSDFINS_12HairMaterialEEEviNS_9TransformE(ptr noundef nonnull align 8 dereferenceable(648) %10, i32 noundef %11, ptr noundef nonnull byval(%"class.pbrt::Transform") align 8 %movingFromCamera.i.i.i)
-  %12 = load ptr, ptr %integrator.i.i.i, align 8
-  %13 = load i32, ptr %agg.tmp1, align 8
-  tail call void @_ZN4pbrt23WavefrontPathIntegrator23EvaluateMaterialAndBSDFINS_16MeasuredMaterialEEEviNS_9TransformE(ptr noundef nonnull align 8 dereferenceable(648) %12, i32 noundef %13, ptr noundef nonnull byval(%"class.pbrt::Transform") align 8 %movingFromCamera.i.i.i)
-  %14 = load ptr, ptr %integrator.i.i.i, align 8
-  %15 = load i32, ptr %agg.tmp1, align 8
-  tail call void @_ZN4pbrt23WavefrontPathIntegrator23EvaluateMaterialAndBSDFINS_18SubsurfaceMaterialEEEviNS_9TransformE(ptr noundef nonnull align 8 dereferenceable(648) %14, i32 noundef %15, ptr noundef nonnull byval(%"class.pbrt::Transform") align 8 %movingFromCamera.i.i.i)
-  %16 = load ptr, ptr %integrator.i.i.i, align 8
-  %17 = load i32, ptr %agg.tmp1, align 8
-  tail call void @_ZN4pbrt23WavefrontPathIntegrator23EvaluateMaterialAndBSDFINS_22ThinDielectricMaterialEEEviNS_9TransformE(ptr noundef nonnull align 8 dereferenceable(648) %16, i32 noundef %17, ptr noundef nonnull byval(%"class.pbrt::Transform") align 8 %movingFromCamera.i.i.i)
-  ret void
-}
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN4pbrt23WavefrontPathIntegrator23EvaluateMaterialAndBSDFINS_21CoatedDiffuseMaterialEEEviNS_9TransformE(ptr noundef nonnull align 8 dereferenceable(648) %this, i32 noundef %wavefrontDepth, ptr noundef byval(%"class.pbrt::Transform") align 8 %movingFromCamera) local_unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -13366,6 +13325,80 @@ entry:
 declare void @_ZNK4pbrt21CoatedDiffuseMaterial7GetBxDFINS_25UniversalTextureEvaluatorEEENS_17CoatedDiffuseBxDFET_RKNS_19MaterialEvalContextERNS_18SampledWavelengthsE(ptr sret(%"class.pbrt::CoatedDiffuseBxDF") align 4, ptr noundef nonnull align 8 dereferenceable(84), ptr noundef nonnull align 4 dereferenceable(112), ptr noundef nonnull align 4 dereferenceable(32)) local_unnamed_addr #0
 
 declare noundef float @_ZN4pbrt25UniversalTextureEvaluatorclENS_12FloatTextureENS_18TextureEvalContextE(ptr noundef nonnull align 1 dereferenceable(1), ptr noundef, ptr noundef byval(%"struct.pbrt::TextureEvalContext") align 8) local_unnamed_addr #0
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr dso_local void @_ZN4pbrt11ForEachTypeINS_24EvaluateMaterialCallbackENS_17ConductorMaterialEJNS_18DielectricMaterialENS_15DiffuseMaterialENS_27DiffuseTransmissionMaterialENS_12HairMaterialENS_16MeasuredMaterialENS_18SubsurfaceMaterialENS_22ThinDielectricMaterialENS_11MixMaterialEEEEvT_NS_8TypePackIJT0_DpT1_EEE(ptr noundef byval(%"struct.pbrt::EvaluateMaterialCallback") align 8 %func) local_unnamed_addr #1 comdat {
+entry:
+  %agg.tmp1.i.i.i.i.i.i = alloca %"struct.pbrt::EvaluateMaterialCallback", align 8
+  %agg.tmp1.i.i.i.i.i = alloca %"struct.pbrt::EvaluateMaterialCallback", align 8
+  %agg.tmp1.i.i.i.i = alloca %"struct.pbrt::EvaluateMaterialCallback", align 8
+  %agg.tmp1.i.i.i = alloca %"struct.pbrt::EvaluateMaterialCallback", align 8
+  %agg.tmp1.i.i = alloca %"struct.pbrt::EvaluateMaterialCallback", align 8
+  %agg.tmp1.i = alloca %"struct.pbrt::EvaluateMaterialCallback", align 8
+  %agg.tmp1 = alloca %"struct.pbrt::EvaluateMaterialCallback", align 8
+  %integrator.i = getelementptr inbounds nuw i8, ptr %func, i64 8
+  %0 = load ptr, ptr %integrator.i, align 8
+  %1 = load i32, ptr %func, align 8
+  %movingFromCamera.i = getelementptr inbounds nuw i8, ptr %func, i64 16
+  tail call void @_ZN4pbrt23WavefrontPathIntegrator23EvaluateMaterialAndBSDFINS_17ConductorMaterialEEEviNS_9TransformE(ptr noundef nonnull align 8 dereferenceable(648) %0, i32 noundef %1, ptr noundef nonnull byval(%"class.pbrt::Transform") align 8 %movingFromCamera.i)
+  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %agg.tmp1)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %agg.tmp1, ptr noundef nonnull align 8 dereferenceable(144) %func, i64 144, i1 false)
+  %integrator.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp1, i64 8
+  %2 = load ptr, ptr %integrator.i.i, align 8
+  %3 = load i32, ptr %agg.tmp1, align 8
+  %movingFromCamera.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp1, i64 16
+  tail call void @_ZN4pbrt23WavefrontPathIntegrator23EvaluateMaterialAndBSDFINS_18DielectricMaterialEEEviNS_9TransformE(ptr noundef nonnull align 8 dereferenceable(648) %2, i32 noundef %3, ptr noundef nonnull byval(%"class.pbrt::Transform") align 8 %movingFromCamera.i.i)
+  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %agg.tmp1.i)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %agg.tmp1.i, ptr noundef nonnull align 8 dereferenceable(144) %func, i64 144, i1 false)
+  %integrator.i.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp1.i, i64 8
+  %4 = load ptr, ptr %integrator.i.i.i, align 8
+  %5 = load i32, ptr %agg.tmp1.i, align 8
+  %movingFromCamera.i.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp1.i, i64 16
+  tail call void @_ZN4pbrt23WavefrontPathIntegrator23EvaluateMaterialAndBSDFINS_15DiffuseMaterialEEEviNS_9TransformE(ptr noundef nonnull align 8 dereferenceable(648) %4, i32 noundef %5, ptr noundef nonnull byval(%"class.pbrt::Transform") align 8 %movingFromCamera.i.i.i)
+  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %agg.tmp1.i.i)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %agg.tmp1.i.i, ptr noundef nonnull align 8 dereferenceable(144) %func, i64 144, i1 false)
+  %integrator.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp1.i.i, i64 8
+  %6 = load ptr, ptr %integrator.i.i.i.i, align 8
+  %7 = load i32, ptr %agg.tmp1.i.i, align 8
+  %movingFromCamera.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp1.i.i, i64 16
+  tail call void @_ZN4pbrt23WavefrontPathIntegrator23EvaluateMaterialAndBSDFINS_27DiffuseTransmissionMaterialEEEviNS_9TransformE(ptr noundef nonnull align 8 dereferenceable(648) %6, i32 noundef %7, ptr noundef nonnull byval(%"class.pbrt::Transform") align 8 %movingFromCamera.i.i.i.i)
+  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %agg.tmp1.i.i.i)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %agg.tmp1.i.i.i, ptr noundef nonnull align 8 dereferenceable(144) %func, i64 144, i1 false)
+  %integrator.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp1.i.i.i, i64 8
+  %8 = load ptr, ptr %integrator.i.i.i.i.i, align 8
+  %9 = load i32, ptr %agg.tmp1.i.i.i, align 8
+  %movingFromCamera.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp1.i.i.i, i64 16
+  tail call void @_ZN4pbrt23WavefrontPathIntegrator23EvaluateMaterialAndBSDFINS_12HairMaterialEEEviNS_9TransformE(ptr noundef nonnull align 8 dereferenceable(648) %8, i32 noundef %9, ptr noundef nonnull byval(%"class.pbrt::Transform") align 8 %movingFromCamera.i.i.i.i.i)
+  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %agg.tmp1.i.i.i.i)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %agg.tmp1.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(144) %func, i64 144, i1 false)
+  %integrator.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp1.i.i.i.i, i64 8
+  %10 = load ptr, ptr %integrator.i.i.i.i.i.i, align 8
+  %11 = load i32, ptr %agg.tmp1.i.i.i.i, align 8
+  %movingFromCamera.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp1.i.i.i.i, i64 16
+  tail call void @_ZN4pbrt23WavefrontPathIntegrator23EvaluateMaterialAndBSDFINS_16MeasuredMaterialEEEviNS_9TransformE(ptr noundef nonnull align 8 dereferenceable(648) %10, i32 noundef %11, ptr noundef nonnull byval(%"class.pbrt::Transform") align 8 %movingFromCamera.i.i.i.i.i.i)
+  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %agg.tmp1.i.i.i.i.i)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %agg.tmp1.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(144) %func, i64 144, i1 false)
+  %integrator.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp1.i.i.i.i.i, i64 8
+  %12 = load ptr, ptr %integrator.i.i.i.i.i.i.i, align 8
+  %13 = load i32, ptr %agg.tmp1.i.i.i.i.i, align 8
+  %movingFromCamera.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp1.i.i.i.i.i, i64 16
+  tail call void @_ZN4pbrt23WavefrontPathIntegrator23EvaluateMaterialAndBSDFINS_18SubsurfaceMaterialEEEviNS_9TransformE(ptr noundef nonnull align 8 dereferenceable(648) %12, i32 noundef %13, ptr noundef nonnull byval(%"class.pbrt::Transform") align 8 %movingFromCamera.i.i.i.i.i.i.i)
+  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %agg.tmp1.i.i.i.i.i.i)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %agg.tmp1.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(144) %func, i64 144, i1 false)
+  %integrator.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp1.i.i.i.i.i.i, i64 8
+  %14 = load ptr, ptr %integrator.i.i.i.i.i.i.i.i, align 8
+  %15 = load i32, ptr %agg.tmp1.i.i.i.i.i.i, align 8
+  %movingFromCamera.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp1.i.i.i.i.i.i, i64 16
+  tail call void @_ZN4pbrt23WavefrontPathIntegrator23EvaluateMaterialAndBSDFINS_22ThinDielectricMaterialEEEviNS_9TransformE(ptr noundef nonnull align 8 dereferenceable(648) %14, i32 noundef %15, ptr noundef nonnull byval(%"class.pbrt::Transform") align 8 %movingFromCamera.i.i.i.i.i.i.i.i)
+  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %agg.tmp1.i.i.i.i.i.i)
+  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %agg.tmp1.i.i.i.i.i)
+  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %agg.tmp1.i.i.i.i)
+  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %agg.tmp1.i.i.i)
+  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %agg.tmp1.i.i)
+  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %agg.tmp1.i)
+  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %agg.tmp1)
+  ret void
+}
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN4pbrt23WavefrontPathIntegrator23EvaluateMaterialAndBSDFINS_23CoatedConductorMaterialEEEviNS_9TransformE(ptr noundef nonnull align 8 dereferenceable(648) %this, i32 noundef %wavefrontDepth, ptr noundef byval(%"class.pbrt::Transform") align 8 %movingFromCamera) local_unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {

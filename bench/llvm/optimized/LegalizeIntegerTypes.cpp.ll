@@ -12287,7 +12287,7 @@ _ZN4llvm16DAGTypeLegalizer19ZExtPromotedIntegerENS_7SDValueE.exit221: ; preds = 
   store ptr %.fca.0.extract80, ptr %13, align 8
   store i32 %.fca.1.extract81, ptr %.sroa.285.0..sroa_idx, align 8
   %.pre = load ptr, ptr %12, align 8
-  %.pre287 = load i32, ptr %43, align 8
+  %.pre289 = load i32, ptr %43, align 8
   br label %219
 
 216:                                              ; preds = %195
@@ -12306,7 +12306,7 @@ _ZN4llvm16DAGTypeLegalizer19ZExtPromotedIntegerENS_7SDValueE.exit221: ; preds = 
   br label %219
 
 219:                                              ; preds = %216, %_ZN4llvm16DAGTypeLegalizer19ZExtPromotedIntegerENS_7SDValueE.exit221
-  %220 = phi i32 [ %.fca.1.extract72, %216 ], [ %.pre287, %_ZN4llvm16DAGTypeLegalizer19ZExtPromotedIntegerENS_7SDValueE.exit221 ]
+  %220 = phi i32 [ %.fca.1.extract72, %216 ], [ %.pre289, %_ZN4llvm16DAGTypeLegalizer19ZExtPromotedIntegerENS_7SDValueE.exit221 ]
   %221 = phi ptr [ %.fca.0.extract71, %216 ], [ %.pre, %_ZN4llvm16DAGTypeLegalizer19ZExtPromotedIntegerENS_7SDValueE.exit221 ]
   %222 = getelementptr inbounds nuw i8, ptr %221, i64 48
   %223 = load ptr, ptr %222, align 8
@@ -12477,11 +12477,11 @@ _ZN4llvm5APIntC2Ejmbb.exit.i248:                  ; preds = %_ZNK4llvm17EmptyMat
   br i1 %279, label %_ZN4llvm5APIntC2Ejmbb.exit.i248._crit_edge, label %288
 
 _ZN4llvm5APIntC2Ejmbb.exit.i248._crit_edge:       ; preds = %_ZN4llvm5APIntC2Ejmbb.exit.i248
-  %.pre288 = load i64, ptr %22, align 8, !alias.scope !20
+  %.pre290 = load i64, ptr %22, align 8, !alias.scope !20
   br label %284
 
 284:                                              ; preds = %_ZN4llvm5APIntC2Ejmbb.exit.i248._crit_edge, %_ZN4llvm5APIntC2Ejmbb.exit.thread.i
-  %285 = phi i64 [ 0, %_ZN4llvm5APIntC2Ejmbb.exit.thread.i ], [ %.pre288, %_ZN4llvm5APIntC2Ejmbb.exit.i248._crit_edge ]
+  %285 = phi i64 [ 0, %_ZN4llvm5APIntC2Ejmbb.exit.thread.i ], [ %.pre290, %_ZN4llvm5APIntC2Ejmbb.exit.i248._crit_edge ]
   %286 = phi i64 [ %278, %_ZN4llvm5APIntC2Ejmbb.exit.thread.i ], [ %283, %_ZN4llvm5APIntC2Ejmbb.exit.i248._crit_edge ]
   %287 = or i64 %285, %286
   store i64 %287, ptr %22, align 8, !alias.scope !20
@@ -12542,11 +12542,11 @@ _ZN4llvm5APInt10getAllOnesEj.exit.i:              ; preds = %_ZN4llvm5APIntD2Ev.
   br i1 %311, label %_ZN4llvm5APInt10getAllOnesEj.exit.i._crit_edge, label %321
 
 _ZN4llvm5APInt10getAllOnesEj.exit.i._crit_edge:   ; preds = %_ZN4llvm5APInt10getAllOnesEj.exit.i
-  %.pre289 = load i64, ptr %24, align 8, !alias.scope !28
+  %.pre291 = load i64, ptr %24, align 8, !alias.scope !28
   br label %317
 
 317:                                              ; preds = %_ZN4llvm5APInt10getAllOnesEj.exit.i._crit_edge, %_ZN4llvm5APInt10getAllOnesEj.exit.thread.i
-  %318 = phi i64 [ %spec.store.select.i.i.i.i, %_ZN4llvm5APInt10getAllOnesEj.exit.thread.i ], [ %.pre289, %_ZN4llvm5APInt10getAllOnesEj.exit.i._crit_edge ]
+  %318 = phi i64 [ %spec.store.select.i.i.i.i, %_ZN4llvm5APInt10getAllOnesEj.exit.thread.i ], [ %.pre291, %_ZN4llvm5APInt10getAllOnesEj.exit.i._crit_edge ]
   %319 = phi i64 [ %310, %_ZN4llvm5APInt10getAllOnesEj.exit.thread.i ], [ %316, %_ZN4llvm5APInt10getAllOnesEj.exit.i._crit_edge ]
   %320 = and i64 %318, %319
   store i64 %320, ptr %24, align 8, !alias.scope !28
@@ -12644,7 +12644,7 @@ _ZN4llvm5APIntD2Ev.exit261:                       ; preds = %_ZN4llvm5APIntD2Ev.
   br label %_ZN4llvm5APIntD2Ev.exit
 
 _ZN4llvm5APIntD2Ev.exit:                          ; preds = %354, %351, %_ZN4llvm5APIntD2Ev.exit261, %194, %191, %_ZN4llvm5APInt13getLowBitsSetEjj.exit, %269, %100, %73
-  %.fca.1.insert.merged = phi { ptr, i32 } [ %340, %354 ], [ %340, %351 ], [ %340, %_ZN4llvm5APIntD2Ev.exit261 ], [ %188, %194 ], [ %188, %191 ], [ %188, %_ZN4llvm5APInt13getLowBitsSetEjj.exit ], [ %271, %269 ], [ %103, %100 ], [ %80, %73 ]
+  %.fca.1.insert.merged = phi { ptr, i32 } [ %271, %269 ], [ %103, %100 ], [ %80, %73 ], [ %188, %_ZN4llvm5APInt13getLowBitsSetEjj.exit ], [ %188, %191 ], [ %188, %194 ], [ %340, %_ZN4llvm5APIntD2Ev.exit261 ], [ %340, %351 ], [ %340, %354 ]
   %355 = load ptr, ptr %11, align 8
   %.not.i.i.i.i.i263 = icmp eq ptr %355, null
   br i1 %.not.i.i.i.i.i263, label %_ZN4llvm5SDLocD2Ev.exit, label %356

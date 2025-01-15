@@ -1492,10 +1492,11 @@ print_indent.exit:                                ; preds = %.lr.ph.i
 
 .lr.ph:                                           ; preds = %24
   %26 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %wide.trip.count = zext nneg i32 %12 to i64
   br label %27
 
-27:                                               ; preds = %.lr.ph, %53
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %53 ]
+27:                                               ; preds = %.lr.ph, %52
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %52 ]
   call void @do_sio(ptr noundef nonnull byval(%struct.parameters_) align 8 %1, ptr noundef nonnull %4) #19
   %28 = load ptr, ptr %26, align 8
   %29 = call double @io_time_get(ptr noundef %28, i32 noundef 2) #19
@@ -1529,212 +1530,205 @@ print_indent.exit:                                ; preds = %.lr.ph.i
   store double %37, ptr %.sroa.4109.0..sroa_idx, align 8
   %.sroa.5110.0..sroa_idx = getelementptr inbounds nuw i8, ptr %38, i64 24
   store i64 0, ptr %.sroa.5110.0..sroa_idx, align 8
-  %39 = load i32, ptr %17, align 8
-  %.not71 = icmp eq i32 %39, 0
-  br i1 %.not71, label %40, label %53
+  br i1 %.not, label %39, label %52
 
-40:                                               ; preds = %27
-  %41 = load ptr, ptr %26, align 8
-  %42 = call double @io_time_get(ptr noundef %41, i32 noundef 3) #19
-  %43 = getelementptr inbounds nuw %struct.minmax, ptr %.065, i64 %indvars.iv
-  store double %42, ptr %43, align 8
-  %.sroa.3104.0..sroa_idx = getelementptr inbounds nuw i8, ptr %43, i64 8
-  store double %42, ptr %.sroa.3104.0..sroa_idx, align 8
-  %.sroa.4105.0..sroa_idx = getelementptr inbounds nuw i8, ptr %43, i64 16
-  store double %42, ptr %.sroa.4105.0..sroa_idx, align 8
-  %.sroa.5106.0..sroa_idx = getelementptr inbounds nuw i8, ptr %43, i64 24
+39:                                               ; preds = %27
+  %40 = load ptr, ptr %26, align 8
+  %41 = call double @io_time_get(ptr noundef %40, i32 noundef 3) #19
+  %42 = getelementptr inbounds nuw %struct.minmax, ptr %.065, i64 %indvars.iv
+  store double %41, ptr %42, align 8
+  %.sroa.3104.0..sroa_idx = getelementptr inbounds nuw i8, ptr %42, i64 8
+  store double %41, ptr %.sroa.3104.0..sroa_idx, align 8
+  %.sroa.4105.0..sroa_idx = getelementptr inbounds nuw i8, ptr %42, i64 16
+  store double %41, ptr %.sroa.4105.0..sroa_idx, align 8
+  %.sroa.5106.0..sroa_idx = getelementptr inbounds nuw i8, ptr %42, i64 24
   store i64 0, ptr %.sroa.5106.0..sroa_idx, align 8
-  %44 = load ptr, ptr %26, align 8
-  %45 = call double @io_time_get(ptr noundef %44, i32 noundef 9) #19
-  %46 = getelementptr inbounds nuw %struct.minmax, ptr %.064, i64 %indvars.iv
-  store double %45, ptr %46, align 8
-  %.sroa.3100.0..sroa_idx = getelementptr inbounds nuw i8, ptr %46, i64 8
-  store double %45, ptr %.sroa.3100.0..sroa_idx, align 8
-  %.sroa.4101.0..sroa_idx = getelementptr inbounds nuw i8, ptr %46, i64 16
-  store double %45, ptr %.sroa.4101.0..sroa_idx, align 8
-  %.sroa.5102.0..sroa_idx = getelementptr inbounds nuw i8, ptr %46, i64 24
+  %43 = load ptr, ptr %26, align 8
+  %44 = call double @io_time_get(ptr noundef %43, i32 noundef 9) #19
+  %45 = getelementptr inbounds nuw %struct.minmax, ptr %.064, i64 %indvars.iv
+  store double %44, ptr %45, align 8
+  %.sroa.3100.0..sroa_idx = getelementptr inbounds nuw i8, ptr %45, i64 8
+  store double %44, ptr %.sroa.3100.0..sroa_idx, align 8
+  %.sroa.4101.0..sroa_idx = getelementptr inbounds nuw i8, ptr %45, i64 16
+  store double %44, ptr %.sroa.4101.0..sroa_idx, align 8
+  %.sroa.5102.0..sroa_idx = getelementptr inbounds nuw i8, ptr %45, i64 24
   store i64 0, ptr %.sroa.5102.0..sroa_idx, align 8
-  %47 = load ptr, ptr %26, align 8
-  %48 = call double @io_time_get(ptr noundef %47, i32 noundef 11) #19
-  %49 = getelementptr inbounds nuw %struct.minmax, ptr %.063, i64 %indvars.iv
-  store double %48, ptr %49, align 8
-  %.sroa.492.0..sroa_idx = getelementptr inbounds nuw i8, ptr %49, i64 8
-  store double %48, ptr %.sroa.492.0..sroa_idx, align 8
-  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %49, i64 16
-  store double %48, ptr %.sroa.5.0..sroa_idx, align 8
-  %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %49, i64 24
+  %46 = load ptr, ptr %26, align 8
+  %47 = call double @io_time_get(ptr noundef %46, i32 noundef 11) #19
+  %48 = getelementptr inbounds nuw %struct.minmax, ptr %.063, i64 %indvars.iv
+  store double %47, ptr %48, align 8
+  %.sroa.492.0..sroa_idx = getelementptr inbounds nuw i8, ptr %48, i64 8
+  store double %47, ptr %.sroa.492.0..sroa_idx, align 8
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %48, i64 16
+  store double %47, ptr %.sroa.5.0..sroa_idx, align 8
+  %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %48, i64 24
   store i64 0, ptr %.sroa.6.0..sroa_idx, align 8
-  %50 = load ptr, ptr %26, align 8
-  %51 = call double @io_time_get(ptr noundef %50, i32 noundef 13) #19
-  %52 = getelementptr inbounds nuw %struct.minmax, ptr %.0, i64 %indvars.iv
-  store double %48, ptr %52, align 8
-  %.sroa.492.0..sroa_idx93 = getelementptr inbounds nuw i8, ptr %52, i64 8
-  store double %48, ptr %.sroa.492.0..sroa_idx93, align 8
-  %.sroa.5.0..sroa_idx95 = getelementptr inbounds nuw i8, ptr %52, i64 16
-  store double %48, ptr %.sroa.5.0..sroa_idx95, align 8
-  %.sroa.6.0..sroa_idx97 = getelementptr inbounds nuw i8, ptr %52, i64 24
+  %49 = load ptr, ptr %26, align 8
+  %50 = call double @io_time_get(ptr noundef %49, i32 noundef 13) #19
+  %51 = getelementptr inbounds nuw %struct.minmax, ptr %.0, i64 %indvars.iv
+  store double %47, ptr %51, align 8
+  %.sroa.492.0..sroa_idx93 = getelementptr inbounds nuw i8, ptr %51, i64 8
+  store double %47, ptr %.sroa.492.0..sroa_idx93, align 8
+  %.sroa.5.0..sroa_idx95 = getelementptr inbounds nuw i8, ptr %51, i64 16
+  store double %47, ptr %.sroa.5.0..sroa_idx95, align 8
+  %.sroa.6.0..sroa_idx97 = getelementptr inbounds nuw i8, ptr %51, i64 24
   store i64 0, ptr %.sroa.6.0..sroa_idx97, align 8
-  br label %53
+  br label %52
 
-53:                                               ; preds = %40, %27
-  %54 = load ptr, ptr %26, align 8
-  call void @io_time_destroy(ptr noundef %54) #19
+52:                                               ; preds = %39, %27
+  %53 = load ptr, ptr %26, align 8
+  call void @io_time_destroy(ptr noundef %53) #19
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %55 = load i32, ptr %11, align 8
-  %56 = sext i32 %55 to i64
-  %57 = icmp slt i64 %indvars.iv.next, %56
-  br i1 %57, label %27, label %._crit_edge
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  br i1 %exitcond.not, label %._crit_edge, label %27
 
-._crit_edge:                                      ; preds = %53, %24
-  %58 = phi i32 [ %18, %24 ], [ %39, %53 ]
-  %.lcssa = phi i32 [ %12, %24 ], [ %55, %53 ]
-  %59 = getelementptr inbounds nuw i8, ptr %2, i64 964
-  %60 = load i32, ptr %59, align 4
-  %.not67 = icmp eq i32 %60, 0
-  br i1 %.not67, label %69, label %61
+._crit_edge:                                      ; preds = %52, %24
+  %54 = getelementptr inbounds nuw i8, ptr %2, i64 964
+  %55 = load i32, ptr %54, align 4
+  %.not67 = icmp eq i32 %55, 0
+  br i1 %.not67, label %64, label %56
 
-61:                                               ; preds = %._crit_edge
-  %62 = load i32, ptr @sio_debug_level, align 4
-  %63 = icmp sgt i32 %62, 2
-  br i1 %63, label %.lr.ph.i72, label %68
+56:                                               ; preds = %._crit_edge
+  %57 = load i32, ptr @sio_debug_level, align 4
+  %58 = icmp sgt i32 %57, 2
+  br i1 %58, label %.lr.ph.i72, label %63
 
-.lr.ph.i72:                                       ; preds = %61, %.lr.ph.i72
-  %.03.i73 = phi i32 [ %66, %.lr.ph.i72 ], [ 12, %61 ]
-  %64 = load ptr, ptr @output, align 8
-  %65 = call i32 @fputc(i32 noundef 32, ptr noundef %64)
-  %66 = add nsw i32 %.03.i73, -1
-  %67 = icmp samesign ugt i32 %.03.i73, 1
-  br i1 %67, label %.lr.ph.i72, label %print_indent.exit74
+.lr.ph.i72:                                       ; preds = %56, %.lr.ph.i72
+  %.03.i73 = phi i32 [ %61, %.lr.ph.i72 ], [ 12, %56 ]
+  %59 = load ptr, ptr @output, align 8
+  %60 = call i32 @fputc(i32 noundef 32, ptr noundef %59)
+  %61 = add nsw i32 %.03.i73, -1
+  %62 = icmp samesign ugt i32 %.03.i73, 1
+  br i1 %62, label %.lr.ph.i72, label %print_indent.exit74
 
 print_indent.exit74:                              ; preds = %.lr.ph.i72
   call void (ptr, ...) @output_report(ptr noundef nonnull @.str.9)
-  call fastcc void @output_all_info(ptr noundef %16, i32 noundef %.lcssa)
-  br label %68
+  call fastcc void @output_all_info(ptr noundef %16, i32 noundef %12)
+  br label %63
 
-68:                                               ; preds = %print_indent.exit74, %61
-  call fastcc void @output_results(ptr noundef %2, ptr noundef nonnull @.str.10, ptr noundef %16, i32 noundef %.lcssa, i64 noundef %6)
-  br label %69
+63:                                               ; preds = %print_indent.exit74, %56
+  call fastcc void @output_results(ptr noundef %2, ptr noundef nonnull @.str.10, ptr noundef %16, i32 noundef %12, i64 noundef %6)
+  br label %64
 
-69:                                               ; preds = %68, %._crit_edge
-  %70 = load i32, ptr @sio_debug_level, align 4
-  %71 = icmp sgt i32 %70, 2
-  br i1 %71, label %.lr.ph.i75, label %76
+64:                                               ; preds = %63, %._crit_edge
+  %65 = load i32, ptr @sio_debug_level, align 4
+  %66 = icmp sgt i32 %65, 2
+  br i1 %66, label %.lr.ph.i75, label %71
 
-.lr.ph.i75:                                       ; preds = %69, %.lr.ph.i75
-  %.03.i76 = phi i32 [ %74, %.lr.ph.i75 ], [ 12, %69 ]
-  %72 = load ptr, ptr @output, align 8
-  %73 = call i32 @fputc(i32 noundef 32, ptr noundef %72)
-  %74 = add nsw i32 %.03.i76, -1
-  %75 = icmp samesign ugt i32 %.03.i76, 1
-  br i1 %75, label %.lr.ph.i75, label %print_indent.exit77
+.lr.ph.i75:                                       ; preds = %64, %.lr.ph.i75
+  %.03.i76 = phi i32 [ %69, %.lr.ph.i75 ], [ 12, %64 ]
+  %67 = load ptr, ptr @output, align 8
+  %68 = call i32 @fputc(i32 noundef 32, ptr noundef %67)
+  %69 = add nsw i32 %.03.i76, -1
+  %70 = icmp samesign ugt i32 %.03.i76, 1
+  br i1 %70, label %.lr.ph.i75, label %print_indent.exit77
 
 print_indent.exit77:                              ; preds = %.lr.ph.i75
   call void (ptr, ...) @output_report(ptr noundef nonnull @.str.11)
-  call fastcc void @output_all_info(ptr noundef %14, i32 noundef %.lcssa)
-  br label %76
+  call fastcc void @output_all_info(ptr noundef %14, i32 noundef %12)
+  br label %71
 
-76:                                               ; preds = %print_indent.exit77, %69
-  call fastcc void @output_results(ptr noundef %2, ptr noundef nonnull @.str.12, ptr noundef %14, i32 noundef %.lcssa, i64 noundef %6)
-  %77 = load i32, ptr @sio_debug_level, align 4
-  %78 = icmp sgt i32 %77, 2
-  br i1 %78, label %.lr.ph.i78, label %83
+71:                                               ; preds = %print_indent.exit77, %64
+  call fastcc void @output_results(ptr noundef %2, ptr noundef nonnull @.str.12, ptr noundef %14, i32 noundef %12, i64 noundef %6)
+  %72 = load i32, ptr @sio_debug_level, align 4
+  %73 = icmp sgt i32 %72, 2
+  br i1 %73, label %.lr.ph.i78, label %78
 
-.lr.ph.i78:                                       ; preds = %76, %.lr.ph.i78
-  %.03.i79 = phi i32 [ %81, %.lr.ph.i78 ], [ 12, %76 ]
-  %79 = load ptr, ptr @output, align 8
-  %80 = call i32 @fputc(i32 noundef 32, ptr noundef %79)
-  %81 = add nsw i32 %.03.i79, -1
-  %82 = icmp samesign ugt i32 %.03.i79, 1
-  br i1 %82, label %.lr.ph.i78, label %print_indent.exit80
+.lr.ph.i78:                                       ; preds = %71, %.lr.ph.i78
+  %.03.i79 = phi i32 [ %76, %.lr.ph.i78 ], [ 12, %71 ]
+  %74 = load ptr, ptr @output, align 8
+  %75 = call i32 @fputc(i32 noundef 32, ptr noundef %74)
+  %76 = add nsw i32 %.03.i79, -1
+  %77 = icmp samesign ugt i32 %.03.i79, 1
+  br i1 %77, label %.lr.ph.i78, label %print_indent.exit80
 
 print_indent.exit80:                              ; preds = %.lr.ph.i78
   call void (ptr, ...) @output_report(ptr noundef nonnull @.str.13)
-  call fastcc void @output_all_info(ptr noundef %15, i32 noundef %.lcssa)
-  br label %83
+  call fastcc void @output_all_info(ptr noundef %15, i32 noundef %12)
+  br label %78
 
-83:                                               ; preds = %print_indent.exit80, %76
-  call fastcc void @output_results(ptr noundef %2, ptr noundef nonnull @.str.14, ptr noundef %15, i32 noundef %.lcssa, i64 noundef %6)
-  %.not68 = icmp eq i32 %58, 0
-  br i1 %.not68, label %84, label %.critedge
+78:                                               ; preds = %print_indent.exit80, %71
+  call fastcc void @output_results(ptr noundef %2, ptr noundef nonnull @.str.14, ptr noundef %15, i32 noundef %12, i64 noundef %6)
+  br i1 %.not, label %79, label %.critedge
 
-84:                                               ; preds = %83
-  %85 = load i32, ptr %59, align 4
-  %.not69 = icmp eq i32 %85, 0
-  br i1 %.not69, label %94, label %86
+79:                                               ; preds = %78
+  %80 = load i32, ptr %54, align 4
+  %.not69 = icmp eq i32 %80, 0
+  br i1 %.not69, label %89, label %81
 
-86:                                               ; preds = %84
-  %87 = load i32, ptr @sio_debug_level, align 4
-  %88 = icmp sgt i32 %87, 2
-  br i1 %88, label %.lr.ph.i81, label %93
+81:                                               ; preds = %79
+  %82 = load i32, ptr @sio_debug_level, align 4
+  %83 = icmp sgt i32 %82, 2
+  br i1 %83, label %.lr.ph.i81, label %88
 
-.lr.ph.i81:                                       ; preds = %86, %.lr.ph.i81
-  %.03.i82 = phi i32 [ %91, %.lr.ph.i81 ], [ 12, %86 ]
-  %89 = load ptr, ptr @output, align 8
-  %90 = call i32 @fputc(i32 noundef 32, ptr noundef %89)
-  %91 = add nsw i32 %.03.i82, -1
-  %92 = icmp samesign ugt i32 %.03.i82, 1
-  br i1 %92, label %.lr.ph.i81, label %print_indent.exit83
+.lr.ph.i81:                                       ; preds = %81, %.lr.ph.i81
+  %.03.i82 = phi i32 [ %86, %.lr.ph.i81 ], [ 12, %81 ]
+  %84 = load ptr, ptr @output, align 8
+  %85 = call i32 @fputc(i32 noundef 32, ptr noundef %84)
+  %86 = add nsw i32 %.03.i82, -1
+  %87 = icmp samesign ugt i32 %.03.i82, 1
+  br i1 %87, label %.lr.ph.i81, label %print_indent.exit83
 
 print_indent.exit83:                              ; preds = %.lr.ph.i81
   call void (ptr, ...) @output_report(ptr noundef nonnull @.str.15)
-  call fastcc void @output_all_info(ptr noundef %.0, i32 noundef %.lcssa)
-  br label %93
+  call fastcc void @output_all_info(ptr noundef %.0, i32 noundef %12)
+  br label %88
 
-93:                                               ; preds = %print_indent.exit83, %86
-  call fastcc void @output_results(ptr noundef %2, ptr noundef nonnull @.str.16, ptr noundef %.0, i32 noundef %.lcssa, i64 noundef %6)
-  br label %94
+88:                                               ; preds = %print_indent.exit83, %81
+  call fastcc void @output_results(ptr noundef %2, ptr noundef nonnull @.str.16, ptr noundef %.0, i32 noundef %12, i64 noundef %6)
+  br label %89
 
-94:                                               ; preds = %93, %84
-  %95 = load i32, ptr @sio_debug_level, align 4
-  %96 = icmp sgt i32 %95, 2
-  br i1 %96, label %.lr.ph.i84, label %101
+89:                                               ; preds = %88, %79
+  %90 = load i32, ptr @sio_debug_level, align 4
+  %91 = icmp sgt i32 %90, 2
+  br i1 %91, label %.lr.ph.i84, label %96
 
-.lr.ph.i84:                                       ; preds = %94, %.lr.ph.i84
-  %.03.i85 = phi i32 [ %99, %.lr.ph.i84 ], [ 12, %94 ]
-  %97 = load ptr, ptr @output, align 8
-  %98 = call i32 @fputc(i32 noundef 32, ptr noundef %97)
-  %99 = add nsw i32 %.03.i85, -1
-  %100 = icmp samesign ugt i32 %.03.i85, 1
-  br i1 %100, label %.lr.ph.i84, label %print_indent.exit86
+.lr.ph.i84:                                       ; preds = %89, %.lr.ph.i84
+  %.03.i85 = phi i32 [ %94, %.lr.ph.i84 ], [ 12, %89 ]
+  %92 = load ptr, ptr @output, align 8
+  %93 = call i32 @fputc(i32 noundef 32, ptr noundef %92)
+  %94 = add nsw i32 %.03.i85, -1
+  %95 = icmp samesign ugt i32 %.03.i85, 1
+  br i1 %95, label %.lr.ph.i84, label %print_indent.exit86
 
 print_indent.exit86:                              ; preds = %.lr.ph.i84
   call void (ptr, ...) @output_report(ptr noundef nonnull @.str.17)
-  call fastcc void @output_all_info(ptr noundef %.064, i32 noundef %.lcssa)
-  br label %101
+  call fastcc void @output_all_info(ptr noundef %.064, i32 noundef %12)
+  br label %96
 
-101:                                              ; preds = %print_indent.exit86, %94
-  call fastcc void @output_results(ptr noundef %2, ptr noundef nonnull @.str.18, ptr noundef %.064, i32 noundef %.lcssa, i64 noundef %6)
-  %102 = load i32, ptr @sio_debug_level, align 4
-  %103 = icmp sgt i32 %102, 2
-  br i1 %103, label %.lr.ph.i87, label %108
+96:                                               ; preds = %print_indent.exit86, %89
+  call fastcc void @output_results(ptr noundef %2, ptr noundef nonnull @.str.18, ptr noundef %.064, i32 noundef %12, i64 noundef %6)
+  %97 = load i32, ptr @sio_debug_level, align 4
+  %98 = icmp sgt i32 %97, 2
+  br i1 %98, label %.lr.ph.i87, label %103
 
-.lr.ph.i87:                                       ; preds = %101, %.lr.ph.i87
-  %.03.i88 = phi i32 [ %106, %.lr.ph.i87 ], [ 12, %101 ]
-  %104 = load ptr, ptr @output, align 8
-  %105 = call i32 @fputc(i32 noundef 32, ptr noundef %104)
-  %106 = add nsw i32 %.03.i88, -1
-  %107 = icmp samesign ugt i32 %.03.i88, 1
-  br i1 %107, label %.lr.ph.i87, label %print_indent.exit89
+.lr.ph.i87:                                       ; preds = %96, %.lr.ph.i87
+  %.03.i88 = phi i32 [ %101, %.lr.ph.i87 ], [ 12, %96 ]
+  %99 = load ptr, ptr @output, align 8
+  %100 = call i32 @fputc(i32 noundef 32, ptr noundef %99)
+  %101 = add nsw i32 %.03.i88, -1
+  %102 = icmp samesign ugt i32 %.03.i88, 1
+  br i1 %102, label %.lr.ph.i87, label %print_indent.exit89
 
 print_indent.exit89:                              ; preds = %.lr.ph.i87
   call void (ptr, ...) @output_report(ptr noundef nonnull @.str.19)
-  call fastcc void @output_all_info(ptr noundef %.063, i32 noundef %.lcssa)
-  br label %108
+  call fastcc void @output_all_info(ptr noundef %.063, i32 noundef %12)
+  br label %103
 
-108:                                              ; preds = %print_indent.exit89, %101
-  call fastcc void @output_results(ptr noundef %2, ptr noundef nonnull @.str.20, ptr noundef %.063, i32 noundef %.lcssa, i64 noundef %6)
+103:                                              ; preds = %print_indent.exit89, %96
+  call fastcc void @output_results(ptr noundef %2, ptr noundef nonnull @.str.20, ptr noundef %.063, i32 noundef %12, i64 noundef %6)
   call void @free(ptr noundef %14) #19
   call void @free(ptr noundef %15) #19
   call void @free(ptr noundef %16) #19
   call void @free(ptr noundef %.065) #19
   br label %.critedge
 
-.critedge:                                        ; preds = %83, %108
-  %.sink129 = phi ptr [ %.064, %108 ], [ %14, %83 ]
-  %.sink128 = phi ptr [ %.063, %108 ], [ %15, %83 ]
-  %.sink = phi ptr [ %.0, %108 ], [ %16, %83 ]
-  call void @free(ptr noundef %.sink129) #19
-  call void @free(ptr noundef %.sink128) #19
+.critedge:                                        ; preds = %78, %103
+  %.sink126 = phi ptr [ %.064, %103 ], [ %14, %78 ]
+  %.sink125 = phi ptr [ %.063, %103 ], [ %15, %78 ]
+  %.sink = phi ptr [ %.0, %103 ], [ %16, %78 ]
+  call void @free(ptr noundef %.sink126) #19
+  call void @free(ptr noundef %.sink125) #19
   call void @free(ptr noundef %.sink) #19
   ret void
 }

@@ -1958,7 +1958,7 @@ gv_strdup.exit63:                                 ; preds = %nameOf.exit
   %108 = getelementptr inbounds nuw i8, ptr %38, i64 8
   %109 = load i8, ptr %108, align 8
   %110 = icmp eq i8 %109, 1
-  br i1 %110, label %111, label %164
+  br i1 %110, label %111, label %160
 
 111:                                              ; preds = %107
   %112 = load ptr, ptr %38, align 8
@@ -2053,72 +2053,68 @@ getPenColor.exit:                                 ; preds = %121, %119, %gv_strd
   %156 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store double %151, ptr %156, align 8
   call fastcc void @pos_html_tbl(ptr noundef %145, ptr noundef nonnull byval(%struct.boxf) align 8 %6, i32 noundef 15)
-  %157 = load double, ptr %155, align 8
-  %158 = load double, ptr %6, align 8
-  %159 = fsub double %157, %158
-  %160 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  store double %159, ptr %160, align 8
-  %161 = load double, ptr %156, align 8
-  %162 = load double, ptr %153, align 8
-  %163 = fsub double %161, %162
-  br label %183
+  %157 = fadd double %148, %148
+  %158 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  store double %157, ptr %158, align 8
+  %159 = fadd double %151, %151
+  br label %179
 
-164:                                              ; preds = %107
-  %165 = getelementptr inbounds nuw i8, ptr %26, i64 16
-  %166 = load ptr, ptr %165, align 8
-  %167 = getelementptr inbounds nuw i8, ptr %166, i64 168
-  %168 = load ptr, ptr %167, align 8
-  %169 = load ptr, ptr %38, align 8
-  call fastcc void @size_html_txt(ptr noundef %168, ptr noundef %169, ptr noundef %4)
-  %170 = load ptr, ptr %38, align 8
-  %171 = getelementptr inbounds nuw i8, ptr %170, i64 24
-  %172 = getelementptr inbounds nuw i8, ptr %170, i64 40
-  %173 = load double, ptr %172, align 8
-  %174 = fmul double %173, 5.000000e-01
-  %175 = getelementptr inbounds nuw i8, ptr %170, i64 48
-  %176 = load double, ptr %175, align 8
-  %177 = fmul double %176, 5.000000e-01
-  %178 = fneg double %174
-  %179 = fneg double %177
-  store double %178, ptr %171, align 8
-  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %170, i64 32
-  store double %179, ptr %.sroa.3.0..sroa_idx, align 8
-  store double %174, ptr %172, align 8
-  store double %177, ptr %175, align 8
-  %180 = fadd double %174, %174
-  %181 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  store double %180, ptr %181, align 8
-  %182 = fadd double %177, %177
-  br label %183
+160:                                              ; preds = %107
+  %161 = getelementptr inbounds nuw i8, ptr %26, i64 16
+  %162 = load ptr, ptr %161, align 8
+  %163 = getelementptr inbounds nuw i8, ptr %162, i64 168
+  %164 = load ptr, ptr %163, align 8
+  %165 = load ptr, ptr %38, align 8
+  call fastcc void @size_html_txt(ptr noundef %164, ptr noundef %165, ptr noundef %4)
+  %166 = load ptr, ptr %38, align 8
+  %167 = getelementptr inbounds nuw i8, ptr %166, i64 24
+  %168 = getelementptr inbounds nuw i8, ptr %166, i64 40
+  %169 = load double, ptr %168, align 8
+  %170 = fmul double %169, 5.000000e-01
+  %171 = getelementptr inbounds nuw i8, ptr %166, i64 48
+  %172 = load double, ptr %171, align 8
+  %173 = fmul double %172, 5.000000e-01
+  %174 = fneg double %170
+  %175 = fneg double %173
+  store double %174, ptr %167, align 8
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %166, i64 32
+  store double %175, ptr %.sroa.3.0..sroa_idx, align 8
+  store double %170, ptr %168, align 8
+  store double %173, ptr %171, align 8
+  %176 = fadd double %170, %170
+  %177 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  store double %176, ptr %177, align 8
+  %178 = fadd double %173, %173
+  br label %179
 
-183:                                              ; preds = %164, %getPenColor.exit
-  %.sink76 = phi double [ %182, %164 ], [ %163, %getPenColor.exit ]
-  %184 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  store double %.sink76, ptr %184, align 8
-  %185 = getelementptr inbounds nuw i8, ptr %1, i64 88
-  store ptr %38, ptr %185, align 8
-  %186 = load i8, ptr %108, align 8
-  %187 = icmp eq i8 %186, 1
-  br i1 %187, label %188, label %agxbfree.exit
+179:                                              ; preds = %160, %getPenColor.exit
+  %.sink76 = phi double [ %178, %160 ], [ %159, %getPenColor.exit ]
+  %180 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  store double %.sink76, ptr %180, align 8
+  %181 = getelementptr inbounds nuw i8, ptr %1, i64 88
+  store ptr %38, ptr %181, align 8
+  %182 = load i8, ptr %108, align 8
+  %183 = icmp eq i8 %182, 1
+  br i1 %183, label %184, label %agxbfree.exit
 
-188:                                              ; preds = %183
-  %189 = load ptr, ptr %1, align 8
-  call void @free(ptr noundef %189) #22
-  %190 = call noalias dereferenceable_or_null(8) ptr @strdup(ptr noundef nonnull @.str.3) #22
-  %191 = icmp eq ptr %190, null
-  br i1 %191, label %192, label %gv_strdup.exit72
+184:                                              ; preds = %179
+  %185 = load ptr, ptr %1, align 8
+  call void @free(ptr noundef %185) #22
+  %186 = call noalias dereferenceable_or_null(8) ptr @strdup(ptr noundef nonnull @.str.3) #22
+  %187 = icmp eq ptr %186, null
+  br i1 %187, label %188, label %gv_strdup.exit72
 
-192:                                              ; preds = %188
-  %193 = load ptr, ptr @stderr, align 8
-  %194 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %193, ptr noundef nonnull @.str.8, i64 noundef 8) #23
+188:                                              ; preds = %184
+  %189 = load ptr, ptr @stderr, align 8
+  %190 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %189, ptr noundef nonnull @.str.8, i64 noundef 8) #23
   call fastcc void @graphviz_exit() #26
   unreachable
 
-gv_strdup.exit72:                                 ; preds = %188
-  store ptr %190, ptr %1, align 8
+gv_strdup.exit72:                                 ; preds = %184
+  store ptr %186, ptr %1, align 8
   br label %agxbfree.exit
 
-agxbfree.exit:                                    ; preds = %106, %98, %183, %gv_strdup.exit72, %gv_strdup.exit
+agxbfree.exit:                                    ; preds = %106, %98, %179, %gv_strdup.exit72, %gv_strdup.exit
   %.0 = load i32, ptr %3, align 4
   ret i32 %.0
 }

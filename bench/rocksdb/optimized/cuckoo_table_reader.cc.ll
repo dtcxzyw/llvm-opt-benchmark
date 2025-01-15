@@ -44,9 +44,9 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.std::__detail::_Hash_node_base" = type { ptr }
 %"struct.std::__detail::_Prime_rehash_policy" = type { float, i64 }
 %"struct.rocksdb::ParsedInternalKey" = type <{ %"class.rocksdb::Slice", i64, i8, [7 x i8] }>
-%"struct.__gnu_cxx::__ops::_Iter_comp_iter" = type { %"struct.rocksdb::CuckooTableIterator::BucketComparator" }
 %"struct.rocksdb::CuckooTableIterator::BucketComparator" = type { %"class.rocksdb::Slice", ptr, i32, i32, %"class.rocksdb::Slice" }
 %"class.std::shared_ptr" = type { %"class.std::__shared_ptr" }
+%"struct.__gnu_cxx::__ops::_Iter_comp_iter" = type { %"struct.rocksdb::CuckooTableIterator::BucketComparator" }
 %"class.std::allocator.10" = type { i8 }
 %"class.std::function.156" = type { %"class.std::_Function_base", ptr }
 
@@ -2090,7 +2090,7 @@ _ZNSt6vectorIjSaIjEE5clearEv.exit:
 ; Function Attrs: mustprogress uwtable
 define void @_ZN7rocksdb19CuckooTableIterator12InitIfNeededEv(ptr nocapture noundef nonnull align 8 dereferenceable(224) %this) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %agg.tmp32.i = alloca %"struct.__gnu_cxx::__ops::_Iter_comp_iter", align 8
+  %agg.tmp2310 = alloca %"struct.rocksdb::CuckooTableIterator::BucketComparator", align 8
   %ref.tmp = alloca %"class.std::shared_ptr", align 8
   %initialized_ = getelementptr inbounds nuw i8, ptr %this, i64 96
   %0 = load i8, ptr %initialized_, align 8
@@ -2355,8 +2355,8 @@ for.end:                                          ; preds = %if.end15, %_ZNSt10s
   %_M_finish.i9 = getelementptr inbounds nuw i8, ptr %this, i64 112
   %34 = load ptr, ptr %_M_finish.i9, align 8
   %bucket_comparator_ = getelementptr inbounds nuw i8, ptr %this, i64 40
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %agg.tmp32.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %agg.tmp32.i, ptr noundef nonnull align 8 dereferenceable(48) %bucket_comparator_, i64 48, i1 false)
+  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %agg.tmp2310)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %agg.tmp2310, ptr noundef nonnull align 8 dereferenceable(48) %bucket_comparator_, i64 48, i1 false)
   %cmp.i.not.i.i = icmp eq ptr %33, %34
   br i1 %cmp.i.not.i.i, label %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEEN7rocksdb19CuckooTableIterator16BucketComparatorEEvT_SA_T0_.exit, label %if.then.i.i11
 
@@ -2369,11 +2369,11 @@ if.then.i.i11:                                    ; preds = %for.end
   %sub.i.i.i = shl nuw nsw i64 %35, 1
   %mul.i.i = xor i64 %sub.i.i.i, 126
   call void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEElNS0_5__ops15_Iter_comp_iterIN7rocksdb19CuckooTableIterator16BucketComparatorEEEEvT_SD_T0_T1_(ptr %33, ptr %34, i64 noundef %mul.i.i, ptr noundef nonnull byval(%"struct.__gnu_cxx::__ops::_Iter_comp_iter") align 8 %bucket_comparator_)
-  call void @_ZSt22__final_insertion_sortIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEENS0_5__ops15_Iter_comp_iterIN7rocksdb19CuckooTableIterator16BucketComparatorEEEEvT_SD_T0_(ptr %33, ptr %34, ptr noundef nonnull byval(%"struct.__gnu_cxx::__ops::_Iter_comp_iter") align 8 %agg.tmp32.i)
+  call void @_ZSt22__final_insertion_sortIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEENS0_5__ops15_Iter_comp_iterIN7rocksdb19CuckooTableIterator16BucketComparatorEEEEvT_SD_T0_(ptr %33, ptr %34, ptr noundef nonnull byval(%"struct.__gnu_cxx::__ops::_Iter_comp_iter") align 8 %agg.tmp2310)
   br label %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEEN7rocksdb19CuckooTableIterator16BucketComparatorEEvT_SA_T0_.exit
 
 _ZSt4sortIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEEN7rocksdb19CuckooTableIterator16BucketComparatorEEvT_SA_T0_.exit: ; preds = %for.end, %if.then.i.i11
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %agg.tmp32.i)
+  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %agg.tmp2310)
   %curr_key_idx_ = getelementptr inbounds nuw i8, ptr %this, i64 128
   store i32 -1, ptr %curr_key_idx_, align 8
   store i8 1, ptr %initialized_, align 8
@@ -4700,7 +4700,6 @@ entry:
   %ref.tmp16.i.i3.i.i = alloca %"class.rocksdb::Slice", align 8
   %ref.tmp.i.i.i.i = alloca %"class.rocksdb::Slice", align 8
   %ref.tmp16.i.i.i.i = alloca %"class.rocksdb::Slice", align 8
-  %agg.tmp51.i = alloca %"struct.__gnu_cxx::__ops::_Iter_comp_iter", align 8
   %agg.tmp53 = alloca %"struct.__gnu_cxx::__ops::_Iter_comp_iter", align 8
   %sub.ptr.rhs.cast.i = ptrtoint ptr %__first.coerce to i64
   %sub.ptr.lhs.cast.i13 = ptrtoint ptr %__last.coerce to i64
@@ -4735,8 +4734,6 @@ if.end.i.i.i:                                     ; preds = %while.body, %while.
   %storemerge17.lcssa = phi ptr [ %__last.coerce, %while.body.lr.ph ], [ %__first.sroa.0.1.i.i, %while.body ]
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %agg.tmp53)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %agg.tmp53, ptr noundef nonnull align 8 dereferenceable(48) %__comp, i64 48, i1 false)
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %agg.tmp51.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %agg.tmp51.i, ptr noundef nonnull align 8 dereferenceable(48) %__comp, i64 48, i1 false)
   %sub.i.i.i = add nsw i64 %sub.ptr.div.i20.lcssa, -2
   %div1617.i.i.i = lshr i64 %sub.i.i.i, 1
   br label %while.body.i.i.i
@@ -4745,13 +4742,12 @@ while.body.i.i.i:                                 ; preds = %while.body.i.i.i, %
   %__parent.0.i.i.i = phi i64 [ %div1617.i.i.i, %if.end.i.i.i ], [ %dec.i.i.i, %while.body.i.i.i ]
   %phi.call.i.i.i = getelementptr inbounds i32, ptr %__first.coerce, i64 %__parent.0.i.i.i
   %0 = load i32, ptr %phi.call.i.i.i, align 4
-  call void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEEljNS0_5__ops15_Iter_comp_iterIN7rocksdb19CuckooTableIterator16BucketComparatorEEEEvT_T0_SE_T1_T2_(ptr %__first.coerce, i64 noundef %__parent.0.i.i.i, i64 noundef %sub.ptr.div.i20.lcssa, i32 noundef %0, ptr noundef nonnull byval(%"struct.__gnu_cxx::__ops::_Iter_comp_iter") align 8 %agg.tmp51.i)
+  call void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEEljNS0_5__ops15_Iter_comp_iterIN7rocksdb19CuckooTableIterator16BucketComparatorEEEEvT_T0_SE_T1_T2_(ptr %__first.coerce, i64 noundef %__parent.0.i.i.i, i64 noundef %sub.ptr.div.i20.lcssa, i32 noundef %0, ptr noundef nonnull byval(%"struct.__gnu_cxx::__ops::_Iter_comp_iter") align 8 %__comp)
   %cmp8.i.i.i = icmp eq i64 %__parent.0.i.i.i, 0
   %dec.i.i.i = add nsw i64 %__parent.0.i.i.i, -1
   br i1 %cmp8.i.i.i, label %_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEENS0_5__ops15_Iter_comp_iterIN7rocksdb19CuckooTableIterator16BucketComparatorEEEEvT_SD_RT0_.exit.i.i, label %while.body.i.i.i, !llvm.loop !35
 
 _ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEENS0_5__ops15_Iter_comp_iterIN7rocksdb19CuckooTableIterator16BucketComparatorEEEEvT_SD_RT0_.exit.i.i: ; preds = %while.body.i.i.i
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %agg.tmp51.i)
   %cmp4.i.i = icmp sgt i64 %sub.ptr.sub.i19.lcssa, 4
   br i1 %cmp4.i.i, label %while.body.i.i, label %_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEENS0_5__ops15_Iter_comp_iterIN7rocksdb19CuckooTableIterator16BucketComparatorEEEEvT_SD_SD_T0_.exit
 

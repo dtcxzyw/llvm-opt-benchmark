@@ -7827,26 +7827,23 @@ define dso_local void @update_log_levels(i32 noundef %0, i32 noundef %1) local_u
   br label %36
 
 36:                                               ; preds = %25, %34, %35, %28, %21
-  %37 = tail call i32 @log_alter(ptr noundef nonnull byval(%struct.log_options_t) align 8 %3, i32 noundef 24, ptr noundef %15) #21
-  %38 = tail call i32 @get_log_level() #21
-  %39 = icmp sgt i32 %38, 4
-  br i1 %39, label %40, label %51
+  %37 = phi i32 [ %14, %25 ], [ %12, %34 ], [ 1, %35 ], [ 0, %28 ], [ 0, %21 ]
+  %38 = tail call i32 @log_alter(ptr noundef nonnull byval(%struct.log_options_t) align 8 %3, i32 noundef 24, ptr noundef %15) #21
+  %39 = tail call i32 @get_log_level() #21
+  %40 = icmp sgt i32 %39, 4
+  br i1 %40, label %41, label %48
 
-40:                                               ; preds = %36
-  %41 = load i32, ptr %3, align 8
-  %42 = trunc i32 %41 to i16
+41:                                               ; preds = %36
+  %42 = trunc nuw nsw i32 %. to i16
   %43 = tail call ptr @log_num2string(i16 noundef zeroext %42) #21
-  %44 = load i32, ptr %18, align 8
-  %45 = trunc i32 %44 to i16
-  %46 = tail call ptr @log_num2string(i16 noundef zeroext %45) #21
-  %47 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  %48 = load i32, ptr %47, align 4
-  %49 = trunc i32 %48 to i16
-  %50 = tail call ptr @log_num2string(i16 noundef zeroext %49) #21
-  tail call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull @.str.77, ptr noundef %43, ptr noundef %46, ptr noundef %50) #21
-  br label %51
+  %44 = trunc nuw nsw i32 %spec.select to i16
+  %45 = tail call ptr @log_num2string(i16 noundef zeroext %44) #21
+  %46 = trunc nuw nsw i32 %37 to i16
+  %47 = tail call ptr @log_num2string(i16 noundef zeroext %46) #21
+  tail call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull @.str.77, ptr noundef %43, ptr noundef %45, ptr noundef %47) #21
+  br label %48
 
-51:                                               ; preds = %40, %36
+48:                                               ; preds = %41, %36
   ret void
 }
 

@@ -71,149 +71,148 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   br i1 %.not, label %.preheader, label %9
 
 9:                                                ; preds = %2
-  %10 = load i32, ptr %3, align 8
-  %11 = add i32 %10, %8
-  store i32 %11, ptr %3, align 8
-  %12 = tail call i32 @log_alter(ptr noundef nonnull byval(%struct.log_options_t) align 8 %3, i32 noundef 8, ptr noundef null) #13
+  %10 = add i32 %8, 3
+  store i32 %10, ptr %3, align 8
+  %11 = tail call i32 @log_alter(ptr noundef nonnull byval(%struct.log_options_t) align 8 %3, i32 noundef 8, ptr noundef null) #13
   br label %.preheader
 
 .preheader:                                       ; preds = %9, %2
-  br label %13
+  br label %12
 
-13:                                               ; preds = %.preheader, %68
-  %.0 = phi i32 [ %.1, %68 ], [ 0, %.preheader ]
-  %14 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params, i64 44), align 4
-  %15 = trunc i8 %14 to i1
-  %16 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @params, i64 72), align 8
-  %17 = icmp ne ptr %16, null
-  %or.cond = select i1 %15, i1 true, i1 %17
-  br i1 %or.cond, label %27, label %18
+12:                                               ; preds = %.preheader, %67
+  %.0 = phi i32 [ %.1, %67 ], [ 0, %.preheader ]
+  %13 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params, i64 44), align 4
+  %14 = trunc i8 %13 to i1
+  %15 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @params, i64 72), align 8
+  %16 = icmp ne ptr %15, null
+  %or.cond = select i1 %14, i1 true, i1 %16
+  br i1 %or.cond, label %26, label %17
 
-18:                                               ; preds = %13
-  %19 = load i32, ptr getelementptr inbounds nuw (i8, ptr @params, i64 120), align 8
-  %20 = icmp ne i32 %19, 0
-  %21 = load i32, ptr getelementptr inbounds nuw (i8, ptr @params, i64 132), align 4
-  %22 = icmp ne i32 %21, 0
-  %or.cond5 = select i1 %20, i1 true, i1 %22
-  br i1 %or.cond5, label %26, label %23
+17:                                               ; preds = %12
+  %18 = load i32, ptr getelementptr inbounds nuw (i8, ptr @params, i64 120), align 8
+  %19 = icmp ne i32 %18, 0
+  %20 = load i32, ptr getelementptr inbounds nuw (i8, ptr @params, i64 132), align 4
+  %21 = icmp ne i32 %20, 0
+  %or.cond5 = select i1 %19, i1 true, i1 %21
+  br i1 %or.cond5, label %25, label %22
 
-23:                                               ; preds = %18
-  %24 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params, i64 43), align 1
-  %25 = trunc i8 %24 to i1
-  br i1 %25, label %26, label %27
+22:                                               ; preds = %17
+  %23 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params, i64 43), align 1
+  %24 = trunc i8 %23 to i1
+  br i1 %24, label %25, label %26
 
-26:                                               ; preds = %23, %18
+25:                                               ; preds = %22, %17
   tail call void @print_date() #13
-  br label %27
+  br label %26
 
-27:                                               ; preds = %26, %23, %13
-  %28 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @params, i64 8), align 8
-  %.not14 = icmp eq ptr %28, null
-  br i1 %.not14, label %29, label %32
+26:                                               ; preds = %25, %22, %12
+  %27 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @params, i64 8), align 8
+  %.not14 = icmp eq ptr %27, null
+  br i1 %.not14, label %28, label %31
 
-29:                                               ; preds = %27
-  %30 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @params, i64 168), align 8
-  %31 = tail call fastcc i32 @_get_info(i1 noundef zeroext false, ptr noundef %30, ptr noundef null, i32 noundef %0, ptr noundef nonnull %1)
-  %.not15 = icmp eq i32 %31, 0
+28:                                               ; preds = %26
+  %29 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @params, i64 168), align 8
+  %30 = tail call fastcc i32 @_get_info(i1 noundef zeroext false, ptr noundef %29, ptr noundef null, i32 noundef %0, ptr noundef nonnull %1)
+  %.not15 = icmp eq i32 %30, 0
   %spec.select = select i1 %.not15, i32 %.0, i32 1
-  br label %66
+  br label %65
 
-32:                                               ; preds = %27
-  %33 = tail call i32 @list_count(ptr noundef nonnull %28) #13
-  %34 = icmp sgt i32 %33, 1
-  br i1 %34, label %35, label %prepend_cluster_name.exit.i
+31:                                               ; preds = %26
+  %32 = tail call i32 @list_count(ptr noundef nonnull %27) #13
+  %33 = icmp sgt i32 %32, 1
+  br i1 %33, label %34, label %prepend_cluster_name.exit.i
 
-35:                                               ; preds = %32
-  %36 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params, i64 44), align 4
-  %37 = trunc i8 %36 to i1
-  br i1 %37, label %38, label %prepend_cluster_name.exit.i
+34:                                               ; preds = %31
+  %35 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params, i64 44), align 4
+  %36 = trunc i8 %35 to i1
+  br i1 %36, label %37, label %prepend_cluster_name.exit.i
 
-38:                                               ; preds = %35
-  %39 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params, i64 37), align 1
-  %40 = trunc i8 %39 to i1
-  br i1 %40, label %41, label %prepend_cluster_name.exit.i
+37:                                               ; preds = %34
+  %38 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params, i64 37), align 1
+  %39 = trunc i8 %38 to i1
+  br i1 %39, label %40, label %prepend_cluster_name.exit.i
 
-41:                                               ; preds = %38
-  %42 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @params, i64 144), align 8
-  %43 = tail call ptr @list_find_first(ptr noundef %42, ptr noundef nonnull @_list_find_func, ptr noundef nonnull @_print_cluster_name) #13
-  %.not.i.i = icmp eq ptr %43, null
-  br i1 %.not.i.i, label %44, label %prepend_cluster_name.exit.i
+40:                                               ; preds = %37
+  %41 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @params, i64 144), align 8
+  %42 = tail call ptr @list_find_first(ptr noundef %41, ptr noundef nonnull @_list_find_func, ptr noundef nonnull @_print_cluster_name) #13
+  %.not.i.i = icmp eq ptr %42, null
+  br i1 %.not.i.i, label %43, label %prepend_cluster_name.exit.i
 
-44:                                               ; preds = %41
-  %45 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @params, i64 144), align 8
-  %46 = tail call i32 @format_prepend_function(ptr noundef %45, i32 noundef 8, i1 noundef zeroext false, ptr noundef null, ptr noundef nonnull @_print_cluster_name) #13
+43:                                               ; preds = %40
+  %44 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @params, i64 144), align 8
+  %45 = tail call i32 @format_prepend_function(ptr noundef %44, i32 noundef 8, i1 noundef zeroext false, ptr noundef null, ptr noundef nonnull @_print_cluster_name) #13
   br label %prepend_cluster_name.exit.i
 
-prepend_cluster_name.exit.i:                      ; preds = %44, %41, %38, %35, %32
-  %47 = tail call ptr @list_iterator_create(ptr noundef nonnull %28) #13
-  %48 = tail call ptr @list_next(ptr noundef %47) #13
-  store ptr %48, ptr @working_cluster_rec, align 8
-  %.not11.i = icmp eq ptr %48, null
+prepend_cluster_name.exit.i:                      ; preds = %43, %40, %37, %34, %31
+  %46 = tail call ptr @list_iterator_create(ptr noundef nonnull %27) #13
+  %47 = tail call ptr @list_next(ptr noundef %46) #13
+  store ptr %47, ptr @working_cluster_rec, align 8
+  %.not11.i = icmp eq ptr %47, null
   br i1 %.not11.i, label %_multi_cluster.exit.thread, label %.lr.ph.i
 
 _multi_cluster.exit.thread:                       ; preds = %prepend_cluster_name.exit.i
-  tail call void @list_iterator_destroy(ptr noundef %47) #13
-  br label %65
+  tail call void @list_iterator_destroy(ptr noundef %46) #13
+  br label %64
 
-.lr.ph.i:                                         ; preds = %prepend_cluster_name.exit.i, %59
-  %49 = phi ptr [ %64, %59 ], [ %48, %prepend_cluster_name.exit.i ]
-  %.013.i = phi i1 [ %.1.i, %59 ], [ true, %prepend_cluster_name.exit.i ]
-  %.0812.i = phi i32 [ %spec.select.i, %59 ], [ 0, %prepend_cluster_name.exit.i ]
-  %50 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params, i64 44), align 4
-  %51 = trunc i8 %50 to i1
-  br i1 %51, label %59, label %52
+.lr.ph.i:                                         ; preds = %prepend_cluster_name.exit.i, %58
+  %48 = phi ptr [ %63, %58 ], [ %47, %prepend_cluster_name.exit.i ]
+  %.013.i = phi i1 [ %.1.i, %58 ], [ true, %prepend_cluster_name.exit.i ]
+  %.0812.i = phi i32 [ %spec.select.i, %58 ], [ 0, %prepend_cluster_name.exit.i ]
+  %49 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params, i64 44), align 4
+  %50 = trunc i8 %49 to i1
+  br i1 %50, label %58, label %51
 
-52:                                               ; preds = %.lr.ph.i
-  br i1 %.013.i, label %54, label %53
+51:                                               ; preds = %.lr.ph.i
+  br i1 %.013.i, label %53, label %52
 
-53:                                               ; preds = %52
+52:                                               ; preds = %51
   %putchar.i = tail call i32 @putchar(i32 10)
   %.pre.i = load ptr, ptr @working_cluster_rec, align 8
-  br label %54
+  br label %53
 
-54:                                               ; preds = %53, %52
-  %55 = phi ptr [ %49, %52 ], [ %.pre.i, %53 ]
-  %56 = getelementptr inbounds nuw i8, ptr %55, i64 272
-  %57 = load ptr, ptr %56, align 8
-  %58 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.6, ptr noundef %57)
+53:                                               ; preds = %52, %51
+  %54 = phi ptr [ %48, %51 ], [ %.pre.i, %52 ]
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 272
+  %56 = load ptr, ptr %55, align 8
+  %57 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.6, ptr noundef %56)
   %.pre14.i = load ptr, ptr @working_cluster_rec, align 8
-  br label %59
+  br label %58
 
-59:                                               ; preds = %54, %.lr.ph.i
-  %60 = phi ptr [ %49, %.lr.ph.i ], [ %.pre14.i, %54 ]
-  %.1.i = phi i1 [ %.013.i, %.lr.ph.i ], [ false, %54 ]
-  %61 = getelementptr inbounds nuw i8, ptr %60, i64 272
-  %62 = load ptr, ptr %61, align 8
-  %63 = tail call fastcc i32 @_get_info(i1 noundef zeroext true, ptr noundef null, ptr noundef %62, i32 noundef %0, ptr noundef nonnull %1)
-  %.fr = freeze i32 %63
+58:                                               ; preds = %53, %.lr.ph.i
+  %59 = phi ptr [ %48, %.lr.ph.i ], [ %.pre14.i, %53 ]
+  %.1.i = phi i1 [ %.013.i, %.lr.ph.i ], [ false, %53 ]
+  %60 = getelementptr inbounds nuw i8, ptr %59, i64 272
+  %61 = load ptr, ptr %60, align 8
+  %62 = tail call fastcc i32 @_get_info(i1 noundef zeroext true, ptr noundef null, ptr noundef %61, i32 noundef %0, ptr noundef nonnull %1)
+  %.fr = freeze i32 %62
   %.not10.i = icmp eq i32 %.fr, 0
   %spec.select.i = select i1 %.not10.i, i32 %.0812.i, i32 1
-  %64 = tail call ptr @list_next(ptr noundef %47) #13
-  store ptr %64, ptr @working_cluster_rec, align 8
-  %.not.i = icmp eq ptr %64, null
+  %63 = tail call ptr @list_next(ptr noundef %46) #13
+  store ptr %63, ptr @working_cluster_rec, align 8
+  %.not.i = icmp eq ptr %63, null
   br i1 %.not.i, label %_multi_cluster.exit, label %.lr.ph.i, !llvm.loop !7
 
-_multi_cluster.exit:                              ; preds = %59
-  tail call void @list_iterator_destroy(ptr noundef %47) #13
+_multi_cluster.exit:                              ; preds = %58
+  tail call void @list_iterator_destroy(ptr noundef %46) #13
   %.not16 = icmp eq i32 %spec.select.i, 0
-  br i1 %.not16, label %65, label %66
+  br i1 %.not16, label %64, label %65
 
-65:                                               ; preds = %_multi_cluster.exit.thread, %_multi_cluster.exit
-  br label %66
+64:                                               ; preds = %_multi_cluster.exit.thread, %_multi_cluster.exit
+  br label %65
 
-66:                                               ; preds = %65, %_multi_cluster.exit, %29
-  %.1 = phi i32 [ %spec.select, %29 ], [ %.0, %65 ], [ 1, %_multi_cluster.exit ]
-  %67 = load i32, ptr getelementptr inbounds nuw (i8, ptr @params, i64 120), align 8
-  %.not17 = icmp eq i32 %67, 0
-  br i1 %.not17, label %71, label %68
+65:                                               ; preds = %64, %_multi_cluster.exit, %28
+  %.1 = phi i32 [ %spec.select, %28 ], [ %.0, %64 ], [ 1, %_multi_cluster.exit ]
+  %66 = load i32, ptr getelementptr inbounds nuw (i8, ptr @params, i64 120), align 8
+  %.not17 = icmp eq i32 %66, 0
+  br i1 %.not17, label %70, label %67
 
-68:                                               ; preds = %66
+67:                                               ; preds = %65
   %putchar = tail call i32 @putchar(i32 10)
-  %69 = load i32, ptr getelementptr inbounds nuw (i8, ptr @params, i64 120), align 8
-  %70 = tail call i32 @sleep(i32 noundef %69) #13
-  br label %13
+  %68 = load i32, ptr getelementptr inbounds nuw (i8, ptr @params, i64 120), align 8
+  %69 = tail call i32 @sleep(i32 noundef %68) #13
+  br label %12
 
-71:                                               ; preds = %66
+70:                                               ; preds = %65
   tail call fastcc void @_free_params()
   tail call void @exit(i32 noundef %.1) #14
   unreachable

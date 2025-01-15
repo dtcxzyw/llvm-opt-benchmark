@@ -3157,64 +3157,50 @@ define void @validateDiagPauliHamilFromFile(ptr nocapture noundef readonly byval
 7:                                                ; preds = %3
   tail call void @destroyPauliHamil(ptr noundef nonnull byval(%struct.PauliHamil) align 8 %0) #13
   tail call void @invalidQuESTInputError(ptr noundef nonnull @.str.58, ptr noundef %2)
-  %.pre = load i32, ptr %4, align 4
   br label %QuESTAssert.exit
 
 QuESTAssert.exit:                                 ; preds = %3, %7
-  %8 = phi i32 [ %5, %3 ], [ %.pre, %7 ]
-  %9 = zext nneg i32 %8 to i64
-  %10 = shl nuw i64 1, %9
-  %11 = sext i32 %1 to i64
-  %.not = icmp ult i64 %10, %11
-  br i1 %.not, label %12, label %QuESTAssert.exit17
+  %8 = zext nneg i32 %5 to i64
+  %9 = shl nuw i64 1, %8
+  %10 = sext i32 %1 to i64
+  %.not = icmp ult i64 %9, %10
+  br i1 %.not, label %11, label %QuESTAssert.exit17
 
-12:                                               ; preds = %QuESTAssert.exit
+11:                                               ; preds = %QuESTAssert.exit
   tail call void @destroyPauliHamil(ptr noundef nonnull byval(%struct.PauliHamil) align 8 %0) #13
   tail call void @invalidQuESTInputError(ptr noundef nonnull @.str.57, ptr noundef %2)
-  %.pre27 = load i32, ptr %4, align 4
   br label %QuESTAssert.exit17
 
-QuESTAssert.exit17:                               ; preds = %QuESTAssert.exit, %12
-  %13 = phi i32 [ %8, %QuESTAssert.exit ], [ %.pre27, %12 ]
-  %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %15 = load i32, ptr %14, align 8
-  %16 = mul nsw i32 %13, %15
-  %17 = icmp sgt i32 %16, 0
-  br i1 %17, label %.lr.ph.preheader, label %._crit_edge
+QuESTAssert.exit17:                               ; preds = %QuESTAssert.exit, %11
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %13 = load i32, ptr %12, align 8
+  %14 = mul nsw i32 %13, %5
+  %15 = icmp sgt i32 %14, 0
+  br i1 %15, label %.lr.ph, label %._crit_edge
 
-.lr.ph.preheader:                                 ; preds = %QuESTAssert.exit17
-  %.pre29 = load ptr, ptr %0, align 8
-  br label %.lr.ph
+.lr.ph:                                           ; preds = %QuESTAssert.exit17
+  %16 = load ptr, ptr %0, align 8
+  %wide.trip.count = zext nneg i32 %14 to i64
+  br label %17
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %QuESTAssert.exit19
-  %18 = phi i32 [ %13, %.lr.ph.preheader ], [ %24, %QuESTAssert.exit19 ]
-  %19 = phi i32 [ %15, %.lr.ph.preheader ], [ %25, %QuESTAssert.exit19 ]
-  %20 = phi ptr [ %.pre29, %.lr.ph.preheader ], [ %26, %QuESTAssert.exit19 ]
-  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %QuESTAssert.exit19 ]
-  %21 = getelementptr inbounds nuw i32, ptr %20, i64 %indvars.iv
-  %22 = load i32, ptr %21, align 4
-  switch i32 %22, label %23 [
+17:                                               ; preds = %.lr.ph, %QuESTAssert.exit19
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %QuESTAssert.exit19 ]
+  %18 = getelementptr inbounds nuw i32, ptr %16, i64 %indvars.iv
+  %19 = load i32, ptr %18, align 4
+  switch i32 %19, label %20 [
     i32 3, label %QuESTAssert.exit19
     i32 0, label %QuESTAssert.exit19
   ]
 
-23:                                               ; preds = %.lr.ph
+20:                                               ; preds = %17
   tail call void @destroyPauliHamil(ptr noundef nonnull byval(%struct.PauliHamil) align 8 %0) #13
   tail call void @invalidQuESTInputError(ptr noundef nonnull @.str.70, ptr noundef %2)
-  %.pre28 = load ptr, ptr %0, align 8
-  %.pre30 = load i32, ptr %14, align 8
-  %.pre31 = load i32, ptr %4, align 4
   br label %QuESTAssert.exit19
 
-QuESTAssert.exit19:                               ; preds = %.lr.ph, %.lr.ph, %23
-  %24 = phi i32 [ %18, %.lr.ph ], [ %18, %.lr.ph ], [ %.pre31, %23 ]
-  %25 = phi i32 [ %19, %.lr.ph ], [ %19, %.lr.ph ], [ %.pre30, %23 ]
-  %26 = phi ptr [ %20, %.lr.ph ], [ %20, %.lr.ph ], [ %.pre28, %23 ]
+QuESTAssert.exit19:                               ; preds = %17, %17, %20
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %27 = mul nsw i32 %24, %25
-  %28 = sext i32 %27 to i64
-  %29 = icmp slt i64 %indvars.iv.next, %28
-  br i1 %29, label %.lr.ph, label %._crit_edge
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  br i1 %exitcond.not, label %._crit_edge, label %17
 
 ._crit_edge:                                      ; preds = %QuESTAssert.exit19, %QuESTAssert.exit17
   ret void

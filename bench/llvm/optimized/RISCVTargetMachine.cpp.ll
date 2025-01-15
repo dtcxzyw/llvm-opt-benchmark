@@ -1673,17 +1673,15 @@ _ZN4llvm16dyn_cast_or_nullINS_8MDStringENS_8MetadataEEEDaPT0_.exit: ; preds = %1
   %141 = call { ptr, i64 } @_ZNK4llvm8MDString9getStringEv(ptr noundef nonnull align 8 dereferenceable(16) %135) #24
   %142 = extractvalue { ptr, i64 } %141, 0
   %143 = extractvalue { ptr, i64 } %141, 1
-  %.sroa.04.0.copyload = load ptr, ptr %16, align 8
-  %.sroa.25.0.copyload = load i64, ptr %131, align 8
-  %.not.i.i39 = icmp eq i64 %143, %.sroa.25.0.copyload
+  %.not.i.i39 = icmp eq i64 %143, %132
   br i1 %.not.i.i39, label %144, label %_ZN4llvmneENS_9StringRefES0_.exit.thread
 
 144:                                              ; preds = %140
-  %145 = icmp eq i64 %143, 0
+  %145 = icmp eq i64 %132, 0
   br i1 %145, label %_ZN4llvmneENS_9StringRefES0_.exit.thread87, label %_ZN4llvmneENS_9StringRefES0_.exit
 
 _ZN4llvmneENS_9StringRefES0_.exit:                ; preds = %144
-  %bcmp.i.i = call i32 @bcmp(ptr %142, ptr %.sroa.04.0.copyload, i64 %143)
+  %bcmp.i.i = call i32 @bcmp(ptr %142, ptr %130, i64 %132)
   %.not96 = icmp eq i32 %bcmp.i.i, 0
   br i1 %.not96, label %_ZN4llvmneENS_9StringRefES0_.exit.thread87, label %_ZN4llvmneENS_9StringRefES0_.exit.thread
 

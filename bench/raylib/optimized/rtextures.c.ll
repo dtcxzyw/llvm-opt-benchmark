@@ -16732,37 +16732,37 @@ GenImageColor.exit:
   br i1 %19, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %GenImageColor.exit
-  %20 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %21 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %22 = fptosi float %4 to i32
-  br label %23
+  %20 = sdiv i32 %10, 2
+  %21 = add nsw i32 %20, %10
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %23 = load ptr, ptr %22, align 8
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %25 = load ptr, ptr %24, align 8
+  %26 = fptosi float %4 to i32
+  br label %27
 
-23:                                               ; preds = %.lr.ph, %74
-  %.069 = phi i32 [ 0, %.lr.ph ], [ %.1, %74 ]
-  %.06268 = phi i32 [ 0, %.lr.ph ], [ %.163, %74 ]
-  %.06467 = phi i32 [ 0, %.lr.ph ], [ %76, %74 ]
+27:                                               ; preds = %.lr.ph, %71
+  %.069 = phi i32 [ 0, %.lr.ph ], [ %.1, %71 ]
+  %.06268 = phi i32 [ 0, %.lr.ph ], [ %.163, %71 ]
+  %.06467 = phi i32 [ 0, %.lr.ph ], [ %73, %71 ]
   store i32 0, ptr %6, align 4
-  %24 = sext i32 %.06467 to i64
-  %25 = getelementptr inbounds i8, ptr %2, i64 %24
-  %26 = call i32 @GetCodepointNext(ptr noundef %25, ptr noundef nonnull %6) #49
-  %27 = call i32 @GetGlyphIndex(ptr noundef nonnull byval(%struct.Font) align 8 %1, i32 noundef %26) #49
-  switch i32 %26, label %33 [
-    i32 10, label %28
-    i32 32, label %58
-    i32 9, label %58
+  %28 = sext i32 %.06467 to i64
+  %29 = getelementptr inbounds i8, ptr %2, i64 %28
+  %30 = call i32 @GetCodepointNext(ptr noundef %29, ptr noundef nonnull %6) #49
+  %31 = call i32 @GetGlyphIndex(ptr noundef nonnull byval(%struct.Font) align 8 %1, i32 noundef %30) #49
+  switch i32 %30, label %34 [
+    i32 10, label %32
+    i32 32, label %57
+    i32 9, label %57
   ]
 
-28:                                               ; preds = %23
-  %29 = load i32, ptr %1, align 8
-  %30 = sdiv i32 %29, 2
-  %31 = add i32 %29, %.06268
-  %32 = add i32 %31, %30
-  br label %74
+32:                                               ; preds = %27
+  %33 = add nsw i32 %21, %.06268
+  br label %71
 
-33:                                               ; preds = %23
-  %34 = load ptr, ptr %20, align 8
-  %35 = sext i32 %27 to i64
-  %36 = getelementptr inbounds %struct.GlyphInfo, ptr %34, i64 %35
+34:                                               ; preds = %27
+  %35 = sext i32 %31 to i64
+  %36 = getelementptr inbounds %struct.GlyphInfo, ptr %23, i64 %35
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 4
   %38 = load i32, ptr %37, align 4
   %39 = add nsw i32 %38, %.069
@@ -16773,86 +16773,83 @@ GenImageColor.exit:
   %43 = add nsw i32 %42, %.06268
   %44 = sitofp i32 %43 to float
   %.sroa.08.4.vec.insert = insertelement <2 x float> %.sroa.08.0.vec.insert, float %44, i64 1
-  %45 = load ptr, ptr %21, align 8
-  %46 = getelementptr inbounds %struct.Rectangle, ptr %45, i64 %35
-  %47 = getelementptr inbounds nuw i8, ptr %46, i64 8
-  %48 = load float, ptr %47, align 4
-  %.sroa.310.8.vec.insert = insertelement <2 x float> poison, float %48, i64 0
-  %49 = getelementptr inbounds nuw i8, ptr %46, i64 12
-  %50 = load float, ptr %49, align 4
-  %.sroa.310.12.vec.insert = insertelement <2 x float> %.sroa.310.8.vec.insert, float %50, i64 1
-  %51 = getelementptr inbounds nuw i8, ptr %36, i64 16
-  %52 = getelementptr inbounds nuw i8, ptr %36, i64 24
-  %53 = load i32, ptr %52, align 8
-  %54 = sitofp i32 %53 to float
-  %.sroa.3.8.vec.insert = insertelement <2 x float> poison, float %54, i64 0
-  %55 = getelementptr inbounds nuw i8, ptr %36, i64 28
-  %56 = load i32, ptr %55, align 4
-  %57 = sitofp i32 %56 to float
-  %.sroa.3.12.vec.insert = insertelement <2 x float> %.sroa.3.8.vec.insert, float %57, i64 1
-  call void @ImageDraw(ptr noundef nonnull %0, ptr noundef nonnull byval(%struct.Image) align 8 %51, <2 x float> zeroinitializer, <2 x float> %.sroa.3.12.vec.insert, <2 x float> %.sroa.08.4.vec.insert, <2 x float> %.sroa.310.12.vec.insert, i32 %5)
-  br label %58
+  %45 = getelementptr inbounds %struct.Rectangle, ptr %25, i64 %35
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 8
+  %47 = load float, ptr %46, align 4
+  %.sroa.310.8.vec.insert = insertelement <2 x float> poison, float %47, i64 0
+  %48 = getelementptr inbounds nuw i8, ptr %45, i64 12
+  %49 = load float, ptr %48, align 4
+  %.sroa.310.12.vec.insert = insertelement <2 x float> %.sroa.310.8.vec.insert, float %49, i64 1
+  %50 = getelementptr inbounds nuw i8, ptr %36, i64 16
+  %51 = getelementptr inbounds nuw i8, ptr %36, i64 24
+  %52 = load i32, ptr %51, align 8
+  %53 = sitofp i32 %52 to float
+  %.sroa.3.8.vec.insert = insertelement <2 x float> poison, float %53, i64 0
+  %54 = getelementptr inbounds nuw i8, ptr %36, i64 28
+  %55 = load i32, ptr %54, align 4
+  %56 = sitofp i32 %55 to float
+  %.sroa.3.12.vec.insert = insertelement <2 x float> %.sroa.3.8.vec.insert, float %56, i64 1
+  call void @ImageDraw(ptr noundef nonnull %0, ptr noundef nonnull byval(%struct.Image) align 8 %50, <2 x float> zeroinitializer, <2 x float> %.sroa.3.12.vec.insert, <2 x float> %.sroa.08.4.vec.insert, <2 x float> %.sroa.310.12.vec.insert, i32 %5)
+  br label %57
 
-58:                                               ; preds = %23, %23, %33
-  %59 = load ptr, ptr %20, align 8
-  %60 = sext i32 %27 to i64
-  %61 = getelementptr inbounds %struct.GlyphInfo, ptr %59, i64 %60, i32 3
-  %62 = load i32, ptr %61, align 4
-  %63 = icmp eq i32 %62, 0
-  br i1 %63, label %64, label %71
+57:                                               ; preds = %27, %27, %34
+  %58 = sext i32 %31 to i64
+  %59 = getelementptr inbounds %struct.GlyphInfo, ptr %23, i64 %58, i32 3
+  %60 = load i32, ptr %59, align 4
+  %61 = icmp eq i32 %60, 0
+  br i1 %61, label %62, label %68
 
-64:                                               ; preds = %58
-  %65 = load ptr, ptr %21, align 8
-  %66 = getelementptr inbounds %struct.Rectangle, ptr %65, i64 %60, i32 2
-  %67 = load float, ptr %66, align 4
-  %68 = fadd float %4, %67
-  %69 = fptosi float %68 to i32
-  %70 = add nsw i32 %.069, %69
-  br label %74
+62:                                               ; preds = %57
+  %63 = getelementptr inbounds %struct.Rectangle, ptr %25, i64 %58, i32 2
+  %64 = load float, ptr %63, align 4
+  %65 = fadd float %4, %64
+  %66 = fptosi float %65 to i32
+  %67 = add nsw i32 %.069, %66
+  br label %71
 
-71:                                               ; preds = %58
-  %72 = add i32 %.069, %22
-  %73 = add i32 %72, %62
-  br label %74
+68:                                               ; preds = %57
+  %69 = add i32 %.069, %26
+  %70 = add i32 %69, %60
+  br label %71
 
-74:                                               ; preds = %64, %71, %28
-  %.163 = phi i32 [ %32, %28 ], [ %.06268, %64 ], [ %.06268, %71 ]
-  %.1 = phi i32 [ 0, %28 ], [ %70, %64 ], [ %73, %71 ]
-  %75 = load i32, ptr %6, align 4
-  %76 = add nsw i32 %75, %.06467
-  %77 = icmp slt i32 %76, %9
-  br i1 %77, label %23, label %._crit_edge
+71:                                               ; preds = %62, %68, %32
+  %.163 = phi i32 [ %33, %32 ], [ %.06268, %62 ], [ %.06268, %68 ]
+  %.1 = phi i32 [ 0, %32 ], [ %67, %62 ], [ %70, %68 ]
+  %72 = load i32, ptr %6, align 4
+  %73 = add nsw i32 %72, %.06467
+  %74 = icmp slt i32 %73, %9
+  br i1 %74, label %27, label %._crit_edge
 
-._crit_edge:                                      ; preds = %74, %GenImageColor.exit
+._crit_edge:                                      ; preds = %71, %GenImageColor.exit
   %.sroa.030.4.vec.extract = extractelement <2 x float> %13, i64 1
-  %78 = fcmp une float %.sroa.030.4.vec.extract, %.sroa.033.4.vec.extract
-  br i1 %78, label %79, label %93
+  %75 = fcmp une float %.sroa.030.4.vec.extract, %.sroa.033.4.vec.extract
+  br i1 %75, label %76, label %90
 
-79:                                               ; preds = %._crit_edge
-  %80 = fdiv float %.sroa.030.4.vec.extract, %.sroa.033.4.vec.extract
-  %81 = fpext float %80 to double
-  call void (i32, ptr, ...) @TraceLog(i32 noundef 3, ptr noundef nonnull @.str.47, double noundef %81) #49
-  %82 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %83 = load i32, ptr %82, align 4
+76:                                               ; preds = %._crit_edge
+  %77 = fdiv float %.sroa.030.4.vec.extract, %.sroa.033.4.vec.extract
+  %78 = fpext float %77 to double
+  call void (i32, ptr, ...) @TraceLog(i32 noundef 3, ptr noundef nonnull @.str.47, double noundef %78) #49
+  %79 = getelementptr inbounds nuw i8, ptr %1, i64 12
+  %80 = load i32, ptr %79, align 4
   call void @GetFontDefault(ptr dead_on_unwind nonnull writable sret(%struct.Font) align 8 %7) #49
-  %84 = getelementptr inbounds nuw i8, ptr %7, i64 12
-  %85 = load i32, ptr %84, align 4
-  %86 = icmp eq i32 %83, %85
-  %87 = fmul float %.sroa.033.0.vec.extract, %80
-  %88 = fptosi float %87 to i32
-  %89 = fmul float %.sroa.033.4.vec.extract, %80
-  %90 = fptosi float %89 to i32
-  br i1 %86, label %91, label %92
+  %81 = getelementptr inbounds nuw i8, ptr %7, i64 12
+  %82 = load i32, ptr %81, align 4
+  %83 = icmp eq i32 %80, %82
+  %84 = fmul float %.sroa.033.0.vec.extract, %77
+  %85 = fptosi float %84 to i32
+  %86 = fmul float %.sroa.033.4.vec.extract, %77
+  %87 = fptosi float %86 to i32
+  br i1 %83, label %88, label %89
 
-91:                                               ; preds = %79
-  call void @ImageResizeNN(ptr noundef nonnull %0, i32 noundef %88, i32 noundef %90)
-  br label %93
+88:                                               ; preds = %76
+  call void @ImageResizeNN(ptr noundef nonnull %0, i32 noundef %85, i32 noundef %87)
+  br label %90
 
-92:                                               ; preds = %79
-  call void @ImageResize(ptr noundef nonnull %0, i32 noundef %88, i32 noundef %90)
-  br label %93
+89:                                               ; preds = %76
+  call void @ImageResize(ptr noundef nonnull %0, i32 noundef %85, i32 noundef %87)
+  br label %90
 
-93:                                               ; preds = %91, %92, %._crit_edge
+90:                                               ; preds = %88, %89, %._crit_edge
   ret void
 }
 

@@ -285,60 +285,54 @@ define dso_local ptr @ZSTD_createDCtx() local_unnamed_addr #0 align 16 {
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef range(i64 -64, 1) i64 @ZSTD_freeDCtx(ptr noundef %0) local_unnamed_addr #0 align 16 {
   %2 = alloca %struct.ZSTD_customMem, align 8
-  %3 = alloca %struct.ZSTD_customMem, align 8
-  %4 = icmp eq ptr %0, null
-  br i1 %4, label %26, label %5
+  %3 = icmp eq ptr %0, null
+  br i1 %3, label %25, label %4
 
-5:                                                ; preds = %1
-  %6 = getelementptr inbounds nuw i8, ptr %0, i64 30152
-  %7 = load i64, ptr %6, align 8
-  %8 = icmp eq i64 %7, 0
-  br i1 %8, label %9, label %26
+4:                                                ; preds = %1
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 30152
+  %6 = load i64, ptr %5, align 8
+  %7 = icmp eq i64 %6, 0
+  br i1 %7, label %8, label %25
 
-9:                                                ; preds = %5
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #10
-  %10 = getelementptr inbounds nuw i8, ptr %0, i64 30112
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %10, i64 24, i1 false)
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 30168
-  %12 = load ptr, ptr %11, align 8
-  %13 = tail call i64 @ZSTD_freeDDict(ptr noundef %12) #10
-  %14 = getelementptr inbounds nuw i8, ptr %0, i64 30192
-  store i32 0, ptr %14, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %11, i8 0, i64 16, i1 false)
-  %15 = getelementptr inbounds nuw i8, ptr %0, i64 30216
-  %16 = load ptr, ptr %15, align 8
-  tail call void @ZSTD_customFree(ptr noundef %16, ptr noundef nonnull byval(%struct.ZSTD_customMem) align 8 %3) #10
-  store ptr null, ptr %15, align 8
-  %17 = getelementptr inbounds nuw i8, ptr %0, i64 30200
-  %18 = load ptr, ptr %17, align 8
-  %19 = icmp eq ptr %18, null
-  br i1 %19, label %25, label %20
+8:                                                ; preds = %4
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 30112
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %9, i64 24, i1 false)
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 30168
+  %11 = load ptr, ptr %10, align 8
+  %12 = tail call i64 @ZSTD_freeDDict(ptr noundef %11) #10
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 30192
+  store i32 0, ptr %13, align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %10, i8 0, i64 16, i1 false)
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 30216
+  %15 = load ptr, ptr %14, align 8
+  tail call void @ZSTD_customFree(ptr noundef %15, ptr noundef nonnull byval(%struct.ZSTD_customMem) align 8 %2) #10
+  store ptr null, ptr %14, align 8
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 30200
+  %17 = load ptr, ptr %16, align 8
+  %18 = icmp eq ptr %17, null
+  br i1 %18, label %24, label %19
 
-20:                                               ; preds = %9
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
-  %21 = load ptr, ptr %18, align 8
-  %22 = icmp eq ptr %21, null
-  br i1 %22, label %24, label %23
+19:                                               ; preds = %8
+  %20 = load ptr, ptr %17, align 8
+  %21 = icmp eq ptr %20, null
+  br i1 %21, label %23, label %22
 
-23:                                               ; preds = %20
-  tail call void @ZSTD_customFree(ptr noundef nonnull %21, ptr noundef nonnull byval(%struct.ZSTD_customMem) align 8 %3) #10
+22:                                               ; preds = %19
+  tail call void @ZSTD_customFree(ptr noundef nonnull %20, ptr noundef nonnull byval(%struct.ZSTD_customMem) align 8 %2) #10
+  br label %23
+
+23:                                               ; preds = %22, %19
+  tail call void @ZSTD_customFree(ptr noundef nonnull %17, ptr noundef nonnull byval(%struct.ZSTD_customMem) align 8 %2) #10
+  store ptr null, ptr %16, align 8
   br label %24
 
-24:                                               ; preds = %23, %20
-  tail call void @ZSTD_customFree(ptr noundef nonnull %18, ptr noundef nonnull byval(%struct.ZSTD_customMem) align 8 %2) #10
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
-  store ptr null, ptr %17, align 8
+24:                                               ; preds = %23, %8
+  tail call void @ZSTD_customFree(ptr noundef nonnull %0, ptr noundef nonnull byval(%struct.ZSTD_customMem) align 8 %2) #10
   br label %25
 
-25:                                               ; preds = %24, %9
-  tail call void @ZSTD_customFree(ptr noundef nonnull %0, ptr noundef nonnull byval(%struct.ZSTD_customMem) align 8 %3) #10
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #10
-  br label %26
-
-26:                                               ; preds = %25, %5, %1
-  %27 = phi i64 [ 0, %25 ], [ 0, %1 ], [ -64, %5 ]
-  ret i64 %27
+25:                                               ; preds = %24, %4, %1
+  %26 = phi i64 [ 0, %24 ], [ 0, %1 ], [ -64, %4 ]
+  ret i64 %26
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
@@ -1436,76 +1430,115 @@ define dso_local i64 @ZSTD_decompress_usingDDict(ptr noundef %0, ptr noundef %1,
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i64 @ZSTD_decompress(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3) local_unnamed_addr #0 align 16 {
-  %5 = tail call ptr @ZSTD_customMalloc(i64 noundef 95944, ptr noundef nonnull byval(%struct.ZSTD_customMem) align 8 @ZSTD_defaultCMem) #10
-  %6 = icmp eq ptr %5, null
-  br i1 %6, label %.thread2, label %7
+  %5 = alloca %struct.ZSTD_customMem, align 8
+  %6 = tail call ptr @ZSTD_customMalloc(i64 noundef 95944, ptr noundef nonnull byval(%struct.ZSTD_customMem) align 8 @ZSTD_defaultCMem) #10
+  %7 = icmp eq ptr %6, null
+  br i1 %7, label %.thread2, label %8
 
-7:                                                ; preds = %4
-  %8 = getelementptr inbounds nuw i8, ptr %5, i64 30112
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, i8 0, i64 24, i1 false)
-  %9 = getelementptr inbounds nuw i8, ptr %5, i64 30152
-  store i64 0, ptr %9, align 8
-  %10 = getelementptr inbounds nuw i8, ptr %5, i64 30168
-  %11 = getelementptr inbounds nuw i8, ptr %5, i64 29912
-  store ptr null, ptr %11, align 8
-  %12 = getelementptr inbounds nuw i8, ptr %5, i64 30188
-  store i32 0, ptr %12, align 4
-  %13 = getelementptr inbounds nuw i8, ptr %5, i64 30192
-  store i32 0, ptr %13, align 8
-  %14 = getelementptr inbounds nuw i8, ptr %5, i64 30256
-  store i64 0, ptr %14, align 8
-  %15 = getelementptr inbounds nuw i8, ptr %5, i64 30212
-  %16 = getelementptr inbounds nuw i8, ptr %5, i64 30292
-  store i32 0, ptr %16, align 4
-  %17 = getelementptr inbounds nuw i8, ptr %5, i64 95936
-  store i64 0, ptr %17, align 8
-  %18 = tail call i32 asm "cpuid", "={ax},{ax},~{ebx},~{ecx},~{edx},~{dirflag},~{fpsr},~{flags}"(i32 0) #11, !srcloc !5
-  %19 = icmp eq i32 %18, 0
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %10, i8 0, i64 16, i1 false)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %15, i8 0, i64 20, i1 false)
-  br i1 %19, label %26, label %20
+8:                                                ; preds = %4
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 30112
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, i8 0, i64 24, i1 false)
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 30152
+  store i64 0, ptr %10, align 8
+  %11 = getelementptr inbounds nuw i8, ptr %6, i64 30168
+  %12 = getelementptr inbounds nuw i8, ptr %6, i64 29912
+  store ptr null, ptr %12, align 8
+  %13 = getelementptr inbounds nuw i8, ptr %6, i64 30188
+  store i32 0, ptr %13, align 4
+  %14 = getelementptr inbounds nuw i8, ptr %6, i64 30192
+  store i32 0, ptr %14, align 8
+  %15 = getelementptr inbounds nuw i8, ptr %6, i64 30256
+  store i64 0, ptr %15, align 8
+  %16 = getelementptr inbounds nuw i8, ptr %6, i64 30212
+  %17 = getelementptr inbounds nuw i8, ptr %6, i64 30292
+  store i32 0, ptr %17, align 4
+  %18 = getelementptr inbounds nuw i8, ptr %6, i64 95936
+  store i64 0, ptr %18, align 8
+  %19 = tail call i32 asm "cpuid", "={ax},{ax},~{ebx},~{ecx},~{edx},~{dirflag},~{fpsr},~{flags}"(i32 0) #11, !srcloc !5
+  %20 = icmp eq i32 %19, 0
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %11, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %16, i8 0, i64 20, i1 false)
+  br i1 %20, label %27, label %21
 
-20:                                               ; preds = %7
-  %21 = tail call { i32, i32, i32 } asm "cpuid", "={ax},={cx},={dx},{ax},~{ebx},~{dirflag},~{fpsr},~{flags}"(i32 1) #11, !srcloc !6
-  %22 = icmp ugt i32 %18, 6
-  br i1 %22, label %23, label %26
+21:                                               ; preds = %8
+  %22 = tail call { i32, i32, i32 } asm "cpuid", "={ax},={cx},={dx},{ax},~{ebx},~{dirflag},~{fpsr},~{flags}"(i32 1) #11, !srcloc !6
+  %23 = icmp ugt i32 %19, 6
+  br i1 %23, label %24, label %27
 
-23:                                               ; preds = %20
-  %24 = tail call { i32, i32, i32 } asm "cpuid", "={ax},={bx},={cx},{ax},{cx},~{edx},~{dirflag},~{fpsr},~{flags}"(i32 7, i32 0) #11, !srcloc !7
-  %25 = extractvalue { i32, i32, i32 } %24, 1
-  br label %26
+24:                                               ; preds = %21
+  %25 = tail call { i32, i32, i32 } asm "cpuid", "={ax},={bx},={cx},{ax},{cx},~{edx},~{dirflag},~{fpsr},~{flags}"(i32 7, i32 0) #11, !srcloc !7
+  %26 = extractvalue { i32, i32, i32 } %25, 1
+  br label %27
 
-26:                                               ; preds = %7, %23, %20
-  %27 = phi i32 [ %25, %23 ], [ 0, %20 ], [ 0, %7 ]
-  %28 = and i32 %27, 8
-  %29 = icmp eq i32 %28, 0
-  %30 = lshr i32 %27, 8
-  %31 = and i32 %30, 1
-  %32 = select i1 %29, i32 0, i32 %31
-  %33 = getelementptr inbounds nuw i8, ptr %5, i64 30160
-  store i32 %32, ptr %33, align 8
-  %34 = getelementptr inbounds nuw i8, ptr %5, i64 30200
-  store ptr null, ptr %34, align 8
-  %35 = getelementptr inbounds nuw i8, ptr %5, i64 30088
-  store i32 0, ptr %35, align 8
-  %36 = getelementptr inbounds nuw i8, ptr %5, i64 30240
-  store i64 134217729, ptr %36, align 8
-  %37 = getelementptr inbounds nuw i8, ptr %5, i64 30296
-  store i32 0, ptr %37, align 8
-  %38 = getelementptr inbounds nuw i8, ptr %5, i64 30092
-  store i32 0, ptr %38, align 4
-  %39 = getelementptr inbounds nuw i8, ptr %5, i64 30208
-  store i32 0, ptr %39, align 8
-  %40 = tail call i64 @ZSTD_freeDDict(ptr noundef null) #10
-  store i32 0, ptr %13, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %10, i8 0, i64 16, i1 false)
-  %41 = tail call fastcc i64 @ZSTD_decompressMultiFrame(ptr noundef nonnull %5, ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef null, i64 noundef 0, ptr noundef null)
-  %42 = tail call i64 @ZSTD_freeDCtx(ptr noundef nonnull %5), !range !14
+27:                                               ; preds = %8, %24, %21
+  %28 = phi i32 [ %26, %24 ], [ 0, %21 ], [ 0, %8 ]
+  %29 = and i32 %28, 8
+  %30 = icmp eq i32 %29, 0
+  %31 = lshr i32 %28, 8
+  %32 = and i32 %31, 1
+  %33 = select i1 %30, i32 0, i32 %32
+  %34 = getelementptr inbounds nuw i8, ptr %6, i64 30160
+  store i32 %33, ptr %34, align 8
+  %35 = getelementptr inbounds nuw i8, ptr %6, i64 30200
+  store ptr null, ptr %35, align 8
+  %36 = getelementptr inbounds nuw i8, ptr %6, i64 30088
+  store i32 0, ptr %36, align 8
+  %37 = getelementptr inbounds nuw i8, ptr %6, i64 30240
+  store i64 134217729, ptr %37, align 8
+  %38 = getelementptr inbounds nuw i8, ptr %6, i64 30296
+  store i32 0, ptr %38, align 8
+  %39 = getelementptr inbounds nuw i8, ptr %6, i64 30092
+  store i32 0, ptr %39, align 4
+  %40 = getelementptr inbounds nuw i8, ptr %6, i64 30208
+  store i32 0, ptr %40, align 8
+  %41 = tail call i64 @ZSTD_freeDDict(ptr noundef null) #10
+  store i32 0, ptr %14, align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %11, i8 0, i64 16, i1 false)
+  %42 = tail call fastcc i64 @ZSTD_decompressMultiFrame(ptr noundef nonnull %6, ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef null, i64 noundef 0, ptr noundef null)
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
+  %43 = load i64, ptr %10, align 8
+  %44 = icmp eq i64 %43, 0
+  br i1 %44, label %45, label %ZSTD_freeDCtx.exit
+
+45:                                               ; preds = %27
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %9, i64 24, i1 false)
+  %46 = load ptr, ptr %11, align 8
+  %47 = tail call i64 @ZSTD_freeDDict(ptr noundef %46) #10
+  store i32 0, ptr %14, align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %11, i8 0, i64 16, i1 false)
+  %48 = getelementptr inbounds nuw i8, ptr %6, i64 30216
+  %49 = load ptr, ptr %48, align 8
+  tail call void @ZSTD_customFree(ptr noundef %49, ptr noundef nonnull byval(%struct.ZSTD_customMem) align 8 %5) #10
+  store ptr null, ptr %48, align 8
+  %50 = load ptr, ptr %35, align 8
+  %51 = icmp eq ptr %50, null
+  br i1 %51, label %57, label %52
+
+52:                                               ; preds = %45
+  %53 = load ptr, ptr %50, align 8
+  %54 = icmp eq ptr %53, null
+  br i1 %54, label %56, label %55
+
+55:                                               ; preds = %52
+  tail call void @ZSTD_customFree(ptr noundef nonnull %53, ptr noundef nonnull byval(%struct.ZSTD_customMem) align 8 %5) #10
+  br label %56
+
+56:                                               ; preds = %55, %52
+  tail call void @ZSTD_customFree(ptr noundef nonnull %50, ptr noundef nonnull byval(%struct.ZSTD_customMem) align 8 %5) #10
+  store ptr null, ptr %35, align 8
+  br label %57
+
+57:                                               ; preds = %56, %45
+  tail call void @ZSTD_customFree(ptr noundef nonnull %6, ptr noundef nonnull byval(%struct.ZSTD_customMem) align 8 %5) #10
+  br label %ZSTD_freeDCtx.exit
+
+ZSTD_freeDCtx.exit:                               ; preds = %27, %57
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
   br label %.thread2
 
-.thread2:                                         ; preds = %4, %26
-  %43 = phi i64 [ %41, %26 ], [ -64, %4 ]
-  ret i64 %43
+.thread2:                                         ; preds = %4, %ZSTD_freeDCtx.exit
+  %58 = phi i64 [ %42, %ZSTD_freeDCtx.exit ], [ -64, %4 ]
+  ret i64 %58
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
@@ -2228,7 +2261,7 @@ define dso_local noundef i64 @ZSTD_loadDEntropy(ptr noundef %0, ptr noundef %1, 
   %80 = zext i32 %77 to i64
   %81 = icmp ult i64 %68, %80
   %82 = or i1 %79, %81
-  br i1 %82, label %89, label %.preheader, !llvm.loop !15
+  br i1 %82, label %89, label %.preheader, !llvm.loop !14
 
 .preheader:                                       ; preds = %.preheader.preheader, %76
   %83 = phi ptr [ %78, %76 ], [ %75, %.preheader.preheader ]
@@ -2238,7 +2271,7 @@ define dso_local noundef i64 @ZSTD_loadDEntropy(ptr noundef %0, ptr noundef %1, 
   store i32 %84, ptr %86, align 4
   %87 = add nuw nsw i64 %85, 1
   %88 = icmp eq i64 %87, 3
-  br i1 %88, label %.thread19, label %76, !llvm.loop !15
+  br i1 %88, label %.thread19, label %76, !llvm.loop !14
 
 89:                                               ; preds = %76
   %90 = icmp samesign ugt i64 %85, 1
@@ -2736,7 +2769,7 @@ define dso_local ptr @ZSTD_createDStream_advanced(ptr nocapture noundef readonly
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef range(i64 -64, 1) i64 @ZSTD_freeDStream(ptr noundef %0) local_unnamed_addr #0 align 16 {
-  %2 = tail call i64 @ZSTD_freeDCtx(ptr noundef %0), !range !14
+  %2 = tail call i64 @ZSTD_freeDCtx(ptr noundef %0), !range !15
   ret i64 %2
 }
 
@@ -4511,8 +4544,8 @@ attributes #11 = { nounwind memory(none) }
 !11 = !{!"llvm.loop.unroll.disable"}
 !12 = distinct !{!12, !10, !11}
 !13 = distinct !{!13, !10, !11}
-!14 = !{i64 -64, i64 1}
-!15 = distinct !{!15, !10, !11}
+!14 = distinct !{!14, !10, !11}
+!15 = !{i64 -64, i64 1}
 !16 = distinct !{!16, !10, !11}
 !17 = distinct !{!17, !10, !11}
 !18 = !{i32 0, i32 33}

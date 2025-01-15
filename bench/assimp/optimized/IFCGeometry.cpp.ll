@@ -29,7 +29,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %union.anon = type { i64, [8 x i8] }
 %class.aiMatrix4x4t = type { double, double, double, double, double, double, double, double, double, double, double, double, double, double, double, double }
 %class.aiMatrix3x3t = type { double, double, double, double, double, double, double, double, double }
-%"struct.__gnu_cxx::__ops::_Iter_comp_iter" = type { %"struct.Assimp::IFC::TempOpening::DistanceSorter" }
 %"struct.Assimp::IFC::TempOpening::DistanceSorter" = type { %class.aiVector3t }
 %"class.std::__cxx11::basic_stringstream" = type { %"class.std::basic_iostream.base", %"class.std::__cxx11::basic_stringbuf", %"class.std::basic_ios" }
 %"class.std::basic_iostream.base" = type { %"class.std::basic_istream.base", %"class.std::basic_ostream.base" }
@@ -41,6 +40,7 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.std::basic_ios" = type { %"class.std::ios_base", ptr, i8, i8, ptr, ptr, ptr, ptr }
 %"class.std::ios_base" = type { ptr, i64, i64, i32, i32, i32, ptr, %"struct.std::ios_base::_Words", [8 x %"struct.std::ios_base::_Words"], i32, ptr, %"class.std::locale" }
 %"struct.std::ios_base::_Words" = type { ptr, i64 }
+%"struct.__gnu_cxx::__ops::_Iter_comp_iter" = type { %"struct.Assimp::IFC::TempOpening::DistanceSorter" }
 %"struct.__gnu_cxx::__ops::_Val_comp_iter" = type { %"struct.Assimp::IFC::TempOpening::DistanceSorter" }
 %"class.std::tuple" = type { %"struct.std::_Tuple_impl" }
 %"struct.std::_Tuple_impl" = type { %"struct.std::_Head_base" }
@@ -4932,9 +4932,7 @@ entry:
   %ref.tmp.i735 = alloca ptr, align 8
   %ref.tmp.i581 = alloca ptr, align 8
   %ref.tmp.i = alloca ptr, align 8
-  %agg.tmp122.i.i.i = alloca %"struct.__gnu_cxx::__ops::_Iter_comp_iter", align 8
-  %agg.tmp101.i.sroa.0.i = alloca %class.aiVector3t, align 8
-  %agg.tmp32.i = alloca %"struct.__gnu_cxx::__ops::_Iter_comp_iter", align 8
+  %agg.tmp72186 = alloca %"struct.Assimp::IFC::TempOpening::DistanceSorter", align 8
   %__tmp.i.i.i.i = alloca %class.aiVector3t, align 8
   %trafo = alloca %class.aiMatrix4x4t, align 8
   %dir = alloca %class.aiVector3t, align 8
@@ -5147,13 +5145,13 @@ _ZNSt12_Vector_baseIjSaIjEE13_M_deallocateEPjm.exit.i: ; preds = %if.then.i.i121
   store ptr %add.ptr21.i123, ptr %_M_end_of_storage.i.i109, align 8
   %.pre1172 = load ptr, ptr %_M_finish.i961071, align 8
   %.pre1173 = load ptr, ptr %curve, align 8
-  %.pre1204 = ptrtoint ptr %.pre1172 to i64
-  %.pre1205 = ptrtoint ptr %.pre1173 to i64
-  %.pre1206 = sub i64 %.pre1204, %.pre1205
+  %.pre1201 = ptrtoint ptr %.pre1172 to i64
+  %.pre1202 = ptrtoint ptr %.pre1173 to i64
+  %.pre1203 = sub i64 %.pre1201, %.pre1202
   br label %_ZNSt6vectorIjSaIjEE7reserveEm.exit
 
 _ZNSt6vectorIjSaIjEE7reserveEm.exit:              ; preds = %if.end.i108, %_ZNSt12_Vector_baseIjSaIjEE13_M_deallocateEPjm.exit.i
-  %sub.ptr.sub.i.i128.pre-phi = phi i64 [ %sub.ptr.sub.i105, %if.end.i108 ], [ %.pre1206, %_ZNSt12_Vector_baseIjSaIjEE13_M_deallocateEPjm.exit.i ]
+  %sub.ptr.sub.i.i128.pre-phi = phi i64 [ %sub.ptr.sub.i105, %if.end.i108 ], [ %.pre1203, %_ZNSt12_Vector_baseIjSaIjEE13_M_deallocateEPjm.exit.i ]
   %24 = phi ptr [ %19, %if.end.i108 ], [ %.pre1173, %_ZNSt12_Vector_baseIjSaIjEE13_M_deallocateEPjm.exit.i ]
   %25 = phi ptr [ %20, %if.end.i108 ], [ %.pre1172, %_ZNSt12_Vector_baseIjSaIjEE13_M_deallocateEPjm.exit.i ]
   %cmp.not.i.i.i.i129 = icmp eq ptr %25, %24
@@ -5419,8 +5417,8 @@ if.then61:                                        ; preds = %land.end58
   br i1 %tobool62, label %if.end79, label %if.then.i.i187
 
 if.then.i.i187:                                   ; preds = %if.then61
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %agg.tmp32.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp32.i, ptr noundef nonnull align 8 dereferenceable(24) %cond.i.i.i.i1074, i64 24, i1 false)
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %agg.tmp72186)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp72186, ptr noundef nonnull align 8 dereferenceable(24) %cond.i.i.i.i1074, i64 24, i1 false)
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %85 to i64
   %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %86 to i64
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
@@ -5432,47 +5430,38 @@ if.then.i.i187:                                   ; preds = %if.then61
           to label %.noexc191 unwind label %lpad74.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 .noexc191:                                        ; preds = %if.then.i.i187
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %agg.tmp101.i.sroa.0.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp101.i.sroa.0.i, ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp32.i, i64 24, i1 false)
   %cmp.i2.i.i = icmp sgt i64 %sub.ptr.sub.i.i.i, 1408
   br i1 %cmp.i2.i.i, label %if.then.i.i.i188, label %if.else.i.i.i
 
 if.then.i.i.i188:                                 ; preds = %.noexc191
   %add.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %86, i64 1408
-  invoke void @_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPN6Assimp3IFC11TempOpeningESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterINS4_14DistanceSorterEEEEvT_SE_T0_(ptr %86, ptr nonnull %add.ptr.i.i.i.i, ptr noundef nonnull byval(%"struct.__gnu_cxx::__ops::_Iter_comp_iter") align 8 %agg.tmp32.i)
+  invoke void @_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPN6Assimp3IFC11TempOpeningESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterINS4_14DistanceSorterEEEEvT_SE_T0_(ptr %86, ptr nonnull %add.ptr.i.i.i.i, ptr noundef nonnull byval(%"struct.__gnu_cxx::__ops::_Iter_comp_iter") align 8 %agg.tmp72186)
           to label %.noexc192 unwind label %lpad74.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 .noexc192:                                        ; preds = %if.then.i.i.i188
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %agg.tmp122.i.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp122.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp101.i.sroa.0.i, i64 24, i1 false)
   %cmp.i.not3.i.i.i.i = icmp eq ptr %add.ptr.i.i.i.i, %85
-  br i1 %cmp.i.not3.i.i.i.i, label %_ZSt26__unguarded_insertion_sortIN9__gnu_cxx17__normal_iteratorIPN6Assimp3IFC11TempOpeningESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterINS4_14DistanceSorterEEEEvT_SE_T0_.exit.i.i.i, label %for.body.i.i.i.i189
+  br i1 %cmp.i.not3.i.i.i.i, label %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN6Assimp3IFC11TempOpeningESt6vectorIS4_SaIS4_EEEENS4_14DistanceSorterEEvT_SB_T0_.exit, label %for.body.i.i.i.i189
 
 for.body.i.i.i.i189:                              ; preds = %.noexc192, %.noexc193
   %__i.sroa.0.04.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i190, %.noexc193 ], [ %add.ptr.i.i.i.i, %.noexc192 ]
-  invoke void @_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN6Assimp3IFC11TempOpeningESt6vectorIS4_SaIS4_EEEENS0_5__ops14_Val_comp_iterINS4_14DistanceSorterEEEEvT_T0_(ptr nonnull %__i.sroa.0.04.i.i.i.i, ptr noundef nonnull byval(%"struct.__gnu_cxx::__ops::_Val_comp_iter") align 8 %agg.tmp122.i.i.i)
+  invoke void @_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN6Assimp3IFC11TempOpeningESt6vectorIS4_SaIS4_EEEENS0_5__ops14_Val_comp_iterINS4_14DistanceSorterEEEEvT_T0_(ptr nonnull %__i.sroa.0.04.i.i.i.i, ptr noundef nonnull byval(%"struct.__gnu_cxx::__ops::_Val_comp_iter") align 8 %agg.tmp72186)
           to label %.noexc193 unwind label %ehcleanup418.thread
 
 .noexc193:                                        ; preds = %for.body.i.i.i.i189
   %incdec.ptr.i.i.i.i.i190 = getelementptr inbounds nuw i8, ptr %__i.sroa.0.04.i.i.i.i, i64 88
   %cmp.i.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i190, %85
-  br i1 %cmp.i.not.i.i.i.i, label %_ZSt26__unguarded_insertion_sortIN9__gnu_cxx17__normal_iteratorIPN6Assimp3IFC11TempOpeningESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterINS4_14DistanceSorterEEEEvT_SE_T0_.exit.i.i.i, label %for.body.i.i.i.i189, !llvm.loop !131
-
-_ZSt26__unguarded_insertion_sortIN9__gnu_cxx17__normal_iteratorIPN6Assimp3IFC11TempOpeningESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterINS4_14DistanceSorterEEEEvT_SE_T0_.exit.i.i.i: ; preds = %.noexc193, %.noexc192
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %agg.tmp122.i.i.i)
-  br label %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN6Assimp3IFC11TempOpeningESt6vectorIS4_SaIS4_EEEENS4_14DistanceSorterEEvT_SB_T0_.exit
+  br i1 %cmp.i.not.i.i.i.i, label %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN6Assimp3IFC11TempOpeningESt6vectorIS4_SaIS4_EEEENS4_14DistanceSorterEEvT_SB_T0_.exit, label %for.body.i.i.i.i189, !llvm.loop !131
 
 if.else.i.i.i:                                    ; preds = %.noexc191
-  invoke void @_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPN6Assimp3IFC11TempOpeningESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterINS4_14DistanceSorterEEEEvT_SE_T0_(ptr %86, ptr %85, ptr noundef nonnull byval(%"struct.__gnu_cxx::__ops::_Iter_comp_iter") align 8 %agg.tmp32.i)
+  invoke void @_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPN6Assimp3IFC11TempOpeningESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterINS4_14DistanceSorterEEEEvT_SE_T0_(ptr %86, ptr %85, ptr noundef nonnull byval(%"struct.__gnu_cxx::__ops::_Iter_comp_iter") align 8 %agg.tmp72186)
           to label %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN6Assimp3IFC11TempOpeningESt6vectorIS4_SaIS4_EEEENS4_14DistanceSorterEEvT_SB_T0_.exit unwind label %lpad74.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
-_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN6Assimp3IFC11TempOpeningESt6vectorIS4_SaIS4_EEEENS4_14DistanceSorterEEvT_SB_T0_.exit: ; preds = %_ZSt26__unguarded_insertion_sortIN9__gnu_cxx17__normal_iteratorIPN6Assimp3IFC11TempOpeningESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterINS4_14DistanceSorterEEEEvT_SE_T0_.exit.i.i.i, %if.else.i.i.i
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %agg.tmp101.i.sroa.0.i)
-  %.pre1183.pre = load ptr, ptr %apply_openings, align 8
-  %.pre1185.pre = load ptr, ptr %.pre1183.pre, align 8
-  %_M_finish.i195.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre1183.pre, i64 8
-  %.pre1184.pre = load ptr, ptr %_M_finish.i195.phi.trans.insert.phi.trans.insert, align 8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %agg.tmp32.i)
+_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN6Assimp3IFC11TempOpeningESt6vectorIS4_SaIS4_EEEENS4_14DistanceSorterEEvT_SB_T0_.exit: ; preds = %.noexc193, %if.else.i.i.i, %.noexc192
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %agg.tmp72186)
+  %.pre1183 = load ptr, ptr %apply_openings, align 8
+  %_M_finish.i195.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre1183, i64 8
+  %.pre1184 = load ptr, ptr %_M_finish.i195.phi.trans.insert, align 8
+  %.pre1185 = load ptr, ptr %.pre1183, align 8
   br label %if.end79
 
 lpad74.loopexit:                                  ; preds = %if.then152
@@ -5497,9 +5486,9 @@ lpad74.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; preds = %if.then
   br label %ehcleanup418
 
 if.end79:                                         ; preds = %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN6Assimp3IFC11TempOpeningESt6vectorIS4_SaIS4_EEEENS4_14DistanceSorterEEvT_SB_T0_.exit, %if.then61
-  %90 = phi ptr [ %.pre1185.pre, %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN6Assimp3IFC11TempOpeningESt6vectorIS4_SaIS4_EEEENS4_14DistanceSorterEEvT_SB_T0_.exit ], [ %86, %if.then61 ]
-  %91 = phi ptr [ %.pre1184.pre, %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN6Assimp3IFC11TempOpeningESt6vectorIS4_SaIS4_EEEENS4_14DistanceSorterEEvT_SB_T0_.exit ], [ %85, %if.then61 ]
-  %92 = phi ptr [ %.pre1183.pre, %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN6Assimp3IFC11TempOpeningESt6vectorIS4_SaIS4_EEEENS4_14DistanceSorterEEvT_SB_T0_.exit ], [ %84, %if.then61 ]
+  %90 = phi ptr [ %.pre1185, %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN6Assimp3IFC11TempOpeningESt6vectorIS4_SaIS4_EEEENS4_14DistanceSorterEEvT_SB_T0_.exit ], [ %86, %if.then61 ]
+  %91 = phi ptr [ %.pre1184, %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN6Assimp3IFC11TempOpeningESt6vectorIS4_SaIS4_EEEENS4_14DistanceSorterEEvT_SB_T0_.exit ], [ %85, %if.then61 ]
+  %92 = phi ptr [ %.pre1183, %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN6Assimp3IFC11TempOpeningESt6vectorIS4_SaIS4_EEEENS4_14DistanceSorterEEvT_SB_T0_.exit ], [ %84, %if.then61 ]
   %_M_finish.i195 = getelementptr inbounds nuw i8, ptr %92, i64 8
   %sub.ptr.lhs.cast.i196 = ptrtoint ptr %91 to i64
   %sub.ptr.rhs.cast.i197 = ptrtoint ptr %90 to i64

@@ -2233,28 +2233,26 @@ _ZN4llvmlsINS_19raw_svector_ostreamENS_9StringRefEEENSt9enable_ifIXaantsr3stdE14
 
 _ZN4llvmlsINS_19raw_svector_ostreamENS_9StringRefEEENSt9enable_ifIXaantsr3stdE14is_reference_vIT_Esr3stdE12is_base_of_vINS_11raw_ostreamES4_EEOS4_E4typeES6_RKT0_.exit27: ; preds = %170, %172, %173
   %176 = phi ptr [ %.pre88, %170 ], [ %164, %172 ], [ %175, %173 ]
-  %.sroa.0.0.copyload.i28 = load ptr, ptr %6, align 8
-  %.sroa.2.0.copyload.i30 = load i64, ptr %40, align 8
   %177 = load ptr, ptr %98, align 8
   %178 = ptrtoint ptr %177 to i64
   %179 = ptrtoint ptr %176 to i64
   %180 = sub i64 %178, %179
-  %181 = icmp ugt i64 %.sroa.2.0.copyload.i30, %180
+  %181 = icmp ugt i64 %.sink, %180
   br i1 %181, label %182, label %184
 
 182:                                              ; preds = %_ZN4llvmlsINS_19raw_svector_ostreamENS_9StringRefEEENSt9enable_ifIXaantsr3stdE14is_reference_vIT_Esr3stdE12is_base_of_vINS_11raw_ostreamES4_EEOS4_E4typeES6_RKT0_.exit27
-  %183 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(56) %11, ptr noundef %.sroa.0.0.copyload.i28, i64 noundef %.sroa.2.0.copyload.i30) #21
+  %183 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(56) %11, ptr noundef %.sink86, i64 noundef %.sink) #21
   %.pre89 = load ptr, ptr %100, align 8
   br label %_ZN4llvmlsINS_19raw_svector_ostreamENS_9StringRefEEENSt9enable_ifIXaantsr3stdE14is_reference_vIT_Esr3stdE12is_base_of_vINS_11raw_ostreamES4_EEOS4_E4typeES6_RKT0_.exit32
 
 184:                                              ; preds = %_ZN4llvmlsINS_19raw_svector_ostreamENS_9StringRefEEENSt9enable_ifIXaantsr3stdE14is_reference_vIT_Esr3stdE12is_base_of_vINS_11raw_ostreamES4_EEOS4_E4typeES6_RKT0_.exit27
-  %.not.i.i31 = icmp eq i64 %.sroa.2.0.copyload.i30, 0
+  %.not.i.i31 = icmp eq i64 %.sink, 0
   br i1 %.not.i.i31, label %_ZN4llvmlsINS_19raw_svector_ostreamENS_9StringRefEEENSt9enable_ifIXaantsr3stdE14is_reference_vIT_Esr3stdE12is_base_of_vINS_11raw_ostreamES4_EEOS4_E4typeES6_RKT0_.exit32, label %185
 
 185:                                              ; preds = %184
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %176, ptr align 1 %.sroa.0.0.copyload.i28, i64 %.sroa.2.0.copyload.i30, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %176, ptr align 1 %.sink86, i64 %.sink, i1 false)
   %186 = load ptr, ptr %100, align 8
-  %187 = getelementptr inbounds i8, ptr %186, i64 %.sroa.2.0.copyload.i30
+  %187 = getelementptr inbounds i8, ptr %186, i64 %.sink
   store ptr %187, ptr %100, align 8
   br label %_ZN4llvmlsINS_19raw_svector_ostreamENS_9StringRefEEENSt9enable_ifIXaantsr3stdE14is_reference_vIT_Esr3stdE12is_base_of_vINS_11raw_ostreamES4_EEOS4_E4typeES6_RKT0_.exit32
 

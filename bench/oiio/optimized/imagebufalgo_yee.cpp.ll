@@ -1258,6 +1258,7 @@ arrayctor.cont:                                   ; preds = %invoke.cont
           to label %for.cond.preheader unwind label %lpad4
 
 for.cond.preheader:                               ; preds = %arrayctor.cont
+  store i32 -2147483648, ptr %agg.tmp12, align 8
   %xend.i = getelementptr inbounds nuw i8, ptr %agg.tmp12, i64 4
   br label %for.body
 
@@ -1266,7 +1267,6 @@ for.body:                                         ; preds = %for.cond.preheader,
   %arrayidx8 = getelementptr inbounds nuw [8 x %"class.OpenImageIO_v2_6_0::ImageBuf"], ptr %this, i64 0, i64 %indvars.iv
   %4 = add nsw i64 %indvars.iv, -1
   %arrayidx11 = getelementptr inbounds [8 x %"class.OpenImageIO_v2_6_0::ImageBuf"], ptr %this, i64 0, i64 %4
-  store i32 -2147483648, ptr %agg.tmp12, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %xend.i, i8 0, i64 28, i1 false)
   %call = invoke noundef zeroext i1 @_ZN18OpenImageIO_v2_6_012ImageBufAlgo8convolveERNS_8ImageBufERKS1_S4_bNS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %arrayidx8, ptr noundef nonnull align 8 dereferenceable(16) %arrayidx11, ptr noundef nonnull align 8 dereferenceable(16) %kernel, i1 noundef zeroext true, ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %agg.tmp12, i32 noundef 0)
           to label %for.inc unwind label %lpad13

@@ -4927,21 +4927,21 @@ define internal fastcc void @pci_bus_distribute_available_resources(ptr noundef 
   %389 = icmp eq ptr %388, %202
   br i1 %389, label %.thread, label %.preheader
 
-.preheader:                                       ; preds = %378, %510
-  %.0.allc2.1 = phi i64 [ %.0.allc2.2, %510 ], [ %374, %378 ]
-  %.0.allc.1 = phi i64 [ %.0.allc.2, %510 ], [ %373, %378 ]
-  %390 = phi ptr [ %511, %510 ], [ %388, %378 ]
+.preheader:                                       ; preds = %378, %507
+  %.0.allc2.1 = phi i64 [ %.0.allc2.2, %507 ], [ %374, %378 ]
+  %.0.allc.1 = phi i64 [ %.0.allc.2, %507 ], [ %373, %378 ]
+  %390 = phi ptr [ %508, %507 ], [ %388, %378 ]
   %391 = getelementptr inbounds nuw i8, ptr %390, i64 73
   %392 = load i8, ptr %391, align 1
   %393 = add i8 %392, -1
   %394 = icmp ult i8 %393, 2
-  br i1 %394, label %395, label %510
+  br i1 %394, label %395, label %507
 
 395:                                              ; preds = %.preheader
   %396 = getelementptr inbounds nuw i8, ptr %390, i64 24
   %397 = load ptr, ptr %396, align 8
   %398 = icmp eq ptr %397, null
-  br i1 %398, label %510, label %399
+  br i1 %398, label %507, label %399
 
 399:                                              ; preds = %395
   br i1 %379, label %405, label %400
@@ -4951,7 +4951,7 @@ define internal fastcc void @pci_bus_distribute_available_resources(ptr noundef 
   %402 = load i40, ptr %401, align 1
   %403 = and i40 %402, 16777216
   %404 = icmp eq i40 %403, 0
-  br i1 %404, label %510, label %405
+  br i1 %404, label %507, label %405
 
 405:                                              ; preds = %400, %399
   %406 = getelementptr i8, ptr %390, i64 1368
@@ -5076,8 +5076,8 @@ define internal fastcc void @pci_bus_distribute_available_resources(ptr noundef 
   %493 = sub i64 0, %490
   %494 = select i1 %491, i64 -1, i64 %493
   %495 = and i64 %494, %387
-  %496 = add i64 %492, -1
-  %497 = add i64 %496, %495
+  %496 = add i64 %495, %492
+  %497 = add i64 %496, -1
   store i64 %497, ptr %169, align 8
   %498 = getelementptr i8, ptr %390, i64 1504
   %499 = load i64, ptr %498, align 8
@@ -5089,21 +5089,18 @@ define internal fastcc void @pci_bus_distribute_available_resources(ptr noundef 
   tail call fastcc void @pci_bus_distribute_available_resources(ptr noundef nonnull %397, ptr noundef %1, i64 %439, i64 %433, i64 %471, i64 %465, ptr noundef byval(%struct.resource) align 8 %2)
   %504 = add i64 %432, %439
   %505 = add i64 %464, %471
-  %506 = load i64, ptr %169, align 8
-  %507 = add i64 %506, 1
-  %508 = load i64, ptr %2, align 8
-  %509 = add i64 %507, %508
-  store i64 %509, ptr %2, align 8
-  br label %510
+  %506 = add i64 %503, %496
+  store i64 %506, ptr %2, align 8
+  br label %507
 
-510:                                              ; preds = %489, %400, %395, %.preheader
+507:                                              ; preds = %489, %400, %395, %.preheader
   %.0.allc2.2 = phi i64 [ %.0.allc2.1, %395 ], [ %505, %489 ], [ %.0.allc2.1, %400 ], [ %.0.allc2.1, %.preheader ]
   %.0.allc.2 = phi i64 [ %.0.allc.1, %395 ], [ %504, %489 ], [ %.0.allc.1, %400 ], [ %.0.allc.1, %.preheader ]
-  %511 = load ptr, ptr %390, align 8
-  %512 = icmp eq ptr %511, %202
-  br i1 %512, label %.thread, label %.preheader, !llvm.loop !71
+  %508 = load ptr, ptr %390, align 8
+  %509 = icmp eq ptr %508, %202
+  br i1 %509, label %.thread, label %.preheader, !llvm.loop !71
 
-.thread:                                          ; preds = %510, %.loopexit19, %378, %226
+.thread:                                          ; preds = %507, %.loopexit19, %378, %226
   ret void
 }
 

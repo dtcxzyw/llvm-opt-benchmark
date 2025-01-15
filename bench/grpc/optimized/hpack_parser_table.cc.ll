@@ -3217,6 +3217,7 @@ if.end15.i.i:                                     ; preds = %if.end9.i.i
 
 _ZN9grpc_core5Slice17TakeUniquelyOwnedEv.exit.i:  ; preds = %if.end15.i.i, %if.then7.i.i, %if.then.i, %if.then13.i.i
   %ref.tmp16.i.i.sink = phi ptr [ %ref.tmp14.i.i, %if.then13.i.i ], [ %agg.tmp, %if.then.i ], [ %ref.tmp.i.i, %if.then7.i.i ], [ %ref.tmp16.i.i, %if.end15.i.i ]
+  %3 = phi ptr [ null, %if.then13.i.i ], [ %1, %if.then.i ], [ %1, %if.then7.i.i ], [ %1, %if.end15.i.i ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp16.i.i.sink, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i.i), !noalias !96
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp14.i.i)
@@ -3226,8 +3227,8 @@ _ZN9grpc_core5Slice17TakeUniquelyOwnedEv.exit.i:  ; preds = %if.end15.i.i, %if.t
 if.else.i:                                        ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i1.i), !noalias !96
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp10.i.i)
-  %3 = load ptr, ptr %agg.tmp, align 8, !noalias !105
-  %magicptr.i2.i = ptrtoint ptr %3 to i64
+  %4 = load ptr, ptr %agg.tmp, align 8, !noalias !105
+  %magicptr.i2.i = ptrtoint ptr %4 to i64
   switch i64 %magicptr.i2.i, label %if.end9.i5.i [
     i64 0, label %_ZN9grpc_core5Slice9TakeOwnedEv.exit.i
     i64 1, label %if.then7.i3.i
@@ -3244,42 +3245,43 @@ if.end9.i5.i:                                     ; preds = %if.else.i
 
 _ZN9grpc_core5Slice9TakeOwnedEv.exit.i:           ; preds = %if.then7.i3.i, %if.else.i, %if.end9.i5.i
   %ref.tmp10.i.i.sink = phi ptr [ %ref.tmp10.i.i, %if.end9.i5.i ], [ %agg.tmp, %if.else.i ], [ %ref.tmp.i1.i, %if.then7.i3.i ]
+  %5 = phi ptr [ null, %if.end9.i5.i ], [ %4, %if.else.i ], [ %4, %if.then7.i3.i ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp10.i.i.sink, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i1.i), !noalias !96
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp10.i.i)
   br label %invoke.cont
 
 invoke.cont:                                      ; preds = %_ZN9grpc_core5Slice9TakeOwnedEv.exit.i, %_ZN9grpc_core5Slice17TakeUniquelyOwnedEv.exit.i
-  %4 = load ptr, ptr %agg.tmp, align 8
-  %cmp.i.i = icmp ugt ptr %4, inttoptr (i64 1 to ptr)
+  %6 = phi ptr [ %5, %_ZN9grpc_core5Slice9TakeOwnedEv.exit.i ], [ %3, %_ZN9grpc_core5Slice17TakeUniquelyOwnedEv.exit.i ]
+  %cmp.i.i = icmp ugt ptr %6, inttoptr (i64 1 to ptr)
   br i1 %cmp.i.i, label %if.then.i.i3, label %_ZN9grpc_core5SliceD2Ev.exit
 
 if.then.i.i3:                                     ; preds = %invoke.cont
-  %5 = atomicrmw sub ptr %4, i64 1 acq_rel, align 8
-  %cmp.i.i.i4 = icmp eq i64 %5, 1
+  %7 = atomicrmw sub ptr %6, i64 1 acq_rel, align 8
+  %cmp.i.i.i4 = icmp eq i64 %7, 1
   br i1 %cmp.i.i.i4, label %if.then.i.i.i, label %_ZN9grpc_core5SliceD2Ev.exit
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i3
-  %destroyer_fn_.i.i.i = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %6 = load ptr, ptr %destroyer_fn_.i.i.i, align 8
-  invoke void %6(ptr noundef nonnull align 8 dereferenceable(16) %4)
+  %destroyer_fn_.i.i.i = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %8 = load ptr, ptr %destroyer_fn_.i.i.i, align 8
+  invoke void %8(ptr noundef nonnull align 8 dereferenceable(16) %6)
           to label %_ZN9grpc_core5SliceD2Ev.exit unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %if.then.i.i.i
-  %7 = landingpad { ptr, i32 }
+  %9 = landingpad { ptr, i32 }
           catch ptr null
-  %8 = extractvalue { ptr, i32 } %7, 0
-  call void @__clang_call_terminate(ptr %8) #26
+  %10 = extractvalue { ptr, i32 } %9, 0
+  call void @__clang_call_terminate(ptr %10) #26
   unreachable
 
 _ZN9grpc_core5SliceD2Ev.exit:                     ; preds = %invoke.cont, %if.then.i.i3, %if.then.i.i.i
   ret void
 
 lpad:                                             ; preds = %if.then7.i3.i, %if.end15.i.i, %if.then7.i.i
-  %9 = landingpad { ptr, i32 }
+  %11 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN9grpc_core5SliceD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp) #24
-  resume { ptr, i32 } %9
+  resume { ptr, i32 } %11
 }
 
 ; Function Attrs: nofree nounwind
@@ -3341,14 +3343,15 @@ if.end15.i.i:                                     ; preds = %if.end9.i.i
   br label %_ZN9grpc_core5Slice17TakeUniquelyOwnedEv.exit.i
 
 _ZN9grpc_core5Slice17TakeUniquelyOwnedEv.exit.i:  ; preds = %.noexc2, %if.then13.i.i, %.noexc, %if.then.i.i
+  %2 = phi ptr [ %0, %.noexc2 ], [ null, %if.then13.i.i ], [ %0, %.noexc ], [ %0, %if.then.i.i ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i.i), !noalias !114
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp16.i.i), !noalias !114
   br label %_ZN9grpc_core5SliceD2Ev.exit
 
 if.else.i:                                        ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i1.i), !noalias !114
-  %2 = load ptr, ptr %agg.tmp, align 8, !noalias !123
-  %magicptr.i2.i = ptrtoint ptr %2 to i64
+  %3 = load ptr, ptr %agg.tmp, align 8, !noalias !123
+  %magicptr.i2.i = ptrtoint ptr %3 to i64
   switch i64 %magicptr.i2.i, label %if.end9.i5.i [
     i64 0, label %if.then.i4.i
     i64 1, label %if.then7.i3.i
@@ -3372,44 +3375,45 @@ if.end9.i5.i:                                     ; preds = %if.else.i
   br label %_ZN9grpc_core5Slice9TakeOwnedEv.exit.i
 
 _ZN9grpc_core5Slice9TakeOwnedEv.exit.i:           ; preds = %if.end9.i5.i, %.noexc3, %if.then.i4.i
+  %4 = phi ptr [ null, %if.end9.i5.i ], [ %3, %.noexc3 ], [ %3, %if.then.i4.i ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i1.i), !noalias !114
   br label %_ZN9grpc_core5SliceD2Ev.exit
 
 _ZN9grpc_core5SliceD2Ev.exit:                     ; preds = %_ZN9grpc_core5Slice9TakeOwnedEv.exit.i, %_ZN9grpc_core5Slice17TakeUniquelyOwnedEv.exit.i
+  %5 = phi ptr [ %4, %_ZN9grpc_core5Slice9TakeOwnedEv.exit.i ], [ %2, %_ZN9grpc_core5Slice17TakeUniquelyOwnedEv.exit.i ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1.sroa.0, i64 32, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1.sroa.0, i8 0, i64 32, i1 false), !noalias !129
   %value_ = getelementptr inbounds nuw i8, ptr %result, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %value_, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, i64 32, i1 false)
-  %3 = load ptr, ptr %agg.tmp, align 8
-  %cmp.i.i6 = icmp ugt ptr %3, inttoptr (i64 1 to ptr)
+  %cmp.i.i6 = icmp ugt ptr %5, inttoptr (i64 1 to ptr)
   br i1 %cmp.i.i6, label %if.then.i.i7, label %_ZN9grpc_core5SliceD2Ev.exit12
 
 if.then.i.i7:                                     ; preds = %_ZN9grpc_core5SliceD2Ev.exit
-  %4 = atomicrmw sub ptr %3, i64 1 acq_rel, align 8
-  %cmp.i.i.i8 = icmp eq i64 %4, 1
+  %6 = atomicrmw sub ptr %5, i64 1 acq_rel, align 8
+  %cmp.i.i.i8 = icmp eq i64 %6, 1
   br i1 %cmp.i.i.i8, label %if.then.i.i.i9, label %_ZN9grpc_core5SliceD2Ev.exit12
 
 if.then.i.i.i9:                                   ; preds = %if.then.i.i7
-  %destroyer_fn_.i.i.i10 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %5 = load ptr, ptr %destroyer_fn_.i.i.i10, align 8
-  invoke void %5(ptr noundef nonnull align 8 dereferenceable(16) %3)
+  %destroyer_fn_.i.i.i10 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %7 = load ptr, ptr %destroyer_fn_.i.i.i10, align 8
+  invoke void %7(ptr noundef nonnull align 8 dereferenceable(16) %5)
           to label %_ZN9grpc_core5SliceD2Ev.exit12 unwind label %terminate.lpad.i11
 
 terminate.lpad.i11:                               ; preds = %if.then.i.i.i9
-  %6 = landingpad { ptr, i32 }
+  %8 = landingpad { ptr, i32 }
           catch ptr null
-  %7 = extractvalue { ptr, i32 } %6, 0
-  call void @__clang_call_terminate(ptr %7) #26
+  %9 = extractvalue { ptr, i32 } %8, 0
+  call void @__clang_call_terminate(ptr %9) #26
   unreachable
 
 _ZN9grpc_core5SliceD2Ev.exit12:                   ; preds = %_ZN9grpc_core5SliceD2Ev.exit, %if.then.i.i7, %if.then.i.i.i9
   ret void
 
 lpad:                                             ; preds = %if.then7.i3.i, %if.end15.i.i, %if.then7.i.i
-  %8 = landingpad { ptr, i32 }
+  %10 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN9grpc_core5SliceD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp) #24
-  resume { ptr, i32 } %8
+  resume { ptr, i32 } %10
 }
 
 ; Function Attrs: nofree nounwind

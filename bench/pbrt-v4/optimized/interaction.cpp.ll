@@ -1761,8 +1761,6 @@ if.then4.i:                                       ; preds = %if.end.i
   br label %_ZNK4pbrt11MixMaterial14ChooseMaterialINS_25UniversalTextureEvaluatorEEENS_8MaterialET_NS_19MaterialEvalContextE.exit
 
 if.end7.i:                                        ; preds = %if.end.i
-  %agg.tmp8.sroa.0.0.copyload.i = load <2 x float>, ptr %agg.tmp64, align 8, !noalias !17
-  %agg.tmp8.sroa.2.0.copyload.i = load float, ptr %agg.tmp6.sroa.2.0.agg.tmp64.sroa_idx, align 8, !noalias !17
   %agg.tmp9.sroa.0.0.copyload.i = load <2 x float>, ptr %agg.tmp6.sroa.12.0.agg.tmp64.sroa_idx, align 4, !noalias !17
   %agg.tmp9.sroa.2.0.copyload.i = load float, ptr %agg.tmp9.sroa.2.0.wo.sroa_idx.i, align 4, !noalias !17
   %materials11.i = getelementptr inbounds nuw i8, ptr %15, i64 8
@@ -1770,8 +1768,8 @@ if.end7.i:                                        ; preds = %if.end.i
   %arrayidx15.i = getelementptr inbounds nuw i8, ptr %15, i64 16
   %26 = load i64, ptr %arrayidx15.i, align 8, !noalias !17
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %buf.i.i.i), !noalias !17
-  store <2 x float> %agg.tmp8.sroa.0.0.copyload.i, ptr %buf.i.i.i, align 16, !noalias !17
-  store float %agg.tmp8.sroa.2.0.copyload.i, ptr %v.sroa.2.0.buf.addr.0..sroa_idx.i.i.i.i, align 8, !noalias !17
+  store <2 x float> %retval.sroa.0.4.vec.insert.i.i.i, ptr %buf.i.i.i, align 16, !noalias !17
+  store float %div.i.i6.i.i.i.i, ptr %v.sroa.2.0.buf.addr.0..sroa_idx.i.i.i.i, align 8, !noalias !17
   store <2 x float> %agg.tmp9.sroa.0.0.copyload.i, ptr %add.ptr.i.i.i.i, align 4, !noalias !17
   store float %agg.tmp9.sroa.2.0.copyload.i, ptr %v.sroa.2.0.buf.addr.0..sroa_idx.i.i.i.i.i, align 4, !noalias !17
   store i64 %25, ptr %add.ptr.i.i.i.i.i, align 8, !noalias !17
@@ -3233,8 +3231,6 @@ if.then4.i:                                       ; preds = %if.end.i
   br label %_ZNK4pbrt11MixMaterial14ChooseMaterialINS_25UniversalTextureEvaluatorEEENS_8MaterialET_NS_19MaterialEvalContextE.exit
 
 if.end7.i:                                        ; preds = %if.end.i
-  %agg.tmp8.sroa.0.0.copyload.i = load <2 x float>, ptr %agg.tmp41, align 8, !noalias !80
-  %agg.tmp8.sroa.2.0.copyload.i = load float, ptr %agg.tmp4.sroa.2.0.agg.tmp41.sroa_idx, align 8, !noalias !80
   %agg.tmp9.sroa.0.0.copyload.i = load <2 x float>, ptr %agg.tmp4.sroa.12.0.agg.tmp41.sroa_idx, align 4, !noalias !80
   %agg.tmp9.sroa.2.0.copyload.i = load float, ptr %agg.tmp9.sroa.2.0.wo.sroa_idx.i, align 4, !noalias !80
   %materials11.i = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -3242,8 +3238,8 @@ if.end7.i:                                        ; preds = %if.end.i
   %arrayidx15.i = getelementptr inbounds nuw i8, ptr %2, i64 16
   %13 = load i64, ptr %arrayidx15.i, align 8, !noalias !80
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %buf.i.i.i), !noalias !80
-  store <2 x float> %agg.tmp8.sroa.0.0.copyload.i, ptr %buf.i.i.i, align 16, !noalias !80
-  store float %agg.tmp8.sroa.2.0.copyload.i, ptr %v.sroa.2.0.buf.addr.0..sroa_idx.i.i.i.i, align 8, !noalias !80
+  store <2 x float> %retval.sroa.0.4.vec.insert.i.i.i, ptr %buf.i.i.i, align 16, !noalias !80
+  store float %div.i.i6.i.i.i.i, ptr %v.sroa.2.0.buf.addr.0..sroa_idx.i.i.i.i, align 8, !noalias !80
   store <2 x float> %agg.tmp9.sroa.0.0.copyload.i, ptr %add.ptr.i.i.i.i, align 4, !noalias !80
   store float %agg.tmp9.sroa.2.0.copyload.i, ptr %v.sroa.2.0.buf.addr.0..sroa_idx.i.i.i.i.i, align 4, !noalias !80
   store i64 %12, ptr %add.ptr.i.i.i.i.i, align 8, !noalias !80
