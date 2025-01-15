@@ -837,7 +837,6 @@ define void @process(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %128 = shl nsw i64 %126, 4
   %129 = mul i64 %128, %127
   %130 = tail call ptr @dt_alloc_aligned(i64 noundef %129) #27
-  call void @llvm.assume(i1 true) [ "align"(ptr %130, i64 64) ]
   br label %131
 
 131:                                              ; preds = %121, %115
@@ -1329,7 +1328,6 @@ define void @process(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %478 = load i32, ptr %477, align 4, !tbaa !52
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %7) #27
   %479 = tail call ptr @dt_alloc_aligned(i64 noundef 1369344) #27
-  call void @llvm.assume(i1 true) [ "align"(ptr %479, i64 64) ]
   %480 = icmp eq ptr %479, null
   br i1 %480, label %481, label %.preheader590
 
@@ -1864,7 +1862,6 @@ define void @process(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br i1 %906, label %907, label %.loopexit589
 
 907:                                              ; preds = %895
-  call void @llvm.assume(i1 true) [ "align"(ptr %479, i64 64) ]
   %908 = getelementptr inbounds nuw i8, ptr %479, i64 714432
   %909 = getelementptr inbounds nuw i8, ptr %479, i64 893040
   %910 = getelementptr inbounds nuw i8, ptr %479, i64 773968
@@ -6223,7 +6220,6 @@ define void @process(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %4464 = shl nsw i64 %4461, 2
   %4465 = mul i64 %4464, %4463
   %4466 = tail call ptr @dt_alloc_aligned(i64 noundef %4465) #27
-  call void @llvm.assume(i1 true) [ "align"(ptr %4466, i64 64) ]
   %4467 = load i32, ptr %23, align 8, !tbaa !54
   switch i32 %4467, label %4509 [
     i32 2, label %4468
@@ -6263,7 +6259,6 @@ define void @process(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %4491 = shl nsw i64 %4488, 2
   %4492 = mul i64 %4491, %4490
   %4493 = tail call ptr @dt_alloc_aligned(i64 noundef %4492) #27
-  call void @llvm.assume(i1 true) [ "align"(ptr %4493, i64 64) ]
   %4494 = load i32, ptr %109, align 4, !tbaa !51
   %4495 = load i32, ptr %4459, align 4, !tbaa !52
   %4496 = load ptr, ptr %14, align 8, !tbaa !40
@@ -6481,7 +6476,6 @@ define void @process(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 4635:                                             ; preds = %4606
   %4636 = shl nuw nsw i64 %4601, 4
   %4637 = call ptr @dt_alloc_aligned(i64 noundef %4636) #27, !noalias !136
-  call void @llvm.assume(i1 true) [ "align"(ptr %4637, i64 64) ]
   %4638 = icmp eq ptr %4637, null
   br i1 %4638, label %.loopexit, label %4639
 
@@ -6667,7 +6661,6 @@ define internal fastcc void @xtrans_markesteijn_interpolate(ptr nocapture nounde
   %14 = shl nuw nsw i32 4, %13
   %15 = select i1 %12, i64 2083776, i64 1131200
   %16 = tail call ptr @dt_alloc_aligned(i64 noundef %15) #27
-  call void @llvm.assume(i1 true) [ "align"(ptr %16, i64 64) ]
   %17 = icmp eq ptr %16, null
   br i1 %17, label %18, label %.preheader262
 
@@ -6704,7 +6697,6 @@ define internal fastcc void @xtrans_markesteijn_interpolate(ptr nocapture nounde
   br i1 %41, label %42, label %.loopexit259
 
 42:                                               ; preds = %36
-  call void @llvm.assume(i1 true) [ "align"(ptr %16, i64 64) ]
   %43 = select i1 %12, i64 1428864, i64 714432
   %44 = getelementptr i8, ptr %16, i64 %43
   %45 = getelementptr i8, ptr %44, i64 178608
@@ -14801,23 +14793,17 @@ define internal fastcc void @rcd_demosaic(ptr nocapture noundef readonly %0, ptr
   %29 = sdiv i32 %28, 94
   %30 = tail call ptr @dt_alloc_aligned(i64 noundef 50176) #27
   %31 = ptrtoint ptr %30 to i64
-  call void @llvm.assume(i1 true) [ "align"(ptr %30, i64 64) ]
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 64 dereferenceable(50176) %30, i8 0, i64 50176, i1 false)
   %32 = tail call ptr @dt_alloc_aligned(i64 noundef 25088) #27
   %33 = ptrtoint ptr %32 to i64
-  call void @llvm.assume(i1 true) [ "align"(ptr %32, i64 64) ]
   %34 = tail call ptr @dt_alloc_aligned(i64 noundef 50176) #27
   %35 = ptrtoint ptr %34 to i64
-  call void @llvm.assume(i1 true) [ "align"(ptr %34, i64 64) ]
   %36 = tail call ptr @dt_alloc_aligned(i64 noundef 25088) #27
   %37 = ptrtoint ptr %36 to i64
-  call void @llvm.assume(i1 true) [ "align"(ptr %36, i64 64) ]
   %38 = tail call ptr @dt_alloc_aligned(i64 noundef 25088) #27
   %39 = ptrtoint ptr %38 to i64
-  call void @llvm.assume(i1 true) [ "align"(ptr %38, i64 64) ]
   %40 = tail call ptr @dt_alloc_aligned(i64 noundef 150528) #27
   %41 = ptrtoint ptr %40 to i64
-  call void @llvm.assume(i1 true) [ "align"(ptr %40, i64 64) ]
   %42 = getelementptr inbounds nuw i8, ptr %7, i64 416
   %43 = getelementptr inbounds nuw i8, ptr %7, i64 832
   %44 = getelementptr i8, ptr %34, i64 -448
@@ -17227,10 +17213,8 @@ define internal fastcc void @lmmse_demosaic(ptr nocapture noundef readonly %0, p
 
 15:                                               ; preds = %12
   %16 = tail call ptr @dt_alloc_aligned(i64 noundef 262144) #27
-  call void @llvm.assume(i1 true) [ "align"(ptr %16, i64 64) ]
   store ptr %16, ptr @lmmse_gamma_in, align 8, !tbaa !20
   %17 = tail call ptr @dt_alloc_aligned(i64 noundef 262144) #27
-  call void @llvm.assume(i1 true) [ "align"(ptr %17, i64 64) ]
   store ptr %17, ptr @lmmse_gamma_out, align 8, !tbaa !20
   %18 = load ptr, ptr @lmmse_gamma_in, align 8, !tbaa !20
   %19 = icmp ne ptr %18, null
@@ -17312,7 +17296,6 @@ define internal fastcc void @lmmse_demosaic(ptr nocapture noundef readonly %0, p
   %68 = add nsw i32 %3, -17
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8) #27
   %69 = tail call ptr @dt_alloc_aligned(i64 noundef 443904) #27
-  call void @llvm.assume(i1 true) [ "align"(ptr %69, i64 64) ]
   store ptr %69, ptr %8, align 16, !tbaa !20
   %70 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %71 = getelementptr inbounds nuw i8, ptr %8, i64 16
@@ -22377,7 +22360,6 @@ define internal fastcc void @demosaic_ppg(ptr nocapture noundef %0, ptr noundef 
   %431 = shl nsw i64 %427, 2
   %432 = mul i64 %431, %430
   %433 = tail call ptr @dt_alloc_aligned(i64 noundef %432) #27
-  call void @llvm.assume(i1 true) [ "align"(ptr %433, i64 64) ]
   %434 = load i32, ptr %428, align 4, !tbaa !51
   %435 = sext i32 %434 to i64
   %436 = load i32, ptr %425, align 4, !tbaa !52

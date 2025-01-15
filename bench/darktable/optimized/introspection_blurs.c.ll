@@ -137,7 +137,6 @@ define void @process(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noal
   %18 = fdiv reassoc nsz arcp contract afn float %10, %12
   %19 = tail call reassoc nsz arcp contract afn float @llvm.maxnum.f32(float %18, float 1.000000e+00)
   call void @llvm.assume(i1 true) [ "align"(ptr %2, i64 64) ]
-  call void @llvm.assume(i1 true) [ "align"(ptr %3, i64 64) ]
   %20 = getelementptr inbounds nuw i8, ptr %8, i64 4
   %21 = load i32, ptr %20, align 4, !tbaa !30
   %22 = sitofp i32 %21 to float
@@ -152,9 +151,7 @@ define void @process(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noal
   %31 = mul nsw i64 %30, %30
   %32 = shl i64 %31, 2
   %33 = tail call ptr @dt_alloc_aligned(i64 noundef %32) #20
-  call void @llvm.assume(i1 true) [ "align"(ptr %33, i64 64) ]
   %34 = tail call ptr @dt_alloc_aligned(i64 noundef %32) #20
-  call void @llvm.assume(i1 true) [ "align"(ptr %34, i64 64) ]
   %35 = icmp eq ptr %34, null
   br i1 %35, label %36, label %37
 
@@ -1089,9 +1086,7 @@ define internal fastcc void @build_gui_kernel(ptr nocapture noundef writeonly %0
   %5 = mul i64 %2, %1
   %6 = shl i64 %5, 2
   %7 = tail call ptr @dt_alloc_aligned(i64 noundef %6) #20
-  call void @llvm.assume(i1 true) [ "align"(ptr %7, i64 64) ]
   %8 = tail call ptr @dt_alloc_aligned(i64 noundef %6) #20
-  call void @llvm.assume(i1 true) [ "align"(ptr %8, i64 64) ]
   %9 = icmp ne ptr %7, null
   %10 = icmp ne ptr %8, null
   %11 = select i1 %9, i1 %10, i1 false
@@ -1582,7 +1577,6 @@ define internal noundef i32 @dt_iop_tonecurve_draw(ptr noundef %0, ptr noundef %
   %34 = mul nsw i32 %33, %32
   %35 = sext i32 %34 to i64
   %36 = call ptr @dt_alloc_aligned(i64 noundef %35) #20
-  call void @llvm.assume(i1 true) [ "align"(ptr %36, i64 64) ]
   %37 = getelementptr inbounds nuw i8, ptr %6, i64 80
   store ptr %36, ptr %37, align 8, !tbaa !78
   %38 = load i32, ptr %10, align 4, !tbaa !101

@@ -3128,7 +3128,6 @@ if.else.i:                                        ; preds = %if.then
   br i1 %cmp.i.i, label %if.then.i.i, label %if.end.i.i
 
 if.then.i.i:                                      ; preds = %if.else.i
-  call void @llvm.assume(i1 true) [ "align"(ptr %6, i64 2) ]
   %8 = load atomic i16, ptr %6 monotonic, align 2
   br label %load_atom_2.exit.i
 
@@ -3266,7 +3265,6 @@ if.then31.i.i:                                    ; preds = %sw.bb27.i.i
   %mul.i.i.i = and i64 %conv.i16.i.i, 56
   %and1.i17.i.i = and i64 %7, -8
   %19 = inttoptr i64 %and1.i17.i.i to ptr
-  call void @llvm.assume(i1 true) [ "align"(ptr %19, i64 8) ]
   %20 = load atomic i64, ptr %19 monotonic, align 8
   %shr2.i.i.i = lshr i64 %20, %mul.i.i.i
   %conv33.i.i = trunc i64 %shr2.i.i.i to i16
@@ -3275,7 +3273,6 @@ if.then31.i.i:                                    ; preds = %sw.bb27.i.i
 if.end34.i.i:                                     ; preds = %sw.bb27.i.i
   %and1.i18.i.i = and i64 %7, -16
   %21 = inttoptr i64 %and1.i18.i.i to ptr
-  call void @llvm.assume(i1 true) [ "align"(ptr %21, i64 16) ]
   %tobool.not.i.i20.i.i = icmp eq i32 %and2.i.i, 0
   br i1 %tobool.not.i.i20.i.i, label %atomic16_read_rw.exit.i.i.i.i, label %if.then.i.i.i.i
 
@@ -3286,7 +3283,6 @@ if.then.i.i.i.i:                                  ; preds = %if.end34.i.i
   br label %load_atom_extract_al16_or_exit.exit.i.i
 
 atomic16_read_rw.exit.i.i.i.i:                    ; preds = %if.end34.i.i
-  call void @llvm.assume(i1 true) [ "align"(ptr %21, i64 16) ]
   %23 = cmpxchg ptr %21, i128 0, i128 0 seq_cst seq_cst, align 16
   %24 = extractvalue { i128, i1 } %23, 0
   %extract.t2.i.i.i.i.i = trunc i128 %24 to i64
@@ -3437,7 +3433,6 @@ if.else.i:                                        ; preds = %if.then
   br i1 %cmp.i.i, label %if.then.i.i, label %if.end.i.i
 
 if.then.i.i:                                      ; preds = %if.else.i
-  call void @llvm.assume(i1 true) [ "align"(ptr %6, i64 4) ]
   %8 = load atomic i32, ptr %6 monotonic, align 4
   br label %load_atom_4.exit.i
 
@@ -3575,10 +3570,8 @@ sw.bb.i.i:                                        ; preds = %required_atomicity.
   %conv.i16.i.i = and i32 %20, 24
   %and1.i17.i.i = and i64 %7, -4
   %21 = inttoptr i64 %and1.i17.i.i to ptr
-  call void @llvm.assume(i1 true) [ "align"(ptr %21, i64 4) ]
   %22 = load atomic i32, ptr %21 monotonic, align 4
   %add.ptr.i.i.i = getelementptr i8, ptr %21, i64 4
-  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i.i.i, i64 4) ]
   %23 = load atomic i32, ptr %add.ptr.i.i.i monotonic, align 4
   %shr.i.i.i = lshr i32 %22, %conv.i16.i.i
   %sub.i.i.i = sub i32 0, %20
@@ -3597,7 +3590,6 @@ if.then29.i.i:                                    ; preds = %sw.bb26.i.i
   %mul.i.i.i = and i64 %conv.i19.i.i, 24
   %and1.i20.i.i = and i64 %7, -8
   %24 = inttoptr i64 %and1.i20.i.i to ptr
-  call void @llvm.assume(i1 true) [ "align"(ptr %24, i64 8) ]
   %25 = load atomic i64, ptr %24 monotonic, align 8
   %shr2.i.i.i = lshr i64 %25, %mul.i.i.i
   %conv3.i.i.i = trunc i64 %shr2.i.i.i to i32
@@ -3606,7 +3598,6 @@ if.then29.i.i:                                    ; preds = %sw.bb26.i.i
 if.end31.i.i:                                     ; preds = %sw.bb26.i.i
   %and1.i21.i.i = and i64 %7, -8
   %26 = inttoptr i64 %and1.i21.i.i to ptr
-  call void @llvm.assume(i1 true) [ "align"(ptr %26, i64 16) ]
   %tobool.not.i.i23.i.i = icmp eq i32 %and2.i.i, 0
   br i1 %tobool.not.i.i23.i.i, label %atomic16_read_rw.exit.i.i.i.i, label %if.then.i.i.i.i
 
@@ -3617,7 +3608,6 @@ if.then.i.i.i.i:                                  ; preds = %if.end31.i.i
   br label %load_atom_extract_al16_or_exit.exit.i.i
 
 atomic16_read_rw.exit.i.i.i.i:                    ; preds = %if.end31.i.i
-  call void @llvm.assume(i1 true) [ "align"(ptr %26, i64 16) ]
   %28 = cmpxchg ptr %26, i128 0, i128 0 seq_cst seq_cst, align 16
   %29 = extractvalue { i128, i1 } %28, 0
   %extract.t2.i.i.i.i.i = trunc i128 %29 to i64
@@ -3934,20 +3924,16 @@ sw.bb.i:                                          ; preds = %required_atomicity.
   br label %load_atom_16.exit
 
 sw.bb12.i:                                        ; preds = %required_atomicity.exit.i
-  call void @llvm.assume(i1 true) [ "align"(ptr %8, i64 2) ]
   %19 = load atomic i16, ptr %8 monotonic, align 2
   %conv.i.i.i = zext i16 %19 to i64
   %add.ptr.i.i.i = getelementptr i8, ptr %8, i64 2
-  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i.i.i, i64 2) ]
   %20 = load atomic i16, ptr %add.ptr.i.i.i monotonic, align 2
   %conv2.i.i.i = zext i16 %20 to i64
   %shl.i.i.i = shl nuw nsw i64 %conv2.i.i.i, 16
   %add.ptr.i.i = getelementptr i8, ptr %8, i64 4
-  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i.i, i64 2) ]
   %21 = load atomic i16, ptr %add.ptr.i.i monotonic, align 2
   %conv.i2.i.i = zext i16 %21 to i64
   %add.ptr.i3.i.i = getelementptr i8, ptr %8, i64 6
-  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i3.i.i, i64 2) ]
   %22 = load atomic i16, ptr %add.ptr.i3.i.i monotonic, align 2
   %conv2.i4.i.i = zext i16 %22 to i64
   %23 = shl nuw i64 %conv2.i4.i.i, 48
@@ -3956,20 +3942,16 @@ sw.bb12.i:                                        ; preds = %required_atomicity.
   %or.i.i.i = or disjoint i64 %shl.i.i, %24
   %or.i.i = or disjoint i64 %or.i.i.i, %23
   %add.ptr.i = getelementptr i8, ptr %8, i64 8
-  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i, i64 2) ]
   %25 = load atomic i16, ptr %add.ptr.i monotonic, align 2
   %conv.i.i24.i = zext i16 %25 to i64
   %add.ptr.i.i25.i = getelementptr i8, ptr %8, i64 10
-  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i.i25.i, i64 2) ]
   %26 = load atomic i16, ptr %add.ptr.i.i25.i monotonic, align 2
   %conv2.i.i26.i = zext i16 %26 to i64
   %shl.i.i27.i = shl nuw nsw i64 %conv2.i.i26.i, 16
   %add.ptr.i28.i = getelementptr i8, ptr %8, i64 12
-  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i28.i, i64 2) ]
   %27 = load atomic i16, ptr %add.ptr.i28.i monotonic, align 2
   %conv.i2.i29.i = zext i16 %27 to i64
   %add.ptr.i3.i30.i = getelementptr i8, ptr %8, i64 14
-  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i3.i30.i, i64 2) ]
   %28 = load atomic i16, ptr %add.ptr.i3.i30.i monotonic, align 2
   %conv2.i4.i31.i = zext i16 %28 to i64
   %29 = shl nuw i64 %conv2.i4.i31.i, 48
@@ -3980,20 +3962,16 @@ sw.bb12.i:                                        ; preds = %required_atomicity.
   br label %load_atom_16.exit
 
 sw.bb15.i:                                        ; preds = %required_atomicity.exit.i
-  call void @llvm.assume(i1 true) [ "align"(ptr %8, i64 4) ]
   %31 = load atomic i32, ptr %8 monotonic, align 4
   %add.ptr.i35.i = getelementptr i8, ptr %8, i64 4
-  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i35.i, i64 4) ]
   %32 = load atomic i32, ptr %add.ptr.i35.i monotonic, align 4
   %conv.i36.i = zext i32 %32 to i64
   %shl.i37.i = shl nuw i64 %conv.i36.i, 32
   %conv2.i.i = zext i32 %31 to i64
   %or.i38.i = or disjoint i64 %shl.i37.i, %conv2.i.i
   %add.ptr17.i = getelementptr i8, ptr %8, i64 8
-  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr17.i, i64 4) ]
   %33 = load atomic i32, ptr %add.ptr17.i monotonic, align 4
   %add.ptr.i39.i = getelementptr i8, ptr %8, i64 12
-  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i39.i, i64 4) ]
   %34 = load atomic i32, ptr %add.ptr.i39.i monotonic, align 4
   %conv.i40.i = zext i32 %34 to i64
   %shl.i41.i = shl nuw i64 %conv.i40.i, 32
@@ -4002,10 +3980,8 @@ sw.bb15.i:                                        ; preds = %required_atomicity.
   br label %load_atom_16.exit
 
 sw.bb19.i:                                        ; preds = %required_atomicity.exit.i
-  call void @llvm.assume(i1 true) [ "align"(ptr %8, i64 8) ]
   %35 = load atomic i64, ptr %8 monotonic, align 8
   %add.ptr21.i = getelementptr i8, ptr %8, i64 8
-  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr21.i, i64 8) ]
   %36 = load atomic i64, ptr %add.ptr21.i monotonic, align 8
   br label %load_atom_16.exit
 
@@ -4015,10 +3991,8 @@ sw.bb23.i:                                        ; preds = %required_atomicity.
   %conv.i44.i = and i32 %37, 56
   %and1.i45.i = and i64 %9, -8
   %38 = inttoptr i64 %and1.i45.i to ptr
-  call void @llvm.assume(i1 true) [ "align"(ptr %38, i64 8) ]
   %39 = load atomic i64, ptr %38 monotonic, align 8
   %add.ptr.i46.i = getelementptr i8, ptr %38, i64 8
-  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i46.i, i64 8) ]
   %40 = load atomic i64, ptr %add.ptr.i46.i monotonic, align 8
   %sh_prom.i.i = zext nneg i32 %conv.i44.i to i64
   %shr.i.i = lshr i64 %39, %sh_prom.i.i
@@ -4034,10 +4008,8 @@ sw.bb23.i:                                        ; preds = %required_atomicity.
   %conv.i50.i = and i32 %42, 56
   %and1.i51.i = and i64 %41, -8
   %43 = inttoptr i64 %and1.i51.i to ptr
-  call void @llvm.assume(i1 true) [ "align"(ptr %43, i64 8) ]
   %44 = load atomic i64, ptr %43 monotonic, align 8
   %add.ptr.i52.i = getelementptr i8, ptr %43, i64 8
-  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i52.i, i64 8) ]
   %45 = load atomic i64, ptr %add.ptr.i52.i monotonic, align 8
   %sh_prom.i53.i = zext nneg i32 %conv.i50.i to i64
   %shr.i54.i = lshr i64 %44, %sh_prom.i53.i
@@ -4049,7 +4021,6 @@ sw.bb23.i:                                        ; preds = %required_atomicity.
   br label %load_atom_16.exit
 
 sw.bb27.i:                                        ; preds = %required_atomicity.exit.i
-  call void @llvm.assume(i1 true) [ "align"(ptr %8, i64 16) ]
   %tobool.not.i.i = icmp eq i32 %and.i, 0
   br i1 %tobool.not.i.i, label %atomic16_read_rw.exit.i.i, label %if.then.i.i
 
@@ -4060,7 +4031,6 @@ if.then.i.i:                                      ; preds = %sw.bb27.i
   br label %load_atom_16.exit
 
 atomic16_read_rw.exit.i.i:                        ; preds = %sw.bb27.i
-  call void @llvm.assume(i1 true) [ "align"(ptr %8, i64 16) ]
   %47 = cmpxchg ptr %8, i128 0, i128 0 seq_cst seq_cst, align 16
   %48 = extractvalue { i128, i1 } %47, 0
   %extract.t2.i.i.i = trunc i128 %48 to i64
@@ -4300,7 +4270,6 @@ if.else17.i:                                      ; preds = %if.else.i
   br i1 %cmp.i.i, label %if.then.i.i, label %if.end.i.i
 
 if.then.i.i:                                      ; preds = %if.else17.i
-  call void @llvm.assume(i1 true) [ "align"(ptr %7, i64 2) ]
   store atomic i16 %spec.select12.i, ptr %7 monotonic, align 2
   br label %return
 
@@ -4390,7 +4359,6 @@ if.then9.i.i:                                     ; preds = %if.end5.i.i
   %add.ptr.i.i = getelementptr i8, ptr %7, i64 -1
   %conv10.i.i = zext i16 %spec.select12.i to i32
   %shl.i.i = shl nuw nsw i32 %conv10.i.i, 8
-  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i.i, i64 4) ]
   %14 = load atomic i32, ptr %add.ptr.i.i monotonic, align 4
   br label %do.body1.i.i.i
 
@@ -4412,7 +4380,6 @@ if.then14.i.i:                                    ; preds = %if.else.i.i
   %add.ptr15.i.i = getelementptr i8, ptr %7, i64 -3
   %conv16.i.i = zext i16 %spec.select12.i to i64
   %shl17.i.i = shl nuw nsw i64 %conv16.i.i, 24
-  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr15.i.i, i64 8) ]
   %18 = load atomic i64, ptr %add.ptr15.i.i monotonic, align 8
   br label %do.body1.i15.i.i
 
@@ -4435,7 +4402,6 @@ if.then22.i.i:                                    ; preds = %if.else18.i.i
   %retval.sroa.0.0.extract.trunc.i.i.i = shl i64 %a.sroa.0.0.insert.ext.i.tr.i.i, 56
   %22 = lshr i16 %spec.select12.i, 8
   %add.ptr33.i.i = getelementptr i8, ptr %7, i64 -7
-  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr33.i.i, i64 16) ]
   %23 = load i128, ptr %add.ptr33.i.i, align 16
   %b.sroa.2.0.insert.ext.i18.i.i.i = zext nneg i16 %22 to i128
   %b.sroa.2.0.insert.shift.i19.i.i.i = shl nuw nsw i128 %b.sroa.2.0.insert.ext.i18.i.i.i, 64
@@ -4583,7 +4549,6 @@ if.else17.i:                                      ; preds = %if.else.i
   br i1 %cmp.i.i, label %if.then.i.i, label %if.end.i.i
 
 if.then.i.i:                                      ; preds = %if.else17.i
-  call void @llvm.assume(i1 true) [ "align"(ptr %7, i64 4) ]
   store atomic i32 %spec.select12.i, ptr %7 monotonic, align 4
   br label %return
 
@@ -4678,12 +4643,10 @@ sw.bb.i.i:                                        ; preds = %required_atomicity.
 
 sw.bb2.i.i:                                       ; preds = %required_atomicity.exit.i.i
   %conv.i23.i.i = trunc i32 %spec.select12.i to i16
-  call void @llvm.assume(i1 true) [ "align"(ptr %7, i64 2) ]
   store atomic i16 %conv.i23.i.i, ptr %7 monotonic, align 2
   %add.ptr.i.i.i = getelementptr i8, ptr %7, i64 2
   %shr1.i.i.i = lshr i32 %spec.select12.i, 16
   %conv2.i.i.i = trunc nuw i32 %shr1.i.i.i to i16
-  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i.i.i, i64 2) ]
   store atomic i16 %conv2.i.i.i, ptr %add.ptr.i.i.i monotonic, align 2
   br label %return
 
@@ -4702,7 +4665,6 @@ sw.bb7.i.i:                                       ; preds = %sw.bb3.i.i
   %shl6.i.i.i = shl i32 16777215, %mul1.i.i.i
   %idx.neg.i.i.i = sub nsw i64 0, %and.i.i
   %add.ptr.i26.i.i = getelementptr i8, ptr %7, i64 %idx.neg.i.i.i
-  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i26.i.i, i64 4) ]
   %16 = load atomic i32, ptr %add.ptr.i26.i.i monotonic, align 4
   %not.i.i.i.i = xor i32 %shl6.i.i.i, -1
   br label %do.body1.i.i.i.i
@@ -4737,7 +4699,6 @@ sw.bb12.i.i:                                      ; preds = %sw.bb3.i.i
   %idx.ext.i34.i.i = and i64 %21, 3
   %idx.neg.i35.i.i = sub nsw i64 0, %idx.ext.i34.i.i
   %add.ptr.i36.i.i = getelementptr i8, ptr %add.ptr14.i.i, i64 %idx.neg.i35.i.i
-  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i36.i.i, i64 4) ]
   %23 = load atomic i32, ptr %add.ptr.i36.i.i monotonic, align 4
   %not.i.i37.i.i = xor i32 %shl6.i33.i.i, -1
   br label %do.body1.i.i38.i.i
@@ -4768,7 +4729,6 @@ if.then22.i.i:                                    ; preds = %sw.bb18.i.i
   %shl5.i.i.i = shl nuw nsw i64 4294967295, %mul1.i45.i.i
   %idx.neg.i47.i.i = sub nsw i64 0, %and.i.i
   %add.ptr.i48.i.i = getelementptr i8, ptr %7, i64 %idx.neg.i47.i.i
-  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i48.i.i, i64 8) ]
   %27 = load atomic i64, ptr %add.ptr.i48.i.i monotonic, align 8
   %not.i.i49.i.i = xor i64 %shl5.i.i.i, -1
   br label %do.body1.i.i50.i.i
@@ -4795,7 +4755,6 @@ if.else.i.i:                                      ; preds = %sw.bb18.i.i
   %idx.ext.i55.i.i = and i64 %8, 15
   %idx.neg.i56.i.i = sub nsw i64 0, %idx.ext.i55.i.i
   %add.ptr.i57.i.i = getelementptr i8, ptr %7, i64 %idx.neg.i56.i.i
-  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i57.i.i, i64 16) ]
   %32 = load i128, ptr %add.ptr.i57.i.i, align 16
   %not.i.i.i.i.i = xor i64 %retval.sroa.0.0.extract.trunc.i23.i.i.i, -1
   %b.sroa.0.0.insert.ext.i.i.i.i.i = zext i64 %not.i.i.i.i.i to i128
@@ -4939,7 +4898,6 @@ if.else34:                                        ; preds = %if.else
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %if.else34
-  call void @llvm.assume(i1 true) [ "align"(ptr %9, i64 16) ]
   %11 = load i32, ptr @cpuinfo, align 4
   %and.i.i = and i32 %11, 65536
   %tobool.not.i.i = icmp eq i32 %and.i.i, 0
@@ -5049,69 +5007,55 @@ sw.bb.i:                                          ; preds = %required_atomicity.
 
 sw.bb7.i:                                         ; preds = %required_atomicity.exit.i
   %conv.i.i.i = trunc i64 %val.addr.1.off0 to i16
-  call void @llvm.assume(i1 true) [ "align"(ptr %9, i64 2) ]
   store atomic i16 %conv.i.i.i, ptr %9 monotonic, align 2
   %add.ptr.i.i.i = getelementptr i8, ptr %9, i64 2
   %shr1.i7.i.i = lshr i64 %val.addr.1.off0, 16
   %conv2.i.i.i = trunc i64 %shr1.i7.i.i to i16
-  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i.i.i, i64 2) ]
   store atomic i16 %conv2.i.i.i, ptr %add.ptr.i.i.i monotonic, align 2
   %add.ptr.i.i = getelementptr i8, ptr %9, i64 4
   %shr1.i.i = lshr i64 %val.addr.1.off0, 32
   %conv.i3.i.i = trunc i64 %shr1.i.i to i16
-  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i.i, i64 2) ]
   store atomic i16 %conv.i3.i.i, ptr %add.ptr.i.i monotonic, align 2
   %add.ptr.i4.i.i = getelementptr i8, ptr %9, i64 6
   %sum.shift.i.i = lshr i64 %val.addr.1.off0, 48
   %conv2.i6.i.i = trunc nuw i64 %sum.shift.i.i to i16
-  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i4.i.i, i64 2) ]
   store atomic i16 %conv2.i6.i.i, ptr %add.ptr.i4.i.i monotonic, align 2
   %add.ptr.i = getelementptr i8, ptr %9, i64 8
   %conv.i.i35.i = trunc i64 %val.addr.1.off64 to i16
-  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i, i64 2) ]
   store atomic i16 %conv.i.i35.i, ptr %add.ptr.i monotonic, align 2
   %add.ptr.i.i36.i = getelementptr i8, ptr %9, i64 10
   %shr1.i7.i37.i = lshr i64 %val.addr.1.off64, 16
   %conv2.i.i38.i = trunc i64 %shr1.i7.i37.i to i16
-  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i.i36.i, i64 2) ]
   store atomic i16 %conv2.i.i38.i, ptr %add.ptr.i.i36.i monotonic, align 2
   %add.ptr.i39.i = getelementptr i8, ptr %9, i64 12
   %shr1.i40.i = lshr i64 %val.addr.1.off64, 32
   %conv.i3.i41.i = trunc i64 %shr1.i40.i to i16
-  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i39.i, i64 2) ]
   store atomic i16 %conv.i3.i41.i, ptr %add.ptr.i39.i monotonic, align 2
   %add.ptr.i4.i42.i = getelementptr i8, ptr %9, i64 14
   %sum.shift.i43.i = lshr i64 %val.addr.1.off64, 48
   %conv2.i6.i44.i = trunc nuw i64 %sum.shift.i43.i to i16
-  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i4.i42.i, i64 2) ]
   store atomic i16 %conv2.i6.i44.i, ptr %add.ptr.i4.i42.i monotonic, align 2
   br label %if.end116
 
 sw.bb8.i:                                         ; preds = %required_atomicity.exit.i
   %conv.i45.i = trunc i64 %val.addr.1.off0 to i32
-  call void @llvm.assume(i1 true) [ "align"(ptr %9, i64 4) ]
   store atomic i32 %conv.i45.i, ptr %9 monotonic, align 4
   %add.ptr.i46.i = getelementptr i8, ptr %9, i64 4
   %shr1.i47.i = lshr i64 %val.addr.1.off0, 32
   %conv2.i.i = trunc nuw i64 %shr1.i47.i to i32
-  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i46.i, i64 4) ]
   store atomic i32 %conv2.i.i, ptr %add.ptr.i46.i monotonic, align 4
   %add.ptr9.i = getelementptr i8, ptr %9, i64 8
   %conv.i48.i = trunc i64 %val.addr.1.off64 to i32
-  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr9.i, i64 4) ]
   store atomic i32 %conv.i48.i, ptr %add.ptr9.i monotonic, align 4
   %add.ptr.i49.i = getelementptr i8, ptr %9, i64 12
   %shr1.i50.i = lshr i64 %val.addr.1.off64, 32
   %conv2.i51.i = trunc nuw i64 %shr1.i50.i to i32
-  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i49.i, i64 4) ]
   store atomic i32 %conv2.i51.i, ptr %add.ptr.i49.i monotonic, align 4
   br label %if.end116
 
 sw.bb10.i:                                        ; preds = %required_atomicity.exit.i
-  call void @llvm.assume(i1 true) [ "align"(ptr %9, i64 8) ]
   store atomic i64 %val.addr.1.off0, ptr %9 monotonic, align 8
   %add.ptr11.i = getelementptr i8, ptr %9, i64 8
-  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr11.i, i64 8) ]
   store atomic i64 %val.addr.1.off64, ptr %add.ptr11.i monotonic, align 8
   br label %if.end116
 
@@ -5153,7 +5097,6 @@ sw.bb15.i:                                        ; preds = %sw.bb12.i, %sw.bb12
   %retval.sroa.2.0.extract.shift.i24.i.i = and i128 %shl.i22.i.i, -18446744073709551616
   %idx.neg.i.i = sub nsw i64 0, %and.i
   %add.ptr.i54.i = getelementptr i8, ptr %9, i64 %idx.neg.i.i
-  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i54.i, i64 16) ]
   %26 = load i128, ptr %add.ptr.i54.i, align 16
   %not.i.i.i.i = xor i64 %retval.sroa.0.0.extract.trunc.i23.i.i, -1
   %b.sroa.0.0.insert.ext.i.i.i.i = zext i64 %not.i.i.i.i to i128
@@ -5234,7 +5177,6 @@ store_bytes_leN.exit69.i:                         ; preds = %for.body.i61.i
   %idx.ext.i92.i = and i64 %31, 15
   %idx.neg.i93.i = sub nsw i64 0, %idx.ext.i92.i
   %add.ptr.i94.i = getelementptr i8, ptr %add.ptr28.i, i64 %idx.neg.i93.i
-  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i94.i, i64 16) ]
   %37 = load i128, ptr %add.ptr.i94.i, align 16
   %not.i.i.i95.i = xor i64 %retval.sroa.0.0.extract.trunc.i23.i90.i, -1
   %b.sroa.0.0.insert.ext.i.i.i96.i = zext i64 %not.i.i.i95.i to i128
@@ -6725,7 +6667,6 @@ entry:
   %8 = shl nuw i128 %7, 64
   %9 = or disjoint i128 %8, %6
   %new.sroa.0.0.insert.insert.i.i = tail call i128 @llvm.bswap.i128(i128 %9)
-  call void @llvm.assume(i1 true) [ "align"(ptr %call3.i, i64 16) ]
   %10 = cmpxchg ptr %call3.i, i128 %cmp.sroa.0.0.insert.insert.i.i, i128 %new.sroa.0.0.insert.insert.i.i seq_cst seq_cst, align 16
   %11 = extractvalue { i128, i1 } %10, 1
   %12 = extractvalue { i128, i1 } %10, 0
@@ -6757,7 +6698,6 @@ entry:
   %6 = shl nuw i128 %5, 64
   %7 = or disjoint i128 %6, %4
   %new.sroa.0.0.insert.insert.i = tail call i128 @llvm.bswap.i128(i128 %7)
-  call void @llvm.assume(i1 true) [ "align"(ptr %call3, i64 16) ]
   %8 = cmpxchg ptr %call3, i128 %cmp.sroa.0.0.insert.insert.i, i128 %new.sroa.0.0.insert.insert.i seq_cst seq_cst, align 16
   %9 = extractvalue { i128, i1 } %8, 1
   %10 = extractvalue { i128, i1 } %8, 0
@@ -6789,7 +6729,6 @@ entry:
   %new.sroa.2.0.insert.shift.i.i = shl nuw i128 %new.sroa.2.0.insert.ext.i.i, 64
   %new.sroa.0.0.insert.ext.i.i = zext i64 %newv.coerce0 to i128
   %new.sroa.0.0.insert.insert.i.i = or disjoint i128 %new.sroa.2.0.insert.shift.i.i, %new.sroa.0.0.insert.ext.i.i
-  call void @llvm.assume(i1 true) [ "align"(ptr %call3.i, i64 16) ]
   %2 = cmpxchg ptr %call3.i, i128 %cmp.sroa.0.0.insert.insert.i.i, i128 %new.sroa.0.0.insert.insert.i.i seq_cst seq_cst, align 16
   %3 = extractvalue { i128, i1 } %2, 1
   %4 = extractvalue { i128, i1 } %2, 0
@@ -6817,7 +6756,6 @@ entry:
   %new.sroa.2.0.insert.shift.i = shl nuw i128 %new.sroa.2.0.insert.ext.i, 64
   %new.sroa.0.0.insert.ext.i = zext i64 %newv.coerce0 to i128
   %new.sroa.0.0.insert.insert.i = or disjoint i128 %new.sroa.2.0.insert.shift.i, %new.sroa.0.0.insert.ext.i
-  call void @llvm.assume(i1 true) [ "align"(ptr %call3, i64 16) ]
   %0 = cmpxchg ptr %call3, i128 %cmp.sroa.0.0.insert.insert.i, i128 %new.sroa.0.0.insert.insert.i seq_cst seq_cst, align 16
   %1 = extractvalue { i128, i1 } %0, 1
   %2 = extractvalue { i128, i1 } %0, 0
@@ -12870,14 +12808,12 @@ do.body.i:                                        ; preds = %sw.epilog.i, %sw.bb
   ]
 
 sw.bb.i:                                          ; preds = %do.body.i
-  call void @llvm.assume(i1 true) [ "align"(ptr %haddr.0.i, i64 4) ]
   %8 = load atomic i32, ptr %haddr.0.i monotonic, align 4
   %9 = tail call noundef i32 @llvm.bswap.i32(i32 %8)
   %conv4.i = zext i32 %9 to i64
   br label %sw.epilog.i
 
 sw.bb6.i:                                         ; preds = %do.body.i, %do.body.i
-  call void @llvm.assume(i1 true) [ "align"(ptr %haddr.0.i, i64 2) ]
   %10 = load atomic i16, ptr %haddr.0.i monotonic, align 2
   %11 = tail call noundef i16 @llvm.bswap.i16(i16 %10)
   %conv9.i = zext i16 %11 to i64
@@ -12930,7 +12866,6 @@ if.then17:                                        ; preds = %cond.false13, %cond
   %idx.ext.i22 = and i64 %15, 7
   %idx.neg.i = sub nsw i64 0, %idx.ext.i22
   %add.ptr.i23 = getelementptr i8, ptr %16, i64 %idx.neg.i
-  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i23, i64 8) ]
   %17 = load atomic i64, ptr %add.ptr.i23 monotonic, align 8
   %18 = tail call noundef i64 @llvm.bswap.i64(i64 %17)
   %conv.i24 = shl i64 %15, 3
@@ -13007,7 +12942,6 @@ if.else:                                          ; preds = %entry
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %if.else
-  call void @llvm.assume(i1 true) [ "align"(ptr %4, i64 8) ]
   %6 = load atomic i64, ptr %4 monotonic, align 8
   br label %load_atom_8.exit
 
@@ -13134,7 +13068,6 @@ load_atom_extract_al16_or_exit.exit.i:            ; preds = %cpu_in_serial_conte
   %and1.i10.i = and i64 %5, -8
   %18 = inttoptr i64 %and1.i10.i to ptr
   call void @llvm.assume(i1 true) [ "align"(ptr %18, i64 16) ]
-  call void @llvm.assume(i1 true) [ "align"(ptr %18, i64 16) ]
   %19 = cmpxchg ptr %18, i128 0, i128 0 seq_cst seq_cst, align 16
   %20 = extractvalue { i128, i1 } %19, 0
   %21 = trunc i64 %5 to i32
@@ -13151,10 +13084,8 @@ if.end18.i:                                       ; preds = %cpu_in_serial_conte
   %conv.i22.i = and i32 %22, 56
   %and1.i23.i = and i64 %5, -8
   %23 = inttoptr i64 %and1.i23.i to ptr
-  call void @llvm.assume(i1 true) [ "align"(ptr %23, i64 8) ]
   %24 = load atomic i64, ptr %23 monotonic, align 8
   %add.ptr.i.i = getelementptr i8, ptr %23, i64 8
-  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i.i, i64 8) ]
   %25 = load atomic i64, ptr %add.ptr.i.i monotonic, align 8
   %sh_prom.i.i = zext nneg i32 %conv.i22.i to i64
   %shr.i.i = lshr i64 %24, %sh_prom.i.i
@@ -13405,14 +13336,12 @@ do.body.i:                                        ; preds = %sw.epilog.i, %sw.bb
   ]
 
 sw.bb.i:                                          ; preds = %do.body.i
-  call void @llvm.assume(i1 true) [ "align"(ptr %haddr.0.i, i64 4) ]
   %7 = load atomic i32, ptr %haddr.0.i monotonic, align 4
   %8 = tail call noundef i32 @llvm.bswap.i32(i32 %7)
   %conv4.i = zext i32 %8 to i64
   br label %sw.epilog.i
 
 sw.bb6.i:                                         ; preds = %do.body.i, %do.body.i
-  call void @llvm.assume(i1 true) [ "align"(ptr %haddr.0.i, i64 2) ]
   %9 = load atomic i16, ptr %haddr.0.i monotonic, align 2
   %10 = tail call noundef i16 @llvm.bswap.i16(i16 %9)
   %conv9.i = zext i16 %10 to i64
@@ -13462,14 +13391,12 @@ do.body.i35:                                      ; preds = %sw.epilog.i45, %do_
   ]
 
 sw.bb.i55:                                        ; preds = %do.body.i35
-  call void @llvm.assume(i1 true) [ "align"(ptr %haddr.0.i37, i64 4) ]
   %13 = load atomic i32, ptr %haddr.0.i37 monotonic, align 4
   %14 = tail call noundef i32 @llvm.bswap.i32(i32 %13)
   %conv4.i56 = zext i32 %14 to i64
   br label %sw.epilog.i45
 
 sw.bb6.i43:                                       ; preds = %do.body.i35, %do.body.i35
-  call void @llvm.assume(i1 true) [ "align"(ptr %haddr.0.i37, i64 2) ]
   %15 = load atomic i16, ptr %haddr.0.i37 monotonic, align 2
   %16 = tail call noundef i16 @llvm.bswap.i16(i16 %15)
   %conv9.i44 = zext i16 %16 to i64
@@ -13504,7 +13431,6 @@ sw.bb10:                                          ; preds = %if.end
   %idx.ext.i60 = and i64 %18, 15
   %idx.neg.i = sub nsw i64 0, %idx.ext.i60
   %add.ptr.i61 = getelementptr i8, ptr %19, i64 %idx.neg.i
-  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i61, i64 16) ]
   %20 = load i32, ptr @cpuinfo, align 4
   %and.i.i = and i32 %20, 65536
   %tobool.not.i.i = icmp eq i32 %and.i.i, 0
@@ -13517,7 +13443,6 @@ if.then.i.i:                                      ; preds = %sw.bb10
   br label %do_ld_whole_be16.exit
 
 atomic16_read_rw.exit.i.i:                        ; preds = %sw.bb10
-  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i61, i64 16) ]
   %22 = cmpxchg ptr %add.ptr.i61, i128 0, i128 0 seq_cst seq_cst, align 16
   %23 = extractvalue { i128, i1 } %22, 0
   %extract.t2.i.i.i = trunc i128 %23 to i64
@@ -13766,13 +13691,11 @@ do.body.i:                                        ; preds = %sw.epilog.i, %sw.bb
 
 sw.bb.i:                                          ; preds = %do.body.i
   %conv1.i = trunc i64 %val_le.addr.0.i to i32
-  call void @llvm.assume(i1 true) [ "align"(ptr %pv.addr.0.i, i64 4) ]
   store atomic i32 %conv1.i, ptr %pv.addr.0.i monotonic, align 4
   br label %sw.epilog.i
 
 sw.bb2.i:                                         ; preds = %do.body.i, %do.body.i
   %conv3.i = trunc i64 %val_le.addr.0.i to i16
-  call void @llvm.assume(i1 true) [ "align"(ptr %pv.addr.0.i, i64 2) ]
   store atomic i16 %conv3.i, ptr %pv.addr.0.i monotonic, align 2
   br label %sw.epilog.i
 
@@ -13828,7 +13751,6 @@ if.then30:                                        ; preds = %cond.false26, %cond
   %idx.ext.i25 = and i64 %12, 7
   %idx.neg.i = sub nsw i64 0, %idx.ext.i25
   %add.ptr.i26 = getelementptr i8, ptr %11, i64 %idx.neg.i
-  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i26, i64 8) ]
   %13 = load atomic i64, ptr %add.ptr.i26 monotonic, align 8
   %not.i.i = xor i64 %shl5.i, -1
   br label %do.body1.i.i
@@ -13917,7 +13839,6 @@ if.else16:                                        ; preds = %if.else
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %if.else16
-  call void @llvm.assume(i1 true) [ "align"(ptr %5, i64 8) ]
   store atomic i64 %spec.select12, ptr %5 monotonic, align 8
   br label %if.end22
 
@@ -14013,33 +13934,27 @@ sw.bb.i:                                          ; preds = %required_atomicity.
 
 sw.bb2.i:                                         ; preds = %required_atomicity.exit.i
   %conv.i.i.i = trunc i64 %spec.select12 to i16
-  call void @llvm.assume(i1 true) [ "align"(ptr %5, i64 2) ]
   store atomic i16 %conv.i.i.i, ptr %5 monotonic, align 2
   %add.ptr.i.i.i = getelementptr i8, ptr %5, i64 2
   %shr1.i7.i.i = lshr i64 %spec.select12, 16
   %conv2.i.i.i = trunc i64 %shr1.i7.i.i to i16
-  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i.i.i, i64 2) ]
   store atomic i16 %conv2.i.i.i, ptr %add.ptr.i.i.i monotonic, align 2
   %add.ptr.i.i = getelementptr i8, ptr %5, i64 4
   %shr1.i.i = lshr i64 %spec.select12, 32
   %conv.i3.i.i = trunc i64 %shr1.i.i to i16
-  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i.i, i64 2) ]
   store atomic i16 %conv.i3.i.i, ptr %add.ptr.i.i monotonic, align 2
   %add.ptr.i4.i.i = getelementptr i8, ptr %5, i64 6
   %sum.shift.i.i = lshr i64 %spec.select12, 48
   %conv2.i6.i.i = trunc nuw i64 %sum.shift.i.i to i16
-  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i4.i.i, i64 2) ]
   store atomic i16 %conv2.i6.i.i, ptr %add.ptr.i4.i.i monotonic, align 2
   br label %if.end22
 
 sw.bb3.i:                                         ; preds = %required_atomicity.exit.i
   %conv.i26.i = trunc i64 %spec.select12 to i32
-  call void @llvm.assume(i1 true) [ "align"(ptr %5, i64 4) ]
   store atomic i32 %conv.i26.i, ptr %5 monotonic, align 4
   %add.ptr.i27.i = getelementptr i8, ptr %5, i64 4
   %shr1.i28.i = lshr i64 %spec.select12, 32
   %conv2.i.i = trunc nuw i64 %shr1.i28.i to i32
-  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i27.i, i64 4) ]
   store atomic i32 %conv2.i.i, ptr %add.ptr.i27.i monotonic, align 4
   br label %if.end22
 
@@ -14066,7 +13981,6 @@ sw.bb8.i:                                         ; preds = %sw.bb4.i, %sw.bb4.i
   %shl5.i.i = shl i64 %shr.i.i, %mul1.i.i
   %idx.neg.i.i = sub nsw i64 0, %and.i
   %add.ptr.i30.i = getelementptr i8, ptr %5, i64 %idx.neg.i.i
-  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i30.i, i64 8) ]
   %13 = load atomic i64, ptr %add.ptr.i30.i monotonic, align 8
   %not.i.i.i = xor i64 %shl5.i.i, -1
   br label %do.body1.i.i.i
@@ -14126,7 +14040,6 @@ store_bytes_leN.exit46.i:                         ; preds = %for.body.i38.i
   %idx.ext.i55.i = and i64 %17, 7
   %idx.neg.i56.i = sub nsw i64 0, %idx.ext.i55.i
   %add.ptr.i57.i = getelementptr i8, ptr %add.ptr14.i, i64 %idx.neg.i56.i
-  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i57.i, i64 8) ]
   %18 = load atomic i64, ptr %add.ptr.i57.i monotonic, align 8
   %not.i.i58.i = xor i64 %shl5.i54.i, -1
   br label %do.body1.i.i59.i
@@ -14157,7 +14070,6 @@ sw.bb17.i:                                        ; preds = %required_atomicity.
   %idx.ext.i67.i = and i64 %6, 15
   %idx.neg.i68.i = sub nsw i64 0, %idx.ext.i67.i
   %add.ptr.i69.i = getelementptr i8, ptr %5, i64 %idx.neg.i68.i
-  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i69.i, i64 16) ]
   %23 = load i128, ptr %add.ptr.i69.i, align 16
   %not.i.i.i.i = xor i64 %retval.sroa.0.0.extract.trunc.i23.i.i, -1
   %b.sroa.0.0.insert.ext.i.i.i.i = zext i64 %not.i.i.i.i to i128
@@ -14394,13 +14306,11 @@ do.body.i:                                        ; preds = %sw.epilog.i, %sw.bb
 
 sw.bb.i:                                          ; preds = %do.body.i
   %conv1.i = trunc i64 %val_le.addr.0.i to i32
-  call void @llvm.assume(i1 true) [ "align"(ptr %pv.addr.0.i, i64 4) ]
   store atomic i32 %conv1.i, ptr %pv.addr.0.i monotonic, align 4
   br label %sw.epilog.i
 
 sw.bb2.i:                                         ; preds = %do.body.i, %do.body.i
   %conv3.i = trunc i64 %val_le.addr.0.i to i16
-  call void @llvm.assume(i1 true) [ "align"(ptr %pv.addr.0.i, i64 2) ]
   store atomic i16 %conv3.i, ptr %pv.addr.0.i monotonic, align 2
   br label %sw.epilog.i
 
@@ -14447,13 +14357,11 @@ do.body.i20:                                      ; preds = %sw.epilog.i30, %sto
 
 sw.bb.i38:                                        ; preds = %do.body.i20
   %conv1.i39 = trunc i64 %val_le.addr.0.i23 to i32
-  call void @llvm.assume(i1 true) [ "align"(ptr %pv.addr.0.i21, i64 4) ]
   store atomic i32 %conv1.i39, ptr %pv.addr.0.i21 monotonic, align 4
   br label %sw.epilog.i30
 
 sw.bb2.i28:                                       ; preds = %do.body.i20, %do.body.i20
   %conv3.i29 = trunc i64 %val_le.addr.0.i23 to i16
-  call void @llvm.assume(i1 true) [ "align"(ptr %pv.addr.0.i21, i64 2) ]
   store atomic i16 %conv3.i29, ptr %pv.addr.0.i21 monotonic, align 2
   br label %sw.epilog.i30
 
@@ -14508,7 +14416,6 @@ sw.bb28:                                          ; preds = %if.end17
   %idx.ext.i46 = and i64 %11, 15
   %idx.neg.i = sub nsw i64 0, %idx.ext.i46
   %add.ptr.i47 = getelementptr i8, ptr %10, i64 %idx.neg.i
-  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i47, i64 16) ]
   %17 = load i128, ptr %add.ptr.i47, align 16
   %not.i.i.i = xor i64 %retval.sroa.0.0.extract.trunc.i23.i, -1
   %b.sroa.0.0.insert.ext.i.i.i = zext i64 %not.i.i.i to i128

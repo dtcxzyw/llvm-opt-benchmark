@@ -6946,7 +6946,7 @@ common.resume:                                    ; preds = %310, %339, %"_ZN63_
 
 _ZN6brotli3enc9metablock17InitBlockSplitter17h19674f15767ad67bE.exit: ; preds = %"_ZN111_$LT$alloc_stdlib..std_alloc..StandardAlloc$u20$as$u20$alloc_no_stdlib..stack_allocator..Allocator$LT$T$GT$$GT$9free_cell17h46c1767d6835fc34E.exit.i"
   %116 = getelementptr inbounds nuw i8, ptr %86, i64 1032
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1032) %86, i8 0, i64 1032, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1032) %86, i8 0, i64 1032, i1 false)
   store float 0x47EFFE0460000000, ptr %116, align 8, !alias.scope !714
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5.sroa.9.sroa.6, i8 0, i64 16, i1 false)
   br label %207
@@ -7491,7 +7491,7 @@ _ZN6brotli3enc9metablock24InitContextBlockSplitter17hb2d66d2627967bceE.exit: ; p
 
 _ZN6brotli3enc9metablock17InitBlockSplitter17h4b5063fd3a1c0956E.exit: ; preds = %"_ZN111_$LT$alloc_stdlib..std_alloc..StandardAlloc$u20$as$u20$alloc_no_stdlib..stack_allocator..Allocator$LT$T$GT$$GT$9free_cell17he19dcc28844539a8E.exit.i"
   %276 = getelementptr inbounds nuw i8, ptr %246, i64 2824
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(2824) %246, i8 0, i64 2824, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(2824) %246, i8 0, i64 2824, i1 false)
   store float 0x47EFFE0460000000, ptr %276, align 8, !alias.scope !877
   store <2 x i64> zeroinitializer, ptr %39, align 16
   %.sroa.5157.0..sroa_idx = getelementptr inbounds nuw i8, ptr %39, i64 16
@@ -7725,7 +7725,7 @@ _ZN6brotli3enc9metablock17InitBlockSplitter17h4b5063fd3a1c0956E.exit: ; preds = 
 
 _ZN6brotli3enc9metablock17InitBlockSplitter17he5294770bb896e69E.exit: ; preds = %"_ZN111_$LT$alloc_stdlib..std_alloc..StandardAlloc$u20$as$u20$alloc_no_stdlib..stack_allocator..Allocator$LT$T$GT$$GT$9free_cell17h94ef054365d5118bE.exit.i"
   %345 = getelementptr inbounds nuw i8, ptr %315, i64 2184
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(2184) %315, i8 0, i64 2184, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(2184) %315, i8 0, i64 2184, i1 false)
   store float 0x47EFFE0460000000, ptr %345, align 8, !alias.scope !950
   store <2 x i64> zeroinitializer, ptr %38, align 16
   %.sroa.5164.0..sroa_idx = getelementptr inbounds nuw i8, ptr %38, i64 16
