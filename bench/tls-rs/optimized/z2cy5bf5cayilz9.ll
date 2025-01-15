@@ -7196,6 +7196,7 @@ define hidden void @"_ZN6rustls4conn28ConnectionCommon$LT$Data$GT$25dangerous_ex
   call void @llvm.lifetime.start.p0(i64 39, ptr nonnull %.sroa.728)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %.sroa.931)
   call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %11)
+  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.6.0.copyload, i64 8) ]
   %26 = getelementptr inbounds nuw i8, ptr %.sroa.6.0.copyload, i64 40
   %27 = load ptr, ptr %26, align 8, !invariant.load !4, !nonnull !4
   invoke void %27(ptr noalias nocapture noundef nonnull sret({ i8, [111 x i8] }) align 8 dereferenceable(112) %11, ptr noundef nonnull align 1 %.sroa.515.0.copyload)
@@ -7292,6 +7293,7 @@ define hidden void @"_ZN6rustls4conn28ConnectionCommon$LT$Data$GT$25dangerous_ex
 
 48:                                               ; preds = %40
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %12)
+  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.6.0.copyload, i64 8) ]
   %49 = load ptr, ptr %.sroa.6.0.copyload, align 8, !invariant.load !4, !noalias !1271, !nonnull !4
   invoke void %49(ptr noundef nonnull align 1 %.sroa.515.0.copyload)
           to label %59 unwind label %50, !noalias !1271
@@ -7630,6 +7632,7 @@ define hidden void @"_ZN6rustls4conn28ConnectionCommon$LT$Data$GT$25dangerous_ex
 
 171:                                              ; preds = %36
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %12)
+  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.6.0.copyload, i64 8) ]
   %172 = load ptr, ptr %.sroa.6.0.copyload, align 8, !invariant.load !4, !noalias !1337, !nonnull !4
   invoke void %172(ptr noundef nonnull align 1 %.sroa.515.0.copyload)
           to label %182 unwind label %173, !noalias !1337
@@ -10985,6 +10988,7 @@ define hidden void @_ZN6rustls7hash_hs19HandshakeHashBuffer10hash_given17hb494ad
   %.fca.1.extract = extractvalue { ptr, ptr } %10, 1
   %.fca.1.gep = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %.fca.1.extract, ptr %.fca.1.gep, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %.fca.1.extract, i64 8) ]
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %12 = load ptr, ptr %11, align 8, !nonnull !4, !noundef !4
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -11052,6 +11056,7 @@ define hidden void @_ZN6rustls7hash_hs19HandshakeHashBuffer10start_hash17h95177f
   %.fca.1.extract = extractvalue { ptr, ptr } %9, 1
   %.fca.1.gep = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %.fca.1.extract, ptr %.fca.1.gep, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %.fca.1.extract, i64 8) ]
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %15 = load ptr, ptr %14, align 8, !nonnull !4, !noundef !4
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -11281,6 +11286,7 @@ define hidden void @_ZN6rustls7hash_hs13HandshakeHash10hash_given17h2ea0c5dd90bb
   %.fca.1.extract = extractvalue { ptr, ptr } %12, 1
   %.fca.1.gep = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %.fca.1.extract, ptr %.fca.1.gep, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %.fca.1.extract, i64 8) ]
   %13 = getelementptr inbounds nuw i8, ptr %.fca.1.extract, i64 48
   %14 = load ptr, ptr %13, align 8, !invariant.load !4, !nonnull !4
   invoke void %14(ptr noundef align 1 %.fca.0.extract, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3)
@@ -20146,6 +20152,7 @@ _ZN6rustls7hash_hs13HandshakeHash11add_message17h96486aaaeca9d316E.exit: ; preds
   br i1 %.not.i.i83, label %_ZN6rustls12common_state11CommonState13start_traffic17h228a7d3f5fdec1b3E.exit, label %307
 
 307:                                              ; preds = %302
+  call void @llvm.assume(i1 true) [ "align"(ptr %306, i64 8) ]
   invoke void @_ZN6rustls12common_state11CommonState15flush_plaintext17hb0dc319bf79a5d5eE.llvm.12428379203013389814(ptr noalias noundef nonnull align 8 dereferenceable(776) %59, ptr noalias noundef nonnull align 8 dereferenceable(48) %306)
           to label %_ZN6rustls12common_state11CommonState13start_traffic17h228a7d3f5fdec1b3E.exit unwind label %.loopexit.split-lp
 

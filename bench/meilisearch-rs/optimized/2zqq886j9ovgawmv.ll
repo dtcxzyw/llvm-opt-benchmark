@@ -7800,6 +7800,7 @@ define hidden noundef zeroext i1 @_ZN10actix_http6header3map9HeaderMap12contains
   tail call void @llvm.experimental.noalias.scope.decl(metadata !872)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !875)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !878)
+  call void @llvm.assume(i1 true) [ "align"(ptr %6, i64 8) ]
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %10 = load ptr, ptr %9, align 8, !noalias !881, !nonnull !16, !noundef !16
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -7822,6 +7823,7 @@ define hidden noundef zeroext i1 @_ZN10actix_http6header3map9HeaderMap12contains
   tail call void @llvm.experimental.noalias.scope.decl(metadata !892)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !895)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !898)
+  call void @llvm.assume(i1 true) [ "align"(ptr %17, i64 8) ]
   %20 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %21 = load ptr, ptr %20, align 8, !noalias !901, !nonnull !16, !noundef !16
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -7864,6 +7866,7 @@ define hidden noundef align 8 ptr @_ZN10actix_http6header3map9HeaderMap3get17h03
   tail call void @llvm.experimental.noalias.scope.decl(metadata !916)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !919)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !922)
+  call void @llvm.assume(i1 true) [ "align"(ptr %6, i64 8) ]
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %10 = load ptr, ptr %9, align 8, !noalias !925, !nonnull !16, !noundef !16
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -7886,6 +7889,7 @@ define hidden noundef align 8 ptr @_ZN10actix_http6header3map9HeaderMap3get17h03
   tail call void @llvm.experimental.noalias.scope.decl(metadata !937)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !940)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !943)
+  call void @llvm.assume(i1 true) [ "align"(ptr %17, i64 8) ]
   %20 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %21 = load ptr, ptr %20, align 8, !noalias !946, !nonnull !16, !noundef !16
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -7961,6 +7965,7 @@ _ZN10actix_http6header3map9HeaderMap9get_value17h61449139812ab08cE.llvm.69555306
   call void @llvm.experimental.noalias.scope.decl(metadata !966)
   call void @llvm.experimental.noalias.scope.decl(metadata !969)
   call void @llvm.experimental.noalias.scope.decl(metadata !972)
+  call void @llvm.assume(i1 true) [ "align"(ptr %12, i64 8) ]
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %16 = load ptr, ptr %15, align 8, !noalias !975, !nonnull !16, !noundef !16
   %17 = getelementptr inbounds nuw i8, ptr %5, i64 24
@@ -7982,6 +7987,7 @@ _ZN10actix_http6header3map9HeaderMap9get_value17h61449139812ab08cE.llvm.69555306
   call void @llvm.experimental.noalias.scope.decl(metadata !988)
   call void @llvm.experimental.noalias.scope.decl(metadata !991)
   call void @llvm.experimental.noalias.scope.decl(metadata !994)
+  call void @llvm.assume(i1 true) [ "align"(ptr %22, i64 8) ]
   %25 = getelementptr inbounds nuw i8, ptr %22, i64 16
   %26 = load ptr, ptr %25, align 8, !noalias !997, !nonnull !16, !noundef !16
   %27 = getelementptr inbounds nuw i8, ptr %5, i64 24
@@ -8073,6 +8079,7 @@ define hidden noundef align 8 ptr @_ZN10actix_http6header3map9HeaderMap9get_valu
   call void @llvm.experimental.noalias.scope.decl(metadata !1012)
   call void @llvm.experimental.noalias.scope.decl(metadata !1015)
   call void @llvm.experimental.noalias.scope.decl(metadata !1018)
+  call void @llvm.assume(i1 true) [ "align"(ptr %13, i64 8) ]
   %16 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %17 = load ptr, ptr %16, align 8, !noalias !1021, !nonnull !16, !noundef !16
   %18 = getelementptr inbounds nuw i8, ptr %5, i64 24
@@ -8094,6 +8101,7 @@ define hidden noundef align 8 ptr @_ZN10actix_http6header3map9HeaderMap9get_valu
   call void @llvm.experimental.noalias.scope.decl(metadata !1032)
   call void @llvm.experimental.noalias.scope.decl(metadata !1035)
   call void @llvm.experimental.noalias.scope.decl(metadata !1038)
+  call void @llvm.assume(i1 true) [ "align"(ptr %23, i64 8) ]
   %26 = getelementptr inbounds nuw i8, ptr %23, i64 16
   %27 = load ptr, ptr %26, align 8, !noalias !1041, !nonnull !16, !noundef !16
   %28 = getelementptr inbounds nuw i8, ptr %5, i64 24
@@ -8139,6 +8147,7 @@ define hidden noundef align 8 ptr @_ZN10actix_http6header3map9HeaderMap9get_valu
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1052)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1055)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1058)
+  call void @llvm.assume(i1 true) [ "align"(ptr %6, i64 8) ]
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %10 = load ptr, ptr %9, align 8, !noalias !1061, !nonnull !16, !noundef !16
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -8161,6 +8170,7 @@ define hidden noundef align 8 ptr @_ZN10actix_http6header3map9HeaderMap9get_valu
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1072)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1075)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1078)
+  call void @llvm.assume(i1 true) [ "align"(ptr %17, i64 8) ]
   %20 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %21 = load ptr, ptr %20, align 8, !noalias !1081, !nonnull !16, !noundef !16
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -27346,6 +27356,7 @@ define hidden void @"_ZN4core3ptr70drop_in_place$LT$$LP$http..header..name..Head
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5613)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5616)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5619)
+  call void @llvm.assume(i1 true) [ "align"(ptr %2, i64 8) ]
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %6 = load ptr, ptr %5, align 8, !noalias !5622, !nonnull !16, !noundef !16
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -28150,6 +28161,7 @@ define hidden void @"_ZN4core3ptr92drop_in_place$LT$$LP$http..header..name..Head
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5849)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5852)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5855)
+  call void @llvm.assume(i1 true) [ "align"(ptr %3, i64 8) ]
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %7 = load ptr, ptr %6, align 8, !noalias !5858, !nonnull !16, !noundef !16
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -29841,6 +29853,7 @@ define hidden void @_ZN4http6header5value11HeaderValue17from_maybe_shared17hf673
 10:                                               ; preds = %6
   call void @llvm.experimental.noalias.scope.decl(metadata !6082)
   call void @llvm.experimental.noalias.scope.decl(metadata !6085)
+  call void @llvm.assume(i1 true) [ "align"(ptr %8, i64 8) ]
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %12 = load ptr, ptr %11, align 8, !noalias !6088, !nonnull !16, !noundef !16
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 24
@@ -29889,6 +29902,7 @@ define hidden void @_ZN4http6header5value11HeaderValue17from_maybe_shared17hf673
 29:                                               ; preds = %26
   call void @llvm.experimental.noalias.scope.decl(metadata !6092)
   call void @llvm.experimental.noalias.scope.decl(metadata !6095)
+  call void @llvm.assume(i1 true) [ "align"(ptr %27, i64 8) ]
   %30 = getelementptr inbounds nuw i8, ptr %27, i64 16
   %31 = load ptr, ptr %30, align 8, !noalias !6098, !nonnull !16, !noundef !16
   %32 = getelementptr inbounds nuw i8, ptr %4, i64 24
@@ -30053,6 +30067,7 @@ define hidden void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h022eeb216dedc7
 9:                                                ; preds = %4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6125)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6128)
+  call void @llvm.assume(i1 true) [ "align"(ptr %7, i64 8) ]
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %11 = load ptr, ptr %10, align 8, !noalias !6131, !nonnull !16, !noundef !16
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 264
@@ -30074,6 +30089,7 @@ define hidden void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h022eeb216dedc7
 18:                                               ; preds = %14
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6149)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6152)
+  call void @llvm.assume(i1 true) [ "align"(ptr %16, i64 8) ]
   %19 = getelementptr inbounds nuw i8, ptr %16, i64 24
   %20 = load ptr, ptr %19, align 8, !noalias !6155, !nonnull !16, !noundef !16
   %21 = getelementptr inbounds nuw i8, ptr %2, i64 264
@@ -30788,6 +30804,7 @@ define hidden void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h3348330b01cf48
 10:                                               ; preds = %5
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6328)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6331)
+  call void @llvm.assume(i1 true) [ "align"(ptr %8, i64 8) ]
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %12 = load ptr, ptr %11, align 8, !noalias !6334, !nonnull !16, !noundef !16
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 264
@@ -30809,6 +30826,7 @@ define hidden void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h3348330b01cf48
 18:                                               ; preds = %"_ZN84_$LT$tokio..sync..mpsc..chan..Chan$LT$T$C$S$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hf1007f8e45e5bfc9E.llvm.4616129397091597767.exit.i"
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6352)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6355)
+  call void @llvm.assume(i1 true) [ "align"(ptr %16, i64 8) ]
   %19 = getelementptr inbounds nuw i8, ptr %16, i64 24
   %20 = load ptr, ptr %19, align 8, !noalias !6358, !nonnull !16, !noundef !16
   %21 = getelementptr inbounds nuw i8, ptr %2, i64 264
@@ -31261,6 +31279,7 @@ define hidden void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h4f8569e9ed3e1c
 10:                                               ; preds = %5
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6505)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6508)
+  call void @llvm.assume(i1 true) [ "align"(ptr %8, i64 8) ]
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %12 = load ptr, ptr %11, align 8, !noalias !6511, !nonnull !16, !noundef !16
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 264
@@ -31282,6 +31301,7 @@ define hidden void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h4f8569e9ed3e1c
 18:                                               ; preds = %"_ZN84_$LT$tokio..sync..mpsc..chan..Chan$LT$T$C$S$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h752f07378f7fea7aE.llvm.4616129397091597767.exit.i"
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6529)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6532)
+  call void @llvm.assume(i1 true) [ "align"(ptr %16, i64 8) ]
   %19 = getelementptr inbounds nuw i8, ptr %16, i64 24
   %20 = load ptr, ptr %19, align 8, !noalias !6535, !nonnull !16, !noundef !16
   %21 = getelementptr inbounds nuw i8, ptr %2, i64 264
@@ -33696,6 +33716,7 @@ define hidden void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hf86a38b6138395
 9:                                                ; preds = %4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7128)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7131)
+  call void @llvm.assume(i1 true) [ "align"(ptr %7, i64 8) ]
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %11 = load ptr, ptr %10, align 8, !noalias !7134, !nonnull !16, !noundef !16
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 264
@@ -33717,6 +33738,7 @@ define hidden void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hf86a38b6138395
 18:                                               ; preds = %14
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7152)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7155)
+  call void @llvm.assume(i1 true) [ "align"(ptr %16, i64 8) ]
   %19 = getelementptr inbounds nuw i8, ptr %16, i64 24
   %20 = load ptr, ptr %19, align 8, !noalias !7158, !nonnull !16, !noundef !16
   %21 = getelementptr inbounds nuw i8, ptr %2, i64 264
@@ -47819,6 +47841,7 @@ define hidden void @"_ZN92_$LT$hashbrown..map..Iter$LT$K$C$V$GT$$u20$as$u20$core
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false), !noalias !9639
   %20 = getelementptr inbounds i8, ptr %19, i64 -32
   %21 = getelementptr inbounds i8, ptr %19, i64 -8
+  call void @llvm.assume(i1 true) [ "align"(ptr %21, i64 8) ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !9640)
   store ptr %21, ptr %8, align 8, !noalias !9629
   store ptr %20, ptr %.sroa.4.0..sroa_idx.i.i.i, align 8, !noalias !9629
@@ -47906,6 +47929,7 @@ define hidden void @"_ZN92_$LT$hashbrown..map..Iter$LT$K$C$V$GT$$u20$as$u20$core
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false), !noalias !9681
   %20 = getelementptr inbounds i8, ptr %19, i64 -32
   %21 = getelementptr inbounds i8, ptr %19, i64 -8
+  call void @llvm.assume(i1 true) [ "align"(ptr %21, i64 8) ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !9682)
   store ptr %21, ptr %8, align 8, !noalias !9671
   store ptr %20, ptr %.sroa.4.0..sroa_idx.i.i.i, align 8, !noalias !9671
@@ -47993,6 +48017,7 @@ define hidden void @"_ZN92_$LT$hashbrown..map..Iter$LT$K$C$V$GT$$u20$as$u20$core
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false), !noalias !9723
   %20 = getelementptr inbounds i8, ptr %19, i64 -32
   %21 = getelementptr inbounds i8, ptr %19, i64 -8
+  call void @llvm.assume(i1 true) [ "align"(ptr %21, i64 8) ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !9724)
   store ptr %21, ptr %8, align 8, !noalias !9713
   store ptr %20, ptr %.sroa.4.0..sroa_idx.i.i.i, align 8, !noalias !9713
@@ -55987,6 +56012,7 @@ define hidden void @_ZN9hashbrown3raw13RawTableInner13drop_elements17h739f553bb7
   tail call void @llvm.experimental.noalias.scope.decl(metadata !12249)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !12252)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !12255)
+  call void @llvm.assume(i1 true) [ "align"(ptr %30, i64 8) ]
   %33 = getelementptr inbounds nuw i8, ptr %30, i64 16
   %34 = load ptr, ptr %33, align 8, !noalias !12258, !nonnull !16, !noundef !16
   %35 = getelementptr inbounds i8, ptr %27, i64 -8
@@ -62181,6 +62207,7 @@ define hidden void @_ZN9hashbrown3raw13RawTableInner16drop_inner_table17hc46e45b
   tail call void @llvm.experimental.noalias.scope.decl(metadata !13900)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !13903)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !13906)
+  call void @llvm.assume(i1 true) [ "align"(ptr %37, i64 8) ]
   %40 = getelementptr inbounds nuw i8, ptr %37, i64 16
   %41 = load ptr, ptr %40, align 8, !noalias !13909, !nonnull !16, !noundef !16
   %42 = getelementptr inbounds i8, ptr %34, i64 -8
@@ -64664,6 +64691,7 @@ define hidden void @"_ZN9hashbrown3raw15Bucket$LT$T$GT$4drop17hebc8fde118ad097aE
   tail call void @llvm.experimental.noalias.scope.decl(metadata !14460)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !14463)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !14466)
+  call void @llvm.assume(i1 true) [ "align"(ptr %4, i64 8) ]
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %8 = load ptr, ptr %7, align 8, !noalias !14469, !nonnull !16, !noundef !16
   %9 = getelementptr inbounds i8, ptr %2, i64 -8
@@ -65992,6 +66020,7 @@ define hidden void @"_ZN9hashbrown3raw21RawIterRange$LT$T$GT$9fold_impl17h230a76
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
   %22 = getelementptr inbounds i8, ptr %21, i64 -32
   %23 = getelementptr inbounds i8, ptr %21, i64 -8
+  call void @llvm.assume(i1 true) [ "align"(ptr %23, i64 8) ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !14728)
   store ptr %23, ptr %10, align 8, !noalias !14719
   store ptr %22, ptr %.sroa.4.0..sroa_idx.i.i, align 8, !noalias !14719
@@ -66078,6 +66107,7 @@ define hidden void @"_ZN9hashbrown3raw21RawIterRange$LT$T$GT$9fold_impl17hbade6a
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
   %22 = getelementptr inbounds i8, ptr %21, i64 -32
   %23 = getelementptr inbounds i8, ptr %21, i64 -8
+  call void @llvm.assume(i1 true) [ "align"(ptr %23, i64 8) ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !14764)
   store ptr %23, ptr %10, align 8, !noalias !14755
   store ptr %22, ptr %.sroa.4.0..sroa_idx.i.i, align 8, !noalias !14755
@@ -66164,6 +66194,7 @@ define hidden void @"_ZN9hashbrown3raw21RawIterRange$LT$T$GT$9fold_impl17hcc8f26
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
   %22 = getelementptr inbounds i8, ptr %21, i64 -32
   %23 = getelementptr inbounds i8, ptr %21, i64 -8
+  call void @llvm.assume(i1 true) [ "align"(ptr %23, i64 8) ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !14800)
   store ptr %23, ptr %10, align 8, !noalias !14791
   store ptr %22, ptr %.sroa.4.0..sroa_idx.i.i, align 8, !noalias !14791

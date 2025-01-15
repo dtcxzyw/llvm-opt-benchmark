@@ -8244,6 +8244,7 @@ _ZN19brotli_decompressor6decode16ReadContextModes17h3525518360f88c9cE.exit.i: ; 
 "_ZN4core3ptr103drop_in_place$LT$alloc_stdlib..heap_alloc..WrapBox$LT$brotli_decompressor..huffman..HuffmanCode$GT$$GT$17h8b05fbf830546c13E.exit.i": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h0315fd2d83659e8fE.llvm.4616129397091597767.exit.i.i.i.i", %112
   store ptr %120, ptr %44, align 8, !alias.scope !1004, !noalias !1014
   store i64 %121, ptr %45, align 8, !alias.scope !1004, !noalias !1014
+  call void @llvm.assume(i1 true) [ "align"(ptr %120, i64 2) ]
   %285 = icmp eq i64 %121, 0
   br i1 %285, label %.backedge28.i.backedge, label %286
 
@@ -31145,6 +31146,7 @@ _ZN6flate22gz9read_into17hab187d14dd0cc64dE.exit159: ; preds = %"_ZN110_$LT$core
   br i1 %140, label %_ZN6flate22gz9read_into17hab187d14dd0cc64dE.exit159.thread209, label %167
 
 141:                                              ; preds = %._crit_edge258
+  call void @llvm.assume(i1 true) [ "align"(ptr %125, i64 8) ]
   call void @_ZN6flate23crc3Crc6update17h853bc2d13def0c45E(ptr noalias noundef nonnull align 8 dereferenceable(24) %125, ptr noalias noundef nonnull readonly align 1 %13, i64 noundef 2)
   br label %142
 
@@ -31274,6 +31276,7 @@ _ZN6flate22gz9read_into17hab187d14dd0cc64dE.exit168: ; preds = %"_ZN84_$LT$alloc
   br i1 %189, label %_ZN6flate22gz9read_into17hab187d14dd0cc64dE.exit159.thread209, label %193
 
 190:                                              ; preds = %._crit_edge257
+  call void @llvm.assume(i1 true) [ "align"(ptr %174, i64 8) ]
   %191 = load ptr, ptr %19, align 8, !nonnull !7, !noundef !7
   call void @_ZN6flate23crc3Crc6update17h853bc2d13def0c45E(ptr noalias noundef nonnull align 8 dereferenceable(24) %174, ptr noalias noundef nonnull readonly align 1 %191, i64 noundef %.lcssa)
   %.pre276 = load ptr, ptr %11, align 8
@@ -31325,6 +31328,7 @@ _ZN6flate22gz9read_into17hab187d14dd0cc64dE.exit168: ; preds = %"_ZN84_$LT$alloc
   br i1 %210, label %"_ZN4core3ptr46drop_in_place$LT$flate2..gz..GzHeaderState$GT$17h8b669abf8be0d6e6E.exit172", label %211
 
 211:                                              ; preds = %208
+  call void @llvm.assume(i1 true) [ "align"(ptr %209, i64 8) ]
   %212 = load ptr, ptr %.sroa.56.0..sroa_idx7.i, align 8, !nonnull !7, !noundef !7
   %213 = load i64, ptr %.sroa.6.0..sroa_idx9.i, align 8, !noundef !7
   call void @_ZN6flate23crc3Crc6update17h853bc2d13def0c45E(ptr noalias noundef nonnull align 8 dereferenceable(24) %209, ptr noalias noundef nonnull readonly align 1 %212, i64 noundef %213)
@@ -31362,6 +31366,7 @@ _ZN6flate22gz9read_into17hab187d14dd0cc64dE.exit168: ; preds = %"_ZN84_$LT$alloc
   br i1 %224, label %"_ZN4core3ptr46drop_in_place$LT$flate2..gz..GzHeaderState$GT$17h8b669abf8be0d6e6E.exit177", label %225
 
 225:                                              ; preds = %222
+  call void @llvm.assume(i1 true) [ "align"(ptr %223, i64 8) ]
   %226 = load ptr, ptr %.sroa.56.0..sroa_idx7.i173, align 8, !nonnull !7, !noundef !7
   %227 = load i64, ptr %.sroa.6.0..sroa_idx9.i174, align 8, !noundef !7
   call void @_ZN6flate23crc3Crc6update17h853bc2d13def0c45E(ptr noalias noundef nonnull align 8 dereferenceable(24) %223, ptr noalias noundef nonnull readonly align 1 %226, i64 noundef %227)
@@ -31776,6 +31781,7 @@ _ZN6flate22gz9read_into17hd0a9f37d08b8ded9E.exit155: ; preds = %"_ZN110_$LT$core
   br i1 %140, label %_ZN6flate22gz9read_into17hd0a9f37d08b8ded9E.exit155.thread205, label %167
 
 141:                                              ; preds = %._crit_edge254
+  call void @llvm.assume(i1 true) [ "align"(ptr %125, i64 8) ]
   call void @_ZN6flate23crc3Crc6update17h853bc2d13def0c45E(ptr noalias noundef nonnull align 8 dereferenceable(24) %125, ptr noalias noundef nonnull readonly align 1 %13, i64 noundef 2)
   br label %142
 
@@ -31905,6 +31911,7 @@ _ZN6flate22gz9read_into17hd0a9f37d08b8ded9E.exit164: ; preds = %"_ZN84_$LT$alloc
   br i1 %189, label %_ZN6flate22gz9read_into17hd0a9f37d08b8ded9E.exit155.thread205, label %193
 
 190:                                              ; preds = %._crit_edge253
+  call void @llvm.assume(i1 true) [ "align"(ptr %174, i64 8) ]
   %191 = load ptr, ptr %19, align 8, !nonnull !7, !noundef !7
   call void @_ZN6flate23crc3Crc6update17h853bc2d13def0c45E(ptr noalias noundef nonnull align 8 dereferenceable(24) %174, ptr noalias noundef nonnull readonly align 1 %191, i64 noundef %.lcssa)
   %.pre272 = load ptr, ptr %11, align 8
@@ -31956,6 +31963,7 @@ _ZN6flate22gz9read_into17hd0a9f37d08b8ded9E.exit164: ; preds = %"_ZN84_$LT$alloc
   br i1 %210, label %"_ZN4core3ptr46drop_in_place$LT$flate2..gz..GzHeaderState$GT$17h8b669abf8be0d6e6E.exit168", label %211
 
 211:                                              ; preds = %208
+  call void @llvm.assume(i1 true) [ "align"(ptr %209, i64 8) ]
   %212 = load ptr, ptr %.sroa.56.0..sroa_idx7.i, align 8, !nonnull !7, !noundef !7
   %213 = load i64, ptr %.sroa.6.0..sroa_idx9.i, align 8, !noundef !7
   call void @_ZN6flate23crc3Crc6update17h853bc2d13def0c45E(ptr noalias noundef nonnull align 8 dereferenceable(24) %209, ptr noalias noundef nonnull readonly align 1 %212, i64 noundef %213)
@@ -31993,6 +32001,7 @@ _ZN6flate22gz9read_into17hd0a9f37d08b8ded9E.exit164: ; preds = %"_ZN84_$LT$alloc
   br i1 %224, label %"_ZN4core3ptr46drop_in_place$LT$flate2..gz..GzHeaderState$GT$17h8b669abf8be0d6e6E.exit173", label %225
 
 225:                                              ; preds = %222
+  call void @llvm.assume(i1 true) [ "align"(ptr %223, i64 8) ]
   %226 = load ptr, ptr %.sroa.56.0..sroa_idx7.i169, align 8, !nonnull !7, !noundef !7
   %227 = load i64, ptr %.sroa.6.0..sroa_idx9.i170, align 8, !noundef !7
   call void @_ZN6flate23crc3Crc6update17h853bc2d13def0c45E(ptr noalias noundef nonnull align 8 dereferenceable(24) %223, ptr noalias noundef nonnull readonly align 1 %226, i64 noundef %227)

@@ -920,6 +920,7 @@ define hidden void @"_ZN4core3ptr100drop_in_place$LT$parquet..file..statistics..
 8:                                                ; preds = %4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !222)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !225)
+  call void @llvm.assume(i1 true) [ "align"(ptr %6, i64 8) ]
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %10 = load ptr, ptr %9, align 8, !noalias !228, !nonnull !4, !noundef !4
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -950,6 +951,7 @@ define hidden void @"_ZN4core3ptr100drop_in_place$LT$parquet..file..statistics..
 25:                                               ; preds = %21
   tail call void @llvm.experimental.noalias.scope.decl(metadata !239)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !242)
+  call void @llvm.assume(i1 true) [ "align"(ptr %23, i64 8) ]
   %26 = getelementptr inbounds nuw i8, ptr %23, i64 16
   %27 = load ptr, ptr %26, align 8, !noalias !245, !nonnull !4, !noundef !4
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -978,6 +980,7 @@ define hidden void @"_ZN4core3ptr100drop_in_place$LT$parquet..file..statistics..
 40:                                               ; preds = %36
   tail call void @llvm.experimental.noalias.scope.decl(metadata !256)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !259)
+  call void @llvm.assume(i1 true) [ "align"(ptr %38, i64 8) ]
   %41 = getelementptr inbounds nuw i8, ptr %38, i64 16
   %42 = load ptr, ptr %41, align 8, !noalias !262, !nonnull !4, !noundef !4
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -1337,6 +1340,7 @@ define hidden void @"_ZN4core3ptr102drop_in_place$LT$core..cell..UnsafeCell$LT$c
 4:                                                ; preds = %1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !377)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !380)
+  call void @llvm.assume(i1 true) [ "align"(ptr %2, i64 8) ]
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %6 = load ptr, ptr %5, align 8, !noalias !383, !nonnull !4, !noundef !4
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1769,6 +1773,7 @@ define internal fastcc void @"_ZN4core3ptr104drop_in_place$LT$parquet..column..w
 9:                                                ; preds = %5
   tail call void @llvm.experimental.noalias.scope.decl(metadata !531)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !534)
+  call void @llvm.assume(i1 true) [ "align"(ptr %7, i64 8) ]
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %11 = load ptr, ptr %10, align 8, !noalias !537, !nonnull !4, !noundef !4
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -1800,6 +1805,7 @@ define internal fastcc void @"_ZN4core3ptr104drop_in_place$LT$parquet..column..w
 26:                                               ; preds = %22
   tail call void @llvm.experimental.noalias.scope.decl(metadata !551)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !554)
+  call void @llvm.assume(i1 true) [ "align"(ptr %24, i64 8) ]
   %27 = getelementptr inbounds nuw i8, ptr %24, i64 16
   %28 = load ptr, ptr %27, align 8, !noalias !557, !nonnull !4, !noundef !4
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 104
@@ -1829,6 +1835,7 @@ define internal fastcc void @"_ZN4core3ptr104drop_in_place$LT$parquet..column..w
 41:                                               ; preds = %37
   tail call void @llvm.experimental.noalias.scope.decl(metadata !571)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !574)
+  call void @llvm.assume(i1 true) [ "align"(ptr %39, i64 8) ]
   %42 = getelementptr inbounds nuw i8, ptr %39, i64 16
   %43 = load ptr, ptr %42, align 8, !noalias !577, !nonnull !4, !noundef !4
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 104
@@ -2319,6 +2326,7 @@ define hidden void @"_ZN4core3ptr106drop_in_place$LT$tokio..loom..std..parking_l
 5:                                                ; preds = %1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !706)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !709)
+  call void @llvm.assume(i1 true) [ "align"(ptr %3, i64 8) ]
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %7 = load ptr, ptr %6, align 8, !noalias !712, !nonnull !4, !noundef !4
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -2338,6 +2346,7 @@ define hidden void @"_ZN4core3ptr106drop_in_place$LT$tokio..loom..std..parking_l
 15:                                               ; preds = %10
   tail call void @llvm.experimental.noalias.scope.decl(metadata !718)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !721)
+  call void @llvm.assume(i1 true) [ "align"(ptr %13, i64 8) ]
   %16 = getelementptr inbounds nuw i8, ptr %13, i64 24
   %17 = load ptr, ptr %16, align 8, !noalias !724, !nonnull !4, !noundef !4
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -2355,6 +2364,7 @@ define hidden void @"_ZN4core3ptr106drop_in_place$LT$tokio..loom..std..parking_l
 23:                                               ; preds = %"_ZN4core3ptr72drop_in_place$LT$core..option..Option$LT$core..task..wake..Waker$GT$$GT$17h5c63a687df690d33E.llvm.12494526139044184965.exit.i.i.i"
   tail call void @llvm.experimental.noalias.scope.decl(metadata !729)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !732)
+  call void @llvm.assume(i1 true) [ "align"(ptr %21, i64 8) ]
   %24 = getelementptr inbounds nuw i8, ptr %21, i64 24
   %25 = load ptr, ptr %24, align 8, !noalias !735, !nonnull !4, !noundef !4
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -2839,6 +2849,7 @@ define hidden void @"_ZN4core3ptr108drop_in_place$LT$parquet..file..statistics..
 8:                                                ; preds = %4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !960)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !963)
+  call void @llvm.assume(i1 true) [ "align"(ptr %6, i64 8) ]
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %10 = load ptr, ptr %9, align 8, !noalias !966, !nonnull !4, !noundef !4
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -2870,6 +2881,7 @@ define hidden void @"_ZN4core3ptr108drop_in_place$LT$parquet..file..statistics..
 25:                                               ; preds = %21
   tail call void @llvm.experimental.noalias.scope.decl(metadata !980)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !983)
+  call void @llvm.assume(i1 true) [ "align"(ptr %23, i64 8) ]
   %26 = getelementptr inbounds nuw i8, ptr %23, i64 16
   %27 = load ptr, ptr %26, align 8, !noalias !986, !nonnull !4, !noundef !4
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -2899,6 +2911,7 @@ define hidden void @"_ZN4core3ptr108drop_in_place$LT$parquet..file..statistics..
 40:                                               ; preds = %36
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1000)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1003)
+  call void @llvm.assume(i1 true) [ "align"(ptr %38, i64 8) ]
   %41 = getelementptr inbounds nuw i8, ptr %38, i64 16
   %42 = load ptr, ptr %41, align 8, !noalias !1006, !nonnull !4, !noundef !4
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -2935,6 +2948,7 @@ define hidden void @"_ZN4core3ptr108drop_in_place$LT$tokio..util..cacheline..Cac
 4:                                                ; preds = %1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1020)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1023)
+  call void @llvm.assume(i1 true) [ "align"(ptr %2, i64 8) ]
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %6 = load ptr, ptr %5, align 8, !noalias !1026, !nonnull !4, !noundef !4
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -6379,6 +6393,7 @@ define internal fastcc void @"_ZN4core3ptr116drop_in_place$LT$parquet..encodings
 8:                                                ; preds = %.lr.ph.i.i.i
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2356)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2359)
+  call void @llvm.assume(i1 true) [ "align"(ptr %6, i64 8) ]
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %10 = load ptr, ptr %9, align 8, !noalias !2362, !nonnull !4, !noundef !4
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 24
@@ -6412,6 +6427,7 @@ define internal fastcc void @"_ZN4core3ptr116drop_in_place$LT$parquet..encodings
 24:                                               ; preds = %.lr.ph12.i.i.i
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2371)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2374)
+  call void @llvm.assume(i1 true) [ "align"(ptr %22, i64 8) ]
   %25 = getelementptr inbounds nuw i8, ptr %22, i64 16
   %26 = load ptr, ptr %25, align 8, !noalias !2377, !nonnull !4, !noundef !4
   %27 = getelementptr inbounds nuw i8, ptr %20, i64 24
@@ -6800,6 +6816,7 @@ define internal fastcc void @"_ZN4core3ptr118drop_in_place$LT$core..option..Opti
 8:                                                ; preds = %4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2458)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2461)
+  call void @llvm.assume(i1 true) [ "align"(ptr %6, i64 8) ]
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %10 = load ptr, ptr %9, align 8, !noalias !2464, !nonnull !4, !noundef !4
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -6823,6 +6840,7 @@ define internal fastcc void @"_ZN4core3ptr118drop_in_place$LT$core..option..Opti
 21:                                               ; preds = %16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2472)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2475)
+  call void @llvm.assume(i1 true) [ "align"(ptr %19, i64 8) ]
   %22 = getelementptr inbounds nuw i8, ptr %19, i64 16
   %23 = load ptr, ptr %22, align 8, !noalias !2478, !nonnull !4, !noundef !4
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -6844,6 +6862,7 @@ define internal fastcc void @"_ZN4core3ptr118drop_in_place$LT$core..option..Opti
 32:                                               ; preds = %"_ZN4core3ptr50drop_in_place$LT$parquet..data_type..ByteArray$GT$17h76c3c9c95f18be9dE.exit.i"
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2487)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2490)
+  call void @llvm.assume(i1 true) [ "align"(ptr %30, i64 8) ]
   %33 = getelementptr inbounds nuw i8, ptr %30, i64 16
   %34 = load ptr, ptr %33, align 8, !noalias !2493, !nonnull !4, !noundef !4
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -7100,6 +7119,7 @@ define internal fastcc void @"_ZN4core3ptr118drop_in_place$LT$parquet..column..w
 44:                                               ; preds = %40
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2564)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2567)
+  call void @llvm.assume(i1 true) [ "align"(ptr %42, i64 8) ]
   %45 = getelementptr inbounds nuw i8, ptr %42, i64 16
   %46 = load ptr, ptr %45, align 8, !noalias !2570, !nonnull !4, !noundef !4
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -7132,6 +7152,7 @@ define internal fastcc void @"_ZN4core3ptr118drop_in_place$LT$parquet..column..w
 60:                                               ; preds = %56
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2581)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2584)
+  call void @llvm.assume(i1 true) [ "align"(ptr %58, i64 8) ]
   %61 = getelementptr inbounds nuw i8, ptr %58, i64 16
   %62 = load ptr, ptr %61, align 8, !noalias !2587, !nonnull !4, !noundef !4
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -7161,6 +7182,7 @@ define internal fastcc void @"_ZN4core3ptr118drop_in_place$LT$parquet..column..w
 75:                                               ; preds = %71
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2598)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2601)
+  call void @llvm.assume(i1 true) [ "align"(ptr %73, i64 8) ]
   %76 = getelementptr inbounds nuw i8, ptr %73, i64 16
   %77 = load ptr, ptr %76, align 8, !noalias !2604, !nonnull !4, !noundef !4
   %78 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -7194,6 +7216,7 @@ define internal fastcc void @"_ZN4core3ptr118drop_in_place$LT$parquet..column..w
 92:                                               ; preds = %88
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2615)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2618)
+  call void @llvm.assume(i1 true) [ "align"(ptr %90, i64 8) ]
   %93 = getelementptr inbounds nuw i8, ptr %90, i64 16
   %94 = load ptr, ptr %93, align 8, !noalias !2621, !nonnull !4, !noundef !4
   %95 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -7325,6 +7348,7 @@ define hidden void @"_ZN4core3ptr121drop_in_place$LT$tokio..loom..std..unsafe_ce
 4:                                                ; preds = %1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2668)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2671)
+  call void @llvm.assume(i1 true) [ "align"(ptr %2, i64 8) ]
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %6 = load ptr, ptr %5, align 8, !noalias !2674, !nonnull !4, !noundef !4
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -8240,6 +8264,7 @@ define internal fastcc void @"_ZN4core3ptr124drop_in_place$LT$parquet..encodings
 8:                                                ; preds = %.lr.ph.i.i.i
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3253)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3256)
+  call void @llvm.assume(i1 true) [ "align"(ptr %6, i64 8) ]
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %10 = load ptr, ptr %9, align 8, !noalias !3259, !nonnull !4, !noundef !4
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 24
@@ -8274,6 +8299,7 @@ define internal fastcc void @"_ZN4core3ptr124drop_in_place$LT$parquet..encodings
 24:                                               ; preds = %.lr.ph12.i.i.i
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3271)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3274)
+  call void @llvm.assume(i1 true) [ "align"(ptr %22, i64 8) ]
   %25 = getelementptr inbounds nuw i8, ptr %22, i64 16
   %26 = load ptr, ptr %25, align 8, !noalias !3277, !nonnull !4, !noundef !4
   %27 = getelementptr inbounds nuw i8, ptr %20, i64 24
@@ -9064,6 +9090,7 @@ define internal fastcc void @"_ZN4core3ptr126drop_in_place$LT$parquet..column..w
 44:                                               ; preds = %40
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3509)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3512)
+  call void @llvm.assume(i1 true) [ "align"(ptr %42, i64 8) ]
   %45 = getelementptr inbounds nuw i8, ptr %42, i64 16
   %46 = load ptr, ptr %45, align 8, !noalias !3515, !nonnull !4, !noundef !4
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -9097,6 +9124,7 @@ define internal fastcc void @"_ZN4core3ptr126drop_in_place$LT$parquet..column..w
 60:                                               ; preds = %56
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3529)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3532)
+  call void @llvm.assume(i1 true) [ "align"(ptr %58, i64 8) ]
   %61 = getelementptr inbounds nuw i8, ptr %58, i64 16
   %62 = load ptr, ptr %61, align 8, !noalias !3535, !nonnull !4, !noundef !4
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -9127,6 +9155,7 @@ define internal fastcc void @"_ZN4core3ptr126drop_in_place$LT$parquet..column..w
 75:                                               ; preds = %71
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3549)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3552)
+  call void @llvm.assume(i1 true) [ "align"(ptr %73, i64 8) ]
   %76 = getelementptr inbounds nuw i8, ptr %73, i64 16
   %77 = load ptr, ptr %76, align 8, !noalias !3555, !nonnull !4, !noundef !4
   %78 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -9161,6 +9190,7 @@ define internal fastcc void @"_ZN4core3ptr126drop_in_place$LT$parquet..column..w
 92:                                               ; preds = %88
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3569)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3572)
+  call void @llvm.assume(i1 true) [ "align"(ptr %90, i64 8) ]
   %93 = getelementptr inbounds nuw i8, ptr %90, i64 16
   %94 = load ptr, ptr %93, align 8, !noalias !3575, !nonnull !4, !noundef !4
   %95 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -9277,6 +9307,7 @@ define hidden void @"_ZN4core3ptr127drop_in_place$LT$core..iter..adapters..peeka
 11:                                               ; preds = %7
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3615)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3618)
+  call void @llvm.assume(i1 true) [ "align"(ptr %9, i64 8) ]
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %13 = load ptr, ptr %12, align 8, !noalias !3621, !nonnull !4, !noundef !4
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -9303,6 +9334,7 @@ define hidden void @"_ZN4core3ptr127drop_in_place$LT$core..iter..adapters..peeka
 25:                                               ; preds = %21
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3629)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3632)
+  call void @llvm.assume(i1 true) [ "align"(ptr %23, i64 8) ]
   %26 = getelementptr inbounds nuw i8, ptr %23, i64 16
   %27 = load ptr, ptr %26, align 8, !noalias !3635, !nonnull !4, !noundef !4
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -9339,6 +9371,7 @@ define hidden void @"_ZN4core3ptr127drop_in_place$LT$lock_api..mutex..Mutex$LT$p
 5:                                                ; preds = %1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3646)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3649)
+  call void @llvm.assume(i1 true) [ "align"(ptr %3, i64 8) ]
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %7 = load ptr, ptr %6, align 8, !noalias !3652, !nonnull !4, !noundef !4
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -9358,6 +9391,7 @@ define hidden void @"_ZN4core3ptr127drop_in_place$LT$lock_api..mutex..Mutex$LT$p
 15:                                               ; preds = %10
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3658)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3661)
+  call void @llvm.assume(i1 true) [ "align"(ptr %13, i64 8) ]
   %16 = getelementptr inbounds nuw i8, ptr %13, i64 24
   %17 = load ptr, ptr %16, align 8, !noalias !3664, !nonnull !4, !noundef !4
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -9375,6 +9409,7 @@ define hidden void @"_ZN4core3ptr127drop_in_place$LT$lock_api..mutex..Mutex$LT$p
 23:                                               ; preds = %"_ZN4core3ptr72drop_in_place$LT$core..option..Option$LT$core..task..wake..Waker$GT$$GT$17h5c63a687df690d33E.llvm.12494526139044184965.exit.i.i"
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3669)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3672)
+  call void @llvm.assume(i1 true) [ "align"(ptr %21, i64 8) ]
   %24 = getelementptr inbounds nuw i8, ptr %21, i64 24
   %25 = load ptr, ptr %24, align 8, !noalias !3675, !nonnull !4, !noundef !4
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -10197,6 +10232,7 @@ define internal fastcc void @"_ZN4core3ptr134drop_in_place$LT$core..option..Opti
 8:                                                ; preds = %4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3963)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3966)
+  call void @llvm.assume(i1 true) [ "align"(ptr %6, i64 8) ]
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %10 = load ptr, ptr %9, align 8, !noalias !3969, !nonnull !4, !noundef !4
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -10221,6 +10257,7 @@ define internal fastcc void @"_ZN4core3ptr134drop_in_place$LT$core..option..Opti
 21:                                               ; preds = %16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3980)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3983)
+  call void @llvm.assume(i1 true) [ "align"(ptr %19, i64 8) ]
   %22 = getelementptr inbounds nuw i8, ptr %19, i64 16
   %23 = load ptr, ptr %22, align 8, !noalias !3986, !nonnull !4, !noundef !4
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -10243,6 +10280,7 @@ define internal fastcc void @"_ZN4core3ptr134drop_in_place$LT$core..option..Opti
 32:                                               ; preds = %"_ZN4core3ptr58drop_in_place$LT$parquet..data_type..FixedLenByteArray$GT$17h77f1072a4a945bfcE.exit.i"
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3998)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4001)
+  call void @llvm.assume(i1 true) [ "align"(ptr %30, i64 8) ]
   %33 = getelementptr inbounds nuw i8, ptr %30, i64 16
   %34 = load ptr, ptr %33, align 8, !noalias !4004, !nonnull !4, !noundef !4
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -13264,6 +13302,7 @@ define hidden void @"_ZN4core3ptr158drop_in_place$LT$tokio..sync..mpsc..chan..Ch
 7:                                                ; preds = %2
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5209)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5212)
+  call void @llvm.assume(i1 true) [ "align"(ptr %5, i64 8) ]
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %9 = load ptr, ptr %8, align 8, !noalias !5215, !nonnull !4, !noundef !4
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 136
@@ -13285,6 +13324,7 @@ define hidden void @"_ZN4core3ptr158drop_in_place$LT$tokio..sync..mpsc..chan..Ch
 16:                                               ; preds = %12
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5232)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5235)
+  call void @llvm.assume(i1 true) [ "align"(ptr %14, i64 8) ]
   %17 = getelementptr inbounds nuw i8, ptr %14, i64 24
   %18 = load ptr, ptr %17, align 8, !noalias !5238, !nonnull !4, !noundef !4
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 136
@@ -15107,6 +15147,7 @@ define hidden void @"_ZN4core3ptr187drop_in_place$LT$alloc..sync..ArcInner$LT$to
 8:                                                ; preds = %3
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5861)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5864)
+  call void @llvm.assume(i1 true) [ "align"(ptr %6, i64 8) ]
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %10 = load ptr, ptr %9, align 8, !noalias !5867, !nonnull !4, !noundef !4
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 264
@@ -15128,6 +15169,7 @@ define hidden void @"_ZN4core3ptr187drop_in_place$LT$alloc..sync..ArcInner$LT$to
 17:                                               ; preds = %13
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5885)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5888)
+  call void @llvm.assume(i1 true) [ "align"(ptr %15, i64 8) ]
   %18 = getelementptr inbounds nuw i8, ptr %15, i64 24
   %19 = load ptr, ptr %18, align 8, !noalias !5891, !nonnull !4, !noundef !4
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 264
@@ -16703,6 +16745,7 @@ define hidden void @"_ZN4core3ptr270drop_in_place$LT$tokio..runtime..task..core.
 18:                                               ; preds = %.body
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6238)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6241)
+  call void @llvm.assume(i1 true) [ "align"(ptr %16, i64 8) ]
   %19 = getelementptr inbounds nuw i8, ptr %16, i64 24
   %20 = load ptr, ptr %19, align 8, !noalias !6244, !nonnull !4, !noundef !4
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 816
@@ -16722,6 +16765,7 @@ define hidden void @"_ZN4core3ptr270drop_in_place$LT$tokio..runtime..task..core.
 26:                                               ; preds = %"_ZN4core3ptr270drop_in_place$LT$tokio..runtime..task..core..Core$LT$tracing..instrument..Instrumented$LT$influxdb3_write..write_buffer..flusher..WriteBufferFlusher..new..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$alloc..sync..Arc$LT$tokio..runtime..scheduler..current_thread..Handle$GT$$GT$$GT$17hab9fea2e5c8bebb5E.llvm.12494526139044184965.exit"
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6255)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6258)
+  call void @llvm.assume(i1 true) [ "align"(ptr %24, i64 8) ]
   %27 = getelementptr inbounds nuw i8, ptr %24, i64 24
   %28 = load ptr, ptr %27, align 8, !noalias !6261, !nonnull !4, !noundef !4
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 816
@@ -16835,6 +16879,7 @@ define hidden void @"_ZN4core3ptr276drop_in_place$LT$tokio..runtime..task..core.
 18:                                               ; preds = %.body
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6286)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6289)
+  call void @llvm.assume(i1 true) [ "align"(ptr %16, i64 8) ]
   %19 = getelementptr inbounds nuw i8, ptr %16, i64 24
   %20 = load ptr, ptr %19, align 8, !noalias !6292, !nonnull !4, !noundef !4
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 816
@@ -16854,6 +16899,7 @@ define hidden void @"_ZN4core3ptr276drop_in_place$LT$tokio..runtime..task..core.
 26:                                               ; preds = %"_ZN4core3ptr276drop_in_place$LT$tokio..runtime..task..core..Core$LT$tracing..instrument..Instrumented$LT$influxdb3_write..write_buffer..flusher..WriteBufferFlusher..new..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$alloc..sync..Arc$LT$tokio..runtime..scheduler..multi_thread..handle..Handle$GT$$GT$$GT$17hfd9d956beee91af2E.llvm.12494526139044184965.exit"
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6303)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6306)
+  call void @llvm.assume(i1 true) [ "align"(ptr %24, i64 8) ]
   %27 = getelementptr inbounds nuw i8, ptr %24, i64 24
   %28 = load ptr, ptr %27, align 8, !noalias !6309, !nonnull !4, !noundef !4
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 816
@@ -17032,6 +17078,7 @@ define hidden void @"_ZN4core3ptr280drop_in_place$LT$tokio..runtime..task..core.
 18:                                               ; preds = %.body
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6349)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6352)
+  call void @llvm.assume(i1 true) [ "align"(ptr %16, i64 8) ]
   %19 = getelementptr inbounds nuw i8, ptr %16, i64 24
   %20 = load ptr, ptr %19, align 8, !noalias !6355, !nonnull !4, !noundef !4
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 816
@@ -17051,6 +17098,7 @@ define hidden void @"_ZN4core3ptr280drop_in_place$LT$tokio..runtime..task..core.
 26:                                               ; preds = %"_ZN4core3ptr280drop_in_place$LT$tokio..runtime..task..core..Core$LT$tracing..instrument..Instrumented$LT$influxdb3_write..write_buffer..flusher..WriteBufferFlusher..new..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$alloc..sync..Arc$LT$tokio..runtime..scheduler..multi_thread_alt..handle..Handle$GT$$GT$$GT$17hf01df7bb19ab5bcdE.llvm.12494526139044184965.exit"
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6366)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6369)
+  call void @llvm.assume(i1 true) [ "align"(ptr %24, i64 8) ]
   %27 = getelementptr inbounds nuw i8, ptr %24, i64 24
   %28 = load ptr, ptr %27, align 8, !noalias !6372, !nonnull !4, !noundef !4
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 816
@@ -17183,6 +17231,7 @@ define hidden void @"_ZN4core3ptr297drop_in_place$LT$tokio..runtime..task..core.
 8:                                                ; preds = %3
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6399)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6402)
+  call void @llvm.assume(i1 true) [ "align"(ptr %6, i64 8) ]
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %10 = load ptr, ptr %9, align 8, !noalias !6405, !nonnull !4, !noundef !4
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 176
@@ -17202,6 +17251,7 @@ define hidden void @"_ZN4core3ptr297drop_in_place$LT$tokio..runtime..task..core.
 17:                                               ; preds = %13
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6416)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6419)
+  call void @llvm.assume(i1 true) [ "align"(ptr %15, i64 8) ]
   %18 = getelementptr inbounds nuw i8, ptr %15, i64 24
   %19 = load ptr, ptr %18, align 8, !noalias !6422, !nonnull !4, !noundef !4
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 176
@@ -17730,6 +17780,7 @@ define hidden void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17hb9
   br i1 %.not4.i, label %"_ZN61_$LT$tracing..span..Span$u20$as$u20$core..ops..drop..Drop$GT$4drop17h7d48cf1ab650ff76E.llvm.12494526139044184965.exit", label %.noexc3
 
 .noexc3:                                          ; preds = %12
+  call void @llvm.assume(i1 true) [ "align"(ptr %14, i64 8) ]
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4), !noalias !6614
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3), !noalias !6614
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2), !noalias !6614
@@ -19375,6 +19426,7 @@ define hidden void @"_ZN4core3ptr48drop_in_place$LT$tokio..sync..notify..Waiter$
 5:                                                ; preds = %1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7617)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7620)
+  call void @llvm.assume(i1 true) [ "align"(ptr %3, i64 8) ]
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %7 = load ptr, ptr %6, align 8, !noalias !7623, !nonnull !4, !noundef !4
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -20188,6 +20240,7 @@ define hidden void @"_ZN4core3ptr50drop_in_place$LT$parquet..data_type..ByteArra
 4:                                                ; preds = %1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !8104)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !8107)
+  call void @llvm.assume(i1 true) [ "align"(ptr %2, i64 8) ]
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %6 = load ptr, ptr %5, align 8, !noalias !8110, !nonnull !4, !noundef !4
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -20472,6 +20525,7 @@ define hidden void @"_ZN4core3ptr50drop_in_place$LT$tokio..sync..notify..Notifie
 7:                                                ; preds = %2
   tail call void @llvm.experimental.noalias.scope.decl(metadata !8336)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !8339)
+  call void @llvm.assume(i1 true) [ "align"(ptr %5, i64 8) ]
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %9 = load ptr, ptr %8, align 8, !noalias !8342, !nonnull !4, !noundef !4
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -20491,6 +20545,7 @@ define hidden void @"_ZN4core3ptr50drop_in_place$LT$tokio..sync..notify..Notifie
 16:                                               ; preds = %12
   tail call void @llvm.experimental.noalias.scope.decl(metadata !8353)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !8356)
+  call void @llvm.assume(i1 true) [ "align"(ptr %14, i64 8) ]
   %17 = getelementptr inbounds nuw i8, ptr %14, i64 24
   %18 = load ptr, ptr %17, align 8, !noalias !8359, !nonnull !4, !noundef !4
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -23468,6 +23523,7 @@ define hidden void @"_ZN4core3ptr56drop_in_place$LT$tokio..runtime..task..core..
 5:                                                ; preds = %1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !10037)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !10040)
+  call void @llvm.assume(i1 true) [ "align"(ptr %3, i64 8) ]
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %7 = load ptr, ptr %6, align 8, !noalias !10043, !nonnull !4, !noundef !4
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -23957,6 +24013,7 @@ define hidden void @"_ZN4core3ptr58drop_in_place$LT$parquet..data_type..FixedLen
 4:                                                ; preds = %1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !10289)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !10292)
+  call void @llvm.assume(i1 true) [ "align"(ptr %2, i64 8) ]
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %6 = load ptr, ptr %5, align 8, !noalias !10295, !nonnull !4, !noundef !4
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -24008,6 +24065,7 @@ default.unreachable1:                             ; preds = %1
 11:                                               ; preds = %7
   tail call void @llvm.experimental.noalias.scope.decl(metadata !10314)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !10317)
+  call void @llvm.assume(i1 true) [ "align"(ptr %9, i64 8) ]
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %13 = load ptr, ptr %12, align 8, !noalias !10320, !nonnull !4, !noundef !4
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -24039,6 +24097,7 @@ default.unreachable1:                             ; preds = %1
 28:                                               ; preds = %24
   tail call void @llvm.experimental.noalias.scope.decl(metadata !10335)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !10338)
+  call void @llvm.assume(i1 true) [ "align"(ptr %26, i64 8) ]
   %29 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %30 = load ptr, ptr %29, align 8, !noalias !10341, !nonnull !4, !noundef !4
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -24070,8 +24129,9 @@ common.resume:                                    ; preds = %67, %72, %76, %19, 
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr108drop_in_place$LT$parquet..file..statistics..ValueStatistics$LT$parquet..data_type..FixedLenByteArray$GT$$GT$17he6e822411a0f6041E.llvm.12494526139044184965.exit.sink.split": ; preds = %"_ZN4core3ptr78drop_in_place$LT$core..option..Option$LT$parquet..data_type..ByteArray$GT$$GT$17h1f4f79b33082fed9E.llvm.12494526139044184965.exit.i", %"_ZN4core3ptr86drop_in_place$LT$core..option..Option$LT$parquet..data_type..FixedLenByteArray$GT$$GT$17hbae4bd6e17c26607E.llvm.12494526139044184965.exit.i"
-  %.sink7 = phi ptr [ %40, %"_ZN4core3ptr86drop_in_place$LT$core..option..Option$LT$parquet..data_type..FixedLenByteArray$GT$$GT$17hbae4bd6e17c26607E.llvm.12494526139044184965.exit.i" ], [ %88, %"_ZN4core3ptr78drop_in_place$LT$core..option..Option$LT$parquet..data_type..ByteArray$GT$$GT$17h1f4f79b33082fed9E.llvm.12494526139044184965.exit.i" ]
-  %44 = getelementptr inbounds nuw i8, ptr %.sink7, i64 16
+  %.sink = phi ptr [ %40, %"_ZN4core3ptr86drop_in_place$LT$core..option..Option$LT$parquet..data_type..FixedLenByteArray$GT$$GT$17hbae4bd6e17c26607E.llvm.12494526139044184965.exit.i" ], [ %88, %"_ZN4core3ptr78drop_in_place$LT$core..option..Option$LT$parquet..data_type..ByteArray$GT$$GT$17h1f4f79b33082fed9E.llvm.12494526139044184965.exit.i" ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %.sink, i64 8) ]
+  %44 = getelementptr inbounds nuw i8, ptr %.sink, i64 16
   %45 = load ptr, ptr %44, align 8, !noalias !4, !nonnull !4, !noundef !4
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -24103,6 +24163,7 @@ common.resume:                                    ; preds = %67, %72, %76, %19, 
 59:                                               ; preds = %55
   tail call void @llvm.experimental.noalias.scope.decl(metadata !10360)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !10363)
+  call void @llvm.assume(i1 true) [ "align"(ptr %57, i64 8) ]
   %60 = getelementptr inbounds nuw i8, ptr %57, i64 16
   %61 = load ptr, ptr %60, align 8, !noalias !10366, !nonnull !4, !noundef !4
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -24133,6 +24194,7 @@ common.resume:                                    ; preds = %67, %72, %76, %19, 
 76:                                               ; preds = %72
   tail call void @llvm.experimental.noalias.scope.decl(metadata !10378)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !10381)
+  call void @llvm.assume(i1 true) [ "align"(ptr %74, i64 8) ]
   %77 = getelementptr inbounds nuw i8, ptr %74, i64 16
   %78 = load ptr, ptr %77, align 8, !noalias !10384, !nonnull !4, !noundef !4
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -25524,6 +25586,7 @@ define hidden void @"_ZN4core3ptr60drop_in_place$LT$tokio..runtime..time..entry.
 25:                                               ; preds = %22
   %26 = getelementptr i8, ptr %0, i64 80
   %.val2 = load ptr, ptr %26, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %.val, i64 8) ]
   %27 = getelementptr inbounds nuw i8, ptr %.val, i64 24
   %28 = load ptr, ptr %27, align 8, !noalias !10932, !nonnull !4, !noundef !4
   invoke void %28(ptr noundef %.val2)
@@ -25543,6 +25606,7 @@ define hidden void @"_ZN4core3ptr60drop_in_place$LT$tokio..runtime..time..entry.
 33:                                               ; preds = %"_ZN4core3ptr54drop_in_place$LT$tokio..runtime..scheduler..Handle$GT$17ha6b1711a8118b8faE.llvm.12494526139044184965.exit"
   %34 = getelementptr i8, ptr %0, i64 80
   %.val4 = load ptr, ptr %34, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %.val3, i64 8) ]
   %35 = getelementptr inbounds nuw i8, ptr %.val3, i64 24
   %36 = load ptr, ptr %35, align 8, !noalias !10945, !nonnull !4, !noundef !4
   tail call void %36(ptr noundef %.val4), !noalias !10945
@@ -26242,6 +26306,7 @@ define hidden void @"_ZN4core3ptr62drop_in_place$LT$tokio..runtime..io..schedule
 5:                                                ; preds = %1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !11339)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !11342)
+  call void @llvm.assume(i1 true) [ "align"(ptr %3, i64 8) ]
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %7 = load ptr, ptr %6, align 8, !noalias !11345, !nonnull !4, !noundef !4
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -26261,6 +26326,7 @@ define hidden void @"_ZN4core3ptr62drop_in_place$LT$tokio..runtime..io..schedule
 15:                                               ; preds = %10
   tail call void @llvm.experimental.noalias.scope.decl(metadata !11349)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !11352)
+  call void @llvm.assume(i1 true) [ "align"(ptr %13, i64 8) ]
   %16 = getelementptr inbounds nuw i8, ptr %13, i64 24
   %17 = load ptr, ptr %16, align 8, !noalias !11355, !nonnull !4, !noundef !4
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -26278,6 +26344,7 @@ define hidden void @"_ZN4core3ptr62drop_in_place$LT$tokio..runtime..io..schedule
 23:                                               ; preds = %"_ZN4core3ptr72drop_in_place$LT$core..option..Option$LT$core..task..wake..Waker$GT$$GT$17h5c63a687df690d33E.llvm.12494526139044184965.exit"
   tail call void @llvm.experimental.noalias.scope.decl(metadata !11359)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !11362)
+  call void @llvm.assume(i1 true) [ "align"(ptr %21, i64 8) ]
   %24 = getelementptr inbounds nuw i8, ptr %21, i64 24
   %25 = load ptr, ptr %24, align 8, !noalias !11365, !nonnull !4, !noundef !4
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -27937,6 +28004,7 @@ define hidden void @"_ZN4core3ptr65drop_in_place$LT$tokio..sync..task..atomic_wa
 4:                                                ; preds = %1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !12325)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !12328)
+  call void @llvm.assume(i1 true) [ "align"(ptr %2, i64 8) ]
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %6 = load ptr, ptr %5, align 8, !noalias !12331, !nonnull !4, !noundef !4
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -28223,6 +28291,7 @@ define hidden void @"_ZN4core3ptr66drop_in_place$LT$tokio..runtime..io..schedule
 9:                                                ; preds = %5
   tail call void @llvm.experimental.noalias.scope.decl(metadata !12493)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !12496)
+  call void @llvm.assume(i1 true) [ "align"(ptr %7, i64 8) ]
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %11 = load ptr, ptr %10, align 8, !noalias !12499, !nonnull !4, !noundef !4
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -28242,6 +28311,7 @@ define hidden void @"_ZN4core3ptr66drop_in_place$LT$tokio..runtime..io..schedule
 19:                                               ; preds = %14
   tail call void @llvm.experimental.noalias.scope.decl(metadata !12505)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !12508)
+  call void @llvm.assume(i1 true) [ "align"(ptr %17, i64 8) ]
   %20 = getelementptr inbounds nuw i8, ptr %17, i64 24
   %21 = load ptr, ptr %20, align 8, !noalias !12511, !nonnull !4, !noundef !4
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -28259,6 +28329,7 @@ define hidden void @"_ZN4core3ptr66drop_in_place$LT$tokio..runtime..io..schedule
 27:                                               ; preds = %"_ZN4core3ptr72drop_in_place$LT$core..option..Option$LT$core..task..wake..Waker$GT$$GT$17h5c63a687df690d33E.llvm.12494526139044184965.exit.i.i.i.i"
   tail call void @llvm.experimental.noalias.scope.decl(metadata !12516)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !12519)
+  call void @llvm.assume(i1 true) [ "align"(ptr %25, i64 8) ]
   %28 = getelementptr inbounds nuw i8, ptr %25, i64 24
   %29 = load ptr, ptr %28, align 8, !noalias !12522, !nonnull !4, !noundef !4
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -28715,6 +28786,7 @@ define hidden void @"_ZN4core3ptr68drop_in_place$LT$core..option..Option$LT$byte
 5:                                                ; preds = %1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !12732)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !12735)
+  call void @llvm.assume(i1 true) [ "align"(ptr %2, i64 8) ]
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %7 = load ptr, ptr %6, align 8, !noalias !12738, !nonnull !4, !noundef !4
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -30284,6 +30356,7 @@ define hidden void @"_ZN4core3ptr72drop_in_place$LT$core..option..Option$LT$core
 5:                                                ; preds = %1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !13635)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !13638)
+  call void @llvm.assume(i1 true) [ "align"(ptr %2, i64 8) ]
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %7 = load ptr, ptr %6, align 8, !noalias !13641, !nonnull !4, !noundef !4
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -30511,6 +30584,7 @@ define internal fastcc void @"_ZN4core3ptr72drop_in_place$LT$parquet..arrow..arr
 98:                                               ; preds = %94
   tail call void @llvm.experimental.noalias.scope.decl(metadata !13683)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !13686)
+  call void @llvm.assume(i1 true) [ "align"(ptr %96, i64 8) ]
   %99 = getelementptr inbounds nuw i8, ptr %96, i64 16
   %100 = load ptr, ptr %99, align 8, !noalias !13689, !nonnull !4, !noundef !4
   %101 = getelementptr inbounds nuw i8, ptr %0, i64 392
@@ -30541,6 +30615,7 @@ define internal fastcc void @"_ZN4core3ptr72drop_in_place$LT$parquet..arrow..arr
 115:                                              ; preds = %111
   tail call void @llvm.experimental.noalias.scope.decl(metadata !13702)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !13705)
+  call void @llvm.assume(i1 true) [ "align"(ptr %113, i64 8) ]
   %116 = getelementptr inbounds nuw i8, ptr %113, i64 16
   %117 = load ptr, ptr %116, align 8, !noalias !13708, !nonnull !4, !noundef !4
   %118 = getelementptr inbounds nuw i8, ptr %0, i64 432
@@ -30569,6 +30644,7 @@ define internal fastcc void @"_ZN4core3ptr72drop_in_place$LT$parquet..arrow..arr
 130:                                              ; preds = %126
   tail call void @llvm.experimental.noalias.scope.decl(metadata !13721)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !13724)
+  call void @llvm.assume(i1 true) [ "align"(ptr %128, i64 8) ]
   %131 = getelementptr inbounds nuw i8, ptr %128, i64 16
   %132 = load ptr, ptr %131, align 8, !noalias !13727, !nonnull !4, !noundef !4
   %133 = getelementptr inbounds nuw i8, ptr %0, i64 432
@@ -30822,6 +30898,7 @@ define internal fastcc void @"_ZN4core3ptr72drop_in_place$LT$parquet..arrow..arr
 214:                                              ; preds = %210
   call void @llvm.experimental.noalias.scope.decl(metadata !13857)
   call void @llvm.experimental.noalias.scope.decl(metadata !13860)
+  call void @llvm.assume(i1 true) [ "align"(ptr %212, i64 8) ]
   %215 = getelementptr inbounds nuw i8, ptr %212, i64 16
   %216 = load ptr, ptr %215, align 8, !noalias !13863, !nonnull !4, !noundef !4
   %217 = getelementptr inbounds nuw i8, ptr %0, i64 536
@@ -30845,6 +30922,7 @@ define internal fastcc void @"_ZN4core3ptr72drop_in_place$LT$parquet..arrow..arr
 227:                                              ; preds = %222
   call void @llvm.experimental.noalias.scope.decl(metadata !13872)
   call void @llvm.experimental.noalias.scope.decl(metadata !13875)
+  call void @llvm.assume(i1 true) [ "align"(ptr %225, i64 8) ]
   %228 = getelementptr inbounds nuw i8, ptr %225, i64 16
   %229 = load ptr, ptr %228, align 8, !noalias !13878, !nonnull !4, !noundef !4
   %230 = getelementptr inbounds nuw i8, ptr %0, i64 568
@@ -30866,6 +30944,7 @@ define internal fastcc void @"_ZN4core3ptr72drop_in_place$LT$parquet..arrow..arr
 238:                                              ; preds = %"_ZN4core3ptr50drop_in_place$LT$parquet..data_type..ByteArray$GT$17h76c3c9c95f18be9dE.exit.i.i.i"
   call void @llvm.experimental.noalias.scope.decl(metadata !13887)
   call void @llvm.experimental.noalias.scope.decl(metadata !13890)
+  call void @llvm.assume(i1 true) [ "align"(ptr %236, i64 8) ]
   %239 = getelementptr inbounds nuw i8, ptr %236, i64 16
   %240 = load ptr, ptr %239, align 8, !noalias !13893, !nonnull !4, !noundef !4
   %241 = getelementptr inbounds nuw i8, ptr %0, i64 568
@@ -31107,6 +31186,7 @@ default.unreachable:                              ; preds = %250
 331:                                              ; preds = %327
   tail call void @llvm.experimental.noalias.scope.decl(metadata !13943)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !13946)
+  call void @llvm.assume(i1 true) [ "align"(ptr %329, i64 8) ]
   %332 = getelementptr inbounds nuw i8, ptr %329, i64 16
   %333 = load ptr, ptr %332, align 8, !noalias !13949, !nonnull !4, !noundef !4
   %334 = getelementptr inbounds nuw i8, ptr %0, i64 352
@@ -31138,6 +31218,7 @@ default.unreachable:                              ; preds = %250
 348:                                              ; preds = %344
   tail call void @llvm.experimental.noalias.scope.decl(metadata !13965)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !13968)
+  call void @llvm.assume(i1 true) [ "align"(ptr %346, i64 8) ]
   %349 = getelementptr inbounds nuw i8, ptr %346, i64 16
   %350 = load ptr, ptr %349, align 8, !noalias !13971, !nonnull !4, !noundef !4
   %351 = getelementptr inbounds nuw i8, ptr %0, i64 392
@@ -31167,6 +31248,7 @@ default.unreachable:                              ; preds = %250
 363:                                              ; preds = %359
   tail call void @llvm.experimental.noalias.scope.decl(metadata !13987)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !13990)
+  call void @llvm.assume(i1 true) [ "align"(ptr %361, i64 8) ]
   %364 = getelementptr inbounds nuw i8, ptr %361, i64 16
   %365 = load ptr, ptr %364, align 8, !noalias !13993, !nonnull !4, !noundef !4
   %366 = getelementptr inbounds nuw i8, ptr %0, i64 392
@@ -31421,6 +31503,7 @@ default.unreachable:                              ; preds = %250
 447:                                              ; preds = %443
   call void @llvm.experimental.noalias.scope.decl(metadata !14126)
   call void @llvm.experimental.noalias.scope.decl(metadata !14129)
+  call void @llvm.assume(i1 true) [ "align"(ptr %445, i64 8) ]
   %448 = getelementptr inbounds nuw i8, ptr %445, i64 16
   %449 = load ptr, ptr %448, align 8, !noalias !14132, !nonnull !4, !noundef !4
   %450 = getelementptr inbounds nuw i8, ptr %0, i64 496
@@ -31445,6 +31528,7 @@ default.unreachable:                              ; preds = %250
 460:                                              ; preds = %455
   call void @llvm.experimental.noalias.scope.decl(metadata !14144)
   call void @llvm.experimental.noalias.scope.decl(metadata !14147)
+  call void @llvm.assume(i1 true) [ "align"(ptr %458, i64 8) ]
   %461 = getelementptr inbounds nuw i8, ptr %458, i64 16
   %462 = load ptr, ptr %461, align 8, !noalias !14150, !nonnull !4, !noundef !4
   %463 = getelementptr inbounds nuw i8, ptr %0, i64 528
@@ -31467,6 +31551,7 @@ default.unreachable:                              ; preds = %250
 471:                                              ; preds = %"_ZN4core3ptr58drop_in_place$LT$parquet..data_type..FixedLenByteArray$GT$17h77f1072a4a945bfcE.exit.i.i.i.i"
   call void @llvm.experimental.noalias.scope.decl(metadata !14162)
   call void @llvm.experimental.noalias.scope.decl(metadata !14165)
+  call void @llvm.assume(i1 true) [ "align"(ptr %469, i64 8) ]
   %472 = getelementptr inbounds nuw i8, ptr %469, i64 16
   %473 = load ptr, ptr %472, align 8, !noalias !14168, !nonnull !4, !noundef !4
   %474 = getelementptr inbounds nuw i8, ptr %0, i64 528
@@ -33979,6 +34064,7 @@ common.resume.sink.split.i:                       ; preds = %1262, %"_ZN4core3pt
 1365:                                             ; preds = %1361
   tail call void @llvm.experimental.noalias.scope.decl(metadata !15064)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !15067)
+  call void @llvm.assume(i1 true) [ "align"(ptr %1363, i64 8) ]
   %1366 = getelementptr inbounds nuw i8, ptr %1363, i64 16
   %1367 = load ptr, ptr %1366, align 8, !noalias !15070, !nonnull !4, !noundef !4
   %1368 = getelementptr inbounds nuw i8, ptr %0, i64 352
@@ -34009,6 +34095,7 @@ common.resume.sink.split.i:                       ; preds = %1262, %"_ZN4core3pt
 1382:                                             ; preds = %1378
   tail call void @llvm.experimental.noalias.scope.decl(metadata !15083)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !15086)
+  call void @llvm.assume(i1 true) [ "align"(ptr %1380, i64 8) ]
   %1383 = getelementptr inbounds nuw i8, ptr %1380, i64 16
   %1384 = load ptr, ptr %1383, align 8, !noalias !15089, !nonnull !4, !noundef !4
   %1385 = getelementptr inbounds nuw i8, ptr %0, i64 392
@@ -34037,6 +34124,7 @@ common.resume.sink.split.i:                       ; preds = %1262, %"_ZN4core3pt
 1397:                                             ; preds = %1393
   tail call void @llvm.experimental.noalias.scope.decl(metadata !15102)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !15105)
+  call void @llvm.assume(i1 true) [ "align"(ptr %1395, i64 8) ]
   %1398 = getelementptr inbounds nuw i8, ptr %1395, i64 16
   %1399 = load ptr, ptr %1398, align 8, !noalias !15108, !nonnull !4, !noundef !4
   %1400 = getelementptr inbounds nuw i8, ptr %0, i64 392
@@ -34290,6 +34378,7 @@ common.resume.sink.split.i:                       ; preds = %1262, %"_ZN4core3pt
 1481:                                             ; preds = %1477
   call void @llvm.experimental.noalias.scope.decl(metadata !15238)
   call void @llvm.experimental.noalias.scope.decl(metadata !15241)
+  call void @llvm.assume(i1 true) [ "align"(ptr %1479, i64 8) ]
   %1482 = getelementptr inbounds nuw i8, ptr %1479, i64 16
   %1483 = load ptr, ptr %1482, align 8, !noalias !15244, !nonnull !4, !noundef !4
   %1484 = getelementptr inbounds nuw i8, ptr %0, i64 496
@@ -34313,6 +34402,7 @@ common.resume.sink.split.i:                       ; preds = %1262, %"_ZN4core3pt
 1494:                                             ; preds = %1489
   call void @llvm.experimental.noalias.scope.decl(metadata !15253)
   call void @llvm.experimental.noalias.scope.decl(metadata !15256)
+  call void @llvm.assume(i1 true) [ "align"(ptr %1492, i64 8) ]
   %1495 = getelementptr inbounds nuw i8, ptr %1492, i64 16
   %1496 = load ptr, ptr %1495, align 8, !noalias !15259, !nonnull !4, !noundef !4
   %1497 = getelementptr inbounds nuw i8, ptr %0, i64 528
@@ -34334,6 +34424,7 @@ common.resume.sink.split.i:                       ; preds = %1262, %"_ZN4core3pt
 1505:                                             ; preds = %"_ZN4core3ptr50drop_in_place$LT$parquet..data_type..ByteArray$GT$17h76c3c9c95f18be9dE.exit.i.i.i.i"
   call void @llvm.experimental.noalias.scope.decl(metadata !15268)
   call void @llvm.experimental.noalias.scope.decl(metadata !15271)
+  call void @llvm.assume(i1 true) [ "align"(ptr %1503, i64 8) ]
   %1506 = getelementptr inbounds nuw i8, ptr %1503, i64 16
   %1507 = load ptr, ptr %1506, align 8, !noalias !15274, !nonnull !4, !noundef !4
   %1508 = getelementptr inbounds nuw i8, ptr %0, i64 528
@@ -34674,6 +34765,7 @@ define hidden void @"_ZN4core3ptr73drop_in_place$LT$parquet..arrow..arrow_writer
 11:                                               ; preds = %7
   tail call void @llvm.experimental.noalias.scope.decl(metadata !15365)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !15368)
+  call void @llvm.assume(i1 true) [ "align"(ptr %9, i64 8) ]
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %13 = load ptr, ptr %12, align 8, !noalias !15371, !nonnull !4, !noundef !4
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -34700,6 +34792,7 @@ define hidden void @"_ZN4core3ptr73drop_in_place$LT$parquet..arrow..arrow_writer
 25:                                               ; preds = %21
   tail call void @llvm.experimental.noalias.scope.decl(metadata !15380)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !15383)
+  call void @llvm.assume(i1 true) [ "align"(ptr %23, i64 8) ]
   %26 = getelementptr inbounds nuw i8, ptr %23, i64 16
   %27 = load ptr, ptr %26, align 8, !noalias !15386, !nonnull !4, !noundef !4
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -37082,6 +37175,7 @@ define hidden void @"_ZN4core3ptr78drop_in_place$LT$core..option..Option$LT$parq
 8:                                                ; preds = %4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !16369)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !16372)
+  call void @llvm.assume(i1 true) [ "align"(ptr %6, i64 8) ]
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %10 = load ptr, ptr %9, align 8, !noalias !16375, !nonnull !4, !noundef !4
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -37761,6 +37855,7 @@ define internal fastcc void @"_ZN4core3ptr79drop_in_place$LT$parquet..arrow..arr
 70:                                               ; preds = %66
   tail call void @llvm.experimental.noalias.scope.decl(metadata !16769)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !16772)
+  call void @llvm.assume(i1 true) [ "align"(ptr %68, i64 8) ]
   %71 = getelementptr inbounds nuw i8, ptr %68, i64 16
   %72 = load ptr, ptr %71, align 8, !noalias !16775, !nonnull !4, !noundef !4
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -37796,6 +37891,7 @@ define internal fastcc void @"_ZN4core3ptr79drop_in_place$LT$parquet..arrow..arr
 89:                                               ; preds = %85
   tail call void @llvm.experimental.noalias.scope.decl(metadata !16787)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !16790)
+  call void @llvm.assume(i1 true) [ "align"(ptr %87, i64 8) ]
   %90 = getelementptr inbounds nuw i8, ptr %87, i64 16
   %91 = load ptr, ptr %90, align 8, !noalias !16793, !nonnull !4, !noundef !4
   %92 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -37825,6 +37921,7 @@ define internal fastcc void @"_ZN4core3ptr79drop_in_place$LT$parquet..arrow..arr
 104:                                              ; preds = %100
   tail call void @llvm.experimental.noalias.scope.decl(metadata !16804)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !16807)
+  call void @llvm.assume(i1 true) [ "align"(ptr %102, i64 8) ]
   %105 = getelementptr inbounds nuw i8, ptr %102, i64 16
   %106 = load ptr, ptr %105, align 8, !noalias !16810, !nonnull !4, !noundef !4
   %107 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -37858,6 +37955,7 @@ define internal fastcc void @"_ZN4core3ptr79drop_in_place$LT$parquet..arrow..arr
 121:                                              ; preds = %117
   tail call void @llvm.experimental.noalias.scope.decl(metadata !16821)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !16824)
+  call void @llvm.assume(i1 true) [ "align"(ptr %119, i64 8) ]
   %122 = getelementptr inbounds nuw i8, ptr %119, i64 16
   %123 = load ptr, ptr %122, align 8, !noalias !16827, !nonnull !4, !noundef !4
   %124 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -40381,6 +40479,7 @@ define hidden void @"_ZN4core3ptr86drop_in_place$LT$core..option..Option$LT$parq
 8:                                                ; preds = %4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !18006)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !18009)
+  call void @llvm.assume(i1 true) [ "align"(ptr %6, i64 8) ]
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %10 = load ptr, ptr %9, align 8, !noalias !18012, !nonnull !4, !noundef !4
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -42209,6 +42308,7 @@ define hidden void @"_ZN4core3ptr92drop_in_place$LT$core..cell..UnsafeCell$LT$to
 5:                                                ; preds = %1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !18726)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !18729)
+  call void @llvm.assume(i1 true) [ "align"(ptr %3, i64 8) ]
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %7 = load ptr, ptr %6, align 8, !noalias !18732, !nonnull !4, !noundef !4
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -42228,6 +42328,7 @@ define hidden void @"_ZN4core3ptr92drop_in_place$LT$core..cell..UnsafeCell$LT$to
 15:                                               ; preds = %10
   tail call void @llvm.experimental.noalias.scope.decl(metadata !18737)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !18740)
+  call void @llvm.assume(i1 true) [ "align"(ptr %13, i64 8) ]
   %16 = getelementptr inbounds nuw i8, ptr %13, i64 24
   %17 = load ptr, ptr %16, align 8, !noalias !18743, !nonnull !4, !noundef !4
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -42245,6 +42346,7 @@ define hidden void @"_ZN4core3ptr92drop_in_place$LT$core..cell..UnsafeCell$LT$to
 23:                                               ; preds = %"_ZN4core3ptr72drop_in_place$LT$core..option..Option$LT$core..task..wake..Waker$GT$$GT$17h5c63a687df690d33E.llvm.12494526139044184965.exit.i"
   tail call void @llvm.experimental.noalias.scope.decl(metadata !18748)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !18751)
+  call void @llvm.assume(i1 true) [ "align"(ptr %21, i64 8) ]
   %24 = getelementptr inbounds nuw i8, ptr %21, i64 24
   %25 = load ptr, ptr %24, align 8, !noalias !18754, !nonnull !4, !noundef !4
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -42737,6 +42839,7 @@ define hidden void @"_ZN4core3ptr94drop_in_place$LT$std..io..Take$LT$parquet..ar
 11:                                               ; preds = %7
   tail call void @llvm.experimental.noalias.scope.decl(metadata !18992)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !18995)
+  call void @llvm.assume(i1 true) [ "align"(ptr %9, i64 8) ]
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %13 = load ptr, ptr %12, align 8, !noalias !18998, !nonnull !4, !noundef !4
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -42763,6 +42866,7 @@ define hidden void @"_ZN4core3ptr94drop_in_place$LT$std..io..Take$LT$parquet..ar
 25:                                               ; preds = %21
   tail call void @llvm.experimental.noalias.scope.decl(metadata !19007)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !19010)
+  call void @llvm.assume(i1 true) [ "align"(ptr %23, i64 8) ]
   %26 = getelementptr inbounds nuw i8, ptr %23, i64 16
   %27 = load ptr, ptr %26, align 8, !noalias !19013, !nonnull !4, !noundef !4
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -43237,6 +43341,7 @@ define hidden void @"_ZN4core3ptr96drop_in_place$LT$core..option..Option$LT$core
 8:                                                ; preds = %4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !19229)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !19232)
+  call void @llvm.assume(i1 true) [ "align"(ptr %6, i64 8) ]
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %10 = load ptr, ptr %9, align 8, !noalias !19235, !nonnull !4, !noundef !4
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -43267,6 +43372,7 @@ define internal fastcc void @"_ZN4core3ptr96drop_in_place$LT$parquet..column..wr
 9:                                                ; preds = %5
   tail call void @llvm.experimental.noalias.scope.decl(metadata !19246)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !19249)
+  call void @llvm.assume(i1 true) [ "align"(ptr %7, i64 8) ]
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %11 = load ptr, ptr %10, align 8, !noalias !19252, !nonnull !4, !noundef !4
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -43297,6 +43403,7 @@ define internal fastcc void @"_ZN4core3ptr96drop_in_place$LT$parquet..column..wr
 26:                                               ; preds = %22
   tail call void @llvm.experimental.noalias.scope.decl(metadata !19263)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !19266)
+  call void @llvm.assume(i1 true) [ "align"(ptr %24, i64 8) ]
   %27 = getelementptr inbounds nuw i8, ptr %24, i64 16
   %28 = load ptr, ptr %27, align 8, !noalias !19269, !nonnull !4, !noundef !4
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 104
@@ -43325,6 +43432,7 @@ define internal fastcc void @"_ZN4core3ptr96drop_in_place$LT$parquet..column..wr
 41:                                               ; preds = %37
   tail call void @llvm.experimental.noalias.scope.decl(metadata !19280)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !19283)
+  call void @llvm.assume(i1 true) [ "align"(ptr %39, i64 8) ]
   %42 = getelementptr inbounds nuw i8, ptr %39, i64 16
   %43 = load ptr, ptr %42, align 8, !noalias !19286, !nonnull !4, !noundef !4
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 104
@@ -45609,6 +45717,7 @@ define hidden void @"_ZN61_$LT$tracing..span..Span$u20$as$u20$core..ops..drop..D
   br i1 %.not4, label %12, label %16
 
 16:                                               ; preds = %13
+  call void @llvm.assume(i1 true) [ "align"(ptr %15, i64 8) ]
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
@@ -51799,6 +51908,7 @@ define hidden void @_ZN7tracing4span4Span3log17hb84d364d4a2ace98E.llvm.124945261
   br i1 %.not, label %19, label %13
 
 13:                                               ; preds = %5
+  call void @llvm.assume(i1 true) [ "align"(ptr %12, i64 8) ]
   %14 = load i64, ptr %12, align 8, !range !4651, !noundef !4
   %switch.tableidx = add nsw i64 %14, -1
   %15 = icmp ult i64 %switch.tableidx, 4

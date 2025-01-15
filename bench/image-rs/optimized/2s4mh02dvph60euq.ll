@@ -2379,27 +2379,29 @@ define hidden void @"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17hbc8ac62f3ec4
   %.sroa.4 = alloca [31 x i8], align 1
   %6 = load ptr, ptr %1, align 8, !noundef !4
   %7 = icmp eq ptr %6, null
-  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  br i1 %7, label %13, label %9
+  br i1 %7, label %13, label %8
 
-9:                                                ; preds = %2
-  %10 = load i64, ptr %8, align 8, !noundef !4
+8:                                                ; preds = %2
+  call void @llvm.assume(i1 true) [ "align"(ptr %6, i64 2) ]
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %10 = load i64, ptr %9, align 8, !noundef !4
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %6, ptr %11, align 8
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %10, ptr %12, align 8
-  br label %16
+  br label %17
 
 13:                                               ; preds = %2
-  %14 = load i8, ptr %8, align 8, !range !259, !noundef !4
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %15 = load i8, ptr %14, align 8, !range !259, !noundef !4
   call void @llvm.lifetime.start.p0(i64 31, ptr nonnull %.sroa.4)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5)
-  store i8 %14, ptr %5, align 1, !noalias !341
+  store i8 %15, ptr %5, align 1, !noalias !341
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %.sroa.0.i), !noalias !341
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4), !noalias !341
   store ptr %5, ptr %4, align 8, !noalias !341
-  %15 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store ptr @"_ZN59_$LT$bytemuck..PodCastError$u20$as$u20$core..fmt..Debug$GT$3fmt17hfcae4b594a92e218E.llvm.3890463254259644073", ptr %15, align 8, !noalias !341
+  %16 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  store ptr @"_ZN59_$LT$bytemuck..PodCastError$u20$as$u20$core..fmt..Debug$GT$3fmt17hfcae4b594a92e218E.llvm.3890463254259644073", ptr %16, align 8, !noalias !341
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3), !noalias !344
   store ptr @anon.df12dd7d62f56185f0383eceae1d36f2.328.llvm.3890463254259644073, ptr %3, align 8, !noalias !355
   %.sroa.52.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -2422,10 +2424,10 @@ define hidden void @"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17hbc8ac62f3ec4
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr null, ptr %.sroa.5.0..sroa_idx, align 8
   call void @llvm.lifetime.end.p0(i64 31, ptr nonnull %.sroa.4)
-  br label %16
+  br label %17
 
-16:                                               ; preds = %9, %13
-  %.sink = phi i8 [ 6, %13 ], [ 10, %9 ]
+17:                                               ; preds = %8, %13
+  %.sink = phi i8 [ 6, %13 ], [ 10, %8 ]
   store i8 %.sink, ptr %0, align 8
   ret void
 }
@@ -27623,6 +27625,7 @@ define void @_ZN5image6codecs4tiff15u8_slice_as_u1617h40d57f6b4153c465E(ptr noal
 13:                                               ; preds = %10
   %14 = lshr exact i64 %2, 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4399)
+  call void @llvm.assume(i1 true) [ "align"(ptr %1, i64 2) ]
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %1, ptr %15, align 8, !alias.scope !4399, !noalias !4402
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 16

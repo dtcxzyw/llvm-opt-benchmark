@@ -7335,6 +7335,7 @@ _ZN4half8binary164arch19f16_to_f32_fallback17hb49fc63c8adc336dE.exit.i.i.i.i208:
   %321 = add nsw i64 %.sroa.57.022.us.i.i.i.i200, -8
   %322 = getelementptr inbounds nuw i8, ptr %.sroa.06.021.us.i.i.i.i201, i64 16
   %323 = getelementptr inbounds nuw i8, ptr %320, i64 32
+  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.06.021.us.i.i.i.i201, i64 2) ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5), !noalias !1929
   call fastcc void @_ZN4half8binary164arch3x8623f16x8_to_f32x8_x86_f16c17h696f0d48b806f466E(ptr noalias nocapture noundef nonnull sret([8 x float]) align 4 dereferenceable(32) %5, ptr noalias noundef nonnull readonly align 2 dereferenceable(16) %.sroa.06.021.us.i.i.i.i201), !noalias !1933
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %320, ptr noundef nonnull readonly align 4 dereferenceable(32) %5, i64 32, i1 false), !alias.scope !1934, !noalias !1938
@@ -8017,6 +8018,7 @@ _ZN4half8binary164arch19f16_to_f32_fallback17hb49fc63c8adc336dE.exit.i.i.i.i188:
   %522 = add nsw i64 %.sroa.57.022.us.i.i.i.i180, -8
   %523 = getelementptr inbounds nuw i8, ptr %.sroa.06.021.us.i.i.i.i181, i64 16
   %524 = getelementptr inbounds nuw i8, ptr %521, i64 32
+  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.06.021.us.i.i.i.i181, i64 2) ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8), !noalias !2137
   call fastcc void @_ZN4half8binary164arch3x8623f16x8_to_f32x8_x86_f16c17h696f0d48b806f466E(ptr noalias nocapture noundef nonnull sret([8 x float]) align 4 dereferenceable(32) %8, ptr noalias noundef nonnull readonly align 2 dereferenceable(16) %.sroa.06.021.us.i.i.i.i181), !noalias !2141
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %521, ptr noundef nonnull readonly align 4 dereferenceable(32) %8, i64 32, i1 false), !alias.scope !2142, !noalias !2146
@@ -8692,6 +8694,7 @@ _ZN4half8binary164arch19f16_to_f32_fallback17hb49fc63c8adc336dE.exit.i.i.i.i168:
   %721 = add nsw i64 %.sroa.57.022.us.i.i.i.i160, -8
   %722 = getelementptr inbounds nuw i8, ptr %.sroa.06.021.us.i.i.i.i161, i64 16
   %723 = getelementptr inbounds nuw i8, ptr %720, i64 32
+  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.06.021.us.i.i.i.i161, i64 2) ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11), !noalias !2345
   call fastcc void @_ZN4half8binary164arch3x8623f16x8_to_f32x8_x86_f16c17h696f0d48b806f466E(ptr noalias nocapture noundef nonnull sret([8 x float]) align 4 dereferenceable(32) %11, ptr noalias noundef nonnull readonly align 2 dereferenceable(16) %.sroa.06.021.us.i.i.i.i161), !noalias !2349
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %720, ptr noundef nonnull readonly align 4 dereferenceable(32) %11, i64 32, i1 false), !alias.scope !2350, !noalias !2354
@@ -9364,6 +9367,7 @@ _ZN4half8binary164arch19f16_to_f32_fallback17hb49fc63c8adc336dE.exit.i.i.i.i: ; 
   %918 = add nsw i64 %.sroa.57.022.us.i.i.i.i, -8
   %919 = getelementptr inbounds nuw i8, ptr %.sroa.06.021.us.i.i.i.i, i64 16
   %920 = getelementptr inbounds nuw i8, ptr %917, i64 32
+  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.06.021.us.i.i.i.i, i64 2) ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %14), !noalias !2551
   call fastcc void @_ZN4half8binary164arch3x8623f16x8_to_f32x8_x86_f16c17h696f0d48b806f466E(ptr noalias nocapture noundef nonnull sret([8 x float]) align 4 dereferenceable(32) %14, ptr noalias noundef nonnull readonly align 2 dereferenceable(16) %.sroa.06.021.us.i.i.i.i), !noalias !2555
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %917, ptr noundef nonnull readonly align 4 dereferenceable(32) %14, i64 32, i1 false), !alias.scope !2556, !noalias !2560
@@ -10645,6 +10649,7 @@ _ZN4half8binary164arch19f16_to_f32_fallback17hb49fc63c8adc336dE.exit.i.i.i.i208:
   %321 = add nsw i64 %.sroa.57.022.us.i.i.i.i200, -8
   %322 = getelementptr inbounds nuw i8, ptr %.sroa.06.021.us.i.i.i.i201, i64 16
   %323 = getelementptr inbounds nuw i8, ptr %320, i64 32
+  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.06.021.us.i.i.i.i201, i64 2) ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5), !noalias !2807
   call fastcc void @_ZN4half8binary164arch3x8623f16x8_to_f32x8_x86_f16c17h696f0d48b806f466E(ptr noalias nocapture noundef nonnull sret([8 x float]) align 4 dereferenceable(32) %5, ptr noalias noundef nonnull readonly align 2 dereferenceable(16) %.sroa.06.021.us.i.i.i.i201), !noalias !2811
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %320, ptr noundef nonnull readonly align 4 dereferenceable(32) %5, i64 32, i1 false), !alias.scope !2812, !noalias !2816
@@ -11327,6 +11332,7 @@ _ZN4half8binary164arch19f16_to_f32_fallback17hb49fc63c8adc336dE.exit.i.i.i.i188:
   %522 = add nsw i64 %.sroa.57.022.us.i.i.i.i180, -8
   %523 = getelementptr inbounds nuw i8, ptr %.sroa.06.021.us.i.i.i.i181, i64 16
   %524 = getelementptr inbounds nuw i8, ptr %521, i64 32
+  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.06.021.us.i.i.i.i181, i64 2) ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8), !noalias !3015
   call fastcc void @_ZN4half8binary164arch3x8623f16x8_to_f32x8_x86_f16c17h696f0d48b806f466E(ptr noalias nocapture noundef nonnull sret([8 x float]) align 4 dereferenceable(32) %8, ptr noalias noundef nonnull readonly align 2 dereferenceable(16) %.sroa.06.021.us.i.i.i.i181), !noalias !3019
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %521, ptr noundef nonnull readonly align 4 dereferenceable(32) %8, i64 32, i1 false), !alias.scope !3020, !noalias !3024
@@ -12002,6 +12008,7 @@ _ZN4half8binary164arch19f16_to_f32_fallback17hb49fc63c8adc336dE.exit.i.i.i.i168:
   %721 = add nsw i64 %.sroa.57.022.us.i.i.i.i160, -8
   %722 = getelementptr inbounds nuw i8, ptr %.sroa.06.021.us.i.i.i.i161, i64 16
   %723 = getelementptr inbounds nuw i8, ptr %720, i64 32
+  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.06.021.us.i.i.i.i161, i64 2) ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11), !noalias !3223
   call fastcc void @_ZN4half8binary164arch3x8623f16x8_to_f32x8_x86_f16c17h696f0d48b806f466E(ptr noalias nocapture noundef nonnull sret([8 x float]) align 4 dereferenceable(32) %11, ptr noalias noundef nonnull readonly align 2 dereferenceable(16) %.sroa.06.021.us.i.i.i.i161), !noalias !3227
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %720, ptr noundef nonnull readonly align 4 dereferenceable(32) %11, i64 32, i1 false), !alias.scope !3228, !noalias !3232
@@ -12674,6 +12681,7 @@ _ZN4half8binary164arch19f16_to_f32_fallback17hb49fc63c8adc336dE.exit.i.i.i.i: ; 
   %918 = add nsw i64 %.sroa.57.022.us.i.i.i.i, -8
   %919 = getelementptr inbounds nuw i8, ptr %.sroa.06.021.us.i.i.i.i, i64 16
   %920 = getelementptr inbounds nuw i8, ptr %917, i64 32
+  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.06.021.us.i.i.i.i, i64 2) ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %14), !noalias !3429
   call fastcc void @_ZN4half8binary164arch3x8623f16x8_to_f32x8_x86_f16c17h696f0d48b806f466E(ptr noalias nocapture noundef nonnull sret([8 x float]) align 4 dereferenceable(32) %14, ptr noalias noundef nonnull readonly align 2 dereferenceable(16) %.sroa.06.021.us.i.i.i.i), !noalias !3433
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %917, ptr noundef nonnull readonly align 4 dereferenceable(32) %14, i64 32, i1 false), !alias.scope !3434, !noalias !3438
@@ -16603,6 +16611,7 @@ _ZN4half8binary164arch19f16_to_f32_fallback17hb49fc63c8adc336dE.exit.i.i.i: ; pr
   %77 = add i64 %.sroa.57.022.us.i.i.i, -8
   %78 = getelementptr inbounds nuw i8, ptr %.sroa.06.021.us.i.i.i, i64 16
   %79 = getelementptr inbounds nuw i8, ptr %76, i64 32
+  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.06.021.us.i.i.i, i64 2) ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9), !noalias !4358
   call fastcc void @_ZN4half8binary164arch3x8623f16x8_to_f32x8_x86_f16c17h696f0d48b806f466E(ptr noalias nocapture noundef nonnull sret([8 x float]) align 4 dereferenceable(32) %9, ptr noalias noundef nonnull readonly align 2 dereferenceable(16) %.sroa.06.021.us.i.i.i), !noalias !4362
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %76, ptr noundef nonnull readonly align 4 dereferenceable(32) %9, i64 32, i1 false), !alias.scope !4363, !noalias !4367
@@ -16620,7 +16629,7 @@ _ZN4half8binary164arch19f16_to_f32_fallback17hb49fc63c8adc336dE.exit.i.i.i: ; pr
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h749c84f19237858cE.exit11.i.i.i": ; preds = %"_ZN72_$LT$$RF$mut$u20$I$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h19f0bd69a6d35b51E.exit.thread.i.i.i.i"
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8), !noalias !4358
-  call void @"_ZN4core5array75_$LT$impl$u20$core..default..Default$u20$for$u20$$u5b$T$u3b$$u20$_$u5d$$GT$7default17h2467af0a79756739E"(ptr noalias nocapture noundef nonnull sret([8 x i16]) align 2 dereferenceable(16) %8), !noalias !4358
+  call void @"_ZN4core5array75_$LT$impl$u20$core..default..Default$u20$for$u20$$u5b$T$u3b$$u20$_$u5d$$GT$7default17h2467af0a79756739E"(ptr noalias nocapture noundef nonnull sret([8 x i16]) align 2 dereferenceable(16) %8), !noalias !4362
   %84 = shl nuw nsw i64 %71, 1
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 2 %8, ptr nonnull readonly align 2 %73, i64 %84, i1 false), !alias.scope !4369, !noalias !4373
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7), !noalias !4358

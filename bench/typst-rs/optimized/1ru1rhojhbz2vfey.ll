@@ -57217,6 +57217,7 @@ switch.lookup188:                                 ; preds = %switch.hole_check18
   br label %158
 
 210:                                              ; preds = %"_ZN9hayagriva3csl16Context$LT$T$GT$9push_case17hfc6ed1518e316664E.exit159"
+  call void @llvm.assume(i1 true) [ "align"(ptr %205, i64 8) ]
   %211 = getelementptr inbounds nuw i8, ptr %205, i64 8
   %212 = load ptr, ptr %211, align 8, !nonnull !5, !noundef !5
   %213 = getelementptr inbounds nuw i8, ptr %205, i64 16
@@ -57304,6 +57305,7 @@ switch.lookup188:                                 ; preds = %switch.hole_check18
   br i1 %.not134, label %switch.hole_check196, label %250
 
 250:                                              ; preds = %248
+  call void @llvm.assume(i1 true) [ "align"(ptr %249, i64 8) ]
   %251 = getelementptr inbounds nuw i8, ptr %249, i64 8
   %252 = load ptr, ptr %251, align 8, !nonnull !5, !noundef !5
   %253 = getelementptr inbounds nuw i8, ptr %249, i64 16
@@ -57389,6 +57391,7 @@ switch.lookup197:                                 ; preds = %switch.hole_check19
   br i1 %.not135, label %293, label %288
 
 288:                                              ; preds = %"_ZN9hayagriva3csl16Context$LT$T$GT$9push_case17hfc6ed1518e316664E.exit164"
+  call void @llvm.assume(i1 true) [ "align"(ptr %287, i64 8) ]
   %289 = getelementptr inbounds nuw i8, ptr %287, i64 8
   %290 = load ptr, ptr %289, align 8, !nonnull !5, !noundef !5
   %291 = getelementptr inbounds nuw i8, ptr %287, i64 16
@@ -57421,6 +57424,7 @@ switch.lookup197:                                 ; preds = %switch.hole_check19
   br i1 %.not137, label %158, label %305
 
 305:                                              ; preds = %303
+  call void @llvm.assume(i1 true) [ "align"(ptr %304, i64 8) ]
   %306 = getelementptr inbounds nuw i8, ptr %304, i64 8
   %307 = load ptr, ptr %306, align 8, !nonnull !5, !noundef !5
   %308 = getelementptr inbounds nuw i8, ptr %304, i64 16
@@ -57429,6 +57433,7 @@ switch.lookup197:                                 ; preds = %switch.hole_check19
   br label %158
 
 310:                                              ; preds = %165
+  call void @llvm.assume(i1 true) [ "align"(ptr %167, i64 8) ]
   %311 = getelementptr inbounds nuw i8, ptr %167, i64 8
   %312 = load ptr, ptr %311, align 8, !nonnull !5, !noundef !5
   %313 = getelementptr inbounds nuw i8, ptr %167, i64 16
@@ -57448,6 +57453,7 @@ switch.lookup197:                                 ; preds = %switch.hole_check19
   br i1 %.not139, label %326, label %321
 
 321:                                              ; preds = %315
+  call void @llvm.assume(i1 true) [ "align"(ptr %320, i64 8) ]
   %322 = getelementptr inbounds nuw i8, ptr %320, i64 8
   %323 = load ptr, ptr %322, align 8, !nonnull !5, !noundef !5
   %324 = getelementptr inbounds nuw i8, ptr %320, i64 16
@@ -57466,6 +57472,7 @@ switch.lookup197:                                 ; preds = %switch.hole_check19
   br i1 %.not140, label %335, label %330
 
 330:                                              ; preds = %327
+  call void @llvm.assume(i1 true) [ "align"(ptr %329, i64 8) ]
   %331 = getelementptr inbounds nuw i8, ptr %329, i64 8
   %332 = load ptr, ptr %331, align 8, !nonnull !5, !noundef !5
   %333 = getelementptr inbounds nuw i8, ptr %329, i64 16
@@ -57485,6 +57492,7 @@ switch.lookup197:                                 ; preds = %switch.hole_check19
   br i1 %.not141, label %158, label %341
 
 341:                                              ; preds = %335
+  call void @llvm.assume(i1 true) [ "align"(ptr %340, i64 8) ]
   %342 = getelementptr inbounds nuw i8, ptr %340, i64 8
   %343 = load ptr, ptr %342, align 8, !nonnull !5, !noundef !5
   %344 = getelementptr inbounds nuw i8, ptr %340, i64 16
@@ -57579,6 +57587,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
   br i1 %.not, label %47, label %42
 
 42:                                               ; preds = %"_ZN9hayagriva3csl16Context$LT$T$GT$9push_case17hfc6ed1518e316664E.exit"
+  call void @llvm.assume(i1 true) [ "align"(ptr %41, i64 8) ]
   %43 = getelementptr inbounds nuw i8, ptr %41, i64 8
   %44 = load ptr, ptr %43, align 8, !nonnull !5, !noundef !5
   %45 = getelementptr inbounds nuw i8, ptr %41, i64 16
@@ -57602,6 +57611,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
   br i1 %.not12, label %61, label %56
 
 56:                                               ; preds = %47
+  call void @llvm.assume(i1 true) [ "align"(ptr %55, i64 8) ]
   %57 = getelementptr inbounds nuw i8, ptr %55, i64 8
   %58 = load ptr, ptr %57, align 8, !nonnull !5, !noundef !5
   %59 = getelementptr inbounds nuw i8, ptr %55, i64 16
@@ -57700,6 +57710,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
   br i1 %.not, label %48, label %43
 
 43:                                               ; preds = %"_ZN9hayagriva3csl16Context$LT$T$GT$9push_case17hfc6ed1518e316664E.exit"
+  call void @llvm.assume(i1 true) [ "align"(ptr %42, i64 8) ]
   %44 = getelementptr inbounds nuw i8, ptr %42, i64 8
   %45 = load ptr, ptr %44, align 8, !nonnull !5, !noundef !5
   %46 = getelementptr inbounds nuw i8, ptr %42, i64 16
@@ -57723,6 +57734,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
   br i1 %.not29, label %62, label %57
 
 57:                                               ; preds = %48
+  call void @llvm.assume(i1 true) [ "align"(ptr %56, i64 8) ]
   %58 = getelementptr inbounds nuw i8, ptr %56, i64 8
   %59 = load ptr, ptr %58, align 8, !nonnull !5, !noundef !5
   %60 = getelementptr inbounds nuw i8, ptr %56, i64 16
@@ -57826,6 +57838,7 @@ switch.lookup42:                                  ; preds = %switch.hole_check41
   br i1 %.not31, label %114, label %109
 
 109:                                              ; preds = %"_ZN9hayagriva3csl16Context$LT$T$GT$9push_case17hfc6ed1518e316664E.exit39"
+  call void @llvm.assume(i1 true) [ "align"(ptr %108, i64 8) ]
   %110 = getelementptr inbounds nuw i8, ptr %108, i64 8
   %111 = load ptr, ptr %110, align 8, !nonnull !5, !noundef !5
   %112 = getelementptr inbounds nuw i8, ptr %108, i64 16
@@ -57922,6 +57935,7 @@ switch.lookup42:                                  ; preds = %switch.hole_check41
   br i1 %.not33, label %162, label %157
 
 157:                                              ; preds = %154
+  call void @llvm.assume(i1 true) [ "align"(ptr %156, i64 8) ]
   %158 = getelementptr inbounds nuw i8, ptr %156, i64 8
   %159 = load ptr, ptr %158, align 8, !nonnull !5, !noundef !5
   %160 = getelementptr inbounds nuw i8, ptr %156, i64 16
@@ -58040,6 +58054,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
   br i1 %.not, label %48, label %43
 
 43:                                               ; preds = %"_ZN9hayagriva3csl16Context$LT$T$GT$9push_case17hfc6ed1518e316664E.exit"
+  call void @llvm.assume(i1 true) [ "align"(ptr %42, i64 8) ]
   %44 = getelementptr inbounds nuw i8, ptr %42, i64 8
   %45 = load ptr, ptr %44, align 8, !nonnull !5, !noundef !5
   %46 = getelementptr inbounds nuw i8, ptr %42, i64 16
@@ -58062,6 +58077,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
   br i1 %.not27, label %61, label %56
 
 56:                                               ; preds = %48
+  call void @llvm.assume(i1 true) [ "align"(ptr %55, i64 8) ]
   %57 = getelementptr inbounds nuw i8, ptr %55, i64 8
   %58 = load ptr, ptr %57, align 8, !nonnull !5, !noundef !5
   %59 = getelementptr inbounds nuw i8, ptr %55, i64 16
@@ -58165,6 +58181,7 @@ switch.lookup41:                                  ; preds = %switch.hole_check40
   br i1 %.not29, label %113, label %108
 
 108:                                              ; preds = %"_ZN9hayagriva3csl16Context$LT$T$GT$9push_case17hfc6ed1518e316664E.exit38"
+  call void @llvm.assume(i1 true) [ "align"(ptr %107, i64 8) ]
   %109 = getelementptr inbounds nuw i8, ptr %107, i64 8
   %110 = load ptr, ptr %109, align 8, !nonnull !5, !noundef !5
   %111 = getelementptr inbounds nuw i8, ptr %107, i64 16
@@ -58273,6 +58290,7 @@ switch.lookup41:                                  ; preds = %switch.hole_check40
   br i1 %.not32, label %166, label %161
 
 161:                                              ; preds = %158
+  call void @llvm.assume(i1 true) [ "align"(ptr %160, i64 8) ]
   %162 = getelementptr inbounds nuw i8, ptr %160, i64 8
   %163 = load ptr, ptr %162, align 8, !nonnull !5, !noundef !5
   %164 = getelementptr inbounds nuw i8, ptr %160, i64 16
@@ -58678,6 +58696,7 @@ default.unreachable164:                           ; preds = %137, %115, %"_ZN9ha
   br i1 %.not83, label %87, label %82
 
 79:                                               ; preds = %76
+  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.5120.0..sroa.5120.0..sroa.5120.0..sroa.5120.8., i64 8) ]
   %.sroa.10121.0..sroa.10121.0..sroa.10121.0..sroa.10121.16. = load i64, ptr %.sroa.10121, align 8, !range !1375, !noundef !5
   %80 = inttoptr i64 %.sroa.10121.0..sroa.10121.0..sroa.10121.0..sroa.10121.16. to ptr
   %81 = load i8, ptr %80, align 1, !range !467, !noundef !5
