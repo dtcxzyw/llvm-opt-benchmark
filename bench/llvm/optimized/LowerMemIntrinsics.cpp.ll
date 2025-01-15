@@ -2337,7 +2337,7 @@ define internal fastcc noundef ptr @_ZL23getRuntimeLoopRemainderRKN4llvm10DataLa
 
 9:                                                ; preds = %4
   %10 = add i32 %3, -1
-  %11 = zext i32 %10 to i64
+  %11 = zext nneg i32 %10 to i64
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 32
   store i16 257, ptr %12, align 8
   %13 = call noundef ptr @_ZN4llvm13IRBuilderBase9CreateAndEPNS_5ValueEmRKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef %1, i64 noundef %11, ptr noundef nonnull align 8 dereferenceable(34) %6)

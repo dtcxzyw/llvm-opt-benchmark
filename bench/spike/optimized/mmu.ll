@@ -1535,7 +1535,7 @@ define noundef zeroext i1 @_ZN5mmu_t7mmio_okEm11access_type(ptr nocapture nounde
 define noundef zeroext i1 @_ZN5mmu_t9mmio_loadEmmPh(ptr nocapture noundef nonnull readonly align 8 dereferenceable(43168) %0, i64 noundef %1, i64 noundef %2, ptr noundef %3) local_unnamed_addr #9 align 2 {
   %5 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %2)
   %6 = icmp samesign ult i64 %5, 2
-  br i1 %6, label %7, label %26
+  br i1 %6, label %7, label %.lr.ph.i
 
 7:                                                ; preds = %4
   %8 = add i64 %2, -1
@@ -1568,11 +1568,11 @@ _ZN5mmu_t7mmio_okEm11access_type.exit.sink.split.i: ; preds = %16, %13, %11
   %25 = tail call noundef zeroext i1 %24(ptr noundef nonnull align 8 dereferenceable(16) %21, i64 noundef %1, i64 noundef %2, ptr noundef %3)
   br label %_ZN5mmu_t4mmioEmmPh11access_type.exit
 
-26:                                               ; preds = %7, %4
+26:                                               ; preds = %7
   %.not.i = icmp eq i64 %2, 0
   br i1 %.not.i, label %_ZN5mmu_t4mmioEmmPh11access_type.exit, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %26
+.lr.ph.i:                                         ; preds = %26, %4
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 72
   br label %.lr.ph.split.i
@@ -1617,7 +1617,7 @@ _ZN5mmu_t4mmioEmmPh11access_type.exit:            ; preds = %34, %_ZN5mmu_t4mmio
 define noundef zeroext i1 @_ZN5mmu_t4mmioEmmPh11access_type(ptr nocapture noundef nonnull readonly align 8 dereferenceable(43168) %0, i64 noundef %1, i64 noundef %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #9 align 2 {
   %6 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %2)
   %7 = icmp samesign ult i64 %6, 2
-  br i1 %7, label %8, label %28
+  br i1 %7, label %8, label %.lr.ph
 
 8:                                                ; preds = %5
   %9 = add i64 %2, -1
@@ -1652,11 +1652,11 @@ _ZN5mmu_t7mmio_okEm11access_type.exit.sink.split: ; preds = %12, %14, %17
   %27 = tail call noundef zeroext i1 %26(ptr noundef nonnull align 8 dereferenceable(16) %23, i64 noundef %1, i64 noundef %2, ptr noundef %3)
   br label %_ZN5mmu_t7mmio_okEm11access_type.exit
 
-28:                                               ; preds = %8, %5
+28:                                               ; preds = %8
   %.not = icmp eq i64 %2, 0
   br i1 %.not, label %_ZN5mmu_t7mmio_okEm11access_type.exit, label %.lr.ph
 
-.lr.ph:                                           ; preds = %28
+.lr.ph:                                           ; preds = %5, %28
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %30 = icmp eq i32 %4, 1
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -1733,7 +1733,7 @@ _ZN5mmu_t7mmio_okEm11access_type.exit:            ; preds = %_ZN5mmu_t4mmioEmmPh
 define noundef zeroext i1 @_ZN5mmu_t10mmio_storeEmmPKh(ptr nocapture noundef nonnull readonly align 8 dereferenceable(43168) %0, i64 noundef %1, i64 noundef %2, ptr noundef %3) local_unnamed_addr #9 align 2 {
   %5 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %2)
   %6 = icmp samesign ult i64 %5, 2
-  br i1 %6, label %7, label %26
+  br i1 %6, label %7, label %.lr.ph.i
 
 7:                                                ; preds = %4
   %8 = add i64 %2, -1
@@ -1766,11 +1766,11 @@ _ZN5mmu_t7mmio_okEm11access_type.exit.sink.split.i: ; preds = %16, %13, %11
   %25 = tail call noundef zeroext i1 %24(ptr noundef nonnull align 8 dereferenceable(16) %21, i64 noundef %1, i64 noundef %2, ptr noundef %3)
   br label %_ZN5mmu_t4mmioEmmPh11access_type.exit
 
-26:                                               ; preds = %7, %4
+26:                                               ; preds = %7
   %.not.i = icmp eq i64 %2, 0
   br i1 %.not.i, label %_ZN5mmu_t4mmioEmmPh11access_type.exit, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %26
+.lr.ph.i:                                         ; preds = %26, %4
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 72
   br label %.lr.ph.split.us.i
@@ -2046,7 +2046,7 @@ _ZN16memtracer_list_t5traceEmm11access_type.exit.thread: ; preds = %_ZNK13xlate_
 79:                                               ; preds = %50
   %80 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %1)
   %81 = icmp samesign ult i64 %80, 2
-  br i1 %81, label %82, label %94
+  br i1 %81, label %82, label %.lr.ph.split.i.i.preheader
 
 82:                                               ; preds = %79
   %83 = add i64 %1, -1
@@ -2069,12 +2069,15 @@ _ZN16memtracer_list_t5traceEmm11access_type.exit.thread: ; preds = %_ZNK13xlate_
   %93 = trunc i8 %92 to i1
   br i1 %93, label %_ZN5mmu_t9mmio_loadEmmPh.exit, label %_ZN5mmu_t9mmio_loadEmmPh.exit.thread
 
-94:                                               ; preds = %82, %79
+94:                                               ; preds = %82
   %.not.i.i = icmp eq i64 %1, 0
-  br i1 %.not.i.i, label %_ZN16memtracer_list_t5traceEmm11access_type.exit, label %.lr.ph.split.i.i
+  br i1 %.not.i.i, label %_ZN16memtracer_list_t5traceEmm11access_type.exit, label %.lr.ph.split.i.i.preheader
 
-.lr.ph.split.i.i:                                 ; preds = %94, %109
-  %.029.i.i = phi i64 [ %110, %109 ], [ 0, %94 ]
+.lr.ph.split.i.i.preheader:                       ; preds = %94, %79
+  br label %.lr.ph.split.i.i
+
+.lr.ph.split.i.i:                                 ; preds = %.lr.ph.split.i.i.preheader, %109
+  %.029.i.i = phi i64 [ %110, %109 ], [ 0, %.lr.ph.split.i.i.preheader ]
   %95 = add i64 %.029.i.i, %.0.i
   %96 = getelementptr inbounds i8, ptr %2, i64 %.029.i.i
   %97 = icmp ult i64 %95, 4096
@@ -2552,7 +2555,7 @@ _ZN16memtracer_list_t19interested_in_rangeEmm11access_type.exit: ; preds = %.lr.
 65:                                               ; preds = %35
   %66 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %1)
   %67 = icmp samesign ult i64 %66, 2
-  br i1 %67, label %68, label %80
+  br i1 %67, label %68, label %.lr.ph.split.us.i.i.preheader
 
 68:                                               ; preds = %65
   %69 = add i64 %1, -1
@@ -2575,12 +2578,15 @@ _ZN16memtracer_list_t19interested_in_rangeEmm11access_type.exit: ; preds = %.lr.
   %79 = trunc i8 %78 to i1
   br i1 %79, label %_ZN5mmu_t10mmio_storeEmmPKh.exit, label %_ZN5mmu_t10mmio_storeEmmPKh.exit.thread
 
-80:                                               ; preds = %68, %65
+80:                                               ; preds = %68
   %.not.i.i = icmp eq i64 %1, 0
-  br i1 %.not.i.i, label %_ZN16memtracer_list_t5traceEmm11access_type.exit, label %.lr.ph.split.us.i.i
+  br i1 %.not.i.i, label %_ZN16memtracer_list_t5traceEmm11access_type.exit, label %.lr.ph.split.us.i.i.preheader
 
-.lr.ph.split.us.i.i:                              ; preds = %80, %96
-  %.029.us.i.i = phi i64 [ %97, %96 ], [ 0, %80 ]
+.lr.ph.split.us.i.i.preheader:                    ; preds = %80, %65
+  br label %.lr.ph.split.us.i.i
+
+.lr.ph.split.us.i.i:                              ; preds = %.lr.ph.split.us.i.i.preheader, %96
+  %.029.us.i.i = phi i64 [ %97, %96 ], [ 0, %.lr.ph.split.us.i.i.preheader ]
   %81 = add i64 %.029.us.i.i, %.0.i
   %82 = getelementptr inbounds i8, ptr %2, i64 %.029.us.i.i
   %83 = icmp ult i64 %81, 4096

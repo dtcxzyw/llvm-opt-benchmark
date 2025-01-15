@@ -1101,7 +1101,7 @@ adjust_request_size.exit:                         ; preds = %3, %4
   br label %.preheader.i.i
 
 align_up.exit.i:                                  ; preds = %10
-  %13 = add i64 %1, 31
+  %13 = add nuw i64 %1, 31
   %14 = add i64 %13, %9
   %15 = sub i64 0, %1
   %16 = and i64 %14, %15

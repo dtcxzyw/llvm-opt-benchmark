@@ -2118,7 +2118,7 @@ define internal fastcc noundef ptr @_ZL19CreateTripRemainderRN4llvm9IRBuilderINS
 
 13:                                               ; preds = %4
   %14 = add i32 %3, -1
-  %15 = zext i32 %14 to i64
+  %15 = zext nneg i32 %14 to i64
   %16 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %17 = getelementptr inbounds nuw i8, ptr %8, i64 33
   store i8 1, ptr %17, align 1

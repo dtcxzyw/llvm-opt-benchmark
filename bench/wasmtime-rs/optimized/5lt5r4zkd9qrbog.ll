@@ -4766,7 +4766,7 @@ define hidden void @"_ZN22cranelift_codegen_meta8gen_inst11gen_opcodes28_$u7b$$u
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden i16 @"_ZN22cranelift_codegen_meta8gen_inst10gen_bitset28_$u7b$$u7b$closure$u7d$$u7d$17h5e9aafe468da7c5bE"(ptr nocapture readonly align 8 %0, i16 %1, ptr nocapture readonly align 2 %2) unnamed_addr #3 {
+define hidden range(i16 1, 0) i16 @"_ZN22cranelift_codegen_meta8gen_inst10gen_bitset28_$u7b$$u7b$closure$u7d$$u7d$17h5e9aafe468da7c5bE"(ptr nocapture readonly align 8 %0, i16 %1, ptr nocapture readonly align 2 %2) unnamed_addr #3 {
   %4 = load i16, ptr %2, align 2, !noundef !3
   %5 = tail call range(i16 0, 17) i16 @llvm.ctpop.i16(i16 %4)
   %6 = icmp eq i16 %5, 1

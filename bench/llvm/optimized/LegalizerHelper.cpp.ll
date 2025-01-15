@@ -48796,7 +48796,7 @@ _ZNK4llvm3LLT19getScalarSizeInBitsEv.exit45:      ; preds = %82, %86, %90
   %109 = and i64 %108, %.sroa.04.0.i37
   %.not1.i.i = icmp eq i64 %109, 0
   %.sroa.2.0.insert.shift.i.i.i = select i1 %.not1.i.i, i64 0, i64 4294967296
-  %110 = zext i32 %99 to i64
+  %110 = zext nneg i32 %99 to i64
   %111 = or disjoint i64 %.sroa.2.0.insert.shift.i.i.i, %110
   %112 = shl nuw nsw i64 %111, 19
   %.mask.i = and i64 %.sroa.04.0.i37, 524280
@@ -48805,7 +48805,7 @@ _ZNK4llvm3LLT19getScalarSizeInBitsEv.exit45:      ; preds = %82, %86, %90
   br label %_ZNK4llvm3LLT17changeElementSizeEj.exit
 
 115:                                              ; preds = %101
-  %116 = zext i32 %99 to i64
+  %116 = zext nneg i32 %99 to i64
   %117 = shl nuw nsw i64 %116, 3
   %118 = or disjoint i64 %117, 1
   br label %_ZNK4llvm3LLT17changeElementSizeEj.exit

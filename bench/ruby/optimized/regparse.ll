@@ -11271,10 +11271,10 @@ define internal fastcc range(i32 0, 2) i32 @is_onechar_cclass(ptr nocapture noun
   %41 = and i32 %40, 1431655765
   %42 = lshr i32 %40, 1
   %43 = and i32 %42, 1431655765
-  %44 = add nuw i32 %43, %41
+  %44 = add nuw nsw i32 %43, %41
   %45 = and i32 %44, 858993459
   %46 = lshr i32 %44, 2
-  %47 = and i32 %46, 858993459
+  %47 = and i32 %46, 322122547
   %48 = add nuw nsw i32 %47, %45
   %49 = and i32 %48, 117901063
   %50 = lshr i32 %48, 4

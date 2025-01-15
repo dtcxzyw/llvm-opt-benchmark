@@ -1513,8 +1513,8 @@ _ZNK4llvm6Triple4isPSEv.exit:                     ; preds = %switch.edge
   %spec.select.i92 = icmp ult i32 %50, 2
   store i32 3, ptr %0, align 8
   %51 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_ZL14ClMappingScale, i64 8), align 8
-  %.not95 = icmp eq i16 %51, 0
-  br i1 %.not95, label %55, label %52
+  %.not96 = icmp eq i16 %51, 0
+  br i1 %.not96, label %55, label %52
 
 52:                                               ; preds = %42
   %53 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZL14ClMappingScale, i64 128), align 8
@@ -1767,8 +1767,8 @@ _ZNK4llvm6Triple4isPSEv.exit:                     ; preds = %switch.edge
 143:                                              ; preds = %141, %137
   %144 = phi i64 [ -1, %141 ], [ %138, %137 ]
   %145 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_ZL15ClMappingOffset, i64 8), align 8
-  %.not97 = icmp eq i16 %145, 0
-  br i1 %.not97, label %149, label %146
+  %.not98 = icmp eq i16 %145, 0
+  br i1 %.not98, label %149, label %146
 
 146:                                              ; preds = %143
   %147 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZL15ClMappingOffset, i64 128), align 8
@@ -1783,33 +1783,38 @@ _ZNK4llvm6Triple4isPSEv.exit:                     ; preds = %switch.edge
   %brmerge83 = or i1 %30, %brmerge82
   %brmerge84 = or i1 %46, %brmerge83
   %brmerge85 = or i1 %45, %brmerge84
-  %151 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %150)
-  %.not = icmp samesign ult i64 %151, 2
-  %not.brmerge85 = xor i1 %brmerge85, true
-  %narrow = select i1 %not.brmerge85, i1 %.not, i1 false
-  %152 = zext i1 %narrow to i8
-  %153 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i8 %152, ptr %153, align 8
-  br i1 %6, label %154, label %.thread93
+  br i1 %brmerge85, label %153, label %151
 
-154:                                              ; preds = %149
-  %155 = tail call { i64, i64 } @_ZNK4llvm6Triple21getEnvironmentVersionEv(ptr noundef nonnull align 8 dereferenceable(56) %1) #22
-  %.fr101 = freeze { i64, i64 } %155
-  %156 = extractvalue { i64, i64 } %.fr101, 0
-  %157 = tail call noundef zeroext i1 @_ZNK4llvm6Triple11isArch64BitEv(ptr noundef nonnull align 8 dereferenceable(56) %1) #22
-  %158 = trunc i64 %156 to i32
-  %159 = icmp ugt i32 %158, 20
-  %.not99 = or i1 %157, %159
-  %spec.select = select i1 %.not99, i8 %43, i8 0
+151:                                              ; preds = %149
+  %152 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %150)
+  %.not = icmp samesign ult i64 %152, 2
+  %spec.select = zext i1 %.not to i8
+  br label %153
+
+153:                                              ; preds = %151, %149
+  %154 = phi i8 [ 0, %149 ], [ %spec.select, %151 ]
+  %155 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i8 %154, ptr %155, align 8
+  br i1 %6, label %156, label %.thread93
+
+156:                                              ; preds = %153
+  %157 = tail call { i64, i64 } @_ZNK4llvm6Triple21getEnvironmentVersionEv(ptr noundef nonnull align 8 dereferenceable(56) %1) #22
+  %.fr102 = freeze { i64, i64 } %157
+  %158 = extractvalue { i64, i64 } %.fr102, 0
+  %159 = tail call noundef zeroext i1 @_ZNK4llvm6Triple11isArch64BitEv(ptr noundef nonnull align 8 dereferenceable(56) %1) #22
+  %160 = trunc i64 %158 to i32
+  %161 = icmp ugt i32 %160, 20
+  %.not100 = or i1 %159, %161
+  %spec.select95 = select i1 %.not100, i8 %43, i8 0
   br label %.thread93
 
-.thread93:                                        ; preds = %149, %154
-  %160 = phi i8 [ %spec.select, %154 ], [ 0, %149 ]
+.thread93:                                        ; preds = %153, %156
+  %162 = phi i8 [ %spec.select95, %156 ], [ 0, %153 ]
   %.in = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL11ClWithIfunc, i64 128), align 8
-  %161 = trunc i8 %.in to i1
-  %162 = select i1 %161, i8 %160, i8 0
-  %163 = getelementptr inbounds nuw i8, ptr %0, i64 17
-  store i8 %162, ptr %163, align 1
+  %163 = trunc i8 %.in to i1
+  %164 = select i1 %163, i8 %162, i8 0
+  %165 = getelementptr inbounds nuw i8, ptr %0, i64 17
+  store i8 %164, ptr %165, align 1
   ret void
 }
 

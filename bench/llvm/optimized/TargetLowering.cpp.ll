@@ -10812,7 +10812,7 @@ _ZN4llvm5APIntD2Ev.exit3899:                      ; preds = %_ZN4llvm5APIntD2Ev.
   %2945 = call noundef i64 @_ZNK4llvm7SDValue24getScalarValueSizeInBitsEv(ptr noundef nonnull align 8 dereferenceable(12) %192)
   %2946 = trunc i64 %2945 to i32
   %2947 = add i32 %329, -1
-  %2948 = zext i32 %2947 to i64
+  %2948 = zext nneg i32 %2947 to i64
   call void @_ZN4llvm5APIntC2Ejmbb(ptr noundef nonnull align 8 dereferenceable(12) %198, i32 noundef %2946, i64 noundef %2948, i1 noundef zeroext false, i1 noundef zeroext true)
   %.sroa.01200.0.copyload = load ptr, ptr %192, align 8
   %.sroa.21201.0.copyload = load i32, ptr %.sroa.21256.0..sroa_idx, align 8
@@ -11111,7 +11111,7 @@ _ZN4llvm5APIntD2Ev.exit3938:                      ; preds = %_ZNK4llvm18TargetLo
   %3063 = call noundef i64 @_ZNK4llvm7SDValue24getScalarValueSizeInBitsEv(ptr noundef nonnull align 8 dereferenceable(12) %199)
   %3064 = trunc i64 %3063 to i32
   %3065 = add i32 %329, -1
-  %3066 = zext i32 %3065 to i64
+  %3066 = zext nneg i32 %3065 to i64
   call void @_ZN4llvm5APIntC2Ejmbb(ptr noundef nonnull align 8 dereferenceable(12) %203, i32 noundef %3064, i64 noundef %3066, i1 noundef zeroext false, i1 noundef zeroext true)
   %.sroa.01097.0.copyload = load ptr, ptr %199, align 8
   %.sroa.21098.0.copyload = load i32, ptr %.sroa.21168.0..sroa_idx, align 8

@@ -1624,7 +1624,7 @@ if.end3.i:                                        ; preds = %if.end.i84
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %if.end3.i
   %sub.i.i.i.i.i.i.i = add i32 %42, -1
-  %dist.sroa.2.0.insert.ext.i.i.i.i = zext i32 %sub.i.i.i.i.i.i.i to i64
+  %dist.sroa.2.0.insert.ext.i.i.i.i = zext nneg i32 %sub.i.i.i.i.i.i.i to i64
   %and2.i.i1.i.i.i.i.i = and i64 %or.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %dist.sroa.2.0.insert.ext.i.i.i.i
   br label %_ZN4absl12lts_202308027UniformIjNS0_21IntervalClosedOpenTagERNS0_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEENSt9enable_ifIXntsr3std7is_sameIT_vEE5valueESE_E4typeET0_OT1_SE_SE_.exit.i
 
@@ -1722,7 +1722,7 @@ if.end3.i90:                                      ; preds = %if.end.i87
 
 if.then.i.i.i.i.i.i.i144:                         ; preds = %if.end3.i90
   %sub.i.i.i.i.i.i.i145 = add i32 %48, -1
-  %dist.sroa.2.0.insert.ext.i.i.i.i146 = zext i32 %sub.i.i.i.i.i.i.i145 to i64
+  %dist.sroa.2.0.insert.ext.i.i.i.i146 = zext nneg i32 %sub.i.i.i.i.i.i.i145 to i64
   %and2.i.i1.i.i.i.i.i147 = and i64 %or.i.i.i.i.i.i.i.i.i.i.i.i.i.i105, %dist.sroa.2.0.insert.ext.i.i.i.i146
   br label %_ZN4absl12lts_202308027UniformIjNS0_21IntervalClosedOpenTagERNS0_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEENSt9enable_ifIXntsr3std7is_sameIT_vEE5valueESE_E4typeET0_OT1_SE_SE_.exit.i116
 

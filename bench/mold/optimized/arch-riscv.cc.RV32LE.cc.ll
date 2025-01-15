@@ -36361,15 +36361,13 @@ if.end.i109.i.i.i.i.i.i.i.i.i.i.i.i:              ; preds = %if.then.i.i.i.i.i.i
 
 _ZN4mold8bit_ceilEm.exit.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %if.end.i109.i.i.i.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i.i.i
   %retval.0.i.i.i.i.i.i.i.i.i.i.i.i.i = phi i64 [ %shl.i.i.i.i.i.i.i.i.i.i.i.i.i, %if.end.i109.i.i.i.i.i.i.i.i.i.i.i.i ], [ %conv22.i.i.i.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i.i.i ]
-  %cmp.i111.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %retval.0.i.i.i.i.i.i.i.i.i.i.i.i.i, 0
   %add.i112.i.i.i.i.i.i.i.i.i.i.i.i = add i64 %sub.i.i.i.i.i.i.i.i.i.i.i.i, -1
   %sub.i113.i.i.i.i.i.i.i.i.i.i.i.i = add i64 %add.i112.i.i.i.i.i.i.i.i.i.i.i.i, %retval.0.i.i.i.i.i.i.i.i.i.i.i.i.i
   %not.i.i.i.i.i.i.i.i.i.i.i.i.i = sub i64 0, %retval.0.i.i.i.i.i.i.i.i.i.i.i.i.i
   %and.i.i.i.i.i.i.i.i.i.i.i.i.i = and i64 %sub.i113.i.i.i.i.i.i.i.i.i.i.i.i, %not.i.i.i.i.i.i.i.i.i.i.i.i.i
-  %retval.0.i114.i.i.i.i.i.i.i.i.i.i.i.i = select i1 %cmp.i111.i.i.i.i.i.i.i.i.i.i.i.i, i64 %sub.i.i.i.i.i.i.i.i.i.i.i.i, i64 %and.i.i.i.i.i.i.i.i.i.i.i.i.i
   %add18.i.i.i.i.i.i.i.i.i.i.i.i = add i64 %delta.0272.i.i.i.i.i.i.i.i.i.i.i.i, %conv17.i.i.i.i.i.i.i.i.i.i.i.i
   %sub25.i.i.i.i.i.i.i.i.i.i.i.i = add i64 %add18.i.i.i.i.i.i.i.i.i.i.i.i, %sub.i.i.i.i.i.i.i.i.i.i.i.i
-  %add26.i.i.i.i.i.i.i.i.i.i.i.i = sub i64 %sub25.i.i.i.i.i.i.i.i.i.i.i.i, %retval.0.i114.i.i.i.i.i.i.i.i.i.i.i.i
+  %add26.i.i.i.i.i.i.i.i.i.i.i.i = sub i64 %sub25.i.i.i.i.i.i.i.i.i.i.i.i, %and.i.i.i.i.i.i.i.i.i.i.i.i.i
   br label %for.inc.i.i.i.i.i.i.i.i.i.i.i.i
 
 if.end.i.i.i.i.i.i.i.i.i.i.i.i:                   ; preds = %for.body.i.i.i.i.i.i.i.i.i.i.i.i

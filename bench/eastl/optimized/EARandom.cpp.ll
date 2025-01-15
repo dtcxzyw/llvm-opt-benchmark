@@ -72,9 +72,9 @@ if.then.i:                                        ; preds = %entry
   %shr.i.i = lshr i64 %add.i.i, 16
   %conv.i = and i64 %shr.i.i, 4294967295
   %conv1.i = zext i32 %nLimit to i64
-  %mul.i = mul nuw i64 %conv.i, %conv1.i
+  %mul.i = mul nuw nsw i64 %conv.i, %conv1.i
   %shr.i = lshr i64 %mul.i, 32
-  %conv2.i = trunc nuw i64 %shr.i to i32
+  %conv2.i = trunc nuw nsw i64 %shr.i to i32
   br label %_ZN2EA4StdC11RandomLimitINS0_24RandomLinearCongruentialEEEjRT_j.exit
 
 do.body.i:                                        ; preds = %entry, %do.body.i
@@ -345,9 +345,9 @@ if.then:                                          ; preds = %entry
   %xor45.i = xor i32 %xor42.i, %xor35.i
   %conv = zext i32 %xor45.i to i64
   %conv1 = zext i32 %nLimit to i64
-  %mul = mul nuw i64 %conv, %conv1
+  %mul = mul nuw nsw i64 %conv, %conv1
   %shr = lshr i64 %mul, 32
-  %conv2 = trunc nuw i64 %shr to i32
+  %conv2 = trunc nuw nsw i64 %shr to i32
   br label %return
 
 do.body:                                          ; preds = %do.body.preheader, %do.body
@@ -945,9 +945,9 @@ if.then.i:                                        ; preds = %entry
   %call.i = tail call noundef i32 @_ZN2EA4StdC21RandomMersenneTwister19RandomUint32UniformEv(ptr noundef nonnull align 8 dereferenceable(2508) %this)
   %conv.i = zext i32 %call.i to i64
   %conv1.i = zext i32 %nLimit to i64
-  %mul.i = mul nuw i64 %conv.i, %conv1.i
+  %mul.i = mul nuw nsw i64 %conv.i, %conv1.i
   %shr.i = lshr i64 %mul.i, 32
-  %conv2.i = trunc nuw i64 %shr.i to i32
+  %conv2.i = trunc nuw nsw i64 %shr.i to i32
   br label %_ZN2EA4StdC11RandomLimitINS0_21RandomMersenneTwisterEEEjRT_j.exit
 
 do.body.i:                                        ; preds = %entry, %do.body.i

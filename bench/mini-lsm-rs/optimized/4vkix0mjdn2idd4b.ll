@@ -8733,7 +8733,7 @@ _ZN3std4sync6poison4Flag4done17h5bffa24fa61aa5e0E.exit.i.i87: ; preds = %338, %.
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef range(i64 0, -9223372036854775808) i64 @"_ZN4moka3cht3map6bucket24BucketArray$LT$K$C$V$GT$8capacity17h6d7a086b96dc0ae4E"(ptr nocapture noundef nonnull readonly align 8 %0) unnamed_addr #0 {
+define hidden noundef range(i64 0, 4611686018427387905) i64 @"_ZN4moka3cht3map6bucket24BucketArray$LT$K$C$V$GT$8capacity17h6d7a086b96dc0ae4E"(ptr nocapture noundef nonnull readonly align 8 %0) unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i64, ptr %2, align 8, !noundef !14
   %4 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %3)
@@ -8750,7 +8750,7 @@ define hidden noundef range(i64 0, -9223372036854775808) i64 @"_ZN4moka3cht3map6
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef range(i64 0, -9223372036854775808) i64 @"_ZN4moka3cht3map6bucket24BucketArray$LT$K$C$V$GT$8capacity17hf11dcc68bf4b66f6E"(ptr nocapture noundef nonnull readonly align 8 %0) unnamed_addr #0 {
+define hidden noundef range(i64 0, 4611686018427387905) i64 @"_ZN4moka3cht3map6bucket24BucketArray$LT$K$C$V$GT$8capacity17hf11dcc68bf4b66f6E"(ptr nocapture noundef nonnull readonly align 8 %0) unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i64, ptr %2, align 8, !noundef !14
   %4 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %3)
@@ -8767,7 +8767,7 @@ define hidden noundef range(i64 0, -9223372036854775808) i64 @"_ZN4moka3cht3map6
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef range(i64 0, -9223372036854775808) i64 @"_ZN4moka3cht3map6bucket24BucketArray$LT$K$C$V$GT$8capacity17hffa9739e185ae6d9E"(ptr nocapture noundef nonnull readonly align 8 %0) unnamed_addr #0 {
+define hidden noundef range(i64 0, 4611686018427387905) i64 @"_ZN4moka3cht3map6bucket24BucketArray$LT$K$C$V$GT$8capacity17hffa9739e185ae6d9E"(ptr nocapture noundef nonnull readonly align 8 %0) unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i64, ptr %2, align 8, !noundef !14
   %4 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %3)

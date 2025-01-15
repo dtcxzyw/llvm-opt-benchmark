@@ -614,7 +614,7 @@ define internal fastcc void @_ZL19generateInstSeqImpllRKN4llvm15MCSubtargetInfoE
   %8 = icmp ne i64 %7, 0
   %9 = and i64 %.224.val, 1099511627776
   %.not19 = icmp eq i64 %9, 0
-  br i1 %.not19, label %40, label %10
+  br i1 %.not19, label %39, label %10
 
 10:                                               ; preds = %2
   %.not.i.i = icmp eq i64 %0, 0
@@ -623,175 +623,174 @@ define internal fastcc void @_ZL19generateInstSeqImpllRKN4llvm15MCSubtargetInfoE
 _ZN4llvm13isPowerOf2_64Em.exit:                   ; preds = %10
   %11 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %0)
   %12 = icmp samesign ult i64 %11, 2
-  br i1 %12, label %13, label %40
+  br i1 %12, label %13, label %39
 
 13:                                               ; preds = %_ZN4llvm13isPowerOf2_64Em.exit
-  %14 = add i64 %0, 2147483648
-  %15 = icmp ult i64 %14, 4294967296
-  %16 = icmp ne i64 %0, 2048
-  %or.cond.not = and i1 %16, %15
-  br i1 %or.cond.not, label %.thread, label %17
+  %14 = icmp ult i64 %0, 2147483648
+  %15 = icmp ne i64 %0, 2048
+  %or.cond.not = and i1 %15, %14
+  br i1 %or.cond.not, label %.thread, label %16
 
-17:                                               ; preds = %13
-  %18 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %0, i1 true)
-  %19 = trunc nuw nsw i64 %18 to i32
-  %20 = xor i32 %19, 63
-  %21 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %1) #11
-  %22 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE8capacityEv(ptr noundef nonnull align 8 dereferenceable(16) %1) #11
-  %.not.i = icmp ult i64 %21, %22
-  br i1 %.not.i, label %32, label %23
+16:                                               ; preds = %13
+  %17 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %0, i1 true)
+  %18 = trunc nuw nsw i64 %17 to i32
+  %19 = xor i32 %18, 63
+  %20 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %1) #11
+  %21 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE8capacityEv(ptr noundef nonnull align 8 dereferenceable(16) %1) #11
+  %.not.i = icmp ult i64 %20, %21
+  br i1 %.not.i, label %31, label %22
 
-23:                                               ; preds = %17
-  %24 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %1) #11
-  %25 = add i64 %24, 1
-  %26 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE8capacityEv(ptr noundef nonnull align 8 dereferenceable(16) %1) #11
-  %.not.i.i.i.i.i = icmp ugt i64 %25, %26
-  br i1 %.not.i.i.i.i.i, label %27, label %"_ZN4llvm23SmallVectorTemplateBaseINS_11RISCVMatInt4InstELb1EE18growAndEmplaceBackIJNS_5RISCV3$_0EjEEERS2_DpOT_.exit.i"
+22:                                               ; preds = %16
+  %23 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %1) #11
+  %24 = add i64 %23, 1
+  %25 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE8capacityEv(ptr noundef nonnull align 8 dereferenceable(16) %1) #11
+  %.not.i.i.i.i.i = icmp ugt i64 %24, %25
+  br i1 %.not.i.i.i.i.i, label %26, label %"_ZN4llvm23SmallVectorTemplateBaseINS_11RISCVMatInt4InstELb1EE18growAndEmplaceBackIJNS_5RISCV3$_0EjEEERS2_DpOT_.exit.i"
 
-27:                                               ; preds = %23
-  %28 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull %28, i64 noundef %25, i64 noundef 8) #11
+26:                                               ; preds = %22
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull %27, i64 noundef %24, i64 noundef 8) #11
   br label %"_ZN4llvm23SmallVectorTemplateBaseINS_11RISCVMatInt4InstELb1EE18growAndEmplaceBackIJNS_5RISCV3$_0EjEEERS2_DpOT_.exit.i"
 
-"_ZN4llvm23SmallVectorTemplateBaseINS_11RISCVMatInt4InstELb1EE18growAndEmplaceBackIJNS_5RISCV3$_0EjEEERS2_DpOT_.exit.i": ; preds = %27, %23
-  %.sroa.2.0.insert.ext.i.i = zext nneg i32 %20 to i64
+"_ZN4llvm23SmallVectorTemplateBaseINS_11RISCVMatInt4InstELb1EE18growAndEmplaceBackIJNS_5RISCV3$_0EjEEERS2_DpOT_.exit.i": ; preds = %26, %22
+  %.sroa.2.0.insert.ext.i.i = zext nneg i32 %19 to i64
   %.sroa.2.0.insert.shift.i.i = shl nuw nsw i64 %.sroa.2.0.insert.ext.i.i, 32
   %.sroa.0.0.insert.insert.i.i = or disjoint i64 %.sroa.2.0.insert.shift.i.i, 12086
-  %29 = load ptr, ptr %1, align 8
-  %30 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %1) #11
-  %31 = getelementptr inbounds %"class.llvm::RISCVMatInt::Inst", ptr %29, i64 %30
-  store i64 %.sroa.0.0.insert.insert.i.i, ptr %31, align 1
+  %28 = load ptr, ptr %1, align 8
+  %29 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %1) #11
+  %30 = getelementptr inbounds %"class.llvm::RISCVMatInt::Inst", ptr %28, i64 %29
+  store i64 %.sroa.0.0.insert.insert.i.i, ptr %30, align 1
   br label %"_ZN4llvm15SmallVectorImplINS_11RISCVMatInt4InstEE12emplace_backIJNS_5RISCV3$_0EjEEERS2_DpOT_.exit"
 
-32:                                               ; preds = %17
-  %33 = load ptr, ptr %1, align 8
-  %34 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %1) #11
-  %35 = getelementptr inbounds %"class.llvm::RISCVMatInt::Inst", ptr %33, i64 %34
-  store i32 12086, ptr %35, align 4
-  %36 = getelementptr inbounds nuw i8, ptr %35, i64 4
-  store i32 %20, ptr %36, align 4
+31:                                               ; preds = %16
+  %32 = load ptr, ptr %1, align 8
+  %33 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %1) #11
+  %34 = getelementptr inbounds %"class.llvm::RISCVMatInt::Inst", ptr %32, i64 %33
+  store i32 12086, ptr %34, align 4
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 4
+  store i32 %19, ptr %35, align 4
   br label %"_ZN4llvm15SmallVectorImplINS_11RISCVMatInt4InstEE12emplace_backIJNS_5RISCV3$_0EjEEERS2_DpOT_.exit"
 
-"_ZN4llvm15SmallVectorImplINS_11RISCVMatInt4InstEE12emplace_backIJNS_5RISCV3$_0EjEEERS2_DpOT_.exit": ; preds = %"_ZN4llvm23SmallVectorTemplateBaseINS_11RISCVMatInt4InstELb1EE18growAndEmplaceBackIJNS_5RISCV3$_0EjEEERS2_DpOT_.exit.i", %32
-  %37 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %1) #11
-  %38 = add i64 %37, 1
-  tail call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %1, i64 noundef %38) #11
-  %39 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %1) #11
-  br label %91
+"_ZN4llvm15SmallVectorImplINS_11RISCVMatInt4InstEE12emplace_backIJNS_5RISCV3$_0EjEEERS2_DpOT_.exit": ; preds = %"_ZN4llvm23SmallVectorTemplateBaseINS_11RISCVMatInt4InstELb1EE18growAndEmplaceBackIJNS_5RISCV3$_0EjEEERS2_DpOT_.exit.i", %31
+  %36 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %1) #11
+  %37 = add i64 %36, 1
+  tail call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %1, i64 noundef %37) #11
+  %38 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %1) #11
+  br label %90
 
-40:                                               ; preds = %_ZN4llvm13isPowerOf2_64Em.exit, %2
-  %41 = add i64 %0, 2147483648
-  %42 = icmp ult i64 %41, 4294967296
-  br i1 %42, label %.thread, label %53
+39:                                               ; preds = %_ZN4llvm13isPowerOf2_64Em.exit, %2
+  %40 = add i64 %0, 2147483648
+  %41 = icmp ult i64 %40, 4294967296
+  br i1 %41, label %.thread, label %52
 
-.thread:                                          ; preds = %10, %13, %40
-  %43 = add nsw i64 %0, 2048
-  %44 = lshr i64 %43, 12
-  %45 = and i64 %44, 1048575
-  %46 = shl i64 %0, 52
-  %47 = ashr exact i64 %46, 52
-  store i64 %47, ptr %3, align 8
-  %.not40 = icmp eq i64 %45, 0
-  br i1 %.not40, label %.thread9, label %48
+.thread:                                          ; preds = %10, %13, %39
+  %42 = add nsw i64 %0, 2048
+  %43 = lshr i64 %42, 12
+  %44 = and i64 %43, 1048575
+  %45 = shl i64 %0, 52
+  %46 = ashr exact i64 %45, 52
+  store i64 %46, ptr %3, align 8
+  %.not40 = icmp eq i64 %44, 0
+  br i1 %.not40, label %.thread9, label %47
 
-48:                                               ; preds = %.thread
-  tail call fastcc void @"_ZN4llvm15SmallVectorImplINS_11RISCVMatInt4InstEE12emplace_backIJNS_5RISCV3$_0ERlEEERS2_DpOT_"(ptr noundef nonnull align 8 dereferenceable(16) %1, i32 12804, i64 %45)
-  %.not22 = icmp eq i64 %46, 0
-  br i1 %.not22, label %91, label %.thread9
+47:                                               ; preds = %.thread
+  tail call fastcc void @"_ZN4llvm15SmallVectorImplINS_11RISCVMatInt4InstEE12emplace_backIJNS_5RISCV3$_0ERlEEERS2_DpOT_"(ptr noundef nonnull align 8 dereferenceable(16) %1, i32 12804, i64 %44)
+  %.not22 = icmp eq i64 %45, 0
+  br i1 %.not22, label %90, label %.thread9
 
-.thread9:                                         ; preds = %.thread, %48
-  %49 = icmp ne i64 %45, 0
-  %50 = and i1 %8, %49
-  %51 = select i1 %50, i32 11886, i32 11885
-  store i32 %51, ptr %4, align 4
-  %52 = call noundef nonnull align 4 dereferenceable(8) ptr @_ZN4llvm15SmallVectorImplINS_11RISCVMatInt4InstEE12emplace_backIJRjRlEEERS2_DpOT_(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 4 dereferenceable(4) %4, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  br label %91
+.thread9:                                         ; preds = %.thread, %47
+  %48 = icmp ne i64 %44, 0
+  %49 = and i1 %8, %48
+  %50 = select i1 %49, i32 11886, i32 11885
+  store i32 %50, ptr %4, align 4
+  %51 = call noundef nonnull align 4 dereferenceable(8) ptr @_ZN4llvm15SmallVectorImplINS_11RISCVMatInt4InstEE12emplace_backIJRjRlEEERS2_DpOT_(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 4 dereferenceable(4) %4, ptr noundef nonnull align 8 dereferenceable(8) %3)
+  br label %90
 
-53:                                               ; preds = %40
-  %54 = shl i64 %0, 52
-  %55 = ashr exact i64 %54, 52
-  %56 = sub i64 %0, %55
+52:                                               ; preds = %39
+  %53 = shl i64 %0, 52
+  %54 = ashr exact i64 %53, 52
+  %55 = sub i64 %0, %54
   store i32 0, ptr %5, align 4
-  %57 = add i64 %56, 2147483648
-  %58 = icmp ult i64 %57, 4294967296
-  br i1 %58, label %.thread23, label %59
+  %56 = add i64 %55, 2147483648
+  %57 = icmp ult i64 %56, 4294967296
+  br i1 %57, label %.thread23, label %58
 
-.thread23:                                        ; preds = %53
-  tail call fastcc void @_ZL19generateInstSeqImpllRKN4llvm15MCSubtargetInfoERNS_11SmallVectorINS_11RISCVMatInt4InstELj8EEE(i64 noundef %56, i64 %.216.val, i64 %.224.val, ptr noundef nonnull align 8 dereferenceable(80) %1)
-  br label %89
+.thread23:                                        ; preds = %52
+  tail call fastcc void @_ZL19generateInstSeqImpllRKN4llvm15MCSubtargetInfoERNS_11SmallVectorINS_11RISCVMatInt4InstELj8EEE(i64 noundef %55, i64 %.216.val, i64 %.224.val, ptr noundef nonnull align 8 dereferenceable(80) %1)
+  br label %88
 
-59:                                               ; preds = %53
-  %60 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %56, i1 false)
-  %61 = trunc nuw nsw i64 %60 to i32
-  store i32 %61, ptr %5, align 4
-  %62 = ashr i64 %56, %60
-  %63 = icmp samesign ult i64 %60, 13
-  %64 = add i64 %62, 2048
-  %65 = icmp ult i64 %64, 4096
-  %or.cond = select i1 %63, i1 true, i1 %65
-  br i1 %or.cond, label %78, label %66
+58:                                               ; preds = %52
+  %59 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %55, i1 false)
+  %60 = trunc nuw nsw i64 %59 to i32
+  store i32 %60, ptr %5, align 4
+  %61 = ashr i64 %55, %59
+  %62 = icmp samesign ult i64 %59, 13
+  %63 = add i64 %61, 2048
+  %64 = icmp ult i64 %63, 4096
+  %or.cond = select i1 %62, i1 true, i1 %64
+  br i1 %or.cond, label %77, label %65
 
-66:                                               ; preds = %59
-  %67 = shl i64 %62, 12
-  %68 = add i64 %67, 2147483648
-  %69 = icmp ult i64 %68, 4294967296
-  br i1 %69, label %70, label %72
+65:                                               ; preds = %58
+  %66 = shl i64 %61, 12
+  %67 = add i64 %66, 2147483648
+  %68 = icmp ult i64 %67, 4294967296
+  br i1 %68, label %69, label %71
 
-70:                                               ; preds = %66
-  %71 = add nsw i32 %61, -12
-  store i32 %71, ptr %5, align 4
-  br label %78
+69:                                               ; preds = %65
+  %70 = add nsw i32 %60, -12
+  store i32 %70, ptr %5, align 4
+  br label %77
 
-72:                                               ; preds = %66
-  %73 = icmp ult i64 %67, 4294967296
-  %74 = and i64 %.224.val, 17179869184
-  %75 = icmp ne i64 %74, 0
-  %or.cond16 = and i1 %75, %73
-  br i1 %or.cond16, label %.thread11, label %78
+71:                                               ; preds = %65
+  %72 = icmp ult i64 %66, 4294967296
+  %73 = and i64 %.224.val, 17179869184
+  %74 = icmp ne i64 %73, 0
+  %or.cond16 = and i1 %74, %72
+  br i1 %or.cond16, label %.thread11, label %77
 
-.thread11:                                        ; preds = %72
-  %76 = add nsw i32 %61, -12
-  store i32 %76, ptr %5, align 4
-  %77 = or disjoint i64 %67, -4294967296
-  br label %85
+.thread11:                                        ; preds = %71
+  %75 = add nsw i32 %60, -12
+  store i32 %75, ptr %5, align 4
+  %76 = or disjoint i64 %66, -4294967296
+  br label %84
 
-78:                                               ; preds = %70, %72, %59
-  %79 = phi i32 [ %71, %70 ], [ %61, %72 ], [ %61, %59 ]
-  %.137 = phi i64 [ %67, %70 ], [ %62, %72 ], [ %62, %59 ]
-  %80 = and i64 %.137, -2147483648
-  %or.cond18.not = icmp eq i64 %80, 2147483648
-  br i1 %or.cond18.not, label %81, label %85
+77:                                               ; preds = %69, %71, %58
+  %78 = phi i32 [ %70, %69 ], [ %60, %71 ], [ %60, %58 ]
+  %.137 = phi i64 [ %66, %69 ], [ %61, %71 ], [ %61, %58 ]
+  %79 = and i64 %.137, -2147483648
+  %or.cond18.not = icmp eq i64 %79, 2147483648
+  br i1 %or.cond18.not, label %80, label %84
 
-81:                                               ; preds = %78
-  %82 = and i64 %.224.val, 17179869184
-  %.not20.not = icmp eq i64 %82, 0
-  %83 = or disjoint i64 %.137, -4294967296
-  %spec.select = select i1 %.not20.not, i64 %.137, i64 %83
-  %84 = select i1 %.not20.not, i32 12937, i32 12939
-  br label %85
+80:                                               ; preds = %77
+  %81 = and i64 %.224.val, 17179869184
+  %.not20.not = icmp eq i64 %81, 0
+  %82 = or disjoint i64 %.137, -4294967296
+  %spec.select = select i1 %.not20.not, i64 %.137, i64 %82
+  %83 = select i1 %.not20.not, i32 12937, i32 12939
+  br label %84
 
-85:                                               ; preds = %.thread11, %81, %78
-  %86 = phi i32 [ %79, %78 ], [ %79, %81 ], [ %76, %.thread11 ]
-  %.036 = phi i64 [ %.137, %78 ], [ %spec.select, %81 ], [ %77, %.thread11 ]
-  %.0 = phi i32 [ 12937, %78 ], [ %84, %81 ], [ 12939, %.thread11 ]
+84:                                               ; preds = %.thread11, %80, %77
+  %85 = phi i32 [ %78, %77 ], [ %78, %80 ], [ %75, %.thread11 ]
+  %.036 = phi i64 [ %.137, %77 ], [ %spec.select, %80 ], [ %76, %.thread11 ]
+  %.0 = phi i32 [ 12937, %77 ], [ %83, %80 ], [ 12939, %.thread11 ]
   tail call fastcc void @_ZL19generateInstSeqImpllRKN4llvm15MCSubtargetInfoERNS_11SmallVectorINS_11RISCVMatInt4InstELj8EEE(i64 noundef %.036, i64 %.216.val, i64 %.224.val, ptr noundef nonnull align 8 dereferenceable(80) %1)
-  %.not = icmp eq i32 %86, 0
-  br i1 %.not, label %89, label %87
+  %.not = icmp eq i32 %85, 0
+  br i1 %.not, label %88, label %86
 
-87:                                               ; preds = %85
+86:                                               ; preds = %84
   store i32 %.0, ptr %6, align 4
-  %88 = call noundef nonnull align 4 dereferenceable(8) ptr @_ZN4llvm15SmallVectorImplINS_11RISCVMatInt4InstEE12emplace_backIJRjRiEEERS2_DpOT_(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 4 dereferenceable(4) %6, ptr noundef nonnull align 4 dereferenceable(4) %5)
-  br label %89
+  %87 = call noundef nonnull align 4 dereferenceable(8) ptr @_ZN4llvm15SmallVectorImplINS_11RISCVMatInt4InstEE12emplace_backIJRjRiEEERS2_DpOT_(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 4 dereferenceable(4) %6, ptr noundef nonnull align 4 dereferenceable(4) %5)
+  br label %88
 
-89:                                               ; preds = %.thread23, %87, %85
-  %.not39 = icmp eq i64 %54, 0
-  br i1 %.not39, label %91, label %90
+88:                                               ; preds = %.thread23, %86, %84
+  %.not39 = icmp eq i64 %53, 0
+  br i1 %.not39, label %90, label %89
 
-90:                                               ; preds = %89
-  call fastcc void @"_ZN4llvm15SmallVectorImplINS_11RISCVMatInt4InstEE12emplace_backIJNS_5RISCV3$_0ERlEEERS2_DpOT_"(ptr noundef nonnull align 8 dereferenceable(16) %1, i32 11885, i64 %55)
-  br label %91
+89:                                               ; preds = %88
+  call fastcc void @"_ZN4llvm15SmallVectorImplINS_11RISCVMatInt4InstEE12emplace_backIJNS_5RISCV3$_0ERlEEERS2_DpOT_"(ptr noundef nonnull align 8 dereferenceable(16) %1, i32 11885, i64 %54)
+  br label %90
 
-91:                                               ; preds = %.thread9, %48, %90, %89, %"_ZN4llvm15SmallVectorImplINS_11RISCVMatInt4InstEE12emplace_backIJNS_5RISCV3$_0EjEEERS2_DpOT_.exit"
+90:                                               ; preds = %.thread9, %47, %89, %88, %"_ZN4llvm15SmallVectorImplINS_11RISCVMatInt4InstEE12emplace_backIJNS_5RISCV3$_0EjEEERS2_DpOT_.exit"
   ret void
 }
 

@@ -72,7 +72,7 @@ define dso_local noundef ptr @dma_pool_create(ptr noundef %0, ptr noundef %1, i6
 16:                                               ; preds = %12
   %17 = tail call i64 @llvm.umax.i64(i64 %2, i64 16)
   %18 = add nsw i64 %17, -1
-  %19 = add i64 %18, %13
+  %19 = add nuw i64 %18, %13
   %20 = sub i64 0, %13
   %21 = and i64 %19, %20
   %22 = tail call i64 @llvm.umax.i64(i64 %21, i64 4096)

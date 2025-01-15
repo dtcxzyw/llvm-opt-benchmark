@@ -1780,7 +1780,7 @@ if.then18:                                        ; preds = %if.else16
 for.body.lr.ph.i22:                               ; preds = %if.then18
   %div.i = udiv i64 -1, %d
   %dp.i23 = getelementptr inbounds nuw i8, ptr %a, i64 8
-  %conv3.i = zext i64 %div.i to i128
+  %conv3.i = zext nneg i64 %div.i to i128
   %9 = zext nneg i32 %i.043.i to i64
   br label %for.body.i24
 

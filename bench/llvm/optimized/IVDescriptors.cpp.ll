@@ -1542,7 +1542,7 @@ _ZNK4llvm5APInt13exactLogBase2Ev.exit.thread55:   ; preds = %56
 _ZNK4llvm5APInt13exactLogBase2Ev.exit:            ; preds = %54
   %62 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %51, i1 false)
   %63 = trunc nuw nsw i64 %62 to i32
-  %64 = sub nsw i32 63, %63
+  %64 = sub nuw nsw i32 63, %63
   br label %_ZN4llvm5APIntD2Ev.exit15
 
 _ZNK4llvm5APInt13exactLogBase2Ev.exit.thread:     ; preds = %56, %_ZNK4llvm5APInt13exactLogBase2Ev.exit.thread55

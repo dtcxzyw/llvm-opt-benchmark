@@ -543,8 +543,7 @@ if.end:                                           ; preds = %bad_cache_params.ex
   br i1 %cmp7, label %bad_cache_params.exit.i.lr.ph.split, label %return
 
 bad_cache_params.exit.i.lr.ph.split:              ; preds = %if.end
-  %num.addr.0.off4.i.i = add i32 %blksize, 1
-  %tobool.not5.i.i = icmp ult i32 %num.addr.0.off4.i.i, 3
+  %tobool.not5.i.i = icmp ult i32 %blksize, 2
   %conv9.i = sext i32 %assoc to i64
   %sub.i = add nsw i32 %blksize, -1
   %2 = tail call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %blksize)

@@ -11604,8 +11604,8 @@ if.end:                                           ; preds = %for.inc.i
   br i1 %or.cond35, label %for.cond.preheader, label %return
 
 for.cond.preheader:                               ; preds = %if.end
-  %shr = ashr i32 %radix, 1
-  %conv23 = sext i32 %shr to i64
+  %shr = lshr i32 %radix, 1
+  %conv23 = zext nneg i32 %shr to i64
   br label %for.cond
 
 for.cond:                                         ; preds = %for.cond.backedge, %for.cond.preheader

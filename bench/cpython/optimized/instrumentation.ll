@@ -6075,14 +6075,11 @@ if.then2:                                         ; preds = %if.end
 
 if.end3:                                          ; preds = %if.end
   %conv = sext i32 %event to i64
-  %cmp.not.i = icmp eq i32 %event, 0
   %3 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 range(i64 -2147483648, 2147483648) %conv, i1 true)
   %cast.i = trunc nuw nsw i64 %3 to i32
-  %sub.i = sub nuw nsw i32 64, %cast.i
-  %retval.0.i10 = select i1 %cmp.not.i, i32 0, i32 %sub.i
-  %sub = add nsw i32 %retval.0.i10, -1
-  %4 = add nsw i32 %retval.0.i10, -18
-  %or.cond = icmp ult i32 %4, -17
+  %sub = xor i64 %3, 63
+  %4 = or disjoint i32 %cast.i, -64
+  %or.cond = icmp samesign ult i32 %4, -17
   br i1 %or.cond, label %if.then9, label %if.end11
 
 if.then9:                                         ; preds = %if.end3
@@ -6104,8 +6101,7 @@ if.end16:                                         ; preds = %if.end11
   %8 = load ptr, ptr %interp.i.i, align 8
   %monitoring_callables.i = getelementptr inbounds nuw i8, ptr %8, i64 414984
   %idxprom.i = zext nneg i32 %tool_id to i64
-  %idxprom1.i = sext i32 %sub to i64
-  %arrayidx2.i = getelementptr [8 x [17 x ptr]], ptr %monitoring_callables.i, i64 0, i64 %idxprom.i, i64 %idxprom1.i
+  %arrayidx2.i = getelementptr [8 x [17 x ptr]], ptr %monitoring_callables.i, i64 0, i64 %idxprom.i, i64 %sub
   %9 = load ptr, ptr %arrayidx2.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %spec.store.select, null
   br i1 %cmp.not.i.i.i, label %_PyMonitoring_RegisterCallback.exit, label %if.then.i.i.i

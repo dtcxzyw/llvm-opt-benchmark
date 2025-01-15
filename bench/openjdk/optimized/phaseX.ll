@@ -84,7 +84,7 @@ define hidden void @_ZN8NodeHashC2EP5Arenaj(ptr nocapture noundef nonnull align 
   %10 = sub nuw nsw i32 32, %9
   %11 = shl nuw i32 1, %10
   %.0.i.i = select i1 %or.cond.i.i, i32 %7, i32 %11
-  %12 = tail call noundef range(i32 16, 0) i32 @llvm.umax.i32(i32 %.0.i.i, i32 16)
+  %12 = tail call noundef range(i32 16, -2147483647) i32 @llvm.umax.i32(i32 %.0.i.i, i32 16)
   store i32 %12, ptr %4, align 8
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 0, ptr %13, align 4
@@ -176,7 +176,7 @@ _ZN4NodenwEm.exit:                                ; preds = %46, %48
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef range(i32 16, 0) i32 @_ZN8NodeHash8round_upEj(i32 noundef %0) local_unnamed_addr #1 align 2 {
+define hidden noundef range(i32 16, -2147483647) i32 @_ZN8NodeHash8round_upEj(i32 noundef %0) local_unnamed_addr #1 align 2 {
   %2 = lshr i32 %0, 2
   %3 = add i32 %2, %0
   %4 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %3)

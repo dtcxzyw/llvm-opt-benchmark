@@ -377,7 +377,7 @@ _ZN4llvm5APIntD2Ev.exit138:                       ; preds = %142, %139, %_ZNK4ll
 
 150:                                              ; preds = %148
   %151 = add i32 %57, -1
-  %152 = zext i32 %151 to i64
+  %152 = zext nneg i32 %151 to i64
   %153 = call noundef nonnull align 8 dereferenceable(12) ptr @_ZN4llvm5APIntaSEm(ptr noundef nonnull align 8 dereferenceable(12) %5, i64 noundef %152)
   br label %_ZN4llvm5APIntaSERKS0_.exit
 

@@ -301920,7 +301920,7 @@ define internal fastcc void @findOrCreateAggInfoColumn(ptr nocapture noundef rea
 33:                                               ; preds = %._crit_edge
   %34 = load ptr, ptr %0, align 8
   %35 = icmp eq i32 %7, 0
-  %36 = mul nsw i64 %30, 48
+  %36 = mul nuw nsw i64 %30, 48
   %37 = select i1 %35, i64 24, i64 %36
   %38 = tail call fastcc ptr @sqlite3DbRealloc(ptr noundef %34, ptr noundef %5, i64 noundef %37)
   %39 = icmp eq ptr %38, null
@@ -302060,7 +302060,7 @@ define internal fastcc i32 @addAggInfoFunc(ptr noundef %0, ptr nocapture noundef
 
 10:                                               ; preds = %2
   %11 = icmp eq i32 %6, 0
-  %12 = shl nsw i64 %7, 6
+  %12 = shl nuw nsw i64 %7, 6
   %13 = select i1 %11, i64 32, i64 %12
   %14 = tail call fastcc ptr @sqlite3DbRealloc(ptr noundef %0, ptr noundef %4, i64 noundef %13)
   %15 = icmp eq ptr %14, null

@@ -5867,7 +5867,7 @@ _ZL25getVectorTypeBreakdownMVTN4llvm3MVTERS0_RjS1_PNS_18TargetLoweringBaseE.exit
   %316 = add nsw i32 %.sroa.051.sroa.0.0.extract.trunc.i, -1
   %317 = call noundef range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %316, i1 false)
   %318 = sub nuw nsw i32 32, %317
-  %319 = shl nuw i32 1, %318
+  %319 = shl nuw nsw i32 1, %318
   br i1 %spec.select.i.i.i140, label %322, label %320
 
 320:                                              ; preds = %315

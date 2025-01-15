@@ -2996,7 +2996,7 @@ define hidden void @_ZN22cranelift_codegen_meta4cdsl7typevar14TypeSetBuilder5bui
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc range(i48 65536, 1103806595072) i48 @_ZN22cranelift_codegen_meta4cdsl7typevar8Interval8to_range17h453e18daf0ed1783E(ptr nocapture readonly align 2 %0, i16 range(i16 1, 33) %1, i16 range(i16 64, 257) %2, i16 range(i16 0, 2) %3) unnamed_addr #0 {
+define internal fastcc range(i48 4294967296, 1103806595072) i48 @_ZN22cranelift_codegen_meta4cdsl7typevar8Interval8to_range17h453e18daf0ed1783E(ptr nocapture readonly align 2 %0, i16 range(i16 1, 33) %1, i16 range(i16 64, 257) %2, i16 range(i16 0, 2) %3) unnamed_addr #0 {
   %5 = load i16, ptr %0, align 2, !range !31, !noundef !3
   switch i16 %5, label %default.unreachable11 [
     i16 0, label %6

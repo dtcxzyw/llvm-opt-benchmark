@@ -17358,7 +17358,7 @@ _ZN4llvm12PatternMatch17specific_intval64ILb0EE5matchINS_5ValueEEEbPT_.exit.thre
 
 274:                                              ; preds = %_ZN4llvm12PatternMatch17specific_intval64ILb0EE5matchINS_5ValueEEEbPT_.exit.thread.i.i.i.i
   %275 = add i32 %3, -1
-  %276 = zext i32 %275 to i64
+  %276 = zext nneg i32 %275 to i64
   %277 = load i8, ptr %1, align 8
   %278 = icmp eq i8 %277, 57
   br i1 %278, label %279, label %.critedge2

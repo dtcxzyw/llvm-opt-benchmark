@@ -355,7 +355,7 @@ if.then18.i:                                      ; preds = %if.end14.i
   br label %return
 
 if.end19.i:                                       ; preds = %if.end14.i
-  %add.i = add i64 %10, 2
+  %add.i = add nuw i64 %10, 2
   %div20.i = udiv i64 144115188075855871, %11
   %cmp21.i = icmp ugt i64 %add.i, %div20.i
   br i1 %cmp21.i, label %if.then22.i, label %if.end23.i
@@ -415,7 +415,7 @@ for.cond.preheader.i:                             ; preds = %if.end45.i
   %mul59.i = shl i64 %11, 7
   %cmp51.not.i.i = icmp eq i64 %mul24.i, 0
   %idx.neg.i.i = sub i64 0, %mul24.i
-  %sub.i.i = shl nsw i64 %10, 5
+  %sub.i.i = shl nuw nsw i64 %10, 5
   %mul22.i.i = add nsw i64 %sub.i.i, -32
   %mul23.i.i = mul i64 %mul22.i.i, %11
   %add.ptr24.i.i = getelementptr inbounds i32, ptr %add.ptr49.i, i64 %mul23.i.i
