@@ -23166,6 +23166,9 @@ define void @"_ZN7copilot12copilot_chat1_79_$LT$impl$u20$schemars..JsonSchema$u2
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %5)
+  call void @llvm.assume(i1 true) [ "align"(ptr null, i64 8) ]
+  call void @llvm.assume(i1 true) [ "align"(ptr null, i64 8) ]
+  call void @llvm.assume(i1 true) [ "align"(ptr null, i64 8) ]
   store i64 -9223372036854775808, ptr %0, align 8
   %.sroa.0.sroa.0.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 3, ptr %.sroa.0.sroa.0.sroa.4.0..sroa_idx, align 8

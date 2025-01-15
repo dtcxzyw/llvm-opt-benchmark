@@ -3434,8 +3434,6 @@ declare void @_ZSt20__throw_out_of_rangePKc(ptr noundef) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN3pro7details26copying_default_dispatcherILm8ELm8EEEvPSt4bytePKS2_(ptr noundef %0, ptr noundef %1) #6 comdat personality ptr @__gxx_personality_v0 {
-  call void @llvm.assume(i1 true) [ "align"(ptr %1, i64 8) ]
-  call void @llvm.assume(i1 true) [ "align"(ptr %0, i64 8) ]
   %3 = load i64, ptr %1, align 8
   store i64 %3, ptr %0, align 8
   ret void

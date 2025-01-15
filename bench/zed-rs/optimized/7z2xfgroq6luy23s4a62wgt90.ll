@@ -22496,6 +22496,7 @@ _ZN5theme8registry13ThemeRegistry6global17hdd1d572145ed390bE.exit: ; preds = %.n
   %51 = getelementptr inbounds nuw i8, ptr %16, i64 96
   store i64 -9223372036854775803, ptr %51, align 8
   %52 = getelementptr inbounds nuw i8, ptr %16, i64 176
+  call void @llvm.assume(i1 true) [ "align"(ptr null, i64 8) ]
   %53 = getelementptr inbounds nuw i8, ptr %16, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %52, i8 0, i64 40, i1 false)
   store i64 -9223372036854775808, ptr %53, align 8

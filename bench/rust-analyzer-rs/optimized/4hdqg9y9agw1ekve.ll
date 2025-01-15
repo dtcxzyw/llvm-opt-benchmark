@@ -64441,8 +64441,10 @@ switch.lookup:                                    ; preds = %switch.hole_check, 
 
 306:                                              ; preds = %switch.hole_check, %307
   switch i64 %300, label %switch.lookup [
-    i64 26, label %309
+    i64 4, label %309
+    i64 8, label %309
     i64 19, label %309
+    i64 26, label %309
   ]
 
 307:                                              ; preds = %305, %305, %305
@@ -64450,7 +64452,7 @@ switch.lookup:                                    ; preds = %switch.hole_check, 
   %308 = icmp ult i64 %switch.tableidx, 29
   br i1 %308, label %switch.hole_check, label %306
 
-309:                                              ; preds = %306, %306, %305, %305, %305
+309:                                              ; preds = %305, %305, %305, %306, %306, %306, %306
   %310 = icmp ult i64 %294, 31
   br i1 %310, label %switch.lookup274, label %switch.lookup
 
