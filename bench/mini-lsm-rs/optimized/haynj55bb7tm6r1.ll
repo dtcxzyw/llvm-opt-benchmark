@@ -1005,12 +1005,13 @@ define hidden noundef { ptr, ptr } @"_ZN18crossbeam_skiplist4base20RefIter$LT$K$
   unreachable
 
 22:                                               ; preds = %"_ZN18crossbeam_skiplist4base21SkipList$LT$K$C$V$GT$11check_guard17h8f1c96379f49c489E.exit"
+  call void @llvm.assume(i1 true) [ "align"(ptr %14, i64 128) ]
   %23 = icmp ne ptr %4, null
   tail call void @llvm.assume(i1 %23)
   %24 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %25 = getelementptr inbounds nuw i8, ptr %14, i64 384
   %26 = load ptr, ptr %24, align 8, !noalias !329, !nonnull !4, !noundef !4
-  %27 = load ptr, ptr %25, align 8, !noalias !329, !nonnull !4, !noundef !4
+  %27 = load ptr, ptr %25, align 128, !noalias !329, !nonnull !4, !noundef !4
   %28 = icmp ne ptr %26, %27
   tail call void @llvm.assume(i1 %28)
   tail call void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr noalias noundef nonnull readonly align 1 @anon.dfc6258eb35bd94200c9509b62894785.12.llvm.15192800734258360407, i64 noundef 38, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.dfc6258eb35bd94200c9509b62894785.13.llvm.15192800734258360407) #48, !noalias !329
@@ -1054,12 +1055,13 @@ define hidden noundef { ptr, ptr } @"_ZN18crossbeam_skiplist4base20RefIter$LT$K$
   unreachable
 
 22:                                               ; preds = %"_ZN18crossbeam_skiplist4base21SkipList$LT$K$C$V$GT$11check_guard17hda163561d38031deE.exit"
+  call void @llvm.assume(i1 true) [ "align"(ptr %14, i64 128) ]
   %23 = icmp ne ptr %4, null
   tail call void @llvm.assume(i1 %23)
   %24 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %25 = getelementptr inbounds nuw i8, ptr %14, i64 384
   %26 = load ptr, ptr %24, align 8, !noalias !346, !nonnull !4, !noundef !4
-  %27 = load ptr, ptr %25, align 8, !noalias !346, !nonnull !4, !noundef !4
+  %27 = load ptr, ptr %25, align 128, !noalias !346, !nonnull !4, !noundef !4
   %28 = icmp ne ptr %26, %27
   tail call void @llvm.assume(i1 %28)
   tail call void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr noalias noundef nonnull readonly align 1 @anon.dfc6258eb35bd94200c9509b62894785.12.llvm.15192800734258360407, i64 noundef 38, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.dfc6258eb35bd94200c9509b62894785.13.llvm.15192800734258360407) #48, !noalias !346
@@ -1836,10 +1838,11 @@ _ZN18crossbeam_skiplist4base12try_pin_loop17h703e1d98e95ef53cE.exit: ; preds = %
 22:                                               ; preds = %"_ZN18crossbeam_skiplist4base21SkipList$LT$K$C$V$GT$11check_guard17hda163561d38031deE.exit._crit_edge", %"_ZN18crossbeam_skiplist4base21SkipList$LT$K$C$V$GT$11check_guard17hda163561d38031deE.exit.thread"
   %23 = phi ptr [ %10, %"_ZN18crossbeam_skiplist4base21SkipList$LT$K$C$V$GT$11check_guard17hda163561d38031deE.exit.thread" ], [ %.pre, %"_ZN18crossbeam_skiplist4base21SkipList$LT$K$C$V$GT$11check_guard17hda163561d38031deE.exit._crit_edge" ]
   %24 = phi ptr [ %18, %"_ZN18crossbeam_skiplist4base21SkipList$LT$K$C$V$GT$11check_guard17hda163561d38031deE.exit.thread" ], [ %15, %"_ZN18crossbeam_skiplist4base21SkipList$LT$K$C$V$GT$11check_guard17hda163561d38031deE.exit._crit_edge" ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %24, i64 128) ]
   %25 = icmp ne ptr %5, null
   tail call void @llvm.assume(i1 %25)
   %26 = getelementptr inbounds nuw i8, ptr %24, i64 384
-  %27 = load ptr, ptr %26, align 8, !noalias !478, !nonnull !4, !noundef !4
+  %27 = load ptr, ptr %26, align 128, !noalias !478, !nonnull !4, !noundef !4
   %28 = icmp ne ptr %23, %27
   tail call void @llvm.assume(i1 %28)
   tail call void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr noalias noundef nonnull readonly align 1 @anon.dfc6258eb35bd94200c9509b62894785.12.llvm.15192800734258360407, i64 noundef 38, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.dfc6258eb35bd94200c9509b62894785.13.llvm.15192800734258360407) #48, !noalias !478
@@ -1893,10 +1896,11 @@ _ZN18crossbeam_skiplist4base12try_pin_loop17h77d9a0c6a6fd4f92E.exit: ; preds = %
 22:                                               ; preds = %"_ZN18crossbeam_skiplist4base21SkipList$LT$K$C$V$GT$11check_guard17h8f1c96379f49c489E.exit._crit_edge", %"_ZN18crossbeam_skiplist4base21SkipList$LT$K$C$V$GT$11check_guard17h8f1c96379f49c489E.exit.thread"
   %23 = phi ptr [ %10, %"_ZN18crossbeam_skiplist4base21SkipList$LT$K$C$V$GT$11check_guard17h8f1c96379f49c489E.exit.thread" ], [ %.pre, %"_ZN18crossbeam_skiplist4base21SkipList$LT$K$C$V$GT$11check_guard17h8f1c96379f49c489E.exit._crit_edge" ]
   %24 = phi ptr [ %18, %"_ZN18crossbeam_skiplist4base21SkipList$LT$K$C$V$GT$11check_guard17h8f1c96379f49c489E.exit.thread" ], [ %15, %"_ZN18crossbeam_skiplist4base21SkipList$LT$K$C$V$GT$11check_guard17h8f1c96379f49c489E.exit._crit_edge" ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %24, i64 128) ]
   %25 = icmp ne ptr %5, null
   tail call void @llvm.assume(i1 %25)
   %26 = getelementptr inbounds nuw i8, ptr %24, i64 384
-  %27 = load ptr, ptr %26, align 8, !noalias !496, !nonnull !4, !noundef !4
+  %27 = load ptr, ptr %26, align 128, !noalias !496, !nonnull !4, !noundef !4
   %28 = icmp ne ptr %23, %27
   tail call void @llvm.assume(i1 %28)
   tail call void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr noalias noundef nonnull readonly align 1 @anon.dfc6258eb35bd94200c9509b62894785.12.llvm.15192800734258360407, i64 noundef 38, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.dfc6258eb35bd94200c9509b62894785.13.llvm.15192800734258360407) #48, !noalias !496
@@ -8120,6 +8124,7 @@ define noundef ptr @_ZN13mini_lsm_mvcc3wal3Wal4sync17h683bc13d3812ba51E(ptr noal
   br label %"_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17hc8ec2492ec8cdf56E.exit"
 
 "_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17hc8ec2492ec8cdf56E.exit": ; preds = %1, %6
+  call void @llvm.assume(i1 true) [ "align"(ptr %3, i64 8) ]
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %9 = invoke noundef ptr @"_ZN3std2io8buffered9bufwriter18BufWriter$LT$W$GT$9flush_buf17h3af12f0428f8c1a8E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %8)
           to label %"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$5flush17hae0d3d10a0c433a1E.exit" unwind label %10

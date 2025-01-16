@@ -9722,6 +9722,7 @@ _ZN4core5slice4sort20provide_sorted_batch17h689e4831ed680ddeE.exit: ; preds = %.
 247:                                              ; preds = %.noexc109
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %4), !noalias !1903
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %4, ptr noundef nonnull align 8 dereferenceable(12) %6, i64 12, i1 false), !noalias !1903
+  call void @llvm.assume(i1 true) [ "align"(ptr %242, i64 4) ]
   %248 = invoke noundef i64 @_ZN11ide_assists8handlers11auto_import25module_distance_heuristic17h534a8a080084f78bE.llvm.15603951218622194610(ptr noundef nonnull align 1 %233, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.a366366ced9f536ca000c5a8a0069d12.25.llvm.15603951218622194610, ptr noalias noundef nonnull readonly align 4 dereferenceable(12) %242, ptr noalias noundef nonnull readonly align 4 dereferenceable(12) %4)
           to label %.noexc111 unwind label %.loopexit14.i
 
@@ -9792,6 +9793,7 @@ _ZN4core5slice4sort20provide_sorted_batch17h689e4831ed680ddeE.exit: ; preds = %.
 269:                                              ; preds = %.noexc100
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %8), !noalias !1913
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %8, ptr noundef nonnull align 8 dereferenceable(12) %10, i64 12, i1 false), !noalias !1913
+  call void @llvm.assume(i1 true) [ "align"(ptr %264, i64 4) ]
   %270 = invoke noundef i64 @_ZN11ide_assists8handlers11auto_import25module_distance_heuristic17h534a8a080084f78bE.llvm.15603951218622194610(ptr noundef nonnull align 1 %255, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.a366366ced9f536ca000c5a8a0069d12.25.llvm.15603951218622194610, ptr noalias noundef nonnull readonly align 4 dereferenceable(12) %264, ptr noalias noundef nonnull readonly align 4 dereferenceable(12) %8)
           to label %.noexc102 unwind label %.loopexit14.i
 
@@ -9879,6 +9881,7 @@ _ZN4core5slice4sort20provide_sorted_batch17h689e4831ed680ddeE.exit: ; preds = %.
 299:                                              ; preds = %.noexc91
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %12), !noalias !1926
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %12, ptr noundef nonnull align 8 dereferenceable(12) %14, i64 12, i1 false), !noalias !1926
+  call void @llvm.assume(i1 true) [ "align"(ptr %294, i64 4) ]
   %300 = invoke noundef i64 @_ZN11ide_assists8handlers11auto_import25module_distance_heuristic17h534a8a080084f78bE.llvm.15603951218622194610(ptr noundef nonnull align 1 %285, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.a366366ced9f536ca000c5a8a0069d12.25.llvm.15603951218622194610, ptr noalias noundef nonnull readonly align 4 dereferenceable(12) %294, ptr noalias noundef nonnull readonly align 4 dereferenceable(12) %12)
           to label %.noexc93 unwind label %.loopexit.split-lp.i
 
@@ -9948,6 +9951,7 @@ _ZN4core5slice4sort20provide_sorted_batch17h689e4831ed680ddeE.exit: ; preds = %.
 320:                                              ; preds = %.noexc83
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %16), !noalias !1935
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %16, ptr noundef nonnull align 8 dereferenceable(12) %18, i64 12, i1 false), !noalias !1935
+  call void @llvm.assume(i1 true) [ "align"(ptr %315, i64 4) ]
   %321 = invoke noundef i64 @_ZN11ide_assists8handlers11auto_import25module_distance_heuristic17h534a8a080084f78bE.llvm.15603951218622194610(ptr noundef nonnull align 1 %306, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.a366366ced9f536ca000c5a8a0069d12.25.llvm.15603951218622194610, ptr noalias noundef nonnull readonly align 4 dereferenceable(12) %315, ptr noalias noundef nonnull readonly align 4 dereferenceable(12) %16)
           to label %.noexc85 unwind label %.loopexit.split-lp.i
 
@@ -12903,6 +12907,7 @@ define internal fastcc void @_ZN4core5slice4sort25insertion_sort_shift_left17hf2
 53:                                               ; preds = %.noexc17
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %4), !noalias !2550
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %4, ptr noundef nonnull align 8 dereferenceable(12) %6, i64 12, i1 false), !noalias !2550
+  call void @llvm.assume(i1 true) [ "align"(ptr %48, i64 4) ]
   %54 = invoke noundef i64 @_ZN11ide_assists8handlers11auto_import25module_distance_heuristic17h534a8a080084f78bE.llvm.15603951218622194610(ptr noundef nonnull align 1 %42, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.a366366ced9f536ca000c5a8a0069d12.25.llvm.15603951218622194610, ptr noalias noundef nonnull readonly align 4 dereferenceable(12) %48, ptr noalias noundef nonnull readonly align 4 dereferenceable(12) %4)
           to label %.noexc19 unwind label %81
 
@@ -12972,6 +12977,7 @@ define internal fastcc void @_ZN4core5slice4sort25insertion_sort_shift_left17hf2
 74:                                               ; preds = %.noexc9
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %8), !noalias !2559
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %8, ptr noundef nonnull align 8 dereferenceable(12) %10, i64 12, i1 false), !noalias !2559
+  call void @llvm.assume(i1 true) [ "align"(ptr %69, i64 4) ]
   %75 = invoke noundef i64 @_ZN11ide_assists8handlers11auto_import25module_distance_heuristic17h534a8a080084f78bE.llvm.15603951218622194610(ptr noundef nonnull align 1 %60, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.a366366ced9f536ca000c5a8a0069d12.25.llvm.15603951218622194610, ptr noalias noundef nonnull readonly align 4 dereferenceable(12) %69, ptr noalias noundef nonnull readonly align 4 dereferenceable(12) %8)
           to label %.noexc11 unwind label %81
 

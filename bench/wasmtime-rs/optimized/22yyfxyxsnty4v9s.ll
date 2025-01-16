@@ -20859,6 +20859,7 @@ common.resume:                                    ; preds = %.body, %27
 87:                                               ; preds = %80, %42
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11)
+  call void @llvm.assume(i1 true) [ "align"(ptr %13, i64 8) ]
   br i1 %32, label %_ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.llvm.15947207822535676624.exit.i.i, label %88
 
 88:                                               ; preds = %87
@@ -21159,6 +21160,7 @@ _ZN3std3sys3pal4unix5locks11futex_mutex5Mutex4lock17h985bdbb4640079dbE.llvm.1594
 82:                                               ; preds = %59
   store i64 %64, ptr %47, align 8, !alias.scope !3315, !noalias !3309
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5), !noalias !3314
+  call void @llvm.assume(i1 true) [ "align"(ptr %10, i64 8) ]
   br i1 %41, label %_ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.llvm.15947207822535676624.exit.i.i, label %83
 
 83:                                               ; preds = %82
@@ -21209,6 +21211,7 @@ _ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.llvm.15947207822535676624.exit
 
 101:                                              ; preds = %74
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %7)
+  call void @llvm.assume(i1 true) [ "align"(ptr %10, i64 8) ]
   br i1 %41, label %_ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.llvm.15947207822535676624.exit.i.i16, label %102
 
 102:                                              ; preds = %101
@@ -23622,8 +23625,8 @@ define hidden noundef ptr @"_ZN13wasmtime_wasi4host10filesystem106_$LT$impl$u20$
   %.sroa.3.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %.sroa.5.0.copyload.i.i, ptr %.sroa.3.0..sroa_idx.i.i, align 8, !noalias !3818
   %switch.i.i = icmp eq i32 %27, 0
-  %.sroa.2.0..sroa_idx..sroa.74.0.i.i = select i1 %switch.i.i, ptr %.sroa.2.0..sroa_idx.i.i, ptr %.sroa.5.0.copyload.i.i
-  %32 = invoke noundef ptr @_ZN14cap_primitives6rustix2fs5times28set_times_nofollow_unchecked17h08df2bb8eb73622aE(ptr noalias noundef readonly align 4 dereferenceable(4) %.sroa.2.0..sroa_idx..sroa.74.0.i.i, ptr noalias noundef nonnull readonly align 1 %.sroa.6.0.copyload.i.i, i64 noundef %.sroa.713.0.copyload.i.i, i64 %.sroa.0.0, i32 noundef range(i32 0, 1000000002) %9, i64 %.sroa.03.0, i32 noundef range(i32 0, 1000000002) %15)
+  %spec.select.i.i = select i1 %switch.i.i, ptr %.sroa.2.0..sroa_idx.i.i, ptr %.sroa.5.0.copyload.i.i
+  %32 = invoke noundef ptr @_ZN14cap_primitives6rustix2fs5times28set_times_nofollow_unchecked17h08df2bb8eb73622aE(ptr noalias noundef readonly align 4 dereferenceable(4) %spec.select.i.i, ptr noalias noundef nonnull readonly align 1 %.sroa.6.0.copyload.i.i, i64 noundef %.sroa.713.0.copyload.i.i, i64 %.sroa.0.0, i32 noundef range(i32 0, 1000000002) %9, i64 %.sroa.03.0, i32 noundef range(i32 0, 1000000002) %15)
           to label %37 unwind label %33, !noalias !3807
 
 33:                                               ; preds = %31
@@ -24359,6 +24362,7 @@ common.resume:                                    ; preds = %41, %22
   br i1 %31, label %32, label %43
 
 32:                                               ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h46f037bee7f74039E.llvm.15947207822535676624.exit"
+  call void @llvm.assume(i1 true) [ "align"(ptr %8, i64 8) ]
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
   br i1 %27, label %_ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.llvm.15947207822535676624.exit.i.i, label %33
 
@@ -24403,6 +24407,7 @@ _ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.llvm.15947207822535676624.exit
 
 45:                                               ; preds = %43
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 32, i1 false)
+  call void @llvm.assume(i1 true) [ "align"(ptr %8, i64 8) ]
   br i1 %27, label %_ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.llvm.15947207822535676624.exit.i.i2, label %46
 
 46:                                               ; preds = %45

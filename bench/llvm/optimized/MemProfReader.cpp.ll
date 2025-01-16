@@ -1595,7 +1595,6 @@ define dso_local void @_ZN4llvm7memprof16RawMemProfReader12peekBuildIdsB5cxx11EP
   %26 = getelementptr inbounds nuw i8, ptr %.029, i64 24
   %27 = load i64, ptr %26, align 1
   %28 = getelementptr inbounds i8, ptr %.029, i64 %27
-  call void @llvm.assume(i1 true) [ "align"(ptr %28, i64 1) ]
   %.0.copyload.i.i.i.i = load i64, ptr %28, align 1, !noalias !71
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 8
   call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(80) %7, ptr noundef nonnull %20, i64 noundef 1) #20
@@ -3895,7 +3894,6 @@ define dso_local void @_ZN4llvm7memprof16RawMemProfReader14readRawProfileESt10un
   %61 = getelementptr inbounds nuw i8, ptr %.034, i64 24
   %62 = load i64, ptr %61, align 1
   %63 = getelementptr inbounds i8, ptr %.034, i64 %62
-  call void @llvm.assume(i1 true) [ "align"(ptr %63, i64 1) ]
   %.0.copyload.i.i.i.i = load i64, ptr %63, align 1, !noalias !198
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 8
   call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(80) %17, ptr noundef nonnull %24, i64 noundef 1) #20
@@ -4180,7 +4178,6 @@ _ZN4llvm11SmallVectorISt4pairImNS_7memprof12MemInfoBlockEELj1EED2Ev.exit: ; pred
   call void @llvm.experimental.noalias.scope.decl(metadata !208)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %15)
-  call void @llvm.assume(i1 true) [ "align"(ptr %204, i64 1) ]
   %.0.copyload.i.i.i.i41 = load i64, ptr %204, align 1, !noalias !208
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %19, i8 0, i64 20, i1 false), !alias.scope !208
   %.not.i42 = icmp eq i64 %.0.copyload.i.i.i.i41, 0
@@ -4193,11 +4190,9 @@ _ZN4llvm11SmallVectorISt4pairImNS_7memprof12MemInfoBlockEELj1EED2Ev.exit: ; pred
 206:                                              ; preds = %_ZN4llvm11SmallVectorImLj6EED2Ev.exit.i, %.lr.ph23.i
   %.0721.i = phi i64 [ 0, %.lr.ph23.i ], [ %286, %_ZN4llvm11SmallVectorImLj6EED2Ev.exit.i ]
   %.01420.i = phi ptr [ %205, %.lr.ph23.i ], [ %.1.lcssa.i, %_ZN4llvm11SmallVectorImLj6EED2Ev.exit.i ]
-  call void @llvm.assume(i1 true) [ "align"(ptr %.01420.i, i64 1) ]
   %.0.copyload.i.i.i8.i = load i64, ptr %.01420.i, align 1, !noalias !208
   %207 = getelementptr inbounds nuw i8, ptr %.01420.i, i64 8
   store i64 %.0.copyload.i.i.i8.i, ptr %14, align 8, !noalias !208
-  call void @llvm.assume(i1 true) [ "align"(ptr %207, i64 1) ]
   %.0.copyload.i.i.i9.i = load i64, ptr %207, align 1, !noalias !208
   %208 = getelementptr inbounds nuw i8, ptr %.01420.i, i64 16
   call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(64) %15, ptr noundef nonnull %46, i64 noundef 6) #20
@@ -4219,7 +4214,6 @@ _ZN4llvm15SmallVectorImplImE7reserveEm.exit.i:    ; preds = %206
 .lr.ph.i43:                                       ; preds = %.lr.ph.i43.preheader, %_ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit.i
   %.019.i = phi i64 [ %221, %_ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit.i ], [ 0, %.lr.ph.i43.preheader ]
   %.118.i = phi ptr [ %211, %_ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit.i ], [ %208, %.lr.ph.i43.preheader ]
-  call void @llvm.assume(i1 true) [ "align"(ptr %.118.i, i64 1) ]
   %.0.copyload.i.i.i10.i = load i64, ptr %.118.i, align 1, !noalias !208
   %211 = getelementptr inbounds nuw i8, ptr %.118.i, i64 8
   %212 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %15) #20
@@ -10042,7 +10036,7 @@ _ZN4llvm8SmallSetINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELj10ESt4le
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm7memprof16RawMemProfReader17readMemInfoBlocksEPKc(ptr dead_on_unwind noalias writable sret(%"class.llvm::SmallVector.228") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(416) %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm7memprof16RawMemProfReader17readMemInfoBlocksEPKc(ptr dead_on_unwind noalias writable sret(%"class.llvm::SmallVector.228") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(416) %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 align 2 {
   %.sroa.0.i = alloca <{ i32, i64, i64, i64, i64, i32, i32, i32, i32, i64, i32, i32, i32, i32, i32, i32, i32, i32, i64, i64, i32, i32, i64, i32, i32 }>, align 8
   %4 = alloca %"struct.std::pair.69", align 8
   %5 = alloca %"struct.std::pair.69", align 8
@@ -10053,7 +10047,6 @@ define dso_local void @_ZN4llvm7memprof16RawMemProfReader17readMemInfoBlocksEPKc
 
 9:                                                ; preds = %3
   call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %5)
-  call void @llvm.assume(i1 true) [ "align"(ptr %2, i64 1) ]
   %.0.copyload.i.i.i.i = load i64, ptr %2, align 1, !noalias !377
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(168) %0, ptr noundef nonnull %10, i64 noundef 1) #20
@@ -10070,7 +10063,6 @@ define dso_local void @_ZN4llvm7memprof16RawMemProfReader17readMemInfoBlocksEPKc
 13:                                               ; preds = %13, %.lr.ph.i
   %.013.i = phi i64 [ 0, %.lr.ph.i ], [ %15, %13 ]
   %.01112.i = phi ptr [ %11, %.lr.ph.i ], [ %.sroa.2.0..sroa_idx.i, %13 ]
-  call void @llvm.assume(i1 true) [ "align"(ptr %.01112.i, i64 1) ]
   %.0.copyload.i.i.i3.i = load i64, ptr %.01112.i, align 1, !noalias !377
   %14 = getelementptr inbounds nuw i8, ptr %.01112.i, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(132) %12, ptr noundef nonnull align 1 dereferenceable(132) %14, i64 132, i1 false), !noalias !377
@@ -10092,7 +10084,6 @@ _ZN4llvm7memprof12_GLOBAL__N_119readMemInfoBlocksV3EPKc.exit: ; preds = %13, %9
   tail call void @llvm.assume(i1 %17)
   call void @llvm.lifetime.start.p0(i64 132, ptr nonnull %.sroa.0.i)
   call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %4)
-  call void @llvm.assume(i1 true) [ "align"(ptr %2, i64 1) ]
   %.0.copyload.i.i.i.i3 = load i64, ptr %2, align 1, !noalias !381
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(168) %0, ptr noundef nonnull %18, i64 noundef 1) #20
@@ -10109,7 +10100,6 @@ _ZN4llvm7memprof12_GLOBAL__N_119readMemInfoBlocksV3EPKc.exit: ; preds = %13, %9
 21:                                               ; preds = %._crit_edge.i, %.lr.ph24.i
   %.0622.i = phi i64 [ 0, %.lr.ph24.i ], [ %32, %._crit_edge.i ]
   %.01821.i = phi ptr [ %19, %.lr.ph24.i ], [ %.1.lcssa.i, %._crit_edge.i ]
-  call void @llvm.assume(i1 true) [ "align"(ptr %.01821.i, i64 1) ]
   %.0.copyload.i.i.i8.i = load i64, ptr %.01821.i, align 1, !noalias !381
   %22 = getelementptr inbounds nuw i8, ptr %.01821.i, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(132) %.sroa.0.i, ptr noundef nonnull align 1 dereferenceable(132) %22, i64 132, i1 false), !noalias !381
@@ -10133,7 +10123,6 @@ _ZN4llvm7memprof12_GLOBAL__N_119readMemInfoBlocksV3EPKc.exit: ; preds = %13, %9
 27:                                               ; preds = %27, %.lr.ph.i6
   %.020.i = phi i64 [ 0, %.lr.ph.i6 ], [ %30, %27 ]
   %.119.i = phi ptr [ %23, %.lr.ph.i6 ], [ %28, %27 ]
-  call void @llvm.assume(i1 true) [ "align"(ptr %.119.i, i64 1) ]
   %.0.copyload.i.i.i9.i = load i64, ptr %.119.i, align 1, !noalias !381
   %28 = getelementptr inbounds nuw i8, ptr %.119.i, i64 8
   %29 = getelementptr inbounds nuw i64, ptr %26, i64 %.020.i

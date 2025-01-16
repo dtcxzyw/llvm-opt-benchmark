@@ -582,6 +582,7 @@ define hidden { ptr, ptr } @"_ZN106_$LT$itertools..merge_join..MergeBy$LT$I$C$J$
   br label %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h8726aa220fcf0071E.exit"
 
 17:                                               ; preds = %1
+  call void @llvm.assume(i1 true) [ "align"(ptr %4, i64 8) ]
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %19 = load ptr, ptr %18, align 8
   store ptr null, ptr %3, align 8
@@ -613,6 +614,7 @@ define hidden { ptr, ptr } @"_ZN106_$LT$itertools..merge_join..MergeBy$LT$I$C$J$
   br label %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h6c759468556d4a47E.exit"
 
 34:                                               ; preds = %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h8726aa220fcf0071E.exit"
+  call void @llvm.assume(i1 true) [ "align"(ptr %21, i64 8) ]
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %36 = load ptr, ptr %35, align 8
   store ptr null, ptr %20, align 8
@@ -716,6 +718,7 @@ define hidden { ptr, ptr } @"_ZN106_$LT$itertools..merge_join..MergeBy$LT$I$C$J$
   br label %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17ha8913137507c2e2bE.exit"
 
 17:                                               ; preds = %1
+  call void @llvm.assume(i1 true) [ "align"(ptr %4, i64 8) ]
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %19 = load ptr, ptr %18, align 8
   store ptr null, ptr %3, align 8
@@ -747,6 +750,7 @@ define hidden { ptr, ptr } @"_ZN106_$LT$itertools..merge_join..MergeBy$LT$I$C$J$
   br label %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h19b5b282ae7b2555E.exit"
 
 34:                                               ; preds = %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17ha8913137507c2e2bE.exit"
+  call void @llvm.assume(i1 true) [ "align"(ptr %21, i64 8) ]
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %36 = load ptr, ptr %35, align 8
   store ptr null, ptr %20, align 8
@@ -938,6 +942,7 @@ define hidden { ptr, ptr } @"_ZN107_$LT$itertools..tuple_impl..TupleWindows$LT$I
   %13 = load ptr, ptr %12, align 8, !alias.scope !198, !noalias !201, !nonnull !4, !align !5, !noundef !4
   store ptr %5, ptr %12, align 8, !alias.scope !198, !noalias !201
   store ptr %13, ptr %9, align 8, !alias.scope !198, !noalias !201
+  call void @llvm.assume(i1 true) [ "align"(ptr %5, i64 8) ]
   br label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha7f8b4c2315f99f3E.llvm.687266931824691263.exit.thread"
 
 14:                                               ; preds = %7
@@ -1179,6 +1184,7 @@ define hidden noundef align 8 dereferenceable_or_null(24) ptr @"_ZN117_$LT$itert
   br i1 %28, label %20, label %29
 
 29:                                               ; preds = %23
+  call void @llvm.assume(i1 true) [ "align"(ptr %.01826, i64 8) ]
   store i64 1, ptr %0, align 8, !noalias !307
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %21, ptr %30, align 8, !noalias !307
@@ -1330,6 +1336,7 @@ define hidden noundef align 8 dereferenceable_or_null(24) ptr @"_ZN117_$LT$itert
   br i1 %28, label %20, label %29
 
 29:                                               ; preds = %23
+  call void @llvm.assume(i1 true) [ "align"(ptr %.01826, i64 8) ]
   store i64 1, ptr %0, align 8, !noalias !393
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %21, ptr %30, align 8, !noalias !393

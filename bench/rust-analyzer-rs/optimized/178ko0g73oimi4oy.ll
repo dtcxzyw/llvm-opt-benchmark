@@ -4933,6 +4933,7 @@ switch.lookup:                                    ; preds = %"_ZN5alloc3vec16Vec
   %826 = getelementptr inbounds nuw i8, ptr %38, i64 8
   store i64 %824, ptr %826, align 8, !alias.scope !864, !noalias !867
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %37)
+  call void @llvm.assume(i1 true) [ "align"(ptr %823, i64 8) ]
   %827 = icmp eq i64 %824, 1
   br i1 %827, label %828, label %831
 
@@ -4953,19 +4954,19 @@ switch.lookup:                                    ; preds = %"_ZN5alloc3vec16Vec
   %834 = getelementptr inbounds nuw i8, ptr %823, i64 20
   %835 = load i32, ptr %834, align 4, !alias.scope !876, !noalias !881, !noundef !7
   %836 = getelementptr inbounds nuw i8, ptr %823, i64 24
-  %837 = load i32, ptr %836, align 4, !alias.scope !876, !noalias !881, !noundef !7
+  %837 = load i32, ptr %836, align 8, !alias.scope !876, !noalias !881, !noundef !7
   %838 = getelementptr inbounds nuw i8, ptr %823, i64 28
   %839 = load i32, ptr %838, align 4, !alias.scope !876, !noalias !881, !noundef !7
   %840 = getelementptr inbounds nuw i8, ptr %823, i64 32
-  %841 = load i32, ptr %840, align 4, !alias.scope !876, !noalias !881, !noundef !7
-  %842 = load i32, ptr %833, align 4, !range !256, !alias.scope !884, !noalias !881, !noundef !7
+  %841 = load i32, ptr %840, align 8, !alias.scope !876, !noalias !881, !noundef !7
+  %842 = load i32, ptr %833, align 8, !range !256, !alias.scope !884, !noalias !881, !noundef !7
   %843 = getelementptr inbounds nuw i8, ptr %823, i64 36
   %844 = getelementptr inbounds nuw i8, ptr %823, i64 40
-  %845 = load i32, ptr %844, align 4, !alias.scope !887, !noalias !890, !noundef !7
+  %845 = load i32, ptr %844, align 8, !alias.scope !887, !noalias !890, !noundef !7
   %846 = getelementptr inbounds nuw i8, ptr %823, i64 44
   %847 = load i32, ptr %846, align 4, !alias.scope !887, !noalias !890, !noundef !7
   %848 = getelementptr inbounds nuw i8, ptr %823, i64 48
-  %849 = load i32, ptr %848, align 4, !alias.scope !887, !noalias !890, !noundef !7
+  %849 = load i32, ptr %848, align 8, !alias.scope !887, !noalias !890, !noundef !7
   %850 = getelementptr inbounds nuw i8, ptr %823, i64 52
   %851 = load i32, ptr %850, align 4, !alias.scope !887, !noalias !890, !noundef !7
   %852 = load i32, ptr %843, align 4, !range !256, !alias.scope !892, !noalias !890, !noundef !7
@@ -7642,6 +7643,7 @@ switch.lookup:                                    ; preds = %"_ZN5alloc3vec16Vec
   %815 = getelementptr inbounds nuw i8, ptr %38, i64 8
   store i64 %813, ptr %815, align 8, !alias.scope !1402, !noalias !1405
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %37)
+  call void @llvm.assume(i1 true) [ "align"(ptr %812, i64 8) ]
   %816 = icmp eq i64 %813, 1
   br i1 %816, label %817, label %820
 
@@ -7662,19 +7664,19 @@ switch.lookup:                                    ; preds = %"_ZN5alloc3vec16Vec
   %823 = getelementptr inbounds nuw i8, ptr %812, i64 20
   %824 = load i32, ptr %823, align 4, !alias.scope !1413, !noalias !1418, !noundef !7
   %825 = getelementptr inbounds nuw i8, ptr %812, i64 24
-  %826 = load i32, ptr %825, align 4, !alias.scope !1413, !noalias !1418, !noundef !7
+  %826 = load i32, ptr %825, align 8, !alias.scope !1413, !noalias !1418, !noundef !7
   %827 = getelementptr inbounds nuw i8, ptr %812, i64 28
   %828 = load i32, ptr %827, align 4, !alias.scope !1413, !noalias !1418, !noundef !7
   %829 = getelementptr inbounds nuw i8, ptr %812, i64 32
-  %830 = load i32, ptr %829, align 4, !alias.scope !1413, !noalias !1418, !noundef !7
-  %831 = load i32, ptr %822, align 4, !range !256, !alias.scope !1421, !noalias !1418, !noundef !7
+  %830 = load i32, ptr %829, align 8, !alias.scope !1413, !noalias !1418, !noundef !7
+  %831 = load i32, ptr %822, align 8, !range !256, !alias.scope !1421, !noalias !1418, !noundef !7
   %832 = getelementptr inbounds nuw i8, ptr %812, i64 36
   %833 = getelementptr inbounds nuw i8, ptr %812, i64 40
-  %834 = load i32, ptr %833, align 4, !alias.scope !1424, !noalias !1427, !noundef !7
+  %834 = load i32, ptr %833, align 8, !alias.scope !1424, !noalias !1427, !noundef !7
   %835 = getelementptr inbounds nuw i8, ptr %812, i64 44
   %836 = load i32, ptr %835, align 4, !alias.scope !1424, !noalias !1427, !noundef !7
   %837 = getelementptr inbounds nuw i8, ptr %812, i64 48
-  %838 = load i32, ptr %837, align 4, !alias.scope !1424, !noalias !1427, !noundef !7
+  %838 = load i32, ptr %837, align 8, !alias.scope !1424, !noalias !1427, !noundef !7
   %839 = getelementptr inbounds nuw i8, ptr %812, i64 52
   %840 = load i32, ptr %839, align 4, !alias.scope !1424, !noalias !1427, !noundef !7
   %841 = load i32, ptr %832, align 4, !range !256, !alias.scope !1429, !noalias !1427, !noundef !7
@@ -10211,6 +10213,7 @@ switch.lookup:                                    ; preds = %"_ZN5alloc3vec16Vec
   %797 = getelementptr inbounds nuw i8, ptr %38, i64 8
   store i64 %795, ptr %797, align 8, !alias.scope !1967, !noalias !1970
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %37)
+  call void @llvm.assume(i1 true) [ "align"(ptr %794, i64 8) ]
   %798 = icmp eq i64 %795, 1
   br i1 %798, label %799, label %802
 
@@ -10231,19 +10234,19 @@ switch.lookup:                                    ; preds = %"_ZN5alloc3vec16Vec
   %805 = getelementptr inbounds nuw i8, ptr %794, i64 20
   %806 = load i32, ptr %805, align 4, !alias.scope !1978, !noalias !1983, !noundef !7
   %807 = getelementptr inbounds nuw i8, ptr %794, i64 24
-  %808 = load i32, ptr %807, align 4, !alias.scope !1978, !noalias !1983, !noundef !7
+  %808 = load i32, ptr %807, align 8, !alias.scope !1978, !noalias !1983, !noundef !7
   %809 = getelementptr inbounds nuw i8, ptr %794, i64 28
   %810 = load i32, ptr %809, align 4, !alias.scope !1978, !noalias !1983, !noundef !7
   %811 = getelementptr inbounds nuw i8, ptr %794, i64 32
-  %812 = load i32, ptr %811, align 4, !alias.scope !1978, !noalias !1983, !noundef !7
-  %813 = load i32, ptr %804, align 4, !range !256, !alias.scope !1986, !noalias !1983, !noundef !7
+  %812 = load i32, ptr %811, align 8, !alias.scope !1978, !noalias !1983, !noundef !7
+  %813 = load i32, ptr %804, align 8, !range !256, !alias.scope !1986, !noalias !1983, !noundef !7
   %814 = getelementptr inbounds nuw i8, ptr %794, i64 36
   %815 = getelementptr inbounds nuw i8, ptr %794, i64 40
-  %816 = load i32, ptr %815, align 4, !alias.scope !1989, !noalias !1992, !noundef !7
+  %816 = load i32, ptr %815, align 8, !alias.scope !1989, !noalias !1992, !noundef !7
   %817 = getelementptr inbounds nuw i8, ptr %794, i64 44
   %818 = load i32, ptr %817, align 4, !alias.scope !1989, !noalias !1992, !noundef !7
   %819 = getelementptr inbounds nuw i8, ptr %794, i64 48
-  %820 = load i32, ptr %819, align 4, !alias.scope !1989, !noalias !1992, !noundef !7
+  %820 = load i32, ptr %819, align 8, !alias.scope !1989, !noalias !1992, !noundef !7
   %821 = getelementptr inbounds nuw i8, ptr %794, i64 52
   %822 = load i32, ptr %821, align 4, !alias.scope !1989, !noalias !1992, !noundef !7
   %823 = load i32, ptr %814, align 4, !range !256, !alias.scope !1994, !noalias !1992, !noundef !7
@@ -12726,6 +12729,7 @@ switch.lookup:                                    ; preds = %"_ZN5alloc3vec16Vec
   %754 = getelementptr inbounds nuw i8, ptr %38, i64 8
   store i64 %752, ptr %754, align 8, !alias.scope !2458, !noalias !2461
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %37)
+  call void @llvm.assume(i1 true) [ "align"(ptr %751, i64 8) ]
   %755 = icmp eq i64 %752, 1
   br i1 %755, label %756, label %759
 
@@ -12746,19 +12750,19 @@ switch.lookup:                                    ; preds = %"_ZN5alloc3vec16Vec
   %762 = getelementptr inbounds nuw i8, ptr %751, i64 20
   %763 = load i32, ptr %762, align 4, !alias.scope !2469, !noalias !2474, !noundef !7
   %764 = getelementptr inbounds nuw i8, ptr %751, i64 24
-  %765 = load i32, ptr %764, align 4, !alias.scope !2469, !noalias !2474, !noundef !7
+  %765 = load i32, ptr %764, align 8, !alias.scope !2469, !noalias !2474, !noundef !7
   %766 = getelementptr inbounds nuw i8, ptr %751, i64 28
   %767 = load i32, ptr %766, align 4, !alias.scope !2469, !noalias !2474, !noundef !7
   %768 = getelementptr inbounds nuw i8, ptr %751, i64 32
-  %769 = load i32, ptr %768, align 4, !alias.scope !2469, !noalias !2474, !noundef !7
-  %770 = load i32, ptr %761, align 4, !range !256, !alias.scope !2477, !noalias !2474, !noundef !7
+  %769 = load i32, ptr %768, align 8, !alias.scope !2469, !noalias !2474, !noundef !7
+  %770 = load i32, ptr %761, align 8, !range !256, !alias.scope !2477, !noalias !2474, !noundef !7
   %771 = getelementptr inbounds nuw i8, ptr %751, i64 36
   %772 = getelementptr inbounds nuw i8, ptr %751, i64 40
-  %773 = load i32, ptr %772, align 4, !alias.scope !2480, !noalias !2483, !noundef !7
+  %773 = load i32, ptr %772, align 8, !alias.scope !2480, !noalias !2483, !noundef !7
   %774 = getelementptr inbounds nuw i8, ptr %751, i64 44
   %775 = load i32, ptr %774, align 4, !alias.scope !2480, !noalias !2483, !noundef !7
   %776 = getelementptr inbounds nuw i8, ptr %751, i64 48
-  %777 = load i32, ptr %776, align 4, !alias.scope !2480, !noalias !2483, !noundef !7
+  %777 = load i32, ptr %776, align 8, !alias.scope !2480, !noalias !2483, !noundef !7
   %778 = getelementptr inbounds nuw i8, ptr %751, i64 52
   %779 = load i32, ptr %778, align 4, !alias.scope !2480, !noalias !2483, !noundef !7
   %780 = load i32, ptr %771, align 4, !range !256, !alias.scope !2485, !noalias !2483, !noundef !7
@@ -14076,6 +14080,7 @@ switch.lookup:                                    ; preds = %"_ZN5alloc3vec16Vec
   %415 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store i64 %413, ptr %415, align 8, !alias.scope !2682, !noalias !2685
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %13)
+  call void @llvm.assume(i1 true) [ "align"(ptr %412, i64 8) ]
   %416 = icmp eq i64 %413, 1
   br i1 %416, label %417, label %420
 
@@ -14096,19 +14101,19 @@ switch.lookup:                                    ; preds = %"_ZN5alloc3vec16Vec
   %423 = getelementptr inbounds nuw i8, ptr %412, i64 20
   %424 = load i32, ptr %423, align 4, !alias.scope !2693, !noalias !2698, !noundef !7
   %425 = getelementptr inbounds nuw i8, ptr %412, i64 24
-  %426 = load i32, ptr %425, align 4, !alias.scope !2693, !noalias !2698, !noundef !7
+  %426 = load i32, ptr %425, align 8, !alias.scope !2693, !noalias !2698, !noundef !7
   %427 = getelementptr inbounds nuw i8, ptr %412, i64 28
   %428 = load i32, ptr %427, align 4, !alias.scope !2693, !noalias !2698, !noundef !7
   %429 = getelementptr inbounds nuw i8, ptr %412, i64 32
-  %430 = load i32, ptr %429, align 4, !alias.scope !2693, !noalias !2698, !noundef !7
-  %431 = load i32, ptr %422, align 4, !range !256, !alias.scope !2701, !noalias !2698, !noundef !7
+  %430 = load i32, ptr %429, align 8, !alias.scope !2693, !noalias !2698, !noundef !7
+  %431 = load i32, ptr %422, align 8, !range !256, !alias.scope !2701, !noalias !2698, !noundef !7
   %432 = getelementptr inbounds nuw i8, ptr %412, i64 36
   %433 = getelementptr inbounds nuw i8, ptr %412, i64 40
-  %434 = load i32, ptr %433, align 4, !alias.scope !2704, !noalias !2707, !noundef !7
+  %434 = load i32, ptr %433, align 8, !alias.scope !2704, !noalias !2707, !noundef !7
   %435 = getelementptr inbounds nuw i8, ptr %412, i64 44
   %436 = load i32, ptr %435, align 4, !alias.scope !2704, !noalias !2707, !noundef !7
   %437 = getelementptr inbounds nuw i8, ptr %412, i64 48
-  %438 = load i32, ptr %437, align 4, !alias.scope !2704, !noalias !2707, !noundef !7
+  %438 = load i32, ptr %437, align 8, !alias.scope !2704, !noalias !2707, !noundef !7
   %439 = getelementptr inbounds nuw i8, ptr %412, i64 52
   %440 = load i32, ptr %439, align 4, !alias.scope !2704, !noalias !2707, !noundef !7
   %441 = load i32, ptr %432, align 4, !range !256, !alias.scope !2709, !noalias !2707, !noundef !7
@@ -19849,6 +19854,7 @@ default.unreachable631:                           ; preds = %577, %"_ZN4core5sli
   %116 = load i64, ptr %.sroa.634.0..sroa_idx35, align 8, !alias.scope !3870, !noundef !7
   %117 = add i64 %116, 1
   store i64 %117, ptr %.sroa.634.0..sroa_idx35, align 8, !alias.scope !3870
+  call void @llvm.assume(i1 true) [ "align"(ptr %1, i64 8) ]
   %118 = load i64, ptr %69, align 8, !noalias !3873, !noundef !7
   %119 = icmp ult i64 %65, %118
   br i1 %119, label %120, label %"_ZN2tt6buffer23TokenBuffer$LT$Span$GT$5entry17h8764604a5ccb747cE.llvm.6887668541773461223.exit.thread.i103"
@@ -20328,6 +20334,7 @@ _ZN6parser5input5Input9push_impl17he4623d7cc73ade4bE.exit133: ; preds = %"_ZN5al
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17hffb3447530e40bd1E.exit": ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hebcb70db04445b9fE.exit.i", %314
   %.0.i146 = phi i1 [ %315, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hebcb70db04445b9fE.exit.i" ], [ false, %314 ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %276, i64 8) ]
   switch i8 %narrow.i, label %default.unreachable631 [
     i8 0, label %316
     i8 1, label %322

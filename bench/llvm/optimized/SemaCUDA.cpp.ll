@@ -5838,8 +5838,7 @@ _ZNK5clang4Decl7hasAttrINS_14CUDADeviceAttrEEEbv.exit80.thread: ; preds = %189, 
   br i1 %.not126, label %209, label %198
 
 198:                                              ; preds = %192
-  call void @llvm.assume(i1 true) [ "align"(ptr %193, i64 8) ]
-  %.0.copyload.i.i.i.i.i.i = load i64, ptr %193, align 8
+  %.0.copyload.i.i.i.i.i.i = load i64, ptr %193, align 1
   %199 = and i64 %.0.copyload.i.i.i.i.i.i, -8
   %200 = inttoptr i64 %199 to ptr
   %201 = getelementptr inbounds nuw i8, ptr %200, i64 24
@@ -7265,8 +7264,7 @@ define dso_local void @_ZN5clang8SemaCUDA19checkTargetOverloadEPNS_12FunctionDec
 
 23:                                               ; preds = %.lr.ph, %.thread58
   %.sroa.053.062 = phi ptr [ %16, %.lr.ph ], [ %65, %.thread58 ]
-  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.053.062, i64 8) ]
-  %.0.copyload.i.i.i.i.i.i = load i64, ptr %.sroa.053.062, align 8
+  %.0.copyload.i.i.i.i.i.i = load i64, ptr %.sroa.053.062, align 1
   %24 = and i64 %.0.copyload.i.i.i.i.i.i, -8
   %25 = inttoptr i64 %24 to ptr
   %26 = call noundef ptr @_ZN5clang4Decl13getAsFunctionEv(ptr noundef nonnull align 8 dereferenceable(33) %25) #14
@@ -8134,9 +8132,8 @@ declare noundef zeroext i1 @_ZNK5clang4Expr21isConstantInitializerERNS_10ASTCont
 declare noundef ptr @_ZN5clang4Expr25getReferencedDeclOfCalleeEv(ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang8SemaCUDA23maybeAddHostDeviceAttrsEPNS2_12FunctionDeclERKNS2_12LookupResultEE3$_0EclINS2_21UnresolvedSetIteratorEEEbT_"(ptr nocapture readonly %.0.val, ptr nocapture readonly %.8.val, ptr %0) unnamed_addr #0 align 2 {
-  call void @llvm.assume(i1 true) [ "align"(ptr %0, i64 8) ]
-  %.0.copyload.i.i.i.i.i.i = load i64, ptr %0, align 8
+define internal fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang8SemaCUDA23maybeAddHostDeviceAttrsEPNS2_12FunctionDeclERKNS2_12LookupResultEE3$_0EclINS2_21UnresolvedSetIteratorEEEbT_"(ptr nocapture readonly %.0.val, ptr nocapture readonly %.8.val, ptr nocapture readonly %0) unnamed_addr #0 align 2 {
+  %.0.copyload.i.i.i.i.i.i = load i64, ptr %0, align 1
   %2 = and i64 %.0.copyload.i.i.i.i.i.i, -8
   %3 = inttoptr i64 %2 to ptr
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 28

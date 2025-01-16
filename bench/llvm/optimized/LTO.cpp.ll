@@ -4435,7 +4435,6 @@ _ZNSt6vectorISt4pairIN4llvm9StringRefENS1_6Comdat13SelectionKindEESaIS5_EED2Ev.e
   br i1 %.not.i.i.i23, label %.lr.ph.preheader, label %108
 
 108:                                              ; preds = %99
-  call void @llvm.assume(i1 true) [ "align"(ptr %97, i64 1) ]
   %.0.copyload.i.i.i16.i.i.i = load i32, ptr %97, align 1, !noalias !119
   %109 = getelementptr inbounds nuw i8, ptr %97, i64 4
   call void @llvm.assume(i1 true) [ "align"(ptr %109, i64 1) ]
@@ -4639,7 +4638,6 @@ _ZNSt6vectorIN4llvm3lto9InputFile6SymbolESaIS3_EE9push_backEOS3_.exit: ; preds =
   br i1 %.not.i.i.i32, label %.lr.ph, label %158
 
 158:                                              ; preds = %148
-  call void @llvm.assume(i1 true) [ "align"(ptr %spec.select, i64 1) ]
   %.0.copyload.i.i.i16.i.i.i33 = load i32, ptr %spec.select, align 1
   %159 = getelementptr inbounds nuw i8, ptr %spec.select, i64 4
   call void @llvm.assume(i1 true) [ "align"(ptr %159, i64 1) ]

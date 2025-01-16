@@ -389,6 +389,7 @@ define hidden void @_ZN10wasmparser9validator9operators17OperatorValidator8new_f
 
 42:                                               ; preds = %.noexc23
   store ptr %40, ptr %10, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %40, i64 8) ]
   %43 = getelementptr inbounds nuw i8, ptr %40, i64 8
   %44 = load i8, ptr %43, align 8, !range !25, !noundef !13
   %45 = icmp eq i8 %44, 0
@@ -2225,6 +2226,7 @@ define internal fastcc void @"_ZN10wasmparser9validator9operators30OperatorValid
 
 12:                                               ; preds = %3
   store ptr %10, ptr %7, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %10, i64 8) ]
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %14 = load i8, ptr %13, align 8, !range !25, !noundef !13
   %15 = icmp eq i8 %14, 2
@@ -2407,6 +2409,7 @@ _ZN10wasmparser9resources19WasmModuleResources16check_value_type17h1a4e924215582
 
 48:                                               ; preds = %41
   store ptr %46, ptr %6, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %46, i64 8) ]
   %49 = getelementptr inbounds nuw i8, ptr %46, i64 8
   %50 = load i8, ptr %49, align 8, !range !25, !noundef !13
   %51 = icmp eq i8 %50, 0
@@ -3365,6 +3368,7 @@ define internal fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators
 
 43:                                               ; preds = %39
   store ptr %41, ptr %8, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %41, i64 8) ]
   %44 = getelementptr inbounds nuw i8, ptr %41, i64 8
   %45 = load i8, ptr %44, align 8, !range !25, !noundef !13
   %46 = icmp eq i8 %45, 0
@@ -5700,6 +5704,7 @@ define internal fastcc void @"_ZN10wasmparser9validator9operators30OperatorValid
 
 13:                                               ; preds = %9
   store ptr %11, ptr %6, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %11, i64 8) ]
   %14 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %15 = load i8, ptr %14, align 8, !range !25, !noundef !13
   %16 = icmp eq i8 %15, 0
@@ -5941,6 +5946,7 @@ define internal fastcc void @"_ZN10wasmparser9validator9operators30OperatorValid
 
 16:                                               ; preds = %12
   store ptr %14, ptr %6, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %14, i64 8) ]
   %17 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %18 = load i8, ptr %17, align 8, !range !25, !noundef !13
   %19 = icmp eq i8 %18, 0
@@ -9186,6 +9192,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
 
 29:                                               ; preds = %26
   store ptr %27, ptr %6, align 8, !noalias !1095
+  call void @llvm.assume(i1 true) [ "align"(ptr %27, i64 8) ]
   %30 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %31 = load i8, ptr %30, align 8, !range !25, !noalias !1095, !noundef !13
   %32 = icmp eq i8 %31, 0
@@ -10022,6 +10029,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
 
 15:                                               ; preds = %2
   store ptr %13, ptr %6, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %13, i64 8) ]
   %16 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %17 = load i8, ptr %16, align 8, !range !25, !noundef !13
   %18 = icmp eq i8 %17, 1
@@ -10312,6 +10320,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
 
 14:                                               ; preds = %2
   store ptr %12, ptr %6, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %12, i64 8) ]
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %16 = load i8, ptr %15, align 8, !range !25, !noundef !13
   %17 = icmp eq i8 %16, 1
@@ -10542,6 +10551,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
 
 16:                                               ; preds = %2
   store ptr %14, ptr %6, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %14, i64 8) ]
   %17 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %18 = load i8, ptr %17, align 8, !range !25, !noundef !13
   %19 = icmp eq i8 %18, 1
@@ -13122,6 +13132,7 @@ default.unreachable:                              ; preds = %"_ZN103_$LT$alloc..
   ret ptr %.2
 
 128:                                              ; preds = %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5ad3f5420e6e198cE.exit"
+  call void @llvm.assume(i1 true) [ "align"(ptr %.val, i64 8) ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %22)
   store i32 %.sroa.7525.0.copyload, ptr %22, align 4
   %129 = invoke noundef align 8 dereferenceable_or_null(24) ptr @"_ZN110_$LT$wasmparser..validator..core..ValidatorResources$u20$as$u20$wasmparser..resources..WasmModuleResources$GT$6tag_at17h372d6d7c9c4d63e3E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %.val, i32 noundef %.sroa.7525.0.copyload)
@@ -13150,6 +13161,7 @@ default.unreachable:                              ; preds = %"_ZN103_$LT$alloc..
           to label %178 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 138:                                              ; preds = %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5ad3f5420e6e198cE.exit"
+  call void @llvm.assume(i1 true) [ "align"(ptr %.val, i64 8) ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %19)
   store i32 %.sroa.7525.0.copyload, ptr %19, align 4
   %139 = invoke noundef align 8 dereferenceable_or_null(24) ptr @"_ZN110_$LT$wasmparser..validator..core..ValidatorResources$u20$as$u20$wasmparser..resources..WasmModuleResources$GT$6tag_at17h372d6d7c9c4d63e3E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %.val, i32 noundef %.sroa.7525.0.copyload)
@@ -14526,6 +14538,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
 
 38:                                               ; preds = %3
   store ptr %36, ptr %12, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %36, i64 8) ]
   %39 = getelementptr inbounds nuw i8, ptr %36, i64 8
   %40 = load i8, ptr %39, align 8, !range !25, !noundef !13
   %41 = icmp eq i8 %40, 1
@@ -14612,6 +14625,7 @@ default.unreachable:                              ; preds = %90
 
 70:                                               ; preds = %67
   store ptr %68, ptr %7, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %68, i64 8) ]
   %71 = getelementptr inbounds nuw i8, ptr %68, i64 8
   %72 = load i8, ptr %71, align 8, !range !25, !noundef !13
   %73 = icmp eq i8 %72, 1
@@ -15043,6 +15057,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
 
 17:                                               ; preds = %2
   store ptr %15, ptr %6, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %15, i64 8) ]
   %18 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %19 = load i8, ptr %18, align 8, !range !25, !noundef !13
   %20 = icmp eq i8 %19, 1
@@ -16443,6 +16458,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
 
 13:                                               ; preds = %2
   store ptr %11, ptr %6, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %11, i64 8) ]
   %14 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %15 = load i8, ptr %14, align 8, !range !25, !noundef !13
   %16 = icmp eq i8 %15, 2
@@ -17943,6 +17959,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
 
 15:                                               ; preds = %2
   store ptr %13, ptr %6, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %13, i64 8) ]
   %16 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %17 = load i8, ptr %16, align 8, !range !25, !noundef !13
   %18 = icmp eq i8 %17, 1
@@ -18137,6 +18154,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
 
 15:                                               ; preds = %2
   store ptr %13, ptr %6, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %13, i64 8) ]
   %16 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %17 = load i8, ptr %16, align 8, !range !25, !noundef !13
   %18 = icmp eq i8 %17, 1
@@ -21475,6 +21493,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
 
 20:                                               ; preds = %3
   store ptr %18, ptr %7, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %18, i64 8) ]
   %21 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %22 = load i8, ptr %21, align 8, !range !25, !noundef !13
   %23 = icmp eq i8 %22, 1
@@ -21755,6 +21774,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
 
 24:                                               ; preds = %3
   store ptr %22, ptr %10, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %22, i64 8) ]
   %25 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %26 = load i8, ptr %25, align 8, !range !25, !noundef !13
   %27 = icmp eq i8 %26, 1
@@ -22728,6 +22748,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
 
 23:                                               ; preds = %3
   store ptr %21, ptr %7, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %21, i64 8) ]
   %24 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %25 = load i8, ptr %24, align 8, !range !25, !noundef !13
   %26 = icmp eq i8 %25, 1
@@ -23095,6 +23116,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
 
 27:                                               ; preds = %3
   store ptr %25, ptr %10, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %25, i64 8) ]
   %28 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %29 = load i8, ptr %28, align 8, !range !25, !noundef !13
   %30 = icmp eq i8 %29, 1
@@ -23488,6 +23510,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
 
 14:                                               ; preds = %3
   store ptr %12, ptr %7, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %12, i64 8) ]
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %16 = load i8, ptr %15, align 8, !range !25, !noundef !13
   %17 = icmp eq i8 %16, 1
@@ -25172,6 +25195,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
 
 16:                                               ; preds = %2
   store ptr %14, ptr %6, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %14, i64 8) ]
   %17 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %18 = load i8, ptr %17, align 8, !range !25, !noundef !13
   %19 = icmp eq i8 %18, 1
@@ -28087,6 +28111,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
 
 15:                                               ; preds = %2
   store ptr %13, ptr %6, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %13, i64 8) ]
   %16 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %17 = load i8, ptr %16, align 8, !range !25, !noundef !13
   %18 = icmp eq i8 %17, 2

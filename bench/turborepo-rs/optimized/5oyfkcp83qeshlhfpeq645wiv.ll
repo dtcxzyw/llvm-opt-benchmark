@@ -2956,7 +2956,7 @@ _RNvXs0_NtNtNtCs1LoaDTb72WA_4core4iter8adapters3mapINtB5_3MapINtNtCslyFhtC9DD08_
 
 16:                                               ; preds = %_RNvXs7_NtCslyFhtC9DD08_9itertools11groupbylazyINtB5_5GroupNtNtCseG2FYMysgNb_3wax5token8PositionINtBW_4WalkTjjEENCNvNtBY_4rule8boundary0ENtNtNtNtCs1LoaDTb72WA_4core4iter6traits8iterator8Iterator4nextBY_.llvm.8413233830278194149.exit.i, %_RNvXs7_NtCslyFhtC9DD08_9itertools11groupbylazyINtB5_5GroupNtNtCseG2FYMysgNb_3wax5token8PositionINtBW_4WalkTjjEENCNvNtBY_4rule8boundary0ENtNtNtNtCs1LoaDTb72WA_4core4iter6traits8iterator8Iterator4nextBY_.llvm.8413233830278194149.exit.thread.i
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %.sroa.4.0.copyload.i = load ptr, ptr %.sroa.4.0..sroa_idx.i, align 8, !noalias !671, !nonnull !4, !noundef !4
+  %.sroa.4.0.copyload.i = load ptr, ptr %.sroa.4.0..sroa_idx.i, align 8, !noalias !671, !nonnull !4, !align !149, !noundef !4
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2), !noalias !671
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %18 = load ptr, ptr %17, align 8, !alias.scope !681, !noalias !684, !nonnull !4, !align !149, !noundef !4

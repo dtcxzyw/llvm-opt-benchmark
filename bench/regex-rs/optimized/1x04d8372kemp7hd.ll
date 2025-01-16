@@ -8619,6 +8619,7 @@ _ZN14regex_automata6hybrid6search7eoi_fwd17h44851bdaa872c461E.exit159: ; preds =
   %253 = load i64, ptr %252, align 8, !alias.scope !2320, !noalias !2202, !noundef !9
   %254 = add i64 %253, %.0.i.i198
   store i64 %254, ptr %252, align 8, !alias.scope !2320, !noalias !2202
+  call void @llvm.assume(i1 true) [ "align"(ptr %242, i64 8) ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %21), !noalias !2274
   br label %.sink.split
 
@@ -9576,6 +9577,7 @@ _ZN14regex_automata6hybrid6search7eoi_fwd17h44851bdaa872c461E.exit: ; preds = %_
   %591 = load i64, ptr %590, align 8, !alias.scope !2565, !noalias !2446, !noundef !9
   %592 = add i64 %591, %.0.i.i318
   store i64 %592, ptr %590, align 8, !alias.scope !2565, !noalias !2446
+  call void @llvm.assume(i1 true) [ "align"(ptr %580, i64 8) ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %19), !noalias !2521
   br label %.sink.split
 
@@ -10527,6 +10529,7 @@ _ZN14regex_automata6hybrid3dfa3DFA10next_state17hdf7fbf07a67bbb18E.exit111: ; pr
   %303 = load i64, ptr %302, align 8, !alias.scope !2781, !noundef !9
   %304 = add i64 %303, %.0.i.i120
   store i64 %304, ptr %302, align 8, !alias.scope !2781
+  call void @llvm.assume(i1 true) [ "align"(ptr %292, i64 8) ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11)
   br label %_ZN14regex_automata6hybrid6search8init_rev17h796e554cca9bd64cE.exit.thread
 

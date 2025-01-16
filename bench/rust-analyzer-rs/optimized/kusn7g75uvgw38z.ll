@@ -80,7 +80,7 @@ define hidden noundef align 8 dereferenceable_or_null(32) ptr @"_ZN91_$LT$core..
   ret ptr %.0
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite, inaccessiblemem: write) uwtable
 define hidden noundef align 8 dereferenceable_or_null(32) ptr @"_ZN96_$LT$itertools..adaptors..PutBack$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3nth17h1327f9f8ba787f88E"(ptr noalias nocapture noundef align 8 dereferenceable(24) %0, i64 noundef %1) unnamed_addr #2 personality ptr @rust_eh_personality {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8, !noundef !7
@@ -104,42 +104,43 @@ define hidden noundef align 8 dereferenceable_or_null(32) ptr @"_ZN96_$LT$iterto
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 32
   %storemerge.i.i.i = select i1 %.not.i.i.i, ptr %17, ptr %11
   %.0.i.i.i = select i1 %.not.i.i.i, ptr %16, ptr null
-  br label %"_ZN100_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3nth17hbbc0629aecf4628bE.llvm.2867981562457967798.exit.sink.split"
+  store ptr %storemerge.i.i.i, ptr %0, align 8, !alias.scope !19
+  br label %"_ZN100_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3nth17hbbc0629aecf4628bE.llvm.2867981562457967798.exit"
 
 18:                                               ; preds = %2
   %19 = icmp eq i64 %1, 0
-  store ptr null, ptr %3, align 8
-  br i1 %19, label %"_ZN100_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3nth17hbbc0629aecf4628bE.llvm.2867981562457967798.exit", label %20
+  br i1 %19, label %20, label %21
 
-"_ZN100_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3nth17hbbc0629aecf4628bE.llvm.2867981562457967798.exit.sink.split": ; preds = %9, %23
-  %storemerge.i.i.i5.sink = phi ptr [ %storemerge.i.i.i5, %23 ], [ %storemerge.i.i.i, %9 ]
-  %.0.ph = phi ptr [ %.0.i.i.i6, %23 ], [ %.0.i.i.i, %9 ]
-  store ptr %storemerge.i.i.i5.sink, ptr %0, align 8
-  br label %"_ZN100_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3nth17hbbc0629aecf4628bE.llvm.2867981562457967798.exit"
-
-"_ZN100_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3nth17hbbc0629aecf4628bE.llvm.2867981562457967798.exit": ; preds = %"_ZN100_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3nth17hbbc0629aecf4628bE.llvm.2867981562457967798.exit.sink.split", %18, %20, %6
-  %.0 = phi ptr [ null, %6 ], [ null, %20 ], [ %4, %18 ], [ %.0.ph, %"_ZN100_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3nth17hbbc0629aecf4628bE.llvm.2867981562457967798.exit.sink.split" ]
+"_ZN100_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3nth17hbbc0629aecf4628bE.llvm.2867981562457967798.exit": ; preds = %24, %21, %9, %6, %20
+  %.0 = phi ptr [ %4, %20 ], [ %.0.i.i.i, %9 ], [ null, %6 ], [ %.0.i.i.i6, %24 ], [ null, %21 ]
   ret ptr %.0
 
 20:                                               ; preds = %18
-  %21 = load ptr, ptr %0, align 8, !alias.scope !22, !noundef !7
-  %22 = icmp eq ptr %21, null
-  br i1 %22, label %"_ZN100_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3nth17hbbc0629aecf4628bE.llvm.2867981562457967798.exit", label %23
+  call void @llvm.assume(i1 true) [ "align"(ptr %4, i64 8) ]
+  store ptr null, ptr %3, align 8
+  br label %"_ZN100_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3nth17hbbc0629aecf4628bE.llvm.2867981562457967798.exit"
 
-23:                                               ; preds = %20
-  %24 = add i64 %1, -1
-  %25 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %26 = load ptr, ptr %25, align 8, !alias.scope !27, !nonnull !7, !noundef !7
-  %27 = ptrtoint ptr %26 to i64
-  %28 = ptrtoint ptr %21 to i64
-  %29 = sub nuw i64 %27, %28
-  %30 = lshr exact i64 %29, 5
-  %.not.i.i.i4 = icmp ult i64 %24, %30
-  %31 = getelementptr inbounds nuw { { { { i64, ptr, {} }, i64 } }, { i32, i32 } }, ptr %21, i64 %24
-  %32 = getelementptr inbounds nuw i8, ptr %31, i64 32
-  %storemerge.i.i.i5 = select i1 %.not.i.i.i4, ptr %32, ptr %26
-  %.0.i.i.i6 = select i1 %.not.i.i.i4, ptr %31, ptr null
-  br label %"_ZN100_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3nth17hbbc0629aecf4628bE.llvm.2867981562457967798.exit.sink.split"
+21:                                               ; preds = %18
+  store ptr null, ptr %3, align 8
+  %22 = load ptr, ptr %0, align 8, !alias.scope !22, !noundef !7
+  %23 = icmp eq ptr %22, null
+  br i1 %23, label %"_ZN100_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3nth17hbbc0629aecf4628bE.llvm.2867981562457967798.exit", label %24
+
+24:                                               ; preds = %21
+  %25 = add i64 %1, -1
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %27 = load ptr, ptr %26, align 8, !alias.scope !27, !nonnull !7, !noundef !7
+  %28 = ptrtoint ptr %27 to i64
+  %29 = ptrtoint ptr %22 to i64
+  %30 = sub nuw i64 %28, %29
+  %31 = lshr exact i64 %30, 5
+  %.not.i.i.i4 = icmp ult i64 %25, %31
+  %32 = getelementptr inbounds nuw { { { { i64, ptr, {} }, i64 } }, { i32, i32 } }, ptr %22, i64 %25
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 32
+  %storemerge.i.i.i5 = select i1 %.not.i.i.i4, ptr %33, ptr %27
+  %.0.i.i.i6 = select i1 %.not.i.i.i4, ptr %32, ptr null
+  store ptr %storemerge.i.i.i5, ptr %0, align 8, !alias.scope !27
+  br label %"_ZN100_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3nth17hbbc0629aecf4628bE.llvm.2867981562457967798.exit"
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
@@ -155,11 +156,15 @@ define hidden void @_ZN9itertools8adaptors8put_back17h008b404ff3d00e89E(ptr noal
 ; Function Attrs: nonlazybind uwtable
 declare noundef i32 @rust_eh_personality(i32 noundef, i32 noundef, i64 noundef, ptr noundef, ptr noundef) unnamed_addr #4
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
+declare void @llvm.assume(i1 noundef) #5
+
 attributes #0 = { inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #1 = { inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
-attributes #2 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
+attributes #2 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite, inaccessiblemem: write) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #3 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #4 = { nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
+attributes #5 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 
 !llvm.module.flags = !{!0, !1, !2}
 !llvm.ident = !{!3}

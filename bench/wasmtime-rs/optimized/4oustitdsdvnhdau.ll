@@ -415,12 +415,28 @@ define zeroext i1 @"_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..fmt
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define align 8 ptr @"_ZN68_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h09332e3ef37a2708E"(ptr nocapture readonly align 8 %0) unnamed_addr #3 {
   %2 = load ptr, ptr %0, align 8, !noundef !3
+  %3 = icmp eq ptr %2, null
+  br i1 %3, label %5, label %4
+
+4:                                                ; preds = %1
+  call void @llvm.assume(i1 true) [ "align"(ptr %2, i64 8) ]
+  br label %5
+
+5:                                                ; preds = %1, %4
   ret ptr %2
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define align 8 ptr @"_ZN68_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17heb6ec82f4307e14aE"(ptr nocapture readonly align 8 %0) unnamed_addr #3 {
   %2 = load ptr, ptr %0, align 8, !noundef !3
+  %3 = icmp eq ptr %2, null
+  br i1 %3, label %5, label %4
+
+4:                                                ; preds = %1
+  call void @llvm.assume(i1 true) [ "align"(ptr %2, i64 8) ]
+  br label %5
+
+5:                                                ; preds = %1, %4
   ret ptr %2
 }
 

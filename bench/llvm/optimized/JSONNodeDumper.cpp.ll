@@ -20439,7 +20439,7 @@ define dso_local void @_ZN5clang14JSONNodeDumper19VisitSizeOfPackExprEPKNS_14Siz
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang14JSONNodeDumper25VisitUnresolvedLookupExprEPKNS_20UnresolvedLookupExprE(ptr noundef nonnull align 8 dereferenceable(1312) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang14JSONNodeDumper25VisitUnresolvedLookupExprEPKNS_20UnresolvedLookupExprE(ptr noundef nonnull align 8 dereferenceable(1312) %0, ptr noundef readonly %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %"class.llvm::json::Value", align 8
   %4 = alloca %"class.llvm::json::Object", align 8
   %5 = alloca %"class.llvm::json::Value", align 8
@@ -20497,8 +20497,7 @@ define dso_local void @_ZN5clang14JSONNodeDumper25VisitUnresolvedLookupExprEPKNS
 
 30:                                               ; preds = %30, %.lr.ph.i.i
   %.sroa.01.06.i.i = phi ptr [ %.0.i.i.i.i.i.i, %.lr.ph.i.i ], [ %41, %30 ]
-  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.01.06.i.i, i64 8) ]
-  %.0.copyload.i.i.i.i.i.i.i.i = load i64, ptr %.sroa.01.06.i.i, align 8
+  %.0.copyload.i.i.i.i.i.i.i.i = load i64, ptr %.sroa.01.06.i.i, align 1
   %31 = and i64 %.0.copyload.i.i.i.i.i.i.i.i, -8
   %32 = inttoptr i64 %31 to ptr
   call void @_ZN5clang14JSONNodeDumper17createBareDeclRefEPKNS_4DeclE(ptr dead_on_unwind nonnull writable sret(%"class.llvm::json::Object") align 8 %4, ptr noundef nonnull align 8 dereferenceable(1312) %0, ptr noundef %32)

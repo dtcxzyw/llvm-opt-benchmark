@@ -2031,6 +2031,7 @@ define hidden noundef align 8 dereferenceable_or_null(96) ptr @"_ZN3syn10punctua
   store ptr %10, ptr %2, align 8
   %.fca.1.gep = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr @anon.a7b72e3c9425ba04a0588c19d16b6978.32, ptr %.fca.1.gep, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %8, i64 8) ]
   store ptr null, ptr %.sroa.5.0..sroa_idx.i, align 8, !alias.scope !488
   %14 = icmp eq ptr %8, null
   br i1 %14, label %15, label %"_ZN118_$LT$syn..punctuated..PrivateIterMut$LT$T$C$P$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h7d104ff938575042E.exit"
@@ -5097,10 +5098,10 @@ define hidden noundef align 8 dereferenceable(232) ptr @"_ZN97_$LT$syn..punctuat
   br label %18
 
 17:                                               ; preds = %3
-  br i1 %.not, label %18, label %19
+  br i1 %.not, label %25, label %19
 
-18:                                               ; preds = %17, %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17hca80d49dcdc529c6E.llvm.5761680391814234304.exit3", %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17hca80d49dcdc529c6E.llvm.5761680391814234304.exit"
-  %.0 = phi ptr [ %24, %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17hca80d49dcdc529c6E.llvm.5761680391814234304.exit3" ], [ %16, %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17hca80d49dcdc529c6E.llvm.5761680391814234304.exit" ], [ %7, %17 ]
+18:                                               ; preds = %25, %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17hca80d49dcdc529c6E.llvm.5761680391814234304.exit3", %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17hca80d49dcdc529c6E.llvm.5761680391814234304.exit"
+  %.0 = phi ptr [ %24, %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17hca80d49dcdc529c6E.llvm.5761680391814234304.exit3" ], [ %7, %25 ], [ %16, %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17hca80d49dcdc529c6E.llvm.5761680391814234304.exit" ]
   ret ptr %.0
 
 19:                                               ; preds = %17
@@ -5116,6 +5117,10 @@ define hidden noundef align 8 dereferenceable(232) ptr @"_ZN97_$LT$syn..punctuat
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %23 = load ptr, ptr %22, align 8, !alias.scope !1390, !noalias !1396, !nonnull !7, !noundef !7
   %24 = getelementptr inbounds [0 x { { i64, [28 x i64] }, { [1 x i32] }, [1 x i32] }], ptr %23, i64 0, i64 %1
+  br label %18
+
+25:                                               ; preds = %17
+  call void @llvm.assume(i1 true) [ "align"(ptr %7, i64 8) ]
   br label %18
 }
 
@@ -5148,10 +5153,10 @@ define hidden noundef align 8 dereferenceable(176) ptr @"_ZN97_$LT$syn..punctuat
   br label %18
 
 17:                                               ; preds = %3
-  br i1 %.not, label %18, label %19
+  br i1 %.not, label %25, label %19
 
-18:                                               ; preds = %17, %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h3926c6c6e217ba37E.llvm.5761680391814234304.exit3", %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h3926c6c6e217ba37E.llvm.5761680391814234304.exit"
-  %.0 = phi ptr [ %24, %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h3926c6c6e217ba37E.llvm.5761680391814234304.exit3" ], [ %16, %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h3926c6c6e217ba37E.llvm.5761680391814234304.exit" ], [ %7, %17 ]
+18:                                               ; preds = %25, %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h3926c6c6e217ba37E.llvm.5761680391814234304.exit3", %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h3926c6c6e217ba37E.llvm.5761680391814234304.exit"
+  %.0 = phi ptr [ %24, %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h3926c6c6e217ba37E.llvm.5761680391814234304.exit3" ], [ %7, %25 ], [ %16, %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h3926c6c6e217ba37E.llvm.5761680391814234304.exit" ]
   ret ptr %.0
 
 19:                                               ; preds = %17
@@ -5167,6 +5172,10 @@ define hidden noundef align 8 dereferenceable(176) ptr @"_ZN97_$LT$syn..punctuat
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %23 = load ptr, ptr %22, align 8, !alias.scope !1406, !noalias !1412, !nonnull !7, !noundef !7
   %24 = getelementptr inbounds [0 x { { i64, [21 x i64] }, { [1 x i32] }, [1 x i32] }], ptr %23, i64 0, i64 %1
+  br label %18
+
+25:                                               ; preds = %17
+  call void @llvm.assume(i1 true) [ "align"(ptr %7, i64 8) ]
   br label %18
 }
 

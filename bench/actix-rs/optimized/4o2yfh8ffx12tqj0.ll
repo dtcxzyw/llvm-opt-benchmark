@@ -318,6 +318,7 @@ common.resume:                                    ; preds = %36, %21
 38:                                               ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h28998a7a30fb52d0E.llvm.1472373081438710728.exit"
   %39 = trunc nuw i8 %.0.i.i.i to i1
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
+  call void @llvm.assume(i1 true) [ "align"(ptr %7, i64 8) ]
   br i1 %39, label %_ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.llvm.1472373081438710728.exit.i.i, label %40
 
 40:                                               ; preds = %38
@@ -444,6 +445,7 @@ common.resume:                                    ; preds = %34, %20
   %37 = trunc nuw i8 %.0.i.i.i to i1
   %38 = getelementptr inbounds nuw i8, ptr %33, i64 292
   %39 = load i8, ptr %38, align 4, !range !29, !noundef !4
+  call void @llvm.assume(i1 true) [ "align"(ptr %6, i64 8) ]
   br i1 %37, label %_ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.llvm.1472373081438710728.exit.i.i, label %40
 
 40:                                               ; preds = %36
@@ -573,6 +575,7 @@ common.resume:                                    ; preds = %36, %21
 38:                                               ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h28998a7a30fb52d0E.llvm.1472373081438710728.exit"
   %39 = trunc nuw i8 %.0.i.i.i to i1
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
+  call void @llvm.assume(i1 true) [ "align"(ptr %7, i64 8) ]
   br i1 %39, label %_ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.llvm.1472373081438710728.exit.i.i, label %40
 
 40:                                               ; preds = %38
@@ -3131,6 +3134,7 @@ common.resume:                                    ; preds = %32, %21
 
 34:                                               ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h28998a7a30fb52d0E.llvm.1472373081438710728.exit"
   %35 = trunc nuw i8 %.0.i.i.i to i1
+  call void @llvm.assume(i1 true) [ "align"(ptr %7, i64 8) ]
   br i1 %35, label %_ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.llvm.1472373081438710728.exit.i.i, label %36
 
 36:                                               ; preds = %34
@@ -3247,6 +3251,7 @@ common.resume:                                    ; preds = %32, %21
 
 34:                                               ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h28998a7a30fb52d0E.llvm.1472373081438710728.exit"
   %35 = trunc nuw i8 %.0.i.i.i to i1
+  call void @llvm.assume(i1 true) [ "align"(ptr %7, i64 8) ]
   br i1 %35, label %_ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.llvm.1472373081438710728.exit.i.i, label %36
 
 36:                                               ; preds = %34
@@ -3361,6 +3366,7 @@ common.resume:                                    ; preds = %29, %21
 
 31:                                               ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h28998a7a30fb52d0E.llvm.1472373081438710728.exit"
   %32 = trunc nuw i8 %.0.i.i.i to i1
+  call void @llvm.assume(i1 true) [ "align"(ptr %7, i64 8) ]
   br i1 %32, label %_ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.llvm.1472373081438710728.exit.i.i, label %33
 
 33:                                               ; preds = %31
@@ -3474,6 +3480,7 @@ common.resume:                                    ; preds = %29, %21
 
 31:                                               ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h28998a7a30fb52d0E.llvm.1472373081438710728.exit"
   %32 = trunc nuw i8 %.0.i.i.i to i1
+  call void @llvm.assume(i1 true) [ "align"(ptr %7, i64 8) ]
   br i1 %32, label %_ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.llvm.1472373081438710728.exit.i.i, label %33
 
 33:                                               ; preds = %31
@@ -3587,6 +3594,7 @@ common.resume:                                    ; preds = %29, %21
 
 31:                                               ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h28998a7a30fb52d0E.llvm.1472373081438710728.exit"
   %32 = trunc nuw i8 %.0.i.i.i to i1
+  call void @llvm.assume(i1 true) [ "align"(ptr %7, i64 8) ]
   br i1 %32, label %_ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.llvm.1472373081438710728.exit.i.i, label %33
 
 33:                                               ; preds = %31
@@ -3943,6 +3951,7 @@ common.resume:                                    ; preds = %28, %19
 
 30:                                               ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h28998a7a30fb52d0E.llvm.1472373081438710728.exit"
   %31 = trunc nuw i8 %.0.i.i.i to i1
+  call void @llvm.assume(i1 true) [ "align"(ptr %5, i64 8) ]
   br i1 %31, label %_ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.llvm.1472373081438710728.exit.i.i, label %32
 
 32:                                               ; preds = %30
@@ -4165,6 +4174,7 @@ common.resume:                                    ; preds = %29, %20
 
 31:                                               ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h28998a7a30fb52d0E.llvm.1472373081438710728.exit"
   %32 = trunc nuw i8 %.0.i.i.i to i1
+  call void @llvm.assume(i1 true) [ "align"(ptr %6, i64 8) ]
   br i1 %32, label %_ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.llvm.1472373081438710728.exit.i.i, label %33
 
 33:                                               ; preds = %31

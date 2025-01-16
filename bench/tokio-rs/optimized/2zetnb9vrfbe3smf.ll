@@ -10056,6 +10056,7 @@ define noundef zeroext i1 @_ZN5tokio4task5local8LocalSet4tick17h1b5f2b3c9d122bfc
   br label %"_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17h96b51c4cf520de85E.llvm.9993772341007493287.exit.i"
 
 "_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17h96b51c4cf520de85E.llvm.9993772341007493287.exit.i": ; preds = %25, %22
+  call void @llvm.assume(i1 true) [ "align"(ptr %23, i64 8) ]
   %27 = getelementptr inbounds nuw i8, ptr %21, i64 96
   %28 = load i64, ptr %27, align 8, !range !234, !noundef !19
   %29 = icmp eq i64 %28, -9223372036854775808
@@ -10097,6 +10098,7 @@ define noundef zeroext i1 @_ZN5tokio4task5local8LocalSet4tick17h1b5f2b3c9d122bfc
   br label %"_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17h96b51c4cf520de85E.llvm.9993772341007493287.exit.i.i.i"
 
 "_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17h96b51c4cf520de85E.llvm.9993772341007493287.exit.i.i.i": ; preds = %48, %45
+  call void @llvm.assume(i1 true) [ "align"(ptr %46, i64 8) ]
   %50 = getelementptr inbounds nuw i8, ptr %21, i64 96
   %51 = load i64, ptr %50, align 8, !range !234, !noundef !19
   %52 = icmp eq i64 %51, -9223372036854775808

@@ -138,15 +138,17 @@ define hidden { ptr, ptr } @"_ZN108_$LT$alloc..collections..btree..map..Iter$LT$
   resume { ptr, i32 } %40
 
 _ZN5alloc11collections5btree3mem7replace17h0143aa89c05cdaefE.llvm.7371537965014501254.exit: ; preds = %.noexc2.i
+  %43 = extractvalue { ptr, ptr } %38, 0
+  %44 = extractvalue { ptr, ptr } %38, 1
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5), !noalias !14
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6), !noalias !14
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(24) %7, i64 24, i1 false), !noalias !14
+  call void @llvm.assume(i1 true) [ "align"(ptr %43, i64 8) ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %44, i64 8) ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7), !noalias !14
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %spec.select.i5, ptr noundef nonnull align 8 dereferenceable(24) %8, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8)
-  %43 = extractvalue { ptr, ptr } %38, 0
-  %44 = extractvalue { ptr, ptr } %38, 1
   br label %29
 }
 
@@ -824,15 +826,17 @@ define hidden { ptr, ptr } @"_ZN123_$LT$alloc..collections..btree..map..Iter$LT$
   resume { ptr, i32 } %49
 
 _ZN5alloc11collections5btree3mem7replace17h1bb4c45f803c59fbE.llvm.7371537965014501254.exit: ; preds = %.noexc2.i
+  %52 = extractvalue { ptr, ptr } %47, 0
+  %53 = extractvalue { ptr, ptr } %47, 1
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5), !noalias !166
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6), !noalias !166
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(24) %7, i64 24, i1 false), !noalias !166
+  call void @llvm.assume(i1 true) [ "align"(ptr %52, i64 8) ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %53, i64 8) ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7), !noalias !166
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %spec.select.i5, ptr noundef nonnull align 8 dereferenceable(24) %8, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8)
-  %52 = extractvalue { ptr, ptr } %47, 0
-  %53 = extractvalue { ptr, ptr } %47, 1
   br label %38
 }
 
@@ -1588,18 +1592,22 @@ define hidden { ptr, ptr } @_ZN5alloc11collections5btree3mem7replace17h0143aa89c
   %15 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN93_$LT$alloc..collections..btree..mem..replace..PanicGuard$u20$as$u20$core..ops..drop..Drop$GT$4drop17hf998d56754bc4ea7E"(ptr noalias noundef nonnull align 1 %2)
-          to label %"_ZN4core3ptr72drop_in_place$LT$alloc..collections..btree..mem..replace..PanicGuard$GT$17ha13aa77feb74e769E.exit" unwind label %17
+          to label %"_ZN4core3ptr72drop_in_place$LT$alloc..collections..btree..mem..replace..PanicGuard$GT$17ha13aa77feb74e769E.exit" unwind label %19
 
 16:                                               ; preds = %.noexc2
+  %17 = extractvalue { ptr, ptr } %13, 0
+  %18 = extractvalue { ptr, ptr } %13, 1
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(24) %7, i64 24, i1 false)
+  call void @llvm.assume(i1 true) [ "align"(ptr %17, i64 8) ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %18, i64 8) ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %8, i64 24, i1 false)
   ret { ptr, ptr } %13
 
-17:                                               ; preds = %14
-  %18 = landingpad { ptr, i32 }
+19:                                               ; preds = %14
+  %20 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #21
   unreachable
@@ -1658,18 +1666,22 @@ define hidden { ptr, ptr } @_ZN5alloc11collections5btree3mem7replace17h1bb4c45f8
   %15 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN93_$LT$alloc..collections..btree..mem..replace..PanicGuard$u20$as$u20$core..ops..drop..Drop$GT$4drop17hf998d56754bc4ea7E"(ptr noalias noundef nonnull align 1 %2)
-          to label %"_ZN4core3ptr72drop_in_place$LT$alloc..collections..btree..mem..replace..PanicGuard$GT$17ha13aa77feb74e769E.exit" unwind label %17
+          to label %"_ZN4core3ptr72drop_in_place$LT$alloc..collections..btree..mem..replace..PanicGuard$GT$17ha13aa77feb74e769E.exit" unwind label %19
 
 16:                                               ; preds = %.noexc2
+  %17 = extractvalue { ptr, ptr } %13, 0
+  %18 = extractvalue { ptr, ptr } %13, 1
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(24) %7, i64 24, i1 false)
+  call void @llvm.assume(i1 true) [ "align"(ptr %17, i64 8) ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %18, i64 8) ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %8, i64 24, i1 false)
   ret { ptr, ptr } %13
 
-17:                                               ; preds = %14
-  %18 = landingpad { ptr, i32 }
+19:                                               ; preds = %14
+  %20 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #21
   unreachable

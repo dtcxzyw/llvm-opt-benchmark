@@ -5218,8 +5218,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit.thread113:      ; preds = %_ZN4llvmeqENS_9Stri
 
 55:                                               ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.thread113
   %56 = load ptr, ptr %36, align 8
-  call void @llvm.assume(i1 true) [ "align"(ptr %56, i64 8) ]
-  %.0.copyload.i.i.i.i.i.i.i = load i64, ptr %56, align 8
+  %.0.copyload.i.i.i.i.i.i.i = load i64, ptr %56, align 1
   %57 = and i64 %.0.copyload.i.i.i.i.i.i.i, -8
   %58 = inttoptr i64 %57 to ptr
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 28
@@ -5453,8 +5452,7 @@ select.unfold:                                    ; preds = %156, %143, %_ZNK5cl
 
 183:                                              ; preds = %171
   %184 = load ptr, ptr %71, align 8
-  call void @llvm.assume(i1 true) [ "align"(ptr %184, i64 8) ]
-  %.0.copyload.i.i.i.i.i.i.i94 = load i64, ptr %184, align 8
+  %.0.copyload.i.i.i.i.i.i.i94 = load i64, ptr %184, align 1
   %185 = and i64 %.0.copyload.i.i.i.i.i.i.i94, -8
   %186 = inttoptr i64 %185 to ptr
   %187 = getelementptr inbounds nuw i8, ptr %186, i64 28
@@ -5805,8 +5803,7 @@ define dso_local i64 @_ZN5clang4Sema27LookupInlineAsmVarDeclFieldEPNS_4ExprEN4ll
 
 66:                                               ; preds = %35
   %67 = load ptr, ptr %43, align 8
-  call void @llvm.assume(i1 true) [ "align"(ptr %67, i64 8) ]
-  %.0.copyload.i.i.i.i.i.i.i = load i64, ptr %67, align 8
+  %.0.copyload.i.i.i.i.i.i.i = load i64, ptr %67, align 1
   %68 = and i64 %.0.copyload.i.i.i.i.i.i.i, -8
   %69 = inttoptr i64 %68 to ptr
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 28
@@ -5833,7 +5830,6 @@ _ZNK5clang12LookupResult12getFoundDeclEv.exit:    ; preds = %66, %73
   br i1 %76, label %77, label %.critedge
 
 77:                                               ; preds = %_ZNK5clang12LookupResult12getFoundDeclEv.exit
-  call void @llvm.assume(i1 true) [ "align"(ptr %67, i64 8) ]
   switch i32 %72, label %_ZNK5clang12LookupResult12getFoundDeclEv.exit30 [
     i32 50, label %78
     i32 51, label %78

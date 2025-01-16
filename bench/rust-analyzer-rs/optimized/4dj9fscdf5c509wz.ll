@@ -28,13 +28,13 @@ define hidden noundef align 8 dereferenceable_or_null(32) ptr @"_ZN106_$LT$itert
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %10 = load ptr, ptr %9, align 8, !nonnull !7
-  %.promoted63 = load ptr, ptr %4, align 8
-  %.promoted67 = load ptr, ptr %8, align 8
-  %.promoted68 = load ptr, ptr %7, align 8
+  %.promoted60 = load ptr, ptr %4, align 8
+  %.promoted64 = load ptr, ptr %8, align 8
+  %.promoted65 = load ptr, ptr %7, align 8
   br label %43
 
-._crit_edge:                                      ; preds = %98, %.._crit_edge_crit_edge
-  %11 = phi ptr [ %.pre, %.._crit_edge_crit_edge ], [ %100, %98 ]
+._crit_edge:                                      ; preds = %102, %.._crit_edge_crit_edge
+  %11 = phi ptr [ %.pre, %.._crit_edge_crit_edge ], [ %104, %102 ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4)
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %13 = icmp eq ptr %11, null
@@ -55,6 +55,7 @@ define hidden noundef align 8 dereferenceable_or_null(32) ptr @"_ZN106_$LT$itert
   br label %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h6a1fab22e871de1fE.exit.i"
 
 22:                                               ; preds = %._crit_edge
+  call void @llvm.assume(i1 true) [ "align"(ptr %11, i64 8) ]
   store ptr null, ptr %12, align 8, !alias.scope !4
   br label %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h6a1fab22e871de1fE.exit.i"
 
@@ -81,6 +82,7 @@ define hidden noundef align 8 dereferenceable_or_null(32) ptr @"_ZN106_$LT$itert
   br label %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h6a1fab22e871de1fE.exit23.i"
 
 35:                                               ; preds = %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h6a1fab22e871de1fE.exit.i"
+  call void @llvm.assume(i1 true) [ "align"(ptr %25, i64 8) ]
   store ptr null, ptr %24, align 8, !alias.scope !4
   br label %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h6a1fab22e871de1fE.exit23.i"
 
@@ -107,20 +109,20 @@ define hidden noundef align 8 dereferenceable_or_null(32) ptr @"_ZN106_$LT$itert
   store ptr %.019.i, ptr %24, align 8, !alias.scope !36, !noalias !39
   br label %"_ZN106_$LT$itertools..merge_join..MergeBy$LT$I$C$J$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc374baea60f2e8e7E.exit"
 
-43:                                               ; preds = %.lr.ph, %98
-  %44 = phi ptr [ %.promoted67, %.lr.ph ], [ %99, %98 ]
-  %45 = phi ptr [ %.promoted63, %.lr.ph ], [ %100, %98 ]
-  %46 = phi ptr [ %.promoted68, %.lr.ph ], [ %67, %98 ]
-  %47 = phi ptr [ %.promoted67, %.lr.ph ], [ %101, %98 ]
-  %.02666 = phi ptr [ %.promoted63, %.lr.ph ], [ %.02664, %98 ]
-  %.062 = phi i64 [ %1, %.lr.ph ], [ %49, %98 ]
-  %48 = phi ptr [ %.promoted, %.lr.ph ], [ %58, %98 ]
-  %49 = add i64 %.062, -1
-  %50 = icmp eq ptr %.02666, null
+43:                                               ; preds = %.lr.ph, %102
+  %44 = phi ptr [ %.promoted64, %.lr.ph ], [ %103, %102 ]
+  %45 = phi ptr [ %.promoted60, %.lr.ph ], [ %104, %102 ]
+  %46 = phi ptr [ %.promoted65, %.lr.ph ], [ %67, %102 ]
+  %47 = phi ptr [ %.promoted64, %.lr.ph ], [ %105, %102 ]
+  %.02663 = phi ptr [ %.promoted60, %.lr.ph ], [ %.02661, %102 ]
+  %.059 = phi i64 [ %1, %.lr.ph ], [ %49, %102 ]
+  %48 = phi ptr [ %.promoted, %.lr.ph ], [ %58, %102 ]
+  %49 = add i64 %.059, -1
+  %50 = icmp eq ptr %.02663, null
   br i1 %50, label %51, label %56
 
-"_ZN106_$LT$itertools..merge_join..MergeBy$LT$I$C$J$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc374baea60f2e8e7E.exit": ; preds = %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h6a1fab22e871de1fE.exit32.thread", %"_ZN96_$LT$itertools..adaptors..PutBack$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3nth17h1327f9f8ba787f88E.exit37", %"_ZN96_$LT$itertools..adaptors..PutBack$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3nth17h1327f9f8ba787f88E.exit", %85, %74, %87, %83, %76, %72, %.critedge.i, %42, %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h6a1fab22e871de1fE.exit23.i", %27
-  %.025 = phi ptr [ %.018.i, %.critedge.i ], [ %.019.i, %42 ], [ %.019.i, %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h6a1fab22e871de1fE.exit23.i" ], [ %.018.i, %27 ], [ null, %72 ], [ null, %76 ], [ null, %83 ], [ null, %87 ], [ %66, %74 ], [ %57, %85 ], [ %80, %"_ZN96_$LT$itertools..adaptors..PutBack$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3nth17h1327f9f8ba787f88E.exit" ], [ %91, %"_ZN96_$LT$itertools..adaptors..PutBack$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3nth17h1327f9f8ba787f88E.exit37" ], [ null, %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h6a1fab22e871de1fE.exit32.thread" ]
+"_ZN106_$LT$itertools..merge_join..MergeBy$LT$I$C$J$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc374baea60f2e8e7E.exit": ; preds = %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h6a1fab22e871de1fE.exit32.thread", %93, %87, %80, %74, %"_ZN96_$LT$itertools..adaptors..PutBack$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3nth17h1327f9f8ba787f88E.exit35.thread41", %"_ZN96_$LT$itertools..adaptors..PutBack$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3nth17h1327f9f8ba787f88E.exit.thread37", %91, %85, %78, %72, %.critedge.i, %42, %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h6a1fab22e871de1fE.exit23.i", %27
+  %.025 = phi ptr [ %.018.i, %.critedge.i ], [ %.019.i, %42 ], [ %.019.i, %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h6a1fab22e871de1fE.exit23.i" ], [ %.018.i, %27 ], [ null, %72 ], [ null, %78 ], [ null, %85 ], [ null, %91 ], [ %66, %"_ZN96_$LT$itertools..adaptors..PutBack$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3nth17h1327f9f8ba787f88E.exit.thread37" ], [ %57, %"_ZN96_$LT$itertools..adaptors..PutBack$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3nth17h1327f9f8ba787f88E.exit35.thread41" ], [ %75, %74 ], [ %82, %80 ], [ %88, %87 ], [ %95, %93 ], [ null, %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h6a1fab22e871de1fE.exit32.thread" ]
   ret ptr %.025
 
 51:                                               ; preds = %43
@@ -141,15 +143,15 @@ define hidden noundef align 8 dereferenceable_or_null(32) ptr @"_ZN106_$LT$itert
 "_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h6a1fab22e871de1fE.exit": ; preds = %54, %51, %56
   %57 = phi ptr [ null, %56 ], [ %45, %51 ], [ %45, %54 ]
   %58 = phi ptr [ %48, %56 ], [ %48, %51 ], [ %55, %54 ]
-  %.026 = phi ptr [ %.02666, %56 ], [ null, %51 ], [ %48, %54 ]
+  %.026 = phi ptr [ %.02663, %56 ], [ null, %51 ], [ %48, %54 ]
   %59 = icmp eq ptr %47, null
   br i1 %59, label %60, label %65
 
 60:                                               ; preds = %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h6a1fab22e871de1fE.exit"
   %61 = icmp eq ptr %46, null
   %62 = icmp eq ptr %46, %10
-  %or.cond51 = select i1 %61, i1 true, i1 %62
-  br i1 %or.cond51, label %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h6a1fab22e871de1fE.exit32.thread", label %63
+  %or.cond48 = select i1 %61, i1 true, i1 %62
+  br i1 %or.cond48, label %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h6a1fab22e871de1fE.exit32.thread", label %63
 
 63:                                               ; preds = %60
   %64 = getelementptr inbounds nuw i8, ptr %46, i64 32
@@ -165,89 +167,99 @@ define hidden noundef align 8 dereferenceable_or_null(32) ptr @"_ZN106_$LT$itert
   %67 = phi ptr [ %46, %65 ], [ %64, %63 ]
   %.027 = phi ptr [ %47, %65 ], [ %46, %63 ]
   %68 = icmp eq ptr %.026, null
-  br i1 %68, label %70, label %92
+  br i1 %68, label %70, label %96
 
 "_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h6a1fab22e871de1fE.exit32.thread": ; preds = %60
   %69 = icmp eq ptr %.026, null
-  br i1 %69, label %"_ZN106_$LT$itertools..merge_join..MergeBy$LT$I$C$J$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc374baea60f2e8e7E.exit", label %81
+  br i1 %69, label %"_ZN106_$LT$itertools..merge_join..MergeBy$LT$I$C$J$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc374baea60f2e8e7E.exit", label %83
 
 70:                                               ; preds = %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h6a1fab22e871de1fE.exit32"
   %71 = icmp eq ptr %66, null
-  br i1 %71, label %72, label %74
+  br i1 %71, label %72, label %76
 
 72:                                               ; preds = %70
   %73 = icmp eq ptr %67, null
-  br i1 %73, label %"_ZN106_$LT$itertools..merge_join..MergeBy$LT$I$C$J$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc374baea60f2e8e7E.exit", label %"_ZN96_$LT$itertools..adaptors..PutBack$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3nth17h1327f9f8ba787f88E.exit"
+  br i1 %73, label %"_ZN106_$LT$itertools..merge_join..MergeBy$LT$I$C$J$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc374baea60f2e8e7E.exit", label %74
 
-74:                                               ; preds = %70
-  %75 = icmp eq i64 %49, 0
-  store ptr null, ptr %8, align 8, !alias.scope !51
-  br i1 %75, label %"_ZN106_$LT$itertools..merge_join..MergeBy$LT$I$C$J$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc374baea60f2e8e7E.exit", label %76
-
-76:                                               ; preds = %74
-  %77 = icmp eq ptr %67, null
-  br i1 %77, label %"_ZN106_$LT$itertools..merge_join..MergeBy$LT$I$C$J$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc374baea60f2e8e7E.exit", label %78
-
-78:                                               ; preds = %76
-  %79 = add i64 %.062, -2
-  br label %"_ZN96_$LT$itertools..adaptors..PutBack$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3nth17h1327f9f8ba787f88E.exit"
-
-"_ZN96_$LT$itertools..adaptors..PutBack$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3nth17h1327f9f8ba787f88E.exit": ; preds = %72, %78
-  %.sink.i = phi i64 [ %79, %78 ], [ %49, %72 ]
-  %80 = tail call noundef align 8 dereferenceable_or_null(32) ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3nth17h4d2e16948fd55526E.llvm.2867981562457967798"(ptr noalias noundef nonnull align 8 dereferenceable(24) %7, i64 noundef %.sink.i)
+74:                                               ; preds = %72
+  %75 = tail call noundef align 8 dereferenceable_or_null(32) ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3nth17h4d2e16948fd55526E.llvm.2867981562457967798"(ptr noalias noundef nonnull align 8 dereferenceable(24) %7, i64 noundef %49)
   br label %"_ZN106_$LT$itertools..merge_join..MergeBy$LT$I$C$J$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc374baea60f2e8e7E.exit"
 
-81:                                               ; preds = %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h6a1fab22e871de1fE.exit32.thread"
-  %82 = icmp eq ptr %57, null
-  br i1 %82, label %83, label %85
+76:                                               ; preds = %70
+  %77 = icmp eq i64 %49, 0
+  br i1 %77, label %"_ZN96_$LT$itertools..adaptors..PutBack$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3nth17h1327f9f8ba787f88E.exit.thread37", label %78
 
-83:                                               ; preds = %81
-  %84 = icmp eq ptr %58, null
-  br i1 %84, label %"_ZN106_$LT$itertools..merge_join..MergeBy$LT$I$C$J$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc374baea60f2e8e7E.exit", label %"_ZN96_$LT$itertools..adaptors..PutBack$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3nth17h1327f9f8ba787f88E.exit37"
+"_ZN96_$LT$itertools..adaptors..PutBack$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3nth17h1327f9f8ba787f88E.exit.thread37": ; preds = %76
+  call void @llvm.assume(i1 true) [ "align"(ptr %66, i64 8) ]
+  store ptr null, ptr %8, align 8, !alias.scope !51
+  br label %"_ZN106_$LT$itertools..merge_join..MergeBy$LT$I$C$J$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc374baea60f2e8e7E.exit"
 
-85:                                               ; preds = %81
-  %86 = icmp eq i64 %49, 0
-  store ptr null, ptr %4, align 8, !alias.scope !54
+78:                                               ; preds = %76
+  store ptr null, ptr %8, align 8, !alias.scope !51
+  %79 = icmp eq ptr %67, null
+  br i1 %79, label %"_ZN106_$LT$itertools..merge_join..MergeBy$LT$I$C$J$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc374baea60f2e8e7E.exit", label %80
+
+80:                                               ; preds = %78
+  %81 = add i64 %.059, -2
+  %82 = tail call noundef align 8 dereferenceable_or_null(32) ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3nth17h4d2e16948fd55526E.llvm.2867981562457967798"(ptr noalias noundef nonnull align 8 dereferenceable(24) %7, i64 noundef %81)
+  br label %"_ZN106_$LT$itertools..merge_join..MergeBy$LT$I$C$J$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc374baea60f2e8e7E.exit"
+
+83:                                               ; preds = %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h6a1fab22e871de1fE.exit32.thread"
+  %84 = icmp eq ptr %57, null
+  br i1 %84, label %85, label %89
+
+85:                                               ; preds = %83
+  %86 = icmp eq ptr %58, null
   br i1 %86, label %"_ZN106_$LT$itertools..merge_join..MergeBy$LT$I$C$J$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc374baea60f2e8e7E.exit", label %87
 
 87:                                               ; preds = %85
-  %88 = icmp eq ptr %58, null
-  br i1 %88, label %"_ZN106_$LT$itertools..merge_join..MergeBy$LT$I$C$J$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc374baea60f2e8e7E.exit", label %89
-
-89:                                               ; preds = %87
-  %90 = add i64 %.062, -2
-  br label %"_ZN96_$LT$itertools..adaptors..PutBack$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3nth17h1327f9f8ba787f88E.exit37"
-
-"_ZN96_$LT$itertools..adaptors..PutBack$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3nth17h1327f9f8ba787f88E.exit37": ; preds = %83, %89
-  %.sink.i35 = phi i64 [ %90, %89 ], [ %49, %83 ]
-  %91 = tail call noundef align 8 dereferenceable_or_null(32) ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3nth17h4d2e16948fd55526E.llvm.2867981562457967798"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %.sink.i35)
+  %88 = tail call noundef align 8 dereferenceable_or_null(32) ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3nth17h4d2e16948fd55526E.llvm.2867981562457967798"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %49)
   br label %"_ZN106_$LT$itertools..merge_join..MergeBy$LT$I$C$J$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc374baea60f2e8e7E.exit"
 
-92:                                               ; preds = %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h6a1fab22e871de1fE.exit32"
+89:                                               ; preds = %83
+  %90 = icmp eq i64 %49, 0
+  br i1 %90, label %"_ZN96_$LT$itertools..adaptors..PutBack$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3nth17h1327f9f8ba787f88E.exit35.thread41", label %91
+
+"_ZN96_$LT$itertools..adaptors..PutBack$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3nth17h1327f9f8ba787f88E.exit35.thread41": ; preds = %89
+  call void @llvm.assume(i1 true) [ "align"(ptr %57, i64 8) ]
+  store ptr null, ptr %4, align 8, !alias.scope !54
+  br label %"_ZN106_$LT$itertools..merge_join..MergeBy$LT$I$C$J$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc374baea60f2e8e7E.exit"
+
+91:                                               ; preds = %89
+  store ptr null, ptr %4, align 8, !alias.scope !54
+  %92 = icmp eq ptr %58, null
+  br i1 %92, label %"_ZN106_$LT$itertools..merge_join..MergeBy$LT$I$C$J$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc374baea60f2e8e7E.exit", label %93
+
+93:                                               ; preds = %91
+  %94 = add i64 %.059, -2
+  %95 = tail call noundef align 8 dereferenceable_or_null(32) ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3nth17h4d2e16948fd55526E.llvm.2867981562457967798"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %94)
+  br label %"_ZN106_$LT$itertools..merge_join..MergeBy$LT$I$C$J$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc374baea60f2e8e7E.exit"
+
+96:                                               ; preds = %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h6a1fab22e871de1fE.exit32"
   tail call void @llvm.experimental.noalias.scope.decl(metadata !57)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !60)
-  %93 = getelementptr inbounds nuw i8, ptr %.026, i64 24
-  %94 = load i32, ptr %93, align 8, !alias.scope !57, !noalias !62, !noundef !7
-  %95 = getelementptr inbounds nuw i8, ptr %.027, i64 24
-  %96 = load i32, ptr %95, align 8, !alias.scope !60, !noalias !67, !noundef !7
-  %switch.selectcmp.i.not.i.not = icmp ugt i32 %94, %96
-  br i1 %switch.selectcmp.i.not.i.not, label %97, label %.critedge
+  %97 = getelementptr inbounds nuw i8, ptr %.026, i64 24
+  %98 = load i32, ptr %97, align 8, !alias.scope !57, !noalias !62, !noundef !7
+  %99 = getelementptr inbounds nuw i8, ptr %.027, i64 24
+  %100 = load i32, ptr %99, align 8, !alias.scope !60, !noalias !67, !noundef !7
+  %switch.selectcmp.i.not.i.not = icmp ugt i32 %98, %100
+  br i1 %switch.selectcmp.i.not.i.not, label %101, label %.critedge
 
-97:                                               ; preds = %92
+101:                                              ; preds = %96
   store ptr %.026, ptr %4, align 8, !alias.scope !68, !noalias !71
-  br label %98
+  br label %102
 
-.critedge:                                        ; preds = %92
+.critedge:                                        ; preds = %96
   store ptr %.027, ptr %8, align 8, !alias.scope !73, !noalias !76
-  br label %98
+  br label %102
 
-98:                                               ; preds = %97, %.critedge
-  %99 = phi ptr [ %66, %97 ], [ %.027, %.critedge ]
-  %100 = phi ptr [ %.026, %97 ], [ %57, %.critedge ]
-  %101 = phi ptr [ null, %97 ], [ %.027, %.critedge ]
-  %.02664 = phi ptr [ %.026, %97 ], [ null, %.critedge ]
-  %102 = icmp eq i64 %49, 0
-  br i1 %102, label %._crit_edge, label %43
+102:                                              ; preds = %101, %.critedge
+  %103 = phi ptr [ %66, %101 ], [ %.027, %.critedge ]
+  %104 = phi ptr [ %.026, %101 ], [ %57, %.critedge ]
+  %105 = phi ptr [ null, %101 ], [ %.027, %.critedge ]
+  %.02661 = phi ptr [ %.026, %101 ], [ null, %.critedge ]
+  %106 = icmp eq i64 %49, 0
+  br i1 %106, label %._crit_edge, label %43
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
@@ -272,6 +284,7 @@ define hidden noundef align 8 dereferenceable_or_null(32) ptr @"_ZN106_$LT$itert
   br label %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h6a1fab22e871de1fE.exit"
 
 13:                                               ; preds = %1
+  call void @llvm.assume(i1 true) [ "align"(ptr %3, i64 8) ]
   store ptr null, ptr %2, align 8
   br label %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h6a1fab22e871de1fE.exit"
 
@@ -298,6 +311,7 @@ define hidden noundef align 8 dereferenceable_or_null(32) ptr @"_ZN106_$LT$itert
   br label %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h6a1fab22e871de1fE.exit23"
 
 26:                                               ; preds = %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h6a1fab22e871de1fE.exit"
+  call void @llvm.assume(i1 true) [ "align"(ptr %16, i64 8) ]
   store ptr null, ptr %15, align 8
   br label %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h6a1fab22e871de1fE.exit23"
 
@@ -486,8 +500,11 @@ declare hidden void @_ZN9itertools9size_hint3add17h2833b58e1ac6e2d3E.llvm.458444
 ; Function Attrs: inlinehint nonlazybind uwtable
 declare hidden noundef align 8 dereferenceable_or_null(32) ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3nth17h4d2e16948fd55526E.llvm.2867981562457967798"(ptr noalias noundef align 8 dereferenceable(16), i64 noundef) unnamed_addr #7
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
+declare void @llvm.assume(i1 noundef) #8
+
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
-declare void @llvm.experimental.noalias.scope.decl(metadata) #8
+declare void @llvm.experimental.noalias.scope.decl(metadata) #9
 
 attributes #0 = { nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
@@ -497,7 +514,8 @@ attributes #4 = { mustprogress nofree norecurse nosync nounwind nonlazybind will
 attributes #5 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #7 = { inlinehint nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
-attributes #8 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
+attributes #8 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #9 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
 
 !llvm.module.flags = !{!0, !1, !2}
 !llvm.ident = !{!3}

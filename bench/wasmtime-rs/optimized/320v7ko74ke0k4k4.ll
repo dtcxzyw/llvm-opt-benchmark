@@ -17034,8 +17034,8 @@ common.ret:                                       ; preds = %368, %361, %228
   %.sroa.3.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr %.sroa.5.0.copyload.i.i.i.i, ptr %.sroa.3.0..sroa_idx.i.i.i.i, align 8, !noalias !2584
   %switch.i.i.i.i = icmp eq i32 %285, 0
-  %.sroa.2.0..sroa_idx..sroa.74.0.i.i.i.i = select i1 %switch.i.i.i.i, ptr %.sroa.2.0..sroa_idx.i.i.i.i, ptr %.sroa.5.0.copyload.i.i.i.i
-  %290 = invoke noundef ptr @_ZN14cap_primitives6rustix2fs5times28set_times_nofollow_unchecked17h08df2bb8eb73622aE(ptr noalias noundef readonly align 4 dereferenceable(4) %.sroa.2.0..sroa_idx..sroa.74.0.i.i.i.i, ptr noalias noundef nonnull readonly align 1 %.sroa.6.0.copyload.i.i.i.i, i64 noundef %.sroa.713.0.copyload.i.i.i.i, i64 %.sroa.0.0.i.i87, i32 noundef range(i32 0, 1000000002) %269, i64 %.sroa.03.0.i.i88, i32 noundef range(i32 0, 1000000002) %275)
+  %spec.select.i.i.i.i = select i1 %switch.i.i.i.i, ptr %.sroa.2.0..sroa_idx.i.i.i.i, ptr %.sroa.5.0.copyload.i.i.i.i
+  %290 = invoke noundef ptr @_ZN14cap_primitives6rustix2fs5times28set_times_nofollow_unchecked17h08df2bb8eb73622aE(ptr noalias noundef readonly align 4 dereferenceable(4) %spec.select.i.i.i.i, ptr noalias noundef nonnull readonly align 1 %.sroa.6.0.copyload.i.i.i.i, i64 noundef %.sroa.713.0.copyload.i.i.i.i, i64 %.sroa.0.0.i.i87, i32 noundef range(i32 0, 1000000002) %269, i64 %.sroa.03.0.i.i88, i32 noundef range(i32 0, 1000000002) %275)
           to label %295 unwind label %291, !noalias !2589
 
 291:                                              ; preds = %289

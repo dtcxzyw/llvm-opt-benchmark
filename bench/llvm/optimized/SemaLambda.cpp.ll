@@ -4325,8 +4325,7 @@ _ZN5clang12CXXScopeSpecD2Ev.exit:                 ; preds = %358, %362
 
 366:                                              ; preds = %364
   %367 = load ptr, ptr %163, align 8
-  call void @llvm.assume(i1 true) [ "align"(ptr %367, i64 8) ]
-  %.0.copyload.i.i.i.i.i.i.i.i = load i64, ptr %367, align 8
+  %.0.copyload.i.i.i.i.i.i.i.i = load i64, ptr %367, align 1
   %368 = and i64 %.0.copyload.i.i.i.i.i.i.i.i, -8
   %369 = inttoptr i64 %368 to ptr
   %370 = getelementptr inbounds nuw i8, ptr %369, i64 28
@@ -4353,7 +4352,6 @@ _ZNK5clang12LookupResult12getFoundDeclEv.exit.i:  ; preds = %373, %366
   br i1 %375, label %_ZNK5clang12LookupResult11getAsSingleINS_11BindingDeclEEEPT_v.exit, label %376
 
 376:                                              ; preds = %_ZNK5clang12LookupResult12getFoundDeclEv.exit.i
-  call void @llvm.assume(i1 true) [ "align"(ptr %367, i64 8) ]
   switch i32 %372, label %_ZNK5clang12LookupResult12getFoundDeclEv.exit.i224 [
     i32 50, label %377
     i32 51, label %377
@@ -4382,7 +4380,6 @@ _ZNK5clang12LookupResult11getAsSingleINS_9FieldDeclEEEPT_v.exit: ; preds = %_ZNK
   br label %.thread310
 
 382:                                              ; preds = %_ZNK5clang12LookupResult12getFoundDeclEv.exit.i224
-  call void @llvm.assume(i1 true) [ "align"(ptr %367, i64 8) ]
   switch i32 %372, label %_ZNK5clang12LookupResult12getFoundDeclEv.exit.i234 [
     i32 50, label %383
     i32 51, label %383

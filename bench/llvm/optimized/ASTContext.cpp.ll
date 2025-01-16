@@ -84541,8 +84541,7 @@ _ZNK5clang10ASTContext8AllocateEmj.exit:          ; preds = %23, %.critedge.i.i.
   %.0.i.i.i.pn14 = phi ptr [ %.0, %.lr.ph ], [ %.0.i.i.i, %_ZNK5clang10ASTContext8AllocateEmj.exit ]
   %.sroa.0.013 = phi ptr [ %31, %.lr.ph ], [ %1, %_ZNK5clang10ASTContext8AllocateEmj.exit ]
   %.0 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.pn14, i64 8
-  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.0.013, i64 8) ]
-  %.0.copyload.i.i.i.i.i.i = load i64, ptr %.sroa.0.013, align 8
+  %.0.copyload.i.i.i.i.i.i = load i64, ptr %.sroa.0.013, align 1
   %29 = and i64 %.0.copyload.i.i.i.i.i.i, -8
   %30 = inttoptr i64 %29 to ptr
   store ptr %30, ptr %.0, align 8

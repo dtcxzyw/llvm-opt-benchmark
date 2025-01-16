@@ -54163,10 +54163,8 @@ define linkonce_odr hidden void @_ZN5clang13serialization20MultiOnDiskHashTableI
   store ptr %3, ptr %6, align 8
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %4, ptr %9, align 8
-  call void @llvm.assume(i1 true) [ "align"(ptr %2, i64 1) ]
   %.0.copyload.i.i.i = load i32, ptr %2, align 1
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  call void @llvm.assume(i1 true) [ "align"(ptr %10, i64 1) ]
   %.0.copyload.i.i.i8 = load i32, ptr %10, align 1
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %11, ptr %7, align 8
@@ -54240,11 +54238,9 @@ _ZN4llvm13TinyPtrVectorIPN5clang13serialization10ModuleFileEE3endEv.exit: ; pred
   %43 = call noundef ptr @_ZN4llvm13TinyPtrVectorIPN5clang13serialization10ModuleFileEE6insertIPS4_EES7_S7_T_S8_(ptr noundef nonnull align 8 dereferenceable(8) %29, ptr noundef %.0.i, ptr noundef %40, ptr noundef %42)
   %44 = zext i32 %.0.copyload.i.i.i to i64
   %45 = getelementptr inbounds nuw i8, ptr %2, i64 %44
-  call void @llvm.assume(i1 true) [ "align"(ptr %45, i64 4) ]
-  %.0.copyload.i.i.i.i11 = load i32, ptr %45, align 4
+  %.0.copyload.i.i.i.i11 = load i32, ptr %45, align 1
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 4
-  call void @llvm.assume(i1 true) [ "align"(ptr %46, i64 4) ]
-  %.0.copyload.i.i.i2.i = load i32, ptr %46, align 4
+  %.0.copyload.i.i.i2.i = load i32, ptr %46, align 1
   %47 = getelementptr inbounds nuw i8, ptr %45, i64 8
   %48 = call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #30
   %49 = load ptr, ptr %7, align 8

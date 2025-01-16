@@ -528,6 +528,7 @@ _ZN5tokio7runtime4task5state5State7ref_dec17h638f4f96c35e9460E.exit.i.i.i.i.i.i:
   br i1 %129, label %130, label %133
 
 130:                                              ; preds = %127
+  call void @llvm.assume(i1 true) [ "align"(ptr %48, i64 8) ]
   %131 = load i8, ptr %.phi.trans.insert.i.i, align 4, !range !31, !noundef !17
   %132 = trunc nuw i8 %131 to i1
   %.not.i.i = xor i1 %119, true
@@ -5764,12 +5765,14 @@ define hidden void @_ZN5tokio7runtime8blocking4pool12BlockingPool8shutdown17hbed
 
 "_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17h96b51c4cf520de85E.llvm.18090272232049510573.exit": ; preds = %3, %22
   store ptr %20, ptr %18, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %20, i64 8) ]
   %24 = getelementptr inbounds nuw i8, ptr %19, i64 196
   %25 = load i8, ptr %24, align 4, !range !31, !noundef !17
   %26 = trunc nuw i8 %25 to i1
   br i1 %26, label %35, label %27
 
 27:                                               ; preds = %"_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17h96b51c4cf520de85E.llvm.18090272232049510573.exit"
+  call void @llvm.assume(i1 true) [ "align"(ptr %20, i64 8) ]
   store i8 1, ptr %24, align 4
   %28 = getelementptr inbounds nuw i8, ptr %19, i64 152
   tail call void @llvm.experimental.noalias.scope.decl(metadata !596)
@@ -6293,6 +6296,7 @@ define { i64, ptr } @_ZN5tokio7runtime8blocking4pool7Spawner10spawn_task17h201ef
 
 "_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17h96b51c4cf520de85E.llvm.18090272232049510573.exit": ; preds = %4, %24
   store ptr %22, ptr %17, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %22, i64 8) ]
   %26 = getelementptr inbounds nuw i8, ptr %21, i64 196
   %27 = load i8, ptr %26, align 4, !range !31, !noundef !17
   %28 = trunc nuw i8 %27 to i1

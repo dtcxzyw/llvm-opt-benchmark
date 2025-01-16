@@ -19307,6 +19307,7 @@ _ZN3std3sys4unix5locks11futex_mutex5Mutex4lock17h2824c483f8557e8fE.llvm.97426544
 
 328:                                              ; preds = %324
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9), !noalias !2137
+  call void @llvm.assume(i1 true) [ "align"(ptr %.val18, i64 8) ]
   %329 = trunc nuw i8 %.0.i.i.i.i.i to i1
   br i1 %329, label %_ZN3std4sync6poison4Flag4done17h5bffa24fa61aa5e0E.llvm.9742654456972663382.exit.i.i.i40.i, label %330
 
@@ -19324,7 +19325,7 @@ _ZN3std9panicking11panic_count13count_is_zero17h66cf19443d869469E.llvm.974265445
   br i1 %334, label %_ZN3std4sync6poison4Flag4done17h5bffa24fa61aa5e0E.llvm.9742654456972663382.exit.i.i.i40.i, label %335
 
 335:                                              ; preds = %.noexc16.i.i
-  store atomic i8 1, ptr %315 monotonic, align 1, !noalias !2158
+  store atomic i8 1, ptr %315 monotonic, align 4, !noalias !2158
   br label %_ZN3std4sync6poison4Flag4done17h5bffa24fa61aa5e0E.llvm.9742654456972663382.exit.i.i.i40.i
 
 _ZN3std4sync6poison4Flag4done17h5bffa24fa61aa5e0E.llvm.9742654456972663382.exit.i.i.i40.i: ; preds = %335, %.noexc16.i.i, %330, %328
@@ -19469,6 +19470,7 @@ _ZN3std3sys4unix5locks11futex_mutex5Mutex4lock17h2824c483f8557e8fE.llvm.97426544
   br label %381
 
 381:                                              ; preds = %380, %379, %377
+  call void @llvm.assume(i1 true) [ "align"(ptr %.val18, i64 8) ]
   %382 = trunc nuw i8 %.0.i.i.i21.i.i to i1
   br i1 %382, label %_ZN3std4sync6poison4Flag4done17h5bffa24fa61aa5e0E.llvm.9742654456972663382.exit.i.i27.i.i, label %383
 
@@ -19486,7 +19488,7 @@ _ZN3std9panicking11panic_count13count_is_zero17h66cf19443d869469E.llvm.974265445
   br i1 %387, label %_ZN3std4sync6poison4Flag4done17h5bffa24fa61aa5e0E.llvm.9742654456972663382.exit.i.i27.i.i, label %388
 
 388:                                              ; preds = %.noexc50.i
-  store atomic i8 1, ptr %354 monotonic, align 1, !noalias !2191
+  store atomic i8 1, ptr %354 monotonic, align 4, !noalias !2191
   br label %_ZN3std4sync6poison4Flag4done17h5bffa24fa61aa5e0E.llvm.9742654456972663382.exit.i.i27.i.i
 
 _ZN3std4sync6poison4Flag4done17h5bffa24fa61aa5e0E.llvm.9742654456972663382.exit.i.i27.i.i: ; preds = %388, %.noexc50.i, %383, %381
@@ -19639,6 +19641,7 @@ _ZN3std3sys4unix5locks11futex_mutex5Mutex4lock17h2824c483f8557e8fE.llvm.97426544
 
 "_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$9pop_front17h5c014464e9a0d41cE.exit.i.i.i": ; preds = %429, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h862dbe74cc07a613E.llvm.9742654456972663382.exit.i.i.i"
   %.sroa.5.0.i = phi i64 [ %.sroa.5.0.copyload13.i, %429 ], [ -9223372036854775804, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h862dbe74cc07a613E.llvm.9742654456972663382.exit.i.i.i" ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %.val18, i64 8) ]
   %440 = trunc nuw i8 %.0.i.i.i.i.i.i to i1
   br i1 %440, label %_ZN3std4sync6poison4Flag4done17h5bffa24fa61aa5e0E.llvm.9742654456972663382.exit.i.i.i.i56.i, label %441
 
@@ -19656,7 +19659,7 @@ _ZN3std9panicking11panic_count13count_is_zero17h66cf19443d869469E.llvm.974265445
   br i1 %445, label %_ZN3std4sync6poison4Flag4done17h5bffa24fa61aa5e0E.llvm.9742654456972663382.exit.i.i.i.i56.i, label %446
 
 446:                                              ; preds = %.noexc3.i.i
-  store atomic i8 1, ptr %417 monotonic, align 1, !noalias !2239
+  store atomic i8 1, ptr %417 monotonic, align 4, !noalias !2239
   br label %_ZN3std4sync6poison4Flag4done17h5bffa24fa61aa5e0E.llvm.9742654456972663382.exit.i.i.i.i56.i
 
 _ZN3std4sync6poison4Flag4done17h5bffa24fa61aa5e0E.llvm.9742654456972663382.exit.i.i.i.i56.i: ; preds = %446, %.noexc3.i.i, %441, %"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$9pop_front17h5c014464e9a0d41cE.exit.i.i.i"
@@ -20790,6 +20793,7 @@ _ZN3std3sys4unix5locks11futex_mutex5Mutex4lock17h2824c483f8557e8fE.llvm.97426544
 
 338:                                              ; preds = %334
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12), !noalias !2394
+  call void @llvm.assume(i1 true) [ "align"(ptr %.val18, i64 8) ]
   %339 = trunc nuw i8 %.0.i.i.i.i.i to i1
   br i1 %339, label %_ZN3std4sync6poison4Flag4done17h5bffa24fa61aa5e0E.llvm.9742654456972663382.exit.i.i.i43.i, label %340
 
@@ -20807,7 +20811,7 @@ _ZN3std9panicking11panic_count13count_is_zero17h66cf19443d869469E.llvm.974265445
   br i1 %344, label %_ZN3std4sync6poison4Flag4done17h5bffa24fa61aa5e0E.llvm.9742654456972663382.exit.i.i.i43.i, label %345
 
 345:                                              ; preds = %.noexc15.i.i
-  store atomic i8 1, ptr %325 monotonic, align 1, !noalias !2407
+  store atomic i8 1, ptr %325 monotonic, align 4, !noalias !2407
   br label %_ZN3std4sync6poison4Flag4done17h5bffa24fa61aa5e0E.llvm.9742654456972663382.exit.i.i.i43.i
 
 _ZN3std4sync6poison4Flag4done17h5bffa24fa61aa5e0E.llvm.9742654456972663382.exit.i.i.i43.i: ; preds = %345, %.noexc15.i.i, %340, %338
@@ -20972,6 +20976,7 @@ _ZN3std3sys4unix5locks11futex_mutex5Mutex4lock17h2824c483f8557e8fE.llvm.97426544
   br label %403
 
 403:                                              ; preds = %402, %401, %399
+  call void @llvm.assume(i1 true) [ "align"(ptr %.val18, i64 8) ]
   %404 = trunc nuw i8 %.0.i.i.i19.i.i to i1
   br i1 %404, label %_ZN3std4sync6poison4Flag4done17h5bffa24fa61aa5e0E.llvm.9742654456972663382.exit.i.i25.i.i, label %405
 
@@ -20989,7 +20994,7 @@ _ZN3std9panicking11panic_count13count_is_zero17h66cf19443d869469E.llvm.974265445
   br i1 %409, label %_ZN3std4sync6poison4Flag4done17h5bffa24fa61aa5e0E.llvm.9742654456972663382.exit.i.i25.i.i, label %410
 
 410:                                              ; preds = %.noexc54.i
-  store atomic i8 1, ptr %376 monotonic, align 1, !noalias !2445
+  store atomic i8 1, ptr %376 monotonic, align 4, !noalias !2445
   br label %_ZN3std4sync6poison4Flag4done17h5bffa24fa61aa5e0E.llvm.9742654456972663382.exit.i.i25.i.i
 
 _ZN3std4sync6poison4Flag4done17h5bffa24fa61aa5e0E.llvm.9742654456972663382.exit.i.i25.i.i: ; preds = %410, %.noexc54.i, %405, %403
@@ -21136,6 +21141,7 @@ _ZN3std3sys4unix5locks11futex_mutex5Mutex4lock17h2824c483f8557e8fE.llvm.97426544
 
 "_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$9pop_front17hf2f96374a50f1700E.exit.i.i.i": ; preds = %450, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hcbe2687d51ee9929E.llvm.9742654456972663382.exit.i.i.i"
   %.sroa.07.0.i = phi i64 [ %.sroa.07.0.copyload9.i, %450 ], [ -9223372036854775807, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hcbe2687d51ee9929E.llvm.9742654456972663382.exit.i.i.i" ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %.val18, i64 8) ]
   %461 = trunc nuw i8 %.0.i.i.i.i.i.i to i1
   br i1 %461, label %_ZN3std4sync6poison4Flag4done17h5bffa24fa61aa5e0E.llvm.9742654456972663382.exit.i.i.i.i60.i, label %462
 
@@ -21153,7 +21159,7 @@ _ZN3std9panicking11panic_count13count_is_zero17h66cf19443d869469E.llvm.974265445
   br i1 %466, label %_ZN3std4sync6poison4Flag4done17h5bffa24fa61aa5e0E.llvm.9742654456972663382.exit.i.i.i.i60.i, label %467
 
 467:                                              ; preds = %.noexc3.i.i
-  store atomic i8 1, ptr %438 monotonic, align 1, !noalias !2493
+  store atomic i8 1, ptr %438 monotonic, align 4, !noalias !2493
   br label %_ZN3std4sync6poison4Flag4done17h5bffa24fa61aa5e0E.llvm.9742654456972663382.exit.i.i.i.i60.i
 
 _ZN3std4sync6poison4Flag4done17h5bffa24fa61aa5e0E.llvm.9742654456972663382.exit.i.i.i.i60.i: ; preds = %467, %.noexc3.i.i, %462, %"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$9pop_front17hf2f96374a50f1700E.exit.i.i.i"

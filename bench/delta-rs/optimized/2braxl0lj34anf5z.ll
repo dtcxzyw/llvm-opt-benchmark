@@ -8966,9 +8966,9 @@ define hidden { ptr, ptr } @"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !2205
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %1)
   %13 = icmp eq ptr %.sroa.0.0.i, null
-  %spec.select = select i1 %13, ptr undef, ptr %.sroa.3.0.i
+  %spec.select2 = select i1 %13, ptr undef, ptr %.sroa.3.0.i
   %14 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0.i, 0
-  %15 = insertvalue { ptr, ptr } %14, ptr %spec.select, 1
+  %15 = insertvalue { ptr, ptr } %14, ptr %spec.select2, 1
   ret { ptr, ptr } %15
 }
 
@@ -9031,9 +9031,9 @@ define hidden { ptr, ptr } @"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !2223
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %1)
   %13 = icmp eq ptr %.sroa.0.0.i, null
-  %spec.select = select i1 %13, ptr undef, ptr %.sroa.3.0.i
+  %spec.select2 = select i1 %13, ptr undef, ptr %.sroa.3.0.i
   %14 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0.i, 0
-  %15 = insertvalue { ptr, ptr } %14, ptr %spec.select, 1
+  %15 = insertvalue { ptr, ptr } %14, ptr %spec.select2, 1
   ret { ptr, ptr } %15
 }
 
@@ -9192,10 +9192,10 @@ define hidden { ptr, ptr } @"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$
   br label %"_ZN4core3ptr122drop_in_place$LT$core..ops..control_flow..ControlFlow$LT$alloc..sync..Arc$LT$dyn$u20$arrow_array..array..Array$GT$$GT$$GT$17hbfc25fc2cef7c341E.llvm.8022584466853825857.exit"
 
 "_ZN4core3ptr122drop_in_place$LT$core..ops..control_flow..ControlFlow$LT$alloc..sync..Arc$LT$dyn$u20$arrow_array..array..Array$GT$$GT$$GT$17hbfc25fc2cef7c341E.llvm.8022584466853825857.exit": ; preds = %"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$C$R$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h27a8d45cb9743a61E.llvm.8022584466853825857.exit", %"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$C$R$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h27a8d45cb9743a61E.llvm.8022584466853825857.exit.thread"
-  %.6 = phi ptr [ %20, %"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$C$R$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h27a8d45cb9743a61E.llvm.8022584466853825857.exit" ], [ undef, %"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$C$R$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h27a8d45cb9743a61E.llvm.8022584466853825857.exit.thread" ]
+  %spec.select6 = phi ptr [ %20, %"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$C$R$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h27a8d45cb9743a61E.llvm.8022584466853825857.exit" ], [ undef, %"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$C$R$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h27a8d45cb9743a61E.llvm.8022584466853825857.exit.thread" ]
   %22 = phi { ptr, ptr } [ %21, %"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$C$R$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h27a8d45cb9743a61E.llvm.8022584466853825857.exit" ], [ { ptr null, ptr poison }, %"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$C$R$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h27a8d45cb9743a61E.llvm.8022584466853825857.exit.thread" ]
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %2)
-  %23 = insertvalue { ptr, ptr } %22, ptr %.6, 1
+  %23 = insertvalue { ptr, ptr } %22, ptr %spec.select6, 1
   ret { ptr, ptr } %23
 }
 
@@ -10317,9 +10317,9 @@ define hidden { ptr, ptr } @"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !2655
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %1)
   %13 = icmp eq ptr %.sroa.0.0.i, null
-  %spec.select = select i1 %13, ptr undef, ptr %.sroa.3.0.i
+  %spec.select2 = select i1 %13, ptr undef, ptr %.sroa.3.0.i
   %14 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0.i, 0
-  %15 = insertvalue { ptr, ptr } %14, ptr %spec.select, 1
+  %15 = insertvalue { ptr, ptr } %14, ptr %spec.select2, 1
   ret { ptr, ptr } %15
 }
 
@@ -11867,10 +11867,10 @@ define hidden { ptr, ptr } @"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$
   br label %"_ZN4core3ptr122drop_in_place$LT$core..ops..control_flow..ControlFlow$LT$alloc..sync..Arc$LT$dyn$u20$arrow_array..array..Array$GT$$GT$$GT$17hbfc25fc2cef7c341E.llvm.8022584466853825857.exit"
 
 "_ZN4core3ptr122drop_in_place$LT$core..ops..control_flow..ControlFlow$LT$alloc..sync..Arc$LT$dyn$u20$arrow_array..array..Array$GT$$GT$$GT$17hbfc25fc2cef7c341E.llvm.8022584466853825857.exit": ; preds = %"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$C$R$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h72cd0993dedc81f4E.llvm.8022584466853825857.exit", %"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$C$R$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h72cd0993dedc81f4E.llvm.8022584466853825857.exit.thread"
-  %.6 = phi ptr [ %20, %"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$C$R$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h72cd0993dedc81f4E.llvm.8022584466853825857.exit" ], [ undef, %"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$C$R$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h72cd0993dedc81f4E.llvm.8022584466853825857.exit.thread" ]
+  %spec.select6 = phi ptr [ %20, %"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$C$R$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h72cd0993dedc81f4E.llvm.8022584466853825857.exit" ], [ undef, %"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$C$R$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h72cd0993dedc81f4E.llvm.8022584466853825857.exit.thread" ]
   %22 = phi { ptr, ptr } [ %21, %"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$C$R$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h72cd0993dedc81f4E.llvm.8022584466853825857.exit" ], [ { ptr null, ptr poison }, %"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$C$R$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h72cd0993dedc81f4E.llvm.8022584466853825857.exit.thread" ]
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %2)
-  %23 = insertvalue { ptr, ptr } %22, ptr %.6, 1
+  %23 = insertvalue { ptr, ptr } %22, ptr %spec.select6, 1
   ret { ptr, ptr } %23
 }
 
@@ -12221,9 +12221,9 @@ define hidden { ptr, ptr } @"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !3210
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %1)
   %14 = icmp eq ptr %.sroa.0.0.i, null
-  %spec.select = select i1 %14, ptr undef, ptr %.sroa.3.0.i
+  %spec.select2 = select i1 %14, ptr undef, ptr %.sroa.3.0.i
   %15 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0.i, 0
-  %16 = insertvalue { ptr, ptr } %15, ptr %spec.select, 1
+  %16 = insertvalue { ptr, ptr } %15, ptr %spec.select2, 1
   ret { ptr, ptr } %16
 }
 
@@ -12521,9 +12521,9 @@ define hidden { ptr, ptr } @"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !3315
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %1)
   %13 = icmp eq ptr %.sroa.0.0.i, null
-  %spec.select = select i1 %13, ptr undef, ptr %.sroa.3.0.i
+  %spec.select2 = select i1 %13, ptr undef, ptr %.sroa.3.0.i
   %14 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0.i, 0
-  %15 = insertvalue { ptr, ptr } %14, ptr %spec.select, 1
+  %15 = insertvalue { ptr, ptr } %14, ptr %spec.select2, 1
   ret { ptr, ptr } %15
 }
 
@@ -13752,9 +13752,9 @@ define hidden { ptr, ptr } @"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !3751
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %1)
   %13 = icmp eq ptr %.sroa.0.0.i, null
-  %spec.select = select i1 %13, ptr undef, ptr %.sroa.3.0.i
+  %spec.select2 = select i1 %13, ptr undef, ptr %.sroa.3.0.i
   %14 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0.i, 0
-  %15 = insertvalue { ptr, ptr } %14, ptr %spec.select, 1
+  %15 = insertvalue { ptr, ptr } %14, ptr %spec.select2, 1
   ret { ptr, ptr } %15
 }
 
@@ -13809,9 +13809,9 @@ define hidden { ptr, ptr } @"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !3760
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %1)
   %14 = icmp eq ptr %.sroa.0.0.i, null
-  %spec.select = select i1 %14, ptr undef, ptr %.sroa.3.0.i
+  %spec.select2 = select i1 %14, ptr undef, ptr %.sroa.3.0.i
   %15 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0.i, 0
-  %16 = insertvalue { ptr, ptr } %15, ptr %spec.select, 1
+  %16 = insertvalue { ptr, ptr } %15, ptr %spec.select2, 1
   ret { ptr, ptr } %16
 }
 
@@ -14580,8 +14580,8 @@ define hidden { ptr, ptr } @"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$
   %2 = extractvalue { ptr, ptr } %1, 0
   %3 = extractvalue { ptr, ptr } %1, 1
   %4 = icmp eq ptr %2, null
-  %spec.select = select i1 %4, ptr undef, ptr %3
-  %5 = insertvalue { ptr, ptr } %1, ptr %spec.select, 1
+  %spec.select2 = select i1 %4, ptr undef, ptr %3
+  %5 = insertvalue { ptr, ptr } %1, ptr %spec.select2, 1
   ret { ptr, ptr } %5
 }
 
@@ -15283,9 +15283,9 @@ define hidden { ptr, ptr } @"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !4187
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %1)
   %13 = icmp eq ptr %.sroa.0.0.i, null
-  %spec.select = select i1 %13, ptr undef, ptr %.sroa.3.0.i
+  %spec.select2 = select i1 %13, ptr undef, ptr %.sroa.3.0.i
   %14 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0.i, 0
-  %15 = insertvalue { ptr, ptr } %14, ptr %spec.select, 1
+  %15 = insertvalue { ptr, ptr } %14, ptr %spec.select2, 1
   ret { ptr, ptr } %15
 }
 
@@ -15603,9 +15603,9 @@ define hidden { ptr, ptr } @"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2), !noalias !4318
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %1)
   %10 = icmp eq ptr %.sroa.0.0.i, null
-  %spec.select = select i1 %10, ptr undef, ptr %.sroa.3.0.i
+  %spec.select2 = select i1 %10, ptr undef, ptr %.sroa.3.0.i
   %11 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0.i, 0
-  %12 = insertvalue { ptr, ptr } %11, ptr %spec.select, 1
+  %12 = insertvalue { ptr, ptr } %11, ptr %spec.select2, 1
   ret { ptr, ptr } %12
 }
 
@@ -16774,8 +16774,8 @@ define hidden { ptr, ptr } @"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$
   %2 = extractvalue { ptr, ptr } %1, 0
   %3 = extractvalue { ptr, ptr } %1, 1
   %4 = icmp eq ptr %2, null
-  %spec.select = select i1 %4, ptr undef, ptr %3
-  %5 = insertvalue { ptr, ptr } %1, ptr %spec.select, 1
+  %spec.select2 = select i1 %4, ptr undef, ptr %3
+  %5 = insertvalue { ptr, ptr } %1, ptr %spec.select2, 1
   ret { ptr, ptr } %5
 }
 
@@ -16909,9 +16909,9 @@ define hidden { ptr, ptr } @"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2), !noalias !4681
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %1)
   %10 = icmp eq ptr %.sroa.0.0.i, null
-  %spec.select = select i1 %10, ptr undef, ptr %.sroa.3.0.i
+  %spec.select2 = select i1 %10, ptr undef, ptr %.sroa.3.0.i
   %11 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0.i, 0
-  %12 = insertvalue { ptr, ptr } %11, ptr %spec.select, 1
+  %12 = insertvalue { ptr, ptr } %11, ptr %spec.select2, 1
   ret { ptr, ptr } %12
 }
 
@@ -16995,9 +16995,9 @@ define hidden { ptr, ptr } @"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !4692
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %1)
   %14 = icmp eq ptr %.sroa.0.0.i, null
-  %spec.select = select i1 %14, ptr undef, ptr %.sroa.3.0.i
+  %spec.select2 = select i1 %14, ptr undef, ptr %.sroa.3.0.i
   %15 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0.i, 0
-  %16 = insertvalue { ptr, ptr } %15, ptr %spec.select, 1
+  %16 = insertvalue { ptr, ptr } %15, ptr %spec.select2, 1
   ret { ptr, ptr } %16
 }
 

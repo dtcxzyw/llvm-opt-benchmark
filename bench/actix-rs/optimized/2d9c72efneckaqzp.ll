@@ -3858,6 +3858,7 @@ define hidden void @_ZN7tracing4span4Span3log17h8de998eae76ae2c4E.llvm.106998240
   br i1 %.not, label %19, label %13
 
 13:                                               ; preds = %5
+  call void @llvm.assume(i1 true) [ "align"(ptr %12, i64 8) ]
   %14 = load i64, ptr %12, align 8, !range !326, !noundef !4
   %switch.tableidx = add nsw i64 %14, -1
   %15 = icmp ult i64 %switch.tableidx, 4

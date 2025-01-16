@@ -9724,7 +9724,7 @@ _ZN4llvm12ErrorSuccessD2Ev.exit:                  ; preds = %29, %25, %58, %34, 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm13ValueProfData16getValueProfDataEPKhS2_NS_10endiannessE(ptr dead_on_unwind noalias nocapture writable sret(%"class.llvm::Expected") align 8 %0, ptr noundef %1, ptr noundef readnone %2, i32 noundef %3) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm13ValueProfData16getValueProfDataEPKhS2_NS_10endiannessE(ptr dead_on_unwind noalias nocapture writable sret(%"class.llvm::Expected") align 8 %0, ptr noundef readonly %1, ptr noundef readnone %2, i32 noundef %3) local_unnamed_addr #0 align 2 {
   %5 = alloca %"class.llvm::Twine", align 8
   %6 = alloca %"class.llvm::Twine", align 8
   %7 = alloca %"class.llvm::Error", align 8
@@ -9753,7 +9753,6 @@ _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %4
   br label %_ZNSt10unique_ptrIN4llvm13ValueProfDataESt14default_deleteIS1_EED2Ev.exit
 
 18:                                               ; preds = %4
-  call void @llvm.assume(i1 true) [ "align"(ptr %1, i64 1) ]
   %.0.copyload.i.i = load i32, ptr %1, align 1
   %.not.i.i.i = icmp eq i32 %3, 1
   %19 = tail call i32 @llvm.bswap.i32(i32 %.0.copyload.i.i)
@@ -12543,10 +12542,9 @@ declare noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamls
 declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #13
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm16IndexedInstrProf6Header14readFromBufferEPKh(ptr dead_on_unwind noalias nocapture writable sret(%"class.llvm::Expected.308") align 8 initializes((0, 8)) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm16IndexedInstrProf6Header14readFromBufferEPKh(ptr dead_on_unwind noalias nocapture writable sret(%"class.llvm::Expected.308") align 8 initializes((0, 8)) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %"class.llvm::Twine", align 8
   %4 = alloca %"class.llvm::Twine", align 8
-  call void @llvm.assume(i1 true) [ "align"(ptr %1, i64 1) ]
   %.0.copyload.i.i.i = load i64, ptr %1, align 1
   %.not = icmp eq i64 %.0.copyload.i.i.i, -9121646941414855425
   br i1 %.not, label %13, label %_ZN4llvm5ErrorD2Ev.exit
@@ -12573,7 +12571,6 @@ _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %2
 
 13:                                               ; preds = %2
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  call void @llvm.assume(i1 true) [ "align"(ptr %14, i64 1) ]
   %.0.copyload.i.i.i1 = load i64, ptr %14, align 1
   %15 = and i64 %.0.copyload.i.i.i1, 4294967295
   %16 = icmp samesign ugt i64 %15, 12
@@ -12601,38 +12598,32 @@ _ZN4llvm5ErrorD2Ev.exit2:                         ; preds = %13
 
 25:                                               ; preds = %13
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  call void @llvm.assume(i1 true) [ "align"(ptr %26, i64 1) ]
   %.0.copyload.i.i.i3 = load i64, ptr %26, align 1
   %27 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  call void @llvm.assume(i1 true) [ "align"(ptr %27, i64 1) ]
   %.0.copyload.i.i.i4 = load i64, ptr %27, align 1
   %28 = icmp samesign ugt i64 %15, 7
   br i1 %28, label %29, label %.thread42
 
 29:                                               ; preds = %25
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  call void @llvm.assume(i1 true) [ "align"(ptr %30, i64 1) ]
   %.0.copyload.i.i.i5 = load i64, ptr %30, align 1
   %.not50 = icmp eq i64 %15, 8
   br i1 %.not50, label %.thread42, label %31
 
 31:                                               ; preds = %29
   %32 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  call void @llvm.assume(i1 true) [ "align"(ptr %32, i64 1) ]
   %.0.copyload.i.i.i6 = load i64, ptr %32, align 1
   %33 = icmp samesign ugt i64 %15, 9
   br i1 %33, label %34, label %.thread42
 
 34:                                               ; preds = %31
   %35 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  call void @llvm.assume(i1 true) [ "align"(ptr %35, i64 1) ]
   %.0.copyload.i.i.i7 = load i64, ptr %35, align 1
   %36 = icmp eq i64 %15, 12
   br i1 %36, label %37, label %.thread42
 
 37:                                               ; preds = %34
   %38 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  call void @llvm.assume(i1 true) [ "align"(ptr %38, i64 1) ]
   %.0.copyload.i.i.i8 = load i64, ptr %38, align 1
   br label %.thread42
 

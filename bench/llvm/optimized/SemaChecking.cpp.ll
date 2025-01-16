@@ -11500,8 +11500,7 @@ _ZNK5clang8QualType18getUnqualifiedTypeEv.exit:   ; preds = %_ZNK5clang8QualType
   %254 = call noundef zeroext i1 @_ZN5clang4Sema10LookupNameERNS_12LookupResultEPNS_5ScopeEbb(ptr noundef nonnull align 8 dereferenceable(17560) %0, ptr noundef nonnull align 8 dereferenceable(168) %36, ptr noundef %253, i1 noundef zeroext true, i1 noundef zeroext false) #25
   %255 = getelementptr inbounds nuw i8, ptr %36, i64 8
   %256 = load ptr, ptr %255, align 8
-  call void @llvm.assume(i1 true) [ "align"(ptr %256, i64 8) ]
-  %.0.copyload.i.i.i.i.i.i.i135 = load i64, ptr %256, align 8
+  %.0.copyload.i.i.i.i.i.i.i135 = load i64, ptr %256, align 1
   %257 = and i64 %.0.copyload.i.i.i.i.i.i.i135, -8
   %258 = inttoptr i64 %257 to ptr
   %259 = getelementptr inbounds nuw i8, ptr %258, i64 28
@@ -33980,8 +33979,7 @@ _ZNK5clang13CXXRecordDecl13getDefinitionEv.exit:  ; preds = %29, %32
 
 .lr.ph:                                           ; preds = %72, %_ZN4llvm15SmallPtrSetImplIPN5clang13CXXMethodDeclEE6insertES3_.exit
   %.sroa.021.034 = phi ptr [ %103, %_ZN4llvm15SmallPtrSetImplIPN5clang13CXXMethodDeclEE6insertES3_.exit ], [ %73, %72 ]
-  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.021.034, i64 8) ]
-  %.0.copyload.i.i.i.i.i.i = load i64, ptr %.sroa.021.034, align 8
+  %.0.copyload.i.i.i.i.i.i = load i64, ptr %.sroa.021.034, align 1
   %76 = and i64 %.0.copyload.i.i.i.i.i.i, -8
   %77 = inttoptr i64 %76 to ptr
   %78 = getelementptr inbounds nuw i8, ptr %77, i64 28
@@ -34622,8 +34620,7 @@ _ZNK5clang4Type27isIntegralOrEnumerationTypeEv.exit: ; preds = %31
 
 .lr.ph:                                           ; preds = %49, %.thread
   %.sroa.090.0114 = phi ptr [ %171, %.thread ], [ %78, %49 ]
-  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.090.0114, i64 8) ]
-  %.0.copyload.i.i.i.i.i.i = load i64, ptr %.sroa.090.0114, align 8
+  %.0.copyload.i.i.i.i.i.i = load i64, ptr %.sroa.090.0114, align 1
   %81 = and i64 %.0.copyload.i.i.i.i.i.i, -8
   %82 = inttoptr i64 %81 to ptr
   %83 = getelementptr inbounds nuw i8, ptr %82, i64 28
@@ -34872,8 +34869,7 @@ _ZL20getAbsoluteValueKindN5clang8QualTypeE.exit86: ; preds = %144, %152, %_ZNK5c
 
 214:                                              ; preds = %184
   %215 = load ptr, ptr %191, align 8
-  call void @llvm.assume(i1 true) [ "align"(ptr %215, i64 8) ]
-  %.0.copyload.i.i.i.i.i.i.i = load i64, ptr %215, align 8
+  %.0.copyload.i.i.i.i.i.i.i = load i64, ptr %215, align 1
   %216 = and i64 %.0.copyload.i.i.i.i.i.i.i, -8
   %217 = inttoptr i64 %216 to ptr
   %218 = getelementptr inbounds nuw i8, ptr %217, i64 28
@@ -67359,8 +67355,7 @@ _ZN4llvm5APIntD2Ev.exit._crit_edge:               ; preds = %_ZN4llvm5APIntD2Ev.
 529:                                              ; preds = %517
   %530 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %531 = load ptr, ptr %530, align 8
-  call void @llvm.assume(i1 true) [ "align"(ptr %531, i64 8) ]
-  %.0.copyload.i.i.i.i.i.i.i = load i64, ptr %531, align 8
+  %.0.copyload.i.i.i.i.i.i.i = load i64, ptr %531, align 1
   %532 = and i64 %.0.copyload.i.i.i.i.i.i.i, -8
   %533 = inttoptr i64 %532 to ptr
   %534 = getelementptr inbounds nuw i8, ptr %533, i64 28

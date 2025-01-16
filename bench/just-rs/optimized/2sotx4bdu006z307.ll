@@ -17694,6 +17694,7 @@ define hidden void @_ZN4just17interrupt_handler16InterruptHandler7install17h556d
           to label %25 unwind label %23
 
 12:                                               ; preds = %2
+  call void @llvm.assume(i1 true) [ "align"(ptr %5, i64 4) ]
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 4
   br i1 %6, label %_ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.llvm.11107275065492906757.exit.i.i, label %14
 
@@ -17708,7 +17709,7 @@ _ZN3std9panicking11panic_count13count_is_zero17h6863efef417c46dbE.llvm.111072750
   br i1 %18, label %_ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.llvm.11107275065492906757.exit.i.i, label %19
 
 19:                                               ; preds = %_ZN3std9panicking11panic_count13count_is_zero17h6863efef417c46dbE.llvm.11107275065492906757.exit.i.i.i
-  store atomic i8 1, ptr %13 monotonic, align 1, !noalias !3356
+  store atomic i8 1, ptr %13 monotonic, align 4, !noalias !3356
   br label %_ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.llvm.11107275065492906757.exit.i.i
 
 _ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.llvm.11107275065492906757.exit.i.i: ; preds = %19, %_ZN3std9panicking11panic_count13count_is_zero17h6863efef417c46dbE.llvm.11107275065492906757.exit.i.i.i, %14, %12

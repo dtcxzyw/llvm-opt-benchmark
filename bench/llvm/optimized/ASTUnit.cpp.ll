@@ -15822,7 +15822,6 @@ define dso_local noundef zeroext i1 @_ZN5clang7ASTUnit23visitLocalTopLevelDeclsE
 
 .lr.ph28:                                         ; preds = %8, %.lr.ph28
   %.sroa.014.027 = phi ptr [ %19, %.lr.ph28 ], [ %.sroa.014.0.copyload, %8 ]
-  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.014.027, i64 1) ]
   %.0.copyload.i.i.i.i = load i64, ptr %.sroa.014.027, align 1
   %15 = call i64 @_ZN5clang11LocalDeclID3getERNS_9ASTReaderERNS_13serialization10ModuleFileEm(ptr noundef nonnull align 8 dereferenceable(15968) %.sroa.5.0.copyload, ptr noundef nonnull align 8 dereferenceable(3464) %.sroa.7.0.copyload, i64 noundef %.0.copyload.i.i.i.i) #27
   %16 = call i64 @_ZNK5clang9ASTReader15getGlobalDeclIDERNS_13serialization10ModuleFileENS_11LocalDeclIDE(ptr noundef nonnull align 8 dereferenceable(15968) %.sroa.5.0.copyload, ptr noundef nonnull align 8 dereferenceable(3464) %.sroa.7.0.copyload, i64 %15) #27
