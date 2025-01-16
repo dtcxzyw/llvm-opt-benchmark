@@ -203,9 +203,8 @@ _ZN4llvm18BinaryStreamReader10readObjectINS_8codeview21DebugSubsectionHeaderEEEN
   br label %.critedge
 
 _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %_ZN4llvm15BinaryStreamRefD2Ev.exit
-  %57 = load ptr, ptr %4, align 8, !noalias !4
+  %57 = load ptr, ptr %4, align 8, !noalias !4, !align !7, !noundef !8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
-  call void @llvm.assume(i1 true) [ "align"(ptr %57, i64 1) ]
   %.0.copyload.i.i.i = load i32, ptr %57, align 1
   %58 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %59 = getelementptr inbounds nuw i8, ptr %57, i64 4
@@ -530,24 +529,24 @@ define dso_local noundef range(i32 8, 5) i32 @_ZNK4llvm8codeview28DebugSubsectio
 
 7:                                                ; preds = %1
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %9 = load ptr, ptr %8, align 8, !noalias !7
+  %9 = load ptr, ptr %8, align 8, !noalias !9
   %.not.i.i.i.i.i.i = icmp eq ptr %9, null
   br i1 %.not.i.i.i.i.i.i, label %_ZNK4llvm8codeview21DebugSubsectionRecord13getRecordDataEv.exit, label %10
 
 10:                                               ; preds = %7
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %12 = load i8, ptr @__libc_single_threaded, align 1, !noalias !7
+  %12 = load i8, ptr @__libc_single_threaded, align 1, !noalias !9
   %.not.i.i.i.i.i.i.i = icmp eq i8 %12, 0
   br i1 %.not.i.i.i.i.i.i.i, label %16, label %13
 
 13:                                               ; preds = %10
-  %14 = load i32, ptr %11, align 4, !noalias !7
+  %14 = load i32, ptr %11, align 4, !noalias !9
   %15 = add nsw i32 %14, 1
-  store i32 %15, ptr %11, align 4, !noalias !7
+  store i32 %15, ptr %11, align 4, !noalias !9
   br label %_ZNK4llvm8codeview21DebugSubsectionRecord13getRecordDataEv.exit
 
 16:                                               ; preds = %10
-  %17 = atomicrmw volatile add ptr %11, i32 1 acq_rel, align 4, !noalias !7
+  %17 = atomicrmw volatile add ptr %11, i32 1 acq_rel, align 4, !noalias !9
   br label %_ZNK4llvm8codeview21DebugSubsectionRecord13getRecordDataEv.exit
 
 _ZNK4llvm8codeview21DebugSubsectionRecord13getRecordDataEv.exit: ; preds = %7, %13, %16
@@ -684,24 +683,24 @@ define dso_local void @_ZNK4llvm8codeview28DebugSubsectionRecordBuilder6commitER
   call void @llvm.assume(i1 true) [ "align"(ptr %5, i64 1) ]
   store i32 %16, ptr %5, align 4
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %18 = load ptr, ptr %17, align 8, !noalias !10
+  %18 = load ptr, ptr %17, align 8, !noalias !12
   %.not.i.i.i.i.i.i = icmp eq ptr %18, null
   br i1 %.not.i.i.i.i.i.i, label %_ZNK4llvm8codeview21DebugSubsectionRecord13getRecordDataEv.exit, label %19
 
 19:                                               ; preds = %14
   %20 = getelementptr inbounds nuw i8, ptr %18, i64 8
-  %21 = load i8, ptr @__libc_single_threaded, align 1, !noalias !10
+  %21 = load i8, ptr @__libc_single_threaded, align 1, !noalias !12
   %.not.i.i.i.i.i.i.i = icmp eq i8 %21, 0
   br i1 %.not.i.i.i.i.i.i.i, label %25, label %22
 
 22:                                               ; preds = %19
-  %23 = load i32, ptr %20, align 4, !noalias !10
+  %23 = load i32, ptr %20, align 4, !noalias !12
   %24 = add nsw i32 %23, 1
-  store i32 %24, ptr %20, align 4, !noalias !10
+  store i32 %24, ptr %20, align 4, !noalias !12
   br label %_ZNK4llvm8codeview21DebugSubsectionRecord13getRecordDataEv.exit
 
 25:                                               ; preds = %19
-  %26 = atomicrmw volatile add ptr %20, i32 1 acq_rel, align 4, !noalias !10
+  %26 = atomicrmw volatile add ptr %20, i32 1 acq_rel, align 4, !noalias !12
   br label %_ZNK4llvm8codeview21DebugSubsectionRecord13getRecordDataEv.exit
 
 _ZNK4llvm8codeview21DebugSubsectionRecord13getRecordDataEv.exit: ; preds = %14, %22, %25
@@ -834,31 +833,31 @@ _ZN4llvm5ErrorD2Ev.exit27:                        ; preds = %83
   br i1 %.not47, label %_ZN4llvm5ErrorD2Ev.exit39, label %_ZN4llvm12ErrorSuccessD2Ev.exit
 
 89:                                               ; preds = %83
-  call void @llvm.experimental.noalias.scope.decl(metadata !13)
+  call void @llvm.experimental.noalias.scope.decl(metadata !15)
   %90 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %91 = load ptr, ptr %90, align 8, !noalias !13
-  store ptr %91, ptr %6, align 8, !alias.scope !13
+  %91 = load ptr, ptr %90, align 8, !noalias !15
+  store ptr %91, ptr %6, align 8, !alias.scope !15
   %92 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %93 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %94 = load ptr, ptr %93, align 8, !noalias !13
-  store ptr %94, ptr %92, align 8, !alias.scope !13
+  %94 = load ptr, ptr %93, align 8, !noalias !15
+  store ptr %94, ptr %92, align 8, !alias.scope !15
   %.not.i.i.i.i.i.i28 = icmp eq ptr %94, null
   br i1 %.not.i.i.i.i.i.i28, label %_ZNK4llvm8codeview21DebugSubsectionRecord13getRecordDataEv.exit30, label %95
 
 95:                                               ; preds = %89
   %96 = getelementptr inbounds nuw i8, ptr %94, i64 8
-  %97 = load i8, ptr @__libc_single_threaded, align 1, !noalias !13
+  %97 = load i8, ptr @__libc_single_threaded, align 1, !noalias !15
   %.not.i.i.i.i.i.i.i29 = icmp eq i8 %97, 0
   br i1 %.not.i.i.i.i.i.i.i29, label %101, label %98
 
 98:                                               ; preds = %95
-  %99 = load i32, ptr %96, align 4, !noalias !13
+  %99 = load i32, ptr %96, align 4, !noalias !15
   %100 = add nsw i32 %99, 1
-  store i32 %100, ptr %96, align 4, !noalias !13
+  store i32 %100, ptr %96, align 4, !noalias !15
   br label %_ZNK4llvm8codeview21DebugSubsectionRecord13getRecordDataEv.exit30
 
 101:                                              ; preds = %95
-  %102 = atomicrmw volatile add ptr %96, i32 1 acq_rel, align 4, !noalias !13
+  %102 = atomicrmw volatile add ptr %96, i32 1 acq_rel, align 4, !noalias !15
   br label %_ZNK4llvm8codeview21DebugSubsectionRecord13getRecordDataEv.exit30
 
 _ZNK4llvm8codeview21DebugSubsectionRecord13getRecordDataEv.exit30: ; preds = %89, %98, %101
@@ -1084,12 +1083,14 @@ attributes #12 = { builtin nounwind }
 !4 = !{!5}
 !5 = distinct !{!5, !6, !"_ZN4llvm18BinaryStreamReader10readObjectINS_8codeview21DebugSubsectionHeaderEEENS_5ErrorERPKT_: argument 0"}
 !6 = distinct !{!6, !"_ZN4llvm18BinaryStreamReader10readObjectINS_8codeview21DebugSubsectionHeaderEEENS_5ErrorERPKT_"}
-!7 = !{!8}
-!8 = distinct !{!8, !9, !"_ZNK4llvm8codeview21DebugSubsectionRecord13getRecordDataEv: argument 0"}
-!9 = distinct !{!9, !"_ZNK4llvm8codeview21DebugSubsectionRecord13getRecordDataEv"}
-!10 = !{!11}
-!11 = distinct !{!11, !12, !"_ZNK4llvm8codeview21DebugSubsectionRecord13getRecordDataEv: argument 0"}
-!12 = distinct !{!12, !"_ZNK4llvm8codeview21DebugSubsectionRecord13getRecordDataEv"}
-!13 = !{!14}
-!14 = distinct !{!14, !15, !"_ZNK4llvm8codeview21DebugSubsectionRecord13getRecordDataEv: argument 0"}
-!15 = distinct !{!15, !"_ZNK4llvm8codeview21DebugSubsectionRecord13getRecordDataEv"}
+!7 = !{i64 1}
+!8 = !{}
+!9 = !{!10}
+!10 = distinct !{!10, !11, !"_ZNK4llvm8codeview21DebugSubsectionRecord13getRecordDataEv: argument 0"}
+!11 = distinct !{!11, !"_ZNK4llvm8codeview21DebugSubsectionRecord13getRecordDataEv"}
+!12 = !{!13}
+!13 = distinct !{!13, !14, !"_ZNK4llvm8codeview21DebugSubsectionRecord13getRecordDataEv: argument 0"}
+!14 = distinct !{!14, !"_ZNK4llvm8codeview21DebugSubsectionRecord13getRecordDataEv"}
+!15 = !{!16}
+!16 = distinct !{!16, !17, !"_ZNK4llvm8codeview21DebugSubsectionRecord13getRecordDataEv: argument 0"}
+!17 = distinct !{!17, !"_ZNK4llvm8codeview21DebugSubsectionRecord13getRecordDataEv"}

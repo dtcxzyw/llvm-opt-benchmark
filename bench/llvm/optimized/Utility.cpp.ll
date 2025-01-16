@@ -1222,7 +1222,6 @@ _ZN4llvm5ErrorD2Ev.exit24.thread50:               ; preds = %228, %_ZN4llvm7msgp
   %241 = phi ptr [ %.pre, %_ZN4llvm5ErrorD2Ev.exit24.thread50 ], [ %99, %_ZN4llvm5ErrorD2Ev.exit24.thread ]
   store ptr null, ptr %19, align 8
   %242 = load i64, ptr %92, align 8
-  call void @llvm.assume(i1 true) [ "align"(ptr %241, i64 1) ]
   %.0.copyload.i.i.i.i.i25 = load i32, ptr %241, align 1
   %243 = zext i32 %.0.copyload.i.i.i.i.i25 to i64
   %244 = sub i64 0, %242

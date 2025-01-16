@@ -114,8 +114,7 @@ define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvmlsERNS
 
 _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %11, %13
   %16 = phi ptr [ %.pre, %11 ], [ %15, %13 ]
-  %17 = load ptr, ptr %1, align 8
-  call void @llvm.assume(i1 true) [ "align"(ptr %17, i64 1) ]
+  %17 = load ptr, ptr %1, align 8, !align !4, !noundef !5
   %.0.copyload.i.i.i.i.i.i = load i32, ptr %17, align 1
   %18 = load ptr, ptr %3, align 8
   %19 = ptrtoint ptr %18 to i64
@@ -262,20 +261,19 @@ define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvmlsERNS
 
 _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %13, %15
   %.0.i.i = phi ptr [ %14, %13 ], [ %0, %15 ]
-  %18 = load ptr, ptr %1, align 8
-  call void @llvm.assume(i1 true) [ "align"(ptr %18, i64 1) ]
+  %18 = load ptr, ptr %1, align 8, !align !4, !noundef !5
   %.0.copyload.i.i.i.i.i.i = load i64, ptr %18, align 1
-  store i64 %.0.copyload.i.i.i.i.i.i, ptr %3, align 8, !alias.scope !4
+  store i64 %.0.copyload.i.i.i.i.i.i, ptr %3, align 8, !alias.scope !6
   %19 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store i64 0, ptr %19, align 8, !alias.scope !4
+  store i64 0, ptr %19, align 8, !alias.scope !6
   %20 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store i32 8, ptr %20, align 8, !alias.scope !4
+  store i32 8, ptr %20, align 8, !alias.scope !6
   %21 = getelementptr inbounds nuw i8, ptr %3, i64 20
-  store i8 1, ptr %21, align 4, !alias.scope !4
+  store i8 1, ptr %21, align 4, !alias.scope !6
   %22 = getelementptr inbounds nuw i8, ptr %3, i64 21
-  store i8 0, ptr %22, align 1, !alias.scope !4
+  store i8 0, ptr %22, align 1, !alias.scope !6
   %23 = getelementptr inbounds nuw i8, ptr %3, i64 22
-  store i8 1, ptr %23, align 2, !alias.scope !4
+  store i8 1, ptr %23, align 2, !alias.scope !6
   %24 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsERKNS_15FormattedNumberE(ptr noundef nonnull align 8 dereferenceable(48) %.0.i.i, ptr noundef nonnull align 8 dereferenceable(23) %3) #5
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 24
   %26 = load ptr, ptr %25, align 8
@@ -367,7 +365,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit16:               ; preds = %47, %49
 _ZN4llvm11raw_ostreamlsEPKc.exit20:               ; preds = %67, %69
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.not = icmp eq i64 %indvars.iv.next, %56
-  br i1 %.not, label %._crit_edge, label %57, !llvm.loop !7
+  br i1 %.not, label %._crit_edge, label %57, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit20, %_ZN4llvm11raw_ostreamlsEPKc.exit16
   ret ptr %0
@@ -402,21 +400,20 @@ define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvmlsERNS
 
 _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %13, %15
   %.0.i.i = phi ptr [ %14, %13 ], [ %0, %15 ]
-  %18 = load ptr, ptr %1, align 8
-  call void @llvm.assume(i1 true) [ "align"(ptr %18, i64 1) ]
+  %18 = load ptr, ptr %1, align 8, !align !4, !noundef !5
   %.0.copyload.i.i.i.i.i.i = load i8, ptr %18, align 1
   %19 = zext i8 %.0.copyload.i.i.i.i.i.i to i64
-  store i64 %19, ptr %3, align 8, !alias.scope !9
+  store i64 %19, ptr %3, align 8, !alias.scope !11
   %20 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store i64 0, ptr %20, align 8, !alias.scope !9
+  store i64 0, ptr %20, align 8, !alias.scope !11
   %21 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store i32 2, ptr %21, align 8, !alias.scope !9
+  store i32 2, ptr %21, align 8, !alias.scope !11
   %22 = getelementptr inbounds nuw i8, ptr %3, i64 20
-  store i8 1, ptr %22, align 4, !alias.scope !9
+  store i8 1, ptr %22, align 4, !alias.scope !11
   %23 = getelementptr inbounds nuw i8, ptr %3, i64 21
-  store i8 0, ptr %23, align 1, !alias.scope !9
+  store i8 0, ptr %23, align 1, !alias.scope !11
   %24 = getelementptr inbounds nuw i8, ptr %3, i64 22
-  store i8 1, ptr %24, align 2, !alias.scope !9
+  store i8 1, ptr %24, align 2, !alias.scope !11
   %25 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsERKNS_15FormattedNumberE(ptr noundef nonnull align 8 dereferenceable(48) %.0.i.i, ptr noundef nonnull align 8 dereferenceable(23) %3) #5
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 24
   %27 = load ptr, ptr %26, align 8
@@ -528,7 +525,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit25:               ; preds = %56, %58
   %81 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvmlsERNS_11raw_ostreamERKNS_14FaultMapParser20FunctionInfoAccessorE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(16) %4)
   %82 = add nuw i32 %.01433, 1
   %.not = icmp eq i32 %82, %.0.copyload.i.i.i.i.i.i26
-  br i1 %.not, label %.loopexit, label %66, !llvm.loop !12
+  br i1 %.not, label %.loopexit, label %66, !llvm.loop !14
 
 .loopexit:                                        ; preds = %80, %_ZN4llvm11raw_ostreamlsEPKc.exit25
   ret ptr %0
@@ -560,12 +557,14 @@ attributes #5 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{!5}
-!5 = distinct !{!5, !6, !"_ZN4llvm10format_hexEmjb: argument 0"}
-!6 = distinct !{!6, !"_ZN4llvm10format_hexEmjb"}
-!7 = distinct !{!7, !8}
-!8 = !{!"llvm.loop.mustprogress"}
-!9 = !{!10}
-!10 = distinct !{!10, !11, !"_ZN4llvm10format_hexEmjb: argument 0"}
-!11 = distinct !{!11, !"_ZN4llvm10format_hexEmjb"}
-!12 = distinct !{!12, !8}
+!4 = !{i64 1}
+!5 = !{}
+!6 = !{!7}
+!7 = distinct !{!7, !8, !"_ZN4llvm10format_hexEmjb: argument 0"}
+!8 = distinct !{!8, !"_ZN4llvm10format_hexEmjb"}
+!9 = distinct !{!9, !10}
+!10 = !{!"llvm.loop.mustprogress"}
+!11 = !{!12}
+!12 = distinct !{!12, !13, !"_ZN4llvm10format_hexEmjb: argument 0"}
+!13 = distinct !{!13, !"_ZN4llvm10format_hexEmjb"}
+!14 = distinct !{!14, !10}
