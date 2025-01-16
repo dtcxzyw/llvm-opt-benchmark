@@ -27968,7 +27968,7 @@ define internal fastcc void @"_ZN4gpui8elements3div13Interactivity8prepaint28_$u
   %263 = icmp eq i64 %262, 2
   %..i = select i1 %263, ptr null, ptr %261
   call void @llvm.experimental.noalias.scope.decl(metadata !6577)
-  %.val.i = load i64, ptr %241, align 8, !noalias !6520
+  %.val.i = load i64, ptr %241, align 8, !range !291, !noalias !6520
   %264 = select i1 %263, i64 %.val.i, i64 %262
   %trunc.i131.i = trunc nuw i64 %264 to i1
   %.sroa.gep.i = getelementptr inbounds nuw i8, ptr %89, i64 56
@@ -28023,7 +28023,7 @@ define internal fastcc void @"_ZN4gpui8elements3div13Interactivity8prepaint28_$u
   %285 = load ptr, ptr %284, align 8, !noalias !6576, !noundef !4
   %286 = icmp eq ptr %285, null
   %287 = getelementptr inbounds nuw i8, ptr %89, i64 72
-  %.val124.i = load ptr, ptr %287, align 8, !noalias !6520
+  %.val124.i = load ptr, ptr %287, align 8, !noalias !6520, !nonnull !4
   %288 = select i1 %286, ptr %.val124.i, ptr %285
   %289 = atomicrmw add ptr %288, i64 1 monotonic, align 8, !noalias !6576
   %290 = icmp slt i64 %289, 0

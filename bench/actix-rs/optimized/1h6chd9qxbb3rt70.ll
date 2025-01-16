@@ -1581,7 +1581,7 @@ define hidden { ptr, i64 } @_ZN4mime6Source6as_ref17h1833a194db9ffc96E.llvm.1470
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val = load ptr, ptr %3, align 8
-  %.val4 = load ptr, ptr %5, align 8
+  %.val4 = load ptr, ptr %5, align 8, !nonnull !57
   %.sroa.0.0 = select i1 %trunc, ptr %.val, ptr %.val4
   %.val5 = load i64, ptr %4, align 8
   %.val6.cast = ptrtoint ptr %.val to i64
@@ -1630,7 +1630,7 @@ define hidden noundef zeroext i1 @"_ZN51_$LT$mime..Mime$u20$as$u20$core..cmp..Pa
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %.val.i = load ptr, ptr %16, align 8, !alias.scope !215
-  %.val4.i = load ptr, ptr %18, align 8, !alias.scope !215
+  %.val4.i = load ptr, ptr %18, align 8, !alias.scope !215, !nonnull !57
   %.sroa.0.0.i = select i1 %trunc.i, ptr %.val.i, ptr %.val4.i
   %.val5.i = load i64, ptr %17, align 8, !alias.scope !215
   %.val6.cast.i = ptrtoint ptr %.val.i to i64

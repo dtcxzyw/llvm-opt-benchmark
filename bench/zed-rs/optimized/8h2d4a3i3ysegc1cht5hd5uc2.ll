@@ -17007,7 +17007,7 @@ _ZN4core10intrinsics10typed_swap17hade6717b87287fabE.exit: ; preds = %208
   %235 = icmp eq i64 %.sroa.428.0.copyload, 2
   call void @llvm.experimental.noalias.scope.decl(metadata !5037)
   call void @llvm.experimental.noalias.scope.decl(metadata !5040)
-  %.val = load i64, ptr %13, align 16
+  %.val = load i64, ptr %13, align 16, !range !42
   %236 = select i1 %235, i64 %.val, i64 %.sroa.428.0.copyload
   %.sroa.gep.val = load i64, ptr %.sroa.gep, align 8
   %.sroa.7.0..sroa_idx7.val = load i64, ptr %.sroa.7.0..sroa_idx7, align 16

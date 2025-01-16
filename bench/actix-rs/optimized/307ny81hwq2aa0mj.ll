@@ -216,7 +216,7 @@ define internal noundef zeroext i1 @"_ZN49_$LT$mime..Mime$u20$as$u20$core..fmt..
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %.val.i = load ptr, ptr %5, align 8, !alias.scope !51
-  %.val4.i = load ptr, ptr %7, align 8, !alias.scope !51
+  %.val4.i = load ptr, ptr %7, align 8, !alias.scope !51, !nonnull !4
   %.sroa.0.0.i = select i1 %trunc.i, ptr %.val.i, ptr %.val4.i
   %.val5.i = load i64, ptr %6, align 8, !alias.scope !51
   %.val6.cast.i = ptrtoint ptr %.val.i to i64

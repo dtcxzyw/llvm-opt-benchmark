@@ -63107,8 +63107,8 @@ _ZN6hir_ty5infer11Expectation8has_type17h7eed294925db75d7E.exit.i: ; preds = %.n
 
 332:                                              ; preds = %351, %331
   %.48.i = zext i1 %.not30.not.i to i8
-  %.val = load ptr, ptr %32, align 8
-  %.val163 = load ptr, ptr %34, align 8
+  %.val = load ptr, ptr %32, align 8, !nonnull !9
+  %.val163 = load ptr, ptr %34, align 8, !nonnull !9
   %storemerge31.i = select i1 %.not30.not.i, ptr %.val, ptr %.val163
   store ptr %storemerge31.i, ptr %33, align 8, !noalias !14769
   br i1 %.not30.not.i, label %"_ZN4core3ptr67drop_in_place$LT$chalk_ir..Ty$LT$hir_ty..interner..Interner$GT$$GT$17h2660f916a752af1fE.exit104.i", label %352

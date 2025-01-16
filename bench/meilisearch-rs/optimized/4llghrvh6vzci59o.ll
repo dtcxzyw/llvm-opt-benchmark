@@ -50169,7 +50169,7 @@ define hidden void @"_ZN70_$LT$T$u20$as$u20$actix_http..header..into_pair..TryIn
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 72
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 56
   %.val.i.i = load ptr, ptr %8, align 8, !alias.scope !9830, !noalias !9833
-  %.val2.i.i = load ptr, ptr %10, align 8, !alias.scope !9830, !noalias !9833
+  %.val2.i.i = load ptr, ptr %10, align 8, !alias.scope !9830, !noalias !9833, !nonnull !11
   %.sroa.0.0.i.i = select i1 %trunc.i.i, ptr %.val.i.i, ptr %.val2.i.i
   %.val3.i.i = load i64, ptr %9, align 8, !alias.scope !9830, !noalias !9833
   %.val4.cast.i.i = ptrtoint ptr %.val.i.i to i64

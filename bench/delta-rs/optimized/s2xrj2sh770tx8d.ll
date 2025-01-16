@@ -118083,8 +118083,8 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h7a0280ef360f84c5E.llvm.18123
   %.not.i29.i = icmp ugt i64 %585, %587
   %.40.i = call i64 @llvm.umin.i64(i64 %585, i64 %587)
   %.41.i = select i1 %.not.i29.i, ptr %13, ptr %12
-  %.val = load ptr, ptr %12, align 8
-  %.val182 = load ptr, ptr %13, align 8
+  %.val = load ptr, ptr %12, align 8, !nonnull !4
+  %.val182 = load ptr, ptr %13, align 8, !nonnull !4
   %588 = select i1 %.not.i29.i, ptr %.val, ptr %.val182
   %.sroa.gep = getelementptr inbounds nuw i8, ptr %12, i64 8
   %.sroa.gep142 = getelementptr inbounds nuw i8, ptr %13, i64 8

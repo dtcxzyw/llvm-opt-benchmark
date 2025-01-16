@@ -228,21 +228,21 @@ define hidden noundef zeroext i1 @_ZN12tracing_core10dispatcher11get_default17h5
   %6 = load atomic i64, ptr @_ZN12tracing_core10dispatcher11GLOBAL_INIT17hb914f6f7e701de86E seq_cst, align 8
   %.not = icmp eq i64 %6, 2
   %7 = load ptr, ptr %0, align 8, !noalias !26, !nonnull !9, !align !30, !noundef !9
-  %_ZN12tracing_core10dispatcher15GLOBAL_DISPATCH17h082e3eb9ba9ce8f8E.val = load i64, ptr @_ZN12tracing_core10dispatcher15GLOBAL_DISPATCH17h082e3eb9ba9ce8f8E, align 8
-  %_ZN12tracing_core10dispatcher4NONE17hfa4523394a8fbeb0E.val = load i64, ptr @_ZN12tracing_core10dispatcher4NONE17hfa4523394a8fbeb0E, align 8
+  %_ZN12tracing_core10dispatcher15GLOBAL_DISPATCH17h082e3eb9ba9ce8f8E.val = load i64, ptr @_ZN12tracing_core10dispatcher15GLOBAL_DISPATCH17h082e3eb9ba9ce8f8E, align 8, !range !31
+  %_ZN12tracing_core10dispatcher4NONE17hfa4523394a8fbeb0E.val = load i64, ptr @_ZN12tracing_core10dispatcher4NONE17hfa4523394a8fbeb0E, align 8, !range !31
   %8 = select i1 %.not, i64 %_ZN12tracing_core10dispatcher15GLOBAL_DISPATCH17h082e3eb9ba9ce8f8E.val, i64 %_ZN12tracing_core10dispatcher4NONE17hfa4523394a8fbeb0E.val
   %trunc.i = trunc nuw i64 %8 to i1
-  %.val = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN12tracing_core10dispatcher15GLOBAL_DISPATCH17h082e3eb9ba9ce8f8E, i64 8), align 8
-  %.val15 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN12tracing_core10dispatcher4NONE17hfa4523394a8fbeb0E, i64 8), align 8
+  %.val = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN12tracing_core10dispatcher15GLOBAL_DISPATCH17h082e3eb9ba9ce8f8E, i64 8), align 8, !nonnull !9
+  %.val15 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN12tracing_core10dispatcher4NONE17hfa4523394a8fbeb0E, i64 8), align 8, !nonnull !9
   %9 = select i1 %.not, ptr %.val, ptr %.val15
-  %.val16 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN12tracing_core10dispatcher15GLOBAL_DISPATCH17h082e3eb9ba9ce8f8E, i64 16), align 8
-  %.val17 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN12tracing_core10dispatcher4NONE17hfa4523394a8fbeb0E, i64 16), align 8
+  %.val16 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN12tracing_core10dispatcher15GLOBAL_DISPATCH17h082e3eb9ba9ce8f8E, i64 16), align 8, !nonnull !9, !align !30
+  %.val17 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN12tracing_core10dispatcher4NONE17hfa4523394a8fbeb0E, i64 16), align 8, !nonnull !9, !align !30
   %10 = select i1 %.not, ptr %.val16, ptr %.val17
   br i1 %trunc.i, label %11, label %"_ZN13project_model13build_scripts21WorkspaceBuildScripts10run_per_ws28_$u7b$$u7b$closure$u7d$$u7d$17h522fe1ebe820c74aE.llvm.2850111032254419090.exit"
 
 11:                                               ; preds = %5
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  %13 = load i64, ptr %12, align 8, !range !31, !invariant.load !9, !noalias !26
+  %13 = load i64, ptr %12, align 8, !range !32, !invariant.load !9, !noalias !26
   %14 = add i64 %13, -1
   %15 = and i64 %14, -16
   %16 = getelementptr i8, ptr %9, i64 %15
@@ -259,7 +259,7 @@ define hidden noundef zeroext i1 @_ZN12tracing_core10dispatcher11get_default17h5
   br label %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17haef207f0b1b87767E.llvm.2850111032254419090.exit"
 
 22:                                               ; preds = %1
-  %23 = load i64, ptr @_ZN12tracing_core10dispatcher13CURRENT_STATE7__getit5__KEY17hca8d0b5163f27ca8E, align 8, !range !32, !noalias !33, !noundef !9
+  %23 = load i64, ptr @_ZN12tracing_core10dispatcher13CURRENT_STATE7__getit5__KEY17hca8d0b5163f27ca8E, align 8, !range !31, !noalias !33, !noundef !9
   %trunc.i.i = trunc nuw i64 %23 to i1
   br i1 %trunc.i.i, label %37, label %24
 
@@ -286,7 +286,7 @@ default.unreachable:                              ; preds = %24
   store i64 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN12tracing_core10dispatcher13CURRENT_STATE7__getit5__KEY17hca8d0b5163f27ca8E, i64 8), align 8, !noalias !45
   store i64 2, ptr getelementptr inbounds nuw (i8, ptr @_ZN12tracing_core10dispatcher13CURRENT_STATE7__getit5__KEY17hca8d0b5163f27ca8E, i64 16), align 8, !noalias !45
   store i8 1, ptr getelementptr inbounds nuw (i8, ptr @_ZN12tracing_core10dispatcher13CURRENT_STATE7__getit5__KEY17hca8d0b5163f27ca8E, i64 40), align 8, !noalias !45
-  %28 = load i64, ptr %2, align 8, !range !32, !alias.scope !48, !noalias !45, !noundef !9
+  %28 = load i64, ptr %2, align 8, !range !31, !alias.scope !48, !noalias !45, !noundef !9
   %29 = icmp eq i64 %28, 0
   br i1 %29, label %"_ZN3std3sys3pal6common12thread_local4lazy21LazyKeyInner$LT$T$GT$10initialize17hbb99bafc19b8f7a5E.exit.i.i.i", label %30
 
@@ -301,7 +301,7 @@ default.unreachable:                              ; preds = %24
 33:                                               ; preds = %30
   %34 = getelementptr inbounds nuw i8, ptr %2, i64 24
   call void @"_ZN71_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h61423ac85d8fc56fE.llvm.9627074818807256315"(ptr noalias noundef nonnull align 8 dereferenceable(16) %34), !noalias !45
-  %.pre.i.i.i.i = load i64, ptr @_ZN12tracing_core10dispatcher13CURRENT_STATE7__getit5__KEY17hca8d0b5163f27ca8E, align 8, !range !32, !noalias !45
+  %.pre.i.i.i.i = load i64, ptr @_ZN12tracing_core10dispatcher13CURRENT_STATE7__getit5__KEY17hca8d0b5163f27ca8E, align 8, !range !31, !noalias !45
   %35 = icmp ne i64 %.pre.i.i.i.i, 0
   br label %"_ZN3std3sys3pal6common12thread_local4lazy21LazyKeyInner$LT$T$GT$10initialize17hbb99bafc19b8f7a5E.exit.i.i.i"
 
@@ -334,7 +334,7 @@ default.unreachable:                              ; preds = %24
   %48 = load atomic i64, ptr @_ZN12tracing_core10dispatcher11GLOBAL_INIT17hb914f6f7e701de86E seq_cst, align 8, !noalias !66
   %.not.i.i.i.i.i = icmp eq i64 %48, 2
   %_ZN12tracing_core10dispatcher15GLOBAL_DISPATCH17h082e3eb9ba9ce8f8E._ZN12tracing_core10dispatcher4NONE17hfa4523394a8fbeb0E.i.i.i.i.i = select i1 %.not.i.i.i.i.i, ptr @_ZN12tracing_core10dispatcher15GLOBAL_DISPATCH17h082e3eb9ba9ce8f8E, ptr @_ZN12tracing_core10dispatcher4NONE17hfa4523394a8fbeb0E
-  %.pre.i.i = load i64, ptr %_ZN12tracing_core10dispatcher15GLOBAL_DISPATCH17h082e3eb9ba9ce8f8E._ZN12tracing_core10dispatcher4NONE17hfa4523394a8fbeb0E.i.i.i.i.i, align 8, !range !32, !alias.scope !67, !noalias !70
+  %.pre.i.i = load i64, ptr %_ZN12tracing_core10dispatcher15GLOBAL_DISPATCH17h082e3eb9ba9ce8f8E._ZN12tracing_core10dispatcher4NONE17hfa4523394a8fbeb0E.i.i.i.i.i, align 8, !range !31, !alias.scope !67, !noalias !70
   br label %67
 
 49:                                               ; preds = %40
@@ -347,7 +347,7 @@ default.unreachable:                              ; preds = %24
 "_ZN4core3ptr82drop_in_place$LT$core..option..Option$LT$tracing_core..dispatcher..Entered$GT$$GT$17hbe63b50b0dcbf7d8E.exit.i.i": ; preds = %37
   call void @llvm.experimental.noalias.scope.decl(metadata !72)
   %50 = load ptr, ptr %0, align 8, !noalias !75, !nonnull !9, !align !30, !noundef !9
-  %51 = load i64, ptr @_ZN12tracing_core10dispatcher4NONE17hfa4523394a8fbeb0E, align 8, !range !32, !alias.scope !72, !noalias !77, !noundef !9
+  %51 = load i64, ptr @_ZN12tracing_core10dispatcher4NONE17hfa4523394a8fbeb0E, align 8, !range !31, !alias.scope !72, !noalias !77, !noundef !9
   %trunc.i.i.i = trunc nuw i64 %51 to i1
   %52 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN12tracing_core10dispatcher4NONE17hfa4523394a8fbeb0E, i64 8), align 8, !alias.scope !72, !noalias !77, !nonnull !9, !noundef !9
   %53 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN12tracing_core10dispatcher4NONE17hfa4523394a8fbeb0E, i64 16), align 8, !alias.scope !72, !noalias !77, !nonnull !9, !align !30, !noundef !9
@@ -355,7 +355,7 @@ default.unreachable:                              ; preds = %24
 
 54:                                               ; preds = %"_ZN4core3ptr82drop_in_place$LT$core..option..Option$LT$tracing_core..dispatcher..Entered$GT$$GT$17hbe63b50b0dcbf7d8E.exit.i.i"
   %55 = getelementptr inbounds nuw i8, ptr %53, i64 16
-  %56 = load i64, ptr %55, align 8, !range !31, !invariant.load !9, !noalias !75
+  %56 = load i64, ptr %55, align 8, !range !32, !invariant.load !9, !noalias !75
   %57 = add i64 %56, -1
   %58 = and i64 %57, -16
   %59 = getelementptr i8, ptr %52, i64 %58
@@ -390,7 +390,7 @@ default.unreachable:                              ; preds = %24
 
 74:                                               ; preds = %67
   %75 = getelementptr inbounds nuw i8, ptr %73, i64 16
-  %76 = load i64, ptr %75, align 8, !range !31, !invariant.load !9, !noalias !78
+  %76 = load i64, ptr %75, align 8, !range !32, !invariant.load !9, !noalias !78
   %77 = add i64 %76, -1
   %78 = and i64 %77, -16
   %79 = getelementptr i8, ptr %71, i64 %78
@@ -433,7 +433,7 @@ default.unreachable:                              ; preds = %24
 "_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17haef207f0b1b87767E.llvm.2850111032254419090.exit.thread": ; preds = %24
   tail call void @llvm.experimental.noalias.scope.decl(metadata !93)
   %94 = load ptr, ptr %0, align 8, !noalias !96, !nonnull !9, !align !30, !noundef !9
-  %95 = load i64, ptr @_ZN12tracing_core10dispatcher4NONE17hfa4523394a8fbeb0E, align 8, !range !32, !alias.scope !93, !noalias !98, !noundef !9
+  %95 = load i64, ptr @_ZN12tracing_core10dispatcher4NONE17hfa4523394a8fbeb0E, align 8, !range !31, !alias.scope !93, !noalias !98, !noundef !9
   %trunc.i8 = trunc nuw i64 %95 to i1
   %96 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN12tracing_core10dispatcher4NONE17hfa4523394a8fbeb0E, i64 8), align 8, !alias.scope !93, !noalias !98, !nonnull !9, !noundef !9
   %97 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN12tracing_core10dispatcher4NONE17hfa4523394a8fbeb0E, i64 16), align 8, !alias.scope !93, !noalias !98, !nonnull !9, !align !30, !noundef !9
@@ -441,7 +441,7 @@ default.unreachable:                              ; preds = %24
 
 98:                                               ; preds = %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17haef207f0b1b87767E.llvm.2850111032254419090.exit.thread"
   %99 = getelementptr inbounds nuw i8, ptr %97, i64 16
-  %100 = load i64, ptr %99, align 8, !range !31, !invariant.load !9, !noalias !96
+  %100 = load i64, ptr %99, align 8, !range !32, !invariant.load !9, !noalias !96
   %101 = add i64 %100, -1
   %102 = and i64 %101, -16
   %103 = getelementptr i8, ptr %96, i64 %102
@@ -469,21 +469,21 @@ define hidden noundef zeroext i1 @_ZN12tracing_core10dispatcher11get_default17h6
   %6 = load atomic i64, ptr @_ZN12tracing_core10dispatcher11GLOBAL_INIT17hb914f6f7e701de86E seq_cst, align 8
   %.not = icmp eq i64 %6, 2
   %7 = load ptr, ptr %0, align 8, !noalias !99, !nonnull !9, !align !30, !noundef !9
-  %_ZN12tracing_core10dispatcher15GLOBAL_DISPATCH17h082e3eb9ba9ce8f8E.val = load i64, ptr @_ZN12tracing_core10dispatcher15GLOBAL_DISPATCH17h082e3eb9ba9ce8f8E, align 8
-  %_ZN12tracing_core10dispatcher4NONE17hfa4523394a8fbeb0E.val = load i64, ptr @_ZN12tracing_core10dispatcher4NONE17hfa4523394a8fbeb0E, align 8
+  %_ZN12tracing_core10dispatcher15GLOBAL_DISPATCH17h082e3eb9ba9ce8f8E.val = load i64, ptr @_ZN12tracing_core10dispatcher15GLOBAL_DISPATCH17h082e3eb9ba9ce8f8E, align 8, !range !31
+  %_ZN12tracing_core10dispatcher4NONE17hfa4523394a8fbeb0E.val = load i64, ptr @_ZN12tracing_core10dispatcher4NONE17hfa4523394a8fbeb0E, align 8, !range !31
   %8 = select i1 %.not, i64 %_ZN12tracing_core10dispatcher15GLOBAL_DISPATCH17h082e3eb9ba9ce8f8E.val, i64 %_ZN12tracing_core10dispatcher4NONE17hfa4523394a8fbeb0E.val
   %trunc.i = trunc nuw i64 %8 to i1
-  %.val = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN12tracing_core10dispatcher15GLOBAL_DISPATCH17h082e3eb9ba9ce8f8E, i64 8), align 8
-  %.val15 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN12tracing_core10dispatcher4NONE17hfa4523394a8fbeb0E, i64 8), align 8
+  %.val = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN12tracing_core10dispatcher15GLOBAL_DISPATCH17h082e3eb9ba9ce8f8E, i64 8), align 8, !nonnull !9
+  %.val15 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN12tracing_core10dispatcher4NONE17hfa4523394a8fbeb0E, i64 8), align 8, !nonnull !9
   %9 = select i1 %.not, ptr %.val, ptr %.val15
-  %.val16 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN12tracing_core10dispatcher15GLOBAL_DISPATCH17h082e3eb9ba9ce8f8E, i64 16), align 8
-  %.val17 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN12tracing_core10dispatcher4NONE17hfa4523394a8fbeb0E, i64 16), align 8
+  %.val16 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN12tracing_core10dispatcher15GLOBAL_DISPATCH17h082e3eb9ba9ce8f8E, i64 16), align 8, !nonnull !9, !align !30
+  %.val17 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN12tracing_core10dispatcher4NONE17hfa4523394a8fbeb0E, i64 16), align 8, !nonnull !9, !align !30
   %10 = select i1 %.not, ptr %.val16, ptr %.val17
   br i1 %trunc.i, label %11, label %"_ZN13project_model13build_scripts21WorkspaceBuildScripts8run_once28_$u7b$$u7b$closure$u7d$$u7d$17h2817eec7649dae27E.llvm.2850111032254419090.exit"
 
 11:                                               ; preds = %5
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  %13 = load i64, ptr %12, align 8, !range !31, !invariant.load !9, !noalias !99
+  %13 = load i64, ptr %12, align 8, !range !32, !invariant.load !9, !noalias !99
   %14 = add i64 %13, -1
   %15 = and i64 %14, -16
   %16 = getelementptr i8, ptr %9, i64 %15
@@ -500,7 +500,7 @@ define hidden noundef zeroext i1 @_ZN12tracing_core10dispatcher11get_default17h6
   br label %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h236eb11f679f070bE.llvm.2850111032254419090.exit"
 
 22:                                               ; preds = %1
-  %23 = load i64, ptr @_ZN12tracing_core10dispatcher13CURRENT_STATE7__getit5__KEY17hca8d0b5163f27ca8E, align 8, !range !32, !noalias !103, !noundef !9
+  %23 = load i64, ptr @_ZN12tracing_core10dispatcher13CURRENT_STATE7__getit5__KEY17hca8d0b5163f27ca8E, align 8, !range !31, !noalias !103, !noundef !9
   %trunc.i.i = trunc nuw i64 %23 to i1
   br i1 %trunc.i.i, label %37, label %24
 
@@ -527,7 +527,7 @@ default.unreachable:                              ; preds = %24
   store i64 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN12tracing_core10dispatcher13CURRENT_STATE7__getit5__KEY17hca8d0b5163f27ca8E, i64 8), align 8, !noalias !114
   store i64 2, ptr getelementptr inbounds nuw (i8, ptr @_ZN12tracing_core10dispatcher13CURRENT_STATE7__getit5__KEY17hca8d0b5163f27ca8E, i64 16), align 8, !noalias !114
   store i8 1, ptr getelementptr inbounds nuw (i8, ptr @_ZN12tracing_core10dispatcher13CURRENT_STATE7__getit5__KEY17hca8d0b5163f27ca8E, i64 40), align 8, !noalias !114
-  %28 = load i64, ptr %2, align 8, !range !32, !alias.scope !117, !noalias !114, !noundef !9
+  %28 = load i64, ptr %2, align 8, !range !31, !alias.scope !117, !noalias !114, !noundef !9
   %29 = icmp eq i64 %28, 0
   br i1 %29, label %"_ZN3std3sys3pal6common12thread_local4lazy21LazyKeyInner$LT$T$GT$10initialize17hbb99bafc19b8f7a5E.exit.i.i.i", label %30
 
@@ -542,7 +542,7 @@ default.unreachable:                              ; preds = %24
 33:                                               ; preds = %30
   %34 = getelementptr inbounds nuw i8, ptr %2, i64 24
   call void @"_ZN71_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h61423ac85d8fc56fE.llvm.9627074818807256315"(ptr noalias noundef nonnull align 8 dereferenceable(16) %34), !noalias !114
-  %.pre.i.i.i.i = load i64, ptr @_ZN12tracing_core10dispatcher13CURRENT_STATE7__getit5__KEY17hca8d0b5163f27ca8E, align 8, !range !32, !noalias !114
+  %.pre.i.i.i.i = load i64, ptr @_ZN12tracing_core10dispatcher13CURRENT_STATE7__getit5__KEY17hca8d0b5163f27ca8E, align 8, !range !31, !noalias !114
   %35 = icmp ne i64 %.pre.i.i.i.i, 0
   br label %"_ZN3std3sys3pal6common12thread_local4lazy21LazyKeyInner$LT$T$GT$10initialize17hbb99bafc19b8f7a5E.exit.i.i.i"
 
@@ -575,7 +575,7 @@ default.unreachable:                              ; preds = %24
   %48 = load atomic i64, ptr @_ZN12tracing_core10dispatcher11GLOBAL_INIT17hb914f6f7e701de86E seq_cst, align 8, !noalias !133
   %.not.i.i.i.i.i = icmp eq i64 %48, 2
   %_ZN12tracing_core10dispatcher15GLOBAL_DISPATCH17h082e3eb9ba9ce8f8E._ZN12tracing_core10dispatcher4NONE17hfa4523394a8fbeb0E.i.i.i.i.i = select i1 %.not.i.i.i.i.i, ptr @_ZN12tracing_core10dispatcher15GLOBAL_DISPATCH17h082e3eb9ba9ce8f8E, ptr @_ZN12tracing_core10dispatcher4NONE17hfa4523394a8fbeb0E
-  %.pre.i.i = load i64, ptr %_ZN12tracing_core10dispatcher15GLOBAL_DISPATCH17h082e3eb9ba9ce8f8E._ZN12tracing_core10dispatcher4NONE17hfa4523394a8fbeb0E.i.i.i.i.i, align 8, !range !32, !alias.scope !134, !noalias !137
+  %.pre.i.i = load i64, ptr %_ZN12tracing_core10dispatcher15GLOBAL_DISPATCH17h082e3eb9ba9ce8f8E._ZN12tracing_core10dispatcher4NONE17hfa4523394a8fbeb0E.i.i.i.i.i, align 8, !range !31, !alias.scope !134, !noalias !137
   br label %67
 
 49:                                               ; preds = %40
@@ -588,7 +588,7 @@ default.unreachable:                              ; preds = %24
 "_ZN4core3ptr82drop_in_place$LT$core..option..Option$LT$tracing_core..dispatcher..Entered$GT$$GT$17hbe63b50b0dcbf7d8E.exit.i.i": ; preds = %37
   call void @llvm.experimental.noalias.scope.decl(metadata !139)
   %50 = load ptr, ptr %0, align 8, !noalias !142, !nonnull !9, !align !30, !noundef !9
-  %51 = load i64, ptr @_ZN12tracing_core10dispatcher4NONE17hfa4523394a8fbeb0E, align 8, !range !32, !alias.scope !139, !noalias !144, !noundef !9
+  %51 = load i64, ptr @_ZN12tracing_core10dispatcher4NONE17hfa4523394a8fbeb0E, align 8, !range !31, !alias.scope !139, !noalias !144, !noundef !9
   %trunc.i.i.i = trunc nuw i64 %51 to i1
   %52 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN12tracing_core10dispatcher4NONE17hfa4523394a8fbeb0E, i64 8), align 8, !alias.scope !139, !noalias !144, !nonnull !9, !noundef !9
   %53 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN12tracing_core10dispatcher4NONE17hfa4523394a8fbeb0E, i64 16), align 8, !alias.scope !139, !noalias !144, !nonnull !9, !align !30, !noundef !9
@@ -596,7 +596,7 @@ default.unreachable:                              ; preds = %24
 
 54:                                               ; preds = %"_ZN4core3ptr82drop_in_place$LT$core..option..Option$LT$tracing_core..dispatcher..Entered$GT$$GT$17hbe63b50b0dcbf7d8E.exit.i.i"
   %55 = getelementptr inbounds nuw i8, ptr %53, i64 16
-  %56 = load i64, ptr %55, align 8, !range !31, !invariant.load !9, !noalias !142
+  %56 = load i64, ptr %55, align 8, !range !32, !invariant.load !9, !noalias !142
   %57 = add i64 %56, -1
   %58 = and i64 %57, -16
   %59 = getelementptr i8, ptr %52, i64 %58
@@ -631,7 +631,7 @@ default.unreachable:                              ; preds = %24
 
 74:                                               ; preds = %67
   %75 = getelementptr inbounds nuw i8, ptr %73, i64 16
-  %76 = load i64, ptr %75, align 8, !range !31, !invariant.load !9, !noalias !145
+  %76 = load i64, ptr %75, align 8, !range !32, !invariant.load !9, !noalias !145
   %77 = add i64 %76, -1
   %78 = and i64 %77, -16
   %79 = getelementptr i8, ptr %71, i64 %78
@@ -674,7 +674,7 @@ default.unreachable:                              ; preds = %24
 "_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h236eb11f679f070bE.llvm.2850111032254419090.exit.thread": ; preds = %24
   tail call void @llvm.experimental.noalias.scope.decl(metadata !160)
   %94 = load ptr, ptr %0, align 8, !noalias !163, !nonnull !9, !align !30, !noundef !9
-  %95 = load i64, ptr @_ZN12tracing_core10dispatcher4NONE17hfa4523394a8fbeb0E, align 8, !range !32, !alias.scope !160, !noalias !165, !noundef !9
+  %95 = load i64, ptr @_ZN12tracing_core10dispatcher4NONE17hfa4523394a8fbeb0E, align 8, !range !31, !alias.scope !160, !noalias !165, !noundef !9
   %trunc.i8 = trunc nuw i64 %95 to i1
   %96 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN12tracing_core10dispatcher4NONE17hfa4523394a8fbeb0E, i64 8), align 8, !alias.scope !160, !noalias !165, !nonnull !9, !noundef !9
   %97 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN12tracing_core10dispatcher4NONE17hfa4523394a8fbeb0E, i64 16), align 8, !alias.scope !160, !noalias !165, !nonnull !9, !align !30, !noundef !9
@@ -682,7 +682,7 @@ default.unreachable:                              ; preds = %24
 
 98:                                               ; preds = %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h236eb11f679f070bE.llvm.2850111032254419090.exit.thread"
   %99 = getelementptr inbounds nuw i8, ptr %97, i64 16
-  %100 = load i64, ptr %99, align 8, !range !31, !invariant.load !9, !noalias !163
+  %100 = load i64, ptr %99, align 8, !range !32, !invariant.load !9, !noalias !163
   %101 = add i64 %100, -1
   %102 = and i64 %101, -16
   %103 = getelementptr i8, ptr %96, i64 %102
@@ -710,21 +710,21 @@ define hidden noundef zeroext i1 @_ZN12tracing_core10dispatcher11get_default17h7
   %6 = load atomic i64, ptr @_ZN12tracing_core10dispatcher11GLOBAL_INIT17hb914f6f7e701de86E seq_cst, align 8
   %.not = icmp eq i64 %6, 2
   %7 = load ptr, ptr %0, align 8, !noalias !166, !nonnull !9, !align !30, !noundef !9
-  %_ZN12tracing_core10dispatcher15GLOBAL_DISPATCH17h082e3eb9ba9ce8f8E.val = load i64, ptr @_ZN12tracing_core10dispatcher15GLOBAL_DISPATCH17h082e3eb9ba9ce8f8E, align 8
-  %_ZN12tracing_core10dispatcher4NONE17hfa4523394a8fbeb0E.val = load i64, ptr @_ZN12tracing_core10dispatcher4NONE17hfa4523394a8fbeb0E, align 8
+  %_ZN12tracing_core10dispatcher15GLOBAL_DISPATCH17h082e3eb9ba9ce8f8E.val = load i64, ptr @_ZN12tracing_core10dispatcher15GLOBAL_DISPATCH17h082e3eb9ba9ce8f8E, align 8, !range !31
+  %_ZN12tracing_core10dispatcher4NONE17hfa4523394a8fbeb0E.val = load i64, ptr @_ZN12tracing_core10dispatcher4NONE17hfa4523394a8fbeb0E, align 8, !range !31
   %8 = select i1 %.not, i64 %_ZN12tracing_core10dispatcher15GLOBAL_DISPATCH17h082e3eb9ba9ce8f8E.val, i64 %_ZN12tracing_core10dispatcher4NONE17hfa4523394a8fbeb0E.val
   %trunc.i = trunc nuw i64 %8 to i1
-  %.val = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN12tracing_core10dispatcher15GLOBAL_DISPATCH17h082e3eb9ba9ce8f8E, i64 8), align 8
-  %.val15 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN12tracing_core10dispatcher4NONE17hfa4523394a8fbeb0E, i64 8), align 8
+  %.val = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN12tracing_core10dispatcher15GLOBAL_DISPATCH17h082e3eb9ba9ce8f8E, i64 8), align 8, !nonnull !9
+  %.val15 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN12tracing_core10dispatcher4NONE17hfa4523394a8fbeb0E, i64 8), align 8, !nonnull !9
   %9 = select i1 %.not, ptr %.val, ptr %.val15
-  %.val16 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN12tracing_core10dispatcher15GLOBAL_DISPATCH17h082e3eb9ba9ce8f8E, i64 16), align 8
-  %.val17 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN12tracing_core10dispatcher4NONE17hfa4523394a8fbeb0E, i64 16), align 8
+  %.val16 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN12tracing_core10dispatcher15GLOBAL_DISPATCH17h082e3eb9ba9ce8f8E, i64 16), align 8, !nonnull !9, !align !30
+  %.val17 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN12tracing_core10dispatcher4NONE17hfa4523394a8fbeb0E, i64 16), align 8, !nonnull !9, !align !30
   %10 = select i1 %.not, ptr %.val16, ptr %.val17
   br i1 %trunc.i, label %11, label %"_ZN13project_model13build_scripts21WorkspaceBuildScripts12rustc_crates28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h063830f494eca830E.llvm.2850111032254419090.exit"
 
 11:                                               ; preds = %5
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  %13 = load i64, ptr %12, align 8, !range !31, !invariant.load !9, !noalias !166
+  %13 = load i64, ptr %12, align 8, !range !32, !invariant.load !9, !noalias !166
   %14 = add i64 %13, -1
   %15 = and i64 %14, -16
   %16 = getelementptr i8, ptr %9, i64 %15
@@ -741,7 +741,7 @@ define hidden noundef zeroext i1 @_ZN12tracing_core10dispatcher11get_default17h7
   br label %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17ha22a66e55dd7e0c1E.llvm.2850111032254419090.exit"
 
 22:                                               ; preds = %1
-  %23 = load i64, ptr @_ZN12tracing_core10dispatcher13CURRENT_STATE7__getit5__KEY17hca8d0b5163f27ca8E, align 8, !range !32, !noalias !170, !noundef !9
+  %23 = load i64, ptr @_ZN12tracing_core10dispatcher13CURRENT_STATE7__getit5__KEY17hca8d0b5163f27ca8E, align 8, !range !31, !noalias !170, !noundef !9
   %trunc.i.i = trunc nuw i64 %23 to i1
   br i1 %trunc.i.i, label %37, label %24
 
@@ -768,7 +768,7 @@ default.unreachable:                              ; preds = %24
   store i64 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN12tracing_core10dispatcher13CURRENT_STATE7__getit5__KEY17hca8d0b5163f27ca8E, i64 8), align 8, !noalias !181
   store i64 2, ptr getelementptr inbounds nuw (i8, ptr @_ZN12tracing_core10dispatcher13CURRENT_STATE7__getit5__KEY17hca8d0b5163f27ca8E, i64 16), align 8, !noalias !181
   store i8 1, ptr getelementptr inbounds nuw (i8, ptr @_ZN12tracing_core10dispatcher13CURRENT_STATE7__getit5__KEY17hca8d0b5163f27ca8E, i64 40), align 8, !noalias !181
-  %28 = load i64, ptr %2, align 8, !range !32, !alias.scope !184, !noalias !181, !noundef !9
+  %28 = load i64, ptr %2, align 8, !range !31, !alias.scope !184, !noalias !181, !noundef !9
   %29 = icmp eq i64 %28, 0
   br i1 %29, label %"_ZN3std3sys3pal6common12thread_local4lazy21LazyKeyInner$LT$T$GT$10initialize17hbb99bafc19b8f7a5E.exit.i.i.i", label %30
 
@@ -783,7 +783,7 @@ default.unreachable:                              ; preds = %24
 33:                                               ; preds = %30
   %34 = getelementptr inbounds nuw i8, ptr %2, i64 24
   call void @"_ZN71_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h61423ac85d8fc56fE.llvm.9627074818807256315"(ptr noalias noundef nonnull align 8 dereferenceable(16) %34), !noalias !181
-  %.pre.i.i.i.i = load i64, ptr @_ZN12tracing_core10dispatcher13CURRENT_STATE7__getit5__KEY17hca8d0b5163f27ca8E, align 8, !range !32, !noalias !181
+  %.pre.i.i.i.i = load i64, ptr @_ZN12tracing_core10dispatcher13CURRENT_STATE7__getit5__KEY17hca8d0b5163f27ca8E, align 8, !range !31, !noalias !181
   %35 = icmp ne i64 %.pre.i.i.i.i, 0
   br label %"_ZN3std3sys3pal6common12thread_local4lazy21LazyKeyInner$LT$T$GT$10initialize17hbb99bafc19b8f7a5E.exit.i.i.i"
 
@@ -816,7 +816,7 @@ default.unreachable:                              ; preds = %24
   %48 = load atomic i64, ptr @_ZN12tracing_core10dispatcher11GLOBAL_INIT17hb914f6f7e701de86E seq_cst, align 8, !noalias !200
   %.not.i.i.i.i.i = icmp eq i64 %48, 2
   %_ZN12tracing_core10dispatcher15GLOBAL_DISPATCH17h082e3eb9ba9ce8f8E._ZN12tracing_core10dispatcher4NONE17hfa4523394a8fbeb0E.i.i.i.i.i = select i1 %.not.i.i.i.i.i, ptr @_ZN12tracing_core10dispatcher15GLOBAL_DISPATCH17h082e3eb9ba9ce8f8E, ptr @_ZN12tracing_core10dispatcher4NONE17hfa4523394a8fbeb0E
-  %.pre.i.i = load i64, ptr %_ZN12tracing_core10dispatcher15GLOBAL_DISPATCH17h082e3eb9ba9ce8f8E._ZN12tracing_core10dispatcher4NONE17hfa4523394a8fbeb0E.i.i.i.i.i, align 8, !range !32, !alias.scope !201, !noalias !204
+  %.pre.i.i = load i64, ptr %_ZN12tracing_core10dispatcher15GLOBAL_DISPATCH17h082e3eb9ba9ce8f8E._ZN12tracing_core10dispatcher4NONE17hfa4523394a8fbeb0E.i.i.i.i.i, align 8, !range !31, !alias.scope !201, !noalias !204
   br label %67
 
 49:                                               ; preds = %40
@@ -829,7 +829,7 @@ default.unreachable:                              ; preds = %24
 "_ZN4core3ptr82drop_in_place$LT$core..option..Option$LT$tracing_core..dispatcher..Entered$GT$$GT$17hbe63b50b0dcbf7d8E.exit.i.i": ; preds = %37
   call void @llvm.experimental.noalias.scope.decl(metadata !206)
   %50 = load ptr, ptr %0, align 8, !noalias !209, !nonnull !9, !align !30, !noundef !9
-  %51 = load i64, ptr @_ZN12tracing_core10dispatcher4NONE17hfa4523394a8fbeb0E, align 8, !range !32, !alias.scope !206, !noalias !211, !noundef !9
+  %51 = load i64, ptr @_ZN12tracing_core10dispatcher4NONE17hfa4523394a8fbeb0E, align 8, !range !31, !alias.scope !206, !noalias !211, !noundef !9
   %trunc.i.i.i = trunc nuw i64 %51 to i1
   %52 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN12tracing_core10dispatcher4NONE17hfa4523394a8fbeb0E, i64 8), align 8, !alias.scope !206, !noalias !211, !nonnull !9, !noundef !9
   %53 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN12tracing_core10dispatcher4NONE17hfa4523394a8fbeb0E, i64 16), align 8, !alias.scope !206, !noalias !211, !nonnull !9, !align !30, !noundef !9
@@ -837,7 +837,7 @@ default.unreachable:                              ; preds = %24
 
 54:                                               ; preds = %"_ZN4core3ptr82drop_in_place$LT$core..option..Option$LT$tracing_core..dispatcher..Entered$GT$$GT$17hbe63b50b0dcbf7d8E.exit.i.i"
   %55 = getelementptr inbounds nuw i8, ptr %53, i64 16
-  %56 = load i64, ptr %55, align 8, !range !31, !invariant.load !9, !noalias !209
+  %56 = load i64, ptr %55, align 8, !range !32, !invariant.load !9, !noalias !209
   %57 = add i64 %56, -1
   %58 = and i64 %57, -16
   %59 = getelementptr i8, ptr %52, i64 %58
@@ -872,7 +872,7 @@ default.unreachable:                              ; preds = %24
 
 74:                                               ; preds = %67
   %75 = getelementptr inbounds nuw i8, ptr %73, i64 16
-  %76 = load i64, ptr %75, align 8, !range !31, !invariant.load !9, !noalias !212
+  %76 = load i64, ptr %75, align 8, !range !32, !invariant.load !9, !noalias !212
   %77 = add i64 %76, -1
   %78 = and i64 %77, -16
   %79 = getelementptr i8, ptr %71, i64 %78
@@ -915,7 +915,7 @@ default.unreachable:                              ; preds = %24
 "_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17ha22a66e55dd7e0c1E.llvm.2850111032254419090.exit.thread": ; preds = %24
   tail call void @llvm.experimental.noalias.scope.decl(metadata !227)
   %94 = load ptr, ptr %0, align 8, !noalias !230, !nonnull !9, !align !30, !noundef !9
-  %95 = load i64, ptr @_ZN12tracing_core10dispatcher4NONE17hfa4523394a8fbeb0E, align 8, !range !32, !alias.scope !227, !noalias !232, !noundef !9
+  %95 = load i64, ptr @_ZN12tracing_core10dispatcher4NONE17hfa4523394a8fbeb0E, align 8, !range !31, !alias.scope !227, !noalias !232, !noundef !9
   %trunc.i8 = trunc nuw i64 %95 to i1
   %96 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN12tracing_core10dispatcher4NONE17hfa4523394a8fbeb0E, i64 8), align 8, !alias.scope !227, !noalias !232, !nonnull !9, !noundef !9
   %97 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN12tracing_core10dispatcher4NONE17hfa4523394a8fbeb0E, i64 16), align 8, !alias.scope !227, !noalias !232, !nonnull !9, !align !30, !noundef !9
@@ -923,7 +923,7 @@ default.unreachable:                              ; preds = %24
 
 98:                                               ; preds = %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17ha22a66e55dd7e0c1E.llvm.2850111032254419090.exit.thread"
   %99 = getelementptr inbounds nuw i8, ptr %97, i64 16
-  %100 = load i64, ptr %99, align 8, !range !31, !invariant.load !9, !noalias !230
+  %100 = load i64, ptr %99, align 8, !range !32, !invariant.load !9, !noalias !230
   %101 = add i64 %100, -1
   %102 = and i64 %101, -16
   %103 = getelementptr i8, ptr %96, i64 %102
@@ -946,7 +946,7 @@ define hidden noundef align 8 ptr @_ZN12tracing_core10dispatcher13CURRENT_STATE7
   %.sroa.4.i.i.i = alloca [2 x i64], align 8
   %.sroa.5.i.i.i = alloca [7 x i8], align 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !233)
-  %3 = load i64, ptr @_ZN12tracing_core10dispatcher13CURRENT_STATE7__getit5__KEY17hca8d0b5163f27ca8E, align 8, !range !32, !noalias !233, !noundef !9
+  %3 = load i64, ptr @_ZN12tracing_core10dispatcher13CURRENT_STATE7__getit5__KEY17hca8d0b5163f27ca8E, align 8, !range !31, !noalias !233, !noundef !9
   %trunc.i = trunc nuw i64 %3 to i1
   br i1 %trunc.i, label %"_ZN3std3sys3pal6common12thread_local10fast_local12Key$LT$T$GT$3get17h2151e5c853b25417E.exit", label %4
 
@@ -1006,7 +1006,7 @@ default.unreachable:                              ; preds = %4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN12tracing_core10dispatcher13CURRENT_STATE7__getit5__KEY17hca8d0b5163f27ca8E, i64 24), ptr noundef nonnull align 8 dereferenceable(16) %.sroa.4.i.i.i, i64 16, i1 false), !noalias !250
   store i8 %.sroa.43.0.i.i.i, ptr getelementptr inbounds nuw (i8, ptr @_ZN12tracing_core10dispatcher13CURRENT_STATE7__getit5__KEY17hca8d0b5163f27ca8E, i64 40), align 8, !noalias !250
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) getelementptr inbounds nuw (i8, ptr @_ZN12tracing_core10dispatcher13CURRENT_STATE7__getit5__KEY17hca8d0b5163f27ca8E, i64 41), ptr noundef nonnull align 1 dereferenceable(7) %.sroa.5.i.i.i, i64 7, i1 false), !noalias !250
-  %10 = load i64, ptr %2, align 8, !range !32, !alias.scope !251, !noalias !250, !noundef !9
+  %10 = load i64, ptr %2, align 8, !range !31, !alias.scope !251, !noalias !250, !noundef !9
   %11 = icmp eq i64 %10, 0
   br i1 %11, label %"_ZN3std3sys3pal6common12thread_local4lazy21LazyKeyInner$LT$T$GT$10initialize17hbb99bafc19b8f7a5E.exit.i.i", label %12
 
@@ -1021,7 +1021,7 @@ default.unreachable:                              ; preds = %4
 15:                                               ; preds = %12
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 24
   call void @"_ZN71_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h61423ac85d8fc56fE.llvm.9627074818807256315"(ptr noalias noundef nonnull align 8 dereferenceable(16) %16), !noalias !250
-  %.pre.i.i.i = load i64, ptr @_ZN12tracing_core10dispatcher13CURRENT_STATE7__getit5__KEY17hca8d0b5163f27ca8E, align 8, !range !32, !noalias !250
+  %.pre.i.i.i = load i64, ptr @_ZN12tracing_core10dispatcher13CURRENT_STATE7__getit5__KEY17hca8d0b5163f27ca8E, align 8, !range !31, !noalias !250
   %17 = icmp ne i64 %.pre.i.i.i, 0
   br label %"_ZN3std3sys3pal6common12thread_local4lazy21LazyKeyInner$LT$T$GT$10initialize17hbb99bafc19b8f7a5E.exit.i.i"
 
@@ -3211,7 +3211,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN3std3sys3pal6common12thread_local
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef nonnull align 8 ptr @"_ZN3std3sys3pal6common12thread_local10fast_local12Key$LT$T$GT$3get17h2b807a8058c968afE"(ptr noundef nonnull align 8 %0, ptr noalias nocapture noundef align 8 dereferenceable_or_null(24) %1) unnamed_addr #4 personality ptr @rust_eh_personality {
-  %3 = load i64, ptr %0, align 8, !range !32, !noundef !9
+  %3 = load i64, ptr %0, align 8, !range !31, !noundef !9
   %trunc = trunc nuw i64 %3 to i1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br i1 %trunc, label %15, label %5
@@ -3376,7 +3376,7 @@ define hidden noundef range(i8 0, 3) i8 @"_ZN3std6thread5local17LocalKey$LT$T$GT
   %19 = load atomic i64, ptr @_ZN12tracing_core10dispatcher11GLOBAL_INIT17hb914f6f7e701de86E seq_cst, align 8, !noalias !512
   %.not.i.i.i.i = icmp eq i64 %19, 2
   %_ZN12tracing_core10dispatcher15GLOBAL_DISPATCH17h082e3eb9ba9ce8f8E._ZN12tracing_core10dispatcher4NONE17hfa4523394a8fbeb0E.i.i.i.i = select i1 %.not.i.i.i.i, ptr @_ZN12tracing_core10dispatcher15GLOBAL_DISPATCH17h082e3eb9ba9ce8f8E, ptr @_ZN12tracing_core10dispatcher4NONE17hfa4523394a8fbeb0E
-  %.pre.i = load i64, ptr %_ZN12tracing_core10dispatcher15GLOBAL_DISPATCH17h082e3eb9ba9ce8f8E._ZN12tracing_core10dispatcher4NONE17hfa4523394a8fbeb0E.i.i.i.i, align 8, !range !32, !alias.scope !515, !noalias !518
+  %.pre.i = load i64, ptr %_ZN12tracing_core10dispatcher15GLOBAL_DISPATCH17h082e3eb9ba9ce8f8E._ZN12tracing_core10dispatcher4NONE17hfa4523394a8fbeb0E.i.i.i.i, align 8, !range !31, !alias.scope !515, !noalias !518
   br label %39
 
 20:                                               ; preds = %10
@@ -3391,7 +3391,7 @@ define hidden noundef range(i8 0, 3) i8 @"_ZN3std6thread5local17LocalKey$LT$T$GT
   %21 = icmp ne ptr %.val, null
   tail call void @llvm.assume(i1 %21)
   %22 = load ptr, ptr %.val, align 8, !noalias !523, !nonnull !9, !align !30, !noundef !9
-  %23 = load i64, ptr @_ZN12tracing_core10dispatcher4NONE17hfa4523394a8fbeb0E, align 8, !range !32, !alias.scope !520, !noalias !525, !noundef !9
+  %23 = load i64, ptr @_ZN12tracing_core10dispatcher4NONE17hfa4523394a8fbeb0E, align 8, !range !31, !alias.scope !520, !noalias !525, !noundef !9
   %trunc.i.i = trunc nuw i64 %23 to i1
   %24 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN12tracing_core10dispatcher4NONE17hfa4523394a8fbeb0E, i64 8), align 8, !alias.scope !520, !noalias !525, !nonnull !9, !noundef !9
   %25 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN12tracing_core10dispatcher4NONE17hfa4523394a8fbeb0E, i64 16), align 8, !alias.scope !520, !noalias !525, !nonnull !9, !align !30, !noundef !9
@@ -3399,7 +3399,7 @@ define hidden noundef range(i8 0, 3) i8 @"_ZN3std6thread5local17LocalKey$LT$T$GT
 
 26:                                               ; preds = %"_ZN4core3ptr82drop_in_place$LT$core..option..Option$LT$tracing_core..dispatcher..Entered$GT$$GT$17hbe63b50b0dcbf7d8E.exit.i"
   %27 = getelementptr inbounds nuw i8, ptr %25, i64 16
-  %28 = load i64, ptr %27, align 8, !range !31, !invariant.load !9, !noalias !523
+  %28 = load i64, ptr %27, align 8, !range !32, !invariant.load !9, !noalias !523
   %29 = add i64 %28, -1
   %30 = and i64 %29, -16
   %31 = getelementptr i8, ptr %24, i64 %30
@@ -3436,7 +3436,7 @@ define hidden noundef range(i8 0, 3) i8 @"_ZN3std6thread5local17LocalKey$LT$T$GT
 
 47:                                               ; preds = %39
   %48 = getelementptr inbounds nuw i8, ptr %46, i64 16
-  %49 = load i64, ptr %48, align 8, !range !31, !invariant.load !9, !noalias !526
+  %49 = load i64, ptr %48, align 8, !range !32, !invariant.load !9, !noalias !526
   %50 = add i64 %49, -1
   %51 = and i64 %50, -16
   %52 = getelementptr i8, ptr %44, i64 %51
@@ -3515,7 +3515,7 @@ define hidden noundef range(i8 0, 3) i8 @"_ZN3std6thread5local17LocalKey$LT$T$GT
   %19 = load atomic i64, ptr @_ZN12tracing_core10dispatcher11GLOBAL_INIT17hb914f6f7e701de86E seq_cst, align 8, !noalias !541
   %.not.i.i.i.i = icmp eq i64 %19, 2
   %_ZN12tracing_core10dispatcher15GLOBAL_DISPATCH17h082e3eb9ba9ce8f8E._ZN12tracing_core10dispatcher4NONE17hfa4523394a8fbeb0E.i.i.i.i = select i1 %.not.i.i.i.i, ptr @_ZN12tracing_core10dispatcher15GLOBAL_DISPATCH17h082e3eb9ba9ce8f8E, ptr @_ZN12tracing_core10dispatcher4NONE17hfa4523394a8fbeb0E
-  %.pre.i = load i64, ptr %_ZN12tracing_core10dispatcher15GLOBAL_DISPATCH17h082e3eb9ba9ce8f8E._ZN12tracing_core10dispatcher4NONE17hfa4523394a8fbeb0E.i.i.i.i, align 8, !range !32, !alias.scope !544, !noalias !547
+  %.pre.i = load i64, ptr %_ZN12tracing_core10dispatcher15GLOBAL_DISPATCH17h082e3eb9ba9ce8f8E._ZN12tracing_core10dispatcher4NONE17hfa4523394a8fbeb0E.i.i.i.i, align 8, !range !31, !alias.scope !544, !noalias !547
   br label %39
 
 20:                                               ; preds = %10
@@ -3530,7 +3530,7 @@ define hidden noundef range(i8 0, 3) i8 @"_ZN3std6thread5local17LocalKey$LT$T$GT
   %21 = icmp ne ptr %.val, null
   tail call void @llvm.assume(i1 %21)
   %22 = load ptr, ptr %.val, align 8, !noalias !552, !nonnull !9, !align !30, !noundef !9
-  %23 = load i64, ptr @_ZN12tracing_core10dispatcher4NONE17hfa4523394a8fbeb0E, align 8, !range !32, !alias.scope !549, !noalias !554, !noundef !9
+  %23 = load i64, ptr @_ZN12tracing_core10dispatcher4NONE17hfa4523394a8fbeb0E, align 8, !range !31, !alias.scope !549, !noalias !554, !noundef !9
   %trunc.i.i = trunc nuw i64 %23 to i1
   %24 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN12tracing_core10dispatcher4NONE17hfa4523394a8fbeb0E, i64 8), align 8, !alias.scope !549, !noalias !554, !nonnull !9, !noundef !9
   %25 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN12tracing_core10dispatcher4NONE17hfa4523394a8fbeb0E, i64 16), align 8, !alias.scope !549, !noalias !554, !nonnull !9, !align !30, !noundef !9
@@ -3538,7 +3538,7 @@ define hidden noundef range(i8 0, 3) i8 @"_ZN3std6thread5local17LocalKey$LT$T$GT
 
 26:                                               ; preds = %"_ZN4core3ptr82drop_in_place$LT$core..option..Option$LT$tracing_core..dispatcher..Entered$GT$$GT$17hbe63b50b0dcbf7d8E.exit.i"
   %27 = getelementptr inbounds nuw i8, ptr %25, i64 16
-  %28 = load i64, ptr %27, align 8, !range !31, !invariant.load !9, !noalias !552
+  %28 = load i64, ptr %27, align 8, !range !32, !invariant.load !9, !noalias !552
   %29 = add i64 %28, -1
   %30 = and i64 %29, -16
   %31 = getelementptr i8, ptr %24, i64 %30
@@ -3575,7 +3575,7 @@ define hidden noundef range(i8 0, 3) i8 @"_ZN3std6thread5local17LocalKey$LT$T$GT
 
 47:                                               ; preds = %39
   %48 = getelementptr inbounds nuw i8, ptr %46, i64 16
-  %49 = load i64, ptr %48, align 8, !range !31, !invariant.load !9, !noalias !555
+  %49 = load i64, ptr %48, align 8, !range !32, !invariant.load !9, !noalias !555
   %50 = add i64 %49, -1
   %51 = and i64 %50, -16
   %52 = getelementptr i8, ptr %44, i64 %51
@@ -3654,7 +3654,7 @@ define hidden noundef range(i8 0, 3) i8 @"_ZN3std6thread5local17LocalKey$LT$T$GT
   %19 = load atomic i64, ptr @_ZN12tracing_core10dispatcher11GLOBAL_INIT17hb914f6f7e701de86E seq_cst, align 8, !noalias !570
   %.not.i.i.i.i = icmp eq i64 %19, 2
   %_ZN12tracing_core10dispatcher15GLOBAL_DISPATCH17h082e3eb9ba9ce8f8E._ZN12tracing_core10dispatcher4NONE17hfa4523394a8fbeb0E.i.i.i.i = select i1 %.not.i.i.i.i, ptr @_ZN12tracing_core10dispatcher15GLOBAL_DISPATCH17h082e3eb9ba9ce8f8E, ptr @_ZN12tracing_core10dispatcher4NONE17hfa4523394a8fbeb0E
-  %.pre.i = load i64, ptr %_ZN12tracing_core10dispatcher15GLOBAL_DISPATCH17h082e3eb9ba9ce8f8E._ZN12tracing_core10dispatcher4NONE17hfa4523394a8fbeb0E.i.i.i.i, align 8, !range !32, !alias.scope !573, !noalias !576
+  %.pre.i = load i64, ptr %_ZN12tracing_core10dispatcher15GLOBAL_DISPATCH17h082e3eb9ba9ce8f8E._ZN12tracing_core10dispatcher4NONE17hfa4523394a8fbeb0E.i.i.i.i, align 8, !range !31, !alias.scope !573, !noalias !576
   br label %39
 
 20:                                               ; preds = %10
@@ -3669,7 +3669,7 @@ define hidden noundef range(i8 0, 3) i8 @"_ZN3std6thread5local17LocalKey$LT$T$GT
   %21 = icmp ne ptr %.val, null
   tail call void @llvm.assume(i1 %21)
   %22 = load ptr, ptr %.val, align 8, !noalias !581, !nonnull !9, !align !30, !noundef !9
-  %23 = load i64, ptr @_ZN12tracing_core10dispatcher4NONE17hfa4523394a8fbeb0E, align 8, !range !32, !alias.scope !578, !noalias !583, !noundef !9
+  %23 = load i64, ptr @_ZN12tracing_core10dispatcher4NONE17hfa4523394a8fbeb0E, align 8, !range !31, !alias.scope !578, !noalias !583, !noundef !9
   %trunc.i.i = trunc nuw i64 %23 to i1
   %24 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN12tracing_core10dispatcher4NONE17hfa4523394a8fbeb0E, i64 8), align 8, !alias.scope !578, !noalias !583, !nonnull !9, !noundef !9
   %25 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN12tracing_core10dispatcher4NONE17hfa4523394a8fbeb0E, i64 16), align 8, !alias.scope !578, !noalias !583, !nonnull !9, !align !30, !noundef !9
@@ -3677,7 +3677,7 @@ define hidden noundef range(i8 0, 3) i8 @"_ZN3std6thread5local17LocalKey$LT$T$GT
 
 26:                                               ; preds = %"_ZN4core3ptr82drop_in_place$LT$core..option..Option$LT$tracing_core..dispatcher..Entered$GT$$GT$17hbe63b50b0dcbf7d8E.exit.i"
   %27 = getelementptr inbounds nuw i8, ptr %25, i64 16
-  %28 = load i64, ptr %27, align 8, !range !31, !invariant.load !9, !noalias !581
+  %28 = load i64, ptr %27, align 8, !range !32, !invariant.load !9, !noalias !581
   %29 = add i64 %28, -1
   %30 = and i64 %29, -16
   %31 = getelementptr i8, ptr %24, i64 %30
@@ -3714,7 +3714,7 @@ define hidden noundef range(i8 0, 3) i8 @"_ZN3std6thread5local17LocalKey$LT$T$GT
 
 47:                                               ; preds = %39
   %48 = getelementptr inbounds nuw i8, ptr %46, i64 16
-  %49 = load i64, ptr %48, align 8, !range !31, !invariant.load !9, !noalias !584
+  %49 = load i64, ptr %48, align 8, !range !32, !invariant.load !9, !noalias !584
   %50 = add i64 %49, -1
   %51 = and i64 %50, -16
   %52 = getelementptr i8, ptr %44, i64 %51
@@ -8952,7 +8952,7 @@ define hidden void @"_ZN5alloc11collections5btree8navigate263_$LT$impl$u20$alloc
 
 ; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define hidden noundef align 8 dereferenceable_or_null(24) ptr @"_ZN5alloc11collections5btree8navigate39LazyLeafRange$LT$BorrowType$C$K$C$V$GT$10init_front17h17e8a37f78ccf5a6E"(ptr noalias noundef align 8 dereferenceable(64) %0) unnamed_addr #23 {
-  %2 = load i64, ptr %0, align 8, !range !32, !noundef !9
+  %2 = load i64, ptr %0, align 8, !range !31, !noundef !9
   %.not.not = icmp eq i64 %2, 0
   br i1 %.not.not, label %7, label %3
 
@@ -8994,7 +8994,7 @@ define hidden noundef align 8 dereferenceable_or_null(24) ptr @"_ZN5alloc11colle
 
 ; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define hidden noundef align 8 dereferenceable_or_null(24) ptr @"_ZN5alloc11collections5btree8navigate39LazyLeafRange$LT$BorrowType$C$K$C$V$GT$10init_front17h1c3aa08ec37c8c3bE"(ptr noalias noundef align 8 dereferenceable(64) %0) unnamed_addr #23 {
-  %2 = load i64, ptr %0, align 8, !range !32, !noundef !9
+  %2 = load i64, ptr %0, align 8, !range !31, !noundef !9
   %.not.not = icmp eq i64 %2, 0
   br i1 %.not.not, label %7, label %3
 
@@ -9036,7 +9036,7 @@ define hidden noundef align 8 dereferenceable_or_null(24) ptr @"_ZN5alloc11colle
 
 ; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define hidden noundef align 8 dereferenceable_or_null(24) ptr @"_ZN5alloc11collections5btree8navigate39LazyLeafRange$LT$BorrowType$C$K$C$V$GT$10init_front17h7ba5f2c1f9f53757E"(ptr noalias noundef align 8 dereferenceable(64) %0) unnamed_addr #23 {
-  %2 = load i64, ptr %0, align 8, !range !32, !noundef !9
+  %2 = load i64, ptr %0, align 8, !range !31, !noundef !9
   %.not.not = icmp eq i64 %2, 0
   br i1 %.not.not, label %7, label %3
 
@@ -12678,7 +12678,7 @@ define hidden void @_ZN9itertools9Itertools4join17h17d2663a6c708d15E(ptr noalias
 define hidden noundef zeroext i1 @"_ZN13project_model13build_scripts21WorkspaceBuildScripts8run_once28_$u7b$$u7b$closure$u7d$$u7d$17h2817eec7649dae27E.llvm.2850111032254419090"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #0 {
   %3 = load ptr, ptr %0, align 8, !nonnull !9, !align !30, !noundef !9
   %4 = load ptr, ptr %3, align 8, !nonnull !9, !align !30, !noundef !9
-  %5 = load i64, ptr %1, align 8, !range !32, !noundef !9
+  %5 = load i64, ptr %1, align 8, !range !31, !noundef !9
   %trunc = trunc nuw i64 %5 to i1
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8, !nonnull !9, !noundef !9
@@ -12688,7 +12688,7 @@ define hidden noundef zeroext i1 @"_ZN13project_model13build_scripts21WorkspaceB
 
 10:                                               ; preds = %2
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  %12 = load i64, ptr %11, align 8, !range !31, !invariant.load !9
+  %12 = load i64, ptr %11, align 8, !range !32, !invariant.load !9
   %13 = add i64 %12, -1
   %14 = and i64 %13, -16
   %15 = getelementptr i8, ptr %7, i64 %14
@@ -12709,7 +12709,7 @@ define hidden noundef zeroext i1 @"_ZN13project_model13build_scripts21WorkspaceB
 define hidden noundef zeroext i1 @"_ZN13project_model13build_scripts21WorkspaceBuildScripts10run_per_ws28_$u7b$$u7b$closure$u7d$$u7d$17h522fe1ebe820c74aE.llvm.2850111032254419090"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #0 {
   %3 = load ptr, ptr %0, align 8, !nonnull !9, !align !30, !noundef !9
   %4 = load ptr, ptr %3, align 8, !nonnull !9, !align !30, !noundef !9
-  %5 = load i64, ptr %1, align 8, !range !32, !noundef !9
+  %5 = load i64, ptr %1, align 8, !range !31, !noundef !9
   %trunc = trunc nuw i64 %5 to i1
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8, !nonnull !9, !noundef !9
@@ -12719,7 +12719,7 @@ define hidden noundef zeroext i1 @"_ZN13project_model13build_scripts21WorkspaceB
 
 10:                                               ; preds = %2
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  %12 = load i64, ptr %11, align 8, !range !31, !invariant.load !9
+  %12 = load i64, ptr %11, align 8, !range !32, !invariant.load !9
   %13 = add i64 %12, -1
   %14 = and i64 %13, -16
   %15 = getelementptr i8, ptr %7, i64 %14
@@ -12740,7 +12740,7 @@ define hidden noundef zeroext i1 @"_ZN13project_model13build_scripts21WorkspaceB
 define hidden noundef zeroext i1 @"_ZN13project_model13build_scripts21WorkspaceBuildScripts12rustc_crates28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h063830f494eca830E.llvm.2850111032254419090"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #0 {
   %3 = load ptr, ptr %0, align 8, !nonnull !9, !align !30, !noundef !9
   %4 = load ptr, ptr %3, align 8, !nonnull !9, !align !30, !noundef !9
-  %5 = load i64, ptr %1, align 8, !range !32, !noundef !9
+  %5 = load i64, ptr %1, align 8, !range !31, !noundef !9
   %trunc = trunc nuw i64 %5 to i1
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8, !nonnull !9, !noundef !9
@@ -12750,7 +12750,7 @@ define hidden noundef zeroext i1 @"_ZN13project_model13build_scripts21WorkspaceB
 
 10:                                               ; preds = %2
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  %12 = load i64, ptr %11, align 8, !range !31, !invariant.load !9
+  %12 = load i64, ptr %11, align 8, !range !32, !invariant.load !9
   %13 = add i64 %12, -1
   %14 = and i64 %13, -16
   %15 = getelementptr i8, ptr %7, i64 %14
@@ -13243,8 +13243,8 @@ attributes #44 = { cold noreturn nounwind }
 !28 = distinct !{!28, !"_ZN13project_model13build_scripts21WorkspaceBuildScripts10run_per_ws28_$u7b$$u7b$closure$u7d$$u7d$17h522fe1ebe820c74aE.llvm.2850111032254419090"}
 !29 = distinct !{!29, !28, !"_ZN13project_model13build_scripts21WorkspaceBuildScripts10run_per_ws28_$u7b$$u7b$closure$u7d$$u7d$17h522fe1ebe820c74aE.llvm.2850111032254419090: argument 1"}
 !30 = !{i64 8}
-!31 = !{i64 1, i64 0}
-!32 = !{i64 0, i64 2}
+!31 = !{i64 0, i64 2}
+!32 = !{i64 1, i64 0}
 !33 = !{!34, !36, !38, !40}
 !34 = distinct !{!34, !35, !"_ZN3std3sys3pal6common12thread_local10fast_local12Key$LT$T$GT$3get17h2151e5c853b25417E: argument 0"}
 !35 = distinct !{!35, !"_ZN3std3sys3pal6common12thread_local10fast_local12Key$LT$T$GT$3get17h2151e5c853b25417E"}

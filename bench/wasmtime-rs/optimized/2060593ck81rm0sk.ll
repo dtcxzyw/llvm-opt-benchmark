@@ -25,8 +25,8 @@ define nonnull align 8 ptr @_ZN4core3cmp6max_by17h4da1ba4a31c68a77E(ptr align 8 
   store ptr %1, ptr %4, align 8
   %6 = call range(i8 -1, 2) i8 @_ZN4core3ops8function5FnMut8call_mut17h802c2afe785edb3aE(ptr align 1 %2, ptr nonnull align 8 %5, ptr nonnull align 8 %4), !range !3
   %switch = icmp eq i8 %6, 1
-  %.val = load ptr, ptr %5, align 8
-  %.val3 = load ptr, ptr %4, align 8
+  %.val = load ptr, ptr %5, align 8, !nonnull !4, !align !5
+  %.val3 = load ptr, ptr %4, align 8, !nonnull !4, !align !5
   %.0 = select i1 %switch, ptr %.val, ptr %.val3
   ret ptr %.0
 }
@@ -66,8 +66,8 @@ define range(i8 0, 4) i8 @_ZN4core3cmp6min_by17h0a2bed356ccdbb40E(i8 %0, i8 %1) 
   store i8 %1, ptr %3, align 1
   %5 = call i8 @_ZN4core3ops8function6FnOnce9call_once17h21ae499243891063E(ptr nonnull align 1 %4, ptr nonnull align 1 %3), !range !3
   %switch = icmp eq i8 %5, 1
-  %.val = load i8, ptr %3, align 1
-  %.val4 = load i8, ptr %4, align 1
+  %.val = load i8, ptr %3, align 1, !range !6
+  %.val4 = load i8, ptr %4, align 1, !range !6
   %.0 = select i1 %switch, i8 %.val, i8 %.val4
   ret i8 %.0
 }
@@ -88,7 +88,7 @@ define i64 @_ZN4core3cmp6min_by17ha96f4f95dfdb421bE(i64 %0, i64 %1) unnamed_addr
 
 ; Function Attrs: nonlazybind uwtable
 define zeroext i1 @"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h4c1db6f89fe6d29dE"(ptr nocapture readonly align 8 %0, ptr align 2 %1, ptr align 2 %2) unnamed_addr #1 {
-  %4 = load ptr, ptr %0, align 8, !nonnull !4, !align !5, !noundef !4
+  %4 = load ptr, ptr %0, align 8, !nonnull !4, !align !7, !noundef !4
   %5 = icmp ne ptr %1, null
   tail call void @llvm.assume(i1 %5)
   %6 = icmp ne ptr %2, null
@@ -119,7 +119,7 @@ define range(i8 -1, 2) i8 @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 define zeroext i1 @"_ZN4core5tuple65_$LT$impl$u20$core..cmp..PartialOrd$u20$for$u20$$LP$U$C$T$RP$$GT$2lt17h66f239cd87663d29E"(ptr align 8 %0, ptr align 8 %1) unnamed_addr #0 {
-  %3 = tail call range(i8 -1, 3) i8 @"_ZN4core3cmp5impls55_$LT$impl$u20$core..cmp..PartialOrd$u20$for$u20$i64$GT$11partial_cmp17hbb613d61f1e38b55E"(ptr align 8 %1, ptr align 8 %0), !range !6
+  %3 = tail call range(i8 -1, 3) i8 @"_ZN4core3cmp5impls55_$LT$impl$u20$core..cmp..PartialOrd$u20$for$u20$i64$GT$11partial_cmp17hbb613d61f1e38b55E"(ptr align 8 %1, ptr align 8 %0), !range !8
   %4 = tail call zeroext i1 @_ZN4core5tuple16ordering_is_some17head148c8cefc5499E(i8 %3, i8 0)
   br i1 %4, label %7, label %5
 
@@ -142,7 +142,7 @@ define zeroext i1 @"_ZN4core5tuple65_$LT$impl$u20$core..cmp..PartialOrd$u20$for$
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 define range(i8 -1, 3) i8 @"_ZN69_$LT$core..cmp..Reverse$LT$T$GT$$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17he37ed8dd70280cc1E"(ptr align 8 %0, ptr align 8 %1) unnamed_addr #0 {
-  %3 = tail call i8 @"_ZN4core3cmp5impls55_$LT$impl$u20$core..cmp..PartialOrd$u20$for$u20$i64$GT$11partial_cmp17hbb613d61f1e38b55E"(ptr align 8 %1, ptr align 8 %0), !range !6
+  %3 = tail call i8 @"_ZN4core3cmp5impls55_$LT$impl$u20$core..cmp..PartialOrd$u20$for$u20$i64$GT$11partial_cmp17hbb613d61f1e38b55E"(ptr align 8 %1, ptr align 8 %0), !range !8
   ret i8 %3
 }
 
@@ -192,5 +192,7 @@ attributes #3 = { nocallback nofree nosync nounwind willreturn memory(inaccessib
 !2 = !{!"rustc version 1.77.2 (25ef9e3d8 2024-04-09)"}
 !3 = !{i8 -1, i8 2}
 !4 = !{}
-!5 = !{i64 1}
-!6 = !{i8 -1, i8 3}
+!5 = !{i64 8}
+!6 = !{i8 0, i8 4}
+!7 = !{i64 1}
+!8 = !{i8 -1, i8 3}

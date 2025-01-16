@@ -6506,7 +6506,7 @@ define internal fastcc noundef zeroext i1 @"_ZN5alloc5slice29_$LT$impl$u20$$u5b$
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %.val.i.i.i.i = load ptr, ptr %13, align 8, !alias.scope !879, !noalias !882
-  %.val4.i.i.i.i = load ptr, ptr %15, align 8, !alias.scope !879, !noalias !882
+  %.val4.i.i.i.i = load ptr, ptr %15, align 8, !alias.scope !879, !noalias !882, !nonnull !4
   %.sroa.0.0.i.i.i.i = select i1 %trunc.i.i.i.i, ptr %.val.i.i.i.i, ptr %.val4.i.i.i.i
   %.val5.i.i.i.i = load i64, ptr %14, align 8, !alias.scope !879, !noalias !882
   %.val6.cast.i.i.i.i = ptrtoint ptr %.val.i.i.i.i to i64
@@ -6549,7 +6549,7 @@ _ZN4mime4Mime5type_17h04ec0a316a56c45bE.exit.i.i: ; preds = %"_ZN4core3str6trait
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %.val.i.i42.i.i = load ptr, ptr %28, align 8, !alias.scope !894, !noalias !897
-  %.val4.i.i43.i.i = load ptr, ptr %30, align 8, !alias.scope !894, !noalias !897
+  %.val4.i.i43.i.i = load ptr, ptr %30, align 8, !alias.scope !894, !noalias !897, !nonnull !4
   %.sroa.0.0.i.i44.i.i = select i1 %trunc.i.i41.i.i, ptr %.val.i.i42.i.i, ptr %.val4.i.i43.i.i
   %.val5.i.i45.i.i = load i64, ptr %29, align 8, !alias.scope !894, !noalias !897
   %.val6.cast.i.i46.i.i = ptrtoint ptr %.val.i.i42.i.i to i64
@@ -8313,7 +8313,7 @@ define noundef zeroext i1 @"_ZN111_$LT$actix_web..middleware..compress..Compress
   %21 = getelementptr inbounds nuw i8, ptr %5, i64 72
   %22 = getelementptr inbounds nuw i8, ptr %5, i64 56
   %.val.i.i = load ptr, ptr %20, align 8, !alias.scope !1251, !noalias !1254
-  %.val4.i.i = load ptr, ptr %22, align 8, !alias.scope !1251, !noalias !1254
+  %.val4.i.i = load ptr, ptr %22, align 8, !alias.scope !1251, !noalias !1254, !nonnull !4
   %.sroa.0.0.i.i = select i1 %trunc.i.i, ptr %.val.i.i, ptr %.val4.i.i
   %.val5.i.i = load i64, ptr %21, align 8, !alias.scope !1251, !noalias !1254
   %.val6.cast.i.i = ptrtoint ptr %.val.i.i to i64

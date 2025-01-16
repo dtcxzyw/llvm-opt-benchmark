@@ -8135,7 +8135,7 @@ define hidden void @"_ZN111_$LT$$LP$http..header..name..HeaderName$C$V$RP$$u20$a
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %.val.i = load ptr, ptr %9, align 8, !alias.scope !2117, !noalias !2120
-  %.val2.i = load ptr, ptr %11, align 8, !alias.scope !2117, !noalias !2120
+  %.val2.i = load ptr, ptr %11, align 8, !alias.scope !2117, !noalias !2120, !nonnull !4
   %.sroa.0.0.i = select i1 %trunc.i, ptr %.val.i, ptr %.val2.i
   %.val3.i = load i64, ptr %10, align 8, !alias.scope !2117, !noalias !2120
   %.val4.cast.i = ptrtoint ptr %.val.i to i64

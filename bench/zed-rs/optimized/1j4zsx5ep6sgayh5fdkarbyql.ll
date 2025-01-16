@@ -118850,8 +118850,8 @@ _ZN4core10intrinsics10typed_swap17h19916cb31bf4cd69E.exit: ; preds = %307
   %334 = load float, ptr %129, align 8, !alias.scope !26858, !noalias !26861, !noundef !16
   %335 = fadd float %333, %334
   store float %335, ptr %129, align 8, !alias.scope !26858, !noalias !26861
-  %.sroa.gep335.val = load i8, ptr %.sroa.gep335, align 4
-  %.sroa.5.0..sroa_idx5.val = load i8, ptr %.sroa.5.0..sroa_idx5, align 4
+  %.sroa.gep335.val = load i8, ptr %.sroa.gep335, align 4, !range !358
+  %.sroa.5.0..sroa_idx5.val = load i8, ptr %.sroa.5.0..sroa_idx5, align 4, !range !358
   %336 = select i1 %323, i8 %.sroa.gep335.val, i8 %.sroa.5.0..sroa_idx5.val
   %337 = load i8, ptr %130, align 4, !range !358, !alias.scope !26858, !noalias !26861, !noundef !16
   %338 = or i8 %337, %336
@@ -119899,8 +119899,8 @@ _ZN4core10intrinsics10typed_swap17h19916cb31bf4cd69E.exit: ; preds = %276
   %303 = load float, ptr %95, align 8, !alias.scope !27160, !noalias !27163, !noundef !16
   %304 = fadd float %302, %303
   store float %304, ptr %95, align 8, !alias.scope !27160, !noalias !27163
-  %.sroa.gep308.val = load i8, ptr %.sroa.gep308, align 4
-  %.sroa.5.0..sroa_idx5.val = load i8, ptr %.sroa.5.0..sroa_idx5, align 4
+  %.sroa.gep308.val = load i8, ptr %.sroa.gep308, align 4, !range !358
+  %.sroa.5.0..sroa_idx5.val = load i8, ptr %.sroa.5.0..sroa_idx5, align 4, !range !358
   %305 = select i1 %292, i8 %.sroa.gep308.val, i8 %.sroa.5.0..sroa_idx5.val
   %306 = load i8, ptr %96, align 4, !range !358, !alias.scope !27160, !noalias !27163, !noundef !16
   %307 = or i8 %306, %305
@@ -120928,8 +120928,8 @@ _ZN4core10intrinsics10typed_swap17h19916cb31bf4cd69E.exit: ; preds = %262
   %289 = load float, ptr %90, align 8, !alias.scope !27480, !noalias !27483, !noundef !16
   %290 = fadd float %288, %289
   store float %290, ptr %90, align 8, !alias.scope !27480, !noalias !27483
-  %.sroa.gep304.val = load i8, ptr %.sroa.gep304, align 4
-  %.sroa.5.0..sroa_idx5.val = load i8, ptr %.sroa.5.0..sroa_idx5, align 4
+  %.sroa.gep304.val = load i8, ptr %.sroa.gep304, align 4, !range !358
+  %.sroa.5.0..sroa_idx5.val = load i8, ptr %.sroa.5.0..sroa_idx5, align 4, !range !358
   %291 = select i1 %278, i8 %.sroa.gep304.val, i8 %.sroa.5.0..sroa_idx5.val
   %292 = load i8, ptr %91, align 4, !range !358, !alias.scope !27480, !noalias !27483, !noundef !16
   %293 = or i8 %292, %291

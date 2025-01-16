@@ -797,7 +797,7 @@ define hidden noundef zeroext i1 @"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 72
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 56
   %.val.i.i = load ptr, ptr %6, align 8, !alias.scope !346, !noalias !349
-  %.val4.i.i = load ptr, ptr %8, align 8, !alias.scope !346, !noalias !349
+  %.val4.i.i = load ptr, ptr %8, align 8, !alias.scope !346, !noalias !349, !nonnull !9
   %.sroa.0.0.i.i = select i1 %trunc.i.i, ptr %.val.i.i, ptr %.val4.i.i
   %.val5.i.i = load i64, ptr %7, align 8, !alias.scope !346, !noalias !349
   %.val6.cast.i.i = ptrtoint ptr %.val.i.i to i64
@@ -1516,7 +1516,7 @@ default.unreachable7:                             ; preds = %2
   %31 = getelementptr inbounds nuw i8, ptr %20, i64 24
   %32 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %.val.i.i = load ptr, ptr %30, align 8, !alias.scope !509, !noalias !512
-  %.val4.i.i = load ptr, ptr %32, align 8, !alias.scope !509, !noalias !512
+  %.val4.i.i = load ptr, ptr %32, align 8, !alias.scope !509, !noalias !512, !nonnull !9
   %.sroa.0.0.i.i = select i1 %trunc.i.i, ptr %.val.i.i, ptr %.val4.i.i
   %.val5.i.i = load i64, ptr %31, align 8, !alias.scope !509, !noalias !512
   %.val6.cast.i.i = ptrtoint ptr %.val.i.i to i64

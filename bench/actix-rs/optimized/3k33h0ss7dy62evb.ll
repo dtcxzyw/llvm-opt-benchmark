@@ -2449,7 +2449,7 @@ define hidden void @"_ZN70_$LT$T$u20$as$u20$actix_http..header..into_pair..TryIn
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 72
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 56
   %.val.i.i.i = load ptr, ptr %7, align 8, !alias.scope !437, !noalias !440
-  %.val4.i.i.i = load ptr, ptr %9, align 8, !alias.scope !437, !noalias !440
+  %.val4.i.i.i = load ptr, ptr %9, align 8, !alias.scope !437, !noalias !440, !nonnull !4
   %.sroa.0.0.i.i.i = select i1 %trunc.i.i.i, ptr %.val.i.i.i, ptr %.val4.i.i.i
   %.val5.i.i.i = load i64, ptr %8, align 8, !alias.scope !437, !noalias !440
   %.val6.cast.i.i.i = ptrtoint ptr %.val.i.i.i to i64

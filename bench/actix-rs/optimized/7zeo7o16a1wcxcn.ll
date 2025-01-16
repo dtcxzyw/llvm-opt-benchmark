@@ -1643,7 +1643,7 @@ _ZN10actix_http12http_message11HttpMessage10get_header17h9356a48683cc36f6E.exit.
   %383 = getelementptr inbounds nuw i8, ptr %100, i64 72
   %384 = getelementptr inbounds nuw i8, ptr %100, i64 56
   %.val.i.i.i = load ptr, ptr %382, align 8, !alias.scope !279, !noalias !284
-  %.val4.i.i.i = load ptr, ptr %384, align 8, !alias.scope !279, !noalias !284
+  %.val4.i.i.i = load ptr, ptr %384, align 8, !alias.scope !279, !noalias !284, !nonnull !5
   %.sroa.0.0.i.i.i = select i1 %trunc.i.i.i226, ptr %.val.i.i.i, ptr %.val4.i.i.i
   %.val5.i.i.i = load i64, ptr %383, align 8, !alias.scope !279, !noalias !284
   %.val6.cast.i.i.i = ptrtoint ptr %.val.i.i.i to i64
@@ -3133,7 +3133,7 @@ _ZN9actix_web8response7builder19HttpResponseBuilder4body17h28e678b2f55982feE.exi
   %874 = getelementptr inbounds nuw i8, ptr %115, i64 72
   %875 = getelementptr inbounds nuw i8, ptr %115, i64 56
   %.val.i.i.i343 = load ptr, ptr %873, align 8, !alias.scope !546, !noalias !551
-  %.val4.i.i.i344 = load ptr, ptr %875, align 8, !alias.scope !546, !noalias !551
+  %.val4.i.i.i344 = load ptr, ptr %875, align 8, !alias.scope !546, !noalias !551, !nonnull !5
   %.sroa.0.0.i.i.i345 = select i1 %trunc.i.i.i342, ptr %.val.i.i.i343, ptr %.val4.i.i.i344
   %.val5.i.i.i346 = load i64, ptr %874, align 8, !alias.scope !546, !noalias !551
   %.val6.cast.i.i.i347 = ptrtoint ptr %.val.i.i.i343 to i64

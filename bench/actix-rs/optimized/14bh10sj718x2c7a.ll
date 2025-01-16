@@ -8376,7 +8376,7 @@ _ZN10actix_http12http_message11HttpMessage9mime_type17h77ffdcb9e4867e2aE.exit._c
   %57 = getelementptr inbounds nuw i8, ptr %7, i64 72
   %58 = getelementptr inbounds nuw i8, ptr %7, i64 56
   %.val.i.i = load ptr, ptr %56, align 8, !alias.scope !1386, !noalias !1381
-  %.val4.i.i = load ptr, ptr %58, align 8, !alias.scope !1386, !noalias !1381
+  %.val4.i.i = load ptr, ptr %58, align 8, !alias.scope !1386, !noalias !1381, !nonnull !7
   %.sroa.0.0.i.i = select i1 %trunc.i.i, ptr %.val.i.i, ptr %.val4.i.i
   %.val5.i.i = load i64, ptr %57, align 8, !alias.scope !1386, !noalias !1381
   %.val6.cast.i.i = ptrtoint ptr %.val.i.i to i64

@@ -36687,7 +36687,7 @@ default.unreachable:                              ; preds = %1119, %610
   %701 = load i64, ptr %585, align 8, !range !4207, !alias.scope !8968, !noalias !8975, !noundef !4
   %702 = icmp eq i64 %701, 16
   %.sroa.gep = getelementptr inbounds nuw i8, ptr %74, i64 296
-  %.sroa.gep.val = load i8, ptr %.sroa.gep, align 8
+  %.sroa.gep.val = load i8, ptr %.sroa.gep, align 8, !range !8853
   %703 = select i1 %702, i8 27, i8 %.sroa.gep.val
   %.sroa.gep.i = getelementptr inbounds nuw i8, ptr %37, i64 33
   %.sroa.gep302.i = getelementptr inbounds nuw i8, ptr %74, i64 297
@@ -36695,14 +36695,14 @@ default.unreachable:                              ; preds = %1119, %610
   %.sroa.gep302.val.i = load i8, ptr %.sroa.gep302.i, align 1, !alias.scope !8968, !noalias !8975
   %704 = select i1 %702, i8 %.sroa.gep.val.i, i8 %.sroa.gep302.val.i
   %705 = select i1 %702, i64 0, i64 %701
-  %switch293.i = icmp samesign ult i64 %705, 15
-  br i1 %switch293.i, label %"_ZN70_$LT$target_lexicon..targets..Vendor$u20$as$u20$core..clone..Clone$GT$5clone17h99bf5f5ea8217821E.llvm.15361297093319246575.exit188.i", label %706
+  %switch293.not.i = icmp eq i64 %705, 15
+  br i1 %switch293.not.i, label %706, label %"_ZN70_$LT$target_lexicon..targets..Vendor$u20$as$u20$core..clone..Clone$GT$5clone17h99bf5f5ea8217821E.llvm.15361297093319246575.exit188.i"
 
 706:                                              ; preds = %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h7a16f2ec2ab22e52E.exit.i"
-  %.sroa.gep195 = getelementptr inbounds nuw i8, ptr %74, i64 272
+  %.sroa.gep201 = getelementptr inbounds nuw i8, ptr %74, i64 272
   %.sroa.471.0..sroa_idx.i.val = load ptr, ptr %.sroa.471.0..sroa_idx.i, align 8
-  %.sroa.gep195.val = load ptr, ptr %.sroa.gep195, align 8
-  %707 = select i1 %702, ptr %.sroa.471.0..sroa_idx.i.val, ptr %.sroa.gep195.val
+  %.sroa.gep201.val = load ptr, ptr %.sroa.gep201, align 8
+  %707 = select i1 %702, ptr %.sroa.471.0..sroa_idx.i.val, ptr %.sroa.gep201.val
   %708 = icmp eq ptr %707, null
   br i1 %708, label %709, label %717
 
@@ -36724,8 +36724,8 @@ default.unreachable:                              ; preds = %1119, %610
 "_ZN5alloc5boxed16Box$LT$T$C$A$GT$13new_uninit_in17h038163143ef18334E.exit.i.i181.i": ; preds = %.noexc184.i
   %.sroa.gep305.i = getelementptr inbounds nuw i8, ptr %37, i64 16
   %.sroa.gep306.i = getelementptr inbounds nuw i8, ptr %74, i64 280
-  %.sroa.gep305.val.i = load ptr, ptr %.sroa.gep305.i, align 8, !noalias !8973
-  %.sroa.gep306.val.i = load ptr, ptr %.sroa.gep306.i, align 8, !alias.scope !8968, !noalias !8975
+  %.sroa.gep305.val.i = load ptr, ptr %.sroa.gep305.i, align 8, !noalias !8973, !nonnull !4, !align !14
+  %.sroa.gep306.val.i = load ptr, ptr %.sroa.gep306.i, align 8, !alias.scope !8968, !noalias !8975, !nonnull !4, !align !14
   %713 = select i1 %702, ptr %.sroa.gep305.val.i, ptr %.sroa.gep306.val.i
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %18), !noalias !9003
   invoke void @"_ZN60_$LT$alloc..string..String$u20$as$u20$core..clone..Clone$GT$5clone17hf54273bb14505f61E"(ptr noalias nocapture noundef nonnull sret({ { { i64, ptr, {} }, i64 } }) align 8 dereferenceable(24) %18, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %713)
@@ -36741,8 +36741,8 @@ default.unreachable:                              ; preds = %1119, %610
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %710, ptr noundef nonnull align 8 dereferenceable(24) %18, i64 24, i1 false), !noalias !9010
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %18), !noalias !9003
   %716 = ptrtoint ptr %710 to i64
-  %.val300.pre = load i8, ptr %699, align 1
-  %.val301.pre = load i8, ptr %700, align 2
+  %.val300.pre = load i8, ptr %699, align 1, !range !8853
+  %.val301.pre = load i8, ptr %700, align 2, !range !2534
   br label %"_ZN70_$LT$target_lexicon..targets..Vendor$u20$as$u20$core..clone..Clone$GT$5clone17h99bf5f5ea8217821E.llvm.15361297093319246575.exit188.i"
 
 717:                                              ; preds = %706
@@ -36769,16 +36769,16 @@ default.unreachable:                              ; preds = %1119, %610
   %.val300 = phi i8 [ 6, %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h7a16f2ec2ab22e52E.exit.i" ], [ 6, %717 ], [ %.val300.pre, %"_ZN69_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h7a26fba2d500a11dE.llvm.15361297093319246575.exit.i182.i" ]
   %.sroa.4250.0.i = phi ptr [ undef, %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h7a16f2ec2ab22e52E.exit.i" ], [ %707, %717 ], [ null, %"_ZN69_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h7a26fba2d500a11dE.llvm.15361297093319246575.exit.i182.i" ]
   %.sroa.5251.0.i = phi i64 [ undef, %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h7a16f2ec2ab22e52E.exit.i" ], [ %718, %717 ], [ %716, %"_ZN69_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h7a26fba2d500a11dE.llvm.15361297093319246575.exit.i182.i" ]
-  %.sroa.gep197 = getelementptr inbounds nuw i8, ptr %74, i64 288
+  %.sroa.gep195 = getelementptr inbounds nuw i8, ptr %74, i64 288
   %.val299 = load i64, ptr %698, align 8
-  %.sroa.gep197.val = load i64, ptr %.sroa.gep197, align 8
-  %721 = select i1 %702, i64 %.val299, i64 %.sroa.gep197.val
-  %.sroa.gep199 = getelementptr inbounds nuw i8, ptr %74, i64 299
-  %.sroa.gep199.val = load i8, ptr %.sroa.gep199, align 1
-  %722 = select i1 %702, i8 %.val300, i8 %.sroa.gep199.val
-  %.sroa.gep201 = getelementptr inbounds nuw i8, ptr %74, i64 298
-  %.sroa.gep201.val = load i8, ptr %.sroa.gep201, align 2
-  %723 = select i1 %702, i8 %.val301, i8 %.sroa.gep201.val
+  %.sroa.gep195.val = load i64, ptr %.sroa.gep195, align 8
+  %721 = select i1 %702, i64 %.val299, i64 %.sroa.gep195.val
+  %.sroa.gep197 = getelementptr inbounds nuw i8, ptr %74, i64 299
+  %.sroa.gep197.val = load i8, ptr %.sroa.gep197, align 1, !range !8853
+  %722 = select i1 %702, i8 %.val300, i8 %.sroa.gep197.val
+  %.sroa.gep199 = getelementptr inbounds nuw i8, ptr %74, i64 298
+  %.sroa.gep199.val = load i8, ptr %.sroa.gep199, align 2, !range !2534
+  %723 = select i1 %702, i8 %.val301, i8 %.sroa.gep199.val
   %724 = getelementptr inbounds nuw i8, ptr %36, i64 32
   store i8 %703, ptr %724, align 8, !noalias !8973
   %725 = getelementptr inbounds nuw i8, ptr %36, i64 33
@@ -36827,7 +36827,7 @@ default.unreachable:                              ; preds = %1119, %610
           to label %735 unwind label %.loopexit.split-lp.loopexit.split-lp.i, !noalias !8975
 
 _ZN8wasmtime6config20probestack_supported17h0ecf01129fe9b346E.exit.i: ; preds = %741, %"_ZN70_$LT$target_lexicon..targets..Vendor$u20$as$u20$core..clone..Clone$GT$5clone17h99bf5f5ea8217821E.llvm.15361297093319246575.exit188.i"
-  %.val171.i = phi i8 [ %.sroa.gep.val, %"_ZN70_$LT$target_lexicon..targets..Vendor$u20$as$u20$core..clone..Clone$GT$5clone17h99bf5f5ea8217821E.llvm.15361297093319246575.exit188.i" ], [ %.val171.pre.i, %741 ]
+  %.val171.i = phi i8 [ %703, %"_ZN70_$LT$target_lexicon..targets..Vendor$u20$as$u20$core..clone..Clone$GT$5clone17h99bf5f5ea8217821E.llvm.15361297093319246575.exit188.i" ], [ %.val171.pre.i, %741 ]
   %731 = getelementptr inbounds nuw i8, ptr %74, i64 632
   %732 = load i32, ptr %731, align 8, !alias.scope !8968, !noalias !8975, !noundef !4
   %733 = and i32 %732, 1024

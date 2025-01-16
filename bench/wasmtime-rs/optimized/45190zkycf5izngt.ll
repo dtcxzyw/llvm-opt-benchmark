@@ -4144,8 +4144,8 @@ define hidden void @"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h0c33829115e2
   %.val = load i64, ptr %5, align 8
   %.val2 = load i64, ptr %7, align 8
   %.sink = select i1 %trunc, i64 %.val, i64 %.val2
-  %.val3 = load ptr, ptr %2, align 8
-  %.val4 = load ptr, ptr %6, align 8
+  %.val3 = load ptr, ptr %2, align 8, !nonnull !4, !align !17
+  %.val4 = load ptr, ptr %6, align 8, !nonnull !4, !align !17
   %.sink1 = select i1 %trunc, ptr %.val3, ptr %.val4
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sink1, ptr %8, align 8
