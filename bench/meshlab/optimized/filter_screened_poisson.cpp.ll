@@ -28023,7 +28023,7 @@ define internal void @_ZN6OctreeIfE18_addFEMConstraintsILi2EL12BoundaryType2ELi2
   %42 = getelementptr inbounds i32, ptr %38, i64 %41
   %43 = load i32, ptr %42, align 4
   %44 = icmp slt i32 %39, %43
-  br i1 %44, label %45, label %502
+  br i1 %44, label %45, label %501
 
 45:                                               ; preds = %13
   %46 = xor i32 %39, -1
@@ -28061,7 +28061,7 @@ define internal void @_ZN6OctreeIfE18_addFEMConstraintsILi2EL12BoundaryType2ELi2
   br label %69
 
 69:                                               ; preds = %.lr.ph, %_ZNK6OctreeIfE14isValidFEMNodeILi2EL12BoundaryType2EEEbPK7OctNodeI12TreeNodeDataE.exit125.thread
-  %.095207 = phi i32 [ %51, %.lr.ph ], [ %498, %_ZNK6OctreeIfE14isValidFEMNodeILi2EL12BoundaryType2EEEbPK7OctNodeI12TreeNodeDataE.exit125.thread ]
+  %.095207 = phi i32 [ %51, %.lr.ph ], [ %497, %_ZNK6OctreeIfE14isValidFEMNodeILi2EL12BoundaryType2EEEbPK7OctNodeI12TreeNodeDataE.exit125.thread ]
   %70 = add i32 %.095207, %39
   %71 = call i32 @omp_get_thread_num()
   %72 = sext i32 %71 to i64
@@ -28220,12 +28220,12 @@ _ZNK6OctreeIfE15_isValidFEMNodeEPK7OctNodeI12TreeNodeDataE.exit: ; preds = %_Z12
 
 .preheader183:                                    ; preds = %_ZNK6OctreeIfE15_isValidFEMNodeEPK7OctNodeI12TreeNodeDataE.exit, %287
   %indvars.iv216 = phi i64 [ %indvars.iv.next217, %287 ], [ 0, %_ZNK6OctreeIfE15_isValidFEMNodeEPK7OctNodeI12TreeNodeDataE.exit ]
-  %.idx250 = mul i64 %indvars.iv216, 600
+  %.idx250 = mul nuw nsw i64 %indvars.iv216, 600
   br label %.preheader178
 
 .preheader178:                                    ; preds = %.preheader183, %286
   %indvars.iv212 = phi i64 [ 0, %.preheader183 ], [ %indvars.iv.next213, %286 ]
-  %.idx = mul i64 %indvars.iv212, 120
+  %.idx = mul nuw nsw i64 %indvars.iv212, 120
   br label %170
 
 170:                                              ; preds = %.preheader178, %_ZNK6OctreeIfE14isValidFEMNodeILi2EL12BoundaryType2EEEbPK7OctNodeI12TreeNodeDataE.exit.thread
@@ -28326,8 +28326,8 @@ _ZNK14SparseNodeDataI7Point3DIfELi2EEclEPK7OctNodeI12TreeNodeDataE.exit: ; preds
 
 235:                                              ; preds = %234
   %236 = load ptr, ptr %7, align 8
-  %237 = getelementptr inbounds i8, ptr %236, i64 %.idx
-  %238 = getelementptr inbounds i8, ptr %237, i64 %.idx250
+  %237 = getelementptr inbounds nuw i8, ptr %236, i64 %.idx
+  %238 = getelementptr inbounds nuw i8, ptr %237, i64 %.idx250
   %239 = getelementptr inbounds nuw %struct.Point3D.31, ptr %238, i64 %indvars.iv
   %240 = load double, ptr %239, align 8
   %241 = fptrunc double %240 to float
@@ -28384,11 +28384,11 @@ _ZNK14SparseNodeDataI7Point3DIfELi2EEclEPK7OctNodeI12TreeNodeDataE.exit: ; preds
   br label %_ZNK6OctreeIfE14isValidFEMNodeILi2EL12BoundaryType2EEEbPK7OctNodeI12TreeNodeDataE.exit.thread.sink.split
 
 _ZNK6OctreeIfE14isValidFEMNodeILi2EL12BoundaryType2EEEbPK7OctNodeI12TreeNodeDataE.exit.thread.sink.split: ; preds = %267, %235
-  %.sink275 = phi float [ %255, %235 ], [ %281, %267 ]
+  %.sink276 = phi float [ %255, %235 ], [ %281, %267 ]
   %282 = load ptr, ptr %63, align 8
   %283 = getelementptr inbounds float, ptr %282, i64 %76
   %284 = load float, ptr %283, align 4
-  %285 = fadd float %284, %.sink275
+  %285 = fadd float %284, %.sink276
   store float %285, ptr %283, align 4
   br label %_ZNK6OctreeIfE14isValidFEMNodeILi2EL12BoundaryType2EEEbPK7OctNodeI12TreeNodeDataE.exit.thread
 
@@ -28413,9 +28413,9 @@ _ZNK6OctreeIfE14isValidFEMNodeILi2EL12BoundaryType2EEEbPK7OctNodeI12TreeNodeData
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %16)
   %289 = load ptr, ptr %109, align 8
   %.not.i121 = icmp eq ptr %289, null
-  br i1 %.not.i121, label %_ZNK6OctreeIfE15_isValidFEMNodeEPK7OctNodeI12TreeNodeDataE.exit.thread.thread264, label %290
+  br i1 %.not.i121, label %_ZNK6OctreeIfE15_isValidFEMNodeEPK7OctNodeI12TreeNodeDataE.exit.thread.thread265, label %290
 
-_ZNK6OctreeIfE15_isValidFEMNodeEPK7OctNodeI12TreeNodeDataE.exit.thread.thread264: ; preds = %288
+_ZNK6OctreeIfE15_isValidFEMNodeEPK7OctNodeI12TreeNodeDataE.exit.thread.thread265: ; preds = %288
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16)
@@ -28465,12 +28465,12 @@ _ZNK6OctreeIfE15_isValidFEMNodeEPK7OctNodeI12TreeNodeDataE.exit.thread: ; preds 
   br i1 %322, label %_ZNK6OctreeIfE14isValidFEMNodeILi2EL12BoundaryType2EEEbPK7OctNodeI12TreeNodeDataE.exit125.thread, label %_Z12GetGhostFlagPK7OctNodeI12TreeNodeDataE.exit.i122
 
 _Z12GetGhostFlagPK7OctNodeI12TreeNodeDataE.exit.i122: ; preds = %_ZNK6OctreeIfE15_isValidFEMNodeEPK7OctNodeI12TreeNodeDataE.exit, %_Z12GetGhostFlagPK7OctNodeI12TreeNodeDataE.exit.i, %_ZNK6OctreeIfE15_isValidFEMNodeEPK7OctNodeI12TreeNodeDataE.exit.thread
-  %.0155.ph263 = phi i32 [ %302, %_ZNK6OctreeIfE15_isValidFEMNodeEPK7OctNodeI12TreeNodeDataE.exit.thread ], [ 0, %_Z12GetGhostFlagPK7OctNodeI12TreeNodeDataE.exit.i ], [ 0, %_ZNK6OctreeIfE15_isValidFEMNodeEPK7OctNodeI12TreeNodeDataE.exit ]
-  %.0156.ph262 = phi i32 [ %305, %_ZNK6OctreeIfE15_isValidFEMNodeEPK7OctNodeI12TreeNodeDataE.exit.thread ], [ 5, %_Z12GetGhostFlagPK7OctNodeI12TreeNodeDataE.exit.i ], [ 5, %_ZNK6OctreeIfE15_isValidFEMNodeEPK7OctNodeI12TreeNodeDataE.exit ]
-  %.0158.ph261 = phi i32 [ %310, %_ZNK6OctreeIfE15_isValidFEMNodeEPK7OctNodeI12TreeNodeDataE.exit.thread ], [ 0, %_Z12GetGhostFlagPK7OctNodeI12TreeNodeDataE.exit.i ], [ 0, %_ZNK6OctreeIfE15_isValidFEMNodeEPK7OctNodeI12TreeNodeDataE.exit ]
-  %.0160.ph260 = phi i32 [ %313, %_ZNK6OctreeIfE15_isValidFEMNodeEPK7OctNodeI12TreeNodeDataE.exit.thread ], [ 5, %_Z12GetGhostFlagPK7OctNodeI12TreeNodeDataE.exit.i ], [ 5, %_ZNK6OctreeIfE15_isValidFEMNodeEPK7OctNodeI12TreeNodeDataE.exit ]
-  %.0162.ph259 = phi i32 [ %318, %_ZNK6OctreeIfE15_isValidFEMNodeEPK7OctNodeI12TreeNodeDataE.exit.thread ], [ 0, %_Z12GetGhostFlagPK7OctNodeI12TreeNodeDataE.exit.i ], [ 0, %_ZNK6OctreeIfE15_isValidFEMNodeEPK7OctNodeI12TreeNodeDataE.exit ]
-  %.0164.ph258 = phi i32 [ %321, %_ZNK6OctreeIfE15_isValidFEMNodeEPK7OctNodeI12TreeNodeDataE.exit.thread ], [ 5, %_Z12GetGhostFlagPK7OctNodeI12TreeNodeDataE.exit.i ], [ 5, %_ZNK6OctreeIfE15_isValidFEMNodeEPK7OctNodeI12TreeNodeDataE.exit ]
+  %.0155.ph264 = phi i32 [ %302, %_ZNK6OctreeIfE15_isValidFEMNodeEPK7OctNodeI12TreeNodeDataE.exit.thread ], [ 0, %_Z12GetGhostFlagPK7OctNodeI12TreeNodeDataE.exit.i ], [ 0, %_ZNK6OctreeIfE15_isValidFEMNodeEPK7OctNodeI12TreeNodeDataE.exit ]
+  %.0156.ph263 = phi i32 [ %305, %_ZNK6OctreeIfE15_isValidFEMNodeEPK7OctNodeI12TreeNodeDataE.exit.thread ], [ 5, %_Z12GetGhostFlagPK7OctNodeI12TreeNodeDataE.exit.i ], [ 5, %_ZNK6OctreeIfE15_isValidFEMNodeEPK7OctNodeI12TreeNodeDataE.exit ]
+  %.0158.ph262 = phi i32 [ %310, %_ZNK6OctreeIfE15_isValidFEMNodeEPK7OctNodeI12TreeNodeDataE.exit.thread ], [ 0, %_Z12GetGhostFlagPK7OctNodeI12TreeNodeDataE.exit.i ], [ 0, %_ZNK6OctreeIfE15_isValidFEMNodeEPK7OctNodeI12TreeNodeDataE.exit ]
+  %.0160.ph261 = phi i32 [ %313, %_ZNK6OctreeIfE15_isValidFEMNodeEPK7OctNodeI12TreeNodeDataE.exit.thread ], [ 5, %_Z12GetGhostFlagPK7OctNodeI12TreeNodeDataE.exit.i ], [ 5, %_ZNK6OctreeIfE15_isValidFEMNodeEPK7OctNodeI12TreeNodeDataE.exit ]
+  %.0162.ph260 = phi i32 [ %318, %_ZNK6OctreeIfE15_isValidFEMNodeEPK7OctNodeI12TreeNodeDataE.exit.thread ], [ 0, %_Z12GetGhostFlagPK7OctNodeI12TreeNodeDataE.exit.i ], [ 0, %_ZNK6OctreeIfE15_isValidFEMNodeEPK7OctNodeI12TreeNodeDataE.exit ]
+  %.0164.ph259 = phi i32 [ %321, %_ZNK6OctreeIfE15_isValidFEMNodeEPK7OctNodeI12TreeNodeDataE.exit.thread ], [ 5, %_Z12GetGhostFlagPK7OctNodeI12TreeNodeDataE.exit.i ], [ 5, %_ZNK6OctreeIfE15_isValidFEMNodeEPK7OctNodeI12TreeNodeDataE.exit ]
   %323 = phi ptr [ %.pr.pre.pre, %_ZNK6OctreeIfE15_isValidFEMNodeEPK7OctNodeI12TreeNodeDataE.exit.thread ], [ %162, %_Z12GetGhostFlagPK7OctNodeI12TreeNodeDataE.exit.i ], [ %162, %_ZNK6OctreeIfE15_isValidFEMNodeEPK7OctNodeI12TreeNodeDataE.exit ]
   %324 = getelementptr inbounds nuw i8, ptr %323, i64 28
   %325 = load i8, ptr %324, align 4
@@ -28596,77 +28596,76 @@ _ZN6OctreeIfE7_IsZeroI7Point3DIfEEEbRKT_.exit:    ; preds = %386, %380
           to label %.preheader184 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 .preheader184:                                    ; preds = %400
-  %409 = icmp slt i32 %.0155.ph263, %.0156.ph262
+  %409 = icmp slt i32 %.0155.ph264, %.0156.ph263
   br i1 %409, label %.preheader182.lr.ph, label %_ZNK6OctreeIfE14isValidFEMNodeILi2EL12BoundaryType2EEEbPK7OctNodeI12TreeNodeDataE.exit125.thread
 
 .preheader182.lr.ph:                              ; preds = %.preheader184
-  %410 = icmp slt i32 %.0158.ph261, %.0160.ph260
+  %410 = icmp slt i32 %.0158.ph262, %.0160.ph261
   %411 = getelementptr inbounds nuw i8, ptr %379, i64 8
-  %412 = icmp slt i32 %.0162.ph259, %.0164.ph258
+  %412 = icmp slt i32 %.0162.ph260, %.0164.ph259
   %or.cond = select i1 %410, i1 %412, i1 false
   br i1 %or.cond, label %.preheader182.lr.ph.split.us.split.us, label %_ZNK6OctreeIfE14isValidFEMNodeILi2EL12BoundaryType2EEEbPK7OctNodeI12TreeNodeDataE.exit125.thread
 
 .preheader182.lr.ph.split.us.split.us:            ; preds = %.preheader182.lr.ph
-  %413 = sext i32 %.0162.ph259 to i64
-  %414 = sext i32 %.0158.ph261 to i64
-  %415 = sext i32 %.0155.ph263 to i64
+  %413 = sext i32 %.0162.ph260 to i64
+  %414 = sext i32 %.0158.ph262 to i64
+  %415 = sext i32 %.0155.ph264 to i64
   br i1 %.0.i110, label %.preheader182.us.us.us.preheader, label %.preheader182.us.us
 
 .preheader182.us.us.us.preheader:                 ; preds = %.preheader182.lr.ph.split.us.split.us
-  %wide.trip.count246 = sext i32 %.0156.ph262 to i64
-  %wide.trip.count241 = sext i32 %.0160.ph260 to i64
-  %wide.trip.count = sext i32 %.0164.ph258 to i64
+  %wide.trip.count246 = sext i32 %.0156.ph263 to i64
+  %wide.trip.count241 = sext i32 %.0160.ph261 to i64
+  %wide.trip.count = sext i32 %.0164.ph259 to i64
   br label %.preheader182.us.us.us
 
 .preheader182.us.us.us:                           ; preds = %.preheader182.us.us.us.preheader, %._crit_edge192.split.us.split.us.us.us.us
   %indvars.iv243 = phi i64 [ %415, %.preheader182.us.us.us.preheader ], [ %indvars.iv.next244, %._crit_edge192.split.us.split.us.us.us.us ]
-  %sext = mul i64 %indvars.iv243, 107374182400
-  %416 = ashr exact i64 %sext, 32
+  %.idx252 = mul i64 %indvars.iv243, 600
   br label %.preheader.us.us.us.us.us
 
 .preheader.us.us.us.us.us:                        ; preds = %._crit_edge.split.us.us.us.us.us.us, %.preheader182.us.us.us
   %indvars.iv238 = phi i64 [ %indvars.iv.next239, %._crit_edge.split.us.us.us.us.us.us ], [ %414, %.preheader182.us.us.us ]
   %.idx251 = mul i64 %indvars.iv238, 120
-  br label %417
+  br label %416
 
-417:                                              ; preds = %_ZNK6OctreeIfE15_isValidFEMNodeEPK7OctNodeI12TreeNodeDataE.exit129.thread.us.us.us.us.us.us, %.preheader.us.us.us.us.us
+416:                                              ; preds = %_ZNK6OctreeIfE15_isValidFEMNodeEPK7OctNodeI12TreeNodeDataE.exit129.thread.us.us.us.us.us.us, %.preheader.us.us.us.us.us
   %indvars.iv234 = phi i64 [ %indvars.iv.next235, %_ZNK6OctreeIfE15_isValidFEMNodeEPK7OctNodeI12TreeNodeDataE.exit129.thread.us.us.us.us.us.us ], [ %413, %.preheader.us.us.us.us.us ]
-  %418 = getelementptr inbounds [5 x [5 x [5 x ptr]]], ptr %21, i64 0, i64 %indvars.iv243, i64 %indvars.iv238, i64 %indvars.iv234
-  %419 = load ptr, ptr %418, align 8
-  %.not.us.us.us.us.us.us = icmp eq ptr %419, null
-  br i1 %.not.us.us.us.us.us.us, label %_ZNK6OctreeIfE15_isValidFEMNodeEPK7OctNodeI12TreeNodeDataE.exit129.thread.us.us.us.us.us.us, label %420
+  %417 = getelementptr inbounds [5 x [5 x [5 x ptr]]], ptr %21, i64 0, i64 %indvars.iv243, i64 %indvars.iv238, i64 %indvars.iv234
+  %418 = load ptr, ptr %417, align 8
+  %.not.us.us.us.us.us.us = icmp eq ptr %418, null
+  br i1 %.not.us.us.us.us.us.us, label %_ZNK6OctreeIfE15_isValidFEMNodeEPK7OctNodeI12TreeNodeDataE.exit129.thread.us.us.us.us.us.us, label %419
 
-420:                                              ; preds = %417
-  %421 = load ptr, ptr %407, align 8
-  %422 = getelementptr i8, ptr %421, i64 %.idx251
-  %423 = getelementptr %struct.Point3D.31, ptr %422, i64 %416
-  %424 = getelementptr %struct.Point3D.31, ptr %423, i64 %indvars.iv234
-  %425 = load double, ptr %424, align 8
-  %426 = fptrunc double %425 to float
-  %427 = getelementptr inbounds nuw i8, ptr %424, i64 8
-  %428 = load double, ptr %427, align 8
-  %429 = fptrunc double %428 to float
-  %430 = getelementptr inbounds nuw i8, ptr %424, i64 16
-  %431 = load double, ptr %430, align 8
-  %432 = fptrunc double %431 to float
-  %433 = load float, ptr %379, align 4
-  %434 = load float, ptr %383, align 4
-  %435 = fmul float %434, %429
-  %436 = call float @llvm.fmuladd.f32(float %426, float %433, float %435)
-  %437 = load float, ptr %411, align 4
-  %438 = call noundef float @llvm.fmuladd.f32(float %432, float %437, float %436)
-  %439 = getelementptr inbounds nuw i8, ptr %419, i64 24
-  %440 = load i32, ptr %439, align 8
-  %441 = load ptr, ptr %68, align 8
-  %442 = sext i32 %440 to i64
-  %443 = getelementptr inbounds float, ptr %441, i64 %442
-  %444 = atomicrmw fadd ptr %443, float %438 monotonic, align 4
+419:                                              ; preds = %416
+  %420 = load ptr, ptr %407, align 8
+  %421 = getelementptr i8, ptr %420, i64 %.idx251
+  %422 = getelementptr i8, ptr %421, i64 %.idx252
+  %423 = getelementptr %struct.Point3D.31, ptr %422, i64 %indvars.iv234
+  %424 = load double, ptr %423, align 8
+  %425 = fptrunc double %424 to float
+  %426 = getelementptr inbounds nuw i8, ptr %423, i64 8
+  %427 = load double, ptr %426, align 8
+  %428 = fptrunc double %427 to float
+  %429 = getelementptr inbounds nuw i8, ptr %423, i64 16
+  %430 = load double, ptr %429, align 8
+  %431 = fptrunc double %430 to float
+  %432 = load float, ptr %379, align 4
+  %433 = load float, ptr %383, align 4
+  %434 = fmul float %433, %428
+  %435 = call float @llvm.fmuladd.f32(float %425, float %432, float %434)
+  %436 = load float, ptr %411, align 4
+  %437 = call noundef float @llvm.fmuladd.f32(float %431, float %436, float %435)
+  %438 = getelementptr inbounds nuw i8, ptr %418, i64 24
+  %439 = load i32, ptr %438, align 8
+  %440 = load ptr, ptr %68, align 8
+  %441 = sext i32 %439 to i64
+  %442 = getelementptr inbounds float, ptr %440, i64 %441
+  %443 = atomicrmw fadd ptr %442, float %437 monotonic, align 4
   br label %_ZNK6OctreeIfE15_isValidFEMNodeEPK7OctNodeI12TreeNodeDataE.exit129.thread.us.us.us.us.us.us
 
-_ZNK6OctreeIfE15_isValidFEMNodeEPK7OctNodeI12TreeNodeDataE.exit129.thread.us.us.us.us.us.us: ; preds = %420, %417
+_ZNK6OctreeIfE15_isValidFEMNodeEPK7OctNodeI12TreeNodeDataE.exit129.thread.us.us.us.us.us.us: ; preds = %419, %416
   %indvars.iv.next235 = add nsw i64 %indvars.iv234, 1
   %exitcond237.not = icmp eq i64 %indvars.iv.next235, %wide.trip.count
-  br i1 %exitcond237.not, label %._crit_edge.split.us.us.us.us.us.us, label %417, !llvm.loop !376
+  br i1 %exitcond237.not, label %._crit_edge.split.us.us.us.us.us.us, label %416, !llvm.loop !376
 
 ._crit_edge.split.us.us.us.us.us.us:              ; preds = %_ZNK6OctreeIfE15_isValidFEMNodeEPK7OctNodeI12TreeNodeDataE.exit129.thread.us.us.us.us.us.us
   %indvars.iv.next239 = add nsw i64 %indvars.iv238, 1
@@ -28684,120 +28683,120 @@ _ZNK6OctreeIfE15_isValidFEMNodeEPK7OctNodeI12TreeNodeDataE.exit129.thread.us.us.
 
 .preheader.us.us203.us:                           ; preds = %.preheader182.us.us, %._crit_edge.split.us196.us.us
   %indvars.iv224 = phi i64 [ %414, %.preheader182.us.us ], [ %indvars.iv.next225, %._crit_edge.split.us196.us.us ]
-  br label %445
+  br label %444
 
-445:                                              ; preds = %_ZNK6OctreeIfE15_isValidFEMNodeEPK7OctNodeI12TreeNodeDataE.exit129.thread.us195.us.us, %.preheader.us.us203.us
+444:                                              ; preds = %_ZNK6OctreeIfE15_isValidFEMNodeEPK7OctNodeI12TreeNodeDataE.exit129.thread.us195.us.us, %.preheader.us.us203.us
   %indvars.iv220 = phi i64 [ %indvars.iv.next221, %_ZNK6OctreeIfE15_isValidFEMNodeEPK7OctNodeI12TreeNodeDataE.exit129.thread.us195.us.us ], [ %413, %.preheader.us.us203.us ]
-  %446 = getelementptr inbounds [5 x [5 x [5 x ptr]]], ptr %21, i64 0, i64 %indvars.iv229, i64 %indvars.iv224, i64 %indvars.iv220
-  %447 = load ptr, ptr %446, align 8
-  %.not.us194.us.us = icmp eq ptr %447, null
-  br i1 %.not.us194.us.us, label %_ZNK6OctreeIfE15_isValidFEMNodeEPK7OctNodeI12TreeNodeDataE.exit129.thread.us195.us.us, label %448
+  %445 = getelementptr inbounds [5 x [5 x [5 x ptr]]], ptr %21, i64 0, i64 %indvars.iv229, i64 %indvars.iv224, i64 %indvars.iv220
+  %446 = load ptr, ptr %445, align 8
+  %.not.us194.us.us = icmp eq ptr %446, null
+  br i1 %.not.us194.us.us, label %_ZNK6OctreeIfE15_isValidFEMNodeEPK7OctNodeI12TreeNodeDataE.exit129.thread.us195.us.us, label %447
 
-448:                                              ; preds = %445
-  %449 = getelementptr inbounds nuw i8, ptr %447, i64 8
-  %450 = load ptr, ptr %449, align 8
-  %451 = icmp eq ptr %450, null
-  br i1 %451, label %_ZNK6OctreeIfE15_isValidFEMNodeEPK7OctNodeI12TreeNodeDataE.exit129.thread.us195.us.us, label %_Z12GetGhostFlagPK7OctNodeI12TreeNodeDataE.exit.i128.us.us.us
+447:                                              ; preds = %444
+  %448 = getelementptr inbounds nuw i8, ptr %446, i64 8
+  %449 = load ptr, ptr %448, align 8
+  %450 = icmp eq ptr %449, null
+  br i1 %450, label %_ZNK6OctreeIfE15_isValidFEMNodeEPK7OctNodeI12TreeNodeDataE.exit129.thread.us195.us.us, label %_Z12GetGhostFlagPK7OctNodeI12TreeNodeDataE.exit.i128.us.us.us
 
-_Z12GetGhostFlagPK7OctNodeI12TreeNodeDataE.exit.i128.us.us.us: ; preds = %448
-  %452 = getelementptr inbounds nuw i8, ptr %450, i64 28
-  %453 = load i8, ptr %452, align 4
-  %454 = icmp slt i8 %453, 0
-  br i1 %454, label %_ZNK6OctreeIfE15_isValidFEMNodeEPK7OctNodeI12TreeNodeDataE.exit129.thread.us195.us.us, label %_ZNK6OctreeIfE15_isValidFEMNodeEPK7OctNodeI12TreeNodeDataE.exit129.us.us.us
+_Z12GetGhostFlagPK7OctNodeI12TreeNodeDataE.exit.i128.us.us.us: ; preds = %447
+  %451 = getelementptr inbounds nuw i8, ptr %449, i64 28
+  %452 = load i8, ptr %451, align 4
+  %453 = icmp slt i8 %452, 0
+  br i1 %453, label %_ZNK6OctreeIfE15_isValidFEMNodeEPK7OctNodeI12TreeNodeDataE.exit129.thread.us195.us.us, label %_ZNK6OctreeIfE15_isValidFEMNodeEPK7OctNodeI12TreeNodeDataE.exit129.us.us.us
 
 _ZNK6OctreeIfE15_isValidFEMNodeEPK7OctNodeI12TreeNodeDataE.exit129.us.us.us: ; preds = %_Z12GetGhostFlagPK7OctNodeI12TreeNodeDataE.exit.i128.us.us.us
-  %455 = getelementptr inbounds nuw i8, ptr %447, i64 28
-  %456 = load i8, ptr %455, align 4
-  %457 = and i8 %456, 2
-  %.not177.us.us.us = icmp eq i8 %457, 0
-  br i1 %.not177.us.us.us, label %_ZNK6OctreeIfE15_isValidFEMNodeEPK7OctNodeI12TreeNodeDataE.exit129.thread.us195.us.us, label %458
+  %454 = getelementptr inbounds nuw i8, ptr %446, i64 28
+  %455 = load i8, ptr %454, align 4
+  %456 = and i8 %455, 2
+  %.not177.us.us.us = icmp eq i8 %456, 0
+  br i1 %.not177.us.us.us, label %_ZNK6OctreeIfE15_isValidFEMNodeEPK7OctNodeI12TreeNodeDataE.exit129.thread.us195.us.us, label %457
 
-458:                                              ; preds = %_ZNK6OctreeIfE15_isValidFEMNodeEPK7OctNodeI12TreeNodeDataE.exit129.us.us.us
-  %459 = load i64, ptr %447, align 8
-  %460 = trunc i64 %459 to i32
-  %461 = and i32 %460, 31
-  %462 = lshr i32 %460, 5
-  %463 = and i32 %462, 524287
-  store i32 %463, ptr %28, align 4
-  %464 = load i64, ptr %447, align 8
-  %465 = lshr i64 %464, 24
-  %466 = trunc i64 %465 to i32
-  %467 = and i32 %466, 524287
-  store i32 %467, ptr %64, align 4
-  %468 = load i64, ptr %447, align 8
-  %469 = lshr i64 %468, 43
-  %470 = trunc nuw nsw i64 %469 to i32
-  %471 = and i32 %470, 524287
-  %472 = load i32, ptr %32, align 8
-  %473 = icmp slt i32 %472, 2
-  %474 = add nsw i32 %461, -1
-  %475 = shl nuw nsw i32 1, %474
-  %476 = select i1 %473, i32 0, i32 %475
-  %477 = sub nsw i32 %463, %476
-  store i32 %477, ptr %28, align 4
-  %478 = sub nsw i32 %467, %476
-  store i32 %478, ptr %64, align 4
-  %479 = sub nsw i32 %471, %476
-  store i32 %479, ptr %65, align 4
+457:                                              ; preds = %_ZNK6OctreeIfE15_isValidFEMNodeEPK7OctNodeI12TreeNodeDataE.exit129.us.us.us
+  %458 = load i64, ptr %446, align 8
+  %459 = trunc i64 %458 to i32
+  %460 = and i32 %459, 31
+  %461 = lshr i32 %459, 5
+  %462 = and i32 %461, 524287
+  store i32 %462, ptr %28, align 4
+  %463 = load i64, ptr %446, align 8
+  %464 = lshr i64 %463, 24
+  %465 = trunc i64 %464 to i32
+  %466 = and i32 %465, 524287
+  store i32 %466, ptr %64, align 4
+  %467 = load i64, ptr %446, align 8
+  %468 = lshr i64 %467, 43
+  %469 = trunc nuw nsw i64 %468 to i32
+  %470 = and i32 %469, 524287
+  %471 = load i32, ptr %32, align 8
+  %472 = icmp slt i32 %471, 2
+  %473 = add nsw i32 %460, -1
+  %474 = shl nuw nsw i32 1, %473
+  %475 = select i1 %472, i32 0, i32 %474
+  %476 = sub nsw i32 %462, %475
+  store i32 %476, ptr %28, align 4
+  %477 = sub nsw i32 %466, %475
+  store i32 %477, ptr %64, align 4
+  %478 = sub nsw i32 %470, %475
+  store i32 %478, ptr %65, align 4
   invoke void @_ZNK22FEMVFConstraintFunctorILi2EL12BoundaryType2ELi2ELS0_2EE10_integrateILb1EN22BSplineIntegrationDataILi2ELS0_2ELi2ELS0_2EE18FunctionIntegrator15ChildIntegratorILj2ELj2EEEEE7Point3DIdERKT0_PKiSE_(ptr dead_on_unwind nonnull writable sret(%struct.Point3D.31) align 8 %29, ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(4040) %11, ptr noundef nonnull %28, ptr noundef nonnull %22)
           to label %_ZNK22FEMVFConstraintFunctorILi2EL12BoundaryType2ELi2ELS0_2EE9integrateILb1EEE7Point3DIdERKN18SystemCoefficientsIXquT_Li2ELi2EEXquT_cvS0_Lj2EcvS0_Lj2EEXquT_Li2ELi2EEXquT_cvS0_Lj2EcvS0_Lj2EEE15ChildIntegratorEPKiSB_.exit.us.us.us unwind label %.loopexit.split.us.split.us.split.us
 
-_ZNK22FEMVFConstraintFunctorILi2EL12BoundaryType2ELi2ELS0_2EE9integrateILb1EEE7Point3DIdERKN18SystemCoefficientsIXquT_Li2ELi2EEXquT_cvS0_Lj2EcvS0_Lj2EEXquT_Li2ELi2EEXquT_cvS0_Lj2EcvS0_Lj2EEE15ChildIntegratorEPKiSB_.exit.us.us.us: ; preds = %458
-  %480 = load double, ptr %29, align 8
-  %481 = fptrunc double %480 to float
-  %482 = load double, ptr %66, align 8
-  %483 = fptrunc double %482 to float
-  %484 = load double, ptr %67, align 8
-  %485 = fptrunc double %484 to float
-  %486 = load float, ptr %379, align 4
-  %487 = load float, ptr %383, align 4
-  %488 = fmul float %487, %483
-  %489 = call float @llvm.fmuladd.f32(float %486, float %481, float %488)
-  %490 = load float, ptr %411, align 4
-  %491 = call noundef float @llvm.fmuladd.f32(float %490, float %485, float %489)
-  %492 = getelementptr inbounds nuw i8, ptr %447, i64 24
-  %493 = load i32, ptr %492, align 8
-  %494 = load ptr, ptr %68, align 8
-  %495 = sext i32 %493 to i64
-  %496 = getelementptr inbounds float, ptr %494, i64 %495
-  %497 = atomicrmw fadd ptr %496, float %491 monotonic, align 4
+_ZNK22FEMVFConstraintFunctorILi2EL12BoundaryType2ELi2ELS0_2EE9integrateILb1EEE7Point3DIdERKN18SystemCoefficientsIXquT_Li2ELi2EEXquT_cvS0_Lj2EcvS0_Lj2EEXquT_Li2ELi2EEXquT_cvS0_Lj2EcvS0_Lj2EEE15ChildIntegratorEPKiSB_.exit.us.us.us: ; preds = %457
+  %479 = load double, ptr %29, align 8
+  %480 = fptrunc double %479 to float
+  %481 = load double, ptr %66, align 8
+  %482 = fptrunc double %481 to float
+  %483 = load double, ptr %67, align 8
+  %484 = fptrunc double %483 to float
+  %485 = load float, ptr %379, align 4
+  %486 = load float, ptr %383, align 4
+  %487 = fmul float %486, %482
+  %488 = call float @llvm.fmuladd.f32(float %485, float %480, float %487)
+  %489 = load float, ptr %411, align 4
+  %490 = call noundef float @llvm.fmuladd.f32(float %489, float %484, float %488)
+  %491 = getelementptr inbounds nuw i8, ptr %446, i64 24
+  %492 = load i32, ptr %491, align 8
+  %493 = load ptr, ptr %68, align 8
+  %494 = sext i32 %492 to i64
+  %495 = getelementptr inbounds float, ptr %493, i64 %494
+  %496 = atomicrmw fadd ptr %495, float %490 monotonic, align 4
   br label %_ZNK6OctreeIfE15_isValidFEMNodeEPK7OctNodeI12TreeNodeDataE.exit129.thread.us195.us.us
 
-_ZNK6OctreeIfE15_isValidFEMNodeEPK7OctNodeI12TreeNodeDataE.exit129.thread.us195.us.us: ; preds = %_ZNK22FEMVFConstraintFunctorILi2EL12BoundaryType2ELi2ELS0_2EE9integrateILb1EEE7Point3DIdERKN18SystemCoefficientsIXquT_Li2ELi2EEXquT_cvS0_Lj2EcvS0_Lj2EEXquT_Li2ELi2EEXquT_cvS0_Lj2EcvS0_Lj2EEE15ChildIntegratorEPKiSB_.exit.us.us.us, %_ZNK6OctreeIfE15_isValidFEMNodeEPK7OctNodeI12TreeNodeDataE.exit129.us.us.us, %_Z12GetGhostFlagPK7OctNodeI12TreeNodeDataE.exit.i128.us.us.us, %448, %445
+_ZNK6OctreeIfE15_isValidFEMNodeEPK7OctNodeI12TreeNodeDataE.exit129.thread.us195.us.us: ; preds = %_ZNK22FEMVFConstraintFunctorILi2EL12BoundaryType2ELi2ELS0_2EE9integrateILb1EEE7Point3DIdERKN18SystemCoefficientsIXquT_Li2ELi2EEXquT_cvS0_Lj2EcvS0_Lj2EEXquT_Li2ELi2EEXquT_cvS0_Lj2EcvS0_Lj2EEE15ChildIntegratorEPKiSB_.exit.us.us.us, %_ZNK6OctreeIfE15_isValidFEMNodeEPK7OctNodeI12TreeNodeDataE.exit129.us.us.us, %_Z12GetGhostFlagPK7OctNodeI12TreeNodeDataE.exit.i128.us.us.us, %447, %444
   %indvars.iv.next221 = add nsw i64 %indvars.iv220, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next221 to i32
-  %exitcond223.not = icmp eq i32 %.0164.ph258, %lftr.wideiv
-  br i1 %exitcond223.not, label %._crit_edge.split.us196.us.us, label %445, !llvm.loop !376
+  %exitcond223.not = icmp eq i32 %.0164.ph259, %lftr.wideiv
+  br i1 %exitcond223.not, label %._crit_edge.split.us196.us.us, label %444, !llvm.loop !376
 
 ._crit_edge.split.us196.us.us:                    ; preds = %_ZNK6OctreeIfE15_isValidFEMNodeEPK7OctNodeI12TreeNodeDataE.exit129.thread.us195.us.us
   %indvars.iv.next225 = add nsw i64 %indvars.iv224, 1
   %lftr.wideiv227 = trunc i64 %indvars.iv.next225 to i32
-  %exitcond228.not = icmp eq i32 %.0160.ph260, %lftr.wideiv227
+  %exitcond228.not = icmp eq i32 %.0160.ph261, %lftr.wideiv227
   br i1 %exitcond228.not, label %._crit_edge192.split.us.split.us205.us, label %.preheader.us.us203.us, !llvm.loop !377
 
 ._crit_edge192.split.us.split.us205.us:           ; preds = %._crit_edge.split.us196.us.us
   %indvars.iv.next230 = add nsw i64 %indvars.iv229, 1
   %lftr.wideiv232 = trunc i64 %indvars.iv.next230 to i32
-  %exitcond233.not = icmp eq i32 %.0156.ph262, %lftr.wideiv232
+  %exitcond233.not = icmp eq i32 %.0156.ph263, %lftr.wideiv232
   br i1 %exitcond233.not, label %_ZNK6OctreeIfE14isValidFEMNodeILi2EL12BoundaryType2EEEbPK7OctNodeI12TreeNodeDataE.exit125.thread, label %.preheader182.us.us, !llvm.loop !378
 
-.loopexit.split.us.split.us.split.us:             ; preds = %458
+.loopexit.split.us.split.us.split.us:             ; preds = %457
   %lpad.loopexit.us.us.us = landingpad { ptr, i32 }
           catch ptr null
   br label %.loopexit.split-lp
 
-_ZNK6OctreeIfE14isValidFEMNodeILi2EL12BoundaryType2EEEbPK7OctNodeI12TreeNodeDataE.exit125.thread: ; preds = %._crit_edge192.split.us.split.us205.us, %._crit_edge192.split.us.split.us.us.us.us, %.preheader182.lr.ph, %_ZNK6OctreeIfE15_isValidFEMNodeEPK7OctNodeI12TreeNodeDataE.exit.thread.thread264, %.preheader184, %141, %360, %364, %372, %_ZNK6OctreeIfE15_isValidFEMNodeEPK7OctNodeI12TreeNodeDataE.exit.thread, %346, %354, %327, %_Z12GetGhostFlagPK7OctNodeI12TreeNodeDataE.exit.i122, %_ZNK6OctreeIfE14isValidFEMNodeILi2EL12BoundaryType2EEEbPK7OctNodeI12TreeNodeDataE.exit125, %_ZNK14SparseNodeDataI7Point3DIfELi2EEclEPK7OctNodeI12TreeNodeDataE.exit127, %_ZN6OctreeIfE7_IsZeroI7Point3DIfEEEbRKT_.exit
-  %498 = add nuw i32 %.095207, 1
-  %499 = load i32, ptr %18, align 4
-  %500 = add i32 %499, 1
-  %501 = icmp ult i32 %498, %500
-  br i1 %501, label %69, label %._crit_edge
+_ZNK6OctreeIfE14isValidFEMNodeILi2EL12BoundaryType2EEEbPK7OctNodeI12TreeNodeDataE.exit125.thread: ; preds = %._crit_edge192.split.us.split.us205.us, %._crit_edge192.split.us.split.us.us.us.us, %.preheader182.lr.ph, %_ZNK6OctreeIfE15_isValidFEMNodeEPK7OctNodeI12TreeNodeDataE.exit.thread.thread265, %.preheader184, %141, %360, %364, %372, %_ZNK6OctreeIfE15_isValidFEMNodeEPK7OctNodeI12TreeNodeDataE.exit.thread, %346, %354, %327, %_Z12GetGhostFlagPK7OctNodeI12TreeNodeDataE.exit.i122, %_ZNK6OctreeIfE14isValidFEMNodeILi2EL12BoundaryType2EEEbPK7OctNodeI12TreeNodeDataE.exit125, %_ZNK14SparseNodeDataI7Point3DIfELi2EEclEPK7OctNodeI12TreeNodeDataE.exit127, %_ZN6OctreeIfE7_IsZeroI7Point3DIfEEEbRKT_.exit
+  %497 = add nuw i32 %.095207, 1
+  %498 = load i32, ptr %18, align 4
+  %499 = add i32 %498, 1
+  %500 = icmp ult i32 %497, %499
+  br i1 %500, label %69, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %_ZNK6OctreeIfE14isValidFEMNodeILi2EL12BoundaryType2EEEbPK7OctNodeI12TreeNodeDataE.exit125.thread, %45
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %48)
-  br label %502
+  br label %501
 
-502:                                              ; preds = %._crit_edge, %13
+501:                                              ; preds = %._crit_edge, %13
   ret void
 
 .loopexit.split-lp.loopexit:                      ; preds = %256
@@ -28812,8 +28811,8 @@ _ZNK6OctreeIfE14isValidFEMNodeILi2EL12BoundaryType2EEEbPK7OctNodeI12TreeNodeData
 
 .loopexit.split-lp:                               ; preds = %.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp, %.loopexit.split.us.split.us.split.us
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit.us.us.us, %.loopexit.split.us.split.us.split.us ], [ %lpad.loopexit179, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp180, %.loopexit.split-lp.loopexit.split-lp ]
-  %503 = extractvalue { ptr, i32 } %lpad.phi, 0
-  call void @__clang_call_terminate(ptr %503) #45
+  %502 = extractvalue { ptr, i32 } %lpad.phi, 0
+  call void @__clang_call_terminate(ptr %502) #45
   unreachable
 }
 
@@ -30036,7 +30035,7 @@ define internal void @_ZN6OctreeIfE18_addFEMConstraintsILi2EL12BoundaryType2ELi2
   %37 = getelementptr inbounds i32, ptr %33, i64 %36
   %38 = load i32, ptr %37, align 4
   %39 = icmp slt i32 %34, %38
-  br i1 %39, label %40, label %356
+  br i1 %39, label %40, label %355
 
 40:                                               ; preds = %10
   %41 = xor i32 %34, -1
@@ -30068,8 +30067,8 @@ define internal void @_ZN6OctreeIfE18_addFEMConstraintsILi2EL12BoundaryType2ELi2
   br label %58
 
 58:                                               ; preds = %.lr.ph, %_ZNK6OctreeIfE15_isValidFEMNodeEPK7OctNodeI12TreeNodeDataE.exit.thread
-  %59 = phi i32 [ %45, %.lr.ph ], [ %352, %_ZNK6OctreeIfE15_isValidFEMNodeEPK7OctNodeI12TreeNodeDataE.exit.thread ]
-  %.0137 = phi i32 [ %46, %.lr.ph ], [ %353, %_ZNK6OctreeIfE15_isValidFEMNodeEPK7OctNodeI12TreeNodeDataE.exit.thread ]
+  %59 = phi i32 [ %45, %.lr.ph ], [ %351, %_ZNK6OctreeIfE15_isValidFEMNodeEPK7OctNodeI12TreeNodeDataE.exit.thread ]
+  %.0137 = phi i32 [ %46, %.lr.ph ], [ %352, %_ZNK6OctreeIfE15_isValidFEMNodeEPK7OctNodeI12TreeNodeDataE.exit.thread ]
   %.074136 = phi i32 [ undef, %.lr.ph ], [ %.175, %_ZNK6OctreeIfE15_isValidFEMNodeEPK7OctNodeI12TreeNodeDataE.exit.thread ]
   %.077135 = phi i32 [ undef, %.lr.ph ], [ %.178, %_ZNK6OctreeIfE15_isValidFEMNodeEPK7OctNodeI12TreeNodeDataE.exit.thread ]
   %.080134 = phi i32 [ undef, %.lr.ph ], [ %.181, %_ZNK6OctreeIfE15_isValidFEMNodeEPK7OctNodeI12TreeNodeDataE.exit.thread ]
@@ -30289,8 +30288,8 @@ _ZNK6OctreeIfE23_isInteriorlyOverlappedILi2ELi2EEEbPK7OctNodeI12TreeNodeDataE.ex
   %194 = icmp slt i32 %.282, %.285
   %or.cond = select i1 %193, i1 %194, i1 false
   %195 = icmp slt i32 %.288, %.291
-  %or.cond173 = select i1 %or.cond, i1 %195, i1 false
-  br i1 %or.cond173, label %.preheader93.lr.ph.split.us.split.us, label %._crit_edge
+  %or.cond174 = select i1 %or.cond, i1 %195, i1 false
+  br i1 %or.cond174, label %.preheader93.lr.ph.split.us.split.us, label %._crit_edge
 
 .preheader93.lr.ph.split.us.split.us:             ; preds = %167
   br i1 %.0.i, label %.preheader93.lr.ph.split.us.split.us.split.us, label %.preheader93.us.us.preheader
@@ -30314,110 +30313,109 @@ _ZNK6OctreeIfE23_isInteriorlyOverlappedILi2ELi2EEEbPK7OctNodeI12TreeNodeDataE.ex
 .preheader93.us.us.us:                            ; preds = %._crit_edge101.split.us.split.us.us.us.us, %.preheader93.lr.ph.split.us.split.us.split.us
   %indvars.iv163 = phi i64 [ %indvars.iv.next164, %._crit_edge101.split.us.split.us.us.us.us ], [ %202, %.preheader93.lr.ph.split.us.split.us.split.us ]
   %.058115.us.us.us = phi float [ %.3.us.us.us.us.us.us, %._crit_edge101.split.us.split.us.us.us.us ], [ 0.000000e+00, %.preheader93.lr.ph.split.us.split.us.split.us ]
-  %sext = mul i64 %indvars.iv163, 107374182400
-  %203 = ashr exact i64 %sext, 32
+  %.idx172 = mul i64 %indvars.iv163, 600
   br label %.preheader.us.us.us.us.us
 
 .preheader.us.us.us.us.us:                        ; preds = %._crit_edge.split.us.us.us.us.us.us, %.preheader93.us.us.us
   %indvars.iv158 = phi i64 [ %indvars.iv.next159, %._crit_edge.split.us.us.us.us.us.us ], [ %201, %.preheader93.us.us.us ]
   %.199.us.us.us.us.us = phi float [ %.3.us.us.us.us.us.us, %._crit_edge.split.us.us.us.us.us.us ], [ %.058115.us.us.us, %.preheader93.us.us.us ]
   %.idx = mul i64 %indvars.iv158, 120
-  br label %204
+  br label %203
 
-204:                                              ; preds = %_ZNK6OctreeIfE14isValidFEMNodeILi2EL12BoundaryType2EEEbPK7OctNodeI12TreeNodeDataE.exit.thread.us.us.us.us.us.us, %.preheader.us.us.us.us.us
+203:                                              ; preds = %_ZNK6OctreeIfE14isValidFEMNodeILi2EL12BoundaryType2EEEbPK7OctNodeI12TreeNodeDataE.exit.thread.us.us.us.us.us.us, %.preheader.us.us.us.us.us
   %indvars.iv154 = phi i64 [ %indvars.iv.next155, %_ZNK6OctreeIfE14isValidFEMNodeILi2EL12BoundaryType2EEEbPK7OctNodeI12TreeNodeDataE.exit.thread.us.us.us.us.us.us ], [ %200, %.preheader.us.us.us.us.us ]
   %.297.us.us.us.us.us.us = phi float [ %.3.us.us.us.us.us.us, %_ZNK6OctreeIfE14isValidFEMNodeILi2EL12BoundaryType2EEEbPK7OctNodeI12TreeNodeDataE.exit.thread.us.us.us.us.us.us ], [ %.199.us.us.us.us.us, %.preheader.us.us.us.us.us ]
-  %205 = getelementptr inbounds [5 x [5 x [5 x ptr]]], ptr %18, i64 0, i64 %indvars.iv163, i64 %indvars.iv158, i64 %indvars.iv154
-  %206 = load ptr, ptr %205, align 8
-  %207 = icmp eq ptr %206, null
-  br i1 %207, label %_ZNK6OctreeIfE14isValidFEMNodeILi2EL12BoundaryType2EEEbPK7OctNodeI12TreeNodeDataE.exit.thread.us.us.us.us.us.us, label %208
+  %204 = getelementptr inbounds [5 x [5 x [5 x ptr]]], ptr %18, i64 0, i64 %indvars.iv163, i64 %indvars.iv158, i64 %indvars.iv154
+  %205 = load ptr, ptr %204, align 8
+  %206 = icmp eq ptr %205, null
+  br i1 %206, label %_ZNK6OctreeIfE14isValidFEMNodeILi2EL12BoundaryType2EEEbPK7OctNodeI12TreeNodeDataE.exit.thread.us.us.us.us.us.us, label %207
 
-208:                                              ; preds = %204
-  %209 = getelementptr inbounds nuw i8, ptr %206, i64 8
-  %210 = load ptr, ptr %209, align 8
-  %211 = icmp eq ptr %210, null
-  br i1 %211, label %_ZNK6OctreeIfE14isValidFEMNodeILi2EL12BoundaryType2EEEbPK7OctNodeI12TreeNodeDataE.exit.thread.us.us.us.us.us.us, label %_Z12GetGhostFlagPK7OctNodeI12TreeNodeDataE.exit.i61.us.us.us.us.us.us
+207:                                              ; preds = %203
+  %208 = getelementptr inbounds nuw i8, ptr %205, i64 8
+  %209 = load ptr, ptr %208, align 8
+  %210 = icmp eq ptr %209, null
+  br i1 %210, label %_ZNK6OctreeIfE14isValidFEMNodeILi2EL12BoundaryType2EEEbPK7OctNodeI12TreeNodeDataE.exit.thread.us.us.us.us.us.us, label %_Z12GetGhostFlagPK7OctNodeI12TreeNodeDataE.exit.i61.us.us.us.us.us.us
 
-_Z12GetGhostFlagPK7OctNodeI12TreeNodeDataE.exit.i61.us.us.us.us.us.us: ; preds = %208
-  %212 = getelementptr inbounds nuw i8, ptr %210, i64 28
-  %213 = load i8, ptr %212, align 4
-  %214 = icmp slt i8 %213, 0
-  br i1 %214, label %_ZNK6OctreeIfE14isValidFEMNodeILi2EL12BoundaryType2EEEbPK7OctNodeI12TreeNodeDataE.exit.thread.us.us.us.us.us.us, label %215
+_Z12GetGhostFlagPK7OctNodeI12TreeNodeDataE.exit.i61.us.us.us.us.us.us: ; preds = %207
+  %211 = getelementptr inbounds nuw i8, ptr %209, i64 28
+  %212 = load i8, ptr %211, align 4
+  %213 = icmp slt i8 %212, 0
+  br i1 %213, label %_ZNK6OctreeIfE14isValidFEMNodeILi2EL12BoundaryType2EEEbPK7OctNodeI12TreeNodeDataE.exit.thread.us.us.us.us.us.us, label %214
 
-215:                                              ; preds = %_Z12GetGhostFlagPK7OctNodeI12TreeNodeDataE.exit.i61.us.us.us.us.us.us
-  %216 = load i64, ptr %206, align 8
-  %217 = trunc i64 %216 to i32
-  %218 = and i32 %217, 31
-  %219 = lshr i64 %216, 24
-  %220 = trunc i64 %219 to i32
-  %221 = and i32 %220, 524287
-  %222 = lshr i64 %216, 43
-  %223 = trunc nuw nsw i64 %222 to i32
-  %224 = and i32 %223, 524287
-  %225 = sub nsw i32 %218, %185
-  %226 = add nsw i32 %218, -1
-  %227 = shl nuw nsw i32 1, %226
-  %228 = select i1 %186, i32 0, i32 %227
-  %229 = sub nsw i32 %221, %228
-  %230 = sub nsw i32 %224, %228
-  %231 = icmp slt i32 %225, 0
-  br i1 %231, label %_ZNK6OctreeIfE14isValidFEMNodeILi2EL12BoundaryType2EEEbPK7OctNodeI12TreeNodeDataE.exit.thread.us.us.us.us.us.us, label %232
+214:                                              ; preds = %_Z12GetGhostFlagPK7OctNodeI12TreeNodeDataE.exit.i61.us.us.us.us.us.us
+  %215 = load i64, ptr %205, align 8
+  %216 = trunc i64 %215 to i32
+  %217 = and i32 %216, 31
+  %218 = lshr i64 %215, 24
+  %219 = trunc i64 %218 to i32
+  %220 = and i32 %219, 524287
+  %221 = lshr i64 %215, 43
+  %222 = trunc nuw nsw i64 %221 to i32
+  %223 = and i32 %222, 524287
+  %224 = sub nsw i32 %217, %185
+  %225 = add nsw i32 %217, -1
+  %226 = shl nuw nsw i32 1, %225
+  %227 = select i1 %186, i32 0, i32 %226
+  %228 = sub nsw i32 %220, %227
+  %229 = sub nsw i32 %223, %227
+  %230 = icmp slt i32 %224, 0
+  br i1 %230, label %_ZNK6OctreeIfE14isValidFEMNodeILi2EL12BoundaryType2EEEbPK7OctNodeI12TreeNodeDataE.exit.thread.us.us.us.us.us.us, label %231
 
-232:                                              ; preds = %215
-  %233 = lshr i32 %217, 5
-  %234 = and i32 %233, 524287
-  %235 = sub nsw i32 %234, %228
-  %236 = icmp slt i32 %235, 0
-  %237 = shl nuw i32 1, %225
-  %238 = icmp sge i32 %235, %237
-  %239 = select i1 %236, i1 true, i1 %238
-  br i1 %239, label %_ZNK6OctreeIfE14isValidFEMNodeILi2EL12BoundaryType2EEEbPK7OctNodeI12TreeNodeDataE.exit.thread.us.us.us.us.us.us, label %240
+231:                                              ; preds = %214
+  %232 = lshr i32 %216, 5
+  %233 = and i32 %232, 524287
+  %234 = sub nsw i32 %233, %227
+  %235 = icmp slt i32 %234, 0
+  %236 = shl nuw i32 1, %224
+  %237 = icmp sge i32 %234, %236
+  %238 = select i1 %235, i1 true, i1 %237
+  br i1 %238, label %_ZNK6OctreeIfE14isValidFEMNodeILi2EL12BoundaryType2EEEbPK7OctNodeI12TreeNodeDataE.exit.thread.us.us.us.us.us.us, label %239
 
-240:                                              ; preds = %232
-  %241 = icmp slt i32 %229, 0
-  %242 = icmp sge i32 %229, %237
-  %243 = select i1 %241, i1 true, i1 %242
-  br i1 %243, label %_ZNK6OctreeIfE14isValidFEMNodeILi2EL12BoundaryType2EEEbPK7OctNodeI12TreeNodeDataE.exit.thread.us.us.us.us.us.us, label %_ZNK6OctreeIfE14isValidFEMNodeILi2EL12BoundaryType2EEEbPK7OctNodeI12TreeNodeDataE.exit.us.us.us.us.us.us
+239:                                              ; preds = %231
+  %240 = icmp slt i32 %228, 0
+  %241 = icmp sge i32 %228, %236
+  %242 = select i1 %240, i1 true, i1 %241
+  br i1 %242, label %_ZNK6OctreeIfE14isValidFEMNodeILi2EL12BoundaryType2EEEbPK7OctNodeI12TreeNodeDataE.exit.thread.us.us.us.us.us.us, label %_ZNK6OctreeIfE14isValidFEMNodeILi2EL12BoundaryType2EEEbPK7OctNodeI12TreeNodeDataE.exit.us.us.us.us.us.us
 
-_ZNK6OctreeIfE14isValidFEMNodeILi2EL12BoundaryType2EEEbPK7OctNodeI12TreeNodeDataE.exit.us.us.us.us.us.us: ; preds = %240
-  %244 = icmp sgt i32 %230, -1
-  %245 = icmp slt i32 %230, %237
-  %.not12.i.us.us.us.us.us.us = select i1 %244, i1 %245, i1 false
-  br i1 %.not12.i.us.us.us.us.us.us, label %246, label %_ZNK6OctreeIfE14isValidFEMNodeILi2EL12BoundaryType2EEEbPK7OctNodeI12TreeNodeDataE.exit.thread.us.us.us.us.us.us
+_ZNK6OctreeIfE14isValidFEMNodeILi2EL12BoundaryType2EEEbPK7OctNodeI12TreeNodeDataE.exit.us.us.us.us.us.us: ; preds = %239
+  %243 = icmp sgt i32 %229, -1
+  %244 = icmp slt i32 %229, %236
+  %.not12.i.us.us.us.us.us.us = select i1 %243, i1 %244, i1 false
+  br i1 %.not12.i.us.us.us.us.us.us, label %245, label %_ZNK6OctreeIfE14isValidFEMNodeILi2EL12BoundaryType2EEEbPK7OctNodeI12TreeNodeDataE.exit.thread.us.us.us.us.us.us
 
-246:                                              ; preds = %_ZNK6OctreeIfE14isValidFEMNodeILi2EL12BoundaryType2EEEbPK7OctNodeI12TreeNodeDataE.exit.us.us.us.us.us.us
-  %247 = getelementptr inbounds nuw i8, ptr %206, i64 24
-  %248 = load i32, ptr %247, align 8
-  %249 = sext i32 %248 to i64
-  %250 = getelementptr inbounds %struct.Point3D, ptr %199, i64 %249
-  %251 = load ptr, ptr %171, align 8
-  %252 = getelementptr i8, ptr %251, i64 %.idx
-  %253 = getelementptr %struct.Point3D.31, ptr %252, i64 %203
-  %254 = getelementptr %struct.Point3D.31, ptr %253, i64 %indvars.iv154
-  %255 = load double, ptr %254, align 8
-  %256 = fptrunc double %255 to float
-  %257 = getelementptr inbounds nuw i8, ptr %254, i64 8
-  %258 = load double, ptr %257, align 8
-  %259 = fptrunc double %258 to float
-  %260 = getelementptr inbounds nuw i8, ptr %254, i64 16
-  %261 = load double, ptr %260, align 8
-  %262 = fptrunc double %261 to float
-  %263 = load float, ptr %250, align 4
-  %264 = getelementptr inbounds nuw i8, ptr %250, i64 4
-  %265 = load float, ptr %264, align 4
-  %266 = fmul float %265, %259
-  %267 = call float @llvm.fmuladd.f32(float %263, float %256, float %266)
-  %268 = getelementptr inbounds nuw i8, ptr %250, i64 8
-  %269 = load float, ptr %268, align 4
-  %270 = call noundef float @llvm.fmuladd.f32(float %269, float %262, float %267)
-  %271 = fadd float %.297.us.us.us.us.us.us, %270
+245:                                              ; preds = %_ZNK6OctreeIfE14isValidFEMNodeILi2EL12BoundaryType2EEEbPK7OctNodeI12TreeNodeDataE.exit.us.us.us.us.us.us
+  %246 = getelementptr inbounds nuw i8, ptr %205, i64 24
+  %247 = load i32, ptr %246, align 8
+  %248 = sext i32 %247 to i64
+  %249 = getelementptr inbounds %struct.Point3D, ptr %199, i64 %248
+  %250 = load ptr, ptr %171, align 8
+  %251 = getelementptr i8, ptr %250, i64 %.idx
+  %252 = getelementptr i8, ptr %251, i64 %.idx172
+  %253 = getelementptr %struct.Point3D.31, ptr %252, i64 %indvars.iv154
+  %254 = load double, ptr %253, align 8
+  %255 = fptrunc double %254 to float
+  %256 = getelementptr inbounds nuw i8, ptr %253, i64 8
+  %257 = load double, ptr %256, align 8
+  %258 = fptrunc double %257 to float
+  %259 = getelementptr inbounds nuw i8, ptr %253, i64 16
+  %260 = load double, ptr %259, align 8
+  %261 = fptrunc double %260 to float
+  %262 = load float, ptr %249, align 4
+  %263 = getelementptr inbounds nuw i8, ptr %249, i64 4
+  %264 = load float, ptr %263, align 4
+  %265 = fmul float %264, %258
+  %266 = call float @llvm.fmuladd.f32(float %262, float %255, float %265)
+  %267 = getelementptr inbounds nuw i8, ptr %249, i64 8
+  %268 = load float, ptr %267, align 4
+  %269 = call noundef float @llvm.fmuladd.f32(float %268, float %261, float %266)
+  %270 = fadd float %.297.us.us.us.us.us.us, %269
   br label %_ZNK6OctreeIfE14isValidFEMNodeILi2EL12BoundaryType2EEEbPK7OctNodeI12TreeNodeDataE.exit.thread.us.us.us.us.us.us
 
-_ZNK6OctreeIfE14isValidFEMNodeILi2EL12BoundaryType2EEEbPK7OctNodeI12TreeNodeDataE.exit.thread.us.us.us.us.us.us: ; preds = %246, %_ZNK6OctreeIfE14isValidFEMNodeILi2EL12BoundaryType2EEEbPK7OctNodeI12TreeNodeDataE.exit.us.us.us.us.us.us, %240, %232, %215, %_Z12GetGhostFlagPK7OctNodeI12TreeNodeDataE.exit.i61.us.us.us.us.us.us, %208, %204
-  %.3.us.us.us.us.us.us = phi float [ %271, %246 ], [ %.297.us.us.us.us.us.us, %_ZNK6OctreeIfE14isValidFEMNodeILi2EL12BoundaryType2EEEbPK7OctNodeI12TreeNodeDataE.exit.us.us.us.us.us.us ], [ %.297.us.us.us.us.us.us, %_Z12GetGhostFlagPK7OctNodeI12TreeNodeDataE.exit.i61.us.us.us.us.us.us ], [ %.297.us.us.us.us.us.us, %215 ], [ %.297.us.us.us.us.us.us, %240 ], [ %.297.us.us.us.us.us.us, %232 ], [ %.297.us.us.us.us.us.us, %208 ], [ %.297.us.us.us.us.us.us, %204 ]
+_ZNK6OctreeIfE14isValidFEMNodeILi2EL12BoundaryType2EEEbPK7OctNodeI12TreeNodeDataE.exit.thread.us.us.us.us.us.us: ; preds = %245, %_ZNK6OctreeIfE14isValidFEMNodeILi2EL12BoundaryType2EEEbPK7OctNodeI12TreeNodeDataE.exit.us.us.us.us.us.us, %239, %231, %214, %_Z12GetGhostFlagPK7OctNodeI12TreeNodeDataE.exit.i61.us.us.us.us.us.us, %207, %203
+  %.3.us.us.us.us.us.us = phi float [ %270, %245 ], [ %.297.us.us.us.us.us.us, %_ZNK6OctreeIfE14isValidFEMNodeILi2EL12BoundaryType2EEEbPK7OctNodeI12TreeNodeDataE.exit.us.us.us.us.us.us ], [ %.297.us.us.us.us.us.us, %_Z12GetGhostFlagPK7OctNodeI12TreeNodeDataE.exit.i61.us.us.us.us.us.us ], [ %.297.us.us.us.us.us.us, %214 ], [ %.297.us.us.us.us.us.us, %239 ], [ %.297.us.us.us.us.us.us, %231 ], [ %.297.us.us.us.us.us.us, %207 ], [ %.297.us.us.us.us.us.us, %203 ]
   %indvars.iv.next155 = add nsw i64 %indvars.iv154, 1
   %exitcond157.not = icmp eq i64 %indvars.iv.next155, %wide.trip.count
-  br i1 %exitcond157.not, label %._crit_edge.split.us.us.us.us.us.us, label %204, !llvm.loop !393
+  br i1 %exitcond157.not, label %._crit_edge.split.us.us.us.us.us.us, label %203, !llvm.loop !393
 
 ._crit_edge.split.us.us.us.us.us.us:              ; preds = %_ZNK6OctreeIfE14isValidFEMNodeILi2EL12BoundaryType2EEEbPK7OctNodeI12TreeNodeDataE.exit.thread.us.us.us.us.us.us
   %indvars.iv.next159 = add nsw i64 %indvars.iv158, 1
@@ -30437,119 +30435,119 @@ _ZNK6OctreeIfE14isValidFEMNodeILi2EL12BoundaryType2EEEbPK7OctNodeI12TreeNodeData
 .preheader.us.us121.us:                           ; preds = %.preheader93.us.us, %._crit_edge.split.us110.us.us
   %indvars.iv144 = phi i64 [ %197, %.preheader93.us.us ], [ %indvars.iv.next145, %._crit_edge.split.us110.us.us ]
   %.199.us.us123.us = phi float [ %.058115.us.us, %.preheader93.us.us ], [ %.3.us109.us.us, %._crit_edge.split.us110.us.us ]
-  br label %272
+  br label %271
 
-272:                                              ; preds = %_ZNK6OctreeIfE14isValidFEMNodeILi2EL12BoundaryType2EEEbPK7OctNodeI12TreeNodeDataE.exit.thread.us108.us.us, %.preheader.us.us121.us
+271:                                              ; preds = %_ZNK6OctreeIfE14isValidFEMNodeILi2EL12BoundaryType2EEEbPK7OctNodeI12TreeNodeDataE.exit.thread.us108.us.us, %.preheader.us.us121.us
   %indvars.iv = phi i64 [ %indvars.iv.next, %_ZNK6OctreeIfE14isValidFEMNodeILi2EL12BoundaryType2EEEbPK7OctNodeI12TreeNodeDataE.exit.thread.us108.us.us ], [ %196, %.preheader.us.us121.us ]
   %.297.us104.us.us = phi float [ %.3.us109.us.us, %_ZNK6OctreeIfE14isValidFEMNodeILi2EL12BoundaryType2EEEbPK7OctNodeI12TreeNodeDataE.exit.thread.us108.us.us ], [ %.199.us.us123.us, %.preheader.us.us121.us ]
-  %273 = getelementptr inbounds [5 x [5 x [5 x ptr]]], ptr %18, i64 0, i64 %indvars.iv149, i64 %indvars.iv144, i64 %indvars.iv
-  %274 = load ptr, ptr %273, align 8
-  %275 = icmp eq ptr %274, null
-  br i1 %275, label %_ZNK6OctreeIfE14isValidFEMNodeILi2EL12BoundaryType2EEEbPK7OctNodeI12TreeNodeDataE.exit.thread.us108.us.us, label %276
+  %272 = getelementptr inbounds [5 x [5 x [5 x ptr]]], ptr %18, i64 0, i64 %indvars.iv149, i64 %indvars.iv144, i64 %indvars.iv
+  %273 = load ptr, ptr %272, align 8
+  %274 = icmp eq ptr %273, null
+  br i1 %274, label %_ZNK6OctreeIfE14isValidFEMNodeILi2EL12BoundaryType2EEEbPK7OctNodeI12TreeNodeDataE.exit.thread.us108.us.us, label %275
 
-276:                                              ; preds = %272
-  %277 = getelementptr inbounds nuw i8, ptr %274, i64 8
-  %278 = load ptr, ptr %277, align 8
-  %279 = icmp eq ptr %278, null
-  br i1 %279, label %_ZNK6OctreeIfE14isValidFEMNodeILi2EL12BoundaryType2EEEbPK7OctNodeI12TreeNodeDataE.exit.thread.us108.us.us, label %_Z12GetGhostFlagPK7OctNodeI12TreeNodeDataE.exit.i61.us105.us.us
+275:                                              ; preds = %271
+  %276 = getelementptr inbounds nuw i8, ptr %273, i64 8
+  %277 = load ptr, ptr %276, align 8
+  %278 = icmp eq ptr %277, null
+  br i1 %278, label %_ZNK6OctreeIfE14isValidFEMNodeILi2EL12BoundaryType2EEEbPK7OctNodeI12TreeNodeDataE.exit.thread.us108.us.us, label %_Z12GetGhostFlagPK7OctNodeI12TreeNodeDataE.exit.i61.us105.us.us
 
-_Z12GetGhostFlagPK7OctNodeI12TreeNodeDataE.exit.i61.us105.us.us: ; preds = %276
-  %280 = getelementptr inbounds nuw i8, ptr %278, i64 28
-  %281 = load i8, ptr %280, align 4
-  %282 = icmp slt i8 %281, 0
-  br i1 %282, label %_ZNK6OctreeIfE14isValidFEMNodeILi2EL12BoundaryType2EEEbPK7OctNodeI12TreeNodeDataE.exit.thread.us108.us.us, label %283
+_Z12GetGhostFlagPK7OctNodeI12TreeNodeDataE.exit.i61.us105.us.us: ; preds = %275
+  %279 = getelementptr inbounds nuw i8, ptr %277, i64 28
+  %280 = load i8, ptr %279, align 4
+  %281 = icmp slt i8 %280, 0
+  br i1 %281, label %_ZNK6OctreeIfE14isValidFEMNodeILi2EL12BoundaryType2EEEbPK7OctNodeI12TreeNodeDataE.exit.thread.us108.us.us, label %282
 
-283:                                              ; preds = %_Z12GetGhostFlagPK7OctNodeI12TreeNodeDataE.exit.i61.us105.us.us
-  %284 = load i64, ptr %274, align 8
-  %285 = trunc i64 %284 to i32
-  %286 = and i32 %285, 31
-  %287 = lshr i64 %284, 24
-  %288 = trunc i64 %287 to i32
-  %289 = and i32 %288, 524287
-  %290 = lshr i64 %284, 43
-  %291 = trunc nuw nsw i64 %290 to i32
-  %292 = and i32 %291, 524287
-  %293 = load i32, ptr %27, align 8
-  %294 = sub nsw i32 %286, %293
-  %295 = icmp slt i32 %293, 2
-  %296 = add nsw i32 %286, -1
-  %297 = shl nuw nsw i32 1, %296
-  %298 = select i1 %295, i32 0, i32 %297
-  %299 = sub nsw i32 %289, %298
-  %300 = sub nsw i32 %292, %298
-  %301 = icmp slt i32 %294, 0
-  br i1 %301, label %_ZNK6OctreeIfE14isValidFEMNodeILi2EL12BoundaryType2EEEbPK7OctNodeI12TreeNodeDataE.exit.thread.us108.us.us, label %302
+282:                                              ; preds = %_Z12GetGhostFlagPK7OctNodeI12TreeNodeDataE.exit.i61.us105.us.us
+  %283 = load i64, ptr %273, align 8
+  %284 = trunc i64 %283 to i32
+  %285 = and i32 %284, 31
+  %286 = lshr i64 %283, 24
+  %287 = trunc i64 %286 to i32
+  %288 = and i32 %287, 524287
+  %289 = lshr i64 %283, 43
+  %290 = trunc nuw nsw i64 %289 to i32
+  %291 = and i32 %290, 524287
+  %292 = load i32, ptr %27, align 8
+  %293 = sub nsw i32 %285, %292
+  %294 = icmp slt i32 %292, 2
+  %295 = add nsw i32 %285, -1
+  %296 = shl nuw nsw i32 1, %295
+  %297 = select i1 %294, i32 0, i32 %296
+  %298 = sub nsw i32 %288, %297
+  %299 = sub nsw i32 %291, %297
+  %300 = icmp slt i32 %293, 0
+  br i1 %300, label %_ZNK6OctreeIfE14isValidFEMNodeILi2EL12BoundaryType2EEEbPK7OctNodeI12TreeNodeDataE.exit.thread.us108.us.us, label %301
 
-302:                                              ; preds = %283
-  %303 = lshr i32 %285, 5
-  %304 = and i32 %303, 524287
-  %305 = sub nsw i32 %304, %298
-  %306 = icmp slt i32 %305, 0
-  %307 = shl nuw i32 1, %294
-  %308 = icmp sge i32 %305, %307
-  %309 = select i1 %306, i1 true, i1 %308
-  br i1 %309, label %_ZNK6OctreeIfE14isValidFEMNodeILi2EL12BoundaryType2EEEbPK7OctNodeI12TreeNodeDataE.exit.thread.us108.us.us, label %310
+301:                                              ; preds = %282
+  %302 = lshr i32 %284, 5
+  %303 = and i32 %302, 524287
+  %304 = sub nsw i32 %303, %297
+  %305 = icmp slt i32 %304, 0
+  %306 = shl nuw i32 1, %293
+  %307 = icmp sge i32 %304, %306
+  %308 = select i1 %305, i1 true, i1 %307
+  br i1 %308, label %_ZNK6OctreeIfE14isValidFEMNodeILi2EL12BoundaryType2EEEbPK7OctNodeI12TreeNodeDataE.exit.thread.us108.us.us, label %309
 
-310:                                              ; preds = %302
-  %311 = icmp slt i32 %299, 0
-  %312 = icmp sge i32 %299, %307
-  %313 = select i1 %311, i1 true, i1 %312
-  br i1 %313, label %_ZNK6OctreeIfE14isValidFEMNodeILi2EL12BoundaryType2EEEbPK7OctNodeI12TreeNodeDataE.exit.thread.us108.us.us, label %_ZNK6OctreeIfE14isValidFEMNodeILi2EL12BoundaryType2EEEbPK7OctNodeI12TreeNodeDataE.exit.us106.us.us
+309:                                              ; preds = %301
+  %310 = icmp slt i32 %298, 0
+  %311 = icmp sge i32 %298, %306
+  %312 = select i1 %310, i1 true, i1 %311
+  br i1 %312, label %_ZNK6OctreeIfE14isValidFEMNodeILi2EL12BoundaryType2EEEbPK7OctNodeI12TreeNodeDataE.exit.thread.us108.us.us, label %_ZNK6OctreeIfE14isValidFEMNodeILi2EL12BoundaryType2EEEbPK7OctNodeI12TreeNodeDataE.exit.us106.us.us
 
-_ZNK6OctreeIfE14isValidFEMNodeILi2EL12BoundaryType2EEEbPK7OctNodeI12TreeNodeDataE.exit.us106.us.us: ; preds = %310
-  %314 = icmp sgt i32 %300, -1
-  %315 = icmp slt i32 %300, %307
-  %.not12.i.us107.us.us = select i1 %314, i1 %315, i1 false
-  br i1 %.not12.i.us107.us.us, label %316, label %_ZNK6OctreeIfE14isValidFEMNodeILi2EL12BoundaryType2EEEbPK7OctNodeI12TreeNodeDataE.exit.thread.us108.us.us
+_ZNK6OctreeIfE14isValidFEMNodeILi2EL12BoundaryType2EEEbPK7OctNodeI12TreeNodeDataE.exit.us106.us.us: ; preds = %309
+  %313 = icmp sgt i32 %299, -1
+  %314 = icmp slt i32 %299, %306
+  %.not12.i.us107.us.us = select i1 %313, i1 %314, i1 false
+  br i1 %.not12.i.us107.us.us, label %315, label %_ZNK6OctreeIfE14isValidFEMNodeILi2EL12BoundaryType2EEEbPK7OctNodeI12TreeNodeDataE.exit.thread.us108.us.us
 
-316:                                              ; preds = %_ZNK6OctreeIfE14isValidFEMNodeILi2EL12BoundaryType2EEEbPK7OctNodeI12TreeNodeDataE.exit.us106.us.us
+315:                                              ; preds = %_ZNK6OctreeIfE14isValidFEMNodeILi2EL12BoundaryType2EEEbPK7OctNodeI12TreeNodeDataE.exit.us106.us.us
+  store i32 %303, ptr %23, align 4
+  %316 = load i64, ptr %273, align 8
+  %317 = lshr i64 %316, 24
+  %318 = trunc i64 %317 to i32
+  %319 = and i32 %318, 524287
+  store i32 %319, ptr %52, align 4
+  %320 = load i64, ptr %273, align 8
+  %321 = lshr i64 %320, 43
+  %322 = trunc nuw nsw i64 %321 to i32
+  %323 = and i32 %322, 524287
   store i32 %304, ptr %23, align 4
-  %317 = load i64, ptr %274, align 8
-  %318 = lshr i64 %317, 24
-  %319 = trunc i64 %318 to i32
-  %320 = and i32 %319, 524287
-  store i32 %320, ptr %52, align 4
-  %321 = load i64, ptr %274, align 8
-  %322 = lshr i64 %321, 43
-  %323 = trunc nuw nsw i64 %322 to i32
-  %324 = and i32 %323, 524287
-  store i32 %305, ptr %23, align 4
-  %325 = sub nsw i32 %320, %298
-  store i32 %325, ptr %52, align 4
-  %326 = sub nsw i32 %324, %298
-  store i32 %326, ptr %53, align 4
-  %327 = getelementptr inbounds nuw i8, ptr %274, i64 24
-  %328 = load i32, ptr %327, align 8
-  %329 = load ptr, ptr %54, align 8
+  %324 = sub nsw i32 %319, %297
+  store i32 %324, ptr %52, align 4
+  %325 = sub nsw i32 %323, %297
+  store i32 %325, ptr %53, align 4
+  %326 = getelementptr inbounds nuw i8, ptr %273, i64 24
+  %327 = load i32, ptr %326, align 8
+  %328 = load ptr, ptr %54, align 8
   invoke void @_ZNK22FEMVFConstraintFunctorILi2EL12BoundaryType2ELi2ELS0_2EE10_integrateILb0EN22BSplineIntegrationDataILi2ELS0_2ELi2ELS0_2EE18FunctionIntegrator15ChildIntegratorILj2ELj2EEEEE7Point3DIdERKT0_PKiSE_(ptr dead_on_unwind nonnull writable sret(%struct.Point3D.31) align 8 %24, ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(4040) %8, ptr noundef nonnull %23, ptr noundef nonnull %22)
-          to label %330 unwind label %.loopexit.split.us.split.us.split.us
+          to label %329 unwind label %.loopexit.split.us.split.us.split.us
 
-330:                                              ; preds = %316
-  %331 = sext i32 %328 to i64
-  %332 = getelementptr inbounds %struct.Point3D, ptr %329, i64 %331
-  %333 = load double, ptr %24, align 8
-  %334 = fptrunc double %333 to float
-  %335 = load double, ptr %55, align 8
-  %336 = fptrunc double %335 to float
-  %337 = load double, ptr %56, align 8
-  %338 = fptrunc double %337 to float
-  %339 = load float, ptr %332, align 4
-  %340 = getelementptr inbounds nuw i8, ptr %332, i64 4
-  %341 = load float, ptr %340, align 4
-  %342 = fmul float %341, %336
-  %343 = call float @llvm.fmuladd.f32(float %339, float %334, float %342)
-  %344 = getelementptr inbounds nuw i8, ptr %332, i64 8
-  %345 = load float, ptr %344, align 4
-  %346 = call noundef float @llvm.fmuladd.f32(float %345, float %338, float %343)
-  %347 = fadd float %.297.us104.us.us, %346
+329:                                              ; preds = %315
+  %330 = sext i32 %327 to i64
+  %331 = getelementptr inbounds %struct.Point3D, ptr %328, i64 %330
+  %332 = load double, ptr %24, align 8
+  %333 = fptrunc double %332 to float
+  %334 = load double, ptr %55, align 8
+  %335 = fptrunc double %334 to float
+  %336 = load double, ptr %56, align 8
+  %337 = fptrunc double %336 to float
+  %338 = load float, ptr %331, align 4
+  %339 = getelementptr inbounds nuw i8, ptr %331, i64 4
+  %340 = load float, ptr %339, align 4
+  %341 = fmul float %340, %335
+  %342 = call float @llvm.fmuladd.f32(float %338, float %333, float %341)
+  %343 = getelementptr inbounds nuw i8, ptr %331, i64 8
+  %344 = load float, ptr %343, align 4
+  %345 = call noundef float @llvm.fmuladd.f32(float %344, float %337, float %342)
+  %346 = fadd float %.297.us104.us.us, %345
   br label %_ZNK6OctreeIfE14isValidFEMNodeILi2EL12BoundaryType2EEEbPK7OctNodeI12TreeNodeDataE.exit.thread.us108.us.us
 
-_ZNK6OctreeIfE14isValidFEMNodeILi2EL12BoundaryType2EEEbPK7OctNodeI12TreeNodeDataE.exit.thread.us108.us.us: ; preds = %330, %_ZNK6OctreeIfE14isValidFEMNodeILi2EL12BoundaryType2EEEbPK7OctNodeI12TreeNodeDataE.exit.us106.us.us, %310, %302, %283, %_Z12GetGhostFlagPK7OctNodeI12TreeNodeDataE.exit.i61.us105.us.us, %276, %272
-  %.3.us109.us.us = phi float [ %347, %330 ], [ %.297.us104.us.us, %_ZNK6OctreeIfE14isValidFEMNodeILi2EL12BoundaryType2EEEbPK7OctNodeI12TreeNodeDataE.exit.us106.us.us ], [ %.297.us104.us.us, %_Z12GetGhostFlagPK7OctNodeI12TreeNodeDataE.exit.i61.us105.us.us ], [ %.297.us104.us.us, %283 ], [ %.297.us104.us.us, %310 ], [ %.297.us104.us.us, %302 ], [ %.297.us104.us.us, %276 ], [ %.297.us104.us.us, %272 ]
+_ZNK6OctreeIfE14isValidFEMNodeILi2EL12BoundaryType2EEEbPK7OctNodeI12TreeNodeDataE.exit.thread.us108.us.us: ; preds = %329, %_ZNK6OctreeIfE14isValidFEMNodeILi2EL12BoundaryType2EEEbPK7OctNodeI12TreeNodeDataE.exit.us106.us.us, %309, %301, %282, %_Z12GetGhostFlagPK7OctNodeI12TreeNodeDataE.exit.i61.us105.us.us, %275, %271
+  %.3.us109.us.us = phi float [ %346, %329 ], [ %.297.us104.us.us, %_ZNK6OctreeIfE14isValidFEMNodeILi2EL12BoundaryType2EEEbPK7OctNodeI12TreeNodeDataE.exit.us106.us.us ], [ %.297.us104.us.us, %_Z12GetGhostFlagPK7OctNodeI12TreeNodeDataE.exit.i61.us105.us.us ], [ %.297.us104.us.us, %282 ], [ %.297.us104.us.us, %309 ], [ %.297.us104.us.us, %301 ], [ %.297.us104.us.us, %275 ], [ %.297.us104.us.us, %271 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
   %exitcond.not = icmp eq i32 %.291, %lftr.wideiv
-  br i1 %exitcond.not, label %._crit_edge.split.us110.us.us, label %272, !llvm.loop !393
+  br i1 %exitcond.not, label %._crit_edge.split.us110.us.us, label %271, !llvm.loop !393
 
 ._crit_edge.split.us110.us.us:                    ; preds = %_ZNK6OctreeIfE14isValidFEMNodeILi2EL12BoundaryType2EEEbPK7OctNodeI12TreeNodeDataE.exit.thread.us108.us.us
   %indvars.iv.next145 = add nsw i64 %indvars.iv144, 1
@@ -30563,50 +30561,50 @@ _ZNK6OctreeIfE14isValidFEMNodeILi2EL12BoundaryType2EEEbPK7OctNodeI12TreeNodeData
   %exitcond153.not = icmp eq i32 %.279, %lftr.wideiv152
   br i1 %exitcond153.not, label %._crit_edge, label %.preheader93.us.us, !llvm.loop !395
 
-.loopexit.split.us.split.us.split.us:             ; preds = %316
+.loopexit.split.us.split.us.split.us:             ; preds = %315
   %lpad.loopexit.us.us.us = landingpad { ptr, i32 }
           catch ptr null
-  br label %357
+  br label %356
 
 ._crit_edge:                                      ; preds = %._crit_edge101.split.us.split.us124.us, %._crit_edge101.split.us.split.us.us.us.us, %167
   %.058.lcssa = phi float [ 0.000000e+00, %167 ], [ %.3.us.us.us.us.us.us, %._crit_edge101.split.us.split.us.us.us.us ], [ %.3.us109.us.us, %._crit_edge101.split.us.split.us124.us ]
-  %348 = load ptr, ptr %57, align 8
-  %349 = getelementptr inbounds float, ptr %348, i64 %62
-  %350 = load float, ptr %349, align 4
-  %351 = fadd float %.058.lcssa, %350
-  store float %351, ptr %349, align 4
+  %347 = load ptr, ptr %57, align 8
+  %348 = getelementptr inbounds float, ptr %347, i64 %62
+  %349 = load float, ptr %348, align 4
+  %350 = fadd float %.058.lcssa, %349
+  store float %350, ptr %348, align 4
   %.pre171 = load i32, ptr %15, align 4
   br label %_ZNK6OctreeIfE15_isValidFEMNodeEPK7OctNodeI12TreeNodeDataE.exit.thread
 
 _ZNK6OctreeIfE15_isValidFEMNodeEPK7OctNodeI12TreeNodeDataE.exit.thread: ; preds = %58, %66, %_Z12GetGhostFlagPK7OctNodeI12TreeNodeDataE.exit.i, %._crit_edge, %_ZNK6OctreeIfE15_isValidFEMNodeEPK7OctNodeI12TreeNodeDataE.exit
-  %352 = phi i32 [ %.pre171, %._crit_edge ], [ %59, %_ZNK6OctreeIfE15_isValidFEMNodeEPK7OctNodeI12TreeNodeDataE.exit ], [ %59, %_Z12GetGhostFlagPK7OctNodeI12TreeNodeDataE.exit.i ], [ %59, %66 ], [ %59, %58 ]
+  %351 = phi i32 [ %.pre171, %._crit_edge ], [ %59, %_ZNK6OctreeIfE15_isValidFEMNodeEPK7OctNodeI12TreeNodeDataE.exit ], [ %59, %_Z12GetGhostFlagPK7OctNodeI12TreeNodeDataE.exit.i ], [ %59, %66 ], [ %59, %58 ]
   %.190 = phi i32 [ %.291, %._crit_edge ], [ %.089131, %_ZNK6OctreeIfE15_isValidFEMNodeEPK7OctNodeI12TreeNodeDataE.exit ], [ %.089131, %_Z12GetGhostFlagPK7OctNodeI12TreeNodeDataE.exit.i ], [ %.089131, %66 ], [ %.089131, %58 ]
   %.187 = phi i32 [ %.288, %._crit_edge ], [ %.086132, %_ZNK6OctreeIfE15_isValidFEMNodeEPK7OctNodeI12TreeNodeDataE.exit ], [ %.086132, %_Z12GetGhostFlagPK7OctNodeI12TreeNodeDataE.exit.i ], [ %.086132, %66 ], [ %.086132, %58 ]
   %.184 = phi i32 [ %.285, %._crit_edge ], [ %.083133, %_ZNK6OctreeIfE15_isValidFEMNodeEPK7OctNodeI12TreeNodeDataE.exit ], [ %.083133, %_Z12GetGhostFlagPK7OctNodeI12TreeNodeDataE.exit.i ], [ %.083133, %66 ], [ %.083133, %58 ]
   %.181 = phi i32 [ %.282, %._crit_edge ], [ %.080134, %_ZNK6OctreeIfE15_isValidFEMNodeEPK7OctNodeI12TreeNodeDataE.exit ], [ %.080134, %_Z12GetGhostFlagPK7OctNodeI12TreeNodeDataE.exit.i ], [ %.080134, %66 ], [ %.080134, %58 ]
   %.178 = phi i32 [ %.279, %._crit_edge ], [ %.077135, %_ZNK6OctreeIfE15_isValidFEMNodeEPK7OctNodeI12TreeNodeDataE.exit ], [ %.077135, %_Z12GetGhostFlagPK7OctNodeI12TreeNodeDataE.exit.i ], [ %.077135, %66 ], [ %.077135, %58 ]
   %.175 = phi i32 [ %.276, %._crit_edge ], [ %.074136, %_ZNK6OctreeIfE15_isValidFEMNodeEPK7OctNodeI12TreeNodeDataE.exit ], [ %.074136, %_Z12GetGhostFlagPK7OctNodeI12TreeNodeDataE.exit.i ], [ %.074136, %66 ], [ %.074136, %58 ]
-  %353 = add nuw i32 %.0137, 1
-  %354 = add i32 %352, 1
-  %355 = icmp ult i32 %353, %354
-  br i1 %355, label %58, label %._crit_edge139
+  %352 = add nuw i32 %.0137, 1
+  %353 = add i32 %351, 1
+  %354 = icmp ult i32 %352, %353
+  br i1 %354, label %58, label %._crit_edge139
 
 ._crit_edge139:                                   ; preds = %_ZNK6OctreeIfE15_isValidFEMNodeEPK7OctNodeI12TreeNodeDataE.exit.thread, %40
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %43)
-  br label %356
+  br label %355
 
-356:                                              ; preds = %._crit_edge139, %10
+355:                                              ; preds = %._crit_edge139, %10
   ret void
 
 .loopexit.split-lp:                               ; preds = %118, %155, %86
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           catch ptr null
-  br label %357
+  br label %356
 
-357:                                              ; preds = %.loopexit.split-lp, %.loopexit.split.us.split.us.split.us
+356:                                              ; preds = %.loopexit.split-lp, %.loopexit.split.us.split.us.split.us
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit.us.us.us, %.loopexit.split.us.split.us.split.us ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
-  %358 = extractvalue { ptr, i32 } %lpad.phi, 0
-  call void @__clang_call_terminate(ptr %358) #45
+  %357 = extractvalue { ptr, i32 } %lpad.phi, 0
+  call void @__clang_call_terminate(ptr %357) #45
   unreachable
 }
 
@@ -47919,7 +47917,7 @@ define linkonce_odr void @_ZNK6OctreeIfE29_updateConstraintsFromCoarserILi2EL12B
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %23 = load i32, ptr %22, align 8
   %.not95 = icmp sgt i32 %21, %23
-  br i1 %.not95, label %24, label %338
+  br i1 %.not95, label %24, label %337
 
 24:                                               ; preds = %11
   %25 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -48054,93 +48052,92 @@ _ZN6OctreeIfE23_SetParentOverlapBoundsILi2ELi2EEEvPK7OctNodeI12TreeNodeDataERiS7
   br i1 %or.cond, label %.preheader100.lr.ph.split.us.split.us, label %._crit_edge
 
 .preheader100.lr.ph.split.us.split.us:            ; preds = %.preheader100.lr.ph, %.preheader100.lr.ph.split.us.thread
-  %.088177184201 = phi i32 [ undef, %.preheader100.lr.ph.split.us.thread ], [ %87, %.preheader100.lr.ph ]
-  %.089176185200 = phi i32 [ undef, %.preheader100.lr.ph.split.us.thread ], [ %104, %.preheader100.lr.ph ]
-  %.090175186199 = phi i32 [ undef, %.preheader100.lr.ph.split.us.thread ], [ %105, %.preheader100.lr.ph ]
-  %.091174187198 = phi i32 [ undef, %.preheader100.lr.ph.split.us.thread ], [ %106, %.preheader100.lr.ph ]
-  %.092173188197 = phi i32 [ undef, %.preheader100.lr.ph.split.us.thread ], [ %107, %.preheader100.lr.ph ]
-  %.093172189196 = phi i32 [ undef, %.preheader100.lr.ph.split.us.thread ], [ %90, %.preheader100.lr.ph ]
+  %.088178185202 = phi i32 [ undef, %.preheader100.lr.ph.split.us.thread ], [ %87, %.preheader100.lr.ph ]
+  %.089177186201 = phi i32 [ undef, %.preheader100.lr.ph.split.us.thread ], [ %104, %.preheader100.lr.ph ]
+  %.090176187200 = phi i32 [ undef, %.preheader100.lr.ph.split.us.thread ], [ %105, %.preheader100.lr.ph ]
+  %.091175188199 = phi i32 [ undef, %.preheader100.lr.ph.split.us.thread ], [ %106, %.preheader100.lr.ph ]
+  %.092174189198 = phi i32 [ undef, %.preheader100.lr.ph.split.us.thread ], [ %107, %.preheader100.lr.ph ]
+  %.093173190197 = phi i32 [ undef, %.preheader100.lr.ph.split.us.thread ], [ %90, %.preheader100.lr.ph ]
   %112 = phi ptr [ %74, %.preheader100.lr.ph.split.us.thread ], [ %109, %.preheader100.lr.ph ]
   %113 = phi ptr [ %75, %.preheader100.lr.ph.split.us.thread ], [ %110, %.preheader100.lr.ph ]
   %114 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %115 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %116 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %117 = sext i32 %.090175186199 to i64
-  %118 = sext i32 %.092173188197 to i64
-  %119 = sext i32 %.088177184201 to i64
+  %117 = sext i32 %.090176187200 to i64
+  %118 = sext i32 %.092174189198 to i64
+  %119 = sext i32 %.088178185202 to i64
   br i1 %.0.i, label %.preheader100.us.us.us.preheader, label %.preheader100.us.us
 
 .preheader100.us.us.us.preheader:                 ; preds = %.preheader100.lr.ph.split.us.split.us
-  %wide.trip.count152 = sext i32 %.093172189196 to i64
-  %wide.trip.count147 = sext i32 %.091174187198 to i64
-  %wide.trip.count = sext i32 %.089176185200 to i64
+  %wide.trip.count152 = sext i32 %.093173190197 to i64
+  %wide.trip.count147 = sext i32 %.091175188199 to i64
+  %wide.trip.count = sext i32 %.089177186201 to i64
   br label %.preheader100.us.us.us
 
 .preheader100.us.us.us:                           ; preds = %.preheader100.us.us.us.preheader, %._crit_edge103.split.us.split.us.us.us.us
   %indvars.iv149 = phi i64 [ %119, %.preheader100.us.us.us.preheader ], [ %indvars.iv.next150, %._crit_edge103.split.us.split.us.us.us.us ]
-  %sext = mul i64 %indvars.iv149, 107374182400
-  %120 = ashr exact i64 %sext, 29
+  %.idx166 = mul i64 %indvars.iv149, 200
   br label %.preheader99.us.us.us.us.us
 
 .preheader99.us.us.us.us.us:                      ; preds = %._crit_edge.split.us.us.us.us.us.us, %.preheader100.us.us.us
   %indvars.iv144 = phi i64 [ %indvars.iv.next145, %._crit_edge.split.us.us.us.us.us.us ], [ %118, %.preheader100.us.us.us ]
   %.idx = mul i64 %indvars.iv144, 40
-  br label %121
+  br label %120
 
-121:                                              ; preds = %_ZNK6OctreeIfE15_isValidFEMNodeEPK7OctNodeI12TreeNodeDataE.exit.thread.us.us.us.us.us.us, %.preheader99.us.us.us.us.us
+120:                                              ; preds = %_ZNK6OctreeIfE15_isValidFEMNodeEPK7OctNodeI12TreeNodeDataE.exit.thread.us.us.us.us.us.us, %.preheader99.us.us.us.us.us
   %indvars.iv140 = phi i64 [ %indvars.iv.next141, %_ZNK6OctreeIfE15_isValidFEMNodeEPK7OctNodeI12TreeNodeDataE.exit.thread.us.us.us.us.us.us ], [ %117, %.preheader99.us.us.us.us.us ]
-  %122 = getelementptr inbounds [5 x [5 x [5 x ptr]]], ptr %4, i64 0, i64 %indvars.iv149, i64 %indvars.iv144, i64 %indvars.iv140
-  %123 = load ptr, ptr %122, align 8
-  %124 = icmp eq ptr %123, null
-  br i1 %124, label %_ZNK6OctreeIfE15_isValidFEMNodeEPK7OctNodeI12TreeNodeDataE.exit.thread.us.us.us.us.us.us, label %125
+  %121 = getelementptr inbounds [5 x [5 x [5 x ptr]]], ptr %4, i64 0, i64 %indvars.iv149, i64 %indvars.iv144, i64 %indvars.iv140
+  %122 = load ptr, ptr %121, align 8
+  %123 = icmp eq ptr %122, null
+  br i1 %123, label %_ZNK6OctreeIfE15_isValidFEMNodeEPK7OctNodeI12TreeNodeDataE.exit.thread.us.us.us.us.us.us, label %124
 
-125:                                              ; preds = %121
-  %126 = getelementptr inbounds nuw i8, ptr %123, i64 8
-  %127 = load ptr, ptr %126, align 8
-  %128 = icmp eq ptr %127, null
-  br i1 %128, label %_ZNK6OctreeIfE15_isValidFEMNodeEPK7OctNodeI12TreeNodeDataE.exit.thread.us.us.us.us.us.us, label %_Z12GetGhostFlagPK7OctNodeI12TreeNodeDataE.exit.i.us.us.us.us.us.us
+124:                                              ; preds = %120
+  %125 = getelementptr inbounds nuw i8, ptr %122, i64 8
+  %126 = load ptr, ptr %125, align 8
+  %127 = icmp eq ptr %126, null
+  br i1 %127, label %_ZNK6OctreeIfE15_isValidFEMNodeEPK7OctNodeI12TreeNodeDataE.exit.thread.us.us.us.us.us.us, label %_Z12GetGhostFlagPK7OctNodeI12TreeNodeDataE.exit.i.us.us.us.us.us.us
 
-_Z12GetGhostFlagPK7OctNodeI12TreeNodeDataE.exit.i.us.us.us.us.us.us: ; preds = %125
-  %129 = getelementptr inbounds nuw i8, ptr %127, i64 28
-  %130 = load i8, ptr %129, align 4
-  %131 = icmp slt i8 %130, 0
-  br i1 %131, label %_ZNK6OctreeIfE15_isValidFEMNodeEPK7OctNodeI12TreeNodeDataE.exit.thread.us.us.us.us.us.us, label %_ZNK6OctreeIfE15_isValidFEMNodeEPK7OctNodeI12TreeNodeDataE.exit.us.us.us.us.us.us
+_Z12GetGhostFlagPK7OctNodeI12TreeNodeDataE.exit.i.us.us.us.us.us.us: ; preds = %124
+  %128 = getelementptr inbounds nuw i8, ptr %126, i64 28
+  %129 = load i8, ptr %128, align 4
+  %130 = icmp slt i8 %129, 0
+  br i1 %130, label %_ZNK6OctreeIfE15_isValidFEMNodeEPK7OctNodeI12TreeNodeDataE.exit.thread.us.us.us.us.us.us, label %_ZNK6OctreeIfE15_isValidFEMNodeEPK7OctNodeI12TreeNodeDataE.exit.us.us.us.us.us.us
 
 _ZNK6OctreeIfE15_isValidFEMNodeEPK7OctNodeI12TreeNodeDataE.exit.us.us.us.us.us.us: ; preds = %_Z12GetGhostFlagPK7OctNodeI12TreeNodeDataE.exit.i.us.us.us.us.us.us
-  %132 = getelementptr inbounds nuw i8, ptr %123, i64 28
-  %133 = load i8, ptr %132, align 4
-  %134 = and i8 %133, 2
-  %.not97.us.us.us.us.us.us = icmp eq i8 %134, 0
-  br i1 %.not97.us.us.us.us.us.us, label %_ZNK6OctreeIfE15_isValidFEMNodeEPK7OctNodeI12TreeNodeDataE.exit.thread.us.us.us.us.us.us, label %135
+  %131 = getelementptr inbounds nuw i8, ptr %122, i64 28
+  %132 = load i8, ptr %131, align 4
+  %133 = and i8 %132, 2
+  %.not97.us.us.us.us.us.us = icmp eq i8 %133, 0
+  br i1 %.not97.us.us.us.us.us.us, label %_ZNK6OctreeIfE15_isValidFEMNodeEPK7OctNodeI12TreeNodeDataE.exit.thread.us.us.us.us.us.us, label %134
 
-135:                                              ; preds = %_ZNK6OctreeIfE15_isValidFEMNodeEPK7OctNodeI12TreeNodeDataE.exit.us.us.us.us.us.us
-  %136 = getelementptr inbounds nuw i8, ptr %123, i64 24
-  %137 = load i32, ptr %136, align 8
-  %138 = load ptr, ptr %116, align 8
-  %139 = sext i32 %137 to i64
-  %140 = getelementptr inbounds float, ptr %138, i64 %139
-  %141 = load float, ptr %140, align 4
-  %142 = load ptr, ptr %9, align 8
-  %143 = getelementptr i8, ptr %142, i64 %.idx
-  %144 = getelementptr i8, ptr %143, i64 %120
-  %145 = getelementptr double, ptr %144, i64 %indvars.iv140
-  %146 = load double, ptr %145, align 8
-  %147 = fpext float %141 to double
-  %148 = fmul double %146, %147
-  %149 = fptrunc double %148 to float
-  %150 = load i32, ptr %115, align 8
-  %151 = load ptr, ptr %114, align 8
-  %152 = sext i32 %150 to i64
-  %153 = getelementptr inbounds float, ptr %151, i64 %152
-  %154 = load float, ptr %153, align 4
-  %155 = fsub float %154, %149
-  store float %155, ptr %153, align 4
+134:                                              ; preds = %_ZNK6OctreeIfE15_isValidFEMNodeEPK7OctNodeI12TreeNodeDataE.exit.us.us.us.us.us.us
+  %135 = getelementptr inbounds nuw i8, ptr %122, i64 24
+  %136 = load i32, ptr %135, align 8
+  %137 = load ptr, ptr %116, align 8
+  %138 = sext i32 %136 to i64
+  %139 = getelementptr inbounds float, ptr %137, i64 %138
+  %140 = load float, ptr %139, align 4
+  %141 = load ptr, ptr %9, align 8
+  %142 = getelementptr i8, ptr %141, i64 %.idx
+  %143 = getelementptr i8, ptr %142, i64 %.idx166
+  %144 = getelementptr double, ptr %143, i64 %indvars.iv140
+  %145 = load double, ptr %144, align 8
+  %146 = fpext float %140 to double
+  %147 = fmul double %145, %146
+  %148 = fptrunc double %147 to float
+  %149 = load i32, ptr %115, align 8
+  %150 = load ptr, ptr %114, align 8
+  %151 = sext i32 %149 to i64
+  %152 = getelementptr inbounds float, ptr %150, i64 %151
+  %153 = load float, ptr %152, align 4
+  %154 = fsub float %153, %148
+  store float %154, ptr %152, align 4
   br label %_ZNK6OctreeIfE15_isValidFEMNodeEPK7OctNodeI12TreeNodeDataE.exit.thread.us.us.us.us.us.us
 
-_ZNK6OctreeIfE15_isValidFEMNodeEPK7OctNodeI12TreeNodeDataE.exit.thread.us.us.us.us.us.us: ; preds = %135, %_ZNK6OctreeIfE15_isValidFEMNodeEPK7OctNodeI12TreeNodeDataE.exit.us.us.us.us.us.us, %_Z12GetGhostFlagPK7OctNodeI12TreeNodeDataE.exit.i.us.us.us.us.us.us, %125, %121
+_ZNK6OctreeIfE15_isValidFEMNodeEPK7OctNodeI12TreeNodeDataE.exit.thread.us.us.us.us.us.us: ; preds = %134, %_ZNK6OctreeIfE15_isValidFEMNodeEPK7OctNodeI12TreeNodeDataE.exit.us.us.us.us.us.us, %_Z12GetGhostFlagPK7OctNodeI12TreeNodeDataE.exit.i.us.us.us.us.us.us, %124, %120
   %indvars.iv.next141 = add nsw i64 %indvars.iv140, 1
   %exitcond143.not = icmp eq i64 %indvars.iv.next141, %wide.trip.count
-  br i1 %exitcond143.not, label %._crit_edge.split.us.us.us.us.us.us, label %121, !llvm.loop !787
+  br i1 %exitcond143.not, label %._crit_edge.split.us.us.us.us.us.us, label %120, !llvm.loop !787
 
 ._crit_edge.split.us.us.us.us.us.us:              ; preds = %_ZNK6OctreeIfE15_isValidFEMNodeEPK7OctNodeI12TreeNodeDataE.exit.thread.us.us.us.us.us.us
   %indvars.iv.next145 = add nsw i64 %indvars.iv144, 1
@@ -48158,310 +48155,310 @@ _ZNK6OctreeIfE15_isValidFEMNodeEPK7OctNodeI12TreeNodeDataE.exit.thread.us.us.us.
 
 .preheader99.us.us116.us:                         ; preds = %.preheader100.us.us, %._crit_edge.split.us109.us.us
   %indvars.iv130 = phi i64 [ %118, %.preheader100.us.us ], [ %indvars.iv.next131, %._crit_edge.split.us109.us.us ]
-  br label %156
+  br label %155
 
-156:                                              ; preds = %_ZNK6OctreeIfE15_isValidFEMNodeEPK7OctNodeI12TreeNodeDataE.exit.thread.us108.us.us, %.preheader99.us.us116.us
+155:                                              ; preds = %_ZNK6OctreeIfE15_isValidFEMNodeEPK7OctNodeI12TreeNodeDataE.exit.thread.us108.us.us, %.preheader99.us.us116.us
   %indvars.iv = phi i64 [ %indvars.iv.next, %_ZNK6OctreeIfE15_isValidFEMNodeEPK7OctNodeI12TreeNodeDataE.exit.thread.us108.us.us ], [ %117, %.preheader99.us.us116.us ]
-  %157 = getelementptr inbounds [5 x [5 x [5 x ptr]]], ptr %4, i64 0, i64 %indvars.iv135, i64 %indvars.iv130, i64 %indvars.iv
-  %158 = load ptr, ptr %157, align 8
-  %159 = icmp eq ptr %158, null
-  br i1 %159, label %_ZNK6OctreeIfE15_isValidFEMNodeEPK7OctNodeI12TreeNodeDataE.exit.thread.us108.us.us, label %160
+  %156 = getelementptr inbounds [5 x [5 x [5 x ptr]]], ptr %4, i64 0, i64 %indvars.iv135, i64 %indvars.iv130, i64 %indvars.iv
+  %157 = load ptr, ptr %156, align 8
+  %158 = icmp eq ptr %157, null
+  br i1 %158, label %_ZNK6OctreeIfE15_isValidFEMNodeEPK7OctNodeI12TreeNodeDataE.exit.thread.us108.us.us, label %159
 
-160:                                              ; preds = %156
-  %161 = getelementptr inbounds nuw i8, ptr %158, i64 8
-  %162 = load ptr, ptr %161, align 8
-  %163 = icmp eq ptr %162, null
-  br i1 %163, label %_ZNK6OctreeIfE15_isValidFEMNodeEPK7OctNodeI12TreeNodeDataE.exit.thread.us108.us.us, label %_Z12GetGhostFlagPK7OctNodeI12TreeNodeDataE.exit.i.us105.us.us
+159:                                              ; preds = %155
+  %160 = getelementptr inbounds nuw i8, ptr %157, i64 8
+  %161 = load ptr, ptr %160, align 8
+  %162 = icmp eq ptr %161, null
+  br i1 %162, label %_ZNK6OctreeIfE15_isValidFEMNodeEPK7OctNodeI12TreeNodeDataE.exit.thread.us108.us.us, label %_Z12GetGhostFlagPK7OctNodeI12TreeNodeDataE.exit.i.us105.us.us
 
-_Z12GetGhostFlagPK7OctNodeI12TreeNodeDataE.exit.i.us105.us.us: ; preds = %160
-  %164 = getelementptr inbounds nuw i8, ptr %162, i64 28
-  %165 = load i8, ptr %164, align 4
-  %166 = icmp slt i8 %165, 0
-  br i1 %166, label %_ZNK6OctreeIfE15_isValidFEMNodeEPK7OctNodeI12TreeNodeDataE.exit.thread.us108.us.us, label %_ZNK6OctreeIfE15_isValidFEMNodeEPK7OctNodeI12TreeNodeDataE.exit.us106.us.us
+_Z12GetGhostFlagPK7OctNodeI12TreeNodeDataE.exit.i.us105.us.us: ; preds = %159
+  %163 = getelementptr inbounds nuw i8, ptr %161, i64 28
+  %164 = load i8, ptr %163, align 4
+  %165 = icmp slt i8 %164, 0
+  br i1 %165, label %_ZNK6OctreeIfE15_isValidFEMNodeEPK7OctNodeI12TreeNodeDataE.exit.thread.us108.us.us, label %_ZNK6OctreeIfE15_isValidFEMNodeEPK7OctNodeI12TreeNodeDataE.exit.us106.us.us
 
 _ZNK6OctreeIfE15_isValidFEMNodeEPK7OctNodeI12TreeNodeDataE.exit.us106.us.us: ; preds = %_Z12GetGhostFlagPK7OctNodeI12TreeNodeDataE.exit.i.us105.us.us
-  %167 = getelementptr inbounds nuw i8, ptr %158, i64 28
-  %168 = load i8, ptr %167, align 4
-  %169 = and i8 %168, 2
-  %.not97.us107.us.us = icmp eq i8 %169, 0
-  br i1 %.not97.us107.us.us, label %_ZNK6OctreeIfE15_isValidFEMNodeEPK7OctNodeI12TreeNodeDataE.exit.thread.us108.us.us, label %170
+  %166 = getelementptr inbounds nuw i8, ptr %157, i64 28
+  %167 = load i8, ptr %166, align 4
+  %168 = and i8 %167, 2
+  %.not97.us107.us.us = icmp eq i8 %168, 0
+  br i1 %.not97.us107.us.us, label %_ZNK6OctreeIfE15_isValidFEMNodeEPK7OctNodeI12TreeNodeDataE.exit.thread.us108.us.us, label %169
 
-170:                                              ; preds = %_ZNK6OctreeIfE15_isValidFEMNodeEPK7OctNodeI12TreeNodeDataE.exit.us106.us.us
-  %171 = getelementptr inbounds nuw i8, ptr %158, i64 24
-  %172 = load i32, ptr %171, align 8
-  %173 = load ptr, ptr %116, align 8
-  %174 = sext i32 %172 to i64
-  %175 = getelementptr inbounds float, ptr %173, i64 %174
-  %176 = load float, ptr %175, align 4
-  %177 = load i64, ptr %158, align 8
-  %178 = trunc i64 %177 to i32
-  %179 = and i32 %178, 31
-  %180 = lshr i32 %178, 5
-  %181 = and i32 %180, 524287
-  store i32 %181, ptr %17, align 4
-  %182 = load i64, ptr %158, align 8
-  %183 = lshr i64 %182, 24
-  %184 = trunc i64 %183 to i32
-  %185 = and i32 %184, 524287
-  store i32 %185, ptr %112, align 4
-  %186 = load i64, ptr %158, align 8
-  %187 = lshr i64 %186, 43
-  %188 = trunc nuw nsw i64 %187 to i32
-  %189 = and i32 %188, 524287
-  %190 = load i32, ptr %22, align 8
-  %191 = icmp slt i32 %190, 2
-  %192 = add nsw i32 %179, -1
-  %193 = shl nuw nsw i32 1, %192
-  %194 = select i1 %191, i32 0, i32 %193
-  %195 = sub nsw i32 %181, %194
-  store i32 %195, ptr %17, align 4
-  %196 = sub nsw i32 %185, %194
-  store i32 %196, ptr %112, align 4
-  %197 = sub nsw i32 %189, %194
-  store i32 %197, ptr %113, align 4
-  %198 = call noundef double @_ZNK16FEMSystemFunctorILi2EL12BoundaryType2EE10_integrateIN22BSplineIntegrationDataILi2ELS0_2ELi2ELS0_2EE18FunctionIntegrator15ChildIntegratorILj2ELj2EEEEEdRKT_PKiSC_(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(4040) %8, ptr noundef nonnull %17, ptr noundef nonnull %16)
-  %199 = fptrunc double %198 to float
-  %200 = load i32, ptr %115, align 8
-  %201 = load ptr, ptr %114, align 8
-  %202 = sext i32 %200 to i64
-  %203 = getelementptr inbounds float, ptr %201, i64 %202
-  %204 = load float, ptr %203, align 4
-  %205 = fneg float %199
-  %206 = call float @llvm.fmuladd.f32(float %205, float %176, float %204)
-  store float %206, ptr %203, align 4
+169:                                              ; preds = %_ZNK6OctreeIfE15_isValidFEMNodeEPK7OctNodeI12TreeNodeDataE.exit.us106.us.us
+  %170 = getelementptr inbounds nuw i8, ptr %157, i64 24
+  %171 = load i32, ptr %170, align 8
+  %172 = load ptr, ptr %116, align 8
+  %173 = sext i32 %171 to i64
+  %174 = getelementptr inbounds float, ptr %172, i64 %173
+  %175 = load float, ptr %174, align 4
+  %176 = load i64, ptr %157, align 8
+  %177 = trunc i64 %176 to i32
+  %178 = and i32 %177, 31
+  %179 = lshr i32 %177, 5
+  %180 = and i32 %179, 524287
+  store i32 %180, ptr %17, align 4
+  %181 = load i64, ptr %157, align 8
+  %182 = lshr i64 %181, 24
+  %183 = trunc i64 %182 to i32
+  %184 = and i32 %183, 524287
+  store i32 %184, ptr %112, align 4
+  %185 = load i64, ptr %157, align 8
+  %186 = lshr i64 %185, 43
+  %187 = trunc nuw nsw i64 %186 to i32
+  %188 = and i32 %187, 524287
+  %189 = load i32, ptr %22, align 8
+  %190 = icmp slt i32 %189, 2
+  %191 = add nsw i32 %178, -1
+  %192 = shl nuw nsw i32 1, %191
+  %193 = select i1 %190, i32 0, i32 %192
+  %194 = sub nsw i32 %180, %193
+  store i32 %194, ptr %17, align 4
+  %195 = sub nsw i32 %184, %193
+  store i32 %195, ptr %112, align 4
+  %196 = sub nsw i32 %188, %193
+  store i32 %196, ptr %113, align 4
+  %197 = call noundef double @_ZNK16FEMSystemFunctorILi2EL12BoundaryType2EE10_integrateIN22BSplineIntegrationDataILi2ELS0_2ELi2ELS0_2EE18FunctionIntegrator15ChildIntegratorILj2ELj2EEEEEdRKT_PKiSC_(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(4040) %8, ptr noundef nonnull %17, ptr noundef nonnull %16)
+  %198 = fptrunc double %197 to float
+  %199 = load i32, ptr %115, align 8
+  %200 = load ptr, ptr %114, align 8
+  %201 = sext i32 %199 to i64
+  %202 = getelementptr inbounds float, ptr %200, i64 %201
+  %203 = load float, ptr %202, align 4
+  %204 = fneg float %198
+  %205 = call float @llvm.fmuladd.f32(float %204, float %175, float %203)
+  store float %205, ptr %202, align 4
   br label %_ZNK6OctreeIfE15_isValidFEMNodeEPK7OctNodeI12TreeNodeDataE.exit.thread.us108.us.us
 
-_ZNK6OctreeIfE15_isValidFEMNodeEPK7OctNodeI12TreeNodeDataE.exit.thread.us108.us.us: ; preds = %170, %_ZNK6OctreeIfE15_isValidFEMNodeEPK7OctNodeI12TreeNodeDataE.exit.us106.us.us, %_Z12GetGhostFlagPK7OctNodeI12TreeNodeDataE.exit.i.us105.us.us, %160, %156
+_ZNK6OctreeIfE15_isValidFEMNodeEPK7OctNodeI12TreeNodeDataE.exit.thread.us108.us.us: ; preds = %169, %_ZNK6OctreeIfE15_isValidFEMNodeEPK7OctNodeI12TreeNodeDataE.exit.us106.us.us, %_Z12GetGhostFlagPK7OctNodeI12TreeNodeDataE.exit.i.us105.us.us, %159, %155
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
-  %exitcond.not = icmp eq i32 %.089176185200, %lftr.wideiv
-  br i1 %exitcond.not, label %._crit_edge.split.us109.us.us, label %156, !llvm.loop !787
+  %exitcond.not = icmp eq i32 %.089177186201, %lftr.wideiv
+  br i1 %exitcond.not, label %._crit_edge.split.us109.us.us, label %155, !llvm.loop !787
 
 ._crit_edge.split.us109.us.us:                    ; preds = %_ZNK6OctreeIfE15_isValidFEMNodeEPK7OctNodeI12TreeNodeDataE.exit.thread.us108.us.us
   %indvars.iv.next131 = add nsw i64 %indvars.iv130, 1
   %lftr.wideiv133 = trunc i64 %indvars.iv.next131 to i32
-  %exitcond134.not = icmp eq i32 %.091174187198, %lftr.wideiv133
+  %exitcond134.not = icmp eq i32 %.091175188199, %lftr.wideiv133
   br i1 %exitcond134.not, label %._crit_edge103.split.us.split.us118.us, label %.preheader99.us.us116.us, !llvm.loop !788
 
 ._crit_edge103.split.us.split.us118.us:           ; preds = %._crit_edge.split.us109.us.us
   %indvars.iv.next136 = add nsw i64 %indvars.iv135, 1
   %lftr.wideiv138 = trunc i64 %indvars.iv.next136 to i32
-  %exitcond139.not = icmp eq i32 %.093172189196, %lftr.wideiv138
+  %exitcond139.not = icmp eq i32 %.093173190197, %lftr.wideiv138
   br i1 %exitcond139.not, label %._crit_edge, label %.preheader100.us.us, !llvm.loop !789
 
 ._crit_edge:                                      ; preds = %._crit_edge103.split.us.split.us118.us, %._crit_edge103.split.us.split.us.us.us.us, %.preheader100.lr.ph, %_ZN6OctreeIfE23_SetParentOverlapBoundsILi2ELi2EEEvPK7OctNodeI12TreeNodeDataERiS7_S7_S7_S7_S7_.exit
   %.not = icmp eq ptr %2, null
-  br i1 %.not, label %338, label %207
+  br i1 %.not, label %337, label %206
 
-207:                                              ; preds = %._crit_edge
+206:                                              ; preds = %._crit_edge
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %12)
-  %208 = load i64, ptr %5, align 8
-  %209 = trunc i64 %208 to i32
-  %210 = and i32 %209, 31
-  %211 = lshr i32 %209, 5
-  %212 = and i32 %211, 524287
-  %213 = lshr i64 %208, 24
-  %214 = trunc i64 %213 to i32
-  %215 = and i32 %214, 524287
-  %216 = getelementptr inbounds nuw i8, ptr %12, i64 4
-  %217 = lshr i64 %208, 43
-  %218 = trunc nuw nsw i64 %217 to i32
-  %219 = and i32 %218, 524287
-  %220 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  %221 = load i32, ptr %22, align 8
-  %222 = sub nsw i32 %210, %221
-  %223 = icmp slt i32 %221, 2
-  %224 = add nsw i32 %210, -1
-  %225 = shl nuw nsw i32 1, %224
-  %226 = select i1 %223, i32 0, i32 %225
-  %227 = sub nsw i32 %212, %226
-  store i32 %227, ptr %12, align 4
-  %228 = sub nsw i32 %215, %226
-  store i32 %228, ptr %216, align 4
-  %229 = sub nsw i32 %219, %226
-  store i32 %229, ptr %220, align 4
-  %notmask.i.i = shl nsw i32 -1, %222
-  %230 = xor i32 %notmask.i.i, -1
-  %.inv.i.i = icmp sgt i32 %222, 0
-  %231 = select i1 %.inv.i.i, i32 %230, i32 0
-  br label %232
+  %207 = load i64, ptr %5, align 8
+  %208 = trunc i64 %207 to i32
+  %209 = and i32 %208, 31
+  %210 = lshr i32 %208, 5
+  %211 = and i32 %210, 524287
+  %212 = lshr i64 %207, 24
+  %213 = trunc i64 %212 to i32
+  %214 = and i32 %213, 524287
+  %215 = getelementptr inbounds nuw i8, ptr %12, i64 4
+  %216 = lshr i64 %207, 43
+  %217 = trunc nuw nsw i64 %216 to i32
+  %218 = and i32 %217, 524287
+  %219 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  %220 = load i32, ptr %22, align 8
+  %221 = sub nsw i32 %209, %220
+  %222 = icmp slt i32 %220, 2
+  %223 = add nsw i32 %209, -1
+  %224 = shl nuw nsw i32 1, %223
+  %225 = select i1 %222, i32 0, i32 %224
+  %226 = sub nsw i32 %211, %225
+  store i32 %226, ptr %12, align 4
+  %227 = sub nsw i32 %214, %225
+  store i32 %227, ptr %215, align 4
+  %228 = sub nsw i32 %218, %225
+  store i32 %228, ptr %219, align 4
+  %notmask.i.i = shl nsw i32 -1, %221
+  %229 = xor i32 %notmask.i.i, -1
+  %.inv.i.i = icmp sgt i32 %221, 0
+  %230 = select i1 %.inv.i.i, i32 %229, i32 0
+  br label %231
 
-232:                                              ; preds = %232, %207
-  %indvars.iv.i = phi i64 [ 0, %207 ], [ %indvars.iv.next.i, %232 ]
-  %233 = getelementptr inbounds nuw [3 x i32], ptr %12, i64 0, i64 %indvars.iv.i
-  %234 = load i32, ptr %233, align 4
-  %235 = add nsw i32 %234, %231
-  %236 = getelementptr inbounds nuw i32, ptr %18, i64 %indvars.iv.i
-  store i32 %235, ptr %236, align 4
+231:                                              ; preds = %231, %206
+  %indvars.iv.i = phi i64 [ 0, %206 ], [ %indvars.iv.next.i, %231 ]
+  %232 = getelementptr inbounds nuw [3 x i32], ptr %12, i64 0, i64 %indvars.iv.i
+  %233 = load i32, ptr %232, align 4
+  %234 = add nsw i32 %233, %230
+  %235 = getelementptr inbounds nuw i32, ptr %18, i64 %indvars.iv.i
+  store i32 %234, ptr %235, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 3
-  br i1 %exitcond.not.i, label %_ZNK6OctreeIfE13functionIndexILi2EL12BoundaryType2EEEvPK7OctNodeI12TreeNodeDataEPi.exit, label %232, !llvm.loop !679
+  br i1 %exitcond.not.i, label %_ZNK6OctreeIfE13functionIndexILi2EL12BoundaryType2EEEvPK7OctNodeI12TreeNodeDataEPi.exit, label %231, !llvm.loop !679
 
-_ZNK6OctreeIfE13functionIndexILi2EL12BoundaryType2EEEvPK7OctNodeI12TreeNodeDataEPi.exit: ; preds = %232
+_ZNK6OctreeIfE13functionIndexILi2EL12BoundaryType2EEEvPK7OctNodeI12TreeNodeDataEPi.exit: ; preds = %231
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %12)
-  %237 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %238 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %239 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %240 = load ptr, ptr %239, align 8
-  %241 = load i32, ptr %18, align 4
-  %242 = sext i32 %241 to i64
-  %243 = getelementptr inbounds %"struct.BSplineEvaluationData<2, BOUNDARY_NEUMANN>::BSplineComponents", ptr %240, i64 %242
-  %244 = getelementptr inbounds nuw i8, ptr %18, i64 4
-  %245 = load i32, ptr %244, align 4
-  %246 = sext i32 %245 to i64
-  %247 = getelementptr inbounds %"struct.BSplineEvaluationData<2, BOUNDARY_NEUMANN>::BSplineComponents", ptr %240, i64 %246
-  %248 = getelementptr inbounds nuw i8, ptr %18, i64 8
-  %249 = load i32, ptr %248, align 4
-  %250 = sext i32 %249 to i64
-  %251 = getelementptr inbounds %"struct.BSplineEvaluationData<2, BOUNDARY_NEUMANN>::BSplineComponents", ptr %240, i64 %250
+  %236 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %237 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  %238 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  %239 = load ptr, ptr %238, align 8
+  %240 = load i32, ptr %18, align 4
+  %241 = sext i32 %240 to i64
+  %242 = getelementptr inbounds %"struct.BSplineEvaluationData<2, BOUNDARY_NEUMANN>::BSplineComponents", ptr %239, i64 %241
+  %243 = getelementptr inbounds nuw i8, ptr %18, i64 4
+  %244 = load i32, ptr %243, align 4
+  %245 = sext i32 %244 to i64
+  %246 = getelementptr inbounds %"struct.BSplineEvaluationData<2, BOUNDARY_NEUMANN>::BSplineComponents", ptr %239, i64 %245
+  %247 = getelementptr inbounds nuw i8, ptr %18, i64 8
+  %248 = load i32, ptr %247, align 4
+  %249 = sext i32 %248 to i64
+  %250 = getelementptr inbounds %"struct.BSplineEvaluationData<2, BOUNDARY_NEUMANN>::BSplineComponents", ptr %239, i64 %249
   br label %.preheader98
 
-.preheader98:                                     ; preds = %_ZNK6OctreeIfE13functionIndexILi2EL12BoundaryType2EEEvPK7OctNodeI12TreeNodeDataEPi.exit, %327
-  %indvars.iv162 = phi i64 [ -1, %_ZNK6OctreeIfE13functionIndexILi2EL12BoundaryType2EEEvPK7OctNodeI12TreeNodeDataEPi.exit ], [ %indvars.iv.next163, %327 ]
-  %.072124 = phi double [ 0.000000e+00, %_ZNK6OctreeIfE13functionIndexILi2EL12BoundaryType2EEEvPK7OctNodeI12TreeNodeDataEPi.exit ], [ %.3, %327 ]
-  %252 = add nsw i64 %indvars.iv162, 2
+.preheader98:                                     ; preds = %_ZNK6OctreeIfE13functionIndexILi2EL12BoundaryType2EEEvPK7OctNodeI12TreeNodeDataEPi.exit, %326
+  %indvars.iv162 = phi i64 [ -1, %_ZNK6OctreeIfE13functionIndexILi2EL12BoundaryType2EEEvPK7OctNodeI12TreeNodeDataEPi.exit ], [ %indvars.iv.next163, %326 ]
+  %.072124 = phi double [ 0.000000e+00, %_ZNK6OctreeIfE13functionIndexILi2EL12BoundaryType2EEEvPK7OctNodeI12TreeNodeDataEPi.exit ], [ %.3, %326 ]
+  %251 = add nsw i64 %indvars.iv162, 2
   %indvars.iv.next163 = add nsw i64 %indvars.iv162, 1
-  %253 = getelementptr inbounds [3 x %class.Polynomial.17], ptr %243, i64 0, i64 %indvars.iv.next163
-  %254 = getelementptr inbounds nuw i8, ptr %253, i64 8
-  %255 = getelementptr inbounds nuw i8, ptr %253, i64 16
+  %252 = getelementptr inbounds [3 x %class.Polynomial.17], ptr %242, i64 0, i64 %indvars.iv.next163
+  %253 = getelementptr inbounds nuw i8, ptr %252, i64 8
+  %254 = getelementptr inbounds nuw i8, ptr %252, i64 16
   br label %.preheader
 
-.preheader:                                       ; preds = %.preheader98, %326
-  %indvars.iv158 = phi i64 [ -1, %.preheader98 ], [ %indvars.iv.next159, %326 ]
-  %.1122 = phi double [ %.072124, %.preheader98 ], [ %.3, %326 ]
-  %256 = add nsw i64 %indvars.iv158, 2
+.preheader:                                       ; preds = %.preheader98, %325
+  %indvars.iv158 = phi i64 [ -1, %.preheader98 ], [ %indvars.iv.next159, %325 ]
+  %.1122 = phi double [ %.072124, %.preheader98 ], [ %.3, %325 ]
+  %255 = add nsw i64 %indvars.iv158, 2
   %indvars.iv.next159 = add nsw i64 %indvars.iv158, 1
-  %257 = getelementptr inbounds [3 x %class.Polynomial.17], ptr %247, i64 0, i64 %indvars.iv.next159
-  %258 = getelementptr inbounds nuw i8, ptr %257, i64 8
-  %259 = getelementptr inbounds nuw i8, ptr %257, i64 16
-  br label %260
+  %256 = getelementptr inbounds [3 x %class.Polynomial.17], ptr %246, i64 0, i64 %indvars.iv.next159
+  %257 = getelementptr inbounds nuw i8, ptr %256, i64 8
+  %258 = getelementptr inbounds nuw i8, ptr %256, i64 16
+  br label %259
 
-260:                                              ; preds = %.preheader, %_ZNK6OctreeIfE17_isValidSpaceNodeEPK7OctNodeI12TreeNodeDataE.exit.thread
+259:                                              ; preds = %.preheader, %_ZNK6OctreeIfE17_isValidSpaceNodeEPK7OctNodeI12TreeNodeDataE.exit.thread
   %indvars.iv154 = phi i64 [ -1, %.preheader ], [ %indvars.iv.next155, %_ZNK6OctreeIfE17_isValidSpaceNodeEPK7OctNodeI12TreeNodeDataE.exit.thread ]
   %.2120 = phi double [ %.1122, %.preheader ], [ %.3, %_ZNK6OctreeIfE17_isValidSpaceNodeEPK7OctNodeI12TreeNodeDataE.exit.thread ]
-  %261 = add nsw i64 %indvars.iv154, 2
-  %262 = getelementptr inbounds [5 x [5 x [5 x ptr]]], ptr %3, i64 0, i64 %252, i64 %256, i64 %261
-  %263 = load ptr, ptr %262, align 8
-  %264 = icmp eq ptr %263, null
-  br i1 %264, label %_ZNK6OctreeIfE17_isValidSpaceNodeEPK7OctNodeI12TreeNodeDataE.exit.thread, label %265
+  %260 = add nsw i64 %indvars.iv154, 2
+  %261 = getelementptr inbounds [5 x [5 x [5 x ptr]]], ptr %3, i64 0, i64 %251, i64 %255, i64 %260
+  %262 = load ptr, ptr %261, align 8
+  %263 = icmp eq ptr %262, null
+  br i1 %263, label %_ZNK6OctreeIfE17_isValidSpaceNodeEPK7OctNodeI12TreeNodeDataE.exit.thread, label %264
 
-265:                                              ; preds = %260
-  %266 = getelementptr inbounds nuw i8, ptr %263, i64 8
-  %267 = load ptr, ptr %266, align 8
-  %268 = icmp eq ptr %267, null
-  br i1 %268, label %_ZNK6OctreeIfE17_isValidSpaceNodeEPK7OctNodeI12TreeNodeDataE.exit.thread, label %_Z12GetGhostFlagPK7OctNodeI12TreeNodeDataE.exit.i77
+264:                                              ; preds = %259
+  %265 = getelementptr inbounds nuw i8, ptr %262, i64 8
+  %266 = load ptr, ptr %265, align 8
+  %267 = icmp eq ptr %266, null
+  br i1 %267, label %_ZNK6OctreeIfE17_isValidSpaceNodeEPK7OctNodeI12TreeNodeDataE.exit.thread, label %_Z12GetGhostFlagPK7OctNodeI12TreeNodeDataE.exit.i77
 
-_Z12GetGhostFlagPK7OctNodeI12TreeNodeDataE.exit.i77: ; preds = %265
-  %269 = getelementptr inbounds nuw i8, ptr %267, i64 28
-  %270 = load i8, ptr %269, align 4
-  %271 = icmp slt i8 %270, 0
-  br i1 %271, label %_ZNK6OctreeIfE17_isValidSpaceNodeEPK7OctNodeI12TreeNodeDataE.exit.thread, label %_ZNK6OctreeIfE17_isValidSpaceNodeEPK7OctNodeI12TreeNodeDataE.exit
+_Z12GetGhostFlagPK7OctNodeI12TreeNodeDataE.exit.i77: ; preds = %264
+  %268 = getelementptr inbounds nuw i8, ptr %266, i64 28
+  %269 = load i8, ptr %268, align 4
+  %270 = icmp slt i8 %269, 0
+  br i1 %270, label %_ZNK6OctreeIfE17_isValidSpaceNodeEPK7OctNodeI12TreeNodeDataE.exit.thread, label %_ZNK6OctreeIfE17_isValidSpaceNodeEPK7OctNodeI12TreeNodeDataE.exit
 
 _ZNK6OctreeIfE17_isValidSpaceNodeEPK7OctNodeI12TreeNodeDataE.exit: ; preds = %_Z12GetGhostFlagPK7OctNodeI12TreeNodeDataE.exit.i77
-  %272 = getelementptr inbounds nuw i8, ptr %263, i64 28
-  %273 = load i8, ptr %272, align 4
-  %274 = and i8 %273, 1
-  %.not96 = icmp eq i8 %274, 0
-  br i1 %.not96, label %_ZNK6OctreeIfE17_isValidSpaceNodeEPK7OctNodeI12TreeNodeDataE.exit.thread, label %275
+  %271 = getelementptr inbounds nuw i8, ptr %262, i64 28
+  %272 = load i8, ptr %271, align 4
+  %273 = and i8 %272, 1
+  %.not96 = icmp eq i8 %273, 0
+  br i1 %.not96, label %_ZNK6OctreeIfE17_isValidSpaceNodeEPK7OctNodeI12TreeNodeDataE.exit.thread, label %274
 
-275:                                              ; preds = %_ZNK6OctreeIfE17_isValidSpaceNodeEPK7OctNodeI12TreeNodeDataE.exit
-  %276 = getelementptr inbounds nuw i8, ptr %263, i64 24
-  %277 = load i32, ptr %276, align 8
-  %278 = icmp slt i32 %277, 0
-  br i1 %278, label %_ZNK6OctreeIfE17_isValidSpaceNodeEPK7OctNodeI12TreeNodeDataE.exit.thread, label %279
+274:                                              ; preds = %_ZNK6OctreeIfE17_isValidSpaceNodeEPK7OctNodeI12TreeNodeDataE.exit
+  %275 = getelementptr inbounds nuw i8, ptr %262, i64 24
+  %276 = load i32, ptr %275, align 8
+  %277 = icmp slt i32 %276, 0
+  br i1 %277, label %_ZNK6OctreeIfE17_isValidSpaceNodeEPK7OctNodeI12TreeNodeDataE.exit.thread, label %278
 
-279:                                              ; preds = %275
-  %280 = load ptr, ptr %237, align 8
-  %281 = load ptr, ptr %2, align 8
+278:                                              ; preds = %274
+  %279 = load ptr, ptr %236, align 8
+  %280 = load ptr, ptr %2, align 8
+  %281 = ptrtoint ptr %279 to i64
   %282 = ptrtoint ptr %280 to i64
-  %283 = ptrtoint ptr %281 to i64
-  %284 = sub i64 %282, %283
-  %285 = lshr exact i64 %284, 2
-  %286 = trunc i64 %285 to i32
-  %.not.i.i78 = icmp slt i32 %277, %286
-  br i1 %.not.i.i78, label %287, label %_ZNK6OctreeIfE17_isValidSpaceNodeEPK7OctNodeI12TreeNodeDataE.exit.thread
+  %283 = sub i64 %281, %282
+  %284 = lshr exact i64 %283, 2
+  %285 = trunc i64 %284 to i32
+  %.not.i.i78 = icmp slt i32 %276, %285
+  br i1 %.not.i.i78, label %286, label %_ZNK6OctreeIfE17_isValidSpaceNodeEPK7OctNodeI12TreeNodeDataE.exit.thread
 
-287:                                              ; preds = %279
-  %288 = zext nneg i32 %277 to i64
-  %289 = getelementptr inbounds nuw i32, ptr %281, i64 %288
-  %290 = load i32, ptr %289, align 4
-  %291 = icmp slt i32 %290, 0
-  br i1 %291, label %_ZNK6OctreeIfE17_isValidSpaceNodeEPK7OctNodeI12TreeNodeDataE.exit.thread, label %_ZNK6OctreeIfE17InterpolationInfoILb0EEclEPK7OctNodeI12TreeNodeDataE.exit
+286:                                              ; preds = %278
+  %287 = zext nneg i32 %276 to i64
+  %288 = getelementptr inbounds nuw i32, ptr %280, i64 %287
+  %289 = load i32, ptr %288, align 4
+  %290 = icmp slt i32 %289, 0
+  br i1 %290, label %_ZNK6OctreeIfE17_isValidSpaceNodeEPK7OctNodeI12TreeNodeDataE.exit.thread, label %_ZNK6OctreeIfE17InterpolationInfoILb0EEclEPK7OctNodeI12TreeNodeDataE.exit
 
-_ZNK6OctreeIfE17InterpolationInfoILb0EEclEPK7OctNodeI12TreeNodeDataE.exit: ; preds = %287
-  %292 = load ptr, ptr %238, align 8
-  %.not75 = icmp eq ptr %292, null
+_ZNK6OctreeIfE17InterpolationInfoILb0EEclEPK7OctNodeI12TreeNodeDataE.exit: ; preds = %286
+  %291 = load ptr, ptr %237, align 8
+  %.not75 = icmp eq ptr %291, null
   br i1 %.not75, label %_ZNK6OctreeIfE17_isValidSpaceNodeEPK7OctNodeI12TreeNodeDataE.exit.thread, label %_ZNK6OctreeIfE17InterpolationInfoILb0EEclEPK7OctNodeI12TreeNodeDataE.exit80
 
 _ZNK6OctreeIfE17InterpolationInfoILb0EEclEPK7OctNodeI12TreeNodeDataE.exit80: ; preds = %_ZNK6OctreeIfE17InterpolationInfoILb0EEclEPK7OctNodeI12TreeNodeDataE.exit
-  %293 = zext nneg i32 %290 to i64
-  %294 = getelementptr inbounds nuw %struct.SinglePointData, ptr %292, i64 %293
-  %295 = add nsw i64 %indvars.iv154, 1
-  %296 = getelementptr inbounds [3 x %class.Polynomial.17], ptr %251, i64 0, i64 %295
-  %.sroa.0.0.copyload.i = load float, ptr %294, align 4
-  %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %294, i64 4
+  %292 = zext nneg i32 %289 to i64
+  %293 = getelementptr inbounds nuw %struct.SinglePointData, ptr %291, i64 %292
+  %294 = add nsw i64 %indvars.iv154, 1
+  %295 = getelementptr inbounds [3 x %class.Polynomial.17], ptr %250, i64 0, i64 %294
+  %.sroa.0.0.copyload.i = load float, ptr %293, align 4
+  %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %293, i64 4
   %.sroa.2.0.copyload.i = load float, ptr %.sroa.2.0..sroa_idx.i, align 4
-  %.sroa.3.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %294, i64 8
+  %.sroa.3.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %293, i64 8
   %.sroa.3.0.copyload.i = load float, ptr %.sroa.3.0..sroa_idx.i, align 4
-  %297 = fpext float %.sroa.0.0.copyload.i to double
+  %296 = fpext float %.sroa.0.0.copyload.i to double
+  %297 = load double, ptr %252, align 8
   %298 = load double, ptr %253, align 8
   %299 = load double, ptr %254, align 8
-  %300 = load double, ptr %255, align 8
-  %301 = call double @llvm.fmuladd.f64(double %300, double %297, double %299)
-  %302 = call noundef double @llvm.fmuladd.f64(double %301, double %297, double %298)
-  %303 = fpext float %.sroa.2.0.copyload.i to double
+  %300 = call double @llvm.fmuladd.f64(double %299, double %296, double %298)
+  %301 = call noundef double @llvm.fmuladd.f64(double %300, double %296, double %297)
+  %302 = fpext float %.sroa.2.0.copyload.i to double
+  %303 = load double, ptr %256, align 8
   %304 = load double, ptr %257, align 8
   %305 = load double, ptr %258, align 8
-  %306 = load double, ptr %259, align 8
-  %307 = call double @llvm.fmuladd.f64(double %306, double %303, double %305)
-  %308 = call noundef double @llvm.fmuladd.f64(double %307, double %303, double %304)
-  %309 = fmul double %302, %308
-  %310 = fpext float %.sroa.3.0.copyload.i to double
-  %311 = load double, ptr %296, align 8
-  %312 = getelementptr inbounds nuw i8, ptr %296, i64 8
-  %313 = load double, ptr %312, align 8
-  %314 = getelementptr inbounds nuw i8, ptr %296, i64 16
-  %315 = load double, ptr %314, align 8
-  %316 = call double @llvm.fmuladd.f64(double %315, double %310, double %313)
-  %317 = call noundef double @llvm.fmuladd.f64(double %316, double %310, double %311)
-  %318 = fmul double %309, %317
-  %319 = getelementptr inbounds nuw i8, ptr %294, i64 20
-  %320 = load float, ptr %319, align 4
-  %321 = fpext float %320 to double
-  %322 = fmul double %318, %321
-  %323 = fptrunc double %322 to float
-  %324 = fpext float %323 to double
-  %325 = fadd double %.2120, %324
+  %306 = call double @llvm.fmuladd.f64(double %305, double %302, double %304)
+  %307 = call noundef double @llvm.fmuladd.f64(double %306, double %302, double %303)
+  %308 = fmul double %301, %307
+  %309 = fpext float %.sroa.3.0.copyload.i to double
+  %310 = load double, ptr %295, align 8
+  %311 = getelementptr inbounds nuw i8, ptr %295, i64 8
+  %312 = load double, ptr %311, align 8
+  %313 = getelementptr inbounds nuw i8, ptr %295, i64 16
+  %314 = load double, ptr %313, align 8
+  %315 = call double @llvm.fmuladd.f64(double %314, double %309, double %312)
+  %316 = call noundef double @llvm.fmuladd.f64(double %315, double %309, double %310)
+  %317 = fmul double %308, %316
+  %318 = getelementptr inbounds nuw i8, ptr %293, i64 20
+  %319 = load float, ptr %318, align 4
+  %320 = fpext float %319 to double
+  %321 = fmul double %317, %320
+  %322 = fptrunc double %321 to float
+  %323 = fpext float %322 to double
+  %324 = fadd double %.2120, %323
   br label %_ZNK6OctreeIfE17_isValidSpaceNodeEPK7OctNodeI12TreeNodeDataE.exit.thread
 
-_ZNK6OctreeIfE17_isValidSpaceNodeEPK7OctNodeI12TreeNodeDataE.exit.thread: ; preds = %275, %279, %287, %260, %265, %_Z12GetGhostFlagPK7OctNodeI12TreeNodeDataE.exit.i77, %_ZNK6OctreeIfE17_isValidSpaceNodeEPK7OctNodeI12TreeNodeDataE.exit, %_ZNK6OctreeIfE17InterpolationInfoILb0EEclEPK7OctNodeI12TreeNodeDataE.exit, %_ZNK6OctreeIfE17InterpolationInfoILb0EEclEPK7OctNodeI12TreeNodeDataE.exit80
-  %.3 = phi double [ %325, %_ZNK6OctreeIfE17InterpolationInfoILb0EEclEPK7OctNodeI12TreeNodeDataE.exit80 ], [ %.2120, %_ZNK6OctreeIfE17InterpolationInfoILb0EEclEPK7OctNodeI12TreeNodeDataE.exit ], [ %.2120, %_ZNK6OctreeIfE17_isValidSpaceNodeEPK7OctNodeI12TreeNodeDataE.exit ], [ %.2120, %_Z12GetGhostFlagPK7OctNodeI12TreeNodeDataE.exit.i77 ], [ %.2120, %265 ], [ %.2120, %260 ], [ %.2120, %287 ], [ %.2120, %279 ], [ %.2120, %275 ]
+_ZNK6OctreeIfE17_isValidSpaceNodeEPK7OctNodeI12TreeNodeDataE.exit.thread: ; preds = %274, %278, %286, %259, %264, %_Z12GetGhostFlagPK7OctNodeI12TreeNodeDataE.exit.i77, %_ZNK6OctreeIfE17_isValidSpaceNodeEPK7OctNodeI12TreeNodeDataE.exit, %_ZNK6OctreeIfE17InterpolationInfoILb0EEclEPK7OctNodeI12TreeNodeDataE.exit, %_ZNK6OctreeIfE17InterpolationInfoILb0EEclEPK7OctNodeI12TreeNodeDataE.exit80
+  %.3 = phi double [ %324, %_ZNK6OctreeIfE17InterpolationInfoILb0EEclEPK7OctNodeI12TreeNodeDataE.exit80 ], [ %.2120, %_ZNK6OctreeIfE17InterpolationInfoILb0EEclEPK7OctNodeI12TreeNodeDataE.exit ], [ %.2120, %_ZNK6OctreeIfE17_isValidSpaceNodeEPK7OctNodeI12TreeNodeDataE.exit ], [ %.2120, %_Z12GetGhostFlagPK7OctNodeI12TreeNodeDataE.exit.i77 ], [ %.2120, %264 ], [ %.2120, %259 ], [ %.2120, %286 ], [ %.2120, %278 ], [ %.2120, %274 ]
   %indvars.iv.next155 = add nsw i64 %indvars.iv154, 1
   %exitcond157.not = icmp eq i64 %indvars.iv.next155, 2
-  br i1 %exitcond157.not, label %326, label %260, !llvm.loop !790
+  br i1 %exitcond157.not, label %325, label %259, !llvm.loop !790
 
-326:                                              ; preds = %_ZNK6OctreeIfE17_isValidSpaceNodeEPK7OctNodeI12TreeNodeDataE.exit.thread
+325:                                              ; preds = %_ZNK6OctreeIfE17_isValidSpaceNodeEPK7OctNodeI12TreeNodeDataE.exit.thread
   %exitcond161.not = icmp eq i64 %indvars.iv.next159, 2
-  br i1 %exitcond161.not, label %327, label %.preheader, !llvm.loop !791
+  br i1 %exitcond161.not, label %326, label %.preheader, !llvm.loop !791
+
+326:                                              ; preds = %325
+  %exitcond165.not = icmp eq i64 %indvars.iv.next163, 2
+  br i1 %exitcond165.not, label %327, label %.preheader98, !llvm.loop !792
 
 327:                                              ; preds = %326
-  %exitcond165.not = icmp eq i64 %indvars.iv.next163, 2
-  br i1 %exitcond165.not, label %328, label %.preheader98, !llvm.loop !792
+  %328 = fptrunc double %.3 to float
+  %329 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  %330 = load i32, ptr %329, align 8
+  %331 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %332 = load ptr, ptr %331, align 8
+  %333 = sext i32 %330 to i64
+  %334 = getelementptr inbounds float, ptr %332, i64 %333
+  %335 = load float, ptr %334, align 4
+  %336 = fsub float %335, %328
+  store float %336, ptr %334, align 4
+  br label %337
 
-328:                                              ; preds = %327
-  %329 = fptrunc double %.3 to float
-  %330 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  %331 = load i32, ptr %330, align 8
-  %332 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %333 = load ptr, ptr %332, align 8
-  %334 = sext i32 %331 to i64
-  %335 = getelementptr inbounds float, ptr %333, i64 %334
-  %336 = load float, ptr %335, align 4
-  %337 = fsub float %336, %329
-  store float %337, ptr %335, align 4
-  br label %338
-
-338:                                              ; preds = %11, %328, %._crit_edge
+337:                                              ; preds = %11, %327, %._crit_edge
   ret void
 }
 
@@ -50725,7 +50722,7 @@ define internal void @_ZNK6OctreeIfE45_updateCumulativeIntegralConstraintsFromFi
   %36 = getelementptr inbounds i32, ptr %32, i64 %35
   %37 = load i32, ptr %36, align 4
   %38 = icmp slt i32 %33, %37
-  br i1 %38, label %39, label %275
+  br i1 %38, label %39, label %274
 
 39:                                               ; preds = %10
   %40 = xor i32 %33, -1
@@ -50755,7 +50752,7 @@ define internal void @_ZNK6OctreeIfE45_updateCumulativeIntegralConstraintsFromFi
   br label %55
 
 55:                                               ; preds = %.lr.ph, %_ZNK6OctreeIfE15_isValidFEMNodeEPK7OctNodeI12TreeNodeDataE.exit.thread
-  %.0116 = phi i32 [ %45, %.lr.ph ], [ %271, %_ZNK6OctreeIfE15_isValidFEMNodeEPK7OctNodeI12TreeNodeDataE.exit.thread ]
+  %.0116 = phi i32 [ %45, %.lr.ph ], [ %270, %_ZNK6OctreeIfE15_isValidFEMNodeEPK7OctNodeI12TreeNodeDataE.exit.thread ]
   %.073115 = phi i32 [ undef, %.lr.ph ], [ %.1, %_ZNK6OctreeIfE15_isValidFEMNodeEPK7OctNodeI12TreeNodeDataE.exit.thread ]
   %.074114 = phi i32 [ undef, %.lr.ph ], [ %.175, %_ZNK6OctreeIfE15_isValidFEMNodeEPK7OctNodeI12TreeNodeDataE.exit.thread ]
   %.077113 = phi i32 [ undef, %.lr.ph ], [ %.178, %_ZNK6OctreeIfE15_isValidFEMNodeEPK7OctNodeI12TreeNodeDataE.exit.thread ]
@@ -50983,61 +50980,60 @@ _ZNK6OctreeIfE15_isValidFEMNodeEPK7OctNodeI12TreeNodeDataE.exit: ; preds = %_Z12
 
 .preheader90.us.us.us:                            ; preds = %.preheader90.us.us.us.preheader, %._crit_edge93.split.us.split.us.us.us.us
   %indvars.iv140 = phi i64 [ %196, %.preheader90.us.us.us.preheader ], [ %indvars.iv.next141, %._crit_edge93.split.us.split.us.us.us.us ]
-  %sext = mul i64 %indvars.iv140, 107374182400
-  %197 = ashr exact i64 %sext, 29
+  %.idx145 = mul i64 %indvars.iv140, 200
   br label %.preheader.us.us.us.us.us
 
 .preheader.us.us.us.us.us:                        ; preds = %._crit_edge.split.us.us.us.us.us.us, %.preheader90.us.us.us
   %indvars.iv135 = phi i64 [ %indvars.iv.next136, %._crit_edge.split.us.us.us.us.us.us ], [ %195, %.preheader90.us.us.us ]
   %.idx = mul i64 %indvars.iv135, 40
-  br label %198
+  br label %197
 
-198:                                              ; preds = %_ZNK6OctreeIfE15_isValidFEMNodeEPK7OctNodeI12TreeNodeDataE.exit64.thread.us.us.us.us.us.us, %.preheader.us.us.us.us.us
+197:                                              ; preds = %_ZNK6OctreeIfE15_isValidFEMNodeEPK7OctNodeI12TreeNodeDataE.exit64.thread.us.us.us.us.us.us, %.preheader.us.us.us.us.us
   %indvars.iv131 = phi i64 [ %indvars.iv.next132, %_ZNK6OctreeIfE15_isValidFEMNodeEPK7OctNodeI12TreeNodeDataE.exit64.thread.us.us.us.us.us.us ], [ %194, %.preheader.us.us.us.us.us ]
-  %199 = getelementptr inbounds [5 x [5 x [5 x ptr]]], ptr %21, i64 0, i64 %indvars.iv140, i64 %indvars.iv135, i64 %indvars.iv131
-  %200 = load ptr, ptr %199, align 8
-  %201 = icmp eq ptr %200, null
-  br i1 %201, label %_ZNK6OctreeIfE15_isValidFEMNodeEPK7OctNodeI12TreeNodeDataE.exit64.thread.us.us.us.us.us.us, label %202
+  %198 = getelementptr inbounds [5 x [5 x [5 x ptr]]], ptr %21, i64 0, i64 %indvars.iv140, i64 %indvars.iv135, i64 %indvars.iv131
+  %199 = load ptr, ptr %198, align 8
+  %200 = icmp eq ptr %199, null
+  br i1 %200, label %_ZNK6OctreeIfE15_isValidFEMNodeEPK7OctNodeI12TreeNodeDataE.exit64.thread.us.us.us.us.us.us, label %201
 
-202:                                              ; preds = %198
-  %203 = getelementptr inbounds nuw i8, ptr %200, i64 8
-  %204 = load ptr, ptr %203, align 8
-  %205 = icmp eq ptr %204, null
-  br i1 %205, label %_ZNK6OctreeIfE15_isValidFEMNodeEPK7OctNodeI12TreeNodeDataE.exit64.thread.us.us.us.us.us.us, label %_Z12GetGhostFlagPK7OctNodeI12TreeNodeDataE.exit.i63.us.us.us.us.us.us
+201:                                              ; preds = %197
+  %202 = getelementptr inbounds nuw i8, ptr %199, i64 8
+  %203 = load ptr, ptr %202, align 8
+  %204 = icmp eq ptr %203, null
+  br i1 %204, label %_ZNK6OctreeIfE15_isValidFEMNodeEPK7OctNodeI12TreeNodeDataE.exit64.thread.us.us.us.us.us.us, label %_Z12GetGhostFlagPK7OctNodeI12TreeNodeDataE.exit.i63.us.us.us.us.us.us
 
-_Z12GetGhostFlagPK7OctNodeI12TreeNodeDataE.exit.i63.us.us.us.us.us.us: ; preds = %202
-  %206 = getelementptr inbounds nuw i8, ptr %204, i64 28
-  %207 = load i8, ptr %206, align 4
-  %208 = icmp slt i8 %207, 0
-  br i1 %208, label %_ZNK6OctreeIfE15_isValidFEMNodeEPK7OctNodeI12TreeNodeDataE.exit64.thread.us.us.us.us.us.us, label %_ZNK6OctreeIfE15_isValidFEMNodeEPK7OctNodeI12TreeNodeDataE.exit64.us.us.us.us.us.us
+_Z12GetGhostFlagPK7OctNodeI12TreeNodeDataE.exit.i63.us.us.us.us.us.us: ; preds = %201
+  %205 = getelementptr inbounds nuw i8, ptr %203, i64 28
+  %206 = load i8, ptr %205, align 4
+  %207 = icmp slt i8 %206, 0
+  br i1 %207, label %_ZNK6OctreeIfE15_isValidFEMNodeEPK7OctNodeI12TreeNodeDataE.exit64.thread.us.us.us.us.us.us, label %_ZNK6OctreeIfE15_isValidFEMNodeEPK7OctNodeI12TreeNodeDataE.exit64.us.us.us.us.us.us
 
 _ZNK6OctreeIfE15_isValidFEMNodeEPK7OctNodeI12TreeNodeDataE.exit64.us.us.us.us.us.us: ; preds = %_Z12GetGhostFlagPK7OctNodeI12TreeNodeDataE.exit.i63.us.us.us.us.us.us
-  %209 = getelementptr inbounds nuw i8, ptr %200, i64 28
-  %210 = load i8, ptr %209, align 4
-  %211 = and i8 %210, 2
-  %.not89.us.us.us.us.us.us = icmp eq i8 %211, 0
-  br i1 %.not89.us.us.us.us.us.us, label %_ZNK6OctreeIfE15_isValidFEMNodeEPK7OctNodeI12TreeNodeDataE.exit64.thread.us.us.us.us.us.us, label %212
+  %208 = getelementptr inbounds nuw i8, ptr %199, i64 28
+  %209 = load i8, ptr %208, align 4
+  %210 = and i8 %209, 2
+  %.not89.us.us.us.us.us.us = icmp eq i8 %210, 0
+  br i1 %.not89.us.us.us.us.us.us, label %_ZNK6OctreeIfE15_isValidFEMNodeEPK7OctNodeI12TreeNodeDataE.exit64.thread.us.us.us.us.us.us, label %211
 
-212:                                              ; preds = %_ZNK6OctreeIfE15_isValidFEMNodeEPK7OctNodeI12TreeNodeDataE.exit64.us.us.us.us.us.us
-  %213 = getelementptr inbounds nuw i8, ptr %200, i64 24
-  %214 = load i32, ptr %213, align 8
-  %215 = load ptr, ptr %54, align 8
-  %216 = sext i32 %214 to i64
-  %217 = getelementptr inbounds float, ptr %215, i64 %216
-  %218 = load ptr, ptr %98, align 8
-  %219 = getelementptr i8, ptr %218, i64 %.idx
-  %220 = getelementptr i8, ptr %219, i64 %197
-  %221 = getelementptr double, ptr %220, i64 %indvars.iv131
-  %222 = load double, ptr %221, align 8
-  %223 = fmul double %222, %192
-  %224 = fptrunc double %223 to float
-  %225 = atomicrmw fadd ptr %217, float %224 monotonic, align 4
+211:                                              ; preds = %_ZNK6OctreeIfE15_isValidFEMNodeEPK7OctNodeI12TreeNodeDataE.exit64.us.us.us.us.us.us
+  %212 = getelementptr inbounds nuw i8, ptr %199, i64 24
+  %213 = load i32, ptr %212, align 8
+  %214 = load ptr, ptr %54, align 8
+  %215 = sext i32 %213 to i64
+  %216 = getelementptr inbounds float, ptr %214, i64 %215
+  %217 = load ptr, ptr %98, align 8
+  %218 = getelementptr i8, ptr %217, i64 %.idx
+  %219 = getelementptr i8, ptr %218, i64 %.idx145
+  %220 = getelementptr double, ptr %219, i64 %indvars.iv131
+  %221 = load double, ptr %220, align 8
+  %222 = fmul double %221, %192
+  %223 = fptrunc double %222 to float
+  %224 = atomicrmw fadd ptr %216, float %223 monotonic, align 4
   br label %_ZNK6OctreeIfE15_isValidFEMNodeEPK7OctNodeI12TreeNodeDataE.exit64.thread.us.us.us.us.us.us
 
-_ZNK6OctreeIfE15_isValidFEMNodeEPK7OctNodeI12TreeNodeDataE.exit64.thread.us.us.us.us.us.us: ; preds = %212, %_ZNK6OctreeIfE15_isValidFEMNodeEPK7OctNodeI12TreeNodeDataE.exit64.us.us.us.us.us.us, %_Z12GetGhostFlagPK7OctNodeI12TreeNodeDataE.exit.i63.us.us.us.us.us.us, %202, %198
+_ZNK6OctreeIfE15_isValidFEMNodeEPK7OctNodeI12TreeNodeDataE.exit64.thread.us.us.us.us.us.us: ; preds = %211, %_ZNK6OctreeIfE15_isValidFEMNodeEPK7OctNodeI12TreeNodeDataE.exit64.us.us.us.us.us.us, %_Z12GetGhostFlagPK7OctNodeI12TreeNodeDataE.exit.i63.us.us.us.us.us.us, %201, %197
   %indvars.iv.next132 = add nsw i64 %indvars.iv131, 1
   %exitcond134.not = icmp eq i64 %indvars.iv.next132, %wide.trip.count
-  br i1 %exitcond134.not, label %._crit_edge.split.us.us.us.us.us.us, label %198, !llvm.loop !794
+  br i1 %exitcond134.not, label %._crit_edge.split.us.us.us.us.us.us, label %197, !llvm.loop !794
 
 ._crit_edge.split.us.us.us.us.us.us:              ; preds = %_ZNK6OctreeIfE15_isValidFEMNodeEPK7OctNodeI12TreeNodeDataE.exit64.thread.us.us.us.us.us.us
   %indvars.iv.next136 = add nsw i64 %indvars.iv135, 1
@@ -51055,80 +51051,80 @@ _ZNK6OctreeIfE15_isValidFEMNodeEPK7OctNodeI12TreeNodeDataE.exit64.thread.us.us.u
 
 .preheader.us.us106.us:                           ; preds = %.preheader90.us.us, %._crit_edge.split.us99.us.us
   %indvars.iv121 = phi i64 [ %195, %.preheader90.us.us ], [ %indvars.iv.next122, %._crit_edge.split.us99.us.us ]
-  br label %226
+  br label %225
 
-226:                                              ; preds = %_ZNK6OctreeIfE15_isValidFEMNodeEPK7OctNodeI12TreeNodeDataE.exit64.thread.us98.us.us, %.preheader.us.us106.us
+225:                                              ; preds = %_ZNK6OctreeIfE15_isValidFEMNodeEPK7OctNodeI12TreeNodeDataE.exit64.thread.us98.us.us, %.preheader.us.us106.us
   %indvars.iv = phi i64 [ %indvars.iv.next, %_ZNK6OctreeIfE15_isValidFEMNodeEPK7OctNodeI12TreeNodeDataE.exit64.thread.us98.us.us ], [ %194, %.preheader.us.us106.us ]
-  %227 = getelementptr inbounds [5 x [5 x [5 x ptr]]], ptr %21, i64 0, i64 %indvars.iv126, i64 %indvars.iv121, i64 %indvars.iv
-  %228 = load ptr, ptr %227, align 8
-  %229 = icmp eq ptr %228, null
-  br i1 %229, label %_ZNK6OctreeIfE15_isValidFEMNodeEPK7OctNodeI12TreeNodeDataE.exit64.thread.us98.us.us, label %230
+  %226 = getelementptr inbounds [5 x [5 x [5 x ptr]]], ptr %21, i64 0, i64 %indvars.iv126, i64 %indvars.iv121, i64 %indvars.iv
+  %227 = load ptr, ptr %226, align 8
+  %228 = icmp eq ptr %227, null
+  br i1 %228, label %_ZNK6OctreeIfE15_isValidFEMNodeEPK7OctNodeI12TreeNodeDataE.exit64.thread.us98.us.us, label %229
 
-230:                                              ; preds = %226
-  %231 = getelementptr inbounds nuw i8, ptr %228, i64 8
-  %232 = load ptr, ptr %231, align 8
-  %233 = icmp eq ptr %232, null
-  br i1 %233, label %_ZNK6OctreeIfE15_isValidFEMNodeEPK7OctNodeI12TreeNodeDataE.exit64.thread.us98.us.us, label %_Z12GetGhostFlagPK7OctNodeI12TreeNodeDataE.exit.i63.us95.us.us
+229:                                              ; preds = %225
+  %230 = getelementptr inbounds nuw i8, ptr %227, i64 8
+  %231 = load ptr, ptr %230, align 8
+  %232 = icmp eq ptr %231, null
+  br i1 %232, label %_ZNK6OctreeIfE15_isValidFEMNodeEPK7OctNodeI12TreeNodeDataE.exit64.thread.us98.us.us, label %_Z12GetGhostFlagPK7OctNodeI12TreeNodeDataE.exit.i63.us95.us.us
 
-_Z12GetGhostFlagPK7OctNodeI12TreeNodeDataE.exit.i63.us95.us.us: ; preds = %230
-  %234 = getelementptr inbounds nuw i8, ptr %232, i64 28
-  %235 = load i8, ptr %234, align 4
-  %236 = icmp slt i8 %235, 0
-  br i1 %236, label %_ZNK6OctreeIfE15_isValidFEMNodeEPK7OctNodeI12TreeNodeDataE.exit64.thread.us98.us.us, label %_ZNK6OctreeIfE15_isValidFEMNodeEPK7OctNodeI12TreeNodeDataE.exit64.us96.us.us
+_Z12GetGhostFlagPK7OctNodeI12TreeNodeDataE.exit.i63.us95.us.us: ; preds = %229
+  %233 = getelementptr inbounds nuw i8, ptr %231, i64 28
+  %234 = load i8, ptr %233, align 4
+  %235 = icmp slt i8 %234, 0
+  br i1 %235, label %_ZNK6OctreeIfE15_isValidFEMNodeEPK7OctNodeI12TreeNodeDataE.exit64.thread.us98.us.us, label %_ZNK6OctreeIfE15_isValidFEMNodeEPK7OctNodeI12TreeNodeDataE.exit64.us96.us.us
 
 _ZNK6OctreeIfE15_isValidFEMNodeEPK7OctNodeI12TreeNodeDataE.exit64.us96.us.us: ; preds = %_Z12GetGhostFlagPK7OctNodeI12TreeNodeDataE.exit.i63.us95.us.us
-  %237 = getelementptr inbounds nuw i8, ptr %228, i64 28
-  %238 = load i8, ptr %237, align 4
-  %239 = and i8 %238, 2
-  %.not89.us97.us.us = icmp eq i8 %239, 0
-  br i1 %.not89.us97.us.us, label %_ZNK6OctreeIfE15_isValidFEMNodeEPK7OctNodeI12TreeNodeDataE.exit64.thread.us98.us.us, label %240
+  %236 = getelementptr inbounds nuw i8, ptr %227, i64 28
+  %237 = load i8, ptr %236, align 4
+  %238 = and i8 %237, 2
+  %.not89.us97.us.us = icmp eq i8 %238, 0
+  br i1 %.not89.us97.us.us, label %_ZNK6OctreeIfE15_isValidFEMNodeEPK7OctNodeI12TreeNodeDataE.exit64.thread.us98.us.us, label %239
 
-240:                                              ; preds = %_ZNK6OctreeIfE15_isValidFEMNodeEPK7OctNodeI12TreeNodeDataE.exit64.us96.us.us
-  %241 = load i64, ptr %228, align 8
-  %242 = trunc i64 %241 to i32
-  %243 = and i32 %242, 31
-  %244 = lshr i32 %242, 5
-  %245 = and i32 %244, 524287
-  store i32 %245, ptr %23, align 4
-  %246 = load i64, ptr %228, align 8
-  %247 = lshr i64 %246, 24
-  %248 = trunc i64 %247 to i32
-  %249 = and i32 %248, 524287
-  store i32 %249, ptr %52, align 4
-  %250 = load i64, ptr %228, align 8
-  %251 = lshr i64 %250, 43
-  %252 = trunc nuw nsw i64 %251 to i32
-  %253 = and i32 %252, 524287
-  %254 = load i32, ptr %26, align 8
-  %255 = icmp slt i32 %254, 2
-  %256 = add nsw i32 %243, -1
-  %257 = shl nuw nsw i32 1, %256
-  %258 = select i1 %255, i32 0, i32 %257
-  %259 = sub nsw i32 %245, %258
-  store i32 %259, ptr %23, align 4
-  %260 = sub nsw i32 %249, %258
-  store i32 %260, ptr %52, align 4
-  %261 = sub nsw i32 %253, %258
-  store i32 %261, ptr %53, align 4
-  %262 = getelementptr inbounds nuw i8, ptr %228, i64 24
-  %263 = load i32, ptr %262, align 8
-  %264 = load ptr, ptr %54, align 8
-  %265 = invoke noundef double @_ZNK16FEMSystemFunctorILi2EL12BoundaryType2EE10_integrateIN22BSplineIntegrationDataILi2ELS0_2ELi2ELS0_2EE18FunctionIntegrator15ChildIntegratorILj2ELj2EEEEEdRKT_PKiSC_(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(4040) %9, ptr noundef nonnull %23, ptr noundef nonnull %22)
+239:                                              ; preds = %_ZNK6OctreeIfE15_isValidFEMNodeEPK7OctNodeI12TreeNodeDataE.exit64.us96.us.us
+  %240 = load i64, ptr %227, align 8
+  %241 = trunc i64 %240 to i32
+  %242 = and i32 %241, 31
+  %243 = lshr i32 %241, 5
+  %244 = and i32 %243, 524287
+  store i32 %244, ptr %23, align 4
+  %245 = load i64, ptr %227, align 8
+  %246 = lshr i64 %245, 24
+  %247 = trunc i64 %246 to i32
+  %248 = and i32 %247, 524287
+  store i32 %248, ptr %52, align 4
+  %249 = load i64, ptr %227, align 8
+  %250 = lshr i64 %249, 43
+  %251 = trunc nuw nsw i64 %250 to i32
+  %252 = and i32 %251, 524287
+  %253 = load i32, ptr %26, align 8
+  %254 = icmp slt i32 %253, 2
+  %255 = add nsw i32 %242, -1
+  %256 = shl nuw nsw i32 1, %255
+  %257 = select i1 %254, i32 0, i32 %256
+  %258 = sub nsw i32 %244, %257
+  store i32 %258, ptr %23, align 4
+  %259 = sub nsw i32 %248, %257
+  store i32 %259, ptr %52, align 4
+  %260 = sub nsw i32 %252, %257
+  store i32 %260, ptr %53, align 4
+  %261 = getelementptr inbounds nuw i8, ptr %227, i64 24
+  %262 = load i32, ptr %261, align 8
+  %263 = load ptr, ptr %54, align 8
+  %264 = invoke noundef double @_ZNK16FEMSystemFunctorILi2EL12BoundaryType2EE10_integrateIN22BSplineIntegrationDataILi2ELS0_2ELi2ELS0_2EE18FunctionIntegrator15ChildIntegratorILj2ELj2EEEEEdRKT_PKiSC_(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(4040) %9, ptr noundef nonnull %23, ptr noundef nonnull %22)
           to label %_ZNK16FEMSystemFunctorILi2EL12BoundaryType2EE9integrateERKN22BSplineIntegrationDataILi2ELS0_2ELi2ELS0_2EE18FunctionIntegrator15ChildIntegratorILj2ELj2EEEPKiSA_.exit.us.us.us unwind label %.loopexit.split.us.split.us.split.us
 
-_ZNK16FEMSystemFunctorILi2EL12BoundaryType2EE9integrateERKN22BSplineIntegrationDataILi2ELS0_2ELi2ELS0_2EE18FunctionIntegrator15ChildIntegratorILj2ELj2EEEPKiSA_.exit.us.us.us: ; preds = %240
-  %266 = sext i32 %263 to i64
-  %267 = getelementptr inbounds float, ptr %264, i64 %266
-  %268 = fmul double %265, %192
-  %269 = fptrunc double %268 to float
-  %270 = atomicrmw fadd ptr %267, float %269 monotonic, align 4
+_ZNK16FEMSystemFunctorILi2EL12BoundaryType2EE9integrateERKN22BSplineIntegrationDataILi2ELS0_2ELi2ELS0_2EE18FunctionIntegrator15ChildIntegratorILj2ELj2EEEPKiSA_.exit.us.us.us: ; preds = %239
+  %265 = sext i32 %262 to i64
+  %266 = getelementptr inbounds float, ptr %263, i64 %265
+  %267 = fmul double %264, %192
+  %268 = fptrunc double %267 to float
+  %269 = atomicrmw fadd ptr %266, float %268 monotonic, align 4
   br label %_ZNK6OctreeIfE15_isValidFEMNodeEPK7OctNodeI12TreeNodeDataE.exit64.thread.us98.us.us
 
-_ZNK6OctreeIfE15_isValidFEMNodeEPK7OctNodeI12TreeNodeDataE.exit64.thread.us98.us.us: ; preds = %_ZNK16FEMSystemFunctorILi2EL12BoundaryType2EE9integrateERKN22BSplineIntegrationDataILi2ELS0_2ELi2ELS0_2EE18FunctionIntegrator15ChildIntegratorILj2ELj2EEEPKiSA_.exit.us.us.us, %_ZNK6OctreeIfE15_isValidFEMNodeEPK7OctNodeI12TreeNodeDataE.exit64.us96.us.us, %_Z12GetGhostFlagPK7OctNodeI12TreeNodeDataE.exit.i63.us95.us.us, %230, %226
+_ZNK6OctreeIfE15_isValidFEMNodeEPK7OctNodeI12TreeNodeDataE.exit64.thread.us98.us.us: ; preds = %_ZNK16FEMSystemFunctorILi2EL12BoundaryType2EE9integrateERKN22BSplineIntegrationDataILi2ELS0_2ELi2ELS0_2EE18FunctionIntegrator15ChildIntegratorILj2ELj2EEEPKiSA_.exit.us.us.us, %_ZNK6OctreeIfE15_isValidFEMNodeEPK7OctNodeI12TreeNodeDataE.exit64.us96.us.us, %_Z12GetGhostFlagPK7OctNodeI12TreeNodeDataE.exit.i63.us95.us.us, %229, %225
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
   %exitcond.not = icmp eq i32 %.276, %lftr.wideiv
-  br i1 %exitcond.not, label %._crit_edge.split.us99.us.us, label %226, !llvm.loop !794
+  br i1 %exitcond.not, label %._crit_edge.split.us99.us.us, label %225, !llvm.loop !794
 
 ._crit_edge.split.us99.us.us:                     ; preds = %_ZNK6OctreeIfE15_isValidFEMNodeEPK7OctNodeI12TreeNodeDataE.exit64.thread.us98.us.us
   %indvars.iv.next122 = add nsw i64 %indvars.iv121, 1
@@ -51142,10 +51138,10 @@ _ZNK6OctreeIfE15_isValidFEMNodeEPK7OctNodeI12TreeNodeDataE.exit64.thread.us98.us
   %exitcond130.not = icmp eq i32 %.288, %lftr.wideiv129
   br i1 %exitcond130.not, label %_ZNK6OctreeIfE15_isValidFEMNodeEPK7OctNodeI12TreeNodeDataE.exit.thread, label %.preheader90.us.us, !llvm.loop !796
 
-.loopexit.split.us.split.us.split.us:             ; preds = %240
+.loopexit.split.us.split.us.split.us:             ; preds = %239
   %lpad.loopexit.us.us.us = landingpad { ptr, i32 }
           catch ptr null
-  br label %276
+  br label %275
 
 _ZNK6OctreeIfE15_isValidFEMNodeEPK7OctNodeI12TreeNodeDataE.exit.thread: ; preds = %._crit_edge93.split.us.split.us108.us, %._crit_edge93.split.us.split.us.us.us.us, %.preheader90.lr.ph, %183, %55, %62, %_Z12GetGhostFlagPK7OctNodeI12TreeNodeDataE.exit.i, %_ZNK6OctreeIfE15_isValidFEMNodeEPK7OctNodeI12TreeNodeDataE.exit
   %.187 = phi i32 [ %.086110, %_ZNK6OctreeIfE15_isValidFEMNodeEPK7OctNodeI12TreeNodeDataE.exit ], [ %.086110, %_Z12GetGhostFlagPK7OctNodeI12TreeNodeDataE.exit.i ], [ %.086110, %62 ], [ %.086110, %55 ], [ %.288, %183 ], [ %.288, %.preheader90.lr.ph ], [ %.288, %._crit_edge93.split.us.split.us.us.us.us ], [ %.288, %._crit_edge93.split.us.split.us108.us ]
@@ -51154,28 +51150,28 @@ _ZNK6OctreeIfE15_isValidFEMNodeEPK7OctNodeI12TreeNodeDataE.exit.thread: ; preds 
   %.178 = phi i32 [ %.077113, %_ZNK6OctreeIfE15_isValidFEMNodeEPK7OctNodeI12TreeNodeDataE.exit ], [ %.077113, %_Z12GetGhostFlagPK7OctNodeI12TreeNodeDataE.exit.i ], [ %.077113, %62 ], [ %.077113, %55 ], [ %.279, %183 ], [ %.279, %.preheader90.lr.ph ], [ %.279, %._crit_edge93.split.us.split.us.us.us.us ], [ %.279, %._crit_edge93.split.us.split.us108.us ]
   %.175 = phi i32 [ %.074114, %_ZNK6OctreeIfE15_isValidFEMNodeEPK7OctNodeI12TreeNodeDataE.exit ], [ %.074114, %_Z12GetGhostFlagPK7OctNodeI12TreeNodeDataE.exit.i ], [ %.074114, %62 ], [ %.074114, %55 ], [ %.276, %183 ], [ %.276, %.preheader90.lr.ph ], [ %.276, %._crit_edge93.split.us.split.us.us.us.us ], [ %.276, %._crit_edge93.split.us.split.us108.us ]
   %.1 = phi i32 [ %.073115, %_ZNK6OctreeIfE15_isValidFEMNodeEPK7OctNodeI12TreeNodeDataE.exit ], [ %.073115, %_Z12GetGhostFlagPK7OctNodeI12TreeNodeDataE.exit.i ], [ %.073115, %62 ], [ %.073115, %55 ], [ %.2, %183 ], [ %.2, %.preheader90.lr.ph ], [ %.2, %._crit_edge93.split.us.split.us.us.us.us ], [ %.2, %._crit_edge93.split.us.split.us108.us ]
-  %271 = add nuw i32 %.0116, 1
-  %272 = load i32, ptr %15, align 4
-  %273 = add i32 %272, 1
-  %274 = icmp ult i32 %271, %273
-  br i1 %274, label %55, label %._crit_edge
+  %270 = add nuw i32 %.0116, 1
+  %271 = load i32, ptr %15, align 4
+  %272 = add i32 %271, 1
+  %273 = icmp ult i32 %270, %272
+  br i1 %273, label %55, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %_ZNK6OctreeIfE15_isValidFEMNodeEPK7OctNodeI12TreeNodeDataE.exit.thread, %39
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %42)
-  br label %275
+  br label %274
 
-275:                                              ; preds = %._crit_edge, %10
+274:                                              ; preds = %._crit_edge, %10
   ret void
 
 .loopexit.split-lp:                               ; preds = %72, %87, %152
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           catch ptr null
-  br label %276
+  br label %275
 
-276:                                              ; preds = %.loopexit.split-lp, %.loopexit.split.us.split.us.split.us
+275:                                              ; preds = %.loopexit.split-lp, %.loopexit.split.us.split.us.split.us
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit.us.us.us, %.loopexit.split.us.split.us.split.us ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
-  %277 = extractvalue { ptr, i32 } %lpad.phi, 0
-  call void @__clang_call_terminate(ptr %277) #45
+  %276 = extractvalue { ptr, i32 } %lpad.phi, 0
+  call void @__clang_call_terminate(ptr %276) #45
   unreachable
 }
 
@@ -67309,13 +67305,13 @@ define linkonce_odr noundef float @_ZNK6OctreeIfE15_getCornerValueIfLi2EL12Bound
 .preheader226:                                    ; preds = %.preheader227, %97
   %indvars.iv292 = phi i64 [ %71, %.preheader227 ], [ %indvars.iv.next293, %97 ]
   %.0248 = phi float [ 0.000000e+00, %.preheader227 ], [ %.3, %97 ]
-  %.idx327 = mul i64 %indvars.iv292, 72
+  %.idx327 = mul nuw nsw i64 %indvars.iv292, 72
   br label %.preheader225
 
 .preheader225:                                    ; preds = %.preheader226, %96
   %indvars.iv287 = phi i64 [ %70, %.preheader226 ], [ %indvars.iv.next288, %96 ]
   %.1246 = phi float [ %.0248, %.preheader226 ], [ %.3, %96 ]
-  %.idx = mul i64 %indvars.iv287, 24
+  %.idx = mul nuw nsw i64 %indvars.iv287, 24
   br label %72
 
 72:                                               ; preds = %.preheader225, %_Z12IsActiveNodePK7OctNodeI12TreeNodeDataE.exit.thread
@@ -67345,8 +67341,8 @@ _Z12IsActiveNodePK7OctNodeI12TreeNodeDataE.exit:  ; preds = %76
   %87 = getelementptr inbounds float, ptr %65, i64 %86
   %88 = load float, ptr %87, align 4
   %89 = load ptr, ptr %68, align 8
-  %90 = getelementptr inbounds i8, ptr %89, i64 %.idx
-  %91 = getelementptr inbounds i8, ptr %90, i64 %.idx327
+  %90 = getelementptr inbounds nuw i8, ptr %89, i64 %.idx
+  %91 = getelementptr inbounds nuw i8, ptr %90, i64 %.idx327
   %92 = getelementptr inbounds nuw double, ptr %91, i64 %indvars.iv282
   %93 = load double, ptr %92, align 8
   %94 = fptrunc double %93 to float
@@ -67638,13 +67634,13 @@ _ZNK6OctreeIfE15_isValidFEMNodeEPK7OctNodeI12TreeNodeDataE.exit.thread: ; preds 
 .preheader219:                                    ; preds = %.preheader220, %256
   %indvars.iv322 = phi i64 [ %230, %.preheader220 ], [ %indvars.iv.next323, %256 ]
   %.10266 = phi float [ %.4, %.preheader220 ], [ %.13, %256 ]
-  %.idx331 = mul i64 %indvars.iv322, 72
+  %.idx331 = mul nuw nsw i64 %indvars.iv322, 72
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader219, %255
   %indvars.iv317 = phi i64 [ %229, %.preheader219 ], [ %indvars.iv.next318, %255 ]
   %.11264 = phi float [ %.10266, %.preheader219 ], [ %.13, %255 ]
-  %.idx330 = mul i64 %indvars.iv317, 24
+  %.idx330 = mul nuw nsw i64 %indvars.iv317, 24
   br label %231
 
 231:                                              ; preds = %.preheader, %_Z12IsActiveNodePK7OctNodeI12TreeNodeDataE.exit166.thread
@@ -67674,8 +67670,8 @@ _Z12IsActiveNodePK7OctNodeI12TreeNodeDataE.exit166: ; preds = %235
   %246 = getelementptr inbounds float, ptr %223, i64 %245
   %247 = load float, ptr %246, align 4
   %248 = load ptr, ptr %227, align 8
-  %249 = getelementptr inbounds i8, ptr %248, i64 %.idx330
-  %250 = getelementptr inbounds i8, ptr %249, i64 %.idx331
+  %249 = getelementptr inbounds nuw i8, ptr %248, i64 %.idx330
+  %250 = getelementptr inbounds nuw i8, ptr %249, i64 %.idx331
   %251 = getelementptr inbounds nuw double, ptr %250, i64 %indvars.iv312
   %252 = load double, ptr %251, align 8
   %253 = fptrunc double %252 to float

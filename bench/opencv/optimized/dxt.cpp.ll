@@ -7221,7 +7221,7 @@ define internal fastcc void @_ZN2cvL3DFTIfEEvRKNS_13OcvDftOptionsEPKNS_7ComplexI
   %319 = tail call float @llvm.fmuladd.f32(float %308, float %314, float %318)
   %320 = getelementptr inbounds nuw %"class.cv::Complex.13", ptr %294, i64 %255
   %321 = load float, ptr %320, align 4
-  %.idx931 = mul i64 %indvars.iv864, 24
+  %.idx931 = mul nsw i64 %indvars.iv864, 24
   %322 = getelementptr inbounds i8, ptr %23, i64 %.idx931
   %323 = getelementptr inbounds nuw i8, ptr %322, i64 4
   %324 = load float, ptr %323, align 4
@@ -8094,7 +8094,7 @@ define linkonce_odr hidden void @_ZNK2cv6DFT_R5IfEclEPNS_7ComplexIfEEiiiPKS3_(pt
   %48 = fsub float %32, %44
   %49 = getelementptr inbounds nuw %"class.cv::Complex.13", ptr %18, i64 %12
   %50 = load float, ptr %49, align 4
-  %.idx176 = mul i64 %indvars.iv168, 24
+  %.idx176 = mul nsw i64 %indvars.iv168, 24
   %51 = getelementptr inbounds i8, ptr %5, i64 %.idx176
   %52 = load float, ptr %51, align 4
   %53 = getelementptr inbounds nuw i8, ptr %49, i64 4
@@ -9516,7 +9516,7 @@ define internal fastcc void @_ZN2cvL3DFTIdEEvRKNS_13OcvDftOptionsEPKNS_7ComplexI
   %307 = tail call double @llvm.fmuladd.f64(double %296, double %302, double %306)
   %308 = getelementptr inbounds nuw %"class.cv::Complex", ptr %282, i64 %243
   %309 = load double, ptr %308, align 8
-  %.idx944 = mul i64 %indvars.iv877, 48
+  %.idx944 = mul nsw i64 %indvars.iv877, 48
   %310 = getelementptr inbounds i8, ptr %23, i64 %.idx944
   %311 = getelementptr inbounds nuw i8, ptr %310, i64 8
   %312 = load double, ptr %311, align 8
@@ -10386,7 +10386,7 @@ define linkonce_odr hidden void @_ZNK2cv6DFT_R5IdEclEPNS_7ComplexIdEEiiiPKS3_(pt
   %48 = fsub double %32, %44
   %49 = getelementptr inbounds nuw %"class.cv::Complex", ptr %18, i64 %12
   %50 = load double, ptr %49, align 8
-  %.idx176 = mul i64 %indvars.iv168, 48
+  %.idx176 = mul nsw i64 %indvars.iv168, 48
   %51 = getelementptr inbounds i8, ptr %5, i64 %.idx176
   %52 = load double, ptr %51, align 8
   %53 = getelementptr inbounds nuw i8, ptr %49, i64 8

@@ -32909,11 +32909,11 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %cond.i.i.i = select i1 %tobool.not.i.i.i, i64 %shr1.i.i.i, i64 %sub.i.i.i
   %add.i = add nsw i64 %cond.i.i.i, %prevTriangleIndex.06.i
   %66 = load ptr, ptr %m_triangles.i, align 8
-  %add.ptr.idx.i = mul i64 %add.i, 6
+  %add.ptr.idx.i = mul nsw i64 %add.i, 6
   %add.ptr.i = getelementptr inbounds i8, ptr %66, i64 %add.ptr.idx.i
   %67 = load ptr, ptr %m_tempTriangles.i, align 8
-  %add.ptr8.idx.i = mul i64 %i.07.i, 6
-  %add.ptr8.i = getelementptr inbounds i8, ptr %67, i64 %add.ptr8.idx.i
+  %add.ptr8.idx.i = mul nuw nsw i64 %i.07.i, 6
+  %add.ptr8.i = getelementptr inbounds nuw i8, ptr %67, i64 %add.ptr8.idx.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %add.ptr.i, ptr noundef nonnull align 2 dereferenceable(6) %add.ptr8.i, i64 6, i1 false)
   %add9.i = add nsw i64 %add.i, 1
   %68 = load i64, ptr %m_numTriangles.i, align 8
@@ -34418,7 +34418,7 @@ if.end109:                                        ; preds = %for.body105
   br i1 %cmp110, label %if.then111, label %if.end232
 
 if.then111:                                       ; preds = %if.end109
-  %arrayidx.idx = mul nuw i64 %47, 6
+  %arrayidx.idx = mul nuw nsw i64 %47, 6
   %arrayidx = getelementptr inbounds nuw i8, ptr %0, i64 %arrayidx.idx
   %48 = load i16, ptr %arrayidx, align 2
   %conv113 = zext i16 %48 to i64
@@ -34483,8 +34483,8 @@ for.body165:                                      ; preds = %for.body165.lr.ph, 
   br i1 %cmp167, label %if.end232, label %for.cond170.preheader
 
 for.cond170.preheader:                            ; preds = %for.body165
-  %.idx = mul i64 %57, 6
-  %58 = getelementptr inbounds i8, ptr %0, i64 %.idx
+  %.idx = mul nuw nsw i64 %57, 6
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 %.idx
   br label %for.body172
 
 for.body172:                                      ; preds = %for.cond170.preheader, %for.body172
@@ -34630,8 +34630,8 @@ if.end232:                                        ; preds = %for.inc228, %for.bo
 
 if.then237:                                       ; preds = %_ZNK5o3dgc13AdjacencyInfo5BeginEl.exit253, %if.end149, %if.end232, %if.end232, %if.end232
   %nPred.2552 = phi i64 [ %nPred.2, %if.end232 ], [ %nPred.2, %if.end232 ], [ %nPred.2, %if.end232 ], [ %nPred.1643, %if.end149 ], [ %nPred.1643, %_ZNK5o3dgc13AdjacencyInfo5BeginEl.exit253 ]
-  %.idx158 = mul i64 %47, 6
-  %70 = getelementptr inbounds i8, ptr %0, i64 %.idx158
+  %.idx158 = mul nuw nsw i64 %47, 6
+  %70 = getelementptr inbounds nuw i8, ptr %0, i64 %.idx158
   br label %for.body241
 
 for.body241:                                      ; preds = %if.then237, %for.inc275
@@ -35573,8 +35573,8 @@ for.body54:                                       ; preds = %_ZNK5o3dgc13Adjacen
   br i1 %cmp56, label %if.end87, label %for.cond59.preheader
 
 for.cond59.preheader:                             ; preds = %for.body54
-  %.idx = mul i64 %19, 6
-  %20 = getelementptr inbounds i8, ptr %0, i64 %.idx
+  %.idx = mul nuw nsw i64 %19, 6
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 %.idx
   br label %for.body61
 
 for.body61:                                       ; preds = %for.cond59.preheader, %for.inc81
@@ -36646,13 +36646,13 @@ if.then:                                          ; preds = %for.body
   %7 = load i64, ptr %m_numConqueredTriangles, align 8
   %inc = add nsw i64 %7, 1
   store i64 %inc, ptr %m_numConqueredTriangles, align 8
-  %.idx = mul i64 %6, 6
+  %.idx = mul nuw nsw i64 %6, 6
   br label %for.body11
 
 for.body11:                                       ; preds = %if.then, %for.inc62
   %k.048 = phi i64 [ 0, %if.then ], [ %inc63, %for.inc62 ]
   %8 = load ptr, ptr %m_triangles, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 %.idx
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 %.idx
   %arrayidx = getelementptr inbounds nuw i16, ptr %9, i64 %k.048
   %10 = load i16, ptr %arrayidx, align 2
   %conv = zext i16 %10 to i64
@@ -38628,7 +38628,7 @@ for.body29:                                       ; preds = %for.body29.lr.ph, %
   br i1 %cmp31, label %for.end, label %invoke.cont100
 
 invoke.cont100:                                   ; preds = %for.body29
-  %arrayidx.idx = mul i64 %14, 6
+  %arrayidx.idx = mul nsw i64 %14, 6
   %arrayidx = getelementptr inbounds i8, ptr %6, i64 %arrayidx.idx
   %15 = load i16, ptr %arrayidx, align 2
   %conv35 = zext i16 %15 to i64
@@ -64127,7 +64127,7 @@ for.body98:                                       ; preds = %_ZNK5o3dgc13Adjacen
   ]
 
 if.then101:                                       ; preds = %for.body98
-  %arrayidx103.idx = mul i64 %68, 6
+  %arrayidx103.idx = mul nsw i64 %68, 6
   %arrayidx103 = getelementptr inbounds i8, ptr %2, i64 %arrayidx103.idx
   %69 = load i16, ptr %arrayidx103, align 2
   %conv104 = zext i16 %69 to i64
@@ -65730,7 +65730,7 @@ invoke.cont91:                                    ; preds = %invoke.cont91.lr.ph
   %n0.sroa.0.0127 = phi i64 [ 0, %invoke.cont91.lr.ph ], [ %add.i, %invoke.cont91 ]
   %arrayidx.i43 = getelementptr inbounds i64, ptr %15, i64 %u.0130
   %17 = load i64, ptr %arrayidx.i43, align 8
-  %arrayidx33.idx = mul i64 %17, 6
+  %arrayidx33.idx = mul nsw i64 %17, 6
   %arrayidx33 = getelementptr inbounds i8, ptr %7, i64 %arrayidx33.idx
   %18 = load i16, ptr %arrayidx33, align 2
   %conv34 = zext i16 %18 to i64
@@ -65852,7 +65852,7 @@ invoke.cont101:                                   ; preds = %if.else18.i, %if.th
   %div = fdiv float %conv102, %norm0.0
   %conv103 = sitofp i64 %nb0.1 to float
   %div104 = fdiv float %conv103, %norm0.0
-  %arrayidx106.idx = mul i64 %9, 12
+  %arrayidx106.idx = mul nsw i64 %9, 12
   %arrayidx106 = getelementptr inbounds i8, ptr %8, i64 %arrayidx106.idx
   %32 = load float, ptr %arrayidx106, align 4
   %arrayidx111 = getelementptr i8, ptr %arrayidx106, i64 4
@@ -68294,7 +68294,7 @@ if.then:                                          ; preds = %for.body
   %arrayidx8 = getelementptr inbounds i64, ptr %8, i64 %9
   store i64 %5, ptr %arrayidx8, align 8
   %10 = load ptr, ptr %m_triangles23, align 8
-  %add.ptr.idx = mul i64 %5, 6
+  %add.ptr.idx = mul nsw i64 %5, 6
   %add.ptr = getelementptr inbounds i8, ptr %10, i64 %add.ptr.idx
   %11 = load ptr, ptr %m_nonConqueredEdges, align 8
   %12 = load i64, ptr %m_numNonConqueredTriangles, align 8

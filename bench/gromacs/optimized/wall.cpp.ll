@@ -269,7 +269,7 @@ _ZNSt10unique_ptrI12t_forcetableSt14default_deleteIS0_EED2Ev.exit.us: ; preds = 
   %116 = load ptr, ptr %115, align 8
   %117 = getelementptr inbounds nuw i8, ptr %116, i64 24
   %118 = load ptr, ptr %117, align 8
-  %119 = getelementptr inbounds i8, ptr %118, i64 %.idx
+  %119 = getelementptr inbounds nuw i8, ptr %118, i64 %.idx
   %120 = getelementptr inbounds nuw i8, ptr %119, i64 16
   %121 = getelementptr inbounds nuw float, ptr %120, i64 %indvars.iv69
   %122 = load float, ptr %121, align 4
@@ -287,7 +287,7 @@ _ZNSt10unique_ptrI12t_forcetableSt14default_deleteIS0_EED2Ev.exit.us: ; preds = 
 
 .preheader.us:                                    ; preds = %_ZNSt10unique_ptrI12t_forcetableSt14default_deleteIS0_EED2Ev.exit.us, %102
   %indvars.iv72 = phi i64 [ %indvars.iv.next73, %102 ], [ 0, %_ZNSt10unique_ptrI12t_forcetableSt14default_deleteIS0_EED2Ev.exit.us ]
-  %.idx = mul i64 %indvars.iv72, 48
+  %.idx = mul nuw nsw i64 %indvars.iv72, 48
   %.idx82 = shl nsw i64 %indvars.iv72, 5
   br label %111
 

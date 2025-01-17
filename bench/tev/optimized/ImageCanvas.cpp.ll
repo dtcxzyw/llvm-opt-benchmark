@@ -15935,7 +15935,7 @@ _ZN3tev4TaskIvE12await_resumeEv.exit148:          ; preds = %546
 
 .preheader237:                                    ; preds = %_ZN3tev4TaskIvE12await_resumeEv.exit148, %571
   %indvars.iv283 = phi i64 [ %indvars.iv.next284, %571 ], [ 0, %_ZN3tev4TaskIvE12await_resumeEv.exit148 ]
-  %.idx = mul i64 %indvars.iv283, 1600
+  %.idx = mul nuw nsw i64 %indvars.iv283, 1600
   br label %575
 
 ._crit_edge265:                                   ; preds = %571, %_ZN3tev4TaskIvE12await_resumeEv.exit148
@@ -16063,7 +16063,7 @@ _ZNSt3__16vectorIfNS_9allocatorIfEEE18__construct_at_endIPfS5_EEvT_T0_m.exit.i.i
   %612 = getelementptr inbounds nuw i8, ptr %611, i64 16
   %613 = load ptr, ptr %612, align 8
   %614 = getelementptr inbounds nuw float, ptr %613, i64 %indvars.iv279
-  %615 = getelementptr inbounds i8, ptr %614, i64 %.idx
+  %615 = getelementptr inbounds nuw i8, ptr %614, i64 %.idx
   %616 = load float, ptr %615, align 4
   %617 = fdiv float %616, %610
   store float %617, ptr %615, align 4
@@ -16108,7 +16108,7 @@ _ZNSt3__16vectorIfNS_9allocatorIfEEEC2ERKS3_.exit: ; preds = %_ZNSt3__16vectorIf
 
 .preheader:                                       ; preds = %.cont, %657
   %indvars.iv290 = phi i64 [ %indvars.iv.next291, %657 ], [ 0, %.cont ]
-  %.idx299 = mul i64 %indvars.iv290, 1600
+  %.idx299 = mul nuw nsw i64 %indvars.iv290, 1600
   br label %661
 
 ._crit_edge268:                                   ; preds = %657, %.cont
@@ -16202,7 +16202,7 @@ _ZNSt3__16vectorIN3tev4TaskIvEENS_9allocatorIS3_EEED2B8ne190000Ev.exit: ; preds 
   %663 = getelementptr inbounds nuw i8, ptr %662, i64 16
   %664 = load ptr, ptr %663, align 8
   %665 = getelementptr inbounds nuw float, ptr %664, i64 %indvars.iv286
-  %666 = getelementptr inbounds i8, ptr %665, i64 %.idx299
+  %666 = getelementptr inbounds nuw i8, ptr %665, i64 %.idx299
   %667 = load float, ptr %666, align 4
   %668 = fmul float %636, %667
   store float %668, ptr %666, align 4
@@ -71002,7 +71002,7 @@ _ZN3tev4TaskIvE12await_resumeEv.exit142:          ; preds = %541
 
 .preheader212:                                    ; preds = %.preheader212.lr.ph, %568
   %indvars.iv274 = phi i64 [ 0, %.preheader212.lr.ph ], [ %indvars.iv.next275, %568 ]
-  %.idx = mul i64 %indvars.iv274, 1600
+  %.idx = mul nuw nsw i64 %indvars.iv274, 1600
   br label %572
 
 ._crit_edge247:                                   ; preds = %568, %_ZN3tev4TaskIvE12await_resumeEv.exit142
@@ -71130,7 +71130,7 @@ _ZNSt3__16vectorIfNS_9allocatorIfEEE18__construct_at_endIPfS5_EEvT_T0_m.exit.i.i
   %609 = getelementptr inbounds nuw i8, ptr %608, i64 16
   %610 = load ptr, ptr %609, align 8
   %611 = getelementptr inbounds nuw float, ptr %610, i64 %indvars.iv270
-  %612 = getelementptr inbounds i8, ptr %611, i64 %.idx
+  %612 = getelementptr inbounds nuw i8, ptr %611, i64 %.idx
   %613 = load float, ptr %612, align 4
   %614 = fdiv float %613, %607
   store float %614, ptr %612, align 4
@@ -71175,7 +71175,7 @@ _ZNSt3__16vectorIfNS_9allocatorIfEEEC2ERKS3_.exit: ; preds = %_ZNSt3__16vectorIf
 
 .preheader:                                       ; preds = %.cont, %656
   %indvars.iv281 = phi i64 [ %indvars.iv.next282, %656 ], [ 0, %.cont ]
-  %.idx293 = mul i64 %indvars.iv281, 1600
+  %.idx293 = mul nuw nsw i64 %indvars.iv281, 1600
   br label %660
 
 ._crit_edge250:                                   ; preds = %656, %.cont
@@ -71271,7 +71271,7 @@ _ZNSt3__16vectorIN3tev4TaskIvEENS_9allocatorIS3_EEED2B8ne190000Ev.exit: ; preds 
   %662 = getelementptr inbounds nuw i8, ptr %661, i64 16
   %663 = load ptr, ptr %662, align 8
   %664 = getelementptr inbounds nuw float, ptr %663, i64 %indvars.iv277
-  %665 = getelementptr inbounds i8, ptr %664, i64 %.idx293
+  %665 = getelementptr inbounds nuw i8, ptr %664, i64 %.idx293
   %666 = load float, ptr %665, align 4
   %667 = fmul float %633, %666
   store float %667, ptr %665, align 4

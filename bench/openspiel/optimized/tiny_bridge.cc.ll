@@ -8046,7 +8046,7 @@ define void @_ZNK10open_spiel11tiny_bridge22TinyBridgeAuctionState22InformationS
   %33 = trunc i8 %32 to i1
   %34 = select i1 %33, i32 12, i32 8
   %35 = icmp eq i32 %24, 2
-  %36 = mul i32 %24, 19
+  %36 = mul nsw i32 %24, 19
   %37 = select i1 %35, i32 14, i32 %36
   %.not5.i.i.i = icmp eq i64 %3, 0
   br i1 %.not5.i.i.i, label %_ZSt4fillIPfiEvT_S1_RKT0_.exit, label %.lr.ph.i.i.i.preheader
@@ -8058,9 +8058,9 @@ define void @_ZNK10open_spiel11tiny_bridge22TinyBridgeAuctionState22InformationS
 
 _ZSt4fillIPfiEvT_S1_RKT0_.exit:                   ; preds = %.lr.ph.i.i.i.preheader, %30
   store i64 %3, ptr %13, align 8
-  %39 = add nsw i32 %34, %37
+  %39 = add nuw nsw i32 %34, %37
   store i32 %39, ptr %14, align 4
-  %40 = sext i32 %39 to i64
+  %40 = zext nneg i32 %39 to i64
   %41 = icmp eq i64 %3, %40
   br i1 %41, label %46, label %42
 

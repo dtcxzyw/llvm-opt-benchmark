@@ -7784,7 +7784,7 @@ Vec_FltDup.exit62:                                ; preds = %Vec_FltDup.exit60, 
 
 .lr.ph82:                                         ; preds = %.lr.ph82.preheader, %.critedge
   %indvars.iv86 = phi i64 [ 1, %.lr.ph82.preheader ], [ %indvars.iv.next87, %.critedge ]
-  %.idx = mul nuw i64 %indvars.iv86, 24
+  %.idx = mul nuw nsw i64 %indvars.iv86, 24
   %67 = getelementptr inbounds nuw i8, ptr %.val51, i64 %.idx
   %68 = load ptr, ptr %67, align 8
   %69 = getelementptr inbounds nuw i8, ptr %67, i64 8

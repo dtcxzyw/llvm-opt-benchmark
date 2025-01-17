@@ -80950,7 +80950,7 @@ define internal fastcc void @drmp3d_synth_granule(ptr nocapture noundef %0, ptr 
 
 19:                                               ; preds = %.lr.ph, %drmp3d_DCT_II.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %drmp3d_DCT_II.exit ]
-  %.idx = mul nuw i64 %indvars.iv, 2304
+  %.idx = mul nuw nsw i64 %indvars.iv, 2304
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx
   call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %7)
   br label %21

@@ -260,21 +260,19 @@ lstopo_obj_cpukind_style.exit:                    ; preds = %9, %15, %18
   %26 = load i32, ptr %25, align 8
   %27 = mul i32 %4, 20
   %28 = mul i32 %5, 20
-  %29 = mul i32 %2, 40
-  %30 = sdiv i32 %29, 10
-  %31 = add i32 %27, %30
-  %32 = mul i32 %2, 80
+  %29 = shl nsw i32 %2, 2
+  %30 = add i32 %27, %29
+  %31 = shl nsw i32 %2, 3
+  %32 = mul nsw i32 %2, 11
   %33 = sdiv i32 %32, 10
-  %34 = mul nsw i32 %2, 11
-  %35 = sdiv i32 %34, 10
-  %36 = mul nsw i32 %35, 20
-  %37 = mul nsw i32 %35, %24
-  %38 = sdiv i32 %37, 2
-  %39 = mul nsw i32 %38, 20
-  %40 = mul nsw i32 %35, 10
-  %41 = add i32 %40, %33
-  %42 = add i32 %41, %28
-  %43 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %11, ptr noundef nonnull @.str.15, i32 noundef %26, i32 noundef %3, i32 noundef %.0.i, i32 noundef %35, i32 noundef %36, i32 noundef %39, i32 noundef %31, i32 noundef %42, ptr noundef %6) #9
+  %34 = mul nsw i32 %33, 20
+  %35 = mul nsw i32 %33, %24
+  %36 = sdiv i32 %35, 2
+  %37 = mul nsw i32 %36, 20
+  %38 = mul nsw i32 %33, 10
+  %39 = add i32 %38, %31
+  %40 = add i32 %39, %28
+  %41 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %11, ptr noundef nonnull @.str.15, i32 noundef %26, i32 noundef %3, i32 noundef %.0.i, i32 noundef %33, i32 noundef %34, i32 noundef %37, i32 noundef %30, i32 noundef %40, ptr noundef %6) #9
   ret void
 }
 

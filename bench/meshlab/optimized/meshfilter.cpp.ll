@@ -39861,7 +39861,7 @@ _ZNSt6vectorIN3vcg6Point3IfEESaIS2_EE9push_backERKS2_.exit2006: ; preds = %_ZNSt
   store i32 2, ptr %187, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %2655, i8 0, i64 20, i1 false)
   store ptr @.str.529, ptr %2656, align 8
-  %.idx3889 = mul nuw i64 %indvars.iv3806, 12
+  %.idx3889 = mul nuw nsw i64 %indvars.iv3806, 12
   %2658 = getelementptr inbounds nuw i8, ptr %184, i64 %.idx3889
   %2659 = load float, ptr %2658, align 4
   %2660 = fpext float %2659 to double
@@ -39967,7 +39967,7 @@ _ZN3vcg8Matrix33IfE15FromEigenMatrixIN5Eigen6MatrixIdLi3ELi3ELi0ELi3ELi3EEEEEvRK
   store i32 2, ptr %193, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %2695, i8 0, i64 20, i1 false)
   store ptr @.str.529, ptr %2696, align 8
-  %.idx3890 = mul nuw i64 %indvars.iv3810, 12
+  %.idx3890 = mul nuw nsw i64 %indvars.iv3810, 12
   %2698 = getelementptr inbounds nuw i8, ptr %189, i64 %.idx3890
   %2699 = load float, ptr %2698, align 4
   %2700 = fpext float %2699 to double
@@ -40096,7 +40096,7 @@ _ZN3vcg3tri7InertiaI6CMeshOEC2ERKS2_.exit:        ; preds = %2742
   store i32 2, ptr %199, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %2743, i8 0, i64 20, i1 false)
   store ptr @.str.529, ptr %2744, align 8
-  %.idx = mul nuw i64 %indvars.iv3788, 12
+  %.idx = mul nuw nsw i64 %indvars.iv3788, 12
   %2746 = getelementptr inbounds nuw i8, ptr %197, i64 %.idx
   %2747 = load float, ptr %2746, align 4
   %2748 = fpext float %2747 to double
@@ -40169,7 +40169,7 @@ _ZN3vcg3tri7InertiaI6CMeshOEC2ERKS2_.exit:        ; preds = %2742
   store i32 2, ptr %201, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %2789, i8 0, i64 20, i1 false)
   store ptr @.str.529, ptr %2790, align 8
-  %.idx3888 = mul nuw i64 %indvars.iv3792, 12
+  %.idx3888 = mul nuw nsw i64 %indvars.iv3792, 12
   %2792 = getelementptr inbounds nuw i8, ptr %197, i64 %.idx3888
   %2793 = load float, ptr %2792, align 4
   %2794 = fpext float %2793 to double
@@ -54918,7 +54918,7 @@ _ZNSt6vectorIfSaIfEE9push_backEOf.exit:           ; preds = %_ZNSt6vectorIfSaIfE
   %279 = load float, ptr %278, align 4
   %square172 = fmul float %279, %279
   %280 = fsub float 1.000000e+00, %square172
-  %.idx = mul nuw i64 %indvars.iv, 12
+  %.idx = mul nuw nsw i64 %indvars.iv, 12
   %281 = getelementptr inbounds nuw i8, ptr %2, i64 %.idx
   %282 = getelementptr inbounds nuw float, ptr %281, i64 %indvars.iv
   store float %280, ptr %282, align 4
@@ -130301,9 +130301,9 @@ _ZN5Eigen14JacobiRotationIfE10makeGivensERKfS3_Pf.exit.i: ; preds = %96, %87, %8
   br i1 %or.cond.not18.i.i.i, label %.lr.ph.i.i.preheader.i.i, label %_ZN5Eigen10MatrixBaseINS_3MapINS_6MatrixIfLin1ELin1ELi0ELin1ELin1EEELi0ENS_6StrideILi0ELi0EEEEEE15applyOnTheRightIfEEvllRKNS_14JacobiRotationIT_EE.exit.i
 
 .lr.ph.i.i.preheader.i.i:                         ; preds = %146
-  %.idx = mul nuw i64 %111, 12
+  %.idx = mul nuw nsw i64 %111, 12
   %150 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx
-  %.idx92 = mul nuw i64 %.074110.i, 12
+  %.idx92 = mul nuw nsw i64 %.074110.i, 12
   %151 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx92
   br label %.lr.ph.i.i.i.i
 
@@ -130375,8 +130375,8 @@ _ZNK5Eigen9DenseBaseINS_5BlockINS_6MatrixIfLi3ELi1ELi0ELi3ELi1EEELin1ELi1ELb0EEE
   store float %166, ptr %176, align 4
   %.idx.i.i.i.i.us = mul nuw nsw i64 %.0102.us, 12
   %178 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx.i.i.i.i.us
-  %.idx.i.i.i.i78.us = mul i64 %175, 12
-  %179 = getelementptr inbounds i8, ptr %4, i64 %.idx.i.i.i.i78.us
+  %.idx.i.i.i.i78.us = mul nuw nsw i64 %175, 12
+  %179 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx.i.i.i.i78.us
   %180 = load float, ptr %178, align 4
   %181 = load float, ptr %179, align 4
   store float %181, ptr %178, align 4
@@ -131161,8 +131161,8 @@ _ZNK5Eigen9DenseBaseINS_5BlockINS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEELin1ELi1ELb0EEE
   store double %38, ptr %48, align 8
   %.idx.i.i.i.i.us = mul nuw nsw i64 %.0100.us, 24
   %50 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx.i.i.i.i.us
-  %.idx.i.i.i.i77.us = mul i64 %47, 24
-  %51 = getelementptr inbounds i8, ptr %4, i64 %.idx.i.i.i.i77.us
+  %.idx.i.i.i.i77.us = mul nuw nsw i64 %47, 24
+  %51 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx.i.i.i.i77.us
   %52 = load <2 x double>, ptr %51, align 8
   %53 = load <2 x double>, ptr %50, align 8
   store <2 x double> %53, ptr %51, align 8
@@ -146977,7 +146977,7 @@ define linkonce_odr void @_ZN5Eigen8internal11gebp_kernelIfflNS0_16blas_data_map
   %543 = mul nsw i64 %542, %.0405971.us
   %544 = getelementptr float, ptr %541, i64 %.0404968.us
   %545 = getelementptr float, ptr %544, i64 %543
-  %.idx.i.us = mul i64 %542, 12
+  %.idx.i.us = mul nsw i64 %542, 12
   %546 = getelementptr inbounds i8, ptr %545, i64 %.idx.i.us
   %547 = load float, ptr %546, align 4
   %.idx12.i.us = shl nsw i64 %542, 3

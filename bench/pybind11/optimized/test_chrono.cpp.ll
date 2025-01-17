@@ -30212,60 +30212,59 @@ define linkonce_odr hidden ptr @_ZN8pybind116detail11type_casterINSt6chrono10tim
 
 8:                                                ; preds = %3, %6
   %.sroa.0.0.copyload.i = load i64, ptr %0, align 8
-  %9 = mul i64 %.sroa.0.0.copyload.i, 3600000000000
-  %10 = sdiv i64 %9, 1000000000
-  store i64 %10, ptr %4, align 8
-  %11 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) @_ZZN8pybind116detail21localtime_thread_safeEPKlP2tmE3mtx) #26
-  %.not.i.i.i = icmp eq i32 %11, 0
-  br i1 %.not.i.i.i, label %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit.i, label %12
+  %9 = mul nsw i64 %.sroa.0.0.copyload.i, 3600
+  store i64 %9, ptr %4, align 8
+  %10 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) @_ZZN8pybind116detail21localtime_thread_safeEPKlP2tmE3mtx) #26
+  %.not.i.i.i = icmp eq i32 %10, 0
+  br i1 %.not.i.i.i, label %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit.i, label %11
 
-12:                                               ; preds = %8
-  tail call void @_ZSt20__throw_system_errori(i32 noundef %11) #30
+11:                                               ; preds = %8
+  tail call void @_ZSt20__throw_system_errori(i32 noundef %10) #30
   unreachable
 
 _ZNSt10lock_guardISt5mutexEC2ERS0_.exit.i:        ; preds = %8
-  %13 = call ptr @localtime(ptr noundef nonnull %4) #26
-  %.not.i = icmp eq ptr %13, null
-  br i1 %.not.i, label %14, label %20
+  %12 = call ptr @localtime(ptr noundef nonnull %4) #26
+  %.not.i = icmp eq ptr %12, null
+  br i1 %.not.i, label %13, label %19
 
-14:                                               ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit.i
-  %15 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) @_ZZN8pybind116detail21localtime_thread_safeEPKlP2tmE3mtx) #26
-  %16 = call ptr @__cxa_allocate_exception(i64 16) #26
-  invoke void @_ZN8pybind1110cast_errorCI2St13runtime_errorEPKc(ptr noundef nonnull align 8 dereferenceable(16) %16, ptr noundef nonnull @.str.124)
-          to label %17 unwind label %18
+13:                                               ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit.i
+  %14 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) @_ZZN8pybind116detail21localtime_thread_safeEPKlP2tmE3mtx) #26
+  %15 = call ptr @__cxa_allocate_exception(i64 16) #26
+  invoke void @_ZN8pybind1110cast_errorCI2St13runtime_errorEPKc(ptr noundef nonnull align 8 dereferenceable(16) %15, ptr noundef nonnull @.str.124)
+          to label %16 unwind label %17
 
-17:                                               ; preds = %14
-  call void @__cxa_throw(ptr nonnull %16, ptr nonnull @_ZTIN8pybind1110cast_errorE, ptr nonnull @_ZN8pybind1110cast_errorD2Ev) #30
+16:                                               ; preds = %13
+  call void @__cxa_throw(ptr nonnull %15, ptr nonnull @_ZTIN8pybind1110cast_errorE, ptr nonnull @_ZN8pybind1110cast_errorD2Ev) #30
   unreachable
 
-18:                                               ; preds = %14
-  %19 = landingpad { ptr, i32 }
+17:                                               ; preds = %13
+  %18 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %16) #26
-  resume { ptr, i32 } %19
+  call void @__cxa_free_exception(ptr %15) #26
+  resume { ptr, i32 } %18
 
-20:                                               ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit.i
-  %.sroa.0.0.copyload = load i32, ptr %13, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %13, i64 4
+19:                                               ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit.i
+  %.sroa.0.0.copyload = load i32, ptr %12, align 8
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 4
   %.sroa.2.0.copyload = load i32, ptr %.sroa.2.0..sroa_idx, align 4
-  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %13, i64 8
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 8
   %.sroa.3.0.copyload = load i32, ptr %.sroa.3.0..sroa_idx, align 8
-  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %13, i64 12
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 12
   %.sroa.4.0.copyload = load i32, ptr %.sroa.4.0..sroa_idx, align 4
-  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %13, i64 16
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 16
   %.sroa.5.0.copyload = load i32, ptr %.sroa.5.0..sroa_idx, align 8
-  %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %13, i64 20
+  %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 20
   %.sroa.6.0.copyload = load i32, ptr %.sroa.6.0..sroa_idx, align 4
-  %21 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) @_ZZN8pybind116detail21localtime_thread_safeEPKlP2tmE3mtx) #26
-  %22 = load ptr, ptr @_ZL13PyDateTimeAPI, align 8
-  %23 = getelementptr inbounds nuw i8, ptr %22, i64 56
-  %24 = load ptr, ptr %23, align 8
-  %25 = add nsw i32 %.sroa.6.0.copyload, 1900
-  %26 = add nsw i32 %.sroa.5.0.copyload, 1
-  %27 = getelementptr inbounds nuw i8, ptr %22, i64 8
-  %28 = load ptr, ptr %27, align 8
-  %29 = call noundef ptr %24(i32 noundef %25, i32 noundef %26, i32 noundef %.sroa.4.0.copyload, i32 noundef %.sroa.3.0.copyload, i32 noundef %.sroa.2.0.copyload, i32 noundef %.sroa.0.0.copyload, i32 noundef 0, ptr noundef nonnull @_Py_NoneStruct, ptr noundef %28)
-  ret ptr %29
+  %20 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) @_ZZN8pybind116detail21localtime_thread_safeEPKlP2tmE3mtx) #26
+  %21 = load ptr, ptr @_ZL13PyDateTimeAPI, align 8
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 56
+  %23 = load ptr, ptr %22, align 8
+  %24 = add nsw i32 %.sroa.6.0.copyload, 1900
+  %25 = add nsw i32 %.sroa.5.0.copyload, 1
+  %26 = getelementptr inbounds nuw i8, ptr %21, i64 8
+  %27 = load ptr, ptr %26, align 8
+  %28 = call noundef ptr %23(i32 noundef %24, i32 noundef %25, i32 noundef %.sroa.4.0.copyload, i32 noundef %.sroa.3.0.copyload, i32 noundef %.sroa.2.0.copyload, i32 noundef %.sroa.0.0.copyload, i32 noundef 0, ptr noundef nonnull @_Py_NoneStruct, ptr noundef %27)
+  ret ptr %28
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -31644,60 +31643,59 @@ define linkonce_odr hidden ptr @_ZN8pybind116detail11type_casterINSt6chrono10tim
 
 8:                                                ; preds = %3, %6
   %.sroa.0.0.copyload.i = load i64, ptr %0, align 8
-  %9 = mul i64 %.sroa.0.0.copyload.i, 60000000000
-  %10 = sdiv i64 %9, 1000000000
-  store i64 %10, ptr %4, align 8
-  %11 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) @_ZZN8pybind116detail21localtime_thread_safeEPKlP2tmE3mtx) #26
-  %.not.i.i.i = icmp eq i32 %11, 0
-  br i1 %.not.i.i.i, label %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit.i, label %12
+  %9 = mul nsw i64 %.sroa.0.0.copyload.i, 60
+  store i64 %9, ptr %4, align 8
+  %10 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) @_ZZN8pybind116detail21localtime_thread_safeEPKlP2tmE3mtx) #26
+  %.not.i.i.i = icmp eq i32 %10, 0
+  br i1 %.not.i.i.i, label %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit.i, label %11
 
-12:                                               ; preds = %8
-  tail call void @_ZSt20__throw_system_errori(i32 noundef %11) #30
+11:                                               ; preds = %8
+  tail call void @_ZSt20__throw_system_errori(i32 noundef %10) #30
   unreachable
 
 _ZNSt10lock_guardISt5mutexEC2ERS0_.exit.i:        ; preds = %8
-  %13 = call ptr @localtime(ptr noundef nonnull %4) #26
-  %.not.i = icmp eq ptr %13, null
-  br i1 %.not.i, label %14, label %20
+  %12 = call ptr @localtime(ptr noundef nonnull %4) #26
+  %.not.i = icmp eq ptr %12, null
+  br i1 %.not.i, label %13, label %19
 
-14:                                               ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit.i
-  %15 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) @_ZZN8pybind116detail21localtime_thread_safeEPKlP2tmE3mtx) #26
-  %16 = call ptr @__cxa_allocate_exception(i64 16) #26
-  invoke void @_ZN8pybind1110cast_errorCI2St13runtime_errorEPKc(ptr noundef nonnull align 8 dereferenceable(16) %16, ptr noundef nonnull @.str.124)
-          to label %17 unwind label %18
+13:                                               ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit.i
+  %14 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) @_ZZN8pybind116detail21localtime_thread_safeEPKlP2tmE3mtx) #26
+  %15 = call ptr @__cxa_allocate_exception(i64 16) #26
+  invoke void @_ZN8pybind1110cast_errorCI2St13runtime_errorEPKc(ptr noundef nonnull align 8 dereferenceable(16) %15, ptr noundef nonnull @.str.124)
+          to label %16 unwind label %17
 
-17:                                               ; preds = %14
-  call void @__cxa_throw(ptr nonnull %16, ptr nonnull @_ZTIN8pybind1110cast_errorE, ptr nonnull @_ZN8pybind1110cast_errorD2Ev) #30
+16:                                               ; preds = %13
+  call void @__cxa_throw(ptr nonnull %15, ptr nonnull @_ZTIN8pybind1110cast_errorE, ptr nonnull @_ZN8pybind1110cast_errorD2Ev) #30
   unreachable
 
-18:                                               ; preds = %14
-  %19 = landingpad { ptr, i32 }
+17:                                               ; preds = %13
+  %18 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %16) #26
-  resume { ptr, i32 } %19
+  call void @__cxa_free_exception(ptr %15) #26
+  resume { ptr, i32 } %18
 
-20:                                               ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit.i
-  %.sroa.0.0.copyload = load i32, ptr %13, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %13, i64 4
+19:                                               ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit.i
+  %.sroa.0.0.copyload = load i32, ptr %12, align 8
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 4
   %.sroa.2.0.copyload = load i32, ptr %.sroa.2.0..sroa_idx, align 4
-  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %13, i64 8
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 8
   %.sroa.3.0.copyload = load i32, ptr %.sroa.3.0..sroa_idx, align 8
-  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %13, i64 12
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 12
   %.sroa.4.0.copyload = load i32, ptr %.sroa.4.0..sroa_idx, align 4
-  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %13, i64 16
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 16
   %.sroa.5.0.copyload = load i32, ptr %.sroa.5.0..sroa_idx, align 8
-  %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %13, i64 20
+  %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 20
   %.sroa.6.0.copyload = load i32, ptr %.sroa.6.0..sroa_idx, align 4
-  %21 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) @_ZZN8pybind116detail21localtime_thread_safeEPKlP2tmE3mtx) #26
-  %22 = load ptr, ptr @_ZL13PyDateTimeAPI, align 8
-  %23 = getelementptr inbounds nuw i8, ptr %22, i64 56
-  %24 = load ptr, ptr %23, align 8
-  %25 = add nsw i32 %.sroa.6.0.copyload, 1900
-  %26 = add nsw i32 %.sroa.5.0.copyload, 1
-  %27 = getelementptr inbounds nuw i8, ptr %22, i64 8
-  %28 = load ptr, ptr %27, align 8
-  %29 = call noundef ptr %24(i32 noundef %25, i32 noundef %26, i32 noundef %.sroa.4.0.copyload, i32 noundef %.sroa.3.0.copyload, i32 noundef %.sroa.2.0.copyload, i32 noundef %.sroa.0.0.copyload, i32 noundef 0, ptr noundef nonnull @_Py_NoneStruct, ptr noundef %28)
-  ret ptr %29
+  %20 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) @_ZZN8pybind116detail21localtime_thread_safeEPKlP2tmE3mtx) #26
+  %21 = load ptr, ptr @_ZL13PyDateTimeAPI, align 8
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 56
+  %23 = load ptr, ptr %22, align 8
+  %24 = add nsw i32 %.sroa.6.0.copyload, 1900
+  %25 = add nsw i32 %.sroa.5.0.copyload, 1
+  %26 = getelementptr inbounds nuw i8, ptr %21, i64 8
+  %27 = load ptr, ptr %26, align 8
+  %28 = call noundef ptr %23(i32 noundef %24, i32 noundef %25, i32 noundef %.sroa.4.0.copyload, i32 noundef %.sroa.3.0.copyload, i32 noundef %.sroa.2.0.copyload, i32 noundef %.sroa.0.0.copyload, i32 noundef 0, ptr noundef nonnull @_Py_NoneStruct, ptr noundef %27)
+  ret ptr %28
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -32289,60 +32287,58 @@ define linkonce_odr hidden ptr @_ZN8pybind116detail11type_casterINSt6chrono10tim
 
 8:                                                ; preds = %3, %6
   %.sroa.0.0.copyload.i = load i64, ptr %0, align 8
-  %9 = mul i64 %.sroa.0.0.copyload.i, 1000000000
-  %10 = sdiv i64 %9, 1000000000
-  store i64 %10, ptr %4, align 8
-  %11 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) @_ZZN8pybind116detail21localtime_thread_safeEPKlP2tmE3mtx) #26
-  %.not.i.i.i = icmp eq i32 %11, 0
-  br i1 %.not.i.i.i, label %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit.i, label %12
+  store i64 %.sroa.0.0.copyload.i, ptr %4, align 8
+  %9 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) @_ZZN8pybind116detail21localtime_thread_safeEPKlP2tmE3mtx) #26
+  %.not.i.i.i = icmp eq i32 %9, 0
+  br i1 %.not.i.i.i, label %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit.i, label %10
 
-12:                                               ; preds = %8
-  tail call void @_ZSt20__throw_system_errori(i32 noundef %11) #30
+10:                                               ; preds = %8
+  tail call void @_ZSt20__throw_system_errori(i32 noundef %9) #30
   unreachable
 
 _ZNSt10lock_guardISt5mutexEC2ERS0_.exit.i:        ; preds = %8
-  %13 = call ptr @localtime(ptr noundef nonnull %4) #26
-  %.not.i = icmp eq ptr %13, null
-  br i1 %.not.i, label %14, label %20
+  %11 = call ptr @localtime(ptr noundef nonnull %4) #26
+  %.not.i = icmp eq ptr %11, null
+  br i1 %.not.i, label %12, label %18
 
-14:                                               ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit.i
-  %15 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) @_ZZN8pybind116detail21localtime_thread_safeEPKlP2tmE3mtx) #26
-  %16 = call ptr @__cxa_allocate_exception(i64 16) #26
-  invoke void @_ZN8pybind1110cast_errorCI2St13runtime_errorEPKc(ptr noundef nonnull align 8 dereferenceable(16) %16, ptr noundef nonnull @.str.124)
-          to label %17 unwind label %18
+12:                                               ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit.i
+  %13 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) @_ZZN8pybind116detail21localtime_thread_safeEPKlP2tmE3mtx) #26
+  %14 = call ptr @__cxa_allocate_exception(i64 16) #26
+  invoke void @_ZN8pybind1110cast_errorCI2St13runtime_errorEPKc(ptr noundef nonnull align 8 dereferenceable(16) %14, ptr noundef nonnull @.str.124)
+          to label %15 unwind label %16
 
-17:                                               ; preds = %14
-  call void @__cxa_throw(ptr nonnull %16, ptr nonnull @_ZTIN8pybind1110cast_errorE, ptr nonnull @_ZN8pybind1110cast_errorD2Ev) #30
+15:                                               ; preds = %12
+  call void @__cxa_throw(ptr nonnull %14, ptr nonnull @_ZTIN8pybind1110cast_errorE, ptr nonnull @_ZN8pybind1110cast_errorD2Ev) #30
   unreachable
 
-18:                                               ; preds = %14
-  %19 = landingpad { ptr, i32 }
+16:                                               ; preds = %12
+  %17 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %16) #26
-  resume { ptr, i32 } %19
+  call void @__cxa_free_exception(ptr %14) #26
+  resume { ptr, i32 } %17
 
-20:                                               ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit.i
-  %.sroa.0.0.copyload = load i32, ptr %13, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %13, i64 4
+18:                                               ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit.i
+  %.sroa.0.0.copyload = load i32, ptr %11, align 8
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 4
   %.sroa.2.0.copyload = load i32, ptr %.sroa.2.0..sroa_idx, align 4
-  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %13, i64 8
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 8
   %.sroa.3.0.copyload = load i32, ptr %.sroa.3.0..sroa_idx, align 8
-  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %13, i64 12
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 12
   %.sroa.4.0.copyload = load i32, ptr %.sroa.4.0..sroa_idx, align 4
-  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %13, i64 16
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 16
   %.sroa.5.0.copyload = load i32, ptr %.sroa.5.0..sroa_idx, align 8
-  %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %13, i64 20
+  %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 20
   %.sroa.6.0.copyload = load i32, ptr %.sroa.6.0..sroa_idx, align 4
-  %21 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) @_ZZN8pybind116detail21localtime_thread_safeEPKlP2tmE3mtx) #26
-  %22 = load ptr, ptr @_ZL13PyDateTimeAPI, align 8
-  %23 = getelementptr inbounds nuw i8, ptr %22, i64 56
-  %24 = load ptr, ptr %23, align 8
-  %25 = add nsw i32 %.sroa.6.0.copyload, 1900
-  %26 = add nsw i32 %.sroa.5.0.copyload, 1
-  %27 = getelementptr inbounds nuw i8, ptr %22, i64 8
-  %28 = load ptr, ptr %27, align 8
-  %29 = call noundef ptr %24(i32 noundef %25, i32 noundef %26, i32 noundef %.sroa.4.0.copyload, i32 noundef %.sroa.3.0.copyload, i32 noundef %.sroa.2.0.copyload, i32 noundef %.sroa.0.0.copyload, i32 noundef 0, ptr noundef nonnull @_Py_NoneStruct, ptr noundef %28)
-  ret ptr %29
+  %19 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) @_ZZN8pybind116detail21localtime_thread_safeEPKlP2tmE3mtx) #26
+  %20 = load ptr, ptr @_ZL13PyDateTimeAPI, align 8
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 56
+  %22 = load ptr, ptr %21, align 8
+  %23 = add nsw i32 %.sroa.6.0.copyload, 1900
+  %24 = add nsw i32 %.sroa.5.0.copyload, 1
+  %25 = getelementptr inbounds nuw i8, ptr %20, i64 8
+  %26 = load ptr, ptr %25, align 8
+  %27 = call noundef ptr %22(i32 noundef %23, i32 noundef %24, i32 noundef %.sroa.4.0.copyload, i32 noundef %.sroa.3.0.copyload, i32 noundef %.sroa.2.0.copyload, i32 noundef %.sroa.0.0.copyload, i32 noundef 0, ptr noundef nonnull @_Py_NoneStruct, ptr noundef %26)
+  ret ptr %27
 }
 
 ; Function Attrs: mustprogress uwtable

@@ -1329,7 +1329,7 @@ define internal range(i32 0, 5) i32 @decompress_smooth_data(ptr noundef %0, ptr 
   br label %136
 
 134:                                              ; preds = %120
-  %.idx = mul nuw i64 %indvars.iv980, 40
+  %.idx = mul nuw nsw i64 %indvars.iv980, 40
   %135 = getelementptr inbounds nuw i8, ptr %126, i64 %.idx
   br label %136
 

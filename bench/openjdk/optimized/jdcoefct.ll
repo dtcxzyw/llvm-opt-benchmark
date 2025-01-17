@@ -1156,7 +1156,7 @@ define internal range(i32 0, 5) i32 @decompress_smooth_data(ptr noundef %0, ptr 
   %115 = load i16, ptr %99, align 4
   %116 = zext i16 %115 to i32
   %117 = load ptr, ptr %43, align 8
-  %.idx = mul nuw i64 %indvars.iv357, 24
+  %.idx = mul nuw nsw i64 %indvars.iv357, 24
   %118 = getelementptr inbounds nuw i8, ptr %117, i64 %.idx
   %119 = add nsw i32 %.0253, -1
   %120 = getelementptr inbounds nuw i8, ptr %.0264351, i64 28

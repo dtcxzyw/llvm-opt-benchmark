@@ -3131,7 +3131,7 @@ define hidden noundef zeroext i1 @_ZN3p3p10jacobi_4x4EPdS0_S0_(ptr nocapture non
   %indvars.iv236 = phi i64 [ 0, %42 ], [ %indvars.iv.next237, %.loopexit199 ]
   %indvars.iv217 = phi i64 [ 1, %42 ], [ %indvars.iv.next218, %.loopexit199 ]
   %indvars.iv.next237 = add nuw nsw i64 %indvars.iv236, 1
-  %gep.idx = mul nuw i64 %indvars.iv236, 40
+  %gep.idx = mul nuw nsw i64 %indvars.iv236, 40
   %gep = getelementptr inbounds nuw i8, ptr %17, i64 %gep.idx
   %48 = getelementptr inbounds nuw double, ptr %2, i64 %indvars.iv236
   %49 = getelementptr inbounds nuw [4 x double], ptr %6, i64 0, i64 %indvars.iv236

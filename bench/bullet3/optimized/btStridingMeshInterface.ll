@@ -773,7 +773,7 @@ for.body29:                                       ; preds = %if.then17, %for.bod
   %idx.ext = sext i32 %mul30 to i64
   %add.ptr = getelementptr inbounds i8, ptr %13, i64 %idx.ext
   %16 = load i32, ptr %add.ptr, align 4
-  %arrayidx32.idx = mul nuw i64 %indvars.iv133, 12
+  %arrayidx32.idx = mul nuw nsw i64 %indvars.iv133, 12
   %arrayidx32 = getelementptr inbounds nuw i8, ptr %10, i64 %arrayidx32.idx
   store i32 %16, ptr %arrayidx32, align 4
   %arrayidx33 = getelementptr inbounds nuw i8, ptr %add.ptr, i64 4

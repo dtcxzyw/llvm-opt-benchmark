@@ -13302,7 +13302,7 @@ define linkonce_odr hidden void @_ZN5Eigen8internal11gebp_kernelIfflNS0_16blas_d
   %543 = mul nsw i64 %542, %.0405971.us
   %544 = getelementptr float, ptr %541, i64 %.0404968.us
   %545 = getelementptr float, ptr %544, i64 %543
-  %.idx.i.us = mul i64 %542, 12
+  %.idx.i.us = mul nsw i64 %542, 12
   %546 = getelementptr inbounds i8, ptr %545, i64 %.idx.i.us
   %547 = load float, ptr %546, align 4
   %.idx12.i.us = shl nsw i64 %542, 3

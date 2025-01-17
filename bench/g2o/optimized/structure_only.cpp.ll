@@ -3104,8 +3104,8 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
 60:                                               ; preds = %60, %.lr.ph.i.i.i.i
   %61 = phi <2 x double> [ zeroinitializer, %.lr.ph.i.i.i.i ], [ %69, %60 ]
   %.013.i.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i.i ], [ %70, %60 ]
-  %.idx.i.i.i.i.i = mul i64 %.013.i.i.i.i, 24
-  %62 = getelementptr inbounds i8, ptr %58, i64 %.idx.i.i.i.i.i
+  %.idx.i.i.i.i.i = mul nuw nsw i64 %.013.i.i.i.i, 24
+  %62 = getelementptr inbounds nuw i8, ptr %58, i64 %.idx.i.i.i.i.i
   %63 = load <2 x double>, ptr %62, align 1
   %64 = getelementptr double, ptr %59, i64 %.013.i.i.i.i
   %65 = load double, ptr %64, align 8

@@ -7682,7 +7682,7 @@ define linkonce_odr void @_ZN5Eigen8internal11gebp_kernelIfflNS0_16blas_data_map
   %538 = mul nsw i64 %537, %.0405973.us.us
   %539 = getelementptr float, ptr %536, i64 %.0404968.us.us.us
   %540 = getelementptr float, ptr %539, i64 %538
-  %.idx.i.us.us.us = mul i64 %537, 12
+  %.idx.i.us.us.us = mul nsw i64 %537, 12
   %541 = getelementptr inbounds i8, ptr %540, i64 %.idx.i.us.us.us
   %542 = load float, ptr %541, align 4
   %.idx12.i.us.us.us = shl nsw i64 %537, 3
@@ -7802,7 +7802,7 @@ define linkonce_odr void @_ZN5Eigen8internal11gebp_kernelIfflNS0_16blas_data_map
   %613 = mul nsw i64 %612, %.0405973.us
   %614 = getelementptr float, ptr %611, i64 %.0404968.us977
   %615 = getelementptr float, ptr %614, i64 %613
-  %.idx.i.us980 = mul i64 %612, 12
+  %.idx.i.us980 = mul nsw i64 %612, 12
   %616 = getelementptr inbounds i8, ptr %615, i64 %.idx.i.us980
   %617 = load float, ptr %616, align 4
   %.idx12.i.us981 = shl nsw i64 %612, 3

@@ -4015,8 +4015,8 @@ unquantize_intra_differences.exit:                ; preds = %.preheader.i.prehea
 175:                                              ; preds = %175, %.lr.ph.us.i
   %indvars.iv.i322 = phi i64 [ 1, %.lr.ph.us.i ], [ %indvars.iv.next.i323, %175 ]
   %.017.us.i = phi i32 [ %174, %.lr.ph.us.i ], [ %177, %175 ]
-  %.idx.i = mul i64 %indvars.iv.i322, 12
-  %gep.i = getelementptr i8, ptr %173, i64 %.idx.i
+  %.idx.i = mul nuw nsw i64 %indvars.iv.i322, 12
+  %gep.i = getelementptr inbounds nuw i8, ptr %173, i64 %.idx.i
   %176 = load i32, ptr %gep.i, align 4
   %177 = add nsw i32 %176, %.017.us.i
   store i32 %177, ptr %gep.i, align 4

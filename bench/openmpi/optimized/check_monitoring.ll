@@ -1044,7 +1044,7 @@ pvar_o2a_read.exit.i:                             ; preds = %444, %441
   %.3.i = phi i32 [ -1, %450 ], [ %.058.lcssa.i, %pvar_o2a_read.exit.i ]
   %454 = load i64, ptr %4, align 8
   %455 = add nsw i32 %.lcssa151, -1
-  %456 = mul i32 %455, 26
+  %456 = mul nsw i32 %455, 26
   %457 = sext i32 %456 to i64
   %458 = icmp ult i64 %454, %457
   br i1 %458, label %459, label %462

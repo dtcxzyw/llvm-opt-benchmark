@@ -6969,7 +6969,7 @@ invoke.cont27:                                    ; preds = %invoke.cont27.lr.ph
           to label %invoke.cont29 unwind label %lpad.loopexit
 
 invoke.cont29:                                    ; preds = %invoke.cont27
-  %arrayidx.i.idx = mul nuw i64 %indvars.iv, 704
+  %arrayidx.i.idx = mul nuw nsw i64 %indvars.iv, 704
   %arrayidx.i = getelementptr inbounds nuw i8, ptr %14, i64 %arrayidx.i.idx
   invoke fastcc void @_ZN12_GLOBAL__N_114getMeasureDataERKN6icu_756LocaleERKNS0_11MeasureUnitERK16UNumberUnitWidthPKcPNS0_13UnicodeStringER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(217) %loc, ptr noundef nonnull align 8 dereferenceable(19) %ref.tmp, ptr noundef nonnull align 4 dereferenceable(4) %width, ptr noundef %unitDisplayCase, ptr noundef nonnull %arrayidx.i, ptr noundef nonnull align 4 dereferenceable(4) %status)
           to label %invoke.cont31 unwind label %lpad30
@@ -7421,7 +7421,7 @@ invoke.cont60:                                    ; preds = %invoke.cont.i, %inv
   %retval.0.i = phi i64 [ %26, %invoke.cont.i ], [ 5, %invoke.cont57 ]
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %ruleString.i)
   %28 = load ptr, ptr %fMixedUnitData62, align 8
-  %arrayidx.i61.idx = mul nuw i64 %indvars.iv, 704
+  %arrayidx.i61.idx = mul nuw nsw i64 %indvars.iv, 704
   %arrayidx.i61 = getelementptr inbounds nuw i8, ptr %28, i64 %arrayidx.i61.idx
   call void @llvm.experimental.noalias.scope.decl(metadata !68)
   %arrayidx.i63 = getelementptr inbounds nuw %"class.icu_75::UnicodeString", ptr %arrayidx.i61, i64 %retval.0.i

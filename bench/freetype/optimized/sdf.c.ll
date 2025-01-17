@@ -3112,8 +3112,8 @@ get_control_box.exit.i:                           ; preds = %.critedge4.i.i, %.l
   %250 = ashr exact i64 %sext151.i.i.us.i, 32
   %sext152.i.i.us.i = mul i64 %244, 12884901888
   %251 = ashr exact i64 %sext152.i.i.us.i, 32
-  %252 = mul i64 %238, 6
-  %253 = mul i64 %241, 6
+  %252 = mul nsw i64 %238, 6
+  %253 = mul nsw i64 %241, 6
   br label %254
 
 254:                                              ; preds = %395, %227

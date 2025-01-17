@@ -484,7 +484,7 @@ _ZL13overlapBoundsPKfS0_S0_S0_.exit:              ; preds = %69
   %indvars.iv = phi i64 [ 1, %115 ], [ %indvars.iv.next, %117 ]
   %.0103166 = phi float [ %116, %115 ], [ %.1104, %117 ]
   %.0105165 = phi float [ %116, %115 ], [ %.1106, %117 ]
-  %.idx = mul nuw i64 %indvars.iv, 12
+  %.idx = mul nuw nsw i64 %indvars.iv, 12
   %118 = getelementptr inbounds nuw i8, ptr %.0157178, i64 %.idx
   %119 = load float, ptr %118, align 4
   %120 = fcmp ogt float %.0105165, %119
@@ -544,7 +544,7 @@ _ZL13overlapBoundsPKfS0_S0_S0_.exit:              ; preds = %69
   %indvars.iv189 = phi i64 [ 1, %144 ], [ %indvars.iv.next190, %146 ]
   %.097169 = phi float [ %145, %144 ], [ %151, %146 ]
   %.098168 = phi float [ %145, %144 ], [ %149, %146 ]
-  %gep.idx = mul nuw i64 %indvars.iv189, 12
+  %gep.idx = mul nuw nsw i64 %indvars.iv189, 12
   %gep = getelementptr inbounds nuw i8, ptr %134, i64 %gep.idx
   %147 = load float, ptr %gep, align 4
   %148 = fcmp olt float %.098168, %147
@@ -653,7 +653,7 @@ _ZN13rcScopedTimerC2EP9rcContext12rcTimerLabel.exit: ; preds = %13, %17
 
 31:                                               ; preds = %.lr.ph, %30
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %30 ]
-  %.idx = mul nuw i64 %indvars.iv, 12
+  %.idx = mul nuw nsw i64 %indvars.iv, 12
   %32 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx
   %33 = load i32, ptr %32, align 4
   %34 = mul nsw i32 %33, 3
@@ -787,7 +787,7 @@ _ZN13rcScopedTimerC2EP9rcContext12rcTimerLabel.exit: ; preds = %13, %17
 
 31:                                               ; preds = %.lr.ph, %30
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %30 ]
-  %.idx46 = mul nuw i64 %indvars.iv, 6
+  %.idx46 = mul nuw nsw i64 %indvars.iv, 6
   %32 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx46
   %33 = load i16, ptr %32, align 2
   %34 = zext i16 %33 to i64
@@ -914,91 +914,91 @@ _ZN13rcScopedTimerC2EP9rcContext12rcTimerLabel.exit: ; preds = %11, %15
   %wide.trip.count = zext nneg i32 %3 to i64
   br label %29
 
-28:                                               ; preds = %44
+28:                                               ; preds = %41
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %29, !llvm.loop !13
 
 29:                                               ; preds = %.lr.ph, %28
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %28 ]
-  %30 = trunc nuw nsw i64 %indvars.iv to i32
-  %31 = mul i32 %30, 9
-  %32 = sext i32 %31 to i64
-  %33 = getelementptr inbounds float, ptr %1, i64 %32
-  %34 = add i32 %31, 3
-  %35 = sext i32 %34 to i64
-  %36 = getelementptr inbounds float, ptr %1, i64 %35
-  %37 = add i32 %31, 6
-  %38 = sext i32 %37 to i64
-  %39 = getelementptr inbounds float, ptr %1, i64 %38
-  %40 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv
-  %41 = load i8, ptr %40, align 1
-  %42 = load float, ptr %19, align 8
-  %43 = invoke fastcc noundef zeroext i1 @_ZL12rasterizeTriPKfS0_S0_hR13rcHeightfieldS0_S0_fffi(ptr noundef %33, ptr noundef %36, ptr noundef %39, i8 noundef zeroext %41, ptr noundef nonnull align 8 dereferenceable(64) %4, ptr noundef %26, ptr noundef %27, float noundef %42, float noundef %21, float noundef %24, i32 noundef %5)
-          to label %44 unwind label %.loopexit36
+  %.idx = mul nuw nsw i64 %indvars.iv, 36
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx
+  %31 = mul i64 %indvars.iv, 38654705664
+  %sext = add i64 %31, 12884901888
+  %32 = ashr exact i64 %sext, 30
+  %33 = getelementptr inbounds i8, ptr %1, i64 %32
+  %34 = mul i64 %indvars.iv, 38654705664
+  %sext41 = add i64 %34, 25769803776
+  %35 = ashr exact i64 %sext41, 30
+  %36 = getelementptr inbounds i8, ptr %1, i64 %35
+  %37 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv
+  %38 = load i8, ptr %37, align 1
+  %39 = load float, ptr %19, align 8
+  %40 = invoke fastcc noundef zeroext i1 @_ZL12rasterizeTriPKfS0_S0_hR13rcHeightfieldS0_S0_fffi(ptr noundef %30, ptr noundef nonnull %33, ptr noundef nonnull %36, i8 noundef zeroext %38, ptr noundef nonnull align 8 dereferenceable(64) %4, ptr noundef %26, ptr noundef %27, float noundef %39, float noundef %21, float noundef %24, i32 noundef %5)
+          to label %41 unwind label %.loopexit36
 
-44:                                               ; preds = %29
-  br i1 %43, label %28, label %45
+41:                                               ; preds = %29
+  br i1 %40, label %28, label %42
 
-45:                                               ; preds = %44
+42:                                               ; preds = %41
   invoke void (ptr, i32, ptr, ...) @_ZN9rcContext3logE13rcLogCategoryPKcz(ptr noundef nonnull align 8 dereferenceable(10) %0, i32 noundef 3, ptr noundef nonnull @.str.5)
           to label %.loopexit unwind label %.loopexit.split-lp
 
 .loopexit36:                                      ; preds = %29
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
-  br label %46
+  br label %43
 
-.loopexit.split-lp:                               ; preds = %45
+.loopexit.split-lp:                               ; preds = %42
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
-  br label %46
+  br label %43
 
-46:                                               ; preds = %.loopexit.split-lp, %.loopexit36
+43:                                               ; preds = %.loopexit.split-lp, %.loopexit36
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit36 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
-  %47 = load i8, ptr %12, align 1
-  %48 = trunc i8 %47 to i1
-  br i1 %48, label %49, label %_ZN13rcScopedTimerD2Ev.exit
+  %44 = load i8, ptr %12, align 1
+  %45 = trunc i8 %44 to i1
+  br i1 %45, label %46, label %_ZN13rcScopedTimerD2Ev.exit
 
-49:                                               ; preds = %46
-  %50 = load ptr, ptr %0, align 8
-  %51 = getelementptr inbounds nuw i8, ptr %50, i64 48
-  %52 = load ptr, ptr %51, align 8
-  invoke void %52(ptr noundef nonnull align 8 dereferenceable(10) %0, i32 noundef 2)
-          to label %_ZN13rcScopedTimerD2Ev.exit unwind label %53
+46:                                               ; preds = %43
+  %47 = load ptr, ptr %0, align 8
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 48
+  %49 = load ptr, ptr %48, align 8
+  invoke void %49(ptr noundef nonnull align 8 dereferenceable(10) %0, i32 noundef 2)
+          to label %_ZN13rcScopedTimerD2Ev.exit unwind label %50
 
-53:                                               ; preds = %49
-  %54 = landingpad { ptr, i32 }
+50:                                               ; preds = %46
+  %51 = landingpad { ptr, i32 }
           catch ptr null
-  %55 = extractvalue { ptr, i32 } %54, 0
-  tail call void @__clang_call_terminate(ptr %55) #6
+  %52 = extractvalue { ptr, i32 } %51, 0
+  tail call void @__clang_call_terminate(ptr %52) #6
   unreachable
 
-_ZN13rcScopedTimerD2Ev.exit:                      ; preds = %46, %49
+_ZN13rcScopedTimerD2Ev.exit:                      ; preds = %43, %46
   resume { ptr, i32 } %lpad.phi
 
-.loopexit:                                        ; preds = %28, %_ZN13rcScopedTimerC2EP9rcContext12rcTimerLabel.exit, %45
-  %56 = phi i1 [ false, %45 ], [ true, %_ZN13rcScopedTimerC2EP9rcContext12rcTimerLabel.exit ], [ true, %28 ]
-  %57 = load i8, ptr %12, align 1
-  %58 = trunc i8 %57 to i1
-  br i1 %58, label %59, label %_ZN13rcScopedTimerD2Ev.exit33
+.loopexit:                                        ; preds = %28, %_ZN13rcScopedTimerC2EP9rcContext12rcTimerLabel.exit, %42
+  %53 = phi i1 [ false, %42 ], [ true, %_ZN13rcScopedTimerC2EP9rcContext12rcTimerLabel.exit ], [ true, %28 ]
+  %54 = load i8, ptr %12, align 1
+  %55 = trunc i8 %54 to i1
+  br i1 %55, label %56, label %_ZN13rcScopedTimerD2Ev.exit33
 
-59:                                               ; preds = %.loopexit
-  %60 = load ptr, ptr %0, align 8
-  %61 = getelementptr inbounds nuw i8, ptr %60, i64 48
-  %62 = load ptr, ptr %61, align 8
-  invoke void %62(ptr noundef nonnull align 8 dereferenceable(10) %0, i32 noundef 2)
-          to label %_ZN13rcScopedTimerD2Ev.exit33 unwind label %63
+56:                                               ; preds = %.loopexit
+  %57 = load ptr, ptr %0, align 8
+  %58 = getelementptr inbounds nuw i8, ptr %57, i64 48
+  %59 = load ptr, ptr %58, align 8
+  invoke void %59(ptr noundef nonnull align 8 dereferenceable(10) %0, i32 noundef 2)
+          to label %_ZN13rcScopedTimerD2Ev.exit33 unwind label %60
 
-63:                                               ; preds = %59
-  %64 = landingpad { ptr, i32 }
+60:                                               ; preds = %56
+  %61 = landingpad { ptr, i32 }
           catch ptr null
-  %65 = extractvalue { ptr, i32 } %64, 0
-  tail call void @__clang_call_terminate(ptr %65) #6
+  %62 = extractvalue { ptr, i32 } %61, 0
+  tail call void @__clang_call_terminate(ptr %62) #6
   unreachable
 
-_ZN13rcScopedTimerD2Ev.exit33:                    ; preds = %.loopexit, %59
-  ret i1 %56
+_ZN13rcScopedTimerD2Ev.exit33:                    ; preds = %.loopexit, %56
+  ret i1 %53
 }
 
 declare noundef ptr @_Z7rcAllocm11rcAllocHint(i64 noundef, i32 noundef) local_unnamed_addr #1
@@ -1026,13 +1026,13 @@ define internal fastcc void @_ZL10dividePolyPKfiPfPiS1_S2_f6rcAxis(ptr nocapture
 .lr.ph.preheader:                                 ; preds = %.thread, %13
   %15 = zext nneg i32 %7 to i64
   %wide.trip.count = zext nneg i32 %1 to i64
-  %invariant.gep = getelementptr float, ptr %0, i64 %15
+  %invariant.gep = getelementptr inbounds nuw float, ptr %0, i64 %15
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %.idx = mul i64 %indvars.iv, 12
-  %gep = getelementptr i8, ptr %invariant.gep, i64 %.idx
+  %.idx = mul nuw nsw i64 %indvars.iv, 12
+  %gep = getelementptr inbounds nuw i8, ptr %invariant.gep, i64 %.idx
   %16 = load float, ptr %gep, align 4
   %17 = fsub float %6, %16
   %18 = getelementptr inbounds nuw [12 x float], ptr %9, i64 0, i64 %indvars.iv
@@ -1068,7 +1068,7 @@ define internal fastcc void @_ZL10dividePolyPKfiPfPiS1_S2_f6rcAxis(ptr nocapture
   %32 = sext i32 %31 to i64
   %33 = getelementptr inbounds float, ptr %0, i64 %32
   %34 = load float, ptr %33, align 4
-  %.idx107 = mul nuw i64 %indvars.iv101, 12
+  %.idx107 = mul nuw nsw i64 %indvars.iv101, 12
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 %.idx107
   %36 = load float, ptr %35, align 4
   %37 = fsub float %36, %34

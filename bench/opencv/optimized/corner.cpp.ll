@@ -371,7 +371,7 @@ define internal fastcc void @_ZN2cvL19cornerEigenValsVecsERKNS_3MatERS0_iiidi(pt
   %113 = getelementptr inbounds nuw float, ptr %109, i64 %indvars.iv
   %114 = load float, ptr %113, align 4
   %115 = fmul float %112, %112
-  %.idx = mul nuw i64 %indvars.iv, 12
+  %.idx = mul nuw nsw i64 %indvars.iv, 12
   %116 = getelementptr inbounds nuw i8, ptr %99, i64 %.idx
   store float %115, ptr %116, align 4
   %117 = fmul float %112, %114

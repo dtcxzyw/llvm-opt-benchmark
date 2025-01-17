@@ -1138,14 +1138,14 @@ define internal fastcc void @mca_common_monitoring_output(ptr noundef %0, i32 no
   %15 = load volatile i64, ptr %9, align 8
   %16 = trunc nuw nsw i64 %indvars.iv89 to i32
   %17 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.44, i32 noundef %1, i32 noundef %16, i64 noundef %14, i64 noundef %15) #19
-  %.idx = mul i64 %indvars.iv89, 528
+  %.idx = mul nuw nsw i64 %indvars.iv89, 528
   br label %18
 
 18:                                               ; preds = %11, %18
   %indvars.iv = phi i64 [ 0, %11 ], [ %indvars.iv.next, %18 ]
   %19 = load ptr, ptr @size_histogram, align 8
   %20 = getelementptr inbounds nuw i64, ptr %19, i64 %indvars.iv
-  %21 = getelementptr inbounds i8, ptr %20, i64 %.idx
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx
   %22 = load volatile i64, ptr %21, align 8
   %.not71 = icmp eq i64 %indvars.iv, 65
   %23 = select i1 %.not71, ptr @.str.47, ptr @.str.46
@@ -1195,14 +1195,14 @@ define internal fastcc void @mca_common_monitoring_output(ptr noundef %0, i32 no
   br i1 %45, label %.preheader, label %.loopexit
 
 .preheader:                                       ; preds = %30
-  %.idx113 = mul i64 %indvars.iv97, 528
+  %.idx113 = mul nuw nsw i64 %indvars.iv97, 528
   br label %46
 
 46:                                               ; preds = %.preheader, %46
   %indvars.iv93 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next94, %46 ]
   %47 = load ptr, ptr @size_histogram, align 8
   %48 = getelementptr inbounds nuw i64, ptr %47, i64 %indvars.iv93
-  %49 = getelementptr inbounds i8, ptr %48, i64 %.idx113
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 %.idx113
   %50 = load volatile i64, ptr %49, align 8
   %.not69 = icmp eq i64 %indvars.iv93, 65
   %51 = select i1 %.not69, ptr @.str.47, ptr @.str.46

@@ -3745,8 +3745,8 @@ define noundef i32 @_ZN12RenderHelper21initializeMeshBuffersEP9MeshModelPFbiPKcE
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %63
   %indvars.iv63 = phi i64 [ 0, %.preheader.lr.ph ], [ %indvars.iv.next64, %63 ]
-  %.idx = mul i64 %indvars.iv63, 12
-  %invariant.gep = getelementptr i8, ptr %23, i64 %.idx
+  %.idx = mul nuw nsw i64 %indvars.iv63, 12
+  %invariant.gep = getelementptr inbounds nuw i8, ptr %23, i64 %.idx
   br label %56
 
 56:                                               ; preds = %.preheader, %56
@@ -3757,7 +3757,7 @@ define noundef i32 @_ZN12RenderHelper21initializeMeshBuffersEP9MeshModelPFbiPKcE
   %60 = sub i64 %59, %32
   %61 = sdiv exact i64 %60, 48
   %62 = trunc i64 %61 to i32
-  %gep = getelementptr i32, ptr %invariant.gep, i64 %indvars.iv59
+  %gep = getelementptr inbounds nuw i32, ptr %invariant.gep, i64 %indvars.iv59
   store i32 %62, ptr %gep, align 4
   %indvars.iv.next60 = add nuw nsw i64 %indvars.iv59, 1
   %exitcond62.not = icmp eq i64 %indvars.iv.next60, 3

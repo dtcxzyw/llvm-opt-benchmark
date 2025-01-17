@@ -2633,7 +2633,7 @@ define void @_Z19duDebugDrawPolyMeshP11duDebugDrawRK10rcPolyMesh(ptr noundef %0,
 230:                                              ; preds = %.lr.ph, %230
   %indvars.iv243 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next244, %230 ]
   %231 = load ptr, ptr %1, align 8
-  %.idx = mul nuw i64 %indvars.iv243, 6
+  %.idx = mul nuw nsw i64 %indvars.iv243, 6
   %232 = getelementptr inbounds nuw i8, ptr %231, i64 %.idx
   %233 = load float, ptr %11, align 8
   %234 = load i16, ptr %232, align 2
@@ -3019,7 +3019,7 @@ define void @_Z25duDebugDrawPolyMeshDetailP11duDebugDrawRK16rcPolyMeshDetail(ptr
 
 .lr.ph170:                                        ; preds = %.lr.ph170.preheader, %.lr.ph170
   %indvars.iv204 = phi i64 [ 0, %.lr.ph170.preheader ], [ %indvars.iv.next205, %.lr.ph170 ]
-  %.idx218 = mul nuw i64 %indvars.iv204, 12
+  %.idx218 = mul nuw nsw i64 %indvars.iv204, 12
   %201 = getelementptr inbounds nuw i8, ptr %199, i64 %.idx218
   %202 = load ptr, ptr %0, align 8
   %203 = getelementptr inbounds nuw i8, ptr %202, i64 40

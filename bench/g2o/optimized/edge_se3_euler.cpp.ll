@@ -2085,7 +2085,7 @@ _ZNK5Eigen9DenseBaseINS_12CwiseUnaryOpINS_8internal21scalar_score_coeff_opIdEEKN
   %63 = load double, ptr %61, align 8
   store double %63, ptr %60, align 8
   store double %62, ptr %61, align 8
-  %.idx.i.i.i.i.i.i.i.i.i.i = mul i64 %53, 24
+  %.idx.i.i.i.i.i.i.i.i.i.i = mul nsw i64 %53, 24
   %64 = getelementptr inbounds i8, ptr %51, i64 %.idx.i.i.i.i.i.i.i.i.i.i
   %65 = getelementptr inbounds i8, ptr %52, i64 %.idx.i.i.i.i.i.i.i.i.i.i
   %66 = load double, ptr %64, align 8
@@ -2099,7 +2099,7 @@ _ZNK5Eigen9DenseBaseINS_12CwiseUnaryOpINS_8internal21scalar_score_coeff_opIdEEKN
   %71 = load double, ptr %69, align 8
   store double %71, ptr %68, align 8
   store double %70, ptr %69, align 8
-  %.idx.i.i.i.i.i.i.i.i.i.i.i.i = mul i64 %53, 40
+  %.idx.i.i.i.i.i.i.i.i.i.i.i.i = mul nsw i64 %53, 40
   %72 = getelementptr inbounds i8, ptr %51, i64 %.idx.i.i.i.i.i.i.i.i.i.i.i.i
   %73 = getelementptr inbounds i8, ptr %52, i64 %.idx.i.i.i.i.i.i.i.i.i.i.i.i
   %74 = load double, ptr %72, align 8

@@ -5779,7 +5779,7 @@ define void @Abc_SclUndoRecentChanges(ptr nocapture noundef readonly %0, ptr noc
   %indvars.iv = phi i64 [ %9, %.lr.ph ], [ %indvars.iv.next, %31 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %.val21 = load ptr, ptr %5, align 8
-  %.idx = mul nuw i64 %indvars.iv.next, 12
+  %.idx = mul nuw nsw i64 %indvars.iv.next, 12
   %11 = getelementptr inbounds nuw i8, ptr %.val21, i64 %.idx
   %12 = load i32, ptr %11, align 4
   %.val25 = load ptr, ptr %6, align 8

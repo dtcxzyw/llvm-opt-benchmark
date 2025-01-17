@@ -1140,7 +1140,7 @@ define weak_odr void @_ZNK7mitsuba16StokesIntegratorIfN5drjit6MatrixINS_8Spectru
 
 .preheader:                                       ; preds = %2, %40
   %indvars.iv27 = phi i64 [ 0, %2 ], [ %indvars.iv.next28, %40 ]
-  %.idx = mul nuw i64 %indvars.iv27, 72
+  %.idx = mul nuw nsw i64 %indvars.iv27, 72
   %12 = trunc nuw nsw i64 %indvars.iv27 to i32
   br label %13
 

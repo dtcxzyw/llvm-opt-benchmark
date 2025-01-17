@@ -4900,7 +4900,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %for.body
-  %arrayidx16.idx = mul nuw i64 %indvars.iv, 12
+  %arrayidx16.idx = mul nuw nsw i64 %indvars.iv, 12
   %arrayidx16 = getelementptr inbounds nuw i8, ptr %call.i, i64 %arrayidx16.idx
   store i32 %call13, ptr %arrayidx16, align 4
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp) #14

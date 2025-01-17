@@ -3152,10 +3152,10 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exi
   br i1 %22, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %.preheader.i
-  %.idx.i.i.i.i.i.i.i.i = mul i64 %.0810.i, 24
+  %.idx.i.i.i.i.i.i.i.i = mul nuw nsw i64 %.0810.i, 24
   %23 = mul nuw nsw i64 %.0810.i, %17
   %invariant.gep = getelementptr double, ptr %18, i64 %23
-  %24 = getelementptr inbounds i8, ptr %5, i64 %.idx.i.i.i.i.i.i.i.i
+  %24 = getelementptr inbounds nuw i8, ptr %5, i64 %.idx.i.i.i.i.i.i.i.i
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 16
   br label %26
 

@@ -6779,7 +6779,7 @@ Vec_IntStartFull.exit:                            ; preds = %Vec_StrStart.exit, 
   %sext112 = mul i64 %68, 12884901888
   %69 = ashr exact i64 %sext112, 30
   %70 = getelementptr inbounds i8, ptr %22, i64 %69
-  %.idx = mul nuw i64 %indvars.iv107, 12
+  %.idx = mul nuw nsw i64 %indvars.iv107, 12
   %71 = getelementptr inbounds nuw i8, ptr %22, i64 %.idx
   %72 = getelementptr inbounds nuw i8, ptr %.val88, i64 %indvars.iv107
   store i8 1, ptr %72, align 1
@@ -6976,7 +6976,7 @@ Vec_IntStartFull.exit:                            ; preds = %Vec_StrStart.exit, 
   %73 = mul nsw i32 %72, 3
   %74 = sext i32 %73 to i64
   %75 = getelementptr inbounds i32, ptr %22, i64 %74
-  %.idx = mul i64 %indvars.iv.next206, 12
+  %.idx = mul nsw i64 %indvars.iv.next206, 12
   %76 = getelementptr inbounds nuw i8, ptr %22, i64 %.idx
   %77 = getelementptr inbounds nuw i8, ptr %.val151, i64 %indvars.iv.next206
   store i8 1, ptr %77, align 1

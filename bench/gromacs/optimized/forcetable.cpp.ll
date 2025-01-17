@@ -5323,14 +5323,14 @@ _ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEE6resizeEm.exit: 
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %61
   %indvars.iv36 = phi i64 [ 0, %.preheader.lr.ph ], [ %indvars.iv.next37, %61 ]
-  %.idx = mul i64 %indvars.iv36, 48
+  %.idx = mul nuw nsw i64 %indvars.iv36, 48
   %.idx39 = shl nsw i64 %indvars.iv36, 5
   br label %51
 
 51:                                               ; preds = %.preheader, %51
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %51 ]
   %52 = load ptr, ptr %50, align 8
-  %53 = getelementptr inbounds i8, ptr %52, i64 %.idx
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 %.idx
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 16
   %55 = getelementptr inbounds nuw float, ptr %54, i64 %indvars.iv
   %56 = load float, ptr %55, align 4

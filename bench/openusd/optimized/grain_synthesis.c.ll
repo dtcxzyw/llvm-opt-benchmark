@@ -629,7 +629,7 @@ init_arrays.exit:                                 ; preds = %._crit_edge117.i, %
   %indvars.iv78.i = phi i64 [ 0, %138 ], [ %indvars.iv.next79.i, %203 ]
   %.lcssa6970.i = phi i16 [ %random_register.promoted68.i, %138 ], [ %195, %203 ]
   %.idx.i = mul nuw nsw i64 %indvars.iv78.i, 328
-  %invariant.gep.i = getelementptr i8, ptr %129, i64 %.idx.i
+  %invariant.gep.i = getelementptr inbounds nuw i8, ptr %129, i64 %.idx.i
   br label %184
 
 .preheader65.i:                                   ; preds = %203
@@ -653,7 +653,7 @@ init_arrays.exit:                                 ; preds = %._crit_edge117.i, %
   %indvars.iv97.i = phi i64 [ 3, %.preheader64.us.preheader.i ], [ %indvars.iv.next98.i, %.split.us.us.i ]
   %157 = trunc nuw nsw i64 %indvars.iv97.i to i32
   %.idx102.i = mul nuw nsw i64 %indvars.iv97.i, 328
-  %invariant.gep107.i = getelementptr i8, ptr %129, i64 %.idx102.i
+  %invariant.gep107.i = getelementptr inbounds nuw i8, ptr %129, i64 %.idx102.i
   br label %.preheader.us.us.i
 
 .preheader.us.us.i:                               ; preds = %._crit_edge.us.us.i, %.preheader64.us.i
@@ -685,7 +685,7 @@ init_arrays.exit:                                 ; preds = %._crit_edge117.i, %
   br i1 %exitcond92.not.i, label %._crit_edge.us.us.i, label %159, !llvm.loop !13
 
 ._crit_edge.us.us.i:                              ; preds = %159
-  %gep108.i = getelementptr i32, ptr %invariant.gep107.i, i64 %indvars.iv93.i
+  %gep108.i = getelementptr inbounds nuw i32, ptr %invariant.gep107.i, i64 %indvars.iv93.i
   %176 = load i32, ptr %gep108.i, align 4
   %177 = add nsw i32 %175, %152
   %178 = load i32, ptr %144, align 4
@@ -724,7 +724,7 @@ init_arrays.exit:                                 ; preds = %._crit_edge117.i, %
   %200 = load i32, ptr %199, align 4
   %201 = add nsw i32 %200, %147
   %202 = ashr i32 %201, %142
-  %gep.i = getelementptr i32, ptr %invariant.gep.i, i64 %indvars.iv.i676
+  %gep.i = getelementptr inbounds nuw i32, ptr %invariant.gep.i, i64 %indvars.iv.i676
   store i32 %202, ptr %gep.i, align 4
   %indvars.iv.next.i677 = add nuw nsw i64 %indvars.iv.i676, 1
   %exitcond.not.i678 = icmp eq i64 %indvars.iv.next.i677, 82
@@ -738,12 +738,12 @@ init_arrays.exit:                                 ; preds = %._crit_edge117.i, %
 .preheader64.i:                                   ; preds = %.preheader65.i, %.split.i
   %indvars.iv85.i = phi i64 [ %indvars.iv.next86.i, %.split.i ], [ 3, %.preheader65.i ]
   %.idx101.i = mul nuw nsw i64 %indvars.iv85.i, 328
-  %invariant.gep105.i = getelementptr i8, ptr %129, i64 %.idx101.i
+  %invariant.gep105.i = getelementptr inbounds nuw i8, ptr %129, i64 %.idx101.i
   br label %.preheader.i
 
 .preheader.i:                                     ; preds = %.preheader.i, %.preheader64.i
   %indvars.iv81.i = phi i64 [ 3, %.preheader64.i ], [ %indvars.iv.next82.i, %.preheader.i ]
-  %gep106.i = getelementptr i32, ptr %invariant.gep105.i, i64 %indvars.iv81.i
+  %gep106.i = getelementptr inbounds nuw i32, ptr %invariant.gep105.i, i64 %indvars.iv81.i
   %204 = load i32, ptr %gep106.i, align 4
   %205 = load i32, ptr %144, align 4
   %206 = ashr i32 %152, %205

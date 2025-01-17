@@ -2487,7 +2487,7 @@ _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPN2cv8KeyPointESt6vectorIS3_SaIS3_EEEES
   %indvars.iv137.i.i = phi i64 [ 0, %620 ], [ %indvars.iv.next138.i.i, %635 ]
   %623 = mul i64 %indvars.iv137.i.i, %615
   %.idx.i.i = mul nuw nsw i64 %indvars.iv137.i.i, 28
-  %invariant.gep.i.i = getelementptr i8, ptr %621, i64 %.idx.i.i
+  %invariant.gep.i.i = getelementptr inbounds nuw i8, ptr %621, i64 %.idx.i.i
   br label %632
 
 .preheader.i.i:                                   ; preds = %635
@@ -2514,7 +2514,7 @@ _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPN2cv8KeyPointESt6vectorIS3_SaIS3_EEEES
 632:                                              ; preds = %632, %.preheader126.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.preheader126.i.i ], [ %indvars.iv.next.i.i, %632 ]
   %633 = add i64 %indvars.iv.i.i, %623
-  %gep.i.i = getelementptr i32, ptr %invariant.gep.i.i, i64 %indvars.iv.i.i
+  %gep.i.i = getelementptr inbounds nuw i32, ptr %invariant.gep.i.i, i64 %indvars.iv.i.i
   %634 = trunc i64 %633 to i32
   store i32 %634, ptr %gep.i.i, align 4
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1

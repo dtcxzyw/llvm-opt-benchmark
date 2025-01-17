@@ -1061,7 +1061,7 @@ define noundef i32 @_ZNK11TransTableL11BlocksInUseEv(ptr nocapture noundef nonnu
 define noundef double @_ZNK11TransTableL11MemoryInUseEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(664216) %0) unnamed_addr #18 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i32, ptr %2, align 8
-  %4 = mul i32 %3, 6512000
+  %4 = mul nsw i32 %3, 6512000
   %5 = add nsw i32 %4, 7045120
   %6 = sitofp i32 %5 to double
   %7 = fmul double %6, 0x3F50000000000000

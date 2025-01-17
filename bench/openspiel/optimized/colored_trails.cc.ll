@@ -7980,7 +7980,7 @@ _ZNK4absl7debian24SpanIfEixEm.exit85:             ; preds = %.lr.ph330
 
 265:                                              ; preds = %._crit_edge242, %.split159.us
   %266 = phi i32 [ %.pre243, %._crit_edge242 ], [ %188, %.split159.us ]
-  %267 = mul i32 %266, 18
+  %267 = mul nsw i32 %266, 18
   %268 = load i32, ptr %35, align 4
   %269 = add nsw i32 %268, -1
   %270 = mul nsw i32 %267, %269

@@ -7265,7 +7265,7 @@ define noundef i32 @_ZNK14dtNavMeshQuery20findPolysAroundShapeEjPKfiPK13dtQueryF
   %.sroa.11.0168 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %61, %.lr.ph ]
   %.sroa.6.0167 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %58, %.lr.ph ]
   %.sroa.0.0166 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %55, %.lr.ph ]
-  %.idx = mul nuw i64 %indvars.iv, 12
+  %.idx = mul nuw nsw i64 %indvars.iv, 12
   %53 = getelementptr inbounds nuw i8, ptr %2, i64 %.idx
   %54 = load float, ptr %53, align 4
   %55 = fadd float %.sroa.0.0166, %54

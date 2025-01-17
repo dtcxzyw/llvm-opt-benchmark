@@ -4820,7 +4820,7 @@ for.body17.lr.ph:                                 ; preds = %_ZNSt6vectorIN4pbrt
 
 for.body17:                                       ; preds = %for.body17.lr.ph, %for.body17
   %indvars.iv = phi i64 [ 0, %for.body17.lr.ph ], [ %indvars.iv.next, %for.body17 ]
-  %arrayidx.i.idx = mul nuw i64 %indvars.iv, 12
+  %arrayidx.i.idx = mul nuw nsw i64 %indvars.iv, 12
   %arrayidx.i = getelementptr inbounds nuw i8, ptr %.pre, i64 %arrayidx.i.idx
   %7 = load float, ptr %arrayidx.i, align 4
   %arrayidx.i27 = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 4

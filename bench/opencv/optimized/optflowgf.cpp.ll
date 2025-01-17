@@ -2470,7 +2470,7 @@ _ZN2cv10AutoBufferIPKfLm136EEC2Em.exit.i:         ; preds = %.noexc195.i, %_ZN2c
 
 .lr.ph262.i:                                      ; preds = %.lr.ph262.i.preheader, %.lr.ph262.i
   %indvars.iv314.i = phi i64 [ %indvars.iv.next315.i, %.lr.ph262.i ], [ 0, %.lr.ph262.i.preheader ]
-  %.idx.i137 = mul nuw i64 %indvars.iv314.i, 20
+  %.idx.i137 = mul nuw nsw i64 %indvars.iv314.i, 20
   %870 = getelementptr inbounds nuw i8, ptr %760, i64 %.idx.i137
   %871 = load float, ptr %870, align 4
   %872 = fpext float %871 to double
@@ -2915,7 +2915,7 @@ _ZN2cv10AutoBufferIdLm136EEC2Em.exit.i:           ; preds = %.noexc171, %944
   %.1173240.i = phi double [ %1097, %.lr.ph245.i157 ], [ %.0172.lcssa.i, %.preheader.i151 ]
   %.1175239.i = phi double [ %1103, %.lr.ph245.i157 ], [ %.0174.lcssa.i, %.preheader.i151 ]
   %1071 = add nsw i64 %indvars.iv282.i158, %1010
-  %.idx292.i = mul i64 %1071, 40
+  %.idx292.i = mul nsw i64 %1071, 40
   %1072 = getelementptr inbounds i8, ptr %966, i64 %.idx292.i
   %1073 = load double, ptr %1072, align 8
   %1074 = sub nsw i64 %indvars.iv282.i158, %1010

@@ -107193,7 +107193,7 @@ for.body.lr.ph:                                   ; preds = %entry
 
 for.body:                                         ; preds = %for.body.lr.ph, %ma_dr_mp3d_DCT_II.exit
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %ma_dr_mp3d_DCT_II.exit ]
-  %add.ptr.idx = mul nuw i64 %indvars.iv, 2304
+  %add.ptr.idx = mul nuw nsw i64 %indvars.iv, 2304
   %add.ptr = getelementptr inbounds nuw i8, ptr %grbuf, i64 %add.ptr.idx
   call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %t.i)
   br label %for.body.i

@@ -6361,7 +6361,7 @@ _ZN3vcg3tri11UpdateFlagsI6CMeshOE10FaceClearVERS2_.exit: ; preds = %88, %_ZN3vcg
   %99 = load ptr, ptr %3, align 8
   %100 = getelementptr inbounds nuw %class.CVertexO, ptr %99, i64 %indvars.iv, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
   %101 = load float, ptr %100, align 4
-  %.idx = mul nuw i64 %indvars.iv, 12
+  %.idx = mul nuw nsw i64 %indvars.iv, 12
   %102 = getelementptr inbounds nuw i8, ptr %96, i64 %.idx
   store float %101, ptr %102, align 4
   %103 = load ptr, ptr %3, align 8
@@ -6401,7 +6401,7 @@ _ZN3vcg3tri11UpdateFlagsI6CMeshOE10FaceClearVERS2_.exit: ; preds = %88, %_ZN3vcg
   %127 = sub i64 %125, %126
   %128 = sdiv exact i64 %127, 48
   %129 = trunc i64 %128 to i32
-  %.idx54 = mul nuw i64 %indvars.iv51, 12
+  %.idx54 = mul nuw nsw i64 %indvars.iv51, 12
   %130 = getelementptr inbounds nuw i8, ptr %118, i64 %.idx54
   store i32 %129, ptr %130, align 4
   %131 = load ptr, ptr %78, align 8

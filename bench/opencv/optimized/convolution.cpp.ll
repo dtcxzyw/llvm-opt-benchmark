@@ -2803,7 +2803,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit:            ; preds = %.noexc224, %_ZNSt6v
   %559 = trunc nuw nsw i64 %indvars.iv to i32
   %560 = mul nsw i32 %558, %559
   %561 = load ptr, ptr %74, align 8
-  %.idx415 = mul nuw i64 %indvars.iv, 12
+  %.idx415 = mul nuw nsw i64 %indvars.iv, 12
   %562 = getelementptr inbounds nuw i8, ptr %561, i64 %.idx415
   %563 = getelementptr inbounds nuw i8, ptr %562, i64 8
   store i32 %560, ptr %563, align 4
@@ -5981,7 +5981,7 @@ _ZN2cv3dnnL9packData2ERPcRPfRiS5_S5_PKiiii.exit.us: ; preds = %.lr.ph.i.us, %313
 
 .lr.ph854.us.us.us:                               ; preds = %._crit_edge855.us.us.us, %.lr.ph860.us.us
   %indvars.iv = phi i64 [ %indvars.iv.next, %._crit_edge855.us.us.us ], [ 0, %.lr.ph860.us.us ]
-  %.idx = mul nuw i64 %indvars.iv, 12
+  %.idx = mul nuw nsw i64 %indvars.iv, 12
   %414 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx
   %415 = load i32, ptr %414, align 4
   %416 = getelementptr inbounds nuw i8, ptr %414, i64 4

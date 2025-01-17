@@ -347,7 +347,7 @@ define internal noundef i32 @inner_thread(ptr nocapture noundef readonly %0, ptr
   %77 = sdiv i64 %76, 32
   %78 = shl nsw i64 %77, 5
   store ptr %4, ptr %7, align 16, !tbaa !42
-  %.idx = mul i64 %77, 98304
+  %.idx = mul nsw i64 %77, 98304
   %79 = getelementptr inbounds i8, ptr %4, i64 %.idx
   %80 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %79, ptr %80, align 8, !tbaa !42

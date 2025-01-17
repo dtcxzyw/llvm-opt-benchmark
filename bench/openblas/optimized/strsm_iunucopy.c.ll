@@ -12,19 +12,19 @@ define noundef i32 @strsm_iunucopy(i64 noundef %0, i64 noundef %1, ptr noundef r
 9:                                                ; preds = %6
   %10 = icmp sgt i64 %0, 0
   %.idx = shl nsw i64 %3, 6
-  %.idx22 = mul i64 %3, 60
-  %.idx23 = mul i64 %3, 56
-  %.idx24 = mul i64 %3, 52
-  %.idx25 = mul i64 %3, 48
-  %.idx26 = mul i64 %3, 44
-  %.idx27 = mul i64 %3, 40
-  %.idx28 = mul i64 %3, 36
+  %.idx22 = mul nsw i64 %3, 60
+  %.idx23 = mul nsw i64 %3, 56
+  %.idx24 = mul nsw i64 %3, 52
+  %.idx25 = mul nsw i64 %3, 48
+  %.idx26 = mul nsw i64 %3, 44
+  %.idx27 = mul nsw i64 %3, 40
+  %.idx28 = mul nsw i64 %3, 36
   %.idx29 = shl nsw i64 %3, 5
-  %.idx30 = mul i64 %3, 28
-  %.idx31 = mul i64 %3, 24
-  %.idx32 = mul i64 %3, 20
+  %.idx30 = mul nsw i64 %3, 28
+  %.idx31 = mul nsw i64 %3, 24
+  %.idx32 = mul nsw i64 %3, 20
   %.idx33 = shl nsw i64 %3, 4
-  %.idx34 = mul i64 %3, 12
+  %.idx34 = mul nsw i64 %3, 12
   %.idx35 = shl nsw i64 %3, 3
   br i1 %10, label %.split.us, label %.split.preheader
 
@@ -198,15 +198,15 @@ define noundef i32 @strsm_iunucopy(i64 noundef %0, i64 noundef %1, ptr noundef r
   br i1 %131, label %132, label %.loopexit54
 
 132:                                              ; preds = %129
-  %.idx37 = mul i64 %3, 28
+  %.idx37 = mul nsw i64 %3, 28
   %133 = getelementptr inbounds i8, ptr %124, i64 %.idx37
-  %.idx38 = mul i64 %3, 24
+  %.idx38 = mul nsw i64 %3, 24
   %134 = getelementptr inbounds i8, ptr %124, i64 %.idx38
-  %.idx39 = mul i64 %3, 20
+  %.idx39 = mul nsw i64 %3, 20
   %135 = getelementptr inbounds i8, ptr %124, i64 %.idx39
   %.idx40 = shl nsw i64 %3, 4
   %136 = getelementptr inbounds i8, ptr %124, i64 %.idx40
-  %.idx41 = mul i64 %3, 12
+  %.idx41 = mul nsw i64 %3, 12
   %137 = getelementptr inbounds i8, ptr %124, i64 %.idx41
   %.idx42 = shl nsw i64 %3, 3
   %138 = getelementptr inbounds i8, ptr %124, i64 %.idx42
@@ -311,7 +311,7 @@ define noundef i32 @strsm_iunucopy(i64 noundef %0, i64 noundef %1, ptr noundef r
   br i1 %204, label %205, label %.loopexit51
 
 205:                                              ; preds = %202
-  %.idx44 = mul i64 %3, 12
+  %.idx44 = mul nsw i64 %3, 12
   %206 = getelementptr inbounds i8, ptr %197, i64 %.idx44
   %.idx45 = shl nsw i64 %3, 3
   %207 = getelementptr inbounds i8, ptr %197, i64 %.idx45

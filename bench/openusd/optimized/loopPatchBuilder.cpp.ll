@@ -4212,7 +4212,7 @@ define linkonce_odr void @_ZNK10OpenSubdiv6v3_6_03Far19GregoryTriConverterIfE22r
 5:                                                ; preds = %2, %_ZNK10OpenSubdiv6v3_6_03Far19GregoryTriConverterIfE25getIrregularFacePointSizeEii.exit115
   %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next.pre-phi, %_ZNK10OpenSubdiv6v3_6_03Far19GregoryTriConverterIfE25getIrregularFacePointSizeEii.exit115 ]
   %.0123 = phi i32 [ 0, %2 ], [ %175, %_ZNK10OpenSubdiv6v3_6_03Far19GregoryTriConverterIfE25getIrregularFacePointSizeEii.exit115 ]
-  %.idx = mul nuw i64 %indvars.iv, 20
+  %.idx = mul nuw nsw i64 %indvars.iv, 20
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx
   %7 = getelementptr inbounds nuw [3 x %"struct.OpenSubdiv::v3_6_0::Far::GregoryTriConverter<float>::CornerTopology"], ptr %4, i64 0, i64 %indvars.iv
   %8 = load i16, ptr %7, align 8
@@ -9812,7 +9812,7 @@ define linkonce_odr void @_ZNK10OpenSubdiv6v3_6_03Far19GregoryTriConverterIdE22r
 5:                                                ; preds = %2, %_ZNK10OpenSubdiv6v3_6_03Far19GregoryTriConverterIdE25getIrregularFacePointSizeEii.exit115
   %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next.pre-phi, %_ZNK10OpenSubdiv6v3_6_03Far19GregoryTriConverterIdE25getIrregularFacePointSizeEii.exit115 ]
   %.0123 = phi i32 [ 0, %2 ], [ %175, %_ZNK10OpenSubdiv6v3_6_03Far19GregoryTriConverterIdE25getIrregularFacePointSizeEii.exit115 ]
-  %.idx = mul nuw i64 %indvars.iv, 20
+  %.idx = mul nuw nsw i64 %indvars.iv, 20
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx
   %7 = getelementptr inbounds nuw [3 x %"struct.OpenSubdiv::v3_6_0::Far::GregoryTriConverter<double>::CornerTopology"], ptr %4, i64 0, i64 %indvars.iv
   %8 = load i16, ptr %7, align 8

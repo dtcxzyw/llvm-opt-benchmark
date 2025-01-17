@@ -4525,7 +4525,7 @@ for.body:                                         ; preds = %for.body.preheader,
           to label %invoke.cont226 unwind label %lpad106.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 invoke.cont226:                                   ; preds = %for.body
-  %gep.idx = mul nuw i64 %indvars.iv, 12
+  %gep.idx = mul nuw nsw i64 %indvars.iv, 12
   %gep = getelementptr inbounds nuw i8, ptr %invariant.gep, i64 %gep.idx
   %66 = load float, ptr %gep, align 4
   %call232 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEf(ptr noundef nonnull align 8 dereferenceable(8) %call227, float noundef %66)
@@ -4633,7 +4633,7 @@ for.body297:                                      ; preds = %for.body297.prehead
           to label %invoke.cont298 unwind label %lpad106.loopexit.split-lp.loopexit.split-lp.loopexit
 
 invoke.cont298:                                   ; preds = %for.body297
-  %add.ptr.i254.idx = mul nuw i64 %indvars.iv505, 12
+  %add.ptr.i254.idx = mul nuw nsw i64 %indvars.iv505, 12
   %add.ptr.i254 = getelementptr inbounds nuw i8, ptr %onedData.sroa.0.0, i64 %add.ptr.i254.idx
   %71 = load float, ptr %add.ptr.i254, align 4
   %call305 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEf(ptr noundef nonnull align 8 dereferenceable(8) %call299, float noundef %71)
@@ -4670,7 +4670,7 @@ for.body318:                                      ; preds = %for.body318.prehead
           to label %invoke.cont319 unwind label %lpad106.loopexit.split-lp.loopexit
 
 invoke.cont319:                                   ; preds = %for.body318
-  %gep490.idx = mul nuw i64 %indvars.iv511, 12
+  %gep490.idx = mul nuw nsw i64 %indvars.iv511, 12
   %gep490 = getelementptr inbounds nuw i8, ptr %invariant.gep489, i64 %gep490.idx
   %72 = load float, ptr %gep490, align 4
   %call326 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEf(ptr noundef nonnull align 8 dereferenceable(8) %call320, float noundef %72)
@@ -4707,7 +4707,7 @@ for.body339:                                      ; preds = %for.body339.prehead
           to label %invoke.cont340 unwind label %lpad106.loopexit
 
 invoke.cont340:                                   ; preds = %for.body339
-  %gep494.idx = mul nuw i64 %indvars.iv517, 12
+  %gep494.idx = mul nuw nsw i64 %indvars.iv517, 12
   %gep494 = getelementptr inbounds nuw i8, ptr %invariant.gep493, i64 %gep494.idx
   %73 = load float, ptr %gep494, align 4
   %call347 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEf(ptr noundef nonnull align 8 dereferenceable(8) %call341, float noundef %73)

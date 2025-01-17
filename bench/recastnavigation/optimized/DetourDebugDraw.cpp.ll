@@ -456,7 +456,7 @@ define internal fastcc void @_ZL12drawMeshTileP11duDebugDrawRK9dtNavMeshPK14dtNa
 264:                                              ; preds = %.lr.ph198, %264
   %indvars.iv208 = phi i64 [ 0, %.lr.ph198 ], [ %indvars.iv.next209, %264 ]
   %265 = load ptr, ptr %263, align 8
-  %.idx218 = mul nuw i64 %indvars.iv208, 12
+  %.idx218 = mul nuw nsw i64 %indvars.iv208, 12
   %266 = getelementptr inbounds nuw i8, ptr %265, i64 %.idx218
   %267 = load float, ptr %266, align 4
   %268 = getelementptr inbounds nuw i8, ptr %266, i64 4
@@ -2560,7 +2560,7 @@ define void @_Z28duDebugDrawTileCachePolyMeshP11duDebugDrawRK19dtTileCachePolyMe
 301:                                              ; preds = %.lr.ph, %301
   %indvars.iv286 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next287, %301 ]
   %302 = load ptr, ptr %298, align 8
-  %.idx = mul nuw i64 %indvars.iv286, 6
+  %.idx = mul nuw nsw i64 %indvars.iv286, 6
   %303 = getelementptr inbounds nuw i8, ptr %302, i64 %.idx
   %304 = load float, ptr %2, align 4
   %305 = load i16, ptr %303, align 2

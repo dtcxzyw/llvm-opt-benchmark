@@ -765,7 +765,7 @@ _ZN2cv4Mat_IdEC2Eii.exit:                         ; preds = %112
   br i1 %exitcond196.not, label %._crit_edge, label %118, !llvm.loop !28
 
 ._crit_edge:                                      ; preds = %118
-  %.idx206 = mul nuw i64 %indvars.iv191, 72
+  %.idx206 = mul nuw nsw i64 %indvars.iv191, 72
   %123 = getelementptr inbounds nuw i8, ptr %117, i64 %.idx206
   %124 = load double, ptr %123, align 8
   %125 = fdiv double %122, %124
@@ -800,7 +800,7 @@ _ZN2cv4Mat_IdEC2Eii.exit:                         ; preds = %112
   br i1 %exitcond203.not, label %._crit_edge169, label %129, !llvm.loop !30
 
 ._crit_edge169:                                   ; preds = %129
-  %.idx209 = mul nuw i64 %indvars.iv198, 104
+  %.idx209 = mul nuw nsw i64 %indvars.iv198, 104
   %135 = getelementptr inbounds nuw i8, ptr %128, i64 %.idx209
   %136 = load double, ptr %135, align 8
   %137 = fdiv double %134, %136

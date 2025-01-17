@@ -1433,7 +1433,7 @@ _ZN2cv3dnn12cpu_baselineL20fast_gemm_pack12_f32EiiPKviiPv.exit.thread: ; preds =
   %.idx.i.us.i = shl nsw i64 %indvars.iv45.i.us.i, 5
   %invariant.gep58.i.us.i = getelementptr inbounds nuw i8, ptr %335, i64 %.idx.i.us.i
   %.idx57.i.us.i = mul nuw nsw i64 %indvars.iv45.i.us.i, 48
-  %invariant.gep.i.us.i = getelementptr i8, ptr %348, i64 %.idx57.i.us.i
+  %invariant.gep.i.us.i = getelementptr inbounds nuw i8, ptr %348, i64 %.idx57.i.us.i
   br label %349
 
 349:                                              ; preds = %358, %.preheader34.i.us.i
@@ -1445,7 +1445,7 @@ _ZN2cv3dnn12cpu_baselineL20fast_gemm_pack12_f32EiiPKviiPv.exit.thread: ; preds =
 
 352:                                              ; preds = %352, %349
   %indvars.iv.i.us.i = phi i64 [ 0, %349 ], [ %indvars.iv.next.i.us.i, %352 ]
-  %gep.i.us.i = getelementptr float, ptr %invariant.gep.i.us.i, i64 %indvars.iv.i.us.i
+  %gep.i.us.i = getelementptr inbounds nuw float, ptr %invariant.gep.i.us.i, i64 %indvars.iv.i.us.i
   %353 = load float, ptr %gep.i.us.i, align 4
   %354 = add nuw nsw i64 %indvars.iv.i.us.i, %351
   %355 = getelementptr inbounds nuw [96 x float], ptr %2, i64 0, i64 %354
@@ -2179,7 +2179,7 @@ _ZN2cv3dnn12cpu_baselineL19fast_gemm_pack8_f32EiiPKviiPv.exit: ; preds = %.loope
   %.idx.i.us.i = shl nsw i64 %indvars.iv45.i.us.i, 5
   %invariant.gep58.i.us.i = getelementptr inbounds nuw i8, ptr %224, i64 %.idx.i.us.i
   %.idx57.i.us.i = mul nuw nsw i64 %indvars.iv45.i.us.i, 48
-  %invariant.gep.i.us.i = getelementptr i8, ptr %237, i64 %.idx57.i.us.i
+  %invariant.gep.i.us.i = getelementptr inbounds nuw i8, ptr %237, i64 %.idx57.i.us.i
   br label %238
 
 238:                                              ; preds = %247, %.preheader34.i.us.i
@@ -2191,7 +2191,7 @@ _ZN2cv3dnn12cpu_baselineL19fast_gemm_pack8_f32EiiPKviiPv.exit: ; preds = %.loope
 
 241:                                              ; preds = %241, %238
   %indvars.iv.i.us.i = phi i64 [ 0, %238 ], [ %indvars.iv.next.i.us.i, %241 ]
-  %gep.i.us.i = getelementptr float, ptr %invariant.gep.i.us.i, i64 %indvars.iv.i.us.i
+  %gep.i.us.i = getelementptr inbounds nuw float, ptr %invariant.gep.i.us.i, i64 %indvars.iv.i.us.i
   %242 = load float, ptr %gep.i.us.i, align 4
   %243 = add nuw nsw i64 %indvars.iv.i.us.i, %240
   %244 = getelementptr inbounds nuw [96 x float], ptr %2, i64 0, i64 %243
@@ -6105,7 +6105,7 @@ _ZN2cv3dnn12cpu_baselineL20fast_gemm_pack12_f32EiiPKviiPv.exit.thread: ; preds =
   %.idx.i.us.i = shl nsw i64 %indvars.iv45.i.us.i, 5
   %invariant.gep58.i.us.i = getelementptr inbounds nuw i8, ptr %363, i64 %.idx.i.us.i
   %.idx57.i.us.i = mul nuw nsw i64 %indvars.iv45.i.us.i, 48
-  %invariant.gep.i.us.i = getelementptr i8, ptr %376, i64 %.idx57.i.us.i
+  %invariant.gep.i.us.i = getelementptr inbounds nuw i8, ptr %376, i64 %.idx57.i.us.i
   br label %377
 
 377:                                              ; preds = %386, %.preheader34.i.us.i
@@ -6117,7 +6117,7 @@ _ZN2cv3dnn12cpu_baselineL20fast_gemm_pack12_f32EiiPKviiPv.exit.thread: ; preds =
 
 380:                                              ; preds = %380, %377
   %indvars.iv.i.us.i = phi i64 [ 0, %377 ], [ %indvars.iv.next.i.us.i, %380 ]
-  %gep.i.us.i = getelementptr float, ptr %invariant.gep.i.us.i, i64 %indvars.iv.i.us.i
+  %gep.i.us.i = getelementptr inbounds nuw float, ptr %invariant.gep.i.us.i, i64 %indvars.iv.i.us.i
   %381 = load float, ptr %gep.i.us.i, align 4
   %382 = add nuw nsw i64 %indvars.iv.i.us.i, %379
   %383 = getelementptr inbounds nuw [96 x float], ptr %2, i64 0, i64 %382
@@ -6755,7 +6755,7 @@ _ZN2cv3dnn12cpu_baselineL19fast_gemm_pack8_f32EiiPKviiPv.exit: ; preds = %.loope
   %.idx.i.us.i = shl nsw i64 %indvars.iv45.i.us.i, 5
   %invariant.gep58.i.us.i = getelementptr inbounds nuw i8, ptr %252, i64 %.idx.i.us.i
   %.idx57.i.us.i = mul nuw nsw i64 %indvars.iv45.i.us.i, 48
-  %invariant.gep.i.us.i = getelementptr i8, ptr %265, i64 %.idx57.i.us.i
+  %invariant.gep.i.us.i = getelementptr inbounds nuw i8, ptr %265, i64 %.idx57.i.us.i
   br label %266
 
 266:                                              ; preds = %275, %.preheader34.i.us.i
@@ -6767,7 +6767,7 @@ _ZN2cv3dnn12cpu_baselineL19fast_gemm_pack8_f32EiiPKviiPv.exit: ; preds = %.loope
 
 269:                                              ; preds = %269, %266
   %indvars.iv.i.us.i = phi i64 [ 0, %266 ], [ %indvars.iv.next.i.us.i, %269 ]
-  %gep.i.us.i = getelementptr float, ptr %invariant.gep.i.us.i, i64 %indvars.iv.i.us.i
+  %gep.i.us.i = getelementptr inbounds nuw float, ptr %invariant.gep.i.us.i, i64 %indvars.iv.i.us.i
   %270 = load float, ptr %gep.i.us.i, align 4
   %271 = add nuw nsw i64 %indvars.iv.i.us.i, %268
   %272 = getelementptr inbounds nuw [96 x float], ptr %2, i64 0, i64 %271

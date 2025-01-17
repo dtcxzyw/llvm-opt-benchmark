@@ -2286,7 +2286,7 @@ _ZN8LightGBM9TcpSocket5CloseEv.exit:              ; preds = %138, %139
   %156 = getelementptr inbounds %"class.std::unique_ptr", ptr %155, i64 %99
   %157 = load ptr, ptr %156, align 8
   %158 = load i32, ptr %61, align 8
-  %159 = mul i32 %158, 60000
+  %159 = mul nsw i32 %158, 60000
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
   store i32 %159, ptr %3, align 4
   %160 = load i32, ptr %157, align 4
@@ -5509,7 +5509,7 @@ _ZNSt10unique_ptrIN8LightGBM9TcpSocketESt14default_deleteIS1_EE5resetEPS1_.exit:
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 264
   %16 = load i32, ptr %15, align 8
-  %17 = mul i32 %16, 60000
+  %17 = mul nsw i32 %16, 60000
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
   store i32 %17, ptr %4, align 4
   %18 = load i32, ptr %14, align 4
@@ -5623,7 +5623,7 @@ _ZNKSt14default_deleteIN8LightGBM9TcpSocketEEclEPS1_.exit.i.i.i: ; preds = %_ZN8
   %44 = getelementptr inbounds %"class.std::unique_ptr", ptr %43, i64 %35
   %45 = load ptr, ptr %44, align 8
   %46 = load i32, ptr %9, align 8
-  %47 = mul i32 %46, 60000
+  %47 = mul nsw i32 %46, 60000
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
   store i32 %47, ptr %3, align 4
   %48 = load i32, ptr %45, align 4

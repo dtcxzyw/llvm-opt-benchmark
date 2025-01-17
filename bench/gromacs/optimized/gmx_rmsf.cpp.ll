@@ -772,8 +772,8 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit267:       ; preds = %261, %264
   %294 = load i32, ptr %293, align 4
   %295 = sext i32 %294 to i64
   %296 = getelementptr inbounds nuw ptr, ptr %172, i64 %indvars.iv498
-  %.idx = mul i64 %indvars.iv498, 24
-  %invariant.gep = getelementptr i8, ptr %169, i64 %.idx
+  %.idx = mul nuw nsw i64 %indvars.iv498, 24
+  %invariant.gep = getelementptr inbounds nuw i8, ptr %169, i64 %.idx
   br label %297
 
 297:                                              ; preds = %.lr.ph432, %317
@@ -782,11 +782,11 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit267:       ; preds = %261, %264
   %299 = getelementptr inbounds [3 x float], ptr %298, i64 %295, i64 %indvars.iv494
   %300 = load float, ptr %299, align 4
   %301 = fpext float %300 to double
-  %gep = getelementptr double, ptr %invariant.gep, i64 %indvars.iv494
+  %gep = getelementptr inbounds nuw double, ptr %invariant.gep, i64 %indvars.iv494
   %302 = load double, ptr %gep, align 8
   %303 = fadd double %302, %301
   store double %303, ptr %gep, align 8
-  %.idx615 = mul i64 %indvars.iv494, 24
+  %.idx615 = mul nuw nsw i64 %indvars.iv494, 24
   br label %304
 
 304:                                              ; preds = %297, %304
@@ -800,7 +800,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit267:       ; preds = %261, %264
   %311 = fpext float %310 to double
   %312 = load ptr, ptr %296, align 8
   %313 = getelementptr inbounds nuw double, ptr %312, i64 %indvars.iv491
-  %314 = getelementptr inbounds i8, ptr %313, i64 %.idx615
+  %314 = getelementptr inbounds nuw i8, ptr %313, i64 %.idx615
   %315 = load double, ptr %314, align 8
   %316 = fadd double %315, %311
   store double %316, ptr %314, align 8
@@ -2078,8 +2078,8 @@ _ZL13gmx_snew_implIA3_fEvPKcS2_iRPT_m.exit313.preheader: ; preds = %883
 
 .preheader:                                       ; preds = %_ZL13gmx_snew_implIA3_fEvPKcS2_iRPT_m.exit313.preheader, %_ZL13gmx_snew_implIA3_fEvPKcS2_iRPT_m.exit313
   %indvars.iv567 = phi i64 [ %indvars.iv.next568, %_ZL13gmx_snew_implIA3_fEvPKcS2_iRPT_m.exit313 ], [ 0, %_ZL13gmx_snew_implIA3_fEvPKcS2_iRPT_m.exit313.preheader ]
-  %.idx616 = mul i64 %indvars.iv567, 24
-  %invariant.gep632 = getelementptr i8, ptr %169, i64 %.idx616
+  %.idx616 = mul nuw nsw i64 %indvars.iv567, 24
+  %invariant.gep632 = getelementptr inbounds nuw i8, ptr %169, i64 %.idx616
   br label %889
 
 889:                                              ; preds = %.preheader, %889
@@ -2087,7 +2087,7 @@ _ZL13gmx_snew_implIA3_fEvPKcS2_iRPT_m.exit313.preheader: ; preds = %883
   %890 = getelementptr inbounds nuw [3 x float], ptr %29, i64 0, i64 %indvars.iv563
   %891 = load float, ptr %890, align 4
   %892 = fpext float %891 to double
-  %gep633 = getelementptr double, ptr %invariant.gep632, i64 %indvars.iv563
+  %gep633 = getelementptr inbounds nuw double, ptr %invariant.gep632, i64 %indvars.iv563
   %893 = load double, ptr %gep633, align 8
   %894 = fadd double %893, %892
   %895 = fptrunc double %894 to float
@@ -2738,13 +2738,13 @@ define internal fastcc void @_ZL9print_dirP8_IO_FILEPf(ptr nocapture noundef %0,
   %8 = trunc i64 %indvars.iv37 to i32
   %9 = or i32 %8, 88
   %10 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.71, i32 noundef %9) #17
-  %invariant.gep = getelementptr float, ptr %1, i64 %indvars.iv37
+  %invariant.gep = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv37
   br label %11
 
 11:                                               ; preds = %7, %11
   %indvars.iv = phi i64 [ 0, %7 ], [ %indvars.iv.next, %11 ]
-  %.idx = mul i64 %indvars.iv, 12
-  %gep = getelementptr i8, ptr %invariant.gep, i64 %.idx
+  %.idx = mul nuw nsw i64 %indvars.iv, 12
+  %gep = getelementptr inbounds nuw i8, ptr %invariant.gep, i64 %.idx
   %12 = load float, ptr %gep, align 4
   %13 = fpext float %12 to double
   %14 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.72, double noundef %13) #17

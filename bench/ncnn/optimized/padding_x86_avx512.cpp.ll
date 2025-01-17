@@ -4979,7 +4979,7 @@ define internal fastcc void @_ZN4ncnnL29padding_reflect_pack16_avx512ERKNS_3MatE
 23:                                               ; preds = %.lr.ph20.us, %23
   %indvars.iv129 = phi i64 [ 0, %.lr.ph20.us ], [ %indvars.iv.next130, %23 ]
   %.312919.us = phi ptr [ %.2128.lcssa.us, %.lr.ph20.us ], [ %26, %23 ]
-  %.idx159 = mul i64 %indvars.iv129, -64
+  %.idx159 = mul nsw i64 %indvars.iv129, -64
   %24 = getelementptr inbounds i8, ptr %41, i64 %.idx159
   %25 = load <16 x float>, ptr %24, align 64
   store <16 x float> %25, ptr %.312919.us, align 64
@@ -5047,7 +5047,7 @@ define internal fastcc void @_ZN4ncnnL29padding_reflect_pack16_avx512ERKNS_3MatE
 44:                                               ; preds = %.preheader7.us38, %44
   %indvars.iv = phi i64 [ 0, %.preheader7.us38 ], [ %indvars.iv.next, %44 ]
   %.312919.us33 = phi ptr [ %.2128.lcssa.us40, %.preheader7.us38 ], [ %47, %44 ]
-  %.idx = mul i64 %indvars.iv, -64
+  %.idx = mul nsw i64 %indvars.iv, -64
   %45 = getelementptr inbounds i8, ptr %54, i64 %.idx
   %46 = load <16 x float>, ptr %45, align 64
   store <16 x float> %46, ptr %.312919.us33, align 64
@@ -5200,7 +5200,7 @@ define internal fastcc void @_ZN4ncnnL29padding_reflect_pack16_avx512ERKNS_3MatE
 104:                                              ; preds = %.lr.ph72, %104
   %indvars.iv140 = phi i64 [ 0, %.lr.ph72 ], [ %indvars.iv.next141, %104 ]
   %.771 = phi ptr [ %.6.lcssa, %.lr.ph72 ], [ %107, %104 ]
-  %.idx161 = mul i64 %indvars.iv140, -64
+  %.idx161 = mul nsw i64 %indvars.iv140, -64
   %105 = getelementptr inbounds i8, ptr %97, i64 %.idx161
   %106 = load <16 x float>, ptr %105, align 64
   store <16 x float> %106, ptr %.771, align 64
@@ -5291,7 +5291,7 @@ define internal fastcc void @_ZN4ncnnL29padding_reflect_pack16_avx512ERKNS_3MatE
 135:                                              ; preds = %.lr.ph92, %135
   %indvars.iv150 = phi i64 [ 0, %.lr.ph92 ], [ %indvars.iv.next151, %135 ]
   %.1190 = phi ptr [ %.10.lcssa, %.lr.ph92 ], [ %138, %135 ]
-  %.idx163 = mul i64 %indvars.iv150, -64
+  %.idx163 = mul nsw i64 %indvars.iv150, -64
   %136 = getelementptr inbounds i8, ptr %128, i64 %.idx163
   %137 = load <16 x float>, ptr %136, align 64
   store <16 x float> %137, ptr %.1190, align 64

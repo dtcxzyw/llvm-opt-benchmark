@@ -657,7 +657,7 @@ define hidden void @_ZN12DCmdArgumentI16NanoTimeArgumentE11parse_valueEPKcmP10Ja
 
 45:                                               ; preds = %43
   %46 = load i64, ptr %10, align 8
-  %47 = mul i64 %46, 1000000
+  %47 = mul nsw i64 %46, 1000000
   store i64 %47, ptr %9, align 8
   br label %63
 
@@ -672,25 +672,25 @@ define hidden void @_ZN12DCmdArgumentI16NanoTimeArgumentE11parse_valueEPKcmP10Ja
 
 49:                                               ; preds = %48
   %50 = load i64, ptr %10, align 8
-  %51 = mul i64 %50, 1000000000
+  %51 = mul nsw i64 %50, 1000000000
   store i64 %51, ptr %9, align 8
   br label %63
 
 52:                                               ; preds = %48
   %53 = load i64, ptr %10, align 8
-  %54 = mul i64 %53, 60000000000
+  %54 = mul nsw i64 %53, 60000000000
   store i64 %54, ptr %9, align 8
   br label %63
 
 55:                                               ; preds = %48
   %56 = load i64, ptr %10, align 8
-  %57 = mul i64 %56, 3600000000000
+  %57 = mul nsw i64 %56, 3600000000000
   store i64 %57, ptr %9, align 8
   br label %63
 
 58:                                               ; preds = %48
   %59 = load i64, ptr %10, align 8
-  %60 = mul i64 %59, 86400000000000
+  %60 = mul nsw i64 %59, 86400000000000
   store i64 %60, ptr %9, align 8
   br label %63
 

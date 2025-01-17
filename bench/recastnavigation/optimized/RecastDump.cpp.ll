@@ -123,7 +123,7 @@ define noundef zeroext i1 @_Z19duDumpPolyMeshToObjR10rcPolyMeshP8duFileIO(ptr no
 21:                                               ; preds = %.lr.ph, %21
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %21 ]
   %22 = load ptr, ptr %0, align 8
-  %.idx = mul nuw i64 %indvars.iv, 6
+  %.idx = mul nuw nsw i64 %indvars.iv, 6
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 %.idx
   %24 = load float, ptr %15, align 8
   %25 = load i16, ptr %23, align 2
@@ -273,7 +273,7 @@ define noundef zeroext i1 @_Z25duDumpPolyMeshDetailToObjR16rcPolyMeshDetailP8duF
 13:                                               ; preds = %.lr.ph, %13
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %13 ]
   %14 = load ptr, ptr %12, align 8
-  %.idx = mul nuw i64 %indvars.iv, 12
+  %.idx = mul nuw nsw i64 %indvars.iv, 12
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 %.idx
   %16 = load float, ptr %15, align 4
   %17 = fpext float %16 to double

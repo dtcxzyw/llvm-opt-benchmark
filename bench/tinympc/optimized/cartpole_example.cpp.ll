@@ -1170,7 +1170,7 @@ thread-pre-split.i.i.i.i.i.i:                     ; preds = %14
   %29 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %.idx.i.i.i.i.i.i.i.i.i.i.i.i = shl nsw i64 %22, 4
   %30 = getelementptr inbounds nuw i8, ptr %20, i64 16
-  %.idx.i.i.i.i.i.i.i.i.i.i.i = mul i64 %22, 24
+  %.idx.i.i.i.i.i.i.i.i.i.i.i = mul nsw i64 %22, 24
   br label %.lr.ph.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i:                             ; preds = %.lr.ph.i.i.i.i.i.i.i, %.lr.ph.i.preheader.i.i.i.i.i.i

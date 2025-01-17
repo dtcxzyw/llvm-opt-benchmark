@@ -899,7 +899,7 @@ define linkonce_odr hidden noundef i32 @_ZNK2cv4usac32FundamentalMinimalSolver7p
   br i1 %exitcond182.not, label %._crit_edge, label %.lr.ph, !llvm.loop !42
 
 ._crit_edge:                                      ; preds = %.lr.ph
-  %.idx196 = mul nuw i64 %indvars.iv177, 80
+  %.idx196 = mul nuw nsw i64 %indvars.iv177, 80
   %98 = getelementptr inbounds nuw i8, ptr %74, i64 %.idx196
   %99 = load double, ptr %98, align 8
   %100 = fdiv double %94, %99
@@ -1578,7 +1578,7 @@ _ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit:          ; preds = %_ZSt8_DestroyIPN2cv
   br label %99
 
 ._crit_edge:                                      ; preds = %84
-  %.idx106 = mul nuw i64 %indvars.iv99, 80
+  %.idx106 = mul nuw nsw i64 %indvars.iv99, 80
   %92 = getelementptr inbounds nuw i8, ptr %83, i64 %.idx106
   %93 = load double, ptr %92, align 8
   %94 = fdiv double %89, %93
@@ -2489,18 +2489,18 @@ define linkonce_odr hidden noundef i32 @_ZNK2cv4usac28EpipolarNonMinimalSolverIm
 
 .preheader420:                                    ; preds = %.preheader420.preheader, %200
   %indvars.iv530 = phi i64 [ %indvars.iv.next531, %200 ], [ 1, %.preheader420.preheader ]
-  %.idx543 = mul i64 %indvars.iv530, 72
+  %.idx543 = mul nuw nsw i64 %indvars.iv530, 72
   br label %193
 
 193:                                              ; preds = %.preheader420, %193
   %indvars.iv525 = phi i64 [ 0, %.preheader420 ], [ %indvars.iv.next526, %193 ]
   %194 = load ptr, ptr %12, align 8
-  %.idx = mul i64 %indvars.iv525, 72
-  %195 = getelementptr inbounds i8, ptr %194, i64 %.idx
+  %.idx = mul nuw nsw i64 %indvars.iv525, 72
+  %195 = getelementptr inbounds nuw i8, ptr %194, i64 %.idx
   %196 = getelementptr inbounds nuw double, ptr %195, i64 %indvars.iv530
   %197 = load double, ptr %196, align 8
   %198 = getelementptr inbounds nuw double, ptr %194, i64 %indvars.iv525
-  %199 = getelementptr inbounds i8, ptr %198, i64 %.idx543
+  %199 = getelementptr inbounds nuw i8, ptr %198, i64 %.idx543
   store double %197, ptr %199, align 8
   %indvars.iv.next526 = add nuw nsw i64 %indvars.iv525, 1
   %exitcond529.not = icmp eq i64 %indvars.iv.next526, %indvars.iv530
@@ -2640,7 +2640,7 @@ _ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit:          ; preds = %_ZSt8_DestroyIPN2cv
   br label %247
 
 ._crit_edge:                                      ; preds = %229
-  %.idx545 = mul nuw i64 %indvars.iv534, 80
+  %.idx545 = mul nuw nsw i64 %indvars.iv534, 80
   %239 = getelementptr inbounds nuw i8, ptr %228, i64 %.idx545
   %240 = load double, ptr %239, align 8
   %241 = fdiv double %234, %240

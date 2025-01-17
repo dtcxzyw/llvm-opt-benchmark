@@ -5148,8 +5148,8 @@ _ZN7QStringD2Ev.exit82:                           ; preds = %50, %_ZN9QtPrivate8
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %123
   %indvars.iv125 = phi i64 [ 0, %.preheader.lr.ph ], [ %indvars.iv.next126, %123 ]
-  %.idx = mul i64 %indvars.iv125, 12
-  %invariant.gep128 = getelementptr i8, ptr %91, i64 %.idx
+  %.idx = mul nuw nsw i64 %indvars.iv125, 12
+  %invariant.gep128 = getelementptr inbounds nuw i8, ptr %91, i64 %.idx
   br label %113
 
 113:                                              ; preds = %.preheader, %113
@@ -5163,7 +5163,7 @@ _ZN7QStringD2Ev.exit82:                           ; preds = %50, %_ZN9QtPrivate8
   %120 = sub i64 %118, %119
   %121 = sdiv exact i64 %120, 48
   %122 = trunc i64 %121 to i32
-  %gep129 = getelementptr i32, ptr %invariant.gep128, i64 %indvars.iv122
+  %gep129 = getelementptr inbounds nuw i32, ptr %invariant.gep128, i64 %indvars.iv122
   store i32 %122, ptr %gep129, align 4
   %indvars.iv.next123 = add nuw nsw i64 %indvars.iv122, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next123, 3
@@ -7884,8 +7884,8 @@ define void @_ZN18FilterMutualGlobal9CalcPairsER12MeshDocumentb(ptr dead_on_unwi
 
 .preheader314:                                    ; preds = %.preheader314.lr.ph, %83
   %indvars.iv449 = phi i64 [ 0, %.preheader314.lr.ph ], [ %indvars.iv.next450, %83 ]
-  %.idx = mul i64 %indvars.iv449, 12
-  %invariant.gep = getelementptr i8, ptr %47, i64 %.idx
+  %.idx = mul nuw nsw i64 %indvars.iv449, 12
+  %invariant.gep = getelementptr inbounds nuw i8, ptr %47, i64 %.idx
   br label %73
 
 73:                                               ; preds = %.preheader314, %73
@@ -7899,7 +7899,7 @@ define void @_ZN18FilterMutualGlobal9CalcPairsER12MeshDocumentb(ptr dead_on_unwi
   %80 = sub i64 %78, %79
   %81 = sdiv exact i64 %80, 48
   %82 = trunc i64 %81 to i32
-  %gep481 = getelementptr i32, ptr %invariant.gep, i64 %indvars.iv446
+  %gep481 = getelementptr inbounds nuw i32, ptr %invariant.gep, i64 %indvars.iv446
   store i32 %82, ptr %gep481, align 4
   %indvars.iv.next447 = add nuw nsw i64 %indvars.iv446, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next447, 3
@@ -13191,8 +13191,8 @@ _ZNSt6vectorIfSaIfEE9push_backERKf.exit173:       ; preds = %._crit_edge, %_ZNSt
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %459
   %indvars.iv292 = phi i64 [ 0, %.preheader.lr.ph ], [ %indvars.iv.next293, %459 ]
-  %.idx = mul i64 %indvars.iv292, 12
-  %invariant.gep = getelementptr i8, ptr %435, i64 %.idx
+  %.idx = mul nuw nsw i64 %indvars.iv292, 12
+  %invariant.gep = getelementptr inbounds nuw i8, ptr %435, i64 %.idx
   br label %452
 
 452:                                              ; preds = %.preheader, %452
@@ -13203,7 +13203,7 @@ _ZNSt6vectorIfSaIfEE9push_backERKf.exit173:       ; preds = %._crit_edge, %_ZNSt
   %456 = sub i64 %455, %441
   %457 = sdiv exact i64 %456, 48
   %458 = trunc i64 %457 to i32
-  %gep = getelementptr i32, ptr %invariant.gep, i64 %indvars.iv289
+  %gep = getelementptr inbounds nuw i32, ptr %invariant.gep, i64 %indvars.iv289
   store i32 %458, ptr %gep, align 4
   %indvars.iv.next290 = add nuw nsw i64 %indvars.iv289, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next290, 3
@@ -13531,8 +13531,8 @@ define noundef zeroext i1 @_ZN18FilterMutualGlobal11UpdateGraphER12MeshDocument8
 
 .preheader71:                                     ; preds = %.preheader71.lr.ph, %73
   %indvars.iv93 = phi i64 [ 0, %.preheader71.lr.ph ], [ %indvars.iv.next94, %73 ]
-  %.idx = mul i64 %indvars.iv93, 12
-  %invariant.gep = getelementptr i8, ptr %38, i64 %.idx
+  %.idx = mul nuw nsw i64 %indvars.iv93, 12
+  %invariant.gep = getelementptr inbounds nuw i8, ptr %38, i64 %.idx
   br label %63
 
 63:                                               ; preds = %.preheader71, %63
@@ -13546,7 +13546,7 @@ define noundef zeroext i1 @_ZN18FilterMutualGlobal11UpdateGraphER12MeshDocument8
   %70 = sub i64 %68, %69
   %71 = sdiv exact i64 %70, 48
   %72 = trunc i64 %71 to i32
-  %gep = getelementptr i32, ptr %invariant.gep, i64 %indvars.iv90
+  %gep = getelementptr inbounds nuw i32, ptr %invariant.gep, i64 %indvars.iv90
   store i32 %72, ptr %gep, align 4
   %indvars.iv.next91 = add nuw nsw i64 %indvars.iv90, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next91, 3

@@ -27723,9 +27723,9 @@ _ZN5Eigen14JacobiRotationIdE10makeGivensERKdS3_Pd.exit.i: ; preds = %96, %87, %8
   br i1 %or.cond.not18.i.i.i, label %.lr.ph.i.i.preheader.i.i, label %_ZN5Eigen10MatrixBaseINS_3MapINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi0ENS_6StrideILi0ELi0EEEEEE15applyOnTheRightIdEEvllRKNS_14JacobiRotationIT_EE.exit.i
 
 .lr.ph.i.i.preheader.i.i:                         ; preds = %146
-  %.idx = mul nuw i64 %111, 24
+  %.idx = mul nuw nsw i64 %111, 24
   %150 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx
-  %.idx92 = mul nuw i64 %.074110.i, 24
+  %.idx92 = mul nuw nsw i64 %.074110.i, 24
   %151 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx92
   br label %.lr.ph.i.i.i.i
 
@@ -27797,8 +27797,8 @@ _ZNK5Eigen9DenseBaseINS_5BlockINS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEELin1ELi1ELb0EEE
   store double %166, ptr %176, align 8
   %.idx.i.i.i.i.us = mul nuw nsw i64 %.0102.us, 24
   %178 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx.i.i.i.i.us
-  %.idx.i.i.i.i78.us = mul i64 %175, 24
-  %179 = getelementptr inbounds i8, ptr %4, i64 %.idx.i.i.i.i78.us
+  %.idx.i.i.i.i78.us = mul nuw nsw i64 %175, 24
+  %179 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx.i.i.i.i78.us
   %180 = load <2 x double>, ptr %179, align 8
   %181 = load <2 x double>, ptr %178, align 8
   store <2 x double> %181, ptr %179, align 8

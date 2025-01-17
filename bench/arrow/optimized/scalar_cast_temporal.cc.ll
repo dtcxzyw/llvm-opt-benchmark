@@ -49161,11 +49161,11 @@ sw.bb1.i.i.i:                                     ; preds = %if.then8.i
   br label %_ZN5arrow8internalL21ParseTimestampISO8601EPKcmNS_8TimeUnit4typeEPlPb.exit
 
 sw.bb2.i.i.i:                                     ; preds = %if.then8.i
-  %mul.i.i.i7.i.i.i = mul i64 %conv.i.i.i.i, 86400000000
+  %mul.i.i.i7.i.i.i = mul nsw i64 %conv.i.i.i.i, 86400000000
   br label %_ZN5arrow8internalL21ParseTimestampISO8601EPKcmNS_8TimeUnit4typeEPlPb.exit
 
 sw.bb6.i.i.i:                                     ; preds = %if.then8.i
-  %mul.i.i.i8.i.i.i = mul i64 %conv.i.i.i.i, 86400000000000
+  %mul.i.i.i8.i.i.i = mul nsw i64 %conv.i.i.i.i, 86400000000000
   br label %_ZN5arrow8internalL21ParseTimestampISO8601EPKcmNS_8TimeUnit4typeEPlPb.exit
 
 if.end11.i:                                       ; preds = %if.end6.i

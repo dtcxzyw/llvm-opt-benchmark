@@ -25880,8 +25880,8 @@ invoke.cont60:                                    ; preds = %invoke.cont35
 
 for.cond66.preheader:                             ; preds = %invoke.cont60
   %19 = trunc nuw nsw i64 %indvars.iv120 to i32
-  %arrayidx.i43.idx = mul i64 %indvars.iv120, 12
-  %invariant.gep129 = getelementptr i8, ptr %call.i29, i64 %arrayidx.i43.idx
+  %arrayidx.i43.idx = mul nuw nsw i64 %indvars.iv120, 12
+  %invariant.gep129 = getelementptr inbounds nuw i8, ptr %call.i29, i64 %arrayidx.i43.idx
   br label %invoke.cont72
 
 if.then63:                                        ; preds = %invoke.cont60
@@ -26068,7 +26068,7 @@ sw.bb22.i:                                        ; preds = %if.end.i
 invoke.cont76:                                    ; preds = %sw.bb22.i, %_ZNK4pbrt4HalfcvfEv.exit.i, %_ZNK4pbrt13ColorEncoding8ToLinearEN4pstd4spanIKhEENS2_IfEE.exit.i, %call.i38.noexc
   %retval.0.i = phi float [ %43, %sw.bb22.i ], [ %39, %_ZNK4pbrt4HalfcvfEv.exit.i ], [ %32, %_ZNK4pbrt13ColorEncoding8ToLinearEN4pstd4spanIKhEENS2_IfEE.exit.i ], [ 0.000000e+00, %call.i38.noexc ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %r.i)
-  %gep130 = getelementptr float, ptr %invariant.gep129, i64 %indvars.iv
+  %gep130 = getelementptr inbounds nuw float, ptr %invariant.gep129, i64 %indvars.iv
   store float %retval.0.i, ptr %gep130, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3

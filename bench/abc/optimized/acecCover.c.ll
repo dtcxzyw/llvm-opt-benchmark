@@ -958,7 +958,7 @@ define void @Gia_AcecCover(ptr noundef %0) local_unnamed_addr #1 {
 12:                                               ; preds = %.lr.ph, %12
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %12 ]
   %.val22 = load ptr, ptr %6, align 8
-  %.idx = mul nuw i64 %indvars.iv, 20
+  %.idx = mul nuw nsw i64 %indvars.iv, 20
   %13 = getelementptr inbounds nuw i8, ptr %.val22, i64 %.idx
   %14 = load i32, ptr %13, align 4
   %.val11.i = load ptr, ptr %7, align 8

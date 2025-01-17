@@ -1604,7 +1604,7 @@ _ZNK2cv3Mat2atIhEERKT_i.exit:                     ; preds = %113, %126, %129
   br i1 %.not40, label %203, label %.thread
 
 .thread:                                          ; preds = %_ZNSt3mapIiiSt4lessIiESaISt4pairIKiiEEE11upper_boundERS3_.exit, %_ZNK2cv3Mat2atIhEERKT_i.exit
-  %.idx = mul nuw i64 %indvars.iv, 1028
+  %.idx = mul nuw nsw i64 %indvars.iv, 1028
   %134 = getelementptr inbounds nuw i8, ptr %52, i64 %.idx
   br label %135
 
@@ -2305,7 +2305,7 @@ _ZNK2cv3Mat2atIhEERKT_i.exit:                     ; preds = %89, %83, %76
   br i1 %.not40, label %174, label %103
 
 103:                                              ; preds = %_ZNK2cv3Mat2atIhEERKT_i.exit, %65
-  %.idx = mul nuw i64 %indvars.iv, 1028
+  %.idx = mul nuw nsw i64 %indvars.iv, 1028
   %104 = getelementptr inbounds nuw i8, ptr %51, i64 %.idx
   br label %105
 
@@ -2839,7 +2839,7 @@ _ZNSt16allocator_traitsISaISt6vectorIN2cv6DMatchESaIS2_EEEE9constructIS4_JRKS4_E
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit
 
 138:                                              ; preds = %_ZNK2cv3Mat2atIhEERKT_i.exit, %74
-  %.idx = mul nuw i64 %indvars.iv150, 1028
+  %.idx = mul nuw nsw i64 %indvars.iv150, 1028
   %139 = getelementptr inbounds nuw i8, ptr %56, i64 %.idx
   br i1 %69, label %.lr.ph22.i, label %._crit_edge
 
@@ -3309,7 +3309,7 @@ define void @_ZN2cv15line_descriptor23BinaryDescriptorMatcher8knnMatchERKNS_3Mat
   br i1 %64, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %73
-  %.idx = mul nuw i64 %indvars.iv159, 1028
+  %.idx = mul nuw nsw i64 %indvars.iv159, 1028
   %75 = getelementptr inbounds nuw i8, ptr %56, i64 %.idx
   %76 = sext i32 %.049142 to i64
   %77 = sext i32 %74 to i64
@@ -3927,7 +3927,7 @@ define void @_ZNK2cv15line_descriptor23BinaryDescriptorMatcher11radiusMatchERKNS
   %indvars.iv130 = phi i64 [ 0, %.lr.ph117 ], [ %indvars.iv.next131, %_ZNSt6vectorIiSaIiEED2Ev.exit ]
   %.052115 = phi i32 [ 0, %.lr.ph117 ], [ %223, %_ZNSt6vectorIiSaIiEED2Ev.exit ]
   %73 = load i32, ptr %14, align 8
-  %.idx = mul nuw i64 %indvars.iv130, 1028
+  %.idx = mul nuw nsw i64 %indvars.iv130, 1028
   %74 = getelementptr inbounds nuw i8, ptr %58, i64 %.idx
   %75 = icmp sgt i32 %73, 0
   br i1 %75, label %.lr.ph22.i, label %_ZNK2cv15line_descriptor23BinaryDescriptorMatcher15checkKDistancesEPjiRSt6vectorIiSaIiEEii.exit.thread
@@ -4501,7 +4501,7 @@ define void @_ZN2cv15line_descriptor23BinaryDescriptorMatcher11radiusMatchERKNS_
   br i1 %.not102128, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %74
-  %.idx = mul nuw i64 %indvars.iv149, 1028
+  %.idx = mul nuw nsw i64 %indvars.iv149, 1028
   %76 = getelementptr inbounds nuw i8, ptr %58, i64 %.idx
   %77 = sext i32 %.048134 to i64
   %sext = shl i64 %indvars.iv149, 32

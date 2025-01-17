@@ -10244,7 +10244,7 @@ define internal fastcc noundef range(i32 -1, 1) i32 @_ZL16do_cpte_matricesI17Sta
   %.069 = phi ptr [ %29, %27 ], [ null, %33 ], [ null, %30 ]
   %.054.in.sroa.speculated = phi ptr [ %29, %27 ], [ %35, %33 ], [ %31, %30 ]
   %37 = load i32, ptr %8, align 4
-  %38 = mul i32 %37, 9
+  %38 = mul nsw i32 %37, 9
   %39 = sext i32 %38 to i64
   %40 = call noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.122, ptr noundef nonnull @.str.3, i32 noundef 1055, i64 noundef range(i64 -2147483648, 4294967296) %39, i64 noundef 4)
   store ptr %40, ptr %7, align 8
@@ -10260,15 +10260,15 @@ define internal fastcc noundef range(i32 -1, 1) i32 @_ZL16do_cpte_matricesI17Sta
 .preheader72:                                     ; preds = %.preheader73, %48
   %indvars.iv89 = phi i64 [ 0, %.preheader73 ], [ %indvars.iv.next90, %48 ]
   %44 = add nuw nsw i64 %indvars.iv89, %43
-  %.idx = mul i64 %44, 12
-  %invariant.gep = getelementptr i8, ptr %40, i64 %.idx
+  %.idx = mul nuw nsw i64 %44, 12
+  %invariant.gep = getelementptr inbounds nuw i8, ptr %40, i64 %.idx
   br label %45
 
 45:                                               ; preds = %.preheader72, %45
   %indvars.iv = phi i64 [ 0, %.preheader72 ], [ %indvars.iv.next, %45 ]
   %46 = getelementptr inbounds nuw [3 x [3 x float]], ptr %.054.in.sroa.speculated, i64 %indvars.iv93, i64 %indvars.iv89, i64 %indvars.iv
   %47 = load float, ptr %46, align 4
-  %gep = getelementptr float, ptr %invariant.gep, i64 %indvars.iv
+  %gep = getelementptr inbounds nuw float, ptr %invariant.gep, i64 %indvars.iv
   store float %47, ptr %gep, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
@@ -10288,7 +10288,7 @@ define internal fastcc noundef range(i32 -1, 1) i32 @_ZL16do_cpte_matricesI17Sta
 
 ._crit_edge:                                      ; preds = %49, %36
   %.lcssa = phi i32 [ %41, %36 ], [ %50, %49 ]
-  %53 = mul i32 %.lcssa, 9
+  %53 = mul nsw i32 %.lcssa, 9
   %54 = sext i32 %53 to i64
   %55 = call fastcc noundef i32 @_ZL11doVectorLowIfSaIfE17StateKineticEntryEiP3XDRT1_ilPPT_PSt6vectorIS5_T0_EP8_IO_FILE14CptElementType(ptr noundef %0, i32 noundef %1, i32 noundef %2, i64 noundef %54, ptr noundef %7, ptr noundef null, i32 noundef 3)
   %56 = load i32, ptr %8, align 4
@@ -10304,13 +10304,13 @@ define internal fastcc noundef range(i32 -1, 1) i32 @_ZL16do_cpte_matricesI17Sta
 .preheader70:                                     ; preds = %.preheader71, %63
   %indvars.iv103 = phi i64 [ 0, %.preheader71 ], [ %indvars.iv.next104, %63 ]
   %59 = add nuw nsw i64 %indvars.iv103, %58
-  %.idx113 = mul i64 %59, 12
-  %invariant.gep115 = getelementptr i8, ptr %.pre, i64 %.idx113
+  %.idx113 = mul nuw nsw i64 %59, 12
+  %invariant.gep115 = getelementptr inbounds nuw i8, ptr %.pre, i64 %.idx113
   br label %60
 
 60:                                               ; preds = %.preheader70, %60
   %indvars.iv99 = phi i64 [ 0, %.preheader70 ], [ %indvars.iv.next100, %60 ]
-  %gep116 = getelementptr float, ptr %invariant.gep115, i64 %indvars.iv99
+  %gep116 = getelementptr inbounds nuw float, ptr %invariant.gep115, i64 %indvars.iv99
   %61 = load float, ptr %gep116, align 4
   %62 = getelementptr inbounds nuw [3 x [3 x float]], ptr %.054.in.sroa.speculated, i64 %indvars.iv107, i64 %indvars.iv103, i64 %indvars.iv99
   store float %61, ptr %62, align 4

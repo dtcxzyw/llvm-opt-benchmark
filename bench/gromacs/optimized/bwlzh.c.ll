@@ -794,7 +794,7 @@ define internal fastcc void @bwlzh_decompress_gen(ptr noundef %0, i32 noundef %1
   %94 = mul nsw i32 %43, 6
   %95 = zext nneg i32 %94 to i64
   %96 = getelementptr inbounds nuw i32, ptr %90, i64 %95
-  %97 = mul i32 %43, 9
+  %97 = mul nsw i32 %43, 9
   %98 = zext nneg i32 %97 to i64
   %99 = getelementptr inbounds nuw i32, ptr %90, i64 %98
   %100 = mul nsw i32 %43, 12

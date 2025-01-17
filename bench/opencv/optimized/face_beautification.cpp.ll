@@ -32724,7 +32724,7 @@ _ZNSt6vectorIN2cv5Rect_IiEESaIS2_EE5clearEv.exit: ; preds = %4, %13
 
 26:                                               ; preds = %.lr.ph, %_ZNSt6vectorIN2cv5Rect_IiEESaIS2_EE9push_backEOS2_.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZNSt6vectorIN2cv5Rect_IiEESaIS2_EE9push_backEOS2_.exit ]
-  %.idx = mul nuw i64 %indvars.iv, 28
+  %.idx = mul nuw nsw i64 %indvars.iv, 28
   %27 = getelementptr inbounds nuw i8, ptr %19, i64 %.idx
   %28 = load float, ptr %27, align 4
   %29 = fcmp olt float %28, 0.000000e+00

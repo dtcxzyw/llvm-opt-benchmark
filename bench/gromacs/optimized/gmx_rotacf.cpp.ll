@@ -369,20 +369,20 @@ _ZL13gmx_snew_implIA3_fEvPKcS2_iRPT_m.exit:       ; preds = %_ZNSt10filesystem7_
   br i1 %77, label %.lr.ph128, label %.loopexit
 
 .lr.ph128:                                        ; preds = %.preheader112
-  %.idx161 = mul i64 %indvars.iv158, 12
+  %.idx161 = mul nuw nsw i64 %indvars.iv158, 12
   br label %118
 
 .preheader:                                       ; preds = %115
   br i1 %77, label %.lr.ph131, label %.loopexit
 
 .lr.ph131:                                        ; preds = %.preheader
-  %.idx162 = mul i64 %indvars.iv158, 12
+  %.idx162 = mul nuw nsw i64 %indvars.iv158, 12
   br label %170
 
 118:                                              ; preds = %.lr.ph128, %169
   %indvars.iv144 = phi i64 [ 0, %.lr.ph128 ], [ %indvars.iv.next145, %169 ]
   %119 = load ptr, ptr %8, align 8
-  %.idx = mul nuw i64 %indvars.iv144, 12
+  %.idx = mul nuw nsw i64 %indvars.iv144, 12
   %120 = getelementptr inbounds nuw i8, ptr %119, i64 %.idx
   %121 = load i32, ptr %120, align 4
   %122 = getelementptr inbounds nuw i8, ptr %120, i64 4
@@ -437,7 +437,7 @@ _ZL13gmx_snew_implIA3_fEvPKcS2_iRPT_m.exit:       ; preds = %_ZNSt10filesystem7_
   %165 = load float, ptr %164, align 4
   %166 = load ptr, ptr %162, align 8
   %167 = getelementptr inbounds nuw float, ptr %166, i64 %indvars.iv140
-  %168 = getelementptr inbounds i8, ptr %167, i64 %.idx161
+  %168 = getelementptr inbounds nuw i8, ptr %167, i64 %.idx161
   store float %165, ptr %168, align 4
   %indvars.iv.next141 = add nuw nsw i64 %indvars.iv140, 1
   %exitcond143.not = icmp eq i64 %indvars.iv.next141, 3
@@ -486,7 +486,7 @@ _ZL13gmx_snew_implIA3_fEvPKcS2_iRPT_m.exit:       ; preds = %_ZNSt10filesystem7_
   %198 = load float, ptr %197, align 4
   %199 = load ptr, ptr %195, align 8
   %200 = getelementptr inbounds nuw float, ptr %199, i64 %indvars.iv149
-  %201 = getelementptr inbounds i8, ptr %200, i64 %.idx162
+  %201 = getelementptr inbounds nuw i8, ptr %200, i64 %.idx162
   store float %198, ptr %201, align 4
   %indvars.iv.next150 = add nuw nsw i64 %indvars.iv149, 1
   %exitcond152.not = icmp eq i64 %indvars.iv.next150, 3

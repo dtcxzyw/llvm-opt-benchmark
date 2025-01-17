@@ -555,7 +555,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit:          ; preds = %24, %27
   %56 = trunc i64 %indvars.iv80 to i32
   %57 = mul i32 %16, %56
   %58 = zext i32 %57 to i64
-  %invariant.gep = getelementptr float, ptr %2, i64 %58
+  %invariant.gep = getelementptr inbounds nuw float, ptr %2, i64 %58
   br label %.preheader.us
 
 59:                                               ; preds = %60
@@ -575,8 +575,8 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit:          ; preds = %24, %27
 
 .preheader.us:                                    ; preds = %.preheader.lr.ph.us, %59
   %indvars.iv75 = phi i64 [ 0, %.preheader.lr.ph.us ], [ %indvars.iv.next76, %59 ]
-  %.idx = mul i64 %indvars.iv75, 12
-  %gep = getelementptr i8, ptr %invariant.gep, i64 %.idx
+  %.idx = mul nuw nsw i64 %indvars.iv75, 12
+  %gep = getelementptr inbounds nuw i8, ptr %invariant.gep, i64 %.idx
   br label %60
 
 ._crit_edge.us:                                   ; preds = %59

@@ -2851,7 +2851,7 @@ gv_calloc.exit:                                   ; preds = %279, %._crit_edge63
   %398 = shl nuw nsw i64 %indvars.iv74.i, 5
   %scevgep834 = getelementptr nuw i8, ptr %394, i64 %398
   %399 = mul nuw nsw i64 %indvars.iv74.i, 12
-  %scevgep835 = getelementptr i8, ptr %389, i64 %399
+  %scevgep835 = getelementptr nuw i8, ptr %389, i64 %399
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %scevgep834, ptr noundef nonnull align 4 dereferenceable(12) %scevgep835, i64 12, i1 false)
   %400 = getelementptr inbounds nuw %struct.Triangle, ptr %394, i64 %indvars.iv74.i
   %401 = load i32, ptr %400, align 8

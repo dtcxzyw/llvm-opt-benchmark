@@ -2928,7 +2928,7 @@ _ZN5Eigen8internal13first_alignedILi16EdlEET1_PKT0_S2_.exit: ; preds = %1
 
 .lr.ph53:                                         ; preds = %.preheader49
   %.idx.i.i.i39 = mul i64 %.03756, 48
-  %.idx.i4.i.i40 = mul i64 %.03756, 24
+  %.idx.i4.i.i40 = mul nuw nsw i64 %.03756, 24
   br label %62
 
 .preheader:                                       ; preds = %62, %.preheader49
@@ -2949,7 +2949,7 @@ _ZN5Eigen8internal13first_alignedILi16EdlEET1_PKT0_S2_.exit: ; preds = %1
   %67 = load ptr, ptr %47, align 8
   %68 = load ptr, ptr %67, align 8
   %69 = getelementptr inbounds double, ptr %68, i64 %.03452
-  %70 = getelementptr inbounds i8, ptr %69, i64 %.idx.i4.i.i40
+  %70 = getelementptr inbounds nuw i8, ptr %69, i64 %.idx.i4.i.i40
   %71 = load <2 x double>, ptr %70, align 1
   store <2 x double> %71, ptr %66, align 16
   %72 = add nsw i64 %.03452, 2

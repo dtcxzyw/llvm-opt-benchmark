@@ -579,7 +579,7 @@ if.then:                                          ; preds = %sw.bb9
 sw.bb17:                                          ; preds = %entry, %entry
   %call18 = tail call noundef i32 @_ZNK2EA4StdC8DateTime12GetParameterENS0_9ParameterE(ptr noundef nonnull align 8 dereferenceable(12) %this, i32 noundef %parameter)
   %sub19 = sub i32 %nValue, %call18
-  %mul21 = mul i32 %sub19, 604800
+  %mul21 = mul nsw i32 %sub19, 604800
   %conv22 = sext i32 %mul21 to i64
   %4 = load i64, ptr %this, align 8
   %add24 = add nsw i64 %4, %conv22
@@ -984,7 +984,7 @@ sw.bb29:                                          ; preds = %entry
   br label %sw.epilogthread-pre-split
 
 sw.bb38:                                          ; preds = %entry, %entry
-  %mul40 = mul i64 %nValue, 604800
+  %mul40 = mul nsw i64 %nValue, 604800
   %10 = load i64, ptr %this, align 8
   %add42 = add nsw i64 %10, %mul40
   store i64 %add42, ptr %this, align 8

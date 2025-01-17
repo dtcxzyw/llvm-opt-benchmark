@@ -2202,7 +2202,7 @@ _ZN2cv10AutoBufferIdLm136EEC2Em.exit:             ; preds = %.noexc226, %81
   store double 1.000000e+04, ptr %157, align 8
   %158 = fneg double %154
   %159 = fmul double %154, %158
-  %.idx = mul nuw i64 %indvars.iv318, 40
+  %.idx = mul nuw nsw i64 %indvars.iv318, 40
   %160 = getelementptr inbounds nuw i8, ptr %89, i64 %.idx
   store double %159, ptr %160, align 8
   %161 = fneg double %156
@@ -2316,7 +2316,7 @@ _ZN2cv10AutoBufferIdLm136EEC2Em.exit:             ; preds = %.noexc226, %81
   store double 1.000000e+04, ptr %213, align 8
   %214 = fneg double %210
   %215 = fmul double %210, %214
-  %.idx347 = mul nuw i64 %indvars.iv330, 40
+  %.idx347 = mul nuw nsw i64 %indvars.iv330, 40
   %216 = getelementptr inbounds nuw i8, ptr %89, i64 %.idx347
   store double %215, ptr %216, align 8
   %217 = fneg double %212
@@ -2524,7 +2524,7 @@ _ZN2cv10AutoBufferIdLm136EEC2Em.exit:             ; preds = %.noexc226, %81
   store double 1.000000e+00, ptr %304, align 8
   %305 = fsub double %301, %.pre
   %306 = fmul double %305, %305
-  %.idx348 = mul nuw i64 %indvars.iv336, 24
+  %.idx348 = mul nuw nsw i64 %indvars.iv336, 24
   %307 = getelementptr inbounds nuw i8, ptr %89, i64 %.idx348
   store double %306, ptr %307, align 8
   %308 = fsub double %303, %.pre342

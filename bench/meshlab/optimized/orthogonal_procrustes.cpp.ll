@@ -2410,10 +2410,10 @@ _ZNK5Eigen9DenseBaseINS_5BlockINS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEELin1ELi1ELb0EEE
   br i1 %361, label %362, label %371
 
 362:                                              ; preds = %351
-  %.idx.i.i.i.i101 = mul i64 %352, 24
-  %363 = getelementptr inbounds i8, ptr %0, i64 %.idx.i.i.i.i101
-  %.idx.i.i.i.i102 = mul i64 %.060216, 24
-  %364 = getelementptr inbounds i8, ptr %0, i64 %.idx.i.i.i.i102
+  %.idx.i.i.i.i101 = mul nuw nsw i64 %352, 24
+  %363 = getelementptr inbounds nuw i8, ptr %0, i64 %.idx.i.i.i.i101
+  %.idx.i.i.i.i102 = mul nuw nsw i64 %.060216, 24
+  %364 = getelementptr inbounds nuw i8, ptr %0, i64 %.idx.i.i.i.i102
   %365 = load <2 x double>, ptr %364, align 8
   %366 = load <2 x double>, ptr %363, align 8
   store <2 x double> %366, ptr %364, align 8
@@ -2435,10 +2435,10 @@ _ZNK5Eigen9DenseBaseINS_5BlockINS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEELin1ELi1ELb0EEE
   br i1 %376, label %377, label %.thread198
 
 377:                                              ; preds = %371
-  %.idx.i.i.i.i103 = mul i64 %352, 24
-  %378 = getelementptr inbounds i8, ptr %140, i64 %.idx.i.i.i.i103
-  %.idx.i.i.i.i104 = mul i64 %.060216, 24
-  %379 = getelementptr inbounds i8, ptr %140, i64 %.idx.i.i.i.i104
+  %.idx.i.i.i.i103 = mul nuw nsw i64 %352, 24
+  %378 = getelementptr inbounds nuw i8, ptr %140, i64 %.idx.i.i.i.i103
+  %.idx.i.i.i.i104 = mul nuw nsw i64 %.060216, 24
+  %379 = getelementptr inbounds nuw i8, ptr %140, i64 %.idx.i.i.i.i104
   %380 = load <2 x double>, ptr %379, align 8
   %381 = load <2 x double>, ptr %378, align 8
   store <2 x double> %381, ptr %379, align 8

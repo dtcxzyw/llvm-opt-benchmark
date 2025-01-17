@@ -20983,7 +20983,7 @@ _ZNSt6vectorIN2cv5Rect_IiEESaIS2_EE5clearEv.exit37: ; preds = %_ZNSt6vectorIN2cv
 
 28:                                               ; preds = %_ZNSt6vectorIN2cv5Rect_IiEESaIS2_EE5clearEv.exit37, %_ZNSt6vectorIN2cv5Rect_IiEESaIS2_EE9push_backEOS2_.exit
   %indvars.iv = phi i64 [ 0, %_ZNSt6vectorIN2cv5Rect_IiEESaIS2_EE5clearEv.exit37 ], [ %indvars.iv.next, %_ZNSt6vectorIN2cv5Rect_IiEESaIS2_EE9push_backEOS2_.exit ]
-  %.idx = mul nuw i64 %indvars.iv, 28
+  %.idx = mul nuw nsw i64 %indvars.iv, 28
   %29 = getelementptr inbounds nuw i8, ptr %21, i64 %.idx
   %30 = load float, ptr %29, align 4
   %31 = getelementptr inbounds nuw i8, ptr %29, i64 4

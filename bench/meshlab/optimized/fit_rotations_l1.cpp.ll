@@ -9488,7 +9488,7 @@ _ZN5Eigen8internal13first_alignedILi16EdlEET1_PKT0_S2_.exit: ; preds = %1
   br i1 %71, label %.lr.ph51, label %.preheader
 
 .lr.ph51:                                         ; preds = %.preheader47
-  %.idx.i.i.i39 = mul i64 %.03754, 24
+  %.idx.i.i.i39 = mul nuw nsw i64 %.03754, 24
   br label %73
 
 .preheader:                                       ; preds = %73, %.preheader47
@@ -9511,7 +9511,7 @@ _ZN5Eigen8internal13first_alignedILi16EdlEET1_PKT0_S2_.exit: ; preds = %1
   %81 = load ptr, ptr %55, align 8
   %82 = load ptr, ptr %81, align 8
   %83 = getelementptr inbounds double, ptr %82, i64 %.03450
-  %84 = getelementptr inbounds i8, ptr %83, i64 %.idx.i.i.i39
+  %84 = getelementptr inbounds nuw i8, ptr %83, i64 %.idx.i.i.i39
   %85 = load <2 x double>, ptr %84, align 1
   store <2 x double> %85, ptr %80, align 16
   %86 = add nsw i64 %.03450, 2

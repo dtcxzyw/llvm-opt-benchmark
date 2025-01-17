@@ -13269,7 +13269,7 @@ _ZN5Eigen8internal14aligned_mallocEm.exit321:     ; preds = %47, %38, %44
   %58 = add i64 %3, 1
   %59 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %.idx = shl nsw i64 %3, 4
-  %.idx465 = mul i64 %3, 24
+  %.idx465 = mul nsw i64 %3, 24
   br label %60
 
 60:                                               ; preds = %.lr.ph429, %._crit_edge427
@@ -23887,7 +23887,7 @@ _ZN5Eigen8internal13first_alignedILi16EdmEET1_PKT0_S2_.exit.lr.ph: ; preds = %59
   %75 = shl i64 %6, 5
   %76 = add i64 %75, 32
   %.idx = shl nsw i64 %6, 4
-  %.idx431 = mul i64 %6, 24
+  %.idx431 = mul nsw i64 %6, 24
   %77 = getelementptr inbounds nuw i8, ptr %13, i64 32
   %78 = getelementptr inbounds nuw i8, ptr %13, i64 64
   %79 = getelementptr inbounds nuw i8, ptr %13, i64 96

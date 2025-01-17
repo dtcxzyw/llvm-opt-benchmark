@@ -12,19 +12,19 @@ define noundef i32 @dtrsm_iunucopy(i64 noundef %0, i64 noundef %1, ptr noundef r
 9:                                                ; preds = %6
   %10 = icmp sgt i64 %0, 0
   %.idx = shl nsw i64 %3, 7
-  %.idx22 = mul i64 %3, 120
-  %.idx23 = mul i64 %3, 112
-  %.idx24 = mul i64 %3, 104
-  %.idx25 = mul i64 %3, 96
-  %.idx26 = mul i64 %3, 88
-  %.idx27 = mul i64 %3, 80
-  %.idx28 = mul i64 %3, 72
+  %.idx22 = mul nsw i64 %3, 120
+  %.idx23 = mul nsw i64 %3, 112
+  %.idx24 = mul nsw i64 %3, 104
+  %.idx25 = mul nsw i64 %3, 96
+  %.idx26 = mul nsw i64 %3, 88
+  %.idx27 = mul nsw i64 %3, 80
+  %.idx28 = mul nsw i64 %3, 72
   %.idx29 = shl nsw i64 %3, 6
-  %.idx30 = mul i64 %3, 56
-  %.idx31 = mul i64 %3, 48
-  %.idx32 = mul i64 %3, 40
+  %.idx30 = mul nsw i64 %3, 56
+  %.idx31 = mul nsw i64 %3, 48
+  %.idx32 = mul nsw i64 %3, 40
   %.idx33 = shl nsw i64 %3, 5
-  %.idx34 = mul i64 %3, 24
+  %.idx34 = mul nsw i64 %3, 24
   %.idx35 = shl nsw i64 %3, 4
   br i1 %10, label %.split.us, label %.split.preheader
 
@@ -198,15 +198,15 @@ define noundef i32 @dtrsm_iunucopy(i64 noundef %0, i64 noundef %1, ptr noundef r
   br i1 %131, label %132, label %.loopexit54
 
 132:                                              ; preds = %129
-  %.idx37 = mul i64 %3, 56
+  %.idx37 = mul nsw i64 %3, 56
   %133 = getelementptr inbounds i8, ptr %124, i64 %.idx37
-  %.idx38 = mul i64 %3, 48
+  %.idx38 = mul nsw i64 %3, 48
   %134 = getelementptr inbounds i8, ptr %124, i64 %.idx38
-  %.idx39 = mul i64 %3, 40
+  %.idx39 = mul nsw i64 %3, 40
   %135 = getelementptr inbounds i8, ptr %124, i64 %.idx39
   %.idx40 = shl nsw i64 %3, 5
   %136 = getelementptr inbounds i8, ptr %124, i64 %.idx40
-  %.idx41 = mul i64 %3, 24
+  %.idx41 = mul nsw i64 %3, 24
   %137 = getelementptr inbounds i8, ptr %124, i64 %.idx41
   %.idx42 = shl nsw i64 %3, 4
   %138 = getelementptr inbounds i8, ptr %124, i64 %.idx42
@@ -311,7 +311,7 @@ define noundef i32 @dtrsm_iunucopy(i64 noundef %0, i64 noundef %1, ptr noundef r
   br i1 %204, label %205, label %.loopexit51
 
 205:                                              ; preds = %202
-  %.idx44 = mul i64 %3, 24
+  %.idx44 = mul nsw i64 %3, 24
   %206 = getelementptr inbounds i8, ptr %197, i64 %.idx44
   %.idx45 = shl nsw i64 %3, 4
   %207 = getelementptr inbounds i8, ptr %197, i64 %.idx45

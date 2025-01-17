@@ -349,7 +349,7 @@ Abc_Clock.exit140:                                ; preds = %Abc_Clock.exit138, 
 .preheader:                                       ; preds = %.preheader.preheader, %184
   %indvars.iv202 = phi i64 [ %151, %.preheader.preheader ], [ %indvars.iv.next203, %184 ]
   %.2116165 = phi i32 [ %.1115169, %.preheader.preheader ], [ %spec.select, %184 ]
-  %.idx208 = mul i64 %indvars.iv202, 24
+  %.idx208 = mul nsw i64 %indvars.iv202, 24
   br label %153
 
 152:                                              ; preds = %Abc_StatePerm.exit
@@ -1400,7 +1400,7 @@ Abc_Clock.exit144:                                ; preds = %Abc_Clock.exit142, 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %566
   %indvars.iv200 = phi i64 [ %445, %.lr.ph.preheader ], [ %indvars.iv.next201, %566 ]
   %.2120167 = phi i32 [ %.0117170, %.lr.ph.preheader ], [ %.4122, %566 ]
-  %.idx = mul i64 %indvars.iv200, 24
+  %.idx = mul nsw i64 %indvars.iv200, 24
   %446 = getelementptr inbounds i8, ptr %calloc.i, i64 %.idx
   br label %448
 

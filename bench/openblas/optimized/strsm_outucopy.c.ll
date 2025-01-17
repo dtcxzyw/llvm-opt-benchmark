@@ -19,7 +19,7 @@ define noundef i32 @strsm_outucopy(i64 noundef %0, i64 noundef %1, ptr noundef r
   %16 = and i64 %0, 1
   %17 = icmp eq i64 %16, 0
   %18 = and i64 %0, -4
-  %.idx = mul i64 %3, 12
+  %.idx = mul nsw i64 %3, 12
   br label %19
 
 19:                                               ; preds = %171, %9

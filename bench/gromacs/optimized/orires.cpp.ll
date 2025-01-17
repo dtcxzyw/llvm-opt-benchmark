@@ -2728,7 +2728,7 @@ define void @_Z26diagonalize_orires_tensorsP12t_oriresdata(ptr noundef %0) local
   %155 = load i32, ptr %154, align 4
   %156 = sext i32 %155 to i64
   %invariant.gep = getelementptr [3 x double], ptr %27, i64 0, i64 %156
-  %.idx = mul i64 %indvars.iv126, 12
+  %.idx = mul nuw nsw i64 %indvars.iv126, 12
   br label %157
 
 157:                                              ; preds = %.preheader, %157
@@ -2738,7 +2738,7 @@ define void @_Z26diagonalize_orires_tensorsP12t_oriresdata(ptr noundef %0) local
   %159 = fptrunc double %158 to float
   %160 = load ptr, ptr %29, align 8
   %161 = getelementptr inbounds nuw float, ptr %160, i64 %143
-  %162 = getelementptr inbounds i8, ptr %161, i64 %.idx
+  %162 = getelementptr inbounds nuw i8, ptr %161, i64 %.idx
   %163 = getelementptr inbounds nuw float, ptr %162, i64 %indvars.iv122
   store float %159, ptr %163, align 4
   %indvars.iv.next123 = add nuw nsw i64 %indvars.iv122, 1
@@ -2778,7 +2778,7 @@ define void @_Z16print_orires_logP8_IO_FILEP12t_oriresdata(ptr nocapture noundef
 7:                                                ; preds = %.lr.ph, %34
   %indvars.iv30 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next31, %34 ]
   %8 = load ptr, ptr %6, align 8
-  %.idx = mul nuw i64 %indvars.iv30, 48
+  %.idx = mul nuw nsw i64 %indvars.iv30, 48
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 %.idx
   %indvars.iv.next31 = add nuw nsw i64 %indvars.iv30, 1
   %10 = trunc nuw nsw i64 %indvars.iv.next31 to i32
@@ -4056,7 +4056,7 @@ define void @_ZN12t_oriresdata13updateHistoryEv(ptr noundef nonnull align 8 dere
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %22
   %indvars.iv12 = phi i64 [ 0, %.preheader.lr.ph ], [ %indvars.iv.next13, %22 ]
-  %.idx = mul i64 %indvars.iv12, 20
+  %.idx = mul nuw nsw i64 %indvars.iv12, 20
   br label %14
 
 14:                                               ; preds = %.preheader, %14
@@ -4067,7 +4067,7 @@ define void @_ZN12t_oriresdata13updateHistoryEv(ptr noundef nonnull align 8 dere
   %18 = load i64, ptr %13, align 8
   %19 = inttoptr i64 %18 to ptr
   %20 = getelementptr inbounds nuw float, ptr %19, i64 %indvars.iv
-  %21 = getelementptr inbounds i8, ptr %20, i64 %.idx
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx
   store float %17, ptr %21, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 5

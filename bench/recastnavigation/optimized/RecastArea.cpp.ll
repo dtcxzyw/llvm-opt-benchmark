@@ -1145,7 +1145,7 @@ _ZN13rcScopedTimerC2EP9rcContext12rcTimerLabel.exit: ; preds = %12, %16
   %.sroa.0112.0131 = phi float [ %23, %.lr.ph.preheader ], [ %30, %.lr.ph ]
   %.sroa.0109.0130 = phi float [ %23, %.lr.ph.preheader ], [ %36, %.lr.ph ]
   %.sroa.8.0128 = phi float [ %25, %.lr.ph.preheader ], [ %38, %.lr.ph ]
-  %.idx = mul nuw i64 %indvars.iv, 12
+  %.idx = mul nuw nsw i64 %indvars.iv, 12
   %27 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx
   %28 = load float, ptr %27, align 4
   %29 = fcmp olt float %.sroa.0112.0131, %28
@@ -1403,7 +1403,7 @@ define noundef range(i32 -2147483647, -2147483648) i32 @_Z12rcOffsetPolyPKfifPfi
   %14 = mul nsw i32 %12, 3
   %15 = sext i32 %14 to i64
   %16 = getelementptr inbounds float, ptr %0, i64 %15
-  %.idx = mul nuw i64 %indvars.iv, 12
+  %.idx = mul nuw nsw i64 %indvars.iv, 12
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 %.idx
   %18 = mul i64 %indvars.iv.next, 3
   %19 = and i64 %18, 4294967295

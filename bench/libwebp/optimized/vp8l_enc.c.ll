@@ -3417,7 +3417,7 @@ define internal fastcc range(i32 0, 2) i32 @GetHuffBitLengthsAndCodes(ptr nocapt
   %7 = load ptr, ptr %5, align 8
   %8 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv109
   %9 = load ptr, ptr %8, align 8
-  %.idx = mul nuw i64 %indvars.iv109, 120
+  %.idx = mul nuw nsw i64 %indvars.iv109, 120
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 3240
   br label %12
@@ -3517,7 +3517,7 @@ define internal fastcc range(i32 0, 2) i32 @GetHuffBitLengthsAndCodes(ptr nocapt
 
 50:                                               ; preds = %.lr.ph107, %50
   %indvars.iv118 = phi i64 [ 0, %.lr.ph107 ], [ %indvars.iv.next119, %50 ]
-  %.idx123 = mul nuw i64 %indvars.iv118, 120
+  %.idx123 = mul nuw nsw i64 %indvars.iv118, 120
   %51 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx123
   %52 = load ptr, ptr %49, align 8
   %53 = getelementptr inbounds nuw ptr, ptr %52, i64 %indvars.iv118

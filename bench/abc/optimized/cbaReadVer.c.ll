@@ -4847,7 +4847,7 @@ Vec_IntFill.exit:                                 ; preds = %43, %Vec_IntGrow.ex
 
 54:                                               ; preds = %.lr.ph, %83
   %indvars.iv122 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next123, %83 ]
-  %.idx = mul nuw i64 %indvars.iv122, 12
+  %.idx = mul nuw nsw i64 %indvars.iv122, 12
   %55 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 4
   %57 = load i32, ptr %56, align 4

@@ -36571,7 +36571,7 @@ _ZN5Eigen8internal13first_alignedILi16EdmEET1_PKT0_S2_.exit.lr.ph: ; preds = %59
   %75 = shl i64 %6, 5
   %76 = add i64 %75, 32
   %.idx = shl nsw i64 %6, 4
-  %.idx431 = mul i64 %6, 24
+  %.idx431 = mul nsw i64 %6, 24
   %77 = getelementptr inbounds nuw i8, ptr %13, i64 32
   %78 = getelementptr inbounds nuw i8, ptr %13, i64 64
   %79 = getelementptr inbounds nuw i8, ptr %13, i64 96
@@ -46802,7 +46802,7 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exi
   %96 = getelementptr inbounds double, ptr %95, i64 %2
   %.idx = shl nsw i64 %2, 4
   %97 = getelementptr inbounds i8, ptr %95, i64 %.idx
-  %.idx67 = mul i64 %2, 24
+  %.idx67 = mul nsw i64 %2, 24
   %98 = getelementptr inbounds i8, ptr %95, i64 %.idx67
   %99 = getelementptr inbounds nuw i8, ptr %19, i64 16
   store ptr %94, ptr %19, align 8

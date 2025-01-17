@@ -1795,8 +1795,8 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
 .lr.ph.i.i.i.i:                                   ; preds = %.lr.ph.i.i.i.i, %.lr.ph.i.preheader.i.i.i
   %60 = phi <2 x double> [ %67, %.lr.ph.i.i.i.i ], [ zeroinitializer, %.lr.ph.i.preheader.i.i.i ]
   %.013.i.i.i.i = phi i64 [ %68, %.lr.ph.i.i.i.i ], [ 0, %.lr.ph.i.preheader.i.i.i ]
-  %.idx.i.i.i.i.i = mul i64 %.013.i.i.i.i, 24
-  %61 = getelementptr inbounds i8, ptr %58, i64 %.idx.i.i.i.i.i
+  %.idx.i.i.i.i.i = mul nuw nsw i64 %.013.i.i.i.i, 24
+  %61 = getelementptr inbounds nuw i8, ptr %58, i64 %.idx.i.i.i.i.i
   %62 = load <2 x double>, ptr %61, align 1
   %gep.i.i.i = getelementptr i8, ptr %59, i64 %.idx.i.i.i.i.i
   %63 = load double, ptr %gep.i.i.i, align 8

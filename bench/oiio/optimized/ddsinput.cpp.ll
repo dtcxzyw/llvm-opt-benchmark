@@ -3351,7 +3351,7 @@ cond.end.i:                                       ; preds = %cond.false.i, %cond
 _Z24bcdec__finish_unquantizeii.exit:              ; preds = %if.then.i1811, %cond.end.i
   %retval.0.in.i = phi i32 [ %or.i1810, %cond.end.i ], [ %shr.i1813, %if.then.i1811 ]
   %retval.0.i = trunc i32 %retval.0.in.i to i16
-  %arrayidx1040.idx = mul nuw i64 %indvars.iv2552, 6
+  %arrayidx1040.idx = mul nuw nsw i64 %indvars.iv2552, 6
   %arrayidx1040 = getelementptr inbounds nuw i8, ptr %decompressed.12541, i64 %arrayidx1040.idx
   store i16 %retval.0.i, ptr %arrayidx1040, align 2
   %313 = load i32, ptr %arrayidx.i, align 4
@@ -3499,7 +3499,7 @@ _Z26bcdec__half_to_float_quickt.exit:             ; preds = %if.then.i, %if.else
   %half.signext.i = sext i16 %0 to i32
   %shl9.i = and i32 %half.signext.i, -2147483648
   %or.i = or i32 %o.sroa.0.0.i, %shl9.i
-  %arrayidx.idx = mul nuw i64 %indvars.iv, 12
+  %arrayidx.idx = mul nuw nsw i64 %indvars.iv, 12
   %arrayidx = getelementptr inbounds nuw i8, ptr %decompressed.049, i64 %arrayidx.idx
   store i32 %or.i, ptr %arrayidx, align 4
   %incdec.ptr5 = getelementptr inbounds nuw i8, ptr %b.147, i64 4

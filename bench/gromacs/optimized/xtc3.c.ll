@@ -53,13 +53,13 @@ define ptr @Ptngc_pack_array_xtc3(ptr nocapture noundef readonly %0, ptr nocaptu
 
 .preheader930:                                    ; preds = %.preheader930.preheader, %37
   %indvars.iv1032 = phi i64 [ 1, %.preheader930.preheader ], [ %indvars.iv.next1033, %37 ]
-  %.idx = mul i64 %indvars.iv1032, 12
-  %invariant.gep = getelementptr i8, ptr %0, i64 %.idx
+  %.idx = mul nuw nsw i64 %indvars.iv1032, 12
+  %invariant.gep = getelementptr inbounds nuw i8, ptr %0, i64 %.idx
   br label %25
 
 25:                                               ; preds = %.preheader930, %36
   %indvars.iv = phi i64 [ 0, %.preheader930 ], [ %indvars.iv.next, %36 ]
-  %gep = getelementptr i32, ptr %invariant.gep, i64 %indvars.iv
+  %gep = getelementptr inbounds nuw i32, ptr %invariant.gep, i64 %indvars.iv
   %26 = load i32, ptr %gep, align 4
   %27 = getelementptr inbounds nuw [3 x i32], ptr %16, i64 0, i64 %indvars.iv
   %28 = load i32, ptr %27, align 4
@@ -1061,7 +1061,7 @@ swapdecide.exit:                                  ; preds = %462, %464, %insert_
   %.sroa.0.144.i = phi i32 [ %516, %.preheader.preheader.i ], [ %521, %.preheader.i618 ]
   %.sroa.5.143.i = phi i32 [ %517, %.preheader.preheader.i ], [ %524, %.preheader.i618 ]
   %.sroa.10.142.i = phi i32 [ %518, %.preheader.preheader.i ], [ %527, %.preheader.i618 ]
-  %.idx.i = mul nuw i64 %indvars.iv.i619, 12
+  %.idx.i = mul nuw nsw i64 %indvars.iv.i619, 12
   %519 = getelementptr inbounds nuw i8, ptr %8, i64 %.idx.i
   %520 = load i32, ptr %519, align 4
   %521 = add nsw i32 %520, %.sroa.0.144.i

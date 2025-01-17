@@ -5462,7 +5462,7 @@ define linkonce_odr hidden noundef float @_ZNK2cv15BriskScaleSpace10subpixel2DEi
   %48 = shl i32 %44, 2
   %49 = shl i32 %47, 1
   %50 = add i32 %48, %49
-  %51 = mul i32 %22, 12
+  %51 = mul nsw i32 %22, 12
   %52 = mul nsw i32 %51, %27
   %53 = mul nsw i32 %42, %42
   %54 = sub nsw i32 %52, %53
@@ -5530,7 +5530,7 @@ define linkonce_odr hidden noundef float @_ZNK2cv15BriskScaleSpace10subpixel2DEi
   br label %196
 
 84:                                               ; preds = %59
-  %85 = mul i32 %26, 6
+  %85 = mul nsw i32 %26, 6
   %86 = mul nsw i32 %85, %33
   %87 = mul nsw i32 %38, %42
   %88 = sub nsw i32 %86, %87
@@ -5539,7 +5539,7 @@ define linkonce_odr hidden noundef float @_ZNK2cv15BriskScaleSpace10subpixel2DEi
   %91 = sitofp i32 %90 to float
   %92 = fdiv float %89, %91
   store float %92, ptr %10, align 4
-  %93 = mul i32 %22, 6
+  %93 = mul nsw i32 %22, 6
   %94 = mul nsw i32 %93, %38
   %95 = mul nsw i32 %33, %42
   %96 = sub nsw i32 %94, %95

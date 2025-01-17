@@ -20406,7 +20406,7 @@ _ZN5Eigen8internal13first_alignedILi16EdmEET1_PKT0_S2_.exit.lr.ph: ; preds = %59
   %75 = shl i64 %6, 5
   %76 = add i64 %75, 32
   %.idx = shl nsw i64 %6, 4
-  %.idx431 = mul i64 %6, 24
+  %.idx431 = mul nsw i64 %6, 24
   %77 = getelementptr inbounds nuw i8, ptr %13, i64 32
   %78 = getelementptr inbounds nuw i8, ptr %13, i64 64
   %79 = getelementptr inbounds nuw i8, ptr %13, i64 96
@@ -21660,7 +21660,7 @@ _ZNK5Eigen9DenseBaseINS_5BlockINS_6MatrixIdLi1ELin1ELi1ELi1ELin1EEELi1ELin1ELb0E
   %135 = load double, ptr %133, align 8
   store double %135, ptr %132, align 8
   store double %134, ptr %133, align 8
-  %.idx.i.i.i.i.i.i.i.i.i.i = mul i64 %125, 24
+  %.idx.i.i.i.i.i.i.i.i.i.i = mul nsw i64 %125, 24
   %136 = getelementptr inbounds i8, ptr %123, i64 %.idx.i.i.i.i.i.i.i.i.i.i
   %137 = getelementptr inbounds i8, ptr %124, i64 %.idx.i.i.i.i.i.i.i.i.i.i
   %138 = load double, ptr %136, align 8

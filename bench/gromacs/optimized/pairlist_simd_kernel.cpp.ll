@@ -23,7 +23,7 @@ define void @_ZN5Nbnxm26setICellCoordinatesSimd4xMEiRKN3gmx11BasicVectorIfEEiPKf
   %6 = getelementptr i8, ptr %4, i64 112
   %.val = load ptr, ptr %6, align 8
   %7 = ashr i32 %0, 1
-  %8 = mul i32 %7, 24
+  %8 = mul nsw i32 %7, 24
   %9 = shl i32 %0, 2
   %10 = and i32 %9, 4
   %11 = or disjoint i32 %8, %10
@@ -70,7 +70,7 @@ _ZN5NbnxmL23setICellCoordinatesSimdIL25ClusterDistanceKernelType1EEEviRKN3gmx11B
 define void @_ZN5Nbnxm27setICellCoordinatesSimd2xMMEiRKN3gmx11BasicVectorIfEEiPKfP20NbnxnPairlistCpuWork(i32 noundef %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %1, i32 noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4) local_unnamed_addr #0 {
   %6 = getelementptr i8, ptr %4, i64 112
   %.val = load ptr, ptr %6, align 8
-  %7 = mul i32 %0, 12
+  %7 = mul nsw i32 %0, 12
   %8 = sext i32 %7 to i64
   %9 = getelementptr inbounds float, ptr %3, i64 %8
   br label %.preheader.i
@@ -187,7 +187,7 @@ define void @_ZN5Nbnxm22makeClusterListSimd4xMERKNS_4GridEP16NbnxnPairlistCpuiii
 
 52:                                               ; preds = %50
   %53 = add nsw i32 %.0170247.i, %33
-  %54 = mul i32 %53, 24
+  %54 = mul nsw i32 %53, 24
   %55 = sext i32 %54 to i64
   %56 = getelementptr inbounds float, ptr %6, i64 %55
   %.val204.i = load <8 x float>, ptr %56, align 32, !alias.scope !10, !noalias !13
@@ -335,7 +335,7 @@ define void @_ZN5Nbnxm22makeClusterListSimd4xMERKNS_4GridEP16NbnxnPairlistCpuiii
 
 125:                                              ; preds = %123
   %126 = add nsw i32 %.0171256.i, %33
-  %127 = mul i32 %126, 24
+  %127 = mul nsw i32 %126, 24
   %128 = sext i32 %127 to i64
   %129 = getelementptr inbounds float, ptr %6, i64 %128
   %.val207.i = load <8 x float>, ptr %129, align 32, !alias.scope !10, !noalias !13
@@ -669,7 +669,7 @@ define void @_ZN5Nbnxm23makeClusterListSimd2xMMERKNS_4GridEP16NbnxnPairlistCpuii
 
 45:                                               ; preds = %43
   %46 = add nsw i32 %.0170248.i, %26
-  %47 = mul i32 %46, 12
+  %47 = mul nsw i32 %46, 12
   %48 = sext i32 %47 to i64
   %49 = getelementptr inbounds float, ptr %6, i64 %48
   %.val206.i = load <4 x float>, ptr %49, align 1, !alias.scope !30, !noalias !33
@@ -782,7 +782,7 @@ define void @_ZN5Nbnxm23makeClusterListSimd2xMMERKNS_4GridEP16NbnxnPairlistCpuii
 
 105:                                              ; preds = %103
   %106 = add nsw i32 %.0171256.i, %26
-  %107 = mul i32 %106, 12
+  %107 = mul nsw i32 %106, 12
   %108 = sext i32 %107 to i64
   %109 = getelementptr inbounds float, ptr %6, i64 %108
   %.val209.i = load <4 x float>, ptr %109, align 1, !alias.scope !30, !noalias !33

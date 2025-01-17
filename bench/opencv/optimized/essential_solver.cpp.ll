@@ -605,7 +605,7 @@ define linkonce_odr hidden noundef i32 @_ZNK2cv4usac30EssentialMinimalSolver5pts
   br i1 %exitcond637.not, label %._crit_edge, label %.lr.ph, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %.lr.ph
-  %.idx687 = mul nuw i64 %indvars.iv632, 80
+  %.idx687 = mul nuw nsw i64 %indvars.iv632, 80
   %178 = getelementptr inbounds nuw i8, ptr %162, i64 %.idx687
   %179 = load double, ptr %178, align 8
   %180 = fdiv double %177, %179
@@ -3258,9 +3258,9 @@ _ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit:          ; preds = %_ZSt8_DestroyIPN2cv
 1846:                                             ; preds = %1837, %1846
   %indvars.iv675 = phi i64 [ 0, %1837 ], [ %indvars.iv.next676, %1846 ]
   %.0219616 = phi double [ 0.000000e+00, %1837 ], [ %1892, %1846 ]
-  %.idx688 = mul nuw i64 %indvars.iv675, 104
+  %.idx688 = mul nuw nsw i64 %indvars.iv675, 104
   %1847 = getelementptr inbounds nuw i8, ptr %76, i64 %.idx688
-  %.idx689 = mul nuw i64 %indvars.iv675, 24
+  %.idx689 = mul nuw nsw i64 %indvars.iv675, 24
   %1848 = getelementptr inbounds nuw i8, ptr %80, i64 %.idx689
   %1849 = load double, ptr %1847, align 8
   %1850 = getelementptr inbounds nuw i8, ptr %1847, i64 8

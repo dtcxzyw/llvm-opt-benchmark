@@ -21019,7 +21019,7 @@ define void @rlLoadRenderBatch(ptr dead_on_unwind noalias nocapture writable wri
   br label %._crit_edge104
 
 .lr.ph99:                                         ; preds = %3
-  %9 = mul i32 %2, 12
+  %9 = mul nsw i32 %2, 12
   %10 = sext i32 %9 to i64
   %11 = shl nsw i64 %10, 2
   %12 = shl nsw i32 %2, 3
@@ -21030,250 +21030,247 @@ define void @rlLoadRenderBatch(ptr dead_on_unwind noalias nocapture writable wri
   %17 = mul nsw i32 %2, 6
   %18 = sext i32 %17 to i64
   %19 = shl nsw i64 %18, 2
-  %20 = icmp sgt i32 %9, 0
-  %21 = icmp sgt i32 %2, 0
-  %smax = tail call i32 @llvm.smax.i32(i32 %12, i32 1)
-  %smax115 = tail call i32 @llvm.smax.i32(i32 %15, i32 1)
-  %smax121 = tail call i32 @llvm.smax.i32(i32 %17, i32 6)
-  %22 = add nsw i32 %smax121, -1
-  %23 = udiv i32 %22, 6
-  %wide.trip.count126 = zext nneg i32 %1 to i64
-  %wide.trip.count = zext nneg i32 %9 to i64
-  %wide.trip.count110 = zext nneg i32 %smax to i64
-  %wide.trip.count116 = zext nneg i32 %smax115 to i64
-  br label %24
+  %20 = icmp sgt i32 %2, 0
+  %smax = tail call i32 @llvm.smax.i32(i32 %9, i32 1)
+  %smax110 = tail call i32 @llvm.smax.i32(i32 %12, i32 1)
+  %smax116 = tail call i32 @llvm.smax.i32(i32 %15, i32 1)
+  %smax122 = tail call i32 @llvm.smax.i32(i32 %17, i32 6)
+  %21 = add nsw i32 %smax122, -1
+  %22 = udiv i32 %21, 6
+  %wide.trip.count127 = zext nneg i32 %1 to i64
+  %wide.trip.count = zext nneg i32 %smax to i64
+  %wide.trip.count111 = zext nneg i32 %smax110 to i64
+  %wide.trip.count117 = zext nneg i32 %smax116 to i64
+  br label %23
 
-24:                                               ; preds = %.lr.ph99, %._crit_edge
-  %indvars.iv123 = phi i64 [ 0, %.lr.ph99 ], [ %indvars.iv.next124, %._crit_edge ]
-  %25 = getelementptr inbounds nuw %struct.rlVertexBuffer, ptr %6, i64 %indvars.iv123
-  store i32 %2, ptr %25, align 8
-  %26 = tail call noalias ptr @malloc(i64 noundef %11) #56
-  %27 = getelementptr inbounds nuw %struct.rlVertexBuffer, ptr %6, i64 %indvars.iv123, i32 1
-  store ptr %26, ptr %27, align 8
-  %28 = tail call noalias ptr @malloc(i64 noundef %14) #56
-  %29 = getelementptr inbounds nuw %struct.rlVertexBuffer, ptr %6, i64 %indvars.iv123, i32 2
-  store ptr %28, ptr %29, align 8
-  %30 = tail call noalias ptr @malloc(i64 noundef %16) #56
-  %31 = getelementptr inbounds nuw %struct.rlVertexBuffer, ptr %6, i64 %indvars.iv123, i32 3
-  store ptr %30, ptr %31, align 8
-  %32 = tail call noalias ptr @malloc(i64 noundef %19) #56
-  %33 = getelementptr inbounds nuw %struct.rlVertexBuffer, ptr %6, i64 %indvars.iv123, i32 4
-  store ptr %32, ptr %33, align 8
-  br i1 %20, label %.lr.ph, label %.preheader88
+23:                                               ; preds = %.lr.ph99, %._crit_edge
+  %indvars.iv124 = phi i64 [ 0, %.lr.ph99 ], [ %indvars.iv.next125, %._crit_edge ]
+  %24 = getelementptr inbounds nuw %struct.rlVertexBuffer, ptr %6, i64 %indvars.iv124
+  store i32 %2, ptr %24, align 8
+  %25 = tail call noalias ptr @malloc(i64 noundef %11) #56
+  %26 = getelementptr inbounds nuw %struct.rlVertexBuffer, ptr %6, i64 %indvars.iv124, i32 1
+  store ptr %25, ptr %26, align 8
+  %27 = tail call noalias ptr @malloc(i64 noundef %14) #56
+  %28 = getelementptr inbounds nuw %struct.rlVertexBuffer, ptr %6, i64 %indvars.iv124, i32 2
+  store ptr %27, ptr %28, align 8
+  %29 = tail call noalias ptr @malloc(i64 noundef %16) #56
+  %30 = getelementptr inbounds nuw %struct.rlVertexBuffer, ptr %6, i64 %indvars.iv124, i32 3
+  store ptr %29, ptr %30, align 8
+  %31 = tail call noalias ptr @malloc(i64 noundef %19) #56
+  %32 = getelementptr inbounds nuw %struct.rlVertexBuffer, ptr %6, i64 %indvars.iv124, i32 4
+  store ptr %31, ptr %32, align 8
+  br i1 %20, label %.lr.ph, label %._crit_edge
 
-.preheader88:                                     ; preds = %.lr.ph, %24
-  br i1 %21, label %.lr.ph91, label %._crit_edge
-
-.lr.ph:                                           ; preds = %24, %.lr.ph
-  %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %24 ]
-  %34 = load ptr, ptr %27, align 8
-  %35 = getelementptr inbounds nuw float, ptr %34, i64 %indvars.iv
-  store float 0.000000e+00, ptr %35, align 4
+.lr.ph:                                           ; preds = %23, %.lr.ph
+  %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %23 ]
+  %33 = load ptr, ptr %26, align 8
+  %34 = getelementptr inbounds nuw float, ptr %33, i64 %indvars.iv
+  store float 0.000000e+00, ptr %34, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.preheader88, label %.lr.ph
+  br i1 %exitcond.not, label %.lr.ph91, label %.lr.ph
 
-.lr.ph91:                                         ; preds = %.preheader88, %.lr.ph91
-  %indvars.iv107 = phi i64 [ %indvars.iv.next108, %.lr.ph91 ], [ 0, %.preheader88 ]
-  %36 = load ptr, ptr %29, align 8
-  %37 = getelementptr inbounds nuw float, ptr %36, i64 %indvars.iv107
-  store float 0.000000e+00, ptr %37, align 4
+.lr.ph91:                                         ; preds = %.lr.ph, %.lr.ph91
+  %indvars.iv107 = phi i64 [ %indvars.iv.next108, %.lr.ph91 ], [ 0, %.lr.ph ]
+  %35 = load ptr, ptr %28, align 8
+  %36 = getelementptr inbounds nuw float, ptr %35, i64 %indvars.iv107
+  store float 0.000000e+00, ptr %36, align 4
   %indvars.iv.next108 = add nuw nsw i64 %indvars.iv107, 1
-  %exitcond111.not = icmp eq i64 %indvars.iv.next108, %wide.trip.count110
-  br i1 %exitcond111.not, label %.lr.ph93, label %.lr.ph91
+  %exitcond112.not = icmp eq i64 %indvars.iv.next108, %wide.trip.count111
+  br i1 %exitcond112.not, label %.lr.ph93, label %.lr.ph91
 
 .lr.ph93:                                         ; preds = %.lr.ph91, %.lr.ph93
-  %indvars.iv112 = phi i64 [ %indvars.iv.next113, %.lr.ph93 ], [ 0, %.lr.ph91 ]
-  %38 = load ptr, ptr %31, align 8
-  %39 = getelementptr inbounds nuw i8, ptr %38, i64 %indvars.iv112
-  store i8 0, ptr %39, align 1
-  %indvars.iv.next113 = add nuw nsw i64 %indvars.iv112, 1
-  %exitcond117.not = icmp eq i64 %indvars.iv.next113, %wide.trip.count116
-  br i1 %exitcond117.not, label %.lr.ph96, label %.lr.ph93
+  %indvars.iv113 = phi i64 [ %indvars.iv.next114, %.lr.ph93 ], [ 0, %.lr.ph91 ]
+  %37 = load ptr, ptr %30, align 8
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 %indvars.iv113
+  store i8 0, ptr %38, align 1
+  %indvars.iv.next114 = add nuw nsw i64 %indvars.iv113, 1
+  %exitcond118.not = icmp eq i64 %indvars.iv.next114, %wide.trip.count117
+  br i1 %exitcond118.not, label %.lr.ph96, label %.lr.ph93
 
 .lr.ph96:                                         ; preds = %.lr.ph93, %.lr.ph96
-  %indvars.iv118 = phi i64 [ %indvars.iv.next119, %.lr.ph96 ], [ 0, %.lr.ph93 ]
-  %.08194 = phi i32 [ %61, %.lr.ph96 ], [ 0, %.lr.ph93 ]
-  %40 = shl nsw i32 %.08194, 2
-  %41 = load ptr, ptr %33, align 8
-  %42 = getelementptr inbounds nuw i32, ptr %41, i64 %indvars.iv118
-  store i32 %40, ptr %42, align 4
-  %43 = or disjoint i32 %40, 1
-  %44 = load ptr, ptr %33, align 8
-  %45 = or disjoint i64 %indvars.iv118, 1
-  %46 = getelementptr inbounds nuw i32, ptr %44, i64 %45
-  store i32 %43, ptr %46, align 4
-  %47 = or disjoint i32 %40, 2
-  %48 = load ptr, ptr %33, align 8
-  %49 = getelementptr inbounds nuw i32, ptr %48, i64 %indvars.iv118
-  %50 = getelementptr inbounds nuw i8, ptr %49, i64 8
-  store i32 %47, ptr %50, align 4
-  %51 = load ptr, ptr %33, align 8
-  %52 = getelementptr inbounds nuw i32, ptr %51, i64 %indvars.iv118
-  %53 = getelementptr inbounds nuw i8, ptr %52, i64 12
-  store i32 %40, ptr %53, align 4
-  %54 = load ptr, ptr %33, align 8
-  %55 = getelementptr inbounds nuw i32, ptr %54, i64 %indvars.iv118
-  %56 = getelementptr inbounds nuw i8, ptr %55, i64 16
-  store i32 %47, ptr %56, align 4
-  %57 = or disjoint i32 %40, 3
-  %58 = load ptr, ptr %33, align 8
-  %59 = getelementptr inbounds nuw i32, ptr %58, i64 %indvars.iv118
-  %60 = getelementptr inbounds nuw i8, ptr %59, i64 20
-  store i32 %57, ptr %60, align 4
-  %61 = add nuw nsw i32 %.08194, 1
-  %indvars.iv.next119 = add nuw nsw i64 %indvars.iv118, 6
-  %exitcond122.not = icmp eq i32 %.08194, %23
-  br i1 %exitcond122.not, label %._crit_edge, label %.lr.ph96
+  %indvars.iv119 = phi i64 [ %indvars.iv.next120, %.lr.ph96 ], [ 0, %.lr.ph93 ]
+  %.08194 = phi i32 [ %60, %.lr.ph96 ], [ 0, %.lr.ph93 ]
+  %39 = shl nsw i32 %.08194, 2
+  %40 = load ptr, ptr %32, align 8
+  %41 = getelementptr inbounds nuw i32, ptr %40, i64 %indvars.iv119
+  store i32 %39, ptr %41, align 4
+  %42 = or disjoint i32 %39, 1
+  %43 = load ptr, ptr %32, align 8
+  %44 = or disjoint i64 %indvars.iv119, 1
+  %45 = getelementptr inbounds nuw i32, ptr %43, i64 %44
+  store i32 %42, ptr %45, align 4
+  %46 = or disjoint i32 %39, 2
+  %47 = load ptr, ptr %32, align 8
+  %48 = getelementptr inbounds nuw i32, ptr %47, i64 %indvars.iv119
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 8
+  store i32 %46, ptr %49, align 4
+  %50 = load ptr, ptr %32, align 8
+  %51 = getelementptr inbounds nuw i32, ptr %50, i64 %indvars.iv119
+  %52 = getelementptr inbounds nuw i8, ptr %51, i64 12
+  store i32 %39, ptr %52, align 4
+  %53 = load ptr, ptr %32, align 8
+  %54 = getelementptr inbounds nuw i32, ptr %53, i64 %indvars.iv119
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 16
+  store i32 %46, ptr %55, align 4
+  %56 = or disjoint i32 %39, 3
+  %57 = load ptr, ptr %32, align 8
+  %58 = getelementptr inbounds nuw i32, ptr %57, i64 %indvars.iv119
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 20
+  store i32 %56, ptr %59, align 4
+  %60 = add nuw nsw i32 %.08194, 1
+  %indvars.iv.next120 = add nuw nsw i64 %indvars.iv119, 6
+  %exitcond123.not = icmp eq i32 %.08194, %22
+  br i1 %exitcond123.not, label %._crit_edge, label %.lr.ph96
 
-._crit_edge:                                      ; preds = %.lr.ph96, %.preheader88
+._crit_edge:                                      ; preds = %.lr.ph96, %23
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 40), align 8
-  %indvars.iv.next124 = add nuw nsw i64 %indvars.iv123, 1
-  %exitcond127.not = icmp eq i64 %indvars.iv.next124, %wide.trip.count126
-  br i1 %exitcond127.not, label %._crit_edge100, label %24
+  %indvars.iv.next125 = add nuw nsw i64 %indvars.iv124, 1
+  %exitcond128.not = icmp eq i64 %indvars.iv.next125, %wide.trip.count127
+  br i1 %exitcond128.not, label %._crit_edge100, label %23
 
 ._crit_edge100:                                   ; preds = %._crit_edge
   tail call void (i32, ptr, ...) @TraceLog(i32 noundef 3, ptr noundef nonnull @.str.38) #54
-  %62 = mul i32 %2, 12
-  %63 = sext i32 %62 to i64
-  %64 = shl nsw i64 %63, 2
-  %65 = shl nsw i32 %2, 3
-  %66 = sext i32 %65 to i64
-  %67 = shl nsw i64 %66, 2
-  %68 = shl nsw i32 %2, 4
-  %69 = sext i32 %68 to i64
-  %70 = mul nsw i32 %2, 6
-  %71 = sext i32 %70 to i64
-  %72 = shl nsw i64 %71, 2
-  %wide.trip.count131 = zext nneg i32 %1 to i64
-  br label %73
+  %61 = mul nsw i32 %2, 12
+  %62 = sext i32 %61 to i64
+  %63 = shl nsw i64 %62, 2
+  %64 = shl nsw i32 %2, 3
+  %65 = sext i32 %64 to i64
+  %66 = shl nsw i64 %65, 2
+  %67 = shl nsw i32 %2, 4
+  %68 = sext i32 %67 to i64
+  %69 = mul nsw i32 %2, 6
+  %70 = sext i32 %69 to i64
+  %71 = shl nsw i64 %70, 2
+  %wide.trip.count132 = zext nneg i32 %1 to i64
+  br label %72
 
-73:                                               ; preds = %._crit_edge100, %81
-  %indvars.iv128 = phi i64 [ 0, %._crit_edge100 ], [ %indvars.iv.next129, %81 ]
-  %74 = load i8, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 2696), align 8
-  %75 = trunc i8 %74 to i1
-  br i1 %75, label %76, label %81
+72:                                               ; preds = %._crit_edge100, %80
+  %indvars.iv129 = phi i64 [ 0, %._crit_edge100 ], [ %indvars.iv.next130, %80 ]
+  %73 = load i8, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 2696), align 8
+  %74 = trunc i8 %73 to i1
+  br i1 %74, label %75, label %80
 
-76:                                               ; preds = %73
-  %77 = load ptr, ptr @glad_glGenVertexArrays, align 8
-  %78 = getelementptr inbounds nuw %struct.rlVertexBuffer, ptr %6, i64 %indvars.iv128, i32 5
-  tail call void %77(i32 noundef 1, ptr noundef nonnull %78) #54
-  %79 = load ptr, ptr @glad_glBindVertexArray, align 8
-  %80 = load i32, ptr %78, align 8
-  tail call void %79(i32 noundef %80) #54
-  br label %81
+75:                                               ; preds = %72
+  %76 = load ptr, ptr @glad_glGenVertexArrays, align 8
+  %77 = getelementptr inbounds nuw %struct.rlVertexBuffer, ptr %6, i64 %indvars.iv129, i32 5
+  tail call void %76(i32 noundef 1, ptr noundef nonnull %77) #54
+  %78 = load ptr, ptr @glad_glBindVertexArray, align 8
+  %79 = load i32, ptr %77, align 8
+  tail call void %78(i32 noundef %79) #54
+  br label %80
 
-81:                                               ; preds = %76, %73
-  %82 = load ptr, ptr @glad_glGenBuffers, align 8
-  %83 = getelementptr inbounds nuw %struct.rlVertexBuffer, ptr %6, i64 %indvars.iv128, i32 6
-  tail call void %82(i32 noundef 1, ptr noundef nonnull %83) #54
-  %84 = load ptr, ptr @glad_glBindBuffer, align 8
-  %85 = load i32, ptr %83, align 4
-  tail call void %84(i32 noundef 34962, i32 noundef %85) #54
-  %86 = load ptr, ptr @glad_glBufferData, align 8
-  %87 = getelementptr inbounds nuw %struct.rlVertexBuffer, ptr %6, i64 %indvars.iv128, i32 1
-  %88 = load ptr, ptr %87, align 8
-  tail call void %86(i32 noundef 34962, i64 noundef %64, ptr noundef %88, i32 noundef 35048) #54
-  %89 = load ptr, ptr @glad_glEnableVertexAttribArray, align 8
-  %90 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 2376), align 8
-  %91 = load i32, ptr %90, align 4
-  tail call void %89(i32 noundef %91) #54
-  %92 = load ptr, ptr @glad_glVertexAttribPointer, align 8
-  %93 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 2376), align 8
-  %94 = load i32, ptr %93, align 4
-  tail call void %92(i32 noundef %94, i32 noundef 3, i32 noundef 5126, i8 noundef zeroext 0, i32 noundef 0, ptr noundef null) #54
-  %95 = load ptr, ptr @glad_glGenBuffers, align 8
-  %96 = getelementptr inbounds nuw %struct.rlVertexBuffer, ptr %6, i64 %indvars.iv128, i32 6, i64 1
-  tail call void %95(i32 noundef 1, ptr noundef nonnull %96) #54
-  %97 = load ptr, ptr @glad_glBindBuffer, align 8
-  %98 = load i32, ptr %96, align 4
-  tail call void %97(i32 noundef 34962, i32 noundef %98) #54
-  %99 = load ptr, ptr @glad_glBufferData, align 8
-  %100 = getelementptr inbounds nuw %struct.rlVertexBuffer, ptr %6, i64 %indvars.iv128, i32 2
-  %101 = load ptr, ptr %100, align 8
-  tail call void %99(i32 noundef 34962, i64 noundef %67, ptr noundef %101, i32 noundef 35048) #54
-  %102 = load ptr, ptr @glad_glEnableVertexAttribArray, align 8
-  %103 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 2376), align 8
-  %104 = getelementptr inbounds nuw i8, ptr %103, i64 4
-  %105 = load i32, ptr %104, align 4
-  tail call void %102(i32 noundef %105) #54
-  %106 = load ptr, ptr @glad_glVertexAttribPointer, align 8
-  %107 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 2376), align 8
-  %108 = getelementptr inbounds nuw i8, ptr %107, i64 4
-  %109 = load i32, ptr %108, align 4
-  tail call void %106(i32 noundef %109, i32 noundef 2, i32 noundef 5126, i8 noundef zeroext 0, i32 noundef 0, ptr noundef null) #54
-  %110 = load ptr, ptr @glad_glGenBuffers, align 8
-  %111 = getelementptr inbounds nuw %struct.rlVertexBuffer, ptr %6, i64 %indvars.iv128, i32 6, i64 2
-  tail call void %110(i32 noundef 1, ptr noundef nonnull %111) #54
-  %112 = load ptr, ptr @glad_glBindBuffer, align 8
-  %113 = load i32, ptr %111, align 4
-  tail call void %112(i32 noundef 34962, i32 noundef %113) #54
-  %114 = load ptr, ptr @glad_glBufferData, align 8
-  %115 = getelementptr inbounds nuw %struct.rlVertexBuffer, ptr %6, i64 %indvars.iv128, i32 3
-  %116 = load ptr, ptr %115, align 8
-  tail call void %114(i32 noundef 34962, i64 noundef %69, ptr noundef %116, i32 noundef 35048) #54
-  %117 = load ptr, ptr @glad_glEnableVertexAttribArray, align 8
-  %118 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 2376), align 8
-  %119 = getelementptr inbounds nuw i8, ptr %118, i64 20
-  %120 = load i32, ptr %119, align 4
-  tail call void %117(i32 noundef %120) #54
-  %121 = load ptr, ptr @glad_glVertexAttribPointer, align 8
-  %122 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 2376), align 8
-  %123 = getelementptr inbounds nuw i8, ptr %122, i64 20
-  %124 = load i32, ptr %123, align 4
-  tail call void %121(i32 noundef %124, i32 noundef 4, i32 noundef 5121, i8 noundef zeroext 1, i32 noundef 0, ptr noundef null) #54
-  %125 = load ptr, ptr @glad_glGenBuffers, align 8
-  %126 = getelementptr inbounds nuw %struct.rlVertexBuffer, ptr %6, i64 %indvars.iv128, i32 6, i64 3
-  tail call void %125(i32 noundef 1, ptr noundef nonnull %126) #54
-  %127 = load ptr, ptr @glad_glBindBuffer, align 8
-  %128 = load i32, ptr %126, align 4
-  tail call void %127(i32 noundef 34963, i32 noundef %128) #54
-  %129 = load ptr, ptr @glad_glBufferData, align 8
-  %130 = getelementptr inbounds nuw %struct.rlVertexBuffer, ptr %6, i64 %indvars.iv128, i32 4
-  %131 = load ptr, ptr %130, align 8
-  tail call void %129(i32 noundef 34963, i64 noundef %72, ptr noundef %131, i32 noundef 35044) #54
-  %indvars.iv.next129 = add nuw nsw i64 %indvars.iv128, 1
-  %exitcond132.not = icmp eq i64 %indvars.iv.next129, %wide.trip.count131
-  br i1 %exitcond132.not, label %._crit_edge104, label %73
+80:                                               ; preds = %75, %72
+  %81 = load ptr, ptr @glad_glGenBuffers, align 8
+  %82 = getelementptr inbounds nuw %struct.rlVertexBuffer, ptr %6, i64 %indvars.iv129, i32 6
+  tail call void %81(i32 noundef 1, ptr noundef nonnull %82) #54
+  %83 = load ptr, ptr @glad_glBindBuffer, align 8
+  %84 = load i32, ptr %82, align 4
+  tail call void %83(i32 noundef 34962, i32 noundef %84) #54
+  %85 = load ptr, ptr @glad_glBufferData, align 8
+  %86 = getelementptr inbounds nuw %struct.rlVertexBuffer, ptr %6, i64 %indvars.iv129, i32 1
+  %87 = load ptr, ptr %86, align 8
+  tail call void %85(i32 noundef 34962, i64 noundef %63, ptr noundef %87, i32 noundef 35048) #54
+  %88 = load ptr, ptr @glad_glEnableVertexAttribArray, align 8
+  %89 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 2376), align 8
+  %90 = load i32, ptr %89, align 4
+  tail call void %88(i32 noundef %90) #54
+  %91 = load ptr, ptr @glad_glVertexAttribPointer, align 8
+  %92 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 2376), align 8
+  %93 = load i32, ptr %92, align 4
+  tail call void %91(i32 noundef %93, i32 noundef 3, i32 noundef 5126, i8 noundef zeroext 0, i32 noundef 0, ptr noundef null) #54
+  %94 = load ptr, ptr @glad_glGenBuffers, align 8
+  %95 = getelementptr inbounds nuw %struct.rlVertexBuffer, ptr %6, i64 %indvars.iv129, i32 6, i64 1
+  tail call void %94(i32 noundef 1, ptr noundef nonnull %95) #54
+  %96 = load ptr, ptr @glad_glBindBuffer, align 8
+  %97 = load i32, ptr %95, align 4
+  tail call void %96(i32 noundef 34962, i32 noundef %97) #54
+  %98 = load ptr, ptr @glad_glBufferData, align 8
+  %99 = getelementptr inbounds nuw %struct.rlVertexBuffer, ptr %6, i64 %indvars.iv129, i32 2
+  %100 = load ptr, ptr %99, align 8
+  tail call void %98(i32 noundef 34962, i64 noundef %66, ptr noundef %100, i32 noundef 35048) #54
+  %101 = load ptr, ptr @glad_glEnableVertexAttribArray, align 8
+  %102 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 2376), align 8
+  %103 = getelementptr inbounds nuw i8, ptr %102, i64 4
+  %104 = load i32, ptr %103, align 4
+  tail call void %101(i32 noundef %104) #54
+  %105 = load ptr, ptr @glad_glVertexAttribPointer, align 8
+  %106 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 2376), align 8
+  %107 = getelementptr inbounds nuw i8, ptr %106, i64 4
+  %108 = load i32, ptr %107, align 4
+  tail call void %105(i32 noundef %108, i32 noundef 2, i32 noundef 5126, i8 noundef zeroext 0, i32 noundef 0, ptr noundef null) #54
+  %109 = load ptr, ptr @glad_glGenBuffers, align 8
+  %110 = getelementptr inbounds nuw %struct.rlVertexBuffer, ptr %6, i64 %indvars.iv129, i32 6, i64 2
+  tail call void %109(i32 noundef 1, ptr noundef nonnull %110) #54
+  %111 = load ptr, ptr @glad_glBindBuffer, align 8
+  %112 = load i32, ptr %110, align 4
+  tail call void %111(i32 noundef 34962, i32 noundef %112) #54
+  %113 = load ptr, ptr @glad_glBufferData, align 8
+  %114 = getelementptr inbounds nuw %struct.rlVertexBuffer, ptr %6, i64 %indvars.iv129, i32 3
+  %115 = load ptr, ptr %114, align 8
+  tail call void %113(i32 noundef 34962, i64 noundef %68, ptr noundef %115, i32 noundef 35048) #54
+  %116 = load ptr, ptr @glad_glEnableVertexAttribArray, align 8
+  %117 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 2376), align 8
+  %118 = getelementptr inbounds nuw i8, ptr %117, i64 20
+  %119 = load i32, ptr %118, align 4
+  tail call void %116(i32 noundef %119) #54
+  %120 = load ptr, ptr @glad_glVertexAttribPointer, align 8
+  %121 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 2376), align 8
+  %122 = getelementptr inbounds nuw i8, ptr %121, i64 20
+  %123 = load i32, ptr %122, align 4
+  tail call void %120(i32 noundef %123, i32 noundef 4, i32 noundef 5121, i8 noundef zeroext 1, i32 noundef 0, ptr noundef null) #54
+  %124 = load ptr, ptr @glad_glGenBuffers, align 8
+  %125 = getelementptr inbounds nuw %struct.rlVertexBuffer, ptr %6, i64 %indvars.iv129, i32 6, i64 3
+  tail call void %124(i32 noundef 1, ptr noundef nonnull %125) #54
+  %126 = load ptr, ptr @glad_glBindBuffer, align 8
+  %127 = load i32, ptr %125, align 4
+  tail call void %126(i32 noundef 34963, i32 noundef %127) #54
+  %128 = load ptr, ptr @glad_glBufferData, align 8
+  %129 = getelementptr inbounds nuw %struct.rlVertexBuffer, ptr %6, i64 %indvars.iv129, i32 4
+  %130 = load ptr, ptr %129, align 8
+  tail call void %128(i32 noundef 34963, i64 noundef %71, ptr noundef %130, i32 noundef 35044) #54
+  %indvars.iv.next130 = add nuw nsw i64 %indvars.iv129, 1
+  %exitcond133.not = icmp eq i64 %indvars.iv.next130, %wide.trip.count132
+  br i1 %exitcond133.not, label %._crit_edge104, label %72
 
-._crit_edge104:                                   ; preds = %81, %._crit_edge100.thread
+._crit_edge104:                                   ; preds = %80, %._crit_edge100.thread
   tail call void (i32, ptr, ...) @TraceLog(i32 noundef 3, ptr noundef nonnull @.str.39) #54
-  %132 = load i8, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 2696), align 8
-  %133 = trunc i8 %132 to i1
-  br i1 %133, label %134, label %136
+  %131 = load i8, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 2696), align 8
+  %132 = trunc i8 %131 to i1
+  br i1 %132, label %133, label %135
 
-134:                                              ; preds = %._crit_edge104
-  %135 = load ptr, ptr @glad_glBindVertexArray, align 8
-  tail call void %135(i32 noundef 0) #54
-  br label %136
+133:                                              ; preds = %._crit_edge104
+  %134 = load ptr, ptr @glad_glBindVertexArray, align 8
+  tail call void %134(i32 noundef 0) #54
+  br label %135
 
-136:                                              ; preds = %134, %._crit_edge104
-  %137 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #56
-  %138 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %137, ptr %138, align 8
-  %139 = load i32, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 2328), align 8
-  br label %140
+135:                                              ; preds = %133, %._crit_edge104
+  %136 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #56
+  %137 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %136, ptr %137, align 8
+  %138 = load i32, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 2328), align 8
+  br label %139
 
-140:                                              ; preds = %136, %140
-  %indvars.iv133 = phi i64 [ 0, %136 ], [ %indvars.iv.next134, %140 ]
-  %141 = getelementptr inbounds nuw %struct.rlDrawCall, ptr %137, i64 %indvars.iv133
-  store i32 7, ptr %141, align 4
-  %142 = getelementptr inbounds nuw %struct.rlDrawCall, ptr %137, i64 %indvars.iv133, i32 1
+139:                                              ; preds = %135, %139
+  %indvars.iv134 = phi i64 [ 0, %135 ], [ %indvars.iv.next135, %139 ]
+  %140 = getelementptr inbounds nuw %struct.rlDrawCall, ptr %136, i64 %indvars.iv134
+  store i32 7, ptr %140, align 4
+  %141 = getelementptr inbounds nuw %struct.rlDrawCall, ptr %136, i64 %indvars.iv134, i32 1
+  store i32 0, ptr %141, align 4
+  %142 = getelementptr inbounds nuw %struct.rlDrawCall, ptr %136, i64 %indvars.iv134, i32 2
   store i32 0, ptr %142, align 4
-  %143 = getelementptr inbounds nuw %struct.rlDrawCall, ptr %137, i64 %indvars.iv133, i32 2
-  store i32 0, ptr %143, align 4
-  %144 = getelementptr inbounds nuw %struct.rlDrawCall, ptr %137, i64 %indvars.iv133, i32 3
-  store i32 %139, ptr %144, align 4
-  %indvars.iv.next134 = add nuw nsw i64 %indvars.iv133, 1
-  %exitcond136.not = icmp eq i64 %indvars.iv.next134, 256
-  br i1 %exitcond136.not, label %145, label %140
+  %143 = getelementptr inbounds nuw %struct.rlDrawCall, ptr %136, i64 %indvars.iv134, i32 3
+  store i32 %138, ptr %143, align 4
+  %indvars.iv.next135 = add nuw nsw i64 %indvars.iv134, 1
+  %exitcond137.not = icmp eq i64 %indvars.iv.next135, 256
+  br i1 %exitcond137.not, label %144, label %139
 
-145:                                              ; preds = %140
+144:                                              ; preds = %139
   store i32 %1, ptr %0, align 8
-  %146 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i32 1, ptr %146, align 8
-  %147 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  store float -1.000000e+00, ptr %147, align 4
+  %145 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store i32 1, ptr %145, align 8
+  %146 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  store float -1.000000e+00, ptr %146, align 4
   ret void
 }
 

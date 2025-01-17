@@ -82757,7 +82757,7 @@ _ZN8pybind114noneD2Ev.exit.i:                     ; preds = %1
   store <4 x float> %23, ptr %20, align 16, !alias.scope !2942
   %24 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %25 = getelementptr inbounds nuw i8, ptr %.val16.i, i64 4
-  %.idx.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i19.i = mul i64 %.val17.i, 12
+  %.idx.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i19.i = mul nsw i64 %.val17.i, 12
   %26 = getelementptr inbounds i8, ptr %25, i64 %.idx.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i19.i
   %27 = load <4 x float>, ptr %26, align 16, !noalias !2942
   store <4 x float> %27, ptr %24, align 16, !alias.scope !2942

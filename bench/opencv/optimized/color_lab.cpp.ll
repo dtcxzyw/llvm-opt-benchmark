@@ -5940,7 +5940,7 @@ _ZN2cv10softdoubleaSERKS0_.exit:                  ; preds = %_ZN2cvL11initLabTab
   br i1 %.not, label %.preheader.split.us, label %_ZN2cv10softdoubleaSERKS0_.exit43.preheader
 
 _ZN2cv10softdoubleaSERKS0_.exit43.preheader:      ; preds = %.preheader46
-  %invariant.gep = getelementptr float, ptr %3, i64 %indvars.iv66
+  %invariant.gep = getelementptr inbounds nuw float, ptr %3, i64 %indvars.iv66
   br label %_ZN2cv10softdoubleaSERKS0_.exit43
 
 .preheader.split.us:                              ; preds = %.preheader46, %_ZN2cv10softdoubleaSERKS0_.exit43.us
@@ -5964,8 +5964,8 @@ _ZN2cv10softdoubleaSERKS0_.exit43.us:             ; preds = %38, %.preheader.spl
 
 _ZN2cv10softdoubleaSERKS0_.exit43:                ; preds = %_ZN2cv10softdoubleaSERKS0_.exit43.preheader, %_ZN2cv10softdoubleaSERKS0_.exit43
   %indvars.iv58 = phi i64 [ 0, %_ZN2cv10softdoubleaSERKS0_.exit43.preheader ], [ %indvars.iv.next59, %_ZN2cv10softdoubleaSERKS0_.exit43 ]
-  %.idx = mul i64 %indvars.iv58, 12
-  %gep = getelementptr i8, ptr %invariant.gep, i64 %.idx
+  %.idx = mul nuw nsw i64 %indvars.iv58, 12
+  %gep = getelementptr inbounds nuw i8, ptr %invariant.gep, i64 %.idx
   %40 = load float, ptr %gep, align 4
   %41 = fpext float %40 to double
   %42 = getelementptr inbounds nuw [3 x %"struct.cv::softdouble"], ptr %8, i64 0, i64 %indvars.iv58
@@ -6090,7 +6090,7 @@ _ZN2cv10softdoubleaSERKS0_.exit:                  ; preds = %.preheader50, %_ZN2
   br i1 %.not41, label %.preheader.split.us, label %_ZN2cv10softdoubleaSERKS0_.exit46.preheader
 
 _ZN2cv10softdoubleaSERKS0_.exit46.preheader:      ; preds = %.preheader49
-  %invariant.gep = getelementptr float, ptr %3, i64 %indvars.iv70
+  %invariant.gep = getelementptr inbounds nuw float, ptr %3, i64 %indvars.iv70
   br label %_ZN2cv10softdoubleaSERKS0_.exit46
 
 .preheader.split.us:                              ; preds = %.preheader49, %_ZN2cv10softdoubleaSERKS0_.exit46.us
@@ -6114,8 +6114,8 @@ _ZN2cv10softdoubleaSERKS0_.exit46.us:             ; preds = %39, %.preheader.spl
 
 _ZN2cv10softdoubleaSERKS0_.exit46:                ; preds = %_ZN2cv10softdoubleaSERKS0_.exit46.preheader, %_ZN2cv10softdoubleaSERKS0_.exit46
   %indvars.iv62 = phi i64 [ 0, %_ZN2cv10softdoubleaSERKS0_.exit46.preheader ], [ %indvars.iv.next63, %_ZN2cv10softdoubleaSERKS0_.exit46 ]
-  %.idx = mul i64 %indvars.iv62, 12
-  %gep = getelementptr i8, ptr %invariant.gep, i64 %.idx
+  %.idx = mul nuw nsw i64 %indvars.iv62, 12
+  %gep = getelementptr inbounds nuw i8, ptr %invariant.gep, i64 %.idx
   %41 = load float, ptr %gep, align 4
   %42 = fpext float %41 to double
   %43 = getelementptr inbounds nuw [3 x %"struct.cv::softdouble"], ptr %7, i64 0, i64 %indvars.iv62
@@ -6286,13 +6286,13 @@ _ZN2cv10softdoubleaSERKS0_.exit:                  ; preds = %_ZN2cvL11initLabTab
 .preheader49:                                     ; preds = %.preheader50, %.split
   %indvars.iv68 = phi i64 [ %indvars.iv.next69, %.split ], [ 0, %.preheader50 ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %8, i8 0, i64 12, i1 false)
-  %invariant.gep = getelementptr float, ptr %3, i64 %indvars.iv68
+  %invariant.gep = getelementptr inbounds nuw float, ptr %3, i64 %indvars.iv68
   br label %_ZN2cv9softfloataSERKS0_.exit
 
 _ZN2cv9softfloataSERKS0_.exit:                    ; preds = %.preheader49, %_ZN2cv9softfloataSERKS0_.exit
   %indvars.iv64 = phi i64 [ 0, %.preheader49 ], [ %indvars.iv.next65, %_ZN2cv9softfloataSERKS0_.exit ]
-  %.idx = mul i64 %indvars.iv64, 12
-  %gep = getelementptr i8, ptr %invariant.gep, i64 %.idx
+  %.idx = mul nuw nsw i64 %indvars.iv64, 12
+  %gep = getelementptr inbounds nuw i8, ptr %invariant.gep, i64 %.idx
   %68 = load i32, ptr %gep, align 4
   %69 = getelementptr inbounds nuw [3 x %"struct.cv::softfloat"], ptr %8, i64 0, i64 %indvars.iv64
   store i32 %68, ptr %69, align 4
@@ -6503,13 +6503,13 @@ _ZN2cv10softdoubleaSERKS0_.exit.us.us:            ; preds = %40, %.preheader.us
 .preheader28:                                     ; preds = %27, %.split
   %indvars.iv36 = phi i64 [ %indvars.iv.next37, %.split ], [ 0, %27 ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %7, i8 0, i64 24, i1 false)
-  %invariant.gep = getelementptr float, ptr %3, i64 %indvars.iv36
+  %invariant.gep = getelementptr inbounds nuw float, ptr %3, i64 %indvars.iv36
   br label %_ZN2cv10softdoubleaSERKS0_.exit
 
 _ZN2cv10softdoubleaSERKS0_.exit:                  ; preds = %.preheader28, %_ZN2cv10softdoubleaSERKS0_.exit
   %indvars.iv = phi i64 [ 0, %.preheader28 ], [ %indvars.iv.next, %_ZN2cv10softdoubleaSERKS0_.exit ]
-  %.idx = mul i64 %indvars.iv, 12
-  %gep = getelementptr i8, ptr %invariant.gep, i64 %.idx
+  %.idx = mul nuw nsw i64 %indvars.iv, 12
+  %gep = getelementptr inbounds nuw i8, ptr %invariant.gep, i64 %.idx
   %51 = load float, ptr %gep, align 4
   %52 = fpext float %51 to double
   %53 = getelementptr inbounds nuw [3 x %"struct.cv::softdouble"], ptr %7, i64 0, i64 %indvars.iv

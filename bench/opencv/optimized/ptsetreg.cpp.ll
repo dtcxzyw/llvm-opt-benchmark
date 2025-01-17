@@ -10193,7 +10193,7 @@ _ZNK2cv11_InputArray6getMatEi.exit53:             ; preds = %24, %27
   %42 = getelementptr inbounds nuw %"class.cv::Point3_", ptr %31, i64 %indvars.iv
   %43 = load float, ptr %42, align 4
   %44 = fpext float %43 to double
-  %.idx = mul nuw i64 %indvars.iv, 24
+  %.idx = mul nuw nsw i64 %indvars.iv, 24
   %45 = getelementptr inbounds nuw i8, ptr %40, i64 %.idx
   store double %44, ptr %45, align 8
   %46 = getelementptr inbounds nuw i8, ptr %42, i64 4
@@ -10206,7 +10206,7 @@ _ZNK2cv11_InputArray6getMatEi.exit53:             ; preds = %24, %27
   %52 = fpext float %51 to double
   %53 = getelementptr inbounds nuw i8, ptr %45, i64 16
   store double %52, ptr %53, align 8
-  %.idx59 = mul nuw i64 %indvars.iv, 288
+  %.idx59 = mul nuw nsw i64 %indvars.iv, 288
   %54 = getelementptr inbounds nuw i8, ptr %38, i64 %.idx59
   %55 = getelementptr inbounds nuw %"class.cv::Point3_", ptr %29, i64 %indvars.iv
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 4

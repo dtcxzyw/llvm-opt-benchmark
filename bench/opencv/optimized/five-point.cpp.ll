@@ -13227,7 +13227,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit402.thread:          ; preds = %1422
 
 1482:                                             ; preds = %1477, %1482
   %indvars.iv = phi i64 [ 0, %1477 ], [ %indvars.iv.next, %1482 ]
-  %.idx = mul nuw i64 %indvars.iv, 104
+  %.idx = mul nuw nsw i64 %indvars.iv, 104
   %1483 = getelementptr inbounds nuw i8, ptr %152, i64 %.idx
   %1484 = load double, ptr %1483, align 8
   %1485 = getelementptr inbounds nuw i8, ptr %1483, i64 8

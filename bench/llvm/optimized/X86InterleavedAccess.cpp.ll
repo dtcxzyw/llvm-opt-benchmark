@@ -587,7 +587,7 @@ _ZL19createShuffleStrideN4llvm3MVTEiRNS_15SmallVectorImplIiEE.exit.i: ; preds = 
   %indvars.iv47.i.i = phi i64 [ 0, %.preheader39.lr.ph.i.i ], [ %indvars.iv.next48.i.i, %172 ]
   %148 = mul nuw nsw i64 %indvars.iv47.i.i, 6
   %.idx.i.i = mul nuw nsw i64 %indvars.iv47.i.i, 24
-  %invariant.gep60.i.i = getelementptr i8, ptr %46, i64 %.idx.i.i
+  %invariant.gep60.i.i = getelementptr inbounds nuw i8, ptr %46, i64 %.idx.i.i
   br label %149
 
 149:                                              ; preds = %_ZN4llvm13IRBuilderBase19CreateShuffleVectorEPNS_5ValueES2_NS_8ArrayRefIiEERKNS_5TwineE.exit.i.i, %.preheader39.i.i
@@ -640,7 +640,7 @@ _ZN4llvm13IRBuilderBase19CreateShuffleVectorEPNS_5ValueES2_NS_8ArrayRefIiEERKNS_
   %.0.i.i.i = phi ptr [ %158, %149 ], [ %160, %159 ], [ %160, %.lr.ph.i.i.i.i.i ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %36)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %37)
-  %gep61.i.i = getelementptr ptr, ptr %invariant.gep60.i.i, i64 %indvars.iv.i.i
+  %gep61.i.i = getelementptr inbounds nuw ptr, ptr %invariant.gep60.i.i, i64 %indvars.iv.i.i
   store ptr %.0.i.i.i, ptr %gep61.i.i, align 8
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i45.i = icmp eq i64 %indvars.iv.next.i.i, 3

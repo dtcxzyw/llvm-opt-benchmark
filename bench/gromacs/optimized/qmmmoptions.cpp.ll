@@ -19565,14 +19565,14 @@ _ZNK3gmx3Any6isTypeINS_17KeyValueTreeArrayEEEbv.exit.i.i.i615: ; preds = %959
 
 .preheader:                                       ; preds = %967, %1001
   %indvars.iv877 = phi i64 [ 0, %967 ], [ %indvars.iv.next878, %1001 ]
-  %.idx = mul i64 %indvars.iv877, 24
+  %.idx = mul nuw nsw i64 %indvars.iv877, 24
   br label %969
 
 969:                                              ; preds = %.preheader, %990
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %990 ]
   %970 = load ptr, ptr %58, align 8
   %971 = getelementptr inbounds nuw %"class.gmx::KeyValueTreeValue", ptr %970, i64 %indvars.iv
-  %972 = getelementptr inbounds i8, ptr %971, i64 %.idx
+  %972 = getelementptr inbounds nuw i8, ptr %971, i64 %.idx
   %973 = load ptr, ptr %972, align 8
   %.not.i.i.i.i.i.i619 = icmp eq ptr %973, null
   br i1 %.not.i.i.i.i.i.i619, label %.invoke939, label %974

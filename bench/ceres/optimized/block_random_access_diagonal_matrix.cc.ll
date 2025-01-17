@@ -8868,7 +8868,7 @@ _ZN5Eigen8internal14aligned_mallocEm.exit321:     ; preds = %47, %38, %44
   %58 = add i64 %3, 1
   %59 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %.idx = shl nsw i64 %3, 4
-  %.idx465 = mul i64 %3, 24
+  %.idx465 = mul nsw i64 %3, 24
   br label %60
 
 60:                                               ; preds = %.lr.ph429, %._crit_edge427

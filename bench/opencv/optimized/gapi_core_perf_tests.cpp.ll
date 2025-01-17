@@ -113125,7 +113125,7 @@ define linkonce_odr hidden void @_ZN11opencv_test13ParserSSDTest17generateSSDout
           to label %21 unwind label %38
 
 21:                                               ; preds = %19
-  %.idx = mul nuw i64 %indvars.iv, 28
+  %.idx = mul nuw nsw i64 %indvars.iv, 28
   %22 = getelementptr inbounds nuw i8, ptr %12, i64 %.idx
   %23 = load float, ptr %5, align 4
   store float %23, ptr %22, align 4
@@ -113297,7 +113297,7 @@ _ZNSt6vectorIiSaIiEE5clearEv.exit:                ; preds = %_ZNSt6vectorIN2cv5R
 
 56:                                               ; preds = %.lr.ph, %_ZNSt6vectorIiSaIiEE12emplace_backIJRiEEEvDpOT_.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZNSt6vectorIiSaIiEE12emplace_backIJRiEEEvDpOT_.exit ]
-  %.idx = mul nuw i64 %indvars.iv, 28
+  %.idx = mul nuw nsw i64 %indvars.iv, 28
   %57 = getelementptr inbounds nuw i8, ptr %50, i64 %.idx
   %58 = load float, ptr %57, align 4, !noalias !801
   %59 = getelementptr inbounds nuw i8, ptr %57, i64 4
@@ -116188,7 +116188,7 @@ _ZNSt6vectorIN2cv5Rect_IiEESaIS2_EE5clearEv.exit: ; preds = %7, %15
 52:                                               ; preds = %.lr.ph, %_ZNSt6vectorIN2cv5Rect_IiEESaIS2_EE12emplace_backIJRKS2_EEEvDpOT_.exit
   %53 = phi ptr [ %16, %.lr.ph ], [ %154, %_ZNSt6vectorIN2cv5Rect_IiEESaIS2_EE12emplace_backIJRKS2_EEEvDpOT_.exit ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZNSt6vectorIN2cv5Rect_IiEESaIS2_EE12emplace_backIJRKS2_EEEvDpOT_.exit ]
-  %.idx = mul nuw i64 %indvars.iv, 28
+  %.idx = mul nuw nsw i64 %indvars.iv, 28
   %54 = getelementptr inbounds nuw i8, ptr %44, i64 %.idx
   %55 = load float, ptr %54, align 4, !noalias !838
   %56 = getelementptr inbounds nuw i8, ptr %54, i64 12

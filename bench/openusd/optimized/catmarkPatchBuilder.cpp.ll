@@ -1002,7 +1002,7 @@ define linkonce_odr void @_ZNK10OpenSubdiv6v3_6_03Far16GregoryConverterIfE22resi
 5:                                                ; preds = %2, %114
   %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next.pre-phi, %114 ]
   %.088 = phi i32 [ 0, %2 ], [ %121, %114 ]
-  %.idx = mul nuw i64 %indvars.iv, 20
+  %.idx = mul nuw nsw i64 %indvars.iv, 20
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx
   %7 = getelementptr inbounds nuw [4 x %"struct.OpenSubdiv::v3_6_0::Far::GregoryConverter<float>::CornerTopology"], ptr %4, i64 0, i64 %indvars.iv
   %8 = load i16, ptr %7, align 8
@@ -6998,7 +6998,7 @@ define linkonce_odr void @_ZNK10OpenSubdiv6v3_6_03Far16GregoryConverterIdE22resi
 5:                                                ; preds = %2, %114
   %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next.pre-phi, %114 ]
   %.088 = phi i32 [ 0, %2 ], [ %121, %114 ]
-  %.idx = mul nuw i64 %indvars.iv, 20
+  %.idx = mul nuw nsw i64 %indvars.iv, 20
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx
   %7 = getelementptr inbounds nuw [4 x %"struct.OpenSubdiv::v3_6_0::Far::GregoryConverter<double>::CornerTopology"], ptr %4, i64 0, i64 %indvars.iv
   %8 = load i16, ptr %7, align 8

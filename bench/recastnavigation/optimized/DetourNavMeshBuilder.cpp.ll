@@ -82,7 +82,7 @@ define noundef zeroext i1 @_Z19dtCreateNavMeshDataP21dtNavMeshCreateParamsPPhPi(
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %.0429537 = phi float [ 0x47EFFFFFE0000000, %.lr.ph.preheader ], [ %36, %.lr.ph ]
   %.0435536 = phi float [ 0xC7EFFFFFE0000000, %.lr.ph.preheader ], [ %38, %.lr.ph ]
-  %gep.idx = mul nuw i64 %indvars.iv, 12
+  %gep.idx = mul nuw nsw i64 %indvars.iv, 12
   %gep = getelementptr inbounds nuw i8, ptr %invariant.gep, i64 %gep.idx
   %34 = load float, ptr %gep, align 4
   %35 = fcmp olt float %.0429537, %34
@@ -112,7 +112,7 @@ define noundef zeroext i1 @_Z19dtCreateNavMeshDataP21dtNavMeshCreateParamsPPhPi(
   %indvars.iv642 = phi i64 [ 0, %.lr.ph542 ], [ %indvars.iv.next643, %47 ]
   %.2431541 = phi float [ 0x47EFFFFFE0000000, %.lr.ph542 ], [ %52, %47 ]
   %.2437540 = phi float [ 0xC7EFFFFFE0000000, %.lr.ph542 ], [ %54, %47 ]
-  %gep546.idx = mul nuw i64 %indvars.iv642, 6
+  %gep546.idx = mul nuw nsw i64 %indvars.iv642, 6
   %gep546 = getelementptr inbounds nuw i8, ptr %invariant.gep545, i64 %gep546.idx
   %48 = load i16, ptr %gep546, align 2
   %49 = uitofp i16 %48 to float
@@ -154,10 +154,10 @@ define noundef zeroext i1 @_Z19dtCreateNavMeshDataP21dtNavMeshCreateParamsPPhPi(
   %.1427548 = phi i32 [ 0, %.lr.ph550 ], [ %.3, %122 ]
   %71 = load ptr, ptr %69, align 8
   %72 = shl nuw nsw i64 %indvars.iv647, 1
-  %.idx = mul nuw i64 %indvars.iv647, 24
+  %.idx = mul nuw nsw i64 %indvars.iv647, 24
   %73 = getelementptr inbounds nuw i8, ptr %71, i64 %.idx
   %74 = or disjoint i64 %72, 1
-  %.idx716 = mul nuw i64 %74, 12
+  %.idx716 = mul nuw nsw i64 %74, 12
   %75 = getelementptr inbounds nuw i8, ptr %71, i64 %.idx716
   %.val = load float, ptr %73, align 4
   %76 = getelementptr i8, ptr %73, i64 8
@@ -664,7 +664,7 @@ _ZL20classifyOffMeshPointPKfS0_S0_.exit512:       ; preds = %_ZL20classifyOffMes
 
 347:                                              ; preds = %341
   %348 = load ptr, ptr %313, align 8
-  %.idx717 = mul nuw i64 %indvars.iv687, 24
+  %.idx717 = mul nuw nsw i64 %indvars.iv687, 24
   %349 = getelementptr inbounds nuw i8, ptr %348, i64 %.idx717
   %350 = shl nsw i32 %.0458597, 1
   %351 = add nsw i32 %350, %307
@@ -1056,7 +1056,7 @@ _ZL20classifyOffMeshPointPKfS0_S0_.exit512:       ; preds = %_ZL20classifyOffMes
   %561 = getelementptr inbounds nuw i8, ptr %558, i64 28
   store i16 %560, ptr %561, align 4
   %562 = load ptr, ptr %546, align 8
-  %.idx718 = mul nuw i64 %indvars.iv710, 24
+  %.idx718 = mul nuw nsw i64 %indvars.iv710, 24
   %563 = getelementptr inbounds nuw i8, ptr %562, i64 %.idx718
   %564 = load float, ptr %563, align 4
   store float %564, ptr %558, align 4
@@ -1212,7 +1212,7 @@ define internal fastcc void @_ZL12createBVTreeP21dtNavMeshCreateParamsP8dtBVNode
   %.sroa.0117.0126 = phi float [ %38, %.lr.ph.preheader ], [ %47, %.lr.ph ]
   %.sroa.4119.0125 = phi float [ %40, %.lr.ph.preheader ], [ %51, %.lr.ph ]
   %.sroa.8121.0124 = phi float [ %42, %.lr.ph.preheader ], [ %55, %.lr.ph ]
-  %.idx160 = mul nuw i64 %indvars.iv, 12
+  %.idx160 = mul nuw nsw i64 %indvars.iv, 12
   %44 = getelementptr inbounds nuw i8, ptr %37, i64 %.idx160
   %45 = load float, ptr %44, align 4
   %46 = fcmp olt float %.sroa.0117.0126, %45

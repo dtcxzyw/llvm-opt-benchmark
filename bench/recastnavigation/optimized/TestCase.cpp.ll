@@ -935,7 +935,7 @@ define dso_local void @_ZN8TestCase12handleRenderEv(ptr nocapture noundef nonnul
 138:                                              ; preds = %.lr.ph, %138
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %138 ]
   %139 = load ptr, ptr %137, align 8
-  %.idx = mul nuw i64 %indvars.iv, 12
+  %.idx = mul nuw nsw i64 %indvars.iv, 12
   %140 = getelementptr inbounds nuw i8, ptr %139, i64 %.idx
   %141 = load float, ptr %140, align 4
   %142 = getelementptr inbounds nuw i8, ptr %140, i64 4
@@ -946,7 +946,7 @@ define dso_local void @_ZN8TestCase12handleRenderEv(ptr nocapture noundef nonnul
   tail call void @glVertex3f(float noundef %141, float noundef %144, float noundef %146)
   %147 = load ptr, ptr %137, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %.idx99 = mul nuw i64 %indvars.iv.next, 12
+  %.idx99 = mul nuw nsw i64 %indvars.iv.next, 12
   %148 = getelementptr inbounds nuw i8, ptr %147, i64 %.idx99
   %149 = load float, ptr %148, align 4
   %150 = getelementptr inbounds nuw i8, ptr %148, i64 4

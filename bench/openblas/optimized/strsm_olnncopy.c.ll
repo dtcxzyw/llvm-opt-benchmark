@@ -18,7 +18,7 @@ define noundef i32 @strsm_olnncopy(i64 noundef %0, i64 noundef %1, ptr noundef r
   %15 = icmp eq i64 %14, 0
   %16 = and i64 %0, -4
   %.idx = shl nsw i64 %3, 3
-  %.idx4 = mul i64 %3, 12
+  %.idx4 = mul nsw i64 %3, 12
   %.idx5 = shl nsw i64 %3, 4
   br label %17
 

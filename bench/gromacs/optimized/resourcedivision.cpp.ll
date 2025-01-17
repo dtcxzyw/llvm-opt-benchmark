@@ -745,8 +745,8 @@ _ZL28get_tmpi_omp_thread_divisionPK13gmx_hw_info_tRK12gmx_hw_opt_tii.exit: ; pre
 
 .preheader:                                       ; preds = %.critedge, %.preheader
   %.079 = phi i32 [ %253, %.preheader ], [ 2, %.critedge ]
-  %252 = mul i32 %.079, 6
-  %.not100 = icmp sgt i32 %252, %.181.lcssa
+  %252 = mul nuw nsw i32 %.079, 6
+  %.not100 = icmp samesign ugt i32 %252, %.181.lcssa
   %253 = shl nsw i32 %.079, 1
   br i1 %.not100, label %254, label %.preheader, !llvm.loop !9
 

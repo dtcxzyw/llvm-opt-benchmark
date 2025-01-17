@@ -183,7 +183,7 @@ define dso_local void @_ZN21OffMeshConnectionTool11handleClickEPKfS1_b(ptr nound
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %24 ]
   %.031 = phi float [ 0x47EFFFFFE0000000, %.lr.ph ], [ %.1, %24 ]
   %.02130 = phi i32 [ -1, %.lr.ph ], [ %.122, %24 ]
-  %.idx = mul nuw i64 %indvars.iv, 12
+  %.idx = mul nuw nsw i64 %indvars.iv, 12
   %25 = getelementptr inbounds nuw i8, ptr %14, i64 %.idx
   %26 = load float, ptr %25, align 4
   %27 = fsub float %26, %19

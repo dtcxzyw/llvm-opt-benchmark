@@ -22,7 +22,7 @@ define void @Ptngc_comp_to_lz77(ptr nocapture noundef readonly %0, i32 noundef %
 
 12:                                               ; preds = %8, %12
   %indvars.iv = phi i64 [ 0, %8 ], [ %indvars.iv.next, %12 ]
-  %.idx = mul nuw i64 %indvars.iv, 28
+  %.idx = mul nuw nsw i64 %indvars.iv, 28
   %13 = getelementptr inbounds nuw i8, ptr %9, i64 %.idx
   store i32 0, ptr %13, align 4
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 4

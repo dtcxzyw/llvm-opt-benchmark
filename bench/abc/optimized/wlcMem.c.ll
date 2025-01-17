@@ -5127,7 +5127,7 @@ Vec_IntStart.exit:                                ; preds = %Vec_IntAlloc.exit.t
   %22 = getelementptr i8, ptr %0, i64 640
   %.val70 = load ptr, ptr %21, align 8
   %.val72 = load ptr, ptr %22, align 8
-  %invariant.gep127 = getelementptr i8, ptr %.val88, i64 8
+  %invariant.gep127 = getelementptr inbounds nuw i8, ptr %.val88, i64 8
   %.val90 = load i32, ptr %7, align 4
   %23 = sext i32 %.val90 to i64
   br label %24
@@ -5173,7 +5173,7 @@ Wlc_ObjFanin0.exit:                               ; preds = %30, %Wlc_ObjHasArra
   %44 = tail call i32 @llvm.abs.i32(i32 %43, i1 true)
   %45 = add nuw nsw i32 %44, 1
   %46 = or i32 %45, %40
-  %.idx126 = mul nuw i64 %indvars.iv111, 12
+  %.idx126 = mul nuw nsw i64 %indvars.iv111, 12
   %47 = getelementptr inbounds nuw i8, ptr %.val88, i64 %.idx126
   store i32 %46, ptr %47, align 4
   %.val82 = load i32, ptr %41, align 8
@@ -5192,8 +5192,8 @@ Wlc_ObjFanin0.exit:                               ; preds = %30, %Wlc_ObjHasArra
 
 .lr.ph:                                           ; preds = %52
   %55 = getelementptr inbounds nuw i8, ptr %28, i64 16
-  %.idx = mul i64 %indvars.iv111, 12
-  %invariant.gep = getelementptr i8, ptr %.val88, i64 %.idx
+  %.idx = mul nuw nsw i64 %indvars.iv111, 12
+  %invariant.gep = getelementptr inbounds nuw i8, ptr %.val88, i64 %.idx
   br label %56
 
 56:                                               ; preds = %.lr.ph, %79
@@ -5235,7 +5235,7 @@ Wlc_ObjFaninId.exit:                              ; preds = %58, %Wlc_ObjHasArra
   %72 = tail call i32 @llvm.abs.i32(i32 %71, i1 true)
   %73 = add nuw nsw i32 %72, 1
   %74 = or i32 %73, %68
-  %gep = getelementptr i32, ptr %invariant.gep, i64 %indvars.iv
+  %gep = getelementptr inbounds nuw i32, ptr %invariant.gep, i64 %indvars.iv
   store i32 %74, ptr %gep, align 4
   %.val78 = load i32, ptr %69, align 8
   %.val79 = load i32, ptr %70, align 4
@@ -5275,8 +5275,8 @@ Wlc_ObjFaninId.exit:                              ; preds = %58, %Wlc_ObjHasArra
   %89 = tail call i32 @llvm.abs.i32(i32 %88, i1 true)
   %90 = add nuw nsw i32 %89, 1
   %91 = or i32 %90, %85
-  %.idx125 = mul nuw i64 %indvars.iv111, 12
-  %gep128 = getelementptr i8, ptr %invariant.gep127, i64 %.idx125
+  %.idx125 = mul nuw nsw i64 %indvars.iv111, 12
+  %gep128 = getelementptr inbounds nuw i8, ptr %invariant.gep127, i64 %.idx125
   store i32 %91, ptr %gep128, align 4
   %.val74 = load i32, ptr %86, align 8
   %.val75 = load i32, ptr %87, align 4

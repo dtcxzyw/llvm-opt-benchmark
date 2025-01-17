@@ -1654,7 +1654,7 @@ _ZL11calc_gyro_zPA3_fS0_iPKiP6t_atomifP8_IO_FILE.exit: ; preds = %531, %._crit_e
 
 .loopexit:                                        ; preds = %613, %603
   %.2 = phi i32 [ %.065, %603 ], [ %606, %613 ]
-  %.idx = mul nuw i64 %indvars.iv317, 12
+  %.idx = mul nuw nsw i64 %indvars.iv317, 12
   br label %614
 
 614:                                              ; preds = %.loopexit, %614

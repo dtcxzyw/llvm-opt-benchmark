@@ -745,13 +745,13 @@ Ptngc_out8bits.exit:                              ; preds = %Ptngc_out8bits.exit
   %107 = phi i32 [ %100, %.preheader189.preheader ], [ %202, %203 ]
   %indvars.iv256 = phi i64 [ 0, %.preheader189.preheader ], [ %indvars.iv.next257, %203 ]
   %.0180213 = phi ptr [ %98, %.preheader189.preheader ], [ %.19, %203 ]
-  %.idx = mul i64 %indvars.iv256, 12
-  %invariant.gep = getelementptr i8, ptr %1, i64 %.idx
+  %.idx = mul nuw nsw i64 %indvars.iv256, 12
+  %invariant.gep = getelementptr inbounds nuw i8, ptr %1, i64 %.idx
   br label %108
 
 108:                                              ; preds = %.preheader189, %118
   %indvars.iv252 = phi i64 [ 0, %.preheader189 ], [ %indvars.iv.next253, %118 ]
-  %gep = getelementptr i32, ptr %invariant.gep, i64 %indvars.iv252
+  %gep = getelementptr inbounds nuw i32, ptr %invariant.gep, i64 %indvars.iv252
   %109 = load i32, ptr %gep, align 4
   %110 = getelementptr inbounds nuw [3 x i32], ptr %8, i64 0, i64 %indvars.iv252
   store i32 0, ptr %110, align 4
@@ -1321,7 +1321,7 @@ define i32 @Ptngc_unpack_array(ptr noundef %0, ptr noundef %1, ptr noundef %2, i
   %78 = lshr i32 %77, 1
   %79 = sub nsw i32 0, %78
   %spec.select74.us.i = select i1 %.not69.us.i, i32 %78, i32 %79
-  %gep.i = getelementptr i32, ptr %scevgep.i, i64 %indvars.iv.i45
+  %gep.i = getelementptr inbounds nuw i32, ptr %scevgep.i, i64 %indvars.iv.i45
   store i32 %spec.select74.us.i, ptr %gep.i, align 4
   %indvars.iv.next.i47 = add nuw nsw i64 %indvars.iv.i45, 1
   %exitcond31.not.i = icmp eq i64 %indvars.iv.next.i47, 3

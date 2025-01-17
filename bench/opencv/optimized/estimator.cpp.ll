@@ -5669,7 +5669,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZN2
 
 24:                                               ; preds = %.lr.ph, %24
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %24 ]
-  %.idx = mul nuw i64 %indvars.iv, 20
+  %.idx = mul nuw nsw i64 %indvars.iv, 20
   %25 = getelementptr inbounds nuw i8, ptr %7, i64 %.idx
   %26 = load float, ptr %25, align 4
   %27 = getelementptr inbounds nuw i8, ptr %25, i64 4

@@ -3498,7 +3498,7 @@ define hidden void @_ZN2cv3ccm8GetColor15getColorCheckerEPKdi(ptr dead_on_unwind
 
 7:                                                ; preds = %.lr.ph, %7
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %7 ]
-  %.idx = mul nuw i64 %indvars.iv, 24
+  %.idx = mul nuw nsw i64 %indvars.iv, 24
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx
   %9 = load double, ptr %8, align 8
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 8

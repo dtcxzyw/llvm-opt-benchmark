@@ -784,7 +784,7 @@ if.end35.us:                                      ; preds = %for.body.us
   %5 = load double, ptr %arrayidx41.us, align 8
   %sub42.us = fsub double %4, %5
   %div.us = fdiv double %sub42.us, %sub.us
-  %arrayidx44.us.idx = mul nuw i64 %indvars.iv78, 40
+  %arrayidx44.us.idx = mul nuw nsw i64 %indvars.iv78, 40
   %arrayidx44.us = getelementptr inbounds nuw i8, ptr %m44, i64 %arrayidx44.us.idx
   store double %div.us, ptr %arrayidx44.us, align 8
   %indvars.iv.next79 = add nuw nsw i64 %indvars.iv78, 1
@@ -915,7 +915,7 @@ if.end35:                                         ; preds = %for.body
   %22 = load double, ptr %arrayidx41, align 8
   %sub42 = fsub double %21, %22
   %div = fdiv double %sub42, %sub
-  %arrayidx44.idx = mul nuw i64 %indvars.iv, 40
+  %arrayidx44.idx = mul nuw nsw i64 %indvars.iv, 40
   %arrayidx44 = getelementptr inbounds nuw i8, ptr %m44, i64 %arrayidx44.idx
   store double %div, ptr %arrayidx44, align 8
   %23 = load double, ptr %arrayidx41, align 8

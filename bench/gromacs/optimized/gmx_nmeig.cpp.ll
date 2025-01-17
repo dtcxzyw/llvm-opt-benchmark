@@ -2174,7 +2174,7 @@ _ZNKSt6vectorIN3gmx11BasicVectorIfEESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i: ; pr
 
 853:                                              ; preds = %849, %.loopexit.i
   %.not.i.i = icmp eq ptr %278, null
-  %.idx.i283 = mul i64 %795, 12
+  %.idx.i283 = mul nsw i64 %795, 12
   %854 = getelementptr inbounds i8, ptr %278, i64 %.idx.i283
   %spec.select.i.i = select i1 %.not.i.i, ptr null, ptr %854
   %855 = ptrtoint ptr %spec.select.i.i to i64

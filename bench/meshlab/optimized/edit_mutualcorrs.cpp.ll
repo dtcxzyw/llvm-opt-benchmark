@@ -7881,8 +7881,8 @@ _ZN7QStringD2Ev.exit:                             ; preds = %224, %_ZN9QtPrivate
 
 .preheader200:                                    ; preds = %.preheader200.lr.ph, %252
   %indvars.iv231 = phi i64 [ 0, %.preheader200.lr.ph ], [ %indvars.iv.next232, %252 ]
-  %.idx = mul i64 %indvars.iv231, 12
-  %invariant.gep = getelementptr i8, ptr %190, i64 %.idx
+  %.idx = mul nuw nsw i64 %indvars.iv231, 12
+  %invariant.gep = getelementptr inbounds nuw i8, ptr %190, i64 %.idx
   br label %242
 
 242:                                              ; preds = %.preheader200, %242
@@ -7896,7 +7896,7 @@ _ZN7QStringD2Ev.exit:                             ; preds = %224, %_ZN9QtPrivate
   %249 = sub i64 %247, %248
   %250 = sdiv exact i64 %249, 48
   %251 = trunc i64 %250 to i32
-  %gep = getelementptr i32, ptr %invariant.gep, i64 %indvars.iv228
+  %gep = getelementptr inbounds nuw i32, ptr %invariant.gep, i64 %indvars.iv228
   store i32 %251, ptr %gep, align 4
   %indvars.iv.next229 = add nuw nsw i64 %indvars.iv228, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next229, 3

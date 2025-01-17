@@ -4833,7 +4833,7 @@ if.end:                                           ; preds = %entry
 
 if.then6:                                         ; preds = %if.end
   %0 = load i64, ptr %expiry_seconds, align 8
-  %mul1.i = mul i64 %0, 1000000
+  %mul1.i = mul nsw i64 %0, 1000000
   %call8 = call i64 @_ZNK3net12QuicWallTime3AddENS_8QuicTime5DeltaE(ptr noundef nonnull align 8 dereferenceable(8) %now, i64 0, i64 %mul1.i)
   %agg.tmp12.sroa.0.0.copyload.pre = load i64, ptr %now, align 8
   br label %if.end10

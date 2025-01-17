@@ -1395,7 +1395,7 @@ define hidden void @_ZN2cv8tracking4impl3tld15TrackerTLDModel13pushIntoModelERKN
   %14 = getelementptr inbounds nuw i8, ptr %10, i64 %indvars.iv36
   %15 = load i8, ptr %14, align 1
   %16 = load i32, ptr %5, align 8
-  %17 = mul i32 %16, 225
+  %17 = mul nsw i32 %16, 225
   %18 = trunc nuw nsw i64 %indvars.iv36 to i32
   %19 = add nsw i32 %17, %18
   %20 = sext i32 %19 to i64
@@ -1429,7 +1429,7 @@ define hidden void @_ZN2cv8tracking4impl3tld15TrackerTLDModel13pushIntoModelERKN
   %35 = getelementptr inbounds nuw i8, ptr %31, i64 %indvars.iv
   %36 = load i8, ptr %35, align 1
   %37 = load i32, ptr %26, align 4
-  %38 = mul i32 %37, 225
+  %38 = mul nsw i32 %37, 225
   %39 = trunc nuw nsw i64 %indvars.iv to i32
   %40 = add nsw i32 %38, %39
   %41 = sext i32 %40 to i64

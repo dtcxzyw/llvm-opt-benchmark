@@ -5964,7 +5964,7 @@ if.end:                                           ; preds = %entry
 
 if.then2:                                         ; preds = %if.end
   %conv = trunc i64 %days to i32
-  %mul3 = mul i64 %hours, 3600
+  %mul3 = mul nsw i64 %hours, 3600
   %add = add nsw i64 %mul3, %secs
   %call4 = tail call ptr @X509_time_adj_ex(ptr noundef nonnull %call, i32 noundef %conv, i64 noundef %add, ptr noundef null) #28
   %cmp5 = icmp eq ptr %call4, null

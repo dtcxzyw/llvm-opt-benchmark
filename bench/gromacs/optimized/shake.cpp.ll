@@ -288,15 +288,15 @@ _ZN3gmxL12pr_sortblockEP8_IO_FILEPKcNS_8ArrayRefIKNS_11t_sortblockEEE.exit64: ; 
 .preheader:                                       ; preds = %.preheader.preheader, %96
   %indvars.iv136 = phi i64 [ 0, %.preheader.preheader ], [ %indvars.iv.next137, %96 ]
   %92 = getelementptr inbounds nuw %"struct.gmx::t_sortblock", ptr %.sroa.092.0156, i64 %indvars.iv136
-  %.idx = mul i64 %indvars.iv136, 12
-  %invariant.gep168 = getelementptr i8, ptr %31, i64 %.idx
+  %.idx = mul nuw nsw i64 %indvars.iv136, 12
+  %invariant.gep168 = getelementptr inbounds nuw i8, ptr %31, i64 %.idx
   br label %93
 
 93:                                               ; preds = %.preheader, %93
   %indvars.iv132 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next133, %93 ]
   %94 = getelementptr inbounds nuw [3 x i32], ptr %92, i64 0, i64 %indvars.iv132
   %95 = load i32, ptr %94, align 4
-  %gep169 = getelementptr i32, ptr %invariant.gep168, i64 %indvars.iv132
+  %gep169 = getelementptr inbounds nuw i32, ptr %invariant.gep168, i64 %indvars.iv132
   store i32 %95, ptr %gep169, align 4
   %indvars.iv.next133 = add nuw nsw i64 %indvars.iv132, 1
   %exitcond135.not = icmp eq i64 %indvars.iv.next133, 3
@@ -1019,7 +1019,7 @@ define void @_ZN3gmx6cshakeEPKiiPiiNS_8ArrayRefIKfEENS3_INS_11BasicVectorIfEEEEP
   %38 = load float, ptr %37, align 4
   %39 = getelementptr inbounds nuw i8, ptr %35, i64 8
   %40 = load float, ptr %39, align 4
-  %.idx = mul nuw i64 %indvars.iv, 12
+  %.idx = mul nuw nsw i64 %indvars.iv, 12
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 %.idx
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 4
   %43 = load i32, ptr %42, align 4
@@ -2213,7 +2213,7 @@ _ZN3gmxL10check_consEP8_IO_FILEiNS_8ArrayRefIKNS_11BasicVectorIfEEEES6_S6_PK5t_p
 651:                                              ; preds = %.lr.ph67, %651
   %indvars.iv86 = phi i64 [ 0, %.lr.ph67 ], [ %indvars.iv.next87, %651 ]
   %.08665 = phi float [ 0.000000e+00, %.lr.ph67 ], [ %663, %651 ]
-  %.idx = mul nuw i64 %indvars.iv86, 12
+  %.idx = mul nuw nsw i64 %indvars.iv86, 12
   %652 = getelementptr inbounds nuw i8, ptr %649, i64 %.idx
   %653 = load i32, ptr %652, align 4
   %654 = sext i32 %653 to i64

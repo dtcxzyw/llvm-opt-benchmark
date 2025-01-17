@@ -13238,7 +13238,7 @@ define internal fastcc void @_ZN4ncnnL15convdw3x3s1_sseERKNS_3MatERS0_S2_S2_RKNS
 
 37:                                               ; preds = %27, %34
   %38 = phi fast float [ %36, %34 ], [ 0.000000e+00, %27 ]
-  %.idx = mul nuw i64 %indvars.iv, 36
+  %.idx = mul nuw nsw i64 %indvars.iv, 36
   %39 = getelementptr inbounds nuw i8, ptr %.0.val, i64 %.idx
   %40 = load ptr, ptr %0, align 8
   %41 = load i64, ptr %15, align 8
@@ -13516,7 +13516,7 @@ define internal fastcc void @_ZN4ncnnL15convdw3x3s2_sseERKNS_3MatERS0_S2_S2_RKNS
 
 .preheader.lr.ph.us.us:                           ; preds = %30, %.lr.ph.split.us.split.us
   %33 = phi fast float [ %32, %30 ], [ 0.000000e+00, %.lr.ph.split.us.split.us ]
-  %.idx = mul nuw i64 %indvars.iv, 36
+  %.idx = mul nuw nsw i64 %indvars.iv, 36
   %34 = getelementptr inbounds nuw i8, ptr %.0.val, i64 %.idx
   %35 = load ptr, ptr %0, align 8
   %36 = load i64, ptr %16, align 8

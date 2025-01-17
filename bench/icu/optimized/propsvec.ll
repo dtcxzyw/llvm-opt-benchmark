@@ -42,9 +42,9 @@ if.end9:                                          ; preds = %if.end2
   store i32 4096, ptr %maxRows, align 4
   %rows = getelementptr inbounds nuw i8, ptr %call3, i64 16
   store i32 3, ptr %rows, align 8
-  %mul15 = mul i32 %add, 12
+  %mul15 = mul nuw nsw i32 %add, 12
   %conv16 = zext nneg i32 %mul15 to i64
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %call5, i8 0, i64 %conv16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %call5, i8 0, i64 %conv16, i1 false)
   store i32 0, ptr %call5, align 4
   %arrayidx17 = getelementptr inbounds nuw i8, ptr %call5, i64 4
   store i32 1114112, ptr %arrayidx17, align 4

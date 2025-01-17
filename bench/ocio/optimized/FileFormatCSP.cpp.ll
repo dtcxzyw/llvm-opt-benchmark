@@ -3313,8 +3313,8 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_138rsr_internal_I1D_findSegmentContainingEf
 invoke.cont794:                                   ; preds = %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_138rsr_internal_I1D_findSegmentContainingEfPfi.exit.i, %if.then6.i, %if.then1.i, %for.body790
   %retval.0.i566 = phi float [ %269, %if.then1.i ], [ %274, %if.then6.i ], [ %287, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_138rsr_internal_I1D_findSegmentContainingEfPfi.exit.i ], [ %265, %for.body790 ]
   %288 = load ptr, ptr %m_data.i569, align 8
-  %.idx = mul i64 %indvars.iv996, 12
-  %289 = getelementptr inbounds i8, ptr %288, i64 %.idx
+  %.idx = mul nuw nsw i64 %indvars.iv996, 12
+  %289 = getelementptr inbounds nuw i8, ptr %288, i64 %.idx
   %add.ptr.i.i570 = getelementptr inbounds nuw float, ptr %289, i64 %indvars.iv1002
   store float %retval.0.i566, ptr %add.ptr.i.i570, align 4
   %indvars.iv.next997 = add nuw nsw i64 %indvars.iv996, 1

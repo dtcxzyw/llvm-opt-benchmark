@@ -453,7 +453,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   br i1 %104, label %105, label %.critedge.thread
 
 105:                                              ; preds = %102
-  %106 = mul i32 %103, 6
+  %106 = mul nsw i32 %103, 6
   %107 = sext i32 %106 to i64
   %108 = getelementptr inbounds [1536 x float], ptr %64, i64 0, i64 %107
   store i32 0, ptr %8, align 4
@@ -847,9 +847,8 @@ define dso_local noundef zeroext i1 @_ZN9InputGeom11saveGeomSetEPK13BuildSetting
 
 99:                                               ; preds = %.lr.ph, %99
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %99 ]
-  %sext = mul i64 %indvars.iv, 25769803776
-  %100 = ashr exact i64 %sext, 32
-  %101 = getelementptr inbounds [1536 x float], ptr %90, i64 0, i64 %100
+  %100 = mul nuw nsw i64 %indvars.iv, 6
+  %101 = getelementptr inbounds nuw [1536 x float], ptr %90, i64 0, i64 %100
   %102 = getelementptr inbounds nuw [256 x float], ptr %91, i64 0, i64 %indvars.iv
   %103 = load float, ptr %102, align 4
   %104 = getelementptr inbounds nuw [256 x i8], ptr %92, i64 0, i64 %indvars.iv
@@ -1251,7 +1250,7 @@ define dso_local void @_ZN9InputGeom20addOffMeshConnectionEPKfS1_fhht(ptr nocapt
 
 11:                                               ; preds = %7
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %13 = mul i32 %9, 6
+  %13 = mul nsw i32 %9, 6
   %14 = sext i32 %13 to i64
   %15 = getelementptr inbounds [1536 x float], ptr %12, i64 0, i64 %14
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 6272
@@ -1316,10 +1315,10 @@ define dso_local void @_ZN9InputGeom23deleteOffMeshConnectionEi(ptr nocapture no
   %5 = add nsw i32 %4, -1
   store i32 %5, ptr %3, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %7 = mul i32 %5, 6
+  %7 = mul nsw i32 %5, 6
   %8 = sext i32 %7 to i64
   %9 = getelementptr inbounds [1536 x float], ptr %6, i64 0, i64 %8
-  %10 = mul i32 %1, 6
+  %10 = mul nsw i32 %1, 6
   %11 = sext i32 %10 to i64
   %12 = getelementptr inbounds [1536 x float], ptr %6, i64 0, i64 %11
   %13 = load float, ptr %9, align 8
@@ -1399,9 +1398,8 @@ define dso_local void @_ZN9InputGeom22drawOffMeshConnectionsEP11duDebugDrawb(ptr
 
 16:                                               ; preds = %.lr.ph, %72
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %72 ]
-  %sext = mul i64 %indvars.iv, 25769803776
-  %17 = ashr exact i64 %sext, 32
-  %18 = getelementptr inbounds [1536 x float], ptr %13, i64 0, i64 %17
+  %17 = mul nuw nsw i64 %indvars.iv, 6
+  %18 = getelementptr inbounds nuw [1536 x float], ptr %13, i64 0, i64 %17
   %19 = load float, ptr %18, align 8
   %20 = getelementptr inbounds nuw i8, ptr %18, i64 4
   %21 = load float, ptr %20, align 4

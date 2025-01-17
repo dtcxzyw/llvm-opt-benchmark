@@ -1092,7 +1092,7 @@ _ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit:          ; preds = %_ZSt8_DestroyIPN2cv
   br label %189
 
 ._crit_edge:                                      ; preds = %127
-  %.idx204 = mul nuw i64 %indvars.iv197, 80
+  %.idx204 = mul nuw nsw i64 %indvars.iv197, 80
   %135 = getelementptr inbounds nuw i8, ptr %126, i64 %.idx204
   %136 = load double, ptr %135, align 8
   %137 = fdiv double %132, %136
@@ -2074,18 +2074,18 @@ define linkonce_odr hidden noundef i32 @_ZNK2cv4usac30HomographyNonMinimalSolver
 
 .preheader385:                                    ; preds = %.preheader385.preheader, %221
   %indvars.iv490 = phi i64 [ %indvars.iv.next491, %221 ], [ 1, %.preheader385.preheader ]
-  %.idx504 = mul i64 %indvars.iv490, 72
+  %.idx504 = mul nuw nsw i64 %indvars.iv490, 72
   br label %214
 
 214:                                              ; preds = %.preheader385, %214
   %indvars.iv485 = phi i64 [ 0, %.preheader385 ], [ %indvars.iv.next486, %214 ]
   %215 = load ptr, ptr %14, align 8
-  %.idx = mul i64 %indvars.iv485, 72
-  %216 = getelementptr inbounds i8, ptr %215, i64 %.idx
+  %.idx = mul nuw nsw i64 %indvars.iv485, 72
+  %216 = getelementptr inbounds nuw i8, ptr %215, i64 %.idx
   %217 = getelementptr inbounds nuw double, ptr %216, i64 %indvars.iv490
   %218 = load double, ptr %217, align 8
   %219 = getelementptr inbounds nuw double, ptr %215, i64 %indvars.iv485
-  %220 = getelementptr inbounds i8, ptr %219, i64 %.idx504
+  %220 = getelementptr inbounds nuw i8, ptr %219, i64 %.idx504
   store double %218, ptr %220, align 8
   %indvars.iv.next486 = add nuw nsw i64 %indvars.iv485, 1
   %exitcond489.not = icmp eq i64 %indvars.iv.next486, %indvars.iv490
@@ -2156,7 +2156,7 @@ _ZN2cv4Mat_IdEC2Eii.exit:                         ; preds = %227
   br label %251
 
 ._crit_edge:                                      ; preds = %235
-  %.idx506 = mul nuw i64 %indvars.iv494, 80
+  %.idx506 = mul nuw nsw i64 %indvars.iv494, 80
   %243 = getelementptr inbounds nuw i8, ptr %234, i64 %.idx506
   %244 = load double, ptr %243, align 8
   %245 = fdiv double %240, %244

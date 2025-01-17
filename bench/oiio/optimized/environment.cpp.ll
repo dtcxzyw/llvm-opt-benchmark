@@ -1882,11 +1882,11 @@ invoke.cont:
   %missingcolor = getelementptr inbounds nuw i8, ptr %options, i64 496
   %11 = load ptr, ptr %missingcolor, align 16
   store ptr %11, ptr %missingcolor.i, align 8
-  %mul13 = mul i32 %nchannels, 48
-  %cmp.not = icmp eq i32 %mul13, 0
+  %cmp.not = icmp eq i32 %nchannels, 0
   br i1 %cmp.not, label %cond.end, label %cond.true
 
 cond.true:                                        ; preds = %invoke.cont
+  %mul13 = mul nsw i32 %nchannels, 48
   %conv = sext i32 %mul13 to i64
   %mul16 = shl nsw i64 %conv, 2
   %12 = alloca i8, i64 %mul16, align 16

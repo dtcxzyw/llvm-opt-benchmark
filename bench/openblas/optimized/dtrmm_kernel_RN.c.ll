@@ -64,7 +64,7 @@ define noundef i32 @dtrmm_kernel_RN(i64 noundef %0, i64 noundef %1, i64 noundef 
   %43 = phi i64 [ %1, %22 ], [ %65, %36 ]
   %44 = phi i64 [ 0, %22 ], [ %54, %36 ]
   %45 = phi i64 [ %19, %22 ], [ %53, %36 ]
-  %.idx = mul i64 %38, 96
+  %.idx = mul nsw i64 %38, 96
   %46 = getelementptr inbounds i8, ptr %41, i64 %.idx
   %47 = add nsw i64 %37, 2
   store i64 %47, ptr %13, align 8, !tbaa !7
@@ -80,7 +80,7 @@ define noundef i32 @dtrmm_kernel_RN(i64 noundef %0, i64 noundef %1, i64 noundef 
   %57 = mul i64 %55, %56
   %58 = sub i64 0, %57
   %59 = getelementptr inbounds double, ptr %49, i64 %58
-  %.idx11 = mul i64 %56, 96
+  %.idx11 = mul nsw i64 %56, 96
   %60 = getelementptr inbounds i8, ptr %50, i64 %.idx11
   %61 = sub nsw i64 %23, %55
   %62 = getelementptr inbounds double, ptr %51, i64 %61
@@ -114,7 +114,7 @@ define noundef i32 @dtrmm_kernel_RN(i64 noundef %0, i64 noundef %1, i64 noundef 
   %84 = phi i64 [ %28, %34 ], [ %106, %77 ]
   %85 = phi i64 [ %27, %34 ], [ %95, %77 ]
   %86 = phi i64 [ %26, %34 ], [ %94, %77 ]
-  %.idx12 = mul i64 %79, 80
+  %.idx12 = mul nsw i64 %79, 80
   %87 = getelementptr inbounds i8, ptr %82, i64 %.idx12
   %88 = add nsw i64 %78, 2
   store i64 %88, ptr %13, align 8, !tbaa !7
@@ -130,7 +130,7 @@ define noundef i32 @dtrmm_kernel_RN(i64 noundef %0, i64 noundef %1, i64 noundef 
   %98 = mul i64 %96, %97
   %99 = sub i64 0, %98
   %100 = getelementptr inbounds double, ptr %90, i64 %99
-  %.idx13 = mul i64 %97, 80
+  %.idx13 = mul nsw i64 %97, 80
   %101 = getelementptr inbounds i8, ptr %91, i64 %.idx13
   %102 = sub nsw i64 %35, %96
   %103 = getelementptr inbounds double, ptr %92, i64 %102
@@ -222,7 +222,7 @@ define noundef i32 @dtrmm_kernel_RN(i64 noundef %0, i64 noundef %1, i64 noundef 
   %169 = phi i64 [ %112, %118 ], [ %191, %162 ]
   %170 = phi i64 [ %111, %118 ], [ %180, %162 ]
   %171 = phi i64 [ %110, %118 ], [ %179, %162 ]
-  %.idx16 = mul i64 %164, 48
+  %.idx16 = mul nsw i64 %164, 48
   %172 = getelementptr inbounds i8, ptr %167, i64 %.idx16
   %173 = add nsw i64 %163, 2
   store i64 %173, ptr %13, align 8, !tbaa !7
@@ -238,7 +238,7 @@ define noundef i32 @dtrmm_kernel_RN(i64 noundef %0, i64 noundef %1, i64 noundef 
   %183 = mul i64 %181, %182
   %184 = sub i64 0, %183
   %185 = getelementptr inbounds double, ptr %175, i64 %184
-  %.idx17 = mul i64 %182, 48
+  %.idx17 = mul nsw i64 %182, 48
   %186 = getelementptr inbounds i8, ptr %176, i64 %.idx17
   %187 = sub nsw i64 %119, %181
   %188 = getelementptr inbounds double, ptr %177, i64 %187

@@ -92,13 +92,13 @@ define ptr @Ptngc_pack_array_xtc2(ptr noundef %0, ptr noundef readonly %1, ptr n
 
 .preheader654:                                    ; preds = %.preheader654.preheader, %43
   %indvars.iv750 = phi i64 [ 1, %.preheader654.preheader ], [ %indvars.iv.next751, %43 ]
-  %.idx = mul i64 %indvars.iv750, 12
-  %invariant.gep = getelementptr i8, ptr %1, i64 %.idx
+  %.idx = mul nuw nsw i64 %indvars.iv750, 12
+  %invariant.gep = getelementptr inbounds nuw i8, ptr %1, i64 %.idx
   br label %37
 
 37:                                               ; preds = %.preheader654, %37
   %indvars.iv = phi i64 [ 0, %.preheader654 ], [ %indvars.iv.next, %37 ]
-  %gep = getelementptr i32, ptr %invariant.gep, i64 %indvars.iv
+  %gep = getelementptr inbounds nuw i32, ptr %invariant.gep, i64 %indvars.iv
   %38 = load i32, ptr %gep, align 4
   %39 = getelementptr inbounds nuw [3 x i32], ptr %16, i64 0, i64 %indvars.iv
   %40 = load i32, ptr %39, align 4
@@ -461,13 +461,13 @@ positive_int.exit466:                             ; preds = %142, %145, %147
   %.1381717 = phi i32 [ %222, %buffer_large.exit ], [ %.0380726, %.preheader642 ]
   %.1385716 = phi ptr [ %221, %buffer_large.exit ], [ %.0384725, %.preheader642 ]
   %174 = phi i32 [ %220, %buffer_large.exit ], [ %.promoted715, %.preheader642 ]
-  %.idx836 = mul i64 %indvars.iv822, 12
-  %invariant.gep888 = getelementptr i8, ptr %.1385716, i64 %.idx836
+  %.idx836 = mul nuw nsw i64 %indvars.iv822, 12
+  %invariant.gep888 = getelementptr inbounds nuw i8, ptr %.1385716, i64 %.idx836
   br label %175
 
 175:                                              ; preds = %.preheader, %175
   %indvars.iv818 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next819, %175 ]
-  %gep889 = getelementptr i32, ptr %invariant.gep888, i64 %indvars.iv818
+  %gep889 = getelementptr inbounds nuw i32, ptr %invariant.gep888, i64 %indvars.iv818
   %176 = load i32, ptr %gep889, align 4
   %177 = getelementptr inbounds nuw [3 x i32], ptr %15, i64 0, i64 %indvars.iv818
   %178 = load i32, ptr %177, align 4
@@ -1070,7 +1070,7 @@ buffer_large.exit501:                             ; preds = %trajcoder_base_comp
   %.sroa.0.155.i = phi i32 [ %401, %.preheader.preheader.i ], [ %424, %.preheader.i503 ]
   %.sroa.5.154.i = phi i32 [ %405, %.preheader.preheader.i ], [ %427, %.preheader.i503 ]
   %.sroa.10.153.i = phi i32 [ %407, %.preheader.preheader.i ], [ %430, %.preheader.i503 ]
-  %.idx.i = mul nuw i64 %indvars.iv.i504, 12
+  %.idx.i = mul nuw nsw i64 %indvars.iv.i504, 12
   %422 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx.i
   %423 = load i32, ptr %422, align 4
   %424 = add nsw i32 %423, %.sroa.0.155.i
@@ -1673,7 +1673,7 @@ define internal fastcc void @flush_large(ptr noundef %0, ptr nocapture noundef n
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv58 = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next59, %.lr.ph ]
   tail call void @Ptngc_writebits(ptr noundef %0, i32 noundef 4, i32 noundef 4, ptr noundef nonnull %7) #11
-  %.idx71 = mul nuw i64 %indvars.iv58, 12
+  %.idx71 = mul nuw nsw i64 %indvars.iv58, 12
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 %.idx71
   tail call fastcc void @trajcoder_base_compress(ptr noundef nonnull readonly %11, i32 noundef 3, ptr noundef nonnull readonly %4, ptr noundef nonnull %6)
   tail call void @Ptngc_writemanybits(ptr noundef %0, ptr noundef nonnull %6, i32 noundef %5, ptr noundef nonnull %7) #11
@@ -1690,7 +1690,7 @@ define internal fastcc void @flush_large(ptr noundef %0, ptr nocapture noundef n
 
 14:                                               ; preds = %12, %14
   %indvars.iv = phi i64 [ 0, %12 ], [ %indvars.iv.next, %14 ]
-  %.idx = mul nuw i64 %indvars.iv, 12
+  %.idx = mul nuw nsw i64 %indvars.iv, 12
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 %.idx
   tail call fastcc void @trajcoder_base_compress(ptr noundef nonnull readonly %15, i32 noundef 3, ptr noundef nonnull readonly %4, ptr noundef nonnull %6)
   tail call void @Ptngc_writemanybits(ptr noundef %0, ptr noundef nonnull %6, i32 noundef %5, ptr noundef nonnull %7) #11
@@ -1716,15 +1716,15 @@ define internal fastcc void @flush_large(ptr noundef %0, ptr nocapture noundef n
   %19 = add nsw i64 %indvars.iv68, %18
   %.idx72 = mul i64 %19, 12
   %invariant.gep = getelementptr i8, ptr %2, i64 %.idx72
-  %.idx73 = mul i64 %indvars.iv68, 12
-  %invariant.gep75 = getelementptr i8, ptr %2, i64 %.idx73
+  %.idx73 = mul nuw nsw i64 %indvars.iv68, 12
+  %invariant.gep75 = getelementptr inbounds nuw i8, ptr %2, i64 %.idx73
   br label %20
 
 20:                                               ; preds = %.preheader, %20
   %indvars.iv64 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next65, %20 ]
   %gep = getelementptr i32, ptr %invariant.gep, i64 %indvars.iv64
   %21 = load i32, ptr %gep, align 4
-  %gep76 = getelementptr i32, ptr %invariant.gep75, i64 %indvars.iv64
+  %gep76 = getelementptr inbounds nuw i32, ptr %invariant.gep75, i64 %indvars.iv64
   store i32 %21, ptr %gep76, align 4
   %indvars.iv.next65 = add nuw nsw i64 %indvars.iv64, 1
   %exitcond67.not = icmp eq i64 %indvars.iv.next65, 3

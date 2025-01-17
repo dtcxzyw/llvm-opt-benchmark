@@ -146,7 +146,7 @@ define void @_Z22nbnxn_kernel_prune_refP16NbnxnPairlistCpuPK16nbnxn_atomdata_tN3
   %indvars.iv121 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next122, %85 ]
   %.193102 = phi i1 [ false, %.preheader ], [ %.294, %85 ]
   %86 = add nuw nsw i64 %indvars.iv121, %75
-  %.idx134 = mul i64 %86, 12
+  %.idx134 = mul nsw i64 %86, 12
   %87 = getelementptr inbounds i8, ptr %30, i64 %.idx134
   %88 = load float, ptr %87, align 4
   %89 = fsub float %78, %88

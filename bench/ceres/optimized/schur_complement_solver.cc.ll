@@ -5322,7 +5322,7 @@ _ZN5Eigen8internal26call_dense_assignment_loopINS_3MapINS_6MatrixIdLi6ELi6ELi1EL
   %.sroa.0175.1.lcssa = phi <2 x double> [ %187, %._crit_edge ], [ zeroinitializer, %126 ]
   %.sroa.7.1.lcssa = phi <2 x double> [ %.sroa.7.2, %._crit_edge ], [ zeroinitializer, %126 ]
   %341 = load ptr, ptr %70, align 8
-  %.idx = mul nuw i64 %indvars.iv, 72
+  %.idx = mul nuw nsw i64 %indvars.iv, 72
   %342 = getelementptr inbounds nuw i8, ptr %341, i64 %.idx
   %343 = fneg double %337
   %344 = fmul double %338, %343
@@ -5908,7 +5908,7 @@ define linkonce_odr hidden void @_ZN5ceres8internal27SchurEliminatorForOneFBlock
   %.sroa.863.1.lcssa = phi double [ 0.000000e+00, %18 ], [ %.sroa.863.2, %118 ]
   %.sroa.0.1.lcssa = phi <2 x double> [ zeroinitializer, %18 ], [ %.sroa.0.2, %118 ]
   %119 = load ptr, ptr %17, align 8
-  %.idx = mul nuw i64 %indvars.iv91, 72
+  %.idx = mul nuw nsw i64 %indvars.iv91, 72
   %120 = getelementptr inbounds nuw i8, ptr %119, i64 %.idx
   %121 = sext i32 %26 to i64
   %122 = load ptr, ptr %7, align 8

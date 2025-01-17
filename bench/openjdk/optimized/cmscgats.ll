@@ -6948,7 +6948,7 @@ ReadNumbers.exit149.i:                            ; preds = %Check.exit.i.i147.i
   %181 = fsub double %180, %158
   %182 = fdiv double %181, %160
   %183 = fptrunc double %182 to float
-  %.idx.i = mul nuw i64 %indvars.iv198.i, 12
+  %.idx.i = mul nuw nsw i64 %indvars.iv198.i, 12
   %184 = getelementptr inbounds nuw i8, ptr %156, i64 %.idx.i
   %185 = getelementptr inbounds nuw i8, ptr %184, i64 8
   store float %183, ptr %185, align 4

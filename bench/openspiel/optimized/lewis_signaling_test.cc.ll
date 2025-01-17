@@ -503,7 +503,7 @@ _ZN10open_spiel15lewis_signaling12_GLOBAL__N_124BasicLewisSignalingTestsEv.exit:
 .preheader.i:                                     ; preds = %321, %_ZN10open_spiel15lewis_signaling12_GLOBAL__N_124BasicLewisSignalingTestsEv.exit
   %indvars.iv45.i = phi i64 [ 0, %_ZN10open_spiel15lewis_signaling12_GLOBAL__N_124BasicLewisSignalingTestsEv.exit ], [ %indvars.iv.next46.i, %321 ]
   %.idx.i = mul nuw nsw i64 %indvars.iv45.i, 24
-  %invariant.gep.i = getelementptr i8, ptr %162, i64 %.idx.i
+  %invariant.gep.i = getelementptr inbounds nuw i8, ptr %162, i64 %.idx.i
   br label %164
 
 164:                                              ; preds = %_ZNSt10shared_ptrIKN10open_spiel4GameEED2Ev.exit.i, %.preheader.i
@@ -715,7 +715,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i3: ;
 
 242:                                              ; preds = %236
   store double %241, ptr %43, align 8
-  %gep.i = getelementptr double, ptr %invariant.gep.i, i64 %indvars.iv.i
+  %gep.i = getelementptr inbounds nuw double, ptr %invariant.gep.i, i64 %indvars.iv.i
   %243 = load double, ptr %gep.i, align 8
   store double %243, ptr %44, align 8
   %244 = fcmp oeq double %241, %243

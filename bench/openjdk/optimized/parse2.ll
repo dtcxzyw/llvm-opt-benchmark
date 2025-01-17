@@ -3965,7 +3965,7 @@ _ZN5Parse19maybe_add_safepointEi.exit:            ; preds = %17, %20
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 8
   %.0.i.i.i.i104.us = load i32, ptr %58, align 1
   %59 = tail call noundef i32 @llvm.bswap.i32(i32 %.0.i.i.i.i104.us)
-  %.idx166 = mul nuw i64 %indvars.iv146, 12
+  %.idx166 = mul nuw nsw i64 %indvars.iv146, 12
   %60 = getelementptr inbounds nuw i8, ptr %52, i64 %.idx166
   store i32 %59, ptr %60, align 4
   %61 = load ptr, ptr %2, align 8
@@ -3996,7 +3996,7 @@ _ZN5Parse19maybe_add_safepointEi.exit:            ; preds = %17, %20
   %77 = getelementptr inbounds nuw i8, ptr %76, i64 8
   %.0.i.i.i.i104 = load i32, ptr %77, align 1
   %78 = tail call noundef i32 @llvm.bswap.i32(i32 %.0.i.i.i.i104)
-  %.idx = mul nuw i64 %indvars.iv, 12
+  %.idx = mul nuw nsw i64 %indvars.iv, 12
   %79 = getelementptr inbounds nuw i8, ptr %52, i64 %.idx
   store i32 %78, ptr %79, align 4
   %80 = add nuw nsw i64 %74, 3
@@ -4065,7 +4065,7 @@ _ZN5Parse19maybe_add_safepointEi.exit:            ; preds = %17, %20
   %indvars.iv152 = phi i64 [ 0, %.lr.ph141.preheader ], [ %indvars.iv.next153, %210 ]
   %.091.in139 = phi i1 [ %117, %.lr.ph141.preheader ], [ %134, %210 ]
   %.0129137 = phi i32 [ -1, %.lr.ph141.preheader ], [ %.2, %210 ]
-  %.idx167 = mul nuw i64 %indvars.iv152, 12
+  %.idx167 = mul nuw nsw i64 %indvars.iv152, 12
   %118 = getelementptr inbounds nuw i8, ptr %52, i64 %.idx167
   %119 = load i32, ptr %118, align 4
   %120 = getelementptr inbounds nuw i8, ptr %118, i64 4

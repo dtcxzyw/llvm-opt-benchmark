@@ -5052,11 +5052,11 @@ sw.bb1.i.i.i:                                     ; preds = %if.then8.i
   br label %_ZN5arrow4util17CastSecondsToUnitENS_8TimeUnit4typeEl.exit.i
 
 sw.bb2.i.i.i:                                     ; preds = %if.then8.i
-  %mul.i.i.i7.i.i.i = mul i64 %conv.i.i.i.i, 86400000000
+  %mul.i.i.i7.i.i.i = mul nsw i64 %conv.i.i.i.i, 86400000000
   br label %_ZN5arrow4util17CastSecondsToUnitENS_8TimeUnit4typeEl.exit.i
 
 sw.bb6.i.i.i:                                     ; preds = %if.then8.i
-  %mul.i.i.i8.i.i.i = mul i64 %conv.i.i.i.i, 86400000000000
+  %mul.i.i.i8.i.i.i = mul nsw i64 %conv.i.i.i.i, 86400000000000
   br label %_ZN5arrow4util17CastSecondsToUnitENS_8TimeUnit4typeEl.exit.i
 
 _ZN5arrow4util17CastSecondsToUnitENS_8TimeUnit4typeEl.exit.i: ; preds = %sw.bb6.i.i.i, %sw.bb2.i.i.i, %sw.bb1.i.i.i, %if.then8.i

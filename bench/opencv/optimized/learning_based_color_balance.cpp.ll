@@ -241,7 +241,7 @@ define hidden void @_ZN2cv6xphoto19LearningBasedWBImpl13preprocessingERNS_3MatE(
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %62
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %62 ]
-  %.idx = mul nuw i64 %indvars.iv, 6
+  %.idx = mul nuw nsw i64 %indvars.iv, 6
   %50 = getelementptr inbounds nuw i8, ptr %48, i64 %.idx
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 2
   %52 = getelementptr inbounds nuw i8, ptr %50, i64 4
@@ -404,7 +404,7 @@ define hidden void @_ZN2cv6xphoto19LearningBasedWBImpl39getAverageAndBrightestCo
   %.0133147 = phi i64 [ 0, %.lr.ph.preheader ], [ %.1134, %86 ]
   %.0135146 = phi i64 [ 0, %.lr.ph.preheader ], [ %.1136, %86 ]
   %.0137145 = phi i64 [ 0, %.lr.ph.preheader ], [ %.1138, %86 ]
-  %.idx = mul nuw i64 %indvars.iv, 6
+  %.idx = mul nuw nsw i64 %indvars.iv, 6
   %64 = getelementptr inbounds nuw i8, ptr %62, i64 %.idx
   %65 = load i16, ptr %64, align 2
   %66 = zext i16 %65 to i32

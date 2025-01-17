@@ -46,7 +46,7 @@ define dso_local noundef zeroext i1 @_Z21rcCreateChunkyTriMeshPKfPKiiiP15rcChunk
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %68
   %indvars.iv98 = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next99, %68 ]
-  %.idx = mul nuw i64 %indvars.iv98, 12
+  %.idx = mul nuw nsw i64 %indvars.iv98, 12
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx
   %34 = getelementptr inbounds nuw %struct.BoundsItem, ptr %31, i64 %indvars.iv98
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 16

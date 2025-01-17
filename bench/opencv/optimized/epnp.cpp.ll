@@ -1683,8 +1683,8 @@ define hidden void @_ZN2cv4epnp21choose_control_pointsEv(ptr nocapture noundef n
 
 .preheader37:                                     ; preds = %.preheader37.lr.ph, %21
   %indvars.iv47 = phi i64 [ 0, %.preheader37.lr.ph ], [ %indvars.iv.next48, %21 ]
-  %.idx = mul i64 %indvars.iv47, 24
-  %invariant.gep = getelementptr i8, ptr %14, i64 %.idx
+  %.idx = mul nuw nsw i64 %indvars.iv47, 24
+  %invariant.gep = getelementptr inbounds nuw i8, ptr %14, i64 %.idx
   br label %16
 
 .preheader36:                                     ; preds = %21, %1
@@ -1693,7 +1693,7 @@ define hidden void @_ZN2cv4epnp21choose_control_pointsEv(ptr nocapture noundef n
 
 16:                                               ; preds = %.preheader37, %16
   %indvars.iv = phi i64 [ 0, %.preheader37 ], [ %indvars.iv.next, %16 ]
-  %gep = getelementptr double, ptr %invariant.gep, i64 %indvars.iv
+  %gep = getelementptr inbounds nuw double, ptr %invariant.gep, i64 %indvars.iv
   %17 = load double, ptr %gep, align 8
   %18 = getelementptr inbounds nuw [3 x double], ptr %9, i64 0, i64 %indvars.iv
   %19 = load double, ptr %18, align 8
@@ -1937,7 +1937,7 @@ define hidden void @_ZN2cv4epnp31compute_barycentric_coordinatesEv(ptr nocapture
 39:                                               ; preds = %.lr.ph, %66
   %indvars.iv46 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next47, %66 ]
   %40 = load ptr, ptr %35, align 8
-  %.idx = mul nuw i64 %indvars.iv46, 24
+  %.idx = mul nuw nsw i64 %indvars.iv46, 24
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 %.idx
   %42 = load ptr, ptr %36, align 8
   %.idx49 = shl nsw i64 %indvars.iv46, 5
@@ -1948,7 +1948,7 @@ define hidden void @_ZN2cv4epnp31compute_barycentric_coordinatesEv(ptr nocapture
 
 46:                                               ; preds = %39, %46
   %indvars.iv42 = phi i64 [ 0, %39 ], [ %indvars.iv.next43, %46 ]
-  %.idx50 = mul nuw i64 %indvars.iv42, 24
+  %.idx50 = mul nuw nsw i64 %indvars.iv42, 24
   %47 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx50
   %48 = load double, ptr %47, align 8
   %49 = load double, ptr %41, align 8
@@ -2066,14 +2066,14 @@ define hidden void @_ZN2cv4epnp11compute_ccsEPKdS2_(ptr nocapture noundef nonnul
 
 .preheader:                                       ; preds = %4, %14
   %indvars.iv30 = phi i64 [ 0, %4 ], [ %indvars.iv.next31, %14 ]
-  %.idx38 = mul i64 %indvars.iv30, 24
-  %invariant.gep = getelementptr i8, ptr %6, i64 %.idx38
+  %.idx38 = mul nuw nsw i64 %indvars.iv30, 24
+  %invariant.gep = getelementptr inbounds nuw i8, ptr %6, i64 %.idx38
   br label %8
 
 8:                                                ; preds = %.preheader, %8
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %8 ]
   %9 = load double, ptr %7, align 8
-  %gep = getelementptr double, ptr %invariant.gep, i64 %indvars.iv
+  %gep = getelementptr inbounds nuw double, ptr %invariant.gep, i64 %indvars.iv
   %10 = load double, ptr %gep, align 8
   %11 = getelementptr inbounds nuw [4 x [3 x double]], ptr %3, i64 0, i64 %indvars.iv30, i64 %indvars.iv
   %12 = load double, ptr %11, align 8
@@ -2119,7 +2119,7 @@ define hidden void @_ZN2cv4epnp11compute_pcsEv(ptr nocapture noundef nonnull rea
   %.idx = shl nsw i64 %indvars.iv20, 5
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 %.idx
   %14 = load ptr, ptr %6, align 8
-  %.idx23 = mul nuw i64 %indvars.iv20, 24
+  %.idx23 = mul nuw nsw i64 %indvars.iv20, 24
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 %.idx23
   %16 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %17 = getelementptr inbounds nuw i8, ptr %13, i64 16
@@ -2214,7 +2214,7 @@ define hidden void @_ZN2cv4epnp12compute_poseERNS_3MatES2_(ptr nocapture noundef
   %42 = getelementptr inbounds nuw double, ptr %38, i64 %41
   %43 = load double, ptr %42, align 8
   %44 = load ptr, ptr %33, align 8
-  %.idx25 = mul nuw i64 %indvars.iv, 192
+  %.idx25 = mul nuw nsw i64 %indvars.iv, 192
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 %.idx25
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 96
   br label %47
@@ -2553,7 +2553,7 @@ define hidden void @_ZN2cv4epnp14compute_L_6x10EPKdPd(ptr nocapture nonnull read
 
 46:                                               ; preds = %.preheader, %46
   %indvars.iv81 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next82, %46 ]
-  %.idx = mul nuw i64 %indvars.iv81, 80
+  %.idx = mul nuw nsw i64 %indvars.iv81, 80
   %47 = getelementptr inbounds nuw i8, ptr %2, i64 %.idx
   %48 = getelementptr inbounds nuw [6 x [3 x double]], ptr %5, i64 0, i64 %indvars.iv81
   %49 = load double, ptr %48, align 8
@@ -3119,13 +3119,13 @@ define hidden noundef double @_ZN2cv4epnp15compute_R_and_tEPKdS2_PA3_dPd(ptr noc
 .preheader.i:                                     ; preds = %17, %7
   %indvars.iv30.i = phi i64 [ 0, %7 ], [ %indvars.iv.next31.i, %17 ]
   %.idx38.i = mul nuw nsw i64 %indvars.iv30.i, 24
-  %invariant.gep.i = getelementptr i8, ptr %9, i64 %.idx38.i
+  %invariant.gep.i = getelementptr inbounds nuw i8, ptr %9, i64 %.idx38.i
   br label %11
 
 11:                                               ; preds = %11, %.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %11 ]
   %12 = load double, ptr %10, align 8
-  %gep.i = getelementptr double, ptr %invariant.gep.i, i64 %indvars.iv.i
+  %gep.i = getelementptr inbounds nuw double, ptr %invariant.gep.i, i64 %indvars.iv.i
   %13 = load double, ptr %gep.i, align 8
   %14 = getelementptr inbounds nuw [4 x [3 x double]], ptr %6, i64 0, i64 %indvars.iv30.i, i64 %indvars.iv.i
   %15 = load double, ptr %14, align 8
@@ -4204,7 +4204,7 @@ define hidden void @_ZN2cv4epnp16estimate_R_and_tEPA3_dPd(ptr nocapture noundef 
 
 .preheader:                                       ; preds = %._crit_edge, %133
   %indvars.iv115 = phi i64 [ 0, %._crit_edge ], [ %indvars.iv.next116, %133 ]
-  %.idx = mul nuw i64 %indvars.iv115, 24
+  %.idx = mul nuw nsw i64 %indvars.iv115, 24
   %116 = getelementptr inbounds nuw i8, ptr %8, i64 %.idx
   %117 = load double, ptr %116, align 8
   %118 = getelementptr inbounds nuw i8, ptr %116, i64 8
@@ -4215,7 +4215,7 @@ define hidden void @_ZN2cv4epnp16estimate_R_and_tEPA3_dPd(ptr nocapture noundef 
 
 122:                                              ; preds = %.preheader, %122
   %indvars.iv111 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next112, %122 ]
-  %.idx119 = mul nuw i64 %indvars.iv111, 24
+  %.idx119 = mul nuw nsw i64 %indvars.iv111, 24
   %123 = getelementptr inbounds nuw i8, ptr %9, i64 %.idx119
   %124 = load double, ptr %123, align 8
   %125 = getelementptr inbounds nuw i8, ptr %123, i64 8
@@ -4433,7 +4433,7 @@ define hidden noundef double @_ZN2cv4epnp18reprojection_errorEPA3_KdPS1_(ptr noc
 40:                                               ; preds = %.lr.ph, %40
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %40 ]
   %.031 = phi double [ 0.000000e+00, %.lr.ph ], [ %74, %40 ]
-  %.idx = mul nuw i64 %indvars.iv, 24
+  %.idx = mul nuw nsw i64 %indvars.iv, 24
   %41 = getelementptr inbounds nuw i8, ptr %8, i64 %.idx
   %42 = load double, ptr %41, align 8
   %43 = getelementptr inbounds nuw i8, ptr %41, i64 8
@@ -4494,7 +4494,7 @@ define hidden void @_ZN2cv4epnp28compute_A_and_b_gauss_newtonEPKdS2_S2_P5CvMatS4
 
 13:                                               ; preds = %6, %_ZL6cvmSetP5CvMatiid.exit
   %indvars.iv = phi i64 [ 0, %6 ], [ %indvars.iv.next, %_ZL6cvmSetP5CvMatiid.exit ]
-  %.idx = mul nuw i64 %indvars.iv, 80
+  %.idx = mul nuw nsw i64 %indvars.iv, 80
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx
   %15 = load ptr, ptr %7, align 8
   %.idx77 = shl nuw nsw i64 %indvars.iv, 5

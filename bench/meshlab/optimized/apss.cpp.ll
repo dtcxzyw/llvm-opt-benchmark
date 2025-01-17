@@ -510,7 +510,7 @@ _ZNK3vcg6Point3IfEneERKS1_.exit.thread:           ; preds = %8, %13, %_ZNK3vcg6P
 
 .preheader:                                       ; preds = %33, %46
   %indvars.iv21 = phi i64 [ 0, %33 ], [ %indvars.iv.next22, %46 ]
-  %.idx = mul nuw i64 %indvars.iv21, 12
+  %.idx = mul nuw nsw i64 %indvars.iv21, 12
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 %.idx
   %39 = getelementptr inbounds nuw float, ptr %38, i64 %indvars.iv21
   br label %40
@@ -3754,7 +3754,7 @@ _ZNSt6vectorIfSaIfEE2atEm.exit186:                ; preds = %171
   %443 = fmul double %442, 2.000000e+00
   %444 = call double @llvm.fmuladd.f64(double %443, double %322, double %440)
   %445 = fptrunc double %444 to float
-  %gep.idx = mul nuw i64 %indvars.iv, 12
+  %gep.idx = mul nuw nsw i64 %indvars.iv, 12
   %gep = getelementptr inbounds nuw i8, ptr %invariant.gep, i64 %gep.idx
   store float %445, ptr %gep, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

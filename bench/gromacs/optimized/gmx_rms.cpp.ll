@@ -1676,7 +1676,7 @@ _ZL11IS_CHEMBONDi.exit886:                        ; preds = %_ZL13gmx_snew_implI
   br i1 %671, label %.lr.ph1362, label %._crit_edge1363.thread
 
 .lr.ph1362:                                       ; preds = %.preheader1269
-  %.idx = mul nuw i64 %indvars.iv1582, 12
+  %.idx = mul nuw nsw i64 %indvars.iv1582, 12
   %672 = getelementptr inbounds nuw i8, ptr %666, i64 %.idx
   %673 = getelementptr inbounds nuw i8, ptr %672, i64 4
   %674 = load i32, ptr %673, align 4
@@ -1705,7 +1705,7 @@ _ZL11IS_CHEMBONDi.exit886:                        ; preds = %_ZL13gmx_snew_implI
   br i1 %683, label %684, label %._crit_edge1363.thread
 
 684:                                              ; preds = %._crit_edge1363
-  %.idx1761 = mul nuw i64 %indvars.iv1582, 12
+  %.idx1761 = mul nuw nsw i64 %indvars.iv1582, 12
   %685 = getelementptr inbounds nuw i8, ptr %666, i64 %.idx1761
   %686 = getelementptr inbounds nuw i8, ptr %685, i64 4
   %687 = load i32, ptr %686, align 4

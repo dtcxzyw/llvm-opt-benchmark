@@ -1033,7 +1033,7 @@ Gia_ManTimeStart.exit:                            ; preds = %.lr.ph.i.i, %Vec_Fl
   %.val169 = load ptr, ptr %14, align 8
   %77 = getelementptr i8, ptr %.val169, i64 8
   %.val169.val = load ptr, ptr %77, align 8
-  %.idx = mul nuw i64 %indvars.iv, 12
+  %.idx = mul nuw nsw i64 %indvars.iv, 12
   %78 = getelementptr inbounds nuw i8, ptr %.val169.val, i64 %.idx
   store float %.0113, ptr %78, align 4
   %.pre = load i32, ptr %15, align 8

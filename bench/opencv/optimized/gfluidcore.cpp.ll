@@ -36654,7 +36654,7 @@ define linkonce_odr hidden void @_ZN2cv4gapi5fluid12GFluidMerge33runERKNS1_4View
   %indvars.iv144 = phi i64 [ 0, %.lr.ph132.preheader ], [ %indvars.iv.next145, %.lr.ph132 ]
   %96 = getelementptr inbounds nuw i16, ptr %78, i64 %indvars.iv144
   %97 = load i16, ptr %96, align 2
-  %.idx155 = mul nuw i64 %indvars.iv144, 6
+  %.idx155 = mul nuw nsw i64 %indvars.iv144, 6
   %98 = getelementptr inbounds nuw i8, ptr %92, i64 %.idx155
   store i16 %97, ptr %98, align 2
   %99 = getelementptr inbounds nuw i16, ptr %84, i64 %indvars.iv144
@@ -36703,7 +36703,7 @@ define linkonce_odr hidden void @_ZN2cv4gapi5fluid12GFluidMerge33runERKNS1_4View
   %indvars.iv139 = phi i64 [ 0, %.lr.ph130.preheader ], [ %indvars.iv.next140, %.lr.ph130 ]
   %129 = getelementptr inbounds nuw i16, ptr %111, i64 %indvars.iv139
   %130 = load i16, ptr %129, align 2
-  %.idx154 = mul nuw i64 %indvars.iv139, 6
+  %.idx154 = mul nuw nsw i64 %indvars.iv139, 6
   %131 = getelementptr inbounds nuw i8, ptr %125, i64 %.idx154
   store i16 %130, ptr %131, align 2
   %132 = getelementptr inbounds nuw i16, ptr %117, i64 %indvars.iv139
@@ -36752,7 +36752,7 @@ define linkonce_odr hidden void @_ZN2cv4gapi5fluid12GFluidMerge33runERKNS1_4View
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %162 = getelementptr inbounds nuw float, ptr %144, i64 %indvars.iv
   %163 = load float, ptr %162, align 4
-  %.idx = mul nuw i64 %indvars.iv, 12
+  %.idx = mul nuw nsw i64 %indvars.iv, 12
   %164 = getelementptr inbounds nuw i8, ptr %158, i64 %.idx
   store float %163, ptr %164, align 4
   %165 = getelementptr inbounds nuw float, ptr %150, i64 %indvars.iv

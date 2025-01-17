@@ -1870,7 +1870,7 @@ define void @_ZN13duDisplayList4drawEP11duDebugDraw(ptr nocapture noundef nonnul
 24:                                               ; preds = %.lr.ph, %24
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %24 ]
   %25 = load ptr, ptr %22, align 8
-  %.idx = mul nuw i64 %indvars.iv, 12
+  %.idx = mul nuw nsw i64 %indvars.iv, 12
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 %.idx
   %27 = load ptr, ptr %23, align 8
   %28 = getelementptr inbounds nuw i32, ptr %27, i64 %indvars.iv

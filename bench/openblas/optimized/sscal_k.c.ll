@@ -62,7 +62,7 @@ define noundef i32 @sscal_k(i64 noundef %0, i64 noundef %1, i64 noundef %2, floa
 43:                                               ; preds = %41
   %44 = and i64 %0, 9223372036854775800
   %.idx.i = shl nsw i64 %5, 3
-  %.idx1.i = mul i64 %5, 12
+  %.idx1.i = mul nsw i64 %5, 12
   %.idx2.i = shl nsw i64 %5, 4
   br label %45
 

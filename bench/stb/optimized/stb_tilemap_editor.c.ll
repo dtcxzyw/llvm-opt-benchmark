@@ -4643,7 +4643,7 @@ if.else:                                          ; preds = %for.end57
   %18 = load i32, ptr %arrayidx67, align 8
   %sub69 = add nsw i32 %18, -4
   %div = sdiv i32 %sub69, 13
-  %mul71 = mul i32 %div, 143
+  %mul71 = mul nsw i32 %div, 143
   %add73 = add nsw i32 %mul71, 49
   store i32 %add73, ptr %height, align 16
   br label %for.body79.preheader
