@@ -91,6 +91,7 @@ define hidden void @_ZN4core3fmt9Arguments9new_const17hf50a4933d1135262E.llvm.15
   store ptr %1, ptr %0, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %2, ptr %7, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr null, i64 8) ]
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr null, ptr %8, align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -104,6 +105,7 @@ define hidden void @_ZN4core3fmt9Arguments9new_const17hf50a4933d1135262E.llvm.15
   store ptr @anon.f3b2fad547462e861d3476c3bd8647df.5.llvm.15964793097634730155, ptr %4, align 8, !alias.scope !6, !noalias !9
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 1, ptr %12, align 8, !alias.scope !6, !noalias !9
+  call void @llvm.assume(i1 true) [ "align"(ptr null, i64 8) ]
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store ptr null, ptr %13, align 8, !alias.scope !6, !noalias !9
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -279,6 +281,7 @@ define hidden noundef i64 @_ZN4core4sync6atomic11atomic_load17h939a445d398624cfE
   store ptr @anon.f3b2fad547462e861d3476c3bd8647df.11, ptr %4, align 8
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 1, ptr %9, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr null, i64 8) ]
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store ptr null, ptr %10, align 8
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -297,6 +300,7 @@ define hidden noundef i64 @_ZN4core4sync6atomic11atomic_load17h939a445d398624cfE
   store ptr @anon.f3b2fad547462e861d3476c3bd8647df.15, ptr %3, align 8
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 1, ptr %16, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr null, i64 8) ]
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store ptr null, ptr %17, align 8
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -450,6 +454,7 @@ define hidden { i64, i64 } @_ZN4core4sync6atomic23atomic_compare_exchange17h793b
   store ptr @anon.f3b2fad547462e861d3476c3bd8647df.24, ptr %6, align 8
   %48 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i64 1, ptr %48, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr null, i64 8) ]
   %49 = getelementptr inbounds nuw i8, ptr %6, i64 32
   store ptr null, ptr %49, align 8
   %50 = getelementptr inbounds nuw i8, ptr %6, i64 16
@@ -464,6 +469,7 @@ define hidden { i64, i64 } @_ZN4core4sync6atomic23atomic_compare_exchange17h793b
   store ptr @anon.f3b2fad547462e861d3476c3bd8647df.27, ptr %7, align 8
   %53 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i64 1, ptr %53, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr null, i64 8) ]
   %54 = getelementptr inbounds nuw i8, ptr %7, i64 32
   store ptr null, ptr %54, align 8
   %55 = getelementptr inbounds nuw i8, ptr %7, i64 16
@@ -710,6 +716,7 @@ _ZN3std3sys4unix5locks11futex_mutex5Mutex4lock17h2824c483f8557e8fE.exit: ; preds
 
 28:                                               ; preds = %"_ZN3std4sync5mutex19MutexGuard$LT$T$GT$3new17hd1113d1d88291f80E.exit"
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7), !noalias !96
+  call void @llvm.assume(i1 true) [ "align"(ptr %15, i64 4) ]
   store ptr %15, ptr %7, align 8, !noalias !96
   %29 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i8 %.0.i.i.i, ptr %29, align 8, !noalias !96
@@ -736,6 +743,7 @@ common.resume:                                    ; preds = %118, %75, %84, %30
   resume { ptr, i32 } %common.resume.op
 
 35:                                               ; preds = %"_ZN3std4sync5mutex19MutexGuard$LT$T$GT$3new17hd1113d1d88291f80E.exit"
+  call void @llvm.assume(i1 true) [ "align"(ptr %15, i64 4) ]
   %36 = cmpxchg ptr %2, i64 1, i64 2 seq_cst monotonic, align 8
   %.sroa.18.0.in.i29 = extractvalue { i64, i1 } %36, 1
   br i1 %.sroa.18.0.in.i29, label %.preheader, label %39
@@ -802,8 +810,10 @@ common.resume:                                    ; preds = %118, %75, %84, %30
   br i1 %65, label %"_ZN10rayon_core8registry12WorkerThread15wait_until_cold28_$u7b$$u7b$closure$u7d$$u7d$17h2e89e11beca417deE.exit.thread", label %66
 
 66:                                               ; preds = %"_ZN10rayon_core8registry12WorkerThread15wait_until_cold28_$u7b$$u7b$closure$u7d$$u7d$17h2e89e11beca417deE.exit"
+  call void @llvm.assume(i1 true) [ "align"(ptr %15, i64 4) ]
   %67 = getelementptr inbounds nuw i8, ptr %15, i64 5
   store i8 1, ptr %67, align 1
+  call void @llvm.assume(i1 true) [ "align"(ptr %15, i64 4) ]
   %68 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %69 = getelementptr inbounds nuw i8, ptr %6, i64 8
   br label %71
@@ -818,6 +828,7 @@ common.resume:                                    ; preds = %118, %75, %84, %30
   br i1 %73, label %74, label %.loopexit
 
 74:                                               ; preds = %71
+  call void @llvm.assume(i1 true) [ "align"(ptr %15, i64 4) ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
   store ptr %15, ptr %6, align 8, !noalias !108
   store i8 %.0.i.i.i, ptr %69, align 8, !noalias !108
@@ -881,6 +892,7 @@ common.resume:                                    ; preds = %118, %75, %84, %30
   br label %_ZN10rayon_core5latch9CoreLatch7wake_up17h904fcd56032c64d5E.exit
 
 _ZN10rayon_core5latch9CoreLatch7wake_up17h904fcd56032c64d5E.exit: ; preds = %92, %.loopexit
+  call void @llvm.assume(i1 true) [ "align"(ptr %15, i64 4) ]
   %94 = trunc nuw i8 %.0.i.i.i to i1
   br i1 %94, label %_ZN3std4sync6poison4Flag4done17h5bffa24fa61aa5e0E.exit.i.i, label %95
 
@@ -895,7 +907,7 @@ _ZN3std9panicking11panic_count13count_is_zero17h66cf19443d869469E.exit.i.i.i: ; 
   br i1 %99, label %_ZN3std4sync6poison4Flag4done17h5bffa24fa61aa5e0E.exit.i.i, label %100
 
 100:                                              ; preds = %_ZN3std9panicking11panic_count13count_is_zero17h66cf19443d869469E.exit.i.i.i
-  store atomic i8 1, ptr %26 monotonic, align 1
+  store atomic i8 1, ptr %26 monotonic, align 4
   br label %_ZN3std4sync6poison4Flag4done17h5bffa24fa61aa5e0E.exit.i.i
 
 _ZN3std4sync6poison4Flag4done17h5bffa24fa61aa5e0E.exit.i.i: ; preds = %100, %_ZN3std9panicking11panic_count13count_is_zero17h66cf19443d869469E.exit.i.i.i, %95, %_ZN10rayon_core5latch9CoreLatch7wake_up17h904fcd56032c64d5E.exit
@@ -923,6 +935,7 @@ _ZN3std4sync6poison4Flag4done17h5bffa24fa61aa5e0E.exit.i.i: ; preds = %100, %_ZN
   br label %_ZN10rayon_core5latch9CoreLatch7wake_up17h904fcd56032c64d5E.exit45
 
 _ZN10rayon_core5latch9CoreLatch7wake_up17h904fcd56032c64d5E.exit45: ; preds = %107, %103, %39
+  call void @llvm.assume(i1 true) [ "align"(ptr %15, i64 4) ]
   %109 = trunc nuw i8 %.0.i.i.i to i1
   br i1 %109, label %_ZN3std4sync6poison4Flag4done17h5bffa24fa61aa5e0E.exit.i.i47, label %110
 
@@ -937,7 +950,7 @@ _ZN3std9panicking11panic_count13count_is_zero17h66cf19443d869469E.exit.i.i.i46: 
   br i1 %114, label %_ZN3std4sync6poison4Flag4done17h5bffa24fa61aa5e0E.exit.i.i47, label %115
 
 115:                                              ; preds = %_ZN3std9panicking11panic_count13count_is_zero17h66cf19443d869469E.exit.i.i.i46
-  store atomic i8 1, ptr %26 monotonic, align 1
+  store atomic i8 1, ptr %26 monotonic, align 4
   br label %_ZN3std4sync6poison4Flag4done17h5bffa24fa61aa5e0E.exit.i.i47
 
 _ZN3std4sync6poison4Flag4done17h5bffa24fa61aa5e0E.exit.i.i47: ; preds = %115, %_ZN3std9panicking11panic_count13count_is_zero17h66cf19443d869469E.exit.i.i.i46, %110, %_ZN10rayon_core5latch9CoreLatch7wake_up17h904fcd56032c64d5E.exit45
@@ -948,6 +961,7 @@ _ZN3std4sync6poison4Flag4done17h5bffa24fa61aa5e0E.exit.i.i47: ; preds = %115, %_
 118:                                              ; preds = %.noexc38, %58, %.noexc, %49
   %119 = landingpad { ptr, i32 }
           cleanup
+  call void @llvm.assume(i1 true) [ "align"(ptr %15, i64 4) ]
   invoke fastcc void @"_ZN4core3ptr61drop_in_place$LT$std..sync..mutex..MutexGuard$LT$bool$GT$$GT$17h037f25805bba7023E"(ptr nonnull %15, i8 %.0.i.i.i) #16
           to label %common.resume unwind label %120
 

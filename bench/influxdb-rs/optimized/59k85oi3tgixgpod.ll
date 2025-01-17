@@ -45,6 +45,7 @@ define hidden void @"_ZN17crossbeam_channel7counter15Sender$LT$C$GT$7release17h0
   br i1 %5, label %6, label %23
 
 6:                                                ; preds = %1
+  call void @llvm.assume(i1 true) [ "align"(ptr %2, i64 128) ]
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 400
   %8 = load i64, ptr %7, align 16, !noundef !4
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 128
@@ -94,6 +95,7 @@ define hidden void @"_ZN17crossbeam_channel7counter15Sender$LT$C$GT$7release17h1
   br i1 %5, label %6, label %15
 
 6:                                                ; preds = %1
+  call void @llvm.assume(i1 true) [ "align"(ptr %2, i64 8) ]
   %7 = tail call noundef zeroext i1 @"_ZN17crossbeam_channel7flavors4zero16Channel$LT$T$GT$10disconnect17h4a9a70e1272ba287E"(ptr noundef nonnull align 8 %2)
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 128
   %9 = atomicrmw xchg ptr %8, i8 1 acq_rel, align 1
@@ -128,6 +130,7 @@ define hidden void @"_ZN17crossbeam_channel7counter15Sender$LT$C$GT$7release17h2
   br i1 %5, label %6, label %26
 
 6:                                                ; preds = %1
+  call void @llvm.assume(i1 true) [ "align"(ptr %2, i64 128) ]
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 128
   %8 = atomicrmw or ptr %7, i64 1 seq_cst, align 8
   %9 = and i64 %8, 1
@@ -194,6 +197,7 @@ define hidden void @"_ZN17crossbeam_channel7counter15Sender$LT$C$GT$7release17h2
   br i1 %5, label %6, label %15
 
 6:                                                ; preds = %1
+  call void @llvm.assume(i1 true) [ "align"(ptr %2, i64 8) ]
   %7 = tail call noundef zeroext i1 @"_ZN17crossbeam_channel7flavors4zero16Channel$LT$T$GT$10disconnect17h6f4d9783333a324cE"(ptr noundef nonnull align 8 %2)
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 128
   %9 = atomicrmw xchg ptr %8, i8 1 acq_rel, align 1
@@ -228,6 +232,7 @@ define hidden void @"_ZN17crossbeam_channel7counter15Sender$LT$C$GT$7release17h6
   br i1 %5, label %6, label %23
 
 6:                                                ; preds = %1
+  call void @llvm.assume(i1 true) [ "align"(ptr %2, i64 128) ]
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 400
   %8 = load i64, ptr %7, align 16, !noundef !4
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 128
@@ -277,6 +282,7 @@ define hidden void @"_ZN17crossbeam_channel7counter15Sender$LT$C$GT$7release17h8
   br i1 %5, label %6, label %26
 
 6:                                                ; preds = %1
+  call void @llvm.assume(i1 true) [ "align"(ptr %2, i64 128) ]
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 128
   %8 = atomicrmw or ptr %7, i64 1 seq_cst, align 8
   %9 = and i64 %8, 1
@@ -343,6 +349,7 @@ define hidden void @"_ZN17crossbeam_channel7counter17Receiver$LT$C$GT$7release17
   br i1 %5, label %6, label %25
 
 6:                                                ; preds = %1
+  call void @llvm.assume(i1 true) [ "align"(ptr %2, i64 128) ]
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 128
   %8 = atomicrmw or ptr %7, i64 1 seq_cst, align 8
   %9 = and i64 %8, 1
@@ -408,6 +415,7 @@ define hidden void @"_ZN17crossbeam_channel7counter17Receiver$LT$C$GT$7release17
   br i1 %5, label %6, label %23
 
 6:                                                ; preds = %1
+  call void @llvm.assume(i1 true) [ "align"(ptr %2, i64 128) ]
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 400
   %8 = load i64, ptr %7, align 16, !noundef !4
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 128
@@ -457,6 +465,7 @@ define hidden void @"_ZN17crossbeam_channel7counter17Receiver$LT$C$GT$7release17
   br i1 %5, label %6, label %23
 
 6:                                                ; preds = %1
+  call void @llvm.assume(i1 true) [ "align"(ptr %2, i64 128) ]
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 400
   %8 = load i64, ptr %7, align 16, !noundef !4
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 128
@@ -506,6 +515,7 @@ define hidden void @"_ZN17crossbeam_channel7counter17Receiver$LT$C$GT$7release17
   br i1 %5, label %6, label %15
 
 6:                                                ; preds = %1
+  call void @llvm.assume(i1 true) [ "align"(ptr %2, i64 8) ]
   %7 = tail call noundef zeroext i1 @"_ZN17crossbeam_channel7flavors4zero16Channel$LT$T$GT$10disconnect17h4a9a70e1272ba287E"(ptr noundef nonnull align 8 %2)
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 128
   %9 = atomicrmw xchg ptr %8, i8 1 acq_rel, align 1
@@ -540,6 +550,7 @@ define hidden void @"_ZN17crossbeam_channel7counter17Receiver$LT$C$GT$7release17
   br i1 %5, label %6, label %15
 
 6:                                                ; preds = %1
+  call void @llvm.assume(i1 true) [ "align"(ptr %2, i64 8) ]
   %7 = tail call noundef zeroext i1 @"_ZN17crossbeam_channel7flavors4zero16Channel$LT$T$GT$10disconnect17h6f4d9783333a324cE"(ptr noundef nonnull align 8 %2)
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 128
   %9 = atomicrmw xchg ptr %8, i8 1 acq_rel, align 1
@@ -574,6 +585,7 @@ define hidden void @"_ZN17crossbeam_channel7counter17Receiver$LT$C$GT$7release17
   br i1 %5, label %6, label %25
 
 6:                                                ; preds = %1
+  call void @llvm.assume(i1 true) [ "align"(ptr %2, i64 128) ]
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 128
   %8 = atomicrmw or ptr %7, i64 1 seq_cst, align 8
   %9 = and i64 %8, 1
@@ -1062,6 +1074,7 @@ define hidden noundef ptr @_ZN4core4sync6atomic11atomic_load17h5023207247967b8fE
   store ptr @anon.e208aac8e7bdb0bb4451e98d70003dfe.6, ptr %4, align 8
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 1, ptr %9, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr null, i64 8) ]
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store ptr null, ptr %10, align 8
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -1080,6 +1093,7 @@ define hidden noundef ptr @_ZN4core4sync6atomic11atomic_load17h5023207247967b8fE
   store ptr @anon.e208aac8e7bdb0bb4451e98d70003dfe.10, ptr %3, align 8
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 1, ptr %16, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr null, i64 8) ]
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store ptr null, ptr %17, align 8
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -1123,6 +1137,7 @@ define hidden noundef i64 @_ZN4core4sync6atomic11atomic_load17h98087698d4ec158fE
   store ptr @anon.e208aac8e7bdb0bb4451e98d70003dfe.6, ptr %4, align 8
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 1, ptr %9, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr null, i64 8) ]
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store ptr null, ptr %10, align 8
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -1141,6 +1156,7 @@ define hidden noundef i64 @_ZN4core4sync6atomic11atomic_load17h98087698d4ec158fE
   store ptr @anon.e208aac8e7bdb0bb4451e98d70003dfe.10, ptr %3, align 8
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 1, ptr %16, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr null, i64 8) ]
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store ptr null, ptr %17, align 8
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -5296,6 +5312,7 @@ define hidden { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$6shrink17h622
   store ptr @anon.e208aac8e7bdb0bb4451e98d70003dfe.29, ptr %3, align 8
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 1, ptr %7, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr null, i64 8) ]
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store ptr null, ptr %8, align 8
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -5358,6 +5375,7 @@ define hidden { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$6shrink17h97a
   store ptr @anon.e208aac8e7bdb0bb4451e98d70003dfe.29, ptr %3, align 8
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 1, ptr %7, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr null, i64 8) ]
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store ptr null, ptr %8, align 8
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -6418,6 +6436,7 @@ define hidden noundef ptr @"_ZN5tokio4sync4mpsc5block14Block$LT$T$GT$9load_next1
   store ptr @anon.e208aac8e7bdb0bb4451e98d70003dfe.6, ptr %4, align 8
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 1, ptr %10, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr null, i64 8) ]
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store ptr null, ptr %11, align 8
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -6436,6 +6455,7 @@ define hidden noundef ptr @"_ZN5tokio4sync4mpsc5block14Block$LT$T$GT$9load_next1
   store ptr @anon.e208aac8e7bdb0bb4451e98d70003dfe.10, ptr %3, align 8
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 1, ptr %17, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr null, i64 8) ]
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store ptr null, ptr %18, align 8
   %19 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -6467,6 +6487,7 @@ define hidden { ptr, ptr } @_ZN5tokio4sync4mpsc7bounded7channel17hda52e15d47eab3
   store ptr @anon.e208aac8e7bdb0bb4451e98d70003dfe.39.llvm.4074410953282169344, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 1, ptr %6, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr null, i64 8) ]
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store ptr null, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -7396,6 +7417,7 @@ define hidden noundef nonnull align 8 dereferenceable(64) ptr @"_ZN9once_cell4ra
 
 22:                                               ; preds = %"_ZN9once_cell4race8once_box16OnceBox$LT$T$GT$11get_or_init28_$u7b$$u7b$closure$u7d$$u7d$17hd9a2896e7976b29bE.exit", %19, %1
   %.0 = phi ptr [ %6, %1 ], [ %21, %19 ], [ %13, %"_ZN9once_cell4race8once_box16OnceBox$LT$T$GT$11get_or_init28_$u7b$$u7b$closure$u7d$$u7d$17hd9a2896e7976b29bE.exit" ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %.0, i64 8) ]
   %23 = icmp ne ptr %.0, null
   call void @llvm.assume(i1 %23)
   ret ptr %.0
@@ -7510,6 +7532,7 @@ common.resume:                                    ; preds = %14, %43
 
 44:                                               ; preds = %"_ZN9once_cell4race8once_box16OnceBox$LT$T$GT$11get_or_init28_$u7b$$u7b$closure$u7d$$u7d$17h9fb1ca584a11e972E.exit", %"_ZN4core3ptr158drop_in_place$LT$alloc..boxed..Box$LT$alloc..boxed..Box$LT$dyn$u20$ahash..random_state..RandomSource$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$GT$$GT$17ha5936d01acdee3ffE.exit", %1
   %.0 = phi ptr [ %3, %1 ], [ %23, %"_ZN4core3ptr158drop_in_place$LT$alloc..boxed..Box$LT$alloc..boxed..Box$LT$dyn$u20$ahash..random_state..RandomSource$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$GT$$GT$17ha5936d01acdee3ffE.exit" ], [ %11, %"_ZN9once_cell4race8once_box16OnceBox$LT$T$GT$11get_or_init28_$u7b$$u7b$closure$u7d$$u7d$17h9fb1ca584a11e972E.exit" ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %.0, i64 8) ]
   %45 = icmp ne ptr %.0, null
   tail call void @llvm.assume(i1 %45)
   ret ptr %.0

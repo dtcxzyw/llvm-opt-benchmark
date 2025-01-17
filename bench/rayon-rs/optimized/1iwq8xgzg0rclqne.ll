@@ -281,6 +281,7 @@ define hidden noundef i32 @_ZN4core4sync6atomic11atomic_load17h9063b7aedecf0720E
   store ptr @anon.412ef50452772e7cece4d25a47724f22.6, ptr %4, align 8
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 1, ptr %9, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr null, i64 8) ]
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store ptr null, ptr %10, align 8
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -299,6 +300,7 @@ define hidden noundef i32 @_ZN4core4sync6atomic11atomic_load17h9063b7aedecf0720E
   store ptr @anon.412ef50452772e7cece4d25a47724f22.10, ptr %3, align 8
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 1, ptr %16, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr null, i64 8) ]
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store ptr null, ptr %17, align 8
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -644,16 +646,19 @@ define hidden void @_ZN10rayon_core8registry8Registry3new17h48fd43abfedc4925E(pt
   %64 = load ptr, ptr %63, align 8, !align !70, !noundef !8
   %65 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %66 = load ptr, ptr %65, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr null, i64 1) ]
   store ptr null, ptr %63, align 8
   %67 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %68 = load ptr, ptr %67, align 8, !align !70, !noundef !8
   %69 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %70 = load ptr, ptr %69, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr null, i64 1) ]
   store ptr null, ptr %67, align 8
   %71 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %72 = load ptr, ptr %71, align 8, !align !70, !noundef !8
   %73 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %74 = load ptr, ptr %73, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr null, i64 1) ]
   store ptr null, ptr %71, align 8
   %.sroa.15.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 504
   call void @llvm.lifetime.start.p0(i64 640, ptr nonnull %8), !noalias !71
@@ -974,6 +979,7 @@ define hidden void @_ZN10rayon_core8registry8Registry3new17h48fd43abfedc4925E(pt
   br label %.critedge
 
 151:                                              ; preds = %146
+  call void @llvm.assume(i1 true) [ "align"(ptr null, i64 8) ]
   %.0.val.i = load ptr, ptr @_ZN10rayon_core8registry19WORKER_THREAD_STATE7__getit3VAL17h9453257021be81b2E, align 8, !noundef !8
   %152 = icmp eq ptr %.0.val.i, null
   br i1 %152, label %153, label %211
@@ -1322,7 +1328,7 @@ _ZN3std9panicking3try17h37324d76ce4366a8E.exit.thread: ; preds = %3
   %10 = extractvalue { ptr, i32 } %9, 0
   call void @_ZN3std9panicking3try8do_catch17h3f6d47912ed2f761E.llvm.17432428852515034553(ptr nonnull %6, ptr %10)
   %11 = load ptr, ptr %6, align 8, !noalias !191, !nonnull !8, !align !70
-  %12 = load ptr, ptr %7, align 8, !noalias !191, !nonnull !8, !align !136
+  %12 = load ptr, ptr %7, align 8, !noalias !191, !nonnull !8, !align !136, !noundef !8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6), !noalias !191
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 288
   %14 = load ptr, ptr %13, align 32, !noundef !8
@@ -1355,6 +1361,7 @@ _ZN3std9panicking3try17h37324d76ce4366a8E.exit.thread: ; preds = %3
   store ptr @anon.e57bac563418e395ded3f76a9b71ce16.33.llvm.4661854399685404667, ptr %5, align 8
   %24 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 1, ptr %24, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr null, i64 8) ]
   %25 = getelementptr inbounds nuw i8, ptr %5, i64 32
   store ptr null, ptr %25, align 8
   %26 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -1408,7 +1415,7 @@ _ZN3std9panicking3try17hf193fa28b097a129E.exit.thread: ; preds = %3
   %10 = extractvalue { ptr, i32 } %9, 0
   call void @_ZN3std9panicking3try8do_catch17h15cdaf555a9b52c4E.llvm.17432428852515034553(ptr nonnull %6, ptr %10)
   %11 = load ptr, ptr %6, align 8, !noalias !201, !nonnull !8, !align !70
-  %12 = load ptr, ptr %7, align 8, !noalias !201, !nonnull !8, !align !136
+  %12 = load ptr, ptr %7, align 8, !noalias !201, !nonnull !8, !align !136, !noundef !8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6), !noalias !201
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 288
   %14 = load ptr, ptr %13, align 32, !noundef !8
@@ -1441,6 +1448,7 @@ _ZN3std9panicking3try17hf193fa28b097a129E.exit.thread: ; preds = %3
   store ptr @anon.e57bac563418e395ded3f76a9b71ce16.33.llvm.4661854399685404667, ptr %5, align 8
   %24 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 1, ptr %24, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr null, i64 8) ]
   %25 = getelementptr inbounds nuw i8, ptr %5, i64 32
   store ptr null, ptr %25, align 8
   %26 = getelementptr inbounds nuw i8, ptr %5, i64 16

@@ -1242,7 +1242,6 @@ define dso_local void @_ZN9Stockfish3UCI4loopEv(ptr noundef nonnull align 8 dere
   %.06.i.i.i.i.idx = phi i64 [ %.06.i.i.i.i.add, %.lr.ph.i.i.i.i ], [ 24, %1 ]
   %.06.i.i.i.i.ptr = getelementptr inbounds nuw i8, ptr %18, i64 %.06.i.i.i.i.idx
   %19 = call noalias noundef nonnull align 64 dereferenceable(11264) ptr @_ZnwmSt11align_val_t(i64 noundef 11264, i64 noundef 64) #22
-  call void @llvm.assume(i1 true) [ "align"(ptr %19, i64 64) ]
   store ptr %19, ptr %.06.i.i.i.i.ptr, align 8
   %.06.i.i.i.i.add = add nuw nsw i64 %.06.i.i.i.i.idx, 8
   %20 = icmp samesign ult i64 %.06.i.i.i.i.idx, 32
@@ -2109,7 +2108,6 @@ define dso_local void @_ZN9Stockfish3UCI8positionERNS_8PositionERNSt7__cxx1119ba
   %.06.i.i.i.i.idx = phi i64 [ %.06.i.i.i.i.add, %.lr.ph.i.i.i.i ], [ 24, %.critedge ]
   %.06.i.i.i.i.ptr = getelementptr inbounds nuw i8, ptr %37, i64 %.06.i.i.i.i.idx
   %38 = call noalias noundef nonnull align 64 dereferenceable(11264) ptr @_ZnwmSt11align_val_t(i64 noundef 11264, i64 noundef 64) #22
-  call void @llvm.assume(i1 true) [ "align"(ptr %38, i64 64) ]
   store ptr %38, ptr %.06.i.i.i.i.ptr, align 8
   %.06.i.i.i.i.add = add nuw nsw i64 %.06.i.i.i.i.idx, 8
   %39 = icmp samesign ult i64 %.06.i.i.i.i.idx, 32
@@ -2505,7 +2503,6 @@ define dso_local void @_ZN9Stockfish3UCI10trace_evalERNS_8PositionE(ptr noundef 
   %.06.i.i.i.i.idx = phi i64 [ %.06.i.i.i.i.add, %.lr.ph.i.i.i.i ], [ 24, %2 ]
   %.06.i.i.i.i.ptr = getelementptr inbounds nuw i8, ptr %10, i64 %.06.i.i.i.i.idx
   %11 = tail call noalias noundef nonnull align 64 dereferenceable(11264) ptr @_ZnwmSt11align_val_t(i64 noundef 11264, i64 noundef 64) #22
-  call void @llvm.assume(i1 true) [ "align"(ptr %11, i64 64) ]
   store ptr %11, ptr %.06.i.i.i.i.ptr, align 8
   %.06.i.i.i.i.add = add nuw nsw i64 %.06.i.i.i.i.idx, 8
   %12 = icmp samesign ult i64 %.06.i.i.i.i.idx, 32
@@ -2715,7 +2712,6 @@ define linkonce_odr dso_local void @_ZN9Stockfish5perftERKNSt7__cxx1112basic_str
   %.06.i.i.i.i.idx = phi i64 [ %.06.i.i.i.i.add, %.lr.ph.i.i.i.i ], [ 24, %3 ]
   %.06.i.i.i.i.ptr = getelementptr inbounds nuw i8, ptr %5, i64 %.06.i.i.i.i.idx
   %6 = tail call noalias noundef nonnull align 64 dereferenceable(11264) ptr @_ZnwmSt11align_val_t(i64 noundef 11264, i64 noundef 64) #22
-  call void @llvm.assume(i1 true) [ "align"(ptr %6, i64 64) ]
   store ptr %6, ptr %.06.i.i.i.i.ptr, align 8
   %.06.i.i.i.i.add = add nuw nsw i64 %.06.i.i.i.i.idx, 8
   %7 = icmp samesign ult i64 %.06.i.i.i.i.idx, 32
@@ -4450,7 +4446,6 @@ define linkonce_odr dso_local void @_ZNSt5dequeIN9Stockfish9StateInfoESaIS1_EE16
 _ZNSt5dequeIN9Stockfish9StateInfoESaIS1_EE22_M_reserve_map_at_backEm.exit: ; preds = %32, %41
   %42 = phi ptr [ %5, %32 ], [ %.pre, %41 ]
   %43 = tail call noalias noundef nonnull align 64 dereferenceable(11264) ptr @_ZnwmSt11align_val_t(i64 noundef 11264, i64 noundef 64) #22
-  call void @llvm.assume(i1 true) [ "align"(ptr %43, i64 64) ]
   %44 = getelementptr inbounds nuw i8, ptr %42, i64 8
   store ptr %43, ptr %44, align 8
   %45 = load ptr, ptr %2, align 8

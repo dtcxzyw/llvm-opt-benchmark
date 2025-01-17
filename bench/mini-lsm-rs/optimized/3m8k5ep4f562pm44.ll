@@ -167,6 +167,7 @@ define hidden noundef range(i64 1, 0) i64 @"_ZN17crossbeam_channel5waker17curren
   %6 = tail call noundef nonnull ptr @_ZN3std6thread7current17ha2f171abb653aba5E()
   store ptr %6, ptr %2, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  call void @llvm.assume(i1 true) [ "align"(ptr %7, i64 8) ]
   %8 = load i64, ptr %7, align 8, !range !42, !noundef !21
   %9 = atomicrmw sub ptr %6, i64 1 release, align 8, !noalias !43
   %10 = icmp eq i64 %9, 1
@@ -699,6 +700,7 @@ define hidden noundef nonnull align 8 dereferenceable(8) ptr @"_ZN3std3sys6commo
   %7 = tail call noundef nonnull ptr @_ZN3std6thread7current17ha2f171abb653aba5E(), !noalias !101
   store ptr %7, ptr %3, align 8, !noalias !101
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  call void @llvm.assume(i1 true) [ "align"(ptr %8, i64 8) ]
   %9 = load i64, ptr %8, align 8, !range !42, !noalias !101, !noundef !21
   %10 = atomicrmw sub ptr %7, i64 1 release, align 8, !noalias !104
   %11 = icmp eq i64 %10, 1
@@ -965,6 +967,7 @@ __rust_try.llvm.15938600225882126526.exit:        ; preds = %16
   %23 = extractvalue { ptr, ptr } %19, 1
   %24 = icmp ne ptr %22, null
   tail call void @llvm.assume(i1 %24)
+  call void @llvm.assume(i1 true) [ "align"(ptr %23, i64 8) ]
   %25 = icmp ne ptr %23, null
   tail call void @llvm.assume(i1 %25)
   br label %26
@@ -1009,6 +1012,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17h26b47efc5a0e1463E(ptr noalia
   %10 = extractvalue { ptr, ptr } %5, 1
   %11 = icmp ne ptr %9, null
   tail call void @llvm.assume(i1 %11)
+  call void @llvm.assume(i1 true) [ "align"(ptr %10, i64 8) ]
   %12 = icmp ne ptr %10, null
   tail call void @llvm.assume(i1 %12)
   br label %13
@@ -1068,6 +1072,7 @@ __rust_try.llvm.15938600225882126526.exit:        ; preds = %14
   %21 = extractvalue { ptr, ptr } %17, 1
   %22 = icmp ne ptr %20, null
   call void @llvm.assume(i1 %22)
+  call void @llvm.assume(i1 true) [ "align"(ptr %21, i64 8) ]
   %23 = icmp ne ptr %21, null
   call void @llvm.assume(i1 %23)
   br label %25
@@ -1116,6 +1121,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17h527b4d715f32e430E(ptr noalia
   %10 = extractvalue { ptr, ptr } %5, 1
   %11 = icmp ne ptr %9, null
   tail call void @llvm.assume(i1 %11)
+  call void @llvm.assume(i1 true) [ "align"(ptr %10, i64 8) ]
   %12 = icmp ne ptr %10, null
   tail call void @llvm.assume(i1 %12)
   br label %13
@@ -1200,6 +1206,7 @@ __rust_try.llvm.15938600225882126526.exit:        ; preds = %.body.i.i.i.i
   %31 = extractvalue { ptr, ptr } %27, 1
   %32 = icmp ne ptr %30, null
   tail call void @llvm.assume(i1 %32)
+  call void @llvm.assume(i1 true) [ "align"(ptr %31, i64 8) ]
   %33 = icmp ne ptr %31, null
   tail call void @llvm.assume(i1 %33)
   br label %35
@@ -1218,7 +1225,7 @@ __rust_try.llvm.15938600225882126526.exit:        ; preds = %.body.i.i.i.i
 
 ; Function Attrs: nonlazybind uwtable
 define hidden { ptr, ptr } @_ZN3std9panicking3try17h7b11098a4f159d71E(ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
-  %.sroa.01.sroa.0.0.copyload = load ptr, ptr %0, align 8, !nonnull !21, !noundef !21
+  %.sroa.01.sroa.0.0.copyload = load ptr, ptr %0, align 8, !nonnull !21, !align !145, !noundef !21
   %.sroa.01.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.sroa.01.sroa.4.0.copyload = load ptr, ptr %.sroa.01.sroa.4.0..sroa_idx, align 8
   %.sroa.01.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -1265,6 +1272,7 @@ __rust_try.llvm.15938600225882126526.exit:        ; preds = %18
   %25 = extractvalue { ptr, ptr } %21, 1
   %26 = icmp ne ptr %24, null
   tail call void @llvm.assume(i1 %26)
+  call void @llvm.assume(i1 true) [ "align"(ptr %25, i64 8) ]
   %27 = icmp ne ptr %25, null
   tail call void @llvm.assume(i1 %27)
   br label %28
@@ -1279,7 +1287,7 @@ __rust_try.llvm.15938600225882126526.exit:        ; preds = %18
 
 ; Function Attrs: nonlazybind uwtable
 define hidden { ptr, ptr } @_ZN3std9panicking3try17h8f9eeedcdc58202dE(ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
-  %.sroa.01.sroa.0.0.copyload = load ptr, ptr %0, align 8, !nonnull !21, !noundef !21
+  %.sroa.01.sroa.0.0.copyload = load ptr, ptr %0, align 8, !nonnull !21, !align !145, !noundef !21
   %.sroa.01.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.sroa.01.sroa.4.0.copyload = load ptr, ptr %.sroa.01.sroa.4.0..sroa_idx, align 8
   %.sroa.01.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -1326,6 +1334,7 @@ __rust_try.llvm.15938600225882126526.exit:        ; preds = %18
   %25 = extractvalue { ptr, ptr } %21, 1
   %26 = icmp ne ptr %24, null
   tail call void @llvm.assume(i1 %26)
+  call void @llvm.assume(i1 true) [ "align"(ptr %25, i64 8) ]
   %27 = icmp ne ptr %25, null
   tail call void @llvm.assume(i1 %27)
   br label %28
@@ -1369,6 +1378,8 @@ define hidden void @_ZN3std9panicking3try17h9360a43ab282a523E(ptr noalias nocapt
   %17 = extractvalue { ptr, ptr } %8, 1
   %18 = icmp ne ptr %16, null
   tail call void @llvm.assume(i1 %18)
+  call void @llvm.assume(i1 true) [ "align"(ptr %17, i64 8) ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %17, i64 8) ]
   %19 = icmp ne ptr %17, null
   tail call void @llvm.assume(i1 %19)
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1483,7 +1494,7 @@ define hidden void @_ZN3std9panicking3try7do_call17h1b45227f3931bde3E.llvm.15938
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 define hidden void @_ZN3std9panicking3try7do_call17h3fa84a4a7a3d3f09E.llvm.15938600225882126526(ptr nocapture noundef readonly %0) unnamed_addr #0 {
-  %.sroa.0.0.copyload = load ptr, ptr %0, align 8, !nonnull !21, !noundef !21
+  %.sroa.0.0.copyload = load ptr, ptr %0, align 8, !nonnull !21, !align !145, !noundef !21
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.sroa.2.0.copyload = load ptr, ptr %.sroa.2.0..sroa_idx, align 8
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -1646,6 +1657,7 @@ define hidden void @_ZN3std9panicking3try7do_call17h4e051fe5b6328b64E.llvm.15938
   store ptr @anon.2d959d102d7682cc7cbcc0dd1a59e417.12.llvm.7682092217504716512, ptr %4, align 8, !noalias !267
   %49 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 1, ptr %49, align 8, !noalias !267
+  call void @llvm.assume(i1 true) [ "align"(ptr null, i64 8) ]
   %50 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store ptr null, ptr %50, align 8, !noalias !267
   %51 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -1714,6 +1726,7 @@ define hidden void @_ZN3std9panicking3try7do_call17h4e051fe5b6328b64E.llvm.15938
   store ptr @"_ZN6anyhow5error62_$LT$impl$u20$core..fmt..Display$u20$for$u20$anyhow..Error$GT$3fmt17hf9bf7a60bb59de20E", ptr %34, align 8, !noalias !256
   store ptr @anon.0f4c0c09fe5df6088e9fdb7cb0c7e3e9.58, ptr %9, align 8, !alias.scope !270, !noalias !273
   store i64 2, ptr %35, align 8, !alias.scope !270, !noalias !273
+  call void @llvm.assume(i1 true) [ "align"(ptr null, i64 8) ]
   store ptr null, ptr %36, align 8, !alias.scope !270, !noalias !273
   store ptr %8, ptr %37, align 8, !alias.scope !270, !noalias !273
   store i64 1, ptr %38, align 8, !alias.scope !270, !noalias !273
@@ -1775,6 +1788,7 @@ define hidden void @_ZN3std9panicking3try7do_call17h4e051fe5b6328b64E.llvm.15938
   store ptr @anon.2d959d102d7682cc7cbcc0dd1a59e417.12.llvm.7682092217504716512, ptr %3, align 8, !noalias !281
   %77 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 1, ptr %77, align 8, !noalias !281
+  call void @llvm.assume(i1 true) [ "align"(ptr null, i64 8) ]
   %78 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store ptr null, ptr %78, align 8, !noalias !281
   %79 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -1864,6 +1878,7 @@ common.resume.i.i.i.i:                            ; preds = %96, %91, %18
   store ptr @anon.0f4c0c09fe5df6088e9fdb7cb0c7e3e9.54, ptr %6, align 8, !alias.scope !301, !noalias !304
   %105 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i64 1, ptr %105, align 8, !alias.scope !301, !noalias !304
+  call void @llvm.assume(i1 true) [ "align"(ptr null, i64 8) ]
   %106 = getelementptr inbounds nuw i8, ptr %6, i64 32
   store ptr null, ptr %106, align 8, !alias.scope !301, !noalias !304
   %107 = getelementptr inbounds nuw i8, ptr %6, i64 16
@@ -2042,6 +2057,7 @@ define hidden void @_ZN3std9panicking3try7do_call17h95e4f92c5cb389dfE.llvm.15938
   store ptr @anon.2d959d102d7682cc7cbcc0dd1a59e417.12.llvm.7682092217504716512, ptr %4, align 8, !noalias !342
   %49 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 1, ptr %49, align 8, !noalias !342
+  call void @llvm.assume(i1 true) [ "align"(ptr null, i64 8) ]
   %50 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store ptr null, ptr %50, align 8, !noalias !342
   %51 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -2110,6 +2126,7 @@ define hidden void @_ZN3std9panicking3try7do_call17h95e4f92c5cb389dfE.llvm.15938
   store ptr @"_ZN6anyhow5error62_$LT$impl$u20$core..fmt..Display$u20$for$u20$anyhow..Error$GT$3fmt17hf9bf7a60bb59de20E", ptr %34, align 8, !noalias !332
   store ptr @anon.0f4c0c09fe5df6088e9fdb7cb0c7e3e9.52, ptr %9, align 8, !alias.scope !345, !noalias !348
   store i64 2, ptr %35, align 8, !alias.scope !345, !noalias !348
+  call void @llvm.assume(i1 true) [ "align"(ptr null, i64 8) ]
   store ptr null, ptr %36, align 8, !alias.scope !345, !noalias !348
   store ptr %8, ptr %37, align 8, !alias.scope !345, !noalias !348
   store i64 1, ptr %38, align 8, !alias.scope !345, !noalias !348
@@ -2171,6 +2188,7 @@ define hidden void @_ZN3std9panicking3try7do_call17h95e4f92c5cb389dfE.llvm.15938
   store ptr @anon.2d959d102d7682cc7cbcc0dd1a59e417.12.llvm.7682092217504716512, ptr %3, align 8, !noalias !356
   %77 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 1, ptr %77, align 8, !noalias !356
+  call void @llvm.assume(i1 true) [ "align"(ptr null, i64 8) ]
   %78 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store ptr null, ptr %78, align 8, !noalias !356
   %79 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -2260,6 +2278,7 @@ common.resume.i.i.i.i:                            ; preds = %96, %91, %18
   store ptr @anon.0f4c0c09fe5df6088e9fdb7cb0c7e3e9.54, ptr %6, align 8, !alias.scope !376, !noalias !379
   %105 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i64 1, ptr %105, align 8, !alias.scope !376, !noalias !379
+  call void @llvm.assume(i1 true) [ "align"(ptr null, i64 8) ]
   %106 = getelementptr inbounds nuw i8, ptr %6, i64 32
   store ptr null, ptr %106, align 8, !alias.scope !376, !noalias !379
   %107 = getelementptr inbounds nuw i8, ptr %6, i64 16
@@ -2287,7 +2306,7 @@ common.resume.i.i.i.i:                            ; preds = %96, %91, %18
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 define hidden void @_ZN3std9panicking3try7do_call17hcd08b37572b838b4E.llvm.15938600225882126526(ptr nocapture noundef readonly %0) unnamed_addr #0 {
-  %.sroa.0.0.copyload = load ptr, ptr %0, align 8, !nonnull !21, !noundef !21
+  %.sroa.0.0.copyload = load ptr, ptr %0, align 8, !nonnull !21, !align !145, !noundef !21
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.sroa.2.0.copyload = load ptr, ptr %.sroa.2.0..sroa_idx, align 8
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -2382,6 +2401,7 @@ define hidden void @_ZN3std9panicking3try8do_catch17h62f2722377e1d7bdE.llvm.1593
   %8 = extractvalue { ptr, ptr } %3, 1
   %9 = icmp ne ptr %7, null
   tail call void @llvm.assume(i1 %9)
+  call void @llvm.assume(i1 true) [ "align"(ptr %8, i64 8) ]
   %10 = icmp ne ptr %8, null
   tail call void @llvm.assume(i1 %10)
   store ptr %7, ptr %0, align 8
@@ -2406,6 +2426,7 @@ define hidden void @_ZN3std9panicking3try8do_catch17h64fea79d41c49505E.llvm.1593
   %8 = extractvalue { ptr, ptr } %3, 1
   %9 = icmp ne ptr %7, null
   tail call void @llvm.assume(i1 %9)
+  call void @llvm.assume(i1 true) [ "align"(ptr %8, i64 8) ]
   %10 = icmp ne ptr %8, null
   tail call void @llvm.assume(i1 %10)
   store ptr %7, ptr %0, align 8
@@ -2430,6 +2451,7 @@ define hidden void @_ZN3std9panicking3try8do_catch17h6dc27ea5a99a12ffE.llvm.1593
   %8 = extractvalue { ptr, ptr } %3, 1
   %9 = icmp ne ptr %7, null
   tail call void @llvm.assume(i1 %9)
+  call void @llvm.assume(i1 true) [ "align"(ptr %8, i64 8) ]
   %10 = icmp ne ptr %8, null
   tail call void @llvm.assume(i1 %10)
   store ptr %7, ptr %0, align 8
@@ -2454,6 +2476,7 @@ define hidden void @_ZN3std9panicking3try8do_catch17h72a687ada05f02ebE.llvm.1593
   %8 = extractvalue { ptr, ptr } %3, 1
   %9 = icmp ne ptr %7, null
   tail call void @llvm.assume(i1 %9)
+  call void @llvm.assume(i1 true) [ "align"(ptr %8, i64 8) ]
   %10 = icmp ne ptr %8, null
   tail call void @llvm.assume(i1 %10)
   store ptr %7, ptr %0, align 8
@@ -2478,6 +2501,7 @@ define hidden void @_ZN3std9panicking3try8do_catch17h952d18ce3c891fb0E.llvm.1593
   %8 = extractvalue { ptr, ptr } %3, 1
   %9 = icmp ne ptr %7, null
   tail call void @llvm.assume(i1 %9)
+  call void @llvm.assume(i1 true) [ "align"(ptr %8, i64 8) ]
   %10 = icmp ne ptr %8, null
   tail call void @llvm.assume(i1 %10)
   store ptr %7, ptr %0, align 8
@@ -2502,6 +2526,7 @@ define hidden void @_ZN3std9panicking3try8do_catch17hd3abae0adfa24969E.llvm.1593
   %8 = extractvalue { ptr, ptr } %3, 1
   %9 = icmp ne ptr %7, null
   tail call void @llvm.assume(i1 %9)
+  call void @llvm.assume(i1 true) [ "align"(ptr %8, i64 8) ]
   %10 = icmp ne ptr %8, null
   tail call void @llvm.assume(i1 %10)
   store ptr %7, ptr %0, align 8
@@ -2526,6 +2551,7 @@ define hidden void @_ZN3std9panicking3try8do_catch17hdd08640b2721034aE.llvm.1593
   %8 = extractvalue { ptr, ptr } %3, 1
   %9 = icmp ne ptr %7, null
   tail call void @llvm.assume(i1 %9)
+  call void @llvm.assume(i1 true) [ "align"(ptr %8, i64 8) ]
   %10 = icmp ne ptr %8, null
   tail call void @llvm.assume(i1 %10)
   store ptr %7, ptr %0, align 8
@@ -2550,6 +2576,7 @@ define hidden void @_ZN3std9panicking3try8do_catch17he60d9bdc3083cf68E.llvm.1593
   %8 = extractvalue { ptr, ptr } %3, 1
   %9 = icmp ne ptr %7, null
   tail call void @llvm.assume(i1 %9)
+  call void @llvm.assume(i1 true) [ "align"(ptr %8, i64 8) ]
   %10 = icmp ne ptr %8, null
   tail call void @llvm.assume(i1 %10)
   store ptr %7, ptr %0, align 8
@@ -2574,6 +2601,7 @@ define hidden void @_ZN3std9panicking3try8do_catch17hea1cd7674423a189E.llvm.1593
   %8 = extractvalue { ptr, ptr } %3, 1
   %9 = icmp ne ptr %7, null
   tail call void @llvm.assume(i1 %9)
+  call void @llvm.assume(i1 true) [ "align"(ptr %8, i64 8) ]
   %10 = icmp ne ptr %8, null
   tail call void @llvm.assume(i1 %10)
   store ptr %7, ptr %0, align 8
@@ -2598,6 +2626,7 @@ define hidden void @_ZN3std9panicking3try8do_catch17hf819a6fedc6918a1E.llvm.1593
   %8 = extractvalue { ptr, ptr } %3, 1
   %9 = icmp ne ptr %7, null
   tail call void @llvm.assume(i1 %9)
+  call void @llvm.assume(i1 true) [ "align"(ptr %8, i64 8) ]
   %10 = icmp ne ptr %8, null
   tail call void @llvm.assume(i1 %10)
   store ptr %7, ptr %0, align 8
@@ -3459,6 +3488,7 @@ define hidden { i64, i32 } @_ZN4core4time8Duration3new17h5398fd37892c86d8E.llvm.
   store ptr @anon.0f4c0c09fe5df6088e9fdb7cb0c7e3e9.30, ptr %3, align 8
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 1, ptr %10, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr null, i64 8) ]
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store ptr null, ptr %11, align 8
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -3640,7 +3670,7 @@ define hidden void @"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(read, inaccessiblemem: write) uwtable
 define hidden { ptr, ptr } @"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$15first_key_value17h2602c52c605d8b47E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0) unnamed_addr #17 {
   %2 = load ptr, ptr %0, align 8, !noundef !21
   %3 = icmp eq ptr %2, null
@@ -3671,6 +3701,8 @@ define hidden { ptr, ptr } @"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V
 12:                                               ; preds = %"_ZN5alloc11collections5btree8navigate142_$LT$impl$u20$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$alloc..collections..btree..node..marker..LeafOrInternal$GT$$GT$15first_leaf_edge17h6b13411adc4d80c2E.exit"
   %13 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i, i64 8
   %14 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i, i64 96
+  call void @llvm.assume(i1 true) [ "align"(ptr %13, i64 8) ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %14, i64 8) ]
   br label %15
 
 15:                                               ; preds = %12, %"_ZN5alloc11collections5btree8navigate142_$LT$impl$u20$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$alloc..collections..btree..node..marker..LeafOrInternal$GT$$GT$15first_leaf_edge17h6b13411adc4d80c2E.exit", %1
@@ -4049,33 +4081,38 @@ define hidden void @"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7), !noalias !658
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %11)
-  %35 = getelementptr inbounds { [8 x i64] }, ptr %.sroa.516.0.ph.i, i64 %.sroa.10.0.ph.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %11, ptr noundef nonnull align 8 dereferenceable(64) %35, i64 64, i1 false), !noalias !671
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %35, ptr noundef nonnull align 8 dereferenceable(64) %3, i64 64, i1 false)
+  %35 = getelementptr inbounds nuw i8, ptr %.sroa.516.0.ph.i, i64 712
+  %36 = getelementptr inbounds i64, ptr %35, i64 %.sroa.10.0.ph.i
+  %37 = getelementptr inbounds { [8 x i64] }, ptr %.sroa.516.0.ph.i, i64 %.sroa.10.0.ph.i
+  call void @llvm.assume(i1 true) [ "align"(ptr %36, i64 8) ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %37, i64 8) ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %37, i64 8) ]
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %11, ptr noundef nonnull align 8 dereferenceable(64) %37, i64 64, i1 false), !noalias !671
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %37, ptr noundef nonnull align 8 dereferenceable(64) %3, i64 64, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(64) %11, i64 64, i1 false)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %11)
   br label %34
 
-36:                                               ; preds = %37
+38:                                               ; preds = %39
   resume { ptr, i32 } %lpad.phi
 
 .loopexit:                                        ; preds = %22, %20
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
-  br label %37
+  br label %39
 
 .loopexit.split-lp:                               ; preds = %14
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
-  br label %37
+  br label %39
 
-37:                                               ; preds = %.loopexit.split-lp, %.loopexit
+39:                                               ; preds = %.loopexit.split-lp, %.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr58drop_in_place$LT$mini_lsm_mvcc..mvcc..CommittedTxnData$GT$17hfd1c1122fb69a84dE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %3) #39
-          to label %36 unwind label %38
+          to label %38 unwind label %40
 
-38:                                               ; preds = %37
-  %39 = landingpad { ptr, i32 }
+40:                                               ; preds = %39
+  %41 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #38
   unreachable
@@ -4178,6 +4215,7 @@ define hidden noundef align 8 dereferenceable_or_null(8) ptr @"_ZN5alloc11collec
 
 25:                                               ; preds = %.loopexit, %"_ZN5alloc11collections5btree6search142_$LT$impl$u20$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$alloc..collections..btree..node..marker..LeafOrInternal$GT$$GT$11search_tree17h5725e41fe6627412E.exit", %2
   %.0 = phi ptr [ null, %2 ], [ %24, %.loopexit ], [ null, %"_ZN5alloc11collections5btree6search142_$LT$impl$u20$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$alloc..collections..btree..node..marker..LeafOrInternal$GT$$GT$11search_tree17h5725e41fe6627412E.exit" ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %.0, i64 8) ]
   ret ptr %.0
 }
 
@@ -7422,6 +7460,7 @@ define hidden { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$6shrink17h00b
   store ptr @anon.0f4c0c09fe5df6088e9fdb7cb0c7e3e9.40, ptr %3, align 8
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 1, ptr %6, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr null, i64 8) ]
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store ptr null, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -7484,6 +7523,7 @@ define hidden { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$6shrink17h2c5
   store ptr @anon.0f4c0c09fe5df6088e9fdb7cb0c7e3e9.40, ptr %3, align 8
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 1, ptr %6, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr null, i64 8) ]
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store ptr null, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -7546,6 +7586,7 @@ define hidden { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$6shrink17hfce
   store ptr @anon.0f4c0c09fe5df6088e9fdb7cb0c7e3e9.40, ptr %3, align 8
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 1, ptr %6, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr null, i64 8) ]
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store ptr null, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -8222,6 +8263,7 @@ define hidden noundef zeroext i1 @"_ZN69_$LT$anyhow..context..Quoted$LT$C$GT$$u2
   store ptr @anon.0f4c0c09fe5df6088e9fdb7cb0c7e3e9.43, ptr %4, align 8, !alias.scope !1020, !noalias !1023
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 1, ptr %9, align 8, !alias.scope !1020, !noalias !1023
+  call void @llvm.assume(i1 true) [ "align"(ptr null, i64 8) ]
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store ptr null, ptr %10, align 8, !alias.scope !1020, !noalias !1023
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -8318,6 +8360,7 @@ define internal { ptr, ptr } @"_ZN91_$LT$std..panicking..begin_panic..Payload$LT
   %2 = load ptr, ptr %0, align 8, !align !144, !noundef !21
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr null, i64 1) ]
   store ptr null, ptr %0, align 8
   %5 = icmp eq ptr %2, null
   br i1 %5, label %6, label %7
@@ -9152,7 +9195,7 @@ attributes #13 = { mustprogress nofree nounwind nonlazybind willreturn memory(re
 attributes #14 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #15 = { inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #16 = { nofree norecurse nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
-attributes #17 = { nofree norecurse nosync nounwind nonlazybind memory(read, inaccessiblemem: none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
+attributes #17 = { nofree norecurse nosync nounwind nonlazybind memory(read, inaccessiblemem: write) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #18 = { inlinehint nounwind nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #19 = { alwaysinline nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #20 = { cold nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }

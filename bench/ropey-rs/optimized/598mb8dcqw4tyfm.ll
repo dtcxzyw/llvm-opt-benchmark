@@ -231,6 +231,8 @@ define internal fastcc noundef nonnull align 8 dereferenceable(1008) ptr @"_ZN5a
   br i1 %45, label %"_ZN4core3ptr69drop_in_place$LT$alloc..sync..Weak$LT$ropey..tree..node..Node$GT$$GT$17hc24acb1e8161cd3fE.exit", label %46
 
 46:                                               ; preds = %43
+  call void @llvm.assume(i1 true) [ "align"(ptr %12, i64 8) ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %11, i64 8) ]
   %47 = atomicrmw sub ptr %12, i64 1 release, align 8, !noalias !58
   %48 = icmp eq i64 %47, 1
   br i1 %48, label %49, label %"_ZN4core3ptr69drop_in_place$LT$alloc..sync..Weak$LT$ropey..tree..node..Node$GT$$GT$17hc24acb1e8161cd3fE.exit"
@@ -277,6 +279,8 @@ define internal fastcc noundef nonnull align 8 dereferenceable(1008) ptr @"_ZN5a
   br i1 %63, label %"_ZN4core3ptr69drop_in_place$LT$alloc..sync..Weak$LT$ropey..tree..node..Node$GT$$GT$17hc24acb1e8161cd3fE.exit19", label %64
 
 64:                                               ; preds = %58
+  call void @llvm.assume(i1 true) [ "align"(ptr %12, i64 8) ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %11, i64 8) ]
   %65 = atomicrmw sub ptr %12, i64 1 release, align 8, !noalias !63
   %66 = icmp eq i64 %65, 1
   br i1 %66, label %67, label %"_ZN4core3ptr69drop_in_place$LT$alloc..sync..Weak$LT$ropey..tree..node..Node$GT$$GT$17hc24acb1e8161cd3fE.exit19"
@@ -767,10 +771,12 @@ define void @_ZN5ropey4rope4Rope13shrink_to_fit17ha3ca49b8d1746939E(ptr noalias 
   %74 = load ptr, ptr %14, align 8, !nonnull !5, !noundef !5
   %75 = add i64 %73, -1
   %76 = getelementptr inbounds [0 x ptr], ptr %74, i64 0, i64 %75
+  call void @llvm.assume(i1 true) [ "align"(ptr %76, i64 8) ]
   %77 = load ptr, ptr %76, align 8, !nonnull !5, !noundef !5
   %78 = getelementptr inbounds nuw i8, ptr %77, i64 16
   %79 = load i8, ptr %78, align 8, !range !4, !alias.scope !158, !noundef !5
   %trunc.i = trunc nuw i8 %79 to i1
+  call void @llvm.assume(i1 true) [ "align"(ptr %76, i64 8) ]
   br i1 %trunc.i, label %80, label %116
 
 80:                                               ; preds = %72
@@ -801,6 +807,7 @@ define void @_ZN5ropey4rope4Rope13shrink_to_fit17ha3ca49b8d1746939E(ptr noalias 
 
 90:                                               ; preds = %80
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %9)
+  call void @llvm.assume(i1 true) [ "align"(ptr %76, i64 8) ]
   %91 = invoke fastcc noundef align 8 dereferenceable(1008) ptr @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$8make_mut17h4b2c8c9d5667e931E"(ptr noalias noundef align 8 dereferenceable(8) %76)
           to label %92 unwind label %.thread69.loopexit
 
@@ -2204,8 +2211,10 @@ _ZN5ropey4rope4Rope13chunk_at_char17h6e1e5bf745b5c6dfE.exit.i.i: ; preds = %.noe
   %.sroa.014.1.i162.i.i = phi i64 [ %275, %.lr.ph164.i.i ], [ %.sroa.014.0.i.lcssa.i.i, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hcfa64467e91e4558E.exit.i.i.i" ]
   %.sroa.512.0161.i.i = phi i64 [ %253, %.lr.ph164.i.i ], [ %214, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hcfa64467e91e4558E.exit.i.i.i" ]
   %.sroa.011.0160.i.i = phi ptr [ %252, %.lr.ph164.i.i ], [ %205, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hcfa64467e91e4558E.exit.i.i.i" ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.011.0160.i.i, i64 16) ]
   %252 = getelementptr inbounds nuw i8, ptr %.sroa.011.0160.i.i, i64 64
   %253 = add i64 %.sroa.512.0161.i.i, -4
+  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.011.0160.i.i, i64 16) ]
   %254 = load <16 x i8>, ptr %.sroa.011.0160.i.i, align 16
   %255 = icmp slt <16 x i8> %254, splat (i8 -64)
   %256 = zext <16 x i1> %255 to <16 x i8>
@@ -4256,6 +4265,7 @@ define noundef nonnull ptr @"_ZN88_$LT$ropey..rope..Rope$u20$as$u20$core..conver
   br i1 %16, label %46, label %17
 
 17:                                               ; preds = %1
+  call void @llvm.assume(i1 true) [ "align"(ptr %15, i64 8) ]
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %19 = load i64, ptr %18, align 8, !noundef !5
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 48

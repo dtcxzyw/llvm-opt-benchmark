@@ -62107,7 +62107,7 @@ _ZN7glslang10TQualifier17getGeometryStringENS_15TLayoutGeometryE.exit241: ; pred
   br i1 %141, label %switch.lookup358, label %_ZN7glslang10TQualifier17getGeometryStringENS_15TLayoutGeometryE.exit243
 
 switch.lookup358:                                 ; preds = %140
-  %switch.tableidx359 = add i32 %81, -1
+  %switch.tableidx359 = add nsw i32 %81, -1
   %142 = sext i32 %switch.tableidx359 to i64
   %switch.gep360 = getelementptr inbounds [9 x ptr], ptr @switch.table._ZN7glslang13TParseContext33updateStandaloneQualifierDefaultsERKNS_10TSourceLocERKNS_11TPublicTypeE.75, i64 0, i64 %142
   %switch.load361 = load ptr, ptr %switch.gep360, align 8
@@ -62166,7 +62166,7 @@ _ZN7glslang13TIntermediate16setVertexSpacingENS_14TVertexSpacingE.exit: ; preds 
   br i1 %163, label %switch.lookup365, label %_ZN7glslang10TQualifier22getVertexSpacingStringENS_14TVertexSpacingE.exit
 
 switch.lookup365:                                 ; preds = %162
-  %switch.tableidx366 = add i32 %150, -1
+  %switch.tableidx366 = add nsw i32 %150, -1
   %164 = sext i32 %switch.tableidx366 to i64
   %switch.gep367 = getelementptr inbounds [3 x ptr], ptr @switch.table._ZN7glslang13TParseContext33updateStandaloneQualifierDefaultsERKNS_10TSourceLocERKNS_11TPublicTypeE.78, i64 0, i64 %164
   %switch.load368 = load ptr, ptr %switch.gep367, align 8
@@ -62185,7 +62185,7 @@ _ZN7glslang10TQualifier22getVertexSpacingStringENS_14TVertexSpacingE.exit: ; pre
   br i1 %169, label %switch.lookup369, label %_ZN7glslang10TQualifier22getVertexSpacingStringENS_14TVertexSpacingE.exit249
 
 switch.lookup369:                                 ; preds = %168
-  %switch.tableidx370 = add i32 %150, -1
+  %switch.tableidx370 = add nsw i32 %150, -1
   %170 = sext i32 %switch.tableidx370 to i64
   %switch.gep371 = getelementptr inbounds [3 x ptr], ptr @switch.table._ZN7glslang13TParseContext33updateStandaloneQualifierDefaultsERKNS_10TSourceLocERKNS_11TPublicTypeE.78, i64 0, i64 %170
   %switch.load372 = load ptr, ptr %switch.gep371, align 8
@@ -62998,7 +62998,7 @@ _ZN7glslang13TIntermediate20setInterlockOrderingENS_18TInterlockOrderingE.exit: 
   br i1 %571, label %switch.lookup373, label %_ZN7glslang10TQualifier26getInterlockOrderingStringENS_18TInterlockOrderingE.exit
 
 switch.lookup373:                                 ; preds = %570
-  %switch.tableidx374 = add i32 %560, -1
+  %switch.tableidx374 = add nsw i32 %560, -1
   %572 = sext i32 %switch.tableidx374 to i64
   %switch.gep375 = getelementptr inbounds [6 x ptr], ptr @switch.table._ZN7glslang13TParseContext33updateStandaloneQualifierDefaultsERKNS_10TSourceLocERKNS_11TPublicTypeE.80, i64 0, i64 %572
   %switch.load376 = load ptr, ptr %switch.gep375, align 8
@@ -63017,7 +63017,7 @@ _ZN7glslang10TQualifier26getInterlockOrderingStringENS_18TInterlockOrderingE.exi
   br i1 %577, label %switch.lookup377, label %_ZN7glslang10TQualifier26getInterlockOrderingStringENS_18TInterlockOrderingE.exit274
 
 switch.lookup377:                                 ; preds = %576
-  %switch.tableidx378 = add i32 %560, -1
+  %switch.tableidx378 = add nsw i32 %560, -1
   %578 = sext i32 %switch.tableidx378 to i64
   %switch.gep379 = getelementptr inbounds [6 x ptr], ptr @switch.table._ZN7glslang13TParseContext33updateStandaloneQualifierDefaultsERKNS_10TSourceLocERKNS_11TPublicTypeE.80, i64 0, i64 %578
   %switch.load380 = load ptr, ptr %switch.gep379, align 8

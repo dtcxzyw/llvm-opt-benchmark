@@ -9133,7 +9133,6 @@ define linkonce_odr hidden { ptr, i8 } @_ZNSt3__16__treeINS_12__value_typeINS_12
   call void @llvm.experimental.noalias.scope.decl(metadata !78)
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %13 = call noalias noundef nonnull align 32 dereferenceable(384) ptr @_ZnwmSt11align_val_t(i64 noundef 384, i64 noundef 32) #29, !noalias !78
-  call void @llvm.assume(i1 true) [ "align"(ptr %13, i64 32) ]
   store ptr %13, ptr %7, align 8, !alias.scope !78
   %14 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %12, ptr %14, align 8, !alias.scope !78
@@ -10532,7 +10531,6 @@ define linkonce_odr hidden ptr @_ZNSt3__16__treeINS_12__value_typeINS_12basic_st
   tail call void @llvm.experimental.noalias.scope.decl(metadata !92)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = tail call noalias noundef nonnull align 32 dereferenceable(384) ptr @_ZnwmSt11align_val_t(i64 noundef 384, i64 noundef 32) #29, !noalias !92
-  call void @llvm.assume(i1 true) [ "align"(ptr %5, i64 32) ]
   store ptr %5, ptr %3, align 8, !alias.scope !92
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %4, ptr %6, align 8, !alias.scope !92
@@ -12258,7 +12256,6 @@ _ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9al
   %.sink.i14 = phi ptr [ %.024.i, %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE12__find_equalIS7_EERPNS_16__tree_node_baseIPvEERPNS_15__tree_end_nodeISK_EERKT_.exit ], [ %7, %5 ], [ %.024.i, %13 ], [ %.024.i, %17 ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !102)
   %21 = tail call noalias noundef nonnull align 32 dereferenceable(384) ptr @_ZnwmSt11align_val_t(i64 noundef 384, i64 noundef 32) #29, !noalias !102
-  call void @llvm.assume(i1 true) [ "align"(ptr %21, i64 32) ]
   store ptr %21, ptr %6, align 8, !alias.scope !102
   %22 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %7, ptr %22, align 8, !alias.scope !102

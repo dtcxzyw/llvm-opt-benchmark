@@ -3,7 +3,7 @@ source_filename = "bench/rand-rs/original/34yh0c028yq5fj4d.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-; Function Attrs: nofree nounwind nonlazybind memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: nofree nounwind nonlazybind memory(read, inaccessiblemem: write) uwtable
 define noundef zeroext i1 @"_ZN67_$LT$rand..seq..index..IndexVec$u20$as$u20$core..cmp..PartialEq$GT$2eq17h2445b6c46356fdc0E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = load i64, ptr %0, align 8, !range !4, !noundef !5
   %trunc = trunc nuw i64 %3 to i1
@@ -59,6 +59,10 @@ define noundef zeroext i1 @"_ZN67_$LT$rand..seq..index..IndexVec$u20$as$u20$core
   %23 = add i64 %21, 1
   %24 = getelementptr inbounds i32, ptr %17, i64 %21
   %25 = getelementptr inbounds i64, ptr %19, i64 %21
+  call void @llvm.assume(i1 true) [ "align"(ptr %24, i64 4) ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %25, i64 8) ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %24, i64 4) ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %25, i64 8) ]
   %.fca.0.extract.val.i = load i32, ptr %24, align 4, !noalias !6, !noundef !5
   %.fca.1.extract.val.i = load i64, ptr %25, align 8, !noalias !6, !noundef !5
   %26 = zext i32 %.fca.0.extract.val.i to i64
@@ -87,6 +91,10 @@ define noundef zeroext i1 @"_ZN67_$LT$rand..seq..index..IndexVec$u20$as$u20$core
   %37 = add i64 %35, 1
   %38 = getelementptr inbounds i64, ptr %31, i64 %35
   %39 = getelementptr inbounds i32, ptr %33, i64 %35
+  call void @llvm.assume(i1 true) [ "align"(ptr %38, i64 8) ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %39, i64 4) ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %38, i64 8) ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %39, i64 4) ]
   %.fca.0.extract.val.i53 = load i64, ptr %38, align 8, !noalias !9, !noundef !5
   %.fca.1.extract.val.i54 = load i32, ptr %39, align 4, !noalias !9, !noundef !5
   %40 = zext i32 %.fca.1.extract.val.i54 to i64
@@ -97,12 +105,16 @@ define noundef zeroext i1 @"_ZN67_$LT$rand..seq..index..IndexVec$u20$as$u20$core
 ; Function Attrs: nonlazybind uwtable
 declare noundef i32 @rust_eh_personality(i32 noundef, i32 noundef, i64 noundef, ptr noundef, ptr noundef) unnamed_addr #1
 
-; Function Attrs: nofree nounwind nonlazybind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #2
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
+declare void @llvm.assume(i1 noundef) #2
 
-attributes #0 = { nofree nounwind nonlazybind memory(read, inaccessiblemem: none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
+; Function Attrs: nofree nounwind nonlazybind willreturn memory(argmem: read)
+declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #3
+
+attributes #0 = { nofree nounwind nonlazybind memory(read, inaccessiblemem: write) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #1 = { nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
-attributes #2 = { nofree nounwind nonlazybind willreturn memory(argmem: read) }
+attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #3 = { nofree nounwind nonlazybind willreturn memory(argmem: read) }
 
 !llvm.module.flags = !{!0, !1, !2}
 !llvm.ident = !{!3}

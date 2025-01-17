@@ -215,6 +215,7 @@ define noundef zeroext i1 @_ZN5hyper5error5Error10is_timeout17h1bdf15bba89e103aE
 .lr.ph.i:                                         ; preds = %11, %.lr.ph.preheader.i
   %.sroa.0.014.i = phi ptr [ %.sroa.0.0.i, %11 ], [ %3, %.lr.ph.preheader.i ]
   %.sroa.4.013.i = phi ptr [ %.sroa.4.0.i, %11 ], [ %6, %.lr.ph.preheader.i ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.4.013.i, i64 8) ]
   %7 = icmp ne ptr %.sroa.4.013.i, null
   tail call void @llvm.assume(i1 %7)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !16)
@@ -244,6 +245,7 @@ define hidden noalias noundef nonnull align 8 ptr @_ZN5hyper5error5Error3new17h1
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2)
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i8 %0, ptr %3, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr null, i64 1) ]
   store ptr null, ptr %2, align 8
   %4 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !19
   %5 = tail call noundef align 8 dereferenceable_or_null(24) ptr @__rust_alloc(i64 noundef 24, i64 noundef range(i64 1, -9223372036854775807) 8) #14, !noalias !19
@@ -284,6 +286,7 @@ define hidden noalias noundef nonnull align 8 ptr @_ZN5hyper5error5Error12new_ca
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %1)
   %2 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store i8 4, ptr %2, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr null, i64 1) ]
   store ptr null, ptr %1, align 8
   %3 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !22
   %4 = tail call noundef align 8 dereferenceable_or_null(24) ptr @__rust_alloc(i64 noundef 24, i64 noundef range(i64 1, -9223372036854775807) 8) #14, !noalias !22
@@ -324,6 +327,7 @@ define hidden noalias noundef nonnull align 8 ptr @_ZN5hyper5error5Error8new_use
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %1)
   %2 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store i8 3, ptr %2, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr null, i64 1) ]
   store ptr null, ptr %1, align 8
   %3 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !25
   %4 = tail call noundef align 8 dereferenceable_or_null(24) ptr @__rust_alloc(i64 noundef 24, i64 noundef range(i64 1, -9223372036854775807) 8) #14, !noalias !25
@@ -364,6 +368,7 @@ define hidden noalias noundef nonnull align 8 ptr @_ZN5hyper5error5Error19new_us
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %1)
   %2 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store i8 3, ptr %2, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr null, i64 1) ]
   store ptr null, ptr %1, align 8
   %3 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !28
   %4 = tail call noundef align 8 dereferenceable_or_null(24) ptr @__rust_alloc(i64 noundef 24, i64 noundef range(i64 1, -9223372036854775807) 8) #14, !noalias !28
@@ -483,6 +488,7 @@ define noalias noundef nonnull align 8 ptr @"_ZN86_$LT$hyper..error..Error$u20$a
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2)
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i8 %0, ptr %3, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr null, i64 1) ]
   store ptr null, ptr %2, align 8
   %4 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !31
   %5 = tail call noundef align 8 dereferenceable_or_null(24) ptr @__rust_alloc(i64 noundef 24, i64 noundef range(i64 1, -9223372036854775807) 8) #14, !noalias !31

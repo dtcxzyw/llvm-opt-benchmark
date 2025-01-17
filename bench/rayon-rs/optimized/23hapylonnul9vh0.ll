@@ -157,8 +157,8 @@ default.unreachable:                              ; preds = %5
   tail call void @llvm.assume(i1 %29)
   br label %"_ZN3std3sys6common12thread_local10fast_local12Key$LT$T$GT$14try_initialize17hd3a58f82a53581a5E.llvm.17432428852515034553.exit"
 
-"_ZN3std3sys6common12thread_local10fast_local12Key$LT$T$GT$14try_initialize17hd3a58f82a53581a5E.llvm.17432428852515034553.exit": ; preds = %"_ZN3std3sys6common12thread_local4lazy21LazyKeyInner$LT$T$GT$10initialize17h3aa63294d30c5feaE.exit.i", %5, %2
-  %.0 = phi ptr [ %4, %2 ], [ %4, %"_ZN3std3sys6common12thread_local4lazy21LazyKeyInner$LT$T$GT$10initialize17h3aa63294d30c5feaE.exit.i" ], [ null, %5 ]
+"_ZN3std3sys6common12thread_local10fast_local12Key$LT$T$GT$14try_initialize17hd3a58f82a53581a5E.llvm.17432428852515034553.exit": ; preds = %2, %"_ZN3std3sys6common12thread_local4lazy21LazyKeyInner$LT$T$GT$10initialize17h3aa63294d30c5feaE.exit.i", %5
+  %.0 = phi ptr [ %4, %"_ZN3std3sys6common12thread_local4lazy21LazyKeyInner$LT$T$GT$10initialize17h3aa63294d30c5feaE.exit.i" ], [ null, %5 ], [ %4, %2 ]
   ret ptr %.0
 }
 
@@ -216,12 +216,14 @@ define internal void @_ZN3std3sys6common12thread_local10fast_local13destroy_valu
   %27 = extractvalue { ptr, ptr } %21, 1
   %28 = icmp ne ptr %26, null
   tail call void @llvm.assume(i1 %28)
+  call void @llvm.assume(i1 true) [ "align"(ptr %27, i64 8) ]
   %29 = icmp ne ptr %27, null
   tail call void @llvm.assume(i1 %29)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3)
   store ptr @anon.1e5193481e0f4def8d52ada7935c5b41.1, ptr %3, align 8, !alias.scope !31, !noalias !34
   %30 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 1, ptr %30, align 8, !alias.scope !31, !noalias !34
+  call void @llvm.assume(i1 true) [ "align"(ptr null, i64 8) ]
   %31 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store ptr null, ptr %31, align 8, !alias.scope !31, !noalias !34
   %32 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -276,6 +278,7 @@ __rust_try.llvm.17432428852515034553.exit:        ; preds = %6
   %13 = extractvalue { ptr, ptr } %9, 1
   %14 = icmp ne ptr %12, null
   tail call void @llvm.assume(i1 %14)
+  call void @llvm.assume(i1 true) [ "align"(ptr %13, i64 8) ]
   %15 = icmp ne ptr %13, null
   tail call void @llvm.assume(i1 %15)
   br label %16
@@ -322,6 +325,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17h3b54ab928018d0ecE(ptr noalia
   %11 = extractvalue { ptr, ptr } %6, 1
   %12 = icmp ne ptr %10, null
   tail call void @llvm.assume(i1 %12)
+  call void @llvm.assume(i1 true) [ "align"(ptr %11, i64 8) ]
   %13 = icmp ne ptr %11, null
   tail call void @llvm.assume(i1 %13)
   br label %15
@@ -411,6 +415,7 @@ __rust_try.llvm.17432428852515034553.exit:        ; preds = %.body.i.i.i.i
   %33 = extractvalue { ptr, ptr } %29, 1
   %34 = icmp ne ptr %32, null
   tail call void @llvm.assume(i1 %34)
+  call void @llvm.assume(i1 true) [ "align"(ptr %33, i64 8) ]
   %35 = icmp ne ptr %33, null
   tail call void @llvm.assume(i1 %35)
   br label %37
@@ -456,6 +461,7 @@ __rust_try.llvm.17432428852515034553.exit:        ; preds = %6
   %13 = extractvalue { ptr, ptr } %9, 1
   %14 = icmp ne ptr %12, null
   tail call void @llvm.assume(i1 %14)
+  call void @llvm.assume(i1 true) [ "align"(ptr %13, i64 8) ]
   %15 = icmp ne ptr %13, null
   tail call void @llvm.assume(i1 %15)
   br label %16
@@ -589,6 +595,7 @@ define hidden void @_ZN3std9panicking3try8do_catch17h099fa0bb3c2e1354E.llvm.1743
   %8 = extractvalue { ptr, ptr } %3, 1
   %9 = icmp ne ptr %7, null
   tail call void @llvm.assume(i1 %9)
+  call void @llvm.assume(i1 true) [ "align"(ptr %8, i64 8) ]
   %10 = icmp ne ptr %8, null
   tail call void @llvm.assume(i1 %10)
   store ptr %7, ptr %0, align 8
@@ -613,6 +620,7 @@ define hidden void @_ZN3std9panicking3try8do_catch17h15cdaf555a9b52c4E.llvm.1743
   %8 = extractvalue { ptr, ptr } %3, 1
   %9 = icmp ne ptr %7, null
   tail call void @llvm.assume(i1 %9)
+  call void @llvm.assume(i1 true) [ "align"(ptr %8, i64 8) ]
   %10 = icmp ne ptr %8, null
   tail call void @llvm.assume(i1 %10)
   store ptr %7, ptr %0, align 8
@@ -637,6 +645,7 @@ define hidden void @_ZN3std9panicking3try8do_catch17h3f6d47912ed2f761E.llvm.1743
   %8 = extractvalue { ptr, ptr } %3, 1
   %9 = icmp ne ptr %7, null
   tail call void @llvm.assume(i1 %9)
+  call void @llvm.assume(i1 true) [ "align"(ptr %8, i64 8) ]
   %10 = icmp ne ptr %8, null
   tail call void @llvm.assume(i1 %10)
   store ptr %7, ptr %0, align 8
@@ -661,6 +670,7 @@ define hidden void @_ZN3std9panicking3try8do_catch17h6fa8c5c41703550dE.llvm.1743
   %8 = extractvalue { ptr, ptr } %3, 1
   %9 = icmp ne ptr %7, null
   tail call void @llvm.assume(i1 %9)
+  call void @llvm.assume(i1 true) [ "align"(ptr %8, i64 8) ]
   %10 = icmp ne ptr %8, null
   tail call void @llvm.assume(i1 %10)
   store ptr %7, ptr %0, align 8

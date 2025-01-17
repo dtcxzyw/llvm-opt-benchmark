@@ -69,6 +69,7 @@ default.unreachable:                              ; preds = %15
 
 24:                                               ; preds = %15
   %25 = getelementptr i8, ptr %.val, i64 -1
+  call void @llvm.assume(i1 true) [ "align"(ptr %25, i64 8) ]
   %26 = icmp ne ptr %25, null
   call void @llvm.assume(i1 %26)
   %27 = getelementptr i8, ptr %.val, i64 15

@@ -78,6 +78,7 @@ define noundef zeroext i1 @"_ZN60_$LT$mio..interest..Interest$u20$as$u20$core..f
   store ptr @anon.6b4dc23c7395d1f1cc15e09a0889240a.1, ptr %7, align 8
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i64 1, ptr %11, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr null, i64 8) ]
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 32
   store ptr null, ptr %12, align 8
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 16
@@ -109,6 +110,7 @@ define noundef zeroext i1 @"_ZN60_$LT$mio..interest..Interest$u20$as$u20$core..f
   store ptr @anon.6b4dc23c7395d1f1cc15e09a0889240a.6, ptr %5, align 8
   %23 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 1, ptr %23, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr null, i64 8) ]
   %24 = getelementptr inbounds nuw i8, ptr %5, i64 32
   store ptr null, ptr %24, align 8
   %25 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -124,6 +126,7 @@ define noundef zeroext i1 @"_ZN60_$LT$mio..interest..Interest$u20$as$u20$core..f
   store ptr @anon.6b4dc23c7395d1f1cc15e09a0889240a.4, ptr %6, align 8
   %29 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i64 1, ptr %29, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr null, i64 8) ]
   %30 = getelementptr inbounds nuw i8, ptr %6, i64 32
   store ptr null, ptr %30, align 8
   %31 = getelementptr inbounds nuw i8, ptr %6, i64 16
@@ -143,6 +146,7 @@ define noundef zeroext i1 @"_ZN60_$LT$mio..interest..Interest$u20$as$u20$core..f
   store ptr @anon.6b4dc23c7395d1f1cc15e09a0889240a.8, ptr %3, align 8
   %37 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 1, ptr %37, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr null, i64 8) ]
   %38 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store ptr null, ptr %38, align 8
   %39 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -158,6 +162,7 @@ define noundef zeroext i1 @"_ZN60_$LT$mio..interest..Interest$u20$as$u20$core..f
   store ptr @anon.6b4dc23c7395d1f1cc15e09a0889240a.4, ptr %4, align 8
   %43 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 1, ptr %43, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr null, i64 8) ]
   %44 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store ptr null, ptr %44, align 8
   %45 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -182,9 +187,13 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #2
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #2
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
+declare void @llvm.assume(i1 noundef) #3
+
 attributes #0 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #1 = { nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 
 !llvm.module.flags = !{!0, !1, !2}
 !llvm.ident = !{!3}

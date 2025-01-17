@@ -557,6 +557,7 @@ define hidden void @"_ZN4core3ptr101drop_in_place$LT$alloc..sync..Weak$LT$aws_lc
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %5, i64 8) ]
   %6 = atomicrmw sub ptr %5, i64 1 release, align 8, !noalias !121
   %7 = icmp eq i64 %6, 1
   br i1 %7, label %8, label %"_ZN72_$LT$alloc..sync..Weak$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17ha13bc2642934b4a2E.llvm.4248407042397360440.exit"
@@ -724,6 +725,7 @@ define hidden void @"_ZN4core3ptr103drop_in_place$LT$alloc..sync..Weak$LT$rustls
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %5, i64 8) ]
   %6 = atomicrmw sub ptr %5, i64 1 release, align 8, !noalias !163
   %7 = icmp eq i64 %6, 1
   br i1 %7, label %8, label %"_ZN72_$LT$alloc..sync..Weak$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17ha00a8b2f229d70dcE.llvm.4248407042397360440.exit"
@@ -760,6 +762,7 @@ define hidden void @"_ZN4core3ptr104drop_in_place$LT$alloc..sync..Weak$LT$dyn$u2
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %5, i64 8) ]
   %6 = atomicrmw sub ptr %5, i64 1 release, align 8, !noalias !166
   %7 = icmp eq i64 %6, 1
   br i1 %7, label %8, label %"_ZN72_$LT$alloc..sync..Weak$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h60871bb561285fcfE.llvm.4248407042397360440.exit"
@@ -1025,6 +1028,7 @@ define hidden void @"_ZN4core3ptr107drop_in_place$LT$alloc..sync..Weak$LT$aws_lc
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %5, i64 8) ]
   %6 = atomicrmw sub ptr %5, i64 1 release, align 8, !noalias !216
   %7 = icmp eq i64 %6, 1
   br i1 %7, label %8, label %"_ZN72_$LT$alloc..sync..Weak$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h689bbced8bcd0a0dE.llvm.4248407042397360440.exit"
@@ -1292,6 +1296,8 @@ define hidden void @"_ZN4core3ptr109drop_in_place$LT$alloc..collections..vec_deq
   %15 = sub i64 %7, %5
   %16 = getelementptr inbounds { i8, [31 x i8] }, ptr %13, i64 %9
   %17 = sub i64 %11, %9
+  call void @llvm.assume(i1 true) [ "align"(ptr %14, i64 8) ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %16, i64 8) ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !381)
   %18 = icmp eq i64 %7, %5
   br i1 %18, label %"_ZN4core3ptr72drop_in_place$LT$$u5b$rustls_pki_types..server_name..ServerName$u5d$$GT$17h3835980caf9bd2a0E.exit.i", label %.lr.ph.i.i
@@ -1412,6 +1418,7 @@ define hidden void @"_ZN4core3ptr109drop_in_place$LT$alloc..sync..Weak$LT$rustls
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %5, i64 8) ]
   %6 = atomicrmw sub ptr %5, i64 1 release, align 8, !noalias !446
   %7 = icmp eq i64 %6, 1
   br i1 %7, label %8, label %"_ZN72_$LT$alloc..sync..Weak$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hea03feb67b91ea50E.llvm.4248407042397360440.exit"
@@ -1434,6 +1441,7 @@ define hidden void @"_ZN4core3ptr110drop_in_place$LT$alloc..sync..Weak$LT$aws_lc
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %5, i64 8) ]
   %6 = atomicrmw sub ptr %5, i64 1 release, align 8, !noalias !449
   %7 = icmp eq i64 %6, 1
   br i1 %7, label %8, label %"_ZN72_$LT$alloc..sync..Weak$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hc9c60e6c26cde719E.llvm.4248407042397360440.exit"
@@ -1456,6 +1464,7 @@ define hidden void @"_ZN4core3ptr111drop_in_place$LT$alloc..sync..Weak$LT$rustls
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %5, i64 8) ]
   %6 = atomicrmw sub ptr %5, i64 1 release, align 8, !noalias !452
   %7 = icmp eq i64 %6, 1
   br i1 %7, label %8, label %"_ZN72_$LT$alloc..sync..Weak$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h7d38b543e4ac2233E.llvm.4248407042397360440.exit"
@@ -1495,6 +1504,8 @@ define hidden void @"_ZN4core3ptr114drop_in_place$LT$alloc..collections..vec_deq
   %15 = sub i64 %7, %5
   %16 = getelementptr inbounds { { { { { i64, ptr }, i64 } }, { { { { i64, ptr }, i64 } } }, { { { i64, ptr }, i64 } }, i64, i32, [1 x i32] }, { { { i64, ptr }, i64 } }, ptr, i32, i32 }, ptr %13, i64 %9
   %17 = sub i64 %11, %9
+  call void @llvm.assume(i1 true) [ "align"(ptr %14, i64 8) ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %16, i64 8) ]
   invoke void @"_ZN4core3ptr77drop_in_place$LT$$u5b$rustls..msgs..persist..Tls13ClientSessionValue$u5d$$GT$17h95267bc7f7d9e338E.llvm.4248407042397360440"(ptr noalias noundef nonnull align 8 %14, i64 noundef %15)
           to label %20 unwind label %18
 
@@ -1563,6 +1574,7 @@ define hidden void @"_ZN4core3ptr114drop_in_place$LT$alloc..sync..Weak$LT$rustls
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %5, i64 8) ]
   %6 = atomicrmw sub ptr %5, i64 1 release, align 8, !noalias !489
   %7 = icmp eq i64 %6, 1
   br i1 %7, label %8, label %"_ZN72_$LT$alloc..sync..Weak$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hd413717fc7399647E.llvm.4248407042397360440.exit"
@@ -1585,6 +1597,7 @@ define hidden void @"_ZN4core3ptr114drop_in_place$LT$alloc..sync..Weak$LT$rustls
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %5, i64 8) ]
   %6 = atomicrmw sub ptr %5, i64 1 release, align 8, !noalias !492
   %7 = icmp eq i64 %6, 1
   br i1 %7, label %8, label %"_ZN72_$LT$alloc..sync..Weak$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h1e5d01762be649e8E.llvm.4248407042397360440.exit"
@@ -1614,6 +1627,7 @@ define hidden void @"_ZN4core3ptr115drop_in_place$LT$alloc..sync..Weak$LT$aws_lc
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %5, i64 8) ]
   %6 = atomicrmw sub ptr %5, i64 1 release, align 8, !noalias !495
   %7 = icmp eq i64 %6, 1
   br i1 %7, label %8, label %"_ZN72_$LT$alloc..sync..Weak$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hbdf471f93c83ba1bE.llvm.4248407042397360440.exit"
@@ -1636,6 +1650,7 @@ define hidden void @"_ZN4core3ptr115drop_in_place$LT$alloc..sync..Weak$LT$dyn$u2
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %5, i64 8) ]
   %6 = atomicrmw sub ptr %5, i64 1 release, align 8, !noalias !498
   %7 = icmp eq i64 %6, 1
   br i1 %7, label %8, label %"_ZN72_$LT$alloc..sync..Weak$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h463532b7830b1e96E.llvm.4248407042397360440.exit"
@@ -1675,6 +1690,7 @@ define hidden void @"_ZN4core3ptr115drop_in_place$LT$alloc..sync..Weak$LT$dyn$u2
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %5, i64 8) ]
   %6 = atomicrmw sub ptr %5, i64 1 release, align 8, !noalias !501
   %7 = icmp eq i64 %6, 1
   br i1 %7, label %8, label %"_ZN72_$LT$alloc..sync..Weak$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h8f0972d27aec1e30E.llvm.4248407042397360440.exit"
@@ -1714,6 +1730,7 @@ define hidden void @"_ZN4core3ptr115drop_in_place$LT$alloc..sync..Weak$LT$dyn$u2
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %5, i64 8) ]
   %6 = atomicrmw sub ptr %5, i64 1 release, align 8, !noalias !504
   %7 = icmp eq i64 %6, 1
   br i1 %7, label %8, label %"_ZN72_$LT$alloc..sync..Weak$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h5fd93e41aad40de0E.llvm.4248407042397360440.exit"
@@ -1813,6 +1830,7 @@ define hidden void @"_ZN4core3ptr116drop_in_place$LT$alloc..sync..Weak$LT$dyn$u2
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %5, i64 8) ]
   %6 = atomicrmw sub ptr %5, i64 1 release, align 8, !noalias !523
   %7 = icmp eq i64 %6, 1
   br i1 %7, label %8, label %"_ZN72_$LT$alloc..sync..Weak$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h82af691bcecc51f6E.llvm.4248407042397360440.exit"
@@ -2211,6 +2229,7 @@ define hidden void @"_ZN4core3ptr125drop_in_place$LT$alloc..sync..Weak$LT$dyn$u2
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %5, i64 8) ]
   %6 = atomicrmw sub ptr %5, i64 1 release, align 8, !noalias !679
   %7 = icmp eq i64 %6, 1
   br i1 %7, label %8, label %"_ZN72_$LT$alloc..sync..Weak$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17ha847417f4775d713E.llvm.4248407042397360440.exit"
@@ -2380,6 +2399,7 @@ define hidden void @"_ZN4core3ptr128drop_in_place$LT$alloc..sync..Weak$LT$dyn$u2
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %5, i64 8) ]
   %6 = atomicrmw sub ptr %5, i64 1 release, align 8, !noalias !736
   %7 = icmp eq i64 %6, 1
   br i1 %7, label %8, label %"_ZN72_$LT$alloc..sync..Weak$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h04456dde38852065E.llvm.4248407042397360440.exit"
@@ -2419,6 +2439,7 @@ define hidden void @"_ZN4core3ptr128drop_in_place$LT$alloc..sync..Weak$LT$dyn$u2
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %5, i64 8) ]
   %6 = atomicrmw sub ptr %5, i64 1 release, align 8, !noalias !739
   %7 = icmp eq i64 %6, 1
   br i1 %7, label %8, label %"_ZN72_$LT$alloc..sync..Weak$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hefa5243eacb39b3fE.llvm.4248407042397360440.exit"
@@ -2458,6 +2479,7 @@ define hidden void @"_ZN4core3ptr128drop_in_place$LT$alloc..sync..Weak$LT$dyn$u2
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %5, i64 8) ]
   %6 = atomicrmw sub ptr %5, i64 1 release, align 8, !noalias !742
   %7 = icmp eq i64 %6, 1
   br i1 %7, label %8, label %"_ZN72_$LT$alloc..sync..Weak$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17he4593b89013446fcE.llvm.4248407042397360440.exit"
@@ -2961,6 +2983,7 @@ define hidden void @"_ZN4core3ptr145drop_in_place$LT$alloc..sync..Weak$LT$dyn$u2
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %5, i64 8) ]
   %6 = atomicrmw sub ptr %5, i64 1 release, align 8, !noalias !896
   %7 = icmp eq i64 %6, 1
   br i1 %7, label %8, label %"_ZN72_$LT$alloc..sync..Weak$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h1a1708a9c51b209cE.llvm.4248407042397360440.exit"
@@ -3158,6 +3181,7 @@ define hidden void @"_ZN4core3ptr153drop_in_place$LT$alloc..sync..Weak$LT$core..
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %5, i64 8) ]
   %6 = atomicrmw sub ptr %5, i64 1 release, align 8, !noalias !947
   %7 = icmp eq i64 %6, 1
   br i1 %7, label %8, label %"_ZN72_$LT$alloc..sync..Weak$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h0b5d6fca2b6d0995E.llvm.4248407042397360440.exit"
@@ -3455,6 +3479,7 @@ define hidden void @"_ZN4core3ptr176drop_in_place$LT$alloc..sync..Weak$LT$dyn$u2
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %5, i64 8) ]
   %6 = atomicrmw sub ptr %5, i64 1 release, align 8, !noalias !1127
   %7 = icmp eq i64 %6, 1
   br i1 %7, label %8, label %"_ZN72_$LT$alloc..sync..Weak$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hffddb2d1ea2ef669E.llvm.4248407042397360440.exit"
@@ -19763,6 +19788,7 @@ define hidden void @"_ZN4core3ptr82drop_in_place$LT$alloc..sync..Weak$LT$rustls.
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %5, i64 8) ]
   %6 = atomicrmw sub ptr %5, i64 1 release, align 8, !noalias !9987
   %7 = icmp eq i64 %6, 1
   br i1 %7, label %8, label %"_ZN72_$LT$alloc..sync..Weak$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hd4305455013bffd2E.llvm.4248407042397360440.exit"
@@ -22659,6 +22685,7 @@ define hidden noundef i64 @_ZN4core4sync6atomic11atomic_load17h92eb373bc4581af1E
   store ptr @anon.f67ecef950889ad063c28f41082b9795.12, ptr %4, align 8
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 1, ptr %9, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr null, i64 8) ]
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store ptr null, ptr %10, align 8
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -22677,6 +22704,7 @@ define hidden noundef i64 @_ZN4core4sync6atomic11atomic_load17h92eb373bc4581af1E
   store ptr @anon.f67ecef950889ad063c28f41082b9795.16, ptr %3, align 8
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 1, ptr %16, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr null, i64 8) ]
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store ptr null, ptr %17, align 8
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -22723,6 +22751,7 @@ define hidden void @_ZN4core4sync6atomic12atomic_store17h12537da9afd97bdeE.llvm.
   store ptr @anon.f67ecef950889ad063c28f41082b9795.19, ptr %5, align 8
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 1, ptr %10, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr null, i64 8) ]
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 32
   store ptr null, ptr %11, align 8
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -22737,6 +22766,7 @@ define hidden void @_ZN4core4sync6atomic12atomic_store17h12537da9afd97bdeE.llvm.
   store ptr @anon.f67ecef950889ad063c28f41082b9795.22, ptr %4, align 8
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 1, ptr %15, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr null, i64 8) ]
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store ptr null, ptr %16, align 8
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -25471,6 +25501,7 @@ define hidden void @"_ZN72_$LT$alloc..sync..Weak$LT$T$C$A$GT$$u20$as$u20$core..o
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %5, i64 8) ]
   %6 = atomicrmw sub ptr %5, i64 1 release, align 8
   %7 = icmp eq i64 %6, 1
   br i1 %7, label %8, label %"_ZN48_$LT$$RF$A$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hc993257b1d3e560eE.exit"
@@ -25509,6 +25540,7 @@ define hidden void @"_ZN72_$LT$alloc..sync..Weak$LT$T$C$A$GT$$u20$as$u20$core..o
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %5, i64 8) ]
   %6 = atomicrmw sub ptr %5, i64 1 release, align 8
   %7 = icmp eq i64 %6, 1
   br i1 %7, label %8, label %9
@@ -25530,6 +25562,7 @@ define hidden void @"_ZN72_$LT$alloc..sync..Weak$LT$T$C$A$GT$$u20$as$u20$core..o
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %5, i64 8) ]
   %6 = atomicrmw sub ptr %5, i64 1 release, align 8
   %7 = icmp eq i64 %6, 1
   br i1 %7, label %8, label %"_ZN48_$LT$$RF$A$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hc993257b1d3e560eE.exit"
@@ -25568,6 +25601,7 @@ define hidden void @"_ZN72_$LT$alloc..sync..Weak$LT$T$C$A$GT$$u20$as$u20$core..o
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %5, i64 8) ]
   %6 = atomicrmw sub ptr %5, i64 1 release, align 8
   %7 = icmp eq i64 %6, 1
   br i1 %7, label %8, label %9
@@ -25589,6 +25623,7 @@ define hidden void @"_ZN72_$LT$alloc..sync..Weak$LT$T$C$A$GT$$u20$as$u20$core..o
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %5, i64 8) ]
   %6 = atomicrmw sub ptr %5, i64 1 release, align 8
   %7 = icmp eq i64 %6, 1
   br i1 %7, label %8, label %"_ZN48_$LT$$RF$A$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hc993257b1d3e560eE.exit"
@@ -25627,6 +25662,7 @@ define hidden void @"_ZN72_$LT$alloc..sync..Weak$LT$T$C$A$GT$$u20$as$u20$core..o
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %5, i64 8) ]
   %6 = atomicrmw sub ptr %5, i64 1 release, align 8
   %7 = icmp eq i64 %6, 1
   br i1 %7, label %8, label %"_ZN48_$LT$$RF$A$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hc993257b1d3e560eE.exit"
@@ -25665,6 +25701,7 @@ define hidden void @"_ZN72_$LT$alloc..sync..Weak$LT$T$C$A$GT$$u20$as$u20$core..o
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %5, i64 8) ]
   %6 = atomicrmw sub ptr %5, i64 1 release, align 8
   %7 = icmp eq i64 %6, 1
   br i1 %7, label %8, label %"_ZN48_$LT$$RF$A$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hc993257b1d3e560eE.exit"
@@ -25703,6 +25740,7 @@ define hidden void @"_ZN72_$LT$alloc..sync..Weak$LT$T$C$A$GT$$u20$as$u20$core..o
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %5, i64 8) ]
   %6 = atomicrmw sub ptr %5, i64 1 release, align 8
   %7 = icmp eq i64 %6, 1
   br i1 %7, label %8, label %9
@@ -25724,6 +25762,7 @@ define hidden void @"_ZN72_$LT$alloc..sync..Weak$LT$T$C$A$GT$$u20$as$u20$core..o
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %5, i64 8) ]
   %6 = atomicrmw sub ptr %5, i64 1 release, align 8
   %7 = icmp eq i64 %6, 1
   br i1 %7, label %8, label %9
@@ -25745,6 +25784,7 @@ define hidden void @"_ZN72_$LT$alloc..sync..Weak$LT$T$C$A$GT$$u20$as$u20$core..o
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %5, i64 8) ]
   %6 = atomicrmw sub ptr %5, i64 1 release, align 8
   %7 = icmp eq i64 %6, 1
   br i1 %7, label %8, label %"_ZN48_$LT$$RF$A$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hc993257b1d3e560eE.exit"
@@ -25783,6 +25823,7 @@ define hidden void @"_ZN72_$LT$alloc..sync..Weak$LT$T$C$A$GT$$u20$as$u20$core..o
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %5, i64 8) ]
   %6 = atomicrmw sub ptr %5, i64 1 release, align 8
   %7 = icmp eq i64 %6, 1
   br i1 %7, label %8, label %"_ZN48_$LT$$RF$A$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hc993257b1d3e560eE.exit"
@@ -25821,6 +25862,7 @@ define hidden void @"_ZN72_$LT$alloc..sync..Weak$LT$T$C$A$GT$$u20$as$u20$core..o
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %5, i64 8) ]
   %6 = atomicrmw sub ptr %5, i64 1 release, align 8
   %7 = icmp eq i64 %6, 1
   br i1 %7, label %8, label %9
@@ -25842,6 +25884,7 @@ define hidden void @"_ZN72_$LT$alloc..sync..Weak$LT$T$C$A$GT$$u20$as$u20$core..o
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %5, i64 8) ]
   %6 = atomicrmw sub ptr %5, i64 1 release, align 8
   %7 = icmp eq i64 %6, 1
   br i1 %7, label %8, label %9
@@ -25863,6 +25906,7 @@ define hidden void @"_ZN72_$LT$alloc..sync..Weak$LT$T$C$A$GT$$u20$as$u20$core..o
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %5, i64 8) ]
   %6 = atomicrmw sub ptr %5, i64 1 release, align 8
   %7 = icmp eq i64 %6, 1
   br i1 %7, label %8, label %"_ZN48_$LT$$RF$A$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hc993257b1d3e560eE.exit"
@@ -25901,6 +25945,7 @@ define hidden void @"_ZN72_$LT$alloc..sync..Weak$LT$T$C$A$GT$$u20$as$u20$core..o
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %5, i64 8) ]
   %6 = atomicrmw sub ptr %5, i64 1 release, align 8
   %7 = icmp eq i64 %6, 1
   br i1 %7, label %8, label %9
@@ -25922,6 +25967,7 @@ define hidden void @"_ZN72_$LT$alloc..sync..Weak$LT$T$C$A$GT$$u20$as$u20$core..o
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %5, i64 8) ]
   %6 = atomicrmw sub ptr %5, i64 1 release, align 8
   %7 = icmp eq i64 %6, 1
   br i1 %7, label %8, label %9
@@ -25943,6 +25989,7 @@ define hidden void @"_ZN72_$LT$alloc..sync..Weak$LT$T$C$A$GT$$u20$as$u20$core..o
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %5, i64 8) ]
   %6 = atomicrmw sub ptr %5, i64 1 release, align 8
   %7 = icmp eq i64 %6, 1
   br i1 %7, label %8, label %9
@@ -25964,6 +26011,7 @@ define hidden void @"_ZN72_$LT$alloc..sync..Weak$LT$T$C$A$GT$$u20$as$u20$core..o
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %5, i64 8) ]
   %6 = atomicrmw sub ptr %5, i64 1 release, align 8
   %7 = icmp eq i64 %6, 1
   br i1 %7, label %8, label %9
@@ -25985,6 +26033,7 @@ define hidden void @"_ZN72_$LT$alloc..sync..Weak$LT$T$C$A$GT$$u20$as$u20$core..o
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %5, i64 8) ]
   %6 = atomicrmw sub ptr %5, i64 1 release, align 8
   %7 = icmp eq i64 %6, 1
   br i1 %7, label %8, label %"_ZN48_$LT$$RF$A$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hc993257b1d3e560eE.exit"
@@ -26023,6 +26072,7 @@ define hidden void @"_ZN72_$LT$alloc..sync..Weak$LT$T$C$A$GT$$u20$as$u20$core..o
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %5, i64 8) ]
   %6 = atomicrmw sub ptr %5, i64 1 release, align 8
   %7 = icmp eq i64 %6, 1
   br i1 %7, label %8, label %9
@@ -26044,6 +26094,7 @@ define hidden void @"_ZN72_$LT$alloc..sync..Weak$LT$T$C$A$GT$$u20$as$u20$core..o
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %5, i64 8) ]
   %6 = atomicrmw sub ptr %5, i64 1 release, align 8
   %7 = icmp eq i64 %6, 1
   br i1 %7, label %8, label %"_ZN48_$LT$$RF$A$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hc993257b1d3e560eE.exit"
@@ -26082,6 +26133,7 @@ define hidden void @"_ZN72_$LT$alloc..sync..Weak$LT$T$C$A$GT$$u20$as$u20$core..o
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %5, i64 8) ]
   %6 = atomicrmw sub ptr %5, i64 1 release, align 8
   %7 = icmp eq i64 %6, 1
   br i1 %7, label %8, label %"_ZN48_$LT$$RF$A$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hc993257b1d3e560eE.exit"
@@ -27474,6 +27526,8 @@ define hidden void @"_ZN94_$LT$alloc..collections..vec_deque..VecDeque$LT$T$C$A$
   %15 = sub i64 %7, %5
   %16 = getelementptr inbounds { i8, [7 x i8], { { i64, ptr }, i64 } }, ptr %13, i64 %9
   %17 = sub i64 %11, %9
+  call void @llvm.assume(i1 true) [ "align"(ptr %14, i64 8) ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %16, i64 8) ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !12094)
   %18 = icmp eq i64 %7, %5
   br i1 %18, label %"_ZN4core3ptr71drop_in_place$LT$$u5b$$LP$bool$C$alloc..vec..Vec$LT$u8$GT$$RP$$u5d$$GT$17h29e2ddabd70ec3f1E.llvm.4248407042397360440.exit", label %.lr.ph.i
@@ -27502,6 +27556,7 @@ define hidden void @"_ZN94_$LT$alloc..collections..vec_deque..VecDeque$LT$T$C$A$
   br i1 %26, label %"_ZN4core3ptr71drop_in_place$LT$$u5b$$LP$bool$C$alloc..vec..Vec$LT$u8$GT$$RP$$u5d$$GT$17h29e2ddabd70ec3f1E.llvm.4248407042397360440.exit", label %.lr.ph.i
 
 "_ZN4core3ptr71drop_in_place$LT$$u5b$$LP$bool$C$alloc..vec..Vec$LT$u8$GT$$RP$$u5d$$GT$17h29e2ddabd70ec3f1E.llvm.4248407042397360440.exit": ; preds = %"_ZN4core3ptr61drop_in_place$LT$$LP$bool$C$alloc..vec..Vec$LT$u8$GT$$RP$$GT$17h93f610748c9f5cf1E.llvm.4248407042397360440.exit.i", %1
+  call void @llvm.assume(i1 true) [ "align"(ptr %16, i64 8) ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !12115)
   %27 = icmp eq i64 %11, %9
   br i1 %27, label %"_ZN4core3ptr177drop_in_place$LT$$LT$alloc..collections..vec_deque..VecDeque$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..Dropper$LT$$LP$bool$C$alloc..vec..Vec$LT$u8$GT$$RP$$GT$$GT$17h06f8232b6597cfcdE.llvm.4248407042397360440.exit", label %.lr.ph.i.i.i
@@ -27555,6 +27610,8 @@ define hidden void @"_ZN94_$LT$alloc..collections..vec_deque..VecDeque$LT$T$C$A$
   %15 = sub i64 %7, %5
   %16 = getelementptr inbounds { { { { { i64, ptr }, i64 } }, { { { { i64, ptr }, i64 } } }, { { { i64, ptr }, i64 } }, i64, i32, [1 x i32] }, { { { i64, ptr }, i64 } }, ptr, i32, i32 }, ptr %13, i64 %9
   %17 = sub i64 %11, %9
+  call void @llvm.assume(i1 true) [ "align"(ptr %14, i64 8) ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %16, i64 8) ]
   invoke void @"_ZN4core3ptr77drop_in_place$LT$$u5b$rustls..msgs..persist..Tls13ClientSessionValue$u5d$$GT$17h95267bc7f7d9e338E.llvm.4248407042397360440"(ptr noalias noundef nonnull align 8 %14, i64 noundef %15)
           to label %20 unwind label %18
 
@@ -27600,6 +27657,8 @@ define hidden void @"_ZN94_$LT$alloc..collections..vec_deque..VecDeque$LT$T$C$A$
   %15 = sub i64 %7, %5
   %16 = getelementptr inbounds { { i64, ptr }, i64 }, ptr %13, i64 %9
   %17 = sub i64 %11, %9
+  call void @llvm.assume(i1 true) [ "align"(ptr %14, i64 8) ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %16, i64 8) ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !12157)
   %18 = icmp eq i64 %7, %5
   br i1 %18, label %"_ZN4core3ptr56drop_in_place$LT$$u5b$alloc..vec..Vec$LT$u8$GT$$u5d$$GT$17h788e01ccdf9f1fc2E.llvm.4248407042397360440.exit", label %.lr.ph.i
@@ -27626,6 +27685,7 @@ define hidden void @"_ZN94_$LT$alloc..collections..vec_deque..VecDeque$LT$T$C$A$
   br i1 %25, label %"_ZN4core3ptr56drop_in_place$LT$$u5b$alloc..vec..Vec$LT$u8$GT$$u5d$$GT$17h788e01ccdf9f1fc2E.llvm.4248407042397360440.exit", label %.lr.ph.i
 
 "_ZN4core3ptr56drop_in_place$LT$$u5b$alloc..vec..Vec$LT$u8$GT$$u5d$$GT$17h788e01ccdf9f1fc2E.llvm.4248407042397360440.exit": ; preds = %"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h8e8ccce731b64633E.exit.i", %1
+  call void @llvm.assume(i1 true) [ "align"(ptr %16, i64 8) ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !12175)
   %26 = icmp eq i64 %11, %9
   br i1 %26, label %"_ZN4core3ptr162drop_in_place$LT$$LT$alloc..collections..vec_deque..VecDeque$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..Dropper$LT$alloc..vec..Vec$LT$u8$GT$$GT$$GT$17haee87c70bc6bade5E.llvm.4248407042397360440.exit", label %.lr.ph.i.i.i

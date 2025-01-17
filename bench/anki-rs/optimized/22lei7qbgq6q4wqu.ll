@@ -433,6 +433,7 @@ _ZN5alloc3fmt6format17hce246aee5769fae0E.exit:    ; preds = %2
   store ptr %63, ptr %13, align 8
   %64 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store ptr @"_ZN60_$LT$std..io..error..Error$u20$as$u20$core..fmt..Display$GT$3fmt17h903d2f90598a70cbE", ptr %64, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr null, i64 8) ]
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8), !noalias !104
   store ptr @anon.7e169519e0ee15bcf2cc7834854a4ab3.24, ptr %8, align 8, !noalias !115
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 8
@@ -477,6 +478,7 @@ _ZN5alloc3fmt6format17hce246aee5769fae0E.exit:    ; preds = %2
   store ptr %10, ptr %11, align 8
   %77 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr @"_ZN66_$LT$alloc..borrow..Cow$LT$B$GT$$u20$as$u20$core..fmt..Display$GT$3fmt17ha070dd5ee76e4394E", ptr %77, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr null, i64 8) ]
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %7), !noalias !117
   store ptr @anon.7e169519e0ee15bcf2cc7834854a4ab3.19, ptr %7, align 8, !noalias !128
   %.sroa.563.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -572,6 +574,7 @@ _ZN5alloc3fmt6format17hce246aee5769fae0E.exit42:  ; preds = %72
   store ptr %99, ptr %103, align 8
   %104 = getelementptr inbounds nuw i8, ptr %15, i64 40
   store ptr @"_ZN60_$LT$std..io..error..Error$u20$as$u20$core..fmt..Display$GT$3fmt17h903d2f90598a70cbE", ptr %104, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr null, i64 8) ]
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5), !noalias !141
   store ptr @anon.7e169519e0ee15bcf2cc7834854a4ab3.11, ptr %5, align 8, !noalias !152
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -697,6 +700,7 @@ default.unreachable:                              ; preds = %1
 
 10:                                               ; preds = %1
   %11 = getelementptr i8, ptr %.val, i64 -1
+  call void @llvm.assume(i1 true) [ "align"(ptr %11, i64 8) ]
   %12 = icmp ne ptr %11, null
   tail call void @llvm.assume(i1 %12)
   %13 = getelementptr i8, ptr %.val, i64 15
@@ -901,6 +905,7 @@ define noundef zeroext i1 @"_ZN66_$LT$anki_io..error..FileIoError$u20$as$u20$cor
   store ptr @anon.7e169519e0ee15bcf2cc7834854a4ab3.29, ptr %4, align 8, !alias.scope !205, !noalias !208
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 2, ptr %11, align 8, !alias.scope !205, !noalias !208
+  call void @llvm.assume(i1 true) [ "align"(ptr null, i64 8) ]
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store ptr null, ptr %12, align 8, !alias.scope !205, !noalias !208
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 16

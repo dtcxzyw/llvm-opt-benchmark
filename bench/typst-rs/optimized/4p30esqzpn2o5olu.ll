@@ -33144,6 +33144,7 @@ define hidden void @"_ZN72_$LT$gif..encoder..Encoder$LT$W$GT$$u20$as$u20$core..o
 "_ZN3gif7encoder16Encoder$LT$W$GT$13write_trailer17hda9cb4bc3d7e7199E.exit": ; preds = %1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2), !noalias !10519
   store i8 59, ptr %2, align 1, !noalias !10519
+  call void @llvm.assume(i1 true) [ "align"(ptr %4, i64 8) ]
   %5 = call noundef ptr @_ZN3std2io5Write9write_all17h7d41d69a916edaeeE(ptr noalias noundef nonnull align 8 dereferenceable(32) %4, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef 1), !noalias !10524
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2), !noalias !10519
   %6 = ptrtoint ptr %5 to i64
@@ -46026,7 +46027,7 @@ attributes #28 = { noinline }
 !10521 = distinct !{!10521, !"_ZN58_$LT$W$u20$as$u20$gif..traits..WriteBytesExt$LT$u8$GT$$GT$8write_le17hd038b8e1d4884f74E.llvm.1563996087720595280"}
 !10522 = distinct !{!10522, !10523, !"_ZN3gif7encoder16Encoder$LT$W$GT$13write_trailer17hda9cb4bc3d7e7199E: argument 0"}
 !10523 = distinct !{!10523, !"_ZN3gif7encoder16Encoder$LT$W$GT$13write_trailer17hda9cb4bc3d7e7199E"}
-!10524 = !{!10525, !10522}
+!10524 = !{!10525}
 !10525 = distinct !{!10525, !10526, !"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17hb6911dba0d5832f9E.llvm.1563996087720595280: argument 0"}
 !10526 = distinct !{!10526, !"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17hb6911dba0d5832f9E.llvm.1563996087720595280"}
 !10527 = !{!10528}

@@ -1939,11 +1939,13 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h32e2239cb3af4b83E.exit.i: ; 
 
 13:                                               ; preds = %.noexc, %1
   %.0.i.i2.i = phi ptr [ %8, %.noexc ], [ getelementptr inbounds nuw (i8, ptr @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17h1f381a0e61bae689E, i64 8), %1 ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %.0.i.i2.i, i64 8) ]
   %14 = load i64, ptr %.0.i.i2.i, align 8, !noalias !412, !noundef !18
   %15 = getelementptr inbounds nuw i8, ptr %.0.i.i2.i, i64 8
   %16 = load i64, ptr %15, align 8, !noalias !412, !noundef !18
   %17 = add i64 %14, 1
   store i64 %17, ptr %.0.i.i2.i, align 8, !noalias !412
+  call void @llvm.assume(i1 true) [ "align"(ptr null, i64 8) ]
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 200
   store ptr null, ptr %18, align 8
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 144
@@ -1956,7 +1958,12 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h32e2239cb3af4b83E.exit.i: ; 
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.4.0..sroa_idx20, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.4, i64 16, i1 false)
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 168
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %22, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 32, i1 false)
+  call void @llvm.assume(i1 true) [ "align"(ptr null, i64 8) ]
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 208
+  call void @llvm.assume(i1 true) [ "align"(ptr null, i64 8) ]
+  call void @llvm.assume(i1 true) [ "align"(ptr null, i64 8) ]
+  call void @llvm.assume(i1 true) [ "align"(ptr null, i64 8) ]
+  call void @llvm.assume(i1 true) [ "align"(ptr null, i64 8) ]
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 120
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %23, i8 0, i64 40, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %24, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
@@ -2133,6 +2140,7 @@ _ZN5alloc5alloc15exchange_malloc17ha641d2894b944555E.exit: ; preds = %2
   store i64 -9223372036854775808, ptr %7, align 8
   %.sroa.46.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %17, ptr %.sroa.46.0..sroa_idx, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr null, i64 8) ]
   %35 = getelementptr inbounds nuw i8, ptr %7, i64 40
   store ptr null, ptr %35, align 8
   %36 = load i32, ptr %30, align 4
@@ -2147,6 +2155,7 @@ _ZN5alloc5alloc15exchange_malloc17ha641d2894b944555E.exit: ; preds = %2
   store i32 %39, ptr %41, align 4
   %42 = getelementptr inbounds nuw i8, ptr %7, i64 56
   store i8 2, ptr %42, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr null, i64 8) ]
   %43 = getelementptr inbounds nuw i8, ptr %7, i64 48
   store ptr null, ptr %43, align 8
   %44 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !419
@@ -2450,6 +2459,7 @@ _ZN5alloc5alloc15exchange_malloc17ha641d2894b944555E.exit: ; preds = %2
   store i64 -9223372036854775808, ptr %7, align 8
   %.sroa.46.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %17, ptr %.sroa.46.0..sroa_idx, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr null, i64 8) ]
   %35 = getelementptr inbounds nuw i8, ptr %7, i64 40
   store ptr null, ptr %35, align 8
   %36 = load i32, ptr %30, align 4
@@ -2464,6 +2474,7 @@ _ZN5alloc5alloc15exchange_malloc17ha641d2894b944555E.exit: ; preds = %2
   store i32 %39, ptr %41, align 4
   %42 = getelementptr inbounds nuw i8, ptr %7, i64 56
   store i8 2, ptr %42, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr null, i64 8) ]
   %43 = getelementptr inbounds nuw i8, ptr %7, i64 48
   store ptr null, ptr %43, align 8
   %44 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !452

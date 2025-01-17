@@ -16,7 +16,7 @@ define { ptr, i64 } @"_ZN79_$LT$clap_lex..ext..Split$u20$as$u20$core..iter..trai
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = icmp eq ptr %3, null
   %6 = load i64, ptr %4, align 8
-  br i1 %5, label %21, label %7
+  br i1 %5, label %23, label %7
 
 7:                                                ; preds = %1
   %8 = load ptr, ptr %0, align 8, !nonnull !5, !align !4, !noundef !5
@@ -26,7 +26,7 @@ define { ptr, i64 } @"_ZN79_$LT$clap_lex..ext..Split$u20$as$u20$core..iter..trai
   %.fca.0.extract.i = extractvalue { i64, i64 } %11, 0
   %switch.i = icmp eq i64 %.fca.0.extract.i, 0
   %.fca.1.extract.i = extractvalue { i64, i64 } %11, 1
-  br i1 %switch.i, label %"_ZN67_$LT$std..ffi..os_str..OsStr$u20$as$u20$clap_lex..ext..OsStrExt$GT$10split_once17h509237bc95af7a93E.exit.thread", label %12
+  br i1 %switch.i, label %18, label %12
 
 12:                                               ; preds = %7
   %13 = add i64 %.fca.1.extract.i, %10
@@ -34,35 +34,39 @@ define { ptr, i64 } @"_ZN79_$LT$clap_lex..ext..Split$u20$as$u20$core..iter..trai
   br i1 %14, label %15, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h2e16e49de880e58eE.llvm.8584779980762939608.exit.i"
 
 15:                                               ; preds = %12
-  tail call void @_ZN4core5slice5index24slice_end_index_len_fail17h9163fa4abd3ca1acE(i64 noundef %.fca.1.extract.i, i64 noundef %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.9acd36be39784948a154da50af79fd9d.6.llvm.8584779980762939608) #2, !noalias !9
+  tail call void @_ZN4core5slice5index24slice_end_index_len_fail17h9163fa4abd3ca1acE(i64 noundef %.fca.1.extract.i, i64 noundef %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.9acd36be39784948a154da50af79fd9d.6.llvm.8584779980762939608) #3, !noalias !9
   unreachable
 
 "_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h2e16e49de880e58eE.llvm.8584779980762939608.exit.i": ; preds = %12
   %16 = icmp ugt i64 %13, %6
-  br i1 %16, label %17, label %18
+  br i1 %16, label %17, label %19
 
 17:                                               ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h2e16e49de880e58eE.llvm.8584779980762939608.exit.i"
-  tail call void @_ZN4core5slice5index26slice_start_index_len_fail17h0187bf4d120fc375E(i64 noundef %13, i64 noundef %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.9acd36be39784948a154da50af79fd9d.7.llvm.8584779980762939608) #2, !noalias !6
+  tail call void @_ZN4core5slice5index26slice_start_index_len_fail17h0187bf4d120fc375E(i64 noundef %13, i64 noundef %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.9acd36be39784948a154da50af79fd9d.7.llvm.8584779980762939608) #3, !noalias !6
   unreachable
 
-18:                                               ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h2e16e49de880e58eE.llvm.8584779980762939608.exit.i"
-  %19 = sub nuw i64 %6, %13
-  %20 = getelementptr inbounds i8, ptr %3, i64 %13
-  br label %"_ZN67_$LT$std..ffi..os_str..OsStr$u20$as$u20$clap_lex..ext..OsStrExt$GT$10split_once17h509237bc95af7a93E.exit.thread"
+18:                                               ; preds = %7
+  call void @llvm.assume(i1 true) [ "align"(ptr null, i64 1) ]
+  br label %22
 
-"_ZN67_$LT$std..ffi..os_str..OsStr$u20$as$u20$clap_lex..ext..OsStrExt$GT$10split_once17h509237bc95af7a93E.exit.thread": ; preds = %7, %18
-  %storemerge9 = phi ptr [ %20, %18 ], [ null, %7 ]
-  %storemerge = phi i64 [ %19, %18 ], [ undef, %7 ]
-  %.sroa.4.1 = phi i64 [ %.fca.1.extract.i, %18 ], [ %6, %7 ]
+19:                                               ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h2e16e49de880e58eE.llvm.8584779980762939608.exit.i"
+  %20 = sub nuw i64 %6, %13
+  %21 = getelementptr inbounds i8, ptr %3, i64 %13
+  br label %22
+
+22:                                               ; preds = %19, %18
+  %storemerge9 = phi ptr [ %21, %19 ], [ null, %18 ]
+  %storemerge = phi i64 [ %20, %19 ], [ undef, %18 ]
+  %.sroa.4.1 = phi i64 [ %.fca.1.extract.i, %19 ], [ %6, %18 ]
   store ptr %storemerge9, ptr %2, align 8
   store i64 %storemerge, ptr %4, align 8
-  br label %21
+  br label %23
 
-21:                                               ; preds = %1, %"_ZN67_$LT$std..ffi..os_str..OsStr$u20$as$u20$clap_lex..ext..OsStrExt$GT$10split_once17h509237bc95af7a93E.exit.thread"
-  %.sroa.4.0 = phi i64 [ %.sroa.4.1, %"_ZN67_$LT$std..ffi..os_str..OsStr$u20$as$u20$clap_lex..ext..OsStrExt$GT$10split_once17h509237bc95af7a93E.exit.thread" ], [ undef, %1 ]
-  %22 = insertvalue { ptr, i64 } poison, ptr %3, 0
-  %23 = insertvalue { ptr, i64 } %22, i64 %.sroa.4.0, 1
-  ret { ptr, i64 } %23
+23:                                               ; preds = %1, %22
+  %.sroa.4.0 = phi i64 [ %.sroa.4.1, %22 ], [ undef, %1 ]
+  %24 = insertvalue { ptr, i64 } poison, ptr %3, 0
+  %25 = insertvalue { ptr, i64 } %24, i64 %.sroa.4.0, 1
+  ret { ptr, i64 } %25
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -71,7 +75,7 @@ define hidden void @_ZN8clap_lex3ext8split_at17hf432e678d412a774E(ptr noalias no
   br i1 %.not, label %5, label %6
 
 5:                                                ; preds = %4
-  tail call void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr noalias noundef nonnull readonly align 1 @anon.fc1c78a371a506ea9d587e654a45c3a3.1.llvm.9337090908805262772, i64 noundef 35, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.fc1c78a371a506ea9d587e654a45c3a3.3.llvm.9337090908805262772) #2
+  tail call void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr noalias noundef nonnull readonly align 1 @anon.fc1c78a371a506ea9d587e654a45c3a3.1.llvm.9337090908805262772, i64 noundef 35, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.fc1c78a371a506ea9d587e654a45c3a3.3.llvm.9337090908805262772) #3
   unreachable
 
 6:                                                ; preds = %4
@@ -99,9 +103,13 @@ declare { i64, i64 } @"_ZN67_$LT$std..ffi..os_str..OsStr$u20$as$u20$clap_lex..ex
 ; Function Attrs: cold noreturn nonlazybind uwtable
 declare void @_ZN4core5slice5index26slice_start_index_len_fail17h0187bf4d120fc375E(i64 noundef, i64 noundef, ptr noalias noundef readonly align 8 dereferenceable(24)) unnamed_addr #1
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
+declare void @llvm.assume(i1 noundef) #2
+
 attributes #0 = { nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #1 = { cold noreturn nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
-attributes #2 = { noreturn }
+attributes #2 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #3 = { noreturn }
 
 !llvm.module.flags = !{!0, !1, !2}
 !llvm.ident = !{!3}

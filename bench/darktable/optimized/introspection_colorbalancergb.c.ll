@@ -362,7 +362,7 @@ define void @init_presets(ptr noundef %0) local_unnamed_addr #1 {
 declare void @dt_gui_presets_add_generic(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define void @process(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef readnone %4, ptr nocapture noundef readonly %5) local_unnamed_addr #9 {
+define void @process(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef readnone %4, ptr nocapture noundef readonly %5) local_unnamed_addr #9 {
   %7 = alloca [4 x float], align 16
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %9 = load ptr, ptr %8, align 16, !tbaa !29
@@ -503,8 +503,6 @@ define void @process(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noun
   %142 = fadd reassoc nsz arcp contract afn <2 x float> %134, %135
   %143 = fadd reassoc nsz arcp contract afn <2 x float> %128, %131
   %144 = fadd reassoc nsz arcp contract afn <2 x float> %140, %141
-  call void @llvm.assume(i1 true) [ "align"(ptr %2, i64 64) ]
-  call void @llvm.assume(i1 true) [ "align"(ptr %3, i64 64) ]
   %145 = getelementptr inbounds nuw i8, ptr %9, i64 168
   %146 = load ptr, ptr %145, align 8, !tbaa !46
   call void @llvm.assume(i1 true) [ "align"(ptr %146, i64 64) ]

@@ -358,6 +358,7 @@ _ZN4core10intrinsics10typed_swap17h54f84bb71b663d01E.exit: ; preds = %.preheader
 60:                                               ; preds = %.lr.ph51
   %61 = sub nsw i64 0, %.sroa.024.0.i.i49
   %gep90 = getelementptr i64, ptr %invariant.gep89, i64 %61
+  call void @llvm.assume(i1 true) [ "align"(ptr %gep90, i64 8) ]
   %.val4.i = load i64, ptr %gep90, align 8, !noalias !31, !noundef !7
   %62 = icmp ult i64 %.val4.i, %3
   br i1 %62, label %64, label %63, !prof !35
@@ -504,6 +505,7 @@ common.resume:                                    ; preds = %119, %54
   %129 = sub nsw i64 0, %.sroa.08.0.i.i47
   %130 = getelementptr inbounds i64, ptr %122, i64 %129
   %131 = getelementptr inbounds i8, ptr %130, i64 -8
+  call void @llvm.assume(i1 true) [ "align"(ptr %131, i64 8) ]
   %.val4.i1843 = load i64, ptr %131, align 8, !noalias !51, !noundef !7
   %132 = icmp ult i64 %.val4.i1843, %3
   br i1 %132, label %.lr.ph, label %._crit_edge, !prof !55
@@ -513,6 +515,7 @@ _ZN4core3ptr19swap_nonoverlapping17hf866f6a6feb866b4E.exit.loopexit: ; preds = %
   %.val.i16 = load ptr, ptr %0, align 8, !alias.scope !56, !noalias !58, !nonnull !7, !noundef !7
   %133 = getelementptr inbounds i64, ptr %.val.i16, i64 %129
   %134 = getelementptr inbounds i8, ptr %133, i64 -8
+  call void @llvm.assume(i1 true) [ "align"(ptr %134, i64 8) ]
   %.val4.i18 = load i64, ptr %134, align 8, !noalias !59, !noundef !7
   %135 = icmp ult i64 %.val4.i18, %3
   br i1 %135, label %.lr.ph, label %._crit_edge, !prof !60

@@ -450,6 +450,7 @@ _ZN7tracing4span4Span8do_enter17hbc9c1a32e0d90029E.exit: ; preds = %.thread, %65
   %70 = atomicrmw add ptr @_ZN8async_io6driver14BLOCK_ON_COUNT17ha4c66b7e5ff821edE, i64 1 seq_cst, align 8
   call void @llvm.lifetime.start.p0(i64 192, ptr nonnull %44)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(192) %44, ptr noundef nonnull align 8 dereferenceable(192) %0, i64 192, i1 false)
+  call void @llvm.assume(i1 true) [ "align"(ptr null, i64 8) ]
   %71 = load i64, ptr @_ZN8async_io6driver8block_on5CACHE7__getit5__KEY17h084c86aeafa17e1dE, align 8, !range !95, !noalias !96, !noundef !17
   %trunc.i.i.i = trunc nuw i64 %71 to i1
   br i1 %trunc.i.i.i, label %_ZN8async_io6driver8block_on5CACHE7__getit17h278e05a6d0505739E.exit.thread.i, label %72
@@ -464,6 +465,7 @@ _ZN8async_io6driver8block_on5CACHE7__getit17h278e05a6d0505739E.exit.i: ; preds =
 
 _ZN8async_io6driver8block_on5CACHE7__getit17h278e05a6d0505739E.exit.thread.i: ; preds = %_ZN8async_io6driver8block_on5CACHE7__getit17h278e05a6d0505739E.exit.i, %_ZN7tracing4span4Span8do_enter17hbc9c1a32e0d90029E.exit
   %.0.i.i6.i = phi ptr [ %73, %_ZN8async_io6driver8block_on5CACHE7__getit17h278e05a6d0505739E.exit.i ], [ getelementptr inbounds nuw (i8, ptr @_ZN8async_io6driver8block_on5CACHE7__getit5__KEY17h084c86aeafa17e1dE, i64 8), %_ZN7tracing4span4Span8do_enter17hbc9c1a32e0d90029E.exit ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %.0.i.i6.i, i64 8) ]
   call void @llvm.lifetime.start.p0(i64 192, ptr nonnull %43), !noalias !103
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(192) %43, ptr noundef nonnull align 8 dereferenceable(192) %44, i64 192, i1 false)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %42), !noalias !104
@@ -632,6 +634,7 @@ default.unreachable:                              ; preds = %.backedge.i.i
           to label %131 unwind label %127, !noalias !107
 
 131:                                              ; preds = %129
+  call void @llvm.assume(i1 true) [ "align"(ptr null, i64 8) ]
   %132 = load i64, ptr @_ZN8fastrand10global_rng3RNG7__getit5__KEY17h9ffb0d3aa2679fc3E, align 8, !range !95, !noalias !110, !noundef !17
   %trunc.i.i.i.i.i.i.i = trunc nuw i64 %132 to i1
   br i1 %trunc.i.i.i.i.i.i.i, label %135, label %_ZN8fastrand10global_rng3RNG7__getit17h976a44bdba5e523cE.exit.i.i.i.i.i
@@ -646,6 +649,7 @@ _ZN8fastrand10global_rng3RNG7__getit17h976a44bdba5e523cE.exit.i.i.i.i.i: ; preds
 
 135:                                              ; preds = %.noexc.i.i.i, %131
   %.0.i.i2.i.i.i.i.i = phi ptr [ %133, %.noexc.i.i.i ], [ getelementptr inbounds nuw (i8, ptr @_ZN8fastrand10global_rng3RNG7__getit5__KEY17h9ffb0d3aa2679fc3E, i64 8), %131 ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %.0.i.i2.i.i.i.i.i, i64 8) ]
   %136 = load i64, ptr %.0.i.i2.i.i.i.i.i, align 8, !noalias !107, !noundef !17
   %137 = add i64 %136, -6884282663029611473
   %138 = zext i64 %137 to i128
@@ -865,6 +869,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h75ffbf7bbedb93daE.exit.th
   store ptr @anon.48b364105262d98143e18c033d61e33e.35, ptr %36, align 8, !noalias !104
   %206 = getelementptr inbounds nuw i8, ptr %36, i64 8
   store i64 1, ptr %206, align 8, !noalias !104
+  call void @llvm.assume(i1 true) [ "align"(ptr null, i64 8) ]
   %207 = getelementptr inbounds nuw i8, ptr %36, i64 32
   store ptr null, ptr %207, align 8, !noalias !104
   %208 = getelementptr inbounds nuw i8, ptr %36, i64 16
@@ -1061,6 +1066,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h75ffbf7bbedb93daE.exit.th
   store i64 %.fca.0.extract31.i.i, ptr %28, align 8, !noalias !104
   %.fca.1.extract32.i.i = extractvalue { i64, i32 } %260, 1
   store i32 %.fca.1.extract32.i.i, ptr %.fca.1.gep.i.i, align 8, !noalias !104
+  call void @llvm.assume(i1 true) [ "align"(ptr null, i64 1) ]
   br label %263
 
 .loopexit.i.i:                                    ; preds = %299, %296, %295, %293, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hff2f44893287cde2E.exit369.i.i", %.critedge318.i.i, %_ZN12tracing_core8callsite15DefaultCallsite8interest17h75ffbf7bbedb93daE.exit363.thread.i.i, %273, %263
@@ -1156,6 +1162,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h75ffbf7bbedb93daE.exit363
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %21), !noalias !104
   store ptr @anon.48b364105262d98143e18c033d61e33e.40, ptr %21, align 8, !noalias !104
   store i64 1, ptr %97, align 8, !noalias !104
+  call void @llvm.assume(i1 true) [ "align"(ptr null, i64 8) ]
   store ptr null, ptr %98, align 8, !noalias !104
   store ptr @anon.48b364105262d98143e18c033d61e33e.2, ptr %99, align 8, !noalias !104
   store i64 0, ptr %100, align 8, !noalias !104
@@ -1274,7 +1281,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h75ffbf7bbedb93daE.exit378
   br i1 %317, label %330, label %.critedge322.i.i
 
 .critedge322.i.i:                                 ; preds = %340, %318, %_ZN12tracing_core8callsite15DefaultCallsite8interest17h75ffbf7bbedb93daE.exit378.i.i, %311, %"_ZN62_$LT$core..time..Duration$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h0113a959e2ea9a8eE.exit.thread.i.i"
-  %.sroa.3532.0.copyload.i.i = load ptr, ptr %.sroa.3532.0..sroa_idx.i.i, align 8, !noalias !104, !nonnull !17, !noundef !17
+  %.sroa.3532.0.copyload.i.i = load ptr, ptr %.sroa.3532.0..sroa_idx.i.i, align 8, !noalias !104, !nonnull !17, !align !18, !noundef !17
   %.sroa.4533.0.copyload.i.i = load i8, ptr %.sroa.4533.0..sroa_idx.i.i, align 8, !noalias !104
   %319 = getelementptr inbounds nuw i8, ptr %.sroa.3532.0.copyload.i.i, i64 4
   %320 = trunc nuw i8 %.sroa.4533.0.copyload.i.i to i1
@@ -1333,6 +1340,7 @@ _ZN3std4sync6poison4Flag4done17h5bffa24fa61aa5e0E.llvm.14408593437386099104.exit
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %15), !noalias !104
   store ptr @anon.48b364105262d98143e18c033d61e33e.43, ptr %15, align 8, !noalias !104
   store i64 1, ptr %102, align 8, !noalias !104
+  call void @llvm.assume(i1 true) [ "align"(ptr null, i64 8) ]
   store ptr null, ptr %103, align 8, !noalias !104
   store ptr @anon.48b364105262d98143e18c033d61e33e.2, ptr %104, align 8, !noalias !104
   store i64 0, ptr %105, align 8, !noalias !104
@@ -1446,6 +1454,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h75ffbf7bbedb93daE.exit396
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %18), !noalias !104
   store ptr @anon.48b364105262d98143e18c033d61e33e.46, ptr %18, align 8, !noalias !104
   store i64 1, ptr %106, align 8, !noalias !104
+  call void @llvm.assume(i1 true) [ "align"(ptr null, i64 8) ]
   store ptr null, ptr %107, align 8, !noalias !104
   store ptr @anon.48b364105262d98143e18c033d61e33e.2, ptr %108, align 8, !noalias !104
   store i64 0, ptr %109, align 8, !noalias !104
@@ -1526,6 +1535,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h75ffbf7bbedb93daE.exit405
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %24), !noalias !104
   store ptr @anon.48b364105262d98143e18c033d61e33e.46, ptr %24, align 8, !noalias !104
   store i64 1, ptr %110, align 8, !noalias !104
+  call void @llvm.assume(i1 true) [ "align"(ptr null, i64 8) ]
   store ptr null, ptr %111, align 8, !noalias !104
   store ptr @anon.48b364105262d98143e18c033d61e33e.2, ptr %112, align 8, !noalias !104
   store i64 0, ptr %113, align 8, !noalias !104
@@ -1681,6 +1691,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h75ffbf7bbedb93daE.exit421
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %12), !noalias !104
   store ptr @anon.48b364105262d98143e18c033d61e33e.50, ptr %12, align 8, !noalias !104
   store i64 1, ptr %93, align 8, !noalias !104
+  call void @llvm.assume(i1 true) [ "align"(ptr null, i64 8) ]
   store ptr null, ptr %94, align 8, !noalias !104
   store ptr @anon.48b364105262d98143e18c033d61e33e.2, ptr %95, align 8, !noalias !104
   store i64 0, ptr %96, align 8, !noalias !104
@@ -1772,6 +1783,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h75ffbf7bbedb93daE.exit437
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %33), !noalias !104
   store ptr @anon.48b364105262d98143e18c033d61e33e.46, ptr %33, align 8, !noalias !104
   store i64 1, ptr %114, align 8, !noalias !104
+  call void @llvm.assume(i1 true) [ "align"(ptr null, i64 8) ]
   store ptr null, ptr %115, align 8, !noalias !104
   store ptr @anon.48b364105262d98143e18c033d61e33e.2, ptr %116, align 8, !noalias !104
   store i64 0, ptr %117, align 8, !noalias !104
@@ -1825,6 +1837,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h75ffbf7bbedb93daE.exit437
 469:                                              ; preds = %464
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %31), !noalias !104
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %31, ptr noundef nonnull align 8 dereferenceable(24) %32, i64 24, i1 false), !noalias !104
+  call void @llvm.assume(i1 true) [ "align"(ptr null, i64 1) ]
   store i8 1, ptr @_ZN8async_io6driver8block_on10IO_POLLING7__getit3VAL17h7f4766a92789bb9eE, align 1, !noalias !104
   %470 = invoke noundef ptr @_ZN8async_io7reactor11ReactorLock5react17hff79c4bca079fbf6E(ptr noalias noundef nonnull align 8 dereferenceable(24) %31, i64 0, i32 noundef 0)
           to label %471 unwind label %467, !noalias !104

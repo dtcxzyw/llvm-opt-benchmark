@@ -696,6 +696,7 @@ define hidden noundef zeroext i1 @"_ZN4core3ops8function6FnOnce40call_once$u7b$$
   %3 = getelementptr i8, ptr %0, i64 8
   %.val1 = load ptr, ptr %3, align 8
   %4 = load ptr, ptr %.val, align 8, !noalias !176, !nonnull !15, !align !71, !noundef !15
+  call void @llvm.assume(i1 true) [ "align"(ptr null, i64 8) ]
   store ptr null, ptr %.val, align 8, !noalias !176
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 80
   %6 = load ptr, ptr %5, align 8, !noalias !179, !noundef !15
@@ -1174,7 +1175,7 @@ default.unreachable:                              ; preds = %2
   tail call void @llvm.experimental.noalias.scope.decl(metadata !242), !noalias !245
   tail call void @llvm.experimental.noalias.scope.decl(metadata !246), !noalias !245
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %27 = load ptr, ptr %26, align 8, !alias.scope !248, !noalias !249, !nonnull !15, !noundef !15
+  %27 = load ptr, ptr %26, align 8, !alias.scope !248, !noalias !249, !nonnull !15, !align !71, !noundef !15
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %29 = load i64, ptr %28, align 8, !alias.scope !248, !noalias !249, !noundef !15
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -2640,6 +2641,7 @@ define hidden noundef zeroext i1 @"_ZN9once_cell3imp17OnceCell$LT$T$GT$10initial
   %.sroa.5 = alloca [64 x i8], align 8
   %3 = load ptr, ptr %0, align 8, !nonnull !15, !align !71, !noundef !15
   %4 = load ptr, ptr %3, align 8, !nonnull !15, !align !71, !noundef !15
+  call void @llvm.assume(i1 true) [ "align"(ptr null, i64 8) ]
   store ptr null, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 80
   %6 = load ptr, ptr %5, align 8, !noalias !472, !noundef !15

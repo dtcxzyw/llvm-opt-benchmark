@@ -141,6 +141,7 @@ define void @"_ZN74_$LT$hyper..upgrade..OnUpgrade$u20$as$u20$core..future..futur
   br i1 %7, label %8, label %11
 
 8:                                                ; preds = %3
+  call void @llvm.assume(i1 true) [ "align"(ptr null, i64 1) ]
   %9 = tail call noundef nonnull align 8 ptr @_ZN5alloc5alloc15exchange_malloc17hbe31f2048284b3faE.llvm.15489473380671106129(i64 noundef 24, i64 noundef 8), !noalias !59
   store ptr null, ptr %9, align 8
   %.sroa.41.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %9, i64 16
@@ -184,6 +185,7 @@ _ZN3std3sys4unix5locks11futex_mutex5Mutex4lock17h2824c483f8557e8fE.exit: ; preds
 
 25:                                               ; preds = %"_ZN3std4sync5mutex19MutexGuard$LT$T$GT$3new17he50ff36318313e8aE.exit"
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4), !noalias !65
+  call void @llvm.assume(i1 true) [ "align"(ptr %12, i64 8) ]
   store ptr %12, ptr %4, align 8, !noalias !65
   %26 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i8 %.0.i.i.i, ptr %26, align 8, !noalias !65
@@ -210,6 +212,7 @@ common.resume:                                    ; preds = %34, %27
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h33b222dedd73d0cdE.exit": ; preds = %"_ZN3std4sync5mutex19MutexGuard$LT$T$GT$3new17he50ff36318313e8aE.exit"
+  call void @llvm.assume(i1 true) [ "align"(ptr %12, i64 8) ]
   %32 = getelementptr inbounds nuw i8, ptr %6, i64 24
   invoke void @"_ZN88_$LT$tokio..sync..oneshot..Receiver$LT$T$GT$$u20$as$u20$core..future..future..Future$GT$4poll17ha1c3207cbce60fc9E"(ptr noalias nocapture noundef nonnull sret({ i64, [6 x i64] }) align 8 dereferenceable(56) %5, ptr noalias noundef nonnull align 8 dereferenceable(8) %32, ptr noalias noundef nonnull align 8 dereferenceable(8) %2)
           to label %36 unwind label %34
@@ -220,6 +223,7 @@ common.resume:                                    ; preds = %34, %27
 34:                                               ; preds = %.noexc, %42, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h33b222dedd73d0cdE.exit"
   %35 = landingpad { ptr, i32 }
           cleanup
+  call void @llvm.assume(i1 true) [ "align"(ptr %12, i64 8) ]
   invoke fastcc void @"_ZN4core3ptr169drop_in_place$LT$std..sync..mutex..MutexGuard$LT$tokio..sync..oneshot..Receiver$LT$core..result..Result$LT$hyper..upgrade..Upgraded$C$hyper..error..Error$GT$$GT$$GT$$GT$17h2f6c31385455227aE"(ptr nonnull %12, i8 %.0.i.i.i) #11
           to label %common.resume unwind label %61
 
@@ -243,6 +247,7 @@ common.resume:                                    ; preds = %34, %27
   br i1 %41, label %46, label %45
 
 42:                                               ; preds = %39
+  call void @llvm.assume(i1 true) [ "align"(ptr null, i64 1) ]
   %43 = invoke noundef nonnull align 8 ptr @_ZN5alloc5alloc15exchange_malloc17hbe31f2048284b3faE.llvm.15489473380671106129(i64 noundef 24, i64 noundef 8)
           to label %.noexc unwind label %34
 
@@ -258,6 +263,7 @@ common.resume:                                    ; preds = %34, %27
   br label %"_ZN74_$LT$hyper..upgrade..OnUpgrade$u20$as$u20$core..future..future..Future$GT$4poll28_$u7b$$u7b$closure$u7d$$u7d$17h602be501d17ab61aE.exit"
 
 46:                                               ; preds = %40
+  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.528.0.copyload, i64 8) ]
   %47 = icmp ne ptr %.sroa.528.0.copyload, null
   tail call void @llvm.assume(i1 %47)
   br label %"_ZN74_$LT$hyper..upgrade..OnUpgrade$u20$as$u20$core..future..future..Future$GT$4poll28_$u7b$$u7b$closure$u7d$$u7d$17h602be501d17ab61aE.exit"
@@ -280,6 +286,7 @@ common.resume:                                    ; preds = %34, %27
   br label %50
 
 50:                                               ; preds = %"_ZN74_$LT$hyper..upgrade..OnUpgrade$u20$as$u20$core..future..future..Future$GT$4poll28_$u7b$$u7b$closure$u7d$$u7d$17h602be501d17ab61aE.exit", %48
+  call void @llvm.assume(i1 true) [ "align"(ptr %12, i64 8) ]
   %51 = trunc nuw i8 %.0.i.i.i to i1
   br i1 %51, label %_ZN3std4sync6poison4Flag4done17h5bffa24fa61aa5e0E.exit.i.i, label %52
 

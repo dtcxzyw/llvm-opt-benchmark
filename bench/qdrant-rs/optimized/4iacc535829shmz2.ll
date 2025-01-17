@@ -1658,6 +1658,7 @@ define void @_ZN6sparse5index12posting_list11PostingList4from17hf09543c46381d0a4
   %.019.i = phi float [ %45, %.lr.ph.i ], [ 0xFFF0000000000000, %.lr.ph.preheader.i ]
   %.sroa.4.018.i = phi ptr [ %41, %.lr.ph.i ], [ %40, %.lr.ph.preheader.i ]
   %41 = getelementptr inbounds i8, ptr %.sroa.4.018.i, i64 -12
+  call void @llvm.assume(i1 true) [ "align"(ptr %41, i64 4) ]
   %42 = getelementptr inbounds i8, ptr %.sroa.4.018.i, i64 -4
   store float %.019.i, ptr %42, align 4, !noalias !228
   %43 = getelementptr inbounds i8, ptr %.sroa.4.018.i, i64 -8
@@ -1673,6 +1674,7 @@ define void @_ZN6sparse5index12posting_list11PostingList4from17hf09543c46381d0a4
   unreachable
 
 .loopexit:                                        ; preds = %.lr.ph.i, %38
+  call void @llvm.assume(i1 true) [ "align"(ptr null, i64 4) ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false), !alias.scope !228
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8)
@@ -1828,7 +1830,7 @@ define void @_ZN6sparse5index12posting_list11PostingList6upsert17h63af1831e8aac7
   %41 = icmp ne ptr %.val13, null
   tail call void @llvm.assume(i1 %41)
   %42 = icmp eq i64 %.sroa.7.0.ph, 0
-  br i1 %42, label %_ZN6sparse5index12posting_list11PostingList37propagate_max_next_weight_to_the_left17hec35d9b5ff6b23dcE.exit, label %.lr.ph.preheader.i
+  br i1 %42, label %"_ZN109_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h944707d44ea2b5daE.exit.thread.i", label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h7d28550995aaff86E.exit.i"
   %43 = getelementptr inbounds [0 x { i32, float, float }], ptr %.val13, i64 0, i64 %.sroa.7.0.ph
@@ -1850,21 +1852,27 @@ define void @_ZN6sparse5index12posting_list11PostingList6upsert17h63af1831e8aac7
   tail call void @_ZN4core9panicking18panic_bounds_check17he5254f424ac3a4c4E(i64 noundef %.sroa.7.0.ph, i64 noundef %.val14, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.81e6ab35a181dc861ce075a8d33b6c5d.16) #32
   unreachable
 
-.lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
-  %.04.i = phi float [ %59, %.lr.ph.i ], [ %.0.sroa.speculated.i.i, %.lr.ph.preheader.i ]
-  %.sroa.4.03.i = phi ptr [ %58, %.lr.ph.i ], [ %43, %.lr.ph.preheader.i ]
+"_ZN109_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h944707d44ea2b5daE.exit.thread.i": ; preds = %58, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h7d28550995aaff86E.exit.i"
+  call void @llvm.assume(i1 true) [ "align"(ptr null, i64 4) ]
+  br label %_ZN6sparse5index12posting_list11PostingList37propagate_max_next_weight_to_the_left17hec35d9b5ff6b23dcE.exit
+
+.lr.ph.i:                                         ; preds = %58, %.lr.ph.preheader.i
+  %.04.i = phi float [ %60, %58 ], [ %.0.sroa.speculated.i.i, %.lr.ph.preheader.i ]
+  %.sroa.4.03.i = phi ptr [ %59, %58 ], [ %43, %.lr.ph.preheader.i ]
   %54 = getelementptr inbounds i8, ptr %.sroa.4.03.i, i64 -4
   store float %.04.i, ptr %54, align 4
   %55 = getelementptr inbounds i8, ptr %.sroa.4.03.i, i64 -8
   %56 = load float, ptr %55, align 4, !noundef !10
-  %57 = fcmp oge float %56, %.04.i
-  %58 = getelementptr inbounds i8, ptr %.sroa.4.03.i, i64 -12
-  %59 = tail call float @llvm.maxnum.f32(float %.04.i, float %56)
-  %60 = icmp eq ptr %.val13, %58
-  %or.cond.i = select i1 %57, i1 true, i1 %60
-  br i1 %or.cond.i, label %_ZN6sparse5index12posting_list11PostingList37propagate_max_next_weight_to_the_left17hec35d9b5ff6b23dcE.exit, label %.lr.ph.i
+  %57 = fcmp ult float %56, %.04.i
+  br i1 %57, label %58, label %_ZN6sparse5index12posting_list11PostingList37propagate_max_next_weight_to_the_left17hec35d9b5ff6b23dcE.exit
 
-_ZN6sparse5index12posting_list11PostingList37propagate_max_next_weight_to_the_left17hec35d9b5ff6b23dcE.exit: ; preds = %.lr.ph.i, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h7d28550995aaff86E.exit.i", %32
+58:                                               ; preds = %.lr.ph.i
+  %59 = getelementptr inbounds i8, ptr %.sroa.4.03.i, i64 -12
+  %60 = tail call float @llvm.maxnum.f32(float %.04.i, float %56)
+  %61 = icmp eq ptr %.val13, %59
+  br i1 %61, label %"_ZN109_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h944707d44ea2b5daE.exit.thread.i", label %.lr.ph.i
+
+_ZN6sparse5index12posting_list11PostingList37propagate_max_next_weight_to_the_left17hec35d9b5ff6b23dcE.exit: ; preds = %.lr.ph.i, %"_ZN109_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h944707d44ea2b5daE.exit.thread.i", %32
   ret void
 }
 
@@ -1951,6 +1959,7 @@ define void @_ZN6sparse5index12posting_list14PostingBuilder5build17h5c727e63726a
   br label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %14
+  call void @llvm.assume(i1 true) [ "align"(ptr null, i64 4) ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
   ret void
 
@@ -1958,6 +1967,7 @@ define void @_ZN6sparse5index12posting_list14PostingBuilder5build17h5c727e63726a
   %.019 = phi float [ %21, %.lr.ph ], [ 0xFFF0000000000000, %.lr.ph.preheader ]
   %.sroa.4.018 = phi ptr [ %17, %.lr.ph ], [ %16, %.lr.ph.preheader ]
   %17 = getelementptr inbounds i8, ptr %.sroa.4.018, i64 -12
+  call void @llvm.assume(i1 true) [ "align"(ptr %17, i64 4) ]
   %18 = getelementptr inbounds i8, ptr %.sroa.4.018, i64 -4
   store float %.019, ptr %18, align 4
   %19 = getelementptr inbounds i8, ptr %.sroa.4.018, i64 -8
@@ -2122,6 +2132,7 @@ define noundef align 4 dereferenceable_or_null(12) ptr @_ZN6sparse5index12postin
 
 29:                                               ; preds = %.loopexit, %26, %2
   %.0 = phi ptr [ null, %2 ], [ null, %.loopexit ], [ %27, %26 ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %.0, i64 4) ]
   ret ptr %.0
 }
 

@@ -1571,7 +1571,7 @@ if.then2:                                         ; preds = %if.then
   br i1 %6, label %switch.lookup, label %_ZN4node10cares_wrap17ToErrorCodeStringEi.exit
 
 switch.lookup:                                    ; preds = %if.then2
-  %switch.tableidx = add i32 %call, -1
+  %switch.tableidx = add nsw i32 %call, -1
   %7 = sext i32 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds [24 x ptr], ptr @switch.table._ZN4node10cares_wrap9QueryWrapINS0_13ReverseTraitsEE10ParseErrorEi, i64 0, i64 %7
   %switch.load = load ptr, ptr %switch.gep, align 8
@@ -1617,7 +1617,7 @@ if.then8:                                         ; preds = %if.end5
   br i1 %12, label %switch.lookup41, label %_ZN4node10cares_wrap17ToErrorCodeStringEi.exit31
 
 switch.lookup41:                                  ; preds = %if.then8
-  %switch.tableidx42 = add i32 %call6, -1
+  %switch.tableidx42 = add nsw i32 %call6, -1
   %13 = sext i32 %switch.tableidx42 to i64
   %switch.gep43 = getelementptr inbounds [24 x ptr], ptr @switch.table._ZN4node10cares_wrap9QueryWrapINS0_13ReverseTraitsEE10ParseErrorEi, i64 0, i64 %13
   %switch.load44 = load ptr, ptr %switch.gep43, align 8

@@ -137,6 +137,7 @@ _ZN3std4sync6poison4Flag4done17h5bffa24fa61aa5e0E.exit.i.i: ; preds = %38, %.noe
   br i1 %.not, label %47, label %44
 
 44:                                               ; preds = %"_ZN4core3ptr81drop_in_place$LT$std..sync..mutex..MutexGuard$LT$async_executor..Sleepers$GT$$GT$17heb022e5d62b48961E.exit"
+  call void @llvm.assume(i1 true) [ "align"(ptr %.fca.0.extract1, i64 8) ]
   %45 = getelementptr inbounds nuw i8, ptr %.fca.0.extract1, i64 8
   %46 = load ptr, ptr %45, align 8, !nonnull !10, !noundef !10
   tail call void %46(ptr noundef %.fca.1.extract2)
@@ -146,6 +147,7 @@ _ZN3std4sync6poison4Flag4done17h5bffa24fa61aa5e0E.exit.i.i: ; preds = %38, %.noe
   ret void
 
 48:                                               ; preds = %42
+  call void @llvm.assume(i1 true) [ "align"(ptr %.fca.0.extract1, i64 8) ]
   %49 = getelementptr inbounds nuw i8, ptr %.fca.0.extract1, i64 24
   %50 = load ptr, ptr %49, align 8, !nonnull !10, !noundef !10
   invoke void %50(ptr noundef %.fca.1.extract2)
@@ -333,6 +335,7 @@ _ZN3std4sync6poison4Flag5guard17h47496af5b61686c3E.llvm.17208988669928403088.exi
 
 26:                                               ; preds = %25
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4), !noalias !14
+  call void @llvm.assume(i1 true) [ "align"(ptr %12, i64 8) ]
   store ptr %12, ptr %4, align 8, !noalias !14
   %27 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i8 %.0.i.i.i, ptr %27, align 8, !noalias !14
@@ -355,6 +358,7 @@ _ZN3std4sync6poison4Flag5guard17h47496af5b61686c3E.llvm.17208988669928403088.exi
   unreachable
 
 33:                                               ; preds = %25
+  call void @llvm.assume(i1 true) [ "align"(ptr %12, i64 8) ]
   %34 = getelementptr inbounds nuw i8, ptr %11, i64 744
   %35 = load i64, ptr %34, align 8, !noundef !10
   %36 = invoke noundef align 8 dereferenceable(8) ptr @_ZN14async_executor8Executor5state17h87e19c1abb7a92d7E(ptr noundef nonnull align 8 %0)
@@ -363,6 +367,7 @@ _ZN3std4sync6poison4Flag5guard17h47496af5b61686c3E.llvm.17208988669928403088.exi
 "_ZN4core3ptr51drop_in_place$LT$async_task..runnable..Runnable$GT$17h41e61eb678c80758E.exit": ; preds = %117, %44, %118, %116, %37
   %.2 = phi i1 [ false, %116 ], [ false, %118 ], [ false, %44 ], [ true, %37 ], [ false, %117 ]
   %.pn = phi { ptr, i32 } [ %eh.lpad-body22, %116 ], [ %119, %118 ], [ %45, %44 ], [ %38, %37 ], [ %eh.lpad-body22, %117 ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %12, i64 8) ]
   invoke fastcc void @"_ZN4core3ptr98drop_in_place$LT$std..sync..mutex..MutexGuard$LT$slab..Slab$LT$core..task..wake..Waker$GT$$GT$$GT$17h0933420ef6e14d74E"(ptr nonnull %12, i8 %.0.i.i.i) #18
           to label %9 unwind label %114
 
@@ -411,6 +416,7 @@ _ZN3std4sync6poison4Flag5guard17h47496af5b61686c3E.llvm.17208988669928403088.exi
   store ptr %47, ptr %7, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
   store ptr %47, ptr %6, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %12, i64 8) ]
   %49 = load ptr, ptr %47, align 8, !nonnull !10, !align !13, !noundef !10
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 48
   %51 = load ptr, ptr %50, align 8, !nonnull !10, !noundef !10
@@ -434,6 +440,7 @@ _ZN3std4sync6poison4Flag5guard17h47496af5b61686c3E.llvm.17208988669928403088.exi
   %57 = extractvalue { ptr, ptr } %52, 0
   %58 = extractvalue { ptr, ptr } %52, 1
   %59 = load i64, ptr %34, align 8, !noundef !10
+  call void @llvm.assume(i1 true) [ "align"(ptr %57, i64 8) ]
   %60 = icmp ne ptr %57, null
   tail call void @llvm.assume(i1 %60)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !20)
@@ -482,6 +489,7 @@ _ZN3std4sync6poison4Flag5guard17h47496af5b61686c3E.llvm.17208988669928403088.exi
   unreachable
 
 80:                                               ; preds = %66
+  call void @llvm.assume(i1 true) [ "align"(ptr %69, i64 8) ]
   %81 = load ptr, ptr %69, align 8, !noalias !31, !noundef !10
   %82 = icmp eq ptr %81, null
   br i1 %82, label %"_ZN4core3ptr63drop_in_place$LT$slab..Entry$LT$core..task..wake..Waker$GT$$GT$17hfe1f73715ddae98fE.exit.i", label %83
@@ -491,6 +499,7 @@ _ZN3std4sync6poison4Flag5guard17h47496af5b61686c3E.llvm.17208988669928403088.exi
           to label %88 unwind label %97, !noalias !31
 
 "_ZN4core3ptr63drop_in_place$LT$slab..Entry$LT$core..task..wake..Waker$GT$$GT$17hfe1f73715ddae98fE.exit.i": ; preds = %80
+  call void @llvm.assume(i1 true) [ "align"(ptr %69, i64 8) ]
   %84 = getelementptr inbounds nuw i8, ptr %69, i64 8
   %85 = load i64, ptr %84, align 8, !noalias !31, !noundef !10
   store i64 %85, ptr %34, align 8, !alias.scope !20, !noalias !23
@@ -539,6 +548,7 @@ _ZN3std4sync6poison4Flag5guard17h47496af5b61686c3E.llvm.17208988669928403088.exi
 103:                                              ; preds = %"_ZN4slab13Slab$LT$T$GT$9insert_at17hc240560d0918b05bE.exit"
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
+  call void @llvm.assume(i1 true) [ "align"(ptr %12, i64 8) ]
   %104 = trunc nuw i8 %.0.i.i.i to i1
   br i1 %104, label %_ZN3std4sync6poison4Flag4done17h5bffa24fa61aa5e0E.exit.i.i, label %105
 
@@ -1132,7 +1142,7 @@ define hidden void @"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h3b7b60c4dc814
   resume { ptr, i32 } %10
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(readwrite, inaccessiblemem: write) uwtable
 define hidden { ptr, ptr } @"_ZN4slab13Slab$LT$T$GT$10try_remove17h8b15e882417c2670E"(ptr noalias nocapture noundef align 8 dereferenceable(40) %0, i64 noundef %1) unnamed_addr #5 personality ptr @rust_eh_personality {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i64, ptr %3, align 8, !noundef !10
@@ -1143,6 +1153,7 @@ define hidden { ptr, ptr } @"_ZN4slab13Slab$LT$T$GT$10try_remove17h8b15e882417c2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8, !nonnull !10
   %8 = getelementptr inbounds { ptr, [1 x i64] }, ptr %7, i64 %1
+  call void @llvm.assume(i1 true) [ "align"(ptr %8, i64 8) ]
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %10 = load i64, ptr %9, align 8, !noundef !10
   %.sroa.02.0.copyload = load ptr, ptr %8, align 8
@@ -1154,6 +1165,7 @@ define hidden { ptr, ptr } @"_ZN4slab13Slab$LT$T$GT$10try_remove17h8b15e882417c2
   br i1 %.not18, label %18, label %11
 
 11:                                               ; preds = %5
+  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.02.0.copyload, i64 8) ]
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %13 = load i64, ptr %12, align 8, !noundef !10
   %14 = add i64 %13, -1
@@ -1420,7 +1432,7 @@ attributes #1 = { nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x
 attributes #2 = { inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #3 = { inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #4 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
-attributes #5 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(readwrite, inaccessiblemem: none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
+attributes #5 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(readwrite, inaccessiblemem: write) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #6 = { inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #7 = { inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #8 = { cold noreturn nounwind nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }

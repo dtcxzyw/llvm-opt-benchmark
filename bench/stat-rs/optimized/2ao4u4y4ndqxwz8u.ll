@@ -158,15 +158,19 @@ define hidden noundef nonnull align 8 dereferenceable(8) ptr @"_ZN5alloc11collec
   ret ptr %6
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden { ptr, ptr } @"_ZN5alloc11collections5btree4node171Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$NodeType$GT$$C$alloc..collections..btree..node..marker..KV$GT$6kv_mut17hb950c065e4a6766dE"(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0) unnamed_addr #4 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read, inaccessiblemem: write) uwtable
+define hidden { ptr, ptr } @"_ZN5alloc11collections5btree4node171Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$NodeType$GT$$C$alloc..collections..btree..node..marker..KV$GT$6kv_mut17hb950c065e4a6766dE"(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0) unnamed_addr #5 {
   %2 = load ptr, ptr %0, align 8, !nonnull !4, !noundef !4
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i64, ptr %4, align 8, !noundef !4
   %6 = getelementptr inbounds double, ptr %3, i64 %5
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 96
+  call void @llvm.assume(i1 true) [ "align"(ptr %7, i64 8) ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %7, i64 8) ]
   %8 = getelementptr inbounds i64, ptr %7, i64 %5
+  call void @llvm.assume(i1 true) [ "align"(ptr %6, i64 8) ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %8, i64 8) ]
   %9 = insertvalue { ptr, ptr } poison, ptr %6, 0
   %10 = insertvalue { ptr, ptr } %9, ptr %8, 1
   ret { ptr, ptr } %10
@@ -182,7 +186,11 @@ define hidden { ptr, ptr } @"_ZN5alloc11collections5btree4node173Handle$LT$alloc
   tail call void @llvm.assume(i1 %6)
   %7 = getelementptr inbounds nuw double, ptr %3, i64 %5
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 96
+  call void @llvm.assume(i1 true) [ "align"(ptr %8, i64 8) ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %8, i64 8) ]
   %9 = getelementptr inbounds nuw i64, ptr %8, i64 %5
+  call void @llvm.assume(i1 true) [ "align"(ptr %7, i64 8) ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %9, i64 8) ]
   %10 = insertvalue { ptr, ptr } poison, ptr %7, 0
   %11 = insertvalue { ptr, ptr } %10, ptr %9, 1
   ret { ptr, ptr } %11
@@ -198,7 +206,11 @@ define hidden { ptr, ptr } @"_ZN5alloc11collections5btree4node173Handle$LT$alloc
   tail call void @llvm.assume(i1 %6)
   %7 = getelementptr inbounds nuw double, ptr %3, i64 %5
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 96
+  call void @llvm.assume(i1 true) [ "align"(ptr %8, i64 8) ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %8, i64 8) ]
   %9 = getelementptr inbounds nuw i64, ptr %8, i64 %5
+  call void @llvm.assume(i1 true) [ "align"(ptr %7, i64 8) ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %9, i64 8) ]
   %10 = insertvalue { ptr, ptr } poison, ptr %7, 0
   %11 = insertvalue { ptr, ptr } %10, ptr %9, 1
   ret { ptr, ptr } %11
@@ -1098,7 +1110,11 @@ _ZN5alloc11collections5btree4node13move_to_slice17h667d6feae92a23c6E.exit: ; pre
   %42 = getelementptr inbounds nuw i8, ptr %.val61, i64 8
   %43 = getelementptr inbounds double, ptr %42, i64 %.val62
   %44 = getelementptr inbounds nuw i8, ptr %.val61, i64 96
+  call void @llvm.assume(i1 true) [ "align"(ptr %44, i64 8) ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %44, i64 8) ]
   %45 = getelementptr inbounds i64, ptr %44, i64 %.val62
+  call void @llvm.assume(i1 true) [ "align"(ptr %43, i64 8) ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %45, i64 8) ]
   %46 = load double, ptr %43, align 8, !noundef !4
   store double %38, ptr %43, align 8
   %47 = load i64, ptr %45, align 8, !noundef !4
@@ -1200,7 +1216,11 @@ _ZN5alloc11collections5btree4node13move_to_slice17h667d6feae92a23c6E.exit: ; pre
   %28 = getelementptr inbounds nuw i8, ptr %.val66, i64 8
   %29 = getelementptr inbounds double, ptr %28, i64 %.val67
   %30 = getelementptr inbounds nuw i8, ptr %.val66, i64 96
+  call void @llvm.assume(i1 true) [ "align"(ptr %30, i64 8) ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %30, i64 8) ]
   %31 = getelementptr inbounds i64, ptr %30, i64 %.val67
+  call void @llvm.assume(i1 true) [ "align"(ptr %29, i64 8) ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %31, i64 8) ]
   %32 = load double, ptr %29, align 8, !noundef !4
   store double %23, ptr %29, align 8
   %33 = load i64, ptr %31, align 8, !noundef !4
@@ -2047,7 +2067,11 @@ define hidden void @"_ZN5alloc11collections5btree6remove269_$LT$impl$u20$alloc..
   %51 = getelementptr inbounds nuw i8, ptr %.sroa.08.0.i, i64 8
   %52 = getelementptr inbounds double, ptr %51, i64 %.sroa.610.sroa.4.0.i
   %53 = getelementptr inbounds nuw i8, ptr %.sroa.08.0.i, i64 96
+  call void @llvm.assume(i1 true) [ "align"(ptr %53, i64 8) ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %53, i64 8) ]
   %54 = getelementptr inbounds i64, ptr %53, i64 %.sroa.610.sroa.4.0.i
+  call void @llvm.assume(i1 true) [ "align"(ptr %52, i64 8) ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %54, i64 8) ]
   %55 = load double, ptr %52, align 8, !noalias !357, !noundef !4
   store double %34, ptr %52, align 8, !noalias !357
   %56 = load i64, ptr %54, align 8, !noalias !357, !noundef !4
@@ -2117,6 +2141,7 @@ default.unreachable.i.i:                          ; preds = %"_ZN83_$LT$statrs..
   unreachable
 
 13:                                               ; preds = %11
+  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.03.0.i.i, i64 8) ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !381)
   %14 = load double, ptr %.sroa.03.0.i.i, align 8, !alias.scope !384, !noalias !387, !noundef !4
   %15 = fcmp uno double %.val, %14

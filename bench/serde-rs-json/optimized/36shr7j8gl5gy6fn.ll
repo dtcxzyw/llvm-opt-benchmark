@@ -52,6 +52,7 @@ default.unreachable:                              ; preds = %.lr.ph37
 
 18:                                               ; preds = %.lr.ph37
   %19 = getelementptr i8, ptr %9, i64 -1
+  call void @llvm.assume(i1 true) [ "align"(ptr %19, i64 8) ]
   %20 = icmp ne ptr %19, null
   call void @llvm.assume(i1 %20)
   %21 = getelementptr i8, ptr %9, i64 15
@@ -140,6 +141,7 @@ define hidden noundef zeroext i1 @"_ZN48_$LT$$u5b$T$u5d$$u20$as$u20$core..fmt..D
 .lr.ph.i:                                         ; preds = %3, %.lr.ph.i
   %.sroa.0.05.i = phi ptr [ %8, %.lr.ph.i ], [ %0, %3 ]
   %8 = getelementptr inbounds nuw i8, ptr %.sroa.0.05.i, i64 32
+  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.0.05.i, i64 8) ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4), !noalias !30
   store ptr %.sroa.0.05.i, ptr %4, align 8, !noalias !30
   %9 = call noundef align 8 dereferenceable(16) ptr @_ZN4core3fmt8builders9DebugList5entry17h2ed5a4f4153b90ddE(ptr noalias noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 1 %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f288aba1288e7a615443dffa1f18fa93.3.llvm.17788874430417167)
@@ -148,6 +150,7 @@ define hidden noundef zeroext i1 @"_ZN48_$LT$$u5b$T$u5d$$u20$as$u20$core..fmt..D
   br i1 %10, label %_ZN4core3fmt8builders9DebugList7entries17h98a615cf2a9210e6E.exit, label %.lr.ph.i
 
 _ZN4core3fmt8builders9DebugList7entries17h98a615cf2a9210e6E.exit: ; preds = %.lr.ph.i, %3
+  call void @llvm.assume(i1 true) [ "align"(ptr null, i64 8) ]
   %11 = call noundef zeroext i1 @_ZN4core3fmt8builders9DebugList6finish17hadbed7078d8807f7E(ptr noalias noundef nonnull align 8 dereferenceable(16) %5)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
   ret i1 %11
@@ -408,8 +411,9 @@ define hidden void @"_ZN5alloc11collections5btree8navigate75LazyLeafRange$LT$all
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(inaccessiblemem: write) uwtable
 define hidden noalias noundef align 8 ptr @"_ZN68_$LT$serde..de..impls..UnitVisitor$u20$as$u20$serde..de..Visitor$GT$10visit_unit17h14bb56ec77c06779E.llvm.12841644863924027351"() unnamed_addr #7 {
+  call void @llvm.assume(i1 true) [ "align"(ptr null, i64 8) ]
   ret ptr null
 }
 
@@ -465,7 +469,7 @@ define noundef zeroext i1 @"_ZN179_$LT$$LT$serde_json..map..Map$LT$alloc..string
 define noundef nonnull align 8 dereferenceable(24) ptr @_ZN10serde_json3map5Entry3key17h6bd5d69f5952b80aE(ptr noalias noundef readonly align 8 dereferenceable(56) %0) unnamed_addr #9 {
   %2 = load i64, ptr %0, align 8, !range !50, !noundef !10
   %3 = icmp eq i64 %2, -9223372036854775808
-  br i1 %3, label %4, label %12
+  br i1 %3, label %4, label %13
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -476,9 +480,13 @@ define noundef nonnull align 8 dereferenceable(24) ptr @_ZN10serde_json3map5Entr
   %10 = icmp ult i64 %8, 11
   tail call void @llvm.assume(i1 %10)
   %11 = getelementptr inbounds nuw { [3 x i64] }, ptr %9, i64 %8
-  br label %12
+  %12 = getelementptr inbounds nuw { [4 x i64] }, ptr %6, i64 %8
+  call void @llvm.assume(i1 true) [ "align"(ptr %11, i64 8) ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %12, i64 8) ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %11, i64 8) ]
+  br label %13
 
-12:                                               ; preds = %1, %4
+13:                                               ; preds = %1, %4
   %.0 = phi ptr [ %11, %4 ], [ %0, %1 ]
   ret ptr %.0
 }
@@ -520,31 +528,35 @@ define hidden noundef align 8 ptr @"_ZN10serde_json5value2de78_$LT$impl$u20$serd
   %2 = alloca {}, align 1
   %3 = load i8, ptr %0, align 8, !range !33, !noundef !10
   %4 = icmp eq i8 %3, 0
-  br i1 %4, label %9, label %5
+  br i1 %4, label %5, label %6
 
 5:                                                ; preds = %1
-  %6 = invoke noundef nonnull align 8 ptr @"_ZN10serde_json5value2de42_$LT$impl$u20$serde_json..value..Value$GT$12invalid_type17h76010d995c7009dbE.llvm.12841644863924027351"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %0, ptr noundef nonnull align 1 %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.26c0cb6590748a1386405b514f6d4bfd.8.llvm.12841644863924027351)
-          to label %9 unwind label %7
+  call void @llvm.assume(i1 true) [ "align"(ptr null, i64 8) ]
+  br label %10
 
-7:                                                ; preds = %5
-  %8 = landingpad { ptr, i32 }
+6:                                                ; preds = %1
+  %7 = invoke noundef nonnull align 8 ptr @"_ZN10serde_json5value2de42_$LT$impl$u20$serde_json..value..Value$GT$12invalid_type17h76010d995c7009dbE.llvm.12841644863924027351"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %0, ptr noundef nonnull align 1 %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.26c0cb6590748a1386405b514f6d4bfd.8.llvm.12841644863924027351)
+          to label %10 unwind label %8
+
+8:                                                ; preds = %6
+  %9 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr45drop_in_place$LT$serde_json..value..Value$GT$17h2104f8452adb367aE.llvm.12841644863924027351"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0) #19
-          to label %12 unwind label %10
+          to label %13 unwind label %11
 
-9:                                                ; preds = %1, %5
-  %.0 = phi ptr [ %6, %5 ], [ null, %1 ]
+10:                                               ; preds = %5, %6
+  %.0 = phi ptr [ null, %5 ], [ %7, %6 ]
   call void @"_ZN4core3ptr45drop_in_place$LT$serde_json..value..Value$GT$17h2104f8452adb367aE.llvm.12841644863924027351"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0)
   ret ptr %.0
 
-10:                                               ; preds = %7
-  %11 = landingpad { ptr, i32 }
+11:                                               ; preds = %8
+  %12 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #20
   unreachable
 
-12:                                               ; preds = %7
-  resume { ptr, i32 } %8
+13:                                               ; preds = %8
+  resume { ptr, i32 } %9
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -552,14 +564,18 @@ define hidden noundef align 8 ptr @"_ZN10serde_json5value2de82_$LT$impl$u20$serd
   %2 = alloca {}, align 1
   %3 = load i8, ptr %0, align 8, !range !33, !noundef !10
   %4 = icmp eq i8 %3, 0
-  br i1 %4, label %7, label %5
+  br i1 %4, label %5, label %6
 
 5:                                                ; preds = %1
-  %6 = call noundef nonnull align 8 ptr @"_ZN10serde_json5value2de42_$LT$impl$u20$serde_json..value..Value$GT$12invalid_type17h76010d995c7009dbE.llvm.12841644863924027351"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %0, ptr noundef nonnull align 1 %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.26c0cb6590748a1386405b514f6d4bfd.8.llvm.12841644863924027351)
-  br label %7
+  call void @llvm.assume(i1 true) [ "align"(ptr null, i64 8) ]
+  br label %8
 
-7:                                                ; preds = %1, %5
-  %.0 = phi ptr [ %6, %5 ], [ null, %1 ]
+6:                                                ; preds = %1
+  %7 = call noundef nonnull align 8 ptr @"_ZN10serde_json5value2de42_$LT$impl$u20$serde_json..value..Value$GT$12invalid_type17h76010d995c7009dbE.llvm.12841644863924027351"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %0, ptr noundef nonnull align 1 %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.26c0cb6590748a1386405b514f6d4bfd.8.llvm.12841644863924027351)
+  br label %8
+
+8:                                                ; preds = %5, %6
+  %.0 = phi ptr [ null, %5 ], [ %7, %6 ]
   ret ptr %.0
 }
 
@@ -676,7 +692,7 @@ attributes #3 = { inlinehint mustprogress nofree norecurse nosync nounwind nonla
 attributes #4 = { inlinehint nofree norecurse nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #5 = { nofree norecurse nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #6 = { nofree norecurse nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: write) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
-attributes #7 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
+attributes #7 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(inaccessiblemem: write) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #8 = { mustprogress nofree nounwind nonlazybind willreturn memory(argmem: read) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #9 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read, inaccessiblemem: write) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #10 = { cold nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }

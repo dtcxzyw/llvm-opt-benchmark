@@ -198,6 +198,7 @@ define void @_ZN12grep_printer4json10SubMatches3new17hc057495b62827390E(ptr noal
           to label %53 unwind label %51
 
 ._crit_edge:                                      ; preds = %44, %20
+  call void @llvm.assume(i1 true) [ "align"(ptr null, i64 8) ]
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %27, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false)
   store i64 2, ptr %0, align 8
@@ -208,6 +209,7 @@ define void @_ZN12grep_printer4json10SubMatches3new17hc057495b62827390E(ptr noal
   %28 = phi i64 [ %49, %44 ], [ 0, %20 ]
   %.sroa.0.033 = phi ptr [ %29, %44 ], [ %3, %20 ]
   %29 = getelementptr inbounds nuw i8, ptr %.sroa.0.033, i64 16
+  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.0.033, i64 8) ]
   %30 = load i64, ptr %.sroa.0.033, align 8, !noundef !8
   %31 = getelementptr inbounds nuw i8, ptr %.sroa.0.033, i64 8
   %32 = load i64, ptr %31, align 8, !noundef !8
@@ -280,7 +282,7 @@ define void @_ZN12grep_printer4json10SubMatches5empty17h3cd8f2c49c978b89E(ptr no
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read, inaccessiblemem: write) uwtable
 define { ptr, i64 } @_ZN12grep_printer4json10SubMatches8as_slice17h4535112f120692a8E(ptr noalias noundef readonly align 8 dereferenceable(40) %0) unnamed_addr #5 {
   %2 = load i64, ptr %0, align 8, !range !17, !noundef !8
   switch i64 %2, label %default.unreachable5 [
@@ -306,6 +308,7 @@ default.unreachable5:                             ; preds = %1
 10:                                               ; preds = %1, %5, %3
   %.sroa.4.0 = phi i64 [ %9, %5 ], [ 1, %3 ], [ %2, %1 ]
   %.sroa.0.0 = phi ptr [ %7, %5 ], [ %4, %3 ], [ @anon.e5a21969a08b2e51c219523ba678c9c3.12, %1 ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.0.0, i64 8) ]
   %11 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
   %12 = insertvalue { ptr, i64 } %11, i64 %.sroa.4.0, 1
   ret { ptr, i64 } %12
@@ -355,7 +358,7 @@ attributes #1 = { nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x
 attributes #2 = { mustprogress nofree nounwind nonlazybind willreturn memory(argmem: read) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #3 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(inaccessiblemem: write) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #4 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
-attributes #5 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
+attributes #5 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read, inaccessiblemem: write) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #6 = { cold noreturn nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #8 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }

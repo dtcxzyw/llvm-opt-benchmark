@@ -1115,7 +1115,6 @@ for.cond15.i2137.i:                               ; preds = %for.body19.i2141.i,
   br i1 %cmp17.i2139.i, label %for.body19.i2141.i, label %cond.false40.i260.i
 
 for.body19.i2141.i:                               ; preds = %for.cond15.i2137.i
-  call void @llvm.assume(i1 true) [ "align"(ptr %buf.addr.i2121.1.idx.sroa.phi.i, i64 16) ]
   %102 = load <16 x i8>, ptr %buf.addr.i2121.1.idx.sroa.phi.i, align 16
   %cmp.i3681.i = icmp eq <16 x i8> %vecinit15.i2881.i, %102
   %103 = bitcast <16 x i1> %cmp.i3681.i to i16
@@ -1123,7 +1122,7 @@ for.body19.i2141.i:                               ; preds = %for.cond15.i2137.i
   br i1 %tobool29.i2147.not.i, label %for.cond15.i2137.i, label %cond.end30.i254.i, !llvm.loop !8
 
 cond.end30.i254.i:                                ; preds = %for.body19.i2141.i
-  %104 = call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %103, i1 true)
+  %104 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %103, i1 true)
   %idx.ext39.i2155.i = zext nneg i16 %104 to i64
   %add.ptr40.i2156.i = getelementptr inbounds nuw i8, ptr %buf.addr.i2121.1.idx.sroa.phi.i, i64 %idx.ext39.i2155.i
   br label %run_hwlm_accel.exit117.i
@@ -1134,7 +1133,7 @@ cond.false40.i260.i:                              ; preds = %for.cond15.i2137.i
   %cmp.i3809.i = icmp eq <16 x i8> %vecinit15.i2881.i, %105
   %106 = bitcast <16 x i1> %cmp.i3809.i to i16
   %tobool3.i1444.not.i = icmp eq i16 %106, 0
-  %107 = call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %106, i1 true)
+  %107 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %106, i1 true)
   %idx.ext.i1451.i = zext nneg i16 %107 to i64
   %add.ptr.i1452.i = getelementptr inbounds nuw i8, ptr %add.ptr41.i261.i, i64 %idx.ext.i1451.i
   %cond49.i268.i = select i1 %tobool3.i1444.not.i, ptr %add.ptr39.i, ptr %add.ptr.i1452.i
@@ -1153,7 +1152,6 @@ for.cond18.i1685.i:                               ; preds = %for.body22.i1689.i,
   br i1 %cmp20.i1687.i, label %for.body22.i1689.i, label %cond.true37.i349.i
 
 for.body22.i1689.i:                               ; preds = %for.cond18.i1685.i
-  call void @llvm.assume(i1 true) [ "align"(ptr %buf.addr.i1667.1.idx.sroa.phi.i, i64 16) ]
   %109 = load <16 x i8>, ptr %buf.addr.i1667.1.idx.sroa.phi.i, align 16
   %110 = and <16 x i8> %109, splat (i8 -33)
   %cmp.i3765.i = icmp eq <16 x i8> %vecinit15.i2848.i, %110
@@ -1162,7 +1160,7 @@ for.body22.i1689.i:                               ; preds = %for.cond18.i1685.i
   br i1 %tobool33.i1696.not.i, label %for.cond18.i1685.i, label %cond.end30.i333.i, !llvm.loop !10
 
 cond.end30.i333.i:                                ; preds = %for.body22.i1689.i
-  %112 = call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %111, i1 true)
+  %112 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %111, i1 true)
   %idx.ext43.i1704.i = zext nneg i16 %112 to i64
   %add.ptr44.i1705.i = getelementptr inbounds nuw i8, ptr %buf.addr.i1667.1.idx.sroa.phi.i, i64 %idx.ext43.i1704.i
   br label %run_hwlm_accel.exit117.i
@@ -1174,7 +1172,7 @@ cond.true37.i349.i:                               ; preds = %for.cond18.i1685.i
   %cmp.i3865.i = icmp eq <16 x i8> %vecinit15.i2848.i, %114
   %115 = bitcast <16 x i1> %cmp.i3865.i to i16
   %tobool5.i1088.not.i = icmp eq i16 %115, 0
-  %116 = call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %115, i1 true)
+  %116 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %115, i1 true)
   %idx.ext.i1095.i = zext nneg i16 %116 to i64
   %add.ptr.i1096.i = getelementptr inbounds nuw i8, ptr %add.ptr38.i350.i, i64 %idx.ext.i1095.i
   %cond49.i347.i = select i1 %tobool5.i1088.not.i, ptr %add.ptr39.i, ptr %add.ptr.i1096.i
@@ -1199,7 +1197,6 @@ for.cond.i6262.i:                                 ; preds = %if.end.i6278.i, %sw
   br i1 %cmp.i6264.i, label %for.body.i6266.i, label %cond.false25.i664.i
 
 for.body.i6266.i:                                 ; preds = %for.cond.i6262.i
-  call void @llvm.assume(i1 true) [ "align"(ptr %buf.addr.i6257.0.idx.sroa.phi.i, i64 16) ]
   %119 = load <16 x i8>, ptr %buf.addr.i6257.0.idx.sroa.phi.i, align 16
   %cmp.i25.i6267.i = icmp eq <16 x i8> %vecinit15.i2617.i, %119
   %cmp.i.i6269.i = icmp eq <16 x i8> %vecinit15.i2584.i, %119
@@ -1227,7 +1224,7 @@ cond.end15.i658.split.loop.exit.i:                ; preds = %land.lhs.true.i6288
 
 cond.end15.i658.i:                                ; preds = %if.end.i6278.i, %cond.end15.i658.split.loop.exit.i
   %z.i6260.01873.in.i = phi i16 [ %125, %cond.end15.i658.split.loop.exit.i ], [ %122, %if.end.i6278.i ]
-  %126 = call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %z.i6260.01873.in.i, i1 true)
+  %126 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %z.i6260.01873.in.i, i1 true)
   %idx.ext.i6286.i = zext nneg i16 %126 to i64
   %add.ptr19.i6287.i = getelementptr inbounds nuw i8, ptr %buf.addr.i6257.0.idx.sroa.phi.i, i64 %idx.ext.i6286.i
   br label %run_hwlm_accel.exit117.i
@@ -1243,7 +1240,7 @@ cond.false25.i664.i:                              ; preds = %for.cond.i6262.i
   %129 = select <16 x i1> %cmp.i12.i5359.i, <16 x i1> %128, <16 x i1> zeroinitializer
   %130 = bitcast <16 x i1> %129 to i16
   %tobool.i5366.not.i = icmp eq i16 %130, 0
-  %131 = call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %130, i1 true)
+  %131 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %130, i1 true)
   %idx.ext.i5372.i = zext nneg i16 %131 to i64
   %add.ptr.i5373.i = getelementptr inbounds nuw i8, ptr %add.ptr26.i665.i, i64 %idx.ext.i5372.i
   br i1 %tobool.i5366.not.i, label %if.end32.i670.i, label %run_hwlm_accel.exit117.i
@@ -1273,7 +1270,6 @@ for.cond.i5751.i:                                 ; preds = %if.end.i5769.i, %sw
   br i1 %cmp.i5753.i, label %for.body.i5755.i, label %cond.true22.i754.i
 
 for.body.i5755.i:                                 ; preds = %for.cond.i5751.i
-  call void @llvm.assume(i1 true) [ "align"(ptr %buf.addr.i5728.0.idx.sroa.phi.i, i64 16) ]
   %135 = load <16 x i8>, ptr %buf.addr.i5728.0.idx.sroa.phi.i, align 16
   %136 = and <16 x i8> %135, splat (i8 -33)
   %cmp.i30.i5757.i = icmp eq <16 x i8> %vecinit15.i2551.i, %136
@@ -1304,7 +1300,7 @@ cond.end15.i727.split.loop.exit.i:                ; preds = %land.lhs.true.i5779
 
 cond.end15.i727.i:                                ; preds = %if.end.i5769.i, %cond.end15.i727.split.loop.exit.i
   %z.i5733.01879.in.i = phi i16 [ %144, %cond.end15.i727.split.loop.exit.i ], [ %139, %if.end.i5769.i ]
-  %145 = call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %z.i5733.01879.in.i, i1 true)
+  %145 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %z.i5733.01879.in.i, i1 true)
   %idx.ext.i5777.i = zext nneg i16 %145 to i64
   %add.ptr22.i5778.i = getelementptr inbounds nuw i8, ptr %buf.addr.i5728.0.idx.sroa.phi.i, i64 %idx.ext.i5777.i
   br label %run_hwlm_accel.exit117.i
@@ -1321,7 +1317,7 @@ cond.true22.i754.i:                               ; preds = %for.cond.i5751.i
   %149 = select <16 x i1> %cmp.i16.i4626.i, <16 x i1> %148, <16 x i1> zeroinitializer
   %150 = bitcast <16 x i1> %149 to i16
   %tobool.i4633.not.i = icmp eq i16 %150, 0
-  %151 = call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %150, i1 true)
+  %151 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %150, i1 true)
   %idx.ext.i4639.i = zext nneg i16 %151 to i64
   %add.ptr.i4640.i = getelementptr inbounds nuw i8, ptr %add.ptr23.i755.i, i64 %idx.ext.i4639.i
   br i1 %tobool.i4633.not.i, label %if.end32.i739.i, label %run_hwlm_accel.exit117.i

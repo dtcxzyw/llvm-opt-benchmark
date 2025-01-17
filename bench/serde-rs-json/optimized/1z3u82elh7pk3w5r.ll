@@ -130,6 +130,7 @@ define hidden { ptr, i64 } @_ZN4core4char7methods15encode_utf8_raw17h01952874170
   store ptr @anon.7b12c2ab9e1ce74a96d00cd7e4c1ea31.10, ptr %6, align 8, !alias.scope !23, !noalias !26
   %20 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i64 3, ptr %20, align 8, !alias.scope !23, !noalias !26
+  call void @llvm.assume(i1 true) [ "align"(ptr null, i64 8) ]
   %21 = getelementptr inbounds nuw i8, ptr %6, i64 32
   store ptr null, ptr %21, align 8, !alias.scope !23, !noalias !26
   %22 = getelementptr inbounds nuw i8, ptr %6, i64 16
@@ -281,6 +282,7 @@ default.unreachable7:                             ; preds = %2
   store ptr @anon.7b12c2ab9e1ce74a96d00cd7e4c1ea31.23, ptr %11, align 8, !alias.scope !29, !noalias !32
   %19 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store i64 2, ptr %19, align 8, !alias.scope !29, !noalias !32
+  call void @llvm.assume(i1 true) [ "align"(ptr null, i64 8) ]
   %20 = getelementptr inbounds nuw i8, ptr %11, i64 32
   store ptr null, ptr %20, align 8, !alias.scope !29, !noalias !32
   %21 = getelementptr inbounds nuw i8, ptr %11, i64 16
@@ -305,6 +307,7 @@ default.unreachable7:                             ; preds = %2
   store ptr @anon.f288aba1288e7a615443dffa1f18fa93.13.llvm.17788874430417167, ptr %5, align 8, !alias.scope !39, !noalias !42
   %27 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 2, ptr %27, align 8, !alias.scope !39, !noalias !42
+  call void @llvm.assume(i1 true) [ "align"(ptr null, i64 8) ]
   %28 = getelementptr inbounds nuw i8, ptr %5, i64 32
   store ptr null, ptr %28, align 8, !alias.scope !39, !noalias !42
   %29 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -329,6 +332,7 @@ default.unreachable7:                             ; preds = %2
   store ptr @anon.7b12c2ab9e1ce74a96d00cd7e4c1ea31.25, ptr %8, align 8, !alias.scope !45, !noalias !48
   %35 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i64 2, ptr %35, align 8, !alias.scope !45, !noalias !48
+  call void @llvm.assume(i1 true) [ "align"(ptr null, i64 8) ]
   %36 = getelementptr inbounds nuw i8, ptr %8, i64 32
   store ptr null, ptr %36, align 8, !alias.scope !45, !noalias !48
   %37 = getelementptr inbounds nuw i8, ptr %8, i64 16
@@ -795,6 +799,8 @@ _ZN10serde_json3ser18format_escaped_str17hc54fac0069c29f8cE.exit.thread.i.i.i: ;
 
 201:                                              ; preds = %189
   %.fca.1.extract.i.i = extractvalue { ptr, ptr } %190, 1
+  call void @llvm.assume(i1 true) [ "align"(ptr %.fca.0.extract.i.i, i64 8) ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %.fca.1.extract.i.i, i64 8) ]
   %202 = icmp ne ptr %.fca.1.extract.i.i, null
   call void @llvm.assume(i1 %202)
   %203 = call noundef align 8 ptr @_ZN5serde3ser12SerializeMap15serialize_entry17h5980ccf8922e7ac7E(ptr noalias noundef nonnull align 8 dereferenceable(16) %15, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %.fca.0.extract.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %.fca.1.extract.i.i)
@@ -812,15 +818,18 @@ _ZN10serde_json3ser18format_escaped_str17hc54fac0069c29f8cE.exit.thread.i.i.i: ;
 
 _ZN10serde_json3ser9to_writer17h4f601c413d134b6eE.exit.thread: ; preds = %206, %27, %36, %87, %139, %148, %152, %_ZN10serde_json3ser18format_escaped_str17hc54fac0069c29f8cE.exit.thread.i.i.i
   %.0.i.i.ph = phi ptr [ %168, %_ZN10serde_json3ser18format_escaped_str17hc54fac0069c29f8cE.exit.thread.i.i.i ], [ %153, %152 ], [ %149, %148 ], [ %140, %139 ], [ %88, %87 ], [ %37, %36 ], [ %28, %27 ], [ %.1.i.i, %206 ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %.0.i.i.ph, i64 8) ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16), !noalias !64
   br label %207
 
 _ZN10serde_json3ser9to_writer17h4f601c413d134b6eE.exit.thread57: ; preds = %24, %_ZN10serde_json3ser9Formatter10write_bool17h7ec1e3dc0b6bf878E.exit.i.i.i, %_ZN10serde_json3ser9Formatter9write_u6417h834517c92d4fb842E.exit.i.i.i.i, %_ZN10serde_json3ser9Formatter9write_i6417h9b366e3739ad435dE.exit.i.i.i.i, %144, %select.unfold.i.i.i.i, %_ZN10serde_json3ser18format_escaped_str17hc54fac0069c29f8cE.exit.i.i.i
+  call void @llvm.assume(i1 true) [ "align"(ptr null, i64 8) ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16), !noalias !64
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17hd835812e833fb377E.exit"
 
 _ZN10serde_json3ser9to_writer17h4f601c413d134b6eE.exit: ; preds = %169, %"_ZN83_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeMap$GT$3end17h03981213a55c5436E.exit.i.i"
   %.0.i.i = phi ptr [ %.0.i18.i.i, %"_ZN83_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeMap$GT$3end17h03981213a55c5436E.exit.i.i" ], [ %171, %169 ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %.0.i.i, i64 8) ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16), !noalias !64
   %.not64 = icmp eq ptr %.0.i.i, null
   br i1 %.not64, label %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17hd835812e833fb377E.exit", label %207
@@ -1284,6 +1293,8 @@ _ZN10serde_json3ser18format_escaped_str17hda01937d878482f2E.exit.thread.i.i.i: ;
   %.fca.0.extract38.i.i = phi ptr [ %.fca.0.extract.i.i16, %_ZN5serde3ser12SerializeMap15serialize_entry17h410e038fe18d3eacE.exit.i.i ], [ %.fca.0.extract37.i.i, %"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$4iter17h155e9fd32c552b4bE.exit.i.i3" ]
   %404 = phi { ptr, ptr } [ %418, %_ZN5serde3ser12SerializeMap15serialize_entry17h410e038fe18d3eacE.exit.i.i ], [ %372, %"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$4iter17h155e9fd32c552b4bE.exit.i.i3" ]
   %.fca.1.extract.i.i15 = extractvalue { ptr, ptr } %404, 1
+  call void @llvm.assume(i1 true) [ "align"(ptr %.fca.0.extract38.i.i, i64 8) ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %.fca.1.extract.i.i15, i64 8) ]
   %405 = icmp ne ptr %.fca.1.extract.i.i15, null
   call void @llvm.assume(i1 %405)
   %406 = call noundef align 8 ptr @"_ZN83_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeMap$GT$13serialize_key17hf321a2c2cffe7efcE.llvm.18206402751905676474"(ptr noalias noundef nonnull align 8 dereferenceable(16) %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %.fca.0.extract38.i.i), !noalias !225
@@ -1329,15 +1340,18 @@ _ZN5serde3ser12SerializeMap15serialize_entry17h410e038fe18d3eacE.exit.i.i: ; pre
 
 _ZN10serde_json3ser16to_writer_pretty17h43d5d3095db3fc07E.exit.thread: ; preds = %420, %214, %223, %274, %326, %335, %339, %_ZN10serde_json3ser18format_escaped_str17hda01937d878482f2E.exit.thread.i.i.i
   %.0.i.i2.ph = phi ptr [ %354, %_ZN10serde_json3ser18format_escaped_str17hda01937d878482f2E.exit.thread.i.i.i ], [ %340, %339 ], [ %336, %335 ], [ %327, %326 ], [ %275, %274 ], [ %224, %223 ], [ %215, %214 ], [ %.1.i.i1, %420 ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %.0.i.i2.ph, i64 8) ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %9), !noalias !135
   br label %421
 
 _ZN10serde_json3ser16to_writer_pretty17h43d5d3095db3fc07E.exit.thread62: ; preds = %211, %_ZN10serde_json3ser9Formatter10write_bool17h3cf53aafdd323af7E.exit.i.i.i, %_ZN10serde_json3ser9Formatter9write_u6417hc93ca8d034f51936E.exit.i.i.i.i, %_ZN10serde_json3ser9Formatter9write_i6417h0c3664d217a454d2E.exit.i.i.i.i, %331, %select.unfold.i.i.i.i19, %_ZN10serde_json3ser18format_escaped_str17hda01937d878482f2E.exit.i.i.i
+  call void @llvm.assume(i1 true) [ "align"(ptr null, i64 8) ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %9), !noalias !135
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17hd835812e833fb377E.exit"
 
 _ZN10serde_json3ser16to_writer_pretty17h43d5d3095db3fc07E.exit: ; preds = %355, %"_ZN83_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeMap$GT$3end17h03e2085cde463d2dE.exit.i.i"
   %.0.i.i2 = phi ptr [ %.0.i20.i.i, %"_ZN83_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeMap$GT$3end17h03e2085cde463d2dE.exit.i.i" ], [ %357, %355 ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %.0.i.i2, i64 8) ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %9), !noalias !135
   %.not = icmp eq ptr %.0.i.i2, null
   br i1 %.not, label %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17hd835812e833fb377E.exit", label %421

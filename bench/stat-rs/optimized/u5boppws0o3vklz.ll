@@ -93,8 +93,11 @@ _ZN4core3ops8function6FnOnce9call_once17h219094afbf4db59bE.exit.thread.i9.i.i: ;
 
 .critedge.i.i:                                    ; preds = %18
   %32 = extractvalue { ptr, ptr } %19, 1
+  call void @llvm.assume(i1 true) [ "align"(ptr %20, i64 8) ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %32, i64 8) ]
   %33 = icmp ne ptr %32, null
   tail call void @llvm.assume(i1 %33)
+  call void @llvm.assume(i1 true) [ "align"(ptr %20, i64 8) ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !41)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !44)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !46)
@@ -260,8 +263,11 @@ _ZN4core3ops8function6FnOnce9call_once17h219094afbf4db59bE.exit.thread.i9.i.i.i:
 
 .critedge.i.i.i:                                  ; preds = %78
   %92 = extractvalue { ptr, ptr } %79, 1
+  call void @llvm.assume(i1 true) [ "align"(ptr %80, i64 8) ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %92, i64 8) ]
   %93 = icmp ne ptr %92, null
   call void @llvm.assume(i1 %93)
+  call void @llvm.assume(i1 true) [ "align"(ptr %80, i64 8) ]
   call void @llvm.experimental.noalias.scope.decl(metadata !128)
   call void @llvm.experimental.noalias.scope.decl(metadata !131)
   call void @llvm.experimental.noalias.scope.decl(metadata !133)
@@ -848,6 +854,8 @@ define noundef double @_ZN6statrs12distribution9empirical9Empirical13__inverse_c
   %51 = phi ptr [ %60, %56 ], [ %48, %46 ]
   %.sroa.04.041.i = phi i64 [ %58, %56 ], [ 0, %46 ]
   %52 = extractvalue { ptr, ptr } %.pn.i, 1
+  call void @llvm.assume(i1 true) [ "align"(ptr %51, i64 8) ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %52, i64 8) ]
   %53 = icmp ne ptr %52, null
   call void @llvm.assume(i1 %53)
   %54 = load double, ptr %51, align 8, !noundef !4
@@ -914,6 +922,8 @@ define noundef double @_ZN6statrs12distribution9empirical9Empirical13__inverse_c
   %72 = phi ptr [ %81, %77 ], [ %69, %67 ]
   %.sroa.04.041.i29 = phi i64 [ %79, %77 ], [ 0, %67 ]
   %73 = extractvalue { ptr, ptr } %.pn.i28, 1
+  call void @llvm.assume(i1 true) [ "align"(ptr %72, i64 8) ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %73, i64 8) ]
   %74 = icmp ne ptr %73, null
   call void @llvm.assume(i1 %74)
   %75 = load double, ptr %72, align 8, !noundef !4
@@ -989,6 +999,8 @@ define noundef double @_ZN6statrs12distribution9empirical9Empirical13__inverse_c
   %98 = phi ptr [ %107, %103 ], [ %95, %91 ]
   %.sroa.04.041.i48 = phi i64 [ %105, %103 ], [ 0, %91 ]
   %99 = extractvalue { ptr, ptr } %.pn.i47, 1
+  call void @llvm.assume(i1 true) [ "align"(ptr %98, i64 8) ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %99, i64 8) ]
   %100 = icmp ne ptr %99, null
   call void @llvm.assume(i1 %100)
   %101 = load double, ptr %98, align 8, !noundef !4
@@ -1042,6 +1054,7 @@ define noundef zeroext i1 @"_ZN81_$LT$statrs..distribution..empirical..Empirical
 
 _ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.exit: ; preds = %2
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11)
+  call void @llvm.assume(i1 true) [ "align"(ptr %14, i64 8) ]
   %16 = load double, ptr %14, align 8, !noundef !4
   store double %16, ptr %11, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10)
@@ -1383,6 +1396,8 @@ define noundef double @"_ZN115_$LT$statrs..distribution..empirical..Empirical$u2
   %18 = phi ptr [ %28, %24 ], [ %12, %2 ]
   %.sroa.04.041 = phi i64 [ %26, %24 ], [ 0, %2 ]
   %19 = extractvalue { ptr, ptr } %.pn, 1
+  call void @llvm.assume(i1 true) [ "align"(ptr %18, i64 8) ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %19, i64 8) ]
   %20 = icmp ne ptr %19, null
   call void @llvm.assume(i1 %20)
   %21 = load double, ptr %18, align 8, !noundef !4
@@ -1463,6 +1478,8 @@ define noundef double @"_ZN115_$LT$statrs..distribution..empirical..Empirical$u2
   %18 = phi ptr [ %28, %24 ], [ %12, %2 ]
   %.sroa.05.040 = phi i64 [ %26, %24 ], [ 0, %2 ]
   %19 = extractvalue { ptr, ptr } %.pn, 1
+  call void @llvm.assume(i1 true) [ "align"(ptr %18, i64 8) ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %19, i64 8) ]
   %20 = icmp ne ptr %19, null
   call void @llvm.assume(i1 %20)
   %21 = load double, ptr %18, align 8, !noundef !4

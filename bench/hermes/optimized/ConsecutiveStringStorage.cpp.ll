@@ -4151,8 +4151,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %cursor.029 = phi ptr [ %add.ptr, %for.body ], [ %add.ptr.i.i, %for.body.preheader ]
   %__begin2.028 = phi ptr [ %incdec.ptr, %for.body ], [ %u16Storage.coerce0, %for.body.preheader ]
   %9 = load i16, ptr %__begin2.028, align 2
-  call void @llvm.assume(i1 true) [ "align"(ptr %cursor.029, i64 2) ]
-  store i16 %9, ptr %cursor.029, align 2
+  store i16 %9, ptr %cursor.029, align 1
   %add.ptr = getelementptr inbounds nuw i8, ptr %cursor.029, i64 2
   %incdec.ptr = getelementptr inbounds nuw i8, ptr %__begin2.028, i64 2
   %cmp.not = icmp eq ptr %incdec.ptr, %add.ptr.i

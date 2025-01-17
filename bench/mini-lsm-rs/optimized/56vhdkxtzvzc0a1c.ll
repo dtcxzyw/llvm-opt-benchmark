@@ -42,6 +42,7 @@ define hidden noundef nonnull align 8 dereferenceable_or_null(8) ptr @"_ZN3std3s
   %7 = tail call noundef nonnull ptr @_ZN3std6thread7current17ha2f171abb653aba5E(), !noalias !10
   store ptr %7, ptr %3, align 8, !noalias !10
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  call void @llvm.assume(i1 true) [ "align"(ptr %8, i64 8) ]
   %9 = load i64, ptr %8, align 8, !range !12, !noalias !10, !noundef !11
   %10 = atomicrmw sub ptr %7, i64 1 release, align 8, !noalias !13
   %11 = icmp eq i64 %10, 1
@@ -315,8 +316,8 @@ default.unreachable:                              ; preds = %6
   call void @llvm.assume(i1 %23)
   br label %"_ZN3std3sys6common12thread_local10fast_local12Key$LT$T$GT$14try_initialize17hd0ffc9b095270f0cE.llvm.1533238098547642317.exit"
 
-"_ZN3std3sys6common12thread_local10fast_local12Key$LT$T$GT$14try_initialize17hd0ffc9b095270f0cE.llvm.1533238098547642317.exit": ; preds = %"_ZN3std3sys6common12thread_local4lazy21LazyKeyInner$LT$T$GT$10initialize17h0586d09cebdc4b41E.exit.i", %6, %2
-  %.0 = phi ptr [ %5, %2 ], [ %5, %"_ZN3std3sys6common12thread_local4lazy21LazyKeyInner$LT$T$GT$10initialize17h0586d09cebdc4b41E.exit.i" ], [ null, %6 ]
+"_ZN3std3sys6common12thread_local10fast_local12Key$LT$T$GT$14try_initialize17hd0ffc9b095270f0cE.llvm.1533238098547642317.exit": ; preds = %2, %"_ZN3std3sys6common12thread_local4lazy21LazyKeyInner$LT$T$GT$10initialize17h0586d09cebdc4b41E.exit.i", %6
+  %.0 = phi ptr [ %5, %"_ZN3std3sys6common12thread_local4lazy21LazyKeyInner$LT$T$GT$10initialize17h0586d09cebdc4b41E.exit.i" ], [ null, %6 ], [ %5, %2 ]
   ret ptr %.0
 }
 
@@ -395,8 +396,8 @@ default.unreachable:                              ; preds = %5
   tail call void @llvm.assume(i1 %29)
   br label %"_ZN3std3sys6common12thread_local10fast_local12Key$LT$T$GT$14try_initialize17he6fc582a07496eb2E.llvm.1533238098547642317.exit"
 
-"_ZN3std3sys6common12thread_local10fast_local12Key$LT$T$GT$14try_initialize17he6fc582a07496eb2E.llvm.1533238098547642317.exit": ; preds = %"_ZN3std3sys6common12thread_local4lazy21LazyKeyInner$LT$T$GT$10initialize17h3ec88125a67883b3E.exit.i", %5, %2
-  %.0 = phi ptr [ %4, %2 ], [ %4, %"_ZN3std3sys6common12thread_local4lazy21LazyKeyInner$LT$T$GT$10initialize17h3ec88125a67883b3E.exit.i" ], [ null, %5 ]
+"_ZN3std3sys6common12thread_local10fast_local12Key$LT$T$GT$14try_initialize17he6fc582a07496eb2E.llvm.1533238098547642317.exit": ; preds = %2, %"_ZN3std3sys6common12thread_local4lazy21LazyKeyInner$LT$T$GT$10initialize17h3ec88125a67883b3E.exit.i", %5
+  %.0 = phi ptr [ %4, %"_ZN3std3sys6common12thread_local4lazy21LazyKeyInner$LT$T$GT$10initialize17h3ec88125a67883b3E.exit.i" ], [ null, %5 ], [ %4, %2 ]
   ret ptr %.0
 }
 
@@ -472,6 +473,7 @@ define hidden noundef nonnull align 8 dereferenceable_or_null(8) ptr @"_ZN3std3s
   %10 = tail call noundef nonnull ptr @_ZN3std6thread7current17ha2f171abb653aba5E(), !noalias !101
   store ptr %10, ptr %3, align 8, !noalias !101
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 16
+  call void @llvm.assume(i1 true) [ "align"(ptr %11, i64 8) ]
   %12 = load i64, ptr %11, align 8, !range !12, !noalias !101, !noundef !11
   %13 = atomicrmw sub ptr %10, i64 1 release, align 8, !noalias !102
   %14 = icmp eq i64 %13, 1
@@ -525,6 +527,7 @@ define internal void @_ZN3std3sys6common12thread_local10fast_local13destroy_valu
   store ptr @anon.f30f1c08c07e5db6070a4dccd6401c05.1, ptr %4, align 8, !alias.scope !115, !noalias !118
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 1, ptr %10, align 8, !alias.scope !115, !noalias !118
+  call void @llvm.assume(i1 true) [ "align"(ptr null, i64 8) ]
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store ptr null, ptr %11, align 8, !alias.scope !115, !noalias !118
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -582,6 +585,7 @@ define internal void @_ZN3std3sys6common12thread_local10fast_local13destroy_valu
   store ptr @anon.f30f1c08c07e5db6070a4dccd6401c05.1, ptr %4, align 8, !alias.scope !124, !noalias !127
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 1, ptr %10, align 8, !alias.scope !124, !noalias !127
+  call void @llvm.assume(i1 true) [ "align"(ptr null, i64 8) ]
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store ptr null, ptr %11, align 8, !alias.scope !124, !noalias !127
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 16

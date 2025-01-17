@@ -20386,7 +20386,6 @@ if.end36:                                         ; preds = %for.cond17, %if.the
   %add.i = select i1 %cmp1.i, i64 0, i64 %sub.i
   %cond6.i = add i64 %add.i, %add38
   %call.i = tail call noalias ptr @aligned_alloc(i64 noundef %cond.i, i64 noundef %cond6.i) #48
-  call void @llvm.assume(i1 true) [ "align"(ptr %call.i, i64 %cond.i) ]
   %tobool.not.i = icmp eq ptr %call.i, null
   br i1 %tobool.not.i, label %if.then.i, label %_ZN4asio11aligned_newEmm.exit
 
@@ -29071,7 +29070,6 @@ if.end36:                                         ; preds = %for.cond17, %if.the
   %add.i = select i1 %cmp1.i, i64 0, i64 %sub.i
   %cond6.i = add i64 %add.i, %add38
   %call.i = tail call noalias ptr @aligned_alloc(i64 noundef %cond.i, i64 noundef %cond6.i) #48
-  call void @llvm.assume(i1 true) [ "align"(ptr %call.i, i64 %cond.i) ]
   %tobool.not.i = icmp eq ptr %call.i, null
   br i1 %tobool.not.i, label %if.then.i, label %_ZN4asio11aligned_newEmm.exit
 
