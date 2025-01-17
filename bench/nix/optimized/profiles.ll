@@ -3977,7 +3977,7 @@ _ZNSt4pairINSt7__cxx114listIN3nix10GenerationESaIS3_EEESt8optionalImEED2Ev.exit:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_ZN3nix22parseOlderThanTimeSpecESt17basic_string_viewIcSt11char_traitsIcEE(i64 %0, ptr %1) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define noundef range(i64 -9223372036854775808, 9223372036854689408) i64 @_ZN3nix22parseOlderThanTimeSpecESt17basic_string_viewIcSt11char_traitsIcEE(i64 %0, ptr %1) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::basic_string_view", align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::allocator", align 1
@@ -4009,7 +4009,7 @@ define noundef i64 @_ZN3nix22parseOlderThanTimeSpecESt17basic_string_viewIcSt11c
 17:                                               ; preds = %16
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix10UsageErrorE, i64 16), ptr %15, align 8
   invoke void @__cxa_throw(ptr nonnull %15, ptr nonnull @_ZTIN3nix10UsageErrorE, ptr nonnull @_ZN3nix10UsageErrorD2Ev) #28
-          to label %38 unwind label %19
+          to label %39 unwind label %19
 
 .thread:                                          ; preds = %14
   %18 = landingpad { ptr, i32 }
@@ -4022,7 +4022,7 @@ define noundef i64 @_ZN3nix22parseOlderThanTimeSpecESt17basic_string_viewIcSt11c
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #27
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #27
-  br i1 %.011, label %.sink.split, label %37
+  br i1 %.011, label %.sink.split, label %38
 
 21:                                               ; preds = %10
   %22 = tail call i64 @time(ptr noundef null) #27
@@ -4049,7 +4049,7 @@ define noundef i64 @_ZN3nix22parseOlderThanTimeSpecESt17basic_string_viewIcSt11c
 30:                                               ; preds = %29
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix10UsageErrorE, i64 16), ptr %28, align 8
   invoke void @__cxa_throw(ptr nonnull %28, ptr nonnull @_ZTIN3nix10UsageErrorE, ptr nonnull @_ZN3nix10UsageErrorD2Ev) #28
-          to label %38 unwind label %32
+          to label %39 unwind label %32
 
 .thread22:                                        ; preds = %27
   %31 = landingpad { ptr, i32 }
@@ -4062,13 +4062,13 @@ define noundef i64 @_ZN3nix22parseOlderThanTimeSpecESt17basic_string_viewIcSt11c
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #27
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #27
-  br i1 %.0, label %.sink.split, label %37
+  br i1 %.0, label %.sink.split, label %38
 
 34:                                               ; preds = %21
-  %sext = mul i64 %24, 371085174374400
-  %35 = ashr exact i64 %sext, 32
-  %36 = sub nsw i64 %22, %35
-  ret i64 %36
+  %35 = mul i64 %24, 86400
+  %36 = and i64 %35, 4294967168
+  %37 = sub nsw i64 %22, %36
+  ret i64 %37
 
 .sink.split.sink.split:                           ; preds = %.thread, %.thread22
   %.sink28 = phi ptr [ %7, %.thread22 ], [ %5, %.thread ]
@@ -4081,13 +4081,13 @@ define noundef i64 @_ZN3nix22parseOlderThanTimeSpecESt17basic_string_viewIcSt11c
   %.sink = phi ptr [ %15, %19 ], [ %28, %32 ], [ %.sink.ph, %.sink.split.sink.split ]
   %.pn14.pn.ph = phi { ptr, i32 } [ %20, %19 ], [ %33, %32 ], [ %.pn14.pn.ph.ph, %.sink.split.sink.split ]
   call void @__cxa_free_exception(ptr %.sink) #27
-  br label %37
+  br label %38
 
-37:                                               ; preds = %.sink.split, %32, %19
+38:                                               ; preds = %.sink.split, %32, %19
   %.pn14.pn = phi { ptr, i32 } [ %20, %19 ], [ %33, %32 ], [ %.pn14.pn.ph, %.sink.split ]
   resume { ptr, i32 } %.pn14.pn
 
-38:                                               ; preds = %30, %17
+39:                                               ; preds = %30, %17
   unreachable
 }
 

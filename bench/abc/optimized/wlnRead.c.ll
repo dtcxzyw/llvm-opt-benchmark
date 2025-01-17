@@ -470,7 +470,7 @@ define void @Rtl_NtkCountPio(ptr nocapture noundef readonly %0, ptr nocapture no
 9:                                                ; preds = %.lr.ph, %31
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %31 ]
   %.val15 = load ptr, ptr %5, align 8
-  %.idx = mul nuw i64 %indvars.iv, 20
+  %.idx = mul nuw nsw i64 %indvars.iv, 20
   %10 = getelementptr inbounds nuw i8, ptr %.val15, i64 %.idx
   %.not = icmp eq ptr %.val15, null
   br i1 %.not, label %.critedge, label %11
@@ -2001,7 +2001,7 @@ define void @Rtl_NtkMapWires(ptr nocapture noundef readonly %0, i32 noundef %1) 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %.lr.ph.split.us
   %indvars.iv23 = phi i64 [ %indvars.iv.next24, %.lr.ph.split.us ], [ 0, %.lr.ph ]
   %.val17.us = load ptr, ptr %5, align 8
-  %.idx26 = mul nuw i64 %indvars.iv23, 20
+  %.idx26 = mul nuw nsw i64 %indvars.iv23, 20
   %7 = getelementptr inbounds nuw i8, ptr %.val17.us, i64 %.idx26
   %8 = load i32, ptr %7, align 4
   %9 = ashr i32 %8, 4
@@ -2024,7 +2024,7 @@ define void @Rtl_NtkMapWires(ptr nocapture noundef readonly %0, i32 noundef %1) 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.split
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph.split ], [ 0, %.lr.ph ]
   %.val17 = load ptr, ptr %5, align 8
-  %.idx = mul nuw i64 %indvars.iv, 20
+  %.idx = mul nuw nsw i64 %indvars.iv, 20
   %20 = getelementptr inbounds nuw i8, ptr %.val17, i64 %.idx
   %21 = load i32, ptr %20, align 4
   %22 = ashr i32 %21, 4
@@ -2319,7 +2319,7 @@ define ptr @Rlt_NtkFindIOPerm(ptr nocapture noundef readonly %0) local_unnamed_a
   br i1 %.not, label %.critedge.loopexit, label %9
 
 9:                                                ; preds = %.lr.ph
-  %.idx = mul nuw i64 %indvars.iv, 20
+  %.idx = mul nuw nsw i64 %indvars.iv, 20
   %10 = getelementptr inbounds nuw i8, ptr %.val25, i64 %.idx
   %11 = load i32, ptr %10, align 4
   %12 = and i32 %11, 3
@@ -2739,7 +2739,7 @@ define void @Rtl_LibUpdateInstances(ptr nocapture noundef readonly %0) local_unn
 54:                                               ; preds = %.lr.ph86, %Vec_IntPushTwo.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph86 ], [ %indvars.iv.next, %Vec_IntPushTwo.exit ]
   %.val72 = load ptr, ptr %52, align 8
-  %.idx = mul nuw i64 %indvars.iv, 20
+  %.idx = mul nuw nsw i64 %indvars.iv, 20
   %55 = getelementptr inbounds nuw i8, ptr %.val72, i64 %.idx
   %56 = load i32, ptr %55, align 4
   %57 = ashr i32 %56, 4
@@ -5822,7 +5822,7 @@ define void @Rtl_NtkPrint(ptr nocapture noundef readonly %0) local_unnamed_addr 
   br i1 %.not48, label %.critedge2, label %32
 
 32:                                               ; preds = %.lr.ph74
-  %.idx = mul nuw i64 %indvars.iv85, 20
+  %.idx = mul nuw nsw i64 %indvars.iv85, 20
   %33 = getelementptr inbounds nuw i8, ptr %.val52, i64 %.idx
   tail call void @Rtl_NtkPrintWire(ptr noundef nonnull %0, ptr noundef nonnull %33)
   %indvars.iv.next86 = add nuw nsw i64 %indvars.iv85, 1
@@ -12044,7 +12044,7 @@ define void @Rtl_NtkBlastHierarchy(ptr noundef %0, ptr noundef %1, ptr nocapture
 .lr.ph.split.i:                                   ; preds = %23, %.lr.ph.split.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.split.preheader.i ], [ %indvars.iv.next.i, %23 ]
   %.sroa.7.041.i = phi i32 [ 0, %.lr.ph.split.preheader.i ], [ %.sroa.7.1.i, %23 ]
-  %.idx.i = mul nuw i64 %indvars.iv.i, 20
+  %.idx.i = mul nuw nsw i64 %indvars.iv.i, 20
   %16 = getelementptr inbounds nuw i8, ptr %.val36.i, i64 %.idx.i
   %17 = load i32, ptr %16, align 4
   %18 = and i32 %17, 2
@@ -12070,7 +12070,7 @@ define void @Rtl_NtkBlastHierarchy(ptr noundef %0, ptr noundef %1, ptr nocapture
 .lr.ph46.split.i:                                 ; preds = %33, %.lr.ph46.split.preheader.i
   %indvars.iv53.i = phi i64 [ 0, %.lr.ph46.split.preheader.i ], [ %indvars.iv.next54.i, %33 ]
   %.045.i = phi i32 [ 0, %.lr.ph46.split.preheader.i ], [ %.1.i, %33 ]
-  %.idx58.i = mul nuw i64 %indvars.iv53.i, 20
+  %.idx58.i = mul nuw nsw i64 %indvars.iv53.i, 20
   %24 = getelementptr inbounds nuw i8, ptr %.val36.i, i64 %.idx58.i
   %25 = load i32, ptr %24, align 4
   %26 = and i32 %25, 1
@@ -12725,7 +12725,7 @@ define i32 @Gia_ManFindFirst(ptr nocapture noundef readonly %0, ptr nocapture no
 .lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %14
   %indvars.iv = phi i64 [ 0, %.lr.ph.split.preheader ], [ %indvars.iv.next, %14 ]
   %.sroa.7.041 = phi i32 [ 0, %.lr.ph.split.preheader ], [ %.sroa.7.1, %14 ]
-  %.idx = mul nuw i64 %indvars.iv, 20
+  %.idx = mul nuw nsw i64 %indvars.iv, 20
   %7 = getelementptr inbounds nuw i8, ptr %.val36, i64 %.idx
   %8 = load i32, ptr %7, align 4
   %9 = and i32 %8, 2
@@ -12765,7 +12765,7 @@ define i32 @Gia_ManFindFirst(ptr nocapture noundef readonly %0, ptr nocapture no
 .lr.ph46.split:                                   ; preds = %.lr.ph46.split.preheader, %27
   %indvars.iv53 = phi i64 [ 0, %.lr.ph46.split.preheader ], [ %indvars.iv.next54, %27 ]
   %.045 = phi i32 [ 0, %.lr.ph46.split.preheader ], [ %.1, %27 ]
-  %.idx58 = mul nuw i64 %indvars.iv53, 20
+  %.idx58 = mul nuw nsw i64 %indvars.iv53, 20
   %18 = getelementptr inbounds nuw i8, ptr %.val35, i64 %.idx58
   %19 = load i32, ptr %18, align 4
   %20 = and i32 %19, 1
@@ -16166,7 +16166,7 @@ Abc_Clock.exit:                                   ; preds = %3, %13
 .lr.ph.split.i:                                   ; preds = %43, %.lr.ph.split.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.split.preheader.i ], [ %indvars.iv.next.i, %43 ]
   %.sroa.7.041.i = phi i32 [ 0, %.lr.ph.split.preheader.i ], [ %.sroa.7.1.i, %43 ]
-  %.idx.i = mul nuw i64 %indvars.iv.i, 20
+  %.idx.i = mul nuw nsw i64 %indvars.iv.i, 20
   %36 = getelementptr inbounds nuw i8, ptr %.val36.i, i64 %.idx.i
   %37 = load i32, ptr %36, align 4
   %38 = and i32 %37, 2
@@ -16192,7 +16192,7 @@ Abc_Clock.exit:                                   ; preds = %3, %13
 .lr.ph46.split.i:                                 ; preds = %53, %.lr.ph46.split.preheader.i
   %indvars.iv53.i = phi i64 [ 0, %.lr.ph46.split.preheader.i ], [ %indvars.iv.next54.i, %53 ]
   %.045.i = phi i32 [ 0, %.lr.ph46.split.preheader.i ], [ %.1.i, %53 ]
-  %.idx58.i = mul nuw i64 %indvars.iv53.i, 20
+  %.idx58.i = mul nuw nsw i64 %indvars.iv53.i, 20
   %44 = getelementptr inbounds nuw i8, ptr %.val36.i, i64 %.idx58.i
   %45 = load i32, ptr %44, align 4
   %46 = and i32 %45, 1
@@ -16237,7 +16237,7 @@ Gia_ManFindFirst.exit:                            ; preds = %47, %53, %.lr.ph.i,
 .lr.ph.split.i44:                                 ; preds = %65, %.lr.ph.split.preheader.i42
   %indvars.iv.i45 = phi i64 [ 0, %.lr.ph.split.preheader.i42 ], [ %indvars.iv.next.i50, %65 ]
   %.sroa.7.041.i46 = phi i32 [ 0, %.lr.ph.split.preheader.i42 ], [ %.sroa.7.1.i49, %65 ]
-  %.idx.i47 = mul nuw i64 %indvars.iv.i45, 20
+  %.idx.i47 = mul nuw nsw i64 %indvars.iv.i45, 20
   %58 = getelementptr inbounds nuw i8, ptr %.val36.i40, i64 %.idx.i47
   %59 = load i32, ptr %58, align 4
   %60 = and i32 %59, 2
@@ -16263,7 +16263,7 @@ Gia_ManFindFirst.exit:                            ; preds = %47, %53, %.lr.ph.i,
 .lr.ph46.split.i31:                               ; preds = %75, %.lr.ph46.split.preheader.i29
   %indvars.iv53.i32 = phi i64 [ 0, %.lr.ph46.split.preheader.i29 ], [ %indvars.iv.next54.i37, %75 ]
   %.045.i33 = phi i32 [ 0, %.lr.ph46.split.preheader.i29 ], [ %.1.i36, %75 ]
-  %.idx58.i34 = mul nuw i64 %indvars.iv53.i32, 20
+  %.idx58.i34 = mul nuw nsw i64 %indvars.iv53.i32, 20
   %66 = getelementptr inbounds nuw i8, ptr %.val36.i40, i64 %.idx58.i34
   %67 = load i32, ptr %66, align 4
   %68 = and i32 %67, 1

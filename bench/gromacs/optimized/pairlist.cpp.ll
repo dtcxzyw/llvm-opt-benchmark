@@ -382,7 +382,7 @@ _ZNSt6vectorIN5Nbnxm11BoundingBoxEN3gmx9AllocatorIS1_NS2_23AlignedAllocationPoli
 
 14:                                               ; preds = %_ZNSt6vectorIN5Nbnxm11BoundingBoxEN3gmx9AllocatorIS1_NS2_23AlignedAllocationPolicyEEEEC2EmRKS5_.exit
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str) #29
-          to label %.noexc unwind label %41
+          to label %.noexc unwind label %36
 
 .noexc:                                           ; preds = %14
   unreachable
@@ -390,103 +390,82 @@ _ZNSt6vectorIN5Nbnxm11BoundingBoxEN3gmx9AllocatorIS1_NS2_23AlignedAllocationPoli
 _ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %_ZNSt6vectorIN5Nbnxm11BoundingBoxEN3gmx9AllocatorIS1_NS2_23AlignedAllocationPolicyEEEEC2EmRKS5_.exit
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %10, i8 0, i64 24, i1 false)
   %.not.i.i.i.i = icmp eq i32 %1, 0
-  br i1 %.not.i.i.i.i, label %_ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEE17_S_check_init_lenEmRKS3_.exit.i.thread, label %16
+  br i1 %.not.i.i.i.i, label %_ZNSt12_Vector_baseIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEEC2EmRKS3_.exit.thread.i, label %15
 
-_ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEE17_S_check_init_lenEmRKS3_.exit.i.thread: ; preds = %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i
-  %15 = getelementptr inbounds nuw i8, ptr %0, i64 48
+15:                                               ; preds = %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i
+  %16 = shl nuw nsw i64 %12, 2
+  %17 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %16) #27
+          to label %18 unwind label %36
+
+_ZNSt12_Vector_baseIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEEC2EmRKS3_.exit.thread.i: ; preds = %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %10, i8 0, i64 48, i1 false)
-  br label %_ZNSt12_Vector_baseIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEEC2EmRKS3_.exit.thread.i
+  br label %34
 
-16:                                               ; preds = %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i
-  %17 = shl nuw nsw i64 %12, 2
-  %18 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %17) #27
-          to label %19 unwind label %41
+18:                                               ; preds = %15
+  store ptr %17, ptr %10, align 8
+  %19 = getelementptr float, ptr %17, i64 %12
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  store ptr %19, ptr %20, align 8
+  store float 0.000000e+00, ptr %17, align 4
+  %21 = getelementptr i8, ptr %17, i64 4
+  %22 = add nsw i64 %16, -4
+  tail call void @llvm.memset.p0.i64(ptr align 4 %21, i8 0, i64 %22, i1 false)
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  store ptr %19, ptr %23, align 8
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %25 = mul nuw nsw i32 %1, 48
+  %26 = zext nneg i32 %25 to i64
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %24, i8 0, i64 24, i1 false)
+  %27 = shl nuw nsw i64 %26, 2
+  %28 = invoke noundef ptr @_ZN3gmx23AlignedAllocationPolicy6mallocEm(i64 noundef %27)
+          to label %.noexc10 unwind label %38
 
-19:                                               ; preds = %16
-  store ptr %18, ptr %10, align 8
-  %20 = getelementptr float, ptr %18, i64 %12
-  %21 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store ptr %20, ptr %21, align 8
-  store float 0.000000e+00, ptr %18, align 4
-  %22 = getelementptr i8, ptr %18, i64 4
-  %23 = add nsw i64 %17, -4
-  tail call void @llvm.memset.p0.i64(ptr align 4 %22, i8 0, i64 %23, i1 false)
-  %24 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr %20, ptr %24, align 8
-  %25 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %26 = mul i32 %1, 48
-  %27 = zext nneg i32 %26 to i64
-  %28 = icmp slt i32 %26, 0
-  br i1 %28, label %29, label %_ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEE17_S_check_init_lenEmRKS3_.exit.i
+.noexc10:                                         ; preds = %18
+  %29 = icmp eq ptr %28, null
+  br i1 %29, label %30, label %.lr.ph.preheader.i.i.i
 
-29:                                               ; preds = %19
-  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str) #29
-          to label %.noexc9 unwind label %43
+30:                                               ; preds = %.noexc10
+  %31 = tail call ptr @__cxa_allocate_exception(i64 8) #13
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %31, align 8
+  invoke void @__cxa_throw(ptr nonnull %31, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #29
+          to label %.noexc11 unwind label %38
 
-.noexc9:                                          ; preds = %29
-  unreachable
-
-_ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEE17_S_check_init_lenEmRKS3_.exit.i: ; preds = %19
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %25, i8 0, i64 24, i1 false)
-  %.not.i.i.i.i7 = icmp eq i32 %26, 0
-  br i1 %.not.i.i.i.i7, label %_ZNSt12_Vector_baseIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEEC2EmRKS3_.exit.thread.i, label %31
-
-_ZNSt12_Vector_baseIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEEC2EmRKS3_.exit.thread.i: ; preds = %_ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEE17_S_check_init_lenEmRKS3_.exit.i.thread, %_ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEE17_S_check_init_lenEmRKS3_.exit.i
-  %30 = phi ptr [ %15, %_ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEE17_S_check_init_lenEmRKS3_.exit.i.thread ], [ %25, %_ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEE17_S_check_init_lenEmRKS3_.exit.i ]
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %30, i8 0, i64 24, i1 false)
-  br label %39
-
-31:                                               ; preds = %_ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEE17_S_check_init_lenEmRKS3_.exit.i
-  %32 = shl nuw nsw i64 %27, 2
-  %33 = invoke noundef ptr @_ZN3gmx23AlignedAllocationPolicy6mallocEm(i64 noundef %32)
-          to label %.noexc10 unwind label %43
-
-.noexc10:                                         ; preds = %31
-  %34 = icmp eq ptr %33, null
-  br i1 %34, label %35, label %.lr.ph.preheader.i.i.i
-
-35:                                               ; preds = %.noexc10
-  %36 = tail call ptr @__cxa_allocate_exception(i64 8) #13
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %36, align 8
-  invoke void @__cxa_throw(ptr nonnull %36, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #29
-          to label %.noexc11 unwind label %43
-
-.noexc11:                                         ; preds = %35
+.noexc11:                                         ; preds = %30
   unreachable
 
 .lr.ph.preheader.i.i.i:                           ; preds = %.noexc10
-  store ptr %33, ptr %25, align 8
-  %37 = getelementptr inbounds nuw float, ptr %33, i64 %27
-  %38 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  store ptr %37, ptr %38, align 8
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %33, i8 0, i64 %32, i1 false)
-  %scevgep.i.i.i8 = getelementptr i8, ptr %33, i64 %32
-  br label %39
+  store ptr %28, ptr %24, align 8
+  %32 = getelementptr inbounds nuw float, ptr %28, i64 %26
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  store ptr %32, ptr %33, align 8
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %28, i8 0, i64 %27, i1 false)
+  %scevgep.i.i.i8 = getelementptr i8, ptr %28, i64 %27
+  br label %34
 
-39:                                               ; preds = %.lr.ph.preheader.i.i.i, %_ZNSt12_Vector_baseIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEEC2EmRKS3_.exit.thread.i
+34:                                               ; preds = %.lr.ph.preheader.i.i.i, %_ZNSt12_Vector_baseIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEEC2EmRKS3_.exit.thread.i
   %.0.lcssa.i.i.i = phi ptr [ %scevgep.i.i.i8, %.lr.ph.preheader.i.i.i ], [ null, %_ZNSt12_Vector_baseIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEEC2EmRKS3_.exit.thread.i ]
-  %40 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store ptr %.0.lcssa.i.i.i, ptr %40, align 8
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  store ptr %.0.lcssa.i.i.i, ptr %35, align 8
   ret void
 
-41:                                               ; preds = %16, %14
-  %42 = landingpad { ptr, i32 }
+36:                                               ; preds = %15, %14
+  %37 = landingpad { ptr, i32 }
           cleanup
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit
 
-43:                                               ; preds = %35, %31, %29
-  %44 = landingpad { ptr, i32 }
+38:                                               ; preds = %30, %18
+  %39 = landingpad { ptr, i32 }
           cleanup
-  %45 = load ptr, ptr %10, align 8
-  %.not.i.i.i = icmp eq ptr %45, null
-  br i1 %.not.i.i.i, label %_ZNSt6vectorIfSaIfEED2Ev.exit, label %46
+  %40 = load ptr, ptr %10, align 8
+  %.not.i.i.i = icmp eq ptr %40, null
+  br i1 %.not.i.i.i, label %_ZNSt6vectorIfSaIfEED2Ev.exit, label %41
 
-46:                                               ; preds = %43
-  tail call void @_ZdlPv(ptr noundef nonnull %45) #28
+41:                                               ; preds = %38
+  tail call void @_ZdlPv(ptr noundef nonnull %40) #28
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit
 
-_ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %46, %43, %41
-  %.pn = phi { ptr, i32 } [ %42, %41 ], [ %44, %43 ], [ %44, %46 ]
+_ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %41, %38, %36
+  %.pn = phi { ptr, i32 } [ %37, %36 ], [ %39, %38 ], [ %39, %41 ]
   tail call void @_ZNSt6vectorIN5Nbnxm11BoundingBoxEN3gmx9AllocatorIS1_NS2_23AlignedAllocationPolicyEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #13
   resume { ptr, i32 } %.pn
 }
@@ -6396,7 +6375,7 @@ _ZL11icell_set_xiRKN3gmx11BasicVectorIfEEiPKf25ClusterDistanceKernelTypeP20Nbnxn
 859:                                              ; preds = %857
   %860 = load float, ptr %854, align 4, !noalias !92
   %861 = add nuw nsw i64 %indvars.iv.i.i457.i, %853
-  %.idx178.i.i.i = mul i64 %861, 12
+  %.idx178.i.i.i = mul nsw i64 %861, 12
   %862 = getelementptr inbounds i8, ptr %822, i64 %.idx178.i.i.i
   %863 = load float, ptr %862, align 4, !alias.scope !87, !noalias !90
   %864 = fsub float %860, %863
@@ -6512,7 +6491,7 @@ _ZL11icell_set_xiRKN3gmx11BasicVectorIfEEiPKf25ClusterDistanceKernelTypeP20Nbnxn
 921:                                              ; preds = %919
   %922 = load float, ptr %916, align 4, !noalias !92
   %923 = add nuw nsw i64 %indvars.iv172.i.i.i, %915
-  %.idx180.i.i.i = mul i64 %923, 12
+  %.idx180.i.i.i = mul nsw i64 %923, 12
   %924 = getelementptr inbounds i8, ptr %822, i64 %.idx180.i.i.i
   %925 = load float, ptr %924, align 4, !alias.scope !87, !noalias !90
   %926 = fsub float %922, %925
@@ -9757,7 +9736,7 @@ _ZL12set_icell_bbRKN5Nbnxm4GridEiRKN3gmx11BasicVectorIfEEP20NbnxnPairlistGpuWork
   %2565 = shl nuw nsw i64 %indvars.iv11.i.i, 3
   %2566 = add nuw nsw i64 %2565, %2352
   %.idx15.i.i = mul nuw nsw i64 %indvars.iv11.i.i, 96
-  %invariant.gep16.i.i = getelementptr i8, ptr %.val420.i148, i64 %.idx15.i.i
+  %invariant.gep16.i.i = getelementptr inbounds nuw i8, ptr %.val420.i148, i64 %.idx15.i.i
   br label %.preheader.i445.i
 
 .preheader.i445.i:                                ; preds = %2576, %2564
@@ -9767,7 +9746,7 @@ _ZL12set_icell_bbRKN5Nbnxm4GridEiRKN3gmx11BasicVectorIfEEP20NbnxnPairlistGpuWork
   %2569 = mul i32 %2560, %2568
   %2570 = sext i32 %2569 to i64
   %invariant.gep.i.i = getelementptr float, ptr %2561, i64 %2570
-  %invariant.gep18.i.i = getelementptr float, ptr %invariant.gep16.i.i, i64 %indvars.iv6.i.i
+  %invariant.gep18.i.i = getelementptr inbounds nuw float, ptr %invariant.gep16.i.i, i64 %indvars.iv6.i.i
   br label %2571
 
 2571:                                             ; preds = %2571, %.preheader.i445.i
@@ -9778,7 +9757,7 @@ _ZL12set_icell_bbRKN5Nbnxm4GridEiRKN3gmx11BasicVectorIfEEP20NbnxnPairlistGpuWork
   %2574 = load float, ptr %2573, align 4
   %2575 = fadd float %2572, %2574
   %.idx.i.i = shl nsw i64 %indvars.iv.i.i149, 5
-  %gep19.i.i = getelementptr i8, ptr %invariant.gep18.i.i, i64 %.idx.i.i
+  %gep19.i.i = getelementptr inbounds nuw i8, ptr %invariant.gep18.i.i, i64 %.idx.i.i
   store float %2575, ptr %gep19.i.i, align 4
   %indvars.iv.next.i.i150 = add nuw nsw i64 %indvars.iv.i.i149, 1
   %exitcond.not.i.i151 = icmp eq i64 %indvars.iv.next.i.i150, 3

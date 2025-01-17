@@ -330,7 +330,7 @@ _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = 
 
 .lr.ph.i.i.i.i.i.i.i:                             ; preds = %.lr.ph.i.i.i.i.i.i.i, %.lr.ph.preheader.i.i.i.i.i.i.i
   %indvars.iv.i.i.i.i.i.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i.i.i.i.i.i ], [ %indvars.iv.next.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i ]
-  %.idx.i.i.i.i.i.i.i = mul nuw i64 %indvars.iv.i.i.i.i.i.i.i, 12
+  %.idx.i.i.i.i.i.i.i = mul nuw nsw i64 %indvars.iv.i.i.i.i.i.i.i, 12
   %57 = getelementptr inbounds nuw i8, ptr %38, i64 %.idx.i.i.i.i.i.i.i
   %58 = load i32, ptr %57, align 4
   %59 = getelementptr inbounds nuw i32, ptr %48, i64 %indvars.iv.i.i.i.i.i.i.i
@@ -605,7 +605,7 @@ _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i24.i.i.i.i.i.i: ; preds 
 
 .lr.ph.i28.i.i.i.i.i.i:                           ; preds = %.lr.ph.i28.i.i.i.i.i.i, %.lr.ph.preheader.i25.i.i.i.i.i.i
   %indvars.iv.i29.i.i.i.i.i.i = phi i64 [ 0, %.lr.ph.preheader.i25.i.i.i.i.i.i ], [ %indvars.iv.next.i31.i.i.i.i.i.i, %.lr.ph.i28.i.i.i.i.i.i ]
-  %.idx.i30.i.i.i.i.i.i = mul nuw i64 %indvars.iv.i29.i.i.i.i.i.i, 12
+  %.idx.i30.i.i.i.i.i.i = mul nuw nsw i64 %indvars.iv.i29.i.i.i.i.i.i, 12
   %153 = getelementptr inbounds nuw i8, ptr %134, i64 %.idx.i30.i.i.i.i.i.i
   %154 = load i32, ptr %153, align 4
   %155 = getelementptr inbounds nuw i32, ptr %144, i64 %indvars.iv.i29.i.i.i.i.i.i
@@ -874,7 +874,7 @@ _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i84.i.i.i.i.i.i: ; preds 
 
 .lr.ph.i88.i.i.i.i.i.i:                           ; preds = %.lr.ph.i88.i.i.i.i.i.i, %.lr.ph.preheader.i85.i.i.i.i.i.i
   %indvars.iv.i89.i.i.i.i.i.i = phi i64 [ 0, %.lr.ph.preheader.i85.i.i.i.i.i.i ], [ %indvars.iv.next.i91.i.i.i.i.i.i, %.lr.ph.i88.i.i.i.i.i.i ]
-  %.idx.i90.i.i.i.i.i.i = mul nuw i64 %indvars.iv.i89.i.i.i.i.i.i, 12
+  %.idx.i90.i.i.i.i.i.i = mul nuw nsw i64 %indvars.iv.i89.i.i.i.i.i.i, 12
   %250 = getelementptr inbounds nuw i8, ptr %231, i64 %.idx.i90.i.i.i.i.i.i
   %251 = load i32, ptr %250, align 4
   %252 = getelementptr inbounds nuw i32, ptr %241, i64 %indvars.iv.i89.i.i.i.i.i.i
@@ -1149,7 +1149,7 @@ _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i147.i.i.i.i.i.i: ; preds
 
 .lr.ph.i151.i.i.i.i.i.i:                          ; preds = %.lr.ph.i151.i.i.i.i.i.i, %.lr.ph.preheader.i148.i.i.i.i.i.i
   %indvars.iv.i152.i.i.i.i.i.i = phi i64 [ 0, %.lr.ph.preheader.i148.i.i.i.i.i.i ], [ %indvars.iv.next.i154.i.i.i.i.i.i, %.lr.ph.i151.i.i.i.i.i.i ]
-  %.idx.i153.i.i.i.i.i.i = mul nuw i64 %indvars.iv.i152.i.i.i.i.i.i, 12
+  %.idx.i153.i.i.i.i.i.i = mul nuw nsw i64 %indvars.iv.i152.i.i.i.i.i.i, 12
   %348 = getelementptr inbounds nuw i8, ptr %329, i64 %.idx.i153.i.i.i.i.i.i
   %349 = load i32, ptr %348, align 4
   %350 = getelementptr inbounds nuw i32, ptr %339, i64 %indvars.iv.i152.i.i.i.i.i.i
@@ -1424,7 +1424,7 @@ _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i214.i.i.i.i.i.i: ; preds
 
 .lr.ph.i218.i.i.i.i.i.i:                          ; preds = %.lr.ph.i218.i.i.i.i.i.i, %.lr.ph.preheader.i215.i.i.i.i.i.i
   %indvars.iv.i219.i.i.i.i.i.i = phi i64 [ 0, %.lr.ph.preheader.i215.i.i.i.i.i.i ], [ %indvars.iv.next.i221.i.i.i.i.i.i, %.lr.ph.i218.i.i.i.i.i.i ]
-  %.idx.i220.i.i.i.i.i.i = mul nuw i64 %indvars.iv.i219.i.i.i.i.i.i, 12
+  %.idx.i220.i.i.i.i.i.i = mul nuw nsw i64 %indvars.iv.i219.i.i.i.i.i.i, 12
   %446 = getelementptr inbounds nuw i8, ptr %427, i64 %.idx.i220.i.i.i.i.i.i
   %447 = load i32, ptr %446, align 4
   %448 = getelementptr inbounds nuw i32, ptr %437, i64 %indvars.iv.i219.i.i.i.i.i.i
@@ -1693,7 +1693,7 @@ _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i279.i.i.i.i.i.i: ; preds
 
 .lr.ph.i283.i.i.i.i.i.i:                          ; preds = %.lr.ph.i283.i.i.i.i.i.i, %.lr.ph.preheader.i280.i.i.i.i.i.i
   %indvars.iv.i284.i.i.i.i.i.i = phi i64 [ 0, %.lr.ph.preheader.i280.i.i.i.i.i.i ], [ %indvars.iv.next.i286.i.i.i.i.i.i, %.lr.ph.i283.i.i.i.i.i.i ]
-  %.idx.i285.i.i.i.i.i.i = mul nuw i64 %indvars.iv.i284.i.i.i.i.i.i, 12
+  %.idx.i285.i.i.i.i.i.i = mul nuw nsw i64 %indvars.iv.i284.i.i.i.i.i.i, 12
   %542 = getelementptr inbounds nuw i8, ptr %523, i64 %.idx.i285.i.i.i.i.i.i
   %543 = load i32, ptr %542, align 4
   %544 = getelementptr inbounds nuw i32, ptr %533, i64 %indvars.iv.i284.i.i.i.i.i.i
@@ -3713,7 +3713,7 @@ _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i744.i.i.i.i.i.i: ; preds
 
 .lr.ph.i748.i.i.i.i.i.i:                          ; preds = %.lr.ph.i748.i.i.i.i.i.i, %.lr.ph.preheader.i745.i.i.i.i.i.i
   %indvars.iv.i749.i.i.i.i.i.i = phi i64 [ 0, %.lr.ph.preheader.i745.i.i.i.i.i.i ], [ %indvars.iv.next.i751.i.i.i.i.i.i, %.lr.ph.i748.i.i.i.i.i.i ]
-  %.idx.i750.i.i.i.i.i.i = mul nuw i64 %indvars.iv.i749.i.i.i.i.i.i, 20
+  %.idx.i750.i.i.i.i.i.i = mul nuw nsw i64 %indvars.iv.i749.i.i.i.i.i.i, 20
   %1261 = getelementptr inbounds nuw i8, ptr %1242, i64 %.idx.i750.i.i.i.i.i.i
   %1262 = load i32, ptr %1261, align 4
   %1263 = getelementptr inbounds nuw i32, ptr %1252, i64 %indvars.iv.i749.i.i.i.i.i.i
@@ -3989,7 +3989,7 @@ _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i808.i.i.i.i.i.i: ; preds
 
 .lr.ph.i812.i.i.i.i.i.i:                          ; preds = %.lr.ph.i812.i.i.i.i.i.i, %.lr.ph.preheader.i809.i.i.i.i.i.i
   %indvars.iv.i813.i.i.i.i.i.i = phi i64 [ 0, %.lr.ph.preheader.i809.i.i.i.i.i.i ], [ %indvars.iv.next.i815.i.i.i.i.i.i, %.lr.ph.i812.i.i.i.i.i.i ]
-  %.idx.i814.i.i.i.i.i.i = mul nuw i64 %indvars.iv.i813.i.i.i.i.i.i, 20
+  %.idx.i814.i.i.i.i.i.i = mul nuw nsw i64 %indvars.iv.i813.i.i.i.i.i.i, 20
   %1360 = getelementptr inbounds nuw i8, ptr %1341, i64 %.idx.i814.i.i.i.i.i.i
   %1361 = load i32, ptr %1360, align 4
   %1362 = getelementptr inbounds nuw i32, ptr %1351, i64 %indvars.iv.i813.i.i.i.i.i.i
@@ -4149,7 +4149,7 @@ _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i845.i.i.i.i.i.i: ; preds
 
 .lr.ph.i849.i.i.i.i.i.i:                          ; preds = %.lr.ph.i849.i.i.i.i.i.i, %.lr.ph.preheader.i846.i.i.i.i.i.i
   %indvars.iv.i850.i.i.i.i.i.i = phi i64 [ 0, %.lr.ph.preheader.i846.i.i.i.i.i.i ], [ %indvars.iv.next.i852.i.i.i.i.i.i, %.lr.ph.i849.i.i.i.i.i.i ]
-  %.idx.i851.i.i.i.i.i.i = mul nuw i64 %indvars.iv.i850.i.i.i.i.i.i, 20
+  %.idx.i851.i.i.i.i.i.i = mul nuw nsw i64 %indvars.iv.i850.i.i.i.i.i.i, 20
   %1415 = getelementptr inbounds nuw i8, ptr %1396, i64 %.idx.i851.i.i.i.i.i.i
   %1416 = load i32, ptr %1415, align 4
   %1417 = getelementptr inbounds nuw i32, ptr %1406, i64 %indvars.iv.i850.i.i.i.i.i.i

@@ -9210,7 +9210,7 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIfLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exi
 821:                                              ; preds = %790
   %822 = load ptr, ptr %17, align 8, !noalias !140
   %823 = load i64, ptr %780, align 8, !noalias !140
-  %.idx763 = mul i64 %823, 408
+  %.idx763 = mul nsw i64 %823, 408
   %824 = getelementptr inbounds i8, ptr %822, i64 %.idx763
   store float 5.000000e-01, ptr %824, align 4, !noalias !143
   %825 = getelementptr i8, ptr %824, i64 4
@@ -9219,7 +9219,7 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIfLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exi
   store float 0.000000e+00, ptr %826, align 4
   %827 = load ptr, ptr %17, align 8, !noalias !146
   %828 = load i64, ptr %780, align 8, !noalias !146
-  %.idx764 = mul i64 %828, 412
+  %.idx764 = mul nsw i64 %828, 412
   %829 = getelementptr inbounds i8, ptr %827, i64 %.idx764
   %830 = load float, ptr %156, align 8
   %831 = fneg float %830
@@ -9238,7 +9238,7 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIfLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exi
   store float %840, ptr %841, align 4
   %842 = load ptr, ptr %17, align 8, !noalias !152
   %843 = load i64, ptr %780, align 8, !noalias !152
-  %.idx765 = mul i64 %843, 416
+  %.idx765 = mul nsw i64 %843, 416
   %844 = getelementptr inbounds i8, ptr %842, i64 %.idx765
   store float 5.000000e-01, ptr %844, align 4, !noalias !155
   %845 = getelementptr i8, ptr %844, i64 4
@@ -9247,7 +9247,7 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIfLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exi
   store float 0.000000e+00, ptr %846, align 4
   %847 = load ptr, ptr %17, align 8, !noalias !158
   %848 = load i64, ptr %780, align 8, !noalias !158
-  %.idx766 = mul i64 %848, 420
+  %.idx766 = mul nsw i64 %848, 420
   %849 = getelementptr inbounds i8, ptr %847, i64 %.idx766
   %850 = load float, ptr %156, align 8
   %851 = call float @llvm.fmuladd.f32(float %850, float 5.000000e-01, float 5.000000e-01)

@@ -17510,7 +17510,7 @@ define hidden noundef i32 @_ZN4ncnn30conv3x3s1_winograd43_int8_avx2ERKNS_3MatERS
   %403 = sext i32 %402 to i64
   %404 = mul nsw i32 %.sroa.speculated739.us.i, 40
   %405 = sext i32 %404 to i64
-  %406 = mul i32 %.sroa.speculated739.us.i, 48
+  %406 = mul nsw i32 %.sroa.speculated739.us.i, 48
   %407 = sext i32 %406 to i64
   %408 = sext i32 %392 to i64
   %409 = shl nsw i32 %392, 1
@@ -17592,12 +17592,12 @@ define hidden noundef i32 @_ZN4ncnn30conv3x3s1_winograd43_int8_avx2ERKNS_3MatERS
   store <8 x i32> %453, ptr %460, align 32
   %461 = getelementptr inbounds nuw [6 x [8 x i32]], ptr %335, i64 0, i64 %indvars.iv.i.us.i
   store <8 x i32> %457, ptr %461, align 32
-  %462 = getelementptr inbounds i32, ptr %.0136217.us.i.us.i, i64 %407
-  %463 = getelementptr inbounds i32, ptr %.0136416.us.i.us.i, i64 %407
-  %464 = getelementptr inbounds i32, ptr %.0136615.us.i.us.i, i64 %407
-  %465 = getelementptr inbounds i32, ptr %.0136814.us.i.us.i, i64 %407
-  %466 = getelementptr inbounds i32, ptr %.0137013.us.i.us.i, i64 %407
-  %467 = getelementptr inbounds i32, ptr %.0137212.us.i.us.i, i64 %407
+  %462 = getelementptr inbounds nuw i32, ptr %.0136217.us.i.us.i, i64 %407
+  %463 = getelementptr inbounds nuw i32, ptr %.0136416.us.i.us.i, i64 %407
+  %464 = getelementptr inbounds nuw i32, ptr %.0136615.us.i.us.i, i64 %407
+  %465 = getelementptr inbounds nuw i32, ptr %.0136814.us.i.us.i, i64 %407
+  %466 = getelementptr inbounds nuw i32, ptr %.0137013.us.i.us.i, i64 %407
+  %467 = getelementptr inbounds nuw i32, ptr %.0137212.us.i.us.i, i64 %407
   %indvars.iv.next.i.us.i = add nuw nsw i64 %indvars.iv.i.us.i, 1
   %exitcond.not.i.us.i = icmp eq i64 %indvars.iv.next.i.us.i, 5
   br i1 %exitcond.not.i.us.i, label %.preheader9.us.i.us.i, label %437, !llvm.loop !284
@@ -17936,7 +17936,7 @@ define hidden noundef i32 @_ZN4ncnn30conv3x3s1_winograd43_int8_avx2ERKNS_3MatERS
   %646 = sext i32 %645 to i64
   %647 = mul nsw i32 %.sroa.speculated739.us.i, 20
   %648 = sext i32 %647 to i64
-  %649 = mul i32 %.sroa.speculated739.us.i, 24
+  %649 = mul nsw i32 %.sroa.speculated739.us.i, 24
   %650 = sext i32 %649 to i64
   %651 = sext i32 %392 to i64
   %652 = shl nsw i32 %392, 1
@@ -18018,12 +18018,12 @@ define hidden noundef i32 @_ZN4ncnn30conv3x3s1_winograd43_int8_avx2ERKNS_3MatERS
   store <4 x i32> %693, ptr %700, align 16
   %701 = getelementptr inbounds nuw [6 x [4 x i32]], ptr %343, i64 0, i64 %indvars.iv220.i.us.i
   store <4 x i32> %697, ptr %701, align 16
-  %702 = getelementptr inbounds i32, ptr %.0139462.us.i.us.i, i64 %650
-  %703 = getelementptr inbounds i32, ptr %.0139661.us.i.us.i, i64 %650
-  %704 = getelementptr inbounds i32, ptr %.0139960.us.i.us.i, i64 %650
-  %705 = getelementptr inbounds i32, ptr %.0140159.us.i.us.i, i64 %650
-  %706 = getelementptr inbounds i32, ptr %.0140358.us.i.us.i, i64 %650
-  %707 = getelementptr inbounds i32, ptr %.0140557.us.i.us.i, i64 %650
+  %702 = getelementptr inbounds nuw i32, ptr %.0139462.us.i.us.i, i64 %650
+  %703 = getelementptr inbounds nuw i32, ptr %.0139661.us.i.us.i, i64 %650
+  %704 = getelementptr inbounds nuw i32, ptr %.0139960.us.i.us.i, i64 %650
+  %705 = getelementptr inbounds nuw i32, ptr %.0140159.us.i.us.i, i64 %650
+  %706 = getelementptr inbounds nuw i32, ptr %.0140358.us.i.us.i, i64 %650
+  %707 = getelementptr inbounds nuw i32, ptr %.0140557.us.i.us.i, i64 %650
   %indvars.iv.next221.i.us.i = add nuw nsw i64 %indvars.iv220.i.us.i, 1
   %exitcond223.not.i.us.i = icmp eq i64 %indvars.iv.next221.i.us.i, 5
   br i1 %exitcond223.not.i.us.i, label %.preheader6.us.i.us.i, label %677, !llvm.loop !288
@@ -18268,7 +18268,7 @@ define hidden noundef i32 @_ZN4ncnn30conv3x3s1_winograd43_int8_avx2ERKNS_3MatERS
   %845 = sext i32 %844 to i64
   %846 = mul nsw i32 %.sroa.speculated739.us.i, 10
   %847 = sext i32 %846 to i64
-  %848 = mul i32 %.sroa.speculated739.us.i, 12
+  %848 = mul nsw i32 %.sroa.speculated739.us.i, 12
   %849 = sext i32 %848 to i64
   %850 = sext i32 %392 to i64
   %851 = sext i32 %387 to i64
@@ -18378,12 +18378,12 @@ define hidden noundef i32 @_ZN4ncnn30conv3x3s1_winograd43_int8_avx2ERKNS_3MatERS
   store i32 %908, ptr %921, align 8
   %922 = getelementptr inbounds nuw i8, ptr %921, i64 4
   store i32 %914, ptr %922, align 4
-  %923 = getelementptr inbounds i32, ptr %.01416111.us.i.us.i, i64 %849
-  %924 = getelementptr inbounds i32, ptr %.01418110.us.i.us.i, i64 %849
-  %925 = getelementptr inbounds i32, ptr %.01420109.us.i.us.i, i64 %849
-  %926 = getelementptr inbounds i32, ptr %.01422108.us.i.us.i, i64 %849
-  %927 = getelementptr inbounds i32, ptr %.01424107.us.i.us.i, i64 %849
-  %928 = getelementptr inbounds i32, ptr %.01426106.us.i.us.i, i64 %849
+  %923 = getelementptr inbounds nuw i32, ptr %.01416111.us.i.us.i, i64 %849
+  %924 = getelementptr inbounds nuw i32, ptr %.01418110.us.i.us.i, i64 %849
+  %925 = getelementptr inbounds nuw i32, ptr %.01420109.us.i.us.i, i64 %849
+  %926 = getelementptr inbounds nuw i32, ptr %.01422108.us.i.us.i, i64 %849
+  %927 = getelementptr inbounds nuw i32, ptr %.01424107.us.i.us.i, i64 %849
+  %928 = getelementptr inbounds nuw i32, ptr %.01426106.us.i.us.i, i64 %849
   %indvars.iv.next237.i.us.i = add nuw nsw i64 %indvars.iv236.i.us.i, 1
   %exitcond239.not.i.us.i = icmp eq i64 %indvars.iv.next237.i.us.i, 5
   br i1 %exitcond239.not.i.us.i, label %.preheader3.us.i.us.i, label %868, !llvm.loop !292
@@ -23319,7 +23319,7 @@ define internal fastcc void @_ZN4ncnnL46conv3x3s1_winograd43_transform_input_til
   %43 = sext i32 %42 to i64
   %44 = mul nsw i32 %3, 40
   %45 = sext i32 %44 to i64
-  %46 = mul i32 %3, 48
+  %46 = mul nsw i32 %3, 48
   %47 = sext i32 %46 to i64
   br i1 %24, label %.lr.ph.us.preheader, label %._crit_edge1261
 
@@ -23438,12 +23438,12 @@ define internal fastcc void @_ZN4ncnnL46conv3x3s1_winograd43_transform_input_til
   store <8 x i16> %123, ptr %.011091252.us, align 16
   store <8 x i16> %124, ptr %.011101251.us, align 16
   store <8 x i16> %126, ptr %.011111250.us, align 16
-  %127 = getelementptr inbounds i16, ptr %.011061255.us, i64 %47
-  %128 = getelementptr inbounds i16, ptr %.011071254.us, i64 %47
-  %129 = getelementptr inbounds i16, ptr %.011081253.us, i64 %47
-  %130 = getelementptr inbounds i16, ptr %.011091252.us, i64 %47
-  %131 = getelementptr inbounds i16, ptr %.011101251.us, i64 %47
-  %132 = getelementptr inbounds i16, ptr %.011111250.us, i64 %47
+  %127 = getelementptr inbounds nuw i16, ptr %.011061255.us, i64 %47
+  %128 = getelementptr inbounds nuw i16, ptr %.011071254.us, i64 %47
+  %129 = getelementptr inbounds nuw i16, ptr %.011081253.us, i64 %47
+  %130 = getelementptr inbounds nuw i16, ptr %.011091252.us, i64 %47
+  %131 = getelementptr inbounds nuw i16, ptr %.011101251.us, i64 %47
+  %132 = getelementptr inbounds nuw i16, ptr %.011111250.us, i64 %47
   %indvars.iv.next1302 = add nuw nsw i64 %indvars.iv1301, 1
   %exitcond1304.not = icmp eq i64 %indvars.iv.next1302, 6
   br i1 %exitcond1304.not, label %97, label %98, !llvm.loop !400
@@ -23713,7 +23713,7 @@ define internal fastcc void @_ZN4ncnnL46conv3x3s1_winograd43_transform_input_til
   %303 = sext i32 %302 to i64
   %304 = mul nsw i32 %3, 10
   %305 = sext i32 %304 to i64
-  %306 = mul i32 %3, 12
+  %306 = mul nsw i32 %3, 12
   %307 = sext i32 %306 to i64
   br i1 %287, label %.lr.ph.us1279.preheader, label %._crit_edge1277
 
@@ -23881,12 +23881,12 @@ define internal fastcc void @_ZN4ncnnL46conv3x3s1_winograd43_transform_input_til
   %425 = add i16 %380, %424
   %426 = getelementptr inbounds nuw i8, ptr %.011341269.us, i64 2
   store i16 %425, ptr %426, align 2
-  %427 = getelementptr inbounds i16, ptr %.011391264.us, i64 %307
-  %428 = getelementptr inbounds i16, ptr %.011381265.us, i64 %307
-  %429 = getelementptr inbounds i16, ptr %.011371266.us, i64 %307
-  %430 = getelementptr inbounds i16, ptr %.011361267.us, i64 %307
-  %431 = getelementptr inbounds i16, ptr %.011351268.us, i64 %307
-  %432 = getelementptr inbounds i16, ptr %.011341269.us, i64 %307
+  %427 = getelementptr inbounds nuw i16, ptr %.011391264.us, i64 %307
+  %428 = getelementptr inbounds nuw i16, ptr %.011381265.us, i64 %307
+  %429 = getelementptr inbounds nuw i16, ptr %.011371266.us, i64 %307
+  %430 = getelementptr inbounds nuw i16, ptr %.011361267.us, i64 %307
+  %431 = getelementptr inbounds nuw i16, ptr %.011351268.us, i64 %307
+  %432 = getelementptr inbounds nuw i16, ptr %.011341269.us, i64 %307
   %indvars.iv.next1319 = add nuw nsw i64 %indvars.iv1318, 1
   %exitcond1321.not = icmp eq i64 %indvars.iv.next1319, 6
   br i1 %exitcond1321.not, label %355, label %356, !llvm.loop !404

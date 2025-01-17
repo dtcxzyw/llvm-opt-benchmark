@@ -533,7 +533,7 @@ define i32 @mca_common_ompio_fview_based_grouping(ptr nocapture noundef readonly
 
 .lr.ph:                                           ; preds = %.preheader115, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.preheader115 ]
-  %.idx = mul nuw i64 %indvars.iv, 24
+  %.idx = mul nuw nsw i64 %indvars.iv, 24
   %45 = getelementptr inbounds nuw i8, ptr %24, i64 %.idx
   %46 = load i64, ptr %45, align 8
   %47 = getelementptr inbounds nuw i8, ptr %45, i64 8
@@ -1452,7 +1452,7 @@ define i32 @mca_common_ompio_prepare_to_group(ptr nocapture noundef readonly %0,
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %.idx = mul nuw i64 %indvars.iv, 24
+  %.idx = mul nuw nsw i64 %indvars.iv, 24
   %45 = getelementptr inbounds nuw i8, ptr %27, i64 %.idx
   %46 = load i64, ptr %45, align 8
   %47 = getelementptr inbounds nuw i8, ptr %45, i64 8
@@ -1467,7 +1467,7 @@ define i32 @mca_common_ompio_prepare_to_group(ptr nocapture noundef readonly %0,
 .lr.ph147:                                        ; preds = %.preheader142, %.lr.ph147
   %51 = phi i64 [ %.pre, %.preheader142 ], [ %53, %.lr.ph147 ]
   %indvars.iv163 = phi i64 [ 0, %.preheader142 ], [ %indvars.iv.next164, %.lr.ph147 ]
-  %gep.idx = mul nuw i64 %indvars.iv163, 24
+  %gep.idx = mul nuw nsw i64 %indvars.iv163, 24
   %gep = getelementptr inbounds nuw i8, ptr %invariant.gep, i64 %gep.idx
   %52 = load i64, ptr %gep, align 8
   %53 = add nsw i64 %52, %51
@@ -2477,7 +2477,7 @@ define range(i32 -2, 1) i32 @mca_common_ompio_split_a_group(ptr nocapture nounde
   store i64 %38, ptr %39, align 8
   %40 = mul nuw nsw i64 %indvars.iv100, %36
   %invariant.gep115 = getelementptr inbounds nuw i64, ptr %2, i64 %40
-  %invariant.gep117 = getelementptr i64, ptr %1, i64 %37
+  %invariant.gep117 = getelementptr inbounds nuw i64, ptr %1, i64 %37
   br label %41
 
 41:                                               ; preds = %.lr.ph.us.us, %50
@@ -2486,8 +2486,8 @@ define range(i32 -2, 1) i32 @mca_common_ompio_split_a_group(ptr nocapture nounde
   %gep116 = getelementptr inbounds nuw i64, ptr %invariant.gep115, i64 %indvars.iv95
   %43 = load i64, ptr %gep116, align 8
   %indvars.iv.next96 = add nuw nsw i64 %indvars.iv95, 1
-  %.idx108 = mul i64 %indvars.iv.next96, 24
-  %gep118 = getelementptr i8, ptr %invariant.gep117, i64 %.idx108
+  %.idx108 = mul nuw nsw i64 %indvars.iv.next96, 24
+  %gep118 = getelementptr inbounds nuw i8, ptr %invariant.gep117, i64 %.idx108
   %44 = load i64, ptr %gep118, align 8
   %45 = icmp eq i64 %43, %44
   br i1 %45, label %46, label %50

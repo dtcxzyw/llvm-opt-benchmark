@@ -25268,7 +25268,7 @@ par_shapes_invert.exit.us.preheader:              ; preds = %.preheader.us
   %indvars.iv = phi i64 [ %12, %.lr.ph.split.us.us.preheader ], [ %indvars.iv.next, %par_shapes_invert.exit.loopexit.us.us ]
   %.024.us.us = phi i32 [ 0, %.lr.ph.split.us.us.preheader ], [ %22, %par_shapes_invert.exit.loopexit.us.us ]
   %15 = load ptr, ptr %8, align 8
-  %.idx = mul i64 %indvars.iv, 6
+  %.idx = mul nsw i64 %indvars.iv, 6
   %16 = getelementptr inbounds i8, ptr %15, i64 %.idx
   br label %.lr.ph.i.us.us
 
@@ -27681,7 +27681,7 @@ define hidden void @par_shapes_unweld(ptr nocapture noundef %0, i1 noundef zeroe
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load i32, ptr %3, align 8
   %5 = mul i32 %4, 3
-  %6 = mul i32 %4, 9
+  %6 = mul nsw i32 %4, 9
   %7 = sext i32 %6 to i64
   %8 = shl nsw i64 %7, 2
   %9 = tail call noalias ptr @malloc(i64 noundef %8) #55
@@ -27826,7 +27826,7 @@ par_shapes_unweld.exit:                           ; preds = %8
   %28 = phi i32 [ %180, %par_shapes__subdivide.exit ], [ 20, %par_shapes_unweld.exit ]
   %.027 = phi i32 [ %29, %par_shapes__subdivide.exit ], [ %0, %par_shapes_unweld.exit ]
   %29 = add nsw i32 %.027, -1
-  %30 = mul i32 %28, 36
+  %30 = mul nsw i32 %28, 36
   %31 = sext i32 %30 to i64
   %32 = shl nsw i64 %31, 2
   %33 = tail call noalias ptr @calloc(i64 noundef %32, i64 noundef 1) #56
@@ -28029,7 +28029,7 @@ par_shapes__subdivide.exit:                       ; preds = %.lr.ph.i24, %.lr.ph
 
 181:                                              ; preds = %.lr.ph32, %par_shapes__normalize3.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph32 ], [ %indvars.iv.next, %par_shapes__normalize3.exit ]
-  %.idx = mul nuw i64 %indvars.iv, 12
+  %.idx = mul nuw nsw i64 %indvars.iv, 12
   %182 = getelementptr inbounds nuw i8, ptr %25, i64 %.idx
   %183 = load float, ptr %182, align 4
   %184 = getelementptr inbounds nuw i8, ptr %182, i64 4
@@ -28183,7 +28183,7 @@ par__simplex_noise.exit:                          ; preds = %18, %2, %12
 .lr.ph:                                           ; preds = %par__simplex_noise.exit, %73
   %indvars.iv = phi i64 [ %indvars.iv.next, %73 ], [ 0, %par__simplex_noise.exit ]
   %40 = load ptr, ptr %4, align 8
-  %.idx = mul nuw i64 %indvars.iv, 12
+  %.idx = mul nuw nsw i64 %indvars.iv, 12
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 %.idx
   %42 = load float, ptr %41, align 4
   %43 = fpext float %42 to double
@@ -34175,7 +34175,7 @@ LoadVOX.exit:                                     ; preds = %1870, %1874, %Vox_F
   store i32 %2051, ptr %2053, align 8
   %2054 = getelementptr inbounds %struct.Mesh, ptr %.sroa.14.3, i64 %2052, i32 1
   store i32 %.2436.lcssa.i, ptr %2054, align 4
-  %2055 = mul i32 %.2436.lcssa.i, 9
+  %2055 = mul nsw i32 %.2436.lcssa.i, 9
   %2056 = zext nneg i32 %2055 to i64
   %2057 = call noalias ptr @calloc(i64 noundef %2056, i64 noundef 4) #56
   %2058 = getelementptr inbounds %struct.Mesh, ptr %.sroa.14.3, i64 %2052, i32 2
@@ -34219,7 +34219,7 @@ LoadVOX.exit:                                     ; preds = %1870, %1874, %Vox_F
   %2080 = call noalias ptr @calloc(i64 noundef %2077, i64 noundef 4) #56
   %2081 = getelementptr inbounds %struct.Mesh, ptr %.sroa.14.3, i64 %2052, i32 12
   store ptr %2080, ptr %2081, align 8
-  %2082 = mul i32 %.2436.lcssa.i, 9
+  %2082 = mul nsw i32 %.2436.lcssa.i, 9
   %2083 = zext nneg i32 %2082 to i64
   %2084 = call noalias ptr @calloc(i64 noundef %2083, i64 noundef 4) #56
   %2085 = getelementptr inbounds %struct.Mesh, ptr %.sroa.14.3, i64 %2052, i32 9
@@ -39991,9 +39991,9 @@ define void @GenMeshPoly(ptr dead_on_unwind noalias nocapture writable sret(%str
   store i32 %5, ptr %0, align 8
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %1, ptr %35, align 4
-  %36 = mul i32 %1, 9
-  %37 = sext i32 %36 to i64
-  %38 = shl nsw i64 %37, 2
+  %36 = mul nuw nsw i32 %1, 9
+  %37 = zext nneg i32 %36 to i64
+  %38 = shl nuw nsw i64 %37, 2
   %39 = tail call noalias ptr @malloc(i64 noundef %38) #55
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %39, ptr %40, align 8
@@ -40012,7 +40012,7 @@ define void @GenMeshPoly(ptr dead_on_unwind noalias nocapture writable sret(%str
   %indvars.iv105 = phi i64 [ 0, %31 ], [ %indvars.iv.next106, %48 ]
   %49 = getelementptr inbounds nuw %struct.Vector3, ptr %8, i64 %indvars.iv105
   %50 = load float, ptr %49, align 4
-  %.idx = mul nuw i64 %indvars.iv105, 12
+  %.idx = mul nuw nsw i64 %indvars.iv105, 12
   %51 = getelementptr inbounds nuw i8, ptr %39, i64 %.idx
   store float %50, ptr %51, align 4
   %52 = getelementptr inbounds nuw i8, ptr %49, i64 4
@@ -40047,7 +40047,7 @@ define void @GenMeshPoly(ptr dead_on_unwind noalias nocapture writable sret(%str
   %indvars.iv115 = phi i64 [ %indvars.iv.next116, %.preheader ], [ 0, %.preheader90 ]
   %66 = getelementptr inbounds nuw %struct.Vector3, ptr %28, i64 %indvars.iv115
   %67 = load float, ptr %66, align 4
-  %.idx120 = mul nuw i64 %indvars.iv115, 12
+  %.idx120 = mul nuw nsw i64 %indvars.iv115, 12
   %68 = getelementptr inbounds nuw i8, ptr %46, i64 %.idx120
   store float %67, ptr %68, align 4
   %69 = getelementptr inbounds nuw i8, ptr %66, i64 4
@@ -40265,7 +40265,7 @@ define void @GenMeshPlane(ptr dead_on_unwind noalias nocapture writable sret(%st
   %indvars.iv199 = phi i64 [ 0, %.lr.ph164.preheader ], [ %indvars.iv.next200, %.lr.ph164 ]
   %78 = getelementptr inbounds nuw %struct.Vector3, ptr %11, i64 %indvars.iv199
   %79 = load float, ptr %78, align 4
-  %.idx = mul nuw i64 %indvars.iv199, 12
+  %.idx = mul nuw nsw i64 %indvars.iv199, 12
   %80 = getelementptr inbounds nuw i8, ptr %66, i64 %.idx
   store float %79, ptr %80, align 4
   %81 = getelementptr inbounds nuw i8, ptr %78, i64 4
@@ -40312,7 +40312,7 @@ define void @GenMeshPlane(ptr dead_on_unwind noalias nocapture writable sret(%st
   %indvars.iv209 = phi i64 [ 0, %.lr.ph168.preheader ], [ %indvars.iv.next210, %.lr.ph168 ]
   %95 = getelementptr inbounds nuw %struct.Vector3, ptr %27, i64 %indvars.iv209
   %96 = load float, ptr %95, align 4
-  %.idx219 = mul nuw i64 %indvars.iv209, 12
+  %.idx219 = mul nuw nsw i64 %indvars.iv209, 12
   %97 = getelementptr inbounds nuw i8, ptr %73, i64 %.idx219
   store float %96, ptr %97, align 4
   %98 = getelementptr inbounds nuw i8, ptr %95, i64 4
@@ -40561,13 +40561,13 @@ define void @GenMeshSphere(ptr dead_on_unwind noalias nocapture writable sret(%s
   tail call void @par_shapes_scale(ptr noundef %8, float noundef %1, float noundef %1, float noundef %1)
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %10 = load i32, ptr %9, align 8
-  %11 = mul i32 %10, 9
+  %11 = mul nsw i32 %10, 9
   %12 = sext i32 %11 to i64
   %13 = shl nsw i64 %12, 2
   %14 = tail call noalias ptr @malloc(i64 noundef %13) #55
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %14, ptr %15, align 8
-  %16 = mul i32 %10, 6
+  %16 = mul nsw i32 %10, 6
   %17 = sext i32 %16 to i64
   %18 = shl nsw i64 %17, 2
   %19 = tail call noalias ptr @malloc(i64 noundef %18) #55
@@ -40709,13 +40709,13 @@ define void @GenMeshHemiSphere(ptr dead_on_unwind noalias nocapture writable sre
   tail call void @par_shapes_scale(ptr noundef %9, float noundef %.049, float noundef %.049, float noundef %.049)
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 24
   %11 = load i32, ptr %10, align 8
-  %12 = mul i32 %11, 9
+  %12 = mul nsw i32 %11, 9
   %13 = sext i32 %12 to i64
   %14 = shl nsw i64 %13, 2
   %15 = tail call noalias ptr @malloc(i64 noundef %14) #55
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %15, ptr %16, align 8
-  %17 = mul i32 %11, 6
+  %17 = mul nsw i32 %11, 6
   %18 = sext i32 %17 to i64
   %19 = shl nsw i64 %18, 2
   %20 = tail call noalias ptr @malloc(i64 noundef %19) #55
@@ -41006,13 +41006,13 @@ par_shapes_translate.exit:                        ; preds = %.lr.ph.i, %._crit_e
   tail call void @free(ptr noundef nonnull %53) #53
   %77 = getelementptr inbounds nuw i8, ptr %16, i64 24
   %78 = load i32, ptr %77, align 8
-  %79 = mul i32 %78, 9
+  %79 = mul nsw i32 %78, 9
   %80 = sext i32 %79 to i64
   %81 = shl nsw i64 %80, 2
   %82 = tail call noalias ptr @malloc(i64 noundef %81) #55
   %83 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %82, ptr %83, align 8
-  %84 = mul i32 %78, 6
+  %84 = mul nsw i32 %78, 6
   %85 = sext i32 %84 to i64
   %86 = shl nsw i64 %85, 2
   %87 = tail call noalias ptr @malloc(i64 noundef %86) #55
@@ -41220,13 +41220,13 @@ define void @GenMeshCone(ptr dead_on_unwind noalias nocapture writable sret(%str
   tail call void @free(ptr noundef nonnull %21) #53
   %38 = getelementptr inbounds nuw i8, ptr %12, i64 24
   %39 = load i32, ptr %38, align 8
-  %40 = mul i32 %39, 9
+  %40 = mul nsw i32 %39, 9
   %41 = sext i32 %40 to i64
   %42 = shl nsw i64 %41, 2
   %43 = tail call noalias ptr @malloc(i64 noundef %42) #55
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %43, ptr %44, align 8
-  %45 = mul i32 %39, 6
+  %45 = mul nsw i32 %39, 6
   %46 = sext i32 %45 to i64
   %47 = shl nsw i64 %46, 2
   %48 = tail call noalias ptr @malloc(i64 noundef %47) #55
@@ -41379,13 +41379,13 @@ define void @GenMeshTorus(ptr dead_on_unwind noalias nocapture writable sret(%st
   tail call void @par_shapes_scale(ptr noundef %14, float noundef %15, float noundef %15, float noundef %15)
   %16 = getelementptr inbounds nuw i8, ptr %14, i64 24
   %17 = load i32, ptr %16, align 8
-  %18 = mul i32 %17, 9
+  %18 = mul nsw i32 %17, 9
   %19 = sext i32 %18 to i64
   %20 = shl nsw i64 %19, 2
   %21 = tail call noalias ptr @malloc(i64 noundef %20) #55
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %21, ptr %22, align 8
-  %23 = mul i32 %17, 6
+  %23 = mul nsw i32 %17, 6
   %24 = sext i32 %23 to i64
   %25 = shl nsw i64 %24, 2
   %26 = tail call noalias ptr @malloc(i64 noundef %25) #55
@@ -41541,13 +41541,13 @@ par_shapes_create_trefoil_knot.exit:              ; preds = %9, %11, %13
   call void @par_shapes_scale(ptr noundef %14, float noundef %2, float noundef %2, float noundef %2)
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 24
   %16 = load i32, ptr %15, align 8
-  %17 = mul i32 %16, 9
+  %17 = mul nsw i32 %16, 9
   %18 = sext i32 %17 to i64
   %19 = shl nsw i64 %18, 2
   %20 = call noalias ptr @malloc(i64 noundef %19) #55
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %20, ptr %21, align 8
-  %22 = mul i32 %16, 6
+  %22 = mul nsw i32 %16, 6
   %23 = sext i32 %22 to i64
   %24 = shl nsw i64 %23, 2
   %25 = call noalias ptr @malloc(i64 noundef %24) #55
@@ -41688,7 +41688,7 @@ define void @GenMeshHeightmap(ptr dead_on_unwind noalias nocapture writable sret
   store i32 %14, ptr %15, align 4
   %16 = mul nsw i32 %13, 6
   store i32 %16, ptr %0, align 8
-  %17 = mul i32 %13, 18
+  %17 = mul nsw i32 %13, 18
   %18 = sext i32 %17 to i64
   %19 = shl nsw i64 %18, 2
   %20 = tail call noalias ptr @malloc(i64 noundef %19) #55
@@ -43076,7 +43076,7 @@ define void @GenMeshTangents(ptr nocapture noundef %0) local_unnamed_addr #25 {
 
 36:                                               ; preds = %.lr.ph, %36
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %36 ]
-  %.idx = mul nuw i64 %indvars.iv, 12
+  %.idx = mul nuw nsw i64 %indvars.iv, 12
   %37 = getelementptr inbounds nuw i8, ptr %28, i64 %.idx
   %38 = load float, ptr %37, align 4
   %39 = getelementptr inbounds nuw i8, ptr %37, i64 4
@@ -43084,7 +43084,7 @@ define void @GenMeshTangents(ptr nocapture noundef %0) local_unnamed_addr #25 {
   %41 = getelementptr inbounds nuw i8, ptr %37, i64 8
   %42 = load float, ptr %41, align 4
   %43 = add nuw nsw i64 %indvars.iv, 1
-  %.idx187 = mul nuw i64 %43, 12
+  %.idx187 = mul nuw nsw i64 %43, 12
   %44 = getelementptr inbounds nuw i8, ptr %28, i64 %.idx187
   %45 = load float, ptr %44, align 4
   %46 = getelementptr inbounds nuw i8, ptr %44, i64 4
@@ -43092,7 +43092,7 @@ define void @GenMeshTangents(ptr nocapture noundef %0) local_unnamed_addr #25 {
   %48 = getelementptr inbounds nuw i8, ptr %44, i64 8
   %49 = load float, ptr %48, align 4
   %50 = add nuw nsw i64 %indvars.iv, 2
-  %.idx188 = mul nuw i64 %50, 12
+  %.idx188 = mul nuw nsw i64 %50, 12
   %51 = getelementptr inbounds nuw i8, ptr %28, i64 %.idx188
   %52 = load float, ptr %51, align 4
   %53 = getelementptr inbounds nuw i8, ptr %51, i64 4
@@ -43200,7 +43200,7 @@ define void @GenMeshTangents(ptr nocapture noundef %0) local_unnamed_addr #25 {
 122:                                              ; preds = %.lr.ph181, %122
   %indvars.iv184 = phi i64 [ 0, %.lr.ph181 ], [ %indvars.iv.next185, %122 ]
   %123 = load ptr, ptr %31, align 8
-  %.idx189 = mul nuw i64 %indvars.iv184, 12
+  %.idx189 = mul nuw nsw i64 %indvars.iv184, 12
   %124 = getelementptr inbounds nuw i8, ptr %123, i64 %.idx189
   %125 = load float, ptr %124, align 4
   store float %125, ptr %2, align 8
@@ -44216,7 +44216,7 @@ define void @GetRayCollisionMesh(ptr dead_on_unwind noalias nocapture writable s
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %32
   %indvars.iv62 = phi i64 [ %indvars.iv.next63, %32 ], [ 0, %.lr.ph ]
-  %.idx67 = mul nuw i64 %indvars.iv62, 36
+  %.idx67 = mul nuw nsw i64 %indvars.iv62, 36
   %16 = getelementptr inbounds nuw i8, ptr %7, i64 %.idx67
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 12
   %.sroa.540.0..sroa_idx41.us = getelementptr inbounds nuw i8, ptr %16, i64 20
@@ -44265,7 +44265,7 @@ define void @GetRayCollisionMesh(ptr dead_on_unwind noalias nocapture writable s
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %57
   %indvars.iv = phi i64 [ %indvars.iv.next, %57 ], [ 0, %.lr.ph ]
-  %.idx = mul nuw i64 %indvars.iv, 6
+  %.idx = mul nuw nsw i64 %indvars.iv, 6
   %33 = getelementptr inbounds nuw i8, ptr %13, i64 %.idx
   %34 = load i16, ptr %33, align 2
   %35 = zext i16 %34 to i64

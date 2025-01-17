@@ -2346,7 +2346,7 @@ for.cond4.preheader:                              ; preds = %for.cond4.preheader
   %indvars.iv66 = phi i64 [ 0, %for.cond4.preheader.lr.ph ], [ %indvars.iv.next67, %invoke.cont37 ]
   %arrayidx.i = getelementptr inbounds nuw %class.btVector3, ptr %call.i.i.i.i17, i64 %indvars.iv66
   %arrayidx.i29.phi.trans.insert = getelementptr inbounds nuw %class.btVector3, ptr %call.i.i.i.i17, i64 %indvars.iv66
-  %arrayidx.i23.idx = mul i64 %indvars.iv66, 12
+  %arrayidx.i23.idx = mul nuw nsw i64 %indvars.iv66, 12
   br label %for.body6
 
 for.body6:                                        ; preds = %for.cond4.preheader, %for.inc26
@@ -2369,7 +2369,7 @@ for.body12:                                       ; preds = %for.body12.lr.ph, %
   %m_data.i21 = getelementptr inbounds nuw %class.btAlignedObjectArray.12, ptr %4, i64 %indvars.iv, i32 5
   %5 = load ptr, ptr %m_data.i21, align 8
   %6 = getelementptr inbounds nuw float, ptr %5, i64 %indvars.iv62
-  %arrayidx.i23 = getelementptr inbounds i8, ptr %6, i64 %arrayidx.i23.idx
+  %arrayidx.i23 = getelementptr inbounds nuw i8, ptr %6, i64 %arrayidx.i23.idx
   %7 = load float, ptr %arrayidx.i23, align 4
   %8 = load ptr, ptr %m_data.i24, align 8
   %arrayidx.i26 = getelementptr inbounds nuw float, ptr %8, i64 %indvars.iv
@@ -4063,7 +4063,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   br i1 %cmp16150, label %for.cond15.preheader.us.preheader, label %for.end25
 
 for.cond15.preheader.us.preheader:                ; preds = %for.body
-  %arrayidx.i57.us.idx = mul i64 %indvars.iv167, 12
+  %arrayidx.i57.us.idx = mul nuw nsw i64 %indvars.iv167, 12
   br label %for.cond15.preheader.us
 
 for.cond15.preheader.us:                          ; preds = %for.cond15.preheader.us.preheader, %for.cond15.for.inc23_crit_edge.us
@@ -4078,7 +4078,7 @@ for.body17.us:                                    ; preds = %for.cond15.preheade
   %m_data.i55.us = getelementptr inbounds nuw %class.btAlignedObjectArray.12, ptr %27, i64 %indvars.iv, i32 5
   %40 = load ptr, ptr %m_data.i55.us, align 8
   %41 = getelementptr inbounds nuw float, ptr %40, i64 %indvars.iv162
-  %arrayidx.i57.us = getelementptr inbounds i8, ptr %41, i64 %arrayidx.i57.us.idx
+  %arrayidx.i57.us = getelementptr inbounds nuw i8, ptr %41, i64 %arrayidx.i57.us.idx
   %42 = load float, ptr %arrayidx.i57.us, align 4
   %arrayidx.i60.us = getelementptr inbounds nuw float, ptr %28, i64 %indvars.iv
   %43 = load float, ptr %arrayidx.i60.us, align 4
@@ -5936,7 +5936,7 @@ invoke.cont86:                                    ; preds = %invoke.cont86.prehe
   %145 = load ptr, ptr %m_data.i83, align 8
   %m_data.i270 = getelementptr inbounds nuw %class.btAlignedObjectArray.12, ptr %145, i64 %indvars.iv664, i32 5
   %146 = load ptr, ptr %m_data.i270, align 8
-  %arrayidx.i272.idx = mul nuw i64 %indvars.iv660, 12
+  %arrayidx.i272.idx = mul nuw nsw i64 %indvars.iv660, 12
   %arrayidx.i272 = getelementptr inbounds nuw i8, ptr %146, i64 %arrayidx.i272.idx
   %arrayidx.i278 = getelementptr inbounds nuw i8, ptr %arrayidx.i272, i64 4
   %arrayidx.i284 = getelementptr inbounds nuw i8, ptr %arrayidx.i272, i64 8

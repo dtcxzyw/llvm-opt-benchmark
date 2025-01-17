@@ -830,7 +830,7 @@ _ZNSt6vectorI10aiVector3tIfESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i: ; preds =
   br i1 %cmp.not.i.i.i.i, label %invoke.cont, label %for.body.preheader.i.i.i.i.i
 
 for.body.preheader.i.i.i.i.i:                     ; preds = %_ZNSt6vectorI10aiVector3tIfESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i
-  %mul.i.i.i.i.i.i = mul i64 %sub.ptr.div.i, 36
+  %mul.i.i.i.i.i.i = mul nsw i64 %sub.ptr.div.i, 36
   %call5.i.i.i.i2.i.i22 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i) #26
   store ptr %call5.i.i.i.i2.i.i22, ptr %vNew, align 8
   %add.ptr.i.i.i = getelementptr inbounds nuw %class.aiVector3t, ptr %call5.i.i.i.i2.i.i22, i64 %mul
@@ -860,13 +860,13 @@ if.then:                                          ; preds = %invoke.cont
   br i1 %cmp.i.not, label %if.end, label %_ZNKSt6vectorI10aiVector3tIfESaIS1_EE12_M_check_lenEmPKc.exit.i.i
 
 _ZNKSt6vectorI10aiVector3tIfESaIS1_EE12_M_check_lenEmPKc.exit.i.i: ; preds = %if.then
-  %mul.i.i.i.i.i = mul i64 %sub.ptr.div.i, 36
+  %mul.i.i.i.i.i = mul nsw i64 %sub.ptr.div.i, 36
   %call5.i.i.i.i.i35 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i) #26
           to label %_ZNSt12_Vector_baseI10aiVector3tIfESaIS1_EE13_M_deallocateEPS1_m.exit29.i.i unwind label %lpad6
 
 _ZNSt12_Vector_baseI10aiVector3tIfESaIS1_EE13_M_deallocateEPS1_m.exit29.i.i: ; preds = %_ZNKSt6vectorI10aiVector3tIfESaIS1_EE12_M_check_lenEmPKc.exit.i.i
   %_M_end_of_storage.i.i = getelementptr inbounds nuw i8, ptr %vNew2, i64 16
-  %6 = mul i64 %sub.ptr.div.i, 36
+  %6 = mul nsw i64 %sub.ptr.div.i, 36
   tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %call5.i.i.i.i.i35, i8 0, i64 %6, i1 false)
   store ptr %call5.i.i.i.i.i35, ptr %vNew2, align 8
   %add.ptr37.i.i = getelementptr inbounds nuw %class.aiVector3t, ptr %call5.i.i.i.i.i35, i64 %mul

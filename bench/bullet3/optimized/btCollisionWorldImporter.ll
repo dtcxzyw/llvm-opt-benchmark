@@ -6440,7 +6440,7 @@ for.body41:                                       ; preds = %for.body41.preheade
   %31 = load ptr, ptr %m_3indices1645, align 8
   %arrayidx47 = getelementptr inbounds nuw %struct.btShortIntIndexTripletData, ptr %31, i64 %indvars.iv341
   %32 = load i16, ptr %arrayidx47, align 2
-  %arrayidx51.idx = mul nuw i64 %indvars.iv341, 6
+  %arrayidx51.idx = mul nuw nsw i64 %indvars.iv341, 6
   %arrayidx51 = getelementptr inbounds nuw i8, ptr %call36, i64 %arrayidx51.idx
   store i16 %32, ptr %arrayidx51, align 2
   %33 = load ptr, ptr %meshData, align 8
