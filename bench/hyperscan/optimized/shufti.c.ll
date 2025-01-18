@@ -3,7 +3,7 @@ source_filename = "bench/hyperscan/original/shufti.c.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read, inaccessiblemem: write) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
 define hidden ptr @shuftiExec(<2 x i64> noundef %mask_lo, <2 x i64> noundef %mask_hi, ptr noundef %buf, ptr noundef %buf_end) local_unnamed_addr #0 {
 entry:
   %mask_lo.addr = alloca <2 x i64>, align 16
@@ -77,7 +77,6 @@ if.end6:                                          ; preds = %if.end
 
 while.body:                                       ; preds = %if.end6, %if.end13
   %buf.addr.063 = phi ptr [ %add.ptr14, %if.end13 ], [ %add.ptr, %if.end6 ]
-  call void @llvm.assume(i1 true) [ "align"(ptr %buf.addr.063, i64 16) ]
   %16 = load <2 x i64>, ptr %buf.addr.063, align 16
   %17 = bitcast <2 x i64> %16 to <16 x i8>
   %18 = and <16 x i8> %17, splat (i8 15)
@@ -129,7 +128,7 @@ return:                                           ; preds = %for.body.i, %if.end
   ret ptr %retval.0
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: write) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
 define hidden nonnull ptr @rshuftiExec(<2 x i64> noundef %mask_lo, <2 x i64> noundef %mask_hi, ptr noundef %buf, ptr noundef %buf_end) local_unnamed_addr #1 {
 entry:
   %mask_lo.addr = alloca <2 x i64>, align 16
@@ -204,7 +203,6 @@ while.cond:                                       ; preds = %while.body, %if.end
 
 while.body:                                       ; preds = %while.cond
   %add.ptr10 = getelementptr inbounds i8, ptr %buf_end.addr.0, i64 -16
-  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr10, i64 16) ]
   %17 = load <2 x i64>, ptr %add.ptr10, align 16
   %18 = bitcast <2 x i64> %17 to <16 x i8>
   %19 = and <16 x i8> %18, splat (i8 15)
@@ -264,7 +262,7 @@ return:                                           ; preds = %for.cond.i, %for.bo
   ret ptr %retval.0
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read, inaccessiblemem: write) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
 define hidden ptr @shuftiDoubleExec(<2 x i64> noundef %mask1_lo, <2 x i64> noundef %mask1_hi, <2 x i64> noundef %mask2_lo, <2 x i64> noundef %mask2_hi, ptr noundef %buf, ptr noundef readonly %buf_end) local_unnamed_addr #0 {
 entry:
   %0 = load <2 x i64>, ptr %buf, align 1
@@ -305,7 +303,6 @@ if.end:                                           ; preds = %entry
 
 while.body:                                       ; preds = %if.end, %if.end9
   %buf.addr.088 = phi ptr [ %add.ptr10, %if.end9 ], [ %add.ptr, %if.end ]
-  call void @llvm.assume(i1 true) [ "align"(ptr %buf.addr.088, i64 16) ]
   %17 = load <2 x i64>, ptr %buf.addr.088, align 16
   %and.i278 = lshr <2 x i64> %17, splat (i64 4)
   %18 = bitcast <2 x i64> %17 to <16 x i8>
@@ -370,21 +367,17 @@ return:                                           ; preds = %return.loopexit, %w
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
 declare <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8>, <16 x i8>) #2
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #3
-
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.ctlz.i32(i32, i1 immarg) #4
+declare i32 @llvm.ctlz.i32(i32, i1 immarg) #3
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i16 @llvm.cttz.i16(i16, i1 immarg) #5
+declare i16 @llvm.cttz.i16(i16, i1 immarg) #4
 
-attributes #0 = { nofree norecurse nosync nounwind memory(argmem: read, inaccessiblemem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="corei7" "target-features"="+cmov,+crc32,+cx16,+cx8,+fxsr,+mmx,+popcnt,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" }
-attributes #1 = { nofree norecurse nosync nounwind memory(read, inaccessiblemem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="corei7" "target-features"="+cmov,+crc32,+cx16,+cx8,+fxsr,+mmx,+popcnt,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" }
+attributes #0 = { nofree norecurse nosync nounwind memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="corei7" "target-features"="+cmov,+crc32,+cx16,+cx8,+fxsr,+mmx,+popcnt,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" }
+attributes #1 = { nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="corei7" "target-features"="+cmov,+crc32,+cx16,+cx8,+fxsr,+mmx,+popcnt,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" }
 attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(none) }
-attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #4 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #5 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #3 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #4 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 
