@@ -573,6 +573,7 @@ _ZN4core5slice4sort20provide_sorted_batch17ha280ea0abf600670E.exit: ; preds = %.
   %.02818.i = phi ptr [ %206, %.lr.ph.i64 ], [ %182, %190 ]
   %.sroa.0.117.i = phi ptr [ %209, %.lr.ph.i64 ], [ %15, %190 ]
   %.sroa.18.216.i = phi ptr [ %204, %.lr.ph.i64 ], [ %181, %190 ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %.02818.i, i64 8) ]
   %.028.val.i = load double, ptr %.02818.i, align 8, !alias.scope !59, !noundef !14
   %.val36.i = load double, ptr %.sroa.0.117.i, align 8, !noalias !59, !noundef !14
   %203 = fcmp olt double %.028.val.i, %.val36.i
@@ -1295,6 +1296,7 @@ _ZN4core5slice4sort20provide_sorted_batch17h53ffae29950f10a6E.exit: ; preds = %.
   %.02836.i = phi ptr [ %275, %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7sort_by28_$u7b$$u7b$closure$u7d$$u7d$17h33d5ad3b53ae74a3E.exit42.thread.i" ], [ %217, %225 ]
   %.sroa.0.135.i = phi ptr [ %278, %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7sort_by28_$u7b$$u7b$closure$u7d$$u7d$17h33d5ad3b53ae74a3E.exit42.thread.i" ], [ %14, %225 ]
   %.sroa.18.234.i = phi ptr [ %273, %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7sort_by28_$u7b$$u7b$closure$u7d$$u7d$17h33d5ad3b53ae74a3E.exit42.thread.i" ], [ %216, %225 ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %.02836.i, i64 8) ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !200)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !203)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !205)
@@ -1930,6 +1932,7 @@ _ZN4core5slice4sort20provide_sorted_batch17h67685d881b3800feE.exit: ; preds = %.
   %.02818.i = phi ptr [ %206, %.lr.ph.i64 ], [ %182, %190 ]
   %.sroa.0.117.i = phi ptr [ %209, %.lr.ph.i64 ], [ %15, %190 ]
   %.sroa.18.216.i = phi ptr [ %204, %.lr.ph.i64 ], [ %181, %190 ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %.02818.i, i64 8) ]
   %.028.val.i = load double, ptr %.02818.i, align 8, !alias.scope !279, !noundef !14
   %.val36.i = load double, ptr %.sroa.0.117.i, align 8, !noalias !279, !noundef !14
   %203 = fcmp olt double %.028.val.i, %.val36.i
@@ -2572,6 +2575,7 @@ _ZN4core5slice4sort20provide_sorted_batch17hac3be73aab57d4e6E.exit: ; preds = %.
   %.02818.i = phi ptr [ %206, %.lr.ph.i64 ], [ %182, %190 ]
   %.sroa.0.117.i = phi ptr [ %209, %.lr.ph.i64 ], [ %15, %190 ]
   %.sroa.18.216.i = phi ptr [ %204, %.lr.ph.i64 ], [ %181, %190 ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %.02818.i, i64 8) ]
   %.028.val.i = load double, ptr %.02818.i, align 8, !alias.scope !349, !noundef !14
   %.val36.i = load double, ptr %.sroa.0.117.i, align 8, !noalias !349, !noundef !14
   %203 = fcmp olt double %.028.val.i, %.val36.i
@@ -3214,6 +3218,7 @@ _ZN4core5slice4sort20provide_sorted_batch17h3b4d91e030054e3dE.exit: ; preds = %.
   %.02818.i = phi ptr [ %206, %.lr.ph.i64 ], [ %182, %190 ]
   %.sroa.0.117.i = phi ptr [ %209, %.lr.ph.i64 ], [ %15, %190 ]
   %.sroa.18.216.i = phi ptr [ %204, %.lr.ph.i64 ], [ %181, %190 ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %.02818.i, i64 8) ]
   %.028.val.i = load double, ptr %.02818.i, align 8, !alias.scope !419, !noundef !14
   %.val36.i = load double, ptr %.sroa.0.117.i, align 8, !noalias !419, !noundef !14
   %203 = fcmp olt double %.028.val.i, %.val36.i
@@ -3914,6 +3919,7 @@ _ZN4core5slice4sort20provide_sorted_batch17hfd2a05380317227dE.exit: ; preds = %.
   %.02836.i = phi ptr [ %260, %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7sort_by28_$u7b$$u7b$closure$u7d$$u7d$17h826997466916b64eE.exit42.thread.i" ], [ %207, %215 ]
   %.sroa.0.135.i = phi ptr [ %263, %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7sort_by28_$u7b$$u7b$closure$u7d$$u7d$17h826997466916b64eE.exit42.thread.i" ], [ %15, %215 ]
   %.sroa.18.234.i = phi ptr [ %258, %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7sort_by28_$u7b$$u7b$closure$u7d$$u7d$17h826997466916b64eE.exit42.thread.i" ], [ %206, %215 ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %.02836.i, i64 8) ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !572)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !575)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !577)
@@ -4616,6 +4622,7 @@ _ZN4core5slice4sort20provide_sorted_batch17h4e8a92e4c78ce14cE.exit: ; preds = %.
   %.02836.i = phi ptr [ %267, %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7sort_by28_$u7b$$u7b$closure$u7d$$u7d$17h63edbfe7761ccff1E.exit42.thread.i" ], [ %214, %222 ]
   %.sroa.0.135.i = phi ptr [ %270, %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7sort_by28_$u7b$$u7b$closure$u7d$$u7d$17h63edbfe7761ccff1E.exit42.thread.i" ], [ %14, %222 ]
   %.sroa.18.234.i = phi ptr [ %265, %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7sort_by28_$u7b$$u7b$closure$u7d$$u7d$17h63edbfe7761ccff1E.exit42.thread.i" ], [ %213, %222 ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %.02836.i, i64 8) ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !725)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !728)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !730)

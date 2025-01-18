@@ -7779,6 +7779,7 @@ define internal fastcc noundef ptr @"_ZN5image6codecs4jpeg7encoder18BitWriter$LT
   store i8 -1, ptr %5, align 2
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 1
   store i8 %0, ptr %6, align 1
+  call void @llvm.assume(i1 true) [ "align"(ptr %.0.val, i64 8) ]
   %7 = icmp ne ptr %.0.val, null
   tail call void @llvm.assume(i1 %7)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1027)
@@ -7816,6 +7817,7 @@ define internal fastcc noundef ptr @"_ZN5image6codecs4jpeg7encoder18BitWriter$LT
   %23 = add i16 %22, 2
   %24 = call i16 @llvm.bswap.i16(i16 %23)
   store i16 %24, ptr %4, align 2
+  call void @llvm.assume(i1 true) [ "align"(ptr %.0.val, i64 8) ]
   call void @llvm.experimental.noalias.scope.decl(metadata !1037)
   %25 = load i64, ptr %.0.val, align 8, !alias.scope !1037, !noalias !1040, !noundef !7
   %26 = sub i64 %25, %21
@@ -7847,6 +7849,7 @@ define internal fastcc noundef ptr @"_ZN5image6codecs4jpeg7encoder18BitWriter$LT
 35:                                               ; preds = %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17h9b5b746d84772b2cE.llvm.15109044229312055141.exit17._crit_edge", %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17h9b5b746d84772b2cE.llvm.15109044229312055141.exit17.thread"
   %36 = phi i64 [ %.pre3, %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17h9b5b746d84772b2cE.llvm.15109044229312055141.exit17._crit_edge" ], [ %31, %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17h9b5b746d84772b2cE.llvm.15109044229312055141.exit17.thread" ]
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %4)
+  call void @llvm.assume(i1 true) [ "align"(ptr %.0.val, i64 8) ]
   call void @llvm.experimental.noalias.scope.decl(metadata !1047)
   %37 = load i64, ptr %.0.val, align 8, !alias.scope !1047, !noalias !1050, !noundef !7
   %38 = sub i64 %37, %36

@@ -315,7 +315,7 @@ _ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.exit: ; preds = %2
   %42 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %.val94 = load ptr, ptr %42, align 8, !nonnull !4, !noundef !4
   %43 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %.val95 = load ptr, ptr %43, align 8, !nonnull !4, !noundef !4
+  %.val95 = load ptr, ptr %43, align 8, !nonnull !4, !align !5, !noundef !4
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %11), !noalias !16
   store ptr @anon.e942f5b93070d75cb2a7dc08a9bb38ac.11, ptr %11, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 8
@@ -353,7 +353,7 @@ _ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.exit107: ; preds = %2
   %50 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %.val92 = load ptr, ptr %50, align 8, !nonnull !4, !noundef !4
   %51 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %.val93 = load ptr, ptr %51, align 8, !nonnull !4, !noundef !4
+  %.val93 = load ptr, ptr %51, align 8, !nonnull !4, !align !5, !noundef !4
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %10), !noalias !19
   store ptr @anon.e942f5b93070d75cb2a7dc08a9bb38ac.14, ptr %10, align 8
   %.sroa.5169.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 8
@@ -391,7 +391,7 @@ _ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.exit113: ; preds = %2
   %58 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %.val90 = load ptr, ptr %58, align 8, !nonnull !4, !noundef !4
   %59 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %.val91 = load ptr, ptr %59, align 8, !nonnull !4, !noundef !4
+  %.val91 = load ptr, ptr %59, align 8, !nonnull !4, !align !5, !noundef !4
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %9), !noalias !22
   store ptr @anon.e942f5b93070d75cb2a7dc08a9bb38ac.17, ptr %9, align 8
   %.sroa.5175.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 8
@@ -429,7 +429,7 @@ _ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.exit119: ; preds = %2
   %66 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %.val88 = load ptr, ptr %66, align 8, !nonnull !4, !noundef !4
   %67 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %.val89 = load ptr, ptr %67, align 8, !nonnull !4, !noundef !4
+  %.val89 = load ptr, ptr %67, align 8, !nonnull !4, !align !5, !noundef !4
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8), !noalias !25
   store ptr @anon.e942f5b93070d75cb2a7dc08a9bb38ac.20, ptr %8, align 8
   %.sroa.5181.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 8
@@ -459,7 +459,7 @@ _ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.exit125: ; preds = %2
   %71 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %.val86 = load ptr, ptr %71, align 8, !nonnull !4, !noundef !4
   %72 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %.val87 = load ptr, ptr %72, align 8, !nonnull !4, !noundef !4
+  %.val87 = load ptr, ptr %72, align 8, !nonnull !4, !align !5, !noundef !4
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %7), !noalias !28
   store ptr @anon.e942f5b93070d75cb2a7dc08a9bb38ac.22, ptr %7, align 8
   %.sroa.5187.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -514,7 +514,7 @@ _ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.exit137: ; preds = %2
   %92 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %.val82 = load ptr, ptr %92, align 8, !nonnull !4, !noundef !4
   %93 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %.val83 = load ptr, ptr %93, align 8, !nonnull !4, !noundef !4
+  %.val83 = load ptr, ptr %93, align 8, !nonnull !4, !align !5, !noundef !4
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %6), !noalias !35
   store ptr @anon.e942f5b93070d75cb2a7dc08a9bb38ac.28, ptr %6, align 8
   %.sroa.5199.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -552,7 +552,7 @@ _ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.exit143: ; preds = %2
   %100 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %.val80 = load ptr, ptr %100, align 8, !nonnull !4, !noundef !4
   %101 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %.val81 = load ptr, ptr %101, align 8, !nonnull !4, !noundef !4
+  %.val81 = load ptr, ptr %101, align 8, !nonnull !4, !align !5, !noundef !4
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5), !noalias !38
   store ptr @anon.e942f5b93070d75cb2a7dc08a9bb38ac.30, ptr %5, align 8
   %.sroa.5205.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -631,6 +631,7 @@ _ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.exit161: ; preds = %136
   store ptr %15, ptr %14, align 8
   %.sroa.460.0..sroa_idx = getelementptr inbounds nuw i8, ptr %14, i64 8
   store ptr @"_ZN4core3fmt3num3imp54_$LT$impl$u20$core..fmt..Display$u20$for$u20$usize$GT$3fmt17h7e93687954fa76c5E", ptr %.sroa.460.0..sroa_idx, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %.val79, i64 8) ]
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4), !noalias !47
   store ptr @anon.e942f5b93070d75cb2a7dc08a9bb38ac.33, ptr %4, align 8
   %.sroa.5217.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -660,6 +661,7 @@ _ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.exit167: ; preds = %140
   store ptr %13, ptr %12, align 8
   %.sroa.464.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 8
   store ptr @"_ZN4core3fmt3num3imp54_$LT$impl$u20$core..fmt..Display$u20$for$u20$usize$GT$3fmt17h7e93687954fa76c5E", ptr %.sroa.464.0..sroa_idx, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %.val77, i64 8) ]
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3), !noalias !50
   store ptr @anon.e942f5b93070d75cb2a7dc08a9bb38ac.36, ptr %3, align 8
   %.sroa.5229.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -728,6 +730,7 @@ _ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.exit39: ; preds = %15
   store ptr @"_ZN4core3fmt3num3imp54_$LT$impl$u20$core..fmt..Display$u20$for$u20$usize$GT$3fmt17h7e93687954fa76c5E", ptr %.sroa.416.0..sroa_idx, align 8
   %22 = icmp ne ptr %.32.val, null
   call void @llvm.assume(i1 %22)
+  call void @llvm.assume(i1 true) [ "align"(ptr %.40.val, i64 8) ]
   %23 = icmp ne ptr %.40.val, null
   call void @llvm.assume(i1 %23)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %7), !noalias !56
@@ -759,6 +762,7 @@ _ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.exit45: ; preds = %16
   store ptr @"_ZN4core3fmt3num3imp54_$LT$impl$u20$core..fmt..Display$u20$for$u20$usize$GT$3fmt17h7e93687954fa76c5E", ptr %.sroa.412.0..sroa_idx, align 8
   %25 = icmp ne ptr %.32.val, null
   call void @llvm.assume(i1 %25)
+  call void @llvm.assume(i1 true) [ "align"(ptr %.40.val, i64 8) ]
   %26 = icmp ne ptr %.40.val, null
   call void @llvm.assume(i1 %26)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %6), !noalias !59
@@ -792,6 +796,7 @@ _ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.exit51: ; preds = %16
   store ptr @"_ZN4core3fmt3num3imp54_$LT$impl$u20$core..fmt..Display$u20$for$u20$usize$GT$3fmt17h7e93687954fa76c5E", ptr %.sroa.420.0..sroa_idx, align 8
   %29 = icmp ne ptr %.32.val, null
   call void @llvm.assume(i1 %29)
+  call void @llvm.assume(i1 true) [ "align"(ptr %.40.val, i64 8) ]
   %30 = icmp ne ptr %.40.val, null
   call void @llvm.assume(i1 %30)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5), !noalias !62

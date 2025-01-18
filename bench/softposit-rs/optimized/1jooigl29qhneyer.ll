@@ -1902,8 +1902,8 @@ _ZN4core3fmt9Formatter9write_fmt17h40252474da72b710E.exit: ; preds = %2, %7, %_Z
   %39 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %.val = load ptr, ptr %39, align 8, !nonnull !4, !noundef !4
   %40 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %.val1 = load ptr, ptr %40, align 8, !nonnull !4, !noundef !4
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3), !noalias !5
+  %.val1 = load ptr, ptr %40, align 8, !nonnull !4, !align !5, !noundef !4
+  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3), !noalias !6
   store ptr @anon.5be969b161c3ca3248ac477383ae4705.7, ptr %3, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 1, ptr %.sroa.5.0..sroa_idx, align 8
@@ -1913,8 +1913,8 @@ _ZN4core3fmt9Formatter9write_fmt17h40252474da72b710E.exit: ; preds = %2, %7, %_Z
   store i64 1, ptr %.sroa.8.0..sroa_idx, align 8
   %.sroa.10.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 32
   store ptr null, ptr %.sroa.10.0..sroa_idx, align 8
-  %41 = call noundef zeroext i1 @_ZN4core3fmt5write17hd9a8d7d029f9ea1aE(ptr noundef nonnull align 1 %.val, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %.val1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %3), !noalias !5
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3), !noalias !5
+  %41 = call noundef zeroext i1 @_ZN4core3fmt5write17hd9a8d7d029f9ea1aE(ptr noundef nonnull align 1 %.val, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %.val1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %3), !noalias !6
+  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3), !noalias !6
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
   ret i1 %41
@@ -1929,11 +1929,11 @@ _ZN4core3fmt9Arguments12as_const_str17h12e0cdd0f797b759E.exit.i:
   store ptr %0, ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr @"_ZN4core3fmt3num3imp52_$LT$impl$u20$core..fmt..Display$u20$for$u20$i32$GT$3fmt17h299accfbede7160dE", ptr %4, align 8
-  %5 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %.val = load ptr, ptr %5, align 8, !nonnull !4, !noundef !4
-  %6 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %.val1 = load ptr, ptr %6, align 8, !nonnull !4, !noundef !4
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %2), !noalias !8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %.val1 = load ptr, ptr %5, align 8, !nonnull !4, !align !5, !noundef !4
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %.val = load ptr, ptr %6, align 8, !nonnull !4, !noundef !4
+  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %2), !noalias !9
   store ptr @anon.5be969b161c3ca3248ac477383ae4705.10, ptr %2, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i64 2, ptr %.sroa.5.0..sroa_idx, align 8
@@ -1943,8 +1943,8 @@ _ZN4core3fmt9Arguments12as_const_str17h12e0cdd0f797b759E.exit.i:
   store i64 1, ptr %.sroa.8.0..sroa_idx, align 8
   %.sroa.10.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 32
   store ptr null, ptr %.sroa.10.0..sroa_idx, align 8
-  %7 = call noundef zeroext i1 @_ZN4core3fmt5write17hd9a8d7d029f9ea1aE(ptr noundef nonnull align 1 %.val, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %.val1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %2), !noalias !8
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %2), !noalias !8
+  %7 = call noundef zeroext i1 @_ZN4core3fmt5write17hd9a8d7d029f9ea1aE(ptr noundef nonnull align 1 %.val, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %.val1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %2), !noalias !9
+  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %2), !noalias !9
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   ret i1 %7
 }
@@ -2279,7 +2279,7 @@ define range(i64 0, -4294967294) i64 @"_ZN59_$LT$softposit..p32e2..P32E2$u20$as$
   %4 = alloca { i8, [15 x i8] }, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
   call void @"_ZN39_$LT$f64$u20$as$u20$num_traits..Num$GT$14from_str_radix17h0a4767a2e72cb71bE"(ptr noalias nocapture noundef nonnull sret([16 x i8]) align 8 dereferenceable(16) %4, ptr noalias noundef nonnull readonly align 1 %0, i64 noundef %1, i32 noundef %2)
-  %5 = load i8, ptr %4, align 8, !range !11, !noundef !4
+  %5 = load i8, ptr %4, align 8, !range !12, !noundef !4
   %trunc = trunc nuw i8 %5 to i1
   br i1 %trunc, label %58, label %6
 
@@ -2370,7 +2370,7 @@ define range(i64 0, -4294967294) i64 @"_ZN59_$LT$softposit..p32e2..P32E2$u20$as$
 
 58:                                               ; preds = %3
   %59 = getelementptr inbounds nuw i8, ptr %4, i64 1
-  %60 = load i8, ptr %59, align 1, !range !11, !noundef !4
+  %60 = load i8, ptr %59, align 1, !range !12, !noundef !4
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   %61 = zext nneg i8 %60 to i64
   %62 = shl nuw nsw i64 %61, 8
@@ -2746,7 +2746,7 @@ define noundef range(i32 -2147483648, 1073741825) i32 @"_ZN68_$LT$softposit..p32
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define noundef zeroext i1 @"_ZN68_$LT$softposit..p32e2..P32E2$u20$as$u20$num_traits..sign..Signed$GT$11is_positive17h960dcd56b146b492E"(ptr noalias nocapture noundef readonly align 4 dereferenceable(4) %0) unnamed_addr #4 {
-  %2 = load i32, ptr %0, align 4, !alias.scope !12, !noundef !4
+  %2 = load i32, ptr %0, align 4, !alias.scope !13, !noundef !4
   %3 = icmp sgt i32 %2, -1
   ret i1 %3
 }
@@ -3828,13 +3828,14 @@ attributes #10 = { noreturn }
 !2 = !{i32 1, !"LTOPostLink", i32 1}
 !3 = !{!"rustc version 1.78.0 (9b00956e5 2024-04-29)"}
 !4 = !{}
-!5 = !{!6}
-!6 = distinct !{!6, !7, !"_ZN4core3fmt9Formatter9write_fmt17h40252474da72b710E: argument 0"}
-!7 = distinct !{!7, !"_ZN4core3fmt9Formatter9write_fmt17h40252474da72b710E"}
-!8 = !{!9}
-!9 = distinct !{!9, !10, !"_ZN4core3fmt9Formatter9write_fmt17h40252474da72b710E: argument 0"}
-!10 = distinct !{!10, !"_ZN4core3fmt9Formatter9write_fmt17h40252474da72b710E"}
-!11 = !{i8 0, i8 2}
-!12 = !{!13}
-!13 = distinct !{!13, !14, !"_ZN68_$LT$softposit..p32e2..P32E2$u20$as$u20$num_traits..sign..Signed$GT$11is_negative17hce958243ca9c0c6fE: argument 0"}
-!14 = distinct !{!14, !"_ZN68_$LT$softposit..p32e2..P32E2$u20$as$u20$num_traits..sign..Signed$GT$11is_negative17hce958243ca9c0c6fE"}
+!5 = !{i64 8}
+!6 = !{!7}
+!7 = distinct !{!7, !8, !"_ZN4core3fmt9Formatter9write_fmt17h40252474da72b710E: argument 0"}
+!8 = distinct !{!8, !"_ZN4core3fmt9Formatter9write_fmt17h40252474da72b710E"}
+!9 = !{!10}
+!10 = distinct !{!10, !11, !"_ZN4core3fmt9Formatter9write_fmt17h40252474da72b710E: argument 0"}
+!11 = distinct !{!11, !"_ZN4core3fmt9Formatter9write_fmt17h40252474da72b710E"}
+!12 = !{i8 0, i8 2}
+!13 = !{!14}
+!14 = distinct !{!14, !15, !"_ZN68_$LT$softposit..p32e2..P32E2$u20$as$u20$num_traits..sign..Signed$GT$11is_negative17hce958243ca9c0c6fE: argument 0"}
+!15 = distinct !{!15, !"_ZN68_$LT$softposit..p32e2..P32E2$u20$as$u20$num_traits..sign..Signed$GT$11is_negative17hce958243ca9c0c6fE"}

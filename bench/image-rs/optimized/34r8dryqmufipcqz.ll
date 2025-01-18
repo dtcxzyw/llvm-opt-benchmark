@@ -5281,6 +5281,7 @@ define internal fastcc void @"_ZN169_$LT$exr..image..read..specific_channels..Re
   %43 = phi i64 [ %48, %65 ], [ %.promoted.i.i.i.i, %.lr.ph.i.preheader.i.i.i.i ]
   %44 = phi ptr [ %45, %65 ], [ %.promoted.i.i.i.i.i, %.lr.ph.i.preheader.i.i.i.i ]
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 64
+  call void @llvm.assume(i1 true) [ "align"(ptr %44, i64 8) ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1454)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1455)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1456)
@@ -5289,6 +5290,9 @@ define internal fastcc void @"_ZN169_$LT$exr..image..read..specific_channels..Re
   %switch.i.i.i.i.us.i.i.i = icmp eq i8 %47, 1
   %..i.i.i.i.us.i.i.i = select i1 %switch.i.i.i.i.us.i.i.i, i64 2, i64 4
   %48 = add i64 %..i.i.i.i.us.i.i.i, %43
+  call void @llvm.assume(i1 true) [ "align"(ptr %44, i64 8) ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %44, i64 8) ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %44, i64 8) ]
   %49 = getelementptr inbounds nuw i8, ptr %44, i64 32
   %50 = load i64, ptr %49, align 8, !alias.scope !1459, !noalias !1466, !noundef !19
   %51 = icmp ugt i64 %50, 24
@@ -5333,6 +5337,7 @@ define internal fastcc void @"_ZN169_$LT$exr..image..read..specific_channels..Re
   %67 = phi i64 [ %72, %92 ], [ %.promoted.i.i.i.i, %.lr.ph.i.preheader.i.i.i.i ]
   %68 = phi ptr [ %69, %92 ], [ %.promoted.i.i.i.i.i, %.lr.ph.i.preheader.i.i.i.i ]
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 64
+  call void @llvm.assume(i1 true) [ "align"(ptr %68, i64 8) ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1454)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1455)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1456)
@@ -5341,6 +5346,9 @@ define internal fastcc void @"_ZN169_$LT$exr..image..read..specific_channels..Re
   %switch.i.i.i.i.i.i.i = icmp eq i8 %71, 1
   %..i.i.i.i.i.i.i = select i1 %switch.i.i.i.i.i.i.i, i64 2, i64 4
   %72 = add i64 %..i.i.i.i.i.i.i, %67
+  call void @llvm.assume(i1 true) [ "align"(ptr %68, i64 8) ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %68, i64 8) ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %68, i64 8) ]
   %73 = getelementptr inbounds nuw i8, ptr %68, i64 32
   %74 = load i64, ptr %73, align 8, !alias.scope !1459, !noalias !1474, !noundef !19
   %75 = icmp ugt i64 %74, 24
@@ -5571,6 +5579,7 @@ common.resume:                                    ; preds = %.body, %112, %.body
   %146 = phi ptr [ %147, %167 ], [ %.promoted.i.i69.i.i, %.lr.ph.i.preheader.i.i.i ]
   %147 = getelementptr inbounds nuw i8, ptr %146, i64 64
   store ptr %147, ptr %19, align 8, !alias.scope !1530, !noalias !1533
+  call void @llvm.assume(i1 true) [ "align"(ptr %146, i64 8) ]
   call void @llvm.experimental.noalias.scope.decl(metadata !1546)
   call void @llvm.experimental.noalias.scope.decl(metadata !1547)
   call void @llvm.experimental.noalias.scope.decl(metadata !1548)
@@ -5580,6 +5589,9 @@ common.resume:                                    ; preds = %.body, %112, %.body
   %..i.i.i.i.us.i.i = select i1 %switch.i.i.i.i.us.i.i, i64 2, i64 4
   %150 = add i64 %..i.i.i.i.us.i.i, %145
   store i64 %150, ptr %129, align 8, !alias.scope !1536, !noalias !1539
+  call void @llvm.assume(i1 true) [ "align"(ptr %146, i64 8) ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %146, i64 8) ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %146, i64 8) ]
   %151 = getelementptr inbounds nuw i8, ptr %146, i64 32
   %152 = load i64, ptr %151, align 8, !alias.scope !1551, !noalias !1558, !noundef !19
   %153 = icmp ugt i64 %152, 24
@@ -5633,6 +5645,7 @@ common.resume:                                    ; preds = %.body, %112, %.body
   %170 = phi ptr [ %171, %193 ], [ %.promoted.i.i69.i.i, %.lr.ph.i.preheader.i.i.i ]
   %171 = getelementptr inbounds nuw i8, ptr %170, i64 64
   store ptr %171, ptr %19, align 8, !alias.scope !1530, !noalias !1533
+  call void @llvm.assume(i1 true) [ "align"(ptr %170, i64 8) ]
   call void @llvm.experimental.noalias.scope.decl(metadata !1546)
   call void @llvm.experimental.noalias.scope.decl(metadata !1547)
   call void @llvm.experimental.noalias.scope.decl(metadata !1548)
@@ -5642,6 +5655,9 @@ common.resume:                                    ; preds = %.body, %112, %.body
   %..i.i.i.i.i.i = select i1 %switch.i.i.i.i.i.i, i64 2, i64 4
   %174 = add i64 %..i.i.i.i.i.i, %169
   store i64 %174, ptr %129, align 8, !alias.scope !1536, !noalias !1539
+  call void @llvm.assume(i1 true) [ "align"(ptr %170, i64 8) ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %170, i64 8) ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %170, i64 8) ]
   %175 = getelementptr inbounds nuw i8, ptr %170, i64 32
   %176 = load i64, ptr %175, align 8, !alias.scope !1551, !noalias !1558, !noundef !19
   %177 = icmp ugt i64 %176, 24
@@ -5983,6 +5999,7 @@ common.resume:                                    ; preds = %.body, %112, %.body
   %270 = phi ptr [ %271, %295 ], [ %.promoted.i.i69.i, %.lr.ph.i.preheader.i.i ]
   %271 = getelementptr inbounds nuw i8, ptr %270, i64 64
   store ptr %271, ptr %24, align 8, !alias.scope !1643, !noalias !1646
+  call void @llvm.assume(i1 true) [ "align"(ptr %270, i64 8) ]
   call void @llvm.experimental.noalias.scope.decl(metadata !1658)
   call void @llvm.experimental.noalias.scope.decl(metadata !1659)
   call void @llvm.experimental.noalias.scope.decl(metadata !1660)
@@ -5992,6 +6009,9 @@ common.resume:                                    ; preds = %.body, %112, %.body
   %..i.i.i.i.i = select i1 %switch.i.i.i.i.i, i64 2, i64 4
   %274 = add i64 %..i.i.i.i.i, %269
   store i64 %274, ptr %253, align 8, !alias.scope !1649, !noalias !1652
+  call void @llvm.assume(i1 true) [ "align"(ptr %270, i64 8) ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %270, i64 8) ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %270, i64 8) ]
   %275 = getelementptr inbounds nuw i8, ptr %270, i64 32
   %276 = load i64, ptr %275, align 8, !alias.scope !1663, !noalias !1670, !noundef !19
   %277 = icmp ugt i64 %276, 24
@@ -6082,6 +6102,7 @@ common.resume:                                    ; preds = %.body, %112, %.body
 299:                                              ; preds = %"_ZN162_$LT$exr..image..read..specific_channels..ReadRequiredChannel$LT$ReadChannels$C$Sample$GT$$u20$as$u20$exr..image..read..specific_channels..ReadSpecificChannel$GT$23create_recursive_reader28_$u7b$$u7b$closure$u7d$$u7d$17h9fbae7229805bbc8E.exit.i.i.i.i.i"
   %300 = getelementptr inbounds nuw i8, ptr %270, i64 57
   %301 = getelementptr inbounds nuw i8, ptr %270, i64 32
+  call void @llvm.assume(i1 true) [ "align"(ptr %270, i64 8) ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %24), !noalias !1416
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %.sroa.032.sroa.0.i.sroa.9)
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %23), !noalias !1416
@@ -6323,6 +6344,7 @@ common.resume:                                    ; preds = %.body, %112, %.body
   %358 = phi ptr [ %359, %383 ], [ %.promoted.i.i31, %.lr.ph.i.preheader.i ]
   %359 = getelementptr inbounds nuw i8, ptr %358, i64 64
   store ptr %359, ptr %26, align 8, !alias.scope !1726, !noalias !1729
+  call void @llvm.assume(i1 true) [ "align"(ptr %358, i64 8) ]
   call void @llvm.experimental.noalias.scope.decl(metadata !1740)
   call void @llvm.experimental.noalias.scope.decl(metadata !1741)
   call void @llvm.experimental.noalias.scope.decl(metadata !1742)
@@ -6332,6 +6354,9 @@ common.resume:                                    ; preds = %.body, %112, %.body
   %..i.i.i.i = select i1 %switch.i.i.i.i, i64 2, i64 4
   %362 = add i64 %..i.i.i.i, %357
   store i64 %362, ptr %341, align 8, !alias.scope !1732, !noalias !1735
+  call void @llvm.assume(i1 true) [ "align"(ptr %358, i64 8) ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %358, i64 8) ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %358, i64 8) ]
   %363 = getelementptr inbounds nuw i8, ptr %358, i64 32
   %364 = load i64, ptr %363, align 8, !alias.scope !1745, !noalias !1752, !noundef !19
   %365 = icmp ugt i64 %364, 24
@@ -6402,6 +6427,7 @@ common.resume:                                    ; preds = %.body, %112, %.body
 385:                                              ; preds = %"_ZN169_$LT$exr..image..read..specific_channels..ReadOptionalChannel$LT$ReadChannels$C$DefaultSample$GT$$u20$as$u20$exr..image..read..specific_channels..ReadSpecificChannel$GT$23create_recursive_reader28_$u7b$$u7b$closure$u7d$$u7d$17ha62bb9fce9ab53a2E.exit.i.i.i.i"
   %386 = getelementptr inbounds nuw i8, ptr %358, i64 57
   %387 = getelementptr inbounds nuw i8, ptr %358, i64 32
+  call void @llvm.assume(i1 true) [ "align"(ptr %358, i64 8) ]
   call void @llvm.experimental.noalias.scope.decl(metadata !1759)
   %388 = load i64, ptr %387, align 8, !alias.scope !1762, !noalias !1767, !noundef !19
   %389 = icmp ugt i64 %388, 24
@@ -7332,9 +7358,11 @@ _ZN4half8binary164arch19f16_to_f32_fallback17hb49fc63c8adc336dE.exit.i.i.i.i208:
   %.sroa.57.022.us.i.i.i.i200 = phi i64 [ %321, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h08c46affc7c1dcbaE.exit.us.i.i.i.i199" ], [ 16, %_ZN10std_detect6detect5cache4test17h33e4ae1e0177e982E.exit.i.i.i195 ]
   %.sroa.06.021.us.i.i.i.i201 = phi ptr [ %322, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h08c46affc7c1dcbaE.exit.us.i.i.i.i199" ], [ %89, %_ZN10std_detect6detect5cache4test17h33e4ae1e0177e982E.exit.i.i.i195 ]
   %320 = phi ptr [ %323, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h08c46affc7c1dcbaE.exit.us.i.i.i.i199" ], [ %88, %_ZN10std_detect6detect5cache4test17h33e4ae1e0177e982E.exit.i.i.i195 ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.06.021.us.i.i.i.i201, i64 2) ]
   %321 = add nsw i64 %.sroa.57.022.us.i.i.i.i200, -8
   %322 = getelementptr inbounds nuw i8, ptr %.sroa.06.021.us.i.i.i.i201, i64 16
   %323 = getelementptr inbounds nuw i8, ptr %320, i64 32
+  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.06.021.us.i.i.i.i201, i64 2) ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5), !noalias !1929
   call fastcc void @_ZN4half8binary164arch3x8623f16x8_to_f32x8_x86_f16c17h696f0d48b806f466E(ptr noalias nocapture noundef nonnull sret([8 x float]) align 4 dereferenceable(32) %5, ptr noalias noundef nonnull readonly align 2 dereferenceable(16) %.sroa.06.021.us.i.i.i.i201), !noalias !1933
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %320, ptr noundef nonnull readonly align 4 dereferenceable(32) %5, i64 32, i1 false), !alias.scope !1934, !noalias !1938
@@ -8014,9 +8042,11 @@ _ZN4half8binary164arch19f16_to_f32_fallback17hb49fc63c8adc336dE.exit.i.i.i.i188:
   %.sroa.57.022.us.i.i.i.i180 = phi i64 [ %522, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h08c46affc7c1dcbaE.exit.us.i.i.i.i179" ], [ 16, %_ZN10std_detect6detect5cache4test17h33e4ae1e0177e982E.exit.i.i.i175 ]
   %.sroa.06.021.us.i.i.i.i181 = phi ptr [ %523, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h08c46affc7c1dcbaE.exit.us.i.i.i.i179" ], [ %70, %_ZN10std_detect6detect5cache4test17h33e4ae1e0177e982E.exit.i.i.i175 ]
   %521 = phi ptr [ %524, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h08c46affc7c1dcbaE.exit.us.i.i.i.i179" ], [ %69, %_ZN10std_detect6detect5cache4test17h33e4ae1e0177e982E.exit.i.i.i175 ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.06.021.us.i.i.i.i181, i64 2) ]
   %522 = add nsw i64 %.sroa.57.022.us.i.i.i.i180, -8
   %523 = getelementptr inbounds nuw i8, ptr %.sroa.06.021.us.i.i.i.i181, i64 16
   %524 = getelementptr inbounds nuw i8, ptr %521, i64 32
+  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.06.021.us.i.i.i.i181, i64 2) ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8), !noalias !2137
   call fastcc void @_ZN4half8binary164arch3x8623f16x8_to_f32x8_x86_f16c17h696f0d48b806f466E(ptr noalias nocapture noundef nonnull sret([8 x float]) align 4 dereferenceable(32) %8, ptr noalias noundef nonnull readonly align 2 dereferenceable(16) %.sroa.06.021.us.i.i.i.i181), !noalias !2141
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %521, ptr noundef nonnull readonly align 4 dereferenceable(32) %8, i64 32, i1 false), !alias.scope !2142, !noalias !2146
@@ -8689,9 +8719,11 @@ _ZN4half8binary164arch19f16_to_f32_fallback17hb49fc63c8adc336dE.exit.i.i.i.i168:
   %.sroa.57.022.us.i.i.i.i160 = phi i64 [ %721, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h08c46affc7c1dcbaE.exit.us.i.i.i.i159" ], [ 16, %_ZN10std_detect6detect5cache4test17h33e4ae1e0177e982E.exit.i.i.i155 ]
   %.sroa.06.021.us.i.i.i.i161 = phi ptr [ %722, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h08c46affc7c1dcbaE.exit.us.i.i.i.i159" ], [ %51, %_ZN10std_detect6detect5cache4test17h33e4ae1e0177e982E.exit.i.i.i155 ]
   %720 = phi ptr [ %723, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h08c46affc7c1dcbaE.exit.us.i.i.i.i159" ], [ %50, %_ZN10std_detect6detect5cache4test17h33e4ae1e0177e982E.exit.i.i.i155 ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.06.021.us.i.i.i.i161, i64 2) ]
   %721 = add nsw i64 %.sroa.57.022.us.i.i.i.i160, -8
   %722 = getelementptr inbounds nuw i8, ptr %.sroa.06.021.us.i.i.i.i161, i64 16
   %723 = getelementptr inbounds nuw i8, ptr %720, i64 32
+  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.06.021.us.i.i.i.i161, i64 2) ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11), !noalias !2345
   call fastcc void @_ZN4half8binary164arch3x8623f16x8_to_f32x8_x86_f16c17h696f0d48b806f466E(ptr noalias nocapture noundef nonnull sret([8 x float]) align 4 dereferenceable(32) %11, ptr noalias noundef nonnull readonly align 2 dereferenceable(16) %.sroa.06.021.us.i.i.i.i161), !noalias !2349
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %720, ptr noundef nonnull readonly align 4 dereferenceable(32) %11, i64 32, i1 false), !alias.scope !2350, !noalias !2354
@@ -9361,9 +9393,11 @@ _ZN4half8binary164arch19f16_to_f32_fallback17hb49fc63c8adc336dE.exit.i.i.i.i: ; 
   %.sroa.57.022.us.i.i.i.i = phi i64 [ %918, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h08c46affc7c1dcbaE.exit.us.i.i.i.i" ], [ 16, %_ZN10std_detect6detect5cache4test17h33e4ae1e0177e982E.exit.i.i.i ]
   %.sroa.06.021.us.i.i.i.i = phi ptr [ %919, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h08c46affc7c1dcbaE.exit.us.i.i.i.i" ], [ %32, %_ZN10std_detect6detect5cache4test17h33e4ae1e0177e982E.exit.i.i.i ]
   %917 = phi ptr [ %920, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h08c46affc7c1dcbaE.exit.us.i.i.i.i" ], [ %31, %_ZN10std_detect6detect5cache4test17h33e4ae1e0177e982E.exit.i.i.i ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.06.021.us.i.i.i.i, i64 2) ]
   %918 = add nsw i64 %.sroa.57.022.us.i.i.i.i, -8
   %919 = getelementptr inbounds nuw i8, ptr %.sroa.06.021.us.i.i.i.i, i64 16
   %920 = getelementptr inbounds nuw i8, ptr %917, i64 32
+  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.06.021.us.i.i.i.i, i64 2) ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %14), !noalias !2551
   call fastcc void @_ZN4half8binary164arch3x8623f16x8_to_f32x8_x86_f16c17h696f0d48b806f466E(ptr noalias nocapture noundef nonnull sret([8 x float]) align 4 dereferenceable(32) %14, ptr noalias noundef nonnull readonly align 2 dereferenceable(16) %.sroa.06.021.us.i.i.i.i), !noalias !2555
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %917, ptr noundef nonnull readonly align 4 dereferenceable(32) %14, i64 32, i1 false), !alias.scope !2556, !noalias !2560
@@ -10642,9 +10676,11 @@ _ZN4half8binary164arch19f16_to_f32_fallback17hb49fc63c8adc336dE.exit.i.i.i.i208:
   %.sroa.57.022.us.i.i.i.i200 = phi i64 [ %321, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h08c46affc7c1dcbaE.exit.us.i.i.i.i199" ], [ 16, %_ZN10std_detect6detect5cache4test17h33e4ae1e0177e982E.exit.i.i.i195 ]
   %.sroa.06.021.us.i.i.i.i201 = phi ptr [ %322, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h08c46affc7c1dcbaE.exit.us.i.i.i.i199" ], [ %89, %_ZN10std_detect6detect5cache4test17h33e4ae1e0177e982E.exit.i.i.i195 ]
   %320 = phi ptr [ %323, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h08c46affc7c1dcbaE.exit.us.i.i.i.i199" ], [ %88, %_ZN10std_detect6detect5cache4test17h33e4ae1e0177e982E.exit.i.i.i195 ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.06.021.us.i.i.i.i201, i64 2) ]
   %321 = add nsw i64 %.sroa.57.022.us.i.i.i.i200, -8
   %322 = getelementptr inbounds nuw i8, ptr %.sroa.06.021.us.i.i.i.i201, i64 16
   %323 = getelementptr inbounds nuw i8, ptr %320, i64 32
+  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.06.021.us.i.i.i.i201, i64 2) ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5), !noalias !2807
   call fastcc void @_ZN4half8binary164arch3x8623f16x8_to_f32x8_x86_f16c17h696f0d48b806f466E(ptr noalias nocapture noundef nonnull sret([8 x float]) align 4 dereferenceable(32) %5, ptr noalias noundef nonnull readonly align 2 dereferenceable(16) %.sroa.06.021.us.i.i.i.i201), !noalias !2811
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %320, ptr noundef nonnull readonly align 4 dereferenceable(32) %5, i64 32, i1 false), !alias.scope !2812, !noalias !2816
@@ -11324,9 +11360,11 @@ _ZN4half8binary164arch19f16_to_f32_fallback17hb49fc63c8adc336dE.exit.i.i.i.i188:
   %.sroa.57.022.us.i.i.i.i180 = phi i64 [ %522, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h08c46affc7c1dcbaE.exit.us.i.i.i.i179" ], [ 16, %_ZN10std_detect6detect5cache4test17h33e4ae1e0177e982E.exit.i.i.i175 ]
   %.sroa.06.021.us.i.i.i.i181 = phi ptr [ %523, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h08c46affc7c1dcbaE.exit.us.i.i.i.i179" ], [ %70, %_ZN10std_detect6detect5cache4test17h33e4ae1e0177e982E.exit.i.i.i175 ]
   %521 = phi ptr [ %524, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h08c46affc7c1dcbaE.exit.us.i.i.i.i179" ], [ %69, %_ZN10std_detect6detect5cache4test17h33e4ae1e0177e982E.exit.i.i.i175 ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.06.021.us.i.i.i.i181, i64 2) ]
   %522 = add nsw i64 %.sroa.57.022.us.i.i.i.i180, -8
   %523 = getelementptr inbounds nuw i8, ptr %.sroa.06.021.us.i.i.i.i181, i64 16
   %524 = getelementptr inbounds nuw i8, ptr %521, i64 32
+  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.06.021.us.i.i.i.i181, i64 2) ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8), !noalias !3015
   call fastcc void @_ZN4half8binary164arch3x8623f16x8_to_f32x8_x86_f16c17h696f0d48b806f466E(ptr noalias nocapture noundef nonnull sret([8 x float]) align 4 dereferenceable(32) %8, ptr noalias noundef nonnull readonly align 2 dereferenceable(16) %.sroa.06.021.us.i.i.i.i181), !noalias !3019
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %521, ptr noundef nonnull readonly align 4 dereferenceable(32) %8, i64 32, i1 false), !alias.scope !3020, !noalias !3024
@@ -11999,9 +12037,11 @@ _ZN4half8binary164arch19f16_to_f32_fallback17hb49fc63c8adc336dE.exit.i.i.i.i168:
   %.sroa.57.022.us.i.i.i.i160 = phi i64 [ %721, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h08c46affc7c1dcbaE.exit.us.i.i.i.i159" ], [ 16, %_ZN10std_detect6detect5cache4test17h33e4ae1e0177e982E.exit.i.i.i155 ]
   %.sroa.06.021.us.i.i.i.i161 = phi ptr [ %722, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h08c46affc7c1dcbaE.exit.us.i.i.i.i159" ], [ %51, %_ZN10std_detect6detect5cache4test17h33e4ae1e0177e982E.exit.i.i.i155 ]
   %720 = phi ptr [ %723, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h08c46affc7c1dcbaE.exit.us.i.i.i.i159" ], [ %50, %_ZN10std_detect6detect5cache4test17h33e4ae1e0177e982E.exit.i.i.i155 ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.06.021.us.i.i.i.i161, i64 2) ]
   %721 = add nsw i64 %.sroa.57.022.us.i.i.i.i160, -8
   %722 = getelementptr inbounds nuw i8, ptr %.sroa.06.021.us.i.i.i.i161, i64 16
   %723 = getelementptr inbounds nuw i8, ptr %720, i64 32
+  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.06.021.us.i.i.i.i161, i64 2) ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11), !noalias !3223
   call fastcc void @_ZN4half8binary164arch3x8623f16x8_to_f32x8_x86_f16c17h696f0d48b806f466E(ptr noalias nocapture noundef nonnull sret([8 x float]) align 4 dereferenceable(32) %11, ptr noalias noundef nonnull readonly align 2 dereferenceable(16) %.sroa.06.021.us.i.i.i.i161), !noalias !3227
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %720, ptr noundef nonnull readonly align 4 dereferenceable(32) %11, i64 32, i1 false), !alias.scope !3228, !noalias !3232
@@ -12671,9 +12711,11 @@ _ZN4half8binary164arch19f16_to_f32_fallback17hb49fc63c8adc336dE.exit.i.i.i.i: ; 
   %.sroa.57.022.us.i.i.i.i = phi i64 [ %918, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h08c46affc7c1dcbaE.exit.us.i.i.i.i" ], [ 16, %_ZN10std_detect6detect5cache4test17h33e4ae1e0177e982E.exit.i.i.i ]
   %.sroa.06.021.us.i.i.i.i = phi ptr [ %919, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h08c46affc7c1dcbaE.exit.us.i.i.i.i" ], [ %32, %_ZN10std_detect6detect5cache4test17h33e4ae1e0177e982E.exit.i.i.i ]
   %917 = phi ptr [ %920, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h08c46affc7c1dcbaE.exit.us.i.i.i.i" ], [ %31, %_ZN10std_detect6detect5cache4test17h33e4ae1e0177e982E.exit.i.i.i ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.06.021.us.i.i.i.i, i64 2) ]
   %918 = add nsw i64 %.sroa.57.022.us.i.i.i.i, -8
   %919 = getelementptr inbounds nuw i8, ptr %.sroa.06.021.us.i.i.i.i, i64 16
   %920 = getelementptr inbounds nuw i8, ptr %917, i64 32
+  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.06.021.us.i.i.i.i, i64 2) ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %14), !noalias !3429
   call fastcc void @_ZN4half8binary164arch3x8623f16x8_to_f32x8_x86_f16c17h696f0d48b806f466E(ptr noalias nocapture noundef nonnull sret([8 x float]) align 4 dereferenceable(32) %14, ptr noalias noundef nonnull readonly align 2 dereferenceable(16) %.sroa.06.021.us.i.i.i.i), !noalias !3433
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %917, ptr noundef nonnull readonly align 4 dereferenceable(32) %14, i64 32, i1 false), !alias.scope !3434, !noalias !3438
@@ -13950,6 +13992,7 @@ define hidden void @"_ZN244_$LT$exr..image..recursive..Recursive$LT$InnerDescrip
   %23 = phi i64 [ %28, %51 ], [ %.promoted.i, %.lr.ph.i.preheader.i ]
   %24 = phi ptr [ %25, %51 ], [ %.promoted.i.i, %.lr.ph.i.preheader.i ]
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 64
+  call void @llvm.assume(i1 true) [ "align"(ptr %24, i64 8) ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3718)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3719)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3720)
@@ -13958,6 +14001,9 @@ define hidden void @"_ZN244_$LT$exr..image..recursive..Recursive$LT$InnerDescrip
   %switch.i.i.i.i = icmp eq i8 %27, 1
   %..i.i.i.i = select i1 %switch.i.i.i.i, i64 2, i64 4
   %28 = add i64 %..i.i.i.i, %23
+  call void @llvm.assume(i1 true) [ "align"(ptr %24, i64 8) ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %24, i64 8) ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %24, i64 8) ]
   %29 = getelementptr inbounds nuw i8, ptr %24, i64 32
   %30 = load i64, ptr %29, align 8, !alias.scope !3723, !noalias !3730, !noundef !19
   %31 = icmp ugt i64 %30, 24
@@ -14061,6 +14107,7 @@ define hidden void @"_ZN244_$LT$exr..image..recursive..Recursive$LT$InnerDescrip
   %72 = phi i64 [ %77, %94 ], [ %.promoted.i.i14, %.lr.ph.i.preheader.i.i ]
   %73 = phi ptr [ %74, %94 ], [ %.promoted.i.i.i, %.lr.ph.i.preheader.i.i ]
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 64
+  call void @llvm.assume(i1 true) [ "align"(ptr %73, i64 8) ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3768)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3769)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3770)
@@ -14069,6 +14116,9 @@ define hidden void @"_ZN244_$LT$exr..image..recursive..Recursive$LT$InnerDescrip
   %switch.i.i.i.i.us.i = icmp eq i8 %76, 1
   %..i.i.i.i.us.i = select i1 %switch.i.i.i.i.us.i, i64 2, i64 4
   %77 = add i64 %..i.i.i.i.us.i, %72
+  call void @llvm.assume(i1 true) [ "align"(ptr %73, i64 8) ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %73, i64 8) ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %73, i64 8) ]
   %78 = getelementptr inbounds nuw i8, ptr %73, i64 32
   %79 = load i64, ptr %78, align 8, !alias.scope !3773, !noalias !3780, !noundef !19
   %80 = icmp ugt i64 %79, 24
@@ -14113,6 +14163,7 @@ define hidden void @"_ZN244_$LT$exr..image..recursive..Recursive$LT$InnerDescrip
   %96 = phi i64 [ %101, %121 ], [ %.promoted.i.i14, %.lr.ph.i.preheader.i.i ]
   %97 = phi ptr [ %98, %121 ], [ %.promoted.i.i.i, %.lr.ph.i.preheader.i.i ]
   %98 = getelementptr inbounds nuw i8, ptr %97, i64 64
+  call void @llvm.assume(i1 true) [ "align"(ptr %97, i64 8) ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3768)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3769)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3770)
@@ -14121,6 +14172,9 @@ define hidden void @"_ZN244_$LT$exr..image..recursive..Recursive$LT$InnerDescrip
   %switch.i.i.i.i.i = icmp eq i8 %100, 1
   %..i.i.i.i.i = select i1 %switch.i.i.i.i.i, i64 2, i64 4
   %101 = add i64 %..i.i.i.i.i, %96
+  call void @llvm.assume(i1 true) [ "align"(ptr %97, i64 8) ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %97, i64 8) ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %97, i64 8) ]
   %102 = getelementptr inbounds nuw i8, ptr %97, i64 32
   %103 = load i64, ptr %102, align 8, !alias.scope !3773, !noalias !3788, !noundef !19
   %104 = icmp ugt i64 %103, 24
@@ -14216,6 +14270,7 @@ define hidden void @"_ZN244_$LT$exr..image..recursive..Recursive$LT$InnerDescrip
   %140 = phi i64 [ %145, %162 ], [ %.promoted.i.i14.i, %.lr.ph.i.preheader.i.i.i ]
   %141 = phi ptr [ %142, %162 ], [ %.promoted.i.i.i.i, %.lr.ph.i.preheader.i.i.i ]
   %142 = getelementptr inbounds nuw i8, ptr %141, i64 64
+  call void @llvm.assume(i1 true) [ "align"(ptr %141, i64 8) ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3822)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3823)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3824)
@@ -14224,6 +14279,9 @@ define hidden void @"_ZN244_$LT$exr..image..recursive..Recursive$LT$InnerDescrip
   %switch.i.i.i.i.us.i.i = icmp eq i8 %144, 1
   %..i.i.i.i.us.i.i = select i1 %switch.i.i.i.i.us.i.i, i64 2, i64 4
   %145 = add i64 %..i.i.i.i.us.i.i, %140
+  call void @llvm.assume(i1 true) [ "align"(ptr %141, i64 8) ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %141, i64 8) ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %141, i64 8) ]
   %146 = getelementptr inbounds nuw i8, ptr %141, i64 32
   %147 = load i64, ptr %146, align 8, !alias.scope !3827, !noalias !3834, !noundef !19
   %148 = icmp ugt i64 %147, 24
@@ -14268,6 +14326,7 @@ define hidden void @"_ZN244_$LT$exr..image..recursive..Recursive$LT$InnerDescrip
   %164 = phi i64 [ %169, %189 ], [ %.promoted.i.i14.i, %.lr.ph.i.preheader.i.i.i ]
   %165 = phi ptr [ %166, %189 ], [ %.promoted.i.i.i.i, %.lr.ph.i.preheader.i.i.i ]
   %166 = getelementptr inbounds nuw i8, ptr %165, i64 64
+  call void @llvm.assume(i1 true) [ "align"(ptr %165, i64 8) ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3822)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3823)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3824)
@@ -14276,6 +14335,9 @@ define hidden void @"_ZN244_$LT$exr..image..recursive..Recursive$LT$InnerDescrip
   %switch.i.i.i.i.i.i = icmp eq i8 %168, 1
   %..i.i.i.i.i.i = select i1 %switch.i.i.i.i.i.i, i64 2, i64 4
   %169 = add i64 %..i.i.i.i.i.i, %164
+  call void @llvm.assume(i1 true) [ "align"(ptr %165, i64 8) ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %165, i64 8) ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %165, i64 8) ]
   %170 = getelementptr inbounds nuw i8, ptr %165, i64 32
   %171 = load i64, ptr %170, align 8, !alias.scope !3827, !noalias !3842, !noundef !19
   %172 = icmp ugt i64 %171, 24
@@ -14389,6 +14451,7 @@ define hidden void @"_ZN244_$LT$exr..image..recursive..Recursive$LT$InnerDescrip
   %22 = phi i64 [ %27, %44 ], [ %.promoted.i, %.lr.ph.i.preheader.i ]
   %23 = phi ptr [ %24, %44 ], [ %.promoted.i.i, %.lr.ph.i.preheader.i ]
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 64
+  call void @llvm.assume(i1 true) [ "align"(ptr %23, i64 8) ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3867)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3868)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3869)
@@ -14397,6 +14460,9 @@ define hidden void @"_ZN244_$LT$exr..image..recursive..Recursive$LT$InnerDescrip
   %switch.i.i.i.i.us = icmp eq i8 %26, 1
   %..i.i.i.i.us = select i1 %switch.i.i.i.i.us, i64 2, i64 4
   %27 = add i64 %..i.i.i.i.us, %22
+  call void @llvm.assume(i1 true) [ "align"(ptr %23, i64 8) ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %23, i64 8) ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %23, i64 8) ]
   %28 = getelementptr inbounds nuw i8, ptr %23, i64 32
   %29 = load i64, ptr %28, align 8, !alias.scope !3872, !noalias !3879, !noundef !19
   %30 = icmp ugt i64 %29, 24
@@ -14441,6 +14507,7 @@ define hidden void @"_ZN244_$LT$exr..image..recursive..Recursive$LT$InnerDescrip
   %46 = phi i64 [ %51, %71 ], [ %.promoted.i, %.lr.ph.i.preheader.i ]
   %47 = phi ptr [ %48, %71 ], [ %.promoted.i.i, %.lr.ph.i.preheader.i ]
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 64
+  call void @llvm.assume(i1 true) [ "align"(ptr %47, i64 8) ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3867)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3868)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3869)
@@ -14449,6 +14516,9 @@ define hidden void @"_ZN244_$LT$exr..image..recursive..Recursive$LT$InnerDescrip
   %switch.i.i.i.i = icmp eq i8 %50, 1
   %..i.i.i.i = select i1 %switch.i.i.i.i, i64 2, i64 4
   %51 = add i64 %..i.i.i.i, %46
+  call void @llvm.assume(i1 true) [ "align"(ptr %47, i64 8) ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %47, i64 8) ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %47, i64 8) ]
   %52 = getelementptr inbounds nuw i8, ptr %47, i64 32
   %53 = load i64, ptr %52, align 8, !alias.scope !3872, !noalias !3879, !noundef !19
   %54 = icmp ugt i64 %53, 24
@@ -16600,9 +16670,11 @@ _ZN4half8binary164arch19f16_to_f32_fallback17hb49fc63c8adc336dE.exit.i.i.i: ; pr
   %.sroa.57.022.us.i.i.i = phi i64 [ %77, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h08c46affc7c1dcbaE.exit.us.i.i.i" ], [ %72, %70 ]
   %.sroa.06.021.us.i.i.i = phi ptr [ %78, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h08c46affc7c1dcbaE.exit.us.i.i.i" ], [ %0, %70 ]
   %76 = phi ptr [ %79, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h08c46affc7c1dcbaE.exit.us.i.i.i" ], [ %2, %70 ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.06.021.us.i.i.i, i64 2) ]
   %77 = add i64 %.sroa.57.022.us.i.i.i, -8
   %78 = getelementptr inbounds nuw i8, ptr %.sroa.06.021.us.i.i.i, i64 16
   %79 = getelementptr inbounds nuw i8, ptr %76, i64 32
+  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.06.021.us.i.i.i, i64 2) ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9), !noalias !4358
   call fastcc void @_ZN4half8binary164arch3x8623f16x8_to_f32x8_x86_f16c17h696f0d48b806f466E(ptr noalias nocapture noundef nonnull sret([8 x float]) align 4 dereferenceable(32) %9, ptr noalias noundef nonnull readonly align 2 dereferenceable(16) %.sroa.06.021.us.i.i.i), !noalias !4362
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %76, ptr noundef nonnull readonly align 4 dereferenceable(32) %9, i64 32, i1 false), !alias.scope !4363, !noalias !4367
@@ -16620,7 +16692,7 @@ _ZN4half8binary164arch19f16_to_f32_fallback17hb49fc63c8adc336dE.exit.i.i.i: ; pr
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h749c84f19237858cE.exit11.i.i.i": ; preds = %"_ZN72_$LT$$RF$mut$u20$I$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h19f0bd69a6d35b51E.exit.thread.i.i.i.i"
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8), !noalias !4358
-  call void @"_ZN4core5array75_$LT$impl$u20$core..default..Default$u20$for$u20$$u5b$T$u3b$$u20$_$u5d$$GT$7default17h2467af0a79756739E"(ptr noalias nocapture noundef nonnull sret([8 x i16]) align 2 dereferenceable(16) %8), !noalias !4358
+  call void @"_ZN4core5array75_$LT$impl$u20$core..default..Default$u20$for$u20$$u5b$T$u3b$$u20$_$u5d$$GT$7default17h2467af0a79756739E"(ptr noalias nocapture noundef nonnull sret([8 x i16]) align 2 dereferenceable(16) %8), !noalias !4362
   %84 = shl nuw nsw i64 %71, 1
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 2 %8, ptr nonnull readonly align 2 %73, i64 %84, i1 false), !alias.scope !4369, !noalias !4373
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7), !noalias !4358
@@ -17264,7 +17336,9 @@ define hidden void @"_ZN5image6codecs7openexr23OpenExrDecoder$LT$R$GT$21with_alp
   %.013.i = phi i64 [ 0, %.lr.ph.i ], [ %73, %"_ZN5image6codecs7openexr23OpenExrDecoder$LT$R$GT$21with_alpha_preference28_$u7b$$u7b$closure$u7d$$u7d$17hccd09520fa54e25dE.exit.thread.i" ]
   %44 = phi ptr [ %.sink5.i.i, %.lr.ph.i ], [ %45, %"_ZN5image6codecs7openexr23OpenExrDecoder$LT$R$GT$21with_alpha_preference28_$u7b$$u7b$closure$u7d$$u7d$17hccd09520fa54e25dE.exit.thread.i" ]
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 1424
+  call void @llvm.assume(i1 true) [ "align"(ptr %44, i64 8) ]
   call void @llvm.experimental.noalias.scope.decl(metadata !4489)
+  call void @llvm.assume(i1 true) [ "align"(ptr %44, i64 8) ]
   br label %46
 
 46:                                               ; preds = %"_ZN5image6codecs7openexr23OpenExrDecoder$LT$R$GT$21with_alpha_preference28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h7e351ff797eaa31eE.exit.i.i.i", %43
@@ -17680,7 +17754,9 @@ define hidden void @"_ZN5image6codecs7openexr23OpenExrDecoder$LT$R$GT$21with_alp
   %.013.i = phi i64 [ 0, %.lr.ph.i ], [ %74, %"_ZN5image6codecs7openexr23OpenExrDecoder$LT$R$GT$21with_alpha_preference28_$u7b$$u7b$closure$u7d$$u7d$17hadb653bc2eb3b7e8E.exit.thread.i" ]
   %45 = phi ptr [ %.sink5.i.i, %.lr.ph.i ], [ %46, %"_ZN5image6codecs7openexr23OpenExrDecoder$LT$R$GT$21with_alpha_preference28_$u7b$$u7b$closure$u7d$$u7d$17hadb653bc2eb3b7e8E.exit.thread.i" ]
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 1424
+  call void @llvm.assume(i1 true) [ "align"(ptr %45, i64 8) ]
   call void @llvm.experimental.noalias.scope.decl(metadata !4572)
+  call void @llvm.assume(i1 true) [ "align"(ptr %45, i64 8) ]
   br label %47
 
 47:                                               ; preds = %"_ZN5image6codecs7openexr23OpenExrDecoder$LT$R$GT$21with_alpha_preference28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hbe22916f420c6dc5E.exit.i.i.i", %44

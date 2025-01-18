@@ -6438,6 +6438,7 @@ define hidden noundef ptr @"_ZN10actix_http2h17encoder23MessageEncoder$LT$T$GT$6
   %19 = load ptr, ptr %18, align 8, !nonnull !4
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 16
   %.0.i.i = select i1 %17, ptr %20, ptr %2
+  call void @llvm.assume(i1 true) [ "align"(ptr %.0.i.i, i64 8) ]
   %21 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 209
   %22 = load i8, ptr %21, align 1, !noundef !4
   %23 = and i8 %22, 16

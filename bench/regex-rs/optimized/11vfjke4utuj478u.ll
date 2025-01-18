@@ -1870,6 +1870,7 @@ define internal fastcc noundef align 4 dereferenceable_or_null(4) ptr @"_ZN9hash
   %68 = icmp eq ptr %.03, null
   %69 = getelementptr inbounds nuw i8, ptr %.03, i64 16
   %.0 = select i1 %68, ptr null, ptr %69
+  call void @llvm.assume(i1 true) [ "align"(ptr %.0, i64 4) ]
   ret ptr %.0
 }
 
@@ -6404,6 +6405,8 @@ _ZN14regex_automata6hybrid3dfa4Lazy15try_clear_cache17he46a9b47820b739dE.exit298
   br i1 %608, label %.loopexit413, label %.lr.ph.i166
 
 .lr.ph.i166:                                      ; preds = %.noexc167
+  call void @llvm.assume(i1 true) [ "align"(ptr %.val46, i64 8) ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %.val47, i64 8) ]
   %609 = icmp ne ptr %.val47, null
   call void @llvm.assume(i1 %609)
   br label %610
@@ -6444,6 +6447,8 @@ _ZN14regex_automata6hybrid3dfa4Lazy15try_clear_cache17he46a9b47820b739dE.exit298
   br i1 %618, label %.loopexit, label %.lr.ph.i174
 
 .lr.ph.i174:                                      ; preds = %.noexc175
+  call void @llvm.assume(i1 true) [ "align"(ptr %.val48, i64 8) ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %.val49, i64 8) ]
   %619 = icmp ne ptr %.val49, null
   call void @llvm.assume(i1 %619)
   br label %620
@@ -6499,7 +6504,7 @@ _ZN14regex_automata6hybrid3dfa4Lazy15try_clear_cache17he46a9b47820b739dE.exit298
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN14regex_automata6hybrid3dfa4Lazy14set_transition17hb44bc0a909428fcdE(ptr readonly %.0.val, ptr readonly %.8.val, i32 noundef %0, i32 %1, i32 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN14regex_automata6hybrid3dfa4Lazy14set_transition17hb44bc0a909428fcdE(ptr %.0.val, ptr readonly %.8.val, i32 noundef %0, i32 %1, i32 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca [1 x { ptr, ptr }], align 8
   %5 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
   %6 = alloca [1 x { ptr, ptr }], align 8
@@ -6511,6 +6516,7 @@ define internal fastcc void @_ZN14regex_automata6hybrid3dfa4Lazy14set_transition
   %.sroa.5.0.extract.shift = lshr i32 %1, 16
   %.sroa.5.0.extract.trunc = zext nneg i32 %.sroa.5.0.extract.shift to i64
   store i32 %2, ptr %8, align 4
+  call void @llvm.assume(i1 true) [ "align"(ptr %.0.val, i64 8) ]
   %10 = icmp ne ptr %.0.val, null
   tail call void @llvm.assume(i1 %10)
   %11 = icmp ne ptr %.8.val, null
@@ -6551,6 +6557,7 @@ _ZN14regex_automata6hybrid3dfa7LazyRef8is_valid17h6ff33c3c23a0a93eE.exit.thread:
   unreachable
 
 27:                                               ; preds = %_ZN14regex_automata6hybrid3dfa7LazyRef8is_valid17h6ff33c3c23a0a93eE.exit
+  call void @llvm.assume(i1 true) [ "align"(ptr %.0.val, i64 8) ]
   %28 = and i32 %2, 134217727
   %29 = zext nneg i32 %28 to i64
   %30 = icmp ugt i64 %15, %29
@@ -6578,6 +6585,7 @@ _ZN14regex_automata6hybrid3dfa7LazyRef8is_valid17h6ff33c3c23a0a93eE.exit22.threa
   unreachable
 
 38:                                               ; preds = %27
+  call void @llvm.assume(i1 true) [ "align"(ptr %.0.val, i64 8) ]
   %trunc = trunc i32 %1 to i1
   br i1 %trunc, label %46, label %39
 
@@ -8228,6 +8236,8 @@ _ZN14regex_automata4util4utf811is_boundary17hf4d6af245184b3aeE.exit23: ; preds =
   br i1 %spec.select.i21, label %.loopexit, label %25
 
 25:                                               ; preds = %21, %_ZN14regex_automata4util4utf811is_boundary17hf4d6af245184b3aeE.exit23
+  call void @llvm.assume(i1 true) [ "align"(ptr %2, i64 8) ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %3, i64 8) ]
   %26 = tail call noundef align 8 ptr @_ZN14regex_automata6hybrid6search20find_overlapping_fwd17hc7d7d5de91737937E(ptr noalias noundef nonnull readonly align 8 dereferenceable(688) %2, ptr noalias noundef nonnull align 8 dereferenceable(352) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %0, ptr noalias noundef nonnull align 8 dereferenceable(64) %1)
   %27 = icmp eq ptr %26, null
   br i1 %27, label %28, label %.loopexit
@@ -10713,6 +10723,7 @@ define hidden void @_ZN14regex_automata4meta8wrappers12OnePassCache3new17h639063
   %15 = add i64 %12, -1
   %16 = getelementptr inbounds [0 x { i32, i32 }], ptr %14, i64 0, i64 %15
   %.0.i.i.i.i = select i1 %.not.i.i.i.i, ptr null, ptr %16
+  call void @llvm.assume(i1 true) [ "align"(ptr %.0.i.i.i.i, i64 4) ]
   %17 = invoke noundef i32 @"_ZN4core6option15Option$LT$T$GT$6map_or17hdc2ed9ca1d6a9a6eE.llvm.16507365577459693613"(ptr noalias noundef readonly align 4 dereferenceable_or_null(8) %.0.i.i.i.i, i32 noundef 0)
           to label %.noexc.i unwind label %23, !noalias !2280
 
@@ -10803,6 +10814,7 @@ define void @_ZN14regex_automata4meta8wrappers12OnePassCache5reset17h18dabecc552
   %18 = add i64 %15, -1
   %19 = getelementptr inbounds [0 x { i32, i32 }], ptr %17, i64 0, i64 %18
   %.0.i.i.i = select i1 %.not.i.i.i, ptr null, ptr %19
+  call void @llvm.assume(i1 true) [ "align"(ptr %.0.i.i.i, i64 4) ]
   %20 = tail call noundef i32 @"_ZN4core6option15Option$LT$T$GT$6map_or17hdc2ed9ca1d6a9a6eE.llvm.16507365577459693613"(ptr noalias noundef readonly align 4 dereferenceable_or_null(8) %.0.i.i.i, i32 noundef 0), !noalias !2319
   %21 = zext i32 %20 to i64
   %22 = load i64, ptr %14, align 8, !alias.scope !2320, !noalias !2318, !noundef !5

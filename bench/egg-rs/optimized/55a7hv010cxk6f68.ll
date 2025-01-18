@@ -85,7 +85,7 @@ define hidden noundef nonnull align 8 dereferenceable(40) ptr @"_ZN8indexmap3map
   %3 = load i64, ptr %0, align 8, !range !30, !noundef !4
   %trunc = trunc nuw i64 %3 to i1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %.sroa.03.0.copyload = load ptr, ptr %4, align 8, !nonnull !4, !noundef !4
+  %.sroa.03.0.copyload = load ptr, ptr %4, align 8, !nonnull !4, !align !5, !noundef !4
   %.sroa.24.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   br i1 %trunc, label %12, label %5
 
@@ -236,7 +236,7 @@ define hidden noundef i64 @"_ZN8indexmap3map4core25IndexMapCore$LT$K$C$V$GT$4pus
   %6 = load i64, ptr %5, align 8, !noundef !4
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %9 = load ptr, ptr %8, align 8, !nonnull !4, !noundef !4
+  %9 = load ptr, ptr %8, align 8, !nonnull !4, !align !5, !noundef !4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !85)
   %.val.i = load ptr, ptr %7, align 8, !alias.scope !85, !noalias !88, !nonnull !4, !noundef !4
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -589,6 +589,7 @@ define hidden noundef align 8 dereferenceable_or_null(8) ptr @"_ZN9hashbrown3raw
   %40 = icmp eq ptr %.sroa.0.0.i, null
   %41 = getelementptr inbounds i8, ptr %.sroa.0.0.i, i64 -8
   %.sroa.0.0 = select i1 %40, ptr null, ptr %41
+  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.0.0, i64 8) ]
   ret ptr %.sroa.0.0
 }
 

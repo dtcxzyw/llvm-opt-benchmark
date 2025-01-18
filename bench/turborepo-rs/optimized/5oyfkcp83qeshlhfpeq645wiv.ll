@@ -643,7 +643,7 @@ _RNvXs7_NtCslyFhtC9DD08_9itertools11groupbylazyINtB5_5GroupNtNtCseG2FYMysgNb_3wa
 
 21:                                               ; preds = %_RNvXs7_NtCslyFhtC9DD08_9itertools11groupbylazyINtB5_5GroupNtNtCseG2FYMysgNb_3wax5token8PositionINtBW_4WalkTjjEENCNvNtBY_4rule8boundary0ENtNtNtNtCs1LoaDTb72WA_4core4iter6traits8iterator8Iterator4nextBY_.llvm.8413233830278194149.exit.thread.i, %.noexc
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %.sroa.4.0.copyload.i = load ptr, ptr %.sroa.4.0..sroa_idx.i, align 8, !noalias !140, !nonnull !4, !noundef !4
+  %.sroa.4.0.copyload.i = load ptr, ptr %.sroa.4.0..sroa_idx.i, align 8, !noalias !140, !nonnull !4, !align !149, !noundef !4
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3), !noalias !140
   tail call void @llvm.experimental.noalias.scope.decl(metadata !157)
   store i64 1, ptr %4, align 8, !alias.scope !160, !noalias !162
@@ -1170,6 +1170,7 @@ define noundef zeroext i1 @_RINvXs_NtNtNtCs1LoaDTb72WA_4core4iter8adapters6clone
 8:                                                ; preds = %6
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 32
   store ptr %9, ptr %0, align 8, !alias.scope !235, !noalias !238
+  call void @llvm.assume(i1 true) [ "align"(ptr %7, i64 8) ]
   %10 = call noundef zeroext i1 @_RNCINvNtNtNtCs1LoaDTb72WA_4core4iter8adapters6cloned14clone_try_foldNtNtNtCseG2FYMysgNb_3wax5token8variance17InvariantFragmentuINtNtNtBa_3ops12control_flow11ControlFlowINtNtB26_9try_trait17NeverShortCircuituEENCINvNvXs_NtB6_4takeINtB3v_4TakepENtNtNtB8_6traits8iterator8Iterator8try_fold5checkB14_uB2G_NCINvMB2J_B2G_10wrap_mut_2uB14_NCINvNvXs_NtB6_9enumerateINtB5u_9EnumeratepEB3T_4fold9enumerateB14_uNCINvNvB3T_8for_each4callTjB14_ENCINvMs1_NtNtCs68wO5nsWeTG_5alloc11collections9vec_dequeINtB75_8VecDequeB14_E10write_iterIB3G_INtNtB6_12by_ref_sized10ByRefSizedINtB4_6ClonedINtNtB75_4iter4IterB14_EEEEE0E0E0E0E0E0B1a_.llvm.8413233830278194149(ptr noalias noundef nonnull align 8 dereferenceable(40) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %7), !noalias !241
   br i1 %10, label %_RINvXs1_NtNtNtCs68wO5nsWeTG_5alloc11collections9vec_deque4iterINtB6_4IterNtNtNtCseG2FYMysgNb_3wax5token8variance17InvariantFragmentENtNtNtNtCs1LoaDTb72WA_4core4iter6traits8iterator8Iterator8try_folduNCINvNtNtB2c_8adapters6cloned14clone_try_foldB19_uINtNtNtB2e_3ops12control_flow11ControlFlowINtNtB44_9try_trait17NeverShortCircuituEENCINvNvXs_NtB3i_4takeINtB5u_4TakepEB26_8try_fold5checkB19_uB4F_NCINvMB4I_B4F_10wrap_mut_2uB19_NCINvNvXs_NtB3i_9enumerateINtB70_9EnumeratepEB26_4fold9enumerateB19_uNCINvNvB26_8for_each4callTjB19_ENCINvMs1_B8_INtB8_8VecDequeB19_E10write_iterIB5G_INtNtB3i_12by_ref_sized10ByRefSizedINtB3g_6ClonedBY_EEEE0E0E0E0E0E0B3Z_EB1f_.exit, label %6
 
@@ -1189,6 +1190,7 @@ define noundef zeroext i1 @_RINvXs_NtNtNtCs1LoaDTb72WA_4core4iter8adapters6clone
 17:                                               ; preds = %15
   %18 = getelementptr inbounds nuw i8, ptr %16, i64 32
   store ptr %18, ptr %12, align 8, !alias.scope !247, !noalias !250
+  call void @llvm.assume(i1 true) [ "align"(ptr %16, i64 8) ]
   %19 = call noundef zeroext i1 @_RNCINvNtNtNtCs1LoaDTb72WA_4core4iter8adapters6cloned14clone_try_foldNtNtNtCseG2FYMysgNb_3wax5token8variance17InvariantFragmentuINtNtNtBa_3ops12control_flow11ControlFlowINtNtB26_9try_trait17NeverShortCircuituEENCINvNvXs_NtB6_4takeINtB3v_4TakepENtNtNtB8_6traits8iterator8Iterator8try_fold5checkB14_uB2G_NCINvMB2J_B2G_10wrap_mut_2uB14_NCINvNvXs_NtB6_9enumerateINtB5u_9EnumeratepEB3T_4fold9enumerateB14_uNCINvNvB3T_8for_each4callTjB14_ENCINvMs1_NtNtCs68wO5nsWeTG_5alloc11collections9vec_dequeINtB75_8VecDequeB14_E10write_iterIB3G_INtNtB6_12by_ref_sized10ByRefSizedINtB4_6ClonedINtNtB75_4iter4IterB14_EEEEE0E0E0E0E0E0B1a_.llvm.8413233830278194149(ptr noalias noundef nonnull align 8 dereferenceable(40) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %16), !noalias !252
   br i1 %19, label %_RINvXs1_NtNtNtCs68wO5nsWeTG_5alloc11collections9vec_deque4iterINtB6_4IterNtNtNtCseG2FYMysgNb_3wax5token8variance17InvariantFragmentENtNtNtNtCs1LoaDTb72WA_4core4iter6traits8iterator8Iterator8try_folduNCINvNtNtB2c_8adapters6cloned14clone_try_foldB19_uINtNtNtB2e_3ops12control_flow11ControlFlowINtNtB44_9try_trait17NeverShortCircuituEENCINvNvXs_NtB3i_4takeINtB5u_4TakepEB26_8try_fold5checkB19_uB4F_NCINvMB4I_B4F_10wrap_mut_2uB19_NCINvNvXs_NtB3i_9enumerateINtB70_9EnumeratepEB26_4fold9enumerateB19_uNCINvNvB26_8for_each4callTjB19_ENCINvMs1_B8_INtB8_8VecDequeB19_E10write_iterIB5G_INtNtB3i_12by_ref_sized10ByRefSizedINtB3g_6ClonedBY_EEEE0E0E0E0E0E0B3Z_EB1f_.exit, label %15
 
@@ -2707,7 +2709,7 @@ _RNvXs7_NtCslyFhtC9DD08_9itertools11groupbylazyINtB5_5GroupNtNtCseG2FYMysgNb_3wa
 
 9:                                                ; preds = %_RNvXs7_NtCslyFhtC9DD08_9itertools11groupbylazyINtB5_5GroupNtNtCseG2FYMysgNb_3wax5token8PositionINtBW_4WalkTjjEENCNvNtBY_4rule8boundary0ENtNtNtNtCs1LoaDTb72WA_4core4iter6traits8iterator8Iterator4nextBY_.llvm.8413233830278194149.exit.thread, %_RNvXs7_NtCslyFhtC9DD08_9itertools11groupbylazyINtB5_5GroupNtNtCseG2FYMysgNb_3wax5token8PositionINtBW_4WalkTjjEENCNvNtBY_4rule8boundary0ENtNtNtNtCs1LoaDTb72WA_4core4iter6traits8iterator8Iterator4nextBY_.llvm.8413233830278194149.exit
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %.sroa.4.0.copyload = load ptr, ptr %.sroa.4.0..sroa_idx, align 8, !nonnull !4, !noundef !4
+  %.sroa.4.0.copyload = load ptr, ptr %.sroa.4.0..sroa_idx, align 8, !nonnull !4, !align !149, !noundef !4
   br label %10
 
 10:                                               ; preds = %_RNvXs7_NtCslyFhtC9DD08_9itertools11groupbylazyINtB5_5GroupNtNtCseG2FYMysgNb_3wax5token8PositionINtBW_4WalkTjjEENCNvNtBY_4rule8boundary0ENtNtNtNtCs1LoaDTb72WA_4core4iter6traits8iterator8Iterator4nextBY_.llvm.8413233830278194149.exit, %9
@@ -2956,7 +2958,7 @@ _RNvXs0_NtNtNtCs1LoaDTb72WA_4core4iter8adapters3mapINtB5_3MapINtNtCslyFhtC9DD08_
 
 16:                                               ; preds = %_RNvXs7_NtCslyFhtC9DD08_9itertools11groupbylazyINtB5_5GroupNtNtCseG2FYMysgNb_3wax5token8PositionINtBW_4WalkTjjEENCNvNtBY_4rule8boundary0ENtNtNtNtCs1LoaDTb72WA_4core4iter6traits8iterator8Iterator4nextBY_.llvm.8413233830278194149.exit.i, %_RNvXs7_NtCslyFhtC9DD08_9itertools11groupbylazyINtB5_5GroupNtNtCseG2FYMysgNb_3wax5token8PositionINtBW_4WalkTjjEENCNvNtBY_4rule8boundary0ENtNtNtNtCs1LoaDTb72WA_4core4iter6traits8iterator8Iterator4nextBY_.llvm.8413233830278194149.exit.thread.i
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %.sroa.4.0.copyload.i = load ptr, ptr %.sroa.4.0..sroa_idx.i, align 8, !noalias !671, !nonnull !4, !noundef !4
+  %.sroa.4.0.copyload.i = load ptr, ptr %.sroa.4.0..sroa_idx.i, align 8, !noalias !671, !nonnull !4, !align !149, !noundef !4
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2), !noalias !671
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %18 = load ptr, ptr %17, align 8, !alias.scope !681, !noalias !684, !nonnull !4, !align !149, !noundef !4

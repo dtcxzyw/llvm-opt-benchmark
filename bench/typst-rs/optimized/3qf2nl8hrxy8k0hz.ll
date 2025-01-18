@@ -1005,9 +1005,10 @@ _ZN4core4hash6Hasher19write_length_prefix17ha778925aa4df1c9fE.exit.i: ; preds = 
 .lr.ph.i.i:                                       ; preds = %_ZN4core4hash6Hasher19write_length_prefix17ha778925aa4df1c9fE.exit.i, %.lr.ph.i.i
   %.sroa.0.06.i.i = phi ptr [ %198, %.lr.ph.i.i ], [ %157, %_ZN4core4hash6Hasher19write_length_prefix17ha778925aa4df1c9fE.exit.i ]
   %198 = getelementptr inbounds nuw i8, ptr %.sroa.0.06.i.i, i64 192
+  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.0.06.i.i, i64 16) ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !230)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !233)
-  %199 = load i64, ptr %.sroa.0.06.i.i, align 8, !alias.scope !236, !noalias !239, !noundef !4
+  %199 = load i64, ptr %.sroa.0.06.i.i, align 16, !alias.scope !236, !noalias !239, !noundef !4
   tail call void @"_ZN9siphasher6sip12815Hasher$LT$S$GT$11short_write17h8c7479c728e882c9E.llvm.4929685277518489967"(ptr noalias noundef nonnull align 8 dereferenceable(72) %1, i64 noundef %199, i64 noundef %199), !noalias !243
   %200 = getelementptr inbounds nuw i8, ptr %.sroa.0.06.i.i, i64 8
   %201 = load i64, ptr %200, align 8, !alias.scope !236, !noalias !239, !noundef !4
@@ -1209,6 +1210,7 @@ _ZN4core4hash6Hasher19write_length_prefix17ha778925aa4df1c9fE.exit: ; preds = %2
 .lr.ph.i:                                         ; preds = %_ZN4core4hash6Hasher19write_length_prefix17ha778925aa4df1c9fE.exit, %.lr.ph.i
   %.sroa.0.06.i = phi ptr [ %329, %.lr.ph.i ], [ %290, %_ZN4core4hash6Hasher19write_length_prefix17ha778925aa4df1c9fE.exit ]
   %329 = getelementptr inbounds nuw i8, ptr %.sroa.0.06.i, i64 56
+  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.0.06.i, i64 8) ]
   tail call void @"_ZN69_$LT$typst..visualize..path..PathItem$u20$as$u20$core..hash..Hash$GT$4hash17he9406bb918be5982E.llvm.2546880118954093015"(ptr noalias noundef nonnull readonly align 8 dereferenceable(56) %.sroa.0.06.i, ptr noalias noundef nonnull align 8 dereferenceable(72) %1)
   %330 = icmp eq ptr %329, %327
   br i1 %330, label %_ZN4core4hash4Hash10hash_slice17h486159383c444ab0E.exit, label %.lr.ph.i

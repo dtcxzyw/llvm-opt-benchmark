@@ -278,6 +278,7 @@ define internal fastcc void @"_ZN15crossbeam_deque5deque15Worker$LT$T$GT$6resize
   br i1 %41, label %44, label %42
 
 42:                                               ; preds = %35
+  call void @llvm.assume(i1 true) [ "align"(ptr %40, i64 128) ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4), !noalias !11
   store ptr @_ZN15crossbeam_epoch8deferred8Deferred3new4call17h2c83d87f31735336E.llvm.3707938170552112821, ptr %4, align 8, !alias.scope !14, !noalias !11
   %43 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -328,6 +329,7 @@ _ZN15crossbeam_epoch5guard5Guard15defer_unchecked17h4ccf3bef69ace06cE.exit: ; pr
   br i1 %56, label %"_ZN4core3ptr50drop_in_place$LT$crossbeam_epoch..guard..Guard$GT$17h0f560ee4f7794edaE.exit", label %57
 
 57:                                               ; preds = %55
+  call void @llvm.assume(i1 true) [ "align"(ptr %.val15, i64 128) ]
   %58 = getelementptr inbounds nuw i8, ptr %.val15, i64 2072
   %59 = load i64, ptr %58, align 8, !noundef !9
   %60 = add i64 %59, -1
@@ -337,9 +339,9 @@ _ZN15crossbeam_epoch5guard5Guard15defer_unchecked17h4ccf3bef69ace06cE.exit: ; pr
 
 62:                                               ; preds = %57
   %63 = getelementptr inbounds nuw i8, ptr %.val15, i64 2176
-  store atomic i64 0, ptr %63 release, align 8
+  store atomic i64 0, ptr %63 release, align 128
   %64 = getelementptr inbounds nuw i8, ptr %.val15, i64 2080
-  %65 = load i64, ptr %64, align 8, !noundef !9
+  %65 = load i64, ptr %64, align 32, !noundef !9
   %66 = icmp eq i64 %65, 0
   br i1 %66, label %67, label %"_ZN4core3ptr50drop_in_place$LT$crossbeam_epoch..guard..Guard$GT$17h0f560ee4f7794edaE.exit"
 
@@ -621,6 +623,7 @@ _ZN15crossbeam_epoch7default11with_handle17he9fc9abe04fa9854E.exit: ; preds = %"
   br i1 %50, label %"_ZN4core3ptr50drop_in_place$LT$crossbeam_epoch..guard..Guard$GT$17h0f560ee4f7794edaE.exit", label %51
 
 51:                                               ; preds = %47
+  call void @llvm.assume(i1 true) [ "align"(ptr %22, i64 128) ]
   %52 = getelementptr inbounds nuw i8, ptr %22, i64 2072
   %53 = load i64, ptr %52, align 8, !noundef !9
   %54 = add i64 %53, -1
@@ -630,9 +633,9 @@ _ZN15crossbeam_epoch7default11with_handle17he9fc9abe04fa9854E.exit: ; preds = %"
 
 56:                                               ; preds = %51
   %57 = getelementptr inbounds nuw i8, ptr %22, i64 2176
-  store atomic i64 0, ptr %57 release, align 8
+  store atomic i64 0, ptr %57 release, align 128
   %58 = getelementptr inbounds nuw i8, ptr %22, i64 2080
-  %59 = load i64, ptr %58, align 8, !noundef !9
+  %59 = load i64, ptr %58, align 32, !noundef !9
   %60 = icmp eq i64 %59, 0
   br i1 %60, label %"_ZN4core3ptr50drop_in_place$LT$crossbeam_epoch..guard..Guard$GT$17h0f560ee4f7794edaE.exit.sink.split", label %"_ZN4core3ptr50drop_in_place$LT$crossbeam_epoch..guard..Guard$GT$17h0f560ee4f7794edaE.exit"
 
@@ -650,6 +653,7 @@ _ZN15crossbeam_epoch7default11with_handle17he9fc9abe04fa9854E.exit: ; preds = %"
   br i1 %62, label %"_ZN4core3ptr50drop_in_place$LT$crossbeam_epoch..guard..Guard$GT$17h0f560ee4f7794edaE.exit", label %63
 
 63:                                               ; preds = %61
+  call void @llvm.assume(i1 true) [ "align"(ptr %22, i64 128) ]
   %64 = getelementptr inbounds nuw i8, ptr %22, i64 2072
   %65 = load i64, ptr %64, align 8, !noundef !9
   %66 = add i64 %65, -1
@@ -659,9 +663,9 @@ _ZN15crossbeam_epoch7default11with_handle17he9fc9abe04fa9854E.exit: ; preds = %"
 
 68:                                               ; preds = %63
   %69 = getelementptr inbounds nuw i8, ptr %22, i64 2176
-  store atomic i64 0, ptr %69 release, align 8
+  store atomic i64 0, ptr %69 release, align 128
   %70 = getelementptr inbounds nuw i8, ptr %22, i64 2080
-  %71 = load i64, ptr %70, align 8, !noundef !9
+  %71 = load i64, ptr %70, align 32, !noundef !9
   %72 = icmp eq i64 %71, 0
   br i1 %72, label %"_ZN4core3ptr50drop_in_place$LT$crossbeam_epoch..guard..Guard$GT$17h0f560ee4f7794edaE.exit.sink.split", label %"_ZN4core3ptr50drop_in_place$LT$crossbeam_epoch..guard..Guard$GT$17h0f560ee4f7794edaE.exit"
 
@@ -1293,6 +1297,7 @@ define internal fastcc void @"_ZN4core3ptr50drop_in_place$LT$crossbeam_epoch..gu
   br i1 %1, label %"_ZN71_$LT$crossbeam_epoch..guard..Guard$u20$as$u20$core..ops..drop..Drop$GT$4drop17h72683678aec6a452E.exit", label %2
 
 2:                                                ; preds = %0
+  call void @llvm.assume(i1 true) [ "align"(ptr %.0.val, i64 128) ]
   %3 = getelementptr inbounds nuw i8, ptr %.0.val, i64 2072
   %4 = load i64, ptr %3, align 8, !noundef !9
   %5 = add i64 %4, -1
@@ -1302,9 +1307,9 @@ define internal fastcc void @"_ZN4core3ptr50drop_in_place$LT$crossbeam_epoch..gu
 
 7:                                                ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %.0.val, i64 2176
-  store atomic i64 0, ptr %8 release, align 8
+  store atomic i64 0, ptr %8 release, align 128
   %9 = getelementptr inbounds nuw i8, ptr %.0.val, i64 2080
-  %10 = load i64, ptr %9, align 8, !noundef !9
+  %10 = load i64, ptr %9, align 32, !noundef !9
   %11 = icmp eq i64 %10, 0
   br i1 %11, label %12, label %"_ZN71_$LT$crossbeam_epoch..guard..Guard$u20$as$u20$core..ops..drop..Drop$GT$4drop17h72683678aec6a452E.exit"
 

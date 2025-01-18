@@ -202,7 +202,7 @@ define hidden noundef align 8 ptr @"_ZN108_$LT$async_lock..mutex..AcquireSlow$LT
 
 .preheader:                                       ; preds = %29
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %.val = load ptr, ptr %2, align 8, !nonnull !4
+  %.val = load ptr, ptr %2, align 8, !nonnull !4, !align !13
   %33 = getelementptr inbounds nuw i8, ptr %26, i64 8
   br label %.backedge109
 
@@ -213,7 +213,7 @@ define hidden noundef align 8 ptr @"_ZN108_$LT$async_lock..mutex..AcquireSlow$LT
 
 35:                                               ; preds = %90, %29
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %.val77 = load ptr, ptr %2, align 8, !nonnull !4
+  %.val77 = load ptr, ptr %2, align 8, !nonnull !4, !align !13
   %37 = getelementptr inbounds nuw i8, ptr %26, i64 8
   br label %.backedge
 
@@ -293,6 +293,7 @@ default.unreachable:                              ; preds = %101
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   %62 = load atomic i64, ptr %33 acquire, align 8
   %.0.i.i.i = inttoptr i64 %62 to ptr
+  call void @llvm.assume(i1 true) [ "align"(ptr %.0.i.i.i, i64 8) ]
   %.not.i = icmp eq i64 %62, 0
   br i1 %.not.i, label %"_ZN14event_listener14Event$LT$T$GT$6notify17h10aee82dc6d55ceaE.llvm.17208988669928403088.exit", label %63
 
@@ -482,6 +483,7 @@ default.unreachable:                              ; preds = %101
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   %135 = load atomic i64, ptr %37 acquire, align 8
   %.0.i.i.i96 = inttoptr i64 %135 to ptr
+  call void @llvm.assume(i1 true) [ "align"(ptr %.0.i.i.i96, i64 8) ]
   %.not.i97 = icmp eq i64 %135, 0
   br i1 %.not.i97, label %.backedge.backedge, label %136
 
@@ -508,6 +510,7 @@ define hidden void @"_ZN10async_lock5mutex14Mutex$LT$T$GT$16unlock_unchecked17ha
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
   %6 = load atomic i64, ptr %4 acquire, align 8
   %.0.i.i.i = inttoptr i64 %6 to ptr
+  call void @llvm.assume(i1 true) [ "align"(ptr %.0.i.i.i, i64 8) ]
   %.not.i = icmp eq i64 %6, 0
   br i1 %.not.i, label %"_ZN14event_listener14Event$LT$T$GT$6notify17h10aee82dc6d55ceaE.llvm.17208988669928403088.exit", label %7
 
@@ -573,6 +576,7 @@ define hidden noundef i64 @"_ZN14event_listener14Event$LT$T$GT$6notify17h10aee82
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   %5 = load atomic i64, ptr %0 acquire, align 8
   %.0.i.i = inttoptr i64 %5 to ptr
+  call void @llvm.assume(i1 true) [ "align"(ptr %.0.i.i, i64 8) ]
   %.not = icmp eq i64 %5, 0
   br i1 %.not, label %12, label %6
 
@@ -591,10 +595,11 @@ define hidden noundef i64 @"_ZN14event_listener14Event$LT$T$GT$6notify17h10aee82
   ret i64 %.0
 }
 
-; Function Attrs: inlinehint mustprogress nofree norecurse nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
+; Function Attrs: inlinehint mustprogress nofree norecurse nounwind nonlazybind willreturn memory(argmem: readwrite, inaccessiblemem: write) uwtable
 define hidden noundef align 8 ptr @"_ZN14event_listener14Event$LT$T$GT$9try_inner17h048c7beff68ae7e7E.llvm.17208988669928403088"(ptr nocapture noundef nonnull readonly align 8 %0) unnamed_addr #7 {
   %2 = load atomic i64, ptr %0 acquire, align 8
   %.0.i = inttoptr i64 %2 to ptr
+  call void @llvm.assume(i1 true) [ "align"(ptr %.0.i, i64 8) ]
   ret ptr %.0.i
 }
 
@@ -1256,7 +1261,7 @@ attributes #3 = { mustprogress nofree norecurse nosync nounwind nonlazybind will
 attributes #4 = { cold nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #5 = { mustprogress nofree norecurse nounwind nonlazybind willreturn memory(readwrite, inaccessiblemem: none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #6 = { inlinehint nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
-attributes #7 = { inlinehint mustprogress nofree norecurse nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
+attributes #7 = { inlinehint mustprogress nofree norecurse nounwind nonlazybind willreturn memory(argmem: readwrite, inaccessiblemem: write) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #8 = { cold noreturn nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #9 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #10 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }

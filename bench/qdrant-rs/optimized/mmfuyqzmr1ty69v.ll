@@ -1351,9 +1351,9 @@ define void @_ZN6sparse5index14search_context13SearchContext12plain_search17h411
   %.sroa.6.0..sroa_idx45 = getelementptr inbounds nuw i8, ptr %14, i64 24
   store ptr %25, ptr %.sroa.6.0..sroa_idx45, align 8
   %26 = icmp eq i64 %.sroa.548.0.copyload, 0
-  br i1 %26, label %.thread67, label %.lr.ph94
+  br i1 %26, label %.thread67, label %.lr.ph95
 
-.lr.ph94:                                         ; preds = %24
+.lr.ph95:                                         ; preds = %24
   %27 = getelementptr inbounds nuw i8, ptr %1, i64 144
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 40
@@ -1421,8 +1421,8 @@ define void @_ZN6sparse5index14search_context13SearchContext12plain_search17h411
   %52 = getelementptr inbounds nuw i8, ptr %6, i64 8
   br label %121
 
-53:                                               ; preds = %.lr.ph94, %86
-  %54 = phi ptr [ %.sroa.447.0.copyload, %.lr.ph94 ], [ %88, %86 ]
+53:                                               ; preds = %.lr.ph95, %86
+  %54 = phi ptr [ %.sroa.447.0.copyload, %.lr.ph95 ], [ %88, %86 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !139)
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 4
   store ptr %55, ptr %.sroa.4.0..sroa_idx, align 8, !alias.scope !139
@@ -1480,9 +1480,10 @@ define void @_ZN6sparse5index14search_context13SearchContext12plain_search17h411
           to label %82 unwind label %80
 
 .lr.ph:                                           ; preds = %69, %94
-  %.sroa.049.092 = phi ptr [ %78, %94 ], [ %72, %69 ]
-  %78 = getelementptr inbounds nuw i8, ptr %.sroa.049.092, i64 32
-  %79 = invoke noundef align 4 dereferenceable_or_null(12) ptr @_ZN6sparse5index12posting_list19PostingListIterator7skip_to17h1f932048eaf675dcE(ptr noalias noundef nonnull align 8 dereferenceable(24) %.sroa.049.092, i32 noundef %56)
+  %.sroa.049.093 = phi ptr [ %78, %94 ], [ %72, %69 ]
+  %78 = getelementptr inbounds nuw i8, ptr %.sroa.049.093, i64 32
+  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.049.093, i64 8) ]
+  %79 = invoke noundef align 4 dereferenceable_or_null(12) ptr @_ZN6sparse5index12posting_list19PostingListIterator7skip_to17h1f932048eaf675dcE(ptr noalias noundef nonnull align 8 dereferenceable(24) %.sroa.049.093, i32 noundef %56)
           to label %92 unwind label %120
 
 80:                                               ; preds = %82, %._crit_edge
@@ -1528,7 +1529,7 @@ define void @_ZN6sparse5index14search_context13SearchContext12plain_search17h411
   br i1 %95, label %._crit_edge, label %.lr.ph
 
 96:                                               ; preds = %92
-  %97 = getelementptr inbounds nuw i8, ptr %.sroa.049.092, i64 24
+  %97 = getelementptr inbounds nuw i8, ptr %.sroa.049.093, i64 24
   %98 = load i32, ptr %97, align 8, !noundef !5
   %99 = load i64, ptr %31, align 8, !alias.scope !145, !noundef !5
   %100 = load i64, ptr %13, align 8, !alias.scope !145, !noundef !5

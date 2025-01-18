@@ -130,8 +130,10 @@ define hidden noundef zeroext i1 @_ZN4core3ops8function2Fn4call17h741d10ae63c3ed
 
 ; Function Attrs: nonlazybind uwtable
 define internal fastcc void @"_ZN4core3ptr61drop_in_place$LT$std..sync..mutex..MutexGuard$LT$bool$GT$$GT$17h037f25805bba7023E"(ptr %.0.val, i8 %.8.val) unnamed_addr #1 {
+  call void @llvm.assume(i1 true) [ "align"(ptr %.0.val, i64 4) ]
   %1 = icmp ne ptr %.0.val, null
   tail call void @llvm.assume(i1 %1)
+  call void @llvm.assume(i1 true) [ "align"(ptr %.0.val, i64 4) ]
   %2 = getelementptr inbounds nuw i8, ptr %.0.val, i64 4
   %3 = trunc nuw i8 %.8.val to i1
   br i1 %3, label %_ZN3std4sync6poison4Flag4done17h5bffa24fa61aa5e0E.exit.i, label %4
@@ -147,10 +149,11 @@ _ZN3std9panicking11panic_count13count_is_zero17h66cf19443d869469E.exit.i.i: ; pr
   br i1 %8, label %_ZN3std4sync6poison4Flag4done17h5bffa24fa61aa5e0E.exit.i, label %9
 
 9:                                                ; preds = %_ZN3std9panicking11panic_count13count_is_zero17h66cf19443d869469E.exit.i.i
-  store atomic i8 1, ptr %2 monotonic, align 1
+  store atomic i8 1, ptr %2 monotonic, align 4
   br label %_ZN3std4sync6poison4Flag4done17h5bffa24fa61aa5e0E.exit.i
 
 _ZN3std4sync6poison4Flag4done17h5bffa24fa61aa5e0E.exit.i: ; preds = %9, %_ZN3std9panicking11panic_count13count_is_zero17h66cf19443d869469E.exit.i.i, %4, %0
+  call void @llvm.assume(i1 true) [ "align"(ptr %.0.val, i64 4) ]
   %10 = atomicrmw xchg ptr %.0.val, i32 0 release, align 4
   %11 = icmp eq i32 %10, 2
   br i1 %11, label %12, label %"_ZN79_$LT$std..sync..mutex..MutexGuard$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h949f322efca72823E.exit"
@@ -736,6 +739,7 @@ common.resume:                                    ; preds = %118, %75, %84, %30
   resume { ptr, i32 } %common.resume.op
 
 35:                                               ; preds = %"_ZN3std4sync5mutex19MutexGuard$LT$T$GT$3new17hd1113d1d88291f80E.exit"
+  call void @llvm.assume(i1 true) [ "align"(ptr %15, i64 4) ]
   %36 = cmpxchg ptr %2, i64 1, i64 2 seq_cst monotonic, align 8
   %.sroa.18.0.in.i29 = extractvalue { i64, i1 } %36, 1
   br i1 %.sroa.18.0.in.i29, label %.preheader, label %39
@@ -802,8 +806,10 @@ common.resume:                                    ; preds = %118, %75, %84, %30
   br i1 %65, label %"_ZN10rayon_core8registry12WorkerThread15wait_until_cold28_$u7b$$u7b$closure$u7d$$u7d$17h2e89e11beca417deE.exit.thread", label %66
 
 66:                                               ; preds = %"_ZN10rayon_core8registry12WorkerThread15wait_until_cold28_$u7b$$u7b$closure$u7d$$u7d$17h2e89e11beca417deE.exit"
+  call void @llvm.assume(i1 true) [ "align"(ptr %15, i64 4) ]
   %67 = getelementptr inbounds nuw i8, ptr %15, i64 5
   store i8 1, ptr %67, align 1
+  call void @llvm.assume(i1 true) [ "align"(ptr %15, i64 4) ]
   %68 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %69 = getelementptr inbounds nuw i8, ptr %6, i64 8
   br label %71
@@ -818,6 +824,7 @@ common.resume:                                    ; preds = %118, %75, %84, %30
   br i1 %73, label %74, label %.loopexit
 
 74:                                               ; preds = %71
+  call void @llvm.assume(i1 true) [ "align"(ptr %15, i64 4) ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
   store ptr %15, ptr %6, align 8, !noalias !108
   store i8 %.0.i.i.i, ptr %69, align 8, !noalias !108
@@ -895,7 +902,7 @@ _ZN3std9panicking11panic_count13count_is_zero17h66cf19443d869469E.exit.i.i.i: ; 
   br i1 %99, label %_ZN3std4sync6poison4Flag4done17h5bffa24fa61aa5e0E.exit.i.i, label %100
 
 100:                                              ; preds = %_ZN3std9panicking11panic_count13count_is_zero17h66cf19443d869469E.exit.i.i.i
-  store atomic i8 1, ptr %26 monotonic, align 1
+  store atomic i8 1, ptr %26 monotonic, align 4
   br label %_ZN3std4sync6poison4Flag4done17h5bffa24fa61aa5e0E.exit.i.i
 
 _ZN3std4sync6poison4Flag4done17h5bffa24fa61aa5e0E.exit.i.i: ; preds = %100, %_ZN3std9panicking11panic_count13count_is_zero17h66cf19443d869469E.exit.i.i.i, %95, %_ZN10rayon_core5latch9CoreLatch7wake_up17h904fcd56032c64d5E.exit
@@ -937,7 +944,7 @@ _ZN3std9panicking11panic_count13count_is_zero17h66cf19443d869469E.exit.i.i.i46: 
   br i1 %114, label %_ZN3std4sync6poison4Flag4done17h5bffa24fa61aa5e0E.exit.i.i47, label %115
 
 115:                                              ; preds = %_ZN3std9panicking11panic_count13count_is_zero17h66cf19443d869469E.exit.i.i.i46
-  store atomic i8 1, ptr %26 monotonic, align 1
+  store atomic i8 1, ptr %26 monotonic, align 4
   br label %_ZN3std4sync6poison4Flag4done17h5bffa24fa61aa5e0E.exit.i.i47
 
 _ZN3std4sync6poison4Flag4done17h5bffa24fa61aa5e0E.exit.i.i47: ; preds = %115, %_ZN3std9panicking11panic_count13count_is_zero17h66cf19443d869469E.exit.i.i.i46, %110, %_ZN10rayon_core5latch9CoreLatch7wake_up17h904fcd56032c64d5E.exit45
@@ -948,6 +955,7 @@ _ZN3std4sync6poison4Flag4done17h5bffa24fa61aa5e0E.exit.i.i47: ; preds = %115, %_
 118:                                              ; preds = %.noexc38, %58, %.noexc, %49
   %119 = landingpad { ptr, i32 }
           cleanup
+  call void @llvm.assume(i1 true) [ "align"(ptr %15, i64 4) ]
   invoke fastcc void @"_ZN4core3ptr61drop_in_place$LT$std..sync..mutex..MutexGuard$LT$bool$GT$$GT$17h037f25805bba7023E"(ptr nonnull %15, i8 %.0.i.i.i) #16
           to label %common.resume unwind label %120
 
