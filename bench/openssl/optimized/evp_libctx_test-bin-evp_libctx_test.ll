@@ -296,7 +296,7 @@ if.then.i:                                        ; preds = %entry
 
 getname.exit:                                     ; preds = %entry, %if.then.i
   %retval.0.i = phi ptr [ %0, %if.then.i ], [ @.str.49, %entry ]
-  %or.cond.i21 = icmp ult i32 %rem, 3
+  %or.cond.i21 = icmp sgt i32 %rem, -1
   br i1 %or.cond.i21, label %if.then.i23, label %getname.exit26
 
 if.then.i23:                                      ; preds = %getname.exit
@@ -307,7 +307,7 @@ if.then.i23:                                      ; preds = %getname.exit
 
 getname.exit26:                                   ; preds = %getname.exit, %if.then.i23
   %retval.0.i22 = phi ptr [ %1, %if.then.i23 ], [ @.str.49, %getname.exit ]
-  %or.cond.i27 = icmp ult i32 %rem2, 3
+  %or.cond.i27 = icmp sgt i32 %rem2, -1
   br i1 %or.cond.i27, label %if.then.i29, label %getname.exit32
 
 if.then.i29:                                      ; preds = %getname.exit26
@@ -458,7 +458,7 @@ if.then.i.i:                                      ; preds = %entry
 
 getname.exit.i:                                   ; preds = %if.then.i.i, %entry
   %retval.0.i.i = phi ptr [ %0, %if.then.i.i ], [ @.str.49, %entry ]
-  %or.cond.i23.i = icmp ult i32 %rem.i, 3
+  %or.cond.i23.i = icmp sgt i32 %rem.i, -1
   br i1 %or.cond.i23.i, label %if.then.i25.i, label %getname.exit28.i
 
 if.then.i25.i:                                    ; preds = %getname.exit.i
@@ -469,7 +469,7 @@ if.then.i25.i:                                    ; preds = %getname.exit.i
 
 getname.exit28.i:                                 ; preds = %if.then.i25.i, %getname.exit.i
   %retval.0.i24.i = phi ptr [ %1, %if.then.i25.i ], [ @.str.49, %getname.exit.i ]
-  %or.cond.i29.i = icmp ult i32 %rem2.i, 3
+  %or.cond.i29.i = icmp sgt i32 %rem2.i, -1
   br i1 %or.cond.i29.i, label %if.then.i31.i, label %getname.exit34.i
 
 if.then.i31.i:                                    ; preds = %getname.exit28.i

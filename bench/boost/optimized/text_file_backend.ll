@@ -9858,7 +9858,7 @@ define linkonce_odr hidden i16 @_ZNK5boost9date_time4dateINS_9gregorian4dateENS2
   %23 = udiv i32 %22, 12
   %24 = add nsw i32 %20, %23
   %25 = srem i32 %24, 7
-  %26 = icmp ugt i32 %25, 6
+  %26 = icmp slt i32 %25, 0
   br i1 %26, label %27, label %_ZN5boost9gregorian12greg_weekdayC2Et.exit
 
 27:                                               ; preds = %1
@@ -9878,7 +9878,7 @@ define linkonce_odr hidden i16 @_ZNK5boost9date_time4dateINS_9gregorian4dateENS2
   resume { ptr, i32 } %30
 
 _ZN5boost9gregorian12greg_weekdayC2Et.exit:       ; preds = %1
-  %31 = trunc nuw nsw i32 %25 to i16
+  %31 = trunc nsw i32 %25 to i16
   ret i16 %31
 }
 

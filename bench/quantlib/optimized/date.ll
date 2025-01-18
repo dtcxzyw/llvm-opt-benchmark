@@ -15028,7 +15028,7 @@ entry:
   %div28.i = udiv i32 %mul27.i, 12
   %add29.i = add nsw i32 %add25.i, %div28.i
   %rem.i = srem i32 %add29.i, 7
-  %cmp7.i.i.i = icmp ugt i32 %rem.i, 6
+  %cmp7.i.i.i = icmp slt i32 %rem.i, 0
   br i1 %cmp7.i.i.i, label %if.then8.i.i.i, label %_ZN5boost9gregorian12greg_weekdayC2Et.exit
 
 if.then8.i.i.i:                                   ; preds = %entry
@@ -15048,7 +15048,7 @@ lpad.i6.i.i.i:                                    ; preds = %if.then8.i.i.i
   resume { ptr, i32 } %4
 
 _ZN5boost9gregorian12greg_weekdayC2Et.exit:       ; preds = %entry
-  %conv30.i = trunc nuw nsw i32 %rem.i to i16
+  %conv30.i = trunc nsw i32 %rem.i to i16
   ret i16 %conv30.i
 }
 

@@ -88480,7 +88480,7 @@ define internal fastcc noundef zeroext i1 @"_ZN97_$LT$arrow_array..array..primit
   %108 = trunc i64 %107 to i32
   %109 = srem i64 %106, 1000000000
   %110 = icmp ugt i32 %108, 86399
-  %111 = icmp ugt i64 %109, 1999999999
+  %111 = icmp slt i64 %109, 0
   %or.cond1.i = or i1 %111, %110
   br i1 %or.cond1.i, label %158, label %164
 
@@ -88637,7 +88637,7 @@ define internal fastcc noundef zeroext i1 @"_ZN97_$LT$arrow_array..array..primit
   br label %151
 
 164:                                              ; preds = %"_ZN11arrow_array5array15primitive_array23PrimitiveArray$LT$T$GT$5value17h4df0c790f64eeb16E.exit32"
-  %165 = trunc nuw nsw i64 %109 to i32
+  %165 = trunc nsw i64 %109 to i32
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %31)
   store i32 %108, ptr %31, align 4
   %166 = getelementptr inbounds nuw i8, ptr %31, i64 4
