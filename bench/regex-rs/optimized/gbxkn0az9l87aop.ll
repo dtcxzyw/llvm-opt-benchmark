@@ -630,6 +630,8 @@ _ZN4core5slice4sort20provide_sorted_batch17h0d7e2195e03eaf6dE.exit: ; preds = %.
   %.02818.i = phi ptr [ %236, %.lr.ph.i64 ], [ %204, %212 ]
   %.sroa.0.117.i = phi ptr [ %239, %.lr.ph.i64 ], [ %14, %212 ]
   %.sroa.18.216.i = phi ptr [ %234, %.lr.ph.i64 ], [ %203, %212 ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %.02818.i, i64 8) ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.0.117.i, i64 8) ]
   %.028.val.i = load i64, ptr %.02818.i, align 8, !alias.scope !100, !noalias !101, !noundef !14
   %229 = getelementptr i8, ptr %.02818.i, i64 24
   %.028.val35.i = load i64, ptr %229, align 8, !alias.scope !86
@@ -2130,6 +2132,7 @@ _ZN4core3ops8function5FnMut8call_mut17h903e79e8964f77fcE.exit.thread.i: ; preds 
   %.02830.i = phi ptr [ %243, %_ZN4core3ops8function5FnMut8call_mut17h903e79e8964f77fcE.exit43.thread.i ], [ %205, %213 ]
   %.sroa.0.129.i = phi ptr [ %246, %_ZN4core3ops8function5FnMut8call_mut17h903e79e8964f77fcE.exit43.thread.i ], [ %14, %213 ]
   %.sroa.18.228.i = phi ptr [ %241, %_ZN4core3ops8function5FnMut8call_mut17h903e79e8964f77fcE.exit43.thread.i ], [ %204, %213 ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %.02830.i, i64 4) ]
   %.028.val.i = load i32, ptr %.02830.i, align 4, !range !216, !alias.scope !255, !noundef !14
   %.val.i66 = load i32, ptr %.sroa.0.129.i, align 4, !range !216, !noalias !255, !noundef !14
   %234 = icmp samesign ult i32 %.028.val.i, %.val.i66

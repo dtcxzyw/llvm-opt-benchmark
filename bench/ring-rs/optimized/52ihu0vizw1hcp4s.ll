@@ -1209,13 +1209,13 @@ define hidden { ptr, i64 } @_ZN4ring4limb18fold_5_bit_windows17h182ba6429db4f694
   %12 = select i1 %10, i64 59, i64 %11
   %13 = load i64, ptr %7, align 8, !noundef !7
   %14 = tail call noundef i64 @ring_core_0_17_8__LIMBS_window5_split_window(i64 noundef %13, i64 noundef 0, i64 noundef %12)
-  %.sroa.0.0.copyload = load ptr, ptr %2, align 8, !nonnull !7, !noundef !7
+  %.sroa.0.0.copyload = load ptr, ptr %2, align 8, !nonnull !7, !align !14, !noundef !7
   %.sroa.412.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %.sroa.412.0.copyload = load ptr, ptr %.sroa.412.0..sroa_idx, align 8, !nonnull !7, !noundef !7
+  %.sroa.412.0.copyload = load ptr, ptr %.sroa.412.0..sroa_idx, align 8, !nonnull !7, !align !14, !noundef !7
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 24
   %.sroa.5.0.copyload = load i64, ptr %.sroa.5.0..sroa_idx, align 8
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %.sroa.6.0.copyload = load ptr, ptr %.sroa.6.0..sroa_idx, align 8, !nonnull !7, !noundef !7
+  %.sroa.6.0.copyload = load ptr, ptr %.sroa.6.0..sroa_idx, align 8, !nonnull !7, !align !14, !noundef !7
   %15 = load i64, ptr %.sroa.6.0.copyload, align 8, !noalias !359, !noundef !7
   tail call void @ring_core_0_17_8__bn_gather5(ptr noundef nonnull align 8 %.sroa.412.0.copyload, i64 noundef %15, ptr noundef nonnull readonly align 8 %.sroa.0.0.copyload, i64 noundef %14), !noalias !359
   %16 = getelementptr inbounds i64, ptr %0, i64 %1
@@ -1290,13 +1290,13 @@ define hidden { ptr, i64 } @_ZN4ring4limb18fold_5_bit_windows17h847f698419fd7a90
   %12 = select i1 %10, i64 59, i64 %11
   %13 = load i64, ptr %7, align 8, !noundef !7
   %14 = tail call noundef i64 @ring_core_0_17_8__LIMBS_window5_split_window(i64 noundef %13, i64 noundef 0, i64 noundef %12)
-  %.sroa.0.0.copyload = load ptr, ptr %2, align 8, !nonnull !7, !noundef !7
+  %.sroa.0.0.copyload = load ptr, ptr %2, align 8, !nonnull !7, !align !14, !noundef !7
   %.sroa.412.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %.sroa.412.0.copyload = load ptr, ptr %.sroa.412.0..sroa_idx, align 8, !nonnull !7, !noundef !7
+  %.sroa.412.0.copyload = load ptr, ptr %.sroa.412.0..sroa_idx, align 8, !nonnull !7, !align !14, !noundef !7
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 24
   %.sroa.5.0.copyload = load i64, ptr %.sroa.5.0..sroa_idx, align 8
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %.sroa.6.0.copyload = load ptr, ptr %.sroa.6.0..sroa_idx, align 8, !nonnull !7, !noundef !7
+  %.sroa.6.0.copyload = load ptr, ptr %.sroa.6.0..sroa_idx, align 8, !nonnull !7, !align !14, !noundef !7
   %15 = load i64, ptr %.sroa.6.0.copyload, align 8, !noalias !381, !noundef !7
   tail call void @ring_core_0_17_8__bn_gather5(ptr noundef nonnull align 8 %.sroa.412.0.copyload, i64 noundef %15, ptr noundef nonnull readonly align 8 %.sroa.0.0.copyload, i64 noundef %14), !noalias !381
   %16 = getelementptr inbounds i64, ptr %0, i64 %1
@@ -1773,6 +1773,7 @@ define hidden { ptr, i64 } @_ZN4ring3rsa10public_key5Inner12exponentiate17hcd4c5
 36:                                               ; preds = %32
   %37 = extractvalue { ptr, i64 } %33, 0
   %38 = extractvalue { ptr, i64 } %33, 1
+  call void @llvm.assume(i1 true) [ "align"(ptr %37, i64 8) ]
   call void @llvm.experimental.noalias.scope.decl(metadata !440)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   store ptr %37, ptr %5, align 8, !noalias !443
@@ -1930,6 +1931,7 @@ define hidden { ptr, i64 } @_ZN4ring3rsa10public_key5Inner17exponentiate_elem17h
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6), !noalias !455
   %32 = extractvalue { ptr, i64 } %31, 0
   %33 = extractvalue { ptr, i64 } %31, 1
+  call void @llvm.assume(i1 true) [ "align"(ptr %32, i64 8) ]
   %34 = icmp ne ptr %32, null
   tail call void @llvm.assume(i1 %34)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !464)

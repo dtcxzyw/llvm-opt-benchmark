@@ -1571,6 +1571,7 @@ define hidden void @_ZN4moka3cht3map6bucket21defer_acquire_destroy17h49adfbb71c8
   br i1 %8, label %11, label %9
 
 9:                                                ; preds = %6
+  call void @llvm.assume(i1 true) [ "align"(ptr %7, i64 8) ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3), !noalias !363
   store ptr @_ZN15crossbeam_epoch8deferred8Deferred3new4call17h8a54b3df7581d228E.llvm.8326862415837228122, ptr %3, align 8, !alias.scope !366, !noalias !363
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -1628,6 +1629,7 @@ define hidden void @_ZN4moka3cht3map6bucket21defer_acquire_destroy17h51a5ba65bdd
   br i1 %9, label %12, label %10
 
 10:                                               ; preds = %7
+  call void @llvm.assume(i1 true) [ "align"(ptr %8, i64 8) ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4), !noalias !393
   store ptr @_ZN15crossbeam_epoch8deferred8Deferred3new4call17h1c3b2a9ae5a8c1f7E.llvm.8326862415837228122, ptr %4, align 8, !alias.scope !396, !noalias !393
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -1667,6 +1669,7 @@ define hidden void @_ZN4moka3cht3map6bucket21defer_acquire_destroy17h931f407ff31
   br i1 %8, label %11, label %9
 
 9:                                                ; preds = %6
+  call void @llvm.assume(i1 true) [ "align"(ptr %7, i64 8) ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3), !noalias !404
   store ptr @_ZN15crossbeam_epoch8deferred8Deferred3new4call17h9c23afbe38e9b007E.llvm.8326862415837228122, ptr %3, align 8, !alias.scope !407, !noalias !404
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -1724,6 +1727,7 @@ define hidden void @_ZN4moka3cht3map6bucket21defer_acquire_destroy17ha3ae156a769
   br i1 %9, label %12, label %10
 
 10:                                               ; preds = %7
+  call void @llvm.assume(i1 true) [ "align"(ptr %8, i64 8) ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4), !noalias !434
   store ptr @_ZN15crossbeam_epoch8deferred8Deferred3new4call17h57815021457e51a0E.llvm.8326862415837228122, ptr %4, align 8, !alias.scope !437, !noalias !434
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -1763,6 +1767,7 @@ define hidden void @_ZN4moka3cht3map6bucket21defer_acquire_destroy17hddb910c8338
   br i1 %8, label %11, label %9
 
 9:                                                ; preds = %6
+  call void @llvm.assume(i1 true) [ "align"(ptr %7, i64 8) ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3), !noalias !445
   store ptr @_ZN15crossbeam_epoch8deferred8Deferred3new4call17hfa1f51e6150e2aecE.llvm.8326862415837228122, ptr %3, align 8, !alias.scope !448, !noalias !445
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -1821,6 +1826,7 @@ define hidden void @_ZN4moka3cht3map6bucket21defer_acquire_destroy17he64297c71ee
   br i1 %9, label %12, label %10
 
 10:                                               ; preds = %7
+  call void @llvm.assume(i1 true) [ "align"(ptr %8, i64 8) ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4), !noalias !478
   store ptr @_ZN15crossbeam_epoch8deferred8Deferred3new4call17h354e9ab2d45b9dd5E.llvm.8326862415837228122, ptr %4, align 8, !alias.scope !481, !noalias !478
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 8

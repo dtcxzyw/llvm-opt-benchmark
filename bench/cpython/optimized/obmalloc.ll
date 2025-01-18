@@ -12308,7 +12308,6 @@ mi_heap_get_backing.exit:                         ; preds = %entry, %_mi_stat_in
 
 if.end:                                           ; preds = %mi_heap_get_backing.exit
   call void @llvm.assume(i1 true) [ "align"(ptr %call4.i.i.i, i64 8) ]
-  call void @llvm.assume(i1 true) [ "align"(ptr @_mi_heap_empty, i64 8) ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(3064) %call4.i.i.i, ptr noundef nonnull readonly align 64 dereferenceable(3064) @_mi_heap_empty, i64 3064, i1 false)
   %11 = load ptr, ptr %10, align 8
   store ptr %11, ptr %call4.i.i.i, align 8
@@ -12751,7 +12750,6 @@ mi_heap_visit_pages.exit:                         ; preds = %for.inc.i, %entry, 
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1032) %pages_free_direct.i, i8 0, i64 1032, i1 false)
   %pages.i2 = getelementptr inbounds nuw i8, ptr %heap, i64 1040
   call void @llvm.assume(i1 true) [ "align"(ptr %pages.i2, i64 8) ]
-  call void @llvm.assume(i1 true) [ "align"(ptr getelementptr inbounds nuw (i8, ptr @_mi_heap_empty, i64 1040), i64 8) ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1800) %pages.i2, ptr noundef nonnull readonly align 16 dereferenceable(1800) getelementptr inbounds nuw (i8, ptr @_mi_heap_empty, i64 1040), i64 1800, i1 false)
   %thread_delayed_free.i = getelementptr inbounds nuw i8, ptr %heap, i64 2840
   store atomic i64 0, ptr %thread_delayed_free.i seq_cst, align 8
@@ -13032,7 +13030,6 @@ if.end3:                                          ; preds = %_mi_page_queue_appe
   %pages_free_direct.i.i = getelementptr inbounds nuw i8, ptr %heap, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1032) %pages_free_direct.i.i, i8 0, i64 1032, i1 false)
   call void @llvm.assume(i1 true) [ "align"(ptr %pages3.i, i64 8) ]
-  call void @llvm.assume(i1 true) [ "align"(ptr getelementptr inbounds nuw (i8, ptr @_mi_heap_empty, i64 1040), i64 8) ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1800) %pages3.i, ptr noundef nonnull readonly align 16 dereferenceable(1800) getelementptr inbounds nuw (i8, ptr @_mi_heap_empty, i64 1040), i64 1800, i1 false)
   store atomic i64 0, ptr %thread_delayed_free.i.i seq_cst, align 8
   store i64 0, ptr %page_count.i, align 8
@@ -14404,10 +14401,8 @@ if.end6:                                          ; preds = %if.end21.i, %if.the
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %memid.i)
   %tld7 = getelementptr inbounds nuw i8, ptr %td.323.i.ph, i64 3064
   call void @llvm.assume(i1 true) [ "align"(ptr %tld7, i64 8) ]
-  call void @llvm.assume(i1 true) [ "align"(ptr @tld_empty, i64 8) ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1600) %tld7, ptr noundef nonnull readonly align 64 dereferenceable(1600) @tld_empty, i64 1600, i1 false)
   call void @llvm.assume(i1 true) [ "align"(ptr %td.323.i.ph, i64 8) ]
-  call void @llvm.assume(i1 true) [ "align"(ptr @_mi_heap_empty, i64 8) ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(3064) %td.323.i.ph, ptr noundef nonnull readonly align 64 dereferenceable(3064) @_mi_heap_empty, i64 3064, i1 false)
   %11 = tail call ptr asm "movq %fs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(ptr) null) #52, !srcloc !16
   %12 = ptrtoint ptr %11 to i64

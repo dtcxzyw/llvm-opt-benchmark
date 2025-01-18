@@ -1173,6 +1173,7 @@ define hidden { ptr, i64 } @_ZN4ring10arithmetic6bigint16elem_exp_vartime17h1030
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7), !noalias !72
   %19 = extractvalue { ptr, i64 } %15, 0
   %20 = extractvalue { ptr, i64 } %15, 1
+  call void @llvm.assume(i1 true) [ "align"(ptr %19, i64 8) ]
   %21 = icmp ne ptr %19, null
   tail call void @llvm.assume(i1 %21)
   %22 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %2, i1 false)
@@ -1183,6 +1184,7 @@ define hidden { ptr, i64 } @_ZN4ring10arithmetic6bigint16elem_exp_vartime17h1030
 .lr.ph:                                           ; preds = %18
   %24 = xor i64 %23, 63
   %25 = shl nuw i64 1, %24
+  call void @llvm.assume(i1 true) [ "align"(ptr %19, i64 8) ]
   %26 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %27 = load ptr, ptr %3, align 8, !alias.scope !80, !noalias !83, !nonnull !4, !align !7, !noundef !4
   %28 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -1222,6 +1224,7 @@ define hidden { ptr, i64 } @_ZN4ring10arithmetic6bigint16elem_exp_vartime17h1030
   br i1 %38, label %44, label %39
 
 39:                                               ; preds = %36
+  call void @llvm.assume(i1 true) [ "align"(ptr %19, i64 8) ]
   %.val = load ptr, ptr %8, align 8, !nonnull !4, !align !7, !noundef !4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   store ptr %19, ptr %5, align 8, !noalias !86
@@ -1374,8 +1377,10 @@ define hidden { ptr, i64 } @_ZN4ring10arithmetic6bigint18elem_exp_consttime17ha6
 45:                                               ; preds = %41
   %46 = getelementptr inbounds i64, ptr %37, i64 %42
   %47 = sub nuw i64 %36, %42
+  call void @llvm.assume(i1 true) [ "align"(ptr %37, i64 8) ]
   %48 = icmp ne ptr %26, null
   tail call void @llvm.assume(i1 %48)
+  call void @llvm.assume(i1 true) [ "align"(ptr %46, i64 8) ]
   %.not.i14 = icmp ugt i64 %18, %47
   br i1 %.not.i14, label %.invoke, label %49
 
@@ -1735,8 +1740,10 @@ define hidden { ptr, i64 } @_ZN4ring10arithmetic6bigint18elem_exp_consttime17hdb
 45:                                               ; preds = %41
   %46 = getelementptr inbounds i64, ptr %37, i64 %42
   %47 = sub nuw i64 %36, %42
+  call void @llvm.assume(i1 true) [ "align"(ptr %37, i64 8) ]
   %48 = icmp ne ptr %26, null
   tail call void @llvm.assume(i1 %48)
+  call void @llvm.assume(i1 true) [ "align"(ptr %46, i64 8) ]
   %.not.i14 = icmp ugt i64 %18, %47
   br i1 %.not.i14, label %.invoke, label %49
 

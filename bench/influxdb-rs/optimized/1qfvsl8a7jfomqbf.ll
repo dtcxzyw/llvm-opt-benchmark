@@ -399,6 +399,7 @@ define hidden { ptr, ptr } @"_ZN103_$LT$arrow_array..array..byte_array..GenericB
   br i1 %42, label %"_ZN11arrow_array5array10byte_array25GenericByteArray$LT$T$GT$5slice17hceeed4070cb8206aE.exit", label %43
 
 43:                                               ; preds = %"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h2506089e234e8bebE.exit.i"
+  call void @llvm.assume(i1 true) [ "align"(ptr %40, i64 8) ]
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %6), !noalias !12
   invoke void @_ZN12arrow_buffer6buffer4null10NullBuffer5slice17h52f2afb277f819a2E(ptr noalias nocapture noundef nonnull sret({ { { ptr, ptr, i64 }, i64, i64 }, i64 }) align 8 dereferenceable(48) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %40, i64 noundef %1, i64 noundef %2)
           to label %49 unwind label %44, !noalias !14
@@ -746,6 +747,7 @@ _ZN12arrow_buffer6buffer7mutable13MutableBuffer13with_capacity17h599cdfd44654158
   ret void
 
 51:                                               ; preds = %_ZN12arrow_buffer6buffer7mutable13MutableBuffer13with_capacity17h599cdfd446541586E.llvm.12936710431969675094.exit
+  call void @llvm.assume(i1 true) [ "align"(ptr %48, i64 8) ]
   invoke void @_ZN12arrow_buffer7builder7boolean20BooleanBufferBuilder13append_buffer17hbe88d65e20dd880fE(ptr noalias noundef nonnull align 8 dereferenceable(40) %9, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %48)
           to label %73 unwind label %52
 
@@ -1632,6 +1634,7 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.7)
   %9 = tail call { ptr, ptr } @"_ZN92_$LT$hashbrown..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h035c81d4dad9b4d8E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %1), !noalias !224
   %.fca.0.extract.i.i = extractvalue { ptr, ptr } %9, 0
+  call void @llvm.assume(i1 true) [ "align"(ptr %.fca.0.extract.i.i, i64 8) ]
   %10 = icmp eq ptr %.fca.0.extract.i.i, null
   br i1 %10, label %"_ZN104_$LT$core..iter..adapters..cloned..Cloned$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h408a7ed5cd9a853fE.exit.thread", label %"_ZN104_$LT$core..iter..adapters..cloned..Cloned$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h408a7ed5cd9a853fE.exit"
 
@@ -1699,6 +1702,7 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
 
 .noexc:                                           ; preds = %21
   %.fca.0.extract.i.i6.i.i = extractvalue { ptr, ptr } %25, 0
+  call void @llvm.assume(i1 true) [ "align"(ptr %.fca.0.extract.i.i6.i.i, i64 8) ]
   %26 = icmp eq ptr %.fca.0.extract.i.i6.i.i, null
   br i1 %26, label %.loopexit10, label %"_ZN104_$LT$core..iter..adapters..cloned..Cloned$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h408a7ed5cd9a853fE.exit.lr.ph.i.i"
 
@@ -1829,6 +1833,7 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
 "_ZN108_$LT$alloc..collections..btree..map..Keys$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h590b116ca0eeca43E.exit.i": ; preds = %12
   %17 = tail call { ptr, ptr } @_ZN5alloc11collections5btree3mem7replace17h2d4dfaded98abb6aE.llvm.7702111414455854409(ptr noalias noundef nonnull align 8 dereferenceable(24) %14), !noalias !279
   %18 = extractvalue { ptr, ptr } %17, 0
+  call void @llvm.assume(i1 true) [ "align"(ptr %18, i64 8) ]
   %19 = icmp eq ptr %18, null
   br i1 %19, label %"_ZN104_$LT$core..iter..adapters..cloned..Cloned$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1da0e63d4d995ccaE.exit.thread", label %"_ZN104_$LT$core..iter..adapters..cloned..Cloned$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1da0e63d4d995ccaE.exit"
 
@@ -1925,6 +1930,7 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
 
 .noexc5:                                          ; preds = %"_ZN108_$LT$alloc..collections..btree..map..Keys$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h590b116ca0eeca43E.exit.i.i.i"
   %43 = extractvalue { ptr, ptr } %42, 0
+  call void @llvm.assume(i1 true) [ "align"(ptr %43, i64 8) ]
   %44 = icmp eq ptr %43, null
   br i1 %44, label %.loopexit11, label %"_ZN104_$LT$core..iter..adapters..cloned..Cloned$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1da0e63d4d995ccaE.exit.i.i"
 
@@ -9820,6 +9826,7 @@ define hidden void @"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6t
 34:                                               ; preds = %.lr.ph.i.i.i
   %35 = getelementptr inbounds nuw i8, ptr %.sroa.013.037.i.i.i, i64 56
   %36 = add nuw nsw i64 %.sroa.7.036.i.i.i, 1
+  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.013.037.i.i.i, i64 8) ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1693)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6), !noalias !1696
   %37 = getelementptr inbounds nuw i8, ptr %.sroa.013.037.i.i.i, i64 32
@@ -10036,6 +10043,7 @@ define hidden void @"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6t
 17:                                               ; preds = %14
   %18 = getelementptr inbounds nuw i8, ptr %.sroa.014.035, i64 48
   %19 = add nuw nsw i64 %.sroa.7.034, 1
+  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.014.035, i64 8) ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1709)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5), !noalias !1712
   invoke void @"_ZN60_$LT$alloc..string..String$u20$as$u20$core..clone..Clone$GT$5clone17hec36f09858d8a4fdE"(ptr noalias nocapture noundef nonnull sret({ { { ptr, i64 }, i64 } }) align 8 dereferenceable(24) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %.sroa.014.035)
@@ -10389,7 +10397,7 @@ define hidden { ptr, i64 } @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16into_boxed_slice17
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$13shrink_to_fit17h7fa74a473cdd73cbE.exit": ; preds = %".noexc._ZN5alloc3vec16Vec$LT$T$C$A$GT$13shrink_to_fit17h7fa74a473cdd73cbE.exit_crit_edge", %1
   %.sroa.54.0.copyload = phi i64 [ %.sroa.54.0.copyload.pre, %".noexc._ZN5alloc3vec16Vec$LT$T$C$A$GT$13shrink_to_fit17h7fa74a473cdd73cbE.exit_crit_edge" ], [ %5, %1 ]
-  %.sroa.02.0.copyload = load ptr, ptr %0, align 8, !nonnull !4, !noundef !4
+  %.sroa.02.0.copyload = load ptr, ptr %0, align 8, !nonnull !4, !align !851, !noundef !4
   %16 = insertvalue { ptr, i64 } poison, ptr %.sroa.02.0.copyload, 0
   %17 = insertvalue { ptr, i64 } %16, i64 %.sroa.54.0.copyload, 1
   ret { ptr, i64 } %17
@@ -10453,7 +10461,7 @@ define hidden { ptr, i64 } @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16into_boxed_slice17
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$13shrink_to_fit17he6c4543a95dd40cfE.exit": ; preds = %".noexc._ZN5alloc3vec16Vec$LT$T$C$A$GT$13shrink_to_fit17he6c4543a95dd40cfE.exit_crit_edge", %1
   %.sroa.54.0.copyload = phi i64 [ %.sroa.54.0.copyload.pre, %".noexc._ZN5alloc3vec16Vec$LT$T$C$A$GT$13shrink_to_fit17he6c4543a95dd40cfE.exit_crit_edge" ], [ %5, %1 ]
-  %.sroa.02.0.copyload = load ptr, ptr %0, align 8, !nonnull !4, !noundef !4
+  %.sroa.02.0.copyload = load ptr, ptr %0, align 8, !nonnull !4, !align !851, !noundef !4
   %16 = insertvalue { ptr, i64 } poison, ptr %.sroa.02.0.copyload, 0
   %17 = insertvalue { ptr, i64 } %16, i64 %.sroa.54.0.copyload, 1
   ret { ptr, i64 } %17
@@ -11093,6 +11101,7 @@ define hidden void @"_ZN5tokio7runtime4task4core17Core$LT$T$C$S$GT$4poll17h381b3
   %.fca.1.extract.i = extractvalue { i64, i64 } %17, 1
   %.fca.1.gep.i = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i64 %.fca.1.extract.i, ptr %.fca.1.gep.i, align 8, !noalias !1818
+  call void @llvm.assume(i1 true) [ "align"(ptr %11, i64 8) ]
   invoke void @"_ZN91_$LT$tracing..instrument..Instrumented$LT$T$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h0e786bdbc4a5b1ccE"(ptr noalias nocapture noundef nonnull sret({ i64, [9 x i64] }) align 8 dereferenceable(80) %9, ptr noalias noundef nonnull align 8 dereferenceable(88) %11, ptr noalias noundef nonnull align 8 dereferenceable(8) %10)
           to label %"_ZN5tokio7runtime4task4core17Core$LT$T$C$S$GT$4poll28_$u7b$$u7b$closure$u7d$$u7d$17ha85f93caf4315cecE.llvm.12936710431969675094.exit" unwind label %23
 
@@ -11227,6 +11236,7 @@ define hidden noundef zeroext i1 @"_ZN5tokio7runtime4task4core17Core$LT$T$C$S$GT
   %.fca.1.extract.i = extractvalue { i64, i64 } %15, 1
   %.fca.1.gep.i = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 %.fca.1.extract.i, ptr %.fca.1.gep.i, align 8, !noalias !1835
+  call void @llvm.assume(i1 true) [ "align"(ptr %9, i64 8) ]
   %16 = invoke noundef zeroext i1 @"_ZN91_$LT$tracing..instrument..Instrumented$LT$T$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h66f33f5d20a6a413E"(ptr noundef nonnull align 8 %9, ptr noalias noundef nonnull align 8 dereferenceable(8) %8)
           to label %"_ZN5tokio7runtime4task4core17Core$LT$T$C$S$GT$4poll28_$u7b$$u7b$closure$u7d$$u7d$17h8f9e28860541eb4eE.llvm.12936710431969675094.exit" unwind label %22
 
@@ -11338,6 +11348,7 @@ define hidden noundef zeroext i1 @"_ZN5tokio7runtime4task4core17Core$LT$T$C$S$GT
   %.fca.1.extract.i = extractvalue { i64, i64 } %15, 1
   %.fca.1.gep.i = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 %.fca.1.extract.i, ptr %.fca.1.gep.i, align 8, !noalias !1850
+  call void @llvm.assume(i1 true) [ "align"(ptr %9, i64 8) ]
   %16 = invoke noundef zeroext i1 @"_ZN91_$LT$tracing..instrument..Instrumented$LT$T$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h66f33f5d20a6a413E"(ptr noundef nonnull align 8 %9, ptr noalias noundef nonnull align 8 dereferenceable(8) %8)
           to label %"_ZN5tokio7runtime4task4core17Core$LT$T$C$S$GT$4poll28_$u7b$$u7b$closure$u7d$$u7d$17he3d9074e95d320abE.llvm.12936710431969675094.exit" unwind label %22
 
@@ -11449,6 +11460,7 @@ define hidden noundef zeroext i1 @"_ZN5tokio7runtime4task4core17Core$LT$T$C$S$GT
   %.fca.1.extract.i = extractvalue { i64, i64 } %15, 1
   %.fca.1.gep.i = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 %.fca.1.extract.i, ptr %.fca.1.gep.i, align 8, !noalias !1865
+  call void @llvm.assume(i1 true) [ "align"(ptr %9, i64 8) ]
   %16 = invoke noundef zeroext i1 @"_ZN91_$LT$tracing..instrument..Instrumented$LT$T$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h66f33f5d20a6a413E"(ptr noundef nonnull align 8 %9, ptr noalias noundef nonnull align 8 dereferenceable(8) %8)
           to label %"_ZN5tokio7runtime4task4core17Core$LT$T$C$S$GT$4poll28_$u7b$$u7b$closure$u7d$$u7d$17ha49635b6a22c432aE.llvm.12936710431969675094.exit" unwind label %22
 
@@ -11554,6 +11566,7 @@ define hidden noundef zeroext i1 @"_ZN5tokio7runtime4task4core17Core$LT$T$C$S$GT
   %.fca.1.extract = extractvalue { i64, i64 } %12, 1
   %.fca.1.gep = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 %.fca.1.extract, ptr %.fca.1.gep, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %2, i64 8) ]
   %13 = invoke noundef zeroext i1 @"_ZN91_$LT$tracing..instrument..Instrumented$LT$T$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h66f33f5d20a6a413E"(ptr noundef nonnull align 8 %2, ptr noalias noundef nonnull align 8 dereferenceable(8) %1)
           to label %21 unwind label %19
 
@@ -11611,6 +11624,7 @@ define hidden noundef zeroext i1 @"_ZN5tokio7runtime4task4core17Core$LT$T$C$S$GT
   %.fca.1.extract = extractvalue { i64, i64 } %12, 1
   %.fca.1.gep = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 %.fca.1.extract, ptr %.fca.1.gep, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %2, i64 8) ]
   %13 = invoke noundef zeroext i1 @"_ZN91_$LT$tracing..instrument..Instrumented$LT$T$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h66f33f5d20a6a413E"(ptr noundef nonnull align 8 %2, ptr noalias noundef nonnull align 8 dereferenceable(8) %1)
           to label %21 unwind label %19
 
@@ -11668,6 +11682,7 @@ define hidden void @"_ZN5tokio7runtime4task4core17Core$LT$T$C$S$GT$4poll28_$u7b$
   %.fca.1.extract = extractvalue { i64, i64 } %13, 1
   %.fca.1.gep = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i64 %.fca.1.extract, ptr %.fca.1.gep, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %3, i64 8) ]
   invoke void @"_ZN91_$LT$tracing..instrument..Instrumented$LT$T$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h0e786bdbc4a5b1ccE"(ptr noalias nocapture noundef nonnull sret({ i64, [9 x i64] }) align 8 dereferenceable(80) %0, ptr noalias noundef nonnull align 8 dereferenceable(88) %3, ptr noalias noundef nonnull align 8 dereferenceable(8) %2)
           to label %21 unwind label %19
 
@@ -11725,6 +11740,7 @@ define hidden noundef zeroext i1 @"_ZN5tokio7runtime4task4core17Core$LT$T$C$S$GT
   %.fca.1.extract = extractvalue { i64, i64 } %12, 1
   %.fca.1.gep = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 %.fca.1.extract, ptr %.fca.1.gep, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %2, i64 8) ]
   %13 = invoke noundef zeroext i1 @"_ZN91_$LT$tracing..instrument..Instrumented$LT$T$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h66f33f5d20a6a413E"(ptr noundef nonnull align 8 %2, ptr noalias noundef nonnull align 8 dereferenceable(8) %1)
           to label %21 unwind label %19
 
@@ -12221,6 +12237,7 @@ define internal fastcc void @"_ZN66_$LT$arrow_data..data..ArrayData$u20$as$u20$c
   br i1 %50, label %.thread, label %51
 
 51:                                               ; preds = %.lr.ph
+  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.016.032, i64 8) ]
   invoke fastcc void @"_ZN66_$LT$arrow_data..data..ArrayData$u20$as$u20$core..clone..Clone$GT$5clone17h85a31023b6aa0b48E"(ptr noalias nocapture noundef align 8 dereferenceable(136) %3, ptr noalias noundef readonly align 8 dereferenceable(136) %.sroa.016.032)
           to label %52 unwind label %48
 

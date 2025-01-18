@@ -4971,9 +4971,11 @@ _ZN6rustls6vecbuf14ChunkVecBuffer3pop17hd0016c913b79fae6E.exit69: ; preds = %"_Z
 67:                                               ; preds = %61
   %68 = icmp ne ptr %.sroa.624.0.copyload, null
   call void @llvm.assume(i1 %68)
+  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.727.0.copyload, i64 8) ]
   %69 = icmp ne ptr %.sroa.727.0.copyload, null
   call void @llvm.assume(i1 %69)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8)
+  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.727.0.copyload, i64 8) ]
   call fastcc void @"_ZN6rustls4conn26ConnectionCore$LT$Data$GT$11process_msg17h6678cabd3c15330dE"(ptr noalias nocapture noundef align 8 dereferenceable(32) %8, ptr noalias noundef align 8 dereferenceable(928) %1, ptr noalias nocapture noundef align 8 dereferenceable(24) %12, ptr noundef nonnull align 1 %.sroa.624.0.copyload, ptr noalias noundef readonly align 8 dereferenceable(24) %.sroa.727.0.copyload, ptr noalias noundef align 8 dereferenceable_or_null(48) null)
   %70 = load i8, ptr %8, align 8, !range !45, !noundef !4
   %71 = icmp eq i8 %70, 20
@@ -5493,9 +5495,11 @@ _ZN6rustls6vecbuf14ChunkVecBuffer3pop17hd0016c913b79fae6E.exit71: ; preds = %"_Z
 90:                                               ; preds = %84
   %91 = icmp ne ptr %.sroa.621.0.copyload, null
   call void @llvm.assume(i1 %91)
+  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.724.0.copyload, i64 8) ]
   %92 = icmp ne ptr %.sroa.724.0.copyload, null
   call void @llvm.assume(i1 %92)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8)
+  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.724.0.copyload, i64 8) ]
   call fastcc void @"_ZN6rustls4conn26ConnectionCore$LT$Data$GT$11process_msg17h361f66ee9f207250E"(ptr noalias nocapture noundef align 8 dereferenceable(32) %8, ptr noalias noundef align 8 dereferenceable(1016) %1, ptr noalias nocapture noundef align 8 dereferenceable(24) %12, ptr noundef nonnull align 1 %.sroa.621.0.copyload, ptr noalias noundef readonly align 8 dereferenceable(24) %.sroa.724.0.copyload, ptr noalias noundef align 8 dereferenceable_or_null(48) null)
   %93 = load i8, ptr %8, align 8, !range !45, !noundef !4
   %94 = icmp eq i8 %93, 20
@@ -6277,6 +6281,7 @@ define hidden void @"_ZN6rustls4conn28ConnectionCommon$LT$Data$GT$25dangerous_ex
   call void @llvm.lifetime.start.p0(i64 39, ptr nonnull %.sroa.728)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %.sroa.931)
   call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %11)
+  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.6.0.copyload, i64 8) ]
   %23 = icmp ne ptr %.sroa.6.0.copyload, null
   tail call void @llvm.assume(i1 %23)
   %24 = getelementptr inbounds nuw i8, ptr %.sroa.6.0.copyload, i64 40
@@ -6347,6 +6352,7 @@ define hidden void @"_ZN6rustls4conn28ConnectionCommon$LT$Data$GT$25dangerous_ex
 
 40:                                               ; preds = %41, %26
   %.pn86 = phi { ptr, i32 } [ %42, %41 ], [ %27, %26 ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.6.0.copyload, i64 8) ]
   invoke fastcc void @"_ZN4core3ptr138drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$rustls..common_state..State$LT$rustls..client..client_conn..ClientConnectionData$GT$$GT$$GT$17h10058c092a43a95aE"(ptr nonnull %.sroa.515.0.copyload, ptr nonnull %.sroa.6.0.copyload) #27
           to label %.critedge unwind label %151
 
@@ -6357,6 +6363,7 @@ define hidden void @"_ZN6rustls4conn28ConnectionCommon$LT$Data$GT$25dangerous_ex
 
 43:                                               ; preds = %35
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %12)
+  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.6.0.copyload, i64 8) ]
   %44 = load ptr, ptr %.sroa.6.0.copyload, align 8, !invariant.load !4, !nonnull !4
   invoke void %44(ptr noundef nonnull align 1 %.sroa.515.0.copyload)
           to label %54 unwind label %45
@@ -6657,6 +6664,7 @@ define hidden void @"_ZN6rustls4conn28ConnectionCommon$LT$Data$GT$25dangerous_ex
 
 153:                                              ; preds = %31
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %12)
+  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.6.0.copyload, i64 8) ]
   %154 = load ptr, ptr %.sroa.6.0.copyload, align 8, !invariant.load !4, !nonnull !4
   invoke void %154(ptr noundef nonnull align 1 %.sroa.515.0.copyload)
           to label %164 unwind label %155
@@ -7196,6 +7204,7 @@ define hidden void @"_ZN6rustls4conn28ConnectionCommon$LT$Data$GT$25dangerous_ex
   call void @llvm.lifetime.start.p0(i64 39, ptr nonnull %.sroa.728)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %.sroa.931)
   call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %11)
+  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.6.0.copyload, i64 8) ]
   %26 = getelementptr inbounds nuw i8, ptr %.sroa.6.0.copyload, i64 40
   %27 = load ptr, ptr %26, align 8, !invariant.load !4, !nonnull !4
   invoke void %27(ptr noalias nocapture noundef nonnull sret({ i8, [111 x i8] }) align 8 dereferenceable(112) %11, ptr noundef nonnull align 1 %.sroa.515.0.copyload)
@@ -7292,6 +7301,7 @@ define hidden void @"_ZN6rustls4conn28ConnectionCommon$LT$Data$GT$25dangerous_ex
 
 48:                                               ; preds = %40
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %12)
+  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.6.0.copyload, i64 8) ]
   %49 = load ptr, ptr %.sroa.6.0.copyload, align 8, !invariant.load !4, !noalias !1271, !nonnull !4
   invoke void %49(ptr noundef nonnull align 1 %.sroa.515.0.copyload)
           to label %59 unwind label %50, !noalias !1271
@@ -7630,6 +7640,7 @@ define hidden void @"_ZN6rustls4conn28ConnectionCommon$LT$Data$GT$25dangerous_ex
 
 171:                                              ; preds = %36
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %12)
+  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.6.0.copyload, i64 8) ]
   %172 = load ptr, ptr %.sroa.6.0.copyload, align 8, !invariant.load !4, !noalias !1337, !nonnull !4
   invoke void %172(ptr noundef nonnull align 1 %.sroa.515.0.copyload)
           to label %182 unwind label %173, !noalias !1337
@@ -8686,6 +8697,7 @@ define hidden void @"_ZN6rustls4conn26ConnectionCore$LT$Data$GT$19process_new_pa
   store i64 0, ptr %36, align 8
   store i64 %.040154, ptr %32, align 8, !alias.scope !1577
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %14)
+  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.10.0152, i64 8) ]
   invoke fastcc void @"_ZN6rustls4conn26ConnectionCore$LT$Data$GT$7deframe17h021a4528e6af09c6E"(ptr noalias nocapture noundef align 8 dereferenceable(32) %14, ptr noalias noundef align 8 dereferenceable(928) %1, ptr noundef nonnull align 1 %.sroa.0.0153, ptr nonnull %.sroa.10.0152, ptr noalias noundef align 8 dereferenceable(32) %15)
           to label %40 unwind label %.thread91.thread105.loopexit.split
 
@@ -8743,6 +8755,7 @@ define hidden void @"_ZN6rustls4conn26ConnectionCore$LT$Data$GT$19process_new_pa
   store i16 %.sroa.2.0.copyload, ptr %.sroa.2.0..sroa_idx16, align 2
   store i32 %.sroa.3.0.copyload, ptr %.sroa.3.0..sroa_idx18, align 4
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9)
+  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.10.0152, i64 8) ]
   call fastcc void @"_ZN6rustls4conn26ConnectionCore$LT$Data$GT$11process_msg17h6678cabd3c15330dE"(ptr noalias nocapture noundef align 8 dereferenceable(32) %9, ptr noalias noundef align 8 dereferenceable(928) %1, ptr noalias nocapture noundef align 8 dereferenceable(24) %10, ptr noundef nonnull align 1 %.sroa.0.0153, ptr noalias noundef readonly align 8 dereferenceable(24) %.sroa.10.0152, ptr noalias noundef nonnull align 8 dereferenceable_or_null(48) %3)
   %56 = load i8, ptr %9, align 8, !range !45, !noundef !4
   %57 = icmp eq i8 %56, 20
@@ -9108,6 +9121,7 @@ common.resume:                                    ; preds = %189, %.thread91.thr
   %.sroa.10.0139 = phi ptr [ %.sroa.10.0152, %130 ], [ %.sroa.10.0152, %.thread91.thread105.loopexit.split ], [ %.sroa.10.0142, %.thread91.thread105.loopexit.split-lp ]
   %.sroa.0.0130 = phi ptr [ %.sroa.0.0153, %130 ], [ %.sroa.0.0153, %.thread91.thread105.loopexit.split ], [ %.sroa.0.0133, %.thread91.thread105.loopexit.split-lp ]
   %.pn48103 = phi { ptr, i32 } [ %.pn42, %130 ], [ %lpad.loopexit, %.thread91.thread105.loopexit.split ], [ %lpad.loopexit.split-lp, %.thread91.thread105.loopexit.split-lp ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.10.0139, i64 8) ]
   invoke fastcc void @"_ZN4core3ptr138drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$rustls..common_state..State$LT$rustls..client..client_conn..ClientConnectionData$GT$$GT$$GT$17h10058c092a43a95aE"(ptr nonnull %.sroa.0.0130, ptr nonnull %.sroa.10.0139) #27
           to label %common.resume unwind label %128
 
@@ -14552,6 +14566,7 @@ define void @"_ZN142_$LT$rustls..client..tls12..ExpectServerKx$u20$as$u20$rustls
   %.sroa.610.0192.ph = phi ptr [ %.sroa.610.0.copyload, %._crit_edge ], [ %26, %.thread ]
   call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %.sroa.6)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.8)
+  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.610.0192.ph, i64 8) ]
   %33 = icmp ne ptr %.sroa.610.0192.ph, null
   tail call void @llvm.assume(i1 %33)
   %34 = getelementptr inbounds nuw i8, ptr %1, i64 192
@@ -16601,7 +16616,7 @@ define void @"_ZN152_$LT$rustls..client..tls12..ExpectCertificateRequest$u20$as$
   %66 = getelementptr i8, ptr %59, i64 %65
   %67 = getelementptr i8, ptr %66, i64 16
   %68 = getelementptr inbounds nuw i8, ptr %55, i64 56
-  %69 = load ptr, ptr %68, align 8, !nonnull !4, !noundef !4
+  %69 = load ptr, ptr %68, align 8, !nonnull !4, !align !5, !noundef !4
   %70 = getelementptr inbounds nuw i8, ptr %55, i64 64
   %71 = load i64, ptr %70, align 8, !noundef !4
   %72 = getelementptr inbounds nuw i8, ptr %55, i64 32
@@ -17233,6 +17248,8 @@ _ZN6rustls7hash_hs13HandshakeHash11add_message17h96486aaaeca9d316E.exit: ; preds
 
 120:                                              ; preds = %119
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %40)
+  call void @llvm.assume(i1 true) [ "align"(ptr %114, i64 8) ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %117, i64 8) ]
   %121 = getelementptr inbounds nuw i8, ptr %45, i64 384
   %122 = load ptr, ptr %121, align 8, !nonnull !4, !noundef !4
   call void @llvm.experimental.noalias.scope.decl(metadata !2882)
@@ -20146,6 +20163,7 @@ _ZN6rustls7hash_hs13HandshakeHash11add_message17h96486aaaeca9d316E.exit: ; preds
   br i1 %.not.i.i83, label %_ZN6rustls12common_state11CommonState13start_traffic17h228a7d3f5fdec1b3E.exit, label %307
 
 307:                                              ; preds = %302
+  call void @llvm.assume(i1 true) [ "align"(ptr %306, i64 8) ]
   invoke void @_ZN6rustls12common_state11CommonState15flush_plaintext17hb0dc319bf79a5d5eE.llvm.12428379203013389814(ptr noalias noundef nonnull align 8 dereferenceable(776) %59, ptr noalias noundef nonnull align 8 dereferenceable(48) %306)
           to label %_ZN6rustls12common_state11CommonState13start_traffic17h228a7d3f5fdec1b3E.exit unwind label %.loopexit.split-lp
 
@@ -20862,6 +20880,7 @@ define { ptr, i64 } @_ZN6rustls6server11server_conn10connection16ServerConnectio
   br i1 %4, label %"_ZN6rustls6server11server_conn103_$LT$impl$u20$rustls..conn..ConnectionCore$LT$rustls..server..server_conn..ServerConnectionData$GT$$GT$11get_sni_str17h88c39624a14f0a50E.exit", label %5
 
 5:                                                ; preds = %1
+  call void @llvm.assume(i1 true) [ "align"(ptr %2, i64 8) ]
   %6 = tail call { ptr, i64 } @"_ZN90_$LT$rustls_pki_types..server_name..DnsName$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17hcf43575eb6ca19bdE.llvm.5361720058829915877"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %2)
   %7 = extractvalue { ptr, i64 } %6, 0
   %8 = extractvalue { ptr, i64 } %6, 1

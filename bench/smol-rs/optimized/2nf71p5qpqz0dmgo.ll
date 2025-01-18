@@ -647,7 +647,9 @@ thread-pre-split.i.i.i.i.i:                       ; preds = %.critedge
   br i1 %235, label %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17hf7aaf9b11974c5e2E.exit.thread.i.i.i.i.i", label %thread-pre-split.i.i.i.i.i
 
 "_ZN14async_executor6Runner8runnable28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h3be15edcaab43ff2E.exit.i.i.i.i": ; preds = %196, %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17hf7aaf9b11974c5e2E.exit.thread.i.i.i.i.i"
+  call void @llvm.assume(i1 true) [ "align"(ptr %.val18.i.i, i64 8) ]
   call void @llvm.assume(i1 %68)
+  call void @llvm.assume(i1 true) [ "align"(ptr %.val132, i64 8) ]
   call void @llvm.assume(i1 %69)
   %236 = invoke noundef zeroext i1 @_ZN14async_executor6Ticker5sleep17h9f977e602e9a1dedE(ptr noundef nonnull align 8 %.val18.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.val132)
           to label %.noexc25.i.i unwind label %.loopexit.i.i
@@ -659,6 +661,7 @@ thread-pre-split.i.i.i.i.i:                       ; preds = %.critedge
   %.0.i.ph.i.i.i.i = phi ptr [ %229, %.loopexit ], [ %86, %153 ], [ %80, %78 ], [ %229, %233 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11)
   store ptr %.0.i.ph.i.i.i.i, ptr %11, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %.val18.i.i, i64 8) ]
   call void @llvm.assume(i1 %68)
   invoke void @_ZN14async_executor6Ticker4wake17hfe5a611737e99e82E(ptr noundef nonnull align 8 %.val18.i.i)
           to label %239 unwind label %237
@@ -925,8 +928,10 @@ define internal void @"_ZN4core3ptr34drop_in_place$LT$$RF$$RF$usize$GT$17hc9eff2
 
 ; Function Attrs: nonlazybind uwtable
 define internal fastcc void @"_ZN4core3ptr81drop_in_place$LT$std..sync..mutex..MutexGuard$LT$async_executor..Sleepers$GT$$GT$17heb022e5d62b48961E"(ptr %.0.val, i8 %.8.val) unnamed_addr #2 {
+  call void @llvm.assume(i1 true) [ "align"(ptr %.0.val, i64 8) ]
   %1 = icmp ne ptr %.0.val, null
   tail call void @llvm.assume(i1 %1)
+  call void @llvm.assume(i1 true) [ "align"(ptr %.0.val, i64 8) ]
   %2 = getelementptr inbounds nuw i8, ptr %.0.val, i64 4
   %3 = trunc nuw i8 %.8.val to i1
   br i1 %3, label %_ZN3std4sync6poison4Flag4done17h5bffa24fa61aa5e0E.exit.i, label %4
@@ -942,10 +947,11 @@ _ZN3std9panicking11panic_count13count_is_zero17h66cf19443d869469E.exit.i.i: ; pr
   br i1 %8, label %_ZN3std4sync6poison4Flag4done17h5bffa24fa61aa5e0E.exit.i, label %9
 
 9:                                                ; preds = %_ZN3std9panicking11panic_count13count_is_zero17h66cf19443d869469E.exit.i.i
-  store atomic i8 1, ptr %2 monotonic, align 1
+  store atomic i8 1, ptr %2 monotonic, align 4
   br label %_ZN3std4sync6poison4Flag4done17h5bffa24fa61aa5e0E.exit.i
 
 _ZN3std4sync6poison4Flag4done17h5bffa24fa61aa5e0E.exit.i: ; preds = %9, %_ZN3std9panicking11panic_count13count_is_zero17h66cf19443d869469E.exit.i.i, %4, %0
+  call void @llvm.assume(i1 true) [ "align"(ptr %.0.val, i64 8) ]
   %10 = atomicrmw xchg ptr %.0.val, i32 0 release, align 4
   %11 = icmp eq i32 %10, 2
   br i1 %11, label %12, label %"_ZN79_$LT$std..sync..mutex..MutexGuard$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hae90c0707b63df2bE.exit"

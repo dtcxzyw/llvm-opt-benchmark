@@ -50,8 +50,10 @@ target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 define internal fastcc void @_ZN10serde_json3ser9Formatter10end_object17hb5f1af755e2a8da0E(ptr %.0.val) unnamed_addr #0 {
+  call void @llvm.assume(i1 true) [ "align"(ptr %.0.val, i64 8) ]
   %1 = icmp ne ptr %.0.val, null
   tail call void @llvm.assume(i1 %1)
+  call void @llvm.assume(i1 true) [ "align"(ptr %.0.val, i64 8) ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !10)
@@ -79,8 +81,10 @@ define internal fastcc void @_ZN10serde_json3ser9Formatter10end_object17hb5f1af7
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 define internal fastcc void @_ZN10serde_json3ser9Formatter18begin_object_value17h03a13b412c0f78e2E(ptr %.0.val) unnamed_addr #0 {
+  call void @llvm.assume(i1 true) [ "align"(ptr %.0.val, i64 8) ]
   %1 = icmp ne ptr %.0.val, null
   tail call void @llvm.assume(i1 %1)
+  call void @llvm.assume(i1 true) [ "align"(ptr %.0.val, i64 8) ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !23)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !26)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !29)
@@ -1218,7 +1222,7 @@ __rust_try.llvm.15938600225882126526.exit:        ; preds = %.body.i.i.i.i
 
 ; Function Attrs: nonlazybind uwtable
 define hidden { ptr, ptr } @_ZN3std9panicking3try17h7b11098a4f159d71E(ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
-  %.sroa.01.sroa.0.0.copyload = load ptr, ptr %0, align 8, !nonnull !21, !noundef !21
+  %.sroa.01.sroa.0.0.copyload = load ptr, ptr %0, align 8, !nonnull !21, !align !145, !noundef !21
   %.sroa.01.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.sroa.01.sroa.4.0.copyload = load ptr, ptr %.sroa.01.sroa.4.0..sroa_idx, align 8
   %.sroa.01.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -1279,7 +1283,7 @@ __rust_try.llvm.15938600225882126526.exit:        ; preds = %18
 
 ; Function Attrs: nonlazybind uwtable
 define hidden { ptr, ptr } @_ZN3std9panicking3try17h8f9eeedcdc58202dE(ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
-  %.sroa.01.sroa.0.0.copyload = load ptr, ptr %0, align 8, !nonnull !21, !noundef !21
+  %.sroa.01.sroa.0.0.copyload = load ptr, ptr %0, align 8, !nonnull !21, !align !145, !noundef !21
   %.sroa.01.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.sroa.01.sroa.4.0.copyload = load ptr, ptr %.sroa.01.sroa.4.0..sroa_idx, align 8
   %.sroa.01.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -1483,7 +1487,7 @@ define hidden void @_ZN3std9panicking3try7do_call17h1b45227f3931bde3E.llvm.15938
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 define hidden void @_ZN3std9panicking3try7do_call17h3fa84a4a7a3d3f09E.llvm.15938600225882126526(ptr nocapture noundef readonly %0) unnamed_addr #0 {
-  %.sroa.0.0.copyload = load ptr, ptr %0, align 8, !nonnull !21, !noundef !21
+  %.sroa.0.0.copyload = load ptr, ptr %0, align 8, !nonnull !21, !align !145, !noundef !21
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.sroa.2.0.copyload = load ptr, ptr %.sroa.2.0..sroa_idx, align 8
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -2287,7 +2291,7 @@ common.resume.i.i.i.i:                            ; preds = %96, %91, %18
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 define hidden void @_ZN3std9panicking3try7do_call17hcd08b37572b838b4E.llvm.15938600225882126526(ptr nocapture noundef readonly %0) unnamed_addr #0 {
-  %.sroa.0.0.copyload = load ptr, ptr %0, align 8, !nonnull !21, !noundef !21
+  %.sroa.0.0.copyload = load ptr, ptr %0, align 8, !nonnull !21, !align !145, !noundef !21
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.sroa.2.0.copyload = load ptr, ptr %.sroa.2.0..sroa_idx, align 8
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -4050,6 +4054,7 @@ define hidden void @"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %11)
   %35 = getelementptr inbounds { [8 x i64] }, ptr %.sroa.516.0.ph.i, i64 %.sroa.10.0.ph.i
+  call void @llvm.assume(i1 true) [ "align"(ptr %35, i64 8) ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %11, ptr noundef nonnull align 8 dereferenceable(64) %35, i64 64, i1 false), !noalias !671
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %35, ptr noundef nonnull align 8 dereferenceable(64) %3, i64 64, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(64) %11, i64 64, i1 false)
@@ -4178,6 +4183,7 @@ define hidden noundef align 8 dereferenceable_or_null(8) ptr @"_ZN5alloc11collec
 
 25:                                               ; preds = %.loopexit, %"_ZN5alloc11collections5btree6search142_$LT$impl$u20$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$alloc..collections..btree..node..marker..LeafOrInternal$GT$$GT$11search_tree17h5725e41fe6627412E.exit", %2
   %.0 = phi ptr [ null, %2 ], [ %24, %.loopexit ], [ null, %"_ZN5alloc11collections5btree6search142_$LT$impl$u20$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$alloc..collections..btree..node..marker..LeafOrInternal$GT$$GT$11search_tree17h5725e41fe6627412E.exit" ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %.0, i64 8) ]
   ret ptr %.0
 }
 
@@ -8164,8 +8170,10 @@ define internal fastcc noalias noundef align 8 ptr @"_ZN5serde3ser5impls57_$LT$i
 "_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$u64$GT$5write17h79281af73e3980a4E.exit.i.i": ; preds = %36, %30
   %.2.i.i.i = phi i64 [ %37, %36 ], [ %32, %30 ]
   %41 = sub i64 20, %.2.i.i.i
+  call void @llvm.assume(i1 true) [ "align"(ptr %.0.val1, i64 8) ]
   %42 = icmp ne ptr %.0.val1, null
   tail call void @llvm.assume(i1 %42)
+  call void @llvm.assume(i1 true) [ "align"(ptr %.0.val1, i64 8) ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1002)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1005)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1008)
@@ -8730,7 +8738,7 @@ _ZN10serde_json3ser9Formatter18begin_object_value17h03a13b412c0f78e2E.exit: ; pr
 
 73:                                               ; preds = %"_ZN92_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeTupleVariant$GT$15serialize_field17h1e6ccfd669a98a25E.exit"
   %74 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %.val.i.i9 = load ptr, ptr %1, align 8, !noalias !1250, !nonnull !21, !noundef !21
+  %.val.i.i9 = load ptr, ptr %1, align 8, !noalias !1250, !nonnull !21, !align !145, !noundef !21
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1257)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1260)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1263)
@@ -8758,7 +8766,7 @@ _ZN10serde_json3ser9Formatter18begin_object_value17h03a13b412c0f78e2E.exit: ; pr
   br i1 %86, label %87, label %63
 
 87:                                               ; preds = %"_ZN92_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeTupleVariant$GT$15serialize_field17hb93474a9c4bdfcbaE.exit"
-  %.val7 = load ptr, ptr %1, align 8, !nonnull !21, !noundef !21
+  %.val7 = load ptr, ptr %1, align 8, !nonnull !21, !align !145, !noundef !21
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1277)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1280)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1283)

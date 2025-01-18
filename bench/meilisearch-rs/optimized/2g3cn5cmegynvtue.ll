@@ -120,7 +120,7 @@ _ZN10serde_json3ser9Formatter10end_string17h5f4f549f3e4de650E.llvm.2337583790011
 ; Function Attrs: nonlazybind uwtable
 define hidden noalias noundef ptr @_ZN10serde_json3ser27format_escaped_str_contents17hc9df7fe4fdfa66faE.llvm.2337583790011467692(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0, ptr noalias nocapture nonnull readnone align 1 %1, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3) unnamed_addr #0 personality ptr @rust_eh_personality {
   %5 = getelementptr inbounds i8, ptr %2, i64 %3
-  %.val26 = load ptr, ptr %0, align 8, !nonnull !13
+  %.val26 = load ptr, ptr %0, align 8, !nonnull !13, !align !30
   %6 = getelementptr inbounds nuw i8, ptr %.val26, i64 16
   %7 = getelementptr inbounds nuw i8, ptr %.val26, i64 8
   br label %.outer
@@ -1521,6 +1521,7 @@ define hidden void @"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6t
 24:                                               ; preds = %21
   %25 = getelementptr inbounds nuw i8, ptr %.sroa.017.050, i64 72
   %26 = add nuw nsw i64 %.sroa.7.049, 1
+  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.017.050, i64 8) ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !544)
   %27 = load i64, ptr %.sroa.017.050, align 8, !range !547, !alias.scope !544, !noalias !548, !noundef !13
   %28 = xor i64 %27, -9223372036854775808
@@ -2134,6 +2135,7 @@ define hidden noalias noundef align 8 ptr @"_ZN83_$LT$serde_json..ser..Compound$
   br i1 %7, label %_ZN10serde_json3ser9Formatter16begin_object_key17h8764a9bea1306ba3E.exit, label %8
 
 8:                                                ; preds = %3
+  call void @llvm.assume(i1 true) [ "align"(ptr %.val, i64 8) ]
   %9 = icmp ne ptr %.val, null
   tail call void @llvm.assume(i1 %9)
   %10 = getelementptr inbounds nuw i8, ptr %.val, i64 16
@@ -2328,6 +2330,7 @@ _ZN10serde_json3ser9Formatter11begin_array17hd0cd20ac71de6fc7E.exit.i.i.i: ; pre
   br i1 %41, label %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h0301d700524eb0b6E.exit.i.i.i.i", label %43
 
 43:                                               ; preds = %.lr.ph.i.i
+  call void @llvm.assume(i1 true) [ "align"(ptr %.val.i.i.i.i.i.i.i, i64 8) ]
   %44 = icmp ne ptr %.val.i.i.i.i.i.i.i, null
   tail call void @llvm.assume(i1 %44)
   %45 = getelementptr inbounds nuw i8, ptr %.val.i.i.i.i.i.i.i, i64 16
@@ -2358,7 +2361,7 @@ _ZN10serde_json3ser9Formatter11begin_array17hd0cd20ac71de6fc7E.exit.i.i.i: ; pre
   br i1 %57, label %38, label %"_ZN5serde3ser5impls76_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$alloc..vec..Vec$LT$T$GT$$GT$9serialize17hb2b951907705fd9fE.exit"
 
 58:                                               ; preds = %38
-  %.val.pre.i.i = load ptr, ptr %3, align 8, !alias.scope !949, !nonnull !13, !noundef !13
+  %.val.pre.i.i = load ptr, ptr %3, align 8, !alias.scope !949, !nonnull !13, !align !30, !noundef !13
   %59 = getelementptr inbounds nuw i8, ptr %.val.pre.i.i, i64 16
   %60 = load i64, ptr %59, align 8, !alias.scope !983, !noalias !994, !noundef !13
   %61 = load i64, ptr %.val.pre.i.i, align 8, !alias.scope !983, !noalias !994, !noundef !13
@@ -2533,9 +2536,9 @@ _ZN4core4iter6traits8iterator8Iterator12try_for_each17he614be39e22fb3aaE.exit.th
   br label %70
 
 70:                                               ; preds = %29, %_ZN4core4iter6traits8iterator8Iterator12try_for_each17he614be39e22fb3aaE.exit.thread.i.i, %"_ZN83_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeSeq$GT$3end17h079f1336fe61e38eE.exit.sink.split.i.i"
-  %.sink10.i.i = phi i64 [ %28, %29 ], [ %66, %_ZN4core4iter6traits8iterator8Iterator12try_for_each17he614be39e22fb3aaE.exit.thread.i.i ], [ %.pre.i.i.i.i.i.i.i12.i.i, %"_ZN83_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeSeq$GT$3end17h079f1336fe61e38eE.exit.sink.split.i.i" ]
+  %.sink12.i.i = phi i64 [ %28, %29 ], [ %66, %_ZN4core4iter6traits8iterator8Iterator12try_for_each17he614be39e22fb3aaE.exit.thread.i.i ], [ %.pre.i.i.i.i.i.i.i12.i.i, %"_ZN83_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeSeq$GT$3end17h079f1336fe61e38eE.exit.sink.split.i.i" ]
   %71 = load ptr, ptr %24, align 8, !noalias !1177, !nonnull !13, !noundef !13
-  %72 = getelementptr inbounds i8, ptr %71, i64 %.sink10.i.i
+  %72 = getelementptr inbounds i8, ptr %71, i64 %.sink12.i.i
   store i8 93, ptr %72, align 1, !noalias !1177
   %storemerge.in.i.i = load i64, ptr %18, align 8, !noalias !1177, !noundef !13
   %storemerge.i.i = add i64 %storemerge.in.i.i, 1

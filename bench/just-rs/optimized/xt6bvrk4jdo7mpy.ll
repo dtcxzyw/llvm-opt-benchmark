@@ -860,6 +860,7 @@ define hidden noundef align 8 dereferenceable_or_null(48) ptr @"_ZN108_$LT$alloc
 
 "_ZN108_$LT$alloc..collections..btree..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6cddb562a33bdb26E.llvm.9118937971122011336.exit": ; preds = %1, %18
   %.sroa.0.0.i = phi ptr [ %20, %18 ], [ null, %1 ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.0.0.i, i64 8) ]
   ret ptr %.sroa.0.0.i
 }
 
@@ -909,6 +910,7 @@ define hidden noundef align 8 dereferenceable_or_null(16) ptr @"_ZN108_$LT$alloc
 
 "_ZN108_$LT$alloc..collections..btree..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h281cfa8d892f4dfaE.exit": ; preds = %1, %18
   %.sroa.0.0.i = phi ptr [ %20, %18 ], [ null, %1 ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.0.0.i, i64 8) ]
   ret ptr %.sroa.0.0.i
 }
 
@@ -958,6 +960,7 @@ define hidden noundef align 8 dereferenceable_or_null(16) ptr @"_ZN108_$LT$alloc
 
 "_ZN108_$LT$alloc..collections..btree..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h31890ae7c13bf47eE.llvm.9118937971122011336.exit": ; preds = %1, %18
   %.sroa.0.0.i = phi ptr [ %20, %18 ], [ null, %1 ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.0.0.i, i64 8) ]
   ret ptr %.sroa.0.0.i
 }
 
@@ -1056,6 +1059,7 @@ define hidden noundef align 8 dereferenceable_or_null(16) ptr @"_ZN108_$LT$alloc
 
 "_ZN108_$LT$alloc..collections..btree..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf2a1c7c08a64b2a8E.exit": ; preds = %1, %18
   %.sroa.0.0.i = phi ptr [ %20, %18 ], [ null, %1 ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.0.0.i, i64 8) ]
   ret ptr %.sroa.0.0.i
 }
 
@@ -1105,6 +1109,7 @@ define hidden noundef align 8 dereferenceable_or_null(24) ptr @"_ZN108_$LT$alloc
 
 "_ZN108_$LT$alloc..collections..btree..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h2fcd35f7f33554a7E.llvm.9118937971122011336.exit": ; preds = %1, %18
   %.sroa.0.0.i = phi ptr [ %20, %18 ], [ null, %1 ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.0.0.i, i64 8) ]
   ret ptr %.sroa.0.0.i
 }
 
@@ -1154,6 +1159,7 @@ define hidden noundef align 8 dereferenceable_or_null(24) ptr @"_ZN108_$LT$alloc
 
 "_ZN108_$LT$alloc..collections..btree..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h13ed644445a9bfe3E.exit": ; preds = %1, %18
   %.sroa.0.0.i = phi ptr [ %20, %18 ], [ null, %1 ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.0.0.i, i64 8) ]
   ret ptr %.sroa.0.0.i
 }
 
@@ -1203,6 +1209,7 @@ define hidden noundef align 8 dereferenceable_or_null(16) ptr @"_ZN108_$LT$alloc
 
 "_ZN108_$LT$alloc..collections..btree..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha36d0e28f2d8d7f9E.llvm.9118937971122011336.exit": ; preds = %1, %18
   %.sroa.0.0.i = phi ptr [ %20, %18 ], [ null, %1 ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.0.0.i, i64 8) ]
   ret ptr %.sroa.0.0.i
 }
 
@@ -1252,6 +1259,7 @@ define hidden noundef align 8 dereferenceable_or_null(16) ptr @"_ZN108_$LT$alloc
 
 "_ZN108_$LT$alloc..collections..btree..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcce65685e188fafbE.llvm.9118937971122011336.exit": ; preds = %1, %18
   %.sroa.0.0.i = phi ptr [ %20, %18 ], [ null, %1 ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.0.0.i, i64 8) ]
   ret ptr %.sroa.0.0.i
 }
 
@@ -1304,6 +1312,7 @@ define hidden noundef align 8 dereferenceable_or_null(208) ptr @"_ZN110_$LT$allo
 
 "_ZN108_$LT$alloc..collections..btree..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf2a1c7c08a64b2a8E.exit": ; preds = %1, %18
   %.sroa.0.0.i = phi ptr [ %23, %18 ], [ null, %1 ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.0.0.i, i64 8) ]
   ret ptr %.sroa.0.0.i
 }
 
@@ -1356,6 +1365,7 @@ define hidden noundef align 8 dereferenceable_or_null(8) ptr @"_ZN110_$LT$alloc.
 
 "_ZN108_$LT$alloc..collections..btree..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h281cfa8d892f4dfaE.exit": ; preds = %1, %18
   %.sroa.0.0.i = phi ptr [ %23, %18 ], [ null, %1 ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.0.0.i, i64 8) ]
   ret ptr %.sroa.0.0.i
 }
 
@@ -1408,6 +1418,7 @@ define hidden noundef align 8 dereferenceable_or_null(104) ptr @"_ZN110_$LT$allo
 
 "_ZN108_$LT$alloc..collections..btree..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h2d196878b0d75f6eE.exit": ; preds = %1, %18
   %.sroa.0.0.i = phi ptr [ %23, %18 ], [ null, %1 ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.0.0.i, i64 8) ]
   ret ptr %.sroa.0.0.i
 }
 
@@ -1460,6 +1471,7 @@ define hidden noundef align 8 dereferenceable_or_null(104) ptr @"_ZN110_$LT$allo
 
 "_ZN108_$LT$alloc..collections..btree..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcce65685e188fafbE.llvm.9118937971122011336.exit": ; preds = %1, %18
   %.sroa.0.0.i = phi ptr [ %23, %18 ], [ null, %1 ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.0.0.i, i64 8) ]
   ret ptr %.sroa.0.0.i
 }
 
@@ -1512,6 +1524,7 @@ define hidden noundef align 8 dereferenceable_or_null(8) ptr @"_ZN110_$LT$alloc.
 
 "_ZN108_$LT$alloc..collections..btree..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd901115b47e913f6E.llvm.9118937971122011336.exit": ; preds = %1, %18
   %.sroa.0.0.i = phi ptr [ %23, %18 ], [ null, %1 ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.0.0.i, i64 8) ]
   ret ptr %.sroa.0.0.i
 }
 
@@ -4071,6 +4084,7 @@ define hidden noundef align 8 dereferenceable_or_null(376) ptr @"_ZN5alloc11coll
 
 32:                                               ; preds = %.loopexit, %"_ZN5alloc11collections5btree6search142_$LT$impl$u20$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$alloc..collections..btree..node..marker..LeafOrInternal$GT$$GT$11search_tree17he46ac3dd5179fd1cE.exit", %3
   %.0 = phi ptr [ null, %3 ], [ %31, %.loopexit ], [ null, %"_ZN5alloc11collections5btree6search142_$LT$impl$u20$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$alloc..collections..btree..node..marker..LeafOrInternal$GT$$GT$11search_tree17he46ac3dd5179fd1cE.exit" ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %.0, i64 8) ]
   ret ptr %.0
 }
 
@@ -4157,6 +4171,7 @@ define hidden noundef align 8 dereferenceable_or_null(8) ptr @"_ZN5alloc11collec
 
 31:                                               ; preds = %.loopexit, %"_ZN5alloc11collections5btree6search142_$LT$impl$u20$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$alloc..collections..btree..node..marker..LeafOrInternal$GT$$GT$11search_tree17h4750d05151e9c9bfE.exit", %2
   %.0 = phi ptr [ null, %2 ], [ %30, %.loopexit ], [ null, %"_ZN5alloc11collections5btree6search142_$LT$impl$u20$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$alloc..collections..btree..node..marker..LeafOrInternal$GT$$GT$11search_tree17h4750d05151e9c9bfE.exit" ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %.0, i64 8) ]
   ret ptr %.0
 }
 
@@ -4243,6 +4258,7 @@ define hidden noundef align 8 dereferenceable_or_null(24) ptr @"_ZN5alloc11colle
 
 31:                                               ; preds = %.loopexit, %"_ZN5alloc11collections5btree6search142_$LT$impl$u20$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$alloc..collections..btree..node..marker..LeafOrInternal$GT$$GT$11search_tree17hd0a97702c3809656E.exit", %2
   %.0 = phi ptr [ null, %2 ], [ %30, %.loopexit ], [ null, %"_ZN5alloc11collections5btree6search142_$LT$impl$u20$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$alloc..collections..btree..node..marker..LeafOrInternal$GT$$GT$11search_tree17hd0a97702c3809656E.exit" ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %.0, i64 8) ]
   ret ptr %.0
 }
 
@@ -4414,6 +4430,7 @@ define hidden noundef align 8 dereferenceable_or_null(24) ptr @"_ZN5alloc11colle
 
 31:                                               ; preds = %.loopexit, %"_ZN5alloc11collections5btree6search142_$LT$impl$u20$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$alloc..collections..btree..node..marker..LeafOrInternal$GT$$GT$11search_tree17hcc93c81c4d747bbaE.exit", %2
   %.0 = phi ptr [ null, %2 ], [ %30, %.loopexit ], [ null, %"_ZN5alloc11collections5btree6search142_$LT$impl$u20$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$alloc..collections..btree..node..marker..LeafOrInternal$GT$$GT$11search_tree17hcc93c81c4d747bbaE.exit" ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %.0, i64 8) ]
   ret ptr %.0
 }
 
@@ -4500,6 +4517,7 @@ define hidden noundef align 8 dereferenceable_or_null(152) ptr @"_ZN5alloc11coll
 
 32:                                               ; preds = %.loopexit, %"_ZN5alloc11collections5btree6search142_$LT$impl$u20$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$alloc..collections..btree..node..marker..LeafOrInternal$GT$$GT$11search_tree17hd86f35a6e0e627c4E.exit", %3
   %.0 = phi ptr [ null, %3 ], [ %31, %.loopexit ], [ null, %"_ZN5alloc11collections5btree6search142_$LT$impl$u20$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$alloc..collections..btree..node..marker..LeafOrInternal$GT$$GT$11search_tree17hd86f35a6e0e627c4E.exit" ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %.0, i64 8) ]
   ret ptr %.0
 }
 
@@ -4586,6 +4604,7 @@ define hidden noundef align 8 dereferenceable_or_null(8) ptr @"_ZN5alloc11collec
 
 32:                                               ; preds = %.loopexit, %"_ZN5alloc11collections5btree6search142_$LT$impl$u20$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$alloc..collections..btree..node..marker..LeafOrInternal$GT$$GT$11search_tree17h773bf5ea3504aefeE.exit", %3
   %.0 = phi ptr [ null, %3 ], [ %31, %.loopexit ], [ null, %"_ZN5alloc11collections5btree6search142_$LT$impl$u20$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$alloc..collections..btree..node..marker..LeafOrInternal$GT$$GT$11search_tree17h773bf5ea3504aefeE.exit" ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %.0, i64 8) ]
   ret ptr %.0
 }
 
@@ -4757,6 +4776,7 @@ define hidden noundef align 8 dereferenceable_or_null(104) ptr @"_ZN5alloc11coll
 
 32:                                               ; preds = %.loopexit, %"_ZN5alloc11collections5btree6search142_$LT$impl$u20$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$alloc..collections..btree..node..marker..LeafOrInternal$GT$$GT$11search_tree17h3302bd00409e2dabE.exit", %3
   %.0 = phi ptr [ null, %3 ], [ %31, %.loopexit ], [ null, %"_ZN5alloc11collections5btree6search142_$LT$impl$u20$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$alloc..collections..btree..node..marker..LeafOrInternal$GT$$GT$11search_tree17h3302bd00409e2dabE.exit" ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %.0, i64 8) ]
   ret ptr %.0
 }
 
@@ -4843,6 +4863,7 @@ define hidden noundef align 8 dereferenceable_or_null(272) ptr @"_ZN5alloc11coll
 
 32:                                               ; preds = %.loopexit, %"_ZN5alloc11collections5btree6search142_$LT$impl$u20$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$alloc..collections..btree..node..marker..LeafOrInternal$GT$$GT$11search_tree17he0ef8b43720d4a74E.exit", %3
   %.0 = phi ptr [ null, %3 ], [ %31, %.loopexit ], [ null, %"_ZN5alloc11collections5btree6search142_$LT$impl$u20$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$alloc..collections..btree..node..marker..LeafOrInternal$GT$$GT$11search_tree17he0ef8b43720d4a74E.exit" ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %.0, i64 8) ]
   ret ptr %.0
 }
 
@@ -4929,6 +4950,7 @@ define hidden noundef align 8 dereferenceable_or_null(8) ptr @"_ZN5alloc11collec
 
 31:                                               ; preds = %.loopexit, %"_ZN5alloc11collections5btree6search142_$LT$impl$u20$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$alloc..collections..btree..node..marker..LeafOrInternal$GT$$GT$11search_tree17h0379b51a54afdddbE.exit", %2
   %.0 = phi ptr [ null, %2 ], [ %30, %.loopexit ], [ null, %"_ZN5alloc11collections5btree6search142_$LT$impl$u20$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$alloc..collections..btree..node..marker..LeafOrInternal$GT$$GT$11search_tree17h0379b51a54afdddbE.exit" ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %.0, i64 8) ]
   ret ptr %.0
 }
 
@@ -5015,6 +5037,7 @@ define hidden noundef align 8 dereferenceable_or_null(24) ptr @"_ZN5alloc11colle
 
 32:                                               ; preds = %.loopexit, %"_ZN5alloc11collections5btree6search142_$LT$impl$u20$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$alloc..collections..btree..node..marker..LeafOrInternal$GT$$GT$11search_tree17h9080cf5d7a4e1466E.exit", %3
   %.0 = phi ptr [ null, %3 ], [ %31, %.loopexit ], [ null, %"_ZN5alloc11collections5btree6search142_$LT$impl$u20$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$alloc..collections..btree..node..marker..LeafOrInternal$GT$$GT$11search_tree17h9080cf5d7a4e1466E.exit" ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %.0, i64 8) ]
   ret ptr %.0
 }
 
@@ -5101,6 +5124,7 @@ define hidden noundef align 8 dereferenceable_or_null(8) ptr @"_ZN5alloc11collec
 
 31:                                               ; preds = %.loopexit, %"_ZN5alloc11collections5btree6search142_$LT$impl$u20$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$alloc..collections..btree..node..marker..LeafOrInternal$GT$$GT$11search_tree17h39090b06707e4885E.exit", %2
   %.0 = phi ptr [ null, %2 ], [ %30, %.loopexit ], [ null, %"_ZN5alloc11collections5btree6search142_$LT$impl$u20$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$alloc..collections..btree..node..marker..LeafOrInternal$GT$$GT$11search_tree17h39090b06707e4885E.exit" ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %.0, i64 8) ]
   ret ptr %.0
 }
 
@@ -5187,6 +5211,7 @@ define hidden noundef align 8 dereferenceable_or_null(24) ptr @"_ZN5alloc11colle
 
 32:                                               ; preds = %.loopexit, %"_ZN5alloc11collections5btree6search142_$LT$impl$u20$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$alloc..collections..btree..node..marker..LeafOrInternal$GT$$GT$11search_tree17haedd2be397fa549bE.exit", %3
   %.0 = phi ptr [ null, %3 ], [ %31, %.loopexit ], [ null, %"_ZN5alloc11collections5btree6search142_$LT$impl$u20$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$alloc..collections..btree..node..marker..LeafOrInternal$GT$$GT$11search_tree17haedd2be397fa549bE.exit" ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %.0, i64 8) ]
   ret ptr %.0
 }
 
@@ -5358,6 +5383,7 @@ define hidden noundef align 8 dereferenceable_or_null(104) ptr @"_ZN5alloc11coll
 
 32:                                               ; preds = %.loopexit, %"_ZN5alloc11collections5btree6search142_$LT$impl$u20$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$alloc..collections..btree..node..marker..LeafOrInternal$GT$$GT$11search_tree17h3752a51bda80338cE.exit", %3
   %.0 = phi ptr [ null, %3 ], [ %31, %.loopexit ], [ null, %"_ZN5alloc11collections5btree6search142_$LT$impl$u20$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$alloc..collections..btree..node..marker..LeafOrInternal$GT$$GT$11search_tree17h3752a51bda80338cE.exit" ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %.0, i64 8) ]
   ret ptr %.0
 }
 
@@ -5444,6 +5470,7 @@ define hidden noundef align 8 dereferenceable_or_null(208) ptr @"_ZN5alloc11coll
 
 32:                                               ; preds = %.loopexit, %"_ZN5alloc11collections5btree6search142_$LT$impl$u20$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$alloc..collections..btree..node..marker..LeafOrInternal$GT$$GT$11search_tree17h33945a25a58d2fbcE.exit", %3
   %.0 = phi ptr [ null, %3 ], [ %31, %.loopexit ], [ null, %"_ZN5alloc11collections5btree6search142_$LT$impl$u20$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$alloc..collections..btree..node..marker..LeafOrInternal$GT$$GT$11search_tree17h33945a25a58d2fbcE.exit" ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %.0, i64 8) ]
   ret ptr %.0
 }
 
@@ -5530,6 +5557,7 @@ define hidden noundef align 4 dereferenceable_or_null(4) ptr @"_ZN5alloc11collec
 
 31:                                               ; preds = %.loopexit, %"_ZN5alloc11collections5btree6search142_$LT$impl$u20$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$alloc..collections..btree..node..marker..LeafOrInternal$GT$$GT$11search_tree17hb1b16ac2799bdecbE.exit", %2
   %.0 = phi ptr [ null, %2 ], [ %30, %.loopexit ], [ null, %"_ZN5alloc11collections5btree6search142_$LT$impl$u20$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$alloc..collections..btree..node..marker..LeafOrInternal$GT$$GT$11search_tree17hb1b16ac2799bdecbE.exit" ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %.0, i64 4) ]
   ret ptr %.0
 }
 
@@ -10493,6 +10521,7 @@ define hidden noundef align 8 dereferenceable_or_null(24) ptr @"_ZN5alloc11colle
 
 31:                                               ; preds = %.loopexit, %"_ZN5alloc11collections5btree6search142_$LT$impl$u20$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$alloc..collections..btree..node..marker..LeafOrInternal$GT$$GT$11search_tree17hf6a26c11b7f31052E.exit", %3
   %.0 = phi ptr [ null, %3 ], [ %30, %.loopexit ], [ null, %"_ZN5alloc11collections5btree6search142_$LT$impl$u20$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$alloc..collections..btree..node..marker..LeafOrInternal$GT$$GT$11search_tree17hf6a26c11b7f31052E.exit" ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %.0, i64 8) ]
   ret ptr %.0
 }
 
@@ -26332,7 +26361,7 @@ _ZN4just5color5Color6active17hcd18acd676d3d894E.llvm.11107275065492906757.exit.t
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %221)
   br i1 %402, label %404, label %1129
 
-404:                                              ; preds = %1138, %1128, %1112, %1071, %1031, %965, %956, %944, %934, %886, %877, %863, %854, %782, %773, %764, %616, %526, %517, %483, %403, %245, %947, %946, %945, %935, %864, %837, %518, %966, %675, %674, %509, %1217, %.loopexit865, %1103, %1044, %1009, %982, %918, %836, %814, %798, %689, %673, %657, %631, %596, %580, %564, %546, %466
+404:                                              ; preds = %1138, %1128, %1112, %1071, %1031, %965, %956, %944, %934, %886, %877, %863, %854, %782, %773, %764, %616, %526, %517, %483, %403, %245, %947, %946, %945, %935, %864, %837, %518, %966, %675, %674, %509, %1217, %.loopexit864, %1103, %1044, %1009, %982, %918, %836, %814, %798, %689, %673, %657, %631, %596, %580, %564, %546, %466
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %224)
   call void @llvm.experimental.noalias.scope.decl(metadata !3574)
   call void @llvm.experimental.noalias.scope.decl(metadata !3577)
@@ -28531,7 +28560,7 @@ _ZN4just5color5Color6active17hcd18acd676d3d894E.llvm.11107275065492906757.exit.t
 
 1150:                                             ; preds = %1141
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %19)
-  br i1 %1147, label %.loopexit865, label %1151
+  br i1 %1147, label %.loopexit864, label %1151
 
 1151:                                             ; preds = %1150
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %18)
@@ -28651,26 +28680,26 @@ _ZN4just5color5Color6active17hcd18acd676d3d894E.llvm.11107275065492906757.exit.t
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %15)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %13)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %14)
-  br i1 %1182, label %.loopexit865, label %1184
+  br i1 %1182, label %.loopexit864, label %1184
 
 1184:                                             ; preds = %1183
   %1185 = icmp eq ptr %1181, %1171
   br i1 %1185, label %._crit_edge, label %1180
 
-.loopexit865:                                     ; preds = %1183, %1150, %1186
+.loopexit864:                                     ; preds = %1183, %1150, %1186
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %20)
   br label %404
 
 1186:                                             ; preds = %1167
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %16)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %17)
-  br label %.loopexit865
+  br label %.loopexit864
 
 _ZN4just5error5Error7context17hbad5eb4341891789E.exit: ; preds = %1148, %1149
-  %.sink864 = phi i64 [ 8, %1149 ], [ 16, %1148 ]
+  %.sink865 = phi i64 [ 8, %1149 ], [ 16, %1148 ]
   %.sink863 = phi i64 [ 72, %1149 ], [ 80, %1148 ]
   %.sink = phi i64 [ 73, %1149 ], [ 81, %1148 ]
-  %.0.i = getelementptr inbounds nuw i8, ptr %0, i64 %.sink864
+  %.0.i = getelementptr inbounds nuw i8, ptr %0, i64 %.sink865
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.0831, ptr noundef nonnull align 8 dereferenceable(64) %.0.i, i64 64, i1 false), !alias.scope !3949
   %.sroa.9832.0..0.i.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 %.sink863
   %.sroa.9832.0.copyload833 = load i8, ptr %.sroa.9832.0..0.i.sroa_idx, align 8, !alias.scope !3949

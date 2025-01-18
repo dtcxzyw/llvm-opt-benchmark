@@ -1071,10 +1071,11 @@ define noundef zeroext i1 @"_ZN79_$LT$grep_printer..hyperlink..HyperlinkFormat$u
 
 9:                                                ; preds = %8
   %10 = getelementptr inbounds nuw i8, ptr %.sroa.0.0, i64 24
+  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.0.0, i64 8) ]
   %11 = tail call noundef zeroext i1 @"_ZN68_$LT$grep_printer..hyperlink..Part$u20$as$u20$core..fmt..Display$GT$3fmt17hd25d5ca1c88ccf4fE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %.sroa.0.0, ptr noalias noundef nonnull align 8 dereferenceable(64) %1)
   br i1 %11, label %12, label %8
 
-12:                                               ; preds = %9, %8
+12:                                               ; preds = %8, %9
   ret i1 %.not.not.not.not.not
 }
 
@@ -1507,11 +1508,13 @@ _ZN4core4char7methods15encode_utf8_raw17hb4a1fb525f58c43bE.exit: ; preds = %9, %
   br i1 %.not.i, label %69, label %51
 
 51:                                               ; preds = %_ZN4core4char7methods15encode_utf8_raw17hb4a1fb525f58c43bE.exit
+  call void @llvm.assume(i1 true) [ "align"(ptr %50, i64 8) ]
   %52 = load i64, ptr %50, align 8, !range !15, !noalias !214, !noundef !5
   %53 = icmp sgt i64 %52, -9223372036854775804
   br i1 %53, label %54, label %69
 
 54:                                               ; preds = %51
+  call void @llvm.assume(i1 true) [ "align"(ptr %50, i64 8) ]
   %55 = getelementptr inbounds nuw i8, ptr %50, i64 16
   %56 = load i64, ptr %55, align 8, !alias.scope !215, !noalias !222, !noundef !5
   %57 = sub i64 %52, %56

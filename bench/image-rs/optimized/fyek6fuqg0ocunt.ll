@@ -847,6 +847,7 @@ define hidden void @"_ZN4tiff7encoder29DirectoryEncoder$LT$W$C$K$GT$15finish_int
   call void @llvm.assume(i1 %68)
   %69 = getelementptr inbounds nuw { [4 x i64] }, ptr %66, i64 %67
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %24), !noalias !148
+  call void @llvm.assume(i1 true) [ "align"(ptr %69, i64 8) ]
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 16
   %71 = load i64, ptr %70, align 8, !noalias !129, !noundef !4
   %72 = icmp ugt i64 %71, 4
@@ -894,6 +895,9 @@ define hidden void @"_ZN4tiff7encoder29DirectoryEncoder$LT$W$C$K$GT$15finish_int
   br i1 %81, label %156, label %82
 
 82:                                               ; preds = %79
+  call void @llvm.assume(i1 true) [ "align"(ptr %.fca.1.extract.i, i64 8) ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %.fca.1.extract.i, i64 8) ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %.fca.1.extract.i, i64 8) ]
   %83 = icmp ne ptr %.fca.1.extract.i, null
   call void @llvm.assume(i1 %83)
   %84 = load i16, ptr %.fca.0.extract.i, align 2, !noundef !4
@@ -954,7 +958,7 @@ define hidden void @"_ZN4tiff7encoder29DirectoryEncoder$LT$W$C$K$GT$15finish_int
   %99 = getelementptr inbounds nuw i8, ptr %.fca.1.extract.i, i64 24
   call void @llvm.experimental.noalias.scope.decl(metadata !159)
   call void @llvm.experimental.noalias.scope.decl(metadata !162)
-  %100 = load i32, ptr %99, align 4, !alias.scope !159, !noalias !164, !noundef !4
+  %100 = load i32, ptr %99, align 8, !alias.scope !159, !noalias !164, !noundef !4
   call void @llvm.experimental.noalias.scope.decl(metadata !166)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %17), !noalias !169
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %16), !noalias !169
@@ -1440,6 +1444,7 @@ define internal fastcc void @"_ZN4tiff7encoder29DirectoryEncoder$LT$W$C$K$GT$9wr
   %.sroa.42.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %10, i64 24
   %.sroa.42.0.copyload.i = load i64, ptr %.sroa.42.0..sroa_idx.i, align 8, !noalias !254
   %45 = getelementptr inbounds { [4 x i64] }, ptr %.sroa.0.0.copyload.i, i64 %.sroa.42.0.copyload.i
+  call void @llvm.assume(i1 true) [ "align"(ptr %45, i64 8) ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef nonnull align 8 dereferenceable(32) %45, i64 32, i1 false), !noalias !262
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %45, ptr noundef nonnull align 8 dereferenceable(32) %11, i64 32, i1 false), !noalias !261
   %.pr = load i64, ptr %12, align 8, !alias.scope !263
@@ -1628,6 +1633,7 @@ switch.lookup:                                    ; preds = %"_ZN62_$LT$$RF$T$u2
   %.sroa.42.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %10, i64 24
   %.sroa.42.0.copyload.i = load i64, ptr %.sroa.42.0..sroa_idx.i, align 8, !noalias !282
   %45 = getelementptr inbounds { [4 x i64] }, ptr %.sroa.0.0.copyload.i, i64 %.sroa.42.0.copyload.i
+  call void @llvm.assume(i1 true) [ "align"(ptr %45, i64 8) ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef nonnull align 8 dereferenceable(32) %45, i64 32, i1 false), !noalias !290
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %45, ptr noundef nonnull align 8 dereferenceable(32) %11, i64 32, i1 false), !noalias !289
   %.pr = load i64, ptr %12, align 8, !alias.scope !291
@@ -1789,6 +1795,7 @@ switch.lookup:                                    ; preds = %.noexc
   %.sroa.42.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %9, i64 24
   %.sroa.42.0.copyload.i = load i64, ptr %.sroa.42.0..sroa_idx.i, align 8, !noalias !310
   %37 = getelementptr inbounds { [4 x i64] }, ptr %.sroa.0.0.copyload.i, i64 %.sroa.42.0.copyload.i
+  call void @llvm.assume(i1 true) [ "align"(ptr %37, i64 8) ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull align 8 dereferenceable(32) %37, i64 32, i1 false), !noalias !318
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %37, ptr noundef nonnull align 8 dereferenceable(32) %10, i64 32, i1 false), !noalias !317
   %.pr = load i64, ptr %11, align 8, !alias.scope !319
@@ -1954,6 +1961,7 @@ switch.lookup:                                    ; preds = %.noexc
   %.sroa.42.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %9, i64 24
   %.sroa.42.0.copyload.i = load i64, ptr %.sroa.42.0..sroa_idx.i, align 8, !noalias !338
   %37 = getelementptr inbounds { [4 x i64] }, ptr %.sroa.0.0.copyload.i, i64 %.sroa.42.0.copyload.i
+  call void @llvm.assume(i1 true) [ "align"(ptr %37, i64 8) ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull align 8 dereferenceable(32) %37, i64 32, i1 false), !noalias !346
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %37, ptr noundef nonnull align 8 dereferenceable(32) %10, i64 32, i1 false), !noalias !345
   %.pr = load i64, ptr %11, align 8, !alias.scope !347
@@ -2125,6 +2133,7 @@ define internal fastcc void @"_ZN4tiff7encoder29DirectoryEncoder$LT$W$C$K$GT$9wr
   %.sroa.42.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %8, i64 24
   %.sroa.42.0.copyload.i = load i64, ptr %.sroa.42.0..sroa_idx.i, align 8, !noalias !366
   %39 = getelementptr inbounds { [4 x i64] }, ptr %.sroa.0.0.copyload.i, i64 %.sroa.42.0.copyload.i
+  call void @llvm.assume(i1 true) [ "align"(ptr %39, i64 8) ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull align 8 dereferenceable(32) %39, i64 32, i1 false), !noalias !374
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %39, ptr noundef nonnull align 8 dereferenceable(32) %9, i64 32, i1 false), !noalias !373
   %.pr = load i64, ptr %10, align 8, !alias.scope !375
@@ -8698,6 +8707,7 @@ common.resume:                                    ; preds = %1489, %.thread242.i
 904:                                              ; preds = %888
   %905 = load i64, ptr %891, align 8, !alias.scope !1105, !noalias !1108, !noundef !4
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %90), !noalias !1100
+  call void @llvm.assume(i1 true) [ "align"(ptr %889, i64 2) ]
   call void @llvm.experimental.noalias.scope.decl(metadata !1140)
   call void @llvm.experimental.noalias.scope.decl(metadata !1143)
   %906 = getelementptr inbounds nuw i8, ptr %166, i64 16
@@ -9640,6 +9650,7 @@ common.resume:                                    ; preds = %1489, %.thread242.i
 1136:                                             ; preds = %892
   %1137 = load i64, ptr %895, align 8, !alias.scope !1115, !noalias !1118, !noundef !4
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %86), !noalias !1110
+  call void @llvm.assume(i1 true) [ "align"(ptr %893, i64 2) ]
   call void @llvm.experimental.noalias.scope.decl(metadata !1248)
   call void @llvm.experimental.noalias.scope.decl(metadata !1251)
   %1138 = getelementptr inbounds nuw i8, ptr %166, i64 16
@@ -10579,6 +10590,7 @@ common.resume:                                    ; preds = %1489, %.thread242.i
 1368:                                             ; preds = %896
   %1369 = load i64, ptr %899, align 8, !alias.scope !1125, !noalias !1128, !noundef !4
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %82), !noalias !1120
+  call void @llvm.assume(i1 true) [ "align"(ptr %897, i64 2) ]
   call void @llvm.experimental.noalias.scope.decl(metadata !1355)
   call void @llvm.experimental.noalias.scope.decl(metadata !1358)
   %1370 = getelementptr inbounds nuw i8, ptr %166, i64 16
@@ -18221,6 +18233,8 @@ select.unfold:                                    ; preds = %"_ZN105_$LT$image..
   ret void
 
 36:                                               ; preds = %"_ZN101_$LT$core..slice..iter..ChunksExactMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6257def3ddbaff24E.llvm.1814251078191383949.exit.i"
+  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.12.040, i64 2) ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.12.040, i64 2) ]
   %37 = invoke noundef i16 @_ZN5image5color11rgb_to_luma17h5a22f648ad68e395E.llvm.1609853135345852838(ptr noalias noundef nonnull readonly align 2 dereferenceable(6) %.sroa.12.040, i64 noundef 3)
           to label %"_ZN105_$LT$image..color..Luma$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Rgb$LT$S$GT$$GT$$GT$10from_color17h715724045f8becd6E.exit" unwind label %.loopexit
 
@@ -18435,6 +18449,9 @@ select.unfold:                                    ; preds = %"_ZN106_$LT$image..
   ret void
 
 35:                                               ; preds = %"_ZN101_$LT$core..slice..iter..ChunksExactMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6b4e75c72afa10f1E.exit.i"
+  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.12.040, i64 2) ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.427.038, i64 2) ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.12.040, i64 2) ]
   %36 = invoke noundef i16 @_ZN5image5color11rgb_to_luma17h5a22f648ad68e395E.llvm.1609853135345852838(ptr noalias noundef nonnull readonly align 2 dereferenceable(8) %.sroa.12.040, i64 noundef 4)
           to label %"_ZN106_$LT$image..color..Luma$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Rgba$LT$S$GT$$GT$$GT$10from_color17hbadacc1418a4ba83E.exit" unwind label %.loopexit
 
@@ -19324,6 +19341,9 @@ select.unfold:                                    ; preds = %"_ZN106_$LT$image..
   ret void
 
 42:                                               ; preds = %"_ZN101_$LT$core..slice..iter..ChunksExactMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6b4e75c72afa10f1E.exit.i"
+  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.12.041, i64 2) ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.428.039, i64 2) ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.12.041, i64 2) ]
   %43 = invoke noundef i16 @_ZN5image5color11rgb_to_luma17h5a22f648ad68e395E.llvm.1609853135345852838(ptr noalias noundef nonnull readonly align 2 dereferenceable(6) %.sroa.12.041, i64 noundef 3)
           to label %"_ZN106_$LT$image..color..LumaA$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Rgb$LT$S$GT$$GT$$GT$10from_color17h6339d83458f7ac56E.exit" unwind label %.loopexit
 
@@ -19576,6 +19596,9 @@ select.unfold:                                    ; preds = %"_ZN107_$LT$image..
   ret void
 
 40:                                               ; preds = %"_ZN101_$LT$core..slice..iter..ChunksExactMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6b4e75c72afa10f1E.exit.i"
+  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.12.041, i64 2) ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.428.039, i64 2) ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.12.041, i64 2) ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3053)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3056)
   %41 = invoke noundef i16 @_ZN5image5color11rgb_to_luma17h5a22f648ad68e395E.llvm.1609853135345852838(ptr noalias noundef nonnull readonly align 2 dereferenceable(8) %.sroa.12.041, i64 noundef 4)
@@ -19803,8 +19826,11 @@ select.unfold:                                    ; preds = %"_ZN105_$LT$image..
   ret void
 
 38:                                               ; preds = %"_ZN101_$LT$core..slice..iter..ChunksExactMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6b4e75c72afa10f1E.exit.i"
+  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.12.042, i64 4) ]
   %39 = getelementptr inbounds nuw i8, ptr %.sroa.12.042, i64 12
   %40 = add i64 %.sroa.15.043, -3
+  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.429.040, i64 2) ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.12.042, i64 4) ]
   %41 = invoke noundef float @_ZN5image5color11rgb_to_luma17h97b5ecfd95d2b986E.llvm.1609853135345852838(ptr noalias noundef nonnull readonly align 4 dereferenceable(12) %.sroa.12.042, i64 noundef 3)
           to label %.noexc14 unwind label %.loopexit
 
@@ -20564,8 +20590,11 @@ select.unfold:                                    ; preds = %"_ZN106_$LT$image..
   ret void
 
 43:                                               ; preds = %"_ZN101_$LT$core..slice..iter..ChunksExactMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6b4e75c72afa10f1E.exit.i"
+  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.12.043, i64 4) ]
   %44 = getelementptr inbounds nuw i8, ptr %.sroa.12.043, i64 12
   %45 = add i64 %.sroa.15.044, -3
+  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.430.041, i64 2) ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.12.043, i64 4) ]
   %46 = invoke noundef float @_ZN5image5color11rgb_to_luma17h97b5ecfd95d2b986E.llvm.1609853135345852838(ptr noalias noundef nonnull readonly align 4 dereferenceable(12) %.sroa.12.043, i64 noundef 3)
           to label %.noexc15 unwind label %.loopexit
 
@@ -21044,8 +21073,10 @@ select.unfold:                                    ; preds = %"_ZN106_$LT$image..
   ret void
 
 35:                                               ; preds = %"_ZN101_$LT$core..slice..iter..ChunksExactMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6257def3ddbaff24E.llvm.1814251078191383949.exit.i"
+  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.12.042, i64 4) ]
   %36 = getelementptr inbounds nuw i8, ptr %.sroa.12.042, i64 16
   %37 = add i64 %.sroa.15.043, -4
+  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.12.042, i64 4) ]
   %38 = invoke noundef float @_ZN5image5color11rgb_to_luma17h97b5ecfd95d2b986E.llvm.1609853135345852838(ptr noalias noundef nonnull readonly align 4 dereferenceable(16) %.sroa.12.042, i64 noundef 4)
           to label %.noexc14 unwind label %.loopexit
 
@@ -21283,8 +21314,11 @@ select.unfold:                                    ; preds = %"_ZN101_$LT$core..s
 41:                                               ; preds = %"_ZN101_$LT$core..slice..iter..ChunksExactMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6b4e75c72afa10f1E.exit.i"
   %42 = add i64 %.sroa.728.0, -4
   %43 = getelementptr inbounds nuw i8, ptr %.sroa.427.0, i64 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.12.0, i64 4) ]
   %44 = getelementptr inbounds nuw i8, ptr %.sroa.12.0, i64 12
   %45 = add i64 %.sroa.15.0, -3
+  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.427.0, i64 2) ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.12.0, i64 4) ]
   invoke void @"_ZN105_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Rgb$LT$S$GT$$GT$$GT$10from_color17h4c429122d9aff22cE"(ptr noalias noundef nonnull align 2 dereferenceable(8) %.sroa.427.0, ptr noalias noundef nonnull readonly align 4 dereferenceable(12) %.sroa.12.0)
           to label %37 unwind label %.loopexit
 
@@ -21894,6 +21928,8 @@ select.unfold:                                    ; preds = %"_ZN107_$LT$image..
   ret void
 
 39:                                               ; preds = %"_ZN101_$LT$core..slice..iter..ChunksExactMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6257def3ddbaff24E.llvm.1814251078191383949.exit.i"
+  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.12.041, i64 2) ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.12.041, i64 2) ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3428)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3431)
   %40 = invoke noundef i16 @_ZN5image5color11rgb_to_luma17h5a22f648ad68e395E.llvm.1609853135345852838(ptr noalias noundef nonnull readonly align 2 dereferenceable(8) %.sroa.12.041, i64 noundef 4)
@@ -22212,8 +22248,11 @@ select.unfold:                                    ; preds = %"_ZN106_$LT$image..
   ret void
 
 36:                                               ; preds = %"_ZN101_$LT$core..slice..iter..ChunksExactMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6b4e75c72afa10f1E.exit.i"
+  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.12.042, i64 4) ]
   %37 = getelementptr inbounds nuw i8, ptr %.sroa.12.042, i64 16
   %38 = add i64 %.sroa.15.043, -4
+  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.429.040, i64 2) ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.12.042, i64 4) ]
   %39 = invoke noundef float @_ZN5image5color11rgb_to_luma17h97b5ecfd95d2b986E.llvm.1609853135345852838(ptr noalias noundef nonnull readonly align 4 dereferenceable(16) %.sroa.12.042, i64 noundef 4)
           to label %.noexc14 unwind label %.loopexit
 
@@ -22769,8 +22808,10 @@ select.unfold:                                    ; preds = %"_ZN101_$LT$core..s
 38:                                               ; preds = %"_ZN101_$LT$core..slice..iter..ChunksExactMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6257def3ddbaff24E.llvm.1814251078191383949.exit.i"
   %39 = add i64 %.sroa.728.0, -2
   %40 = getelementptr inbounds nuw i8, ptr %.sroa.427.0, i64 2
+  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.12.0, i64 4) ]
   %41 = getelementptr inbounds nuw i8, ptr %.sroa.12.0, i64 16
   %42 = add i64 %.sroa.15.0, -4
+  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.12.0, i64 4) ]
   invoke void @"_ZN107_$LT$image..color..LumaA$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Rgba$LT$S$GT$$GT$$GT$10from_color17h78e64e1bb217b2bbE"(ptr noalias noundef nonnull align 1 dereferenceable(2) %.sroa.427.0, ptr noalias noundef nonnull readonly align 4 dereferenceable(16) %.sroa.12.0)
           to label %34 unwind label %.loopexit
 
@@ -23137,8 +23178,10 @@ select.unfold:                                    ; preds = %"_ZN105_$LT$image..
   ret void
 
 37:                                               ; preds = %"_ZN101_$LT$core..slice..iter..ChunksExactMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6257def3ddbaff24E.llvm.1814251078191383949.exit.i"
+  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.12.042, i64 4) ]
   %38 = getelementptr inbounds nuw i8, ptr %.sroa.12.042, i64 12
   %39 = add i64 %.sroa.15.043, -3
+  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.12.042, i64 4) ]
   %40 = invoke noundef float @_ZN5image5color11rgb_to_luma17h97b5ecfd95d2b986E.llvm.1609853135345852838(ptr noalias noundef nonnull readonly align 4 dereferenceable(12) %.sroa.12.042, i64 noundef 3)
           to label %.noexc14 unwind label %.loopexit
 
@@ -23758,8 +23801,11 @@ select.unfold:                                    ; preds = %"_ZN101_$LT$core..s
 39:                                               ; preds = %"_ZN101_$LT$core..slice..iter..ChunksExactMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6b4e75c72afa10f1E.exit.i"
   %40 = add i64 %.sroa.728.0, -2
   %41 = getelementptr inbounds nuw i8, ptr %.sroa.427.0, i64 4
+  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.12.0, i64 4) ]
   %42 = getelementptr inbounds nuw i8, ptr %.sroa.12.0, i64 16
   %43 = add i64 %.sroa.15.0, -4
+  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.427.0, i64 2) ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.12.0, i64 4) ]
   invoke void @"_ZN107_$LT$image..color..LumaA$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Rgba$LT$S$GT$$GT$$GT$10from_color17h0f98fb1e851e5a64E"(ptr noalias noundef nonnull align 2 dereferenceable(4) %.sroa.427.0, ptr noalias noundef nonnull readonly align 4 dereferenceable(16) %.sroa.12.0)
           to label %35 unwind label %.loopexit
 
@@ -23993,6 +24039,8 @@ select.unfold:                                    ; preds = %"_ZN106_$LT$image..
   ret void
 
 41:                                               ; preds = %"_ZN101_$LT$core..slice..iter..ChunksExactMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6257def3ddbaff24E.llvm.1814251078191383949.exit.i"
+  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.12.041, i64 2) ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.12.041, i64 2) ]
   %42 = invoke noundef i16 @_ZN5image5color11rgb_to_luma17h5a22f648ad68e395E.llvm.1609853135345852838(ptr noalias noundef nonnull readonly align 2 dereferenceable(6) %.sroa.12.041, i64 noundef 3)
           to label %"_ZN106_$LT$image..color..LumaA$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Rgb$LT$S$GT$$GT$$GT$10from_color17h9d5000b13ea842fdE.exit" unwind label %.loopexit
 
@@ -24215,6 +24263,9 @@ select.unfold:                                    ; preds = %"_ZN105_$LT$image..
   ret void
 
 37:                                               ; preds = %"_ZN101_$LT$core..slice..iter..ChunksExactMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6b4e75c72afa10f1E.exit.i"
+  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.12.040, i64 2) ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.427.038, i64 2) ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.12.040, i64 2) ]
   %38 = invoke noundef i16 @_ZN5image5color11rgb_to_luma17h5a22f648ad68e395E.llvm.1609853135345852838(ptr noalias noundef nonnull readonly align 2 dereferenceable(6) %.sroa.12.040, i64 noundef 3)
           to label %"_ZN105_$LT$image..color..Luma$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Rgb$LT$S$GT$$GT$$GT$10from_color17h8bf877ca463daeadE.exit" unwind label %.loopexit
 
@@ -24444,8 +24495,11 @@ select.unfold:                                    ; preds = %"_ZN101_$LT$core..s
 41:                                               ; preds = %"_ZN101_$LT$core..slice..iter..ChunksExactMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6b4e75c72afa10f1E.exit.i"
   %42 = add i64 %.sroa.728.0, -3
   %43 = getelementptr inbounds nuw i8, ptr %.sroa.427.0, i64 6
+  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.12.0, i64 4) ]
   %44 = getelementptr inbounds nuw i8, ptr %.sroa.12.0, i64 16
   %45 = add i64 %.sroa.15.0, -4
+  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.427.0, i64 2) ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.12.0, i64 4) ]
   invoke void @"_ZN105_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Rgba$LT$S$GT$$GT$$GT$10from_color17h9220906854e9076cE"(ptr noalias noundef nonnull align 2 dereferenceable(6) %.sroa.427.0, ptr noalias noundef nonnull readonly align 4 dereferenceable(16) %.sroa.12.0)
           to label %37 unwind label %.loopexit
 
@@ -24551,6 +24605,8 @@ select.unfold:                                    ; preds = %"_ZN106_$LT$image..
   ret void
 
 34:                                               ; preds = %"_ZN101_$LT$core..slice..iter..ChunksExactMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6257def3ddbaff24E.llvm.1814251078191383949.exit.i"
+  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.12.040, i64 2) ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.12.040, i64 2) ]
   %35 = invoke noundef i16 @_ZN5image5color11rgb_to_luma17h5a22f648ad68e395E.llvm.1609853135345852838(ptr noalias noundef nonnull readonly align 2 dereferenceable(8) %.sroa.12.040, i64 noundef 4)
           to label %"_ZN106_$LT$image..color..Luma$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Rgba$LT$S$GT$$GT$$GT$10from_color17h8fc587610dd1b884E.exit" unwind label %.loopexit
 
@@ -25044,7 +25100,10 @@ select.unfold:                                    ; preds = %31
 34:                                               ; preds = %31
   %35 = add i64 %.sroa.728.0, -3
   %36 = getelementptr inbounds nuw i8, ptr %.sroa.427.0, i64 6
+  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.12.0, i64 4) ]
   %37 = getelementptr inbounds nuw i8, ptr %.sroa.12.0, i64 12
+  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.427.0, i64 2) ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.12.0, i64 4) ]
   invoke void @"_ZN104_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Rgb$LT$S$GT$$GT$$GT$10from_color17h39807b59f862f3baE"(ptr noalias noundef nonnull align 2 dereferenceable(6) %.sroa.427.0, ptr noalias noundef nonnull readonly align 4 dereferenceable(12) %.sroa.12.0)
           to label %31 unwind label %.loopexit
 
@@ -25311,8 +25370,10 @@ select.unfold:                                    ; preds = %"_ZN101_$LT$core..s
 40:                                               ; preds = %"_ZN101_$LT$core..slice..iter..ChunksExactMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6257def3ddbaff24E.llvm.1814251078191383949.exit.i"
   %41 = add i64 %.sroa.728.0, -3
   %42 = getelementptr inbounds nuw i8, ptr %.sroa.427.0, i64 3
+  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.12.0, i64 4) ]
   %43 = getelementptr inbounds nuw i8, ptr %.sroa.12.0, i64 16
   %44 = add i64 %.sroa.15.0, -4
+  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.12.0, i64 4) ]
   invoke void @"_ZN105_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Rgba$LT$S$GT$$GT$$GT$10from_color17hb37a7b95e2cf1a8fE"(ptr noalias noundef nonnull align 1 dereferenceable(3) %.sroa.427.0, ptr noalias noundef nonnull readonly align 4 dereferenceable(16) %.sroa.12.0)
           to label %36 unwind label %.loopexit
 
@@ -25497,7 +25558,9 @@ select.unfold:                                    ; preds = %28
 31:                                               ; preds = %28
   %32 = add i64 %.sroa.728.0, -4
   %33 = getelementptr inbounds nuw i8, ptr %.sroa.427.0, i64 4
+  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.12.0, i64 4) ]
   %34 = getelementptr inbounds nuw i8, ptr %.sroa.12.0, i64 16
+  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.12.0, i64 4) ]
   invoke void @"_ZN106_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Rgba$LT$S$GT$$GT$$GT$10from_color17hc5c9dacac23cc020E"(ptr noalias noundef nonnull align 1 dereferenceable(4) %.sroa.427.0, ptr noalias noundef nonnull readonly align 4 dereferenceable(16) %.sroa.12.0)
           to label %28 unwind label %.loopexit
 
@@ -26704,8 +26767,10 @@ select.unfold:                                    ; preds = %"_ZN101_$LT$core..s
 40:                                               ; preds = %"_ZN101_$LT$core..slice..iter..ChunksExactMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6257def3ddbaff24E.llvm.1814251078191383949.exit.i"
   %41 = add i64 %.sroa.728.0, -4
   %42 = getelementptr inbounds nuw i8, ptr %.sroa.427.0, i64 4
+  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.12.0, i64 4) ]
   %43 = getelementptr inbounds nuw i8, ptr %.sroa.12.0, i64 12
   %44 = add i64 %.sroa.15.0, -3
+  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.12.0, i64 4) ]
   invoke void @"_ZN105_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Rgb$LT$S$GT$$GT$$GT$10from_color17h1e62213fa44c5f55E"(ptr noalias noundef nonnull align 1 dereferenceable(4) %.sroa.427.0, ptr noalias noundef nonnull readonly align 4 dereferenceable(12) %.sroa.12.0)
           to label %36 unwind label %.loopexit
 
@@ -27048,8 +27113,10 @@ select.unfold:                                    ; preds = %"_ZN106_$LT$image..
   ret void
 
 42:                                               ; preds = %"_ZN101_$LT$core..slice..iter..ChunksExactMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6257def3ddbaff24E.llvm.1814251078191383949.exit.i"
+  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.12.043, i64 4) ]
   %43 = getelementptr inbounds nuw i8, ptr %.sroa.12.043, i64 12
   %44 = add i64 %.sroa.15.044, -3
+  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.12.043, i64 4) ]
   %45 = invoke noundef float @_ZN5image5color11rgb_to_luma17h97b5ecfd95d2b986E.llvm.1609853135345852838(ptr noalias noundef nonnull readonly align 4 dereferenceable(12) %.sroa.12.043, i64 noundef 3)
           to label %.noexc15 unwind label %.loopexit
 
@@ -28168,7 +28235,10 @@ select.unfold:                                    ; preds = %29
 32:                                               ; preds = %29
   %33 = add i64 %.sroa.728.0, -4
   %34 = getelementptr inbounds nuw i8, ptr %.sroa.427.0, i64 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.12.0, i64 4) ]
   %35 = getelementptr inbounds nuw i8, ptr %.sroa.12.0, i64 16
+  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.427.0, i64 2) ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.12.0, i64 4) ]
   invoke void @"_ZN106_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Rgba$LT$S$GT$$GT$$GT$10from_color17hc0aba1db4a60a59cE"(ptr noalias noundef nonnull align 2 dereferenceable(8) %.sroa.427.0, ptr noalias noundef nonnull readonly align 4 dereferenceable(16) %.sroa.12.0)
           to label %29 unwind label %.loopexit
 
@@ -28519,7 +28589,9 @@ select.unfold:                                    ; preds = %30
 33:                                               ; preds = %30
   %34 = add i64 %.sroa.728.0, -3
   %35 = getelementptr inbounds nuw i8, ptr %.sroa.427.0, i64 3
+  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.12.0, i64 4) ]
   %36 = getelementptr inbounds nuw i8, ptr %.sroa.12.0, i64 12
+  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.12.0, i64 4) ]
   invoke void @"_ZN104_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Rgb$LT$S$GT$$GT$$GT$10from_color17hd88159c28ef7cd1cE"(ptr noalias noundef nonnull align 1 dereferenceable(3) %.sroa.427.0, ptr noalias noundef nonnull readonly align 4 dereferenceable(12) %.sroa.12.0)
           to label %30 unwind label %.loopexit
 
@@ -31754,8 +31826,11 @@ common.resume:                                    ; preds = %378, %339, %299, %2
   br i1 %or.cond.i77, label %"_ZN236_$LT$image..buffer_..ImageBuffer$LT$FromType$C$Container$GT$$u20$as$u20$image..buffer_..ConvertBuffer$LT$image..buffer_..ImageBuffer$LT$ToType$C$alloc..vec..Vec$LT$$LT$ToType$u20$as$u20$image..traits..Pixel$GT$..Subpixel$GT$$GT$$GT$$GT$7convert17h51cfb9ad7a7d3776E.exit", label %274
 
 274:                                              ; preds = %"_ZN101_$LT$core..slice..iter..ChunksExactMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h190e6d8993a134cbE.exit.i.i72"
+  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.12.041.i74, i64 2) ]
   %275 = getelementptr inbounds nuw i8, ptr %.sroa.12.041.i74, i64 6
   %276 = add i64 %.sroa.15.042.i73, -3
+  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.428.039.i76, i64 4) ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.12.041.i74, i64 2) ]
   %277 = invoke noundef i16 @_ZN5image5color11rgb_to_luma17h5a22f648ad68e395E.llvm.1609853135345852838(ptr noalias noundef nonnull readonly align 2 dereferenceable(6) %.sroa.12.041.i74, i64 noundef 3)
           to label %.noexc14.i81 unwind label %.loopexit.i78, !noalias !5188
 
@@ -31865,8 +31940,11 @@ common.resume:                                    ; preds = %378, %339, %299, %2
   br i1 %or.cond.i94, label %"_ZN236_$LT$image..buffer_..ImageBuffer$LT$FromType$C$Container$GT$$u20$as$u20$image..buffer_..ConvertBuffer$LT$image..buffer_..ImageBuffer$LT$ToType$C$alloc..vec..Vec$LT$$LT$ToType$u20$as$u20$image..traits..Pixel$GT$..Subpixel$GT$$GT$$GT$$GT$7convert17hebb9925cebb49f72E.exit", label %314
 
 314:                                              ; preds = %"_ZN101_$LT$core..slice..iter..ChunksExactMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h190e6d8993a134cbE.exit.i.i89"
+  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.12.041.i91, i64 2) ]
   %315 = getelementptr inbounds nuw i8, ptr %.sroa.12.041.i91, i64 8
   %316 = add i64 %.sroa.15.042.i90, -4
+  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.428.039.i93, i64 4) ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.12.041.i91, i64 2) ]
   %317 = invoke noundef i16 @_ZN5image5color11rgb_to_luma17h5a22f648ad68e395E.llvm.1609853135345852838(ptr noalias noundef nonnull readonly align 2 dereferenceable(8) %.sroa.12.041.i91, i64 noundef 4)
           to label %.noexc14.i98 unwind label %.loopexit.i95, !noalias !5214
 
@@ -31978,6 +32056,9 @@ common.resume:                                    ; preds = %378, %339, %299, %2
   br i1 %or.cond.i111, label %"_ZN236_$LT$image..buffer_..ImageBuffer$LT$FromType$C$Container$GT$$u20$as$u20$image..buffer_..ConvertBuffer$LT$image..buffer_..ImageBuffer$LT$ToType$C$alloc..vec..Vec$LT$$LT$ToType$u20$as$u20$image..traits..Pixel$GT$..Subpixel$GT$$GT$$GT$$GT$7convert17h7461c8fed5e758deE.exit", label %356
 
 356:                                              ; preds = %"_ZN101_$LT$core..slice..iter..ChunksExactMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h190e6d8993a134cbE.exit.i.i106"
+  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.12.040.i108, i64 4) ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.427.038.i110, i64 4) ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.12.040.i108, i64 4) ]
   %357 = invoke noundef float @_ZN5image5color11rgb_to_luma17h97b5ecfd95d2b986E.llvm.1609853135345852838(ptr noalias noundef nonnull readonly align 4 dereferenceable(12) %.sroa.12.040.i108, i64 noundef 3)
           to label %"_ZN105_$LT$image..color..Luma$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Rgb$LT$S$GT$$GT$$GT$10from_color17h2c75656c027b1942E.exit.i" unwind label %.loopexit.i112, !noalias !5240
 
@@ -32083,6 +32164,9 @@ common.resume:                                    ; preds = %378, %339, %299, %2
   br i1 %or.cond.i127, label %"_ZN236_$LT$image..buffer_..ImageBuffer$LT$FromType$C$Container$GT$$u20$as$u20$image..buffer_..ConvertBuffer$LT$image..buffer_..ImageBuffer$LT$ToType$C$alloc..vec..Vec$LT$$LT$ToType$u20$as$u20$image..traits..Pixel$GT$..Subpixel$GT$$GT$$GT$$GT$7convert17h5ab38a43a3bf2dc3E.exit", label %393
 
 393:                                              ; preds = %"_ZN101_$LT$core..slice..iter..ChunksExactMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h190e6d8993a134cbE.exit.i.i122"
+  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.12.040.i124, i64 4) ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.427.038.i126, i64 4) ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.12.040.i124, i64 4) ]
   %394 = invoke noundef float @_ZN5image5color11rgb_to_luma17h97b5ecfd95d2b986E.llvm.1609853135345852838(ptr noalias noundef nonnull readonly align 4 dereferenceable(16) %.sroa.12.040.i124, i64 noundef 4)
           to label %"_ZN106_$LT$image..color..Luma$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Rgba$LT$S$GT$$GT$$GT$10from_color17h2632d46e01a7f773E.exit.i" unwind label %.loopexit.i128, !noalias !5266
 
@@ -33067,8 +33151,11 @@ common.resume:                                    ; preds = %436, %391, %340, %2
   br i1 %or.cond.i76, label %"_ZN236_$LT$image..buffer_..ImageBuffer$LT$FromType$C$Container$GT$$u20$as$u20$image..buffer_..ConvertBuffer$LT$image..buffer_..ImageBuffer$LT$ToType$C$alloc..vec..Vec$LT$$LT$ToType$u20$as$u20$image..traits..Pixel$GT$..Subpixel$GT$$GT$$GT$$GT$7convert17h36a17567d837b9e8E.exit", label %320
 
 320:                                              ; preds = %"_ZN101_$LT$core..slice..iter..ChunksExactMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h190e6d8993a134cbE.exit.i.i71"
+  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.12.042.i73, i64 2) ]
   %321 = getelementptr inbounds nuw i8, ptr %.sroa.12.042.i73, i64 6
   %322 = add i64 %.sroa.15.043.i72, -3
+  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.429.040.i75, i64 4) ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.12.042.i73, i64 2) ]
   %323 = invoke noundef i16 @_ZN5image5color11rgb_to_luma17h5a22f648ad68e395E.llvm.1609853135345852838(ptr noalias noundef nonnull readonly align 2 dereferenceable(6) %.sroa.12.042.i73, i64 noundef 3)
           to label %.noexc15.i80 unwind label %.loopexit.i77, !noalias !5459
 
@@ -33190,8 +33277,11 @@ common.resume:                                    ; preds = %436, %391, %340, %2
   br i1 %or.cond.i93, label %"_ZN236_$LT$image..buffer_..ImageBuffer$LT$FromType$C$Container$GT$$u20$as$u20$image..buffer_..ConvertBuffer$LT$image..buffer_..ImageBuffer$LT$ToType$C$alloc..vec..Vec$LT$$LT$ToType$u20$as$u20$image..traits..Pixel$GT$..Subpixel$GT$$GT$$GT$$GT$7convert17hb72b52cbd8624712E.exit", label %366
 
 366:                                              ; preds = %"_ZN101_$LT$core..slice..iter..ChunksExactMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h190e6d8993a134cbE.exit.i.i88"
+  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.12.043.i90, i64 2) ]
   %367 = getelementptr inbounds nuw i8, ptr %.sroa.12.043.i90, i64 8
   %368 = add i64 %.sroa.15.044.i89, -4
+  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.430.041.i92, i64 4) ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.12.043.i90, i64 2) ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5505)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5508)
   %369 = invoke noundef i16 @_ZN5image5color11rgb_to_luma17h5a22f648ad68e395E.llvm.1609853135345852838(ptr noalias noundef nonnull readonly align 2 dereferenceable(8) %.sroa.12.043.i90, i64 noundef 4)
@@ -33325,6 +33415,9 @@ common.resume:                                    ; preds = %436, %391, %340, %2
   br i1 %or.cond.i107, label %"_ZN236_$LT$image..buffer_..ImageBuffer$LT$FromType$C$Container$GT$$u20$as$u20$image..buffer_..ConvertBuffer$LT$image..buffer_..ImageBuffer$LT$ToType$C$alloc..vec..Vec$LT$$LT$ToType$u20$as$u20$image..traits..Pixel$GT$..Subpixel$GT$$GT$$GT$$GT$7convert17hef66f0907100f461E.exit", label %419
 
 419:                                              ; preds = %"_ZN101_$LT$core..slice..iter..ChunksExactMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h190e6d8993a134cbE.exit.i.i106"
+  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.12.041.i, i64 4) ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.428.039.i, i64 4) ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.12.041.i, i64 4) ]
   %420 = invoke noundef float @_ZN5image5color11rgb_to_luma17h97b5ecfd95d2b986E.llvm.1609853135345852838(ptr noalias noundef nonnull readonly align 4 dereferenceable(12) %.sroa.12.041.i, i64 noundef 3)
           to label %"_ZN106_$LT$image..color..LumaA$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Rgb$LT$S$GT$$GT$$GT$10from_color17hb74ec633fdec966fE.exit.i" unwind label %.loopexit.i108, !noalias !5514
 
@@ -33442,6 +33535,9 @@ common.resume:                                    ; preds = %436, %391, %340, %2
   br i1 %or.cond.i123, label %"_ZN236_$LT$image..buffer_..ImageBuffer$LT$FromType$C$Container$GT$$u20$as$u20$image..buffer_..ConvertBuffer$LT$image..buffer_..ImageBuffer$LT$ToType$C$alloc..vec..Vec$LT$$LT$ToType$u20$as$u20$image..traits..Pixel$GT$..Subpixel$GT$$GT$$GT$$GT$7convert17hce5245f8783f6bb6E.exit", label %462
 
 462:                                              ; preds = %"_ZN101_$LT$core..slice..iter..ChunksExactMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h190e6d8993a134cbE.exit.i.i118"
+  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.12.041.i120, i64 4) ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.428.039.i122, i64 4) ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.12.041.i120, i64 4) ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5560)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5563)
   %463 = invoke noundef float @_ZN5image5color11rgb_to_luma17h97b5ecfd95d2b986E.llvm.1609853135345852838(ptr noalias noundef nonnull readonly align 4 dereferenceable(16) %.sroa.12.041.i120, i64 noundef 4)

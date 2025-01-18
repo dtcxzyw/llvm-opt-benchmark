@@ -611,8 +611,10 @@ _ZN3std3sys4unix5locks11futex_mutex5Mutex4lock17h2824c483f8557e8fE.llvm.17688124
   resume { ptr, i32 } %19
 
 "_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17haf7b4937874f1c35E.llvm.17688124612483408026.exit": ; preds = %"_ZN3std4sync5mutex19MutexGuard$LT$T$GT$3new17h159af7b8ff4aa1d8E.exit"
+  call void @llvm.assume(i1 true) [ "align"(ptr %4, i64 8) ]
   %24 = getelementptr inbounds nuw i8, ptr %3, i64 72
   %25 = load i8, ptr %24, align 8, !range !4, !noundef !5
+  call void @llvm.assume(i1 true) [ "align"(ptr %4, i64 8) ]
   %26 = trunc nuw i8 %.0.i.i.i to i1
   br i1 %26, label %_ZN3std4sync6poison4Flag4done17h5bffa24fa61aa5e0E.llvm.17688124612483408026.exit.i.i, label %27
 
@@ -716,6 +718,7 @@ common.resume:                                    ; preds = %.body, %29
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17haf7b4937874f1c35E.llvm.17688124612483408026.exit": ; preds = %"_ZN3std4sync5mutex19MutexGuard$LT$T$GT$3new17h159af7b8ff4aa1d8E.exit"
+  call void @llvm.assume(i1 true) [ "align"(ptr %15, i64 8) ]
   store ptr %15, ptr %13, align 8
   %.fca.1.gep = getelementptr inbounds nuw i8, ptr %13, i64 8
   store i8 %.0.i.i.i, ptr %.fca.1.gep, align 8
@@ -1677,8 +1680,10 @@ _ZN3std4sync6poison4Flag5guard17h47496af5b61686c3E.llvm.9498742039818982133.exit
   unreachable
 
 68:                                               ; preds = %60
+  call void @llvm.assume(i1 true) [ "align"(ptr %46, i64 8) ]
   %69 = getelementptr inbounds nuw i8, ptr %45, i64 56
   store i64 %12, ptr %69, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %46, i64 8) ]
   %70 = trunc nuw i8 %.0.i.i.i to i1
   br i1 %70, label %_ZN3std4sync6poison4Flag4done17h5bffa24fa61aa5e0E.llvm.17688124612483408026.exit.i.i24, label %71
 
@@ -1922,6 +1927,7 @@ common.resume:                                    ; preds = %39, %19
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17haf7b4937874f1c35E.llvm.17688124612483408026.exit": ; preds = %"_ZN3std4sync5mutex19MutexGuard$LT$T$GT$3new17h159af7b8ff4aa1d8E.exit"
+  call void @llvm.assume(i1 true) [ "align"(ptr %5, i64 8) ]
   store ptr %5, ptr %3, align 8
   %.fca.1.gep = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i8 %.0.i.i.i, ptr %.fca.1.gep, align 8
@@ -1937,6 +1943,7 @@ common.resume:                                    ; preds = %39, %19
 27:                                               ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17haf7b4937874f1c35E.llvm.17688124612483408026.exit"
   %28 = add i64 %25, 1
   store i64 %28, ptr %24, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %5, i64 8) ]
   %29 = trunc nuw i8 %.0.i.i.i to i1
   br i1 %29, label %_ZN3std4sync6poison4Flag4done17h5bffa24fa61aa5e0E.llvm.17688124612483408026.exit.i.i, label %30
 
@@ -2042,10 +2049,13 @@ _ZN3std3sys4unix5locks11futex_mutex5Mutex4lock17h2824c483f8557e8fE.llvm.17688124
   resume { ptr, i32 } %19
 
 "_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17haf7b4937874f1c35E.llvm.17688124612483408026.exit": ; preds = %"_ZN3std4sync5mutex19MutexGuard$LT$T$GT$3new17h159af7b8ff4aa1d8E.exit"
+  call void @llvm.assume(i1 true) [ "align"(ptr %4, i64 8) ]
   %24 = getelementptr inbounds nuw i8, ptr %3, i64 64
   %25 = load i64, ptr %24, align 8, !noundef !5
   %26 = add i64 %25, -1
   store i64 %26, ptr %24, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %4, i64 8) ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %4, i64 8) ]
   %27 = trunc nuw i8 %.0.i.i.i to i1
   br i1 %27, label %_ZN3std4sync6poison4Flag4done17h5bffa24fa61aa5e0E.llvm.17688124612483408026.exit.i.i, label %28
 
@@ -2153,6 +2163,7 @@ common.resume:                                    ; preds = %.thread, %26
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17haf7b4937874f1c35E.llvm.17688124612483408026.exit": ; preds = %"_ZN3std4sync5mutex19MutexGuard$LT$T$GT$3new17h159af7b8ff4aa1d8E.exit"
+  call void @llvm.assume(i1 true) [ "align"(ptr %12, i64 8) ]
   store ptr %12, ptr %10, align 8
   %.fca.1.gep = getelementptr inbounds nuw i8, ptr %10, i64 8
   store i8 %.0.i.i.i, ptr %.fca.1.gep, align 8
@@ -2173,6 +2184,7 @@ common.resume:                                    ; preds = %.thread, %26
   br label %48
 
 37:                                               ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17haf7b4937874f1c35E.llvm.17688124612483408026.exit"
+  call void @llvm.assume(i1 true) [ "align"(ptr %12, i64 8) ]
   %38 = trunc nuw i8 %.0.i.i.i to i1
   br i1 %38, label %_ZN3std4sync6poison4Flag4done17h5bffa24fa61aa5e0E.llvm.17688124612483408026.exit.i.i, label %39
 

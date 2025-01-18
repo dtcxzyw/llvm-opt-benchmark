@@ -77,6 +77,7 @@ define hidden noundef nonnull align 8 dereferenceable(40) ptr @"_ZN100_$LT$index
 34:                                               ; preds = %23
   %35 = load ptr, ptr %13, align 8, !alias.scope !4, !noalias !7, !nonnull !16, !noundef !16
   %36 = getelementptr inbounds [0 x { i64, { i64, i64, i64, i64, i64 }, i32, [1 x i32] }], ptr %35, i64 0, i64 %29, i32 1
+  call void @llvm.assume(i1 true) [ "align"(ptr %36, i64 8) ]
   ret ptr %36
 }
 
@@ -336,6 +337,7 @@ define hidden noundef align 8 dereferenceable_or_null(40) ptr @"_ZN8indexmap3map
 
 "_ZN8indexmap3map25IndexMap$LT$K$C$V$C$S$GT$12get_index_of17h8f26345564270a96E.llvm.13994044477760586293.exit.thread": ; preds = %2, %"_ZN8indexmap3map25IndexMap$LT$K$C$V$C$S$GT$12get_index_of17h8f26345564270a96E.llvm.13994044477760586293.exit", %31
   %.sroa.0.0 = phi ptr [ %33, %31 ], [ null, %"_ZN8indexmap3map25IndexMap$LT$K$C$V$C$S$GT$12get_index_of17h8f26345564270a96E.llvm.13994044477760586293.exit" ], [ null, %2 ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.0.0, i64 8) ]
   ret ptr %.sroa.0.0
 }
 

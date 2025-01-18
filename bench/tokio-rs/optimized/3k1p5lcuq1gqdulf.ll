@@ -54,6 +54,7 @@ define hidden void @"_ZN109_$LT$alloc..collections..vec_deque..iter..Iter$LT$T$G
   %20 = phi i64 [ %.promoted.i, %7 ], [ %28, %19 ]
   %.0.i = phi i64 [ 0, %7 ], [ %29, %19 ]
   %21 = getelementptr inbounds { i64, [3 x i64] }, ptr %3, i64 %.0.i
+  call void @llvm.assume(i1 true) [ "align"(ptr %21, i64 8) ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !9)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.0.i.i.i), !noalias !12
   call void @"_ZN61_$LT$tokio_test..io..Action$u20$as$u20$core..clone..Clone$GT$5clone17h8d18f1e445e56009E.llvm.14770070883568428368"(ptr noalias nocapture noundef nonnull sret({ i64, [3 x i64] }) align 8 dereferenceable(32) %.sroa.0.i.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %21), !noalias !17
@@ -101,6 +102,7 @@ define hidden void @"_ZN109_$LT$alloc..collections..vec_deque..iter..Iter$LT$T$G
   %49 = phi i64 [ %.promoted.i2, %36 ], [ %57, %48 ]
   %.0.i3 = phi i64 [ 0, %36 ], [ %58, %48 ]
   %50 = getelementptr inbounds { i64, [3 x i64] }, ptr %32, i64 %.0.i3
+  call void @llvm.assume(i1 true) [ "align"(ptr %50, i64 8) ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !35)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.0.i.i.i1), !noalias !38
   call void @"_ZN61_$LT$tokio_test..io..Action$u20$as$u20$core..clone..Clone$GT$5clone17h8d18f1e445e56009E.llvm.14770070883568428368"(ptr noalias nocapture noundef nonnull sret({ i64, [3 x i64] }) align 8 dereferenceable(32) %.sroa.0.i.i.i1, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %50), !noalias !43
@@ -143,6 +145,7 @@ define hidden void @"_ZN109_$LT$alloc..collections..vec_deque..iter..Iter$LT$T$G
 12:                                               ; preds = %12, %7
   %.0.i = phi i64 [ 0, %7 ], [ %14, %12 ]
   %13 = getelementptr inbounds { i64, [3 x i64] }, ptr %3, i64 %.0.i
+  call void @llvm.assume(i1 true) [ "align"(ptr %13, i64 8) ]
   call void @"_ZN62_$LT$tokio_test..io..Mock$u20$as$u20$core..ops..drop..Drop$GT$4drop28_$u7b$$u7b$closure$u7d$$u7d$17h09040ef8bdad6bd1E.llvm.17397669140946824374"(ptr noalias noundef nonnull align 1 %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %13), !noalias !58
   %14 = add nuw i64 %.0.i, 1
   %15 = icmp eq i64 %14, %11
@@ -166,6 +169,7 @@ define hidden void @"_ZN109_$LT$alloc..collections..vec_deque..iter..Iter$LT$T$G
 26:                                               ; preds = %26, %21
   %.0.i1 = phi i64 [ 0, %21 ], [ %28, %26 ]
   %27 = getelementptr inbounds { i64, [3 x i64] }, ptr %17, i64 %.0.i1
+  call void @llvm.assume(i1 true) [ "align"(ptr %27, i64 8) ]
   call void @"_ZN62_$LT$tokio_test..io..Mock$u20$as$u20$core..ops..drop..Drop$GT$4drop28_$u7b$$u7b$closure$u7d$$u7d$17h09040ef8bdad6bd1E.llvm.17397669140946824374"(ptr noalias noundef nonnull align 1 %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %27), !noalias !61
   %28 = add nuw i64 %.0.i1, 1
   %29 = icmp eq i64 %28, %25
@@ -195,6 +199,7 @@ define hidden noundef zeroext i1 @"_ZN109_$LT$alloc..collections..vec_deque..ite
 10:                                               ; preds = %8
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 32
   store ptr %11, ptr %0, align 8, !alias.scope !69, !noalias !67
+  call void @llvm.assume(i1 true) [ "align"(ptr %9, i64 8) ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !72)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4), !noalias !75
   call void @"_ZN61_$LT$tokio_test..io..Action$u20$as$u20$core..clone..Clone$GT$5clone17h8d18f1e445e56009E.llvm.14770070883568428368"(ptr noalias nocapture noundef nonnull sret({ i64, [3 x i64] }) align 8 dereferenceable(32) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %9), !noalias !86
@@ -227,6 +232,7 @@ define hidden noundef zeroext i1 @"_ZN109_$LT$alloc..collections..vec_deque..ite
 23:                                               ; preds = %21
   %24 = getelementptr inbounds nuw i8, ptr %22, i64 32
   store ptr %24, ptr %18, align 8, !alias.scope !98, !noalias !96
+  call void @llvm.assume(i1 true) [ "align"(ptr %22, i64 8) ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !101)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3), !noalias !104
   call void @"_ZN61_$LT$tokio_test..io..Action$u20$as$u20$core..clone..Clone$GT$5clone17h8d18f1e445e56009E.llvm.14770070883568428368"(ptr noalias nocapture noundef nonnull sret({ i64, [3 x i64] }) align 8 dereferenceable(32) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %22), !noalias !115
@@ -292,11 +298,12 @@ define hidden noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterator8try_fol
 7:                                                ; preds = %9, %2
   %8 = phi ptr [ %10, %9 ], [ %.promoted, %2 ]
   %.not9.not.not.not.not = icmp ne ptr %8, %5
-  br i1 %.not9.not.not.not.not, label %9, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcae8f711b7ba2bc8E.exit"
+  br i1 %.not9.not.not.not.not, label %9, label %16
 
 9:                                                ; preds = %7
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 32
   store ptr %10, ptr %0, align 8, !alias.scope !131
+  call void @llvm.assume(i1 true) [ "align"(ptr %8, i64 8) ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !134)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3), !noalias !137
   call void @"_ZN61_$LT$tokio_test..io..Action$u20$as$u20$core..clone..Clone$GT$5clone17h8d18f1e445e56009E.llvm.14770070883568428368"(ptr noalias nocapture noundef nonnull sret({ i64, [3 x i64] }) align 8 dereferenceable(32) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %8), !noalias !148
@@ -310,9 +317,9 @@ define hidden noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterator8try_fol
   %14 = load ptr, ptr %1, align 8, !alias.scope !150, !noalias !151, !nonnull !4, !align !8, !noundef !4
   %15 = load i64, ptr %14, align 8, !noalias !154, !noundef !4
   %.not = icmp eq i64 %15, 0
-  br i1 %.not, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcae8f711b7ba2bc8E.exit", label %7
+  br i1 %.not, label %16, label %7
 
-"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcae8f711b7ba2bc8E.exit": ; preds = %7, %9
+16:                                               ; preds = %7, %9
   ret i1 %.not9.not.not.not.not
 }
 
@@ -385,6 +392,7 @@ define hidden void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core.
 11:                                               ; preds = %11, %6
   %.0 = phi i64 [ 0, %6 ], [ %13, %11 ]
   %12 = getelementptr inbounds { i64, [3 x i64] }, ptr %0, i64 %.0
+  call void @llvm.assume(i1 true) [ "align"(ptr %12, i64 8) ]
   tail call void @"_ZN62_$LT$tokio_test..io..Mock$u20$as$u20$core..ops..drop..Drop$GT$4drop28_$u7b$$u7b$closure$u7d$$u7d$17h09040ef8bdad6bd1E.llvm.17397669140946824374"(ptr noalias noundef nonnull align 1 %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %12), !noalias !169
   %13 = add nuw i64 %.0, 1
   %14 = icmp eq i64 %13, %10
@@ -421,6 +429,7 @@ define hidden void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core.
   %19 = phi i64 [ %.promoted, %6 ], [ %27, %18 ]
   %.0 = phi i64 [ 0, %6 ], [ %28, %18 ]
   %20 = getelementptr inbounds { i64, [3 x i64] }, ptr %0, i64 %.0
+  call void @llvm.assume(i1 true) [ "align"(ptr %20, i64 8) ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !172)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.0.i.i), !noalias !175
   call void @"_ZN61_$LT$tokio_test..io..Action$u20$as$u20$core..clone..Clone$GT$5clone17h8d18f1e445e56009E.llvm.14770070883568428368"(ptr noalias nocapture noundef nonnull sret({ i64, [3 x i64] }) align 8 dereferenceable(32) %.sroa.0.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %20), !noalias !180

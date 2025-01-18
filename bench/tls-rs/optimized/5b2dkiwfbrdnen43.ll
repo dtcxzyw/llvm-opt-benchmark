@@ -23700,6 +23700,8 @@ _ZN6rustls4msgs9handshake23CertificatePayloadTls1323any_entry_has_extension17h80
   br i1 %91, label %117, label %138
 
 102:                                              ; preds = %94
+  call void @llvm.assume(i1 true) [ "align"(ptr %96, i64 8) ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %99, i64 8) ]
   %103 = load ptr, ptr %77, align 8, !nonnull !14, !noundef !14
   tail call void @llvm.experimental.noalias.scope.decl(metadata !891)
   %104 = getelementptr inbounds nuw i8, ptr %103, i64 144
@@ -24425,6 +24427,7 @@ define void @"_ZN151_$LT$rustls..server..tls13..ExpectCertificateVerify$u20$as$u
   %.sroa.610.0118.ph = phi ptr [ %26, %.thread ], [ %.sroa.610.0.copyload, %27 ]
   call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %.sroa.6)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.8)
+  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.610.0118.ph, i64 8) ]
   %32 = icmp ne ptr %.sroa.610.0118.ph, null
   tail call void @llvm.assume(i1 %32)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %14)
@@ -25802,6 +25805,7 @@ _ZN6rustls7hash_hs13HandshakeHash11add_message17h96486aaaeca9d316E.exit: ; preds
   br i1 %.not.i.i106, label %456, label %214
 
 214:                                              ; preds = %._crit_edge
+  call void @llvm.assume(i1 true) [ "align"(ptr %213, i64 8) ]
   invoke void @_ZN6rustls12common_state11CommonState15flush_plaintext17hb0dc319bf79a5d5eE.llvm.12428379203013389814(ptr noalias noundef nonnull align 8 dereferenceable(776) %83, ptr noalias noundef nonnull align 8 dereferenceable(48) %213)
           to label %456 unwind label %.loopexit.split-lp202.loopexit.split-lp
 
@@ -26085,6 +26089,7 @@ _ZN6rustls4rand10random_vec17h61554cbe9188f4ecE.exit.i: ; preds = %234
   store i64 %304, ptr %16, align 8, !alias.scope !1318, !noalias !1321
   store ptr %305, ptr %.sroa.4.0..sroa_idx.i.i10.i.i, align 8, !alias.scope !1318, !noalias !1321
   store i64 %294, ptr %.sroa.6.0..sroa_idx.i.i11.i.i, align 8, !alias.scope !1318, !noalias !1321
+  call void @llvm.assume(i1 true) [ "align"(ptr %..i.i, i64 8) ]
   invoke void @_ZN6rustls4msgs7persist18ServerSessionValue3new17h50d408850785d337E(ptr noalias nocapture noundef nonnull sret({ { { { { i64, ptr }, i64 } } }, { { { i64, ptr }, i64 } }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, i64, { i16, i16 }, { i16, i16 }, i32, i8, i8, [2 x i8] }) align 8 dereferenceable(144) %42, ptr noalias noundef readonly align 8 dereferenceable_or_null(24) %..i.i, i16 noundef 5, i16 undef, i16 noundef %.val89, i16 %.val90, ptr noalias noundef nonnull readonly align 1 %19, i64 noundef %273, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %18, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %17, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %16, i64 noundef %.fca.1.extract.i.i, i32 noundef %249)
           to label %307 unwind label %296, !noalias !1279
 

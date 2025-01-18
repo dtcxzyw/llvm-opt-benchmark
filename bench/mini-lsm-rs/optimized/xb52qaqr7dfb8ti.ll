@@ -86,6 +86,7 @@ define hidden void @"_ZN15crossbeam_epoch4sync5queue14Queue$LT$T$GT$12pop_intern
   br i1 %23, label %26, label %24
 
 24:                                               ; preds = %21
+  call void @llvm.assume(i1 true) [ "align"(ptr %22, i64 8) ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4), !noalias !22
   store ptr @_ZN15crossbeam_epoch8deferred8Deferred3new4call17h72df1f35002c9adfE.llvm.8326862415837228122, ptr %4, align 8, !alias.scope !23, !noalias !22
   %25 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -155,6 +156,7 @@ define hidden void @"_ZN15crossbeam_epoch4sync5queue14Queue$LT$T$GT$12pop_intern
   br i1 %25, label %28, label %26
 
 26:                                               ; preds = %21
+  call void @llvm.assume(i1 true) [ "align"(ptr %24, i64 8) ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4), !noalias !47
   store ptr @_ZN15crossbeam_epoch8deferred8Deferred3new4call17h72df1f35002c9adfE.llvm.8326862415837228122, ptr %4, align 8, !alias.scope !50, !noalias !47
   %27 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -230,6 +232,7 @@ define hidden void @"_ZN15crossbeam_epoch4sync5queue14Queue$LT$T$GT$7try_pop17hc
   br i1 %23, label %26, label %24
 
 24:                                               ; preds = %21
+  call void @llvm.assume(i1 true) [ "align"(ptr %22, i64 8) ], !noalias !83
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4), !noalias !84
   store ptr @_ZN15crossbeam_epoch8deferred8Deferred3new4call17h72df1f35002c9adfE.llvm.8326862415837228122, ptr %4, align 8, !alias.scope !85, !noalias !84
   %25 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -2727,9 +2730,9 @@ define hidden void @"_ZN4core6result19Result$LT$T$C$E$GT$3map17h989e71332ba1de71
   br i1 %trunc, label %31, label %6
 
 6:                                                ; preds = %3
-  %.sroa.0.0.copyload = load ptr, ptr %2, align 8, !nonnull !21, !noundef !21
+  %.sroa.0.0.copyload = load ptr, ptr %2, align 8, !nonnull !21, !align !42, !noundef !21
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %.sroa.4.0.copyload = load ptr, ptr %.sroa.4.0..sroa_idx, align 8, !nonnull !21, !noundef !21
+  %.sroa.4.0.copyload = load ptr, ptr %.sroa.4.0..sroa_idx, align 8, !nonnull !21, !align !42, !noundef !21
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 16
   %.sroa.5.0.copyload = load ptr, ptr %.sroa.5.0..sroa_idx, align 8
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 24
@@ -2764,6 +2767,7 @@ define hidden void @"_ZN4core6result19Result$LT$T$C$E$GT$3map17h989e71332ba1de71
   br i1 %22, label %25, label %23
 
 23:                                               ; preds = %18
+  call void @llvm.assume(i1 true) [ "align"(ptr %21, i64 8) ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4), !noalias !691
   store ptr @_ZN15crossbeam_epoch8deferred8Deferred3new4call17h72df1f35002c9adfE.llvm.8326862415837228122, ptr %4, align 8, !alias.scope !692, !noalias !691
   %24 = getelementptr inbounds nuw i8, ptr %4, i64 8

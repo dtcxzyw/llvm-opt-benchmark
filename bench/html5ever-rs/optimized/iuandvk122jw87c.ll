@@ -188,7 +188,7 @@ define void @_ZN9html5ever9tokenizer8char_ref16CharRefTokenizer10get_result17ha3
 }
 
 ; Function Attrs: nonlazybind uwtable
-define noundef nonnull align 8 ptr @_ZN9html5ever9tokenizer8char_ref16CharRefTokenizer8name_buf17h3d7daaa81178c0a0E(ptr noundef nonnull readonly align 8 %0) unnamed_addr #1 {
+define noundef nonnull align 8 ptr @_ZN9html5ever9tokenizer8char_ref16CharRefTokenizer8name_buf17h3d7daaa81178c0a0E(ptr noundef nonnull align 8 %0) unnamed_addr #1 {
   %2 = load i64, ptr %0, align 8, !range !17, !noundef !4
   %trunc = trunc nuw i64 %2 to i1
   br i1 %trunc, label %4, label %3
@@ -199,11 +199,12 @@ define noundef nonnull align 8 ptr @_ZN9html5ever9tokenizer8char_ref16CharRefTok
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %5, i64 8) ]
   ret ptr %5
 }
 
 ; Function Attrs: nonlazybind uwtable
-define noundef nonnull align 8 dereferenceable(16) ptr @_ZN9html5ever9tokenizer8char_ref16CharRefTokenizer12name_buf_mut17hb414fda9746d6411E(ptr noalias noundef readonly align 8 dereferenceable(80) %0) unnamed_addr #1 {
+define noundef nonnull align 8 dereferenceable(16) ptr @_ZN9html5ever9tokenizer8char_ref16CharRefTokenizer12name_buf_mut17hb414fda9746d6411E(ptr noalias noundef align 8 dereferenceable(80) %0) unnamed_addr #1 {
   %2 = load i64, ptr %0, align 8, !range !17, !noundef !4
   %trunc = trunc nuw i64 %2 to i1
   br i1 %trunc, label %4, label %3
@@ -214,6 +215,7 @@ define noundef nonnull align 8 dereferenceable(16) ptr @_ZN9html5ever9tokenizer8
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %5, i64 8) ]
   ret ptr %5
 }
 

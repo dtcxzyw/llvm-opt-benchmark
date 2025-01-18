@@ -121,7 +121,7 @@ __rust_try.llvm.17470729325788562433.exit:        ; preds = %.body.i.i.i.i
 ; Function Attrs: nounwind nonlazybind uwtable
 define hidden { ptr, ptr } @_ZN3std9panicking3try17h420e0c9d6d559c4bE(ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %0, ptr noalias noundef align 8 dereferenceable(8) %1) unnamed_addr #2 personality ptr @rust_eh_personality {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %.val.i = load ptr, ptr %3, align 8, !alias.scope !25, !noalias !28, !nonnull !7, !noundef !7
+  %.val.i = load ptr, ptr %3, align 8, !alias.scope !25, !noalias !28, !nonnull !7, !align !30, !noundef !7
   %.val1.i = load ptr, ptr %1, align 8, !alias.scope !28, !noalias !25, !nonnull !7, !align !30, !noundef !7
   %4 = load ptr, ptr %.val.i, align 8, !alias.scope !31, !noalias !36, !nonnull !7, !align !30, !noundef !7
   invoke void @"_ZN14async_executor8Executor5spawn28_$u7b$$u7b$closure$u7d$$u7d$17h9c7ec84883121f49E.llvm.579135748136030738"(ptr noundef nonnull align 8 %4, ptr noalias noundef nonnull align 8 dereferenceable(8) %.val1.i)
@@ -577,7 +577,7 @@ define hidden void @_ZN3std9panicking3try7do_call17h1f2475cc3b682f43E.llvm.17470
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %16 = load ptr, ptr %15, align 8, !nonnull !7, !align !30, !noundef !7
   %17 = getelementptr i8, ptr %14, i64 16
-  %.val = load ptr, ptr %17, align 8, !alias.scope !141, !noalias !144, !nonnull !7, !noundef !7
+  %.val = load ptr, ptr %17, align 8, !alias.scope !141, !noalias !144, !nonnull !7, !align !30, !noundef !7
   %.val1 = load ptr, ptr %16, align 8, !alias.scope !144, !noalias !141, !nonnull !7, !align !30, !noundef !7
   %18 = getelementptr inbounds nuw i8, ptr %.val, i64 272
   %19 = load i8, ptr %18, align 8, !range !146, !noalias !147, !noundef !7
@@ -712,6 +712,7 @@ default.unreachable:                              ; preds = %312, %1
 
 59:                                               ; preds = %53
   %60 = load ptr, ptr %55, align 8, !noalias !159, !nonnull !7, !align !30, !noundef !7
+  call void @llvm.assume(i1 true) [ "align"(ptr %56, i64 8) ]
   %61 = load i64, ptr %56, align 8, !range !158, !noalias !165, !noundef !7
   %62 = icmp eq i64 %61, 2
   br i1 %62, label %.noexc.i.i.i.i.i.i.i, label %63
@@ -757,6 +758,7 @@ default.unreachable:                              ; preds = %312, %1
 .thread.i.i.i.i.i.i.i:                            ; preds = %.noexc.i.i.i.i.i.i.i, %50
   %72 = phi ptr [ %55, %.noexc.i.i.i.i.i.i.i ], [ %52, %50 ]
   %73 = phi ptr [ %56, %.noexc.i.i.i.i.i.i.i ], [ %.phi.trans.insert.i.i.i.i.i, %50 ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %73, i64 8) ]
   %74 = invoke noundef align 8 ptr @"_ZN108_$LT$async_lock..mutex..AcquireSlow$LT$B$C$T$GT$$u20$as$u20$event_listener_strategy..EventListenerFuture$GT$18poll_with_strategy17he5858a57607b425eE"(ptr noundef nonnull align 8 %73, ptr noalias noundef nonnull align 1 %2, ptr noalias noundef nonnull align 8 dereferenceable(8) %.val1)
           to label %.noexc.i.i.i.i.i unwind label %78, !noalias !153
 
@@ -1525,6 +1527,7 @@ _ZN3std4sync6poison4Flag4done17h5bffa24fa61aa5e0E.exit.i.i126.i.i.i.i.i.i: ; pre
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4), !noalias !170
   %349 = load atomic i64, ptr %348 acquire, align 8, !noalias !153
   %350 = inttoptr i64 %349 to ptr
+  call void @llvm.assume(i1 true) [ "align"(ptr %350, i64 8) ]
   %.not.i135.i.i.i.i.i.i = icmp eq i64 %349, 0
   br i1 %.not.i135.i.i.i.i.i.i, label %"_ZN14event_listener14Event$LT$T$GT$6notify17h45e8141d091a30f2E.exit.i.i.i.i.i.i", label %351
 
@@ -1956,7 +1959,7 @@ define hidden void @_ZN3std9panicking3try7do_call17h96b53624b58413c6E.llvm.17470
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !nonnull !7, !align !30, !noundef !7
   %5 = getelementptr i8, ptr %2, i64 16
-  %.val = load ptr, ptr %5, align 8, !alias.scope !365, !noalias !368, !nonnull !7, !noundef !7
+  %.val = load ptr, ptr %5, align 8, !alias.scope !365, !noalias !368, !nonnull !7, !align !30, !noundef !7
   %.val1 = load ptr, ptr %4, align 8, !alias.scope !368, !noalias !365, !nonnull !7, !align !30, !noundef !7
   tail call void @llvm.experimental.noalias.scope.decl(metadata !370)
   %6 = load ptr, ptr %.val, align 8, !alias.scope !373, !noalias !376, !nonnull !7, !align !30, !noundef !7
@@ -2228,8 +2231,10 @@ define internal fastcc void @"_ZN4core3ptr125drop_in_place$LT$core..result..Resu
 ; Function Attrs: nonlazybind uwtable
 define internal fastcc void @"_ZN4core3ptr66drop_in_place$LT$async_lock..mutex..MutexGuard$LT$$LP$$RP$$GT$$GT$17h05b62416625566fbE"(ptr %.0.val) unnamed_addr #1 personality ptr @rust_eh_personality {
   %1 = alloca i64, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %.0.val, i64 8) ]
   %2 = icmp ne ptr %.0.val, null
   tail call void @llvm.assume(i1 %2)
+  call void @llvm.assume(i1 true) [ "align"(ptr %.0.val, i64 8) ]
   %3 = atomicrmw sub ptr %.0.val, i64 1 release, align 8
   %4 = getelementptr inbounds nuw i8, ptr %.0.val, i64 8
   %5 = tail call noundef i64 @"_ZN64_$LT$i32$u20$as$u20$event_listener..notify..IntoNotification$GT$17into_notification17h1560063b65d058faE"(i32 noundef 1)
@@ -2420,8 +2425,10 @@ common.ret:                                       ; preds = %31, %27, %21, %16, 
 
 ; Function Attrs: nonlazybind uwtable
 define internal fastcc void @"_ZN4core3ptr99drop_in_place$LT$std..sync..mutex..MutexGuard$LT$alloc..vec..Vec$LT$std..process..Child$GT$$GT$$GT$17hec0e3a7d844a1a0cE"(ptr %.0.val, i8 %.8.val) unnamed_addr #1 {
+  call void @llvm.assume(i1 true) [ "align"(ptr %.0.val, i64 8) ]
   %1 = icmp ne ptr %.0.val, null
   tail call void @llvm.assume(i1 %1)
+  call void @llvm.assume(i1 true) [ "align"(ptr %.0.val, i64 8) ]
   %2 = getelementptr inbounds nuw i8, ptr %.0.val, i64 4
   %3 = trunc nuw i8 %.8.val to i1
   br i1 %3, label %_ZN3std4sync6poison4Flag4done17h5bffa24fa61aa5e0E.exit.i, label %4
@@ -2437,10 +2444,11 @@ _ZN3std9panicking11panic_count13count_is_zero17h66cf19443d869469E.exit.i.i: ; pr
   br i1 %8, label %_ZN3std4sync6poison4Flag4done17h5bffa24fa61aa5e0E.exit.i, label %9
 
 9:                                                ; preds = %_ZN3std9panicking11panic_count13count_is_zero17h66cf19443d869469E.exit.i.i
-  store atomic i8 1, ptr %2 monotonic, align 1
+  store atomic i8 1, ptr %2 monotonic, align 4
   br label %_ZN3std4sync6poison4Flag4done17h5bffa24fa61aa5e0E.exit.i
 
 _ZN3std4sync6poison4Flag4done17h5bffa24fa61aa5e0E.exit.i: ; preds = %9, %_ZN3std9panicking11panic_count13count_is_zero17h66cf19443d869469E.exit.i.i, %4, %0
+  call void @llvm.assume(i1 true) [ "align"(ptr %.0.val, i64 8) ]
   %10 = atomicrmw xchg ptr %.0.val, i32 0 release, align 4
   %11 = icmp eq i32 %10, 2
   br i1 %11, label %12, label %"_ZN79_$LT$std..sync..mutex..MutexGuard$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17he91d4d6c1d335843E.exit"

@@ -2110,7 +2110,6 @@ do.end254:                                        ; preds = %do.end181, %do.body
   %last_match.32 = phi i32 [ %last_match.29, %do.body239 ], [ %last_match.27, %do.body228 ], [ %last_match.221734, %do.end181 ]
   %control.addr.69 = phi i64 [ %control.addr.66, %do.body239 ], [ %control.addr.64, %do.body228 ], [ %control.addr.59, %do.end181 ]
   %add.ptr255 = getelementptr inbounds nuw i8, ptr %ptr.3, i64 16
-  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr255, i64 16) ]
   %294 = load <2 x i64>, ptr %add.ptr255, align 16
   %295 = lshr <2 x i64> %294, splat (i64 4)
   %296 = load <16 x i8>, ptr %add.ptr.i, align 16
@@ -5394,7 +5393,6 @@ do.end254:                                        ; preds = %do.end181, %do.body
   %last_match.32 = phi i32 [ %last_match.29, %do.body239 ], [ %last_match.27, %do.body228 ], [ %last_match.221734, %do.end181 ]
   %control.addr.69 = phi i64 [ %control.addr.66, %do.body239 ], [ %control.addr.64, %do.body228 ], [ %control.addr.59, %do.end181 ]
   %add.ptr255 = getelementptr inbounds nuw i8, ptr %ptr.3, i64 16
-  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr255, i64 16) ]
   %294 = load <2 x i64>, ptr %add.ptr255, align 16
   %295 = lshr <2 x i64> %294, splat (i64 4)
   %296 = load <16 x i8>, ptr %add.ptr.i, align 16
@@ -8723,7 +8721,6 @@ do.end255:                                        ; preds = %do.end182, %do.body
   %last_match.32 = phi i32 [ %last_match.29, %do.body240 ], [ %last_match.27, %do.body229 ], [ %last_match.221885, %do.end182 ]
   %control.addr.69 = phi i64 [ %control.addr.66, %do.body240 ], [ %control.addr.64, %do.body229 ], [ %control.addr.59, %do.end182 ]
   %add.ptr256 = getelementptr inbounds nuw i8, ptr %ptr.3, i64 16
-  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr256, i64 16) ]
   %312 = load <2 x i64>, ptr %add.ptr256, align 16
   %313 = lshr <2 x i64> %312, splat (i64 4)
   %314 = load <16 x i8>, ptr %add.ptr.i, align 16
@@ -12079,7 +12076,6 @@ do.end255:                                        ; preds = %do.end182, %do.body
   %last_match.32 = phi i32 [ %last_match.29, %do.body240 ], [ %last_match.27, %do.body229 ], [ %last_match.221885, %do.end182 ]
   %control.addr.69 = phi i64 [ %control.addr.66, %do.body240 ], [ %control.addr.64, %do.body229 ], [ %control.addr.59, %do.end182 ]
   %add.ptr256 = getelementptr inbounds nuw i8, ptr %ptr.3, i64 16
-  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr256, i64 16) ]
   %312 = load <2 x i64>, ptr %add.ptr256, align 16
   %313 = lshr <2 x i64> %312, splat (i64 4)
   %314 = load <16 x i8>, ptr %add.ptr.i, align 16
@@ -15465,7 +15461,6 @@ do.end256:                                        ; preds = %do.end183, %do.body
   %last_match.32 = phi i32 [ %last_match.29, %do.body241 ], [ %last_match.27, %do.body230 ], [ %last_match.222036, %do.end183 ]
   %control.addr.69 = phi i64 [ %control.addr.66, %do.body241 ], [ %control.addr.64, %do.body230 ], [ %control.addr.59, %do.end183 ]
   %add.ptr257 = getelementptr inbounds nuw i8, ptr %ptr.3, i64 16
-  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr257, i64 16) ]
   %327 = load <2 x i64>, ptr %add.ptr257, align 16
   %328 = lshr <2 x i64> %327, splat (i64 4)
   %329 = load <16 x i8>, ptr %add.ptr.i, align 16
@@ -18878,7 +18873,6 @@ do.end256:                                        ; preds = %do.end183, %do.body
   %last_match.32 = phi i32 [ %last_match.29, %do.body241 ], [ %last_match.27, %do.body230 ], [ %last_match.222036, %do.end183 ]
   %control.addr.69 = phi i64 [ %control.addr.66, %do.body241 ], [ %control.addr.64, %do.body230 ], [ %control.addr.59, %do.end183 ]
   %add.ptr257 = getelementptr inbounds nuw i8, ptr %ptr.3, i64 16
-  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr257, i64 16) ]
   %327 = load <2 x i64>, ptr %add.ptr257, align 16
   %328 = lshr <2 x i64> %327, splat (i64 4)
   %329 = load <16 x i8>, ptr %add.ptr.i, align 16
@@ -22321,7 +22315,6 @@ do.end257:                                        ; preds = %do.end184, %do.body
   %last_match.32 = phi i32 [ %last_match.29, %do.body242 ], [ %last_match.27, %do.body231 ], [ %last_match.222187, %do.end184 ]
   %control.addr.69 = phi i64 [ %control.addr.66, %do.body242 ], [ %control.addr.64, %do.body231 ], [ %control.addr.59, %do.end184 ]
   %add.ptr258 = getelementptr inbounds nuw i8, ptr %ptr.3, i64 16
-  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr258, i64 16) ]
   %342 = load <2 x i64>, ptr %add.ptr258, align 16
   %343 = lshr <2 x i64> %342, splat (i64 4)
   %344 = load <16 x i8>, ptr %add.ptr.i, align 16
@@ -25791,7 +25784,6 @@ do.end257:                                        ; preds = %do.end184, %do.body
   %last_match.32 = phi i32 [ %last_match.29, %do.body242 ], [ %last_match.27, %do.body231 ], [ %last_match.222187, %do.end184 ]
   %control.addr.69 = phi i64 [ %control.addr.66, %do.body242 ], [ %control.addr.64, %do.body231 ], [ %control.addr.59, %do.end184 ]
   %add.ptr258 = getelementptr inbounds nuw i8, ptr %ptr.3, i64 16
-  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr258, i64 16) ]
   %342 = load <2 x i64>, ptr %add.ptr258, align 16
   %343 = lshr <2 x i64> %342, splat (i64 4)
   %344 = load <16 x i8>, ptr %add.ptr.i, align 16

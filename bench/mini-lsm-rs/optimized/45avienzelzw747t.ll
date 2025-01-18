@@ -485,6 +485,7 @@ define hidden void @_ZN17crossbeam_channel5waker5Waker10disconnect17hbfe96527587
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %14 = load ptr, ptr %13, align 8, !nonnull !4, !noundef !4
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 40
+  call void @llvm.assume(i1 true) [ "align"(ptr %15, i64 4) ]
   %16 = atomicrmw xchg ptr %15, i32 1 release, align 4
   %17 = icmp eq i32 %16, -1
   br i1 %17, label %18, label %_ZN3std10sys_common14thread_parking5futex6Parker6unpark17hce15e1a80f7fd7bfE.exit
@@ -530,7 +531,7 @@ define internal fastcc void @_ZN17crossbeam_channel5waker5Waker6notify17hece2fcc
   store i64 %15, ptr %.sroa.5.0..sroa_idx, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.7)
   %17 = icmp eq i64 %10, %11
-  br i1 %17, label %.thread, label %.lr.ph
+  br i1 %17, label %.thread17, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1
   %.sroa.7.0..sroa_idx2 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -552,13 +553,14 @@ define internal fastcc void @_ZN17crossbeam_channel5waker5Waker6notify17hece2fcc
   %24 = phi ptr [ %14, %.lr.ph ], [ %60, %"_ZN4core3ptr52drop_in_place$LT$crossbeam_channel..waker..Entry$GT$17hb9ed768752c9c0e0E.exit" ]
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 24
   store ptr %25, ptr %5, align 8, !alias.scope !132
+  call void @llvm.assume(i1 true) [ "align"(ptr %24, i64 8) ]
   %.sroa.06.0.copyload = load ptr, ptr %24, align 8
   %.sroa.47.0..0.5.sroa_idx = getelementptr inbounds nuw i8, ptr %24, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.7, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.47.0..0.5.sroa_idx, i64 16, i1 false)
   %26 = icmp eq ptr %.sroa.06.0.copyload, null
-  br i1 %26, label %.thread, label %27
+  br i1 %26, label %.thread17, label %27
 
-.thread:                                          ; preds = %23, %"_ZN4core3ptr52drop_in_place$LT$crossbeam_channel..waker..Entry$GT$17hb9ed768752c9c0e0E.exit", %1
+.thread17:                                        ; preds = %23, %"_ZN4core3ptr52drop_in_place$LT$crossbeam_channel..waker..Entry$GT$17hb9ed768752c9c0e0E.exit", %1
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.7)
   call void @"_ZN79_$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h0afbc7fe6ed2e6c3E.llvm.1597650999041595525"(ptr noalias noundef nonnull align 8 dereferenceable(40) %5)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5)
@@ -585,6 +587,7 @@ define internal fastcc void @_ZN17crossbeam_channel5waker5Waker6notify17hece2fcc
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 16
   %36 = load ptr, ptr %35, align 8, !nonnull !4, !noundef !4
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 40
+  call void @llvm.assume(i1 true) [ "align"(ptr %37, i64 4) ]
   %38 = atomicrmw xchg ptr %37, i32 1 release, align 4
   %39 = icmp eq i32 %38, -1
   br i1 %39, label %40, label %_ZN3std10sys_common14thread_parking5futex6Parker6unpark17hce15e1a80f7fd7bfE.exit
@@ -665,7 +668,7 @@ _ZN3std10sys_common14thread_parking5futex6Parker6unpark17hce15e1a80f7fd7bfE.exit
   %59 = load ptr, ptr %.sroa.2.0..sroa_idx, align 8, !alias.scope !132, !nonnull !4, !noundef !4
   %60 = load ptr, ptr %5, align 8, !alias.scope !132, !nonnull !4, !noundef !4
   %61 = icmp eq ptr %60, %59
-  br i1 %61, label %.thread, label %23
+  br i1 %61, label %.thread17, label %23
 
 62:                                               ; preds = %20, %31
   %63 = landingpad { ptr, i32 }
@@ -768,6 +771,7 @@ common.resume:                                    ; preds = %42, %17
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 16
   %35 = load ptr, ptr %34, align 8, !noalias !194, !nonnull !4, !noundef !4
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 40
+  call void @llvm.assume(i1 true) [ "align"(ptr %36, i64 4) ]
   %37 = atomicrmw xchg ptr %36, i32 1 release, align 4, !noalias !194
   %38 = icmp eq i32 %37, -1
   br i1 %38, label %39, label %_ZN3std10sys_common14thread_parking5futex6Parker6unpark17hce15e1a80f7fd7bfE.exit.i
@@ -1412,6 +1416,7 @@ _ZN17crossbeam_channel7context7Context12store_packet17h891d80907ed7870fE.exit.i.
   %86 = getelementptr inbounds nuw i8, ptr %71, i64 16
   %87 = load ptr, ptr %86, align 8, !noalias !335, !nonnull !4, !noundef !4
   %88 = getelementptr inbounds nuw i8, ptr %87, i64 40
+  call void @llvm.assume(i1 true) [ "align"(ptr %88, i64 4) ]
   %89 = atomicrmw xchg ptr %88, i32 1 release, align 4, !noalias !335
   %90 = icmp eq i32 %89, -1
   br i1 %90, label %91, label %.noexc4
@@ -1777,6 +1782,7 @@ define internal fastcc void @"_ZN17crossbeam_channel7context7Context4with28_$u7b
   %5 = tail call noundef nonnull ptr @_ZN17crossbeam_channel7context7Context3new17h2e68f2785d1c529eE()
   store ptr %5, ptr %4, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
+  call void @llvm.assume(i1 true) [ "align"(ptr %.0.val, i64 8) ]
   %6 = icmp ne ptr %.0.val, null
   tail call void @llvm.assume(i1 %6)
   %.sroa.0.0.copyload = load ptr, ptr %.0.val, align 8
@@ -6913,6 +6919,7 @@ define hidden noundef ptr @"_ZN4moka9sync_base10base_cache165_$LT$impl$u20$moka.
   br label %"_ZN4moka9sync_base8key_lock20KeyLock$LT$K$C$S$GT$4lock17h80f6e9fe896951d3E.exit"
 
 "_ZN4moka9sync_base10base_cache22Inner$LT$K$C$V$C$S$GT$14maybe_key_lock17h6b1218fb16f57840E.exit": ; preds = %4
+  call void @llvm.assume(i1 true) [ "align"(ptr %12, i64 8) ]
   call void @"_ZN4moka9sync_base8key_lock23KeyLockMap$LT$K$C$S$GT$8key_lock17h3b82e874ee3f9f81E.llvm.885679253126787145"(ptr noalias nocapture noundef nonnull sret({ ptr, ptr, ptr, i64 }) align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 %12, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %1), !noalias !4
   %.pr = load ptr, ptr %9, align 8
   %15 = icmp eq ptr %.pr, null
@@ -10128,6 +10135,7 @@ define hidden noundef ptr @"_ZN8mini_lsm9iterators18two_merge_iterator29TwoMerge
   br i1 %18, label %19, label %"_ZN116_$LT$mini_lsm..iterators..merge_iterator..MergeIterator$LT$I$GT$$u20$as$u20$mini_lsm..iterators..StorageIterator$GT$8is_valid17hae7b5c6643dc9dbeE.exit.thread"
 
 19:                                               ; preds = %"_ZN68_$LT$mini_lsm..key..Key$LT$T$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h089a1e7351d25699E.exit"
+  call void @llvm.assume(i1 true) [ "align"(ptr %9, i64 8) ]
   %20 = tail call noundef ptr @"_ZN99_$LT$mini_lsm..table..iterator..SsTableIterator$u20$as$u20$mini_lsm..iterators..StorageIterator$GT$4next17h1488de5f51ca397dE"(ptr noalias noundef nonnull align 8 dereferenceable(96) %9)
   %21 = icmp eq ptr %20, null
   br i1 %21, label %22, label %"_ZN116_$LT$mini_lsm..iterators..merge_iterator..MergeIterator$LT$I$GT$$u20$as$u20$mini_lsm..iterators..StorageIterator$GT$8is_valid17hae7b5c6643dc9dbeE.exit.thread"
@@ -10237,6 +10245,7 @@ define hidden noundef ptr @"_ZN8mini_lsm9iterators18two_merge_iterator29TwoMerge
   br i1 %18, label %19, label %"_ZN68_$LT$mini_lsm..key..Key$LT$T$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h089a1e7351d25699E.exit.thread"
 
 19:                                               ; preds = %"_ZN68_$LT$mini_lsm..key..Key$LT$T$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h089a1e7351d25699E.exit"
+  call void @llvm.assume(i1 true) [ "align"(ptr %9, i64 8) ]
   %20 = tail call noundef ptr @"_ZN99_$LT$mini_lsm..table..iterator..SsTableIterator$u20$as$u20$mini_lsm..iterators..StorageIterator$GT$4next17h1488de5f51ca397dE"(ptr noalias noundef nonnull align 8 dereferenceable(96) %9)
   %21 = icmp eq ptr %20, null
   br i1 %21, label %22, label %"_ZN68_$LT$mini_lsm..key..Key$LT$T$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h089a1e7351d25699E.exit.thread"
@@ -12037,6 +12046,7 @@ define hidden noundef ptr @"_ZN127_$LT$mini_lsm..iterators..two_merge_iterator..
   unreachable
 
 11:                                               ; preds = %5
+  call void @llvm.assume(i1 true) [ "align"(ptr %7, i64 8) ]
   %12 = tail call noundef ptr @"_ZN99_$LT$mini_lsm..table..iterator..SsTableIterator$u20$as$u20$mini_lsm..iterators..StorageIterator$GT$4next17h1488de5f51ca397dE"(ptr noalias noundef nonnull align 8 dereferenceable(96) %7)
   %13 = icmp eq ptr %12, null
   br i1 %13, label %"_ZN112_$LT$mini_lsm..iterators..concat_iterator..SstConcatIterator$u20$as$u20$mini_lsm..iterators..StorageIterator$GT$4next17h8dcb07b0e0f7269fE.exit", label %"_ZN112_$LT$mini_lsm..iterators..concat_iterator..SstConcatIterator$u20$as$u20$mini_lsm..iterators..StorageIterator$GT$4next17h8dcb07b0e0f7269fE.exit.thread"
@@ -12058,6 +12068,7 @@ define hidden noundef ptr @"_ZN127_$LT$mini_lsm..iterators..two_merge_iterator..
   unreachable
 
 21:                                               ; preds = %16
+  call void @llvm.assume(i1 true) [ "align"(ptr %17, i64 8) ]
   %22 = tail call noundef ptr @"_ZN99_$LT$mini_lsm..table..iterator..SsTableIterator$u20$as$u20$mini_lsm..iterators..StorageIterator$GT$4next17h1488de5f51ca397dE"(ptr noalias noundef nonnull align 8 dereferenceable(96) %17)
   %23 = icmp eq ptr %22, null
   br i1 %23, label %"_ZN112_$LT$mini_lsm..iterators..concat_iterator..SstConcatIterator$u20$as$u20$mini_lsm..iterators..StorageIterator$GT$4next17h8dcb07b0e0f7269fE.exit25", label %"_ZN112_$LT$mini_lsm..iterators..concat_iterator..SstConcatIterator$u20$as$u20$mini_lsm..iterators..StorageIterator$GT$4next17h8dcb07b0e0f7269fE.exit.thread"
@@ -12155,6 +12166,7 @@ define hidden noundef ptr @"_ZN127_$LT$mini_lsm..iterators..two_merge_iterator..
   unreachable
 
 11:                                               ; preds = %5
+  call void @llvm.assume(i1 true) [ "align"(ptr %7, i64 8) ]
   %12 = tail call noundef ptr @"_ZN99_$LT$mini_lsm..table..iterator..SsTableIterator$u20$as$u20$mini_lsm..iterators..StorageIterator$GT$4next17h1488de5f51ca397dE"(ptr noalias noundef nonnull align 8 dereferenceable(96) %7)
   %13 = icmp eq ptr %12, null
   br i1 %13, label %"_ZN112_$LT$mini_lsm..iterators..concat_iterator..SstConcatIterator$u20$as$u20$mini_lsm..iterators..StorageIterator$GT$4next17h8dcb07b0e0f7269fE.exit", label %"_ZN112_$LT$mini_lsm..iterators..concat_iterator..SstConcatIterator$u20$as$u20$mini_lsm..iterators..StorageIterator$GT$4next17h8dcb07b0e0f7269fE.exit.thread"
@@ -12213,6 +12225,7 @@ define hidden noundef ptr @"_ZN127_$LT$mini_lsm..iterators..two_merge_iterator..
   br i1 %36, label %37, label %"_ZN116_$LT$mini_lsm..iterators..merge_iterator..MergeIterator$LT$I$GT$$u20$as$u20$mini_lsm..iterators..StorageIterator$GT$8is_valid17hae7b5c6643dc9dbeE.exit.i25"
 
 37:                                               ; preds = %"_ZN68_$LT$mini_lsm..key..Key$LT$T$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h089a1e7351d25699E.exit.i"
+  call void @llvm.assume(i1 true) [ "align"(ptr %27, i64 8) ]
   %38 = tail call noundef ptr @"_ZN99_$LT$mini_lsm..table..iterator..SsTableIterator$u20$as$u20$mini_lsm..iterators..StorageIterator$GT$4next17h1488de5f51ca397dE"(ptr noalias noundef nonnull align 8 dereferenceable(96) %27)
   %39 = icmp eq ptr %38, null
   br i1 %39, label %"_ZN8mini_lsm9iterators18two_merge_iterator29TwoMergeIterator$LT$A$C$B$GT$6skip_b17h79b65865cbae8254E.llvm.10393531995006364539.exit", label %"_ZN112_$LT$mini_lsm..iterators..concat_iterator..SstConcatIterator$u20$as$u20$mini_lsm..iterators..StorageIterator$GT$4next17h8dcb07b0e0f7269fE.exit.thread"

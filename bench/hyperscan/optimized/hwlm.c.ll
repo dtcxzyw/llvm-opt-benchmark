@@ -16,7 +16,7 @@ if.end:                                           ; preds = %entry
 
 do.end6:                                          ; preds = %if.end
   %add.ptr = getelementptr inbounds nuw i8, ptr %t, i64 192
-  %call = tail call i32 @noodExec(ptr noundef nonnull %add.ptr, ptr noundef %buf, i64 noundef %len, i64 noundef %start, ptr noundef %cb, ptr noundef %scratch) #8
+  %call = tail call i32 @noodExec(ptr noundef nonnull %add.ptr, ptr noundef %buf, i64 noundef %len, i64 noundef %start, ptr noundef %cb, ptr noundef %scratch) #7
   br label %return
 
 if.end7:                                          ; preds = %if.end
@@ -109,10 +109,8 @@ for.cond15.i573.preheader:                        ; preds = %if.end13.i612, %con
 
 for.body.i596:                                    ; preds = %for.body.i596.preheader, %if.end13.i612
   %buf.addr.i557.0679 = phi ptr [ %add.ptr14.i613, %if.end13.i612 ], [ %buf.addr.i22.1, %for.body.i596.preheader ]
-  call void @llvm.assume(i1 true) [ "align"(ptr %buf.addr.i557.0679, i64 16) ]
   %10 = load <16 x i8>, ptr %buf.addr.i557.0679, align 16
   %add.ptr3.i600 = getelementptr inbounds nuw i8, ptr %buf.addr.i557.0679, i64 16
-  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr3.i600, i64 16) ]
   %11 = load <16 x i8>, ptr %add.ptr3.i600, align 16
   %12 = shufflevector <16 x i8> %10, <16 x i8> %11, <32 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15, i32 16, i32 17, i32 18, i32 19, i32 20, i32 21, i32 22, i32 23, i32 24, i32 25, i32 26, i32 27, i32 28, i32 29, i32 30, i32 31>
   %13 = icmp eq <32 x i8> %9, %12
@@ -134,7 +132,6 @@ if.end13.i612:                                    ; preds = %for.body.i596
 
 for.body19.i577:                                  ; preds = %for.cond15.i573.preheader, %if.end41.i587
   %buf.addr.i557.1683 = phi ptr [ %add.ptr43.i588, %if.end41.i587 ], [ %buf.addr.i557.0.lcssa, %for.cond15.i573.preheader ]
-  call void @llvm.assume(i1 true) [ "align"(ptr %buf.addr.i557.1683, i64 16) ]
   %15 = load <16 x i8>, ptr %buf.addr.i557.1683, align 16
   %cmp.i1050 = icmp eq <16 x i8> %vecinit15.i808, %15
   %16 = bitcast <16 x i1> %cmp.i1050 to i16
@@ -230,10 +227,8 @@ for.cond18.i.preheader:                           ; preds = %if.end16.i, %cond.t
 
 for.body.i431:                                    ; preds = %for.body.i431.preheader, %if.end16.i
   %buf.addr.i412.0669 = phi ptr [ %add.ptr17.i, %if.end16.i ], [ %buf.addr.i39.1, %for.body.i431.preheader ]
-  call void @llvm.assume(i1 true) [ "align"(ptr %buf.addr.i412.0669, i64 16) ]
   %29 = load <16 x i8>, ptr %buf.addr.i412.0669, align 16
   %add.ptr5.i = getelementptr inbounds nuw i8, ptr %buf.addr.i412.0669, i64 16
-  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr5.i, i64 16) ]
   %30 = load <16 x i8>, ptr %add.ptr5.i, align 16
   %31 = shufflevector <16 x i8> %29, <16 x i8> %30, <32 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15, i32 16, i32 17, i32 18, i32 19, i32 20, i32 21, i32 22, i32 23, i32 24, i32 25, i32 26, i32 27, i32 28, i32 29, i32 30, i32 31>
   %32 = and <32 x i8> %31, splat (i8 -33)
@@ -256,7 +251,6 @@ if.end16.i:                                       ; preds = %for.body.i431
 
 for.body22.i:                                     ; preds = %for.cond18.i.preheader, %if.end45.i428
   %buf.addr.i412.1672 = phi ptr [ %add.ptr47.i, %if.end45.i428 ], [ %buf.addr.i412.0.lcssa, %for.cond18.i.preheader ]
-  call void @llvm.assume(i1 true) [ "align"(ptr %buf.addr.i412.1672, i64 16) ]
   %35 = load <16 x i8>, ptr %buf.addr.i412.1672, align 16
   %36 = and <16 x i8> %35, splat (i8 -33)
   %cmp.i1086 = icmp eq <16 x i8> %vecinit15.i775, %36
@@ -334,7 +328,6 @@ for.cond.i1847:                                   ; preds = %for.cond.i1847.preh
   br i1 %cmp.i1849, label %for.body.i1851, label %cond.false25.i
 
 for.body.i1851:                                   ; preds = %for.cond.i1847
-  call void @llvm.assume(i1 true) [ "align"(ptr %buf.addr.i1842.0, i64 16) ]
   %51 = load <16 x i8>, ptr %buf.addr.i1842.0, align 16
   %cmp.i25.i1852 = icmp eq <16 x i8> %vecinit15.i742, %51
   %cmp.i.i1854 = icmp eq <16 x i8> %vecinit15.i709, %51
@@ -348,7 +341,7 @@ for.body.i1851:                                   ; preds = %for.cond.i1847
   br i1 %cmp7.i1862, label %land.lhs.true.i1873, label %if.end.i1863
 
 land.lhs.true.i1873:                              ; preds = %for.body.i1851
-  %56 = load i8, ptr %add.ptr.i1848, align 16
+  %56 = load i8, ptr %add.ptr.i1848, align 1
   %cmp12.i1877 = icmp eq i8 %56, %44
   br i1 %cmp12.i1877, label %cond.end15.i.split.loop.exit, label %if.end.i1863
 
@@ -436,7 +429,6 @@ for.cond.i1665:                                   ; preds = %for.cond.i1665.preh
   br i1 %cmp.i1667, label %for.body.i1669, label %cond.true22.i186
 
 for.body.i1669:                                   ; preds = %for.cond.i1665
-  call void @llvm.assume(i1 true) [ "align"(ptr %buf.addr.i1642.0, i64 16) ]
   %74 = load <16 x i8>, ptr %buf.addr.i1642.0, align 16
   %75 = and <16 x i8> %74, splat (i8 -33)
   %cmp.i30.i = icmp eq <16 x i8> %vecinit15.i676, %75
@@ -452,7 +444,7 @@ for.body.i1669:                                   ; preds = %for.cond.i1665
   br i1 %cmp9.i, label %land.lhs.true.i, label %if.end.i1678
 
 land.lhs.true.i:                                  ; preds = %for.body.i1669
-  %81 = load i8, ptr %add.ptr.i1666, align 16
+  %81 = load i8, ptr %add.ptr.i1666, align 1
   %82 = and i8 %81, -33
   %cmp15.i = icmp eq i8 %82, %66
   br i1 %cmp15.i, label %cond.end15.i159.split.loop.exit, label %if.end.i1678
@@ -502,7 +494,7 @@ sw.bb16.i:                                        ; preds = %if.end.i
   %93 = load <2 x i64>, ptr %lo.i, align 16
   %hi.i = getelementptr inbounds nuw i8, ptr %spec.select, i64 32
   %94 = load <2 x i64>, ptr %hi.i, align 16
-  %call19.i = tail call ptr @shuftiExec(<2 x i64> noundef %93, <2 x i64> noundef %94, ptr noundef %add.ptr.i, ptr noundef %add.ptr1.i) #8
+  %call19.i = tail call ptr @shuftiExec(<2 x i64> noundef %93, <2 x i64> noundef %94, ptr noundef %add.ptr.i, ptr noundef %add.ptr1.i) #7
   br label %run_hwlm_accel.exit
 
 sw.bb20.i:                                        ; preds = %if.end.i
@@ -510,7 +502,7 @@ sw.bb20.i:                                        ; preds = %if.end.i
   %95 = load <2 x i64>, ptr %mask1.i, align 16
   %mask2.i = getelementptr inbounds nuw i8, ptr %spec.select, i64 32
   %96 = load <2 x i64>, ptr %mask2.i, align 16
-  %call23.i = tail call ptr @truffleExec(<2 x i64> noundef %95, <2 x i64> noundef %96, ptr noundef %add.ptr.i, ptr noundef %add.ptr1.i) #8
+  %call23.i = tail call ptr @truffleExec(<2 x i64> noundef %95, <2 x i64> noundef %96, ptr noundef %add.ptr.i, ptr noundef %add.ptr1.i) #7
   br label %run_hwlm_accel.exit
 
 run_hwlm_accel.exit:                              ; preds = %if.end9.i107, %if.end.i103, %if.end9.i34, %if.end.i33, %for.cond.i98.preheader, %for.cond.i.preheader, %if.then40.i, %if.then13.i, %if.then36.i589, %if.then10.i614, %cond.end15.i, %cond.end15.i159, %if.end.i, %cond.true.i204, %cond.true22.i186, %if.end32.i171, %cond.false.i131, %cond.false25.i, %if.end32.i, %cond.true37.i76, %cond.true.i95, %cond.false40.i, %cond.false.i, %sw.bb20.i, %sw.bb16.i
@@ -530,7 +522,7 @@ run_hwlm_accel.exit:                              ; preds = %if.end9.i107, %if.e
 do.end15:                                         ; preds = %if.end7, %run_hwlm_accel.exit
   %start.addr.0 = phi i64 [ %start, %if.end7 ], [ %sub.ptr.sub.i, %run_hwlm_accel.exit ]
   %add.ptr16 = getelementptr inbounds nuw i8, ptr %t, i64 192
-  %call17 = tail call i32 @fdrExec(ptr noundef nonnull %add.ptr16, ptr noundef %buf, i64 noundef %len, i64 noundef %start.addr.0, ptr noundef %cb, ptr noundef %scratch, i64 noundef %groups) #8
+  %call17 = tail call i32 @fdrExec(ptr noundef nonnull %add.ptr16, ptr noundef %buf, i64 noundef %len, i64 noundef %start.addr.0, ptr noundef %cb, ptr noundef %scratch, i64 noundef %groups) #7
   br label %return
 
 return:                                           ; preds = %entry, %do.end15, %do.end6
@@ -566,11 +558,11 @@ do.end9:                                          ; preds = %if.end
   br i1 %tobool10.not, label %if.else, label %if.then11
 
 if.then11:                                        ; preds = %do.end9
-  %call = tail call i32 @noodExec(ptr noundef nonnull %add.ptr12, ptr noundef %2, i64 noundef %len, i64 noundef %start, ptr noundef %cb, ptr noundef nonnull %scratch) #8
+  %call = tail call i32 @noodExec(ptr noundef nonnull %add.ptr12, ptr noundef %2, i64 noundef %len, i64 noundef %start, ptr noundef %cb, ptr noundef nonnull %scratch) #7
   br label %return
 
 if.else:                                          ; preds = %do.end9
-  %call13 = tail call i32 @noodExecStreaming(ptr noundef nonnull %add.ptr12, ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %len, ptr noundef %cb, ptr noundef nonnull %scratch) #8
+  %call13 = tail call i32 @noodExecStreaming(ptr noundef nonnull %add.ptr12, ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %len, ptr noundef %cb, ptr noundef nonnull %scratch) #7
   br label %return
 
 if.end14:                                         ; preds = %if.end
@@ -663,10 +655,8 @@ for.cond15.i2269.preheader.i:                     ; preds = %if.end13.i2308.i, %
 
 for.body.i2292.i:                                 ; preds = %for.body.i2292.i.preheader, %if.end13.i2308.i
   %buf.addr.i2253.01945.i = phi ptr [ %add.ptr14.i2309.i, %if.end13.i2308.i ], [ %buf.addr.i.1.i, %for.body.i2292.i.preheader ]
-  call void @llvm.assume(i1 true) [ "align"(ptr %buf.addr.i2253.01945.i, i64 16) ]
   %12 = load <16 x i8>, ptr %buf.addr.i2253.01945.i, align 16
   %add.ptr3.i2296.i = getelementptr inbounds nuw i8, ptr %buf.addr.i2253.01945.i, i64 16
-  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr3.i2296.i, i64 16) ]
   %13 = load <16 x i8>, ptr %add.ptr3.i2296.i, align 16
   %14 = shufflevector <16 x i8> %12, <16 x i8> %13, <32 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15, i32 16, i32 17, i32 18, i32 19, i32 20, i32 21, i32 22, i32 23, i32 24, i32 25, i32 26, i32 27, i32 28, i32 29, i32 30, i32 31>
   %15 = icmp eq <32 x i8> %11, %14
@@ -688,7 +678,6 @@ if.end13.i2308.i:                                 ; preds = %for.body.i2292.i
 
 for.body19.i2273.i:                               ; preds = %for.cond15.i2269.preheader.i, %if.end41.i2283.i
   %buf.addr.i2253.11949.i = phi ptr [ %add.ptr43.i2284.i, %if.end41.i2283.i ], [ %buf.addr.i2253.0.lcssa.i, %for.cond15.i2269.preheader.i ]
-  call void @llvm.assume(i1 true) [ "align"(ptr %buf.addr.i2253.11949.i, i64 16) ]
   %17 = load <16 x i8>, ptr %buf.addr.i2253.11949.i, align 16
   %cmp.i3657.i = icmp eq <16 x i8> %vecinit15.i2947.i, %17
   %18 = bitcast <16 x i1> %cmp.i3657.i to i16
@@ -768,10 +757,8 @@ for.cond18.i1829.preheader.i:                     ; preds = %if.end16.i1871.i, %
 
 for.body.i1853.i:                                 ; preds = %for.body.i1853.i.preheader, %if.end16.i1871.i
   %buf.addr.i1811.01935.i = phi ptr [ %add.ptr17.i1872.i, %if.end16.i1871.i ], [ %buf.addr.i154.1.i, %for.body.i1853.i.preheader ]
-  call void @llvm.assume(i1 true) [ "align"(ptr %buf.addr.i1811.01935.i, i64 16) ]
   %29 = load <16 x i8>, ptr %buf.addr.i1811.01935.i, align 16
   %add.ptr5.i1858.i = getelementptr inbounds nuw i8, ptr %buf.addr.i1811.01935.i, i64 16
-  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr5.i1858.i, i64 16) ]
   %30 = load <16 x i8>, ptr %add.ptr5.i1858.i, align 16
   %31 = shufflevector <16 x i8> %29, <16 x i8> %30, <32 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15, i32 16, i32 17, i32 18, i32 19, i32 20, i32 21, i32 22, i32 23, i32 24, i32 25, i32 26, i32 27, i32 28, i32 29, i32 30, i32 31>
   %32 = and <32 x i8> %31, splat (i8 -33)
@@ -794,7 +781,6 @@ if.end16.i1871.i:                                 ; preds = %for.body.i1853.i
 
 for.body22.i1833.i:                               ; preds = %for.cond18.i1829.preheader.i, %if.end45.i1844.i
   %buf.addr.i1811.11938.i = phi ptr [ %add.ptr47.i1845.i, %if.end45.i1844.i ], [ %buf.addr.i1811.0.lcssa.i, %for.cond18.i1829.preheader.i ]
-  call void @llvm.assume(i1 true) [ "align"(ptr %buf.addr.i1811.11938.i, i64 16) ]
   %35 = load <16 x i8>, ptr %buf.addr.i1811.11938.i, align 16
   %36 = and <16 x i8> %35, splat (i8 -33)
   %cmp.i3741.i = icmp eq <16 x i8> %vecinit15.i2914.i, %36
@@ -872,7 +858,6 @@ for.cond.i6374.i:                                 ; preds = %for.cond.i6374.i.pr
   br i1 %cmp.i6376.i, label %for.body.i6378.i, label %cond.false25.i.i
 
 for.body.i6378.i:                                 ; preds = %for.cond.i6374.i
-  call void @llvm.assume(i1 true) [ "align"(ptr %buf.addr.i6369.0.i, i64 16) ]
   %51 = load <16 x i8>, ptr %buf.addr.i6369.0.i, align 16
   %cmp.i25.i6379.i = icmp eq <16 x i8> %vecinit15.i2749.i, %51
   %cmp.i.i6381.i = icmp eq <16 x i8> %vecinit15.i2716.i, %51
@@ -886,7 +871,7 @@ for.body.i6378.i:                                 ; preds = %for.cond.i6374.i
   br i1 %cmp7.i6389.i, label %land.lhs.true.i6400.i, label %if.end.i6390.i
 
 land.lhs.true.i6400.i:                            ; preds = %for.body.i6378.i
-  %56 = load i8, ptr %add.ptr.i6375.i, align 16
+  %56 = load i8, ptr %add.ptr.i6375.i, align 1
   %cmp12.i6404.i = icmp eq i8 %56, %44
   br i1 %cmp12.i6404.i, label %cond.end15.i.split.loop.exit.i, label %if.end.i6390.i
 
@@ -974,7 +959,6 @@ for.cond.i5951.i:                                 ; preds = %for.cond.i5951.i.pr
   br i1 %cmp.i5953.i, label %for.body.i5955.i, label %cond.true22.i616.i
 
 for.body.i5955.i:                                 ; preds = %for.cond.i5951.i
-  call void @llvm.assume(i1 true) [ "align"(ptr %buf.addr.i5928.0.i, i64 16) ]
   %74 = load <16 x i8>, ptr %buf.addr.i5928.0.i, align 16
   %75 = and <16 x i8> %74, splat (i8 -33)
   %cmp.i30.i5957.i = icmp eq <16 x i8> %vecinit15.i2683.i, %75
@@ -990,7 +974,7 @@ for.body.i5955.i:                                 ; preds = %for.cond.i5951.i
   br i1 %cmp9.i5968.i, label %land.lhs.true.i5979.i, label %if.end.i5969.i
 
 land.lhs.true.i5979.i:                            ; preds = %for.body.i5955.i
-  %81 = load i8, ptr %add.ptr.i5952.i, align 16
+  %81 = load i8, ptr %add.ptr.i5952.i, align 1
   %82 = and i8 %81, -33
   %cmp15.i5984.i = icmp eq i8 %82, %66
   br i1 %cmp15.i5984.i, label %cond.end15.i589.split.loop.exit.i, label %if.end.i5969.i
@@ -1040,7 +1024,7 @@ sw.bb16.i127.i:                                   ; preds = %if.then9.i
   %93 = load <2 x i64>, ptr %lo.i128.i, align 16
   %hi.i129.i = getelementptr inbounds nuw i8, ptr %spec.select, i64 32
   %94 = load <2 x i64>, ptr %hi.i129.i, align 16
-  %call19.i130.i = tail call ptr @shuftiExec(<2 x i64> noundef %93, <2 x i64> noundef %94, ptr noundef %0, ptr noundef nonnull %add.ptr.i) #8
+  %call19.i130.i = tail call ptr @shuftiExec(<2 x i64> noundef %93, <2 x i64> noundef %94, ptr noundef %0, ptr noundef nonnull %add.ptr.i) #7
   br label %if.end10.i
 
 sw.bb20.i123.i:                                   ; preds = %if.then9.i
@@ -1048,7 +1032,7 @@ sw.bb20.i123.i:                                   ; preds = %if.then9.i
   %95 = load <2 x i64>, ptr %mask1.i124.i, align 16
   %mask2.i125.i = getelementptr inbounds nuw i8, ptr %spec.select, i64 32
   %96 = load <2 x i64>, ptr %mask2.i125.i, align 16
-  %call23.i126.i = tail call ptr @truffleExec(<2 x i64> noundef %95, <2 x i64> noundef %96, ptr noundef %0, ptr noundef nonnull %add.ptr.i) #8
+  %call23.i126.i = tail call ptr @truffleExec(<2 x i64> noundef %95, <2 x i64> noundef %96, ptr noundef %0, ptr noundef nonnull %add.ptr.i) #7
   br label %if.end10.i
 
 if.end10.i:                                       ; preds = %sw.bb20.i123.i, %sw.bb16.i127.i, %if.end32.i601.i, %cond.true22.i616.i, %cond.end15.i589.i, %cond.true.i634.i, %if.end32.i.i, %cond.false25.i.i, %cond.end15.i.i, %cond.false.i561.i, %cond.true37.i191.i, %if.then40.i1846.i, %if.then13.i1873.i, %cond.true.i210.i, %cond.false40.i.i, %if.then36.i2285.i, %if.then10.i2310.i, %cond.false.i.i, %if.then9.i
@@ -1115,7 +1099,6 @@ for.cond15.i2137.i:                               ; preds = %for.body19.i2141.i,
   br i1 %cmp17.i2139.i, label %for.body19.i2141.i, label %cond.false40.i260.i
 
 for.body19.i2141.i:                               ; preds = %for.cond15.i2137.i
-  call void @llvm.assume(i1 true) [ "align"(ptr %buf.addr.i2121.1.idx.sroa.phi.i, i64 16) ]
   %102 = load <16 x i8>, ptr %buf.addr.i2121.1.idx.sroa.phi.i, align 16
   %cmp.i3681.i = icmp eq <16 x i8> %vecinit15.i2881.i, %102
   %103 = bitcast <16 x i1> %cmp.i3681.i to i16
@@ -1123,7 +1106,7 @@ for.body19.i2141.i:                               ; preds = %for.cond15.i2137.i
   br i1 %tobool29.i2147.not.i, label %for.cond15.i2137.i, label %cond.end30.i254.i, !llvm.loop !8
 
 cond.end30.i254.i:                                ; preds = %for.body19.i2141.i
-  %104 = call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %103, i1 true)
+  %104 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %103, i1 true)
   %idx.ext39.i2155.i = zext nneg i16 %104 to i64
   %add.ptr40.i2156.i = getelementptr inbounds nuw i8, ptr %buf.addr.i2121.1.idx.sroa.phi.i, i64 %idx.ext39.i2155.i
   br label %run_hwlm_accel.exit117.i
@@ -1134,7 +1117,7 @@ cond.false40.i260.i:                              ; preds = %for.cond15.i2137.i
   %cmp.i3809.i = icmp eq <16 x i8> %vecinit15.i2881.i, %105
   %106 = bitcast <16 x i1> %cmp.i3809.i to i16
   %tobool3.i1444.not.i = icmp eq i16 %106, 0
-  %107 = call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %106, i1 true)
+  %107 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %106, i1 true)
   %idx.ext.i1451.i = zext nneg i16 %107 to i64
   %add.ptr.i1452.i = getelementptr inbounds nuw i8, ptr %add.ptr41.i261.i, i64 %idx.ext.i1451.i
   %cond49.i268.i = select i1 %tobool3.i1444.not.i, ptr %add.ptr39.i, ptr %add.ptr.i1452.i
@@ -1153,7 +1136,6 @@ for.cond18.i1685.i:                               ; preds = %for.body22.i1689.i,
   br i1 %cmp20.i1687.i, label %for.body22.i1689.i, label %cond.true37.i349.i
 
 for.body22.i1689.i:                               ; preds = %for.cond18.i1685.i
-  call void @llvm.assume(i1 true) [ "align"(ptr %buf.addr.i1667.1.idx.sroa.phi.i, i64 16) ]
   %109 = load <16 x i8>, ptr %buf.addr.i1667.1.idx.sroa.phi.i, align 16
   %110 = and <16 x i8> %109, splat (i8 -33)
   %cmp.i3765.i = icmp eq <16 x i8> %vecinit15.i2848.i, %110
@@ -1162,7 +1144,7 @@ for.body22.i1689.i:                               ; preds = %for.cond18.i1685.i
   br i1 %tobool33.i1696.not.i, label %for.cond18.i1685.i, label %cond.end30.i333.i, !llvm.loop !10
 
 cond.end30.i333.i:                                ; preds = %for.body22.i1689.i
-  %112 = call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %111, i1 true)
+  %112 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %111, i1 true)
   %idx.ext43.i1704.i = zext nneg i16 %112 to i64
   %add.ptr44.i1705.i = getelementptr inbounds nuw i8, ptr %buf.addr.i1667.1.idx.sroa.phi.i, i64 %idx.ext43.i1704.i
   br label %run_hwlm_accel.exit117.i
@@ -1174,7 +1156,7 @@ cond.true37.i349.i:                               ; preds = %for.cond18.i1685.i
   %cmp.i3865.i = icmp eq <16 x i8> %vecinit15.i2848.i, %114
   %115 = bitcast <16 x i1> %cmp.i3865.i to i16
   %tobool5.i1088.not.i = icmp eq i16 %115, 0
-  %116 = call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %115, i1 true)
+  %116 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %115, i1 true)
   %idx.ext.i1095.i = zext nneg i16 %116 to i64
   %add.ptr.i1096.i = getelementptr inbounds nuw i8, ptr %add.ptr38.i350.i, i64 %idx.ext.i1095.i
   %cond49.i347.i = select i1 %tobool5.i1088.not.i, ptr %add.ptr39.i, ptr %add.ptr.i1096.i
@@ -1199,7 +1181,6 @@ for.cond.i6262.i:                                 ; preds = %if.end.i6278.i, %sw
   br i1 %cmp.i6264.i, label %for.body.i6266.i, label %cond.false25.i664.i
 
 for.body.i6266.i:                                 ; preds = %for.cond.i6262.i
-  call void @llvm.assume(i1 true) [ "align"(ptr %buf.addr.i6257.0.idx.sroa.phi.i, i64 16) ]
   %119 = load <16 x i8>, ptr %buf.addr.i6257.0.idx.sroa.phi.i, align 16
   %cmp.i25.i6267.i = icmp eq <16 x i8> %vecinit15.i2617.i, %119
   %cmp.i.i6269.i = icmp eq <16 x i8> %vecinit15.i2584.i, %119
@@ -1227,7 +1208,7 @@ cond.end15.i658.split.loop.exit.i:                ; preds = %land.lhs.true.i6288
 
 cond.end15.i658.i:                                ; preds = %if.end.i6278.i, %cond.end15.i658.split.loop.exit.i
   %z.i6260.01873.in.i = phi i16 [ %125, %cond.end15.i658.split.loop.exit.i ], [ %122, %if.end.i6278.i ]
-  %126 = call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %z.i6260.01873.in.i, i1 true)
+  %126 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %z.i6260.01873.in.i, i1 true)
   %idx.ext.i6286.i = zext nneg i16 %126 to i64
   %add.ptr19.i6287.i = getelementptr inbounds nuw i8, ptr %buf.addr.i6257.0.idx.sroa.phi.i, i64 %idx.ext.i6286.i
   br label %run_hwlm_accel.exit117.i
@@ -1243,7 +1224,7 @@ cond.false25.i664.i:                              ; preds = %for.cond.i6262.i
   %129 = select <16 x i1> %cmp.i12.i5359.i, <16 x i1> %128, <16 x i1> zeroinitializer
   %130 = bitcast <16 x i1> %129 to i16
   %tobool.i5366.not.i = icmp eq i16 %130, 0
-  %131 = call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %130, i1 true)
+  %131 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %130, i1 true)
   %idx.ext.i5372.i = zext nneg i16 %131 to i64
   %add.ptr.i5373.i = getelementptr inbounds nuw i8, ptr %add.ptr26.i665.i, i64 %idx.ext.i5372.i
   br i1 %tobool.i5366.not.i, label %if.end32.i670.i, label %run_hwlm_accel.exit117.i
@@ -1273,7 +1254,6 @@ for.cond.i5751.i:                                 ; preds = %if.end.i5769.i, %sw
   br i1 %cmp.i5753.i, label %for.body.i5755.i, label %cond.true22.i754.i
 
 for.body.i5755.i:                                 ; preds = %for.cond.i5751.i
-  call void @llvm.assume(i1 true) [ "align"(ptr %buf.addr.i5728.0.idx.sroa.phi.i, i64 16) ]
   %135 = load <16 x i8>, ptr %buf.addr.i5728.0.idx.sroa.phi.i, align 16
   %136 = and <16 x i8> %135, splat (i8 -33)
   %cmp.i30.i5757.i = icmp eq <16 x i8> %vecinit15.i2551.i, %136
@@ -1304,7 +1284,7 @@ cond.end15.i727.split.loop.exit.i:                ; preds = %land.lhs.true.i5779
 
 cond.end15.i727.i:                                ; preds = %if.end.i5769.i, %cond.end15.i727.split.loop.exit.i
   %z.i5733.01879.in.i = phi i16 [ %144, %cond.end15.i727.split.loop.exit.i ], [ %139, %if.end.i5769.i ]
-  %145 = call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %z.i5733.01879.in.i, i1 true)
+  %145 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %z.i5733.01879.in.i, i1 true)
   %idx.ext.i5777.i = zext nneg i16 %145 to i64
   %add.ptr22.i5778.i = getelementptr inbounds nuw i8, ptr %buf.addr.i5728.0.idx.sroa.phi.i, i64 %idx.ext.i5777.i
   br label %run_hwlm_accel.exit117.i
@@ -1321,7 +1301,7 @@ cond.true22.i754.i:                               ; preds = %for.cond.i5751.i
   %149 = select <16 x i1> %cmp.i16.i4626.i, <16 x i1> %148, <16 x i1> zeroinitializer
   %150 = bitcast <16 x i1> %149 to i16
   %tobool.i4633.not.i = icmp eq i16 %150, 0
-  %151 = call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %150, i1 true)
+  %151 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %150, i1 true)
   %idx.ext.i4639.i = zext nneg i16 %151 to i64
   %add.ptr.i4640.i = getelementptr inbounds nuw i8, ptr %add.ptr23.i755.i, i64 %idx.ext.i4639.i
   br i1 %tobool.i4633.not.i, label %if.end32.i739.i, label %run_hwlm_accel.exit117.i
@@ -1338,7 +1318,7 @@ sw.bb16.i98.i:                                    ; preds = %if.end36.i
   %154 = load <2 x i64>, ptr %lo.i99.i, align 16
   %hi.i100.i = getelementptr inbounds nuw i8, ptr %spec.select, i64 32
   %155 = load <2 x i64>, ptr %hi.i100.i, align 16
-  %call19.i101.i = call ptr @shuftiExec(<2 x i64> noundef %154, <2 x i64> noundef %155, ptr noundef nonnull %temp.i, ptr noundef nonnull %add.ptr39.i) #8
+  %call19.i101.i = call ptr @shuftiExec(<2 x i64> noundef %154, <2 x i64> noundef %155, ptr noundef nonnull %temp.i, ptr noundef nonnull %add.ptr39.i) #7
   br label %run_hwlm_accel.exit117.i
 
 sw.bb20.i94.i:                                    ; preds = %if.end36.i
@@ -1346,7 +1326,7 @@ sw.bb20.i94.i:                                    ; preds = %if.end36.i
   %156 = load <2 x i64>, ptr %mask1.i95.i, align 16
   %mask2.i96.i = getelementptr inbounds nuw i8, ptr %spec.select, i64 32
   %157 = load <2 x i64>, ptr %mask2.i96.i, align 16
-  %call23.i97.i = call ptr @truffleExec(<2 x i64> noundef %156, <2 x i64> noundef %157, ptr noundef nonnull %temp.i, ptr noundef nonnull %add.ptr39.i) #8
+  %call23.i97.i = call ptr @truffleExec(<2 x i64> noundef %156, <2 x i64> noundef %157, ptr noundef nonnull %temp.i, ptr noundef nonnull %add.ptr39.i) #7
   br label %run_hwlm_accel.exit117.i
 
 run_hwlm_accel.exit117.i:                         ; preds = %sw.bb20.i94.i, %sw.bb16.i98.i, %if.end32.i739.i, %cond.true22.i754.i, %cond.end15.i727.i, %if.end32.i670.i, %cond.false25.i664.i, %cond.end15.i658.i, %cond.true37.i349.i, %cond.end30.i333.i, %cond.false40.i260.i, %cond.end30.i254.i, %if.end36.i
@@ -1443,10 +1423,8 @@ for.cond15.i2005.preheader.i:                     ; preds = %if.end13.i2044.i, %
 
 for.body.i2028.i:                                 ; preds = %for.body.i2028.i.preheader, %if.end13.i2044.i
   %buf.addr.i1989.01993.i = phi ptr [ %add.ptr14.i2045.i, %if.end13.i2044.i ], [ %buf.addr.i391.1.i, %for.body.i2028.i.preheader ]
-  call void @llvm.assume(i1 true) [ "align"(ptr %buf.addr.i1989.01993.i, i64 16) ]
   %165 = load <16 x i8>, ptr %buf.addr.i1989.01993.i, align 16
   %add.ptr3.i2032.i = getelementptr inbounds nuw i8, ptr %buf.addr.i1989.01993.i, i64 16
-  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr3.i2032.i, i64 16) ]
   %166 = load <16 x i8>, ptr %add.ptr3.i2032.i, align 16
   %167 = shufflevector <16 x i8> %165, <16 x i8> %166, <32 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15, i32 16, i32 17, i32 18, i32 19, i32 20, i32 21, i32 22, i32 23, i32 24, i32 25, i32 26, i32 27, i32 28, i32 29, i32 30, i32 31>
   %168 = icmp eq <32 x i8> %164, %167
@@ -1468,7 +1446,6 @@ if.end13.i2044.i:                                 ; preds = %for.body.i2028.i
 
 for.body19.i2009.i:                               ; preds = %for.cond15.i2005.preheader.i, %if.end41.i2019.i
   %buf.addr.i1989.11997.i = phi ptr [ %add.ptr43.i2020.i, %if.end41.i2019.i ], [ %buf.addr.i1989.0.lcssa.i, %for.cond15.i2005.preheader.i ]
-  call void @llvm.assume(i1 true) [ "align"(ptr %buf.addr.i1989.11997.i, i64 16) ]
   %170 = load <16 x i8>, ptr %buf.addr.i1989.11997.i, align 16
   %cmp.i3705.i = icmp eq <16 x i8> %vecinit15.i2815.i, %170
   %171 = bitcast <16 x i1> %cmp.i3705.i to i16
@@ -1564,10 +1541,8 @@ for.cond18.i.preheader.i:                         ; preds = %if.end16.i.i, %cond
 
 for.body.i1575.i:                                 ; preds = %for.body.i1575.i.preheader, %if.end16.i.i
   %buf.addr.i1556.01982.i = phi ptr [ %add.ptr17.i.i, %if.end16.i.i ], [ %buf.addr.i470.1.i, %for.body.i1575.i.preheader ]
-  call void @llvm.assume(i1 true) [ "align"(ptr %buf.addr.i1556.01982.i, i64 16) ]
   %184 = load <16 x i8>, ptr %buf.addr.i1556.01982.i, align 16
   %add.ptr5.i.i = getelementptr inbounds nuw i8, ptr %buf.addr.i1556.01982.i, i64 16
-  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr5.i.i, i64 16) ]
   %185 = load <16 x i8>, ptr %add.ptr5.i.i, align 16
   %186 = shufflevector <16 x i8> %184, <16 x i8> %185, <32 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15, i32 16, i32 17, i32 18, i32 19, i32 20, i32 21, i32 22, i32 23, i32 24, i32 25, i32 26, i32 27, i32 28, i32 29, i32 30, i32 31>
   %187 = and <32 x i8> %186, splat (i8 -33)
@@ -1590,7 +1565,6 @@ if.end16.i.i:                                     ; preds = %for.body.i1575.i
 
 for.body22.i.i:                                   ; preds = %for.cond18.i.preheader.i, %if.end45.i1572.i
   %buf.addr.i1556.11986.i = phi ptr [ %add.ptr47.i.i, %if.end45.i1572.i ], [ %buf.addr.i1556.0.lcssa.i, %for.cond18.i.preheader.i ]
-  call void @llvm.assume(i1 true) [ "align"(ptr %buf.addr.i1556.11986.i, i64 16) ]
   %190 = load <16 x i8>, ptr %buf.addr.i1556.11986.i, align 16
   %191 = and <16 x i8> %190, splat (i8 -33)
   %cmp.i3789.i = icmp eq <16 x i8> %vecinit15.i2782.i, %191
@@ -1668,7 +1642,6 @@ for.cond.i6150.i:                                 ; preds = %for.cond.i6150.i.pr
   br i1 %cmp.i6152.i, label %for.body.i6154.i, label %cond.false25.i802.i
 
 for.body.i6154.i:                                 ; preds = %for.cond.i6150.i
-  call void @llvm.assume(i1 true) [ "align"(ptr %buf.addr.i6145.0.i, i64 16) ]
   %206 = load <16 x i8>, ptr %buf.addr.i6145.0.i, align 16
   %cmp.i25.i6155.i = icmp eq <16 x i8> %vecinit15.i2485.i, %206
   %cmp.i.i6157.i = icmp eq <16 x i8> %vecinit15.i2452.i, %206
@@ -1682,7 +1655,7 @@ for.body.i6154.i:                                 ; preds = %for.cond.i6150.i
   br i1 %cmp7.i6165.i, label %land.lhs.true.i6176.i, label %if.end.i6166.i
 
 land.lhs.true.i6176.i:                            ; preds = %for.body.i6154.i
-  %211 = load i8, ptr %add.ptr.i6151.i, align 16
+  %211 = load i8, ptr %add.ptr.i6151.i, align 1
   %cmp12.i6180.i = icmp eq i8 %211, %199
   br i1 %cmp12.i6180.i, label %cond.end15.i796.split.loop.exit.i, label %if.end.i6166.i
 
@@ -1770,7 +1743,6 @@ for.cond.i5568.i:                                 ; preds = %for.cond.i5568.i.pr
   br i1 %cmp.i5570.i, label %for.body.i5572.i, label %cond.true22.i892.i
 
 for.body.i5572.i:                                 ; preds = %for.cond.i5568.i
-  call void @llvm.assume(i1 true) [ "align"(ptr %buf.addr.i5545.0.i, i64 16) ]
   %229 = load <16 x i8>, ptr %buf.addr.i5545.0.i, align 16
   %230 = and <16 x i8> %229, splat (i8 -33)
   %cmp.i30.i.i = icmp eq <16 x i8> %vecinit15.i2419.i, %230
@@ -1786,7 +1758,7 @@ for.body.i5572.i:                                 ; preds = %for.cond.i5568.i
   br i1 %cmp9.i.i, label %land.lhs.true.i.i, label %if.end.i5581.i
 
 land.lhs.true.i.i:                                ; preds = %for.body.i5572.i
-  %236 = load i8, ptr %add.ptr.i5569.i, align 16
+  %236 = load i8, ptr %add.ptr.i5569.i, align 1
   %237 = and i8 %236, -33
   %cmp15.i.i = icmp eq i8 %237, %221
   br i1 %cmp15.i.i, label %cond.end15.i865.split.loop.exit.i, label %if.end.i5581.i
@@ -1836,7 +1808,7 @@ sw.bb16.i.i:                                      ; preds = %do.end60.i
   %248 = load <2 x i64>, ptr %lo.i.i, align 16
   %hi.i.i = getelementptr inbounds nuw i8, ptr %spec.select, i64 32
   %249 = load <2 x i64>, ptr %hi.i.i, align 16
-  %call19.i.i = call ptr @shuftiExec(<2 x i64> noundef %248, <2 x i64> noundef %249, ptr noundef %add.ptr61.i, ptr noundef %add.ptr62.i) #8
+  %call19.i.i = call ptr @shuftiExec(<2 x i64> noundef %248, <2 x i64> noundef %249, ptr noundef %add.ptr61.i, ptr noundef %add.ptr62.i) #7
   br label %run_hwlm_accel.exit.i
 
 sw.bb20.i.i:                                      ; preds = %do.end60.i
@@ -1844,7 +1816,7 @@ sw.bb20.i.i:                                      ; preds = %do.end60.i
   %250 = load <2 x i64>, ptr %mask1.i.i, align 16
   %mask2.i.i = getelementptr inbounds nuw i8, ptr %spec.select, i64 32
   %251 = load <2 x i64>, ptr %mask2.i.i, align 16
-  %call23.i.i = call ptr @truffleExec(<2 x i64> noundef %250, <2 x i64> noundef %251, ptr noundef %add.ptr61.i, ptr noundef %add.ptr62.i) #8
+  %call23.i.i = call ptr @truffleExec(<2 x i64> noundef %250, <2 x i64> noundef %251, ptr noundef %add.ptr61.i, ptr noundef %add.ptr62.i) #7
   br label %run_hwlm_accel.exit.i
 
 run_hwlm_accel.exit.i:                            ; preds = %if.end9.i537.i, %if.end.i533.i, %if.end9.i459.i, %if.end.i455.i, %sw.bb20.i.i, %sw.bb16.i.i, %if.end32.i877.i, %cond.true22.i892.i, %cond.end15.i865.i, %cond.true.i910.i, %if.end32.i808.i, %cond.false25.i802.i, %cond.end15.i796.i, %cond.false.i832.i, %cond.true37.i506.i, %if.then40.i.i, %if.then13.i.i, %cond.true.i525.i, %for.cond.i528.preheader.i, %cond.false40.i418.i, %if.then36.i2021.i, %if.then10.i2046.i, %cond.false.i438.i, %for.cond.i450.preheader.i, %do.end60.i
@@ -1867,7 +1839,7 @@ do_accel_streaming.exit:                          ; preds = %if.end14, %lor.lhs.
   %start.addr.0 = phi i64 [ %start, %if.end14 ], [ %start, %lor.lhs.false.i ], [ %start, %run_hwlm_accel.exit.i ], [ %add.i, %if.then68.i ], [ 0, %if.end51.i ]
   call void @llvm.lifetime.end.p0(i64 17, ptr nonnull %temp.i)
   %add.ptr23 = getelementptr inbounds nuw i8, ptr %t, i64 192
-  %call24 = call i32 @fdrExecStreaming(ptr noundef nonnull %add.ptr23, ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %len, i64 noundef %start.addr.0, ptr noundef %cb, ptr noundef %scratch, i64 noundef %groups) #8
+  %call24 = call i32 @fdrExecStreaming(ptr noundef nonnull %add.ptr23, ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %len, i64 noundef %start.addr.0, ptr noundef %cb, ptr noundef %scratch, i64 noundef %groups) #7
   br label %return
 
 return:                                           ; preds = %entry, %do_accel_streaming.exit, %if.else, %if.then11
@@ -1886,33 +1858,29 @@ declare ptr @truffleExec(<2 x i64> noundef, <2 x i64> noundef, ptr noundef, ptr 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.cttz.i32(i32, i1 immarg) #2
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #3
-
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i16 @llvm.cttz.i16(i16, i1 immarg) #6
+declare i16 @llvm.cttz.i16(i16, i1 immarg) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #6
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="corei7" "target-features"="+cmov,+crc32,+cx16,+cx8,+fxsr,+mmx,+popcnt,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="corei7" "target-features"="+cmov,+crc32,+cx16,+cx8,+fxsr,+mmx,+popcnt,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" }
 attributes #2 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #6 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #7 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #8 = { nounwind }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #5 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #6 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #7 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

@@ -252,7 +252,7 @@ define hidden void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core.
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN94_$LT$ropey..tree..node_children..inner..NodeChildrenInternal$u20$as$u20$core..clone..Clone$GT$5clone17h8d7f33ff17fe2fc6E"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([968 x i8]) align 8 dereferenceable(968) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(968) %1) unnamed_addr #3 personality ptr @rust_eh_personality {
+define void @"_ZN94_$LT$ropey..tree..node_children..inner..NodeChildrenInternal$u20$as$u20$core..clone..Clone$GT$5clone17h8d7f33ff17fe2fc6E"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([968 x i8]) align 8 dereferenceable(968) %0, ptr noalias noundef readonly align 8 dereferenceable(968) %1) unnamed_addr #3 personality ptr @rust_eh_personality {
   %3 = alloca [968 x i8], align 8
   call void @llvm.lifetime.start.p0(i64 968, ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 192
@@ -308,6 +308,8 @@ define void @"_ZN94_$LT$ropey..tree..node_children..inner..NodeChildrenInternal$
   %18 = add nuw nsw i64 %.sroa.851.062, 1
   %19 = getelementptr inbounds nuw { [4 x i64] }, ptr %4, i64 %.sroa.851.062
   %20 = getelementptr inbounds nuw { [4 x i64] }, ptr %17, i64 %.sroa.851.062
+  call void @llvm.assume(i1 true) [ "align"(ptr %19, i64 8) ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %20, i64 8) ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %19, ptr noundef nonnull align 8 dereferenceable(32) %20, i64 32, i1 false)
   %exitcond67.not = icmp eq i64 %18, %8
   br i1 %exitcond67.not, label %._crit_edge65, label %.lr.ph64

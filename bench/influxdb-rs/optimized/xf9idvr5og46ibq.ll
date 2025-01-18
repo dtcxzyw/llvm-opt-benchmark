@@ -6932,11 +6932,12 @@ define hidden void @_ZN5tokio4task5spawn11spawn_inner18panic_cold_display17hf825
   unreachable
 }
 
-; Function Attrs: mustprogress nofree norecurse nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
+; Function Attrs: mustprogress nofree norecurse nounwind nonlazybind willreturn memory(argmem: readwrite, inaccessiblemem: write) uwtable
 define hidden noundef align 8 ptr @"_ZN5tokio4util11atomic_cell19AtomicCell$LT$T$GT$4swap17h78cc2c4042e105fbE"(ptr nocapture noundef nonnull align 8 %0, ptr noalias noundef align 8 %1) unnamed_addr #10 personality ptr @rust_eh_personality {
   %3 = ptrtoint ptr %1 to i64
   %4 = atomicrmw xchg ptr %0, i64 %3 acq_rel, align 8
   %5 = inttoptr i64 %4 to ptr
+  call void @llvm.assume(i1 true) [ "align"(ptr %5, i64 8) ]
   ret ptr %5
 }
 
@@ -7499,6 +7500,7 @@ define hidden void @_ZN7tracing4span4Span3log17hb84d364d4a2ace98E.llvm.143320537
   br i1 %.not, label %19, label %13
 
 13:                                               ; preds = %5
+  call void @llvm.assume(i1 true) [ "align"(ptr %12, i64 8) ]
   %14 = load i64, ptr %12, align 8, !range !1580, !noundef !4
   %switch.tableidx = add nsw i64 %14, -1
   %15 = icmp ult i64 %switch.tableidx, 4
@@ -14725,6 +14727,8 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17he62257500e7c8da9E.exit224
   br label %938
 
 892:                                              ; preds = %888, %883
+  call void @llvm.assume(i1 true) [ "align"(ptr %885, i64 8) ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %885, i64 8) ]
   %893 = getelementptr inbounds nuw i8, ptr %.val187.i, i64 24
   call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %105), !noalias !2392
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %104), !noalias !2392
@@ -14739,6 +14743,9 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17he62257500e7c8da9E.exit224
   %897 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %104), !noalias !2392
+  call void @llvm.assume(i1 true) [ "align"(ptr %885, i64 8) ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %885, i64 8) ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %885, i64 8) ]
   %898 = cmpxchg ptr %885, i64 8, i64 0 release monotonic, align 8
   %899 = extractvalue { i64, i1 } %898, 1
   br i1 %899, label %"_ZN4core3ptr143drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$influxdb3_write..write_buffer..SegmentState$GT$$GT$17h8174c9b9ccd44ebaE.exit232.i", label %900
@@ -14815,6 +14822,9 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17he62257500e7c8da9E.exit224
   br label %924
 
 924:                                              ; preds = %935, %918
+  call void @llvm.assume(i1 true) [ "align"(ptr %885, i64 8) ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %885, i64 8) ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %885, i64 8) ]
   %925 = cmpxchg ptr %885, i64 8, i64 0 release monotonic, align 8
   %926 = extractvalue { i64, i1 } %925, 1
   br i1 %926, label %"_ZN4core3ptr143drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$influxdb3_write..write_buffer..SegmentState$GT$$GT$17h8174c9b9ccd44ebaE.exit230.i", label %927
@@ -14842,6 +14852,9 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17he62257500e7c8da9E.exit224
 930:                                              ; preds = %933, %.body227.i
   %.pn141.i = phi { ptr, i32 } [ %934, %933 ], [ %913, %.body227.i ]
   call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %103), !noalias !2392
+  call void @llvm.assume(i1 true) [ "align"(ptr %885, i64 8) ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %885, i64 8) ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %885, i64 8) ]
   %931 = cmpxchg ptr %885, i64 8, i64 0 release monotonic, align 8
   %932 = extractvalue { i64, i1 } %931, 1
   br i1 %932, label %"_ZN4core3ptr143drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$influxdb3_write..write_buffer..SegmentState$GT$$GT$17h8174c9b9ccd44ebaE.exit232.i", label %928
@@ -17386,6 +17399,7 @@ _ZN3std2io5Write9write_all17h647641b7f24fc93bE.exit.thread145.i.i: ; preds = %16
   %.sroa.10.0155.i.i = phi ptr [ %.sroa.10.8.copyload.i.i, %"_ZN4snap5write21FrameEncoder$LT$W$GT$10into_inner17h716462b46e0ba9d4E.exit.thread.i.i" ], [ %.sroa.10.0.copyload105.i.i, %"_ZN4snap5write21FrameEncoder$LT$W$GT$10into_inner17h716462b46e0ba9d4E.exit.i.i" ]
   %.sroa.8.0154.i.i = phi i32 [ %.sroa.8.8.copyload.i.i, %"_ZN4snap5write21FrameEncoder$LT$W$GT$10into_inner17h716462b46e0ba9d4E.exit.thread.i.i" ], [ %.sroa.8.0.copyload101.i.i, %"_ZN4snap5write21FrameEncoder$LT$W$GT$10into_inner17h716462b46e0ba9d4E.exit.i.i" ]
   call void @llvm.lifetime.end.p0(i64 2128, ptr nonnull %.sroa.11.i.i)
+  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.10.0155.i.i, i64 8) ]
   %224 = icmp ne ptr %.sroa.10.0155.i.i, null
   call void @llvm.assume(i1 %224)
   %225 = getelementptr inbounds nuw i8, ptr %.sroa.10.0155.i.i, i64 16
@@ -17397,6 +17411,7 @@ _ZN3std2io5Write9write_all17h647641b7f24fc93bE.exit.thread145.i.i: ; preds = %16
 
 230:                                              ; preds = %223
   %231 = call i32 @llvm.bswap.i32(i32 %.sroa.8.0154.i.i)
+  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.10.0155.i.i, i64 8) ]
   %232 = getelementptr inbounds nuw i8, ptr %.sroa.10.0155.i.i, i64 8
   %233 = load i64, ptr %232, align 8, !alias.scope !3235, !noalias !3240, !noundef !4
   %234 = icmp ult i64 %233, 4
@@ -17426,6 +17441,7 @@ _ZN3std2io5Write9write_all17h647641b7f24fc93bE.exit.thread145.i.i: ; preds = %16
 244:                                              ; preds = %243, %.noexc78.i.i
   %.pre19.i83.i.i = phi i64 [ 4, %243 ], [ %241, %.noexc78.i.i ]
   %245 = call i32 @llvm.bswap.i32(i32 %229)
+  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.10.0155.i.i, i64 8) ]
   %246 = load i64, ptr %232, align 8, !alias.scope !3255, !noalias !3260, !noundef !4
   %247 = icmp ult i64 %246, 8
   br i1 %247, label %248, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h35c17b5efee51f98E.exit.i.i.i.i84.thread.i.i"
@@ -18482,7 +18498,7 @@ attributes #6 = { inlinehint mustprogress nofree norecurse nosync nounwind nonla
 attributes #7 = { cold nonlazybind uwtable "frame-pointer"="all" "probe-stack"="inline-asm" "target-cpu"="haswell" }
 attributes #8 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "probe-stack"="inline-asm" "target-cpu"="haswell" }
 attributes #9 = { cold noreturn nonlazybind uwtable "frame-pointer"="all" "probe-stack"="inline-asm" "target-cpu"="haswell" }
-attributes #10 = { mustprogress nofree norecurse nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "probe-stack"="inline-asm" "target-cpu"="haswell" }
+attributes #10 = { mustprogress nofree norecurse nounwind nonlazybind willreturn memory(argmem: readwrite, inaccessiblemem: write) uwtable "frame-pointer"="all" "probe-stack"="inline-asm" "target-cpu"="haswell" }
 attributes #11 = { alwaysinline nonlazybind uwtable "frame-pointer"="all" "probe-stack"="inline-asm" "target-cpu"="haswell" }
 attributes #12 = { inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "probe-stack"="inline-asm" "target-cpu"="haswell" }
 attributes #13 = { alwaysinline mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "probe-stack"="inline-asm" "target-cpu"="haswell" }

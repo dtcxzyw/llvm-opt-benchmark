@@ -1346,6 +1346,7 @@ _ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.llvm.1798434116971987782.exit.
   br i1 %.not.i.i23, label %.noexc32, label %89
 
 89:                                               ; preds = %88
+  call void @llvm.assume(i1 true) [ "align"(ptr %.val.i21, i64 8) ]
   %90 = icmp ne ptr %.val.i21, null
   tail call void @llvm.assume(i1 %90)
   %91 = getelementptr inbounds nuw i8, ptr %.val.i21, i64 4
@@ -1366,7 +1367,7 @@ _ZN3std9panicking11panic_count13count_is_zero17h6863efef417c46dbE.llvm.179843411
   br i1 %97, label %_ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.llvm.1798434116971987782.exit.i.i.i.i.i25, label %98
 
 98:                                               ; preds = %.noexc31
-  store atomic i8 1, ptr %91 monotonic, align 1, !noalias !57
+  store atomic i8 1, ptr %91 monotonic, align 4, !noalias !57
   br label %_ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.llvm.1798434116971987782.exit.i.i.i.i.i25
 
 _ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.llvm.1798434116971987782.exit.i.i.i.i.i25: ; preds = %98, %.noexc31, %93, %89
@@ -1412,6 +1413,7 @@ define hidden void @"_ZN14regex_automata4util4pool5inner22PoolGuard$LT$T$C$F$GT$
 11:                                               ; preds = %4
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %13 = load ptr, ptr %12, align 8, !nonnull !4, !align !22, !noundef !4
+  call void @llvm.assume(i1 true) [ "align"(ptr %5, i64 8) ]
   tail call void @"_ZN14regex_automata4util4pool5inner17Pool$LT$T$C$F$GT$9put_value17h564825f30ee00db7E.llvm.1798434116971987782"(ptr noundef nonnull align 8 %13, ptr noalias noundef nonnull align 8 %5)
   br label %17
 
@@ -8293,6 +8295,7 @@ define hidden void @"_ZN4core3ptr193drop_in_place$LT$alloc..collections..btree..
 ; Function Attrs: nonlazybind uwtable
 define internal fastcc void @"_ZN4core3ptr195drop_in_place$LT$$LT$alloc..collections..btree..map..IntoIter$LT$K$C$V$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$$RF$str$C$just..alias..Alias$C$alloc..alloc..Global$GT$$GT$17h01538a655510f0f6E"(ptr nonnull %.0.val) unnamed_addr #5 personality ptr @rust_eh_personality {
   %1 = alloca { ptr, [2 x i64] }, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %.0.val, i64 8) ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %1)
   call void @"_ZN5alloc11collections5btree3map25IntoIter$LT$K$C$V$C$A$GT$10dying_next17h288c79a5c8281094E"(ptr noalias nocapture noundef nonnull sret({ ptr, [2 x i64] }) align 8 dereferenceable(24) %1, ptr noalias noundef nonnull align 8 dereferenceable(72) %.0.val)
   %2 = load ptr, ptr %1, align 8, !noundef !4
@@ -8904,6 +8907,7 @@ define hidden void @"_ZN4core3ptr211drop_in_place$LT$$LT$alloc..vec..into_iter..
 ; Function Attrs: nonlazybind uwtable
 define internal fastcc void @"_ZN4core3ptr212drop_in_place$LT$$LT$alloc..collections..btree..map..IntoIter$LT$K$C$V$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$alloc..string..String$C$just..summary..Recipe$C$alloc..alloc..Global$GT$$GT$17hde965486da98fe62E"(ptr nonnull %.0.val) unnamed_addr #5 personality ptr @rust_eh_personality {
   %1 = alloca { ptr, [2 x i64] }, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %.0.val, i64 8) ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %1)
   call void @"_ZN5alloc11collections5btree3map25IntoIter$LT$K$C$V$C$A$GT$10dying_next17hd1c07aad43957460E"(ptr noalias nocapture noundef nonnull sret({ ptr, [2 x i64] }) align 8 dereferenceable(24) %1, ptr noalias noundef nonnull align 8 dereferenceable(72) %.0.val)
   %2 = load ptr, ptr %1, align 8, !noundef !4
@@ -9099,6 +9103,7 @@ define hidden void @"_ZN4core3ptr217drop_in_place$LT$alloc..collections..btree..
 ; Function Attrs: nonlazybind uwtable
 define internal fastcc void @"_ZN4core3ptr218drop_in_place$LT$$LT$alloc..collections..btree..map..IntoIter$LT$K$C$V$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$$RF$str$C$alloc..rc..Rc$LT$just..recipe..Recipe$GT$$C$alloc..alloc..Global$GT$$GT$17h402b0ce8b88027f2E"(ptr nonnull %.0.val) unnamed_addr #5 {
   %1 = alloca { ptr, [2 x i64] }, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %.0.val, i64 8) ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %1)
   call void @"_ZN5alloc11collections5btree3map25IntoIter$LT$K$C$V$C$A$GT$10dying_next17h4458f064516d8c28E"(ptr noalias nocapture noundef nonnull sret({ ptr, [2 x i64] }) align 8 dereferenceable(24) %1, ptr noalias noundef nonnull align 8 dereferenceable(72) %.0.val)
   %2 = load ptr, ptr %1, align 8, !noundef !4
@@ -9153,6 +9158,7 @@ define internal fastcc void @"_ZN4core3ptr218drop_in_place$LT$$LT$alloc..collect
 ; Function Attrs: nonlazybind uwtable
 define internal fastcc void @"_ZN4core3ptr219drop_in_place$LT$$LT$alloc..collections..btree..map..IntoIter$LT$K$C$V$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$$RF$str$C$just..alias..Alias$LT$just..name..Name$GT$$C$alloc..alloc..Global$GT$$GT$17h46287d406209cc4aE"(ptr nonnull %.0.val) unnamed_addr #5 {
   %1 = alloca { ptr, [2 x i64] }, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %.0.val, i64 8) ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %1)
   call void @"_ZN5alloc11collections5btree3map25IntoIter$LT$K$C$V$C$A$GT$10dying_next17h0730d93d375e0cb9E"(ptr noalias nocapture noundef nonnull sret({ ptr, [2 x i64] }) align 8 dereferenceable(24) %1, ptr noalias noundef nonnull align 8 dereferenceable(72) %.0.val)
   %2 = load ptr, ptr %1, align 8, !noundef !4
@@ -9425,6 +9431,7 @@ define hidden void @"_ZN4core3ptr233drop_in_place$LT$$LT$alloc..collections..btr
 ; Function Attrs: nonlazybind uwtable
 define internal fastcc void @"_ZN4core3ptr235drop_in_place$LT$$LT$alloc..collections..btree..map..IntoIter$LT$K$C$V$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$$RF$str$C$just..binding..Binding$LT$just..expression..Expression$GT$$C$alloc..alloc..Global$GT$$GT$17hbce5dc869a805d16E"(ptr nonnull %.0.val) unnamed_addr #5 {
   %1 = alloca { ptr, [2 x i64] }, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %.0.val, i64 8) ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %1)
   call void @"_ZN5alloc11collections5btree3map25IntoIter$LT$K$C$V$C$A$GT$10dying_next17h58fda3a29cb07417E"(ptr noalias nocapture noundef nonnull sret({ ptr, [2 x i64] }) align 8 dereferenceable(24) %1, ptr noalias noundef nonnull align 8 dereferenceable(72) %.0.val)
   %2 = load ptr, ptr %1, align 8, !noundef !4
@@ -9929,6 +9936,7 @@ define internal fastcc void @"_ZN4core3ptr251drop_in_place$LT$alloc..vec..Vec$LT
 ; Function Attrs: nonlazybind uwtable
 define internal fastcc void @"_ZN4core3ptr254drop_in_place$LT$$LT$alloc..collections..btree..map..IntoIter$LT$K$C$V$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$$RF$str$C$just..recipe..Recipe$LT$just..unresolved_dependency..UnresolvedDependency$GT$$C$alloc..alloc..Global$GT$$GT$17hc98bb4c5df4b36d5E"(ptr nonnull %.0.val) unnamed_addr #5 {
   %1 = alloca { ptr, [2 x i64] }, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %.0.val, i64 8) ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %1)
   call void @"_ZN5alloc11collections5btree3map25IntoIter$LT$K$C$V$C$A$GT$10dying_next17hc3e4bd2e7c55acabE"(ptr noalias nocapture noundef nonnull sret({ ptr, [2 x i64] }) align 8 dereferenceable(24) %1, ptr noalias noundef nonnull align 8 dereferenceable(72) %.0.val)
   %2 = load ptr, ptr %1, align 8, !noundef !4
@@ -10111,6 +10119,7 @@ define hidden void @"_ZN4core3ptr285drop_in_place$LT$core..iter..adapters..filte
 define internal fastcc void @"_ZN4core3ptr286drop_in_place$LT$$LT$alloc..collections..btree..map..IntoIter$LT$K$C$V$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$just..namepath..Namepath$C$alloc..collections..btree..set..BTreeSet$LT$alloc..vec..Vec$LT$alloc..string..String$GT$$GT$$C$alloc..alloc..Global$GT$$GT$17hbdf2b61351faaaecE"(ptr nonnull %.0.val) unnamed_addr #5 personality ptr @rust_eh_personality {
   %1 = alloca { { { i64, [3 x i64] }, { i64, [3 x i64] } }, i64, {} }, align 8
   %2 = alloca { ptr, [2 x i64] }, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %.0.val, i64 8) ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2)
   call void @"_ZN5alloc11collections5btree3map25IntoIter$LT$K$C$V$C$A$GT$10dying_next17hfcea70d650c9f1d0E"(ptr noalias nocapture noundef nonnull sret({ ptr, [2 x i64] }) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull align 8 dereferenceable(72) %.0.val)
   %3 = load ptr, ptr %2, align 8, !noundef !4
@@ -10682,6 +10691,7 @@ define hidden void @"_ZN4core3ptr373drop_in_place$LT$regex_automata..util..pool.
 11:                                               ; preds = %4
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %13 = load ptr, ptr %12, align 8, !alias.scope !3845, !nonnull !4, !align !22, !noundef !4
+  call void @llvm.assume(i1 true) [ "align"(ptr %5, i64 8) ]
   invoke void @"_ZN14regex_automata4util4pool5inner17Pool$LT$T$C$F$GT$9put_value17h564825f30ee00db7E.llvm.1798434116971987782"(ptr noundef nonnull align 8 %13, ptr noalias noundef nonnull align 8 %5)
           to label %"_ZN4core3ptr116drop_in_place$LT$core..result..Result$LT$alloc..boxed..Box$LT$regex_automata..meta..regex..Cache$GT$$C$usize$GT$$GT$17h9368b1b5b535145fE.llvm.1798434116971987782.exit" unwind label %22
 
@@ -40070,6 +40080,7 @@ define hidden void @"_ZN99_$LT$regex_automata..util..pool..inner..PoolGuard$LT$T
 11:                                               ; preds = %4
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %13 = load ptr, ptr %12, align 8, !alias.scope !15719, !nonnull !4, !align !22, !noundef !4
+  call void @llvm.assume(i1 true) [ "align"(ptr %5, i64 8) ]
   tail call void @"_ZN14regex_automata4util4pool5inner17Pool$LT$T$C$F$GT$9put_value17h564825f30ee00db7E.llvm.1798434116971987782"(ptr noundef nonnull align 8 %13, ptr noalias noundef nonnull align 8 %5), !noalias !15719
   br label %"_ZN14regex_automata4util4pool5inner22PoolGuard$LT$T$C$F$GT$7put_imp17h5fe384b21886484dE.llvm.1798434116971987782.exit"
 

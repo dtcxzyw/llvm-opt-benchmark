@@ -89,6 +89,7 @@ _ZN9softposit7quire325Q32E26is_nar17h609ee7b07649a137E.exit.thread: ; preds = %_
 
 42:                                               ; preds = %40
   %43 = getelementptr inbounds i8, ptr %.sroa.5.0, i64 -8
+  call void @llvm.assume(i1 true) [ "align"(ptr %43, i64 8) ]
   %44 = load i64, ptr %43, align 8, !noundef !7
   %.not87 = icmp eq i64 %44, 0
   br i1 %.not87, label %40, label %45
@@ -174,7 +175,7 @@ _ZN9softposit7quire325Q32E26is_nar17h609ee7b07649a137E.exit.thread: ; preds = %_
   br i1 %76, label %77, label %78
 
 77:                                               ; preds = %75
-  call void @_ZN4core6option13unwrap_failed17hf59153bb1e2fc334E(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.4540a05e70eb433947f08bd653635aa8.3) #8
+  call void @_ZN4core6option13unwrap_failed17hf59153bb1e2fc334E(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.4540a05e70eb433947f08bd653635aa8.3) #9
   unreachable
 
 78:                                               ; preds = %75
@@ -567,8 +568,8 @@ _ZN4core3fmt9Formatter9write_fmt17h40252474da72b710E.exit: ; preds = %2, %7, %_Z
   %39 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %.val = load ptr, ptr %39, align 8, !nonnull !7, !noundef !7
   %40 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %.val1 = load ptr, ptr %40, align 8, !nonnull !7, !noundef !7
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3), !noalias !14
+  %.val1 = load ptr, ptr %40, align 8, !nonnull !7, !align !14, !noundef !7
+  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3), !noalias !15
   store ptr @anon.4540a05e70eb433947f08bd653635aa8.5, ptr %3, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 1, ptr %.sroa.5.0..sroa_idx, align 8
@@ -578,8 +579,8 @@ _ZN4core3fmt9Formatter9write_fmt17h40252474da72b710E.exit: ; preds = %2, %7, %_Z
   store i64 1, ptr %.sroa.8.0..sroa_idx, align 8
   %.sroa.10.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 32
   store ptr null, ptr %.sroa.10.0..sroa_idx, align 8
-  %41 = call noundef zeroext i1 @_ZN4core3fmt5write17hd9a8d7d029f9ea1aE(ptr noundef nonnull align 1 %.val, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %.val1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %3), !noalias !14
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3), !noalias !14
+  %41 = call noundef zeroext i1 @_ZN4core3fmt5write17hd9a8d7d029f9ea1aE(ptr noundef nonnull align 1 %.val, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %.val1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %3), !noalias !15
+  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3), !noalias !15
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
   ret i1 %41
@@ -609,8 +610,11 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #6
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #6
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
+declare void @llvm.assume(i1 noundef) #7
+
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
 
 attributes #0 = { nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
@@ -619,8 +623,9 @@ attributes #3 = { mustprogress nofree norecurse nosync nounwind nonlazybind will
 attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #5 = { cold noreturn nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #7 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #8 = { noreturn }
+attributes #7 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #8 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #9 = { noreturn }
 
 !llvm.module.flags = !{!0, !1, !2}
 !llvm.ident = !{!3}
@@ -639,6 +644,7 @@ attributes #8 = { noreturn }
 !11 = !{!12}
 !12 = distinct !{!12, !13, !"_ZN9softposit7quire325Q32E26is_nar17h609ee7b07649a137E: argument 0"}
 !13 = distinct !{!13, !"_ZN9softposit7quire325Q32E26is_nar17h609ee7b07649a137E"}
-!14 = !{!15}
-!15 = distinct !{!15, !16, !"_ZN4core3fmt9Formatter9write_fmt17h40252474da72b710E: argument 0"}
-!16 = distinct !{!16, !"_ZN4core3fmt9Formatter9write_fmt17h40252474da72b710E"}
+!14 = !{i64 8}
+!15 = !{!16}
+!16 = distinct !{!16, !17, !"_ZN4core3fmt9Formatter9write_fmt17h40252474da72b710E: argument 0"}
+!17 = distinct !{!17, !"_ZN4core3fmt9Formatter9write_fmt17h40252474da72b710E"}
