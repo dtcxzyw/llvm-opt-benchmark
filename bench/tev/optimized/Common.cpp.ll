@@ -3539,11 +3539,12 @@ define linkonce_odr dso_local ptr @_ZN4utf815replace_invalidINSt3__111__wrap_ite
 
 17:                                               ; preds = %13
   %18 = icmp eq i8 %15, 44
-  br i1 %18, label %.thread32.i, label %47
+  br i1 %18, label %.thread40.i, label %47
 
 .thread.i:                                        ; preds = %13
   %19 = load i64, ptr %.sroa.016.026, align 8
-  %20 = and i64 %19, -2
+  %.fr.i = freeze i64 %19
+  %20 = and i64 %.fr.i, -2
   %21 = add i64 %20, -1
   %22 = load i64, ptr %10, align 8
   %23 = icmp eq i64 %22, %21
@@ -3564,42 +3565,44 @@ define linkonce_odr dso_local ptr @_ZN4utf815replace_invalidINSt3__111__wrap_ite
 26:                                               ; preds = %.critedge.i
   %27 = load ptr, ptr %11, align 8
   %28 = icmp ult i64 %21, 9223372036854775795
-  br i1 %28, label %.thread32.i, label %.thread40.i
+  br i1 %28, label %30, label %.thread45.i
 
-.thread40.i:                                      ; preds = %26
+.thread45.i:                                      ; preds = %26
   %29 = call noalias noundef nonnull dereferenceable(18446744073709551607) ptr @_Znwm(i64 noundef -9) #32
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %29, ptr noundef nonnull align 1 dereferenceable(1) %27, i64 %21, i1 false)
   br label %40
 
-.thread32.i:                                      ; preds = %17, %26
-  %30 = phi ptr [ %27, %26 ], [ %12, %17 ]
-  %.013233039.i = phi i64 [ %21, %26 ], [ 22, %17 ]
-  %31 = add nuw nsw i64 %.013233039.i, 1
-  %32 = shl nuw i64 %.013233039.i, 1
-  %.sroa.speculated.i.i.i = call i64 @llvm.umax.i64(i64 %31, i64 %32)
-  %33 = or i64 %.sroa.speculated.i.i.i, 7
-  %34 = icmp eq i64 %33, 23
-  %35 = add nuw i64 %33, 1
-  %36 = select i1 %34, i64 25, i64 %35
-  %.inv.i.inv.i.i.i = icmp ult i64 %.sroa.speculated.i.i.i, 23
-  %37 = select i1 %.inv.i.inv.i.i.i, i64 23, i64 %36
-  %38 = icmp eq i64 %.013233039.i, 22
+30:                                               ; preds = %26
+  %31 = shl nuw i64 %21, 1
+  %32 = or i64 %31, 7
+  %33 = icmp eq i64 %32, 23
+  %34 = add nuw i64 %32, 1
+  %35 = select i1 %33, i64 25, i64 %34
+  %.inv.i.inv.i.i.i = icmp samesign ult i64 %21, 12
+  %spec.select.i = select i1 %.inv.i.inv.i.i.i, i64 23, i64 %35
+  br label %.thread40.i
+
+.thread40.i:                                      ; preds = %17, %30
+  %.01323303944.i = phi i64 [ %21, %30 ], [ 22, %17 ]
+  %36 = phi ptr [ %27, %30 ], [ %12, %17 ]
+  %37 = phi i64 [ %spec.select.i, %30 ], [ 48, %17 ]
+  %38 = icmp eq i64 %.01323303944.i, 22
   %39 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %37) #32
-  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %39, ptr align 1 %30, i64 %.013233039.i, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %39, ptr align 1 %36, i64 %.01323303944.i, i1 false)
   br i1 %38, label %_ZNSt3__112basic_stringIDuNS_11char_traitsIDuEENS_9allocatorIDuEEE25__grow_by_without_replaceB8ne190000Emmmmmm.exit.i, label %40
 
-40:                                               ; preds = %.thread32.i, %.thread40.i
-  %41 = phi ptr [ %29, %.thread40.i ], [ %39, %.thread32.i ]
-  %42 = phi i64 [ -9, %.thread40.i ], [ %37, %.thread32.i ]
-  %.01323303843.i = phi i64 [ %21, %.thread40.i ], [ %.013233039.i, %.thread32.i ]
-  %43 = phi ptr [ %27, %.thread40.i ], [ %30, %.thread32.i ]
+40:                                               ; preds = %.thread40.i, %.thread45.i
+  %41 = phi ptr [ %29, %.thread45.i ], [ %39, %.thread40.i ]
+  %42 = phi i64 [ -9, %.thread45.i ], [ %37, %.thread40.i ]
+  %.01323303848.i = phi i64 [ %21, %.thread45.i ], [ %.01323303944.i, %.thread40.i ]
+  %43 = phi ptr [ %27, %.thread45.i ], [ %36, %.thread40.i ]
   call void @_ZdlPv(ptr noundef %43) #30
   br label %_ZNSt3__112basic_stringIDuNS_11char_traitsIDuEENS_9allocatorIDuEEE25__grow_by_without_replaceB8ne190000Emmmmmm.exit.i
 
-_ZNSt3__112basic_stringIDuNS_11char_traitsIDuEENS_9allocatorIDuEEE25__grow_by_without_replaceB8ne190000Emmmmmm.exit.i: ; preds = %40, %.thread32.i
-  %44 = phi ptr [ %39, %.thread32.i ], [ %41, %40 ]
-  %45 = phi i64 [ %37, %.thread32.i ], [ %42, %40 ]
-  %.01323303844.i = phi i64 [ 22, %.thread32.i ], [ %.01323303843.i, %40 ]
+_ZNSt3__112basic_stringIDuNS_11char_traitsIDuEENS_9allocatorIDuEEE25__grow_by_without_replaceB8ne190000Emmmmmm.exit.i: ; preds = %40, %.thread40.i
+  %44 = phi ptr [ %39, %.thread40.i ], [ %41, %40 ]
+  %45 = phi i64 [ %37, %.thread40.i ], [ %42, %40 ]
+  %.01323303849.i = phi i64 [ 22, %.thread40.i ], [ %.01323303848.i, %40 ]
   store ptr %44, ptr %11, align 8
   %46 = or i64 %45, 1
   store i64 %46, ptr %.sroa.016.026, align 8
@@ -3614,7 +3617,7 @@ _ZNSt3__112basic_stringIDuNS_11char_traitsIDuEENS_9allocatorIDuEEE25__grow_by_wi
 
 .thread25.i:                                      ; preds = %.thread.i..thread25.i_crit_edge, %_ZNSt3__112basic_stringIDuNS_11char_traitsIDuEENS_9allocatorIDuEEE25__grow_by_without_replaceB8ne190000Emmmmmm.exit.i
   %51 = phi ptr [ %44, %_ZNSt3__112basic_stringIDuNS_11char_traitsIDuEENS_9allocatorIDuEEE25__grow_by_without_replaceB8ne190000Emmmmmm.exit.i ], [ %.pre, %.thread.i..thread25.i_crit_edge ]
-  %.01322.i = phi i64 [ %.01323303844.i, %_ZNSt3__112basic_stringIDuNS_11char_traitsIDuEENS_9allocatorIDuEEE25__grow_by_without_replaceB8ne190000Emmmmmm.exit.i ], [ %22, %.thread.i..thread25.i_crit_edge ]
+  %.01322.i = phi i64 [ %.01323303849.i, %_ZNSt3__112basic_stringIDuNS_11char_traitsIDuEENS_9allocatorIDuEEE25__grow_by_without_replaceB8ne190000Emmmmmm.exit.i ], [ %22, %.thread.i..thread25.i_crit_edge ]
   %52 = add i64 %.01322.i, 1
   store i64 %52, ptr %10, align 8
   br label %_ZNSt3__112basic_stringIDuNS_11char_traitsIDuEENS_9allocatorIDuEEE9push_backEDu.exit
@@ -3937,11 +3940,12 @@ define linkonce_odr dso_local void @_ZNSt3__112basic_stringIDuNS_11char_traitsID
 
 5:                                                ; preds = %2
   %6 = icmp eq i8 %3, 44
-  br i1 %6, label %.thread32, label %43
+  br i1 %6, label %.thread40, label %43
 
 .thread:                                          ; preds = %2
   %7 = load i64, ptr %0, align 8
-  %8 = and i64 %7, -2
+  %.fr = freeze i64 %7
+  %8 = and i64 %.fr, -2
   %9 = add i64 %8, -1
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load i64, ptr %10, align 8
@@ -3952,10 +3956,10 @@ define linkonce_odr dso_local void @_ZNSt3__112basic_stringIDuNS_11char_traitsID
   %13 = icmp eq i64 %8, -8
   br i1 %13, label %16, label %17
 
-.thread32:                                        ; preds = %5
+.thread40:                                        ; preds = %5
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  br label %22
+  br label %28
 
 16:                                               ; preds = %.critedge
   tail call void @_ZNKSt3__112basic_stringIDuNS_11char_traitsIDuEENS_9allocatorIDuEEE20__throw_length_errorB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #31
@@ -3965,45 +3969,47 @@ define linkonce_odr dso_local void @_ZNSt3__112basic_stringIDuNS_11char_traitsID
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %19 = load ptr, ptr %18, align 8
   %20 = icmp ult i64 %9, 9223372036854775795
-  br i1 %20, label %22, label %.thread40
+  br i1 %20, label %22, label %.thread45
 
-.thread40:                                        ; preds = %17
+.thread45:                                        ; preds = %17
   %21 = tail call noalias noundef nonnull dereferenceable(18446744073709551607) ptr @_Znwm(i64 noundef -9) #32
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %21, ptr noundef nonnull align 1 dereferenceable(1) %19, i64 %9, i1 false)
   br label %34
 
-22:                                               ; preds = %17, %.thread32
-  %23 = phi ptr [ %15, %.thread32 ], [ %19, %17 ]
-  %24 = phi ptr [ %14, %.thread32 ], [ %18, %17 ]
-  %.013233039 = phi i64 [ 22, %.thread32 ], [ %9, %17 ]
-  %25 = add nuw nsw i64 %.013233039, 1
-  %26 = shl nuw i64 %.013233039, 1
-  %.sroa.speculated.i.i = tail call i64 @llvm.umax.i64(i64 %25, i64 %26)
-  %27 = or i64 %.sroa.speculated.i.i, 7
-  %28 = icmp eq i64 %27, 23
-  %29 = add nuw i64 %27, 1
-  %30 = select i1 %28, i64 25, i64 %29
-  %.inv.i.inv.i.i = icmp ult i64 %.sroa.speculated.i.i, 23
-  %31 = select i1 %.inv.i.inv.i.i, i64 23, i64 %30
-  %32 = icmp eq i64 %.013233039, 22
+22:                                               ; preds = %17
+  %23 = shl nuw i64 %9, 1
+  %24 = or i64 %23, 7
+  %25 = icmp eq i64 %24, 23
+  %26 = add nuw i64 %24, 1
+  %27 = select i1 %25, i64 25, i64 %26
+  %.inv.i.inv.i.i = icmp ult i64 %9, 12
+  %spec.select = select i1 %.inv.i.inv.i.i, i64 23, i64 %27
+  br label %28
+
+28:                                               ; preds = %22, %.thread40
+  %.01323303944 = phi i64 [ 22, %.thread40 ], [ %9, %22 ]
+  %29 = phi ptr [ %14, %.thread40 ], [ %18, %22 ]
+  %30 = phi ptr [ %15, %.thread40 ], [ %19, %22 ]
+  %31 = phi i64 [ 48, %.thread40 ], [ %spec.select, %22 ]
+  %32 = icmp eq i64 %.01323303944, 22
   %33 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %31) #32
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %33, ptr align 1 %23, i64 %.013233039, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %33, ptr align 1 %30, i64 %.01323303944, i1 false)
   br i1 %32, label %_ZNSt3__112basic_stringIDuNS_11char_traitsIDuEENS_9allocatorIDuEEE25__grow_by_without_replaceB8ne190000Emmmmmm.exit, label %34
 
-34:                                               ; preds = %.thread40, %22
-  %35 = phi ptr [ %21, %.thread40 ], [ %33, %22 ]
-  %36 = phi i64 [ -9, %.thread40 ], [ %31, %22 ]
-  %.01323303843 = phi i64 [ %9, %.thread40 ], [ %.013233039, %22 ]
-  %37 = phi ptr [ %18, %.thread40 ], [ %24, %22 ]
-  %38 = phi ptr [ %19, %.thread40 ], [ %23, %22 ]
+34:                                               ; preds = %.thread45, %28
+  %35 = phi ptr [ %21, %.thread45 ], [ %33, %28 ]
+  %36 = phi i64 [ -9, %.thread45 ], [ %31, %28 ]
+  %.01323303848 = phi i64 [ %9, %.thread45 ], [ %.01323303944, %28 ]
+  %37 = phi ptr [ %18, %.thread45 ], [ %29, %28 ]
+  %38 = phi ptr [ %19, %.thread45 ], [ %30, %28 ]
   tail call void @_ZdlPv(ptr noundef %38) #30
   br label %_ZNSt3__112basic_stringIDuNS_11char_traitsIDuEENS_9allocatorIDuEEE25__grow_by_without_replaceB8ne190000Emmmmmm.exit
 
-_ZNSt3__112basic_stringIDuNS_11char_traitsIDuEENS_9allocatorIDuEEE25__grow_by_without_replaceB8ne190000Emmmmmm.exit: ; preds = %22, %34
-  %39 = phi ptr [ %33, %22 ], [ %35, %34 ]
-  %40 = phi i64 [ %31, %22 ], [ %36, %34 ]
-  %.01323303844 = phi i64 [ 22, %22 ], [ %.01323303843, %34 ]
-  %41 = phi ptr [ %24, %22 ], [ %37, %34 ]
+_ZNSt3__112basic_stringIDuNS_11char_traitsIDuEENS_9allocatorIDuEEE25__grow_by_without_replaceB8ne190000Emmmmmm.exit: ; preds = %28, %34
+  %39 = phi ptr [ %33, %28 ], [ %35, %34 ]
+  %40 = phi i64 [ %31, %28 ], [ %36, %34 ]
+  %.01323303849 = phi i64 [ 22, %28 ], [ %.01323303848, %34 ]
+  %41 = phi ptr [ %29, %28 ], [ %37, %34 ]
   store ptr %39, ptr %41, align 8
   %42 = or i64 %40, 1
   store i64 %42, ptr %0, align 8
@@ -4018,7 +4024,7 @@ _ZNSt3__112basic_stringIDuNS_11char_traitsIDuEENS_9allocatorIDuEEE25__grow_by_wi
   br label %52
 
 .thread25:                                        ; preds = %.thread, %_ZNSt3__112basic_stringIDuNS_11char_traitsIDuEENS_9allocatorIDuEEE25__grow_by_without_replaceB8ne190000Emmmmmm.exit
-  %.01322 = phi i64 [ %.01323303844, %_ZNSt3__112basic_stringIDuNS_11char_traitsIDuEENS_9allocatorIDuEEE25__grow_by_without_replaceB8ne190000Emmmmmm.exit ], [ %11, %.thread ]
+  %.01322 = phi i64 [ %.01323303849, %_ZNSt3__112basic_stringIDuNS_11char_traitsIDuEENS_9allocatorIDuEEE25__grow_by_without_replaceB8ne190000Emmmmmm.exit ], [ %11, %.thread ]
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %49 = load ptr, ptr %48, align 8
   %50 = add i64 %.01322, 1
