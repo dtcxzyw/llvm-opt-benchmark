@@ -474,25 +474,25 @@ entry:
 for.body.i.i:                                     ; preds = %if.end12.i.i, %entry
   %__trip_count.089.i.i = phi i64 [ %dec.i.i, %if.end12.i.i ], [ 33, %entry ]
   %__first.addr.088.i.i = phi ptr [ %incdec.ptr13.i.i, %if.end12.i.i ], [ @_ZN5folly6detail12_GLOBAL__N_16errorsE, %entry ]
-  %__first.addr.0.val64.i.i = load i32, ptr %__first.addr.088.i.i, align 8
+  %__first.addr.0.val64.i.i = load i32, ptr %__first.addr.088.i.i, align 16
   %cmp.i.i.i.i = icmp eq i32 %__first.addr.0.val64.i.i, %__pred.coerce
   br i1 %cmp.i.i.i.i, label %"_ZSt9__find_ifIPKSt4pairIiPKcEN9__gnu_cxx5__ops10_Iter_predIZN5folly6detail12_GLOBAL__N_123safe_assert_terminate_vEPKNSA_15safe_assert_argEiP13__va_list_tagE3$_0EEET_SJ_SJ_T0_.exit", label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %for.body.i.i
   %incdec.ptr.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.088.i.i, i64 16
-  %incdec.ptr.val.i.i = load i32, ptr %incdec.ptr.i.i, align 8
+  %incdec.ptr.val.i.i = load i32, ptr %incdec.ptr.i.i, align 16
   %cmp.i.i65.i.i = icmp eq i32 %incdec.ptr.val.i.i, %__pred.coerce
   br i1 %cmp.i.i65.i.i, label %"_ZSt9__find_ifIPKSt4pairIiPKcEN9__gnu_cxx5__ops10_Iter_predIZN5folly6detail12_GLOBAL__N_123safe_assert_terminate_vEPKNSA_15safe_assert_argEiP13__va_list_tagE3$_0EEET_SJ_SJ_T0_.exit.loopexit.split.loop.exit", label %if.end4.i.i
 
 if.end4.i.i:                                      ; preds = %if.end.i.i
   %incdec.ptr5.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.088.i.i, i64 32
-  %incdec.ptr5.val.i.i = load i32, ptr %incdec.ptr5.i.i, align 8
+  %incdec.ptr5.val.i.i = load i32, ptr %incdec.ptr5.i.i, align 16
   %cmp.i.i66.i.i = icmp eq i32 %incdec.ptr5.val.i.i, %__pred.coerce
   br i1 %cmp.i.i66.i.i, label %"_ZSt9__find_ifIPKSt4pairIiPKcEN9__gnu_cxx5__ops10_Iter_predIZN5folly6detail12_GLOBAL__N_123safe_assert_terminate_vEPKNSA_15safe_assert_argEiP13__va_list_tagE3$_0EEET_SJ_SJ_T0_.exit.loopexit.split.loop.exit13", label %if.end8.i.i
 
 if.end8.i.i:                                      ; preds = %if.end4.i.i
   %incdec.ptr9.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.088.i.i, i64 48
-  %incdec.ptr9.val.i.i = load i32, ptr %incdec.ptr9.i.i, align 8
+  %incdec.ptr9.val.i.i = load i32, ptr %incdec.ptr9.i.i, align 16
   %cmp.i.i67.i.i = icmp eq i32 %incdec.ptr9.val.i.i, %__pred.coerce
   br i1 %cmp.i.i67.i.i, label %"_ZSt9__find_ifIPKSt4pairIiPKcEN9__gnu_cxx5__ops10_Iter_predIZN5folly6detail12_GLOBAL__N_123safe_assert_terminate_vEPKNSA_15safe_assert_argEiP13__va_list_tagE3$_0EEET_SJ_SJ_T0_.exit.loopexit.split.loop.exit15", label %if.end12.i.i
 

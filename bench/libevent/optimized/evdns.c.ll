@@ -4642,7 +4642,7 @@ for.body:                                         ; preds = %entry, %for.body
   %arrayidx2 = getelementptr inbounds nuw [17 x i8], ptr @.str.5, i64 0, i64 %idxprom1
   %1 = load i8, ptr %arrayidx2, align 1
   %incdec.ptr = getelementptr inbounds nuw i8, ptr %cp.024, i64 1
-  store i8 %1, ptr %cp.024, align 1
+  store i8 %1, ptr %cp.024, align 4
   %incdec.ptr3 = getelementptr inbounds nuw i8, ptr %cp.024, i64 2
   store i8 46, ptr %incdec.ptr, align 1
   %shr = lshr i32 %conv, 4
@@ -4650,7 +4650,7 @@ for.body:                                         ; preds = %entry, %for.body
   %arrayidx6 = getelementptr inbounds nuw [17 x i8], ptr @.str.5, i64 0, i64 %idxprom5
   %2 = load i8, ptr %arrayidx6, align 1
   %incdec.ptr7 = getelementptr inbounds nuw i8, ptr %cp.024, i64 3
-  store i8 %2, ptr %incdec.ptr3, align 1
+  store i8 %2, ptr %incdec.ptr3, align 2
   %incdec.ptr8 = getelementptr inbounds nuw i8, ptr %cp.024, i64 4
   store i8 46, ptr %incdec.ptr7, align 1
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
@@ -4658,7 +4658,7 @@ for.body:                                         ; preds = %entry, %for.body
   br i1 %cmp.not, label %do.end10, label %for.body, !llvm.loop !28
 
 do.end10:                                         ; preds = %for.body
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(9) %incdec.ptr8, ptr noundef nonnull align 1 dereferenceable(9) @.str.6, i64 9, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(9) %incdec.ptr8, ptr noundef nonnull align 1 dereferenceable(9) @.str.6, i64 9, i1 false)
   %call = tail call ptr @event_mm_calloc_(i64 noundef 1, i64 noundef 160) #18
   %cmp11 = icmp eq ptr %call, null
   br i1 %cmp11, label %return, label %if.end

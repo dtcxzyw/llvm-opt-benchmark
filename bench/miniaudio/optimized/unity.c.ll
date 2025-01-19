@@ -104227,7 +104227,7 @@ while.end.i473.i:                                 ; preds = %while.body.i481.pre
 ma_dr_mp3_bs_get_bits.exit492.i:                  ; preds = %while.end.i473.i, %ma_dr_mp3_bs_get_bits.exit458.i
   %retval.0.i480.i = phi i8 [ %141, %while.end.i473.i ], [ 0, %ma_dr_mp3_bs_get_bits.exit458.i ]
   %arrayidx109.i = getelementptr inbounds nuw i8, ptr %gr.addr.0.i, i64 26
-  store i8 %retval.0.i480.i, ptr %arrayidx109.i, align 1
+  store i8 %retval.0.i480.i, ptr %arrayidx109.i, align 2
   %add3.i494.i = add nsw i32 %add3.i256.i, 23
   %cmp.i496.i = icmp sgt i32 %add3.i494.i, %mul.i136
   br i1 %cmp.i496.i, label %ma_dr_mp3_bs_get_bits.exit526.i, label %if.end.i497.i
@@ -104391,7 +104391,7 @@ ma_dr_mp3_bs_get_bits.exit628.i:                  ; preds = %while.end.i609.i, %
   %arrayidx125.i = getelementptr inbounds nuw i8, ptr %gr.addr.0.i, i64 23
   store i8 %retval.0.i616.i, ptr %arrayidx125.i, align 1
   %arrayidx127.i = getelementptr inbounds nuw i8, ptr %gr.addr.0.i, i64 24
-  store i8 -1, ptr %arrayidx127.i, align 2
+  store i8 -1, ptr %arrayidx127.i, align 8
   br label %if.end128.i
 
 if.end128.i:                                      ; preds = %ma_dr_mp3_bs_get_bits.exit628.i, %ma_dr_mp3_bs_get_bits.exit526.i
@@ -104406,7 +104406,7 @@ if.end128.i:                                      ; preds = %ma_dr_mp3_bs_get_bi
   %153 = trunc i32 %shr132.i to i8
   %conv134.i = and i8 %153, 31
   %arrayidx136.i = getelementptr inbounds nuw i8, ptr %gr.addr.0.i, i64 20
-  store i8 %conv134.i, ptr %arrayidx136.i, align 1
+  store i8 %conv134.i, ptr %arrayidx136.i, align 4
   %154 = trunc i32 %tables.0.i to i8
   %conv138.i = and i8 %154, 31
   %arrayidx140.i = getelementptr inbounds nuw i8, ptr %gr.addr.0.i, i64 21
@@ -107557,7 +107557,7 @@ for.body.i27:                                     ; preds = %for.body.i27, %for.
   %arrayidx101.i = getelementptr i8, ptr %arrayidx39.i, i64 -244
   store float %71, ptr %arrayidx101.i, align 4
   %incdec.ptr.i31 = getelementptr inbounds nuw i8, ptr %w.0234.i, i64 4
-  %72 = load float, ptr %w.0234.i, align 4
+  %72 = load float, ptr %w.0234.i, align 16
   %vecinit.i443.i = insertelement <4 x float> poison, float %72, i64 0
   %vecinit3.i446.i = shufflevector <4 x float> %vecinit.i443.i, <4 x float> poison, <4 x i32> zeroinitializer
   %incdec.ptr103.i = getelementptr inbounds nuw i8, ptr %w.0234.i, i64 8
@@ -107574,7 +107574,7 @@ for.body.i27:                                     ; preds = %for.body.i27, %for.
   %mul.i530.i = fmul <4 x float> %75, %vecinit3.i440.i
   %sub.i654.i = fsub <4 x float> %mul.i533.i, %mul.i530.i
   %incdec.ptr122.i = getelementptr inbounds nuw i8, ptr %w.0234.i, i64 12
-  %76 = load float, ptr %incdec.ptr103.i, align 4
+  %76 = load float, ptr %incdec.ptr103.i, align 8
   %vecinit.i431.i = insertelement <4 x float> poison, float %76, i64 0
   %vecinit3.i434.i = shufflevector <4 x float> %vecinit.i431.i, <4 x float> poison, <4 x i32> zeroinitializer
   %incdec.ptr125.i = getelementptr inbounds nuw i8, ptr %w.0234.i, i64 16
@@ -107594,7 +107594,7 @@ for.body.i27:                                     ; preds = %for.body.i27, %for.
   %sub.i651.i = fsub <4 x float> %mul.i521.i, %mul.i518.i
   %add.i622.i = fadd <4 x float> %sub.i654.i, %sub.i651.i
   %incdec.ptr148.i = getelementptr inbounds nuw i8, ptr %w.0234.i, i64 20
-  %80 = load float, ptr %incdec.ptr125.i, align 4
+  %80 = load float, ptr %incdec.ptr125.i, align 16
   %vecinit.i419.i = insertelement <4 x float> poison, float %80, i64 0
   %vecinit3.i422.i = shufflevector <4 x float> %vecinit.i419.i, <4 x float> poison, <4 x i32> zeroinitializer
   %incdec.ptr151.i = getelementptr inbounds nuw i8, ptr %w.0234.i, i64 24
@@ -107614,7 +107614,7 @@ for.body.i27:                                     ; preds = %for.body.i27, %for.
   %sub.i648.i = fsub <4 x float> %mul.i509.i, %mul.i506.i
   %add.i613.i = fadd <4 x float> %add.i622.i, %sub.i648.i
   %incdec.ptr174.i = getelementptr inbounds nuw i8, ptr %w.0234.i, i64 28
-  %84 = load float, ptr %incdec.ptr151.i, align 4
+  %84 = load float, ptr %incdec.ptr151.i, align 8
   %vecinit.i407.i = insertelement <4 x float> poison, float %84, i64 0
   %vecinit3.i410.i = shufflevector <4 x float> %vecinit.i407.i, <4 x float> poison, <4 x i32> zeroinitializer
   %incdec.ptr177.i = getelementptr inbounds nuw i8, ptr %w.0234.i, i64 32
@@ -107634,7 +107634,7 @@ for.body.i27:                                     ; preds = %for.body.i27, %for.
   %sub.i645.i = fsub <4 x float> %mul.i497.i, %mul.i494.i
   %add.i604.i = fadd <4 x float> %add.i613.i, %sub.i645.i
   %incdec.ptr200.i = getelementptr inbounds nuw i8, ptr %w.0234.i, i64 36
-  %88 = load float, ptr %incdec.ptr177.i, align 4
+  %88 = load float, ptr %incdec.ptr177.i, align 16
   %vecinit.i395.i = insertelement <4 x float> poison, float %88, i64 0
   %vecinit3.i398.i = shufflevector <4 x float> %vecinit.i395.i, <4 x float> poison, <4 x i32> zeroinitializer
   %incdec.ptr203.i = getelementptr inbounds nuw i8, ptr %w.0234.i, i64 40
@@ -107654,7 +107654,7 @@ for.body.i27:                                     ; preds = %for.body.i27, %for.
   %sub.i642.i = fsub <4 x float> %mul.i485.i, %mul.i482.i
   %add.i595.i = fadd <4 x float> %add.i604.i, %sub.i642.i
   %incdec.ptr226.i = getelementptr inbounds nuw i8, ptr %w.0234.i, i64 44
-  %92 = load float, ptr %incdec.ptr203.i, align 4
+  %92 = load float, ptr %incdec.ptr203.i, align 8
   %vecinit.i383.i = insertelement <4 x float> poison, float %92, i64 0
   %vecinit3.i386.i = shufflevector <4 x float> %vecinit.i383.i, <4 x float> poison, <4 x i32> zeroinitializer
   %incdec.ptr229.i = getelementptr inbounds nuw i8, ptr %w.0234.i, i64 48
@@ -107674,7 +107674,7 @@ for.body.i27:                                     ; preds = %for.body.i27, %for.
   %sub.i639.i = fsub <4 x float> %mul.i473.i, %mul.i470.i
   %add.i586.i = fadd <4 x float> %add.i595.i, %sub.i639.i
   %incdec.ptr252.i = getelementptr inbounds nuw i8, ptr %w.0234.i, i64 52
-  %96 = load float, ptr %incdec.ptr229.i, align 4
+  %96 = load float, ptr %incdec.ptr229.i, align 16
   %vecinit.i371.i = insertelement <4 x float> poison, float %96, i64 0
   %vecinit3.i374.i = shufflevector <4 x float> %vecinit.i371.i, <4 x float> poison, <4 x i32> zeroinitializer
   %incdec.ptr255.i = getelementptr inbounds nuw i8, ptr %w.0234.i, i64 56
@@ -107694,7 +107694,7 @@ for.body.i27:                                     ; preds = %for.body.i27, %for.
   %sub.i636.i = fsub <4 x float> %mul.i461.i, %mul.i458.i
   %add.i577.i = fadd <4 x float> %add.i586.i, %sub.i636.i
   %incdec.ptr278.i = getelementptr inbounds nuw i8, ptr %w.0234.i, i64 60
-  %100 = load float, ptr %incdec.ptr255.i, align 4
+  %100 = load float, ptr %incdec.ptr255.i, align 8
   %vecinit.i359.i = insertelement <4 x float> poison, float %100, i64 0
   %vecinit3.i362.i = shufflevector <4 x float> %vecinit.i359.i, <4 x float> poison, <4 x i32> zeroinitializer
   %incdec.ptr281.i = getelementptr inbounds nuw i8, ptr %w.0234.i, i64 64
