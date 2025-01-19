@@ -16745,7 +16745,6 @@ _ZN17QArrayDataPointerIP7IOGraphE17allocatedCapacityEv.exit.i: ; preds = %22, %1
   %25 = phi i64 [ %24, %22 ], [ 0, %18 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
   %26 = call noalias noundef ptr @_ZN10QArrayData8allocateEPPS_xxxNS_16AllocationOptionE(ptr noundef nonnull %2, i64 noundef 8, i64 noundef 8, i64 noundef %25, i32 noundef 1) #27
-  call void @llvm.assume(i1 true) [ "align"(ptr %26, i64 8) ]
   %27 = load ptr, ptr %2, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
   %28 = load ptr, ptr %6, align 8
@@ -20801,7 +20800,6 @@ _ZN17QArrayDataPointerI12QCPGraphDataE17allocatedCapacityEv.exit.i.i: ; preds = 
   %38 = phi i64 [ %37, %35 ], [ 0, %31 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   %39 = call noalias noundef ptr @_ZN10QArrayData8allocateEPPS_xxxNS_16AllocationOptionE(ptr noundef nonnull %3, i64 noundef 16, i64 noundef 8, i64 noundef %38, i32 noundef 1) #27
-  call void @llvm.assume(i1 true) [ "align"(ptr %39, i64 8) ]
   %40 = load ptr, ptr %3, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   %41 = load ptr, ptr %28, align 8
@@ -20906,7 +20904,6 @@ _ZN17QArrayDataPointerI11QCPBarsDataE17allocatedCapacityEv.exit.i.i: ; preds = %
   %81 = phi i64 [ %80, %78 ], [ 0, %74 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
   %82 = call noalias noundef ptr @_ZN10QArrayData8allocateEPPS_xxxNS_16AllocationOptionE(ptr noundef nonnull %2, i64 noundef 16, i64 noundef 8, i64 noundef %81, i32 noundef 1) #27
-  call void @llvm.assume(i1 true) [ "align"(ptr %82, i64 8) ]
   %83 = load ptr, ptr %2, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
   %84 = load ptr, ptr %71, align 8
@@ -21021,7 +21018,6 @@ _ZN17QArrayDataPointerI12QCPGraphDataE17allocatedCapacityEv.exit.i.i: ; preds = 
   %28 = phi i64 [ %27, %25 ], [ 0, %21 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
   %29 = call noalias noundef ptr @_ZN10QArrayData8allocateEPPS_xxxNS_16AllocationOptionE(ptr noundef nonnull %6, i64 noundef 16, i64 noundef 8, i64 noundef %28, i32 noundef 1) #27
-  call void @llvm.assume(i1 true) [ "align"(ptr %29, i64 8) ]
   %30 = load ptr, ptr %6, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   %31 = load ptr, ptr %18, align 8
@@ -21145,7 +21141,6 @@ _ZN17QArrayDataPointerI11QCPBarsDataE17allocatedCapacityEv.exit.i.i: ; preds = %
   %82 = phi i64 [ %81, %79 ], [ 0, %75 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   %83 = call noalias noundef ptr @_ZN10QArrayData8allocateEPPS_xxxNS_16AllocationOptionE(ptr noundef nonnull %5, i64 noundef 16, i64 noundef 8, i64 noundef %82, i32 noundef 1) #27
-  call void @llvm.assume(i1 true) [ "align"(ptr %83, i64 8) ]
   %84 = load ptr, ptr %5, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   %85 = load ptr, ptr %72, align 8
@@ -27150,7 +27145,6 @@ _ZNK17QArrayDataPointerI7QStringE22constAllocatedCapacityEv.exit31: ; preds = %_
   %30 = zext i1 %29 to i32
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   %31 = call noalias noundef ptr @_ZN10QArrayData8allocateEPPS_xxxNS_16AllocationOptionE(ptr noundef nonnull %5, i64 noundef 24, i64 noundef 8, i64 noundef %27, i32 noundef %30) #27
-  call void @llvm.assume(i1 true) [ "align"(ptr %31, i64 8) ]
   %32 = load ptr, ptr %5, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   %.not = icmp ne ptr %32, null
@@ -28174,7 +28168,6 @@ _ZNK17QArrayDataPointerI8QVariantE22constAllocatedCapacityEv.exit31: ; preds = %
   %32 = zext i1 %31 to i32
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   %33 = call noalias noundef ptr @_ZN10QArrayData8allocateEPPS_xxxNS_16AllocationOptionE(ptr noundef nonnull %5, i64 noundef 32, i64 noundef 8, i64 noundef %29, i32 noundef %32) #27
-  call void @llvm.assume(i1 true) [ "align"(ptr %33, i64 8) ]
   %34 = load ptr, ptr %5, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   %.not = icmp ne ptr %34, null
@@ -28767,7 +28760,6 @@ _ZNK17QArrayDataPointerIP7IOGraphE22constAllocatedCapacityEv.exit31: ; preds = %
   %32 = zext i1 %31 to i32
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   %33 = call noalias noundef ptr @_ZN10QArrayData8allocateEPPS_xxxNS_16AllocationOptionE(ptr noundef nonnull %5, i64 noundef 8, i64 noundef 8, i64 noundef %29, i32 noundef %32) #27
-  call void @llvm.assume(i1 true) [ "align"(ptr %33, i64 8) ]
   %34 = load ptr, ptr %5, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   %.not = icmp ne ptr %34, null
@@ -30360,7 +30352,6 @@ _ZNK17QArrayDataPointerI7QStringE8isSharedEv.exit.thread: ; preds = %2, %_ZNK17Q
   %.sroa.speculated = tail call i64 @llvm.smax.i64(i64 %1, i64 %22)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   %23 = call noalias noundef ptr @_ZN10QArrayData8allocateEPPS_xxxNS_16AllocationOptionE(ptr noundef nonnull %3, i64 noundef 24, i64 noundef 8, i64 noundef %.sroa.speculated, i32 noundef 1) #27
-  call void @llvm.assume(i1 true) [ "align"(ptr %23, i64 8) ]
   %24 = load ptr, ptr %3, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -30695,7 +30686,6 @@ _ZNK17QArrayDataPointerI12QCPGraphDataE22constAllocatedCapacityEv.exit31: ; pred
   %32 = zext i1 %31 to i32
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   %33 = call noalias noundef ptr @_ZN10QArrayData8allocateEPPS_xxxNS_16AllocationOptionE(ptr noundef nonnull %5, i64 noundef 16, i64 noundef 8, i64 noundef %29, i32 noundef %32) #27
-  call void @llvm.assume(i1 true) [ "align"(ptr %33, i64 8) ]
   %34 = load ptr, ptr %5, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   %.not = icmp ne ptr %34, null
@@ -30986,7 +30976,6 @@ _ZNK17QArrayDataPointerI11QCPBarsDataE22constAllocatedCapacityEv.exit31: ; preds
   %32 = zext i1 %31 to i32
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   %33 = call noalias noundef ptr @_ZN10QArrayData8allocateEPPS_xxxNS_16AllocationOptionE(ptr noundef nonnull %5, i64 noundef 16, i64 noundef 8, i64 noundef %29, i32 noundef %32) #27
-  call void @llvm.assume(i1 true) [ "align"(ptr %33, i64 8) ]
   %34 = load ptr, ptr %5, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   %.not = icmp ne ptr %34, null

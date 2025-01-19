@@ -1243,7 +1243,7 @@ define linkonce_odr noundef zeroext i1 @_ZN3acd21ac_decomposition_impl18find_dec
   %138 = phi ptr [ %136, %135 ], [ %139, %_ZNSt8functionIFjRKN5kitty18static_truth_tableILj10EEEEED2Ev.exit ]
   %139 = getelementptr inbounds i8, ptr %138, i64 -32
   %140 = getelementptr inbounds i8, ptr %138, i64 -16
-  %141 = load ptr, ptr %140, align 8
+  %141 = load ptr, ptr %140, align 16
   %.not.i.i = icmp eq ptr %141, null
   br i1 %.not.i.i, label %_ZNSt8functionIFjRKN5kitty18static_truth_tableILj10EEEEED2Ev.exit, label %142
 
@@ -1269,7 +1269,7 @@ _ZNSt8functionIFjRKN5kitty18static_truth_tableILj10EEEEED2Ev.exit: ; preds = %13
   %150 = phi ptr [ %65, %64 ], [ %151, %_ZNSt8functionIFjRKN5kitty18static_truth_tableILj10EEEEED2Ev.exit66 ]
   %151 = getelementptr inbounds i8, ptr %150, i64 -32
   %152 = getelementptr inbounds i8, ptr %150, i64 -16
-  %153 = load ptr, ptr %152, align 8
+  %153 = load ptr, ptr %152, align 16
   %.not.i.i65 = icmp eq ptr %153, null
   br i1 %.not.i.i65, label %_ZNSt8functionIFjRKN5kitty18static_truth_tableILj10EEEEED2Ev.exit66, label %154
 

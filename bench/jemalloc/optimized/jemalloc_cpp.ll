@@ -257,7 +257,7 @@ terminate.lpad.i:                                 ; preds = %if.end.i, %if.then9
   %2 = landingpad { ptr, i32 }
           catch ptr null
   %3 = extractvalue { ptr, i32 } %2, 0
-  tail call void @__clang_call_terminate(ptr %3) #16
+  tail call void @__clang_call_terminate(ptr %3) #15
   unreachable
 
 if.end11.i:                                       ; preds = %entry
@@ -292,7 +292,7 @@ terminate.lpad.i55:                               ; preds = %if.end.i59, %if.the
   %8 = landingpad { ptr, i32 }
           catch ptr null
   %9 = extractvalue { ptr, i32 } %8, 0
-  tail call void @__clang_call_terminate(ptr %9) #16
+  tail call void @__clang_call_terminate(ptr %9) #15
   unreachable
 
 if.end30.i:                                       ; preds = %if.end11.i
@@ -343,7 +343,7 @@ terminate.lpad.i63:                               ; preds = %if.end.i67, %if.end
   %18 = landingpad { ptr, i32 }
           catch ptr null
   %19 = extractvalue { ptr, i32 } %18, 0
-  tail call void @__clang_call_terminate(ptr %19) #16
+  tail call void @__clang_call_terminate(ptr %19) #15
   unreachable
 
 _ZL16imalloc_fastpathmPFPvmE.exit.sink.split:     ; preds = %if.then39.i, %if.then43.i
@@ -383,7 +383,7 @@ terminate.lpad.i:                                 ; preds = %if.end.i, %if.then9
   %2 = landingpad { ptr, i32 }
           catch ptr null
   %3 = extractvalue { ptr, i32 } %2, 0
-  tail call void @__clang_call_terminate(ptr %3) #16
+  tail call void @__clang_call_terminate(ptr %3) #15
   unreachable
 
 if.end11.i:                                       ; preds = %entry
@@ -418,7 +418,7 @@ terminate.lpad.i55:                               ; preds = %if.end.i59, %if.the
   %8 = landingpad { ptr, i32 }
           catch ptr null
   %9 = extractvalue { ptr, i32 } %8, 0
-  tail call void @__clang_call_terminate(ptr %9) #16
+  tail call void @__clang_call_terminate(ptr %9) #15
   unreachable
 
 if.end30.i:                                       ; preds = %if.end11.i
@@ -469,7 +469,7 @@ terminate.lpad.i63:                               ; preds = %if.end.i67, %if.end
   %18 = landingpad { ptr, i32 }
           catch ptr null
   %19 = extractvalue { ptr, i32 } %18, 0
-  tail call void @__clang_call_terminate(ptr %19) #16
+  tail call void @__clang_call_terminate(ptr %19) #15
   unreachable
 
 _ZL16imalloc_fastpathmPFPvmE.exit.sink.split:     ; preds = %if.then39.i, %if.then43.i
@@ -489,8 +489,7 @@ _ZL16imalloc_fastpathmPFPvmE.exit:                ; preds = %_ZL16imalloc_fastpa
 ; Function Attrs: mustprogress nobuiltin allocsize(0) uwtable
 define dso_local noalias noundef nonnull ptr @_ZnwmSt11align_val_t(i64 noundef %size, i64 noundef %alignment) local_unnamed_addr #0 {
 entry:
-  %call.i = tail call noalias ptr @aligned_alloc(i64 noundef %alignment, i64 noundef %size) #17
-  call void @llvm.assume(i1 true) [ "align"(ptr %call.i, i64 %alignment) ]
+  %call.i = tail call noalias ptr @aligned_alloc(i64 noundef %alignment, i64 noundef %size) #16
   %cmp.i.not = icmp eq ptr %call.i, null
   br i1 %cmp.i.not, label %if.end.i, label %_ZL14alignedNewImplILb0EEPvmSt11align_val_t.exit
 
@@ -506,8 +505,7 @@ _ZL14alignedNewImplILb0EEPvmSt11align_val_t.exit: ; preds = %entry, %if.end.i
 ; Function Attrs: mustprogress nobuiltin allocsize(0) uwtable
 define dso_local noalias noundef nonnull ptr @_ZnamSt11align_val_t(i64 noundef %size, i64 noundef %alignment) local_unnamed_addr #0 {
 entry:
-  %call.i = tail call noalias ptr @aligned_alloc(i64 noundef %alignment, i64 noundef %size) #17
-  call void @llvm.assume(i1 true) [ "align"(ptr %call.i, i64 %alignment) ]
+  %call.i = tail call noalias ptr @aligned_alloc(i64 noundef %alignment, i64 noundef %size) #16
   %cmp.i.not = icmp eq ptr %call.i, null
   br i1 %cmp.i.not, label %if.end.i, label %_ZL14alignedNewImplILb0EEPvmSt11align_val_t.exit
 
@@ -523,8 +521,7 @@ _ZL14alignedNewImplILb0EEPvmSt11align_val_t.exit: ; preds = %entry, %if.end.i
 ; Function Attrs: mustprogress nobuiltin nounwind allocsize(0) uwtable
 define dso_local noalias noundef ptr @_ZnwmSt11align_val_tRKSt9nothrow_t(i64 noundef %size, i64 noundef %alignment, ptr noundef nonnull align 1 dereferenceable(1) %0) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
 entry:
-  %call.i = tail call noalias ptr @aligned_alloc(i64 noundef %alignment, i64 noundef %size) #17
-  call void @llvm.assume(i1 true) [ "align"(ptr %call.i, i64 %alignment) ]
+  %call.i = tail call noalias ptr @aligned_alloc(i64 noundef %alignment, i64 noundef %size) #16
   %cmp.i.not = icmp eq ptr %call.i, null
   br i1 %cmp.i.not, label %if.end.i, label %_ZL14alignedNewImplILb1EEPvmSt11align_val_t.exit
 
@@ -536,7 +533,7 @@ terminate.lpad.i:                                 ; preds = %if.end.i
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  tail call void @__clang_call_terminate(ptr %2) #16
+  tail call void @__clang_call_terminate(ptr %2) #15
   unreachable
 
 _ZL14alignedNewImplILb1EEPvmSt11align_val_t.exit: ; preds = %if.end.i, %entry
@@ -547,8 +544,7 @@ _ZL14alignedNewImplILb1EEPvmSt11align_val_t.exit: ; preds = %if.end.i, %entry
 ; Function Attrs: mustprogress nobuiltin nounwind allocsize(0) uwtable
 define dso_local noalias noundef ptr @_ZnamSt11align_val_tRKSt9nothrow_t(i64 noundef %size, i64 noundef %alignment, ptr noundef nonnull align 1 dereferenceable(1) %0) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
 entry:
-  %call.i = tail call noalias ptr @aligned_alloc(i64 noundef %alignment, i64 noundef %size) #17
-  call void @llvm.assume(i1 true) [ "align"(ptr %call.i, i64 %alignment) ]
+  %call.i = tail call noalias ptr @aligned_alloc(i64 noundef %alignment, i64 noundef %size) #16
   %cmp.i.not = icmp eq ptr %call.i, null
   br i1 %cmp.i.not, label %if.end.i, label %_ZL14alignedNewImplILb1EEPvmSt11align_val_t.exit
 
@@ -560,7 +556,7 @@ terminate.lpad.i:                                 ; preds = %if.end.i
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  tail call void @__clang_call_terminate(ptr %2) #16
+  tail call void @__clang_call_terminate(ptr %2) #15
   unreachable
 
 _ZL14alignedNewImplILb1EEPvmSt11align_val_t.exit: ; preds = %if.end.i, %entry
@@ -630,7 +626,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i
   %13 = landingpad { ptr, i32 }
           catch ptr null
   %14 = extractvalue { ptr, i32 } %13, 0
-  tail call void @__clang_call_terminate(ptr %14) #16
+  tail call void @__clang_call_terminate(ptr %14) #15
   unreachable
 
 _ZL12je_free_implPv.exit:                         ; preds = %if.end.i50, %if.then.i
@@ -699,7 +695,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i
   %13 = landingpad { ptr, i32 }
           catch ptr null
   %14 = extractvalue { ptr, i32 } %13, 0
-  tail call void @__clang_call_terminate(ptr %14) #16
+  tail call void @__clang_call_terminate(ptr %14) #15
   unreachable
 
 _ZL12je_free_implPv.exit:                         ; preds = %if.end.i50, %if.then.i
@@ -768,7 +764,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i
   %14 = landingpad { ptr, i32 }
           catch ptr null
   %15 = extractvalue { ptr, i32 } %14, 0
-  tail call void @__clang_call_terminate(ptr %15) #16
+  tail call void @__clang_call_terminate(ptr %15) #15
   unreachable
 
 _ZL12je_free_implPv.exit:                         ; preds = %if.end.i50, %if.then.i
@@ -837,7 +833,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i
   %14 = landingpad { ptr, i32 }
           catch ptr null
   %15 = extractvalue { ptr, i32 } %14, 0
-  tail call void @__clang_call_terminate(ptr %15) #16
+  tail call void @__clang_call_terminate(ptr %15) #15
   unreachable
 
 _ZL12je_free_implPv.exit:                         ; preds = %if.end.i50, %if.then.i
@@ -906,7 +902,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i
   %14 = landingpad { ptr, i32 }
           catch ptr null
   %15 = extractvalue { ptr, i32 } %14, 0
-  tail call void @__clang_call_terminate(ptr %15) #16
+  tail call void @__clang_call_terminate(ptr %15) #15
   unreachable
 
 _ZL12je_free_implPv.exit:                         ; preds = %if.end.i50, %if.then.i
@@ -975,7 +971,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i
   %14 = landingpad { ptr, i32 }
           catch ptr null
   %15 = extractvalue { ptr, i32 } %14, 0
-  tail call void @__clang_call_terminate(ptr %15) #16
+  tail call void @__clang_call_terminate(ptr %15) #15
   unreachable
 
 _ZL12je_free_implPv.exit:                         ; preds = %if.end.i50, %if.then.i
@@ -1044,7 +1040,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i
   %15 = landingpad { ptr, i32 }
           catch ptr null
   %16 = extractvalue { ptr, i32 } %15, 0
-  tail call void @__clang_call_terminate(ptr %16) #16
+  tail call void @__clang_call_terminate(ptr %16) #15
   unreachable
 
 _ZL12je_free_implPv.exit:                         ; preds = %if.end.i51, %if.then.i
@@ -1113,7 +1109,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i
   %15 = landingpad { ptr, i32 }
           catch ptr null
   %16 = extractvalue { ptr, i32 } %15, 0
-  tail call void @__clang_call_terminate(ptr %16) #16
+  tail call void @__clang_call_terminate(ptr %16) #15
   unreachable
 
 _ZL12je_free_implPv.exit:                         ; preds = %if.end.i51, %if.then.i
@@ -1197,7 +1193,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i4
   %10 = landingpad { ptr, i32 }
           catch ptr null
   %11 = extractvalue { ptr, i32 } %10, 0
-  tail call void @__clang_call_terminate(ptr %11) #16
+  tail call void @__clang_call_terminate(ptr %11) #15
   unreachable
 
 _ZL22alignedSizedDeleteImplPvmSt11align_val_t.exit: ; preds = %if.end.i48.i, %if.then.i4, %entry
@@ -1281,7 +1277,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i4
   %10 = landingpad { ptr, i32 }
           catch ptr null
   %11 = extractvalue { ptr, i32 } %10, 0
-  tail call void @__clang_call_terminate(ptr %11) #16
+  tail call void @__clang_call_terminate(ptr %11) #15
   unreachable
 
 _ZL22alignedSizedDeleteImplPvmSt11align_val_t.exit: ; preds = %if.end.i48.i, %if.then.i4, %entry
@@ -1292,8 +1288,8 @@ declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: noreturn nounwind uwtable
 define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #4 comdat {
-  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #18
-  tail call void @_ZSt9terminatev() #16
+  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #17
+  tail call void @_ZSt9terminatev() #15
   unreachable
 }
 
@@ -1325,18 +1321,18 @@ if.then:                                          ; preds = %entry
   br label %return
 
 while.body:                                       ; preds = %entry, %try.cont
-  %call1.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) @_ZZL9handleOOMmbE3mtx) #18
+  %call1.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) @_ZZL9handleOOMmbE3mtx) #17
   %tobool.not.i.i = icmp eq i32 %call1.i.i.i, 0
   br i1 %tobool.not.i.i, label %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %while.body
-  tail call void @_ZSt20__throw_system_errori(i32 noundef %call1.i.i.i) #19
+  tail call void @_ZSt20__throw_system_errori(i32 noundef %call1.i.i.i) #18
   unreachable
 
 _ZNSt10lock_guardISt5mutexEC2ERS0_.exit:          ; preds = %while.body
-  %call = tail call noundef ptr @_ZSt15set_new_handlerPFvvE(ptr noundef null) #18
-  %call2 = tail call noundef ptr @_ZSt15set_new_handlerPFvvE(ptr noundef %call) #18
-  %call1.i.i.i8 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) @_ZZL9handleOOMmbE3mtx) #18
+  %call = tail call noundef ptr @_ZSt15set_new_handlerPFvvE(ptr noundef null) #17
+  %call2 = tail call noundef ptr @_ZSt15set_new_handlerPFvvE(ptr noundef %call) #17
+  %call1.i.i.i8 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) @_ZZL9handleOOMmbE3mtx) #17
   %cmp3 = icmp eq ptr %call, null
   br i1 %cmp3, label %while.end, label %if.end5
 
@@ -1348,18 +1344,18 @@ lpad:                                             ; preds = %if.end5
   %1 = landingpad { ptr, i32 }
           catch ptr @_ZTISt9bad_alloc
   %2 = extractvalue { ptr, i32 } %1, 1
-  %3 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9bad_alloc) #18
+  %3 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9bad_alloc) #17
   %matches = icmp eq i32 %2, %3
   br i1 %matches, label %catch, label %eh.resume
 
 catch:                                            ; preds = %lpad
   %4 = extractvalue { ptr, i32 } %1, 0
-  %5 = tail call ptr @__cxa_begin_catch(ptr %4) #18
+  %5 = tail call ptr @__cxa_begin_catch(ptr %4) #17
   tail call void @__cxa_end_catch()
   br label %while.end
 
 try.cont:                                         ; preds = %if.end5
-  %call6 = tail call noalias ptr @malloc(i64 noundef %size) #20
+  %call6 = tail call noalias ptr @malloc(i64 noundef %size) #19
   %cmp1 = icmp eq ptr %call6, null
   br i1 %cmp1, label %while.body, label %return, !llvm.loop !29
 
@@ -1367,7 +1363,7 @@ while.end:                                        ; preds = %_ZNSt10lock_guardIS
   br i1 %nothrow, label %return, label %if.then9
 
 if.then9:                                         ; preds = %while.end
-  tail call void @_ZSt17__throw_bad_allocv() #19
+  tail call void @_ZSt17__throw_bad_allocv() #18
   unreachable
 
 return:                                           ; preds = %try.cont, %while.end, %if.then
@@ -1403,14 +1399,11 @@ declare i32 @pthread_mutex_unlock(ptr noundef) local_unnamed_addr #9
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized,aligned") allocsize(1) memory(inaccessiblemem: readwrite)
 declare noalias noundef ptr @aligned_alloc(i64 allocalign noundef, i64 noundef) local_unnamed_addr #12
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #13
-
 ; Function Attrs: nofree nosync nounwind memory(none)
-declare i32 @llvm.eh.typeid.for.p0(ptr) #14
+declare i32 @llvm.eh.typeid.for.p0(ptr) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.cttz.i32(i32, i1 immarg) #15
+declare i32 @llvm.cttz.i32(i32, i1 immarg) #14
 
 attributes #0 = { mustprogress nobuiltin allocsize(0) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nobuiltin nounwind allocsize(0) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -1425,14 +1418,13 @@ attributes #9 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stac
 attributes #10 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #11 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #12 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized,aligned") allocsize(1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #14 = { nofree nosync nounwind memory(none) }
-attributes #15 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #16 = { noreturn nounwind }
-attributes #17 = { nounwind allocsize(1) }
-attributes #18 = { nounwind }
-attributes #19 = { noreturn }
-attributes #20 = { nounwind allocsize(0) }
+attributes #13 = { nofree nosync nounwind memory(none) }
+attributes #14 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #15 = { noreturn nounwind }
+attributes #16 = { nounwind allocsize(1) }
+attributes #17 = { nounwind }
+attributes #18 = { noreturn }
+attributes #19 = { nounwind allocsize(0) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

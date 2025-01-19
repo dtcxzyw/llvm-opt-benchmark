@@ -11,7 +11,7 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define noalias ptr @mi_heap_malloc_aligned_at(ptr noundef %heap, i64 noundef %size, i64 noundef %alignment, i64 noundef %offset) local_unnamed_addr #0 {
 entry:
-  %call = tail call fastcc ptr @mi_heap_malloc_zero_aligned_at(ptr noundef %heap, i64 noundef %size, i64 noundef %alignment, i64 noundef %offset, i1 noundef zeroext false) #7
+  %call = tail call fastcc ptr @mi_heap_malloc_zero_aligned_at(ptr noundef %heap, i64 noundef %size, i64 noundef %alignment, i64 noundef %offset, i1 noundef zeroext false) #6
   ret ptr %call
 }
 
@@ -52,7 +52,7 @@ if.then23:                                        ; preds = %if.end12
   br i1 %5, label %if.then42, label %if.end50
 
 if.then42:                                        ; preds = %if.then23
-  %call44 = tail call ptr @_mi_page_malloc(ptr noundef nonnull %heap, ptr noundef nonnull %2, i64 noundef %size, i1 noundef zeroext %zero) #8
+  %call44 = tail call ptr @_mi_page_malloc(ptr noundef nonnull %heap, ptr noundef nonnull %2, i64 noundef %size, i1 noundef zeroext %zero) #7
   br label %return
 
 if.end50:                                         ; preds = %if.end12, %if.then23
@@ -68,7 +68,7 @@ land.lhs.true.i:                                  ; preds = %if.end50
   br i1 %or.cond36.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %land.lhs.true.i
-  %call.i = tail call ptr @_mi_heap_malloc_zero(ptr noundef %heap, i64 noundef range(i64 0, -9223372036854775808) %size, i1 noundef zeroext %zero) #8
+  %call.i = tail call ptr @_mi_heap_malloc_zero(ptr noundef %heap, i64 noundef range(i64 0, -9223372036854775808) %size, i1 noundef zeroext %zero) #7
   br label %return
 
 if.end.i:                                         ; preds = %land.lhs.true.i
@@ -81,13 +81,13 @@ if.end.thread.i:                                  ; preds = %if.end50
 
 if.end20.i:                                       ; preds = %if.end.i
   %cond.i = tail call i64 @llvm.umax.i64(i64 range(i64 0, -9223372036854775808) %size, i64 1025)
-  %call23.i = tail call ptr @_mi_heap_malloc_zero_ex(ptr noundef %heap, i64 noundef %cond.i, i1 noundef zeroext false, i64 noundef %alignment) #8
+  %call23.i = tail call ptr @_mi_heap_malloc_zero_ex(ptr noundef %heap, i64 noundef %cond.i, i1 noundef zeroext false, i64 noundef %alignment) #7
   %cmp24.i = icmp eq ptr %call23.i, null
   br i1 %cmp24.i, label %return, label %if.end36.i
 
 if.else.i:                                        ; preds = %if.end.thread.i, %if.end.i
   %sub29.i = add nuw i64 %sub, %size
-  %call31.i = tail call ptr @_mi_heap_malloc_zero(ptr noundef %heap, i64 noundef %sub29.i, i1 noundef zeroext %zero) #8
+  %call31.i = tail call ptr @_mi_heap_malloc_zero(ptr noundef %heap, i64 noundef %sub29.i, i1 noundef zeroext %zero) #7
   %cmp32.i = icmp eq ptr %call31.i, null
   br i1 %cmp32.i, label %return, label %if.end36.i
 
@@ -123,7 +123,7 @@ if.then49.i:                                      ; preds = %if.end36.i
   %bf.set.i.i = or i8 %bf.load.i.i, 2
   store i8 %bf.set.i.i, ptr %flags.i.i, align 2
   %add51.i = add i64 %cond45.i, %size
-  tail call void @_mi_padding_shrink(ptr noundef nonnull %add.ptr.i.i.i.i, ptr noundef nonnull %p6.0.i, i64 noundef %add51.i) #8
+  tail call void @_mi_padding_shrink(ptr noundef nonnull %add.ptr.i.i.i.i, ptr noundef nonnull %p6.0.i, i64 noundef %add51.i) #7
   br label %if.end52.i
 
 if.end52.i:                                       ; preds = %if.then49.i, %if.end36.i
@@ -131,8 +131,7 @@ if.end52.i:                                       ; preds = %if.then49.i, %if.en
   br i1 %brmerge.not.i, label %if.then57.i, label %return
 
 if.then57.i:                                      ; preds = %if.end52.i
-  %call58.i = tail call i64 @mi_usable_size(ptr noundef %7) #8
-  call void @llvm.assume(i1 true) [ "align"(ptr %7, i64 8) ]
+  %call58.i = tail call i64 @mi_usable_size(ptr noundef %7) #7
   tail call void @llvm.memset.p0.i64(ptr align 8 %7, i8 0, i64 %call58.i, i1 false)
   br label %return
 
@@ -158,11 +157,11 @@ if.end:                                           ; preds = %entry
   br i1 %or.cond9, label %if.then15, label %if.else
 
 if.then15:                                        ; preds = %if.end
-  %call16 = tail call noalias ptr @mi_heap_malloc_small(ptr noundef %heap, i64 noundef %size) #8
+  %call16 = tail call noalias ptr @mi_heap_malloc_small(ptr noundef %heap, i64 noundef %size) #7
   br label %return
 
 if.else:                                          ; preds = %if.end
-  %call.i = tail call fastcc noalias ptr @mi_heap_malloc_zero_aligned_at(ptr noundef %heap, i64 noundef %size, i64 noundef %alignment, i64 noundef 0, i1 noundef zeroext false) #7
+  %call.i = tail call fastcc noalias ptr @mi_heap_malloc_zero_aligned_at(ptr noundef %heap, i64 noundef %size, i64 noundef %alignment, i64 noundef 0, i1 noundef zeroext false) #6
   br label %return
 
 return:                                           ; preds = %entry, %if.else, %if.then15
@@ -175,14 +174,14 @@ declare noalias ptr @mi_heap_malloc_small(ptr noundef, i64 noundef) local_unname
 ; Function Attrs: nounwind uwtable
 define noalias ptr @mi_heap_zalloc_aligned_at(ptr noundef %heap, i64 noundef %size, i64 noundef %alignment, i64 noundef %offset) local_unnamed_addr #0 {
 entry:
-  %call = tail call fastcc ptr @mi_heap_malloc_zero_aligned_at(ptr noundef %heap, i64 noundef %size, i64 noundef %alignment, i64 noundef %offset, i1 noundef zeroext true) #7
+  %call = tail call fastcc ptr @mi_heap_malloc_zero_aligned_at(ptr noundef %heap, i64 noundef %size, i64 noundef %alignment, i64 noundef %offset, i1 noundef zeroext true) #6
   ret ptr %call
 }
 
 ; Function Attrs: nounwind uwtable
 define noalias ptr @mi_heap_zalloc_aligned(ptr noundef %heap, i64 noundef %size, i64 noundef %alignment) local_unnamed_addr #0 {
 entry:
-  %call.i = tail call fastcc noalias ptr @mi_heap_malloc_zero_aligned_at(ptr noundef %heap, i64 noundef %size, i64 noundef %alignment, i64 noundef 0, i1 noundef zeroext true) #7
+  %call.i = tail call fastcc noalias ptr @mi_heap_malloc_zero_aligned_at(ptr noundef %heap, i64 noundef %size, i64 noundef %alignment, i64 noundef 0, i1 noundef zeroext true) #6
   ret ptr %call.i
 }
 
@@ -200,7 +199,7 @@ mi_count_size_overflow.exit:                      ; preds = %entry
 
 if.end:                                           ; preds = %entry, %mi_count_size_overflow.exit
   %storemerge.i3 = phi i64 [ %2, %mi_count_size_overflow.exit ], [ %size, %entry ]
-  %call.i = tail call fastcc noalias ptr @mi_heap_malloc_zero_aligned_at(ptr noundef %heap, i64 noundef %storemerge.i3, i64 noundef %alignment, i64 noundef %offset, i1 noundef zeroext true) #7
+  %call.i = tail call fastcc noalias ptr @mi_heap_malloc_zero_aligned_at(ptr noundef %heap, i64 noundef %storemerge.i3, i64 noundef %alignment, i64 noundef %offset, i1 noundef zeroext true) #6
   br label %return
 
 return:                                           ; preds = %mi_count_size_overflow.exit, %if.end
@@ -222,7 +221,7 @@ mi_count_size_overflow.exit.i:                    ; preds = %entry
 
 if.end.i:                                         ; preds = %mi_count_size_overflow.exit.i, %entry
   %storemerge.i3.i = phi i64 [ %2, %mi_count_size_overflow.exit.i ], [ %size, %entry ]
-  %call.i.i = tail call fastcc noalias ptr @mi_heap_malloc_zero_aligned_at(ptr noundef %heap, i64 noundef %storemerge.i3.i, i64 noundef %alignment, i64 noundef 0, i1 noundef zeroext true) #7
+  %call.i.i = tail call fastcc noalias ptr @mi_heap_malloc_zero_aligned_at(ptr noundef %heap, i64 noundef %storemerge.i3.i, i64 noundef %alignment, i64 noundef 0, i1 noundef zeroext true) #6
   br label %mi_heap_calloc_aligned_at.exit
 
 mi_heap_calloc_aligned_at.exit:                   ; preds = %mi_count_size_overflow.exit.i, %if.end.i
@@ -235,7 +234,7 @@ define noalias ptr @mi_malloc_aligned_at(i64 noundef %size, i64 noundef %alignme
 entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_mi_heap_default)
   %1 = load ptr, ptr %0, align 8
-  %call.i = tail call fastcc noalias ptr @mi_heap_malloc_zero_aligned_at(ptr noundef %1, i64 noundef %size, i64 noundef %alignment, i64 noundef %offset, i1 noundef zeroext false) #7
+  %call.i = tail call fastcc noalias ptr @mi_heap_malloc_zero_aligned_at(ptr noundef %1, i64 noundef %size, i64 noundef %alignment, i64 noundef %offset, i1 noundef zeroext false) #6
   ret ptr %call.i
 }
 
@@ -258,11 +257,11 @@ if.end.i:                                         ; preds = %entry
   br i1 %or.cond9.i, label %if.then15.i, label %if.else.i
 
 if.then15.i:                                      ; preds = %if.end.i
-  %call16.i = tail call noalias ptr @mi_heap_malloc_small(ptr noundef %1, i64 noundef %size) #8
+  %call16.i = tail call noalias ptr @mi_heap_malloc_small(ptr noundef %1, i64 noundef %size) #7
   br label %mi_heap_malloc_aligned.exit
 
 if.else.i:                                        ; preds = %if.end.i
-  %call.i.i = tail call fastcc noalias ptr @mi_heap_malloc_zero_aligned_at(ptr noundef %1, i64 noundef %size, i64 noundef %alignment, i64 noundef 0, i1 noundef zeroext false) #7
+  %call.i.i = tail call fastcc noalias ptr @mi_heap_malloc_zero_aligned_at(ptr noundef %1, i64 noundef %size, i64 noundef %alignment, i64 noundef 0, i1 noundef zeroext false) #6
   br label %mi_heap_malloc_aligned.exit
 
 mi_heap_malloc_aligned.exit:                      ; preds = %entry, %if.then15.i, %if.else.i
@@ -275,7 +274,7 @@ define noalias ptr @mi_zalloc_aligned_at(i64 noundef %size, i64 noundef %alignme
 entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_mi_heap_default)
   %1 = load ptr, ptr %0, align 8
-  %call.i = tail call fastcc noalias ptr @mi_heap_malloc_zero_aligned_at(ptr noundef %1, i64 noundef %size, i64 noundef %alignment, i64 noundef %offset, i1 noundef zeroext true) #7
+  %call.i = tail call fastcc noalias ptr @mi_heap_malloc_zero_aligned_at(ptr noundef %1, i64 noundef %size, i64 noundef %alignment, i64 noundef %offset, i1 noundef zeroext true) #6
   ret ptr %call.i
 }
 
@@ -284,7 +283,7 @@ define noalias ptr @mi_zalloc_aligned(i64 noundef %size, i64 noundef %alignment)
 entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_mi_heap_default)
   %1 = load ptr, ptr %0, align 8
-  %call.i.i = tail call fastcc noalias ptr @mi_heap_malloc_zero_aligned_at(ptr noundef %1, i64 noundef %size, i64 noundef %alignment, i64 noundef 0, i1 noundef zeroext true) #7
+  %call.i.i = tail call fastcc noalias ptr @mi_heap_malloc_zero_aligned_at(ptr noundef %1, i64 noundef %size, i64 noundef %alignment, i64 noundef 0, i1 noundef zeroext true) #6
   ret ptr %call.i.i
 }
 
@@ -304,7 +303,7 @@ mi_count_size_overflow.exit.i:                    ; preds = %entry
 
 if.end.i:                                         ; preds = %mi_count_size_overflow.exit.i, %entry
   %storemerge.i3.i = phi i64 [ %4, %mi_count_size_overflow.exit.i ], [ %size, %entry ]
-  %call.i.i = tail call fastcc noalias ptr @mi_heap_malloc_zero_aligned_at(ptr noundef %1, i64 noundef %storemerge.i3.i, i64 noundef %alignment, i64 noundef %offset, i1 noundef zeroext true) #7
+  %call.i.i = tail call fastcc noalias ptr @mi_heap_malloc_zero_aligned_at(ptr noundef %1, i64 noundef %storemerge.i3.i, i64 noundef %alignment, i64 noundef %offset, i1 noundef zeroext true) #6
   br label %mi_heap_calloc_aligned_at.exit
 
 mi_heap_calloc_aligned_at.exit:                   ; preds = %mi_count_size_overflow.exit.i, %if.end.i
@@ -328,7 +327,7 @@ mi_count_size_overflow.exit.i.i:                  ; preds = %entry
 
 if.end.i.i:                                       ; preds = %mi_count_size_overflow.exit.i.i, %entry
   %storemerge.i3.i.i = phi i64 [ %4, %mi_count_size_overflow.exit.i.i ], [ %size, %entry ]
-  %call.i.i.i = tail call fastcc noalias ptr @mi_heap_malloc_zero_aligned_at(ptr noundef %1, i64 noundef %storemerge.i3.i.i, i64 noundef %alignment, i64 noundef 0, i1 noundef zeroext true) #7
+  %call.i.i.i = tail call fastcc noalias ptr @mi_heap_malloc_zero_aligned_at(ptr noundef %1, i64 noundef %storemerge.i3.i.i, i64 noundef %alignment, i64 noundef 0, i1 noundef zeroext true) #6
   br label %mi_heap_calloc_aligned.exit
 
 mi_heap_calloc_aligned.exit:                      ; preds = %mi_count_size_overflow.exit.i.i, %if.end.i.i
@@ -339,7 +338,7 @@ mi_heap_calloc_aligned.exit:                      ; preds = %mi_count_size_overf
 ; Function Attrs: nounwind uwtable
 define ptr @mi_heap_realloc_aligned_at(ptr noundef %heap, ptr noundef %p, i64 noundef %newsize, i64 noundef %alignment, i64 noundef %offset) local_unnamed_addr #0 {
 entry:
-  %call = tail call fastcc ptr @mi_heap_realloc_zero_aligned_at(ptr noundef %heap, ptr noundef %p, i64 noundef %newsize, i64 noundef %alignment, i64 noundef %offset, i1 noundef zeroext false) #7
+  %call = tail call fastcc ptr @mi_heap_realloc_zero_aligned_at(ptr noundef %heap, ptr noundef %p, i64 noundef %newsize, i64 noundef %alignment, i64 noundef %offset, i1 noundef zeroext false) #6
   ret ptr %call
 }
 
@@ -350,7 +349,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %call = tail call ptr @_mi_heap_realloc_zero(ptr noundef %heap, ptr noundef %p, i64 noundef %newsize, i1 noundef zeroext %zero) #8
+  %call = tail call ptr @_mi_heap_realloc_zero(ptr noundef %heap, ptr noundef %p, i64 noundef %newsize, i1 noundef zeroext %zero) #7
   br label %return
 
 if.end:                                           ; preds = %entry
@@ -358,11 +357,11 @@ if.end:                                           ; preds = %entry
   br i1 %cmp1, label %if.then2, label %if.end5
 
 if.then2:                                         ; preds = %if.end
-  %call4 = tail call fastcc ptr @mi_heap_malloc_zero_aligned_at(ptr noundef %heap, i64 noundef %newsize, i64 noundef %alignment, i64 noundef %offset, i1 noundef zeroext %zero) #7
+  %call4 = tail call fastcc ptr @mi_heap_malloc_zero_aligned_at(ptr noundef %heap, i64 noundef %newsize, i64 noundef %alignment, i64 noundef %offset, i1 noundef zeroext %zero) #6
   br label %return
 
 if.end5:                                          ; preds = %if.end
-  %call6 = tail call i64 @mi_usable_size(ptr noundef nonnull %p) #8
+  %call6 = tail call i64 @mi_usable_size(ptr noundef nonnull %p) #7
   %cmp7.not = icmp ugt i64 %newsize, %call6
   br i1 %cmp7.not, label %if.else, label %land.lhs.true
 
@@ -380,7 +379,7 @@ land.lhs.true9:                                   ; preds = %land.lhs.true
   br i1 %cmp10, label %return, label %if.else
 
 if.else:                                          ; preds = %land.lhs.true9, %land.lhs.true, %if.end5
-  %call.i = tail call fastcc noalias ptr @mi_heap_malloc_zero_aligned_at(ptr noundef %heap, i64 noundef %newsize, i64 noundef %alignment, i64 noundef %offset, i1 noundef zeroext false) #7
+  %call.i = tail call fastcc noalias ptr @mi_heap_malloc_zero_aligned_at(ptr noundef %heap, i64 noundef %newsize, i64 noundef %alignment, i64 noundef %offset, i1 noundef zeroext false) #6
   %cmp13.not = icmp eq ptr %call.i, null
   br i1 %cmp13.not, label %return, label %if.then14
 
@@ -397,10 +396,8 @@ if.then18:                                        ; preds = %if.then14
 
 if.end22:                                         ; preds = %if.then18, %if.then14
   %cond27 = tail call i64 @llvm.umin.i64(i64 %newsize, i64 %call6)
-  call void @llvm.assume(i1 true) [ "align"(ptr %call.i, i64 8) ]
-  call void @llvm.assume(i1 true) [ "align"(ptr %p, i64 8) ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %call.i, ptr nonnull readonly align 8 %p, i64 %cond27, i1 false)
-  tail call void @mi_free(ptr noundef nonnull %p) #8
+  tail call void @mi_free(ptr noundef nonnull %p) #7
   br label %return
 
 return:                                           ; preds = %if.else, %if.end22, %land.lhs.true9, %if.then2, %if.then
@@ -415,13 +412,13 @@ entry:
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %entry
-  %call.i = tail call ptr @_mi_heap_realloc_zero(ptr noundef %heap, ptr noundef %p, i64 noundef %newsize, i1 noundef zeroext false) #8
+  %call.i = tail call ptr @_mi_heap_realloc_zero(ptr noundef %heap, ptr noundef %p, i64 noundef %newsize, i1 noundef zeroext false) #7
   br label %mi_heap_realloc_zero_aligned.exit
 
 if.end.i:                                         ; preds = %entry
   %0 = ptrtoint ptr %p to i64
   %rem.i = urem i64 %0, %alignment
-  %call2.i = tail call fastcc ptr @mi_heap_realloc_zero_aligned_at(ptr noundef %heap, ptr noundef %p, i64 noundef %newsize, i64 noundef %alignment, i64 noundef %rem.i, i1 noundef zeroext false) #7
+  %call2.i = tail call fastcc ptr @mi_heap_realloc_zero_aligned_at(ptr noundef %heap, ptr noundef %p, i64 noundef %newsize, i64 noundef %alignment, i64 noundef %rem.i, i1 noundef zeroext false) #6
   br label %mi_heap_realloc_zero_aligned.exit
 
 mi_heap_realloc_zero_aligned.exit:                ; preds = %if.then.i, %if.end.i
@@ -432,7 +429,7 @@ mi_heap_realloc_zero_aligned.exit:                ; preds = %if.then.i, %if.end.
 ; Function Attrs: nounwind uwtable
 define ptr @mi_heap_rezalloc_aligned_at(ptr noundef %heap, ptr noundef %p, i64 noundef %newsize, i64 noundef %alignment, i64 noundef %offset) local_unnamed_addr #0 {
 entry:
-  %call = tail call fastcc ptr @mi_heap_realloc_zero_aligned_at(ptr noundef %heap, ptr noundef %p, i64 noundef %newsize, i64 noundef %alignment, i64 noundef %offset, i1 noundef zeroext true) #7
+  %call = tail call fastcc ptr @mi_heap_realloc_zero_aligned_at(ptr noundef %heap, ptr noundef %p, i64 noundef %newsize, i64 noundef %alignment, i64 noundef %offset, i1 noundef zeroext true) #6
   ret ptr %call
 }
 
@@ -443,13 +440,13 @@ entry:
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %entry
-  %call.i = tail call ptr @_mi_heap_realloc_zero(ptr noundef %heap, ptr noundef %p, i64 noundef %newsize, i1 noundef zeroext true) #8
+  %call.i = tail call ptr @_mi_heap_realloc_zero(ptr noundef %heap, ptr noundef %p, i64 noundef %newsize, i1 noundef zeroext true) #7
   br label %mi_heap_realloc_zero_aligned.exit
 
 if.end.i:                                         ; preds = %entry
   %0 = ptrtoint ptr %p to i64
   %rem.i = urem i64 %0, %alignment
-  %call2.i = tail call fastcc ptr @mi_heap_realloc_zero_aligned_at(ptr noundef %heap, ptr noundef %p, i64 noundef %newsize, i64 noundef %alignment, i64 noundef %rem.i, i1 noundef zeroext true) #7
+  %call2.i = tail call fastcc ptr @mi_heap_realloc_zero_aligned_at(ptr noundef %heap, ptr noundef %p, i64 noundef %newsize, i64 noundef %alignment, i64 noundef %rem.i, i1 noundef zeroext true) #6
   br label %mi_heap_realloc_zero_aligned.exit
 
 mi_heap_realloc_zero_aligned.exit:                ; preds = %if.then.i, %if.end.i
@@ -471,7 +468,7 @@ mi_count_size_overflow.exit:                      ; preds = %entry
 
 if.end:                                           ; preds = %entry, %mi_count_size_overflow.exit
   %storemerge.i3 = phi i64 [ %2, %mi_count_size_overflow.exit ], [ %size, %entry ]
-  %call.i = tail call fastcc ptr @mi_heap_realloc_zero_aligned_at(ptr noundef %heap, ptr noundef %p, i64 noundef %storemerge.i3, i64 noundef %alignment, i64 noundef %offset, i1 noundef zeroext true) #7
+  %call.i = tail call fastcc ptr @mi_heap_realloc_zero_aligned_at(ptr noundef %heap, ptr noundef %p, i64 noundef %storemerge.i3, i64 noundef %alignment, i64 noundef %offset, i1 noundef zeroext true) #6
   br label %return
 
 return:                                           ; preds = %mi_count_size_overflow.exit, %if.end
@@ -497,13 +494,13 @@ if.end:                                           ; preds = %entry, %mi_count_si
   br i1 %cmp.i.i, label %if.then.i.i, label %if.end.i.i
 
 if.then.i.i:                                      ; preds = %if.end
-  %call.i.i = tail call ptr @_mi_heap_realloc_zero(ptr noundef %heap, ptr noundef %p, i64 noundef %storemerge.i3, i1 noundef zeroext true) #8
+  %call.i.i = tail call ptr @_mi_heap_realloc_zero(ptr noundef %heap, ptr noundef %p, i64 noundef %storemerge.i3, i1 noundef zeroext true) #7
   br label %return
 
 if.end.i.i:                                       ; preds = %if.end
   %3 = ptrtoint ptr %p to i64
   %rem.i.i = urem i64 %3, %alignment
-  %call2.i.i = tail call fastcc ptr @mi_heap_realloc_zero_aligned_at(ptr noundef %heap, ptr noundef %p, i64 noundef %storemerge.i3, i64 noundef %alignment, i64 noundef %rem.i.i, i1 noundef zeroext true) #7
+  %call2.i.i = tail call fastcc ptr @mi_heap_realloc_zero_aligned_at(ptr noundef %heap, ptr noundef %p, i64 noundef %storemerge.i3, i64 noundef %alignment, i64 noundef %rem.i.i, i1 noundef zeroext true) #6
   br label %return
 
 return:                                           ; preds = %if.end.i.i, %if.then.i.i, %mi_count_size_overflow.exit
@@ -516,7 +513,7 @@ define ptr @mi_realloc_aligned_at(ptr noundef %p, i64 noundef %newsize, i64 noun
 entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_mi_heap_default)
   %1 = load ptr, ptr %0, align 8
-  %call.i = tail call fastcc ptr @mi_heap_realloc_zero_aligned_at(ptr noundef %1, ptr noundef %p, i64 noundef %newsize, i64 noundef %alignment, i64 noundef %offset, i1 noundef zeroext false) #7
+  %call.i = tail call fastcc ptr @mi_heap_realloc_zero_aligned_at(ptr noundef %1, ptr noundef %p, i64 noundef %newsize, i64 noundef %alignment, i64 noundef %offset, i1 noundef zeroext false) #6
   ret ptr %call.i
 }
 
@@ -529,13 +526,13 @@ entry:
   br i1 %cmp.i.i, label %if.then.i.i, label %if.end.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  %call.i.i = tail call ptr @_mi_heap_realloc_zero(ptr noundef %1, ptr noundef %p, i64 noundef %newsize, i1 noundef zeroext false) #8
+  %call.i.i = tail call ptr @_mi_heap_realloc_zero(ptr noundef %1, ptr noundef %p, i64 noundef %newsize, i1 noundef zeroext false) #7
   br label %mi_heap_realloc_aligned.exit
 
 if.end.i.i:                                       ; preds = %entry
   %2 = ptrtoint ptr %p to i64
   %rem.i.i = urem i64 %2, %alignment
-  %call2.i.i = tail call fastcc ptr @mi_heap_realloc_zero_aligned_at(ptr noundef %1, ptr noundef %p, i64 noundef %newsize, i64 noundef %alignment, i64 noundef %rem.i.i, i1 noundef zeroext false) #7
+  %call2.i.i = tail call fastcc ptr @mi_heap_realloc_zero_aligned_at(ptr noundef %1, ptr noundef %p, i64 noundef %newsize, i64 noundef %alignment, i64 noundef %rem.i.i, i1 noundef zeroext false) #6
   br label %mi_heap_realloc_aligned.exit
 
 mi_heap_realloc_aligned.exit:                     ; preds = %if.then.i.i, %if.end.i.i
@@ -548,7 +545,7 @@ define ptr @mi_rezalloc_aligned_at(ptr noundef %p, i64 noundef %newsize, i64 nou
 entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_mi_heap_default)
   %1 = load ptr, ptr %0, align 8
-  %call.i = tail call fastcc ptr @mi_heap_realloc_zero_aligned_at(ptr noundef %1, ptr noundef %p, i64 noundef %newsize, i64 noundef %alignment, i64 noundef %offset, i1 noundef zeroext true) #7
+  %call.i = tail call fastcc ptr @mi_heap_realloc_zero_aligned_at(ptr noundef %1, ptr noundef %p, i64 noundef %newsize, i64 noundef %alignment, i64 noundef %offset, i1 noundef zeroext true) #6
   ret ptr %call.i
 }
 
@@ -561,13 +558,13 @@ entry:
   br i1 %cmp.i.i, label %if.then.i.i, label %if.end.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  %call.i.i = tail call ptr @_mi_heap_realloc_zero(ptr noundef %1, ptr noundef %p, i64 noundef %newsize, i1 noundef zeroext true) #8
+  %call.i.i = tail call ptr @_mi_heap_realloc_zero(ptr noundef %1, ptr noundef %p, i64 noundef %newsize, i1 noundef zeroext true) #7
   br label %mi_heap_rezalloc_aligned.exit
 
 if.end.i.i:                                       ; preds = %entry
   %2 = ptrtoint ptr %p to i64
   %rem.i.i = urem i64 %2, %alignment
-  %call2.i.i = tail call fastcc ptr @mi_heap_realloc_zero_aligned_at(ptr noundef %1, ptr noundef %p, i64 noundef %newsize, i64 noundef %alignment, i64 noundef %rem.i.i, i1 noundef zeroext true) #7
+  %call2.i.i = tail call fastcc ptr @mi_heap_realloc_zero_aligned_at(ptr noundef %1, ptr noundef %p, i64 noundef %newsize, i64 noundef %alignment, i64 noundef %rem.i.i, i1 noundef zeroext true) #6
   br label %mi_heap_rezalloc_aligned.exit
 
 mi_heap_rezalloc_aligned.exit:                    ; preds = %if.then.i.i, %if.end.i.i
@@ -591,7 +588,7 @@ mi_count_size_overflow.exit.i:                    ; preds = %entry
 
 if.end.i:                                         ; preds = %mi_count_size_overflow.exit.i, %entry
   %storemerge.i3.i = phi i64 [ %4, %mi_count_size_overflow.exit.i ], [ %size, %entry ]
-  %call.i.i = tail call fastcc ptr @mi_heap_realloc_zero_aligned_at(ptr noundef %1, ptr noundef %p, i64 noundef %storemerge.i3.i, i64 noundef %alignment, i64 noundef %offset, i1 noundef zeroext true) #7
+  %call.i.i = tail call fastcc ptr @mi_heap_realloc_zero_aligned_at(ptr noundef %1, ptr noundef %p, i64 noundef %storemerge.i3.i, i64 noundef %alignment, i64 noundef %offset, i1 noundef zeroext true) #6
   br label %mi_heap_recalloc_aligned_at.exit
 
 mi_heap_recalloc_aligned_at.exit:                 ; preds = %mi_count_size_overflow.exit.i, %if.end.i
@@ -619,13 +616,13 @@ if.end.i:                                         ; preds = %mi_count_size_overf
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %if.end.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.end.i
-  %call.i.i.i = tail call ptr @_mi_heap_realloc_zero(ptr noundef %1, ptr noundef %p, i64 noundef %storemerge.i3.i, i1 noundef zeroext true) #8
+  %call.i.i.i = tail call ptr @_mi_heap_realloc_zero(ptr noundef %1, ptr noundef %p, i64 noundef %storemerge.i3.i, i1 noundef zeroext true) #7
   br label %mi_heap_recalloc_aligned.exit
 
 if.end.i.i.i:                                     ; preds = %if.end.i
   %5 = ptrtoint ptr %p to i64
   %rem.i.i.i = urem i64 %5, %alignment
-  %call2.i.i.i = tail call fastcc ptr @mi_heap_realloc_zero_aligned_at(ptr noundef %1, ptr noundef %p, i64 noundef %storemerge.i3.i, i64 noundef %alignment, i64 noundef %rem.i.i.i, i1 noundef zeroext true) #7
+  %call2.i.i.i = tail call fastcc ptr @mi_heap_realloc_zero_aligned_at(ptr noundef %1, ptr noundef %p, i64 noundef %storemerge.i3.i, i64 noundef %alignment, i64 noundef %rem.i.i.i, i1 noundef zeroext true) #6
   br label %mi_heap_recalloc_aligned.exit
 
 mi_heap_recalloc_aligned.exit:                    ; preds = %mi_count_size_overflow.exit.i, %if.then.i.i.i, %if.end.i.i.i
@@ -643,46 +640,42 @@ declare void @_mi_padding_shrink(ptr noundef, ptr noundef, i64 noundef) local_un
 
 declare i64 @mi_usable_size(ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #2
-
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare { i64, i1 } @llvm.umul.with.overflow.i64(i64, i64) #4
+declare { i64, i1 } @llvm.umul.with.overflow.i64(i64, i64) #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare nonnull ptr @llvm.threadlocal.address.p0(ptr nonnull) #4
+declare nonnull ptr @llvm.threadlocal.address.p0(ptr nonnull) #3
 
 declare ptr @_mi_heap_realloc_zero(ptr noundef, ptr noundef, i64 noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 declare void @mi_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.ctpop.i64(i64) #6
+declare i64 @llvm.ctpop.i64(i64) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #6
+declare i64 @llvm.umax.i64(i64, i64) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.usub.sat.i64(i64, i64) #6
+declare i64 @llvm.usub.sat.i64(i64, i64) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #6
+declare i64 @llvm.umin.i64(i64, i64) #5
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-builtin-malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-builtin-malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #4 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #6 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #7 = { "no-builtin-malloc" }
-attributes #8 = { nounwind "no-builtin-malloc" }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #3 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #5 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #6 = { "no-builtin-malloc" }
+attributes #7 = { nounwind "no-builtin-malloc" }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

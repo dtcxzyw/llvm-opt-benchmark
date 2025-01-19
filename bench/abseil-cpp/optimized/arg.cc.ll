@@ -1415,7 +1415,7 @@ do.body.i14:                                      ; preds = %do.body.i14, %sw.bb
   %mul.i = zext nneg i32 %4 to i64
   %add.ptr3.i = getelementptr inbounds nuw i8, ptr @_ZN4absl16numbers_internal9kHexTableE, i64 %mul.i
   %5 = load i16, ptr %add.ptr3.i, align 2
-  store i16 %5, ptr %add.ptr2.i, align 1
+  store i16 %5, ptr %add.ptr2.i, align 2
   %shr.i17 = lshr i32 %v.addr.0.i16, 8
   %tobool.not.i18 = icmp ult i32 %v.addr.0.i16, 256
   br i1 %tobool.not.i18, label %_ZN4absl19str_format_internal12_GLOBAL__N_19IntDigits15PrintAsHexLowerIjEEvT_.exit, label %do.body.i14, !llvm.loop !10
@@ -1606,7 +1606,7 @@ do.body.i16:                                      ; preds = %do.body.i16, %sw.bb
   %mul.i = zext nneg i16 %6 to i64
   %add.ptr3.i = getelementptr inbounds nuw i8, ptr @_ZN4absl16numbers_internal9kHexTableE, i64 %mul.i
   %7 = load i16, ptr %add.ptr3.i, align 2
-  store i16 %7, ptr %add.ptr2.i, align 1
+  store i16 %7, ptr %add.ptr2.i, align 2
   %8 = lshr i16 %v.addr.0.i18, 8
   %tobool.not.i19 = icmp ult i16 %v.addr.0.i18, 256
   br i1 %tobool.not.i19, label %_ZN4absl19str_format_internal12_GLOBAL__N_19IntDigits15PrintAsHexLowerItEEvT_.exit, label %do.body.i16, !llvm.loop !13
@@ -1799,7 +1799,7 @@ do.body.i16:                                      ; preds = %do.body.i16, %sw.bb
   %mul.i = zext nneg i16 %6 to i64
   %add.ptr3.i = getelementptr inbounds nuw i8, ptr @_ZN4absl16numbers_internal9kHexTableE, i64 %mul.i
   %7 = load i16, ptr %add.ptr3.i, align 2
-  store i16 %7, ptr %add.ptr2.i, align 1
+  store i16 %7, ptr %add.ptr2.i, align 2
   %8 = lshr i16 %v.addr.0.i18, 8
   %tobool.not.i19 = icmp ult i16 %v.addr.0.i18, 256
   br i1 %tobool.not.i19, label %_ZN4absl19str_format_internal12_GLOBAL__N_19IntDigits15PrintAsHexLowerItEEvT_.exit, label %do.body.i16, !llvm.loop !13
@@ -1991,7 +1991,7 @@ do.body.i16:                                      ; preds = %do.body.i16, %sw.bb
   %mul.i = zext nneg i32 %5 to i64
   %add.ptr3.i = getelementptr inbounds nuw i8, ptr @_ZN4absl16numbers_internal9kHexTableE, i64 %mul.i
   %6 = load i16, ptr %add.ptr3.i, align 2
-  store i16 %6, ptr %add.ptr2.i, align 1
+  store i16 %6, ptr %add.ptr2.i, align 2
   %shr.i19 = lshr i32 %v.addr.0.i18, 8
   %tobool.not.i20 = icmp ult i32 %v.addr.0.i18, 256
   br i1 %tobool.not.i20, label %_ZN4absl19str_format_internal12_GLOBAL__N_19IntDigits15PrintAsHexLowerIjEEvT_.exit, label %do.body.i16, !llvm.loop !10
@@ -2181,7 +2181,7 @@ do.body.i16:                                      ; preds = %do.body.i16, %sw.bb
   %mul.i = zext nneg i32 %5 to i64
   %add.ptr3.i = getelementptr inbounds nuw i8, ptr @_ZN4absl16numbers_internal9kHexTableE, i64 %mul.i
   %6 = load i16, ptr %add.ptr3.i, align 2
-  store i16 %6, ptr %add.ptr2.i, align 1
+  store i16 %6, ptr %add.ptr2.i, align 2
   %shr.i19 = lshr i32 %v.addr.0.i18, 8
   %tobool.not.i20 = icmp ult i32 %v.addr.0.i18, 256
   br i1 %tobool.not.i20, label %_ZN4absl19str_format_internal12_GLOBAL__N_19IntDigits15PrintAsHexLowerIjEEvT_.exit, label %do.body.i16, !llvm.loop !10
@@ -2371,7 +2371,7 @@ do.body.i16:                                      ; preds = %do.body.i16, %sw.bb
   %mul.i = and i64 %and.i, 510
   %add.ptr3.i = getelementptr inbounds nuw i8, ptr @_ZN4absl16numbers_internal9kHexTableE, i64 %mul.i
   %4 = load i16, ptr %add.ptr3.i, align 2
-  store i16 %4, ptr %add.ptr2.i, align 1
+  store i16 %4, ptr %add.ptr2.i, align 2
   %shr.i19 = lshr i64 %v.addr.0.i18, 8
   %tobool.not.i20 = icmp ult i64 %v.addr.0.i18, 256
   br i1 %tobool.not.i20, label %_ZN4absl19str_format_internal12_GLOBAL__N_19IntDigits15PrintAsHexLowerImEEvT_.exit, label %do.body.i16, !llvm.loop !16
@@ -2560,7 +2560,7 @@ do.body.i16:                                      ; preds = %do.body.i16, %sw.bb
   %mul.i = and i64 %and.i, 510
   %add.ptr3.i = getelementptr inbounds nuw i8, ptr @_ZN4absl16numbers_internal9kHexTableE, i64 %mul.i
   %4 = load i16, ptr %add.ptr3.i, align 2
-  store i16 %4, ptr %add.ptr2.i, align 1
+  store i16 %4, ptr %add.ptr2.i, align 2
   %shr.i19 = lshr i64 %v.addr.0.i18, 8
   %tobool.not.i20 = icmp ult i64 %v.addr.0.i18, 256
   br i1 %tobool.not.i20, label %_ZN4absl19str_format_internal12_GLOBAL__N_19IntDigits15PrintAsHexLowerImEEvT_.exit, label %do.body.i16, !llvm.loop !16
@@ -2749,7 +2749,7 @@ do.body.i16:                                      ; preds = %do.body.i16, %sw.bb
   %mul.i = and i64 %and.i, 510
   %add.ptr3.i = getelementptr inbounds nuw i8, ptr @_ZN4absl16numbers_internal9kHexTableE, i64 %mul.i
   %4 = load i16, ptr %add.ptr3.i, align 2
-  store i16 %4, ptr %add.ptr2.i, align 1
+  store i16 %4, ptr %add.ptr2.i, align 2
   %shr.i19 = lshr i64 %v.addr.0.i18, 8
   %tobool.not.i20 = icmp ult i64 %v.addr.0.i18, 256
   br i1 %tobool.not.i20, label %_ZN4absl19str_format_internal12_GLOBAL__N_19IntDigits15PrintAsHexLowerIyEEvT_.exit, label %do.body.i16, !llvm.loop !19
@@ -2938,7 +2938,7 @@ do.body.i16:                                      ; preds = %do.body.i16, %sw.bb
   %mul.i = and i64 %and.i, 510
   %add.ptr3.i = getelementptr inbounds nuw i8, ptr @_ZN4absl16numbers_internal9kHexTableE, i64 %mul.i
   %4 = load i16, ptr %add.ptr3.i, align 2
-  store i16 %4, ptr %add.ptr2.i, align 1
+  store i16 %4, ptr %add.ptr2.i, align 2
   %shr.i19 = lshr i64 %v.addr.0.i18, 8
   %tobool.not.i20 = icmp ult i64 %v.addr.0.i18, 256
   br i1 %tobool.not.i20, label %_ZN4absl19str_format_internal12_GLOBAL__N_19IntDigits15PrintAsHexLowerIyEEvT_.exit, label %do.body.i16, !llvm.loop !19
@@ -3113,7 +3113,7 @@ do.body.i.i:                                      ; preds = %do.body.i.i, %if.en
   %mul.i.i = and i64 %and.i.i, 510
   %add.ptr3.i.i = getelementptr inbounds nuw i8, ptr @_ZN4absl16numbers_internal9kHexTableE, i64 %mul.i.i
   %10 = load i16, ptr %add.ptr3.i.i, align 2
-  store i16 %10, ptr %add.ptr2.i.i, align 1
+  store i16 %10, ptr %add.ptr2.i.i, align 2
   %shr.i.i = lshr i64 %v.addr.0.i.i, 8
   %tobool.not.i.i = icmp ult i64 %v.addr.0.i.i, 256
   br i1 %tobool.not.i.i, label %_ZN4absl19str_format_internal12_GLOBAL__N_19IntDigits15PrintAsHexLowerImEEvT_.exit.i, label %do.body.i.i, !llvm.loop !16
@@ -3194,7 +3194,7 @@ do.body.i:                                        ; preds = %do.body.i, %if.end
   %mul.i = and i64 %and.i, 510
   %add.ptr3.i = getelementptr inbounds nuw i8, ptr @_ZN4absl16numbers_internal9kHexTableE, i64 %mul.i
   %7 = load i16, ptr %add.ptr3.i, align 2
-  store i16 %7, ptr %add.ptr2.i, align 1
+  store i16 %7, ptr %add.ptr2.i, align 2
   %shr.i = lshr i64 %v.addr.0.i, 8
   %tobool.not.i = icmp ult i64 %v.addr.0.i, 256
   br i1 %tobool.not.i, label %_ZN4absl19str_format_internal12_GLOBAL__N_19IntDigits15PrintAsHexLowerImEEvT_.exit, label %do.body.i, !llvm.loop !16
@@ -4154,7 +4154,7 @@ do.body.i.i:                                      ; preds = %do.body.i.i, %if.en
   %mul.i.i = and i64 %and.i.i, 510
   %add.ptr3.i.i = getelementptr inbounds nuw i8, ptr @_ZN4absl16numbers_internal9kHexTableE, i64 %mul.i.i
   %9 = load i16, ptr %add.ptr3.i.i, align 2
-  store i16 %9, ptr %add.ptr2.i.i, align 1
+  store i16 %9, ptr %add.ptr2.i.i, align 2
   %shr.i.i = lshr i64 %v.addr.0.i.i, 8
   %tobool.not.i.i = icmp ult i64 %v.addr.0.i.i, 256
   br i1 %tobool.not.i.i, label %_ZN4absl19str_format_internal12_GLOBAL__N_19IntDigits15PrintAsHexLowerImEEvT_.exit.i, label %do.body.i.i, !llvm.loop !16
@@ -4719,7 +4719,7 @@ do.body.i.i:                                      ; preds = %do.body.i.i, %if.en
   %mul.i.i = and i64 %and.i.i, 510
   %add.ptr3.i.i = getelementptr inbounds nuw i8, ptr @_ZN4absl16numbers_internal9kHexTableE, i64 %mul.i.i
   %9 = load i16, ptr %add.ptr3.i.i, align 2
-  store i16 %9, ptr %add.ptr2.i.i, align 1
+  store i16 %9, ptr %add.ptr2.i.i, align 2
   %shr.i.i = lshr i64 %v.addr.0.i.i, 8
   %tobool.not.i.i = icmp ult i64 %v.addr.0.i.i, 256
   br i1 %tobool.not.i.i, label %_ZN4absl19str_format_internal12_GLOBAL__N_19IntDigits15PrintAsHexLowerImEEvT_.exit.i, label %do.body.i.i, !llvm.loop !16
@@ -5464,7 +5464,7 @@ do.body.i12:                                      ; preds = %do.body.i12, %sw.bb
   %mul.i = and i64 %and.i, 510
   %add.ptr3.i = getelementptr inbounds nuw i8, ptr @_ZN4absl16numbers_internal9kHexTableE, i64 %mul.i
   %5 = load i16, ptr %add.ptr3.i, align 2
-  store i16 %5, ptr %add.ptr2.i, align 1
+  store i16 %5, ptr %add.ptr2.i, align 2
   %coerce.sroa.2.0.insert.ext.i.i.i16 = zext i64 %v.sroa.5.0.i13 to i128
   %coerce.sroa.2.0.insert.shift.i.i.i17 = shl nuw i128 %coerce.sroa.2.0.insert.ext.i.i.i16, 64
   %coerce.sroa.0.0.insert.ext.i.i.i18 = zext i64 %v.sroa.0.0.i14 to i128
@@ -5783,7 +5783,7 @@ do.body.i11:                                      ; preds = %do.body.i11, %sw.bb
   %mul.i = and i64 %and.i, 510
   %add.ptr3.i = getelementptr inbounds nuw i8, ptr @_ZN4absl16numbers_internal9kHexTableE, i64 %mul.i
   %5 = load i16, ptr %add.ptr3.i, align 2
-  store i16 %5, ptr %add.ptr2.i, align 1
+  store i16 %5, ptr %add.ptr2.i, align 2
   %coerce.sroa.2.0.insert.ext.i.i.i15 = zext i64 %v.sroa.5.0.i12 to i128
   %coerce.sroa.2.0.insert.shift.i.i.i16 = shl nuw i128 %coerce.sroa.2.0.insert.ext.i.i.i15, 64
   %coerce.sroa.0.0.insert.ext.i.i.i17 = zext i64 %v.sroa.0.0.i13 to i128

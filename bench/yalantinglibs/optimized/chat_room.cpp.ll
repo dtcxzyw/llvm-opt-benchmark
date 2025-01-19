@@ -22349,7 +22349,6 @@ if.end36:                                         ; preds = %for.cond17, %if.the
   %add.i = select i1 %cmp1.i, i64 0, i64 %sub.i
   %cond6.i = add i64 %add.i, %add38
   %call.i = tail call noalias ptr @aligned_alloc(i64 noundef %cond.i, i64 noundef %cond6.i) #46
-  call void @llvm.assume(i1 true) [ "align"(ptr %call.i, i64 %cond.i) ]
   %tobool.not.i = icmp eq ptr %call.i, null
   br i1 %tobool.not.i, label %if.then.i, label %_ZN4asio11aligned_newEmm.exit
 
@@ -25646,7 +25645,6 @@ if.end36:                                         ; preds = %for.cond17, %if.the
   %add.i = select i1 %cmp1.i, i64 0, i64 %sub.i
   %cond6.i = add i64 %add.i, %add38
   %call.i = tail call noalias ptr @aligned_alloc(i64 noundef %cond.i, i64 noundef %cond6.i) #46
-  call void @llvm.assume(i1 true) [ "align"(ptr %call.i, i64 %cond.i) ]
   %tobool.not.i = icmp eq ptr %call.i, null
   br i1 %tobool.not.i, label %if.then.i, label %_ZN4asio11aligned_newEmm.exit
 
@@ -54960,7 +54958,7 @@ for.body.i8:                                      ; preds = %for.body.i8, %_ZN7c
   %arrayidx7.i = getelementptr inbounds nuw i8, ptr %6, i64 %idxprom.i
   %11 = load i8, ptr %arrayidx7.i, align 1
   %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %dst.040.i, i64 1
-  store i8 %11, ptr %dst.040.i, align 1
+  store i8 %11, ptr %dst.040.i, align 4
   %shr8.i = lshr i32 %or6.i, 12
   %and.i = and i32 %shr8.i, 63
   %idxprom9.i = zext nneg i32 %and.i to i64
@@ -54974,7 +54972,7 @@ for.body.i8:                                      ; preds = %for.body.i8, %_ZN7c
   %arrayidx15.i = getelementptr inbounds nuw i8, ptr %6, i64 %idxprom14.i
   %13 = load i8, ptr %arrayidx15.i, align 1
   %incdec.ptr16.i = getelementptr inbounds nuw i8, ptr %dst.040.i, i64 3
-  store i8 %13, ptr %incdec.ptr11.i, align 1
+  store i8 %13, ptr %incdec.ptr11.i, align 2
   %and17.i = and i32 %conv5.i, 63
   %idxprom18.i = zext nneg i32 %and17.i to i64
   %arrayidx19.i = getelementptr inbounds nuw i8, ptr %6, i64 %idxprom18.i

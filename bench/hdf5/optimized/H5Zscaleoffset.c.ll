@@ -1024,9 +1024,9 @@ H5Z__scaleoffset_convert.exit:                    ; preds = %H5Z__scaleoffset_co
   br i1 %exitcond.not.i507, label %H5Z__scaleoffset_convert.exit508, label %62
 
 H5Z__scaleoffset_convert.exit508:                 ; preds = %62, %59
-  %69 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  %70 = load i32, ptr %8, align 4
-  store i32 %70, ptr %69, align 4
+  %69 = load i32, ptr %8, align 4
+  %70 = getelementptr inbounds nuw i8, ptr %3, i64 32
+  store i32 %69, ptr %70, align 4
   br label %.loopexit
 
 71:                                               ; preds = %5
@@ -1099,7 +1099,7 @@ H5Z__scaleoffset_convert.exit511:                 ; preds = %81, %78
   %indvars.iv615 = phi i64 [ 8, %98 ], [ %indvars.iv.next616, %100 ]
   %.1431592 = phi i64 [ 8, %98 ], [ %103, %100 ]
   %.1435591 = phi ptr [ %99, %98 ], [ %.2436.idx.sroa.sel.idx.sroa.sel, %100 ]
-  %101 = load i32, ptr %.1435591, align 1
+  %101 = load i32, ptr %.1435591, align 4
   %102 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv615
   store i32 %101, ptr %102, align 4
   %indvars.iv.next616 = add nuw nsw i64 %indvars.iv615, 1
@@ -1179,7 +1179,7 @@ H5Z__scaleoffset_convert.exit514:                 ; preds = %114, %111
   %indvars.iv612 = phi i64 [ 8, %131 ], [ %indvars.iv.next613, %133 ]
   %.1422588 = phi i64 [ 8, %131 ], [ %136, %133 ]
   %.1426587 = phi ptr [ %132, %131 ], [ %.2427.idx.sroa.sel.idx.sroa.sel, %133 ]
-  %134 = load i32, ptr %.1426587, align 1
+  %134 = load i32, ptr %.1426587, align 4
   %135 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv612
   store i32 %134, ptr %135, align 4
   %indvars.iv.next613 = add nuw nsw i64 %indvars.iv612, 1
@@ -1281,9 +1281,9 @@ H5Z__scaleoffset_convert.exit517:                 ; preds = %H5Z__scaleoffset_co
   br i1 %exitcond.not.i519, label %H5Z__scaleoffset_convert.exit520, label %176
 
 H5Z__scaleoffset_convert.exit520:                 ; preds = %176, %173
-  %183 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  %184 = load i32, ptr %15, align 4
-  store i32 %184, ptr %183, align 4
+  %183 = load i32, ptr %15, align 4
+  %184 = getelementptr inbounds nuw i8, ptr %3, i64 32
+  store i32 %183, ptr %184, align 4
   br label %.loopexit
 
 185:                                              ; preds = %5
@@ -1356,7 +1356,7 @@ H5Z__scaleoffset_convert.exit523:                 ; preds = %195, %192
   %indvars.iv609 = phi i64 [ 8, %212 ], [ %indvars.iv.next610, %214 ]
   %.1395581 = phi i64 [ 8, %212 ], [ %217, %214 ]
   %.1399580 = phi ptr [ %213, %212 ], [ %.2400.idx.sroa.sel.idx.sroa.sel, %214 ]
-  %215 = load i32, ptr %.1399580, align 1
+  %215 = load i32, ptr %.1399580, align 4
   %216 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv609
   store i32 %215, ptr %216, align 4
   %indvars.iv.next610 = add nuw nsw i64 %indvars.iv609, 1
@@ -1436,7 +1436,7 @@ H5Z__scaleoffset_convert.exit526:                 ; preds = %228, %225
   %indvars.iv = phi i64 [ 8, %245 ], [ %indvars.iv.next, %247 ]
   %.1386577 = phi i64 [ 8, %245 ], [ %250, %247 ]
   %.1390576 = phi ptr [ %246, %245 ], [ %.2391.idx.sroa.sel.idx.sroa.sel, %247 ]
-  %248 = load i32, ptr %.1390576, align 1
+  %248 = load i32, ptr %.1390576, align 4
   %249 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv
   store i32 %248, ptr %249, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -1479,9 +1479,9 @@ H5Z__scaleoffset_convert.exit526:                 ; preds = %228, %225
   br i1 %exitcond.not.i528, label %H5Z__scaleoffset_convert.exit529, label %261
 
 H5Z__scaleoffset_convert.exit529:                 ; preds = %261, %258
-  %268 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  %269 = load i32, ptr %20, align 4
-  store i32 %269, ptr %268, align 4
+  %268 = load i32, ptr %20, align 4
+  %269 = getelementptr inbounds nuw i8, ptr %3, i64 32
+  store i32 %268, ptr %269, align 4
   br label %.loopexit
 
 270:                                              ; preds = %5
@@ -1554,7 +1554,7 @@ H5Z__scaleoffset_convert.exit532:                 ; preds = %280, %277
   %indvars.iv618 = phi i64 [ 8, %297 ], [ %indvars.iv.next619, %299 ]
   %.1599 = phi i64 [ 8, %297 ], [ %302, %299 ]
   %.1373598 = phi ptr [ %298, %297 ], [ %.2.idx.sroa.sel.idx.sroa.sel, %299 ]
-  %300 = load i32, ptr %.1373598, align 1
+  %300 = load i32, ptr %.1373598, align 4
   %301 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv618
   store i32 %300, ptr %301, align 4
   %indvars.iv.next619 = add nuw nsw i64 %indvars.iv618, 1
@@ -1997,7 +1997,7 @@ define internal fastcc void @H5Z__scaleoffset_postdecompress_i(ptr nocapture nou
   %.1611806 = phi ptr [ %86, %85 ], [ %.2612.idx.sroa.sel.idx.sroa.sel, %87 ]
   %88 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv941
   %89 = load i32, ptr %88, align 4
-  store i32 %89, ptr %.1611806, align 1
+  store i32 %89, ptr %.1611806, align 4
   %indvars.iv.next942 = add nuw nsw i64 %indvars.iv941, 1
   %90 = add nsw i64 %.1607807, -4
   %.not680 = icmp eq i64 %90, 0
@@ -2085,7 +2085,7 @@ define internal fastcc void @H5Z__scaleoffset_postdecompress_i(ptr nocapture nou
   %.1598798 = phi ptr [ %116, %115 ], [ %.2599.idx.sroa.sel.idx.sroa.sel, %117 ]
   %118 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv928
   %119 = load i32, ptr %118, align 4
-  store i32 %119, ptr %.1598798, align 1
+  store i32 %119, ptr %.1598798, align 4
   %indvars.iv.next929 = add nuw nsw i64 %indvars.iv928, 1
   %120 = add nsw i64 %.1594799, -4
   %.not676 = icmp eq i64 %120, 0
@@ -2329,7 +2329,7 @@ define internal fastcc void @H5Z__scaleoffset_postdecompress_i(ptr nocapture nou
   %.1545772 = phi ptr [ %203, %202 ], [ %.2546.idx.sroa.sel.idx.sroa.sel, %204 ]
   %205 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv885
   %206 = load i32, ptr %205, align 4
-  store i32 %206, ptr %.1545772, align 1
+  store i32 %206, ptr %.1545772, align 4
   %indvars.iv.next886 = add nuw nsw i64 %indvars.iv885, 1
   %207 = add nsw i64 %.1541773, -4
   %.not667 = icmp eq i64 %207, 0
@@ -2417,7 +2417,7 @@ define internal fastcc void @H5Z__scaleoffset_postdecompress_i(ptr nocapture nou
   %.1533764 = phi ptr [ %233, %232 ], [ %.2.idx.sroa.sel.idx.sroa.sel, %234 ]
   %235 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv872
   %236 = load i32, ptr %235, align 4
-  store i32 %236, ptr %.1533764, align 1
+  store i32 %236, ptr %.1533764, align 4
   %indvars.iv.next873 = add nuw nsw i64 %indvars.iv872, 1
   %237 = add nsw i64 %.1765, -4
   %.not664 = icmp eq i64 %237, 0
@@ -2585,7 +2585,7 @@ define internal fastcc void @H5Z__scaleoffset_postdecompress_fd(ptr nocapture no
   %.1117158 = phi ptr [ %50, %49 ], [ %.2.idx.sroa.sel.idx.sroa.sel, %51 ]
   %52 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv180
   %53 = load i32, ptr %52, align 4
-  store i32 %53, ptr %.1117158, align 1
+  store i32 %53, ptr %.1117158, align 4
   %indvars.iv.next181 = add nuw nsw i64 %indvars.iv180, 1
   %54 = add nsw i64 %.1159, -4
   %.not144 = icmp eq i64 %54, 0
@@ -3570,7 +3570,7 @@ thread-pre-split2234:                             ; preds = %.lr.ph2699, %H5Z__s
   %.116692667 = phi ptr [ %292, %291 ], [ %.21670.idx.sroa.sel.idx.sroa.sel, %293 ]
   %294 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv3169
   %295 = load i32, ptr %294, align 4
-  store i32 %295, ptr %.116692667, align 1
+  store i32 %295, ptr %.116692667, align 4
   %indvars.iv.next3170 = add nuw nsw i64 %indvars.iv3169, 1
   %296 = add nsw i64 %.116652668, -4
   %.not1896 = icmp eq i64 %296, 0
@@ -3892,7 +3892,7 @@ thread-pre-split2238:                             ; preds = %.lr.ph2653, %H5Z__s
   %.116302621 = phi ptr [ %391, %390 ], [ %.21631.idx.sroa.sel.idx.sroa.sel, %392 ]
   %393 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv3130
   %394 = load i32, ptr %393, align 4
-  store i32 %394, ptr %.116302621, align 1
+  store i32 %394, ptr %.116302621, align 4
   %indvars.iv.next3131 = add nuw nsw i64 %indvars.iv3130, 1
   %395 = add nsw i64 %.116262622, -4
   %.not1890 = icmp eq i64 %395, 0
@@ -5088,7 +5088,7 @@ thread-pre-split2254:                             ; preds = %.lr.ph2475, %H5Z__s
   %.114702443 = phi ptr [ %759, %758 ], [ %.21471.idx.sroa.sel.idx.sroa.sel, %760 ]
   %761 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv2991
   %762 = load i32, ptr %761, align 4
-  store i32 %762, ptr %.114702443, align 1
+  store i32 %762, ptr %.114702443, align 4
   %indvars.iv.next2992 = add nuw nsw i64 %indvars.iv2991, 1
   %763 = add nsw i64 %.114662444, -4
   %.not1873 = icmp eq i64 %763, 0
@@ -5410,7 +5410,7 @@ thread-pre-split2258:                             ; preds = %.lr.ph2429, %H5Z__s
   %.114322397 = phi ptr [ %858, %857 ], [ %.2.idx.sroa.sel.idx.sroa.sel, %859 ]
   %860 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv2952
   %861 = load i32, ptr %860, align 4
-  store i32 %861, ptr %.114322397, align 1
+  store i32 %861, ptr %.114322397, align 4
   %indvars.iv.next2953 = add nuw nsw i64 %indvars.iv2952, 1
   %862 = add nsw i64 %.12398, -4
   %.not1868 = icmp eq i64 %862, 0
@@ -6023,7 +6023,7 @@ H5Z__scaleoffset_log2.exit342:                    ; preds = %.lr.ph.i334, %102
   %.1262396 = phi ptr [ %143, %142 ], [ %.2.idx.sroa.sel.idx.sroa.sel, %144 ]
   %145 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv473
   %146 = load i32, ptr %145, align 4
-  store i32 %146, ptr %.1262396, align 1
+  store i32 %146, ptr %.1262396, align 4
   %indvars.iv.next474 = add nuw nsw i64 %indvars.iv473, 1
   %147 = add nsw i64 %.1397, -4
   %.not323 = icmp eq i64 %147, 0

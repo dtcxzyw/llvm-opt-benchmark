@@ -14130,7 +14130,7 @@ arraydestroy.body:                                ; preds = %_ZNSt4pairINSt7__cx
   %arraydestroy.elementPast = phi ptr [ %add.ptr.i.i, %invoke.cont56 ], [ %arraydestroy.element, %_ZNSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4absl4CordEED2Ev.exit ]
   %arraydestroy.element = getelementptr inbounds i8, ptr %arraydestroy.elementPast, i64 -48
   %second.i = getelementptr inbounds i8, ptr %arraydestroy.elementPast, i64 -16
-  %52 = load i8, ptr %second.i, align 1
+  %52 = load i8, ptr %second.i, align 8
   %53 = and i8 %52, 1
   %cmp.i.i.not.i.i100 = icmp eq i8 %53, 0
   br i1 %cmp.i.i.not.i.i100, label %_ZNSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4absl4CordEED2Ev.exit, label %if.then.i.i101
