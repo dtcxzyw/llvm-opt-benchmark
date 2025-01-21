@@ -1239,7 +1239,6 @@ _ZN5boost4asio6detail14thread_context24top_of_thread_call_stackEv.exit.i.i.i.i.i
 
 .loopexit.i.i.i.i.i.i.i.i:                        ; preds = %84, %88, %_ZN5boost4asio6detail14thread_context24top_of_thread_call_stackEv.exit.i.i.i.i.i.i.i, %_ZN5boost4asio16basic_signal_setINS0_15any_io_executorEE10async_waitITkNS0_20completion_token_forIFvNS_6system10error_codeEiEEEZNS_6cobalt6detail12main_promise8run_mainENS9_4mainEE4workEEDTcl14async_initiateIT_S8_EclL_ZSt7declvalINS3_19initiate_async_waitEEDTcl9__declvalISE_ELi0EEEvEEfp_EEOSE_.exit
   %90 = call noalias align 16 dereferenceable_or_null(48) ptr @aligned_alloc(i64 noundef 16, i64 noundef 48) #34
-  call void @llvm.assume(i1 true) [ "align"(ptr %90, i64 16) ]
   %.not.i.i1.i.i.i.i.i.i.i = icmp eq ptr %90, null
   br i1 %.not.i.i1.i.i.i.i.i.i.i, label %91, label %.loopexit.i.i.i.i._crit_edge.i.i.i.i
 
@@ -11348,7 +11347,6 @@ _ZN5boost4asio6detail19recycling_allocatorINS1_11executor_opINS1_17executor_func
 
 .loopexit.i:                                      ; preds = %16, %1, %20, %_ZN5boost4asio6detail19recycling_allocatorINS1_11executor_opINS1_17executor_functionESaIvENS1_19scheduler_operationEEENS1_16thread_info_base11default_tagEE8allocateEm.exit
   %22 = tail call noalias align 16 dereferenceable_or_null(48) ptr @aligned_alloc(i64 noundef 16, i64 noundef 48) #34
-  call void @llvm.assume(i1 true) [ "align"(ptr %22, i64 16) ]
   %.not.i.i = icmp eq ptr %22, null
   br i1 %.not.i.i, label %23, label %_ZN5boost4asio6detail16thread_info_base8allocateINS2_11default_tagEEEPvT_PS2_mm.exit
 
@@ -16085,7 +16083,6 @@ _ZN5boost4asio6detail14thread_context24top_of_thread_call_stackEv.exit.i.i: ; pr
 
 .loopexit.i.i.i:                                  ; preds = %21, %25, %_ZN5boost4asio6detail14thread_context24top_of_thread_call_stackEv.exit.i.i, %4
   %27 = tail call noalias align 16 dereferenceable_or_null(144) ptr @aligned_alloc(i64 noundef 16, i64 noundef 144) #34
-  call void @llvm.assume(i1 true) [ "align"(ptr %27, i64 16) ]
   %.not.i.i1.i.i = icmp eq ptr %27, null
   br i1 %.not.i.i1.i.i, label %28, label %32
 
@@ -16792,7 +16789,6 @@ define linkonce_odr hidden noundef ptr @_ZN5boost4asio6detail16thread_info_base8
   %29 = select i1 %27, i64 0, i64 %28
   %30 = add i64 %29, %24
   %31 = tail call noalias ptr @aligned_alloc(i64 noundef %25, i64 noundef %30) #34
-  call void @llvm.assume(i1 true) [ "align"(ptr %31, i64 %25) ]
   %.not.i = icmp eq ptr %31, null
   br i1 %.not.i, label %32, label %_ZN5boost4asio11aligned_newEmm.exit
 

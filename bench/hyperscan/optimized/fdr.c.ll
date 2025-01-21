@@ -10,7 +10,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @fake_history = internal constant [16 x i8] zeroinitializer, align 16
 @funcs = internal unnamed_addr constant [19 x ptr] [ptr @fdr_engine_exec, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr @fdr_exec_teddy_msks1, ptr @fdr_exec_teddy_msks1_pck, ptr @fdr_exec_teddy_msks2, ptr @fdr_exec_teddy_msks2_pck, ptr @fdr_exec_teddy_msks3, ptr @fdr_exec_teddy_msks3_pck, ptr @fdr_exec_teddy_msks4, ptr @fdr_exec_teddy_msks4_pck], align 16
 @vbs_mask_data = external local_unnamed_addr constant [0 x i8], align 1
-@zone_or_mask = internal constant <{ [16 x i8], <{ i8, [15 x i8] }>, <{ i8, i8, [14 x i8] }>, <{ i8, i8, i8, [13 x i8] }>, <{ i8, i8, i8, i8, [12 x i8] }>, <{ i8, i8, i8, i8, i8, [11 x i8] }>, <{ i8, i8, i8, i8, i8, i8, [10 x i8] }>, <{ i8, i8, i8, i8, i8, i8, i8, [9 x i8] }>, <{ [8 x i8], [8 x i8] }>, [16 x i8], [16 x i8], [16 x i8], [16 x i8], [16 x i8], [16 x i8], [16 x i8], [16 x i8] }> <{ [16 x i8] zeroinitializer, <{ i8, [15 x i8] }> <{ i8 -1, [15 x i8] zeroinitializer }>, <{ i8, i8, [14 x i8] }> <{ i8 -1, i8 -1, [14 x i8] zeroinitializer }>, <{ i8, i8, i8, [13 x i8] }> <{ i8 -1, i8 -1, i8 -1, [13 x i8] zeroinitializer }>, <{ i8, i8, i8, i8, [12 x i8] }> <{ i8 -1, i8 -1, i8 -1, i8 -1, [12 x i8] zeroinitializer }>, <{ i8, i8, i8, i8, i8, [11 x i8] }> <{ i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, [11 x i8] zeroinitializer }>, <{ i8, i8, i8, i8, i8, i8, [10 x i8] }> <{ i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, [10 x i8] zeroinitializer }>, <{ i8, i8, i8, i8, i8, i8, i8, [9 x i8] }> <{ i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, [9 x i8] zeroinitializer }>, <{ [8 x i8], [8 x i8] }> <{ [8 x i8] c"\FF\FF\FF\FF\FF\FF\FF\FF", [8 x i8] zeroinitializer }>, [16 x i8] c"\FF\FF\FF\FF\FF\FF\FF\FF\FF\00\00\00\00\00\00\00", [16 x i8] c"\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\00\00\00\00\00\00", [16 x i8] c"\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\00\00\00\00\00", [16 x i8] c"\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\00\00\00\00", [16 x i8] c"\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\00\00\00", [16 x i8] c"\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\00\00", [16 x i8] c"\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\00", [16 x i8] zeroinitializer }>, align 64
+@zone_or_mask = internal unnamed_addr constant <{ [16 x i8], <{ i8, [15 x i8] }>, <{ i8, i8, [14 x i8] }>, <{ i8, i8, i8, [13 x i8] }>, <{ i8, i8, i8, i8, [12 x i8] }>, <{ i8, i8, i8, i8, i8, [11 x i8] }>, <{ i8, i8, i8, i8, i8, i8, [10 x i8] }>, <{ i8, i8, i8, i8, i8, i8, i8, [9 x i8] }>, <{ [8 x i8], [8 x i8] }>, [16 x i8], [16 x i8], [16 x i8], [16 x i8], [16 x i8], [16 x i8], [16 x i8], [16 x i8] }> <{ [16 x i8] zeroinitializer, <{ i8, [15 x i8] }> <{ i8 -1, [15 x i8] zeroinitializer }>, <{ i8, i8, [14 x i8] }> <{ i8 -1, i8 -1, [14 x i8] zeroinitializer }>, <{ i8, i8, i8, [13 x i8] }> <{ i8 -1, i8 -1, i8 -1, [13 x i8] zeroinitializer }>, <{ i8, i8, i8, i8, [12 x i8] }> <{ i8 -1, i8 -1, i8 -1, i8 -1, [12 x i8] zeroinitializer }>, <{ i8, i8, i8, i8, i8, [11 x i8] }> <{ i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, [11 x i8] zeroinitializer }>, <{ i8, i8, i8, i8, i8, i8, [10 x i8] }> <{ i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, [10 x i8] zeroinitializer }>, <{ i8, i8, i8, i8, i8, i8, i8, [9 x i8] }> <{ i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, [9 x i8] zeroinitializer }>, <{ [8 x i8], [8 x i8] }> <{ [8 x i8] c"\FF\FF\FF\FF\FF\FF\FF\FF", [8 x i8] zeroinitializer }>, [16 x i8] c"\FF\FF\FF\FF\FF\FF\FF\FF\FF\00\00\00\00\00\00\00", [16 x i8] c"\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\00\00\00\00\00\00", [16 x i8] c"\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\00\00\00\00\00", [16 x i8] c"\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\00\00\00\00", [16 x i8] c"\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\00\00\00", [16 x i8] c"\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\00\00", [16 x i8] c"\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\00", [16 x i8] zeroinitializer }>, align 64
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @fdrExec(ptr noundef %fdr, ptr noundef %buf, i64 noundef %len, i64 noundef %start, ptr noundef %cb, ptr noundef %scratch, i64 noundef %groups) local_unnamed_addr #0 {
@@ -109,7 +109,7 @@ if.else:                                          ; preds = %nextFloodDetect.exi
   %idxprom = zext i32 %18 to i64
   %arrayidx = getelementptr inbounds nuw [19 x ptr], ptr @funcs, i64 0, i64 %idxprom
   %19 = load ptr, ptr %arrayidx, align 8
-  %call8 = call i32 %19(ptr noundef nonnull %fdr, ptr noundef nonnull %a, i64 noundef %groups) #7
+  %call8 = call i32 %19(ptr noundef nonnull %fdr, ptr noundef nonnull %a, i64 noundef %groups) #6
   br label %return
 
 return:                                           ; preds = %nextFloodDetect.exit, %if.else
@@ -225,7 +225,7 @@ if.else:                                          ; preds = %cond.end
   %idxprom = zext i32 %19 to i64
   %arrayidx = getelementptr inbounds nuw [19 x ptr], ptr @funcs, i64 0, i64 %idxprom
   %20 = load ptr, ptr %arrayidx, align 8
-  %call11 = call i32 %20(ptr noundef nonnull %fdr, ptr noundef nonnull %a, i64 noundef %groups) #7
+  %call11 = call i32 %20(ptr noundef nonnull %fdr, ptr noundef nonnull %a, i64 noundef %groups) #6
   br label %if.end
 
 if.end:                                           ; preds = %cond.end, %if.else
@@ -443,11 +443,11 @@ if.then9.i:                                       ; preds = %if.end.i
   store ptr %8, ptr %floodPtr.i1814, align 32
   %shift.i1815 = getelementptr inbounds nuw i8, ptr %zones, i64 192
   store i8 0, ptr %shift.i1815, align 64
-  %.pre2104 = ptrtoint ptr %add.ptr7.i to i64
+  %.pre2103 = ptrtoint ptr %add.ptr7.i to i64
   br label %if.end12.i
 
 if.end12.i:                                       ; preds = %if.then9.i, %if.end.i
-  %sub.ptr.rhs.cast.i1827.pre-phi = phi i64 [ %.pre2104, %if.then9.i ], [ %sub.ptr.lhs.cast.i1788, %if.end.i ]
+  %sub.ptr.rhs.cast.i1827.pre-phi = phi i64 [ %.pre2103, %if.then9.i ], [ %sub.ptr.lhs.cast.i1788, %if.end.i ]
   %numZone.i.0.sroa.phi = phi ptr [ %numZone.i.0.sroa.gep, %if.then9.i ], [ %numZone.i.0.sroa.gep1778, %if.end.i ]
   %numZone.i.0 = phi i64 [ 3, %if.then9.i ], [ 2, %if.end.i ]
   %add.ptr13.i = getelementptr inbounds i8, ptr %3, i64 %4
@@ -474,8 +474,8 @@ if.end12.i:                                       ; preds = %if.then9.i, %if.end
   %end16.i = getelementptr inbounds nuw i8, ptr %numZone.i.0.sroa.phi, i64 80
   store ptr %arrayidx.i1839, ptr %end16.i, align 16
   %add.ptr17.i1841 = getelementptr inbounds i8, ptr %arrayidx.i1839, i64 -16
-  %.sroa.gep2074 = getelementptr inbounds i8, ptr %arrayidx.i1839, i64 -32
-  %spec.select1772.neg.sroa.sel = select i1 %cmp.i1829, ptr %add.ptr17.i1841, ptr %.sroa.gep2074
+  %.sroa.gep2073 = getelementptr inbounds i8, ptr %arrayidx.i1839, i64 -32
+  %spec.select1772.neg.sroa.sel = select i1 %cmp.i1829, ptr %add.ptr17.i1841, ptr %.sroa.gep2073
   %start.i1843 = getelementptr inbounds nuw i8, ptr %numZone.i.0.sroa.phi, i64 72
   store ptr %spec.select1772.neg.sroa.sel, ptr %start.i1843, align 8
   %add.ptr21.i1844 = getelementptr inbounds nuw i8, ptr %numZone.i.0.sroa.phi, i64 %cond.i1837
@@ -560,7 +560,6 @@ for.body.us:                                      ; preds = %getInitState.exit, 
   %43 = call <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8> %42, <16 x i8> %41)
   %44 = bitcast <16 x i8> %43 to <2 x i64>
   %arrayidx12.us = getelementptr inbounds nuw [17 x [16 x i8]], ptr @zone_or_mask, i64 0, i64 %idx.ext.i161.us
-  call void @llvm.assume(i1 true) [ "align"(ptr %arrayidx12.us, i64 16) ]
   %45 = load <2 x i64>, ptr %arrayidx12.us, align 16
   %or.i2205.us = or <2 x i64> %45, %44
   %floodPtr.us = getelementptr inbounds nuw i8, ptr %arrayidx8.us, i64 96
@@ -749,7 +748,7 @@ if.then297.i934.us:                               ; preds = %for.body292.i872.us
   %add298.i935.us = add i64 %indvars.iv2054, %sub.ptr.sub.i774.us
   %conv299.i936.us = and i64 %add298.i935.us, 4294967295
   %71 = load i32, ptr %ids300.i937.us, align 8
-  %call302.i938.us = call i64 %51(i64 noundef %conv299.i936.us, i32 noundef %71, ptr noundef %52) #7
+  %call302.i938.us = call i64 %51(i64 noundef %conv299.i936.us, i32 noundef %71, ptr noundef %52) #6
   br label %if.end303.i876.us
 
 if.end303.i876.us:                                ; preds = %if.then297.i934.us, %for.body292.i872.us
@@ -763,7 +762,7 @@ if.then308.i928.us:                               ; preds = %if.end303.i876.us
   %add309.i929.us = add i64 %indvars.iv2054, %sub.ptr.sub.i774.us
   %conv310.i930.us = and i64 %add309.i929.us, 4294967295
   %73 = load i32, ptr %arrayidx312.i932.us, align 4
-  %call313.i933.us = call i64 %51(i64 noundef %conv310.i930.us, i32 noundef %73, ptr noundef %52) #7
+  %call313.i933.us = call i64 %51(i64 noundef %conv310.i930.us, i32 noundef %73, ptr noundef %52) #6
   br label %if.end314.i881.us
 
 if.end314.i881.us:                                ; preds = %if.then308.i928.us, %if.end303.i876.us
@@ -777,7 +776,7 @@ if.then319.i922.us:                               ; preds = %if.end314.i881.us
   %add320.i923.us = add i64 %indvars.iv2054, %sub.ptr.sub.i774.us
   %conv321.i924.us = and i64 %add320.i923.us, 4294967295
   %75 = load i32, ptr %arrayidx323.i926.us, align 8
-  %call324.i927.us = call i64 %51(i64 noundef %conv321.i924.us, i32 noundef %75, ptr noundef %52) #7
+  %call324.i927.us = call i64 %51(i64 noundef %conv321.i924.us, i32 noundef %75, ptr noundef %52) #6
   br label %if.end325.i886.us
 
 if.end325.i886.us:                                ; preds = %if.then319.i922.us, %if.end314.i881.us
@@ -792,7 +791,7 @@ if.then330.i916.us:                               ; preds = %if.end325.i886.us
   %add332.i918.us = add i32 %add331.i917.us, %77
   %conv333.i919.us = zext i32 %add332.i918.us to i64
   %78 = load i32, ptr %ids300.i937.us, align 8
-  %call336.i921.us = call i64 %51(i64 noundef %conv333.i919.us, i32 noundef %78, ptr noundef %52) #7
+  %call336.i921.us = call i64 %51(i64 noundef %conv333.i919.us, i32 noundef %78, ptr noundef %52) #6
   br label %if.end337.i890.us
 
 if.end337.i890.us:                                ; preds = %if.then330.i916.us, %if.end325.i886.us
@@ -807,7 +806,7 @@ if.then342.i909.us:                               ; preds = %if.end337.i890.us
   %add344.i911.us = add i32 %add331.i917.us, %80
   %conv345.i912.us = zext i32 %add344.i911.us to i64
   %81 = load i32, ptr %arrayidx312.i932.us, align 4
-  %call348.i915.us = call i64 %51(i64 noundef %conv345.i912.us, i32 noundef %81, ptr noundef %52) #7
+  %call348.i915.us = call i64 %51(i64 noundef %conv345.i912.us, i32 noundef %81, ptr noundef %52) #6
   br label %if.end349.i895.us
 
 if.end349.i895.us:                                ; preds = %if.then342.i909.us, %if.end337.i890.us
@@ -822,7 +821,7 @@ if.then354.i902.us:                               ; preds = %if.end349.i895.us
   %add356.i904.us = add i32 %add331.i917.us, %83
   %conv357.i905.us = zext i32 %add356.i904.us to i64
   %84 = load i32, ptr %arrayidx323.i926.us, align 8
-  %call360.i908.us = call i64 %51(i64 noundef %conv357.i905.us, i32 noundef %84, ptr noundef %52) #7
+  %call360.i908.us = call i64 %51(i64 noundef %conv357.i905.us, i32 noundef %84, ptr noundef %52) #6
   br label %if.end361.i900.us
 
 if.end361.i900.us:                                ; preds = %if.then354.i902.us, %if.end349.i895.us
@@ -849,7 +848,7 @@ if.then189.i1030.us:                              ; preds = %for.body184.i947.us
   %add190.i1031.us = add i64 %indvars.iv2057, %sub.ptr.sub.i774.us
   %conv191.i1032.us = and i64 %add190.i1031.us, 4294967295
   %87 = load i32, ptr %ids192.i1033.us, align 8
-  %call194.i1034.us = call i64 %51(i64 noundef %conv191.i1032.us, i32 noundef %87, ptr noundef %52) #7
+  %call194.i1034.us = call i64 %51(i64 noundef %conv191.i1032.us, i32 noundef %87, ptr noundef %52) #6
   br label %if.end195.i951.us
 
 if.end195.i951.us:                                ; preds = %if.then189.i1030.us, %for.body184.i947.us
@@ -863,7 +862,7 @@ if.then200.i1024.us:                              ; preds = %if.end195.i951.us
   %add201.i1025.us = add i64 %indvars.iv2057, %sub.ptr.sub.i774.us
   %conv202.i1026.us = and i64 %add201.i1025.us, 4294967295
   %89 = load i32, ptr %arrayidx204.i1028.us, align 4
-  %call205.i1029.us = call i64 %51(i64 noundef %conv202.i1026.us, i32 noundef %89, ptr noundef %52) #7
+  %call205.i1029.us = call i64 %51(i64 noundef %conv202.i1026.us, i32 noundef %89, ptr noundef %52) #6
   br label %if.end206.i956.us
 
 if.end206.i956.us:                                ; preds = %if.then200.i1024.us, %if.end195.i951.us
@@ -878,7 +877,7 @@ if.then211.i1018.us:                              ; preds = %if.end206.i956.us
   %add213.i1020.us = add i32 %add212.i1019.us, %91
   %conv214.i1021.us = zext i32 %add213.i1020.us to i64
   %92 = load i32, ptr %ids192.i1033.us, align 8
-  %call217.i1023.us = call i64 %51(i64 noundef %conv214.i1021.us, i32 noundef %92, ptr noundef %52) #7
+  %call217.i1023.us = call i64 %51(i64 noundef %conv214.i1021.us, i32 noundef %92, ptr noundef %52) #6
   br label %if.end218.i960.us
 
 if.end218.i960.us:                                ; preds = %if.then211.i1018.us, %if.end206.i956.us
@@ -893,7 +892,7 @@ if.then223.i1011.us:                              ; preds = %if.end218.i960.us
   %add225.i1013.us = add i32 %add212.i1019.us, %94
   %conv226.i1014.us = zext i32 %add225.i1013.us to i64
   %95 = load i32, ptr %arrayidx204.i1028.us, align 4
-  %call229.i1017.us = call i64 %51(i64 noundef %conv226.i1014.us, i32 noundef %95, ptr noundef %52) #7
+  %call229.i1017.us = call i64 %51(i64 noundef %conv226.i1014.us, i32 noundef %95, ptr noundef %52) #6
   br label %if.end230.i965.us
 
 if.end230.i965.us:                                ; preds = %if.then223.i1011.us, %if.end218.i960.us
@@ -908,7 +907,7 @@ if.then235.i1005.us:                              ; preds = %if.end230.i965.us
   %add237.i1007.us = add i32 %add236.i1006.us, %97
   %conv238.i1008.us = zext i32 %add237.i1007.us to i64
   %98 = load i32, ptr %ids192.i1033.us, align 8
-  %call241.i1010.us = call i64 %51(i64 noundef %conv238.i1008.us, i32 noundef %98, ptr noundef %52) #7
+  %call241.i1010.us = call i64 %51(i64 noundef %conv238.i1008.us, i32 noundef %98, ptr noundef %52) #6
   br label %if.end242.i969.us
 
 if.end242.i969.us:                                ; preds = %if.then235.i1005.us, %if.end230.i965.us
@@ -923,7 +922,7 @@ if.then247.i998.us:                               ; preds = %if.end242.i969.us
   %add249.i1000.us = add i32 %add236.i1006.us, %100
   %conv250.i1001.us = zext i32 %add249.i1000.us to i64
   %101 = load i32, ptr %arrayidx204.i1028.us, align 4
-  %call253.i1004.us = call i64 %51(i64 noundef %conv250.i1001.us, i32 noundef %101, ptr noundef %52) #7
+  %call253.i1004.us = call i64 %51(i64 noundef %conv250.i1001.us, i32 noundef %101, ptr noundef %52) #6
   br label %if.end254.i974.us
 
 if.end254.i974.us:                                ; preds = %if.then247.i998.us, %if.end242.i969.us
@@ -938,7 +937,7 @@ if.then259.i992.us:                               ; preds = %if.end254.i974.us
   %add261.i994.us = add i32 %add260.i993.us, %103
   %conv262.i995.us = zext i32 %add261.i994.us to i64
   %104 = load i32, ptr %ids192.i1033.us, align 8
-  %call265.i997.us = call i64 %51(i64 noundef %conv262.i995.us, i32 noundef %104, ptr noundef %52) #7
+  %call265.i997.us = call i64 %51(i64 noundef %conv262.i995.us, i32 noundef %104, ptr noundef %52) #6
   br label %if.end266.i978.us
 
 if.end266.i978.us:                                ; preds = %if.then259.i992.us, %if.end254.i974.us
@@ -953,7 +952,7 @@ if.then271.i985.us:                               ; preds = %if.end266.i978.us
   %add273.i987.us = add i32 %add260.i993.us, %106
   %conv274.i988.us = zext i32 %add273.i987.us to i64
   %107 = load i32, ptr %arrayidx204.i1028.us, align 4
-  %call277.i991.us = call i64 %51(i64 noundef %conv274.i988.us, i32 noundef %107, ptr noundef %52) #7
+  %call277.i991.us = call i64 %51(i64 noundef %conv274.i988.us, i32 noundef %107, ptr noundef %52) #6
   br label %if.end278.i983.us
 
 if.end278.i983.us:                                ; preds = %if.then271.i985.us, %if.end266.i978.us
@@ -980,37 +979,37 @@ if.end134.i1047.us:                               ; preds = %for.body123.i1043.u
   %add130.i1080.us = add i64 %indvars.iv2060, %sub.ptr.sub.i774.us
   %conv132.i1081.us = and i64 %add130.i1080.us, 4294967295
   %110 = load i32, ptr %ids.i1082.us, align 8
-  %call.i1083.us = call i64 %51(i64 noundef %conv132.i1081.us, i32 noundef %110, ptr noundef %52) #7
-  %.pre2088 = load i64, ptr %groups.i1044.us, align 8
-  %.pre2095 = and i64 %.pre2088, %call.i1083.us
-  %111 = icmp eq i64 %.pre2095, 0
+  %call.i1083.us = call i64 %51(i64 noundef %conv132.i1081.us, i32 noundef %110, ptr noundef %52) #6
+  %.pre2087 = load i64, ptr %groups.i1044.us, align 8
+  %.pre2094 = and i64 %.pre2087, %call.i1083.us
+  %111 = icmp eq i64 %.pre2094, 0
   br i1 %111, label %if.end170.i1059.us, label %if.end146.i1051.us
 
 if.end146.i1051.us:                               ; preds = %if.end134.i1047.us
   %add141.i1075.us = add i64 %add140.i1074.us, %indvars.iv2060
   %conv142.i1076.us = and i64 %add141.i1075.us, 4294967295
   %112 = load i32, ptr %ids.i1082.us, align 8
-  %call145.i1078.us = call i64 %51(i64 noundef %conv142.i1076.us, i32 noundef %112, ptr noundef %52) #7
-  %.pre2089 = load i64, ptr %groups.i1044.us, align 8
-  %.pre2096 = and i64 %.pre2089, %call145.i1078.us
-  %113 = icmp eq i64 %.pre2096, 0
+  %call145.i1078.us = call i64 %51(i64 noundef %conv142.i1076.us, i32 noundef %112, ptr noundef %52) #6
+  %.pre2088 = load i64, ptr %groups.i1044.us, align 8
+  %.pre2095 = and i64 %.pre2088, %call145.i1078.us
+  %113 = icmp eq i64 %.pre2095, 0
   br i1 %113, label %if.end170.i1059.us, label %if.end158.i1055.us
 
 if.end158.i1055.us:                               ; preds = %if.end146.i1051.us
   %add153.i1069.us = add i64 %add152.i1068.us, %indvars.iv2060
   %conv154.i1070.us = and i64 %add153.i1069.us, 4294967295
   %114 = load i32, ptr %ids.i1082.us, align 8
-  %call157.i1072.us = call i64 %51(i64 noundef %conv154.i1070.us, i32 noundef %114, ptr noundef %52) #7
-  %.pre2090 = load i64, ptr %groups.i1044.us, align 8
-  %.pre2097 = and i64 %.pre2090, %call157.i1072.us
-  %115 = icmp eq i64 %.pre2097, 0
+  %call157.i1072.us = call i64 %51(i64 noundef %conv154.i1070.us, i32 noundef %114, ptr noundef %52) #6
+  %.pre2089 = load i64, ptr %groups.i1044.us, align 8
+  %.pre2096 = and i64 %.pre2089, %call157.i1072.us
+  %115 = icmp eq i64 %.pre2096, 0
   br i1 %115, label %if.end170.i1059.us, label %if.then163.i1061.us
 
 if.then163.i1061.us:                              ; preds = %if.end158.i1055.us
   %add165.i1063.us = add i64 %add164.i1062.us, %indvars.iv2060
   %conv166.i1064.us = and i64 %add165.i1063.us, 4294967295
   %116 = load i32, ptr %ids.i1082.us, align 8
-  %call169.i1066.us = call i64 %51(i64 noundef %conv166.i1064.us, i32 noundef %116, ptr noundef %52) #7
+  %call169.i1066.us = call i64 %51(i64 noundef %conv166.i1064.us, i32 noundef %116, ptr noundef %52) #6
   br label %if.end170.i1059.us
 
 if.end170.i1059.us:                               ; preds = %for.body123.i1043.us, %if.end134.i1047.us, %if.end146.i1051.us, %if.then163.i1061.us, %if.end158.i1055.us
@@ -1037,7 +1036,7 @@ if.then379.i1218.us:                              ; preds = %for.body374.i1092.u
   %add380.i1219.us = add i64 %indvars.iv2069, %sub.ptr.sub.i774.us
   %conv381.i1220.us = and i64 %add380.i1219.us, 4294967295
   %119 = load i32, ptr %ids382.i1221.us, align 8
-  %call384.i1222.us = call i64 %51(i64 noundef %conv381.i1220.us, i32 noundef %119, ptr noundef %52) #7
+  %call384.i1222.us = call i64 %51(i64 noundef %conv381.i1220.us, i32 noundef %119, ptr noundef %52) #6
   br label %if.end385.i1096.us
 
 if.end385.i1096.us:                               ; preds = %if.then379.i1218.us, %for.body374.i1092.us
@@ -1051,7 +1050,7 @@ if.then390.i1212.us:                              ; preds = %if.end385.i1096.us
   %add391.i1213.us = add i64 %indvars.iv2069, %sub.ptr.sub.i774.us
   %conv392.i1214.us = and i64 %add391.i1213.us, 4294967295
   %121 = load i32, ptr %arrayidx394.i1216.us, align 4
-  %call395.i1217.us = call i64 %51(i64 noundef %conv392.i1214.us, i32 noundef %121, ptr noundef %52) #7
+  %call395.i1217.us = call i64 %51(i64 noundef %conv392.i1214.us, i32 noundef %121, ptr noundef %52) #6
   br label %if.end396.i1101.us
 
 if.end396.i1101.us:                               ; preds = %if.then390.i1212.us, %if.end385.i1096.us
@@ -1065,7 +1064,7 @@ if.then401.i1206.us:                              ; preds = %if.end396.i1101.us
   %add402.i1207.us = add i64 %indvars.iv2069, %sub.ptr.sub.i774.us
   %conv403.i1208.us = and i64 %add402.i1207.us, 4294967295
   %123 = load i32, ptr %arrayidx405.i1210.us, align 8
-  %call406.i1211.us = call i64 %51(i64 noundef %conv403.i1208.us, i32 noundef %123, ptr noundef %52) #7
+  %call406.i1211.us = call i64 %51(i64 noundef %conv403.i1208.us, i32 noundef %123, ptr noundef %52) #6
   br label %if.end407.i1106.us
 
 if.end407.i1106.us:                               ; preds = %if.then401.i1206.us, %if.end396.i1101.us
@@ -1079,7 +1078,7 @@ if.then412.i1200.us:                              ; preds = %if.end407.i1106.us
   %add413.i1201.us = add i64 %indvars.iv2069, %sub.ptr.sub.i774.us
   %conv414.i1202.us = and i64 %add413.i1201.us, 4294967295
   %125 = load i32, ptr %arrayidx416.i1204.us, align 4
-  %call417.i1205.us = call i64 %51(i64 noundef %conv414.i1202.us, i32 noundef %125, ptr noundef %52) #7
+  %call417.i1205.us = call i64 %51(i64 noundef %conv414.i1202.us, i32 noundef %125, ptr noundef %52) #6
   br label %if.end418.i1111.us
 
 if.end418.i1111.us:                               ; preds = %if.then412.i1200.us, %if.end407.i1106.us
@@ -1100,7 +1099,7 @@ if.then445.i1179.us:                              ; preds = %for.end440.i1116.us
   %add447.i1181.us = add i32 %add446.i1180.us, %128
   %conv448.i1182.us = zext i32 %add447.i1181.us to i64
   %129 = load i32, ptr %ids382.i1221.us, align 8
-  %call451.i1184.us = call i64 %51(i64 noundef %conv448.i1182.us, i32 noundef %129, ptr noundef %52) #7
+  %call451.i1184.us = call i64 %51(i64 noundef %conv448.i1182.us, i32 noundef %129, ptr noundef %52) #6
   br label %if.end452.i1120.us
 
 if.end452.i1120.us:                               ; preds = %if.then445.i1179.us, %for.end440.i1116.us
@@ -1115,7 +1114,7 @@ if.then457.i1172.us:                              ; preds = %if.end452.i1120.us
   %add459.i1174.us = add i32 %add446.i1180.us, %131
   %conv460.i1175.us = zext i32 %add459.i1174.us to i64
   %132 = load i32, ptr %arrayidx394.i1216.us, align 4
-  %call463.i1178.us = call i64 %51(i64 noundef %conv460.i1175.us, i32 noundef %132, ptr noundef %52) #7
+  %call463.i1178.us = call i64 %51(i64 noundef %conv460.i1175.us, i32 noundef %132, ptr noundef %52) #6
   br label %if.end464.i1125.us
 
 if.end464.i1125.us:                               ; preds = %if.then457.i1172.us, %if.end452.i1120.us
@@ -1130,7 +1129,7 @@ if.then469.i1165.us:                              ; preds = %if.end464.i1125.us
   %add471.i1167.us = add i32 %add446.i1180.us, %134
   %conv472.i1168.us = zext i32 %add471.i1167.us to i64
   %135 = load i32, ptr %arrayidx405.i1210.us, align 8
-  %call475.i1171.us = call i64 %51(i64 noundef %conv472.i1168.us, i32 noundef %135, ptr noundef %52) #7
+  %call475.i1171.us = call i64 %51(i64 noundef %conv472.i1168.us, i32 noundef %135, ptr noundef %52) #6
   br label %if.end476.i1130.us
 
 if.end476.i1130.us:                               ; preds = %if.then469.i1165.us, %if.end464.i1125.us
@@ -1145,7 +1144,7 @@ if.then481.i1158.us:                              ; preds = %if.end476.i1130.us
   %add483.i1160.us = add i32 %add446.i1180.us, %137
   %conv484.i1161.us = zext i32 %add483.i1160.us to i64
   %138 = load i32, ptr %arrayidx416.i1204.us, align 4
-  %call487.i1164.us = call i64 %51(i64 noundef %conv484.i1161.us, i32 noundef %138, ptr noundef %52) #7
+  %call487.i1164.us = call i64 %51(i64 noundef %conv484.i1161.us, i32 noundef %138, ptr noundef %52) #6
   br label %if.end488.i1135.us
 
 if.end488.i1135.us:                               ; preds = %if.then481.i1158.us, %if.end476.i1130.us
@@ -1173,12 +1172,12 @@ for.body495.i1142.us:                             ; preds = %for.body495.i1142.l
 if.then501.i1150.us:                              ; preds = %for.body495.i1142.us
   %arrayidx507.i1156.us = getelementptr inbounds nuw [16 x i32], ptr %ids382.i1221.us, i64 0, i64 %indvars.iv2066
   %142 = load i32, ptr %arrayidx507.i1156.us, align 4
-  %call508.i1157.us = call i64 %51(i64 noundef %conv504.i1153.us, i32 noundef %142, ptr noundef %52) #7
-  %.pre2092 = load i16, ptr %idCount.i799.us, align 4
+  %call508.i1157.us = call i64 %51(i64 noundef %conv504.i1153.us, i32 noundef %142, ptr noundef %52) #6
+  %.pre2091 = load i16, ptr %idCount.i799.us, align 4
   br label %if.end509.i1148.us
 
 if.end509.i1148.us:                               ; preds = %if.then501.i1150.us, %for.body495.i1142.us
-  %143 = phi i16 [ %.pre2092, %if.then501.i1150.us ], [ %140, %for.body495.i1142.us ]
+  %143 = phi i16 [ %.pre2091, %if.then501.i1150.us ], [ %140, %for.body495.i1142.us ]
   %control.addr.38.us = phi i64 [ %call508.i1157.us, %if.then501.i1150.us ], [ %control.addr.371920.us, %for.body495.i1142.us ]
   %indvars.iv.next2067 = add nuw nsw i64 %indvars.iv2066, 1
   %144 = zext i16 %143 to i64
@@ -1198,12 +1197,12 @@ for.body424.i1185.us:                             ; preds = %for.body424.i1185.l
 if.then430.i1193.us:                              ; preds = %for.body424.i1185.us
   %arrayidx435.i1198.us = getelementptr inbounds nuw [16 x i32], ptr %ids382.i1221.us, i64 0, i64 %indvars.iv2063
   %147 = load i32, ptr %arrayidx435.i1198.us, align 4
-  %call436.i1199.us = call i64 %51(i64 noundef %conv432.i1195.us, i32 noundef %147, ptr noundef %52) #7
-  %.pre2091 = load i16, ptr %idCount.i799.us, align 4
+  %call436.i1199.us = call i64 %51(i64 noundef %conv432.i1195.us, i32 noundef %147, ptr noundef %52) #6
+  %.pre2090 = load i16, ptr %idCount.i799.us, align 4
   br label %if.end437.i1191.us
 
 if.end437.i1191.us:                               ; preds = %if.then430.i1193.us, %for.body424.i1185.us
-  %148 = phi i16 [ %.pre2091, %if.then430.i1193.us ], [ %145, %for.body424.i1185.us ]
+  %148 = phi i16 [ %.pre2090, %if.then430.i1193.us ], [ %145, %for.body424.i1185.us ]
   %control.addr.32.us = phi i64 [ %call436.i1199.us, %if.then430.i1193.us ], [ %control.addr.311915.us, %for.body424.i1185.us ]
   %indvars.iv.next2064 = add nuw nsw i64 %indvars.iv2063, 1
   %149 = zext i16 %148 to i64
@@ -1439,7 +1438,7 @@ do.body.i1591.us:                                 ; preds = %do.cond.i1601.us, %
   %187 = phi i64 [ %xor.i.us, %if.end.i1588.us ], [ %208, %do.cond.i1601.us ]
   %control.addr.40.us = phi i64 [ %control.addr.2.us, %if.end.i1588.us ], [ %control.addr.41.us, %do.cond.i1601.us ]
   %last_match_id.3.us = phi i32 [ %last_match_id.1.us, %if.end.i1588.us ], [ %last_match_id.4.us, %do.cond.i1601.us ]
-  %188 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %187) #8, !srcloc !15
+  %188 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %187) #7, !srcloc !15
   %asmresult.i.us = extractvalue { i64, i64 } %188, 0
   %asmresult1.i.us = extractvalue { i64, i64 } %188, 1
   store i64 %asmresult1.i.us, ptr %conf0, align 8
@@ -1547,7 +1546,7 @@ if.end38.i.us:                                    ; preds = %if.then30.i2509.us,
 
 if.end50.i.us:                                    ; preds = %if.end38.i.us
   %206 = load ptr, ptr %cb3.i, align 8
-  %call53.i.us = call i64 %206(i64 noundef %add18.i1623.us, i32 noundef %200, ptr noundef %197) #7
+  %call53.i.us = call i64 %206(i64 noundef %add18.i1623.us, i32 noundef %200, ptr noundef %197) #6
   br label %out.i.us
 
 out.i.us:                                         ; preds = %if.end50.i.us, %if.end38.i.us, %if.then30.i2509.us, %land.lhs.true.i2513.us, %do.body.i2498.us
@@ -1561,11 +1560,11 @@ out.i.us:                                         ; preds = %if.end50.i.us, %if.
 
 do.end.i.us:                                      ; preds = %out.i.us
   store ptr null, ptr %fdr_conf.i.us, align 16
-  %.pre2093 = load i64, ptr %conf0, align 8
+  %.pre2092 = load i64, ptr %conf0, align 8
   br label %do.cond.i1601.us
 
 do.cond.i1601.us:                                 ; preds = %do.end.i.us, %if.end11.i1614.us, %if.end8.i1607.us, %do.body.i1591.us
-  %208 = phi i64 [ %asmresult1.i.us, %if.end11.i1614.us ], [ %.pre2093, %do.end.i.us ], [ %asmresult1.i.us, %if.end8.i1607.us ], [ %asmresult1.i.us, %do.body.i1591.us ]
+  %208 = phi i64 [ %asmresult1.i.us, %if.end11.i1614.us ], [ %.pre2092, %do.end.i.us ], [ %asmresult1.i.us, %if.end8.i1607.us ], [ %asmresult1.i.us, %do.body.i1591.us ]
   %control.addr.41.us = phi i64 [ %control.addr.40.us, %if.end11.i1614.us ], [ %control.addr.43.us, %do.end.i.us ], [ %control.addr.40.us, %if.end8.i1607.us ], [ %control.addr.40.us, %do.body.i1591.us ]
   %last_match_id.4.us = phi i32 [ %last_match_id.3.us, %if.end11.i1614.us ], [ %last_match_id.6.us, %do.end.i.us ], [ %last_match_id.3.us, %if.end8.i1607.us ], [ %last_match_id.3.us, %do.body.i1591.us ]
   %tobool20.i1602.not.us = icmp eq i64 %208, 0
@@ -1593,7 +1592,7 @@ do.body.i1527.us:                                 ; preds = %do.cond.i1537.us, %
   %212 = phi i64 [ %209, %if.end.i1524.us ], [ %233, %do.cond.i1537.us ]
   %control.addr.45.us = phi i64 [ %control.addr.39.us, %if.end.i1524.us ], [ %control.addr.46.us, %do.cond.i1537.us ]
   %last_match_id.8.us = phi i32 [ %last_match_id.2.us, %if.end.i1524.us ], [ %last_match_id.9.us, %do.cond.i1537.us ]
-  %213 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %212) #8, !srcloc !15
+  %213 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %212) #7, !srcloc !15
   %asmresult.i2455.us = extractvalue { i64, i64 } %213, 0
   %asmresult1.i2456.us = extractvalue { i64, i64 } %213, 1
   store i64 %asmresult1.i2456.us, ptr %conf8, align 8
@@ -1703,7 +1702,7 @@ if.end38.i2569.us:                                ; preds = %if.then30.i2590.us,
 
 if.end50.i2577.us:                                ; preds = %if.end38.i2569.us
   %231 = load ptr, ptr %cb3.i, align 8
-  %call53.i2581.us = call i64 %231(i64 noundef %add18.i1559.us, i32 noundef %225, ptr noundef %222) #7
+  %call53.i2581.us = call i64 %231(i64 noundef %add18.i1559.us, i32 noundef %225, ptr noundef %222) #6
   br label %out.i2582.us
 
 out.i2582.us:                                     ; preds = %if.end50.i2577.us, %if.end38.i2569.us, %if.then30.i2590.us, %land.lhs.true.i2600.us, %do.body.i2550.us
@@ -1717,11 +1716,11 @@ out.i2582.us:                                     ; preds = %if.end50.i2577.us, 
 
 do.end.i2587.us:                                  ; preds = %out.i2582.us
   store ptr null, ptr %fdr_conf.i2548.us, align 16
-  %.pre2094 = load i64, ptr %conf8, align 8
+  %.pre2093 = load i64, ptr %conf8, align 8
   br label %do.cond.i1537.us
 
 do.cond.i1537.us:                                 ; preds = %do.end.i2587.us, %if.end11.i1550.us, %if.end8.i1543.us, %do.body.i1527.us
-  %233 = phi i64 [ %asmresult1.i2456.us, %if.end11.i1550.us ], [ %.pre2094, %do.end.i2587.us ], [ %asmresult1.i2456.us, %if.end8.i1543.us ], [ %asmresult1.i2456.us, %do.body.i1527.us ]
+  %233 = phi i64 [ %asmresult1.i2456.us, %if.end11.i1550.us ], [ %.pre2093, %do.end.i2587.us ], [ %asmresult1.i2456.us, %if.end8.i1543.us ], [ %asmresult1.i2456.us, %do.body.i1527.us ]
   %control.addr.46.us = phi i64 [ %control.addr.45.us, %if.end11.i1550.us ], [ %control.addr.48.us, %do.end.i2587.us ], [ %control.addr.45.us, %if.end8.i1543.us ], [ %control.addr.45.us, %do.body.i1527.us ]
   %last_match_id.9.us = phi i32 [ %last_match_id.8.us, %if.end11.i1550.us ], [ %last_match_id.11.us, %do.end.i2587.us ], [ %last_match_id.8.us, %if.end8.i1543.us ], [ %last_match_id.8.us, %do.body.i1527.us ]
   %tobool20.i1538.not.us = icmp eq i64 %233, 0
@@ -1822,7 +1821,6 @@ for.body.us1942:                                  ; preds = %getInitState.exit, 
   %242 = call <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8> %241, <16 x i8> %240)
   %243 = bitcast <16 x i8> %242 to <2 x i64>
   %arrayidx12.us1953 = getelementptr inbounds nuw [17 x [16 x i8]], ptr @zone_or_mask, i64 0, i64 %idx.ext.i161.us1950
-  call void @llvm.assume(i1 true) [ "align"(ptr %arrayidx12.us1953, i64 16) ]
   %244 = load <2 x i64>, ptr %arrayidx12.us1953, align 16
   %or.i2205.us1954 = or <2 x i64> %244, %243
   %floodPtr52.us = getelementptr inbounds nuw i8, ptr %arrayidx8.us1948, i64 96
@@ -2011,7 +2009,7 @@ if.then297.i388.us:                               ; preds = %for.body292.i326.us
   %add298.i389.us = add i64 %indvars.iv2035, %sub.ptr.sub.i228.us
   %conv299.i390.us = and i64 %add298.i389.us, 4294967295
   %270 = load i32, ptr %ids300.i391.us, align 8
-  %call302.i392.us = call i64 %250(i64 noundef %conv299.i390.us, i32 noundef %270, ptr noundef %251) #7
+  %call302.i392.us = call i64 %250(i64 noundef %conv299.i390.us, i32 noundef %270, ptr noundef %251) #6
   br label %if.end303.i330.us
 
 if.end303.i330.us:                                ; preds = %if.then297.i388.us, %for.body292.i326.us
@@ -2025,7 +2023,7 @@ if.then308.i382.us:                               ; preds = %if.end303.i330.us
   %add309.i383.us = add i64 %indvars.iv2035, %sub.ptr.sub.i228.us
   %conv310.i384.us = and i64 %add309.i383.us, 4294967295
   %272 = load i32, ptr %arrayidx312.i386.us, align 4
-  %call313.i387.us = call i64 %250(i64 noundef %conv310.i384.us, i32 noundef %272, ptr noundef %251) #7
+  %call313.i387.us = call i64 %250(i64 noundef %conv310.i384.us, i32 noundef %272, ptr noundef %251) #6
   br label %if.end314.i335.us
 
 if.end314.i335.us:                                ; preds = %if.then308.i382.us, %if.end303.i330.us
@@ -2039,7 +2037,7 @@ if.then319.i376.us:                               ; preds = %if.end314.i335.us
   %add320.i377.us = add i64 %indvars.iv2035, %sub.ptr.sub.i228.us
   %conv321.i378.us = and i64 %add320.i377.us, 4294967295
   %274 = load i32, ptr %arrayidx323.i380.us, align 8
-  %call324.i381.us = call i64 %250(i64 noundef %conv321.i378.us, i32 noundef %274, ptr noundef %251) #7
+  %call324.i381.us = call i64 %250(i64 noundef %conv321.i378.us, i32 noundef %274, ptr noundef %251) #6
   br label %if.end325.i340.us
 
 if.end325.i340.us:                                ; preds = %if.then319.i376.us, %if.end314.i335.us
@@ -2054,7 +2052,7 @@ if.then330.i370.us:                               ; preds = %if.end325.i340.us
   %add332.i372.us = add i32 %add331.i371.us, %276
   %conv333.i373.us = zext i32 %add332.i372.us to i64
   %277 = load i32, ptr %ids300.i391.us, align 8
-  %call336.i375.us = call i64 %250(i64 noundef %conv333.i373.us, i32 noundef %277, ptr noundef %251) #7
+  %call336.i375.us = call i64 %250(i64 noundef %conv333.i373.us, i32 noundef %277, ptr noundef %251) #6
   br label %if.end337.i344.us
 
 if.end337.i344.us:                                ; preds = %if.then330.i370.us, %if.end325.i340.us
@@ -2069,7 +2067,7 @@ if.then342.i363.us:                               ; preds = %if.end337.i344.us
   %add344.i365.us = add i32 %add331.i371.us, %279
   %conv345.i366.us = zext i32 %add344.i365.us to i64
   %280 = load i32, ptr %arrayidx312.i386.us, align 4
-  %call348.i369.us = call i64 %250(i64 noundef %conv345.i366.us, i32 noundef %280, ptr noundef %251) #7
+  %call348.i369.us = call i64 %250(i64 noundef %conv345.i366.us, i32 noundef %280, ptr noundef %251) #6
   br label %if.end349.i349.us
 
 if.end349.i349.us:                                ; preds = %if.then342.i363.us, %if.end337.i344.us
@@ -2084,7 +2082,7 @@ if.then354.i356.us:                               ; preds = %if.end349.i349.us
   %add356.i358.us = add i32 %add331.i371.us, %282
   %conv357.i359.us = zext i32 %add356.i358.us to i64
   %283 = load i32, ptr %arrayidx323.i380.us, align 8
-  %call360.i362.us = call i64 %250(i64 noundef %conv357.i359.us, i32 noundef %283, ptr noundef %251) #7
+  %call360.i362.us = call i64 %250(i64 noundef %conv357.i359.us, i32 noundef %283, ptr noundef %251) #6
   br label %if.end361.i354.us
 
 if.end361.i354.us:                                ; preds = %if.then354.i356.us, %if.end349.i349.us
@@ -2111,7 +2109,7 @@ if.then189.i484.us:                               ; preds = %for.body184.i401.us
   %add190.i485.us = add i64 %indvars.iv2038, %sub.ptr.sub.i228.us
   %conv191.i486.us = and i64 %add190.i485.us, 4294967295
   %286 = load i32, ptr %ids192.i487.us, align 8
-  %call194.i488.us = call i64 %250(i64 noundef %conv191.i486.us, i32 noundef %286, ptr noundef %251) #7
+  %call194.i488.us = call i64 %250(i64 noundef %conv191.i486.us, i32 noundef %286, ptr noundef %251) #6
   br label %if.end195.i405.us
 
 if.end195.i405.us:                                ; preds = %if.then189.i484.us, %for.body184.i401.us
@@ -2125,7 +2123,7 @@ if.then200.i478.us:                               ; preds = %if.end195.i405.us
   %add201.i479.us = add i64 %indvars.iv2038, %sub.ptr.sub.i228.us
   %conv202.i480.us = and i64 %add201.i479.us, 4294967295
   %288 = load i32, ptr %arrayidx204.i482.us, align 4
-  %call205.i483.us = call i64 %250(i64 noundef %conv202.i480.us, i32 noundef %288, ptr noundef %251) #7
+  %call205.i483.us = call i64 %250(i64 noundef %conv202.i480.us, i32 noundef %288, ptr noundef %251) #6
   br label %if.end206.i410.us
 
 if.end206.i410.us:                                ; preds = %if.then200.i478.us, %if.end195.i405.us
@@ -2140,7 +2138,7 @@ if.then211.i472.us:                               ; preds = %if.end206.i410.us
   %add213.i474.us = add i32 %add212.i473.us, %290
   %conv214.i475.us = zext i32 %add213.i474.us to i64
   %291 = load i32, ptr %ids192.i487.us, align 8
-  %call217.i477.us = call i64 %250(i64 noundef %conv214.i475.us, i32 noundef %291, ptr noundef %251) #7
+  %call217.i477.us = call i64 %250(i64 noundef %conv214.i475.us, i32 noundef %291, ptr noundef %251) #6
   br label %if.end218.i414.us
 
 if.end218.i414.us:                                ; preds = %if.then211.i472.us, %if.end206.i410.us
@@ -2155,7 +2153,7 @@ if.then223.i465.us:                               ; preds = %if.end218.i414.us
   %add225.i467.us = add i32 %add212.i473.us, %293
   %conv226.i468.us = zext i32 %add225.i467.us to i64
   %294 = load i32, ptr %arrayidx204.i482.us, align 4
-  %call229.i471.us = call i64 %250(i64 noundef %conv226.i468.us, i32 noundef %294, ptr noundef %251) #7
+  %call229.i471.us = call i64 %250(i64 noundef %conv226.i468.us, i32 noundef %294, ptr noundef %251) #6
   br label %if.end230.i419.us
 
 if.end230.i419.us:                                ; preds = %if.then223.i465.us, %if.end218.i414.us
@@ -2170,7 +2168,7 @@ if.then235.i459.us:                               ; preds = %if.end230.i419.us
   %add237.i461.us = add i32 %add236.i460.us, %296
   %conv238.i462.us = zext i32 %add237.i461.us to i64
   %297 = load i32, ptr %ids192.i487.us, align 8
-  %call241.i464.us = call i64 %250(i64 noundef %conv238.i462.us, i32 noundef %297, ptr noundef %251) #7
+  %call241.i464.us = call i64 %250(i64 noundef %conv238.i462.us, i32 noundef %297, ptr noundef %251) #6
   br label %if.end242.i423.us
 
 if.end242.i423.us:                                ; preds = %if.then235.i459.us, %if.end230.i419.us
@@ -2185,7 +2183,7 @@ if.then247.i452.us:                               ; preds = %if.end242.i423.us
   %add249.i454.us = add i32 %add236.i460.us, %299
   %conv250.i455.us = zext i32 %add249.i454.us to i64
   %300 = load i32, ptr %arrayidx204.i482.us, align 4
-  %call253.i458.us = call i64 %250(i64 noundef %conv250.i455.us, i32 noundef %300, ptr noundef %251) #7
+  %call253.i458.us = call i64 %250(i64 noundef %conv250.i455.us, i32 noundef %300, ptr noundef %251) #6
   br label %if.end254.i428.us
 
 if.end254.i428.us:                                ; preds = %if.then247.i452.us, %if.end242.i423.us
@@ -2200,7 +2198,7 @@ if.then259.i446.us:                               ; preds = %if.end254.i428.us
   %add261.i448.us = add i32 %add260.i447.us, %302
   %conv262.i449.us = zext i32 %add261.i448.us to i64
   %303 = load i32, ptr %ids192.i487.us, align 8
-  %call265.i451.us = call i64 %250(i64 noundef %conv262.i449.us, i32 noundef %303, ptr noundef %251) #7
+  %call265.i451.us = call i64 %250(i64 noundef %conv262.i449.us, i32 noundef %303, ptr noundef %251) #6
   br label %if.end266.i432.us
 
 if.end266.i432.us:                                ; preds = %if.then259.i446.us, %if.end254.i428.us
@@ -2215,7 +2213,7 @@ if.then271.i439.us:                               ; preds = %if.end266.i432.us
   %add273.i441.us = add i32 %add260.i447.us, %305
   %conv274.i442.us = zext i32 %add273.i441.us to i64
   %306 = load i32, ptr %arrayidx204.i482.us, align 4
-  %call277.i445.us = call i64 %250(i64 noundef %conv274.i442.us, i32 noundef %306, ptr noundef %251) #7
+  %call277.i445.us = call i64 %250(i64 noundef %conv274.i442.us, i32 noundef %306, ptr noundef %251) #6
   br label %if.end278.i437.us
 
 if.end278.i437.us:                                ; preds = %if.then271.i439.us, %if.end266.i432.us
@@ -2242,37 +2240,37 @@ if.end134.i501.us:                                ; preds = %for.body123.i497.us
   %add130.i534.us = add i64 %indvars.iv2041, %sub.ptr.sub.i228.us
   %conv132.i535.us = and i64 %add130.i534.us, 4294967295
   %309 = load i32, ptr %ids.i536.us, align 8
-  %call.i537.us = call i64 %250(i64 noundef %conv132.i535.us, i32 noundef %309, ptr noundef %251) #7
-  %.pre2081 = load i64, ptr %groups.i498.us, align 8
-  %.pre2098 = and i64 %.pre2081, %call.i537.us
-  %310 = icmp eq i64 %.pre2098, 0
+  %call.i537.us = call i64 %250(i64 noundef %conv132.i535.us, i32 noundef %309, ptr noundef %251) #6
+  %.pre2080 = load i64, ptr %groups.i498.us, align 8
+  %.pre2097 = and i64 %.pre2080, %call.i537.us
+  %310 = icmp eq i64 %.pre2097, 0
   br i1 %310, label %if.end170.i513.us, label %if.end146.i505.us
 
 if.end146.i505.us:                                ; preds = %if.end134.i501.us
   %add141.i529.us = add i64 %add140.i528.us, %indvars.iv2041
   %conv142.i530.us = and i64 %add141.i529.us, 4294967295
   %311 = load i32, ptr %ids.i536.us, align 8
-  %call145.i532.us = call i64 %250(i64 noundef %conv142.i530.us, i32 noundef %311, ptr noundef %251) #7
-  %.pre2082 = load i64, ptr %groups.i498.us, align 8
-  %.pre2099 = and i64 %.pre2082, %call145.i532.us
-  %312 = icmp eq i64 %.pre2099, 0
+  %call145.i532.us = call i64 %250(i64 noundef %conv142.i530.us, i32 noundef %311, ptr noundef %251) #6
+  %.pre2081 = load i64, ptr %groups.i498.us, align 8
+  %.pre2098 = and i64 %.pre2081, %call145.i532.us
+  %312 = icmp eq i64 %.pre2098, 0
   br i1 %312, label %if.end170.i513.us, label %if.end158.i509.us
 
 if.end158.i509.us:                                ; preds = %if.end146.i505.us
   %add153.i523.us = add i64 %add152.i522.us, %indvars.iv2041
   %conv154.i524.us = and i64 %add153.i523.us, 4294967295
   %313 = load i32, ptr %ids.i536.us, align 8
-  %call157.i526.us = call i64 %250(i64 noundef %conv154.i524.us, i32 noundef %313, ptr noundef %251) #7
-  %.pre2083 = load i64, ptr %groups.i498.us, align 8
-  %.pre2100 = and i64 %.pre2083, %call157.i526.us
-  %314 = icmp eq i64 %.pre2100, 0
+  %call157.i526.us = call i64 %250(i64 noundef %conv154.i524.us, i32 noundef %313, ptr noundef %251) #6
+  %.pre2082 = load i64, ptr %groups.i498.us, align 8
+  %.pre2099 = and i64 %.pre2082, %call157.i526.us
+  %314 = icmp eq i64 %.pre2099, 0
   br i1 %314, label %if.end170.i513.us, label %if.then163.i515.us
 
 if.then163.i515.us:                               ; preds = %if.end158.i509.us
   %add165.i517.us = add i64 %add164.i516.us, %indvars.iv2041
   %conv166.i518.us = and i64 %add165.i517.us, 4294967295
   %315 = load i32, ptr %ids.i536.us, align 8
-  %call169.i520.us = call i64 %250(i64 noundef %conv166.i518.us, i32 noundef %315, ptr noundef %251) #7
+  %call169.i520.us = call i64 %250(i64 noundef %conv166.i518.us, i32 noundef %315, ptr noundef %251) #6
   br label %if.end170.i513.us
 
 if.end170.i513.us:                                ; preds = %for.body123.i497.us, %if.end134.i501.us, %if.end146.i505.us, %if.then163.i515.us, %if.end158.i509.us
@@ -2299,7 +2297,7 @@ if.then379.i672.us:                               ; preds = %for.body374.i546.us
   %add380.i673.us = add i64 %indvars.iv2050, %sub.ptr.sub.i228.us
   %conv381.i674.us = and i64 %add380.i673.us, 4294967295
   %318 = load i32, ptr %ids382.i675.us, align 8
-  %call384.i676.us = call i64 %250(i64 noundef %conv381.i674.us, i32 noundef %318, ptr noundef %251) #7
+  %call384.i676.us = call i64 %250(i64 noundef %conv381.i674.us, i32 noundef %318, ptr noundef %251) #6
   br label %if.end385.i550.us
 
 if.end385.i550.us:                                ; preds = %if.then379.i672.us, %for.body374.i546.us
@@ -2313,7 +2311,7 @@ if.then390.i666.us:                               ; preds = %if.end385.i550.us
   %add391.i667.us = add i64 %indvars.iv2050, %sub.ptr.sub.i228.us
   %conv392.i668.us = and i64 %add391.i667.us, 4294967295
   %320 = load i32, ptr %arrayidx394.i670.us, align 4
-  %call395.i671.us = call i64 %250(i64 noundef %conv392.i668.us, i32 noundef %320, ptr noundef %251) #7
+  %call395.i671.us = call i64 %250(i64 noundef %conv392.i668.us, i32 noundef %320, ptr noundef %251) #6
   br label %if.end396.i555.us
 
 if.end396.i555.us:                                ; preds = %if.then390.i666.us, %if.end385.i550.us
@@ -2327,7 +2325,7 @@ if.then401.i660.us:                               ; preds = %if.end396.i555.us
   %add402.i661.us = add i64 %indvars.iv2050, %sub.ptr.sub.i228.us
   %conv403.i662.us = and i64 %add402.i661.us, 4294967295
   %322 = load i32, ptr %arrayidx405.i664.us, align 8
-  %call406.i665.us = call i64 %250(i64 noundef %conv403.i662.us, i32 noundef %322, ptr noundef %251) #7
+  %call406.i665.us = call i64 %250(i64 noundef %conv403.i662.us, i32 noundef %322, ptr noundef %251) #6
   br label %if.end407.i560.us
 
 if.end407.i560.us:                                ; preds = %if.then401.i660.us, %if.end396.i555.us
@@ -2341,7 +2339,7 @@ if.then412.i654.us:                               ; preds = %if.end407.i560.us
   %add413.i655.us = add i64 %indvars.iv2050, %sub.ptr.sub.i228.us
   %conv414.i656.us = and i64 %add413.i655.us, 4294967295
   %324 = load i32, ptr %arrayidx416.i658.us, align 4
-  %call417.i659.us = call i64 %250(i64 noundef %conv414.i656.us, i32 noundef %324, ptr noundef %251) #7
+  %call417.i659.us = call i64 %250(i64 noundef %conv414.i656.us, i32 noundef %324, ptr noundef %251) #6
   br label %if.end418.i565.us
 
 if.end418.i565.us:                                ; preds = %if.then412.i654.us, %if.end407.i560.us
@@ -2362,7 +2360,7 @@ if.then445.i633.us:                               ; preds = %for.end440.i570.us
   %add447.i635.us = add i32 %add446.i634.us, %327
   %conv448.i636.us = zext i32 %add447.i635.us to i64
   %328 = load i32, ptr %ids382.i675.us, align 8
-  %call451.i638.us = call i64 %250(i64 noundef %conv448.i636.us, i32 noundef %328, ptr noundef %251) #7
+  %call451.i638.us = call i64 %250(i64 noundef %conv448.i636.us, i32 noundef %328, ptr noundef %251) #6
   br label %if.end452.i574.us
 
 if.end452.i574.us:                                ; preds = %if.then445.i633.us, %for.end440.i570.us
@@ -2377,7 +2375,7 @@ if.then457.i626.us:                               ; preds = %if.end452.i574.us
   %add459.i628.us = add i32 %add446.i634.us, %330
   %conv460.i629.us = zext i32 %add459.i628.us to i64
   %331 = load i32, ptr %arrayidx394.i670.us, align 4
-  %call463.i632.us = call i64 %250(i64 noundef %conv460.i629.us, i32 noundef %331, ptr noundef %251) #7
+  %call463.i632.us = call i64 %250(i64 noundef %conv460.i629.us, i32 noundef %331, ptr noundef %251) #6
   br label %if.end464.i579.us
 
 if.end464.i579.us:                                ; preds = %if.then457.i626.us, %if.end452.i574.us
@@ -2392,7 +2390,7 @@ if.then469.i619.us:                               ; preds = %if.end464.i579.us
   %add471.i621.us = add i32 %add446.i634.us, %333
   %conv472.i622.us = zext i32 %add471.i621.us to i64
   %334 = load i32, ptr %arrayidx405.i664.us, align 8
-  %call475.i625.us = call i64 %250(i64 noundef %conv472.i622.us, i32 noundef %334, ptr noundef %251) #7
+  %call475.i625.us = call i64 %250(i64 noundef %conv472.i622.us, i32 noundef %334, ptr noundef %251) #6
   br label %if.end476.i584.us
 
 if.end476.i584.us:                                ; preds = %if.then469.i619.us, %if.end464.i579.us
@@ -2407,7 +2405,7 @@ if.then481.i612.us:                               ; preds = %if.end476.i584.us
   %add483.i614.us = add i32 %add446.i634.us, %336
   %conv484.i615.us = zext i32 %add483.i614.us to i64
   %337 = load i32, ptr %arrayidx416.i658.us, align 4
-  %call487.i618.us = call i64 %250(i64 noundef %conv484.i615.us, i32 noundef %337, ptr noundef %251) #7
+  %call487.i618.us = call i64 %250(i64 noundef %conv484.i615.us, i32 noundef %337, ptr noundef %251) #6
   br label %if.end488.i589.us
 
 if.end488.i589.us:                                ; preds = %if.then481.i612.us, %if.end476.i584.us
@@ -2435,12 +2433,12 @@ for.body495.i596.us:                              ; preds = %for.body495.i596.lr
 if.then501.i604.us:                               ; preds = %for.body495.i596.us
   %arrayidx507.i610.us = getelementptr inbounds nuw [16 x i32], ptr %ids382.i675.us, i64 0, i64 %indvars.iv2047
   %341 = load i32, ptr %arrayidx507.i610.us, align 4
-  %call508.i611.us = call i64 %250(i64 noundef %conv504.i607.us, i32 noundef %341, ptr noundef %251) #7
-  %.pre2085 = load i16, ptr %idCount.i253.us, align 4
+  %call508.i611.us = call i64 %250(i64 noundef %conv504.i607.us, i32 noundef %341, ptr noundef %251) #6
+  %.pre2084 = load i16, ptr %idCount.i253.us, align 4
   br label %if.end509.i602.us
 
 if.end509.i602.us:                                ; preds = %if.then501.i604.us, %for.body495.i596.us
-  %342 = phi i16 [ %.pre2085, %if.then501.i604.us ], [ %339, %for.body495.i596.us ]
+  %342 = phi i16 [ %.pre2084, %if.then501.i604.us ], [ %339, %for.body495.i596.us ]
   %control.addr.86.us = phi i64 [ %call508.i611.us, %if.then501.i604.us ], [ %control.addr.851876.us, %for.body495.i596.us ]
   %indvars.iv.next2048 = add nuw nsw i64 %indvars.iv2047, 1
   %343 = zext i16 %342 to i64
@@ -2460,12 +2458,12 @@ for.body424.i639.us:                              ; preds = %for.body424.i639.lr
 if.then430.i647.us:                               ; preds = %for.body424.i639.us
   %arrayidx435.i652.us = getelementptr inbounds nuw [16 x i32], ptr %ids382.i675.us, i64 0, i64 %indvars.iv2044
   %346 = load i32, ptr %arrayidx435.i652.us, align 4
-  %call436.i653.us = call i64 %250(i64 noundef %conv432.i649.us, i32 noundef %346, ptr noundef %251) #7
-  %.pre2084 = load i16, ptr %idCount.i253.us, align 4
+  %call436.i653.us = call i64 %250(i64 noundef %conv432.i649.us, i32 noundef %346, ptr noundef %251) #6
+  %.pre2083 = load i16, ptr %idCount.i253.us, align 4
   br label %if.end437.i645.us
 
 if.end437.i645.us:                                ; preds = %if.then430.i647.us, %for.body424.i639.us
-  %347 = phi i16 [ %.pre2084, %if.then430.i647.us ], [ %344, %for.body424.i639.us ]
+  %347 = phi i16 [ %.pre2083, %if.then430.i647.us ], [ %344, %for.body424.i639.us ]
   %control.addr.80.us = phi i64 [ %call436.i653.us, %if.then430.i647.us ], [ %control.addr.791871.us, %for.body424.i639.us ]
   %indvars.iv.next2045 = add nuw nsw i64 %indvars.iv2044, 1
   %348 = zext i16 %347 to i64
@@ -2621,7 +2619,7 @@ do.body.i1463.us:                                 ; preds = %do.cond.i1473.us, %
   %370 = phi i64 [ %xor.i1696.us, %if.end.i1460.us ], [ %391, %do.cond.i1473.us ]
   %control.addr.88.us = phi i64 [ %control.addr.50.us, %if.end.i1460.us ], [ %control.addr.89.us, %do.cond.i1473.us ]
   %last_match_id.14.us = phi i32 [ %last_match_id.12.us, %if.end.i1460.us ], [ %last_match_id.15.us, %do.cond.i1473.us ]
-  %371 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %370) #8, !srcloc !15
+  %371 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %370) #7, !srcloc !15
   %asmresult.i2461.us = extractvalue { i64, i64 } %371, 0
   %asmresult1.i2462.us = extractvalue { i64, i64 } %371, 1
   store i64 %asmresult1.i2462.us, ptr %conf085, align 8
@@ -2729,7 +2727,7 @@ if.end38.i2662.us:                                ; preds = %if.then30.i2683.us,
 
 if.end50.i2670.us:                                ; preds = %if.end38.i2662.us
   %389 = load ptr, ptr %cb3.i, align 8
-  %call53.i2674.us = call i64 %389(i64 noundef %add18.i1495.us, i32 noundef %383, ptr noundef %380) #7
+  %call53.i2674.us = call i64 %389(i64 noundef %add18.i1495.us, i32 noundef %383, ptr noundef %380) #6
   br label %out.i2675.us
 
 out.i2675.us:                                     ; preds = %if.end50.i2670.us, %if.end38.i2662.us, %if.then30.i2683.us, %land.lhs.true.i2693.us, %do.body.i2643.us
@@ -2743,11 +2741,11 @@ out.i2675.us:                                     ; preds = %if.end50.i2670.us, 
 
 do.end.i2680.us:                                  ; preds = %out.i2675.us
   store ptr null, ptr %fdr_conf.i2641.us, align 16
-  %.pre2086 = load i64, ptr %conf085, align 8
+  %.pre2085 = load i64, ptr %conf085, align 8
   br label %do.cond.i1473.us
 
 do.cond.i1473.us:                                 ; preds = %do.end.i2680.us, %if.end11.i1486.us, %if.end8.i1479.us, %do.body.i1463.us
-  %391 = phi i64 [ %asmresult1.i2462.us, %if.end11.i1486.us ], [ %.pre2086, %do.end.i2680.us ], [ %asmresult1.i2462.us, %if.end8.i1479.us ], [ %asmresult1.i2462.us, %do.body.i1463.us ]
+  %391 = phi i64 [ %asmresult1.i2462.us, %if.end11.i1486.us ], [ %.pre2085, %do.end.i2680.us ], [ %asmresult1.i2462.us, %if.end8.i1479.us ], [ %asmresult1.i2462.us, %do.body.i1463.us ]
   %control.addr.89.us = phi i64 [ %control.addr.88.us, %if.end11.i1486.us ], [ %control.addr.91.us, %do.end.i2680.us ], [ %control.addr.88.us, %if.end8.i1479.us ], [ %control.addr.88.us, %do.body.i1463.us ]
   %last_match_id.15.us = phi i32 [ %last_match_id.14.us, %if.end11.i1486.us ], [ %last_match_id.17.us, %do.end.i2680.us ], [ %last_match_id.14.us, %if.end8.i1479.us ], [ %last_match_id.14.us, %do.body.i1463.us ]
   %tobool20.i1474.not.us = icmp eq i64 %391, 0
@@ -2775,7 +2773,7 @@ do.body.i1399.us:                                 ; preds = %do.cond.i1409.us, %
   %395 = phi i64 [ %392, %if.end.i1396.us ], [ %416, %do.cond.i1409.us ]
   %control.addr.93.us = phi i64 [ %control.addr.87.us, %if.end.i1396.us ], [ %control.addr.94.us, %do.cond.i1409.us ]
   %last_match_id.19.us = phi i32 [ %last_match_id.13.us, %if.end.i1396.us ], [ %last_match_id.20.us, %do.cond.i1409.us ]
-  %396 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %395) #8, !srcloc !15
+  %396 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %395) #7, !srcloc !15
   %asmresult.i2467.us = extractvalue { i64, i64 } %396, 0
   %asmresult1.i2468.us = extractvalue { i64, i64 } %396, 1
   store i64 %asmresult1.i2468.us, ptr %conf886, align 8
@@ -2885,7 +2883,7 @@ if.end38.i2755.us:                                ; preds = %if.then30.i2776.us,
 
 if.end50.i2763.us:                                ; preds = %if.end38.i2755.us
   %414 = load ptr, ptr %cb3.i, align 8
-  %call53.i2767.us = call i64 %414(i64 noundef %add18.i1431.us, i32 noundef %408, ptr noundef %405) #7
+  %call53.i2767.us = call i64 %414(i64 noundef %add18.i1431.us, i32 noundef %408, ptr noundef %405) #6
   br label %out.i2768.us
 
 out.i2768.us:                                     ; preds = %if.end50.i2763.us, %if.end38.i2755.us, %if.then30.i2776.us, %land.lhs.true.i2786.us, %do.body.i2736.us
@@ -2899,11 +2897,11 @@ out.i2768.us:                                     ; preds = %if.end50.i2763.us, 
 
 do.end.i2773.us:                                  ; preds = %out.i2768.us
   store ptr null, ptr %fdr_conf.i2734.us, align 16
-  %.pre2087 = load i64, ptr %conf886, align 8
+  %.pre2086 = load i64, ptr %conf886, align 8
   br label %do.cond.i1409.us
 
 do.cond.i1409.us:                                 ; preds = %do.end.i2773.us, %if.end11.i1422.us, %if.end8.i1415.us, %do.body.i1399.us
-  %416 = phi i64 [ %asmresult1.i2468.us, %if.end11.i1422.us ], [ %.pre2087, %do.end.i2773.us ], [ %asmresult1.i2468.us, %if.end8.i1415.us ], [ %asmresult1.i2468.us, %do.body.i1399.us ]
+  %416 = phi i64 [ %asmresult1.i2468.us, %if.end11.i1422.us ], [ %.pre2086, %do.end.i2773.us ], [ %asmresult1.i2468.us, %if.end8.i1415.us ], [ %asmresult1.i2468.us, %do.body.i1399.us ]
   %control.addr.94.us = phi i64 [ %control.addr.93.us, %if.end11.i1422.us ], [ %control.addr.96.us, %do.end.i2773.us ], [ %control.addr.93.us, %if.end8.i1415.us ], [ %control.addr.93.us, %do.body.i1399.us ]
   %last_match_id.20.us = phi i32 [ %last_match_id.19.us, %if.end11.i1422.us ], [ %last_match_id.22.us, %do.end.i2773.us ], [ %last_match_id.19.us, %if.end8.i1415.us ], [ %last_match_id.19.us, %do.body.i1399.us ]
   %tobool20.i1410.not.us = icmp eq i64 %416, 0
@@ -3004,7 +3002,6 @@ for.body.us1963:                                  ; preds = %getInitState.exit, 
   %425 = call <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8> %424, <16 x i8> %423)
   %426 = bitcast <16 x i8> %425 to <2 x i64>
   %arrayidx12.us1974 = getelementptr inbounds nuw [17 x [16 x i8]], ptr @zone_or_mask, i64 0, i64 %idx.ext.i161.us1971
-  call void @llvm.assume(i1 true) [ "align"(ptr %arrayidx12.us1974, i64 16) ]
   %427 = load <2 x i64>, ptr %arrayidx12.us1974, align 16
   %or.i2205.us1975 = or <2 x i64> %427, %426
   %floodPtr104.us = getelementptr inbounds nuw i8, ptr %arrayidx8.us1969, i64 96
@@ -3193,7 +3190,7 @@ if.then297.i.us:                                  ; preds = %for.body292.i.us
   %add298.i.us = add i64 %indvars.iv, %sub.ptr.sub.i.us
   %conv299.i.us = and i64 %add298.i.us, 4294967295
   %453 = load i32, ptr %ids300.i.us, align 8
-  %call302.i.us = call i64 %433(i64 noundef %conv299.i.us, i32 noundef %453, ptr noundef %434) #7
+  %call302.i.us = call i64 %433(i64 noundef %conv299.i.us, i32 noundef %453, ptr noundef %434) #6
   br label %if.end303.i.us
 
 if.end303.i.us:                                   ; preds = %if.then297.i.us, %for.body292.i.us
@@ -3207,7 +3204,7 @@ if.then308.i.us:                                  ; preds = %if.end303.i.us
   %add309.i.us = add i64 %indvars.iv, %sub.ptr.sub.i.us
   %conv310.i.us = and i64 %add309.i.us, 4294967295
   %455 = load i32, ptr %arrayidx312.i.us, align 4
-  %call313.i.us = call i64 %433(i64 noundef %conv310.i.us, i32 noundef %455, ptr noundef %434) #7
+  %call313.i.us = call i64 %433(i64 noundef %conv310.i.us, i32 noundef %455, ptr noundef %434) #6
   br label %if.end314.i.us
 
 if.end314.i.us:                                   ; preds = %if.then308.i.us, %if.end303.i.us
@@ -3221,7 +3218,7 @@ if.then319.i.us:                                  ; preds = %if.end314.i.us
   %add320.i.us = add i64 %indvars.iv, %sub.ptr.sub.i.us
   %conv321.i.us = and i64 %add320.i.us, 4294967295
   %457 = load i32, ptr %arrayidx323.i.us, align 8
-  %call324.i.us = call i64 %433(i64 noundef %conv321.i.us, i32 noundef %457, ptr noundef %434) #7
+  %call324.i.us = call i64 %433(i64 noundef %conv321.i.us, i32 noundef %457, ptr noundef %434) #6
   br label %if.end325.i.us
 
 if.end325.i.us:                                   ; preds = %if.then319.i.us, %if.end314.i.us
@@ -3236,7 +3233,7 @@ if.then330.i.us:                                  ; preds = %if.end325.i.us
   %add332.i.us = add i32 %add331.i.us, %459
   %conv333.i.us = zext i32 %add332.i.us to i64
   %460 = load i32, ptr %ids300.i.us, align 8
-  %call336.i.us = call i64 %433(i64 noundef %conv333.i.us, i32 noundef %460, ptr noundef %434) #7
+  %call336.i.us = call i64 %433(i64 noundef %conv333.i.us, i32 noundef %460, ptr noundef %434) #6
   br label %if.end337.i.us
 
 if.end337.i.us:                                   ; preds = %if.then330.i.us, %if.end325.i.us
@@ -3251,7 +3248,7 @@ if.then342.i.us:                                  ; preds = %if.end337.i.us
   %add344.i.us = add i32 %add331.i.us, %462
   %conv345.i.us = zext i32 %add344.i.us to i64
   %463 = load i32, ptr %arrayidx312.i.us, align 4
-  %call348.i.us = call i64 %433(i64 noundef %conv345.i.us, i32 noundef %463, ptr noundef %434) #7
+  %call348.i.us = call i64 %433(i64 noundef %conv345.i.us, i32 noundef %463, ptr noundef %434) #6
   br label %if.end349.i.us
 
 if.end349.i.us:                                   ; preds = %if.then342.i.us, %if.end337.i.us
@@ -3266,7 +3263,7 @@ if.then354.i.us:                                  ; preds = %if.end349.i.us
   %add356.i.us = add i32 %add331.i.us, %465
   %conv357.i.us = zext i32 %add356.i.us to i64
   %466 = load i32, ptr %arrayidx323.i.us, align 8
-  %call360.i.us = call i64 %433(i64 noundef %conv357.i.us, i32 noundef %466, ptr noundef %434) #7
+  %call360.i.us = call i64 %433(i64 noundef %conv357.i.us, i32 noundef %466, ptr noundef %434) #6
   br label %if.end361.i.us
 
 if.end361.i.us:                                   ; preds = %if.then354.i.us, %if.end349.i.us
@@ -3293,7 +3290,7 @@ if.then189.i.us:                                  ; preds = %for.body184.i.us
   %add190.i.us = add i64 %indvars.iv2020, %sub.ptr.sub.i.us
   %conv191.i.us = and i64 %add190.i.us, 4294967295
   %469 = load i32, ptr %ids192.i.us, align 8
-  %call194.i.us = call i64 %433(i64 noundef %conv191.i.us, i32 noundef %469, ptr noundef %434) #7
+  %call194.i.us = call i64 %433(i64 noundef %conv191.i.us, i32 noundef %469, ptr noundef %434) #6
   br label %if.end195.i.us
 
 if.end195.i.us:                                   ; preds = %if.then189.i.us, %for.body184.i.us
@@ -3307,7 +3304,7 @@ if.then200.i.us:                                  ; preds = %if.end195.i.us
   %add201.i.us = add i64 %indvars.iv2020, %sub.ptr.sub.i.us
   %conv202.i.us = and i64 %add201.i.us, 4294967295
   %471 = load i32, ptr %arrayidx204.i.us, align 4
-  %call205.i.us = call i64 %433(i64 noundef %conv202.i.us, i32 noundef %471, ptr noundef %434) #7
+  %call205.i.us = call i64 %433(i64 noundef %conv202.i.us, i32 noundef %471, ptr noundef %434) #6
   br label %if.end206.i.us
 
 if.end206.i.us:                                   ; preds = %if.then200.i.us, %if.end195.i.us
@@ -3322,7 +3319,7 @@ if.then211.i.us:                                  ; preds = %if.end206.i.us
   %add213.i.us = add i32 %add212.i.us, %473
   %conv214.i.us = zext i32 %add213.i.us to i64
   %474 = load i32, ptr %ids192.i.us, align 8
-  %call217.i.us = call i64 %433(i64 noundef %conv214.i.us, i32 noundef %474, ptr noundef %434) #7
+  %call217.i.us = call i64 %433(i64 noundef %conv214.i.us, i32 noundef %474, ptr noundef %434) #6
   br label %if.end218.i.us
 
 if.end218.i.us:                                   ; preds = %if.then211.i.us, %if.end206.i.us
@@ -3337,7 +3334,7 @@ if.then223.i.us:                                  ; preds = %if.end218.i.us
   %add225.i.us = add i32 %add212.i.us, %476
   %conv226.i.us = zext i32 %add225.i.us to i64
   %477 = load i32, ptr %arrayidx204.i.us, align 4
-  %call229.i.us = call i64 %433(i64 noundef %conv226.i.us, i32 noundef %477, ptr noundef %434) #7
+  %call229.i.us = call i64 %433(i64 noundef %conv226.i.us, i32 noundef %477, ptr noundef %434) #6
   br label %if.end230.i.us
 
 if.end230.i.us:                                   ; preds = %if.then223.i.us, %if.end218.i.us
@@ -3352,7 +3349,7 @@ if.then235.i.us:                                  ; preds = %if.end230.i.us
   %add237.i.us = add i32 %add236.i.us, %479
   %conv238.i.us = zext i32 %add237.i.us to i64
   %480 = load i32, ptr %ids192.i.us, align 8
-  %call241.i.us = call i64 %433(i64 noundef %conv238.i.us, i32 noundef %480, ptr noundef %434) #7
+  %call241.i.us = call i64 %433(i64 noundef %conv238.i.us, i32 noundef %480, ptr noundef %434) #6
   br label %if.end242.i.us
 
 if.end242.i.us:                                   ; preds = %if.then235.i.us, %if.end230.i.us
@@ -3367,7 +3364,7 @@ if.then247.i.us:                                  ; preds = %if.end242.i.us
   %add249.i.us = add i32 %add236.i.us, %482
   %conv250.i.us = zext i32 %add249.i.us to i64
   %483 = load i32, ptr %arrayidx204.i.us, align 4
-  %call253.i.us = call i64 %433(i64 noundef %conv250.i.us, i32 noundef %483, ptr noundef %434) #7
+  %call253.i.us = call i64 %433(i64 noundef %conv250.i.us, i32 noundef %483, ptr noundef %434) #6
   br label %if.end254.i.us
 
 if.end254.i.us:                                   ; preds = %if.then247.i.us, %if.end242.i.us
@@ -3382,7 +3379,7 @@ if.then259.i.us:                                  ; preds = %if.end254.i.us
   %add261.i.us = add i32 %add260.i.us, %485
   %conv262.i.us = zext i32 %add261.i.us to i64
   %486 = load i32, ptr %ids192.i.us, align 8
-  %call265.i.us = call i64 %433(i64 noundef %conv262.i.us, i32 noundef %486, ptr noundef %434) #7
+  %call265.i.us = call i64 %433(i64 noundef %conv262.i.us, i32 noundef %486, ptr noundef %434) #6
   br label %if.end266.i.us
 
 if.end266.i.us:                                   ; preds = %if.then259.i.us, %if.end254.i.us
@@ -3397,7 +3394,7 @@ if.then271.i.us:                                  ; preds = %if.end266.i.us
   %add273.i.us = add i32 %add260.i.us, %488
   %conv274.i.us = zext i32 %add273.i.us to i64
   %489 = load i32, ptr %arrayidx204.i.us, align 4
-  %call277.i.us = call i64 %433(i64 noundef %conv274.i.us, i32 noundef %489, ptr noundef %434) #7
+  %call277.i.us = call i64 %433(i64 noundef %conv274.i.us, i32 noundef %489, ptr noundef %434) #6
   br label %if.end278.i.us
 
 if.end278.i.us:                                   ; preds = %if.then271.i.us, %if.end266.i.us
@@ -3424,37 +3421,37 @@ if.end134.i.us:                                   ; preds = %for.body123.i.us
   %add130.i.us = add i64 %indvars.iv2023, %sub.ptr.sub.i.us
   %conv132.i.us = and i64 %add130.i.us, 4294967295
   %492 = load i32, ptr %ids.i.us, align 8
-  %call.i177.us = call i64 %433(i64 noundef %conv132.i.us, i32 noundef %492, ptr noundef %434) #7
+  %call.i177.us = call i64 %433(i64 noundef %conv132.i.us, i32 noundef %492, ptr noundef %434) #6
   %.pre = load i64, ptr %groups.i.us, align 8
-  %.pre2101 = and i64 %.pre, %call.i177.us
-  %493 = icmp eq i64 %.pre2101, 0
+  %.pre2100 = and i64 %.pre, %call.i177.us
+  %493 = icmp eq i64 %.pre2100, 0
   br i1 %493, label %if.end170.i.us, label %if.end146.i.us
 
 if.end146.i.us:                                   ; preds = %if.end134.i.us
   %add141.i.us = add i64 %add140.i.us, %indvars.iv2023
   %conv142.i.us = and i64 %add141.i.us, 4294967295
   %494 = load i32, ptr %ids.i.us, align 8
-  %call145.i.us = call i64 %433(i64 noundef %conv142.i.us, i32 noundef %494, ptr noundef %434) #7
-  %.pre2075 = load i64, ptr %groups.i.us, align 8
-  %.pre2102 = and i64 %.pre2075, %call145.i.us
-  %495 = icmp eq i64 %.pre2102, 0
+  %call145.i.us = call i64 %433(i64 noundef %conv142.i.us, i32 noundef %494, ptr noundef %434) #6
+  %.pre2074 = load i64, ptr %groups.i.us, align 8
+  %.pre2101 = and i64 %.pre2074, %call145.i.us
+  %495 = icmp eq i64 %.pre2101, 0
   br i1 %495, label %if.end170.i.us, label %if.end158.i.us
 
 if.end158.i.us:                                   ; preds = %if.end146.i.us
   %add153.i.us = add i64 %add152.i.us, %indvars.iv2023
   %conv154.i.us = and i64 %add153.i.us, 4294967295
   %496 = load i32, ptr %ids.i.us, align 8
-  %call157.i.us = call i64 %433(i64 noundef %conv154.i.us, i32 noundef %496, ptr noundef %434) #7
-  %.pre2076 = load i64, ptr %groups.i.us, align 8
-  %.pre2103 = and i64 %.pre2076, %call157.i.us
-  %497 = icmp eq i64 %.pre2103, 0
+  %call157.i.us = call i64 %433(i64 noundef %conv154.i.us, i32 noundef %496, ptr noundef %434) #6
+  %.pre2075 = load i64, ptr %groups.i.us, align 8
+  %.pre2102 = and i64 %.pre2075, %call157.i.us
+  %497 = icmp eq i64 %.pre2102, 0
   br i1 %497, label %if.end170.i.us, label %if.then163.i.us
 
 if.then163.i.us:                                  ; preds = %if.end158.i.us
   %add165.i.us = add i64 %add164.i.us, %indvars.iv2023
   %conv166.i.us = and i64 %add165.i.us, 4294967295
   %498 = load i32, ptr %ids.i.us, align 8
-  %call169.i.us = call i64 %433(i64 noundef %conv166.i.us, i32 noundef %498, ptr noundef %434) #7
+  %call169.i.us = call i64 %433(i64 noundef %conv166.i.us, i32 noundef %498, ptr noundef %434) #6
   br label %if.end170.i.us
 
 if.end170.i.us:                                   ; preds = %for.body123.i.us, %if.end134.i.us, %if.end146.i.us, %if.then163.i.us, %if.end158.i.us
@@ -3481,7 +3478,7 @@ if.then379.i.us:                                  ; preds = %for.body374.i.us
   %add380.i.us = add i64 %indvars.iv2032, %sub.ptr.sub.i.us
   %conv381.i.us = and i64 %add380.i.us, 4294967295
   %501 = load i32, ptr %ids382.i.us, align 8
-  %call384.i.us = call i64 %433(i64 noundef %conv381.i.us, i32 noundef %501, ptr noundef %434) #7
+  %call384.i.us = call i64 %433(i64 noundef %conv381.i.us, i32 noundef %501, ptr noundef %434) #6
   br label %if.end385.i.us
 
 if.end385.i.us:                                   ; preds = %if.then379.i.us, %for.body374.i.us
@@ -3495,7 +3492,7 @@ if.then390.i.us:                                  ; preds = %if.end385.i.us
   %add391.i.us = add i64 %indvars.iv2032, %sub.ptr.sub.i.us
   %conv392.i.us = and i64 %add391.i.us, 4294967295
   %503 = load i32, ptr %arrayidx394.i.us, align 4
-  %call395.i.us = call i64 %433(i64 noundef %conv392.i.us, i32 noundef %503, ptr noundef %434) #7
+  %call395.i.us = call i64 %433(i64 noundef %conv392.i.us, i32 noundef %503, ptr noundef %434) #6
   br label %if.end396.i.us
 
 if.end396.i.us:                                   ; preds = %if.then390.i.us, %if.end385.i.us
@@ -3509,7 +3506,7 @@ if.then401.i.us:                                  ; preds = %if.end396.i.us
   %add402.i.us = add i64 %indvars.iv2032, %sub.ptr.sub.i.us
   %conv403.i.us = and i64 %add402.i.us, 4294967295
   %505 = load i32, ptr %arrayidx405.i.us, align 8
-  %call406.i.us = call i64 %433(i64 noundef %conv403.i.us, i32 noundef %505, ptr noundef %434) #7
+  %call406.i.us = call i64 %433(i64 noundef %conv403.i.us, i32 noundef %505, ptr noundef %434) #6
   br label %if.end407.i.us
 
 if.end407.i.us:                                   ; preds = %if.then401.i.us, %if.end396.i.us
@@ -3523,7 +3520,7 @@ if.then412.i.us:                                  ; preds = %if.end407.i.us
   %add413.i.us = add i64 %indvars.iv2032, %sub.ptr.sub.i.us
   %conv414.i.us = and i64 %add413.i.us, 4294967295
   %507 = load i32, ptr %arrayidx416.i.us, align 4
-  %call417.i.us = call i64 %433(i64 noundef %conv414.i.us, i32 noundef %507, ptr noundef %434) #7
+  %call417.i.us = call i64 %433(i64 noundef %conv414.i.us, i32 noundef %507, ptr noundef %434) #6
   br label %if.end418.i.us
 
 if.end418.i.us:                                   ; preds = %if.then412.i.us, %if.end407.i.us
@@ -3544,7 +3541,7 @@ if.then445.i.us:                                  ; preds = %for.end440.i.us
   %add447.i.us = add i32 %add446.i.us, %510
   %conv448.i.us = zext i32 %add447.i.us to i64
   %511 = load i32, ptr %ids382.i.us, align 8
-  %call451.i.us = call i64 %433(i64 noundef %conv448.i.us, i32 noundef %511, ptr noundef %434) #7
+  %call451.i.us = call i64 %433(i64 noundef %conv448.i.us, i32 noundef %511, ptr noundef %434) #6
   br label %if.end452.i.us
 
 if.end452.i.us:                                   ; preds = %if.then445.i.us, %for.end440.i.us
@@ -3559,7 +3556,7 @@ if.then457.i.us:                                  ; preds = %if.end452.i.us
   %add459.i.us = add i32 %add446.i.us, %513
   %conv460.i.us = zext i32 %add459.i.us to i64
   %514 = load i32, ptr %arrayidx394.i.us, align 4
-  %call463.i.us = call i64 %433(i64 noundef %conv460.i.us, i32 noundef %514, ptr noundef %434) #7
+  %call463.i.us = call i64 %433(i64 noundef %conv460.i.us, i32 noundef %514, ptr noundef %434) #6
   br label %if.end464.i.us
 
 if.end464.i.us:                                   ; preds = %if.then457.i.us, %if.end452.i.us
@@ -3574,7 +3571,7 @@ if.then469.i.us:                                  ; preds = %if.end464.i.us
   %add471.i.us = add i32 %add446.i.us, %516
   %conv472.i.us = zext i32 %add471.i.us to i64
   %517 = load i32, ptr %arrayidx405.i.us, align 8
-  %call475.i.us = call i64 %433(i64 noundef %conv472.i.us, i32 noundef %517, ptr noundef %434) #7
+  %call475.i.us = call i64 %433(i64 noundef %conv472.i.us, i32 noundef %517, ptr noundef %434) #6
   br label %if.end476.i.us
 
 if.end476.i.us:                                   ; preds = %if.then469.i.us, %if.end464.i.us
@@ -3589,7 +3586,7 @@ if.then481.i.us:                                  ; preds = %if.end476.i.us
   %add483.i.us = add i32 %add446.i.us, %519
   %conv484.i.us = zext i32 %add483.i.us to i64
   %520 = load i32, ptr %arrayidx416.i.us, align 4
-  %call487.i.us = call i64 %433(i64 noundef %conv484.i.us, i32 noundef %520, ptr noundef %434) #7
+  %call487.i.us = call i64 %433(i64 noundef %conv484.i.us, i32 noundef %520, ptr noundef %434) #6
   br label %if.end488.i.us
 
 if.end488.i.us:                                   ; preds = %if.then481.i.us, %if.end476.i.us
@@ -3617,12 +3614,12 @@ for.body495.i.us:                                 ; preds = %for.body495.i.lr.ph
 if.then501.i.us:                                  ; preds = %for.body495.i.us
   %arrayidx507.i.us = getelementptr inbounds nuw [16 x i32], ptr %ids382.i.us, i64 0, i64 %indvars.iv2029
   %524 = load i32, ptr %arrayidx507.i.us, align 4
-  %call508.i.us = call i64 %433(i64 noundef %conv504.i.us, i32 noundef %524, ptr noundef %434) #7
-  %.pre2078 = load i16, ptr %idCount.i.us, align 4
+  %call508.i.us = call i64 %433(i64 noundef %conv504.i.us, i32 noundef %524, ptr noundef %434) #6
+  %.pre2077 = load i16, ptr %idCount.i.us, align 4
   br label %if.end509.i.us
 
 if.end509.i.us:                                   ; preds = %if.then501.i.us, %for.body495.i.us
-  %525 = phi i16 [ %.pre2078, %if.then501.i.us ], [ %522, %for.body495.i.us ]
+  %525 = phi i16 [ %.pre2077, %if.then501.i.us ], [ %522, %for.body495.i.us ]
   %control.addr.134.us = phi i64 [ %call508.i.us, %if.then501.i.us ], [ %control.addr.1331834.us, %for.body495.i.us ]
   %indvars.iv.next2030 = add nuw nsw i64 %indvars.iv2029, 1
   %526 = zext i16 %525 to i64
@@ -3642,12 +3639,12 @@ for.body424.i.us:                                 ; preds = %for.body424.i.lr.ph
 if.then430.i.us:                                  ; preds = %for.body424.i.us
   %arrayidx435.i.us = getelementptr inbounds nuw [16 x i32], ptr %ids382.i.us, i64 0, i64 %indvars.iv2026
   %529 = load i32, ptr %arrayidx435.i.us, align 4
-  %call436.i.us = call i64 %433(i64 noundef %conv432.i.us, i32 noundef %529, ptr noundef %434) #7
-  %.pre2077 = load i16, ptr %idCount.i.us, align 4
+  %call436.i.us = call i64 %433(i64 noundef %conv432.i.us, i32 noundef %529, ptr noundef %434) #6
+  %.pre2076 = load i16, ptr %idCount.i.us, align 4
   br label %if.end437.i.us
 
 if.end437.i.us:                                   ; preds = %if.then430.i.us, %for.body424.i.us
-  %530 = phi i16 [ %.pre2077, %if.then430.i.us ], [ %527, %for.body424.i.us ]
+  %530 = phi i16 [ %.pre2076, %if.then430.i.us ], [ %527, %for.body424.i.us ]
   %control.addr.128.us = phi i64 [ %call436.i.us, %if.then430.i.us ], [ %control.addr.1271829.us, %for.body424.i.us ]
   %indvars.iv.next2027 = add nuw nsw i64 %indvars.iv2026, 1
   %531 = zext i16 %530 to i64
@@ -3759,7 +3756,7 @@ do.body.i1335.us:                                 ; preds = %do.cond.i1345.us, %
   %543 = phi i64 [ %xor.i1737.us, %if.end.i1332.us ], [ %564, %do.cond.i1345.us ]
   %control.addr.136.us = phi i64 [ %control.addr.98.us, %if.end.i1332.us ], [ %control.addr.137.us, %do.cond.i1345.us ]
   %last_match_id.25.us = phi i32 [ %last_match_id.23.us, %if.end.i1332.us ], [ %last_match_id.26.us, %do.cond.i1345.us ]
-  %544 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %543) #8, !srcloc !15
+  %544 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %543) #7, !srcloc !15
   %asmresult.i2473.us = extractvalue { i64, i64 } %544, 0
   %asmresult1.i2474.us = extractvalue { i64, i64 } %544, 1
   store i64 %asmresult1.i2474.us, ptr %conf0137, align 8
@@ -3867,7 +3864,7 @@ if.end38.i2848.us:                                ; preds = %if.then30.i2869.us,
 
 if.end50.i2856.us:                                ; preds = %if.end38.i2848.us
   %562 = load ptr, ptr %cb3.i, align 8
-  %call53.i2860.us = call i64 %562(i64 noundef %add18.i1367.us, i32 noundef %556, ptr noundef %553) #7
+  %call53.i2860.us = call i64 %562(i64 noundef %add18.i1367.us, i32 noundef %556, ptr noundef %553) #6
   br label %out.i2861.us
 
 out.i2861.us:                                     ; preds = %if.end50.i2856.us, %if.end38.i2848.us, %if.then30.i2869.us, %land.lhs.true.i2879.us, %do.body.i2829.us
@@ -3881,11 +3878,11 @@ out.i2861.us:                                     ; preds = %if.end50.i2856.us, 
 
 do.end.i2866.us:                                  ; preds = %out.i2861.us
   store ptr null, ptr %fdr_conf.i2827.us, align 16
-  %.pre2079 = load i64, ptr %conf0137, align 8
+  %.pre2078 = load i64, ptr %conf0137, align 8
   br label %do.cond.i1345.us
 
 do.cond.i1345.us:                                 ; preds = %do.end.i2866.us, %if.end11.i1358.us, %if.end8.i1351.us, %do.body.i1335.us
-  %564 = phi i64 [ %asmresult1.i2474.us, %if.end11.i1358.us ], [ %.pre2079, %do.end.i2866.us ], [ %asmresult1.i2474.us, %if.end8.i1351.us ], [ %asmresult1.i2474.us, %do.body.i1335.us ]
+  %564 = phi i64 [ %asmresult1.i2474.us, %if.end11.i1358.us ], [ %.pre2078, %do.end.i2866.us ], [ %asmresult1.i2474.us, %if.end8.i1351.us ], [ %asmresult1.i2474.us, %do.body.i1335.us ]
   %control.addr.137.us = phi i64 [ %control.addr.136.us, %if.end11.i1358.us ], [ %control.addr.139.us, %do.end.i2866.us ], [ %control.addr.136.us, %if.end8.i1351.us ], [ %control.addr.136.us, %do.body.i1335.us ]
   %last_match_id.26.us = phi i32 [ %last_match_id.25.us, %if.end11.i1358.us ], [ %last_match_id.28.us, %do.end.i2866.us ], [ %last_match_id.25.us, %if.end8.i1351.us ], [ %last_match_id.25.us, %do.body.i1335.us ]
   %tobool20.i1346.not.us = icmp eq i64 %564, 0
@@ -3913,7 +3910,7 @@ do.body.i.us:                                     ; preds = %do.cond.i.us, %if.e
   %568 = phi i64 [ %565, %if.end.i1290.us ], [ %589, %do.cond.i.us ]
   %control.addr.141.us = phi i64 [ %control.addr.135.us, %if.end.i1290.us ], [ %control.addr.142.us, %do.cond.i.us ]
   %last_match_id.30.us = phi i32 [ %last_match_id.24.us, %if.end.i1290.us ], [ %last_match_id.31.us, %do.cond.i.us ]
-  %569 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %568) #8, !srcloc !15
+  %569 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %568) #7, !srcloc !15
   %asmresult.i2479.us = extractvalue { i64, i64 } %569, 0
   %asmresult1.i2480.us = extractvalue { i64, i64 } %569, 1
   store i64 %asmresult1.i2480.us, ptr %conf8138, align 8
@@ -4023,7 +4020,7 @@ if.end38.i2941.us:                                ; preds = %if.then30.i2962.us,
 
 if.end50.i2949.us:                                ; preds = %if.end38.i2941.us
   %587 = load ptr, ptr %cb3.i, align 8
-  %call53.i2953.us = call i64 %587(i64 noundef %add18.i.us, i32 noundef %581, ptr noundef %578) #7
+  %call53.i2953.us = call i64 %587(i64 noundef %add18.i.us, i32 noundef %581, ptr noundef %578) #6
   br label %out.i2954.us
 
 out.i2954.us:                                     ; preds = %if.end50.i2949.us, %if.end38.i2941.us, %if.then30.i2962.us, %land.lhs.true.i2972.us, %do.body.i2922.us
@@ -4037,11 +4034,11 @@ out.i2954.us:                                     ; preds = %if.end50.i2949.us, 
 
 do.end.i2959.us:                                  ; preds = %out.i2954.us
   store ptr null, ptr %fdr_conf.i2920.us, align 16
-  %.pre2080 = load i64, ptr %conf8138, align 8
+  %.pre2079 = load i64, ptr %conf8138, align 8
   br label %do.cond.i.us
 
 do.cond.i.us:                                     ; preds = %do.end.i2959.us, %if.end11.i.us, %if.end8.i.us, %do.body.i.us
-  %589 = phi i64 [ %asmresult1.i2480.us, %if.end11.i.us ], [ %.pre2080, %do.end.i2959.us ], [ %asmresult1.i2480.us, %if.end8.i.us ], [ %asmresult1.i2480.us, %do.body.i.us ]
+  %589 = phi i64 [ %asmresult1.i2480.us, %if.end11.i.us ], [ %.pre2079, %do.end.i2959.us ], [ %asmresult1.i2480.us, %if.end8.i.us ], [ %asmresult1.i2480.us, %do.body.i.us ]
   %control.addr.142.us = phi i64 [ %control.addr.141.us, %if.end11.i.us ], [ %control.addr.144.us, %do.end.i2959.us ], [ %control.addr.141.us, %if.end8.i.us ], [ %control.addr.141.us, %do.body.i.us ]
   %last_match_id.31.us = phi i32 [ %last_match_id.30.us, %if.end11.i.us ], [ %last_match_id.33.us, %do.end.i2959.us ], [ %last_match_id.30.us, %if.end8.i.us ], [ %last_match_id.30.us, %do.body.i.us ]
   %tobool20.i.not.us = icmp eq i64 %589, 0
@@ -4152,27 +4149,23 @@ declare void @llvm.prefetch.p0(ptr nocapture readonly, i32 immarg, i32 immarg, i
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
 declare <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8>, <16 x i8>) #4
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #5
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.umin.i64(i64, i64) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #6
+declare i64 @llvm.usub.sat.i64(i64, i64) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.usub.sat.i64(i64, i64) #6
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #6
+declare i32 @llvm.umax.i32(i32, i32) #5
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="corei7" "target-features"="+cmov,+crc32,+cx16,+cx8,+fxsr,+mmx,+popcnt,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" }
 attributes #1 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="corei7" "target-features"="+cmov,+crc32,+cx16,+cx8,+fxsr,+mmx,+popcnt,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" }
 attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="corei7" "target-features"="+cmov,+crc32,+cx16,+cx8,+fxsr,+mmx,+popcnt,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" }
 attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) }
 attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(none) }
-attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #6 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #7 = { nounwind }
-attributes #8 = { nounwind memory(none) }
+attributes #5 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #6 = { nounwind }
+attributes #7 = { nounwind memory(none) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

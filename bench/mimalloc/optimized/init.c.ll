@@ -238,10 +238,8 @@ if.end6.i:                                        ; preds = %if.then24.i.i, %if.
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %memid.i.i)
   %tld7.i = getelementptr inbounds nuw i8, ptr %td.323.i.ph.i, i64 3064
   call void @llvm.assume(i1 true) [ "align"(ptr %tld7.i, i64 8) ]
-  call void @llvm.assume(i1 true) [ "align"(ptr @tld_empty, i64 8) ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1600) %tld7.i, ptr noundef nonnull readonly align 64 dereferenceable(1600) @tld_empty, i64 range(i64 1600, 3065) 1600, i1 false)
   call void @llvm.assume(i1 true) [ "align"(ptr %td.323.i.ph.i, i64 8) ]
-  call void @llvm.assume(i1 true) [ "align"(ptr @_mi_heap_empty, i64 8) ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(3064) %td.323.i.ph.i, ptr noundef nonnull readonly align 64 dereferenceable(3064) @_mi_heap_empty, i64 range(i64 1600, 3065) 3064, i1 false)
   %13 = call ptr asm "movq %fs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(ptr) null) #12, !srcloc !4
   %14 = ptrtoint ptr %13 to i64

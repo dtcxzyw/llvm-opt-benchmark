@@ -33634,7 +33634,6 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN8pybind116detail19type_caster_
 
 39:                                               ; preds = %33
   %40 = tail call noalias noundef nonnull ptr @_ZnwmSt11align_val_t(i64 noundef %38, i64 noundef %35) #35
-  call void @llvm.assume(i1 true) [ "align"(ptr %40, i64 %35) ]
   br label %.sink.split.i
 
 41:                                               ; preds = %33
@@ -33728,7 +33727,6 @@ _ZN8pybind116detail13all_type_infoEP11_typeobject.exit: ; preds = %47, %52
 
 93:                                               ; preds = %87
   %94 = tail call noalias noundef nonnull ptr @_ZnwmSt11align_val_t(i64 noundef %92, i64 noundef %89) #35
-  call void @llvm.assume(i1 true) [ "align"(ptr %94, i64 %89) ]
   br label %.sink.split.i52
 
 95:                                               ; preds = %87
@@ -34183,7 +34181,6 @@ define linkonce_odr hidden void @_ZN8pybind116detail19type_caster_generic10load_
 
 24:                                               ; preds = %18
   %25 = tail call noalias noundef nonnull ptr @_ZnwmSt11align_val_t(i64 noundef %23, i64 noundef %20) #35
-  call void @llvm.assume(i1 true) [ "align"(ptr %25, i64 %20) ]
   br label %.sink.split
 
 26:                                               ; preds = %18

@@ -835,14 +835,14 @@ define void @Of_ObjMergeOrder(ptr nocapture noundef %0, i32 noundef %1) local_un
   %.032.val.i = load i32, ptr %.03246.i, align 4
   %46 = lshr i32 %.032.val.i, 5
   %47 = getelementptr inbounds nuw i8, ptr %.03444.i, i64 16
-  %48 = load i32, ptr %47, align 8
+  %48 = load i32, ptr %47, align 16
   %49 = and i32 %48, -134217728
   %50 = or disjoint i32 %49, %46
-  store i32 %50, ptr %47, align 8
+  store i32 %50, ptr %47, align 16
   %.032.val39.i = load i32, ptr %.03246.i, align 4
   %51 = shl i32 %.032.val39.i, 27
   %52 = or disjoint i32 %51, %46
-  store i32 %52, ptr %47, align 8
+  store i32 %52, ptr %47, align 16
   %53 = getelementptr inbounds nuw i8, ptr %.03246.i, i64 4
   %.032.val40.i = load i32, ptr %.03246.i, align 4
   %54 = and i32 %.032.val40.i, 31
@@ -868,7 +868,7 @@ define void @Of_ObjMergeOrder(ptr nocapture noundef %0, i32 noundef %1) local_un
 
 Of_CutGetSign.exit.i:                             ; preds = %.lr.ph.i.i, %.lr.ph.i
   %.06.lcssa.i.i = phi i64 [ 0, %.lr.ph.i ], [ %60, %.lr.ph.i.i ]
-  store i64 %.06.lcssa.i.i, ptr %.03444.i, align 8
+  store i64 %.06.lcssa.i.i, ptr %.03444.i, align 16
   %61 = getelementptr inbounds nuw i8, ptr %.03444.i, i64 20
   %.032.val41.i = load i32, ptr %.03246.i, align 4
   %62 = shl i32 %.032.val41.i, 2
@@ -968,14 +968,14 @@ Of_ManPrepareCuts.exit:                           ; preds = %32, %._crit_edge.i,
   %.032.val.i189 = load i32, ptr %.03246.i186, align 4
   %113 = lshr i32 %.032.val.i189, 5
   %114 = getelementptr inbounds nuw i8, ptr %.03444.i188, i64 16
-  %115 = load i32, ptr %114, align 8
+  %115 = load i32, ptr %114, align 16
   %116 = and i32 %115, -134217728
   %117 = or disjoint i32 %116, %113
-  store i32 %117, ptr %114, align 8
+  store i32 %117, ptr %114, align 16
   %.032.val39.i190 = load i32, ptr %.03246.i186, align 4
   %118 = shl i32 %.032.val39.i190, 27
   %119 = or disjoint i32 %118, %113
-  store i32 %119, ptr %114, align 8
+  store i32 %119, ptr %114, align 16
   %120 = getelementptr inbounds nuw i8, ptr %.03246.i186, i64 4
   %.032.val40.i191 = load i32, ptr %.03246.i186, align 4
   %121 = and i32 %.032.val40.i191, 31
@@ -1001,7 +1001,7 @@ Of_ManPrepareCuts.exit:                           ; preds = %32, %._crit_edge.i,
 
 Of_CutGetSign.exit.i200:                          ; preds = %.lr.ph.i.i195, %.lr.ph.i185
   %.06.lcssa.i.i201 = phi i64 [ 0, %.lr.ph.i185 ], [ %127, %.lr.ph.i.i195 ]
-  store i64 %.06.lcssa.i.i201, ptr %.03444.i188, align 8
+  store i64 %.06.lcssa.i.i201, ptr %.03444.i188, align 16
   %128 = getelementptr inbounds nuw i8, ptr %.03444.i188, i64 20
   %.032.val41.i202 = load i32, ptr %.03246.i186, align 4
   %129 = shl i32 %.032.val41.i202, 2
@@ -1155,14 +1155,14 @@ Gia_ObjSiblObj.exit:                              ; preds = %._crit_edge
   %.032.val.i218 = load i32, ptr %.03246.i215, align 4
   %205 = lshr i32 %.032.val.i218, 5
   %206 = getelementptr inbounds nuw i8, ptr %.03444.i217, i64 16
-  %207 = load i32, ptr %206, align 8
+  %207 = load i32, ptr %206, align 16
   %208 = and i32 %207, -134217728
   %209 = or disjoint i32 %208, %205
-  store i32 %209, ptr %206, align 8
+  store i32 %209, ptr %206, align 16
   %.032.val39.i219 = load i32, ptr %.03246.i215, align 4
   %210 = shl i32 %.032.val39.i219, 27
   %211 = or disjoint i32 %210, %205
-  store i32 %211, ptr %206, align 8
+  store i32 %211, ptr %206, align 16
   %212 = getelementptr inbounds nuw i8, ptr %.03246.i215, i64 4
   %.032.val40.i220 = load i32, ptr %.03246.i215, align 4
   %213 = and i32 %.032.val40.i220, 31
@@ -1188,7 +1188,7 @@ Gia_ObjSiblObj.exit:                              ; preds = %._crit_edge
 
 Of_CutGetSign.exit.i229:                          ; preds = %.lr.ph.i.i224, %.lr.ph.i214
   %.06.lcssa.i.i230 = phi i64 [ 0, %.lr.ph.i214 ], [ %219, %.lr.ph.i.i224 ]
-  store i64 %.06.lcssa.i.i230, ptr %.03444.i217, align 8
+  store i64 %.06.lcssa.i.i230, ptr %.03444.i217, align 16
   %220 = getelementptr inbounds nuw i8, ptr %.03444.i217, i64 20
   %.032.val41.i231 = load i32, ptr %.03246.i215, align 4
   %221 = shl i32 %.032.val41.i231, 2
@@ -1241,7 +1241,7 @@ Of_ManPrepareCuts.exit233:                        ; preds = %Of_CutGetSign.exit.
   %248 = sext i32 %.1148555 to i64
   %249 = getelementptr inbounds [32 x ptr], ptr %8, i64 0, i64 %248
   %250 = load ptr, ptr %249, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %250, ptr noundef nonnull align 8 dereferenceable(48) %.0149554, i64 48, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %250, ptr noundef nonnull align 16 dereferenceable(48) %.0149554, i64 48, i1 false)
   %251 = load ptr, ptr %19, align 8
   %252 = getelementptr inbounds nuw i8, ptr %251, i64 88
   %253 = load i32, ptr %252, align 8
@@ -1377,7 +1377,7 @@ Gia_ObjFaninId2.exit:                             ; preds = %Gia_ObjIsMuxId.exit
   %.032.val.i251 = load i32, ptr %.03246.i248, align 4
   %315 = getelementptr inbounds nuw i8, ptr %.03444.i250, i64 16
   %316 = call i32 @llvm.fshl.i32(i32 %.032.val.i251, i32 %.032.val.i251, i32 27)
-  store i32 %316, ptr %315, align 8
+  store i32 %316, ptr %315, align 16
   %317 = getelementptr inbounds nuw i8, ptr %.03246.i248, i64 4
   %.032.val40.i253 = load i32, ptr %.03246.i248, align 4
   %318 = and i32 %.032.val40.i253, 31
@@ -1403,7 +1403,7 @@ Gia_ObjFaninId2.exit:                             ; preds = %Gia_ObjIsMuxId.exit
 
 Of_CutGetSign.exit.i262:                          ; preds = %.lr.ph.i.i257, %.lr.ph.i247
   %.06.lcssa.i.i263 = phi i64 [ 0, %.lr.ph.i247 ], [ %324, %.lr.ph.i.i257 ]
-  store i64 %.06.lcssa.i.i263, ptr %.03444.i250, align 8
+  store i64 %.06.lcssa.i.i263, ptr %.03444.i250, align 16
   %325 = getelementptr inbounds nuw i8, ptr %.03444.i250, i64 20
   %.032.val41.i264 = load i32, ptr %.03246.i248, align 4
   %326 = shl i32 %.032.val41.i264, 2
@@ -1528,10 +1528,10 @@ Gia_ObjFaninC2.exit:                              ; preds = %Of_ManPrepareCuts.e
 394:                                              ; preds = %Of_SetAddCut.exit.us.us.us, %.preheader500.us.us.us
   %.0145558.us.us.us = phi ptr [ %10, %.preheader500.us.us.us ], [ %869, %Of_SetAddCut.exit.us.us.us ]
   %.4557.us.us.us = phi i32 [ %.3562.us.us.us, %.preheader500.us.us.us ], [ %.5.us.us.us, %Of_SetAddCut.exit.us.us.us ]
-  %395 = load i64, ptr %.0567.us.us, align 8
-  %396 = load i64, ptr %.0143563.us.us.us, align 8
+  %395 = load i64, ptr %.0567.us.us, align 16
+  %396 = load i64, ptr %.0143563.us.us.us, align 16
   %397 = or i64 %396, %395
-  %398 = load i64, ptr %.0145558.us.us.us, align 8
+  %398 = load i64, ptr %.0145558.us.us.us, align 16
   %399 = or i64 %397, %398
   %400 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %399)
   %401 = trunc nuw nsw i64 %400 to i32
@@ -1545,12 +1545,12 @@ Gia_ObjFaninC2.exit:                              ; preds = %Of_ManPrepareCuts.e
   %406 = sext i32 %.4557.us.us.us to i64
   %407 = getelementptr inbounds [32 x ptr], ptr %8, i64 0, i64 %406
   %408 = load ptr, ptr %407, align 8
-  %409 = load i32, ptr %390, align 8
+  %409 = load i32, ptr %390, align 16
   %410 = lshr i32 %409, 27
-  %411 = load i32, ptr %392, align 8
+  %411 = load i32, ptr %392, align 16
   %412 = lshr i32 %411, 27
   %413 = getelementptr inbounds nuw i8, ptr %.0145558.us.us.us, i64 16
-  %414 = load i32, ptr %413, align 8
+  %414 = load i32, ptr %413, align 16
   %415 = lshr i32 %414, 27
   %416 = getelementptr inbounds nuw i8, ptr %.0145558.us.us.us, i64 20
   %417 = getelementptr inbounds nuw i8, ptr %408, i64 20
@@ -1624,10 +1624,10 @@ Gia_ObjFaninC2.exit:                              ; preds = %Of_ManPrepareCuts.e
   %455 = shl i32 %453, 27
   %456 = or disjoint i32 %455, 134217727
   store i32 %456, ptr %454, align 8
-  %457 = load i64, ptr %.0567.us.us, align 8
-  %458 = load i64, ptr %.0143563.us.us.us, align 8
+  %457 = load i64, ptr %.0567.us.us, align 16
+  %458 = load i64, ptr %.0143563.us.us.us, align 16
   %459 = or i64 %458, %457
-  %460 = load i64, ptr %.0145558.us.us.us, align 8
+  %460 = load i64, ptr %.0145558.us.us.us, align 16
   %461 = or i64 %459, %460
   store i64 %461, ptr %408, align 8
   %462 = icmp sgt i32 %.4557.us.us.us, 0
@@ -1758,7 +1758,7 @@ Of_SetLastCutIsContained.exit.us.us.us:           ; preds = %Of_SetCutIsContaine
 516:                                              ; preds = %Of_SetLastCutIsContained.exit.us.us.us
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   %517 = load ptr, ptr %384, align 8
-  %518 = load i32, ptr %390, align 8
+  %518 = load i32, ptr %390, align 16
   %519 = lshr i32 %518, 1
   %520 = and i32 %519, 67108863
   %521 = getelementptr inbounds nuw i8, ptr %517, i64 24
@@ -1777,7 +1777,7 @@ Of_SetLastCutIsContained.exit.us.us.us:           ; preds = %Of_SetCutIsContaine
   %534 = sext i32 %533 to i64
   %535 = getelementptr inbounds i64, ptr %528, i64 %534
   %536 = load i64, ptr %535, align 8
-  %537 = load i32, ptr %392, align 8
+  %537 = load i32, ptr %392, align 16
   %538 = lshr i32 %537, 1
   %539 = and i32 %538, 67108863
   %540 = lshr i32 %539, %524
@@ -1789,7 +1789,7 @@ Of_SetLastCutIsContained.exit.us.us.us:           ; preds = %Of_SetCutIsContaine
   %546 = sext i32 %545 to i64
   %547 = getelementptr inbounds i64, ptr %543, i64 %546
   %548 = load i64, ptr %547, align 8
-  %549 = load i32, ptr %413, align 8
+  %549 = load i32, ptr %413, align 16
   %550 = lshr i32 %549, 1
   %551 = and i32 %550, 67108863
   %552 = lshr i32 %551, %524
@@ -2475,18 +2475,18 @@ Gia_ObjIsXor.exit:                                ; preds = %Gia_ObjIsMuxId.exit
 902:                                              ; preds = %.preheader.us, %Of_SetAddCut.exit461.us
   %.1144579.us = phi ptr [ %6, %.preheader.us ], [ %1339, %Of_SetAddCut.exit461.us ]
   %.8575.us = phi i32 [ %.7583.us, %.preheader.us ], [ %.9.us, %Of_SetAddCut.exit461.us ]
-  %903 = load i32, ptr %900, align 8
+  %903 = load i32, ptr %900, align 16
   %904 = lshr i32 %903, 27
   %905 = getelementptr inbounds nuw i8, ptr %.1144579.us, i64 16
-  %906 = load i32, ptr %905, align 8
+  %906 = load i32, ptr %905, align 16
   %907 = lshr i32 %906, 27
   %908 = add nuw nsw i32 %907, %904
   %909 = icmp sgt i32 %908, %21
   br i1 %909, label %910, label %917
 
 910:                                              ; preds = %902
-  %911 = load i64, ptr %.1584.us, align 8
-  %912 = load i64, ptr %.1144579.us, align 8
+  %911 = load i64, ptr %.1584.us, align 16
+  %912 = load i64, ptr %.1144579.us, align 16
   %913 = or i64 %912, %911
   %914 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %913)
   %915 = trunc nuw nsw i64 %914 to i32
@@ -2670,8 +2670,8 @@ Gia_ObjIsXor.exit:                                ; preds = %Gia_ObjIsMuxId.exit
   %979 = shl i32 %.5.lcssa.sink.i.us.fr, 27
   %980 = or disjoint i32 %979, 134217727
   store i32 %980, ptr %978, align 8
-  %981 = load i64, ptr %.1584.us, align 8
-  %982 = load i64, ptr %.1144579.us, align 8
+  %981 = load i64, ptr %.1584.us, align 16
+  %982 = load i64, ptr %.1144579.us, align 16
   %983 = or i64 %982, %981
   store i64 %983, ptr %922, align 8
   %984 = icmp sgt i32 %.8575.us, 0
@@ -2802,7 +2802,7 @@ Of_SetLastCutIsContained.exit360.us:              ; preds = %Of_SetCutIsContaine
 1038:                                             ; preds = %Of_SetLastCutIsContained.exit360.us
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   %1039 = load ptr, ptr %895, align 8
-  %1040 = load i32, ptr %900, align 8
+  %1040 = load i32, ptr %900, align 16
   %1041 = lshr i32 %1040, 1
   %1042 = and i32 %1041, 67108863
   %1043 = getelementptr inbounds nuw i8, ptr %1039, i64 24
@@ -2821,7 +2821,7 @@ Of_SetLastCutIsContained.exit360.us:              ; preds = %Of_SetCutIsContaine
   %1056 = sext i32 %1055 to i64
   %1057 = getelementptr inbounds i64, ptr %1050, i64 %1056
   %1058 = load i64, ptr %1057, align 8
-  %1059 = load i32, ptr %905, align 8
+  %1059 = load i32, ptr %905, align 16
   %1060 = lshr i32 %1059, 1
   %1061 = and i32 %1060, 67108863
   %1062 = lshr i32 %1061, %1046

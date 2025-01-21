@@ -3266,7 +3266,6 @@ if.then31.i.i:                                    ; preds = %sw.bb27.i.i
   %mul.i.i.i = and i64 %conv.i16.i.i, 56
   %and1.i17.i.i = and i64 %7, -8
   %19 = inttoptr i64 %and1.i17.i.i to ptr
-  call void @llvm.assume(i1 true) [ "align"(ptr %19, i64 8) ]
   %20 = load atomic i64, ptr %19 monotonic, align 8
   %shr2.i.i.i = lshr i64 %20, %mul.i.i.i
   %conv33.i.i = trunc i64 %shr2.i.i.i to i16
@@ -3275,7 +3274,6 @@ if.then31.i.i:                                    ; preds = %sw.bb27.i.i
 if.end34.i.i:                                     ; preds = %sw.bb27.i.i
   %and1.i18.i.i = and i64 %7, -16
   %21 = inttoptr i64 %and1.i18.i.i to ptr
-  call void @llvm.assume(i1 true) [ "align"(ptr %21, i64 16) ]
   %tobool.not.i.i20.i.i = icmp eq i32 %and2.i.i, 0
   br i1 %tobool.not.i.i20.i.i, label %atomic16_read_rw.exit.i.i.i.i, label %if.then.i.i.i.i
 
@@ -3286,7 +3284,6 @@ if.then.i.i.i.i:                                  ; preds = %if.end34.i.i
   br label %load_atom_extract_al16_or_exit.exit.i.i
 
 atomic16_read_rw.exit.i.i.i.i:                    ; preds = %if.end34.i.i
-  call void @llvm.assume(i1 true) [ "align"(ptr %21, i64 16) ]
   %23 = cmpxchg ptr %21, i128 0, i128 0 seq_cst seq_cst, align 16
   %24 = extractvalue { i128, i1 } %23, 0
   %extract.t2.i.i.i.i.i = trunc i128 %24 to i64
@@ -3575,10 +3572,8 @@ sw.bb.i.i:                                        ; preds = %required_atomicity.
   %conv.i16.i.i = and i32 %20, 24
   %and1.i17.i.i = and i64 %7, -4
   %21 = inttoptr i64 %and1.i17.i.i to ptr
-  call void @llvm.assume(i1 true) [ "align"(ptr %21, i64 4) ]
   %22 = load atomic i32, ptr %21 monotonic, align 4
   %add.ptr.i.i.i = getelementptr i8, ptr %21, i64 4
-  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i.i.i, i64 4) ]
   %23 = load atomic i32, ptr %add.ptr.i.i.i monotonic, align 4
   %shr.i.i.i = lshr i32 %22, %conv.i16.i.i
   %sub.i.i.i = sub i32 0, %20
@@ -3597,7 +3592,6 @@ if.then29.i.i:                                    ; preds = %sw.bb26.i.i
   %mul.i.i.i = and i64 %conv.i19.i.i, 24
   %and1.i20.i.i = and i64 %7, -8
   %24 = inttoptr i64 %and1.i20.i.i to ptr
-  call void @llvm.assume(i1 true) [ "align"(ptr %24, i64 8) ]
   %25 = load atomic i64, ptr %24 monotonic, align 8
   %shr2.i.i.i = lshr i64 %25, %mul.i.i.i
   %conv3.i.i.i = trunc i64 %shr2.i.i.i to i32
@@ -4015,10 +4009,8 @@ sw.bb23.i:                                        ; preds = %required_atomicity.
   %conv.i44.i = and i32 %37, 56
   %and1.i45.i = and i64 %9, -8
   %38 = inttoptr i64 %and1.i45.i to ptr
-  call void @llvm.assume(i1 true) [ "align"(ptr %38, i64 8) ]
   %39 = load atomic i64, ptr %38 monotonic, align 8
   %add.ptr.i46.i = getelementptr i8, ptr %38, i64 8
-  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i46.i, i64 8) ]
   %40 = load atomic i64, ptr %add.ptr.i46.i monotonic, align 8
   %sh_prom.i.i = zext nneg i32 %conv.i44.i to i64
   %shr.i.i = lshr i64 %39, %sh_prom.i.i
@@ -4034,10 +4026,8 @@ sw.bb23.i:                                        ; preds = %required_atomicity.
   %conv.i50.i = and i32 %42, 56
   %and1.i51.i = and i64 %41, -8
   %43 = inttoptr i64 %and1.i51.i to ptr
-  call void @llvm.assume(i1 true) [ "align"(ptr %43, i64 8) ]
   %44 = load atomic i64, ptr %43 monotonic, align 8
   %add.ptr.i52.i = getelementptr i8, ptr %43, i64 8
-  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i52.i, i64 8) ]
   %45 = load atomic i64, ptr %add.ptr.i52.i monotonic, align 8
   %sh_prom.i53.i = zext nneg i32 %conv.i50.i to i64
   %shr.i54.i = lshr i64 %44, %sh_prom.i53.i
@@ -13151,10 +13141,8 @@ if.end18.i:                                       ; preds = %cpu_in_serial_conte
   %conv.i22.i = and i32 %22, 56
   %and1.i23.i = and i64 %5, -8
   %23 = inttoptr i64 %and1.i23.i to ptr
-  call void @llvm.assume(i1 true) [ "align"(ptr %23, i64 8) ]
   %24 = load atomic i64, ptr %23 monotonic, align 8
   %add.ptr.i.i = getelementptr i8, ptr %23, i64 8
-  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i.i, i64 8) ]
   %25 = load atomic i64, ptr %add.ptr.i.i monotonic, align 8
   %sh_prom.i.i = zext nneg i32 %conv.i22.i to i64
   %shr.i.i = lshr i64 %24, %sh_prom.i.i

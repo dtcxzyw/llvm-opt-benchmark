@@ -36330,7 +36330,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   %.217462 = phi i32 [ %15789, %15784 ], [ %.117461, %15780 ]
   %.1.i.i = phi i64 [ %15787, %15784 ], [ %.02332.i.i, %15780 ]
   %15791 = getelementptr inbounds nuw i8, ptr %.033.i.i, i64 16
-  %15792 = load ptr, ptr %15791, align 8
+  %15792 = load ptr, ptr %15791, align 16
   %.not.i.i17437 = icmp eq ptr %15792, null
   br i1 %.not.i.i17437, label %timelib_get_relative_text.exit, label %15780
 
@@ -40019,7 +40019,7 @@ timelib_eat_spaces.exit17440:                     ; preds = %15793, %15796, %158
   %.217459 = phi i32 [ %17504, %17499 ], [ %.117458, %17495 ]
   %.1.i.i17448 = phi i64 [ %17502, %17499 ], [ %.02332.i.i17447, %17495 ]
   %17506 = getelementptr inbounds nuw i8, ptr %.033.i.i17446, i64 16
-  %17507 = load ptr, ptr %17506, align 8
+  %17507 = load ptr, ptr %17506, align 16
   %.not.i.i17449 = icmp eq ptr %17507, null
   br i1 %.not.i.i17449, label %timelib_get_relative_text.exit17452, label %17495
 
@@ -44540,7 +44540,7 @@ timelib_lookup_format.exit:                       ; preds = %.lr.ph1040
 
 99:                                               ; preds = %95
   %100 = getelementptr inbounds nuw i8, ptr %.02741.i, i64 16
-  %101 = load ptr, ptr %100, align 8
+  %101 = load ptr, ptr %100, align 16
   %.not40.i = icmp eq ptr %101, null
   br i1 %.not40.i, label %102, label %95
 
@@ -45209,7 +45209,7 @@ add_pbf_error.exit560:                            ; preds = %385, %390
 433:                                              ; preds = %429, %425
   %.1.i = phi i64 [ %432, %429 ], [ %.02130.i, %425 ]
   %434 = getelementptr inbounds nuw i8, ptr %.031.i, i64 16
-  %435 = load ptr, ptr %434, align 8
+  %435 = load ptr, ptr %434, align 16
   %.not.i561 = icmp eq ptr %435, null
   br i1 %.not.i561, label %timelib_lookup_month.exit, label %425
 
@@ -48582,7 +48582,7 @@ define internal fastcc noundef ptr @timelib_lookup_relunit(ptr nocapture noundef
 
 17:                                               ; preds = %13
   %18 = getelementptr inbounds nuw i8, ptr %.02741, i64 16
-  %19 = load ptr, ptr %18, align 8
+  %19 = load ptr, ptr %18, align 16
   %.not40 = icmp eq ptr %19, null
   br i1 %.not40, label %20, label %13
 
@@ -48741,7 +48741,7 @@ define internal fastcc range(i64 -2147483648, 2147483648) i64 @timelib_lookup_mo
 24:                                               ; preds = %16, %20
   %.1 = phi i64 [ %23, %20 ], [ %.02130, %16 ]
   %25 = getelementptr inbounds nuw i8, ptr %.031, i64 16
-  %26 = load ptr, ptr %25, align 8
+  %26 = load ptr, ptr %25, align 16
   %.not = icmp eq ptr %26, null
   br i1 %.not, label %27, label %16
 
@@ -49613,7 +49613,7 @@ define internal fastcc range(i64 -2147483648, 2147483648) i64 @timelib_get_month
 27:                                               ; preds = %23, %19
   %.1.i = phi i64 [ %26, %23 ], [ %.02130.i, %19 ]
   %28 = getelementptr inbounds nuw i8, ptr %.031.i, i64 16
-  %29 = load ptr, ptr %28, align 8
+  %29 = load ptr, ptr %28, align 16
   %.not.i = icmp eq ptr %29, null
   br i1 %.not.i, label %timelib_lookup_month.exit, label %19
 
@@ -49738,7 +49738,7 @@ define internal fastcc void @timelib_set_relative(ptr nocapture noundef nonnull 
 
 21:                                               ; preds = %17
   %22 = getelementptr inbounds nuw i8, ptr %.02741.i, i64 16
-  %23 = load ptr, ptr %22, align 8
+  %23 = load ptr, ptr %22, align 16
   %.not40.i = icmp eq ptr %23, null
   br i1 %.not40.i, label %timelib_lookup_relunit.exit.thread, label %17
 
@@ -50556,7 +50556,7 @@ define internal fastcc range(i64 -2147483648, 2147483648) i64 @timelib_get_relat
 30:                                               ; preds = %24, %20
   %.1.i = phi i64 [ %27, %24 ], [ %.02332.i, %20 ]
   %31 = getelementptr inbounds nuw i8, ptr %.033.i, i64 16
-  %32 = load ptr, ptr %31, align 8
+  %32 = load ptr, ptr %31, align 16
   %.not.i = icmp eq ptr %32, null
   br i1 %.not.i, label %timelib_lookup_relative_text.exit, label %20
 

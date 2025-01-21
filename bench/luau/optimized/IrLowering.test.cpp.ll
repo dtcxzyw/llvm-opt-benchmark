@@ -4544,7 +4544,7 @@ define internal void @_ZL20DOCTEST_ANON_FUNC_40v() #3 personality ptr @__gxx_per
 64:                                               ; preds = %_ZN12ScopedFValueIbED2Ev.exit, %59
   %65 = phi ptr [ %63, %59 ], [ %66, %_ZN12ScopedFValueIbED2Ev.exit ]
   %66 = getelementptr inbounds i8, ptr %65, i64 -16
-  %67 = load ptr, ptr %66, align 8
+  %67 = load ptr, ptr %66, align 16
   %.not.i = icmp eq ptr %67, null
   br i1 %.not.i, label %_ZN12ScopedFValueIbED2Ev.exit, label %68
 
@@ -4575,7 +4575,7 @@ _ZN12ScopedFValueIbED2Ev.exit:                    ; preds = %64, %68
 77:                                               ; preds = %_ZN12ScopedFValueIbED2Ev.exit9, %75
   %78 = phi ptr [ %76, %75 ], [ %79, %_ZN12ScopedFValueIbED2Ev.exit9 ]
   %79 = getelementptr inbounds i8, ptr %78, i64 -16
-  %80 = load ptr, ptr %79, align 8
+  %80 = load ptr, ptr %79, align 16
   %.not.i8 = icmp eq ptr %80, null
   br i1 %.not.i8, label %_ZN12ScopedFValueIbED2Ev.exit9, label %81
 
@@ -5360,7 +5360,7 @@ define internal void @_ZL20DOCTEST_ANON_FUNC_50v() #3 personality ptr @__gxx_per
 64:                                               ; preds = %_ZN12ScopedFValueIbED2Ev.exit, %59
   %65 = phi ptr [ %63, %59 ], [ %66, %_ZN12ScopedFValueIbED2Ev.exit ]
   %66 = getelementptr inbounds i8, ptr %65, i64 -16
-  %67 = load ptr, ptr %66, align 8
+  %67 = load ptr, ptr %66, align 16
   %.not.i = icmp eq ptr %67, null
   br i1 %.not.i, label %_ZN12ScopedFValueIbED2Ev.exit, label %68
 
@@ -5391,7 +5391,7 @@ _ZN12ScopedFValueIbED2Ev.exit:                    ; preds = %64, %68
 77:                                               ; preds = %_ZN12ScopedFValueIbED2Ev.exit9, %75
   %78 = phi ptr [ %76, %75 ], [ %79, %_ZN12ScopedFValueIbED2Ev.exit9 ]
   %79 = getelementptr inbounds i8, ptr %78, i64 -16
-  %80 = load ptr, ptr %79, align 8
+  %80 = load ptr, ptr %79, align 16
   %.not.i8 = icmp eq ptr %80, null
   br i1 %.not.i8, label %_ZN12ScopedFValueIbED2Ev.exit9, label %81
 
@@ -5579,7 +5579,7 @@ define internal void @_ZL20DOCTEST_ANON_FUNC_52v() #3 personality ptr @__gxx_per
 64:                                               ; preds = %_ZN12ScopedFValueIbED2Ev.exit, %59
   %65 = phi ptr [ %63, %59 ], [ %66, %_ZN12ScopedFValueIbED2Ev.exit ]
   %66 = getelementptr inbounds i8, ptr %65, i64 -16
-  %67 = load ptr, ptr %66, align 8
+  %67 = load ptr, ptr %66, align 16
   %.not.i = icmp eq ptr %67, null
   br i1 %.not.i, label %_ZN12ScopedFValueIbED2Ev.exit, label %68
 
@@ -5610,7 +5610,7 @@ _ZN12ScopedFValueIbED2Ev.exit:                    ; preds = %64, %68
 77:                                               ; preds = %_ZN12ScopedFValueIbED2Ev.exit9, %75
   %78 = phi ptr [ %76, %75 ], [ %79, %_ZN12ScopedFValueIbED2Ev.exit9 ]
   %79 = getelementptr inbounds i8, ptr %78, i64 -16
-  %80 = load ptr, ptr %79, align 8
+  %80 = load ptr, ptr %79, align 16
   %.not.i8 = icmp eq ptr %80, null
   br i1 %.not.i8, label %_ZN12ScopedFValueIbED2Ev.exit9, label %81
 
@@ -5957,7 +5957,7 @@ define internal void @_ZL20DOCTEST_ANON_FUNC_56v() #3 personality ptr @__gxx_per
 64:                                               ; preds = %_ZN12ScopedFValueIbED2Ev.exit, %59
   %65 = phi ptr [ %63, %59 ], [ %66, %_ZN12ScopedFValueIbED2Ev.exit ]
   %66 = getelementptr inbounds i8, ptr %65, i64 -16
-  %67 = load ptr, ptr %66, align 8
+  %67 = load ptr, ptr %66, align 16
   %.not.i = icmp eq ptr %67, null
   br i1 %.not.i, label %_ZN12ScopedFValueIbED2Ev.exit, label %68
 
@@ -5988,7 +5988,7 @@ _ZN12ScopedFValueIbED2Ev.exit:                    ; preds = %64, %68
 77:                                               ; preds = %_ZN12ScopedFValueIbED2Ev.exit9, %75
   %78 = phi ptr [ %76, %75 ], [ %79, %_ZN12ScopedFValueIbED2Ev.exit9 ]
   %79 = getelementptr inbounds i8, ptr %78, i64 -16
-  %80 = load ptr, ptr %79, align 8
+  %80 = load ptr, ptr %79, align 16
   %.not.i8 = icmp eq ptr %80, null
   br i1 %.not.i8, label %_ZN12ScopedFValueIbED2Ev.exit9, label %81
 
@@ -6328,7 +6328,7 @@ define internal void @_ZL20DOCTEST_ANON_FUNC_60v() #3 personality ptr @__gxx_per
 60:                                               ; preds = %_ZN12ScopedFValueIbED2Ev.exit, %55
   %61 = phi ptr [ %59, %55 ], [ %62, %_ZN12ScopedFValueIbED2Ev.exit ]
   %62 = getelementptr inbounds i8, ptr %61, i64 -16
-  %63 = load ptr, ptr %62, align 8
+  %63 = load ptr, ptr %62, align 16
   %.not.i = icmp eq ptr %63, null
   br i1 %.not.i, label %_ZN12ScopedFValueIbED2Ev.exit, label %64
 
@@ -6359,7 +6359,7 @@ _ZN12ScopedFValueIbED2Ev.exit:                    ; preds = %60, %64
 73:                                               ; preds = %_ZN12ScopedFValueIbED2Ev.exit9, %71
   %74 = phi ptr [ %72, %71 ], [ %75, %_ZN12ScopedFValueIbED2Ev.exit9 ]
   %75 = getelementptr inbounds i8, ptr %74, i64 -16
-  %76 = load ptr, ptr %75, align 8
+  %76 = load ptr, ptr %75, align 16
   %.not.i8 = icmp eq ptr %76, null
   br i1 %.not.i8, label %_ZN12ScopedFValueIbED2Ev.exit9, label %77
 
@@ -6540,7 +6540,7 @@ define internal void @_ZL20DOCTEST_ANON_FUNC_62v() #3 personality ptr @__gxx_per
 60:                                               ; preds = %_ZN12ScopedFValueIbED2Ev.exit, %55
   %61 = phi ptr [ %59, %55 ], [ %62, %_ZN12ScopedFValueIbED2Ev.exit ]
   %62 = getelementptr inbounds i8, ptr %61, i64 -16
-  %63 = load ptr, ptr %62, align 8
+  %63 = load ptr, ptr %62, align 16
   %.not.i = icmp eq ptr %63, null
   br i1 %.not.i, label %_ZN12ScopedFValueIbED2Ev.exit, label %64
 
@@ -6571,7 +6571,7 @@ _ZN12ScopedFValueIbED2Ev.exit:                    ; preds = %60, %64
 73:                                               ; preds = %_ZN12ScopedFValueIbED2Ev.exit9, %71
   %74 = phi ptr [ %72, %71 ], [ %75, %_ZN12ScopedFValueIbED2Ev.exit9 ]
   %75 = getelementptr inbounds i8, ptr %74, i64 -16
-  %76 = load ptr, ptr %75, align 8
+  %76 = load ptr, ptr %75, align 16
   %.not.i8 = icmp eq ptr %76, null
   br i1 %.not.i8, label %_ZN12ScopedFValueIbED2Ev.exit9, label %77
 
@@ -6759,7 +6759,7 @@ define internal void @_ZL20DOCTEST_ANON_FUNC_64v() #3 personality ptr @__gxx_per
 64:                                               ; preds = %_ZN12ScopedFValueIbED2Ev.exit, %59
   %65 = phi ptr [ %63, %59 ], [ %66, %_ZN12ScopedFValueIbED2Ev.exit ]
   %66 = getelementptr inbounds i8, ptr %65, i64 -16
-  %67 = load ptr, ptr %66, align 8
+  %67 = load ptr, ptr %66, align 16
   %.not.i = icmp eq ptr %67, null
   br i1 %.not.i, label %_ZN12ScopedFValueIbED2Ev.exit, label %68
 
@@ -6790,7 +6790,7 @@ _ZN12ScopedFValueIbED2Ev.exit:                    ; preds = %64, %68
 77:                                               ; preds = %_ZN12ScopedFValueIbED2Ev.exit9, %75
   %78 = phi ptr [ %76, %75 ], [ %79, %_ZN12ScopedFValueIbED2Ev.exit9 ]
   %79 = getelementptr inbounds i8, ptr %78, i64 -16
-  %80 = load ptr, ptr %79, align 8
+  %80 = load ptr, ptr %79, align 16
   %.not.i8 = icmp eq ptr %80, null
   br i1 %.not.i8, label %_ZN12ScopedFValueIbED2Ev.exit9, label %81
 
@@ -6971,7 +6971,7 @@ define internal void @_ZL20DOCTEST_ANON_FUNC_66v() #3 personality ptr @__gxx_per
 60:                                               ; preds = %_ZN12ScopedFValueIbED2Ev.exit, %55
   %61 = phi ptr [ %59, %55 ], [ %62, %_ZN12ScopedFValueIbED2Ev.exit ]
   %62 = getelementptr inbounds i8, ptr %61, i64 -16
-  %63 = load ptr, ptr %62, align 8
+  %63 = load ptr, ptr %62, align 16
   %.not.i = icmp eq ptr %63, null
   br i1 %.not.i, label %_ZN12ScopedFValueIbED2Ev.exit, label %64
 
@@ -7002,7 +7002,7 @@ _ZN12ScopedFValueIbED2Ev.exit:                    ; preds = %60, %64
 73:                                               ; preds = %_ZN12ScopedFValueIbED2Ev.exit9, %71
   %74 = phi ptr [ %72, %71 ], [ %75, %_ZN12ScopedFValueIbED2Ev.exit9 ]
   %75 = getelementptr inbounds i8, ptr %74, i64 -16
-  %76 = load ptr, ptr %75, align 8
+  %76 = load ptr, ptr %75, align 16
   %.not.i8 = icmp eq ptr %76, null
   br i1 %.not.i8, label %_ZN12ScopedFValueIbED2Ev.exit9, label %77
 
@@ -7197,7 +7197,7 @@ define internal void @_ZL20DOCTEST_ANON_FUNC_68v() #3 personality ptr @__gxx_per
 68:                                               ; preds = %_ZN12ScopedFValueIbED2Ev.exit, %63
   %69 = phi ptr [ %67, %63 ], [ %70, %_ZN12ScopedFValueIbED2Ev.exit ]
   %70 = getelementptr inbounds i8, ptr %69, i64 -16
-  %71 = load ptr, ptr %70, align 8
+  %71 = load ptr, ptr %70, align 16
   %.not.i = icmp eq ptr %71, null
   br i1 %.not.i, label %_ZN12ScopedFValueIbED2Ev.exit, label %72
 
@@ -7228,7 +7228,7 @@ _ZN12ScopedFValueIbED2Ev.exit:                    ; preds = %68, %72
 81:                                               ; preds = %_ZN12ScopedFValueIbED2Ev.exit9, %79
   %82 = phi ptr [ %80, %79 ], [ %83, %_ZN12ScopedFValueIbED2Ev.exit9 ]
   %83 = getelementptr inbounds i8, ptr %82, i64 -16
-  %84 = load ptr, ptr %83, align 8
+  %84 = load ptr, ptr %83, align 16
   %.not.i8 = icmp eq ptr %84, null
   br i1 %.not.i8, label %_ZN12ScopedFValueIbED2Ev.exit9, label %85
 
@@ -7409,7 +7409,7 @@ define internal void @_ZL20DOCTEST_ANON_FUNC_70v() #3 personality ptr @__gxx_per
 60:                                               ; preds = %_ZN12ScopedFValueIbED2Ev.exit, %55
   %61 = phi ptr [ %59, %55 ], [ %62, %_ZN12ScopedFValueIbED2Ev.exit ]
   %62 = getelementptr inbounds i8, ptr %61, i64 -16
-  %63 = load ptr, ptr %62, align 8
+  %63 = load ptr, ptr %62, align 16
   %.not.i = icmp eq ptr %63, null
   br i1 %.not.i, label %_ZN12ScopedFValueIbED2Ev.exit, label %64
 
@@ -7440,7 +7440,7 @@ _ZN12ScopedFValueIbED2Ev.exit:                    ; preds = %60, %64
 73:                                               ; preds = %_ZN12ScopedFValueIbED2Ev.exit9, %71
   %74 = phi ptr [ %72, %71 ], [ %75, %_ZN12ScopedFValueIbED2Ev.exit9 ]
   %75 = getelementptr inbounds i8, ptr %74, i64 -16
-  %76 = load ptr, ptr %75, align 8
+  %76 = load ptr, ptr %75, align 16
   %.not.i8 = icmp eq ptr %76, null
   br i1 %.not.i8, label %_ZN12ScopedFValueIbED2Ev.exit9, label %77
 
@@ -7621,7 +7621,7 @@ define internal void @_ZL20DOCTEST_ANON_FUNC_72v() #3 personality ptr @__gxx_per
 60:                                               ; preds = %_ZN12ScopedFValueIbED2Ev.exit, %55
   %61 = phi ptr [ %59, %55 ], [ %62, %_ZN12ScopedFValueIbED2Ev.exit ]
   %62 = getelementptr inbounds i8, ptr %61, i64 -16
-  %63 = load ptr, ptr %62, align 8
+  %63 = load ptr, ptr %62, align 16
   %.not.i = icmp eq ptr %63, null
   br i1 %.not.i, label %_ZN12ScopedFValueIbED2Ev.exit, label %64
 
@@ -7652,7 +7652,7 @@ _ZN12ScopedFValueIbED2Ev.exit:                    ; preds = %60, %64
 73:                                               ; preds = %_ZN12ScopedFValueIbED2Ev.exit9, %71
   %74 = phi ptr [ %72, %71 ], [ %75, %_ZN12ScopedFValueIbED2Ev.exit9 ]
   %75 = getelementptr inbounds i8, ptr %74, i64 -16
-  %76 = load ptr, ptr %75, align 8
+  %76 = load ptr, ptr %75, align 16
   %.not.i8 = icmp eq ptr %76, null
   br i1 %.not.i8, label %_ZN12ScopedFValueIbED2Ev.exit9, label %77
 
@@ -7833,7 +7833,7 @@ define internal void @_ZL20DOCTEST_ANON_FUNC_74v() #3 personality ptr @__gxx_per
 60:                                               ; preds = %_ZN12ScopedFValueIbED2Ev.exit, %55
   %61 = phi ptr [ %59, %55 ], [ %62, %_ZN12ScopedFValueIbED2Ev.exit ]
   %62 = getelementptr inbounds i8, ptr %61, i64 -16
-  %63 = load ptr, ptr %62, align 8
+  %63 = load ptr, ptr %62, align 16
   %.not.i = icmp eq ptr %63, null
   br i1 %.not.i, label %_ZN12ScopedFValueIbED2Ev.exit, label %64
 
@@ -7864,7 +7864,7 @@ _ZN12ScopedFValueIbED2Ev.exit:                    ; preds = %60, %64
 73:                                               ; preds = %_ZN12ScopedFValueIbED2Ev.exit9, %71
   %74 = phi ptr [ %72, %71 ], [ %75, %_ZN12ScopedFValueIbED2Ev.exit9 ]
   %75 = getelementptr inbounds i8, ptr %74, i64 -16
-  %76 = load ptr, ptr %75, align 8
+  %76 = load ptr, ptr %75, align 16
   %.not.i8 = icmp eq ptr %76, null
   br i1 %.not.i8, label %_ZN12ScopedFValueIbED2Ev.exit9, label %77
 
@@ -8045,7 +8045,7 @@ define internal void @_ZL20DOCTEST_ANON_FUNC_76v() #3 personality ptr @__gxx_per
 60:                                               ; preds = %_ZN12ScopedFValueIbED2Ev.exit, %55
   %61 = phi ptr [ %59, %55 ], [ %62, %_ZN12ScopedFValueIbED2Ev.exit ]
   %62 = getelementptr inbounds i8, ptr %61, i64 -16
-  %63 = load ptr, ptr %62, align 8
+  %63 = load ptr, ptr %62, align 16
   %.not.i = icmp eq ptr %63, null
   br i1 %.not.i, label %_ZN12ScopedFValueIbED2Ev.exit, label %64
 
@@ -8076,7 +8076,7 @@ _ZN12ScopedFValueIbED2Ev.exit:                    ; preds = %60, %64
 73:                                               ; preds = %_ZN12ScopedFValueIbED2Ev.exit9, %71
   %74 = phi ptr [ %72, %71 ], [ %75, %_ZN12ScopedFValueIbED2Ev.exit9 ]
   %75 = getelementptr inbounds i8, ptr %74, i64 -16
-  %76 = load ptr, ptr %75, align 8
+  %76 = load ptr, ptr %75, align 16
   %.not.i8 = icmp eq ptr %76, null
   br i1 %.not.i8, label %_ZN12ScopedFValueIbED2Ev.exit9, label %77
 
@@ -8275,7 +8275,7 @@ define internal void @_ZL20DOCTEST_ANON_FUNC_78v() #3 personality ptr @__gxx_per
 70:                                               ; preds = %_ZN12ScopedFValueIbED2Ev.exit, %65
   %71 = phi ptr [ %69, %65 ], [ %72, %_ZN12ScopedFValueIbED2Ev.exit ]
   %72 = getelementptr inbounds i8, ptr %71, i64 -16
-  %73 = load ptr, ptr %72, align 8
+  %73 = load ptr, ptr %72, align 16
   %.not.i = icmp eq ptr %73, null
   br i1 %.not.i, label %_ZN12ScopedFValueIbED2Ev.exit, label %74
 
@@ -8306,7 +8306,7 @@ _ZN12ScopedFValueIbED2Ev.exit:                    ; preds = %70, %74
 82:                                               ; preds = %_ZN12ScopedFValueIbED2Ev.exit9, %80
   %83 = phi ptr [ %81, %80 ], [ %84, %_ZN12ScopedFValueIbED2Ev.exit9 ]
   %84 = getelementptr inbounds i8, ptr %83, i64 -16
-  %85 = load ptr, ptr %84, align 8
+  %85 = load ptr, ptr %84, align 16
   %.not.i8 = icmp eq ptr %85, null
   br i1 %.not.i8, label %_ZN12ScopedFValueIbED2Ev.exit9, label %86
 
@@ -8505,7 +8505,7 @@ define internal void @_ZL20DOCTEST_ANON_FUNC_80v() #3 personality ptr @__gxx_per
 70:                                               ; preds = %_ZN12ScopedFValueIbED2Ev.exit, %65
   %71 = phi ptr [ %69, %65 ], [ %72, %_ZN12ScopedFValueIbED2Ev.exit ]
   %72 = getelementptr inbounds i8, ptr %71, i64 -16
-  %73 = load ptr, ptr %72, align 8
+  %73 = load ptr, ptr %72, align 16
   %.not.i = icmp eq ptr %73, null
   br i1 %.not.i, label %_ZN12ScopedFValueIbED2Ev.exit, label %74
 
@@ -8536,7 +8536,7 @@ _ZN12ScopedFValueIbED2Ev.exit:                    ; preds = %70, %74
 82:                                               ; preds = %_ZN12ScopedFValueIbED2Ev.exit9, %80
   %83 = phi ptr [ %81, %80 ], [ %84, %_ZN12ScopedFValueIbED2Ev.exit9 ]
   %84 = getelementptr inbounds i8, ptr %83, i64 -16
-  %85 = load ptr, ptr %84, align 8
+  %85 = load ptr, ptr %84, align 16
   %.not.i8 = icmp eq ptr %85, null
   br i1 %.not.i8, label %_ZN12ScopedFValueIbED2Ev.exit9, label %86
 
@@ -8742,7 +8742,7 @@ define internal void @_ZL20DOCTEST_ANON_FUNC_82v() #3 personality ptr @__gxx_per
 74:                                               ; preds = %_ZN12ScopedFValueIbED2Ev.exit, %69
   %75 = phi ptr [ %73, %69 ], [ %76, %_ZN12ScopedFValueIbED2Ev.exit ]
   %76 = getelementptr inbounds i8, ptr %75, i64 -16
-  %77 = load ptr, ptr %76, align 8
+  %77 = load ptr, ptr %76, align 16
   %.not.i = icmp eq ptr %77, null
   br i1 %.not.i, label %_ZN12ScopedFValueIbED2Ev.exit, label %78
 
@@ -8773,7 +8773,7 @@ _ZN12ScopedFValueIbED2Ev.exit:                    ; preds = %74, %78
 86:                                               ; preds = %_ZN12ScopedFValueIbED2Ev.exit9, %84
   %87 = phi ptr [ %85, %84 ], [ %88, %_ZN12ScopedFValueIbED2Ev.exit9 ]
   %88 = getelementptr inbounds i8, ptr %87, i64 -16
-  %89 = load ptr, ptr %88, align 8
+  %89 = load ptr, ptr %88, align 16
   %.not.i8 = icmp eq ptr %89, null
   br i1 %.not.i8, label %_ZN12ScopedFValueIbED2Ev.exit9, label %90
 
@@ -8979,7 +8979,7 @@ define internal void @_ZL20DOCTEST_ANON_FUNC_84v() #3 personality ptr @__gxx_per
 74:                                               ; preds = %_ZN12ScopedFValueIbED2Ev.exit, %69
   %75 = phi ptr [ %73, %69 ], [ %76, %_ZN12ScopedFValueIbED2Ev.exit ]
   %76 = getelementptr inbounds i8, ptr %75, i64 -16
-  %77 = load ptr, ptr %76, align 8
+  %77 = load ptr, ptr %76, align 16
   %.not.i = icmp eq ptr %77, null
   br i1 %.not.i, label %_ZN12ScopedFValueIbED2Ev.exit, label %78
 
@@ -9010,7 +9010,7 @@ _ZN12ScopedFValueIbED2Ev.exit:                    ; preds = %74, %78
 86:                                               ; preds = %_ZN12ScopedFValueIbED2Ev.exit9, %84
   %87 = phi ptr [ %85, %84 ], [ %88, %_ZN12ScopedFValueIbED2Ev.exit9 ]
   %88 = getelementptr inbounds i8, ptr %87, i64 -16
-  %89 = load ptr, ptr %88, align 8
+  %89 = load ptr, ptr %88, align 16
   %.not.i8 = icmp eq ptr %89, null
   br i1 %.not.i8, label %_ZN12ScopedFValueIbED2Ev.exit9, label %90
 
@@ -9223,7 +9223,7 @@ define internal void @_ZL20DOCTEST_ANON_FUNC_86v() #3 personality ptr @__gxx_per
 78:                                               ; preds = %_ZN12ScopedFValueIbED2Ev.exit, %73
   %79 = phi ptr [ %77, %73 ], [ %80, %_ZN12ScopedFValueIbED2Ev.exit ]
   %80 = getelementptr inbounds i8, ptr %79, i64 -16
-  %81 = load ptr, ptr %80, align 8
+  %81 = load ptr, ptr %80, align 16
   %.not.i = icmp eq ptr %81, null
   br i1 %.not.i, label %_ZN12ScopedFValueIbED2Ev.exit, label %82
 
@@ -9254,7 +9254,7 @@ _ZN12ScopedFValueIbED2Ev.exit:                    ; preds = %78, %82
 90:                                               ; preds = %_ZN12ScopedFValueIbED2Ev.exit9, %88
   %91 = phi ptr [ %89, %88 ], [ %92, %_ZN12ScopedFValueIbED2Ev.exit9 ]
   %92 = getelementptr inbounds i8, ptr %91, i64 -16
-  %93 = load ptr, ptr %92, align 8
+  %93 = load ptr, ptr %92, align 16
   %.not.i8 = icmp eq ptr %93, null
   br i1 %.not.i8, label %_ZN12ScopedFValueIbED2Ev.exit9, label %94
 
@@ -9474,7 +9474,7 @@ define internal void @_ZL20DOCTEST_ANON_FUNC_88v() #3 personality ptr @__gxx_per
 82:                                               ; preds = %_ZN12ScopedFValueIbED2Ev.exit, %77
   %83 = phi ptr [ %81, %77 ], [ %84, %_ZN12ScopedFValueIbED2Ev.exit ]
   %84 = getelementptr inbounds i8, ptr %83, i64 -16
-  %85 = load ptr, ptr %84, align 8
+  %85 = load ptr, ptr %84, align 16
   %.not.i = icmp eq ptr %85, null
   br i1 %.not.i, label %_ZN12ScopedFValueIbED2Ev.exit, label %86
 
@@ -9505,7 +9505,7 @@ _ZN12ScopedFValueIbED2Ev.exit:                    ; preds = %82, %86
 94:                                               ; preds = %_ZN12ScopedFValueIbED2Ev.exit9, %92
   %95 = phi ptr [ %93, %92 ], [ %96, %_ZN12ScopedFValueIbED2Ev.exit9 ]
   %96 = getelementptr inbounds i8, ptr %95, i64 -16
-  %97 = load ptr, ptr %96, align 8
+  %97 = load ptr, ptr %96, align 16
   %.not.i8 = icmp eq ptr %97, null
   br i1 %.not.i8, label %_ZN12ScopedFValueIbED2Ev.exit9, label %98
 
@@ -9711,7 +9711,7 @@ define internal void @_ZL20DOCTEST_ANON_FUNC_90v() #3 personality ptr @__gxx_per
 74:                                               ; preds = %_ZN12ScopedFValueIbED2Ev.exit, %69
   %75 = phi ptr [ %73, %69 ], [ %76, %_ZN12ScopedFValueIbED2Ev.exit ]
   %76 = getelementptr inbounds i8, ptr %75, i64 -16
-  %77 = load ptr, ptr %76, align 8
+  %77 = load ptr, ptr %76, align 16
   %.not.i = icmp eq ptr %77, null
   br i1 %.not.i, label %_ZN12ScopedFValueIbED2Ev.exit, label %78
 
@@ -9742,7 +9742,7 @@ _ZN12ScopedFValueIbED2Ev.exit:                    ; preds = %74, %78
 86:                                               ; preds = %_ZN12ScopedFValueIbED2Ev.exit9, %84
   %87 = phi ptr [ %85, %84 ], [ %88, %_ZN12ScopedFValueIbED2Ev.exit9 ]
   %88 = getelementptr inbounds i8, ptr %87, i64 -16
-  %89 = load ptr, ptr %88, align 8
+  %89 = load ptr, ptr %88, align 16
   %.not.i8 = icmp eq ptr %89, null
   br i1 %.not.i8, label %_ZN12ScopedFValueIbED2Ev.exit9, label %90
 
@@ -9948,7 +9948,7 @@ define internal void @_ZL20DOCTEST_ANON_FUNC_92v() #3 personality ptr @__gxx_per
 74:                                               ; preds = %_ZN12ScopedFValueIbED2Ev.exit, %69
   %75 = phi ptr [ %73, %69 ], [ %76, %_ZN12ScopedFValueIbED2Ev.exit ]
   %76 = getelementptr inbounds i8, ptr %75, i64 -16
-  %77 = load ptr, ptr %76, align 8
+  %77 = load ptr, ptr %76, align 16
   %.not.i = icmp eq ptr %77, null
   br i1 %.not.i, label %_ZN12ScopedFValueIbED2Ev.exit, label %78
 
@@ -9979,7 +9979,7 @@ _ZN12ScopedFValueIbED2Ev.exit:                    ; preds = %74, %78
 86:                                               ; preds = %_ZN12ScopedFValueIbED2Ev.exit9, %84
   %87 = phi ptr [ %85, %84 ], [ %88, %_ZN12ScopedFValueIbED2Ev.exit9 ]
   %88 = getelementptr inbounds i8, ptr %87, i64 -16
-  %89 = load ptr, ptr %88, align 8
+  %89 = load ptr, ptr %88, align 16
   %.not.i8 = icmp eq ptr %89, null
   br i1 %.not.i8, label %_ZN12ScopedFValueIbED2Ev.exit9, label %90
 
@@ -10185,7 +10185,7 @@ define internal void @_ZL20DOCTEST_ANON_FUNC_94v() #3 personality ptr @__gxx_per
 74:                                               ; preds = %_ZN12ScopedFValueIbED2Ev.exit, %69
   %75 = phi ptr [ %73, %69 ], [ %76, %_ZN12ScopedFValueIbED2Ev.exit ]
   %76 = getelementptr inbounds i8, ptr %75, i64 -16
-  %77 = load ptr, ptr %76, align 8
+  %77 = load ptr, ptr %76, align 16
   %.not.i = icmp eq ptr %77, null
   br i1 %.not.i, label %_ZN12ScopedFValueIbED2Ev.exit, label %78
 
@@ -10216,7 +10216,7 @@ _ZN12ScopedFValueIbED2Ev.exit:                    ; preds = %74, %78
 86:                                               ; preds = %_ZN12ScopedFValueIbED2Ev.exit9, %84
   %87 = phi ptr [ %85, %84 ], [ %88, %_ZN12ScopedFValueIbED2Ev.exit9 ]
   %88 = getelementptr inbounds i8, ptr %87, i64 -16
-  %89 = load ptr, ptr %88, align 8
+  %89 = load ptr, ptr %88, align 16
   %.not.i8 = icmp eq ptr %89, null
   br i1 %.not.i8, label %_ZN12ScopedFValueIbED2Ev.exit9, label %90
 
@@ -10429,7 +10429,7 @@ define internal void @_ZL20DOCTEST_ANON_FUNC_96v() #3 personality ptr @__gxx_per
 78:                                               ; preds = %_ZN12ScopedFValueIbED2Ev.exit, %73
   %79 = phi ptr [ %77, %73 ], [ %80, %_ZN12ScopedFValueIbED2Ev.exit ]
   %80 = getelementptr inbounds i8, ptr %79, i64 -16
-  %81 = load ptr, ptr %80, align 8
+  %81 = load ptr, ptr %80, align 16
   %.not.i = icmp eq ptr %81, null
   br i1 %.not.i, label %_ZN12ScopedFValueIbED2Ev.exit, label %82
 
@@ -10460,7 +10460,7 @@ _ZN12ScopedFValueIbED2Ev.exit:                    ; preds = %78, %82
 90:                                               ; preds = %_ZN12ScopedFValueIbED2Ev.exit9, %88
   %91 = phi ptr [ %89, %88 ], [ %92, %_ZN12ScopedFValueIbED2Ev.exit9 ]
   %92 = getelementptr inbounds i8, ptr %91, i64 -16
-  %93 = load ptr, ptr %92, align 8
+  %93 = load ptr, ptr %92, align 16
   %.not.i8 = icmp eq ptr %93, null
   br i1 %.not.i8, label %_ZN12ScopedFValueIbED2Ev.exit9, label %94
 

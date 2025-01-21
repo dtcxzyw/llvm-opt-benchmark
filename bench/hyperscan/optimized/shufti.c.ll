@@ -129,7 +129,7 @@ return:                                           ; preds = %for.body.i, %if.end
   ret ptr %retval.0
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: write) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
 define hidden nonnull ptr @rshuftiExec(<2 x i64> noundef %mask_lo, <2 x i64> noundef %mask_hi, ptr noundef %buf, ptr noundef %buf_end) local_unnamed_addr #1 {
 entry:
   %mask_lo.addr = alloca <2 x i64>, align 16
@@ -204,7 +204,6 @@ while.cond:                                       ; preds = %while.body, %if.end
 
 while.body:                                       ; preds = %while.cond
   %add.ptr10 = getelementptr inbounds i8, ptr %buf_end.addr.0, i64 -16
-  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr10, i64 16) ]
   %17 = load <2 x i64>, ptr %add.ptr10, align 16
   %18 = bitcast <2 x i64> %17 to <16 x i8>
   %19 = and <16 x i8> %18, splat (i8 15)
@@ -380,7 +379,7 @@ declare i32 @llvm.ctlz.i32(i32, i1 immarg) #4
 declare i16 @llvm.cttz.i16(i16, i1 immarg) #5
 
 attributes #0 = { nofree norecurse nosync nounwind memory(argmem: read, inaccessiblemem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="corei7" "target-features"="+cmov,+crc32,+cx16,+cx8,+fxsr,+mmx,+popcnt,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" }
-attributes #1 = { nofree norecurse nosync nounwind memory(read, inaccessiblemem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="corei7" "target-features"="+cmov,+crc32,+cx16,+cx8,+fxsr,+mmx,+popcnt,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" }
+attributes #1 = { nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="corei7" "target-features"="+cmov,+crc32,+cx16,+cx8,+fxsr,+mmx,+popcnt,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" }
 attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(none) }
 attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #4 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }

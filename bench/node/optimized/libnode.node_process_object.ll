@@ -603,10 +603,10 @@ for.body.i.i.i.i.i.i:                             ; preds = %for.body.i.i.i.i.i.
   %__last.addr.05.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i, %for.body.i.i.i.i.i.i ], [ %__i.019.i.ptr, %for.body.i.i.i.i.i.preheader.i ]
   %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__last.addr.05.i.i.i.i.i.i, i64 -32
   %incdec.ptr1.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__result.addr.06.i.i.i.i.i.i, i64 -32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %incdec.ptr1.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %incdec.ptr.i.i.i.i.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %incdec.ptr1.i.i.i.i.i.i, ptr noundef nonnull align 16 dereferenceable(32) %incdec.ptr.i.i.i.i.i.i, i64 16, i1 false)
   %second.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__last.addr.05.i.i.i.i.i.i, i64 -16
   %second3.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__result.addr.06.i.i.i.i.i.i, i64 -16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %second3.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %second.i.i.i.i.i.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %second3.i.i.i.i.i.i.i, ptr noundef nonnull align 16 dereferenceable(16) %second.i.i.i.i.i.i.i, i64 16, i1 false)
   %dec.i.i.i.i.i.i = add nsw i64 %__n.07.i.i.i.i.i.i, -1
   %cmp.i.i.i.i.i.i = icmp samesign ugt i64 %__n.07.i.i.i.i.i.i, 1
   br i1 %cmp.i.i.i.i.i.i, label %for.body.i.i.i.i.i.i, label %_ZSt13move_backwardIPSt4pairISt17basic_string_viewIcSt11char_traitsIcEES4_ES6_ET0_T_S8_S7_.exit.i, !llvm.loop !5
@@ -625,7 +625,7 @@ if.else.i:                                        ; preds = %"_ZN9__gnu_cxx5__op
 while.cond.i.i:                                   ; preds = %while.body.i.i, %if.else.i
   %__last.addr.0.i.i = phi ptr [ %__i.019.i.ptr, %if.else.i ], [ %__next.0.i.i, %while.body.i.i ]
   %__next.0.i.i = getelementptr inbounds i8, ptr %__last.addr.0.i.i, i64 -32
-  %__next.0.val.i.i = load i64, ptr %__next.0.i.i, align 8
+  %__next.0.val.i.i = load i64, ptr %__next.0.i.i, align 16
   %.sroa.speculated.i.i.i.i.i.i = call i64 @llvm.umin.i64(i64 %__next.0.val.i.i, i64 %__i.0.val.i)
   %cmp.i2.i.i.i.i.i.i = icmp eq i64 %.sroa.speculated.i.i.i.i.i.i, 0
   br i1 %cmp.i2.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i
@@ -650,10 +650,10 @@ if.then.i.i.i.i.i.i:                              ; preds = %_ZNSt11char_traitsI
   br i1 %cmp.i.i.i.i15.i, label %while.body.i.i, label %"_ZSt25__unguarded_linear_insertIPSt4pairISt17basic_string_viewIcSt11char_traitsIcEES4_EN9__gnu_cxx5__ops14_Val_comp_iterIZN4node19CreateProcessObjectEPNSA_5RealmEE3$_0EEEvT_T0_.exit.i"
 
 while.body.i.i:                                   ; preds = %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4node19CreateProcessObjectEPNS2_5RealmEE3$_0EclISt4pairISt17basic_string_viewIcSt11char_traitsIcEESC_EPSD_EEbRT_T0_.exit.i.i"
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %__last.addr.0.i.i, ptr noundef nonnull align 8 dereferenceable(32) %__next.0.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %__last.addr.0.i.i, ptr noundef nonnull align 16 dereferenceable(32) %__next.0.i.i, i64 16, i1 false)
   %second.i.i.i = getelementptr inbounds i8, ptr %__last.addr.0.i.i, i64 -16
   %second3.i.i.i = getelementptr inbounds nuw i8, ptr %__last.addr.0.i.i, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %second3.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %second.i.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %second3.i.i.i, ptr noundef nonnull align 16 dereferenceable(16) %second.i.i.i, i64 16, i1 false)
   br label %while.cond.i.i, !llvm.loop !7
 
 "_ZSt25__unguarded_linear_insertIPSt4pairISt17basic_string_viewIcSt11char_traitsIcEES4_EN9__gnu_cxx5__ops14_Val_comp_iterIZN4node19CreateProcessObjectEPNSA_5RealmEE3$_0EEEvT_T0_.exit.i": ; preds = %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4node19CreateProcessObjectEPNS2_5RealmEE3$_0EclISt4pairISt17basic_string_viewIcSt11char_traitsIcEESC_EPSD_EEbRT_T0_.exit.i.i"
@@ -661,7 +661,7 @@ while.body.i.i:                                   ; preds = %"_ZN9__gnu_cxx5__op
   %__val.sroa.3.0.__last.addr.0.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %__last.addr.0.i.i, i64 8
   store ptr %__i.0.val12.i, ptr %__val.sroa.3.0.__last.addr.0.sroa_idx.i.i, align 8
   %second3.i11.i.i = getelementptr inbounds nuw i8, ptr %__last.addr.0.i.i, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %second3.i11.i.i, ptr noundef nonnull align 8 dereferenceable(16) %__val.sroa.4.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %second3.i11.i.i, ptr noundef nonnull align 8 dereferenceable(16) %__val.sroa.4.i.i, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__val.sroa.4.i.i)
   br label %for.inc.i
 
@@ -688,7 +688,7 @@ for.body.i.i.i.i:                                 ; preds = %"_ZSt16__insertion_
 while.cond.i.i.i.i.i:                             ; preds = %while.body.i.i.i.i.i, %for.body.i.i.i.i
   %__last.addr.0.i.i.i.i.i = phi ptr [ %__i.04.i.i.i.i.ptr, %for.body.i.i.i.i ], [ %__next.0.i.i.i.i.i, %while.body.i.i.i.i.i ]
   %__next.0.i.i.i.i.i = getelementptr inbounds i8, ptr %__last.addr.0.i.i.i.i.i, i64 -32
-  %__next.0.val.i.i.i.i.i = load i64, ptr %__next.0.i.i.i.i.i, align 8
+  %__next.0.val.i.i.i.i.i = load i64, ptr %__next.0.i.i.i.i.i, align 16
   %.sroa.speculated.i.i.i.i.i.i.i.i.i = call i64 @llvm.umin.i64(i64 %__next.0.val.i.i.i.i.i, i64 %__val.sroa.0.0.copyload.i.i.i.i.i)
   %cmp.i2.i.i.i.i.i.i.i.i.i = icmp eq i64 %.sroa.speculated.i.i.i.i.i.i.i.i.i, 0
   br i1 %cmp.i2.i.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i.i.i.i
@@ -713,10 +713,10 @@ if.then.i.i.i.i.i.i.i.i.i:                        ; preds = %_ZNSt11char_traitsI
   br i1 %cmp.i.i.i.i.i.i.i.i, label %while.body.i.i.i.i.i, label %"_ZSt25__unguarded_linear_insertIPSt4pairISt17basic_string_viewIcSt11char_traitsIcEES4_EN9__gnu_cxx5__ops14_Val_comp_iterIZN4node19CreateProcessObjectEPNSA_5RealmEE3$_0EEEvT_T0_.exit.i.i.i.i"
 
 while.body.i.i.i.i.i:                             ; preds = %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4node19CreateProcessObjectEPNS2_5RealmEE3$_0EclISt4pairISt17basic_string_viewIcSt11char_traitsIcEESC_EPSD_EEbRT_T0_.exit.i.i.i.i.i"
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %__last.addr.0.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %__next.0.i.i.i.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %__last.addr.0.i.i.i.i.i, ptr noundef nonnull align 16 dereferenceable(32) %__next.0.i.i.i.i.i, i64 16, i1 false)
   %second.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__last.addr.0.i.i.i.i.i, i64 -16
   %second3.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__last.addr.0.i.i.i.i.i, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %second3.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %second.i.i.i.i.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %second3.i.i.i.i.i.i, ptr noundef nonnull align 16 dereferenceable(16) %second.i.i.i.i.i.i, i64 16, i1 false)
   br label %while.cond.i.i.i.i.i, !llvm.loop !7
 
 "_ZSt25__unguarded_linear_insertIPSt4pairISt17basic_string_viewIcSt11char_traitsIcEES4_EN9__gnu_cxx5__ops14_Val_comp_iterIZN4node19CreateProcessObjectEPNSA_5RealmEE3$_0EEEvT_T0_.exit.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4node19CreateProcessObjectEPNS2_5RealmEE3$_0EclISt4pairISt17basic_string_viewIcSt11char_traitsIcEESC_EPSD_EEbRT_T0_.exit.i.i.i.i.i"
@@ -724,7 +724,7 @@ while.body.i.i.i.i.i:                             ; preds = %"_ZN9__gnu_cxx5__op
   %__val.sroa.3.0.__last.addr.0.sroa_idx.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__last.addr.0.i.i.i.i.i, i64 8
   store ptr %__val.sroa.3.0.copyload.i.i.i.i.i, ptr %__val.sroa.3.0.__last.addr.0.sroa_idx.i.i.i.i.i, align 8
   %second3.i11.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__last.addr.0.i.i.i.i.i, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %second3.i11.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %__val.sroa.4.i.i.i.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %second3.i11.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %__val.sroa.4.i.i.i.i.i, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__val.sroa.4.i.i.i.i.i)
   %__i.04.i.i.i.i.add = add nuw nsw i64 %__i.04.i.i.i.i.idx, 32
   %cmp.not.i.i.i.i = icmp eq i64 %__i.04.i.i.i.i.add, 800
