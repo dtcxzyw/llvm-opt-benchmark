@@ -386,7 +386,7 @@ define void @_ZN16actix_web_actors2ws24handshake_with_protocols17hff1425362f08a8
   %.0.copyload2.i.i.i = load <16 x i8>, ptr %82, align 1, !alias.scope !35, !noalias !36
   %83 = icmp eq <16 x i8> %.0.copyload.i.i.i, splat (i8 119)
   %84 = icmp eq <16 x i8> %.0.copyload2.i.i.i, splat (i8 116)
-  %85 = and <16 x i1> %84, %83
+  %85 = and <16 x i1> %83, %84
   %86 = getelementptr inbounds nuw [4 x i16], ptr %8, i64 0, i64 %.sroa.019.045.i.i
   store <16 x i1> %85, ptr %86, align 2, !noalias !35
   %exitcond.not.i.i = icmp eq i64 %80, 4
@@ -407,7 +407,7 @@ define void @_ZN16actix_web_actors2ws24handshake_with_protocols17hff1425362f08a8
   %.0.copyload2.i82.i.i = load <16 x i8>, ptr %90, align 1, !alias.scope !35, !noalias !39
   %91 = icmp eq <16 x i8> %.0.copyload.i81.i.i, splat (i8 119)
   %92 = icmp eq <16 x i8> %.0.copyload2.i82.i.i, splat (i8 116)
-  %93 = and <16 x i1> %92, %91
+  %93 = and <16 x i1> %91, %92
   %94 = bitcast <16 x i1> %93 to i16
   %95 = icmp eq i16 %94, 0
   br i1 %95, label %110, label %112
@@ -419,7 +419,7 @@ define void @_ZN16actix_web_actors2ws24handshake_with_protocols17hff1425362f08a8
   %.0.copyload2.i84.i.i = load <16 x i8>, ptr %98, align 1, !alias.scope !35, !noalias !42
   %99 = icmp eq <16 x i8> %.0.copyload.i83.i.i, splat (i8 119)
   %100 = icmp eq <16 x i8> %.0.copyload2.i84.i.i, splat (i8 116)
-  %101 = and <16 x i1> %100, %99
+  %101 = and <16 x i1> %99, %100
   %102 = bitcast <16 x i1> %101 to i16
   %103 = icmp eq i16 %102, 0
   br i1 %103, label %104, label %107

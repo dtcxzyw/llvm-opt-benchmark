@@ -2562,7 +2562,7 @@ define void @process(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noun
   %1215 = fcmp reassoc nsz arcp contract afn ogt <8 x float> %1214, zeroinitializer
   %1216 = fdiv reassoc nsz arcp contract afn <8 x float> %1210, %1214
   %1217 = fcmp reassoc nsz arcp contract afn ogt <8 x float> %1216, splat (float 5.000000e-01)
-  %1218 = and <8 x i1> %1217, %1215
+  %1218 = and <8 x i1> %1215, %1217
   %1219 = fmul reassoc nsz arcp contract afn <8 x float> %1216, splat (float 2.000000e+00)
   %1220 = fadd reassoc nsz arcp contract afn <8 x float> %1219, splat (float -1.000000e+00)
   %1221 = fmul reassoc nsz arcp contract afn <8 x float> %1214, splat (float 2.000000e+00)

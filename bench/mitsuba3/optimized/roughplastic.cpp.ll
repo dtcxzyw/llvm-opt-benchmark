@@ -3741,7 +3741,7 @@ _ZN7mitsuba6VectorIN5drjit6PacketIfLm16EEELm3EECI2NS1_15StaticArrayImplIS3_Lm3EL
   %237 = fcmp contract ole <16 x float> %191, zeroinitializer
   %238 = load <16 x float>, ptr %55, align 64
   %239 = fcmp contract ole <16 x float> %238, zeroinitializer
-  %240 = or <16 x i1> %239, %237
+  %240 = or <16 x i1> %237, %239
   %241 = select contract <16 x i1> %240, <16 x float> zeroinitializer, <16 x float> %236
   %242 = fmul contract float %105, %106
   %243 = insertelement <16 x float> poison, float %242, i64 0
@@ -13727,8 +13727,8 @@ _ZNK5drjit9ArrayBaseINS_6PacketIfLm16EEELb0EN7mitsuba5PointIS2_Lm2EEEE8minimum_E
   %70 = fmul contract <16 x float> %17, %46
   %71 = tail call <16 x float> @llvm.fabs.v16f32(<16 x float> %68)
   %72 = fcmp contract one <16 x float> %71, splat (float 0x7FF0000000000000)
-  %73 = or <16 x i1> %64, %72
-  %74 = and <16 x i1> %73, %65
+  %73 = or <16 x i1> %72, %64
+  %74 = and <16 x i1> %65, %73
   %75 = select <16 x i1> %64, <16 x float> splat (float 1.000000e+00), <16 x float> %71
   %76 = select <16 x i1> %65, <16 x float> %75, <16 x float> splat (float 0x7FF0000000000000)
   %77 = select <16 x i1> %74, <16 x float> %76, <16 x float> splat (float 1.000000e+00)
@@ -13830,8 +13830,8 @@ _ZNK5drjit9ArrayBaseINS_6PacketIfLm16EEELb0EN7mitsuba5PointIS2_Lm2EEEE8minimum_E
   %170 = fmul contract <16 x float> %117, %146
   %171 = tail call <16 x float> @llvm.fabs.v16f32(<16 x float> %168)
   %172 = fcmp contract one <16 x float> %171, splat (float 0x7FF0000000000000)
-  %173 = or <16 x i1> %164, %172
-  %174 = and <16 x i1> %173, %165
+  %173 = or <16 x i1> %172, %164
+  %174 = and <16 x i1> %165, %173
   %175 = select <16 x i1> %164, <16 x float> splat (float 1.000000e+00), <16 x float> %171
   %176 = select <16 x i1> %165, <16 x float> %175, <16 x float> splat (float 0x7FF0000000000000)
   %177 = select <16 x i1> %174, <16 x float> %176, <16 x float> splat (float 1.000000e+00)
@@ -14088,7 +14088,7 @@ _ZNK5drjit9ArrayBaseINS_6PacketIfLm16EEELb0EN7mitsuba6VectorIS2_Lm2EEEE4mul_ERKS
   %398 = tail call contract noundef <16 x float> @llvm.fma.v16f32(<16 x float> %397, <16 x float> splat (float 2.000000e+00), <16 x float> splat (float -1.000000e+00))
   %399 = fcmp contract oeq <16 x float> %395, zeroinitializer
   %400 = fcmp contract oeq <16 x float> %398, zeroinitializer
-  %401 = and <16 x i1> %400, %399
+  %401 = and <16 x i1> %399, %400
   %402 = tail call <16 x float> @llvm.fabs.v16f32(<16 x float> %395)
   %403 = tail call <16 x float> @llvm.fabs.v16f32(<16 x float> %398)
   %404 = fcmp contract olt <16 x float> %402, %403

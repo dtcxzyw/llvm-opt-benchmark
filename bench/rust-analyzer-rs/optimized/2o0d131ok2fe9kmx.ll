@@ -13548,7 +13548,7 @@ _ZN4core3str7pattern14small_slice_eq17h3a53943bb1188393E.exit.thread.loopexit.us
   %.0.copyload2.i.i.i.i = load <16 x i8>, ptr %695, align 1, !alias.scope !2619, !noalias !2620
   %696 = icmp eq <16 x i8> %.0.copyload.i.i.i.i, splat (i8 108)
   %697 = icmp eq <16 x i8> %.0.copyload2.i.i.i.i, splat (i8 98)
-  %698 = and <16 x i1> %697, %696
+  %698 = and <16 x i1> %696, %697
   %699 = getelementptr inbounds nuw [4 x i16], ptr %17, i64 0, i64 %.sroa.019.045.i.i.i
   store <16 x i1> %698, ptr %699, align 2, !noalias !2609
   %exitcond.not.i.i.i = icmp eq i64 %693, 4
@@ -13573,7 +13573,7 @@ _ZN4core3str7pattern14small_slice_eq17h3a53943bb1188393E.exit.thread.loopexit.us
   %.0.copyload2.i82.i.i.i = load <16 x i8>, ptr %703, align 1, !alias.scope !2619, !noalias !2623
   %704 = icmp eq <16 x i8> %.0.copyload.i81.i.i.i, splat (i8 108)
   %705 = icmp eq <16 x i8> %.0.copyload2.i82.i.i.i, splat (i8 98)
-  %706 = and <16 x i1> %705, %704
+  %706 = and <16 x i1> %704, %705
   %707 = bitcast <16 x i1> %706 to i16
   %708 = icmp eq i16 %707, 0
   br i1 %708, label %723, label %726
@@ -13585,7 +13585,7 @@ _ZN4core3str7pattern14small_slice_eq17h3a53943bb1188393E.exit.thread.loopexit.us
   %.0.copyload2.i84.i.i.i = load <16 x i8>, ptr %711, align 1, !alias.scope !2619, !noalias !2626
   %712 = icmp eq <16 x i8> %.0.copyload.i83.i.i.i, splat (i8 108)
   %713 = icmp eq <16 x i8> %.0.copyload2.i84.i.i.i, splat (i8 98)
-  %714 = and <16 x i1> %713, %712
+  %714 = and <16 x i1> %712, %713
   %715 = bitcast <16 x i1> %714 to i16
   %716 = icmp eq i16 %715, 0
   br i1 %716, label %717, label %720

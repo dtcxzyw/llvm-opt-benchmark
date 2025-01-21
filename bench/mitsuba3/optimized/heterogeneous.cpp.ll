@@ -634,8 +634,8 @@ define weak_odr { i64, float } @_ZNK7mitsuba19HeterogeneousMediumIfN5drjit6Matri
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %13 = load <4 x float>, ptr %12, align 16
   %14 = fcmp contract olt <4 x float> %9, %13
-  %15 = or <4 x i1> %11, %8
-  %16 = or <4 x i1> %15, %14
+  %15 = or <4 x i1> %11, %14
+  %16 = or <4 x i1> %8, %15
   %17 = shufflevector <4 x i1> %16, <4 x i1> zeroinitializer, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7>
   %18 = bitcast <8 x i1> %17 to i8
   %19 = and i8 %18, 7

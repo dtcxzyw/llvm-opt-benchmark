@@ -2064,9 +2064,9 @@ define internal fastcc noundef zeroext i1 @pg_lfind32(i32 noundef %0, ptr nocapt
   %19 = icmp eq <4 x i32> %5, %.val3138
   %20 = icmp eq <4 x i32> %5, %.val3239
   %21 = icmp eq <4 x i32> %5, %.val3340
-  %22 = or <4 x i1> %19, %18
-  %23 = or <4 x i1> %22, %20
-  %24 = or <4 x i1> %23, %21
+  %22 = or <4 x i1> %18, %19
+  %23 = or <4 x i1> %20, %21
+  %24 = or <4 x i1> %22, %23
   %25 = sext <4 x i1> %24 to <4 x i32>
   %26 = bitcast <4 x i32> %25 to <16 x i8>
   %27 = icmp slt <16 x i8> %26, zeroinitializer

@@ -1625,7 +1625,7 @@ _ZN6uucore8features5fsext12mount_dev_id17h1937b1607cf93021E.exit: ; preds = %"_Z
   %.0.copyload2.i.i.i = load <16 x i8>, ptr %212, align 1, !alias.scope !308, !noalias !309
   %213 = icmp eq <16 x i8> %.0.copyload.i.i.i, splat (i8 98)
   %214 = icmp eq <16 x i8> %.0.copyload2.i.i.i, splat (i8 100)
-  %215 = and <16 x i1> %214, %213
+  %215 = and <16 x i1> %213, %214
   %216 = getelementptr inbounds nuw [4 x i16], ptr %7, i64 0, i64 %.sroa.019.045.i.i
   store <16 x i1> %215, ptr %216, align 2, !noalias !307
   %exitcond.not.i.i = icmp eq i64 %210, 4
@@ -1646,7 +1646,7 @@ _ZN6uucore8features5fsext12mount_dev_id17h1937b1607cf93021E.exit: ; preds = %"_Z
   %.0.copyload2.i82.i.i = load <16 x i8>, ptr %220, align 1, !alias.scope !308, !noalias !312
   %221 = icmp eq <16 x i8> %.0.copyload.i81.i.i, splat (i8 98)
   %222 = icmp eq <16 x i8> %.0.copyload2.i82.i.i, splat (i8 100)
-  %223 = and <16 x i1> %222, %221
+  %223 = and <16 x i1> %221, %222
   %224 = bitcast <16 x i1> %223 to i16
   %225 = icmp eq i16 %224, 0
   br i1 %225, label %240, label %242
@@ -1658,7 +1658,7 @@ _ZN6uucore8features5fsext12mount_dev_id17h1937b1607cf93021E.exit: ; preds = %"_Z
   %.0.copyload2.i84.i.i = load <16 x i8>, ptr %228, align 1, !alias.scope !308, !noalias !315
   %229 = icmp eq <16 x i8> %.0.copyload.i83.i.i, splat (i8 98)
   %230 = icmp eq <16 x i8> %.0.copyload2.i84.i.i, splat (i8 100)
-  %231 = and <16 x i1> %230, %229
+  %231 = and <16 x i1> %229, %230
   %232 = bitcast <16 x i1> %231 to i16
   %233 = icmp eq i16 %232, 0
   br i1 %233, label %234, label %237

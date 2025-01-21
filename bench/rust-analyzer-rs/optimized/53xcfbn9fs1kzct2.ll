@@ -284,7 +284,7 @@ thread-pre-split:                                 ; preds = %thread-pre-split.ba
   %.0.copyload2.i.i.i = load <16 x i8>, ptr %65, align 1, !alias.scope !37, !noalias !38
   %66 = icmp eq <16 x i8> %.0.copyload.i.i.i, splat (i8 10)
   %67 = icmp eq <16 x i8> %.0.copyload2.i.i.i, splat (i8 10)
-  %68 = and <16 x i1> %67, %66
+  %68 = and <16 x i1> %66, %67
   %69 = getelementptr inbounds nuw [4 x i16], ptr %3, i64 0, i64 %.sroa.019.040.i.i
   store <16 x i1> %68, ptr %69, align 2, !noalias !37
   %exitcond.not.i.i = icmp eq i64 %63, 4
@@ -305,7 +305,7 @@ thread-pre-split:                                 ; preds = %thread-pre-split.ba
   %.0.copyload2.i82.i.i = load <16 x i8>, ptr %73, align 1, !alias.scope !37, !noalias !41
   %74 = icmp eq <16 x i8> %.0.copyload.i81.i.i, splat (i8 10)
   %75 = icmp eq <16 x i8> %.0.copyload2.i82.i.i, splat (i8 10)
-  %76 = and <16 x i1> %75, %74
+  %76 = and <16 x i1> %74, %75
   %77 = bitcast <16 x i1> %76 to i16
   %78 = icmp eq i16 %77, 0
   br i1 %78, label %93, label %95
@@ -317,7 +317,7 @@ thread-pre-split:                                 ; preds = %thread-pre-split.ba
   %.0.copyload2.i84.i.i = load <16 x i8>, ptr %81, align 1, !alias.scope !37, !noalias !44
   %82 = icmp eq <16 x i8> %.0.copyload.i83.i.i, splat (i8 10)
   %83 = icmp eq <16 x i8> %.0.copyload2.i84.i.i, splat (i8 10)
-  %84 = and <16 x i1> %83, %82
+  %84 = and <16 x i1> %82, %83
   %85 = bitcast <16 x i1> %84 to i16
   %86 = icmp eq i16 %85, 0
   br i1 %86, label %87, label %90

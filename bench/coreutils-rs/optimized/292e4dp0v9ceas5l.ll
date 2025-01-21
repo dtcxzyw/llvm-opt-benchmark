@@ -1637,7 +1637,7 @@ define hidden void @"_ZN5uu_ls16create_hyperlink28_$u7b$$u7b$closure$u7d$$u7d$17
   %.0.copyload2.i.i.i.i = load <16 x i8>, ptr %112, align 1, !alias.scope !304, !noalias !305
   %113 = icmp eq <16 x i8> %.0.copyload.i.i.i.i, %80
   %114 = icmp eq <16 x i8> %.0.copyload2.i.i.i.i, %81
-  %115 = and <16 x i1> %114, %113
+  %115 = and <16 x i1> %113, %114
   %116 = getelementptr inbounds nuw [4 x i16], ptr %5, i64 0, i64 %.sroa.019.0138.i.i.i
   store <16 x i1> %115, ptr %116, align 2, !noalias !303
   %exitcond.not.i37.i.i = icmp eq i64 %110, 4
@@ -1659,7 +1659,7 @@ define hidden void @"_ZN5uu_ls16create_hyperlink28_$u7b$$u7b$closure$u7d$$u7d$17
   %.0.copyload2.i82.i.i.i = load <16 x i8>, ptr %122, align 1, !alias.scope !304, !noalias !308
   %123 = icmp eq <16 x i8> %.0.copyload.i81.i.i.i, %80
   %124 = icmp eq <16 x i8> %.0.copyload2.i82.i.i.i, %81
-  %125 = and <16 x i1> %124, %123
+  %125 = and <16 x i1> %123, %124
   %126 = bitcast <16 x i1> %125 to i16
   %127 = icmp eq i16 %126, 0
   br i1 %127, label %142, label %143
@@ -1671,7 +1671,7 @@ define hidden void @"_ZN5uu_ls16create_hyperlink28_$u7b$$u7b$closure$u7d$$u7d$17
   %.0.copyload2.i84.i.i.i = load <16 x i8>, ptr %130, align 1, !alias.scope !304, !noalias !311
   %131 = icmp eq <16 x i8> %.0.copyload.i83.i.i.i, %80
   %132 = icmp eq <16 x i8> %.0.copyload2.i84.i.i.i, %81
-  %133 = and <16 x i1> %132, %131
+  %133 = and <16 x i1> %131, %132
   %134 = bitcast <16 x i1> %133 to i16
   %135 = icmp eq i16 %134, 0
   br i1 %135, label %136, label %139

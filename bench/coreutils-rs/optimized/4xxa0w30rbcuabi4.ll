@@ -5489,7 +5489,7 @@ _ZN7uu_more10break_buff17h5fd9d99d8f26781bE.exit: ; preds = %88
   %.0.copyload2.i.i.i.i = load <16 x i8>, ptr %848, align 1, !alias.scope !1067, !noalias !1077
   %849 = icmp eq <16 x i8> %.0.copyload.i.i.i.i, %835
   %850 = icmp eq <16 x i8> %.0.copyload2.i.i.i.i, %836
-  %851 = and <16 x i1> %850, %849
+  %851 = and <16 x i1> %849, %850
   %852 = getelementptr inbounds nuw [4 x i16], ptr %19, i64 0, i64 %.sroa.019.0138.i.i.i
   store <16 x i1> %851, ptr %852, align 2, !noalias !1076
   %exitcond.not.i37.i.i = icmp eq i64 %846, 4
@@ -5541,7 +5541,7 @@ _ZN7uu_more10break_buff17h5fd9d99d8f26781bE.exit: ; preds = %88
   %.0.copyload2.i82.i.i.i = load <16 x i8>, ptr %874, align 1, !alias.scope !1067, !noalias !1080
   %875 = icmp eq <16 x i8> %.0.copyload.i81.i.i.i, %835
   %876 = icmp eq <16 x i8> %.0.copyload2.i82.i.i.i, %836
-  %877 = and <16 x i1> %876, %875
+  %877 = and <16 x i1> %875, %876
   %878 = bitcast <16 x i1> %877 to i16
   %879 = icmp eq i16 %878, 0
   br i1 %879, label %894, label %895
@@ -5553,7 +5553,7 @@ _ZN7uu_more10break_buff17h5fd9d99d8f26781bE.exit: ; preds = %88
   %.0.copyload2.i84.i.i.i = load <16 x i8>, ptr %882, align 1, !alias.scope !1067, !noalias !1083
   %883 = icmp eq <16 x i8> %.0.copyload.i83.i.i.i, %835
   %884 = icmp eq <16 x i8> %.0.copyload2.i84.i.i.i, %836
-  %885 = and <16 x i1> %884, %883
+  %885 = and <16 x i1> %883, %884
   %886 = bitcast <16 x i1> %885 to i16
   %887 = icmp eq i16 %886, 0
   br i1 %887, label %888, label %891

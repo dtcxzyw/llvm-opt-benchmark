@@ -1856,7 +1856,7 @@ define void @_ZN4stdx7replace17hdad97c71450ef43fE(ptr noalias noundef align 8 de
   %.0.copyload2.i.i.i.i = load <16 x i8>, ptr %108, align 1, !alias.scope !279, !noalias !280
   %109 = icmp eq <16 x i8> %.0.copyload.i.i.i.i, %76
   %110 = icmp eq <16 x i8> %.0.copyload2.i.i.i.i, %77
-  %111 = and <16 x i1> %110, %109
+  %111 = and <16 x i1> %109, %110
   %112 = getelementptr inbounds nuw [4 x i16], ptr %9, i64 0, i64 %.sroa.019.0138.i.i.i
   store <16 x i1> %111, ptr %112, align 2, !noalias !278
   %exitcond.not.i37.i.i = icmp eq i64 %106, 4
@@ -1878,7 +1878,7 @@ define void @_ZN4stdx7replace17hdad97c71450ef43fE(ptr noalias noundef align 8 de
   %.0.copyload2.i82.i.i.i = load <16 x i8>, ptr %118, align 1, !alias.scope !279, !noalias !283
   %119 = icmp eq <16 x i8> %.0.copyload.i81.i.i.i, %76
   %120 = icmp eq <16 x i8> %.0.copyload2.i82.i.i.i, %77
-  %121 = and <16 x i1> %120, %119
+  %121 = and <16 x i1> %119, %120
   %122 = bitcast <16 x i1> %121 to i16
   %123 = icmp eq i16 %122, 0
   br i1 %123, label %138, label %139
@@ -1890,7 +1890,7 @@ define void @_ZN4stdx7replace17hdad97c71450ef43fE(ptr noalias noundef align 8 de
   %.0.copyload2.i84.i.i.i = load <16 x i8>, ptr %126, align 1, !alias.scope !279, !noalias !286
   %127 = icmp eq <16 x i8> %.0.copyload.i83.i.i.i, %76
   %128 = icmp eq <16 x i8> %.0.copyload2.i84.i.i.i, %77
-  %129 = and <16 x i1> %128, %127
+  %129 = and <16 x i1> %127, %128
   %130 = bitcast <16 x i1> %129 to i16
   %131 = icmp eq i16 %130, 0
   br i1 %131, label %132, label %135

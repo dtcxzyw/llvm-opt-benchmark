@@ -19542,18 +19542,18 @@ _ZNK5drjit9ArrayBaseINS_6PacketIfLm4EEELb0EN7mitsuba6VectorIS2_Lm3EEEE4dot_ERKS5
   %168 = fcmp contract oge <4 x float> %167, zeroinitializer
   %169 = fadd contract <4 x float> %160, %167
   %170 = fcmp contract ole <4 x float> %169, splat (float 1.000000e+00)
-  %171 = and <4 x i1> %170, %168
+  %171 = and <4 x i1> %168, %170
   %172 = shufflevector <4 x i1> %171, <4 x i1> zeroinitializer, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7>
-  %173 = fmul contract <4 x float> %152, %159
-  %174 = fcmp contract oge <4 x float> %173, zeroinitializer
-  %175 = getelementptr inbounds nuw i8, ptr %2, i64 96
-  %176 = load <4 x float>, ptr %175, align 16
-  %177 = fcmp contract ole <4 x float> %173, %176
-  %178 = and <4 x i1> %174, %177
-  %179 = shufflevector <4 x i1> %178, <4 x i1> zeroinitializer, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7>
-  %180 = and <8 x i1> %166, %179
-  %181 = and <8 x i1> %180, %172
-  store <4 x float> %173, ptr %0, align 16
+  %173 = and <8 x i1> %166, %172
+  %174 = fmul contract <4 x float> %152, %159
+  %175 = fcmp contract oge <4 x float> %174, zeroinitializer
+  %176 = getelementptr inbounds nuw i8, ptr %2, i64 96
+  %177 = load <4 x float>, ptr %176, align 16
+  %178 = fcmp contract ole <4 x float> %174, %177
+  %179 = and <4 x i1> %175, %178
+  %180 = shufflevector <4 x i1> %179, <4 x i1> zeroinitializer, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7>
+  %181 = and <8 x i1> %180, %173
+  store <4 x float> %174, ptr %0, align 16
   %182 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store <4 x float> %160, ptr %182, align 16
   %.sroa.0.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -19869,27 +19869,27 @@ _ZNK5drjit9ArrayBaseINS_6PacketIfLm8EEELb0EN7mitsuba6VectorIS2_Lm3EEEE4dot_ERKS5
   %160 = fmul contract <8 x float> %102, %159
   %161 = fcmp contract oge <8 x float> %160, zeroinitializer
   %162 = fcmp contract ole <8 x float> %160, splat (float 1.000000e+00)
-  %163 = bitcast i8 %6 to <8 x i1>
-  %164 = fmul contract <8 x float> %143, %159
-  %165 = fcmp contract oge <8 x float> %164, zeroinitializer
-  %166 = fadd contract <8 x float> %160, %164
-  %167 = fcmp contract ole <8 x float> %166, splat (float 1.000000e+00)
-  %168 = fmul contract <8 x float> %152, %159
-  %169 = fcmp contract oge <8 x float> %168, zeroinitializer
-  %170 = getelementptr inbounds nuw i8, ptr %2, i64 192
-  %171 = load <8 x float>, ptr %170, align 32
-  %172 = fcmp contract ole <8 x float> %168, %171
-  %173 = and <8 x i1> %172, %163
-  %174 = and <8 x i1> %173, %169
-  %175 = and <8 x i1> %174, %162
-  %176 = and <8 x i1> %175, %161
-  %177 = and <8 x i1> %176, %165
-  %178 = and <8 x i1> %177, %167
-  store <8 x float> %168, ptr %0, align 32
+  %163 = and <8 x i1> %161, %162
+  %164 = bitcast i8 %6 to <8 x i1>
+  %165 = and <8 x i1> %163, %164
+  %166 = fmul contract <8 x float> %143, %159
+  %167 = fcmp contract oge <8 x float> %166, zeroinitializer
+  %168 = fadd contract <8 x float> %160, %166
+  %169 = fcmp contract ole <8 x float> %168, splat (float 1.000000e+00)
+  %170 = and <8 x i1> %167, %169
+  %171 = and <8 x i1> %165, %170
+  %172 = fmul contract <8 x float> %152, %159
+  %173 = fcmp contract oge <8 x float> %172, zeroinitializer
+  %174 = getelementptr inbounds nuw i8, ptr %2, i64 192
+  %175 = load <8 x float>, ptr %174, align 32
+  %176 = fcmp contract ole <8 x float> %172, %175
+  %177 = and <8 x i1> %173, %176
+  %178 = and <8 x i1> %177, %171
+  store <8 x float> %172, ptr %0, align 32
   %179 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store <8 x float> %160, ptr %179, align 32
   %.sroa.0.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 64
-  store <8 x float> %164, ptr %.sroa.0.sroa.2.0..sroa_idx, align 32
+  store <8 x float> %166, ptr %.sroa.0.sroa.2.0..sroa_idx, align 32
   %180 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store <8 x i1> %178, ptr %180, align 32
   ret void
@@ -20207,27 +20207,27 @@ _ZNK5drjit9ArrayBaseINS_6PacketIfLm16EEELb0EN7mitsuba6VectorIS2_Lm3EEEE4dot_ERKS
   %160 = fmul contract <16 x float> %102, %159
   %161 = fcmp contract oge <16 x float> %160, zeroinitializer
   %162 = fcmp contract ole <16 x float> %160, splat (float 1.000000e+00)
-  %163 = bitcast i16 %6 to <16 x i1>
-  %164 = fmul contract <16 x float> %143, %159
-  %165 = fcmp contract oge <16 x float> %164, zeroinitializer
-  %166 = fadd contract <16 x float> %160, %164
-  %167 = fcmp contract ole <16 x float> %166, splat (float 1.000000e+00)
-  %168 = fmul contract <16 x float> %152, %159
-  %169 = fcmp contract oge <16 x float> %168, zeroinitializer
-  %170 = getelementptr inbounds nuw i8, ptr %2, i64 384
-  %171 = load <16 x float>, ptr %170, align 64
-  %172 = fcmp contract ole <16 x float> %168, %171
-  %173 = and <16 x i1> %172, %163
-  %174 = and <16 x i1> %173, %169
-  %175 = and <16 x i1> %174, %162
-  %176 = and <16 x i1> %175, %161
-  %177 = and <16 x i1> %176, %165
-  %178 = and <16 x i1> %177, %167
-  store <16 x float> %168, ptr %0, align 64
+  %163 = and <16 x i1> %161, %162
+  %164 = bitcast i16 %6 to <16 x i1>
+  %165 = and <16 x i1> %163, %164
+  %166 = fmul contract <16 x float> %143, %159
+  %167 = fcmp contract oge <16 x float> %166, zeroinitializer
+  %168 = fadd contract <16 x float> %160, %166
+  %169 = fcmp contract ole <16 x float> %168, splat (float 1.000000e+00)
+  %170 = and <16 x i1> %167, %169
+  %171 = and <16 x i1> %165, %170
+  %172 = fmul contract <16 x float> %152, %159
+  %173 = fcmp contract oge <16 x float> %172, zeroinitializer
+  %174 = getelementptr inbounds nuw i8, ptr %2, i64 384
+  %175 = load <16 x float>, ptr %174, align 64
+  %176 = fcmp contract ole <16 x float> %172, %175
+  %177 = and <16 x i1> %173, %176
+  %178 = and <16 x i1> %177, %171
+  store <16 x float> %172, ptr %0, align 64
   %179 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store <16 x float> %160, ptr %179, align 64
   %.sroa.0.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 128
-  store <16 x float> %164, ptr %.sroa.0.sroa.2.0..sroa_idx, align 64
+  store <16 x float> %166, ptr %.sroa.0.sroa.2.0..sroa_idx, align 64
   %180 = getelementptr inbounds nuw i8, ptr %0, i64 192
   store <16 x i1> %178, ptr %180, align 64
   ret void

@@ -1763,7 +1763,7 @@ define weak_odr <4 x float> @_ZNK7mitsuba17IrregularSpectrumIfN5drjit6MatrixINS_
   %11 = load <4 x float>, ptr %10, align 4
   %12 = shufflevector <4 x float> %11, <4 x float> poison, <4 x i32> zeroinitializer
   %13 = fcmp contract ole <4 x float> %.sroa.0.0.copyload, %12
-  %14 = and <4 x i1> %13, %9
+  %14 = and <4 x i1> %9, %13
   %15 = shufflevector <4 x i1> %14, <4 x i1> zeroinitializer, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7>
   %16 = and <8 x i1> %15, <i1 true, i1 true, i1 true, i1 true, i1 false, i1 false, i1 false, i1 false>
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -1842,7 +1842,7 @@ define weak_odr <4 x float> @_ZNK7mitsuba17IrregularSpectrumIfN5drjit6MatrixINS_
   %11 = load <4 x float>, ptr %10, align 4
   %12 = shufflevector <4 x float> %11, <4 x float> poison, <4 x i32> zeroinitializer
   %13 = fcmp contract ole <4 x float> %.sroa.0.0.copyload, %12
-  %14 = and <4 x i1> %13, %9
+  %14 = and <4 x i1> %9, %13
   %15 = shufflevector <4 x i1> %14, <4 x i1> zeroinitializer, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7>
   %16 = and <8 x i1> %15, <i1 true, i1 true, i1 true, i1 true, i1 false, i1 false, i1 false, i1 false>
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 48

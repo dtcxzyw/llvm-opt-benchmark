@@ -55496,7 +55496,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN12GltfImporter10ImportNodeE
   %253 = fcmp uge <4 x float> %250, %251
   %254 = fcmp uge <4 x float> %250, %252
   %255 = fcmp uge <4 x float> %251, %252
-  %.not1135.i = or <4 x i1> %254, %255
+  %.not1135.i = or <4 x i1> %255, %254
   %256 = fcmp ogt <4 x float> %224, zeroinitializer
   %257 = shufflevector <4 x i1> %256, <4 x i1> poison, <4 x i32> zeroinitializer
   %.v1132.i = select <4 x i1> %253, <4 x float> %239, <4 x float> %243

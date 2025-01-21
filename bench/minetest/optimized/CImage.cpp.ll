@@ -1165,7 +1165,7 @@ cond.true:                                        ; preds = %_ZN3irr7setClipERNS
   store <4 x i32> %38, ptr %job, align 16, !tbaa !15
   %39 = icmp slt <2 x i32> %34, %37
   %shift = shufflevector <2 x i1> %39, <2 x i1> poison, <2 x i32> <i32 1, i32 poison>
-  %40 = and <2 x i1> %shift, %39
+  %40 = and <2 x i1> %39, %shift
   %41 = extractelement <2 x i1> %40, i64 0
   br i1 %41, label %if.end16, label %cleanup
 

@@ -470,7 +470,7 @@ define weak_odr <4 x float> @_ZNK7mitsuba17BlackBodySpectrumIfN5drjit6MatrixINS_
   %17 = insertelement <4 x float> poison, float %16, i64 0
   %18 = shufflevector <4 x float> %17, <4 x float> poison, <4 x i32> zeroinitializer
   %19 = fcmp contract ole <4 x float> %4, %18
-  %20 = and <4 x i1> %19, %14
+  %20 = and <4 x i1> %14, %19
   %21 = shufflevector <4 x i1> %20, <4 x i1> poison, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 poison, i32 poison, i32 poison, i32 poison>
   %22 = bitcast i8 %9 to <8 x i1>
   %23 = and <8 x i1> %21, %22
@@ -523,7 +523,7 @@ define weak_odr <4 x float> @_ZNK7mitsuba17BlackBodySpectrumIfN5drjit6MatrixINS_
   %17 = insertelement <4 x float> poison, float %16, i64 0
   %18 = shufflevector <4 x float> %17, <4 x float> poison, <4 x i32> zeroinitializer
   %19 = fcmp contract ole <4 x float> %5, %18
-  %20 = and <4 x i1> %19, %14
+  %20 = and <4 x i1> %14, %19
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %22 = load <4 x float>, ptr %21, align 8
   %23 = shufflevector <4 x float> %22, <4 x float> poison, <4 x i32> zeroinitializer
@@ -573,7 +573,7 @@ define weak_odr <4 x float> @_ZNK7mitsuba17BlackBodySpectrumIfN5drjit6MatrixINS_
   %18 = insertelement <4 x float> poison, float %17, i64 0
   %19 = shufflevector <4 x float> %18, <4 x float> poison, <4 x i32> zeroinitializer
   %20 = fcmp contract ole <4 x float> %5, %19
-  %21 = and <4 x i1> %20, %15
+  %21 = and <4 x i1> %15, %20
   %22 = shufflevector <4 x i1> %21, <4 x i1> poison, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 poison, i32 poison, i32 poison, i32 poison>
   %23 = bitcast i8 %10 to <8 x i1>
   %24 = and <8 x i1> %22, %23
@@ -656,11 +656,11 @@ define weak_odr void @_ZNK7mitsuba17BlackBodySpectrumIfN5drjit6MatrixINS_8Spectr
   %41 = phi <8 x i1> [ <i1 true, i1 true, i1 true, i1 true, i1 false, i1 false, i1 false, i1 false>, %5 ], [ %93, %95 ]
   %42 = fcmp contract ule <4 x float> %.sroa.0406.0, %.sroa.0.0
   %43 = fcmp contract uge <4 x float> %.sroa.0406.0, %.sroa.0403.0
-  %.not415 = or <4 x i1> %42, %43
+  %.not415 = or <4 x i1> %43, %42
   %44 = shufflevector <4 x i1> %.not415, <4 x i1> poison, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 poison, i32 poison, i32 poison, i32 poison>
   %45 = fadd contract <4 x float> %.sroa.0403.0, %.sroa.0.0
   %46 = fmul contract <4 x float> %45, splat (float 5.000000e-01)
-  %47 = and <8 x i1> %44, %41
+  %47 = and <8 x i1> %41, %44
   %48 = shufflevector <8 x i1> %47, <8 x i1> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
   %49 = select contract <4 x i1> %48, <4 x float> %46, <4 x float> %.sroa.0406.0
   %50 = fmul contract <4 x float> %49, splat (float 0x3E112E0BE0000000)
@@ -704,9 +704,9 @@ define weak_odr void @_ZNK7mitsuba17BlackBodySpectrumIfN5drjit6MatrixINS_8Spectr
   %88 = fcmp contract ogt <4 x float> %87, %37
   %89 = fsub contract <4 x float> %.sroa.0403.0, %.sroa.0.0
   %90 = fcmp contract ogt <4 x float> %89, %39
-  %91 = and <4 x i1> %88, %90
+  %91 = and <4 x i1> %90, %88
   %92 = shufflevector <4 x i1> %91, <4 x i1> zeroinitializer, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7>
-  %93 = and <8 x i1> %92, %41
+  %93 = and <8 x i1> %41, %92
   %94 = bitcast <8 x i1> %93 to i8
   %.not.i = icmp eq i8 %94, 0
   br i1 %.not.i, label %103, label %95
@@ -730,7 +730,7 @@ define weak_odr void @_ZNK7mitsuba17BlackBodySpectrumIfN5drjit6MatrixINS_8Spectr
   %109 = fmul contract <4 x float> %50, %108
   %110 = fcmp contract oge <4 x float> %49, %20
   %111 = fcmp contract ole <4 x float> %49, %21
-  %112 = and <4 x i1> %111, %110
+  %112 = and <4 x i1> %110, %111
   %113 = fdiv contract <4 x float> splat (float 0x3F8D775620000000), %54
   %114 = tail call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %113, <4 x float> splat (float 0x3FF7154760000000), <4 x float> splat (float 5.000000e-01))
   %115 = tail call contract <4 x float> @llvm.x86.sse41.round.ps(<4 x float> %114, i32 9)

@@ -44985,12 +44985,12 @@ if.then23.i:                                      ; preds = %if.then.i
 
 if.then30.i:                                      ; preds = %if.then23.i
   %8 = fcmp olt <8 x float> %x.coerce, %vecinit7.i.i.i.i.i2.i
-  %and.i.i.i24.i = and <8 x i1> %8, %storemerge.in.in.i
+  %and.i.i.i24.i = and <8 x i1> %storemerge.in.in.i, %8
   br label %_ZNK8facebook5velox6common18FloatingPointRangeIfE18testFloatingPointsEN5xsimd5batchIfNS4_4fma3INS4_4avx2EEEEE.exit
 
 if.else43.i:                                      ; preds = %if.then23.i
   %9 = fcmp ole <8 x float> %x.coerce, %vecinit7.i.i.i.i.i2.i
-  %and.i.i.i323.i = and <8 x i1> %9, %storemerge.in.in.i
+  %and.i.i.i323.i = and <8 x i1> %storemerge.in.in.i, %9
   br label %_ZNK8facebook5velox6common18FloatingPointRangeIfE18testFloatingPointsEN5xsimd5batchIfNS4_4fma3INS4_4avx2EEEEE.exit
 
 if.else58.i:                                      ; preds = %entry
@@ -46729,12 +46729,12 @@ if.then23.i:                                      ; preds = %if.then.i
 
 if.then30.i:                                      ; preds = %if.then23.i
   %7 = fcmp olt <4 x double> %x.coerce, %vecinit3.i.i.i.i.i2.i
-  %and.i.i.i24.i = and <4 x i1> %storemerge.in.in.i, %7
+  %and.i.i.i24.i = and <4 x i1> %7, %storemerge.in.in.i
   br label %_ZNK8facebook5velox6common18FloatingPointRangeIdE18testFloatingPointsEN5xsimd5batchIdNS4_4fma3INS4_4avx2EEEEE.exit
 
 if.else43.i:                                      ; preds = %if.then23.i
   %8 = fcmp ole <4 x double> %x.coerce, %vecinit3.i.i.i.i.i2.i
-  %and.i.i.i323.i = and <4 x i1> %storemerge.in.in.i, %8
+  %and.i.i.i323.i = and <4 x i1> %8, %storemerge.in.in.i
   br label %_ZNK8facebook5velox6common18FloatingPointRangeIdE18testFloatingPointsEN5xsimd5batchIdNS4_4fma3INS4_4avx2EEEEE.exit
 
 if.else58.i:                                      ; preds = %entry

@@ -949,7 +949,7 @@ define internal fastcc noundef zeroext i1 @"_ZN55_$LT$$RF$str$u20$as$u20$core..s
   %.0.copyload2.i.i = load <16 x i8>, ptr %45, align 1, !alias.scope !88, !noalias !99
   %46 = icmp eq <16 x i8> %.0.copyload.i.i, %30
   %47 = icmp eq <16 x i8> %.0.copyload2.i.i, %31
-  %48 = and <16 x i1> %47, %46
+  %48 = and <16 x i1> %46, %47
   %49 = getelementptr inbounds nuw [4 x i16], ptr %5, i64 0, i64 %.sroa.019.0132.i
   store <16 x i1> %48, ptr %49, align 2, !noalias !98
   %exitcond.not.i = icmp eq i64 %43, 4
@@ -1001,7 +1001,7 @@ define internal fastcc noundef zeroext i1 @"_ZN55_$LT$$RF$str$u20$as$u20$core..s
   %.0.copyload2.i82.i = load <16 x i8>, ptr %71, align 1, !alias.scope !88, !noalias !102
   %72 = icmp eq <16 x i8> %.0.copyload.i81.i, %30
   %73 = icmp eq <16 x i8> %.0.copyload2.i82.i, %31
-  %74 = and <16 x i1> %73, %72
+  %74 = and <16 x i1> %72, %73
   %75 = bitcast <16 x i1> %74 to i16
   %76 = icmp eq i16 %75, 0
   br i1 %76, label %91, label %92
@@ -1013,7 +1013,7 @@ define internal fastcc noundef zeroext i1 @"_ZN55_$LT$$RF$str$u20$as$u20$core..s
   %.0.copyload2.i84.i = load <16 x i8>, ptr %79, align 1, !alias.scope !88, !noalias !105
   %80 = icmp eq <16 x i8> %.0.copyload.i83.i, %30
   %81 = icmp eq <16 x i8> %.0.copyload2.i84.i, %31
-  %82 = and <16 x i1> %81, %80
+  %82 = and <16 x i1> %80, %81
   %83 = bitcast <16 x i1> %82 to i16
   %84 = icmp eq i16 %83, 0
   br i1 %84, label %85, label %88

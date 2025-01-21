@@ -3729,7 +3729,7 @@ _ZN10ttf_parser6tables4hvar5Table14advance_offset17hfd61a0991e286758E.exit.threa
   %.0.copyload2.i.i.i = load <16 x i8>, ptr %520, align 1, !alias.scope !643, !noalias !644
   %521 = icmp eq <16 x i8> %.0.copyload.i.i.i, splat (i8 83)
   %522 = icmp eq <16 x i8> %.0.copyload2.i.i.i, splat (i8 102)
-  %523 = and <16 x i1> %522, %521
+  %523 = and <16 x i1> %521, %522
   %524 = getelementptr inbounds nuw [4 x i16], ptr %28, i64 0, i64 %.sroa.019.045.i.i
   store <16 x i1> %523, ptr %524, align 2, !noalias !643
   %exitcond.not.i.i = icmp eq i64 %518, 4
@@ -3806,7 +3806,7 @@ _ZN4core3str7pattern14small_slice_eq17h18dee583e8575278E.exit.thread.i: ; preds 
   %.0.copyload2.i82.i.i = load <16 x i8>, ptr %547, align 1, !alias.scope !643, !noalias !654
   %548 = icmp eq <16 x i8> %.0.copyload.i81.i.i, splat (i8 83)
   %549 = icmp eq <16 x i8> %.0.copyload2.i82.i.i, splat (i8 102)
-  %550 = and <16 x i1> %549, %548
+  %550 = and <16 x i1> %548, %549
   %551 = bitcast <16 x i1> %550 to i16
   %552 = icmp eq i16 %551, 0
   br i1 %552, label %567, label %569
@@ -3818,7 +3818,7 @@ _ZN4core3str7pattern14small_slice_eq17h18dee583e8575278E.exit.thread.i: ; preds 
   %.0.copyload2.i84.i.i = load <16 x i8>, ptr %555, align 1, !alias.scope !643, !noalias !657
   %556 = icmp eq <16 x i8> %.0.copyload.i83.i.i, splat (i8 83)
   %557 = icmp eq <16 x i8> %.0.copyload2.i84.i.i, splat (i8 102)
-  %558 = and <16 x i1> %557, %556
+  %558 = and <16 x i1> %556, %557
   %559 = bitcast <16 x i1> %558 to i16
   %560 = icmp eq i16 %559, 0
   br i1 %560, label %561, label %564

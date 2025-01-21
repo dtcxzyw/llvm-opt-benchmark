@@ -1309,7 +1309,7 @@ entry:
   %2 = load <4 x i32>, ptr %width, align 16
   %add.i = add <4 x i32> %2, %1
   %cmp.i57 = icmp sgt <4 x i32> %add.i, %0
-  %and.i8 = and <4 x i1> %cmp.i57, %or.i7
+  %and.i8 = and <4 x i1> %or.i7, %cmp.i57
   %and.i = sext <4 x i1> %and.i8 to <4 x i32>
   store <4 x i32> %and.i, ptr %agg.result, align 16
   ret void
@@ -9836,7 +9836,7 @@ if.then103:                                       ; preds = %if.end101
   %70 = load <4 x i32>, ptr %widthheight, align 16
   %add.i = add <4 x i32> %70, %68
   %cmp.i1389 = icmp sgt <4 x i32> %add.i, %69
-  %and.i1373464 = and <4 x i1> %cmp.i1389, %or.i463
+  %and.i1373464 = and <4 x i1> %or.i463, %cmp.i1389
   %71 = select <4 x i1> %and.i1373464, <4 x float> %67, <4 x float> zeroinitializer
   store <4 x float> %71, ptr %stvalid, align 16
   %72 = bitcast <4 x float> %71 to <4 x i32>

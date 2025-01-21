@@ -22301,7 +22301,7 @@ define hidden noundef i32 @"_ZN14ide_completion7context8analysis19pattern_contex
   %.0.copyload2.i.i.i.i.i.i.i = load <16 x i8>, ptr %177, align 1, !alias.scope !5382, !noalias !5383
   %178 = icmp eq <16 x i8> %.0.copyload.i.i.i.i.i.i.i, %151
   %179 = icmp eq <16 x i8> %.0.copyload2.i.i.i.i.i.i.i, %152
-  %180 = and <16 x i1> %179, %178
+  %180 = and <16 x i1> %178, %179
   %181 = getelementptr inbounds nuw [4 x i16], ptr %6, i64 0, i64 %.sroa.019.0138.i.i.i.i.i.i
   store <16 x i1> %180, ptr %181, align 2, !noalias !5381
   %exitcond.not.i37.i.i.i.i.i = icmp eq i64 %175, 4
@@ -22323,7 +22323,7 @@ define hidden noundef i32 @"_ZN14ide_completion7context8analysis19pattern_contex
   %.0.copyload2.i82.i.i.i.i.i.i = load <16 x i8>, ptr %186, align 1, !alias.scope !5382, !noalias !5386
   %187 = icmp eq <16 x i8> %.0.copyload.i81.i.i.i.i.i.i, %151
   %188 = icmp eq <16 x i8> %.0.copyload2.i82.i.i.i.i.i.i, %152
-  %189 = and <16 x i1> %188, %187
+  %189 = and <16 x i1> %187, %188
   %190 = bitcast <16 x i1> %189 to i16
   %191 = icmp eq i16 %190, 0
   br i1 %191, label %206, label %207
@@ -22335,7 +22335,7 @@ define hidden noundef i32 @"_ZN14ide_completion7context8analysis19pattern_contex
   %.0.copyload2.i84.i.i.i.i.i.i = load <16 x i8>, ptr %194, align 1, !alias.scope !5382, !noalias !5389
   %195 = icmp eq <16 x i8> %.0.copyload.i83.i.i.i.i.i.i, %151
   %196 = icmp eq <16 x i8> %.0.copyload2.i84.i.i.i.i.i.i, %152
-  %197 = and <16 x i1> %196, %195
+  %197 = and <16 x i1> %195, %196
   %198 = bitcast <16 x i1> %197 to i16
   %199 = icmp eq i16 %198, 0
   br i1 %199, label %200, label %203

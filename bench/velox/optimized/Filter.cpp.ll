@@ -12758,7 +12758,7 @@ entry:
   %vecinit.i.i.i.i.i.i9 = load <4 x i64>, ptr %max_, align 8
   %vecinit3.i.i.i.i.i.i10 = shufflevector <4 x i64> %vecinit.i.i.i.i.i.i9, <4 x i64> poison, <4 x i32> zeroinitializer
   %cmp.i.i.i.i.i.i.i = icmp sgt <4 x i64> %x.coerce, %vecinit3.i.i.i.i.i.i10
-  %or.i.i.i35 = or <4 x i1> %cmp.i.i.i.i.i.i.i, %cmp.i.i.i.i
+  %or.i.i.i35 = or <4 x i1> %cmp.i.i.i.i, %cmp.i.i.i.i.i.i.i
   %0 = bitcast <4 x i1> %or.i.i.i35 to i4
   %cmp = icmp eq i4 %0, -1
   %1 = extractelement <4 x i64> %vecinit.i.i.i.i.i.i9, i64 1
@@ -12982,7 +12982,7 @@ entry:
   %vecinit.i.i.i.i.i.i9.i = load <4 x i64>, ptr %max_.i, align 8
   %vecinit3.i.i.i.i.i.i10.i = shufflevector <4 x i64> %vecinit.i.i.i.i.i.i9.i, <4 x i64> poison, <4 x i32> zeroinitializer
   %cmp.i.i.i.i.i.i.i.i = icmp slt <4 x i64> %vecinit3.i.i.i.i.i.i10.i, %conv.i.i.i
-  %or.i.i.i35.i = or <4 x i1> %cmp.i.i.i.i.i.i.i.i, %cmp.i.i.i.i.i
+  %or.i.i.i35.i = or <4 x i1> %cmp.i.i.i.i.i, %cmp.i.i.i.i.i.i.i.i
   %2 = bitcast <4 x i1> %or.i.i.i35.i to i4
   %cmp.i = icmp eq i4 %2, -1
   %3 = extractelement <4 x i64> %vecinit.i.i.i.i.i.i9.i, i64 1
@@ -13155,7 +13155,7 @@ _ZNK8facebook5velox6common26BigintValuesUsingHashTable10testValuesEN5xsimd5batch
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %valuesArray.i10)
   %cmp.i.i.i.i.i14 = icmp sgt <4 x i64> %vecinit3.i.i.i.i.i.i.i13.pre-phi, %conv.i.i.i4
   %cmp.i.i.i.i.i.i.i.i18 = icmp slt <4 x i64> %vecinit3.i.i.i.i.i.i10.i17.pre-phi, %conv.i.i.i4
-  %or.i.i.i35.i19 = or <4 x i1> %cmp.i.i.i.i.i.i.i.i18, %cmp.i.i.i.i.i14
+  %or.i.i.i35.i19 = or <4 x i1> %cmp.i.i.i.i.i14, %cmp.i.i.i.i.i.i.i.i18
   %32 = bitcast <4 x i1> %or.i.i.i35.i19 to i4
   %cmp.i20 = icmp eq i4 %32, -1
   br i1 %cmp.i20, label %_ZNK8facebook5velox6common26BigintValuesUsingHashTable10testValuesEN5xsimd5batchIlNS3_4fma3INS3_4avx2EEEEE.exit100, label %if.end.i21
@@ -28347,7 +28347,7 @@ if.end:                                           ; preds = %entry
   %4 = bitcast i128 %3 to <2 x i64>
   %vecinit3.i.i.i.i.i.i4 = shufflevector <2 x i64> %4, <2 x i64> poison, <4 x i32> zeroinitializer
   %or.i.i.i.i5.i.i.i5 = icmp sge <4 x i64> %vecinit3.i.i.i.i.i.i4, %values.coerce
-  %and.i.i.i9 = and <4 x i1> %or.i.i.i.i5.i.i.i5, %or.i.i.i.i5.i.i.i
+  %and.i.i.i9 = and <4 x i1> %or.i.i.i.i5.i.i.i, %or.i.i.i.i5.i.i.i5
   br label %return
 
 return:                                           ; preds = %if.end, %if.then
@@ -28389,7 +28389,7 @@ if.end18:                                         ; preds = %entry
   %or.i.i.i.i56.i.i.i = icmp sle <8 x i32> %vecinit7.i.i.i.i.i2, %6
   %vecinit7.i.i.i.i.i4 = shufflevector <4 x i32> %5, <4 x i32> poison, <8 x i32> <i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1>
   %or.i.i.i.i56.i.i.i5 = icmp sge <8 x i32> %vecinit7.i.i.i.i.i4, %6
-  %and.i.i.i1112 = and <8 x i1> %or.i.i.i.i56.i.i.i5, %or.i.i.i.i56.i.i.i
+  %and.i.i.i1112 = and <8 x i1> %or.i.i.i.i56.i.i.i, %or.i.i.i.i56.i.i.i5
   %and.i.i.i11 = sext <8 x i1> %and.i.i.i1112 to <8 x i32>
   %and.i.i.i = bitcast <8 x i32> %and.i.i.i11 to <4 x i64>
   br label %return
@@ -28435,7 +28435,7 @@ if.end18:                                         ; preds = %entry
   %vecinit.i.i.i.i.i3 = insertelement <16 x i16> poison, i16 %6, i64 0
   %vecinit15.i.i.i.i.i4 = shufflevector <16 x i16> %vecinit.i.i.i.i.i3, <16 x i16> poison, <16 x i32> zeroinitializer
   %or.i.i.i.i56.i.i.i5 = icmp sge <16 x i16> %vecinit15.i.i.i.i.i4, %5
-  %and.i.i.i1112 = and <16 x i1> %or.i.i.i.i56.i.i.i5, %or.i.i.i.i56.i.i.i
+  %and.i.i.i1112 = and <16 x i1> %or.i.i.i.i56.i.i.i, %or.i.i.i.i56.i.i.i5
   %and.i.i.i11 = sext <16 x i1> %and.i.i.i1112 to <16 x i16>
   %and.i.i.i = bitcast <16 x i16> %and.i.i.i11 to <4 x i64>
   br label %return
@@ -28541,7 +28541,7 @@ if.end.i:                                         ; preds = %entry
   %5 = bitcast i128 %4 to <2 x i64>
   %vecinit3.i.i.i.i.i.i4.i = shufflevector <2 x i64> %5, <2 x i64> poison, <4 x i32> zeroinitializer
   %or.i.i.i.i5.i.i.i5.i = icmp sge <4 x i64> %vecinit3.i.i.i.i.i.i4.i, %values.coerce
-  %and.i.i.i9.i = and <4 x i1> %or.i.i.i.i5.i.i.i5.i, %or.i.i.i.i5.i.i.i.i
+  %and.i.i.i9.i = and <4 x i1> %or.i.i.i.i5.i.i.i.i, %or.i.i.i.i5.i.i.i5.i
   br label %_ZNK8facebook5velox6common11BigintRange10testValuesEN5xsimd5batchIlNS3_4fma3INS3_4avx2EEEEE.exit
 
 _ZNK8facebook5velox6common11BigintRange10testValuesEN5xsimd5batchIlNS3_4fma3INS3_4avx2EEEEE.exit: ; preds = %if.then.i, %if.end.i
@@ -28586,7 +28586,7 @@ if.end18.i:                                       ; preds = %entry
   %or.i.i.i.i56.i.i.i.i = icmp sle <8 x i32> %vecinit7.i.i.i.i.i2.i, %7
   %vecinit7.i.i.i.i.i4.i = shufflevector <4 x i32> %6, <4 x i32> poison, <8 x i32> <i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1>
   %or.i.i.i.i56.i.i.i5.i = icmp sge <8 x i32> %vecinit7.i.i.i.i.i4.i, %7
-  %and.i.i.i1112.i = and <8 x i1> %or.i.i.i.i56.i.i.i5.i, %or.i.i.i.i56.i.i.i.i
+  %and.i.i.i1112.i = and <8 x i1> %or.i.i.i.i56.i.i.i.i, %or.i.i.i.i56.i.i.i5.i
   %and.i.i.i11.i = sext <8 x i1> %and.i.i.i1112.i to <8 x i32>
   %and.i.i.i.i = bitcast <8 x i32> %and.i.i.i11.i to <4 x i64>
   br label %_ZNK8facebook5velox6common11BigintRange10testValuesEN5xsimd5batchIiNS3_4fma3INS3_4avx2EEEEE.exit
@@ -28635,7 +28635,7 @@ if.end18.i:                                       ; preds = %entry
   %vecinit.i.i.i.i.i3.i = insertelement <16 x i16> poison, i16 %7, i64 0
   %vecinit15.i.i.i.i.i4.i = shufflevector <16 x i16> %vecinit.i.i.i.i.i3.i, <16 x i16> poison, <16 x i32> zeroinitializer
   %or.i.i.i.i56.i.i.i5.i = icmp sge <16 x i16> %vecinit15.i.i.i.i.i4.i, %6
-  %and.i.i.i1112.i = and <16 x i1> %or.i.i.i.i56.i.i.i5.i, %or.i.i.i.i56.i.i.i.i
+  %and.i.i.i1112.i = and <16 x i1> %or.i.i.i.i56.i.i.i.i, %or.i.i.i.i56.i.i.i5.i
   %and.i.i.i11.i = sext <16 x i1> %and.i.i.i1112.i to <16 x i16>
   %and.i.i.i.i = bitcast <16 x i16> %and.i.i.i11.i to <4 x i64>
   br label %_ZNK8facebook5velox6common11BigintRange10testValuesEN5xsimd5batchIsNS3_4fma3INS3_4avx2EEEEE.exit
@@ -29419,7 +29419,7 @@ entry:
   %vecinit.i.i.i.i.i.i9.i = load <4 x i64>, ptr %max_.i, align 8
   %vecinit3.i.i.i.i.i.i10.i = shufflevector <4 x i64> %vecinit.i.i.i.i.i.i9.i, <4 x i64> poison, <4 x i32> zeroinitializer
   %cmp.i.i.i.i.i.i.i.i = icmp sgt <4 x i64> %x.coerce, %vecinit3.i.i.i.i.i.i10.i
-  %or.i.i.i35.i = or <4 x i1> %cmp.i.i.i.i.i.i.i.i, %cmp.i.i.i.i.i
+  %or.i.i.i35.i = or <4 x i1> %cmp.i.i.i.i.i, %cmp.i.i.i.i.i.i.i.i
   %1 = bitcast <4 x i1> %or.i.i.i35.i to i4
   %cmp.i = icmp eq i4 %1, -1
   %2 = extractelement <4 x i64> %vecinit.i.i.i.i.i.i9.i, i64 1
@@ -43501,12 +43501,12 @@ if.then23.i:                                      ; preds = %if.then.i
 
 if.then30.i:                                      ; preds = %if.then23.i
   %7 = fcmp olt <4 x double> %x.coerce, %vecinit3.i.i.i.i.i2.i
-  %and.i.i.i24.i = and <4 x i1> %storemerge.in.in.i, %7
+  %and.i.i.i24.i = and <4 x i1> %7, %storemerge.in.in.i
   br label %_ZNK8facebook5velox6common18FloatingPointRangeIdE18testFloatingPointsEN5xsimd5batchIdNS4_4fma3INS4_4avx2EEEEE.exit
 
 if.else43.i:                                      ; preds = %if.then23.i
   %8 = fcmp ole <4 x double> %x.coerce, %vecinit3.i.i.i.i.i2.i
-  %and.i.i.i323.i = and <4 x i1> %storemerge.in.in.i, %8
+  %and.i.i.i323.i = and <4 x i1> %8, %storemerge.in.in.i
   br label %_ZNK8facebook5velox6common18FloatingPointRangeIdE18testFloatingPointsEN5xsimd5batchIdNS4_4fma3INS4_4avx2EEEEE.exit
 
 if.else58.i:                                      ; preds = %entry
@@ -44565,12 +44565,12 @@ if.then23.i:                                      ; preds = %if.then.i
 
 if.then30.i:                                      ; preds = %if.then23.i
   %8 = fcmp olt <8 x float> %x.coerce, %vecinit7.i.i.i.i.i2.i
-  %and.i.i.i24.i = and <8 x i1> %8, %storemerge.in.in.i
+  %and.i.i.i24.i = and <8 x i1> %storemerge.in.in.i, %8
   br label %_ZNK8facebook5velox6common18FloatingPointRangeIfE18testFloatingPointsEN5xsimd5batchIfNS4_4fma3INS4_4avx2EEEEE.exit
 
 if.else43.i:                                      ; preds = %if.then23.i
   %9 = fcmp ole <8 x float> %x.coerce, %vecinit7.i.i.i.i.i2.i
-  %and.i.i.i323.i = and <8 x i1> %9, %storemerge.in.in.i
+  %and.i.i.i323.i = and <8 x i1> %storemerge.in.in.i, %9
   br label %_ZNK8facebook5velox6common18FloatingPointRangeIfE18testFloatingPointsEN5xsimd5batchIfNS4_4fma3INS4_4avx2EEEEE.exit
 
 if.else58.i:                                      ; preds = %entry

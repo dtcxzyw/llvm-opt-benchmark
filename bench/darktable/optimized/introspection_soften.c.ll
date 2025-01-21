@@ -218,7 +218,7 @@ define void @process(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noun
   %128 = xor <8 x i1> %123, splat (i1 true)
   %129 = select <8 x i1> %122, <8 x i1> %128, <8 x i1> zeroinitializer
   %130 = or <8 x i1> %127, %129
-  %131 = or <8 x i1> %130, %124
+  %131 = or <8 x i1> %124, %130
   %132 = select <8 x i1> %85, <8 x float> %95, <8 x float> zeroinitializer
   %133 = select <8 x i1> %124, <8 x float> splat (float -1.000000e+00), <8 x float> splat (float 1.000000e+00)
   %134 = fadd reassoc nsz arcp contract afn <8 x float> %133, %119

@@ -4195,7 +4195,7 @@ _ZN4core3str7pattern13simd_contains17haaf0d830b0f7cf0eE.exit: ; preds = %"_ZN4co
   %.0.copyload2.i.i = load <16 x i8>, ptr %23, align 1, !alias.scope !852, !noalias !855
   %24 = icmp eq <16 x i8> %.0.copyload.i.i, splat (i8 58)
   %25 = icmp eq <16 x i8> %.0.copyload2.i.i, splat (i8 58)
-  %26 = and <16 x i1> %25, %24
+  %26 = and <16 x i1> %24, %25
   %27 = getelementptr inbounds nuw [4 x i16], ptr %3, i64 0, i64 %.sroa.019.045.i
   store <16 x i1> %26, ptr %27, align 2, !noalias !852
   %exitcond.not.i = icmp eq i64 %21, 4
@@ -4246,7 +4246,7 @@ _ZN4core3str7pattern13simd_contains17haaf0d830b0f7cf0eE.exit: ; preds = %"_ZN4co
   %.0.copyload2.i82.i = load <16 x i8>, ptr %47, align 1, !alias.scope !852, !noalias !858
   %48 = icmp eq <16 x i8> %.0.copyload.i81.i, splat (i8 58)
   %49 = icmp eq <16 x i8> %.0.copyload2.i82.i, splat (i8 58)
-  %50 = and <16 x i1> %49, %48
+  %50 = and <16 x i1> %48, %49
   %51 = bitcast <16 x i1> %50 to i16
   %52 = icmp eq i16 %51, 0
   br i1 %52, label %67, label %69
@@ -4258,7 +4258,7 @@ _ZN4core3str7pattern13simd_contains17haaf0d830b0f7cf0eE.exit: ; preds = %"_ZN4co
   %.0.copyload2.i84.i = load <16 x i8>, ptr %55, align 1, !alias.scope !852, !noalias !861
   %56 = icmp eq <16 x i8> %.0.copyload.i83.i, splat (i8 58)
   %57 = icmp eq <16 x i8> %.0.copyload2.i84.i, splat (i8 58)
-  %58 = and <16 x i1> %57, %56
+  %58 = and <16 x i1> %56, %57
   %59 = bitcast <16 x i1> %58 to i16
   %60 = icmp eq i16 %59, 0
   br i1 %60, label %61, label %64

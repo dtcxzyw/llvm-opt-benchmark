@@ -1886,12 +1886,12 @@ define ptr @php_url_encode(ptr noundef readonly %0, i64 noundef %1) local_unname
   %19 = icmp ult <16 x i8> %18, splat (i8 26)
   %20 = add <16 x i8> %16, splat (i8 -48)
   %21 = icmp ult <16 x i8> %20, splat (i8 10)
-  %22 = add <16 x i8> %16, splat (i8 -45)
-  %23 = icmp ult <16 x i8> %22, splat (i8 2)
-  %24 = icmp eq <16 x i8> %16, splat (i8 95)
-  %25 = or <16 x i1> %21, %24
-  %26 = or <16 x i1> %25, %23
-  %27 = or <16 x i1> %26, %19
+  %22 = or <16 x i1> %21, %19
+  %23 = add <16 x i8> %16, splat (i8 -45)
+  %24 = icmp ult <16 x i8> %23, splat (i8 2)
+  %25 = or <16 x i1> %24, %22
+  %26 = icmp eq <16 x i8> %16, splat (i8 95)
+  %27 = or <16 x i1> %26, %25
   %28 = icmp eq <16 x i8> %16, splat (i8 32)
   %29 = bitcast <16 x i1> %28 to i16
   %.not678 = icmp eq i16 %29, 0
@@ -1901,7 +1901,7 @@ define ptr @php_url_encode(ptr noundef readonly %0, i64 noundef %1) local_unname
   %31 = select <16 x i1> %28, <16 x i8> splat (i8 11), <16 x i8> zeroinitializer
   %32 = add <16 x i8> %31, %16
   %33 = bitcast <16 x i8> %32 to <2 x i64>
-  %34 = or <16 x i1> %27, %28
+  %34 = or <16 x i1> %28, %27
   br label %35
 
 35:                                               ; preds = %30, %.lr.ph
@@ -2376,14 +2376,14 @@ define ptr @php_raw_url_encode(ptr noundef readonly %0, i64 noundef %1) local_un
   %19 = icmp ult <16 x i8> %18, splat (i8 26)
   %20 = add <16 x i8> %16, splat (i8 -48)
   %21 = icmp ult <16 x i8> %20, splat (i8 10)
-  %22 = add <16 x i8> %16, splat (i8 -45)
-  %23 = icmp ult <16 x i8> %22, splat (i8 2)
-  %24 = icmp eq <16 x i8> %16, splat (i8 95)
-  %25 = icmp eq <16 x i8> %16, splat (i8 126)
-  %26 = or <16 x i1> %25, %24
-  %27 = or <16 x i1> %26, %21
-  %28 = or <16 x i1> %27, %23
-  %29 = or <16 x i1> %28, %19
+  %22 = or <16 x i1> %21, %19
+  %23 = add <16 x i8> %16, splat (i8 -45)
+  %24 = icmp ult <16 x i8> %23, splat (i8 2)
+  %25 = or <16 x i1> %24, %22
+  %26 = icmp eq <16 x i8> %16, splat (i8 95)
+  %27 = or <16 x i1> %26, %25
+  %28 = icmp eq <16 x i8> %16, splat (i8 126)
+  %29 = or <16 x i1> %28, %27
   %30 = bitcast <16 x i1> %29 to i16
   %31 = zext i16 %30 to i32
   %32 = icmp eq i16 %30, -1

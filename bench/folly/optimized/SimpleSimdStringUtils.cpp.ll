@@ -134,11 +134,11 @@ _ZN5folly6detail11UnrollUtils15unrollUntilImplILi4ELi0EZNKS_11simd_detail19SimdF
   %cmp.i.i218 = icmp eq <16 x i8> %18, splat (i8 127)
   %or.i.i220358359 = or <16 x i1> %cmp.i70.i, %cmp.i62.i
   %or.i45.i356357 = or <16 x i1> %or.i.i220358359, %cmp.i60.i
-  %or.i.i260362363 = or <16 x i1> %or.i45.i356357, %cmp.i68.i
-  %or.i46.i354355 = or <16 x i1> %or.i.i260362363, %cmp.i58.i
-  %or.i47.i352353 = or <16 x i1> %or.i46.i354355, %cmp.i66.i
-  %or.i.i257360361 = or <16 x i1> %or.i47.i352353, %cmp.i.i218
-  %or.i.i261364365 = or <16 x i1> %or.i.i257360361, %cmp.i64.i
+  %or.i.i260362363 = or <16 x i1> %cmp.i68.i, %or.i45.i356357
+  %or.i46.i354355 = or <16 x i1> %cmp.i58.i, %or.i.i260362363
+  %or.i47.i352353 = or <16 x i1> %cmp.i66.i, %or.i46.i354355
+  %or.i.i257360361 = or <16 x i1> %cmp.i.i218, %or.i47.i352353
+  %or.i.i261364365 = or <16 x i1> %cmp.i64.i, %or.i.i257360361
   %19 = bitcast <16 x i1> %or.i.i261364365 to i16
   %tobool.i114.not = icmp eq i16 %19, 0
   br i1 %tobool.i114.not, label %for.cond.i, label %_ZN5folly11simd_detail19simdForEachAligningILi4EKcNS0_13AnyOfDelegateINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEEPS2_NS_6detail25SimpleSimdStringUtilsImplIS6_E28HasSpaceOrCntrlSymbolsLambdaEEEEEviPT0_SE_RT1_.exit

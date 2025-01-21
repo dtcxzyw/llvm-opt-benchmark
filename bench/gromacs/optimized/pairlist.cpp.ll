@@ -10217,7 +10217,7 @@ _ZN5NbnxmL38clusterBoundingBoxDistance2_xxxx_simd4EPKfiS1_Pf.exit.i.i.i: ; preds
   %2843 = fadd <8 x float> %2842, %2841
   %2844 = fcmp olt <8 x float> %2838, %2248
   %2845 = fcmp olt <8 x float> %2843, %2248
-  %2846 = or <8 x i1> %2845, %2844
+  %2846 = or <8 x i1> %2844, %2845
   %2847 = bitcast <8 x i1> %2846 to i8
   %.not.not.i.not.not.not.i.not.i.i.i = icmp eq i8 %2847, 0
   br i1 %.not.not.i.not.not.not.i.not.i.i.i, label %2848, label %.thread.i.i.i

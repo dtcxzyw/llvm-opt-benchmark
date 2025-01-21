@@ -3133,7 +3133,7 @@ define hidden void @dt_segments_combine(ptr nocapture noundef readonly %0, i32 n
   %1696 = icmp ult ptr %1234, %1504
   %1697 = icmp ult ptr %1503, %1244
   %1698 = and i1 %1696, %1697
-  %1699 = and <64 x i1> %1688, %1689
+  %1699 = and <64 x i1> %1689, %1688
   %1700 = icmp ult ptr %1234, %1384
   %1701 = icmp ult ptr %1246, %1244
   %1702 = and i1 %1700, %1701
@@ -3479,7 +3479,7 @@ define hidden void @dt_segments_combine(ptr nocapture noundef readonly %0, i32 n
   %2006 = tail call <8 x i32> @llvm.masked.load.v8i32.p0(ptr %2005, i32 4, <8 x i1> %1971, <8 x i32> poison), !tbaa !30, !alias.scope !131
   %2007 = and <8 x i32> %2004, %2006
   %2008 = icmp eq <8 x i32> %2007, zeroinitializer
-  %2009 = or <8 x i1> %2008, %1732
+  %2009 = or <8 x i1> %1732, %2008
   %2010 = xor <8 x i1> %2009, splat (i1 true)
   %2011 = select <8 x i1> %1971, <8 x i1> %2010, <8 x i1> zeroinitializer
   %2012 = sub i64 %1943, %1221
@@ -3555,7 +3555,7 @@ define hidden void @dt_segments_combine(ptr nocapture noundef readonly %0, i32 n
   %2082 = tail call <8 x i32> @llvm.masked.load.v8i32.p0(ptr %2081, i32 4, <8 x i1> %2011, <8 x i32> poison), !tbaa !30, !alias.scope !179
   %2083 = and <8 x i32> %2080, %2082
   %2084 = icmp eq <8 x i32> %2083, zeroinitializer
-  %2085 = or <8 x i1> %2084, %1734
+  %2085 = or <8 x i1> %1734, %2084
   %2086 = xor <8 x i1> %2085, splat (i1 true)
   %2087 = select <8 x i1> %2011, <8 x i1> %2086, <8 x i1> zeroinitializer
   %2088 = sub i64 %1943, %1224
@@ -3631,7 +3631,7 @@ define hidden void @dt_segments_combine(ptr nocapture noundef readonly %0, i32 n
   %2158 = tail call <8 x i32> @llvm.masked.load.v8i32.p0(ptr %2157, i32 4, <8 x i1> %2087, <8 x i32> poison), !tbaa !30, !alias.scope !227
   %2159 = and <8 x i32> %2156, %2158
   %2160 = icmp eq <8 x i32> %2159, zeroinitializer
-  %2161 = or <8 x i1> %2160, %1736
+  %2161 = or <8 x i1> %1736, %2160
   %2162 = xor <8 x i1> %2161, splat (i1 true)
   %2163 = select <8 x i1> %2087, <8 x i1> %2162, <8 x i1> zeroinitializer
   %2164 = sub i64 %1943, %1227

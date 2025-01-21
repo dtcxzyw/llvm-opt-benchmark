@@ -6931,7 +6931,7 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %2021 = load <4 x float>, ptr %.0321353.i.i, align 1
   %2022 = fcmp fast une <4 x float> %2021, zeroinitializer
   %2023 = fcmp fast une <4 x float> %2020, zeroinitializer
-  %2024 = and <4 x i1> %2022, %2023
+  %2024 = and <4 x i1> %2023, %2022
   %2025 = bitcast <4 x float> %2020 to <4 x i32>
   %2026 = and <4 x i32> %2025, splat (i32 -2147483648)
   %2027 = fcmp fast olt <4 x float> %2021, zeroinitializer
@@ -7053,7 +7053,7 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %.0325355.i.i = phi ptr [ %2, %.lr.ph.i40.i620 ], [ %2152, %2103 ]
   %2104 = load <4 x float>, ptr %.0357.i.i, align 1
   %2105 = fcmp fast une <4 x float> %2104, zeroinitializer
-  %2106 = and <4 x i1> %2105, %2097
+  %2106 = and <4 x i1> %2097, %2105
   %2107 = bitcast <4 x float> %2104 to <4 x i32>
   %2108 = and <4 x i32> %2107, splat (i32 -2147483648)
   %2109 = fcmp fast olt <4 x float> %2104, zeroinitializer
@@ -7170,7 +7170,7 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %.0325355.i55.i = phi ptr [ %2, %.lr.ph.i52.i615 ], [ %2228, %2183 ]
   %2184 = load <4 x float>, ptr %.0357.i53.i, align 1
   %2185 = fcmp fast une <4 x float> %2184, zeroinitializer
-  %2186 = and <4 x i1> %2185, %2174
+  %2186 = and <4 x i1> %2174, %2185
   %2187 = fcmp fast olt <4 x float> %2184, zeroinitializer
   %2188 = select <4 x i1> %2187, <4 x float> %2178, <4 x float> zeroinitializer
   %2189 = fdiv fast <4 x float> %2172, %2184
@@ -7259,7 +7259,7 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %2247 = shufflevector <4 x float> %2246, <4 x float> poison, <4 x i32> zeroinitializer
   %2248 = fcmp fast une <4 x float> %2247, zeroinitializer
   %2249 = fcmp fast une <4 x float> %2244, zeroinitializer
-  %2250 = and <4 x i1> %2248, %2249
+  %2250 = and <4 x i1> %2249, %2248
   %2251 = bitcast <4 x float> %2244 to <4 x i32>
   %2252 = and <4 x i32> %2251, splat (i32 -2147483648)
   %2253 = fcmp fast olt <4 x float> %2247, zeroinitializer
@@ -7341,7 +7341,7 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %.03141.i.i = phi ptr [ %2, %.lr.ph.i62.i606 ], [ %2360, %2311 ]
   %2312 = load <4 x float>, ptr %.03.i.i608, align 1
   %2313 = fcmp fast une <4 x float> %2312, zeroinitializer
-  %2314 = and <4 x i1> %2313, %2307
+  %2314 = and <4 x i1> %2307, %2313
   %2315 = bitcast <4 x float> %2312 to <4 x i32>
   %2316 = and <4 x i32> %2315, splat (i32 -2147483648)
   %2317 = fcmp fast olt <4 x float> %2312, zeroinitializer
@@ -7420,7 +7420,7 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %2377 = insertelement <4 x float> poison, float %2376, i64 0
   %2378 = shufflevector <4 x float> %2377, <4 x float> poison, <4 x i32> zeroinitializer
   %2379 = fcmp fast une <4 x float> %2378, zeroinitializer
-  %2380 = and <4 x i1> %2379, %2368
+  %2380 = and <4 x i1> %2368, %2379
   %2381 = fcmp fast olt <4 x float> %2378, zeroinitializer
   %2382 = select <4 x i1> %2381, <4 x float> %2372, <4 x float> zeroinitializer
   %2383 = fdiv fast <4 x float> %2367, %2378
@@ -7506,7 +7506,7 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %2434 = load <4 x float>, ptr %.0321353.i.i695, align 1
   %2435 = fcmp fast une <4 x float> %2433, zeroinitializer
   %2436 = fcmp fast une <4 x float> %2434, zeroinitializer
-  %2437 = and <4 x i1> %2436, %2435
+  %2437 = and <4 x i1> %2435, %2436
   %2438 = bitcast <4 x float> %2434 to <4 x i32>
   %2439 = and <4 x i32> %2438, splat (i32 -2147483648)
   %2440 = fcmp fast olt <4 x float> %2433, zeroinitializer
@@ -7630,7 +7630,7 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %.0325355.i.i677 = phi ptr [ %2, %.lr.ph.i40.i674 ], [ %2564, %2519 ]
   %2520 = load <4 x float>, ptr %.0357.i.i675, align 1
   %2521 = fcmp fast une <4 x float> %2520, zeroinitializer
-  %2522 = and <4 x i1> %2521, %2510
+  %2522 = and <4 x i1> %2510, %2521
   %2523 = fcmp fast olt <4 x float> %2520, zeroinitializer
   %2524 = select <4 x i1> %2523, <4 x float> %2514, <4 x float> zeroinitializer
   %2525 = fdiv fast <4 x float> %2508, %2520
@@ -7742,7 +7742,7 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %.0325355.i56.i = phi ptr [ %2, %.lr.ph.i52.i662 ], [ %2641, %2592 ]
   %2593 = load <4 x float>, ptr %.0357.i54.i, align 1
   %2594 = fcmp fast une <4 x float> %2593, zeroinitializer
-  %2595 = and <4 x i1> %2594, %2586
+  %2595 = and <4 x i1> %2586, %2594
   %2596 = bitcast <4 x float> %2593 to <4 x i32>
   %2597 = and <4 x i32> %2596, splat (i32 -2147483648)
   %2598 = fcmp fast olt <4 x float> %2593, zeroinitializer
@@ -7834,7 +7834,7 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %2660 = shufflevector <4 x float> %2659, <4 x float> poison, <4 x i32> zeroinitializer
   %2661 = fcmp fast une <4 x float> %2657, zeroinitializer
   %2662 = fcmp fast une <4 x float> %2660, zeroinitializer
-  %2663 = and <4 x i1> %2662, %2661
+  %2663 = and <4 x i1> %2661, %2662
   %2664 = bitcast <4 x float> %2660 to <4 x i32>
   %2665 = and <4 x i32> %2664, splat (i32 -2147483648)
   %2666 = fcmp fast olt <4 x float> %2657, zeroinitializer
@@ -7918,7 +7918,7 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %.03141.i.i641 = phi ptr [ %2, %.lr.ph.i62.i638 ], [ %2772, %2727 ]
   %2728 = load <4 x float>, ptr %.03.i.i639, align 1
   %2729 = fcmp fast une <4 x float> %2728, zeroinitializer
-  %2730 = and <4 x i1> %2729, %2720
+  %2730 = and <4 x i1> %2720, %2729
   %2731 = fcmp fast olt <4 x float> %2728, zeroinitializer
   %2732 = select <4 x i1> %2731, <4 x float> %2724, <4 x float> zeroinitializer
   %2733 = fdiv fast <4 x float> %2718, %2728
@@ -7994,7 +7994,7 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %2787 = insertelement <4 x float> poison, float %2786, i64 0
   %2788 = shufflevector <4 x float> %2787, <4 x float> poison, <4 x i32> zeroinitializer
   %2789 = fcmp fast une <4 x float> %2788, zeroinitializer
-  %2790 = and <4 x i1> %2789, %2781
+  %2790 = and <4 x i1> %2781, %2789
   %2791 = bitcast <4 x float> %2788 to <4 x i32>
   %2792 = and <4 x i32> %2791, splat (i32 -2147483648)
   %2793 = fcmp fast olt <4 x float> %2788, zeroinitializer

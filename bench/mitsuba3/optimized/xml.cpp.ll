@@ -13761,7 +13761,7 @@ _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ILi0E
   %2549 = phi <8 x i1> [ %2547, %2544 ], [ %2552, %2548 ]
   %2550 = getelementptr inbounds nuw [4 x %"struct.drjit::Mask.275"], ptr %324, i64 0, i64 %.028.i.i
   %2551 = load <8 x i1>, ptr %2550, align 1
-  %2552 = or <8 x i1> %2551, %2549
+  %2552 = or <8 x i1> %2549, %2551
   %2553 = add nuw nsw i64 %.028.i.i, 1
   %exitcond.not.i.i1368 = icmp eq i64 %2553, 4
   br i1 %exitcond.not.i.i1368, label %2554, label %2548, !llvm.loop !154

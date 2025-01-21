@@ -6653,7 +6653,7 @@ _ZNK5drjit6TensorINS_12DynamicArrayIfEEE5shapeEm.exit: ; preds = %4
   %79 = icmp slt <4 x i32> %28, zeroinitializer
   %80 = and <4 x i32> %71, splat (i32 1)
   %81 = icmp eq <4 x i32> %80, zeroinitializer
-  %82 = xor <4 x i1> %81, %79
+  %82 = xor <4 x i1> %79, %81
   %83 = xor <4 x i32> %76, splat (i32 -1)
   %84 = add <4 x i32> %22, %83
   %85 = select <4 x i1> %82, <4 x i32> %76, <4 x i32> %84
@@ -11085,7 +11085,7 @@ _ZN5drjit5ArrayINS0_IiLm8EEELm3EECI2NS_15StaticArrayImplIS1_Lm3ELb0ES2_iEEIiTnNS
   %225 = getelementptr inbounds nuw [3 x %"struct.drjit::Mask.167"], ptr %11, i64 0, i64 %.033.i
   %226 = load <8 x i1>, ptr %224, align 1
   %227 = load <8 x i1>, ptr %225, align 1
-  %228 = xor <8 x i1> %227, %226
+  %228 = xor <8 x i1> %226, %227
   %229 = getelementptr inbounds nuw [3 x %"struct.drjit::Mask.167"], ptr %4, i64 0, i64 %.033.i
   store <8 x i1> %228, ptr %229, align 1
   %230 = add nuw nsw i64 %.033.i, 1

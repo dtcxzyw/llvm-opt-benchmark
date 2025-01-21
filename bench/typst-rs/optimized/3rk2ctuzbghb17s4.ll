@@ -98007,7 +98007,7 @@ default.unreachable92:                            ; preds = %278, %"_ZN4core3ptr
   %.0.copyload2.i.i.i.i.i = load <16 x i8>, ptr %134, align 1, !alias.scope !24275, !noalias !24276
   %135 = icmp eq <16 x i8> %.0.copyload.i.i.i.i.i, splat (i8 40)
   %136 = icmp eq <16 x i8> %.0.copyload2.i.i.i.i.i, splat (i8 41)
-  %137 = and <16 x i1> %136, %135
+  %137 = and <16 x i1> %135, %136
   %138 = getelementptr inbounds nuw [4 x i16], ptr %7, i64 0, i64 %.sroa.019.045.i.i.i.i
   store <16 x i1> %137, ptr %138, align 2, !noalias !24274
   %exitcond.not.i.i.i.i = icmp eq i64 %132, 4
@@ -98058,7 +98058,7 @@ default.unreachable92:                            ; preds = %278, %"_ZN4core3ptr
   %.0.copyload2.i82.i.i.i.i = load <16 x i8>, ptr %158, align 1, !alias.scope !24275, !noalias !24279
   %159 = icmp eq <16 x i8> %.0.copyload.i81.i.i.i.i, splat (i8 40)
   %160 = icmp eq <16 x i8> %.0.copyload2.i82.i.i.i.i, splat (i8 41)
-  %161 = and <16 x i1> %160, %159
+  %161 = and <16 x i1> %159, %160
   %162 = bitcast <16 x i1> %161 to i16
   %163 = icmp eq i16 %162, 0
   br i1 %163, label %178, label %180
@@ -98070,7 +98070,7 @@ default.unreachable92:                            ; preds = %278, %"_ZN4core3ptr
   %.0.copyload2.i84.i.i.i.i = load <16 x i8>, ptr %166, align 1, !alias.scope !24275, !noalias !24282
   %167 = icmp eq <16 x i8> %.0.copyload.i83.i.i.i.i, splat (i8 40)
   %168 = icmp eq <16 x i8> %.0.copyload2.i84.i.i.i.i, splat (i8 41)
-  %169 = and <16 x i1> %168, %167
+  %169 = and <16 x i1> %167, %168
   %170 = bitcast <16 x i1> %169 to i16
   %171 = icmp eq i16 %170, 0
   br i1 %171, label %172, label %175

@@ -4750,9 +4750,9 @@ define internal fastcc noundef zeroext i1 @XidIsConcurrent(i32 noundef %0) unnam
   %30 = icmp eq <4 x i32> %16, %.val3138.i
   %31 = icmp eq <4 x i32> %16, %.val3239.i
   %32 = icmp eq <4 x i32> %16, %.val3340.i
-  %33 = or <4 x i1> %30, %29
-  %34 = or <4 x i1> %33, %31
-  %35 = or <4 x i1> %34, %32
+  %33 = or <4 x i1> %29, %30
+  %34 = or <4 x i1> %31, %32
+  %35 = or <4 x i1> %33, %34
   %36 = sext <4 x i1> %35 to <4 x i32>
   %37 = bitcast <4 x i32> %36 to <16 x i8>
   %38 = icmp slt <16 x i8> %37, zeroinitializer

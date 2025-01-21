@@ -7220,7 +7220,7 @@ define linkonce_odr hidden void @_ZNK8rawspeed15VC5Decompressor28combineFinalLow
   %217 = add nsw i64 %170, -4
   %218 = icmp ult <16 x ptr> %200, %205
   %219 = icmp ult <16 x ptr> %210, %215
-  %220 = and <16 x i1> %219, %218
+  %220 = and <16 x i1> %218, %219
   %221 = icmp ult ptr %4, %173
   %222 = icmp ult ptr %175, %174
   %223 = and i1 %221, %222

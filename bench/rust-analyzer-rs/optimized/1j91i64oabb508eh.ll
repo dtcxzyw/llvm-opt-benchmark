@@ -26477,7 +26477,7 @@ define hidden noundef zeroext i1 @"_ZN55_$LT$$RF$str$u20$as$u20$core..str..patte
   %.0.copyload2.i.i = load <16 x i8>, ptr %77, align 1, !alias.scope !5905, !noalias !5917
   %78 = icmp eq <16 x i8> %.0.copyload.i.i, %61
   %79 = icmp eq <16 x i8> %.0.copyload2.i.i, %62
-  %80 = and <16 x i1> %79, %78
+  %80 = and <16 x i1> %78, %79
   %81 = getelementptr inbounds nuw [4 x i16], ptr %5, i64 0, i64 %.sroa.019.0140.i
   store <16 x i1> %80, ptr %81, align 2, !noalias !5916
   %exitcond.not.i37 = icmp eq i64 %75, 4
@@ -26529,7 +26529,7 @@ define hidden noundef zeroext i1 @"_ZN55_$LT$$RF$str$u20$as$u20$core..str..patte
   %.0.copyload2.i82.i = load <16 x i8>, ptr %103, align 1, !alias.scope !5905, !noalias !5920
   %104 = icmp eq <16 x i8> %.0.copyload.i81.i, %61
   %105 = icmp eq <16 x i8> %.0.copyload2.i82.i, %62
-  %106 = and <16 x i1> %105, %104
+  %106 = and <16 x i1> %104, %105
   %107 = bitcast <16 x i1> %106 to i16
   %108 = icmp eq i16 %107, 0
   br i1 %108, label %123, label %124
@@ -26541,7 +26541,7 @@ define hidden noundef zeroext i1 @"_ZN55_$LT$$RF$str$u20$as$u20$core..str..patte
   %.0.copyload2.i84.i = load <16 x i8>, ptr %111, align 1, !alias.scope !5905, !noalias !5923
   %112 = icmp eq <16 x i8> %.0.copyload.i83.i, %61
   %113 = icmp eq <16 x i8> %.0.copyload2.i84.i, %62
-  %114 = and <16 x i1> %113, %112
+  %114 = and <16 x i1> %112, %113
   %115 = bitcast <16 x i1> %114 to i16
   %116 = icmp eq i16 %115, 0
   br i1 %116, label %117, label %120
@@ -67247,7 +67247,7 @@ _ZN13rust_analyzer3cli15progress_report14ProgressReport11set_message17hd27f02aa7
   %.0.copyload2.i.i.i = load <16 x i8>, ptr %1258, align 1, !alias.scope !15828, !noalias !15829
   %1259 = icmp eq <16 x i8> %.0.copyload.i.i.i, splat (i8 101)
   %1260 = icmp eq <16 x i8> %.0.copyload2.i.i.i, splat (i8 108)
-  %1261 = and <16 x i1> %1260, %1259
+  %1261 = and <16 x i1> %1259, %1260
   %1262 = getelementptr inbounds nuw [4 x i16], ptr %26, i64 0, i64 %.sroa.019.0140.i.i
   store <16 x i1> %1261, ptr %1262, align 2, !noalias !15827
   %exitcond.not.i37.i = icmp eq i64 %1256, 4
@@ -67344,7 +67344,7 @@ _ZN4core3str7pattern14small_slice_eq17h3a53943bb1188393E.exit.thread.i: ; preds 
   %.0.copyload2.i82.i.i = load <16 x i8>, ptr %1291, align 1, !alias.scope !15828, !noalias !15841
   %1292 = icmp eq <16 x i8> %.0.copyload.i81.i.i, splat (i8 101)
   %1293 = icmp eq <16 x i8> %.0.copyload2.i82.i.i, splat (i8 108)
-  %1294 = and <16 x i1> %1293, %1292
+  %1294 = and <16 x i1> %1292, %1293
   %1295 = bitcast <16 x i1> %1294 to i16
   %1296 = icmp eq i16 %1295, 0
   br i1 %1296, label %1311, label %1313
@@ -67356,7 +67356,7 @@ _ZN4core3str7pattern14small_slice_eq17h3a53943bb1188393E.exit.thread.i: ; preds 
   %.0.copyload2.i84.i.i = load <16 x i8>, ptr %1299, align 1, !alias.scope !15828, !noalias !15844
   %1300 = icmp eq <16 x i8> %.0.copyload.i83.i.i, splat (i8 101)
   %1301 = icmp eq <16 x i8> %.0.copyload2.i84.i.i, splat (i8 108)
-  %1302 = and <16 x i1> %1301, %1300
+  %1302 = and <16 x i1> %1300, %1301
   %1303 = bitcast <16 x i1> %1302 to i16
   %1304 = icmp eq i16 %1303, 0
   br i1 %1304, label %1305, label %1308

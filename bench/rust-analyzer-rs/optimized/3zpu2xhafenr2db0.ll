@@ -2785,7 +2785,7 @@ _ZN6xshell3Cmd3arg17h25a2c54d965b41c6E.exit10.i:  ; preds = %_ZN6xshell3Cmd3arg1
   %.0.copyload2.i.i.i.i = load <16 x i8>, ptr %98, align 1, !alias.scope !507, !noalias !508
   %99 = icmp eq <16 x i8> %.0.copyload.i.i.i.i, splat (i8 115)
   %100 = icmp eq <16 x i8> %.0.copyload2.i.i.i.i, splat (i8 101)
-  %101 = and <16 x i1> %100, %99
+  %101 = and <16 x i1> %99, %100
   %102 = getelementptr inbounds nuw [4 x i16], ptr %7, i64 0, i64 %.sroa.019.045.i.i.i
   store <16 x i1> %101, ptr %102, align 2, !noalias !507
   %exitcond.not.i.i.i = icmp eq i64 %96, 4
@@ -2836,7 +2836,7 @@ _ZN6xshell3Cmd3arg17h25a2c54d965b41c6E.exit10.i:  ; preds = %_ZN6xshell3Cmd3arg1
   %.0.copyload2.i82.i.i.i = load <16 x i8>, ptr %122, align 1, !alias.scope !507, !noalias !511
   %123 = icmp eq <16 x i8> %.0.copyload.i81.i.i.i, splat (i8 115)
   %124 = icmp eq <16 x i8> %.0.copyload2.i82.i.i.i, splat (i8 101)
-  %125 = and <16 x i1> %124, %123
+  %125 = and <16 x i1> %123, %124
   %126 = bitcast <16 x i1> %125 to i16
   %127 = icmp eq i16 %126, 0
   br i1 %127, label %142, label %144
@@ -2848,7 +2848,7 @@ _ZN6xshell3Cmd3arg17h25a2c54d965b41c6E.exit10.i:  ; preds = %_ZN6xshell3Cmd3arg1
   %.0.copyload2.i84.i.i.i = load <16 x i8>, ptr %130, align 1, !alias.scope !507, !noalias !514
   %131 = icmp eq <16 x i8> %.0.copyload.i83.i.i.i, splat (i8 115)
   %132 = icmp eq <16 x i8> %.0.copyload2.i84.i.i.i, splat (i8 101)
-  %133 = and <16 x i1> %132, %131
+  %133 = and <16 x i1> %131, %132
   %134 = bitcast <16 x i1> %133 to i16
   %135 = icmp eq i16 %134, 0
   br i1 %135, label %136, label %139

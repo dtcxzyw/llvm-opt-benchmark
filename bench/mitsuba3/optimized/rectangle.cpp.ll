@@ -2894,7 +2894,7 @@ _ZNK7mitsuba3RayINS_5PointIN5drjit6PacketIfLm4EEELm3EEENS2_6MatrixINS_8SpectrumI
   %174 = and <8 x i1> %172, %173
   %175 = fcmp contract ole <4 x float> %157, %.sroa.04.0.copyload
   %176 = shufflevector <4 x i1> %175, <4 x i1> poison, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 poison, i32 poison, i32 poison, i32 poison>
-  %177 = and <8 x i1> %174, %176
+  %177 = and <8 x i1> %176, %174
   %178 = and <4 x i32> %.sroa.0310.0.copyload, splat (i32 2147483647)
   %179 = bitcast <4 x i32> %178 to <4 x float>
   %180 = fcmp contract ole <4 x float> %179, splat (float 1.000000e+00)
@@ -3316,7 +3316,7 @@ _ZNK7mitsuba3RayINS_5PointIN5drjit6PacketIfLm4EEELm3EEENS2_6MatrixINS_8SpectrumI
   %172 = and <8 x i1> %171, <i1 true, i1 true, i1 true, i1 true, i1 false, i1 false, i1 false, i1 false>
   %173 = fcmp contract ole <4 x float> %156, %.sroa.04.0.copyload
   %174 = shufflevector <4 x i1> %173, <4 x i1> zeroinitializer, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7>
-  %175 = and <8 x i1> %172, %174
+  %175 = and <8 x i1> %174, %172
   %176 = and <4 x i32> %.sroa.0.0.copyload, splat (i32 2147483647)
   %177 = bitcast <4 x i32> %176 to <4 x float>
   %178 = fcmp contract ole <4 x float> %177, splat (float 1.000000e+00)
@@ -3727,7 +3727,7 @@ _ZNK7mitsuba3RayINS_5PointIN5drjit6PacketIfLm8EEELm3EEENS2_6MatrixINS_8SpectrumI
   %172 = bitcast i8 %4 to <8 x i1>
   %173 = and <8 x i1> %171, %172
   %174 = fcmp contract ole <8 x float> %157, %.sroa.04.0.copyload
-  %175 = and <8 x i1> %173, %174
+  %175 = and <8 x i1> %174, %173
   %176 = and <8 x i32> %.sroa.0346.0.copyload, splat (i32 2147483647)
   %177 = bitcast <8 x i32> %176 to <8 x float>
   %178 = fcmp contract ole <8 x float> %177, splat (float 1.000000e+00)
@@ -4552,7 +4552,7 @@ _ZNK7mitsuba3RayINS_5PointIN5drjit6PacketIfLm16EEELm3EEENS2_6MatrixINS_8Spectrum
   %172 = bitcast i16 %4 to <16 x i1>
   %173 = and <16 x i1> %171, %172
   %174 = fcmp contract ole <16 x float> %157, %.sroa.04.0.copyload
-  %175 = and <16 x i1> %173, %174
+  %175 = and <16 x i1> %174, %173
   %176 = and <16 x i32> %.sroa.0352.0.copyload, splat (i32 2147483647)
   %177 = bitcast <16 x i32> %176 to <16 x float>
   %178 = fcmp contract ole <16 x float> %177, splat (float 1.000000e+00)

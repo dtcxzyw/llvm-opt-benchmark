@@ -351,7 +351,7 @@ define internal void @VFilter16_SSE2(ptr nocapture noundef %0, i32 noundef %1, i
   %69 = and <16 x i8> %68, splat (i8 127)
   %70 = tail call <16 x i8> @llvm.uadd.sat.v16i8(<16 x i8> %67, <16 x i8> %69)
   %71 = icmp ule <16 x i8> %70, %58
-  %72 = and <16 x i1> %71, %55
+  %72 = and <16 x i1> %55, %71
   %73 = sext <16 x i1> %72 to <16 x i8>
   %74 = bitcast <16 x i8> %73 to <2 x i64>
   %75 = trunc i32 %4 to i8
@@ -682,7 +682,7 @@ define internal void @HFilter16_SSE2(ptr nocapture noundef %0, i32 noundef %1, i
   %196 = and <16 x i8> %195, splat (i8 127)
   %197 = tail call <16 x i8> @llvm.uadd.sat.v16i8(<16 x i8> %194, <16 x i8> %196)
   %198 = icmp ule <16 x i8> %197, %185
-  %199 = and <16 x i1> %198, %182
+  %199 = and <16 x i1> %182, %198
   %200 = sext <16 x i1> %199 to <16 x i8>
   %201 = bitcast <16 x i8> %200 to <2 x i64>
   %202 = trunc i32 %4 to i8
@@ -1056,7 +1056,7 @@ define internal void @VFilter8_SSE2(ptr nocapture noundef %0, ptr nocapture noun
   %109 = and <16 x i8> %108, splat (i8 127)
   %110 = tail call <16 x i8> @llvm.uadd.sat.v16i8(<16 x i8> %107, <16 x i8> %109)
   %111 = icmp ule <16 x i8> %110, %98
-  %112 = and <16 x i1> %95, %111
+  %112 = and <16 x i1> %111, %95
   %113 = sext <16 x i1> %112 to <16 x i8>
   %114 = bitcast <16 x i8> %113 to <2 x i64>
   %115 = trunc i32 %5 to i8
@@ -1405,7 +1405,7 @@ define internal void @HFilter8_SSE2(ptr nocapture noundef %0, ptr nocapture noun
   %194 = and <16 x i8> %193, splat (i8 127)
   %195 = tail call <16 x i8> @llvm.uadd.sat.v16i8(<16 x i8> %192, <16 x i8> %194)
   %196 = icmp ule <16 x i8> %195, %183
-  %197 = and <16 x i1> %196, %180
+  %197 = and <16 x i1> %180, %196
   %198 = sext <16 x i1> %197 to <16 x i8>
   %199 = bitcast <16 x i8> %198 to <2 x i64>
   %200 = trunc i32 %5 to i8
@@ -1758,7 +1758,7 @@ define internal void @VFilter16i_SSE2(ptr nocapture noundef %0, i32 noundef %1, 
   %79 = and <16 x i8> %78, splat (i8 127)
   %80 = tail call <16 x i8> @llvm.uadd.sat.v16i8(<16 x i8> %77, <16 x i8> %79)
   %81 = icmp ule <16 x i8> %80, %25
-  %82 = and <16 x i1> %68, %81
+  %82 = and <16 x i1> %81, %68
   %83 = tail call <16 x i8> @llvm.umax.v16i8(<16 x i8> %36, <16 x i8> %62)
   %.not.i = icmp ugt <16 x i8> %83, %28
   %84 = xor <16 x i8> %33, splat (i8 -128)
@@ -2059,7 +2059,7 @@ define internal void @HFilter16i_SSE2(ptr nocapture noundef %0, i32 noundef %1, 
   %201 = and <16 x i8> %200, splat (i8 127)
   %202 = tail call <16 x i8> @llvm.uadd.sat.v16i8(<16 x i8> %199, <16 x i8> %201)
   %203 = icmp ule <16 x i8> %202, %89
-  %204 = and <16 x i1> %203, %190
+  %204 = and <16 x i1> %190, %203
   %205 = tail call <16 x i8> @llvm.umax.v16i8(<16 x i8> %100, <16 x i8> %184)
   %.not.i = icmp ugt <16 x i8> %205, %92
   %206 = xor <16 x i8> %97, splat (i8 -128)
@@ -2314,7 +2314,7 @@ define internal void @VFilter8i_SSE2(ptr nocapture noundef %0, ptr nocapture nou
   %108 = and <16 x i8> %107, splat (i8 127)
   %109 = tail call <16 x i8> @llvm.uadd.sat.v16i8(<16 x i8> %106, <16 x i8> %108)
   %110 = icmp ule <16 x i8> %109, %97
-  %111 = and <16 x i1> %94, %110
+  %111 = and <16 x i1> %110, %94
   %112 = trunc i32 %5 to i8
   %113 = insertelement <16 x i8> poison, i8 %112, i64 0
   %114 = shufflevector <16 x i8> %113, <16 x i8> poison, <16 x i32> zeroinitializer
@@ -2614,7 +2614,7 @@ define internal void @HFilter8i_SSE2(ptr nocapture noundef %0, ptr nocapture nou
   %194 = and <16 x i8> %193, splat (i8 127)
   %195 = tail call <16 x i8> @llvm.uadd.sat.v16i8(<16 x i8> %192, <16 x i8> %194)
   %196 = icmp ule <16 x i8> %195, %183
-  %197 = and <16 x i1> %196, %180
+  %197 = and <16 x i1> %180, %196
   %198 = trunc i32 %5 to i8
   %199 = insertelement <16 x i8> poison, i8 %198, i64 0
   %200 = shufflevector <16 x i8> %199, <16 x i8> poison, <16 x i32> zeroinitializer

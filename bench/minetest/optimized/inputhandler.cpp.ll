@@ -7017,7 +7017,7 @@ entry:
   %22 = select <2 x i1> %20, <2 x float> %14, <2 x float> %21
   %23 = fcmp nsz une <2 x float> %22, zeroinitializer
   %shift = shufflevector <2 x i1> %23, <2 x i1> poison, <2 x i32> <i32 1, i32 poison>
-  %24 = or <2 x i1> %shift, %23
+  %24 = or <2 x i1> %23, %shift
   %or.cond = extractelement <2 x i1> %24, i64 0
   br i1 %or.cond, label %if.then26, label %if.else
 

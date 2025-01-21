@@ -12004,7 +12004,7 @@ define hidden noundef zeroext i1 @"_ZN55_$LT$$RF$str$u20$as$u20$core..str..patte
   %.0.copyload2.i.i = load <16 x i8>, ptr %76, align 1, !alias.scope !2648, !noalias !2661
   %77 = icmp eq <16 x i8> %.0.copyload.i.i, %60
   %78 = icmp eq <16 x i8> %.0.copyload2.i.i, %61
-  %79 = and <16 x i1> %78, %77
+  %79 = and <16 x i1> %77, %78
   %80 = getelementptr inbounds nuw [4 x i16], ptr %5, i64 0, i64 %.sroa.019.0138.i
   store <16 x i1> %79, ptr %80, align 2, !noalias !2660
   %exitcond.not.i37 = icmp eq i64 %74, 4
@@ -12056,7 +12056,7 @@ define hidden noundef zeroext i1 @"_ZN55_$LT$$RF$str$u20$as$u20$core..str..patte
   %.0.copyload2.i82.i = load <16 x i8>, ptr %102, align 1, !alias.scope !2648, !noalias !2664
   %103 = icmp eq <16 x i8> %.0.copyload.i81.i, %60
   %104 = icmp eq <16 x i8> %.0.copyload2.i82.i, %61
-  %105 = and <16 x i1> %104, %103
+  %105 = and <16 x i1> %103, %104
   %106 = bitcast <16 x i1> %105 to i16
   %107 = icmp eq i16 %106, 0
   br i1 %107, label %122, label %123
@@ -12068,7 +12068,7 @@ define hidden noundef zeroext i1 @"_ZN55_$LT$$RF$str$u20$as$u20$core..str..patte
   %.0.copyload2.i84.i = load <16 x i8>, ptr %110, align 1, !alias.scope !2648, !noalias !2667
   %111 = icmp eq <16 x i8> %.0.copyload.i83.i, %60
   %112 = icmp eq <16 x i8> %.0.copyload2.i84.i, %61
-  %113 = and <16 x i1> %112, %111
+  %113 = and <16 x i1> %111, %112
   %114 = bitcast <16 x i1> %113 to i16
   %115 = icmp eq i16 %114, 0
   br i1 %115, label %116, label %119

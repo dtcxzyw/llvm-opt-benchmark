@@ -583,7 +583,7 @@ define internal float @CombinedShannonEntropy_SSE2(ptr nocapture noundef readonl
   %27 = bitcast <16 x i1> %26 to i16
   %28 = zext i16 %27 to i32
   %29 = icmp sgt <16 x i8> %25, zeroinitializer
-  %30 = or <16 x i1> %29, %26
+  %30 = or <16 x i1> %26, %29
   %31 = bitcast <16 x i1> %30 to i16
   %.not95 = icmp eq i16 %31, 0
   br i1 %.not95, label %._crit_edge, label %.lr.ph.preheader

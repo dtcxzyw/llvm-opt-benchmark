@@ -17539,7 +17539,7 @@ define hidden void @_ZN3ide9doc_links16rewrite_url_link17he0deec70bf471965E(ptr 
   %.0.copyload2.i.i.i = load <16 x i8>, ptr %64, align 1, !alias.scope !4349, !noalias !4350
   %65 = icmp eq <16 x i8> %.0.copyload.i.i.i, splat (i8 46)
   %66 = icmp eq <16 x i8> %.0.copyload2.i.i.i, splat (i8 108)
-  %67 = and <16 x i1> %66, %65
+  %67 = and <16 x i1> %65, %66
   %68 = getelementptr inbounds nuw [4 x i16], ptr %22, i64 0, i64 %.sroa.019.046.i.i
   store <16 x i1> %67, ptr %68, align 2, !noalias !4349
   %exitcond.not.i.i83 = icmp eq i64 %62, 4
@@ -17590,7 +17590,7 @@ define hidden void @_ZN3ide9doc_links16rewrite_url_link17he0deec70bf471965E(ptr 
   %.0.copyload2.i82.i.i = load <16 x i8>, ptr %88, align 1, !alias.scope !4349, !noalias !4353
   %89 = icmp eq <16 x i8> %.0.copyload.i81.i.i, splat (i8 46)
   %90 = icmp eq <16 x i8> %.0.copyload2.i82.i.i, splat (i8 108)
-  %91 = and <16 x i1> %90, %89
+  %91 = and <16 x i1> %89, %90
   %92 = bitcast <16 x i1> %91 to i16
   %93 = icmp eq i16 %92, 0
   br i1 %93, label %108, label %110
@@ -17602,7 +17602,7 @@ define hidden void @_ZN3ide9doc_links16rewrite_url_link17he0deec70bf471965E(ptr 
   %.0.copyload2.i84.i.i = load <16 x i8>, ptr %96, align 1, !alias.scope !4349, !noalias !4356
   %97 = icmp eq <16 x i8> %.0.copyload.i83.i.i, splat (i8 46)
   %98 = icmp eq <16 x i8> %.0.copyload2.i84.i.i, splat (i8 108)
-  %99 = and <16 x i1> %98, %97
+  %99 = and <16 x i1> %97, %98
   %100 = bitcast <16 x i1> %99 to i16
   %101 = icmp eq i16 %100, 0
   br i1 %101, label %102, label %105

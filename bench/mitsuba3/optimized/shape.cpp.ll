@@ -1976,7 +1976,7 @@ _ZN7mitsubaplIN5drjit6PacketIfLm4EEELm3ES3_Lm3EEEDaRKNS_5PointIT_XT0_EEERKNS_6Ve
   %152 = load <4 x float>, ptr %16, align 16
   %153 = fcmp contract une <4 x float> %152, splat (float 0x7FF0000000000000)
   %154 = load <4 x float>, ptr %104, align 16
-  %155 = and <4 x i1> %153, %100
+  %155 = and <4 x i1> %100, %153
   %156 = select contract <4 x i1> %155, <4 x float> %152, <4 x float> %154
   call void @llvm.assume(i1 true) [ "align"(ptr %126, i64 16) ]
   store <4 x float> %156, ptr %126, align 16
@@ -2153,7 +2153,7 @@ _ZN7mitsubaplIN5drjit6PacketIfLm8EEELm3ES3_Lm3EEEDaRKNS_5PointIT_XT0_EEERKNS_6Ve
   %247 = getelementptr inbounds nuw i8, ptr %11, i64 32
   %248 = load <8 x float>, ptr %11, align 32
   %249 = fcmp contract une <8 x float> %248, splat (float 0x7FF0000000000000)
-  %250 = and <8 x i1> %249, %196
+  %250 = and <8 x i1> %196, %249
   %251 = load <8 x float>, ptr %200, align 32
   %252 = select contract <8 x i1> %250, <8 x float> %248, <8 x float> %251
   call void @llvm.assume(i1 true) [ "align"(ptr %222, i64 32) ]
@@ -2331,7 +2331,7 @@ _ZN7mitsubaplIN5drjit6PacketIfLm16EEELm3ES3_Lm3EEEDaRKNS_5PointIT_XT0_EEERKNS_6V
   %343 = getelementptr inbounds nuw i8, ptr %6, i64 64
   %344 = load <16 x float>, ptr %6, align 64
   %345 = fcmp contract une <16 x float> %344, splat (float 0x7FF0000000000000)
-  %346 = and <16 x i1> %345, %292
+  %346 = and <16 x i1> %292, %345
   %347 = load <16 x float>, ptr %296, align 64
   %348 = select contract <16 x i1> %346, <16 x float> %344, <16 x float> %347
   call void @llvm.assume(i1 true) [ "align"(ptr %318, i64 64) ]

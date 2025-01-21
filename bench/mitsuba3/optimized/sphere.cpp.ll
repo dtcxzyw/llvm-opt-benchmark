@@ -3700,7 +3700,7 @@ _ZN7mitsuba5PointIN5drjit6PacketIdLm4EEELm3EECI2NS1_15StaticArrayImplIS3_Lm3ELb0
   %100 = phi <8 x i1> [ %98, %96 ], [ %103, %99 ]
   %101 = getelementptr inbounds nuw [3 x %"struct.drjit::PacketMask.312"], ptr %19, i64 0, i64 %.028.i
   %102 = load <8 x i1>, ptr %101, align 1
-  %103 = and <8 x i1> %102, %100
+  %103 = and <8 x i1> %100, %102
   %104 = add nuw nsw i64 %.028.i, 1
   %exitcond.not.i960 = icmp eq i64 %104, 3
   br i1 %exitcond.not.i960, label %_ZNK5drjit9ArrayBaseINS_10PacketMaskIdLm4EEELb1ENS_4MaskINS_6PacketIdLm4EEELm3EEEE4all_Ev.exit, label %99, !llvm.loop !146
@@ -3888,9 +3888,9 @@ _ZNK5drjit9ArrayBaseINS_6PacketIdLm4EEELb0EN7mitsuba6VectorIS2_Lm3EEEE4dot_ERKS5
   %201 = tail call contract noundef <4 x double> @llvm.sqrt.v4f64(<4 x double> %139)
   %202 = fcmp contract ogt <4 x double> %201, %200
   %203 = fcmp contract oeq <4 x double> %105, zeroinitializer
-  %204 = and <4 x i1> %202, %203
+  %204 = and <4 x i1> %203, %202
   %205 = shufflevector <4 x i1> %204, <4 x i1> poison, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 poison, i32 poison, i32 poison, i32 poison>
-  %206 = and <8 x i1> %205, %103
+  %206 = and <8 x i1> %103, %205
   %207 = fpext <4 x float> %37 to <4 x double>
   %208 = fcmp contract une <4 x double> %171, zeroinitializer
   %209 = shufflevector <4 x i1> %208, <4 x i1> poison, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 poison, i32 poison, i32 poison, i32 poison>
@@ -3899,16 +3899,16 @@ _ZNK5drjit9ArrayBaseINS_6PacketIdLm4EEELb0EN7mitsuba6VectorIS2_Lm3EEEE4dot_ERKS5
   %212 = fadd contract <4 x double> %105, %.sroa.01022.0
   %213 = fcmp contract ole <4 x double> %211, %207
   %214 = fcmp contract oge <4 x double> %212, zeroinitializer
-  %215 = and <4 x i1> %213, %214
+  %215 = and <4 x i1> %214, %213
   %216 = shufflevector <4 x i1> %215, <4 x i1> poison, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 poison, i32 poison, i32 poison, i32 poison>
   %217 = fcmp contract uge <4 x double> %211, zeroinitializer
   %218 = fcmp contract ule <4 x double> %212, %207
-  %.not1080 = or <4 x i1> %217, %218
+  %.not1080 = or <4 x i1> %218, %217
   %219 = xor <8 x i1> %206, <i1 true, i1 true, i1 true, i1 true, i1 poison, i1 poison, i1 poison, i1 poison>
   %220 = and <8 x i1> %210, %219
   %221 = and <8 x i1> %220, %216
   %222 = shufflevector <4 x i1> %.not1080, <4 x i1> poison, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 poison, i32 poison, i32 poison, i32 poison>
-  %223 = and <8 x i1> %221, %222
+  %223 = and <8 x i1> %222, %221
   %224 = tail call contract noundef <4 x float> @llvm.x86.avx.cvt.pd2.ps.256(<4 x double> %212)
   %225 = tail call contract noundef <4 x float> @llvm.x86.avx.cvt.pd2.ps.256(<4 x double> %211)
   %226 = select contract <4 x i1> %217, <4 x float> %225, <4 x float> %224
@@ -4095,16 +4095,16 @@ _ZNK5drjit9ArrayBaseINS_6PacketIdLm4EEELb0EN7mitsuba6VectorIS2_Lm3EEEE4dot_ERKS5
   %101 = select <8 x i1> %75, <8 x i1> %100, <8 x i1> %83
   %102 = fcmp contract ole <4 x double> %.sroa.0626.0, %98
   %103 = fcmp contract oge <4 x double> %.sroa.0625.0, zeroinitializer
-  %104 = and <4 x i1> %102, %103
+  %104 = and <4 x i1> %103, %102
   %105 = shufflevector <4 x i1> %104, <4 x i1> zeroinitializer, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7>
   %106 = fcmp contract olt <4 x double> %.sroa.0626.0, zeroinitializer
   %107 = fcmp contract ogt <4 x double> %.sroa.0625.0, %98
-  %108 = and <4 x i1> %106, %107
+  %108 = and <4 x i1> %107, %106
   %109 = shufflevector <4 x i1> %108, <4 x i1> zeroinitializer, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7>
-  %110 = xor <8 x i1> %109, splat (i1 true)
-  %111 = and <8 x i1> %101, <i1 true, i1 true, i1 true, i1 true, i1 false, i1 false, i1 false, i1 false>
-  %112 = and <8 x i1> %111, %105
-  %113 = and <8 x i1> %112, %110
+  %110 = and <8 x i1> %101, %105
+  %111 = xor <8 x i1> %109, splat (i1 true)
+  %112 = and <8 x i1> %110, %111
+  %113 = and <8 x i1> %112, <i1 true, i1 true, i1 true, i1 true, i1 false, i1 false, i1 false, i1 false>
   %114 = bitcast <8 x i1> %113 to i8
   ret i8 %114
 }
@@ -4300,7 +4300,7 @@ _ZN7mitsuba5PointIN5drjit6PacketIdLm8EEELm3EECI2NS1_15StaticArrayImplIS3_Lm3ELb0
   %99 = phi <8 x i1> [ %97, %95 ], [ %102, %98 ]
   %100 = getelementptr inbounds nuw [3 x %"struct.drjit::PacketMask.342"], ptr %19, i64 0, i64 %.028.i
   %101 = load <8 x i1>, ptr %100, align 1
-  %102 = and <8 x i1> %101, %99
+  %102 = and <8 x i1> %99, %101
   %103 = add nuw nsw i64 %.028.i, 1
   %exitcond.not.i965 = icmp eq i64 %103, 3
   br i1 %exitcond.not.i965, label %_ZNK5drjit9ArrayBaseINS_10PacketMaskIdLm8EEELb1ENS_4MaskINS_6PacketIdLm8EEELm3EEEE4all_Ev.exit, label %98, !llvm.loop !193
@@ -4459,7 +4459,7 @@ _ZNK5drjit9ArrayBaseINS_6PacketIdLm8EEELb0EN7mitsuba6VectorIS2_Lm3EEEE4dot_ERKS5
   %178 = fmul contract <8 x double> %177, %175
   %179 = tail call contract noundef <8 x double> @llvm.fma.v8f64(<8 x double> %170, <8 x double> %170, <8 x double> %178)
   %180 = fcmp contract oge <8 x double> %179, zeroinitializer
-  %181 = and <8 x i1> %180, %174
+  %181 = and <8 x i1> %174, %180
   %182 = bitcast <8 x i1> %181 to i8
   %.not = icmp eq i8 %182, 0
   br i1 %.not, label %194, label %183
@@ -4486,7 +4486,7 @@ _ZNK5drjit9ArrayBaseINS_6PacketIdLm8EEELb0EN7mitsuba6VectorIS2_Lm3EEEE4dot_ERKS5
   %198 = fcmp contract ogt <8 x double> %197, %196
   %199 = fcmp contract oeq <8 x double> %104, zeroinitializer
   %200 = and <8 x i1> %199, %198
-  %201 = and <8 x i1> %200, %102
+  %201 = and <8 x i1> %102, %200
   %202 = fpext <8 x float> %37 to <8 x double>
   %203 = fcmp contract une <8 x double> %170, zeroinitializer
   %204 = select <8 x i1> %174, <8 x i1> %180, <8 x i1> %203
@@ -4494,14 +4494,14 @@ _ZNK5drjit9ArrayBaseINS_6PacketIdLm8EEELb0EN7mitsuba6VectorIS2_Lm3EEEE4dot_ERKS5
   %206 = fadd contract <8 x double> %104, %.sroa.01027.0
   %207 = fcmp contract ole <8 x double> %205, %202
   %208 = fcmp contract oge <8 x double> %206, zeroinitializer
+  %.not958.not = and <8 x i1> %208, %207
   %209 = fcmp contract uge <8 x double> %205, zeroinitializer
   %210 = fcmp contract ule <8 x double> %206, %202
-  %.not1089 = or <8 x i1> %209, %210
+  %.not1089 = or <8 x i1> %210, %209
   %211 = xor <8 x i1> %201, splat (i1 true)
-  %.not958.not = and <8 x i1> %204, %211
-  %212 = and <8 x i1> %.not958.not, %208
-  %213 = and <8 x i1> %212, %207
-  %214 = and <8 x i1> %213, %.not1089
+  %212 = and <8 x i1> %204, %211
+  %213 = and <8 x i1> %212, %.not958.not
+  %214 = and <8 x i1> %.not1089, %213
   %215 = tail call contract noundef <8 x float> @llvm.x86.avx512.mask.cvtpd2ps.512(<8 x double> %206, <8 x float> zeroinitializer, i8 -1, i32 4)
   %216 = tail call contract noundef <8 x float> @llvm.x86.avx512.mask.cvtpd2ps.512(<8 x double> %205, <8 x float> zeroinitializer, i8 -1, i32 4)
   %217 = select contract <8 x i1> %209, <8 x float> %216, <8 x float> %215
@@ -4657,7 +4657,7 @@ _ZNK5drjit9ArrayBaseINS_6PacketIdLm8EEELb0EN7mitsuba6VectorIS2_Lm3EEEE4dot_ERKS5
   %78 = fmul contract <8 x double> %77, %75
   %79 = tail call contract noundef <8 x double> @llvm.fma.v8f64(<8 x double> %70, <8 x double> %70, <8 x double> %78)
   %80 = fcmp contract oge <8 x double> %79, zeroinitializer
-  %81 = and <8 x i1> %80, %74
+  %81 = and <8 x i1> %74, %80
   %82 = bitcast <8 x i1> %81 to i8
   %.not = icmp eq i8 %82, 0
   br i1 %.not, label %94, label %83
@@ -4683,12 +4683,12 @@ _ZNK5drjit9ArrayBaseINS_6PacketIdLm8EEELb0EN7mitsuba6VectorIS2_Lm3EEEE4dot_ERKS5
   %97 = select <8 x i1> %74, <8 x i1> %80, <8 x i1> %96
   %98 = fcmp contract ole <8 x double> %.sroa.0631.0, %95
   %99 = fcmp contract oge <8 x double> %.sroa.0630.0, zeroinitializer
+  %.not598.not = and <8 x i1> %99, %98
   %100 = fcmp contract uge <8 x double> %.sroa.0631.0, zeroinitializer
   %101 = fcmp contract ule <8 x double> %.sroa.0630.0, %95
-  %.not677 = or <8 x i1> %100, %101
-  %.not598.not = and <8 x i1> %99, %97
-  %102 = and <8 x i1> %.not598.not, %98
-  %103 = and <8 x i1> %102, %.not677
+  %.not677 = or <8 x i1> %101, %100
+  %102 = and <8 x i1> %97, %.not598.not
+  %103 = and <8 x i1> %.not677, %102
   %104 = bitcast <8 x i1> %103 to i8
   ret i8 %104
 }
@@ -4954,10 +4954,10 @@ _ZN7mitsuba5PointIN5drjit6PacketIdLm16EEELm3EECI2NS1_15StaticArrayImplIS3_Lm3ELb
   %146 = phi <8 x i1> [ %140, %138 ], [ %148, %144 ]
   %147 = getelementptr inbounds nuw [3 x %"struct.drjit::PacketMask.376"], ptr %20, i64 0, i64 %.064.i
   %.sroa.018.0.copyload58.i = load <8 x i1>, ptr %147, align 2
-  %148 = and <8 x i1> %.sroa.018.0.copyload58.i, %146
+  %148 = and <8 x i1> %146, %.sroa.018.0.copyload58.i
   %149 = getelementptr inbounds nuw i8, ptr %147, i64 1
   %.sroa.021.0.copyload59.i = load <8 x i1>, ptr %149, align 1
-  %150 = and <8 x i1> %.sroa.021.0.copyload59.i, %145
+  %150 = and <8 x i1> %145, %.sroa.021.0.copyload59.i
   %151 = add nuw nsw i64 %.064.i, 1
   %exitcond.not.i2040 = icmp eq i64 %151, 3
   br i1 %exitcond.not.i2040, label %_ZNK5drjit9ArrayBaseINS_10PacketMaskIdLm16EEELb1ENS_4MaskINS_6PacketIdLm16EEELm3EEEE4all_Ev.exit, label %144, !llvm.loop !264
@@ -5180,7 +5180,7 @@ _ZNK5drjit9ArrayBaseINS_6PacketIdLm16EEELb0EN7mitsuba6VectorIS2_Lm3EEEE4dot_ERKS
   %278 = extractelement <2 x i8> %bc, i64 1
   %279 = bitcast i8 %277 to <8 x i1>
   %280 = bitcast i8 %278 to <8 x i1>
-  %281 = or <8 x i1> %280, %279
+  %281 = or <8 x i1> %279, %280
   %282 = bitcast <8 x i1> %281 to i8
   %.not = icmp eq i8 %282, 0
   br i1 %.not, label %304, label %283
@@ -5215,16 +5215,16 @@ _ZNK5drjit9ArrayBaseINS_6PacketIdLm16EEELb0EN7mitsuba6VectorIS2_Lm3EEEE4dot_ERKS
   %.sroa.52263.0 = phi <8 x double> [ %301, %283 ], [ %265, %254 ]
   %305 = insertelement <8 x double> poison, double %26, i64 0
   %306 = fcmp contract une <8 x double> %255, zeroinitializer
-  %.sroa.22445.0.insert.shift254425452546 = and <8 x i1> %306, %261
+  %.sroa.22445.0.insert.shift254425452546 = and <8 x i1> %261, %306
   %307 = fcmp contract une <8 x double> %243, zeroinitializer
-  %308 = and <8 x i1> %307, %260
+  %308 = and <8 x i1> %260, %307
   %309 = shufflevector <8 x double> %305, <8 x double> poison, <8 x i32> zeroinitializer
   %310 = tail call contract noundef <8 x double> @llvm.sqrt.v8f64(<8 x double> %199)
   %311 = fcmp contract ogt <8 x double> %310, %309
   %312 = fcmp contract oeq <8 x double> %111, zeroinitializer
-  %313 = and <8 x i1> %148, %312
+  %313 = and <8 x i1> %312, %148
   %314 = fcmp contract oeq <8 x double> %152, zeroinitializer
-  %.sroa.22409.0.insert.shift254025412542 = and <8 x i1> %150, %314
+  %.sroa.22409.0.insert.shift254025412542 = and <8 x i1> %314, %150
   %315 = shufflevector <8 x i1> %313, <8 x i1> %.sroa.22409.0.insert.shift254025412542, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15>
   %bc2543 = bitcast <16 x i1> %315 to <2 x i8>
   %316 = extractelement <2 x i8> %bc2543, i64 0
@@ -5246,18 +5246,18 @@ _ZNK5drjit9ArrayBaseINS_6PacketIdLm16EEELb0EN7mitsuba6VectorIS2_Lm3EEEE4dot_ERKS
   %332 = fadd contract <8 x double> %152, %.sroa.52263.0
   %333 = fadd contract <8 x double> %111, %.sroa.02254.0
   %334 = fadd contract <8 x double> %152, %.sroa.42257.0
-  %335 = shufflevector <8 x double> %331, <8 x double> %332, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15>
-  %336 = shufflevector <8 x double> %328, <8 x double> %326, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15>
-  %337 = fcmp contract ugt <16 x double> %335, %336
-  %338 = shufflevector <8 x double> %333, <8 x double> %334, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15>
-  %339 = fcmp contract ult <16 x double> %338, zeroinitializer
-  %340 = or <16 x i1> %337, %339
+  %335 = shufflevector <8 x double> %333, <8 x double> %334, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15>
+  %336 = fcmp contract ult <16 x double> %335, zeroinitializer
+  %337 = shufflevector <8 x double> %331, <8 x double> %332, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15>
+  %338 = shufflevector <8 x double> %328, <8 x double> %326, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15>
+  %339 = fcmp contract ugt <16 x double> %337, %338
+  %340 = or <16 x i1> %336, %339
   %341 = fcmp contract olt <8 x double> %331, zeroinitializer
   %342 = fcmp contract olt <8 x double> %332, zeroinitializer
   %343 = fcmp contract ogt <8 x double> %333, %328
   %344 = fcmp contract ogt <8 x double> %334, %326
-  %345 = and <8 x i1> %341, %343
-  %.sroa.22533.0.insert.shift255525562557 = and <8 x i1> %342, %344
+  %345 = and <8 x i1> %343, %341
+  %.sroa.22533.0.insert.shift255525562557 = and <8 x i1> %344, %342
   %346 = shufflevector <8 x i1> %345, <8 x i1> %.sroa.22533.0.insert.shift255525562557, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15>
   %347 = bitcast <16 x i1> %324 to <2 x i8>
   %bc2559 = xor <2 x i8> %347, splat (i8 -1)
@@ -5502,7 +5502,7 @@ _ZNK5drjit9ArrayBaseINS_6PacketIdLm16EEELb0EN7mitsuba6VectorIS2_Lm3EEEE4dot_ERKS
   %123 = extractelement <2 x i8> %bc, i64 1
   %124 = bitcast i8 %122 to <8 x i1>
   %125 = bitcast i8 %123 to <8 x i1>
-  %126 = or <8 x i1> %125, %124
+  %126 = or <8 x i1> %124, %125
   %127 = bitcast <8 x i1> %126 to i8
   %.not = icmp eq i8 %127, 0
   br i1 %.not, label %149, label %128
@@ -5536,27 +5536,27 @@ _ZNK5drjit9ArrayBaseINS_6PacketIdLm16EEELb0EN7mitsuba6VectorIS2_Lm3EEEE4dot_ERKS
   %.sroa.01506.0 = phi <8 x double> [ %145, %128 ], [ %109, %99 ]
   %.sroa.5.0 = phi <8 x double> [ %146, %128 ], [ %110, %99 ]
   %150 = fcmp contract une <8 x double> %100, zeroinitializer
-  %.sroa.21628.0.insert.shift170917101711 = and <8 x i1> %150, %106
+  %.sroa.21628.0.insert.shift170917101711 = and <8 x i1> %106, %150
   %151 = fcmp contract une <8 x double> %88, zeroinitializer
-  %152 = and <8 x i1> %151, %105
+  %152 = and <8 x i1> %105, %151
   %153 = shufflevector <16 x float> %24, <16 x float> poison, <8 x i32> <i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15>
   %154 = fpext <8 x float> %153 to <8 x double>
   %155 = shufflevector <16 x float> %24, <16 x float> poison, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7>
   %156 = fpext <8 x float> %155 to <8 x double>
   %157 = or <8 x i1> %152, %124
   %158 = or <8 x i1> %.sroa.21628.0.insert.shift170917101711, %125
-  %159 = shufflevector <8 x double> %.sroa.01506.0, <8 x double> %.sroa.5.0, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15>
-  %160 = shufflevector <8 x double> %156, <8 x double> %154, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15>
-  %161 = fcmp contract ugt <16 x double> %159, %160
-  %162 = shufflevector <8 x double> %.sroa.01500.0, <8 x double> %.sroa.41503.0, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15>
-  %163 = fcmp contract ult <16 x double> %162, zeroinitializer
-  %164 = or <16 x i1> %161, %163
-  %165 = shufflevector <8 x double> %.sroa.01506.0, <8 x double> %.sroa.5.0, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15>
-  %166 = fcmp contract olt <16 x double> %165, zeroinitializer
-  %167 = shufflevector <8 x double> %.sroa.01500.0, <8 x double> %.sroa.41503.0, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15>
-  %168 = shufflevector <8 x double> %156, <8 x double> %154, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15>
-  %169 = fcmp contract ogt <16 x double> %167, %168
-  %170 = and <16 x i1> %166, %169
+  %159 = shufflevector <8 x double> %.sroa.01500.0, <8 x double> %.sroa.41503.0, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15>
+  %160 = fcmp contract ult <16 x double> %159, zeroinitializer
+  %161 = shufflevector <8 x double> %.sroa.01506.0, <8 x double> %.sroa.5.0, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15>
+  %162 = shufflevector <8 x double> %156, <8 x double> %154, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15>
+  %163 = fcmp contract ugt <16 x double> %161, %162
+  %164 = or <16 x i1> %160, %163
+  %165 = shufflevector <8 x double> %.sroa.01500.0, <8 x double> %.sroa.41503.0, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15>
+  %166 = shufflevector <8 x double> %156, <8 x double> %154, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15>
+  %167 = fcmp contract ogt <16 x double> %165, %166
+  %168 = shufflevector <8 x double> %.sroa.01506.0, <8 x double> %.sroa.5.0, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15>
+  %169 = fcmp contract olt <16 x double> %168, zeroinitializer
+  %170 = and <16 x i1> %167, %169
   %171 = bitcast <16 x i1> %164 to <2 x i8>
   %bc1723 = xor <2 x i8> %171, splat (i8 -1)
   %172 = extractelement <2 x i8> %bc1723, i64 0

@@ -447,7 +447,7 @@ define hidden noundef i32 @_ZNK4ncnn11UnaryOp_x8615forward_inplaceERNS_3MatERKNS
   %200 = bitcast <4 x i32> %199 to <4 x float>
   %201 = fcmp fast ogt <4 x float> %191, zeroinitializer
   %202 = fcmp fast ogt <4 x float> %191, %200
-  %203 = and <4 x i1> %202, %201
+  %203 = and <4 x i1> %201, %202
   %204 = select <4 x i1> %203, <4 x float> splat (float -1.000000e+00), <4 x float> zeroinitializer
   %205 = fsub fast <4 x float> %200, %204
   %.v.us.i104 = select <4 x i1> %195, <4 x float> %205, <4 x float> %191

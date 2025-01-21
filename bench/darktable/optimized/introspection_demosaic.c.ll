@@ -6097,14 +6097,14 @@ define void @process(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %4371 = select <8 x i1> %4369, <8 x float> %4370, <8 x float> %4358
   %4372 = fmul reassoc nsz arcp contract afn <8 x float> %4371, splat (float 0x3FF051EB80000000)
   %4373 = fcmp reassoc nsz arcp contract afn olt <8 x float> %4368, %4372
-  %4374 = and <8 x i1> %4373, %4365
+  %4374 = and <8 x i1> %4365, %4373
   %4375 = select <8 x i1> %4374, <8 x float> %4329, <8 x float> %4357
   %4376 = fmul reassoc nsz arcp contract afn <8 x float> %4375, %958
   %4377 = fmul reassoc nsz arcp contract afn <8 x float> %4329, %960
   %4378 = fadd reassoc nsz arcp contract afn <8 x float> %4376, %4377
   %4379 = fcmp reassoc nsz arcp contract afn olt <8 x float> %4368, %4371
   %4380 = fcmp reassoc nsz arcp contract afn olt <8 x float> %4361, %4372
-  %4381 = and <8 x i1> %4379, %4380
+  %4381 = and <8 x i1> %4380, %4379
   %4382 = select <8 x i1> %4381, <8 x float> %4356, <8 x float> %4358
   %4383 = fmul reassoc nsz arcp contract afn <8 x float> %4382, %958
   %4384 = fmul reassoc nsz arcp contract afn <8 x float> %4356, %960

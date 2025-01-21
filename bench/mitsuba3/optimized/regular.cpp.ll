@@ -1273,7 +1273,7 @@ define weak_odr <4 x float> @_ZNK7mitsuba15RegularSpectrumIfN5drjit6MatrixINS_8S
   %11 = load <4 x float>, ptr %10, align 8
   %12 = shufflevector <4 x float> %11, <4 x float> poison, <4 x i32> zeroinitializer
   %13 = fcmp contract ole <4 x float> %.sroa.0.0.copyload, %12
-  %14 = and <4 x i1> %13, %9
+  %14 = and <4 x i1> %9, %13
   %15 = fsub contract <4 x float> %.sroa.0.0.copyload, %8
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %17 = load <4 x float>, ptr %16, align 8
@@ -1315,7 +1315,7 @@ define weak_odr <4 x float> @_ZNK7mitsuba15RegularSpectrumIfN5drjit6MatrixINS_8S
   %11 = load <4 x float>, ptr %10, align 8
   %12 = shufflevector <4 x float> %11, <4 x float> poison, <4 x i32> zeroinitializer
   %13 = fcmp contract ole <4 x float> %.sroa.0.0.copyload, %12
-  %14 = and <4 x i1> %13, %9
+  %14 = and <4 x i1> %9, %13
   %15 = fsub contract <4 x float> %.sroa.0.0.copyload, %8
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %17 = load <4 x float>, ptr %16, align 8

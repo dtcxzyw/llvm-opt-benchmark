@@ -13378,7 +13378,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN7mitsuba6detail14variant_helpe
   %63 = phi <8 x i1> [ %61, %59 ], [ %66, %62 ]
   %64 = getelementptr inbounds nuw [3 x %"struct.drjit::Mask"], ptr %6, i64 0, i64 %.028.i.i.i.i.i
   %65 = load <8 x i1>, ptr %64, align 1
-  %66 = and <8 x i1> %65, %63
+  %66 = and <8 x i1> %63, %65
   %67 = add nuw nsw i64 %.028.i.i.i.i.i, 1
   %exitcond.not.i.i.i.i.i = icmp eq i64 %67, 3
   br i1 %exitcond.not.i.i.i.i.i, label %_ZN5drjit10all_nestedIvNS_4MaskINS1_IdLm3EEELm3EEEEEDaRKT0_.exit.i.i.i, label %62, !llvm.loop !107
@@ -13420,7 +13420,7 @@ _ZN5drjit10all_nestedIvNS_4MaskINS1_IdLm3EEELm3EEEEEDaRKT0_.exit.i.i.i: ; preds 
   %87 = phi <8 x i1> [ %85, %83 ], [ %90, %86 ]
   %88 = getelementptr inbounds nuw [3 x %"struct.drjit::Mask"], ptr %7, i64 0, i64 %.028.i.i110.i.i.i
   %89 = load <8 x i1>, ptr %88, align 1
-  %90 = and <8 x i1> %89, %87
+  %90 = and <8 x i1> %87, %89
   %91 = add nuw nsw i64 %.028.i.i110.i.i.i, 1
   %exitcond.not.i.i111.i.i.i = icmp eq i64 %91, 3
   br i1 %exitcond.not.i.i111.i.i.i, label %_ZN5drjit10all_nestedIvNS_4MaskINS1_IdLm3EEELm3EEEEEDaRKT0_.exit112.i.i.i, label %86, !llvm.loop !107
@@ -13490,7 +13490,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN7mitsuba6detail14variant_helpe
   %23 = phi <8 x i1> [ %21, %19 ], [ %26, %22 ]
   %24 = getelementptr inbounds nuw [4 x %"struct.drjit::Mask.147"], ptr %6, i64 0, i64 %.028.i.i.i
   %25 = load <8 x i1>, ptr %24, align 1
-  %26 = and <8 x i1> %25, %23
+  %26 = and <8 x i1> %23, %25
   %27 = add nuw nsw i64 %.028.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %27, 4
   br i1 %exitcond.not.i.i.i, label %_ZN5drjit10all_nestedIvNS_4MaskINS1_IdLm4EEELm4EEEEEDaRKT0_.exit.i, label %22, !llvm.loop !109
@@ -13532,7 +13532,7 @@ _ZN5drjit10all_nestedIvNS_4MaskINS1_IdLm4EEELm4EEEEEDaRKT0_.exit.i: ; preds = %2
   %47 = phi <8 x i1> [ %45, %43 ], [ %50, %46 ]
   %48 = getelementptr inbounds nuw [4 x %"struct.drjit::Mask.147"], ptr %7, i64 0, i64 %.028.i.i99.i
   %49 = load <8 x i1>, ptr %48, align 1
-  %50 = and <8 x i1> %49, %47
+  %50 = and <8 x i1> %47, %49
   %51 = add nuw nsw i64 %.028.i.i99.i, 1
   %exitcond.not.i.i100.i = icmp eq i64 %51, 4
   br i1 %exitcond.not.i.i100.i, label %_ZN5drjit10all_nestedIvNS_4MaskINS1_IdLm4EEELm4EEEEEDaRKT0_.exit101.i, label %46, !llvm.loop !109

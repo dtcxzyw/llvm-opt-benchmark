@@ -9676,9 +9676,9 @@ define linkonce_odr hidden void @_ZN7mitsuba17fresnel_polarizedINS_8SpectrumIfLm
   %111 = tail call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %11, <4 x float> %11, <4 x float> %13)
   %112 = fcmp contract oeq <4 x float> %111, splat (float 1.000000e+00)
   %113 = fcmp contract oeq <4 x float> %11, zeroinitializer
-  %114 = and <4 x i1> %112, %113
+  %114 = and <4 x i1> %113, %112
   %115 = fcmp contract oeq <4 x float> %111, zeroinitializer
-  %116 = or <4 x i1> %114, %115
+  %116 = or <4 x i1> %115, %114
   %117 = shufflevector <4 x i1> %116, <4 x i1> zeroinitializer, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7>
   %118 = bitcast <8 x i1> %117 to i8
   %.sroa.2778.0.insert.ext = zext nneg i8 %118 to i16

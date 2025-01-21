@@ -3307,7 +3307,7 @@ common.ret:                                       ; preds = %1859, %214, %179
   %.0.copyload2.i.i.i.i.i = load <16 x i8>, ptr %654, align 1, !alias.scope !539, !noalias !540
   %655 = icmp eq <16 x i8> %.0.copyload.i.i.i.i.i, %638
   %656 = icmp eq <16 x i8> %.0.copyload2.i.i.i.i.i, %639
-  %657 = and <16 x i1> %656, %655
+  %657 = and <16 x i1> %655, %656
   %658 = getelementptr inbounds nuw [4 x i16], ptr %32, i64 0, i64 %.sroa.019.0142.i.i.i.i
   store <16 x i1> %657, ptr %658, align 2, !noalias !538
   %exitcond.not.i36.i.i.i = icmp eq i64 %652, 4
@@ -3359,7 +3359,7 @@ common.ret:                                       ; preds = %1859, %214, %179
   %.0.copyload2.i82.i.i.i.i = load <16 x i8>, ptr %680, align 1, !alias.scope !539, !noalias !543
   %681 = icmp eq <16 x i8> %.0.copyload.i81.i.i.i.i, %638
   %682 = icmp eq <16 x i8> %.0.copyload2.i82.i.i.i.i, %639
-  %683 = and <16 x i1> %682, %681
+  %683 = and <16 x i1> %681, %682
   %684 = bitcast <16 x i1> %683 to i16
   %685 = icmp eq i16 %684, 0
   br i1 %685, label %705, label %700
@@ -3371,7 +3371,7 @@ common.ret:                                       ; preds = %1859, %214, %179
   %.0.copyload2.i84.i.i.i.i = load <16 x i8>, ptr %688, align 1, !alias.scope !539, !noalias !546
   %689 = icmp eq <16 x i8> %.0.copyload.i83.i.i.i.i, %638
   %690 = icmp eq <16 x i8> %.0.copyload2.i84.i.i.i.i, %639
-  %691 = and <16 x i1> %690, %689
+  %691 = and <16 x i1> %689, %690
   %692 = bitcast <16 x i1> %691 to i16
   %693 = icmp eq i16 %692, 0
   br i1 %693, label %697, label %694

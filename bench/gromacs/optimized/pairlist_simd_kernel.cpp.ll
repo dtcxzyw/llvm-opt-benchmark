@@ -724,7 +724,7 @@ define void @_ZN5Nbnxm23makeClusterListSimd2xMMERKNS_4GridEP16NbnxnPairlistCpuii
   %73 = fcmp olt <8 x float> %.sroa.023.0..sroa.023.0..sroa.073.0.copyload.i, %18
   %.sroa.424.0..sroa.424.0..sroa.073.0.copyload.i.c = load <8 x float>, ptr %.sroa.424, align 32, !noalias !35
   %74 = fcmp olt <8 x float> %.sroa.424.0..sroa.424.0..sroa.073.0.copyload.i.c, %18
-  %75 = or <8 x i1> %74, %73
+  %75 = or <8 x i1> %73, %74
   %76 = bitcast <8 x i1> %75 to i8
   %77 = icmp ne i8 %76, 0
   %78 = zext i1 %77 to i8
@@ -837,7 +837,7 @@ define void @_ZN5Nbnxm23makeClusterListSimd2xMMERKNS_4GridEP16NbnxnPairlistCpuii
   %133 = fcmp olt <8 x float> %.sroa.013.0..sroa.013.0..sroa.018.0.copyload.i, %18
   %.sroa.4.0..sroa.4.0..sroa.018.0.copyload.i.c = load <8 x float>, ptr %.sroa.4, align 32, !noalias !35
   %134 = fcmp olt <8 x float> %.sroa.4.0..sroa.4.0..sroa.018.0.copyload.i.c, %18
-  %135 = or <8 x i1> %134, %133
+  %135 = or <8 x i1> %133, %134
   %136 = bitcast <8 x i1> %135 to i8
   %137 = icmp ne i8 %136, 0
   %138 = zext i1 %137 to i8
