@@ -427,19 +427,19 @@ stbrp__skyline_find_min_y.exit.i.i:               ; preds = %.lr.ph.split.i.i, %
 
 ._crit_edge.i.i:                                  ; preds = %81
   %91 = icmp eq ptr %.1.us.i.i, null
-  br i1 %91, label %._crit_edge.thread.i.i, label %._crit_edge.i.._crit_edge.thread196.i_crit_edge.i
+  br i1 %91, label %._crit_edge.thread.i.i, label %._crit_edge.i.._crit_edge.thread197.i_crit_edge.i
 
-._crit_edge.i.._crit_edge.thread196.i_crit_edge.i: ; preds = %._crit_edge.i.i
+._crit_edge.i.._crit_edge.thread197.i_crit_edge.i: ; preds = %._crit_edge.i.i
   %.pre.i = load ptr, ptr %.1.us.i.i, align 8
   %.pre60.i = load i32, ptr %.pre.i, align 8
   br label %._crit_edge.thread.i.i
 
-._crit_edge.thread.i.i:                           ; preds = %stbrp__skyline_find_min_y.exit.i.i, %._crit_edge.i.._crit_edge.thread196.i_crit_edge.i, %._crit_edge.i.i, %.._crit_edge.thread.i_crit_edge.i
-  %92 = phi i32 [ %38, %._crit_edge.i.i ], [ %.pre61.i, %.._crit_edge.thread.i_crit_edge.i ], [ %38, %._crit_edge.i.._crit_edge.thread196.i_crit_edge.i ], [ %38, %stbrp__skyline_find_min_y.exit.i.i ]
-  %.0.lcssa195.i.i = phi ptr [ null, %._crit_edge.i.i ], [ null, %.._crit_edge.thread.i_crit_edge.i ], [ %.1.us.i.i, %._crit_edge.i.._crit_edge.thread196.i_crit_edge.i ], [ %11, %stbrp__skyline_find_min_y.exit.i.i ]
-  %.080.lcssa194.i.i = phi i32 [ %.181.us.i.i, %._crit_edge.i.i ], [ 1073741824, %.._crit_edge.thread.i_crit_edge.i ], [ %.181.us.i.i, %._crit_edge.i.._crit_edge.thread196.i_crit_edge.i ], [ 0, %stbrp__skyline_find_min_y.exit.i.i ]
-  %.088.lcssa193.i.i = phi i32 [ %.189.us.i.i, %._crit_edge.i.i ], [ 1073741824, %.._crit_edge.thread.i_crit_edge.i ], [ %.189.us.i.i, %._crit_edge.i.._crit_edge.thread196.i_crit_edge.i ], [ 0, %stbrp__skyline_find_min_y.exit.i.i ]
-  %93 = phi i32 [ 0, %._crit_edge.i.i ], [ 0, %.._crit_edge.thread.i_crit_edge.i ], [ %.pre60.i, %._crit_edge.i.._crit_edge.thread196.i_crit_edge.i ], [ %35, %stbrp__skyline_find_min_y.exit.i.i ]
+._crit_edge.thread.i.i:                           ; preds = %stbrp__skyline_find_min_y.exit.i.i, %._crit_edge.i.._crit_edge.thread197.i_crit_edge.i, %._crit_edge.i.i, %.._crit_edge.thread.i_crit_edge.i
+  %92 = phi i32 [ %38, %._crit_edge.i.i ], [ %.pre61.i, %.._crit_edge.thread.i_crit_edge.i ], [ %38, %._crit_edge.i.._crit_edge.thread197.i_crit_edge.i ], [ %38, %stbrp__skyline_find_min_y.exit.i.i ]
+  %.0.lcssa196.i.i = phi ptr [ null, %._crit_edge.i.i ], [ null, %.._crit_edge.thread.i_crit_edge.i ], [ %.1.us.i.i, %._crit_edge.i.._crit_edge.thread197.i_crit_edge.i ], [ %11, %stbrp__skyline_find_min_y.exit.i.i ]
+  %.080.lcssa195.i.i = phi i32 [ %.181.us.i.i, %._crit_edge.i.i ], [ 1073741824, %.._crit_edge.thread.i_crit_edge.i ], [ %.181.us.i.i, %._crit_edge.i.._crit_edge.thread197.i_crit_edge.i ], [ 0, %stbrp__skyline_find_min_y.exit.i.i ]
+  %.088.lcssa194.i.i = phi i32 [ %.189.us.i.i, %._crit_edge.i.i ], [ 1073741824, %.._crit_edge.thread.i_crit_edge.i ], [ %.189.us.i.i, %._crit_edge.i.._crit_edge.thread197.i_crit_edge.i ], [ 0, %stbrp__skyline_find_min_y.exit.i.i ]
+  %93 = phi i32 [ 0, %._crit_edge.i.i ], [ 0, %.._crit_edge.thread.i_crit_edge.i ], [ %.pre60.i, %._crit_edge.i.._crit_edge.thread197.i_crit_edge.i ], [ %35, %stbrp__skyline_find_min_y.exit.i.i ]
   %94 = icmp eq i32 %92, 1
   br i1 %94, label %95, label %stbrp__skyline_find_best_pos.exit.i
 
@@ -460,13 +460,13 @@ stbrp__skyline_find_min_y.exit.i.i:               ; preds = %.lr.ph.split.i.i, %
   br label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %.preheader.i.i.preheader, %147
-  %.3183.i.i = phi ptr [ %.4.i.i, %147 ], [ %.0.lcssa195.i.i, %.preheader.i.i.preheader ]
+  %.3183.i.i = phi ptr [ %.4.i.i, %147 ], [ %.0.lcssa196.i.i, %.preheader.i.i.preheader ]
   %.173182.i.i = phi ptr [ %149, %147 ], [ %.173182.i.i.ph, %.preheader.i.i.preheader ]
   %.175181.i.i = phi ptr [ %.276.i.i, %147 ], [ %.074126.i.i, %.preheader.i.i.preheader ]
   %.178180.i.i = phi ptr [ %.279.i.i, %147 ], [ %11, %.preheader.i.i.preheader ]
-  %.383179.i.i = phi i32 [ %.484.i.i, %147 ], [ %.080.lcssa194.i.i, %.preheader.i.i.preheader ]
+  %.383179.i.i = phi i32 [ %.484.i.i, %147 ], [ %.080.lcssa195.i.i, %.preheader.i.i.preheader ]
   %.186178.i.i = phi i32 [ %.287.i.i, %147 ], [ %93, %.preheader.i.i.preheader ]
-  %.290177.i.i = phi i32 [ %.391.i.i, %147 ], [ %.088.lcssa193.i.i, %.preheader.i.i.preheader ]
+  %.290177.i.i = phi i32 [ %.391.i.i, %147 ], [ %.088.lcssa194.i.i, %.preheader.i.i.preheader ]
   %101 = load i32, ptr %.173182.i.i, align 8
   %102 = sub nsw i32 %101, %28
   br label %103
@@ -573,8 +573,8 @@ stbrp__skyline_find_min_y.exit121.i.i:            ; preds = %135, %107
 
 stbrp__skyline_find_best_pos.exit.i:              ; preds = %147, %._crit_edge.thread.i.i
   %.085.i.i = phi i32 [ %93, %._crit_edge.thread.i.i ], [ %.287.i.i, %147 ]
-  %.282.i.i = phi i32 [ %.080.lcssa194.i.i, %._crit_edge.thread.i.i ], [ %.484.i.i, %147 ]
-  %.2.i.i = phi ptr [ %.0.lcssa195.i.i, %._crit_edge.thread.i.i ], [ %.4.i.i, %147 ]
+  %.282.i.i = phi i32 [ %.080.lcssa195.i.i, %._crit_edge.thread.i.i ], [ %.484.i.i, %147 ]
+  %.2.i.i = phi ptr [ %.0.lcssa196.i.i, %._crit_edge.thread.i.i ], [ %.4.i.i, %147 ]
   %150 = icmp eq ptr %.2.i.i, null
   br i1 %150, label %stbrp__skyline_pack_rectangle.exit, label %stbrp__skyline_find_best_pos.exit.i.thread
 

@@ -21387,8 +21387,8 @@ _ZN8ImVectorI10stbrp_rectED2Ev.exit:              ; preds = %for.end50, %if.then
 ; Function Attrs: mustprogress nofree uwtable
 define internal fastcc void @_ZL16stbrp_pack_rectsP13stbrp_contextP10stbrp_recti(ptr noundef %context, ptr noundef %rects, i32 noundef %num_rects) unnamed_addr #28 {
 entry:
-  %cmp57 = icmp sgt i32 %num_rects, 0
-  br i1 %cmp57, label %for.body.preheader, label %for.end
+  %cmp56 = icmp sgt i32 %num_rects, 0
+  br i1 %cmp56, label %for.body.preheader, label %for.end
 
 for.body.preheader:                               ; preds = %entry
   %wide.trip.count = zext nneg i32 %num_rects to i64
@@ -21413,7 +21413,7 @@ if.then.i:                                        ; preds = %for.end
   br label %_ZL7ImQsortPvmmPFiPKvS1_E.exit
 
 _ZL7ImQsortPvmmPFiPKvS1_E.exit:                   ; preds = %for.end, %if.then.i
-  br i1 %cmp57, label %for.body3.lr.ph, label %for.end39
+  br i1 %cmp56, label %for.body3.lr.ph, label %for.end39
 
 for.body3.lr.ph:                                  ; preds = %_ZL7ImQsortPvmmPFiPKvS1_E.exit
   %align.i.i = getelementptr inbounds nuw i8, ptr %context, i64 8
@@ -21421,12 +21421,12 @@ for.body3.lr.ph:                                  ; preds = %_ZL7ImQsortPvmmPFiP
   %active_head.i.i = getelementptr inbounds nuw i8, ptr %context, i64 24
   %heuristic.i.i = getelementptr inbounds nuw i8, ptr %context, i64 16
   %free_head.i = getelementptr inbounds nuw i8, ptr %context, i64 32
-  %wide.trip.count69 = zext nneg i32 %num_rects to i64
+  %wide.trip.count68 = zext nneg i32 %num_rects to i64
   br label %for.body3
 
 for.body3:                                        ; preds = %for.body3.lr.ph, %for.inc37
-  %indvars.iv66 = phi i64 [ 0, %for.body3.lr.ph ], [ %indvars.iv.next67, %for.inc37 ]
-  %arrayidx5 = getelementptr inbounds nuw %struct.stbrp_rect, ptr %rects, i64 %indvars.iv66
+  %indvars.iv65 = phi i64 [ 0, %for.body3.lr.ph ], [ %indvars.iv.next66, %for.inc37 ]
+  %arrayidx5 = getelementptr inbounds nuw %struct.stbrp_rect, ptr %rects, i64 %indvars.iv65
   %w = getelementptr inbounds nuw i8, ptr %arrayidx5, i64 4
   %1 = load i32, ptr %w, align 4
   %cmp6 = icmp eq i32 %1, 0
@@ -21461,7 +21461,7 @@ if.end.i.i:                                       ; preds = %lor.lhs.false.i.i
   br i1 %cmp10.not106.i.i, label %if.end.i.cond.end.i_crit_edge.i, label %while.body.lr.ph.i.i
 
 if.end.i.cond.end.i_crit_edge.i:                  ; preds = %if.end.i.i
-  %.pre55.i = load i32, ptr %heuristic.i.i, align 8
+  %.pre.i = load i32, ptr %heuristic.i.i, align 8
   br label %cond.end.i.i
 
 while.body.lr.ph.i.i:                             ; preds = %if.end.i.i
@@ -21571,28 +21571,28 @@ _ZL25stbrp__skyline_find_min_yP13stbrp_contextP10stbrp_nodeiiPi.exit.loopexit.us
   br i1 %cmp13.i.i, label %if.then14.us.i.i, label %if.else.us.i.i
 
 while.body.lr.ph.split.i.i:                       ; preds = %while.body.lr.ph.i.i
-  br i1 %cmp13.i.i, label %_ZL28stbrp__skyline_find_best_posP13stbrp_contextii.exit.thread.i, label %cond.end.i.i
-
-_ZL28stbrp__skyline_find_best_posP13stbrp_contextii.exit.thread.i: ; preds = %while.body.lr.ph.split.i.i
-  %18 = zext i32 %6 to i64
-  br label %lor.lhs.false.i
+  %spec.select.i = select i1 %cmp13.i.i, i32 1073741824, i32 0
+  br label %cond.false.i.i
 
 while.end.i.i:                                    ; preds = %if.end29.us.i.i
   %cmp31.i.i = icmp eq ptr %best.1.us.i.i, null
-  br i1 %cmp31.i.i, label %cond.end.i.i, label %while.end.i.cond.false.i_crit_edge.i
+  br i1 %cmp31.i.i, label %cond.end.i.i, label %cond.false.i.i
 
-while.end.i.cond.false.i_crit_edge.i:             ; preds = %while.end.i.i
-  %.pre.i = load ptr, ptr %best.1.us.i.i, align 8
-  %.pre54.i = load i32, ptr %.pre.i, align 8
+cond.false.i.i:                                   ; preds = %while.end.i.i, %while.body.lr.ph.split.i.i
+  %best.0.lcssa188.i.i = phi ptr [ %best.1.us.i.i, %while.end.i.i ], [ %active_head.i.i, %while.body.lr.ph.split.i.i ]
+  %best_y.0.lcssa187.i.i = phi i32 [ %best_y.1.us.i.i, %while.end.i.i ], [ 0, %while.body.lr.ph.split.i.i ]
+  %best_waste.0.lcssa186.i.i = phi i32 [ %best_waste.1.us.i.i, %while.end.i.i ], [ %spec.select.i, %while.body.lr.ph.split.i.i ]
+  %18 = load ptr, ptr %best.0.lcssa188.i.i, align 8
+  %19 = load i32, ptr %18, align 8
   br label %cond.end.i.i
 
-cond.end.i.i:                                     ; preds = %while.end.i.cond.false.i_crit_edge.i, %while.end.i.i, %while.body.lr.ph.split.i.i, %if.end.i.cond.end.i_crit_edge.i
-  %19 = phi i32 [ %7, %while.end.i.i ], [ %.pre55.i, %if.end.i.cond.end.i_crit_edge.i ], [ %7, %while.body.lr.ph.split.i.i ], [ %7, %while.end.i.cond.false.i_crit_edge.i ]
-  %best.0.lcssa180.i.i = phi ptr [ null, %while.end.i.i ], [ null, %if.end.i.cond.end.i_crit_edge.i ], [ %active_head.i.i, %while.body.lr.ph.split.i.i ], [ %best.1.us.i.i, %while.end.i.cond.false.i_crit_edge.i ]
-  %best_y.0.lcssa179.i.i = phi i32 [ %best_y.1.us.i.i, %while.end.i.i ], [ 1073741824, %if.end.i.cond.end.i_crit_edge.i ], [ 0, %while.body.lr.ph.split.i.i ], [ %best_y.1.us.i.i, %while.end.i.cond.false.i_crit_edge.i ]
-  %best_waste.0.lcssa178.i.i = phi i32 [ %best_waste.1.us.i.i, %while.end.i.i ], [ 1073741824, %if.end.i.cond.end.i_crit_edge.i ], [ 0, %while.body.lr.ph.split.i.i ], [ %best_waste.1.us.i.i, %while.end.i.cond.false.i_crit_edge.i ]
-  %cond.i.i = phi i32 [ 0, %while.end.i.i ], [ 0, %if.end.i.cond.end.i_crit_edge.i ], [ %6, %while.body.lr.ph.split.i.i ], [ %.pre54.i, %while.end.i.cond.false.i_crit_edge.i ]
-  %cmp34.i.i = icmp eq i32 %19, 1
+cond.end.i.i:                                     ; preds = %cond.false.i.i, %while.end.i.i, %if.end.i.cond.end.i_crit_edge.i
+  %20 = phi i32 [ %7, %cond.false.i.i ], [ %7, %while.end.i.i ], [ %.pre.i, %if.end.i.cond.end.i_crit_edge.i ]
+  %best.0.lcssa180.i.i = phi ptr [ %best.0.lcssa188.i.i, %cond.false.i.i ], [ null, %while.end.i.i ], [ null, %if.end.i.cond.end.i_crit_edge.i ]
+  %best_y.0.lcssa179.i.i = phi i32 [ %best_y.0.lcssa187.i.i, %cond.false.i.i ], [ %best_y.1.us.i.i, %while.end.i.i ], [ 1073741824, %if.end.i.cond.end.i_crit_edge.i ]
+  %best_waste.0.lcssa178.i.i = phi i32 [ %best_waste.0.lcssa186.i.i, %cond.false.i.i ], [ %best_waste.1.us.i.i, %while.end.i.i ], [ 1073741824, %if.end.i.cond.end.i_crit_edge.i ]
+  %cond.i.i = phi i32 [ %19, %cond.false.i.i ], [ 0, %while.end.i.i ], [ 0, %if.end.i.cond.end.i_crit_edge.i ]
+  %cmp34.i.i = icmp eq i32 %20, 1
   br i1 %cmp34.i.i, label %if.then35.i.i, label %_ZL28stbrp__skyline_find_best_posP13stbrp_contextii.exit.i
 
 if.then35.i.i:                                    ; preds = %cond.end.i.i
@@ -21600,93 +21600,93 @@ if.then35.i.i:                                    ; preds = %cond.end.i.i
   br i1 %cmp41161.i.i, label %while.body42.i.i, label %while.body46.i.i.preheader
 
 while.body42.i.i:                                 ; preds = %if.then35.i.i, %while.body42.i.i
-  %tail.0162.i.i = phi ptr [ %20, %while.body42.i.i ], [ %node.0104.i.i, %if.then35.i.i ]
+  %tail.0162.i.i = phi ptr [ %21, %while.body42.i.i ], [ %node.0104.i.i, %if.then35.i.i ]
   %next43.i.i = getelementptr inbounds nuw i8, ptr %tail.0162.i.i, i64 8
-  %20 = load ptr, ptr %next43.i.i, align 8
-  %21 = load i32, ptr %20, align 8
-  %cmp41.i.i = icmp slt i32 %21, %sub2.i.i
+  %21 = load ptr, ptr %next43.i.i, align 8
+  %22 = load i32, ptr %21, align 8
+  %cmp41.i.i = icmp slt i32 %22, %sub2.i.i
   br i1 %cmp41.i.i, label %while.body42.i.i, label %while.body46.i.i.preheader, !llvm.loop !110
 
 while.body46.i.i.preheader:                       ; preds = %while.body42.i.i, %if.then35.i.i
-  %tail.1169.i.i.ph = phi ptr [ %node.0104.i.i, %if.then35.i.i ], [ %20, %while.body42.i.i ]
+  %tail.1169.i.i.ph = phi ptr [ %node.0104.i.i, %if.then35.i.i ], [ %21, %while.body42.i.i ]
   br label %while.body46.i.i
 
 while.body46.i.i:                                 ; preds = %while.body46.i.i.preheader, %if.end80.i.i
   %best.3170.i.i = phi ptr [ %best.4.i.i, %if.end80.i.i ], [ %best.0.lcssa180.i.i, %while.body46.i.i.preheader ]
-  %tail.1169.i.i = phi ptr [ %34, %if.end80.i.i ], [ %tail.1169.i.i.ph, %while.body46.i.i.preheader ]
+  %tail.1169.i.i = phi ptr [ %35, %if.end80.i.i ], [ %tail.1169.i.i.ph, %while.body46.i.i.preheader ]
   %node.1168.i.i = phi ptr [ %node.2.i.i, %if.end80.i.i ], [ %node.0104.i.i, %while.body46.i.i.preheader ]
   %prev.1167.i.i = phi ptr [ %prev.2.i.i, %if.end80.i.i ], [ %active_head.i.i, %while.body46.i.i.preheader ]
   %best_y.3166.i.i = phi i32 [ %best_y.4.i.i, %if.end80.i.i ], [ %best_y.0.lcssa179.i.i, %while.body46.i.i.preheader ]
   %best_x.1165.i.i = phi i32 [ %best_x.2.i.i, %if.end80.i.i ], [ %cond.i.i, %while.body46.i.i.preheader ]
   %best_waste.2164.i.i = phi i32 [ %best_waste.3.i.i, %if.end80.i.i ], [ %best_waste.0.lcssa178.i.i, %while.body46.i.i.preheader ]
-  %22 = load i32, ptr %tail.1169.i.i, align 8
-  %sub48.i.i = sub nsw i32 %22, %sub2.i.i
+  %23 = load i32, ptr %tail.1169.i.i, align 8
+  %sub48.i.i = sub nsw i32 %23, %sub2.i.i
   br label %while.cond53.i.i
 
 while.cond53.i.i:                                 ; preds = %while.cond53.i.i, %while.body46.i.i
   %prev.2.i.i = phi ptr [ %prev.1167.i.i, %while.body46.i.i ], [ %next54.i.i, %while.cond53.i.i ]
-  %node.2.i.i = phi ptr [ %node.1168.i.i, %while.body46.i.i ], [ %23, %while.cond53.i.i ]
+  %node.2.i.i = phi ptr [ %node.1168.i.i, %while.body46.i.i ], [ %24, %while.cond53.i.i ]
   %next54.i.i = getelementptr inbounds nuw i8, ptr %node.2.i.i, i64 8
-  %23 = load ptr, ptr %next54.i.i, align 8
-  %24 = load i32, ptr %23, align 8
-  %cmp56.not.i.i = icmp sgt i32 %24, %sub48.i.i
+  %24 = load ptr, ptr %next54.i.i, align 8
+  %25 = load i32, ptr %24, align 8
+  %cmp56.not.i.i = icmp sgt i32 %25, %sub48.i.i
   br i1 %cmp56.not.i.i, label %do.end62.i.i, label %while.cond53.i.i, !llvm.loop !111
 
 do.end62.i.i:                                     ; preds = %while.cond53.i.i
-  %25 = load i32, ptr %node.2.i.i, align 8
-  %cmp1.i65.i.i = icmp slt i32 %25, %22
+  %26 = load i32, ptr %node.2.i.i, align 8
+  %cmp1.i65.i.i = icmp slt i32 %26, %23
   br i1 %cmp1.i65.i.i, label %while.body.i68.i.i, label %_ZL25stbrp__skyline_find_min_yP13stbrp_contextP10stbrp_nodeiiPi.exit100.i.i
 
 while.body.i68.i.i:                               ; preds = %do.end62.i.i, %if.end35.i84.i.i
-  %26 = phi i32 [ %32, %if.end35.i84.i.i ], [ %25, %do.end62.i.i ]
+  %27 = phi i32 [ %33, %if.end35.i84.i.i ], [ %26, %do.end62.i.i ]
   %waste_area.05.i69.i.i = phi i32 [ %waste_area.1.i88.i.i, %if.end35.i84.i.i ], [ 0, %do.end62.i.i ]
   %visited_width.04.i70.i.i = phi i32 [ %visited_width.1.i89.i.i, %if.end35.i84.i.i ], [ 0, %do.end62.i.i ]
   %min_y.03.i71.i.i = phi i32 [ %min_y.1.i85.i.i, %if.end35.i84.i.i ], [ 0, %do.end62.i.i ]
-  %node.02.i72.i.i = phi ptr [ %33, %if.end35.i84.i.i ], [ %node.2.i.i, %do.end62.i.i ]
+  %node.02.i72.i.i = phi ptr [ %34, %if.end35.i84.i.i ], [ %node.2.i.i, %do.end62.i.i ]
   %y.i73.i.i = getelementptr inbounds nuw i8, ptr %node.02.i72.i.i, i64 4
-  %27 = load i32, ptr %y.i73.i.i, align 4
-  %cmp5.i74.i.i = icmp sgt i32 %27, %min_y.03.i71.i.i
+  %28 = load i32, ptr %y.i73.i.i, align 4
+  %cmp5.i74.i.i = icmp sgt i32 %28, %min_y.03.i71.i.i
   br i1 %cmp5.i74.i.i, label %if.then.i91.i.i, label %if.else20.i75.i.i
 
 if.then.i91.i.i:                                  ; preds = %while.body.i68.i.i
-  %sub.i92.i.i = sub nsw i32 %27, %min_y.03.i71.i.i
+  %sub.i92.i.i = sub nsw i32 %28, %min_y.03.i71.i.i
   %mul.i93.i.i = mul nsw i32 %sub.i92.i.i, %visited_width.04.i70.i.i
-  %cmp10.i94.i.i = icmp slt i32 %26, %sub48.i.i
+  %cmp10.i94.i.i = icmp slt i32 %27, %sub48.i.i
   %next.i95.i.i = getelementptr inbounds nuw i8, ptr %node.02.i72.i.i, i64 8
-  %28 = load ptr, ptr %next.i95.i.i, align 8
-  %29 = load i32, ptr %28, align 8
+  %29 = load ptr, ptr %next.i95.i.i, align 8
+  %30 = load i32, ptr %29, align 8
   br i1 %cmp10.i94.i.i, label %if.then11.i98.i.i, label %if.else.i96.i.i
 
 if.then11.i98.i.i:                                ; preds = %if.then.i91.i.i
-  %sub13.i99.i.i = sub nsw i32 %29, %sub48.i.i
+  %sub13.i99.i.i = sub nsw i32 %30, %sub48.i.i
   br label %if.end35.i84.i.i
 
 if.else.i96.i.i:                                  ; preds = %if.then.i91.i.i
-  %sub18.i97.i.i = sub nsw i32 %29, %26
+  %sub18.i97.i.i = sub nsw i32 %30, %27
   br label %if.end35.i84.i.i
 
 if.else20.i75.i.i:                                ; preds = %while.body.i68.i.i
   %next21.i76.i.i = getelementptr inbounds nuw i8, ptr %node.02.i72.i.i, i64 8
-  %30 = load ptr, ptr %next21.i76.i.i, align 8
-  %31 = load i32, ptr %30, align 8
-  %sub24.i77.i.i = sub nsw i32 %31, %26
+  %31 = load ptr, ptr %next21.i76.i.i, align 8
+  %32 = load i32, ptr %31, align 8
+  %sub24.i77.i.i = sub nsw i32 %32, %27
   %add25.i78.i.i = add nsw i32 %sub24.i77.i.i, %visited_width.04.i70.i.i
   %cmp26.i79.i.i = icmp sgt i32 %add25.i78.i.i, %sub2.i.i
   %sub28.i80.i.i = sub nsw i32 %sub2.i.i, %visited_width.04.i70.i.i
   %spec.select.i81.i.i = select i1 %cmp26.i79.i.i, i32 %sub28.i80.i.i, i32 %sub24.i77.i.i
-  %sub31.i82.i.i = sub nsw i32 %min_y.03.i71.i.i, %27
+  %sub31.i82.i.i = sub nsw i32 %min_y.03.i71.i.i, %28
   %mul32.i83.i.i = mul nsw i32 %spec.select.i81.i.i, %sub31.i82.i.i
   br label %if.end35.i84.i.i
 
 if.end35.i84.i.i:                                 ; preds = %if.else20.i75.i.i, %if.else.i96.i.i, %if.then11.i98.i.i
-  %32 = phi i32 [ %29, %if.then11.i98.i.i ], [ %29, %if.else.i96.i.i ], [ %31, %if.else20.i75.i.i ]
-  %33 = phi ptr [ %28, %if.then11.i98.i.i ], [ %28, %if.else.i96.i.i ], [ %30, %if.else20.i75.i.i ]
-  %min_y.1.i85.i.i = phi i32 [ %27, %if.then11.i98.i.i ], [ %27, %if.else.i96.i.i ], [ %min_y.03.i71.i.i, %if.else20.i75.i.i ]
+  %33 = phi i32 [ %30, %if.then11.i98.i.i ], [ %30, %if.else.i96.i.i ], [ %32, %if.else20.i75.i.i ]
+  %34 = phi ptr [ %29, %if.then11.i98.i.i ], [ %29, %if.else.i96.i.i ], [ %31, %if.else20.i75.i.i ]
+  %min_y.1.i85.i.i = phi i32 [ %28, %if.then11.i98.i.i ], [ %28, %if.else.i96.i.i ], [ %min_y.03.i71.i.i, %if.else20.i75.i.i ]
   %sub13.pn.i86.i.i = phi i32 [ %sub13.i99.i.i, %if.then11.i98.i.i ], [ %sub18.i97.i.i, %if.else.i96.i.i ], [ %spec.select.i81.i.i, %if.else20.i75.i.i ]
   %mul.pn.i87.i.i = phi i32 [ %mul.i93.i.i, %if.then11.i98.i.i ], [ %mul.i93.i.i, %if.else.i96.i.i ], [ %mul32.i83.i.i, %if.else20.i75.i.i ]
   %waste_area.1.i88.i.i = add nsw i32 %mul.pn.i87.i.i, %waste_area.05.i69.i.i
   %visited_width.1.i89.i.i = add nsw i32 %sub13.pn.i86.i.i, %visited_width.04.i70.i.i
-  %cmp.i90.i.i = icmp slt i32 %32, %22
+  %cmp.i90.i.i = icmp slt i32 %33, %23
   br i1 %cmp.i90.i.i, label %while.body.i68.i.i, label %_ZL25stbrp__skyline_find_min_yP13stbrp_contextP10stbrp_nodeiiPi.exit100.i.i, !llvm.loop !108
 
 _ZL25stbrp__skyline_find_min_yP13stbrp_contextP10stbrp_nodeiiPi.exit100.i.i: ; preds = %if.end35.i84.i.i, %do.end62.i.i
@@ -21719,111 +21719,97 @@ if.end80.i.i:                                     ; preds = %if.then77.i.i, %lor
   %best_y.4.i.i = phi i32 [ %min_y.0.lcssa.i66.i.i, %if.then77.i.i ], [ %best_y.3166.i.i, %lor.lhs.false73.i.i ], [ %best_y.3166.i.i, %_ZL25stbrp__skyline_find_min_yP13stbrp_contextP10stbrp_nodeiiPi.exit100.i.i ]
   %best.4.i.i = phi ptr [ %prev.2.i.i, %if.then77.i.i ], [ %best.3170.i.i, %lor.lhs.false73.i.i ], [ %best.3170.i.i, %_ZL25stbrp__skyline_find_min_yP13stbrp_contextP10stbrp_nodeiiPi.exit100.i.i ]
   %next81.i.i = getelementptr inbounds nuw i8, ptr %tail.1169.i.i, i64 8
-  %34 = load ptr, ptr %next81.i.i, align 8
-  %tobool.not.i.i = icmp eq ptr %34, null
+  %35 = load ptr, ptr %next81.i.i, align 8
+  %tobool.not.i.i = icmp eq ptr %35, null
   br i1 %tobool.not.i.i, label %_ZL28stbrp__skyline_find_best_posP13stbrp_contextii.exit.i, label %while.body46.i.i, !llvm.loop !112
 
 _ZL28stbrp__skyline_find_best_posP13stbrp_contextii.exit.i: ; preds = %if.end80.i.i, %cond.end.i.i
   %best_x.0.i.i = phi i32 [ %cond.i.i, %cond.end.i.i ], [ %best_x.2.i.i, %if.end80.i.i ]
   %best_y.2.i.i = phi i32 [ %best_y.0.lcssa179.i.i, %cond.end.i.i ], [ %best_y.4.i.i, %if.end80.i.i ]
   %best.2.i.i = phi ptr [ %best.0.lcssa180.i.i, %cond.end.i.i ], [ %best.4.i.i, %if.end80.i.i ]
-  %35 = zext i32 %best_y.2.i.i to i64
-  %36 = shl nuw i64 %35, 32
-  %37 = zext i32 %best_x.0.i.i to i64
-  %38 = or disjoint i64 %36, %37
   %cmp.i43 = icmp eq ptr %best.2.i.i, null
   br i1 %cmp.i43, label %for.inc37, label %lor.lhs.false.i
 
-lor.lhs.false.i:                                  ; preds = %_ZL28stbrp__skyline_find_best_posP13stbrp_contextii.exit.i, %_ZL28stbrp__skyline_find_best_posP13stbrp_contextii.exit.thread.i
-  %.pn56 = phi i64 [ %18, %_ZL28stbrp__skyline_find_best_posP13stbrp_contextii.exit.thread.i ], [ %38, %_ZL28stbrp__skyline_find_best_posP13stbrp_contextii.exit.i ]
-  %best.2.i70.i = phi ptr [ %active_head.i.i, %_ZL28stbrp__skyline_find_best_posP13stbrp_contextii.exit.thread.i ], [ %best.2.i.i, %_ZL28stbrp__skyline_find_best_posP13stbrp_contextii.exit.i ]
-  %best_y.2.i69.i = phi i32 [ 0, %_ZL28stbrp__skyline_find_best_posP13stbrp_contextii.exit.thread.i ], [ %best_y.2.i.i, %_ZL28stbrp__skyline_find_best_posP13stbrp_contextii.exit.i ]
-  %best_x.0.i68.i = phi i32 [ %6, %_ZL28stbrp__skyline_find_best_posP13stbrp_contextii.exit.thread.i ], [ %best_x.0.i.i, %_ZL28stbrp__skyline_find_best_posP13stbrp_contextii.exit.i ]
-  %add.i = add nsw i32 %best_y.2.i69.i, %2
+lor.lhs.false.i:                                  ; preds = %_ZL28stbrp__skyline_find_best_posP13stbrp_contextii.exit.i
+  %add.i = add nsw i32 %best_y.2.i.i, %2
   %cmp2.i = icmp sgt i32 %add.i, %5
   br i1 %cmp2.i, label %for.inc37, label %lor.lhs.false3.i
 
 lor.lhs.false3.i:                                 ; preds = %lor.lhs.false.i
-  %39 = load ptr, ptr %free_head.i, align 8
-  %cmp4.i = icmp eq ptr %39, null
+  %36 = load ptr, ptr %free_head.i, align 8
+  %cmp4.i = icmp eq ptr %36, null
   br i1 %cmp4.i, label %for.inc37, label %if.end.i
 
 if.end.i:                                         ; preds = %lor.lhs.false3.i
-  store i32 %best_x.0.i68.i, ptr %39, align 8
-  %y10.i = getelementptr inbounds nuw i8, ptr %39, i64 4
+  store i32 %best_x.0.i.i, ptr %36, align 8
+  %y10.i = getelementptr inbounds nuw i8, ptr %36, i64 4
   store i32 %add.i, ptr %y10.i, align 4
-  %next.i = getelementptr inbounds nuw i8, ptr %39, i64 8
-  %40 = load ptr, ptr %next.i, align 8
-  store ptr %40, ptr %free_head.i, align 8
-  %41 = load ptr, ptr %best.2.i70.i, align 8
-  %42 = load i32, ptr %41, align 8
-  %cmp15.i = icmp slt i32 %42, %best_x.0.i68.i
+  %next.i = getelementptr inbounds nuw i8, ptr %36, i64 8
+  %37 = load ptr, ptr %next.i, align 8
+  store ptr %37, ptr %free_head.i, align 8
+  %38 = load ptr, ptr %best.2.i.i, align 8
+  %39 = load i32, ptr %38, align 8
+  %cmp15.i = icmp slt i32 %39, %best_x.0.i.i
   br i1 %cmp15.i, label %if.then16.i, label %if.else.i
 
 if.then16.i:                                      ; preds = %if.end.i
-  %next18.i = getelementptr inbounds nuw i8, ptr %41, i64 8
-  %43 = load ptr, ptr %next18.i, align 8
-  store ptr %39, ptr %next18.i, align 8
+  %next18.i = getelementptr inbounds nuw i8, ptr %38, i64 8
+  %40 = load ptr, ptr %next18.i, align 8
+  store ptr %36, ptr %next18.i, align 8
   br label %if.end21.i
 
 if.else.i:                                        ; preds = %if.end.i
-  store ptr %39, ptr %best.2.i70.i, align 8
+  store ptr %36, ptr %best.2.i.i, align 8
   br label %if.end21.i
 
 if.end21.i:                                       ; preds = %if.else.i, %if.then16.i
-  %cur.0.i = phi ptr [ %43, %if.then16.i ], [ %41, %if.else.i ]
-  %next2248.i = getelementptr inbounds nuw i8, ptr %cur.0.i, i64 8
-  %44 = load ptr, ptr %next2248.i, align 8
-  %tobool.not49.i = icmp eq ptr %44, null
-  %.pre56.i = add nsw i32 %best_x.0.i68.i, %1
-  br i1 %tobool.not49.i, label %while.end.i, label %land.rhs.i
+  %cur.0.i = phi ptr [ %40, %if.then16.i ], [ %38, %if.else.i ]
+  %next2247.i = getelementptr inbounds nuw i8, ptr %cur.0.i, i64 8
+  %41 = load ptr, ptr %next2247.i, align 8
+  %tobool.not48.i = icmp eq ptr %41, null
+  %.pre52.i = add nsw i32 %best_x.0.i.i, %1
+  br i1 %tobool.not48.i, label %while.end.i, label %land.rhs.i
 
 land.rhs.i:                                       ; preds = %if.end21.i, %while.body.i
-  %45 = phi ptr [ %48, %while.body.i ], [ %44, %if.end21.i ]
-  %next2251.i = phi ptr [ %next22.i, %while.body.i ], [ %next2248.i, %if.end21.i ]
-  %cur.150.i = phi ptr [ %45, %while.body.i ], [ %cur.0.i, %if.end21.i ]
-  %46 = load i32, ptr %45, align 8
-  %cmp27.not.i = icmp sgt i32 %46, %.pre56.i
+  %42 = phi ptr [ %45, %while.body.i ], [ %41, %if.end21.i ]
+  %next2250.i = phi ptr [ %next22.i, %while.body.i ], [ %next2247.i, %if.end21.i ]
+  %cur.149.i = phi ptr [ %42, %while.body.i ], [ %cur.0.i, %if.end21.i ]
+  %43 = load i32, ptr %42, align 8
+  %cmp27.not.i = icmp sgt i32 %43, %.pre52.i
   br i1 %cmp27.not.i, label %while.end.i, label %while.body.i
 
 while.body.i:                                     ; preds = %land.rhs.i
-  %47 = load ptr, ptr %free_head.i, align 8
-  store ptr %47, ptr %next2251.i, align 8
-  store ptr %cur.150.i, ptr %free_head.i, align 8
-  %next22.i = getelementptr inbounds nuw i8, ptr %45, i64 8
-  %48 = load ptr, ptr %next22.i, align 8
-  %tobool.not.i = icmp eq ptr %48, null
+  %44 = load ptr, ptr %free_head.i, align 8
+  store ptr %44, ptr %next2250.i, align 8
+  store ptr %cur.149.i, ptr %free_head.i, align 8
+  %next22.i = getelementptr inbounds nuw i8, ptr %42, i64 8
+  %45 = load ptr, ptr %next22.i, align 8
+  %tobool.not.i = icmp eq ptr %45, null
   br i1 %tobool.not.i, label %while.end.i, label %land.rhs.i, !llvm.loop !113
 
 while.end.i:                                      ; preds = %while.body.i, %land.rhs.i, %if.end21.i
-  %cur.1.lcssa.i = phi ptr [ %cur.0.i, %if.end21.i ], [ %cur.150.i, %land.rhs.i ], [ %45, %while.body.i ]
+  %cur.1.lcssa.i = phi ptr [ %cur.0.i, %if.end21.i ], [ %cur.149.i, %land.rhs.i ], [ %42, %while.body.i ]
   store ptr %cur.1.lcssa.i, ptr %next.i, align 8
-  %49 = load i32, ptr %cur.1.lcssa.i, align 8
-  %cmp37.i = icmp slt i32 %49, %.pre56.i
-  br i1 %cmp37.i, label %if.then38.i, label %if.then20
+  %46 = load i32, ptr %cur.1.lcssa.i, align 8
+  %cmp37.i = icmp slt i32 %46, %.pre52.i
+  br i1 %cmp37.i, label %if.then38.i, label %for.inc37
 
 if.then38.i:                                      ; preds = %while.end.i
-  store i32 %.pre56.i, ptr %cur.1.lcssa.i, align 8
-  br label %if.then20
-
-if.then20:                                        ; preds = %if.then38.i, %while.end.i
-  %fr.sroa.2.0.extract.shift = lshr i64 %.pn56, 32
-  %fr.sroa.2.0.extract.trunc = trunc nuw i64 %fr.sroa.2.0.extract.shift to i32
-  %fr.sroa.0.0.extract.trunc = trunc i64 %.pn56 to i32
+  store i32 %.pre52.i, ptr %cur.1.lcssa.i, align 8
   br label %for.inc37
 
-for.inc37:                                        ; preds = %if.else, %lor.lhs.false.i.i, %_ZL28stbrp__skyline_find_best_posP13stbrp_contextii.exit.i, %lor.lhs.false.i, %lor.lhs.false3.i, %for.body3, %lor.lhs.false, %if.then20
-  %.sink79 = phi i64 [ 12, %if.then20 ], [ 16, %lor.lhs.false ], [ 16, %for.body3 ], [ 16, %lor.lhs.false3.i ], [ 16, %lor.lhs.false.i ], [ 16, %_ZL28stbrp__skyline_find_best_posP13stbrp_contextii.exit.i ], [ 16, %lor.lhs.false.i.i ], [ 16, %if.else ]
-  %.sink78 = phi i32 [ %fr.sroa.0.0.extract.trunc, %if.then20 ], [ 0, %lor.lhs.false ], [ 0, %for.body3 ], [ 2147483647, %lor.lhs.false3.i ], [ 2147483647, %lor.lhs.false.i ], [ 2147483647, %_ZL28stbrp__skyline_find_best_posP13stbrp_contextii.exit.i ], [ 2147483647, %lor.lhs.false.i.i ], [ 2147483647, %if.else ]
-  %.sink77 = phi i64 [ 16, %if.then20 ], [ 12, %lor.lhs.false ], [ 12, %for.body3 ], [ 12, %lor.lhs.false3.i ], [ 12, %lor.lhs.false.i ], [ 12, %_ZL28stbrp__skyline_find_best_posP13stbrp_contextii.exit.i ], [ 12, %lor.lhs.false.i.i ], [ 12, %if.else ]
-  %.sink = phi i32 [ %fr.sroa.2.0.extract.trunc, %if.then20 ], [ 0, %lor.lhs.false ], [ 0, %for.body3 ], [ 2147483647, %lor.lhs.false3.i ], [ 2147483647, %lor.lhs.false.i ], [ 2147483647, %_ZL28stbrp__skyline_find_best_posP13stbrp_contextii.exit.i ], [ 2147483647, %lor.lhs.false.i.i ], [ 2147483647, %if.else ]
-  %y = getelementptr inbounds nuw i8, ptr %arrayidx5, i64 %.sink79
-  store i32 %.sink78, ptr %y, align 4
-  %x = getelementptr inbounds nuw i8, ptr %arrayidx5, i64 %.sink77
+for.inc37:                                        ; preds = %lor.lhs.false3.i, %lor.lhs.false.i, %_ZL28stbrp__skyline_find_best_posP13stbrp_contextii.exit.i, %lor.lhs.false.i.i, %if.else, %while.end.i, %if.then38.i, %for.body3, %lor.lhs.false
+  %.sink78 = phi i64 [ 16, %lor.lhs.false ], [ 16, %for.body3 ], [ 12, %if.then38.i ], [ 12, %while.end.i ], [ 16, %if.else ], [ 16, %lor.lhs.false.i.i ], [ 16, %_ZL28stbrp__skyline_find_best_posP13stbrp_contextii.exit.i ], [ 16, %lor.lhs.false.i ], [ 16, %lor.lhs.false3.i ]
+  %.sink77 = phi i32 [ 0, %lor.lhs.false ], [ 0, %for.body3 ], [ %best_x.0.i.i, %if.then38.i ], [ %best_x.0.i.i, %while.end.i ], [ 2147483647, %if.else ], [ 2147483647, %lor.lhs.false.i.i ], [ 2147483647, %_ZL28stbrp__skyline_find_best_posP13stbrp_contextii.exit.i ], [ 2147483647, %lor.lhs.false.i ], [ 2147483647, %lor.lhs.false3.i ]
+  %.sink76 = phi i64 [ 12, %lor.lhs.false ], [ 12, %for.body3 ], [ 16, %if.then38.i ], [ 16, %while.end.i ], [ 12, %if.else ], [ 12, %lor.lhs.false.i.i ], [ 12, %_ZL28stbrp__skyline_find_best_posP13stbrp_contextii.exit.i ], [ 12, %lor.lhs.false.i ], [ 12, %lor.lhs.false3.i ]
+  %.sink = phi i32 [ 0, %lor.lhs.false ], [ 0, %for.body3 ], [ %best_y.2.i.i, %if.then38.i ], [ %best_y.2.i.i, %while.end.i ], [ 2147483647, %if.else ], [ 2147483647, %lor.lhs.false.i.i ], [ 2147483647, %_ZL28stbrp__skyline_find_best_posP13stbrp_contextii.exit.i ], [ 2147483647, %lor.lhs.false.i ], [ 2147483647, %lor.lhs.false3.i ]
+  %y = getelementptr inbounds nuw i8, ptr %arrayidx5, i64 %.sink78
+  store i32 %.sink77, ptr %y, align 4
+  %x = getelementptr inbounds nuw i8, ptr %arrayidx5, i64 %.sink76
   store i32 %.sink, ptr %x, align 4
-  %indvars.iv.next67 = add nuw nsw i64 %indvars.iv66, 1
-  %exitcond70.not = icmp eq i64 %indvars.iv.next67, %wide.trip.count69
-  br i1 %exitcond70.not, label %for.end39, label %for.body3, !llvm.loop !114
+  %indvars.iv.next66 = add nuw nsw i64 %indvars.iv65, 1
+  %exitcond69.not = icmp eq i64 %indvars.iv.next66, %wide.trip.count68
+  br i1 %exitcond69.not, label %for.end39, label %for.body3, !llvm.loop !114
 
 for.end39:                                        ; preds = %for.inc37, %_ZL7ImQsortPvmmPFiPKvS1_E.exit
   br i1 %cmp.i, label %if.then.i46, label %_ZL7ImQsortPvmmPFiPKvS1_E.exit47
@@ -21833,24 +21819,24 @@ if.then.i46:                                      ; preds = %for.end39
   br label %_ZL7ImQsortPvmmPFiPKvS1_E.exit47
 
 _ZL7ImQsortPvmmPFiPKvS1_E.exit47:                 ; preds = %for.end39, %if.then.i46
-  br i1 %cmp57, label %for.body43.preheader, label %for.end64
+  br i1 %cmp56, label %for.body43.preheader, label %for.end64
 
 for.body43.preheader:                             ; preds = %_ZL7ImQsortPvmmPFiPKvS1_E.exit47
-  %wide.trip.count74 = zext nneg i32 %num_rects to i64
+  %wide.trip.count73 = zext nneg i32 %num_rects to i64
   br label %for.body43
 
 for.body43:                                       ; preds = %for.body43.preheader, %for.cond41
-  %indvars.iv71 = phi i64 [ 0, %for.body43.preheader ], [ %indvars.iv.next72, %for.cond41 ]
-  %arrayidx45 = getelementptr inbounds nuw %struct.stbrp_rect, ptr %rects, i64 %indvars.iv71
+  %indvars.iv70 = phi i64 [ 0, %for.body43.preheader ], [ %indvars.iv.next71, %for.cond41 ]
+  %arrayidx45 = getelementptr inbounds nuw %struct.stbrp_rect, ptr %rects, i64 %indvars.iv70
   %x46 = getelementptr inbounds nuw i8, ptr %arrayidx45, i64 12
-  %50 = load i32, ptr %x46, align 4
-  %cmp47 = icmp eq i32 %50, 2147483647
+  %47 = load i32, ptr %x46, align 4
+  %cmp47 = icmp eq i32 %47, 2147483647
   br i1 %cmp47, label %land.end, label %for.cond41
 
 land.end:                                         ; preds = %for.body43
   %y50 = getelementptr inbounds nuw i8, ptr %arrayidx45, i64 16
-  %51 = load i32, ptr %y50, align 4
-  %.fr = freeze i32 %51
+  %48 = load i32, ptr %y50, align 4
+  %.fr = freeze i32 %48
   %cmp51 = icmp ne i32 %.fr, 2147483647
   %conv52 = zext i1 %cmp51 to i32
   br label %for.cond41
@@ -21859,9 +21845,9 @@ for.cond41:                                       ; preds = %for.body43, %land.e
   %conv52.sink = phi i32 [ %conv52, %land.end ], [ 1, %for.body43 ]
   %was_packed55 = getelementptr inbounds nuw i8, ptr %arrayidx45, i64 20
   store i32 %conv52.sink, ptr %was_packed55, align 4
-  %indvars.iv.next72 = add nuw nsw i64 %indvars.iv71, 1
-  %exitcond75.not = icmp eq i64 %indvars.iv.next72, %wide.trip.count74
-  br i1 %exitcond75.not, label %for.end64, label %for.body43, !llvm.loop !115
+  %indvars.iv.next71 = add nuw nsw i64 %indvars.iv70, 1
+  %exitcond74.not = icmp eq i64 %indvars.iv.next71, %wide.trip.count73
+  br i1 %exitcond74.not, label %for.end64, label %for.body43, !llvm.loop !115
 
 for.end64:                                        ; preds = %for.cond41, %_ZL7ImQsortPvmmPFiPKvS1_E.exit47
   ret void

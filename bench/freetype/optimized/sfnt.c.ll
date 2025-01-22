@@ -727,7 +727,7 @@ define internal noundef i32 @tt_cmap2_validate(ptr noundef readonly %0, ptr noun
 
 .loopexit:                                        ; preds = %118, %92, %102, %52
   %.2 = phi ptr [ %.ptr, %52 ], [ %.ptr, %102 ], [ %.ptr, %92 ], [ %105, %118 ]
-  %120 = add nuw i32 %.178104, 1
+  %120 = add nuw nsw i32 %.178104, 1
   %exitcond108.not = icmp eq i32 %.178104, %spec.select
   br i1 %exitcond108.not, label %121, label %52, !llvm.loop !11
 
