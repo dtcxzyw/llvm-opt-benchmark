@@ -595,7 +595,7 @@ logicalrep_pa_worker_count.exit:                  ; preds = %110, %93
   %178 = load i32, ptr @MyProcPid, align 4
   %179 = getelementptr inbounds nuw i8, ptr %9, i64 1464
   store i32 %178, ptr %179, align 8
-  %180 = sext i32 %.169114 to i64
+  %180 = zext nneg i32 %.169114 to i64
   %181 = getelementptr inbounds nuw i8, ptr %9, i64 1328
   store i64 %180, ptr %181, align 8
   %182 = call zeroext i1 @RegisterDynamicBackgroundWorker(ptr noundef nonnull %9, ptr noundef nonnull %10) #13

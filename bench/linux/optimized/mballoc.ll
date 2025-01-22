@@ -6766,8 +6766,8 @@ ext4_mb_mark_diskspace_used.exit:                 ; preds = %1026, %1035
   %1198 = getelementptr inbounds nuw i8, ptr %1175, i64 48
   store ptr %5, ptr %1198, align 8
   store volatile ptr %1195, ptr %5, align 8
-  %1199 = add i32 %1176, -1
-  %1200 = icmp slt i32 %1199, 6
+  %1199 = add nsw i32 %1176, -1
+  %1200 = icmp slt i32 %1176, 7
   br i1 %1200, label %.loopexit12.i, label %1202
 
 1201:                                             ; preds = %1181, %.preheader11.i

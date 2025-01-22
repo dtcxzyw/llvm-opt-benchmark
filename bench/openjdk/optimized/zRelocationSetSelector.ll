@@ -299,7 +299,7 @@ define hidden void @_ZN27ZRelocationSetSelectorGroup12select_innerEv(ptr noundef
 .lr.ph70:                                         ; preds = %.preheader
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %16 = sext i32 %.049.lcssa to i64
+  %16 = zext nneg i32 %.049.lcssa to i64
   br label %79
 
 17:                                               ; preds = %.lr.ph, %78
@@ -397,7 +397,7 @@ define hidden void @_ZN27ZRelocationSetSelectorGroup12select_innerEv(ptr noundef
   %80 = phi i32 [ %12, %.lr.ph70 ], [ %90, %89 ]
   %indvars.iv73 = phi i64 [ %16, %.lr.ph70 ], [ %indvars.iv.next74, %89 ]
   %81 = load ptr, ptr %14, align 8
-  %82 = getelementptr inbounds ptr, ptr %81, i64 %indvars.iv73
+  %82 = getelementptr inbounds nuw ptr, ptr %81, i64 %indvars.iv73
   %83 = load ptr, ptr %82, align 8
   store ptr %83, ptr %4, align 8
   %84 = getelementptr inbounds nuw i8, ptr %83, i64 1
@@ -412,9 +412,9 @@ define hidden void @_ZN27ZRelocationSetSelectorGroup12select_innerEv(ptr noundef
 
 89:                                               ; preds = %79, %87
   %90 = phi i32 [ %80, %79 ], [ %.pre, %87 ]
-  %indvars.iv.next74 = add nsw i64 %indvars.iv73, 1
-  %91 = sext i32 %90 to i64
-  %92 = icmp slt i64 %indvars.iv.next74, %91
+  %indvars.iv.next74 = add nuw nsw i64 %indvars.iv73, 1
+  %91 = trunc nuw i64 %indvars.iv.next74 to i32
+  %92 = icmp sgt i32 %90, %91
   br i1 %92, label %79, label %._crit_edge, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %89, %.preheader

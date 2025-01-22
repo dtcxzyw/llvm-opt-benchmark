@@ -3451,84 +3451,84 @@ define void @validateMultiVarPhaseFuncTerms(ptr nocapture noundef readnone %0, i
 QuESTAssert.exit:                                 ; preds = %6
   tail call void @invalidQuESTInputError(ptr noundef nonnull @.str.72, ptr noundef %5)
   %9 = icmp sgt i32 %1, 0
-  br i1 %9, label %.lr.ph.preheader, label %QuESTAssert.exit41
+  br i1 %9, label %.lr.ph.preheader, label %QuESTAssert.exit40
 
 .lr.ph.preheader:                                 ; preds = %6, %QuESTAssert.exit
   %wide.trip.count = zext nneg i32 %1 to i64
   br label %.lr.ph
 
-.lr.ph46.preheader:                               ; preds = %QuESTAssert.exit37
-  %wide.trip.count57 = zext nneg i32 %1 to i64
-  br label %.lr.ph46
+.lr.ph45.preheader:                               ; preds = %QuESTAssert.exit36
+  %wide.trip.count56 = zext nneg i32 %1 to i64
+  br label %.lr.ph45
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %QuESTAssert.exit37
-  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %QuESTAssert.exit37 ]
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %QuESTAssert.exit36
+  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %QuESTAssert.exit36 ]
   %10 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv
   %11 = load i32, ptr %10, align 4
   %12 = icmp slt i32 %11, 1
-  br i1 %12, label %13, label %QuESTAssert.exit37
+  br i1 %12, label %13, label %QuESTAssert.exit36
 
 13:                                               ; preds = %.lr.ph
   tail call void @invalidQuESTInputError(ptr noundef nonnull @.str.73, ptr noundef %5)
-  br label %QuESTAssert.exit37
+  br label %QuESTAssert.exit36
 
-QuESTAssert.exit37:                               ; preds = %.lr.ph, %13
+QuESTAssert.exit36:                               ; preds = %.lr.ph, %13
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.lr.ph46.preheader, label %.lr.ph
+  br i1 %exitcond.not, label %.lr.ph45.preheader, label %.lr.ph
 
-.preheader:                                       ; preds = %.lr.ph46
+.preheader:                                       ; preds = %.lr.ph45
   %14 = icmp sgt i32 %17, 0
-  br i1 %14, label %.lr.ph50.preheader, label %QuESTAssert.exit41
+  br i1 %14, label %.lr.ph49.preheader, label %QuESTAssert.exit40
 
-.lr.ph50.preheader:                               ; preds = %.preheader
-  %wide.trip.count62 = zext nneg i32 %17 to i64
-  br label %.lr.ph50
+.lr.ph49.preheader:                               ; preds = %.preheader
+  %wide.trip.count61 = zext nneg i32 %17 to i64
+  br label %.lr.ph49
 
-.lr.ph46:                                         ; preds = %.lr.ph46.preheader, %.lr.ph46
-  %indvars.iv54 = phi i64 [ 0, %.lr.ph46.preheader ], [ %indvars.iv.next55, %.lr.ph46 ]
-  %.03244 = phi i32 [ 0, %.lr.ph46.preheader ], [ %17, %.lr.ph46 ]
-  %15 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv54
+.lr.ph45:                                         ; preds = %.lr.ph45.preheader, %.lr.ph45
+  %indvars.iv53 = phi i64 [ 0, %.lr.ph45.preheader ], [ %indvars.iv.next54, %.lr.ph45 ]
+  %.03243 = phi i32 [ 0, %.lr.ph45.preheader ], [ %17, %.lr.ph45 ]
+  %15 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv53
   %16 = load i32, ptr %15, align 4
-  %17 = add nsw i32 %16, %.03244
-  %indvars.iv.next55 = add nuw nsw i64 %indvars.iv54, 1
-  %exitcond58.not = icmp eq i64 %indvars.iv.next55, %wide.trip.count57
-  br i1 %exitcond58.not, label %.preheader, label %.lr.ph46
+  %17 = add nsw i32 %16, %.03243
+  %indvars.iv.next54 = add nuw nsw i64 %indvars.iv53, 1
+  %exitcond57.not = icmp eq i64 %indvars.iv.next54, %wide.trip.count56
+  br i1 %exitcond57.not, label %.preheader, label %.lr.ph45
 
-.lr.ph50:                                         ; preds = %.lr.ph50.preheader, %.lr.ph50
-  %indvars.iv59 = phi i64 [ 0, %.lr.ph50.preheader ], [ %indvars.iv.next60, %.lr.ph50 ]
-  %.02848 = phi i32 [ 0, %.lr.ph50.preheader ], [ %.1, %.lr.ph50 ]
-  %.02947 = phi i32 [ 0, %.lr.ph50.preheader ], [ %.130, %.lr.ph50 ]
-  %18 = getelementptr inbounds nuw double, ptr %3, i64 %indvars.iv59
+.lr.ph49:                                         ; preds = %.lr.ph49.preheader, %.lr.ph49
+  %indvars.iv58 = phi i64 [ 0, %.lr.ph49.preheader ], [ %indvars.iv.next59, %.lr.ph49 ]
+  %.02847 = phi i32 [ 0, %.lr.ph49.preheader ], [ %.1, %.lr.ph49 ]
+  %.02946 = phi i32 [ 0, %.lr.ph49.preheader ], [ %.130, %.lr.ph49 ]
+  %18 = getelementptr inbounds nuw double, ptr %3, i64 %indvars.iv58
   %19 = load double, ptr %18, align 8
   %20 = tail call double @llvm.floor.f64(double %19)
   %21 = fcmp une double %20, %19
-  %.130 = select i1 %21, i32 1, i32 %.02947
+  %.130 = select i1 %21, i32 1, i32 %.02946
   %22 = fcmp olt double %19, 0.000000e+00
-  %.1 = select i1 %22, i32 1, i32 %.02848
-  %indvars.iv.next60 = add nuw nsw i64 %indvars.iv59, 1
-  %exitcond63.not = icmp eq i64 %indvars.iv.next60, %wide.trip.count62
-  br i1 %exitcond63.not, label %._crit_edge, label %.lr.ph50
+  %.1 = select i1 %22, i32 1, i32 %.02847
+  %indvars.iv.next59 = add nuw nsw i64 %indvars.iv58, 1
+  %exitcond62.not = icmp eq i64 %indvars.iv.next59, %wide.trip.count61
+  br i1 %exitcond62.not, label %._crit_edge, label %.lr.ph49
 
-._crit_edge:                                      ; preds = %.lr.ph50
+._crit_edge:                                      ; preds = %.lr.ph49
   %23 = icmp eq i32 %.1, 0
-  %24 = icmp eq i32 %.130, 0
-  br i1 %23, label %QuESTAssert.exit39, label %25
+  %24 = icmp ne i32 %.130, 0
+  br i1 %23, label %QuESTAssert.exit38, label %25
 
 25:                                               ; preds = %._crit_edge
   tail call void @invalidQuESTInputError(ptr noundef nonnull @.str.83, ptr noundef %5)
-  br label %QuESTAssert.exit39
+  br label %QuESTAssert.exit38
 
-QuESTAssert.exit39:                               ; preds = %._crit_edge, %25
-  %26 = icmp ne i32 %2, 1
-  %or.cond = select i1 %26, i1 true, i1 %24
-  br i1 %or.cond, label %QuESTAssert.exit41, label %27
+QuESTAssert.exit38:                               ; preds = %._crit_edge, %25
+  %26 = icmp eq i32 %2, 1
+  %or.cond = select i1 %26, i1 %24, i1 false
+  br i1 %or.cond, label %27, label %QuESTAssert.exit40
 
-27:                                               ; preds = %QuESTAssert.exit39
+27:                                               ; preds = %QuESTAssert.exit38
   tail call void @invalidQuESTInputError(ptr noundef nonnull @.str.84, ptr noundef %5)
-  br label %QuESTAssert.exit41
+  br label %QuESTAssert.exit40
 
-QuESTAssert.exit41:                               ; preds = %.preheader, %QuESTAssert.exit, %27, %QuESTAssert.exit39
+QuESTAssert.exit40:                               ; preds = %.preheader, %QuESTAssert.exit, %27, %QuESTAssert.exit38
   ret void
 }
 

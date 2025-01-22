@@ -1367,39 +1367,38 @@ define internal fastcc noundef ptr @textify_hooks(ptr noundef returned writeonly
   %6 = select i1 %4, i64 3, i64 6
   br label %7
 
-7:                                                ; preds = %26, %3
-  %8 = phi i64 [ 0, %3 ], [ %30, %26 ]
-  %9 = phi i8 [ 0, %3 ], [ %29, %26 ]
-  %10 = phi ptr [ %0, %3 ], [ %28, %26 ]
-  %11 = phi i64 [ 64, %3 ], [ %27, %26 ]
+7:                                                ; preds = %25, %3
+  %8 = phi i64 [ 0, %3 ], [ %29, %25 ]
+  %9 = phi i8 [ 0, %3 ], [ %28, %25 ]
+  %10 = phi ptr [ %0, %3 ], [ %27, %25 ]
+  %11 = phi i64 [ 64, %3 ], [ %26, %25 ]
   %12 = trunc i64 %8 to i32
   %13 = shl nuw nsw i32 1, %12
   %14 = and i32 %13, %1
   %15 = icmp eq i32 %14, 0
-  br i1 %15, label %26, label %16
+  br i1 %15, label %25, label %16
 
 16:                                               ; preds = %7
-  %17 = and i8 %9, 1
-  %18 = icmp eq i8 %17, 0
-  %19 = select i1 %18, ptr @.str.15, ptr @.str.42
-  %20 = getelementptr ptr, ptr %5, i64 %8
-  %21 = load ptr, ptr %20, align 8
-  %22 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %10, i64 noundef %11, ptr noundef nonnull @.str.41, ptr noundef nonnull %19, ptr noundef %21) #20
-  %narrow = tail call i32 @llvm.smax.i32(i32 %22, i32 0)
-  %23 = zext nneg i32 %narrow to i64
-  %24 = sub i64 %11, %23
-  %25 = getelementptr i8, ptr %10, i64 %23
-  br label %26
+  %17 = icmp eq i8 %9, 0
+  %18 = select i1 %17, ptr @.str.15, ptr @.str.42
+  %19 = getelementptr ptr, ptr %5, i64 %8
+  %20 = load ptr, ptr %19, align 8
+  %21 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %10, i64 noundef %11, ptr noundef nonnull @.str.41, ptr noundef nonnull %18, ptr noundef %20) #20
+  %narrow = tail call i32 @llvm.smax.i32(i32 %21, i32 0)
+  %22 = zext nneg i32 %narrow to i64
+  %23 = sub i64 %11, %22
+  %24 = getelementptr i8, ptr %10, i64 %22
+  br label %25
 
-26:                                               ; preds = %16, %7
-  %27 = phi i64 [ %24, %16 ], [ %11, %7 ]
-  %28 = phi ptr [ %25, %16 ], [ %10, %7 ]
-  %29 = phi i8 [ 1, %16 ], [ %9, %7 ]
-  %30 = add nuw nsw i64 %8, 1
-  %31 = icmp eq i64 %30, %6
-  br i1 %31, label %32, label %7, !llvm.loop !26
+25:                                               ; preds = %16, %7
+  %26 = phi i64 [ %23, %16 ], [ %11, %7 ]
+  %27 = phi ptr [ %24, %16 ], [ %10, %7 ]
+  %28 = phi i8 [ 1, %16 ], [ %9, %7 ]
+  %29 = add nuw nsw i64 %8, 1
+  %30 = icmp eq i64 %29, %6
+  br i1 %30, label %31, label %7, !llvm.loop !26
 
-32:                                               ; preds = %26
+31:                                               ; preds = %25
   ret ptr %0
 }
 
@@ -1409,16 +1408,16 @@ define dso_local noundef range(i32 -22, 1) i32 @xt_check_table_hooks(ptr nocaptu
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   br label %5
 
-5:                                                ; preds = %33, %2
-  %6 = phi i64 [ 0, %2 ], [ %37, %33 ]
-  %7 = phi i8 [ 0, %2 ], [ %36, %33 ]
-  %8 = phi i32 [ 0, %2 ], [ %35, %33 ]
-  %9 = phi i32 [ 0, %2 ], [ %34, %33 ]
+5:                                                ; preds = %32, %2
+  %6 = phi i64 [ 0, %2 ], [ %36, %32 ]
+  %7 = phi i8 [ 0, %2 ], [ %35, %32 ]
+  %8 = phi i32 [ 0, %2 ], [ %34, %32 ]
+  %9 = phi i32 [ 0, %2 ], [ %33, %32 ]
   %10 = trunc i64 %6 to i32
   %11 = shl nuw nsw i32 1, %10
   %12 = and i32 %11, %1
   %13 = icmp eq i32 %12, 0
-  br i1 %13, label %33, label %14
+  br i1 %13, label %32, label %14
 
 14:                                               ; preds = %5
   %15 = getelementptr [5 x i32], ptr %3, i64 0, i64 %6
@@ -1433,47 +1432,46 @@ define dso_local noundef range(i32 -22, 1) i32 @xt_check_table_hooks(ptr nocaptu
   br i1 %21, label %.loopexit, label %22
 
 22:                                               ; preds = %18
-  %23 = and i8 %7, 1
-  %24 = icmp eq i8 %23, 0
-  br i1 %24, label %33, label %25
+  %23 = icmp eq i8 %7, 0
+  br i1 %23, label %32, label %24
 
-25:                                               ; preds = %22
-  %26 = icmp ugt i32 %9, %20
-  br i1 %26, label %39, label %27
+24:                                               ; preds = %22
+  %25 = icmp ugt i32 %9, %20
+  br i1 %25, label %38, label %26
 
-27:                                               ; preds = %25
-  %28 = icmp eq i32 %9, %20
-  br i1 %28, label %39, label %29
+26:                                               ; preds = %24
+  %27 = icmp eq i32 %9, %20
+  br i1 %27, label %38, label %28
 
-29:                                               ; preds = %27
-  %30 = icmp ugt i32 %8, %16
-  br i1 %30, label %39, label %31
+28:                                               ; preds = %26
+  %29 = icmp ugt i32 %8, %16
+  br i1 %29, label %38, label %30
 
-31:                                               ; preds = %29
-  %32 = icmp eq i32 %8, %16
-  br i1 %32, label %39, label %33
+30:                                               ; preds = %28
+  %31 = icmp eq i32 %8, %16
+  br i1 %31, label %38, label %32
 
-33:                                               ; preds = %31, %22, %5
-  %34 = phi i32 [ %9, %5 ], [ %20, %31 ], [ %20, %22 ]
-  %35 = phi i32 [ %8, %5 ], [ %16, %31 ], [ %16, %22 ]
-  %36 = phi i8 [ %7, %5 ], [ 1, %31 ], [ 1, %22 ]
-  %37 = add nuw nsw i64 %6, 1
-  %38 = icmp eq i64 %37, 5
-  br i1 %38, label %.loopexit, label %5, !llvm.loop !27
+32:                                               ; preds = %30, %22, %5
+  %33 = phi i32 [ %9, %5 ], [ %20, %30 ], [ %20, %22 ]
+  %34 = phi i32 [ %8, %5 ], [ %16, %30 ], [ %16, %22 ]
+  %35 = phi i8 [ %7, %5 ], [ 1, %30 ], [ 1, %22 ]
+  %36 = add nuw nsw i64 %6, 1
+  %37 = icmp eq i64 %36, 5
+  br i1 %37, label %.loopexit, label %5, !llvm.loop !27
 
-39:                                               ; preds = %31, %29, %27, %25
-  %40 = phi ptr [ @.str.10, %25 ], [ @.str.11, %27 ], [ @.str.12, %29 ], [ @.str.13, %31 ]
-  %41 = tail call i32 @___ratelimit(ptr noundef nonnull @xt_check_table_hooks._rs, ptr noundef nonnull @__func__.xt_check_table_hooks) #20
-  %42 = icmp eq i32 %41, 0
-  br i1 %42, label %.loopexit, label %43
+38:                                               ; preds = %30, %28, %26, %24
+  %39 = phi ptr [ @.str.10, %24 ], [ @.str.11, %26 ], [ @.str.12, %28 ], [ @.str.13, %30 ]
+  %40 = tail call i32 @___ratelimit(ptr noundef nonnull @xt_check_table_hooks._rs, ptr noundef nonnull @__func__.xt_check_table_hooks) #20
+  %41 = icmp eq i32 %40, 0
+  br i1 %41, label %.loopexit, label %42
 
-43:                                               ; preds = %39
-  %44 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.14, ptr noundef nonnull %40, i32 noundef %10) #21
+42:                                               ; preds = %38
+  %43 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.14, ptr noundef nonnull %39, i32 noundef %10) #21
   br label %.loopexit
 
-.loopexit:                                        ; preds = %33, %18, %14, %43, %39
-  %45 = phi i32 [ -22, %43 ], [ -22, %39 ], [ 0, %33 ], [ -22, %18 ], [ -22, %14 ]
-  ret i32 %45
+.loopexit:                                        ; preds = %32, %18, %14, %42, %38
+  %44 = phi i32 [ -22, %42 ], [ -22, %38 ], [ 0, %32 ], [ -22, %18 ], [ -22, %14 ]
+  ret i32 %44
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid memory(argmem: read)

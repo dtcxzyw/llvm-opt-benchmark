@@ -2004,7 +2004,7 @@ Vec_IntStart.exit:                                ; preds = %Vec_IntAlloc.exit.t
 
 27:                                               ; preds = %.lr.ph
   %28 = trunc nuw nsw i64 %indvars.iv to i32
-  %29 = sub i32 %28, %.032
+  %29 = sub nsw i32 %28, %.032
   %30 = getelementptr i8, ptr %.pre34, i64 8
   %.val27 = load ptr, ptr %30, align 8
   %31 = sext i32 %.01931 to i64

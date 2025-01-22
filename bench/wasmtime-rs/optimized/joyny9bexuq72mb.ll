@@ -36095,10 +36095,10 @@ define hidden void @_ZN8wasmtime7runtime5store11StoreOpaque10wasm_fault17h3a807c
   br label %.outer
 
 .outer:                                           ; preds = %.thread, %.lr.ph
-  %.not16 = phi i1 [ true, %.thread ], [ false, %.lr.ph ]
-  %.sroa.7.sroa.4.026.ph = phi i64 [ %36, %.thread ], [ undef, %.lr.ph ]
-  %.sroa.7.sroa.0.025.ph = phi i64 [ %37, %.thread ], [ undef, %.lr.ph ]
-  %.sroa.0.01724.ph = phi ptr [ %22, %.thread ], [ %13, %.lr.ph ]
+  %.not16 = phi i1 [ false, %.thread ], [ true, %.lr.ph ]
+  %.sroa.7.sroa.4.027.ph = phi i64 [ %36, %.thread ], [ undef, %.lr.ph ]
+  %.sroa.7.sroa.0.026.ph = phi i64 [ %37, %.thread ], [ undef, %.lr.ph ]
+  %.sroa.0.01825.ph = phi ptr [ %22, %.thread ], [ %13, %.lr.ph ]
   br label %21
 
 20:                                               ; preds = %4
@@ -36106,26 +36106,26 @@ define hidden void @_ZN8wasmtime7runtime5store11StoreOpaque10wasm_fault17h3a807c
   br label %32
 
 ._crit_edge:                                      ; preds = %34
-  br i1 %.not16, label %._crit_edge.thread39, label %._crit_edge.thread
+  br i1 %.not16, label %._crit_edge.thread, label %._crit_edge.thread40
 
 21:                                               ; preds = %.outer, %34
-  %.sroa.0.01724 = phi ptr [ %22, %34 ], [ %.sroa.0.01724.ph, %.outer ]
-  %22 = getelementptr inbounds nuw i8, ptr %.sroa.0.01724, i64 24
+  %.sroa.0.01825 = phi ptr [ %22, %34 ], [ %.sroa.0.01825.ph, %.outer ]
+  %22 = getelementptr inbounds nuw i8, ptr %.sroa.0.01825, i64 24
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7)
-  %23 = getelementptr inbounds nuw i8, ptr %.sroa.0.01724, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %.sroa.0.01825, i64 16
   call void @_ZN16wasmtime_runtime8instance14InstanceHandle10wasm_fault17he9a262a7a25aefedE(ptr noalias nocapture noundef nonnull sret({ i64, [2 x i64] }) align 8 dereferenceable(24) %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %23, i64 noundef %3)
   %24 = load i64, ptr %7, align 8, !range !52, !noundef !16
   %.not = icmp eq i64 %24, 0
   br i1 %.not, label %34, label %33
 
-._crit_edge.thread39:                             ; preds = %.thread, %._crit_edge
-  %.sroa.7.sroa.0.13644 = phi i64 [ %.sroa.7.sroa.0.025.ph, %._crit_edge ], [ %37, %.thread ]
-  %.sroa.7.sroa.4.13743 = phi i64 [ %.sroa.7.sroa.4.026.ph, %._crit_edge ], [ %36, %.thread ]
+._crit_edge.thread40:                             ; preds = %.thread, %._crit_edge
+  %.sroa.7.sroa.0.13745 = phi i64 [ %.sroa.7.sroa.0.026.ph, %._crit_edge ], [ %37, %.thread ]
+  %.sroa.7.sroa.4.13844 = phi i64 [ %.sroa.7.sroa.4.027.ph, %._crit_edge ], [ %36, %.thread ]
   store i64 1, ptr %0, align 8
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %.sroa.7.sroa.0.13644, ptr %.sroa.7.0..sroa_idx, align 8
+  store i64 %.sroa.7.sroa.0.13745, ptr %.sroa.7.0..sroa_idx, align 8
   %.sroa.7.sroa.4.0..sroa.7.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %.sroa.7.sroa.4.13743, ptr %.sroa.7.sroa.4.0..sroa.7.0..sroa_idx.sroa_idx, align 8
+  store i64 %.sroa.7.sroa.4.13844, ptr %.sroa.7.sroa.4.0..sroa.7.0..sroa_idx.sroa_idx, align 8
   br label %32
 
 ._crit_edge.thread:                               ; preds = %11, %._crit_edge
@@ -36153,11 +36153,11 @@ define hidden void @_ZN8wasmtime7runtime5store11StoreOpaque10wasm_fault17h3a807c
   call void @_ZN3std7process5abort17h1cffb1827d7e6c16E() #40
   unreachable
 
-32:                                               ; preds = %._crit_edge.thread39, %20
+32:                                               ; preds = %._crit_edge.thread40, %20
   ret void
 
 33:                                               ; preds = %21
-  br i1 %.not16, label %39, label %.thread
+  br i1 %.not16, label %.thread, label %39
 
 34:                                               ; preds = %21
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
@@ -36169,7 +36169,7 @@ define hidden void @_ZN8wasmtime7runtime5store11StoreOpaque10wasm_fault17h3a807c
   %37 = load i64, ptr %19, align 8, !noundef !16
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
   %38 = icmp eq ptr %22, %16
-  br i1 %38, label %._crit_edge.thread39, label %.outer
+  br i1 %38, label %._crit_edge.thread40, label %.outer
 
 39:                                               ; preds = %33
   tail call void @_ZN4core9panicking5panic17h44790a89027c670fE(ptr noalias noundef nonnull readonly align 1 @anon.08b2c2ba86c6ef4134de2747b1432f05.564, i64 noundef 33, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.08b2c2ba86c6ef4134de2747b1432f05.565) #40

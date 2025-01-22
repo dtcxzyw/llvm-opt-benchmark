@@ -10373,12 +10373,12 @@ define internal fastcc noundef range(i32 0, 2) i32 @mas_ascend(ptr nocapture nou
   %66 = zext i1 %65 to i8
   br label %67
 
-67:                                               ; preds = %156, %60
-  %68 = phi i64 [ %39, %60 ], [ %111, %156 ]
-  %69 = phi i64 [ %61, %60 ], [ %133, %156 ]
-  %70 = phi i64 [ -1, %60 ], [ %147, %156 ]
-  %71 = phi i8 [ %66, %60 ], [ %148, %156 ]
-  %72 = phi i8 [ %62, %60 ], [ %134, %156 ]
+67:                                               ; preds = %155, %60
+  %68 = phi i64 [ %39, %60 ], [ %111, %155 ]
+  %69 = phi i64 [ %61, %60 ], [ %133, %155 ]
+  %70 = phi i64 [ -1, %60 ], [ %146, %155 ]
+  %71 = phi i8 [ %66, %60 ], [ %147, %155 ]
+  %72 = phi i8 [ %62, %60 ], [ %134, %155 ]
   %73 = and i64 %68, -256
   %74 = inttoptr i64 %73 to ptr
   %75 = load ptr, ptr %74, align 256
@@ -10476,55 +10476,53 @@ define internal fastcc noundef range(i32 0, 2) i32 @mas_ascend(ptr nocapture nou
 132:                                              ; preds = %127, %122
   %133 = phi i64 [ %131, %127 ], [ %69, %122 ]
   %134 = phi i8 [ 1, %127 ], [ %72, %122 ]
-  %135 = and i8 %71, 1
-  %136 = icmp eq i8 %135, 0
-  br i1 %136, label %137, label %146
+  %135 = icmp eq i8 %71, 0
+  br i1 %135, label %136, label %145
 
-137:                                              ; preds = %132
-  %138 = zext nneg i32 %94 to i64
-  %139 = getelementptr [4 x i8], ptr @mt_pivots, i64 0, i64 %138
-  %140 = load i8, ptr %139, align 1
-  %141 = zext i8 %140 to i32
-  %142 = icmp samesign ult i32 %107, %141
-  br i1 %142, label %143, label %146
+136:                                              ; preds = %132
+  %137 = zext nneg i32 %94 to i64
+  %138 = getelementptr [4 x i8], ptr @mt_pivots, i64 0, i64 %137
+  %139 = load i8, ptr %138, align 1
+  %140 = zext i8 %139 to i32
+  %141 = icmp samesign ult i32 %107, %140
+  br i1 %141, label %142, label %145
 
-143:                                              ; preds = %137
-  %144 = getelementptr i64, ptr %117, i64 %108
-  %145 = load i64, ptr %144, align 8
-  br label %146
+142:                                              ; preds = %136
+  %143 = getelementptr i64, ptr %117, i64 %108
+  %144 = load i64, ptr %143, align 8
+  br label %145
 
-146:                                              ; preds = %143, %137, %132
-  %147 = phi i64 [ %70, %132 ], [ %145, %143 ], [ %70, %137 ]
-  %148 = phi i8 [ %71, %132 ], [ 1, %143 ], [ %71, %137 ]
+145:                                              ; preds = %142, %136, %132
+  %146 = phi i64 [ %70, %132 ], [ %144, %142 ], [ %70, %136 ]
+  %147 = phi i8 [ %71, %132 ], [ 1, %142 ], [ 0, %136 ]
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !19
-  %149 = load ptr, ptr %96, align 256
-  %150 = ptrtoint ptr %149 to i64
-  %151 = and i64 %150, -256
-  %152 = icmp eq i64 %151, %95
-  br i1 %152, label %.loopexit, label %153, !prof !12
+  %148 = load ptr, ptr %96, align 256
+  %149 = ptrtoint ptr %148 to i64
+  %150 = and i64 %149, -256
+  %151 = icmp eq i64 %150, %95
+  br i1 %151, label %.loopexit, label %152, !prof !12
 
-153:                                              ; preds = %146
-  %154 = and i64 %150, 1
-  %155 = icmp eq i64 %154, 0
-  br i1 %155, label %156, label %162, !prof !11
+152:                                              ; preds = %145
+  %153 = and i64 %149, 1
+  %154 = icmp eq i64 %153, 0
+  br i1 %154, label %155, label %160, !prof !11
 
-156:                                              ; preds = %153
-  %157 = and i8 %134, 1
-  %158 = icmp eq i8 %157, 0
-  %159 = and i8 %148, 1
-  %160 = icmp eq i8 %159, 0
-  %161 = select i1 %158, i1 true, i1 %160
-  br i1 %161, label %67, label %162, !llvm.loop !124
+155:                                              ; preds = %152
+  %156 = and i8 %134, 1
+  %157 = icmp eq i8 %156, 0
+  %158 = icmp eq i8 %147, 0
+  %159 = select i1 %157, i1 true, i1 %158
+  br i1 %159, label %67, label %160, !llvm.loop !124
 
-162:                                              ; preds = %156, %153
-  store i64 %147, ptr %63, align 8
-  %163 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i64 %133, ptr %163, align 8
+160:                                              ; preds = %155, %152
+  store i64 %146, ptr %63, align 8
+  %161 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  store i64 %133, ptr %161, align 8
   br label %.loopexit
 
-.loopexit:                                        ; preds = %146, %116, %162, %52, %31, %13, %11
-  %164 = phi i32 [ 0, %11 ], [ 0, %52 ], [ 0, %162 ], [ 1, %13 ], [ 1, %31 ], [ 1, %116 ], [ 1, %146 ]
-  ret i32 %164
+.loopexit:                                        ; preds = %145, %116, %160, %52, %31, %13, %11
+  %162 = phi i32 [ 0, %11 ], [ 0, %52 ], [ 0, %160 ], [ 1, %13 ], [ 1, %31 ], [ 1, %116 ], [ 1, %145 ]
+  ret i32 %162
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(read)

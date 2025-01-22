@@ -1096,7 +1096,7 @@ define dso_local ptr @type_find_largest_union_element(ptr nocapture noundef read
   %.01518 = phi ptr [ null, %.lr.ph ], [ %.116, %18 ]
   %11 = tail call i32 @type_size(ptr noundef %0)
   %12 = zext i32 %11 to i64
-  %13 = icmp ult i64 %.01419, %12
+  %13 = icmp samesign ult i64 %.01419, %12
   br i1 %13, label %14, label %18
 
 14:                                               ; preds = %10

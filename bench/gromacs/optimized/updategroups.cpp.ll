@@ -1863,7 +1863,7 @@ _ZNSt6vectorI21InteractionListHandleSaIS0_EED2Ev.exit30.i: ; preds = %597, %.loo
   br i1 %663, label %664, label %666
 
 664:                                              ; preds = %659
-  %665 = icmp ult i64 %.079.i.i.i, 2
+  %665 = icmp samesign ult i64 %.079.i.i.i, 2
   br i1 %665, label %_ZSt17holds_alternativeIN3gmx22IncompatibilityReasonsEJiS1_EEbRKSt7variantIJDpT0_EE.exit.thread.i, label %666
 
 666:                                              ; preds = %664, %659
@@ -2086,7 +2086,7 @@ _ZN3gmx17RangePartitioningD2Ev.exit61.i:          ; preds = %_ZN15InteractionLis
   br i1 %719, label %720, label %722
 
 720:                                              ; preds = %715
-  %721 = icmp ult i64 %.079.i.i, 2
+  %721 = icmp samesign ult i64 %.079.i.i, 2
   br i1 %721, label %_ZSt17holds_alternativeIN3gmx22IncompatibilityReasonsEJNS0_17RangePartitioningES1_EEbRKSt7variantIJDpT0_EE.exit, label %722
 
 722:                                              ; preds = %720, %715

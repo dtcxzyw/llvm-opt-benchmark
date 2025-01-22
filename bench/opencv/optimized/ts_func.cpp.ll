@@ -20360,7 +20360,7 @@ define hidden noundef zeroext i1 @_ZN6cvtest7cmpUlpsERKN2cv3MatES3_iPdPSt6vector
   %64 = zext i8 %63 to i32
   %65 = sub nsw i32 %61, %64
   %66 = call i32 @llvm.abs.i32(i32 %65, i1 true)
-  %67 = icmp slt i32 %.01619.i, %66
+  %67 = icmp samesign ult i32 %.01619.i, %66
   br i1 %67, label %68, label %72
 
 68:                                               ; preds = %.lr.ph.i
@@ -20400,7 +20400,7 @@ define hidden noundef zeroext i1 @_ZN6cvtest7cmpUlpsERKN2cv3MatES3_iPdPSt6vector
   %83 = sext i8 %82 to i32
   %84 = sub nsw i32 %80, %83
   %85 = call i32 @llvm.abs.i32(i32 %84, i1 true)
-  %86 = icmp slt i32 %.01619.i81, %85
+  %86 = icmp samesign ult i32 %.01619.i81, %85
   br i1 %86, label %87, label %91
 
 87:                                               ; preds = %.lr.ph.i79
@@ -20440,7 +20440,7 @@ define hidden noundef zeroext i1 @_ZN6cvtest7cmpUlpsERKN2cv3MatES3_iPdPSt6vector
   %102 = zext i16 %101 to i32
   %103 = sub nsw i32 %99, %102
   %104 = call i32 @llvm.abs.i32(i32 %103, i1 true)
-  %105 = icmp slt i32 %.01619.i92, %104
+  %105 = icmp samesign ult i32 %.01619.i92, %104
   br i1 %105, label %106, label %110
 
 106:                                              ; preds = %.lr.ph.i90
@@ -20480,7 +20480,7 @@ define hidden noundef zeroext i1 @_ZN6cvtest7cmpUlpsERKN2cv3MatES3_iPdPSt6vector
   %121 = sext i16 %120 to i32
   %122 = sub nsw i32 %118, %121
   %123 = call i32 @llvm.abs.i32(i32 %122, i1 true)
-  %124 = icmp slt i32 %.01619.i103, %123
+  %124 = icmp samesign ult i32 %.01619.i103, %123
   br i1 %124, label %125, label %129
 
 125:                                              ; preds = %.lr.ph.i101
@@ -20560,7 +20560,7 @@ define hidden noundef zeroext i1 @_ZN6cvtest7cmpUlpsERKN2cv3MatES3_iPdPSt6vector
   %.022.i = select i1 %159, i32 %160, i32 %156
   %161 = sub nsw i32 %spec.select.i, %.022.i
   %162 = call i32 @llvm.abs.i32(i32 %161, i1 true)
-  %163 = icmp slt i32 %.032.i, %162
+  %163 = icmp samesign ult i32 %.032.i, %162
   br i1 %163, label %164, label %168
 
 164:                                              ; preds = %.lr.ph.i121
@@ -21404,7 +21404,7 @@ define hidden noundef range(i32 -3, 1) i32 @_ZN6cvtest6cmpEpsERKN2cv3MatES3_PddP
   %122 = zext i8 %121 to i32
   %123 = sub nsw i32 %119, %122
   %124 = call i32 @llvm.abs.i32(i32 %123, i1 true)
-  %125 = icmp slt i32 %.01619.i, %124
+  %125 = icmp samesign ult i32 %.01619.i, %124
   br i1 %125, label %126, label %130
 
 126:                                              ; preds = %.lr.ph.i
@@ -21444,7 +21444,7 @@ define hidden noundef range(i32 -3, 1) i32 @_ZN6cvtest6cmpEpsERKN2cv3MatES3_PddP
   %141 = sext i8 %140 to i32
   %142 = sub nsw i32 %138, %141
   %143 = call i32 @llvm.abs.i32(i32 %142, i1 true)
-  %144 = icmp slt i32 %.01619.i170, %143
+  %144 = icmp samesign ult i32 %.01619.i170, %143
   br i1 %144, label %145, label %149
 
 145:                                              ; preds = %.lr.ph.i168
@@ -21484,7 +21484,7 @@ define hidden noundef range(i32 -3, 1) i32 @_ZN6cvtest6cmpEpsERKN2cv3MatES3_PddP
   %160 = zext i16 %159 to i32
   %161 = sub nsw i32 %157, %160
   %162 = call i32 @llvm.abs.i32(i32 %161, i1 true)
-  %163 = icmp slt i32 %.01619.i181, %162
+  %163 = icmp samesign ult i32 %.01619.i181, %162
   br i1 %163, label %164, label %168
 
 164:                                              ; preds = %.lr.ph.i179
@@ -21524,7 +21524,7 @@ define hidden noundef range(i32 -3, 1) i32 @_ZN6cvtest6cmpEpsERKN2cv3MatES3_PddP
   %179 = sext i16 %178 to i32
   %180 = sub nsw i32 %176, %179
   %181 = call i32 @llvm.abs.i32(i32 %180, i1 true)
-  %182 = icmp slt i32 %.01619.i192, %181
+  %182 = icmp samesign ult i32 %.01619.i192, %181
   br i1 %182, label %183, label %187
 
 183:                                              ; preds = %.lr.ph.i190

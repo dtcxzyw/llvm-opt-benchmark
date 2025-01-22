@@ -1862,7 +1862,7 @@ _ZZN12_GLOBAL__N_18ExecPass7executeESt6vectorINSt7__cxx1112basic_stringIcSt11cha
   br i1 %403, label %51, label %._crit_edge.loopexit, !llvm.loop !6
 
 ._crit_edge.loopexit:                             ; preds = %395
-  %404 = trunc i8 %.176 to i1
+  %404 = trunc nuw i8 %.176 to i1
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.preheader

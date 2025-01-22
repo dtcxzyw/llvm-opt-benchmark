@@ -48,7 +48,7 @@ define hidden range(i32 0, 2) i32 @main(i32 noundef %0, ptr nocapture noundef re
 11:                                               ; preds = %8, %2
   %12 = load ptr, ptr @stderr, align 8
   %13 = call i64 @fwrite(ptr nonnull @.str, i64 20, i64 1, ptr %12) #13
-  br label %167
+  br label %166
 
 .lr.ph:                                           ; preds = %.preheader, %48
   %.064127 = phi ptr [ %.1, %48 ], [ null, %.preheader ]
@@ -125,7 +125,7 @@ sub_1106:                                         ; preds = %.tail, %sub_1
 40:                                               ; preds = %37
   %41 = load ptr, ptr @stderr, align 8
   %42 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %41, ptr noundef nonnull @.str.8, ptr noundef nonnull %16) #15
-  br label %166
+  br label %165
 
 43:                                               ; preds = %37
   %44 = sext i32 %38 to i64
@@ -176,7 +176,7 @@ sub_1106:                                         ; preds = %.tail, %sub_1
 59:                                               ; preds = %.thread167, %56
   %.081.lcssa165171 = phi i32 [ %.081.lcssa165170, %.thread167 ], [ %.2, %56 ]
   call fastcc void @Help()
-  br label %166
+  br label %165
 
 60:                                               ; preds = %._crit_edge
   %61 = call fastcc i64 @ReadPicture(ptr noundef %.168, ptr noundef %3)
@@ -184,7 +184,7 @@ sub_1106:                                         ; preds = %.tail, %sub_1
   %63 = icmp eq i64 %61, 0
   %64 = icmp eq i64 %62, 0
   %or.cond5 = select i1 %63, i1 true, i1 %64
-  br i1 %or.cond5, label %166, label %65
+  br i1 %or.cond5, label %165, label %65
 
 65:                                               ; preds = %60
   br i1 %52, label %66, label %67
@@ -202,7 +202,7 @@ sub_1106:                                         ; preds = %.tail, %sub_1
 69:                                               ; preds = %67
   %70 = load ptr, ptr @stderr, align 8
   %71 = call i64 @fwrite(ptr nonnull @.str.10, i64 38, i64 1, ptr %70) #13
-  br label %166
+  br label %165
 
 72:                                               ; preds = %67
   %73 = trunc i64 %61 to i32
@@ -233,7 +233,7 @@ sub_1106:                                         ; preds = %.tail, %sub_1
   %98 = fpext float %97 to double
   %99 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.11, i32 noundef %73, double noundef %76, double noundef %78, double noundef %81, double noundef %84, double noundef %87, double noundef %98)
   %.not92 = icmp eq ptr %.1, null
-  br i1 %.not92, label %165, label %100
+  br i1 %.not92, label %164, label %100
 
 100:                                              ; preds = %72
   store ptr null, ptr %6, align 8
@@ -245,116 +245,116 @@ sub_1106:                                         ; preds = %.tail, %sub_1
 103:                                              ; preds = %100
   %104 = load ptr, ptr @stderr, align 8
   %105 = call i64 @fwrite(ptr nonnull @.str.12, i64 73, i64 1, ptr %104) #13
-  br label %166
+  br label %165
 
 106:                                              ; preds = %100
   %.not94 = icmp eq i32 %101, 0
   %107 = load ptr, ptr @stderr, align 8
-  br i1 %.not94, label %148, label %108
+  br i1 %.not94, label %147, label %108
 
 108:                                              ; preds = %106
   %109 = call i64 @fwrite(ptr nonnull @.str.13, i64 29, i64 1, ptr %107) #13
-  %110 = icmp eq i32 %.180, 1
-  %111 = getelementptr inbounds nuw i8, ptr %3, i64 72
-  %112 = getelementptr inbounds nuw i8, ptr %3, i64 80
-  %113 = getelementptr inbounds nuw i8, ptr %4, i64 72
-  %114 = getelementptr inbounds nuw i8, ptr %4, i64 80
-  br i1 %110, label %.split.us, label %.thread
+  %.not175 = icmp eq i32 %.180, 0
+  %110 = getelementptr inbounds nuw i8, ptr %3, i64 72
+  %111 = getelementptr inbounds nuw i8, ptr %3, i64 80
+  %112 = getelementptr inbounds nuw i8, ptr %4, i64 72
+  %113 = getelementptr inbounds nuw i8, ptr %4, i64 80
+  br i1 %.not175, label %.thread, label %.split.us
 
-.split.us:                                        ; preds = %108, %130
-  %indvars.iv147 = phi i64 [ %indvars.iv.next148, %130 ], [ 0, %108 ]
-  %115 = load ptr, ptr %111, align 8
-  %116 = getelementptr inbounds nuw i8, ptr %115, i64 %indvars.iv147
-  %117 = load i32, ptr %112, align 8
-  %118 = shl nsw i32 %117, 2
-  %119 = load ptr, ptr %113, align 8
-  %120 = getelementptr inbounds nuw i8, ptr %119, i64 %indvars.iv147
-  %121 = load i32, ptr %114, align 8
-  %122 = shl nsw i32 %121, 2
-  %123 = load i32, ptr %90, align 8
-  %124 = load i32, ptr %94, align 4
-  %125 = call fastcc i32 @SSIMScaleChannel(ptr noundef %116, i32 noundef %118, ptr noundef %120, i32 noundef %122, i32 noundef %123, i32 noundef %124, i32 noundef %.172)
-  %126 = icmp slt i32 %125, 0
-  br i1 %126, label %127, label %130
+.split.us:                                        ; preds = %108, %129
+  %indvars.iv147 = phi i64 [ %indvars.iv.next148, %129 ], [ 0, %108 ]
+  %114 = load ptr, ptr %110, align 8
+  %115 = getelementptr inbounds nuw i8, ptr %114, i64 %indvars.iv147
+  %116 = load i32, ptr %111, align 8
+  %117 = shl nsw i32 %116, 2
+  %118 = load ptr, ptr %112, align 8
+  %119 = getelementptr inbounds nuw i8, ptr %118, i64 %indvars.iv147
+  %120 = load i32, ptr %113, align 8
+  %121 = shl nsw i32 %120, 2
+  %122 = load i32, ptr %90, align 8
+  %123 = load i32, ptr %94, align 4
+  %124 = call fastcc i32 @SSIMScaleChannel(ptr noundef %115, i32 noundef %117, ptr noundef %119, i32 noundef %121, i32 noundef %122, i32 noundef %123, i32 noundef %.172)
+  %125 = icmp slt i32 %124, 0
+  br i1 %125, label %126, label %129
 
-127:                                              ; preds = %.split.us
-  %128 = load ptr, ptr @stderr, align 8
-  %129 = call i64 @fwrite(ptr nonnull @.str.14, i64 26, i64 1, ptr %128) #13
-  br label %130
+126:                                              ; preds = %.split.us
+  %127 = load ptr, ptr @stderr, align 8
+  %128 = call i64 @fwrite(ptr nonnull @.str.14, i64 26, i64 1, ptr %127) #13
+  br label %129
 
-130:                                              ; preds = %127, %.split.us
-  %131 = load ptr, ptr @stderr, align 8
-  %132 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %131, ptr noundef nonnull @.str.15, i32 noundef %125) #15
+129:                                              ; preds = %126, %.split.us
+  %130 = load ptr, ptr @stderr, align 8
+  %131 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %130, ptr noundef nonnull @.str.15, i32 noundef %124) #15
   %indvars.iv.next148 = add nuw nsw i64 %indvars.iv147, 1
   %exitcond150.not = icmp eq i64 %indvars.iv.next148, 3
   br i1 %exitcond150.not, label %.split138.us, label %.split.us, !llvm.loop !7
 
 .thread:                                          ; preds = %108, %.thread
   %indvars.iv = phi i64 [ %indvars.iv.next, %.thread ], [ 0, %108 ]
-  %133 = load ptr, ptr %111, align 8
-  %134 = getelementptr inbounds nuw i8, ptr %133, i64 %indvars.iv
-  %135 = load i32, ptr %112, align 8
-  %136 = shl nsw i32 %135, 2
-  %137 = load ptr, ptr %113, align 8
-  %138 = getelementptr inbounds nuw i8, ptr %137, i64 %indvars.iv
-  %139 = load i32, ptr %114, align 8
-  %140 = shl nsw i32 %139, 2
-  %141 = load i32, ptr %90, align 8
-  %142 = load i32, ptr %94, align 4
-  %143 = call fastcc i32 @DiffScaleChannel(ptr noundef %134, i32 noundef %136, ptr noundef %138, i32 noundef %140, i32 noundef %141, i32 noundef %142, i32 noundef %.172)
-  %144 = load ptr, ptr @stderr, align 8
-  %145 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %144, ptr noundef nonnull @.str.15, i32 noundef %143) #15
+  %132 = load ptr, ptr %110, align 8
+  %133 = getelementptr inbounds nuw i8, ptr %132, i64 %indvars.iv
+  %134 = load i32, ptr %111, align 8
+  %135 = shl nsw i32 %134, 2
+  %136 = load ptr, ptr %112, align 8
+  %137 = getelementptr inbounds nuw i8, ptr %136, i64 %indvars.iv
+  %138 = load i32, ptr %113, align 8
+  %139 = shl nsw i32 %138, 2
+  %140 = load i32, ptr %90, align 8
+  %141 = load i32, ptr %94, align 4
+  %142 = call fastcc i32 @DiffScaleChannel(ptr noundef %133, i32 noundef %135, ptr noundef %137, i32 noundef %139, i32 noundef %140, i32 noundef %141, i32 noundef %.172)
+  %143 = load ptr, ptr @stderr, align 8
+  %144 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %143, ptr noundef nonnull @.str.15, i32 noundef %142) #15
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
   br i1 %exitcond.not, label %.split138.us, label %.thread, !llvm.loop !7
 
-.split138.us:                                     ; preds = %.thread, %130
-  %146 = load ptr, ptr @stderr, align 8
-  %fputc = call i32 @fputc(i32 10, ptr %146)
-  br i1 %53, label %150, label %147
+.split138.us:                                     ; preds = %129, %.thread
+  %145 = load ptr, ptr @stderr, align 8
+  %fputc = call i32 @fputc(i32 10, ptr %145)
+  br i1 %53, label %149, label %146
 
-147:                                              ; preds = %.split138.us
+146:                                              ; preds = %.split138.us
   call fastcc void @ConvertToGray(ptr noundef %3)
-  br label %150
+  br label %149
 
-148:                                              ; preds = %106
-  %149 = call i64 @fwrite(ptr nonnull @.str.17, i64 52, i64 1, ptr %107) #13
-  br label %166
+147:                                              ; preds = %106
+  %148 = call i64 @fwrite(ptr nonnull @.str.17, i64 52, i64 1, ptr %107) #13
+  br label %165
 
-150:                                              ; preds = %.split138.us, %147
-  %151 = load ptr, ptr %111, align 8
-  %152 = load i32, ptr %90, align 8
-  %153 = load i32, ptr %94, align 4
-  %154 = load i32, ptr %112, align 8
-  %155 = shl nsw i32 %154, 2
-  %156 = call i64 @WebPEncodeLosslessBGRA(ptr noundef %151, i32 noundef %152, i32 noundef %153, i32 noundef %155, ptr noundef nonnull %6) #12
-  %157 = icmp eq i64 %156, 0
-  br i1 %157, label %158, label %161
+149:                                              ; preds = %.split138.us, %146
+  %150 = load ptr, ptr %110, align 8
+  %151 = load i32, ptr %90, align 8
+  %152 = load i32, ptr %94, align 4
+  %153 = load i32, ptr %111, align 8
+  %154 = shl nsw i32 %153, 2
+  %155 = call i64 @WebPEncodeLosslessBGRA(ptr noundef %150, i32 noundef %151, i32 noundef %152, i32 noundef %154, ptr noundef nonnull %6) #12
+  %156 = icmp eq i64 %155, 0
+  br i1 %156, label %157, label %160
 
-158:                                              ; preds = %150
-  %159 = load ptr, ptr @stderr, align 8
-  %160 = call i64 @fwrite(ptr nonnull @.str.18, i64 32, i64 1, ptr %159) #13
-  br label %166
+157:                                              ; preds = %149
+  %158 = load ptr, ptr @stderr, align 8
+  %159 = call i64 @fwrite(ptr nonnull @.str.18, i64 32, i64 1, ptr %158) #13
+  br label %165
 
-161:                                              ; preds = %150
-  %162 = load ptr, ptr %6, align 8
-  %163 = call i32 @ImgIoUtilWriteFile(ptr noundef nonnull %.1, ptr noundef %162, i64 noundef %156) #12
-  %.not96 = icmp eq i32 %163, 0
-  %164 = load ptr, ptr %6, align 8
-  call void @WebPFree(ptr noundef %164) #12
-  br i1 %.not96, label %166, label %165
+160:                                              ; preds = %149
+  %161 = load ptr, ptr %6, align 8
+  %162 = call i32 @ImgIoUtilWriteFile(ptr noundef nonnull %.1, ptr noundef %161, i64 noundef %155) #12
+  %.not96 = icmp eq i32 %162, 0
+  %163 = load ptr, ptr %6, align 8
+  call void @WebPFree(ptr noundef %163) #12
+  br i1 %.not96, label %165, label %164
 
-165:                                              ; preds = %161, %72
-  br label %166
+164:                                              ; preds = %160, %72
+  br label %165
 
-166:                                              ; preds = %161, %60, %165, %158, %148, %103, %69, %59, %40
-  %.182 = phi i32 [ %.081118, %40 ], [ %.081.lcssa165171, %59 ], [ %.2, %60 ], [ %.2, %103 ], [ %.2, %158 ], [ 1, %161 ], [ 0, %165 ], [ %.2, %148 ], [ %.2, %69 ]
+165:                                              ; preds = %160, %60, %164, %157, %147, %103, %69, %59, %40
+  %.182 = phi i32 [ %.081118, %40 ], [ %.081.lcssa165171, %59 ], [ %.2, %60 ], [ %.2, %103 ], [ %.2, %157 ], [ 1, %160 ], [ 0, %164 ], [ %.2, %147 ], [ %.2, %69 ]
   call void @WebPPictureFree(ptr noundef nonnull %3) #12
   call void @WebPPictureFree(ptr noundef nonnull %4) #12
-  br label %167
+  br label %166
 
-167:                                              ; preds = %166, %11
-  %.0 = phi i32 [ %.182, %166 ], [ 1, %11 ]
+166:                                              ; preds = %165, %11
+  %.0 = phi i32 [ %.182, %165 ], [ 1, %11 ]
   ret i32 %.0
 }
 
@@ -755,7 +755,7 @@ define internal fastcc range(i32 0, 256) i32 @DiffScaleChannel(ptr nocapture nou
   %24 = zext i8 %23 to i32
   %25 = sub nsw i32 %21, %24
   %26 = tail call i32 @llvm.abs.i32(i32 %25, i1 true)
-  %spec.select.us = tail call i32 @llvm.smax.i32(i32 %26, i32 %.135.us)
+  %spec.select.us = tail call i32 @llvm.umax.i32(i32 %26, i32 %.135.us)
   %27 = trunc nuw i32 %26 to i8
   store i8 %27, ptr %19, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 4
@@ -936,6 +936,9 @@ declare i64 @llvm.smax.i64(i64, i64) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #11
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.umax.i32(i32, i32) #11
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

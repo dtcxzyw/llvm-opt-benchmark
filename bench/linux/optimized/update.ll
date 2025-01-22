@@ -5763,12 +5763,12 @@ define internal void @rcu_tasks_wait_gp(ptr noundef initializes((48, 52), (64, 7
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 72
   br label %49
 
-49:                                               ; preds = %104, %44
-  %50 = phi i32 [ %41, %44 ], [ %60, %104 ]
-  %51 = phi i64 [ %38, %44 ], [ %106, %104 ]
-  %52 = phi i64 [ %38, %44 ], [ %73, %104 ]
-  %53 = phi i8 [ 0, %44 ], [ %72, %104 ]
-  %54 = phi i32 [ %39, %44 ], [ %105, %104 ]
+49:                                               ; preds = %103, %44
+  %50 = phi i32 [ %41, %44 ], [ %60, %103 ]
+  %51 = phi i64 [ %38, %44 ], [ %105, %103 ]
+  %52 = phi i64 [ %38, %44 ], [ %73, %103 ]
+  %53 = phi i8 [ 0, %44 ], [ %72, %103 ]
+  %54 = phi i32 [ %39, %44 ], [ %104, %103 ]
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3) #16
   store i8 0, ptr %3, align 1, !annotation !32
   store i32 6, ptr %5, align 8
@@ -5827,43 +5827,42 @@ define internal void @rcu_tasks_wait_gp(ptr noundef initializes((48, 52), (64, 7
   call void %85(ptr noundef nonnull %2, i1 noundef zeroext %71, ptr noundef nonnull %3) #16
   %86 = load volatile i64, ptr @jiffies, align 64
   %87 = icmp sgt i32 %54, 0
-  %88 = and i8 %72, 1
-  %89 = icmp eq i8 %88, 0
-  %90 = select i1 %87, i1 %89, i1 false
-  br i1 %90, label %91, label %104
+  %88 = icmp eq i8 %72, 0
+  %89 = select i1 %87, i1 %88, i1 false
+  br i1 %89, label %90, label %103
 
-91:                                               ; preds = %83
-  %92 = zext nneg i32 %54 to i64
-  %93 = add i64 %51, %92
-  %94 = sub i64 %93, %86
-  %95 = icmp slt i64 %94, 0
-  br i1 %95, label %96, label %104
+90:                                               ; preds = %83
+  %91 = zext nneg i32 %54 to i64
+  %92 = add i64 %51, %91
+  %93 = sub i64 %92, %86
+  %94 = icmp slt i64 %93, 0
+  br i1 %94, label %95, label %103
 
-96:                                               ; preds = %91
-  %97 = load i32, ptr @rcu_task_stall_info_mult, align 4
-  %98 = mul i32 %97, %54
-  %99 = load ptr, ptr %46, align 8
-  %100 = load i64, ptr %47, align 8
-  %101 = load i64, ptr %48, align 8
-  %102 = sub i64 %86, %101
-  %103 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.85, ptr noundef nonnull @__func__.rcu_tasks_wait_gp, ptr noundef %99, i64 noundef %100, i64 noundef %102) #19
-  br label %104
+95:                                               ; preds = %90
+  %96 = load i32, ptr @rcu_task_stall_info_mult, align 4
+  %97 = mul i32 %96, %54
+  %98 = load ptr, ptr %46, align 8
+  %99 = load i64, ptr %47, align 8
+  %100 = load i64, ptr %48, align 8
+  %101 = sub i64 %86, %100
+  %102 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.85, ptr noundef nonnull @__func__.rcu_tasks_wait_gp, ptr noundef %98, i64 noundef %99, i64 noundef %101) #19
+  br label %103
 
-104:                                              ; preds = %96, %91, %83
-  %105 = phi i32 [ %98, %96 ], [ %54, %91 ], [ %54, %83 ]
-  %106 = phi i64 [ %86, %96 ], [ %51, %91 ], [ %51, %83 ]
+103:                                              ; preds = %95, %90, %83
+  %104 = phi i32 [ %97, %95 ], [ %54, %90 ], [ %54, %83 ]
+  %105 = phi i64 [ %86, %95 ], [ %51, %90 ], [ %51, %83 ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3) #16
-  %107 = load volatile ptr, ptr %2, align 8
-  %108 = icmp eq ptr %107, %2
-  br i1 %108, label %.loopexit, label %49, !llvm.loop !111
+  %106 = load volatile ptr, ptr %2, align 8
+  %107 = icmp eq ptr %106, %2
+  br i1 %107, label %.loopexit, label %49, !llvm.loop !111
 
-.loopexit:                                        ; preds = %104, %34
+.loopexit:                                        ; preds = %103, %34
   store i32 8, ptr %5, align 8
-  %109 = load volatile i64, ptr @jiffies, align 64
-  store i64 %109, ptr %7, align 8
-  %110 = getelementptr inbounds nuw i8, ptr %0, i64 160
-  %111 = load ptr, ptr %110, align 8
-  call void %111(ptr noundef %0) #16
+  %108 = load volatile i64, ptr @jiffies, align 64
+  store i64 %108, ptr %7, align 8
+  %109 = getelementptr inbounds nuw i8, ptr %0, i64 160
+  %110 = load ptr, ptr %109, align 8
+  call void %110(ptr noundef %0) #16
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #16
   ret void
 }

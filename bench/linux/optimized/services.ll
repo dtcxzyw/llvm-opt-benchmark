@@ -7674,24 +7674,24 @@ define internal fastcc void @security_dump_masked_av(ptr noundef %0, ptr noundef
   %25 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %26 = call i32 @hashtab_map(ptr noundef nonnull %25, ptr noundef nonnull @dump_masked_av_helper, ptr noundef nonnull %8) #17
   %27 = icmp slt i32 %26, 0
-  br i1 %27, label %68, label %28
+  br i1 %27, label %67, label %28
 
 28:                                               ; preds = %24, %5
   %29 = getelementptr inbounds nuw i8, ptr %20, i64 24
   %30 = call i32 @hashtab_map(ptr noundef nonnull %29, ptr noundef nonnull @dump_masked_av_helper, ptr noundef nonnull %8) #17
   %31 = icmp slt i32 %30, 0
-  br i1 %31, label %68, label %32
+  br i1 %31, label %67, label %32
 
 32:                                               ; preds = %28
   store i32 0, ptr %9, align 4, !annotation !13
   %33 = call fastcc i32 @context_struct_to_string(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %6, ptr noundef nonnull %9), !range !14
   %34 = icmp slt i32 %33, 0
-  br i1 %34, label %68, label %35
+  br i1 %34, label %67, label %35
 
 35:                                               ; preds = %32
   %36 = call fastcc i32 @context_struct_to_string(ptr noundef %0, ptr noundef %2, ptr noundef nonnull %7, ptr noundef nonnull %9), !range !14
   %37 = icmp slt i32 %36, 0
-  br i1 %37, label %68, label %38
+  br i1 %37, label %67, label %38
 
 38:                                               ; preds = %35
   %39 = call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #19, !srcloc !15
@@ -7700,7 +7700,7 @@ define internal fastcc void @security_dump_masked_av(ptr noundef %0, ptr noundef
   %42 = load ptr, ptr %41, align 8
   %43 = call ptr @audit_log_start(ptr noundef %42, i32 noundef 2080, i32 noundef 1401) #17
   %44 = icmp eq ptr %43, null
-  br i1 %44, label %68, label %45
+  br i1 %44, label %67, label %45
 
 45:                                               ; preds = %38
   %46 = load ptr, ptr %6, align 8
@@ -7708,41 +7708,40 @@ define internal fastcc void @security_dump_masked_av(ptr noundef %0, ptr noundef
   call void (ptr, ptr, ...) @audit_log_format(ptr noundef nonnull %43, ptr noundef nonnull @.str.33, ptr noundef nonnull @.str.32, ptr noundef %46, ptr noundef %47, ptr noundef %16) #17
   br label %48
 
-48:                                               ; preds = %63, %45
-  %49 = phi i64 [ 0, %45 ], [ %65, %63 ]
-  %50 = phi i8 [ 0, %45 ], [ %64, %63 ]
+48:                                               ; preds = %62, %45
+  %49 = phi i64 [ 0, %45 ], [ %64, %62 ]
+  %50 = phi i8 [ 0, %45 ], [ %63, %62 ]
   %51 = trunc i64 %49 to i32
   %52 = shl nuw i32 1, %51
   %53 = and i32 %52, %4
   %54 = icmp eq i32 %53, 0
-  br i1 %54, label %63, label %55
+  br i1 %54, label %62, label %55
 
 55:                                               ; preds = %48
-  %56 = and i8 %50, 1
-  %57 = icmp eq i8 %56, 0
-  %58 = select i1 %57, ptr @.str.36, ptr @.str.35
-  %59 = getelementptr [32 x ptr], ptr %8, i64 0, i64 %49
-  %60 = load ptr, ptr %59, align 8
-  %61 = icmp eq ptr %60, null
-  %62 = select i1 %61, ptr @.str.37, ptr %60
-  call void (ptr, ptr, ...) @audit_log_format(ptr noundef nonnull %43, ptr noundef nonnull @.str.34, ptr noundef nonnull %58, ptr noundef nonnull %62) #17
-  br label %63
+  %56 = icmp eq i8 %50, 0
+  %57 = select i1 %56, ptr @.str.36, ptr @.str.35
+  %58 = getelementptr [32 x ptr], ptr %8, i64 0, i64 %49
+  %59 = load ptr, ptr %58, align 8
+  %60 = icmp eq ptr %59, null
+  %61 = select i1 %60, ptr @.str.37, ptr %59
+  call void (ptr, ptr, ...) @audit_log_format(ptr noundef nonnull %43, ptr noundef nonnull @.str.34, ptr noundef nonnull %57, ptr noundef nonnull %61) #17
+  br label %62
 
-63:                                               ; preds = %55, %48
-  %64 = phi i8 [ 1, %55 ], [ %50, %48 ]
-  %65 = add nuw nsw i64 %49, 1
-  %66 = icmp eq i64 %65, 32
-  br i1 %66, label %67, label %48, !llvm.loop !125
+62:                                               ; preds = %55, %48
+  %63 = phi i8 [ 1, %55 ], [ %50, %48 ]
+  %64 = add nuw nsw i64 %49, 1
+  %65 = icmp eq i64 %64, 32
+  br i1 %65, label %66, label %48, !llvm.loop !125
 
-67:                                               ; preds = %63
+66:                                               ; preds = %62
   call void @audit_log_end(ptr noundef nonnull %43) #17
-  br label %68
+  br label %67
 
-68:                                               ; preds = %67, %38, %35, %32, %28, %24
-  %69 = load ptr, ptr %7, align 8
+67:                                               ; preds = %66, %38, %35, %32, %28, %24
+  %68 = load ptr, ptr %7, align 8
+  call void @kfree(ptr noundef %68) #17
+  %69 = load ptr, ptr %6, align 8
   call void @kfree(ptr noundef %69) #17
-  %70 = load ptr, ptr %6, align 8
-  call void @kfree(ptr noundef %70) #17
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #17
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %8) #17
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #17

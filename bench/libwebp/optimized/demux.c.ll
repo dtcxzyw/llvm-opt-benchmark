@@ -1398,11 +1398,11 @@ define internal fastcc range(i32 0, 3) i32 @StoreFrame(i32 noundef range(i32 -21
   %23 = getelementptr inbounds nuw i8, ptr %3, i64 64
   br label %24
 
-24:                                               ; preds = %.preheader, %65
-  %.val74 = phi i64 [ %.val68, %65 ], [ %.val78, %.preheader ]
-  %25 = phi i64 [ %.sink, %65 ], [ %.val77, %.preheader ]
-  %.056 = phi i32 [ %.157, %65 ], [ 0, %.preheader ]
-  %.055 = phi i32 [ %.1, %65 ], [ 0, %.preheader ]
+24:                                               ; preds = %.preheader, %64
+  %.val74 = phi i64 [ %.val68, %64 ], [ %.val78, %.preheader ]
+  %25 = phi i64 [ %.sink, %64 ], [ %.val77, %.preheader ]
+  %.056 = phi i32 [ %.157, %64 ], [ 0, %.preheader ]
+  %.055 = phi i32 [ %.1, %64 ], [ 0, %.preheader ]
   %26 = load ptr, ptr %11, align 8
   %27 = getelementptr inbounds i8, ptr %26, i64 %25
   %.val.i.i = load i32, ptr %27, align 1
@@ -1430,15 +1430,15 @@ define internal fastcc range(i32 0, 3) i32 @StoreFrame(i32 noundef range(i32 -21
 39:                                               ; preds = %32
   %40 = icmp ult i64 %36, %35
   %spec.select = zext i1 %40 to i32
-  switch i32 %.val.i.i, label %62 [
+  switch i32 %.val.i.i, label %61 [
     i32 1213221953, label %41
     i32 1278758998, label %44
-    i32 540561494, label %46
+    i32 540561494, label %45
   ]
 
 41:                                               ; preds = %39
   %42 = icmp eq i32 %.055, 0
-  br i1 %42, label %43, label %62
+  br i1 %42, label %43, label %61
 
 43:                                               ; preds = %41
   store i64 %25, ptr %22, align 8
@@ -1448,68 +1448,68 @@ define internal fastcc range(i32 0, 3) i32 @StoreFrame(i32 noundef range(i32 -21
   br label %.sink.split
 
 44:                                               ; preds = %39
-  %45 = icmp sgt i32 %.055, 0
-  br i1 %45, label %.thread, label %46
+  %.not90 = icmp eq i32 %.055, 0
+  br i1 %.not90, label %45, label %.thread
 
-46:                                               ; preds = %44, %39
-  %47 = icmp eq i32 %.056, 0
-  br i1 %47, label %48, label %62
+45:                                               ; preds = %44, %39
+  %46 = icmp eq i32 %.056, 0
+  br i1 %46, label %47, label %61
 
-48:                                               ; preds = %46
-  %49 = call i32 @WebPGetFeaturesInternal(ptr noundef nonnull %27, i64 noundef %37, ptr noundef nonnull %5, i32 noundef 521) #13
-  %50 = icmp eq i32 %49, 7
-  %or.cond = select i1 %40, i1 %50, i1 false
-  br i1 %or.cond, label %.thread, label %51
+47:                                               ; preds = %45
+  %48 = call i32 @WebPGetFeaturesInternal(ptr noundef nonnull %27, i64 noundef %37, ptr noundef nonnull %5, i32 noundef 521) #13
+  %49 = icmp eq i32 %48, 7
+  %or.cond = select i1 %40, i1 %49, i1 false
+  br i1 %or.cond, label %.thread, label %50
 
-51:                                               ; preds = %48
-  %.not65 = icmp eq i32 %49, 0
-  br i1 %.not65, label %52, label %.thread
+50:                                               ; preds = %47
+  %.not65 = icmp eq i32 %48, 0
+  br i1 %.not65, label %51, label %.thread
 
-52:                                               ; preds = %51
-  %53 = xor i1 %40, true
-  %54 = zext i1 %53 to i32
+51:                                               ; preds = %50
+  %52 = xor i1 %40, true
+  %53 = zext i1 %52 to i32
   store i64 %25, ptr %13, align 8
   store i64 %37, ptr %14, align 8
-  %55 = load i32, ptr %5, align 4
-  store i32 %55, ptr %15, align 8
-  %56 = load i32, ptr %16, align 4
-  store i32 %56, ptr %17, align 4
-  %57 = load i32, ptr %18, align 4
-  %58 = load i32, ptr %19, align 8
-  %59 = or i32 %58, %57
-  store i32 %59, ptr %19, align 8
+  %54 = load i32, ptr %5, align 4
+  store i32 %54, ptr %15, align 8
+  %55 = load i32, ptr %16, align 4
+  store i32 %55, ptr %17, align 4
+  %56 = load i32, ptr %18, align 4
+  %57 = load i32, ptr %19, align 8
+  %58 = or i32 %57, %56
+  store i32 %58, ptr %19, align 8
   store i32 %0, ptr %20, align 8
-  store i32 %54, ptr %21, align 4
+  store i32 %53, ptr %21, align 4
   br label %.sink.split
 
-.sink.split:                                      ; preds = %43, %52
-  %.157.ph = phi i32 [ %.056, %43 ], [ 1, %52 ]
-  %.1.ph = phi i32 [ 1, %43 ], [ %.055, %52 ]
-  %60 = load i64, ptr %2, align 8
-  %61 = add i64 %60, %spec.select86
-  br label %62
+.sink.split:                                      ; preds = %43, %51
+  %.157.ph = phi i32 [ %.056, %43 ], [ 1, %51 ]
+  %.1.ph = phi i32 [ 1, %43 ], [ %.055, %51 ]
+  %59 = load i64, ptr %2, align 8
+  %60 = add i64 %59, %spec.select86
+  br label %61
 
-62:                                               ; preds = %.sink.split, %39, %46, %41
-  %.sink = phi i64 [ %25, %41 ], [ %25, %46 ], [ %25, %39 ], [ %61, %.sink.split ]
-  %.not66 = phi i1 [ false, %41 ], [ false, %46 ], [ false, %39 ], [ true, %.sink.split ]
-  %.157 = phi i32 [ %.056, %41 ], [ %.056, %46 ], [ %.056, %39 ], [ %.157.ph, %.sink.split ]
-  %.1 = phi i32 [ %.055, %41 ], [ %.055, %46 ], [ %.055, %39 ], [ %.1.ph, %.sink.split ]
+61:                                               ; preds = %.sink.split, %39, %45, %41
+  %.sink = phi i64 [ %25, %41 ], [ %25, %45 ], [ %25, %39 ], [ %60, %.sink.split ]
+  %.not66 = phi i1 [ false, %41 ], [ false, %45 ], [ false, %39 ], [ true, %.sink.split ]
+  %.157 = phi i32 [ %.056, %41 ], [ %.056, %45 ], [ %.056, %39 ], [ %.157.ph, %.sink.split ]
+  %.1 = phi i32 [ %.055, %41 ], [ %.055, %45 ], [ %.055, %39 ], [ %.1.ph, %.sink.split ]
   store i64 %.sink, ptr %2, align 8
-  %63 = load i64, ptr %12, align 8
-  %64 = icmp eq i64 %.sink, %63
-  br i1 %64, label %.thread, label %65
+  %62 = load i64, ptr %12, align 8
+  %63 = icmp eq i64 %.sink, %62
+  br i1 %63, label %.thread, label %64
 
-65:                                               ; preds = %62
+64:                                               ; preds = %61
   %.val68 = load i64, ptr %6, align 8
-  %66 = sub i64 %.val68, %.sink
-  %67 = icmp ult i64 %66, 8
-  %spec.select67 = select i1 %67, i32 1, i32 %spec.select
-  %68 = icmp eq i32 %spec.select67, 0
-  %69 = select i1 %.not66, i1 %68, i1 false
-  br i1 %69, label %24, label %.thread, !llvm.loop !13
+  %65 = sub i64 %.val68, %.sink
+  %66 = icmp ult i64 %65, 8
+  %spec.select67 = select i1 %66, i32 1, i32 %spec.select
+  %67 = icmp eq i32 %spec.select67, 0
+  %68 = select i1 %.not66, i1 %67, i1 false
+  br i1 %68, label %24, label %.thread, !llvm.loop !13
 
-.thread:                                          ; preds = %62, %65, %51, %48, %44, %32, %24, %4
-  %.0 = phi i32 [ 1, %4 ], [ %spec.select, %62 ], [ %spec.select67, %65 ], [ 2, %51 ], [ 1, %48 ], [ 2, %44 ], [ 2, %32 ], [ 2, %24 ]
+.thread:                                          ; preds = %61, %64, %50, %47, %44, %32, %24, %4
+  %.0 = phi i32 [ 1, %4 ], [ %spec.select, %61 ], [ %spec.select67, %64 ], [ 2, %50 ], [ 1, %47 ], [ 2, %44 ], [ 2, %32 ], [ 2, %24 ]
   ret i32 %.0
 }
 
@@ -1568,7 +1568,7 @@ define internal fastcc range(i32 0, 3) i32 @ParseVP8XChunks(ptr nocapture nounde
   ]
 
 28:                                               ; preds = %27, %27, %27
-  %29 = icmp sgt i32 %.046, 0
+  %29 = icmp ne i32 %.046, 0
   %or.cond = select i1 %29, i1 true, i1 %5
   br i1 %or.cond, label %StoreChunk.exit.thread, label %30
 

@@ -680,7 +680,7 @@ define internal fastcc range(i32 -3, 1) i32 @tinyobj_parse_and_index_mtl_file(pt
   %30 = add i32 %.1247, -1
   %31 = zext i32 %30 to i64
   %32 = getelementptr inbounds nuw i8, ptr %29, i64 %31
-  %33 = add i32 %.1247, 1
+  %33 = or disjoint i32 %.1247, 1
   %34 = call ptr @fgets(ptr noundef %32, i32 noundef %33, ptr noundef nonnull %10)
   %.not21.i = icmp eq ptr %34, null
   br i1 %.not21.i, label %.loopexit263, label %35

@@ -5328,34 +5328,33 @@ sw.bb:                                            ; preds = %for.cond
   br i1 %clear.0, label %while.cond.preheader, label %if.end18
 
 while.cond.preheader:                             ; preds = %sw.bb
-  %2 = and i8 %change.0, 1
-  %inc = zext nneg i8 %2 to i32
+  %inc = zext nneg i8 %change.0 to i32
   %spec.select = add i32 %e.0, %inc
   %_M_finish.i30 = getelementptr inbounds nuw i8, ptr %contour.0, i64 8
   %conv1047 = zext i32 %spec.select to i64
-  %3 = load ptr, ptr %_M_finish.i30, align 8
-  %4 = load ptr, ptr %contour.0, align 8
-  %sub.ptr.lhs.cast.i3148 = ptrtoint ptr %3 to i64
-  %sub.ptr.rhs.cast.i3249 = ptrtoint ptr %4 to i64
+  %2 = load ptr, ptr %_M_finish.i30, align 8
+  %3 = load ptr, ptr %contour.0, align 8
+  %sub.ptr.lhs.cast.i3148 = ptrtoint ptr %2 to i64
+  %sub.ptr.rhs.cast.i3249 = ptrtoint ptr %3 to i64
   %sub.ptr.sub.i3350 = sub i64 %sub.ptr.lhs.cast.i3148, %sub.ptr.rhs.cast.i3249
   %sub.ptr.div.i3451 = ashr exact i64 %sub.ptr.sub.i3350, 3
   %cmp1252 = icmp ugt i64 %sub.ptr.div.i3451, %conv1047
   br i1 %cmp1252, label %while.body, label %if.end18
 
 while.body:                                       ; preds = %while.cond.preheader, %while.body
-  %5 = phi ptr [ %7, %while.body ], [ %4, %while.cond.preheader ]
+  %4 = phi ptr [ %6, %while.body ], [ %3, %while.cond.preheader ]
   %conv1054 = phi i64 [ %conv10, %while.body ], [ %conv1047, %while.cond.preheader ]
   %e.253 = phi i32 [ %inc17, %while.body ], [ %spec.select, %while.cond.preheader ]
-  %add.ptr.i = getelementptr inbounds nuw %"class.msdfgen::EdgeHolder", ptr %5, i64 %conv1054
+  %add.ptr.i = getelementptr inbounds nuw %"class.msdfgen::EdgeHolder", ptr %4, i64 %conv1054
   %call16 = tail call noundef ptr @_ZN7msdfgen10EdgeHolderptEv(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i)
   %color = getelementptr inbounds nuw i8, ptr %call16, i64 8
   store i32 7, ptr %color, align 8
   %inc17 = add i32 %e.253, 1
   %conv10 = zext i32 %inc17 to i64
-  %6 = load ptr, ptr %_M_finish.i30, align 8
-  %7 = load ptr, ptr %contour.0, align 8
-  %sub.ptr.lhs.cast.i31 = ptrtoint ptr %6 to i64
-  %sub.ptr.rhs.cast.i32 = ptrtoint ptr %7 to i64
+  %5 = load ptr, ptr %_M_finish.i30, align 8
+  %6 = load ptr, ptr %contour.0, align 8
+  %sub.ptr.lhs.cast.i31 = ptrtoint ptr %5 to i64
+  %sub.ptr.rhs.cast.i32 = ptrtoint ptr %6 to i64
   %sub.ptr.sub.i33 = sub i64 %sub.ptr.lhs.cast.i31, %sub.ptr.rhs.cast.i32
   %sub.ptr.div.i34 = ashr exact i64 %sub.ptr.sub.i33, 3
   %cmp12 = icmp ugt i64 %sub.ptr.div.i34, %conv10
@@ -5363,10 +5362,10 @@ while.body:                                       ; preds = %while.cond.preheade
 
 if.end18:                                         ; preds = %while.body, %while.cond.preheader, %sw.bb
   %inc19 = add i32 %c.0, 1
-  %8 = load ptr, ptr %_M_finish.i, align 8
-  %9 = load ptr, ptr %shape, align 8
-  %sub.ptr.lhs.cast.i36 = ptrtoint ptr %8 to i64
-  %sub.ptr.rhs.cast.i37 = ptrtoint ptr %9 to i64
+  %7 = load ptr, ptr %_M_finish.i, align 8
+  %8 = load ptr, ptr %shape, align 8
+  %sub.ptr.lhs.cast.i36 = ptrtoint ptr %7 to i64
+  %sub.ptr.rhs.cast.i37 = ptrtoint ptr %8 to i64
   %sub.ptr.sub.i38 = sub i64 %sub.ptr.lhs.cast.i36, %sub.ptr.rhs.cast.i37
   %sub.ptr.div.i39 = sdiv exact i64 %sub.ptr.sub.i38, 24
   %conv22 = zext i32 %inc19 to i64
@@ -5374,40 +5373,39 @@ if.end18:                                         ; preds = %while.body, %while.
   br i1 %cmp23.not, label %if.end25, label %for.end
 
 if.end25:                                         ; preds = %if.end18
-  %add.ptr.i40 = getelementptr inbounds nuw %"class.msdfgen::Contour", ptr %9, i64 %conv22
+  %add.ptr.i40 = getelementptr inbounds nuw %"class.msdfgen::Contour", ptr %8, i64 %conv22
   br label %for.inc
 
 sw.bb29:                                          ; preds = %for.cond
   br label %for.inc
 
 sw.bb30:                                          ; preds = %for.cond, %for.cond, %for.cond, %for.cond, %for.cond, %for.cond, %for.cond, %for.cond
-  %tobool31.mask = and i8 %change.0, 1
-  %inc33 = zext nneg i8 %tobool31.mask to i32
+  %inc33 = zext nneg i8 %change.0 to i32
   %spec.select28 = add i32 %e.0, %inc33
   %conv35 = zext i32 %spec.select28 to i64
   %_M_finish.i41 = getelementptr inbounds nuw i8, ptr %contour.0, i64 8
-  %10 = load ptr, ptr %_M_finish.i41, align 8
-  %11 = load ptr, ptr %contour.0, align 8
-  %sub.ptr.lhs.cast.i42 = ptrtoint ptr %10 to i64
-  %sub.ptr.rhs.cast.i43 = ptrtoint ptr %11 to i64
+  %9 = load ptr, ptr %_M_finish.i41, align 8
+  %10 = load ptr, ptr %contour.0, align 8
+  %sub.ptr.lhs.cast.i42 = ptrtoint ptr %9 to i64
+  %sub.ptr.rhs.cast.i43 = ptrtoint ptr %10 to i64
   %sub.ptr.sub.i44 = sub i64 %sub.ptr.lhs.cast.i42, %sub.ptr.rhs.cast.i43
   %sub.ptr.div.i45 = ashr exact i64 %sub.ptr.sub.i44, 3
   %cmp38 = icmp ugt i64 %sub.ptr.div.i45, %conv35
   br i1 %cmp38, label %if.then39, label %for.inc
 
 if.then39:                                        ; preds = %sw.bb30
-  %12 = and i8 %1, -33
-  %13 = icmp eq i8 %12, 67
-  %conv44 = select i1 %13, i32 6, i32 0
-  %14 = icmp eq i8 %12, 77
-  %conv51 = select i1 %14, i32 5, i32 0
+  %11 = and i8 %1, -33
+  %12 = icmp eq i8 %11, 67
+  %conv44 = select i1 %12, i32 6, i32 0
+  %13 = icmp eq i8 %11, 77
+  %conv51 = select i1 %13, i32 5, i32 0
   %or = or i32 %conv44, %conv51
-  %15 = icmp eq i8 %12, 89
-  %conv59 = select i1 %15, i32 3, i32 0
+  %14 = icmp eq i8 %11, 89
+  %conv59 = select i1 %14, i32 3, i32 0
   %or61 = or i32 %or, %conv59
-  %16 = icmp eq i8 %12, 87
-  %or70 = select i1 %16, i32 7, i32 %or61
-  %add.ptr.i46 = getelementptr inbounds nuw %"class.msdfgen::EdgeHolder", ptr %11, i64 %conv35
+  %15 = icmp eq i8 %11, 87
+  %or70 = select i1 %15, i32 7, i32 %or61
+  %add.ptr.i46 = getelementptr inbounds nuw %"class.msdfgen::EdgeHolder", ptr %10, i64 %conv35
   %call74 = tail call noundef ptr @_ZN7msdfgen10EdgeHolderptEv(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i46)
   %color75 = getelementptr inbounds nuw i8, ptr %call74, i64 8
   store i32 %or70, ptr %color75, align 8

@@ -158,52 +158,52 @@ cli_bcomp_freemeta.exit:                          ; preds = %34, %._crit_edge.i
   tail call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.2) #14
   %57 = getelementptr inbounds nuw i8, ptr %17, i64 40
   %58 = load ptr, ptr %57, align 8
-  %.not.i266 = icmp eq ptr %58, null
-  br i1 %.not.i266, label %cli_bcomp_freemeta.exit277, label %.preheader.i267
+  %.not.i267 = icmp eq ptr %58, null
+  br i1 %.not.i267, label %cli_bcomp_freemeta.exit278, label %.preheader.i268
 
-.preheader.i267:                                  ; preds = %56
+.preheader.i268:                                  ; preds = %56
   %59 = getelementptr inbounds nuw i8, ptr %17, i64 48
   %60 = load i32, ptr %59, align 8
-  %.not23.i268 = icmp eq i32 %60, 0
-  br i1 %.not23.i268, label %._crit_edge.i276, label %.lr.ph.i269
+  %.not23.i269 = icmp eq i32 %60, 0
+  br i1 %.not23.i269, label %._crit_edge.i277, label %.lr.ph.i270
 
-.lr.ph.i269:                                      ; preds = %.preheader.i267, %69
-  %61 = phi i32 [ %70, %69 ], [ %60, %.preheader.i267 ]
-  %indvars.iv.i270 = phi i64 [ %indvars.iv.next.i273, %69 ], [ 0, %.preheader.i267 ]
+.lr.ph.i270:                                      ; preds = %.preheader.i268, %69
+  %61 = phi i32 [ %70, %69 ], [ %60, %.preheader.i268 ]
+  %indvars.iv.i271 = phi i64 [ %indvars.iv.next.i274, %69 ], [ 0, %.preheader.i268 ]
   %62 = load ptr, ptr %57, align 8
-  %63 = getelementptr inbounds nuw ptr, ptr %62, i64 %indvars.iv.i270
+  %63 = getelementptr inbounds nuw ptr, ptr %62, i64 %indvars.iv.i271
   %64 = load ptr, ptr %63, align 8
-  %.not21.i271 = icmp eq ptr %64, null
-  br i1 %.not21.i271, label %69, label %65
+  %.not21.i272 = icmp eq ptr %64, null
+  br i1 %.not21.i272, label %69, label %65
 
-65:                                               ; preds = %.lr.ph.i269
+65:                                               ; preds = %.lr.ph.i270
   %66 = load ptr, ptr %15, align 8
   tail call void @mpool_free(ptr noundef %66, ptr noundef nonnull %64) #14
   %67 = load ptr, ptr %57, align 8
-  %68 = getelementptr inbounds nuw ptr, ptr %67, i64 %indvars.iv.i270
+  %68 = getelementptr inbounds nuw ptr, ptr %67, i64 %indvars.iv.i271
   store ptr null, ptr %68, align 8
-  %.pre.i272 = load i32, ptr %59, align 8
+  %.pre.i273 = load i32, ptr %59, align 8
   br label %69
 
-69:                                               ; preds = %65, %.lr.ph.i269
-  %70 = phi i32 [ %61, %.lr.ph.i269 ], [ %.pre.i272, %65 ]
-  %indvars.iv.next.i273 = add nuw nsw i64 %indvars.iv.i270, 1
+69:                                               ; preds = %65, %.lr.ph.i270
+  %70 = phi i32 [ %61, %.lr.ph.i270 ], [ %.pre.i273, %65 ]
+  %indvars.iv.next.i274 = add nuw nsw i64 %indvars.iv.i271, 1
   %71 = zext i32 %70 to i64
-  %72 = icmp samesign ult i64 %indvars.iv.next.i273, %71
-  br i1 %72, label %.lr.ph.i269, label %._crit_edge.loopexit.i274
+  %72 = icmp samesign ult i64 %indvars.iv.next.i274, %71
+  br i1 %72, label %.lr.ph.i270, label %._crit_edge.loopexit.i275
 
-._crit_edge.loopexit.i274:                        ; preds = %69
-  %.pre25.i275 = load ptr, ptr %57, align 8
-  br label %._crit_edge.i276
+._crit_edge.loopexit.i275:                        ; preds = %69
+  %.pre25.i276 = load ptr, ptr %57, align 8
+  br label %._crit_edge.i277
 
-._crit_edge.i276:                                 ; preds = %._crit_edge.loopexit.i274, %.preheader.i267
-  %73 = phi ptr [ %.pre25.i275, %._crit_edge.loopexit.i274 ], [ %58, %.preheader.i267 ]
+._crit_edge.i277:                                 ; preds = %._crit_edge.loopexit.i275, %.preheader.i268
+  %73 = phi ptr [ %.pre25.i276, %._crit_edge.loopexit.i275 ], [ %58, %.preheader.i268 ]
   %74 = load ptr, ptr %15, align 8
   tail call void @mpool_free(ptr noundef %74, ptr noundef %73) #14
   store ptr null, ptr %57, align 8
-  br label %cli_bcomp_freemeta.exit277
+  br label %cli_bcomp_freemeta.exit278
 
-cli_bcomp_freemeta.exit277:                       ; preds = %56, %._crit_edge.i276
+cli_bcomp_freemeta.exit278:                       ; preds = %56, %._crit_edge.i277
   %75 = load ptr, ptr %15, align 8
   tail call void @mpool_free(ptr noundef %75, ptr noundef nonnull %17) #14
   br label %330
@@ -238,52 +238,52 @@ cli_bcomp_freemeta.exit277:                       ; preds = %56, %._crit_edge.i2
   tail call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.4) #14
   %90 = getelementptr inbounds nuw i8, ptr %17, i64 40
   %91 = load ptr, ptr %90, align 8
-  %.not.i279 = icmp eq ptr %91, null
-  br i1 %.not.i279, label %cli_bcomp_freemeta.exit290, label %.preheader.i280
+  %.not.i280 = icmp eq ptr %91, null
+  br i1 %.not.i280, label %cli_bcomp_freemeta.exit291, label %.preheader.i281
 
-.preheader.i280:                                  ; preds = %89
+.preheader.i281:                                  ; preds = %89
   %92 = getelementptr inbounds nuw i8, ptr %17, i64 48
   %93 = load i32, ptr %92, align 8
-  %.not23.i281 = icmp eq i32 %93, 0
-  br i1 %.not23.i281, label %._crit_edge.i289, label %.lr.ph.i282
+  %.not23.i282 = icmp eq i32 %93, 0
+  br i1 %.not23.i282, label %._crit_edge.i290, label %.lr.ph.i283
 
-.lr.ph.i282:                                      ; preds = %.preheader.i280, %102
-  %94 = phi i32 [ %103, %102 ], [ %93, %.preheader.i280 ]
-  %indvars.iv.i283 = phi i64 [ %indvars.iv.next.i286, %102 ], [ 0, %.preheader.i280 ]
+.lr.ph.i283:                                      ; preds = %.preheader.i281, %102
+  %94 = phi i32 [ %103, %102 ], [ %93, %.preheader.i281 ]
+  %indvars.iv.i284 = phi i64 [ %indvars.iv.next.i287, %102 ], [ 0, %.preheader.i281 ]
   %95 = load ptr, ptr %90, align 8
-  %96 = getelementptr inbounds nuw ptr, ptr %95, i64 %indvars.iv.i283
+  %96 = getelementptr inbounds nuw ptr, ptr %95, i64 %indvars.iv.i284
   %97 = load ptr, ptr %96, align 8
-  %.not21.i284 = icmp eq ptr %97, null
-  br i1 %.not21.i284, label %102, label %98
+  %.not21.i285 = icmp eq ptr %97, null
+  br i1 %.not21.i285, label %102, label %98
 
-98:                                               ; preds = %.lr.ph.i282
+98:                                               ; preds = %.lr.ph.i283
   %99 = load ptr, ptr %15, align 8
   tail call void @mpool_free(ptr noundef %99, ptr noundef nonnull %97) #14
   %100 = load ptr, ptr %90, align 8
-  %101 = getelementptr inbounds nuw ptr, ptr %100, i64 %indvars.iv.i283
+  %101 = getelementptr inbounds nuw ptr, ptr %100, i64 %indvars.iv.i284
   store ptr null, ptr %101, align 8
-  %.pre.i285 = load i32, ptr %92, align 8
+  %.pre.i286 = load i32, ptr %92, align 8
   br label %102
 
-102:                                              ; preds = %98, %.lr.ph.i282
-  %103 = phi i32 [ %94, %.lr.ph.i282 ], [ %.pre.i285, %98 ]
-  %indvars.iv.next.i286 = add nuw nsw i64 %indvars.iv.i283, 1
+102:                                              ; preds = %98, %.lr.ph.i283
+  %103 = phi i32 [ %94, %.lr.ph.i283 ], [ %.pre.i286, %98 ]
+  %indvars.iv.next.i287 = add nuw nsw i64 %indvars.iv.i284, 1
   %104 = zext i32 %103 to i64
-  %105 = icmp samesign ult i64 %indvars.iv.next.i286, %104
-  br i1 %105, label %.lr.ph.i282, label %._crit_edge.loopexit.i287
+  %105 = icmp samesign ult i64 %indvars.iv.next.i287, %104
+  br i1 %105, label %.lr.ph.i283, label %._crit_edge.loopexit.i288
 
-._crit_edge.loopexit.i287:                        ; preds = %102
-  %.pre25.i288 = load ptr, ptr %90, align 8
-  br label %._crit_edge.i289
+._crit_edge.loopexit.i288:                        ; preds = %102
+  %.pre25.i289 = load ptr, ptr %90, align 8
+  br label %._crit_edge.i290
 
-._crit_edge.i289:                                 ; preds = %._crit_edge.loopexit.i287, %.preheader.i280
-  %106 = phi ptr [ %.pre25.i288, %._crit_edge.loopexit.i287 ], [ %91, %.preheader.i280 ]
+._crit_edge.i290:                                 ; preds = %._crit_edge.loopexit.i288, %.preheader.i281
+  %106 = phi ptr [ %.pre25.i289, %._crit_edge.loopexit.i288 ], [ %91, %.preheader.i281 ]
   %107 = load ptr, ptr %15, align 8
   tail call void @mpool_free(ptr noundef %107, ptr noundef %106) #14
   store ptr null, ptr %90, align 8
-  br label %cli_bcomp_freemeta.exit290
+  br label %cli_bcomp_freemeta.exit291
 
-cli_bcomp_freemeta.exit290:                       ; preds = %89, %._crit_edge.i289
+cli_bcomp_freemeta.exit291:                       ; preds = %89, %._crit_edge.i290
   %108 = load ptr, ptr %15, align 8
   tail call void @mpool_free(ptr noundef %108, ptr noundef nonnull %17) #14
   br label %330
@@ -412,8 +412,8 @@ cli_bcomp_freemeta.exit290:                       ; preds = %89, %._crit_edge.i2
   %171 = getelementptr inbounds i16, ptr %168, i64 %170
   %172 = load i16, ptr %171, align 2
   %173 = and i16 %172, 2048
-  %.not230298 = icmp eq i16 %173, 0
-  br i1 %.not230298, label %.lr.ph, label %._crit_edge
+  %.not230301 = icmp eq i16 %173, 0
+  br i1 %.not230301, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %163
   %174 = getelementptr inbounds nuw i8, ptr %17, i64 24
@@ -421,7 +421,7 @@ cli_bcomp_freemeta.exit290:                       ; preds = %89, %._crit_edge.i2
 
 175:                                              ; preds = %.lr.ph, %214
   %176 = phi i8 [ %169, %.lr.ph ], [ %217, %214 ]
-  %.0201299 = phi ptr [ %166, %.lr.ph ], [ %215, %214 ]
+  %.0201302 = phi ptr [ %166, %.lr.ph ], [ %215, %214 ]
   switch i8 %176, label %210 [
     i8 104, label %177
     i8 100, label %182
@@ -435,8 +435,8 @@ cli_bcomp_freemeta.exit290:                       ; preds = %89, %._crit_edge.i2
 177:                                              ; preds = %175
   %178 = load i16, ptr %174, align 8
   %179 = and i16 %178, 14
-  %or.cond256 = icmp eq i16 %179, 0
-  br i1 %or.cond256, label %180, label %210
+  %or.cond257 = icmp eq i16 %179, 0
+  br i1 %or.cond257, label %180, label %210
 
 180:                                              ; preds = %177
   %181 = or i16 %178, 1
@@ -445,8 +445,8 @@ cli_bcomp_freemeta.exit290:                       ; preds = %89, %._crit_edge.i2
 182:                                              ; preds = %175
   %183 = load i16, ptr %174, align 8
   %184 = and i16 %183, 29
-  %or.cond259 = icmp eq i16 %184, 0
-  br i1 %or.cond259, label %185, label %210
+  %or.cond260 = icmp eq i16 %184, 0
+  br i1 %or.cond260, label %185, label %210
 
 185:                                              ; preds = %182
   %186 = or i16 %183, 34
@@ -455,8 +455,8 @@ cli_bcomp_freemeta.exit290:                       ; preds = %89, %._crit_edge.i2
 187:                                              ; preds = %175
   %188 = load i16, ptr %174, align 8
   %189 = and i16 %188, 11
-  %or.cond261 = icmp eq i16 %189, 0
-  br i1 %or.cond261, label %190, label %210
+  %or.cond262 = icmp eq i16 %189, 0
+  br i1 %or.cond262, label %190, label %210
 
 190:                                              ; preds = %187
   %191 = or i16 %188, 4
@@ -465,8 +465,8 @@ cli_bcomp_freemeta.exit290:                       ; preds = %89, %._crit_edge.i2
 192:                                              ; preds = %175
   %193 = load i16, ptr %174, align 8
   %194 = and i16 %193, 7
-  %or.cond263 = icmp eq i16 %194, 0
-  br i1 %or.cond263, label %195, label %210
+  %or.cond264 = icmp eq i16 %194, 0
+  br i1 %or.cond264, label %195, label %210
 
 195:                                              ; preds = %192
   %196 = or i16 %193, 8
@@ -475,8 +475,8 @@ cli_bcomp_freemeta.exit290:                       ; preds = %89, %._crit_edge.i2
 197:                                              ; preds = %175
   %198 = load i16, ptr %174, align 8
   %199 = and i16 %198, 34
-  %or.cond264 = icmp eq i16 %199, 0
-  br i1 %or.cond264, label %200, label %210
+  %or.cond265 = icmp eq i16 %199, 0
+  br i1 %or.cond265, label %200, label %210
 
 200:                                              ; preds = %197
   %201 = or i16 %198, 16
@@ -506,10 +506,10 @@ cli_bcomp_freemeta.exit290:                       ; preds = %89, %._crit_edge.i2
   call void @cli_bcomp_freemeta(ptr noundef %0, ptr noundef nonnull %17)
   br label %330
 
-214:                                              ; preds = %207, %180, %185, %190, %195, %200, %205
-  %.sink = phi i16 [ %209, %207 ], [ %181, %180 ], [ %186, %185 ], [ %191, %190 ], [ %196, %195 ], [ %201, %200 ], [ %206, %205 ]
+214:                                              ; preds = %207, %205, %200, %195, %190, %185, %180
+  %.sink = phi i16 [ %209, %207 ], [ %206, %205 ], [ %201, %200 ], [ %196, %195 ], [ %191, %190 ], [ %186, %185 ], [ %181, %180 ]
   store i16 %.sink, ptr %174, align 8
-  %215 = getelementptr inbounds nuw i8, ptr %.0201299, i64 1
+  %215 = getelementptr inbounds nuw i8, ptr %.0201302, i64 1
   %216 = load ptr, ptr %167, align 8
   %217 = load i8, ptr %215, align 1
   %218 = sext i8 %217 to i64
@@ -538,15 +538,15 @@ cli_bcomp_freemeta.exit290:                       ; preds = %89, %._crit_edge.i2
 
 230:                                              ; preds = %._crit_edge
   %.old4 = icmp eq i64 %222, 0
-  br i1 %.old4, label %._crit_edge309, label %235
+  br i1 %.old4, label %._crit_edge312, label %235
 
-._crit_edge309:                                   ; preds = %230
+._crit_edge312:                                   ; preds = %230
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %7, i64 16
   %.pre = load ptr, ptr %.phi.trans.insert, align 16
   br label %231
 
-231:                                              ; preds = %._crit_edge309, %224
-  %232 = phi ptr [ %.pre, %._crit_edge309 ], [ %227, %224 ]
+231:                                              ; preds = %._crit_edge312, %224
+  %232 = phi ptr [ %.pre, %._crit_edge312 ], [ %227, %224 ]
   %233 = load ptr, ptr %7, align 16
   %234 = load ptr, ptr %165, align 8
   call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.11, ptr noundef %233, ptr noundef %234, ptr noundef %232) #14
@@ -569,7 +569,7 @@ cli_bcomp_freemeta.exit290:                       ; preds = %89, %._crit_edge.i2
   %.rhs.trunc = trunc nuw i64 %222 to i8
   %242 = urem i8 8, %.rhs.trunc
   %.not233 = icmp eq i8 %242, 0
-  br i1 %.not233, label %.thread292, label %243
+  br i1 %.not233, label %.thread295, label %243
 
 243:                                              ; preds = %241, %239
   %244 = load ptr, ptr %7, align 16
@@ -586,7 +586,7 @@ cli_bcomp_freemeta.exit290:                       ; preds = %89, %._crit_edge.i2
   %250 = icmp ne i16 %249, 0
   %251 = icmp ugt i64 %222, 18
   %or.cond8 = select i1 %250, i1 %251, i1 false
-  br i1 %or.cond8, label %252, label %.thread292
+  br i1 %or.cond8, label %252, label %.thread295
 
 252:                                              ; preds = %248
   %253 = load ptr, ptr %7, align 16
@@ -598,7 +598,7 @@ cli_bcomp_freemeta.exit290:                       ; preds = %89, %._crit_edge.i2
   call void @cli_bcomp_freemeta(ptr noundef %0, ptr noundef nonnull %17)
   br label %330
 
-.thread292:                                       ; preds = %241, %248
+.thread295:                                       ; preds = %241, %248
   %257 = getelementptr inbounds nuw i8, ptr %17, i64 32
   store i64 %222, ptr %257, align 8
   %258 = getelementptr inbounds nuw i8, ptr %7, i64 16
@@ -607,12 +607,12 @@ cli_bcomp_freemeta.exit290:                       ; preds = %89, %._crit_edge.i2
   %.not234 = icmp eq ptr %260, null
   br i1 %.not234, label %261, label %262
 
-261:                                              ; preds = %.thread292
+261:                                              ; preds = %.thread295
   call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.14) #14
   call void @cli_bcomp_freemeta(ptr noundef %0, ptr noundef nonnull %17)
   br label %330
 
-262:                                              ; preds = %.thread292
+262:                                              ; preds = %.thread295
   %263 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %260, i32 noundef 44) #15
   %264 = call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %260, i32 noundef 44) #15
   store ptr %264, ptr %8, align 8
@@ -640,11 +640,11 @@ cli_bcomp_freemeta.exit290:                       ; preds = %89, %._crit_edge.i2
   br label %330
 
 274:                                              ; preds = %262, %269
-  %.sink313 = phi i32 [ 2, %269 ], [ 1, %262 ]
+  %.sink316 = phi i32 [ 2, %269 ], [ 1, %262 ]
   %275 = phi i64 [ 2, %269 ], [ 1, %262 ]
   %.0196 = phi ptr [ %263, %269 ], [ %260, %262 ]
   %276 = getelementptr inbounds nuw i8, ptr %17, i64 48
-  store i32 %.sink313, ptr %276, align 8
+  store i32 %.sink316, ptr %276, align 8
   %277 = load ptr, ptr %15, align 8
   %278 = getelementptr inbounds nuw i8, ptr %17, i64 48
   %279 = call ptr @mpool_calloc(ptr noundef %277, i64 noundef %275, i64 noundef 8) #14
@@ -655,10 +655,10 @@ cli_bcomp_freemeta.exit290:                       ; preds = %89, %._crit_edge.i2
 
 .preheader:                                       ; preds = %274
   %281 = load i32, ptr %278, align 8
-  %.not304 = icmp eq i32 %281, 0
-  br i1 %.not304, label %._crit_edge303, label %.lr.ph302
+  %.not307 = icmp eq i32 %281, 0
+  br i1 %.not307, label %._crit_edge306, label %.lr.ph305
 
-.lr.ph302:                                        ; preds = %.preheader
+.lr.ph305:                                        ; preds = %.preheader
   %282 = getelementptr inbounds nuw i8, ptr %.0196, i64 1
   br label %284
 
@@ -669,9 +669,9 @@ cli_bcomp_freemeta.exit290:                       ; preds = %89, %._crit_edge.i2
   call void @cli_bcomp_freemeta(ptr noundef nonnull %0, ptr noundef nonnull %17)
   br label %330
 
-284:                                              ; preds = %.lr.ph302, %308
-  %indvars.iv = phi i64 [ 0, %.lr.ph302 ], [ %indvars.iv.next, %308 ]
-  %.0197301 = phi ptr [ %260, %.lr.ph302 ], [ %spec.select, %308 ]
+284:                                              ; preds = %.lr.ph305, %308
+  %indvars.iv = phi i64 [ 0, %.lr.ph305 ], [ %indvars.iv.next, %308 ]
+  %.0197304 = phi ptr [ %260, %.lr.ph305 ], [ %spec.select, %308 ]
   %285 = load ptr, ptr %15, align 8
   %286 = call ptr @mpool_calloc(ptr noundef %285, i64 noundef 1, i64 noundef 16) #14
   %287 = load ptr, ptr %280, align 8
@@ -691,7 +691,7 @@ cli_bcomp_freemeta.exit290:                       ; preds = %89, %._crit_edge.i2
   br label %330
 
 293:                                              ; preds = %284
-  %294 = load i8, ptr %.0197301, align 1
+  %294 = load i8, ptr %.0197304, align 1
   %.off = add i8 %294, -60
   %switch = icmp ult i8 %.off, 3
   br i1 %switch, label %295, label %300
@@ -699,7 +699,7 @@ cli_bcomp_freemeta.exit290:                       ; preds = %89, %._crit_edge.i2
 295:                                              ; preds = %293
   store i8 %294, ptr %291, align 8
   store ptr null, ptr %8, align 8
-  %296 = getelementptr inbounds nuw i8, ptr %.0197301, i64 1
+  %296 = getelementptr inbounds nuw i8, ptr %.0197304, i64 1
   %297 = call i64 @strtoll(ptr noundef nonnull %296, ptr noundef nonnull %8, i32 noundef 0) #14
   %298 = load ptr, ptr %8, align 8
   %299 = load i8, ptr %298, align 1
@@ -710,7 +710,7 @@ cli_bcomp_freemeta.exit290:                       ; preds = %89, %._crit_edge.i2
   %301 = load ptr, ptr %7, align 16
   %302 = load ptr, ptr %165, align 8
   %303 = load ptr, ptr %258, align 16
-  call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.18, ptr noundef %301, ptr noundef %302, ptr noundef %303, ptr noundef nonnull %.0197301) #14
+  call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.18, ptr noundef %301, ptr noundef %302, ptr noundef %303, ptr noundef nonnull %.0197304) #14
   call void @free(ptr noundef %86) #14
   call void @free(ptr noundef %260) #14
   call void @cli_bcomp_freemeta(ptr noundef nonnull %0, ptr noundef nonnull %17)
@@ -738,9 +738,9 @@ cli_bcomp_freemeta.exit290:                       ; preds = %89, %._crit_edge.i2
   %314 = load i32, ptr %278, align 8
   %315 = zext i32 %314 to i64
   %316 = icmp samesign ult i64 %indvars.iv.next, %315
-  br i1 %316, label %284, label %._crit_edge303
+  br i1 %316, label %284, label %._crit_edge306
 
-._crit_edge303:                                   ; preds = %308, %.preheader
+._crit_edge306:                                   ; preds = %308, %.preheader
   call void @free(ptr noundef %260) #14
   %317 = getelementptr inbounds nuw i8, ptr %0, i64 352
   %318 = load i32, ptr %317, align 8
@@ -754,12 +754,12 @@ cli_bcomp_freemeta.exit290:                       ; preds = %89, %._crit_edge.i2
   %.not236 = icmp eq ptr %325, null
   br i1 %.not236, label %326, label %327
 
-326:                                              ; preds = %._crit_edge303
+326:                                              ; preds = %._crit_edge306
   call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.20) #14
   call void @cli_bcomp_freemeta(ptr noundef nonnull %0, ptr noundef nonnull %17)
   br label %330
 
-327:                                              ; preds = %._crit_edge303
+327:                                              ; preds = %._crit_edge306
   %328 = zext i32 %318 to i64
   %329 = getelementptr inbounds nuw ptr, ptr %325, i64 %328
   store ptr %17, ptr %329, align 8
@@ -768,8 +768,8 @@ cli_bcomp_freemeta.exit290:                       ; preds = %89, %._crit_edge.i2
   call void @free(ptr noundef %86) #14
   br label %330
 
-330:                                              ; preds = %5, %9, %327, %326, %304, %300, %292, %283, %270, %261, %252, %243, %231, %210, %158, %153, %149, %132, %126, %109, %cli_bcomp_freemeta.exit290, %88, %cli_bcomp_freemeta.exit277, %cli_bcomp_freemeta.exit, %18
-  %.0 = phi i32 [ 4, %cli_bcomp_freemeta.exit ], [ 4, %cli_bcomp_freemeta.exit277 ], [ 4, %109 ], [ 4, %158 ], [ 4, %210 ], [ 4, %231 ], [ 4, %243 ], [ 4, %252 ], [ 4, %300 ], [ 4, %304 ], [ 20, %292 ], [ 0, %327 ], [ 20, %326 ], [ 20, %283 ], [ 27, %270 ], [ 20, %261 ], [ 4, %149 ], [ 4, %153 ], [ 4, %126 ], [ 4, %132 ], [ 4, %88 ], [ 4, %cli_bcomp_freemeta.exit290 ], [ 20, %18 ], [ 2, %9 ], [ 2, %5 ]
+330:                                              ; preds = %5, %9, %327, %326, %304, %300, %292, %283, %270, %261, %252, %243, %231, %210, %158, %153, %149, %132, %126, %109, %cli_bcomp_freemeta.exit291, %88, %cli_bcomp_freemeta.exit278, %cli_bcomp_freemeta.exit, %18
+  %.0 = phi i32 [ 4, %cli_bcomp_freemeta.exit ], [ 4, %cli_bcomp_freemeta.exit278 ], [ 4, %109 ], [ 4, %158 ], [ 4, %210 ], [ 4, %231 ], [ 4, %243 ], [ 4, %252 ], [ 4, %300 ], [ 4, %304 ], [ 20, %292 ], [ 0, %327 ], [ 20, %326 ], [ 20, %283 ], [ 27, %270 ], [ 20, %261 ], [ 4, %149 ], [ 4, %153 ], [ 4, %126 ], [ 4, %132 ], [ 4, %88 ], [ 4, %cli_bcomp_freemeta.exit291 ], [ 20, %18 ], [ 2, %9 ], [ 2, %5 ]
   ret i32 %.0
 }
 

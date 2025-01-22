@@ -7682,8 +7682,8 @@ if.end73:                                         ; preds = %if.end68
   br i1 %tobool.i61.not, label %if.end82, label %if.then76
 
 if.then76:                                        ; preds = %if.end73
-  %inc = add i32 %proxyCount.0, 1
-  %cmp77 = icmp ugt i32 %inc, 1024
+  %inc = add nuw nsw i32 %proxyCount.0, 1
+  %cmp77 = icmp ugt i32 %proxyCount.0, 1023
   br i1 %cmp77, label %if.then78, label %if.end82
 
 if.then78:                                        ; preds = %if.then76

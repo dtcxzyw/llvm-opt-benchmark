@@ -14101,7 +14101,7 @@ define linkonce_odr hidden void @_ZN2cv3dnn25TextRecognitionModel_Impl15ctcGreed
   %30 = phi i32 [ %25, %.lr.ph.preheader ], [ %59, %58 ]
   %indvars.iv75 = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next76, %58 ]
   %.03559 = phi i32 [ 0, %.lr.ph.preheader ], [ %.2, %58 ]
-  %.03758 = phi i1 [ true, %.lr.ph.preheader ], [ %.not48, %58 ]
+  %.03758 = phi i1 [ true, %.lr.ph.preheader ], [ %.not46, %58 ]
   %31 = load ptr, ptr %27, align 8
   %32 = load ptr, ptr %28, align 8
   %33 = load i64, ptr %32, align 8
@@ -14125,8 +14125,8 @@ define linkonce_odr hidden void @_ZN2cv3dnn25TextRecognitionModel_Impl15ctcGreed
   br i1 %exitcond.not, label %._crit_edge, label %37, !llvm.loop !378
 
 ._crit_edge:                                      ; preds = %37
-  %.not48 = icmp eq i32 %.132, 0
-  br i1 %.not48, label %58, label %42
+  %.not46 = icmp eq i32 %.132, 0
+  br i1 %.not46, label %58, label %42
 
 42:                                               ; preds = %._crit_edge
   %43 = add nsw i32 %.132, -1
@@ -14153,8 +14153,8 @@ define linkonce_odr hidden void @_ZN2cv3dnn25TextRecognitionModel_Impl15ctcGreed
           to label %53 unwind label %.loopexit.split
 
 53:                                               ; preds = %51
-  %.not46 = icmp ne i32 %.132, %.03559
-  %brmerge = or i1 %.not46, %.03758
+  %.not47 = icmp ne i32 %.132, %.03559
+  %brmerge = or i1 %.not47, %.03758
   br i1 %brmerge, label %54, label %57
 
 54:                                               ; preds = %53

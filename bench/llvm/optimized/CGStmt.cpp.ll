@@ -12174,51 +12174,44 @@ define dso_local void @_ZN5clang7CodeGen15CodeGenFunction18EmitAttributedStmtERK
   %.1 = phi i8 [ %.03650, %10 ], [ %.03650, %23 ], [ %.03650, %32 ], [ %.03650, %36 ], [ %.03650, %18 ], [ %.03650, %17 ], [ %.03650, %16 ], [ %.03650, %15 ], [ 1, %14 ]
   %40 = getelementptr inbounds nuw i8, ptr %.051, i64 8
   %.not = icmp eq ptr %40, %.ptr56
-  br i1 %.not, label %._crit_edge.loopexit, label %10
+  br i1 %.not, label %._crit_edge, label %10
 
-._crit_edge.loopexit:                             ; preds = %39
-  %41 = and i8 %.1, 1
-  %42 = and i8 %.138, 1
-  %43 = and i8 %.140, 1
-  %44 = and i8 %.142, 1
-  br label %._crit_edge
-
-._crit_edge:                                      ; preds = %._crit_edge.loopexit, %2
-  %.043.lcssa = phi ptr [ null, %2 ], [ %.144, %._crit_edge.loopexit ]
-  %.041.lcssa = phi i8 [ 0, %2 ], [ %44, %._crit_edge.loopexit ]
-  %.039.lcssa = phi i8 [ 0, %2 ], [ %43, %._crit_edge.loopexit ]
-  %.037.lcssa = phi i8 [ 0, %2 ], [ %42, %._crit_edge.loopexit ]
-  %.036.lcssa = phi i8 [ 0, %2 ], [ %41, %._crit_edge.loopexit ]
-  %45 = getelementptr inbounds nuw i8, ptr %0, i64 2130
-  %46 = load i8, ptr %45, align 2
-  %47 = and i8 %46, 1
-  store i8 %.036.lcssa, ptr %45, align 2
-  %48 = getelementptr inbounds nuw i8, ptr %0, i64 2131
-  %49 = load i8, ptr %48, align 1
-  %50 = and i8 %49, 1
-  store i8 %.037.lcssa, ptr %48, align 1
-  %51 = getelementptr inbounds nuw i8, ptr %0, i64 2132
-  %52 = load i8, ptr %51, align 4
-  %53 = and i8 %52, 1
-  store i8 %.039.lcssa, ptr %51, align 4
-  %54 = getelementptr inbounds nuw i8, ptr %0, i64 2133
-  %55 = load i8, ptr %54, align 1
-  %56 = and i8 %55, 1
-  store i8 %.041.lcssa, ptr %54, align 1
-  %57 = getelementptr inbounds nuw i8, ptr %0, i64 2136
-  %58 = load ptr, ptr %57, align 8
-  store ptr %.043.lcssa, ptr %57, align 8
-  %59 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %60 = load ptr, ptr %59, align 8
-  %61 = load i32, ptr %1, align 8
-  %62 = lshr i32 %61, 8
-  %63 = zext nneg i32 %62 to i64
-  tail call void @_ZN5clang7CodeGen15CodeGenFunction8EmitStmtEPKNS_4StmtEN4llvm8ArrayRefIPKNS_4AttrEEE(ptr noundef nonnull align 8 dereferenceable(6488) %0, ptr noundef %60, ptr nonnull %.ptr, i64 %63)
-  store ptr %58, ptr %57, align 8
-  store i8 %56, ptr %54, align 1
-  store i8 %53, ptr %51, align 4
-  store i8 %50, ptr %48, align 1
-  store i8 %47, ptr %45, align 2
+._crit_edge:                                      ; preds = %39, %2
+  %.043.lcssa = phi ptr [ null, %2 ], [ %.144, %39 ]
+  %.041.lcssa = phi i8 [ 0, %2 ], [ %.142, %39 ]
+  %.039.lcssa = phi i8 [ 0, %2 ], [ %.140, %39 ]
+  %.037.lcssa = phi i8 [ 0, %2 ], [ %.138, %39 ]
+  %.036.lcssa = phi i8 [ 0, %2 ], [ %.1, %39 ]
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 2130
+  %42 = load i8, ptr %41, align 2
+  %43 = and i8 %42, 1
+  store i8 %.036.lcssa, ptr %41, align 2
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 2131
+  %45 = load i8, ptr %44, align 1
+  %46 = and i8 %45, 1
+  store i8 %.037.lcssa, ptr %44, align 1
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 2132
+  %48 = load i8, ptr %47, align 4
+  %49 = and i8 %48, 1
+  store i8 %.039.lcssa, ptr %47, align 4
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 2133
+  %51 = load i8, ptr %50, align 1
+  %52 = and i8 %51, 1
+  store i8 %.041.lcssa, ptr %50, align 1
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 2136
+  %54 = load ptr, ptr %53, align 8
+  store ptr %.043.lcssa, ptr %53, align 8
+  %55 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %56 = load ptr, ptr %55, align 8
+  %57 = load i32, ptr %1, align 8
+  %58 = lshr i32 %57, 8
+  %59 = zext nneg i32 %58 to i64
+  tail call void @_ZN5clang7CodeGen15CodeGenFunction8EmitStmtEPKNS_4StmtEN4llvm8ArrayRefIPKNS_4AttrEEE(ptr noundef nonnull align 8 dereferenceable(6488) %0, ptr noundef %56, ptr nonnull %.ptr, i64 %59)
+  store ptr %54, ptr %53, align 8
+  store i8 %52, ptr %50, align 1
+  store i8 %49, ptr %47, align 4
+  store i8 %46, ptr %44, align 1
+  store i8 %43, ptr %41, align 2
   ret void
 }
 

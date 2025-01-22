@@ -313,8 +313,8 @@ for.cond22.for.cond.cleanup27_crit_edge.split.us.us: ; preds = %for.body28.us.us
   br i1 %cmp.not.us316, label %for.cond.cleanup, label %for.cond22.preheader.us310, !llvm.loop !30
 
 for.cond22.preheader:                             ; preds = %for.cond22.for.cond.cleanup27_crit_edge.split, %for.cond22.preheader.preheader
-  %.pre320 = phi i16 [ %63, %for.cond22.for.cond.cleanup27_crit_edge.split ], [ %.pre320.pre, %for.cond22.preheader.preheader ]
-  %.pre = phi i16 [ %64, %for.cond22.for.cond.cleanup27_crit_edge.split ], [ %.pre.pre, %for.cond22.preheader.preheader ]
+  %.pre320 = phi i16 [ %59, %for.cond22.for.cond.cleanup27_crit_edge.split ], [ %.pre320.pre, %for.cond22.preheader.preheader ]
+  %.pre = phi i16 [ %60, %for.cond22.for.cond.cleanup27_crit_edge.split ], [ %.pre.pre, %for.cond22.preheader.preheader ]
   %conv18309 = phi i32 [ %conv18, %for.cond22.for.cond.cleanup27_crit_edge.split ], [ %conv18305, %for.cond22.preheader.preheader ]
   %index2d.0308 = phi i32 [ %inc196, %for.cond22.for.cond.cleanup27_crit_edge.split ], [ 0, %for.cond22.preheader.preheader ]
   %z.0307 = phi i16 [ %inc200, %for.cond22.for.cond.cleanup27_crit_edge.split ], [ %nmin.sroa.8.0.extract.trunc, %for.cond22.preheader.preheader ]
@@ -333,8 +333,8 @@ for.cond22.for.cond.cleanup27_crit_edge.split:    ; preds = %for.cond59.for.cond
   br i1 %cmp.not, label %for.cond.cleanup, label %for.cond22.preheader, !llvm.loop !30
 
 for.body28:                                       ; preds = %for.cond59.for.cond.cleanup65_crit_edge, %for.cond22.preheader
-  %8 = phi i16 [ %.pre320, %for.cond22.preheader ], [ %63, %for.cond59.for.cond.cleanup65_crit_edge ]
-  %9 = phi i16 [ %.pre, %for.cond22.preheader ], [ %64, %for.cond59.for.cond.cleanup65_crit_edge ]
+  %8 = phi i16 [ %.pre320, %for.cond22.preheader ], [ %59, %for.cond59.for.cond.cleanup65_crit_edge ]
+  %9 = phi i16 [ %.pre, %for.cond22.preheader ], [ %60, %for.cond59.for.cond.cleanup65_crit_edge ]
   %conv23304 = phi i32 [ %conv23300, %for.cond22.preheader ], [ %conv23, %for.cond59.for.cond.cleanup65_crit_edge ]
   %index2d.1303 = phi i32 [ %index2d.0308, %for.cond22.preheader ], [ %inc196, %for.cond59.for.cond.cleanup65_crit_edge ]
   %x.0302 = phi i16 [ %nmin.sroa.0.0.extract.trunc, %for.cond22.preheader ], [ %inc195, %for.cond59.for.cond.cleanup65_crit_edge ]
@@ -514,46 +514,42 @@ if.then111:                                       ; preds = %_ZNK14NodeDefManage
   %45 = load ptr, ptr %m_data, align 8, !tbaa !59
   %arrayidx114 = getelementptr inbounds nuw %struct.MapNode, ptr %45, i64 %idxprom80
   store i32 126, ptr %arrayidx114, align 4, !tbaa.struct !101
-  %46 = and i8 %is_top_filler_above.0290, 1
-  %tobool115.not = icmp eq i8 %46, 0
+  %tobool115.not = icmp eq i8 %is_top_filler_above.0290, 0
   br i1 %tobool115.not, label %cleanup, label %if.then116
 
 if.then116:                                       ; preds = %if.then111
   %c_stone = getelementptr inbounds nuw i8, ptr %biome.1, i64 140
-  %47 = load i16, ptr %c_stone, align 4, !tbaa !103
-  %48 = load ptr, ptr %m_data, align 8, !tbaa !59
-  %49 = load i16, ptr %m_cache_extent.i, align 2, !tbaa !104
-  %conv120 = sext i16 %49 to i32
+  %46 = load i16, ptr %c_stone, align 4, !tbaa !103
+  %47 = load ptr, ptr %m_data, align 8, !tbaa !59
+  %48 = load i16, ptr %m_cache_extent.i, align 2, !tbaa !104
+  %conv120 = sext i16 %48 to i32
   %add121 = add i32 %vi.0289, %conv120
   %idxprom122 = zext i32 %add121 to i64
-  %arrayidx123 = getelementptr inbounds nuw %struct.MapNode, ptr %48, i64 %idxprom122
-  %ref.tmp117.sroa.0.0.insert.ext = zext i16 %47 to i32
+  %arrayidx123 = getelementptr inbounds nuw %struct.MapNode, ptr %47, i64 %idxprom122
+  %ref.tmp117.sroa.0.0.insert.ext = zext i16 %46 to i32
   store i32 %ref.tmp117.sroa.0.0.insert.ext, ptr %arrayidx123, align 4, !tbaa.struct !101
   br label %cleanup
 
 if.else:                                          ; preds = %_ZNK14NodeDefManager3getEt.exit, %if.end98
-  %50 = and i8 %column_is_open.0295, 1
-  %tobool125.not = icmp eq i8 %50, 0
-  %51 = and i8 %is_under_tunnel.0293, 1
-  %tobool127.not = icmp eq i8 %51, 0
+  %tobool125.not = icmp eq i8 %column_is_open.0295, 0
+  %tobool127.not = icmp eq i8 %is_under_tunnel.0293, 0
   %or.cond = select i1 %tobool125.not, i1 true, i1 %tobool127.not
   br i1 %or.cond, label %if.else176, label %land.lhs.true128
 
 land.lhs.true128:                                 ; preds = %if.else
   %c_stone130 = getelementptr inbounds nuw i8, ptr %biome.1, i64 140
-  %52 = load i16, ptr %c_stone130, align 4, !tbaa !103
-  %cmp132 = icmp eq i16 %29, %52
+  %49 = load i16, ptr %c_stone130, align 4, !tbaa !103
+  %cmp132 = icmp eq i16 %29, %49
   br i1 %cmp132, label %if.then137, label %lor.lhs.false133
 
 lor.lhs.false133:                                 ; preds = %land.lhs.true128
   %c_filler = getelementptr inbounds nuw i8, ptr %biome.1, i64 138
-  %53 = load i16, ptr %c_filler, align 2, !tbaa !105
-  %cmp136 = icmp eq i16 %29, %53
+  %50 = load i16, ptr %c_filler, align 2, !tbaa !105
+  %cmp136 = icmp eq i16 %29, %50
   br i1 %cmp136, label %if.then137, label %if.else176
 
 if.then137:                                       ; preds = %lor.lhs.false133, %land.lhs.true128
-  %54 = and i8 %is_under_river.0294, 1
-  %tobool138.not = icmp eq i8 %54, 0
+  %tobool138.not = icmp eq i8 %is_under_river.0294, 0
   br i1 %tobool138.not, label %if.else151, label %if.then139
 
 if.then139:                                       ; preds = %if.then137
@@ -562,10 +558,10 @@ if.then139:                                       ; preds = %if.then137
 
 if.then143:                                       ; preds = %if.then139
   %c_riverbed = getelementptr inbounds nuw i8, ptr %biome.1, i64 148
-  %55 = load i16, ptr %c_riverbed, align 4, !tbaa !106
-  %56 = load ptr, ptr %m_data, align 8, !tbaa !59
-  %arrayidx147 = getelementptr inbounds nuw %struct.MapNode, ptr %56, i64 %idxprom80
-  %ref.tmp144.sroa.0.0.insert.ext = zext i16 %55 to i32
+  %51 = load i16, ptr %c_riverbed, align 4, !tbaa !106
+  %52 = load ptr, ptr %m_data, align 8, !tbaa !59
+  %arrayidx147 = getelementptr inbounds nuw %struct.MapNode, ptr %52, i64 %idxprom80
+  %ref.tmp144.sroa.0.0.insert.ext = zext i16 %51 to i32
   store i32 %ref.tmp144.sroa.0.0.insert.ext, ptr %arrayidx147, align 4, !tbaa.struct !101
   %inc148 = add nuw i16 %nplaced.0296, 1
   br label %cleanup
@@ -576,10 +572,10 @@ if.else151:                                       ; preds = %if.then137
 
 if.then155:                                       ; preds = %if.else151
   %c_top = getelementptr inbounds nuw i8, ptr %biome.1, i64 136
-  %57 = load i16, ptr %c_top, align 8, !tbaa !107
-  %58 = load ptr, ptr %m_data, align 8, !tbaa !59
-  %arrayidx159 = getelementptr inbounds nuw %struct.MapNode, ptr %58, i64 %idxprom80
-  %ref.tmp156.sroa.0.0.insert.ext = zext i16 %57 to i32
+  %53 = load i16, ptr %c_top, align 8, !tbaa !107
+  %54 = load ptr, ptr %m_data, align 8, !tbaa !59
+  %arrayidx159 = getelementptr inbounds nuw %struct.MapNode, ptr %54, i64 %idxprom80
+  %ref.tmp156.sroa.0.0.insert.ext = zext i16 %53 to i32
   store i32 %ref.tmp156.sroa.0.0.insert.ext, ptr %arrayidx159, align 4, !tbaa.struct !101
   %inc160 = add nuw i16 %nplaced.0296, 1
   br label %cleanup
@@ -590,24 +586,24 @@ if.else161:                                       ; preds = %if.else151
 
 if.then165:                                       ; preds = %if.else161
   %c_filler167 = getelementptr inbounds nuw i8, ptr %biome.1, i64 138
-  %59 = load i16, ptr %c_filler167, align 2, !tbaa !105
-  %60 = load ptr, ptr %m_data, align 8, !tbaa !59
-  %arrayidx170 = getelementptr inbounds nuw %struct.MapNode, ptr %60, i64 %idxprom80
-  %ref.tmp166.sroa.0.0.insert.ext = zext i16 %59 to i32
+  %55 = load i16, ptr %c_filler167, align 2, !tbaa !105
+  %56 = load ptr, ptr %m_data, align 8, !tbaa !59
+  %arrayidx170 = getelementptr inbounds nuw %struct.MapNode, ptr %56, i64 %idxprom80
+  %ref.tmp166.sroa.0.0.insert.ext = zext i16 %55 to i32
   store i32 %ref.tmp166.sroa.0.0.insert.ext, ptr %arrayidx170, align 4, !tbaa.struct !101
   %inc171 = add nuw i16 %nplaced.0296, 1
   br label %cleanup
 
 if.else176:                                       ; preds = %lor.lhs.false133, %if.else
   %c_top178 = getelementptr inbounds nuw i8, ptr %biome.1, i64 136
-  %61 = load i16, ptr %c_top178, align 8, !tbaa !107
-  %cmp180 = icmp eq i16 %29, %61
+  %57 = load i16, ptr %c_top178, align 8, !tbaa !107
+  %cmp180 = icmp eq i16 %29, %57
   br i1 %cmp180, label %if.then186, label %lor.lhs.false181
 
 lor.lhs.false181:                                 ; preds = %if.else176
   %c_filler183 = getelementptr inbounds nuw i8, ptr %biome.1, i64 138
-  %62 = load i16, ptr %c_filler183, align 2, !tbaa !105
-  %cmp185 = icmp eq i16 %29, %62
+  %58 = load i16, ptr %c_filler183, align 2, !tbaa !105
+  %cmp185 = icmp eq i16 %29, %58
   br i1 %cmp185, label %if.then186, label %cleanup
 
 if.then186:                                       ; preds = %lor.lhs.false181, %if.else176
@@ -616,15 +612,15 @@ if.then186:                                       ; preds = %lor.lhs.false181, %
 cleanup:                                          ; preds = %if.then186, %lor.lhs.false181, %if.then165, %if.else161, %if.then155, %if.then143, %if.then139, %if.then116, %if.then111, %if.end93, %lor.lhs.false88, %lor.lhs.false, %if.end
   %is_top_filler_above.3 = phi i8 [ 0, %lor.lhs.false88 ], [ 0, %lor.lhs.false ], [ 0, %if.end ], [ 0, %if.end93 ], [ 1, %if.then143 ], [ 1, %if.then155 ], [ 1, %if.then165 ], [ 0, %if.then116 ], [ 0, %if.then111 ], [ %is_top_filler_above.0290, %if.then139 ], [ %is_top_filler_above.0290, %if.else161 ], [ 1, %if.then186 ], [ %is_top_filler_above.0290, %lor.lhs.false181 ]
   %is_under_tunnel.2 = phi i8 [ %is_under_tunnel.0293, %lor.lhs.false88 ], [ %is_under_tunnel.0293, %lor.lhs.false ], [ %is_under_tunnel.0293, %if.end ], [ %is_under_tunnel.0293, %if.end93 ], [ %is_under_tunnel.0293, %if.then143 ], [ %is_under_tunnel.0293, %if.then155 ], [ %is_under_tunnel.0293, %if.then165 ], [ 1, %if.then116 ], [ 1, %if.then111 ], [ 0, %if.then139 ], [ 0, %if.else161 ], [ %is_under_tunnel.0293, %if.then186 ], [ %is_under_tunnel.0293, %lor.lhs.false181 ]
-  %is_under_river.2 = phi i8 [ %is_under_river.0294, %lor.lhs.false88 ], [ %is_under_river.0294, %lor.lhs.false ], [ %is_under_river.0294, %if.end ], [ 1, %if.end93 ], [ %is_under_river.0294, %if.then143 ], [ %is_under_river.0294, %if.then155 ], [ %is_under_river.0294, %if.then165 ], [ %is_under_river.0294, %if.then116 ], [ %is_under_river.0294, %if.then111 ], [ 0, %if.then139 ], [ %is_under_river.0294, %if.else161 ], [ %is_under_river.0294, %if.then186 ], [ %is_under_river.0294, %lor.lhs.false181 ]
+  %is_under_river.2 = phi i8 [ %is_under_river.0294, %lor.lhs.false88 ], [ %is_under_river.0294, %lor.lhs.false ], [ %is_under_river.0294, %if.end ], [ 1, %if.end93 ], [ %is_under_river.0294, %if.then143 ], [ 0, %if.then155 ], [ 0, %if.then165 ], [ %is_under_river.0294, %if.then116 ], [ %is_under_river.0294, %if.then111 ], [ 0, %if.then139 ], [ 0, %if.else161 ], [ %is_under_river.0294, %if.then186 ], [ %is_under_river.0294, %lor.lhs.false181 ]
   %column_is_open.2 = phi i8 [ 1, %lor.lhs.false88 ], [ 1, %lor.lhs.false ], [ 1, %if.end ], [ 1, %if.end93 ], [ %column_is_open.0295, %if.then143 ], [ %column_is_open.0295, %if.then155 ], [ %column_is_open.0295, %if.then165 ], [ %column_is_open.0295, %if.then116 ], [ %column_is_open.0295, %if.then111 ], [ 0, %if.then139 ], [ 0, %if.else161 ], [ 0, %if.then186 ], [ 0, %lor.lhs.false181 ]
   %nplaced.2 = phi i16 [ %nplaced.0296, %lor.lhs.false88 ], [ %nplaced.0296, %lor.lhs.false ], [ %nplaced.0296, %if.end ], [ %nplaced.0296, %if.end93 ], [ %inc148, %if.then143 ], [ %inc160, %if.then155 ], [ %inc171, %if.then165 ], [ %nplaced.0296, %if.then116 ], [ %nplaced.0296, %if.then111 ], [ %nplaced.0296, %if.then139 ], [ %nplaced.0296, %if.else161 ], [ %nplaced.0296, %if.then186 ], [ %nplaced.0296, %lor.lhs.false181 ]
   %dec = add i16 %y.0299, -1
-  %63 = load i16, ptr %m_ystride, align 4, !tbaa !17
-  %conv191 = zext i16 %63 to i32
+  %59 = load i16, ptr %m_ystride, align 4, !tbaa !17
+  %conv191 = zext i16 %59 to i32
   %sub192 = sub i32 %index3d.0291, %conv191
-  %64 = load i16, ptr %m_cache_extent.i, align 2, !tbaa !104
-  %conv1.i = sext i16 %64 to i32
+  %60 = load i16, ptr %m_cache_extent.i, align 2, !tbaa !104
+  %conv1.i = sext i16 %60 to i32
   %add.i279 = sub i32 %vi.0289, %conv1.i
   %conv60 = sext i16 %dec to i32
   %cmp64.not = icmp sgt i32 %sub, %conv60

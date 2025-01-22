@@ -35615,7 +35615,7 @@ define linkonce_odr noundef double @_Z10min_newuoaIdFdiPdEET_iPS2_RT0_S2_S2_i(i3
   br i1 %643, label %648, label %644
 
 644:                                              ; preds = %632
-  %645 = add nsw i32 %.040896.i.i.i, 1
+  %645 = add nuw nsw i32 %.040896.i.i.i, 1
   %646 = icmp eq i32 %.895.i.i.i, %645
   br i1 %646, label %647, label %648
 
@@ -35652,7 +35652,7 @@ define linkonce_odr noundef double @_Z10min_newuoaIdFdiPdEET_iPS2_RT0_S2_S2_i(i3
   %.0390.i.i.i = phi double [ %660, %654 ], [ 0.000000e+00, %650 ]
   %.4388.i.i.i = phi double [ %655, %654 ], [ %.3387.i.i.i, %650 ]
   %.4.i.i.i = phi double [ %656, %654 ], [ %.3.i.i.i, %650 ]
-  %662 = sitofp i32 %.1409.i.i.i to double
+  %662 = uitofp nneg i32 %.1409.i.i.i to double
   %663 = fadd double %.0390.i.i.i, %662
   %664 = fmul double %663, 0x3FC015BF9217271A
   %665 = call double @cos(double noundef %664) #22
@@ -36652,7 +36652,7 @@ _ZL7biglag_IdFdiPdEEiiiPT_S3_S3_S3_PiS4_S4_S3_S3_S3_S3_S3_S3_S3_S3_RT0_.exit.i.i
   br i1 %1131, label %1136, label %1132
 
 1132:                                             ; preds = %1128
-  %1133 = add nsw i32 %.0876163.i.i.i, 1
+  %1133 = add nuw nsw i32 %.0876163.i.i.i, 1
   %1134 = icmp eq i32 %.10908162.i.i.i, %1133
   br i1 %1134, label %1135, label %1136
 
@@ -36687,7 +36687,7 @@ _ZL7biglag_IdFdiPdEEiiiPT_S3_S3_S3_PiS4_S4_S3_S3_S3_S3_S3_S3_S3_S3_RT0_.exit.i.i
 
 1149:                                             ; preds = %1142, %1138
   %.0850.i.i.i = phi double [ %1148, %1142 ], [ 0.000000e+00, %1138 ]
-  %1150 = sitofp i32 %.1877.i.i.i to double
+  %1150 = uitofp nneg i32 %.1877.i.i.i to double
   %1151 = fadd double %.0850.i.i.i, %1150
   %1152 = fmul double %1151, 0x3FC015BF9217271A
   %1153 = call double @cos(double noundef %1152) #22
@@ -38497,7 +38497,7 @@ define linkonce_odr noundef i32 @_Z7trsapp_IdEiiiPT_S1_S1_S1_S1_S1_S1_S1_S1_S1_S
   br i1 %172, label %177, label %173
 
 173:                                              ; preds = %163
-  %174 = add nsw i32 %.0393532, 1
+  %174 = add nuw nsw i32 %.0393532, 1
   %175 = icmp eq i32 %.7531, %174
   br i1 %175, label %176, label %177
 
@@ -38514,7 +38514,7 @@ define linkonce_odr noundef i32 @_Z7trsapp_IdEiiiPT_S1_S1_S1_S1_S1_S1_S1_S1_S1_S
   br i1 %exitcond649.not, label %179, label %163, !llvm.loop !748
 
 179:                                              ; preds = %177
-  %180 = sitofp i32 %.1394 to double
+  %180 = uitofp nneg i32 %.1394 to double
   %181 = icmp eq i32 %.1394, 0
   %.3356 = select i1 %181, double %171, double %.2355
   %182 = icmp eq i32 %.1394, 49

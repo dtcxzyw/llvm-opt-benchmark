@@ -1401,7 +1401,7 @@ if.then8.i.i:                                     ; preds = %_ZN3tbb6detail2d112
   br i1 %cmp.i21.i, label %do.cond.thread.i.i, label %if.end.i22.i
 
 do.cond.thread.i.i:                               ; preds = %if.then8.i.i
-  %idxprom.i.i.i = zext i8 %30 to i64
+  %idxprom.i.i.i = zext nneg i8 %30 to i64
   %arrayidx.i.i.i = getelementptr inbounds nuw %"class.tbb::detail::d1::blocked_range", ptr %my_pool2.i.i.i, i64 %idxprom.i.i.i
   %arrayidx.i18.i.i = getelementptr inbounds nuw [8 x i8], ptr %my_depth.i.i.i, i64 0, i64 %idxprom.i.i.i
   %44 = load i8, ptr %arrayidx.i18.i.i, align 1
@@ -1448,7 +1448,7 @@ do.cond.thread.i.i:                               ; preds = %if.then8.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %alloc.i.i.i.i)
   %dec.i.i.i = add i8 %my_size.promoted.i.pr65.i.i, -1
   store i8 %dec.i.i.i, ptr %my_size.i.i.i, align 2
-  %51 = add i8 %30, 1
+  %51 = add nuw nsw i8 %30, 1
   %52 = and i8 %51, 7
   store i8 %52, ptr %my_tail.i.i.i, align 1
   br label %land.rhs.i.i
@@ -4997,7 +4997,7 @@ if.then8.i.i:                                     ; preds = %_ZN3tbb6detail2d112
   br i1 %cmp.i21.i, label %do.cond.thread.i.i, label %if.end.i22.i
 
 do.cond.thread.i.i:                               ; preds = %if.then8.i.i
-  %idxprom.i.i.i = zext i8 %46 to i64
+  %idxprom.i.i.i = zext nneg i8 %46 to i64
   %arrayidx.i.i.i = getelementptr inbounds nuw %"class.tbb::detail::d1::blocked_range", ptr %my_pool2.i.i.i, i64 %idxprom.i.i.i
   %arrayidx.i18.i.i = getelementptr inbounds nuw [8 x i8], ptr %my_depth.i.i.i, i64 0, i64 %idxprom.i.i.i
   %60 = load i8, ptr %arrayidx.i18.i.i, align 1
@@ -5044,7 +5044,7 @@ do.cond.thread.i.i:                               ; preds = %if.then8.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %alloc.i.i.i.i)
   %dec.i.i.i = add i8 %my_size.promoted.i.pr105.i.i, -1
   store i8 %dec.i.i.i, ptr %my_size.i.i.i, align 2
-  %67 = add i8 %46, 1
+  %67 = add nuw nsw i8 %46, 1
   %68 = and i8 %67, 7
   store i8 %68, ptr %my_tail.i.i.i, align 1
   br label %land.rhs.i.i

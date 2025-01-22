@@ -397,9 +397,9 @@ for.cond2.preheader.i56:                          ; preds = %for.body.i47
   %cmp317.i = icmp ult i64 %add27, 400
   br i1 %cmp317.i, label %for.body4.i59, label %decay_npurge_after_interval.exit71
 
-for.body.i47:                                     ; preds = %while.body, %for.body.i47
-  %sum.015.i48 = phi i64 [ %add.i53, %for.body.i47 ], [ 0, %while.body ]
-  %i.014.i49 = phi i64 [ %inc.i54, %for.body.i47 ], [ 0, %while.body ]
+for.body.i47:                                     ; preds = %for.body.i47, %while.body
+  %sum.015.i48 = phi i64 [ 0, %while.body ], [ %add.i53, %for.body.i47 ]
+  %i.014.i49 = phi i64 [ 0, %while.body ], [ %inc.i54, %for.body.i47 ]
   %arrayidx.i50 = getelementptr inbounds nuw [200 x i64], ptr %backlog.i, i64 0, i64 %i.014.i49
   %9 = load i64, ptr %arrayidx.i50, align 8
   %arrayidx1.i51 = getelementptr inbounds nuw [200 x i64], ptr @h_steps, i64 0, i64 %i.014.i49

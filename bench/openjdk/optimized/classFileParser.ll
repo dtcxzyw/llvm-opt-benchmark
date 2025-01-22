@@ -4068,186 +4068,182 @@ _ZNK15ClassFileStream7skip_u1EiP10JavaThread.exit179: ; preds = %_ZNK15ClassFile
   %.1119 = phi i16 [ %.0118357, %86 ], [ %.0118357, %83 ], [ %.0118357, %97 ], [ %118, %_ZN15ClassFileParser33parse_generic_signature_attributeEPK15ClassFileStreamP10JavaThread.exit ], [ %.0118357, %_ZNK15ClassFileStream14guarantee_moreEiP10JavaThread.exit165.thread ], [ %.0118357, %_ZNK15ClassFileStream7skip_u1EiP10JavaThread.exit ], [ %.0118357, %_ZNK15ClassFileStream7skip_u1EiP10JavaThread.exit170 ], [ %.0118357, %_ZNK15ClassFileStream7skip_u1EiP10JavaThread.exit173 ], [ %.0118357, %_ZNK15ClassFileStream7skip_u1EiP10JavaThread.exit176 ], [ %.0118357, %_ZNK15ClassFileStream7skip_u1EiP10JavaThread.exit179 ], [ %.0118357, %92 ]
   %.1 = phi i16 [ %81, %86 ], [ %81, %83 ], [ %.0117358, %97 ], [ %.0117358, %_ZN15ClassFileParser33parse_generic_signature_attributeEPK15ClassFileStreamP10JavaThread.exit ], [ %.0117358, %_ZNK15ClassFileStream14guarantee_moreEiP10JavaThread.exit165.thread ], [ %.0117358, %_ZNK15ClassFileStream7skip_u1EiP10JavaThread.exit ], [ %.0117358, %_ZNK15ClassFileStream7skip_u1EiP10JavaThread.exit170 ], [ %.0117358, %_ZNK15ClassFileStream7skip_u1EiP10JavaThread.exit173 ], [ %.0117358, %_ZNK15ClassFileStream7skip_u1EiP10JavaThread.exit176 ], [ %.0117358, %_ZNK15ClassFileStream7skip_u1EiP10JavaThread.exit179 ], [ %.0117358, %92 ]
   %.not = icmp eq i16 %24, 0
-  br i1 %.not, label %._crit_edge.loopexit, label %23, !llvm.loop !16
+  br i1 %.not, label %._crit_edge, label %23, !llvm.loop !16
 
-._crit_edge.loopexit:                             ; preds = %248
-  %249 = and i8 %.1121, 1
-  br label %._crit_edge
-
-._crit_edge:                                      ; preds = %._crit_edge.loopexit, %10
-  %.0143.lcssa = phi ptr [ null, %10 ], [ %.1144, %._crit_edge.loopexit ]
-  %.0141.lcssa = phi i32 [ 0, %10 ], [ %.1142, %._crit_edge.loopexit ]
-  %.0138.lcssa = phi ptr [ null, %10 ], [ %.1139, %._crit_edge.loopexit ]
-  %.0135.lcssa = phi i32 [ 0, %10 ], [ %.1136, %._crit_edge.loopexit ]
-  %.0133.lcssa = phi ptr [ null, %10 ], [ %.1134, %._crit_edge.loopexit ]
-  %.0131.lcssa = phi i32 [ 0, %10 ], [ %.1132, %._crit_edge.loopexit ]
-  %.0128.lcssa = phi ptr [ null, %10 ], [ %.1129, %._crit_edge.loopexit ]
-  %.0126.lcssa = phi i32 [ 0, %10 ], [ %.1127, %._crit_edge.loopexit ]
-  %.0120.lcssa = phi i8 [ 0, %10 ], [ %249, %._crit_edge.loopexit ]
-  %.0118.lcssa = phi i16 [ 0, %10 ], [ %.1119, %._crit_edge.loopexit ]
-  %.0117.lcssa = phi i16 [ 0, %10 ], [ %.1, %._crit_edge.loopexit ]
+._crit_edge:                                      ; preds = %248, %10
+  %.0143.lcssa = phi ptr [ null, %10 ], [ %.1144, %248 ]
+  %.0141.lcssa = phi i32 [ 0, %10 ], [ %.1142, %248 ]
+  %.0138.lcssa = phi ptr [ null, %10 ], [ %.1139, %248 ]
+  %.0135.lcssa = phi i32 [ 0, %10 ], [ %.1136, %248 ]
+  %.0133.lcssa = phi ptr [ null, %10 ], [ %.1134, %248 ]
+  %.0131.lcssa = phi i32 [ 0, %10 ], [ %.1132, %248 ]
+  %.0128.lcssa = phi ptr [ null, %10 ], [ %.1129, %248 ]
+  %.0126.lcssa = phi i32 [ 0, %10 ], [ %.1127, %248 ]
+  %.0120.lcssa = phi i8 [ 0, %10 ], [ %.1121, %248 ]
+  %.0118.lcssa = phi i16 [ 0, %10 ], [ %.1119, %248 ]
+  %.0117.lcssa = phi i16 [ 0, %10 ], [ %.1, %248 ]
   store i16 %.0117.lcssa, ptr %5, align 2
   store i8 %.0120.lcssa, ptr %6, align 1
   store i16 %.0118.lcssa, ptr %7, align 2
-  %250 = icmp ne ptr %.0143.lcssa, null
-  %251 = icmp ne ptr %.0138.lcssa, null
-  %or.cond.i = or i1 %250, %251
-  br i1 %or.cond.i, label %252, label %_ZN15ClassFileParser20assemble_annotationsEPKhiS1_iP10JavaThread.exit
+  %249 = icmp ne ptr %.0143.lcssa, null
+  %250 = icmp ne ptr %.0138.lcssa, null
+  %or.cond.i = or i1 %249, %250
+  br i1 %or.cond.i, label %251, label %_ZN15ClassFileParser20assemble_annotationsEPKhiS1_iP10JavaThread.exit
 
-252:                                              ; preds = %._crit_edge
-  %253 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %254 = load ptr, ptr %253, align 8
-  %255 = add nsw i32 %.0135.lcssa, %.0141.lcssa
-  %256 = tail call i32 @llvm.smax.i32(i32 %255, i32 1)
-  %narrow.i.i.i.i = add nuw i32 %256, 14
-  %257 = lshr i32 %narrow.i.i.i.i, 3
-  %258 = zext nneg i32 %257 to i64
-  %259 = tail call noundef ptr @_ZN9Metaspace8allocateEP15ClassLoaderDatamN12MetaspaceObj4TypeEP10JavaThread(ptr noundef %254, i64 noundef %258, i32 noundef 2, ptr noundef %9) #23
-  %260 = icmp eq ptr %259, null
-  br i1 %260, label %_ZN15MetadataFactory9new_arrayIhEEP5ArrayIT_EP15ClassLoaderDataiP10JavaThread.exit.i, label %261
+251:                                              ; preds = %._crit_edge
+  %252 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %253 = load ptr, ptr %252, align 8
+  %254 = add nsw i32 %.0135.lcssa, %.0141.lcssa
+  %255 = tail call i32 @llvm.smax.i32(i32 %254, i32 1)
+  %narrow.i.i.i.i = add nuw i32 %255, 14
+  %256 = lshr i32 %narrow.i.i.i.i, 3
+  %257 = zext nneg i32 %256 to i64
+  %258 = tail call noundef ptr @_ZN9Metaspace8allocateEP15ClassLoaderDatamN12MetaspaceObj4TypeEP10JavaThread(ptr noundef %253, i64 noundef %257, i32 noundef 2, ptr noundef %9) #23
+  %259 = icmp eq ptr %258, null
+  br i1 %259, label %_ZN15MetadataFactory9new_arrayIhEEP5ArrayIT_EP15ClassLoaderDataiP10JavaThread.exit.i, label %260
 
-261:                                              ; preds = %252
-  store i32 %255, ptr %259, align 4
+260:                                              ; preds = %251
+  store i32 %254, ptr %258, align 4
   br label %_ZN15MetadataFactory9new_arrayIhEEP5ArrayIT_EP15ClassLoaderDataiP10JavaThread.exit.i
 
-_ZN15MetadataFactory9new_arrayIhEEP5ArrayIT_EP15ClassLoaderDataiP10JavaThread.exit.i: ; preds = %261, %252
-  %262 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %263 = load ptr, ptr %262, align 8
-  %.not.i181 = icmp eq ptr %263, null
-  br i1 %.not.i181, label %264, label %_ZN15ClassFileParser20assemble_annotationsEPKhiS1_iP10JavaThread.exit
+_ZN15MetadataFactory9new_arrayIhEEP5ArrayIT_EP15ClassLoaderDataiP10JavaThread.exit.i: ; preds = %260, %251
+  %261 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %262 = load ptr, ptr %261, align 8
+  %.not.i181 = icmp eq ptr %262, null
+  br i1 %.not.i181, label %263, label %_ZN15ClassFileParser20assemble_annotationsEPKhiS1_iP10JavaThread.exit
 
-264:                                              ; preds = %_ZN15MetadataFactory9new_arrayIhEEP5ArrayIT_EP15ClassLoaderDataiP10JavaThread.exit.i
-  %265 = icmp sgt i32 %.0141.lcssa, 0
-  %or.cond38.i = and i1 %250, %265
+263:                                              ; preds = %_ZN15MetadataFactory9new_arrayIhEEP5ArrayIT_EP15ClassLoaderDataiP10JavaThread.exit.i
+  %264 = icmp sgt i32 %.0141.lcssa, 0
+  %or.cond38.i = and i1 %249, %264
   br i1 %or.cond38.i, label %.lr.ph.i, label %.loopexit34.i
 
-.lr.ph.i:                                         ; preds = %264
-  %266 = getelementptr inbounds nuw i8, ptr %259, i64 4
+.lr.ph.i:                                         ; preds = %263
+  %265 = getelementptr inbounds nuw i8, ptr %258, i64 4
   %wide.trip.count.i = zext nneg i32 %.0141.lcssa to i64
-  br label %267
+  br label %266
 
-267:                                              ; preds = %267, %.lr.ph.i
-  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %267 ]
-  %268 = getelementptr inbounds nuw i8, ptr %.0143.lcssa, i64 %indvars.iv.i
-  %269 = load i8, ptr %268, align 1
-  %270 = getelementptr inbounds nuw i8, ptr %266, i64 %indvars.iv.i
-  store i8 %269, ptr %270, align 1
+266:                                              ; preds = %266, %.lr.ph.i
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %266 ]
+  %267 = getelementptr inbounds nuw i8, ptr %.0143.lcssa, i64 %indvars.iv.i
+  %268 = load i8, ptr %267, align 1
+  %269 = getelementptr inbounds nuw i8, ptr %265, i64 %indvars.iv.i
+  store i8 %268, ptr %269, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %.loopexit34.i, label %267, !llvm.loop !17
+  br i1 %exitcond.not.i, label %.loopexit34.i, label %266, !llvm.loop !17
 
-.loopexit34.i:                                    ; preds = %267, %264
-  %271 = icmp sgt i32 %.0135.lcssa, 0
-  %or.cond39.i = and i1 %251, %271
+.loopexit34.i:                                    ; preds = %266, %263
+  %270 = icmp sgt i32 %.0135.lcssa, 0
+  %or.cond39.i = and i1 %250, %270
   br i1 %or.cond39.i, label %.lr.ph37.i, label %_ZN15ClassFileParser20assemble_annotationsEPKhiS1_iP10JavaThread.exit
 
 .lr.ph37.i:                                       ; preds = %.loopexit34.i
-  %272 = getelementptr inbounds nuw i8, ptr %259, i64 4
-  %273 = sext i32 %.0141.lcssa to i64
+  %271 = getelementptr inbounds nuw i8, ptr %258, i64 4
+  %272 = sext i32 %.0141.lcssa to i64
   %wide.trip.count44.i = zext nneg i32 %.0135.lcssa to i64
-  %invariant.gep.i = getelementptr i8, ptr %272, i64 %273
-  br label %274
+  %invariant.gep.i = getelementptr i8, ptr %271, i64 %272
+  br label %273
 
-274:                                              ; preds = %274, %.lr.ph37.i
-  %indvars.iv41.i = phi i64 [ 0, %.lr.ph37.i ], [ %indvars.iv.next42.i, %274 ]
-  %275 = getelementptr inbounds nuw i8, ptr %.0138.lcssa, i64 %indvars.iv41.i
-  %276 = load i8, ptr %275, align 1
+273:                                              ; preds = %273, %.lr.ph37.i
+  %indvars.iv41.i = phi i64 [ 0, %.lr.ph37.i ], [ %indvars.iv.next42.i, %273 ]
+  %274 = getelementptr inbounds nuw i8, ptr %.0138.lcssa, i64 %indvars.iv41.i
+  %275 = load i8, ptr %274, align 1
   %gep.i = getelementptr i8, ptr %invariant.gep.i, i64 %indvars.iv41.i
-  store i8 %276, ptr %gep.i, align 1
+  store i8 %275, ptr %gep.i, align 1
   %indvars.iv.next42.i = add nuw nsw i64 %indvars.iv41.i, 1
   %exitcond45.not.i = icmp eq i64 %indvars.iv.next42.i, %wide.trip.count44.i
-  br i1 %exitcond45.not.i, label %_ZN15ClassFileParser20assemble_annotationsEPKhiS1_iP10JavaThread.exit, label %274, !llvm.loop !18
+  br i1 %exitcond45.not.i, label %_ZN15ClassFileParser20assemble_annotationsEPKhiS1_iP10JavaThread.exit, label %273, !llvm.loop !18
 
-_ZN15ClassFileParser20assemble_annotationsEPKhiS1_iP10JavaThread.exit: ; preds = %274, %._crit_edge, %_ZN15MetadataFactory9new_arrayIhEEP5ArrayIT_EP15ClassLoaderDataiP10JavaThread.exit.i, %.loopexit34.i
-  %.0.i180 = phi ptr [ %259, %_ZN15MetadataFactory9new_arrayIhEEP5ArrayIT_EP15ClassLoaderDataiP10JavaThread.exit.i ], [ %259, %.loopexit34.i ], [ null, %._crit_edge ], [ %259, %274 ]
-  %277 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %278 = load ptr, ptr %277, align 8
-  %.not225 = icmp eq ptr %278, null
-  br i1 %.not225, label %279, label %_ZNK15ClassFileStream6get_u2EP10JavaThread.exit.thread
+_ZN15ClassFileParser20assemble_annotationsEPKhiS1_iP10JavaThread.exit: ; preds = %273, %._crit_edge, %_ZN15MetadataFactory9new_arrayIhEEP5ArrayIT_EP15ClassLoaderDataiP10JavaThread.exit.i, %.loopexit34.i
+  %.0.i180 = phi ptr [ %258, %_ZN15MetadataFactory9new_arrayIhEEP5ArrayIT_EP15ClassLoaderDataiP10JavaThread.exit.i ], [ %258, %.loopexit34.i ], [ null, %._crit_edge ], [ %258, %273 ]
+  %276 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %277 = load ptr, ptr %276, align 8
+  %.not225 = icmp eq ptr %277, null
+  br i1 %.not225, label %278, label %_ZNK15ClassFileStream6get_u2EP10JavaThread.exit.thread
 
-279:                                              ; preds = %_ZN15ClassFileParser20assemble_annotationsEPKhiS1_iP10JavaThread.exit
-  %280 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  store ptr %.0.i180, ptr %280, align 8
-  %281 = icmp ne ptr %.0133.lcssa, null
-  %282 = icmp ne ptr %.0128.lcssa, null
-  %or.cond.i182 = or i1 %281, %282
-  br i1 %or.cond.i182, label %283, label %_ZN15ClassFileParser20assemble_annotationsEPKhiS1_iP10JavaThread.exit202
+278:                                              ; preds = %_ZN15ClassFileParser20assemble_annotationsEPKhiS1_iP10JavaThread.exit
+  %279 = getelementptr inbounds nuw i8, ptr %8, i64 24
+  store ptr %.0.i180, ptr %279, align 8
+  %280 = icmp ne ptr %.0133.lcssa, null
+  %281 = icmp ne ptr %.0128.lcssa, null
+  %or.cond.i182 = or i1 %280, %281
+  br i1 %or.cond.i182, label %282, label %_ZN15ClassFileParser20assemble_annotationsEPKhiS1_iP10JavaThread.exit202
 
-283:                                              ; preds = %279
-  %284 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %285 = load ptr, ptr %284, align 8
-  %286 = add nsw i32 %.0126.lcssa, %.0131.lcssa
-  %287 = tail call i32 @llvm.smax.i32(i32 %286, i32 1)
-  %narrow.i.i.i.i184 = add nuw i32 %287, 14
-  %288 = lshr i32 %narrow.i.i.i.i184, 3
-  %289 = zext nneg i32 %288 to i64
-  %290 = tail call noundef ptr @_ZN9Metaspace8allocateEP15ClassLoaderDatamN12MetaspaceObj4TypeEP10JavaThread(ptr noundef %285, i64 noundef %289, i32 noundef 2, ptr noundef nonnull %9) #23
-  %291 = icmp eq ptr %290, null
-  br i1 %291, label %_ZN15MetadataFactory9new_arrayIhEEP5ArrayIT_EP15ClassLoaderDataiP10JavaThread.exit.i185, label %292
+282:                                              ; preds = %278
+  %283 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %284 = load ptr, ptr %283, align 8
+  %285 = add nsw i32 %.0126.lcssa, %.0131.lcssa
+  %286 = tail call i32 @llvm.smax.i32(i32 %285, i32 1)
+  %narrow.i.i.i.i184 = add nuw i32 %286, 14
+  %287 = lshr i32 %narrow.i.i.i.i184, 3
+  %288 = zext nneg i32 %287 to i64
+  %289 = tail call noundef ptr @_ZN9Metaspace8allocateEP15ClassLoaderDatamN12MetaspaceObj4TypeEP10JavaThread(ptr noundef %284, i64 noundef %288, i32 noundef 2, ptr noundef nonnull %9) #23
+  %290 = icmp eq ptr %289, null
+  br i1 %290, label %_ZN15MetadataFactory9new_arrayIhEEP5ArrayIT_EP15ClassLoaderDataiP10JavaThread.exit.i185, label %291
 
-292:                                              ; preds = %283
-  store i32 %286, ptr %290, align 4
+291:                                              ; preds = %282
+  store i32 %285, ptr %289, align 4
   br label %_ZN15MetadataFactory9new_arrayIhEEP5ArrayIT_EP15ClassLoaderDataiP10JavaThread.exit.i185
 
-_ZN15MetadataFactory9new_arrayIhEEP5ArrayIT_EP15ClassLoaderDataiP10JavaThread.exit.i185: ; preds = %292, %283
-  %293 = load ptr, ptr %277, align 8
-  %.not.i186 = icmp eq ptr %293, null
-  br i1 %.not.i186, label %294, label %_ZNK15ClassFileStream6get_u2EP10JavaThread.exit.thread
+_ZN15MetadataFactory9new_arrayIhEEP5ArrayIT_EP15ClassLoaderDataiP10JavaThread.exit.i185: ; preds = %291, %282
+  %292 = load ptr, ptr %276, align 8
+  %.not.i186 = icmp eq ptr %292, null
+  br i1 %.not.i186, label %293, label %_ZNK15ClassFileStream6get_u2EP10JavaThread.exit.thread
 
-294:                                              ; preds = %_ZN15MetadataFactory9new_arrayIhEEP5ArrayIT_EP15ClassLoaderDataiP10JavaThread.exit.i185
-  %295 = icmp sgt i32 %.0131.lcssa, 0
-  %or.cond38.i187 = and i1 %281, %295
+293:                                              ; preds = %_ZN15MetadataFactory9new_arrayIhEEP5ArrayIT_EP15ClassLoaderDataiP10JavaThread.exit.i185
+  %294 = icmp sgt i32 %.0131.lcssa, 0
+  %or.cond38.i187 = and i1 %280, %294
   br i1 %or.cond38.i187, label %.lr.ph.i197, label %.loopexit34.i188
 
-.lr.ph.i197:                                      ; preds = %294
-  %296 = getelementptr inbounds nuw i8, ptr %290, i64 4
+.lr.ph.i197:                                      ; preds = %293
+  %295 = getelementptr inbounds nuw i8, ptr %289, i64 4
   %wide.trip.count.i198 = zext nneg i32 %.0131.lcssa to i64
-  br label %297
+  br label %296
 
-297:                                              ; preds = %297, %.lr.ph.i197
-  %indvars.iv.i199 = phi i64 [ 0, %.lr.ph.i197 ], [ %indvars.iv.next.i200, %297 ]
-  %298 = getelementptr inbounds nuw i8, ptr %.0133.lcssa, i64 %indvars.iv.i199
-  %299 = load i8, ptr %298, align 1
-  %300 = getelementptr inbounds nuw i8, ptr %296, i64 %indvars.iv.i199
-  store i8 %299, ptr %300, align 1
+296:                                              ; preds = %296, %.lr.ph.i197
+  %indvars.iv.i199 = phi i64 [ 0, %.lr.ph.i197 ], [ %indvars.iv.next.i200, %296 ]
+  %297 = getelementptr inbounds nuw i8, ptr %.0133.lcssa, i64 %indvars.iv.i199
+  %298 = load i8, ptr %297, align 1
+  %299 = getelementptr inbounds nuw i8, ptr %295, i64 %indvars.iv.i199
+  store i8 %298, ptr %299, align 1
   %indvars.iv.next.i200 = add nuw nsw i64 %indvars.iv.i199, 1
   %exitcond.not.i201 = icmp eq i64 %indvars.iv.next.i200, %wide.trip.count.i198
-  br i1 %exitcond.not.i201, label %.loopexit34.i188, label %297, !llvm.loop !17
+  br i1 %exitcond.not.i201, label %.loopexit34.i188, label %296, !llvm.loop !17
 
-.loopexit34.i188:                                 ; preds = %297, %294
-  %301 = icmp sgt i32 %.0126.lcssa, 0
-  %or.cond39.i189 = and i1 %282, %301
+.loopexit34.i188:                                 ; preds = %296, %293
+  %300 = icmp sgt i32 %.0126.lcssa, 0
+  %or.cond39.i189 = and i1 %281, %300
   br i1 %or.cond39.i189, label %.lr.ph37.i190, label %_ZN15ClassFileParser20assemble_annotationsEPKhiS1_iP10JavaThread.exit202
 
 .lr.ph37.i190:                                    ; preds = %.loopexit34.i188
-  %302 = getelementptr inbounds nuw i8, ptr %290, i64 4
-  %303 = sext i32 %.0131.lcssa to i64
+  %301 = getelementptr inbounds nuw i8, ptr %289, i64 4
+  %302 = sext i32 %.0131.lcssa to i64
   %wide.trip.count44.i191 = zext nneg i32 %.0126.lcssa to i64
-  %invariant.gep.i192 = getelementptr i8, ptr %302, i64 %303
-  br label %304
+  %invariant.gep.i192 = getelementptr i8, ptr %301, i64 %302
+  br label %303
 
-304:                                              ; preds = %304, %.lr.ph37.i190
-  %indvars.iv41.i193 = phi i64 [ 0, %.lr.ph37.i190 ], [ %indvars.iv.next42.i195, %304 ]
-  %305 = getelementptr inbounds nuw i8, ptr %.0128.lcssa, i64 %indvars.iv41.i193
-  %306 = load i8, ptr %305, align 1
+303:                                              ; preds = %303, %.lr.ph37.i190
+  %indvars.iv41.i193 = phi i64 [ 0, %.lr.ph37.i190 ], [ %indvars.iv.next42.i195, %303 ]
+  %304 = getelementptr inbounds nuw i8, ptr %.0128.lcssa, i64 %indvars.iv41.i193
+  %305 = load i8, ptr %304, align 1
   %gep.i194 = getelementptr i8, ptr %invariant.gep.i192, i64 %indvars.iv41.i193
-  store i8 %306, ptr %gep.i194, align 1
+  store i8 %305, ptr %gep.i194, align 1
   %indvars.iv.next42.i195 = add nuw nsw i64 %indvars.iv41.i193, 1
   %exitcond45.not.i196 = icmp eq i64 %indvars.iv.next42.i195, %wide.trip.count44.i191
-  br i1 %exitcond45.not.i196, label %_ZN15ClassFileParser20assemble_annotationsEPKhiS1_iP10JavaThread.exit202, label %304, !llvm.loop !18
+  br i1 %exitcond45.not.i196, label %_ZN15ClassFileParser20assemble_annotationsEPKhiS1_iP10JavaThread.exit202, label %303, !llvm.loop !18
 
-_ZN15ClassFileParser20assemble_annotationsEPKhiS1_iP10JavaThread.exit202: ; preds = %304, %279, %.loopexit34.i188
-  %.0.i183.ph = phi ptr [ null, %279 ], [ %290, %.loopexit34.i188 ], [ %290, %304 ]
-  %.pr210 = load ptr, ptr %277, align 8
+_ZN15ClassFileParser20assemble_annotationsEPKhiS1_iP10JavaThread.exit202: ; preds = %303, %278, %.loopexit34.i188
+  %.0.i183.ph = phi ptr [ null, %278 ], [ %289, %.loopexit34.i188 ], [ %289, %303 ]
+  %.pr210 = load ptr, ptr %276, align 8
   %.not226 = icmp eq ptr %.pr210, null
-  br i1 %.not226, label %307, label %_ZNK15ClassFileStream6get_u2EP10JavaThread.exit.thread
+  br i1 %.not226, label %306, label %_ZNK15ClassFileStream6get_u2EP10JavaThread.exit.thread
 
-307:                                              ; preds = %_ZN15ClassFileParser20assemble_annotationsEPKhiS1_iP10JavaThread.exit202
-  %308 = getelementptr inbounds nuw i8, ptr %8, i64 32
-  store ptr %.0.i183.ph, ptr %308, align 8
+306:                                              ; preds = %_ZN15ClassFileParser20assemble_annotationsEPKhiS1_iP10JavaThread.exit202
+  %307 = getelementptr inbounds nuw i8, ptr %8, i64 32
+  store ptr %.0.i183.ph, ptr %307, align 8
   br label %_ZNK15ClassFileStream6get_u2EP10JavaThread.exit.thread
 
-_ZNK15ClassFileStream6get_u2EP10JavaThread.exit.thread: ; preds = %_ZNK15ClassFileStream14guarantee_moreEiP10JavaThread.exit.i177, %_ZNK15ClassFileStream14guarantee_moreEiP10JavaThread.exit.i174, %_ZNK15ClassFileStream14guarantee_moreEiP10JavaThread.exit.i171, %_ZNK15ClassFileStream14guarantee_moreEiP10JavaThread.exit.i168, %_ZNK15ClassFileStream14guarantee_moreEiP10JavaThread.exit.i166, %_ZNK15ClassFileStream14guarantee_moreEiP10JavaThread.exit.i161, %_ZNK15ClassFileStream14guarantee_moreEiP10JavaThread.exit.i, %_ZNK15ClassFileStream7skip_u1EiP10JavaThread.exit179, %_ZNK15ClassFileStream7skip_u1EiP10JavaThread.exit176, %_ZNK15ClassFileStream7skip_u1EiP10JavaThread.exit173, %_ZNK15ClassFileStream7skip_u1EiP10JavaThread.exit170, %_ZNK15ClassFileStream7skip_u1EiP10JavaThread.exit, %_ZNK15ClassFileStream14guarantee_moreEiP10JavaThread.exit165, %_ZN15ClassFileParser33parse_generic_signature_attributeEPK15ClassFileStreamP10JavaThread.exit, %86, %_ZNK15ClassFileStream6get_u2EP10JavaThread.exit, %_ZNK15ClassFileParser14check_propertyEbPKciP10JavaThread.exit159, %_ZNK15ClassFileParser14check_propertyEbPKciP10JavaThread.exit, %_ZNK15ClassFileStream14guarantee_moreEiP10JavaThread.exit, %_ZN15MetadataFactory9new_arrayIhEEP5ArrayIT_EP15ClassLoaderDataiP10JavaThread.exit.i185, %_ZN15ClassFileParser20assemble_annotationsEPKhiS1_iP10JavaThread.exit202, %_ZN15ClassFileParser20assemble_annotationsEPKhiS1_iP10JavaThread.exit, %307, %203, %183, %162, %142, %108, %106, %98, %93, %65
+_ZNK15ClassFileStream6get_u2EP10JavaThread.exit.thread: ; preds = %_ZNK15ClassFileStream14guarantee_moreEiP10JavaThread.exit.i177, %_ZNK15ClassFileStream14guarantee_moreEiP10JavaThread.exit.i174, %_ZNK15ClassFileStream14guarantee_moreEiP10JavaThread.exit.i171, %_ZNK15ClassFileStream14guarantee_moreEiP10JavaThread.exit.i168, %_ZNK15ClassFileStream14guarantee_moreEiP10JavaThread.exit.i166, %_ZNK15ClassFileStream14guarantee_moreEiP10JavaThread.exit.i161, %_ZNK15ClassFileStream14guarantee_moreEiP10JavaThread.exit.i, %_ZNK15ClassFileStream7skip_u1EiP10JavaThread.exit179, %_ZNK15ClassFileStream7skip_u1EiP10JavaThread.exit176, %_ZNK15ClassFileStream7skip_u1EiP10JavaThread.exit173, %_ZNK15ClassFileStream7skip_u1EiP10JavaThread.exit170, %_ZNK15ClassFileStream7skip_u1EiP10JavaThread.exit, %_ZNK15ClassFileStream14guarantee_moreEiP10JavaThread.exit165, %_ZN15ClassFileParser33parse_generic_signature_attributeEPK15ClassFileStreamP10JavaThread.exit, %86, %_ZNK15ClassFileStream6get_u2EP10JavaThread.exit, %_ZNK15ClassFileParser14check_propertyEbPKciP10JavaThread.exit159, %_ZNK15ClassFileParser14check_propertyEbPKciP10JavaThread.exit, %_ZNK15ClassFileStream14guarantee_moreEiP10JavaThread.exit, %_ZN15MetadataFactory9new_arrayIhEEP5ArrayIT_EP15ClassLoaderDataiP10JavaThread.exit.i185, %_ZN15ClassFileParser20assemble_annotationsEPKhiS1_iP10JavaThread.exit202, %_ZN15ClassFileParser20assemble_annotationsEPKhiS1_iP10JavaThread.exit, %306, %203, %183, %162, %142, %108, %106, %98, %93, %65
   ret void
 }
 

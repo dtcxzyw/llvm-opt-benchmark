@@ -10023,13 +10023,13 @@ define internal fastcc void @__xfrm_policy_inexact_prune_bin(ptr noundef %0, i1 
   br i1 %19, label %22, label %20
 
 20:                                               ; preds = %16, %13, %2
-  br i1 %1, label %21, label %187, !prof !6
+  br i1 %1, label %21, label %188, !prof !6
 
 21:                                               ; preds = %20
   tail call void asm sideeffect "950: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 950b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 950) #22, !srcloc !121
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 1111, i32 2307, i64 12) #22, !srcloc !122
   tail call void asm sideeffect "951: nop\0A\09.pushsection .discard.instr_end\0A\09.long 951b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 951) #22, !srcloc !123
-  br label %187
+  br label %188
 
 22:                                               ; preds = %16
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -10037,8 +10037,8 @@ define internal fastcc void @__xfrm_policy_inexact_prune_bin(ptr noundef %0, i1 
   %24 = load volatile ptr, ptr @xfrm_policy_inexact_table, align 8
   br label %25
 
-25:                                               ; preds = %.thread11, %22
-  %26 = phi ptr [ %24, %22 ], [ %176, %.thread11 ]
+25:                                               ; preds = %.thread12, %22
+  %26 = phi ptr [ %24, %22 ], [ %177, %.thread12 ]
   %27 = load i16, ptr getelementptr inbounds nuw (i8, ptr @xfrm_policy_inexact_table, i64 22), align 2
   %28 = zext i16 %27 to i64
   %29 = sub nsw i64 0, %28
@@ -10104,7 +10104,7 @@ define internal fastcc void @__xfrm_policy_inexact_prune_bin(ptr noundef %0, i1 
 83:                                               ; preds = %79, %77
   %84 = phi ptr [ %78, %77 ], [ %82, %79 ]
   %85 = icmp eq ptr %84, null
-  br i1 %85, label %.thread11, label %86
+  br i1 %85, label %.thread12, label %86
 
 86:                                               ; preds = %83
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #22
@@ -10119,7 +10119,7 @@ define internal fastcc void @__xfrm_policy_inexact_prune_bin(ptr noundef %0, i1 
   %89 = icmp ult i8 %88, 2
   call void @llvm.assume(i1 %89)
   %90 = icmp eq i8 %88, 0
-  br i1 %90, label %.loopexit12, label %.preheader, !prof !102
+  br i1 %90, label %.loopexit13, label %.preheader, !prof !102
 
 .preheader:                                       ; preds = %86, %101
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !103
@@ -10127,18 +10127,18 @@ define internal fastcc void @__xfrm_policy_inexact_prune_bin(ptr noundef %0, i1 
   %92 = icmp ult i8 %91, 2
   call void @llvm.assume(i1 %92)
   %93 = icmp eq i8 %91, 0
-  br i1 %93, label %.preheader61, label %94, !prof !7
+  br i1 %93, label %.preheader62, label %94, !prof !7
 
 94:                                               ; preds = %.preheader
   %95 = call i64 @llvm.read_register.i64(metadata !0)
   %96 = call i64 asm sideeffect "call __SCT__preempt_schedule", "={rsp},{rsp},~{dirflag},~{fpsr},~{flags}"(i64 %95) #22, !srcloc !105
   call void @llvm.write_register.i64(metadata !0, i64 %96)
-  br label %.preheader61
+  br label %.preheader62
 
-.preheader61:                                     ; preds = %94, %.preheader
+.preheader62:                                     ; preds = %94, %.preheader
   br label %97
 
-97:                                               ; preds = %.preheader61, %97
+97:                                               ; preds = %.preheader62, %97
   call void asm sideeffect "rep; nop", "~{memory},~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !70
   %98 = load volatile i64, ptr %84, align 8
   %99 = and i64 %98, 1
@@ -10152,9 +10152,9 @@ define internal fastcc void @__xfrm_policy_inexact_prune_bin(ptr noundef %0, i1 
   %103 = icmp ult i8 %102, 2
   call void @llvm.assume(i1 %103)
   %104 = icmp eq i8 %102, 0
-  br i1 %104, label %.loopexit12, label %.preheader, !prof !108, !llvm.loop !109
+  br i1 %104, label %.loopexit13, label %.preheader, !prof !108, !llvm.loop !109
 
-.loopexit12:                                      ; preds = %101, %86
+.loopexit13:                                      ; preds = %101, %86
   %105 = load ptr, ptr %84, align 8
   %106 = ptrtoint ptr %105 to i64
   %107 = and i64 %106, -2
@@ -10166,14 +10166,14 @@ define internal fastcc void @__xfrm_policy_inexact_prune_bin(ptr noundef %0, i1 
   %113 = icmp eq i64 %112, 0
   br i1 %113, label %114, label %.loopexit
 
-114:                                              ; preds = %.loopexit12
+114:                                              ; preds = %.loopexit13
   %115 = inttoptr i64 %111 to ptr
   %116 = icmp eq ptr %23, %115
   br i1 %116, label %._crit_edge.thread, label %.lr.ph
 
 ._crit_edge.thread:                               ; preds = %114
-  %.lcssa14.in42 = and i64 %87, 512
-  %.lcssa1443 = icmp eq i64 %.lcssa14.in42, 0
+  %.lcssa15.in43 = and i64 %87, 512
+  %.lcssa1544 = icmp eq i64 %.lcssa15.in43, 0
   %117 = load ptr, ptr %23, align 8
   br label %131
 
@@ -10182,8 +10182,8 @@ define internal fastcc void @__xfrm_policy_inexact_prune_bin(ptr noundef %0, i1 
   br i1 %119, label %._crit_edge, label %.lr.ph, !llvm.loop !124
 
 ._crit_edge:                                      ; preds = %118
-  %.lcssa14.in = and i64 %87, 512
-  %.lcssa14 = icmp eq i64 %.lcssa14.in, 0
+  %.lcssa15.in = and i64 %87, 512
+  %.lcssa15 = icmp eq i64 %.lcssa15.in, 0
   %120 = load ptr, ptr %23, align 8
   %121 = icmp eq ptr %145, null
   br i1 %121, label %131, label %122
@@ -10207,15 +10207,15 @@ define internal fastcc void @__xfrm_policy_inexact_prune_bin(ptr noundef %0, i1 
   br label %129
 
 129:                                              ; preds = %126, %122
-  br i1 %.lcssa14, label %.thread8, label %130
+  br i1 %.lcssa15, label %160, label %130
 
 130:                                              ; preds = %129
   call void asm sideeffect "sti", "~{memory},~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !114
-  br label %.thread8
+  br label %160
 
 131:                                              ; preds = %._crit_edge.thread, %._crit_edge
   %132 = phi ptr [ %117, %._crit_edge.thread ], [ %120, %._crit_edge ]
-  %.lcssa1444 = phi i1 [ %.lcssa1443, %._crit_edge.thread ], [ %.lcssa14, %._crit_edge ]
+  %.lcssa1545 = phi i1 [ %.lcssa1544, %._crit_edge.thread ], [ %.lcssa15, %._crit_edge ]
   %133 = ptrtoint ptr %132 to i64
   %134 = and i64 %133, 1
   %135 = icmp eq i64 %134, 0
@@ -10236,11 +10236,11 @@ define internal fastcc void @__xfrm_policy_inexact_prune_bin(ptr noundef %0, i1 
   br label %143
 
 143:                                              ; preds = %140, %131
-  br i1 %.lcssa1444, label %.thread8, label %144
+  br i1 %.lcssa1545, label %160, label %144
 
 144:                                              ; preds = %143
   call void asm sideeffect "sti", "~{memory},~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !114
-  br label %.thread8
+  br label %160
 
 .lr.ph:                                           ; preds = %114, %118
   %145 = phi ptr [ %146, %118 ], [ %115, %114 ]
@@ -10250,7 +10250,7 @@ define internal fastcc void @__xfrm_policy_inexact_prune_bin(ptr noundef %0, i1 
   %149 = icmp eq i64 %148, 0
   br i1 %149, label %118, label %.loopexit, !llvm.loop !124
 
-.loopexit:                                        ; preds = %.lr.ph, %.loopexit12
+.loopexit:                                        ; preds = %.lr.ph, %.loopexit13
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !110
   call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; andb ${1:b},$0", "=*m,iq,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %84, i32 -2, ptr nonnull elementtype(i8) %84) #22, !srcloc !111
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !112
@@ -10269,65 +10269,65 @@ define internal fastcc void @__xfrm_policy_inexact_prune_bin(ptr noundef %0, i1 
 156:                                              ; preds = %153, %.loopexit
   %157 = and i64 %87, 512
   %158 = icmp eq i64 %157, 0
-  br i1 %158, label %.thread11, label %159
+  br i1 %158, label %.thread12, label %159
 
 159:                                              ; preds = %156
   call void asm sideeffect "sti", "~{memory},~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !114
+  br label %.thread12
+
+160:                                              ; preds = %144, %143, %130, %129
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @xfrm_policy_inexact_table, i64 132), ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @xfrm_policy_inexact_table, i64 132)) #22, !srcloc !126
+  %161 = load i8, ptr getelementptr inbounds nuw (i8, ptr @xfrm_policy_inexact_table, i64 30), align 2, !range !127, !noundef !128
+  %162 = icmp eq i8 %161, 0
+  br i1 %162, label %.thread11, label %163
+
+163:                                              ; preds = %160
+  %164 = load volatile i32, ptr getelementptr inbounds nuw (i8, ptr @xfrm_policy_inexact_table, i64 132), align 4
+  %165 = load i32, ptr %26, align 64
+  %166 = mul i32 %165, 3
+  %167 = udiv i32 %166, 10
+  %168 = icmp ult i32 %164, %167
+  %169 = load i16, ptr getelementptr inbounds nuw (i8, ptr @xfrm_policy_inexact_table, i64 28), align 4
+  %170 = zext i16 %169 to i32
+  %171 = icmp ugt i32 %165, %170
+  %172 = select i1 %168, i1 %171, i1 false
+  br i1 %172, label %173, label %.thread11, !prof !6
+
+173:                                              ; preds = %163
+  %174 = load ptr, ptr @system_wq, align 8
+  %175 = call zeroext i1 @queue_work_on(i32 noundef 64, ptr noundef %174, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @xfrm_policy_inexact_table, i64 64)) #22
   br label %.thread11
 
-.thread8:                                         ; preds = %129, %130, %143, %144
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @xfrm_policy_inexact_table, i64 132), ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @xfrm_policy_inexact_table, i64 132)) #22, !srcloc !126
-  %160 = load i8, ptr getelementptr inbounds nuw (i8, ptr @xfrm_policy_inexact_table, i64 30), align 2, !range !127, !noundef !128
-  %161 = icmp eq i8 %160, 0
-  br i1 %161, label %.thread10, label %162
+.thread12:                                        ; preds = %159, %156, %83
+  %176 = getelementptr inbounds nuw i8, ptr %26, i64 48
+  %177 = load volatile ptr, ptr %176, align 16
+  %178 = icmp eq ptr %177, null
+  br i1 %178, label %179, label %25, !llvm.loop !129
 
-162:                                              ; preds = %.thread8
-  %163 = load volatile i32, ptr getelementptr inbounds nuw (i8, ptr @xfrm_policy_inexact_table, i64 132), align 4
-  %164 = load i32, ptr %26, align 64
-  %165 = mul i32 %164, 3
-  %166 = udiv i32 %165, 10
-  %167 = icmp ult i32 %163, %166
-  %168 = load i16, ptr getelementptr inbounds nuw (i8, ptr @xfrm_policy_inexact_table, i64 28), align 4
-  %169 = zext i16 %168 to i32
-  %170 = icmp ugt i32 %164, %169
-  %171 = select i1 %167, i1 %170, i1 false
-  br i1 %171, label %172, label %.thread10, !prof !6
-
-172:                                              ; preds = %162
-  %173 = load ptr, ptr @system_wq, align 8
-  %174 = call zeroext i1 @queue_work_on(i32 noundef 64, ptr noundef %173, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @xfrm_policy_inexact_table, i64 64)) #22
-  br label %.thread10
-
-.thread11:                                        ; preds = %159, %156, %83
-  %175 = getelementptr inbounds nuw i8, ptr %26, i64 48
-  %176 = load volatile ptr, ptr %175, align 16
-  %177 = icmp eq ptr %176, null
-  br i1 %177, label %178, label %25, !llvm.loop !129
-
-178:                                              ; preds = %.thread11
+179:                                              ; preds = %.thread12
   call void @__rcu_read_unlock() #22
-  br label %187
+  br label %188
 
-.thread10:                                        ; preds = %162, %172, %.thread8
+.thread11:                                        ; preds = %163, %173, %160
   call void @__rcu_read_unlock() #22
-  %179 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %180 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %181 = load ptr, ptr %180, align 8
-  %182 = load ptr, ptr %179, align 8
-  %183 = getelementptr inbounds nuw i8, ptr %182, i64 8
-  store ptr %181, ptr %183, align 8
-  store volatile ptr %182, ptr %181, align 8
-  store ptr inttoptr (i64 -2401263026318606080 to ptr), ptr %179, align 8
-  store ptr inttoptr (i64 -2401263026318606046 to ptr), ptr %180, align 8
-  %184 = icmp eq ptr %0, null
-  br i1 %184, label %187, label %185
+  %180 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %181 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %182 = load ptr, ptr %181, align 8
+  %183 = load ptr, ptr %180, align 8
+  %184 = getelementptr inbounds nuw i8, ptr %183, i64 8
+  store ptr %182, ptr %184, align 8
+  store volatile ptr %183, ptr %182, align 8
+  store ptr inttoptr (i64 -2401263026318606080 to ptr), ptr %180, align 8
+  store ptr inttoptr (i64 -2401263026318606046 to ptr), ptr %181, align 8
+  %185 = icmp eq ptr %0, null
+  br i1 %185, label %188, label %186
 
-185:                                              ; preds = %.thread10
-  %186 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  call void @kvfree_call_rcu(ptr noundef nonnull %186, ptr noundef nonnull %0) #22
-  br label %187
+186:                                              ; preds = %.thread11
+  %187 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  call void @kvfree_call_rcu(ptr noundef nonnull %187, ptr noundef nonnull %0) #22
+  br label %188
 
-187:                                              ; preds = %185, %.thread10, %178, %21, %20
+188:                                              ; preds = %186, %.thread11, %179, %21, %20
   ret void
 }
 

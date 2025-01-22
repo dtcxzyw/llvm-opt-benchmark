@@ -9785,7 +9785,7 @@ for.body.i.i.i.i:                                 ; preds = %for.body.i.i.i.i.pr
   br i1 %tobool.i.i6.i.i, label %if.then.i.i.i.i, label %for.inc.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %for.body.i.i.i.i
-  %cmp1.i.i.i.i = icmp ult i64 %__n.05.i.i.i.i, 2
+  %cmp1.i.i.i.i = icmp samesign ult i64 %__n.05.i.i.i.i, 2
   br i1 %cmp1.i.i.i.i, label %if.else.i.i.i.i.i, label %for.inc.i.i.i.i
 
 for.inc.i.i.i.i:                                  ; preds = %if.then.i.i.i.i, %for.body.i.i.i.i

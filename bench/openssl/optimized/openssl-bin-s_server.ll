@@ -819,8 +819,8 @@ while.cond:                                       ; preds = %sw.epilog, %if.end
   ]
 
 land.lhs.true:                                    ; preds = %while.cond, %while.cond, %while.cond, %while.cond, %while.cond, %while.cond, %while.cond, %while.cond
-  %cmp26 = icmp sgt i32 %prot_opt.0, 0
-  br i1 %cmp26, label %if.then27, label %if.end29
+  %cmp26.not = icmp eq i32 %prot_opt.0, 0
+  br i1 %cmp26.not, label %if.end29, label %if.then27
 
 if.then27:                                        ; preds = %land.lhs.true
   %0 = load ptr, ptr @bio_err, align 8
@@ -833,7 +833,7 @@ if.end29:                                         ; preds = %while.cond, %land.l
   %or.cond12 = icmp ult i32 %1, 5
   %inc40 = zext i1 %or.cond12 to i32
   %spec.select = add nuw nsw i32 %no_prot_opt.0, %inc40
-  %cmp42 = icmp eq i32 %prot_opt.1, 1
+  %cmp42 = icmp ne i32 %prot_opt.1, 0
   %tobool = icmp ne i32 %spec.select, 0
   %or.cond13 = select i1 %cmp42, i1 %tobool, i1 false
   br i1 %or.cond13, label %if.then44, label %if.end46

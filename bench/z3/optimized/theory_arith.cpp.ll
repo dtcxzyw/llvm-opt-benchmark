@@ -68430,8 +68430,7 @@ land.end38:                                       ; preds = %if.end, %land.rhs34
   %arrayidx.i.i52 = getelementptr inbounds nuw ptr, ptr %30, i64 %idxprom.i.i51.pre-phi
   %31 = load ptr, ptr %arrayidx.i.i52, align 8
   %tobool59.not = icmp eq ptr %31, null
-  %32 = and i8 %unbounded.060, 1
-  %tobool6426 = icmp ne i8 %32, 0
+  %tobool6426 = icmp ne i8 %unbounded.060, 0
   %tobool64 = select i1 %tobool59.not, i1 %tobool6426, i1 false
   %frombool65 = zext i1 %tobool64 to i8
   %brmerge27 = select i1 %tobool50.not, i1 true, i1 %tobool64
@@ -68445,14 +68444,14 @@ for.inc:                                          ; preds = %land.end38, %for.bo
   br i1 %cmp.not, label %for.end.loopexit, label %for.body, !llvm.loop !293
 
 for.end.loopexit:                                 ; preds = %for.inc
-  %33 = trunc nuw i8 %was_unsafe.1 to i1
-  %34 = trunc nuw i8 %unbounded.1 to i1
-  %35 = xor i1 %33, true
-  %36 = select i1 %35, i1 true, i1 %34
+  %32 = trunc nuw i8 %was_unsafe.1 to i1
+  %33 = trunc nuw i8 %unbounded.1 to i1
+  %34 = xor i1 %32, true
+  %35 = select i1 %34, i1 true, i1 %33
   br label %return
 
 return:                                           ; preds = %land.end38, %_ZN3smt12theory_arithINS_6mi_extEE6column11end_entriesEv.exit, %for.end.loopexit, %_ZN3smt12theory_arithINS_6mi_extEE6column11end_entriesEv.exit.thread
-  %retval.0 = phi i1 [ true, %_ZN3smt12theory_arithINS_6mi_extEE6column11end_entriesEv.exit ], [ %36, %for.end.loopexit ], [ true, %_ZN3smt12theory_arithINS_6mi_extEE6column11end_entriesEv.exit.thread ], [ false, %land.end38 ]
+  %retval.0 = phi i1 [ true, %_ZN3smt12theory_arithINS_6mi_extEE6column11end_entriesEv.exit ], [ %35, %for.end.loopexit ], [ true, %_ZN3smt12theory_arithINS_6mi_extEE6column11end_entriesEv.exit.thread ], [ false, %land.end38 ]
   ret i1 %retval.0
 }
 
@@ -73924,11 +73923,10 @@ invoke.cont8:                                     ; preds = %call4.i.noexc
   br i1 %cmp3.i.i, label %if.then, label %for.inc
 
 if.then:                                          ; preds = %invoke.cont8
-  %inc = add i32 %c.016, 1
   %16 = load ptr, ptr %__begin2.017, align 8
   %17 = load i32, ptr %second, align 8
-  %cmp12 = icmp ugt i32 %inc, 1
-  br i1 %cmp12, label %invoke.cont15.loopexit, label %for.inc
+  %cmp12.not = icmp eq i32 %c.016, 0
+  br i1 %cmp12.not, label %for.inc, label %invoke.cont15.loopexit.split.loop.exit23
 
 lpad.loopexit:                                    ; preds = %land.lhs.true
   %lpad.loopexit11 = landingpad { ptr, i32 }
@@ -73948,15 +73946,19 @@ lpad:                                             ; preds = %lpad.loopexit.split
 for.inc:                                          ; preds = %call4.i.noexc, %for.body, %invoke.cont8, %if.then
   %q.sroa.0.2 = phi ptr [ %q.sroa.0.014, %for.body ], [ %16, %if.then ], [ %q.sroa.0.014, %invoke.cont8 ], [ %q.sroa.0.014, %call4.i.noexc ]
   %q.sroa.3.2 = phi i32 [ %q.sroa.3.015, %for.body ], [ %17, %if.then ], [ %q.sroa.3.015, %invoke.cont8 ], [ %q.sroa.3.015, %call4.i.noexc ]
-  %c.2 = phi i32 [ %c.016, %for.body ], [ %inc, %if.then ], [ %c.016, %invoke.cont8 ], [ %c.016, %call4.i.noexc ]
+  %c.2 = phi i32 [ %c.016, %for.body ], [ 1, %if.then ], [ %c.016, %invoke.cont8 ], [ %c.016, %call4.i.noexc ]
   %incdec.ptr = getelementptr inbounds nuw i8, ptr %__begin2.017, i64 16
   %cmp.not = icmp eq ptr %incdec.ptr, %add.ptr.i
   br i1 %cmp.not, label %invoke.cont15.loopexit, label %for.body
 
-invoke.cont15.loopexit:                           ; preds = %for.inc, %if.then
-  %q.sroa.0.1.ph = phi ptr [ %16, %if.then ], [ %q.sroa.0.2, %for.inc ]
-  %q.sroa.3.1.ph = phi i32 [ %17, %if.then ], [ %q.sroa.3.2, %for.inc ]
-  %c.1.ph = phi i32 [ %inc, %if.then ], [ %c.2, %for.inc ]
+invoke.cont15.loopexit.split.loop.exit23:         ; preds = %if.then
+  %inc.le = add nuw nsw i32 %c.016, 1
+  br label %invoke.cont15.loopexit
+
+invoke.cont15.loopexit:                           ; preds = %for.inc, %invoke.cont15.loopexit.split.loop.exit23
+  %q.sroa.0.1.ph = phi ptr [ %16, %invoke.cont15.loopexit.split.loop.exit23 ], [ %q.sroa.0.2, %for.inc ]
+  %q.sroa.3.1.ph = phi i32 [ %17, %invoke.cont15.loopexit.split.loop.exit23 ], [ %q.sroa.3.2, %for.inc ]
+  %c.1.ph = phi i32 [ %inc.le, %invoke.cont15.loopexit.split.loop.exit23 ], [ %c.2, %for.inc ]
   %.pre = load ptr, ptr %vp, align 8
   br label %invoke.cont15
 
@@ -171269,8 +171271,7 @@ land.end38:                                       ; preds = %if.end, %land.rhs34
   %arrayidx.i.i52 = getelementptr inbounds nuw ptr, ptr %30, i64 %idxprom.i.i51.pre-phi
   %31 = load ptr, ptr %arrayidx.i.i52, align 8
   %tobool59.not = icmp eq ptr %31, null
-  %32 = and i8 %unbounded.060, 1
-  %tobool6426 = icmp ne i8 %32, 0
+  %tobool6426 = icmp ne i8 %unbounded.060, 0
   %tobool64 = select i1 %tobool59.not, i1 %tobool6426, i1 false
   %frombool65 = zext i1 %tobool64 to i8
   %brmerge27 = select i1 %tobool50.not, i1 true, i1 %tobool64
@@ -171284,14 +171285,14 @@ for.inc:                                          ; preds = %land.end38, %for.bo
   br i1 %cmp.not, label %for.end.loopexit, label %for.body, !llvm.loop !811
 
 for.end.loopexit:                                 ; preds = %for.inc
-  %33 = trunc nuw i8 %was_unsafe.1 to i1
-  %34 = trunc nuw i8 %unbounded.1 to i1
-  %35 = xor i1 %33, true
-  %36 = select i1 %35, i1 true, i1 %34
+  %32 = trunc nuw i8 %was_unsafe.1 to i1
+  %33 = trunc nuw i8 %unbounded.1 to i1
+  %34 = xor i1 %32, true
+  %35 = select i1 %34, i1 true, i1 %33
   br label %return
 
 return:                                           ; preds = %land.end38, %_ZN3smt12theory_arithINS_5i_extEE6column11end_entriesEv.exit, %for.end.loopexit, %_ZN3smt12theory_arithINS_5i_extEE6column11end_entriesEv.exit.thread
-  %retval.0 = phi i1 [ true, %_ZN3smt12theory_arithINS_5i_extEE6column11end_entriesEv.exit ], [ %36, %for.end.loopexit ], [ true, %_ZN3smt12theory_arithINS_5i_extEE6column11end_entriesEv.exit.thread ], [ false, %land.end38 ]
+  %retval.0 = phi i1 [ true, %_ZN3smt12theory_arithINS_5i_extEE6column11end_entriesEv.exit ], [ %35, %for.end.loopexit ], [ true, %_ZN3smt12theory_arithINS_5i_extEE6column11end_entriesEv.exit.thread ], [ false, %land.end38 ]
   ret i1 %retval.0
 }
 
@@ -176278,11 +176279,10 @@ invoke.cont8:                                     ; preds = %call4.i.noexc
   br i1 %cmp3.i.i, label %if.then, label %for.inc
 
 if.then:                                          ; preds = %invoke.cont8
-  %inc = add i32 %c.016, 1
   %16 = load ptr, ptr %__begin2.017, align 8
   %17 = load i32, ptr %second, align 8
-  %cmp12 = icmp ugt i32 %inc, 1
-  br i1 %cmp12, label %invoke.cont15.loopexit, label %for.inc
+  %cmp12.not = icmp eq i32 %c.016, 0
+  br i1 %cmp12.not, label %for.inc, label %invoke.cont15.loopexit.split.loop.exit23
 
 lpad.loopexit:                                    ; preds = %land.lhs.true
   %lpad.loopexit11 = landingpad { ptr, i32 }
@@ -176302,15 +176302,19 @@ lpad:                                             ; preds = %lpad.loopexit.split
 for.inc:                                          ; preds = %call4.i.noexc, %for.body, %invoke.cont8, %if.then
   %q.sroa.0.2 = phi ptr [ %q.sroa.0.014, %for.body ], [ %16, %if.then ], [ %q.sroa.0.014, %invoke.cont8 ], [ %q.sroa.0.014, %call4.i.noexc ]
   %q.sroa.3.2 = phi i32 [ %q.sroa.3.015, %for.body ], [ %17, %if.then ], [ %q.sroa.3.015, %invoke.cont8 ], [ %q.sroa.3.015, %call4.i.noexc ]
-  %c.2 = phi i32 [ %c.016, %for.body ], [ %inc, %if.then ], [ %c.016, %invoke.cont8 ], [ %c.016, %call4.i.noexc ]
+  %c.2 = phi i32 [ %c.016, %for.body ], [ 1, %if.then ], [ %c.016, %invoke.cont8 ], [ %c.016, %call4.i.noexc ]
   %incdec.ptr = getelementptr inbounds nuw i8, ptr %__begin2.017, i64 16
   %cmp.not = icmp eq ptr %incdec.ptr, %add.ptr.i
   br i1 %cmp.not, label %invoke.cont15.loopexit, label %for.body
 
-invoke.cont15.loopexit:                           ; preds = %for.inc, %if.then
-  %q.sroa.0.1.ph = phi ptr [ %16, %if.then ], [ %q.sroa.0.2, %for.inc ]
-  %q.sroa.3.1.ph = phi i32 [ %17, %if.then ], [ %q.sroa.3.2, %for.inc ]
-  %c.1.ph = phi i32 [ %inc, %if.then ], [ %c.2, %for.inc ]
+invoke.cont15.loopexit.split.loop.exit23:         ; preds = %if.then
+  %inc.le = add nuw nsw i32 %c.016, 1
+  br label %invoke.cont15.loopexit
+
+invoke.cont15.loopexit:                           ; preds = %for.inc, %invoke.cont15.loopexit.split.loop.exit23
+  %q.sroa.0.1.ph = phi ptr [ %16, %invoke.cont15.loopexit.split.loop.exit23 ], [ %q.sroa.0.2, %for.inc ]
+  %q.sroa.3.1.ph = phi i32 [ %17, %invoke.cont15.loopexit.split.loop.exit23 ], [ %q.sroa.3.2, %for.inc ]
+  %c.1.ph = phi i32 [ %inc.le, %invoke.cont15.loopexit.split.loop.exit23 ], [ %c.2, %for.inc ]
   %.pre = load ptr, ptr %vp, align 8
   br label %invoke.cont15
 
@@ -270291,8 +270295,7 @@ land.end38:                                       ; preds = %if.end, %land.rhs34
   %arrayidx.i.i52 = getelementptr inbounds nuw ptr, ptr %30, i64 %idxprom.i.i51.pre-phi
   %31 = load ptr, ptr %arrayidx.i.i52, align 8
   %tobool59.not = icmp eq ptr %31, null
-  %32 = and i8 %unbounded.060, 1
-  %tobool6426 = icmp ne i8 %32, 0
+  %tobool6426 = icmp ne i8 %unbounded.060, 0
   %tobool64 = select i1 %tobool59.not, i1 %tobool6426, i1 false
   %frombool65 = zext i1 %tobool64 to i8
   %brmerge27 = select i1 %tobool50.not, i1 true, i1 %tobool64
@@ -270306,14 +270309,14 @@ for.inc:                                          ; preds = %land.end38, %for.bo
   br i1 %cmp.not, label %for.end.loopexit, label %for.body, !llvm.loop !1286
 
 for.end.loopexit:                                 ; preds = %for.inc
-  %33 = trunc nuw i8 %was_unsafe.1 to i1
-  %34 = trunc nuw i8 %unbounded.1 to i1
-  %35 = xor i1 %33, true
-  %36 = select i1 %35, i1 true, i1 %34
+  %32 = trunc nuw i8 %was_unsafe.1 to i1
+  %33 = trunc nuw i8 %unbounded.1 to i1
+  %34 = xor i1 %32, true
+  %35 = select i1 %34, i1 true, i1 %33
   br label %return
 
 return:                                           ; preds = %land.end38, %_ZN3smt12theory_arithINS_7inf_extEE6column11end_entriesEv.exit, %for.end.loopexit, %_ZN3smt12theory_arithINS_7inf_extEE6column11end_entriesEv.exit.thread
-  %retval.0 = phi i1 [ true, %_ZN3smt12theory_arithINS_7inf_extEE6column11end_entriesEv.exit ], [ %36, %for.end.loopexit ], [ true, %_ZN3smt12theory_arithINS_7inf_extEE6column11end_entriesEv.exit.thread ], [ false, %land.end38 ]
+  %retval.0 = phi i1 [ true, %_ZN3smt12theory_arithINS_7inf_extEE6column11end_entriesEv.exit ], [ %35, %for.end.loopexit ], [ true, %_ZN3smt12theory_arithINS_7inf_extEE6column11end_entriesEv.exit.thread ], [ false, %land.end38 ]
   ret i1 %retval.0
 }
 
@@ -276315,11 +276318,10 @@ invoke.cont8:                                     ; preds = %call4.i.noexc
   br i1 %cmp3.i.i, label %if.then, label %for.inc
 
 if.then:                                          ; preds = %invoke.cont8
-  %inc = add i32 %c.016, 1
   %16 = load ptr, ptr %__begin2.017, align 8
   %17 = load i32, ptr %second, align 8
-  %cmp12 = icmp ugt i32 %inc, 1
-  br i1 %cmp12, label %invoke.cont15.loopexit, label %for.inc
+  %cmp12.not = icmp eq i32 %c.016, 0
+  br i1 %cmp12.not, label %for.inc, label %invoke.cont15.loopexit.split.loop.exit23
 
 lpad.loopexit:                                    ; preds = %land.lhs.true
   %lpad.loopexit11 = landingpad { ptr, i32 }
@@ -276339,15 +276341,19 @@ lpad:                                             ; preds = %lpad.loopexit.split
 for.inc:                                          ; preds = %call4.i.noexc, %for.body, %invoke.cont8, %if.then
   %q.sroa.0.2 = phi ptr [ %q.sroa.0.014, %for.body ], [ %16, %if.then ], [ %q.sroa.0.014, %invoke.cont8 ], [ %q.sroa.0.014, %call4.i.noexc ]
   %q.sroa.3.2 = phi i32 [ %q.sroa.3.015, %for.body ], [ %17, %if.then ], [ %q.sroa.3.015, %invoke.cont8 ], [ %q.sroa.3.015, %call4.i.noexc ]
-  %c.2 = phi i32 [ %c.016, %for.body ], [ %inc, %if.then ], [ %c.016, %invoke.cont8 ], [ %c.016, %call4.i.noexc ]
+  %c.2 = phi i32 [ %c.016, %for.body ], [ 1, %if.then ], [ %c.016, %invoke.cont8 ], [ %c.016, %call4.i.noexc ]
   %incdec.ptr = getelementptr inbounds nuw i8, ptr %__begin2.017, i64 16
   %cmp.not = icmp eq ptr %incdec.ptr, %add.ptr.i
   br i1 %cmp.not, label %invoke.cont15.loopexit, label %for.body
 
-invoke.cont15.loopexit:                           ; preds = %for.inc, %if.then
-  %q.sroa.0.1.ph = phi ptr [ %16, %if.then ], [ %q.sroa.0.2, %for.inc ]
-  %q.sroa.3.1.ph = phi i32 [ %17, %if.then ], [ %q.sroa.3.2, %for.inc ]
-  %c.1.ph = phi i32 [ %inc, %if.then ], [ %c.2, %for.inc ]
+invoke.cont15.loopexit.split.loop.exit23:         ; preds = %if.then
+  %inc.le = add nuw nsw i32 %c.016, 1
+  br label %invoke.cont15.loopexit
+
+invoke.cont15.loopexit:                           ; preds = %for.inc, %invoke.cont15.loopexit.split.loop.exit23
+  %q.sroa.0.1.ph = phi ptr [ %16, %invoke.cont15.loopexit.split.loop.exit23 ], [ %q.sroa.0.2, %for.inc ]
+  %q.sroa.3.1.ph = phi i32 [ %17, %invoke.cont15.loopexit.split.loop.exit23 ], [ %q.sroa.3.2, %for.inc ]
+  %c.1.ph = phi i32 [ %inc.le, %invoke.cont15.loopexit.split.loop.exit23 ], [ %c.2, %for.inc ]
   %.pre = load ptr, ptr %vp, align 8
   br label %invoke.cont15
 

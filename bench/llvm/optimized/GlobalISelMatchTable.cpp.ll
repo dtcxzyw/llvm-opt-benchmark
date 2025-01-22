@@ -21793,7 +21793,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(66) ptr @_ZN4
   br i1 %15, label %16, label %18
 
 16:                                               ; preds = %11
-  %17 = icmp ult i64 %.079.i.i.i, 2
+  %17 = icmp samesign ult i64 %.079.i.i.i, 2
   br i1 %17, label %_ZNK4llvm2gi20LLTCodeGenOrTempType12isLLTCodeGenEv.exit, label %18
 
 18:                                               ; preds = %16, %11

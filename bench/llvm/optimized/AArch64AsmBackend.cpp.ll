@@ -3098,7 +3098,7 @@ _ZN4llvmL15getDRegFromBRegEj.exit170.thread.thread.thread: ; preds = %_ZN4llvmL1
   br i1 %.0106206.ph, label %_ZN4llvmL15getDRegFromBRegEj.exit170.thread.thread.thread.thread, label %131
 
 131:                                              ; preds = %._crit_edge
-  %132 = icmp ugt i64 %.1108, 65520
+  %132 = icmp samesign ugt i64 %.1108, 65520
   br i1 %132, label %_ZN4llvmL15getDRegFromBRegEj.exit170.thread.thread.thread.thread, label %133
 
 133:                                              ; preds = %131

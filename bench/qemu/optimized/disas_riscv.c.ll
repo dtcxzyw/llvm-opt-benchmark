@@ -1379,7 +1379,7 @@ cond.false4.i:                                    ; preds = %cond.false.i
 for.inc:                                          ; preds = %cond.false4.i, %cond.false.i, %if.end4
   %len.1 = phi i64 [ %len.042, %if.end4 ], [ %3, %cond.false4.i ], [ 4, %cond.false.i ]
   %add11 = add nuw nsw i64 %n.043, 2
-  %cmp = icmp ult i64 %add11, %len.1
+  %cmp = icmp samesign ult i64 %add11, %len.1
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !5
 
 for.end:                                          ; preds = %for.inc, %if.then

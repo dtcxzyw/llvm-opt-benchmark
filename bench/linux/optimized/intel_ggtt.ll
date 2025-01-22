@@ -1565,15 +1565,15 @@ define dso_local zeroext i1 @i915_ggtt_resume_vm(ptr noundef %0) local_unnamed_a
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 504
   %28 = load ptr, ptr %27, align 8
   %29 = icmp eq ptr %28, %27
-  br i1 %29, label %72, label %30
+  br i1 %29, label %70, label %30
 
 30:                                               ; preds = %22
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 304
   br label %32
 
-32:                                               ; preds = %65, %30
-  %33 = phi ptr [ %28, %30 ], [ %67, %65 ]
-  %34 = phi i8 [ 0, %30 ], [ %66, %65 ]
+32:                                               ; preds = %64, %30
+  %33 = phi ptr [ %28, %30 ], [ %66, %64 ]
+  %34 = phi i8 [ 0, %30 ], [ %65, %64 ]
   %35 = getelementptr i8, ptr %33, i64 -312
   %36 = load ptr, ptr %35, align 8
   %37 = getelementptr i8, ptr %33, i64 -228
@@ -1594,7 +1594,7 @@ define dso_local zeroext i1 @i915_ggtt_resume_vm(ptr noundef %0) local_unnamed_a
   %48 = load ptr, ptr %31, align 8
   %49 = tail call i32 @i915_gem_get_pat_index(ptr noundef %48, i32 noundef 0) #10
   tail call void %45(ptr noundef %0, ptr noundef null, ptr noundef %46, i32 noundef %49, i32 noundef %39) #10
-  br label %65
+  br label %64
 
 50:                                               ; preds = %32
   %51 = getelementptr inbounds nuw i8, ptr %36, i64 644
@@ -1605,31 +1605,29 @@ define dso_local zeroext i1 @i915_ggtt_resume_vm(ptr noundef %0) local_unnamed_a
   %55 = getelementptr inbounds nuw i8, ptr %36, i64 648
   %56 = load i16, ptr %55, align 8
   store i16 0, ptr %55, align 8
-  %57 = and i8 %34, 1
-  %58 = zext nneg i8 %57 to i16
-  %59 = or i16 %56, %58
-  %60 = icmp ne i16 %59, 0
-  %61 = zext i1 %60 to i8
-  %62 = getelementptr inbounds nuw i8, ptr %36, i64 646
-  %63 = load i16, ptr %62, align 2
-  %64 = or i16 %63, 64
-  store i16 %64, ptr %62, align 2
-  br label %65
+  %57 = zext nneg i8 %34 to i16
+  %58 = or i16 %56, %57
+  %59 = icmp ne i16 %58, 0
+  %60 = zext i1 %59 to i8
+  %61 = getelementptr inbounds nuw i8, ptr %36, i64 646
+  %62 = load i16, ptr %61, align 2
+  %63 = or i16 %62, 64
+  store i16 %63, ptr %61, align 2
+  br label %64
 
-65:                                               ; preds = %.thread, %50
-  %66 = phi i8 [ %61, %50 ], [ %34, %.thread ]
-  %67 = load ptr, ptr %33, align 8
-  %68 = icmp eq ptr %67, %27
-  br i1 %68, label %69, label %32, !llvm.loop !48
+64:                                               ; preds = %.thread, %50
+  %65 = phi i8 [ %60, %50 ], [ %34, %.thread ]
+  %66 = load ptr, ptr %33, align 8
+  %67 = icmp eq ptr %66, %27
+  br i1 %67, label %68, label %32, !llvm.loop !48
 
-69:                                               ; preds = %65
-  %70 = and i8 %66, 1
-  %71 = icmp ne i8 %70, 0
-  br label %72
+68:                                               ; preds = %64
+  %69 = icmp ne i8 %65, 0
+  br label %70
 
-72:                                               ; preds = %69, %22
-  %73 = phi i1 [ false, %22 ], [ %71, %69 ]
-  ret i1 %73
+70:                                               ; preds = %68, %22
+  %71 = phi i1 [ false, %22 ], [ %69, %68 ]
+  ret i1 %71
 }
 
 ; Function Attrs: null_pointer_is_valid

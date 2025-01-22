@@ -1749,7 +1749,7 @@ _ZN12_GLOBAL__N_124SemaOpenACCClauseVisitor15VisitAutoClauseERN5clang11SemaOpenA
   br i1 %253, label %254, label %256
 
 254:                                              ; preds = %250
-  %255 = icmp ult i64 %.079.i.i.i.i, 8
+  %255 = icmp samesign ult i64 %.079.i.i.i.i, 8
   br i1 %255, label %_ZSt17holds_alternativeISt9monostateJS0_N5clang11SemaOpenACC19OpenACCParsedClause14DefaultDetailsENS3_16ConditionDetailsENS3_14IntExprDetailsENS3_14VarListDetailsENS3_11WaitDetailsENS3_17DeviceTypeDetailsENS3_16ReductionDetailsEEEbRKSt7variantIJDpT0_EE.exit.i.i, label %256
 
 256:                                              ; preds = %254, %250
@@ -3298,7 +3298,7 @@ _ZN4llvm7find_ifIRNS_8ArrayRefIPKN5clang13OpenACCClauseEEENS_6detail17IsaCheckPr
   br i1 %919, label %920, label %922
 
 920:                                              ; preds = %.preheader.i
-  %921 = icmp ult i64 %.079.i.i.i.i287, 8
+  %921 = icmp samesign ult i64 %.079.i.i.i.i287, 8
   br i1 %921, label %_ZSt17holds_alternativeISt9monostateJS0_N5clang11SemaOpenACC19OpenACCParsedClause14DefaultDetailsENS3_16ConditionDetailsENS3_14IntExprDetailsENS3_14VarListDetailsENS3_11WaitDetailsENS3_17DeviceTypeDetailsENS3_16ReductionDetailsEEEbRKSt7variantIJDpT0_EE.exit.i.i290, label %922
 
 922:                                              ; preds = %920, %.preheader.i
@@ -4236,7 +4236,7 @@ _ZN4llvm7find_ifIRNS_8ArrayRefIPKN5clang13OpenACCClauseEEENS_6detail17IsaCheckPr
   br i1 %1326, label %1327, label %1329
 
 1327:                                             ; preds = %.preheader.i392
-  %1328 = icmp ult i64 %.079.i.i.i.i394, 8
+  %1328 = icmp samesign ult i64 %.079.i.i.i.i394, 8
   br i1 %1328, label %_ZSt17holds_alternativeISt9monostateJS0_N5clang11SemaOpenACC19OpenACCParsedClause14DefaultDetailsENS3_16ConditionDetailsENS3_14IntExprDetailsENS3_14VarListDetailsENS3_11WaitDetailsENS3_17DeviceTypeDetailsENS3_16ReductionDetailsEEEbRKSt7variantIJDpT0_EE.exit.i.i397, label %1329
 
 1329:                                             ; preds = %1327, %.preheader.i392
@@ -4674,7 +4674,7 @@ _ZN5clang11SemaOpenACC19OpenACCParsedClause11getIntExprsEv.exit.i439: ; preds = 
   br i1 %1519, label %1520, label %1522
 
 1520:                                             ; preds = %1516
-  %1521 = icmp ult i64 %.079.i.i.i.i448, 8
+  %1521 = icmp samesign ult i64 %.079.i.i.i.i448, 8
   br i1 %1521, label %_ZSt17holds_alternativeISt9monostateJS0_N5clang11SemaOpenACC19OpenACCParsedClause14DefaultDetailsENS3_16ConditionDetailsENS3_14IntExprDetailsENS3_14VarListDetailsENS3_11WaitDetailsENS3_17DeviceTypeDetailsENS3_16ReductionDetailsEEEbRKSt7variantIJDpT0_EE.exit.i.i451, label %1522
 
 1522:                                             ; preds = %1520, %1516
@@ -4714,7 +4714,7 @@ _ZNK5clang11SemaOpenACC19OpenACCParsedClause13getDevNumExprEv.exit.i: ; preds = 
   br i1 %1532, label %1533, label %1535
 
 1533:                                             ; preds = %1529
-  %1534 = icmp ult i64 %.079.i.i.i13.i, 8
+  %1534 = icmp samesign ult i64 %.079.i.i.i13.i, 8
   br i1 %1534, label %_ZSt17holds_alternativeISt9monostateJS0_N5clang11SemaOpenACC19OpenACCParsedClause14DefaultDetailsENS3_16ConditionDetailsENS3_14IntExprDetailsENS3_14VarListDetailsENS3_11WaitDetailsENS3_17DeviceTypeDetailsENS3_16ReductionDetailsEEEbRKSt7variantIJDpT0_EE.exit.i16.i, label %1535
 
 1535:                                             ; preds = %1533, %1529
@@ -4754,7 +4754,7 @@ _ZNK5clang11SemaOpenACC19OpenACCParsedClause12getQueuesLocEv.exit.i: ; preds = %
   br i1 %1545, label %1546, label %1548
 
 1546:                                             ; preds = %1542
-  %1547 = icmp ult i64 %.079.i.i.i21.i, 8
+  %1547 = icmp samesign ult i64 %.079.i.i.i21.i, 8
   br i1 %1547, label %_ZSt17holds_alternativeISt9monostateJS0_N5clang11SemaOpenACC19OpenACCParsedClause14DefaultDetailsENS3_16ConditionDetailsENS3_14IntExprDetailsENS3_14VarListDetailsENS3_11WaitDetailsENS3_17DeviceTypeDetailsENS3_16ReductionDetailsEEEbRKSt7variantIJDpT0_EE.exit.i24.i, label %1548
 
 1548:                                             ; preds = %1546, %1542

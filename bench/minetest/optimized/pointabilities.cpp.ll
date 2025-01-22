@@ -254,15 +254,13 @@ for.inc.i:                                        ; preds = %sw.default.i, %if.t
   br i1 %cmp.i.not.i, label %for.end.i, label %for.body.i
 
 for.end.i:                                        ; preds = %for.inc.i
-  %2 = and i8 %not_pointable.2.ph.i, 1
-  %3 = icmp eq i8 %2, 0
-  %4 = and i8 %blocking.2.ph.i, 1
-  %5 = zext nneg i8 %4 to i16
-  %6 = shl nuw nsw i16 %5, 8
-  %7 = shl nuw nsw i8 %2, 1
-  %8 = xor i8 %7, 2
-  %spec.select.i = zext nneg i8 %8 to i16
-  %spec.select62.i = select i1 %3, i16 %6, i16 256
+  %2 = icmp eq i8 %not_pointable.2.ph.i, 0
+  %3 = zext nneg i8 %blocking.2.ph.i to i16
+  %4 = shl nuw nsw i16 %3, 8
+  %5 = shl nuw nsw i8 %not_pointable.2.ph.i, 1
+  %6 = xor i8 %5, 2
+  %spec.select.i = zext nneg i8 %6 to i16
+  %spec.select62.i = select i1 %2, i16 %4, i16 256
   br label %_ZN14Pointabilities11matchGroupsERKSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiSt4hashIS6_ESt8equal_toIS6_ESaISt4pairIKS6_iEEERKS0_IS6_16PointabilityTypeS8_SA_SaISB_ISC_SI_EEE.exit
 
 _ZN14Pointabilities11matchGroupsERKSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiSt4hashIS6_ESt8equal_toIS6_ESaISt4pairIKS6_iEEERKS0_IS6_16PointabilityTypeS8_SA_SaISB_ISC_SI_EEE.exit: ; preds = %if.then.i, %for.end.i, %cond.true
@@ -275,11 +273,11 @@ _ZN14Pointabilities11matchGroupsERKSt13unordered_mapINSt7__cxx1112basic_stringIc
 
 cond.false:                                       ; preds = %entry
   %second = getelementptr inbounds nuw i8, ptr %call.i, i64 40
-  %9 = load i8, ptr %second, align 1, !tbaa !23
+  %7 = load i8, ptr %second, align 1, !tbaa !23
   br label %cond.end
 
 cond.end:                                         ; preds = %cond.false, %_ZN14Pointabilities11matchGroupsERKSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiSt4hashIS6_ESt8equal_toIS6_ESaISt4pairIKS6_iEEERKS0_IS6_16PointabilityTypeS8_SA_SaISB_ISC_SI_EEE.exit
-  %retval.sroa.0.0 = phi i8 [ %retval.sroa.0.0.extract.trunc, %_ZN14Pointabilities11matchGroupsERKSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiSt4hashIS6_ESt8equal_toIS6_ESaISt4pairIKS6_iEEERKS0_IS6_16PointabilityTypeS8_SA_SaISB_ISC_SI_EEE.exit ], [ %9, %cond.false ]
+  %retval.sroa.0.0 = phi i8 [ %retval.sroa.0.0.extract.trunc, %_ZN14Pointabilities11matchGroupsERKSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiSt4hashIS6_ESt8equal_toIS6_ESaISt4pairIKS6_iEEERKS0_IS6_16PointabilityTypeS8_SA_SaISB_ISC_SI_EEE.exit ], [ %7, %cond.false ]
   %retval.sroa.3.0 = phi i16 [ %retval.sroa.3.0.extract.shift, %_ZN14Pointabilities11matchGroupsERKSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiSt4hashIS6_ESt8equal_toIS6_ESaISt4pairIKS6_iEEERKS0_IS6_16PointabilityTypeS8_SA_SaISB_ISC_SI_EEE.exit ], [ 256, %cond.false ]
   %retval.sroa.0.0.insert.ext = zext i8 %retval.sroa.0.0 to i16
   %retval.sroa.0.0.insert.insert = or disjoint i16 %retval.sroa.3.0, %retval.sroa.0.0.insert.ext
@@ -328,15 +326,13 @@ for.inc:                                          ; preds = %sw.default, %if.the
   br i1 %cmp.i.not, label %for.end, label %for.body
 
 for.end:                                          ; preds = %for.inc
-  %2 = and i8 %not_pointable.2.ph, 1
-  %3 = icmp eq i8 %2, 0
-  %4 = and i8 %blocking.2.ph, 1
-  %5 = zext nneg i8 %4 to i16
-  %6 = shl nuw nsw i16 %5, 8
-  %7 = shl nuw nsw i8 %2, 1
-  %8 = xor i8 %7, 2
-  %spec.select = zext nneg i8 %8 to i16
-  %spec.select62 = select i1 %3, i16 %6, i16 256
+  %2 = icmp eq i8 %not_pointable.2.ph, 0
+  %3 = zext nneg i8 %blocking.2.ph to i16
+  %4 = shl nuw nsw i16 %3, 8
+  %5 = shl nuw nsw i8 %not_pointable.2.ph, 1
+  %6 = xor i8 %5, 2
+  %spec.select = zext nneg i8 %6 to i16
+  %spec.select62 = select i1 %2, i16 %4, i16 256
   br label %cleanup21
 
 cleanup21:                                        ; preds = %if.then, %for.end, %entry
@@ -394,15 +390,13 @@ for.inc.i:                                        ; preds = %sw.default.i, %if.t
   br i1 %cmp.i.not.i, label %for.end.i, label %for.body.i
 
 for.end.i:                                        ; preds = %for.inc.i
-  %2 = and i8 %not_pointable.2.ph.i, 1
-  %3 = icmp eq i8 %2, 0
-  %4 = and i8 %blocking.2.ph.i, 1
-  %5 = zext nneg i8 %4 to i16
-  %6 = shl nuw nsw i16 %5, 8
-  %7 = shl nuw nsw i8 %2, 1
-  %8 = xor i8 %7, 2
-  %spec.select.i = zext nneg i8 %8 to i16
-  %spec.select62.i = select i1 %3, i16 %6, i16 256
+  %2 = icmp eq i8 %not_pointable.2.ph.i, 0
+  %3 = zext nneg i8 %blocking.2.ph.i to i16
+  %4 = shl nuw nsw i16 %3, 8
+  %5 = shl nuw nsw i8 %not_pointable.2.ph.i, 1
+  %6 = xor i8 %5, 2
+  %spec.select.i = zext nneg i8 %6 to i16
+  %spec.select62.i = select i1 %2, i16 %4, i16 256
   br label %_ZN14Pointabilities11matchGroupsERKSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiSt4hashIS6_ESt8equal_toIS6_ESaISt4pairIKS6_iEEERKS0_IS6_16PointabilityTypeS8_SA_SaISB_ISC_SI_EEE.exit
 
 _ZN14Pointabilities11matchGroupsERKSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiSt4hashIS6_ESt8equal_toIS6_ESaISt4pairIKS6_iEEERKS0_IS6_16PointabilityTypeS8_SA_SaISB_ISC_SI_EEE.exit: ; preds = %if.then.i, %for.end.i, %cond.true
@@ -415,11 +409,11 @@ _ZN14Pointabilities11matchGroupsERKSt13unordered_mapINSt7__cxx1112basic_stringIc
 
 cond.false:                                       ; preds = %entry
   %second = getelementptr inbounds nuw i8, ptr %call.i, i64 40
-  %9 = load i8, ptr %second, align 1, !tbaa !23
+  %7 = load i8, ptr %second, align 1, !tbaa !23
   br label %cond.end
 
 cond.end:                                         ; preds = %cond.false, %_ZN14Pointabilities11matchGroupsERKSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiSt4hashIS6_ESt8equal_toIS6_ESaISt4pairIKS6_iEEERKS0_IS6_16PointabilityTypeS8_SA_SaISB_ISC_SI_EEE.exit
-  %retval.sroa.0.0 = phi i8 [ %retval.sroa.0.0.extract.trunc, %_ZN14Pointabilities11matchGroupsERKSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiSt4hashIS6_ESt8equal_toIS6_ESaISt4pairIKS6_iEEERKS0_IS6_16PointabilityTypeS8_SA_SaISB_ISC_SI_EEE.exit ], [ %9, %cond.false ]
+  %retval.sroa.0.0 = phi i8 [ %retval.sroa.0.0.extract.trunc, %_ZN14Pointabilities11matchGroupsERKSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiSt4hashIS6_ESt8equal_toIS6_ESaISt4pairIKS6_iEEERKS0_IS6_16PointabilityTypeS8_SA_SaISB_ISC_SI_EEE.exit ], [ %7, %cond.false ]
   %retval.sroa.3.0 = phi i16 [ %retval.sroa.3.0.extract.shift, %_ZN14Pointabilities11matchGroupsERKSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiSt4hashIS6_ESt8equal_toIS6_ESaISt4pairIKS6_iEEERKS0_IS6_16PointabilityTypeS8_SA_SaISB_ISC_SI_EEE.exit ], [ 256, %cond.false ]
   %retval.sroa.0.0.insert.ext = zext i8 %retval.sroa.0.0 to i16
   %retval.sroa.0.0.insert.insert = or disjoint i16 %retval.sroa.3.0, %retval.sroa.0.0.insert.ext
@@ -468,15 +462,13 @@ for.inc.i:                                        ; preds = %sw.default.i, %if.t
   br i1 %cmp.i.not.i, label %for.end.i, label %for.body.i
 
 for.end.i:                                        ; preds = %for.inc.i
-  %2 = and i8 %not_pointable.2.ph.i, 1
-  %3 = icmp eq i8 %2, 0
-  %4 = and i8 %blocking.2.ph.i, 1
-  %5 = zext nneg i8 %4 to i16
-  %6 = shl nuw nsw i16 %5, 8
-  %7 = shl nuw nsw i8 %2, 1
-  %8 = xor i8 %7, 2
-  %spec.select.i = zext nneg i8 %8 to i16
-  %spec.select62.i = select i1 %3, i16 %6, i16 256
+  %2 = icmp eq i8 %not_pointable.2.ph.i, 0
+  %3 = zext nneg i8 %blocking.2.ph.i to i16
+  %4 = shl nuw nsw i16 %3, 8
+  %5 = shl nuw nsw i8 %not_pointable.2.ph.i, 1
+  %6 = xor i8 %5, 2
+  %spec.select.i = zext nneg i8 %6 to i16
+  %spec.select62.i = select i1 %2, i16 %4, i16 256
   br label %_ZN14Pointabilities11matchGroupsERKSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiSt4hashIS6_ESt8equal_toIS6_ESaISt4pairIKS6_iEEERKS0_IS6_16PointabilityTypeS8_SA_SaISB_ISC_SI_EEE.exit
 
 _ZN14Pointabilities11matchGroupsERKSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiSt4hashIS6_ESt8equal_toIS6_ESaISt4pairIKS6_iEEERKS0_IS6_16PointabilityTypeS8_SA_SaISB_ISC_SI_EEE.exit: ; preds = %if.then.i, %for.end.i, %entry

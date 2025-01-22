@@ -86006,41 +86006,37 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_118VerifierLegacyPass14doFin
   %17 = getelementptr inbounds nuw i8, ptr %.sroa.011.018, i64 8
   %.sroa.011.0 = load ptr, ptr %17, align 8
   %.not14 = icmp eq ptr %.sroa.011.0, %4
-  br i1 %.not14, label %._crit_edge.loopexit, label %6
+  br i1 %.not14, label %._crit_edge, label %6
 
-._crit_edge.loopexit:                             ; preds = %16
-  %18 = and i8 %.1, 1
-  br label %._crit_edge
+._crit_edge:                                      ; preds = %16, %2
+  %.0.lcssa = phi i8 [ 0, %2 ], [ %.1, %16 ]
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %.val9 = load ptr, ptr %18, align 8
+  %19 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_18Verifier6verifyEv(ptr noundef nonnull align 8 dereferenceable(2296) %.val9)
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %21 = load i8, ptr %20, align 8
+  %22 = trunc i8 %21 to i1
+  br i1 %22, label %23, label %31
 
-._crit_edge:                                      ; preds = %._crit_edge.loopexit, %2
-  %.0.lcssa = phi i8 [ 0, %2 ], [ %18, %._crit_edge.loopexit ]
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %.val9 = load ptr, ptr %19, align 8
-  %20 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_18Verifier6verifyEv(ptr noundef nonnull align 8 dereferenceable(2296) %.val9)
-  %21 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %22 = load i8, ptr %21, align 8
-  %23 = trunc i8 %22 to i1
-  br i1 %23, label %24, label %32
+23:                                               ; preds = %._crit_edge
+  %24 = xor i1 %19, true
+  %25 = zext i1 %24 to i8
+  %26 = or i8 %.0.lcssa, %25
+  %.not = icmp eq i8 %26, 0
+  br i1 %.not, label %27, label %30
 
-24:                                               ; preds = %._crit_edge
-  %25 = xor i1 %20, true
-  %26 = zext i1 %25 to i8
-  %27 = or i8 %.0.lcssa, %26
-  %.not = icmp eq i8 %27, 0
-  br i1 %.not, label %28, label %31
+27:                                               ; preds = %23
+  %.val10 = load ptr, ptr %18, align 8
+  %28 = getelementptr i8, ptr %.val10, i64 201
+  %.val = load i8, ptr %28, align 1
+  %29 = trunc i8 %.val to i1
+  br i1 %29, label %30, label %31
 
-28:                                               ; preds = %24
-  %.val10 = load ptr, ptr %19, align 8
-  %29 = getelementptr i8, ptr %.val10, i64 201
-  %.val = load i8, ptr %29, align 1
-  %30 = trunc i8 %.val to i1
-  br i1 %30, label %31, label %32
-
-31:                                               ; preds = %28, %24
+30:                                               ; preds = %27, %23
   tail call void @_ZN4llvm18report_fatal_errorEPKcb(ptr noundef nonnull @.str.28, i1 noundef zeroext true) #26
   unreachable
 
-32:                                               ; preds = %28, %._crit_edge
+31:                                               ; preds = %27, %._crit_edge
   ret i1 false
 }
 

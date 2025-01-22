@@ -71139,8 +71139,8 @@ define hidden void @_ZN5serde9__private2de7content21visit_content_map_ref17h7e51
 
 .thread79.i:                                      ; preds = %107, %52, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h62529f5acd6d12a3E.exit.i.i.i.i.i.i.i.i.i", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h62529f5acd6d12a3E.exit.i.i.i.i.i.i.i.i", %19, %16
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %4), !noalias !20865
-  %switch44.i = icmp eq i32 %.sroa.06.0137.i, 1
-  br i1 %switch44.i, label %151, label %"_ZN54_$LT$$RF$mut$u20$A$u20$as$u20$serde..de..MapAccess$GT$10next_value17h4889be21c84003edE.exit.i"
+  %switch44.not.i = icmp eq i32 %.sroa.06.0137.i, 0
+  br i1 %switch44.not.i, label %"_ZN54_$LT$$RF$mut$u20$A$u20$as$u20$serde..de..MapAccess$GT$10next_value17h4889be21c84003edE.exit.i", label %151
 
 .thread84.i:                                      ; preds = %142, %87, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h62529f5acd6d12a3E.exit4.i.i.i.i.i.i.i.i.i", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h62529f5acd6d12a3E.exit4.i.i.i.i.i.i.i.i"
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %4), !noalias !20865
@@ -71170,8 +71170,8 @@ define hidden void @_ZN5serde9__private2de7content21visit_content_map_ref17h7e51
   br i1 %149, label %.thread.thread.i, label %170
 
 150:                                              ; preds = %.split.loop.exit260.i, %146, %.thread84.i
-  %switch46.i = icmp eq i32 %.sroa.010.0133.ph.i, 1
-  br i1 %switch46.i, label %161, label %"_ZN54_$LT$$RF$mut$u20$A$u20$as$u20$serde..de..MapAccess$GT$10next_value17h4889be21c84003edE.exit62.i"
+  %switch46.not.i = icmp eq i32 %.sroa.010.0133.ph.i, 0
+  br i1 %switch46.not.i, label %"_ZN54_$LT$$RF$mut$u20$A$u20$as$u20$serde..de..MapAccess$GT$10next_value17h4889be21c84003edE.exit62.i", label %161
 
 151:                                              ; preds = %.thread79.i
   %152 = tail call noundef nonnull align 8 ptr @_ZN5serde2de5Error15duplicate_field17h15b23cad055b550dE(ptr noalias noundef nonnull readonly align 1 @anon.16baf3b4cbe340408413aa23ba3c7431.70, i64 noundef 4), !noalias !20919
@@ -71241,7 +71241,7 @@ define hidden void @_ZN5serde9__private2de7content21visit_content_map_ref17h7e51
   br label %174
 
 174:                                              ; preds = %147, %166, %161, %154, %151, %.thread.thread.i, %172
-  %.sroa.76.0.ph = phi ptr [ %156, %154 ], [ %152, %151 ], [ %168, %166 ], [ %162, %161 ], [ %173, %172 ], [ %148, %147 ], [ %169, %.thread.thread.i ]
+  %.sroa.76.0.ph = phi ptr [ %152, %151 ], [ %156, %154 ], [ %162, %161 ], [ %168, %166 ], [ %173, %172 ], [ %148, %147 ], [ %169, %.thread.thread.i ]
   %175 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sroa.76.0.ph, ptr %175, align 8
   br label %179
@@ -90479,8 +90479,8 @@ common.resume:                                    ; preds = %103, %.body
   unreachable
 
 ._crit_edge.loopexit.i.i.i:                       ; preds = %95
-  %58 = icmp ne i64 %.sroa.013.1.i.i.i, 1
-  %59 = icmp ne i64 %.sroa.015.1.i.i.i, 1
+  %58 = icmp eq i64 %.sroa.013.1.i.i.i, 0
+  %59 = icmp eq i64 %.sroa.015.1.i.i.i, 0
   %60 = select i1 %58, i1 true, i1 %59
   br label %._crit_edge.i.i.i
 

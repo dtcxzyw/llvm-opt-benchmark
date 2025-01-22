@@ -1622,7 +1622,7 @@ define internal i32 @dissect_xti_message(ptr noundef %0, ptr noundef %1, ptr nou
   br label %559
 
 98:                                               ; preds = %80
-  %99 = add i32 %.0475633, 1
+  %99 = add nsw i32 %.0475633, 1
   %100 = add nsw i32 %.0479631, -1
   br label %559
 

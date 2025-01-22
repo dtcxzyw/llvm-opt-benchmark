@@ -56253,7 +56253,7 @@ invoke.cont15:                                    ; preds = %for.body
   br i1 %cmp.i, label %if.then, label %if.else
 
 if.then:                                          ; preds = %invoke.cont15
-  %frombool = xor i1 %found_ones.0, true
+  %lnot = xor i1 %found_ones.0, true
   br label %for.inc
 
 lpad9.loopexit:                                   ; preds = %for.cond, %for.body, %if.else
@@ -56394,7 +56394,7 @@ lpad22:                                           ; preds = %if.else.i.i103, %if
   br label %ehcleanup40
 
 for.inc:                                          ; preds = %if.then13.i.i114, %if.then.i.i108, %invoke.cont23, %if.then
-  %found_ones.1 = phi i1 [ %frombool, %if.then ], [ %found_ones.0, %invoke.cont23 ], [ %found_ones.0, %if.then.i.i108 ], [ %found_ones.0, %if.then13.i.i114 ]
+  %found_ones.1 = phi i1 [ %lnot, %if.then ], [ %found_ones.0, %invoke.cont23 ], [ %found_ones.0, %if.then.i.i108 ], [ %found_ones.0, %if.then13.i.i114 ]
   %inc = add nuw i32 %i.0, 1
   br label %for.cond, !llvm.loop !1568
 
@@ -57650,7 +57650,7 @@ invoke.cont21:                                    ; preds = %if.else.i.i, %if.th
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %invoke.cont21
-  %frombool = xor i8 %isNeg.0347, 1
+  %lnot = xor i8 %isNeg.0347, 1
   call void @llvm.experimental.noalias.scope.decl(metadata !1635)
   %call2.i.i.i105 = invoke noundef i32 @_ZN4cvc58internal4kind10metaKindOfENS1_6Kind_tE(i32 noundef 95)
           to label %call2.i.i.i.noexc unwind label %lpad24
@@ -57799,7 +57799,7 @@ lpad26:                                           ; preds = %if.then13.i4.i, %if
   br label %ehcleanup54
 
 if.end:                                           ; preds = %if.then13.i.i133, %if.then.i.i127, %invoke.cont27, %invoke.cont21
-  %isNeg.1 = phi i8 [ %isNeg.0347, %invoke.cont21 ], [ %frombool, %invoke.cont27 ], [ %frombool, %if.then.i.i127 ], [ %frombool, %if.then13.i.i133 ]
+  %isNeg.1 = phi i8 [ %isNeg.0347, %invoke.cont21 ], [ %lnot, %invoke.cont27 ], [ %lnot, %if.then.i.i127 ], [ %lnot, %if.then13.i.i133 ]
   %23 = load ptr, ptr %c, align 8
   %d_kind.i136 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %bf.load.i137 = load i16, ptr %d_kind.i136, align 8
@@ -58059,7 +58059,7 @@ invoke.cont62:                                    ; preds = %invoke.cont60
   br i1 %cmp.i.i198, label %if.then64, label %if.then.i.i210
 
 if.then64:                                        ; preds = %invoke.cont62
-  %tobool66 = trunc i8 %isNeg.0.lcssa to i1
+  %tobool66 = trunc nuw i8 %isNeg.0.lcssa to i1
   br i1 %tobool66, label %cond.true67, label %cond.false70
 
 cond.true67:                                      ; preds = %if.then64
@@ -58164,7 +58164,7 @@ invoke.cont86:                                    ; preds = %invoke.cont85
   br i1 %call87, label %if.then88, label %if.else92
 
 if.then88:                                        ; preds = %invoke.cont86
-  %frombool91 = xor i8 %isNeg.0.lcssa, 1
+  %lnot90 = xor i8 %isNeg.0.lcssa, 1
   br label %if.end114
 
 if.else92:                                        ; preds = %invoke.cont86
@@ -58175,7 +58175,7 @@ invoke.cont93:                                    ; preds = %if.else92
   br i1 %call94, label %if.then95, label %if.end114
 
 if.then95:                                        ; preds = %invoke.cont93
-  %tobool96 = trunc i8 %isNeg.0.lcssa to i1
+  %tobool96 = trunc nuw i8 %isNeg.0.lcssa to i1
   br i1 %tobool96, label %if.then97, label %if.end107
 
 if.then97:                                        ; preds = %if.then95
@@ -58297,12 +58297,12 @@ lpad110:                                          ; preds = %if.else.i.i233, %if
   br label %ehcleanup134
 
 if.end114:                                        ; preds = %if.then13.i.i244, %if.then.i.i238, %invoke.cont111, %invoke.cont93, %if.then88
-  %isNeg.2 = phi i8 [ %frombool91, %if.then88 ], [ %isNeg.0.lcssa, %invoke.cont93 ], [ %isNeg.3, %invoke.cont111 ], [ %isNeg.3, %if.then.i.i238 ], [ %isNeg.3, %if.then13.i.i244 ]
+  %isNeg.2 = phi i8 [ %lnot90, %if.then88 ], [ %isNeg.0.lcssa, %invoke.cont93 ], [ %isNeg.3, %invoke.cont111 ], [ %isNeg.3, %if.then.i.i238 ], [ %isNeg.3, %if.then13.i.i244 ]
   invoke void @_ZN4cvc58internal6theory2bv5utils10mkNaryNodeILb1EEENS0_12NodeTemplateILb1EEENS0_4kind6Kind_tERKSt6vectorINS5_IXT_EEESaISA_EE(ptr sret(%"class.cvc5::internal::NodeTemplate") align 8 %agg.result, i32 noundef 94, ptr noundef nonnull align 8 dereferenceable(24) %children)
           to label %invoke.cont115 unwind label %lpad68.loopexit.split-lp
 
 invoke.cont115:                                   ; preds = %if.end114
-  %tobool116 = trunc i8 %isNeg.2 to i1
+  %tobool116 = trunc nuw i8 %isNeg.2 to i1
   %cmp117 = icmp ugt i32 %call7, 1
   %or.cond = and i1 %cmp117, %tobool116
   br i1 %or.cond, label %if.then118, label %cleanup133

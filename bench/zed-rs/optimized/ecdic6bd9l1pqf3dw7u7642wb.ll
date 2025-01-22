@@ -23100,8 +23100,8 @@ define void @_ZN8language6buffer14BufferSnapshot19suggest_autoindents17h8ff6a90e
   unreachable
 
 ._crit_edge.loopexit:                             ; preds = %"_ZN4core6option15Option$LT$T$GT$13get_or_insert17ha3a63583e0f72828E.exit120"
-  %125 = icmp eq i32 %.sroa.0189.1, 1
-  %126 = icmp eq i32 %.sroa.0190.1, 1
+  %125 = icmp ne i32 %.sroa.0189.1, 0
+  %126 = icmp ne i32 %.sroa.0190.1, 0
   %127 = select i1 %125, i1 %126, i1 false
   br label %._crit_edge
 

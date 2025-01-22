@@ -441,7 +441,7 @@ for.body17.us.us:                                 ; preds = %for.cond14.preheade
   %10 = shl i64 %sub22.us.us, 3
   %cond.us.us = select i1 %cmp20.us.us, i64 32768, i64 %10
   %add.ptr24.us.us = getelementptr i64, ptr %add.ptr.us, i64 %offset.084.us.us
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %readbuf.082.us.us, ptr align 8 %add.ptr24.us.us, i64 %cond.us.us, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 16 %readbuf.082.us.us, ptr align 8 %add.ptr24.us.us, i64 %cond.us.us, i1 false)
   %add.ptr43.us.us = getelementptr i64, ptr %hp.073.us, i64 %offset.084.us.us
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %add.ptr43.us.us, ptr align 8 %add.ptr24.us.us, i64 %cond.us.us, i1 false)
   %11 = load i64, ptr %arrayidx.us, align 8

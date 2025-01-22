@@ -2482,7 +2482,7 @@ _ZNKSt8functionIFvRjEEclES0_.exit90:              ; preds = %.lr.ph130
 
 _ZNKSt8functionIFvRjEEclES0_.exit92:              ; preds = %112
   %121 = add i32 %.4, 1
-  %122 = add i32 %.079114, 1
+  %122 = add nuw nsw i32 %.079114, 1
   %123 = and i32 %122, 3
   %124 = load ptr, ptr %75, align 8
   call void %124(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 4 dereferenceable(4) %115) #24

@@ -831,8 +831,7 @@ default.unreachable.i:                            ; preds = %.lr.ph.i
   br i1 %or.cond, label %parse_affentry.exit.thread101, label %.critedge2.thread
 
 parse_affentry.exit.thread101:                    ; preds = %210
-  %.mask = and i8 %.072163, 1
-  %214 = zext nneg i8 %.mask to i32
+  %214 = zext nneg i8 %.072163 to i32
   call fastcc void @NIAddAffix(ptr noundef %0, ptr noundef %14, i8 noundef signext %.068167, ptr noundef nonnull %15, ptr noundef nonnull %16, ptr noundef nonnull %17, i32 noundef %214)
   br label %.critedge2.thread
 
@@ -849,7 +848,7 @@ parse_affentry.exit.thread101:                    ; preds = %210
 
 ._crit_edge:                                      ; preds = %.critedge2.thread, %24
   call void @tsearch_readline_end(ptr noundef nonnull %18) #15
-  br label %507
+  br label %506
 
 216:                                              ; preds = %93, %96, %.tail, %.tail104, %.critedge4.thread, %83, %91
   br i1 %.0169, label %217, label %221
@@ -1109,7 +1108,7 @@ sub_1.i:                                          ; preds = %sub_0.i
   unreachable
 
 324:                                              ; preds = %.tail164.thread.i, %.lr.ph196.i
-  %325 = phi ptr [ %313, %.lr.ph196.i ], [ %505, %.tail164.thread.i ]
+  %325 = phi ptr [ %313, %.lr.ph196.i ], [ %504, %.tail164.thread.i ]
   %.0114195.i = phi ptr [ null, %.lr.ph196.i ], [ %.1.i93, %.tail164.thread.i ]
   %.0116194.i = phi i8 [ 0, %.lr.ph196.i ], [ %.1117.i, %.tail164.thread.i ]
   %.0118193.i = phi i32 [ 0, %.lr.ph196.i ], [ %.1119.i, %.tail164.thread.i ]
@@ -1533,9 +1532,8 @@ getCompoundAffixFlagValue.exit.i:                 ; preds = %getCompoundAffixFla
 
 501:                                              ; preds = %500, %497
   %502 = or i8 %.0.i94, %.0116194.i
-  %503 = and i8 %.0122191.i, 1
-  %504 = zext nneg i8 %503 to i32
-  call fastcc void @NIAddAffix(ptr noundef nonnull %0, ptr noundef %9, i8 noundef signext %502, ptr noundef %493, ptr noundef %492, ptr noundef %487, i32 noundef %504)
+  %503 = zext nneg i8 %.0122191.i to i32
+  call fastcc void @NIAddAffix(ptr noundef nonnull %0, ptr noundef %9, i8 noundef signext %502, ptr noundef %493, ptr noundef %492, ptr noundef %487, i32 noundef %503)
   call void @pfree(ptr noundef %487) #15
   call void @pfree(ptr noundef %492) #15
   call void @pfree(ptr noundef %493) #15
@@ -1548,29 +1546,29 @@ getCompoundAffixFlagValue.exit.i:                 ; preds = %getCompoundAffixFla
   %.1117.i = phi i8 [ %.0116194.i, %324 ], [ %.0116194.i, %328 ], [ %.0116194.i, %330 ], [ %.0116194.i, %cpstrdup.exit.i ], [ %.0116194.i, %370 ], [ %.0116194.i, %.tail155.thread.i ], [ %.0116194.i, %.tail164.i ], [ %.0116194.i, %419 ], [ %.0116194.i, %425 ], [ %.0116194.i, %501 ], [ %..i, %431 ], [ %.0116194.i, %sub_1166.i ], [ %.0116194.i, %.tail159.i ], [ %.0116194.i, %sub_1161.i ], [ %.0116194.i, %.tail155.i ], [ %.0116194.i, %sub_0160.i ], [ %.0116194.i, %428 ]
   %.1.i93 = phi ptr [ %.0114195.i, %324 ], [ %.0114195.i, %328 ], [ %.0114195.i, %330 ], [ %355, %cpstrdup.exit.i ], [ %355, %370 ], [ %355, %.tail155.thread.i ], [ %355, %.tail164.i ], [ %355, %419 ], [ %355, %425 ], [ %355, %501 ], [ %355, %431 ], [ %355, %sub_1166.i ], [ %355, %.tail159.i ], [ %355, %sub_1161.i ], [ %355, %.tail155.i ], [ %355, %sub_0160.i ], [ %355, %428 ]
   call void @pfree(ptr noundef nonnull %325) #15
-  %505 = call ptr @tsearch_readline(ptr noundef nonnull %13) #15
-  %.not132.i = icmp eq ptr %505, null
+  %504 = call ptr @tsearch_readline(ptr noundef nonnull %13) #15
+  %.not132.i = icmp eq ptr %504, null
   br i1 %.not132.i, label %._crit_edge197.i, label %324, !llvm.loop !20
 
 ._crit_edge197.i:                                 ; preds = %.tail164.thread.i
   call void @tsearch_readline_end(ptr noundef nonnull %13) #15
   %.not133.i = icmp eq ptr %.1.i93, null
-  br i1 %.not133.i, label %NIImportOOAffixes.exit, label %506
+  br i1 %.not133.i, label %NIImportOOAffixes.exit, label %505
 
-506:                                              ; preds = %._crit_edge197.i
+505:                                              ; preds = %._crit_edge197.i
   call void @pfree(ptr noundef nonnull %.1.i93) #15
   br label %NIImportOOAffixes.exit
 
-NIImportOOAffixes.exit:                           ; preds = %._crit_edge197.thread.i, %._crit_edge197.i, %506
+NIImportOOAffixes.exit:                           ; preds = %._crit_edge197.thread.i, %._crit_edge197.i, %505
   call void @llvm.lifetime.end.p0(i64 8192, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 8192, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 8192, ptr nonnull %10)
   call void @llvm.lifetime.end.p0(i64 8192, ptr nonnull %11)
   call void @llvm.lifetime.end.p0(i64 8192, ptr nonnull %12)
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %13)
-  br label %507
+  br label %506
 
-507:                                              ; preds = %NIImportOOAffixes.exit, %._crit_edge
+506:                                              ; preds = %NIImportOOAffixes.exit, %._crit_edge
   ret void
 }
 

@@ -91117,11 +91117,10 @@ for.end.i:                                        ; preds = %if.else24.i, %if.el
   %align.125.i = phi i8 [ %align.1.ph.i, %_ZN3fmt3v106detail6fill_tIcEaSENS0_17basic_string_viewIcEE.exit.i ], [ %align.1.ph.i, %if.else.i ], [ 0, %if.else24.i ]
   %begin.addr.0.i = phi ptr [ %add.ptr22.i, %_ZN3fmt3v106detail6fill_tIcEaSENS0_17basic_string_viewIcEE.exit.i ], [ %incdec.ptr.i, %if.else.i ], [ %0, %if.else24.i ]
   %align29.i = getelementptr inbounds nuw i8, ptr %this, i64 9
+  %8 = zext nneg i8 %align.125.i to i16
   %bf.load.i = load i16, ptr %align29.i, align 1
-  %8 = and i8 %align.125.i, 15
-  %bf.value.i = zext nneg i8 %8 to i16
   %bf.clear.i = and i16 %bf.load.i, -16
-  %bf.set.i = or disjoint i16 %bf.clear.i, %bf.value.i
+  %bf.set.i = or disjoint i16 %bf.clear.i, %8
   store i16 %bf.set.i, ptr %align29.i, align 1
   br label %_ZN3fmt3v106detail11parse_alignIcEEPKT_S5_S5_RNS0_12format_specsIS3_EE.exit
 
@@ -99207,11 +99206,10 @@ for.end.i:                                        ; preds = %if.else23.i, %_ZN3f
   %align.125.i = phi i8 [ %align.1.ph.i, %_ZN3fmt3v106detail6fill_tIwEaSENS0_17basic_string_viewIwEE.exit.i ], [ %align.1.ph.i, %if.then7.i ], [ 0, %if.else23.i ]
   %begin.addr.0.i = phi ptr [ %add.ptr21.i, %_ZN3fmt3v106detail6fill_tIwEaSENS0_17basic_string_viewIwEE.exit.i ], [ %add.ptr.i, %if.then7.i ], [ %0, %if.else23.i ]
   %align28.i = getelementptr inbounds nuw i8, ptr %this, i64 9
+  %5 = zext nneg i8 %align.125.i to i16
   %bf.load.i = load i16, ptr %align28.i, align 1
-  %5 = and i8 %align.125.i, 15
-  %bf.value.i = zext nneg i8 %5 to i16
   %bf.clear.i = and i16 %bf.load.i, -16
-  %bf.set.i = or disjoint i16 %bf.clear.i, %bf.value.i
+  %bf.set.i = or disjoint i16 %bf.clear.i, %5
   store i16 %bf.set.i, ptr %align28.i, align 1
   br label %_ZN3fmt3v106detail11parse_alignIwEEPKT_S5_S5_RNS0_12format_specsIS3_EE.exit
 
@@ -102576,11 +102574,10 @@ for.end.i:                                        ; preds = %if.else23.i, %_ZN3f
   %align.125.i = phi i8 [ %align.1.ph.i, %_ZN3fmt3v106detail6fill_tIwEaSENS0_17basic_string_viewIwEE.exit.i ], [ %align.1.ph.i, %if.then7.i ], [ 0, %if.else23.i ]
   %begin.addr.0.i = phi ptr [ %add.ptr21.i, %_ZN3fmt3v106detail6fill_tIwEaSENS0_17basic_string_viewIwEE.exit.i ], [ %add.ptr.i, %if.then7.i ], [ %0, %if.else23.i ]
   %align28.i = getelementptr inbounds nuw i8, ptr %this, i64 9
+  %5 = zext nneg i8 %align.125.i to i16
   %bf.load.i = load i16, ptr %align28.i, align 1
-  %5 = and i8 %align.125.i, 15
-  %bf.value.i = zext nneg i8 %5 to i16
   %bf.clear.i = and i16 %bf.load.i, -16
-  %bf.set.i = or disjoint i16 %bf.clear.i, %bf.value.i
+  %bf.set.i = or disjoint i16 %bf.clear.i, %5
   store i16 %bf.set.i, ptr %align28.i, align 1
   br label %_ZN3fmt3v106detail11parse_alignIwEEPKT_S5_S5_RNS0_12format_specsIS3_EE.exit
 

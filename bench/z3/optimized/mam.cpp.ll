@@ -9782,8 +9782,8 @@ _ZN12_GLOBAL__N_18compiler25get_compatibility_measureEPNS_6chooseERb.exit.i.i: ;
   br i1 %simple.0.i.i, label %if.then.i492.i, label %if.end4.i.i
 
 if.then.i492.i:                                   ; preds = %_ZN12_GLOBAL__N_18compiler25get_compatibility_measureEPNS_6chooseERb.exit.i.i
-  %inc.i493.i = add i32 %num_too_simple.018.i.i, 1
-  %cmp2.i.i = icmp ugt i32 %inc.i493.i, 64
+  %inc.i493.i = add nuw nsw i32 %num_too_simple.018.i.i, 1
+  %cmp2.i.i = icmp ugt i32 %num_too_simple.018.i.i, 63
   br i1 %cmp2.i.i, label %if.then140.i, label %if.end4.i.i
 
 if.end4.i.i:                                      ; preds = %if.then.i492.i, %_ZN12_GLOBAL__N_18compiler25get_compatibility_measureEPNS_6chooseERb.exit.i.i

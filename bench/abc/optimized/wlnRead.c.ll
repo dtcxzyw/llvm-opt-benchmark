@@ -7024,9 +7024,9 @@ Rtl_NtkTokStr.exit87:                             ; preds = %72, %75
   %100 = or i32 %99, %98
   %101 = shl nuw nsw i32 %.1, 2
   %102 = shl nuw nsw i32 %.149, 1
-  %103 = or i32 %100, %102
-  %104 = or i32 %103, %101
-  %105 = or i32 %104, %.147
+  %103 = or disjoint i32 %100, %102
+  %104 = or disjoint i32 %103, %101
+  %105 = or disjoint i32 %104, %.147
   br label %.critedge
 
 .critedge:                                        ; preds = %.lr.ph, %.critedge.loopexit.loopexit, %2

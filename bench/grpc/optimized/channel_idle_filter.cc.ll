@@ -7809,7 +7809,7 @@ for.body.i.i.i.i.i:                               ; preds = %for.inc.i.i.i.i.i, 
   br i1 %tobool.i.i.i.i.i, label %if.then.i.i3.i.i.i, label %for.inc.i.i.i.i.i
 
 if.then.i.i3.i.i.i:                               ; preds = %for.body.i.i.i.i.i
-  %cmp1.i.i.i.i.i = icmp ult i64 %__n.05.i.i.i.i.i, 2
+  %cmp1.i.i.i.i.i = icmp samesign ult i64 %__n.05.i.i.i.i.i, 2
   br i1 %cmp1.i.i.i.i.i, label %if.end5.i.i.i, label %for.inc.i.i.i.i.i
 
 for.inc.i.i.i.i.i:                                ; preds = %if.then.i.i3.i.i.i, %for.body.i.i.i.i.i
@@ -7882,7 +7882,7 @@ for.body.i.i.i.i:                                 ; preds = %for.inc.i.i.i.i, %_
   br i1 %tobool.i.i9.i.i, label %if.then.i.i10.i.i, label %for.inc.i.i.i.i
 
 if.then.i.i10.i.i:                                ; preds = %for.body.i.i.i.i
-  %cmp1.i.i.i.i = icmp ult i64 %__n.05.i.i.i.i, 2
+  %cmp1.i.i.i.i = icmp samesign ult i64 %__n.05.i.i.i.i, 2
   br i1 %cmp1.i.i.i.i, label %if.end17.i.i, label %for.inc.i.i.i.i
 
 for.inc.i.i.i.i:                                  ; preds = %if.then.i.i10.i.i, %for.body.i.i.i.i

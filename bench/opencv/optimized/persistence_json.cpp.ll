@@ -1714,8 +1714,8 @@ define linkonce_odr hidden noundef ptr @_ZN2cv10JSONParser10skipSpacesEPc(ptr no
   %11 = alloca %"class.std::__cxx11::basic_string", align 8
   %12 = alloca %"class.std::allocator.13", align 1
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %.not69146 = icmp eq ptr %1, null
-  br i1 %.not69146, label %14, label %.lr.ph
+  %.not69149 = icmp eq ptr %1, null
+  br i1 %.not69149, label %14, label %.lr.ph
 
 14:                                               ; preds = %2
   %15 = load ptr, ptr %13, align 8
@@ -1736,17 +1736,17 @@ define linkonce_odr hidden noundef ptr @_ZN2cv10JSONParser10skipSpacesEPc(ptr no
 21:                                               ; preds = %14
   %22 = landingpad { ptr, i32 }
           cleanup
-  br label %143
+  br label %144
 
 23:                                               ; preds = %16
   %24 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #13
-  br label %143
+  br label %144
 
 .lr.ph:                                           ; preds = %2, %.lr.ph.backedge
-  %.050101147 = phi ptr [ %.050101147.be, %.lr.ph.backedge ], [ %1, %2 ]
-  %25 = load i8, ptr %.050101147, align 1
+  %.050101150 = phi ptr [ %.050101150.be, %.lr.ph.backedge ], [ %1, %2 ]
+  %25 = load i8, ptr %.050101150, align 1
   switch i8 %25, label %103 [
     i8 47, label %26
     i8 9, label %93
@@ -1757,7 +1757,7 @@ define linkonce_odr hidden noundef ptr @_ZN2cv10JSONParser10skipSpacesEPc(ptr no
   ]
 
 26:                                               ; preds = %.lr.ph
-  %27 = getelementptr inbounds nuw i8, ptr %.050101147, i64 1
+  %27 = getelementptr inbounds nuw i8, ptr %.050101150, i64 1
   %28 = load i8, ptr %27, align 1
   %29 = icmp eq i8 %28, 0
   br i1 %29, label %30, label %38
@@ -1769,12 +1769,12 @@ define linkonce_odr hidden noundef ptr @_ZN2cv10JSONParser10skipSpacesEPc(ptr no
   %34 = load ptr, ptr %33, align 8
   %35 = tail call noundef ptr %34(ptr noundef nonnull align 8 dereferenceable(8) %31)
   %.not74 = icmp eq ptr %35, null
-  br i1 %.not74, label %.critedge.thread.thread, label %36
+  br i1 %.not74, label %.thread, label %36
 
 36:                                               ; preds = %30
   %37 = load i8, ptr %35, align 1
   %.not75 = icmp eq i8 %37, 0
-  br i1 %.not75, label %.critedge.thread.thread, label %38
+  br i1 %.not75, label %.thread, label %38
 
 38:                                               ; preds = %36, %26
   %39 = phi i8 [ %37, %36 ], [ %28, %26 ]
@@ -1800,12 +1800,12 @@ define linkonce_odr hidden noundef ptr @_ZN2cv10JSONParser10skipSpacesEPc(ptr no
   %45 = load ptr, ptr %44, align 8
   %46 = tail call noundef ptr %45(ptr noundef nonnull align 8 dereferenceable(8) %42)
   %.not84 = icmp eq ptr %46, null
-  br i1 %.not84, label %.critedge.thread.thread, label %47
+  br i1 %.not84, label %.thread, label %47
 
 47:                                               ; preds = %41
   %48 = load i8, ptr %46, align 1
   %.not85 = icmp eq i8 %48, 0
-  br i1 %.not85, label %.critedge.thread.thread, label %.preheader.backedge
+  br i1 %.not85, label %.thread, label %.preheader.backedge
 
 .preheader.backedge:                              ; preds = %47, %49
   %.be = phi i8 [ %48, %47 ], [ %.pre.pre, %49 ]
@@ -1836,12 +1836,12 @@ define linkonce_odr hidden noundef ptr @_ZN2cv10JSONParser10skipSpacesEPc(ptr no
   %59 = load ptr, ptr %58, align 8
   %60 = tail call noundef ptr %59(ptr noundef nonnull align 8 dereferenceable(8) %56)
   %.not80 = icmp eq ptr %60, null
-  br i1 %.not80, label %.critedge.thread.thread, label %61
+  br i1 %.not80, label %.thread, label %61
 
 61:                                               ; preds = %55
   %62 = load i8, ptr %60, align 1
   %.not81 = icmp eq i8 %62, 0
-  br i1 %.not81, label %.critedge.thread.thread, label %.backedge
+  br i1 %.not81, label %.thread, label %.backedge
 
 63:                                               ; preds = %53
   %64 = getelementptr inbounds nuw i8, ptr %.555, i64 1
@@ -1856,12 +1856,12 @@ define linkonce_odr hidden noundef ptr @_ZN2cv10JSONParser10skipSpacesEPc(ptr no
   %71 = load ptr, ptr %70, align 8
   %72 = tail call noundef ptr %71(ptr noundef nonnull align 8 dereferenceable(8) %68)
   %.not78 = icmp eq ptr %72, null
-  br i1 %.not78, label %.critedge.thread.thread, label %73
+  br i1 %.not78, label %.thread, label %73
 
 73:                                               ; preds = %67
   %74 = load i8, ptr %72, align 1
   %.not79 = icmp eq i8 %74, 0
-  br i1 %.not79, label %.critedge.thread.thread, label %75
+  br i1 %.not79, label %.thread, label %75
 
 75:                                               ; preds = %73, %63
   %76 = phi i8 [ %74, %73 ], [ %65, %63 ]
@@ -1900,16 +1900,16 @@ define linkonce_odr hidden noundef ptr @_ZN2cv10JSONParser10skipSpacesEPc(ptr no
 89:                                               ; preds = %82
   %90 = landingpad { ptr, i32 }
           cleanup
-  br label %143
+  br label %144
 
 91:                                               ; preds = %84
   %92 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #13
-  br label %143
+  br label %144
 
 93:                                               ; preds = %.lr.ph, %.lr.ph
-  %94 = getelementptr inbounds nuw i8, ptr %.050101147, i64 1
+  %94 = getelementptr inbounds nuw i8, ptr %.050101150, i64 1
   br label %.lr.ph.backedge
 
 95:                                               ; preds = %.lr.ph, %.lr.ph, %.lr.ph
@@ -1919,20 +1919,20 @@ define linkonce_odr hidden noundef ptr @_ZN2cv10JSONParser10skipSpacesEPc(ptr no
   %99 = load ptr, ptr %98, align 8
   %100 = tail call noundef ptr %99(ptr noundef nonnull align 8 dereferenceable(8) %96)
   %.not72 = icmp eq ptr %100, null
-  br i1 %.not72, label %.critedge.thread.thread, label %101
+  br i1 %.not72, label %.thread, label %101
 
 101:                                              ; preds = %95
   %102 = load i8, ptr %100, align 1
   %.not73 = icmp eq i8 %102, 0
-  br i1 %.not73, label %.critedge.thread.thread, label %.lr.ph.backedge
+  br i1 %.not73, label %.thread, label %.lr.ph.backedge
 
 .lr.ph.backedge:                                  ; preds = %.preheader, %.preheader, %101, %78, %93
-  %.050101147.be = phi ptr [ %100, %101 ], [ %94, %93 ], [ %79, %78 ], [ %.353, %.preheader ], [ %.353, %.preheader ]
+  %.050101150.be = phi ptr [ %100, %101 ], [ %94, %93 ], [ %79, %78 ], [ %.353, %.preheader ], [ %.353, %.preheader ]
   br label %.lr.ph, !llvm.loop !19
 
 103:                                              ; preds = %.lr.ph
   %104 = icmp ugt i8 %25, 31
-  br i1 %104, label %.critedge.thread, label %105
+  br i1 %104, label %143, label %105
 
 105:                                              ; preds = %103
   %106 = load ptr, ptr %13, align 8
@@ -1953,15 +1953,15 @@ define linkonce_odr hidden noundef ptr @_ZN2cv10JSONParser10skipSpacesEPc(ptr no
 112:                                              ; preds = %105
   %113 = landingpad { ptr, i32 }
           cleanup
-  br label %143
+  br label %144
 
 114:                                              ; preds = %107
   %115 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #13
-  br label %143
+  br label %144
 
-.critedge.thread.thread:                          ; preds = %95, %101, %36, %30, %61, %55, %73, %67, %47, %41
+.thread:                                          ; preds = %95, %101, %36, %30, %61, %55, %73, %67, %47, %41
   %116 = load ptr, ptr %13, align 8
   %117 = load ptr, ptr %116, align 8
   %118 = getelementptr inbounds nuw i8, ptr %117, i64 88
@@ -1970,7 +1970,7 @@ define linkonce_odr hidden noundef ptr @_ZN2cv10JSONParser10skipSpacesEPc(ptr no
   %.not = icmp eq ptr %120, null
   br i1 %.not, label %121, label %128
 
-121:                                              ; preds = %.critedge.thread.thread
+121:                                              ; preds = %.thread
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %10) #13
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull @.str.19, ptr noundef nonnull align 1 dereferenceable(1) %10)
           to label %122 unwind label %124
@@ -1985,15 +1985,15 @@ define linkonce_odr hidden noundef ptr @_ZN2cv10JSONParser10skipSpacesEPc(ptr no
 124:                                              ; preds = %121
   %125 = landingpad { ptr, i32 }
           cleanup
-  br label %143
+  br label %144
 
 126:                                              ; preds = %122
   %127 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #13
-  br label %143
+  br label %144
 
-128:                                              ; preds = %.critedge.thread.thread
+128:                                              ; preds = %.thread
   store i8 0, ptr %120, align 1
   %129 = load ptr, ptr %13, align 8
   %130 = load ptr, ptr %129, align 8
@@ -2018,18 +2018,18 @@ define linkonce_odr hidden noundef ptr @_ZN2cv10JSONParser10skipSpacesEPc(ptr no
 139:                                              ; preds = %128
   %140 = landingpad { ptr, i32 }
           cleanup
-  br label %143
+  br label %144
 
 141:                                              ; preds = %134
   %142 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %11) #13
-  br label %143
+  br label %144
 
-.critedge.thread:                                 ; preds = %103
-  ret ptr %.050101147
+143:                                              ; preds = %103
+  ret ptr %.050101150
 
-143:                                              ; preds = %139, %141, %124, %126, %112, %114, %89, %91, %21, %23
+144:                                              ; preds = %139, %141, %124, %126, %112, %114, %89, %91, %21, %23
   %.sink = phi ptr [ %4, %23 ], [ %4, %21 ], [ %6, %91 ], [ %6, %89 ], [ %8, %114 ], [ %8, %112 ], [ %10, %126 ], [ %10, %124 ], [ %12, %141 ], [ %12, %139 ]
   %.pn86.pn = phi { ptr, i32 } [ %24, %23 ], [ %22, %21 ], [ %92, %91 ], [ %90, %89 ], [ %115, %114 ], [ %113, %112 ], [ %127, %126 ], [ %125, %124 ], [ %142, %141 ], [ %140, %139 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %.sink) #13

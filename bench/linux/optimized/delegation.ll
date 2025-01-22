@@ -684,7 +684,7 @@ define internal fastcc void @nfs_free_delegation(ptr noundef nonnull %0) unnamed
 define dso_local i32 @nfs_client_return_marked_delegations(ptr noundef %0) local_unnamed_addr #0 align 16 {
   %2 = tail call i32 @nfs_client_for_each_server(ptr noundef %0, ptr noundef nonnull @nfs_server_return_marked_delegations, ptr noundef null) #12
   %3 = icmp eq i32 %2, 0
-  br i1 %3, label %4, label %45
+  br i1 %3, label %4, label %44
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 320
@@ -692,23 +692,23 @@ define dso_local i32 @nfs_client_return_marked_delegations(ptr noundef %0) local
   %7 = icmp ult i8 %6, 2
   tail call void @llvm.assume(i1 %7)
   %8 = icmp eq i8 %6, 0
-  br i1 %8, label %45, label %9
+  br i1 %8, label %44, label %9
 
 9:                                                ; preds = %4
   tail call void @__rcu_read_lock() #12
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %11 = load volatile ptr, ptr %10, align 8
   %12 = icmp eq ptr %11, %10
-  br i1 %12, label %44, label %.preheader5
+  br i1 %12, label %43, label %.preheader5
 
-.preheader5:                                      ; preds = %9, %36
-  %13 = phi ptr [ %38, %36 ], [ %11, %9 ]
-  %14 = phi i8 [ %37, %36 ], [ 0, %9 ]
+.preheader5:                                      ; preds = %9, %35
+  %13 = phi ptr [ %37, %35 ], [ %11, %9 ]
+  %14 = phi i8 [ %36, %35 ], [ 0, %9 ]
   %15 = getelementptr i8, ptr %13, i64 -8
   %16 = getelementptr i8, ptr %13, i64 624
   %17 = load volatile ptr, ptr %16, align 8
   %18 = icmp eq ptr %17, %16
-  br i1 %18, label %36, label %.preheader
+  br i1 %18, label %35, label %.preheader
 
 .preheader:                                       ; preds = %.preheader5, %29
   %19 = phi ptr [ %31, %29 ], [ %17, %.preheader5 ]
@@ -735,34 +735,33 @@ define dso_local i32 @nfs_client_return_marked_delegations(ptr noundef %0) local
   br i1 %32, label %33, label %.preheader, !llvm.loop !34
 
 33:                                               ; preds = %29
-  %34 = and i8 %30, 1
-  %.not = icmp eq i8 %34, 0
-  %35 = select i1 %.not, i8 %14, i8 1
-  br label %36
+  %.not = icmp eq i8 %30, 0
+  %34 = select i1 %.not, i8 %14, i8 1
+  br label %35
 
-36:                                               ; preds = %33, %.preheader5
-  %37 = phi i8 [ %14, %.preheader5 ], [ %35, %33 ]
-  %38 = load volatile ptr, ptr %13, align 8
-  %39 = icmp eq ptr %38, %10
-  br i1 %39, label %40, label %.preheader5, !llvm.loop !37
+35:                                               ; preds = %33, %.preheader5
+  %36 = phi i8 [ %14, %.preheader5 ], [ %34, %33 ]
+  %37 = load volatile ptr, ptr %13, align 8
+  %38 = icmp eq ptr %37, %10
+  br i1 %38, label %39, label %.preheader5, !llvm.loop !37
 
-40:                                               ; preds = %36
-  %41 = and i8 %37, 1
-  %42 = icmp eq i8 %41, 0
+39:                                               ; preds = %35
+  %40 = and i8 %36, 1
+  %41 = icmp eq i8 %40, 0
   tail call void @__rcu_read_unlock() #12
-  br i1 %42, label %45, label %43
+  br i1 %41, label %44, label %42
 
-43:                                               ; preds = %40
+42:                                               ; preds = %39
   tail call void @msleep(i32 noundef 1000) #12
-  br label %45
+  br label %44
 
-44:                                               ; preds = %9
+43:                                               ; preds = %9
   tail call void @__rcu_read_unlock() #12
-  br label %45
+  br label %44
 
-45:                                               ; preds = %44, %43, %40, %4, %1
-  %46 = phi i32 [ %2, %1 ], [ 0, %43 ], [ 0, %40 ], [ 0, %4 ], [ 0, %44 ]
-  ret i32 %46
+44:                                               ; preds = %43, %42, %39, %4, %1
+  %45 = phi i32 [ %2, %1 ], [ 0, %42 ], [ 0, %39 ], [ 0, %4 ], [ 0, %43 ]
+  ret i32 %45
 }
 
 ; Function Attrs: null_pointer_is_valid

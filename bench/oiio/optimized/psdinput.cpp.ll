@@ -3854,8 +3854,7 @@ for.end112:                                       ; preds = %for.body96, %sw.bb8
 for.inc126.sink.split:                            ; preds = %for.end112, %for.end78
   %add82.sink = phi i64 [ %add82, %for.end78 ], [ %add118, %for.end112 ]
   %call83 = call noundef zeroext i1 @_ZN18OpenImageIO_v2_6_010ImageInput6ioseekEli(ptr noundef nonnull align 8 dereferenceable(184) %this, i64 noundef %add82.sink, i32 noundef 0)
-  %45 = and i8 %ok.078, 1
-  %tobool8634 = icmp ne i8 %45, 0
+  %tobool8634 = icmp ne i8 %ok.078, 0
   %tobool86 = select i1 %call83, i1 %tobool8634, i1 false
   %frombool = zext i1 %tobool86 to i8
   br label %for.inc126
@@ -3867,11 +3866,11 @@ for.inc126:                                       ; preds = %for.inc126.sink.spl
   br i1 %cmp.i37.not, label %for.end128.loopexit, label %for.body43
 
 for.end128.loopexit:                              ; preds = %for.inc126
-  %46 = trunc nuw i8 %ok.1 to i1
+  %45 = trunc nuw i8 %ok.1 to i1
   br label %return
 
 return:                                           ; preds = %if.then24, %for.end, %for.end128.loopexit, %_ZN18OpenImageIO_v2_6_08PSDInput9read_bigeIttEEbRT0_.exit, %if.then6
-  %retval.0 = phi i1 [ false, %if.then6 ], [ false, %_ZN18OpenImageIO_v2_6_08PSDInput9read_bigeIttEEbRT0_.exit ], [ true, %for.end ], [ %46, %for.end128.loopexit ], [ false, %if.then24 ]
+  %retval.0 = phi i1 [ false, %if.then6 ], [ false, %_ZN18OpenImageIO_v2_6_08PSDInput9read_bigeIttEEbRT0_.exit ], [ true, %for.end ], [ %45, %for.end128.loopexit ], [ false, %if.then24 ]
   ret i1 %retval.0
 }
 

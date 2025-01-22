@@ -17220,8 +17220,8 @@ common.resume:                                    ; preds = %103, %.body
   unreachable
 
 ._crit_edge.loopexit.i.i.i:                       ; preds = %95
-  %58 = icmp ne i64 %.sroa.013.1.i.i.i, 1
-  %59 = icmp ne i64 %.sroa.015.1.i.i.i, 1
+  %58 = icmp eq i64 %.sroa.013.1.i.i.i, 0
+  %59 = icmp eq i64 %.sroa.015.1.i.i.i, 0
   %60 = select i1 %58, i1 true, i1 %59
   br label %._crit_edge.i.i.i
 

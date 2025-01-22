@@ -5084,7 +5084,7 @@ if.end16:                                         ; preds = %if.end11, %while.co
   %transfer_buf_size.063 = phi i64 [ %transfer_buf_size.1, %while.cond.loopexit ], [ 0, %if.end11 ]
   %transfer_buf.162 = phi ptr [ %transfer_buf.2, %while.cond.loopexit ], [ null, %if.end11 ]
   %conv64 = zext i32 %conv64.in to i64
-  %cmp17 = icmp ult i64 %transfer_buf_size.063, %conv64
+  %cmp17 = icmp samesign ult i64 %transfer_buf_size.063, %conv64
   br i1 %cmp17, label %if.then19, label %if.end21
 
 if.then19:                                        ; preds = %if.end16

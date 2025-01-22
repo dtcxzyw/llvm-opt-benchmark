@@ -2293,7 +2293,7 @@ define internal noundef i32 @_ZN12_GLOBAL__N_125RISCVOutgoingValueHandler17assig
   br i1 %31, label %32, label %34
 
 32:                                               ; preds = %28
-  %33 = icmp ult i64 %.079.i.i.i, 3
+  %33 = icmp samesign ult i64 %.079.i.i.i, 3
   br i1 %33, label %_ZNK4llvm11CCValAssign8isMemLocEv.exit, label %34
 
 34:                                               ; preds = %32, %28
@@ -2478,7 +2478,7 @@ _ZNK4llvm11CCValAssign9getLocRegEv.exit.i:        ; preds = %97
   br i1 %109, label %110, label %112
 
 110:                                              ; preds = %106
-  %111 = icmp ult i64 %.079.i.i.i.i, 3
+  %111 = icmp samesign ult i64 %.079.i.i.i.i, 3
   br i1 %111, label %_ZNK4llvm11CCValAssign8isRegLocEv.exit.i, label %112
 
 112:                                              ; preds = %110, %106
@@ -2577,7 +2577,7 @@ _ZNK4llvm11CCValAssign9getLocRegEv.exit.i.i.i:    ; preds = %1
   br i1 %17, label %18, label %20
 
 18:                                               ; preds = %14
-  %19 = icmp ult i64 %.079.i.i.i.i.i.i, 3
+  %19 = icmp samesign ult i64 %.079.i.i.i.i.i.i, 3
   br i1 %19, label %_ZNK4llvm11CCValAssign8isRegLocEv.exit.i.i.i, label %20
 
 20:                                               ; preds = %18, %14
@@ -2846,7 +2846,7 @@ define internal noundef i32 @_ZN12_GLOBAL__N_125RISCVIncomingValueHandler17assig
   br i1 %23, label %24, label %26
 
 24:                                               ; preds = %20
-  %25 = icmp ult i64 %.079.i.i.i, 3
+  %25 = icmp samesign ult i64 %.079.i.i.i, 3
   br i1 %25, label %_ZNK4llvm11CCValAssign8isMemLocEv.exit, label %26
 
 26:                                               ; preds = %24, %20
@@ -2983,7 +2983,7 @@ _ZNK4llvm11CCValAssign9getLocRegEv.exit:          ; preds = %73
   br i1 %84, label %85, label %87
 
 85:                                               ; preds = %81
-  %86 = icmp ult i64 %.079.i.i.i30, 3
+  %86 = icmp samesign ult i64 %.079.i.i.i30, 3
   br i1 %86, label %_ZNK4llvm11CCValAssign8isRegLocEv.exit, label %87
 
 87:                                               ; preds = %85, %81

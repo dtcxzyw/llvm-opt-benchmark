@@ -41181,7 +41181,7 @@ parser_set_lex_state.exit1054:                    ; preds = %2355, %2358
 
 2367:                                             ; preds = %2365
   %2368 = and i32 %2339, 2048
-  %2369 = or i32 %2368, %.0664
+  %2369 = or disjoint i32 %2368, %.0664
   %or.cond839 = icmp eq i32 %2369, 0
   %spec.select = select i1 %or.cond839, i32 91, i32 331
   br label %2370

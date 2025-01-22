@@ -5279,7 +5279,7 @@ for.inc:                                          ; preds = %_ZN6vectorIP3appLb0
   br i1 %exitcond.not, label %for.end.loopexit, label %for.body, !llvm.loop !37
 
 for.end.loopexit:                                 ; preds = %for.inc
-  %49 = trunc i8 %dirty.1 to i1
+  %49 = trunc nuw i8 %dirty.1 to i1
   br label %for.end
 
 for.end:                                          ; preds = %for.end.loopexit, %_ZNK11ast_manager15get_num_parentsEPK3app.exit

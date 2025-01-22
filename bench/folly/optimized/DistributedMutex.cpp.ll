@@ -163,8 +163,8 @@ cleanup84.thread:                                 ; preds = %_ZN5folly6detail17d
 while.end65:                                      ; preds = %_ZN5folly6detail17distributed_mutex33recordTimedWaiterAndClearTimedBitERbRm.exit
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %signal) #10
   store i32 0, ptr %signal, align 4, !tbaa !29
-  %cmp.i = icmp eq i32 %waitMode.0, 4
-  br i1 %cmp.i, label %if.then.i125, label %_ZN5folly6detail17distributed_mutex4waitINS1_6WaiterISt6atomicEEEEbPT_jRS7_Rj.exit
+  %cmp.i.not = icmp eq i32 %waitMode.0, 0
+  br i1 %cmp.i.not, label %_ZN5folly6detail17distributed_mutex4waitINS1_6WaiterISt6atomicEEEEbPT_jRS7_Rj.exit, label %if.then.i125
 
 if.then.i125:                                     ; preds = %while.end65
   %7 = atomicrmw xchg ptr %sleeper_.i.i, i32 5 acq_rel, align 4
@@ -202,7 +202,7 @@ _ZN5folly6detail17distributed_mutex4waitINS1_6WaiterISt6atomicEEEEbPT_jRS7_Rj.ex
   br label %cleanup84, !llvm.loop !34
 
 _ZN5folly6detail17distributed_mutex4waitINS1_6WaiterISt6atomicEEEEbPT_jRS7_Rj.exit: ; preds = %while.end65
-  %call1.i = call noundef zeroext i1 @_ZN5folly6detail17distributed_mutex4spinINS1_6WaiterISt6atomicEEEEbRT_Rjj(ptr noundef nonnull align 128 dereferenceable(320) %state, ptr noundef nonnull align 4 dereferenceable(4) %signal, i32 noundef %waitMode.0)
+  %call1.i = call noundef zeroext i1 @_ZN5folly6detail17distributed_mutex4spinINS1_6WaiterISt6atomicEEEEbRT_Rjj(ptr noundef nonnull align 128 dereferenceable(320) %state, ptr noundef nonnull align 4 dereferenceable(4) %signal, i32 noundef 0)
   br i1 %call1.i, label %if.end68, label %cleanup84, !llvm.loop !34
 
 if.end68:                                         ; preds = %_ZN5folly6detail17distributed_mutex4waitINS1_6WaiterISt6atomicEEEEbPT_jRS7_Rj.exit, %if.then.i125

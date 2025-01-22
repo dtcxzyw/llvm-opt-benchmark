@@ -5291,8 +5291,8 @@ _ZN6vectorIP4exprLb0EjE9push_backERKS1_.exit.i:   ; preds = %.noexc, %lor.lhs.fa
 
 _ZN6vectorIP4exprLb0EjE6appendEjPKS1_.exit:       ; preds = %_ZN6vectorIP4exprLb0EjE9push_backERKS1_.exit.i
   %.pre = load ptr, ptr %todo, align 8
-  %cmp.i273 = icmp eq ptr %.pre, null
-  br i1 %cmp.i273, label %for.cond97.preheader, label %lor.rhs.i.lr.ph
+  %cmp.i272 = icmp eq ptr %.pre, null
+  br i1 %cmp.i272, label %for.cond97.preheader, label %lor.rhs.i.lr.ph
 
 for.cond97.preheader:                             ; preds = %while.cond.backedge, %lor.rhs.i, %invoke.cont12, %invoke.cont6, %_ZN6vectorIP4exprLb0EjE6appendEjPKS1_.exit
   br label %for.cond97
@@ -5452,11 +5452,11 @@ if.end28:                                         ; preds = %invoke.cont23
 if.then.i:                                        ; preds = %if.end28
   %arrayidx.i30 = getelementptr inbounds i8, ptr %30, i64 -4
   store i32 0, ptr %arrayidx.i30, align 4
-  %.pre286 = load ptr, ptr %todo, align 8
+  %.pre285 = load ptr, ptr %todo, align 8
   br label %_ZN6vectorIP4exprLb0EjE5resetEv.exit
 
 _ZN6vectorIP4exprLb0EjE5resetEv.exit:             ; preds = %if.end28, %if.then.i
-  %31 = phi ptr [ %13, %if.end28 ], [ %.pre286, %if.then.i ]
+  %31 = phi ptr [ %13, %if.end28 ], [ %.pre285, %if.then.i ]
   %cmp.i31 = icmp eq ptr %31, null
   br i1 %cmp.i31, label %_ZNK6vectorIP4exprLb0EjE4sizeEv.exit, label %if.end.i
 
@@ -5650,9 +5650,9 @@ for.body.preheader:                               ; preds = %if.end50
   br label %for.body
 
 for.body:                                         ; preds = %for.body.preheader, %for.inc
-  %__begin2.0272 = phi ptr [ %incdec.ptr, %for.inc ], [ %m_args.i.ptr, %for.body.preheader ]
+  %__begin2.0271 = phi ptr [ %incdec.ptr, %for.inc ], [ %m_args.i.ptr, %for.body.preheader ]
   %diff.0270 = phi i1 [ %diff.1, %for.inc ], [ false, %for.body.preheader ]
-  %63 = load ptr, ptr %__begin2.0272, align 8
+  %63 = load ptr, ptr %__begin2.0271, align 8
   %m_hash.i.i.i.i.i.i.i87 = getelementptr inbounds nuw i8, ptr %63, i64 12
   %64 = load i32, ptr %m_hash.i.i.i.i.i.i.i87, align 4
   %65 = load i32, ptr %m_capacity.i.i, align 8
@@ -5793,16 +5793,16 @@ _ZN6vectorIP4exprLb0EjE9push_backERKS1_.exit145:  ; preds = %lor.lhs.false.i131,
 
 for.inc:                                          ; preds = %_ZN6vectorIP4exprLb0EjE9push_backERKS1_.exit145, %invoke.cont60
   %diff.1 = phi i1 [ %79, %invoke.cont60 ], [ %diff.0270, %_ZN6vectorIP4exprLb0EjE9push_backERKS1_.exit145 ]
-  %incdec.ptr = getelementptr inbounds nuw i8, ptr %__begin2.0272, i64 8
+  %incdec.ptr = getelementptr inbounds nuw i8, ptr %__begin2.0271, i64 8
   %cmp.not = icmp eq ptr %incdec.ptr, %add.ptr.i.ptr
   br i1 %cmp.not, label %for.end.loopexit, label %for.body
 
 for.end.loopexit:                                 ; preds = %for.inc
-  %.pre287 = load ptr, ptr %todo, align 8
+  %.pre286 = load ptr, ptr %todo, align 8
   br label %for.end
 
 for.end:                                          ; preds = %for.end.loopexit, %if.end50
-  %87 = phi ptr [ %31, %if.end50 ], [ %.pre287, %for.end.loopexit ]
+  %87 = phi ptr [ %31, %if.end50 ], [ %.pre286, %for.end.loopexit ]
   %diff.0.lcssa = phi i1 [ false, %if.end50 ], [ %diff.1, %for.end.loopexit ]
   %cmp.i146 = icmp eq ptr %87, null
   br i1 %cmp.i146, label %_ZNK6vectorIP4exprLb0EjE4sizeEv.exit150, label %if.end.i147
@@ -6026,11 +6026,11 @@ if.then.i.i213:                                   ; preds = %invoke.cont107
   %122 = load i32, ptr %m_ref_count.i.i.i, align 4
   %inc.i.i.i = add i32 %122, 1
   store i32 %inc.i.i.i, ptr %m_ref_count.i.i.i, align 4
-  %.pre288 = load ptr, ptr %arrayidx.i.i205, align 8
+  %.pre287 = load ptr, ptr %arrayidx.i.i205, align 8
   br label %_ZN11ast_manager7inc_refEP3ast.exit.i
 
 _ZN11ast_manager7inc_refEP3ast.exit.i:            ; preds = %if.then.i.i213, %invoke.cont107
-  %123 = phi ptr [ %.pre288, %if.then.i.i213 ], [ %112, %invoke.cont107 ]
+  %123 = phi ptr [ %.pre287, %if.then.i.i213 ], [ %112, %invoke.cont107 ]
   %tobool.not.i2.i = icmp eq ptr %123, null
   br i1 %tobool.not.i2.i, label %for.inc111, label %if.then.i3.i
 

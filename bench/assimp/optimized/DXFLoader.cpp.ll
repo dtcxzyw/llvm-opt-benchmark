@@ -6777,9 +6777,9 @@ _ZNSt6vectorIjSaIjEE9push_backERKj.exit:          ; preds = %if.then.i, %_ZNSt6v
   %colors = getelementptr inbounds nuw i8, ptr %24, i64 24
   %_M_finish.i132 = getelementptr inbounds nuw i8, ptr %24, i64 32
   %_M_end_of_storage.i133 = getelementptr inbounds nuw i8, ptr %24, i64 40
-  %94 = add nuw nsw i8 %87, %tobool.mask
+  %94 = add nuw nsw i8 %72, %b.sroa.0.0.lcssa
   %95 = add nuw nsw i8 %94, 2
-  %wide.trip.count = zext nneg i8 %95 to i64
+  %wide.trip.count = zext i8 %95 to i64
   br label %for.body
 
 for.body:                                         ; preds = %_ZNSt6vectorIjSaIjEE9push_backERKj.exit, %_ZNSt6vectorI9aiColor4tIfESaIS1_EE9push_backERKS1_.exit

@@ -2976,16 +2976,15 @@ entry:
   br label %for.body10
 
 for.cond.cleanup9:                                ; preds = %for.inc33
-  %14 = and i8 %empty.3, 1
-  %tobool36.not = icmp eq i8 %14, 0
+  %tobool36.not = icmp eq i8 %empty.3, 0
   ret i1 %tobool36.not
 
 for.body10:                                       ; preds = %for.inc33, %entry
   %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %for.inc33 ]
   %empty.259 = phi i8 [ %spec.select.7, %entry ], [ %empty.3, %for.inc33 ]
   %arrayidx12 = getelementptr inbounds nuw [8 x %"class.folly::hazptr_detail::shared_head_only_list"], ptr %tagged_, i64 0, i64 %indvars.iv
-  %15 = load atomic i64, ptr %arrayidx12 acquire, align 8
-  %and.i = and i64 %15, 1
+  %14 = load atomic i64, ptr %arrayidx12 acquire, align 8
+  %and.i = and i64 %14, 1
   %cmp.i.not = icmp eq i64 %and.i, 0
   br i1 %cmp.i.not, label %if.else, label %if.then14
 
@@ -3000,25 +2999,25 @@ if.else:                                          ; preds = %for.body10
   br label %while.cond.i.i
 
 while.cond.i.i:                                   ; preds = %cleanup35.i.i, %if.else
-  %16 = load atomic i64, ptr %arrayidx12 acquire, align 8
-  %and.i.i = and i64 %16, 1
+  %15 = load atomic i64, ptr %arrayidx12 acquire, align 8
+  %and.i.i = and i64 %15, 1
   %cmp.i.i = icmp eq i64 %and.i.i, 0
   br i1 %cmp.i.i, label %if.then.i.i, label %lor.lhs.false.i.i
 
 lor.lhs.false.i.i:                                ; preds = %while.cond.i.i
-  %17 = load atomic i64, ptr %owner_.i.i.i monotonic, align 8
-  %cmp.i.i.i = icmp eq i64 %17, %call.i.i.i
+  %16 = load atomic i64, ptr %owner_.i.i.i monotonic, align 8
+  %cmp.i.i.i = icmp eq i64 %16, %call.i.i.i
   br i1 %cmp.i.i.i, label %if.then.thread.i.i, label %if.end33.i.i
 
 if.then.i.i:                                      ; preds = %while.cond.i.i
-  %18 = cmpxchg weak ptr %arrayidx12, i64 %16, i64 1 acq_rel acquire, align 8
-  %19 = extractvalue { i64, i1 } %18, 1
-  br i1 %19, label %if.then29.i.i, label %if.end33.i.i
+  %17 = cmpxchg weak ptr %arrayidx12, i64 %15, i64 1 acq_rel acquire, align 8
+  %18 = extractvalue { i64, i1 } %17, 1
+  br i1 %18, label %if.then29.i.i, label %if.end33.i.i
 
 if.then.thread.i.i:                               ; preds = %lor.lhs.false.i.i
-  %20 = cmpxchg weak ptr %arrayidx12, i64 %16, i64 1 acq_rel acquire, align 8
-  %21 = extractvalue { i64, i1 } %20, 1
-  br i1 %21, label %if.else.i.i, label %if.end33.i.i
+  %19 = cmpxchg weak ptr %arrayidx12, i64 %15, i64 1 acq_rel acquire, align 8
+  %20 = extractvalue { i64, i1 } %19, 1
+  br i1 %20, label %if.else.i.i, label %if.end33.i.i
 
 if.then29.i.i:                                    ; preds = %if.then.i.i
   store atomic i64 %call.i.i.i, ptr %owner_.i.i.i monotonic, align 8
@@ -3026,8 +3025,8 @@ if.then29.i.i:                                    ; preds = %if.then.i.i
 
 if.else.i.i:                                      ; preds = %if.then.thread.i.i
   %reentrance_31.i.i = getelementptr inbounds nuw i8, ptr %arrayidx12, i64 16
-  %22 = load i32, ptr %reentrance_31.i.i, align 8, !tbaa !118
-  %inc.i.i = add nsw i32 %22, 1
+  %21 = load i32, ptr %reentrance_31.i.i, align 8, !tbaa !118
+  %inc.i.i = add nsw i32 %21, 1
   store i32 %inc.i.i, ptr %reentrance_31.i.i, align 8, !tbaa !118
   br label %_ZN5folly13hazptr_detail21shared_head_only_listINS_10hazptr_objISt6atomicEES3_E7pop_allEb.exit
 
@@ -3047,8 +3046,8 @@ call11.i.noexc.i.i:                               ; preds = %while.cond.i.i.i
 
 land.rhs.i.i.i:                                   ; preds = %call11.i.noexc.i.i
   %call12.i.i.i = tail call ptr @__errno_location() #41
-  %23 = load i32, ptr %call12.i.i.i, align 4, !tbaa !18
-  %cmp13.i.i.i = icmp eq i32 %23, 4
+  %22 = load i32, ptr %call12.i.i.i, align 4, !tbaa !18
+  %cmp13.i.i.i = icmp eq i32 %22, 4
   br i1 %cmp13.i.i.i, label %while.cond.i.i.i, label %cleanup35.i.i, !llvm.loop !125
 
 cleanup35.i.i:                                    ; preds = %land.rhs.i.i.i, %call11.i.noexc.i.i
@@ -3056,14 +3055,14 @@ cleanup35.i.i:                                    ; preds = %land.rhs.i.i.i, %ca
   br label %while.cond.i.i
 
 terminate.lpad.i.i:                               ; preds = %while.cond.i.i.i
-  %24 = landingpad { ptr, i32 }
+  %23 = landingpad { ptr, i32 }
           catch ptr null
-  %25 = extractvalue { ptr, i32 } %24, 0
-  call void @__clang_call_terminate(ptr %25) #38
+  %24 = extractvalue { ptr, i32 } %23, 0
+  call void @__clang_call_terminate(ptr %24) #38
   unreachable
 
 _ZN5folly13hazptr_detail21shared_head_only_listINS_10hazptr_objISt6atomicEES3_E7pop_allEb.exit: ; preds = %if.else.i.i, %if.then29.i.i
-  %sub.i.i = and i64 %16, -2
+  %sub.i.i = and i64 %15, -2
   %cond.i51 = inttoptr i64 %sub.i.i to ptr
   %arrayidx22 = getelementptr inbounds nuw ptr, ptr %tagged, i64 %indvars.iv
   store ptr %cond.i51, ptr %arrayidx22, align 8, !tbaa !10
@@ -3072,12 +3071,12 @@ _ZN5folly13hazptr_detail21shared_head_only_listINS_10hazptr_objISt6atomicEES3_E7
 
 if.else27:                                        ; preds = %_ZN5folly13hazptr_detail21shared_head_only_listINS_10hazptr_objISt6atomicEES3_E7pop_allEb.exit
   %reentrance_.i = getelementptr inbounds nuw i8, ptr %arrayidx12, i64 16
-  %26 = load i32, ptr %reentrance_.i, align 8, !tbaa !118
-  %cmp.i52 = icmp sgt i32 %26, 0
+  %25 = load i32, ptr %reentrance_.i, align 8, !tbaa !118
+  %cmp.i52 = icmp sgt i32 %25, 0
   br i1 %cmp.i52, label %while.end37.i, label %if.else.i
 
 while.end37.i:                                    ; preds = %if.else27
-  %dec.i = add nsw i32 %26, -1
+  %dec.i = add nsw i32 %25, -1
   store i32 %dec.i, ptr %reentrance_.i, align 8, !tbaa !118
   br label %while.end58.i
 
@@ -3090,11 +3089,11 @@ while.end58.i:                                    ; preds = %if.else.i, %while.e
   br label %cond.end.i
 
 cond.end.i:                                       ; preds = %cond.end.i, %while.end58.i
-  %27 = load atomic i64, ptr %arrayidx12 acquire, align 8
-  %add.i = add i64 %27, %lockbit.0.i
-  %28 = cmpxchg weak ptr %arrayidx12, i64 %27, i64 %add.i acq_rel acquire, align 8
-  %29 = extractvalue { i64, i1 } %28, 1
-  br i1 %29, label %for.inc33, label %cond.end.i
+  %26 = load atomic i64, ptr %arrayidx12 acquire, align 8
+  %add.i = add i64 %26, %lockbit.0.i
+  %27 = cmpxchg weak ptr %arrayidx12, i64 %26, i64 %add.i acq_rel acquire, align 8
+  %28 = extractvalue { i64, i1 } %27, 1
+  br i1 %28, label %for.inc33, label %cond.end.i
 
 for.inc33:                                        ; preds = %cond.end.i, %_ZN5folly13hazptr_detail21shared_head_only_listINS_10hazptr_objISt6atomicEES3_E7pop_allEb.exit, %if.then14
   %empty.3 = phi i8 [ %empty.259, %if.then14 ], [ 0, %_ZN5folly13hazptr_detail21shared_head_only_listINS_10hazptr_objISt6atomicEES3_E7pop_allEb.exit ], [ %empty.259, %cond.end.i ]

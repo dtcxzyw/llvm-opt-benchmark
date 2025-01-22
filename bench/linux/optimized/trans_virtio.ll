@@ -442,7 +442,7 @@ define internal void @req_done(ptr nocapture noundef readonly %0) #2 align 16 {
   %10 = load ptr, ptr %9, align 8
   %11 = call ptr @virtqueue_get_buf(ptr noundef %10, ptr noundef nonnull %2) #14
   %12 = icmp eq ptr %11, null
-  br i1 %12, label %40, label %13
+  br i1 %12, label %39, label %13
 
 13:                                               ; preds = %1
   %14 = getelementptr inbounds nuw i8, ptr %6, i64 32
@@ -480,22 +480,21 @@ define internal void @req_done(ptr nocapture noundef readonly %0) #2 align 16 {
   br i1 %32, label %33, label %16, !llvm.loop !19
 
 33:                                               ; preds = %29
-  %34 = and i8 %23, 1
-  %35 = icmp eq i8 %34, 0
+  %34 = icmp eq i8 %23, 0
   call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull %7, i64 noundef %8) #14
-  br i1 %35, label %41, label %36
+  br i1 %34, label %40, label %35
 
-36:                                               ; preds = %33
-  %37 = getelementptr inbounds nuw i8, ptr %6, i64 40
-  %38 = load ptr, ptr %37, align 8
-  %39 = call i32 @__wake_up(ptr noundef %38, i32 noundef 3, i32 noundef 1, ptr noundef null) #14
-  br label %41
+35:                                               ; preds = %33
+  %36 = getelementptr inbounds nuw i8, ptr %6, i64 40
+  %37 = load ptr, ptr %36, align 8
+  %38 = call i32 @__wake_up(ptr noundef %37, i32 noundef 3, i32 noundef 1, ptr noundef null) #14
+  br label %40
 
-40:                                               ; preds = %1
+39:                                               ; preds = %1
   call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull %7, i64 noundef %8) #14
-  br label %41
+  br label %40
 
-41:                                               ; preds = %40, %36, %33
+40:                                               ; preds = %39, %35, %33
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #14
   ret void
 }

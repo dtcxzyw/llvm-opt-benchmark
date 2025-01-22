@@ -4728,7 +4728,7 @@ _ZNRSt8optionalIfE5valueEv.exit81.i:              ; preds = %1179
   br i1 %1189, label %1190, label %1192
 
 1190:                                             ; preds = %1185
-  %1191 = icmp ult i64 %.079.i.i, 2
+  %1191 = icmp samesign ult i64 %.079.i.i, 2
   br i1 %1191, label %_ZSt17holds_alternativeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJSt6vectorIN3gmx17RangePartitioningESaIS8_EES5_EEbRKSt7variantIJDpT0_EE.exit, label %1192
 
 1192:                                             ; preds = %1190, %1185

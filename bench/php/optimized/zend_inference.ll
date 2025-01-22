@@ -33975,7 +33975,7 @@ define internal fastcc zeroext i1 @zend_inference_calc_range(ptr noundef %0, ptr
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %11 = load ptr, ptr %10, align 8
   %.not = icmp eq ptr %11, null
-  br i1 %.not, label %475, label %12
+  br i1 %.not, label %473, label %12
 
 12:                                               ; preds = %5
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -34457,8 +34457,8 @@ add_will_overflow.exit271.thread:                 ; preds = %288, %add_will_over
   br label %311
 
 311:                                              ; preds = %310, %299, %add_will_overflow.exit271.thread, %277
-  %.sink287 = phi i64 [ -9223372036854775808, %310 ], [ %309, %299 ], [ -9223372036854775808, %add_will_overflow.exit271.thread ], [ %281, %277 ]
-  store i64 %.sink287, ptr %4, align 8
+  %.sink288 = phi i64 [ -9223372036854775808, %310 ], [ %309, %299 ], [ -9223372036854775808, %add_will_overflow.exit271.thread ], [ %281, %277 ]
+  store i64 %.sink288, ptr %4, align 8
   %312 = getelementptr inbounds nuw i8, ptr %11, i64 52
   %313 = load i32, ptr %312, align 4
   %314 = icmp slt i32 %313, 0
@@ -34540,14 +34540,14 @@ add_will_overflow.exit273.thread:                 ; preds = %328, %add_will_over
   %.not256 = icmp eq i32 %3, 0
   br i1 %.not256, label %.lr.ph.split.us, label %.lr.ph.split
 
-.lr.ph.split.us:                                  ; preds = %.lr.ph, %405
-  %360 = phi i32 [ %406, %405 ], [ %353, %.lr.ph ]
-  %361 = phi ptr [ %407, %405 ], [ %352, %.lr.ph ]
-  %362 = phi i8 [ %408, %405 ], [ 0, %.lr.ph ]
-  %363 = phi i64 [ %409, %405 ], [ -9223372036854775808, %.lr.ph ]
-  %364 = phi i64 [ %410, %405 ], [ 9223372036854775807, %.lr.ph ]
-  %365 = phi i8 [ %411, %405 ], [ 0, %.lr.ph ]
-  %indvars.iv279 = phi i64 [ %indvars.iv.next280, %405 ], [ 0, %.lr.ph ]
+.lr.ph.split.us:                                  ; preds = %.lr.ph, %403
+  %360 = phi i32 [ %404, %403 ], [ %353, %.lr.ph ]
+  %361 = phi ptr [ %405, %403 ], [ %352, %.lr.ph ]
+  %362 = phi i8 [ %406, %403 ], [ 0, %.lr.ph ]
+  %363 = phi i64 [ %407, %403 ], [ -9223372036854775808, %.lr.ph ]
+  %364 = phi i64 [ %408, %403 ], [ 9223372036854775807, %.lr.ph ]
+  %365 = phi i8 [ %409, %403 ], [ 0, %.lr.ph ]
+  %indvars.iv279 = phi i64 [ %indvars.iv.next280, %403 ], [ 0, %.lr.ph ]
   %366 = load ptr, ptr %358, align 8
   %367 = getelementptr inbounds nuw i32, ptr %366, i64 %indvars.iv279
   %368 = load i32, ptr %367, align 4
@@ -34559,162 +34559,162 @@ add_will_overflow.exit273.thread:                 ; preds = %328, %add_will_over
   %373 = getelementptr inbounds nuw i8, ptr %372, i64 4
   %374 = load i8, ptr %373, align 4
   %375 = trunc i8 %374 to i1
-  br i1 %375, label %376, label %405
+  br i1 %375, label %376, label %403
 
 376:                                              ; preds = %.lr.ph.split.us
   %377 = getelementptr inbounds nuw i8, ptr %372, i64 24
   %378 = load i8, ptr %377, align 8
-  %379 = or i8 %365, %378
-  %380 = and i8 %379, 1
-  store i8 %380, ptr %13, align 8
-  %381 = load ptr, ptr %359, align 8
-  %382 = load ptr, ptr %358, align 8
-  %383 = getelementptr inbounds nuw i32, ptr %382, i64 %indvars.iv279
-  %384 = load i32, ptr %383, align 4
-  %385 = sext i32 %384 to i64
-  %386 = getelementptr inbounds %struct._zend_ssa_var_info, ptr %381, i64 %385, i32 2
-  %387 = load i64, ptr %386, align 8
-  %.267.us = tail call i64 @llvm.smin.i64(i64 %364, i64 %387)
+  %.masked = and i8 %378, 1
+  %379 = or i8 %365, %.masked
+  store i8 %379, ptr %13, align 8
+  %380 = load ptr, ptr %359, align 8
+  %381 = load ptr, ptr %358, align 8
+  %382 = getelementptr inbounds nuw i32, ptr %381, i64 %indvars.iv279
+  %383 = load i32, ptr %382, align 4
+  %384 = sext i32 %383 to i64
+  %385 = getelementptr inbounds %struct._zend_ssa_var_info, ptr %380, i64 %384, i32 2
+  %386 = load i64, ptr %385, align 8
+  %.267.us = tail call i64 @llvm.smin.i64(i64 %364, i64 %386)
   store i64 %.267.us, ptr %4, align 8
-  %388 = load ptr, ptr %359, align 8
-  %389 = load ptr, ptr %358, align 8
-  %390 = getelementptr inbounds nuw i32, ptr %389, i64 %indvars.iv279
-  %391 = load i32, ptr %390, align 4
-  %392 = sext i32 %391 to i64
-  %393 = getelementptr inbounds %struct._zend_ssa_var_info, ptr %388, i64 %392, i32 2, i32 1
-  %394 = load i64, ptr %393, align 8
-  %395 = tail call i64 @llvm.smax.i64(i64 %363, i64 %394)
-  store i64 %395, ptr %14, align 8
-  %396 = load ptr, ptr %359, align 8
-  %397 = load ptr, ptr %358, align 8
-  %398 = getelementptr inbounds nuw i32, ptr %397, i64 %indvars.iv279
-  %399 = load i32, ptr %398, align 4
-  %400 = sext i32 %399 to i64
-  %401 = getelementptr inbounds %struct._zend_ssa_var_info, ptr %396, i64 %400, i32 2, i32 3
-  %402 = load i8, ptr %401, align 1
-  %403 = or i8 %362, %402
-  %404 = and i8 %403, 1
-  store i8 %404, ptr %15, align 1
+  %387 = load ptr, ptr %359, align 8
+  %388 = load ptr, ptr %358, align 8
+  %389 = getelementptr inbounds nuw i32, ptr %388, i64 %indvars.iv279
+  %390 = load i32, ptr %389, align 4
+  %391 = sext i32 %390 to i64
+  %392 = getelementptr inbounds %struct._zend_ssa_var_info, ptr %387, i64 %391, i32 2, i32 1
+  %393 = load i64, ptr %392, align 8
+  %394 = tail call i64 @llvm.smax.i64(i64 %363, i64 %393)
+  store i64 %394, ptr %14, align 8
+  %395 = load ptr, ptr %359, align 8
+  %396 = load ptr, ptr %358, align 8
+  %397 = getelementptr inbounds nuw i32, ptr %396, i64 %indvars.iv279
+  %398 = load i32, ptr %397, align 4
+  %399 = sext i32 %398 to i64
+  %400 = getelementptr inbounds %struct._zend_ssa_var_info, ptr %395, i64 %399, i32 2, i32 3
+  %401 = load i8, ptr %400, align 1
+  %.masked285 = and i8 %401, 1
+  %402 = or i8 %362, %.masked285
+  store i8 %402, ptr %15, align 1
   %.pre = load ptr, ptr %350, align 8
   %.pre282 = load i32, ptr %351, align 8
-  br label %405
+  br label %403
 
-405:                                              ; preds = %.lr.ph.split.us, %376
-  %406 = phi i32 [ %360, %.lr.ph.split.us ], [ %.pre282, %376 ]
-  %407 = phi ptr [ %361, %.lr.ph.split.us ], [ %.pre, %376 ]
-  %408 = phi i8 [ %362, %.lr.ph.split.us ], [ %404, %376 ]
-  %409 = phi i64 [ %363, %.lr.ph.split.us ], [ %395, %376 ]
-  %410 = phi i64 [ %364, %.lr.ph.split.us ], [ %.267.us, %376 ]
-  %411 = phi i8 [ %365, %.lr.ph.split.us ], [ %380, %376 ]
+403:                                              ; preds = %.lr.ph.split.us, %376
+  %404 = phi i32 [ %360, %.lr.ph.split.us ], [ %.pre282, %376 ]
+  %405 = phi ptr [ %361, %.lr.ph.split.us ], [ %.pre, %376 ]
+  %406 = phi i8 [ %362, %.lr.ph.split.us ], [ %402, %376 ]
+  %407 = phi i64 [ %363, %.lr.ph.split.us ], [ %394, %376 ]
+  %408 = phi i64 [ %364, %.lr.ph.split.us ], [ %.267.us, %376 ]
+  %409 = phi i8 [ %365, %.lr.ph.split.us ], [ %379, %376 ]
   %indvars.iv.next280 = add nuw nsw i64 %indvars.iv279, 1
-  %412 = sext i32 %406 to i64
-  %413 = getelementptr inbounds %struct._zend_basic_block, ptr %407, i64 %412, i32 5
-  %414 = load i32, ptr %413, align 8
-  %415 = sext i32 %414 to i64
-  %416 = icmp slt i64 %indvars.iv.next280, %415
-  br i1 %416, label %.lr.ph.split.us, label %.thread274
+  %410 = sext i32 %404 to i64
+  %411 = getelementptr inbounds %struct._zend_basic_block, ptr %405, i64 %410, i32 5
+  %412 = load i32, ptr %411, align 8
+  %413 = sext i32 %412 to i64
+  %414 = icmp slt i64 %indvars.iv.next280, %413
+  br i1 %414, label %.lr.ph.split.us, label %.thread274
 
-.lr.ph.split:                                     ; preds = %.lr.ph, %461
-  %417 = phi i8 [ %storemerge, %461 ], [ 0, %.lr.ph ]
-  %418 = phi i64 [ %462, %461 ], [ -9223372036854775808, %.lr.ph ]
-  %419 = phi i64 [ %463, %461 ], [ 9223372036854775807, %.lr.ph ]
-  %420 = phi i8 [ %464, %461 ], [ 0, %.lr.ph ]
-  %indvars.iv = phi i64 [ %indvars.iv.next, %461 ], [ 0, %.lr.ph ]
-  %421 = load ptr, ptr %358, align 8
-  %422 = getelementptr inbounds nuw i32, ptr %421, i64 %indvars.iv
-  %423 = load i32, ptr %422, align 4
-  %424 = icmp sgt i32 %423, -1
-  tail call void @llvm.assume(i1 %424)
-  %425 = load ptr, ptr %359, align 8
-  %426 = zext nneg i32 %423 to i64
-  %427 = getelementptr inbounds nuw %struct._zend_ssa_var_info, ptr %425, i64 %426
-  %428 = getelementptr inbounds nuw i8, ptr %427, i64 4
-  %429 = load i8, ptr %428, align 4
-  %430 = trunc i8 %429 to i1
-  br i1 %430, label %431, label %460
+.lr.ph.split:                                     ; preds = %.lr.ph, %459
+  %415 = phi i8 [ %storemerge, %459 ], [ 0, %.lr.ph ]
+  %416 = phi i64 [ %460, %459 ], [ -9223372036854775808, %.lr.ph ]
+  %417 = phi i64 [ %461, %459 ], [ 9223372036854775807, %.lr.ph ]
+  %418 = phi i8 [ %462, %459 ], [ 0, %.lr.ph ]
+  %indvars.iv = phi i64 [ %indvars.iv.next, %459 ], [ 0, %.lr.ph ]
+  %419 = load ptr, ptr %358, align 8
+  %420 = getelementptr inbounds nuw i32, ptr %419, i64 %indvars.iv
+  %421 = load i32, ptr %420, align 4
+  %422 = icmp sgt i32 %421, -1
+  tail call void @llvm.assume(i1 %422)
+  %423 = load ptr, ptr %359, align 8
+  %424 = zext nneg i32 %421 to i64
+  %425 = getelementptr inbounds nuw %struct._zend_ssa_var_info, ptr %423, i64 %424
+  %426 = getelementptr inbounds nuw i8, ptr %425, i64 4
+  %427 = load i8, ptr %426, align 4
+  %428 = trunc i8 %427 to i1
+  br i1 %428, label %429, label %458
 
-431:                                              ; preds = %.lr.ph.split
-  %432 = getelementptr inbounds nuw i8, ptr %427, i64 24
-  %433 = load i8, ptr %432, align 8
-  %434 = or i8 %420, %433
-  %435 = and i8 %434, 1
-  store i8 %435, ptr %13, align 8
-  %436 = load ptr, ptr %359, align 8
-  %437 = load ptr, ptr %358, align 8
-  %438 = getelementptr inbounds nuw i32, ptr %437, i64 %indvars.iv
-  %439 = load i32, ptr %438, align 4
-  %440 = sext i32 %439 to i64
-  %441 = getelementptr inbounds %struct._zend_ssa_var_info, ptr %436, i64 %440, i32 2
-  %442 = load i64, ptr %441, align 8
-  %.267 = tail call i64 @llvm.smin.i64(i64 %419, i64 %442)
+429:                                              ; preds = %.lr.ph.split
+  %430 = getelementptr inbounds nuw i8, ptr %425, i64 24
+  %431 = load i8, ptr %430, align 8
+  %432 = or i8 %418, %431
+  %433 = and i8 %432, 1
+  store i8 %433, ptr %13, align 8
+  %434 = load ptr, ptr %359, align 8
+  %435 = load ptr, ptr %358, align 8
+  %436 = getelementptr inbounds nuw i32, ptr %435, i64 %indvars.iv
+  %437 = load i32, ptr %436, align 4
+  %438 = sext i32 %437 to i64
+  %439 = getelementptr inbounds %struct._zend_ssa_var_info, ptr %434, i64 %438, i32 2
+  %440 = load i64, ptr %439, align 8
+  %.267 = tail call i64 @llvm.smin.i64(i64 %417, i64 %440)
   store i64 %.267, ptr %4, align 8
-  %443 = load ptr, ptr %359, align 8
-  %444 = load ptr, ptr %358, align 8
-  %445 = getelementptr inbounds nuw i32, ptr %444, i64 %indvars.iv
-  %446 = load i32, ptr %445, align 4
-  %447 = sext i32 %446 to i64
-  %448 = getelementptr inbounds %struct._zend_ssa_var_info, ptr %443, i64 %447, i32 2, i32 1
-  %449 = load i64, ptr %448, align 8
-  %450 = tail call i64 @llvm.smax.i64(i64 %418, i64 %449)
-  store i64 %450, ptr %14, align 8
-  %451 = load ptr, ptr %359, align 8
-  %452 = load ptr, ptr %358, align 8
-  %453 = getelementptr inbounds nuw i32, ptr %452, i64 %indvars.iv
-  %454 = load i32, ptr %453, align 4
-  %455 = sext i32 %454 to i64
-  %456 = getelementptr inbounds %struct._zend_ssa_var_info, ptr %451, i64 %455, i32 2, i32 3
-  %457 = load i8, ptr %456, align 1
-  %458 = or i8 %417, %457
-  %459 = and i8 %458, 1
-  br label %461
+  %441 = load ptr, ptr %359, align 8
+  %442 = load ptr, ptr %358, align 8
+  %443 = getelementptr inbounds nuw i32, ptr %442, i64 %indvars.iv
+  %444 = load i32, ptr %443, align 4
+  %445 = sext i32 %444 to i64
+  %446 = getelementptr inbounds %struct._zend_ssa_var_info, ptr %441, i64 %445, i32 2, i32 1
+  %447 = load i64, ptr %446, align 8
+  %448 = tail call i64 @llvm.smax.i64(i64 %416, i64 %447)
+  store i64 %448, ptr %14, align 8
+  %449 = load ptr, ptr %359, align 8
+  %450 = load ptr, ptr %358, align 8
+  %451 = getelementptr inbounds nuw i32, ptr %450, i64 %indvars.iv
+  %452 = load i32, ptr %451, align 4
+  %453 = sext i32 %452 to i64
+  %454 = getelementptr inbounds %struct._zend_ssa_var_info, ptr %449, i64 %453, i32 2, i32 3
+  %455 = load i8, ptr %454, align 1
+  %456 = or i8 %415, %455
+  %457 = and i8 %456, 1
+  br label %459
 
-460:                                              ; preds = %.lr.ph.split
+458:                                              ; preds = %.lr.ph.split
   store i8 1, ptr %13, align 8
   store i64 -9223372036854775808, ptr %4, align 8
   store i64 9223372036854775807, ptr %14, align 8
-  br label %461
+  br label %459
 
-461:                                              ; preds = %431, %460
-  %462 = phi i64 [ 9223372036854775807, %460 ], [ %450, %431 ]
-  %463 = phi i64 [ -9223372036854775808, %460 ], [ %.267, %431 ]
-  %464 = phi i8 [ 1, %460 ], [ %435, %431 ]
-  %storemerge = phi i8 [ 1, %460 ], [ %459, %431 ]
+459:                                              ; preds = %429, %458
+  %460 = phi i64 [ 9223372036854775807, %458 ], [ %448, %429 ]
+  %461 = phi i64 [ -9223372036854775808, %458 ], [ %.267, %429 ]
+  %462 = phi i8 [ 1, %458 ], [ %433, %429 ]
+  %storemerge = phi i8 [ 1, %458 ], [ %457, %429 ]
   store i8 %storemerge, ptr %15, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %465 = load ptr, ptr %350, align 8
-  %466 = load i32, ptr %351, align 8
-  %467 = sext i32 %466 to i64
-  %468 = getelementptr inbounds %struct._zend_basic_block, ptr %465, i64 %467, i32 5
-  %469 = load i32, ptr %468, align 8
-  %470 = sext i32 %469 to i64
-  %471 = icmp slt i64 %indvars.iv.next, %470
-  br i1 %471, label %.lr.ph.split, label %.thread274
+  %463 = load ptr, ptr %350, align 8
+  %464 = load i32, ptr %351, align 8
+  %465 = sext i32 %464 to i64
+  %466 = getelementptr inbounds %struct._zend_basic_block, ptr %463, i64 %465, i32 5
+  %467 = load i32, ptr %466, align 8
+  %468 = sext i32 %467 to i64
+  %469 = icmp slt i64 %indvars.iv.next, %468
+  br i1 %469, label %.lr.ph.split, label %.thread274
 
-.thread274:                                       ; preds = %461, %405, %349, %.thread, %159, %160, %38, %44, %48, %52, %56, %60, %115, %157, %153, %145, %139, %130, %126, %118, %71, %113, %109, %101, %95, %86, %82, %74, %65, %272, %348, %340, %add_will_overflow.exit273.thread, %315, %236, %270, %239, %238
-  %472 = load i64, ptr %4, align 8
-  %473 = load i64, ptr %14, align 8
-  %474 = icmp sle i64 %472, %473
-  br label %488
+.thread274:                                       ; preds = %459, %403, %349, %.thread, %159, %160, %38, %44, %48, %52, %56, %60, %115, %157, %153, %145, %139, %130, %126, %118, %71, %113, %109, %101, %95, %86, %82, %74, %65, %272, %348, %340, %add_will_overflow.exit273.thread, %315, %236, %270, %239, %238
+  %470 = load i64, ptr %4, align 8
+  %471 = load i64, ptr %14, align 8
+  %472 = icmp sle i64 %470, %471
+  br label %486
 
-475:                                              ; preds = %5
-  %476 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %477 = load i32, ptr %476, align 8
-  %478 = icmp slt i32 %477, 0
-  br i1 %478, label %488, label %479
+473:                                              ; preds = %5
+  %474 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %475 = load i32, ptr %474, align 8
+  %476 = icmp slt i32 %475, 0
+  br i1 %476, label %486, label %477
 
-479:                                              ; preds = %475
-  %480 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %481 = load ptr, ptr %480, align 8
-  %482 = zext nneg i32 %477 to i64
-  %483 = getelementptr inbounds nuw %struct._zend_op, ptr %481, i64 %482
-  %484 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %485 = load ptr, ptr %484, align 8
-  %486 = getelementptr inbounds nuw %struct._zend_ssa_op, ptr %485, i64 %482
-  %487 = tail call zeroext i1 @zend_inference_propagate_range(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %483, ptr noundef %486, i32 noundef %2, ptr noundef nonnull %4)
-  br label %488
+477:                                              ; preds = %473
+  %478 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %479 = load ptr, ptr %478, align 8
+  %480 = zext nneg i32 %475 to i64
+  %481 = getelementptr inbounds nuw %struct._zend_op, ptr %479, i64 %480
+  %482 = getelementptr inbounds nuw i8, ptr %1, i64 56
+  %483 = load ptr, ptr %482, align 8
+  %484 = getelementptr inbounds nuw %struct._zend_ssa_op, ptr %483, i64 %480
+  %485 = tail call zeroext i1 @zend_inference_propagate_range(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %481, ptr noundef %484, i32 noundef %2, ptr noundef nonnull %4)
+  br label %486
 
-488:                                              ; preds = %475, %479, %.thread274
-  %.0 = phi i1 [ %474, %.thread274 ], [ %487, %479 ], [ false, %475 ]
+486:                                              ; preds = %473, %477, %.thread274
+  %.0 = phi i1 [ %472, %.thread274 ], [ %485, %477 ], [ false, %473 ]
   ret i1 %.0
 }
 

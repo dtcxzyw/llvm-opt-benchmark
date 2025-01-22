@@ -409,7 +409,7 @@ define internal void @gen6_alloc_va_range(ptr noundef %0, ptr nocapture noundef 
 
 .thread:                                          ; preds = %4
   tail call void @_raw_spin_unlock(ptr noundef nonnull %7) #7
-  br label %89
+  br label %88
 
 9:                                                ; preds = %4
   %10 = lshr i64 %2, 22
@@ -491,36 +491,35 @@ define internal void @gen6_alloc_va_range(ptr noundef %0, ptr nocapture noundef 
   br i1 %69, label %14, label %70, !llvm.loop !22
 
 70:                                               ; preds = %55
-  %71 = and i8 %56, 1
-  %72 = icmp eq i8 %71, 0
+  %71 = icmp eq i8 %56, 0
   tail call void @_raw_spin_unlock(ptr noundef nonnull %7) #7
-  br i1 %72, label %89, label %73
+  br i1 %71, label %88, label %72
 
-73:                                               ; preds = %70
-  %74 = getelementptr inbounds nuw i8, ptr %0, i64 720
-  %75 = load ptr, ptr %74, align 8
-  %76 = getelementptr inbounds nuw i8, ptr %75, i64 268
-  %77 = load volatile i32, ptr %76, align 4
-  %78 = and i32 %77, 1024
-  %79 = icmp eq i32 %78, 0
-  br i1 %79, label %89, label %80
+72:                                               ; preds = %70
+  %73 = getelementptr inbounds nuw i8, ptr %0, i64 720
+  %74 = load ptr, ptr %73, align 8
+  %75 = getelementptr inbounds nuw i8, ptr %74, i64 268
+  %76 = load volatile i32, ptr %75, align 4
+  %77 = and i32 %76, 1024
+  %78 = icmp eq i32 %77, 0
+  br i1 %78, label %88, label %79
 
-80:                                               ; preds = %73
-  %81 = getelementptr inbounds nuw i8, ptr %0, i64 304
-  %82 = load ptr, ptr %81, align 8
-  %83 = getelementptr inbounds nuw i8, ptr %82, i64 8928
-  %84 = tail call i64 @intel_runtime_pm_get(ptr noundef nonnull %83) #7
-  %85 = icmp eq i64 %84, 0
-  br i1 %85, label %89, label %86
+79:                                               ; preds = %72
+  %80 = getelementptr inbounds nuw i8, ptr %0, i64 304
+  %81 = load ptr, ptr %80, align 8
+  %82 = getelementptr inbounds nuw i8, ptr %81, i64 8928
+  %83 = tail call i64 @intel_runtime_pm_get(ptr noundef nonnull %82) #7
+  %84 = icmp eq i64 %83, 0
+  br i1 %84, label %88, label %85
 
-86:                                               ; preds = %80
+85:                                               ; preds = %79
   tail call fastcc void @gen6_flush_pd(ptr noundef %0, i64 noundef %2, i64 noundef %64)
-  %87 = load ptr, ptr %81, align 8
-  %88 = getelementptr inbounds nuw i8, ptr %87, i64 8928
-  tail call void @intel_runtime_pm_put_unchecked(ptr noundef nonnull %88) #7
-  br label %89
+  %86 = load ptr, ptr %80, align 8
+  %87 = getelementptr inbounds nuw i8, ptr %86, i64 8928
+  tail call void @intel_runtime_pm_put_unchecked(ptr noundef nonnull %87) #7
+  br label %88
 
-89:                                               ; preds = %.thread, %86, %80, %73, %70
+88:                                               ; preds = %.thread, %85, %79, %72, %70
   ret void
 }
 

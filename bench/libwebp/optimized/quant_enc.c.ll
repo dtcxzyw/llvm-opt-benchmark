@@ -1476,7 +1476,7 @@ IsFlat_C.exit.i35:                                ; preds = %.preheader.i.prehea
 
 354:                                              ; preds = %333
   %355 = trunc nuw nsw i64 %.sroa.7.2.i to i32
-  %356 = add nsw i32 %.061.i, %355
+  %356 = add nuw nsw i32 %.061.i, %355
   %357 = load i32, ptr %200, align 8, !noalias !34
   %358 = icmp sgt i32 %356, %357
   br i1 %358, label %PickBestIntra4.exit.loopexit, label %359

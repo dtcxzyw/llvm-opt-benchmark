@@ -468,23 +468,23 @@ proto_item_set_hidden.exit.i:                     ; preds = %40, %37, %34
 50:                                               ; preds = %15
   %51 = load i32, ptr @hf_response, align 4
   %52 = tail call ptr @proto_tree_add_boolean(ptr noundef %23, i32 noundef %51, ptr noundef %0, i32 noundef 1, i32 noundef 1, i64 noundef 0) #3
-  %.not.i323.i = icmp eq ptr %52, null
-  br i1 %.not.i323.i, label %proto_item_set_hidden.exit325.i, label %53
+  %.not.i324.i = icmp eq ptr %52, null
+  br i1 %.not.i324.i, label %proto_item_set_hidden.exit326.i, label %53
 
 53:                                               ; preds = %50
   %54 = getelementptr inbounds nuw i8, ptr %52, i64 32
   %55 = load ptr, ptr %54, align 8
-  %.not5.i324.i = icmp eq ptr %55, null
-  br i1 %.not5.i324.i, label %proto_item_set_hidden.exit325.i, label %56
+  %.not5.i325.i = icmp eq ptr %55, null
+  br i1 %.not5.i325.i, label %proto_item_set_hidden.exit326.i, label %56
 
 56:                                               ; preds = %53
   %57 = getelementptr inbounds nuw i8, ptr %55, i64 28
   %58 = load i32, ptr %57, align 4
   %59 = or i32 %58, 1
   store i32 %59, ptr %57, align 4
-  br label %proto_item_set_hidden.exit325.i
+  br label %proto_item_set_hidden.exit326.i
 
-proto_item_set_hidden.exit325.i:                  ; preds = %56, %53, %50
+proto_item_set_hidden.exit326.i:                  ; preds = %56, %53, %50
   %60 = load i32, ptr @hf_reserved1, align 4
   %61 = tail call ptr @proto_tree_add_item(ptr noundef %23, i32 noundef %60, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0) #3
   %62 = load i32, ptr @hf_pcp_result_code, align 4
@@ -497,7 +497,7 @@ proto_item_set_hidden.exit325.i:                  ; preds = %56, %53, %50
   %69 = tail call ptr @proto_tree_add_item(ptr noundef %23, i32 noundef %68, ptr noundef %0, i32 noundef 12, i32 noundef 12, i32 noundef 0) #3
   br label %70
 
-70:                                               ; preds = %proto_item_set_hidden.exit325.i, %proto_item_set_hidden.exit.i
+70:                                               ; preds = %proto_item_set_hidden.exit326.i, %proto_item_set_hidden.exit.i
   %71 = tail call ptr @try_val_to_str(i32 noundef %27, ptr noundef nonnull @pcp_ropcode_vals) #3
   %.not315.i = icmp eq ptr %71, null
   br i1 %.not315.i, label %75, label %72
@@ -726,8 +726,8 @@ proto_item_set_hidden.exit325.i:                  ; preds = %56, %53, %50
 211:                                              ; preds = %199, %196
   %.0305.i = phi i32 [ %210, %199 ], [ 14, %196 ]
   %212 = sub i32 %166, %.0305.i
-  %or.cond320.i = icmp slt i32 %212, 2
-  br i1 %or.cond320.i, label %.loopexit.i, label %213
+  %or.cond321.i = icmp slt i32 %212, 2
+  br i1 %or.cond321.i, label %.loopexit.i, label %213
 
 213:                                              ; preds = %211
   %214 = load i32, ptr @hf_option_p64_ipv4_prefix_count, align 4
@@ -739,8 +739,8 @@ proto_item_set_hidden.exit325.i:                  ; preds = %56, %53, %50
   %.not319327.i = icmp eq i32 %218, 0
   %219 = sub i32 %166, %217
   %220 = icmp slt i32 %219, 2
-  %or.cond322328.i = or i1 %220, %.not319327.i
-  br i1 %or.cond322328.i, label %.loopexit.i, label %.lr.ph.i.preheader
+  %or.cond323328.i = or i1 %220, %.not319327.i
+  br i1 %or.cond323328.i, label %.loopexit.i, label %.lr.ph.i.preheader
 
 .lr.ph.i.preheader:                               ; preds = %213
   %.neg10 = add nsw i32 %166, -2
@@ -766,8 +766,8 @@ proto_item_set_hidden.exit325.i:                  ; preds = %56, %53, %50
   %.not319.i = icmp eq i32 %231, 0
   %232 = sub i32 %166, %229
   %233 = icmp slt i32 %232, 2
-  %or.cond322.i = or i1 %233, %.not319.i
-  br i1 %or.cond322.i, label %.loopexit.i, label %.lr.ph.i, !llvm.loop !4
+  %or.cond323.i = or i1 %233, %.not319.i
+  br i1 %or.cond323.i, label %.loopexit.i, label %.lr.ph.i, !llvm.loop !4
 
 234:                                              ; preds = %171
   %235 = load i32, ptr @hf_option_portset_size, align 4
@@ -790,8 +790,8 @@ proto_item_set_hidden.exit325.i:                  ; preds = %56, %53, %50
 
 .loopexit.i:                                      ; preds = %226, %.lr.ph.i, %245, %234, %213, %211, %192, %190, %187, %175, %172, %171, %.lr.ph333.i
   %247 = add i32 %165, %166
-  %.not326.i = icmp eq i32 %spec.select.i, 0
-  br i1 %.not326.i, label %252, label %248
+  %.not320.i = icmp eq i32 %spec.select.i, 0
+  br i1 %.not320.i, label %252, label %248
 
 248:                                              ; preds = %.loopexit.i
   %249 = load i32, ptr @hf_option_padding, align 4

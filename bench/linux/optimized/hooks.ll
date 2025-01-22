@@ -12393,10 +12393,10 @@ define internal i32 @selinux_fs_context_parse_param(ptr noundef %0, ptr noundef 
 define internal i32 @selinux_sb_eat_lsm_opts(ptr noundef %0, ptr nocapture noundef %1) #1 align 16 {
   br label %3
 
-3:                                                ; preds = %99, %2
-  %4 = phi ptr [ %0, %2 ], [ %102, %99 ]
-  %5 = phi ptr [ %0, %2 ], [ %93, %99 ]
-  %6 = phi i8 [ 1, %2 ], [ %94, %99 ]
+3:                                                ; preds = %98, %2
+  %4 = phi ptr [ %0, %2 ], [ %101, %98 ]
+  %5 = phi ptr [ %0, %2 ], [ %92, %98 ]
+  %6 = phi i8 [ 1, %2 ], [ %93, %98 ]
   br label %7
 
 7:                                                ; preds = %19, %3
@@ -12524,63 +12524,62 @@ define internal i32 @selinux_sb_eat_lsm_opts(ptr noundef %0, ptr nocapture nound
   %79 = tail call fastcc i32 @selinux_add_opt(i32 noundef %77, ptr noundef %78, ptr noundef %1)
   tail call void @kfree(ptr noundef %78) #24
   %80 = icmp eq i32 %79, 0
-  br i1 %80, label %91, label %.thread15
+  br i1 %80, label %90, label %.thread15
 
 .thread12:                                        ; preds = %24, %.loopexit16.thread, %.loopexit16
-  %81 = and i8 %6, 1
-  %82 = zext nneg i8 %81 to i64
-  %83 = getelementptr i8, ptr %4, i64 %82
-  %84 = getelementptr i8, ptr %83, i64 -1
-  %85 = xor i8 %81, 1
-  %86 = zext nneg i8 %85 to i32
-  %87 = add i32 %9, %86
-  %88 = icmp eq ptr %5, %84
-  %.pre = sext i32 %87 to i64
-  br i1 %88, label %.thread12._crit_edge, label %89
+  %81 = zext nneg i8 %6 to i64
+  %82 = getelementptr i8, ptr %4, i64 %81
+  %83 = getelementptr i8, ptr %82, i64 -1
+  %84 = xor i8 %6, 1
+  %85 = zext nneg i8 %84 to i32
+  %86 = add i32 %9, %85
+  %87 = icmp eq ptr %5, %83
+  %.pre = sext i32 %86 to i64
+  br i1 %87, label %.thread12._crit_edge, label %88
 
-89:                                               ; preds = %.thread12
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %5, ptr align 1 %84, i64 %.pre, i1 false)
+88:                                               ; preds = %.thread12
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %5, ptr align 1 %83, i64 %.pre, i1 false)
   br label %.thread12._crit_edge
 
-.thread12._crit_edge:                             ; preds = %.thread12, %89
-  %90 = getelementptr i8, ptr %5, i64 %.pre
-  br label %91
+.thread12._crit_edge:                             ; preds = %.thread12, %88
+  %89 = getelementptr i8, ptr %5, i64 %.pre
+  br label %90
 
-91:                                               ; preds = %.thread12._crit_edge, %.thread36
+90:                                               ; preds = %.thread12._crit_edge, %.thread36
   %.pre-phi = phi i64 [ %.pre, %.thread12._crit_edge ], [ %10, %.thread36 ]
-  %92 = phi ptr [ %84, %.thread12._crit_edge ], [ %4, %.thread36 ]
-  %93 = phi ptr [ %90, %.thread12._crit_edge ], [ %5, %.thread36 ]
-  %94 = phi i8 [ 0, %.thread12._crit_edge ], [ %6, %.thread36 ]
-  %95 = phi i32 [ %87, %.thread12._crit_edge ], [ %9, %.thread36 ]
-  %96 = getelementptr i8, ptr %92, i64 %.pre-phi
-  %97 = load i8, ptr %96, align 1
-  %98 = icmp eq i8 %97, 0
-  br i1 %98, label %.thread14, label %99
+  %91 = phi ptr [ %83, %.thread12._crit_edge ], [ %4, %.thread36 ]
+  %92 = phi ptr [ %89, %.thread12._crit_edge ], [ %5, %.thread36 ]
+  %93 = phi i8 [ 0, %.thread12._crit_edge ], [ %6, %.thread36 ]
+  %94 = phi i32 [ %86, %.thread12._crit_edge ], [ %9, %.thread36 ]
+  %95 = getelementptr i8, ptr %91, i64 %.pre-phi
+  %96 = load i8, ptr %95, align 1
+  %97 = icmp eq i8 %96, 0
+  br i1 %97, label %.thread14, label %98
 
-99:                                               ; preds = %91
-  %100 = add i32 %95, 1
-  %101 = sext i32 %100 to i64
-  %102 = getelementptr i8, ptr %92, i64 %101
+98:                                               ; preds = %90
+  %99 = add i32 %94, 1
+  %100 = sext i32 %99 to i64
+  %101 = getelementptr i8, ptr %91, i64 %100
   br label %3
 
-.thread14:                                        ; preds = %91
-  store i8 0, ptr %93, align 1
+.thread14:                                        ; preds = %90
+  store i8 0, ptr %92, align 1
   br label %.loopexit17
 
 .thread15:                                        ; preds = %.thread36, %.loopexit
-  %103 = phi i32 [ -12, %.loopexit ], [ %79, %.thread36 ]
-  %104 = load ptr, ptr %1, align 8
-  %105 = icmp eq ptr %104, null
-  br i1 %105, label %.loopexit17, label %106
+  %102 = phi i32 [ -12, %.loopexit ], [ %79, %.thread36 ]
+  %103 = load ptr, ptr %1, align 8
+  %104 = icmp eq ptr %103, null
+  br i1 %104, label %.loopexit17, label %105
 
-106:                                              ; preds = %.thread15
-  tail call void @kfree(ptr noundef nonnull %104) #24
+105:                                              ; preds = %.thread15
+  tail call void @kfree(ptr noundef nonnull %103) #24
   store ptr null, ptr %1, align 8
   br label %.loopexit17
 
-.loopexit17:                                      ; preds = %106, %.thread15, %.thread14
-  %107 = phi i32 [ 0, %.thread14 ], [ %103, %106 ], [ %103, %.thread15 ]
-  ret i32 %107
+.loopexit17:                                      ; preds = %105, %.thread15, %.thread14
+  %106 = phi i32 [ 0, %.thread14 ], [ %102, %105 ], [ %102, %.thread15 ]
+  ret i32 %106
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(readwrite, inaccessiblemem: none)

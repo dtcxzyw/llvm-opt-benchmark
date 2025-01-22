@@ -4906,10 +4906,9 @@ define internal fastcc noundef zeroext i1 @parse_bitstruct_body(ptr noundef %0, 
   %147 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %148 = load i8, ptr %147, align 8
   %149 = shl nuw nsw i8 %.0114.ph.lcssa158, 4
-  %150 = and i8 %149, 16
-  %151 = and i8 %148, -17
-  %152 = or disjoint i8 %151, %150
-  store i8 %152, ptr %147, align 8
+  %150 = and i8 %148, -17
+  %151 = add nuw nsw i8 %150, %149
+  store i8 %151, ptr %147, align 8
   br label %.loopexit
 
 .loopexit:                                        ; preds = %97, %85, %17, %80, %6, %.outer._crit_edge, %108, %104, %38, %31, %28

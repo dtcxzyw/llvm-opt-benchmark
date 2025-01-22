@@ -7017,8 +7017,7 @@ if.end179:                                        ; preds = %if.then170, %if.els
 cleanup194:                                       ; preds = %if.end179
   %inc = add i8 %cons_non_solid.0307, 1
   %cmp186 = icmp ne i8 %inc, 3
-  %67 = and i8 %solid_below.0308, 1
-  %tobool188.not = icmp eq i8 %67, 0
+  %tobool188.not = icmp eq i8 %solid_below.0308, 0
   %or.cond288 = select i1 %cmp186, i1 true, i1 %tobool188.not
   br i1 %or.cond288, label %for.inc, label %return.loopexit.split.loop.exit301
 
@@ -7027,8 +7026,8 @@ for.inc:                                          ; preds = %cleanup194, %if.end
   %cons_non_solid.2298 = phi i8 [ %inc, %cleanup194 ], [ 0, %if.end179 ]
   %inc208 = add i16 %y.0306, 1
   %conv124 = sext i16 %inc208 to i32
-  %68 = load i32, ptr %water_level122, align 4, !tbaa !51
-  %add = add nsw i32 %68, 32
+  %67 = load i32, ptr %water_level122, align 4, !tbaa !51
+  %add = add nsw i32 %67, 32
   %cmp126.not = icmp slt i32 %add, %conv124
   br i1 %cmp126.not, label %return, label %for.body, !llvm.loop !163
 

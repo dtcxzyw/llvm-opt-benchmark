@@ -15668,7 +15668,7 @@ _ZN12_GLOBAL__N_119MCDCCoverageBuilder26getTotalConditionsAndResetEPKN5clang14Bi
   br i1 %36, label %37, label %39
 
 37:                                               ; preds = %33
-  %38 = icmp ult i64 %.079.i.i.i, 3
+  %38 = icmp samesign ult i64 %.079.i.i.i, 3
   br i1 %38, label %_ZNK12_GLOBAL__N_119SourceMappingRegion12isMCDCBranchEv.exit, label %39
 
 39:                                               ; preds = %37, %33
@@ -15798,7 +15798,7 @@ _ZN5clang17DiagnosticBuilderD2Ev.exit.i:          ; preds = %.lr.ph.i.i.i.i.i, %
   br i1 %103, label %104, label %106
 
 104:                                              ; preds = %100
-  %105 = icmp ult i64 %.079.i.i.i.i, 3
+  %105 = icmp samesign ult i64 %.079.i.i.i.i, 3
   br i1 %105, label %_ZNK12_GLOBAL__N_119SourceMappingRegion12isMCDCBranchEv.exit.i, label %106
 
 106:                                              ; preds = %104, %100
@@ -21303,7 +21303,7 @@ _ZNK5clang13SourceManager16isInSystemHeaderENS_14SourceLocationE.exit.thread: ; 
   br i1 %102, label %103, label %105
 
 103:                                              ; preds = %99
-  %104 = icmp ult i64 %.079.i.i.i, 3
+  %104 = icmp samesign ult i64 %.079.i.i.i, 3
   br i1 %104, label %_ZNK12_GLOBAL__N_119SourceMappingRegion14isMCDCDecisionEv.exit, label %105
 
 105:                                              ; preds = %103, %99

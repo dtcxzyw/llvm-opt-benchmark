@@ -1101,12 +1101,11 @@ for.inc:                                          ; preds = %if.then15.for.inc_c
   br i1 %cmp.i.i.i34.not, label %for.end.loopexit87, label %for.body, !llvm.loop !16
 
 for.end.loopexit87:                               ; preds = %for.inc
-  %52 = and i8 %encoderHasUnackedEntry.1, 1
-  %53 = zext nneg i8 %52 to i32
+  %52 = zext nneg i8 %encoderHasUnackedEntry.1 to i32
   br label %for.end
 
 for.end:                                          ; preds = %for.inc.us67, %for.inc.us67.us, %for.inc.us, %for.end.loopexit87, %if.end
-  %encoderHasUnackedEntry.0.lcssa = phi i32 [ 0, %if.end ], [ %53, %for.end.loopexit87 ], [ 1, %for.inc.us ], [ 0, %for.inc.us67.us ], [ 0, %for.inc.us67 ]
+  %encoderHasUnackedEntry.0.lcssa = phi i32 [ 0, %if.end ], [ %52, %for.end.loopexit87 ], [ 1, %for.inc.us ], [ 0, %for.inc.us67.us ], [ 0, %for.inc.us67 ]
   %. = sub nsw i32 0, %encoderHasUnackedEntry.0.lcssa
   br label %return
 

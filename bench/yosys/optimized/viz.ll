@@ -40322,27 +40322,25 @@ _ZN12_GLOBAL__N_19GraphNode3tagEi.exit67:         ; preds = %195, %147, %._crit_
 
 ._crit_edge103:                                   ; preds = %200, %._crit_edge
   %.043.lcssa = phi i8 [ 0, %._crit_edge ], [ %.144, %200 ]
-  %201 = xor i8 %.043.lcssa, %.041.lcssa
-  %202 = and i8 %201, 1
-  %.not = icmp eq i8 %202, 0
-  br i1 %.not, label %203, label %.loopexit
+  %.not = icmp eq i8 %.041.lcssa, %.043.lcssa
+  br i1 %.not, label %201, label %.loopexit
 
-203:                                              ; preds = %._crit_edge103
-  %204 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_19GraphNode3getEv(ptr noundef nonnull align 8 dereferenceable(240) %.tr83)
-  %205 = getelementptr inbounds nuw i8, ptr %204, i64 96
-  %206 = getelementptr inbounds nuw i8, ptr %204, i64 104
-  %207 = load ptr, ptr %206, align 8
-  %208 = load ptr, ptr %205, align 8
-  %209 = ptrtoint ptr %207 to i64
-  %210 = ptrtoint ptr %208 to i64
-  %211 = sub i64 %209, %210
-  %212 = sdiv exact i64 %211, 12
-  %213 = trunc i64 %212 to i32
-  %214 = sdiv i32 %.045.lcssa, %213
+201:                                              ; preds = %._crit_edge103
+  %202 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_19GraphNode3getEv(ptr noundef nonnull align 8 dereferenceable(240) %.tr83)
+  %203 = getelementptr inbounds nuw i8, ptr %202, i64 96
+  %204 = getelementptr inbounds nuw i8, ptr %202, i64 104
+  %205 = load ptr, ptr %204, align 8
+  %206 = load ptr, ptr %203, align 8
+  %207 = ptrtoint ptr %205 to i64
+  %208 = ptrtoint ptr %206 to i64
+  %209 = sub i64 %207, %208
+  %210 = sdiv exact i64 %209, 12
+  %211 = trunc i64 %210 to i32
+  %212 = sdiv i32 %.045.lcssa, %211
   br label %.loopexit
 
-.loopexit:                                        ; preds = %117, %109, %_ZN12_GLOBAL__N_19GraphNode3tagEi.exit67, %._crit_edge103, %26, %203
-  %.0 = phi i32 [ %214, %203 ], [ 100, %26 ], [ 0, %._crit_edge103 ], [ 0, %_ZN12_GLOBAL__N_19GraphNode3tagEi.exit67 ], [ 0, %109 ], [ 0, %117 ]
+.loopexit:                                        ; preds = %117, %109, %_ZN12_GLOBAL__N_19GraphNode3tagEi.exit67, %._crit_edge103, %26, %201
+  %.0 = phi i32 [ %212, %201 ], [ 100, %26 ], [ 0, %._crit_edge103 ], [ 0, %_ZN12_GLOBAL__N_19GraphNode3tagEi.exit67 ], [ 0, %109 ], [ 0, %117 ]
   ret i32 %.0
 }
 

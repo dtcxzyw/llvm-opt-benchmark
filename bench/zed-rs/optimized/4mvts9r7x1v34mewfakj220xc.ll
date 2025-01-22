@@ -12819,8 +12819,8 @@ _ZN3vim6motion15end_of_document17h804b0c97d0ab0508E.exit: ; preds = %842, %845
   unreachable
 
 ._crit_edge.loopexit.i.i.i.i:                     ; preds = %974
-  %937 = icmp ne i64 %.sroa.013.1.i.i.i.i, 1
-  %938 = icmp ne i64 %.sroa.015.1.i.i.i.i, 1
+  %937 = icmp eq i64 %.sroa.013.1.i.i.i.i, 0
+  %938 = icmp eq i64 %.sroa.015.1.i.i.i.i, 0
   %939 = select i1 %937, i1 true, i1 %938
   br label %._crit_edge.i.i.i.i
 

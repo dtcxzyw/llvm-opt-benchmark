@@ -1409,8 +1409,8 @@ for.body.i.i:                                     ; preds = %for.inc.i.i, %for.b
   br i1 %tobool3.not.i.i, label %if.then.i.i134, label %for.inc.i.i
 
 if.then.i.i134:                                   ; preds = %for.body.i.i
-  %cmp.i.i = icmp sgt i32 %found.06.i.i, 0
-  br i1 %cmp.i.i, label %for.body.i18.i, label %for.inc.i.i
+  %cmp.not.i.i = icmp eq i32 %found.06.i.i, 0
+  br i1 %cmp.not.i.i, label %for.inc.i.i, label %for.body.i18.i
 
 for.inc.i.i:                                      ; preds = %if.then.i.i134, %for.body.i.i
   %found.1.i.i = phi i32 [ %found.06.i.i, %for.body.i.i ], [ 1, %if.then.i.i134 ]
@@ -1428,8 +1428,8 @@ for.body.i18.i:                                   ; preds = %if.then.i.i134, %fo
   br i1 %tobool3.not.i20.i, label %if.then.i25.i, label %for.inc.i21.i
 
 if.then.i25.i:                                    ; preds = %for.body.i18.i
-  %cmp.i26.i = icmp eq ptr %field.07.i.i, %field.0155
-  br i1 %cmp.i26.i, label %vmfield_name_num.exit.i, label %if.end.i.i
+  %cmp.i.i = icmp eq ptr %field.07.i.i, %field.0155
+  br i1 %cmp.i.i, label %vmfield_name_num.exit.i, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.then.i25.i
   %inc.i.i = add i32 %found.08.i.i, 1
@@ -1468,13 +1468,13 @@ if.else.i:                                        ; preds = %if.then11.i
 if.end16.i:                                       ; preds = %if.else.i, %if.then13.i, %if.end9.i
   %43 = load i32, ptr %flags.i, align 8
   %and.i.i = and i32 %43, 8
-  %tobool.not.i27.i = icmp eq i32 %and.i.i, 0
-  br i1 %tobool.not.i27.i, label %if.else.i.i132, label %vmfield_get_type_name.exit.i
+  %tobool.not.i26.i = icmp eq i32 %and.i.i, 0
+  br i1 %tobool.not.i26.i, label %if.else.i.i132, label %vmfield_get_type_name.exit.i
 
 if.else.i.i132:                                   ; preds = %if.end16.i
   %and2.i.i = and i32 %43, 32768
-  %tobool3.not.i28.i = icmp eq i32 %and2.i.i, 0
-  br i1 %tobool3.not.i28.i, label %if.else5.i.i, label %vmfield_get_type_name.exit.i
+  %tobool3.not.i27.i = icmp eq i32 %and2.i.i, 0
+  br i1 %tobool3.not.i27.i, label %if.else5.i.i, label %vmfield_get_type_name.exit.i
 
 if.else5.i.i:                                     ; preds = %if.else.i.i132
   %44 = load ptr, ptr %info.i.i, align 8

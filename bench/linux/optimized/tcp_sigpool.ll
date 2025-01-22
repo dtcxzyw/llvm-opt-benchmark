@@ -774,83 +774,100 @@ define internal void @cpool_cleanup_work_cb(ptr nocapture readnone %0) #0 align 
   tail call void @mutex_lock(ptr noundef nonnull @cpool_mutex) #8
   %2 = load i32, ptr @cpool_populated, align 4
   %3 = icmp eq i32 %2, 0
-  br i1 %3, label %.preheader3, label %.preheader
+  br i1 %3, label %.preheader, label %.outer
 
-.preheader:                                       ; preds = %1, %19
-  %4 = phi i32 [ %20, %19 ], [ %2, %1 ]
-  %5 = phi i64 [ %22, %19 ], [ 0, %1 ]
-  %6 = phi i8 [ %21, %19 ], [ 1, %1 ]
-  %7 = getelementptr [170 x %struct.sigpool_entry], ptr @cpool, i64 0, i64 %5
+.outer:                                           ; preds = %1, %.thread
+  %4 = phi i32 [ %.lcssa21, %.thread ], [ %2, %1 ]
+  %5 = phi i32 [ %.lcssa19, %.thread ], [ %2, %1 ]
+  %.ph = phi i64 [ %31, %.thread ], [ 0, %1 ]
+  %6 = phi i1 [ true, %.thread ], [ false, %1 ]
+  %7 = getelementptr [170 x %struct.sigpool_entry], ptr @cpool, i64 0, i64 %.ph
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %9 = load volatile i32, ptr %8, align 8
   %10 = icmp eq i32 %9, 0
-  br i1 %10, label %11, label %19
+  br i1 %10, label %.lr.ph, label %.thread
 
-11:                                               ; preds = %.preheader
-  %12 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %13 = load ptr, ptr %12, align 8
-  %14 = icmp eq ptr %13, null
-  br i1 %14, label %19, label %15
+11:                                               ; preds = %26
+  %12 = getelementptr [170 x %struct.sigpool_entry], ptr @cpool, i64 0, i64 %28
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
+  %14 = load volatile i32, ptr %13, align 8
+  %15 = icmp eq i32 %14, 0
+  br i1 %15, label %.lr.ph, label %.thread, !llvm.loop !45
 
-15:                                               ; preds = %11
-  %16 = load ptr, ptr %7, align 8
-  %17 = getelementptr inbounds nuw i8, ptr %16, i64 16
-  tail call void @crypto_destroy_tfm(ptr noundef %16, ptr noundef nonnull %17) #8
-  %18 = load ptr, ptr %12, align 8
-  tail call void @kfree(ptr noundef %18) #8
-  tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false)
+.lr.ph:                                           ; preds = %.outer, %11
+  %16 = phi ptr [ %12, %11 ], [ %7, %.outer ]
+  %17 = phi i64 [ %28, %11 ], [ %.ph, %.outer ]
+  %18 = phi i32 [ %27, %11 ], [ %4, %.outer ]
+  %19 = getelementptr inbounds nuw i8, ptr %16, i64 8
+  %20 = load ptr, ptr %19, align 8
+  %21 = icmp eq ptr %20, null
+  br i1 %21, label %26, label %22
+
+22:                                               ; preds = %.lr.ph
+  %23 = load ptr, ptr %16, align 8
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 16
+  tail call void @crypto_destroy_tfm(ptr noundef %23, ptr noundef nonnull %24) #8
+  %25 = load ptr, ptr %19, align 8
+  tail call void @kfree(ptr noundef %25) #8
+  tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(24) %16, i8 0, i64 24, i1 false)
   %.pre = load i32, ptr @cpool_populated, align 4
-  br label %19
+  br label %26
 
-19:                                               ; preds = %15, %11, %.preheader
-  %20 = phi i32 [ %.pre, %15 ], [ %4, %11 ], [ %4, %.preheader ]
-  %21 = phi i8 [ %6, %15 ], [ %6, %11 ], [ 0, %.preheader ]
-  %22 = add nuw nsw i64 %5, 1
-  %23 = zext i32 %20 to i64
-  %24 = icmp samesign ult i64 %22, %23
-  br i1 %24, label %.preheader, label %25, !llvm.loop !45
+26:                                               ; preds = %22, %.lr.ph
+  %27 = phi i32 [ %.pre, %22 ], [ %18, %.lr.ph ]
+  %28 = add nuw nsw i64 %17, 1
+  %29 = zext i32 %27 to i64
+  %30 = icmp samesign ult i64 %28, %29
+  br i1 %30, label %11, label %34, !llvm.loop !45
 
-25:                                               ; preds = %19
-  %26 = and i8 %21, 1
-  %27 = icmp eq i8 %26, 0
-  br i1 %27, label %48, label %.preheader3
+.thread:                                          ; preds = %11, %.outer
+  %.lcssa21 = phi i32 [ %4, %.outer ], [ %27, %11 ]
+  %.lcssa19 = phi i32 [ %5, %.outer ], [ %27, %11 ]
+  %.lcssa = phi i64 [ %.ph, %.outer ], [ %28, %11 ]
+  %31 = add nuw nsw i64 %.lcssa, 1
+  %32 = zext i32 %.lcssa19 to i64
+  %33 = icmp samesign ult i64 %31, %32
+  br i1 %33, label %.outer, label %.thread3, !llvm.loop !45
 
-.preheader3:                                      ; preds = %25, %1
-  br label %28
+34:                                               ; preds = %26
+  br i1 %6, label %.thread3, label %.preheader
 
-28:                                               ; preds = %.preheader3, %38
-  %29 = phi i64 [ %46, %38 ], [ 0, %.preheader3 ]
-  %30 = load i64, ptr @__cpu_possible_mask, align 8
-  %31 = shl nsw i64 -1, %29
-  %32 = and i64 %30, %31
-  %33 = icmp eq i64 %32, 0
-  br i1 %33, label %.thread, label %34
+.preheader:                                       ; preds = %34, %1
+  br label %35
 
-34:                                               ; preds = %28
-  %35 = tail call i64 asm "rep; bsf $1,$0", "=r,rm,~{dirflag},~{fpsr},~{flags}"(i64 %32) #11, !srcloc !6
-  %36 = and i64 %35, 4294967232
-  %37 = icmp eq i64 %36, 0
-  br i1 %37, label %38, label %.thread
+35:                                               ; preds = %.preheader, %45
+  %36 = phi i64 [ %53, %45 ], [ 0, %.preheader ]
+  %37 = load i64, ptr @__cpu_possible_mask, align 8
+  %38 = shl nsw i64 -1, %36
+  %39 = and i64 %37, %38
+  %40 = icmp eq i64 %39, 0
+  br i1 %40, label %.thread4, label %41
 
-38:                                               ; preds = %34
-  %39 = and i64 %35, 63
-  %40 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %39
-  %41 = load i64, ptr %40, align 8
-  %42 = add i64 %41, ptrtoint (ptr @sigpool_scratch to i64)
-  %43 = inttoptr i64 %42 to ptr
-  %44 = load ptr, ptr %43, align 8
-  store volatile ptr null, ptr %43, align 8
-  tail call void @kfree(ptr noundef %44) #8
-  %45 = add nuw nsw i64 %35, 1
-  %46 = and i64 %45, 127
-  %47 = icmp samesign ugt i64 %46, 63
-  br i1 %47, label %.thread, label %28, !prof !9, !llvm.loop !46
+41:                                               ; preds = %35
+  %42 = tail call i64 asm "rep; bsf $1,$0", "=r,rm,~{dirflag},~{fpsr},~{flags}"(i64 %39) #11, !srcloc !6
+  %43 = and i64 %42, 4294967232
+  %44 = icmp eq i64 %43, 0
+  br i1 %44, label %45, label %.thread4
 
-.thread:                                          ; preds = %28, %38, %34
+45:                                               ; preds = %41
+  %46 = and i64 %42, 63
+  %47 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %46
+  %48 = load i64, ptr %47, align 8
+  %49 = add i64 %48, ptrtoint (ptr @sigpool_scratch to i64)
+  %50 = inttoptr i64 %49 to ptr
+  %51 = load ptr, ptr %50, align 8
+  store volatile ptr null, ptr %50, align 8
+  tail call void @kfree(ptr noundef %51) #8
+  %52 = add nuw nsw i64 %42, 1
+  %53 = and i64 %52, 127
+  %54 = icmp samesign ugt i64 %53, 63
+  br i1 %54, label %.thread4, label %35, !prof !9, !llvm.loop !46
+
+.thread4:                                         ; preds = %35, %45, %41
   store i64 0, ptr @__scratch_size, align 8
-  br label %48
+  br label %.thread3
 
-48:                                               ; preds = %.thread, %25
+.thread3:                                         ; preds = %.thread, %.thread4, %34
   tail call void @mutex_unlock(ptr noundef nonnull @cpool_mutex) #8
   ret void
 }

@@ -1640,7 +1640,7 @@ _ZN8WasmEdge7Runtime12StackManager4pushIRNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4
   br i1 %135, label %136, label %138
 
 136:                                              ; preds = %132
-  %137 = icmp ult i64 %.079.i.i.i, 3
+  %137 = icmp samesign ult i64 %.079.i.i.i, 3
   br i1 %137, label %_ZSt17holds_alternativeIN8WasmEdge7Runtime8Instance16FunctionInstance12WasmFunctionEJS4_NS0_6SymbolIvEESt10unique_ptrINS1_16HostFunctionBaseESt14default_deleteIS8_EEEEbRKSt7variantIJDpT0_EE.exit.i, label %138
 
 138:                                              ; preds = %136, %132
@@ -1725,7 +1725,7 @@ _ZNK8WasmEdge7Runtime8Instance16FunctionInstance9getInstrsEv.exit: ; preds = %_Z
   br i1 %171, label %172, label %174
 
 172:                                              ; preds = %168
-  %173 = icmp ult i64 %.079.i.i.i41, 3
+  %173 = icmp samesign ult i64 %.079.i.i.i41, 3
   br i1 %173, label %_ZSt17holds_alternativeIN8WasmEdge7Runtime8Instance16FunctionInstance12WasmFunctionEJS4_NS0_6SymbolIvEESt10unique_ptrINS1_16HostFunctionBaseESt14default_deleteIS8_EEEEbRKSt7variantIJDpT0_EE.exit.i44, label %174
 
 174:                                              ; preds = %172, %168

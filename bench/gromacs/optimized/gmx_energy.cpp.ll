@@ -1820,7 +1820,7 @@ _ZL13gmx_snew_implI9enerdat_tEvPKcS2_iRPT_m.exit: ; preds = %_ZL13gmx_snew_implI
   %.0216 = phi float [ %.1217, %659 ], [ %.0216.ph1777, %.thread592.outer1773 ]
   %.0213 = phi i64 [ %.1214, %659 ], [ %.0213.ph1778, %.thread592.outer1773 ]
   %.0206 = phi i32 [ %.1207, %659 ], [ %.0206.ph1779, %.thread592.outer1773 ]
-  %475 = sub nuw nsw i32 1, %.0206
+  %475 = xor i32 %.0206, 1
   %476 = zext nneg i32 %475 to i64
   %477 = getelementptr inbounds nuw %struct.t_enxframe, ptr %182, i64 %476
   br label %478

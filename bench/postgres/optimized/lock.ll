@@ -1444,7 +1444,7 @@ define internal fastcc noundef zeroext i1 @FastPathGrantRelationLock(i32 noundef
   br i1 %exitcond.not, label %25, label %7, !llvm.loop !16
 
 25:                                               ; preds = %24
-  %26 = icmp ult i32 %.1, 16
+  %26 = icmp samesign ult i32 %.1, 16
   br i1 %26, label %27, label %41
 
 27:                                               ; preds = %25

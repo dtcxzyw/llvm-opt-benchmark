@@ -28648,7 +28648,7 @@ do.end:                                           ; preds = %do.cond
   br i1 %call55, label %return, label %if.end57
 
 if.end57:                                         ; preds = %do.end
-  %cmp58 = icmp eq i32 %result.1, 2
+  %cmp58 = icmp ne i32 %result.1, 0
   %cmp59 = icmp ne i32 %f.121, 0
   %or.cond = select i1 %cmp58, i1 %cmp59, i1 false
   br i1 %or.cond, label %return.sink.split, label %if.end61
@@ -28663,12 +28663,13 @@ land.lhs.true63:                                  ; preds = %if.end61
 
 return.sink.split:                                ; preds = %land.lhs.true63, %if.end57
   %f.121.lcssa.sink = phi i32 [ %f.121, %if.end57 ], [ 7, %land.lhs.true63 ]
+  %retval.0.ph = phi i32 [ %result.1, %if.end57 ], [ 2, %land.lhs.true63 ]
   %m_last_search_failure = getelementptr inbounds nuw i8, ptr %this, i64 11388
   store i32 %f.121.lcssa.sink, ptr %m_last_search_failure, align 4
   br label %return
 
 return:                                           ; preds = %if.end47, %return.sink.split, %if.end61, %land.lhs.true63, %do.end, %if.end
-  %retval.0 = phi i32 [ %call5, %if.end ], [ 1, %do.end ], [ 0, %land.lhs.true63 ], [ %result.1, %if.end61 ], [ 2, %return.sink.split ], [ %ok9.0, %if.end47 ]
+  %retval.0 = phi i32 [ %call5, %if.end ], [ 1, %do.end ], [ 0, %land.lhs.true63 ], [ %result.1, %if.end61 ], [ %retval.0.ph, %return.sink.split ], [ %ok9.0, %if.end47 ]
   ret i32 %retval.0
 }
 

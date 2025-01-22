@@ -6027,21 +6027,20 @@ _ZNSt8__detail9__variant16_Variant_storageILb0EJSt9monostateN5sound29sound_manag
   br i1 %switch, label %while.cond2, label %while.end
 
 common.resume:                                    ; preds = %_ZNSt11unique_lockISt5mutexED2Ev.exit13.i.i, %lpad
-  %common.resume.op = phi { ptr, i32 } [ %lpad.phi, %lpad ], [ %39, %_ZNSt11unique_lockISt5mutexED2Ev.exit13.i.i ]
+  %common.resume.op = phi { ptr, i32 } [ %lpad.phi, %lpad ], [ %38, %_ZNSt11unique_lockISt5mutexED2Ev.exit13.i.i ]
   resume { ptr, i32 } %common.resume.op
 
 while.end:                                        ; preds = %_ZNSt8__detail9__variant16_Variant_storageILb0EJSt9monostateN5sound29sound_manager_messages_to_mgr8PauseAllENS4_9ResumeAllENS4_14UpdateListenerENS4_15SetListenerGainENS4_13LoadSoundFileENS4_13LoadSoundDataENS4_15AddSoundToGroupENS4_9PlaySoundENS4_11PlaySoundAtENS4_9StopSoundENS4_9FadeSoundENS4_17UpdateSoundPosVelENS4_10PleaseStopEEED2Ev.exit
-  %31 = and i8 %stop_requested.1, 1
-  %tobool.not = icmp eq i8 %31, 0
+  %tobool.not = icmp eq i8 %stop_requested.1, 0
   br i1 %tobool.not, label %cleanup24, label %while.end32
 
 cleanup24:                                        ; preds = %while.end
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ts.i.i) #28
   %call.i.i.i = call i32 @clock_gettime(i32 noundef 4, ptr noundef nonnull %ts.i.i) #28
-  %32 = load i64, ptr %ts.i.i, align 8, !tbaa !212
-  %mul.i.i = mul i64 %32, 1000
-  %33 = load i64, ptr %tv_nsec.i.i, align 8, !tbaa !214
-  %div.i.i = udiv i64 %33, 1000000
+  %31 = load i64, ptr %ts.i.i, align 8, !tbaa !212
+  %mul.i.i = mul i64 %31, 1000
+  %32 = load i64, ptr %tv_nsec.i.i, align 8, !tbaa !214
+  %div.i.i = udiv i64 %32, 1000000
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ts.i.i) #28
   %add.i.i = add i64 %mul.i.i, %t_step_start.0.neg83
   %sub.i57 = add i64 %add.i.i, %div.i.i
@@ -6049,10 +6048,10 @@ cleanup24:                                        ; preds = %while.end
   %mul = fmul nsz float %conv.i58, 0x3F50624DE0000000
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ts.i59) #28
   %call.i.i60 = call i32 @clock_gettime(i32 noundef 4, ptr noundef nonnull %ts.i59) #28
-  %34 = load i64, ptr %ts.i59, align 8, !tbaa !212
-  %mul.i61.neg = mul i64 %34, -1000
-  %35 = load i64, ptr %tv_nsec.i62, align 8, !tbaa !214
-  %div.i63 = udiv i64 %35, 1000000
+  %33 = load i64, ptr %ts.i59, align 8, !tbaa !212
+  %mul.i61.neg = mul i64 %33, -1000
+  %34 = load i64, ptr %tv_nsec.i62, align 8, !tbaa !214
+  %div.i63 = udiv i64 %34, 1000000
   %add.i64.neg = sub i64 %mul.i61.neg, %div.i63
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ts.i59) #28
   call void @_ZN5sound18OpenALSoundManager4stepEf(ptr noundef nonnull align 8 dereferenceable(848) %this, float noundef %mul)
@@ -6073,17 +6072,17 @@ if.then.i.i.i.i.i:                                ; preds = %while.end32
 
 _ZNSt11unique_lockISt5mutexEC2ERS0_.exit.i.i:     ; preds = %while.end32
   %_M_finish.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 744
-  %36 = load ptr, ptr %_M_finish.i.i.i.i, align 8, !tbaa !142
+  %35 = load ptr, ptr %_M_finish.i.i.i.i, align 8, !tbaa !142
   %_M_last.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 760
-  %37 = load ptr, ptr %_M_last.i.i.i.i, align 8, !tbaa !143
-  %add.ptr.i.i.i.i66 = getelementptr inbounds i8, ptr %37, i64 -8
-  %cmp.not.i.i.i.i = icmp eq ptr %36, %add.ptr.i.i.i.i66
+  %36 = load ptr, ptr %_M_last.i.i.i.i, align 8, !tbaa !143
+  %add.ptr.i.i.i.i66 = getelementptr inbounds i8, ptr %36, i64 -8
+  %cmp.not.i.i.i.i = icmp eq ptr %35, %add.ptr.i.i.i.i66
   br i1 %cmp.not.i.i.i.i, label %if.else.i.i.i.i, label %if.then.i.i.i.i67
 
 if.then.i.i.i.i67:                                ; preds = %_ZNSt11unique_lockISt5mutexEC2ERS0_.exit.i.i
-  store i64 8589934592, ptr %36, align 4
-  %38 = load ptr, ptr %_M_finish.i.i.i.i, align 8, !tbaa !142
-  %incdec.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %38, i64 8
+  store i64 8589934592, ptr %35, align 4
+  %37 = load ptr, ptr %_M_finish.i.i.i.i, align 8, !tbaa !142
+  %incdec.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %37, i64 8
   store ptr %incdec.ptr.i.i.i.i, ptr %_M_finish.i.i.i.i, align 8, !tbaa !142
   br label %invoke.cont.i.i
 
@@ -6097,7 +6096,7 @@ invoke.cont.i.i:                                  ; preds = %if.else.i.i.i.i, %i
           to label %_ZN5sound18OpenALSoundManager4sendESt7variantIJSt9monostateNS_31sound_manager_messages_to_proxy18ReportRemovedSoundENS3_7StoppedEEE.exit unwind label %_ZNSt11unique_lockISt5mutexED2Ev.exit13.i.i
 
 _ZNSt11unique_lockISt5mutexED2Ev.exit13.i.i:      ; preds = %invoke.cont.i.i, %if.else.i.i.i.i
-  %39 = landingpad { ptr, i32 }
+  %38 = landingpad { ptr, i32 }
           cleanup
   %call1.i.i.i.i12.i.i = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %m_mutex.i.i) #28
   br label %common.resume

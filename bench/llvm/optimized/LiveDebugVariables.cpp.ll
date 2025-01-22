@@ -15556,8 +15556,7 @@ _ZN4llvm11IntervalMapINS_9SlotIndexEN12_GLOBAL__N_116DbgVariableValueELj4ENS_15I
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
-  %.mask = and i8 %.173.i, 1
-  %427 = zext nneg i8 %.mask to i32
+  %427 = zext nneg i8 %.173.i to i32
   %428 = add i32 %106, %427
   %.val.pre = load ptr, ptr %9, align 8
   %.pre103 = zext i32 %428 to i64

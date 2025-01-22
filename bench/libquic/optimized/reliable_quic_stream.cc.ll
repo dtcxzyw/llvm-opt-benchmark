@@ -1138,8 +1138,8 @@ entry:
   %iov = alloca %struct.iovec, align 8
   %queued_data_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %queued_data_, align 8
-  %cmp.i21 = icmp eq ptr %0, %queued_data_
-  br i1 %cmp.i21, label %while.end, label %while.body.lr.ph
+  %cmp.i22 = icmp eq ptr %0, %queued_data_
+  br i1 %cmp.i22, label %while.end, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %entry
   %_M_size.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -1149,8 +1149,8 @@ while.body.lr.ph:                                 ; preds = %entry
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %_ZNSt7__cxx114listIN3net18ReliableQuicStream11PendingDataESaIS3_EE9pop_frontEv.exit
-  %1 = phi ptr [ %0, %while.body.lr.ph ], [ %19, %_ZNSt7__cxx114listIN3net18ReliableQuicStream11PendingDataESaIS3_EE9pop_frontEv.exit ]
-  %fin.022 = phi i8 [ 0, %while.body.lr.ph ], [ %fin.1, %_ZNSt7__cxx114listIN3net18ReliableQuicStream11PendingDataESaIS3_EE9pop_frontEv.exit ]
+  %1 = phi ptr [ %0, %while.body.lr.ph ], [ %20, %_ZNSt7__cxx114listIN3net18ReliableQuicStream11PendingDataESaIS3_EE9pop_frontEv.exit ]
+  %fin.023 = phi i8 [ 0, %while.body.lr.ph ], [ %fin.1, %_ZNSt7__cxx114listIN3net18ReliableQuicStream11PendingDataESaIS3_EE9pop_frontEv.exit ]
   %_M_storage.i.i.i = getelementptr inbounds nuw i8, ptr %1, i64 16
   %ack_listener4 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %2 = load ptr, ptr %ack_listener4, align 8
@@ -1159,7 +1159,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %4 = load i8, ptr %fin_buffered_, align 2
   %tobool = trunc i8 %4 to i1
   %5 = select i1 %cmp, i1 %tobool, i1 false
-  %fin.1 = select i1 %5, i8 1, i8 %fin.022
+  %fin.1 = select i1 %5, i8 1, i8 %fin.023
   %offset = getelementptr inbounds nuw i8, ptr %1, i64 48
   %6 = load i64, ptr %offset, align 8
   %cmp8.not = icmp eq i64 %6, 0
@@ -1221,43 +1221,43 @@ if.end32:                                         ; preds = %land.lhs.true9, %wh
   store i64 %sub41, ptr %queued_data_bytes_, align 8
   %cmp43 = icmp eq i64 %11, %sub
   %13 = extractvalue { i64, i8 } %call40, 1
-  %.masked = and i8 %13, 1
-  %cmp48 = icmp eq i8 %fin.1, %.masked
+  %14 = and i8 %13, 1
+  %cmp48 = icmp eq i8 %fin.1, %14
   %or.cond = select i1 %cmp43, i1 %cmp48, i1 false
   br i1 %or.cond, label %if.then49, label %if.else
 
 if.then49:                                        ; preds = %if.end32
-  %14 = load ptr, ptr %queued_data_, align 8
-  %15 = load i64, ptr %_M_size.i.i.i, align 8
-  %sub.i.i.i = add i64 %15, -1
+  %15 = load ptr, ptr %queued_data_, align 8
+  %16 = load i64, ptr %_M_size.i.i.i, align 8
+  %sub.i.i.i = add i64 %16, -1
   store i64 %sub.i.i.i, ptr %_M_size.i.i.i, align 8
-  call void @_ZNSt8__detail15_List_node_base9_M_unhookEv(ptr noundef nonnull align 8 dereferenceable(16) %14) #16
-  %ack_listener.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %14, i64 56
-  %16 = load ptr, ptr %ack_listener.i.i.i.i.i, align 8
-  %tobool.not.i.i.i.i.i.i = icmp eq ptr %16, null
+  call void @_ZNSt8__detail15_List_node_base9_M_unhookEv(ptr noundef nonnull align 8 dereferenceable(16) %15) #16
+  %ack_listener.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %15, i64 56
+  %17 = load ptr, ptr %ack_listener.i.i.i.i.i, align 8
+  %tobool.not.i.i.i.i.i.i = icmp eq ptr %17, null
   br i1 %tobool.not.i.i.i.i.i.i, label %_ZNSt7__cxx114listIN3net18ReliableQuicStream11PendingDataESaIS3_EE9pop_frontEv.exit, label %if.then.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %if.then49
-  %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %16, i64 8
-  %17 = load i32, ptr %add.ptr.i.i.i.i.i.i.i, align 4
-  %dec.i.i.i.i.i.i.i.i.i = add nsw i32 %17, -1
+  %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %17, i64 8
+  %18 = load i32, ptr %add.ptr.i.i.i.i.i.i.i, align 4
+  %dec.i.i.i.i.i.i.i.i.i = add nsw i32 %18, -1
   store i32 %dec.i.i.i.i.i.i.i.i.i, ptr %add.ptr.i.i.i.i.i.i.i, align 4
   %cmp.i.i.i.i.i.i.i.i.i = icmp eq i32 %dec.i.i.i.i.i.i.i.i.i, 0
   br i1 %cmp.i.i.i.i.i.i.i.i.i, label %delete.notnull.i.i.i.i.i.i.i.i, label %_ZNSt7__cxx114listIN3net18ReliableQuicStream11PendingDataESaIS3_EE9pop_frontEv.exit
 
 delete.notnull.i.i.i.i.i.i.i.i:                   ; preds = %if.then.i.i.i.i.i.i
-  %vtable.i.i.i.i.i.i.i.i = load ptr, ptr %16, align 8
+  %vtable.i.i.i.i.i.i.i.i = load ptr, ptr %17, align 8
   %vfn.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i.i.i.i.i.i, i64 24
-  %18 = load ptr, ptr %vfn.i.i.i.i.i.i.i.i, align 8
-  call void %18(ptr noundef nonnull align 8 dereferenceable(12) %16) #16
+  %19 = load ptr, ptr %vfn.i.i.i.i.i.i.i.i, align 8
+  call void %19(ptr noundef nonnull align 8 dereferenceable(12) %17) #16
   br label %_ZNSt7__cxx114listIN3net18ReliableQuicStream11PendingDataESaIS3_EE9pop_frontEv.exit
 
 _ZNSt7__cxx114listIN3net18ReliableQuicStream11PendingDataESaIS3_EE9pop_frontEv.exit: ; preds = %if.then49, %if.then.i.i.i.i.i.i, %delete.notnull.i.i.i.i.i.i.i.i
-  %_M_storage.i.i.i18 = getelementptr inbounds nuw i8, ptr %14, i64 16
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(48) %_M_storage.i.i.i18) #16
-  call void @_ZdlPv(ptr noundef nonnull %14) #17
-  %19 = load ptr, ptr %queued_data_, align 8
-  %cmp.i = icmp eq ptr %19, %queued_data_
+  %_M_storage.i.i.i19 = getelementptr inbounds nuw i8, ptr %15, i64 16
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(48) %_M_storage.i.i.i19) #16
+  call void @_ZdlPv(ptr noundef nonnull %15) #17
+  %20 = load ptr, ptr %queued_data_, align 8
+  %cmp.i = icmp eq ptr %20, %queued_data_
   br i1 %cmp.i, label %while.end, label %while.body, !llvm.loop !8
 
 if.else:                                          ; preds = %if.end32
@@ -1265,8 +1265,8 @@ if.else:                                          ; preds = %if.end32
   br i1 %cmp52.not, label %while.end, label %if.then53
 
 if.then53:                                        ; preds = %if.else
-  %20 = load i64, ptr %offset, align 8
-  %add = add i64 %20, %11
+  %21 = load i64, ptr %offset, align 8
+  %add = add i64 %21, %11
   store i64 %add, ptr %offset, align 8
   br label %while.end
 

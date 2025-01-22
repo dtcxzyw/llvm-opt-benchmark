@@ -23559,7 +23559,7 @@ _ZN4llvm5ErrorD2Ev.exit55:                        ; preds = %_ZNK4llvm19MachineV
   br i1 %141, label %142, label %144
 
 142:                                              ; preds = %137
-  %143 = icmp ult i64 %.079.i.i.i.i.i.i, 2
+  %143 = icmp samesign ult i64 %.079.i.i.i.i.i.i, 2
   br i1 %143, label %_ZN4llvm2gi11RuleMatcher12insertActionINS0_22MakeTempRegisterActionEJRNS0_10LLTCodeGenERjEEESt14_List_iteratorISt10unique_ptrINS0_11MatchActionESt14default_deleteIS9_EEESD_DpOT0_.exit, label %144
 
 144:                                              ; preds = %142, %137
@@ -23859,7 +23859,7 @@ _ZN4llvm5ErrorD2Ev.exit134:                       ; preds = %114
   br i1 %163, label %164, label %166
 
 164:                                              ; preds = %159
-  %165 = icmp ult i64 %.079.i.i.i.i.i.i, 2
+  %165 = icmp samesign ult i64 %.079.i.i.i.i.i.i, 2
   br i1 %165, label %_ZN4llvm2gi11RuleMatcher12insertActionINS0_22MakeTempRegisterActionEJRNS0_10LLTCodeGenERjEEESt14_List_iteratorISt10unique_ptrINS0_11MatchActionESt14default_deleteIS9_EEESD_DpOT0_.exit, label %166
 
 166:                                              ; preds = %164, %159
@@ -24596,7 +24596,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit.thread.i:       ; preds = %_ZN4llvmeqENS_9Stri
   br i1 %522, label %523, label %525
 
 523:                                              ; preds = %518
-  %524 = icmp ult i64 %.079.i.i.i.i.i.i.i, 2
+  %524 = icmp samesign ult i64 %.079.i.i.i.i.i.i.i, 2
   br i1 %524, label %_ZN4llvm2gi11RuleMatcher12insertActionINS0_22MakeTempRegisterActionEJRNS0_10LLTCodeGenERjEEESt14_List_iteratorISt10unique_ptrINS0_11MatchActionESt14default_deleteIS9_EEESD_DpOT0_.exit.i, label %525
 
 525:                                              ; preds = %523, %518
@@ -25123,7 +25123,7 @@ define linkonce_odr hidden ptr @_ZN4llvm2gi11RuleMatcher12insertActionINS0_22Mak
   br i1 %17, label %18, label %20
 
 18:                                               ; preds = %13
-  %19 = icmp ult i64 %.079.i.i.i.i.i, 2
+  %19 = icmp samesign ult i64 %.079.i.i.i.i.i, 2
   br i1 %19, label %_ZNSt10unique_ptrIN4llvm2gi22MakeTempRegisterActionESt14default_deleteIS2_EED2Ev.exit, label %20
 
 20:                                               ; preds = %18, %13

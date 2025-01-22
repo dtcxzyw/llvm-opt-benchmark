@@ -15034,34 +15034,34 @@ define internal fastcc i32 @add_to_class_internal(ptr noundef nonnull %0, ptr no
 .outer.outer:                                     ; preds = %112, %15
   %.0125.ph.ph = phi i32 [ %5, %15 ], [ %.139.i, %112 ]
   %.186.ph.ph = phi i32 [ %5, %15 ], [ %66, %112 ]
-  %.183.ph.ph = phi i32 [ %6, %15 ], [ %.183.ph.ph287, %112 ]
-  %.180.ph.ph = phi i32 [ %8, %15 ], [ %.180.ph.ph288.ph, %112 ]
+  %.183.ph.ph = phi i32 [ %6, %15 ], [ %.183.ph.ph286, %112 ]
+  %.180.ph.ph = phi i32 [ %8, %15 ], [ %.180.ph.ph287.ph, %112 ]
   %.1.ph.ph = phi i32 [ 0, %15 ], [ %.1.ph, %112 ]
   %20 = add i32 %.186.ph.ph, -1
-  br label %.outer.outer285.outer
+  br label %.outer.outer284.outer
 
-.outer.outer285.outer:                            ; preds = %118, %.outer.outer
-  %.0125.ph.ph286.ph = phi i32 [ %.139.i, %118 ], [ %.0125.ph.ph, %.outer.outer ]
-  %.183.ph.ph287.ph = phi i32 [ %.0.in.i, %118 ], [ %.183.ph.ph, %.outer.outer ]
-  %.180.ph.ph288.ph = phi i32 [ %119, %118 ], [ %.180.ph.ph, %.outer.outer ]
-  %.1.ph.ph289.ph = phi i32 [ %.1.ph, %118 ], [ %.1.ph.ph, %.outer.outer ]
-  br label %.outer.outer285
+.outer.outer284.outer:                            ; preds = %118, %.outer.outer
+  %.0125.ph.ph285.ph = phi i32 [ %.139.i, %118 ], [ %.0125.ph.ph, %.outer.outer ]
+  %.183.ph.ph286.ph = phi i32 [ %.0.in.i, %118 ], [ %.183.ph.ph, %.outer.outer ]
+  %.180.ph.ph287.ph = phi i32 [ %119, %118 ], [ %.180.ph.ph, %.outer.outer ]
+  %.1.ph.ph288.ph = phi i32 [ %.1.ph, %118 ], [ %.1.ph.ph, %.outer.outer ]
+  br label %.outer.outer284
 
-.outer.outer285:                                  ; preds = %.outer.outer285.outer, %116
-  %.0125.ph.ph286 = phi i32 [ %.139.i, %116 ], [ %.0125.ph.ph286.ph, %.outer.outer285.outer ]
-  %.183.ph.ph287 = phi i32 [ %.0.in.i, %116 ], [ %.183.ph.ph287.ph, %.outer.outer285.outer ]
-  %.1.ph.ph289 = phi i32 [ %.1.ph, %116 ], [ %.1.ph.ph289.ph, %.outer.outer285.outer ]
-  %21 = add nuw i32 %.183.ph.ph287, 1
+.outer.outer284:                                  ; preds = %.outer.outer284.outer, %116
+  %.0125.ph.ph285 = phi i32 [ %.139.i, %116 ], [ %.0125.ph.ph285.ph, %.outer.outer284.outer ]
+  %.183.ph.ph286 = phi i32 [ %.0.in.i, %116 ], [ %.183.ph.ph286.ph, %.outer.outer284.outer ]
+  %.1.ph.ph288 = phi i32 [ %.1.ph, %116 ], [ %.1.ph.ph288.ph, %.outer.outer284.outer ]
+  %21 = add nuw i32 %.183.ph.ph286, 1
   br label %.outer
 
-.outer:                                           ; preds = %.outer.backedge, %.outer.outer285
-  %.0125.ph = phi i32 [ %.0125.ph.ph286, %.outer.outer285 ], [ %.0125.ph.be, %.outer.backedge ]
-  %.1.ph = phi i32 [ %.1.ph.ph289, %.outer.outer285 ], [ %.1.ph.be, %.outer.backedge ]
+.outer:                                           ; preds = %.outer.backedge, %.outer.outer284
+  %.0125.ph = phi i32 [ %.0125.ph.ph285, %.outer.outer284 ], [ %.0125.ph.be, %.outer.backedge ]
+  %.1.ph = phi i32 [ %.1.ph.ph288, %.outer.outer284 ], [ %.1.ph.be, %.outer.backedge ]
   br label %22
 
 22:                                               ; preds = %.outer, %110
   %.0125 = phi i32 [ %.139.i, %110 ], [ %.0125.ph, %.outer ]
-  %.not57.i = icmp ugt i32 %.0125, %.183.ph.ph287
+  %.not57.i = icmp ugt i32 %.0125, %.183.ph.ph286
   br i1 %.not57.i, label %get_othercase_range.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %22
@@ -15094,7 +15094,7 @@ define internal fastcc i32 @add_to_class_internal(ptr noundef nonnull %0, ptr no
 
 40:                                               ; preds = %37
   %41 = add i32 %.03858.us.i, 1
-  %.not.us.i = icmp ugt i32 %41, %.183.ph.ph287
+  %.not.us.i = icmp ugt i32 %41, %.183.ph.ph286
   br i1 %.not.us.i, label %get_othercase_range.exit, label %.lr.ph.split.us.i
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i, %64
@@ -15131,7 +15131,7 @@ define internal fastcc i32 @add_to_class_internal(ptr noundef nonnull %0, ptr no
 
 64:                                               ; preds = %61
   %65 = add i32 %.03858.i, 1
-  %.not.i = icmp ugt i32 %65, %.183.ph.ph287
+  %.not.i = icmp ugt i32 %65, %.183.ph.ph286
   br i1 %.not.i, label %get_othercase_range.exit, label %.lr.ph.split.i
 
 .split61.us.i:                                    ; preds = %61, %37
@@ -15145,7 +15145,7 @@ define internal fastcc i32 @add_to_class_internal(ptr noundef nonnull %0, ptr no
   %.0.in.i = phi i32 [ %66, %.split61.us.i ], [ %.0.i, %84 ]
   %.0.i = add i32 %.0.in.i, 1
   %.139.i = add i32 %.139.in.i, 1
-  %.not48.i = icmp ugt i32 %.139.i, %.183.ph.ph287
+  %.not48.i = icmp ugt i32 %.139.i, %.183.ph.ph286
   br i1 %.not48.i, label %.thread, label %68
 
 68:                                               ; preds = %67
@@ -15196,7 +15196,7 @@ define internal fastcc i32 @add_to_class_internal(ptr noundef nonnull %0, ptr no
 
 .lr.ph._crit_edge:                                ; preds = %.lr.ph
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.021.i177, i64 4
-  %.pre220 = load i32, ptr %.phi.trans.insert, align 4
+  %.pre221 = load i32, ptr %.phi.trans.insert, align 4
   br label %106
 
 .preheader147:                                    ; preds = %.lr.ph
@@ -15222,7 +15222,7 @@ define internal fastcc i32 @add_to_class_internal(ptr noundef nonnull %0, ptr no
   br label %106
 
 106:                                              ; preds = %.lr.ph._crit_edge, %100
-  %107 = phi i32 [ %97, %100 ], [ %.pre220, %.lr.ph._crit_edge ]
+  %107 = phi i32 [ %97, %100 ], [ %.pre221, %.lr.ph._crit_edge ]
   %.120.i = phi i32 [ %105, %100 ], [ %.019.i178, %.lr.ph._crit_edge ]
   %.0.i107 = phi i64 [ %95, %100 ], [ 1, %.lr.ph._crit_edge ]
   %108 = getelementptr inbounds nuw i32, ptr %.021.i177, i64 %.0.i107
@@ -15246,18 +15246,18 @@ define internal fastcc i32 @add_to_class_internal(ptr noundef nonnull %0, ptr no
   br i1 %or.cond, label %114, label %.outer.outer
 
 114:                                              ; preds = %112
-  %115 = icmp ule i32 %.0.in.i, %.183.ph.ph287
+  %115 = icmp ule i32 %.0.in.i, %.183.ph.ph286
   %.not105 = icmp ugt i32 %66, %21
   %or.cond146 = select i1 %115, i1 true, i1 %.not105
   br i1 %or.cond146, label %120, label %116
 
 116:                                              ; preds = %114
-  %117 = icmp ugt i32 %.0.in.i, %.180.ph.ph288.ph
-  br i1 %117, label %118, label %.outer.outer285
+  %117 = icmp ugt i32 %.0.in.i, %.180.ph.ph287.ph
+  br i1 %117, label %118, label %.outer.outer284
 
 118:                                              ; preds = %116
   %119 = tail call i32 @llvm.umin.i32(i32 %.0.in.i, i32 255)
-  br label %.outer.outer285.outer
+  br label %.outer.outer284.outer
 
 120:                                              ; preds = %114
   %121 = tail call fastcc i32 @add_to_class_internal(ptr noundef %0, ptr noundef %1, i32 noundef %16, i32 noundef %3, ptr noundef %4, i32 noundef %66, i32 noundef %.0.in.i)
@@ -15293,8 +15293,8 @@ get_othercase_range.exit.loopexit:                ; preds = %122
 get_othercase_range.exit:                         ; preds = %22, %64, %40, %get_othercase_range.exit.loopexit, %.preheader, %7
   %.088 = phi i32 [ %2, %7 ], [ %2, %.preheader ], [ %2, %get_othercase_range.exit.loopexit ], [ %16, %40 ], [ %16, %64 ], [ %16, %22 ]
   %.085 = phi i32 [ %5, %7 ], [ %5, %.preheader ], [ %5, %get_othercase_range.exit.loopexit ], [ %.186.ph.ph, %40 ], [ %.186.ph.ph, %64 ], [ %.186.ph.ph, %22 ]
-  %.082 = phi i32 [ %6, %7 ], [ %6, %.preheader ], [ %6, %get_othercase_range.exit.loopexit ], [ %.183.ph.ph287, %40 ], [ %.183.ph.ph287, %64 ], [ %.183.ph.ph287, %22 ]
-  %.079 = phi i32 [ %8, %7 ], [ %8, %.preheader ], [ %8, %get_othercase_range.exit.loopexit ], [ %.180.ph.ph288.ph, %40 ], [ %.180.ph.ph288.ph, %64 ], [ %.180.ph.ph288.ph, %22 ]
+  %.082 = phi i32 [ %6, %7 ], [ %6, %.preheader ], [ %6, %get_othercase_range.exit.loopexit ], [ %.183.ph.ph286, %40 ], [ %.183.ph.ph286, %64 ], [ %.183.ph.ph286, %22 ]
+  %.079 = phi i32 [ %8, %7 ], [ %8, %.preheader ], [ %8, %get_othercase_range.exit.loopexit ], [ %.180.ph.ph287.ph, %40 ], [ %.180.ph.ph287.ph, %64 ], [ %.180.ph.ph287.ph, %22 ]
   %.078 = phi i32 [ 0, %7 ], [ 0, %.preheader ], [ %133, %get_othercase_range.exit.loopexit ], [ %.1.ph, %40 ], [ %.1.ph, %64 ], [ %.1.ph, %22 ]
   %134 = and i32 %.088, 524288
   %135 = icmp eq i32 %134, 0
@@ -15309,74 +15309,81 @@ get_othercase_range.exit:                         ; preds = %22, %64, %40, %get_
   %141 = getelementptr inbounds nuw i8, ptr %4, i64 260
   %142 = load i32, ptr %141, align 4
   %143 = icmp ult i32 %spec.store.select2, %142
-  br i1 %143, label %172, label %144
+  br i1 %143, label %174, label %144
 
 144:                                              ; preds = %140, %get_othercase_range.exit
   %.not98184 = icmp ugt i32 %.085, %.079
-  br i1 %.not98184, label %._crit_edge, label %.lr.ph187
+  br i1 %.not98184, label %._crit_edge, label %.lr.ph187.preheader
 
-.lr.ph187:                                        ; preds = %144, %.lr.ph187
-  %.4186 = phi i32 [ %153, %.lr.ph187 ], [ %.078, %144 ]
-  %storemerge97185 = phi i32 [ %154, %.lr.ph187 ], [ %.085, %144 ]
-  %145 = lshr i32 %storemerge97185, 3
-  %146 = zext nneg i32 %145 to i64
-  %147 = getelementptr inbounds nuw i8, ptr %0, i64 %146
-  %148 = load i8, ptr %147, align 1
-  %149 = and i32 %storemerge97185, 7
-  %150 = shl nuw nsw i32 1, %149
-  %151 = trunc nuw i32 %150 to i8
-  %152 = or i8 %148, %151
-  store i8 %152, ptr %147, align 1
-  %153 = add i32 %.4186, 1
-  %154 = add i32 %storemerge97185, 1
-  %.not98 = icmp ugt i32 %154, %.079
-  br i1 %.not98, label %._crit_edge, label %.lr.ph187
+.lr.ph187.preheader:                              ; preds = %144
+  %145 = add i32 %.079, %.078
+  %146 = add i32 %145, 1
+  br label %.lr.ph187
 
-._crit_edge:                                      ; preds = %.lr.ph187, %144
-  %.4.lcssa = phi i32 [ %.078, %144 ], [ %153, %.lr.ph187 ]
+.lr.ph187:                                        ; preds = %.lr.ph187.preheader, %.lr.ph187
+  %storemerge97185 = phi i32 [ %155, %.lr.ph187 ], [ %.085, %.lr.ph187.preheader ]
+  %147 = lshr i32 %storemerge97185, 3
+  %148 = zext nneg i32 %147 to i64
+  %149 = getelementptr inbounds nuw i8, ptr %0, i64 %148
+  %150 = load i8, ptr %149, align 1
+  %151 = and i32 %storemerge97185, 7
+  %152 = shl nuw nsw i32 1, %151
+  %153 = trunc nuw i32 %152 to i8
+  %154 = or i8 %150, %153
+  store i8 %154, ptr %149, align 1
+  %155 = add nuw nsw i32 %storemerge97185, 1
+  %exitcond220 = icmp eq i32 %storemerge97185, %.079
+  br i1 %exitcond220, label %._crit_edge.loopexit, label %.lr.ph187
+
+._crit_edge.loopexit:                             ; preds = %.lr.ph187
+  %156 = sub i32 %146, %.085
+  br label %._crit_edge
+
+._crit_edge:                                      ; preds = %._crit_edge.loopexit, %144
+  %.4.lcssa = phi i32 [ %.078, %144 ], [ %156, %._crit_edge.loopexit ]
   %spec.store.select = tail call i32 @llvm.umax.i32(i32 %.085, i32 256)
   %.not99 = icmp ult i32 %spec.store.select2, %spec.store.select
-  br i1 %.not99, label %172, label %155
+  br i1 %.not99, label %174, label %157
 
-155:                                              ; preds = %._crit_edge
-  %156 = load ptr, ptr %1, align 8
-  br i1 %135, label %171, label %157
-
-157:                                              ; preds = %155
-  %158 = icmp ult i32 %spec.store.select, %.082
-  br i1 %158, label %159, label %164
+157:                                              ; preds = %._crit_edge
+  %158 = load ptr, ptr %1, align 8
+  br i1 %135, label %173, label %159
 
 159:                                              ; preds = %157
-  %160 = getelementptr inbounds nuw i8, ptr %156, i64 1
-  store i8 2, ptr %156, align 1
-  %161 = tail call i32 @_pcre2_ord2utf_8(i32 noundef %spec.store.select, ptr noundef nonnull %160) #17
-  %162 = zext i32 %161 to i64
-  %163 = getelementptr inbounds nuw i8, ptr %160, i64 %162
+  %160 = icmp ult i32 %spec.store.select, %.082
+  br i1 %160, label %161, label %166
+
+161:                                              ; preds = %159
+  %162 = getelementptr inbounds nuw i8, ptr %158, i64 1
+  store i8 2, ptr %158, align 1
+  %163 = tail call i32 @_pcre2_ord2utf_8(i32 noundef %spec.store.select, ptr noundef nonnull %162) #17
+  %164 = zext i32 %163 to i64
+  %165 = getelementptr inbounds nuw i8, ptr %162, i64 %164
   br label %.sink.split
 
-164:                                              ; preds = %157
-  %165 = icmp eq i32 %spec.store.select, %.082
-  br i1 %165, label %166, label %171
+166:                                              ; preds = %159
+  %167 = icmp eq i32 %spec.store.select, %.082
+  br i1 %167, label %168, label %173
 
-166:                                              ; preds = %164
-  %167 = getelementptr inbounds nuw i8, ptr %156, i64 1
-  store i8 1, ptr %156, align 1
+168:                                              ; preds = %166
+  %169 = getelementptr inbounds nuw i8, ptr %158, i64 1
+  store i8 1, ptr %158, align 1
   br label %.sink.split
 
-.sink.split:                                      ; preds = %166, %159
-  %.sink251 = phi ptr [ %163, %159 ], [ %167, %166 ]
-  %168 = tail call i32 @_pcre2_ord2utf_8(i32 noundef %.082, ptr noundef nonnull %.sink251) #17
-  %169 = zext i32 %168 to i64
-  %170 = getelementptr inbounds nuw i8, ptr %.sink251, i64 %169
-  br label %171
+.sink.split:                                      ; preds = %168, %161
+  %.sink251 = phi ptr [ %165, %161 ], [ %169, %168 ]
+  %170 = tail call i32 @_pcre2_ord2utf_8(i32 noundef %.082, ptr noundef nonnull %.sink251) #17
+  %171 = zext i32 %170 to i64
+  %172 = getelementptr inbounds nuw i8, ptr %.sink251, i64 %171
+  br label %173
 
-171:                                              ; preds = %.sink.split, %155, %164
-  %.0 = phi ptr [ %156, %164 ], [ %156, %155 ], [ %170, %.sink.split ]
+173:                                              ; preds = %.sink.split, %157, %166
+  %.0 = phi ptr [ %158, %166 ], [ %158, %157 ], [ %172, %.sink.split ]
   store ptr %.0, ptr %1, align 8
-  br label %172
+  br label %174
 
-172:                                              ; preds = %._crit_edge, %171, %140
-  %.077 = phi i32 [ %.078, %140 ], [ %.4.lcssa, %171 ], [ %.4.lcssa, %._crit_edge ]
+174:                                              ; preds = %._crit_edge, %173, %140
+  %.077 = phi i32 [ %.078, %140 ], [ %.4.lcssa, %173 ], [ %.4.lcssa, %._crit_edge ]
   ret i32 %.077
 }
 

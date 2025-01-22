@@ -6132,7 +6132,7 @@ _ZN12_GLOBAL__N_113StackColoring14expungeSlotMapERN4llvm8DenseMapIiiNS1_12DenseM
   br i1 %2657, label %2658, label %2660
 
 2658:                                             ; preds = %2653
-  %2659 = icmp ult i64 %.079.i.i.i.i, 2
+  %2659 = icmp samesign ult i64 %.079.i.i.i.i, 2
   br i1 %2659, label %_ZNK4llvm15MachineFunction15VariableDbgInfo11inStackSlotEv.exit.i, label %2660
 
 2660:                                             ; preds = %2658, %2653

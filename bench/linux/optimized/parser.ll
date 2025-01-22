@@ -441,13 +441,13 @@ define dso_local zeroext i1 @match_wildcard(ptr nocapture noundef readonly %0, p
   %4 = icmp eq i8 %3, 0
   br i1 %4, label %.loopexit2, label %.preheader
 
-.preheader:                                       ; preds = %2, %29
-  %5 = phi i8 [ %35, %29 ], [ %3, %2 ]
-  %6 = phi i8 [ %34, %29 ], [ 0, %2 ]
-  %7 = phi ptr [ %33, %29 ], [ %0, %2 ]
-  %8 = phi ptr [ %32, %29 ], [ %1, %2 ]
-  %9 = phi ptr [ %31, %29 ], [ %1, %2 ]
-  %10 = phi ptr [ %30, %29 ], [ %0, %2 ]
+.preheader:                                       ; preds = %2, %28
+  %5 = phi i8 [ %34, %28 ], [ %3, %2 ]
+  %6 = phi i8 [ %33, %28 ], [ 0, %2 ]
+  %7 = phi ptr [ %32, %28 ], [ %0, %2 ]
+  %8 = phi ptr [ %31, %28 ], [ %1, %2 ]
+  %9 = phi ptr [ %30, %28 ], [ %1, %2 ]
+  %10 = phi ptr [ %29, %28 ], [ %0, %2 ]
   %11 = load i8, ptr %7, align 1
   switch i8 %11, label %19 [
     i8 63, label %12
@@ -457,13 +457,13 @@ define dso_local zeroext i1 @match_wildcard(ptr nocapture noundef readonly %0, p
 12:                                               ; preds = %.preheader
   %13 = getelementptr i8, ptr %8, i64 1
   %14 = getelementptr i8, ptr %7, i64 1
-  br label %29
+  br label %28
 
 15:                                               ; preds = %.preheader
   %16 = getelementptr i8, ptr %7, i64 1
   %17 = load i8, ptr %16, align 1
   %18 = icmp eq i8 %17, 0
-  br i1 %18, label %.loopexit, label %29
+  br i1 %18, label %.loopexit, label %28
 
 19:                                               ; preds = %.preheader
   %20 = icmp eq i8 %5, %11
@@ -472,40 +472,39 @@ define dso_local zeroext i1 @match_wildcard(ptr nocapture noundef readonly %0, p
 21:                                               ; preds = %19
   %22 = getelementptr i8, ptr %8, i64 1
   %23 = getelementptr i8, ptr %7, i64 1
-  br label %29
+  br label %28
 
 24:                                               ; preds = %19
-  %25 = and i8 %6, 1
-  %26 = icmp eq i8 %25, 0
-  br i1 %26, label %.loopexit, label %27
+  %25 = icmp eq i8 %6, 0
+  br i1 %25, label %.loopexit, label %26
 
-27:                                               ; preds = %24
-  %28 = getelementptr i8, ptr %9, i64 1
-  br label %29
+26:                                               ; preds = %24
+  %27 = getelementptr i8, ptr %9, i64 1
+  br label %28
 
-29:                                               ; preds = %27, %21, %15, %12
-  %30 = phi ptr [ %10, %21 ], [ %10, %27 ], [ %10, %12 ], [ %16, %15 ]
-  %31 = phi ptr [ %9, %21 ], [ %28, %27 ], [ %9, %12 ], [ %8, %15 ]
-  %32 = phi ptr [ %22, %21 ], [ %28, %27 ], [ %13, %12 ], [ %8, %15 ]
-  %33 = phi ptr [ %23, %21 ], [ %10, %27 ], [ %14, %12 ], [ %16, %15 ]
-  %34 = phi i8 [ %6, %21 ], [ %6, %27 ], [ %6, %12 ], [ 1, %15 ]
-  %35 = load i8, ptr %32, align 1
-  %36 = icmp eq i8 %35, 0
-  br i1 %36, label %.loopexit2, label %.preheader, !llvm.loop !10
+28:                                               ; preds = %26, %21, %15, %12
+  %29 = phi ptr [ %10, %21 ], [ %10, %26 ], [ %10, %12 ], [ %16, %15 ]
+  %30 = phi ptr [ %9, %21 ], [ %27, %26 ], [ %9, %12 ], [ %8, %15 ]
+  %31 = phi ptr [ %22, %21 ], [ %27, %26 ], [ %13, %12 ], [ %8, %15 ]
+  %32 = phi ptr [ %23, %21 ], [ %10, %26 ], [ %14, %12 ], [ %16, %15 ]
+  %33 = phi i8 [ %6, %21 ], [ %6, %26 ], [ %6, %12 ], [ 1, %15 ]
+  %34 = load i8, ptr %31, align 1
+  %35 = icmp eq i8 %34, 0
+  br i1 %35, label %.loopexit2, label %.preheader, !llvm.loop !10
 
-.loopexit2:                                       ; preds = %29, %2
-  %37 = phi ptr [ %0, %2 ], [ %33, %29 ]
-  %38 = load i8, ptr %37, align 1
-  %39 = icmp eq i8 %38, 42
-  %40 = zext i1 %39 to i64
-  %41 = getelementptr i8, ptr %37, i64 %40
-  %42 = load i8, ptr %41, align 1
-  %43 = icmp eq i8 %42, 0
+.loopexit2:                                       ; preds = %28, %2
+  %36 = phi ptr [ %0, %2 ], [ %32, %28 ]
+  %37 = load i8, ptr %36, align 1
+  %38 = icmp eq i8 %37, 42
+  %39 = zext i1 %38 to i64
+  %40 = getelementptr i8, ptr %36, i64 %39
+  %41 = load i8, ptr %40, align 1
+  %42 = icmp eq i8 %41, 0
   br label %.loopexit
 
 .loopexit:                                        ; preds = %24, %15, %.loopexit2
-  %44 = phi i1 [ %43, %.loopexit2 ], [ false, %24 ], [ true, %15 ]
-  ret i1 %44
+  %43 = phi i1 [ %42, %.loopexit2 ], [ false, %24 ], [ true, %15 ]
+  ret i1 %43
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)

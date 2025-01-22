@@ -5255,7 +5255,7 @@ if.then.i:                                        ; preds = %if.then3
   br label %return
 
 if.end4:                                          ; preds = %while.body
-  %cmp5 = icmp sgt i32 %call1, %relevant_error.017
+  %cmp5 = icmp samesign ugt i32 %call1, %relevant_error.017
   %.pre = load i32, ptr %local_idxptr, align 4
   br i1 %cmp5, label %if.then8, label %lor.lhs.false
 

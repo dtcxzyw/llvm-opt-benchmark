@@ -314,7 +314,7 @@ declare void @ERR_set_error(i32 noundef, i32 noundef, ptr noundef, ...) local_un
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 0, 2) i32 @parse_value(ptr noundef %ctx, ptr nocapture noundef nonnull %t, ptr nocapture noundef nonnull %res, i32 noundef %create) unnamed_addr #0 {
 entry:
-  %v.i50 = alloca [1000 x i8], align 16
+  %v.i51 = alloca [1000 x i8], align 16
   %v.i = alloca [1000 x i8], align 16
   %s = alloca ptr, align 8
   %0 = load ptr, ptr %t, align 8
@@ -336,7 +336,7 @@ if.then:                                          ; preds = %entry, %entry
   %cmp.not14.i = icmp eq i8 %2, 0
   %cmp4.not15.i = icmp eq i8 %2, %1
   %or.cond16.i = or i1 %cmp.not14.i, %cmp4.not15.i
-  br i1 %or.cond16.i, label %while.end.i, label %while.body.i
+  br i1 %or.cond16.i, label %while.end.thread.i, label %while.body.i
 
 while.body.i:                                     ; preds = %if.then, %if.end.i
   %3 = phi i8 [ %4, %if.end.i ], [ %2, %if.then ]
@@ -360,51 +360,52 @@ if.end.i:                                         ; preds = %if.then.i, %while.b
   %cmp.not.i = icmp eq i8 %4, 0
   %cmp4.not.i = icmp eq i8 %4, %1
   %or.cond.i = or i1 %cmp.not.i, %cmp4.not.i
-  br i1 %or.cond.i, label %while.end.loopexit.i, label %while.body.i, !llvm.loop !7
+  br i1 %or.cond.i, label %while.end.i, label %while.body.i, !llvm.loop !7
 
-while.end.loopexit.i:                             ; preds = %if.end.i
+while.end.i:                                      ; preds = %if.end.i
   br i1 %cmp.not.i, label %if.then11.i, label %if.end13.i
 
-while.end.i:                                      ; preds = %if.then
+while.end.thread.i:                               ; preds = %if.then
   br i1 %cmp.not14.i, label %if.then11.i, label %if.end13.thread.i
 
-if.end13.thread.i:                                ; preds = %while.end.i
+if.end13.thread.i:                                ; preds = %while.end.thread.i
   store i8 0, ptr %v.i, align 16
   br label %if.else16.i
 
-if.then11.i:                                      ; preds = %while.end.i, %while.end.loopexit.i
+if.then11.i:                                      ; preds = %while.end.thread.i, %while.end.i
   tail call void @ERR_new() #9
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 208, ptr noundef nonnull @__func__.parse_string) #9
   %conv12.i = sext i8 %1 to i32
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 55, i32 noundef 106, ptr noundef nonnull @.str.12, i32 noundef %conv12.i, ptr noundef nonnull %incdec.ptr) #9
   br label %parse_string.exit
 
-if.end13.i:                                       ; preds = %while.end.loopexit.i
-  %5 = icmp eq i32 %err.1.i, 0
+if.end13.i:                                       ; preds = %while.end.i
   %arrayidx14.i = getelementptr inbounds [1000 x i8], ptr %v.i, i64 0, i64 %i.1.i
   store i8 0, ptr %arrayidx14.i, align 1
-  br i1 %5, label %if.else16.i, label %if.then15.i
+  %tobool.not.i = icmp eq i32 %err.1.i, 0
+  br i1 %tobool.not.i, label %if.else16.i, label %if.then15.i
 
 if.then15.i:                                      ; preds = %if.end13.i
   tail call void @ERR_new() #9
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 214, ptr noundef nonnull @__func__.parse_string) #9
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 55, i32 noundef 109, ptr noundef nonnull @.str.2, ptr noundef nonnull %incdec.ptr) #9
+  %5 = xor i32 %err.1.i, 1
   br label %if.end18.i
 
 if.else16.i:                                      ; preds = %if.end13.i, %if.end13.thread.i
-  %s.0.lcssa2434.i = phi ptr [ %incdec.ptr, %if.end13.thread.i ], [ %incdec.ptr.i, %if.end13.i ]
+  %s.0.lcssa2839.i = phi ptr [ %incdec.ptr, %if.end13.thread.i ], [ %incdec.ptr.i, %if.end13.i ]
   %call.i = call i32 @ossl_property_value(ptr noundef %ctx, ptr noundef nonnull %v.i, i32 noundef %create) #9
   %v17.i = getelementptr inbounds nuw i8, ptr %res, i64 16
   store i32 %call.i, ptr %v17.i, align 8
   br label %if.end18.i
 
 if.end18.i:                                       ; preds = %if.else16.i, %if.then15.i
-  %s.0.lcssa2433.i = phi ptr [ %s.0.lcssa2434.i, %if.else16.i ], [ %incdec.ptr.i, %if.then15.i ]
-  %err.0.lcssa2631.i = phi i32 [ 1, %if.else16.i ], [ 0, %if.then15.i ]
+  %s.0.lcssa2838.i = phi ptr [ %s.0.lcssa2839.i, %if.else16.i ], [ %incdec.ptr.i, %if.then15.i ]
+  %err.0.lcssa3036.i = phi i32 [ 1, %if.else16.i ], [ %5, %if.then15.i ]
   br label %while.cond.i.i
 
 while.cond.i.i:                                   ; preds = %while.cond.i.i, %if.end18.i
-  %s.0.pn.i = phi ptr [ %s.0.lcssa2433.i, %if.end18.i ], [ %s.addr.0.i.i, %while.cond.i.i ]
+  %s.0.pn.i = phi ptr [ %s.0.lcssa2838.i, %if.end18.i ], [ %s.addr.0.i.i, %while.cond.i.i ]
   %s.addr.0.i.i = getelementptr inbounds nuw i8, ptr %s.0.pn.i, i64 1
   %6 = load i8, ptr %s.addr.0.i.i, align 1
   %conv.i.i = sext i8 %6 to i32
@@ -419,7 +420,7 @@ skip_space.exit.i:                                ; preds = %while.cond.i.i
   br label %parse_string.exit
 
 parse_string.exit:                                ; preds = %if.then11.i, %skip_space.exit.i
-  %retval.0.i = phi i32 [ 0, %if.then11.i ], [ %err.0.lcssa2631.i, %skip_space.exit.i ]
+  %retval.0.i = phi i32 [ 0, %if.then11.i ], [ %err.0.lcssa3036.i, %skip_space.exit.i ]
   call void @llvm.lifetime.end.p0(i64 1000, ptr nonnull %v.i)
   br label %if.end57
 
@@ -451,17 +452,17 @@ if.then27:                                        ; preds = %land.lhs.true
   br label %do.body.i
 
 do.body.i:                                        ; preds = %if.end15.i, %if.then27
-  %s.0.i = phi ptr [ %add.ptr, %if.then27 ], [ %incdec.ptr.i17, %if.end15.i ]
+  %s.0.i = phi ptr [ %add.ptr, %if.then27 ], [ %incdec.ptr.i18, %if.end15.i ]
   %v.0.i = phi i64 [ 0, %if.then27 ], [ %add17.i, %if.end15.i ]
   %9 = load i8, ptr %s.0.i, align 1
   %conv.i = sext i8 %9 to i32
   %call.i15 = tail call i32 @ossl_isdigit(i32 noundef %conv.i) #9
-  %tobool.not.i = icmp eq i32 %call.i15, 0
+  %tobool.not.i16 = icmp eq i32 %call.i15, 0
   %10 = load i8, ptr %s.0.i, align 1
   %conv2.i = sext i8 %10 to i32
-  br i1 %tobool.not.i, label %if.else.i, label %if.then.i16
+  br i1 %tobool.not.i16, label %if.else.i, label %if.then.i17
 
-if.then.i16:                                      ; preds = %do.body.i
+if.then.i17:                                      ; preds = %do.body.i
   %sub.i = add nsw i32 %conv2.i, -48
   br label %if.end10.i
 
@@ -483,8 +484,8 @@ if.else9.i:                                       ; preds = %if.else.i
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 55, i32 noundef 102, ptr noundef nonnull @.str.14, ptr noundef nonnull %add.ptr) #9
   br label %return
 
-if.end10.i:                                       ; preds = %if.then5.i, %if.then.i16
-  %sval.0.i = phi i32 [ %sub.i, %if.then.i16 ], [ %add.i, %if.then5.i ]
+if.end10.i:                                       ; preds = %if.then5.i, %if.then.i17
+  %sval.0.i = phi i32 [ %sub.i, %if.then.i17 ], [ %add.i, %if.then5.i ]
   %conv11.i = sext i32 %sval.0.i to i64
   %sub12.i = sub nsw i64 9223372036854775807, %conv11.i
   %div18.i = lshr i64 %sub12.i, 4
@@ -500,28 +501,28 @@ if.then14.i:                                      ; preds = %if.end10.i
 if.end15.i:                                       ; preds = %if.end10.i
   %shl.i = shl i64 %v.0.i, 4
   %add17.i = add nsw i64 %shl.i, %conv11.i
-  %incdec.ptr.i17 = getelementptr inbounds nuw i8, ptr %s.0.i, i64 1
-  %12 = load i8, ptr %incdec.ptr.i17, align 1
+  %incdec.ptr.i18 = getelementptr inbounds nuw i8, ptr %s.0.i, i64 1
+  %12 = load i8, ptr %incdec.ptr.i18, align 1
   %conv18.i = sext i8 %12 to i32
   %call19.i = tail call i32 @ossl_ctype_check(i32 noundef %conv18.i, i32 noundef 16) #9
   %tobool20.not.i = icmp eq i32 %call19.i, 0
   br i1 %tobool20.not.i, label %do.end.i, label %do.body.i, !llvm.loop !8
 
 do.end.i:                                         ; preds = %if.end15.i
-  %13 = load i8, ptr %incdec.ptr.i17, align 1
+  %13 = load i8, ptr %incdec.ptr.i18, align 1
   %conv21.i = sext i8 %13 to i32
   %call22.i = tail call i32 @ossl_ctype_check(i32 noundef %conv21.i, i32 noundef 8) #9
   %tobool23.not.i = icmp eq i32 %call22.i, 0
-  br i1 %tobool23.not.i, label %land.lhs.true.i, label %while.cond.i.i18.preheader
+  br i1 %tobool23.not.i, label %land.lhs.true.i, label %while.cond.i.i19.preheader
 
-while.cond.i.i18.preheader:                       ; preds = %land.lhs.true.i, %land.lhs.true.i, %do.end.i
-  br label %while.cond.i.i18
+while.cond.i.i19.preheader:                       ; preds = %land.lhs.true.i, %land.lhs.true.i, %do.end.i
+  br label %while.cond.i.i19
 
 land.lhs.true.i:                                  ; preds = %do.end.i
-  %14 = load i8, ptr %incdec.ptr.i17, align 1
+  %14 = load i8, ptr %incdec.ptr.i18, align 1
   switch i8 %14, label %if.then31.i [
-    i8 0, label %while.cond.i.i18.preheader
-    i8 44, label %while.cond.i.i18.preheader
+    i8 0, label %while.cond.i.i19.preheader
+    i8 44, label %while.cond.i.i19.preheader
   ]
 
 if.then31.i:                                      ; preds = %land.lhs.true.i
@@ -530,18 +531,18 @@ if.then31.i:                                      ; preds = %land.lhs.true.i
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 55, i32 noundef 102, ptr noundef nonnull @.str.2, ptr noundef nonnull %add.ptr) #9
   br label %return
 
-while.cond.i.i18:                                 ; preds = %while.cond.i.i18.preheader, %while.cond.i.i18
-  %s.addr.0.i.i19 = phi ptr [ %incdec.ptr.i.i, %while.cond.i.i18 ], [ %incdec.ptr.i17, %while.cond.i.i18.preheader ]
-  %15 = load i8, ptr %s.addr.0.i.i19, align 1
-  %conv.i.i20 = sext i8 %15 to i32
-  %call.i.i21 = tail call i32 @ossl_ctype_check(i32 noundef %conv.i.i20, i32 noundef 8) #9
-  %tobool.not.i.i22 = icmp eq i32 %call.i.i21, 0
-  %incdec.ptr.i.i = getelementptr inbounds nuw i8, ptr %s.addr.0.i.i19, i64 1
-  br i1 %tobool.not.i.i22, label %skip_space.exit.i23, label %while.cond.i.i18, !llvm.loop !4
+while.cond.i.i19:                                 ; preds = %while.cond.i.i19.preheader, %while.cond.i.i19
+  %s.addr.0.i.i20 = phi ptr [ %incdec.ptr.i.i, %while.cond.i.i19 ], [ %incdec.ptr.i18, %while.cond.i.i19.preheader ]
+  %15 = load i8, ptr %s.addr.0.i.i20, align 1
+  %conv.i.i21 = sext i8 %15 to i32
+  %call.i.i22 = tail call i32 @ossl_ctype_check(i32 noundef %conv.i.i21, i32 noundef 8) #9
+  %tobool.not.i.i23 = icmp eq i32 %call.i.i22, 0
+  %incdec.ptr.i.i = getelementptr inbounds nuw i8, ptr %s.addr.0.i.i20, i64 1
+  br i1 %tobool.not.i.i23, label %skip_space.exit.i24, label %while.cond.i.i19, !llvm.loop !4
 
-skip_space.exit.i23:                              ; preds = %while.cond.i.i18
-  %type.i24 = getelementptr inbounds nuw i8, ptr %res, i64 4
-  store i32 1, ptr %type.i24, align 4
+skip_space.exit.i24:                              ; preds = %while.cond.i.i19
+  %type.i25 = getelementptr inbounds nuw i8, ptr %res, i64 4
+  store i32 1, ptr %type.i25, align 4
   %v34.i = getelementptr inbounds nuw i8, ptr %res, i64 16
   store i64 %add17.i, ptr %v34.i, align 8
   br label %if.then59
@@ -559,71 +560,71 @@ land.lhs.true33.if.else40_crit_edge:              ; preds = %land.lhs.true33
 if.then37:                                        ; preds = %land.lhs.true33
   store ptr %arrayidx23, ptr %s, align 8
   %.pre.i = load i8, ptr %arrayidx23, align 1
-  br label %do.body.i26
+  br label %do.body.i27
 
-do.body.i26:                                      ; preds = %if.end13.i33, %if.then37
-  %16 = phi i8 [ %.pre.i, %if.then37 ], [ %.pre22.i, %if.end13.i33 ]
-  %s.0.i27 = phi ptr [ %arrayidx23, %if.then37 ], [ %incdec.ptr.i37, %if.end13.i33 ]
-  %v.0.i28 = phi i64 [ 0, %if.then37 ], [ %add.i36, %if.end13.i33 ]
+do.body.i27:                                      ; preds = %if.end13.i34, %if.then37
+  %16 = phi i8 [ %.pre.i, %if.then37 ], [ %.pre22.i, %if.end13.i34 ]
+  %s.0.i28 = phi ptr [ %arrayidx23, %if.then37 ], [ %incdec.ptr.i38, %if.end13.i34 ]
+  %v.0.i29 = phi i64 [ 0, %if.then37 ], [ %add.i37, %if.end13.i34 ]
   %17 = and i8 %16, -2
   %switch.i = icmp eq i8 %17, 56
-  br i1 %switch.i, label %if.then.i49, label %lor.lhs.false5.i
+  br i1 %switch.i, label %if.then.i50, label %lor.lhs.false5.i
 
-lor.lhs.false5.i:                                 ; preds = %do.body.i26
-  %conv.i29 = sext i8 %16 to i32
-  %call.i30 = tail call i32 @ossl_isdigit(i32 noundef %conv.i29) #9
-  %tobool.not.i31 = icmp eq i32 %call.i30, 0
-  br i1 %tobool.not.i31, label %if.then.i49, label %if.end.i32
+lor.lhs.false5.i:                                 ; preds = %do.body.i27
+  %conv.i30 = sext i8 %16 to i32
+  %call.i31 = tail call i32 @ossl_isdigit(i32 noundef %conv.i30) #9
+  %tobool.not.i32 = icmp eq i32 %call.i31, 0
+  br i1 %tobool.not.i32, label %if.then.i50, label %if.end.i33
 
-if.then.i49:                                      ; preds = %lor.lhs.false5.i, %do.body.i26
+if.then.i50:                                      ; preds = %lor.lhs.false5.i, %do.body.i27
   tail call void @ERR_new() #9
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 169, ptr noundef nonnull @__func__.parse_oct) #9
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 55, i32 noundef 104, ptr noundef nonnull @.str.2, ptr noundef nonnull %arrayidx23) #9
   br label %return
 
-if.end.i32:                                       ; preds = %lor.lhs.false5.i
-  %18 = load i8, ptr %s.0.i27, align 1
+if.end.i33:                                       ; preds = %lor.lhs.false5.i
+  %18 = load i8, ptr %s.0.i28, align 1
   %conv7.i = sext i8 %18 to i64
   %sub9.i = sub i64 -9223372036854775761, %conv7.i
   %div19.i = lshr i64 %sub9.i, 3
-  %cmp10.i = icmp sgt i64 %v.0.i28, %div19.i
-  br i1 %cmp10.i, label %if.then12.i, label %if.end13.i33
+  %cmp10.i = icmp sgt i64 %v.0.i29, %div19.i
+  br i1 %cmp10.i, label %if.then12.i, label %if.end13.i34
 
-if.then12.i:                                      ; preds = %if.end.i32
+if.then12.i:                                      ; preds = %if.end.i33
   tail call void @ERR_new() #9
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 174, ptr noundef nonnull @__func__.parse_oct) #9
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 55, i32 noundef 108, ptr noundef nonnull @.str.13, ptr noundef nonnull %arrayidx23) #9
   br label %return
 
-if.end13.i33:                                     ; preds = %if.end.i32
-  %shl.i34 = shl i64 %v.0.i28, 3
-  %sub.i35 = add i64 %shl.i34, -48
-  %add.i36 = add i64 %sub.i35, %conv7.i
-  %incdec.ptr.i37 = getelementptr inbounds nuw i8, ptr %s.0.i27, i64 1
-  %19 = load i8, ptr %incdec.ptr.i37, align 1
+if.end13.i34:                                     ; preds = %if.end.i33
+  %shl.i35 = shl i64 %v.0.i29, 3
+  %sub.i36 = add i64 %shl.i35, -48
+  %add.i37 = add i64 %sub.i36, %conv7.i
+  %incdec.ptr.i38 = getelementptr inbounds nuw i8, ptr %s.0.i28, i64 1
+  %19 = load i8, ptr %incdec.ptr.i38, align 1
   %conv17.i = sext i8 %19 to i32
   %call18.i = tail call i32 @ossl_isdigit(i32 noundef %conv17.i) #9
   %tobool19.not.i = icmp eq i32 %call18.i, 0
-  %.pre22.i = load i8, ptr %incdec.ptr.i37, align 1
+  %.pre22.i = load i8, ptr %incdec.ptr.i38, align 1
   %20 = and i8 %.pre22.i, -2
   %switch21.i = icmp eq i8 %20, 56
-  %or.cond.i38 = select i1 %tobool19.not.i, i1 true, i1 %switch21.i
-  br i1 %or.cond.i38, label %do.end.i39, label %do.body.i26
+  %or.cond.i39 = select i1 %tobool19.not.i, i1 true, i1 %switch21.i
+  br i1 %or.cond.i39, label %do.end.i40, label %do.body.i27
 
-do.end.i39:                                       ; preds = %if.end13.i33
+do.end.i40:                                       ; preds = %if.end13.i34
   %conv26.i = sext i8 %.pre22.i to i32
   %call27.i = tail call i32 @ossl_ctype_check(i32 noundef %conv26.i, i32 noundef 8) #9
   %tobool28.not.i = icmp eq i32 %call27.i, 0
-  br i1 %tobool28.not.i, label %land.lhs.true29.i, label %while.cond.i.i40.preheader
+  br i1 %tobool28.not.i, label %land.lhs.true29.i, label %while.cond.i.i41.preheader
 
-while.cond.i.i40.preheader:                       ; preds = %land.lhs.true29.i, %land.lhs.true29.i, %do.end.i39
-  br label %while.cond.i.i40
+while.cond.i.i41.preheader:                       ; preds = %land.lhs.true29.i, %land.lhs.true29.i, %do.end.i40
+  br label %while.cond.i.i41
 
-land.lhs.true29.i:                                ; preds = %do.end.i39
-  %21 = load i8, ptr %incdec.ptr.i37, align 1
+land.lhs.true29.i:                                ; preds = %do.end.i40
+  %21 = load i8, ptr %incdec.ptr.i38, align 1
   switch i8 %21, label %if.then37.i [
-    i8 0, label %while.cond.i.i40.preheader
-    i8 44, label %while.cond.i.i40.preheader
+    i8 0, label %while.cond.i.i41.preheader
+    i8 44, label %while.cond.i.i41.preheader
   ]
 
 if.then37.i:                                      ; preds = %land.lhs.true29.i
@@ -632,20 +633,20 @@ if.then37.i:                                      ; preds = %land.lhs.true29.i
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 55, i32 noundef 104, ptr noundef nonnull @.str.2, ptr noundef nonnull %arrayidx23) #9
   br label %return
 
-while.cond.i.i40:                                 ; preds = %while.cond.i.i40.preheader, %while.cond.i.i40
-  %s.addr.0.i.i41 = phi ptr [ %incdec.ptr.i.i45, %while.cond.i.i40 ], [ %incdec.ptr.i37, %while.cond.i.i40.preheader ]
-  %22 = load i8, ptr %s.addr.0.i.i41, align 1
-  %conv.i.i42 = sext i8 %22 to i32
-  %call.i.i43 = tail call i32 @ossl_ctype_check(i32 noundef %conv.i.i42, i32 noundef 8) #9
-  %tobool.not.i.i44 = icmp eq i32 %call.i.i43, 0
-  %incdec.ptr.i.i45 = getelementptr inbounds nuw i8, ptr %s.addr.0.i.i41, i64 1
-  br i1 %tobool.not.i.i44, label %skip_space.exit.i46, label %while.cond.i.i40, !llvm.loop !4
+while.cond.i.i41:                                 ; preds = %while.cond.i.i41.preheader, %while.cond.i.i41
+  %s.addr.0.i.i42 = phi ptr [ %incdec.ptr.i.i46, %while.cond.i.i41 ], [ %incdec.ptr.i38, %while.cond.i.i41.preheader ]
+  %22 = load i8, ptr %s.addr.0.i.i42, align 1
+  %conv.i.i43 = sext i8 %22 to i32
+  %call.i.i44 = tail call i32 @ossl_ctype_check(i32 noundef %conv.i.i43, i32 noundef 8) #9
+  %tobool.not.i.i45 = icmp eq i32 %call.i.i44, 0
+  %incdec.ptr.i.i46 = getelementptr inbounds nuw i8, ptr %s.addr.0.i.i42, i64 1
+  br i1 %tobool.not.i.i45, label %skip_space.exit.i47, label %while.cond.i.i41, !llvm.loop !4
 
-skip_space.exit.i46:                              ; preds = %while.cond.i.i40
-  %type.i47 = getelementptr inbounds nuw i8, ptr %res, i64 4
-  store i32 1, ptr %type.i47, align 4
+skip_space.exit.i47:                              ; preds = %while.cond.i.i41
+  %type.i48 = getelementptr inbounds nuw i8, ptr %res, i64 4
+  store i32 1, ptr %type.i48, align 4
   %v40.i = getelementptr inbounds nuw i8, ptr %res, i64 16
-  store i64 %add.i36, ptr %v40.i, align 8
+  store i64 %add.i37, ptr %v40.i, align 8
   br label %if.then59
 
 if.else40:                                        ; preds = %land.lhs.true33.if.else40_crit_edge, %entry
@@ -667,7 +668,7 @@ if.else46:                                        ; preds = %if.else40
   br i1 %tobool49.not, label %return, label %if.then50
 
 if.then50:                                        ; preds = %if.else46
-  call void @llvm.lifetime.start.p0(i64 1000, ptr nonnull %v.i50)
+  call void @llvm.lifetime.start.p0(i64 1000, ptr nonnull %v.i51)
   %25 = load ptr, ptr %t, align 8
   %26 = load i8, ptr %25, align 1
   switch i8 %26, label %while.cond.preheader.i [
@@ -677,25 +678,25 @@ if.then50:                                        ; preds = %if.else46
 
 while.cond.preheader.i:                           ; preds = %if.then50
   %conv518.i = sext i8 %26 to i32
-  %call19.i52 = tail call i32 @ossl_ctype_check(i32 noundef %conv518.i, i32 noundef 256) #9
-  %tobool.not20.i = icmp eq i32 %call19.i52, 0
-  br i1 %tobool.not20.i, label %while.end.i57, label %land.lhs.true.i53
+  %call19.i53 = tail call i32 @ossl_ctype_check(i32 noundef %conv518.i, i32 noundef 256) #9
+  %tobool.not20.i = icmp eq i32 %call19.i53, 0
+  br i1 %tobool.not20.i, label %while.end.i57, label %land.lhs.true.i54
 
-land.lhs.true.i53:                                ; preds = %while.cond.preheader.i, %if.end18.i67
+land.lhs.true.i54:                                ; preds = %while.cond.preheader.i, %if.end18.i67
   %err.023.i = phi i32 [ %err.1.i69, %if.end18.i67 ], [ 0, %while.cond.preheader.i ]
   %i.022.i = phi i64 [ %i.1.i68, %if.end18.i67 ], [ 0, %while.cond.preheader.i ]
   %s.021.i = phi ptr [ %incdec.ptr.i70, %if.end18.i67 ], [ %25, %while.cond.preheader.i ]
   %27 = load i8, ptr %s.021.i, align 1
-  %conv6.i54 = sext i8 %27 to i32
-  %call7.i55 = tail call i32 @ossl_ctype_check(i32 noundef %conv6.i54, i32 noundef 8) #9
-  %tobool8.not.i = icmp eq i32 %call7.i55, 0
-  br i1 %tobool8.not.i, label %land.rhs.i, label %while.end.loopexit.i56
+  %conv6.i55 = sext i8 %27 to i32
+  %call7.i56 = tail call i32 @ossl_ctype_check(i32 noundef %conv6.i55, i32 noundef 8) #9
+  %tobool8.not.i = icmp eq i32 %call7.i56, 0
+  br i1 %tobool8.not.i, label %land.rhs.i, label %while.end.loopexit.i
 
-land.rhs.i:                                       ; preds = %land.lhs.true.i53
+land.rhs.i:                                       ; preds = %land.lhs.true.i54
   %28 = load i8, ptr %s.021.i, align 1
   %conv9.i = sext i8 %28 to i32
   %cmp10.not.i = icmp eq i8 %28, 44
-  br i1 %cmp10.not.i, label %while.end.loopexit.i56, label %while.body.i66
+  br i1 %cmp10.not.i, label %while.end.loopexit.i, label %while.body.i66
 
 while.body.i66:                                   ; preds = %land.rhs.i
   %cmp12.i = icmp ult i64 %i.022.i, 999
@@ -705,7 +706,7 @@ if.then14.i73:                                    ; preds = %while.body.i66
   %call16.i = tail call i32 @ossl_tolower(i32 noundef %conv9.i) #9
   %conv17.i74 = trunc i32 %call16.i to i8
   %inc.i75 = add nuw nsw i64 %i.022.i, 1
-  %arrayidx.i76 = getelementptr inbounds nuw [1000 x i8], ptr %v.i50, i64 0, i64 %i.022.i
+  %arrayidx.i76 = getelementptr inbounds nuw [1000 x i8], ptr %v.i51, i64 0, i64 %i.022.i
   store i8 %conv17.i74, ptr %arrayidx.i76, align 1
   br label %if.end18.i67
 
@@ -717,19 +718,19 @@ if.end18.i67:                                     ; preds = %if.then14.i73, %whi
   %conv5.i = sext i8 %29 to i32
   %call.i71 = tail call i32 @ossl_ctype_check(i32 noundef %conv5.i, i32 noundef 256) #9
   %tobool.not.i72 = icmp eq i32 %call.i71, 0
-  br i1 %tobool.not.i72, label %while.end.loopexit.i56, label %land.lhs.true.i53, !llvm.loop !9
+  br i1 %tobool.not.i72, label %while.end.loopexit.i, label %land.lhs.true.i54, !llvm.loop !9
 
-while.end.loopexit.i56:                           ; preds = %if.end18.i67, %land.rhs.i, %land.lhs.true.i53
-  %s.0.lcssa.ph.i = phi ptr [ %s.021.i, %land.rhs.i ], [ %incdec.ptr.i70, %if.end18.i67 ], [ %s.021.i, %land.lhs.true.i53 ]
-  %i.0.lcssa.ph.i = phi i64 [ %i.022.i, %land.rhs.i ], [ %i.1.i68, %if.end18.i67 ], [ %i.022.i, %land.lhs.true.i53 ]
-  %err.0.lcssa.ph.i = phi i32 [ %err.023.i, %land.rhs.i ], [ %err.1.i69, %if.end18.i67 ], [ %err.023.i, %land.lhs.true.i53 ]
+while.end.loopexit.i:                             ; preds = %if.end18.i67, %land.rhs.i, %land.lhs.true.i54
+  %s.0.lcssa.ph.i = phi ptr [ %s.021.i, %land.rhs.i ], [ %incdec.ptr.i70, %if.end18.i67 ], [ %s.021.i, %land.lhs.true.i54 ]
+  %i.0.lcssa.ph.i = phi i64 [ %i.022.i, %land.rhs.i ], [ %i.1.i68, %if.end18.i67 ], [ %i.022.i, %land.lhs.true.i54 ]
+  %err.0.lcssa.ph.i = phi i32 [ %err.023.i, %land.rhs.i ], [ %err.1.i69, %if.end18.i67 ], [ %err.023.i, %land.lhs.true.i54 ]
   %30 = icmp eq i32 %err.0.lcssa.ph.i, 0
   br label %while.end.i57
 
-while.end.i57:                                    ; preds = %while.end.loopexit.i56, %while.cond.preheader.i
-  %s.0.lcssa.i = phi ptr [ %25, %while.cond.preheader.i ], [ %s.0.lcssa.ph.i, %while.end.loopexit.i56 ]
-  %i.0.lcssa.i = phi i64 [ 0, %while.cond.preheader.i ], [ %i.0.lcssa.ph.i, %while.end.loopexit.i56 ]
-  %err.0.lcssa.i = phi i1 [ true, %while.cond.preheader.i ], [ %30, %while.end.loopexit.i56 ]
+while.end.i57:                                    ; preds = %while.end.loopexit.i, %while.cond.preheader.i
+  %s.0.lcssa.i = phi ptr [ %25, %while.cond.preheader.i ], [ %s.0.lcssa.ph.i, %while.end.loopexit.i ]
+  %i.0.lcssa.i = phi i64 [ 0, %while.cond.preheader.i ], [ %i.0.lcssa.ph.i, %while.end.loopexit.i ]
+  %err.0.lcssa.i = phi i1 [ true, %while.cond.preheader.i ], [ %30, %while.end.loopexit.i ]
   %31 = load i8, ptr %s.0.lcssa.i, align 1
   %conv19.i = sext i8 %31 to i32
   %call20.i = tail call i32 @ossl_ctype_check(i32 noundef %conv19.i, i32 noundef 8) #9
@@ -750,7 +751,7 @@ if.then30.i:                                      ; preds = %land.lhs.true22.i
   br label %parse_unquoted.exit
 
 if.end31.i:                                       ; preds = %land.lhs.true22.i, %land.lhs.true22.i, %while.end.i57
-  %arrayidx32.i = getelementptr inbounds [1000 x i8], ptr %v.i50, i64 0, i64 %i.0.lcssa.i
+  %arrayidx32.i = getelementptr inbounds [1000 x i8], ptr %v.i51, i64 0, i64 %i.0.lcssa.i
   store i8 0, ptr %arrayidx32.i, align 1
   br i1 %err.0.lcssa.i, label %if.else35.i, label %if.then34.i
 
@@ -762,7 +763,7 @@ if.then34.i:                                      ; preds = %if.end31.i
   br label %if.end42.i
 
 if.else35.i:                                      ; preds = %if.end31.i
-  %call36.i = call i32 @ossl_property_value(ptr noundef %ctx, ptr noundef nonnull %v.i50, i32 noundef %create) #9
+  %call36.i = call i32 @ossl_property_value(ptr noundef %ctx, ptr noundef nonnull %v.i51, i32 noundef %create) #9
   %v37.i = getelementptr inbounds nuw i8, ptr %res, i64 16
   store i32 %call36.i, ptr %v37.i, align 8
   %cmp38.i = icmp ne i32 %call36.i, 0
@@ -789,8 +790,8 @@ skip_space.exit.i64:                              ; preds = %while.cond.i.i58
   br label %parse_unquoted.exit
 
 parse_unquoted.exit:                              ; preds = %if.then50, %if.then50, %if.then30.i, %skip_space.exit.i64
-  %retval.0.i51 = phi i32 [ %tobool44.not.i, %skip_space.exit.i64 ], [ 0, %if.then30.i ], [ 0, %if.then50 ], [ 0, %if.then50 ]
-  call void @llvm.lifetime.end.p0(i64 1000, ptr nonnull %v.i50)
+  %retval.0.i52 = phi i32 [ %tobool44.not.i, %skip_space.exit.i64 ], [ 0, %if.then30.i ], [ 0, %if.then50 ], [ 0, %if.then50 ]
+  call void @llvm.lifetime.end.p0(i64 1000, ptr nonnull %v.i51)
   br label %return
 
 if.end57:                                         ; preds = %if.then8, %if.then15, %parse_string.exit
@@ -802,14 +803,14 @@ if.end57.if.then59_crit_edge:                     ; preds = %if.end57
   %.pre = load ptr, ptr %s, align 8
   br label %if.then59
 
-if.then59:                                        ; preds = %if.end57.if.then59_crit_edge, %skip_space.exit.i46, %skip_space.exit.i23
-  %35 = phi ptr [ %.pre, %if.end57.if.then59_crit_edge ], [ %s.addr.0.i.i19, %skip_space.exit.i23 ], [ %s.addr.0.i.i41, %skip_space.exit.i46 ]
-  %r.084 = phi i32 [ %r.0, %if.end57.if.then59_crit_edge ], [ 1, %skip_space.exit.i23 ], [ 1, %skip_space.exit.i46 ]
+if.then59:                                        ; preds = %if.end57.if.then59_crit_edge, %skip_space.exit.i47, %skip_space.exit.i24
+  %35 = phi ptr [ %.pre, %if.end57.if.then59_crit_edge ], [ %s.addr.0.i.i20, %skip_space.exit.i24 ], [ %s.addr.0.i.i42, %skip_space.exit.i47 ]
+  %r.084 = phi i32 [ %r.0, %if.end57.if.then59_crit_edge ], [ 1, %skip_space.exit.i24 ], [ 1, %skip_space.exit.i47 ]
   store ptr %35, ptr %t, align 8
   br label %return
 
-return:                                           ; preds = %if.then37.i, %if.then12.i, %if.then.i49, %if.else9.i, %if.then31.i, %if.then14.i, %if.else46, %if.end57, %if.then59, %parse_unquoted.exit, %if.then44
-  %retval.0 = phi i32 [ %call45, %if.then44 ], [ %retval.0.i51, %parse_unquoted.exit ], [ %r.084, %if.then59 ], [ 0, %if.end57 ], [ 0, %if.else46 ], [ 0, %if.then14.i ], [ 0, %if.then31.i ], [ 0, %if.else9.i ], [ 0, %if.then.i49 ], [ 0, %if.then12.i ], [ 0, %if.then37.i ]
+return:                                           ; preds = %if.then37.i, %if.then12.i, %if.then.i50, %if.else9.i, %if.then31.i, %if.then14.i, %if.else46, %if.end57, %if.then59, %parse_unquoted.exit, %if.then44
+  %retval.0 = phi i32 [ %call45, %if.then44 ], [ %retval.0.i52, %parse_unquoted.exit ], [ %r.084, %if.then59 ], [ 0, %if.end57 ], [ 0, %if.else46 ], [ 0, %if.then14.i ], [ 0, %if.then31.i ], [ 0, %if.else9.i ], [ 0, %if.then.i50 ], [ 0, %if.then12.i ], [ 0, %if.then37.i ]
   ret i32 %retval.0
 }
 

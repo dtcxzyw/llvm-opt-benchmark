@@ -497,7 +497,7 @@ define dso_local ptr @inet6_lookup_run_sk_lookup(ptr noundef %0, i32 noundef %1,
   %27 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %28 = load volatile ptr, ptr %27, align 8
   %29 = icmp eq ptr %28, null
-  br i1 %29, label %75, label %.preheader
+  br i1 %29, label %74, label %.preheader
 
 .preheader:                                       ; preds = %15, %64
   %30 = phi ptr [ %69, %64 ], [ %28, %15 ]
@@ -566,82 +566,81 @@ define dso_local ptr @inet6_lookup_run_sk_lookup(ptr noundef %0, i32 noundef %1,
   br i1 %70, label %71, label %.preheader, !llvm.loop !20
 
 71:                                               ; preds = %64
-  %72 = and i8 %66, 1
-  %73 = and i8 %67, 1
-  %74 = icmp ne i8 %73, 0
-  br label %75
+  %72 = and i8 %67, 1
+  %73 = icmp ne i8 %72, 0
+  br label %74
 
-75:                                               ; preds = %71, %15
-  %76 = phi ptr [ null, %15 ], [ %65, %71 ]
-  %77 = phi i8 [ 0, %15 ], [ %72, %71 ]
-  %78 = phi i1 [ true, %15 ], [ %74, %71 ]
-  store ptr %76, ptr %24, align 8
-  store i8 %77, ptr %26, align 4
+74:                                               ; preds = %71, %15
+  %75 = phi ptr [ null, %15 ], [ %65, %71 ]
+  %76 = phi i8 [ 0, %15 ], [ %66, %71 ]
+  %77 = phi i1 [ true, %15 ], [ %73, %71 ]
+  store ptr %75, ptr %24, align 8
+  store i8 %76, ptr %26, align 4
   call void @migrate_enable() #7
-  %79 = icmp ne ptr %76, null
-  %80 = select i1 %78, i1 true, i1 %79
-  br i1 %80, label %81, label %.thread8
+  %78 = icmp ne ptr %75, null
+  %79 = select i1 %77, i1 true, i1 %78
+  br i1 %79, label %80, label %.thread8
 
-.thread8:                                         ; preds = %75
+.thread8:                                         ; preds = %74
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %11) #7
   call void @__rcu_read_unlock() #7
   br label %.thread9
 
-81:                                               ; preds = %75
-  %82 = load ptr, ptr %24, align 8
-  %83 = load i8, ptr %26, align 4, !range !19, !noundef !21
-  %.not = icmp eq i8 %83, 0
+80:                                               ; preds = %74
+  %81 = load ptr, ptr %24, align 8
+  %82 = load i8, ptr %26, align 4, !range !19, !noundef !21
+  %.not = icmp eq i8 %82, 0
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %11) #7
   call void @__rcu_read_unlock() #7
-  br i1 %.not, label %84, label %.thread9
+  br i1 %.not, label %83, label %.thread9
 
-84:                                               ; preds = %81
-  %85 = icmp eq ptr %82, null
-  %86 = icmp ugt ptr %82, inttoptr (i64 -4096 to ptr)
-  %87 = or i1 %85, %86
-  br i1 %87, label %.thread9, label %88
+83:                                               ; preds = %80
+  %84 = icmp eq ptr %81, null
+  %85 = icmp ugt ptr %81, inttoptr (i64 -4096 to ptr)
+  %86 = or i1 %84, %85
+  br i1 %86, label %.thread9, label %87
 
-88:                                               ; preds = %84
-  %89 = getelementptr inbounds nuw i8, ptr %82, i64 19
-  %90 = load i8, ptr %89, align 1
-  %91 = and i8 %90, 16
-  %92 = icmp eq i8 %91, 0
-  br i1 %92, label %106, label %93
+87:                                               ; preds = %83
+  %88 = getelementptr inbounds nuw i8, ptr %81, i64 19
+  %89 = load i8, ptr %88, align 1
+  %90 = and i8 %89, 16
+  %91 = icmp eq i8 %90, 0
+  br i1 %91, label %105, label %92
 
-93:                                               ; preds = %88
-  %94 = icmp eq ptr %9, @udp6_ehashfn
-  br i1 %94, label %95, label %97, !prof !13
+92:                                               ; preds = %87
+  %93 = icmp eq ptr %9, @udp6_ehashfn
+  br i1 %93, label %94, label %96, !prof !13
 
-95:                                               ; preds = %93
-  %96 = call i32 @udp6_ehashfn(ptr noundef %0, ptr noundef %6, i16 noundef zeroext %7, ptr noundef %4, i16 noundef zeroext %5) #7
-  br label %103
+94:                                               ; preds = %92
+  %95 = call i32 @udp6_ehashfn(ptr noundef %0, ptr noundef %6, i16 noundef zeroext %7, ptr noundef %4, i16 noundef zeroext %5) #7
+  br label %102
 
-97:                                               ; preds = %93
-  %98 = icmp eq ptr %9, @inet6_ehashfn
-  br i1 %98, label %99, label %101, !prof !13
+96:                                               ; preds = %92
+  %97 = icmp eq ptr %9, @inet6_ehashfn
+  br i1 %97, label %98, label %100, !prof !13
 
-99:                                               ; preds = %97
-  %100 = call i32 @inet6_ehashfn(ptr noundef %0, ptr noundef %6, i16 noundef zeroext %7, ptr noundef %4, i16 noundef zeroext %5)
-  br label %103
+98:                                               ; preds = %96
+  %99 = call i32 @inet6_ehashfn(ptr noundef %0, ptr noundef %6, i16 noundef zeroext %7, ptr noundef %4, i16 noundef zeroext %5)
+  br label %102
 
-101:                                              ; preds = %97
-  %102 = call i32 %9(ptr noundef %0, ptr noundef %6, i16 noundef zeroext %7, ptr noundef %4, i16 noundef zeroext %5) #7
-  br label %103
+100:                                              ; preds = %96
+  %101 = call i32 %9(ptr noundef %0, ptr noundef %6, i16 noundef zeroext %7, ptr noundef %4, i16 noundef zeroext %5) #7
+  br label %102
 
-103:                                              ; preds = %101, %99, %95
-  %104 = phi i32 [ %96, %95 ], [ %100, %99 ], [ %102, %101 ]
-  %105 = call ptr @reuseport_select_sock(ptr noundef nonnull %82, i32 noundef %104, ptr noundef %2, i32 noundef %3) #7
-  br label %106
+102:                                              ; preds = %100, %98, %94
+  %103 = phi i32 [ %95, %94 ], [ %99, %98 ], [ %101, %100 ]
+  %104 = call ptr @reuseport_select_sock(ptr noundef nonnull %81, i32 noundef %103, ptr noundef %2, i32 noundef %3) #7
+  br label %105
 
-106:                                              ; preds = %103, %88
-  %107 = phi ptr [ %105, %103 ], [ null, %88 ]
-  %108 = icmp eq ptr %107, null
-  %109 = select i1 %108, ptr %82, ptr %107
+105:                                              ; preds = %102, %87
+  %106 = phi ptr [ %104, %102 ], [ null, %87 ]
+  %107 = icmp eq ptr %106, null
+  %108 = select i1 %107, ptr %81, ptr %106
   br label %.thread9
 
-.thread9:                                         ; preds = %.thread8, %.thread, %106, %84, %81
-  %110 = phi ptr [ %82, %81 ], [ %82, %84 ], [ %109, %106 ], [ inttoptr (i64 -111 to ptr), %.thread8 ], [ null, %.thread ]
-  ret ptr %110
+.thread9:                                         ; preds = %.thread8, %.thread, %105, %83, %80
+  %109 = phi ptr [ %81, %80 ], [ %81, %83 ], [ %108, %105 ], [ inttoptr (i64 -111 to ptr), %.thread8 ], [ null, %.thread ]
+  ret ptr %109
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

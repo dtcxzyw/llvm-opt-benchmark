@@ -13054,13 +13054,12 @@ for.inc:                                          ; preds = %sw.bb4, %for.body
   br i1 %cmp.not, label %for.end.loopexit, label %for.body
 
 for.end.loopexit:                                 ; preds = %for.inc
-  %4 = and i8 %found_undef.1, 1
-  %5 = xor i8 %4, 1
-  %6 = zext nneg i8 %5 to i32
+  %4 = xor i8 %found_undef.1, 1
+  %5 = zext nneg i8 %4 to i32
   br label %for.end
 
 for.end:                                          ; preds = %for.end.loopexit, %entry
-  %found_undef.0.lcssa = phi i32 [ 1, %entry ], [ %6, %for.end.loopexit ]
+  %found_undef.0.lcssa = phi i32 [ 1, %entry ], [ %5, %for.end.loopexit ]
   %cond = sub nsw i32 0, %found_undef.0.lcssa
   br label %return
 
@@ -40588,7 +40587,7 @@ for.inc117:                                       ; preds = %if.end.i84, %_ZNK6v
   br i1 %cmp.i67.not, label %for.end120.loopexit, label %invoke.cont74
 
 for.end120.loopexit:                              ; preds = %for.inc117
-  %170 = icmp eq i32 %is_sat.1, 1
+  %170 = icmp ne i32 %is_sat.1, 0
   %171 = icmp ne i32 %num_resolves.1, 0
   br label %for.end120
 

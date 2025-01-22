@@ -2438,7 +2438,7 @@ define linkonce_odr hidden void @_ZNK2cv5rapid15HistTrackerImpl23computeAppearan
 67:                                               ; preds = %65
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10)
   %.sroa.2.0.insert.shift = shl nuw nsw i64 %indvars.iv, 32
-  %.sroa.0.0.insert.ext = zext i32 %.02974 to i64
+  %.sroa.0.0.insert.ext = zext nneg i32 %.02974 to i64
   %.sroa.0.0.insert.insert = or disjoint i64 %.sroa.2.0.insert.shift, %.sroa.0.0.insert.ext
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)

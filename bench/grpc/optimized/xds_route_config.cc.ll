@@ -2837,7 +2837,7 @@ for.body.i.i:                                     ; preds = %invoke.cont3, %for.
   br i1 %tobool.i.i, label %if.then.i.i25, label %for.inc.i.i
 
 if.then.i.i25:                                    ; preds = %for.body.i.i
-  %cmp1.i.i = icmp ult i64 %__n.05.i.i, 3
+  %cmp1.i.i = icmp samesign ult i64 %__n.05.i.i, 3
   br i1 %cmp1.i.i, label %_ZSt17holds_alternativeIN9grpc_core22XdsRouteConfigResource5Route19NonForwardingActionEJNS2_13UnknownActionENS2_11RouteActionES3_EEbRKSt7variantIJDpT0_EE.exit, label %for.inc.i.i
 
 for.inc.i.i:                                      ; preds = %if.then.i.i25, %for.body.i.i

@@ -18057,7 +18057,7 @@ for.body17.us.i:                                  ; preds = %for.cond32.for.end5
 for.body35.us.i:                                  ; preds = %for.body23.us.i, %for.body35.us.i
   %indvars.iv45.i = phi i64 [ %indvars.iv.next46.i, %for.body35.us.i ], [ 0, %for.body23.us.i ]
   %arrayidx37.us.i = getelementptr inbounds nuw %struct.tdefl_sym_freq, ptr %pCur_syms.032.us.i, i64 %indvars.iv45.i
-  %8 = load i16, ptr %arrayidx37.us.i, align 2
+  %8 = load i16, ptr %arrayidx37.us.i, align 4
   %conv39.us.i = zext i16 %8 to i32
   %shr40.us.i = lshr i32 %conv39.us.i, %pass_shift.035.us.i
   %and41.us.i = and i32 %shr40.us.i, 255
@@ -18068,8 +18068,8 @@ for.body35.us.i:                                  ; preds = %for.body23.us.i, %f
   store i32 %inc44.us.i, ptr %arrayidx43.us.i, align 4
   %idxprom45.us.i = zext i32 %9 to i64
   %arrayidx46.us.i = getelementptr inbounds nuw %struct.tdefl_sym_freq, ptr %pNew_syms.033.us.i, i64 %idxprom45.us.i
-  %10 = load i32, ptr %arrayidx37.us.i, align 2
-  store i32 %10, ptr %arrayidx46.us.i, align 2
+  %10 = load i32, ptr %arrayidx37.us.i, align 4
+  store i32 %10, ptr %arrayidx46.us.i, align 4
   %indvars.iv.next46.i = add nuw nsw i64 %indvars.iv45.i, 1
   %exitcond49.not.i = icmp eq i64 %indvars.iv.next46.i, %wide.trip.count48.i
   br i1 %exitcond49.not.i, label %for.cond32.for.end51_crit_edge.us.i, label %for.body35.us.i

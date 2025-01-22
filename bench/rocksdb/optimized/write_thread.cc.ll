@@ -473,8 +473,8 @@ lor.end:                                          ; preds = %invoke.cont35
   br i1 %cmp.i.i39.not, label %if.end50, label %if.then45
 
 if.then45:                                        ; preds = %invoke.cont35, %lor.end
-  %inc46 = add i64 %slow_yield_count.050, 1
-  %cmp47 = icmp ugt i64 %inc46, 2
+  %inc46 = add nuw nsw i64 %slow_yield_count.050, 1
+  %cmp47 = icmp ugt i64 %slow_yield_count.050, 1
   br i1 %cmp47, label %if.end52, label %if.end50
 
 if.end50:                                         ; preds = %if.then45, %lor.end

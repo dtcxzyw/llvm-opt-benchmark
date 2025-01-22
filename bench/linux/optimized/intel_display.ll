@@ -17373,7 +17373,7 @@ define internal fastcc void @intel_pre_plane_update(ptr noundef %0, ptr noundef 
   %20 = getelementptr inbounds nuw i8, ptr %11, i64 4932
   %21 = load i8, ptr %20, align 4, !range !14, !noundef !15
   %22 = icmp eq i8 %21, 0
-  br i1 %22, label %.thread16, label %23
+  br i1 %22, label %.thread32, label %23
 
 23:                                               ; preds = %19
   %24 = getelementptr inbounds nuw i8, ptr %13, i64 4932
@@ -17437,23 +17437,23 @@ define internal fastcc void @intel_pre_plane_update(ptr noundef %0, ptr noundef 
   %65 = load i8, ptr %64, align 2
   %66 = getelementptr inbounds nuw i8, ptr %13, i64 4934
   %67 = load i8, ptr %66, align 2
-  %.not12 = icmp eq i8 %65, %67
-  br i1 %.not12, label %.thread16, label %68
+  %.not14 = icmp eq i8 %65, %67
+  br i1 %.not14, label %.thread32, label %68
 
 68:                                               ; preds = %23, %31, %35, %39, %45, %51, %57, %63, %27
   tail call void @intel_vrr_disable(ptr noundef %11) #25
   tail call void @intel_crtc_update_active_timings(ptr noundef %11, i1 noundef zeroext false) #25
   %.pr.pre = load i8, ptr %16, align 8
   %69 = icmp eq i8 %.pr.pre, 0
-  br i1 %69, label %.thread, label %.thread16
+  br i1 %69, label %.thread, label %.thread32
 
-.thread16:                                        ; preds = %19, %63, %68
+.thread32:                                        ; preds = %19, %63, %68
   %70 = getelementptr inbounds nuw i8, ptr %11, i64 877
   %71 = load i8, ptr %70, align 1, !range !14, !noundef !15
   %72 = icmp eq i8 %71, 0
   br i1 %72, label %.thread, label %73
 
-73:                                               ; preds = %.thread16
+73:                                               ; preds = %.thread32
   %74 = getelementptr inbounds nuw i8, ptr %13, i64 877
   %75 = load i8, ptr %74, align 1, !range !14, !noundef !15
   %76 = icmp eq i8 %75, 0
@@ -17470,8 +17470,8 @@ define internal fastcc void @intel_pre_plane_update(ptr noundef %0, ptr noundef 
   %82 = getelementptr inbounds nuw i8, ptr %11, i64 4612
   %83 = getelementptr inbounds nuw i8, ptr %13, i64 4612
   %84 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(128) %82, ptr noundef nonnull dereferenceable(128) %83, i64 128)
-  %.not13 = icmp eq i32 %84, 0
-  br i1 %.not13, label %.thread, label %.critedge8
+  %.not15 = icmp eq i32 %84, 0
+  br i1 %.not15, label %.thread, label %.critedge8
 
 .critedge8:                                       ; preds = %77, %81, %73
   %85 = load ptr, ptr %5, align 8
@@ -17525,7 +17525,7 @@ define internal fastcc void @intel_pre_plane_update(ptr noundef %0, ptr noundef 
   %119 = icmp slt i64 %117, %118
   br i1 %119, label %95, label %.thread, !llvm.loop !278
 
-.thread:                                          ; preds = %115, %2, %.critedge8, %81, %.thread16, %68
+.thread:                                          ; preds = %115, %2, %.critedge8, %81, %.thread32, %68
   tail call void @intel_drrs_deactivate(ptr noundef %11) #25
   tail call void @intel_psr_pre_plane_update(ptr noundef %0, ptr noundef nonnull %1) #25
   %120 = tail call zeroext i1 @hsw_ips_pre_update(ptr noundef %0, ptr noundef nonnull %1) #25
@@ -17865,7 +17865,7 @@ define internal fastcc void @intel_pre_plane_update(ptr noundef %0, ptr noundef 
   %345 = xor i32 %344, -1
   %346 = and i32 %345, %341
   %347 = icmp eq i32 %346, 0
-  br i1 %347, label %410, label %348
+  br i1 %347, label %408, label %348
 
 348:                                              ; preds = %338
   %349 = load ptr, ptr %5, align 8
@@ -17877,7 +17877,7 @@ define internal fastcc void @intel_pre_plane_update(ptr noundef %0, ptr noundef 
   %355 = getelementptr inbounds nuw i8, ptr %354, i64 704
   %356 = load i32, ptr %355, align 8
   %357 = icmp sgt i32 %356, 0
-  br i1 %357, label %358, label %410
+  br i1 %357, label %358, label %408
 
 358:                                              ; preds = %348
   %359 = getelementptr %struct.__drm_crtcs_state, ptr %349, i64 %351, i32 3
@@ -17890,69 +17890,72 @@ define internal fastcc void @intel_pre_plane_update(ptr noundef %0, ptr noundef 
   %366 = and i8 %365, %363
   %367 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %368 = zext i8 %366 to i64
-  br label %369
+  br label %.outer
 
-369:                                              ; preds = %398, %358
-  %370 = phi ptr [ %354, %358 ], [ %399, %398 ]
-  %371 = phi i64 [ 0, %358 ], [ %401, %398 ]
-  %372 = phi i8 [ 0, %358 ], [ %400, %398 ]
-  %373 = load ptr, ptr %367, align 8
-  %374 = getelementptr %struct.__drm_planes_state, ptr %373, i64 %371
-  %375 = load ptr, ptr %374, align 8
-  %376 = getelementptr inbounds nuw i8, ptr %374, i64 16
-  %377 = load ptr, ptr %376, align 8
-  %378 = icmp eq ptr %375, null
-  br i1 %378, label %398, label %379
+.outer:                                           ; preds = %.thread12, %358
+  %369 = phi i32 [ %404, %.thread12 ], [ %356, %358 ]
+  %.ph = phi i64 [ %401, %.thread12 ], [ 0, %358 ]
+  %370 = phi i1 [ false, %.thread12 ], [ true, %358 ]
+  %371 = load ptr, ptr %367, align 8
+  %372 = sext i32 %369 to i64
+  br label %373
 
-379:                                              ; preds = %369
-  %380 = getelementptr inbounds nuw i8, ptr %375, i64 1332
-  %381 = load i8, ptr %380, align 4, !range !14, !noundef !15
-  %382 = icmp eq i8 %381, 0
-  br i1 %382, label %398, label %383
+373:                                              ; preds = %.outer, %394
+  %374 = phi i64 [ %395, %394 ], [ %.ph, %.outer ]
+  %375 = getelementptr %struct.__drm_planes_state, ptr %371, i64 %374
+  %376 = load ptr, ptr %375, align 8
+  %377 = icmp eq ptr %376, null
+  br i1 %377, label %394, label %378
 
-383:                                              ; preds = %379
-  %384 = getelementptr inbounds nuw i8, ptr %375, i64 1328
-  %385 = load i32, ptr %384, align 8
-  %386 = load i32, ptr %14, align 8
-  %387 = icmp eq i32 %385, %386
-  br i1 %387, label %388, label %398
+378:                                              ; preds = %373
+  %379 = getelementptr inbounds nuw i8, ptr %376, i64 1332
+  %380 = load i8, ptr %379, align 4, !range !14, !noundef !15
+  %381 = icmp eq i8 %380, 0
+  br i1 %381, label %394, label %382
 
-388:                                              ; preds = %383
-  %389 = getelementptr inbounds nuw i8, ptr %375, i64 1324
-  %390 = load i32, ptr %389, align 4
-  %391 = zext nneg i32 %390 to i64
-  %392 = shl nuw i64 1, %391
-  %393 = and i64 %392, %368
-  %394 = icmp eq i64 %393, 0
-  br i1 %394, label %398, label %395
+382:                                              ; preds = %378
+  %383 = getelementptr inbounds nuw i8, ptr %376, i64 1328
+  %384 = load i32, ptr %383, align 8
+  %385 = load i32, ptr %14, align 8
+  %386 = icmp eq i32 %384, %385
+  br i1 %386, label %387, label %394
 
-395:                                              ; preds = %388
-  %396 = getelementptr inbounds nuw i8, ptr %375, i64 1440
-  %397 = load ptr, ptr %396, align 8
-  tail call void %397(ptr noundef nonnull %375, ptr noundef %353, ptr noundef %377, i1 noundef zeroext false) #25
-  %.pre15 = load ptr, ptr %3, align 8
-  br label %398
+387:                                              ; preds = %382
+  %388 = getelementptr inbounds nuw i8, ptr %376, i64 1324
+  %389 = load i32, ptr %388, align 4
+  %390 = zext nneg i32 %389 to i64
+  %391 = shl nuw i64 1, %390
+  %392 = and i64 %391, %368
+  %393 = icmp eq i64 %392, 0
+  br i1 %393, label %394, label %.thread12
 
-398:                                              ; preds = %395, %388, %383, %379, %369
-  %399 = phi ptr [ %.pre15, %395 ], [ %370, %388 ], [ %370, %383 ], [ %370, %379 ], [ %370, %369 ]
-  %400 = phi i8 [ 1, %395 ], [ %372, %388 ], [ %372, %383 ], [ %372, %379 ], [ %372, %369 ]
-  %401 = add nuw nsw i64 %371, 1
-  %402 = getelementptr inbounds nuw i8, ptr %399, i64 704
-  %403 = load i32, ptr %402, align 8
-  %404 = sext i32 %403 to i64
-  %405 = icmp slt i64 %401, %404
-  br i1 %405, label %369, label %406, !llvm.loop !279
+394:                                              ; preds = %387, %382, %378, %373
+  %395 = add nuw nsw i64 %374, 1
+  %396 = icmp slt i64 %395, %372
+  br i1 %396, label %373, label %407, !llvm.loop !279
 
-406:                                              ; preds = %398
-  %407 = and i8 %400, 1
-  %408 = icmp eq i8 %407, 0
-  br i1 %408, label %410, label %409
+.thread12:                                        ; preds = %387
+  %397 = getelementptr inbounds nuw i8, ptr %375, i64 16
+  %398 = load ptr, ptr %397, align 8
+  %399 = getelementptr inbounds nuw i8, ptr %376, i64 1440
+  %400 = load ptr, ptr %399, align 8
+  tail call void %400(ptr noundef nonnull %376, ptr noundef %353, ptr noundef %398, i1 noundef zeroext false) #25
+  %401 = add nuw nsw i64 %374, 1
+  %402 = load ptr, ptr %3, align 8
+  %403 = getelementptr inbounds nuw i8, ptr %402, i64 704
+  %404 = load i32, ptr %403, align 8
+  %405 = sext i32 %404 to i64
+  %406 = icmp slt i64 %401, %405
+  br i1 %406, label %.outer, label %.thread13, !llvm.loop !279
 
-409:                                              ; preds = %406
+407:                                              ; preds = %394
+  br i1 %370, label %408, label %.thread13
+
+.thread13:                                        ; preds = %.thread12, %407
   tail call void @intel_crtc_wait_for_next_vblank(ptr noundef nonnull %1) #25
-  br label %410
+  br label %408
 
-410:                                              ; preds = %409, %406, %348, %338
+408:                                              ; preds = %.thread13, %407, %348, %338
   ret void
 }
 

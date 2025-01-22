@@ -851,8 +851,8 @@ do.body31:                                        ; preds = %do.end, %entry
   br i1 %cmp33, label %if.then35, label %do.end52
 
 if.then35:                                        ; preds = %do.body31
-  %2 = mul i64 %alloc.0.lcssa, 3
-  %mul37 = add i64 %2, 48
+  %2 = mul nuw i64 %alloc.0.lcssa, 3
+  %mul37 = add nuw i64 %2, 48
   %div3833 = lshr i64 %mul37, 1
   %add32.div3833 = tail call i64 @llvm.umax.i64(i64 %div3833, i64 %add32)
   %mul.ov.i36 = icmp ugt i64 %add32.div3833, 2305843009213693951

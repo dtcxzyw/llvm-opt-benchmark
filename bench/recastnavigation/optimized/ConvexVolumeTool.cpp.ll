@@ -464,9 +464,9 @@ _ZL11pointInPolyiPKfS0_.exit.thread:              ; preds = %22, %_ZL11pointInPo
   %.02937.i = phi i32 [ 0, %153 ], [ %170, %_Z5cmpptPKfS0_.exit.thread34.i ]
   %.idx.i60 = mul nuw nsw i64 %indvars.iv.i59, 12
   %155 = getelementptr inbounds nuw i8, ptr %141, i64 %.idx.i60
-  %156 = mul nsw i32 %.02937.i, 3
-  %157 = sext i32 %156 to i64
-  %158 = getelementptr inbounds float, ptr %141, i64 %157
+  %156 = mul nuw nsw i32 %.02937.i, 3
+  %157 = zext nneg i32 %156 to i64
+  %158 = getelementptr inbounds nuw float, ptr %141, i64 %157
   %159 = load float, ptr %155, align 4
   %160 = load float, ptr %158, align 4
   %161 = fcmp olt float %159, %160
@@ -517,9 +517,9 @@ _Z5cmpptPKfS0_.exit.thread34.i:                   ; preds = %_Z5cmpptPKfS0_.exit
   br i1 %178, label %200, label %179
 
 179:                                              ; preds = %177
-  %180 = mul nsw i32 %.02739.i, 3
-  %181 = sext i32 %180 to i64
-  %182 = getelementptr inbounds float, ptr %141, i64 %181
+  %180 = mul nuw nsw i32 %.02739.i, 3
+  %181 = zext nneg i32 %180 to i64
+  %182 = getelementptr inbounds nuw float, ptr %141, i64 %181
   %.idx51.i = mul nuw nsw i64 %indvars.iv43.i, 12
   %183 = getelementptr inbounds nuw i8, ptr %141, i64 %.idx51.i
   %184 = load float, ptr %182, align 4

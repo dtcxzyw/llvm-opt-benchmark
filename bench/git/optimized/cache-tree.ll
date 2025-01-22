@@ -617,12 +617,12 @@ for.body.us.i:                                    ; preds = %for.body.lr.ph.i, %
   br i1 %tobool.not.us.i, label %for.inc.us.i, label %if.then.us.i
 
 if.then.us.i:                                     ; preds = %for.body.us.i
-  %inc.us.i = add i32 %funny.035.us.i, 1
-  %cmp4.us.i = icmp ugt i32 %inc.us.i, 10
-  %6 = load ptr, ptr @stderr, align 8
+  %cmp4.us.i = icmp ugt i32 %funny.035.us.i, 9
   br i1 %cmp4.us.i, label %for.end.thread.i, label %if.end6.us.i
 
 if.end6.us.i:                                     ; preds = %if.then.us.i
+  %inc.us.i = add nuw nsw i32 %funny.035.us.i, 1
+  %6 = load ptr, ptr @stderr, align 8
   %name.us.i = getelementptr inbounds nuw i8, ptr %3, i64 108
   %oid.us.i = getelementptr inbounds nuw i8, ptr %3, i64 72
   %call7.us.i = tail call ptr @oid_to_hex(ptr noundef nonnull %oid.us.i) #14
@@ -654,7 +654,8 @@ for.body.i:                                       ; preds = %for.inc.i, %for.bod
   br i1 %tobool.not.i, label %for.inc.i, label %return
 
 for.end.thread.i:                                 ; preds = %if.then.us.i
-  %14 = tail call i64 @fwrite(ptr nonnull @.str.15, i64 4, i64 1, ptr %6) #17
+  %14 = load ptr, ptr @stderr, align 8
+  %15 = tail call i64 @fwrite(ptr nonnull @.str.15, i64 4, i64 1, ptr %14) #17
   br label %return
 
 for.inc.i:                                        ; preds = %for.body.i
@@ -663,38 +664,38 @@ for.inc.i:                                        ; preds = %for.body.i
   br i1 %exitcond.not, label %for.cond14.preheader.i, label %for.body.i, !llvm.loop !9
 
 for.end.i:                                        ; preds = %for.inc.us.i
-  %15 = icmp eq i32 %funny.2.us.i, 0
-  br i1 %15, label %for.cond14.preheader.i, label %return
+  %16 = icmp eq i32 %funny.2.us.i, 0
+  br i1 %16, label %for.cond14.preheader.i, label %return
 
 for.cond14.preheader.i:                           ; preds = %for.inc.i, %for.end.i
-  %16 = phi i32 [ %7, %for.end.i ], [ %0, %for.inc.i ]
-  %cmp1637.i = icmp ugt i32 %16, 1
+  %17 = phi i32 [ %7, %for.end.i ], [ %0, %for.inc.i ]
+  %cmp1637.i = icmp ugt i32 %17, 1
   br i1 %cmp1637.i, label %for.body17.i, label %if.end
 
 for.body17.i:                                     ; preds = %for.cond14.preheader.i, %for.inc49.i
-  %17 = phi i32 [ %26, %for.inc49.i ], [ %16, %for.cond14.preheader.i ]
+  %18 = phi i32 [ %27, %for.inc49.i ], [ %17, %for.cond14.preheader.i ]
   %indvars.iv49.i = phi i64 [ %indvars.iv.next50.i, %for.inc49.i ], [ 0, %for.cond14.preheader.i ]
   %indvars.iv47.i = phi i64 [ %indvars.iv.next48.i, %for.inc49.i ], [ 1, %for.cond14.preheader.i ]
   %funny.338.i = phi i32 [ %funny.5.i, %for.inc49.i ], [ 0, %for.cond14.preheader.i ]
-  %18 = load ptr, ptr %istate, align 8
-  %arrayidx20.i = getelementptr inbounds nuw ptr, ptr %18, i64 %indvars.iv49.i
-  %19 = load ptr, ptr %arrayidx20.i, align 8
-  %arrayidx24.i = getelementptr inbounds nuw ptr, ptr %18, i64 %indvars.iv47.i
-  %20 = load ptr, ptr %arrayidx24.i, align 8
-  %name25.i = getelementptr inbounds nuw i8, ptr %19, i64 108
-  %name27.i = getelementptr inbounds nuw i8, ptr %20, i64 108
-  %ce_namelen.i = getelementptr inbounds nuw i8, ptr %19, i64 64
-  %21 = load i32, ptr %ce_namelen.i, align 8
-  %ce_namelen29.i = getelementptr inbounds nuw i8, ptr %20, i64 64
-  %22 = load i32, ptr %ce_namelen29.i, align 8
-  %cmp30.i = icmp ult i32 %21, %22
+  %19 = load ptr, ptr %istate, align 8
+  %arrayidx20.i = getelementptr inbounds nuw ptr, ptr %19, i64 %indvars.iv49.i
+  %20 = load ptr, ptr %arrayidx20.i, align 8
+  %arrayidx24.i = getelementptr inbounds nuw ptr, ptr %19, i64 %indvars.iv47.i
+  %21 = load ptr, ptr %arrayidx24.i, align 8
+  %name25.i = getelementptr inbounds nuw i8, ptr %20, i64 108
+  %name27.i = getelementptr inbounds nuw i8, ptr %21, i64 108
+  %ce_namelen.i = getelementptr inbounds nuw i8, ptr %20, i64 64
+  %22 = load i32, ptr %ce_namelen.i, align 8
+  %ce_namelen29.i = getelementptr inbounds nuw i8, ptr %21, i64 64
+  %23 = load i32, ptr %ce_namelen29.i, align 8
+  %cmp30.i = icmp ult i32 %22, %23
   br i1 %cmp30.i, label %land.lhs.true.i, label %for.inc49.i
 
 land.lhs.true.i:                                  ; preds = %for.body17.i
-  %idxprom31.i = sext i32 %21 to i64
+  %idxprom31.i = sext i32 %22 to i64
   %arrayidx32.i = getelementptr inbounds i8, ptr %name27.i, i64 %idxprom31.i
-  %23 = load i8, ptr %arrayidx32.i, align 1
-  %cmp33.i = icmp eq i8 %23, 47
+  %24 = load i8, ptr %arrayidx32.i, align 1
+  %cmp33.i = icmp eq i8 %24, 47
   br i1 %cmp33.i, label %land.lhs.true35.i, label %for.inc49.i
 
 land.lhs.true35.i:                                ; preds = %land.lhs.true.i
@@ -705,24 +706,24 @@ land.lhs.true35.i:                                ; preds = %land.lhs.true.i
 if.then40.i:                                      ; preds = %land.lhs.true35.i
   %inc41.i = add i32 %funny.338.i, 1
   %cmp42.i = icmp ugt i32 %inc41.i, 10
-  %24 = load ptr, ptr @stderr, align 8
+  %25 = load ptr, ptr @stderr, align 8
   br i1 %cmp42.i, label %for.end51.thread.i, label %if.end46.i
 
 for.end51.thread.i:                               ; preds = %if.then40.i
-  %25 = tail call i64 @fwrite(ptr nonnull @.str.15, i64 4, i64 1, ptr %24) #17
+  %26 = tail call i64 @fwrite(ptr nonnull @.str.15, i64 4, i64 1, ptr %25) #17
   br label %return
 
 if.end46.i:                                       ; preds = %if.then40.i
-  %call47.i = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %24, ptr noundef nonnull @.str.17, ptr noundef nonnull %name25.i, ptr noundef nonnull %name27.i) #17
+  %call47.i = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %25, ptr noundef nonnull @.str.17, ptr noundef nonnull %name25.i, ptr noundef nonnull %name27.i) #17
   %.pre54.i = load i32, ptr %cache_nr.i, align 4
   br label %for.inc49.i
 
 for.inc49.i:                                      ; preds = %if.end46.i, %land.lhs.true35.i, %land.lhs.true.i, %for.body17.i
-  %26 = phi i32 [ %.pre54.i, %if.end46.i ], [ %17, %land.lhs.true35.i ], [ %17, %land.lhs.true.i ], [ %17, %for.body17.i ]
+  %27 = phi i32 [ %.pre54.i, %if.end46.i ], [ %18, %land.lhs.true35.i ], [ %18, %land.lhs.true.i ], [ %18, %for.body17.i ]
   %funny.5.i = phi i32 [ %inc41.i, %if.end46.i ], [ %funny.338.i, %land.lhs.true35.i ], [ %funny.338.i, %land.lhs.true.i ], [ %funny.338.i, %for.body17.i ]
   %indvars.iv.next48.i = add nuw nsw i64 %indvars.iv47.i, 1
-  %27 = zext i32 %26 to i64
-  %cmp16.i = icmp samesign ult i64 %indvars.iv.next48.i, %27
+  %28 = zext i32 %27 to i64
+  %cmp16.i = icmp samesign ult i64 %indvars.iv.next48.i, %28
   %indvars.iv.next50.i = add nuw nsw i64 %indvars.iv49.i, 1
   br i1 %cmp16.i, label %for.body17.i, label %verify_cache.exit, !llvm.loop !10
 
@@ -732,8 +733,8 @@ verify_cache.exit:                                ; preds = %for.inc49.i
 
 if.end:                                           ; preds = %entry, %for.cond14.preheader.i, %verify_cache.exit
   %cache_tree = getelementptr inbounds nuw i8, ptr %istate, i64 32
-  %28 = load ptr, ptr %cache_tree, align 8
-  %tobool1.not = icmp eq ptr %28, null
+  %29 = load ptr, ptr %cache_tree, align 8
+  %tobool1.not = icmp eq ptr %29, null
   br i1 %tobool1.not, label %if.then2, label %if.end5
 
 if.then2:                                         ; preds = %if.end
@@ -748,8 +749,8 @@ if.end5:                                          ; preds = %if.then2, %if.end
   br i1 %tobool6.not, label %land.lhs.true, label %if.end10
 
 land.lhs.true:                                    ; preds = %if.end5
-  %29 = load ptr, ptr @the_repository, align 8
-  %call7 = tail call i32 @repo_has_promisor_remote(ptr noundef %29) #14
+  %30 = load ptr, ptr @the_repository, align 8
+  %call7 = tail call i32 @repo_has_promisor_remote(ptr noundef %30) #14
   %tobool8.not = icmp eq i32 %call7, 0
   br i1 %tobool8.not, label %if.end10, label %if.then9
 
@@ -759,18 +760,18 @@ if.then9:                                         ; preds = %land.lhs.true
 
 if.end10:                                         ; preds = %if.then9, %land.lhs.true, %if.end5
   %call11 = tail call i64 @trace_performance_enter() #14
-  %30 = load ptr, ptr @the_repository, align 8
-  tail call void (ptr, i32, ptr, ptr, ptr, ...) @trace2_region_enter_fl(ptr noundef nonnull @.str, i32 noundef 482, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, ptr noundef %30) #14
+  %31 = load ptr, ptr @the_repository, align 8
+  tail call void (ptr, i32, ptr, ptr, ptr, ...) @trace2_region_enter_fl(ptr noundef nonnull @.str, i32 noundef 482, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, ptr noundef %31) #14
   tail call void @begin_odb_transaction() #14
-  %31 = load ptr, ptr %cache_tree, align 8
-  %32 = load ptr, ptr %istate, align 8
-  %33 = load i32, ptr %cache_nr.i, align 4
-  %call13 = call fastcc i32 @update_one(ptr noundef %31, ptr noundef %32, i32 noundef %33, ptr noundef nonnull @.str.3, i32 noundef 0, ptr noundef %skip, i32 noundef %flags)
+  %32 = load ptr, ptr %cache_tree, align 8
+  %33 = load ptr, ptr %istate, align 8
+  %34 = load i32, ptr %cache_nr.i, align 4
+  %call13 = call fastcc i32 @update_one(ptr noundef %32, ptr noundef %33, i32 noundef %34, ptr noundef nonnull @.str.3, i32 noundef 0, ptr noundef %skip, i32 noundef %flags)
   tail call void @end_odb_transaction() #14
-  %34 = load ptr, ptr @the_repository, align 8
-  tail call void (ptr, i32, ptr, ptr, ptr, ...) @trace2_region_leave_fl(ptr noundef nonnull @.str, i32 noundef 487, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, ptr noundef %34) #14
-  %35 = load i32, ptr getelementptr inbounds nuw (i8, ptr @trace_perf_key, i64 8), align 8
-  %tobool.not.i13 = icmp eq i32 %35, 0
+  %35 = load ptr, ptr @the_repository, align 8
+  tail call void (ptr, i32, ptr, ptr, ptr, ...) @trace2_region_leave_fl(ptr noundef nonnull @.str, i32 noundef 487, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, ptr noundef %35) #14
+  %36 = load i32, ptr getelementptr inbounds nuw (i8, ptr @trace_perf_key, i64 8), align 8
+  %tobool.not.i13 = icmp eq i32 %36, 0
   %bf.load.i = load i8, ptr getelementptr inbounds nuw (i8, ptr @trace_perf_key, i64 12), align 4
   %bf.clear.i = and i8 %bf.load.i, 1
   %tobool15.not20 = icmp ne i8 %bf.clear.i, 0
@@ -788,8 +789,8 @@ do.end:                                           ; preds = %if.end10, %if.then1
 
 if.end20:                                         ; preds = %do.end
   %cache_changed = getelementptr inbounds nuw i8, ptr %istate, i64 20
-  %36 = load i32, ptr %cache_changed, align 4
-  %or = or i32 %36, 32
+  %37 = load i32, ptr %cache_changed, align 4
+  %or = or i32 %37, 32
   store i32 %or, ptr %cache_changed, align 4
   br label %return
 

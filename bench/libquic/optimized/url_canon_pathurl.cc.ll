@@ -549,21 +549,20 @@ if.then8:                                         ; preds = %for.body
   %9 = load i32, ptr %ch.i, align 4
   call void @_ZN3url12DoAppendUTF8INS_12CanonOutputTIcEETnPFvhPT_EXadL_ZNS_17AppendEscapedCharIhcEEvS3_PNS1_IT0_EEEEEEvjS4_(i32 noundef %9, ptr noundef nonnull %output)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ch.i)
-  %10 = and i8 %success.050, 1
-  %tobool1316 = icmp ne i8 %10, 0
+  %tobool1316 = icmp ne i8 %success.050, 0
   %tobool13 = select i1 %call.i, i1 %tobool1316, i1 false
   %frombool = zext i1 %tobool13 to i8
   br label %for.inc
 
 if.else:                                          ; preds = %for.body
-  %11 = load i32, ptr %cur_len_.i18, align 4
-  %12 = load i32, ptr %buffer_len_.i21, align 8
-  %cmp.i22 = icmp slt i32 %11, %12
+  %10 = load i32, ptr %cur_len_.i18, align 4
+  %11 = load i32, ptr %buffer_len_.i21, align 8
+  %cmp.i22 = icmp slt i32 %10, %11
   br i1 %cmp.i22, label %return.sink.split.i35, label %if.end.i23
 
 if.end.i23:                                       ; preds = %if.else
-  %cmp.i.i24 = icmp eq i32 %12, 0
-  %spec.select53 = select i1 %cmp.i.i24, i32 16, i32 %12
+  %cmp.i.i24 = icmp eq i32 %11, 0
+  %spec.select53 = select i1 %cmp.i.i24, i32 16, i32 %11
   br label %do.body.i.i26
 
 do.body.i.i26:                                    ; preds = %if.end.i23, %if.end.i.i29
@@ -573,46 +572,46 @@ do.body.i.i26:                                    ; preds = %if.end.i23, %if.end
 
 if.end.i.i29:                                     ; preds = %do.body.i.i26
   %mul.i.i30 = shl nsw i32 %new_len.0.i.i27, 1
-  %cmp5.i.not.i31 = icmp sgt i32 %mul.i.i30, %12
+  %cmp5.i.not.i31 = icmp sgt i32 %mul.i.i30, %11
   br i1 %cmp5.i.not.i31, label %if.end5.i32, label %do.body.i.i26, !llvm.loop !5
 
 if.end5.i32:                                      ; preds = %if.end.i.i29
   %vtable.i.i33 = load ptr, ptr %output, align 8
   %vfn.i.i34 = getelementptr inbounds nuw i8, ptr %vtable.i.i33, i64 16
-  %13 = load ptr, ptr %vfn.i.i34, align 8
-  call void %13(ptr noundef nonnull align 8 dereferenceable(24) %output, i32 noundef %mul.i.i30)
-  %14 = load i32, ptr %cur_len_.i18, align 4
+  %12 = load ptr, ptr %vfn.i.i34, align 8
+  call void %12(ptr noundef nonnull align 8 dereferenceable(24) %output, i32 noundef %mul.i.i30)
+  %13 = load i32, ptr %cur_len_.i18, align 4
   br label %return.sink.split.i35
 
 return.sink.split.i35:                            ; preds = %if.else, %if.end5.i32
-  %.sink2.i36 = phi i32 [ %14, %if.end5.i32 ], [ %11, %if.else ]
+  %.sink2.i36 = phi i32 [ %13, %if.end5.i32 ], [ %10, %if.else ]
   %.sink.i38 = load ptr, ptr %.sink.in.i37, align 8
   %idxprom8.i39 = sext i32 %.sink2.i36 to i64
   %arrayidx9.i40 = getelementptr inbounds i8, ptr %.sink.i38, i64 %idxprom8.i39
   store i8 %8, ptr %arrayidx9.i40, align 1
-  %15 = load i32, ptr %cur_len_.i18, align 4
-  %inc11.i41 = add nsw i32 %15, 1
+  %14 = load i32, ptr %cur_len_.i18, align 4
+  %inc11.i41 = add nsw i32 %14, 1
   store i32 %inc11.i41, ptr %cur_len_.i18, align 4
   br label %for.inc
 
 for.inc:                                          ; preds = %do.body.i.i26, %return.sink.split.i35, %if.then8
   %success.1 = phi i8 [ %frombool, %if.then8 ], [ %success.050, %return.sink.split.i35 ], [ %success.050, %do.body.i.i26 ]
-  %16 = load i32, ptr %i, align 4
-  %inc = add nsw i32 %16, 1
+  %15 = load i32, ptr %i, align 4
+  %inc = add nsw i32 %15, 1
   store i32 %inc, ptr %i, align 4
   %cmp = icmp slt i32 %inc, %add.i
   br i1 %cmp, label %for.body, label %for.end.loopexit, !llvm.loop !7
 
 for.end.loopexit:                                 ; preds = %for.inc
   %.pre51 = load i32, ptr %new_component, align 4
-  %17 = trunc nuw i8 %success.1 to i1
+  %16 = trunc nuw i8 %success.1 to i1
   br label %for.end
 
 for.end:                                          ; preds = %for.end.loopexit, %if.end
-  %18 = phi i32 [ %5, %if.end ], [ %.pre51, %for.end.loopexit ]
-  %success.0.lcssa = phi i1 [ true, %if.end ], [ %17, %for.end.loopexit ]
-  %19 = load i32, ptr %cur_len_.i18, align 4
-  %sub = sub nsw i32 %19, %18
+  %17 = phi i32 [ %5, %if.end ], [ %.pre51, %for.end.loopexit ]
+  %success.0.lcssa = phi i1 [ true, %if.end ], [ %16, %for.end.loopexit ]
+  %18 = load i32, ptr %cur_len_.i18, align 4
+  %sub = sub nsw i32 %18, %17
   br label %if.end18
 
 if.else17:                                        ; preds = %entry
@@ -938,22 +937,21 @@ if.then8:                                         ; preds = %for.body
   %10 = load i32, ptr %char_value.i, align 4
   call void @_ZN3url12DoAppendUTF8INS_12CanonOutputTIcEETnPFvhPT_EXadL_ZNS_17AppendEscapedCharIhcEEvS3_PNS1_IT0_EEEEEEvjS4_(i32 noundef %10, ptr noundef nonnull %output)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %char_value.i)
-  %11 = and i8 %success.050, 1
-  %tobool1316 = icmp ne i8 %11, 0
+  %tobool1316 = icmp ne i8 %success.050, 0
   %tobool13 = select i1 %call.i, i1 %tobool1316, i1 false
   %frombool = zext i1 %tobool13 to i8
   br label %for.inc
 
 if.else:                                          ; preds = %for.body
   %conv14 = trunc nuw i16 %8 to i8
-  %12 = load i32, ptr %cur_len_.i18, align 4
-  %13 = load i32, ptr %buffer_len_.i21, align 8
-  %cmp.i22 = icmp slt i32 %12, %13
+  %11 = load i32, ptr %cur_len_.i18, align 4
+  %12 = load i32, ptr %buffer_len_.i21, align 8
+  %cmp.i22 = icmp slt i32 %11, %12
   br i1 %cmp.i22, label %return.sink.split.i35, label %if.end.i23
 
 if.end.i23:                                       ; preds = %if.else
-  %cmp.i.i24 = icmp eq i32 %13, 0
-  %spec.select53 = select i1 %cmp.i.i24, i32 16, i32 %13
+  %cmp.i.i24 = icmp eq i32 %12, 0
+  %spec.select53 = select i1 %cmp.i.i24, i32 16, i32 %12
   br label %do.body.i.i26
 
 do.body.i.i26:                                    ; preds = %if.end.i23, %if.end.i.i29
@@ -963,46 +961,46 @@ do.body.i.i26:                                    ; preds = %if.end.i23, %if.end
 
 if.end.i.i29:                                     ; preds = %do.body.i.i26
   %mul.i.i30 = shl nsw i32 %new_len.0.i.i27, 1
-  %cmp5.i.not.i31 = icmp sgt i32 %mul.i.i30, %13
+  %cmp5.i.not.i31 = icmp sgt i32 %mul.i.i30, %12
   br i1 %cmp5.i.not.i31, label %if.end5.i32, label %do.body.i.i26, !llvm.loop !5
 
 if.end5.i32:                                      ; preds = %if.end.i.i29
   %vtable.i.i33 = load ptr, ptr %output, align 8
   %vfn.i.i34 = getelementptr inbounds nuw i8, ptr %vtable.i.i33, i64 16
-  %14 = load ptr, ptr %vfn.i.i34, align 8
-  call void %14(ptr noundef nonnull align 8 dereferenceable(24) %output, i32 noundef %mul.i.i30)
-  %15 = load i32, ptr %cur_len_.i18, align 4
+  %13 = load ptr, ptr %vfn.i.i34, align 8
+  call void %13(ptr noundef nonnull align 8 dereferenceable(24) %output, i32 noundef %mul.i.i30)
+  %14 = load i32, ptr %cur_len_.i18, align 4
   br label %return.sink.split.i35
 
 return.sink.split.i35:                            ; preds = %if.else, %if.end5.i32
-  %.sink2.i36 = phi i32 [ %15, %if.end5.i32 ], [ %12, %if.else ]
+  %.sink2.i36 = phi i32 [ %14, %if.end5.i32 ], [ %11, %if.else ]
   %.sink.i38 = load ptr, ptr %.sink.in.i37, align 8
   %idxprom8.i39 = sext i32 %.sink2.i36 to i64
   %arrayidx9.i40 = getelementptr inbounds i8, ptr %.sink.i38, i64 %idxprom8.i39
   store i8 %conv14, ptr %arrayidx9.i40, align 1
-  %16 = load i32, ptr %cur_len_.i18, align 4
-  %inc11.i41 = add nsw i32 %16, 1
+  %15 = load i32, ptr %cur_len_.i18, align 4
+  %inc11.i41 = add nsw i32 %15, 1
   store i32 %inc11.i41, ptr %cur_len_.i18, align 4
   br label %for.inc
 
 for.inc:                                          ; preds = %do.body.i.i26, %return.sink.split.i35, %if.then8
   %success.1 = phi i8 [ %frombool, %if.then8 ], [ %success.050, %return.sink.split.i35 ], [ %success.050, %do.body.i.i26 ]
-  %17 = load i32, ptr %i, align 4
-  %inc = add nsw i32 %17, 1
+  %16 = load i32, ptr %i, align 4
+  %inc = add nsw i32 %16, 1
   store i32 %inc, ptr %i, align 4
   %cmp = icmp slt i32 %inc, %add.i
   br i1 %cmp, label %for.body, label %for.end.loopexit, !llvm.loop !8
 
 for.end.loopexit:                                 ; preds = %for.inc
   %.pre51 = load i32, ptr %new_component, align 4
-  %18 = trunc nuw i8 %success.1 to i1
+  %17 = trunc nuw i8 %success.1 to i1
   br label %for.end
 
 for.end:                                          ; preds = %for.end.loopexit, %if.end
-  %19 = phi i32 [ %5, %if.end ], [ %.pre51, %for.end.loopexit ]
-  %success.0.lcssa = phi i1 [ true, %if.end ], [ %18, %for.end.loopexit ]
-  %20 = load i32, ptr %cur_len_.i18, align 4
-  %sub = sub nsw i32 %20, %19
+  %18 = phi i32 [ %5, %if.end ], [ %.pre51, %for.end.loopexit ]
+  %success.0.lcssa = phi i1 [ true, %if.end ], [ %17, %for.end.loopexit ]
+  %19 = load i32, ptr %cur_len_.i18, align 4
+  %sub = sub nsw i32 %19, %18
   br label %if.end19
 
 if.else18:                                        ; preds = %entry

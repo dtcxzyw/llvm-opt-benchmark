@@ -1776,8 +1776,7 @@ if.end:                                           ; preds = %for.body
   %frombool = and i8 %8, 1
   store i8 %frombool, ptr %absolute, align 1
   %current10 = getelementptr inbounds nuw i8, ptr %call, i64 16
-  %frombool11 = and i8 %current.015, 1
-  store i8 %frombool11, ptr %current10, align 8
+  store i8 %current.015, ptr %current10, align 8
   %call12 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc(i64 noundef 16) #14
   %value = getelementptr inbounds nuw i8, ptr %call12, i64 8
   store ptr %call, ptr %value, align 8

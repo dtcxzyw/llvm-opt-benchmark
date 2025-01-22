@@ -1404,7 +1404,7 @@ _ZL15getNeighbourRegR16dtTileCacheLayeriii.exit94.i.us: ; preds = %158, %154, %1
   %260 = zext nneg i32 %259 to i64
   %261 = getelementptr inbounds nuw i8, ptr %39, i64 %260
   %262 = load i8, ptr %261, align 1
-  %263 = shl nsw i64 %indvars.iv.i.us, 2
+  %263 = shl nuw nsw i64 %indvars.iv.i.us, 2
   %264 = or disjoint i64 %263, 3
   %265 = getelementptr inbounds nuw i8, ptr %39, i64 %264
   %266 = load i8, ptr %265, align 1
@@ -1422,8 +1422,8 @@ _ZL15getNeighbourRegR16dtTileCacheLayeriii.exit94.i.us: ; preds = %158, %154, %1
 272:                                              ; preds = %267, %.lr.ph.i97.us
   %.sroa.39.4.us = phi i32 [ %.sroa.39.3.us, %.lr.ph.i97.us ], [ %269, %267 ]
   %273 = phi i32 [ %255, %.lr.ph.i97.us ], [ %.sroa.9.3.ph.us, %267 ]
-  %274 = sext i32 %273 to i64
-  %275 = icmp slt i64 %indvars.iv.next.i.us, %274
+  %274 = zext nneg i32 %273 to i64
+  %275 = icmp samesign ult i64 %indvars.iv.next.i.us, %274
   br i1 %275, label %.lr.ph.i97.us, label %._crit_edge.i99.us, !llvm.loop !24
 
 ._crit_edge.i99.us:                               ; preds = %272
@@ -1458,12 +1458,12 @@ _ZL15getNeighbourRegR16dtTileCacheLayeriii.exit94.i.us: ; preds = %158, %154, %1
   %288 = getelementptr inbounds nuw i8, ptr %39, i64 %287
   %289 = load i8, ptr %288, align 1
   %290 = zext i8 %289 to i32
-  %291 = icmp sgt i32 %.0145195.i.us, %286
+  %291 = icmp samesign ugt i32 %.0145195.i.us, %286
   br i1 %291, label %295, label %292
 
 292:                                              ; preds = %.lr.ph197.i.us
   %293 = icmp eq i32 %.0145195.i.us, %286
-  %294 = icmp sgt i32 %.0146194.i.us, %290
+  %294 = icmp samesign ugt i32 %.0146194.i.us, %290
   %or.cond.i100.us = select i1 %293, i1 %294, i1 false
   br i1 %or.cond.i100.us, label %295, label %297
 
@@ -1475,12 +1475,12 @@ _ZL15getNeighbourRegR16dtTileCacheLayeriii.exit94.i.us: ; preds = %158, %154, %1
   %.1154.i.us = phi i16 [ %296, %295 ], [ %.0153193.i.us, %292 ]
   %.1147.i.us = phi i32 [ %290, %295 ], [ %.0146194.i.us, %292 ]
   %.1.i.us = phi i32 [ %286, %295 ], [ %.0145195.i.us, %292 ]
-  %298 = icmp slt i32 %.0163192.i.us, %286
+  %298 = icmp samesign ult i32 %.0163192.i.us, %286
   br i1 %298, label %302, label %299
 
 299:                                              ; preds = %297
   %300 = icmp eq i32 %.0163192.i.us, %286
-  %301 = icmp slt i32 %.0165191.i.us, %290
+  %301 = icmp samesign ult i32 %.0165191.i.us, %290
   %or.cond182.i.us = select i1 %300, i1 %301, i1 false
   br i1 %or.cond182.i.us, label %302, label %304
 

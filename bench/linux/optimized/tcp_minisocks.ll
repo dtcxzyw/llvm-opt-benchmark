@@ -662,9 +662,9 @@ define dso_local void @tcp_twsk_purge(ptr noundef readonly %0, i32 noundef %1) #
   %4 = icmp eq ptr %3, %0
   br i1 %4, label %.loopexit, label %.preheader
 
-.preheader:                                       ; preds = %2, %19
-  %5 = phi ptr [ %21, %19 ], [ %3, %2 ]
-  %6 = phi i8 [ %20, %19 ], [ 0, %2 ]
+.preheader:                                       ; preds = %2, %18
+  %5 = phi ptr [ %20, %18 ], [ %3, %2 ]
+  %6 = phi i8 [ %19, %18 ], [ 0, %2 ]
   %7 = getelementptr i8, ptr %5, i64 720
   %8 = getelementptr i8, ptr %5, i64 784
   %9 = load ptr, ptr %8, align 64
@@ -674,28 +674,27 @@ define dso_local void @tcp_twsk_purge(ptr noundef readonly %0, i32 noundef %1) #
   br i1 %12, label %13, label %.sink.split
 
 13:                                               ; preds = %.preheader
-  %14 = and i8 %6, 1
-  %15 = icmp eq i8 %14, 0
-  br i1 %15, label %16, label %19
+  %14 = icmp eq i8 %6, 0
+  br i1 %14, label %15, label %18
 
-16:                                               ; preds = %13
-  %17 = load volatile i32, ptr %7, align 4
-  %18 = icmp eq i32 %17, 1
-  br i1 %18, label %19, label %.sink.split
+15:                                               ; preds = %13
+  %16 = load volatile i32, ptr %7, align 4
+  %17 = icmp eq i32 %16, 1
+  br i1 %17, label %18, label %.sink.split
 
-.sink.split:                                      ; preds = %16, %.preheader
-  %tcp_hashinfo.sink = phi ptr [ %9, %.preheader ], [ @tcp_hashinfo, %16 ]
-  %.ph = phi i8 [ %6, %.preheader ], [ 1, %16 ]
+.sink.split:                                      ; preds = %15, %.preheader
+  %tcp_hashinfo.sink = phi ptr [ %9, %.preheader ], [ @tcp_hashinfo, %15 ]
+  %.ph = phi i8 [ %6, %.preheader ], [ 1, %15 ]
   tail call void @inet_twsk_purge(ptr noundef %tcp_hashinfo.sink, i32 noundef %1) #8
-  br label %19
+  br label %18
 
-19:                                               ; preds = %.sink.split, %16, %13
-  %20 = phi i8 [ %6, %13 ], [ %6, %16 ], [ %.ph, %.sink.split ]
-  %21 = load ptr, ptr %5, align 8
-  %22 = icmp eq ptr %21, %0
-  br i1 %22, label %.loopexit, label %.preheader, !llvm.loop !17
+18:                                               ; preds = %.sink.split, %15, %13
+  %19 = phi i8 [ %6, %13 ], [ 0, %15 ], [ %.ph, %.sink.split ]
+  %20 = load ptr, ptr %5, align 8
+  %21 = icmp eq ptr %20, %0
+  br i1 %21, label %.loopexit, label %.preheader, !llvm.loop !17
 
-.loopexit:                                        ; preds = %19, %2
+.loopexit:                                        ; preds = %18, %2
   ret void
 }
 

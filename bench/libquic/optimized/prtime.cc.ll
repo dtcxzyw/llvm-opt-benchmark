@@ -2206,8 +2206,8 @@ if.end1546:                                       ; preds = %if.end1532, %if.the
   br i1 %cmp1547.not, label %if.end1551, label %if.then1548
 
 if.then1548:                                      ; preds = %if.end1546
-  %164 = trunc i32 %dotw.0.lcssa648 to i8
-  %conv1550 = add i8 %164, -1
+  %164 = trunc nsw i32 %dotw.0.lcssa648 to i8
+  %conv1550 = add nsw i8 %164, -1
   %tm_wday = getelementptr inbounds nuw i8, ptr %tm, i64 26
   store i8 %conv1550, ptr %tm_wday, align 2
   br label %if.end1551

@@ -1910,8 +1910,8 @@ common.resume:                                    ; preds = %common.resume.sink.
   %70 = add i64 %69, %67
   %switch56 = icmp eq i64 %.sroa.010.089.ph, 0
   %..sroa.612.058 = select i1 %switch56, i64 %67, i64 %.sroa.612.088.ph
-  %switch59 = icmp eq i32 %.sroa.0.094.ph, 1
-  br i1 %switch59, label %77, label %73
+  %switch59.not = icmp eq i32 %.sroa.0.094.ph, 0
+  br i1 %switch59.not, label %73, label %77
 
 .loopexit:                                        ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hc14a0643e1f2d1e9E.exit", %77
   %71 = phi i64 [ %78, %77 ], [ %30, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hc14a0643e1f2d1e9E.exit" ]

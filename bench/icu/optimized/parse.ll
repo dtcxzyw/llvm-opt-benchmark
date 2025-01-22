@@ -3096,11 +3096,11 @@ if.end36:                                         ; preds = %if.end28
 
 while.body.lr.ph.split.us:                        ; preds = %if.end36, %if.end118
   %target.0.ph124 = phi ptr [ %target.5, %if.end118 ], [ %call39, %if.end36 ]
-  %quoted.0.ph123 = phi i8 [ %quoted.190, %if.end118 ], [ 0, %if.end36 ]
+  %quoted.0.ph123 = phi i8 [ %spec.select90, %if.end118 ], [ 0, %if.end36 ]
   %call43.us109 = call i32 @ucbuf_getc(ptr noundef %call31, ptr noundef nonnull %status)
   %cmp44.us110 = icmp eq i32 %call43.us109, 39
   %conv47.us111 = zext i1 %cmp44.us110 to i8
-  %quoted.1.us112 = xor i8 %quoted.0.ph123, %conv47.us111
+  %spec.select.us112 = xor i8 %quoted.0.ph123, %conv47.us111
   %cmp49.us113 = icmp ne i32 %call43.us109, 91
   %tobool50.us114 = icmp ne i8 %quoted.0.ph123, %conv47.us111
   %or.cond.us115 = select i1 %cmp49.us113, i1 true, i1 %tobool50.us114
@@ -3108,7 +3108,7 @@ while.body.lr.ph.split.us:                        ; preds = %if.end36, %if.end11
 
 if.else66.us:                                     ; preds = %while.body.lr.ph.split.us, %while.cond.backedge.us
   %tobool50.us118 = phi i1 [ %tobool50.us, %while.cond.backedge.us ], [ %tobool50.us114, %while.body.lr.ph.split.us ]
-  %quoted.1.us117 = phi i8 [ %quoted.1.us, %while.cond.backedge.us ], [ %quoted.1.us112, %while.body.lr.ph.split.us ]
+  %spec.select.us117 = phi i8 [ %spec.select.us, %while.cond.backedge.us ], [ %spec.select.us112, %while.body.lr.ph.split.us ]
   %call43.us116 = phi i32 [ %call43.us, %while.cond.backedge.us ], [ %call43.us109, %while.body.lr.ph.split.us ]
   %cmp67.us = icmp ne i32 %call43.us116, 35
   %or.cond1.us = select i1 %cmp67.us, i1 true, i1 %tobool50.us118
@@ -3141,18 +3141,18 @@ land.lhs.true86.us:                               ; preds = %if.else84.us
   ]
 
 while.cond.backedge.us:                           ; preds = %while.cond71.us, %while.cond71.us, %land.lhs.true86.us, %land.lhs.true86.us, %land.lhs.true86.us, %land.lhs.true86.us
-  %quoted.0.be.us = phi i8 [ 0, %land.lhs.true86.us ], [ 0, %land.lhs.true86.us ], [ 0, %land.lhs.true86.us ], [ 0, %land.lhs.true86.us ], [ %quoted.1.us117, %while.cond71.us ], [ %quoted.1.us117, %while.cond71.us ]
+  %quoted.0.be.us = phi i8 [ 0, %land.lhs.true86.us ], [ 0, %land.lhs.true86.us ], [ 0, %land.lhs.true86.us ], [ 0, %land.lhs.true86.us ], [ %spec.select.us117, %while.cond71.us ], [ %spec.select.us117, %while.cond71.us ]
   %call43.us = call i32 @ucbuf_getc(ptr noundef %call31, ptr noundef nonnull %status)
   %cmp44.us = icmp eq i32 %call43.us, 39
   %conv47.us = zext i1 %cmp44.us to i8
-  %quoted.1.us = xor i8 %quoted.0.be.us, %conv47.us
+  %spec.select.us = xor i8 %quoted.0.be.us, %conv47.us
   %cmp49.us = icmp ne i32 %call43.us, 91
   %tobool50.us = icmp ne i8 %quoted.0.be.us, %conv47.us
   %or.cond.us = select i1 %cmp49.us, i1 true, i1 %tobool50.us
   br i1 %or.cond.us, label %if.else66.us, label %while.cond52.preheader
 
 while.cond52.preheader:                           ; preds = %while.cond.backedge.us, %while.body.lr.ph.split.us
-  %.us-phi = phi i8 [ %quoted.1.us112, %while.body.lr.ph.split.us ], [ %quoted.1.us, %while.cond.backedge.us ]
+  %.us-phi = phi i8 [ %spec.select.us112, %while.body.lr.ph.split.us ], [ %spec.select.us, %while.cond.backedge.us ]
   br label %do.body
 
 do.body:                                          ; preds = %while.cond52.preheader, %do.end
@@ -3205,7 +3205,7 @@ do.body100:                                       ; preds = %if.end97
   br i1 %cmp101, label %if.then102, label %if.else105
 
 if.then102:                                       ; preds = %do.end, %do.body100
-  %quoted.191 = phi i8 [ %quoted.1.us117, %do.body100 ], [ %.us-phi, %do.end ]
+  %spec.select91 = phi i8 [ %spec.select.us117, %do.body100 ], [ %.us-phi, %do.end ]
   %c.18086 = phi i32 [ %c.1, %do.body100 ], [ 93, %do.end ]
   %target.48185 = phi ptr [ %target.0.ph124, %do.body100 ], [ %incdec.ptr, %do.end ]
   %conv103 = trunc i32 %c.18086 to i16
@@ -3227,7 +3227,7 @@ if.else105:                                       ; preds = %do.body100
   br label %if.end118
 
 if.end118:                                        ; preds = %if.else105, %if.then102
-  %quoted.190 = phi i8 [ %quoted.191, %if.then102 ], [ %quoted.1.us117, %if.else105 ]
+  %spec.select90 = phi i8 [ %spec.select91, %if.then102 ], [ %spec.select.us117, %if.else105 ]
   %target.5 = phi ptr [ %incdec.ptr104, %if.then102 ], [ %add.ptr114, %if.else105 ]
   %cmp42 = icmp ult ptr %target.5, %add.ptr
   br i1 %cmp42, label %while.body.lr.ph.split.us, label %while.end119, !llvm.loop !17

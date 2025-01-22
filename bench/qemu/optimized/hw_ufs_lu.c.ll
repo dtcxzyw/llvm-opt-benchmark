@@ -73,9 +73,9 @@ entry:
   %cdb = getelementptr inbounds nuw i8, ptr %req, i64 64
   %0 = load i8, ptr %cdb, align 4
   %.sink2.i.i.sroa.gep = getelementptr inbounds nuw i8, ptr %outbuf, i64 6
-  %.sink2.i.i.sroa.gep29 = getelementptr inbounds nuw i8, ptr %outbuf, i64 4
+  %.sink2.i.i.sroa.gep30 = getelementptr inbounds nuw i8, ptr %outbuf, i64 4
   %.sink1.i.i.sroa.gep = getelementptr inbounds nuw i8, ptr %outbuf, i64 7
-  %.sink1.i.i.sroa.gep30 = getelementptr inbounds nuw i8, ptr %outbuf, i64 5
+  %.sink1.i.i.sroa.gep31 = getelementptr inbounds nuw i8, ptr %outbuf, i64 5
   switch i8 %0, label %sw.epilog.thread [
     i8 -96, label %sw.bb
     i8 18, label %sw.bb5
@@ -91,7 +91,6 @@ sw.bb:                                            ; preds = %entry
 
 for.cond.preheader.i:                             ; preds = %sw.bb
   %req.val = load ptr, ptr %req, align 8
-  %invariant.gep.i = getelementptr inbounds nuw i8, ptr %outbuf, i64 1
   %lus.i = getelementptr inbounds nuw i8, ptr %req.val, i64 3304
   br label %for.body.i
 
@@ -109,18 +108,18 @@ if.then6.i:                                       ; preds = %for.body.i
   br i1 %cmp8.i, label %ufs_emulate_report_luns.exit.thread34, label %if.end11.i
 
 ufs_emulate_report_luns.exit.thread34:            ; preds = %if.then6.i
-  %sub.i36 = add i32 %len.01.i, -8
+  %sub.i36 = add nsw i32 %len.01.i, -8
   %3 = tail call i32 @llvm.bswap.i32(i32 %sub.i36)
   store i32 %3, ptr %outbuf, align 16
   br label %sw.epilog
 
 if.end11.i:                                       ; preds = %if.then6.i
-  %idx.ext.i = sext i32 %len.01.i to i64
+  %idx.ext.i = zext nneg i32 %len.01.i to i64
   %add.ptr.i = getelementptr i8, ptr %outbuf, i64 %idx.ext.i
   store i64 0, ptr %add.ptr.i, align 1
-  %gep.i = getelementptr i8, ptr %invariant.gep.i, i64 %idx.ext.i
+  %arrayidx16.i = getelementptr i8, ptr %add.ptr.i, i64 1
   %4 = trunc nuw nsw i64 %indvars.iv.i to i8
-  store i8 %4, ptr %gep.i, align 1
+  store i8 %4, ptr %arrayidx16.i, align 1
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %if.end11.i, %for.body.i
@@ -130,7 +129,7 @@ for.inc.i:                                        ; preds = %if.end11.i, %for.bo
   br i1 %exitcond.not.i, label %ufs_emulate_report_luns.exit, label %for.body.i, !llvm.loop !5
 
 ufs_emulate_report_luns.exit:                     ; preds = %for.inc.i
-  %sub.i = add i32 %len.1.i, -8
+  %sub.i = add nsw i32 %len.1.i, -8
   %5 = tail call i32 @llvm.bswap.i32(i32 %sub.i)
   store i32 %5, ptr %outbuf, align 16
   %cmp = icmp eq i32 %len.1.i, -1
@@ -159,13 +158,13 @@ if.then1.i:                                       ; preds = %sw.bb5
   ]
 
 sw.bb17.i.i:                                      ; preds = %if.then1.i
-  store i8 63, ptr %.sink2.i.i.sroa.gep29, align 4
-  store i8 -1, ptr %.sink1.i.i.sroa.gep30, align 1
+  store i8 63, ptr %.sink2.i.i.sroa.gep30, align 4
+  store i8 -1, ptr %.sink1.i.i.sroa.gep31, align 1
   br label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %sw.bb17.i.i, %if.then1.i
-  %.sink2.i.i.sroa.phi = phi ptr [ %.sink2.i.i.sroa.gep, %sw.bb17.i.i ], [ %.sink2.i.i.sroa.gep29, %if.then1.i ]
-  %.sink1.i.i.sroa.phi = phi ptr [ %.sink1.i.i.sroa.gep, %sw.bb17.i.i ], [ %.sink1.i.i.sroa.gep30, %if.then1.i ]
+  %.sink2.i.i.sroa.phi = phi ptr [ %.sink2.i.i.sroa.gep, %sw.bb17.i.i ], [ %.sink2.i.i.sroa.gep30, %if.then1.i ]
+  %.sink1.i.i.sroa.phi = phi ptr [ %.sink1.i.i.sroa.gep, %sw.bb17.i.i ], [ %.sink1.i.i.sroa.gep31, %if.then1.i ]
   %.sink.i.i = phi i8 [ 0, %sw.bb17.i.i ], [ -121, %if.then1.i ]
   %buflen.0.i.i = phi i32 [ 8, %sw.bb17.i.i ], [ 6, %if.then1.i ]
   store i8 0, ptr %.sink2.i.i.sroa.phi, align 1
@@ -187,8 +186,8 @@ if.end10.i:                                       ; preds = %if.end2.i
   store i8 6, ptr %arrayidx13.i, align 2
   %arrayidx14.i = getelementptr inbounds nuw i8, ptr %outbuf, i64 3
   store i8 2, ptr %arrayidx14.i, align 1
-  store i8 31, ptr %.sink2.i.i.sroa.gep29, align 4
-  store i8 0, ptr %.sink1.i.i.sroa.gep30, align 1
+  store i8 31, ptr %.sink2.i.i.sroa.gep30, align 4
+  store i8 0, ptr %.sink1.i.i.sroa.gep31, align 1
   store i8 0, ptr %.sink2.i.i.sroa.gep, align 2
   store i8 2, ptr %.sink1.i.i.sroa.gep, align 1
   %arrayidx19.i = getelementptr inbounds nuw i8, ptr %outbuf, i64 8
@@ -247,7 +246,7 @@ if.end68:                                         ; preds = %sw.epilog.thread, %
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %if.end68
-  %sub.i28 = sub nuw i32 %16, %cond48
+  %sub.i29 = sub nuw i32 %16, %cond48
   br label %if.end13.sink.split.i
 
 if.else.i:                                        ; preds = %if.end68
@@ -259,7 +258,7 @@ if.then5.i:                                       ; preds = %if.else.i
   br label %if.end13.sink.split.i
 
 if.end13.sink.split.i:                            ; preds = %if.then5.i, %if.then.i
-  %sub6.sink.i = phi i32 [ %sub6.i, %if.then5.i ], [ %sub.i28, %if.then.i ]
+  %sub6.sink.i = phi i32 [ %sub6.i, %if.then5.i ], [ %sub.i29, %if.then.i ]
   %flags.0.ph.i = phi i8 [ 64, %if.then5.i ], [ 32, %if.then.i ]
   %17 = call noundef i32 @llvm.bswap.i32(i32 %sub6.sink.i)
   %18 = getelementptr inbounds nuw i8, ptr %req, i64 348

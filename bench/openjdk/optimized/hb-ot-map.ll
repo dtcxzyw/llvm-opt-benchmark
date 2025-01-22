@@ -1245,7 +1245,7 @@ _ZN11hb_vector_tIN19hb_ot_map_builder_t14feature_info_tELb0EEixEi.exit._crit_edg
 
 .loopexit386:                                     ; preds = %217, %208, %206
   %.2253 = phi i8 [ %.1252, %206 ], [ %.1252, %208 ], [ %219, %217 ]
-  %220 = trunc i8 %.2253 to i1
+  %220 = trunc nuw i8 %.2253 to i1
   br i1 %220, label %224, label %221
 
 221:                                              ; preds = %.loopexit386

@@ -7816,7 +7816,7 @@ define ptr @zend_try_early_bind(ptr noundef %0, ptr noundef %1, ptr noundef %2, 
   %.not298.i = icmp eq i32 %178, 0
   call void @llvm.assume(i1 %.not298.i)
   %.not299339.i = icmp eq i32 %173, 0
-  br i1 %.not299339.i, label %zend_can_early_bind.exit, label %.lr.ph342.i
+  br i1 %.not299339.i, label %zend_can_early_bind.exit.thread, label %.lr.ph342.i
 
 .lr.ph342.i:                                      ; preds = %._crit_edge338.i
   %179 = getelementptr inbounds nuw i8, ptr %0, i64 176
@@ -7881,20 +7881,21 @@ class_constant_types_compatible.exit.i:           ; preds = %197
 215:                                              ; preds = %class_constant_types_compatible.exit.i, %197, %195, %191, %184, %180
   %216 = getelementptr inbounds nuw i8, ptr %.0270340.i, i64 32
   %.not299.i = icmp eq ptr %216, %175
-  br i1 %.not299.i, label %zend_can_early_bind.exit, label %180
+  br i1 %.not299.i, label %zend_can_early_bind.exit.thread, label %180
 
-zend_can_early_bind.exit.thread:                  ; preds = %125, %111, %.critedge.i
+zend_can_early_bind.exit.thread:                  ; preds = %125, %111, %.critedge.i, %215, %._crit_edge338.i
+  %.0271.i.ph = phi i32 [ %.0272.lcssa.i, %._crit_edge338.i ], [ %.0272.lcssa.i, %215 ], [ 0, %.critedge.i ], [ 0, %111 ], [ 0, %125 ]
   store ptr %79, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 536), align 8
   br label %217
 
-zend_can_early_bind.exit:                         ; preds = %129, %165, %class_constant_types_compatible.exit.i, %215, %._crit_edge338.i
-  %.0271.i = phi i32 [ %.0272.lcssa.i, %._crit_edge338.i ], [ %.0272.lcssa.i, %215 ], [ %213, %class_constant_types_compatible.exit.i ], [ %166, %165 ], [ %130, %129 ]
+zend_can_early_bind.exit:                         ; preds = %129, %165, %class_constant_types_compatible.exit.i
+  %.0271.i = phi i32 [ %213, %class_constant_types_compatible.exit.i ], [ %166, %165 ], [ %130, %129 ]
   store ptr %79, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 536), align 8
   %.not194 = icmp eq i32 %.0271.i, -1
   br i1 %.not194, label %zend_observer_class_linked_notify.exit, label %217
 
 217:                                              ; preds = %zend_can_early_bind.exit.thread, %zend_can_early_bind.exit
-  %.0271.i236 = phi i32 [ 0, %zend_can_early_bind.exit.thread ], [ %.0271.i, %zend_can_early_bind.exit ]
+  %.0271.i236 = phi i32 [ %.0271.i.ph, %zend_can_early_bind.exit.thread ], [ %.0271.i, %zend_can_early_bind.exit ]
   %218 = load i32, ptr %12, align 4
   %219 = and i32 %218, 128
   %.not195 = icmp eq i32 %219, 0
@@ -8309,7 +8310,7 @@ get_class_from_type.exit.thread88:                ; preds = %26, %get_class_from
   br label %77
 
 77:                                               ; preds = %get_class_from_type.exit71.thread94, %67
-  %.144 = phi ptr [ %.043, %67 ], [ %227, %get_class_from_type.exit71.thread94 ]
+  %.144 = phi ptr [ %.043, %67 ], [ %226, %get_class_from_type.exit71.thread94 ]
   %.3 = phi i1 [ %.040, %67 ], [ %.4, %get_class_from_type.exit71.thread94 ]
   %78 = getelementptr inbounds nuw i8, ptr %.144, i64 8
   %79 = load i32, ptr %78, align 8
@@ -8322,7 +8323,7 @@ get_class_from_type.exit.thread88:                ; preds = %26, %get_class_from
   %83 = load i32, ptr %10, align 8
   %84 = load ptr, ptr %.144, align 8
   %85 = call fastcc i32 @zend_is_intersection_subtype_of_type(ptr noundef %0, ptr %82, i32 %83, ptr noundef %3, ptr %84, i32 %79)
-  br label %222
+  br label %221
 
 86:                                               ; preds = %77
   %87 = load ptr, ptr %.144, align 8
@@ -8610,39 +8611,38 @@ lookup_class_ex.exit.thread:                      ; preds = %185, %207, %201, %2
   br i1 %217, label %122, label %218
 
 218:                                              ; preds = %lookup_class_ex.exit.thread
-  %219 = and i8 %.136.i, 1
-  %220 = zext nneg i8 %219 to i32
-  %221 = sub nsw i32 0, %220
+  %219 = zext nneg i8 %.136.i to i32
+  %220 = sub nsw i32 0, %219
   br label %zend_is_intersection_subtype_of_class.exit
 
 zend_is_intersection_subtype_of_class.exit:       ; preds = %151, %215, %218
-  %.0.i73 = phi i32 [ 2, %215 ], [ %221, %218 ], [ 2, %151 ]
+  %.0.i73 = phi i32 [ 2, %215 ], [ %220, %218 ], [ 2, %151 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
-  br label %222
+  br label %221
 
-222:                                              ; preds = %zend_is_intersection_subtype_of_class.exit, %81
+221:                                              ; preds = %zend_is_intersection_subtype_of_class.exit, %81
   %.041 = phi i32 [ %85, %81 ], [ %.0.i73, %zend_is_intersection_subtype_of_class.exit ]
-  %223 = xor i32 %.041, %57
-  %224 = icmp eq i32 %223, 2
-  br i1 %224, label %.loopexit, label %225
+  %222 = xor i32 %.041, %57
+  %223 = icmp eq i32 %222, 2
+  br i1 %223, label %.loopexit, label %224
 
-225:                                              ; preds = %222
-  %226 = icmp eq i32 %.041, -1
-  %spec.select = select i1 %226, i1 true, i1 %.3
+224:                                              ; preds = %221
+  %225 = icmp eq i32 %.041, -1
+  %spec.select = select i1 %225, i1 true, i1 %.3
   br label %get_class_from_type.exit71.thread94
 
-get_class_from_type.exit71.thread94:              ; preds = %86, %225, %get_class_from_type.exit71
-  %.4 = phi i1 [ %.3, %get_class_from_type.exit71 ], [ %spec.select, %225 ], [ %.3, %86 ]
-  %227 = getelementptr inbounds nuw i8, ptr %.144, i64 16
-  %228 = icmp ult ptr %227, %.042
-  br i1 %228, label %77, label %229
+get_class_from_type.exit71.thread94:              ; preds = %86, %224, %get_class_from_type.exit71
+  %.4 = phi i1 [ %.3, %get_class_from_type.exit71 ], [ %spec.select, %224 ], [ %.3, %86 ]
+  %226 = getelementptr inbounds nuw i8, ptr %.144, i64 16
+  %227 = icmp ult ptr %226, %.042
+  br i1 %227, label %77, label %228
 
-229:                                              ; preds = %get_class_from_type.exit71.thread94
+228:                                              ; preds = %get_class_from_type.exit71.thread94
   %spec.select60 = select i1 %.4, i32 -1, i32 %57
   br label %.loopexit
 
-.loopexit:                                        ; preds = %222, %229, %52
-  %.0 = phi i32 [ 2, %52 ], [ %spec.select60, %229 ], [ %.041, %222 ]
+.loopexit:                                        ; preds = %221, %228, %52
+  %.0 = phi i32 [ 2, %52 ], [ %spec.select60, %228 ], [ %.041, %221 ]
   ret i32 %.0
 }
 

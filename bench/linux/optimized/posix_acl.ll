@@ -1422,7 +1422,7 @@ define dso_local noundef i32 @posix_acl_create(ptr noundef %0, ptr nocapture nou
   %33 = sext i32 %32 to i64
   %34 = tail call ptr @kmemdup(ptr noundef nonnull %16, i64 noundef %33, i32 noundef 3136) #16
   %35 = icmp eq ptr %34, null
-  br i1 %35, label %100, label %36
+  br i1 %35, label %99, label %36
 
 36:                                               ; preds = %28
   store volatile i32 1, ptr %34, align 4
@@ -1493,79 +1493,79 @@ define dso_local noundef i32 @posix_acl_create(ptr noundef %0, ptr nocapture nou
 
 75:                                               ; preds = %68
   %76 = icmp eq ptr %70, null
-  br i1 %76, label %77, label %79
+  br i1 %76, label %77, label %posix_acl_create_masq.exit
 
 77:                                               ; preds = %75
   %78 = icmp eq ptr %69, null
-  br i1 %78, label %posix_acl_create_masq.exit.thread, label %79
+  br i1 %78, label %posix_acl_create_masq.exit.thread, label %posix_acl_create_masq.exit
 
-79:                                               ; preds = %77, %75
+posix_acl_create_masq.exit:                       ; preds = %75, %77
   %.lcssa13.sink.i = phi ptr [ %70, %75 ], [ %69, %77 ]
-  %80 = lshr i16 %71, 3
-  %81 = or i16 %80, -8
-  %82 = getelementptr inbounds nuw i8, ptr %.lcssa13.sink.i, i64 2
-  %83 = load i16, ptr %82, align 2
-  %84 = and i16 %83, %81
-  store i16 %84, ptr %82, align 2
-  %85 = shl i16 %84, 3
-  %86 = or i16 %85, -57
-  %87 = and i16 %86, %71
-  %88 = load i16, ptr %1, align 2
-  %89 = and i16 %88, -512
-  %90 = or i16 %87, %89
-  store i16 %90, ptr %1, align 2
-  %91 = icmp eq i32 %72, 0
-  br i1 %91, label %92, label %93
+  %79 = lshr i16 %71, 3
+  %80 = or i16 %79, -8
+  %81 = getelementptr inbounds nuw i8, ptr %.lcssa13.sink.i, i64 2
+  %82 = load i16, ptr %81, align 2
+  %83 = and i16 %82, %80
+  store i16 %83, ptr %81, align 2
+  %84 = shl i16 %83, 3
+  %85 = or i16 %84, -57
+  %86 = and i16 %85, %71
+  %87 = load i16, ptr %1, align 2
+  %88 = and i16 %87, -512
+  %89 = or i16 %86, %88
+  store i16 %89, ptr %1, align 2
+  %90 = icmp eq i32 %72, 0
+  br i1 %90, label %91, label %92
 
-92:                                               ; preds = %79
+91:                                               ; preds = %posix_acl_create_masq.exit
   tail call fastcc void @posix_acl_release(ptr noundef nonnull %34)
-  br label %94
+  br label %93
 
-93:                                               ; preds = %79
+92:                                               ; preds = %posix_acl_create_masq.exit
   store ptr %34, ptr %3, align 8
-  br label %94
+  br label %93
 
-94:                                               ; preds = %93, %92
-  %95 = load i16, ptr %1, align 2
-  %96 = and i16 %95, -4096
-  %97 = icmp eq i16 %96, 16384
-  br i1 %97, label %99, label %98
+93:                                               ; preds = %92, %91
+  %94 = load i16, ptr %1, align 2
+  %95 = and i16 %94, -4096
+  %96 = icmp eq i16 %95, 16384
+  br i1 %96, label %98, label %97
 
-98:                                               ; preds = %94
+97:                                               ; preds = %93
   tail call fastcc void @posix_acl_release(ptr noundef nonnull %16)
   br label %.thread
 
-99:                                               ; preds = %94
+98:                                               ; preds = %93
   store ptr %16, ptr %2, align 8
   br label %.thread
 
 posix_acl_create_masq.exit.thread:                ; preds = %.preheader.i, %36, %77
   tail call fastcc void @posix_acl_release(ptr noundef nonnull %34)
-  br label %100
+  br label %99
 
-100:                                              ; preds = %posix_acl_create_masq.exit.thread, %28
-  %101 = phi i32 [ -5, %posix_acl_create_masq.exit.thread ], [ -12, %28 ]
-  %102 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %16, i32 -1, ptr nonnull elementtype(i32) %16) #13, !srcloc !17
-  %103 = icmp eq i32 %102, 1
-  br i1 %103, label %107, label %104
+99:                                               ; preds = %posix_acl_create_masq.exit.thread, %28
+  %100 = phi i32 [ -5, %posix_acl_create_masq.exit.thread ], [ -12, %28 ]
+  %101 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %16, i32 -1, ptr nonnull elementtype(i32) %16) #13, !srcloc !17
+  %102 = icmp eq i32 %101, 1
+  br i1 %102, label %106, label %103
 
-104:                                              ; preds = %100
-  %105 = icmp sgt i32 %102, 0
-  br i1 %105, label %.thread, label %106, !prof !12
+103:                                              ; preds = %99
+  %104 = icmp sgt i32 %101, 0
+  br i1 %104, label %.thread, label %105, !prof !12
 
-106:                                              ; preds = %104
+105:                                              ; preds = %103
   tail call void @refcount_warn_saturate(ptr noundef nonnull %16, i32 noundef 3) #13
   br label %.thread
 
-107:                                              ; preds = %100
+106:                                              ; preds = %99
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !18
-  %108 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  tail call void @kvfree_call_rcu(ptr noundef nonnull %108, ptr noundef nonnull %16) #13
+  %107 = getelementptr inbounds nuw i8, ptr %16, i64 8
+  tail call void @kvfree_call_rcu(ptr noundef nonnull %107, ptr noundef nonnull %16) #13
   br label %.thread
 
-.thread:                                          ; preds = %104, %106, %107, %99, %98, %26, %18, %8, %4
-  %109 = phi i32 [ 0, %18 ], [ %27, %26 ], [ 0, %8 ], [ 0, %4 ], [ 0, %99 ], [ 0, %98 ], [ %101, %107 ], [ %101, %106 ], [ %101, %104 ]
-  ret i32 %109
+.thread:                                          ; preds = %103, %105, %106, %98, %97, %26, %18, %8, %4
+  %108 = phi i32 [ 0, %18 ], [ %27, %26 ], [ 0, %8 ], [ 0, %4 ], [ 0, %98 ], [ 0, %97 ], [ %100, %106 ], [ %100, %105 ], [ %100, %103 ]
+  ret i32 %108
 }
 
 ; Function Attrs: null_pointer_is_valid
@@ -1576,7 +1576,7 @@ define dso_local range(i32 -22, 1) i32 @posix_acl_update_mode(ptr noundef %0, pt
   %5 = load i16, ptr %1, align 8
   %6 = load ptr, ptr %3, align 8
   %7 = icmp eq ptr %6, null
-  br i1 %7, label %.thread6, label %8
+  br i1 %7, label %.thread5, label %8
 
 8:                                                ; preds = %4
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 28
@@ -1585,18 +1585,18 @@ define dso_local range(i32 -22, 1) i32 @posix_acl_update_mode(ptr noundef %0, pt
   %12 = zext i32 %11 to i64
   %13 = getelementptr %struct.posix_acl_entry, ptr %9, i64 %12
   %14 = icmp ult ptr %9, %13
-  br i1 %14, label %.preheader, label %.thread5
+  br i1 %14, label %.preheader, label %.thread10
 
-.thread5:                                         ; preds = %8
+.thread10:                                        ; preds = %8
   %15 = and i16 %5, -512
-  br label %.thread6
+  br label %.thread5
 
 .preheader:                                       ; preds = %8, %44
   %16 = phi i32 [ %46, %44 ], [ 0, %8 ]
   %17 = phi i16 [ %45, %44 ], [ 0, %8 ]
   %18 = phi ptr [ %47, %44 ], [ %9, %8 ]
   %19 = load i16, ptr %18, align 4
-  switch i16 %19, label %.thread [
+  switch i16 %19, label %.loopexit [
     i16 1, label %20
     i16 4, label %26
     i16 32, label %32
@@ -1648,40 +1648,40 @@ define dso_local range(i32 -22, 1) i32 @posix_acl_update_mode(ptr noundef %0, pt
   %50 = and i16 %5, -512
   %51 = or i16 %45, %50
   %52 = icmp eq i32 %46, 0
-  br i1 %52, label %.thread6, label %54
+  br i1 %52, label %.thread5, label %53
 
-.thread6:                                         ; preds = %4, %.thread5, %49
-  %53 = phi i16 [ %51, %49 ], [ %15, %.thread5 ], [ %5, %4 ]
+.thread5:                                         ; preds = %4, %.thread10, %49
+  %.ph9 = phi i16 [ %51, %49 ], [ %15, %.thread10 ], [ %5, %4 ]
   store ptr null, ptr %3, align 8
-  br label %54
+  br label %53
 
-54:                                               ; preds = %.thread6, %49
-  %55 = phi i16 [ %53, %.thread6 ], [ %51, %49 ]
-  %56 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %57 = load ptr, ptr %56, align 8
-  %58 = getelementptr inbounds nuw i8, ptr %57, i64 1072
-  %59 = load ptr, ptr %58, align 16
-  %60 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %61 = load i32, ptr %60, align 8
-  %62 = tail call i32 @make_vfsgid(ptr noundef %0, ptr noundef %59, i32 %61) #13
-  %63 = tail call i32 @vfsgid_in_group_p(i32 %62) #13
-  %64 = icmp eq i32 %63, 0
-  br i1 %64, label %65, label %69
+53:                                               ; preds = %.thread5, %49
+  %.ph8 = phi i16 [ %.ph9, %.thread5 ], [ %51, %49 ]
+  %54 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %55 = load ptr, ptr %54, align 8
+  %56 = getelementptr inbounds nuw i8, ptr %55, i64 1072
+  %57 = load ptr, ptr %56, align 16
+  %58 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %59 = load i32, ptr %58, align 8
+  %60 = tail call i32 @make_vfsgid(ptr noundef %0, ptr noundef %57, i32 %59) #13
+  %61 = tail call i32 @vfsgid_in_group_p(i32 %60) #13
+  %62 = icmp eq i32 %61, 0
+  br i1 %62, label %63, label %67
 
-65:                                               ; preds = %54
-  %66 = tail call zeroext i1 @capable_wrt_inode_uidgid(ptr noundef %0, ptr noundef %1, i32 noundef 4) #13
-  %67 = and i16 %55, -1025
-  %68 = select i1 %66, i16 %55, i16 %67
-  br label %69
+63:                                               ; preds = %53
+  %64 = tail call zeroext i1 @capable_wrt_inode_uidgid(ptr noundef %0, ptr noundef %1, i32 noundef 4) #13
+  %65 = and i16 %.ph8, -1025
+  %66 = select i1 %64, i16 %.ph8, i16 %65
+  br label %67
 
-69:                                               ; preds = %65, %54
-  %70 = phi i16 [ %55, %54 ], [ %68, %65 ]
-  store i16 %70, ptr %2, align 2
-  br label %.thread
+67:                                               ; preds = %63, %53
+  %68 = phi i16 [ %.ph8, %53 ], [ %66, %63 ]
+  store i16 %68, ptr %2, align 2
+  br label %.loopexit
 
-.thread:                                          ; preds = %.preheader, %69
-  %71 = phi i32 [ 0, %69 ], [ -22, %.preheader ]
-  ret i32 %71
+.loopexit:                                        ; preds = %.preheader, %67
+  %69 = phi i32 [ 0, %67 ], [ -22, %.preheader ]
+  ret i32 %69
 }
 
 ; Function Attrs: null_pointer_is_valid

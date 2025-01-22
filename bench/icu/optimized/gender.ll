@@ -1196,8 +1196,8 @@ for.inc:                                          ; preds = %sw.bb15, %sw.bb11, 
   br i1 %exitcond.not, label %for.end.loopexit, label %for.body, !llvm.loop !7
 
 for.end.loopexit:                                 ; preds = %for.inc
-  %4 = icmp eq i8 %has_male.1, 0
-  %5 = zext i1 %4 to i32
+  %4 = xor i8 %has_male.1, 1
+  %5 = zext nneg i8 %4 to i32
   br label %return
 
 for.cond22:                                       ; preds = %for.body24
@@ -1333,8 +1333,8 @@ for.inc.i:                                        ; preds = %sw.bb15.i, %sw.bb11
   br i1 %exitcond.not.i, label %for.end.loopexit.i, label %for.body.i, !llvm.loop !7
 
 for.end.loopexit.i:                               ; preds = %for.inc.i
-  %4 = icmp eq i8 %has_male.1.i, 0
-  %5 = zext i1 %4 to i32
+  %4 = xor i8 %has_male.1.i, 1
+  %5 = zext nneg i8 %4 to i32
   br label %_ZNK6icu_7510GenderInfo13getListGenderEPK7UGenderiR10UErrorCode.exit
 
 for.cond22.i:                                     ; preds = %for.body24.i

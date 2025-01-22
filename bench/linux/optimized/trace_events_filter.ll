@@ -1849,7 +1849,7 @@ define dso_local noundef range(i32 -22, 1) i32 @apply_subsystem_event_filter(ptr
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %11 = load i32, ptr %10, align 4
   %12 = icmp eq i32 %11, 0
-  br i1 %12, label %170, label %sub_0
+  br i1 %12, label %165, label %sub_0
 
 sub_0:                                            ; preds = %2
   %13 = tail call ptr @strim(ptr noundef %1) #17
@@ -1867,16 +1867,16 @@ sub_0:                                            ; preds = %2
   %19 = getelementptr inbounds nuw i8, ptr %9, i64 248
   %20 = load ptr, ptr %19, align 8
   %21 = icmp eq ptr %20, %19
-  br i1 %21, label %.loopexit17, label %.preheader16
+  br i1 %21, label %.loopexit19, label %.preheader18
 
-.preheader16:                                     ; preds = %18, %39
+.preheader18:                                     ; preds = %18, %39
   %22 = phi ptr [ %40, %39 ], [ %20, %18 ]
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 48
   %24 = load ptr, ptr %23, align 8
   %25 = icmp eq ptr %24, %0
   br i1 %25, label %26, label %39
 
-26:                                               ; preds = %.preheader16
+26:                                               ; preds = %.preheader18
   %27 = getelementptr inbounds nuw i8, ptr %22, i64 72
   %28 = load i64, ptr %27, align 8
   %29 = and i64 %28, -9
@@ -1901,27 +1901,27 @@ sub_0:                                            ; preds = %2
   store ptr null, ptr %37, align 8
   br label %39
 
-39:                                               ; preds = %36, %32, %.preheader16
+39:                                               ; preds = %36, %32, %.preheader18
   %40 = load ptr, ptr %22, align 8
   %41 = icmp eq ptr %40, %19
-  br i1 %41, label %.loopexit17, label %.preheader16, !llvm.loop !25
+  br i1 %41, label %.loopexit19, label %.preheader18, !llvm.loop !25
 
-.loopexit17:                                      ; preds = %39, %18
+.loopexit19:                                      ; preds = %39, %18
   %42 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %43 = load ptr, ptr %42, align 8
   %44 = icmp eq ptr %43, null
   br i1 %44, label %48, label %45
 
-45:                                               ; preds = %.loopexit17
+45:                                               ; preds = %.loopexit19
   %46 = getelementptr inbounds nuw i8, ptr %43, i64 8
   %47 = load ptr, ptr %46, align 8
   tail call void @kfree(ptr noundef %47) #17
   store ptr null, ptr %46, align 8
-  %.pre30 = load ptr, ptr %42, align 8
+  %.pre39 = load ptr, ptr %42, align 8
   br label %48
 
-48:                                               ; preds = %45, %.loopexit17
-  %49 = phi ptr [ %.pre30, %45 ], [ null, %.loopexit17 ]
+48:                                               ; preds = %45, %.loopexit19
+  %49 = phi ptr [ %.pre39, %45 ], [ null, %.loopexit19 ]
   store ptr null, ptr %42, align 8
   tail call void @synchronize_srcu(ptr noundef nonnull @tracepoint_srcu) #17
   tail call void @synchronize_rcu() #17
@@ -1950,7 +1950,7 @@ sub_0:                                            ; preds = %2
 
 .loopexit:                                        ; preds = %59, %48
   tail call fastcc void @__free_filter(ptr noundef %49)
-  br label %170
+  br label %165
 
 .tail.thread:                                     ; preds = %sub_0, %.tail
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #17
@@ -1969,39 +1969,43 @@ sub_0:                                            ; preds = %2
   %68 = getelementptr inbounds nuw i8, ptr %65, i64 248
   %69 = load ptr, ptr %68, align 8
   %70 = icmp eq ptr %69, %68
-  br i1 %70, label %.loopexit19, label %71
+  br i1 %70, label %.loopexit21, label %71
 
 71:                                               ; preds = %64
   %72 = getelementptr inbounds nuw i8, ptr %66, i64 4
-  br label %73
+  br label %.outer
 
-73:                                               ; preds = %113, %71
-  %74 = phi ptr [ %69, %71 ], [ %115, %113 ]
-  %75 = phi i8 [ 1, %71 ], [ %114, %113 ]
-  %76 = getelementptr inbounds nuw i8, ptr %74, i64 48
+.outer:                                           ; preds = %.thread, %71
+  %.ph26 = phi ptr [ %115, %.thread ], [ %69, %71 ]
+  %73 = phi i1 [ true, %.thread ], [ false, %71 ]
+  br label %74
+
+74:                                               ; preds = %.outer, %107
+  %75 = phi ptr [ %108, %107 ], [ %.ph26, %.outer ]
+  %76 = getelementptr inbounds nuw i8, ptr %75, i64 48
   %77 = load ptr, ptr %76, align 8
   %78 = icmp eq ptr %77, %0
-  br i1 %78, label %79, label %113
+  br i1 %78, label %79, label %107
 
-79:                                               ; preds = %73
+79:                                               ; preds = %74
   %80 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 32), align 16
   %81 = call noalias align 8 dereferenceable_or_null(16) ptr @kmalloc_trace(ptr noundef %80, i32 noundef 3520, i64 noundef 16) #20
   %82 = icmp eq ptr %81, null
-  br i1 %82, label %141, label %83
+  br i1 %82, label %138, label %83
 
 83:                                               ; preds = %79
   %84 = call noalias ptr @kstrdup(ptr noundef %1, i32 noundef 3264) #17
   %85 = getelementptr inbounds nuw i8, ptr %81, i64 8
   store ptr %84, ptr %85, align 8
   %86 = icmp eq ptr %84, null
-  br i1 %86, label %141, label %87
+  br i1 %86, label %138, label %87
 
 87:                                               ; preds = %83
-  %88 = getelementptr inbounds nuw i8, ptr %74, i64 16
+  %88 = getelementptr inbounds nuw i8, ptr %75, i64 16
   %89 = load ptr, ptr %88, align 8
   %90 = call fastcc i32 @process_preds(ptr noundef %89, ptr noundef %1, ptr noundef nonnull %81, ptr noundef %66)
   %91 = icmp eq i32 %90, 0
-  %92 = getelementptr inbounds nuw i8, ptr %74, i64 72
+  %92 = getelementptr inbounds nuw i8, ptr %75, i64 72
   %93 = load i64, ptr %92, align 8
   br i1 %91, label %99, label %94
 
@@ -2035,160 +2039,157 @@ sub_0:                                            ; preds = %2
   %104 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 40), align 8
   %105 = call noalias align 8 dereferenceable_or_null(24) ptr @kmalloc_trace(ptr noundef %104, i32 noundef 3520, i64 noundef 24) #20
   %106 = icmp eq ptr %105, null
-  br i1 %106, label %141, label %107
+  br i1 %106, label %138, label %.thread
 
-107:                                              ; preds = %103
-  %108 = load ptr, ptr %67, align 8
+107:                                              ; preds = %74
+  %108 = load ptr, ptr %75, align 8
+  %109 = icmp eq ptr %108, %68
+  br i1 %109, label %117, label %74, !llvm.loop !27
+
+.thread:                                          ; preds = %103
+  %110 = load ptr, ptr %67, align 8
   store ptr %105, ptr %67, align 8
   store ptr %3, ptr %105, align 8
-  %109 = getelementptr inbounds nuw i8, ptr %105, i64 8
-  store ptr %108, ptr %109, align 8
-  store volatile ptr %105, ptr %108, align 8
-  %110 = getelementptr inbounds nuw i8, ptr %74, i64 24
-  %111 = load ptr, ptr %110, align 8
-  %112 = getelementptr inbounds nuw i8, ptr %105, i64 16
-  store ptr %111, ptr %112, align 8
+  %111 = getelementptr inbounds nuw i8, ptr %105, i64 8
+  store ptr %110, ptr %111, align 8
+  store volatile ptr %105, ptr %110, align 8
+  %112 = getelementptr inbounds nuw i8, ptr %75, i64 24
+  %113 = load ptr, ptr %112, align 8
+  %114 = getelementptr inbounds nuw i8, ptr %105, i64 16
+  store ptr %113, ptr %114, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !24
-  store volatile ptr %81, ptr %110, align 8
-  br label %113
-
-113:                                              ; preds = %107, %73
-  %114 = phi i8 [ %75, %73 ], [ 0, %107 ]
-  %115 = load ptr, ptr %74, align 8
+  store volatile ptr %81, ptr %112, align 8
+  %115 = load ptr, ptr %75, align 8
   %116 = icmp eq ptr %115, %68
-  br i1 %116, label %117, label %73, !llvm.loop !27
+  br i1 %116, label %.thread16, label %.outer, !llvm.loop !27
 
-117:                                              ; preds = %113
-  %118 = and i8 %114, 1
-  %119 = icmp eq i8 %118, 0
-  br i1 %119, label %120, label %132
+117:                                              ; preds = %107
+  br i1 %73, label %.thread16, label %129
 
-120:                                              ; preds = %117
+.thread16:                                        ; preds = %.thread, %117
   call void @synchronize_srcu(ptr noundef nonnull @tracepoint_srcu) #17
   call void @synchronize_rcu() #17
-  %121 = load ptr, ptr %3, align 8
-  %122 = icmp eq ptr %121, %3
-  br i1 %122, label %.loopexit23, label %.preheader22
+  %118 = load ptr, ptr %3, align 8
+  %119 = icmp eq ptr %118, %3
+  br i1 %119, label %.loopexit25, label %.preheader24
 
-.preheader22:                                     ; preds = %120, %.preheader22
-  %123 = phi ptr [ %124, %.preheader22 ], [ %121, %120 ]
-  %124 = load ptr, ptr %123, align 8
-  %125 = getelementptr inbounds nuw i8, ptr %123, i64 16
-  %126 = load ptr, ptr %125, align 8
-  call fastcc void @__free_filter(ptr noundef %126)
-  %127 = getelementptr inbounds nuw i8, ptr %123, i64 8
-  %128 = load ptr, ptr %127, align 8
-  %129 = load ptr, ptr %123, align 8
-  %130 = getelementptr inbounds nuw i8, ptr %129, i64 8
-  store ptr %128, ptr %130, align 8
-  store volatile ptr %129, ptr %128, align 8
-  store ptr inttoptr (i64 -2401263026318606080 to ptr), ptr %123, align 8
-  store ptr inttoptr (i64 -2401263026318606046 to ptr), ptr %127, align 8
-  call void @kfree(ptr noundef %123) #17
-  %131 = icmp eq ptr %124, %3
-  br i1 %131, label %.loopexit23, label %.preheader22, !llvm.loop !28
+.preheader24:                                     ; preds = %.thread16, %.preheader24
+  %120 = phi ptr [ %121, %.preheader24 ], [ %118, %.thread16 ]
+  %121 = load ptr, ptr %120, align 8
+  %122 = getelementptr inbounds nuw i8, ptr %120, i64 16
+  %123 = load ptr, ptr %122, align 8
+  call fastcc void @__free_filter(ptr noundef %123)
+  %124 = getelementptr inbounds nuw i8, ptr %120, i64 8
+  %125 = load ptr, ptr %124, align 8
+  %126 = load ptr, ptr %120, align 8
+  %127 = getelementptr inbounds nuw i8, ptr %126, i64 8
+  store ptr %125, ptr %127, align 8
+  store volatile ptr %126, ptr %125, align 8
+  store ptr inttoptr (i64 -2401263026318606080 to ptr), ptr %120, align 8
+  store ptr inttoptr (i64 -2401263026318606046 to ptr), ptr %124, align 8
+  call void @kfree(ptr noundef %120) #17
+  %128 = icmp eq ptr %121, %3
+  br i1 %128, label %.loopexit25, label %.preheader24, !llvm.loop !28
 
-132:                                              ; preds = %117
+129:                                              ; preds = %117
   %.pre = load ptr, ptr %3, align 8
-  %133 = icmp eq ptr %.pre, %3
-  br i1 %133, label %.loopexit19, label %.preheader18
+  %130 = icmp eq ptr %.pre, %3
+  br i1 %130, label %.loopexit21, label %.preheader20
 
-.preheader18:                                     ; preds = %132, %.preheader18
-  %134 = phi ptr [ %135, %.preheader18 ], [ %.pre, %132 ]
-  %135 = load ptr, ptr %134, align 8
-  %136 = getelementptr inbounds nuw i8, ptr %134, i64 8
-  %137 = load ptr, ptr %136, align 8
-  %138 = getelementptr inbounds nuw i8, ptr %135, i64 8
-  store ptr %137, ptr %138, align 8
-  store volatile ptr %135, ptr %137, align 8
-  store ptr inttoptr (i64 -2401263026318606080 to ptr), ptr %134, align 8
-  store ptr inttoptr (i64 -2401263026318606046 to ptr), ptr %136, align 8
-  call void @kfree(ptr noundef %134) #17
-  %139 = icmp eq ptr %135, %3
-  br i1 %139, label %.loopexit19, label %.preheader18, !llvm.loop !29
+.preheader20:                                     ; preds = %129, %.preheader20
+  %131 = phi ptr [ %132, %.preheader20 ], [ %.pre, %129 ]
+  %132 = load ptr, ptr %131, align 8
+  %133 = getelementptr inbounds nuw i8, ptr %131, i64 8
+  %134 = load ptr, ptr %133, align 8
+  %135 = getelementptr inbounds nuw i8, ptr %132, i64 8
+  store ptr %134, ptr %135, align 8
+  store volatile ptr %132, ptr %134, align 8
+  store ptr inttoptr (i64 -2401263026318606080 to ptr), ptr %131, align 8
+  store ptr inttoptr (i64 -2401263026318606046 to ptr), ptr %133, align 8
+  call void @kfree(ptr noundef %131) #17
+  %136 = icmp eq ptr %132, %3
+  br i1 %136, label %.loopexit21, label %.preheader20, !llvm.loop !29
 
-.loopexit19:                                      ; preds = %.preheader18, %64, %132
+.loopexit21:                                      ; preds = %.preheader20, %64, %129
   store i32 13, ptr %66, align 4
-  %140 = getelementptr inbounds nuw i8, ptr %66, i64 4
-  store i32 0, ptr %140, align 4
-  br label %.loopexit21
+  %137 = getelementptr inbounds nuw i8, ptr %66, i64 4
+  store i32 0, ptr %137, align 4
+  br label %.loopexit23
 
-141:                                              ; preds = %103, %83, %79
+138:                                              ; preds = %103, %83, %79
   call fastcc void @__free_filter(ptr noundef %81)
-  %142 = and i8 %75, 1
-  %143 = icmp eq i8 %142, 0
-  br i1 %143, label %144, label %145
+  br i1 %73, label %139, label %140
 
-144:                                              ; preds = %141
+139:                                              ; preds = %138
   call void @synchronize_srcu(ptr noundef nonnull @tracepoint_srcu) #17
   call void @synchronize_rcu() #17
-  br label %145
+  br label %140
 
-145:                                              ; preds = %144, %141
-  %146 = load ptr, ptr %3, align 8
-  %147 = icmp eq ptr %146, %3
-  br i1 %147, label %.loopexit21, label %.preheader20
+140:                                              ; preds = %139, %138
+  %141 = load ptr, ptr %3, align 8
+  %142 = icmp eq ptr %141, %3
+  br i1 %142, label %.loopexit23, label %.preheader22
 
-.preheader20:                                     ; preds = %145, %.preheader20
-  %148 = phi ptr [ %149, %.preheader20 ], [ %146, %145 ]
-  %149 = load ptr, ptr %148, align 8
-  %150 = getelementptr inbounds nuw i8, ptr %148, i64 16
-  %151 = load ptr, ptr %150, align 8
-  call fastcc void @__free_filter(ptr noundef %151)
-  %152 = getelementptr inbounds nuw i8, ptr %148, i64 8
-  %153 = load ptr, ptr %152, align 8
-  %154 = load ptr, ptr %148, align 8
-  %155 = getelementptr inbounds nuw i8, ptr %154, i64 8
-  store ptr %153, ptr %155, align 8
-  store volatile ptr %154, ptr %153, align 8
-  store ptr inttoptr (i64 -2401263026318606080 to ptr), ptr %148, align 8
-  store ptr inttoptr (i64 -2401263026318606046 to ptr), ptr %152, align 8
-  call void @kfree(ptr noundef %148) #17
-  %156 = icmp eq ptr %149, %3
-  br i1 %156, label %.loopexit21, label %.preheader20, !llvm.loop !30
+.preheader22:                                     ; preds = %140, %.preheader22
+  %143 = phi ptr [ %144, %.preheader22 ], [ %141, %140 ]
+  %144 = load ptr, ptr %143, align 8
+  %145 = getelementptr inbounds nuw i8, ptr %143, i64 16
+  %146 = load ptr, ptr %145, align 8
+  call fastcc void @__free_filter(ptr noundef %146)
+  %147 = getelementptr inbounds nuw i8, ptr %143, i64 8
+  %148 = load ptr, ptr %147, align 8
+  %149 = load ptr, ptr %143, align 8
+  %150 = getelementptr inbounds nuw i8, ptr %149, i64 8
+  store ptr %148, ptr %150, align 8
+  store volatile ptr %149, ptr %148, align 8
+  store ptr inttoptr (i64 -2401263026318606080 to ptr), ptr %143, align 8
+  store ptr inttoptr (i64 -2401263026318606046 to ptr), ptr %147, align 8
+  call void @kfree(ptr noundef %143) #17
+  %151 = icmp eq ptr %144, %3
+  br i1 %151, label %.loopexit23, label %.preheader22, !llvm.loop !30
 
-.loopexit23:                                      ; preds = %.preheader22, %120
+.loopexit25:                                      ; preds = %.preheader24, %.thread16
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #17
-  %157 = load ptr, ptr %5, align 8
-  %158 = getelementptr inbounds nuw i8, ptr %157, i64 8
-  %159 = load ptr, ptr %158, align 8
-  call void @kfree(ptr noundef %159) #17
-  store ptr null, ptr %158, align 8
-  br label %162
+  %152 = load ptr, ptr %5, align 8
+  %153 = getelementptr inbounds nuw i8, ptr %152, i64 8
+  %154 = load ptr, ptr %153, align 8
+  call void @kfree(ptr noundef %154) #17
+  store ptr null, ptr %153, align 8
+  br label %157
 
-.loopexit21:                                      ; preds = %.preheader20, %.loopexit19, %145
-  %.ph = phi i32 [ -12, %145 ], [ -22, %.loopexit19 ], [ -12, %.preheader20 ]
+.loopexit23:                                      ; preds = %.preheader22, %.loopexit21, %140
+  %.ph = phi i32 [ -12, %140 ], [ -22, %.loopexit21 ], [ -12, %.preheader22 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #17
-  %160 = load ptr, ptr %8, align 8
-  %161 = load ptr, ptr %5, align 8
-  call fastcc void @append_filter_err(ptr noundef %160, ptr noundef %66, ptr noundef %161)
-  br label %162
+  %155 = load ptr, ptr %8, align 8
+  %156 = load ptr, ptr %5, align 8
+  call fastcc void @append_filter_err(ptr noundef %155, ptr noundef %66, ptr noundef %156)
+  br label %157
 
 thread-pre-split:                                 ; preds = %.tail.thread
   %.pr = load ptr, ptr %5, align 8
-  br label %162
+  br label %157
 
-162:                                              ; preds = %thread-pre-split, %.loopexit21, %.loopexit23
-  %163 = phi ptr [ %.pr, %thread-pre-split ], [ %161, %.loopexit21 ], [ %157, %.loopexit23 ]
-  %164 = phi i32 [ %62, %thread-pre-split ], [ %.ph, %.loopexit21 ], [ 0, %.loopexit23 ]
-  %165 = load ptr, ptr %4, align 8
-  call void @kfree(ptr noundef %165) #17
+157:                                              ; preds = %thread-pre-split, %.loopexit23, %.loopexit25
+  %158 = phi ptr [ %.pr, %thread-pre-split ], [ %156, %.loopexit23 ], [ %152, %.loopexit25 ]
+  %159 = phi i32 [ %62, %thread-pre-split ], [ %.ph, %.loopexit23 ], [ 0, %.loopexit25 ]
+  %160 = load ptr, ptr %4, align 8
+  call void @kfree(ptr noundef %160) #17
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #17
-  %166 = icmp eq ptr %163, null
-  br i1 %166, label %170, label %167
+  %161 = icmp eq ptr %158, null
+  br i1 %161, label %165, label %162
 
-167:                                              ; preds = %162
-  %168 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  %169 = load ptr, ptr %168, align 8
-  call fastcc void @__free_filter(ptr noundef %169)
-  store ptr %163, ptr %168, align 8
-  br label %170
+162:                                              ; preds = %157
+  %163 = getelementptr inbounds nuw i8, ptr %7, i64 24
+  %164 = load ptr, ptr %163, align 8
+  call fastcc void @__free_filter(ptr noundef %164)
+  store ptr %158, ptr %163, align 8
+  br label %165
 
-170:                                              ; preds = %167, %162, %.loopexit, %2
-  %171 = phi i32 [ %164, %167 ], [ %164, %162 ], [ 0, %.loopexit ], [ -19, %2 ]
+165:                                              ; preds = %162, %157, %.loopexit, %2
+  %166 = phi i32 [ %159, %162 ], [ %159, %157 ], [ 0, %.loopexit ], [ -19, %2 ]
   call void @mutex_unlock(ptr noundef nonnull @event_mutex) #17
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #17
-  ret i32 %171
+  ret i32 %166
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -4123,11 +4124,10 @@ select.unfold:                                    ; preds = %63
   %74 = ashr exact i64 %73, 32
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %2, ptr align 1 %69, i64 %74, i1 false)
   switch i32 %64, label %default.unreachable21 [
-    i32 5, label %.thread
+    i32 3, label %75
     i32 0, label %.thread
     i32 1, label %select.unfold.thread23
     i32 2, label %select.unfold.thread24
-    i32 3, label %75
   ]
 
 select.unfold.thread23:                           ; preds = %48, %select.unfold
@@ -4152,8 +4152,8 @@ select.unfold.thread24:                           ; preds = %48, %select.unfold
 default.unreachable21:                            ; preds = %select.unfold
   unreachable
 
-.thread:                                          ; preds = %select.unfold.thread, %1, %.thread5, %.loopexit, %75, %select.unfold.thread24, %select.unfold.thread23, %select.unfold, %select.unfold
-  %81 = phi ptr [ @regex_match_glob, %.loopexit ], [ @regex_match_end, %75 ], [ @regex_match_middle, %select.unfold.thread24 ], [ @regex_match_front, %select.unfold.thread23 ], [ @regex_match_full, %select.unfold ], [ @regex_match_full, %select.unfold ], [ @regex_match_full, %.thread5 ], [ @regex_match_full, %1 ], [ @regex_match_full, %select.unfold.thread ]
+.thread:                                          ; preds = %select.unfold.thread, %1, %.thread5, %.loopexit, %75, %select.unfold.thread24, %select.unfold.thread23, %select.unfold
+  %81 = phi ptr [ @regex_match_glob, %.loopexit ], [ @regex_match_end, %75 ], [ @regex_match_middle, %select.unfold.thread24 ], [ @regex_match_front, %select.unfold.thread23 ], [ @regex_match_full, %select.unfold ], [ @regex_match_full, %.thread5 ], [ @regex_match_full, %1 ], [ @regex_match_full, %select.unfold.thread ]
   %82 = getelementptr inbounds nuw i8, ptr %2, i64 264
   store ptr %81, ptr %82, align 8
   ret void

@@ -2803,7 +2803,7 @@ define internal fastcc void @_ZL13render_pixelsR8QPainteriiPA3_ff(ptr noundef no
   %indvars.iv = phi i64 [ 1, %4 ], [ %indvars.iv.next, %73 ]
   %.03637 = phi i32 [ 0, %4 ], [ %.1, %73 ]
   %.not = icmp eq i64 %indvars.iv, 64
-  %.phi.trans.insert = sext i32 %.03637 to i64
+  %.phi.trans.insert = zext i32 %.03637 to i64
   %.phi.trans.insert40 = getelementptr [3 x float], ptr %2, i64 %.phi.trans.insert
   %.pre = load float, ptr %.phi.trans.insert40, align 4
   br i1 %.not, label %._crit_edge, label %21
@@ -2848,8 +2848,8 @@ define internal fastcc void @_ZL13render_pixelsR8QPainteriiPA3_ff(ptr noundef no
 
 ._crit_edge41:                                    ; preds = %._crit_edge, %41
   %45 = phi float [ 1.000000e+00, %41 ], [ %.pre43, %._crit_edge ]
-  %46 = sitofp i32 %.03637 to double
-  %47 = sub i32 %39, %.03637
+  %46 = uitofp nneg i32 %.03637 to double
+  %47 = sub nsw i32 %39, %.03637
   %48 = sitofp i32 %47 to double
   store double %9, ptr %5, align 8
   store double %46, ptr %12, align 8

@@ -42862,8 +42862,8 @@ select.unfold.i.i.i:                              ; preds = %.noexc104.i.i, %150
   unreachable
 
 1567:                                             ; preds = %1413
-  %1568 = add i64 %.1.i.i, 1
-  %1569 = icmp ugt i64 %1568, 8192
+  %1568 = add nuw nsw i64 %.1.i.i, 1
+  %1569 = icmp ugt i64 %.1.i.i, 8191
   br i1 %1569, label %1572, label %1103
 
 .thread.i.i:                                      ; preds = %.noexc100.i.i, %1465

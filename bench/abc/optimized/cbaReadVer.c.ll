@@ -8383,8 +8383,8 @@ Vec_IntFillExtra.exit939:                         ; preds = %698, %._crit_edge.i
   br i1 %or.cond, label %773, label %767
 
 767:                                              ; preds = %.lr.ph1321
-  %768 = sext i32 %.04901319 to i64
-  %769 = getelementptr inbounds i32, ptr %.val554, i64 %768
+  %768 = zext nneg i32 %.04901319 to i64
+  %769 = getelementptr inbounds nuw i32, ptr %.val554, i64 %768
   %770 = trunc nuw nsw i64 %indvars.iv1386 to i32
   %771 = sub nsw i32 %770, %.04901319
   %772 = sdiv i32 %771, 3
@@ -8409,8 +8409,8 @@ Vec_IntFillExtra.exit939:                         ; preds = %698, %._crit_edge.i
   %.0490.lcssa = phi i32 [ 0, %760 ], [ %.1491, %.critedge19.loopexit ]
   %.5.lcssa = phi i32 [ 0, %760 ], [ %777, %.critedge19.loopexit ]
   %.val673 = load ptr, ptr %761, align 8
-  %778 = sext i32 %.0490.lcssa to i64
-  %779 = getelementptr inbounds i32, ptr %.val673, i64 %778
+  %778 = zext nneg i32 %.0490.lcssa to i64
+  %779 = getelementptr inbounds nuw i32, ptr %.val673, i64 %778
   %780 = sub nsw i32 %.5.lcssa, %.0490.lcssa
   %781 = sdiv i32 %780, 3
   tail call void @Prs_CreateOutConcat(ptr noundef nonnull %0, ptr noundef %779, i32 noundef %781)

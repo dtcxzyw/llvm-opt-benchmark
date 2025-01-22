@@ -24755,16 +24755,15 @@ define internal fastcc range(i16 0, 258) i16 @_ZL20addSegmentsWithValNoRN4llvm9L
   br i1 %.not, label %._crit_edge.loopexit, label %9
 
 ._crit_edge.loopexit:                             ; preds = %18
-  %20 = and i8 %.1, 1
-  %21 = and i8 %.121, 1
-  %22 = zext nneg i8 %21 to i16
-  %23 = shl nuw nsw i16 %22, 8
-  %24 = zext nneg i8 %20 to i16
-  %25 = or disjoint i16 %23, %24
+  %20 = and i8 %.121, 1
+  %21 = zext nneg i8 %20 to i16
+  %22 = shl nuw nsw i16 %21, 8
+  %23 = zext nneg i8 %.1 to i16
+  %24 = or disjoint i16 %22, %23
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %4
-  %.sroa.0.0.insert.insert.i = phi i16 [ 0, %4 ], [ %25, %._crit_edge.loopexit ]
+  %.sroa.0.0.insert.insert.i = phi i16 [ 0, %4 ], [ %24, %._crit_edge.loopexit ]
   ret i16 %.sroa.0.0.insert.insert.i
 }
 

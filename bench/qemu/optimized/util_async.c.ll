@@ -497,10 +497,9 @@ while.end10.i:                                    ; preds = %if.then.i, %for.bod
 
 aio_compute_bh_timeout.exit:                      ; preds = %while.end10.i
   %conv.i = sext i32 %timeout.addr.1.i to i64
-  %cmp = icmp eq i32 %timeout.addr.1.i, 0
-  br i1 %cmp, label %return, label %if.end
+  br label %if.end
 
-if.end:                                           ; preds = %entry, %aio_compute_bh_timeout.exit
+if.end:                                           ; preds = %aio_compute_bh_timeout.exit, %entry
   %conv.i36 = phi i64 [ %conv.i, %aio_compute_bh_timeout.exit ], [ -1, %entry ]
   %bh_slice_list = getelementptr inbounds nuw i8, ptr %ctx, i64 184
   %s.043 = load ptr, ptr %bh_slice_list, align 8
@@ -568,8 +567,8 @@ if.else:                                          ; preds = %for.end
   %cond.i = tail call noundef i64 @llvm.umin.i64(i64 range(i64 -1, 10000001) %timeout.0.in.lcssa, i64 range(i64 1, 0) %call9)
   br label %return
 
-return:                                           ; preds = %if.then.i, %aio_compute_bh_timeout.exit29, %if.then.i26, %for.end, %aio_compute_bh_timeout.exit, %if.else
-  %retval.0 = phi i64 [ %cond.i, %if.else ], [ 0, %aio_compute_bh_timeout.exit ], [ 0, %for.end ], [ 0, %if.then.i26 ], [ 0, %aio_compute_bh_timeout.exit29 ], [ 0, %if.then.i ]
+return:                                           ; preds = %if.then.i, %aio_compute_bh_timeout.exit29, %if.then.i26, %for.end, %if.else
+  %retval.0 = phi i64 [ %cond.i, %if.else ], [ 0, %for.end ], [ 0, %if.then.i26 ], [ 0, %aio_compute_bh_timeout.exit29 ], [ 0, %if.then.i ]
   ret i64 %retval.0
 }
 
@@ -1376,8 +1375,7 @@ while.end10.i.i:                                  ; preds = %if.then.i.i, %for.b
 
 aio_compute_bh_timeout.exit.i:                    ; preds = %while.end10.i.i
   %conv.i.i = sext i32 %timeout.addr.1.i.i to i64
-  %cmp.i = icmp eq i32 %timeout.addr.1.i.i, 0
-  br i1 %cmp.i, label %aio_compute_timeout.exit, label %if.end.i
+  br label %if.end.i
 
 if.end.i:                                         ; preds = %aio_compute_bh_timeout.exit.i, %entry
   %conv.i36.i = phi i64 [ %conv.i.i, %aio_compute_bh_timeout.exit.i ], [ -1, %entry ]
@@ -1447,8 +1445,8 @@ if.else.i:                                        ; preds = %for.end.i
   %cond.i.i = tail call noundef i64 @llvm.umin.i64(i64 range(i64 -1, 10000001) %timeout.0.in.lcssa.i, i64 range(i64 1, 0) %call9.i)
   br label %aio_compute_timeout.exit
 
-aio_compute_timeout.exit:                         ; preds = %if.then.i.i, %aio_compute_bh_timeout.exit29.i, %if.then.i26.i, %aio_compute_bh_timeout.exit.i, %for.end.i, %if.else.i
-  %retval.0.i = phi i64 [ %cond.i.i, %if.else.i ], [ 0, %aio_compute_bh_timeout.exit.i ], [ 0, %for.end.i ], [ 0, %if.then.i26.i ], [ 0, %aio_compute_bh_timeout.exit29.i ], [ 0, %if.then.i.i ]
+aio_compute_timeout.exit:                         ; preds = %if.then.i.i, %aio_compute_bh_timeout.exit29.i, %if.then.i26.i, %for.end.i, %if.else.i
+  %retval.0.i = phi i64 [ %cond.i.i, %if.else.i ], [ 0, %for.end.i ], [ 0, %if.then.i26.i ], [ 0, %aio_compute_bh_timeout.exit29.i ], [ 0, %if.then.i.i ]
   %call9 = tail call i32 @qemu_timeout_ns_to_ms(i64 noundef %retval.0.i) #13
   store i32 %call9, ptr %timeout, align 4
   %call10 = tail call zeroext i1 @aio_prepare(ptr noundef %source) #13

@@ -1413,8 +1413,8 @@ _ZN4llvm10TimeRegionC2EPNS_5TimerE.exit55.thread.i.i: ; preds = %167
   br label %_ZN4llvm10TimeRegionD2Ev.exit57.i.i
 
 _ZN4llvm10TimeRegionD2Ev.exit57.i.i:              ; preds = %173, %_ZN4llvm10TimeRegionC2EPNS_5TimerE.exit55.thread.i.i
-  %.pn.i.i = phi i1 [ %172, %_ZN4llvm10TimeRegionC2EPNS_5TimerE.exit55.thread.i.i ], [ %174, %173 ]
-  %175 = or i1 %.04568.i.i, %.pn.i.i
+  %.pn.in.i.i = phi i1 [ %172, %_ZN4llvm10TimeRegionC2EPNS_5TimerE.exit55.thread.i.i ], [ %174, %173 ]
+  %175 = or i1 %.04568.i.i, %.pn.in.i.i
   %176 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK4llvm8Function10getContextEv(ptr noundef nonnull align 8 dereferenceable(136) %166) #19
   call void @_ZN4llvm11LLVMContext5yieldEv(ptr noundef nonnull align 8 dereferenceable(8) %176) #19
   br label %177

@@ -527,16 +527,15 @@ _ZN4llvm7objcarc23hasAttachedCallOpBundleEPKNS_8CallBaseE.exit.thread: ; preds =
   br i1 %.not27, label %._crit_edge.loopexit, label %_ZN4llvm10BasicBlock13getTerminatorEv.exit
 
 ._crit_edge.loopexit:                             ; preds = %_ZN4llvm7objcarc23hasAttachedCallOpBundleEPKNS_8CallBaseE.exit.thread
-  %70 = and i8 %.1, 1
-  %71 = and i8 %.126, 1
-  %72 = zext nneg i8 %71 to i16
-  %73 = shl nuw nsw i16 %72, 8
-  %74 = zext nneg i8 %70 to i16
-  %75 = or disjoint i16 %73, %74
+  %70 = and i8 %.126, 1
+  %71 = zext nneg i8 %70 to i16
+  %72 = shl nuw nsw i16 %71, 8
+  %73 = zext nneg i8 %.1 to i16
+  %74 = or disjoint i16 %72, %73
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %3
-  %.sroa.0.0.insert.insert.i = phi i16 [ 0, %3 ], [ %75, %._crit_edge.loopexit ]
+  %.sroa.0.0.insert.insert.i = phi i16 [ 0, %3 ], [ %74, %._crit_edge.loopexit ]
   ret i16 %.sroa.0.0.insert.insert.i
 }
 

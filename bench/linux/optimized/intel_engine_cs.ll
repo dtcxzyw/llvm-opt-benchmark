@@ -5223,56 +5223,55 @@ define internal fastcc void @hexdump(ptr noundef %0, ptr noundef %1, i64 noundef
   %5 = icmp eq i64 %2, 0
   br i1 %5, label %.loopexit, label %.preheader
 
-.preheader:                                       ; preds = %3, %25
-  %6 = phi ptr [ %27, %25 ], [ null, %3 ]
-  %7 = phi i8 [ %26, %25 ], [ 0, %3 ]
-  %8 = phi i64 [ %28, %25 ], [ 0, %3 ]
+.preheader:                                       ; preds = %3, %24
+  %6 = phi ptr [ %26, %24 ], [ null, %3 ]
+  %7 = phi i8 [ %25, %24 ], [ 0, %3 ]
+  %8 = phi i64 [ %27, %24 ], [ 0, %3 ]
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %4) #18
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(128) %4, i8 0, i64 128, i1 false), !annotation !28
   %9 = icmp eq ptr %6, null
-  br i1 %9, label %18, label %10
+  br i1 %9, label %17, label %10
 
 10:                                               ; preds = %.preheader
   %11 = getelementptr i8, ptr %1, i64 %8
   %12 = call i32 @bcmp(ptr noundef nonnull dereferenceable(32) %6, ptr noundef dereferenceable(32) %11, i64 32)
   %13 = icmp eq i32 %12, 0
-  br i1 %13, label %14, label %18
+  br i1 %13, label %14, label %17
 
 14:                                               ; preds = %10
-  %15 = and i8 %7, 1
-  %16 = icmp eq i8 %15, 0
-  br i1 %16, label %17, label %25
+  %15 = icmp eq i8 %7, 0
+  br i1 %15, label %16, label %24
 
-17:                                               ; preds = %14
+16:                                               ; preds = %14
   call void (ptr, ptr, ...) @drm_printf(ptr noundef %0, ptr noundef nonnull @.str.100) #18
-  br label %25
+  br label %24
 
-18:                                               ; preds = %10, %.preheader
-  %19 = getelementptr i8, ptr %1, i64 %8
-  %20 = sub i64 %2, %8
-  %21 = call i32 @hex_dump_to_buffer(ptr noundef %19, i64 noundef %20, i32 noundef 32, i32 noundef 4, ptr noundef nonnull %4, i64 noundef 128, i1 noundef zeroext false) #18
-  %22 = icmp ugt i32 %21, 127
-  br i1 %22, label %23, label %24, !prof !46
+17:                                               ; preds = %10, %.preheader
+  %18 = getelementptr i8, ptr %1, i64 %8
+  %19 = sub i64 %2, %8
+  %20 = call i32 @hex_dump_to_buffer(ptr noundef %18, i64 noundef %19, i32 noundef 32, i32 noundef 4, ptr noundef nonnull %4, i64 noundef 128, i1 noundef zeroext false) #18
+  %21 = icmp ugt i32 %20, 127
+  br i1 %21, label %22, label %23, !prof !46
 
-23:                                               ; preds = %18
+22:                                               ; preds = %17
   call void asm sideeffect "926: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 926b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 926) #18, !srcloc !106
   call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.2, i32 2067, i32 2307, i64 12) #18, !srcloc !107
   call void asm sideeffect "927: nop\0A\09.pushsection .discard.instr_end\0A\09.long 927b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 927) #18, !srcloc !108
+  br label %23
+
+23:                                               ; preds = %22, %17
+  call void (ptr, ptr, ...) @drm_printf(ptr noundef %0, ptr noundef nonnull @.str.101, i64 noundef %8, ptr noundef nonnull %4) #18
   br label %24
 
-24:                                               ; preds = %23, %18
-  call void (ptr, ptr, ...) @drm_printf(ptr noundef %0, ptr noundef nonnull @.str.101, i64 noundef %8, ptr noundef nonnull %4) #18
-  br label %25
-
-25:                                               ; preds = %24, %17, %14
-  %26 = phi i8 [ 0, %24 ], [ %7, %14 ], [ 1, %17 ]
-  %27 = phi ptr [ %19, %24 ], [ %6, %14 ], [ %6, %17 ]
+24:                                               ; preds = %23, %16, %14
+  %25 = phi i8 [ 0, %23 ], [ %7, %14 ], [ 1, %16 ]
+  %26 = phi ptr [ %18, %23 ], [ %6, %14 ], [ %6, %16 ]
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %4) #18
-  %28 = add i64 %8, 32
-  %29 = icmp ult i64 %28, %2
-  br i1 %29, label %.preheader, label %.loopexit, !llvm.loop !109
+  %27 = add i64 %8, 32
+  %28 = icmp ult i64 %27, %2
+  br i1 %28, label %.preheader, label %.loopexit, !llvm.loop !109
 
-.loopexit:                                        ; preds = %25, %3
+.loopexit:                                        ; preds = %24, %3
   ret void
 }
 

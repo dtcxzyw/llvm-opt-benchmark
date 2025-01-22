@@ -1877,54 +1877,53 @@ _ZNSt8multimapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEP8AstCFuncSt4
 
 19:                                               ; preds = %_ZNSt8multimapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEP8AstCFuncSt4lessIS5_ESaISt4pairIKS5_S7_EEE5clearEv.exit
   %20 = getelementptr inbounds nuw i8, ptr %15, i64 32
-  %.011.i = load ptr, ptr %20, align 8
-  %.not12.i = icmp eq ptr %.011.i, null
-  br i1 %.not12.i, label %_ZN14DescopeVisitor14modIsSingletonEP13AstNodeModule.exit, label %_ZN7AstNode9privateIsI8AstScopePS_EEbPKS_.exit.i
+  %.012.i = load ptr, ptr %20, align 8
+  %.not13.i = icmp eq ptr %.012.i, null
+  br i1 %.not13.i, label %_ZN14DescopeVisitor14modIsSingletonEP13AstNodeModule.exit, label %_ZN7AstNode9privateIsI8AstScopePS_EEbPKS_.exit.i
 
-_ZN7AstNode9privateIsI8AstScopePS_EEbPKS_.exit.i: ; preds = %19, %25
-  %.014.i = phi ptr [ %.0.i, %25 ], [ %.011.i, %19 ]
-  %.0713.i = phi i32 [ %.1.i, %25 ], [ 0, %19 ]
-  %21 = getelementptr inbounds nuw i8, ptr %.014.i, i64 64
+_ZN7AstNode9privateIsI8AstScopePS_EEbPKS_.exit.i: ; preds = %19, %24
+  %.015.i = phi ptr [ %.0.i, %24 ], [ %.012.i, %19 ]
+  %.0714.i = phi i32 [ %.1.i, %24 ], [ 0, %19 ]
+  %21 = getelementptr inbounds nuw i8, ptr %.015.i, i64 64
   %.sroa.0.0.copyload.i.i.i.i = load i16, ptr %21, align 8
   %22 = icmp eq i16 %.sroa.0.0.copyload.i.i.i.i, 37
-  br i1 %22, label %23, label %25
+  br i1 %22, label %23, label %24
 
 23:                                               ; preds = %_ZN7AstNode9privateIsI8AstScopePS_EEbPKS_.exit.i
-  %24 = icmp sgt i32 %.0713.i, 0
-  br i1 %24, label %_ZN14DescopeVisitor14modIsSingletonEP13AstNodeModule.exit, label %25
+  %.not10.i = icmp eq i32 %.0714.i, 0
+  br i1 %.not10.i, label %24, label %_ZN14DescopeVisitor14modIsSingletonEP13AstNodeModule.exit
 
-25:                                               ; preds = %23, %_ZN7AstNode9privateIsI8AstScopePS_EEbPKS_.exit.i
-  %.1.i = phi i32 [ 1, %23 ], [ %.0713.i, %_ZN7AstNode9privateIsI8AstScopePS_EEbPKS_.exit.i ]
-  %26 = getelementptr inbounds nuw i8, ptr %.014.i, i64 8
-  %.0.i = load ptr, ptr %26, align 8
+24:                                               ; preds = %23, %_ZN7AstNode9privateIsI8AstScopePS_EEbPKS_.exit.i
+  %.1.i = phi i32 [ 1, %23 ], [ %.0714.i, %_ZN7AstNode9privateIsI8AstScopePS_EEbPKS_.exit.i ]
+  %25 = getelementptr inbounds nuw i8, ptr %.015.i, i64 8
+  %.0.i = load ptr, ptr %25, align 8
   %.not.i = icmp eq ptr %.0.i, null
   br i1 %.not.i, label %._crit_edge.loopexit.i, label %_ZN7AstNode9privateIsI8AstScopePS_EEbPKS_.exit.i, !llvm.loop !8
 
-._crit_edge.loopexit.i:                           ; preds = %25
-  %27 = icmp eq i32 %.1.i, 1
-  %28 = zext i1 %27 to i8
+._crit_edge.loopexit.i:                           ; preds = %24
+  %26 = trunc nuw nsw i32 %.1.i to i8
   br label %_ZN14DescopeVisitor14modIsSingletonEP13AstNodeModule.exit
 
 _ZN14DescopeVisitor14modIsSingletonEP13AstNodeModule.exit: ; preds = %23, %._crit_edge.loopexit.i, %19, %_ZNSt8multimapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEP8AstCFuncSt4lessIS5_ESaISt4pairIKS5_S7_EEE5clearEv.exit
-  %.08.i = phi i8 [ 1, %_ZNSt8multimapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEP8AstCFuncSt4lessIS5_ESaISt4pairIKS5_S7_EEE5clearEv.exit ], [ 0, %19 ], [ %28, %._crit_edge.loopexit.i ], [ 0, %23 ]
-  %29 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  store i8 %.08.i, ptr %29, align 8
+  %.08.i = phi i8 [ 1, %_ZNSt8multimapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEP8AstCFuncSt4lessIS5_ESaISt4pairIKS5_S7_EEE5clearEv.exit ], [ 0, %19 ], [ %26, %._crit_edge.loopexit.i ], [ 0, %23 ]
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  store i8 %.08.i, ptr %27, align 8
   invoke void @_ZN7AstNode15iterateChildrenER9VNVisitor(ptr noundef nonnull align 8 dereferenceable(152) %1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-          to label %_ZN9VNVisitor15iterateChildrenEP7AstNode.exit unwind label %31
+          to label %_ZN9VNVisitor15iterateChildrenEP7AstNode.exit unwind label %29
 
 _ZN9VNVisitor15iterateChildrenEP7AstNode.exit:    ; preds = %_ZN14DescopeVisitor14modIsSingletonEP13AstNodeModule.exit
   invoke void @_ZN14DescopeVisitor22makePublicFuncWrappersEv(ptr noundef nonnull align 8 dereferenceable(168) %0)
-          to label %30 unwind label %31
+          to label %28 unwind label %29
 
-30:                                               ; preds = %_ZN9VNVisitor15iterateChildrenEP7AstNode.exit
+28:                                               ; preds = %_ZN9VNVisitor15iterateChildrenEP7AstNode.exit
   store ptr %4, ptr %3, align 8
   ret void
 
-31:                                               ; preds = %_ZN14DescopeVisitor14modIsSingletonEP13AstNodeModule.exit, %_ZN9VNVisitor15iterateChildrenEP7AstNode.exit
-  %32 = landingpad { ptr, i32 }
+29:                                               ; preds = %_ZN14DescopeVisitor14modIsSingletonEP13AstNodeModule.exit, %_ZN9VNVisitor15iterateChildrenEP7AstNode.exit
+  %30 = landingpad { ptr, i32 }
           cleanup
   store ptr %4, ptr %3, align 8
-  resume { ptr, i32 } %32
+  resume { ptr, i32 } %30
 }
 
 declare void @_ZN14VNVisitorConst5visitEP13AstNodePreSel(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef) unnamed_addr #0

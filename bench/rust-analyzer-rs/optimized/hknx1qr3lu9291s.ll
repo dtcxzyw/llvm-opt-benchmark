@@ -31961,7 +31961,7 @@ select.unfold.i:                                  ; preds = %"_ZN87_$LT$core..st
 
 66:                                               ; preds = %8
   %67 = trunc nuw i8 %.086 to i1
-  %68 = trunc i8 %.0 to i1
+  %68 = trunc nuw i8 %.0 to i1
   %not. = xor i1 %67, true
   %69 = select i1 %not., i1 true, i1 %68
   ret i1 %69

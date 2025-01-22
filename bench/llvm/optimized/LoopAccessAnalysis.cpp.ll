@@ -5855,7 +5855,7 @@ define dso_local noundef i32 @_ZN4llvm16MemoryDepChecker11isDependentERKNS_14Poi
   br i1 %28, label %29, label %31
 
 29:                                               ; preds = %24
-  %30 = icmp ult i64 %.079.i.i, 2
+  %30 = icmp samesign ult i64 %.079.i.i, 2
   br i1 %30, label %_ZSt17holds_alternativeIN4llvm16MemoryDepChecker10Dependence7DepTypeEJS3_NS1_28DepDistanceStrideAndSizeInfoEEEbRKSt7variantIJDpT0_EE.exit, label %31
 
 31:                                               ; preds = %29, %24
@@ -11492,7 +11492,7 @@ _ZNK4llvm4Type22getPointerAddressSpaceEv.exit130: ; preds = %_ZNK4llvm4Type22get
   br i1 %exitcond.not, label %.loopexit, label %169, !llvm.loop !110
 
 ._crit_edge54:                                    ; preds = %.loopexit, %._crit_edge45
-  %205 = trunc i8 %.0103.lcssa to i1
+  %205 = trunc nuw i8 %.0103.lcssa to i1
   br i1 %205, label %206, label %._crit_edge54._crit_edge
 
 206:                                              ; preds = %._crit_edge54

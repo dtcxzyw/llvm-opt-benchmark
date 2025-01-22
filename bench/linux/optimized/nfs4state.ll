@@ -3730,7 +3730,7 @@ define dso_local void @nfs_inode_find_state_and_recover(ptr noundef %0, ptr noun
   %8 = getelementptr i8, ptr %0, i64 -120
   %9 = load volatile ptr, ptr %8, align 8
   %10 = icmp eq ptr %9, %8
-  br i1 %10, label %120, label %11
+  br i1 %10, label %119, label %11
 
 11:                                               ; preds = %2
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 4
@@ -3908,22 +3908,21 @@ define dso_local void @nfs_inode_find_state_and_recover(ptr noundef %0, ptr noun
   br i1 %115, label %116, label %14, !llvm.loop !64
 
 116:                                              ; preds = %112
-  %117 = and i8 %113, 1
-  %118 = icmp eq i8 %117, 0
+  %117 = icmp eq i8 %113, 0
   tail call void @__rcu_read_unlock() #17
   tail call void @nfs_inode_find_delegation_state_and_recover(ptr noundef %0, ptr noundef %1) #17
-  br i1 %118, label %121, label %119
+  br i1 %117, label %120, label %118
 
-119:                                              ; preds = %116
+118:                                              ; preds = %116
   tail call void @nfs4_schedule_state_manager(ptr noundef %7)
-  br label %121
+  br label %120
 
-120:                                              ; preds = %2
+119:                                              ; preds = %2
   tail call void @__rcu_read_unlock() #17
   tail call void @nfs_inode_find_delegation_state_and_recover(ptr noundef %0, ptr noundef %1) #17
-  br label %121
+  br label %120
 
-121:                                              ; preds = %120, %119, %116
+120:                                              ; preds = %119, %118, %116
   ret void
 }
 

@@ -1353,20 +1353,23 @@ define internal void @virtblk_done(ptr noundef %0) #2 align 16 {
   %11 = sext i32 %8 to i64
   %12 = getelementptr %struct.virtio_blk_vq, ptr %10, i64 %11, i32 1
   %13 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef %12) #14
-  br label %14
+  br label %.outer
 
-14:                                               ; preds = %.loopexit, %1
-  %15 = phi i8 [ 0, %1 ], [ %28, %.loopexit ]
+.outer:                                           ; preds = %.thread, %1
+  %14 = phi i1 [ false, %.thread ], [ true, %1 ]
+  br label %15
+
+15:                                               ; preds = %.outer, %28
   call void @virtqueue_disable_cb(ptr noundef %0) #14
   %16 = load ptr, ptr %9, align 8
   %17 = getelementptr %struct.virtio_blk_vq, ptr %16, i64 %11
   %18 = load ptr, ptr %17, align 64
   %19 = call ptr @virtqueue_get_buf(ptr noundef %18, ptr noundef nonnull %2) #14
   %20 = icmp eq ptr %19, null
-  br i1 %20, label %.loopexit, label %.preheader
+  br i1 %20, label %28, label %.preheader
 
-.preheader:                                       ; preds = %14, %.preheader
-  %21 = phi ptr [ %26, %.preheader ], [ %19, %14 ]
+.preheader:                                       ; preds = %15, %.preheader
+  %21 = phi ptr [ %26, %.preheader ], [ %19, %15 ]
   %22 = getelementptr i8, ptr %21, i64 -248
   call void @blk_mq_complete_request(ptr noundef %22) #14
   %23 = load ptr, ptr %9, align 8
@@ -1374,30 +1377,31 @@ define internal void @virtblk_done(ptr noundef %0) #2 align 16 {
   %25 = load ptr, ptr %24, align 64
   %26 = call ptr @virtqueue_get_buf(ptr noundef %25, ptr noundef nonnull %2) #14
   %27 = icmp eq ptr %26, null
-  br i1 %27, label %.loopexit, label %.preheader, !llvm.loop !17
+  br i1 %27, label %.thread, label %.preheader, !llvm.loop !17
 
-.loopexit:                                        ; preds = %.preheader, %14
-  %28 = phi i8 [ %15, %14 ], [ 1, %.preheader ]
+28:                                               ; preds = %15
   %29 = call zeroext i1 @virtqueue_enable_cb(ptr noundef %0) #14
-  br i1 %29, label %30, label %14, !llvm.loop !18
+  br i1 %29, label %31, label %15, !llvm.loop !18
 
-30:                                               ; preds = %.loopexit
-  %31 = and i8 %28, 1
-  %32 = icmp eq i8 %31, 0
-  br i1 %32, label %38, label %33
+.thread:                                          ; preds = %.preheader
+  %30 = call zeroext i1 @virtqueue_enable_cb(ptr noundef %0) #14
+  br i1 %30, label %.thread1, label %.outer, !llvm.loop !18
 
-33:                                               ; preds = %30
-  %34 = getelementptr inbounds nuw i8, ptr %6, i64 40
+31:                                               ; preds = %28
+  br i1 %14, label %36, label %.thread1
+
+.thread1:                                         ; preds = %.thread, %31
+  %32 = getelementptr inbounds nuw i8, ptr %6, i64 40
+  %33 = load ptr, ptr %32, align 8
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 80
   %35 = load ptr, ptr %34, align 8
-  %36 = getelementptr inbounds nuw i8, ptr %35, i64 80
-  %37 = load ptr, ptr %36, align 8
-  call void @blk_mq_start_stopped_hw_queues(ptr noundef %37, i1 noundef zeroext true) #14
-  br label %38
+  call void @blk_mq_start_stopped_hw_queues(ptr noundef %35, i1 noundef zeroext true) #14
+  br label %36
 
-38:                                               ; preds = %33, %30
-  %39 = load ptr, ptr %9, align 8
-  %40 = getelementptr %struct.virtio_blk_vq, ptr %39, i64 %11, i32 1
-  call void @_raw_spin_unlock_irqrestore(ptr noundef %40, i64 noundef %13) #14
+36:                                               ; preds = %.thread1, %31
+  %37 = load ptr, ptr %9, align 8
+  %38 = getelementptr %struct.virtio_blk_vq, ptr %37, i64 %11, i32 1
+  call void @_raw_spin_unlock_irqrestore(ptr noundef %38, i64 noundef %13) #14
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #14
   ret void
 }

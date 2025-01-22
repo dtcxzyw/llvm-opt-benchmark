@@ -57780,10 +57780,8 @@ _ZN4core4iter8adapters5chain17and_then_or_clear17h9afe5cb66fcea0cdE.exit.thread.
   br label %522
 
 521:                                              ; preds = %515
-  switch i64 %.sroa.0474.0.i, label %522 [
-    i64 2, label %527
-    i64 0, label %527
-  ]
+  %cond.i = icmp eq i64 %.sroa.0474.0.i, 0
+  br i1 %cond.i, label %527, label %522
 
 522:                                              ; preds = %521, %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hfc9f180a9c4ad092E.exit.thread16.i.i"
   %.sroa.0474.1.i = phi i64 [ %.sroa.0474.0.i, %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hfc9f180a9c4ad092E.exit.thread16.i.i" ], [ 0, %521 ]
@@ -57808,7 +57806,7 @@ _ZN4core4iter8adapters5chain17and_then_or_clear17h9afe5cb66fcea0cdE.exit.thread.
   %.val.i.i.i.i.i.i.i = load double, ptr %.sroa.18.0.i, align 8, !noalias !10181, !noundef !4
   br label %530
 
-527:                                              ; preds = %_ZN4core4iter8adapters5chain17and_then_or_clear17h9afe5cb66fcea0cdE.exit.thread.i.i.i285.i, %521, %521
+527:                                              ; preds = %_ZN4core4iter8adapters5chain17and_then_or_clear17h9afe5cb66fcea0cdE.exit.thread.i.i.i285.i, %521
   %528 = load ptr, ptr %457, align 8, !noalias !10152, !nonnull !4, !noundef !4
   %529 = load i64, ptr %458, align 8, !noalias !10152, !noundef !4
   call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %4), !noalias !10152

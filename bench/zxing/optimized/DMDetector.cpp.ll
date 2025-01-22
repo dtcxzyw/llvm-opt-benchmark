@@ -5752,102 +5752,103 @@ _ZNK5ZXing9BitMatrix3getEii.exit:                 ; preds = %25
   %42 = getelementptr inbounds i8, ptr %37, i64 %34
   %43 = load i8, ptr %42, align 1
   %44 = icmp ne i8 %43, 0
-  %45 = lshr i32 %.pre-phi78, 1
-  %46 = sub nsw i32 0, %45
+  %45 = zext i1 %44 to i8
+  %46 = lshr i32 %.pre-phi78, 1
+  %47 = sub nsw i32 0, %46
   br i1 %23, label %.lr.ph.split.us, label %.lr.ph.split
 
-.lr.ph.split.us:                                  ; preds = %.lr.ph, %62
-  %.068.us = phi i32 [ %.1.us, %62 ], [ %46, %.lr.ph ]
-  %.03367.us = phi i32 [ %.134.us, %62 ], [ %.061, %.lr.ph ]
-  %.03566.us = phi i32 [ %63, %62 ], [ %.062, %.lr.ph ]
-  %.03665.us = phi i1 [ %.137.us, %62 ], [ %44, %.lr.ph ]
-  %.03864.us = phi i32 [ %.2.us, %62 ], [ 0, %.lr.ph ]
-  %47 = mul nsw i32 %.03566.us, %30
-  %48 = add nsw i32 %47, %.03367.us
-  %49 = sext i32 %48 to i64
-  %.not.i.i.i.i43.us = icmp ugt i64 %40, %49
+.lr.ph.split.us:                                  ; preds = %.lr.ph, %63
+  %.068.us = phi i32 [ %.1.us, %63 ], [ %47, %.lr.ph ]
+  %.03367.us = phi i32 [ %.134.us, %63 ], [ %.061, %.lr.ph ]
+  %.03566.us = phi i32 [ %64, %63 ], [ %.062, %.lr.ph ]
+  %.03665.us = phi i8 [ %54, %63 ], [ %45, %.lr.ph ]
+  %.03864.us = phi i32 [ %.2.us, %63 ], [ 0, %.lr.ph ]
+  %48 = mul nsw i32 %.03566.us, %30
+  %49 = add nsw i32 %48, %.03367.us
+  %50 = sext i32 %49 to i64
+  %.not.i.i.i.i43.us = icmp ugt i64 %40, %50
   br i1 %.not.i.i.i.i43.us, label %_ZNK5ZXing9BitMatrix3getEii.exit44.us, label %.split.us
 
 _ZNK5ZXing9BitMatrix3getEii.exit44.us:            ; preds = %.lr.ph.split.us
-  %50 = getelementptr inbounds i8, ptr %37, i64 %49
-  %51 = load i8, ptr %50, align 1
-  %52 = icmp ne i8 %51, 0
-  %53 = xor i1 %.03665.us, %52
-  %54 = zext i1 %53 to i32
-  %.2.us = add nuw nsw i32 %.03864.us, %54
-  %.137.us = select i1 %53, i1 %52, i1 %.03665.us
-  %55 = add nsw i32 %.068.us, %.pre-phi80
-  %56 = icmp sgt i32 %55, 0
-  br i1 %56, label %57, label %62
+  %51 = getelementptr inbounds i8, ptr %37, i64 %50
+  %52 = load i8, ptr %51, align 1
+  %53 = icmp ne i8 %52, 0
+  %54 = zext i1 %53 to i8
+  %.not42.us = icmp ne i8 %.03665.us, %54
+  %55 = zext i1 %.not42.us to i32
+  %.2.us = add nuw nsw i32 %.03864.us, %55
+  %56 = add nsw i32 %.068.us, %.pre-phi80
+  %57 = icmp sgt i32 %56, 0
+  br i1 %57, label %58, label %63
 
-57:                                               ; preds = %_ZNK5ZXing9BitMatrix3getEii.exit44.us
-  %58 = icmp eq i32 %.03367.us, %.059
-  br i1 %58, label %._crit_edge, label %59
+58:                                               ; preds = %_ZNK5ZXing9BitMatrix3getEii.exit44.us
+  %59 = icmp eq i32 %.03367.us, %.059
+  br i1 %59, label %._crit_edge, label %60
 
-59:                                               ; preds = %57
-  %60 = add nsw i32 %.03367.us, %27
-  %61 = sub nsw i32 %55, %.pre-phi78
-  br label %62
+60:                                               ; preds = %58
+  %61 = add nsw i32 %.03367.us, %27
+  %62 = sub nsw i32 %56, %.pre-phi78
+  br label %63
 
-62:                                               ; preds = %59, %_ZNK5ZXing9BitMatrix3getEii.exit44.us
-  %.134.us = phi i32 [ %60, %59 ], [ %.03367.us, %_ZNK5ZXing9BitMatrix3getEii.exit44.us ]
-  %.1.us = phi i32 [ %61, %59 ], [ %55, %_ZNK5ZXing9BitMatrix3getEii.exit44.us ]
-  %63 = add nsw i32 %.03566.us, %29
-  %.not.us = icmp eq i32 %63, %.060
+63:                                               ; preds = %60, %_ZNK5ZXing9BitMatrix3getEii.exit44.us
+  %.134.us = phi i32 [ %61, %60 ], [ %.03367.us, %_ZNK5ZXing9BitMatrix3getEii.exit44.us ]
+  %.1.us = phi i32 [ %62, %60 ], [ %56, %_ZNK5ZXing9BitMatrix3getEii.exit44.us ]
+  %64 = add nsw i32 %.03566.us, %29
+  %.not.us = icmp eq i32 %64, %.060
   br i1 %.not.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !61
 
-.lr.ph.split:                                     ; preds = %.lr.ph, %79
-  %.068 = phi i32 [ %.1, %79 ], [ %46, %.lr.ph ]
-  %.03367 = phi i32 [ %.134, %79 ], [ %.061, %.lr.ph ]
-  %.03566 = phi i32 [ %80, %79 ], [ %.062, %.lr.ph ]
-  %.03665 = phi i1 [ %.137, %79 ], [ %44, %.lr.ph ]
-  %.03864 = phi i32 [ %.2, %79 ], [ 0, %.lr.ph ]
-  %64 = mul nsw i32 %.03367, %30
-  %65 = add nsw i32 %64, %.03566
-  %66 = sext i32 %65 to i64
-  %.not.i.i.i.i43 = icmp ugt i64 %40, %66
+.lr.ph.split:                                     ; preds = %.lr.ph, %80
+  %.068 = phi i32 [ %.1, %80 ], [ %47, %.lr.ph ]
+  %.03367 = phi i32 [ %.134, %80 ], [ %.061, %.lr.ph ]
+  %.03566 = phi i32 [ %81, %80 ], [ %.062, %.lr.ph ]
+  %.03665 = phi i8 [ %71, %80 ], [ %45, %.lr.ph ]
+  %.03864 = phi i32 [ %.2, %80 ], [ 0, %.lr.ph ]
+  %65 = mul nsw i32 %.03367, %30
+  %66 = add nsw i32 %65, %.03566
+  %67 = sext i32 %66 to i64
+  %.not.i.i.i.i43 = icmp ugt i64 %40, %67
   br i1 %.not.i.i.i.i43, label %_ZNK5ZXing9BitMatrix3getEii.exit44, label %.split.us
 
 .split.us:                                        ; preds = %.lr.ph.split, %.lr.ph.split.us
-  %.us-phi72 = phi i64 [ %49, %.lr.ph.split.us ], [ %66, %.lr.ph.split ]
+  %.us-phi72 = phi i64 [ %50, %.lr.ph.split.us ], [ %67, %.lr.ph.split ]
   tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str, i64 noundef %.us-phi72, i64 noundef %40) #23
   unreachable
 
 _ZNK5ZXing9BitMatrix3getEii.exit44:               ; preds = %.lr.ph.split
-  %67 = getelementptr inbounds i8, ptr %37, i64 %66
-  %68 = load i8, ptr %67, align 1
-  %69 = icmp ne i8 %68, 0
-  %70 = xor i1 %.03665, %69
-  %71 = zext i1 %70 to i32
-  %.2 = add nuw nsw i32 %.03864, %71
-  %.137 = select i1 %70, i1 %69, i1 %.03665
-  %72 = add nsw i32 %.068, %.pre-phi80
-  %73 = icmp sgt i32 %72, 0
-  br i1 %73, label %74, label %79
+  %68 = getelementptr inbounds i8, ptr %37, i64 %67
+  %69 = load i8, ptr %68, align 1
+  %70 = icmp ne i8 %69, 0
+  %71 = zext i1 %70 to i8
+  %.not42 = icmp ne i8 %.03665, %71
+  %72 = zext i1 %.not42 to i32
+  %.2 = add nuw nsw i32 %.03864, %72
+  %73 = add nsw i32 %.068, %.pre-phi80
+  %74 = icmp sgt i32 %73, 0
+  br i1 %74, label %75, label %80
 
-74:                                               ; preds = %_ZNK5ZXing9BitMatrix3getEii.exit44
-  %75 = icmp eq i32 %.03367, %.059
-  br i1 %75, label %._crit_edge, label %76
+75:                                               ; preds = %_ZNK5ZXing9BitMatrix3getEii.exit44
+  %76 = icmp eq i32 %.03367, %.059
+  br i1 %76, label %._crit_edge, label %77
 
-76:                                               ; preds = %74
-  %77 = add nsw i32 %.03367, %27
-  %78 = sub nsw i32 %72, %.pre-phi78
-  br label %79
+77:                                               ; preds = %75
+  %78 = add nsw i32 %.03367, %27
+  %79 = sub nsw i32 %73, %.pre-phi78
+  br label %80
 
-79:                                               ; preds = %_ZNK5ZXing9BitMatrix3getEii.exit44, %76
-  %.134 = phi i32 [ %77, %76 ], [ %.03367, %_ZNK5ZXing9BitMatrix3getEii.exit44 ]
-  %.1 = phi i32 [ %78, %76 ], [ %72, %_ZNK5ZXing9BitMatrix3getEii.exit44 ]
-  %80 = add nsw i32 %.03566, %29
-  %.not = icmp eq i32 %80, %.060
+80:                                               ; preds = %_ZNK5ZXing9BitMatrix3getEii.exit44, %77
+  %.134 = phi i32 [ %78, %77 ], [ %.03367, %_ZNK5ZXing9BitMatrix3getEii.exit44 ]
+  %.1 = phi i32 [ %79, %77 ], [ %73, %_ZNK5ZXing9BitMatrix3getEii.exit44 ]
+  %81 = add nsw i32 %.03566, %29
+  %.not = icmp eq i32 %81, %.060
   br i1 %.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !61
 
-._crit_edge:                                      ; preds = %79, %74, %62, %57, %_ZNK5ZXing9BitMatrix3getEii.exit
-  %.139 = phi i32 [ 0, %_ZNK5ZXing9BitMatrix3getEii.exit ], [ %.2.us, %57 ], [ %.2.us, %62 ], [ %.2, %74 ], [ %.2, %79 ]
+._crit_edge:                                      ; preds = %80, %75, %63, %58, %_ZNK5ZXing9BitMatrix3getEii.exit
+  %.139 = phi i32 [ 0, %_ZNK5ZXing9BitMatrix3getEii.exit ], [ %.2.us, %58 ], [ %.2.us, %63 ], [ %.2, %75 ], [ %.2, %80 ]
   store ptr %2, ptr %0, align 8
-  %81 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %3, ptr %81, align 8
-  %82 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i32 %.139, ptr %82, align 8
+  %82 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %3, ptr %82, align 8
+  %83 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i32 %.139, ptr %83, align 8
   ret void
 }
 

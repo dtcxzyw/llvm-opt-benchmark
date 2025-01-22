@@ -187,8 +187,8 @@ if.then50.us79.i:                                 ; preds = %for.cond.us71.i, %f
   br i1 %cmp52.us81.i, label %if.then54.us82.i, label %if.end72.us85thread-pre-split.i
 
 if.then54.us82.i:                                 ; preds = %if.then50.us79.i
-  %cmp59.us.i = icmp eq i32 %firstSegment.0.us73.i, 1
-  br i1 %cmp59.us.i, label %if.then61.us.i, label %if.else.us83.i
+  %cmp59.us.not.i = icmp eq i32 %firstSegment.0.us73.i, 0
+  br i1 %cmp59.us.not.i, label %if.else.us83.i, label %if.then61.us.i
 
 if.else.us83.i:                                   ; preds = %if.then54.us82.i
   %call69.us84.i = tail call ptr @uriEscapeExA(ptr noundef nonnull %add.ptr51.us80.i, ptr noundef nonnull %input.0.us75.i, ptr noundef %output.1.us72.i, i32 noundef 0, i32 noundef 0) #5
@@ -523,8 +523,8 @@ if.then40.us80.i:                                 ; preds = %for.cond.us72.i, %f
   br i1 %cmp42.us82.i, label %if.then44.us83.i, label %if.end62.us86thread-pre-split.i
 
 if.then44.us83.i:                                 ; preds = %if.then40.us80.i
-  %cmp49.us.i = icmp eq i32 %firstSegment.0.us74.i, 1
-  br i1 %cmp49.us.i, label %if.then51.us.i, label %if.else.us84.i
+  %cmp49.us.not.i = icmp eq i32 %firstSegment.0.us74.i, 0
+  br i1 %cmp49.us.not.i, label %if.else.us84.i, label %if.then51.us.i
 
 if.else.us84.i:                                   ; preds = %if.then44.us83.i
   %call59.us85.i = tail call ptr @uriEscapeExW(ptr noundef nonnull %add.ptr41.us81.i, ptr noundef nonnull %input.0.us76.i, ptr noundef %output.1.us73.i, i32 noundef 0, i32 noundef 0) #5

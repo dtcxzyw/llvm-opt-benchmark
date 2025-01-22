@@ -11421,7 +11421,7 @@ declare ptr @zend_gcvt(double noundef, i32 noundef, i8 noundef signext, i8 nound
 define zeroext range(i8 0, 6) i8 @_is_numeric_string_ex(ptr noundef %0, i64 noundef %1, ptr noundef writeonly %2, ptr noundef writeonly %3, i1 noundef zeroext %4, ptr noundef writeonly %5, ptr noundef writeonly %6) local_unnamed_addr #1 {
   %8 = alloca ptr, align 8
   %.not118 = icmp eq i64 %1, 0
-  br i1 %.not118, label %122, label %9
+  br i1 %.not118, label %121, label %9
 
 9:                                                ; preds = %7
   %.not119 = icmp eq ptr %5, null
@@ -11433,18 +11433,18 @@ define zeroext range(i8 0, 6) i8 @_is_numeric_string_ex(ptr noundef %0, i64 noun
 
 11:                                               ; preds = %10, %9
   %.not120 = icmp eq ptr %6, null
-  br i1 %.not120, label %.preheader140, label %12
+  br i1 %.not120, label %.preheader139, label %12
 
 12:                                               ; preds = %11
   store i8 0, ptr %6, align 1
-  br label %.preheader140
+  br label %.preheader139
 
-.preheader140:                                    ; preds = %12, %11
+.preheader139:                                    ; preds = %12, %11
   br label %13
 
-13:                                               ; preds = %.preheader140, %.critedge
-  %.096 = phi i64 [ %16, %.critedge ], [ %1, %.preheader140 ]
-  %.095 = phi ptr [ %15, %.critedge ], [ %0, %.preheader140 ]
+13:                                               ; preds = %.preheader139, %.critedge
+  %.096 = phi i64 [ %16, %.critedge ], [ %1, %.preheader139 ]
+  %.095 = phi ptr [ %15, %.critedge ], [ %0, %.preheader139 ]
   %14 = load i8, ptr %.095, align 1
   switch i8 %14, label %17 [
     i8 32, label %.critedge
@@ -11462,7 +11462,7 @@ define zeroext range(i8 0, 6) i8 @_is_numeric_string_ex(ptr noundef %0, i64 noun
 
 17:                                               ; preds = %13
   store ptr %.095, ptr %8, align 8
-  %.not128 = icmp eq i8 %14, 45
+  %.not127 = icmp eq i8 %14, 45
   switch i8 %14, label %19 [
     i8 45, label %.sink.split
     i8 43, label %.sink.split
@@ -11477,43 +11477,43 @@ define zeroext range(i8 0, 6) i8 @_is_numeric_string_ex(ptr noundef %0, i64 noun
   %.promoted = phi ptr [ %18, %.sink.split ], [ %.095, %17 ]
   %20 = load i8, ptr %.promoted, align 1
   %21 = add i8 %20, -48
-  %or.cond129 = icmp ult i8 %21, 10
-  br i1 %or.cond129, label %.preheader135, label %68
+  %or.cond128 = icmp ult i8 %21, 10
+  br i1 %or.cond128, label %.preheader134, label %68
 
-.preheader135:                                    ; preds = %19
+.preheader134:                                    ; preds = %19
   %22 = icmp eq i8 %20, 48
   br i1 %22, label %.lr.ph, label %.loopexit
 
-.lr.ph:                                           ; preds = %.preheader135, %.lr.ph
-  %23 = phi ptr [ %24, %.lr.ph ], [ %.promoted, %.preheader135 ]
+.lr.ph:                                           ; preds = %.preheader134, %.lr.ph
+  %23 = phi ptr [ %24, %.lr.ph ], [ %.promoted, %.preheader134 ]
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 1
   store ptr %24, ptr %8, align 8
   %25 = load i8, ptr %24, align 1
   %26 = icmp eq i8 %25, 48
   br i1 %26, label %.lr.ph, label %.loopexit
 
-.loopexit:                                        ; preds = %.lr.ph, %.preheader135, %35
-  %27 = phi ptr [ %41, %35 ], [ %.promoted, %.preheader135 ], [ %24, %.lr.ph ]
-  %.090 = phi i32 [ %40, %35 ], [ 0, %.preheader135 ], [ 0, %.lr.ph ]
-  %.087 = phi i32 [ %.188, %35 ], [ 0, %.preheader135 ], [ 0, %.lr.ph ]
-  %.082 = phi i8 [ %.284, %35 ], [ 4, %.preheader135 ], [ 4, %.lr.ph ]
-  %.081 = phi i64 [ %39, %35 ], [ 0, %.preheader135 ], [ 0, %.lr.ph ]
+.loopexit:                                        ; preds = %.lr.ph, %.preheader134, %35
+  %27 = phi ptr [ %41, %35 ], [ %.promoted, %.preheader134 ], [ %24, %.lr.ph ]
+  %.090 = phi i32 [ %40, %35 ], [ 0, %.preheader134 ], [ 0, %.lr.ph ]
+  %.087 = phi i32 [ %.188, %35 ], [ 0, %.preheader134 ], [ 0, %.lr.ph ]
+  %.082 = phi i8 [ %.284, %35 ], [ 4, %.preheader134 ], [ 4, %.lr.ph ]
+  %.081 = phi i64 [ %39, %35 ], [ 0, %.preheader134 ], [ 0, %.lr.ph ]
   %28 = icmp sgt i32 %.090, 19
   %29 = icmp ne ptr %3, null
   %30 = or i1 %29, %4
-  %.not134 = and i1 %30, %28
-  br i1 %.not134, label %60, label %31
+  %.not133 = and i1 %30, %28
+  br i1 %.not133, label %60, label %31
 
-31:                                               ; preds = %.loopexit, %80
-  %32 = phi ptr [ %27, %.loopexit ], [ %81, %80 ]
-  %.292 = phi i32 [ %.090, %.loopexit ], [ %.393, %80 ]
-  %.188 = phi i32 [ %.087, %.loopexit ], [ %84, %80 ]
-  %.284 = phi i8 [ %.082, %.loopexit ], [ 5, %80 ]
-  %.2 = phi i64 [ %.081, %.loopexit ], [ %.3, %80 ]
+31:                                               ; preds = %.loopexit, %79
+  %32 = phi ptr [ %27, %.loopexit ], [ %80, %79 ]
+  %.292 = phi i32 [ %.090, %.loopexit ], [ %.393, %79 ]
+  %.188 = phi i32 [ %.087, %.loopexit ], [ %83, %79 ]
+  %.284 = phi i8 [ %.082, %.loopexit ], [ 5, %79 ]
+  %.2 = phi i64 [ %.081, %.loopexit ], [ %.3, %79 ]
   %33 = load i8, ptr %32, align 1
   %34 = add i8 %33, -48
-  %or.cond130 = icmp ult i8 %34, 10
-  br i1 %or.cond130, label %35, label %42
+  %or.cond129 = icmp ult i8 %34, 10
+  br i1 %or.cond129, label %35, label %42
 
 35:                                               ; preds = %31
   %36 = mul i64 %.2, 10
@@ -11527,7 +11527,7 @@ define zeroext range(i8 0, 6) i8 @_is_numeric_string_ex(ptr noundef %0, i64 noun
 
 42:                                               ; preds = %31
   %43 = icmp eq i8 %33, 46
-  %44 = icmp slt i32 %.188, 1
+  %44 = icmp eq i32 %.188, 0
   %or.cond = select i1 %43, i1 %44, i1 false
   br i1 %or.cond, label %74, label %45
 
@@ -11537,12 +11537,12 @@ define zeroext range(i8 0, 6) i8 @_is_numeric_string_ex(ptr noundef %0, i64 noun
 
 47:                                               ; preds = %45
   %48 = icmp eq i8 %33, 69
-  %49 = icmp slt i32 %.188, 2
+  %49 = icmp samesign ult i32 %.188, 2
   %or.cond3 = select i1 %48, i1 %49, i1 false
   br i1 %or.cond3, label %51, label %60
 
 50:                                               ; preds = %45
-  %.old2 = icmp slt i32 %.188, 2
+  %.old2 = icmp samesign ult i32 %.188, 2
   br i1 %.old2, label %51, label %60
 
 51:                                               ; preds = %47, %50
@@ -11563,8 +11563,8 @@ define zeroext range(i8 0, 6) i8 @_is_numeric_string_ex(ptr noundef %0, i64 noun
   %57 = phi i8 [ %.pre, %54 ], [ %53, %51 ]
   %58 = phi ptr [ %52, %54 ], [ %32, %51 ]
   %59 = add i8 %57, -48
-  %or.cond131 = icmp ult i8 %59, 10
-  br i1 %or.cond131, label %74, label %60
+  %or.cond130 = icmp ult i8 %59, 10
+  br i1 %or.cond130, label %74, label %60
 
 60:                                               ; preds = %47, %50, %56, %.loopexit
   %61 = phi ptr [ %58, %56 ], [ %32, %50 ], [ %32, %47 ], [ %27, %.loopexit ]
@@ -11572,7 +11572,7 @@ define zeroext range(i8 0, 6) i8 @_is_numeric_string_ex(ptr noundef %0, i64 noun
   %.183 = phi i8 [ %.284, %56 ], [ %.284, %50 ], [ %.284, %47 ], [ %.082, %.loopexit ]
   %.1 = phi i64 [ %.2, %56 ], [ %.2, %50 ], [ %.2, %47 ], [ %.081, %.loopexit ]
   %62 = icmp sgt i32 %.191, 19
-  br i1 %62, label %63, label %85
+  br i1 %62, label %63, label %84
 
 63:                                               ; preds = %60
   br i1 %.not119, label %74, label %64
@@ -11586,56 +11586,55 @@ define zeroext range(i8 0, 6) i8 @_is_numeric_string_ex(ptr noundef %0, i64 noun
 
 68:                                               ; preds = %19
   %69 = icmp eq i8 %20, 46
-  br i1 %69, label %70, label %122
+  br i1 %69, label %70, label %121
 
 70:                                               ; preds = %68
   %71 = getelementptr inbounds nuw i8, ptr %.promoted, i64 1
   %72 = load i8, ptr %71, align 1
   %73 = add i8 %72, -48
-  %or.cond132 = icmp ult i8 %73, 10
-  br i1 %or.cond132, label %74, label %122
+  %or.cond131 = icmp ult i8 %73, 10
+  br i1 %or.cond131, label %74, label %121
 
 74:                                               ; preds = %70, %63, %64, %56, %42
   %75 = phi ptr [ %32, %42 ], [ %58, %56 ], [ %61, %64 ], [ %61, %63 ], [ %.promoted, %70 ]
   %.393 = phi i32 [ %.292, %42 ], [ %.292, %56 ], [ %.191, %64 ], [ %.191, %63 ], [ 0, %70 ]
-  %.289 = phi i32 [ 0, %42 ], [ %.188, %56 ], [ -1, %64 ], [ -1, %63 ], [ 0, %70 ]
+  %.289.not = phi i1 [ false, %42 ], [ false, %56 ], [ true, %64 ], [ true, %63 ], [ false, %70 ]
   %.3 = phi i64 [ %.2, %42 ], [ %.2, %56 ], [ %.1, %64 ], [ %.1, %63 ], [ 0, %70 ]
   %.not121 = icmp eq ptr %3, null
   br i1 %.not121, label %78, label %76
 
 76:                                               ; preds = %74
   %77 = call double @zend_strtod(ptr noundef nonnull %.095, ptr noundef nonnull %8) #27
-  %.pre136 = load ptr, ptr %8, align 8
-  br label %85
+  %.pre135 = load ptr, ptr %8, align 8
+  br label %84
 
 78:                                               ; preds = %74
-  %79 = icmp eq i32 %.289, -1
-  %or.cond6.not = select i1 %4, i1 true, i1 %79
-  br i1 %or.cond6.not, label %85, label %80
+  %or.cond6.not = or i1 %4, %.289.not
+  br i1 %or.cond6.not, label %84, label %79
 
-80:                                               ; preds = %78
-  %81 = getelementptr inbounds nuw i8, ptr %75, i64 1
-  store ptr %81, ptr %8, align 8
-  %82 = load i8, ptr %75, align 1
-  %83 = icmp eq i8 %82, 46
-  %84 = select i1 %83, i32 1, i32 2
+79:                                               ; preds = %78
+  %80 = getelementptr inbounds nuw i8, ptr %75, i64 1
+  store ptr %80, ptr %8, align 8
+  %81 = load i8, ptr %75, align 1
+  %82 = icmp eq i8 %81, 46
+  %83 = select i1 %82, i32 1, i32 2
   br label %31
 
-85:                                               ; preds = %78, %76, %60
-  %86 = phi ptr [ %.pre136, %76 ], [ %75, %78 ], [ %61, %60 ]
+84:                                               ; preds = %78, %76, %60
+  %85 = phi ptr [ %.pre135, %76 ], [ %75, %78 ], [ %61, %60 ]
   %.494 = phi i32 [ %.393, %76 ], [ %.393, %78 ], [ %.191, %60 ]
   %.086 = phi double [ %77, %76 ], [ 0.000000e+00, %78 ], [ 0.000000e+00, %60 ]
   %.385 = phi i8 [ 5, %76 ], [ 5, %78 ], [ %.183, %60 ]
   %.4 = phi i64 [ %.3, %76 ], [ %.3, %78 ], [ %.1, %60 ]
-  %87 = getelementptr inbounds i8, ptr %.095, i64 %.096
-  %.not = icmp eq ptr %86, %87
-  br i1 %.not, label %96, label %.preheader
+  %86 = getelementptr inbounds i8, ptr %.095, i64 %.096
+  %.not = icmp eq ptr %85, %86
+  br i1 %.not, label %95, label %.preheader
 
-.preheader:                                       ; preds = %85, %.critedge8
-  %.197 = phi i64 [ %90, %.critedge8 ], [ %.096, %85 ]
-  %.078 = phi ptr [ %89, %.critedge8 ], [ %86, %85 ]
-  %88 = load i8, ptr %.078, align 1
-  switch i8 %88, label %91 [
+.preheader:                                       ; preds = %84, %.critedge8
+  %.197 = phi i64 [ %89, %.critedge8 ], [ %.096, %84 ]
+  %.078 = phi ptr [ %88, %.critedge8 ], [ %85, %84 ]
+  %87 = load i8, ptr %.078, align 1
+  switch i8 %87, label %90 [
     i8 32, label %.critedge8
     i8 9, label %.critedge8
     i8 10, label %.critedge8
@@ -11645,87 +11644,87 @@ define zeroext range(i8 0, 6) i8 @_is_numeric_string_ex(ptr noundef %0, i64 noun
   ]
 
 .critedge8:                                       ; preds = %.preheader, %.preheader, %.preheader, %.preheader, %.preheader, %.preheader
-  %89 = getelementptr inbounds nuw i8, ptr %.078, i64 1
-  %90 = add i64 %.197, -1
+  %88 = getelementptr inbounds nuw i8, ptr %.078, i64 1
+  %89 = add i64 %.197, -1
   br label %.preheader
 
-91:                                               ; preds = %.preheader
-  %92 = getelementptr inbounds i8, ptr %.095, i64 %.197
-  %.not123 = icmp eq ptr %86, %92
-  br i1 %.not123, label %96, label %93
+90:                                               ; preds = %.preheader
+  %91 = getelementptr inbounds i8, ptr %.095, i64 %.197
+  %.not122 = icmp eq ptr %85, %91
+  br i1 %.not122, label %95, label %92
 
-93:                                               ; preds = %91
-  br i1 %4, label %94, label %122
+92:                                               ; preds = %90
+  br i1 %4, label %93, label %121
+
+93:                                               ; preds = %92
+  br i1 %.not120, label %95, label %94
 
 94:                                               ; preds = %93
-  br i1 %.not120, label %96, label %95
-
-95:                                               ; preds = %94
   store i8 1, ptr %6, align 1
-  br label %96
+  br label %95
 
-96:                                               ; preds = %91, %95, %94, %85
-  %97 = icmp eq i8 %.385, 4
-  br i1 %97, label %98, label %120
+95:                                               ; preds = %90, %94, %93, %84
+  %96 = icmp eq i8 %.385, 4
+  br i1 %96, label %97, label %119
 
-98:                                               ; preds = %96
-  %99 = icmp eq i32 %.494, 19
-  br i1 %99, label %100, label %117
+97:                                               ; preds = %95
+  %98 = icmp eq i32 %.494, 19
+  br i1 %98, label %99, label %116
 
-100:                                              ; preds = %98
-  %101 = getelementptr inbounds i8, ptr %86, i64 -19
-  %102 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %101, ptr noundef nonnull dereferenceable(20) @long_min_digits) #28
-  %103 = icmp slt i32 %102, 0
-  br i1 %103, label %117, label %104
+99:                                               ; preds = %97
+  %100 = getelementptr inbounds i8, ptr %85, i64 -19
+  %101 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %100, ptr noundef nonnull dereferenceable(20) @long_min_digits) #28
+  %102 = icmp slt i32 %101, 0
+  br i1 %102, label %116, label %103
 
-104:                                              ; preds = %100
-  %105 = icmp eq i32 %102, 0
-  br i1 %105, label %106, label %109
+103:                                              ; preds = %99
+  %104 = icmp eq i32 %101, 0
+  br i1 %104, label %105, label %108
 
-106:                                              ; preds = %104
-  %107 = load i8, ptr %.095, align 1
-  %108 = icmp eq i8 %107, 45
-  br i1 %108, label %117, label %109
+105:                                              ; preds = %103
+  %106 = load i8, ptr %.095, align 1
+  %107 = icmp eq i8 %106, 45
+  br i1 %107, label %116, label %108
 
-109:                                              ; preds = %106, %104
-  %.not125 = icmp eq ptr %3, null
-  br i1 %.not125, label %112, label %110
-
-110:                                              ; preds = %109
-  %111 = call double @zend_strtod(ptr noundef nonnull %.095, ptr noundef null) #27
-  store double %111, ptr %3, align 8
-  br label %112
-
-112:                                              ; preds = %110, %109
-  br i1 %.not119, label %122, label %113
-
-113:                                              ; preds = %112
-  %114 = load i8, ptr %.095, align 1
-  %115 = icmp eq i8 %114, 45
-  %116 = select i1 %115, i32 -1, i32 1
-  store i32 %116, ptr %5, align 4
-  br label %122
-
-117:                                              ; preds = %100, %106, %98
-  %.not126 = icmp eq ptr %2, null
-  br i1 %.not126, label %122, label %118
-
-118:                                              ; preds = %117
-  %119 = sub i64 0, %.4
-  %spec.select = select i1 %.not128, i64 %119, i64 %.4
-  store i64 %spec.select, ptr %2, align 8
-  br label %122
-
-120:                                              ; preds = %96
+108:                                              ; preds = %105, %103
   %.not124 = icmp eq ptr %3, null
-  br i1 %.not124, label %122, label %121
+  br i1 %.not124, label %111, label %109
 
-121:                                              ; preds = %120
+109:                                              ; preds = %108
+  %110 = call double @zend_strtod(ptr noundef nonnull %.095, ptr noundef null) #27
+  store double %110, ptr %3, align 8
+  br label %111
+
+111:                                              ; preds = %109, %108
+  br i1 %.not119, label %121, label %112
+
+112:                                              ; preds = %111
+  %113 = load i8, ptr %.095, align 1
+  %114 = icmp eq i8 %113, 45
+  %115 = select i1 %114, i32 -1, i32 1
+  store i32 %115, ptr %5, align 4
+  br label %121
+
+116:                                              ; preds = %99, %105, %97
+  %.not125 = icmp eq ptr %2, null
+  br i1 %.not125, label %121, label %117
+
+117:                                              ; preds = %116
+  %118 = sub i64 0, %.4
+  %spec.select = select i1 %.not127, i64 %118, i64 %.4
+  store i64 %spec.select, ptr %2, align 8
+  br label %121
+
+119:                                              ; preds = %95
+  %.not123 = icmp eq ptr %3, null
+  br i1 %.not123, label %121, label %120
+
+120:                                              ; preds = %119
   store double %.086, ptr %3, align 8
-  br label %122
+  br label %121
 
-122:                                              ; preds = %120, %121, %117, %118, %112, %113, %93, %68, %70, %7
-  %.0 = phi i8 [ 0, %7 ], [ 0, %70 ], [ 0, %68 ], [ 0, %93 ], [ 5, %113 ], [ 5, %112 ], [ 4, %118 ], [ 4, %117 ], [ 5, %121 ], [ 5, %120 ]
+121:                                              ; preds = %119, %120, %116, %117, %111, %112, %92, %68, %70, %7
+  %.0 = phi i8 [ 0, %7 ], [ 0, %70 ], [ 0, %68 ], [ 0, %92 ], [ 5, %112 ], [ 5, %111 ], [ 4, %117 ], [ 4, %116 ], [ 5, %120 ], [ 5, %119 ]
   ret i8 %.0
 }
 

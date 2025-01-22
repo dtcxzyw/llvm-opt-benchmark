@@ -243,65 +243,63 @@ define dso_local range(i32 0, 44) i32 @Curl_hsts_parse(ptr noundef %0, ptr nound
   %56 = call ptr @Curl_hsts(ptr noundef %0, ptr noundef %1, i1 noundef zeroext false)
   %.not91 = icmp eq ptr %56, null
   %57 = load i64, ptr %4, align 8
-  br i1 %.not91, label %62, label %58
+  br i1 %.not91, label %61, label %58
 
 58:                                               ; preds = %52
   %59 = getelementptr inbounds nuw i8, ptr %56, i64 40
   store i64 %57, ptr %59, align 8
   %60 = getelementptr inbounds nuw i8, ptr %56, i64 32
-  %61 = and i8 %.167, 1
-  store i8 %61, ptr %60, align 8
+  store i8 %.167, ptr %60, align 8
   br label %hsts_create.exit
 
-62:                                               ; preds = %52
-  %63 = and i8 %.167, 1
-  %64 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #10
-  %.not.i = icmp eq i64 %64, 0
-  br i1 %.not.i, label %hsts_create.exit, label %65
+61:                                               ; preds = %52
+  %62 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #10
+  %.not.i = icmp eq i64 %62, 0
+  br i1 %.not.i, label %hsts_create.exit, label %63
 
-65:                                               ; preds = %62
-  %66 = getelementptr i8, ptr %1, i64 %64
-  %67 = getelementptr i8, ptr %66, i64 -1
-  %68 = load i8, ptr %67, align 1
-  %69 = icmp eq i8 %68, 46
-  br i1 %69, label %70, label %.thread30.i
+63:                                               ; preds = %61
+  %64 = getelementptr i8, ptr %1, i64 %62
+  %65 = getelementptr i8, ptr %64, i64 -1
+  %66 = load i8, ptr %65, align 1
+  %67 = icmp eq i8 %66, 46
+  br i1 %67, label %68, label %.thread30.i
 
-70:                                               ; preds = %65
-  %71 = add i64 %64, -1
-  %.not25.i = icmp eq i64 %71, 0
+68:                                               ; preds = %63
+  %69 = add i64 %62, -1
+  %.not25.i = icmp eq i64 %69, 0
   br i1 %.not25.i, label %hsts_create.exit, label %.thread30.i
 
-.thread30.i:                                      ; preds = %70, %65
-  %.02133.i = phi i64 [ %71, %70 ], [ %64, %65 ]
-  %72 = load ptr, ptr @Curl_ccalloc, align 8
-  %73 = call ptr %72(i64 noundef 1, i64 noundef 48) #9
-  %.not26.i = icmp eq ptr %73, null
-  br i1 %.not26.i, label %hsts_create.exit, label %74
+.thread30.i:                                      ; preds = %68, %63
+  %.02133.i = phi i64 [ %69, %68 ], [ %62, %63 ]
+  %70 = load ptr, ptr @Curl_ccalloc, align 8
+  %71 = call ptr %70(i64 noundef 1, i64 noundef 48) #9
+  %.not26.i = icmp eq ptr %71, null
+  br i1 %.not26.i, label %hsts_create.exit, label %72
 
-74:                                               ; preds = %.thread30.i
-  %75 = call ptr @Curl_memdup0(ptr noundef nonnull %1, i64 noundef %.02133.i) #9
-  %.not27.i = icmp eq ptr %75, null
-  br i1 %.not27.i, label %76, label %78
+72:                                               ; preds = %.thread30.i
+  %73 = call ptr @Curl_memdup0(ptr noundef nonnull %1, i64 noundef %.02133.i) #9
+  %.not27.i = icmp eq ptr %73, null
+  br i1 %.not27.i, label %74, label %76
 
-76:                                               ; preds = %74
-  %77 = load ptr, ptr @Curl_cfree, align 8
-  call void %77(ptr noundef nonnull %73) #9
+74:                                               ; preds = %72
+  %75 = load ptr, ptr @Curl_cfree, align 8
+  call void %75(ptr noundef nonnull %71) #9
   br label %hsts_create.exit
 
-78:                                               ; preds = %74
-  %79 = getelementptr inbounds nuw i8, ptr %73, i64 24
-  store ptr %75, ptr %79, align 8
-  %80 = getelementptr inbounds nuw i8, ptr %73, i64 40
-  store i64 %57, ptr %80, align 8
-  %81 = getelementptr inbounds nuw i8, ptr %73, i64 32
-  store i8 %63, ptr %81, align 8
-  %82 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %83 = load ptr, ptr %82, align 8
-  call void @Curl_llist_insert_next(ptr noundef %0, ptr noundef %83, ptr noundef nonnull %73, ptr noundef nonnull %73) #9
+76:                                               ; preds = %72
+  %77 = getelementptr inbounds nuw i8, ptr %71, i64 24
+  store ptr %73, ptr %77, align 8
+  %78 = getelementptr inbounds nuw i8, ptr %71, i64 40
+  store i64 %57, ptr %78, align 8
+  %79 = getelementptr inbounds nuw i8, ptr %71, i64 32
+  store i8 %.167, ptr %79, align 8
+  %80 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %81 = load ptr, ptr %80, align 8
+  call void @Curl_llist_insert_next(ptr noundef %0, ptr noundef %81, ptr noundef nonnull %71, ptr noundef nonnull %71) #9
   br label %hsts_create.exit
 
-hsts_create.exit:                                 ; preds = %30, %24, %.critedge4, %12, %78, %76, %.thread30.i, %70, %62, %45, %47, %41, %3, %58
-  %.0 = phi i32 [ 0, %58 ], [ 0, %3 ], [ 43, %41 ], [ 0, %47 ], [ 0, %45 ], [ 27, %76 ], [ 27, %.thread30.i ], [ 0, %78 ], [ 0, %70 ], [ 0, %62 ], [ 43, %12 ], [ 43, %.critedge4 ], [ 43, %24 ], [ 43, %30 ]
+hsts_create.exit:                                 ; preds = %30, %24, %.critedge4, %12, %76, %74, %.thread30.i, %68, %61, %45, %47, %41, %3, %58
+  %.0 = phi i32 [ 0, %58 ], [ 0, %3 ], [ 43, %41 ], [ 0, %47 ], [ 0, %45 ], [ 27, %74 ], [ 27, %.thread30.i ], [ 0, %76 ], [ 0, %68 ], [ 0, %61 ], [ 43, %12 ], [ 43, %.critedge4 ], [ 43, %24 ], [ 43, %30 ]
   ret i32 %.0
 }
 

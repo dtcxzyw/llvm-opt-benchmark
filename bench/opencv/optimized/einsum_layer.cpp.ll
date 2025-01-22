@@ -4977,8 +4977,7 @@ _ZNSt6vectorIiSaIiEE12emplace_backIJRiEEEvDpOT_.exit: ; preds = %56, %_ZNSt6vect
   br i1 %88, label %.lr.ph, label %.loopexit, !llvm.loop !67
 
 89:                                               ; preds = %35
-  %.mask = and i8 %.065, 1
-  %90 = icmp eq i8 %.mask, 0
+  %90 = icmp eq i8 %.065, 0
   br i1 %90, label %92, label %91
 
 91:                                               ; preds = %89
@@ -5111,7 +5110,7 @@ _ZNSt6vectorIiSaIiEE12emplace_backIJRiEEEvDpOT_.exit49: ; preds = %116, %_ZNSt6v
 .loopexit:                                        ; preds = %_ZNSt6vectorIiSaIiEE12emplace_backIJRiEEEvDpOT_.exit, %.preheader, %_ZNSt6vectorIiSaIiEE12emplace_backIJRiEEEvDpOT_.exit49, %48
   %.2 = phi i32 [ %.03363, %48 ], [ %143, %_ZNSt6vectorIiSaIiEE12emplace_backIJRiEEEvDpOT_.exit49 ], [ %.03363, %.preheader ], [ %83, %_ZNSt6vectorIiSaIiEE12emplace_backIJRiEEEvDpOT_.exit ]
   %.129 = phi i32 [ %49, %48 ], [ %.02864, %_ZNSt6vectorIiSaIiEE12emplace_backIJRiEEEvDpOT_.exit49 ], [ 3, %.preheader ], [ 3, %_ZNSt6vectorIiSaIiEE12emplace_backIJRiEEEvDpOT_.exit ]
-  %.1 = phi i8 [ 1, %48 ], [ %.065, %_ZNSt6vectorIiSaIiEE12emplace_backIJRiEEEvDpOT_.exit49 ], [ 0, %.preheader ], [ 0, %_ZNSt6vectorIiSaIiEE12emplace_backIJRiEEEvDpOT_.exit ]
+  %.1 = phi i8 [ 1, %48 ], [ 0, %_ZNSt6vectorIiSaIiEE12emplace_backIJRiEEEvDpOT_.exit49 ], [ 0, %.preheader ], [ 0, %_ZNSt6vectorIiSaIiEE12emplace_backIJRiEEEvDpOT_.exit ]
   %146 = getelementptr inbounds nuw i8, ptr %.sroa.050.062, i64 1
   %.not55 = icmp eq ptr %146, %27
   br i1 %.not55, label %._crit_edge, label %35

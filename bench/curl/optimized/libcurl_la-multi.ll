@@ -2730,14 +2730,13 @@ do.body:                                          ; preds = %if.end29, %sigpipe_
   %bf.lshr14 = lshr i64 %bf.load13, 33
   %10 = trunc nuw nsw i64 %bf.lshr14 to i32
   %bf.cast16 = and i32 %10, 1
-  %11 = and i8 %nosig.0, 1
-  %conv = zext nneg i8 %11 to i32
-  %cmp18.not = icmp eq i32 %bf.cast16, %conv
+  %tobool17 = zext nneg i8 %nosig.0 to i32
+  %cmp18.not = icmp eq i32 %bf.cast16, %tobool17
   br i1 %cmp18.not, label %if.end29, label %if.then20
 
 if.then20:                                        ; preds = %do.body
-  %12 = load i8, ptr %no_signal1.i, align 8
-  %tobool.i = trunc i8 %12 to i1
+  %11 = load i8, ptr %no_signal1.i, align 8
+  %tobool.i = trunc i8 %11 to i1
   br i1 %tobool.i, label %sigpipe_restore.exit, label %if.then.i25
 
 if.then.i25:                                      ; preds = %if.then20
@@ -2750,11 +2749,11 @@ sigpipe_restore.exit:                             ; preds = %if.then20, %if.then
   %.pre-phi = phi i64 [ %bf.lshr14, %if.then20 ], [ %.pre, %if.then.i25 ]
   %bf.load.i29 = phi i64 [ %bf.load13, %if.then20 ], [ %bf.load.i29.pre, %if.then.i25 ]
   call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %action.i27)
-  %13 = trunc i64 %.pre-phi to i8
-  %frombool.i31 = and i8 %13, 1
+  %12 = trunc i64 %.pre-phi to i8
+  %frombool.i31 = and i8 %12, 1
   store i8 %frombool.i31, ptr %no_signal1.i, align 8
-  %14 = and i64 %bf.load.i29, 8589934592
-  %tobool8.not.i33 = icmp eq i64 %14, 0
+  %13 = and i64 %bf.load.i29, 8589934592
+  %tobool8.not.i33 = icmp eq i64 %13, 0
   br i1 %tobool8.not.i33, label %if.then.i34, label %sigpipe_ignore.exit37
 
 if.then.i34:                                      ; preds = %sigpipe_restore.exit
@@ -2765,10 +2764,11 @@ if.then.i34:                                      ; preds = %sigpipe_restore.exi
   %bf.load23.pre = load i64, ptr %no_signal12, align 2
   %.pre48 = lshr i64 %bf.load23.pre, 33
   %.pre50 = trunc i64 %.pre48 to i8
+  %.pre52 = and i8 %.pre50, 1
   br label %sigpipe_ignore.exit37
 
 sigpipe_ignore.exit37:                            ; preds = %sigpipe_restore.exit, %if.then.i34
-  %frombool28.pre-phi = phi i8 [ %frombool.i31, %sigpipe_restore.exit ], [ %.pre50, %if.then.i34 ]
+  %frombool28.pre-phi = phi i8 [ %frombool.i31, %sigpipe_restore.exit ], [ %.pre52, %if.then.i34 ]
   call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %action.i27)
   br label %if.end29
 
@@ -2781,8 +2781,8 @@ if.end29:                                         ; preds = %sigpipe_ignore.exit
   br i1 %tobool34.not, label %do.end, label %do.body, !llvm.loop !21
 
 do.end:                                           ; preds = %if.end29
-  %15 = load i8, ptr %no_signal1.i, align 8
-  %tobool.i39 = trunc i8 %15 to i1
+  %14 = load i8, ptr %no_signal1.i, align 8
+  %tobool.i39 = trunc i8 %14 to i1
   br i1 %tobool.i39, label %if.end35, label %if.then.i40
 
 if.then.i40:                                      ; preds = %do.end
@@ -2795,64 +2795,64 @@ if.end35:                                         ; preds = %if.then.i40, %do.en
   br label %do.body36
 
 do.body36:                                        ; preds = %do.cond43, %if.end35
-  %16 = load ptr, ptr %timetree, align 8
-  %17 = load i64, ptr %now, align 8
-  %18 = load i32, ptr %1, align 8
-  %call37 = call ptr @Curl_splaygetbest(i64 %17, i32 %18, ptr noundef %16, ptr noundef nonnull %t) #19
+  %15 = load ptr, ptr %timetree, align 8
+  %16 = load i64, ptr %now, align 8
+  %17 = load i32, ptr %1, align 8
+  %call37 = call ptr @Curl_splaygetbest(i64 %16, i32 %17, ptr noundef %15, ptr noundef nonnull %t) #19
   store ptr %call37, ptr %timetree, align 8
-  %19 = load ptr, ptr %t, align 8
-  %tobool39.not = icmp eq ptr %19, null
+  %18 = load ptr, ptr %t, align 8
+  %tobool39.not = icmp eq ptr %18, null
   br i1 %tobool39.not, label %do.end45, label %if.then40
 
 if.then40:                                        ; preds = %do.body36
-  %payload = getelementptr inbounds nuw i8, ptr %19, i64 48
-  %20 = load ptr, ptr %payload, align 8
-  %21 = load i64, ptr %now, align 8
-  %22 = load i32, ptr %1, align 8
-  %expiretime.i = getelementptr inbounds nuw i8, ptr %20, i64 3680
-  %timeoutlist.i = getelementptr inbounds nuw i8, ptr %20, i64 3752
-  %23 = load ptr, ptr %timeoutlist.i, align 8
-  %tobool.not14.i = icmp eq ptr %23, null
+  %payload = getelementptr inbounds nuw i8, ptr %18, i64 48
+  %19 = load ptr, ptr %payload, align 8
+  %20 = load i64, ptr %now, align 8
+  %21 = load i32, ptr %1, align 8
+  %expiretime.i = getelementptr inbounds nuw i8, ptr %19, i64 3680
+  %timeoutlist.i = getelementptr inbounds nuw i8, ptr %19, i64 3752
+  %22 = load ptr, ptr %timeoutlist.i, align 8
+  %tobool.not14.i = icmp eq ptr %22, null
   br i1 %tobool.not14.i, label %if.then4.i, label %for.body.i
 
 for.body.i:                                       ; preds = %if.then40, %if.then.i44
-  %e.015.i = phi ptr [ %24, %if.then.i44 ], [ %23, %if.then40 ]
+  %e.015.i = phi ptr [ %23, %if.then.i44 ], [ %22, %if.then40 ]
   %next.i = getelementptr inbounds nuw i8, ptr %e.015.i, i64 16
-  %24 = load ptr, ptr %next.i, align 8
-  %25 = load ptr, ptr %e.015.i, align 8
-  %time.i = getelementptr inbounds nuw i8, ptr %25, i64 24
-  %26 = load i64, ptr %time.i, align 8
-  %27 = getelementptr inbounds nuw i8, ptr %25, i64 32
-  %28 = load i32, ptr %27, align 8
-  %call.i43 = call i64 @Curl_timediff_us(i64 %26, i32 %28, i64 %21, i32 %22) #19
+  %23 = load ptr, ptr %next.i, align 8
+  %24 = load ptr, ptr %e.015.i, align 8
+  %time.i = getelementptr inbounds nuw i8, ptr %24, i64 24
+  %25 = load i64, ptr %time.i, align 8
+  %26 = getelementptr inbounds nuw i8, ptr %24, i64 32
+  %27 = load i32, ptr %26, align 8
+  %call.i43 = call i64 @Curl_timediff_us(i64 %25, i32 %27, i64 %20, i32 %21) #19
   %cmp.i = icmp slt i64 %call.i43, 1
   br i1 %cmp.i, label %if.then.i44, label %for.end.i
 
 if.then.i44:                                      ; preds = %for.body.i
   call void @Curl_llist_remove(ptr noundef nonnull %timeoutlist.i, ptr noundef nonnull %e.015.i, ptr noundef null) #19
-  %tobool.not.i = icmp eq ptr %24, null
+  %tobool.not.i = icmp eq ptr %23, null
   br i1 %tobool.not.i, label %for.end.i, label %for.body.i, !llvm.loop !22
 
 for.end.i:                                        ; preds = %if.then.i44, %for.body.i
   %.pre.i = load ptr, ptr %timeoutlist.i, align 8
-  %29 = icmp eq ptr %.pre.i, null
-  br i1 %29, label %if.then4.i, label %if.else5.i
+  %28 = icmp eq ptr %.pre.i, null
+  br i1 %28, label %if.then4.i, label %if.else5.i
 
 if.then4.i:                                       ; preds = %for.end.i, %if.then40
   store i64 0, ptr %expiretime.i, align 8
-  %tv_usec.i = getelementptr inbounds nuw i8, ptr %20, i64 3688
+  %tv_usec.i = getelementptr inbounds nuw i8, ptr %19, i64 3688
   store i32 0, ptr %tv_usec.i, align 8
   br label %do.cond43
 
 if.else5.i:                                       ; preds = %for.end.i
-  %time.i.le = getelementptr inbounds nuw i8, ptr %25, i64 24
+  %time.i.le = getelementptr inbounds nuw i8, ptr %24, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %expiretime.i, ptr noundef nonnull align 8 dereferenceable(16) %time.i.le, i64 16, i1 false)
-  %30 = load ptr, ptr %timetree, align 8
-  %timenode.i = getelementptr inbounds nuw i8, ptr %20, i64 3696
-  %31 = load i64, ptr %expiretime.i, align 8
-  %32 = getelementptr inbounds nuw i8, ptr %20, i64 3688
-  %33 = load i32, ptr %32, align 8
-  %call8.i = call ptr @Curl_splayinsert(i64 %31, i32 %33, ptr noundef %30, ptr noundef nonnull %timenode.i) #19
+  %29 = load ptr, ptr %timetree, align 8
+  %timenode.i = getelementptr inbounds nuw i8, ptr %19, i64 3696
+  %30 = load i64, ptr %expiretime.i, align 8
+  %31 = getelementptr inbounds nuw i8, ptr %19, i64 3688
+  %32 = load i32, ptr %31, align 8
+  %call8.i = call ptr @Curl_splayinsert(i64 %30, i32 %32, ptr noundef %29, ptr noundef nonnull %timenode.i) #19
   store ptr %call8.i, ptr %timetree, align 8
   br label %do.cond43
 
@@ -2863,8 +2863,8 @@ do.cond43:                                        ; preds = %if.else5.i, %if.the
 
 do.end45:                                         ; preds = %do.body36, %do.cond43
   %num_alive = getelementptr inbounds nuw i8, ptr %multi, i64 28
-  %34 = load i32, ptr %num_alive, align 4
-  store i32 %34, ptr %running_handles, align 4
+  %33 = load i32, ptr %num_alive, align 4
+  store i32 %33, ptr %running_handles, align 4
   %cmp46 = icmp slt i32 %returncode.0, 1
   br i1 %cmp46, label %if.then48, label %return
 

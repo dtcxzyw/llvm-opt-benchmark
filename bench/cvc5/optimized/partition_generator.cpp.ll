@@ -5635,8 +5635,8 @@ for.body39.preheader:                             ; preds = %_ZNK4cvc58internal1
 for.body39:                                       ; preds = %for.body39.preheader, %for.inc50
   %z.0240 = phi i64 [ %inc51, %for.inc50 ], [ 0, %for.body39.preheader ]
   %loc.0239 = phi i64 [ %24, %for.inc50 ], [ 0, %for.body39.preheader ]
-  %t.1238 = phi i1 [ %frombool41, %for.inc50 ], [ %t.0244, %for.body39.preheader ]
-  %frombool41 = xor i1 %t.1238, true
+  %t.1238 = phi i1 [ %lnot, %for.inc50 ], [ %t.0244, %for.body39.preheader ]
+  %lnot = xor i1 %t.1238, true
   %n.not_n = select i1 %t.1238, ptr %not_n, ptr %n
   %24 = add i64 %umax, %loc.0239
   br label %for.body44
@@ -5731,7 +5731,7 @@ for.inc50:                                        ; preds = %invoke.cont48
   br i1 %cmp38, label %for.body39, label %for.end52, !llvm.loop !68
 
 for.end52:                                        ; preds = %for.inc50, %_ZNK4cvc58internal12NodeTemplateILb1EE7notNodeEv.exit
-  %t.1.lcssa = phi i1 [ %t.0244, %_ZNK4cvc58internal12NodeTemplateILb1EE7notNodeEv.exit ], [ %frombool41, %for.inc50 ]
+  %t.1.lcssa = phi i1 [ %t.0244, %_ZNK4cvc58internal12NodeTemplateILb1EE7notNodeEv.exit ], [ %lnot, %for.inc50 ]
   %33 = load ptr, ptr %not_n, align 8
   %bf.load.i.i44 = load i64, ptr %33, align 8
   %34 = and i64 %bf.load.i.i44, 1152920405095219200

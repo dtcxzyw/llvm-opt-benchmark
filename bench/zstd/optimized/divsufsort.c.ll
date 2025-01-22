@@ -5458,7 +5458,7 @@ for.end:                                          ; preds = %for.end.loopexit, %
   %arrayidx70 = getelementptr i8, ptr %75, i64 -1
   %76 = load i8, ptr %arrayidx70, align 1
   %conv71 = zext i8 %76 to i32
-  %cmp72 = icmp sgt i32 %v.0.lcssa, %conv71
+  %cmp72 = icmp samesign ugt i32 %v.0.lcssa, %conv71
   br i1 %cmp72, label %if.then74, label %if.end76
 
 if.then74:                                        ; preds = %for.end

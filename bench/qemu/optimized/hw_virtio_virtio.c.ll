@@ -2153,6 +2153,7 @@ if.then21:                                        ; preds = %if.end18
   %conv.i = zext i16 %9 to i32
   %last_avail_wrap_counter.i = getelementptr inbounds nuw i8, ptr %vq, i64 58
   %10 = load i8, ptr %last_avail_wrap_counter.i, align 2
+  %frombool.i = and i8 %10, 1
   %desc2.i = getelementptr inbounds nuw i8, ptr %4, i64 16
   call fastcc void @vring_packed_desc_read(ptr noundef %desc.i, ptr noundef %desc2.i, i32 noundef %conv.i, i1 noundef zeroext true)
   %flags.i = getelementptr inbounds nuw i8, ptr %desc.i, i64 14
@@ -2176,7 +2177,7 @@ if.end.i:                                         ; preds = %if.end60.i, %if.end
   %15 = phi i16 [ %11, %if.end.lr.ph.i ], [ %31, %if.end60.i ]
   %16 = phi i32 [ %7, %if.end.lr.ph.i ], [ %30, %if.end60.i ]
   %idx.092.i = phi i32 [ %conv.i, %if.end.lr.ph.i ], [ %idx.2.i, %if.end60.i ]
-  %wrap_counter.091.i = phi i8 [ %10, %if.end.lr.ph.i ], [ %wrap_counter.1.i, %if.end60.i ]
+  %wrap_counter.091.i = phi i8 [ %frombool.i, %if.end.lr.ph.i ], [ %wrap_counter.1.i, %if.end60.i ]
   %out_total.090.i = phi i32 [ 0, %if.end.lr.ph.i ], [ %out_total.250.i, %if.end60.i ]
   %in_total.089.i = phi i32 [ 0, %if.end.lr.ph.i ], [ %in_total.253.i, %if.end60.i ]
   %total_bufs.088.i = phi i32 [ 0, %if.end.lr.ph.i ], [ %total_bufs.1.i, %if.end60.i ]
@@ -2331,7 +2332,7 @@ if.end60.i:                                       ; preds = %if.else58.i, %if.th
   %idx.2.i = sub nuw i32 %idx.1.i, %sub68.i
   call fastcc void @vring_packed_desc_read(ptr noundef %desc.i, ptr noundef %desc2.i, i32 noundef %idx.2.i, i1 noundef zeroext true)
   %31 = load i16, ptr %flags.i, align 2
-  %tobool3.i = trunc i8 %wrap_counter.1.i to i1
+  %tobool3.i = icmp ne i8 %wrap_counter.091.i, %frombool72.i
   %32 = lshr i16 %31, 7
   %.lobit.i.i = and i16 %32, 1
   %flags.lobit.i.i = lshr i16 %31, 15
@@ -2348,13 +2349,12 @@ for.end.loopexit.i:                               ; preds = %if.end60.i
 for.end.i:                                        ; preds = %for.end.loopexit.i, %if.then21
   %in_total.0.lcssa.i = phi i32 [ 0, %if.then21 ], [ %in_total.253.i, %for.end.loopexit.i ]
   %out_total.0.lcssa.i = phi i32 [ 0, %if.then21 ], [ %out_total.250.i, %for.end.loopexit.i ]
-  %wrap_counter.0.lcssa.i = phi i8 [ %10, %if.then21 ], [ %wrap_counter.1.i, %for.end.loopexit.i ]
+  %wrap_counter.0.lcssa.i = phi i8 [ %frombool.i, %if.then21 ], [ %wrap_counter.1.i, %for.end.loopexit.i ]
   %idx.0.lcssa.i = phi i16 [ %9, %if.then21 ], [ %35, %for.end.loopexit.i ]
   %shadow_avail_idx.i = getelementptr inbounds nuw i8, ptr %vq, i64 60
   store i16 %idx.0.lcssa.i, ptr %shadow_avail_idx.i, align 4
   %shadow_avail_wrap_counter.i = getelementptr inbounds nuw i8, ptr %vq, i64 62
-  %frombool76.i = and i8 %wrap_counter.0.lcssa.i, 1
-  store i8 %frombool76.i, ptr %shadow_avail_wrap_counter.i, align 2
+  store i8 %wrap_counter.0.lcssa.i, ptr %shadow_avail_wrap_counter.i, align 2
   br label %done.i
 
 done.i:                                           ; preds = %if.end32.i, %if.end32.us.i, %for.end.i, %if.then31.i, %if.then23.i, %if.then14.i, %if.then11.i

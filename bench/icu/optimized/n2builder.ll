@@ -2704,7 +2704,7 @@ if.end177:                                        ; preds = %if.then171.if.end17
 
 if.then179:                                       ; preds = %if.end177
   %add180 = add nuw nsw i32 %end.1, 1
-  %and181 = and i32 %add180, -1024
+  %and181 = and i32 %add180, 2147482624
   br label %for.cond141.backedge
 
 for.cond141.backedge:                             ; preds = %if.then179, %if.else182, %if.else185

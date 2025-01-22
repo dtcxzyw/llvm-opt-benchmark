@@ -2938,11 +2938,11 @@ define hidden zeroext i8 @av1_findSamples(ptr nocapture noundef readonly %0, ptr
   %114 = add nsw i32 %111, %113
   %115 = getelementptr inbounds nuw i8, ptr %.1140260, i64 4
   store i32 %114, ptr %115, align 4
-  %116 = add i8 %.1147259, 1
-  %117 = icmp ugt i8 %116, 7
-  br i1 %117, label %has_top_right.exit.thread, label %._crit_edge
+  %116 = icmp ugt i8 %.1147259, 6
+  br i1 %116, label %has_top_right.exit.thread, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %92
+  %117 = add nuw nsw i8 %.1147259, 1
   %118 = getelementptr inbounds nuw i8, ptr %.1140260, i64 8
   %119 = getelementptr inbounds nuw i8, ptr %.1261, i64 8
   %.pre = load i8, ptr %30, align 4
@@ -2952,7 +2952,7 @@ define hidden zeroext i8 @av1_findSamples(ptr nocapture noundef readonly %0, ptr
 120:                                              ; preds = %._crit_edge, %.lr.ph, %88
   %121 = phi i32 [ %.pre276, %._crit_edge ], [ %74, %88 ], [ %74, %.lr.ph ]
   %122 = phi i8 [ %.pre, %._crit_edge ], [ %75, %88 ], [ %75, %.lr.ph ]
-  %.2148 = phi i8 [ %116, %._crit_edge ], [ %.1147259, %88 ], [ %.1147259, %.lr.ph ]
+  %.2148 = phi i8 [ %117, %._crit_edge ], [ %.1147259, %88 ], [ %.1147259, %.lr.ph ]
   %.2141 = phi ptr [ %118, %._crit_edge ], [ %.1140260, %88 ], [ %.1140260, %.lr.ph ]
   %.2 = phi ptr [ %119, %._crit_edge ], [ %.1261, %88 ], [ %.1261, %.lr.ph ]
   %123 = zext i8 %84 to i32

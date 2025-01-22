@@ -4671,7 +4671,7 @@ tt_cmap14_ensure.exit:                            ; preds = %234
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %280 = getelementptr inbounds i32, ptr %244, i64 %indvars.iv
   store i32 %279, ptr %280, align 4
-  %281 = add nuw i32 %.0141221, 1
+  %281 = add nuw nsw i32 %.0141221, 1
   %exitcond.not = icmp eq i32 %.0141221, %.0154
   br i1 %exitcond.not, label %282, label %.preheader217, !llvm.loop !33
 
@@ -4796,7 +4796,7 @@ tt_cmap14_ensure.exit:                            ; preds = %234
   %indvars.iv.next246 = add nsw i64 %indvars.iv245, 1
   %352 = getelementptr inbounds i32, ptr %244, i64 %indvars.iv245
   store i32 %351, ptr %352, align 4
-  %353 = add nuw i32 %.1227, 1
+  %353 = add nuw nsw i32 %.1227, 1
   %exitcond249.not = icmp eq i32 %.1227, %.0154
   br i1 %exitcond249.not, label %.preheader, label %.preheader215, !llvm.loop !35
 
@@ -20635,7 +20635,7 @@ define internal range(i32 0, 4) i32 @tt_sbit_decoder_load_bit_aligned(ptr nocapt
   %123 = getelementptr inbounds nuw i8, ptr %.0101138.us, i64 1
   %124 = load i8, ptr %.0101138.us, align 1
   %125 = zext i8 %124 to i16
-  %126 = or i16 %.099139.us, %125
+  %126 = or disjoint i16 %.099139.us, %125
   br label %127
 
 127:                                              ; preds = %122, %120

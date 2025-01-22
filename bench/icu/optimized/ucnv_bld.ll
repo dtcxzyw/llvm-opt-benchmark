@@ -705,7 +705,7 @@ if.else.i:                                        ; preds = %if.end.i
 if.end13.i:                                       ; preds = %if.else.i, %if.end.i
   %start.1.i = phi i32 [ %start.09.i, %if.end.i ], [ %div811.i, %if.else.i ]
   %limit.1.i = phi i32 [ %div811.i, %if.end.i ], [ %limit.010.i, %if.else.i ]
-  %add.i = add i32 %limit.1.i, %start.1.i
+  %add.i = add nuw i32 %limit.1.i, %start.1.i
   %div8.i = lshr i32 %add.i, 1
   %cmp.i113 = icmp eq i32 %div811.i, %div8.i
   br i1 %cmp.i113, label %_ZL26getAlgorithmicTypeFromNamePKc.exit.thread, label %if.end.i, !llvm.loop !4

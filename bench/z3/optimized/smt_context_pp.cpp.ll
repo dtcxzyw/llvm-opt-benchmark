@@ -1765,7 +1765,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %bf.load.i = load i64, ptr %m_scope_lvl.i, align 8
   %7 = trunc i64 %bf.load.i to i32
   %bf.cast.i = and i32 %7, 16777215
-  %cmp8 = icmp ult i32 %level.027, %bf.cast.i
+  %cmp8 = icmp samesign ult i32 %level.027, %bf.cast.i
   br i1 %cmp8, label %if.then9, label %if.end
 
 if.then9:                                         ; preds = %for.body

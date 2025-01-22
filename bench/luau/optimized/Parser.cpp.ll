@@ -15549,7 +15549,7 @@ _ZN4Luau6Parser25incrementRecursionCounterEPKc.exit: ; preds = %_ZN4Luau10TempVe
   %.023 = phi i8 [ 0, %_ZN4Luau6Parser25incrementRecursionCounterEPKc.exit ], [ %.124, %160 ]
   %.022 = phi i1 [ false, %_ZN4Luau6Parser25incrementRecursionCounterEPKc.exit ], [ %.1, %160 ]
   %61 = load i32, ptr %54, align 8
-  switch i32 %61, label %174 [
+  switch i32 %61, label %173 [
     i32 124, label %62
     i32 63, label %94
     i32 38, label %126
@@ -15809,183 +15809,182 @@ _ZNSt6vectorIPN4Luau7AstTypeESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17
   %.124 = phi i8 [ %.023, %159 ], [ 1, %156 ], [ %.023, %95 ], [ %.023, %_ZN4Luau10TempVectorIPNS_7AstTypeEE9push_backERKS2_.exit52 ], [ %.023, %92 ]
   %.1 = phi i1 [ %.022, %159 ], [ %.022, %156 ], [ true, %95 ], [ true, %_ZN4Luau10TempVectorIPNS_7AstTypeEE9push_backERKS2_.exit52 ], [ true, %92 ]
   %161 = load i32, ptr @_ZN4FInt19LuauTypeLengthLimitE, align 8
-  %162 = and i8 %.126, 1
-  %163 = zext nneg i8 %162 to i32
-  %164 = add i32 %161, %163
-  %165 = zext i32 %164 to i64
-  %166 = icmp ugt i64 %.sroa.22.2, %165
-  br i1 %166, label %167, label %60, !llvm.loop !235
+  %162 = zext nneg i8 %.126 to i32
+  %163 = add i32 %161, %162
+  %164 = zext i32 %163 to i64
+  %165 = icmp ugt i64 %.sroa.22.2, %164
+  br i1 %165, label %166, label %60, !llvm.loop !235
 
-167:                                              ; preds = %160
-  %168 = load ptr, ptr %13, align 8
-  %169 = getelementptr inbounds i8, ptr %168, i64 -8
-  %170 = load ptr, ptr %169, align 8
-  %171 = getelementptr inbounds nuw i8, ptr %170, i64 12
+166:                                              ; preds = %160
+  %167 = load ptr, ptr %13, align 8
+  %168 = getelementptr inbounds i8, ptr %167, i64 -8
+  %169 = load ptr, ptr %168, align 8
+  %170 = getelementptr inbounds nuw i8, ptr %169, i64 12
   br label %.invoke
 
-.invoke:                                          ; preds = %223, %167
-  %172 = phi ptr [ %171, %167 ], [ %2, %223 ]
-  %173 = phi ptr [ @.str.132, %167 ], [ @.str.134, %223 ]
-  invoke void (ptr, ptr, ...) @_ZN4Luau10ParseError5raiseERKNS_8LocationEPKcz(ptr noundef nonnull align 4 dereferenceable(16) %172, ptr noundef nonnull %173) #27
+.invoke:                                          ; preds = %222, %166
+  %171 = phi ptr [ %170, %166 ], [ %2, %222 ]
+  %172 = phi ptr [ @.str.132, %166 ], [ @.str.134, %222 ]
+  invoke void (ptr, ptr, ...) @_ZN4Luau10ParseError5raiseERKNS_8LocationEPKcz(ptr noundef nonnull align 4 dereferenceable(16) %171, ptr noundef nonnull %172) #27
           to label %.cont unwind label %.loopexit.split-lp
 
 .cont:                                            ; preds = %.invoke
   unreachable
 
-174:                                              ; preds = %60
-  %175 = icmp eq i64 %.sroa.22.1, 1
-  br i1 %175, label %176, label %182
+173:                                              ; preds = %60
+  %174 = icmp eq i64 %.sroa.22.1, 1
+  br i1 %174, label %175, label %181
 
-176:                                              ; preds = %174
-  %177 = load i8, ptr @_ZN5FFlag27LuauLeadingBarAndAmpersand2E, align 8
-  %178 = trunc i8 %177 to i1
-  br i1 %178, label %179, label %_ZN4Luau9Allocator5allocINS_12AstTypeUnionEJRNS_8LocationENS_8AstArrayIPNS_7AstTypeEEEEEEPT_DpOT0_.exit
+175:                                              ; preds = %173
+  %176 = load i8, ptr @_ZN5FFlag27LuauLeadingBarAndAmpersand2E, align 8
+  %177 = trunc i8 %176 to i1
+  br i1 %177, label %178, label %_ZN4Luau9Allocator5allocINS_12AstTypeUnionEJRNS_8LocationENS_8AstArrayIPNS_7AstTypeEEEEEEPT_DpOT0_.exit
 
-179:                                              ; preds = %176
-  %180 = load ptr, ptr %12, align 8
-  %181 = getelementptr i8, ptr %180, i64 %18
-  %.in.sroa.speculate.load. = load ptr, ptr %181, align 8
+178:                                              ; preds = %175
+  %179 = load ptr, ptr %12, align 8
+  %180 = getelementptr i8, ptr %179, i64 %18
+  %.in.sroa.speculate.load. = load ptr, ptr %180, align 8
   br label %_ZN4Luau9Allocator5allocINS_12AstTypeUnionEJRNS_8LocationENS_8AstArrayIPNS_7AstTypeEEEEEEPT_DpOT0_.exit
 
-182:                                              ; preds = %174
-  br i1 %.022, label %183, label %223
+181:                                              ; preds = %173
+  br i1 %.022, label %182, label %222
 
-183:                                              ; preds = %182
-  %184 = trunc nuw i8 %.023 to i1
-  %185 = load ptr, ptr %13, align 8
-  %186 = getelementptr inbounds i8, ptr %185, i64 -8
-  %187 = load ptr, ptr %186, align 8
-  br i1 %184, label %188, label %206
+182:                                              ; preds = %181
+  %183 = trunc nuw i8 %.023 to i1
+  %184 = load ptr, ptr %13, align 8
+  %185 = getelementptr inbounds i8, ptr %184, i64 -8
+  %186 = load ptr, ptr %185, align 8
+  br i1 %183, label %187, label %205
 
-188:                                              ; preds = %183
-  %189 = load i64, ptr %2, align 4
-  store i64 %189, ptr %8, align 8
-  %190 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %191 = getelementptr inbounds nuw i8, ptr %187, i64 20
-  %192 = load i64, ptr %191, align 4
-  store i64 %192, ptr %190, align 8
-  %193 = icmp eq i64 %.sroa.22.1, 0
-  br i1 %193, label %.loopexit, label %.lr.ph.preheader.i.i
+187:                                              ; preds = %182
+  %188 = load i64, ptr %2, align 4
+  store i64 %188, ptr %8, align 8
+  %189 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %190 = getelementptr inbounds nuw i8, ptr %186, i64 20
+  %191 = load i64, ptr %190, align 4
+  store i64 %191, ptr %189, align 8
+  %192 = icmp eq i64 %.sroa.22.1, 0
+  br i1 %192, label %.loopexit, label %.lr.ph.preheader.i.i
 
-.lr.ph.preheader.i.i:                             ; preds = %188
-  %194 = load ptr, ptr %12, align 8
-  %195 = getelementptr i8, ptr %194, i64 %18
-  %196 = load ptr, ptr %57, align 8
-  %197 = shl nuw nsw i64 %.sroa.22.1, 3
-  %198 = invoke noundef ptr @_ZN4Luau9Allocator8allocateEm(ptr noundef nonnull align 8 dereferenceable(16) %196, i64 noundef %197)
+.lr.ph.preheader.i.i:                             ; preds = %187
+  %193 = load ptr, ptr %12, align 8
+  %194 = getelementptr i8, ptr %193, i64 %18
+  %195 = load ptr, ptr %57, align 8
+  %196 = shl nuw nsw i64 %.sroa.22.1, 3
+  %197 = invoke noundef ptr @_ZN4Luau9Allocator8allocateEm(ptr noundef nonnull align 8 dereferenceable(16) %195, i64 noundef %196)
           to label %.lr.ph.i.i unwind label %.loopexit.split-lp
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.preheader.i.i, %.lr.ph.i.i
-  %.010.i.i = phi i64 [ %202, %.lr.ph.i.i ], [ 0, %.lr.ph.preheader.i.i ]
-  %199 = getelementptr inbounds ptr, ptr %198, i64 %.010.i.i
-  %200 = getelementptr inbounds ptr, ptr %195, i64 %.010.i.i
-  %201 = load ptr, ptr %200, align 8
-  store ptr %201, ptr %199, align 8
-  %202 = add nuw i64 %.010.i.i, 1
-  %exitcond.not.i.i = icmp eq i64 %202, %.sroa.22.1
+  %.010.i.i = phi i64 [ %201, %.lr.ph.i.i ], [ 0, %.lr.ph.preheader.i.i ]
+  %198 = getelementptr inbounds ptr, ptr %197, i64 %.010.i.i
+  %199 = getelementptr inbounds ptr, ptr %194, i64 %.010.i.i
+  %200 = load ptr, ptr %199, align 8
+  store ptr %200, ptr %198, align 8
+  %201 = add nuw i64 %.010.i.i, 1
+  %exitcond.not.i.i = icmp eq i64 %201, %.sroa.22.1
   br i1 %exitcond.not.i.i, label %.loopexit, label %.lr.ph.i.i, !llvm.loop !80
 
-.loopexit:                                        ; preds = %.lr.ph.i.i, %188
-  %203 = phi ptr [ null, %188 ], [ %198, %.lr.ph.i.i ]
-  store ptr %203, ptr %9, align 8
-  %204 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  store i64 %.sroa.22.1, ptr %204, align 8
-  %205 = invoke noundef ptr (ptr, ptr, ptr, ptr, ...) @_ZN4Luau6Parser15reportTypeErrorERKNS_8LocationERKNS_8AstArrayIPNS_7AstTypeEEEPKcz(ptr noundef nonnull align 8 dereferenceable(840) %0, ptr noundef nonnull align 4 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull @.str.133)
+.loopexit:                                        ; preds = %.lr.ph.i.i, %187
+  %202 = phi ptr [ null, %187 ], [ %197, %.lr.ph.i.i ]
+  store ptr %202, ptr %9, align 8
+  %203 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  store i64 %.sroa.22.1, ptr %203, align 8
+  %204 = invoke noundef ptr (ptr, ptr, ptr, ptr, ...) @_ZN4Luau6Parser15reportTypeErrorERKNS_8LocationERKNS_8AstArrayIPNS_7AstTypeEEEPKcz(ptr noundef nonnull align 8 dereferenceable(840) %0, ptr noundef nonnull align 4 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull @.str.133)
           to label %_ZN4Luau9Allocator5allocINS_12AstTypeUnionEJRNS_8LocationENS_8AstArrayIPNS_7AstTypeEEEEEEPT_DpOT0_.exit unwind label %.loopexit.split-lp
 
-206:                                              ; preds = %183
-  %207 = getelementptr inbounds nuw i8, ptr %187, i64 20
-  %208 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %209 = load i64, ptr %207, align 4
-  store i64 %209, ptr %208, align 4
-  %210 = load ptr, ptr %57, align 8
-  %211 = icmp eq i64 %.sroa.22.1, 0
-  br i1 %211, label %.loopexit123, label %.lr.ph.preheader.i.i64
+205:                                              ; preds = %182
+  %206 = getelementptr inbounds nuw i8, ptr %186, i64 20
+  %207 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %208 = load i64, ptr %206, align 4
+  store i64 %208, ptr %207, align 4
+  %209 = load ptr, ptr %57, align 8
+  %210 = icmp eq i64 %.sroa.22.1, 0
+  br i1 %210, label %.loopexit123, label %.lr.ph.preheader.i.i64
 
-.lr.ph.preheader.i.i64:                           ; preds = %206
-  %212 = load ptr, ptr %12, align 8
-  %213 = getelementptr i8, ptr %212, i64 %18
-  %214 = shl nuw nsw i64 %.sroa.22.1, 3
-  %215 = invoke noundef ptr @_ZN4Luau9Allocator8allocateEm(ptr noundef nonnull align 8 dereferenceable(16) %210, i64 noundef %214)
+.lr.ph.preheader.i.i64:                           ; preds = %205
+  %211 = load ptr, ptr %12, align 8
+  %212 = getelementptr i8, ptr %211, i64 %18
+  %213 = shl nuw nsw i64 %.sroa.22.1, 3
+  %214 = invoke noundef ptr @_ZN4Luau9Allocator8allocateEm(ptr noundef nonnull align 8 dereferenceable(16) %209, i64 noundef %213)
           to label %.lr.ph.i.i65 unwind label %.loopexit.split-lp
 
 .lr.ph.i.i65:                                     ; preds = %.lr.ph.preheader.i.i64, %.lr.ph.i.i65
-  %.010.i.i66 = phi i64 [ %219, %.lr.ph.i.i65 ], [ 0, %.lr.ph.preheader.i.i64 ]
-  %216 = getelementptr inbounds ptr, ptr %215, i64 %.010.i.i66
-  %217 = getelementptr inbounds ptr, ptr %213, i64 %.010.i.i66
-  %218 = load ptr, ptr %217, align 8
-  store ptr %218, ptr %216, align 8
-  %219 = add nuw i64 %.010.i.i66, 1
-  %exitcond.not.i.i67 = icmp eq i64 %219, %.sroa.22.1
+  %.010.i.i66 = phi i64 [ %218, %.lr.ph.i.i65 ], [ 0, %.lr.ph.preheader.i.i64 ]
+  %215 = getelementptr inbounds ptr, ptr %214, i64 %.010.i.i66
+  %216 = getelementptr inbounds ptr, ptr %212, i64 %.010.i.i66
+  %217 = load ptr, ptr %216, align 8
+  store ptr %217, ptr %215, align 8
+  %218 = add nuw i64 %.010.i.i66, 1
+  %exitcond.not.i.i67 = icmp eq i64 %218, %.sroa.22.1
   br i1 %exitcond.not.i.i67, label %.loopexit123, label %.lr.ph.i.i65, !llvm.loop !80
 
-.loopexit123:                                     ; preds = %.lr.ph.i.i65, %206
-  %220 = phi ptr [ null, %206 ], [ %215, %.lr.ph.i.i65 ]
-  store ptr %220, ptr %10, align 8
-  %221 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  store i64 %.sroa.22.1, ptr %221, align 8
-  %222 = invoke noundef ptr @_ZN4Luau9Allocator8allocateEm(ptr noundef nonnull align 8 dereferenceable(16) %210, i64 noundef 48)
+.loopexit123:                                     ; preds = %.lr.ph.i.i65, %205
+  %219 = phi ptr [ null, %205 ], [ %214, %.lr.ph.i.i65 ]
+  store ptr %219, ptr %10, align 8
+  %220 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  store i64 %.sroa.22.1, ptr %220, align 8
+  %221 = invoke noundef ptr @_ZN4Luau9Allocator8allocateEm(ptr noundef nonnull align 8 dereferenceable(16) %209, i64 noundef 48)
           to label %.noexc72 unwind label %.loopexit.split-lp
 
 .noexc72:                                         ; preds = %.loopexit123
-  invoke void @_ZN4Luau12AstTypeUnionC1ERKNS_8LocationERKNS_8AstArrayIPNS_7AstTypeEEE(ptr noundef nonnull align 8 dereferenceable(48) %222, ptr noundef nonnull align 4 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %10)
+  invoke void @_ZN4Luau12AstTypeUnionC1ERKNS_8LocationERKNS_8AstArrayIPNS_7AstTypeEEE(ptr noundef nonnull align 8 dereferenceable(48) %221, ptr noundef nonnull align 4 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %10)
           to label %_ZN4Luau9Allocator5allocINS_12AstTypeUnionEJRNS_8LocationENS_8AstArrayIPNS_7AstTypeEEEEEEPT_DpOT0_.exit unwind label %.loopexit.split-lp
 
-223:                                              ; preds = %182
-  %224 = load ptr, ptr %13, align 8
-  %225 = getelementptr inbounds i8, ptr %224, i64 -8
-  %226 = load ptr, ptr %225, align 8
-  %227 = getelementptr inbounds nuw i8, ptr %226, i64 20
-  %228 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %229 = load i64, ptr %227, align 4
-  store i64 %229, ptr %228, align 4
-  %230 = trunc nuw i8 %.023 to i1
-  br i1 %230, label %231, label %.invoke
+222:                                              ; preds = %181
+  %223 = load ptr, ptr %13, align 8
+  %224 = getelementptr inbounds i8, ptr %223, i64 -8
+  %225 = load ptr, ptr %224, align 8
+  %226 = getelementptr inbounds nuw i8, ptr %225, i64 20
+  %227 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %228 = load i64, ptr %226, align 4
+  store i64 %228, ptr %227, align 4
+  %229 = trunc nuw i8 %.023 to i1
+  br i1 %229, label %230, label %.invoke
 
-231:                                              ; preds = %223
-  %232 = load ptr, ptr %57, align 8
-  %233 = icmp eq i64 %.sroa.22.1, 0
-  br i1 %233, label %.loopexit124, label %.lr.ph.preheader.i.i74
+230:                                              ; preds = %222
+  %231 = load ptr, ptr %57, align 8
+  %232 = icmp eq i64 %.sroa.22.1, 0
+  br i1 %232, label %.loopexit124, label %.lr.ph.preheader.i.i74
 
-.lr.ph.preheader.i.i74:                           ; preds = %231
-  %234 = load ptr, ptr %12, align 8
-  %235 = getelementptr i8, ptr %234, i64 %18
-  %236 = shl nuw nsw i64 %.sroa.22.1, 3
-  %237 = invoke noundef ptr @_ZN4Luau9Allocator8allocateEm(ptr noundef nonnull align 8 dereferenceable(16) %232, i64 noundef %236)
+.lr.ph.preheader.i.i74:                           ; preds = %230
+  %233 = load ptr, ptr %12, align 8
+  %234 = getelementptr i8, ptr %233, i64 %18
+  %235 = shl nuw nsw i64 %.sroa.22.1, 3
+  %236 = invoke noundef ptr @_ZN4Luau9Allocator8allocateEm(ptr noundef nonnull align 8 dereferenceable(16) %231, i64 noundef %235)
           to label %.lr.ph.i.i75 unwind label %.loopexit.split-lp
 
 .lr.ph.i.i75:                                     ; preds = %.lr.ph.preheader.i.i74, %.lr.ph.i.i75
-  %.010.i.i76 = phi i64 [ %241, %.lr.ph.i.i75 ], [ 0, %.lr.ph.preheader.i.i74 ]
-  %238 = getelementptr inbounds ptr, ptr %237, i64 %.010.i.i76
-  %239 = getelementptr inbounds ptr, ptr %235, i64 %.010.i.i76
-  %240 = load ptr, ptr %239, align 8
-  store ptr %240, ptr %238, align 8
-  %241 = add nuw i64 %.010.i.i76, 1
-  %exitcond.not.i.i77 = icmp eq i64 %241, %.sroa.22.1
+  %.010.i.i76 = phi i64 [ %240, %.lr.ph.i.i75 ], [ 0, %.lr.ph.preheader.i.i74 ]
+  %237 = getelementptr inbounds ptr, ptr %236, i64 %.010.i.i76
+  %238 = getelementptr inbounds ptr, ptr %234, i64 %.010.i.i76
+  %239 = load ptr, ptr %238, align 8
+  store ptr %239, ptr %237, align 8
+  %240 = add nuw i64 %.010.i.i76, 1
+  %exitcond.not.i.i77 = icmp eq i64 %240, %.sroa.22.1
   br i1 %exitcond.not.i.i77, label %.loopexit124, label %.lr.ph.i.i75, !llvm.loop !80
 
-.loopexit124:                                     ; preds = %.lr.ph.i.i75, %231
-  %242 = phi ptr [ null, %231 ], [ %237, %.lr.ph.i.i75 ]
-  store ptr %242, ptr %11, align 8
-  %243 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  store i64 %.sroa.22.1, ptr %243, align 8
-  %244 = invoke noundef ptr @_ZN4Luau9Allocator8allocateEm(ptr noundef nonnull align 8 dereferenceable(16) %232, i64 noundef 48)
+.loopexit124:                                     ; preds = %.lr.ph.i.i75, %230
+  %241 = phi ptr [ null, %230 ], [ %236, %.lr.ph.i.i75 ]
+  store ptr %241, ptr %11, align 8
+  %242 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  store i64 %.sroa.22.1, ptr %242, align 8
+  %243 = invoke noundef ptr @_ZN4Luau9Allocator8allocateEm(ptr noundef nonnull align 8 dereferenceable(16) %231, i64 noundef 48)
           to label %.noexc82 unwind label %.loopexit.split-lp
 
 .noexc82:                                         ; preds = %.loopexit124
-  invoke void @_ZN4Luau19AstTypeIntersectionC1ERKNS_8LocationERKNS_8AstArrayIPNS_7AstTypeEEE(ptr noundef nonnull align 8 dereferenceable(48) %244, ptr noundef nonnull align 4 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %11)
+  invoke void @_ZN4Luau19AstTypeIntersectionC1ERKNS_8LocationERKNS_8AstArrayIPNS_7AstTypeEEE(ptr noundef nonnull align 8 dereferenceable(48) %243, ptr noundef nonnull align 4 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %11)
           to label %_ZN4Luau9Allocator5allocINS_12AstTypeUnionEJRNS_8LocationENS_8AstArrayIPNS_7AstTypeEEEEEEPT_DpOT0_.exit unwind label %.loopexit.split-lp
 
-_ZN4Luau9Allocator5allocINS_12AstTypeUnionEJRNS_8LocationENS_8AstArrayIPNS_7AstTypeEEEEEEPT_DpOT0_.exit: ; preds = %.noexc82, %.noexc72, %179, %176, %.loopexit
-  %.0 = phi ptr [ %205, %.loopexit ], [ %.in.sroa.speculate.load., %179 ], [ %1, %176 ], [ %222, %.noexc72 ], [ %244, %.noexc82 ]
-  %245 = load ptr, ptr %12, align 8
-  %246 = getelementptr inbounds i8, ptr %245, i64 %18
-  %247 = load ptr, ptr %13, align 8
-  %.not.i.i.i84 = icmp eq ptr %246, %247
+_ZN4Luau9Allocator5allocINS_12AstTypeUnionEJRNS_8LocationENS_8AstArrayIPNS_7AstTypeEEEEEEPT_DpOT0_.exit: ; preds = %.noexc82, %.noexc72, %178, %175, %.loopexit
+  %.0 = phi ptr [ %204, %.loopexit ], [ %.in.sroa.speculate.load., %178 ], [ %1, %175 ], [ %221, %.noexc72 ], [ %243, %.noexc82 ]
+  %244 = load ptr, ptr %12, align 8
+  %245 = getelementptr inbounds i8, ptr %244, i64 %18
+  %246 = load ptr, ptr %13, align 8
+  %.not.i.i.i84 = icmp eq ptr %245, %246
   br i1 %.not.i.i.i84, label %_ZN4Luau10TempVectorIPNS_7AstTypeEED2Ev.exit86, label %._crit_edge.i.i.i85
 
 ._crit_edge.i.i.i85:                              ; preds = %_ZN4Luau9Allocator5allocINS_12AstTypeUnionEJRNS_8LocationENS_8AstArrayIPNS_7AstTypeEEEEEEPT_DpOT0_.exit
-  store ptr %246, ptr %13, align 8
+  store ptr %245, ptr %13, align 8
   br label %_ZN4Luau10TempVectorIPNS_7AstTypeEED2Ev.exit86
 
 _ZN4Luau10TempVectorIPNS_7AstTypeEED2Ev.exit86:   ; preds = %_ZN4Luau9Allocator5allocINS_12AstTypeUnionEJRNS_8LocationENS_8AstArrayIPNS_7AstTypeEEEEEEPT_DpOT0_.exit, %._crit_edge.i.i.i85

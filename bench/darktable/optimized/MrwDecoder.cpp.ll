@@ -194,7 +194,7 @@ define hidden void @_ZN8rawspeed10MrwDecoder11parseHeaderEv(ptr nocapture nounde
   tail call void @llvm.assume(i1 %30)
   %31 = zext nneg i32 %28 to i64
   %32 = icmp eq i32 %21, 0
-  br i1 %32, label %286, label %33
+  br i1 %32, label %284, label %33
 
 33:                                               ; preds = %27
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 136
@@ -207,22 +207,26 @@ define hidden void @_ZN8rawspeed10MrwDecoder11parseHeaderEv(ptr nocapture nounde
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 148
   %invariant.op = add nsw i64 %31, -4
-  %invariant.op53 = add nsw i64 %31, -2
-  br label %43
+  %invariant.op106 = add nsw i64 %31, -2
+  br label %.outer
 
-43:                                               ; preds = %280, %33
-  %44 = phi i8 [ 0, %33 ], [ %281, %280 ]
-  %45 = phi i32 [ 8, %33 ], [ %71, %280 ]
+.outer:                                           ; preds = %.thread, %33
+  %43 = phi i1 [ false, %.thread ], [ true, %33 ]
+  %.ph25 = phi i32 [ %71, %.thread ], [ 8, %33 ]
+  br label %44
+
+44:                                               ; preds = %.outer, %280
+  %45 = phi i32 [ %71, %280 ], [ %.ph25, %.outer ]
   %46 = zext nneg i32 %45 to i64
   %47 = add nuw nsw i64 %46, 4
   %48 = icmp samesign ugt i64 %47, %31
   br i1 %48, label %49, label %50
 
-49:                                               ; preds = %43
+49:                                               ; preds = %44
   call void (ptr, ...) @_ZN8rawspeed14ThrowExceptionINS_11IOExceptionEEEvPKcz(ptr noundef nonnull @.str.13, ptr noundef nonnull @__PRETTY_FUNCTION__._ZNK8rawspeed6Buffer10getSubViewEjj) #15
   unreachable
 
-50:                                               ; preds = %43
+50:                                               ; preds = %44
   %51 = add nuw nsw i32 %45, 4
   %52 = icmp ule i32 %51, %28
   call void @llvm.assume(i1 %52)
@@ -288,7 +292,7 @@ define hidden void @_ZN8rawspeed10MrwDecoder11parseHeaderEv(ptr nocapture nounde
   %83 = icmp ule i32 %82, %28
   call void @llvm.assume(i1 %83)
   %84 = zext nneg i32 %82 to i64
-  %85 = icmp samesign ult i64 %invariant.op53, %84
+  %85 = icmp samesign ult i64 %invariant.op106, %84
   br i1 %85, label %86, label %87
 
 86:                                               ; preds = %81
@@ -467,7 +471,7 @@ define hidden void @_ZN8rawspeed10MrwDecoder11parseHeaderEv(ptr nocapture nounde
 171:                                              ; preds = %166
   %172 = add nuw i32 %45, 32
   %173 = icmp ugt i32 %172, %28
-  br i1 %173, label %174, label %280
+  br i1 %173, label %174, label %.thread
 
 174:                                              ; preds = %171
   call void (ptr, ...) @_ZN8rawspeed14ThrowExceptionINS_11IOExceptionEEEvPKcz(ptr noundef nonnull @.str.15, ptr noundef nonnull @__PRETTY_FUNCTION__._ZNK8rawspeed10ByteStream5checkEj) #15
@@ -505,26 +509,26 @@ define hidden void @_ZN8rawspeed10MrwDecoder11parseHeaderEv(ptr nocapture nounde
   %190 = getelementptr inbounds nuw i8, ptr %178, i64 32
   %191 = load ptr, ptr %190, align 8, !tbaa !49
   %192 = icmp eq ptr %189, %191
-  br i1 %192, label %205, label %.preheader23
+  br i1 %192, label %205, label %.preheader24
 
-.preheader23:                                     ; preds = %187, %200
+.preheader24:                                     ; preds = %187, %200
   %193 = phi ptr [ %201, %200 ], [ %189, %187 ]
   %194 = load ptr, ptr %193, align 8, !tbaa !42
   %195 = icmp eq ptr %194, null
   br i1 %195, label %200, label %196
 
-196:                                              ; preds = %.preheader23
+196:                                              ; preds = %.preheader24
   %197 = load ptr, ptr %194, align 8, !tbaa !6
   %198 = getelementptr inbounds nuw i8, ptr %197, i64 16
   %199 = load ptr, ptr %198, align 8
   call void %199(ptr noundef nonnull align 8 dereferenceable(104) %194) #21
   br label %200
 
-200:                                              ; preds = %196, %.preheader23
+200:                                              ; preds = %196, %.preheader24
   store ptr null, ptr %193, align 8, !tbaa !42
   %201 = getelementptr inbounds nuw i8, ptr %193, i64 8
   %202 = icmp eq ptr %201, %191
-  br i1 %202, label %203, label %.preheader23, !llvm.loop !50
+  br i1 %202, label %203, label %.preheader24, !llvm.loop !50
 
 203:                                              ; preds = %200
   %204 = load ptr, ptr %188, align 8, !tbaa !47
@@ -668,41 +672,46 @@ define hidden void @_ZN8rawspeed10MrwDecoder11parseHeaderEv(ptr nocapture nounde
   store float %279, ptr %42, align 4, !tbaa !40
   br label %280
 
-280:                                              ; preds = %275, %242, %171, %76
-  %281 = phi i8 [ %44, %76 ], [ %44, %242 ], [ 1, %171 ], [ %44, %275 ]
+280:                                              ; preds = %275, %242, %76
+  %281 = icmp eq i32 %28, %71
+  br i1 %281, label %283, label %44, !llvm.loop !53
+
+.thread:                                          ; preds = %171
   %282 = icmp eq i32 %28, %71
-  br i1 %282, label %283, label %43, !llvm.loop !53
+  br i1 %282, label %.thread23, label %.outer, !llvm.loop !53
 
 283:                                              ; preds = %280
-  %284 = and i8 %281, 1
-  %285 = icmp eq i8 %284, 0
-  br i1 %285, label %286, label %287
+  br i1 %43, label %284, label %..thread23_crit_edge
 
-286:                                              ; preds = %283, %27
+..thread23_crit_edge:                             ; preds = %283
+  %.pre = load i32, ptr %36, align 4, !tbaa !44
+  %.pre188 = load i32, ptr %37, align 8, !tbaa !45
+  %.pre189 = load i32, ptr %38, align 8, !tbaa !9
+  %.pre190 = mul i32 %.pre188, %.pre
+  %.pre191 = mul i32 %.pre190, %.pre189
+  br label %.thread23
+
+284:                                              ; preds = %283, %27
   call void (ptr, ...) @_ZN8rawspeed14ThrowExceptionINS_19RawDecoderExceptionEEEvPKcz(ptr noundef nonnull @.str.8, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN8rawspeed10MrwDecoder11parseHeaderEv) #15
   unreachable
 
-287:                                              ; preds = %283
-  %288 = load i32, ptr %36, align 4, !tbaa !44
-  %289 = load i32, ptr %37, align 8, !tbaa !45
-  %290 = mul i32 %289, %288
-  %291 = load i32, ptr %38, align 8, !tbaa !9
-  %292 = mul i32 %290, %291
-  %293 = lshr i32 %292, 3
-  %294 = add nuw i32 %293, %28
-  %295 = icmp ugt i32 %294, %6
-  br i1 %295, label %296, label %297
+.thread23:                                        ; preds = %.thread, %..thread23_crit_edge
+  %.pre-phi192 = phi i32 [ %.pre191, %..thread23_crit_edge ], [ %133, %.thread ]
+  %285 = lshr i32 %.pre-phi192, 3
+  %286 = add nuw i32 %285, %28
+  %287 = icmp ugt i32 %286, %6
+  br i1 %287, label %288, label %289
 
-296:                                              ; preds = %287
+288:                                              ; preds = %.thread23
   call void (ptr, ...) @_ZN8rawspeed14ThrowExceptionINS_11IOExceptionEEEvPKcz(ptr noundef nonnull @.str.13, ptr noundef nonnull @__PRETTY_FUNCTION__._ZNK8rawspeed6Buffer10getSubViewEjj) #15
   unreachable
 
-297:                                              ; preds = %287
-  %298 = getelementptr inbounds nuw i8, ptr %4, i64 %31
-  %299 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  store ptr %298, ptr %299, align 8, !tbaa !42
-  %300 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  store i32 %293, ptr %300, align 8, !tbaa !43
+289:                                              ; preds = %.thread23
+  %290 = getelementptr inbounds nuw i8, ptr %4, i64 %31
+  %291 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  store ptr %290, ptr %291, align 8, !tbaa !42
+  %292 = getelementptr inbounds nuw i8, ptr %0, i64 120
+  store i32 %285, ptr %292, align 8, !tbaa !43
   ret void
 }
 

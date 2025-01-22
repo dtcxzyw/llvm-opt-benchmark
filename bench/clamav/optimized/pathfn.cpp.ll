@@ -161,8 +161,8 @@ define noundef ptr @_Z11ConvertPathPKwPwm(ptr noundef %0, ptr noundef %1, i64 no
   %21 = getelementptr inbounds nuw i8, ptr %.043, i64 4
   br label %5, !llvm.loop !6
 
-.preheader:                                       ; preds = %5, %42
-  %.246 = phi ptr [ %.2, %42 ], [ %.044, %5 ]
+.preheader:                                       ; preds = %5, %41
+  %.246 = phi ptr [ %.2, %41 ], [ %.044, %5 ]
   %22 = load i32, ptr %.246, align 4
   switch i32 %22, label %.loopexit.preheader [
     i32 0, label %.thread
@@ -175,86 +175,86 @@ define noundef ptr @_Z11ConvertPathPKwPwm(ptr noundef %0, ptr noundef %1, i64 no
   %26 = icmp eq i32 %25, 47
   br i1 %26, label %27, label %.loopexit.preheader
 
-.loopexit.preheader:                              ; preds = %29, %.preheader, %33, %23
-  %.0.ph = phi ptr [ %.246, %.preheader ], [ %.246, %23 ], [ %34, %33 ], [ %.246, %29 ]
+.loopexit.preheader:                              ; preds = %29, %.preheader, %32, %23
+  %.0.ph = phi ptr [ %.246, %.preheader ], [ %.246, %23 ], [ %33, %32 ], [ %.246, %29 ]
   br label %.loopexit
 
 27:                                               ; preds = %23
   %28 = getelementptr inbounds nuw i8, ptr %.246, i64 8
   br label %29
 
-29:                                               ; preds = %35, %27
-  %.040 = phi i32 [ 0, %27 ], [ %.1, %35 ]
-  %.039 = phi ptr [ %28, %27 ], [ %36, %35 ]
+29:                                               ; preds = %34, %27
+  %.040 = phi i32 [ 0, %27 ], [ %.1, %34 ]
+  %.039 = phi ptr [ %28, %27 ], [ %35, %34 ]
   %30 = load i32, ptr %.039, align 4
-  switch i32 %30, label %35 [
+  switch i32 %30, label %34 [
     i32 0, label %.loopexit.preheader
     i32 47, label %31
   ]
 
 31:                                               ; preds = %29
-  %32 = icmp eq i32 %.040, 1
-  br i1 %32, label %33, label %35
+  %.not55 = icmp eq i32 %.040, 0
+  br i1 %.not55, label %34, label %32
 
-33:                                               ; preds = %31
-  %34 = getelementptr inbounds nuw i8, ptr %.039, i64 4
+32:                                               ; preds = %31
+  %33 = getelementptr inbounds nuw i8, ptr %.039, i64 4
   br label %.loopexit.preheader
 
-35:                                               ; preds = %29, %31
+34:                                               ; preds = %29, %31
   %.1 = phi i32 [ 1, %31 ], [ %.040, %29 ]
-  %36 = getelementptr inbounds nuw i8, ptr %.039, i64 4
+  %35 = getelementptr inbounds nuw i8, ptr %.039, i64 4
   br label %29, !llvm.loop !7
 
-.loopexit:                                        ; preds = %.loopexit.preheader, %40
-  %.2 = phi ptr [ %.3, %40 ], [ %.0.ph, %.loopexit.preheader ]
-  %.0 = phi ptr [ %41, %40 ], [ %.0.ph, %.loopexit.preheader ]
-  %37 = load i32, ptr %.0, align 4
-  switch i32 %37, label %42 [
-    i32 46, label %40
-    i32 47, label %38
+.loopexit:                                        ; preds = %.loopexit.preheader, %39
+  %.2 = phi ptr [ %.3, %39 ], [ %.0.ph, %.loopexit.preheader ]
+  %.0 = phi ptr [ %40, %39 ], [ %.0.ph, %.loopexit.preheader ]
+  %36 = load i32, ptr %.0, align 4
+  switch i32 %36, label %41 [
+    i32 46, label %39
+    i32 47, label %37
   ]
 
-38:                                               ; preds = %.loopexit
-  %39 = getelementptr inbounds nuw i8, ptr %.0, i64 4
-  br label %40
+37:                                               ; preds = %.loopexit
+  %38 = getelementptr inbounds nuw i8, ptr %.0, i64 4
+  br label %39
 
-40:                                               ; preds = %.loopexit, %38
-  %.3 = phi ptr [ %39, %38 ], [ %.2, %.loopexit ]
-  %41 = getelementptr inbounds nuw i8, ptr %.0, i64 4
+39:                                               ; preds = %.loopexit, %37
+  %.3 = phi ptr [ %38, %37 ], [ %.2, %.loopexit ]
+  %40 = getelementptr inbounds nuw i8, ptr %.0, i64 4
   br label %.loopexit, !llvm.loop !8
 
-42:                                               ; preds = %.loopexit
-  %43 = icmp eq ptr %.2, %.246
-  br i1 %43, label %44, label %.preheader, !llvm.loop !9
+41:                                               ; preds = %.loopexit
+  %42 = icmp eq ptr %.2, %.246
+  br i1 %42, label %43, label %.preheader, !llvm.loop !9
 
-44:                                               ; preds = %42
-  %45 = icmp eq i32 %22, 46
-  br i1 %45, label %46, label %.thread
+43:                                               ; preds = %41
+  %44 = icmp eq i32 %22, 46
+  br i1 %44, label %45, label %.thread
 
-46:                                               ; preds = %44
-  %47 = getelementptr inbounds nuw i8, ptr %.246, i64 4
-  %48 = load i32, ptr %47, align 4
-  %49 = icmp eq i32 %48, 46
-  br i1 %49, label %50, label %.thread
+45:                                               ; preds = %43
+  %46 = getelementptr inbounds nuw i8, ptr %.246, i64 4
+  %47 = load i32, ptr %46, align 4
+  %48 = icmp eq i32 %47, 46
+  br i1 %48, label %49, label %.thread
 
-50:                                               ; preds = %46
-  %51 = getelementptr inbounds nuw i8, ptr %.246, i64 8
-  %52 = load i32, ptr %51, align 4
-  %53 = icmp eq i32 %52, 0
-  %spec.select58 = select i1 %53, ptr %51, ptr %.246
+49:                                               ; preds = %45
+  %50 = getelementptr inbounds nuw i8, ptr %.246, i64 8
+  %51 = load i32, ptr %50, align 4
+  %52 = icmp eq i32 %51, 0
+  %spec.select59 = select i1 %52, ptr %50, ptr %.246
   br label %.thread
 
-.thread:                                          ; preds = %.preheader, %50, %46, %44
-  %.347 = phi ptr [ %.246, %46 ], [ %.246, %44 ], [ %spec.select58, %50 ], [ %.246, %.preheader ]
-  %.not57 = icmp eq ptr %1, null
-  br i1 %.not57, label %55, label %54
+.thread:                                          ; preds = %.preheader, %49, %45, %43
+  %.347 = phi ptr [ %.246, %45 ], [ %.246, %43 ], [ %spec.select59, %49 ], [ %.246, %.preheader ]
+  %.not58 = icmp eq ptr %1, null
+  br i1 %.not58, label %54, label %53
 
-54:                                               ; preds = %.thread
+53:                                               ; preds = %.thread
   call void @_Z8wcsncpyzPwPKwm(ptr noundef nonnull %4, ptr noundef nonnull %.347, i64 noundef 2048)
   call void @_Z8wcsncpyzPwPKwm(ptr noundef nonnull %1, ptr noundef nonnull %4, i64 noundef %2)
-  br label %55
+  br label %54
 
-55:                                               ; preds = %54, %.thread
+54:                                               ; preds = %53, %.thread
   ret ptr %.347
 }
 

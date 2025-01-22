@@ -81370,7 +81370,7 @@ _ZN4llvm12SelectionDAG7setRootENS_7SDValueE.exit465: ; preds = %.thread.i463, %1
   br i1 %1248, label %1249, label %1251
 
 1249:                                             ; preds = %1244
-  %1250 = icmp ult i64 %.079.i.i.i.i.i.i.i.i.i, 2
+  %1250 = icmp samesign ult i64 %.079.i.i.i.i.i.i.i.i.i, 2
   br i1 %1250, label %_ZZN4llvm15MachineFunction29getInStackSlotVariableDbgInfoEvENKUlRT_E_clINS0_15VariableDbgInfoEEEDaS2_.exit.i.i.i.i.i, label %1251
 
 1251:                                             ; preds = %1249, %1244
@@ -81415,7 +81415,7 @@ _ZN4llvm20filter_iterator_implIPNS_15MachineFunction15VariableDbgInfoEZNS1_29get
   br i1 %1268, label %1269, label %1271
 
 1269:                                             ; preds = %1264
-  %1270 = icmp ult i64 %.079.i.i.i.i.i.i.i7.i.i, 2
+  %1270 = icmp samesign ult i64 %.079.i.i.i.i.i.i.i7.i.i, 2
   br i1 %1270, label %_ZZN4llvm15MachineFunction29getInStackSlotVariableDbgInfoEvENKUlRT_E_clINS0_15VariableDbgInfoEEEDaS2_.exit.i.i.i9.i.i, label %1271
 
 1271:                                             ; preds = %1269, %1264
@@ -81520,7 +81520,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIiiNS_12DenseMapInfoIivEENS_6detail12DenseMap
   br i1 %1311, label %1312, label %1314
 
 1312:                                             ; preds = %1307
-  %1313 = icmp ult i64 %.079.i.i.i.i.i.i, 2
+  %1313 = icmp samesign ult i64 %.079.i.i.i.i.i.i, 2
   br i1 %1313, label %_ZZN4llvm15MachineFunction29getInStackSlotVariableDbgInfoEvENKUlRT_E_clINS0_15VariableDbgInfoEEEDaS2_.exit.i.i, label %1314
 
 1314:                                             ; preds = %1312, %1307

@@ -202,140 +202,136 @@ define dso_local { i64, i32 } @DefineTSParser(ptr noundef %0, ptr noundef readon
   br i1 %80, label %.lr.ph69, label %.._crit_edge_crit_edge
 
 .._crit_edge_crit_edge:                           ; preds = %73
-  %81 = and i64 %77, 4294967295
-  %82 = icmp eq i64 %81, 0
-  %83 = and i64 %75, 4294967295
-  %84 = icmp eq i64 %83, 0
-  %85 = and i64 %74, 4294967295
-  %86 = icmp eq i64 %85, 0
-  %87 = and i64 %76, 4294967295
-  %88 = icmp eq i64 %87, 0
+  %81 = icmp eq i64 %77, 0
+  %82 = icmp eq i64 %75, 0
+  %83 = icmp eq i64 %74, 0
+  %84 = icmp eq i64 %76, 0
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.._crit_edge_crit_edge, %.lr.ph
-  %.lcssa65 = phi i1 [ %86, %.._crit_edge_crit_edge ], [ true, %.lr.ph ]
-  %.lcssa63 = phi i1 [ %84, %.._crit_edge_crit_edge ], [ true, %.lr.ph ]
-  %.lcssa61 = phi i1 [ %88, %.._crit_edge_crit_edge ], [ true, %.lr.ph ]
-  %.lcssa = phi i1 [ %82, %.._crit_edge_crit_edge ], [ true, %.lr.ph ]
-  br i1 %.lcssa, label %._crit_edge.thread, label %92
+  %.lcssa65 = phi i1 [ %83, %.._crit_edge_crit_edge ], [ true, %.lr.ph ]
+  %.lcssa63 = phi i1 [ %82, %.._crit_edge_crit_edge ], [ true, %.lr.ph ]
+  %.lcssa61 = phi i1 [ %84, %.._crit_edge_crit_edge ], [ true, %.lr.ph ]
+  %.lcssa = phi i1 [ %81, %.._crit_edge_crit_edge ], [ true, %.lr.ph ]
+  br i1 %.lcssa, label %._crit_edge.thread, label %88
 
 ._crit_edge.thread:                               ; preds = %14, %._crit_edge
-  %89 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
-  call void @llvm.assume(i1 %89)
-  %90 = call i32 @errcode(i32 noundef 117833860) #10
-  %91 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.8) #10
+  %85 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
+  call void @llvm.assume(i1 %85)
+  %86 = call i32 @errcode(i32 noundef 117833860) #10
+  %87 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.8) #10
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 263, ptr noundef nonnull @__func__.DefineTSParser) #10
   unreachable
 
-92:                                               ; preds = %._crit_edge
-  br i1 %.lcssa61, label %93, label %97
+88:                                               ; preds = %._crit_edge
+  br i1 %.lcssa61, label %89, label %93
 
-93:                                               ; preds = %92
-  %94 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
-  call void @llvm.assume(i1 %94)
-  %95 = call i32 @errcode(i32 noundef 117833860) #10
-  %96 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.9) #10
+89:                                               ; preds = %88
+  %90 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
+  call void @llvm.assume(i1 %90)
+  %91 = call i32 @errcode(i32 noundef 117833860) #10
+  %92 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.9) #10
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 268, ptr noundef nonnull @__func__.DefineTSParser) #10
   unreachable
 
-97:                                               ; preds = %92
-  br i1 %.lcssa63, label %98, label %102
+93:                                               ; preds = %88
+  br i1 %.lcssa63, label %94, label %98
 
-98:                                               ; preds = %97
-  %99 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
-  call void @llvm.assume(i1 %99)
-  %100 = call i32 @errcode(i32 noundef 117833860) #10
-  %101 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.10) #10
+94:                                               ; preds = %93
+  %95 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
+  call void @llvm.assume(i1 %95)
+  %96 = call i32 @errcode(i32 noundef 117833860) #10
+  %97 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.10) #10
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 273, ptr noundef nonnull @__func__.DefineTSParser) #10
   unreachable
 
-102:                                              ; preds = %97
-  br i1 %.lcssa65, label %103, label %107
+98:                                               ; preds = %93
+  br i1 %.lcssa65, label %99, label %103
 
-103:                                              ; preds = %102
-  %104 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
-  call void @llvm.assume(i1 %104)
-  %105 = call i32 @errcode(i32 noundef 117833860) #10
-  %106 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.11) #10
+99:                                               ; preds = %98
+  %100 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
+  call void @llvm.assume(i1 %100)
+  %101 = call i32 @errcode(i32 noundef 117833860) #10
+  %102 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.11) #10
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 278, ptr noundef nonnull @__func__.DefineTSParser) #10
   unreachable
 
-107:                                              ; preds = %102
-  %108 = getelementptr inbounds nuw i8, ptr %15, i64 64
-  %109 = load ptr, ptr %108, align 8
-  %110 = call ptr @heap_form_tuple(ptr noundef %109, ptr noundef nonnull %6, ptr noundef nonnull %7) #10
-  call void @CatalogTupleInsert(ptr noundef %15, ptr noundef %110) #10
-  %111 = getelementptr i8, ptr %110, i64 16
-  %.val = load ptr, ptr %111, align 8
+103:                                              ; preds = %98
+  %104 = getelementptr inbounds nuw i8, ptr %15, i64 64
+  %105 = load ptr, ptr %104, align 8
+  %106 = call ptr @heap_form_tuple(ptr noundef %105, ptr noundef nonnull %6, ptr noundef nonnull %7) #10
+  call void @CatalogTupleInsert(ptr noundef %15, ptr noundef %106) #10
+  %107 = getelementptr i8, ptr %106, i64 16
+  %.val = load ptr, ptr %107, align 8
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %4)
-  %112 = getelementptr inbounds nuw i8, ptr %.val, i64 22
-  %113 = load i8, ptr %112, align 2
-  %114 = zext i8 %113 to i64
-  %115 = getelementptr i8, ptr %.val, i64 %114
+  %108 = getelementptr inbounds nuw i8, ptr %.val, i64 22
+  %109 = load i8, ptr %108, align 2
+  %110 = zext i8 %109 to i64
+  %111 = getelementptr i8, ptr %.val, i64 %110
   store i32 3601, ptr %3, align 8
-  %116 = load i32, ptr %115, align 4
-  %117 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  store i32 %116, ptr %117, align 4
-  %118 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store i32 0, ptr %118, align 8
+  %112 = load i32, ptr %111, align 4
+  %113 = getelementptr inbounds nuw i8, ptr %3, i64 4
+  store i32 %112, ptr %113, align 4
+  %114 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store i32 0, ptr %114, align 8
   call void @recordDependencyOnCurrentExtension(ptr noundef nonnull %3, i1 noundef zeroext false) #10
-  %119 = call ptr @new_object_addresses() #10
+  %115 = call ptr @new_object_addresses() #10
   store i32 2615, ptr %4, align 4
-  %120 = getelementptr inbounds nuw i8, ptr %115, i64 68
-  %121 = load i32, ptr %120, align 4
-  %122 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  store i32 %121, ptr %122, align 4
-  %123 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store i32 0, ptr %123, align 4
-  call void @add_exact_object_address(ptr noundef nonnull %4, ptr noundef %119) #10
+  %116 = getelementptr inbounds nuw i8, ptr %111, i64 68
+  %117 = load i32, ptr %116, align 4
+  %118 = getelementptr inbounds nuw i8, ptr %4, i64 4
+  store i32 %117, ptr %118, align 4
+  %119 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  store i32 0, ptr %119, align 4
+  call void @add_exact_object_address(ptr noundef nonnull %4, ptr noundef %115) #10
   store i32 1255, ptr %4, align 4
-  %124 = getelementptr inbounds nuw i8, ptr %115, i64 72
+  %120 = getelementptr inbounds nuw i8, ptr %111, i64 72
+  %121 = load i32, ptr %120, align 4
+  store i32 %121, ptr %118, align 4
+  store i32 0, ptr %119, align 4
+  call void @add_exact_object_address(ptr noundef nonnull %4, ptr noundef %115) #10
+  %122 = getelementptr inbounds nuw i8, ptr %111, i64 76
+  %123 = load i32, ptr %122, align 4
+  store i32 %123, ptr %118, align 4
+  call void @add_exact_object_address(ptr noundef nonnull %4, ptr noundef %115) #10
+  %124 = getelementptr inbounds nuw i8, ptr %111, i64 80
   %125 = load i32, ptr %124, align 4
-  store i32 %125, ptr %122, align 4
-  store i32 0, ptr %123, align 4
-  call void @add_exact_object_address(ptr noundef nonnull %4, ptr noundef %119) #10
-  %126 = getelementptr inbounds nuw i8, ptr %115, i64 76
+  store i32 %125, ptr %118, align 4
+  call void @add_exact_object_address(ptr noundef nonnull %4, ptr noundef %115) #10
+  %126 = getelementptr inbounds nuw i8, ptr %111, i64 88
   %127 = load i32, ptr %126, align 4
-  store i32 %127, ptr %122, align 4
-  call void @add_exact_object_address(ptr noundef nonnull %4, ptr noundef %119) #10
-  %128 = getelementptr inbounds nuw i8, ptr %115, i64 80
+  store i32 %127, ptr %118, align 4
+  call void @add_exact_object_address(ptr noundef nonnull %4, ptr noundef %115) #10
+  %128 = getelementptr inbounds nuw i8, ptr %111, i64 84
   %129 = load i32, ptr %128, align 4
-  store i32 %129, ptr %122, align 4
-  call void @add_exact_object_address(ptr noundef nonnull %4, ptr noundef %119) #10
-  %130 = getelementptr inbounds nuw i8, ptr %115, i64 88
-  %131 = load i32, ptr %130, align 4
-  store i32 %131, ptr %122, align 4
-  call void @add_exact_object_address(ptr noundef nonnull %4, ptr noundef %119) #10
-  %132 = getelementptr inbounds nuw i8, ptr %115, i64 84
-  %133 = load i32, ptr %132, align 4
-  %.not.i = icmp eq i32 %133, 0
-  br i1 %.not.i, label %makeParserDependencies.exit, label %134
+  %.not.i = icmp eq i32 %129, 0
+  br i1 %.not.i, label %makeParserDependencies.exit, label %130
 
-134:                                              ; preds = %107
-  store i32 %133, ptr %122, align 4
-  call void @add_exact_object_address(ptr noundef nonnull %4, ptr noundef %119) #10
+130:                                              ; preds = %103
+  store i32 %129, ptr %118, align 4
+  call void @add_exact_object_address(ptr noundef nonnull %4, ptr noundef %115) #10
   br label %makeParserDependencies.exit
 
-makeParserDependencies.exit:                      ; preds = %107, %134
-  call void @record_object_address_dependencies(ptr noundef nonnull %3, ptr noundef %119, i32 noundef 110) #10
-  call void @free_object_addresses(ptr noundef %119) #10
+makeParserDependencies.exit:                      ; preds = %103, %130
+  call void @record_object_address_dependencies(ptr noundef nonnull %3, ptr noundef %115, i32 noundef 110) #10
+  call void @free_object_addresses(ptr noundef %115) #10
   %.sroa.0.0.copyload.i = load i64, ptr %3, align 8
-  %.sroa.2.0.copyload.i = load i32, ptr %118, align 8
+  %.sroa.2.0.copyload.i = load i32, ptr %114, align 8
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %4)
-  %135 = load ptr, ptr @object_access_hook, align 8
-  %.not40 = icmp eq ptr %135, null
-  br i1 %.not40, label %137, label %136
+  %131 = load ptr, ptr @object_access_hook, align 8
+  %.not40 = icmp eq ptr %131, null
+  br i1 %.not40, label %133, label %132
 
-136:                                              ; preds = %makeParserDependencies.exit
+132:                                              ; preds = %makeParserDependencies.exit
   call void @RunObjectPostCreateHook(i32 noundef 3601, i32 noundef %18, i32 noundef 0, i1 noundef zeroext false) #10
-  br label %137
+  br label %133
 
-137:                                              ; preds = %makeParserDependencies.exit, %136
+133:                                              ; preds = %makeParserDependencies.exit, %132
   %.fca.0.insert.i = insertvalue { i64, i32 } poison, i64 %.sroa.0.0.copyload.i, 0
   %.fca.1.insert.i = insertvalue { i64, i32 } %.fca.0.insert.i, i32 %.sroa.2.0.copyload.i, 1
-  call void @heap_freetuple(ptr noundef nonnull %110) #10
+  call void @heap_freetuple(ptr noundef nonnull %106) #10
   call void @table_close(ptr noundef nonnull %15, i32 noundef 3) #10
   ret { i64, i32 } %.fca.1.insert.i
 }
@@ -1459,82 +1455,81 @@ define dso_local { i64, i32 } @DefineTSTemplate(ptr noundef %0, ptr noundef read
   br i1 %57, label %.lr.ph44, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %53
-  %58 = and i64 %54, 4294967295
-  %59 = icmp eq i64 %58, 0
-  br i1 %59, label %._crit_edge.thread, label %63
+  %58 = icmp eq i64 %54, 0
+  br i1 %58, label %._crit_edge.thread, label %62
 
 ._crit_edge.thread:                               ; preds = %14, %.lr.ph, %._crit_edge
-  %60 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
-  call void @llvm.assume(i1 %60)
-  %61 = call i32 @errcode(i32 noundef 117833860) #10
-  %62 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.19) #10
+  %59 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
+  call void @llvm.assume(i1 %59)
+  %60 = call i32 @errcode(i32 noundef 117833860) #10
+  %61 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.19) #10
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 759, ptr noundef nonnull @__func__.DefineTSTemplate) #10
   unreachable
 
-63:                                               ; preds = %._crit_edge
-  %64 = getelementptr inbounds nuw i8, ptr %16, i64 64
-  %65 = load ptr, ptr %64, align 8
-  %66 = call ptr @heap_form_tuple(ptr noundef %65, ptr noundef nonnull %5, ptr noundef nonnull %6) #10
-  call void @CatalogTupleInsert(ptr noundef %16, ptr noundef %66) #10
-  %67 = getelementptr i8, ptr %66, i64 16
-  %.val = load ptr, ptr %67, align 8
+62:                                               ; preds = %._crit_edge
+  %63 = getelementptr inbounds nuw i8, ptr %16, i64 64
+  %64 = load ptr, ptr %63, align 8
+  %65 = call ptr @heap_form_tuple(ptr noundef %64, ptr noundef nonnull %5, ptr noundef nonnull %6) #10
+  call void @CatalogTupleInsert(ptr noundef %16, ptr noundef %65) #10
+  %66 = getelementptr i8, ptr %65, i64 16
+  %.val = load ptr, ptr %66, align 8
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %4)
-  %68 = getelementptr inbounds nuw i8, ptr %.val, i64 22
-  %69 = load i8, ptr %68, align 2
-  %70 = zext i8 %69 to i64
-  %71 = getelementptr i8, ptr %.val, i64 %70
+  %67 = getelementptr inbounds nuw i8, ptr %.val, i64 22
+  %68 = load i8, ptr %67, align 2
+  %69 = zext i8 %68 to i64
+  %70 = getelementptr i8, ptr %.val, i64 %69
   store i32 3764, ptr %3, align 8
-  %72 = load i32, ptr %71, align 4
-  %73 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  store i32 %72, ptr %73, align 4
-  %74 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store i32 0, ptr %74, align 8
+  %71 = load i32, ptr %70, align 4
+  %72 = getelementptr inbounds nuw i8, ptr %3, i64 4
+  store i32 %71, ptr %72, align 4
+  %73 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store i32 0, ptr %73, align 8
   call void @recordDependencyOnCurrentExtension(ptr noundef nonnull %3, i1 noundef zeroext false) #10
-  %75 = call ptr @new_object_addresses() #10
+  %74 = call ptr @new_object_addresses() #10
   store i32 2615, ptr %4, align 4
-  %76 = getelementptr inbounds nuw i8, ptr %71, i64 68
-  %77 = load i32, ptr %76, align 4
-  %78 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  store i32 %77, ptr %78, align 4
-  %79 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store i32 0, ptr %79, align 4
-  call void @add_exact_object_address(ptr noundef nonnull %4, ptr noundef %75) #10
+  %75 = getelementptr inbounds nuw i8, ptr %70, i64 68
+  %76 = load i32, ptr %75, align 4
+  %77 = getelementptr inbounds nuw i8, ptr %4, i64 4
+  store i32 %76, ptr %77, align 4
+  %78 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  store i32 0, ptr %78, align 4
+  call void @add_exact_object_address(ptr noundef nonnull %4, ptr noundef %74) #10
   store i32 1255, ptr %4, align 4
-  %80 = getelementptr inbounds nuw i8, ptr %71, i64 76
-  %81 = load i32, ptr %80, align 4
-  store i32 %81, ptr %78, align 4
-  store i32 0, ptr %79, align 4
-  call void @add_exact_object_address(ptr noundef nonnull %4, ptr noundef %75) #10
-  %82 = getelementptr inbounds nuw i8, ptr %71, i64 72
-  %83 = load i32, ptr %82, align 4
-  %.not.i = icmp eq i32 %83, 0
-  br i1 %.not.i, label %makeTSTemplateDependencies.exit, label %84
+  %79 = getelementptr inbounds nuw i8, ptr %70, i64 76
+  %80 = load i32, ptr %79, align 4
+  store i32 %80, ptr %77, align 4
+  store i32 0, ptr %78, align 4
+  call void @add_exact_object_address(ptr noundef nonnull %4, ptr noundef %74) #10
+  %81 = getelementptr inbounds nuw i8, ptr %70, i64 72
+  %82 = load i32, ptr %81, align 4
+  %.not.i = icmp eq i32 %82, 0
+  br i1 %.not.i, label %makeTSTemplateDependencies.exit, label %83
 
-84:                                               ; preds = %63
-  store i32 %83, ptr %78, align 4
-  call void @add_exact_object_address(ptr noundef nonnull %4, ptr noundef %75) #10
+83:                                               ; preds = %62
+  store i32 %82, ptr %77, align 4
+  call void @add_exact_object_address(ptr noundef nonnull %4, ptr noundef %74) #10
   br label %makeTSTemplateDependencies.exit
 
-makeTSTemplateDependencies.exit:                  ; preds = %63, %84
-  call void @record_object_address_dependencies(ptr noundef nonnull %3, ptr noundef %75, i32 noundef 110) #10
-  call void @free_object_addresses(ptr noundef %75) #10
+makeTSTemplateDependencies.exit:                  ; preds = %62, %83
+  call void @record_object_address_dependencies(ptr noundef nonnull %3, ptr noundef %74, i32 noundef 110) #10
+  call void @free_object_addresses(ptr noundef %74) #10
   %.sroa.0.0.copyload.i = load i64, ptr %3, align 8
-  %.sroa.2.0.copyload.i = load i32, ptr %74, align 8
+  %.sroa.2.0.copyload.i = load i32, ptr %73, align 8
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %4)
-  %85 = load ptr, ptr @object_access_hook, align 8
-  %.not36 = icmp eq ptr %85, null
-  br i1 %.not36, label %87, label %86
+  %84 = load ptr, ptr @object_access_hook, align 8
+  %.not36 = icmp eq ptr %84, null
+  br i1 %.not36, label %86, label %85
 
-86:                                               ; preds = %makeTSTemplateDependencies.exit
+85:                                               ; preds = %makeTSTemplateDependencies.exit
   call void @RunObjectPostCreateHook(i32 noundef 3764, i32 noundef %18, i32 noundef 0, i1 noundef zeroext false) #10
-  br label %87
+  br label %86
 
-87:                                               ; preds = %makeTSTemplateDependencies.exit, %86
+86:                                               ; preds = %makeTSTemplateDependencies.exit, %85
   %.fca.0.insert.i = insertvalue { i64, i32 } poison, i64 %.sroa.0.0.copyload.i, 0
   %.fca.1.insert.i = insertvalue { i64, i32 } %.fca.0.insert.i, i32 %.sroa.2.0.copyload.i, 1
-  call void @heap_freetuple(ptr noundef nonnull %66) #10
+  call void @heap_freetuple(ptr noundef nonnull %65) #10
   call void @table_close(ptr noundef nonnull %16, i32 noundef 3) #10
   ret { i64, i32 } %.fca.1.insert.i
 }

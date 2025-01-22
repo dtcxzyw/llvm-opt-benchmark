@@ -396,7 +396,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm7CCState20IsShadowAllocatedRegENS_
   br i1 %26, label %27, label %29
 
 27:                                               ; preds = %23
-  %28 = icmp ult i64 %.079.i.i.i.us, 3
+  %28 = icmp samesign ult i64 %.079.i.i.i.us, 3
   br i1 %28, label %_ZNK4llvm11CCValAssign8isRegLocEv.exit.us, label %29
 
 29:                                               ; preds = %27, %23
@@ -440,7 +440,7 @@ _ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit.thread16.us: ; 
   br i1 %41, label %42, label %44
 
 42:                                               ; preds = %38
-  %43 = icmp ult i64 %.079.i.i.i, 3
+  %43 = icmp samesign ult i64 %.079.i.i.i, 3
   br i1 %43, label %_ZNK4llvm11CCValAssign8isRegLocEv.exit, label %44
 
 44:                                               ; preds = %42, %38
@@ -866,7 +866,7 @@ _ZL21isValueTypeInRegForCCjN4llvm3MVTE.exit.thread30: ; preds = %4, %_ZL21isValu
   br i1 %29, label %30, label %32
 
 30:                                               ; preds = %26
-  %31 = icmp ult i64 %.079.i.i.i, 3
+  %31 = icmp samesign ult i64 %.079.i.i.i, 3
   br i1 %31, label %_ZNK4llvm11CCValAssign8isRegLocEv.exit, label %32
 
 32:                                               ; preds = %30, %26
@@ -911,7 +911,7 @@ _ZNK4llvm11CCValAssign8isRegLocEv.exit:           ; preds = %30, %32
   br i1 %51, label %52, label %54
 
 52:                                               ; preds = %48
-  %53 = icmp ult i64 %.079.i.i.i20, 3
+  %53 = icmp samesign ult i64 %.079.i.i.i20, 3
   br i1 %53, label %_ZNK4llvm11CCValAssign8isRegLocEv.exit24, label %54
 
 54:                                               ; preds = %52, %48
@@ -1176,7 +1176,7 @@ _ZN4llvm7CCState17AnalyzeCallResultERKNS_15SmallVectorImplINS_3ISD8InputArgEEEPF
   br i1 %50, label %51, label %53
 
 51:                                               ; preds = %47
-  %52 = icmp ult i64 %.079.i.i.i.i.i.i.i, 3
+  %52 = icmp samesign ult i64 %.079.i.i.i.i.i.i.i, 3
   br i1 %52, label %_ZNK4llvm11CCValAssign8isRegLocEv.exit.i.i.i.i, label %53
 
 53:                                               ; preds = %51, %47
@@ -1208,7 +1208,7 @@ _ZNK4llvm11CCValAssign8isRegLocEv.exit.i.i.i.i:   ; preds = %53, %51
   br i1 %63, label %64, label %66
 
 64:                                               ; preds = %60
-  %65 = icmp ult i64 %.079.i.i.i12.i.i.i.i, 3
+  %65 = icmp samesign ult i64 %.079.i.i.i12.i.i.i.i, 3
   br i1 %65, label %_ZNK4llvm11CCValAssign8isRegLocEv.exit16.i.i.i.i, label %66
 
 66:                                               ; preds = %64, %60
@@ -1254,7 +1254,7 @@ _ZNK4llvm11CCValAssign9getLocRegEv.exit19.i.i.i.i: ; preds = %_ZNK4llvm11CCValAs
   br i1 %77, label %78, label %80
 
 78:                                               ; preds = %74
-  %79 = icmp ult i64 %.079.i.i.i21.i.i.i.i, 3
+  %79 = icmp samesign ult i64 %.079.i.i.i21.i.i.i.i, 3
   br i1 %79, label %_ZNK4llvm11CCValAssign8isMemLocEv.exit.i.i.i.i, label %80
 
 80:                                               ; preds = %78, %74
@@ -1280,7 +1280,7 @@ _ZNK4llvm11CCValAssign8isMemLocEv.exit.i.i.i.i:   ; preds = %80, %78
   br i1 %88, label %89, label %91
 
 89:                                               ; preds = %85
-  %90 = icmp ult i64 %.079.i.i.i26.i.i.i.i, 3
+  %90 = icmp samesign ult i64 %.079.i.i.i26.i.i.i.i, 3
   br i1 %90, label %_ZNK4llvm11CCValAssign8isMemLocEv.exit30.i.i.i.i, label %91
 
 91:                                               ; preds = %89, %85

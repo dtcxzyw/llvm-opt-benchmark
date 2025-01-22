@@ -2955,10 +2955,10 @@ define hidden noundef i32 @_ZN16ZGenerationYoung26compute_tenuring_thresholdE27Z
   br label %86
 
 86:                                               ; preds = %83, %85
-  %87 = add i32 %.152, 1
+  %87 = add nuw i32 %.152, 1
   %88 = load i32, ptr @MaxTenuringThreshold, align 4
   %89 = tail call noundef i32 @llvm.umin.i32(i32 %87, i32 %88)
-  %90 = icmp ne i32 %89, 0
+  %90 = icmp ne i32 %88, 0
   %91 = zext i1 %90 to i32
   %92 = tail call double @llvm.round.f64(double %60)
   %93 = fptoui double %92 to i32

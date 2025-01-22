@@ -1489,7 +1489,7 @@ for.body.i.i.i.i:                                 ; preds = %for.inc.i.i.i.i, %c
   br i1 %tobool.i.i.i.i, label %if.then.i.i.i.i, label %for.inc.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %for.body.i.i.i.i
-  %cmp1.i.i.i.i = icmp ult i64 %__n.05.i.i.i.i, 2
+  %cmp1.i.i.i.i = icmp samesign ult i64 %__n.05.i.i.i.i, 2
   br i1 %cmp1.i.i.i.i, label %_ZSt17holds_alternativeISt8functionIFbvEEJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES2_EEbRKSt7variantIJDpT0_EE.exit.i.i, label %for.inc.i.i.i.i
 
 for.inc.i.i.i.i:                                  ; preds = %if.then.i.i.i.i, %for.body.i.i.i.i
@@ -1618,7 +1618,7 @@ for.body.i.i.i.i142:                              ; preds = %for.inc.i.i.i.i148,
   br i1 %tobool.i.i.i.i147, label %if.then.i.i.i.i158, label %for.inc.i.i.i.i148
 
 if.then.i.i.i.i158:                               ; preds = %for.body.i.i.i.i142
-  %cmp1.i.i.i.i159 = icmp ult i64 %__n.05.i.i.i.i145, 2
+  %cmp1.i.i.i.i159 = icmp samesign ult i64 %__n.05.i.i.i.i145, 2
   br i1 %cmp1.i.i.i.i159, label %_ZSt17holds_alternativeISt8functionIFbvEEJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES2_EEbRKSt7variantIJDpT0_EE.exit.i.i150, label %for.inc.i.i.i.i148
 
 for.inc.i.i.i.i148:                               ; preds = %if.then.i.i.i.i158, %for.body.i.i.i.i142
@@ -1713,7 +1713,7 @@ for.body.i.i.i.i182:                              ; preds = %for.inc.i.i.i.i188,
   br i1 %tobool.i.i.i.i187, label %if.then.i.i.i.i198, label %for.inc.i.i.i.i188
 
 if.then.i.i.i.i198:                               ; preds = %for.body.i.i.i.i182
-  %cmp1.i.i.i.i199 = icmp ult i64 %__n.05.i.i.i.i185, 2
+  %cmp1.i.i.i.i199 = icmp samesign ult i64 %__n.05.i.i.i.i185, 2
   br i1 %cmp1.i.i.i.i199, label %_ZSt17holds_alternativeISt8functionIFbvEEJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES2_EEbRKSt7variantIJDpT0_EE.exit.i.i190, label %for.inc.i.i.i.i188
 
 for.inc.i.i.i.i188:                               ; preds = %if.then.i.i.i.i198, %for.body.i.i.i.i182
@@ -3546,7 +3546,7 @@ for.body.i.i:                                     ; preds = %for.inc.i.i, %entry
   br i1 %tobool.i.i, label %if.then.i.i, label %for.inc.i.i
 
 if.then.i.i:                                      ; preds = %for.body.i.i
-  %cmp1.i.i = icmp ult i64 %__n.05.i.i, 2
+  %cmp1.i.i = icmp samesign ult i64 %__n.05.i.i, 2
   br i1 %cmp1.i.i, label %_ZSt17holds_alternativeISt8functionIFbvEEJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES2_EEbRKSt7variantIJDpT0_EE.exit, label %for.inc.i.i
 
 for.inc.i.i:                                      ; preds = %if.then.i.i, %for.body.i.i
@@ -3602,7 +3602,7 @@ for.body.i.i:                                     ; preds = %for.inc.i.i, %entry
   br i1 %tobool.i.i, label %if.then.i.i, label %for.inc.i.i
 
 if.then.i.i:                                      ; preds = %for.body.i.i
-  %cmp1.i.i = icmp ult i64 %__n.05.i.i, 2
+  %cmp1.i.i = icmp samesign ult i64 %__n.05.i.i, 2
   br i1 %cmp1.i.i, label %_ZSt17holds_alternativeISt8functionIFbvEEJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES2_EEbRKSt7variantIJDpT0_EE.exit, label %for.inc.i.i
 
 for.inc.i.i:                                      ; preds = %if.then.i.i, %for.body.i.i
@@ -3761,7 +3761,7 @@ for.body.i.i:                                     ; preds = %for.inc.i.i, %invok
   br i1 %tobool.i.i, label %if.then.i.i, label %for.inc.i.i
 
 if.then.i.i:                                      ; preds = %for.body.i.i
-  %cmp1.i.i = icmp ult i64 %__n.05.i.i, 2
+  %cmp1.i.i = icmp samesign ult i64 %__n.05.i.i, 2
   br i1 %cmp1.i.i, label %_ZSt17holds_alternativeISt8functionIFbvEEJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES2_EEbRKSt7variantIJDpT0_EE.exit, label %for.inc.i.i
 
 for.inc.i.i:                                      ; preds = %if.then.i.i, %for.body.i.i

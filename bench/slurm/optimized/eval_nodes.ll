@@ -3552,7 +3552,7 @@ eval_nodes_cpus_to_use.exit534.i.us:              ; preds = %1703, %1657
   %.pre839.i.us.pre-phi = phi i32 [ %.pre293, %._crit_edge291 ], [ %1754, %1756 ]
   %.pre816.i.us = phi i32 [ %.pre816.pre.i.us, %._crit_edge291 ], [ %.pre822.i.us, %1756 ]
   %1763 = icmp eq i32 %.0338724.i.us, -1
-  %1764 = icmp sgt i32 %.0336725.i.us, %.pre839.i.us.pre-phi
+  %1764 = icmp ugt i32 %.0336725.i.us, %.pre839.i.us.pre-phi
   %or.cond884.i.us = select i1 %1763, i1 true, i1 %1764
   br i1 %or.cond884.i.us, label %._crit_edge817.i.us, label %._crit_edge820.i.us
 

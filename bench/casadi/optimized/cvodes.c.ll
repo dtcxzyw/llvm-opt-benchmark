@@ -6363,15 +6363,10 @@ define internal fastcc range(i32 -12, 4) i32 @cvRcheck2(ptr noundef nonnull %0) 
   %122 = load i32, ptr %23, align 8
   %123 = sext i32 %122 to i64
   %124 = icmp slt i64 %indvars.iv.next98, %123
-  br i1 %124, label %98, label %._crit_edge91.loopexit, !llvm.loop !56
+  br i1 %124, label %98, label %.loopexit, !llvm.loop !56
 
-._crit_edge91.loopexit:                           ; preds = %121
-  %125 = icmp ne i32 %.3, 0
-  %126 = zext i1 %125 to i32
-  br label %.loopexit
-
-.loopexit:                                        ; preds = %112, %.preheader82, %.preheader81, %.preheader, %._crit_edge91.loopexit, %85, %._crit_edge, %5, %1
-  %.072 = phi i32 [ 0, %1 ], [ -12, %5 ], [ 0, %._crit_edge ], [ -12, %85 ], [ 0, %.preheader ], [ %126, %._crit_edge91.loopexit ], [ 0, %.preheader81 ], [ 0, %.preheader82 ], [ 3, %112 ]
+.loopexit:                                        ; preds = %112, %121, %.preheader82, %.preheader81, %.preheader, %85, %._crit_edge, %5, %1
+  %.072 = phi i32 [ 0, %1 ], [ -12, %5 ], [ 0, %._crit_edge ], [ -12, %85 ], [ 0, %.preheader ], [ 0, %.preheader81 ], [ 0, %.preheader82 ], [ 3, %112 ], [ %.3, %121 ]
   ret i32 %.072
 }
 
@@ -12561,15 +12556,15 @@ cvPrepareNextStep.exit:                           ; preds = %2059, %2082, %2103,
   br i1 %exitcond420.not.i.i, label %2750, label %2745, !llvm.loop !143
 
 2750:                                             ; preds = %2745
-  %2751 = sext i32 %.2301.i.i to i64
-  %2752 = getelementptr inbounds [4 x double], ptr %7, i64 0, i64 %2751
+  %2751 = zext nneg i32 %.2301.i.i to i64
+  %2752 = getelementptr inbounds nuw [4 x double], ptr %7, i64 0, i64 %2751
   %2753 = load double, ptr %2752, align 8
   %2754 = fcmp olt double %.3320.i.i, 1.000000e-03
   br i1 %2754, label %2760, label %.preheader.i.i301
 
 .preheader.i.i301:                                ; preds = %2750, %.preheader.i.i301
   %indvars.iv421.i.i = phi i64 [ %indvars.iv.next422.i.i, %.preheader.i.i301 ], [ 1, %2750 ]
-  %2755 = getelementptr inbounds [4 x [4 x double]], ptr %9, i64 0, i64 %indvars.iv421.i.i, i64 %2751
+  %2755 = getelementptr inbounds nuw [4 x [4 x double]], ptr %9, i64 0, i64 %indvars.iv421.i.i, i64 %2751
   %2756 = load double, ptr %2755, align 8
   %2757 = getelementptr inbounds nuw [4 x double], ptr %3, i64 0, i64 %indvars.iv421.i.i
   store double %2756, ptr %2757, align 8

@@ -56593,7 +56593,7 @@ rbimpl_size_mul_or_raise.exit:                    ; preds = %98
 ruby_nonempty_memcpy.exit:                        ; preds = %rbimpl_size_mul_or_raise.exit, %102
   %.0135142151 = phi i32 [ %70, %rbimpl_size_mul_or_raise.exit ], [ %.0135142150, %102 ]
   %.093134143149 = phi i32 [ 0, %rbimpl_size_mul_or_raise.exit ], [ %.093134143148, %102 ]
-  %105 = zext i1 %.not to i32
+  %105 = xor i32 %.us-phi107, 1
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %10)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %11)
   %106 = getelementptr inbounds nuw i8, ptr %10, i64 32

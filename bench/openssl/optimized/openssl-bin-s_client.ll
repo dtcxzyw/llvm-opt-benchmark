@@ -921,8 +921,8 @@ if.end63:                                         ; preds = %if.end55
   ]
 
 land.lhs.true90:                                  ; preds = %if.end63, %if.end63, %if.end63, %if.end63, %if.end63, %if.end63, %if.end63, %if.end63, %if.end63
-  %cmp92 = icmp sgt i32 %prot_opt.02264, 0
-  br i1 %cmp92, label %if.then94, label %if.end96
+  %cmp92.not = icmp eq i32 %prot_opt.02264, 0
+  br i1 %cmp92.not, label %if.end96, label %if.then94
 
 if.then94:                                        ; preds = %land.lhs.true90
   %5 = load ptr, ptr @bio_err, align 8
@@ -935,7 +935,7 @@ if.end96:                                         ; preds = %if.end63, %land.lhs
   %or.cond18 = icmp ult i32 %6, 5
   %inc112 = zext i1 %or.cond18 to i32
   %spec.select = add nuw nsw i32 %no_prot_opt.02265, %inc112
-  %cmp114 = icmp eq i32 %prot_opt.1, 1
+  %cmp114 = icmp ne i32 %prot_opt.1, 0
   %tobool = icmp ne i32 %spec.select, 0
   %or.cond19 = select i1 %cmp114, i1 %tobool, i1 false
   br i1 %or.cond19, label %if.then117, label %if.end119

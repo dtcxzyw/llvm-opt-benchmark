@@ -83955,17 +83955,16 @@ pm_lookup_local_index.exit196:                    ; preds = %pm_lookup_local_ind
   br i1 %exitcond46.not, label %.loopexit1.loopexit, label %32, !llvm.loop !275
 
 .loopexit1.loopexit:                              ; preds = %.loopexit
-  %250 = and i8 %.2142, 1
-  %251 = zext nneg i8 %250 to i32
+  %250 = zext nneg i8 %.2142 to i32
   br label %.loopexit1
 
 .loopexit1:                                       ; preds = %.loopexit1.loopexit, %19, %14, %17
   %.0143 = phi i8 [ 0, %17 ], [ 0, %14 ], [ %23, %19 ], [ %.2145, %.loopexit1.loopexit ]
-  %.0140 = phi i32 [ 0, %17 ], [ 0, %14 ], [ 0, %19 ], [ %251, %.loopexit1.loopexit ]
+  %.0140 = phi i32 [ 0, %17 ], [ 0, %14 ], [ 0, %19 ], [ %250, %.loopexit1.loopexit ]
   %.0 = phi i32 [ 0, %17 ], [ 0, %14 ], [ 0, %19 ], [ %.2, %.loopexit1.loopexit ]
-  %252 = and i8 %.0143, 1
-  %253 = zext nneg i8 %252 to i32
-  %spec.select157 = add i32 %.0, %253
+  %251 = and i8 %.0143, 1
+  %252 = zext nneg i8 %251 to i32
+  %spec.select157 = add i32 %.0, %252
   %.4 = add i32 %spec.select157, %.0140
   ret i32 %.4
 }

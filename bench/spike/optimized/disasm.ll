@@ -31810,8 +31810,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit: ; preds = %_ZNKS
 33:                                               ; preds = %31
   %34 = trunc nuw i8 %.1 to i1
   %35 = select i1 %34, ptr @.str.2095, ptr @.str.502
-  %.mask = and i8 %.1, 1
-  %36 = zext nneg i8 %.mask to i64
+  %36 = zext nneg i8 %.1 to i64
   %37 = load i64, ptr %6, align 8
   %38 = sub i64 9223372036854775807, %37
   %39 = icmp ult i64 %38, %36
@@ -31842,7 +31841,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i.i: ; 
   br i1 %.not.i.i.i, label %52, label %48
 
 48:                                               ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i.i
-  %.not8.i.i.i = icmp eq i8 %.mask, 0
+  %.not8.i.i.i = icmp eq i8 %.1, 0
   br i1 %.not8.i.i.i, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit, label %49
 
 49:                                               ; preds = %48

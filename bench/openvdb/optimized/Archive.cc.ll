@@ -21851,7 +21851,7 @@ if.then10:                                        ; preds = %invoke.cont6
   br i1 %cmp, label %invoke.cont14, label %if.end
 
 invoke.cont14:                                    ; preds = %if.then10
-  %idxprom.i = zext i8 %17 to i64
+  %idxprom.i = zext nneg i8 %17 to i64
   %arrayidx.i18 = getelementptr inbounds nuw [8 x i8], ptr %my_depth.i, i64 0, i64 %idxprom.i
   %31 = load i8, ptr %arrayidx.i18, align 1
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %alloc.i.i)
@@ -21897,7 +21897,7 @@ invoke.cont14:                                    ; preds = %if.then10
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %alloc.i.i)
   %dec.i = add i8 %my_size.promoted.i.pr131, -1
   store i8 %dec.i, ptr %my_size.i, align 2
-  %39 = add i8 %17, 1
+  %39 = add nuw nsw i8 %17, 1
   %40 = and i8 %39, 7
   store i8 %40, ptr %my_tail.i, align 1
   br label %land.rhs
@@ -25294,7 +25294,7 @@ if.then9.i.i:                                     ; preds = %invoke.cont.i.i
   br i1 %cmp.i21.i, label %invoke.cont13.i.i, label %if.end.i22.i
 
 invoke.cont13.i.i:                                ; preds = %if.then9.i.i
-  %idxprom.i.i.i = zext i8 %29 to i64
+  %idxprom.i.i.i = zext nneg i8 %29 to i64
   %arrayidx.i16.i.i = getelementptr inbounds nuw [8 x i8], ptr %my_depth.i.i.i, i64 0, i64 %idxprom.i.i.i
   %44 = load i8, ptr %arrayidx.i16.i.i, align 1
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %alloc.i.i.i.i)
@@ -25340,7 +25340,7 @@ invoke.cont13.i.i:                                ; preds = %if.then9.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %alloc.i.i.i.i)
   %dec.i.i.i = add i8 %my_size.promoted.i.pr81.i.i, -1
   store i8 %dec.i.i.i, ptr %my_size.i.i.i, align 2
-  %51 = add i8 %29, 1
+  %51 = add nuw nsw i8 %29, 1
   %52 = and i8 %51, 7
   store i8 %52, ptr %my_tail.i.i.i, align 1
   br label %land.rhs.i.i
@@ -29442,7 +29442,7 @@ if.then9:                                         ; preds = %invoke.cont
   br i1 %cmp, label %invoke.cont12, label %if.end
 
 invoke.cont12:                                    ; preds = %if.then9
-  %idxprom.i = zext i8 %17 to i64
+  %idxprom.i = zext nneg i8 %17 to i64
   %arrayidx.i18 = getelementptr inbounds nuw [8 x i8], ptr %my_depth.i, i64 0, i64 %idxprom.i
   %31 = load i8, ptr %arrayidx.i18, align 1
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %alloc.i.i)
@@ -29488,7 +29488,7 @@ invoke.cont12:                                    ; preds = %if.then9
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %alloc.i.i)
   %dec.i = add i8 %my_size.promoted.i.pr131, -1
   store i8 %dec.i, ptr %my_size.i, align 2
-  %39 = add i8 %17, 1
+  %39 = add nuw nsw i8 %17, 1
   %40 = and i8 %39, 7
   store i8 %40, ptr %my_tail.i, align 1
   br label %land.rhs
@@ -32844,7 +32844,7 @@ if.then9.i.i:                                     ; preds = %invoke.cont.i.i
   br i1 %cmp.i21.i, label %invoke.cont13.i.i, label %if.end.i22.i
 
 invoke.cont13.i.i:                                ; preds = %if.then9.i.i
-  %idxprom.i.i.i = zext i8 %29 to i64
+  %idxprom.i.i.i = zext nneg i8 %29 to i64
   %arrayidx.i16.i.i = getelementptr inbounds nuw [8 x i8], ptr %my_depth.i.i.i, i64 0, i64 %idxprom.i.i.i
   %44 = load i8, ptr %arrayidx.i16.i.i, align 1
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %alloc.i.i.i.i)
@@ -32890,7 +32890,7 @@ invoke.cont13.i.i:                                ; preds = %if.then9.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %alloc.i.i.i.i)
   %dec.i.i.i = add i8 %my_size.promoted.i.pr81.i.i, -1
   store i8 %dec.i.i.i, ptr %my_size.i.i.i, align 2
-  %51 = add i8 %29, 1
+  %51 = add nuw nsw i8 %29, 1
   %52 = and i8 %51, 7
   store i8 %52, ptr %my_tail.i.i.i, align 1
   br label %land.rhs.i.i
@@ -36881,7 +36881,7 @@ if.then9:                                         ; preds = %invoke.cont
   br i1 %cmp, label %invoke.cont12, label %if.end
 
 invoke.cont12:                                    ; preds = %if.then9
-  %idxprom.i = zext i8 %17 to i64
+  %idxprom.i = zext nneg i8 %17 to i64
   %arrayidx.i18 = getelementptr inbounds nuw [8 x i8], ptr %my_depth.i, i64 0, i64 %idxprom.i
   %31 = load i8, ptr %arrayidx.i18, align 1
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %alloc.i.i)
@@ -36927,7 +36927,7 @@ invoke.cont12:                                    ; preds = %if.then9
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %alloc.i.i)
   %dec.i = add i8 %my_size.promoted.i.pr131, -1
   store i8 %dec.i, ptr %my_size.i, align 2
-  %39 = add i8 %17, 1
+  %39 = add nuw nsw i8 %17, 1
   %40 = and i8 %39, 7
   store i8 %40, ptr %my_tail.i, align 1
   br label %land.rhs
@@ -40283,7 +40283,7 @@ if.then9.i.i:                                     ; preds = %invoke.cont.i.i
   br i1 %cmp.i21.i, label %invoke.cont13.i.i, label %if.end.i22.i
 
 invoke.cont13.i.i:                                ; preds = %if.then9.i.i
-  %idxprom.i.i.i = zext i8 %29 to i64
+  %idxprom.i.i.i = zext nneg i8 %29 to i64
   %arrayidx.i16.i.i = getelementptr inbounds nuw [8 x i8], ptr %my_depth.i.i.i, i64 0, i64 %idxprom.i.i.i
   %44 = load i8, ptr %arrayidx.i16.i.i, align 1
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %alloc.i.i.i.i)
@@ -40329,7 +40329,7 @@ invoke.cont13.i.i:                                ; preds = %if.then9.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %alloc.i.i.i.i)
   %dec.i.i.i = add i8 %my_size.promoted.i.pr81.i.i, -1
   store i8 %dec.i.i.i, ptr %my_size.i.i.i, align 2
-  %51 = add i8 %29, 1
+  %51 = add nuw nsw i8 %29, 1
   %52 = and i8 %51, 7
   store i8 %52, ptr %my_tail.i.i.i, align 1
   br label %land.rhs.i.i
@@ -44625,7 +44625,7 @@ if.then9:                                         ; preds = %invoke.cont
   br i1 %cmp, label %invoke.cont12, label %if.end
 
 invoke.cont12:                                    ; preds = %if.then9
-  %idxprom.i = zext i8 %17 to i64
+  %idxprom.i = zext nneg i8 %17 to i64
   %arrayidx.i18 = getelementptr inbounds nuw [8 x i8], ptr %my_depth.i, i64 0, i64 %idxprom.i
   %31 = load i8, ptr %arrayidx.i18, align 1
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %alloc.i.i)
@@ -44671,7 +44671,7 @@ invoke.cont12:                                    ; preds = %if.then9
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %alloc.i.i)
   %dec.i = add i8 %my_size.promoted.i.pr131, -1
   store i8 %dec.i, ptr %my_size.i, align 2
-  %39 = add i8 %17, 1
+  %39 = add nuw nsw i8 %17, 1
   %40 = and i8 %39, 7
   store i8 %40, ptr %my_tail.i, align 1
   br label %land.rhs
@@ -48027,7 +48027,7 @@ if.then9.i.i:                                     ; preds = %invoke.cont.i.i
   br i1 %cmp.i21.i, label %invoke.cont13.i.i, label %if.end.i22.i
 
 invoke.cont13.i.i:                                ; preds = %if.then9.i.i
-  %idxprom.i.i.i = zext i8 %29 to i64
+  %idxprom.i.i.i = zext nneg i8 %29 to i64
   %arrayidx.i16.i.i = getelementptr inbounds nuw [8 x i8], ptr %my_depth.i.i.i, i64 0, i64 %idxprom.i.i.i
   %44 = load i8, ptr %arrayidx.i16.i.i, align 1
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %alloc.i.i.i.i)
@@ -48073,7 +48073,7 @@ invoke.cont13.i.i:                                ; preds = %if.then9.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %alloc.i.i.i.i)
   %dec.i.i.i = add i8 %my_size.promoted.i.pr81.i.i, -1
   store i8 %dec.i.i.i, ptr %my_size.i.i.i, align 2
-  %51 = add i8 %29, 1
+  %51 = add nuw nsw i8 %29, 1
   %52 = and i8 %51, 7
   store i8 %52, ptr %my_tail.i.i.i, align 1
   br label %land.rhs.i.i
@@ -52369,7 +52369,7 @@ if.then9:                                         ; preds = %invoke.cont
   br i1 %cmp, label %invoke.cont12, label %if.end
 
 invoke.cont12:                                    ; preds = %if.then9
-  %idxprom.i = zext i8 %17 to i64
+  %idxprom.i = zext nneg i8 %17 to i64
   %arrayidx.i18 = getelementptr inbounds nuw [8 x i8], ptr %my_depth.i, i64 0, i64 %idxprom.i
   %31 = load i8, ptr %arrayidx.i18, align 1
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %alloc.i.i)
@@ -52415,7 +52415,7 @@ invoke.cont12:                                    ; preds = %if.then9
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %alloc.i.i)
   %dec.i = add i8 %my_size.promoted.i.pr131, -1
   store i8 %dec.i, ptr %my_size.i, align 2
-  %39 = add i8 %17, 1
+  %39 = add nuw nsw i8 %17, 1
   %40 = and i8 %39, 7
   store i8 %40, ptr %my_tail.i, align 1
   br label %land.rhs
@@ -55769,7 +55769,7 @@ if.then9.i.i:                                     ; preds = %invoke.cont.i.i
   br i1 %cmp.i21.i, label %invoke.cont13.i.i, label %if.end.i22.i
 
 invoke.cont13.i.i:                                ; preds = %if.then9.i.i
-  %idxprom.i.i.i = zext i8 %29 to i64
+  %idxprom.i.i.i = zext nneg i8 %29 to i64
   %arrayidx.i16.i.i = getelementptr inbounds nuw [8 x i8], ptr %my_depth.i.i.i, i64 0, i64 %idxprom.i.i.i
   %44 = load i8, ptr %arrayidx.i16.i.i, align 1
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %alloc.i.i.i.i)
@@ -55815,7 +55815,7 @@ invoke.cont13.i.i:                                ; preds = %if.then9.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %alloc.i.i.i.i)
   %dec.i.i.i = add i8 %my_size.promoted.i.pr81.i.i, -1
   store i8 %dec.i.i.i, ptr %my_size.i.i.i, align 2
-  %51 = add i8 %29, 1
+  %51 = add nuw nsw i8 %29, 1
   %52 = and i8 %51, 7
   store i8 %52, ptr %my_tail.i.i.i, align 1
   br label %land.rhs.i.i
@@ -59982,7 +59982,7 @@ if.then9:                                         ; preds = %invoke.cont
   br i1 %cmp, label %invoke.cont12, label %if.end
 
 invoke.cont12:                                    ; preds = %if.then9
-  %idxprom.i = zext i8 %17 to i64
+  %idxprom.i = zext nneg i8 %17 to i64
   %arrayidx.i18 = getelementptr inbounds nuw [8 x i8], ptr %my_depth.i, i64 0, i64 %idxprom.i
   %31 = load i8, ptr %arrayidx.i18, align 1
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %alloc.i.i)
@@ -60028,7 +60028,7 @@ invoke.cont12:                                    ; preds = %if.then9
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %alloc.i.i)
   %dec.i = add i8 %my_size.promoted.i.pr131, -1
   store i8 %dec.i, ptr %my_size.i, align 2
-  %39 = add i8 %17, 1
+  %39 = add nuw nsw i8 %17, 1
   %40 = and i8 %39, 7
   store i8 %40, ptr %my_tail.i, align 1
   br label %land.rhs
@@ -63382,7 +63382,7 @@ if.then9.i.i:                                     ; preds = %invoke.cont.i.i
   br i1 %cmp.i21.i, label %invoke.cont13.i.i, label %if.end.i22.i
 
 invoke.cont13.i.i:                                ; preds = %if.then9.i.i
-  %idxprom.i.i.i = zext i8 %29 to i64
+  %idxprom.i.i.i = zext nneg i8 %29 to i64
   %arrayidx.i16.i.i = getelementptr inbounds nuw [8 x i8], ptr %my_depth.i.i.i, i64 0, i64 %idxprom.i.i.i
   %44 = load i8, ptr %arrayidx.i16.i.i, align 1
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %alloc.i.i.i.i)
@@ -63428,7 +63428,7 @@ invoke.cont13.i.i:                                ; preds = %if.then9.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %alloc.i.i.i.i)
   %dec.i.i.i = add i8 %my_size.promoted.i.pr81.i.i, -1
   store i8 %dec.i.i.i, ptr %my_size.i.i.i, align 2
-  %51 = add i8 %29, 1
+  %51 = add nuw nsw i8 %29, 1
   %52 = and i8 %51, 7
   store i8 %52, ptr %my_tail.i.i.i, align 1
   br label %land.rhs.i.i
@@ -68185,7 +68185,7 @@ if.then9:                                         ; preds = %invoke.cont
   br i1 %cmp, label %invoke.cont12, label %if.end
 
 invoke.cont12:                                    ; preds = %if.then9
-  %idxprom.i = zext i8 %17 to i64
+  %idxprom.i = zext nneg i8 %17 to i64
   %arrayidx.i18 = getelementptr inbounds nuw [8 x i8], ptr %my_depth.i, i64 0, i64 %idxprom.i
   %31 = load i8, ptr %arrayidx.i18, align 1
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %alloc.i.i)
@@ -68231,7 +68231,7 @@ invoke.cont12:                                    ; preds = %if.then9
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %alloc.i.i)
   %dec.i = add i8 %my_size.promoted.i.pr131, -1
   store i8 %dec.i, ptr %my_size.i, align 2
-  %39 = add i8 %17, 1
+  %39 = add nuw nsw i8 %17, 1
   %40 = and i8 %39, 7
   store i8 %40, ptr %my_tail.i, align 1
   br label %land.rhs
@@ -71585,7 +71585,7 @@ if.then9.i.i:                                     ; preds = %invoke.cont.i.i
   br i1 %cmp.i21.i, label %invoke.cont13.i.i, label %if.end.i22.i
 
 invoke.cont13.i.i:                                ; preds = %if.then9.i.i
-  %idxprom.i.i.i = zext i8 %29 to i64
+  %idxprom.i.i.i = zext nneg i8 %29 to i64
   %arrayidx.i16.i.i = getelementptr inbounds nuw [8 x i8], ptr %my_depth.i.i.i, i64 0, i64 %idxprom.i.i.i
   %44 = load i8, ptr %arrayidx.i16.i.i, align 1
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %alloc.i.i.i.i)
@@ -71631,7 +71631,7 @@ invoke.cont13.i.i:                                ; preds = %if.then9.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %alloc.i.i.i.i)
   %dec.i.i.i = add i8 %my_size.promoted.i.pr81.i.i, -1
   store i8 %dec.i.i.i, ptr %my_size.i.i.i, align 2
-  %51 = add i8 %29, 1
+  %51 = add nuw nsw i8 %29, 1
   %52 = and i8 %51, 7
   store i8 %52, ptr %my_tail.i.i.i, align 1
   br label %land.rhs.i.i

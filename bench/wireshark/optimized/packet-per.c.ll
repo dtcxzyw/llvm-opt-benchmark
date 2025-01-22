@@ -692,7 +692,7 @@ define hidden i32 @dissect_per_length_determinant(ptr noundef %0, i32 noundef %1
 
 51:                                               ; preds = %47, %44
   %.5 = phi i32 [ %48, %47 ], [ %.4, %44 ]
-  %52 = add nuw i32 %.1181308, 1
+  %52 = add nuw nsw i32 %.1181308, 1
   %53 = lshr i32 %.1186305, 3
   %54 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %53) #10
   %55 = and i32 %.1186305, 7
@@ -765,7 +765,7 @@ define hidden i32 @dissect_per_length_determinant(ptr noundef %0, i32 noundef %1
   %.7 = phi i32 [ %.6, %71 ], [ %84, %83 ], [ %.5, %81 ], [ %.6, %69 ]
   %.1 = phi i32 [ %63, %71 ], [ %59, %83 ], [ %59, %81 ], [ %63, %69 ]
   %88 = add nuw nsw i32 %.0182307, 1
-  %89 = icmp slt i32 %88, %.1184
+  %89 = icmp samesign ult i32 %88, %.1184
   br i1 %89, label %.backedge.backedge, label %90
 
 .backedge.backedge:                               ; preds = %87, %.thread

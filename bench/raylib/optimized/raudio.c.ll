@@ -68627,6 +68627,7 @@ get_bits.exit.thread.i:                           ; preds = %._crit_edge581.i, %
   %857 = getelementptr inbounds nuw i8, ptr %32, i64 17
   %858 = getelementptr inbounds nuw i8, ptr %0, i64 196
   %859 = getelementptr inbounds nuw i8, ptr %0, i64 328
+  %wide.trip.count.i434.i = zext i32 %33 to i64
   %860 = getelementptr inbounds nuw i8, ptr %0, i64 156
   br label %862
 
@@ -68793,7 +68794,7 @@ draw_line.exit.i.i:                               ; preds = %.lr.ph.i.i.i, %920,
   %951 = fmul float %946, %950
   store float %951, ptr %949, align 4
   %indvars.iv.next8.i.i = add nuw nsw i64 %indvars.iv7.i.i, 1
-  %exitcond.not.i435.i = icmp eq i64 %indvars.iv.next8.i.i, %853
+  %exitcond.not.i435.i = icmp eq i64 %indvars.iv.next8.i.i, %wide.trip.count.i434.i
   br i1 %exitcond.not.i435.i, label %do_floor.exit.i, label %948
 
 do_floor.exit.i:                                  ; preds = %948, %._crit_edge.i432.i, %881, %867
@@ -71056,7 +71057,7 @@ setup_temp_free.exit1095:                         ; preds = %658, %651, %481
 857:                                              ; preds = %853, %848
   %.11104 = phi i8 [ %.01103, %848 ], [ %spec.select1107, %853 ]
   %.126.i = phi i32 [ %.02530.i, %848 ], [ %spec.select1108, %853 ]
-  %858 = icmp sgt i32 %.02431.i, %851
+  %858 = icmp ugt i32 %.02431.i, %851
   br i1 %858, label %859, label %863
 
 859:                                              ; preds = %857
@@ -80353,7 +80354,7 @@ drmp3_L3_save_reservoir.exit:                     ; preds = %.loopexit, %1852
   %1949 = zext i8 %1948 to i32
   %1950 = lshr i32 255, %1946
   %1951 = and i32 %1950, %1949
-  %1952 = icmp sgt i32 %1947, 8
+  %1952 = icmp samesign ugt i32 %1947, 8
   br i1 %1952, label %.lr.ph.i.i168, label %._crit_edge.i.i151
 
 .lr.ph.i.i168:                                    ; preds = %1942, %.lr.ph.i.i168
@@ -80374,7 +80375,7 @@ drmp3_L3_save_reservoir.exit:                     ; preds = %.loopexit, %1852
   %.021.lcssa.i.i = phi i32 [ %1951, %1942 ], [ %1957, %.lr.ph.i.i168 ]
   %.020.lcssa.i.i = phi i32 [ 0, %1942 ], [ %1955, %.lr.ph.i.i168 ]
   %.018.lcssa.i.i = phi i32 [ %1947, %1942 ], [ %1953, %.lr.ph.i.i168 ]
-  %1959 = sub nsw i32 8, %.018.lcssa.i.i
+  %1959 = sub nuw nsw i32 8, %.018.lcssa.i.i
   %1960 = lshr i32 %.021.lcssa.i.i, %1959
   %1961 = or i32 %1960, %.020.lcssa.i.i
   %1962 = zext i32 %1961 to i64
@@ -80405,7 +80406,7 @@ drmp3_bs_get_bits.exit.i152:                      ; preds = %._crit_edge.i.i151,
   %1978 = zext i8 %1977 to i32
   %1979 = lshr i32 255, %1975
   %1980 = and i32 %1979, %1978
-  %1981 = icmp sgt i32 %1976, 8
+  %1981 = icmp samesign ugt i32 %1976, 8
   br i1 %1981, label %.lr.ph.i63.i, label %._crit_edge.i58.i
 
 .lr.ph.i63.i:                                     ; preds = %1971, %.lr.ph.i63.i
@@ -80426,7 +80427,7 @@ drmp3_bs_get_bits.exit.i152:                      ; preds = %._crit_edge.i.i151,
   %.021.lcssa.i59.i = phi i32 [ %1980, %1971 ], [ %1986, %.lr.ph.i63.i ]
   %.020.lcssa.i60.i = phi i32 [ 0, %1971 ], [ %1984, %.lr.ph.i63.i ]
   %.018.lcssa.i61.i = phi i32 [ %1976, %1971 ], [ %1982, %.lr.ph.i63.i ]
-  %1988 = sub nsw i32 8, %.018.lcssa.i61.i
+  %1988 = sub nuw nsw i32 8, %.018.lcssa.i61.i
   %1989 = lshr i32 %.021.lcssa.i59.i, %1988
   %1990 = or i32 %1989, %.020.lcssa.i60.i
   %1991 = zext i32 %1990 to i64

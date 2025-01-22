@@ -681,69 +681,67 @@ parse_slub_debug_flags.exit:                      ; preds = %66, %67
   br i1 %79, label %80, label %.preheader9, !llvm.loop !13
 
 80:                                               ; preds = %74
-  %81 = and i8 %75, 1
-  %82 = icmp eq i8 %81, 0
-  br i1 %82, label %88, label %83
+  %81 = icmp eq i8 %75, 0
+  br i1 %81, label %86, label %82
 
-83:                                               ; preds = %80
-  %84 = and i8 %76, 1
-  %85 = icmp eq i8 %84, 0
-  %86 = load i32, ptr @slub_debug, align 4
-  %87 = select i1 %85, i32 %86, i32 %77
+82:                                               ; preds = %80
+  %83 = icmp eq i8 %76, 0
+  %84 = load i32, ptr @slub_debug, align 4
+  %85 = select i1 %83, i32 %84, i32 %77
   store ptr %2, ptr @slub_debug_string, align 8
-  br label %88
+  br label %86
 
 .thread7:                                         ; preds = %1, %5
   store i32 68864, ptr @slub_debug, align 4
-  br label %92
+  br label %90
 
-88:                                               ; preds = %83, %80
-  %89 = phi i32 [ %87, %83 ], [ %77, %80 ]
-  store i32 %89, ptr @slub_debug, align 4
-  %90 = and i32 %89, 65536
-  %91 = icmp eq i32 %90, 0
-  br i1 %91, label %93, label %92
+86:                                               ; preds = %82, %80
+  %87 = phi i32 [ %85, %82 ], [ %77, %80 ]
+  store i32 %87, ptr @slub_debug, align 4
+  %88 = and i32 %87, 65536
+  %89 = icmp eq i32 %88, 0
+  br i1 %89, label %91, label %90
 
-92:                                               ; preds = %.thread7, %88
+90:                                               ; preds = %.thread7, %86
   tail call void @stack_depot_request_early_init() #28
   %.pre = load i32, ptr @slub_debug, align 4
-  br label %93
+  br label %91
 
-93:                                               ; preds = %92, %88
-  %94 = phi i32 [ %.pre, %92 ], [ %89, %88 ]
-  %95 = icmp ne i32 %94, 0
-  %96 = load ptr, ptr @slub_debug_string, align 8
-  %97 = icmp ne ptr %96, null
-  %98 = select i1 %95, i1 true, i1 %97
-  br i1 %98, label %99, label %100
+91:                                               ; preds = %90, %86
+  %92 = phi i32 [ %.pre, %90 ], [ %87, %86 ]
+  %93 = icmp ne i32 %92, 0
+  %94 = load ptr, ptr @slub_debug_string, align 8
+  %95 = icmp ne ptr %94, null
+  %96 = select i1 %93, i1 true, i1 %95
+  br i1 %96, label %97, label %98
 
-99:                                               ; preds = %93
+97:                                               ; preds = %91
   tail call void @static_key_enable(ptr noundef nonnull @slub_debug_enabled) #27
-  br label %101
+  br label %99
 
-100:                                              ; preds = %93
+98:                                               ; preds = %91
   tail call void @static_key_disable(ptr noundef nonnull @slub_debug_enabled) #27
-  br label %101
+  br label %99
+
+99:                                               ; preds = %98, %97
+  callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @init_on_alloc, i32 2) #27
+          to label %100 [label %101], !srcloc !6
+
+100:                                              ; preds = %99
+  callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @init_on_free, i32 2) #27
+          to label %107 [label %101], !srcloc !6
 
 101:                                              ; preds = %100, %99
-  callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @init_on_alloc, i32 2) #27
-          to label %102 [label %103], !srcloc !6
+  %102 = load i32, ptr @slub_debug, align 4
+  %103 = and i32 %102, 2048
+  %104 = icmp eq i32 %103, 0
+  br i1 %104, label %107, label %105
 
-102:                                              ; preds = %101
-  callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @init_on_free, i32 2) #27
-          to label %109 [label %103], !srcloc !6
+105:                                              ; preds = %101
+  %106 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.10) #28
+  br label %107
 
-103:                                              ; preds = %102, %101
-  %104 = load i32, ptr @slub_debug, align 4
-  %105 = and i32 %104, 2048
-  %106 = icmp eq i32 %105, 0
-  br i1 %106, label %109, label %107
-
-107:                                              ; preds = %103
-  %108 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.10) #28
-  br label %109
-
-109:                                              ; preds = %107, %103, %102
+107:                                              ; preds = %105, %101, %100
   ret i32 1
 }
 

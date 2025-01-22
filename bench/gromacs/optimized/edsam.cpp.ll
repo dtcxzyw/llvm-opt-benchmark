@@ -1386,8 +1386,8 @@ define internal fastcc void @_ZL16fit_to_referencePA3_fPfS0_P5edpar(ptr nocaptur
   br i1 %exitcond203.not.i, label %152, label %145, !llvm.loop !26
 
 152:                                              ; preds = %145
-  %153 = sext i32 %.2118.i to i64
-  %154 = getelementptr inbounds [6 x double], ptr %6, i64 0, i64 %153
+  %153 = zext nneg i32 %.2118.i to i64
+  %154 = getelementptr inbounds nuw [6 x double], ptr %6, i64 0, i64 %153
   store double -1.000000e+04, ptr %154, align 8
   %155 = load ptr, ptr %79, align 8
   br label %156
@@ -1396,7 +1396,7 @@ define internal fastcc void @_ZL16fit_to_referencePA3_fPfS0_P5edpar(ptr nocaptur
   %indvars.iv204.i = phi i64 [ 0, %152 ], [ %indvars.iv.next205.i, %156 ]
   %157 = getelementptr inbounds nuw ptr, ptr %155, i64 %indvars.iv204.i
   %158 = load ptr, ptr %157, align 8
-  %159 = getelementptr inbounds double, ptr %158, i64 %153
+  %159 = getelementptr inbounds nuw double, ptr %158, i64 %153
   %160 = load double, ptr %159, align 8
   %161 = fmul double %160, 0x3FF6A09E667F3BCD
   %162 = fptrunc double %161 to float
@@ -1404,7 +1404,7 @@ define internal fastcc void @_ZL16fit_to_referencePA3_fPfS0_P5edpar(ptr nocaptur
   store float %162, ptr %163, align 4
   %164 = getelementptr inbounds nuw i8, ptr %157, i64 24
   %165 = load ptr, ptr %164, align 8
-  %166 = getelementptr inbounds double, ptr %165, i64 %153
+  %166 = getelementptr inbounds nuw double, ptr %165, i64 %153
   %167 = load double, ptr %166, align 8
   %168 = fmul double %167, 0x3FF6A09E667F3BCD
   %169 = fptrunc double %168 to float

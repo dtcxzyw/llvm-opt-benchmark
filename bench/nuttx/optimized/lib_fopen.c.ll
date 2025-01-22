@@ -106,112 +106,107 @@ declare ptr @lib_get_streams() local_unnamed_addr #1
 define i32 @lib_mode2oflags(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   br label %2
 
-2:                                                ; preds = %38, %1
-  %.025 = phi ptr [ %0, %1 ], [ %39, %38 ]
-  %.023 = phi i32 [ 0, %1 ], [ %.124, %38 ]
-  %.0 = phi i32 [ 0, %1 ], [ %.1, %38 ]
+2:                                                ; preds = %33, %1
+  %.025 = phi ptr [ %0, %1 ], [ %34, %33 ]
+  %.023 = phi i32 [ 0, %1 ], [ %.124, %33 ]
+  %.0 = phi i32 [ 0, %1 ], [ %.1, %33 ]
   %3 = load i8, ptr %.025, align 1
-  switch i8 %3, label %40 [
+  switch i8 %3, label %35 [
     i8 0, label %.loopexit
     i8 114, label %4
     i8 119, label %6
     i8 97, label %8
     i8 43, label %10
-    i8 109, label %21
-    i8 98, label %22
-    i8 101, label %26
-    i8 120, label %30
-    i8 116, label %34
+    i8 109, label %20
+    i8 98, label %21
+    i8 101, label %24
+    i8 120, label %27
+    i8 116, label %30
   ]
 
 4:                                                ; preds = %2
   %5 = icmp eq i32 %.023, 0
-  br i1 %5, label %38, label %40
+  br i1 %5, label %33, label %35
 
 6:                                                ; preds = %2
   %7 = icmp eq i32 %.023, 0
-  br i1 %7, label %38, label %40
+  br i1 %7, label %33, label %35
 
 8:                                                ; preds = %2
   %9 = icmp eq i32 %.023, 0
-  br i1 %9, label %38, label %40
+  br i1 %9, label %33, label %35
 
 10:                                               ; preds = %2
-  %11 = and i32 %.023, 7
-  switch i32 %11, label %40 [
-    i32 1, label %12
-    i32 2, label %15
-    i32 4, label %18
+  switch i32 %.023, label %35 [
+    i32 1, label %11
+    i32 2, label %14
+    i32 4, label %17
   ]
 
-12:                                               ; preds = %10
-  %13 = and i32 %.0, 1288
-  %14 = or disjoint i32 %13, 3
-  br label %38
+11:                                               ; preds = %10
+  %12 = and i32 %.0, 1288
+  %13 = or disjoint i32 %12, 3
+  br label %33
 
-15:                                               ; preds = %10
-  %16 = and i32 %.0, 1288
-  %17 = or disjoint i32 %16, 39
-  br label %38
+14:                                               ; preds = %10
+  %15 = and i32 %.0, 1288
+  %16 = or disjoint i32 %15, 39
+  br label %33
 
-18:                                               ; preds = %10
-  %19 = and i32 %.0, 1288
-  %20 = or disjoint i32 %19, 23
-  br label %38
+17:                                               ; preds = %10
+  %18 = and i32 %.0, 1288
+  %19 = or disjoint i32 %18, 23
+  br label %33
+
+20:                                               ; preds = %2
+  %.not32 = icmp eq i32 %.023, 1
+  br i1 %.not32, label %33, label %35
 
 21:                                               ; preds = %2
-  %.not32 = icmp eq i32 %.023, 1
-  br i1 %.not32, label %38, label %40
+  %.not31 = icmp eq i32 %.023, 0
+  br i1 %.not31, label %35, label %22
 
-22:                                               ; preds = %2
-  %23 = and i32 %.023, 7
-  %.not31 = icmp eq i32 %23, 0
-  br i1 %.not31, label %40, label %24
+22:                                               ; preds = %21
+  %23 = and i32 %.0, -257
+  br label %33
 
-24:                                               ; preds = %22
-  %25 = and i32 %.0, -257
-  br label %38
+24:                                               ; preds = %2
+  %.not30 = icmp eq i32 %.023, 0
+  br i1 %.not30, label %35, label %25
 
-26:                                               ; preds = %2
-  %27 = and i32 %.023, 7
-  %.not30 = icmp eq i32 %27, 0
-  br i1 %.not30, label %40, label %28
+25:                                               ; preds = %24
+  %26 = or i32 %.0, 1024
+  br label %33
 
-28:                                               ; preds = %26
-  %29 = or i32 %.0, 1024
-  br label %38
+27:                                               ; preds = %2
+  %.not29 = icmp eq i32 %.023, 0
+  br i1 %.not29, label %35, label %28
+
+28:                                               ; preds = %27
+  %29 = or i32 %.0, 8
+  br label %33
 
 30:                                               ; preds = %2
-  %31 = and i32 %.023, 7
-  %.not29 = icmp eq i32 %31, 0
-  br i1 %.not29, label %40, label %32
+  %.not28 = icmp eq i32 %.023, 0
+  br i1 %.not28, label %35, label %31
 
-32:                                               ; preds = %30
-  %33 = or i32 %.0, 8
-  br label %38
+31:                                               ; preds = %30
+  %32 = or i32 %.0, 256
+  br label %33
 
-34:                                               ; preds = %2
-  %35 = and i32 %.023, 7
-  %.not28 = icmp eq i32 %35, 0
-  br i1 %.not28, label %40, label %36
-
-36:                                               ; preds = %34
-  %37 = or i32 %.0, 256
-  br label %38
-
-38:                                               ; preds = %8, %6, %4, %24, %28, %32, %36, %18, %15, %12, %21
-  %.124 = phi i32 [ %.023, %36 ], [ %.023, %32 ], [ %.023, %28 ], [ %.023, %24 ], [ 1, %21 ], [ %.023, %18 ], [ %.023, %15 ], [ %.023, %12 ], [ 1, %4 ], [ 2, %6 ], [ 4, %8 ]
-  %.1 = phi i32 [ %37, %36 ], [ %33, %32 ], [ %29, %28 ], [ %25, %24 ], [ %.0, %21 ], [ %20, %18 ], [ %17, %15 ], [ %14, %12 ], [ 257, %4 ], [ 294, %6 ], [ 278, %8 ]
-  %39 = getelementptr inbounds nuw i8, ptr %.025, i64 1
+33:                                               ; preds = %8, %6, %4, %22, %25, %28, %31, %17, %14, %11, %20
+  %.124 = phi i32 [ %.023, %31 ], [ %.023, %28 ], [ %.023, %25 ], [ %.023, %22 ], [ 1, %20 ], [ 4, %17 ], [ 2, %14 ], [ 1, %11 ], [ 1, %4 ], [ 2, %6 ], [ 4, %8 ]
+  %.1 = phi i32 [ %32, %31 ], [ %29, %28 ], [ %26, %25 ], [ %23, %22 ], [ %.0, %20 ], [ %19, %17 ], [ %16, %14 ], [ %13, %11 ], [ 257, %4 ], [ 294, %6 ], [ 278, %8 ]
+  %34 = getelementptr inbounds nuw i8, ptr %.025, i64 1
   br label %2, !llvm.loop !6
 
-40:                                               ; preds = %2, %4, %6, %8, %10, %21, %22, %26, %30, %34
-  %41 = tail call ptr @__errno() #6
-  store i32 22, ptr %41, align 4
+35:                                               ; preds = %2, %4, %6, %8, %10, %20, %21, %24, %27, %30
+  %36 = tail call ptr @__errno() #6
+  store i32 22, ptr %36, align 4
   br label %.loopexit
 
-.loopexit:                                        ; preds = %2, %40
-  %.026 = phi i32 [ -1, %40 ], [ %.0, %2 ]
+.loopexit:                                        ; preds = %2, %35
+  %.026 = phi i32 [ -1, %35 ], [ %.0, %2 ]
   ret i32 %.026
 }
 

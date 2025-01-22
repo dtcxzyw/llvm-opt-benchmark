@@ -65926,7 +65926,7 @@ invoke.cont141:                                   ; preds = %if.else18.i99, %if.
   %nb1.1 = phi float [ %nb1.0136, %if.else18.i99 ], [ %fneg.i28.y.i, %if.then.i92 ], [ %fneg.i.x49.i, %if.then11.i97 ], [ %fneg.i31.z52.i, %if.then22.i101 ]
   %na1.1 = phi float [ %na1.0137, %if.else18.i99 ], [ %fneg.i.x.i, %if.then.i92 ], [ %fneg.i31.z.i, %if.then11.i97 ], [ %fneg.i28.y51.i, %if.then22.i101 ]
   %conv144 = zext nneg i8 %ni1.1 to i64
-  %conv145 = sext i8 %ni0.2 to i64
+  %conv145 = zext nneg i8 %ni0.2 to i64
   %sub = sub nsw i64 %conv144, %conv145
   %37 = load i64, ptr %m_size.i, align 8
   %38 = load i64, ptr %m_allocated.i, align 8
@@ -65973,7 +65973,7 @@ invoke.cont147:                                   ; preds = %if.end14.i, %entry.
   %arrayidx.i105 = getelementptr inbounds i64, ptr %44, i64 %43
   store i64 %sub, ptr %arrayidx.i105, align 8
   %cmp151.not.unshifted = xor i8 %ni1.1, %ni0.2
-  %cmp151.not = icmp ult i8 %cmp151.not.unshifted, 2
+  %cmp151.not = icmp samesign ult i8 %cmp151.not.unshifted, 2
   %rnb0.0 = select i1 %cmp151.not, float %div104, float 0.000000e+00
   %rna0.0 = select i1 %cmp151.not, float %div, float 0.000000e+00
   %sub154 = fsub float %na1.1, %rna0.0

@@ -2625,19 +2625,19 @@ define dso_local range(i32 0, 12) i32 @curl_multi_perform(ptr noundef %0, ptr no
   %11 = extractvalue { i64, i32 } %8, 1
   store i32 %11, ptr %10, align 8
   %.not = icmp eq ptr %0, null
-  br i1 %.not, label %102, label %12
+  br i1 %.not, label %101, label %12
 
 12:                                               ; preds = %2
   %13 = load i32, ptr %0, align 8
   %14 = icmp eq i32 %13, 764702
-  br i1 %14, label %15, label %102
+  br i1 %14, label %15, label %101
 
 15:                                               ; preds = %12
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 433
   %17 = load i8, ptr %16, align 1
   %18 = and i8 %17, 4
   %.not35 = icmp eq i8 %18, 0
-  br i1 %.not35, label %19, label %102
+  br i1 %.not35, label %19, label %101
 
 19:                                               ; preds = %15
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -2669,10 +2669,10 @@ sigpipe_ignore.exit:                              ; preds = %22, %30
   call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %4)
   br label %33
 
-33:                                               ; preds = %55, %sigpipe_ignore.exit
-  %.129 = phi i32 [ 0, %sigpipe_ignore.exit ], [ %spec.select, %55 ]
-  %.027 = phi ptr [ %21, %sigpipe_ignore.exit ], [ %35, %55 ]
-  %.026 = phi i8 [ %27, %sigpipe_ignore.exit ], [ %.1, %55 ]
+33:                                               ; preds = %54, %sigpipe_ignore.exit
+  %.129 = phi i32 [ 0, %sigpipe_ignore.exit ], [ %spec.select, %54 ]
+  %.027 = phi ptr [ %21, %sigpipe_ignore.exit ], [ %35, %54 ]
+  %.026 = phi i8 [ %27, %sigpipe_ignore.exit ], [ %.1, %54 ]
   %34 = getelementptr inbounds nuw i8, ptr %.027, i64 16
   %35 = load ptr, ptr %34, align 8
   %36 = getelementptr inbounds nuw i8, ptr %.027, i64 2642
@@ -2680,150 +2680,150 @@ sigpipe_ignore.exit:                              ; preds = %22, %30
   %38 = lshr i64 %37, 32
   %39 = trunc nuw i64 %38 to i32
   %40 = and i32 %39, 1
-  %41 = and i8 %.026, 1
-  %42 = zext nneg i8 %41 to i32
-  %.not37 = icmp eq i32 %40, %42
-  br i1 %.not37, label %55, label %43
+  %41 = zext nneg i8 %.026 to i32
+  %.not37 = icmp eq i32 %40, %41
+  br i1 %.not37, label %54, label %42
 
-43:                                               ; preds = %33
-  %44 = load i8, ptr %28, align 8
-  %45 = trunc i8 %44 to i1
-  br i1 %45, label %sigpipe_restore.exit, label %46
+42:                                               ; preds = %33
+  %43 = load i8, ptr %28, align 8
+  %44 = trunc i8 %43 to i1
+  br i1 %44, label %sigpipe_restore.exit, label %45
 
-46:                                               ; preds = %43
-  %47 = call i32 @sigaction(i32 noundef 13, ptr noundef nonnull %7, ptr noundef null) #19
+45:                                               ; preds = %42
+  %46 = call i32 @sigaction(i32 noundef 13, ptr noundef nonnull %7, ptr noundef null) #19
   %.pre = load i64, ptr %36, align 2
   %.pre49 = lshr i64 %.pre, 32
   br label %sigpipe_restore.exit
 
-sigpipe_restore.exit:                             ; preds = %43, %46
-  %.pre-phi = phi i64 [ %38, %43 ], [ %.pre49, %46 ]
-  %48 = phi i64 [ %37, %43 ], [ %.pre, %46 ]
+sigpipe_restore.exit:                             ; preds = %42, %45
+  %.pre-phi = phi i64 [ %38, %42 ], [ %.pre49, %45 ]
+  %47 = phi i64 [ %37, %42 ], [ %.pre, %45 ]
   call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %3)
-  %49 = trunc i64 %.pre-phi to i8
-  %50 = and i8 %49, 1
-  store i8 %50, ptr %28, align 8
-  %51 = and i64 %48, 4294967296
-  %.not.i42 = icmp eq i64 %51, 0
-  br i1 %.not.i42, label %52, label %sigpipe_ignore.exit43
+  %48 = trunc i64 %.pre-phi to i8
+  %49 = and i8 %48, 1
+  store i8 %49, ptr %28, align 8
+  %50 = and i64 %47, 4294967296
+  %.not.i42 = icmp eq i64 %50, 0
+  br i1 %.not.i42, label %51, label %sigpipe_ignore.exit43
 
-52:                                               ; preds = %sigpipe_restore.exit
-  %53 = call i32 @sigaction(i32 noundef 13, ptr noundef null, ptr noundef nonnull %7) #19
+51:                                               ; preds = %sigpipe_restore.exit
+  %52 = call i32 @sigaction(i32 noundef 13, ptr noundef null, ptr noundef nonnull %7) #19
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %3, ptr noundef nonnull align 8 dereferenceable(152) %7, i64 152, i1 false)
   store ptr inttoptr (i64 1 to ptr), ptr %3, align 8
-  %54 = call i32 @sigaction(i32 noundef 13, ptr noundef nonnull %3, ptr noundef null) #19
+  %53 = call i32 @sigaction(i32 noundef 13, ptr noundef nonnull %3, ptr noundef null) #19
   %.pre48 = load i64, ptr %36, align 2
   %.pre50 = lshr i64 %.pre48, 32
   %.pre52 = trunc i64 %.pre50 to i8
+  %.pre54 = and i8 %.pre52, 1
   br label %sigpipe_ignore.exit43
 
-sigpipe_ignore.exit43:                            ; preds = %sigpipe_restore.exit, %52
-  %.pre-phi55 = phi i8 [ %50, %sigpipe_restore.exit ], [ %.pre52, %52 ]
+sigpipe_ignore.exit43:                            ; preds = %sigpipe_restore.exit, %51
+  %.pre-phi55 = phi i8 [ %49, %sigpipe_restore.exit ], [ %.pre54, %51 ]
   call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %3)
-  br label %55
+  br label %54
 
-55:                                               ; preds = %sigpipe_ignore.exit43, %33
+54:                                               ; preds = %sigpipe_ignore.exit43, %33
   %.1 = phi i8 [ %.pre-phi55, %sigpipe_ignore.exit43 ], [ %.026, %33 ]
-  %56 = call fastcc i32 @multi_runsingle(ptr noundef nonnull %0, ptr noundef %6, ptr noundef %.027)
-  %.not38 = icmp eq i32 %56, 0
-  %spec.select = select i1 %.not38, i32 %.129, i32 %56
+  %55 = call fastcc i32 @multi_runsingle(ptr noundef nonnull %0, ptr noundef %6, ptr noundef %.027)
+  %.not38 = icmp eq i32 %55, 0
+  %spec.select = select i1 %.not38, i32 %.129, i32 %55
   %.not39 = icmp eq ptr %35, null
-  br i1 %.not39, label %57, label %33, !llvm.loop !22
+  br i1 %.not39, label %56, label %33, !llvm.loop !22
 
-57:                                               ; preds = %55
-  %58 = load i8, ptr %28, align 8
-  %59 = trunc i8 %58 to i1
-  br i1 %59, label %sigpipe_restore.exit44, label %60
+56:                                               ; preds = %54
+  %57 = load i8, ptr %28, align 8
+  %58 = trunc i8 %57 to i1
+  br i1 %58, label %sigpipe_restore.exit44, label %59
 
-60:                                               ; preds = %57
-  %61 = call i32 @sigaction(i32 noundef 13, ptr noundef nonnull %7, ptr noundef null) #19
+59:                                               ; preds = %56
+  %60 = call i32 @sigaction(i32 noundef 13, ptr noundef nonnull %7, ptr noundef null) #19
   br label %sigpipe_restore.exit44
 
-sigpipe_restore.exit44:                           ; preds = %60, %57, %19
-  %.028 = phi i32 [ 0, %19 ], [ %spec.select, %57 ], [ %spec.select, %60 ]
-  %62 = getelementptr inbounds nuw i8, ptr %0, i64 208
-  br label %63
+sigpipe_restore.exit44:                           ; preds = %59, %56, %19
+  %.028 = phi i32 [ 0, %19 ], [ %spec.select, %56 ], [ %spec.select, %59 ]
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 208
+  br label %62
 
-63:                                               ; preds = %add_next_timeout.exit, %sigpipe_restore.exit44
-  %64 = load ptr, ptr %62, align 8
-  %65 = load i64, ptr %6, align 8
-  %66 = load i32, ptr %10, align 8
-  %67 = call ptr @Curl_splaygetbest(i64 %65, i32 %66, ptr noundef %64, ptr noundef nonnull %5) #19
-  store ptr %67, ptr %62, align 8
-  %68 = load ptr, ptr %5, align 8
-  %.not40 = icmp eq ptr %68, null
-  br i1 %.not40, label %add_next_timeout.exit.thread, label %69
+62:                                               ; preds = %add_next_timeout.exit, %sigpipe_restore.exit44
+  %63 = load ptr, ptr %61, align 8
+  %64 = load i64, ptr %6, align 8
+  %65 = load i32, ptr %10, align 8
+  %66 = call ptr @Curl_splaygetbest(i64 %64, i32 %65, ptr noundef %63, ptr noundef nonnull %5) #19
+  store ptr %66, ptr %61, align 8
+  %67 = load ptr, ptr %5, align 8
+  %.not40 = icmp eq ptr %67, null
+  br i1 %.not40, label %add_next_timeout.exit.thread, label %68
 
-69:                                               ; preds = %63
-  %70 = getelementptr inbounds nuw i8, ptr %68, i64 48
-  %71 = load ptr, ptr %70, align 8
-  %72 = load i64, ptr %6, align 8
-  %73 = load i32, ptr %10, align 8
-  %74 = getelementptr inbounds nuw i8, ptr %71, i64 3608
-  %75 = getelementptr inbounds nuw i8, ptr %71, i64 3680
-  %76 = load ptr, ptr %75, align 8
-  %.not22.i = icmp eq ptr %76, null
+68:                                               ; preds = %62
+  %69 = getelementptr inbounds nuw i8, ptr %67, i64 48
+  %70 = load ptr, ptr %69, align 8
+  %71 = load i64, ptr %6, align 8
+  %72 = load i32, ptr %10, align 8
+  %73 = getelementptr inbounds nuw i8, ptr %70, i64 3608
+  %74 = getelementptr inbounds nuw i8, ptr %70, i64 3680
+  %75 = load ptr, ptr %74, align 8
+  %.not22.i = icmp eq ptr %75, null
   br i1 %.not22.i, label %._crit_edge.thread.i, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %69, %86
-  %.023.i = phi ptr [ %78, %86 ], [ %76, %69 ]
-  %77 = getelementptr inbounds nuw i8, ptr %.023.i, i64 16
-  %78 = load ptr, ptr %77, align 8
-  %79 = load ptr, ptr %.023.i, align 8
-  %80 = getelementptr inbounds nuw i8, ptr %79, i64 24
-  %81 = load i64, ptr %80, align 8
-  %82 = getelementptr inbounds nuw i8, ptr %79, i64 32
-  %83 = load i32, ptr %82, align 8
-  %84 = call i64 @Curl_timediff_us(i64 %81, i32 %83, i64 %72, i32 %73) #19
-  %85 = icmp slt i64 %84, 1
-  br i1 %85, label %86, label %._crit_edge.i
+.lr.ph.i:                                         ; preds = %68, %85
+  %.023.i = phi ptr [ %77, %85 ], [ %75, %68 ]
+  %76 = getelementptr inbounds nuw i8, ptr %.023.i, i64 16
+  %77 = load ptr, ptr %76, align 8
+  %78 = load ptr, ptr %.023.i, align 8
+  %79 = getelementptr inbounds nuw i8, ptr %78, i64 24
+  %80 = load i64, ptr %79, align 8
+  %81 = getelementptr inbounds nuw i8, ptr %78, i64 32
+  %82 = load i32, ptr %81, align 8
+  %83 = call i64 @Curl_timediff_us(i64 %80, i32 %82, i64 %71, i32 %72) #19
+  %84 = icmp slt i64 %83, 1
+  br i1 %84, label %85, label %._crit_edge.i
 
-86:                                               ; preds = %.lr.ph.i
-  call void @Curl_llist_remove(ptr noundef nonnull %75, ptr noundef nonnull %.023.i, ptr noundef null) #19
-  %.not.i45 = icmp eq ptr %78, null
+85:                                               ; preds = %.lr.ph.i
+  call void @Curl_llist_remove(ptr noundef nonnull %74, ptr noundef nonnull %.023.i, ptr noundef null) #19
+  %.not.i45 = icmp eq ptr %77, null
   br i1 %.not.i45, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !23
 
-._crit_edge.i:                                    ; preds = %86, %.lr.ph.i
-  %.pre.i = load ptr, ptr %75, align 8
-  %87 = icmp eq ptr %.pre.i, null
-  br i1 %87, label %._crit_edge.thread.i, label %89
+._crit_edge.i:                                    ; preds = %85, %.lr.ph.i
+  %.pre.i = load ptr, ptr %74, align 8
+  %86 = icmp eq ptr %.pre.i, null
+  br i1 %86, label %._crit_edge.thread.i, label %88
 
-._crit_edge.thread.i:                             ; preds = %._crit_edge.i, %69
-  store i64 0, ptr %74, align 8
-  %88 = getelementptr inbounds nuw i8, ptr %71, i64 3616
-  store i32 0, ptr %88, align 8
+._crit_edge.thread.i:                             ; preds = %._crit_edge.i, %68
+  store i64 0, ptr %73, align 8
+  %87 = getelementptr inbounds nuw i8, ptr %70, i64 3616
+  store i32 0, ptr %87, align 8
   br label %add_next_timeout.exit
 
-89:                                               ; preds = %._crit_edge.i
-  %90 = getelementptr inbounds nuw i8, ptr %79, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %74, ptr noundef nonnull align 8 dereferenceable(16) %90, i64 16, i1 false)
-  %91 = load ptr, ptr %62, align 8
-  %92 = getelementptr inbounds nuw i8, ptr %71, i64 3624
-  %93 = load i64, ptr %74, align 8
-  %94 = getelementptr inbounds nuw i8, ptr %71, i64 3616
-  %95 = load i32, ptr %94, align 8
-  %96 = call ptr @Curl_splayinsert(i64 %93, i32 %95, ptr noundef %91, ptr noundef nonnull %92) #19
-  store ptr %96, ptr %62, align 8
+88:                                               ; preds = %._crit_edge.i
+  %89 = getelementptr inbounds nuw i8, ptr %78, i64 24
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %73, ptr noundef nonnull align 8 dereferenceable(16) %89, i64 16, i1 false)
+  %90 = load ptr, ptr %61, align 8
+  %91 = getelementptr inbounds nuw i8, ptr %70, i64 3624
+  %92 = load i64, ptr %73, align 8
+  %93 = getelementptr inbounds nuw i8, ptr %70, i64 3616
+  %94 = load i32, ptr %93, align 8
+  %95 = call ptr @Curl_splayinsert(i64 %92, i32 %94, ptr noundef %90, ptr noundef nonnull %91) #19
+  store ptr %95, ptr %61, align 8
   br label %add_next_timeout.exit
 
-add_next_timeout.exit:                            ; preds = %89, %._crit_edge.thread.i
+add_next_timeout.exit:                            ; preds = %88, %._crit_edge.thread.i
   %.pr = load ptr, ptr %5, align 8
   %.not41 = icmp eq ptr %.pr, null
-  br i1 %.not41, label %add_next_timeout.exit.thread, label %63, !llvm.loop !24
+  br i1 %.not41, label %add_next_timeout.exit.thread, label %62, !llvm.loop !24
 
-add_next_timeout.exit.thread:                     ; preds = %63, %add_next_timeout.exit
-  %97 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %98 = load i32, ptr %97, align 4
-  store i32 %98, ptr %1, align 4
-  %99 = icmp slt i32 %.028, 1
-  br i1 %99, label %100, label %102
+add_next_timeout.exit.thread:                     ; preds = %62, %add_next_timeout.exit
+  %96 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %97 = load i32, ptr %96, align 4
+  store i32 %97, ptr %1, align 4
+  %98 = icmp slt i32 %.028, 1
+  br i1 %98, label %99, label %101
 
-100:                                              ; preds = %add_next_timeout.exit.thread
-  %101 = call i32 @Curl_update_timer(ptr noundef nonnull %0)
-  br label %102
+99:                                               ; preds = %add_next_timeout.exit.thread
+  %100 = call i32 @Curl_update_timer(ptr noundef nonnull %0)
+  br label %101
 
-102:                                              ; preds = %add_next_timeout.exit.thread, %100, %15, %2, %12
-  %.0 = phi i32 [ 1, %12 ], [ 1, %2 ], [ 8, %15 ], [ %101, %100 ], [ %.028, %add_next_timeout.exit.thread ]
+101:                                              ; preds = %add_next_timeout.exit.thread, %99, %15, %2, %12
+  %.0 = phi i32 [ 1, %12 ], [ 1, %2 ], [ 8, %15 ], [ %100, %99 ], [ %.028, %add_next_timeout.exit.thread ]
   ret i32 %.0
 }
 

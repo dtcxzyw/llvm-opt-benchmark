@@ -4127,7 +4127,7 @@ define internal i32 @ipmr_rtm_route(ptr nocapture noundef readonly %0, ptr nound
   %103 = getelementptr inbounds nuw i8, ptr %8, i64 1352
   %104 = load ptr, ptr %103, align 8
   %105 = icmp eq ptr %104, null
-  br i1 %105, label %.thread17, label %112
+  br i1 %105, label %.thread17, label %111
 
 .critedge.thread:                                 ; preds = %35
   %106 = getelementptr inbounds nuw i8, ptr %8, i64 1352
@@ -4138,74 +4138,72 @@ define internal i32 @ipmr_rtm_route(ptr nocapture noundef readonly %0, ptr nound
 .thread49:                                        ; preds = %.critedge.thread
   %109 = load i8, ptr %33, align 1
   %110 = icmp eq i8 %109, 17
-  %111 = zext i1 %110 to i32
+  br label %135
+
+111:                                              ; preds = %.critedge
+  %112 = load i8, ptr %33, align 1
+  %113 = icmp eq i8 %112, 17
+  %114 = icmp eq ptr %.lcssa26.ph, null
+  br i1 %114, label %134, label %115
+
+115:                                              ; preds = %111
+  %116 = getelementptr inbounds nuw i8, ptr %104, i64 3592
+  %117 = load volatile i32, ptr %116, align 8
+  %118 = getelementptr inbounds nuw i8, ptr %104, i64 112
+  %119 = zext i32 %117 to i64
+  br label %120
+
+120:                                              ; preds = %125, %115
+  %121 = phi i64 [ %122, %125 ], [ %119, %115 ]
+  %122 = add nsw i64 %121, -1
+  %123 = and i64 %122, 2147483648
+  %124 = icmp eq i64 %123, 0
+  br i1 %124, label %125, label %130
+
+125:                                              ; preds = %120
+  %126 = and i64 %122, 2147483647
+  %127 = getelementptr [32 x %struct.vif_device], ptr %118, i64 0, i64 %126
+  %128 = load volatile ptr, ptr %127, align 8
+  %129 = icmp eq ptr %128, %.lcssa26.ph
+  br i1 %129, label %130, label %120, !llvm.loop !74
+
+130:                                              ; preds = %125, %120
+  %131 = trunc i64 %122 to i16
+  store i16 %131, ptr %36, align 4
+  %132 = trunc i64 %122 to i32
+  %133 = and i32 %132, 65535
+  br i1 %102, label %135, label %138
+
+134:                                              ; preds = %111
+  br i1 %102, label %135, label %138
+
+135:                                              ; preds = %130, %.thread49, %134
+  %136 = phi ptr [ %107, %.thread49 ], [ %104, %134 ], [ %104, %130 ]
+  %137 = phi i1 [ %110, %.thread49 ], [ %113, %134 ], [ %113, %130 ]
   br label %138
 
-112:                                              ; preds = %.critedge
-  %113 = load i8, ptr %33, align 1
-  %114 = icmp eq i8 %113, 17
-  %115 = icmp eq ptr %.lcssa26.ph, null
-  br i1 %115, label %136, label %116
+138:                                              ; preds = %130, %134, %135
+  %139 = phi ptr [ %136, %135 ], [ %104, %134 ], [ %104, %130 ]
+  %140 = phi i1 [ %137, %135 ], [ %113, %134 ], [ %113, %130 ]
+  %141 = phi i32 [ -1, %135 ], [ 65535, %134 ], [ %133, %130 ]
+  %142 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %143 = load i16, ptr %142, align 4
+  %144 = icmp eq i16 %143, 24
+  br i1 %144, label %145, label %148
 
-116:                                              ; preds = %112
-  %117 = getelementptr inbounds nuw i8, ptr %104, i64 3592
-  %118 = load volatile i32, ptr %117, align 8
-  %119 = getelementptr inbounds nuw i8, ptr %104, i64 112
-  %120 = zext i32 %118 to i64
-  br label %121
-
-121:                                              ; preds = %126, %116
-  %122 = phi i64 [ %123, %126 ], [ %120, %116 ]
-  %123 = add nsw i64 %122, -1
-  %124 = and i64 %123, 2147483648
-  %125 = icmp eq i64 %124, 0
-  br i1 %125, label %126, label %131
-
-126:                                              ; preds = %121
-  %127 = and i64 %123, 2147483647
-  %128 = getelementptr [32 x %struct.vif_device], ptr %119, i64 0, i64 %127
-  %129 = load volatile ptr, ptr %128, align 8
-  %130 = icmp eq ptr %129, %.lcssa26.ph
-  br i1 %130, label %131, label %121, !llvm.loop !74
-
-131:                                              ; preds = %126, %121
-  %132 = trunc i64 %123 to i16
-  store i16 %132, ptr %36, align 4
-  %133 = trunc i64 %123 to i32
-  %134 = and i32 %133, 65535
-  %135 = zext i1 %114 to i32
-  br i1 %102, label %138, label %141
-
-136:                                              ; preds = %112
-  %137 = zext i1 %114 to i32
-  br i1 %102, label %138, label %141
-
-138:                                              ; preds = %131, %.thread49, %136
-  %139 = phi i32 [ %111, %.thread49 ], [ %137, %136 ], [ %135, %131 ]
-  %140 = phi ptr [ %107, %.thread49 ], [ %104, %136 ], [ %104, %131 ]
-  br label %141
-
-141:                                              ; preds = %131, %136, %138
-  %142 = phi i32 [ %139, %138 ], [ %137, %136 ], [ %135, %131 ]
-  %143 = phi ptr [ %140, %138 ], [ %104, %136 ], [ %104, %131 ]
-  %144 = phi i32 [ -1, %138 ], [ 65535, %136 ], [ %134, %131 ]
-  %145 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %146 = load i16, ptr %145, align 4
-  %147 = icmp eq i16 %146, 24
-  br i1 %147, label %148, label %150
-
-148:                                              ; preds = %141
-  %149 = call fastcc i32 @ipmr_mfc_add(ptr noundef %8, ptr noundef nonnull %143, ptr noundef nonnull %4, i32 noundef %142, i32 noundef %144)
+145:                                              ; preds = %138
+  %146 = zext i1 %140 to i32
+  %147 = call fastcc i32 @ipmr_mfc_add(ptr noundef %8, ptr noundef nonnull %139, ptr noundef nonnull %4, i32 noundef %146, i32 noundef %141)
   br label %.thread17
 
-150:                                              ; preds = %141
-  %151 = call fastcc i32 @ipmr_mfc_delete(ptr noundef nonnull %143, ptr noundef nonnull %4, i32 noundef %144), !range !9
+148:                                              ; preds = %138
+  %149 = call fastcc i32 @ipmr_mfc_delete(ptr noundef nonnull %139, ptr noundef nonnull %4, i32 noundef %141), !range !9
   br label %.thread17
 
-.thread17:                                        ; preds = %59, %._crit_edge, %75, %.lr.ph, %.critedge.thread, %3, %16, %20, %24, %28, %.critedge, %32, %11, %150, %148
-  %152 = phi i32 [ %149, %148 ], [ %151, %150 ], [ -22, %16 ], [ -22, %20 ], [ -22, %24 ], [ -22, %28 ], [ -2, %.critedge ], [ -22, %32 ], [ %14, %11 ], [ -22, %3 ], [ -2, %.critedge.thread ], [ -22, %.lr.ph ], [ -22, %75 ], [ -22, %._crit_edge ], [ -19, %59 ]
+.thread17:                                        ; preds = %59, %._crit_edge, %75, %.lr.ph, %.critedge.thread, %3, %16, %20, %24, %28, %.critedge, %32, %11, %148, %145
+  %150 = phi i32 [ %147, %145 ], [ %149, %148 ], [ -22, %16 ], [ -22, %20 ], [ -22, %24 ], [ -22, %28 ], [ -2, %.critedge ], [ -22, %32 ], [ %14, %11 ], [ -22, %3 ], [ -2, %.critedge.thread ], [ -22, %.lr.ph ], [ -22, %75 ], [ -22, %._crit_edge ], [ -19, %59 ]
   call void @llvm.lifetime.end.p0(i64 60, ptr nonnull %4) #17
-  ret i32 %152
+  ret i32 %150
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

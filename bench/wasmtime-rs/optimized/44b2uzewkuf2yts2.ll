@@ -7063,8 +7063,8 @@ define void @_ZN16wasmtime_runtime8instance14InstanceHandle10wasm_fault17he9a262
   br i1 %30, label %_ZN16wasmtime_runtime8instance8Instance10wasm_fault17h8b41f797171ba572E.exit, label %.lr.ph.i
 
 31:                                               ; preds = %.lr.ph.i
-  %.not.i = icmp eq i64 %.sroa.0.07.i, 1
-  br i1 %.not.i, label %32, label %33
+  %.not.i = icmp eq i64 %.sroa.0.07.i, 0
+  br i1 %.not.i, label %33, label %32
 
 32:                                               ; preds = %31
   call void @_ZN4core9panicking5panic17h44790a89027c670fE(ptr noalias noundef nonnull readonly align 1 @anon.5370cc5e4c9bad4a34a3533d54186f9f.97, i64 noundef 33, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.5370cc5e4c9bad4a34a3533d54186f9f.98) #26, !noalias !1078

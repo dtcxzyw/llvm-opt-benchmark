@@ -1689,7 +1689,7 @@ if.end:                                           ; preds = %if.then, %land.lhs.
   %conv16.pre-phi = phi i32 [ %conv13, %if.then ], [ %conv, %land.lhs.true ], [ %conv, %for.body ]
   %4 = phi i16 [ %3, %if.then ], [ %0, %land.lhs.true ], [ %0, %for.body ]
   %low.1 = phi i32 [ %conv13, %if.then ], [ %low.020, %land.lhs.true ], [ %low.020, %for.body ]
-  %cmp17 = icmp sgt i32 %high.021, %conv16.pre-phi
+  %cmp17 = icmp ugt i32 %high.021, %conv16.pre-phi
   br i1 %cmp17, label %land.lhs.true19, label %for.inc
 
 land.lhs.true19:                                  ; preds = %if.end
@@ -6615,7 +6615,7 @@ for.cond40.preheader:                             ; preds = %for.end
   %idxprom44 = sext i32 %ly.0.lcssa to i64
   %arrayidx45 = getelementptr inbounds [256 x float], ptr @inverse_db_table, i64 0, i64 %idxprom44
   %15 = zext nneg i32 %lx.0.lcssa to i64
-  %wide.trip.count = sext i32 %shr to i64
+  %wide.trip.count = zext i32 %shr to i64
   br label %for.body43
 
 for.body43:                                       ; preds = %for.cond40.preheader, %for.body43
@@ -8109,6 +8109,7 @@ for.body465.lr.ph:                                ; preds = %for.cond461.prehead
   %submap_floor.i = getelementptr inbounds nuw i8, ptr %arrayidx3, i64 17
   %floor_types.i = getelementptr inbounds nuw i8, ptr %f, i64 196
   %floor_config.i = getelementptr inbounds nuw i8, ptr %f, i64 328
+  %wide.trip.count.i461 = zext i32 %shr to i64
   %error.i.i472 = getelementptr inbounds nuw i8, ptr %f, i64 156
   br label %for.body465
 
@@ -8229,7 +8230,7 @@ for.body43.i:                                     ; preds = %for.body43.i, %for.
   %mul48.i = fmul float %161, %162
   store float %mul48.i, ptr %arrayidx47.i, align 4
   %indvars.iv.next36.i = add nuw nsw i64 %indvars.iv35.i, 1
-  %exitcond.not.i462 = icmp eq i64 %indvars.iv.next36.i, %conv473
+  %exitcond.not.i462 = icmp eq i64 %indvars.iv.next36.i, %wide.trip.count.i461
   br i1 %exitcond.not.i462, label %for.inc484, label %for.body43.i, !llvm.loop !66
 
 for.inc484:                                       ; preds = %for.body43.i, %for.end.i458, %if.then.i, %if.then469
@@ -10618,7 +10619,7 @@ land.lhs.true.i:                                  ; preds = %for.body.i1004
 if.end.i1008:                                     ; preds = %land.lhs.true.i, %for.body.i1004
   %low.1 = phi i8 [ %low.0, %for.body.i1004 ], [ %spec.select1044, %land.lhs.true.i ]
   %low.1.i = phi i32 [ %low.020.i, %for.body.i1004 ], [ %spec.select1045, %land.lhs.true.i ]
-  %cmp17.i = icmp sgt i32 %high.021.i, %conv.i1007
+  %cmp17.i = icmp ugt i32 %high.021.i, %conv.i1007
   br i1 %cmp17.i, label %land.lhs.true19.i, label %for.inc.i
 
 land.lhs.true19.i:                                ; preds = %if.end.i1008

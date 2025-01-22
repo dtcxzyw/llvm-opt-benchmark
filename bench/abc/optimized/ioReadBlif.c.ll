@@ -2346,9 +2346,8 @@ define internal fastcc ptr @Io_ReadBlifNetworkOne(ptr noundef nonnull initialize
   br label %90
 
 90:                                               ; preds = %.thread, %72
-  %.098 = phi i32 [ 0, %72 ], [ %1472, %.thread ]
-  %.096 = phi i32 [ 0, %72 ], [ %.197195200, %.thread ]
-  %.094 = phi i32 [ 0, %72 ], [ %.195196199, %.thread ]
+  %.098 = phi i32 [ 0, %72 ], [ %1471, %.thread ]
+  %.096 = phi i32 [ 0, %72 ], [ %.197196202, %.thread ]
   %.not105 = icmp eq i32 %.096, 0
   br i1 %.not105, label %91, label %.critedge
 
@@ -3025,8 +3024,8 @@ Vec_StrPush.exit130.i:                            ; preds = %406, %Vec_StrGrow.e
   %412 = getelementptr inbounds i8, ptr %408, i64 %411
   store i8 10, ptr %412, align 1
   %413 = tail call fastcc ptr @Io_ReadBlifGetTokens(ptr noundef nonnull %0)
-  %.not.i126 = icmp eq ptr %413, null
-  br i1 %.not.i126, label %.loopexit.i, label %.lr.ph.i, !llvm.loop !34
+  %.not.i127 = icmp eq ptr %413, null
+  br i1 %.not.i127, label %.loopexit.i, label %.lr.ph.i, !llvm.loop !34
 
 .loopexit.i:                                      ; preds = %Vec_StrPush.exit130.i, %.lr.ph.i, %Vec_StrPush.exit108.i, %.lr.ph167.i, %.preheader.i, %.preheader160.i
   %.080.i = phi ptr [ null, %.preheader.i ], [ null, %.preheader160.i ], [ null, %Vec_StrPush.exit108.i ], [ %136, %.lr.ph167.i ], [ null, %Vec_StrPush.exit130.i ], [ %250, %.lr.ph.i ]
@@ -3412,8 +3411,8 @@ Vec_StrPush.exit158.i:                            ; preds = %521, %Vec_StrGrow.e
 607:                                              ; preds = %586
   %608 = load ptr, ptr %13, align 8
   %609 = getelementptr i8, ptr %608, i64 124
-  %.val.i127 = load i32, ptr %609, align 4
-  %610 = icmp eq i32 %.val.i127, 0
+  %.val.i128 = load i32, ptr %609, align 4
+  %610 = icmp eq i32 %.val.i128, 0
   br i1 %610, label %611, label %618
 
 611:                                              ; preds = %607
@@ -3431,17 +3430,17 @@ Vec_StrPush.exit158.i:                            ; preds = %521, %Vec_StrGrow.e
 618:                                              ; preds = %611, %607
   %619 = tail call ptr @Mio_GateReadTwin(ptr noundef nonnull %590) #15
   %620 = tail call i32 @Io_ReadBlifReorderFormalNames(ptr noundef nonnull %104, ptr noundef nonnull %590, ptr noundef %619)
-  %.not.i128 = icmp eq i32 %620, 0
-  br i1 %.not.i128, label %623, label %.preheader.i129
+  %.not.i129 = icmp eq i32 %620, 0
+  br i1 %.not.i129, label %623, label %.preheader.i130
 
-.preheader.i129:                                  ; preds = %618
+.preheader.i130:                                  ; preds = %618
   %621 = load i32, ptr %573, align 4
   %622 = icmp sgt i32 %621, 2
   br i1 %622, label %.lr.ph.preheader.i, label %._crit_edge.i
 
-.lr.ph.preheader.i:                               ; preds = %.preheader.i129
-  %.pre.i130 = load ptr, ptr %105, align 8
-  br label %.lr.ph.i131
+.lr.ph.preheader.i:                               ; preds = %.preheader.i130
+  %.pre.i131 = load ptr, ptr %105, align 8
+  br label %.lr.ph.i132
 
 623:                                              ; preds = %618
   %624 = load ptr, ptr %73, align 8
@@ -3471,10 +3470,10 @@ Vec_StrPush.exit158.i:                            ; preds = %521, %Vec_StrGrow.e
   %639 = load i32, ptr %573, align 4
   %640 = sext i32 %639 to i64
   %641 = icmp slt i64 %indvars.iv.next.i, %640
-  br i1 %641, label %.lr.ph.i131, label %._crit_edge.i, !llvm.loop !35
+  br i1 %641, label %.lr.ph.i132, label %._crit_edge.i, !llvm.loop !35
 
-.lr.ph.i131:                                      ; preds = %638, %.lr.ph.preheader.i
-  %642 = phi ptr [ %.pre.i130, %.lr.ph.preheader.i ], [ %655, %638 ]
+.lr.ph.i132:                                      ; preds = %638, %.lr.ph.preheader.i
+  %642 = phi ptr [ %.pre.i131, %.lr.ph.preheader.i ], [ %655, %638 ]
   %indvars.iv.i = phi i64 [ 2, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %638 ]
   %643 = getelementptr inbounds nuw ptr, ptr %642, i64 %indvars.iv.i
   %644 = load ptr, ptr %643, align 8
@@ -3483,29 +3482,29 @@ Vec_StrPush.exit158.i:                            ; preds = %521, %Vec_StrGrow.e
   %647 = icmp sgt i32 %646, 0
   br i1 %647, label %.lr.ph.preheader.i.i, label %Io_ReadBlifCleanName.exit.i
 
-.lr.ph.preheader.i.i:                             ; preds = %.lr.ph.i131
-  %wide.trip.count.i.i132 = and i64 %645, 2147483647
-  br label %.lr.ph.i.i133
+.lr.ph.preheader.i.i:                             ; preds = %.lr.ph.i132
+  %wide.trip.count.i.i133 = and i64 %645, 2147483647
+  br label %.lr.ph.i.i134
 
-648:                                              ; preds = %.lr.ph.i.i133
-  %indvars.iv.next.i.i135 = add nuw nsw i64 %indvars.iv.i.i134, 1
-  %exitcond.not.i.i136 = icmp eq i64 %indvars.iv.next.i.i135, %wide.trip.count.i.i132
-  br i1 %exitcond.not.i.i136, label %Io_ReadBlifCleanName.exit.i, label %.lr.ph.i.i133, !llvm.loop !17
+648:                                              ; preds = %.lr.ph.i.i134
+  %indvars.iv.next.i.i136 = add nuw nsw i64 %indvars.iv.i.i135, 1
+  %exitcond.not.i.i137 = icmp eq i64 %indvars.iv.next.i.i136, %wide.trip.count.i.i133
+  br i1 %exitcond.not.i.i137, label %Io_ReadBlifCleanName.exit.i, label %.lr.ph.i.i134, !llvm.loop !17
 
-.lr.ph.i.i133:                                    ; preds = %648, %.lr.ph.preheader.i.i
-  %indvars.iv.i.i134 = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i135, %648 ]
-  %649 = getelementptr inbounds nuw i8, ptr %644, i64 %indvars.iv.i.i134
+.lr.ph.i.i134:                                    ; preds = %648, %.lr.ph.preheader.i.i
+  %indvars.iv.i.i135 = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i136, %648 ]
+  %649 = getelementptr inbounds nuw i8, ptr %644, i64 %indvars.iv.i.i135
   %650 = load i8, ptr %649, align 1
   %651 = icmp eq i8 %650, 61
   br i1 %651, label %652, label %648
 
-652:                                              ; preds = %.lr.ph.i.i133
-  %653 = getelementptr inbounds nuw i8, ptr %644, i64 %indvars.iv.i.i134
+652:                                              ; preds = %.lr.ph.i.i134
+  %653 = getelementptr inbounds nuw i8, ptr %644, i64 %indvars.iv.i.i135
   %654 = getelementptr inbounds nuw i8, ptr %653, i64 1
   br label %Io_ReadBlifCleanName.exit.i
 
-Io_ReadBlifCleanName.exit.i:                      ; preds = %648, %652, %.lr.ph.i131
-  %.0.i.i = phi ptr [ %654, %652 ], [ null, %.lr.ph.i131 ], [ null, %648 ]
+Io_ReadBlifCleanName.exit.i:                      ; preds = %648, %652, %.lr.ph.i132
+  %.0.i.i = phi ptr [ %654, %652 ], [ null, %.lr.ph.i132 ], [ null, %648 ]
   store ptr %.0.i.i, ptr %643, align 8
   %655 = load ptr, ptr %105, align 8
   %656 = getelementptr inbounds nuw ptr, ptr %655, i64 %indvars.iv.i
@@ -3532,7 +3531,7 @@ Io_ReadBlifCleanName.exit.i:                      ; preds = %648, %652, %.lr.ph.
   %668 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %663, ptr noundef nonnull @.str.69, ptr noundef %664, i32 noundef %661, ptr noundef nonnull %77) #15
   br label %Io_ReadBlifNetworkNames.exit
 
-._crit_edge.i:                                    ; preds = %638, %.preheader.i129
+._crit_edge.i:                                    ; preds = %638, %.preheader.i130
   %669 = tail call ptr @Mio_GateReadTwin(ptr noundef nonnull %590) #15
   %670 = icmp eq ptr %669, null
   %671 = load i32, ptr %573, align 4
@@ -3693,20 +3692,20 @@ default.unreachable.i:                            ; preds = %750
   %758 = getelementptr inbounds nuw i8, ptr %104, i64 4
   %759 = load i32, ptr %758, align 4
   %760 = icmp sgt i32 %759, 1
-  br i1 %760, label %.lr.ph.i139, label %Io_ReadBlifNetworkNames.exit
+  br i1 %760, label %.lr.ph.i140, label %Io_ReadBlifNetworkNames.exit
 
-.lr.ph.i139:                                      ; preds = %757, %.lr.ph.i139
-  %indvars.iv.i140 = phi i64 [ %indvars.iv.next.i141, %.lr.ph.i139 ], [ 1, %757 ]
+.lr.ph.i140:                                      ; preds = %757, %.lr.ph.i140
+  %indvars.iv.i141 = phi i64 [ %indvars.iv.next.i142, %.lr.ph.i140 ], [ 1, %757 ]
   %761 = load ptr, ptr %13, align 8
   %762 = load ptr, ptr %105, align 8
-  %763 = getelementptr inbounds nuw ptr, ptr %762, i64 %indvars.iv.i140
+  %763 = getelementptr inbounds nuw ptr, ptr %762, i64 %indvars.iv.i141
   %764 = load ptr, ptr %763, align 8
   %765 = tail call ptr @Io_ReadCreatePi(ptr noundef %761, ptr noundef %764) #15
-  %indvars.iv.next.i141 = add nuw nsw i64 %indvars.iv.i140, 1
+  %indvars.iv.next.i142 = add nuw nsw i64 %indvars.iv.i141, 1
   %766 = load i32, ptr %758, align 4
   %767 = sext i32 %766 to i64
-  %768 = icmp slt i64 %indvars.iv.next.i141, %767
-  br i1 %768, label %.lr.ph.i139, label %Io_ReadBlifNetworkNames.exit, !llvm.loop !36
+  %768 = icmp slt i64 %indvars.iv.next.i142, %767
+  br i1 %768, label %.lr.ph.i140, label %Io_ReadBlifNetworkNames.exit, !llvm.loop !36
 
 769:                                              ; preds = %755
   %770 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %107, ptr noundef nonnull dereferenceable(9) @.str.18) #17
@@ -3717,20 +3716,20 @@ default.unreachable.i:                            ; preds = %750
   %772 = getelementptr inbounds nuw i8, ptr %104, i64 4
   %773 = load i32, ptr %772, align 4
   %774 = icmp sgt i32 %773, 1
-  br i1 %774, label %.lr.ph.i143, label %Io_ReadBlifNetworkNames.exit
+  br i1 %774, label %.lr.ph.i144, label %Io_ReadBlifNetworkNames.exit
 
-.lr.ph.i143:                                      ; preds = %771, %.lr.ph.i143
-  %indvars.iv.i144 = phi i64 [ %indvars.iv.next.i145, %.lr.ph.i143 ], [ 1, %771 ]
+.lr.ph.i144:                                      ; preds = %771, %.lr.ph.i144
+  %indvars.iv.i145 = phi i64 [ %indvars.iv.next.i146, %.lr.ph.i144 ], [ 1, %771 ]
   %775 = load ptr, ptr %13, align 8
   %776 = load ptr, ptr %105, align 8
-  %777 = getelementptr inbounds nuw ptr, ptr %776, i64 %indvars.iv.i144
+  %777 = getelementptr inbounds nuw ptr, ptr %776, i64 %indvars.iv.i145
   %778 = load ptr, ptr %777, align 8
   %779 = tail call ptr @Io_ReadCreatePo(ptr noundef %775, ptr noundef %778) #15
-  %indvars.iv.next.i145 = add nuw nsw i64 %indvars.iv.i144, 1
+  %indvars.iv.next.i146 = add nuw nsw i64 %indvars.iv.i145, 1
   %780 = load i32, ptr %772, align 4
   %781 = sext i32 %780 to i64
-  %782 = icmp slt i64 %indvars.iv.next.i145, %781
-  br i1 %782, label %.lr.ph.i143, label %Io_ReadBlifNetworkNames.exit, !llvm.loop !37
+  %782 = icmp slt i64 %indvars.iv.next.i146, %781
+  br i1 %782, label %.lr.ph.i144, label %Io_ReadBlifNetworkNames.exit, !llvm.loop !37
 
 783:                                              ; preds = %769
   %784 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %107, ptr noundef nonnull dereferenceable(15) @.str.19) #17
@@ -3742,8 +3741,8 @@ default.unreachable.i:                            ; preds = %750
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11)
   %786 = getelementptr inbounds nuw i8, ptr %104, i64 4
   %787 = load i32, ptr %786, align 4
-  %.not.i146 = icmp eq i32 %787, 4
-  br i1 %.not.i146, label %798, label %788
+  %.not.i147 = icmp eq i32 %787, 4
+  br i1 %.not.i147, label %798, label %788
 
 788:                                              ; preds = %785
   %789 = load ptr, ptr %73, align 8
@@ -3842,8 +3841,8 @@ default.unreachable.i:                            ; preds = %750
 
 850:                                              ; preds = %830
   %851 = getelementptr i8, ptr %802, i64 28
-  %.val.i148 = load i32, ptr %851, align 4
-  %852 = icmp sgt i32 %.val.i148, 0
+  %.val.i149 = load i32, ptr %851, align 4
+  %852 = icmp sgt i32 %.val.i149, 0
   br i1 %852, label %853, label %Io_ReadBlifNetworkInputArrival.exit
 
 853:                                              ; preds = %850
@@ -3884,8 +3883,8 @@ default.unreachable.i:                            ; preds = %750
   br i1 %876, label %877, label %.Vec_IntGrow.exit10_crit_edge.i.i
 
 .Vec_IntGrow.exit10_crit_edge.i.i:                ; preds = %853
-  %.phi.trans.insert.i.i149 = getelementptr inbounds nuw i8, ptr %865, i64 8
-  %.pre.i.i150 = load ptr, ptr %.phi.trans.insert.i.i149, align 8
+  %.phi.trans.insert.i.i150 = getelementptr inbounds nuw i8, ptr %865, i64 8
+  %.pre.i.i151 = load ptr, ptr %.phi.trans.insert.i.i150, align 8
   br label %Vec_IntPush.exit.i
 
 877:                                              ; preds = %853
@@ -3895,8 +3894,8 @@ default.unreachable.i:                            ; preds = %750
 879:                                              ; preds = %877
   %880 = getelementptr inbounds nuw i8, ptr %865, i64 8
   %881 = load ptr, ptr %880, align 8
-  %.not9.i.i.i152 = icmp eq ptr %881, null
-  br i1 %.not9.i.i.i152, label %884, label %882
+  %.not9.i.i.i153 = icmp eq ptr %881, null
+  br i1 %.not9.i.i.i153, label %884, label %882
 
 882:                                              ; preds = %879
   %883 = tail call dereferenceable_or_null(64) ptr @realloc(ptr noundef nonnull %881, i64 noundef 64) #18
@@ -3916,10 +3915,10 @@ Vec_IntGrow.exit.i.i:                             ; preds = %884, %882
   %888 = shl nuw nsw i32 %874, 1
   %889 = getelementptr inbounds nuw i8, ptr %865, i64 8
   %890 = load ptr, ptr %889, align 8
-  %.not9.i9.i.i151 = icmp eq ptr %890, null
+  %.not9.i9.i.i152 = icmp eq ptr %890, null
   %891 = zext nneg i32 %888 to i64
   %892 = shl nuw nsw i64 %891, 2
-  br i1 %.not9.i9.i.i151, label %895, label %893
+  br i1 %.not9.i9.i.i152, label %895, label %893
 
 893:                                              ; preds = %887
   %894 = tail call ptr @realloc(ptr noundef nonnull %890, i64 noundef %892) #18
@@ -3936,7 +3935,7 @@ Vec_IntGrow.exit.i.i:                             ; preds = %884, %882
   br label %Vec_IntPush.exit.i
 
 Vec_IntPush.exit.i:                               ; preds = %897, %Vec_IntGrow.exit.i.i, %.Vec_IntGrow.exit10_crit_edge.i.i
-  %899 = phi ptr [ %.pre.i.i150, %.Vec_IntGrow.exit10_crit_edge.i.i ], [ %898, %897 ], [ %886, %Vec_IntGrow.exit.i.i ]
+  %899 = phi ptr [ %.pre.i.i151, %.Vec_IntGrow.exit10_crit_edge.i.i ], [ %898, %897 ], [ %886, %Vec_IntGrow.exit.i.i ]
   %900 = load i32, ptr %873, align 4
   %901 = add nsw i32 %900, 1
   store i32 %901, ptr %873, align 4
@@ -4080,7 +4079,7 @@ Vec_IntPush.exit54.i:                             ; preds = %961, %Vec_IntGrow.e
   br label %Io_ReadBlifNetworkInputArrival.exit
 
 Io_ReadBlifNetworkInputArrival.exit:              ; preds = %794, %796, %815, %817, %846, %848, %850, %Vec_IntPush.exit54.i
-  %.0.i147 = phi i32 [ 0, %Vec_IntPush.exit54.i ], [ 0, %850 ], [ 1, %794 ], [ 1, %796 ], [ 1, %815 ], [ 1, %817 ], [ 1, %846 ], [ 1, %848 ]
+  %.0.i148 = phi i32 [ 0, %Vec_IntPush.exit54.i ], [ 0, %850 ], [ 1, %794 ], [ 1, %796 ], [ 1, %815 ], [ 1, %817 ], [ 1, %846 ], [ 1, %848 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11)
   br label %Io_ReadBlifNetworkNames.exit
@@ -4095,8 +4094,8 @@ Io_ReadBlifNetworkInputArrival.exit:              ; preds = %794, %796, %815, %8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
   %971 = getelementptr inbounds nuw i8, ptr %104, i64 4
   %972 = load i32, ptr %971, align 4
-  %.not.i153 = icmp eq i32 %972, 4
-  br i1 %.not.i153, label %983, label %973
+  %.not.i154 = icmp eq i32 %972, 4
+  br i1 %.not.i154, label %983, label %973
 
 973:                                              ; preds = %970
   %974 = load ptr, ptr %73, align 8
@@ -4165,8 +4164,8 @@ Io_ReadBlifNetworkInputArrival.exit:              ; preds = %794, %796, %815, %8
 1015:                                             ; preds = %1004
   %1016 = load ptr, ptr %9, align 8
   %1017 = load i8, ptr %1016, align 1
-  %.not33.i155 = icmp eq i8 %1017, 0
-  br i1 %.not33.i155, label %1035, label %1018
+  %.not33.i156 = icmp eq i8 %1017, 0
+  br i1 %.not33.i156, label %1035, label %1018
 
 1018:                                             ; preds = %1015, %1004
   %1019 = load ptr, ptr %73, align 8
@@ -4195,16 +4194,16 @@ Io_ReadBlifNetworkInputArrival.exit:              ; preds = %794, %796, %815, %8
 
 1035:                                             ; preds = %1015
   %1036 = load ptr, ptr %13, align 8
-  %.val35.i156 = load ptr, ptr %987, align 8
+  %.val35.i157 = load ptr, ptr %987, align 8
   %1037 = getelementptr i8, ptr %987, i64 48
-  %.val36.i157 = load ptr, ptr %1037, align 8
-  %1038 = getelementptr i8, ptr %.val35.i156, i64 32
-  %.val35.val.i158 = load ptr, ptr %1038, align 8
-  %.val36.val.i159 = load i32, ptr %.val36.i157, align 4
-  %1039 = getelementptr i8, ptr %.val35.val.i158, i64 8
-  %.val35.val.val.i160 = load ptr, ptr %1039, align 8
-  %1040 = sext i32 %.val36.val.i159 to i64
-  %1041 = getelementptr inbounds ptr, ptr %.val35.val.val.i160, i64 %1040
+  %.val36.i158 = load ptr, ptr %1037, align 8
+  %1038 = getelementptr i8, ptr %.val35.i157, i64 32
+  %.val35.val.i159 = load ptr, ptr %1038, align 8
+  %.val36.val.i160 = load i32, ptr %.val36.i158, align 4
+  %1039 = getelementptr i8, ptr %.val35.val.i159, i64 8
+  %.val35.val.val.i161 = load ptr, ptr %1039, align 8
+  %1040 = sext i32 %.val36.val.i160 to i64
+  %1041 = getelementptr inbounds ptr, ptr %.val35.val.val.i161, i64 %1040
   %1042 = load ptr, ptr %1041, align 8
   %1043 = getelementptr inbounds nuw i8, ptr %1042, i64 16
   %1044 = load i32, ptr %1043, align 8
@@ -4212,9 +4211,9 @@ Io_ReadBlifNetworkInputArrival.exit:              ; preds = %794, %796, %815, %8
   %1046 = fptrunc double %1012 to float
   tail call void @Abc_NtkTimeSetRequired(ptr noundef %1036, i32 noundef %1044, float noundef %1045, float noundef %1046) #15
   %1047 = load ptr, ptr %87, align 8
-  %.val.i161 = load ptr, ptr %987, align 8
+  %.val.i162 = load ptr, ptr %987, align 8
   %.val34.i = load ptr, ptr %1037, align 8
-  %1048 = getelementptr i8, ptr %.val.i161, i64 32
+  %1048 = getelementptr i8, ptr %.val.i162, i64 32
   %.val.val.i = load ptr, ptr %1048, align 8
   %.val34.val.i = load i32, ptr %.val34.i, align 4
   %1049 = getelementptr i8, ptr %.val.val.i, i64 8
@@ -4228,12 +4227,12 @@ Io_ReadBlifNetworkInputArrival.exit:              ; preds = %794, %796, %815, %8
   %1056 = load i32, ptr %1055, align 4
   %1057 = load i32, ptr %1047, align 8
   %1058 = icmp eq i32 %1056, %1057
-  br i1 %1058, label %1059, label %.Vec_IntGrow.exit10_crit_edge.i.i162
+  br i1 %1058, label %1059, label %.Vec_IntGrow.exit10_crit_edge.i.i163
 
-.Vec_IntGrow.exit10_crit_edge.i.i162:             ; preds = %1035
-  %.phi.trans.insert.i.i163 = getelementptr inbounds nuw i8, ptr %1047, i64 8
-  %.pre.i.i164 = load ptr, ptr %.phi.trans.insert.i.i163, align 8
-  br label %Vec_IntPush.exit.i165
+.Vec_IntGrow.exit10_crit_edge.i.i163:             ; preds = %1035
+  %.phi.trans.insert.i.i164 = getelementptr inbounds nuw i8, ptr %1047, i64 8
+  %.pre.i.i165 = load ptr, ptr %.phi.trans.insert.i.i164, align 8
+  br label %Vec_IntPush.exit.i166
 
 1059:                                             ; preds = %1035
   %1060 = icmp slt i32 %1056, 16
@@ -4242,31 +4241,31 @@ Io_ReadBlifNetworkInputArrival.exit:              ; preds = %794, %796, %815, %8
 1061:                                             ; preds = %1059
   %1062 = getelementptr inbounds nuw i8, ptr %1047, i64 8
   %1063 = load ptr, ptr %1062, align 8
-  %.not9.i.i.i167 = icmp eq ptr %1063, null
-  br i1 %.not9.i.i.i167, label %1066, label %1064
+  %.not9.i.i.i168 = icmp eq ptr %1063, null
+  br i1 %.not9.i.i.i168, label %1066, label %1064
 
 1064:                                             ; preds = %1061
   %1065 = tail call dereferenceable_or_null(64) ptr @realloc(ptr noundef nonnull %1063, i64 noundef 64) #18
-  br label %Vec_IntGrow.exit.i.i168
+  br label %Vec_IntGrow.exit.i.i169
 
 1066:                                             ; preds = %1061
   %1067 = tail call noalias dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #16
-  br label %Vec_IntGrow.exit.i.i168
+  br label %Vec_IntGrow.exit.i.i169
 
-Vec_IntGrow.exit.i.i168:                          ; preds = %1066, %1064
+Vec_IntGrow.exit.i.i169:                          ; preds = %1066, %1064
   %1068 = phi ptr [ %1065, %1064 ], [ %1067, %1066 ]
   store ptr %1068, ptr %1062, align 8
   store i32 16, ptr %1047, align 8
-  br label %Vec_IntPush.exit.i165
+  br label %Vec_IntPush.exit.i166
 
 1069:                                             ; preds = %1059
   %1070 = shl nuw nsw i32 %1056, 1
   %1071 = getelementptr inbounds nuw i8, ptr %1047, i64 8
   %1072 = load ptr, ptr %1071, align 8
-  %.not9.i9.i.i166 = icmp eq ptr %1072, null
+  %.not9.i9.i.i167 = icmp eq ptr %1072, null
   %1073 = zext nneg i32 %1070 to i64
   %1074 = shl nuw nsw i64 %1073, 2
-  br i1 %.not9.i9.i.i166, label %1077, label %1075
+  br i1 %.not9.i9.i.i167, label %1077, label %1075
 
 1075:                                             ; preds = %1069
   %1076 = tail call ptr @realloc(ptr noundef nonnull %1072, i64 noundef %1074) #18
@@ -4280,10 +4279,10 @@ Vec_IntGrow.exit.i.i168:                          ; preds = %1066, %1064
   %1080 = phi ptr [ %1076, %1075 ], [ %1078, %1077 ]
   store ptr %1080, ptr %1071, align 8
   store i32 %1070, ptr %1047, align 8
-  br label %Vec_IntPush.exit.i165
+  br label %Vec_IntPush.exit.i166
 
-Vec_IntPush.exit.i165:                            ; preds = %1079, %Vec_IntGrow.exit.i.i168, %.Vec_IntGrow.exit10_crit_edge.i.i162
-  %1081 = phi ptr [ %.pre.i.i164, %.Vec_IntGrow.exit10_crit_edge.i.i162 ], [ %1080, %1079 ], [ %1068, %Vec_IntGrow.exit.i.i168 ]
+Vec_IntPush.exit.i166:                            ; preds = %1079, %Vec_IntGrow.exit.i.i169, %.Vec_IntGrow.exit10_crit_edge.i.i163
+  %1081 = phi ptr [ %.pre.i.i165, %.Vec_IntGrow.exit10_crit_edge.i.i163 ], [ %1080, %1079 ], [ %1068, %Vec_IntGrow.exit.i.i169 ]
   %1082 = load i32, ptr %1055, align 4
   %1083 = add nsw i32 %1082, 1
   store i32 %1083, ptr %1055, align 4
@@ -4297,12 +4296,12 @@ Vec_IntPush.exit.i165:                            ; preds = %1079, %Vec_IntGrow.
   %1090 = icmp eq i32 %1088, %1089
   br i1 %1090, label %1091, label %.Vec_IntGrow.exit10_crit_edge.i39.i
 
-.Vec_IntGrow.exit10_crit_edge.i39.i:              ; preds = %Vec_IntPush.exit.i165
+.Vec_IntGrow.exit10_crit_edge.i39.i:              ; preds = %Vec_IntPush.exit.i166
   %.phi.trans.insert.i40.i = getelementptr inbounds nuw i8, ptr %1086, i64 8
   %.pre.i41.i = load ptr, ptr %.phi.trans.insert.i40.i, align 8
   br label %Vec_IntPush.exit45.i
 
-1091:                                             ; preds = %Vec_IntPush.exit.i165
+1091:                                             ; preds = %Vec_IntPush.exit.i166
   %1092 = icmp slt i32 %1088, 16
   br i1 %1092, label %1093, label %1101
 
@@ -4427,7 +4426,7 @@ Vec_IntPush.exit52.i:                             ; preds = %1143, %Vec_IntGrow.
   br label %Io_ReadBlifNetworkOutputRequired.exit
 
 Io_ReadBlifNetworkOutputRequired.exit:            ; preds = %979, %981, %1000, %1002, %1031, %1033, %Vec_IntPush.exit52.i
-  %.0.i154 = phi i32 [ 0, %Vec_IntPush.exit52.i ], [ 1, %979 ], [ 1, %981 ], [ 1, %1000 ], [ 1, %1002 ], [ 1, %1031 ], [ 1, %1033 ]
+  %.0.i155 = phi i32 [ 0, %Vec_IntPush.exit52.i ], [ 1, %979 ], [ 1, %981 ], [ 1, %1000 ], [ 1, %1002 ], [ 1, %1031 ], [ 1, %1033 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
   br label %Io_ReadBlifNetworkNames.exit
@@ -4442,8 +4441,8 @@ Io_ReadBlifNetworkOutputRequired.exit:            ; preds = %979, %981, %1000, %
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
   %1153 = getelementptr inbounds nuw i8, ptr %104, i64 4
   %1154 = load i32, ptr %1153, align 4
-  %.not.i169 = icmp eq i32 %1154, 3
-  br i1 %.not.i169, label %1165, label %1155
+  %.not.i170 = icmp eq i32 %1154, 3
+  br i1 %.not.i170, label %1165, label %1155
 
 1155:                                             ; preds = %1152
   %1156 = load ptr, ptr %73, align 8
@@ -4517,7 +4516,7 @@ Io_ReadBlifNetworkOutputRequired.exit:            ; preds = %979, %981, %1000, %
   br label %Io_ReadBlifNetworkDefaultInputArrival.exit
 
 Io_ReadBlifNetworkDefaultInputArrival.exit:       ; preds = %1161, %1163, %1191, %1193, %1195
-  %.0.i170 = phi i32 [ 0, %1195 ], [ 1, %1161 ], [ 1, %1163 ], [ 1, %1191 ], [ 1, %1193 ]
+  %.0.i171 = phi i32 [ 0, %1195 ], [ 1, %1161 ], [ 1, %1163 ], [ 1, %1191 ], [ 1, %1193 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   br label %Io_ReadBlifNetworkNames.exit
@@ -4532,8 +4531,8 @@ Io_ReadBlifNetworkDefaultInputArrival.exit:       ; preds = %1161, %1163, %1191,
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   %1201 = getelementptr inbounds nuw i8, ptr %104, i64 4
   %1202 = load i32, ptr %1201, align 4
-  %.not.i171 = icmp eq i32 %1202, 3
-  br i1 %.not.i171, label %1213, label %1203
+  %.not.i172 = icmp eq i32 %1202, 3
+  br i1 %.not.i172, label %1213, label %1203
 
 1203:                                             ; preds = %1200
   %1204 = load ptr, ptr %73, align 8
@@ -4564,14 +4563,14 @@ Io_ReadBlifNetworkDefaultInputArrival.exit:       ; preds = %1161, %1163, %1191,
   %1220 = call double @strtod(ptr noundef %1219, ptr noundef nonnull %5) #15
   %1221 = load ptr, ptr %4, align 8
   %1222 = load i8, ptr %1221, align 1
-  %.not18.i173 = icmp eq i8 %1222, 0
-  br i1 %.not18.i173, label %1223, label %1226
+  %.not18.i174 = icmp eq i8 %1222, 0
+  br i1 %.not18.i174, label %1223, label %1226
 
 1223:                                             ; preds = %1213
   %1224 = load ptr, ptr %5, align 8
   %1225 = load i8, ptr %1224, align 1
-  %.not19.i174 = icmp eq i8 %1225, 0
-  br i1 %.not19.i174, label %1243, label %1226
+  %.not19.i175 = icmp eq i8 %1225, 0
+  br i1 %.not19.i175, label %1243, label %1226
 
 1226:                                             ; preds = %1223, %1213
   %1227 = load ptr, ptr %73, align 8
@@ -4607,7 +4606,7 @@ Io_ReadBlifNetworkDefaultInputArrival.exit:       ; preds = %1161, %1163, %1191,
   br label %Io_ReadBlifNetworkDefaultOutputRequired.exit
 
 Io_ReadBlifNetworkDefaultOutputRequired.exit:     ; preds = %1209, %1211, %1239, %1241, %1243
-  %.0.i172 = phi i32 [ 0, %1243 ], [ 1, %1209 ], [ 1, %1211 ], [ 1, %1239 ], [ 1, %1241 ]
+  %.0.i173 = phi i32 [ 0, %1243 ], [ 1, %1209 ], [ 1, %1211 ], [ 1, %1239 ], [ 1, %1241 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   br label %Io_ReadBlifNetworkNames.exit
@@ -4622,8 +4621,8 @@ Io_ReadBlifNetworkDefaultOutputRequired.exit:     ; preds = %1209, %1211, %1239,
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   %1249 = getelementptr inbounds nuw i8, ptr %104, i64 4
   %1250 = load i32, ptr %1249, align 4
-  %.not.i175 = icmp eq i32 %1250, 4
-  br i1 %.not.i175, label %1261, label %1251
+  %.not.i176 = icmp eq i32 %1250, 4
+  br i1 %.not.i176, label %1261, label %1251
 
 1251:                                             ; preds = %1248
   %1252 = load ptr, ptr %73, align 8
@@ -4723,16 +4722,16 @@ Io_ReadBlifNetworkDefaultOutputRequired.exit:     ; preds = %1209, %1211, %1239,
 1313:                                             ; preds = %1293
   %1314 = load ptr, ptr %80, align 8
   %1315 = load ptr, ptr %13, align 8
-  %.val.i177 = load ptr, ptr %1265, align 8
+  %.val.i178 = load ptr, ptr %1265, align 8
   %1316 = getelementptr i8, ptr %1265, i64 32
   %.val32.i = load ptr, ptr %1316, align 8
-  %1317 = getelementptr i8, ptr %.val.i177, i64 32
-  %.val.val.i178 = load ptr, ptr %1317, align 8
+  %1317 = getelementptr i8, ptr %.val.i178, i64 32
+  %.val.val.i179 = load ptr, ptr %1317, align 8
   %.val32.val.i = load i32, ptr %.val32.i, align 4
-  %1318 = getelementptr i8, ptr %.val.val.i178, i64 8
-  %.val.val.val.i179 = load ptr, ptr %1318, align 8
+  %1318 = getelementptr i8, ptr %.val.val.i179, i64 8
+  %.val.val.val.i180 = load ptr, ptr %1318, align 8
   %1319 = sext i32 %.val32.val.i to i64
-  %1320 = getelementptr inbounds ptr, ptr %.val.val.val.i179, i64 %1319
+  %1320 = getelementptr inbounds ptr, ptr %.val.val.val.i180, i64 %1319
   %1321 = load ptr, ptr %1320, align 8
   %1322 = getelementptr inbounds nuw i8, ptr %1321, i64 16
   %1323 = load i32, ptr %1322, align 8
@@ -4748,28 +4747,28 @@ Io_ReadBlifNetworkDefaultOutputRequired.exit:     ; preds = %1209, %1211, %1239,
   %1330 = getelementptr i8, ptr %.val.i.i, i64 4
   %.val.val.i.i = load i32, ptr %1330, align 4
   %1331 = icmp sgt i32 %.val.val.i.i, 0
-  br i1 %1331, label %.lr.ph.i.i187, label %Io_ReadFindCiId.exit.i
+  br i1 %1331, label %.lr.ph.i.i188, label %Io_ReadFindCiId.exit.i
 
-.lr.ph.i.i187:                                    ; preds = %1313
+.lr.ph.i.i188:                                    ; preds = %1313
   %1332 = getelementptr i8, ptr %.val.i.i, i64 8
   %.val9.val.i.i = load ptr, ptr %1332, align 8
-  %wide.trip.count.i.i188 = zext nneg i32 %.val.val.i.i to i64
+  %wide.trip.count.i.i189 = zext nneg i32 %.val.val.i.i to i64
   br label %1333
 
-1333:                                             ; preds = %1337, %.lr.ph.i.i187
-  %indvars.iv.i.i189 = phi i64 [ 0, %.lr.ph.i.i187 ], [ %indvars.iv.next.i.i190, %1337 ]
-  %1334 = getelementptr inbounds nuw ptr, ptr %.val9.val.i.i, i64 %indvars.iv.i.i189
+1333:                                             ; preds = %1337, %.lr.ph.i.i188
+  %indvars.iv.i.i190 = phi i64 [ 0, %.lr.ph.i.i188 ], [ %indvars.iv.next.i.i191, %1337 ]
+  %1334 = getelementptr inbounds nuw ptr, ptr %.val9.val.i.i, i64 %indvars.iv.i.i190
   %1335 = load ptr, ptr %1334, align 8
   %1336 = icmp eq ptr %1335, %1328
   br i1 %1336, label %.critedge.loopexit.split.loop.exit14.i.i, label %1337
 
 1337:                                             ; preds = %1333
-  %indvars.iv.next.i.i190 = add nuw nsw i64 %indvars.iv.i.i189, 1
-  %exitcond.not.i.i191 = icmp eq i64 %indvars.iv.next.i.i190, %wide.trip.count.i.i188
-  br i1 %exitcond.not.i.i191, label %Io_ReadFindCiId.exit.i, label %1333, !llvm.loop !14
+  %indvars.iv.next.i.i191 = add nuw nsw i64 %indvars.iv.i.i190, 1
+  %exitcond.not.i.i192 = icmp eq i64 %indvars.iv.next.i.i191, %wide.trip.count.i.i189
+  br i1 %exitcond.not.i.i192, label %Io_ReadFindCiId.exit.i, label %1333, !llvm.loop !14
 
 .critedge.loopexit.split.loop.exit14.i.i:         ; preds = %1333
-  %1338 = trunc nuw nsw i64 %indvars.iv.i.i189 to i32
+  %1338 = trunc nuw nsw i64 %indvars.iv.i.i190 to i32
   br label %Io_ReadFindCiId.exit.i
 
 Io_ReadFindCiId.exit.i:                           ; preds = %1337, %.critedge.loopexit.split.loop.exit14.i.i, %1313
@@ -4778,12 +4777,12 @@ Io_ReadFindCiId.exit.i:                           ; preds = %1337, %.critedge.lo
   %1340 = load i32, ptr %1339, align 4
   %1341 = load i32, ptr %1314, align 8
   %1342 = icmp eq i32 %1340, %1341
-  br i1 %1342, label %1343, label %.Vec_IntGrow.exit10_crit_edge.i.i180
+  br i1 %1342, label %1343, label %.Vec_IntGrow.exit10_crit_edge.i.i181
 
-.Vec_IntGrow.exit10_crit_edge.i.i180:             ; preds = %Io_ReadFindCiId.exit.i
-  %.phi.trans.insert.i.i181 = getelementptr inbounds nuw i8, ptr %1314, i64 8
-  %.pre.i.i182 = load ptr, ptr %.phi.trans.insert.i.i181, align 8
-  br label %Vec_IntPush.exit.i183
+.Vec_IntGrow.exit10_crit_edge.i.i181:             ; preds = %Io_ReadFindCiId.exit.i
+  %.phi.trans.insert.i.i182 = getelementptr inbounds nuw i8, ptr %1314, i64 8
+  %.pre.i.i183 = load ptr, ptr %.phi.trans.insert.i.i182, align 8
+  br label %Vec_IntPush.exit.i184
 
 1343:                                             ; preds = %Io_ReadFindCiId.exit.i
   %1344 = icmp slt i32 %1340, 16
@@ -4792,31 +4791,31 @@ Io_ReadFindCiId.exit.i:                           ; preds = %1337, %.critedge.lo
 1345:                                             ; preds = %1343
   %1346 = getelementptr inbounds nuw i8, ptr %1314, i64 8
   %1347 = load ptr, ptr %1346, align 8
-  %.not9.i.i.i185 = icmp eq ptr %1347, null
-  br i1 %.not9.i.i.i185, label %1350, label %1348
+  %.not9.i.i.i186 = icmp eq ptr %1347, null
+  br i1 %.not9.i.i.i186, label %1350, label %1348
 
 1348:                                             ; preds = %1345
   %1349 = tail call dereferenceable_or_null(64) ptr @realloc(ptr noundef nonnull %1347, i64 noundef 64) #18
-  br label %Vec_IntGrow.exit.i.i186
+  br label %Vec_IntGrow.exit.i.i187
 
 1350:                                             ; preds = %1345
   %1351 = tail call noalias dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #16
-  br label %Vec_IntGrow.exit.i.i186
+  br label %Vec_IntGrow.exit.i.i187
 
-Vec_IntGrow.exit.i.i186:                          ; preds = %1350, %1348
+Vec_IntGrow.exit.i.i187:                          ; preds = %1350, %1348
   %1352 = phi ptr [ %1349, %1348 ], [ %1351, %1350 ]
   store ptr %1352, ptr %1346, align 8
   store i32 16, ptr %1314, align 8
-  br label %Vec_IntPush.exit.i183
+  br label %Vec_IntPush.exit.i184
 
 1353:                                             ; preds = %1343
   %1354 = shl nuw nsw i32 %1340, 1
   %1355 = getelementptr inbounds nuw i8, ptr %1314, i64 8
   %1356 = load ptr, ptr %1355, align 8
-  %.not9.i9.i.i184 = icmp eq ptr %1356, null
+  %.not9.i9.i.i185 = icmp eq ptr %1356, null
   %1357 = zext nneg i32 %1354 to i64
   %1358 = shl nuw nsw i64 %1357, 2
-  br i1 %.not9.i9.i.i184, label %1361, label %1359
+  br i1 %.not9.i9.i.i185, label %1361, label %1359
 
 1359:                                             ; preds = %1353
   %1360 = tail call ptr @realloc(ptr noundef nonnull %1356, i64 noundef %1358) #18
@@ -4830,10 +4829,10 @@ Vec_IntGrow.exit.i.i186:                          ; preds = %1350, %1348
   %1364 = phi ptr [ %1360, %1359 ], [ %1362, %1361 ]
   store ptr %1364, ptr %1355, align 8
   store i32 %1354, ptr %1314, align 8
-  br label %Vec_IntPush.exit.i183
+  br label %Vec_IntPush.exit.i184
 
-Vec_IntPush.exit.i183:                            ; preds = %1363, %Vec_IntGrow.exit.i.i186, %.Vec_IntGrow.exit10_crit_edge.i.i180
-  %1365 = phi ptr [ %.pre.i.i182, %.Vec_IntGrow.exit10_crit_edge.i.i180 ], [ %1364, %1363 ], [ %1352, %Vec_IntGrow.exit.i.i186 ]
+Vec_IntPush.exit.i184:                            ; preds = %1363, %Vec_IntGrow.exit.i.i187, %.Vec_IntGrow.exit10_crit_edge.i.i181
+  %1365 = phi ptr [ %.pre.i.i183, %.Vec_IntGrow.exit10_crit_edge.i.i181 ], [ %1364, %1363 ], [ %1352, %Vec_IntGrow.exit.i.i187 ]
   %1366 = load i32, ptr %1339, align 4
   %1367 = add nsw i32 %1366, 1
   store i32 %1367, ptr %1339, align 4
@@ -4848,12 +4847,12 @@ Vec_IntPush.exit.i183:                            ; preds = %1363, %Vec_IntGrow.
   %1375 = icmp eq i32 %1373, %1374
   br i1 %1375, label %1376, label %.Vec_IntGrow.exit10_crit_edge.i36.i
 
-.Vec_IntGrow.exit10_crit_edge.i36.i:              ; preds = %Vec_IntPush.exit.i183
+.Vec_IntGrow.exit10_crit_edge.i36.i:              ; preds = %Vec_IntPush.exit.i184
   %.phi.trans.insert.i37.i = getelementptr inbounds nuw i8, ptr %1370, i64 8
   %.pre.i38.i = load ptr, ptr %.phi.trans.insert.i37.i, align 8
   br label %Vec_IntPush.exit42.i
 
-1376:                                             ; preds = %Vec_IntPush.exit.i183
+1376:                                             ; preds = %Vec_IntPush.exit.i184
   %1377 = icmp slt i32 %1373, 16
   br i1 %1377, label %1378, label %1386
 
@@ -4979,7 +4978,7 @@ Vec_IntPush.exit49.i:                             ; preds = %1429, %Vec_IntGrow.
   br label %Io_ReadBlifNetworkInputDrive.exit
 
 Io_ReadBlifNetworkInputDrive.exit:                ; preds = %1257, %1259, %1278, %1280, %1309, %1311, %Vec_IntPush.exit49.i
-  %.0.i176 = phi i32 [ 0, %Vec_IntPush.exit49.i ], [ 1, %1257 ], [ 1, %1259 ], [ 1, %1278 ], [ 1, %1280 ], [ 1, %1309 ], [ 1, %1311 ]
+  %.0.i177 = phi i32 [ 0, %Vec_IntPush.exit49.i ], [ 1, %1257 ], [ 1, %1259 ], [ 1, %1278 ], [ 1, %1280 ], [ 1, %1309 ], [ 1, %1311 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   br label %Io_ReadBlifNetworkNames.exit
@@ -5055,9 +5054,9 @@ Io_ReadBlifNetworkInputDrive.exit:                ; preds = %1257, %1259, %1278,
   %1466 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.30, ptr noundef %1463, i32 noundef %1465, ptr noundef %107)
   br label %Io_ReadBlifNetworkNames.exit
 
-Io_ReadBlifNetworkNames.exit:                     ; preds = %.lr.ph.i143, %.lr.ph.i139, %771, %757, %754, %753, %752, %748, %746, %726, %715, %713, %696, %691, %674, %667, %665, %636, %634, %605, %603, %584, %582, %570, %568, %555, %553, %267, %265, %153, %151, %122, %120, %315, %317, %Io_ReadBlifNetworkInputArrival.exit, %Io_ReadBlifNetworkDefaultInputArrival.exit, %Io_ReadBlifNetworkInputDrive.exit, %1442, %1450, %1462, %1460, %1446, %1438, %Io_ReadBlifNetworkDefaultOutputRequired.exit, %Io_ReadBlifNetworkOutputRequired.exit
-  %.197.ph = phi i32 [ 0, %771 ], [ 0, %757 ], [ 0, %754 ], [ 0, %753 ], [ 0, %752 ], [ 0, %748 ], [ 0, %746 ], [ 0, %726 ], [ 0, %715 ], [ 0, %713 ], [ 0, %696 ], [ 0, %691 ], [ 0, %674 ], [ 0, %667 ], [ 0, %665 ], [ 0, %636 ], [ 0, %634 ], [ 0, %605 ], [ 0, %603 ], [ 0, %584 ], [ 0, %582 ], [ 0, %570 ], [ 0, %568 ], [ 1, %555 ], [ 1, %553 ], [ 1, %267 ], [ 1, %265 ], [ 1, %153 ], [ 1, %151 ], [ 1, %122 ], [ 1, %120 ], [ 1, %315 ], [ 1, %317 ], [ 0, %Io_ReadBlifNetworkInputArrival.exit ], [ 0, %Io_ReadBlifNetworkOutputRequired.exit ], [ 0, %Io_ReadBlifNetworkDefaultInputArrival.exit ], [ 0, %Io_ReadBlifNetworkDefaultOutputRequired.exit ], [ 0, %Io_ReadBlifNetworkInputDrive.exit ], [ 0, %1438 ], [ 0, %1442 ], [ 0, %1446 ], [ 0, %1450 ], [ 0, %1460 ], [ 0, %1462 ], [ 0, %.lr.ph.i139 ], [ 0, %.lr.ph.i143 ]
-  %.195.ph = phi i32 [ 0, %771 ], [ 0, %757 ], [ 0, %754 ], [ 0, %753 ], [ 0, %752 ], [ 1, %748 ], [ 1, %746 ], [ 0, %726 ], [ 1, %715 ], [ 1, %713 ], [ 0, %696 ], [ 0, %691 ], [ 0, %674 ], [ 1, %667 ], [ 1, %665 ], [ 1, %636 ], [ 1, %634 ], [ 1, %605 ], [ 1, %603 ], [ 1, %584 ], [ 1, %582 ], [ 1, %570 ], [ 1, %568 ], [ 1, %555 ], [ 1, %553 ], [ 1, %267 ], [ 1, %265 ], [ 1, %153 ], [ 1, %151 ], [ 1, %122 ], [ 1, %120 ], [ 1, %315 ], [ 1, %317 ], [ %.0.i147, %Io_ReadBlifNetworkInputArrival.exit ], [ %.0.i154, %Io_ReadBlifNetworkOutputRequired.exit ], [ %.0.i170, %Io_ReadBlifNetworkDefaultInputArrival.exit ], [ %.0.i172, %Io_ReadBlifNetworkDefaultOutputRequired.exit ], [ %.0.i176, %Io_ReadBlifNetworkInputDrive.exit ], [ %1439, %1438 ], [ %1443, %1442 ], [ %1447, %1446 ], [ %1451, %1450 ], [ %.094, %1460 ], [ %.094, %1462 ], [ 0, %.lr.ph.i139 ], [ 0, %.lr.ph.i143 ]
+Io_ReadBlifNetworkNames.exit:                     ; preds = %.lr.ph.i144, %.lr.ph.i140, %771, %757, %754, %753, %752, %748, %746, %726, %715, %713, %696, %691, %674, %667, %665, %636, %634, %605, %603, %584, %582, %570, %568, %555, %553, %267, %265, %153, %151, %122, %120, %315, %317, %Io_ReadBlifNetworkInputArrival.exit, %Io_ReadBlifNetworkDefaultInputArrival.exit, %Io_ReadBlifNetworkInputDrive.exit, %1442, %1450, %1462, %1460, %1446, %1438, %Io_ReadBlifNetworkDefaultOutputRequired.exit, %Io_ReadBlifNetworkOutputRequired.exit
+  %.197.ph = phi i32 [ 0, %771 ], [ 0, %757 ], [ 0, %754 ], [ 0, %753 ], [ 0, %752 ], [ 0, %748 ], [ 0, %746 ], [ 0, %726 ], [ 0, %715 ], [ 0, %713 ], [ 0, %696 ], [ 0, %691 ], [ 0, %674 ], [ 0, %667 ], [ 0, %665 ], [ 0, %636 ], [ 0, %634 ], [ 0, %605 ], [ 0, %603 ], [ 0, %584 ], [ 0, %582 ], [ 0, %570 ], [ 0, %568 ], [ 1, %555 ], [ 1, %553 ], [ 1, %267 ], [ 1, %265 ], [ 1, %153 ], [ 1, %151 ], [ 1, %122 ], [ 1, %120 ], [ 1, %315 ], [ 1, %317 ], [ 0, %Io_ReadBlifNetworkInputArrival.exit ], [ 0, %Io_ReadBlifNetworkOutputRequired.exit ], [ 0, %Io_ReadBlifNetworkDefaultInputArrival.exit ], [ 0, %Io_ReadBlifNetworkDefaultOutputRequired.exit ], [ 0, %Io_ReadBlifNetworkInputDrive.exit ], [ 0, %1438 ], [ 0, %1442 ], [ 0, %1446 ], [ 0, %1450 ], [ 0, %1460 ], [ 0, %1462 ], [ 0, %.lr.ph.i140 ], [ 0, %.lr.ph.i144 ]
+  %.195.ph = phi i32 [ 0, %771 ], [ 0, %757 ], [ 0, %754 ], [ 0, %753 ], [ 0, %752 ], [ 1, %748 ], [ 1, %746 ], [ 0, %726 ], [ 1, %715 ], [ 1, %713 ], [ 0, %696 ], [ 0, %691 ], [ 0, %674 ], [ 1, %667 ], [ 1, %665 ], [ 1, %636 ], [ 1, %634 ], [ 1, %605 ], [ 1, %603 ], [ 1, %584 ], [ 1, %582 ], [ 1, %570 ], [ 1, %568 ], [ 1, %555 ], [ 1, %553 ], [ 1, %267 ], [ 1, %265 ], [ 1, %153 ], [ 1, %151 ], [ 1, %122 ], [ 1, %120 ], [ 1, %315 ], [ 1, %317 ], [ %.0.i148, %Io_ReadBlifNetworkInputArrival.exit ], [ %.0.i155, %Io_ReadBlifNetworkOutputRequired.exit ], [ %.0.i171, %Io_ReadBlifNetworkDefaultInputArrival.exit ], [ %.0.i173, %Io_ReadBlifNetworkDefaultOutputRequired.exit ], [ %.0.i177, %Io_ReadBlifNetworkInputDrive.exit ], [ %1439, %1438 ], [ %1443, %1442 ], [ %1447, %1446 ], [ %1451, %1450 ], [ 0, %1460 ], [ 0, %1462 ], [ 0, %.lr.ph.i140 ], [ 0, %.lr.ph.i144 ]
   %.pr = load ptr, ptr %14, align 8
   %1467 = icmp eq ptr %.pr, null
   br i1 %1467, label %.loopexit, label %1469
@@ -5068,31 +5067,30 @@ Io_ReadBlifNetworkNames.exit.thread:              ; preds = %Vec_StrPush.exit158
   br i1 %1468, label %.loopexit, label %.thread
 
 1469:                                             ; preds = %Io_ReadBlifNetworkNames.exit
-  %1470 = icmp eq i32 %.195.ph, 1
-  br i1 %1470, label %1471, label %.thread
+  %.not124 = icmp eq i32 %.195.ph, 0
+  br i1 %.not124, label %.thread, label %1470
 
-1471:                                             ; preds = %1469
+1470:                                             ; preds = %1469
   tail call void @Extra_ProgressBarStop(ptr noundef %.0100) #15
   tail call void @Abc_NtkDelete(ptr noundef %12) #15
   br label %Io_ReadBlifPrintErrorMessage.exit
 
 .thread:                                          ; preds = %Io_ReadBlifNetworkNames.exit.thread, %1469
-  %.197195200 = phi i32 [ %.197.ph, %1469 ], [ 1, %Io_ReadBlifNetworkNames.exit.thread ]
-  %.195196199 = phi i32 [ %.195.ph, %1469 ], [ 0, %Io_ReadBlifNetworkNames.exit.thread ]
-  %1472 = add nuw nsw i32 %.098, 1
+  %.197196202 = phi i32 [ %.197.ph, %1469 ], [ 1, %Io_ReadBlifNetworkNames.exit.thread ]
+  %1471 = add nuw nsw i32 %.098, 1
   br label %90, !llvm.loop !38
 
 .loopexit:                                        ; preds = %Io_ReadBlifNetworkNames.exit.thread, %Io_ReadBlifNetworkNames.exit, %1452, %91, %1456
-  %1473 = load ptr, ptr %63, align 8
-  %1474 = icmp eq ptr %1473, null
-  br i1 %1474, label %1475, label %Io_ReadBlifPrintErrorMessage.exit
+  %1472 = load ptr, ptr %63, align 8
+  %1473 = icmp eq ptr %1472, null
+  br i1 %1473, label %1474, label %Io_ReadBlifPrintErrorMessage.exit
 
-1475:                                             ; preds = %.loopexit
+1474:                                             ; preds = %.loopexit
   tail call void @Extra_ProgressBarStop(ptr noundef %.0100) #15
   br label %Io_ReadBlifPrintErrorMessage.exit
 
-Io_ReadBlifPrintErrorMessage.exit:                ; preds = %36, %34, %.loopexit, %1475, %1471, %52
-  %.099 = phi ptr [ null, %1471 ], [ null, %52 ], [ %12, %1475 ], [ %12, %.loopexit ], [ null, %34 ], [ null, %36 ]
+Io_ReadBlifPrintErrorMessage.exit:                ; preds = %36, %34, %.loopexit, %1474, %1470, %52
+  %.099 = phi ptr [ null, %1470 ], [ null, %52 ], [ %12, %1474 ], [ %12, %.loopexit ], [ null, %34 ], [ null, %36 ]
   ret ptr %.099
 }
 

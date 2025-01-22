@@ -765,7 +765,7 @@ sw.bb.us.i:                                       ; preds = %if.end52.us.i
   br label %for.inc.us.i
 
 if.then17.us.i:                                   ; preds = %for.body.us.i
-  %cmp18.us.i = icmp sgt i32 %quad_pos.014.us.i, 1
+  %cmp18.us.i = icmp ugt i32 %quad_pos.014.us.i, 1
   br i1 %cmp18.us.i, label %land.lhs.true20.us.i, label %for.inc.us.i
 
 land.lhs.true20.us.i:                             ; preds = %if.then17.us.i
@@ -796,7 +796,7 @@ for.body.i:                                       ; preds = %for.body.i.preheade
   br i1 %cmp15.i, label %if.then17.i, label %if.end38.i
 
 if.then17.i:                                      ; preds = %for.body.i
-  %cmp18.i = icmp sgt i32 %quad_pos.014.i, 1
+  %cmp18.i = icmp ugt i32 %quad_pos.014.i, 1
   br i1 %cmp18.i, label %land.lhs.true20.i, label %for.inc.i
 
 land.lhs.true20.i:                                ; preds = %if.then17.i

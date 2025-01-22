@@ -2417,7 +2417,7 @@ define internal fastcc void @pci_bus_release_bridge_resources(ptr noundef %0, i6
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, %4
-  br i1 %6, label %32, label %7
+  br i1 %6, label %31, label %7
 
 7:                                                ; preds = %3
   %.not = icmp eq i32 %2, 0
@@ -2461,92 +2461,91 @@ define internal fastcc void @pci_bus_release_bridge_resources(ptr noundef %0, i6
 
 .split5.us:                                       ; preds = %26, %.split.us
   %.us-phi = phi i8 [ %spec.select, %.split.us ], [ %27, %26 ]
-  %30 = and i8 %.us-phi, 1
-  %31 = icmp eq i8 %30, 0
-  br label %32
+  %30 = icmp eq i8 %.us-phi, 0
+  br label %31
 
-32:                                               ; preds = %.split5.us, %3
-  %33 = phi i1 [ false, %3 ], [ %31, %.split5.us ]
-  %34 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %35 = load ptr, ptr %34, align 8
-  %36 = icmp eq ptr %35, null
-  br i1 %36, label %84, label %37
+31:                                               ; preds = %.split5.us, %3
+  %32 = phi i1 [ false, %3 ], [ %30, %.split5.us ]
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %34 = load ptr, ptr %33, align 8
+  %35 = icmp eq ptr %34, null
+  br i1 %35, label %83, label %36
 
-37:                                               ; preds = %32
-  %38 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %39 = load ptr, ptr %38, align 8
-  %40 = getelementptr inbounds nuw i8, ptr %39, i64 68
-  %41 = load i32, ptr %40, align 4
-  %42 = and i32 %41, -256
-  %43 = icmp ne i32 %42, 394240
-  %44 = icmp eq i32 %2, 0
-  %45 = select i1 %44, i1 %33, i1 false
-  %46 = select i1 %43, i1 true, i1 %45
-  br i1 %46, label %84, label %47
+36:                                               ; preds = %31
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %38 = load ptr, ptr %37, align 8
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 68
+  %40 = load i32, ptr %39, align 4
+  %41 = and i32 %40, -256
+  %42 = icmp ne i32 %41, 394240
+  %43 = icmp eq i32 %2, 0
+  %44 = select i1 %43, i1 %32, i1 false
+  %45 = select i1 %42, i1 true, i1 %44
+  br i1 %45, label %83, label %46
 
-47:                                               ; preds = %37
-  %48 = getelementptr i8, ptr %39, i64 1368
-  %49 = and i64 %1, 256
-  %50 = icmp eq i64 %49, 0
-  br i1 %50, label %51, label %61
+46:                                               ; preds = %36
+  %47 = getelementptr i8, ptr %38, i64 1368
+  %48 = and i64 %1, 256
+  %49 = icmp eq i64 %48, 0
+  br i1 %49, label %50, label %60
 
-51:                                               ; preds = %47
-  %52 = and i64 %1, 8192
-  %53 = icmp eq i64 %52, 0
-  br i1 %53, label %61, label %54
+50:                                               ; preds = %46
+  %51 = and i64 %1, 8192
+  %52 = icmp eq i64 %51, 0
+  br i1 %52, label %60, label %53
 
-54:                                               ; preds = %51
-  %55 = icmp samesign ult i64 %1, 1048576
-  %.phi.trans.insert = getelementptr i8, ptr %39, i64 1520
+53:                                               ; preds = %50
+  %54 = icmp samesign ult i64 %1, 1048576
+  %.phi.trans.insert = getelementptr i8, ptr %38, i64 1520
   %.pre = load i64, ptr %.phi.trans.insert, align 8
-  %56 = and i64 %.pre, 1048576
-  %57 = icmp eq i64 %56, 0
-  %or.cond = select i1 %55, i1 true, i1 %57
-  br i1 %or.cond, label %._crit_edge, label %61
+  %55 = and i64 %.pre, 1048576
+  %56 = icmp eq i64 %55, 0
+  %or.cond = select i1 %54, i1 true, i1 %56
+  br i1 %or.cond, label %._crit_edge, label %60
 
-._crit_edge:                                      ; preds = %54
-  %58 = and i64 %.pre, 1056768
-  %59 = icmp eq i64 %58, 8192
-  %60 = select i1 %59, i32 2, i32 1
-  br label %61
+._crit_edge:                                      ; preds = %53
+  %57 = and i64 %.pre, 1056768
+  %58 = icmp eq i64 %57, 8192
+  %59 = select i1 %58, i32 2, i32 1
+  br label %60
 
-61:                                               ; preds = %54, %._crit_edge, %51, %47
-  %62 = phi i32 [ 0, %47 ], [ 1, %51 ], [ %60, %._crit_edge ], [ 2, %54 ]
-  %63 = zext nneg i32 %62 to i64
-  %64 = getelementptr %struct.resource, ptr %48, i64 %63
-  %65 = getelementptr inbounds nuw i8, ptr %64, i64 40
-  %66 = load ptr, ptr %65, align 8
-  %67 = icmp eq ptr %66, null
-  br i1 %67, label %84, label %68
+60:                                               ; preds = %53, %._crit_edge, %50, %46
+  %61 = phi i32 [ 0, %46 ], [ 1, %50 ], [ %59, %._crit_edge ], [ 2, %53 ]
+  %62 = zext nneg i32 %61 to i64
+  %63 = getelementptr %struct.resource, ptr %47, i64 %62
+  %64 = getelementptr inbounds nuw i8, ptr %63, i64 40
+  %65 = load ptr, ptr %64, align 8
+  %66 = icmp eq ptr %65, null
+  br i1 %66, label %83, label %67
 
-68:                                               ; preds = %61
-  tail call void @release_child_resources(ptr noundef %64) #12
-  %69 = tail call i32 @release_resource(ptr noundef %64) #12
-  %70 = icmp eq i32 %69, 0
-  br i1 %70, label %71, label %84
+67:                                               ; preds = %60
+  tail call void @release_child_resources(ptr noundef %63) #12
+  %68 = tail call i32 @release_resource(ptr noundef %63) #12
+  %69 = icmp eq i32 %68, 0
+  br i1 %69, label %70, label %83
 
-71:                                               ; preds = %68
-  %72 = getelementptr inbounds nuw i8, ptr %64, i64 24
-  %73 = load i64, ptr %72, align 8
-  %74 = and i64 %73, 1057536
-  %75 = getelementptr inbounds nuw i8, ptr %39, i64 184
-  %76 = add nuw nsw i32 %62, 7
-  tail call void (ptr, ptr, ...) @_dev_info(ptr noundef nonnull %75, ptr noundef nonnull @.str.23, i32 noundef %76, ptr noundef %64) #13
-  %77 = getelementptr inbounds nuw i8, ptr %64, i64 8
-  %78 = load i64, ptr %77, align 8
-  %79 = load i64, ptr %64, align 8
-  %80 = sub i64 %78, %79
-  store i64 %80, ptr %77, align 8
-  store i64 0, ptr %64, align 8
-  store i64 0, ptr %72, align 8
-  %81 = and i64 %73, 8192
-  %82 = icmp eq i64 %81, 0
-  %83 = select i1 %82, i64 %74, i64 8192
-  tail call fastcc void @__pci_setup_bridge(ptr noundef %0, i64 noundef %83)
-  store i64 %74, ptr %72, align 8
-  br label %84
+70:                                               ; preds = %67
+  %71 = getelementptr inbounds nuw i8, ptr %63, i64 24
+  %72 = load i64, ptr %71, align 8
+  %73 = and i64 %72, 1057536
+  %74 = getelementptr inbounds nuw i8, ptr %38, i64 184
+  %75 = add nuw nsw i32 %61, 7
+  tail call void (ptr, ptr, ...) @_dev_info(ptr noundef nonnull %74, ptr noundef nonnull @.str.23, i32 noundef %75, ptr noundef %63) #13
+  %76 = getelementptr inbounds nuw i8, ptr %63, i64 8
+  %77 = load i64, ptr %76, align 8
+  %78 = load i64, ptr %63, align 8
+  %79 = sub i64 %77, %78
+  store i64 %79, ptr %76, align 8
+  store i64 0, ptr %63, align 8
+  store i64 0, ptr %71, align 8
+  %80 = and i64 %72, 8192
+  %81 = icmp eq i64 %80, 0
+  %82 = select i1 %81, i64 %73, i64 8192
+  tail call fastcc void @__pci_setup_bridge(ptr noundef %0, i64 noundef %82)
+  store i64 %73, ptr %71, align 8
+  br label %83
 
-84:                                               ; preds = %71, %68, %61, %37, %32
+83:                                               ; preds = %70, %67, %60, %36, %31
   ret void
 }
 

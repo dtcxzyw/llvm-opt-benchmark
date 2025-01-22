@@ -3631,7 +3631,7 @@ minstrel_ht_sort_best_tp_rates.exit94:            ; preds = %808, %810
 
 1115:                                             ; preds = %1095, %1061
   %1116 = phi i32 [ %1114, %1095 ], [ 0, %1061 ]
-  %1117 = icmp slt i32 %1055, %1116
+  %1117 = icmp ult i32 %1055, %1116
   br i1 %1117, label %1118, label %1166
 
 1118:                                             ; preds = %1115

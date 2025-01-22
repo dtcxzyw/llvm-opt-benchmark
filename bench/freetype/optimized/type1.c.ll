@@ -4055,8 +4055,8 @@ define internal range(i32 -1, 7) i32 @T1_Set_MM_Design(ptr nocapture noundef rea
   %.val106 = phi ptr [ %.val.pre, %._crit_edge ], [ %6, %7 ]
   %71 = getelementptr inbounds nuw i8, ptr %.val106, i64 4
   %72 = load i32, ptr %.val106, align 8
-  %.not9.i = icmp eq i32 %72, 0
-  br i1 %.not9.i, label %t1_set_mm_blend.exit, label %.preheader.lr.ph.i
+  %.not10.i = icmp eq i32 %72, 0
+  br i1 %.not10.i, label %t1_set_mm_blend.exit, label %.preheader.lr.ph.i
 
 .preheader.lr.ph.i:                               ; preds = %._crit_edge.thread
   %73 = load i32, ptr %71, align 4
@@ -4072,24 +4072,24 @@ define internal range(i32 -1, 7) i32 @T1_Set_MM_Design(ptr nocapture noundef rea
 .preheader.i:                                     ; preds = %.preheaderthread-pre-split.i, %.preheader.lr.ph.i
   %76 = phi i32 [ %.pr.i, %.preheaderthread-pre-split.i ], [ %73, %.preheader.lr.ph.i ]
   %77 = phi i32 [ %105, %.preheaderthread-pre-split.i ], [ %72, %.preheader.lr.ph.i ]
-  %indvars.iv12.i = phi i64 [ %indvars.iv.next13.i, %.preheaderthread-pre-split.i ], [ 0, %.preheader.lr.ph.i ]
-  %.0317.i = phi i8 [ %.132.i, %.preheaderthread-pre-split.i ], [ 0, %.preheader.lr.ph.i ]
-  %.not10.i = icmp eq i32 %76, 0
-  br i1 %.not10.i, label %._crit_edge.i, label %.lr.ph.preheader.i
+  %indvars.iv13.i = phi i64 [ %indvars.iv.next14.i, %.preheaderthread-pre-split.i ], [ 0, %.preheader.lr.ph.i ]
+  %.0318.i = phi i8 [ %.132.i, %.preheaderthread-pre-split.i ], [ 0, %.preheader.lr.ph.i ]
+  %.not11.i = icmp eq i32 %76, 0
+  br i1 %.not11.i, label %._crit_edge.i, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %.preheader.i
   %wide.trip.count.i = zext i32 %76 to i64
-  %78 = trunc nuw i64 %indvars.iv12.i to i32
+  %78 = trunc nuw i64 %indvars.iv13.i to i32
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %99, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %99 ]
-  %.0303.i = phi i64 [ 65536, %.lr.ph.preheader.i ], [ %.2.i, %99 ]
+  %.0304.i = phi i64 [ 65536, %.lr.ph.preheader.i ], [ %.2.i, %99 ]
   %.not41.i = icmp samesign ult i64 %indvars.iv.i, %75
   br i1 %.not41.i, label %81, label %79
 
 79:                                               ; preds = %.lr.ph.i
-  %80 = ashr i64 %.0303.i, 1
+  %80 = ashr i64 %.0304.i, 1
   br label %99
 
 81:                                               ; preds = %.lr.ph.i
@@ -4109,7 +4109,7 @@ define internal range(i32 -1, 7) i32 @T1_Set_MM_Design(ptr nocapture noundef rea
   br i1 %91, label %99, label %92
 
 92:                                               ; preds = %90
-  %93 = mul nsw i64 %spec.select43.i, %.0303.i
+  %93 = mul nsw i64 %spec.select43.i, %.0304.i
   %94 = ashr i64 %93, 63
   %95 = add nsw i64 %93, 32768
   %96 = add nsw i64 %95, %94
@@ -4118,7 +4118,7 @@ define internal range(i32 -1, 7) i32 @T1_Set_MM_Design(ptr nocapture noundef rea
   br label %99
 
 99:                                               ; preds = %92, %90, %79
-  %.2.i = phi i64 [ %80, %79 ], [ %.0303.i, %90 ], [ %98, %92 ]
+  %.2.i = phi i64 [ %80, %79 ], [ %.0304.i, %90 ], [ %98, %92 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !20
@@ -4126,7 +4126,7 @@ define internal range(i32 -1, 7) i32 @T1_Set_MM_Design(ptr nocapture noundef rea
 ._crit_edge.i:                                    ; preds = %99, %81, %.preheader.i
   %.1.i = phi i64 [ 65536, %.preheader.i ], [ %.2.i, %99 ], [ 0, %81 ]
   %100 = load ptr, ptr %74, align 8
-  %101 = getelementptr inbounds nuw i64, ptr %100, i64 %indvars.iv12.i
+  %101 = getelementptr inbounds nuw i64, ptr %100, i64 %indvars.iv13.i
   %102 = load i64, ptr %101, align 8
   %.not42.i = icmp eq i64 %102, %.1.i
   br i1 %.not42.i, label %104, label %103
@@ -4138,19 +4138,19 @@ define internal range(i32 -1, 7) i32 @T1_Set_MM_Design(ptr nocapture noundef rea
 
 104:                                              ; preds = %103, %._crit_edge.i
   %105 = phi i32 [ %.pre.i, %103 ], [ %77, %._crit_edge.i ]
-  %.132.i = phi i8 [ 1, %103 ], [ %.0317.i, %._crit_edge.i ]
-  %indvars.iv.next13.i = add nuw nsw i64 %indvars.iv12.i, 1
+  %.132.i = phi i8 [ 1, %103 ], [ %.0318.i, %._crit_edge.i ]
+  %indvars.iv.next14.i = add nuw nsw i64 %indvars.iv13.i, 1
   %106 = zext i32 %105 to i64
-  %107 = icmp samesign ult i64 %indvars.iv.next13.i, %106
-  br i1 %107, label %.preheaderthread-pre-split.i, label %._crit_edge8.loopexit.i, !llvm.loop !21
+  %107 = icmp samesign ult i64 %indvars.iv.next14.i, %106
+  br i1 %107, label %.preheaderthread-pre-split.i, label %._crit_edge9.loopexit.i, !llvm.loop !21
 
-._crit_edge8.loopexit.i:                          ; preds = %104
-  %108 = icmp eq i8 %.132.i, 0
-  %109 = sext i1 %108 to i32
+._crit_edge9.loopexit.i:                          ; preds = %104
+  %108 = add nsw i8 %.132.i, -1
+  %109 = sext i8 %108 to i32
   br label %t1_set_mm_blend.exit
 
-t1_set_mm_blend.exit:                             ; preds = %._crit_edge8.loopexit.i, %._crit_edge.thread, %._crit_edge, %3
-  %.0 = phi i32 [ 6, %3 ], [ 6, %._crit_edge ], [ -1, %._crit_edge.thread ], [ %109, %._crit_edge8.loopexit.i ]
+t1_set_mm_blend.exit:                             ; preds = %._crit_edge9.loopexit.i, %._crit_edge.thread, %._crit_edge, %3
+  %.0 = phi i32 [ 6, %3 ], [ 6, %._crit_edge ], [ -1, %._crit_edge.thread ], [ %109, %._crit_edge9.loopexit.i ]
   ret i32 %.0
 }
 
@@ -4164,8 +4164,8 @@ define internal range(i32 -1, 7) i32 @T1_Set_MM_Blend(ptr nocapture noundef read
 5:                                                ; preds = %3
   %6 = getelementptr inbounds nuw i8, ptr %.val, i64 4
   %7 = load i32, ptr %.val, align 8
-  %.not9.i = icmp eq i32 %7, 0
-  br i1 %.not9.i, label %t1_set_mm_blend.exit, label %.preheader.lr.ph.i
+  %.not10.i = icmp eq i32 %7, 0
+  br i1 %.not10.i, label %t1_set_mm_blend.exit, label %.preheader.lr.ph.i
 
 .preheader.lr.ph.i:                               ; preds = %5
   %8 = load i32, ptr %6, align 4
@@ -4181,24 +4181,24 @@ define internal range(i32 -1, 7) i32 @T1_Set_MM_Blend(ptr nocapture noundef read
 .preheader.i:                                     ; preds = %.preheaderthread-pre-split.i, %.preheader.lr.ph.i
   %11 = phi i32 [ %.pr.i, %.preheaderthread-pre-split.i ], [ %8, %.preheader.lr.ph.i ]
   %12 = phi i32 [ %40, %.preheaderthread-pre-split.i ], [ %7, %.preheader.lr.ph.i ]
-  %indvars.iv12.i = phi i64 [ %indvars.iv.next13.i, %.preheaderthread-pre-split.i ], [ 0, %.preheader.lr.ph.i ]
-  %.0317.i = phi i8 [ %.132.i, %.preheaderthread-pre-split.i ], [ 0, %.preheader.lr.ph.i ]
-  %.not10.i = icmp eq i32 %11, 0
-  br i1 %.not10.i, label %._crit_edge.i, label %.lr.ph.preheader.i
+  %indvars.iv13.i = phi i64 [ %indvars.iv.next14.i, %.preheaderthread-pre-split.i ], [ 0, %.preheader.lr.ph.i ]
+  %.0318.i = phi i8 [ %.132.i, %.preheaderthread-pre-split.i ], [ 0, %.preheader.lr.ph.i ]
+  %.not11.i = icmp eq i32 %11, 0
+  br i1 %.not11.i, label %._crit_edge.i, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %.preheader.i
   %wide.trip.count.i = zext i32 %11 to i64
-  %13 = trunc nuw i64 %indvars.iv12.i to i32
+  %13 = trunc nuw i64 %indvars.iv13.i to i32
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %34, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %34 ]
-  %.0303.i = phi i64 [ 65536, %.lr.ph.preheader.i ], [ %.2.i, %34 ]
+  %.0304.i = phi i64 [ 65536, %.lr.ph.preheader.i ], [ %.2.i, %34 ]
   %.not41.i = icmp samesign ult i64 %indvars.iv.i, %10
   br i1 %.not41.i, label %16, label %14
 
 14:                                               ; preds = %.lr.ph.i
-  %15 = ashr i64 %.0303.i, 1
+  %15 = ashr i64 %.0304.i, 1
   br label %34
 
 16:                                               ; preds = %.lr.ph.i
@@ -4218,7 +4218,7 @@ define internal range(i32 -1, 7) i32 @T1_Set_MM_Blend(ptr nocapture noundef read
   br i1 %26, label %34, label %27
 
 27:                                               ; preds = %25
-  %28 = mul nsw i64 %spec.select43.i, %.0303.i
+  %28 = mul nsw i64 %spec.select43.i, %.0304.i
   %29 = ashr i64 %28, 63
   %30 = add nsw i64 %28, 32768
   %31 = add nsw i64 %30, %29
@@ -4227,7 +4227,7 @@ define internal range(i32 -1, 7) i32 @T1_Set_MM_Blend(ptr nocapture noundef read
   br label %34
 
 34:                                               ; preds = %27, %25, %14
-  %.2.i = phi i64 [ %15, %14 ], [ %.0303.i, %25 ], [ %33, %27 ]
+  %.2.i = phi i64 [ %15, %14 ], [ %.0304.i, %25 ], [ %33, %27 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !20
@@ -4235,7 +4235,7 @@ define internal range(i32 -1, 7) i32 @T1_Set_MM_Blend(ptr nocapture noundef read
 ._crit_edge.i:                                    ; preds = %34, %16, %.preheader.i
   %.1.i = phi i64 [ 65536, %.preheader.i ], [ %.2.i, %34 ], [ 0, %16 ]
   %35 = load ptr, ptr %9, align 8
-  %36 = getelementptr inbounds nuw i64, ptr %35, i64 %indvars.iv12.i
+  %36 = getelementptr inbounds nuw i64, ptr %35, i64 %indvars.iv13.i
   %37 = load i64, ptr %36, align 8
   %.not42.i = icmp eq i64 %37, %.1.i
   br i1 %.not42.i, label %39, label %38
@@ -4247,19 +4247,19 @@ define internal range(i32 -1, 7) i32 @T1_Set_MM_Blend(ptr nocapture noundef read
 
 39:                                               ; preds = %38, %._crit_edge.i
   %40 = phi i32 [ %.pre.i, %38 ], [ %12, %._crit_edge.i ]
-  %.132.i = phi i8 [ 1, %38 ], [ %.0317.i, %._crit_edge.i ]
-  %indvars.iv.next13.i = add nuw nsw i64 %indvars.iv12.i, 1
+  %.132.i = phi i8 [ 1, %38 ], [ %.0318.i, %._crit_edge.i ]
+  %indvars.iv.next14.i = add nuw nsw i64 %indvars.iv13.i, 1
   %41 = zext i32 %40 to i64
-  %42 = icmp samesign ult i64 %indvars.iv.next13.i, %41
-  br i1 %42, label %.preheaderthread-pre-split.i, label %._crit_edge8.loopexit.i, !llvm.loop !21
+  %42 = icmp samesign ult i64 %indvars.iv.next14.i, %41
+  br i1 %42, label %.preheaderthread-pre-split.i, label %._crit_edge9.loopexit.i, !llvm.loop !21
 
-._crit_edge8.loopexit.i:                          ; preds = %39
-  %43 = icmp eq i8 %.132.i, 0
-  %44 = sext i1 %43 to i32
+._crit_edge9.loopexit.i:                          ; preds = %39
+  %43 = add nsw i8 %.132.i, -1
+  %44 = sext i8 %43 to i32
   br label %t1_set_mm_blend.exit
 
-t1_set_mm_blend.exit:                             ; preds = %3, %5, %._crit_edge8.loopexit.i
-  %.035.i = phi i32 [ 6, %3 ], [ -1, %5 ], [ %44, %._crit_edge8.loopexit.i ]
+t1_set_mm_blend.exit:                             ; preds = %3, %5, %._crit_edge9.loopexit.i
+  %.035.i = phi i32 [ 6, %3 ], [ -1, %5 ], [ %44, %._crit_edge9.loopexit.i ]
   ret i32 %.035.i
 }
 
@@ -4702,8 +4702,8 @@ define internal range(i32 -1, 7) i32 @T1_Reset_MM_Blend(ptr nocapture noundef re
 4:                                                ; preds = %2
   %5 = getelementptr inbounds nuw i8, ptr %.val.i, i64 4
   %6 = load i32, ptr %.val.i, align 8
-  %.not9.i.i = icmp eq i32 %6, 0
-  br i1 %.not9.i.i, label %T1_Set_MM_Blend.exit, label %.preheader.lr.ph.i.i
+  %.not10.i.i = icmp eq i32 %6, 0
+  br i1 %.not10.i.i, label %T1_Set_MM_Blend.exit, label %.preheader.lr.ph.i.i
 
 .preheader.lr.ph.i.i:                             ; preds = %4
   %7 = getelementptr inbounds nuw i8, ptr %.val.i, i64 264
@@ -4711,11 +4711,11 @@ define internal range(i32 -1, 7) i32 @T1_Reset_MM_Blend(ptr nocapture noundef re
 
 .preheader.i.i:                                   ; preds = %15, %.preheader.lr.ph.i.i
   %8 = phi i32 [ %6, %.preheader.lr.ph.i.i ], [ %16, %15 ]
-  %indvars.iv12.i.i = phi i64 [ 0, %.preheader.lr.ph.i.i ], [ %indvars.iv.next13.i.i, %15 ]
-  %.0317.i.i = phi i8 [ 0, %.preheader.lr.ph.i.i ], [ %.132.i.i, %15 ]
+  %indvars.iv13.i.i = phi i64 [ 0, %.preheader.lr.ph.i.i ], [ %indvars.iv.next14.i.i, %15 ]
+  %.0318.i.i = phi i8 [ 0, %.preheader.lr.ph.i.i ], [ %.132.i.i, %15 ]
   %9 = load i32, ptr %5, align 4
-  %.not10.i.i = icmp eq i32 %9, 0
-  br i1 %.not10.i.i, label %._crit_edge.i.i, label %.lr.ph.preheader.i.i
+  %.not11.i.i = icmp eq i32 %9, 0
+  br i1 %.not11.i.i, label %._crit_edge.i.i, label %.lr.ph.preheader.i.i
 
 .lr.ph.preheader.i.i:                             ; preds = %.preheader.i.i
   %wide.trip.count.i.i = zext i32 %9 to i64
@@ -4723,8 +4723,8 @@ define internal range(i32 -1, 7) i32 @T1_Reset_MM_Blend(ptr nocapture noundef re
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.lr.ph.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %.lr.ph.i.i ]
-  %.0303.i.i = phi i64 [ 65536, %.lr.ph.preheader.i.i ], [ %10, %.lr.ph.i.i ]
-  %10 = lshr i64 %.0303.i.i, 1
+  %.0304.i.i = phi i64 [ 65536, %.lr.ph.preheader.i.i ], [ %10, %.lr.ph.i.i ]
+  %10 = lshr i64 %.0304.i.i, 1
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
   br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !20
@@ -4732,7 +4732,7 @@ define internal range(i32 -1, 7) i32 @T1_Reset_MM_Blend(ptr nocapture noundef re
 ._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i, %.preheader.i.i
   %.1.i.i = phi i64 [ 65536, %.preheader.i.i ], [ %10, %.lr.ph.i.i ]
   %11 = load ptr, ptr %7, align 8
-  %12 = getelementptr inbounds nuw i64, ptr %11, i64 %indvars.iv12.i.i
+  %12 = getelementptr inbounds nuw i64, ptr %11, i64 %indvars.iv13.i.i
   %13 = load i64, ptr %12, align 8
   %.not42.i.i = icmp eq i64 %13, %.1.i.i
   br i1 %.not42.i.i, label %15, label %14
@@ -4744,19 +4744,19 @@ define internal range(i32 -1, 7) i32 @T1_Reset_MM_Blend(ptr nocapture noundef re
 
 15:                                               ; preds = %14, %._crit_edge.i.i
   %16 = phi i32 [ %.pre.i.i, %14 ], [ %8, %._crit_edge.i.i ]
-  %.132.i.i = phi i8 [ 1, %14 ], [ %.0317.i.i, %._crit_edge.i.i ]
-  %indvars.iv.next13.i.i = add nuw nsw i64 %indvars.iv12.i.i, 1
+  %.132.i.i = phi i8 [ 1, %14 ], [ %.0318.i.i, %._crit_edge.i.i ]
+  %indvars.iv.next14.i.i = add nuw nsw i64 %indvars.iv13.i.i, 1
   %17 = zext i32 %16 to i64
-  %18 = icmp samesign ult i64 %indvars.iv.next13.i.i, %17
-  br i1 %18, label %.preheader.i.i, label %._crit_edge8.loopexit.i.i, !llvm.loop !21
+  %18 = icmp samesign ult i64 %indvars.iv.next14.i.i, %17
+  br i1 %18, label %.preheader.i.i, label %._crit_edge9.loopexit.i.i, !llvm.loop !21
 
-._crit_edge8.loopexit.i.i:                        ; preds = %15
-  %19 = icmp eq i8 %.132.i.i, 0
-  %20 = sext i1 %19 to i32
+._crit_edge9.loopexit.i.i:                        ; preds = %15
+  %19 = add nsw i8 %.132.i.i, -1
+  %20 = sext i8 %19 to i32
   br label %T1_Set_MM_Blend.exit
 
-T1_Set_MM_Blend.exit:                             ; preds = %2, %4, %._crit_edge8.loopexit.i.i
-  %.035.i.i = phi i32 [ 6, %2 ], [ -1, %4 ], [ %20, %._crit_edge8.loopexit.i.i ]
+T1_Set_MM_Blend.exit:                             ; preds = %2, %4, %._crit_edge9.loopexit.i.i
+  %.035.i.i = phi i32 [ 6, %2 ], [ -1, %4 ], [ %20, %._crit_edge9.loopexit.i.i ]
   ret i32 %.035.i.i
 }
 

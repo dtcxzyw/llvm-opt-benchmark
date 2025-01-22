@@ -9292,10 +9292,10 @@ common.ret24:                                     ; preds = %9, %4, %11
 ; Function Attrs: nofree nounwind uwtable
 define range(i32 0, 2) i32 @Gia_ManVerifyTwoTruths(ptr noundef %0, ptr noundef %1) local_unnamed_addr #5 {
   %3 = getelementptr i8, ptr %0, i64 72
-  %.val2633 = load ptr, ptr %3, align 8
-  %4 = getelementptr i8, ptr %.val2633, i64 4
-  %.val26.val34 = load i32, ptr %4, align 4
-  %5 = icmp sgt i32 %.val26.val34, 0
+  %.val2532 = load ptr, ptr %3, align 8
+  %4 = getelementptr i8, ptr %.val2532, i64 4
+  %.val25.val33 = load i32, ptr %4, align 4
+  %5 = icmp sgt i32 %.val25.val33, 0
   br i1 %5, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %2
@@ -9305,25 +9305,25 @@ define range(i32 0, 2) i32 @Gia_ManVerifyTwoTruths(ptr noundef %0, ptr noundef %
   br label %9
 
 9:                                                ; preds = %.lr.ph, %35
-  %.val2640 = phi ptr [ %.val2633, %.lr.ph ], [ %.val26, %35 ]
+  %.val2539 = phi ptr [ %.val2532, %.lr.ph ], [ %.val25, %35 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %35 ]
-  %.val26.val38 = phi i32 [ %.val26.val34, %.lr.ph ], [ %.val26.val, %35 ]
-  %.02135 = phi i32 [ 0, %.lr.ph ], [ %.1, %35 ]
-  %.val28 = load ptr, ptr %6, align 8
-  %10 = getelementptr i8, ptr %.val2640, i64 8
-  %.val29.val = load ptr, ptr %10, align 8
-  %11 = getelementptr inbounds nuw i32, ptr %.val29.val, i64 %indvars.iv
+  %.val25.val37 = phi i32 [ %.val25.val33, %.lr.ph ], [ %.val25.val, %35 ]
+  %.02134 = phi i32 [ 0, %.lr.ph ], [ %.1, %35 ]
+  %.val27 = load ptr, ptr %6, align 8
+  %10 = getelementptr i8, ptr %.val2539, i64 8
+  %.val28.val = load ptr, ptr %10, align 8
+  %11 = getelementptr inbounds nuw i32, ptr %.val28.val, i64 %indvars.iv
   %12 = load i32, ptr %11, align 4
   %13 = sext i32 %12 to i64
-  %14 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.val28, i64 %13
-  %.val30 = load ptr, ptr %7, align 8
-  %.val31 = load ptr, ptr %8, align 8
-  %15 = getelementptr i8, ptr %.val31, i64 8
-  %.val31.val = load ptr, ptr %15, align 8
-  %16 = getelementptr inbounds nuw i32, ptr %.val31.val, i64 %indvars.iv
+  %14 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.val27, i64 %13
+  %.val29 = load ptr, ptr %7, align 8
+  %.val30 = load ptr, ptr %8, align 8
+  %15 = getelementptr i8, ptr %.val30, i64 8
+  %.val30.val = load ptr, ptr %15, align 8
+  %16 = getelementptr inbounds nuw i32, ptr %.val30.val, i64 %indvars.iv
   %17 = load i32, ptr %16, align 4
   %18 = sext i32 %17 to i64
-  %19 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.val30, i64 %18
+  %19 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.val29, i64 %18
   %20 = load i64, ptr %14, align 4
   %21 = and i64 %20, 536870911
   %22 = sub nsw i64 0, %21
@@ -9338,34 +9338,33 @@ define range(i32 0, 2) i32 @Gia_ManVerifyTwoTruths(ptr noundef %0, ptr noundef %
   %sext = ashr i64 %30, 63
   %spec.select = xor i64 %sext, %24
   %31 = shl i64 %25, 34
-  %sext32 = ashr i64 %31, 63
-  %.0 = xor i64 %sext32, %29
-  %.not24 = icmp eq i64 %spec.select, %.0
-  br i1 %.not24, label %35, label %32
+  %sext31 = ashr i64 %31, 63
+  %.0 = xor i64 %sext31, %29
+  %.not23 = icmp eq i64 %spec.select, %.0
+  br i1 %.not23, label %35, label %32
 
 32:                                               ; preds = %9
   %33 = trunc nuw nsw i64 %indvars.iv to i32
-  %34 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.4, i32 noundef %33, i32 noundef %.val26.val38)
-  %.val26.pre = load ptr, ptr %3, align 8
+  %34 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.4, i32 noundef %33, i32 noundef %.val25.val37)
+  %.val25.pre = load ptr, ptr %3, align 8
   br label %35
 
 35:                                               ; preds = %9, %32
-  %.val26 = phi ptr [ %.val26.pre, %32 ], [ %.val2640, %9 ]
-  %.1 = phi i32 [ 1, %32 ], [ %.02135, %9 ]
+  %.val25 = phi ptr [ %.val25.pre, %32 ], [ %.val2539, %9 ]
+  %.1 = phi i32 [ 1, %32 ], [ %.02134, %9 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %36 = getelementptr i8, ptr %.val26, i64 4
-  %.val26.val = load i32, ptr %36, align 4
-  %37 = sext i32 %.val26.val to i64
+  %36 = getelementptr i8, ptr %.val25, i64 4
+  %.val25.val = load i32, ptr %36, align 4
+  %37 = sext i32 %.val25.val to i64
   %38 = icmp slt i64 %indvars.iv.next, %37
   br i1 %38, label %9, label %._crit_edge.loopexit, !llvm.loop !91
 
 ._crit_edge.loopexit:                             ; preds = %35
-  %39 = icmp eq i32 %.1, 0
-  %40 = zext i1 %39 to i32
+  %39 = xor i32 %.1, 1
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %2
-  %.021.lcssa = phi i32 [ 1, %2 ], [ %40, %._crit_edge.loopexit ]
+  %.021.lcssa = phi i32 [ 1, %2 ], [ %39, %._crit_edge.loopexit ]
   ret i32 %.021.lcssa
 }
 

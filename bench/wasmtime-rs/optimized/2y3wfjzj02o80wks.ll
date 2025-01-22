@@ -2870,8 +2870,8 @@ _ZN18cranelift_frontend8frontend15FunctionBuilder3ins17he9e2e4271efe181dE.exit36
 
 _ZN18cranelift_frontend8frontend15FunctionBuilder3ins17he9e2e4271efe181dE.exit36: ; preds = %_ZN18cranelift_frontend8frontend15FunctionBuilder3ins17he9e2e4271efe181dE.exit36.preheader, %_ZN18cranelift_frontend8frontend15FunctionBuilder3ins17he9e2e4271efe181dE.exit36
   %.sroa.02.044 = phi i64 [ %96, %_ZN18cranelift_frontend8frontend15FunctionBuilder3ins17he9e2e4271efe181dE.exit36 ], [ 0, %_ZN18cranelift_frontend8frontend15FunctionBuilder3ins17he9e2e4271efe181dE.exit36.preheader ]
-  %94 = mul i64 %.sroa.02.044, %.01640
-  %95 = trunc i64 %94 to i32
+  %94 = mul nuw i64 %.sroa.02.044, %.01640
+  %95 = trunc nuw i64 %94 to i32
   %96 = add nuw i64 %.sroa.02.044, 1
   %97 = load i16, ptr %16, align 2, !noundef !4
   %98 = call noundef i32 @"_ZN94_$LT$cranelift_codegen..ir..immediates..Offset32$u20$as$u20$core..convert..From$LT$i32$GT$$GT$4from17hcd11248f6ed987afE"(i32 noundef %95), !noalias !414

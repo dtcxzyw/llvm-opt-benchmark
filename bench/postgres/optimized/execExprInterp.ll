@@ -6029,12 +6029,12 @@ define dso_local void @ExecEvalHashedScalarArrayOp(ptr nocapture readnone %0, pt
   %23 = trunc i8 %22 to i1
   %24 = and i8 %22, 1
   %25 = select i1 %23, i1 %18, i1 false
-  br i1 %25, label %435, label %26
+  br i1 %25, label %434, label %26
 
 26:                                               ; preds = %3
   %27 = load ptr, ptr %8, align 8
   %28 = icmp eq ptr %27, null
-  br i1 %28, label %29, label %370
+  br i1 %28, label %29, label %369
 
 29:                                               ; preds = %26
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 56
@@ -6671,142 +6671,138 @@ saophash_insert.exit:                             ; preds = %296, %._crit_edge15
   %.196 = select i1 %.not113, i32 %.095181, i32 %spec.select118
   %368 = add nuw nsw i32 %.092182, 1
   %exitcond.not = icmp eq i32 %368, %40
-  br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !23
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !23
 
-._crit_edge.loopexit:                             ; preds = %saophash_insert.exit
-  %369 = and i8 %.1102, 1
-  br label %._crit_edge
-
-._crit_edge:                                      ; preds = %._crit_edge.loopexit, %112
-  %.0101.lcssa = phi i8 [ 0, %112 ], [ %369, %._crit_edge.loopexit ]
+._crit_edge:                                      ; preds = %saophash_insert.exit, %112
+  %.0101.lcssa = phi i8 [ 0, %112 ], [ %.1102, %saophash_insert.exit ]
   store i8 %.0101.lcssa, ptr %7, align 8
-  br label %370
+  br label %369
 
-370:                                              ; preds = %._crit_edge, %26
+369:                                              ; preds = %._crit_edge, %26
   %.0 = phi ptr [ %46, %._crit_edge ], [ %27, %26 ]
-  %371 = load ptr, ptr %.0, align 8
-  %372 = getelementptr i8, ptr %371, i64 40
-  %.val.i123 = load ptr, ptr %372, align 8
-  %373 = getelementptr inbounds nuw i8, ptr %.val.i123, i64 64
-  %374 = getelementptr inbounds nuw i8, ptr %.val.i123, i64 96
-  store i64 %20, ptr %374, align 8
-  %375 = getelementptr inbounds nuw i8, ptr %.val.i123, i64 104
-  store i8 0, ptr %375, align 8
-  %376 = getelementptr inbounds nuw i8, ptr %.val.i123, i64 16
-  %377 = load ptr, ptr %376, align 8
-  %378 = call i64 %377(ptr noundef nonnull %373) #15
-  %379 = trunc i64 %378 to i32
-  %380 = getelementptr i8, ptr %371, i64 12
-  %.val.i.i124 = load i32, ptr %380, align 4
-  %381 = and i32 %.val.i.i124, %379
-  %382 = getelementptr inbounds nuw i8, ptr %371, i64 24
-  %383 = load ptr, ptr %382, align 8
-  %384 = zext i32 %381 to i64
-  %385 = getelementptr %struct.ScalarArrayOpExprHashEntry, ptr %383, i64 %384
-  %386 = getelementptr inbounds nuw i8, ptr %385, i64 8
-  %387 = load i32, ptr %386, align 8
-  %388 = icmp eq i32 %387, 0
-  br i1 %388, label %.loopexit, label %.lr.ph.i.i125
+  %370 = load ptr, ptr %.0, align 8
+  %371 = getelementptr i8, ptr %370, i64 40
+  %.val.i123 = load ptr, ptr %371, align 8
+  %372 = getelementptr inbounds nuw i8, ptr %.val.i123, i64 64
+  %373 = getelementptr inbounds nuw i8, ptr %.val.i123, i64 96
+  store i64 %20, ptr %373, align 8
+  %374 = getelementptr inbounds nuw i8, ptr %.val.i123, i64 104
+  store i8 0, ptr %374, align 8
+  %375 = getelementptr inbounds nuw i8, ptr %.val.i123, i64 16
+  %376 = load ptr, ptr %375, align 8
+  %377 = call i64 %376(ptr noundef nonnull %372) #15
+  %378 = trunc i64 %377 to i32
+  %379 = getelementptr i8, ptr %370, i64 12
+  %.val.i.i124 = load i32, ptr %379, align 4
+  %380 = and i32 %.val.i.i124, %378
+  %381 = getelementptr inbounds nuw i8, ptr %370, i64 24
+  %382 = load ptr, ptr %381, align 8
+  %383 = zext i32 %380 to i64
+  %384 = getelementptr %struct.ScalarArrayOpExprHashEntry, ptr %382, i64 %383
+  %385 = getelementptr inbounds nuw i8, ptr %384, i64 8
+  %386 = load i32, ptr %385, align 8
+  %387 = icmp eq i32 %386, 0
+  br i1 %387, label %.loopexit, label %.lr.ph.i.i125
 
-.lr.ph.i.i125:                                    ; preds = %370, %409
-  %389 = phi ptr [ %410, %409 ], [ %383, %370 ]
-  %.val1622.i.i = phi i32 [ %.val16.i.i, %409 ], [ %.val.i.i124, %370 ]
-  %390 = phi ptr [ %414, %409 ], [ %385, %370 ]
-  %.01518.i.i = phi i32 [ %412, %409 ], [ %381, %370 ]
-  %391 = getelementptr inbounds nuw i8, ptr %390, i64 12
-  %392 = load i32, ptr %391, align 4
-  %393 = icmp eq i32 %392, %379
-  br i1 %393, label %394, label %409
+.lr.ph.i.i125:                                    ; preds = %369, %408
+  %388 = phi ptr [ %409, %408 ], [ %382, %369 ]
+  %.val1622.i.i = phi i32 [ %.val16.i.i, %408 ], [ %.val.i.i124, %369 ]
+  %389 = phi ptr [ %413, %408 ], [ %384, %369 ]
+  %.01518.i.i = phi i32 [ %411, %408 ], [ %380, %369 ]
+  %390 = getelementptr inbounds nuw i8, ptr %389, i64 12
+  %391 = load i32, ptr %390, align 4
+  %392 = icmp eq i32 %391, %378
+  br i1 %392, label %393, label %408
 
-394:                                              ; preds = %.lr.ph.i.i125
-  %395 = load i64, ptr %390, align 8
-  %.val17.i.i = load ptr, ptr %372, align 8
-  %396 = getelementptr inbounds nuw i8, ptr %.val17.i.i, i64 8
-  %397 = load ptr, ptr %396, align 8
-  %398 = getelementptr inbounds nuw i8, ptr %397, i64 48
-  %399 = load ptr, ptr %398, align 8
-  %400 = getelementptr inbounds nuw i8, ptr %399, i64 32
-  store i64 %395, ptr %400, align 8
-  %401 = getelementptr inbounds nuw i8, ptr %399, i64 40
-  store i8 0, ptr %401, align 8
-  %402 = getelementptr i8, ptr %399, i64 48
-  store i64 %20, ptr %402, align 8
-  %403 = getelementptr i8, ptr %399, i64 56
-  store i8 0, ptr %403, align 8
-  %404 = load ptr, ptr %396, align 8
-  %405 = getelementptr inbounds nuw i8, ptr %404, i64 40
+393:                                              ; preds = %.lr.ph.i.i125
+  %394 = load i64, ptr %389, align 8
+  %.val17.i.i = load ptr, ptr %371, align 8
+  %395 = getelementptr inbounds nuw i8, ptr %.val17.i.i, i64 8
+  %396 = load ptr, ptr %395, align 8
+  %397 = getelementptr inbounds nuw i8, ptr %396, i64 48
+  %398 = load ptr, ptr %397, align 8
+  %399 = getelementptr inbounds nuw i8, ptr %398, i64 32
+  store i64 %394, ptr %399, align 8
+  %400 = getelementptr inbounds nuw i8, ptr %398, i64 40
+  store i8 0, ptr %400, align 8
+  %401 = getelementptr i8, ptr %398, i64 48
+  store i64 %20, ptr %401, align 8
+  %402 = getelementptr i8, ptr %398, i64 56
+  store i8 0, ptr %402, align 8
+  %403 = load ptr, ptr %395, align 8
+  %404 = getelementptr inbounds nuw i8, ptr %403, i64 40
+  %405 = load ptr, ptr %404, align 8
   %406 = load ptr, ptr %405, align 8
-  %407 = load ptr, ptr %406, align 8
-  %408 = call i64 %407(ptr noundef %399) #15
-  %.not.i.i126 = icmp eq i64 %408, 0
+  %407 = call i64 %406(ptr noundef %398) #15
+  %.not.i.i126 = icmp eq i64 %407, 0
   br i1 %.not.i.i126, label %._crit_edge21.i.i, label %saophash_lookup.exit
 
-._crit_edge21.i.i:                                ; preds = %394
-  %.val16.pre.i.i = load i32, ptr %380, align 4
-  %.pre.i.i127 = load ptr, ptr %382, align 8
-  br label %409
+._crit_edge21.i.i:                                ; preds = %393
+  %.val16.pre.i.i = load i32, ptr %379, align 4
+  %.pre.i.i127 = load ptr, ptr %381, align 8
+  br label %408
 
-409:                                              ; preds = %._crit_edge21.i.i, %.lr.ph.i.i125
-  %410 = phi ptr [ %.pre.i.i127, %._crit_edge21.i.i ], [ %389, %.lr.ph.i.i125 ]
+408:                                              ; preds = %._crit_edge21.i.i, %.lr.ph.i.i125
+  %409 = phi ptr [ %.pre.i.i127, %._crit_edge21.i.i ], [ %388, %.lr.ph.i.i125 ]
   %.val16.i.i = phi i32 [ %.val16.pre.i.i, %._crit_edge21.i.i ], [ %.val1622.i.i, %.lr.ph.i.i125 ]
-  %411 = add i32 %.01518.i.i, 1
-  %412 = and i32 %.val16.i.i, %411
-  %413 = zext i32 %412 to i64
-  %414 = getelementptr %struct.ScalarArrayOpExprHashEntry, ptr %410, i64 %413
-  %415 = getelementptr inbounds nuw i8, ptr %414, i64 8
-  %416 = load i32, ptr %415, align 8
-  %417 = icmp eq i32 %416, 0
-  br i1 %417, label %.loopexit, label %.lr.ph.i.i125
+  %410 = add i32 %.01518.i.i, 1
+  %411 = and i32 %.val16.i.i, %410
+  %412 = zext i32 %411 to i64
+  %413 = getelementptr %struct.ScalarArrayOpExprHashEntry, ptr %409, i64 %412
+  %414 = getelementptr inbounds nuw i8, ptr %413, i64 8
+  %415 = load i32, ptr %414, align 8
+  %416 = icmp eq i32 %415, 0
+  br i1 %416, label %.loopexit, label %.lr.ph.i.i125
 
-saophash_lookup.exit:                             ; preds = %394
+saophash_lookup.exit:                             ; preds = %393
   %.mask = and i8 %12, 1
   %.093 = zext nneg i8 %.mask to i64
-  br label %432
+  br label %431
 
-.loopexit:                                        ; preds = %409, %370
-  %418 = load i8, ptr %7, align 8
-  %419 = trunc i8 %418 to i1
-  %.not119 = xor i1 %419, true
+.loopexit:                                        ; preds = %408, %369
+  %417 = load i8, ptr %7, align 8
+  %418 = trunc i8 %417 to i1
+  %.not119 = xor i1 %418, true
   %brmerge120 = select i1 %.not119, i1 true, i1 %18
-  %.mux = and i8 %418, 1
-  %420 = select i1 %419, i1 true, i1 %13
-  %narrow = xor i1 %420, true
+  %.mux = and i8 %417, 1
+  %419 = select i1 %418, i1 true, i1 %13
+  %narrow = xor i1 %419, true
   %.093.mux = zext i1 %narrow to i64
-  br i1 %brmerge120, label %432, label %421
+  br i1 %brmerge120, label %431, label %420
 
-421:                                              ; preds = %.loopexit
+420:                                              ; preds = %.loopexit
   store i64 %20, ptr %19, align 8
   store i8 %24, ptr %21, align 8
-  %422 = getelementptr i8, ptr %10, i64 48
-  store i64 0, ptr %422, align 8
-  %423 = getelementptr i8, ptr %10, i64 56
-  store i8 1, ptr %423, align 8
-  %424 = load ptr, ptr %14, align 8
-  %425 = load ptr, ptr %424, align 8
-  %426 = call i64 %425(ptr noundef %10) #15
-  %427 = getelementptr inbounds nuw i8, ptr %10, i64 28
-  %428 = load i8, ptr %427, align 4
-  %429 = and i8 %428, 1
-  br i1 %13, label %432, label %430
+  %421 = getelementptr i8, ptr %10, i64 48
+  store i64 0, ptr %421, align 8
+  %422 = getelementptr i8, ptr %10, i64 56
+  store i8 1, ptr %422, align 8
+  %423 = load ptr, ptr %14, align 8
+  %424 = load ptr, ptr %423, align 8
+  %425 = call i64 %424(ptr noundef %10) #15
+  %426 = getelementptr inbounds nuw i8, ptr %10, i64 28
+  %427 = load i8, ptr %426, align 4
+  %428 = and i8 %427, 1
+  br i1 %13, label %431, label %429
 
-430:                                              ; preds = %421
-  %.not112 = icmp eq i64 %426, 0
-  %431 = zext i1 %.not112 to i64
-  br label %432
+429:                                              ; preds = %420
+  %.not112 = icmp eq i64 %425, 0
+  %430 = zext i1 %.not112 to i64
+  br label %431
 
-432:                                              ; preds = %saophash_lookup.exit, %.loopexit, %430, %421
-  %.094 = phi i8 [ 0, %saophash_lookup.exit ], [ %429, %421 ], [ %429, %430 ], [ %.mux, %.loopexit ]
-  %.1 = phi i64 [ %.093, %saophash_lookup.exit ], [ %426, %421 ], [ %431, %430 ], [ %.093.mux, %.loopexit ]
-  %433 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %434 = load ptr, ptr %433, align 8
-  store i64 %.1, ptr %434, align 8
-  br label %435
+431:                                              ; preds = %saophash_lookup.exit, %.loopexit, %429, %420
+  %.094 = phi i8 [ 0, %saophash_lookup.exit ], [ %428, %420 ], [ %428, %429 ], [ %.mux, %.loopexit ]
+  %.1 = phi i64 [ %.093, %saophash_lookup.exit ], [ %425, %420 ], [ %430, %429 ], [ %.093.mux, %.loopexit ]
+  %432 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %433 = load ptr, ptr %432, align 8
+  store i64 %.1, ptr %433, align 8
+  br label %434
 
-435:                                              ; preds = %3, %432
-  %.094.sink = phi i8 [ %.094, %432 ], [ 1, %3 ]
-  %436 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %437 = load ptr, ptr %436, align 8
-  store i8 %.094.sink, ptr %437, align 1
+434:                                              ; preds = %3, %431
+  %.094.sink = phi i8 [ %.094, %431 ], [ 1, %3 ]
+  %435 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %436 = load ptr, ptr %435, align 8
+  store i8 %.094.sink, ptr %436, align 1
   ret void
 }
 

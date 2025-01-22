@@ -1503,13 +1503,13 @@ _ZNK6vectorIcLb0EjE8capacityEv.exit.i:            ; preds = %while.cond.i
   %arrayidx.i12.i = getelementptr inbounds i8, ptr %0, i64 -8
   %1 = load i32, ptr %arrayidx.i12.i, align 4
   %cmp3.i = icmp ult i32 %1, 2048
-  br i1 %cmp3.i, label %while.body.i, label %while.end.i
+  br i1 %cmp3.i, label %while.body.i, label %invoke.cont
 
 while.body.i:                                     ; preds = %_ZNK6vectorIcLb0EjE8capacityEv.exit.i, %while.cond.i
   invoke void @_ZN6vectorIcLb0EjE13expand_vectorEv(ptr noundef nonnull align 8 dereferenceable(8) %m_data)
           to label %while.condthread-pre-split.i unwind label %lpad.loopexit
 
-while.end.i:                                      ; preds = %_ZNK6vectorIcLb0EjE8capacityEv.exit.i
+invoke.cont:                                      ; preds = %_ZNK6vectorIcLb0EjE8capacityEv.exit.i
   %arrayidx.i = getelementptr inbounds i8, ptr %0, i64 -4
   store i32 2048, ptr %arrayidx.i, align 4
   %2 = load ptr, ptr %m_data, align 8
@@ -1519,14 +1519,14 @@ while.end.i:                                      ; preds = %_ZNK6vectorIcLb0EjE
   %cmp.i.i.i = icmp eq ptr %3, null
   br i1 %cmp.i.i.i, label %while.cond.i.i.preheader, label %_ZNK6vectorIcLb0EjE4sizeEv.exit.thread.i.i
 
-_ZNK6vectorIcLb0EjE4sizeEv.exit.thread.i.i:       ; preds = %while.end.i
+_ZNK6vectorIcLb0EjE4sizeEv.exit.thread.i.i:       ; preds = %invoke.cont
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %3, i64 -4
   %4 = load i32, ptr %arrayidx.i.i.i, align 4
   %cmp.not15.i.i = icmp eq i32 %4, 0
   br i1 %cmp.not15.i.i, label %while.cond.i.i.preheader, label %if.then.i.i.i
 
-while.cond.i.i.preheader:                         ; preds = %while.end.i, %_ZNK6vectorIcLb0EjE4sizeEv.exit.thread.i.i
-  %.ph = phi ptr [ %3, %_ZNK6vectorIcLb0EjE4sizeEv.exit.thread.i.i ], [ null, %while.end.i ]
+while.cond.i.i.preheader:                         ; preds = %invoke.cont, %_ZNK6vectorIcLb0EjE4sizeEv.exit.thread.i.i
+  %.ph = phi ptr [ %3, %_ZNK6vectorIcLb0EjE4sizeEv.exit.thread.i.i ], [ null, %invoke.cont ]
   br label %while.cond.i.i
 
 if.then.i.i.i:                                    ; preds = %_ZNK6vectorIcLb0EjE4sizeEv.exit.thread.i.i

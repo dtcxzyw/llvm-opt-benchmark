@@ -2853,8 +2853,8 @@ cdce.end:                                         ; preds = %cdce.call, %118
   %or.cond = select i1 %1936, i1 %1937, i1 false
   %spec.select = select i1 %or.cond, i32 %625, i32 %626
   %1938 = select i1 %1935, i32 %spec.select, i32 %625
-  %1939 = add nsw i32 %1938, 1
-  %1940 = icmp sgt i32 %626, %1939
+  %1939 = add nuw nsw i32 %1938, 1
+  %1940 = icmp samesign ugt i32 %626, %1939
   br i1 %1940, label %1941, label %1955
 
 1941:                                             ; preds = %1927

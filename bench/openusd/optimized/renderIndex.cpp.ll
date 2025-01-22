@@ -28770,7 +28770,7 @@ _ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE13split_to_fillEh.ex
   br i1 %157, label %.noexc.i.i, label %186
 
 .noexc.i.i:                                       ; preds = %155
-  %158 = zext i8 %113 to i64
+  %158 = zext nneg i8 %113 to i64
   %159 = getelementptr inbounds nuw [8 x i8], ptr %108, i64 0, i64 %158
   %160 = load i8, ptr %159, align 1
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
@@ -28817,7 +28817,7 @@ _ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE13split_to_fillEh.ex
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   %183 = add i8 %.promoted.i.pr55.i.i, -1
   store i8 %183, ptr %107, align 2
-  %184 = add i8 %113, 1
+  %184 = add nuw nsw i8 %113, 1
   %185 = and i8 %184, 7
   store i8 %185, ptr %106, align 1
   br label %_ZN3tbb6detail2d118task_group_context28is_group_execution_cancelledEv.exit.i.i
@@ -30457,7 +30457,7 @@ _ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE13split_to_fillEh.ex
   br i1 %165, label %.noexc.i.i, label %194
 
 .noexc.i.i:                                       ; preds = %163
-  %166 = zext i8 %121 to i64
+  %166 = zext nneg i8 %121 to i64
   %167 = getelementptr inbounds nuw [8 x i8], ptr %116, i64 0, i64 %166
   %168 = load i8, ptr %167, align 1
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
@@ -30504,7 +30504,7 @@ _ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE13split_to_fillEh.ex
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   %191 = add i8 %.promoted.i.pr54.i.i, -1
   store i8 %191, ptr %115, align 2
-  %192 = add i8 %121, 1
+  %192 = add nuw nsw i8 %121, 1
   %193 = and i8 %192, 7
   store i8 %193, ptr %114, align 1
   br label %_ZN3tbb6detail2d118task_group_context28is_group_execution_cancelledEv.exit.i.i
@@ -33328,7 +33328,7 @@ _ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE13split_to_fillEh.ex
   br i1 %92, label %.noexc, label %122
 
 .noexc:                                           ; preds = %90
-  %93 = zext i8 %48 to i64
+  %93 = zext nneg i8 %48 to i64
   %94 = getelementptr inbounds nuw [8 x i8], ptr %41, i64 0, i64 %93
   %95 = load i8, ptr %94, align 1
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
@@ -33375,7 +33375,7 @@ _ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE13split_to_fillEh.ex
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   %119 = add i8 %.promoted.i.pr50, -1
   store i8 %119, ptr %40, align 2
-  %120 = add i8 %48, 1
+  %120 = add nuw nsw i8 %48, 1
   %121 = and i8 %120, 7
   store i8 %121, ptr %39, align 1
   br label %_ZN3tbb6detail2d118task_group_context28is_group_execution_cancelledEv.exit
@@ -35117,7 +35117,7 @@ _ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE13split_to_fillEh.ex
   br i1 %165, label %.noexc.i.i, label %194
 
 .noexc.i.i:                                       ; preds = %163
-  %166 = zext i8 %121 to i64
+  %166 = zext nneg i8 %121 to i64
   %167 = getelementptr inbounds nuw [8 x i8], ptr %116, i64 0, i64 %166
   %168 = load i8, ptr %167, align 1
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
@@ -35164,7 +35164,7 @@ _ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE13split_to_fillEh.ex
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   %191 = add i8 %.promoted.i.pr55.i.i, -1
   store i8 %191, ptr %115, align 2
-  %192 = add i8 %121, 1
+  %192 = add nuw nsw i8 %121, 1
   %193 = and i8 %192, 7
   store i8 %193, ptr %114, align 1
   br label %_ZN3tbb6detail2d118task_group_context28is_group_execution_cancelledEv.exit.i.i

@@ -1039,7 +1039,7 @@ define range(i32 -2147483647, 10001) i32 @Extra_ThreshSelectWeights6(ptr nocaptu
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph
   %11 = icmp sgt i32 %1, 0
-  %smax315 = tail call i32 @llvm.smax.i32(i32 %4, i32 1)
+  %smax314 = tail call i32 @llvm.smax.i32(i32 %4, i32 1)
   br i1 %11, label %.split237.us.us.us.us.preheader, label %.split237.us.us.preheader
 
 .split237.us.us.preheader:                        ; preds = %.lr.ph.split.us
@@ -1047,7 +1047,7 @@ define range(i32 -2147483647, 10001) i32 @Extra_ThreshSelectWeights6(ptr nocaptu
   br label %.split237.us.us
 
 .split237.us.us.us.us.preheader:                  ; preds = %.lr.ph.split.us
-  %smax317 = tail call i32 @llvm.smax.i32(i32 %5, i32 1)
+  %smax316 = tail call i32 @llvm.smax.i32(i32 %5, i32 1)
   br label %.split237.us.us.us.us
 
 .split237.us.us.us.us:                            ; preds = %.split237.us.us.us.us.preheader, %.split252.us.split.us.split.us.us.us.us
@@ -1096,8 +1096,8 @@ define range(i32 -2147483647, 10001) i32 @Extra_ThreshSelectWeights6(ptr nocaptu
 
 22:                                               ; preds = %40
   %23 = add nuw nsw i32 %.04988.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us, 1
-  %exitcond316.not = icmp eq i32 %23, %smax315
-  br i1 %exitcond316.not, label %.thread, label %13, !llvm.loop !32
+  %exitcond315.not = icmp eq i32 %23, %smax314
+  br i1 %exitcond315.not, label %.thread, label %13, !llvm.loop !32
 
 .lr.ph.i.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us: ; preds = %13, %31
   %indvars.iv.i.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us = phi i64 [ %indvars.iv.next.i.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us, %31 ], [ 0, %13 ]
@@ -1188,8 +1188,8 @@ Extra_ThreshWeightedSum.exit.loopexit.us.us.us.us.us.us.us.us.us.us.us.us.us.us.
 .split252.us.split.us.split.us.us.us.us:          ; preds = %.split209.us.split.us.split.us.us.us.us.us.us.us
   %48 = add nuw i32 %storemerge284.us.us.us, 1
   store i32 %48, ptr %6, align 4
-  %exitcond318.not = icmp eq i32 %storemerge284.us.us.us, %smax317
-  br i1 %exitcond318.not, label %.thread, label %.split237.us.us.us.us, !llvm.loop !38
+  %exitcond317.not = icmp eq i32 %storemerge284.us.us.us, %smax316
+  br i1 %exitcond317.not, label %.thread, label %.split237.us.us.us.us, !llvm.loop !38
 
 .split237.us.us:                                  ; preds = %.split237.us.us.preheader, %.split252.us.split.split.us289
   %storemerge284.us = phi i32 [ %65, %.split252.us.split.split.us289 ], [ 1, %.split237.us.us.preheader ]
@@ -1218,7 +1218,7 @@ Extra_ThreshWeightedSum.exit.loopexit.us.us.us.us.us.us.us.us.us.us.us.us.us.us.
 
 49:                                               ; preds = %51
   %50 = add nuw nsw i32 %.04988.us.us.us.us.us, 1
-  %exitcond.not = icmp eq i32 %50, %smax315
+  %exitcond.not = icmp eq i32 %50, %smax314
   br i1 %exitcond.not, label %.thread, label %51, !llvm.loop !32
 
 51:                                               ; preds = %.preheader.us127.us.us.us.us, %49
@@ -1271,8 +1271,8 @@ Extra_ThreshWeightedSum.exit.loopexit.us.us.us.us.us.us.us.us.us.us.us.us.us.us.
 .split252.us.split.split.us289:                   ; preds = %.split209.us.split.split.us241.us
   %65 = add nuw i32 %storemerge284.us, 1
   store i32 %65, ptr %6, align 4
-  %exitcond314.not = icmp eq i32 %storemerge284.us, %12
-  br i1 %exitcond314.not, label %.thread, label %.split237.us.us, !llvm.loop !38
+  %exitcond313.not = icmp eq i32 %storemerge284.us, %12
+  br i1 %exitcond313.not, label %.thread, label %.split237.us.us, !llvm.loop !38
 
 .lr.ph.split:                                     ; preds = %.lr.ph
   store i32 1, ptr %7, align 4
@@ -1308,7 +1308,7 @@ define range(i32 -2147483647, 10001) i32 @Extra_ThreshSelectWeights7(ptr nocaptu
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph
   %12 = icmp sgt i32 %1, 0
-  %smax376 = tail call i32 @llvm.smax.i32(i32 %4, i32 1)
+  %smax375 = tail call i32 @llvm.smax.i32(i32 %4, i32 1)
   br i1 %12, label %.split293.us.us.us.us.preheader, label %.split293.us.us.preheader
 
 .split293.us.us.preheader:                        ; preds = %.lr.ph.split.us
@@ -1316,7 +1316,7 @@ define range(i32 -2147483647, 10001) i32 @Extra_ThreshSelectWeights7(ptr nocaptu
   br label %.split293.us.us
 
 .split293.us.us.us.us.preheader:                  ; preds = %.lr.ph.split.us
-  %smax378 = tail call i32 @llvm.smax.i32(i32 %5, i32 1)
+  %smax377 = tail call i32 @llvm.smax.i32(i32 %5, i32 1)
   br label %.split293.us.us.us.us
 
 .split293.us.us.us.us:                            ; preds = %.split293.us.us.us.us.preheader, %.split308.us.split.us.split.us.us.us.us
@@ -1370,8 +1370,8 @@ define range(i32 -2147483647, 10001) i32 @Extra_ThreshSelectWeights7(ptr nocaptu
 
 23:                                               ; preds = %41
   %24 = add nuw nsw i32 %.05496.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us, 1
-  %exitcond377.not = icmp eq i32 %24, %smax376
-  br i1 %exitcond377.not, label %.thread, label %14, !llvm.loop !39
+  %exitcond376.not = icmp eq i32 %24, %smax375
+  br i1 %exitcond376.not, label %.thread, label %14, !llvm.loop !39
 
 .lr.ph.i.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us: ; preds = %14, %32
   %indvars.iv.i.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us = phi i64 [ %indvars.iv.next.i.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us, %32 ], [ 0, %14 ]
@@ -1468,8 +1468,8 @@ Extra_ThreshWeightedSum.exit.loopexit.us.us.us.us.us.us.us.us.us.us.us.us.us.us.
 .split308.us.split.us.split.us.us.us.us:          ; preds = %.split260.us.split.us.split.us.us.us.us.us.us.us
   %50 = add nuw i32 %storemerge345.us.us.us, 1
   store i32 %50, ptr %6, align 4
-  %exitcond379.not = icmp eq i32 %storemerge345.us.us.us, %smax378
-  br i1 %exitcond379.not, label %.thread, label %.split293.us.us.us.us, !llvm.loop !46
+  %exitcond378.not = icmp eq i32 %storemerge345.us.us.us, %smax377
+  br i1 %exitcond378.not, label %.thread, label %.split293.us.us.us.us, !llvm.loop !46
 
 .split293.us.us:                                  ; preds = %.split293.us.us.preheader, %.split308.us.split.split.us350
   %storemerge345.us = phi i32 [ %68, %.split308.us.split.split.us350 ], [ 1, %.split293.us.us.preheader ]
@@ -1503,7 +1503,7 @@ Extra_ThreshWeightedSum.exit.loopexit.us.us.us.us.us.us.us.us.us.us.us.us.us.us.
 
 51:                                               ; preds = %53
   %52 = add nuw nsw i32 %.05496.us.us.us.us.us.us, 1
-  %exitcond.not = icmp eq i32 %52, %smax376
+  %exitcond.not = icmp eq i32 %52, %smax375
   br i1 %exitcond.not, label %.thread, label %53, !llvm.loop !39
 
 53:                                               ; preds = %.preheader.us135.us.us.us.us.us, %51
@@ -1562,8 +1562,8 @@ Extra_ThreshWeightedSum.exit.loopexit.us.us.us.us.us.us.us.us.us.us.us.us.us.us.
 .split308.us.split.split.us350:                   ; preds = %.split260.us.split.split.us297.us
   %68 = add nuw i32 %storemerge345.us, 1
   store i32 %68, ptr %6, align 4
-  %exitcond375.not = icmp eq i32 %storemerge345.us, %13
-  br i1 %exitcond375.not, label %.thread, label %.split293.us.us, !llvm.loop !46
+  %exitcond374.not = icmp eq i32 %storemerge345.us, %13
+  br i1 %exitcond374.not, label %.thread, label %.split293.us.us, !llvm.loop !46
 
 .lr.ph.split:                                     ; preds = %.lr.ph
   store i32 1, ptr %7, align 4
@@ -1765,13 +1765,13 @@ Extra_ThreshWeightedSum.exit.loopexit.us.us.us.us.us.us.us.us.us.us.us.us.us.us.
 .split369.us.split.us.split.us.us.us.us:          ; preds = %.split316.us.split.us.split.us.us.us.us.us.us.us
   %50 = add nuw i32 %storemerge411.us.us.us, 1
   store i32 %50, ptr %5, align 4
-  %exitcond442 = icmp eq i32 %storemerge411.us.us.us, %12
-  br i1 %exitcond442, label %.thread, label %.split354.us.us.us.us, !llvm.loop !55
+  %exitcond441 = icmp eq i32 %storemerge411.us.us.us, %12
+  br i1 %exitcond441, label %.thread, label %.split354.us.us.us.us, !llvm.loop !55
 
 51:                                               ; preds = %53
   %52 = add nuw nsw i32 %.059104.us.us.us.us.us.us.us, 1
-  %exitcond444.not = icmp eq i32 %52, %4
-  br i1 %exitcond444.not, label %.thread, label %53, !llvm.loop !47
+  %exitcond443.not = icmp eq i32 %52, %4
+  br i1 %exitcond443.not, label %.thread, label %53, !llvm.loop !47
 
 53:                                               ; preds = %.preheader.us143.us.us.us.us.us.us, %51
   %.059104.us.us.us.us.us.us.us = phi i32 [ 0, %.preheader.us143.us.us.us.us.us.us ], [ %52, %51 ]

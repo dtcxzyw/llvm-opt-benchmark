@@ -4673,14 +4673,14 @@ _ZN5clang4semaL16isRecordWithAttrINS_9OwnerAttrEEEbNS_8QualTypeE.exit.i: ; preds
   %.sroa.0.0.copyload.i31.i.i.i.i.i.i.i.i = load i32, ptr %134, align 8
   %135 = and i32 %.sroa.0.0.copyload.i31.i.i.i.i.i.i.i.i, -3
   %136 = icmp eq i32 %135, 0
-  br i1 %136, label %_ZN5clang4semaL16pathContainsInitERN4llvm15SmallVectorImplINS0_12_GLOBAL__N_122IndirectLocalPathEntryEEE.exit.i.loopexit.split.loop.exit107, label %137
+  br i1 %136, label %_ZN5clang4semaL16pathContainsInitERN4llvm15SmallVectorImplINS0_12_GLOBAL__N_122IndirectLocalPathEntryEEE.exit.i.loopexit.split.loop.exit102, label %137
 
 137:                                              ; preds = %133
   %138 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i.i.i.i, i64 72
   %.sroa.0.0.copyload.i32.i.i.i.i.i.i.i.i = load i32, ptr %138, align 8
   %139 = and i32 %.sroa.0.0.copyload.i32.i.i.i.i.i.i.i.i, -3
   %140 = icmp eq i32 %139, 0
-  br i1 %140, label %_ZN5clang4semaL16pathContainsInitERN4llvm15SmallVectorImplINS0_12_GLOBAL__N_122IndirectLocalPathEntryEEE.exit.i.loopexit.split.loop.exit109, label %141
+  br i1 %140, label %_ZN5clang4semaL16pathContainsInitERN4llvm15SmallVectorImplINS0_12_GLOBAL__N_122IndirectLocalPathEntryEEE.exit.i.loopexit.split.loop.exit104, label %141
 
 141:                                              ; preds = %137
   %142 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i.i.i.i, i64 96
@@ -4737,16 +4737,16 @@ _ZN5clang4semaL16pathContainsInitERN4llvm15SmallVectorImplINS0_12_GLOBAL__N_122I
   %160 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i.i.i.i, i64 24
   br label %_ZN5clang4semaL16pathContainsInitERN4llvm15SmallVectorImplINS0_12_GLOBAL__N_122IndirectLocalPathEntryEEE.exit.i
 
-_ZN5clang4semaL16pathContainsInitERN4llvm15SmallVectorImplINS0_12_GLOBAL__N_122IndirectLocalPathEntryEEE.exit.i.loopexit.split.loop.exit107: ; preds = %133
+_ZN5clang4semaL16pathContainsInitERN4llvm15SmallVectorImplINS0_12_GLOBAL__N_122IndirectLocalPathEntryEEE.exit.i.loopexit.split.loop.exit102: ; preds = %133
   %161 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i.i.i.i, i64 48
   br label %_ZN5clang4semaL16pathContainsInitERN4llvm15SmallVectorImplINS0_12_GLOBAL__N_122IndirectLocalPathEntryEEE.exit.i
 
-_ZN5clang4semaL16pathContainsInitERN4llvm15SmallVectorImplINS0_12_GLOBAL__N_122IndirectLocalPathEntryEEE.exit.i.loopexit.split.loop.exit109: ; preds = %137
+_ZN5clang4semaL16pathContainsInitERN4llvm15SmallVectorImplINS0_12_GLOBAL__N_122IndirectLocalPathEntryEEE.exit.i.loopexit.split.loop.exit104: ; preds = %137
   %162 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i.i.i.i, i64 72
   br label %_ZN5clang4semaL16pathContainsInitERN4llvm15SmallVectorImplINS0_12_GLOBAL__N_122IndirectLocalPathEntryEEE.exit.i
 
-_ZN5clang4semaL16pathContainsInitERN4llvm15SmallVectorImplINS0_12_GLOBAL__N_122IndirectLocalPathEntryEEE.exit.i: ; preds = %.lr.ph.i.i.i.i.i.i.i.i, %_ZN5clang4semaL16pathContainsInitERN4llvm15SmallVectorImplINS0_12_GLOBAL__N_122IndirectLocalPathEntryEEE.exit.i.loopexit.split.loop.exit, %_ZN5clang4semaL16pathContainsInitERN4llvm15SmallVectorImplINS0_12_GLOBAL__N_122IndirectLocalPathEntryEEE.exit.i.loopexit.split.loop.exit107, %_ZN5clang4semaL16pathContainsInitERN4llvm15SmallVectorImplINS0_12_GLOBAL__N_122IndirectLocalPathEntryEEE.exit.i.loopexit.split.loop.exit109, %159, %156, %151, %146
-  %.028.i.i.i.i.i.i.i.i = phi ptr [ %123, %159 ], [ %.029.lcssa.i.i.i.i.i.i.i.i, %146 ], [ %.1.i.i.i.i.i.i.i.i, %151 ], [ %.2.i.i.i.i.i.i.i.i, %156 ], [ %160, %_ZN5clang4semaL16pathContainsInitERN4llvm15SmallVectorImplINS0_12_GLOBAL__N_122IndirectLocalPathEntryEEE.exit.i.loopexit.split.loop.exit ], [ %161, %_ZN5clang4semaL16pathContainsInitERN4llvm15SmallVectorImplINS0_12_GLOBAL__N_122IndirectLocalPathEntryEEE.exit.i.loopexit.split.loop.exit107 ], [ %162, %_ZN5clang4semaL16pathContainsInitERN4llvm15SmallVectorImplINS0_12_GLOBAL__N_122IndirectLocalPathEntryEEE.exit.i.loopexit.split.loop.exit109 ], [ %.02946.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i ]
+_ZN5clang4semaL16pathContainsInitERN4llvm15SmallVectorImplINS0_12_GLOBAL__N_122IndirectLocalPathEntryEEE.exit.i: ; preds = %.lr.ph.i.i.i.i.i.i.i.i, %_ZN5clang4semaL16pathContainsInitERN4llvm15SmallVectorImplINS0_12_GLOBAL__N_122IndirectLocalPathEntryEEE.exit.i.loopexit.split.loop.exit, %_ZN5clang4semaL16pathContainsInitERN4llvm15SmallVectorImplINS0_12_GLOBAL__N_122IndirectLocalPathEntryEEE.exit.i.loopexit.split.loop.exit102, %_ZN5clang4semaL16pathContainsInitERN4llvm15SmallVectorImplINS0_12_GLOBAL__N_122IndirectLocalPathEntryEEE.exit.i.loopexit.split.loop.exit104, %159, %156, %151, %146
+  %.028.i.i.i.i.i.i.i.i = phi ptr [ %123, %159 ], [ %.029.lcssa.i.i.i.i.i.i.i.i, %146 ], [ %.1.i.i.i.i.i.i.i.i, %151 ], [ %.2.i.i.i.i.i.i.i.i, %156 ], [ %160, %_ZN5clang4semaL16pathContainsInitERN4llvm15SmallVectorImplINS0_12_GLOBAL__N_122IndirectLocalPathEntryEEE.exit.i.loopexit.split.loop.exit ], [ %161, %_ZN5clang4semaL16pathContainsInitERN4llvm15SmallVectorImplINS0_12_GLOBAL__N_122IndirectLocalPathEntryEEE.exit.i.loopexit.split.loop.exit102 ], [ %162, %_ZN5clang4semaL16pathContainsInitERN4llvm15SmallVectorImplINS0_12_GLOBAL__N_122IndirectLocalPathEntryEEE.exit.i.loopexit.split.loop.exit104 ], [ %.02946.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i ]
   %163 = icmp eq ptr %123, %.028.i.i.i.i.i.i.i.i
   %brmerge.not.i = and i1 %.0.i118.i, %163
   br i1 %brmerge.not.i, label %_ZN5clang4semaL25pathOnlyHandlesGslPointerERN4llvm15SmallVectorImplINS0_12_GLOBAL__N_122IndirectLocalPathEntryEEE.exit.thread.i, label %"_ZZN5clang4semaL21checkExprLifetimeImplERNS_4SemaEPKNS_17InitializedEntityES5_NS0_12_GLOBAL__N_112LifetimeKindEPKNS0_14AssignedEntityEPNS_4ExprEbENK3$_0clERN4llvm15SmallVectorImplINS6_22IndirectLocalPathEntryEEESC_NS6_13ReferenceKindE.exit"
@@ -4828,8 +4828,8 @@ _ZN5clang24MaterializeTemporaryExpr16getExtendingDeclEv.exit.thread.i: ; preds =
 _ZN5clang4semaL16isRecordWithAttrINS_9OwnerAttrEEEbNS_8QualTypeE.exit134.i: ; preds = %.lr.ph.i4.i.i.i.i.i124.i, %.lr.ph.i.i.i.i.i.i131.i
   %.sroa.07.0.i.i.i.i.i128.i = phi ptr [ %.sroa.07.1.i.i.i.i.i132.i, %.lr.ph.i.i.i.i.i.i131.i ], [ %184, %.lr.ph.i4.i.i.i.i.i124.i ]
   %.sroa.0.0.i.i.i.i.i129.i = phi ptr [ %186, %.lr.ph.i.i.i.i.i.i131.i ], [ %.sroa.0.1.i.i.i.i.i125.i, %.lr.ph.i4.i.i.i.i.i124.i ]
-  %.not351.i = icmp eq ptr %.sroa.07.0.i.i.i.i.i128.i, %.sroa.0.0.i.i.i.i.i129.i
-  br i1 %.not351.i, label %"_ZZN5clang4semaL21checkExprLifetimeImplERNS_4SemaEPKNS_17InitializedEntityES5_NS0_12_GLOBAL__N_112LifetimeKindEPKNS0_14AssignedEntityEPNS_4ExprEbENK3$_0clERN4llvm15SmallVectorImplINS6_22IndirectLocalPathEntryEEESC_NS6_13ReferenceKindE.exit", label %_ZN5clang4semaL25pathOnlyHandlesGslPointerERN4llvm15SmallVectorImplINS0_12_GLOBAL__N_122IndirectLocalPathEntryEEE.exit.thread.i
+  %.not347.i = icmp eq ptr %.sroa.07.0.i.i.i.i.i128.i, %.sroa.0.0.i.i.i.i.i129.i
+  br i1 %.not347.i, label %"_ZZN5clang4semaL21checkExprLifetimeImplERNS_4SemaEPKNS_17InitializedEntityES5_NS0_12_GLOBAL__N_112LifetimeKindEPKNS0_14AssignedEntityEPNS_4ExprEbENK3$_0clERN4llvm15SmallVectorImplINS6_22IndirectLocalPathEntryEEESC_NS6_13ReferenceKindE.exit", label %_ZN5clang4semaL25pathOnlyHandlesGslPointerERN4llvm15SmallVectorImplINS0_12_GLOBAL__N_122IndirectLocalPathEntryEEE.exit.thread.i
 
 _ZN5clang4semaL25pathOnlyHandlesGslPointerERN4llvm15SmallVectorImplINS0_12_GLOBAL__N_122IndirectLocalPathEntryEEE.exit.thread.i: ; preds = %89, %.lr.ph.i114.i, %_ZN5clang4semaL16isRecordWithAttrINS_9OwnerAttrEEEbNS_8QualTypeE.exit134.i, %_ZN5clang4semaL16pathContainsInitERN4llvm15SmallVectorImplINS0_12_GLOBAL__N_122IndirectLocalPathEntryEEE.exit.i, %_ZN5clang4semaL18nextPathEntryRangeERKN4llvm15SmallVectorImplINS0_12_GLOBAL__N_122IndirectLocalPathEntryEEEjPNS_4ExprE.exit.i
   %.081.i = phi i1 [ false, %_ZN5clang4semaL16isRecordWithAttrINS_9OwnerAttrEEEbNS_8QualTypeE.exit134.i ], [ true, %_ZN5clang4semaL16pathContainsInitERN4llvm15SmallVectorImplINS0_12_GLOBAL__N_122IndirectLocalPathEntryEEE.exit.i ], [ false, %_ZN5clang4semaL18nextPathEntryRangeERKN4llvm15SmallVectorImplINS0_12_GLOBAL__N_122IndirectLocalPathEntryEEEjPNS_4ExprE.exit.i ], [ false, %.lr.ph.i114.i ], [ false, %89 ]
@@ -4868,18 +4868,18 @@ _ZN5clang4semaL25pathOnlyHandlesGslPointerERN4llvm15SmallVectorImplINS0_12_GLOBA
   %212 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %1) #14
   %213 = getelementptr inbounds %"struct.clang::sema::(anonymous namespace)::IndirectLocalPathEntry", ptr %.val.i135.i, i64 %212
   %.not12.i.i = icmp eq i64 %212, 0
-  br i1 %.not12.i.i, label %_ZN5clang4semaL31shouldLifetimeExtendThroughPathERKN4llvm15SmallVectorImplINS0_12_GLOBAL__N_122IndirectLocalPathEntryEEE.exit.thread.i, label %.lr.ph.i136.i.outer
+  br i1 %.not12.i.i, label %_ZN5clang4semaL31shouldLifetimeExtendThroughPathERKN4llvm15SmallVectorImplINS0_12_GLOBAL__N_122IndirectLocalPathEntryEEE.exit.thread.i, label %.lr.ph.i136.outer.i
 
-.lr.ph.i136.i.outer:                              ; preds = %211, %.thread
-  %switch.i = phi i1 [ false, %.thread ], [ true, %211 ]
-  %.01013.i.i.ph = phi ptr [ %215, %.thread ], [ %.val.i135.i, %211 ]
+.lr.ph.i136.outer.i:                              ; preds = %211, %.thread431.i
+  %switch.not.not.i = phi i1 [ false, %.thread431.i ], [ true, %211 ]
+  %.01013.i.ph.i = phi ptr [ %215, %.thread431.i ], [ %.val.i135.i, %211 ]
   br label %.lr.ph.i136.i
 
-.lr.ph.i136.i:                                    ; preds = %.lr.ph.i136.i.outer, %.fold.split.i.i
-  %.01013.i.i = phi ptr [ %214, %.fold.split.i.i ], [ %.01013.i.i.ph, %.lr.ph.i136.i.outer ]
+.lr.ph.i136.i:                                    ; preds = %.fold.split.i.i, %.lr.ph.i136.outer.i
+  %.01013.i.i = phi ptr [ %214, %.fold.split.i.i ], [ %.01013.i.ph.i, %.lr.ph.i136.outer.i ]
   %.sroa.0.0.copyload.i137.i = load i32, ptr %.01013.i.i, align 8
   switch i32 %.sroa.0.0.copyload.i137.i, label %_ZN5clang4semaL31shouldLifetimeExtendThroughPathERKN4llvm15SmallVectorImplINS0_12_GLOBAL__N_122IndirectLocalPathEntryEEE.exit.thread334.i [
-    i32 0, label %.thread
+    i32 0, label %.thread431.i
     i32 6, label %.fold.split.i.i
   ]
 
@@ -4888,13 +4888,13 @@ _ZN5clang4semaL25pathOnlyHandlesGslPointerERN4llvm15SmallVectorImplINS0_12_GLOBA
   %.not.i138.i = icmp eq ptr %214, %213
   br i1 %.not.i138.i, label %_ZN5clang4semaL31shouldLifetimeExtendThroughPathERKN4llvm15SmallVectorImplINS0_12_GLOBAL__N_122IndirectLocalPathEntryEEE.exit.i, label %.lr.ph.i136.i
 
-.thread:                                          ; preds = %.lr.ph.i136.i
+.thread431.i:                                     ; preds = %.lr.ph.i136.i
   %215 = getelementptr inbounds nuw i8, ptr %.01013.i.i, i64 24
-  %.not.i138.i4 = icmp eq ptr %215, %213
-  br i1 %.not.i138.i4, label %_ZN5clang4semaL31shouldLifetimeExtendThroughPathERKN4llvm15SmallVectorImplINS0_12_GLOBAL__N_122IndirectLocalPathEntryEEE.exit.i.thread, label %.lr.ph.i136.i.outer
+  %.not.i138433.i = icmp eq ptr %215, %213
+  br i1 %.not.i138433.i, label %_ZN5clang4semaL31shouldLifetimeExtendThroughPathERKN4llvm15SmallVectorImplINS0_12_GLOBAL__N_122IndirectLocalPathEntryEEE.exit.thread435.i, label %.lr.ph.i136.outer.i
 
 _ZN5clang4semaL31shouldLifetimeExtendThroughPathERKN4llvm15SmallVectorImplINS0_12_GLOBAL__N_122IndirectLocalPathEntryEEE.exit.i: ; preds = %.fold.split.i.i
-  br i1 %switch.i, label %_ZN5clang4semaL31shouldLifetimeExtendThroughPathERKN4llvm15SmallVectorImplINS0_12_GLOBAL__N_122IndirectLocalPathEntryEEE.exit.thread.i, label %_ZN5clang4semaL31shouldLifetimeExtendThroughPathERKN4llvm15SmallVectorImplINS0_12_GLOBAL__N_122IndirectLocalPathEntryEEE.exit.i.thread
+  br i1 %switch.not.not.i, label %_ZN5clang4semaL31shouldLifetimeExtendThroughPathERKN4llvm15SmallVectorImplINS0_12_GLOBAL__N_122IndirectLocalPathEntryEEE.exit.thread.i, label %_ZN5clang4semaL31shouldLifetimeExtendThroughPathERKN4llvm15SmallVectorImplINS0_12_GLOBAL__N_122IndirectLocalPathEntryEEE.exit.thread435.i
 
 _ZN5clang4semaL31shouldLifetimeExtendThroughPathERKN4llvm15SmallVectorImplINS0_12_GLOBAL__N_122IndirectLocalPathEntryEEE.exit.thread.i: ; preds = %_ZN5clang4semaL31shouldLifetimeExtendThroughPathERKN4llvm15SmallVectorImplINS0_12_GLOBAL__N_122IndirectLocalPathEntryEEE.exit.i, %211
   %216 = getelementptr inbounds nuw i8, ptr %58, i64 16
@@ -4910,7 +4910,7 @@ _ZN5clang4semaL31shouldLifetimeExtendThroughPathERKN4llvm15SmallVectorImplINS0_1
   tail call void @_ZN5clang24MaterializeTemporaryExpr16setExtendingDeclEPNS_9ValueDeclEj(ptr noundef nonnull align 8 dereferenceable(24) %spec.select.i.i.i, ptr noundef %219, i32 noundef %224) #14
   br label %"_ZZN5clang4semaL21checkExprLifetimeImplERNS_4SemaEPKNS_17InitializedEntityES5_NS0_12_GLOBAL__N_112LifetimeKindEPKNS0_14AssignedEntityEPNS_4ExprEbENK3$_0clERN4llvm15SmallVectorImplINS6_22IndirectLocalPathEntryEEESC_NS6_13ReferenceKindE.exit"
 
-_ZN5clang4semaL31shouldLifetimeExtendThroughPathERKN4llvm15SmallVectorImplINS0_12_GLOBAL__N_122IndirectLocalPathEntryEEE.exit.i.thread: ; preds = %.thread, %_ZN5clang4semaL31shouldLifetimeExtendThroughPathERKN4llvm15SmallVectorImplINS0_12_GLOBAL__N_122IndirectLocalPathEntryEEE.exit.i
+_ZN5clang4semaL31shouldLifetimeExtendThroughPathERKN4llvm15SmallVectorImplINS0_12_GLOBAL__N_122IndirectLocalPathEntryEEE.exit.thread435.i: ; preds = %.thread431.i, %_ZN5clang4semaL31shouldLifetimeExtendThroughPathERKN4llvm15SmallVectorImplINS0_12_GLOBAL__N_122IndirectLocalPathEntryEEE.exit.i
   %225 = getelementptr inbounds nuw i8, ptr %58, i64 8
   %226 = load ptr, ptr %225, align 8
   %227 = getelementptr inbounds nuw i8, ptr %226, i64 8
@@ -5007,14 +5007,14 @@ _ZN5clang4semaL31shouldLifetimeExtendThroughPathERKN4llvm15SmallVectorImplINS0_1
   %.sroa.0.0.copyload.i31.i.i.i.i.i.i.i158.i = load i32, ptr %281, align 8
   %282 = and i32 %.sroa.0.0.copyload.i31.i.i.i.i.i.i.i158.i, -3
   %283 = icmp eq i32 %282, 0
-  br i1 %283, label %_ZN5clang4semaL16pathContainsInitERN4llvm15SmallVectorImplINS0_12_GLOBAL__N_122IndirectLocalPathEntryEEE.exit165.i.loopexit.split.loop.exit123, label %284
+  br i1 %283, label %_ZN5clang4semaL16pathContainsInitERN4llvm15SmallVectorImplINS0_12_GLOBAL__N_122IndirectLocalPathEntryEEE.exit165.i.loopexit.split.loop.exit118, label %284
 
 284:                                              ; preds = %280
   %285 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i.i.i155.i, i64 72
   %.sroa.0.0.copyload.i32.i.i.i.i.i.i.i159.i = load i32, ptr %285, align 8
   %286 = and i32 %.sroa.0.0.copyload.i32.i.i.i.i.i.i.i159.i, -3
   %287 = icmp eq i32 %286, 0
-  br i1 %287, label %_ZN5clang4semaL16pathContainsInitERN4llvm15SmallVectorImplINS0_12_GLOBAL__N_122IndirectLocalPathEntryEEE.exit165.i.loopexit.split.loop.exit125, label %288
+  br i1 %287, label %_ZN5clang4semaL16pathContainsInitERN4llvm15SmallVectorImplINS0_12_GLOBAL__N_122IndirectLocalPathEntryEEE.exit165.i.loopexit.split.loop.exit120, label %288
 
 288:                                              ; preds = %284
   %289 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i.i.i155.i, i64 96
@@ -5068,18 +5068,18 @@ _ZN5clang4semaL16pathContainsInitERN4llvm15SmallVectorImplINS0_12_GLOBAL__N_122I
   %306 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i.i.i155.i, i64 24
   br label %_ZN5clang4semaL16pathContainsInitERN4llvm15SmallVectorImplINS0_12_GLOBAL__N_122IndirectLocalPathEntryEEE.exit165.i
 
-_ZN5clang4semaL16pathContainsInitERN4llvm15SmallVectorImplINS0_12_GLOBAL__N_122IndirectLocalPathEntryEEE.exit165.i.loopexit.split.loop.exit123: ; preds = %280
+_ZN5clang4semaL16pathContainsInitERN4llvm15SmallVectorImplINS0_12_GLOBAL__N_122IndirectLocalPathEntryEEE.exit165.i.loopexit.split.loop.exit118: ; preds = %280
   %307 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i.i.i155.i, i64 48
   br label %_ZN5clang4semaL16pathContainsInitERN4llvm15SmallVectorImplINS0_12_GLOBAL__N_122IndirectLocalPathEntryEEE.exit165.i
 
-_ZN5clang4semaL16pathContainsInitERN4llvm15SmallVectorImplINS0_12_GLOBAL__N_122IndirectLocalPathEntryEEE.exit165.i.loopexit.split.loop.exit125: ; preds = %284
+_ZN5clang4semaL16pathContainsInitERN4llvm15SmallVectorImplINS0_12_GLOBAL__N_122IndirectLocalPathEntryEEE.exit165.i.loopexit.split.loop.exit120: ; preds = %284
   %308 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i.i.i155.i, i64 72
   br label %_ZN5clang4semaL16pathContainsInitERN4llvm15SmallVectorImplINS0_12_GLOBAL__N_122IndirectLocalPathEntryEEE.exit165.i
 
-_ZN5clang4semaL16pathContainsInitERN4llvm15SmallVectorImplINS0_12_GLOBAL__N_122IndirectLocalPathEntryEEE.exit165.i: ; preds = %.lr.ph.i.i.i.i.i.i.i153.i, %_ZN5clang4semaL16pathContainsInitERN4llvm15SmallVectorImplINS0_12_GLOBAL__N_122IndirectLocalPathEntryEEE.exit165.i.loopexit.split.loop.exit, %_ZN5clang4semaL16pathContainsInitERN4llvm15SmallVectorImplINS0_12_GLOBAL__N_122IndirectLocalPathEntryEEE.exit165.i.loopexit.split.loop.exit123, %_ZN5clang4semaL16pathContainsInitERN4llvm15SmallVectorImplINS0_12_GLOBAL__N_122IndirectLocalPathEntryEEE.exit165.i.loopexit.split.loop.exit125, %303, %298, %293
-  %.028.i.i.i.i.i.i.i147.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i.i144.i, %293 ], [ %.1.i.i.i.i.i.i.i148.i, %298 ], [ %.2.i.i.i.i.i.i.i145.i, %303 ], [ %306, %_ZN5clang4semaL16pathContainsInitERN4llvm15SmallVectorImplINS0_12_GLOBAL__N_122IndirectLocalPathEntryEEE.exit165.i.loopexit.split.loop.exit ], [ %307, %_ZN5clang4semaL16pathContainsInitERN4llvm15SmallVectorImplINS0_12_GLOBAL__N_122IndirectLocalPathEntryEEE.exit165.i.loopexit.split.loop.exit123 ], [ %308, %_ZN5clang4semaL16pathContainsInitERN4llvm15SmallVectorImplINS0_12_GLOBAL__N_122IndirectLocalPathEntryEEE.exit165.i.loopexit.split.loop.exit125 ], [ %.02946.i.i.i.i.i.i.i155.i, %.lr.ph.i.i.i.i.i.i.i153.i ]
-  %.not356.i = icmp eq ptr %270, %.028.i.i.i.i.i.i.i147.i
-  br i1 %.not356.i, label %_ZN5clang4semaL16pathContainsInitERN4llvm15SmallVectorImplINS0_12_GLOBAL__N_122IndirectLocalPathEntryEEE.exit165.thread.i, label %"_ZZN5clang4semaL21checkExprLifetimeImplERNS_4SemaEPKNS_17InitializedEntityES5_NS0_12_GLOBAL__N_112LifetimeKindEPKNS0_14AssignedEntityEPNS_4ExprEbENK3$_0clERN4llvm15SmallVectorImplINS6_22IndirectLocalPathEntryEEESC_NS6_13ReferenceKindE.exit"
+_ZN5clang4semaL16pathContainsInitERN4llvm15SmallVectorImplINS0_12_GLOBAL__N_122IndirectLocalPathEntryEEE.exit165.i: ; preds = %.lr.ph.i.i.i.i.i.i.i153.i, %_ZN5clang4semaL16pathContainsInitERN4llvm15SmallVectorImplINS0_12_GLOBAL__N_122IndirectLocalPathEntryEEE.exit165.i.loopexit.split.loop.exit, %_ZN5clang4semaL16pathContainsInitERN4llvm15SmallVectorImplINS0_12_GLOBAL__N_122IndirectLocalPathEntryEEE.exit165.i.loopexit.split.loop.exit118, %_ZN5clang4semaL16pathContainsInitERN4llvm15SmallVectorImplINS0_12_GLOBAL__N_122IndirectLocalPathEntryEEE.exit165.i.loopexit.split.loop.exit120, %303, %298, %293
+  %.028.i.i.i.i.i.i.i147.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i.i144.i, %293 ], [ %.1.i.i.i.i.i.i.i148.i, %298 ], [ %.2.i.i.i.i.i.i.i145.i, %303 ], [ %306, %_ZN5clang4semaL16pathContainsInitERN4llvm15SmallVectorImplINS0_12_GLOBAL__N_122IndirectLocalPathEntryEEE.exit165.i.loopexit.split.loop.exit ], [ %307, %_ZN5clang4semaL16pathContainsInitERN4llvm15SmallVectorImplINS0_12_GLOBAL__N_122IndirectLocalPathEntryEEE.exit165.i.loopexit.split.loop.exit118 ], [ %308, %_ZN5clang4semaL16pathContainsInitERN4llvm15SmallVectorImplINS0_12_GLOBAL__N_122IndirectLocalPathEntryEEE.exit165.i.loopexit.split.loop.exit120 ], [ %.02946.i.i.i.i.i.i.i155.i, %.lr.ph.i.i.i.i.i.i.i153.i ]
+  %.not352.i = icmp eq ptr %270, %.028.i.i.i.i.i.i.i147.i
+  br i1 %.not352.i, label %_ZN5clang4semaL16pathContainsInitERN4llvm15SmallVectorImplINS0_12_GLOBAL__N_122IndirectLocalPathEntryEEE.exit165.thread.i, label %"_ZZN5clang4semaL21checkExprLifetimeImplERNS_4SemaEPKNS_17InitializedEntityES5_NS0_12_GLOBAL__N_112LifetimeKindEPKNS0_14AssignedEntityEPNS_4ExprEbENK3$_0clERN4llvm15SmallVectorImplINS6_22IndirectLocalPathEntryEEESC_NS6_13ReferenceKindE.exit"
 
 _ZN5clang4semaL16pathContainsInitERN4llvm15SmallVectorImplINS0_12_GLOBAL__N_122IndirectLocalPathEntryEEE.exit165.thread.i: ; preds = %_ZN5clang4semaL16pathContainsInitERN4llvm15SmallVectorImplINS0_12_GLOBAL__N_122IndirectLocalPathEntryEEE.exit165.i, %303, %._crit_edge.i.i.i.i.i.i.i142.i
   %309 = getelementptr inbounds nuw i8, ptr %58, i64 8
@@ -5150,12 +5150,12 @@ _ZN5clang4semaL16pathContainsInitERN4llvm15SmallVectorImplINS0_12_GLOBAL__N_122I
   %348 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %1) #14
   %349 = getelementptr inbounds %"struct.clang::sema::(anonymous namespace)::IndirectLocalPathEntry", ptr %.val.i167.i, i64 %348
   %.not12.i168.i = icmp eq i64 %348, 0
-  br i1 %.not12.i168.i, label %_ZN5clang4semaL31shouldLifetimeExtendThroughPathERKN4llvm15SmallVectorImplINS0_12_GLOBAL__N_122IndirectLocalPathEntryEEE.exit177.thread341.i, label %.lr.ph.i169.i
+  br i1 %.not12.i168.i, label %_ZN5clang4semaL31shouldLifetimeExtendThroughPathERKN4llvm15SmallVectorImplINS0_12_GLOBAL__N_122IndirectLocalPathEntryEEE.exit177.i, label %.lr.ph.i169.i
 
 .lr.ph.i169.i:                                    ; preds = %337, %.fold.split.i173.i
   %.01013.i171.i = phi ptr [ %350, %.fold.split.i173.i ], [ %.val.i167.i, %337 ]
   %.sroa.0.0.copyload.i172.i = load i32, ptr %.01013.i171.i, align 8
-  switch i32 %.sroa.0.0.copyload.i172.i, label %_ZN5clang4semaL31shouldLifetimeExtendThroughPathERKN4llvm15SmallVectorImplINS0_12_GLOBAL__N_122IndirectLocalPathEntryEEE.exit177.thread341.i [
+  switch i32 %.sroa.0.0.copyload.i172.i, label %_ZN5clang4semaL31shouldLifetimeExtendThroughPathERKN4llvm15SmallVectorImplINS0_12_GLOBAL__N_122IndirectLocalPathEntryEEE.exit177.i [
     i32 0, label %.fold.split.i173.i
     i32 6, label %.fold.split.i173.i
   ]
@@ -5163,10 +5163,10 @@ _ZN5clang4semaL16pathContainsInitERN4llvm15SmallVectorImplINS0_12_GLOBAL__N_122I
 .fold.split.i173.i:                               ; preds = %.lr.ph.i169.i, %.lr.ph.i169.i
   %350 = getelementptr inbounds nuw i8, ptr %.01013.i171.i, i64 24
   %.not.i175.i = icmp eq ptr %350, %349
-  br i1 %.not.i175.i, label %_ZN5clang4semaL31shouldLifetimeExtendThroughPathERKN4llvm15SmallVectorImplINS0_12_GLOBAL__N_122IndirectLocalPathEntryEEE.exit177.thread341.i, label %.lr.ph.i169.i
+  br i1 %.not.i175.i, label %_ZN5clang4semaL31shouldLifetimeExtendThroughPathERKN4llvm15SmallVectorImplINS0_12_GLOBAL__N_122IndirectLocalPathEntryEEE.exit177.i, label %.lr.ph.i169.i
 
-_ZN5clang4semaL31shouldLifetimeExtendThroughPathERKN4llvm15SmallVectorImplINS0_12_GLOBAL__N_122IndirectLocalPathEntryEEE.exit177.thread341.i: ; preds = %.fold.split.i173.i, %.lr.ph.i169.i, %337
-  %351 = phi i32 [ 3255, %337 ], [ 3255, %.fold.split.i173.i ], [ 6375, %.lr.ph.i169.i ]
+_ZN5clang4semaL31shouldLifetimeExtendThroughPathERKN4llvm15SmallVectorImplINS0_12_GLOBAL__N_122IndirectLocalPathEntryEEE.exit177.i: ; preds = %.fold.split.i173.i, %.lr.ph.i169.i, %337
+  %351 = phi i32 [ 3255, %337 ], [ 6375, %.lr.ph.i169.i ], [ 3255, %.fold.split.i173.i ]
   call void @_ZN5clang8SemaBase4DiagENS_14SourceLocationEjb(ptr dead_on_unwind nonnull writable sret(%"class.clang::SemaBase::SemaDiagnosticBuilder") align 8 %19, ptr noundef nonnull align 8 dereferenceable(8) %347, i32 %82, i32 noundef %351, i1 noundef zeroext false) #14
   %352 = call noundef nonnull align 8 dereferenceable(96) ptr @_ZN5clanglsIPNS_9ValueDeclEEERKNS_8SemaBase21SemaDiagnosticBuilderES6_RKT_(ptr noundef nonnull align 8 dereferenceable(96) %19, ptr noundef nonnull align 8 dereferenceable(8) %14)
   %353 = call noundef nonnull align 8 dereferenceable(96) ptr @_ZN5clanglsIbEERKNS_8SemaBase21SemaDiagnosticBuilderES4_RKT_(ptr noundef nonnull align 8 dereferenceable(96) %352, ptr noundef nonnull align 1 dereferenceable(1) %18)
@@ -5176,7 +5176,7 @@ _ZN5clang4semaL31shouldLifetimeExtendThroughPathERKN4llvm15SmallVectorImplINS0_1
   %356 = call noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseIjE5emptyEv(ptr noundef nonnull align 8 dereferenceable(16) %1) #14
   br i1 %356, label %362, label %357
 
-357:                                              ; preds = %_ZN5clang4semaL31shouldLifetimeExtendThroughPathERKN4llvm15SmallVectorImplINS0_12_GLOBAL__N_122IndirectLocalPathEntryEEE.exit177.thread341.i
+357:                                              ; preds = %_ZN5clang4semaL31shouldLifetimeExtendThroughPathERKN4llvm15SmallVectorImplINS0_12_GLOBAL__N_122IndirectLocalPathEntryEEE.exit177.i
   %.val.i.i178.i = load ptr, ptr %1, align 8
   %358 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %1) #14
   %359 = getelementptr inbounds %"struct.clang::sema::(anonymous namespace)::IndirectLocalPathEntry", ptr %.val.i.i178.i, i64 %358
@@ -5185,7 +5185,7 @@ _ZN5clang4semaL31shouldLifetimeExtendThroughPathERKN4llvm15SmallVectorImplINS0_1
   %.not101.i = icmp eq i32 %361, 0
   br i1 %.not101.i, label %610, label %362
 
-362:                                              ; preds = %357, %_ZN5clang4semaL31shouldLifetimeExtendThroughPathERKN4llvm15SmallVectorImplINS0_12_GLOBAL__N_122IndirectLocalPathEntryEEE.exit177.thread341.i
+362:                                              ; preds = %357, %_ZN5clang4semaL31shouldLifetimeExtendThroughPathERKN4llvm15SmallVectorImplINS0_12_GLOBAL__N_122IndirectLocalPathEntryEEE.exit177.i
   %363 = load ptr, ptr %345, align 8
   %364 = getelementptr inbounds nuw i8, ptr %363, i64 8
   %365 = load ptr, ptr %14, align 8
@@ -5231,14 +5231,14 @@ _ZN5clang4semaL31shouldLifetimeExtendThroughPathERKN4llvm15SmallVectorImplINS0_1
   %.sroa.0.0.copyload.i31.i.i.i.i.i.i.i198.i = load i32, ptr %382, align 8
   %383 = and i32 %.sroa.0.0.copyload.i31.i.i.i.i.i.i.i198.i, -3
   %384 = icmp eq i32 %383, 0
-  br i1 %384, label %_ZN5clang4semaL16pathContainsInitERN4llvm15SmallVectorImplINS0_12_GLOBAL__N_122IndirectLocalPathEntryEEE.exit205.i.loopexit.split.loop.exit115, label %385
+  br i1 %384, label %_ZN5clang4semaL16pathContainsInitERN4llvm15SmallVectorImplINS0_12_GLOBAL__N_122IndirectLocalPathEntryEEE.exit205.i.loopexit.split.loop.exit110, label %385
 
 385:                                              ; preds = %381
   %386 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i.i.i195.i, i64 72
   %.sroa.0.0.copyload.i32.i.i.i.i.i.i.i199.i = load i32, ptr %386, align 8
   %387 = and i32 %.sroa.0.0.copyload.i32.i.i.i.i.i.i.i199.i, -3
   %388 = icmp eq i32 %387, 0
-  br i1 %388, label %_ZN5clang4semaL16pathContainsInitERN4llvm15SmallVectorImplINS0_12_GLOBAL__N_122IndirectLocalPathEntryEEE.exit205.i.loopexit.split.loop.exit117, label %389
+  br i1 %388, label %_ZN5clang4semaL16pathContainsInitERN4llvm15SmallVectorImplINS0_12_GLOBAL__N_122IndirectLocalPathEntryEEE.exit205.i.loopexit.split.loop.exit112, label %389
 
 389:                                              ; preds = %385
   %390 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i.i.i195.i, i64 96
@@ -5292,18 +5292,18 @@ _ZN5clang4semaL16pathContainsInitERN4llvm15SmallVectorImplINS0_12_GLOBAL__N_122I
   %407 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i.i.i195.i, i64 24
   br label %_ZN5clang4semaL16pathContainsInitERN4llvm15SmallVectorImplINS0_12_GLOBAL__N_122IndirectLocalPathEntryEEE.exit205.i
 
-_ZN5clang4semaL16pathContainsInitERN4llvm15SmallVectorImplINS0_12_GLOBAL__N_122IndirectLocalPathEntryEEE.exit205.i.loopexit.split.loop.exit115: ; preds = %381
+_ZN5clang4semaL16pathContainsInitERN4llvm15SmallVectorImplINS0_12_GLOBAL__N_122IndirectLocalPathEntryEEE.exit205.i.loopexit.split.loop.exit110: ; preds = %381
   %408 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i.i.i195.i, i64 48
   br label %_ZN5clang4semaL16pathContainsInitERN4llvm15SmallVectorImplINS0_12_GLOBAL__N_122IndirectLocalPathEntryEEE.exit205.i
 
-_ZN5clang4semaL16pathContainsInitERN4llvm15SmallVectorImplINS0_12_GLOBAL__N_122IndirectLocalPathEntryEEE.exit205.i.loopexit.split.loop.exit117: ; preds = %385
+_ZN5clang4semaL16pathContainsInitERN4llvm15SmallVectorImplINS0_12_GLOBAL__N_122IndirectLocalPathEntryEEE.exit205.i.loopexit.split.loop.exit112: ; preds = %385
   %409 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i.i.i195.i, i64 72
   br label %_ZN5clang4semaL16pathContainsInitERN4llvm15SmallVectorImplINS0_12_GLOBAL__N_122IndirectLocalPathEntryEEE.exit205.i
 
-_ZN5clang4semaL16pathContainsInitERN4llvm15SmallVectorImplINS0_12_GLOBAL__N_122IndirectLocalPathEntryEEE.exit205.i: ; preds = %.lr.ph.i.i.i.i.i.i.i193.i, %_ZN5clang4semaL16pathContainsInitERN4llvm15SmallVectorImplINS0_12_GLOBAL__N_122IndirectLocalPathEntryEEE.exit205.i.loopexit.split.loop.exit, %_ZN5clang4semaL16pathContainsInitERN4llvm15SmallVectorImplINS0_12_GLOBAL__N_122IndirectLocalPathEntryEEE.exit205.i.loopexit.split.loop.exit115, %_ZN5clang4semaL16pathContainsInitERN4llvm15SmallVectorImplINS0_12_GLOBAL__N_122IndirectLocalPathEntryEEE.exit205.i.loopexit.split.loop.exit117, %404, %399, %394
-  %.028.i.i.i.i.i.i.i187.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i.i184.i, %394 ], [ %.1.i.i.i.i.i.i.i188.i, %399 ], [ %.2.i.i.i.i.i.i.i185.i, %404 ], [ %407, %_ZN5clang4semaL16pathContainsInitERN4llvm15SmallVectorImplINS0_12_GLOBAL__N_122IndirectLocalPathEntryEEE.exit205.i.loopexit.split.loop.exit ], [ %408, %_ZN5clang4semaL16pathContainsInitERN4llvm15SmallVectorImplINS0_12_GLOBAL__N_122IndirectLocalPathEntryEEE.exit205.i.loopexit.split.loop.exit115 ], [ %409, %_ZN5clang4semaL16pathContainsInitERN4llvm15SmallVectorImplINS0_12_GLOBAL__N_122IndirectLocalPathEntryEEE.exit205.i.loopexit.split.loop.exit117 ], [ %.02946.i.i.i.i.i.i.i195.i, %.lr.ph.i.i.i.i.i.i.i193.i ]
-  %.not353.i = icmp eq ptr %371, %.028.i.i.i.i.i.i.i187.i
-  br i1 %.not353.i, label %_ZN5clang4semaL16pathContainsInitERN4llvm15SmallVectorImplINS0_12_GLOBAL__N_122IndirectLocalPathEntryEEE.exit205.thread.i, label %"_ZZN5clang4semaL21checkExprLifetimeImplERNS_4SemaEPKNS_17InitializedEntityES5_NS0_12_GLOBAL__N_112LifetimeKindEPKNS0_14AssignedEntityEPNS_4ExprEbENK3$_0clERN4llvm15SmallVectorImplINS6_22IndirectLocalPathEntryEEESC_NS6_13ReferenceKindE.exit"
+_ZN5clang4semaL16pathContainsInitERN4llvm15SmallVectorImplINS0_12_GLOBAL__N_122IndirectLocalPathEntryEEE.exit205.i: ; preds = %.lr.ph.i.i.i.i.i.i.i193.i, %_ZN5clang4semaL16pathContainsInitERN4llvm15SmallVectorImplINS0_12_GLOBAL__N_122IndirectLocalPathEntryEEE.exit205.i.loopexit.split.loop.exit, %_ZN5clang4semaL16pathContainsInitERN4llvm15SmallVectorImplINS0_12_GLOBAL__N_122IndirectLocalPathEntryEEE.exit205.i.loopexit.split.loop.exit110, %_ZN5clang4semaL16pathContainsInitERN4llvm15SmallVectorImplINS0_12_GLOBAL__N_122IndirectLocalPathEntryEEE.exit205.i.loopexit.split.loop.exit112, %404, %399, %394
+  %.028.i.i.i.i.i.i.i187.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i.i184.i, %394 ], [ %.1.i.i.i.i.i.i.i188.i, %399 ], [ %.2.i.i.i.i.i.i.i185.i, %404 ], [ %407, %_ZN5clang4semaL16pathContainsInitERN4llvm15SmallVectorImplINS0_12_GLOBAL__N_122IndirectLocalPathEntryEEE.exit205.i.loopexit.split.loop.exit ], [ %408, %_ZN5clang4semaL16pathContainsInitERN4llvm15SmallVectorImplINS0_12_GLOBAL__N_122IndirectLocalPathEntryEEE.exit205.i.loopexit.split.loop.exit110 ], [ %409, %_ZN5clang4semaL16pathContainsInitERN4llvm15SmallVectorImplINS0_12_GLOBAL__N_122IndirectLocalPathEntryEEE.exit205.i.loopexit.split.loop.exit112 ], [ %.02946.i.i.i.i.i.i.i195.i, %.lr.ph.i.i.i.i.i.i.i193.i ]
+  %.not349.i = icmp eq ptr %371, %.028.i.i.i.i.i.i.i187.i
+  br i1 %.not349.i, label %_ZN5clang4semaL16pathContainsInitERN4llvm15SmallVectorImplINS0_12_GLOBAL__N_122IndirectLocalPathEntryEEE.exit205.thread.i, label %"_ZZN5clang4semaL21checkExprLifetimeImplERNS_4SemaEPKNS_17InitializedEntityES5_NS0_12_GLOBAL__N_112LifetimeKindEPKNS0_14AssignedEntityEPNS_4ExprEbENK3$_0clERN4llvm15SmallVectorImplINS6_22IndirectLocalPathEntryEEESC_NS6_13ReferenceKindE.exit"
 
 _ZN5clang4semaL16pathContainsInitERN4llvm15SmallVectorImplINS0_12_GLOBAL__N_122IndirectLocalPathEntryEEE.exit205.thread.i: ; preds = %_ZN5clang4semaL16pathContainsInitERN4llvm15SmallVectorImplINS0_12_GLOBAL__N_122IndirectLocalPathEntryEEE.exit205.i, %404, %._crit_edge.i.i.i.i.i.i.i182.i
   br i1 %.081.i, label %410, label %412
@@ -5314,8 +5314,8 @@ _ZN5clang4semaL16pathContainsInitERN4llvm15SmallVectorImplINS0_12_GLOBAL__N_122I
 
 412:                                              ; preds = %410, %_ZN5clang4semaL16pathContainsInitERN4llvm15SmallVectorImplINS0_12_GLOBAL__N_122IndirectLocalPathEntryEEE.exit205.thread.i
   %413 = load i8, ptr %2, align 8
-  %.not355.i = icmp eq i8 %413, 71
-  br i1 %.not355.i, label %414, label %"_ZZN5clang4semaL21checkExprLifetimeImplERNS_4SemaEPKNS_17InitializedEntityES5_NS0_12_GLOBAL__N_112LifetimeKindEPKNS0_14AssignedEntityEPNS_4ExprEbENK3$_0clERN4llvm15SmallVectorImplINS6_22IndirectLocalPathEntryEEESC_NS6_13ReferenceKindE.exit"
+  %.not351.i = icmp eq i8 %413, 71
+  br i1 %.not351.i, label %414, label %"_ZZN5clang4semaL21checkExprLifetimeImplERNS_4SemaEPKNS_17InitializedEntityES5_NS0_12_GLOBAL__N_112LifetimeKindEPKNS0_14AssignedEntityEPNS_4ExprEbENK3$_0clERN4llvm15SmallVectorImplINS6_22IndirectLocalPathEntryEEESC_NS6_13ReferenceKindE.exit"
 
 414:                                              ; preds = %412
   %415 = getelementptr inbounds nuw i8, ptr %2, i64 16
@@ -5333,9 +5333,9 @@ _ZN5clang4semaL16pathContainsInitERN4llvm15SmallVectorImplINS0_12_GLOBAL__N_122I
   %424 = load ptr, ptr %423, align 8
   %425 = load ptr, ptr %424, align 8
   %.not96.i = icmp eq ptr %425, null
-  br i1 %.not96.i, label %.thread348.i, label %426
+  br i1 %.not96.i, label %.thread344.i, label %426
 
-.thread348.i:                                     ; preds = %422
+.thread344.i:                                     ; preds = %422
   store ptr null, ptr %22, align 8
   br label %610
 
@@ -5617,10 +5617,10 @@ _ZN5clang4semaL16pathContainsInitERN4llvm15SmallVectorImplINS0_12_GLOBAL__N_122I
   call void @_ZN5clang8SemaBase21SemaDiagnosticBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %42) #14
   br label %610
 
-610:                                              ; preds = %.critedge.i, %574, %527, %522, %515, %484, %469, %467, %428, %426, %.thread348.i, %362, %357, %231, %_ZN5clang4semaL31shouldLifetimeExtendThroughPathERKN4llvm15SmallVectorImplINS0_12_GLOBAL__N_122IndirectLocalPathEntryEEE.exit.i.thread, %_ZN5clang4semaL25pathOnlyHandlesGslPointerERN4llvm15SmallVectorImplINS0_12_GLOBAL__N_122IndirectLocalPathEntryEEE.exit.thread.i
+610:                                              ; preds = %.critedge.i, %574, %527, %522, %515, %484, %469, %467, %428, %426, %.thread344.i, %362, %357, %231, %_ZN5clang4semaL31shouldLifetimeExtendThroughPathERKN4llvm15SmallVectorImplINS0_12_GLOBAL__N_122IndirectLocalPathEntryEEE.exit.thread435.i, %_ZN5clang4semaL25pathOnlyHandlesGslPointerERN4llvm15SmallVectorImplINS0_12_GLOBAL__N_122IndirectLocalPathEntryEEE.exit.thread.i
   %611 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %1) #14
-  %.not108402.i = icmp eq i64 %611, 0
-  br i1 %.not108402.i, label %"_ZZN5clang4semaL21checkExprLifetimeImplERNS_4SemaEPKNS_17InitializedEntityES5_NS0_12_GLOBAL__N_112LifetimeKindEPKNS0_14AssignedEntityEPNS_4ExprEbENK3$_0clERN4llvm15SmallVectorImplINS6_22IndirectLocalPathEntryEEESC_NS6_13ReferenceKindE.exit", label %.lr.ph.i
+  %.not108398.i = icmp eq i64 %611, 0
+  br i1 %.not108398.i, label %"_ZZN5clang4semaL21checkExprLifetimeImplERNS_4SemaEPKNS_17InitializedEntityES5_NS0_12_GLOBAL__N_112LifetimeKindEPKNS0_14AssignedEntityEPNS_4ExprEbENK3$_0clERN4llvm15SmallVectorImplINS6_22IndirectLocalPathEntryEEESC_NS6_13ReferenceKindE.exit", label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %610
   %612 = getelementptr inbounds nuw i8, ptr %58, i64 8
@@ -5628,7 +5628,7 @@ _ZN5clang4semaL16pathContainsInitERN4llvm15SmallVectorImplINS0_12_GLOBAL__N_122I
 
 613:                                              ; preds = %_ZNK5clang13LambdaCapture16capturesVariableEv.exit.thread.i, %.lr.ph.i
   %614 = phi i64 [ 0, %.lr.ph.i ], [ %757, %_ZNK5clang13LambdaCapture16capturesVariableEv.exit.thread.i ]
-  %.082403.i = phi i32 [ 0, %.lr.ph.i ], [ %756, %_ZNK5clang13LambdaCapture16capturesVariableEv.exit.thread.i ]
+  %.082399.i = phi i32 [ 0, %.lr.ph.i ], [ %756, %_ZNK5clang13LambdaCapture16capturesVariableEv.exit.thread.i ]
   %.val113.i = load ptr, ptr %1, align 8
   %615 = getelementptr inbounds nuw %"struct.clang::sema::(anonymous namespace)::IndirectLocalPathEntry", ptr %.val113.i, i64 %614
   %.sroa.06.0.copyload.i = load i32, ptr %615, align 8
@@ -5648,7 +5648,7 @@ _ZN5clang4semaL16pathContainsInitERN4llvm15SmallVectorImplINS0_12_GLOBAL__N_122I
   %.sroa.0.0.copyload.i233.i = load i32, ptr %619, align 8
   call void @_ZN5clang8SemaBase4DiagENS_14SourceLocationEjb(ptr dead_on_unwind nonnull writable sret(%"class.clang::SemaBase::SemaDiagnosticBuilder") align 8 %45, ptr noundef nonnull align 8 dereferenceable(8) %618, i32 %.sroa.0.0.copyload.i233.i, i32 noundef 5648, i1 noundef zeroext false) #14
   %620 = call noundef nonnull align 8 dereferenceable(96) ptr @_ZN5clanglsIPKNS_9FieldDeclEEERKNS_8SemaBase21SemaDiagnosticBuilderES7_RKT_(ptr noundef nonnull align 8 dereferenceable(96) %45, ptr noundef nonnull align 8 dereferenceable(8) %44)
-  %621 = add i32 %.082403.i, 1
+  %621 = add i32 %.082399.i, 1
   %622 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %1) #14
   %623 = trunc i64 %622 to i32
   %.not28.i234.i = icmp eq i32 %621, %623
@@ -5750,7 +5750,7 @@ _ZN5clang4semaL18nextPathEntryRangeERKN4llvm15SmallVectorImplINS0_12_GLOBAL__N_1
   %.sroa.0.0.copyload.i254.i = load i64, ptr %672, align 8
   store i64 %.sroa.0.0.copyload.i254.i, ptr %50, align 8
   %673 = call noundef nonnull align 8 dereferenceable(96) ptr @_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsINS_15DeclarationNameEvEERKS1_OT_(ptr noundef nonnull align 8 dereferenceable(96) %671, ptr noundef nonnull align 8 dereferenceable(8) %50)
-  %674 = add i32 %.082403.i, 1
+  %674 = add i32 %.082399.i, 1
   %675 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %1) #14
   %676 = trunc i64 %675 to i32
   %.not28.i255.i = icmp eq i32 %674, %676
@@ -5858,7 +5858,7 @@ _ZNK5clang13LambdaCapture16capturesVariableEv.exit.i: ; preds = %702
   store i8 %725, ptr %56, align 1
   %726 = call noundef nonnull align 8 dereferenceable(96) ptr @_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsIbvEERKS1_OT_(ptr noundef nonnull align 8 dereferenceable(96) %722, ptr noundef nonnull align 1 dereferenceable(1) %56)
   %727 = call noundef nonnull align 8 dereferenceable(96) ptr @_ZN5clanglsIPKNS_9ValueDeclEEERKNS_8SemaBase21SemaDiagnosticBuilderES7_RKT_(ptr noundef nonnull align 8 dereferenceable(96) %726, ptr noundef nonnull align 8 dereferenceable(8) %52)
-  %728 = add i32 %.082403.i, 1
+  %728 = add i32 %.082399.i, 1
   %729 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %1) #14
   %730 = trunc i64 %729 to i32
   %.not28.i274.i = icmp eq i32 %728, %730
@@ -5932,7 +5932,7 @@ _ZNK5clang13LambdaCapture16capturesVariableEv.exit.thread.sink.split.i: ; preds 
   br label %_ZNK5clang13LambdaCapture16capturesVariableEv.exit.thread.i
 
 _ZNK5clang13LambdaCapture16capturesVariableEv.exit.thread.i: ; preds = %_ZNK5clang13LambdaCapture16capturesVariableEv.exit.thread.sink.split.i, %_ZNK5clang13LambdaCapture16capturesVariableEv.exit.i, %702, %613
-  %756 = add i32 %.082403.i, 1
+  %756 = add i32 %.082399.i, 1
   %757 = zext i32 %756 to i64
   %758 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %1) #14
   %.not108.i = icmp eq i64 %758, %757

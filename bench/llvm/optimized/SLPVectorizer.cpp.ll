@@ -15542,14 +15542,14 @@ _ZNK4llvm4User10getOperandEj.exit.i:              ; preds = %76, %73
   %wide.trip.count = zext i32 %.pre-phi to i64
   br label %.lr.ph127
 
-.lr.ph127:                                        ; preds = %.lr.ph127.preheader, %126
-  %indvars.iv = phi i64 [ 0, %.lr.ph127.preheader ], [ %indvars.iv.next, %126 ]
-  %.065124 = phi i8 [ 1, %.lr.ph127.preheader ], [ %.166, %126 ]
+.lr.ph127:                                        ; preds = %.lr.ph127.preheader, %125
+  %indvars.iv = phi i64 [ 0, %.lr.ph127.preheader ], [ %indvars.iv.next, %125 ]
+  %.065124 = phi i8 [ 1, %.lr.ph127.preheader ], [ %.166, %125 ]
   %109 = load ptr, ptr %7, align 8
   %110 = getelementptr inbounds nuw i32, ptr %109, i64 %indvars.iv
   %111 = load i32, ptr %110, align 4
   %112 = icmp eq i32 %111, -1
-  br i1 %112, label %126, label %113
+  br i1 %112, label %125, label %113
 
 113:                                              ; preds = %.lr.ph127
   %114 = sub i32 %111, %spec.select86
@@ -15562,43 +15562,42 @@ _ZNK4llvm4User10getOperandEj.exit.i:              ; preds = %76, %73
 
 119:                                              ; preds = %113
   %120 = icmp eq i64 %indvars.iv, %115
-  %121 = and i8 %.065124, 1
-  %122 = icmp ne i8 %121, 0
-  %123 = select i1 %120, i1 %122, i1 false
-  %124 = zext i1 %123 to i8
-  %125 = trunc nuw i64 %indvars.iv to i32
-  store i32 %125, ptr %117, align 4
-  br label %126
+  %121 = icmp ne i8 %.065124, 0
+  %122 = select i1 %120, i1 %121, i1 false
+  %123 = zext i1 %122 to i8
+  %124 = trunc nuw i64 %indvars.iv to i32
+  store i32 %124, ptr %117, align 4
+  br label %125
 
-126:                                              ; preds = %.lr.ph127, %119
-  %.166 = phi i8 [ %.065124, %.lr.ph127 ], [ %124, %119 ]
+125:                                              ; preds = %.lr.ph127, %119
+  %.166 = phi i8 [ %.065124, %.lr.ph127 ], [ %123, %119 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge128, label %.lr.ph127, !llvm.loop !213
 
-._crit_edge128:                                   ; preds = %126
-  %127 = trunc nuw i8 %.166 to i1
-  br i1 %127, label %.loopexit.sink.split, label %.loopexit
+._crit_edge128:                                   ; preds = %125
+  %126 = trunc nuw i8 %.166 to i1
+  br i1 %126, label %.loopexit.sink.split, label %.loopexit
 
 .loopexit.sink.split:                             ; preds = %113, %._crit_edge128, %108
   %.1.ph = phi i1 [ true, %108 ], [ true, %._crit_edge128 ], [ false, %113 ]
-  %128 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %4) #25
+  %127 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %4) #25
   store i32 0, ptr %25, align 8
   br label %.loopexit
 
 .loopexit:                                        ; preds = %_ZNK4llvm4User10getOperandEj.exit90, %_ZNK4llvm4User10getOperandEj.exit.i, %.critedge, %.loopexit.sink.split, %._crit_edge128, %._crit_edge
   %.1 = phi i1 [ false, %._crit_edge ], [ false, %._crit_edge128 ], [ %.1.ph, %.loopexit.sink.split ], [ false, %.critedge ], [ false, %_ZNK4llvm4User10getOperandEj.exit.i ], [ false, %_ZNK4llvm4User10getOperandEj.exit90 ]
-  %129 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(64) %7) #25
-  %130 = load ptr, ptr %7, align 8
-  %131 = icmp eq ptr %130, %48
-  br i1 %131, label %_ZN4llvm11SmallVectorIiLj12EED2Ev.exit, label %132
+  %128 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(64) %7) #25
+  %129 = load ptr, ptr %7, align 8
+  %130 = icmp eq ptr %129, %48
+  br i1 %130, label %_ZN4llvm11SmallVectorIiLj12EED2Ev.exit, label %131
 
-132:                                              ; preds = %.loopexit
-  call void @free(ptr noundef %130) #25
+131:                                              ; preds = %.loopexit
+  call void @free(ptr noundef %129) #25
   br label %_ZN4llvm11SmallVectorIiLj12EED2Ev.exit
 
-_ZN4llvm11SmallVectorIiLj12EED2Ev.exit:           ; preds = %132, %.loopexit, %45, %32, %34, %39, %30
-  %.0 = phi i1 [ false, %30 ], [ false, %39 ], [ false, %34 ], [ false, %32 ], [ false, %45 ], [ %.1, %.loopexit ], [ %.1, %132 ]
+_ZN4llvm11SmallVectorIiLj12EED2Ev.exit:           ; preds = %131, %.loopexit, %45, %32, %34, %39, %30
+  %.0 = phi i1 [ false, %30 ], [ false, %39 ], [ false, %34 ], [ false, %32 ], [ false, %45 ], [ %.1, %.loopexit ], [ %.1, %131 ]
   ret i1 %.0
 }
 

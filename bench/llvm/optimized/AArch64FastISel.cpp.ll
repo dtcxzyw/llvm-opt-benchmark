@@ -10235,7 +10235,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_115AArch64FastISel9se
   br i1 %92, label %93, label %95
 
 93:                                               ; preds = %89
-  %94 = icmp ult i64 %.079.i.i.i, 3
+  %94 = icmp samesign ult i64 %.079.i.i.i, 3
   br i1 %94, label %_ZNK4llvm11CCValAssign8isRegLocEv.exit, label %95
 
 95:                                               ; preds = %93, %89
@@ -19259,7 +19259,7 @@ _ZNK12_GLOBAL__N_115AArch64FastISel17CCAssignFnForCallEj.exit: ; preds = %4, %26
   br i1 %97, label %98, label %100
 
 98:                                               ; preds = %94
-  %99 = icmp ult i64 %.079.i.i.i, 3
+  %99 = icmp samesign ult i64 %.079.i.i.i, 3
   br i1 %99, label %_ZNK4llvm11CCValAssign8isRegLocEv.exit, label %100
 
 100:                                              ; preds = %98, %94

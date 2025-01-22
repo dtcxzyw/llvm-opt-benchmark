@@ -4392,7 +4392,7 @@ for.body.i.i.i:                                   ; preds = %for.inc.i.i.i, %for
   br i1 %tobool.i.i.i, label %if.then.i.i.i822, label %for.inc.i.i.i
 
 if.then.i.i.i822:                                 ; preds = %for.body.i.i.i
-  %cmp1.i.i.i = icmp ult i64 %__n.05.i.i.i, 3
+  %cmp1.i.i.i = icmp samesign ult i64 %__n.05.i.i.i, 3
   br i1 %cmp1.i.i.i, label %_ZNK6google8protobuf8internal17TailCallTableInfo13FastFieldInfo8is_emptyEv.exit, label %for.inc.i.i.i
 
 for.inc.i.i.i:                                    ; preds = %if.then.i.i.i822, %for.body.i.i.i

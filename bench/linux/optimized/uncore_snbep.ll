@@ -2563,83 +2563,83 @@ define internal noundef ptr @snbep_pcu_get_constraint(ptr noundef %0, ptr nocapt
   %24 = ashr i32 %23, %19
   %25 = and i32 %24, 255
   %26 = icmp eq i32 %25, 0
-  br i1 %26, label %.thread, label %.lr.ph.preheader
+  br i1 %26, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %16
   %27 = load i64, ptr %18, align 8
   %28 = xor i64 %27, %7
   %29 = and i64 %28, %21
   %30 = icmp eq i64 %29, 0
-  br i1 %30, label %.thread, label %.lr.ph24
+  br i1 %30, label %._crit_edge, label %.lr.ph24
 
-.lr.ph:                                           ; preds = %57
+.lr.ph:                                           ; preds = %49
   %31 = load i64, ptr %18, align 8
-  %32 = xor i64 %31, %58
-  %33 = and i64 %32, %61
+  %32 = xor i64 %31, %50
+  %33 = and i64 %32, %53
   %34 = icmp eq i64 %33, 0
-  br i1 %34, label %.thread, label %.lr.ph24
-
-.thread:                                          ; preds = %57, %.lr.ph, %.lr.ph.preheader, %16
-  %.lcssa12 = phi i32 [ %6, %16 ], [ %6, %.lr.ph.preheader ], [ %46, %.lr.ph ], [ %46, %57 ]
-  %.lcssa10 = phi i64 [ %7, %16 ], [ %7, %.lr.ph.preheader ], [ %58, %.lr.ph ], [ %58, %57 ]
-  %.lcssa8 = phi i32 [ %19, %16 ], [ %19, %.lr.ph.preheader ], [ %59, %.lr.ph ], [ %59, %57 ]
-  %.lcssa6 = phi i64 [ %21, %16 ], [ %21, %.lr.ph.preheader ], [ %61, %.lr.ph ], [ %61, %57 ]
-  %.lcssa = phi i64 [ %22, %16 ], [ %22, %.lr.ph.preheader ], [ %62, %.lr.ph ], [ %62, %57 ]
-  %35 = shl nuw i32 1, %.lcssa8
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; addl $1,$0", "=*m,ir,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %17, i32 %35, ptr nonnull elementtype(i32) %17) #20, !srcloc !34
-  %36 = xor i64 %.lcssa6, -1
-  %37 = load i64, ptr %18, align 8
-  %38 = and i64 %37, %36
-  %39 = and i64 %.lcssa6, %.lcssa10
-  %40 = or i64 %38, %39
-  store i64 %40, ptr %18, align 8
-  tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull %4, i64 noundef %.lcssa) #20
-  %41 = load i32, ptr %0, align 8
-  %42 = icmp slt i32 %41, 0
-  br i1 %42, label %.loopexit, label %72
+  br i1 %34, label %._crit_edge, label %.lr.ph24
 
 .lr.ph24:                                         ; preds = %.lr.ph.preheader, %.lr.ph
-  %43 = phi i32 [ %46, %.lr.ph ], [ %6, %.lr.ph.preheader ]
-  %44 = phi i64 [ %62, %.lr.ph ], [ %22, %.lr.ph.preheader ]
-  tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull %4, i64 noundef %44) #20
-  %45 = add i32 %43, 1
-  %46 = srem i32 %45, 4
-  %47 = load i32, ptr %5, align 8
-  %48 = icmp eq i32 %46, %47
-  br i1 %48, label %.loopexit, label %49
+  %35 = phi i32 [ %38, %.lr.ph ], [ %6, %.lr.ph.preheader ]
+  %36 = phi i64 [ %54, %.lr.ph ], [ %22, %.lr.ph.preheader ]
+  tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull %4, i64 noundef %36) #20
+  %37 = add i32 %35, 1
+  %38 = srem i32 %37, 4
+  %39 = load i32, ptr %5, align 8
+  %40 = icmp eq i32 %38, %39
+  br i1 %40, label %.loopexit, label %41
 
-49:                                               ; preds = %.lr.ph24
-  %50 = load i64, ptr %3, align 8
-  %51 = icmp slt i32 %47, %46
-  br i1 %51, label %52, label %67
+41:                                               ; preds = %.lr.ph24
+  %42 = load i64, ptr %3, align 8
+  %43 = icmp slt i32 %39, %38
+  br i1 %43, label %44, label %59
 
-52:                                               ; preds = %49
-  %53 = sub i32 %46, %47
-  %54 = shl i32 %53, 3
-  %55 = zext nneg i32 %54 to i64
-  %56 = shl i64 %50, %55
-  br label %57
+44:                                               ; preds = %41
+  %45 = sub i32 %38, %39
+  %46 = shl i32 %45, 3
+  %47 = zext nneg i32 %46 to i64
+  %48 = shl i64 %42, %47
+  br label %49
 
-57:                                               ; preds = %67, %52
-  %58 = phi i64 [ %56, %52 ], [ %71, %67 ]
-  %59 = shl nsw i32 %46, 3
-  %60 = zext nneg i32 %59 to i64
-  %61 = shl i64 255, %60
-  %62 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull %4) #20
-  %63 = load volatile i32, ptr %17, align 4
-  %64 = ashr i32 %63, %59
-  %65 = and i32 %64, 255
-  %66 = icmp eq i32 %65, 0
-  br i1 %66, label %.thread, label %.lr.ph
+49:                                               ; preds = %59, %44
+  %50 = phi i64 [ %48, %44 ], [ %63, %59 ]
+  %51 = shl nsw i32 %38, 3
+  %52 = zext nneg i32 %51 to i64
+  %53 = shl i64 255, %52
+  %54 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull %4) #20
+  %55 = load volatile i32, ptr %17, align 4
+  %56 = ashr i32 %55, %51
+  %57 = and i32 %56, 255
+  %58 = icmp eq i32 %57, 0
+  br i1 %58, label %._crit_edge, label %.lr.ph
 
-67:                                               ; preds = %49
-  %68 = sub i32 %47, %46
-  %69 = shl i32 %68, 3
-  %70 = zext nneg i32 %69 to i64
-  %71 = lshr i64 %50, %70
-  br label %57
+59:                                               ; preds = %41
+  %60 = sub i32 %39, %38
+  %61 = shl i32 %60, 3
+  %62 = zext nneg i32 %61 to i64
+  %63 = lshr i64 %42, %62
+  br label %49
 
-72:                                               ; preds = %.thread
+._crit_edge:                                      ; preds = %.lr.ph, %49, %.lr.ph.preheader, %16
+  %.lcssa12 = phi i32 [ %6, %16 ], [ %6, %.lr.ph.preheader ], [ %38, %49 ], [ %38, %.lr.ph ]
+  %.lcssa10 = phi i64 [ %7, %16 ], [ %7, %.lr.ph.preheader ], [ %50, %49 ], [ %50, %.lr.ph ]
+  %.lcssa8 = phi i32 [ %19, %16 ], [ %19, %.lr.ph.preheader ], [ %51, %49 ], [ %51, %.lr.ph ]
+  %.lcssa6 = phi i64 [ %21, %16 ], [ %21, %.lr.ph.preheader ], [ %53, %49 ], [ %53, %.lr.ph ]
+  %.lcssa = phi i64 [ %22, %16 ], [ %22, %.lr.ph.preheader ], [ %54, %49 ], [ %54, %.lr.ph ]
+  %64 = shl nuw i32 1, %.lcssa8
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; addl $1,$0", "=*m,ir,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %17, i32 %64, ptr nonnull elementtype(i32) %17) #20, !srcloc !34
+  %65 = xor i64 %.lcssa6, -1
+  %66 = load i64, ptr %18, align 8
+  %67 = and i64 %66, %65
+  %68 = and i64 %.lcssa6, %.lcssa10
+  %69 = or i64 %67, %68
+  store i64 %69, ptr %18, align 8
+  tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull %4, i64 noundef %.lcssa) #20
+  %70 = load i32, ptr %0, align 8
+  %71 = icmp slt i32 %70, 0
+  br i1 %71, label %.loopexit, label %72
+
+72:                                               ; preds = %._crit_edge
   %73 = load i32, ptr %5, align 8
   %74 = icmp eq i32 %.lcssa12, %73
   br i1 %74, label %94, label %75
@@ -2681,8 +2681,8 @@ define internal noundef ptr @snbep_pcu_get_constraint(ptr noundef %0, ptr nocapt
   store i32 1, ptr %95, align 4
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.lr.ph24, %94, %.thread, %12, %2
-  %96 = phi ptr [ null, %12 ], [ null, %2 ], [ null, %94 ], [ null, %.thread ], [ @uncore_constraint_empty, %.lr.ph24 ]
+.loopexit:                                        ; preds = %.lr.ph24, %94, %._crit_edge, %12, %2
+  %96 = phi ptr [ null, %12 ], [ null, %2 ], [ null, %94 ], [ null, %._crit_edge ], [ @uncore_constraint_empty, %.lr.ph24 ]
   ret ptr %96
 }
 

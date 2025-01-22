@@ -191,133 +191,131 @@ define dso_local noundef i32 @__blk_mq_debugfs_rq_show(ptr noundef %0, ptr nound
   %17 = zext i32 %16 to i64
   br label %18
 
-18:                                               ; preds = %37, %14
-  %19 = phi i64 [ 0, %14 ], [ %39, %37 ]
-  %20 = phi i8 [ 0, %14 ], [ %38, %37 ]
+18:                                               ; preds = %36, %14
+  %19 = phi i64 [ 0, %14 ], [ %38, %36 ]
+  %20 = phi i8 [ 0, %14 ], [ %37, %36 ]
   %21 = shl nuw i64 1, %19
   %22 = and i64 %21, %17
   %23 = icmp eq i64 %22, 0
-  br i1 %23, label %37, label %24
+  br i1 %23, label %36, label %24
 
 24:                                               ; preds = %18
-  %25 = and i8 %20, 1
-  %26 = icmp eq i8 %25, 0
-  br i1 %26, label %28, label %27
+  %25 = icmp eq i8 %20, 0
+  br i1 %25, label %27, label %26
 
-27:                                               ; preds = %24
+26:                                               ; preds = %24
   tail call void @seq_puts(ptr noundef %0, ptr noundef nonnull @.str.12) #9
-  br label %28
+  br label %27
 
-28:                                               ; preds = %27, %24
-  %29 = icmp samesign ult i64 %19, 28
-  br i1 %29, label %30, label %35
+27:                                               ; preds = %26, %24
+  %28 = icmp samesign ult i64 %19, 28
+  br i1 %28, label %29, label %34
 
-30:                                               ; preds = %28
-  %31 = getelementptr ptr, ptr @cmd_flag_name, i64 %19
-  %32 = load ptr, ptr %31, align 8
-  %33 = icmp eq ptr %32, null
-  br i1 %33, label %35, label %34
+29:                                               ; preds = %27
+  %30 = getelementptr ptr, ptr @cmd_flag_name, i64 %19
+  %31 = load ptr, ptr %30, align 8
+  %32 = icmp eq ptr %31, null
+  br i1 %32, label %34, label %33
 
-34:                                               ; preds = %30
-  tail call void @seq_puts(ptr noundef %0, ptr noundef nonnull %32) #9
-  br label %37
+33:                                               ; preds = %29
+  tail call void @seq_puts(ptr noundef %0, ptr noundef nonnull %31) #9
+  br label %36
 
-35:                                               ; preds = %30, %28
-  %36 = trunc i64 %19 to i32
-  tail call void (ptr, ptr, ...) @seq_printf(ptr noundef %0, ptr noundef nonnull @.str.13, i32 noundef %36) #9
-  br label %37
+34:                                               ; preds = %29, %27
+  %35 = trunc i64 %19 to i32
+  tail call void (ptr, ptr, ...) @seq_printf(ptr noundef %0, ptr noundef nonnull @.str.13, i32 noundef %35) #9
+  br label %36
 
-37:                                               ; preds = %35, %34, %18
-  %38 = phi i8 [ 1, %34 ], [ 1, %35 ], [ %20, %18 ]
-  %39 = add nuw nsw i64 %19, 1
-  %40 = icmp eq i64 %39, 64
-  br i1 %40, label %41, label %18, !llvm.loop !5
+36:                                               ; preds = %34, %33, %18
+  %37 = phi i8 [ 1, %33 ], [ 1, %34 ], [ %20, %18 ]
+  %38 = add nuw nsw i64 %19, 1
+  %39 = icmp eq i64 %38, 64
+  br i1 %39, label %40, label %18, !llvm.loop !5
 
-41:                                               ; preds = %37
+40:                                               ; preds = %36
   tail call void @seq_puts(ptr noundef %0, ptr noundef nonnull @.str.5) #9
-  %42 = getelementptr inbounds nuw i8, ptr %1, i64 28
-  %43 = load i32, ptr %42, align 4
-  %44 = zext i32 %43 to i64
-  br label %45
+  %41 = getelementptr inbounds nuw i8, ptr %1, i64 28
+  %42 = load i32, ptr %41, align 4
+  %43 = zext i32 %42 to i64
+  br label %44
 
-45:                                               ; preds = %64, %41
-  %46 = phi i64 [ 0, %41 ], [ %66, %64 ]
-  %47 = phi i8 [ 0, %41 ], [ %65, %64 ]
-  %48 = shl nuw i64 1, %46
-  %49 = and i64 %48, %44
-  %50 = icmp eq i64 %49, 0
-  br i1 %50, label %64, label %51
+44:                                               ; preds = %62, %40
+  %45 = phi i64 [ 0, %40 ], [ %64, %62 ]
+  %46 = phi i8 [ 0, %40 ], [ %63, %62 ]
+  %47 = shl nuw i64 1, %45
+  %48 = and i64 %47, %43
+  %49 = icmp eq i64 %48, 0
+  br i1 %49, label %62, label %50
 
-51:                                               ; preds = %45
-  %52 = and i8 %47, 1
-  %53 = icmp eq i8 %52, 0
-  br i1 %53, label %55, label %54
+50:                                               ; preds = %44
+  %51 = icmp eq i8 %46, 0
+  br i1 %51, label %53, label %52
 
-54:                                               ; preds = %51
+52:                                               ; preds = %50
   tail call void @seq_puts(ptr noundef %0, ptr noundef nonnull @.str.12) #9
-  br label %55
+  br label %53
 
-55:                                               ; preds = %54, %51
-  %56 = icmp samesign ult i64 %46, 24
-  br i1 %56, label %57, label %62
+53:                                               ; preds = %52, %50
+  %54 = icmp samesign ult i64 %45, 24
+  br i1 %54, label %55, label %60
 
-57:                                               ; preds = %55
-  %58 = getelementptr ptr, ptr @rqf_name, i64 %46
-  %59 = load ptr, ptr %58, align 8
-  %60 = icmp eq ptr %59, null
-  br i1 %60, label %62, label %61
+55:                                               ; preds = %53
+  %56 = getelementptr ptr, ptr @rqf_name, i64 %45
+  %57 = load ptr, ptr %56, align 8
+  %58 = icmp eq ptr %57, null
+  br i1 %58, label %60, label %59
 
-61:                                               ; preds = %57
-  tail call void @seq_puts(ptr noundef %0, ptr noundef nonnull %59) #9
-  br label %64
+59:                                               ; preds = %55
+  tail call void @seq_puts(ptr noundef %0, ptr noundef nonnull %57) #9
+  br label %62
 
-62:                                               ; preds = %57, %55
-  %63 = trunc i64 %46 to i32
-  tail call void (ptr, ptr, ...) @seq_printf(ptr noundef %0, ptr noundef nonnull @.str.13, i32 noundef %63) #9
-  br label %64
+60:                                               ; preds = %55, %53
+  %61 = trunc i64 %45 to i32
+  tail call void (ptr, ptr, ...) @seq_printf(ptr noundef %0, ptr noundef nonnull @.str.13, i32 noundef %61) #9
+  br label %62
 
-64:                                               ; preds = %62, %61, %45
-  %65 = phi i8 [ 1, %61 ], [ 1, %62 ], [ %47, %45 ]
-  %66 = add nuw nsw i64 %46, 1
-  %67 = icmp eq i64 %66, 64
-  br i1 %67, label %68, label %45, !llvm.loop !5
+62:                                               ; preds = %60, %59, %44
+  %63 = phi i8 [ 1, %59 ], [ 1, %60 ], [ %46, %44 ]
+  %64 = add nuw nsw i64 %45, 1
+  %65 = icmp eq i64 %64, 64
+  br i1 %65, label %66, label %44, !llvm.loop !5
 
-68:                                               ; preds = %64
-  %69 = getelementptr inbounds nuw i8, ptr %1, i64 128
-  %70 = load volatile i32, ptr %69, align 8
-  %71 = icmp ugt i32 %70, 2
-  br i1 %71, label %72, label %73, !prof !8
+66:                                               ; preds = %62
+  %67 = getelementptr inbounds nuw i8, ptr %1, i64 128
+  %68 = load volatile i32, ptr %67, align 8
+  %69 = icmp ugt i32 %68, 2
+  br i1 %69, label %70, label %71, !prof !8
 
-72:                                               ; preds = %68
+70:                                               ; preds = %66
   tail call void asm sideeffect "427: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 427b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 427) #9, !srcloc !9
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.46, i32 274, i32 2307, i64 12) #9, !srcloc !10
   tail call void asm sideeffect "428: nop\0A\09.pushsection .discard.instr_end\0A\09.long 428b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 428) #9, !srcloc !11
-  br label %77
+  br label %75
 
-73:                                               ; preds = %68
-  %74 = zext nneg i32 %70 to i64
-  %75 = getelementptr [3 x ptr], ptr @blk_mq_rq_state_name_array, i64 0, i64 %74
-  %76 = load ptr, ptr %75, align 8
-  br label %77
+71:                                               ; preds = %66
+  %72 = zext nneg i32 %68 to i64
+  %73 = getelementptr [3 x ptr], ptr @blk_mq_rq_state_name_array, i64 0, i64 %72
+  %74 = load ptr, ptr %73, align 8
+  br label %75
 
-77:                                               ; preds = %73, %72
-  %78 = phi ptr [ %76, %73 ], [ @.str.47, %72 ]
-  tail call void (ptr, ptr, ...) @seq_printf(ptr noundef %0, ptr noundef nonnull @.str.6, ptr noundef %78) #9
-  %79 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %80 = load i32, ptr %79, align 8
-  %81 = getelementptr inbounds nuw i8, ptr %1, i64 36
-  %82 = load i32, ptr %81, align 4
-  tail call void (ptr, ptr, ...) @seq_printf(ptr noundef %0, ptr noundef nonnull @.str.7, i32 noundef %80, i32 noundef %82) #9
-  %83 = getelementptr inbounds nuw i8, ptr %5, i64 136
-  %84 = load ptr, ptr %83, align 8
-  %85 = icmp eq ptr %84, null
-  br i1 %85, label %87, label %86
+75:                                               ; preds = %71, %70
+  %76 = phi ptr [ %74, %71 ], [ @.str.47, %70 ]
+  tail call void (ptr, ptr, ...) @seq_printf(ptr noundef %0, ptr noundef nonnull @.str.6, ptr noundef %76) #9
+  %77 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %78 = load i32, ptr %77, align 8
+  %79 = getelementptr inbounds nuw i8, ptr %1, i64 36
+  %80 = load i32, ptr %79, align 4
+  tail call void (ptr, ptr, ...) @seq_printf(ptr noundef %0, ptr noundef nonnull @.str.7, i32 noundef %78, i32 noundef %80) #9
+  %81 = getelementptr inbounds nuw i8, ptr %5, i64 136
+  %82 = load ptr, ptr %81, align 8
+  %83 = icmp eq ptr %82, null
+  br i1 %83, label %85, label %84
 
-86:                                               ; preds = %77
-  tail call void %84(ptr noundef %0, ptr noundef %1) #9
-  br label %87
+84:                                               ; preds = %75
+  tail call void %82(ptr noundef %0, ptr noundef %1) #9
+  br label %85
 
-87:                                               ; preds = %86, %77
+85:                                               ; preds = %84, %75
   tail call void @seq_puts(ptr noundef %0, ptr noundef nonnull @.str.8) #9
   ret i32 0
 }
@@ -1120,49 +1118,48 @@ define internal noundef i32 @queue_state_show(ptr nocapture noundef readonly %0,
   %4 = load i64, ptr %3, align 8
   br label %5
 
-5:                                                ; preds = %24, %2
-  %6 = phi i64 [ 0, %2 ], [ %26, %24 ]
-  %7 = phi i8 [ 0, %2 ], [ %25, %24 ]
+5:                                                ; preds = %23, %2
+  %6 = phi i64 [ 0, %2 ], [ %25, %23 ]
+  %7 = phi i8 [ 0, %2 ], [ %24, %23 ]
   %8 = shl nuw i64 1, %6
   %9 = and i64 %8, %4
   %10 = icmp eq i64 %9, 0
-  br i1 %10, label %24, label %11
+  br i1 %10, label %23, label %11
 
 11:                                               ; preds = %5
-  %12 = and i8 %7, 1
-  %13 = icmp eq i8 %12, 0
-  br i1 %13, label %15, label %14
+  %12 = icmp eq i8 %7, 0
+  br i1 %12, label %14, label %13
 
-14:                                               ; preds = %11
+13:                                               ; preds = %11
   tail call void @seq_puts(ptr noundef %1, ptr noundef nonnull @.str.12) #9
-  br label %15
+  br label %14
 
-15:                                               ; preds = %14, %11
-  %16 = icmp samesign ult i64 %6, 32
-  br i1 %16, label %17, label %22
+14:                                               ; preds = %13, %11
+  %15 = icmp samesign ult i64 %6, 32
+  br i1 %15, label %16, label %21
 
-17:                                               ; preds = %15
-  %18 = getelementptr ptr, ptr @blk_queue_flag_name, i64 %6
-  %19 = load ptr, ptr %18, align 8
-  %20 = icmp eq ptr %19, null
-  br i1 %20, label %22, label %21
+16:                                               ; preds = %14
+  %17 = getelementptr ptr, ptr @blk_queue_flag_name, i64 %6
+  %18 = load ptr, ptr %17, align 8
+  %19 = icmp eq ptr %18, null
+  br i1 %19, label %21, label %20
 
-21:                                               ; preds = %17
-  tail call void @seq_puts(ptr noundef %1, ptr noundef nonnull %19) #9
-  br label %24
+20:                                               ; preds = %16
+  tail call void @seq_puts(ptr noundef %1, ptr noundef nonnull %18) #9
+  br label %23
 
-22:                                               ; preds = %17, %15
-  %23 = trunc i64 %6 to i32
-  tail call void (ptr, ptr, ...) @seq_printf(ptr noundef %1, ptr noundef nonnull @.str.13, i32 noundef %23) #9
-  br label %24
+21:                                               ; preds = %16, %14
+  %22 = trunc i64 %6 to i32
+  tail call void (ptr, ptr, ...) @seq_printf(ptr noundef %1, ptr noundef nonnull @.str.13, i32 noundef %22) #9
+  br label %23
 
-24:                                               ; preds = %22, %21, %5
-  %25 = phi i8 [ 1, %21 ], [ 1, %22 ], [ %7, %5 ]
-  %26 = add nuw nsw i64 %6, 1
-  %27 = icmp eq i64 %26, 64
-  br i1 %27, label %28, label %5, !llvm.loop !5
+23:                                               ; preds = %21, %20, %5
+  %24 = phi i8 [ 1, %20 ], [ 1, %21 ], [ %7, %5 ]
+  %25 = add nuw nsw i64 %6, 1
+  %26 = icmp eq i64 %25, 64
+  br i1 %26, label %27, label %5, !llvm.loop !5
 
-28:                                               ; preds = %24
+27:                                               ; preds = %23
   tail call void @seq_puts(ptr noundef %1, ptr noundef nonnull @.str.57) #9
   ret i32 0
 }
@@ -1304,49 +1301,48 @@ define internal noundef i32 @hctx_state_show(ptr nocapture noundef readonly %0, 
   %4 = load i64, ptr %3, align 8
   br label %5
 
-5:                                                ; preds = %24, %2
-  %6 = phi i64 [ 0, %2 ], [ %26, %24 ]
-  %7 = phi i8 [ 0, %2 ], [ %25, %24 ]
+5:                                                ; preds = %23, %2
+  %6 = phi i64 [ 0, %2 ], [ %25, %23 ]
+  %7 = phi i8 [ 0, %2 ], [ %24, %23 ]
   %8 = shl nuw i64 1, %6
   %9 = and i64 %8, %4
   %10 = icmp eq i64 %9, 0
-  br i1 %10, label %24, label %11
+  br i1 %10, label %23, label %11
 
 11:                                               ; preds = %5
-  %12 = and i8 %7, 1
-  %13 = icmp eq i8 %12, 0
-  br i1 %13, label %15, label %14
+  %12 = icmp eq i8 %7, 0
+  br i1 %12, label %14, label %13
 
-14:                                               ; preds = %11
+13:                                               ; preds = %11
   tail call void @seq_puts(ptr noundef %1, ptr noundef nonnull @.str.12) #9
-  br label %15
+  br label %14
 
-15:                                               ; preds = %14, %11
-  %16 = icmp samesign ult i64 %6, 4
-  br i1 %16, label %17, label %22
+14:                                               ; preds = %13, %11
+  %15 = icmp samesign ult i64 %6, 4
+  br i1 %15, label %16, label %21
 
-17:                                               ; preds = %15
-  %18 = getelementptr ptr, ptr @hctx_state_name, i64 %6
-  %19 = load ptr, ptr %18, align 8
-  %20 = icmp eq ptr %19, null
-  br i1 %20, label %22, label %21
+16:                                               ; preds = %14
+  %17 = getelementptr ptr, ptr @hctx_state_name, i64 %6
+  %18 = load ptr, ptr %17, align 8
+  %19 = icmp eq ptr %18, null
+  br i1 %19, label %21, label %20
 
-21:                                               ; preds = %17
-  tail call void @seq_puts(ptr noundef %1, ptr noundef nonnull %19) #9
-  br label %24
+20:                                               ; preds = %16
+  tail call void @seq_puts(ptr noundef %1, ptr noundef nonnull %18) #9
+  br label %23
 
-22:                                               ; preds = %17, %15
-  %23 = trunc i64 %6 to i32
-  tail call void (ptr, ptr, ...) @seq_printf(ptr noundef %1, ptr noundef nonnull @.str.13, i32 noundef %23) #9
-  br label %24
+21:                                               ; preds = %16, %14
+  %22 = trunc i64 %6 to i32
+  tail call void (ptr, ptr, ...) @seq_printf(ptr noundef %1, ptr noundef nonnull @.str.13, i32 noundef %22) #9
+  br label %23
 
-24:                                               ; preds = %22, %21, %5
-  %25 = phi i8 [ 1, %21 ], [ 1, %22 ], [ %7, %5 ]
-  %26 = add nuw nsw i64 %6, 1
-  %27 = icmp eq i64 %26, 64
-  br i1 %27, label %28, label %5, !llvm.loop !5
+23:                                               ; preds = %21, %20, %5
+  %24 = phi i8 [ 1, %20 ], [ 1, %21 ], [ %7, %5 ]
+  %25 = add nuw nsw i64 %6, 1
+  %26 = icmp eq i64 %25, 64
+  br i1 %26, label %27, label %5, !llvm.loop !5
 
-28:                                               ; preds = %24
+27:                                               ; preds = %23
   tail call void @seq_puts(ptr noundef %1, ptr noundef nonnull @.str.57) #9
   ret i32 0
 }
@@ -1370,49 +1366,48 @@ define internal noundef i32 @hctx_flags_show(ptr nocapture noundef readonly %0, 
   %14 = xor i64 %11, %13
   br label %15
 
-15:                                               ; preds = %34, %2
-  %16 = phi i64 [ 0, %2 ], [ %36, %34 ]
-  %17 = phi i8 [ 0, %2 ], [ %35, %34 ]
+15:                                               ; preds = %33, %2
+  %16 = phi i64 [ 0, %2 ], [ %35, %33 ]
+  %17 = phi i8 [ 0, %2 ], [ %34, %33 ]
   %18 = shl nuw i64 1, %16
   %19 = and i64 %18, %14
   %20 = icmp eq i64 %19, 0
-  br i1 %20, label %34, label %21
+  br i1 %20, label %33, label %21
 
 21:                                               ; preds = %15
-  %22 = and i8 %17, 1
-  %23 = icmp eq i8 %22, 0
-  br i1 %23, label %25, label %24
+  %22 = icmp eq i8 %17, 0
+  br i1 %22, label %24, label %23
 
-24:                                               ; preds = %21
+23:                                               ; preds = %21
   tail call void @seq_puts(ptr noundef %1, ptr noundef nonnull @.str.12) #9
-  br label %25
+  br label %24
 
-25:                                               ; preds = %24, %21
-  %26 = icmp samesign ult i64 %16, 7
-  br i1 %26, label %27, label %32
+24:                                               ; preds = %23, %21
+  %25 = icmp samesign ult i64 %16, 7
+  br i1 %25, label %26, label %31
 
-27:                                               ; preds = %25
-  %28 = getelementptr ptr, ptr @hctx_flag_name, i64 %16
-  %29 = load ptr, ptr %28, align 8
-  %30 = icmp eq ptr %29, null
-  br i1 %30, label %32, label %31
+26:                                               ; preds = %24
+  %27 = getelementptr ptr, ptr @hctx_flag_name, i64 %16
+  %28 = load ptr, ptr %27, align 8
+  %29 = icmp eq ptr %28, null
+  br i1 %29, label %31, label %30
 
-31:                                               ; preds = %27
-  tail call void @seq_puts(ptr noundef %1, ptr noundef nonnull %29) #9
-  br label %34
+30:                                               ; preds = %26
+  tail call void @seq_puts(ptr noundef %1, ptr noundef nonnull %28) #9
+  br label %33
 
-32:                                               ; preds = %27, %25
-  %33 = trunc i64 %16 to i32
-  tail call void (ptr, ptr, ...) @seq_printf(ptr noundef %1, ptr noundef nonnull @.str.13, i32 noundef %33) #9
-  br label %34
+31:                                               ; preds = %26, %24
+  %32 = trunc i64 %16 to i32
+  tail call void (ptr, ptr, ...) @seq_printf(ptr noundef %1, ptr noundef nonnull @.str.13, i32 noundef %32) #9
+  br label %33
 
-34:                                               ; preds = %32, %31, %15
-  %35 = phi i8 [ 1, %31 ], [ 1, %32 ], [ %17, %15 ]
-  %36 = add nuw nsw i64 %16, 1
-  %37 = icmp eq i64 %36, 64
-  br i1 %37, label %38, label %15, !llvm.loop !5
+33:                                               ; preds = %31, %30, %15
+  %34 = phi i8 [ 1, %30 ], [ 1, %31 ], [ %17, %15 ]
+  %35 = add nuw nsw i64 %16, 1
+  %36 = icmp eq i64 %35, 64
+  br i1 %36, label %37, label %15, !llvm.loop !5
 
-38:                                               ; preds = %34
+37:                                               ; preds = %33
   tail call void @seq_puts(ptr noundef %1, ptr noundef nonnull @.str.57) #9
   ret i32 0
 }

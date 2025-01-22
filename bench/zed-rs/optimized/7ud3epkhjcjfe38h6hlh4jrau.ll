@@ -43228,7 +43228,7 @@ _ZN4core3ops8function6FnOnce9call_once17hd23be5cc35c08609E.exit.i.i.i.i.i: ; pre
 
 864:                                              ; preds = %862
   %865 = add i64 %861, -1
-  %866 = add i32 %.sroa.5.1.i.i.i.i, 1000000000
+  %866 = add nuw i32 %.sroa.5.1.i.i.i.i, 1000000000
   br label %867
 
 867:                                              ; preds = %864, %860
@@ -136122,7 +136122,7 @@ _ZN4core3ops8function6FnOnce9call_once17hd23be5cc35c08609E.exit.i.i.i.i: ; preds
 
 678:                                              ; preds = %676
   %679 = add i64 %675, -1
-  %680 = add i32 %.sroa.5.1.i.i.i, 1000000000
+  %680 = add nuw i32 %.sroa.5.1.i.i.i, 1000000000
   br label %681
 
 681:                                              ; preds = %678, %674

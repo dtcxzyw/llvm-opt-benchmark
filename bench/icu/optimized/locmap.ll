@@ -40,7 +40,7 @@ $_ZN6icu_7515MaybeStackArrayIcLi40EE13orphanOrCloneEiRi = comdat any
 
 $_ZN6icu_7515MaybeStackArrayIcLi40EE8copyFromERKS1_R10UErrorCode = comdat any
 
-@_ZL11gPosixIDmap = internal constant [141 x %struct.ILcidPosixMap] [%struct.ILcidPosixMap { i32 2, ptr @_ZL9locmap_af }, %struct.ILcidPosixMap { i32 2, ptr @_ZL9locmap_am }, %struct.ILcidPosixMap { i32 18, ptr @_ZL9locmap_ar }, %struct.ILcidPosixMap { i32 2, ptr @_ZL10locmap_arn }, %struct.ILcidPosixMap { i32 2, ptr @_ZL9locmap_as }, %struct.ILcidPosixMap { i32 6, ptr @_ZL9locmap_az }, %struct.ILcidPosixMap { i32 2, ptr @_ZL9locmap_ba }, %struct.ILcidPosixMap { i32 2, ptr @_ZL9locmap_be }, %struct.ILcidPosixMap { i32 2, ptr @_ZL9locmap_bg }, %struct.ILcidPosixMap { i32 2, ptr @_ZL10locmap_bin }, %struct.ILcidPosixMap { i32 3, ptr @_ZL9locmap_bn }, %struct.ILcidPosixMap { i32 4, ptr @_ZL9locmap_bo }, %struct.ILcidPosixMap { i32 2, ptr @_ZL9locmap_br }, %struct.ILcidPosixMap { i32 3, ptr @_ZL9locmap_ca }, %struct.ILcidPosixMap { i32 4, ptr @_ZL10locmap_chr }, %struct.ILcidPosixMap { i32 3, ptr @_ZL10locmap_ckb }, %struct.ILcidPosixMap { i32 2, ptr @_ZL9locmap_co }, %struct.ILcidPosixMap { i32 2, ptr @_ZL9locmap_cs }, %struct.ILcidPosixMap { i32 2, ptr @_ZL9locmap_cy }, %struct.ILcidPosixMap { i32 2, ptr @_ZL9locmap_da }, %struct.ILcidPosixMap { i32 8, ptr @_ZL9locmap_de }, %struct.ILcidPosixMap { i32 2, ptr @_ZL9locmap_dv }, %struct.ILcidPosixMap { i32 2, ptr @_ZL9locmap_el }, %struct.ILcidPosixMap { i32 26, ptr @_ZL9locmap_en }, %struct.ILcidPosixMap { i32 1, ptr @_ZL18locmap_en_US_POSIX }, %struct.ILcidPosixMap { i32 25, ptr @_ZL9locmap_es }, %struct.ILcidPosixMap { i32 2, ptr @_ZL9locmap_et }, %struct.ILcidPosixMap { i32 2, ptr @_ZL9locmap_eu }, %struct.ILcidPosixMap { i32 3, ptr @_ZL9locmap_fa }, %struct.ILcidPosixMap { i32 2, ptr @_ZL12locmap_fa_AF }, %struct.ILcidPosixMap { i32 4, ptr @_ZL9locmap_ff }, %struct.ILcidPosixMap { i32 2, ptr @_ZL9locmap_fi }, %struct.ILcidPosixMap { i32 2, ptr @_ZL10locmap_fil }, %struct.ILcidPosixMap { i32 2, ptr @_ZL9locmap_fo }, %struct.ILcidPosixMap { i32 18, ptr @_ZL9locmap_fr }, %struct.ILcidPosixMap { i32 2, ptr @_ZL10locmap_fuv }, %struct.ILcidPosixMap { i32 2, ptr @_ZL9locmap_fy }, %struct.ILcidPosixMap { i32 3, ptr @_ZL9locmap_ga }, %struct.ILcidPosixMap { i32 2, ptr @_ZL9locmap_gd }, %struct.ILcidPosixMap { i32 2, ptr @_ZL9locmap_gl }, %struct.ILcidPosixMap { i32 2, ptr @_ZL9locmap_gn }, %struct.ILcidPosixMap { i32 2, ptr @_ZL10locmap_gsw }, %struct.ILcidPosixMap { i32 2, ptr @_ZL9locmap_gu }, %struct.ILcidPosixMap { i32 3, ptr @_ZL9locmap_ha }, %struct.ILcidPosixMap { i32 2, ptr @_ZL10locmap_haw }, %struct.ILcidPosixMap { i32 2, ptr @_ZL9locmap_he }, %struct.ILcidPosixMap { i32 2, ptr @_ZL9locmap_hi }, %struct.ILcidPosixMap { i32 20, ptr @_ZL9locmap_hr }, %struct.ILcidPosixMap { i32 4, ptr @_ZL10locmap_hsb }, %struct.ILcidPosixMap { i32 2, ptr @_ZL9locmap_hu }, %struct.ILcidPosixMap { i32 2, ptr @_ZL9locmap_hy }, %struct.ILcidPosixMap { i32 2, ptr @_ZL10locmap_ibb }, %struct.ILcidPosixMap { i32 2, ptr @_ZL9locmap_id }, %struct.ILcidPosixMap { i32 2, ptr @_ZL9locmap_ig }, %struct.ILcidPosixMap { i32 2, ptr @_ZL9locmap_ii }, %struct.ILcidPosixMap { i32 2, ptr @_ZL9locmap_is }, %struct.ILcidPosixMap { i32 3, ptr @_ZL9locmap_it }, %struct.ILcidPosixMap { i32 5, ptr @_ZL9locmap_iu }, %struct.ILcidPosixMap { i32 2, ptr @_ZL9locmap_iw }, %struct.ILcidPosixMap { i32 2, ptr @_ZL9locmap_ja }, %struct.ILcidPosixMap { i32 2, ptr @_ZL9locmap_ka }, %struct.ILcidPosixMap { i32 2, ptr @_ZL9locmap_kk }, %struct.ILcidPosixMap { i32 2, ptr @_ZL9locmap_kl }, %struct.ILcidPosixMap { i32 2, ptr @_ZL9locmap_km }, %struct.ILcidPosixMap { i32 2, ptr @_ZL9locmap_kn }, %struct.ILcidPosixMap { i32 3, ptr @_ZL9locmap_ko }, %struct.ILcidPosixMap { i32 2, ptr @_ZL10locmap_kok }, %struct.ILcidPosixMap { i32 2, ptr @_ZL9locmap_kr }, %struct.ILcidPosixMap { i32 3, ptr @_ZL9locmap_ks }, %struct.ILcidPosixMap { i32 2, ptr @_ZL9locmap_ky }, %struct.ILcidPosixMap { i32 2, ptr @_ZL9locmap_lb }, %struct.ILcidPosixMap { i32 3, ptr @_ZL9locmap_la }, %struct.ILcidPosixMap { i32 2, ptr @_ZL9locmap_lo }, %struct.ILcidPosixMap { i32 2, ptr @_ZL9locmap_lt }, %struct.ILcidPosixMap { i32 2, ptr @_ZL9locmap_lv }, %struct.ILcidPosixMap { i32 2, ptr @_ZL9locmap_mi }, %struct.ILcidPosixMap { i32 2, ptr @_ZL9locmap_mk }, %struct.ILcidPosixMap { i32 2, ptr @_ZL9locmap_ml }, %struct.ILcidPosixMap { i32 7, ptr @_ZL9locmap_mn }, %struct.ILcidPosixMap { i32 2, ptr @_ZL10locmap_mni }, %struct.ILcidPosixMap { i32 2, ptr @_ZL10locmap_moh }, %struct.ILcidPosixMap { i32 2, ptr @_ZL9locmap_mr }, %struct.ILcidPosixMap { i32 3, ptr @_ZL9locmap_ms }, %struct.ILcidPosixMap { i32 2, ptr @_ZL9locmap_mt }, %struct.ILcidPosixMap { i32 2, ptr @_ZL9locmap_my }, %struct.ILcidPosixMap { i32 3, ptr @_ZL9locmap_ne }, %struct.ILcidPosixMap { i32 3, ptr @_ZL9locmap_nl }, %struct.ILcidPosixMap { i32 7, ptr @_ZL9locmap_no }, %struct.ILcidPosixMap { i32 2, ptr @_ZL10locmap_nso }, %struct.ILcidPosixMap { i32 2, ptr @_ZL9locmap_oc }, %struct.ILcidPosixMap { i32 3, ptr @_ZL9locmap_om }, %struct.ILcidPosixMap { i32 2, ptr @_ZL12locmap_or_IN }, %struct.ILcidPosixMap { i32 4, ptr @_ZL9locmap_pa }, %struct.ILcidPosixMap { i32 3, ptr @_ZL10locmap_pap }, %struct.ILcidPosixMap { i32 2, ptr @_ZL9locmap_pl }, %struct.ILcidPosixMap { i32 2, ptr @_ZL9locmap_ps }, %struct.ILcidPosixMap { i32 3, ptr @_ZL9locmap_pt }, %struct.ILcidPosixMap { i32 7, ptr @_ZL9locmap_qu }, %struct.ILcidPosixMap { i32 3, ptr @_ZL10locmap_quc }, %struct.ILcidPosixMap { i32 3, ptr @_ZL10locmap_qut }, %struct.ILcidPosixMap { i32 2, ptr @_ZL9locmap_rm }, %struct.ILcidPosixMap { i32 3, ptr @_ZL9locmap_ro }, %struct.ILcidPosixMap { i32 1, ptr @_ZL11locmap_root }, %struct.ILcidPosixMap { i32 3, ptr @_ZL9locmap_ru }, %struct.ILcidPosixMap { i32 2, ptr @_ZL9locmap_rw }, %struct.ILcidPosixMap { i32 2, ptr @_ZL9locmap_sa }, %struct.ILcidPosixMap { i32 2, ptr @_ZL10locmap_sah }, %struct.ILcidPosixMap { i32 6, ptr @_ZL9locmap_sd }, %struct.ILcidPosixMap { i32 14, ptr @_ZL9locmap_se }, %struct.ILcidPosixMap { i32 2, ptr @_ZL9locmap_si }, %struct.ILcidPosixMap { i32 2, ptr @_ZL9locmap_sk }, %struct.ILcidPosixMap { i32 2, ptr @_ZL9locmap_sl }, %struct.ILcidPosixMap { i32 2, ptr @_ZL9locmap_so }, %struct.ILcidPosixMap { i32 2, ptr @_ZL9locmap_sq }, %struct.ILcidPosixMap { i32 2, ptr @_ZL9locmap_st }, %struct.ILcidPosixMap { i32 3, ptr @_ZL9locmap_sv }, %struct.ILcidPosixMap { i32 2, ptr @_ZL9locmap_sw }, %struct.ILcidPosixMap { i32 2, ptr @_ZL10locmap_syr }, %struct.ILcidPosixMap { i32 3, ptr @_ZL9locmap_ta }, %struct.ILcidPosixMap { i32 2, ptr @_ZL9locmap_te }, %struct.ILcidPosixMap { i32 3, ptr @_ZL9locmap_tg }, %struct.ILcidPosixMap { i32 2, ptr @_ZL9locmap_th }, %struct.ILcidPosixMap { i32 3, ptr @_ZL9locmap_ti }, %struct.ILcidPosixMap { i32 2, ptr @_ZL9locmap_tk }, %struct.ILcidPosixMap { i32 3, ptr @_ZL9locmap_tn }, %struct.ILcidPosixMap { i32 2, ptr @_ZL9locmap_tr }, %struct.ILcidPosixMap { i32 2, ptr @_ZL9locmap_ts }, %struct.ILcidPosixMap { i32 2, ptr @_ZL9locmap_tt }, %struct.ILcidPosixMap { i32 6, ptr @_ZL10locmap_tzm }, %struct.ILcidPosixMap { i32 3, ptr @_ZL9locmap_ug }, %struct.ILcidPosixMap { i32 2, ptr @_ZL9locmap_uk }, %struct.ILcidPosixMap { i32 3, ptr @_ZL9locmap_ur }, %struct.ILcidPosixMap { i32 6, ptr @_ZL9locmap_uz }, %struct.ILcidPosixMap { i32 3, ptr @_ZL9locmap_ve }, %struct.ILcidPosixMap { i32 2, ptr @_ZL9locmap_vi }, %struct.ILcidPosixMap { i32 2, ptr @_ZL9locmap_wo }, %struct.ILcidPosixMap { i32 2, ptr @_ZL9locmap_xh }, %struct.ILcidPosixMap { i32 2, ptr @_ZL9locmap_yi }, %struct.ILcidPosixMap { i32 2, ptr @_ZL9locmap_yo }, %struct.ILcidPosixMap { i32 22, ptr @_ZL9locmap_zh }, %struct.ILcidPosixMap { i32 2, ptr @_ZL9locmap_zu }], align 16
+@_ZL11gPosixIDmap = internal unnamed_addr constant [141 x %struct.ILcidPosixMap] [%struct.ILcidPosixMap { i32 2, ptr @_ZL9locmap_af }, %struct.ILcidPosixMap { i32 2, ptr @_ZL9locmap_am }, %struct.ILcidPosixMap { i32 18, ptr @_ZL9locmap_ar }, %struct.ILcidPosixMap { i32 2, ptr @_ZL10locmap_arn }, %struct.ILcidPosixMap { i32 2, ptr @_ZL9locmap_as }, %struct.ILcidPosixMap { i32 6, ptr @_ZL9locmap_az }, %struct.ILcidPosixMap { i32 2, ptr @_ZL9locmap_ba }, %struct.ILcidPosixMap { i32 2, ptr @_ZL9locmap_be }, %struct.ILcidPosixMap { i32 2, ptr @_ZL9locmap_bg }, %struct.ILcidPosixMap { i32 2, ptr @_ZL10locmap_bin }, %struct.ILcidPosixMap { i32 3, ptr @_ZL9locmap_bn }, %struct.ILcidPosixMap { i32 4, ptr @_ZL9locmap_bo }, %struct.ILcidPosixMap { i32 2, ptr @_ZL9locmap_br }, %struct.ILcidPosixMap { i32 3, ptr @_ZL9locmap_ca }, %struct.ILcidPosixMap { i32 4, ptr @_ZL10locmap_chr }, %struct.ILcidPosixMap { i32 3, ptr @_ZL10locmap_ckb }, %struct.ILcidPosixMap { i32 2, ptr @_ZL9locmap_co }, %struct.ILcidPosixMap { i32 2, ptr @_ZL9locmap_cs }, %struct.ILcidPosixMap { i32 2, ptr @_ZL9locmap_cy }, %struct.ILcidPosixMap { i32 2, ptr @_ZL9locmap_da }, %struct.ILcidPosixMap { i32 8, ptr @_ZL9locmap_de }, %struct.ILcidPosixMap { i32 2, ptr @_ZL9locmap_dv }, %struct.ILcidPosixMap { i32 2, ptr @_ZL9locmap_el }, %struct.ILcidPosixMap { i32 26, ptr @_ZL9locmap_en }, %struct.ILcidPosixMap { i32 1, ptr @_ZL18locmap_en_US_POSIX }, %struct.ILcidPosixMap { i32 25, ptr @_ZL9locmap_es }, %struct.ILcidPosixMap { i32 2, ptr @_ZL9locmap_et }, %struct.ILcidPosixMap { i32 2, ptr @_ZL9locmap_eu }, %struct.ILcidPosixMap { i32 3, ptr @_ZL9locmap_fa }, %struct.ILcidPosixMap { i32 2, ptr @_ZL12locmap_fa_AF }, %struct.ILcidPosixMap { i32 4, ptr @_ZL9locmap_ff }, %struct.ILcidPosixMap { i32 2, ptr @_ZL9locmap_fi }, %struct.ILcidPosixMap { i32 2, ptr @_ZL10locmap_fil }, %struct.ILcidPosixMap { i32 2, ptr @_ZL9locmap_fo }, %struct.ILcidPosixMap { i32 18, ptr @_ZL9locmap_fr }, %struct.ILcidPosixMap { i32 2, ptr @_ZL10locmap_fuv }, %struct.ILcidPosixMap { i32 2, ptr @_ZL9locmap_fy }, %struct.ILcidPosixMap { i32 3, ptr @_ZL9locmap_ga }, %struct.ILcidPosixMap { i32 2, ptr @_ZL9locmap_gd }, %struct.ILcidPosixMap { i32 2, ptr @_ZL9locmap_gl }, %struct.ILcidPosixMap { i32 2, ptr @_ZL9locmap_gn }, %struct.ILcidPosixMap { i32 2, ptr @_ZL10locmap_gsw }, %struct.ILcidPosixMap { i32 2, ptr @_ZL9locmap_gu }, %struct.ILcidPosixMap { i32 3, ptr @_ZL9locmap_ha }, %struct.ILcidPosixMap { i32 2, ptr @_ZL10locmap_haw }, %struct.ILcidPosixMap { i32 2, ptr @_ZL9locmap_he }, %struct.ILcidPosixMap { i32 2, ptr @_ZL9locmap_hi }, %struct.ILcidPosixMap { i32 20, ptr @_ZL9locmap_hr }, %struct.ILcidPosixMap { i32 4, ptr @_ZL10locmap_hsb }, %struct.ILcidPosixMap { i32 2, ptr @_ZL9locmap_hu }, %struct.ILcidPosixMap { i32 2, ptr @_ZL9locmap_hy }, %struct.ILcidPosixMap { i32 2, ptr @_ZL10locmap_ibb }, %struct.ILcidPosixMap { i32 2, ptr @_ZL9locmap_id }, %struct.ILcidPosixMap { i32 2, ptr @_ZL9locmap_ig }, %struct.ILcidPosixMap { i32 2, ptr @_ZL9locmap_ii }, %struct.ILcidPosixMap { i32 2, ptr @_ZL9locmap_is }, %struct.ILcidPosixMap { i32 3, ptr @_ZL9locmap_it }, %struct.ILcidPosixMap { i32 5, ptr @_ZL9locmap_iu }, %struct.ILcidPosixMap { i32 2, ptr @_ZL9locmap_iw }, %struct.ILcidPosixMap { i32 2, ptr @_ZL9locmap_ja }, %struct.ILcidPosixMap { i32 2, ptr @_ZL9locmap_ka }, %struct.ILcidPosixMap { i32 2, ptr @_ZL9locmap_kk }, %struct.ILcidPosixMap { i32 2, ptr @_ZL9locmap_kl }, %struct.ILcidPosixMap { i32 2, ptr @_ZL9locmap_km }, %struct.ILcidPosixMap { i32 2, ptr @_ZL9locmap_kn }, %struct.ILcidPosixMap { i32 3, ptr @_ZL9locmap_ko }, %struct.ILcidPosixMap { i32 2, ptr @_ZL10locmap_kok }, %struct.ILcidPosixMap { i32 2, ptr @_ZL9locmap_kr }, %struct.ILcidPosixMap { i32 3, ptr @_ZL9locmap_ks }, %struct.ILcidPosixMap { i32 2, ptr @_ZL9locmap_ky }, %struct.ILcidPosixMap { i32 2, ptr @_ZL9locmap_lb }, %struct.ILcidPosixMap { i32 3, ptr @_ZL9locmap_la }, %struct.ILcidPosixMap { i32 2, ptr @_ZL9locmap_lo }, %struct.ILcidPosixMap { i32 2, ptr @_ZL9locmap_lt }, %struct.ILcidPosixMap { i32 2, ptr @_ZL9locmap_lv }, %struct.ILcidPosixMap { i32 2, ptr @_ZL9locmap_mi }, %struct.ILcidPosixMap { i32 2, ptr @_ZL9locmap_mk }, %struct.ILcidPosixMap { i32 2, ptr @_ZL9locmap_ml }, %struct.ILcidPosixMap { i32 7, ptr @_ZL9locmap_mn }, %struct.ILcidPosixMap { i32 2, ptr @_ZL10locmap_mni }, %struct.ILcidPosixMap { i32 2, ptr @_ZL10locmap_moh }, %struct.ILcidPosixMap { i32 2, ptr @_ZL9locmap_mr }, %struct.ILcidPosixMap { i32 3, ptr @_ZL9locmap_ms }, %struct.ILcidPosixMap { i32 2, ptr @_ZL9locmap_mt }, %struct.ILcidPosixMap { i32 2, ptr @_ZL9locmap_my }, %struct.ILcidPosixMap { i32 3, ptr @_ZL9locmap_ne }, %struct.ILcidPosixMap { i32 3, ptr @_ZL9locmap_nl }, %struct.ILcidPosixMap { i32 7, ptr @_ZL9locmap_no }, %struct.ILcidPosixMap { i32 2, ptr @_ZL10locmap_nso }, %struct.ILcidPosixMap { i32 2, ptr @_ZL9locmap_oc }, %struct.ILcidPosixMap { i32 3, ptr @_ZL9locmap_om }, %struct.ILcidPosixMap { i32 2, ptr @_ZL12locmap_or_IN }, %struct.ILcidPosixMap { i32 4, ptr @_ZL9locmap_pa }, %struct.ILcidPosixMap { i32 3, ptr @_ZL10locmap_pap }, %struct.ILcidPosixMap { i32 2, ptr @_ZL9locmap_pl }, %struct.ILcidPosixMap { i32 2, ptr @_ZL9locmap_ps }, %struct.ILcidPosixMap { i32 3, ptr @_ZL9locmap_pt }, %struct.ILcidPosixMap { i32 7, ptr @_ZL9locmap_qu }, %struct.ILcidPosixMap { i32 3, ptr @_ZL10locmap_quc }, %struct.ILcidPosixMap { i32 3, ptr @_ZL10locmap_qut }, %struct.ILcidPosixMap { i32 2, ptr @_ZL9locmap_rm }, %struct.ILcidPosixMap { i32 3, ptr @_ZL9locmap_ro }, %struct.ILcidPosixMap { i32 1, ptr @_ZL11locmap_root }, %struct.ILcidPosixMap { i32 3, ptr @_ZL9locmap_ru }, %struct.ILcidPosixMap { i32 2, ptr @_ZL9locmap_rw }, %struct.ILcidPosixMap { i32 2, ptr @_ZL9locmap_sa }, %struct.ILcidPosixMap { i32 2, ptr @_ZL10locmap_sah }, %struct.ILcidPosixMap { i32 6, ptr @_ZL9locmap_sd }, %struct.ILcidPosixMap { i32 14, ptr @_ZL9locmap_se }, %struct.ILcidPosixMap { i32 2, ptr @_ZL9locmap_si }, %struct.ILcidPosixMap { i32 2, ptr @_ZL9locmap_sk }, %struct.ILcidPosixMap { i32 2, ptr @_ZL9locmap_sl }, %struct.ILcidPosixMap { i32 2, ptr @_ZL9locmap_so }, %struct.ILcidPosixMap { i32 2, ptr @_ZL9locmap_sq }, %struct.ILcidPosixMap { i32 2, ptr @_ZL9locmap_st }, %struct.ILcidPosixMap { i32 3, ptr @_ZL9locmap_sv }, %struct.ILcidPosixMap { i32 2, ptr @_ZL9locmap_sw }, %struct.ILcidPosixMap { i32 2, ptr @_ZL10locmap_syr }, %struct.ILcidPosixMap { i32 3, ptr @_ZL9locmap_ta }, %struct.ILcidPosixMap { i32 2, ptr @_ZL9locmap_te }, %struct.ILcidPosixMap { i32 3, ptr @_ZL9locmap_tg }, %struct.ILcidPosixMap { i32 2, ptr @_ZL9locmap_th }, %struct.ILcidPosixMap { i32 3, ptr @_ZL9locmap_ti }, %struct.ILcidPosixMap { i32 2, ptr @_ZL9locmap_tk }, %struct.ILcidPosixMap { i32 3, ptr @_ZL9locmap_tn }, %struct.ILcidPosixMap { i32 2, ptr @_ZL9locmap_tr }, %struct.ILcidPosixMap { i32 2, ptr @_ZL9locmap_ts }, %struct.ILcidPosixMap { i32 2, ptr @_ZL9locmap_tt }, %struct.ILcidPosixMap { i32 6, ptr @_ZL10locmap_tzm }, %struct.ILcidPosixMap { i32 3, ptr @_ZL9locmap_ug }, %struct.ILcidPosixMap { i32 2, ptr @_ZL9locmap_uk }, %struct.ILcidPosixMap { i32 3, ptr @_ZL9locmap_ur }, %struct.ILcidPosixMap { i32 6, ptr @_ZL9locmap_uz }, %struct.ILcidPosixMap { i32 3, ptr @_ZL9locmap_ve }, %struct.ILcidPosixMap { i32 2, ptr @_ZL9locmap_vi }, %struct.ILcidPosixMap { i32 2, ptr @_ZL9locmap_wo }, %struct.ILcidPosixMap { i32 2, ptr @_ZL9locmap_xh }, %struct.ILcidPosixMap { i32 2, ptr @_ZL9locmap_yi }, %struct.ILcidPosixMap { i32 2, ptr @_ZL9locmap_yo }, %struct.ILcidPosixMap { i32 22, ptr @_ZL9locmap_zh }, %struct.ILcidPosixMap { i32 2, ptr @_ZL9locmap_zu }], align 16
 @_ZL9locmap_af = internal constant [2 x %struct.ILcidPosixElement] [%struct.ILcidPosixElement { i32 54, ptr @.str }, %struct.ILcidPosixElement { i32 1078, ptr @.str.1 }], align 16
 @_ZL9locmap_am = internal constant [2 x %struct.ILcidPosixElement] [%struct.ILcidPosixElement { i32 94, ptr @.str.2 }, %struct.ILcidPosixElement { i32 1118, ptr @.str.3 }], align 16
 @_ZL9locmap_ar = internal constant [18 x %struct.ILcidPosixElement] [%struct.ILcidPosixElement { i32 1, ptr @.str.4 }, %struct.ILcidPosixElement { i32 14337, ptr @.str.5 }, %struct.ILcidPosixElement { i32 15361, ptr @.str.6 }, %struct.ILcidPosixElement { i32 5121, ptr @.str.7 }, %struct.ILcidPosixElement { i32 3073, ptr @.str.8 }, %struct.ILcidPosixElement { i32 2049, ptr @.str.9 }, %struct.ILcidPosixElement { i32 11265, ptr @.str.10 }, %struct.ILcidPosixElement { i32 13313, ptr @.str.11 }, %struct.ILcidPosixElement { i32 12289, ptr @.str.12 }, %struct.ILcidPosixElement { i32 4097, ptr @.str.13 }, %struct.ILcidPosixElement { i32 6145, ptr @.str.14 }, %struct.ILcidPosixElement { i32 6145, ptr @.str.15 }, %struct.ILcidPosixElement { i32 8193, ptr @.str.16 }, %struct.ILcidPosixElement { i32 16385, ptr @.str.17 }, %struct.ILcidPosixElement { i32 1025, ptr @.str.18 }, %struct.ILcidPosixElement { i32 10241, ptr @.str.19 }, %struct.ILcidPosixElement { i32 7169, ptr @.str.20 }, %struct.ILcidPosixElement { i32 9217, ptr @.str.21 }], align 16
@@ -1212,17 +1212,16 @@ lor.lhs.false2:                                   ; preds = %entry
 
 lor.lhs.false3:                                   ; preds = %lor.lhs.false2
   %call4 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %posixID) #15
-  %call.fr.i = freeze i64 %call4
-  %cmp5 = icmp ult i64 %call.fr.i, 2
+  %cmp5 = icmp ult i64 %call4, 2
   br i1 %cmp5, label %return, label %while.body
 
 while.body:                                       ; preds = %lor.lhs.false3, %if.end21
-  %oldmid.031 = phi i32 [ %shr, %if.end21 ], [ 0, %lor.lhs.false3 ]
-  %low.030 = phi i32 [ %low.1, %if.end21 ], [ 0, %lor.lhs.false3 ]
-  %high.029 = phi i32 [ %high.1, %if.end21 ], [ 141, %lor.lhs.false3 ]
-  %add = add i32 %low.030, %high.029
+  %oldmid.091 = phi i32 [ %shr, %if.end21 ], [ 0, %lor.lhs.false3 ]
+  %low.090 = phi i32 [ %low.1, %if.end21 ], [ 0, %lor.lhs.false3 ]
+  %high.089 = phi i32 [ %high.1, %if.end21 ], [ 141, %lor.lhs.false3 ]
+  %add = add nuw i32 %low.090, %high.089
   %shr = lshr i32 %add, 1
-  %cmp7 = icmp eq i32 %shr, %oldmid.031
+  %cmp7 = icmp eq i32 %shr, %oldmid.091
   br i1 %cmp7, label %while.end, label %if.end9
 
 if.end9:                                          ; preds = %while.body
@@ -1241,32 +1240,14 @@ if.else:                                          ; preds = %if.end9
   br i1 %cmp14.not, label %if.else16, label %if.end21
 
 if.else16:                                        ; preds = %if.else
-  %call19 = tail call fastcc noundef i32 @_ZL9getHostIDPK13ILcidPosixMapPKcP10UErrorCode(ptr noundef nonnull %arrayidx, ptr noundef %posixID, ptr noundef %status)
-  br label %return
-
-if.end21:                                         ; preds = %if.else, %if.end9
-  %high.1 = phi i32 [ %shr, %if.end9 ], [ %high.029, %if.else ]
-  %low.1 = phi i32 [ %low.030, %if.end9 ], [ %shr, %if.else ]
-  %cmp6 = icmp ugt i32 %high.1, %low.1
-  br i1 %cmp6, label %while.body, label %while.end, !llvm.loop !7
-
-while.end:                                        ; preds = %while.body, %if.end21
-  %conv.i = trunc i64 %call.fr.i to i32
-  br label %for.body
-
-for.body:                                         ; preds = %while.end, %for.inc
-  %indvars.iv = phi i64 [ 0, %while.end ], [ %indvars.iv.next, %for.inc ]
-  %fallbackValue.032 = phi i32 [ -1, %while.end ], [ %fallbackValue.1, %for.inc ]
-  %arrayidx24 = getelementptr inbounds nuw [141 x %struct.ILcidPosixMap], ptr @_ZL11gPosixIDmap, i64 0, i64 %indvars.iv
-  %2 = load i32, ptr %arrayidx24, align 16
+  %conv.i = trunc i64 %call4 to i32
+  %2 = load i32, ptr %arrayidx, align 8
   %cmp25.not.i = icmp eq i32 %2, 0
   br i1 %cmp25.not.i, label %for.end.i, label %for.body.lr.ph.i
 
-for.body.lr.ph.i:                                 ; preds = %for.body
-  %regionMaps.i = getelementptr inbounds nuw i8, ptr %arrayidx24, i64 8
-  %3 = load ptr, ptr %regionMaps.i, align 8
-  %4 = load i8, ptr %posixID, align 1
-  %.fr.i = freeze i8 %4
+for.body.lr.ph.i:                                 ; preds = %if.else16
+  %3 = load i8, ptr %posixID, align 1
+  %.fr.i = freeze i8 %3
   %cmp3.not6.i.i = icmp eq i8 %.fr.i, 0
   br i1 %cmp3.not6.i.i, label %for.end.i, label %for.body.preheader.i
 
@@ -1278,25 +1259,25 @@ for.body.i:                                       ; preds = %for.inc.i, %for.bod
   %indvars.iv.i = phi i64 [ 0, %for.body.preheader.i ], [ %indvars.iv.next.i, %for.inc.i ]
   %bestIdx.027.i = phi i32 [ 0, %for.body.preheader.i ], [ %bestIdx.1.i, %for.inc.i ]
   %bestIdxDiff.026.i = phi i32 [ 0, %for.body.preheader.i ], [ %bestIdxDiff.1.i, %for.inc.i ]
-  %posixID1.i = getelementptr inbounds nuw %struct.ILcidPosixElement, ptr %3, i64 %indvars.iv.i, i32 1
-  %5 = load ptr, ptr %posixID1.i, align 8
-  %6 = load i8, ptr %5, align 1
-  %cmp5.i.not.i = icmp eq i8 %.fr.i, %6
+  %posixID1.i = getelementptr inbounds nuw %struct.ILcidPosixElement, ptr %0, i64 %indvars.iv.i, i32 1
+  %4 = load ptr, ptr %posixID1.i, align 8
+  %5 = load i8, ptr %4, align 1
+  %cmp5.i.not.i = icmp eq i8 %.fr.i, %5
   br i1 %cmp5.i.not.i, label %while.body.i.i, label %_ZL5idCmpPKcS0_.exit.i
 
 while.body.i.i:                                   ; preds = %for.body.i, %while.body.i.i
   %diffIdx.010.i.i = phi i32 [ %inc.i.i, %while.body.i.i ], [ 0, %for.body.i ]
-  %id2.addr.09.i.i = phi ptr [ %incdec.ptr4.i.i, %while.body.i.i ], [ %5, %for.body.i ]
+  %id2.addr.09.i.i = phi ptr [ %incdec.ptr4.i.i, %while.body.i.i ], [ %4, %for.body.i ]
   %id1.addr.08.i.i = phi ptr [ %incdec.ptr.i.i, %while.body.i.i ], [ %posixID, %for.body.i ]
   %inc.i.i = add nuw nsw i32 %diffIdx.010.i.i, 1
   %incdec.ptr.i.i = getelementptr inbounds nuw i8, ptr %id1.addr.08.i.i, i64 1
   %incdec.ptr4.i.i = getelementptr inbounds nuw i8, ptr %id2.addr.09.i.i, i64 1
-  %7 = load i8, ptr %incdec.ptr.i.i, align 1
-  %8 = load i8, ptr %incdec.ptr4.i.i, align 1
-  %cmp.i.i = icmp ne i8 %7, %8
-  %cmp3.not.i.i = icmp eq i8 %7, 0
+  %6 = load i8, ptr %incdec.ptr.i.i, align 1
+  %7 = load i8, ptr %incdec.ptr4.i.i, align 1
+  %cmp.i.i = icmp ne i8 %6, %7
+  %cmp3.not.i.i = icmp eq i8 %6, 0
   %or.cond.i.i = or i1 %cmp3.not.i.i, %cmp.i.i
-  br i1 %or.cond.i.i, label %_ZL5idCmpPKcS0_.exit.i, label %while.body.i.i, !llvm.loop !8
+  br i1 %or.cond.i.i, label %_ZL5idCmpPKcS0_.exit.i, label %while.body.i.i, !llvm.loop !7
 
 _ZL5idCmpPKcS0_.exit.i:                           ; preds = %while.body.i.i, %for.body.i
   %diffIdx.0.lcssa.i.i = phi i32 [ 0, %for.body.i ], [ %inc.i.i, %while.body.i.i ]
@@ -1305,60 +1286,179 @@ _ZL5idCmpPKcS0_.exit.i:                           ; preds = %while.body.i.i, %fo
 
 land.lhs.true.i:                                  ; preds = %_ZL5idCmpPKcS0_.exit.i
   %idxprom8.i = zext nneg i32 %diffIdx.0.lcssa.i.i to i64
-  %arrayidx9.i = getelementptr inbounds nuw i8, ptr %5, i64 %idxprom8.i
-  %9 = load i8, ptr %arrayidx9.i, align 1
-  %cmp11.i = icmp eq i8 %9, 0
+  %arrayidx9.i = getelementptr inbounds nuw i8, ptr %4, i64 %idxprom8.i
+  %8 = load i8, ptr %arrayidx9.i, align 1
+  %cmp11.i = icmp eq i8 %8, 0
   br i1 %cmp11.i, label %if.then.i, label %for.inc.i
 
 if.then.i:                                        ; preds = %land.lhs.true.i
   %cmp12.i = icmp eq i32 %diffIdx.0.lcssa.i.i, %conv.i
-  %10 = trunc nuw i64 %indvars.iv.i to i32
-  br i1 %cmp12.i, label %_ZL9getHostIDPK13ILcidPosixMapPKcP10UErrorCode.exit.thread23, label %for.inc.i
+  %9 = trunc nuw i64 %indvars.iv.i to i32
+  br i1 %cmp12.i, label %return.loopexit.i, label %for.inc.i
 
 for.inc.i:                                        ; preds = %if.then.i, %land.lhs.true.i, %_ZL5idCmpPKcS0_.exit.i
   %bestIdxDiff.1.i = phi i32 [ %bestIdxDiff.026.i, %land.lhs.true.i ], [ %bestIdxDiff.026.i, %_ZL5idCmpPKcS0_.exit.i ], [ %diffIdx.0.lcssa.i.i, %if.then.i ]
-  %bestIdx.1.i = phi i32 [ %bestIdx.027.i, %land.lhs.true.i ], [ %bestIdx.027.i, %_ZL5idCmpPKcS0_.exit.i ], [ %10, %if.then.i ]
+  %bestIdx.1.i = phi i32 [ %bestIdx.027.i, %land.lhs.true.i ], [ %bestIdx.027.i, %_ZL5idCmpPKcS0_.exit.i ], [ %9, %if.then.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %for.end.loopexit37.i, label %for.body.i, !llvm.loop !9
+  br i1 %exitcond.not.i, label %for.end.loopexit32.i, label %for.body.i, !llvm.loop !8
 
-for.end.loopexit37.i:                             ; preds = %for.inc.i
-  %11 = zext nneg i32 %bestIdxDiff.1.i to i64
-  %12 = sext i32 %bestIdx.1.i to i64
+for.end.loopexit32.i:                             ; preds = %for.inc.i
+  %10 = zext nneg i32 %bestIdxDiff.1.i to i64
+  %11 = sext i32 %bestIdx.1.i to i64
   br label %for.end.i
 
-for.end.i:                                        ; preds = %for.body.lr.ph.i, %for.end.loopexit37.i, %for.body
-  %bestIdxDiff.0.lcssa.i = phi i64 [ 0, %for.body ], [ %11, %for.end.loopexit37.i ], [ 0, %for.body.lr.ph.i ]
-  %bestIdx.0.lcssa.i = phi i64 [ 0, %for.body ], [ %12, %for.end.loopexit37.i ], [ 0, %for.body.lr.ph.i ]
+for.end.i:                                        ; preds = %for.end.loopexit32.i, %for.body.lr.ph.i, %if.else16
+  %bestIdxDiff.0.lcssa.i = phi i64 [ 0, %if.else16 ], [ %10, %for.end.loopexit32.i ], [ 0, %for.body.lr.ph.i ]
+  %bestIdx.0.lcssa.i = phi i64 [ 0, %if.else16 ], [ %11, %for.end.loopexit32.i ], [ 0, %for.body.lr.ph.i ]
   %arrayidx19.i = getelementptr inbounds nuw i8, ptr %posixID, i64 %bestIdxDiff.0.lcssa.i
-  %13 = load i8, ptr %arrayidx19.i, align 1
-  switch i8 %13, label %for.inc [
+  %12 = load i8, ptr %arrayidx19.i, align 1
+  switch i8 %12, label %if.end40.i [
     i8 95, label %land.lhs.true26.i
     i8 64, label %land.lhs.true26.i
   ]
 
 land.lhs.true26.i:                                ; preds = %for.end.i, %for.end.i
-  %regionMaps27.i = getelementptr inbounds nuw i8, ptr %arrayidx24, i64 8
-  %14 = load ptr, ptr %regionMaps27.i, align 8
-  %posixID30.i = getelementptr inbounds %struct.ILcidPosixElement, ptr %14, i64 %bestIdx.0.lcssa.i, i32 1
-  %15 = load ptr, ptr %posixID30.i, align 8
-  %arrayidx32.i = getelementptr inbounds nuw i8, ptr %15, i64 %bestIdxDiff.0.lcssa.i
-  %16 = load i8, ptr %arrayidx32.i, align 1
-  %cmp34.i = icmp eq i8 %16, 0
-  br i1 %cmp34.i, label %if.then30, label %for.inc
+  %posixID30.i = getelementptr inbounds %struct.ILcidPosixElement, ptr %0, i64 %bestIdx.0.lcssa.i, i32 1
+  %13 = load ptr, ptr %posixID30.i, align 8
+  %arrayidx32.i = getelementptr inbounds nuw i8, ptr %13, i64 %bestIdxDiff.0.lcssa.i
+  %14 = load i8, ptr %arrayidx32.i, align 1
+  %cmp34.i = icmp eq i8 %14, 0
+  br i1 %cmp34.i, label %if.then35.i, label %if.end40.i
 
-_ZL9getHostIDPK13ILcidPosixMapPKcP10UErrorCode.exit.thread23: ; preds = %if.then.i
-  %arrayidx6.le.i = getelementptr inbounds nuw %struct.ILcidPosixElement, ptr %3, i64 %indvars.iv.i
-  %retval.0.i26 = load i32, ptr %arrayidx6.le.i, align 8
+if.then35.i:                                      ; preds = %land.lhs.true26.i
+  store i32 -128, ptr %status, align 4
+  %arrayidx38.i = getelementptr inbounds %struct.ILcidPosixElement, ptr %0, i64 %bestIdx.0.lcssa.i
+  br label %_ZL9getHostIDPK13ILcidPosixMapPKcP10UErrorCode.exit
+
+if.end40.i:                                       ; preds = %land.lhs.true26.i, %for.end.i
+  store i32 1, ptr %status, align 4
+  br label %_ZL9getHostIDPK13ILcidPosixMapPKcP10UErrorCode.exit
+
+return.loopexit.i:                                ; preds = %if.then.i
+  %arrayidx6.le.i = getelementptr inbounds nuw %struct.ILcidPosixElement, ptr %0, i64 %indvars.iv.i
+  br label %_ZL9getHostIDPK13ILcidPosixMapPKcP10UErrorCode.exit
+
+_ZL9getHostIDPK13ILcidPosixMapPKcP10UErrorCode.exit: ; preds = %if.then35.i, %if.end40.i, %return.loopexit.i
+  %retval.0.in.i = phi ptr [ %arrayidx38.i, %if.then35.i ], [ %0, %if.end40.i ], [ %arrayidx6.le.i, %return.loopexit.i ]
+  %retval.0.i = load i32, ptr %retval.0.in.i, align 8
   br label %return
 
-if.then30:                                        ; preds = %land.lhs.true26.i
-  %arrayidx38.i = getelementptr inbounds %struct.ILcidPosixElement, ptr %14, i64 %bestIdx.0.lcssa.i
-  %retval.0.i = load i32, ptr %arrayidx38.i, align 8
+if.end21:                                         ; preds = %if.else, %if.end9
+  %high.1 = phi i32 [ %shr, %if.end9 ], [ %high.089, %if.else ]
+  %low.1 = phi i32 [ %low.090, %if.end9 ], [ %shr, %if.else ]
+  %cmp6 = icmp samesign ugt i32 %high.1, %low.1
+  br i1 %cmp6, label %while.body, label %while.end, !llvm.loop !9
+
+while.end:                                        ; preds = %while.body, %if.end21
+  %conv.i21 = trunc i64 %call4 to i32
+  br label %for.body
+
+for.body:                                         ; preds = %while.end, %for.inc
+  %indvars.iv = phi i64 [ 0, %while.end ], [ %indvars.iv.next, %for.inc ]
+  %fallbackValue.092 = phi i32 [ -1, %while.end ], [ %fallbackValue.1, %for.inc ]
+  %arrayidx24 = getelementptr inbounds nuw [141 x %struct.ILcidPosixMap], ptr @_ZL11gPosixIDmap, i64 0, i64 %indvars.iv
+  %15 = load i32, ptr %arrayidx24, align 16
+  %cmp25.not.i22 = icmp eq i32 %15, 0
+  br i1 %cmp25.not.i22, label %for.end.i44, label %for.body.lr.ph.i23
+
+for.body.lr.ph.i23:                               ; preds = %for.body
+  %regionMaps.i24 = getelementptr inbounds nuw i8, ptr %arrayidx24, i64 8
+  %16 = load ptr, ptr %regionMaps.i24, align 8
+  %17 = load i8, ptr %posixID, align 1
+  %.fr.i25 = freeze i8 %17
+  %cmp3.not6.i.i26 = icmp eq i8 %.fr.i25, 0
+  br i1 %cmp3.not6.i.i26, label %for.end.i44, label %for.body.preheader.i27
+
+for.body.preheader.i27:                           ; preds = %for.body.lr.ph.i23
+  %wide.trip.count.i28 = zext i32 %15 to i64
+  br label %for.body.i29
+
+for.body.i29:                                     ; preds = %for.inc.i38, %for.body.preheader.i27
+  %indvars.iv.i30 = phi i64 [ 0, %for.body.preheader.i27 ], [ %indvars.iv.next.i41, %for.inc.i38 ]
+  %bestIdx.027.i31 = phi i32 [ 0, %for.body.preheader.i27 ], [ %bestIdx.1.i40, %for.inc.i38 ]
+  %bestIdxDiff.026.i32 = phi i32 [ 0, %for.body.preheader.i27 ], [ %bestIdxDiff.1.i39, %for.inc.i38 ]
+  %posixID1.i33 = getelementptr inbounds nuw %struct.ILcidPosixElement, ptr %16, i64 %indvars.iv.i30, i32 1
+  %18 = load ptr, ptr %posixID1.i33, align 8
+  %19 = load i8, ptr %18, align 1
+  %cmp5.i.not.i34 = icmp eq i8 %.fr.i25, %19
+  br i1 %cmp5.i.not.i34, label %while.body.i.i67, label %_ZL5idCmpPKcS0_.exit.i35
+
+while.body.i.i67:                                 ; preds = %for.body.i29, %while.body.i.i67
+  %diffIdx.010.i.i68 = phi i32 [ %inc.i.i71, %while.body.i.i67 ], [ 0, %for.body.i29 ]
+  %id2.addr.09.i.i69 = phi ptr [ %incdec.ptr4.i.i73, %while.body.i.i67 ], [ %18, %for.body.i29 ]
+  %id1.addr.08.i.i70 = phi ptr [ %incdec.ptr.i.i72, %while.body.i.i67 ], [ %posixID, %for.body.i29 ]
+  %inc.i.i71 = add nuw nsw i32 %diffIdx.010.i.i68, 1
+  %incdec.ptr.i.i72 = getelementptr inbounds nuw i8, ptr %id1.addr.08.i.i70, i64 1
+  %incdec.ptr4.i.i73 = getelementptr inbounds nuw i8, ptr %id2.addr.09.i.i69, i64 1
+  %20 = load i8, ptr %incdec.ptr.i.i72, align 1
+  %21 = load i8, ptr %incdec.ptr4.i.i73, align 1
+  %cmp.i.i74 = icmp ne i8 %20, %21
+  %cmp3.not.i.i75 = icmp eq i8 %20, 0
+  %or.cond.i.i76 = or i1 %cmp3.not.i.i75, %cmp.i.i74
+  br i1 %or.cond.i.i76, label %_ZL5idCmpPKcS0_.exit.i35, label %while.body.i.i67, !llvm.loop !7
+
+_ZL5idCmpPKcS0_.exit.i35:                         ; preds = %while.body.i.i67, %for.body.i29
+  %diffIdx.0.lcssa.i.i36 = phi i32 [ 0, %for.body.i29 ], [ %inc.i.i71, %while.body.i.i67 ]
+  %cmp3.i37 = icmp sgt i32 %diffIdx.0.lcssa.i.i36, %bestIdxDiff.026.i32
+  br i1 %cmp3.i37, label %land.lhs.true.i59, label %for.inc.i38
+
+land.lhs.true.i59:                                ; preds = %_ZL5idCmpPKcS0_.exit.i35
+  %idxprom8.i60 = zext nneg i32 %diffIdx.0.lcssa.i.i36 to i64
+  %arrayidx9.i61 = getelementptr inbounds nuw i8, ptr %18, i64 %idxprom8.i60
+  %22 = load i8, ptr %arrayidx9.i61, align 1
+  %cmp11.i62 = icmp eq i8 %22, 0
+  br i1 %cmp11.i62, label %if.then.i63, label %for.inc.i38
+
+if.then.i63:                                      ; preds = %land.lhs.true.i59
+  %cmp12.i64 = icmp eq i32 %diffIdx.0.lcssa.i.i36, %conv.i21
+  %23 = trunc nuw i64 %indvars.iv.i30 to i32
+  br i1 %cmp12.i64, label %_ZL9getHostIDPK13ILcidPosixMapPKcP10UErrorCode.exit77.thread81, label %for.inc.i38
+
+for.inc.i38:                                      ; preds = %if.then.i63, %land.lhs.true.i59, %_ZL5idCmpPKcS0_.exit.i35
+  %bestIdxDiff.1.i39 = phi i32 [ %bestIdxDiff.026.i32, %land.lhs.true.i59 ], [ %bestIdxDiff.026.i32, %_ZL5idCmpPKcS0_.exit.i35 ], [ %diffIdx.0.lcssa.i.i36, %if.then.i63 ]
+  %bestIdx.1.i40 = phi i32 [ %bestIdx.027.i31, %land.lhs.true.i59 ], [ %bestIdx.027.i31, %_ZL5idCmpPKcS0_.exit.i35 ], [ %23, %if.then.i63 ]
+  %indvars.iv.next.i41 = add nuw nsw i64 %indvars.iv.i30, 1
+  %exitcond.not.i42 = icmp eq i64 %indvars.iv.next.i41, %wide.trip.count.i28
+  br i1 %exitcond.not.i42, label %for.end.loopexit32.i43, label %for.body.i29, !llvm.loop !8
+
+for.end.loopexit32.i43:                           ; preds = %for.inc.i38
+  %24 = zext nneg i32 %bestIdxDiff.1.i39 to i64
+  %25 = sext i32 %bestIdx.1.i40 to i64
+  br label %for.end.i44
+
+for.end.i44:                                      ; preds = %for.end.loopexit32.i43, %for.body.lr.ph.i23, %for.body
+  %bestIdxDiff.0.lcssa.i45 = phi i64 [ 0, %for.body ], [ %24, %for.end.loopexit32.i43 ], [ 0, %for.body.lr.ph.i23 ]
+  %bestIdx.0.lcssa.i46 = phi i64 [ 0, %for.body ], [ %25, %for.end.loopexit32.i43 ], [ 0, %for.body.lr.ph.i23 ]
+  %arrayidx19.i47 = getelementptr inbounds nuw i8, ptr %posixID, i64 %bestIdxDiff.0.lcssa.i45
+  %26 = load i8, ptr %arrayidx19.i47, align 1
+  switch i8 %26, label %for.inc [
+    i8 95, label %land.lhs.true26.i48
+    i8 64, label %land.lhs.true26.i48
+  ]
+
+land.lhs.true26.i48:                              ; preds = %for.end.i44, %for.end.i44
+  %regionMaps27.i49 = getelementptr inbounds nuw i8, ptr %arrayidx24, i64 8
+  %27 = load ptr, ptr %regionMaps27.i49, align 8
+  %posixID30.i50 = getelementptr inbounds %struct.ILcidPosixElement, ptr %27, i64 %bestIdx.0.lcssa.i46, i32 1
+  %28 = load ptr, ptr %posixID30.i50, align 8
+  %arrayidx32.i51 = getelementptr inbounds nuw i8, ptr %28, i64 %bestIdxDiff.0.lcssa.i45
+  %29 = load i8, ptr %arrayidx32.i51, align 1
+  %cmp34.i52 = icmp eq i8 %29, 0
+  br i1 %cmp34.i52, label %if.then30, label %for.inc
+
+_ZL9getHostIDPK13ILcidPosixMapPKcP10UErrorCode.exit77.thread81: ; preds = %if.then.i63
+  %arrayidx6.le.i66 = getelementptr inbounds nuw %struct.ILcidPosixElement, ptr %16, i64 %indvars.iv.i30
+  %retval.0.i5684 = load i32, ptr %arrayidx6.le.i66, align 8
+  br label %return
+
+if.then30:                                        ; preds = %land.lhs.true26.i48
+  %arrayidx38.i58 = getelementptr inbounds %struct.ILcidPosixElement, ptr %27, i64 %bestIdx.0.lcssa.i46
+  %retval.0.i56 = load i32, ptr %arrayidx38.i58, align 8
   br label %for.inc
 
-for.inc:                                          ; preds = %land.lhs.true26.i, %for.end.i, %if.then30
-  %fallbackValue.1 = phi i32 [ %retval.0.i, %if.then30 ], [ %fallbackValue.032, %for.end.i ], [ %fallbackValue.032, %land.lhs.true26.i ]
+for.inc:                                          ; preds = %land.lhs.true26.i48, %for.end.i44, %if.then30
+  %fallbackValue.1 = phi i32 [ %retval.0.i56, %if.then30 ], [ %fallbackValue.092, %for.end.i44 ], [ %fallbackValue.092, %land.lhs.true26.i48 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 141
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !10
@@ -1375,130 +1475,13 @@ if.end35:                                         ; preds = %for.end
   store i32 1, ptr %status, align 4
   br label %return
 
-return:                                           ; preds = %_ZL9getHostIDPK13ILcidPosixMapPKcP10UErrorCode.exit.thread23, %entry, %lor.lhs.false2, %lor.lhs.false3, %if.end35, %if.then34, %if.else16
-  %retval.0 = phi i32 [ %fallbackValue.1, %if.then34 ], [ 0, %if.end35 ], [ %call19, %if.else16 ], [ 0, %lor.lhs.false3 ], [ 0, %lor.lhs.false2 ], [ 0, %entry ], [ %retval.0.i26, %_ZL9getHostIDPK13ILcidPosixMapPKcP10UErrorCode.exit.thread23 ]
+return:                                           ; preds = %_ZL9getHostIDPK13ILcidPosixMapPKcP10UErrorCode.exit77.thread81, %entry, %lor.lhs.false2, %lor.lhs.false3, %if.end35, %if.then34, %_ZL9getHostIDPK13ILcidPosixMapPKcP10UErrorCode.exit
+  %retval.0 = phi i32 [ %fallbackValue.1, %if.then34 ], [ 0, %if.end35 ], [ %retval.0.i, %_ZL9getHostIDPK13ILcidPosixMapPKcP10UErrorCode.exit ], [ 0, %lor.lhs.false3 ], [ 0, %lor.lhs.false2 ], [ 0, %entry ], [ %retval.0.i5684, %_ZL9getHostIDPK13ILcidPosixMapPKcP10UErrorCode.exit77.thread81 ]
   ret i32 %retval.0
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
 declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #8
-
-; Function Attrs: mustprogress nofree nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef i32 @_ZL9getHostIDPK13ILcidPosixMapPKcP10UErrorCode(ptr nocapture noundef readonly %this_0, ptr nocapture noundef nonnull readonly %posixID, ptr nocapture noundef writeonly %status) unnamed_addr #10 {
-entry:
-  %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %posixID) #15
-  %call.fr = freeze i64 %call
-  %conv = trunc i64 %call.fr to i32
-  %0 = load i32, ptr %this_0, align 8
-  %cmp25.not = icmp eq i32 %0, 0
-  br i1 %cmp25.not, label %for.end, label %for.body.lr.ph
-
-for.body.lr.ph:                                   ; preds = %entry
-  %regionMaps = getelementptr inbounds nuw i8, ptr %this_0, i64 8
-  %1 = load ptr, ptr %regionMaps, align 8
-  %2 = load i8, ptr %posixID, align 1
-  %.fr = freeze i8 %2
-  %cmp3.not6.i = icmp eq i8 %.fr, 0
-  br i1 %cmp3.not6.i, label %for.end, label %for.body.preheader
-
-for.body.preheader:                               ; preds = %for.body.lr.ph
-  %wide.trip.count = zext i32 %0 to i64
-  br label %for.body
-
-for.body:                                         ; preds = %for.body.preheader, %for.inc
-  %indvars.iv = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next, %for.inc ]
-  %bestIdx.027 = phi i32 [ 0, %for.body.preheader ], [ %bestIdx.1, %for.inc ]
-  %bestIdxDiff.026 = phi i32 [ 0, %for.body.preheader ], [ %bestIdxDiff.1, %for.inc ]
-  %posixID1 = getelementptr inbounds nuw %struct.ILcidPosixElement, ptr %1, i64 %indvars.iv, i32 1
-  %3 = load ptr, ptr %posixID1, align 8
-  %4 = load i8, ptr %3, align 1
-  %cmp5.i.not = icmp eq i8 %.fr, %4
-  br i1 %cmp5.i.not, label %while.body.i, label %_ZL5idCmpPKcS0_.exit
-
-while.body.i:                                     ; preds = %for.body, %while.body.i
-  %diffIdx.010.i = phi i32 [ %inc.i, %while.body.i ], [ 0, %for.body ]
-  %id2.addr.09.i = phi ptr [ %incdec.ptr4.i, %while.body.i ], [ %3, %for.body ]
-  %id1.addr.08.i = phi ptr [ %incdec.ptr.i, %while.body.i ], [ %posixID, %for.body ]
-  %inc.i = add nuw nsw i32 %diffIdx.010.i, 1
-  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %id1.addr.08.i, i64 1
-  %incdec.ptr4.i = getelementptr inbounds nuw i8, ptr %id2.addr.09.i, i64 1
-  %5 = load i8, ptr %incdec.ptr.i, align 1
-  %6 = load i8, ptr %incdec.ptr4.i, align 1
-  %cmp.i = icmp ne i8 %5, %6
-  %cmp3.not.i = icmp eq i8 %5, 0
-  %or.cond.i = or i1 %cmp3.not.i, %cmp.i
-  br i1 %or.cond.i, label %_ZL5idCmpPKcS0_.exit, label %while.body.i, !llvm.loop !8
-
-_ZL5idCmpPKcS0_.exit:                             ; preds = %while.body.i, %for.body
-  %diffIdx.0.lcssa.i = phi i32 [ 0, %for.body ], [ %inc.i, %while.body.i ]
-  %cmp3 = icmp sgt i32 %diffIdx.0.lcssa.i, %bestIdxDiff.026
-  br i1 %cmp3, label %land.lhs.true, label %for.inc
-
-land.lhs.true:                                    ; preds = %_ZL5idCmpPKcS0_.exit
-  %idxprom8 = zext nneg i32 %diffIdx.0.lcssa.i to i64
-  %arrayidx9 = getelementptr inbounds nuw i8, ptr %3, i64 %idxprom8
-  %7 = load i8, ptr %arrayidx9, align 1
-  %cmp11 = icmp eq i8 %7, 0
-  br i1 %cmp11, label %if.then, label %for.inc
-
-if.then:                                          ; preds = %land.lhs.true
-  %cmp12 = icmp eq i32 %diffIdx.0.lcssa.i, %conv
-  %8 = trunc nuw i64 %indvars.iv to i32
-  br i1 %cmp12, label %return.loopexit, label %for.inc
-
-for.inc:                                          ; preds = %if.then, %_ZL5idCmpPKcS0_.exit, %land.lhs.true
-  %bestIdxDiff.1 = phi i32 [ %bestIdxDiff.026, %land.lhs.true ], [ %bestIdxDiff.026, %_ZL5idCmpPKcS0_.exit ], [ %diffIdx.0.lcssa.i, %if.then ]
-  %bestIdx.1 = phi i32 [ %bestIdx.027, %land.lhs.true ], [ %bestIdx.027, %_ZL5idCmpPKcS0_.exit ], [ %8, %if.then ]
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %for.end.loopexit37, label %for.body, !llvm.loop !9
-
-for.end.loopexit37:                               ; preds = %for.inc
-  %9 = zext nneg i32 %bestIdxDiff.1 to i64
-  %10 = sext i32 %bestIdx.1 to i64
-  br label %for.end
-
-for.end:                                          ; preds = %for.body.lr.ph, %for.end.loopexit37, %entry
-  %bestIdxDiff.0.lcssa = phi i64 [ 0, %entry ], [ %9, %for.end.loopexit37 ], [ 0, %for.body.lr.ph ]
-  %bestIdx.0.lcssa = phi i64 [ 0, %entry ], [ %10, %for.end.loopexit37 ], [ 0, %for.body.lr.ph ]
-  %arrayidx19 = getelementptr inbounds nuw i8, ptr %posixID, i64 %bestIdxDiff.0.lcssa
-  %11 = load i8, ptr %arrayidx19, align 1
-  switch i8 %11, label %if.end40 [
-    i8 95, label %land.lhs.true26
-    i8 64, label %land.lhs.true26
-  ]
-
-land.lhs.true26:                                  ; preds = %for.end, %for.end
-  %regionMaps27 = getelementptr inbounds nuw i8, ptr %this_0, i64 8
-  %12 = load ptr, ptr %regionMaps27, align 8
-  %posixID30 = getelementptr inbounds %struct.ILcidPosixElement, ptr %12, i64 %bestIdx.0.lcssa, i32 1
-  %13 = load ptr, ptr %posixID30, align 8
-  %arrayidx32 = getelementptr inbounds nuw i8, ptr %13, i64 %bestIdxDiff.0.lcssa
-  %14 = load i8, ptr %arrayidx32, align 1
-  %cmp34 = icmp eq i8 %14, 0
-  br i1 %cmp34, label %if.then35, label %if.end40
-
-if.then35:                                        ; preds = %land.lhs.true26
-  store i32 -128, ptr %status, align 4
-  %15 = load ptr, ptr %regionMaps27, align 8
-  %arrayidx38 = getelementptr inbounds %struct.ILcidPosixElement, ptr %15, i64 %bestIdx.0.lcssa
-  br label %return
-
-if.end40:                                         ; preds = %for.end, %land.lhs.true26
-  store i32 1, ptr %status, align 4
-  %regionMaps41 = getelementptr inbounds nuw i8, ptr %this_0, i64 8
-  %16 = load ptr, ptr %regionMaps41, align 8
-  br label %return
-
-return.loopexit:                                  ; preds = %if.then
-  %arrayidx6.le = getelementptr inbounds nuw %struct.ILcidPosixElement, ptr %1, i64 %indvars.iv
-  br label %return
-
-return:                                           ; preds = %return.loopexit, %if.end40, %if.then35
-  %retval.0.in = phi ptr [ %arrayidx38, %if.then35 ], [ %16, %if.end40 ], [ %arrayidx6.le, %return.loopexit ]
-  %retval.0 = load i32, ptr %retval.0.in, align 8
-  ret i32 %retval.0
-}
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #11

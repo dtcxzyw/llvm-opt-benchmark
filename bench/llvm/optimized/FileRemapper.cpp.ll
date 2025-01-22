@@ -366,7 +366,7 @@ define dso_local void @_ZN5clang5arcmt12FileRemapper11resetTargetERSt7variantIJN
   br i1 %9, label %10, label %12
 
 10:                                               ; preds = %5
-  %11 = icmp ult i64 %.079.i.i, 2
+  %11 = icmp samesign ult i64 %.079.i.i, 2
   br i1 %11, label %_ZSt17holds_alternativeIPN4llvm12MemoryBufferEJN5clang12FileEntryRefES2_EEbRKSt7variantIJDpT0_EE.exit, label %12
 
 12:                                               ; preds = %10, %5

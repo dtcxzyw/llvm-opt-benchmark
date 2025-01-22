@@ -5925,7 +5925,7 @@ if.then8.i.i:                                     ; preds = %_ZN3tbb6detail2d112
   br i1 %cmp.i21.i, label %do.cond.thread.i.i, label %if.end.i22.i
 
 do.cond.thread.i.i:                               ; preds = %if.then8.i.i
-  %idxprom.i.i.i = zext i8 %40 to i64
+  %idxprom.i.i.i = zext nneg i8 %40 to i64
   %arrayidx.i.i.i = getelementptr inbounds nuw %"class.tbb::detail::d1::blocked_range", ptr %my_pool2.i.i.i, i64 %idxprom.i.i.i
   %arrayidx.i18.i.i = getelementptr inbounds nuw [8 x i8], ptr %my_depth.i.i.i, i64 0, i64 %idxprom.i.i.i
   %54 = load i8, ptr %arrayidx.i18.i.i, align 1
@@ -5972,7 +5972,7 @@ do.cond.thread.i.i:                               ; preds = %if.then8.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %alloc.i.i.i.i)
   %dec.i.i.i = add i8 %my_size.promoted.i.pr96.i.i, -1
   store i8 %dec.i.i.i, ptr %my_size.i.i.i, align 2
-  %61 = add i8 %40, 1
+  %61 = add nuw nsw i8 %40, 1
   %62 = and i8 %61, 7
   store i8 %62, ptr %my_tail.i.i.i, align 1
   br label %land.rhs.i.i
@@ -7828,7 +7828,7 @@ if.then8.i.i:                                     ; preds = %_ZN3tbb6detail2d112
   br i1 %cmp.i25.i, label %do.cond.thread.i.i, label %if.end.i26.i
 
 do.cond.thread.i.i:                               ; preds = %if.then8.i.i
-  %idxprom.i.i.i = zext i8 %33 to i64
+  %idxprom.i.i.i = zext nneg i8 %33 to i64
   %arrayidx.i.i.i = getelementptr inbounds nuw %"class.tbb::detail::d1::blocked_range.419", ptr %my_pool2.i.i.i, i64 %idxprom.i.i.i
   %arrayidx.i18.i.i = getelementptr inbounds nuw [8 x i8], ptr %my_depth.i.i.i, i64 0, i64 %idxprom.i.i.i
   %46 = load i8, ptr %arrayidx.i18.i.i, align 1
@@ -7875,7 +7875,7 @@ do.cond.thread.i.i:                               ; preds = %if.then8.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %alloc.i.i.i.i)
   %dec.i.i.i = add i8 %my_size.promoted.i.pr99.i.i, -1
   store i8 %dec.i.i.i, ptr %my_size.i.i.i, align 2
-  %53 = add i8 %33, 1
+  %53 = add nuw nsw i8 %33, 1
   %54 = and i8 %53, 7
   store i8 %54, ptr %my_tail.i.i.i, align 1
   br label %land.rhs.i.i
@@ -8441,7 +8441,7 @@ if.then8.i.i:                                     ; preds = %_ZN3tbb6detail2d112
   br i1 %cmp.i21.i, label %do.cond.thread.i.i, label %if.end.i22.i
 
 do.cond.thread.i.i:                               ; preds = %if.then8.i.i
-  %idxprom.i.i.i = zext i8 %41 to i64
+  %idxprom.i.i.i = zext nneg i8 %41 to i64
   %arrayidx.i.i.i = getelementptr inbounds nuw %"class.tbb::detail::d1::blocked_range", ptr %my_pool2.i.i.i, i64 %idxprom.i.i.i
   %arrayidx.i18.i.i = getelementptr inbounds nuw [8 x i8], ptr %my_depth.i.i.i, i64 0, i64 %idxprom.i.i.i
   %55 = load i8, ptr %arrayidx.i18.i.i, align 1
@@ -8488,7 +8488,7 @@ do.cond.thread.i.i:                               ; preds = %if.then8.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %alloc.i.i.i.i)
   %dec.i.i.i = add i8 %my_size.promoted.i.pr92.i.i, -1
   store i8 %dec.i.i.i, ptr %my_size.i.i.i, align 2
-  %62 = add i8 %41, 1
+  %62 = add nuw nsw i8 %41, 1
   %63 = and i8 %62, 7
   store i8 %63, ptr %my_tail.i.i.i, align 1
   br label %land.rhs.i.i

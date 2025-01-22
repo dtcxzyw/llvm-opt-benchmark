@@ -106595,7 +106595,7 @@ if.end.i.i316:                                    ; preds = %if.end.i313
   %conv.i41.i = zext i8 %431 to i32
   %shr4.i.i320 = lshr i32 255, %and.i.i319
   %and5.i.i321 = and i32 %shr4.i.i320, %conv.i41.i
-  %cmp612.i.i = icmp sgt i32 %add.i40.i, 8
+  %cmp612.i.i = icmp samesign ugt i32 %add.i40.i, 8
   br i1 %cmp612.i.i, label %while.body.i.i363, label %while.end.i.i322
 
 while.body.i.i363:                                ; preds = %if.end.i.i316, %while.body.i.i363
@@ -106616,7 +106616,7 @@ while.end.i.i322:                                 ; preds = %while.body.i.i363, 
   %next.0.lcssa.i.i = phi i32 [ %and5.i.i321, %if.end.i.i316 ], [ %conv10.i.i368, %while.body.i.i363 ]
   %cache.0.lcssa.i.i = phi i32 [ 0, %if.end.i.i316 ], [ %or.i.i367, %while.body.i.i363 ]
   %shl.0.lcssa.i.i = phi i32 [ %add.i40.i, %if.end.i.i316 ], [ %sub.i.i365, %while.body.i.i363 ]
-  %sub11.i.i323 = sub nsw i32 8, %shl.0.lcssa.i.i
+  %sub11.i.i323 = sub nuw nsw i32 8, %shl.0.lcssa.i.i
   %shr12.i.i324 = lshr i32 %next.0.lcssa.i.i, %sub11.i.i323
   %or13.i.i325 = or i32 %shr12.i.i324, %cache.0.lcssa.i.i
   %433 = zext i32 %or13.i.i325 to i64
@@ -106647,7 +106647,7 @@ if.end.i46.i:                                     ; preds = %if.then13.i
   %conv.i52.i = zext i8 %436 to i32
   %shr4.i53.i = lshr i32 255, %and.i50.i
   %and5.i54.i = and i32 %shr4.i53.i, %conv.i52.i
-  %cmp612.i55.i = icmp sgt i32 %add.i51.i, 8
+  %cmp612.i55.i = icmp samesign ugt i32 %add.i51.i, 8
   br i1 %cmp612.i55.i, label %while.body.i64.i, label %while.end.i56.i
 
 while.body.i64.i:                                 ; preds = %if.end.i46.i, %while.body.i64.i
@@ -106668,7 +106668,7 @@ while.end.i56.i:                                  ; preds = %while.body.i64.i, %
   %next.0.lcssa.i57.i = phi i32 [ %and5.i54.i, %if.end.i46.i ], [ %conv10.i73.i, %while.body.i64.i ]
   %cache.0.lcssa.i58.i = phi i32 [ 0, %if.end.i46.i ], [ %or.i72.i, %while.body.i64.i ]
   %shl.0.lcssa.i59.i = phi i32 [ %add.i51.i, %if.end.i46.i ], [ %sub.i70.i, %while.body.i64.i ]
-  %sub11.i60.i = sub nsw i32 8, %shl.0.lcssa.i59.i
+  %sub11.i60.i = sub nuw nsw i32 8, %shl.0.lcssa.i59.i
   %shr12.i61.i = lshr i32 %next.0.lcssa.i57.i, %sub11.i60.i
   %or13.i62.i = or i32 %shr12.i61.i, %cache.0.lcssa.i58.i
   %438 = zext i32 %or13.i62.i to i64

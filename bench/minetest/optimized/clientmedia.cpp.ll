@@ -6025,23 +6025,24 @@ if.end77:                                         ; preds = %_ZNSt7__cxx1112basi
 
 lor.lhs.false:                                    ; preds = %if.end77
   %96 = load i32, ptr %current_remote, align 8, !tbaa !110
-  %cmp81 = icmp slt i32 %96, 0
+  %cmp81 = icmp sgt i32 %96, -1
   %97 = load i32, ptr %m_outstanding_hash_sets, align 8
-  %tobool83.not = icmp eq i32 %97, 0
-  %or.cond = select i1 %cmp81, i1 %tobool83.not, i1 false
-  br i1 %or.cond, label %if.then84, label %if.end90
+  %tobool83.not = icmp ne i32 %97, 0
+  %or.cond.not17 = select i1 %cmp81, i1 true, i1 %tobool83.not
+  %tobool85.not = icmp eq i8 %changing_name_bound.0336, 0
+  %or.cond16 = select i1 %or.cond.not17, i1 true, i1 %tobool85.not
+  br i1 %or.cond16, label %if.end90, label %if.then86
 
-if.then84:                                        ; preds = %lor.lhs.false, %if.end77, %if.end
-  %98 = and i8 %changing_name_bound.0336, 1
-  %tobool85.not = icmp eq i8 %98, 0
-  br i1 %tobool85.not, label %if.end90, label %if.then86
+if.then84:                                        ; preds = %if.end77, %if.end
+  %tobool85.not.old = icmp eq i8 %changing_name_bound.0336, 0
+  br i1 %tobool85.not.old, label %if.end90, label %if.then86
 
-if.then86:                                        ; preds = %if.then84
+if.then86:                                        ; preds = %lor.lhs.false, %if.then84
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %m_name_bound, ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i)
   br label %if.end90
 
 if.end90:                                         ; preds = %if.then86, %if.then84, %lor.lhs.false
-  %changing_name_bound.1 = phi i8 [ %changing_name_bound.0336, %if.then86 ], [ %changing_name_bound.0336, %if.then84 ], [ 0, %lor.lhs.false ]
+  %changing_name_bound.1 = phi i8 [ %changing_name_bound.0336, %if.then86 ], [ 0, %if.then84 ], [ 0, %lor.lhs.false ]
   %call.i = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %files_iter.sroa.0.0333) #32
   %cmp.i.not = icmp eq ptr %call.i, %add.ptr.i.i.i
   br i1 %cmp.i.not, label %cleanup, label %for.body, !llvm.loop !205

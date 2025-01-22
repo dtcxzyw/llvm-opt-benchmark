@@ -536,8 +536,8 @@ _RINvMs6_NtCs7oQ2vmvFkJi_9hashbrown3rawINtB6_8RawTableTNtNtCs68wO5nsWeTG_5alloc6
   br i1 %66, label %95, label %67
 
 ._crit_edge.i.i:                                  ; preds = %67, %53
-  %switch.not.i.i = icmp eq i64 %.sroa.01.0.i.i, 1
-  br i1 %switch.not.i.i, label %78, label %71
+  %switch.not.i.i = icmp eq i64 %.sroa.01.0.i.i, 0
+  br i1 %switch.not.i.i, label %71, label %78
 
 67:                                               ; preds = %.noexc11
   %68 = add i16 %.sroa.03.026.i.i, -1
@@ -560,7 +560,7 @@ _RINvMs6_NtCs7oQ2vmvFkJi_9hashbrown3rawINtB6_8RawTableTNtNtCs68wO5nsWeTG_5alloc6
 
 78:                                               ; preds = %71, %._crit_edge.i.i
   %.sroa.6.1.i.i = phi i64 [ %.sroa.3.0.i.i.i, %71 ], [ %.sroa.6.0.i.i, %._crit_edge.i.i ]
-  %.sroa.01.1.i.i = phi i64 [ %.sroa.0.0.i.i.i, %71 ], [ 1, %._crit_edge.i.i ]
+  %.sroa.01.1.i.i = phi i64 [ %.sroa.0.0.i.i.i, %71 ], [ %.sroa.01.0.i.i, %._crit_edge.i.i ]
   %79 = icmp eq <16 x i8> %.sroa.0.0.copyload.i25.i.i, splat (i8 -1)
   %80 = bitcast <16 x i1> %79 to i16
   %.not.i.i = icmp eq i16 %80, 0

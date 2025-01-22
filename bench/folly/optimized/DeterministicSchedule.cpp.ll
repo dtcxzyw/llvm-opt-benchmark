@@ -6515,7 +6515,6 @@ _ZN5folly20SingletonThreadLocalINS_4test12_GLOBAL__N_114PerThreadStateENS_6detai
   br label %while.body
 
 while.body:                                       ; preds = %_ZN5folly4test21DeterministicSchedule17afterSharedAccessEv.exit, %_ZN5folly20SingletonThreadLocalINS_4test12_GLOBAL__N_114PerThreadStateENS_6detail10DefaultTagENS4_11DefaultMakeIS3_EEvE3getEv.exit
-  %started.021 = phi i8 [ 0, %_ZN5folly20SingletonThreadLocalINS_4test12_GLOBAL__N_114PerThreadStateENS_6detail10DefaultTagENS4_11DefaultMakeIS3_EEvE3getEv.exit ], [ %started.1, %_ZN5folly4test21DeterministicSchedule17afterSharedAccessEv.exit ]
   %3 = load ptr, ptr %0, align 8, !tbaa !48
   %4 = icmp eq ptr %3, null
   br i1 %4, label %cond.false.i.i, label %cond.true.i.i, !prof !50
@@ -6556,7 +6555,6 @@ if.then:                                          ; preds = %_ZN5folly4test21Det
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %_ZN5folly4test21DeterministicSchedule18beforeSharedAccessEv.exit
-  %started.1 = phi i8 [ 1, %if.then ], [ %started.021, %_ZN5folly4test21DeterministicSchedule18beforeSharedAccessEv.exit ]
   %7 = load ptr, ptr %0, align 8, !tbaa !48
   %8 = icmp eq ptr %7, null
   br i1 %8, label %cond.false.i.i19, label %cond.true.i.i14, !prof !50
@@ -6608,9 +6606,7 @@ _ZNKSt8functionIFmmEEclEm.exit.i:                 ; preds = %if.end.i
   br label %_ZN5folly4test21DeterministicSchedule17afterSharedAccessEv.exit
 
 _ZN5folly4test21DeterministicSchedule17afterSharedAccessEv.exit: ; preds = %_ZNKSt8functionIFmmEEclEm.exit.i, %_ZN5folly20SingletonThreadLocalINS_4test12_GLOBAL__N_114PerThreadStateENS_6detail10DefaultTagENS4_11DefaultMakeIS3_EEvE3getEv.exit.i16
-  %16 = and i8 %started.1, 1
-  %tobool.not = icmp eq i8 %16, 0
-  br i1 %tobool.not, label %while.body, label %while.end, !llvm.loop !287
+  br i1 %tobool.not.i.i.not, label %while.body, label %while.end, !llvm.loop !287
 
 while.end:                                        ; preds = %_ZN5folly4test21DeterministicSchedule17afterSharedAccessEv.exit
   call void @_ZN5folly4test21DeterministicSchedule19atomic_thread_fenceESt12memory_order(i32 noundef 5)

@@ -5491,10 +5491,14 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %whil
   store ptr null, ptr %m_ptr.i.i.i, align 8
   %it.020.i.i.add = add nuw nsw i64 %it.020.i.i.idx, 16
   %cmp8.not.i.i = icmp eq i64 %it.020.i.i.add, 32
-  br i1 %cmp8.not.i.i, label %_ZN6vectorI3mpzLb0EjE7reserveEj.exit, label %for.body.i.i, !llvm.loop !12
+  br i1 %cmp8.not.i.i, label %_ZN6vectorI3mpzLb0EjE7reserveEj.exit.loopexit, label %for.body.i.i, !llvm.loop !12
 
-_ZN6vectorI3mpzLb0EjE7reserveEj.exit:             ; preds = %for.body.i.i, %_ZNK6vectorI3mpzLb0EjE4sizeEv.exit.thread.i
-  %8 = load ptr, ptr %a, align 8
+_ZN6vectorI3mpzLb0EjE7reserveEj.exit.loopexit:    ; preds = %for.body.i.i
+  %.pre = load ptr, ptr %a, align 8
+  br label %_ZN6vectorI3mpzLb0EjE7reserveEj.exit
+
+_ZN6vectorI3mpzLb0EjE7reserveEj.exit:             ; preds = %_ZN6vectorI3mpzLb0EjE7reserveEj.exit.loopexit, %_ZNK6vectorI3mpzLb0EjE4sizeEv.exit.thread.i
+  %8 = phi ptr [ %.pre, %_ZN6vectorI3mpzLb0EjE7reserveEj.exit.loopexit ], [ %0, %_ZNK6vectorI3mpzLb0EjE4sizeEv.exit.thread.i ]
   %cmp.i13 = icmp eq ptr %8, null
   br i1 %cmp.i13, label %if.then3, label %if.else
 

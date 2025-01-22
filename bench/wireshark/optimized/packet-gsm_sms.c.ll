@@ -2265,11 +2265,14 @@ define internal void @dis_msg_submit(ptr noundef %0, ptr noundef %1, ptr noundef
   %34 = icmp eq i8 %12, 0
   br i1 %34, label %dis_field_vp.exit, label %.preheader.outer
 
-.preheader.unreachabledefault:                    ; preds = %.preheader
-  unreachable
+.preheader.outer:                                 ; preds = %5, %58
+  %.0145.i.ph = phi i32 [ %59, %58 ], [ %33, %5 ]
+  %.0143.i.ph = phi ptr [ %42, %58 ], [ %2, %5 ]
+  %.0141.i.ph = phi i8 [ 2, %58 ], [ %12, %5 ]
+  br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.outer, %.preheader
-  switch i8 %.0141.i.ph, label %.preheader.unreachabledefault [
+  switch i8 %.0141.i.ph, label %default.unreachable [
     i8 1, label %35
     i8 2, label %94
     i8 3, label %129
@@ -2317,12 +2320,6 @@ define internal void @dis_msg_submit(ptr noundef %0, ptr noundef %1, ptr noundef
 58:                                               ; preds = %50
   %59 = add i32 %.0145.i.ph, 1
   br label %.preheader.outer, !llvm.loop !7
-
-.preheader.outer:                                 ; preds = %5, %58
-  %.0145.i.ph = phi i32 [ %59, %58 ], [ %33, %5 ]
-  %.0143.i.ph = phi ptr [ %42, %58 ], [ %2, %5 ]
-  %.0141.i.ph = phi i8 [ 2, %58 ], [ %12, %5 ]
-  br label %.preheader
 
 60:                                               ; preds = %50
   %61 = add i32 %.0145.i.ph, 1
@@ -2433,9 +2430,12 @@ define internal void @dis_msg_submit(ptr noundef %0, ptr noundef %1, ptr noundef
   tail call fastcc void @dis_field_scts_aux(ptr noundef %0, ptr noundef %136, i32 noundef %33)
   br label %.sink.split.i
 
+default.unreachable:                              ; preds = %.preheader
+  unreachable
+
 .sink.split.i:                                    ; preds = %50, %134, %132, %126, %123, %112, %107, %102, %66, %60, %46, %38
-  %.sink225.i = phi i32 [ %130, %132 ], [ 7, %46 ], [ %36, %38 ], [ 1, %112 ], [ 1, %126 ], [ 1, %123 ], [ 1, %102 ], [ 1, %107 ], [ 7, %60 ], [ 7, %66 ], [ 7, %134 ], [ 7, %50 ]
-  %137 = add i32 %33, %.sink225.i
+  %.sink231.i = phi i32 [ %130, %132 ], [ 7, %46 ], [ %36, %38 ], [ 1, %112 ], [ 1, %126 ], [ 1, %123 ], [ 1, %102 ], [ 1, %107 ], [ 7, %60 ], [ 7, %66 ], [ 7, %134 ], [ 7, %50 ]
+  %137 = add i32 %33, %.sink231.i
   br label %dis_field_vp.exit
 
 dis_field_vp.exit:                                ; preds = %5, %.sink.split.i

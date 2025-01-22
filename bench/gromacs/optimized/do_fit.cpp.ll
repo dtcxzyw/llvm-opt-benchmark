@@ -706,8 +706,8 @@ define void @_Z10calc_fit_RiiPKfPA3_S_PA3_fS4_(i32 noundef %0, i32 noundef %1, p
   br i1 %exitcond266.not, label %.lr.ph198, label %.lr.ph194, !llvm.loop !16
 
 .lr.ph198:                                        ; preds = %.lr.ph194
-  %92 = sext i32 %.2134 to i64
-  %93 = getelementptr inbounds [6 x double], ptr %8, i64 0, i64 %92
+  %92 = zext nneg i32 %.2134 to i64
+  %93 = getelementptr inbounds nuw [6 x double], ptr %8, i64 0, i64 %92
   store double -1.000000e+04, ptr %93, align 8
   br label %94
 
@@ -715,7 +715,7 @@ define void @_Z10calc_fit_RiiPKfPA3_S_PA3_fS4_(i32 noundef %0, i32 noundef %1, p
   %indvars.iv267 = phi i64 [ 0, %.lr.ph198 ], [ %indvars.iv.next268, %94 ]
   %95 = getelementptr inbounds nuw ptr, ptr %21, i64 %indvars.iv267
   %96 = load ptr, ptr %95, align 8
-  %97 = getelementptr inbounds double, ptr %96, i64 %92
+  %97 = getelementptr inbounds nuw double, ptr %96, i64 %92
   %98 = load double, ptr %97, align 8
   %99 = fmul double %98, 0x3FF6A09E667F3BCD
   %100 = fptrunc double %99 to float
@@ -723,7 +723,7 @@ define void @_Z10calc_fit_RiiPKfPA3_S_PA3_fS4_(i32 noundef %0, i32 noundef %1, p
   store float %100, ptr %101, align 4
   %gep = getelementptr inbounds nuw ptr, ptr %invariant.gep, i64 %indvars.iv267
   %102 = load ptr, ptr %gep, align 8
-  %103 = getelementptr inbounds double, ptr %102, i64 %92
+  %103 = getelementptr inbounds nuw double, ptr %102, i64 %92
   %104 = load double, ptr %103, align 8
   %105 = fmul double %104, 0x3FF6A09E667F3BCD
   %106 = fptrunc double %105 to float

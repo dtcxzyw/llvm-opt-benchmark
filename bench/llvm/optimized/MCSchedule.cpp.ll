@@ -426,7 +426,7 @@ define dso_local noundef double @_ZN4llvm12MCSchedModel23getReciprocalThroughput
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %29
-  %32 = trunc i8 %.sroa.4.1 to i1
+  %32 = trunc nuw i8 %.sroa.4.1 to i1
   br i1 %32, label %33, label %._crit_edge.thread
 
 33:                                               ; preds = %._crit_edge

@@ -128962,8 +128962,8 @@ define hidden void @"_ZN158_$LT$editor..actions.._..$LT$impl$u20$serde..de..Dese
 
 "_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h85ffa67ec67d43b5E.llvm.1503349291000977302.exit.i.i.i.i": ; preds = %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h85ffa67ec67d43b5E.llvm.1503349291000977302.exit.i.i.i.i.lr.ph", %48
   %13 = phi ptr [ %10, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h85ffa67ec67d43b5E.llvm.1503349291000977302.exit.i.i.i.i.lr.ph" ], [ %50, %48 ]
-  %.sroa.4.085 = phi i32 [ undef, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h85ffa67ec67d43b5E.llvm.1503349291000977302.exit.i.i.i.i.lr.ph" ], [ %.sroa.4.1, %48 ]
-  %.sroa.06.084 = phi i32 [ 0, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h85ffa67ec67d43b5E.llvm.1503349291000977302.exit.i.i.i.i.lr.ph" ], [ %.sroa.06.1, %48 ]
+  %.sroa.4.087 = phi i32 [ undef, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h85ffa67ec67d43b5E.llvm.1503349291000977302.exit.i.i.i.i.lr.ph" ], [ %.sroa.4.1, %48 ]
+  %.sroa.06.086 = phi i32 [ 0, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h85ffa67ec67d43b5E.llvm.1503349291000977302.exit.i.i.i.i.lr.ph" ], [ %.sroa.06.1, %48 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !36061)
   call void @llvm.experimental.noalias.scope.decl(metadata !36063)
   call void @llvm.experimental.noalias.scope.decl(metadata !36065)
@@ -129032,14 +129032,14 @@ define hidden void @"_ZN158_$LT$editor..actions.._..$LT$impl$u20$serde..de..Dese
   br i1 %.sink.i.i2.i.i.i.i.i.i.i, label %31, label %32
 
 ._crit_edge:                                      ; preds = %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h85ffa67ec67d43b5E.llvm.1503349291000977302.exit.i.i.i.i", %48
-  %.sroa.06.0.lcssa.ph = phi i32 [ %.sroa.06.084, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h85ffa67ec67d43b5E.llvm.1503349291000977302.exit.i.i.i.i" ], [ %.sroa.06.1, %48 ]
-  %.sroa.4.0.lcssa.ph = phi i32 [ %.sroa.4.085, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h85ffa67ec67d43b5E.llvm.1503349291000977302.exit.i.i.i.i" ], [ %.sroa.4.1, %48 ]
-  %30 = icmp eq i32 %.sroa.06.0.lcssa.ph, 0
-  br i1 %30, label %._crit_edge.thread, label %57
+  %.sroa.06.0.lcssa.ph = phi i32 [ %.sroa.06.086, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h85ffa67ec67d43b5E.llvm.1503349291000977302.exit.i.i.i.i" ], [ %.sroa.06.1, %48 ]
+  %.sroa.4.0.lcssa.ph = phi i32 [ %.sroa.4.087, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h85ffa67ec67d43b5E.llvm.1503349291000977302.exit.i.i.i.i" ], [ %.sroa.4.1, %48 ]
+  %30 = trunc nuw i32 %.sroa.06.0.lcssa.ph to i1
+  br i1 %30, label %57, label %._crit_edge.thread
 
 31:                                               ; preds = %"_ZN54_$LT$$RF$mut$u20$A$u20$as$u20$serde..de..MapAccess$GT$8next_key17h8206f5c0fd7fe072E.exit"
-  %switch34 = icmp eq i32 %.sroa.06.084, 1
-  br i1 %switch34, label %34, label %37
+  %trunc30 = trunc nuw i32 %.sroa.06.086 to i1
+  br i1 %trunc30, label %34, label %37
 
 32:                                               ; preds = %"_ZN54_$LT$$RF$mut$u20$A$u20$as$u20$serde..de..MapAccess$GT$8next_key17h8206f5c0fd7fe072E.exit"
   call void @llvm.experimental.noalias.scope.decl(metadata !36117)
@@ -129098,15 +129098,15 @@ define hidden void @"_ZN158_$LT$editor..actions.._..$LT$impl$u20$serde..de..Dese
   br label %48
 
 46:                                               ; preds = %"_ZN54_$LT$$RF$mut$u20$A$u20$as$u20$serde..de..MapAccess$GT$10next_value17h683882893ddb1919E.exit", %"_ZN54_$LT$$RF$mut$u20$A$u20$as$u20$serde..de..MapAccess$GT$10next_value17h683882893ddb1919E.exit.thread"
-  %.sroa.8.357 = phi ptr [ %39, %"_ZN54_$LT$$RF$mut$u20$A$u20$as$u20$serde..de..MapAccess$GT$10next_value17h683882893ddb1919E.exit.thread" ], [ %43, %"_ZN54_$LT$$RF$mut$u20$A$u20$as$u20$serde..de..MapAccess$GT$10next_value17h683882893ddb1919E.exit" ]
+  %.sroa.8.359 = phi ptr [ %39, %"_ZN54_$LT$$RF$mut$u20$A$u20$as$u20$serde..de..MapAccess$GT$10next_value17h683882893ddb1919E.exit.thread" ], [ %43, %"_ZN54_$LT$$RF$mut$u20$A$u20$as$u20$serde..de..MapAccess$GT$10next_value17h683882893ddb1919E.exit" ]
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %4), !noalias !36137
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.sroa.8.357, ptr %47, align 8
+  store ptr %.sroa.8.359, ptr %47, align 8
   br label %59
 
 48:                                               ; preds = %"_ZN54_$LT$$RF$mut$u20$A$u20$as$u20$serde..de..MapAccess$GT$10next_value17h945658eaf481f7e5E.exit.thread", %44
-  %.sroa.06.1 = phi i32 [ 1, %44 ], [ %.sroa.06.084, %"_ZN54_$LT$$RF$mut$u20$A$u20$as$u20$serde..de..MapAccess$GT$10next_value17h945658eaf481f7e5E.exit.thread" ]
-  %.sroa.4.1 = phi i32 [ %45, %44 ], [ %.sroa.4.085, %"_ZN54_$LT$$RF$mut$u20$A$u20$as$u20$serde..de..MapAccess$GT$10next_value17h945658eaf481f7e5E.exit.thread" ]
+  %.sroa.06.1 = phi i32 [ 1, %44 ], [ %.sroa.06.086, %"_ZN54_$LT$$RF$mut$u20$A$u20$as$u20$serde..de..MapAccess$GT$10next_value17h945658eaf481f7e5E.exit.thread" ]
+  %.sroa.4.1 = phi i32 [ %45, %44 ], [ %.sroa.4.087, %"_ZN54_$LT$$RF$mut$u20$A$u20$as$u20$serde..de..MapAccess$GT$10next_value17h945658eaf481f7e5E.exit.thread" ]
   %49 = load ptr, ptr %7, align 8, !alias.scope !36153, !noalias !36054, !nonnull !11, !noundef !11
   %50 = load ptr, ptr %8, align 8, !alias.scope !36153, !noalias !36054, !nonnull !11, !noundef !11
   %51 = icmp eq ptr %50, %49
@@ -129221,8 +129221,8 @@ define hidden void @"_ZN160_$LT$editor..actions.._..$LT$impl$u20$serde..de..Dese
 
 "_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h85ffa67ec67d43b5E.llvm.1503349291000977302.exit.i.i.i.i": ; preds = %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h85ffa67ec67d43b5E.llvm.1503349291000977302.exit.i.i.i.i.lr.ph", %48
   %13 = phi ptr [ %10, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h85ffa67ec67d43b5E.llvm.1503349291000977302.exit.i.i.i.i.lr.ph" ], [ %50, %48 ]
-  %.sroa.4.085 = phi i32 [ undef, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h85ffa67ec67d43b5E.llvm.1503349291000977302.exit.i.i.i.i.lr.ph" ], [ %.sroa.4.1, %48 ]
-  %.sroa.06.084 = phi i32 [ 0, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h85ffa67ec67d43b5E.llvm.1503349291000977302.exit.i.i.i.i.lr.ph" ], [ %.sroa.06.1, %48 ]
+  %.sroa.4.087 = phi i32 [ undef, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h85ffa67ec67d43b5E.llvm.1503349291000977302.exit.i.i.i.i.lr.ph" ], [ %.sroa.4.1, %48 ]
+  %.sroa.06.086 = phi i32 [ 0, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h85ffa67ec67d43b5E.llvm.1503349291000977302.exit.i.i.i.i.lr.ph" ], [ %.sroa.06.1, %48 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !36204)
   call void @llvm.experimental.noalias.scope.decl(metadata !36206)
   call void @llvm.experimental.noalias.scope.decl(metadata !36208)
@@ -129291,14 +129291,14 @@ define hidden void @"_ZN160_$LT$editor..actions.._..$LT$impl$u20$serde..de..Dese
   br i1 %.sink.i.i2.i.i.i.i.i.i.i, label %31, label %32
 
 ._crit_edge:                                      ; preds = %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h85ffa67ec67d43b5E.llvm.1503349291000977302.exit.i.i.i.i", %48
-  %.sroa.06.0.lcssa.ph = phi i32 [ %.sroa.06.084, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h85ffa67ec67d43b5E.llvm.1503349291000977302.exit.i.i.i.i" ], [ %.sroa.06.1, %48 ]
-  %.sroa.4.0.lcssa.ph = phi i32 [ %.sroa.4.085, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h85ffa67ec67d43b5E.llvm.1503349291000977302.exit.i.i.i.i" ], [ %.sroa.4.1, %48 ]
-  %30 = icmp eq i32 %.sroa.06.0.lcssa.ph, 0
-  br i1 %30, label %._crit_edge.thread, label %57
+  %.sroa.06.0.lcssa.ph = phi i32 [ %.sroa.06.086, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h85ffa67ec67d43b5E.llvm.1503349291000977302.exit.i.i.i.i" ], [ %.sroa.06.1, %48 ]
+  %.sroa.4.0.lcssa.ph = phi i32 [ %.sroa.4.087, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h85ffa67ec67d43b5E.llvm.1503349291000977302.exit.i.i.i.i" ], [ %.sroa.4.1, %48 ]
+  %30 = trunc nuw i32 %.sroa.06.0.lcssa.ph to i1
+  br i1 %30, label %57, label %._crit_edge.thread
 
 31:                                               ; preds = %"_ZN54_$LT$$RF$mut$u20$A$u20$as$u20$serde..de..MapAccess$GT$8next_key17h6b0ea938a1ec2188E.exit"
-  %switch34 = icmp eq i32 %.sroa.06.084, 1
-  br i1 %switch34, label %34, label %37
+  %trunc30 = trunc nuw i32 %.sroa.06.086 to i1
+  br i1 %trunc30, label %34, label %37
 
 32:                                               ; preds = %"_ZN54_$LT$$RF$mut$u20$A$u20$as$u20$serde..de..MapAccess$GT$8next_key17h6b0ea938a1ec2188E.exit"
   call void @llvm.experimental.noalias.scope.decl(metadata !36260)
@@ -129357,15 +129357,15 @@ define hidden void @"_ZN160_$LT$editor..actions.._..$LT$impl$u20$serde..de..Dese
   br label %48
 
 46:                                               ; preds = %"_ZN54_$LT$$RF$mut$u20$A$u20$as$u20$serde..de..MapAccess$GT$10next_value17h683882893ddb1919E.exit", %"_ZN54_$LT$$RF$mut$u20$A$u20$as$u20$serde..de..MapAccess$GT$10next_value17h683882893ddb1919E.exit.thread"
-  %.sroa.8.357 = phi ptr [ %39, %"_ZN54_$LT$$RF$mut$u20$A$u20$as$u20$serde..de..MapAccess$GT$10next_value17h683882893ddb1919E.exit.thread" ], [ %43, %"_ZN54_$LT$$RF$mut$u20$A$u20$as$u20$serde..de..MapAccess$GT$10next_value17h683882893ddb1919E.exit" ]
+  %.sroa.8.359 = phi ptr [ %39, %"_ZN54_$LT$$RF$mut$u20$A$u20$as$u20$serde..de..MapAccess$GT$10next_value17h683882893ddb1919E.exit.thread" ], [ %43, %"_ZN54_$LT$$RF$mut$u20$A$u20$as$u20$serde..de..MapAccess$GT$10next_value17h683882893ddb1919E.exit" ]
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %4), !noalias !36280
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.sroa.8.357, ptr %47, align 8
+  store ptr %.sroa.8.359, ptr %47, align 8
   br label %59
 
 48:                                               ; preds = %"_ZN54_$LT$$RF$mut$u20$A$u20$as$u20$serde..de..MapAccess$GT$10next_value17h945658eaf481f7e5E.exit.thread", %44
-  %.sroa.06.1 = phi i32 [ 1, %44 ], [ %.sroa.06.084, %"_ZN54_$LT$$RF$mut$u20$A$u20$as$u20$serde..de..MapAccess$GT$10next_value17h945658eaf481f7e5E.exit.thread" ]
-  %.sroa.4.1 = phi i32 [ %45, %44 ], [ %.sroa.4.085, %"_ZN54_$LT$$RF$mut$u20$A$u20$as$u20$serde..de..MapAccess$GT$10next_value17h945658eaf481f7e5E.exit.thread" ]
+  %.sroa.06.1 = phi i32 [ 1, %44 ], [ %.sroa.06.086, %"_ZN54_$LT$$RF$mut$u20$A$u20$as$u20$serde..de..MapAccess$GT$10next_value17h945658eaf481f7e5E.exit.thread" ]
+  %.sroa.4.1 = phi i32 [ %45, %44 ], [ %.sroa.4.087, %"_ZN54_$LT$$RF$mut$u20$A$u20$as$u20$serde..de..MapAccess$GT$10next_value17h945658eaf481f7e5E.exit.thread" ]
   %49 = load ptr, ptr %7, align 8, !alias.scope !36296, !noalias !36197, !nonnull !11, !noundef !11
   %50 = load ptr, ptr %8, align 8, !alias.scope !36296, !noalias !36197, !nonnull !11, !noundef !11
   %51 = icmp eq ptr %50, %49
@@ -129478,8 +129478,8 @@ define hidden void @"_ZN165_$LT$editor..actions.._..$LT$impl$u20$serde..de..Dese
 
 "_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h85ffa67ec67d43b5E.llvm.1503349291000977302.exit.i.i.i.i": ; preds = %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h85ffa67ec67d43b5E.llvm.1503349291000977302.exit.i.i.i.i.lr.ph", %48
   %14 = phi ptr [ %10, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h85ffa67ec67d43b5E.llvm.1503349291000977302.exit.i.i.i.i.lr.ph" ], [ %50, %48 ]
-  %.sroa.4.052 = phi i32 [ undef, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h85ffa67ec67d43b5E.llvm.1503349291000977302.exit.i.i.i.i.lr.ph" ], [ %.sroa.4.1, %48 ]
-  %.sroa.06.051 = phi i32 [ 0, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h85ffa67ec67d43b5E.llvm.1503349291000977302.exit.i.i.i.i.lr.ph" ], [ %.sroa.06.1, %48 ]
+  %.sroa.4.054 = phi i32 [ undef, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h85ffa67ec67d43b5E.llvm.1503349291000977302.exit.i.i.i.i.lr.ph" ], [ %.sroa.4.1, %48 ]
+  %.sroa.06.053 = phi i32 [ 0, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h85ffa67ec67d43b5E.llvm.1503349291000977302.exit.i.i.i.i.lr.ph" ], [ %.sroa.06.1, %48 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !36339)
   call void @llvm.experimental.noalias.scope.decl(metadata !36341)
   call void @llvm.experimental.noalias.scope.decl(metadata !36343)
@@ -129548,10 +129548,10 @@ define hidden void @"_ZN165_$LT$editor..actions.._..$LT$impl$u20$serde..de..Dese
   br i1 %.sink.i.i2.i.i.i.i.i.i.i, label %34, label %35
 
 ._crit_edge.loopexit:                             ; preds = %48, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h85ffa67ec67d43b5E.llvm.1503349291000977302.exit.i.i.i.i"
-  %.sroa.06.0.lcssa.ph = phi i32 [ %.sroa.06.051, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h85ffa67ec67d43b5E.llvm.1503349291000977302.exit.i.i.i.i" ], [ %.sroa.06.1, %48 ]
-  %.sroa.4.0.lcssa.ph = phi i32 [ %.sroa.4.052, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h85ffa67ec67d43b5E.llvm.1503349291000977302.exit.i.i.i.i" ], [ %.sroa.4.1, %48 ]
-  %31 = icmp eq i32 %.sroa.06.0.lcssa.ph, 0
-  %32 = select i1 %31, i32 0, i32 %.sroa.4.0.lcssa.ph
+  %.sroa.06.0.lcssa.ph = phi i32 [ %.sroa.06.053, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h85ffa67ec67d43b5E.llvm.1503349291000977302.exit.i.i.i.i" ], [ %.sroa.06.1, %48 ]
+  %.sroa.4.0.lcssa.ph = phi i32 [ %.sroa.4.054, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h85ffa67ec67d43b5E.llvm.1503349291000977302.exit.i.i.i.i" ], [ %.sroa.4.1, %48 ]
+  %31 = trunc nuw i32 %.sroa.06.0.lcssa.ph to i1
+  %32 = select i1 %31, i32 %.sroa.4.0.lcssa.ph, i32 0
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %2
@@ -129561,8 +129561,8 @@ define hidden void @"_ZN165_$LT$editor..actions.._..$LT$impl$u20$serde..de..Dese
   br label %55
 
 34:                                               ; preds = %"_ZN54_$LT$$RF$mut$u20$A$u20$as$u20$serde..de..MapAccess$GT$8next_key17he239bff9601a0a1bE.exit"
-  %switch25 = icmp eq i32 %.sroa.06.051, 1
-  br i1 %switch25, label %37, label %40
+  %trunc22 = trunc nuw i32 %.sroa.06.053 to i1
+  br i1 %trunc22, label %37, label %40
 
 35:                                               ; preds = %"_ZN54_$LT$$RF$mut$u20$A$u20$as$u20$serde..de..MapAccess$GT$8next_key17he239bff9601a0a1bE.exit"
   call void @llvm.experimental.noalias.scope.decl(metadata !36395)
@@ -129627,8 +129627,8 @@ define hidden void @"_ZN165_$LT$editor..actions.._..$LT$impl$u20$serde..de..Dese
   br label %55
 
 48:                                               ; preds = %"_ZN54_$LT$$RF$mut$u20$A$u20$as$u20$serde..de..MapAccess$GT$10next_value17h945658eaf481f7e5E.exit.thread", %44
-  %.sroa.06.1 = phi i32 [ 1, %44 ], [ %.sroa.06.051, %"_ZN54_$LT$$RF$mut$u20$A$u20$as$u20$serde..de..MapAccess$GT$10next_value17h945658eaf481f7e5E.exit.thread" ]
-  %.sroa.4.1 = phi i32 [ %45, %44 ], [ %.sroa.4.052, %"_ZN54_$LT$$RF$mut$u20$A$u20$as$u20$serde..de..MapAccess$GT$10next_value17h945658eaf481f7e5E.exit.thread" ]
+  %.sroa.06.1 = phi i32 [ 1, %44 ], [ %.sroa.06.053, %"_ZN54_$LT$$RF$mut$u20$A$u20$as$u20$serde..de..MapAccess$GT$10next_value17h945658eaf481f7e5E.exit.thread" ]
+  %.sroa.4.1 = phi i32 [ %45, %44 ], [ %.sroa.4.054, %"_ZN54_$LT$$RF$mut$u20$A$u20$as$u20$serde..de..MapAccess$GT$10next_value17h945658eaf481f7e5E.exit.thread" ]
   %49 = load ptr, ptr %7, align 8, !alias.scope !36426, !noalias !36332, !nonnull !11, !noundef !11
   %50 = load ptr, ptr %8, align 8, !alias.scope !36426, !noalias !36332, !nonnull !11, !noundef !11
   %51 = icmp eq ptr %50, %49
@@ -129730,8 +129730,8 @@ define hidden void @"_ZN167_$LT$editor..actions.._..$LT$impl$u20$serde..de..Dese
 
 "_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h85ffa67ec67d43b5E.llvm.1503349291000977302.exit.i.i.i.i": ; preds = %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h85ffa67ec67d43b5E.llvm.1503349291000977302.exit.i.i.i.i.lr.ph", %48
   %14 = phi ptr [ %10, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h85ffa67ec67d43b5E.llvm.1503349291000977302.exit.i.i.i.i.lr.ph" ], [ %50, %48 ]
-  %.sroa.4.052 = phi i32 [ undef, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h85ffa67ec67d43b5E.llvm.1503349291000977302.exit.i.i.i.i.lr.ph" ], [ %.sroa.4.1, %48 ]
-  %.sroa.06.051 = phi i32 [ 0, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h85ffa67ec67d43b5E.llvm.1503349291000977302.exit.i.i.i.i.lr.ph" ], [ %.sroa.06.1, %48 ]
+  %.sroa.4.054 = phi i32 [ undef, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h85ffa67ec67d43b5E.llvm.1503349291000977302.exit.i.i.i.i.lr.ph" ], [ %.sroa.4.1, %48 ]
+  %.sroa.06.053 = phi i32 [ 0, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h85ffa67ec67d43b5E.llvm.1503349291000977302.exit.i.i.i.i.lr.ph" ], [ %.sroa.06.1, %48 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !36466)
   call void @llvm.experimental.noalias.scope.decl(metadata !36468)
   call void @llvm.experimental.noalias.scope.decl(metadata !36470)
@@ -129800,10 +129800,10 @@ define hidden void @"_ZN167_$LT$editor..actions.._..$LT$impl$u20$serde..de..Dese
   br i1 %.sink.i.i2.i.i.i.i.i.i.i, label %34, label %35
 
 ._crit_edge.loopexit:                             ; preds = %48, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h85ffa67ec67d43b5E.llvm.1503349291000977302.exit.i.i.i.i"
-  %.sroa.06.0.lcssa.ph = phi i32 [ %.sroa.06.051, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h85ffa67ec67d43b5E.llvm.1503349291000977302.exit.i.i.i.i" ], [ %.sroa.06.1, %48 ]
-  %.sroa.4.0.lcssa.ph = phi i32 [ %.sroa.4.052, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h85ffa67ec67d43b5E.llvm.1503349291000977302.exit.i.i.i.i" ], [ %.sroa.4.1, %48 ]
-  %31 = icmp eq i32 %.sroa.06.0.lcssa.ph, 0
-  %32 = select i1 %31, i32 0, i32 %.sroa.4.0.lcssa.ph
+  %.sroa.06.0.lcssa.ph = phi i32 [ %.sroa.06.053, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h85ffa67ec67d43b5E.llvm.1503349291000977302.exit.i.i.i.i" ], [ %.sroa.06.1, %48 ]
+  %.sroa.4.0.lcssa.ph = phi i32 [ %.sroa.4.054, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h85ffa67ec67d43b5E.llvm.1503349291000977302.exit.i.i.i.i" ], [ %.sroa.4.1, %48 ]
+  %31 = trunc nuw i32 %.sroa.06.0.lcssa.ph to i1
+  %32 = select i1 %31, i32 %.sroa.4.0.lcssa.ph, i32 0
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %2
@@ -129813,8 +129813,8 @@ define hidden void @"_ZN167_$LT$editor..actions.._..$LT$impl$u20$serde..de..Dese
   br label %55
 
 34:                                               ; preds = %"_ZN54_$LT$$RF$mut$u20$A$u20$as$u20$serde..de..MapAccess$GT$8next_key17h51c9765f0fb33907E.exit"
-  %switch25 = icmp eq i32 %.sroa.06.051, 1
-  br i1 %switch25, label %37, label %40
+  %trunc22 = trunc nuw i32 %.sroa.06.053 to i1
+  br i1 %trunc22, label %37, label %40
 
 35:                                               ; preds = %"_ZN54_$LT$$RF$mut$u20$A$u20$as$u20$serde..de..MapAccess$GT$8next_key17h51c9765f0fb33907E.exit"
   call void @llvm.experimental.noalias.scope.decl(metadata !36522)
@@ -129879,8 +129879,8 @@ define hidden void @"_ZN167_$LT$editor..actions.._..$LT$impl$u20$serde..de..Dese
   br label %55
 
 48:                                               ; preds = %"_ZN54_$LT$$RF$mut$u20$A$u20$as$u20$serde..de..MapAccess$GT$10next_value17h945658eaf481f7e5E.exit.thread", %44
-  %.sroa.06.1 = phi i32 [ 1, %44 ], [ %.sroa.06.051, %"_ZN54_$LT$$RF$mut$u20$A$u20$as$u20$serde..de..MapAccess$GT$10next_value17h945658eaf481f7e5E.exit.thread" ]
-  %.sroa.4.1 = phi i32 [ %45, %44 ], [ %.sroa.4.052, %"_ZN54_$LT$$RF$mut$u20$A$u20$as$u20$serde..de..MapAccess$GT$10next_value17h945658eaf481f7e5E.exit.thread" ]
+  %.sroa.06.1 = phi i32 [ 1, %44 ], [ %.sroa.06.053, %"_ZN54_$LT$$RF$mut$u20$A$u20$as$u20$serde..de..MapAccess$GT$10next_value17h945658eaf481f7e5E.exit.thread" ]
+  %.sroa.4.1 = phi i32 [ %45, %44 ], [ %.sroa.4.054, %"_ZN54_$LT$$RF$mut$u20$A$u20$as$u20$serde..de..MapAccess$GT$10next_value17h945658eaf481f7e5E.exit.thread" ]
   %49 = load ptr, ptr %7, align 8, !alias.scope !36553, !noalias !36459, !nonnull !11, !noundef !11
   %50 = load ptr, ptr %8, align 8, !alias.scope !36553, !noalias !36459, !nonnull !11, !noundef !11
   %51 = icmp eq ptr %50, %49
@@ -129982,8 +129982,8 @@ define hidden void @"_ZN167_$LT$editor..actions.._..$LT$impl$u20$serde..de..Dese
 
 "_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h85ffa67ec67d43b5E.llvm.1503349291000977302.exit.i.i.i.i": ; preds = %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h85ffa67ec67d43b5E.llvm.1503349291000977302.exit.i.i.i.i.lr.ph", %48
   %14 = phi ptr [ %10, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h85ffa67ec67d43b5E.llvm.1503349291000977302.exit.i.i.i.i.lr.ph" ], [ %50, %48 ]
-  %.sroa.4.052 = phi i32 [ undef, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h85ffa67ec67d43b5E.llvm.1503349291000977302.exit.i.i.i.i.lr.ph" ], [ %.sroa.4.1, %48 ]
-  %.sroa.06.051 = phi i32 [ 0, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h85ffa67ec67d43b5E.llvm.1503349291000977302.exit.i.i.i.i.lr.ph" ], [ %.sroa.06.1, %48 ]
+  %.sroa.4.054 = phi i32 [ undef, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h85ffa67ec67d43b5E.llvm.1503349291000977302.exit.i.i.i.i.lr.ph" ], [ %.sroa.4.1, %48 ]
+  %.sroa.06.053 = phi i32 [ 0, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h85ffa67ec67d43b5E.llvm.1503349291000977302.exit.i.i.i.i.lr.ph" ], [ %.sroa.06.1, %48 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !36593)
   call void @llvm.experimental.noalias.scope.decl(metadata !36595)
   call void @llvm.experimental.noalias.scope.decl(metadata !36597)
@@ -130052,10 +130052,10 @@ define hidden void @"_ZN167_$LT$editor..actions.._..$LT$impl$u20$serde..de..Dese
   br i1 %.sink.i.i2.i.i.i.i.i.i.i, label %34, label %35
 
 ._crit_edge.loopexit:                             ; preds = %48, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h85ffa67ec67d43b5E.llvm.1503349291000977302.exit.i.i.i.i"
-  %.sroa.06.0.lcssa.ph = phi i32 [ %.sroa.06.051, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h85ffa67ec67d43b5E.llvm.1503349291000977302.exit.i.i.i.i" ], [ %.sroa.06.1, %48 ]
-  %.sroa.4.0.lcssa.ph = phi i32 [ %.sroa.4.052, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h85ffa67ec67d43b5E.llvm.1503349291000977302.exit.i.i.i.i" ], [ %.sroa.4.1, %48 ]
-  %31 = icmp eq i32 %.sroa.06.0.lcssa.ph, 0
-  %32 = select i1 %31, i32 0, i32 %.sroa.4.0.lcssa.ph
+  %.sroa.06.0.lcssa.ph = phi i32 [ %.sroa.06.053, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h85ffa67ec67d43b5E.llvm.1503349291000977302.exit.i.i.i.i" ], [ %.sroa.06.1, %48 ]
+  %.sroa.4.0.lcssa.ph = phi i32 [ %.sroa.4.054, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h85ffa67ec67d43b5E.llvm.1503349291000977302.exit.i.i.i.i" ], [ %.sroa.4.1, %48 ]
+  %31 = trunc nuw i32 %.sroa.06.0.lcssa.ph to i1
+  %32 = select i1 %31, i32 %.sroa.4.0.lcssa.ph, i32 0
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %2
@@ -130065,8 +130065,8 @@ define hidden void @"_ZN167_$LT$editor..actions.._..$LT$impl$u20$serde..de..Dese
   br label %55
 
 34:                                               ; preds = %"_ZN54_$LT$$RF$mut$u20$A$u20$as$u20$serde..de..MapAccess$GT$8next_key17h59711a5945ca32b7E.exit"
-  %switch25 = icmp eq i32 %.sroa.06.051, 1
-  br i1 %switch25, label %37, label %40
+  %trunc22 = trunc nuw i32 %.sroa.06.053 to i1
+  br i1 %trunc22, label %37, label %40
 
 35:                                               ; preds = %"_ZN54_$LT$$RF$mut$u20$A$u20$as$u20$serde..de..MapAccess$GT$8next_key17h59711a5945ca32b7E.exit"
   call void @llvm.experimental.noalias.scope.decl(metadata !36649)
@@ -130131,8 +130131,8 @@ define hidden void @"_ZN167_$LT$editor..actions.._..$LT$impl$u20$serde..de..Dese
   br label %55
 
 48:                                               ; preds = %"_ZN54_$LT$$RF$mut$u20$A$u20$as$u20$serde..de..MapAccess$GT$10next_value17h945658eaf481f7e5E.exit.thread", %44
-  %.sroa.06.1 = phi i32 [ 1, %44 ], [ %.sroa.06.051, %"_ZN54_$LT$$RF$mut$u20$A$u20$as$u20$serde..de..MapAccess$GT$10next_value17h945658eaf481f7e5E.exit.thread" ]
-  %.sroa.4.1 = phi i32 [ %45, %44 ], [ %.sroa.4.052, %"_ZN54_$LT$$RF$mut$u20$A$u20$as$u20$serde..de..MapAccess$GT$10next_value17h945658eaf481f7e5E.exit.thread" ]
+  %.sroa.06.1 = phi i32 [ 1, %44 ], [ %.sroa.06.053, %"_ZN54_$LT$$RF$mut$u20$A$u20$as$u20$serde..de..MapAccess$GT$10next_value17h945658eaf481f7e5E.exit.thread" ]
+  %.sroa.4.1 = phi i32 [ %45, %44 ], [ %.sroa.4.054, %"_ZN54_$LT$$RF$mut$u20$A$u20$as$u20$serde..de..MapAccess$GT$10next_value17h945658eaf481f7e5E.exit.thread" ]
   %49 = load ptr, ptr %7, align 8, !alias.scope !36680, !noalias !36586, !nonnull !11, !noundef !11
   %50 = load ptr, ptr %8, align 8, !alias.scope !36680, !noalias !36586, !nonnull !11, !noundef !11
   %51 = icmp eq ptr %50, %49
@@ -130234,8 +130234,8 @@ define hidden void @"_ZN169_$LT$editor..actions.._..$LT$impl$u20$serde..de..Dese
 
 "_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h85ffa67ec67d43b5E.llvm.1503349291000977302.exit.i.i.i.i": ; preds = %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h85ffa67ec67d43b5E.llvm.1503349291000977302.exit.i.i.i.i.lr.ph", %48
   %14 = phi ptr [ %10, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h85ffa67ec67d43b5E.llvm.1503349291000977302.exit.i.i.i.i.lr.ph" ], [ %50, %48 ]
-  %.sroa.4.052 = phi i32 [ undef, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h85ffa67ec67d43b5E.llvm.1503349291000977302.exit.i.i.i.i.lr.ph" ], [ %.sroa.4.1, %48 ]
-  %.sroa.06.051 = phi i32 [ 0, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h85ffa67ec67d43b5E.llvm.1503349291000977302.exit.i.i.i.i.lr.ph" ], [ %.sroa.06.1, %48 ]
+  %.sroa.4.054 = phi i32 [ undef, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h85ffa67ec67d43b5E.llvm.1503349291000977302.exit.i.i.i.i.lr.ph" ], [ %.sroa.4.1, %48 ]
+  %.sroa.06.053 = phi i32 [ 0, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h85ffa67ec67d43b5E.llvm.1503349291000977302.exit.i.i.i.i.lr.ph" ], [ %.sroa.06.1, %48 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !36720)
   call void @llvm.experimental.noalias.scope.decl(metadata !36722)
   call void @llvm.experimental.noalias.scope.decl(metadata !36724)
@@ -130304,10 +130304,10 @@ define hidden void @"_ZN169_$LT$editor..actions.._..$LT$impl$u20$serde..de..Dese
   br i1 %.sink.i.i2.i.i.i.i.i.i.i, label %34, label %35
 
 ._crit_edge.loopexit:                             ; preds = %48, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h85ffa67ec67d43b5E.llvm.1503349291000977302.exit.i.i.i.i"
-  %.sroa.06.0.lcssa.ph = phi i32 [ %.sroa.06.051, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h85ffa67ec67d43b5E.llvm.1503349291000977302.exit.i.i.i.i" ], [ %.sroa.06.1, %48 ]
-  %.sroa.4.0.lcssa.ph = phi i32 [ %.sroa.4.052, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h85ffa67ec67d43b5E.llvm.1503349291000977302.exit.i.i.i.i" ], [ %.sroa.4.1, %48 ]
-  %31 = icmp eq i32 %.sroa.06.0.lcssa.ph, 0
-  %32 = select i1 %31, i32 0, i32 %.sroa.4.0.lcssa.ph
+  %.sroa.06.0.lcssa.ph = phi i32 [ %.sroa.06.053, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h85ffa67ec67d43b5E.llvm.1503349291000977302.exit.i.i.i.i" ], [ %.sroa.06.1, %48 ]
+  %.sroa.4.0.lcssa.ph = phi i32 [ %.sroa.4.054, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h85ffa67ec67d43b5E.llvm.1503349291000977302.exit.i.i.i.i" ], [ %.sroa.4.1, %48 ]
+  %31 = trunc nuw i32 %.sroa.06.0.lcssa.ph to i1
+  %32 = select i1 %31, i32 %.sroa.4.0.lcssa.ph, i32 0
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %2
@@ -130317,8 +130317,8 @@ define hidden void @"_ZN169_$LT$editor..actions.._..$LT$impl$u20$serde..de..Dese
   br label %55
 
 34:                                               ; preds = %"_ZN54_$LT$$RF$mut$u20$A$u20$as$u20$serde..de..MapAccess$GT$8next_key17ha8f227e80aee821aE.exit"
-  %switch25 = icmp eq i32 %.sroa.06.051, 1
-  br i1 %switch25, label %37, label %40
+  %trunc22 = trunc nuw i32 %.sroa.06.053 to i1
+  br i1 %trunc22, label %37, label %40
 
 35:                                               ; preds = %"_ZN54_$LT$$RF$mut$u20$A$u20$as$u20$serde..de..MapAccess$GT$8next_key17ha8f227e80aee821aE.exit"
   call void @llvm.experimental.noalias.scope.decl(metadata !36776)
@@ -130383,8 +130383,8 @@ define hidden void @"_ZN169_$LT$editor..actions.._..$LT$impl$u20$serde..de..Dese
   br label %55
 
 48:                                               ; preds = %"_ZN54_$LT$$RF$mut$u20$A$u20$as$u20$serde..de..MapAccess$GT$10next_value17h945658eaf481f7e5E.exit.thread", %44
-  %.sroa.06.1 = phi i32 [ 1, %44 ], [ %.sroa.06.051, %"_ZN54_$LT$$RF$mut$u20$A$u20$as$u20$serde..de..MapAccess$GT$10next_value17h945658eaf481f7e5E.exit.thread" ]
-  %.sroa.4.1 = phi i32 [ %45, %44 ], [ %.sroa.4.052, %"_ZN54_$LT$$RF$mut$u20$A$u20$as$u20$serde..de..MapAccess$GT$10next_value17h945658eaf481f7e5E.exit.thread" ]
+  %.sroa.06.1 = phi i32 [ 1, %44 ], [ %.sroa.06.053, %"_ZN54_$LT$$RF$mut$u20$A$u20$as$u20$serde..de..MapAccess$GT$10next_value17h945658eaf481f7e5E.exit.thread" ]
+  %.sroa.4.1 = phi i32 [ %45, %44 ], [ %.sroa.4.054, %"_ZN54_$LT$$RF$mut$u20$A$u20$as$u20$serde..de..MapAccess$GT$10next_value17h945658eaf481f7e5E.exit.thread" ]
   %49 = load ptr, ptr %7, align 8, !alias.scope !36807, !noalias !36713, !nonnull !11, !noundef !11
   %50 = load ptr, ptr %8, align 8, !alias.scope !36807, !noalias !36713, !nonnull !11, !noundef !11
   %51 = icmp eq ptr %50, %49
@@ -130486,8 +130486,8 @@ define hidden void @"_ZN166_$LT$editor..actions.._..$LT$impl$u20$serde..de..Dese
 
 "_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h85ffa67ec67d43b5E.llvm.1503349291000977302.exit.i.i.i.i": ; preds = %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h85ffa67ec67d43b5E.llvm.1503349291000977302.exit.i.i.i.i.lr.ph", %48
   %14 = phi ptr [ %10, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h85ffa67ec67d43b5E.llvm.1503349291000977302.exit.i.i.i.i.lr.ph" ], [ %50, %48 ]
-  %.sroa.4.052 = phi i32 [ undef, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h85ffa67ec67d43b5E.llvm.1503349291000977302.exit.i.i.i.i.lr.ph" ], [ %.sroa.4.1, %48 ]
-  %.sroa.06.051 = phi i32 [ 0, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h85ffa67ec67d43b5E.llvm.1503349291000977302.exit.i.i.i.i.lr.ph" ], [ %.sroa.06.1, %48 ]
+  %.sroa.4.054 = phi i32 [ undef, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h85ffa67ec67d43b5E.llvm.1503349291000977302.exit.i.i.i.i.lr.ph" ], [ %.sroa.4.1, %48 ]
+  %.sroa.06.053 = phi i32 [ 0, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h85ffa67ec67d43b5E.llvm.1503349291000977302.exit.i.i.i.i.lr.ph" ], [ %.sroa.06.1, %48 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !36847)
   call void @llvm.experimental.noalias.scope.decl(metadata !36849)
   call void @llvm.experimental.noalias.scope.decl(metadata !36851)
@@ -130556,10 +130556,10 @@ define hidden void @"_ZN166_$LT$editor..actions.._..$LT$impl$u20$serde..de..Dese
   br i1 %.sink.i.i2.i.i.i.i.i.i.i, label %34, label %35
 
 ._crit_edge.loopexit:                             ; preds = %48, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h85ffa67ec67d43b5E.llvm.1503349291000977302.exit.i.i.i.i"
-  %.sroa.06.0.lcssa.ph = phi i32 [ %.sroa.06.051, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h85ffa67ec67d43b5E.llvm.1503349291000977302.exit.i.i.i.i" ], [ %.sroa.06.1, %48 ]
-  %.sroa.4.0.lcssa.ph = phi i32 [ %.sroa.4.052, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h85ffa67ec67d43b5E.llvm.1503349291000977302.exit.i.i.i.i" ], [ %.sroa.4.1, %48 ]
-  %31 = icmp eq i32 %.sroa.06.0.lcssa.ph, 0
-  %32 = select i1 %31, i32 0, i32 %.sroa.4.0.lcssa.ph
+  %.sroa.06.0.lcssa.ph = phi i32 [ %.sroa.06.053, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h85ffa67ec67d43b5E.llvm.1503349291000977302.exit.i.i.i.i" ], [ %.sroa.06.1, %48 ]
+  %.sroa.4.0.lcssa.ph = phi i32 [ %.sroa.4.054, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h85ffa67ec67d43b5E.llvm.1503349291000977302.exit.i.i.i.i" ], [ %.sroa.4.1, %48 ]
+  %31 = trunc nuw i32 %.sroa.06.0.lcssa.ph to i1
+  %32 = select i1 %31, i32 %.sroa.4.0.lcssa.ph, i32 0
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %2
@@ -130569,8 +130569,8 @@ define hidden void @"_ZN166_$LT$editor..actions.._..$LT$impl$u20$serde..de..Dese
   br label %55
 
 34:                                               ; preds = %"_ZN54_$LT$$RF$mut$u20$A$u20$as$u20$serde..de..MapAccess$GT$8next_key17hc9dcbbfd2ba22302E.exit"
-  %switch25 = icmp eq i32 %.sroa.06.051, 1
-  br i1 %switch25, label %37, label %40
+  %trunc22 = trunc nuw i32 %.sroa.06.053 to i1
+  br i1 %trunc22, label %37, label %40
 
 35:                                               ; preds = %"_ZN54_$LT$$RF$mut$u20$A$u20$as$u20$serde..de..MapAccess$GT$8next_key17hc9dcbbfd2ba22302E.exit"
   call void @llvm.experimental.noalias.scope.decl(metadata !36903)
@@ -130635,8 +130635,8 @@ define hidden void @"_ZN166_$LT$editor..actions.._..$LT$impl$u20$serde..de..Dese
   br label %55
 
 48:                                               ; preds = %"_ZN54_$LT$$RF$mut$u20$A$u20$as$u20$serde..de..MapAccess$GT$10next_value17h945658eaf481f7e5E.exit.thread", %44
-  %.sroa.06.1 = phi i32 [ 1, %44 ], [ %.sroa.06.051, %"_ZN54_$LT$$RF$mut$u20$A$u20$as$u20$serde..de..MapAccess$GT$10next_value17h945658eaf481f7e5E.exit.thread" ]
-  %.sroa.4.1 = phi i32 [ %45, %44 ], [ %.sroa.4.052, %"_ZN54_$LT$$RF$mut$u20$A$u20$as$u20$serde..de..MapAccess$GT$10next_value17h945658eaf481f7e5E.exit.thread" ]
+  %.sroa.06.1 = phi i32 [ 1, %44 ], [ %.sroa.06.053, %"_ZN54_$LT$$RF$mut$u20$A$u20$as$u20$serde..de..MapAccess$GT$10next_value17h945658eaf481f7e5E.exit.thread" ]
+  %.sroa.4.1 = phi i32 [ %45, %44 ], [ %.sroa.4.054, %"_ZN54_$LT$$RF$mut$u20$A$u20$as$u20$serde..de..MapAccess$GT$10next_value17h945658eaf481f7e5E.exit.thread" ]
   %49 = load ptr, ptr %7, align 8, !alias.scope !36934, !noalias !36840, !nonnull !11, !noundef !11
   %50 = load ptr, ptr %8, align 8, !alias.scope !36934, !noalias !36840, !nonnull !11, !noundef !11
   %51 = icmp eq ptr %50, %49
@@ -130738,8 +130738,8 @@ define hidden void @"_ZN168_$LT$editor..actions.._..$LT$impl$u20$serde..de..Dese
 
 "_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h85ffa67ec67d43b5E.llvm.1503349291000977302.exit.i.i.i.i": ; preds = %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h85ffa67ec67d43b5E.llvm.1503349291000977302.exit.i.i.i.i.lr.ph", %48
   %14 = phi ptr [ %10, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h85ffa67ec67d43b5E.llvm.1503349291000977302.exit.i.i.i.i.lr.ph" ], [ %50, %48 ]
-  %.sroa.4.052 = phi i32 [ undef, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h85ffa67ec67d43b5E.llvm.1503349291000977302.exit.i.i.i.i.lr.ph" ], [ %.sroa.4.1, %48 ]
-  %.sroa.06.051 = phi i32 [ 0, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h85ffa67ec67d43b5E.llvm.1503349291000977302.exit.i.i.i.i.lr.ph" ], [ %.sroa.06.1, %48 ]
+  %.sroa.4.054 = phi i32 [ undef, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h85ffa67ec67d43b5E.llvm.1503349291000977302.exit.i.i.i.i.lr.ph" ], [ %.sroa.4.1, %48 ]
+  %.sroa.06.053 = phi i32 [ 0, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h85ffa67ec67d43b5E.llvm.1503349291000977302.exit.i.i.i.i.lr.ph" ], [ %.sroa.06.1, %48 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !36974)
   call void @llvm.experimental.noalias.scope.decl(metadata !36976)
   call void @llvm.experimental.noalias.scope.decl(metadata !36978)
@@ -130808,10 +130808,10 @@ define hidden void @"_ZN168_$LT$editor..actions.._..$LT$impl$u20$serde..de..Dese
   br i1 %.sink.i.i2.i.i.i.i.i.i.i, label %34, label %35
 
 ._crit_edge.loopexit:                             ; preds = %48, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h85ffa67ec67d43b5E.llvm.1503349291000977302.exit.i.i.i.i"
-  %.sroa.06.0.lcssa.ph = phi i32 [ %.sroa.06.051, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h85ffa67ec67d43b5E.llvm.1503349291000977302.exit.i.i.i.i" ], [ %.sroa.06.1, %48 ]
-  %.sroa.4.0.lcssa.ph = phi i32 [ %.sroa.4.052, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h85ffa67ec67d43b5E.llvm.1503349291000977302.exit.i.i.i.i" ], [ %.sroa.4.1, %48 ]
-  %31 = icmp eq i32 %.sroa.06.0.lcssa.ph, 0
-  %32 = select i1 %31, i32 0, i32 %.sroa.4.0.lcssa.ph
+  %.sroa.06.0.lcssa.ph = phi i32 [ %.sroa.06.053, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h85ffa67ec67d43b5E.llvm.1503349291000977302.exit.i.i.i.i" ], [ %.sroa.06.1, %48 ]
+  %.sroa.4.0.lcssa.ph = phi i32 [ %.sroa.4.054, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h85ffa67ec67d43b5E.llvm.1503349291000977302.exit.i.i.i.i" ], [ %.sroa.4.1, %48 ]
+  %31 = trunc nuw i32 %.sroa.06.0.lcssa.ph to i1
+  %32 = select i1 %31, i32 %.sroa.4.0.lcssa.ph, i32 0
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %2
@@ -130821,8 +130821,8 @@ define hidden void @"_ZN168_$LT$editor..actions.._..$LT$impl$u20$serde..de..Dese
   br label %55
 
 34:                                               ; preds = %"_ZN54_$LT$$RF$mut$u20$A$u20$as$u20$serde..de..MapAccess$GT$8next_key17h5e2060e47122c4efE.exit"
-  %switch25 = icmp eq i32 %.sroa.06.051, 1
-  br i1 %switch25, label %37, label %40
+  %trunc22 = trunc nuw i32 %.sroa.06.053 to i1
+  br i1 %trunc22, label %37, label %40
 
 35:                                               ; preds = %"_ZN54_$LT$$RF$mut$u20$A$u20$as$u20$serde..de..MapAccess$GT$8next_key17h5e2060e47122c4efE.exit"
   call void @llvm.experimental.noalias.scope.decl(metadata !37030)
@@ -130887,8 +130887,8 @@ define hidden void @"_ZN168_$LT$editor..actions.._..$LT$impl$u20$serde..de..Dese
   br label %55
 
 48:                                               ; preds = %"_ZN54_$LT$$RF$mut$u20$A$u20$as$u20$serde..de..MapAccess$GT$10next_value17h945658eaf481f7e5E.exit.thread", %44
-  %.sroa.06.1 = phi i32 [ 1, %44 ], [ %.sroa.06.051, %"_ZN54_$LT$$RF$mut$u20$A$u20$as$u20$serde..de..MapAccess$GT$10next_value17h945658eaf481f7e5E.exit.thread" ]
-  %.sroa.4.1 = phi i32 [ %45, %44 ], [ %.sroa.4.052, %"_ZN54_$LT$$RF$mut$u20$A$u20$as$u20$serde..de..MapAccess$GT$10next_value17h945658eaf481f7e5E.exit.thread" ]
+  %.sroa.06.1 = phi i32 [ 1, %44 ], [ %.sroa.06.053, %"_ZN54_$LT$$RF$mut$u20$A$u20$as$u20$serde..de..MapAccess$GT$10next_value17h945658eaf481f7e5E.exit.thread" ]
+  %.sroa.4.1 = phi i32 [ %45, %44 ], [ %.sroa.4.054, %"_ZN54_$LT$$RF$mut$u20$A$u20$as$u20$serde..de..MapAccess$GT$10next_value17h945658eaf481f7e5E.exit.thread" ]
   %49 = load ptr, ptr %7, align 8, !alias.scope !37061, !noalias !36967, !nonnull !11, !noundef !11
   %50 = load ptr, ptr %8, align 8, !alias.scope !37061, !noalias !36967, !nonnull !11, !noundef !11
   %51 = icmp eq ptr %50, %49
@@ -130990,8 +130990,8 @@ define hidden void @"_ZN170_$LT$editor..actions.._..$LT$impl$u20$serde..de..Dese
 
 "_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h85ffa67ec67d43b5E.llvm.1503349291000977302.exit.i.i.i.i": ; preds = %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h85ffa67ec67d43b5E.llvm.1503349291000977302.exit.i.i.i.i.lr.ph", %48
   %14 = phi ptr [ %10, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h85ffa67ec67d43b5E.llvm.1503349291000977302.exit.i.i.i.i.lr.ph" ], [ %50, %48 ]
-  %.sroa.4.052 = phi i32 [ undef, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h85ffa67ec67d43b5E.llvm.1503349291000977302.exit.i.i.i.i.lr.ph" ], [ %.sroa.4.1, %48 ]
-  %.sroa.06.051 = phi i32 [ 0, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h85ffa67ec67d43b5E.llvm.1503349291000977302.exit.i.i.i.i.lr.ph" ], [ %.sroa.06.1, %48 ]
+  %.sroa.4.054 = phi i32 [ undef, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h85ffa67ec67d43b5E.llvm.1503349291000977302.exit.i.i.i.i.lr.ph" ], [ %.sroa.4.1, %48 ]
+  %.sroa.06.053 = phi i32 [ 0, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h85ffa67ec67d43b5E.llvm.1503349291000977302.exit.i.i.i.i.lr.ph" ], [ %.sroa.06.1, %48 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !37101)
   call void @llvm.experimental.noalias.scope.decl(metadata !37103)
   call void @llvm.experimental.noalias.scope.decl(metadata !37105)
@@ -131060,10 +131060,10 @@ define hidden void @"_ZN170_$LT$editor..actions.._..$LT$impl$u20$serde..de..Dese
   br i1 %.sink.i.i2.i.i.i.i.i.i.i, label %34, label %35
 
 ._crit_edge.loopexit:                             ; preds = %48, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h85ffa67ec67d43b5E.llvm.1503349291000977302.exit.i.i.i.i"
-  %.sroa.06.0.lcssa.ph = phi i32 [ %.sroa.06.051, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h85ffa67ec67d43b5E.llvm.1503349291000977302.exit.i.i.i.i" ], [ %.sroa.06.1, %48 ]
-  %.sroa.4.0.lcssa.ph = phi i32 [ %.sroa.4.052, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h85ffa67ec67d43b5E.llvm.1503349291000977302.exit.i.i.i.i" ], [ %.sroa.4.1, %48 ]
-  %31 = icmp eq i32 %.sroa.06.0.lcssa.ph, 0
-  %32 = select i1 %31, i32 0, i32 %.sroa.4.0.lcssa.ph
+  %.sroa.06.0.lcssa.ph = phi i32 [ %.sroa.06.053, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h85ffa67ec67d43b5E.llvm.1503349291000977302.exit.i.i.i.i" ], [ %.sroa.06.1, %48 ]
+  %.sroa.4.0.lcssa.ph = phi i32 [ %.sroa.4.054, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h85ffa67ec67d43b5E.llvm.1503349291000977302.exit.i.i.i.i" ], [ %.sroa.4.1, %48 ]
+  %31 = trunc nuw i32 %.sroa.06.0.lcssa.ph to i1
+  %32 = select i1 %31, i32 %.sroa.4.0.lcssa.ph, i32 0
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %2
@@ -131073,8 +131073,8 @@ define hidden void @"_ZN170_$LT$editor..actions.._..$LT$impl$u20$serde..de..Dese
   br label %55
 
 34:                                               ; preds = %"_ZN54_$LT$$RF$mut$u20$A$u20$as$u20$serde..de..MapAccess$GT$8next_key17hfd8bb437b161da04E.exit"
-  %switch25 = icmp eq i32 %.sroa.06.051, 1
-  br i1 %switch25, label %37, label %40
+  %trunc22 = trunc nuw i32 %.sroa.06.053 to i1
+  br i1 %trunc22, label %37, label %40
 
 35:                                               ; preds = %"_ZN54_$LT$$RF$mut$u20$A$u20$as$u20$serde..de..MapAccess$GT$8next_key17hfd8bb437b161da04E.exit"
   call void @llvm.experimental.noalias.scope.decl(metadata !37157)
@@ -131139,8 +131139,8 @@ define hidden void @"_ZN170_$LT$editor..actions.._..$LT$impl$u20$serde..de..Dese
   br label %55
 
 48:                                               ; preds = %"_ZN54_$LT$$RF$mut$u20$A$u20$as$u20$serde..de..MapAccess$GT$10next_value17h945658eaf481f7e5E.exit.thread", %44
-  %.sroa.06.1 = phi i32 [ 1, %44 ], [ %.sroa.06.051, %"_ZN54_$LT$$RF$mut$u20$A$u20$as$u20$serde..de..MapAccess$GT$10next_value17h945658eaf481f7e5E.exit.thread" ]
-  %.sroa.4.1 = phi i32 [ %45, %44 ], [ %.sroa.4.052, %"_ZN54_$LT$$RF$mut$u20$A$u20$as$u20$serde..de..MapAccess$GT$10next_value17h945658eaf481f7e5E.exit.thread" ]
+  %.sroa.06.1 = phi i32 [ 1, %44 ], [ %.sroa.06.053, %"_ZN54_$LT$$RF$mut$u20$A$u20$as$u20$serde..de..MapAccess$GT$10next_value17h945658eaf481f7e5E.exit.thread" ]
+  %.sroa.4.1 = phi i32 [ %45, %44 ], [ %.sroa.4.054, %"_ZN54_$LT$$RF$mut$u20$A$u20$as$u20$serde..de..MapAccess$GT$10next_value17h945658eaf481f7e5E.exit.thread" ]
   %49 = load ptr, ptr %7, align 8, !alias.scope !37188, !noalias !37094, !nonnull !11, !noundef !11
   %50 = load ptr, ptr %8, align 8, !alias.scope !37188, !noalias !37094, !nonnull !11, !noundef !11
   %51 = icmp eq ptr %50, %49

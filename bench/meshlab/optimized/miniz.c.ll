@@ -20657,7 +20657,7 @@ define internal fastcc void @tdefl_optimize_huffman_table(ptr nocapture noundef 
 .preheader.us.i:                                  ; preds = %65, %.preheader.us.i
   %indvars.iv65.i = phi i64 [ %indvars.iv.next66.i, %.preheader.us.i ], [ 0, %65 ]
   %53 = getelementptr inbounds nuw %struct.tdefl_sym_freq, ptr %.04151.us.i, i64 %indvars.iv65.i
-  %54 = load i16, ptr %53, align 2
+  %54 = load i16, ptr %53, align 4
   %55 = zext i16 %54 to i32
   %56 = lshr i32 %55, %.03854.us.i
   %57 = and i32 %56, 255
@@ -20668,8 +20668,8 @@ define internal fastcc void @tdefl_optimize_huffman_table(ptr nocapture noundef 
   store i32 %61, ptr %59, align 4
   %62 = zext i32 %60 to i64
   %63 = getelementptr inbounds nuw %struct.tdefl_sym_freq, ptr %.04052.us.i, i64 %62
-  %64 = load i32, ptr %53, align 2
-  store i32 %64, ptr %63, align 2
+  %64 = load i32, ptr %53, align 4
+  store i32 %64, ptr %63, align 4
   %indvars.iv.next66.i = add nuw nsw i64 %indvars.iv65.i, 1
   %exitcond69.not.i = icmp eq i64 %indvars.iv.next66.i, %wide.trip.count68.i
   br i1 %exitcond69.not.i, label %._crit_edge.us.i, label %.preheader.us.i

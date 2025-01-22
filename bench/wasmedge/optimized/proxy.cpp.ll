@@ -1637,7 +1637,7 @@ define linkonce_odr hidden noundef ptr @_ZN8WasmEdge8Executor8Executor11ProxyHel
   br i1 %9, label %10, label %12
 
 10:                                               ; preds = %6
-  %11 = icmp ult i64 %.079.i.i.i.i, 3
+  %11 = icmp samesign ult i64 %.079.i.i.i.i, 3
   br i1 %11, label %_ZNK8WasmEdge7Runtime8Instance16FunctionInstance18isCompiledFunctionEv.exit.i, label %12
 
 12:                                               ; preds = %10, %6
@@ -1818,7 +1818,7 @@ _ZN8WasmEdge7Runtime12StackManager4pushIRKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv
   br i1 %64, label %65, label %67
 
 65:                                               ; preds = %61
-  %66 = icmp ult i64 %.079.i.i.i, 3
+  %66 = icmp samesign ult i64 %.079.i.i.i, 3
   br i1 %66, label %_ZSt17holds_alternativeIN8WasmEdge7Runtime8Instance16FunctionInstance12WasmFunctionEJS4_NS0_6SymbolIvEESt10unique_ptrINS1_16HostFunctionBaseESt14default_deleteIS8_EEEEbRKSt7variantIJDpT0_EE.exit.i, label %67
 
 67:                                               ; preds = %65, %61
@@ -2120,7 +2120,7 @@ _ZNK8WasmEdge7Runtime8Instance14ModuleInstance7getTypeEj.exit: ; preds = %_ZNSt1
   br i1 %88, label %89, label %91
 
 89:                                               ; preds = %85
-  %90 = icmp ult i64 %.079.i.i.i, 3
+  %90 = icmp samesign ult i64 %.079.i.i.i, 3
   br i1 %90, label %_ZNK8WasmEdge7Runtime8Instance16FunctionInstance18isCompiledFunctionEv.exit, label %91
 
 91:                                               ; preds = %89, %85
@@ -2796,7 +2796,7 @@ _ZN8WasmEdge7Runtime12StackManager4pushIRKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv
   br i1 %140, label %141, label %143
 
 141:                                              ; preds = %137
-  %142 = icmp ult i64 %.079.i.i.i, 3
+  %142 = icmp samesign ult i64 %.079.i.i.i, 3
   br i1 %142, label %_ZSt17holds_alternativeIN8WasmEdge7Runtime8Instance16FunctionInstance12WasmFunctionEJS4_NS0_6SymbolIvEESt10unique_ptrINS1_16HostFunctionBaseESt14default_deleteIS8_EEEEbRKSt7variantIJDpT0_EE.exit.i, label %143
 
 143:                                              ; preds = %141, %137
@@ -5096,7 +5096,7 @@ _ZN8WasmEdge7Runtime12StackManager4pushIRKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv
   br i1 %63, label %64, label %66
 
 64:                                               ; preds = %60
-  %65 = icmp ult i64 %.079.i.i.i, 3
+  %65 = icmp samesign ult i64 %.079.i.i.i, 3
   br i1 %65, label %_ZSt17holds_alternativeIN8WasmEdge7Runtime8Instance16FunctionInstance12WasmFunctionEJS4_NS0_6SymbolIvEESt10unique_ptrINS1_16HostFunctionBaseESt14default_deleteIS8_EEEEbRKSt7variantIJDpT0_EE.exit.i, label %66
 
 66:                                               ; preds = %64, %60
@@ -5256,7 +5256,7 @@ define void @_ZN8WasmEdge8Executor8Executor16refGetFuncSymbolERNS_7Runtime12Stac
   br i1 %12, label %13, label %15
 
 13:                                               ; preds = %9
-  %14 = icmp ult i64 %.079.i.i.i, 3
+  %14 = icmp samesign ult i64 %.079.i.i.i, 3
   br i1 %14, label %_ZNK8WasmEdge7Runtime8Instance16FunctionInstance18isCompiledFunctionEv.exit, label %15
 
 15:                                               ; preds = %13, %9

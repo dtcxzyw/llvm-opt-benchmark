@@ -17648,7 +17648,7 @@ for.body.i.i:                                     ; preds = %for.inc.i.i, %_ZNSt
   br i1 %tobool.i.i13, label %if.then.i.i14, label %for.inc.i.i
 
 if.then.i.i14:                                    ; preds = %for.body.i.i
-  %cmp1.i.i = icmp ult i64 %__n.05.i.i, 2
+  %cmp1.i.i = icmp samesign ult i64 %__n.05.i.i, 2
   br i1 %cmp1.i.i, label %_ZSt17holds_alternativeIN9grpc_core8ContinueEJS1_N4absl12lts_202308026StatusEEEbRKSt7variantIJDpT0_EE.exit, label %for.inc.i.i
 
 for.inc.i.i:                                      ; preds = %if.then.i.i14, %for.body.i.i

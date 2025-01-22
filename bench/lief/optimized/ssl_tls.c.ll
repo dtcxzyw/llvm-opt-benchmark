@@ -748,7 +748,7 @@ mbedtls_ssl_conf_is_tls12_only.exit:              ; preds = %101
   ]
 
 115:                                              ; preds = %.preheader120, %.preheader120, %.preheader120, %.preheader120, %.preheader120, %.preheader120
-  %116 = add i64 %.088, 4
+  %116 = add nsw i64 %.088, 4
   %117 = icmp ugt i64 %116, 65534
   br i1 %117, label %.loopexit, label %mbedtls_ssl_hash_from_md_alg.exit
 
@@ -5183,7 +5183,7 @@ mbedtls_ssl_sig_alg_is_offered.exit:              ; preds = %35, %.lr.ph.i
 73:                                               ; preds = %mbedtls_ssl_sig_alg_is_offered.exit
   %74 = load ptr, ptr %18, align 8
   %75 = getelementptr inbounds nuw i8, ptr %74, i64 64
-  %76 = zext i32 %.0.ph78 to i64
+  %76 = zext nneg i32 %.0.ph78 to i64
   %77 = getelementptr inbounds nuw [20 x i16], ptr %75, i64 0, i64 %76
   store i16 %42, ptr %77, align 2
   br label %.outer

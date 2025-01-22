@@ -575,9 +575,9 @@ _ZN4llvm8dyn_castINS_13IntrinsicInstENS_11InstructionEEEDcPT0_.exit.thread.i.i: 
 
 ._crit_edge.i.i:                                  ; preds = %107, %.lr.ph21.i.i
   %109 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_116SVEIntrinsicOpts27coalescePTrueIntrinsicCallsERN4llvm10BasicBlockERNS1_14SmallSetVectorIPNS1_13IntrinsicInstELj4EEE(ptr noundef nonnull align 8 dereferenceable(80) %52, ptr noundef nonnull align 8 dereferenceable(72) %11)
-  %110 = or i1 %.118.i.i, %109
-  %111 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_116SVEIntrinsicOpts27coalescePTrueIntrinsicCallsERN4llvm10BasicBlockERNS1_14SmallSetVectorIPNS1_13IntrinsicInstELj4EEE(ptr noundef nonnull align 8 dereferenceable(80) %52, ptr noundef nonnull align 8 dereferenceable(72) %12)
-  %112 = or i1 %110, %111
+  %110 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_116SVEIntrinsicOpts27coalescePTrueIntrinsicCallsERN4llvm10BasicBlockERNS1_14SmallSetVectorIPNS1_13IntrinsicInstELj4EEE(ptr noundef nonnull align 8 dereferenceable(80) %52, ptr noundef nonnull align 8 dereferenceable(72) %12)
+  %111 = or i1 %109, %110
+  %112 = or i1 %.118.i.i, %111
   %113 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(48) %42) #14
   %114 = load ptr, ptr %42, align 8
   %115 = icmp eq ptr %114, %43

@@ -2076,7 +2076,7 @@ define internal range(i32 -22, 1) i32 @tcp_metrics_nl_cmd_del(ptr nocapture read
   call void @_raw_spin_lock_bh(ptr noundef nonnull @tcp_metrics_lock) #11
   %129 = load ptr, ptr %128, align 8
   %130 = icmp eq ptr %129, null
-  br i1 %130, label %225, label %131
+  br i1 %130, label %224, label %131
 
 131:                                              ; preds = %117
   %132 = getelementptr inbounds nuw i8, ptr %6, i64 16
@@ -2217,21 +2217,20 @@ define internal range(i32 -22, 1) i32 @tcp_metrics_nl_cmd_del(ptr nocapture read
 
 .split19.us:                                      ; preds = %217, %183
   %.us-phi = phi i8 [ %185, %183 ], [ %219, %217 ]
-  %222 = and i8 %.us-phi, 1
-  %223 = icmp eq i8 %222, 0
-  %224 = select i1 %223, i32 -3, i32 0
-  br label %225
+  %222 = icmp eq i8 %.us-phi, 0
+  %223 = select i1 %222, i32 -3, i32 0
+  br label %224
 
-225:                                              ; preds = %.split19.us, %117
-  %226 = phi i32 [ -3, %117 ], [ %224, %.split19.us ]
+224:                                              ; preds = %.split19.us, %117
+  %225 = phi i32 [ -3, %117 ], [ %223, %.split19.us ]
   call void @_raw_spin_unlock_bh(ptr noundef nonnull @tcp_metrics_lock) #11
   br label %tcp_metrics_flush_all.exit
 
-tcp_metrics_flush_all.exit:                       ; preds = %87, %48, %22, %225
-  %227 = phi i32 [ %226, %225 ], [ -22, %22 ], [ 0, %48 ], [ 0, %87 ]
+tcp_metrics_flush_all.exit:                       ; preds = %87, %48, %22, %224
+  %226 = phi i32 [ %225, %224 ], [ -22, %22 ], [ 0, %48 ], [ 0, %87 ]
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %6) #11
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %5) #11
-  ret i32 %227
+  ret i32 %226
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

@@ -2937,7 +2937,7 @@ if.then.i:                                        ; preds = %land.lhs.true.i
 
 for.inc:                                          ; preds = %if.then.i, %land.lhs.true.i, %if.then, %for.body
   %rem.addr.1 = phi i32 [ %rem.addr.015, %for.body ], [ %call.i, %if.then.i ], [ %dec, %land.lhs.true.i ], [ %dec, %if.then ]
-  %cmp = icmp sgt i32 %rem.addr.1, 0
+  %cmp = icmp ne i32 %rem.addr.1, 0
   %cmp1 = icmp ne i64 %sub, 0
   %9 = and i1 %cmp, %cmp1
   br i1 %9, label %for.body, label %for.end, !llvm.loop !32

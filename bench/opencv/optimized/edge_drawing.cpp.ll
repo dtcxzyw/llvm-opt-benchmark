@@ -5640,7 +5640,7 @@ _ZN2cv8ximgproc15EdgeDrawingImpl3NFAEdi.exit:     ; preds = %.lr.ph.i, %._crit_e
   %92 = getelementptr inbounds i16, ptr %60, i64 %91
   %93 = load i16, ptr %92, align 2
   %94 = zext i16 %93 to i32
-  %.not67 = icmp slt i32 %.0.lcssa, %94
+  %.not67 = icmp samesign ult i32 %.0.lcssa, %94
   br i1 %.not67, label %.split.loop.exit, label %81, !llvm.loop !79
 
 .split.loop.exit:                                 ; preds = %83
@@ -5671,7 +5671,7 @@ _ZN2cv8ximgproc15EdgeDrawingImpl3NFAEdi.exit:     ; preds = %.lr.ph.i, %._crit_e
   %108 = getelementptr inbounds i16, ptr %60, i64 %107
   %109 = load i16, ptr %108, align 2
   %110 = zext i16 %109 to i32
-  %.not68 = icmp slt i32 %.0.lcssa, %110
+  %.not68 = icmp samesign ult i32 %.0.lcssa, %110
   br i1 %.not68, label %tailrecurse.split.loop.exit, label %97, !llvm.loop !80
 
 tailrecurse.split.loop.exit:                      ; preds = %99

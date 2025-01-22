@@ -4049,8 +4049,8 @@ define hidden noundef range(i8 0, 3) i8 @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$
   br i1 %25, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$24find_or_find_insert_slot28_$u7b$$u7b$closure$u7d$$u7d$17h1b96b10d68fd7464E.exit._crit_edge.i", label %.lr.ph.i
 
 "_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$24find_or_find_insert_slot28_$u7b$$u7b$closure$u7d$$u7d$17h1b96b10d68fd7464E.exit._crit_edge.i": ; preds = %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$24find_or_find_insert_slot28_$u7b$$u7b$closure$u7d$$u7d$17h1b96b10d68fd7464E.exit.backedge.i", %21
-  %switch13.not.i.i = icmp eq i64 %.sroa.01.0.i.i, 1
-  br i1 %switch13.not.i.i, label %46, label %39
+  %switch13.not.i.i = icmp eq i64 %.sroa.01.0.i.i, 0
+  br i1 %switch13.not.i.i, label %39, label %46
 
 .lr.ph.i:                                         ; preds = %21, %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$24find_or_find_insert_slot28_$u7b$$u7b$closure$u7d$$u7d$17h1b96b10d68fd7464E.exit.backedge.i"
   %.sroa.06.0.i13.i = phi i16 [ %29, %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$24find_or_find_insert_slot28_$u7b$$u7b$closure$u7d$$u7d$17h1b96b10d68fd7464E.exit.backedge.i" ], [ %24, %21 ]
@@ -4093,7 +4093,7 @@ define hidden noundef range(i8 0, 3) i8 @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$
 
 46:                                               ; preds = %39, %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$24find_or_find_insert_slot28_$u7b$$u7b$closure$u7d$$u7d$17h1b96b10d68fd7464E.exit._crit_edge.i"
   %.sroa.6.1.i.i = phi i64 [ %.sroa.3.0.i18.i.i, %39 ], [ %.sroa.6.0.i.i, %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$24find_or_find_insert_slot28_$u7b$$u7b$closure$u7d$$u7d$17h1b96b10d68fd7464E.exit._crit_edge.i" ]
-  %.sroa.01.1.i.i = phi i64 [ %.sroa.0.0.i19.i.i, %39 ], [ 1, %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$24find_or_find_insert_slot28_$u7b$$u7b$closure$u7d$$u7d$17h1b96b10d68fd7464E.exit._crit_edge.i" ]
+  %.sroa.01.1.i.i = phi i64 [ %.sroa.0.0.i19.i.i, %39 ], [ %.sroa.01.0.i.i, %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$24find_or_find_insert_slot28_$u7b$$u7b$closure$u7d$$u7d$17h1b96b10d68fd7464E.exit._crit_edge.i" ]
   %47 = icmp eq <16 x i8> %.sroa.0.0.copyload.i27.i.i, splat (i8 -1)
   %48 = bitcast <16 x i1> %47 to i16
   %.not.i.i = icmp eq i16 %48, 0
@@ -4254,8 +4254,8 @@ define hidden noundef zeroext i1 @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$G
   br i1 %25, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$24find_or_find_insert_slot28_$u7b$$u7b$closure$u7d$$u7d$17h7e3f0c3a8c7b1f76E.exit._crit_edge.i", label %.lr.ph.i
 
 "_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$24find_or_find_insert_slot28_$u7b$$u7b$closure$u7d$$u7d$17h7e3f0c3a8c7b1f76E.exit._crit_edge.i": ; preds = %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$24find_or_find_insert_slot28_$u7b$$u7b$closure$u7d$$u7d$17h7e3f0c3a8c7b1f76E.exit.backedge.i", %21
-  %switch13.not.i.i = icmp eq i64 %.sroa.01.0.i.i, 1
-  br i1 %switch13.not.i.i, label %46, label %39
+  %switch13.not.i.i = icmp eq i64 %.sroa.01.0.i.i, 0
+  br i1 %switch13.not.i.i, label %39, label %46
 
 .lr.ph.i:                                         ; preds = %21, %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$24find_or_find_insert_slot28_$u7b$$u7b$closure$u7d$$u7d$17h7e3f0c3a8c7b1f76E.exit.backedge.i"
   %.sroa.06.0.i13.i = phi i16 [ %29, %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$24find_or_find_insert_slot28_$u7b$$u7b$closure$u7d$$u7d$17h7e3f0c3a8c7b1f76E.exit.backedge.i" ], [ %24, %21 ]
@@ -4298,7 +4298,7 @@ define hidden noundef zeroext i1 @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$G
 
 46:                                               ; preds = %39, %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$24find_or_find_insert_slot28_$u7b$$u7b$closure$u7d$$u7d$17h7e3f0c3a8c7b1f76E.exit._crit_edge.i"
   %.sroa.6.1.i.i = phi i64 [ %.sroa.3.0.i18.i.i, %39 ], [ %.sroa.6.0.i.i, %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$24find_or_find_insert_slot28_$u7b$$u7b$closure$u7d$$u7d$17h7e3f0c3a8c7b1f76E.exit._crit_edge.i" ]
-  %.sroa.01.1.i.i = phi i64 [ %.sroa.0.0.i19.i.i, %39 ], [ 1, %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$24find_or_find_insert_slot28_$u7b$$u7b$closure$u7d$$u7d$17h7e3f0c3a8c7b1f76E.exit._crit_edge.i" ]
+  %.sroa.01.1.i.i = phi i64 [ %.sroa.0.0.i19.i.i, %39 ], [ %.sroa.01.0.i.i, %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$24find_or_find_insert_slot28_$u7b$$u7b$closure$u7d$$u7d$17h7e3f0c3a8c7b1f76E.exit._crit_edge.i" ]
   %47 = icmp eq <16 x i8> %.sroa.0.0.copyload.i27.i.i, splat (i8 -1)
   %48 = bitcast <16 x i1> %47 to i16
   %.not.i.i = icmp eq i16 %48, 0
@@ -4445,8 +4445,8 @@ define hidden noundef zeroext i1 @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$G
   br i1 %22, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$24find_or_find_insert_slot28_$u7b$$u7b$closure$u7d$$u7d$17h698f6bb345decec5E.exit._crit_edge.i", label %.lr.ph.i
 
 "_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$24find_or_find_insert_slot28_$u7b$$u7b$closure$u7d$$u7d$17h698f6bb345decec5E.exit._crit_edge.i": ; preds = %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$24find_or_find_insert_slot28_$u7b$$u7b$closure$u7d$$u7d$17h698f6bb345decec5E.exit.backedge.i", %18
-  %switch13.not.i.i = icmp eq i64 %.sroa.01.0.i.i, 1
-  br i1 %switch13.not.i.i, label %43, label %36
+  %switch13.not.i.i = icmp eq i64 %.sroa.01.0.i.i, 0
+  br i1 %switch13.not.i.i, label %36, label %43
 
 .lr.ph.i:                                         ; preds = %18, %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$24find_or_find_insert_slot28_$u7b$$u7b$closure$u7d$$u7d$17h698f6bb345decec5E.exit.backedge.i"
   %.sroa.06.0.i13.i = phi i16 [ %26, %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$24find_or_find_insert_slot28_$u7b$$u7b$closure$u7d$$u7d$17h698f6bb345decec5E.exit.backedge.i" ], [ %21, %18 ]
@@ -4489,7 +4489,7 @@ define hidden noundef zeroext i1 @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$G
 
 43:                                               ; preds = %36, %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$24find_or_find_insert_slot28_$u7b$$u7b$closure$u7d$$u7d$17h698f6bb345decec5E.exit._crit_edge.i"
   %.sroa.6.1.i.i = phi i64 [ %.sroa.3.0.i18.i.i, %36 ], [ %.sroa.6.0.i.i, %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$24find_or_find_insert_slot28_$u7b$$u7b$closure$u7d$$u7d$17h698f6bb345decec5E.exit._crit_edge.i" ]
-  %.sroa.01.1.i.i = phi i64 [ %.sroa.0.0.i19.i.i, %36 ], [ 1, %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$24find_or_find_insert_slot28_$u7b$$u7b$closure$u7d$$u7d$17h698f6bb345decec5E.exit._crit_edge.i" ]
+  %.sroa.01.1.i.i = phi i64 [ %.sroa.0.0.i19.i.i, %36 ], [ %.sroa.01.0.i.i, %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$24find_or_find_insert_slot28_$u7b$$u7b$closure$u7d$$u7d$17h698f6bb345decec5E.exit._crit_edge.i" ]
   %44 = icmp eq <16 x i8> %.sroa.0.0.copyload.i27.i.i, splat (i8 -1)
   %45 = bitcast <16 x i1> %44 to i16
   %.not.i.i = icmp eq i16 %45, 0

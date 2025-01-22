@@ -17920,7 +17920,7 @@ _ZNK4llvm3MVT15isFloatingPointEv.exit.thread:     ; preds = %_ZN4llvm15Instructi
   br i1 %.old1.not, label %180, label %._crit_edge
 
 180:                                              ; preds = %179, %173, %170
-  %181 = sub i32 %120, %.1254301
+  %181 = sub nsw i32 %120, %.1254301
   br i1 %spec.select.i.i177, label %182, label %_ZNK4llvm3MVT20getVectorNumElementsEv.exit
 
 182:                                              ; preds = %180

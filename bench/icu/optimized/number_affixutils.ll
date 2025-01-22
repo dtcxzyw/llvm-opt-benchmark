@@ -251,8 +251,8 @@ sw.epilog:                                        ; preds = %if.else.invoke, %in
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !7
 
 for.end:                                          ; preds = %sw.epilog
-  %8 = icmp eq i32 %state.1, 2
-  br i1 %8, label %if.then27, label %nrvo.skipdtor
+  %.not = icmp eq i32 %state.1, 0
+  br i1 %.not, label %nrvo.skipdtor, label %if.then27
 
 if.then27:                                        ; preds = %for.end
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %srcChar.addr.i17)

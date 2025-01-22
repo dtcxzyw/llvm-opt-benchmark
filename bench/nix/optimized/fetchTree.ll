@@ -4819,7 +4819,7 @@ define linkonce_odr void @_ZNO3nix16BackedStringView7toOwnedB5cxx11Ev(ptr dead_o
   br i1 %10, label %11, label %13
 
 11:                                               ; preds = %6
-  %12 = icmp ult i64 %.079.i.i.i, 2
+  %12 = icmp samesign ult i64 %.079.i.i.i, 2
   br i1 %12, label %_ZNK3nix16BackedStringView7isOwnedEv.exit, label %13
 
 13:                                               ; preds = %11, %6

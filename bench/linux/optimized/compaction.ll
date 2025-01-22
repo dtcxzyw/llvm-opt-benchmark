@@ -2217,7 +2217,7 @@ define internal fastcc void @__reset_isolation_suitable(ptr noundef %0) unnamed_
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1084
   %3 = load i8, ptr %2, align 4, !range !44, !noundef !45
   %4 = icmp eq i8 %3, 0
-  br i1 %4, label %57, label %5
+  br i1 %4, label %55, label %5
 
 5:                                                ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 144
@@ -2238,68 +2238,66 @@ define internal fastcc void @__reset_isolation_suitable(ptr noundef %0) unnamed_
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 1032
   br label %19
 
-19:                                               ; preds = %42, %13
-  %20 = phi i64 [ %9, %13 ], [ %45, %42 ]
-  %21 = phi i8 [ 0, %13 ], [ %44, %42 ]
-  %22 = phi i8 [ 0, %13 ], [ %35, %42 ]
-  %23 = phi i64 [ %9, %13 ], [ %43, %42 ]
-  %24 = phi i64 [ %11, %13 ], [ %34, %42 ]
-  %25 = phi i64 [ %11, %13 ], [ %46, %42 ]
+19:                                               ; preds = %40, %13
+  %20 = phi i64 [ %9, %13 ], [ %43, %40 ]
+  %21 = phi i8 [ 0, %13 ], [ %42, %40 ]
+  %22 = phi i8 [ 0, %13 ], [ %34, %40 ]
+  %23 = phi i64 [ %9, %13 ], [ %41, %40 ]
+  %24 = phi i64 [ %11, %13 ], [ %33, %40 ]
+  %25 = phi i64 [ %11, %13 ], [ %44, %40 ]
   %26 = tail call i32 @__SCT__cond_resched() #16
-  %27 = and i8 %22, 1
-  %28 = icmp ne i8 %27, 0
-  %29 = tail call fastcc zeroext i1 @__reset_isolation_pfn(ptr noundef %0, i64 noundef %20, i1 noundef zeroext true, i1 noundef zeroext %28)
-  %30 = icmp ult i64 %20, %24
-  %31 = select i1 %29, i1 %30, i1 false
-  br i1 %31, label %32, label %33
+  %27 = icmp ne i8 %22, 0
+  %28 = tail call fastcc zeroext i1 @__reset_isolation_pfn(ptr noundef %0, i64 noundef %20, i1 noundef zeroext true, i1 noundef zeroext %27)
+  %29 = icmp ult i64 %20, %24
+  %30 = select i1 %28, i1 %29, i1 false
+  br i1 %30, label %31, label %32
 
-32:                                               ; preds = %19
+31:                                               ; preds = %19
   store i64 %20, ptr %14, align 32
   store i64 %20, ptr %15, align 16
   store i64 %20, ptr %16, align 8
-  br label %33
+  br label %32
 
-33:                                               ; preds = %32, %19
-  %34 = phi i64 [ %20, %32 ], [ %24, %19 ]
-  %35 = phi i8 [ 1, %32 ], [ %22, %19 ]
-  %36 = and i8 %21, 1
-  %37 = icmp ne i8 %36, 0
-  %38 = tail call fastcc zeroext i1 @__reset_isolation_pfn(ptr noundef %0, i64 noundef %25, i1 noundef zeroext %37, i1 noundef zeroext true)
-  %39 = icmp ugt i64 %25, %23
-  %40 = select i1 %38, i1 %39, i1 false
-  br i1 %40, label %41, label %42
+32:                                               ; preds = %31, %19
+  %33 = phi i64 [ %20, %31 ], [ %24, %19 ]
+  %34 = phi i8 [ 1, %31 ], [ %22, %19 ]
+  %35 = icmp ne i8 %21, 0
+  %36 = tail call fastcc zeroext i1 @__reset_isolation_pfn(ptr noundef %0, i64 noundef %25, i1 noundef zeroext %35, i1 noundef zeroext true)
+  %37 = icmp ugt i64 %25, %23
+  %38 = select i1 %36, i1 %37, i1 false
+  br i1 %38, label %39, label %40
 
-41:                                               ; preds = %33
+39:                                               ; preds = %32
   store i64 %25, ptr %17, align 8
   store i64 %25, ptr %18, align 8
-  br label %42
+  br label %40
 
-42:                                               ; preds = %41, %33
-  %43 = phi i64 [ %25, %41 ], [ %23, %33 ]
-  %44 = phi i8 [ 1, %41 ], [ %21, %33 ]
-  %45 = add i64 %20, 512
-  %46 = add i64 %25, -512
-  %47 = icmp ult i64 %45, %46
-  br i1 %47, label %19, label %.loopexit, !llvm.loop !46
+40:                                               ; preds = %39, %32
+  %41 = phi i64 [ %25, %39 ], [ %23, %32 ]
+  %42 = phi i8 [ 1, %39 ], [ %21, %32 ]
+  %43 = add i64 %20, 512
+  %44 = add i64 %25, -512
+  %45 = icmp ult i64 %43, %44
+  br i1 %45, label %19, label %.loopexit, !llvm.loop !46
 
-.loopexit:                                        ; preds = %42, %5
-  %48 = phi i64 [ %11, %5 ], [ %46, %42 ]
-  %49 = phi i64 [ %11, %5 ], [ %34, %42 ]
-  %50 = phi i64 [ %9, %5 ], [ %43, %42 ]
-  %51 = phi i64 [ %9, %5 ], [ %45, %42 ]
-  %52 = icmp ult i64 %49, %50
-  br i1 %52, label %57, label %53
+.loopexit:                                        ; preds = %40, %5
+  %46 = phi i64 [ %11, %5 ], [ %44, %40 ]
+  %47 = phi i64 [ %11, %5 ], [ %33, %40 ]
+  %48 = phi i64 [ %9, %5 ], [ %41, %40 ]
+  %49 = phi i64 [ %9, %5 ], [ %43, %40 ]
+  %50 = icmp ult i64 %47, %48
+  br i1 %50, label %55, label %51
 
-53:                                               ; preds = %.loopexit
-  %54 = getelementptr inbounds nuw i8, ptr %0, i64 1040
-  store i64 %51, ptr %54, align 16
-  %55 = getelementptr i8, ptr %0, i64 1048
-  store i64 %51, ptr %55, align 8
-  %56 = getelementptr inbounds nuw i8, ptr %0, i64 1032
-  store i64 %48, ptr %56, align 8
-  br label %57
+51:                                               ; preds = %.loopexit
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 1040
+  store i64 %49, ptr %52, align 16
+  %53 = getelementptr i8, ptr %0, i64 1048
+  store i64 %49, ptr %53, align 8
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 1032
+  store i64 %46, ptr %54, align 8
+  br label %55
 
-57:                                               ; preds = %53, %.loopexit, %1
+55:                                               ; preds = %51, %.loopexit, %1
   ret void
 }
 

@@ -8487,7 +8487,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSIN3nix9SymbolStrEEENSt9en
   br i1 %378, label %379, label %381
 
 379:                                              ; preds = %374
-  %380 = icmp ult i64 %.079.i.i.i, 2
+  %380 = icmp samesign ult i64 %.079.i.i.i, 2
   br i1 %380, label %_ZNK3nix13OrSuggestionsINS_3refINS_10eval_cache10AttrCursorEEEEcvbEv.exit, label %381
 
 381:                                              ; preds = %379, %374
@@ -9707,7 +9707,7 @@ _ZNSt6vectorIN3nix6SymbolESaIS1_EED2Ev.exit227:   ; preds = %732, %734
   br i1 %740, label %741, label %743
 
 741:                                              ; preds = %736
-  %742 = icmp ult i64 %.079.i.i.i229, 2
+  %742 = icmp samesign ult i64 %.079.i.i.i229, 2
   br i1 %742, label %_ZNK3nix13OrSuggestionsINS_3refINS_10eval_cache10AttrCursorEEEEcvbEv.exit232, label %743
 
 743:                                              ; preds = %741, %736

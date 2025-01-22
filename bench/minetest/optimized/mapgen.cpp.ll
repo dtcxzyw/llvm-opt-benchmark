@@ -5745,14 +5745,14 @@ for.cond.cleanup19.loopexit:                      ; preds = %if.end282
 
 for.cond.cleanup19:                               ; preds = %for.cond.cleanup19.loopexit, %for.body
   %14 = phi i16 [ %11, %for.body ], [ %.pre428, %for.cond.cleanup19.loopexit ]
-  %15 = phi i16 [ %12, %for.body ], [ %82, %for.cond.cleanup19.loopexit ]
+  %15 = phi i16 [ %12, %for.body ], [ %81, %for.cond.cleanup19.loopexit ]
   %index.1.lcssa = phi i32 [ %index.0423, %for.body ], [ %inc285, %for.cond.cleanup19.loopexit ]
   %inc288 = add i16 %z.0422, 1
   %cmp.not = icmp sgt i16 %inc288, %14
   br i1 %cmp.not, label %for.cond.cleanup, label %for.body, !llvm.loop !253
 
 for.body20:                                       ; preds = %if.end282, %for.body20.lr.ph
-  %16 = phi ptr [ %.pre, %for.body20.lr.ph ], [ %81, %if.end282 ]
+  %16 = phi ptr [ %.pre, %for.body20.lr.ph ], [ %80, %if.end282 ]
   %index.1419 = phi i32 [ %index.0423, %for.body20.lr.ph ], [ %inc285, %if.end282 ]
   %x.0418 = phi i16 [ %13, %for.body20.lr.ph ], [ %inc284, %if.end282 ]
   %17 = load ptr, ptr %vm, align 8, !tbaa !82
@@ -5999,8 +5999,7 @@ if.then165:                                       ; preds = %if.end160
   %cmp184 = icmp eq i16 %63, %65
   %or.cond368 = select i1 %or.cond367, i1 true, i1 %cmp184
   %nplaced.1 = select i1 %or.cond368, i16 -1, i16 %nplaced.0410
-  %66 = and i8 %river_water_above.0408, 1
-  %tobool187.not = icmp eq i8 %66, 0
+  %tobool187.not = icmp eq i8 %river_water_above.0408, 0
   br i1 %tobool187.not, label %if.else199, label %if.then188
 
 if.then188:                                       ; preds = %if.then165
@@ -6009,9 +6008,9 @@ if.then188:                                       ; preds = %if.then165
 
 if.then192:                                       ; preds = %if.then188
   %c_riverbed = getelementptr inbounds nuw i8, ptr %biome.2, i64 148
-  %67 = load i16, ptr %c_riverbed, align 4, !tbaa !271
+  %66 = load i16, ptr %c_riverbed, align 4, !tbaa !271
   %arrayidx196 = getelementptr inbounds nuw %struct.MapNode, ptr %61, i64 %idxprom60
-  %ref.tmp.sroa.0.0.insert.ext = zext i16 %67 to i32
+  %ref.tmp.sroa.0.0.insert.ext = zext i16 %66 to i32
   store i32 %ref.tmp.sroa.0.0.insert.ext, ptr %arrayidx196, align 4, !tbaa.struct !139
   %inc197 = add nuw i16 %nplaced.1, 1
   br label %if.end269
@@ -6022,9 +6021,9 @@ if.else199:                                       ; preds = %if.then165
 
 if.then203:                                       ; preds = %if.else199
   %c_top = getelementptr inbounds nuw i8, ptr %biome.2, i64 136
-  %68 = load i16, ptr %c_top, align 8, !tbaa !272
+  %67 = load i16, ptr %c_top, align 8, !tbaa !272
   %arrayidx208 = getelementptr inbounds nuw %struct.MapNode, ptr %61, i64 %idxprom60
-  %ref.tmp204.sroa.0.0.insert.ext = zext i16 %68 to i32
+  %ref.tmp204.sroa.0.0.insert.ext = zext i16 %67 to i32
   store i32 %ref.tmp204.sroa.0.0.insert.ext, ptr %arrayidx208, align 4, !tbaa.struct !139
   %inc209 = add nuw i16 %nplaced.1, 1
   br label %if.end269
@@ -6036,53 +6035,53 @@ if.else210:                                       ; preds = %if.else199
 
 if.then214:                                       ; preds = %if.else210
   %c_filler = getelementptr inbounds nuw i8, ptr %biome.2, i64 138
-  %69 = load i16, ptr %c_filler, align 2, !tbaa !273
-  %ref.tmp215.sroa.0.0.insert.ext = zext i16 %69 to i32
+  %68 = load i16, ptr %c_filler, align 2, !tbaa !273
+  %ref.tmp215.sroa.0.0.insert.ext = zext i16 %68 to i32
   store i32 %ref.tmp215.sroa.0.0.insert.ext, ptr %arrayidx219, align 4, !tbaa.struct !139
   %inc220 = add nuw i16 %nplaced.1, 1
   br label %if.end269
 
 if.else221:                                       ; preds = %if.else210
   %c_stone223 = getelementptr inbounds nuw i8, ptr %biome.2, i64 140
-  %70 = load i16, ptr %c_stone223, align 4, !tbaa !274
-  %ref.tmp222.sroa.0.0.insert.ext = zext i16 %70 to i32
+  %69 = load i16, ptr %c_stone223, align 4, !tbaa !274
+  %ref.tmp222.sroa.0.0.insert.ext = zext i16 %69 to i32
   store i32 %ref.tmp222.sroa.0.0.insert.ext, ptr %arrayidx219, align 4, !tbaa.struct !139
   br label %if.end269
 
 if.else231:                                       ; preds = %if.end160
-  %71 = load i16, ptr %c_water_source, align 2, !tbaa !224
-  %cmp235 = icmp eq i16 %36, %71
+  %70 = load i16, ptr %c_water_source, align 2, !tbaa !224
+  %cmp235 = icmp eq i16 %36, %70
   br i1 %cmp235, label %if.then236, label %if.else250
 
 if.then236:                                       ; preds = %if.else231
-  %72 = load i32, ptr %water_level, align 4, !tbaa !51
+  %71 = load i32, ptr %water_level, align 4, !tbaa !51
   %conv239 = zext i16 %depth_water_top.1 to i32
-  %sub240 = sub nsw i32 %72, %conv239
+  %sub240 = sub nsw i32 %71, %conv239
   %cmp241 = icmp slt i32 %sub240, %conv51415
   %cond245.in.v = select i1 %cmp241, i64 142, i64 144
   %cond245.in = getelementptr inbounds nuw i8, ptr %biome.2, i64 %cond245.in.v
   %cond245 = load i16, ptr %cond245.in, align 2, !tbaa !58
-  %73 = load ptr, ptr %vm, align 8, !tbaa !82
-  %m_data247 = getelementptr inbounds nuw i8, ptr %73, i64 32
-  %74 = load ptr, ptr %m_data247, align 8, !tbaa !89
-  %arrayidx249 = getelementptr inbounds nuw %struct.MapNode, ptr %74, i64 %idxprom60
+  %72 = load ptr, ptr %vm, align 8, !tbaa !82
+  %m_data247 = getelementptr inbounds nuw i8, ptr %72, i64 32
+  %73 = load ptr, ptr %m_data247, align 8, !tbaa !89
+  %arrayidx249 = getelementptr inbounds nuw %struct.MapNode, ptr %73, i64 %idxprom60
   %ref.tmp237.sroa.0.0.insert.ext = zext i16 %cond245 to i32
   store i32 %ref.tmp237.sroa.0.0.insert.ext, ptr %arrayidx249, align 4, !tbaa.struct !139
   br label %if.end269
 
 if.else250:                                       ; preds = %if.else231
-  %75 = load i16, ptr %c_river_water_source, align 4, !tbaa !225
-  %cmp254 = icmp eq i16 %36, %75
+  %74 = load i16, ptr %c_river_water_source, align 4, !tbaa !225
+  %cmp254 = icmp eq i16 %36, %74
   br i1 %cmp254, label %if.then255, label %if.else261
 
 if.then255:                                       ; preds = %if.else250
   %c_river_water = getelementptr inbounds nuw i8, ptr %biome.2, i64 146
-  %76 = load i16, ptr %c_river_water, align 2, !tbaa !275
-  %77 = load ptr, ptr %vm, align 8, !tbaa !82
-  %m_data258 = getelementptr inbounds nuw i8, ptr %77, i64 32
-  %78 = load ptr, ptr %m_data258, align 8, !tbaa !89
-  %arrayidx260 = getelementptr inbounds nuw %struct.MapNode, ptr %78, i64 %idxprom60
-  %ref.tmp256.sroa.0.0.insert.ext = zext i16 %76 to i32
+  %75 = load i16, ptr %c_river_water, align 2, !tbaa !275
+  %76 = load ptr, ptr %vm, align 8, !tbaa !82
+  %m_data258 = getelementptr inbounds nuw i8, ptr %76, i64 32
+  %77 = load ptr, ptr %m_data258, align 8, !tbaa !89
+  %arrayidx260 = getelementptr inbounds nuw %struct.MapNode, ptr %77, i64 %idxprom60
+  %ref.tmp256.sroa.0.0.insert.ext = zext i16 %75 to i32
   store i32 %ref.tmp256.sroa.0.0.insert.ext, ptr %arrayidx260, align 4, !tbaa.struct !139
   br label %if.end269
 
@@ -6095,15 +6094,15 @@ if.else261:                                       ; preds = %if.else250
 
 if.end269:                                        ; preds = %if.else261, %if.then255, %if.then236, %if.else221, %if.then214, %if.then203, %if.then192, %if.then188
   %air_above.1 = phi i8 [ 0, %if.then236 ], [ 0, %if.then255 ], [ 0, %if.then188 ], [ 0, %if.then203 ], [ 0, %if.else221 ], [ 0, %if.then214 ], [ 0, %if.then192 ], [ %., %if.else261 ]
-  %river_water_above.2 = phi i8 [ %river_water_above.0408, %if.then236 ], [ 1, %if.then255 ], [ 0, %if.then188 ], [ %river_water_above.0408, %if.then203 ], [ %river_water_above.0408, %if.else221 ], [ %river_water_above.0408, %if.then214 ], [ %river_water_above.0408, %if.then192 ], [ %river_water_above.0408, %if.else261 ]
+  %river_water_above.2 = phi i8 [ %river_water_above.0408, %if.then236 ], [ 1, %if.then255 ], [ 0, %if.then188 ], [ 0, %if.then203 ], [ 0, %if.else221 ], [ 0, %if.then214 ], [ %river_water_above.0408, %if.then192 ], [ %river_water_above.0408, %if.else261 ]
   %water_above.1 = phi i1 [ true, %if.then236 ], [ true, %if.then255 ], [ false, %if.then188 ], [ false, %if.then203 ], [ false, %if.else221 ], [ false, %if.then214 ], [ false, %if.then192 ], [ false, %if.else261 ]
   %nplaced.3 = phi i16 [ 0, %if.then236 ], [ 0, %if.then255 ], [ -1, %if.then188 ], [ %inc209, %if.then203 ], [ -1, %if.else221 ], [ %inc220, %if.then214 ], [ %inc197, %if.then192 ], [ %.369, %if.else261 ]
-  %79 = load i16, ptr %m_cache_extent.i, align 2, !tbaa !83
-  %conv1.i = sext i16 %79 to i32
+  %78 = load i16, ptr %m_cache_extent.i, align 2, !tbaa !83
+  %conv1.i = sext i16 %78 to i32
   %add.i385 = sub i32 %vi.0399, %conv1.i
   %dec = add i16 %y.0411, -1
-  %80 = load i16, ptr %Y53, align 2, !tbaa !255
-  %cmp55.not = icmp slt i16 %dec, %80
+  %79 = load i16, ptr %Y53, align 2, !tbaa !255
+  %cmp55.not = icmp slt i16 %dec, %79
   br i1 %cmp55.not, label %for.cond.cleanup56, label %for.body57, !llvm.loop !276
 
 if.then278:                                       ; preds = %for.cond.cleanup56
@@ -6111,11 +6110,11 @@ if.then278:                                       ; preds = %for.cond.cleanup56
   br label %if.end282
 
 if.end282:                                        ; preds = %if.then278, %for.cond.cleanup56, %for.body20
-  %81 = phi ptr [ %.pre427, %if.then278 ], [ %.pre427, %for.cond.cleanup56 ], [ %16, %for.body20 ]
+  %80 = phi ptr [ %.pre427, %if.then278 ], [ %.pre427, %for.cond.cleanup56 ], [ %16, %for.body20 ]
   %inc284 = add i16 %x.0418, 1
   %inc285 = add i32 %index.1419, 1
-  %82 = load i16, ptr %node_max, align 2, !tbaa !252
-  %cmp18.not = icmp sgt i16 %inc284, %82
+  %81 = load i16, ptr %node_max, align 2, !tbaa !252
+  %cmp18.not = icmp sgt i16 %inc284, %81
   br i1 %cmp18.not, label %for.cond.cleanup19.loopexit, label %for.body20, !llvm.loop !277
 }
 

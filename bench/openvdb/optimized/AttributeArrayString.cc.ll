@@ -9290,7 +9290,7 @@ if.then9:                                         ; preds = %invoke.cont
   br i1 %cmp, label %invoke.cont13, label %if.end
 
 invoke.cont13:                                    ; preds = %if.then9
-  %idxprom.i = zext i8 %14 to i64
+  %idxprom.i = zext nneg i8 %14 to i64
   %arrayidx.i18 = getelementptr inbounds nuw [8 x i8], ptr %my_depth.i, i64 0, i64 %idxprom.i
   %28 = load i8, ptr %arrayidx.i18, align 1
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %alloc.i.i)
@@ -9336,7 +9336,7 @@ invoke.cont13:                                    ; preds = %if.then9
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %alloc.i.i)
   %dec.i = add i8 %my_size.promoted.i.pr122, -1
   store i8 %dec.i, ptr %my_size.i, align 2
-  %36 = add i8 %14, 1
+  %36 = add nuw nsw i8 %14, 1
   %37 = and i8 %36, 7
   store i8 %37, ptr %my_tail.i, align 1
   br label %land.rhs

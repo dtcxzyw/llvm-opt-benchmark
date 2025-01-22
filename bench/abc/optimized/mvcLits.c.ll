@@ -7,98 +7,98 @@ target triple = "x86_64-pc-linux-gnu"
 define range(i32 -1, 2147483647) i32 @Mvc_CoverAnyLiteral(ptr nocapture noundef readonly %0, ptr noundef readonly %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i32, ptr %3, align 8
-  %.13956 = add nsw i32 %4, -1
+  %.13957 = add nsw i32 %4, -1
   %5 = icmp sgt i32 %4, 0
-  br i1 %5, label %.lr.ph58, label %.loopexit49
+  br i1 %5, label %.lr.ph59, label %.loopexit50
 
-.lr.ph58:                                         ; preds = %2
+.lr.ph59:                                         ; preds = %2
   %.not = icmp eq ptr %1, null
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  br i1 %.not, label %.lr.ph58.split.us, label %.lr.ph58.split
+  br i1 %.not, label %.lr.ph59.split.us, label %.lr.ph59.split
 
-.lr.ph58.split.us:                                ; preds = %.lr.ph58
-  %.14152.us = load ptr, ptr %7, align 8
-  %.not4753.us = icmp eq ptr %.14152.us, null
-  br i1 %.not4753.us, label %.loopexit49, label %.lr.ph.us
+.lr.ph59.split.us:                                ; preds = %.lr.ph59
+  %.14153.us = load ptr, ptr %7, align 8
+  %.not4754.us = icmp eq ptr %.14153.us, null
+  br i1 %.not4754.us, label %.loopexit50, label %.lr.ph.us
 
-.lr.ph.us:                                        ; preds = %.lr.ph58.split.us, %..loopexit_crit_edge.us
-  %.13957.us = phi i32 [ %.139.us, %..loopexit_crit_edge.us ], [ %.13956, %.lr.ph58.split.us ]
-  %8 = lshr i32 %.13957.us, 5
-  %9 = and i32 %.13957.us, 31
+.lr.ph.us:                                        ; preds = %.lr.ph59.split.us, %..loopexit_crit_edge.us
+  %.13958.us = phi i32 [ %.139.us, %..loopexit_crit_edge.us ], [ %.13957, %.lr.ph59.split.us ]
+  %8 = lshr i32 %.13958.us, 5
+  %9 = and i32 %.13958.us, 31
   %10 = zext nneg i32 %8 to i64
   %11 = shl nuw i32 1, %9
   br label %12
 
-12:                                               ; preds = %.lr.ph.us, %19
-  %.14155.us = phi ptr [ %.14152.us, %.lr.ph.us ], [ %.141.us, %19 ]
-  %.254.us = phi i32 [ 0, %.lr.ph.us ], [ %.3.us, %19 ]
-  %13 = getelementptr inbounds nuw i8, ptr %.14155.us, i64 16
+12:                                               ; preds = %.lr.ph.us, %18
+  %.14156.us = phi ptr [ %.14153.us, %.lr.ph.us ], [ %.141.us, %18 ]
+  %.255.us = phi i32 [ 0, %.lr.ph.us ], [ %.3.us, %18 ]
+  %13 = getelementptr inbounds nuw i8, ptr %.14156.us, i64 16
   %14 = getelementptr inbounds nuw [1 x i32], ptr %13, i64 0, i64 %10
   %15 = load i32, ptr %14, align 4
   %16 = and i32 %15, %11
   %.not48.us = icmp eq i32 %16, 0
-  br i1 %.not48.us, label %19, label %17
+  br i1 %.not48.us, label %18, label %17
 
 17:                                               ; preds = %12
-  %18 = icmp sgt i32 %.254.us, 0
-  br i1 %18, label %.loopexit49, label %19
+  %.not49.us = icmp eq i32 %.255.us, 0
+  br i1 %.not49.us, label %18, label %.loopexit50
 
-19:                                               ; preds = %17, %12
-  %.3.us = phi i32 [ 1, %17 ], [ %.254.us, %12 ]
-  %.141.us = load ptr, ptr %.14155.us, align 8
+18:                                               ; preds = %17, %12
+  %.3.us = phi i32 [ 1, %17 ], [ %.255.us, %12 ]
+  %.141.us = load ptr, ptr %.14156.us, align 8
   %.not47.us = icmp eq ptr %.141.us, null
   br i1 %.not47.us, label %..loopexit_crit_edge.us, label %12, !llvm.loop !4
 
-..loopexit_crit_edge.us:                          ; preds = %19
-  %.139.us = add nsw i32 %.13957.us, -1
-  %20 = icmp sgt i32 %.13957.us, 0
-  br i1 %20, label %.lr.ph.us, label %.loopexit49, !llvm.loop !6
+..loopexit_crit_edge.us:                          ; preds = %18
+  %.139.us = add nsw i32 %.13958.us, -1
+  %19 = icmp sgt i32 %.13958.us, 0
+  br i1 %19, label %.lr.ph.us, label %.loopexit50, !llvm.loop !6
 
-.lr.ph58.split:                                   ; preds = %.lr.ph58, %.loopexit
-  %.13957 = phi i32 [ %.139, %.loopexit ], [ %.13956, %.lr.ph58 ]
-  %21 = lshr i32 %.13957, 5
-  %22 = zext nneg i32 %21 to i64
-  %23 = getelementptr inbounds nuw [1 x i32], ptr %6, i64 0, i64 %22
-  %24 = load i32, ptr %23, align 4
-  %25 = and i32 %.13957, 31
-  %26 = shl nuw i32 1, %25
-  %27 = and i32 %24, %26
-  %.not46 = icmp eq i32 %27, 0
-  br i1 %.not46, label %.loopexit, label %28
+.lr.ph59.split:                                   ; preds = %.lr.ph59, %.loopexit
+  %.13958 = phi i32 [ %.139, %.loopexit ], [ %.13957, %.lr.ph59 ]
+  %20 = lshr i32 %.13958, 5
+  %21 = zext nneg i32 %20 to i64
+  %22 = getelementptr inbounds nuw [1 x i32], ptr %6, i64 0, i64 %21
+  %23 = load i32, ptr %22, align 4
+  %24 = and i32 %.13958, 31
+  %25 = shl nuw i32 1, %24
+  %26 = and i32 %23, %25
+  %.not46 = icmp eq i32 %26, 0
+  br i1 %.not46, label %.loopexit, label %27
 
-28:                                               ; preds = %.lr.ph58.split
-  %.14152 = load ptr, ptr %7, align 8
-  %.not4753 = icmp eq ptr %.14152, null
-  br i1 %.not4753, label %.loopexit, label %.lr.ph
+27:                                               ; preds = %.lr.ph59.split
+  %.14153 = load ptr, ptr %7, align 8
+  %.not4754 = icmp eq ptr %.14153, null
+  br i1 %.not4754, label %.loopexit, label %.lr.ph
 
-.lr.ph:                                           ; preds = %28, %35
-  %.14155 = phi ptr [ %.141, %35 ], [ %.14152, %28 ]
-  %.254 = phi i32 [ %.3, %35 ], [ 0, %28 ]
-  %29 = getelementptr inbounds nuw i8, ptr %.14155, i64 16
-  %30 = getelementptr inbounds nuw [1 x i32], ptr %29, i64 0, i64 %22
-  %31 = load i32, ptr %30, align 4
-  %32 = and i32 %31, %26
-  %.not48 = icmp eq i32 %32, 0
-  br i1 %.not48, label %35, label %33
+.lr.ph:                                           ; preds = %27, %33
+  %.14156 = phi ptr [ %.141, %33 ], [ %.14153, %27 ]
+  %.255 = phi i32 [ %.3, %33 ], [ 0, %27 ]
+  %28 = getelementptr inbounds nuw i8, ptr %.14156, i64 16
+  %29 = getelementptr inbounds nuw [1 x i32], ptr %28, i64 0, i64 %21
+  %30 = load i32, ptr %29, align 4
+  %31 = and i32 %30, %25
+  %.not48 = icmp eq i32 %31, 0
+  br i1 %.not48, label %33, label %32
 
-33:                                               ; preds = %.lr.ph
-  %34 = icmp sgt i32 %.254, 0
-  br i1 %34, label %.loopexit49, label %35
+32:                                               ; preds = %.lr.ph
+  %.not49 = icmp eq i32 %.255, 0
+  br i1 %.not49, label %33, label %.loopexit50
 
-35:                                               ; preds = %.lr.ph, %33
-  %.3 = phi i32 [ 1, %33 ], [ %.254, %.lr.ph ]
-  %.141 = load ptr, ptr %.14155, align 8
+33:                                               ; preds = %.lr.ph, %32
+  %.3 = phi i32 [ 1, %32 ], [ %.255, %.lr.ph ]
+  %.141 = load ptr, ptr %.14156, align 8
   %.not47 = icmp eq ptr %.141, null
   br i1 %.not47, label %.loopexit, label %.lr.ph, !llvm.loop !4
 
-.loopexit:                                        ; preds = %35, %28, %.lr.ph58.split
-  %.139 = add nsw i32 %.13957, -1
-  %36 = icmp sgt i32 %.13957, 0
-  br i1 %36, label %.lr.ph58.split, label %.loopexit49, !llvm.loop !6
+.loopexit:                                        ; preds = %33, %27, %.lr.ph59.split
+  %.139 = add nsw i32 %.13958, -1
+  %34 = icmp sgt i32 %.13958, 0
+  br i1 %34, label %.lr.ph59.split, label %.loopexit50, !llvm.loop !6
 
-.loopexit49:                                      ; preds = %.loopexit, %33, %..loopexit_crit_edge.us, %17, %.lr.ph58.split.us, %2
-  %.0 = phi i32 [ -1, %2 ], [ -1, %.lr.ph58.split.us ], [ %.13957.us, %17 ], [ -1, %..loopexit_crit_edge.us ], [ %.13957, %33 ], [ -1, %.loopexit ]
+.loopexit50:                                      ; preds = %.loopexit, %32, %..loopexit_crit_edge.us, %17, %.lr.ph59.split.us, %2
+  %.0 = phi i32 [ -1, %2 ], [ -1, %.lr.ph59.split.us ], [ %.13958.us, %17 ], [ -1, %..loopexit_crit_edge.us ], [ %.13958, %32 ], [ -1, %.loopexit ]
   ret i32 %.0
 }
 

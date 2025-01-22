@@ -378,9 +378,9 @@ define dso_local void @drm_print_bits(ptr noundef %0, i64 noundef %1, ptr nocapt
   %13 = icmp ugt i32 %9, %12
   br i1 %13, label %.lr.ph, label %._crit_edge.thread
 
-.lr.ph:                                           ; preds = %8, %25
-  %14 = phi i64 [ %29, %25 ], [ %11, %8 ]
-  %15 = phi i8 [ %26, %25 ], [ 1, %8 ]
+.lr.ph:                                           ; preds = %8, %24
+  %14 = phi i64 [ %28, %24 ], [ %11, %8 ]
+  %15 = phi i8 [ %25, %24 ], [ 1, %8 ]
   %16 = and i64 %14, 4294967295
   %17 = getelementptr ptr, ptr %2, i64 %16
   %18 = load ptr, ptr %17, align 8
@@ -391,34 +391,32 @@ define dso_local void @drm_print_bits(ptr noundef %0, i64 noundef %1, ptr nocapt
   call void asm sideeffect "332: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 332b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 332) #14, !srcloc !10
   call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.5, i32 250, i32 2307, i64 12) #14, !srcloc !11
   call void asm sideeffect "333: nop\0A\09.pushsection .discard.instr_end\0A\09.long 333b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 333) #14, !srcloc !12
-  br label %25
+  br label %24
 
 21:                                               ; preds = %.lr.ph
-  %22 = and i8 %15, 1
-  %23 = icmp eq i8 %22, 0
-  %24 = select i1 %23, ptr @.str.8, ptr @.str.7
-  call void (ptr, ptr, ...) @drm_printf(ptr noundef %0, ptr noundef nonnull @.str.6, ptr noundef nonnull %24, ptr noundef nonnull %18)
-  br label %25
+  %22 = icmp eq i8 %15, 0
+  %23 = select i1 %22, ptr @.str.8, ptr @.str.7
+  call void (ptr, ptr, ...) @drm_printf(ptr noundef %0, ptr noundef nonnull @.str.6, ptr noundef nonnull %23, ptr noundef nonnull %18)
+  br label %24
 
-25:                                               ; preds = %21, %20
-  %26 = phi i8 [ %15, %20 ], [ 0, %21 ]
-  %27 = add i64 %14, 1
-  %28 = and i64 %27, 4294967295
-  %29 = call i64 @_find_next_bit(ptr noundef nonnull %5, i64 noundef %10, i64 noundef %28) #14
-  %30 = trunc i64 %29 to i32
-  %31 = icmp ugt i32 %9, %30
-  br i1 %31, label %.lr.ph, label %._crit_edge, !llvm.loop !13
+24:                                               ; preds = %21, %20
+  %25 = phi i8 [ %15, %20 ], [ 0, %21 ]
+  %26 = add i64 %14, 1
+  %27 = and i64 %26, 4294967295
+  %28 = call i64 @_find_next_bit(ptr noundef nonnull %5, i64 noundef %10, i64 noundef %27) #14
+  %29 = trunc i64 %28 to i32
+  %30 = icmp ugt i32 %9, %29
+  br i1 %30, label %.lr.ph, label %._crit_edge, !llvm.loop !13
 
-._crit_edge:                                      ; preds = %25
-  %32 = and i8 %26, 1
-  %33 = icmp eq i8 %32, 0
-  br i1 %33, label %34, label %._crit_edge.thread
+._crit_edge:                                      ; preds = %24
+  %31 = icmp eq i8 %25, 0
+  br i1 %31, label %32, label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %8, %._crit_edge
   call void (ptr, ptr, ...) @drm_printf(ptr noundef %0, ptr noundef nonnull @.str.9)
-  br label %34
+  br label %32
 
-34:                                               ; preds = %._crit_edge.thread, %._crit_edge
+32:                                               ; preds = %._crit_edge.thread, %._crit_edge
   ret void
 }
 

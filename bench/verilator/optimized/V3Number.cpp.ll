@@ -3049,7 +3049,7 @@ _ZN8V3NumberD2Ev.exit369:                         ; preds = %485, %483, %478, %4
 ._crit_edge534:                                   ; preds = %499
   %501 = add nuw nsw i32 %.1238, %.1240
   %502 = add nuw nsw i32 %501, %.1236
-  %503 = icmp sgt i32 %502, 1
+  %503 = icmp samesign ugt i32 %502, 1
   %504 = load i32, ptr %.phi.trans.insert.i, align 8
   br i1 %503, label %505, label %.loopexit
 

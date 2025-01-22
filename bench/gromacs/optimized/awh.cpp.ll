@@ -1152,7 +1152,7 @@ define linkonce_odr ptr @_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPKN3gmx9D
   br i1 %16, label %17, label %19
 
 17:                                               ; preds = %12
-  %18 = icmp ult i64 %.079.i.i.i.i.i, 2
+  %18 = icmp samesign ult i64 %.079.i.i.i.i.i, 2
   br i1 %18, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK3gmx4Bias21hasFepLambdaDimensionEvEUlRKT_E_EclINS_17__normal_iteratorIPKNS2_9DimParamsESt6vectorISB_SaISB_EEEEEEbS4_.exit, label %19
 
 19:                                               ; preds = %17, %12
@@ -1180,7 +1180,7 @@ _ZN9__gnu_cxx5__ops10_Iter_predIZNK3gmx4Bias21hasFepLambdaDimensionEvEUlRKT_E_Ec
   br i1 %29, label %30, label %32
 
 30:                                               ; preds = %25
-  %31 = icmp ult i64 %.079.i.i.i.i.i17, 2
+  %31 = icmp samesign ult i64 %.079.i.i.i.i.i17, 2
   br i1 %31, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK3gmx4Bias21hasFepLambdaDimensionEvEUlRKT_E_EclINS_17__normal_iteratorIPKNS2_9DimParamsESt6vectorISB_SaISB_EEEEEEbS4_.exit20, label %32
 
 32:                                               ; preds = %30, %25
@@ -1208,7 +1208,7 @@ _ZN9__gnu_cxx5__ops10_Iter_predIZNK3gmx4Bias21hasFepLambdaDimensionEvEUlRKT_E_Ec
   br i1 %42, label %43, label %45
 
 43:                                               ; preds = %38
-  %44 = icmp ult i64 %.079.i.i.i.i.i22, 2
+  %44 = icmp samesign ult i64 %.079.i.i.i.i.i22, 2
   br i1 %44, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK3gmx4Bias21hasFepLambdaDimensionEvEUlRKT_E_EclINS_17__normal_iteratorIPKNS2_9DimParamsESt6vectorISB_SaISB_EEEEEEbS4_.exit25, label %45
 
 45:                                               ; preds = %43, %38
@@ -1236,7 +1236,7 @@ _ZN9__gnu_cxx5__ops10_Iter_predIZNK3gmx4Bias21hasFepLambdaDimensionEvEUlRKT_E_Ec
   br i1 %55, label %56, label %58
 
 56:                                               ; preds = %51
-  %57 = icmp ult i64 %.079.i.i.i.i.i27, 2
+  %57 = icmp samesign ult i64 %.079.i.i.i.i.i27, 2
   br i1 %57, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK3gmx4Bias21hasFepLambdaDimensionEvEUlRKT_E_EclINS_17__normal_iteratorIPKNS2_9DimParamsESt6vectorISB_SaISB_EEEEEEbS4_.exit30, label %58
 
 58:                                               ; preds = %56, %51
@@ -1285,7 +1285,7 @@ _ZN9__gnu_cxx5__ops10_Iter_predIZNK3gmx4Bias21hasFepLambdaDimensionEvEUlRKT_E_Ec
   br i1 %73, label %74, label %76
 
 74:                                               ; preds = %69
-  %75 = icmp ult i64 %.079.i.i.i.i.i32, 2
+  %75 = icmp samesign ult i64 %.079.i.i.i.i.i32, 2
   br i1 %75, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK3gmx4Bias21hasFepLambdaDimensionEvEUlRKT_E_EclINS_17__normal_iteratorIPKNS2_9DimParamsESt6vectorISB_SaISB_EEEEEEbS4_.exit35, label %76
 
 76:                                               ; preds = %74, %69
@@ -1318,7 +1318,7 @@ _ZN9__gnu_cxx5__ops10_Iter_predIZNK3gmx4Bias21hasFepLambdaDimensionEvEUlRKT_E_Ec
   br i1 %88, label %89, label %91
 
 89:                                               ; preds = %84
-  %90 = icmp ult i64 %.079.i.i.i.i.i37, 2
+  %90 = icmp samesign ult i64 %.079.i.i.i.i.i37, 2
   br i1 %90, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK3gmx4Bias21hasFepLambdaDimensionEvEUlRKT_E_EclINS_17__normal_iteratorIPKNS2_9DimParamsESt6vectorISB_SaISB_EEEEEEbS4_.exit40, label %91
 
 91:                                               ; preds = %89, %84
@@ -1351,7 +1351,7 @@ _ZN9__gnu_cxx5__ops10_Iter_predIZNK3gmx4Bias21hasFepLambdaDimensionEvEUlRKT_E_Ec
   br i1 %103, label %104, label %106
 
 104:                                              ; preds = %99
-  %105 = icmp ult i64 %.079.i.i.i.i.i42, 2
+  %105 = icmp samesign ult i64 %.079.i.i.i.i.i42, 2
   br i1 %105, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK3gmx4Bias21hasFepLambdaDimensionEvEUlRKT_E_EclINS_17__normal_iteratorIPKNS2_9DimParamsESt6vectorISB_SaISB_EEEEEEbS4_.exit45, label %106
 
 106:                                              ; preds = %104, %99
@@ -4546,7 +4546,7 @@ _Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit: ; preds = %11, %17, 
   br i1 %88, label %89, label %91
 
 89:                                               ; preds = %84
-  %90 = icmp ult i64 %.079.i.i.i, 2
+  %90 = icmp samesign ult i64 %.079.i.i.i, 2
   br i1 %90, label %_ZNK3gmx9DimParams15isPullDimensionEv.exit, label %91
 
 91:                                               ; preds = %89, %84
@@ -4637,7 +4637,7 @@ _ZNK3gmx9DimParams15isPullDimensionEv.exit:       ; preds = %89, %91
   br i1 %144, label %145, label %147
 
 145:                                              ; preds = %140
-  %146 = icmp ult i64 %.079.i.i.i45, 2
+  %146 = icmp samesign ult i64 %.079.i.i.i45, 2
   br i1 %146, label %_ZNK3gmx9DimParams15isPullDimensionEv.exit48, label %147
 
 147:                                              ; preds = %145, %140

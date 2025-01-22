@@ -9427,8 +9427,8 @@ for.body:                                         ; preds = %if.end109, %for.inc
   br i1 %cmp.i.not, label %for.inc, label %if.then114
 
 if.then114:                                       ; preds = %for.body
-  %cmp115 = icmp sgt i32 %n92.063, 0
-  br i1 %cmp115, label %return, label %for.inc
+  %cmp115.not = icmp eq i32 %n92.063, 0
+  br i1 %cmp115.not, label %for.inc, label %return
 
 for.inc:                                          ; preds = %for.body, %if.then114
   %n92.1 = phi i32 [ 1, %if.then114 ], [ %n92.063, %for.body ]

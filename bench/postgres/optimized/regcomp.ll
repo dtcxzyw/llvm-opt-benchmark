@@ -2080,7 +2080,7 @@ colorchain.exit:                                  ; preds = %uncolorchain.exit, 
   br i1 %97, label %101, label %104
 
 101:                                              ; preds = %.lr.ph53.i
-  %102 = sext i16 %.03450.i to i64
+  %102 = zext nneg i16 %.03450.i to i64
   %103 = getelementptr %struct.colordesc, ptr %98, i64 %102, i32 2
   store i16 %100, ptr %103, align 8
   br label %104

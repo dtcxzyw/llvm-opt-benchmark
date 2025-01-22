@@ -1664,7 +1664,7 @@ _get_path_point_count.exit.i:                     ; preds = %453, %452, %451, %4
   %455 = zext i32 %454 to i64
   %456 = zext i32 %.0218628.i to i64
   %457 = add nsw i64 %456, -4
-  %458 = icmp ult i64 %457, %455
+  %458 = icmp samesign ult i64 %457, %455
   br i1 %458, label %459, label %_is_relative_cmd.exit.i
 
 459:                                              ; preds = %_get_path_point_count.exit.i

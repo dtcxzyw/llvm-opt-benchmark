@@ -5729,7 +5729,7 @@ type_flatten.exit:                                ; preds = %34
 
 153:                                              ; preds = %149
   %154 = add i32 %.0135211, 1
-  %155 = trunc i8 %.0138209 to i1
+  %155 = trunc nuw i8 %.0138209 to i1
   br i1 %155, label %156, label %162
 
 156:                                              ; preds = %153

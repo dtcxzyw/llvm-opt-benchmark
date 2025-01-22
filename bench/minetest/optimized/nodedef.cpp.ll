@@ -26647,12 +26647,11 @@ if.end35:                                         ; preds = %if.else32, %_ZNSt6v
   br i1 %tobool.not, label %while.end.loopexit, label %while.body, !llvm.loop !506
 
 while.end.loopexit:                               ; preds = %if.end35
-  %48 = and i8 %success.1, 1
-  %49 = icmp ne i8 %48, 0
+  %48 = icmp ne i8 %success.1, 0
   br label %cleanup37
 
 cleanup37:                                        ; preds = %while.end.loopexit, %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit148, %_ZN9LogStreamlsIRA36_KcEER11StreamProxyOT_.exit, %_ZTW11errorstream.exit48, %if.end, %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit, %_ZN9LogStreamlsIRA33_KcEER11StreamProxyOT_.exit, %_ZTW11errorstream.exit
-  %retval.1 = phi i1 [ false, %_ZN9LogStreamlsIRA33_KcEER11StreamProxyOT_.exit ], [ false, %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit ], [ false, %_ZN9LogStreamlsIRA36_KcEER11StreamProxyOT_.exit ], [ false, %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit148 ], [ false, %_ZTW11errorstream.exit ], [ false, %_ZTW11errorstream.exit48 ], [ true, %if.end ], [ %49, %while.end.loopexit ]
+  %retval.1 = phi i1 [ false, %_ZN9LogStreamlsIRA33_KcEER11StreamProxyOT_.exit ], [ false, %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit ], [ false, %_ZN9LogStreamlsIRA36_KcEER11StreamProxyOT_.exit ], [ false, %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit148 ], [ false, %_ZTW11errorstream.exit ], [ false, %_ZTW11errorstream.exit48 ], [ true, %if.end ], [ %48, %while.end.loopexit ]
   ret i1 %retval.1
 }
 

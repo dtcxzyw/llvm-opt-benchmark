@@ -6528,14 +6528,14 @@ define internal i64 @show_cons_active(ptr nocapture readnone %0, ptr nocapture r
   br i1 %24, label %30, label %25
 
 25:                                               ; preds = %20
-  %26 = add i32 %11, 1
+  %26 = add nuw nsw i32 %11, 1
   %27 = sext i32 %11 to i64
   %28 = getelementptr [16 x ptr], ptr %4, i64 0, i64 %27
   store ptr %12, ptr %28, align 8
-  %29 = icmp ugt i32 %26, 15
-  br i1 %29, label %.thread7, label %30
+  %29 = icmp ugt i32 %11, 14
+  br i1 %29, label %.thread8, label %30
 
-.thread7:                                         ; preds = %25
+.thread8:                                         ; preds = %25
   tail call void @console_lock() #22
   br label %.preheader.preheader
 
@@ -6554,95 +6554,95 @@ define internal i64 @show_cons_active(ptr nocapture readnone %0, ptr nocapture r
   %39 = icmp eq i32 %31, 0
   br i1 %39, label %.loopexit, label %.preheader.preheader
 
-.preheader.preheader:                             ; preds = %.thread7, %38
-  %.ph = phi i32 [ %31, %38 ], [ %26, %.thread7 ]
+.preheader.preheader:                             ; preds = %.thread8, %38
+  %40 = phi i32 [ %26, %.thread8 ], [ %31, %38 ]
+  %41 = zext nneg i32 %40 to i64
   br label %.preheader
 
-.preheader:                                       ; preds = %.preheader.preheader, %88
-  %40 = phi i32 [ %42, %88 ], [ %.ph, %.preheader.preheader ]
-  %41 = phi i64 [ %95, %88 ], [ 0, %.preheader.preheader ]
-  %42 = add i32 %40, -1
+.preheader:                                       ; preds = %.preheader.preheader, %87
+  %indvars.iv = phi i64 [ %41, %.preheader.preheader ], [ %indvars.iv.next, %87 ]
+  %42 = phi i64 [ 0, %.preheader.preheader ], [ %94, %87 ]
+  %indvars.iv.next = add nsw i64 %indvars.iv, -1
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #22
-  %43 = sext i32 %42 to i64
-  %44 = getelementptr [16 x ptr], ptr %4, i64 0, i64 %43
-  %45 = load ptr, ptr %44, align 8
-  %46 = getelementptr inbounds nuw i8, ptr %45, i64 74
-  %47 = load i16, ptr %46, align 2
-  %48 = sext i16 %47 to i32
-  store i32 %48, ptr %5, align 4
-  %49 = getelementptr inbounds nuw i8, ptr %45, i64 32
-  %50 = load ptr, ptr %49, align 8
-  %51 = call ptr %50(ptr noundef %45, ptr noundef nonnull %5) #22
-  %52 = icmp eq ptr %51, null
-  %.pre = load i16, ptr %46, align 2
-  br i1 %52, label %83, label %53
+  %43 = getelementptr [16 x ptr], ptr %4, i64 0, i64 %indvars.iv.next
+  %44 = load ptr, ptr %43, align 8
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 74
+  %46 = load i16, ptr %45, align 2
+  %47 = sext i16 %46 to i32
+  store i32 %47, ptr %5, align 4
+  %48 = getelementptr inbounds nuw i8, ptr %44, i64 32
+  %49 = load ptr, ptr %48, align 8
+  %50 = call ptr %49(ptr noundef %44, ptr noundef nonnull %5) #22
+  %51 = icmp eq ptr %50, null
+  %.pre = load i16, ptr %45, align 2
+  br i1 %51, label %82, label %52
 
-53:                                               ; preds = %.preheader
-  %54 = icmp sgt i16 %.pre, 0
-  br i1 %54, label %59, label %55
+52:                                               ; preds = %.preheader
+  %53 = icmp sgt i16 %.pre, 0
+  br i1 %53, label %58, label %54
 
-55:                                               ; preds = %53
-  %56 = getelementptr inbounds nuw i8, ptr %51, i64 44
-  %57 = load i32, ptr %56, align 4
-  %58 = icmp eq i32 %57, 4
-  br i1 %58, label %83, label %59
+54:                                               ; preds = %52
+  %55 = getelementptr inbounds nuw i8, ptr %50, i64 44
+  %56 = load i32, ptr %55, align 4
+  %57 = icmp eq i32 %56, 4
+  br i1 %57, label %82, label %58
 
-59:                                               ; preds = %55, %53
-  %60 = getelementptr i8, ptr %2, i64 %41
-  %61 = getelementptr inbounds nuw i8, ptr %51, i64 104
-  %62 = load i64, ptr %61, align 8
-  %63 = and i64 %62, 128
-  %64 = icmp eq i64 %63, 0
-  br i1 %64, label %74, label %65
+58:                                               ; preds = %54, %52
+  %59 = getelementptr i8, ptr %2, i64 %42
+  %60 = getelementptr inbounds nuw i8, ptr %50, i64 104
+  %61 = load i64, ptr %60, align 8
+  %62 = and i64 %61, 128
+  %63 = icmp eq i64 %62, 0
+  br i1 %63, label %73, label %64
 
-65:                                               ; preds = %59
-  %66 = getelementptr inbounds nuw i8, ptr %51, i64 32
-  %67 = load ptr, ptr %66, align 8
-  %68 = call ptr @stpcpy(ptr %60, ptr %67)
-  %69 = ptrtoint ptr %68 to i64
-  %70 = ptrtoint ptr %60 to i64
-  %71 = sub i64 %69, %70
-  %72 = shl i64 %71, 32
-  %73 = ashr exact i64 %72, 32
-  br label %88
+64:                                               ; preds = %58
+  %65 = getelementptr inbounds nuw i8, ptr %50, i64 32
+  %66 = load ptr, ptr %65, align 8
+  %67 = call ptr @stpcpy(ptr %59, ptr %66)
+  %68 = ptrtoint ptr %67 to i64
+  %69 = ptrtoint ptr %59 to i64
+  %70 = sub i64 %68, %69
+  %71 = shl i64 %70, 32
+  %72 = ashr exact i64 %71, 32
+  br label %87
 
-74:                                               ; preds = %59
-  %75 = load i32, ptr %5, align 4
-  %76 = getelementptr inbounds nuw i8, ptr %51, i64 32
-  %77 = load ptr, ptr %76, align 8
-  %78 = getelementptr inbounds nuw i8, ptr %51, i64 40
-  %79 = load i32, ptr %78, align 8
-  %80 = add i32 %79, %75
-  %81 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef %60, ptr noundef nonnull dereferenceable(1) @.str.51, ptr noundef %77, i32 noundef %80) #22
-  %82 = sext i32 %81 to i64
-  br label %88
+73:                                               ; preds = %58
+  %74 = load i32, ptr %5, align 4
+  %75 = getelementptr inbounds nuw i8, ptr %50, i64 32
+  %76 = load ptr, ptr %75, align 8
+  %77 = getelementptr inbounds nuw i8, ptr %50, i64 40
+  %78 = load i32, ptr %77, align 8
+  %79 = add i32 %78, %74
+  %80 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef %59, ptr noundef nonnull dereferenceable(1) @.str.51, ptr noundef %76, i32 noundef %79) #22
+  %81 = sext i32 %80 to i64
+  br label %87
 
-83:                                               ; preds = %55, %.preheader
-  %84 = getelementptr i8, ptr %2, i64 %41
-  %85 = sext i16 %.pre to i32
-  %86 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef %84, ptr noundef nonnull dereferenceable(1) @.str.51, ptr noundef %45, i32 noundef %85) #22
-  %87 = sext i32 %86 to i64
-  br label %88
+82:                                               ; preds = %54, %.preheader
+  %83 = getelementptr i8, ptr %2, i64 %42
+  %84 = sext i16 %.pre to i32
+  %85 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef %83, ptr noundef nonnull dereferenceable(1) @.str.51, ptr noundef %44, i32 noundef %84) #22
+  %86 = sext i32 %85 to i64
+  br label %87
 
-88:                                               ; preds = %83, %74, %65
-  %89 = phi i64 [ %87, %83 ], [ %73, %65 ], [ %82, %74 ]
-  %90 = add i64 %89, %41
-  %91 = getelementptr i8, ptr %2, i64 %90
-  %92 = icmp eq i32 %42, 0
-  %93 = select i1 %92, i8 10, i8 32
-  store i8 %93, ptr %91, align 1
-  %94 = getelementptr inbounds nuw i8, ptr %91, i64 1
-  store i8 0, ptr %94, align 1
-  %95 = add i64 %90, 1
+87:                                               ; preds = %82, %73, %64
+  %88 = phi i64 [ %86, %82 ], [ %72, %64 ], [ %81, %73 ]
+  %89 = add i64 %88, %42
+  %90 = getelementptr i8, ptr %2, i64 %89
+  %91 = icmp eq i64 %indvars.iv.next, 0
+  %92 = select i1 %91, i8 10, i8 32
+  store i8 %92, ptr %90, align 1
+  %93 = getelementptr inbounds nuw i8, ptr %90, i64 1
+  store i8 0, ptr %93, align 1
+  %94 = add i64 %89, 1
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #22
-  br i1 %92, label %.loopexit, label %.preheader, !llvm.loop !58
+  br i1 %91, label %.loopexit, label %.preheader, !llvm.loop !58
 
-.loopexit:                                        ; preds = %88, %.thread, %38
-  %96 = phi i64 [ 0, %38 ], [ 0, %.thread ], [ %95, %88 ]
+.loopexit:                                        ; preds = %87, %.thread, %38
+  %95 = phi i64 [ 0, %38 ], [ 0, %.thread ], [ %94, %87 ]
   call void @console_unlock() #22
   call void @console_list_unlock() #22
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %4) #22
-  ret i64 %96
+  ret i64 %95
 }
 
 ; Function Attrs: null_pointer_is_valid

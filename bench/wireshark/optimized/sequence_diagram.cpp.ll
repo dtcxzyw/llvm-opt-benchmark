@@ -3783,15 +3783,11 @@ _ZNK9QMultiMapId11WSCPSeqDataE10constBeginEv.exit.._crit_edge_crit_edge: ; preds
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 16
   %.sroa.0.0.i.i11 = select i1 %.not.i.i10, ptr null, ptr %29
   %.not = icmp eq ptr %27, %.sroa.0.0.i.i11
-  br i1 %.not, label %._crit_edge.loopexit, label %13, !llvm.loop !57
+  br i1 %.not, label %._crit_edge, label %13, !llvm.loop !57
 
-._crit_edge.loopexit:                             ; preds = %26
-  %30 = and i8 %.1, 1
-  br label %._crit_edge
-
-._crit_edge:                                      ; preds = %_ZNK9QMultiMapId11WSCPSeqDataE10constBeginEv.exit.._crit_edge_crit_edge, %._crit_edge.loopexit
-  %.fca.0.load = phi double [ %.fca.0.load.pre, %_ZNK9QMultiMapId11WSCPSeqDataE10constBeginEv.exit.._crit_edge_crit_edge ], [ %.fca.0.load21, %._crit_edge.loopexit ]
-  %.0.lcssa = phi i8 [ 0, %_ZNK9QMultiMapId11WSCPSeqDataE10constBeginEv.exit.._crit_edge_crit_edge ], [ %30, %._crit_edge.loopexit ]
+._crit_edge:                                      ; preds = %26, %_ZNK9QMultiMapId11WSCPSeqDataE10constBeginEv.exit.._crit_edge_crit_edge
+  %.fca.0.load = phi double [ %.fca.0.load.pre, %_ZNK9QMultiMapId11WSCPSeqDataE10constBeginEv.exit.._crit_edge_crit_edge ], [ %.fca.0.load21, %26 ]
+  %.0.lcssa = phi i8 [ 0, %_ZNK9QMultiMapId11WSCPSeqDataE10constBeginEv.exit.._crit_edge_crit_edge ], [ %.1, %26 ]
   store i8 %.0.lcssa, ptr %1, align 1
   %.fca.0.insert = insertvalue { double, double } poison, double %.fca.0.load, 0
   %.fca.1.gep = getelementptr inbounds nuw i8, ptr %4, i64 8

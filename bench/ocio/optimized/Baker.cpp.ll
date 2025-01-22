@@ -2555,7 +2555,7 @@ if.end188:                                        ; preds = %if.end188.critedge,
 land.lhs.true190:                                 ; preds = %if.end188.thread, %if.end188
   %foundView.2432 = phi i8 [ %138, %if.end188.thread ], [ %foundView.0, %if.end188 ]
   %foundDisplay.2431 = phi i8 [ 1, %if.end188.thread ], [ %foundDisplay.0, %if.end188 ]
-  %tobool191 = trunc i8 %foundView.2432 to i1
+  %tobool191 = trunc nuw i8 %foundView.2432 to i1
   br i1 %tobool191, label %for.end, label %for.inc
 
 for.inc:                                          ; preds = %if.end188, %land.lhs.true190
@@ -2633,7 +2633,7 @@ ehcleanup218:                                     ; preds = %ehcleanup214, %clea
   br label %ehcleanup471
 
 if.else:                                          ; preds = %for.end
-  %tobool219 = trunc i8 %foundView.1 to i1
+  %tobool219 = trunc nuw i8 %foundView.1 to i1
   br i1 %tobool219, label %if.end246, label %if.then220
 
 if.then220:                                       ; preds = %if.else

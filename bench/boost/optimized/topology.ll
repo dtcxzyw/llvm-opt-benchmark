@@ -39911,7 +39911,7 @@ _ZNSt8__detail9_ExecutorIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_st
 ._crit_edge:                                      ; preds = %82
   %65 = load i8, ptr %38, align 4, !range !99
   %66 = select i1 %45, i8 %65, i8 0
-  %.2 = or i8 %.012, %66
+  %.2 = or i8 %66, %.012
   %67 = load ptr, ptr %46, align 8, !tbaa !47
   %68 = load ptr, ptr %47, align 8, !tbaa !47
   %.not20 = icmp eq ptr %67, %68
@@ -40039,7 +40039,7 @@ _ZNSt6vectorISt4pairIlS_INSt7__cxx119sub_matchIN9__gnu_cxx17__normal_iteratorIPK
   %110 = phi i8 [ %.pre, %split ], [ %.pre, %_ZSt8_DestroyIPSt4pairIlSt6vectorINSt7__cxx119sub_matchIN9__gnu_cxx17__normal_iteratorIPKcNS2_12basic_stringIcSt11char_traitsIcESaIcEEEEEEESaISE_EEESH_EvT_SJ_RSaIT0_E.exit.i.i ], [ 0, %48 ]
   %111 = icmp eq i8 %1, 0
   %spec.select = select i1 %111, i8 %110, i8 %.129
-  %112 = trunc i8 %spec.select to i1
+  %112 = trunc nuw i8 %spec.select to i1
   ret i1 %112
 }
 

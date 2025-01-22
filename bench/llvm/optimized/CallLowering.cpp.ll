@@ -4272,7 +4272,7 @@ _ZNK4llvm3LLT19getScalarSizeInBitsEv.exit:        ; preds = %720
   br i1 %745, label %746, label %748
 
 746:                                              ; preds = %742
-  %747 = icmp ult i64 %.079.i.i.i, 3
+  %747 = icmp samesign ult i64 %.079.i.i.i, 3
   br i1 %747, label %_ZNK4llvm11CCValAssign8isMemLocEv.exit, label %748
 
 748:                                              ; preds = %746, %742
@@ -4412,7 +4412,7 @@ _ZNK4llvm11CCValAssign15getLocMemOffsetEv.exit:   ; preds = %_ZNK4llvm3LLT14getS
   br i1 %813, label %814, label %816
 
 814:                                              ; preds = %.preheader
-  %815 = icmp ult i64 %.079.i.i.i330, 3
+  %815 = icmp samesign ult i64 %.079.i.i.i330, 3
   br i1 %815, label %_ZNK4llvm11CCValAssign8isMemLocEv.exit334, label %816
 
 816:                                              ; preds = %814, %.preheader
@@ -7744,7 +7744,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm12CallLowering20parametersInCSRMat
   br i1 %16, label %17, label %19
 
 17:                                               ; preds = %13
-  %18 = icmp ult i64 %.079.i.i.i, 3
+  %18 = icmp samesign ult i64 %.079.i.i.i, 3
   br i1 %18, label %_ZNK4llvm11CCValAssign8isRegLocEv.exit, label %19
 
 19:                                               ; preds = %17, %13
@@ -7896,7 +7896,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm12CallLowering17resultsCompatibleE
   br i1 %51, label %52, label %54
 
 52:                                               ; preds = %48
-  %53 = icmp ult i64 %.079.i.i.i, 3
+  %53 = icmp samesign ult i64 %.079.i.i.i, 3
   br i1 %53, label %_ZNK4llvm11CCValAssign8isRegLocEv.exit, label %54
 
 54:                                               ; preds = %52, %48
@@ -7922,7 +7922,7 @@ _ZNK4llvm11CCValAssign8isRegLocEv.exit:           ; preds = %52, %54
   br i1 %63, label %64, label %66
 
 64:                                               ; preds = %60
-  %65 = icmp ult i64 %.079.i.i.i36, 3
+  %65 = icmp samesign ult i64 %.079.i.i.i36, 3
   br i1 %65, label %_ZNK4llvm11CCValAssign8isRegLocEv.exit40, label %66
 
 66:                                               ; preds = %64, %60
@@ -7947,7 +7947,7 @@ _ZNK4llvm11CCValAssign8isRegLocEv.exit40:         ; preds = %64, %66
   br i1 %73, label %74, label %76
 
 74:                                               ; preds = %.preheader
-  %75 = icmp ult i64 %.079.i.i.i42, 3
+  %75 = icmp samesign ult i64 %.079.i.i.i42, 3
   br i1 %75, label %_ZNK4llvm11CCValAssign8isRegLocEv.exit46, label %76
 
 76:                                               ; preds = %74, %.preheader

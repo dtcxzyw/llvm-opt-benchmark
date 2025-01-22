@@ -32377,11 +32377,11 @@ for.body.i:                                       ; preds = %for.inc.i, %for.bod
   br i1 %tobool.not.i, label %if.then.i, label %for.inc.i
 
 if.then.i:                                        ; preds = %for.body.i
-  %inc.i = add i64 %count.017.i, 1
+  %inc.i = add nuw nsw i64 %count.017.i, 1
   %conv.i.i = trunc i64 %19 to i32
   %arrayidx.i.i = getelementptr inbounds i32, ptr %18, i64 %count.017.i
   store i32 %conv.i.i, ptr %arrayidx.i.i, align 4, !tbaa !30
-  %cmp4.i = icmp ugt i64 %inc.i, 2047
+  %cmp4.i = icmp ugt i64 %count.017.i, 2046
   br i1 %cmp4.i, label %_ZN6duckdb22IEJoinLocalSourceState15SelectOuterRowsEPb.exit.thread300, label %for.inc.i
 
 _ZN6duckdb22IEJoinLocalSourceState15SelectOuterRowsEPb.exit.thread300: ; preds = %if.then.i
@@ -32392,11 +32392,11 @@ _ZN6duckdb22IEJoinLocalSourceState15SelectOuterRowsEPb.exit.thread300: ; preds =
 for.inc.i:                                        ; preds = %if.then.i, %for.body.i
   %count.1.i = phi i64 [ %count.017.i, %for.body.i ], [ %inc.i, %if.then.i ]
   %inc10.i = add i64 %19, 1
-  store i64 %inc10.i, ptr %outer_idx.i, align 8, !tbaa !1151
   %exitcond.not.i = icmp eq i64 %inc10.i, %17
   br i1 %exitcond.not.i, label %_ZN6duckdb22IEJoinLocalSourceState15SelectOuterRowsEPb.exit, label %for.body.i, !llvm.loop !1152
 
 _ZN6duckdb22IEJoinLocalSourceState15SelectOuterRowsEPb.exit: ; preds = %for.inc.i
+  store i64 %inc10.i, ptr %outer_idx.i, align 8, !tbaa !1151
   %tobool25.not = icmp eq i64 %count.1.i, 0
   br i1 %tobool25.not, label %cleanup, label %if.end28
 
@@ -32550,11 +32550,11 @@ for.body.i187:                                    ; preds = %for.inc.i191, %for.
   br i1 %tobool.not.i190, label %if.then.i195, label %for.inc.i191
 
 if.then.i195:                                     ; preds = %for.body.i187
-  %inc.i196 = add i64 %count.017.i188, 1
+  %inc.i196 = add nuw nsw i64 %count.017.i188, 1
   %conv.i.i197 = trunc i64 %41 to i32
   %arrayidx.i.i198 = getelementptr inbounds i32, ptr %40, i64 %count.017.i188
   store i32 %conv.i.i197, ptr %arrayidx.i.i198, align 4, !tbaa !30
-  %cmp4.i199 = icmp ugt i64 %inc.i196, 2047
+  %cmp4.i199 = icmp ugt i64 %count.017.i188, 2046
   br i1 %cmp4.i199, label %_ZN6duckdb22IEJoinLocalSourceState15SelectOuterRowsEPb.exit202.thread307, label %for.inc.i191
 
 _ZN6duckdb22IEJoinLocalSourceState15SelectOuterRowsEPb.exit202.thread307: ; preds = %if.then.i195
@@ -32565,11 +32565,11 @@ _ZN6duckdb22IEJoinLocalSourceState15SelectOuterRowsEPb.exit202.thread307: ; pred
 for.inc.i191:                                     ; preds = %if.then.i195, %for.body.i187
   %count.1.i192 = phi i64 [ %count.017.i188, %for.body.i187 ], [ %inc.i196, %if.then.i195 ]
   %inc10.i193 = add i64 %41, 1
-  store i64 %inc10.i193, ptr %outer_idx.i180, align 8, !tbaa !1151
   %exitcond.not.i194 = icmp eq i64 %inc10.i193, %39
   br i1 %exitcond.not.i194, label %_ZN6duckdb22IEJoinLocalSourceState15SelectOuterRowsEPb.exit202, label %for.body.i187, !llvm.loop !1152
 
 _ZN6duckdb22IEJoinLocalSourceState15SelectOuterRowsEPb.exit202: ; preds = %for.inc.i191
+  store i64 %inc10.i193, ptr %outer_idx.i180, align 8, !tbaa !1151
   %tobool45.not = icmp eq i64 %count.1.i192, 0
   br i1 %tobool45.not, label %cleanup71, label %if.end48
 

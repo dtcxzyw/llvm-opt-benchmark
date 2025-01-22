@@ -314,9 +314,9 @@ clone_graph.exit.i:                               ; preds = %._crit_edge66.i.i, 
   br i1 %137, label %143, label %138
 
 138:                                              ; preds = %134
-  %139 = shl i64 %.sroa.13.4.i, 3
+  %139 = shl nuw i64 %.sroa.13.4.i, 3
   %140 = getelementptr inbounds i8, ptr %136, i64 %139
-  %141 = sub i64 %spec.select.i.i59.i, %.sroa.13.4.i
+  %141 = sub nsw i64 %spec.select.i.i59.i, %.sroa.13.4.i
   %142 = shl i64 %141, 3
   call void @llvm.memset.p0.i64(ptr nonnull align 1 %140, i8 0, i64 %142, i1 false)
   br label %deglist_append.exit63.i

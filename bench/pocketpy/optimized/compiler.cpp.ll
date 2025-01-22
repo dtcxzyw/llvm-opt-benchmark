@@ -26101,7 +26101,7 @@ define noundef nonnull ptr @_ZN4pkpy8Compiler9to_objectERKSt7variantIJSt9monosta
   br i1 %16, label %17, label %19
 
 17:                                               ; preds = %13
-  %18 = icmp ult i64 %.079.i.i, 4
+  %18 = icmp samesign ult i64 %.079.i.i, 4
   br i1 %18, label %_ZSt17holds_alternativeIlJSt9monostateldN4pkpy3StrEEEbRKSt7variantIJDpT0_EE.exit, label %19
 
 19:                                               ; preds = %17, %13
@@ -26178,7 +26178,7 @@ _ZN4pkpy6py_varIRKlEEPNS_8PyObjectEPNS_2VMEOT_.exit: ; preds = %32, %36
   br i1 %44, label %45, label %47
 
 45:                                               ; preds = %41
-  %46 = icmp ult i64 %.079.i.i27, 4
+  %46 = icmp samesign ult i64 %.079.i.i27, 4
   br i1 %46, label %_ZSt17holds_alternativeIdJSt9monostateldN4pkpy3StrEEEbRKSt7variantIJDpT0_EE.exit, label %47
 
 47:                                               ; preds = %45, %41
@@ -26240,7 +26240,7 @@ _ZSt3getIdJSt9monostateldN4pkpy3StrEEERKT_RKSt7variantIJDpT0_EE.exit: ; preds = 
   br i1 %67, label %68, label %70
 
 68:                                               ; preds = %64
-  %69 = icmp ult i64 %.079.i.i34, 4
+  %69 = icmp samesign ult i64 %.079.i.i34, 4
   br i1 %69, label %_ZSt17holds_alternativeIN4pkpy3StrEJSt9monostateldS1_EEbRKSt7variantIJDpT0_EE.exit, label %70
 
 70:                                               ; preds = %68, %64

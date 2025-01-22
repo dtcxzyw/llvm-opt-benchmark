@@ -2426,8 +2426,8 @@ pathmatch.exit.thread102:                         ; preds = %43, %pathmatch.exit
   %142 = getelementptr inbounds nuw i8, ptr %70, i64 60
   store i32 %141, ptr %142, align 4
   store ptr %.063129, ptr %70, align 8
-  %143 = add i64 %.065128, 1
-  %144 = icmp ugt i64 %143, 149
+  %143 = add nuw nsw i64 %.065128, 1
+  %144 = icmp ugt i64 %.065128, 148
   br i1 %144, label %145, label %pathmatch.exit.thread
 
 145:                                              ; preds = %121
@@ -2460,7 +2460,7 @@ pathmatch.exit.thread:                            ; preds = %53, %46, %pathmatch
   %.164115 = phi ptr [ %.2, %._crit_edge ], [ %70, %150 ], [ %70, %146 ], [ %70, %145 ]
   %.166114 = phi i64 [ %.267, %._crit_edge ], [ %143, %150 ], [ %143, %146 ], [ %143, %145 ]
   %151 = load ptr, ptr @Curl_cmalloc, align 8
-  %152 = shl i64 %.166114, 3
+  %152 = shl nsw i64 %.166114, 3
   %153 = tail call ptr %151(i64 noundef %152) #12
   %.not86 = icmp eq ptr %153, null
   br i1 %.not86, label %dup_cookie.exit.thread, label %.preheader
@@ -2482,7 +2482,7 @@ pathmatch.exit.thread:                            ; preds = %53, %46, %pathmatch
 ._crit_edge136:                                   ; preds = %.lr.ph135, %.preheader
   tail call void @qsort(ptr noundef nonnull %153, i64 noundef %.166114, i64 noundef 8, ptr noundef nonnull @cookie_sort) #12
   %157 = load ptr, ptr %153, align 8
-  %158 = add i64 %.166114, -1
+  %158 = add nsw i64 %.166114, -1
   %.not142 = icmp eq i64 %158, 0
   br i1 %.not142, label %._crit_edge140, label %.lr.ph139
 

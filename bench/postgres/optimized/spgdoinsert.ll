@@ -3977,7 +3977,7 @@ saveNodeLink.exit:                                ; preds = %.lr.ph.i.i
   %169 = getelementptr inbounds nuw i8, ptr %168, i64 114
   %170 = load i8, ptr %169, align 2
   %171 = icmp eq i8 %170, 112
-  br i1 %171, label %172, label %222
+  br i1 %171, label %172, label %221
 
 172:                                              ; preds = %saveNodeLink.exit
   %173 = load i32, ptr @wal_level, align 4
@@ -3988,18 +3988,18 @@ saveNodeLink.exit:                                ; preds = %.lr.ph.i.i
   %176 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %177 = load i32, ptr %176, align 8
   %178 = icmp eq i32 %177, 0
-  br i1 %178, label %179, label %222
+  br i1 %178, label %179, label %221
 
 179:                                              ; preds = %175
   %180 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %181 = load i32, ptr %180, align 8
   %182 = icmp eq i32 %181, 0
-  br i1 %182, label %183, label %222
+  br i1 %182, label %183, label %221
 
 183:                                              ; preds = %179, %172
   %184 = load i8, ptr %124, align 4
   %185 = trunc i8 %184 to i1
-  br i1 %185, label %222, label %186
+  br i1 %185, label %221, label %186
 
 186:                                              ; preds = %183
   %187 = getelementptr inbounds nuw i8, ptr %1, i64 88
@@ -4012,58 +4012,57 @@ saveNodeLink.exit:                                ; preds = %.lr.ph.i.i
   %192 = trunc i32 %.0111.lcssa to i16
   store i16 %192, ptr %8, align 4
   %193 = getelementptr inbounds nuw i8, ptr %8, i64 3
-  %194 = and i8 %.0121.lcssa, 1
-  store i8 %194, ptr %193, align 1
-  %195 = getelementptr inbounds nuw i8, ptr %8, i64 4
-  store i8 %9, ptr %195, align 4
-  %196 = load i16, ptr %130, align 8
-  %197 = getelementptr inbounds nuw i8, ptr %8, i64 6
-  store i16 %196, ptr %197, align 2
-  %198 = load i32, ptr %139, align 4
-  %199 = trunc i32 %198 to i16
-  %200 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store i16 %199, ptr %200, align 4
+  store i8 %.0121.lcssa, ptr %193, align 1
+  %194 = getelementptr inbounds nuw i8, ptr %8, i64 4
+  store i8 %9, ptr %194, align 4
+  %195 = load i16, ptr %130, align 8
+  %196 = getelementptr inbounds nuw i8, ptr %8, i64 6
+  store i16 %195, ptr %196, align 2
+  %197 = load i32, ptr %139, align 4
+  %198 = trunc i32 %197 to i16
+  %199 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  store i16 %198, ptr %199, align 4
   call void @XLogBeginInsert() #10
   call void @XLogRegisterData(ptr noundef nonnull %8, i32 noundef 20) #10
-  %201 = shl i32 %.0111.lcssa, 1
-  call void @XLogRegisterData(ptr noundef %19, i32 noundef %201) #10
-  %202 = shl nuw i32 %.0113, 1
-  %203 = add i32 %202, 2
-  call void @XLogRegisterData(ptr noundef %22, i32 noundef %203) #10
-  %204 = ptrtoint ptr %122 to i64
-  %205 = ptrtoint ptr %73 to i64
-  %206 = sub i64 %204, %205
-  %207 = trunc i64 %206 to i32
-  call void @XLogRegisterData(ptr noundef %73, i32 noundef %207) #10
-  %208 = load i32, ptr %165, align 4
-  call void @XLogRegisterBuffer(i8 noundef zeroext 0, i32 noundef %208, i8 noundef zeroext 8) #10
-  %209 = load i8, ptr %56, align 2
-  %210 = trunc i8 %209 to i1
-  %211 = select i1 %210, i8 14, i8 8
-  call void @XLogRegisterBuffer(i8 noundef zeroext 1, i32 noundef %57, i8 noundef zeroext %211) #10
-  %212 = load i32, ptr %163, align 4
-  call void @XLogRegisterBuffer(i8 noundef zeroext 2, i32 noundef %212, i8 noundef zeroext 8) #10
-  %213 = call i64 @XLogInsert(i8 noundef zeroext 16, i8 noundef zeroext 32) #10
-  %214 = load ptr, ptr %10, align 8
-  %215 = lshr i64 %213, 32
-  %216 = trunc nuw i64 %215 to i32
-  store i32 %216, ptr %214, align 4
-  %217 = trunc i64 %213 to i32
-  %218 = getelementptr inbounds nuw i8, ptr %214, i64 4
-  store i32 %217, ptr %218, align 4
-  store i32 %216, ptr %.0.i.i, align 4
-  %219 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 4
-  store i32 %217, ptr %219, align 4
-  %220 = load ptr, ptr %128, align 8
+  %200 = shl i32 %.0111.lcssa, 1
+  call void @XLogRegisterData(ptr noundef %19, i32 noundef %200) #10
+  %201 = shl nuw i32 %.0113, 1
+  %202 = add i32 %201, 2
+  call void @XLogRegisterData(ptr noundef %22, i32 noundef %202) #10
+  %203 = ptrtoint ptr %122 to i64
+  %204 = ptrtoint ptr %73 to i64
+  %205 = sub i64 %203, %204
+  %206 = trunc i64 %205 to i32
+  call void @XLogRegisterData(ptr noundef %73, i32 noundef %206) #10
+  %207 = load i32, ptr %165, align 4
+  call void @XLogRegisterBuffer(i8 noundef zeroext 0, i32 noundef %207, i8 noundef zeroext 8) #10
+  %208 = load i8, ptr %56, align 2
+  %209 = trunc i8 %208 to i1
+  %210 = select i1 %209, i8 14, i8 8
+  call void @XLogRegisterBuffer(i8 noundef zeroext 1, i32 noundef %57, i8 noundef zeroext %210) #10
+  %211 = load i32, ptr %163, align 4
+  call void @XLogRegisterBuffer(i8 noundef zeroext 2, i32 noundef %211, i8 noundef zeroext 8) #10
+  %212 = call i64 @XLogInsert(i8 noundef zeroext 16, i8 noundef zeroext 32) #10
+  %213 = load ptr, ptr %10, align 8
+  %214 = lshr i64 %212, 32
+  %215 = trunc nuw i64 %214 to i32
+  store i32 %215, ptr %213, align 4
+  %216 = trunc i64 %212 to i32
+  %217 = getelementptr inbounds nuw i8, ptr %213, i64 4
+  store i32 %216, ptr %217, align 4
+  store i32 %215, ptr %.0.i.i, align 4
+  %218 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 4
+  store i32 %216, ptr %218, align 4
+  %219 = load ptr, ptr %128, align 8
+  store i32 %215, ptr %219, align 4
+  %220 = getelementptr inbounds nuw i8, ptr %219, i64 4
   store i32 %216, ptr %220, align 4
-  %221 = getelementptr inbounds nuw i8, ptr %220, i64 4
-  store i32 %217, ptr %221, align 4
-  br label %222
+  br label %221
 
-222:                                              ; preds = %saveNodeLink.exit, %175, %179, %183, %186
-  %223 = load volatile i32, ptr @CritSectionCount, align 4
-  %224 = add i32 %223, -1
-  store volatile i32 %224, ptr @CritSectionCount, align 4
+221:                                              ; preds = %saveNodeLink.exit, %175, %179, %183, %186
+  %222 = load volatile i32, ptr @CritSectionCount, align 4
+  %223 = add i32 %222, -1
+  store volatile i32 %223, ptr @CritSectionCount, align 4
   call void @SpGistSetLastUsedPage(ptr noundef nonnull %0, i32 noundef %57) #10
   call void @UnlockReleaseBuffer(i32 noundef %57) #10
   ret void

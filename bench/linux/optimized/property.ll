@@ -750,8 +750,8 @@ define internal fastcc zeroext i1 @acpi_enumerate_nondev_subnodes(ptr noundef %0
   %17 = load ptr, ptr %12, align 8
   br label %18
 
-18:                                               ; preds = %110, %11
-  %19 = phi i32 [ 0, %11 ], [ %111, %110 ]
+18:                                               ; preds = %108, %11
+  %19 = phi i32 [ 0, %11 ], [ %109, %108 ]
   %20 = sext i32 %19 to i64
   %21 = getelementptr %union.acpi_object, ptr %17, i64 %20
   %22 = or disjoint i32 %19, 1
@@ -777,7 +777,7 @@ define internal fastcc zeroext i1 @acpi_enumerate_nondev_subnodes(ptr noundef %0
   %36 = load ptr, ptr %35, align 8
   %37 = tail call i32 @bcmp(ptr noundef dereferenceable(16) %36, ptr noundef nonnull dereferenceable(16) @ads_guid, i64 16)
   %38 = icmp eq i32 %37, 0
-  br i1 %38, label %39, label %110
+  br i1 %38, label %39, label %108
 
 39:                                               ; preds = %34
   %40 = getelementptr inbounds nuw i8, ptr %24, i64 4
@@ -789,24 +789,24 @@ define internal fastcc zeroext i1 @acpi_enumerate_nondev_subnodes(ptr noundef %0
   %44 = getelementptr inbounds nuw i8, ptr %24, i64 8
   br label %45
 
-45:                                               ; preds = %103, %43
-  %46 = phi i32 [ %41, %43 ], [ %104, %103 ]
-  %47 = phi i32 [ 0, %43 ], [ %106, %103 ]
-  %48 = phi i8 [ 0, %43 ], [ %105, %103 ]
+45:                                               ; preds = %102, %43
+  %46 = phi i32 [ %41, %43 ], [ %103, %102 ]
+  %47 = phi i32 [ 0, %43 ], [ %105, %102 ]
+  %48 = phi i8 [ 0, %43 ], [ %104, %102 ]
   %49 = load ptr, ptr %44, align 8
   %50 = sext i32 %47 to i64
   %51 = getelementptr %union.acpi_object, ptr %49, i64 %50
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 4
   %53 = load i32, ptr %52, align 4
   %54 = icmp eq i32 %53, 2
-  br i1 %54, label %55, label %103
+  br i1 %54, label %55, label %102
 
 55:                                               ; preds = %45
   %56 = getelementptr inbounds nuw i8, ptr %51, i64 8
   %57 = load ptr, ptr %56, align 8
   %58 = load i32, ptr %57, align 8
   %59 = icmp eq i32 %58, 2
-  br i1 %59, label %60, label %103
+  br i1 %59, label %60, label %102
 
 60:                                               ; preds = %55
   %61 = getelementptr i8, ptr %57, i64 24
@@ -890,33 +890,31 @@ define internal fastcc zeroext i1 @acpi_enumerate_nondev_subnodes(ptr noundef %0
 
 97:                                               ; preds = %95, %93, %81, %60
   %98 = phi i1 [ %96, %95 ], [ %94, %93 ], [ %82, %81 ], [ false, %60 ]
-  %99 = and i8 %48, 1
-  %100 = icmp ne i8 %99, 0
-  %101 = or i1 %100, %98
-  %102 = zext i1 %101 to i8
+  %99 = icmp ne i8 %48, 0
+  %100 = or i1 %99, %98
+  %101 = zext i1 %100 to i8
   %.pre = load i32, ptr %40, align 4
-  br label %103
+  br label %102
 
-103:                                              ; preds = %97, %55, %45
-  %104 = phi i32 [ %.pre, %97 ], [ %46, %45 ], [ %46, %55 ]
-  %105 = phi i8 [ %102, %97 ], [ %48, %45 ], [ %48, %55 ]
-  %106 = add nuw i32 %47, 1
-  %107 = icmp ult i32 %106, %104
-  br i1 %107, label %45, label %.thread3.loopexit, !llvm.loop !17
+102:                                              ; preds = %97, %55, %45
+  %103 = phi i32 [ %.pre, %97 ], [ %46, %45 ], [ %46, %55 ]
+  %104 = phi i8 [ %101, %97 ], [ %48, %45 ], [ %48, %55 ]
+  %105 = add nuw i32 %47, 1
+  %106 = icmp ult i32 %105, %103
+  br i1 %106, label %45, label %.thread3.loopexit, !llvm.loop !17
 
-.thread3.loopexit:                                ; preds = %103
-  %108 = and i8 %105, 1
-  %109 = icmp ne i8 %108, 0
+.thread3.loopexit:                                ; preds = %102
+  %107 = icmp ne i8 %104, 0
   br label %.thread
 
-110:                                              ; preds = %34
-  %111 = add i32 %19, 2
-  %112 = icmp ult i32 %111, %9
-  br i1 %112, label %18, label %.thread, !llvm.loop !18
+108:                                              ; preds = %34
+  %109 = add i32 %19, 2
+  %110 = icmp ult i32 %109, %9
+  br i1 %110, label %18, label %.thread, !llvm.loop !18
 
-.thread:                                          ; preds = %18, %27, %31, %110, %39, %.thread3.loopexit, %4
-  %113 = phi i1 [ false, %4 ], [ false, %39 ], [ %109, %.thread3.loopexit ], [ false, %110 ], [ false, %31 ], [ false, %27 ], [ false, %18 ]
-  ret i1 %113
+.thread:                                          ; preds = %18, %27, %31, %108, %39, %.thread3.loopexit, %4
+  %111 = phi i1 [ false, %4 ], [ false, %39 ], [ %107, %.thread3.loopexit ], [ false, %108 ], [ false, %31 ], [ false, %27 ], [ false, %18 ]
+  ret i1 %111
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

@@ -39910,13 +39910,13 @@ _ZNK2OT7ArrayOfINS_15BitmapSizeTableENS_7IntTypeIjLj4EEEEixEi.exit40: ; preds = 
   %72 = tail call i8 @llvm.umax.i8(i8 %70, i8 %71)
   %73 = zext i8 %72 to i32
   %.not28 = icmp ule i32 %spec.store.select, %73
-  %74 = icmp ugt i32 %.02249, %73
+  %74 = icmp samesign ugt i32 %.02249, %73
   %or.cond = select i1 %.not28, i1 %74, i1 false
   br i1 %or.cond, label %78, label %75
 
 75:                                               ; preds = %_ZNK2OT7ArrayOfINS_15BitmapSizeTableENS_7IntTypeIjLj4EEEEixEi.exit40
   %76 = icmp ugt i32 %spec.store.select, %.02249
-  %77 = icmp ult i32 %.02249, %73
+  %77 = icmp samesign ult i32 %.02249, %73
   %or.cond29 = and i1 %76, %77
   br i1 %or.cond29, label %78, label %80
 

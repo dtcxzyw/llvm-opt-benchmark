@@ -52,13 +52,13 @@ define dso_local zeroext i1 @trace_event_dyn_try_get_ref(ptr noundef %0) local_u
   tail call void asm sideeffect "392: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 392b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 392) #9, !srcloc !6
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 27, i32 2307, i64 12) #9, !srcloc !7
   tail call void asm sideeffect "393: nop\0A\09.pushsection .discard.instr_end\0A\09.long 393b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 393) #9, !srcloc !8
-  br label %26
+  br label %25
 
 7:                                                ; preds = %1
   tail call void @down_read(ptr noundef nonnull @trace_event_sem) #9
   %8 = load ptr, ptr @ftrace_events, align 8
   %9 = icmp eq ptr %8, @ftrace_events
-  br i1 %9, label %24, label %10
+  br i1 %9, label %23, label %10
 
 10:                                               ; preds = %7
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -81,18 +81,17 @@ define dso_local zeroext i1 @trace_event_dyn_try_get_ref(ptr noundef %0) local_u
   br i1 %20, label %21, label %12, !llvm.loop !10
 
 21:                                               ; preds = %17
-  %22 = and i8 %18, 1
-  %23 = icmp ne i8 %22, 0
-  br label %24
+  %22 = icmp ne i8 %18, 0
+  br label %23
 
-24:                                               ; preds = %21, %7
-  %25 = phi i1 [ false, %7 ], [ %23, %21 ]
+23:                                               ; preds = %21, %7
+  %24 = phi i1 [ false, %7 ], [ %22, %21 ]
   tail call void @up_read(ptr noundef nonnull @trace_event_sem) #9
-  br label %26
+  br label %25
 
-26:                                               ; preds = %24, %6
-  %27 = phi i1 [ %25, %24 ], [ false, %6 ]
-  ret i1 %27
+25:                                               ; preds = %23, %6
+  %26 = phi i1 [ %24, %23 ], [ false, %6 ]
+  ret i1 %26
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)

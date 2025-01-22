@@ -57064,7 +57064,7 @@ for.body.us:                                      ; preds = %if.then43, %for.inc
   %arrayidx.i.us = getelementptr i8, ptr %retval.0.i, i64 %cur.075.us
   %12 = load i8, ptr %arrayidx.i.us, align 1
   %conv.i45.us = zext i8 %12 to i32
-  %cmp47.us = icmp ult i32 %max_char.077.us, %conv.i45.us
+  %cmp47.us = icmp samesign ult i32 %max_char.077.us, %conv.i45.us
   br i1 %cmp47.us, label %if.then48.us, label %for.inc.us
 
 if.then48.us:                                     ; preds = %for.body.us
@@ -57085,7 +57085,7 @@ for.body.us81:                                    ; preds = %if.then43, %for.inc
   %arrayidx4.i.us = getelementptr i16, ptr %retval.0.i, i64 %cur.075.us84
   %13 = load i16, ptr %arrayidx4.i.us, align 2
   %conv5.i.us = zext i16 %13 to i32
-  %cmp47.us87 = icmp ult i32 %max_char.077.us82, %conv5.i.us
+  %cmp47.us87 = icmp samesign ult i32 %max_char.077.us82, %conv5.i.us
   br i1 %cmp47.us87, label %if.then48.us88, label %for.inc.us90
 
 if.then48.us88:                                   ; preds = %for.body.us81

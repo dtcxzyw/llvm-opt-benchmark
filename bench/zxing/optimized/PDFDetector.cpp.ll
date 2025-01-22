@@ -2251,7 +2251,7 @@ _ZNK5ZXing9BitMatrix3getEii.exit:                 ; preds = %_ZNK5ZXing9BitMatri
   br i1 %.not.i.i.i.i74, label %_ZNK5ZXing9BitMatrix3getEii.exit, label %._crit_edge, !llvm.loop !31
 
 55:                                               ; preds = %.lr.ph, %.critedge
-  %.059130 = phi i1 [ false, %.lr.ph ], [ %.1, %.critedge ]
+  %.059130 = phi i8 [ 0, %.lr.ph ], [ %.1, %.critedge ]
   %.161129 = phi i32 [ %44, %.lr.ph ], [ %.3, %.critedge ]
   %.063126 = phi i32 [ %44, %.lr.ph ], [ %134, %.critedge ]
   %.064125 = phi i32 [ 0, %.lr.ph ], [ %.266, %.critedge ]
@@ -2275,8 +2275,9 @@ _ZNK5ZXing9BitMatrix3getEii.exit76:               ; preds = %55
   %66 = getelementptr inbounds i8, ptr %61, i64 %59
   %67 = load i8, ptr %66, align 1
   %68 = icmp ne i8 %67, 0
-  %69 = xor i1 %.059130, %68
-  br i1 %69, label %70, label %76
+  %69 = zext i1 %68 to i8
+  %.not = icmp eq i8 %.059130, %69
+  br i1 %.not, label %76, label %70
 
 70:                                               ; preds = %_ZNK5ZXing9BitMatrix3getEii.exit76
   %71 = sext i32 %.064125 to i64
@@ -2400,13 +2401,13 @@ _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.ex
   %131 = load ptr, ptr %5, align 8
   %132 = getelementptr inbounds i32, ptr %131, i64 %130
   store i32 1, ptr %132, align 4
-  %133 = xor i1 %.059130, true
+  %133 = xor i8 %.059130, 1
   br label %.critedge
 
 .critedge:                                        ; preds = %70, %129
   %.266 = phi i32 [ %.064125, %70 ], [ %.165, %129 ]
   %.3 = phi i32 [ %.161129, %70 ], [ %.2, %129 ]
-  %.1 = phi i1 [ %.059130, %70 ], [ %133, %129 ]
+  %.1 = phi i8 [ %.059130, %70 ], [ %133, %129 ]
   %134 = add i32 %.063126, 1
   %exitcond.not = icmp eq i32 %134, %3
   br i1 %exitcond.not, label %.critedge._crit_edge, label %55, !llvm.loop !34

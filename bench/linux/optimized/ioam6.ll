@@ -2360,8 +2360,8 @@ define internal fastcc range(i32 -2, 1) i32 @rhashtable_remove_fast(ptr noundef 
   %22 = zext i16 %8 to i64
   br label %23
 
-23:                                               ; preds = %.thread12, %3
-  %24 = phi ptr [ %11, %3 ], [ %152, %.thread12 ]
+23:                                               ; preds = %.thread13, %3
+  %24 = phi ptr [ %11, %3 ], [ %153, %.thread13 ]
   %25 = load i16, ptr %12, align 2
   %26 = zext i16 %25 to i64
   %27 = sub nsw i64 0, %26
@@ -2415,7 +2415,7 @@ define internal fastcc range(i32 -2, 1) i32 @rhashtable_remove_fast(ptr noundef 
 59:                                               ; preds = %55, %53
   %60 = phi ptr [ %54, %53 ], [ %58, %55 ]
   %61 = icmp eq ptr %60, null
-  br i1 %61, label %.thread12, label %62
+  br i1 %61, label %.thread13, label %62
 
 62:                                               ; preds = %59
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #16
@@ -2430,7 +2430,7 @@ define internal fastcc range(i32 -2, 1) i32 @rhashtable_remove_fast(ptr noundef 
   %65 = icmp ult i8 %64, 2
   call void @llvm.assume(i1 %65)
   %66 = icmp eq i8 %64, 0
-  br i1 %66, label %.loopexit13, label %.preheader, !prof !30
+  br i1 %66, label %.loopexit14, label %.preheader, !prof !30
 
 .preheader:                                       ; preds = %62, %77
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !31
@@ -2438,18 +2438,18 @@ define internal fastcc range(i32 -2, 1) i32 @rhashtable_remove_fast(ptr noundef 
   %68 = icmp ult i8 %67, 2
   call void @llvm.assume(i1 %68)
   %69 = icmp eq i8 %67, 0
-  br i1 %69, label %.preheader62, label %70, !prof !6
+  br i1 %69, label %.preheader63, label %70, !prof !6
 
 70:                                               ; preds = %.preheader
   %71 = call i64 @llvm.read_register.i64(metadata !0)
   %72 = call i64 asm sideeffect "call __SCT__preempt_schedule", "={rsp},{rsp},~{dirflag},~{fpsr},~{flags}"(i64 %71) #16, !srcloc !33
   call void @llvm.write_register.i64(metadata !0, i64 %72)
-  br label %.preheader62
+  br label %.preheader63
 
-.preheader62:                                     ; preds = %70, %.preheader
+.preheader63:                                     ; preds = %70, %.preheader
   br label %73
 
-73:                                               ; preds = %.preheader62, %73
+73:                                               ; preds = %.preheader63, %73
   call void asm sideeffect "rep; nop", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !34
   %74 = load volatile i64, ptr %60, align 8
   %75 = and i64 %74, 1
@@ -2463,9 +2463,9 @@ define internal fastcc range(i32 -2, 1) i32 @rhashtable_remove_fast(ptr noundef 
   %79 = icmp ult i8 %78, 2
   call void @llvm.assume(i1 %79)
   %80 = icmp eq i8 %78, 0
-  br i1 %80, label %.loopexit13, label %.preheader, !prof !37, !llvm.loop !38
+  br i1 %80, label %.loopexit14, label %.preheader, !prof !37, !llvm.loop !38
 
-.loopexit13:                                      ; preds = %77, %62
+.loopexit14:                                      ; preds = %77, %62
   %81 = load ptr, ptr %60, align 8
   %82 = ptrtoint ptr %81 to i64
   %83 = and i64 %82, -2
@@ -2477,14 +2477,14 @@ define internal fastcc range(i32 -2, 1) i32 @rhashtable_remove_fast(ptr noundef 
   %89 = icmp eq i64 %88, 0
   br i1 %89, label %90, label %.loopexit
 
-90:                                               ; preds = %.loopexit13
+90:                                               ; preds = %.loopexit14
   %91 = inttoptr i64 %87 to ptr
   %92 = icmp eq ptr %1, %91
   br i1 %92, label %._crit_edge.thread, label %.lr.ph
 
 ._crit_edge.thread:                               ; preds = %90
-  %.lcssa15.in43 = and i64 %63, 512
-  %.lcssa1544 = icmp eq i64 %.lcssa15.in43, 0
+  %.lcssa16.in44 = and i64 %63, 512
+  %.lcssa1645 = icmp eq i64 %.lcssa16.in44, 0
   %93 = load ptr, ptr %1, align 8
   br label %107
 
@@ -2493,8 +2493,8 @@ define internal fastcc range(i32 -2, 1) i32 @rhashtable_remove_fast(ptr noundef 
   br i1 %95, label %._crit_edge, label %.lr.ph, !llvm.loop !49
 
 ._crit_edge:                                      ; preds = %94
-  %.lcssa15.in = and i64 %63, 512
-  %.lcssa15 = icmp eq i64 %.lcssa15.in, 0
+  %.lcssa16.in = and i64 %63, 512
+  %.lcssa16 = icmp eq i64 %.lcssa16.in, 0
   %96 = load ptr, ptr %1, align 8
   %97 = icmp eq ptr %121, null
   br i1 %97, label %107, label %98
@@ -2518,15 +2518,15 @@ define internal fastcc range(i32 -2, 1) i32 @rhashtable_remove_fast(ptr noundef 
   br label %105
 
 105:                                              ; preds = %102, %98
-  br i1 %.lcssa15, label %.thread9, label %106
+  br i1 %.lcssa16, label %136, label %106
 
 106:                                              ; preds = %105
   call void asm sideeffect "sti", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !43
-  br label %.thread9
+  br label %136
 
 107:                                              ; preds = %._crit_edge.thread, %._crit_edge
   %108 = phi ptr [ %93, %._crit_edge.thread ], [ %96, %._crit_edge ]
-  %.lcssa1545 = phi i1 [ %.lcssa1544, %._crit_edge.thread ], [ %.lcssa15, %._crit_edge ]
+  %.lcssa1646 = phi i1 [ %.lcssa1645, %._crit_edge.thread ], [ %.lcssa16, %._crit_edge ]
   %109 = ptrtoint ptr %108 to i64
   %110 = and i64 %109, 1
   %111 = icmp eq i64 %110, 0
@@ -2547,11 +2547,11 @@ define internal fastcc range(i32 -2, 1) i32 @rhashtable_remove_fast(ptr noundef 
   br label %119
 
 119:                                              ; preds = %116, %107
-  br i1 %.lcssa1545, label %.thread9, label %120
+  br i1 %.lcssa1646, label %136, label %120
 
 120:                                              ; preds = %119
   call void asm sideeffect "sti", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !43
-  br label %.thread9
+  br label %136
 
 .lr.ph:                                           ; preds = %90, %94
   %121 = phi ptr [ %122, %94 ], [ %91, %90 ]
@@ -2561,7 +2561,7 @@ define internal fastcc range(i32 -2, 1) i32 @rhashtable_remove_fast(ptr noundef 
   %125 = icmp eq i64 %124, 0
   br i1 %125, label %94, label %.loopexit, !llvm.loop !49
 
-.loopexit:                                        ; preds = %.lr.ph, %.loopexit13
+.loopexit:                                        ; preds = %.lr.ph, %.loopexit14
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !39
   call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; andb ${1:b},$0", "=*m,iq,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %60, i32 -2, ptr nonnull elementtype(i8) %60) #16, !srcloc !40
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !41
@@ -2580,47 +2580,47 @@ define internal fastcc range(i32 -2, 1) i32 @rhashtable_remove_fast(ptr noundef 
 132:                                              ; preds = %129, %.loopexit
   %133 = and i64 %63, 512
   %134 = icmp eq i64 %133, 0
-  br i1 %134, label %.thread12, label %135
+  br i1 %134, label %.thread13, label %135
 
 135:                                              ; preds = %132
   call void asm sideeffect "sti", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !43
+  br label %.thread13
+
+136:                                              ; preds = %120, %119, %106, %105
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %16, ptr nonnull elementtype(i32) %16) #16, !srcloc !51
+  %137 = load i8, ptr %17, align 2, !range !52, !noundef !53
+  %138 = icmp eq i8 %137, 0
+  br i1 %138, label %.thread12, label %139
+
+139:                                              ; preds = %136
+  %140 = load volatile i32, ptr %16, align 4
+  %141 = load i32, ptr %24, align 64
+  %142 = mul i32 %141, 3
+  %143 = udiv i32 %142, 10
+  %144 = icmp ult i32 %140, %143
+  br i1 %144, label %145, label %.thread12
+
+145:                                              ; preds = %139
+  %146 = load i16, ptr %18, align 4
+  %147 = zext i16 %146 to i32
+  %148 = icmp ugt i32 %141, %147
+  br i1 %148, label %149, label %.thread12, !prof !15
+
+149:                                              ; preds = %145
+  %150 = load ptr, ptr @system_wq, align 8
+  %151 = call zeroext i1 @queue_work_on(i32 noundef 64, ptr noundef %150, ptr noundef nonnull %19) #16
   br label %.thread12
 
-.thread9:                                         ; preds = %105, %106, %119, %120
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %16, ptr nonnull elementtype(i32) %16) #16, !srcloc !51
-  %136 = load i8, ptr %17, align 2, !range !52, !noundef !53
-  %137 = icmp eq i8 %136, 0
-  br i1 %137, label %.thread11, label %138
+.thread13:                                        ; preds = %135, %132, %59
+  %152 = getelementptr inbounds nuw i8, ptr %24, i64 48
+  %153 = load volatile ptr, ptr %152, align 16
+  %154 = icmp eq ptr %153, null
+  br i1 %154, label %.thread12, label %23, !llvm.loop !54
 
-138:                                              ; preds = %.thread9
-  %139 = load volatile i32, ptr %16, align 4
-  %140 = load i32, ptr %24, align 64
-  %141 = mul i32 %140, 3
-  %142 = udiv i32 %141, 10
-  %143 = icmp ult i32 %139, %142
-  br i1 %143, label %144, label %.thread11
-
-144:                                              ; preds = %138
-  %145 = load i16, ptr %18, align 4
-  %146 = zext i16 %145 to i32
-  %147 = icmp ugt i32 %140, %146
-  br i1 %147, label %148, label %.thread11, !prof !15
-
-148:                                              ; preds = %144
-  %149 = load ptr, ptr @system_wq, align 8
-  %150 = call zeroext i1 @queue_work_on(i32 noundef 64, ptr noundef %149, ptr noundef nonnull %19) #16
-  br label %.thread11
-
-.thread12:                                        ; preds = %135, %132, %59
-  %151 = getelementptr inbounds nuw i8, ptr %24, i64 48
-  %152 = load volatile ptr, ptr %151, align 16
-  %153 = icmp eq ptr %152, null
-  br i1 %153, label %.thread11, label %23, !llvm.loop !54
-
-.thread11:                                        ; preds = %.thread12, %138, %144, %148, %.thread9
-  %154 = phi i32 [ 0, %.thread9 ], [ 0, %148 ], [ 0, %144 ], [ 0, %138 ], [ -2, %.thread12 ]
+.thread12:                                        ; preds = %.thread13, %139, %145, %149, %136
+  %155 = phi i32 [ 0, %136 ], [ 0, %149 ], [ 0, %145 ], [ 0, %139 ], [ -2, %.thread13 ]
   call void @__rcu_read_unlock() #16
-  ret i32 %154
+  ret i32 %155
 }
 
 ; Function Attrs: null_pointer_is_valid

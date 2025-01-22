@@ -881,7 +881,7 @@ Vec_PtrPush.exit248:                              ; preds = %.Vec_PtrGrow.exit11
   br i1 %.not207, label %134, label %119
 
 119:                                              ; preds = %.lr.ph372
-  %120 = add i64 %indvars.iv418, %.0181
+  %120 = add nuw nsw i64 %indvars.iv418, %.0181
   %121 = getelementptr inbounds nuw i8, ptr %117, i64 24
   %122 = load i32, ptr %121, align 8
   %123 = getelementptr inbounds nuw i8, ptr %117, i64 64
@@ -895,7 +895,7 @@ Vec_PtrPush.exit248:                              ; preds = %.Vec_PtrGrow.exit11
   %129 = add i32 %.val3.i250, %.val.i249
   %130 = xor i32 %129, -1
   %131 = add i32 %122, %130
-  %132 = trunc i64 %120 to i32
+  %132 = trunc nuw i64 %120 to i32
   %133 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.3, i32 noundef %132, i32 noundef %131)
   br label %134
 
@@ -907,7 +907,7 @@ Vec_PtrPush.exit248:                              ; preds = %.Vec_PtrGrow.exit11
   br i1 %.not208, label %152, label %137
 
 137:                                              ; preds = %134
-  %138 = add i64 %indvars.iv418, %.0181
+  %138 = add nuw nsw i64 %indvars.iv418, %.0181
   %139 = getelementptr inbounds nuw i8, ptr %135, i64 24
   %140 = load i32, ptr %139, align 8
   %141 = getelementptr inbounds nuw i8, ptr %135, i64 64
@@ -921,7 +921,7 @@ Vec_PtrPush.exit248:                              ; preds = %.Vec_PtrGrow.exit11
   %147 = add i32 %.val3.i252, %.val.i251
   %148 = xor i32 %147, -1
   %149 = add i32 %140, %148
-  %150 = trunc i64 %138 to i32
+  %150 = trunc nuw i64 %138 to i32
   %151 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.4, i32 noundef %150, i32 noundef %149)
   br label %152
 
@@ -1199,8 +1199,8 @@ Vec_PtrPush.exit248:                              ; preds = %.Vec_PtrGrow.exit11
   br i1 %183, label %.preheader283.lr.ph.split.us, label %.preheader282
 
 .preheader283.lr.ph.split.us:                     ; preds = %.preheader283.lr.ph
-  %276 = add i64 %indvars.iv395, %.0181
-  %277 = trunc i64 %276 to i32
+  %276 = add nuw nsw i64 %indvars.iv395, %.0181
+  %277 = trunc nuw i64 %276 to i32
   br i1 %.not205, label %.preheader283.us.us, label %.preheader283.us
 
 .preheader283.us.us:                              ; preds = %.preheader283.lr.ph.split.us, %.split.us.split.us.us.us

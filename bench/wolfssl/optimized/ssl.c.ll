@@ -2311,7 +2311,7 @@ if.end137:                                        ; preds = %if.then126, %if.els
   %neededState.1 = phi i32 [ %neededState.099, %if.else123 ], [ %spec.select94, %if.then126 ]
   %15 = load i8, ptr %serverState, align 1
   %conv104 = zext i8 %15 to i32
-  %cmp105 = icmp sgt i32 %neededState.1, %conv104
+  %cmp105 = icmp samesign ugt i32 %neededState.1, %conv104
   br i1 %cmp105, label %while.body, label %while.end, !llvm.loop !11
 
 while.end:                                        ; preds = %if.end137, %sw.bb95

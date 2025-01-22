@@ -935,7 +935,7 @@ _ZN4llvm13SmallDenseMapIiNS_9SetVectorIPKNS_15DILocalVariableENS_11SmallVectorIS
   br i1 %284, label %285, label %287
 
 285:                                              ; preds = %280
-  %286 = icmp ult i64 %.079.i.i.i.i.i.i.i.i.i.i.i, 2
+  %286 = icmp samesign ult i64 %.079.i.i.i.i.i.i.i.i.i.i.i, 2
   br i1 %286, label %_ZZN4llvm15MachineFunction29getInStackSlotVariableDbgInfoEvENKUlRT_E_clINS0_15VariableDbgInfoEEEDaS2_.exit.i.i.i.i.i.i.i, label %287
 
 287:                                              ; preds = %285, %280
@@ -980,7 +980,7 @@ _ZN4llvm20filter_iterator_implIPNS_15MachineFunction15VariableDbgInfoEZNS1_29get
   br i1 %304, label %305, label %307
 
 305:                                              ; preds = %300
-  %306 = icmp ult i64 %.079.i.i.i.i.i.i.i7.i.i.i.i, 2
+  %306 = icmp samesign ult i64 %.079.i.i.i.i.i.i.i7.i.i.i.i, 2
   br i1 %306, label %_ZZN4llvm15MachineFunction29getInStackSlotVariableDbgInfoEvENKUlRT_E_clINS0_15VariableDbgInfoEEEDaS2_.exit.i.i.i9.i.i.i.i, label %307
 
 307:                                              ; preds = %305, %300
@@ -1102,7 +1102,7 @@ _ZN4llvm12DenseMapBaseINS_13SmallDenseMapIiNS_9SetVectorIPKNS_15DILocalVariableE
   br i1 %359, label %360, label %362
 
 360:                                              ; preds = %355
-  %361 = icmp ult i64 %.079.i.i.i.i.i.i.i.i, 2
+  %361 = icmp samesign ult i64 %.079.i.i.i.i.i.i.i.i, 2
   br i1 %361, label %_ZZN4llvm15MachineFunction29getInStackSlotVariableDbgInfoEvENKUlRT_E_clINS0_15VariableDbgInfoEEEDaS2_.exit.i.i.i.i, label %362
 
 362:                                              ; preds = %360, %355

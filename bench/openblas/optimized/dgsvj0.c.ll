@@ -1640,8 +1640,8 @@ thread-pre-split:                                 ; preds = %201, %218
   %or.cond = select i1 %1055, i1 %1056, i1 false
   %spec.select = select i1 %or.cond, i32 %118, i32 %119
   %1057 = select i1 %1054, i32 %spec.select, i32 %118
-  %1058 = add nsw i32 %1057, 1
-  %1059 = icmp sgt i32 %119, %1058
+  %1058 = add nuw nsw i32 %1057, 1
+  %1059 = icmp samesign ugt i32 %119, %1058
   br i1 %1059, label %1060, label %1071
 
 1060:                                             ; preds = %1046

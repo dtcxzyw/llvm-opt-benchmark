@@ -10870,7 +10870,7 @@ _ZNSt11unique_lockISt12shared_mutexEC2ERS0_.exit: ; preds = %4
   br i1 %15, label %16, label %18
 
 16:                                               ; preds = %12
-  %17 = icmp ult i64 %.079.i.i.i, 3
+  %17 = icmp samesign ult i64 %.079.i.i.i, 3
   br i1 %17, label %_ZNK8WasmEdge7Runtime8Instance16FunctionInstance14isHostFunctionEv.exit, label %18
 
 18:                                               ; preds = %16, %12

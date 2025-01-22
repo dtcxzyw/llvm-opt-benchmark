@@ -8880,13 +8880,13 @@ unicode_byte_type.exit.thread:                    ; preds = %unicode_byte_type.e
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal i32 @little2_getAtts(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef %3) #3 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  br label %unicode_byte_type.exit.thread
+  br label %unicode_byte_type.exit115.thread
 
-unicode_byte_type.exit.thread:                    ; preds = %unicode_byte_type.exit.thread.backedge, %4
-  %.pn = phi ptr [ %1, %4 ], [ %.pn.be, %unicode_byte_type.exit.thread.backedge ]
-  %.0102 = phi i32 [ 1, %4 ], [ %.0102.be, %unicode_byte_type.exit.thread.backedge ]
-  %.0100 = phi i32 [ 0, %4 ], [ %.0100.be, %unicode_byte_type.exit.thread.backedge ]
-  %.0 = phi i32 [ 0, %4 ], [ %.0.be, %unicode_byte_type.exit.thread.backedge ]
+unicode_byte_type.exit115.thread:                 ; preds = %unicode_byte_type.exit115.thread.backedge, %4
+  %.pn = phi ptr [ %1, %4 ], [ %.pn.be, %unicode_byte_type.exit115.thread.backedge ]
+  %.0102 = phi i32 [ 1, %4 ], [ %.0102.be, %unicode_byte_type.exit115.thread.backedge ]
+  %.0100 = phi i32 [ 0, %4 ], [ %.0100.be, %unicode_byte_type.exit115.thread.backedge ]
+  %.0 = phi i32 [ 0, %4 ], [ %.0.be, %unicode_byte_type.exit115.thread.backedge ]
   %.0104 = getelementptr inbounds nuw i8, ptr %.pn, i64 2
   %6 = getelementptr inbounds nuw i8, ptr %.pn, i64 3
   %7 = load i8, ptr %6, align 1
@@ -8896,33 +8896,33 @@ unicode_byte_type.exit.thread:                    ; preds = %unicode_byte_type.e
     i8 -39, label %unicode_byte_type.exit.thread119
     i8 -38, label %unicode_byte_type.exit.thread119
     i8 -37, label %unicode_byte_type.exit.thread119
-    i8 -36, label %unicode_byte_type.exit.thread.backedge
-    i8 -35, label %unicode_byte_type.exit.thread.backedge
-    i8 -34, label %unicode_byte_type.exit.thread.backedge
-    i8 -33, label %unicode_byte_type.exit.thread.backedge
+    i8 -36, label %unicode_byte_type.exit115.thread.backedge
+    i8 -35, label %unicode_byte_type.exit115.thread.backedge
+    i8 -34, label %unicode_byte_type.exit115.thread.backedge
+    i8 -33, label %unicode_byte_type.exit115.thread.backedge
     i8 -1, label %8
   ]
 
-unicode_byte_type.exit.thread.backedge:           ; preds = %unicode_byte_type.exit.thread, %unicode_byte_type.exit.thread, %unicode_byte_type.exit.thread, %unicode_byte_type.exit.thread, %8, %116, %.fold.split112, %83, %.fold.split, %63, %65, %47, %49, %40, %42, %23, %27, %25, %15, %19, %17, %38, %unicode_byte_type.exit.thread121, %53, %60, %69, %76, %80, %78, %84, %86, %unicode_byte_type.exit115, %.critedge, %117, %119, %122, %unicode_byte_type.exit
-  %.pn.be = phi ptr [ %.0104, %unicode_byte_type.exit ], [ %.0104, %122 ], [ %.0104, %119 ], [ %.0104, %117 ], [ %.0104, %.critedge ], [ %.0104, %unicode_byte_type.exit115 ], [ %.0104, %86 ], [ %.0104, %84 ], [ %.0104, %80 ], [ %.0104, %78 ], [ %.0104, %76 ], [ %.0104, %69 ], [ %.0104, %60 ], [ %.0104, %53 ], [ %.0104, %unicode_byte_type.exit.thread121 ], [ %39, %38 ], [ %.0104, %17 ], [ %.0104, %19 ], [ %.0104, %15 ], [ %6, %25 ], [ %6, %27 ], [ %6, %23 ], [ %.0104, %42 ], [ %.0104, %40 ], [ %.0104, %49 ], [ %.0104, %47 ], [ %.0104, %65 ], [ %.0104, %63 ], [ %.0104, %83 ], [ %.0104, %.fold.split ], [ %.0104, %116 ], [ %.0104, %.fold.split112 ], [ %.0104, %8 ], [ %.0104, %unicode_byte_type.exit.thread ], [ %.0104, %unicode_byte_type.exit.thread ], [ %.0104, %unicode_byte_type.exit.thread ], [ %.0104, %unicode_byte_type.exit.thread ]
-  %.0102.be = phi i32 [ %.0102, %unicode_byte_type.exit ], [ 2, %122 ], [ 2, %119 ], [ 2, %117 ], [ 2, %.critedge ], [ 2, %unicode_byte_type.exit115 ], [ 2, %86 ], [ 2, %84 ], [ %.0102, %80 ], [ %.0102, %78 ], [ 0, %76 ], [ 2, %69 ], [ 0, %60 ], [ 2, %53 ], [ %.0102, %unicode_byte_type.exit.thread121 ], [ %.3, %38 ], [ 1, %17 ], [ 1, %19 ], [ %.0102, %15 ], [ 1, %25 ], [ 1, %27 ], [ %.0102, %23 ], [ 1, %42 ], [ 1, %40 ], [ 2, %49 ], [ 2, %47 ], [ 2, %65 ], [ 2, %63 ], [ 0, %83 ], [ %.0102, %.fold.split ], [ 0, %116 ], [ %.0102, %.fold.split112 ], [ %.0102, %8 ], [ %.0102, %unicode_byte_type.exit.thread ], [ %.0102, %unicode_byte_type.exit.thread ], [ %.0102, %unicode_byte_type.exit.thread ], [ %.0102, %unicode_byte_type.exit.thread ]
-  %.0100.be = phi i32 [ %.0100, %unicode_byte_type.exit ], [ %.0100, %122 ], [ %.0100, %119 ], [ %.0100, %117 ], [ %.0100, %.critedge ], [ %.0100, %unicode_byte_type.exit115 ], [ %.0100, %86 ], [ %.0100, %84 ], [ %.0100, %80 ], [ %.0100, %78 ], [ %77, %76 ], [ %.0100, %69 ], [ %61, %60 ], [ %.0100, %53 ], [ %.0100, %unicode_byte_type.exit.thread121 ], [ %.0100, %38 ], [ %.0100, %17 ], [ %.0100, %19 ], [ %.0100, %15 ], [ %.0100, %25 ], [ %.0100, %27 ], [ %.0100, %23 ], [ %.0100, %42 ], [ %.0100, %40 ], [ %.0100, %49 ], [ %.0100, %47 ], [ %.0100, %65 ], [ %.0100, %63 ], [ %.0100, %83 ], [ %.0100, %.fold.split ], [ %.0100, %116 ], [ %.0100, %.fold.split112 ], [ %.0100, %8 ], [ %.0100, %unicode_byte_type.exit.thread ], [ %.0100, %unicode_byte_type.exit.thread ], [ %.0100, %unicode_byte_type.exit.thread ], [ %.0100, %unicode_byte_type.exit.thread ]
-  %.0.be = phi i32 [ %.0, %unicode_byte_type.exit ], [ %.0, %122 ], [ %.0, %119 ], [ %.0, %117 ], [ %.0, %.critedge ], [ %.0, %unicode_byte_type.exit115 ], [ %.0, %86 ], [ %.0, %84 ], [ %.0, %80 ], [ %.0, %78 ], [ 13, %76 ], [ %.0, %69 ], [ 12, %60 ], [ %.0, %53 ], [ %.0, %unicode_byte_type.exit.thread121 ], [ %.0, %38 ], [ %.0, %17 ], [ %.0, %19 ], [ %.0, %15 ], [ %.0, %25 ], [ %.0, %27 ], [ %.0, %23 ], [ %.0, %42 ], [ %.0, %40 ], [ 12, %49 ], [ 12, %47 ], [ 13, %65 ], [ 13, %63 ], [ %.0, %83 ], [ %.0, %.fold.split ], [ %.0, %116 ], [ %.0, %.fold.split112 ], [ %.0, %8 ], [ %.0, %unicode_byte_type.exit.thread ], [ %.0, %unicode_byte_type.exit.thread ], [ %.0, %unicode_byte_type.exit.thread ], [ %.0, %unicode_byte_type.exit.thread ]
-  br label %unicode_byte_type.exit.thread
+unicode_byte_type.exit115.thread.backedge:        ; preds = %unicode_byte_type.exit115.thread, %unicode_byte_type.exit115.thread, %unicode_byte_type.exit115.thread, %unicode_byte_type.exit115.thread, %8, %98, %110, %114, %.fold.split112, %83, %.fold.split, %63, %65, %47, %49, %40, %42, %23, %27, %25, %15, %19, %17, %38, %unicode_byte_type.exit.thread121, %53, %60, %69, %76, %80, %78, %84, %86, %unicode_byte_type.exit115, %.critedge, %115, %117, %120, %unicode_byte_type.exit
+  %.pn.be = phi ptr [ %.0104, %unicode_byte_type.exit ], [ %.0104, %120 ], [ %.0104, %117 ], [ %.0104, %115 ], [ %.0104, %.critedge ], [ %.0104, %unicode_byte_type.exit115 ], [ %.0104, %86 ], [ %.0104, %84 ], [ %.0104, %80 ], [ %.0104, %78 ], [ %.0104, %76 ], [ %.0104, %69 ], [ %.0104, %60 ], [ %.0104, %53 ], [ %.0104, %unicode_byte_type.exit.thread121 ], [ %39, %38 ], [ %.0104, %17 ], [ %.0104, %19 ], [ %.0104, %15 ], [ %6, %25 ], [ %6, %27 ], [ %6, %23 ], [ %.0104, %42 ], [ %.0104, %40 ], [ %.0104, %49 ], [ %.0104, %47 ], [ %.0104, %65 ], [ %.0104, %63 ], [ %.0104, %83 ], [ %.0104, %.fold.split ], [ %.0104, %114 ], [ %.0104, %.fold.split112 ], [ %.0104, %110 ], [ %.0104, %98 ], [ %.0104, %8 ], [ %.0104, %unicode_byte_type.exit115.thread ], [ %.0104, %unicode_byte_type.exit115.thread ], [ %.0104, %unicode_byte_type.exit115.thread ], [ %.0104, %unicode_byte_type.exit115.thread ]
+  %.0102.be = phi i32 [ %.0102, %unicode_byte_type.exit ], [ 2, %120 ], [ 2, %117 ], [ 2, %115 ], [ 2, %.critedge ], [ 2, %unicode_byte_type.exit115 ], [ 2, %86 ], [ 2, %84 ], [ %.0102, %80 ], [ %.0102, %78 ], [ 0, %76 ], [ 2, %69 ], [ 0, %60 ], [ 2, %53 ], [ %.0102, %unicode_byte_type.exit.thread121 ], [ %.3, %38 ], [ 1, %17 ], [ 1, %19 ], [ %.0102, %15 ], [ 1, %25 ], [ 1, %27 ], [ %.0102, %23 ], [ 1, %42 ], [ 1, %40 ], [ 2, %49 ], [ 2, %47 ], [ 2, %65 ], [ 2, %63 ], [ 0, %83 ], [ %.0102, %.fold.split ], [ 0, %114 ], [ %.0102, %.fold.split112 ], [ 2, %110 ], [ 2, %98 ], [ %.0102, %8 ], [ %.0102, %unicode_byte_type.exit115.thread ], [ %.0102, %unicode_byte_type.exit115.thread ], [ %.0102, %unicode_byte_type.exit115.thread ], [ %.0102, %unicode_byte_type.exit115.thread ]
+  %.0100.be = phi i32 [ %.0100, %unicode_byte_type.exit ], [ %.0100, %120 ], [ %.0100, %117 ], [ %.0100, %115 ], [ %.0100, %.critedge ], [ %.0100, %unicode_byte_type.exit115 ], [ %.0100, %86 ], [ %.0100, %84 ], [ %.0100, %80 ], [ %.0100, %78 ], [ %77, %76 ], [ %.0100, %69 ], [ %61, %60 ], [ %.0100, %53 ], [ %.0100, %unicode_byte_type.exit.thread121 ], [ %.0100, %38 ], [ %.0100, %17 ], [ %.0100, %19 ], [ %.0100, %15 ], [ %.0100, %25 ], [ %.0100, %27 ], [ %.0100, %23 ], [ %.0100, %42 ], [ %.0100, %40 ], [ %.0100, %49 ], [ %.0100, %47 ], [ %.0100, %65 ], [ %.0100, %63 ], [ %.0100, %83 ], [ %.0100, %.fold.split ], [ %.0100, %114 ], [ %.0100, %.fold.split112 ], [ %.0100, %110 ], [ %.0100, %98 ], [ %.0100, %8 ], [ %.0100, %unicode_byte_type.exit115.thread ], [ %.0100, %unicode_byte_type.exit115.thread ], [ %.0100, %unicode_byte_type.exit115.thread ], [ %.0100, %unicode_byte_type.exit115.thread ]
+  %.0.be = phi i32 [ %.0, %unicode_byte_type.exit ], [ %.0, %120 ], [ %.0, %117 ], [ %.0, %115 ], [ %.0, %.critedge ], [ %.0, %unicode_byte_type.exit115 ], [ %.0, %86 ], [ %.0, %84 ], [ %.0, %80 ], [ %.0, %78 ], [ 13, %76 ], [ %.0, %69 ], [ 12, %60 ], [ %.0, %53 ], [ %.0, %unicode_byte_type.exit.thread121 ], [ %.0, %38 ], [ %.0, %17 ], [ %.0, %19 ], [ %.0, %15 ], [ %.0, %25 ], [ %.0, %27 ], [ %.0, %23 ], [ %.0, %42 ], [ %.0, %40 ], [ 12, %49 ], [ 12, %47 ], [ 13, %65 ], [ 13, %63 ], [ %.0, %83 ], [ %.0, %.fold.split ], [ %.0, %114 ], [ %.0, %.fold.split112 ], [ %.0, %110 ], [ %.0, %98 ], [ %.0, %8 ], [ %.0, %unicode_byte_type.exit115.thread ], [ %.0, %unicode_byte_type.exit115.thread ], [ %.0, %unicode_byte_type.exit115.thread ], [ %.0, %unicode_byte_type.exit115.thread ]
+  br label %unicode_byte_type.exit115.thread
 
-8:                                                ; preds = %unicode_byte_type.exit.thread
+8:                                                ; preds = %unicode_byte_type.exit115.thread
   %9 = load i8, ptr %.0104, align 1
   %switch.i = icmp ult i8 %9, -2
   %10 = icmp eq i32 %.0102, 0
   %or.cond = select i1 %switch.i, i1 %10, i1 false
-  br i1 %or.cond, label %40, label %unicode_byte_type.exit.thread.backedge
+  br i1 %or.cond, label %40, label %unicode_byte_type.exit115.thread.backedge
 
-unicode_byte_type.exit:                           ; preds = %unicode_byte_type.exit.thread
+unicode_byte_type.exit:                           ; preds = %unicode_byte_type.exit115.thread
   %11 = load i8, ptr %.0104, align 1
   %12 = zext i8 %11 to i64
   %13 = getelementptr inbounds nuw [256 x i8], ptr %5, i64 0, i64 %12
   %14 = load i8, ptr %13, align 1
-  switch i8 %14, label %unicode_byte_type.exit.thread.backedge [
+  switch i8 %14, label %unicode_byte_type.exit115.thread.backedge [
     i8 5, label %15
     i8 6, label %23
     i8 7, label %unicode_byte_type.exit.thread119
@@ -8933,19 +8933,19 @@ unicode_byte_type.exit:                           ; preds = %unicode_byte_type.e
     i8 13, label %62
     i8 3, label %78
     i8 21, label %83
-    i8 9, label %116
-    i8 10, label %116
-    i8 11, label %122
-    i8 17, label %122
+    i8 9, label %114
+    i8 10, label %114
+    i8 11, label %120
+    i8 17, label %120
   ]
 
 15:                                               ; preds = %unicode_byte_type.exit
   %16 = icmp eq i32 %.0102, 0
-  br i1 %16, label %17, label %unicode_byte_type.exit.thread.backedge
+  br i1 %16, label %17, label %unicode_byte_type.exit115.thread.backedge
 
 17:                                               ; preds = %15
   %18 = icmp slt i32 %.0100, %2
-  br i1 %18, label %19, label %unicode_byte_type.exit.thread.backedge
+  br i1 %18, label %19, label %unicode_byte_type.exit115.thread.backedge
 
 19:                                               ; preds = %17
   %20 = sext i32 %.0100 to i64
@@ -8953,15 +8953,15 @@ unicode_byte_type.exit:                           ; preds = %unicode_byte_type.e
   store ptr %.0104, ptr %21, align 8
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 24
   store i8 1, ptr %22, align 8
-  br label %unicode_byte_type.exit.thread.backedge
+  br label %unicode_byte_type.exit115.thread.backedge
 
 23:                                               ; preds = %unicode_byte_type.exit
   %24 = icmp eq i32 %.0102, 0
-  br i1 %24, label %25, label %unicode_byte_type.exit.thread.backedge
+  br i1 %24, label %25, label %unicode_byte_type.exit115.thread.backedge
 
 25:                                               ; preds = %23
   %26 = icmp slt i32 %.0100, %2
-  br i1 %26, label %27, label %unicode_byte_type.exit.thread.backedge
+  br i1 %26, label %27, label %unicode_byte_type.exit115.thread.backedge
 
 27:                                               ; preds = %25
   %28 = sext i32 %.0100 to i64
@@ -8969,9 +8969,9 @@ unicode_byte_type.exit:                           ; preds = %unicode_byte_type.e
   store ptr %.0104, ptr %29, align 8
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 24
   store i8 1, ptr %30, align 8
-  br label %unicode_byte_type.exit.thread.backedge
+  br label %unicode_byte_type.exit115.thread.backedge
 
-unicode_byte_type.exit.thread119:                 ; preds = %unicode_byte_type.exit.thread, %unicode_byte_type.exit.thread, %unicode_byte_type.exit.thread, %unicode_byte_type.exit.thread, %unicode_byte_type.exit
+unicode_byte_type.exit.thread119:                 ; preds = %unicode_byte_type.exit115.thread, %unicode_byte_type.exit115.thread, %unicode_byte_type.exit115.thread, %unicode_byte_type.exit115.thread, %unicode_byte_type.exit
   %31 = icmp eq i32 %.0102, 0
   br i1 %31, label %32, label %38
 
@@ -8990,15 +8990,15 @@ unicode_byte_type.exit.thread119:                 ; preds = %unicode_byte_type.e
 38:                                               ; preds = %32, %34, %unicode_byte_type.exit.thread119
   %.3 = phi i32 [ %.0102, %unicode_byte_type.exit.thread119 ], [ 1, %34 ], [ 1, %32 ]
   %39 = getelementptr inbounds nuw i8, ptr %.pn, i64 4
-  br label %unicode_byte_type.exit.thread.backedge
+  br label %unicode_byte_type.exit115.thread.backedge
 
-unicode_byte_type.exit.thread121:                 ; preds = %unicode_byte_type.exit.thread, %unicode_byte_type.exit, %unicode_byte_type.exit, %unicode_byte_type.exit
+unicode_byte_type.exit.thread121:                 ; preds = %unicode_byte_type.exit115.thread, %unicode_byte_type.exit, %unicode_byte_type.exit, %unicode_byte_type.exit
   %.old = icmp eq i32 %.0102, 0
-  br i1 %.old, label %40, label %unicode_byte_type.exit.thread.backedge
+  br i1 %.old, label %40, label %unicode_byte_type.exit115.thread.backedge
 
 40:                                               ; preds = %8, %unicode_byte_type.exit.thread121
   %41 = icmp slt i32 %.0100, %2
-  br i1 %41, label %42, label %unicode_byte_type.exit.thread.backedge
+  br i1 %41, label %42, label %unicode_byte_type.exit115.thread.backedge
 
 42:                                               ; preds = %40
   %43 = sext i32 %.0100 to i64
@@ -9006,7 +9006,7 @@ unicode_byte_type.exit.thread121:                 ; preds = %unicode_byte_type.e
   store ptr %.0104, ptr %44, align 8
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 24
   store i8 1, ptr %45, align 8
-  br label %unicode_byte_type.exit.thread.backedge
+  br label %unicode_byte_type.exit115.thread.backedge
 
 46:                                               ; preds = %unicode_byte_type.exit
   %.not109 = icmp eq i32 %.0102, 2
@@ -9014,18 +9014,18 @@ unicode_byte_type.exit.thread121:                 ; preds = %unicode_byte_type.e
 
 47:                                               ; preds = %46
   %48 = icmp slt i32 %.0100, %2
-  br i1 %48, label %49, label %unicode_byte_type.exit.thread.backedge
+  br i1 %48, label %49, label %unicode_byte_type.exit115.thread.backedge
 
 49:                                               ; preds = %47
   %50 = getelementptr inbounds nuw i8, ptr %.pn, i64 4
   %51 = sext i32 %.0100 to i64
   %52 = getelementptr inbounds %struct.ATTRIBUTE, ptr %3, i64 %51, i32 1
   store ptr %50, ptr %52, align 8
-  br label %unicode_byte_type.exit.thread.backedge
+  br label %unicode_byte_type.exit115.thread.backedge
 
 53:                                               ; preds = %46
   %54 = icmp eq i32 %.0, 12
-  br i1 %54, label %55, label %unicode_byte_type.exit.thread.backedge
+  br i1 %54, label %55, label %unicode_byte_type.exit115.thread.backedge
 
 55:                                               ; preds = %53
   %56 = icmp slt i32 %.0100, %2
@@ -9039,7 +9039,7 @@ unicode_byte_type.exit.thread121:                 ; preds = %unicode_byte_type.e
 
 60:                                               ; preds = %57, %55
   %61 = add nsw i32 %.0100, 1
-  br label %unicode_byte_type.exit.thread.backedge
+  br label %unicode_byte_type.exit115.thread.backedge
 
 62:                                               ; preds = %unicode_byte_type.exit
   %.not108 = icmp eq i32 %.0102, 2
@@ -9047,18 +9047,18 @@ unicode_byte_type.exit.thread121:                 ; preds = %unicode_byte_type.e
 
 63:                                               ; preds = %62
   %64 = icmp slt i32 %.0100, %2
-  br i1 %64, label %65, label %unicode_byte_type.exit.thread.backedge
+  br i1 %64, label %65, label %unicode_byte_type.exit115.thread.backedge
 
 65:                                               ; preds = %63
   %66 = getelementptr inbounds nuw i8, ptr %.pn, i64 4
   %67 = sext i32 %.0100 to i64
   %68 = getelementptr inbounds %struct.ATTRIBUTE, ptr %3, i64 %67, i32 1
   store ptr %66, ptr %68, align 8
-  br label %unicode_byte_type.exit.thread.backedge
+  br label %unicode_byte_type.exit115.thread.backedge
 
 69:                                               ; preds = %62
   %70 = icmp eq i32 %.0, 13
-  br i1 %70, label %71, label %unicode_byte_type.exit.thread.backedge
+  br i1 %70, label %71, label %unicode_byte_type.exit115.thread.backedge
 
 71:                                               ; preds = %69
   %72 = icmp slt i32 %.0100, %2
@@ -9072,27 +9072,27 @@ unicode_byte_type.exit.thread121:                 ; preds = %unicode_byte_type.e
 
 76:                                               ; preds = %73, %71
   %77 = add nsw i32 %.0100, 1
-  br label %unicode_byte_type.exit.thread.backedge
+  br label %unicode_byte_type.exit115.thread.backedge
 
 78:                                               ; preds = %unicode_byte_type.exit
   %79 = icmp slt i32 %.0100, %2
-  br i1 %79, label %80, label %unicode_byte_type.exit.thread.backedge
+  br i1 %79, label %80, label %unicode_byte_type.exit115.thread.backedge
 
 80:                                               ; preds = %78
   %81 = sext i32 %.0100 to i64
   %82 = getelementptr inbounds %struct.ATTRIBUTE, ptr %3, i64 %81, i32 3
   store i8 0, ptr %82, align 8
-  br label %unicode_byte_type.exit.thread.backedge
+  br label %unicode_byte_type.exit115.thread.backedge
 
 83:                                               ; preds = %unicode_byte_type.exit
   switch i32 %.0102, label %.fold.split [
-    i32 1, label %unicode_byte_type.exit.thread.backedge
+    i32 1, label %unicode_byte_type.exit115.thread.backedge
     i32 2, label %84
   ]
 
 84:                                               ; preds = %83
   %85 = icmp slt i32 %.0100, %2
-  br i1 %85, label %86, label %unicode_byte_type.exit.thread.backedge
+  br i1 %85, label %86, label %unicode_byte_type.exit115.thread.backedge
 
 86:                                               ; preds = %84
   %87 = sext i32 %.0100 to i64
@@ -9100,7 +9100,7 @@ unicode_byte_type.exit.thread121:                 ; preds = %unicode_byte_type.e
   %89 = getelementptr inbounds nuw i8, ptr %88, i64 24
   %90 = load i8, ptr %89, align 8
   %.not106 = icmp eq i8 %90, 0
-  br i1 %.not106, label %unicode_byte_type.exit.thread.backedge, label %91
+  br i1 %.not106, label %unicode_byte_type.exit115.thread.backedge, label %91
 
 91:                                               ; preds = %86
   %92 = getelementptr inbounds nuw i8, ptr %88, i64 8
@@ -9117,17 +9117,13 @@ unicode_byte_type.exit.thread121:                 ; preds = %unicode_byte_type.e
   %99 = getelementptr inbounds nuw i8, ptr %.pn, i64 4
   %100 = getelementptr inbounds nuw i8, ptr %.pn, i64 5
   %101 = load i8, ptr %100, align 1
-  switch i8 %101, label %113 [
+  switch i8 %101, label %unicode_byte_type.exit115.thread.backedge [
     i8 0, label %102
-    i8 -40, label %unicode_byte_type.exit115
-    i8 -39, label %unicode_byte_type.exit115
-    i8 -38, label %unicode_byte_type.exit115
-    i8 -37, label %unicode_byte_type.exit115
-    i8 -36, label %110
-    i8 -35, label %110
-    i8 -34, label %110
-    i8 -33, label %110
-    i8 -1, label %111
+    i8 -1, label %110
+    i8 -33, label %unicode_byte_type.exit115
+    i8 -34, label %unicode_byte_type.exit115
+    i8 -35, label %unicode_byte_type.exit115
+    i8 -36, label %unicode_byte_type.exit115
   ]
 
 102:                                              ; preds = %98
@@ -9142,54 +9138,48 @@ unicode_byte_type.exit.thread121:                 ; preds = %unicode_byte_type.e
   %109 = zext i8 %108 to i32
   br label %unicode_byte_type.exit115
 
-110:                                              ; preds = %98, %98, %98, %98
-  br label %unicode_byte_type.exit115
+110:                                              ; preds = %98
+  %111 = load i8, ptr %99, align 1
+  %switch.i113 = icmp ugt i8 %111, -3
+  br i1 %switch.i113, label %unicode_byte_type.exit115, label %unicode_byte_type.exit115.thread.backedge
 
-111:                                              ; preds = %98
-  %112 = load i8, ptr %99, align 1
-  %switch.i113 = icmp ugt i8 %112, -3
-  br i1 %switch.i113, label %unicode_byte_type.exit115, label %113
-
-113:                                              ; preds = %98, %111
-  br label %unicode_byte_type.exit115
-
-unicode_byte_type.exit115:                        ; preds = %98, %98, %98, %98, %113, %111, %110, %105
-  %114 = phi i32 [ %109, %105 ], [ 29, %113 ], [ 8, %110 ], [ 0, %111 ], [ 7, %98 ], [ 7, %98 ], [ 7, %98 ], [ 7, %98 ]
-  %115 = icmp eq i32 %114, %.0
-  br i1 %115, label %.critedge, label %unicode_byte_type.exit.thread.backedge
+unicode_byte_type.exit115:                        ; preds = %98, %98, %98, %98, %110, %105
+  %112 = phi i32 [ %109, %105 ], [ 0, %110 ], [ 8, %98 ], [ 8, %98 ], [ 8, %98 ], [ 8, %98 ]
+  %113 = icmp eq i32 %112, %.0
+  br i1 %113, label %.critedge, label %unicode_byte_type.exit115.thread.backedge
 
 .critedge:                                        ; preds = %91, %unicode_byte_type.exit115, %102, %95
   store i8 0, ptr %89, align 8
-  br label %unicode_byte_type.exit.thread.backedge
+  br label %unicode_byte_type.exit115.thread.backedge
 
-116:                                              ; preds = %unicode_byte_type.exit, %unicode_byte_type.exit
+114:                                              ; preds = %unicode_byte_type.exit, %unicode_byte_type.exit
   switch i32 %.0102, label %.fold.split112 [
-    i32 1, label %unicode_byte_type.exit.thread.backedge
-    i32 2, label %117
+    i32 1, label %unicode_byte_type.exit115.thread.backedge
+    i32 2, label %115
   ]
 
-117:                                              ; preds = %116
-  %118 = icmp slt i32 %.0100, %2
-  br i1 %118, label %119, label %unicode_byte_type.exit.thread.backedge
+115:                                              ; preds = %114
+  %116 = icmp slt i32 %.0100, %2
+  br i1 %116, label %117, label %unicode_byte_type.exit115.thread.backedge
 
-119:                                              ; preds = %117
-  %120 = sext i32 %.0100 to i64
-  %121 = getelementptr inbounds %struct.ATTRIBUTE, ptr %3, i64 %120, i32 3
-  store i8 0, ptr %121, align 8
-  br label %unicode_byte_type.exit.thread.backedge
+117:                                              ; preds = %115
+  %118 = sext i32 %.0100 to i64
+  %119 = getelementptr inbounds %struct.ATTRIBUTE, ptr %3, i64 %118, i32 3
+  store i8 0, ptr %119, align 8
+  br label %unicode_byte_type.exit115.thread.backedge
 
-122:                                              ; preds = %unicode_byte_type.exit, %unicode_byte_type.exit
+120:                                              ; preds = %unicode_byte_type.exit, %unicode_byte_type.exit
   %.not = icmp eq i32 %.0102, 2
-  br i1 %.not, label %unicode_byte_type.exit.thread.backedge, label %123
+  br i1 %.not, label %unicode_byte_type.exit115.thread.backedge, label %121
 
-123:                                              ; preds = %122
+121:                                              ; preds = %120
   ret i32 %.0100
 
 .fold.split:                                      ; preds = %83
-  br label %unicode_byte_type.exit.thread.backedge
+  br label %unicode_byte_type.exit115.thread.backedge
 
-.fold.split112:                                   ; preds = %116
-  br label %unicode_byte_type.exit.thread.backedge
+.fold.split112:                                   ; preds = %114
+  br label %unicode_byte_type.exit115.thread.backedge
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
@@ -14385,13 +14375,13 @@ unicode_byte_type.exit.thread:                    ; preds = %unicode_byte_type.e
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal i32 @big2_getAtts(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef %3) #3 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  br label %unicode_byte_type.exit.thread
+  br label %unicode_byte_type.exit115.thread
 
-unicode_byte_type.exit.thread:                    ; preds = %unicode_byte_type.exit.thread.backedge, %4
-  %.pn = phi ptr [ %1, %4 ], [ %.pn.be, %unicode_byte_type.exit.thread.backedge ]
-  %.0102 = phi i32 [ 1, %4 ], [ %.0102.be, %unicode_byte_type.exit.thread.backedge ]
-  %.0100 = phi i32 [ 0, %4 ], [ %.0100.be, %unicode_byte_type.exit.thread.backedge ]
-  %.0 = phi i32 [ 0, %4 ], [ %.0.be, %unicode_byte_type.exit.thread.backedge ]
+unicode_byte_type.exit115.thread:                 ; preds = %unicode_byte_type.exit115.thread.backedge, %4
+  %.pn = phi ptr [ %1, %4 ], [ %.pn.be, %unicode_byte_type.exit115.thread.backedge ]
+  %.0102 = phi i32 [ 1, %4 ], [ %.0102.be, %unicode_byte_type.exit115.thread.backedge ]
+  %.0100 = phi i32 [ 0, %4 ], [ %.0100.be, %unicode_byte_type.exit115.thread.backedge ]
+  %.0 = phi i32 [ 0, %4 ], [ %.0.be, %unicode_byte_type.exit115.thread.backedge ]
   %.0104 = getelementptr inbounds nuw i8, ptr %.pn, i64 2
   %6 = load i8, ptr %.0104, align 1
   switch i8 %6, label %unicode_byte_type.exit.thread121 [
@@ -14400,35 +14390,35 @@ unicode_byte_type.exit.thread:                    ; preds = %unicode_byte_type.e
     i8 -39, label %unicode_byte_type.exit.thread119
     i8 -38, label %unicode_byte_type.exit.thread119
     i8 -37, label %unicode_byte_type.exit.thread119
-    i8 -36, label %unicode_byte_type.exit.thread.backedge
-    i8 -35, label %unicode_byte_type.exit.thread.backedge
-    i8 -34, label %unicode_byte_type.exit.thread.backedge
-    i8 -33, label %unicode_byte_type.exit.thread.backedge
+    i8 -36, label %unicode_byte_type.exit115.thread.backedge
+    i8 -35, label %unicode_byte_type.exit115.thread.backedge
+    i8 -34, label %unicode_byte_type.exit115.thread.backedge
+    i8 -33, label %unicode_byte_type.exit115.thread.backedge
     i8 -1, label %7
   ]
 
-unicode_byte_type.exit.thread.backedge:           ; preds = %unicode_byte_type.exit.thread, %unicode_byte_type.exit.thread, %unicode_byte_type.exit.thread, %unicode_byte_type.exit.thread, %7, %121, %.fold.split112, %86, %.fold.split, %66, %68, %50, %52, %43, %45, %16, %20, %18, %32, %41, %unicode_byte_type.exit.thread121, %56, %63, %72, %79, %83, %81, %87, %89, %unicode_byte_type.exit115, %.critedge, %122, %124, %127, %unicode_byte_type.exit
-  %.pn.be = phi ptr [ %.0104, %unicode_byte_type.exit ], [ %.0104, %127 ], [ %.0104, %124 ], [ %.0104, %122 ], [ %.0104, %.critedge ], [ %.0104, %unicode_byte_type.exit115 ], [ %.0104, %89 ], [ %.0104, %87 ], [ %.0104, %83 ], [ %.0104, %81 ], [ %.0104, %79 ], [ %.0104, %72 ], [ %.0104, %63 ], [ %.0104, %56 ], [ %.0104, %unicode_byte_type.exit.thread121 ], [ %42, %41 ], [ %33, %32 ], [ %.0104, %18 ], [ %.0104, %20 ], [ %.0104, %16 ], [ %.0104, %45 ], [ %.0104, %43 ], [ %.0104, %52 ], [ %.0104, %50 ], [ %.0104, %68 ], [ %.0104, %66 ], [ %.0104, %86 ], [ %.0104, %.fold.split ], [ %.0104, %121 ], [ %.0104, %.fold.split112 ], [ %.0104, %7 ], [ %.0104, %unicode_byte_type.exit.thread ], [ %.0104, %unicode_byte_type.exit.thread ], [ %.0104, %unicode_byte_type.exit.thread ], [ %.0104, %unicode_byte_type.exit.thread ]
-  %.0102.be = phi i32 [ %.0102, %unicode_byte_type.exit ], [ 2, %127 ], [ 2, %124 ], [ 2, %122 ], [ 2, %.critedge ], [ 2, %unicode_byte_type.exit115 ], [ 2, %89 ], [ 2, %87 ], [ %.0102, %83 ], [ %.0102, %81 ], [ 0, %79 ], [ 2, %72 ], [ 0, %63 ], [ 2, %56 ], [ %.0102, %unicode_byte_type.exit.thread121 ], [ %.3, %41 ], [ %.2, %32 ], [ 1, %18 ], [ 1, %20 ], [ %.0102, %16 ], [ 1, %45 ], [ 1, %43 ], [ 2, %52 ], [ 2, %50 ], [ 2, %68 ], [ 2, %66 ], [ 0, %86 ], [ %.0102, %.fold.split ], [ 0, %121 ], [ %.0102, %.fold.split112 ], [ %.0102, %7 ], [ %.0102, %unicode_byte_type.exit.thread ], [ %.0102, %unicode_byte_type.exit.thread ], [ %.0102, %unicode_byte_type.exit.thread ], [ %.0102, %unicode_byte_type.exit.thread ]
-  %.0100.be = phi i32 [ %.0100, %unicode_byte_type.exit ], [ %.0100, %127 ], [ %.0100, %124 ], [ %.0100, %122 ], [ %.0100, %.critedge ], [ %.0100, %unicode_byte_type.exit115 ], [ %.0100, %89 ], [ %.0100, %87 ], [ %.0100, %83 ], [ %.0100, %81 ], [ %80, %79 ], [ %.0100, %72 ], [ %64, %63 ], [ %.0100, %56 ], [ %.0100, %unicode_byte_type.exit.thread121 ], [ %.0100, %41 ], [ %.0100, %32 ], [ %.0100, %18 ], [ %.0100, %20 ], [ %.0100, %16 ], [ %.0100, %45 ], [ %.0100, %43 ], [ %.0100, %52 ], [ %.0100, %50 ], [ %.0100, %68 ], [ %.0100, %66 ], [ %.0100, %86 ], [ %.0100, %.fold.split ], [ %.0100, %121 ], [ %.0100, %.fold.split112 ], [ %.0100, %7 ], [ %.0100, %unicode_byte_type.exit.thread ], [ %.0100, %unicode_byte_type.exit.thread ], [ %.0100, %unicode_byte_type.exit.thread ], [ %.0100, %unicode_byte_type.exit.thread ]
-  %.0.be = phi i32 [ %.0, %unicode_byte_type.exit ], [ %.0, %127 ], [ %.0, %124 ], [ %.0, %122 ], [ %.0, %.critedge ], [ %.0, %unicode_byte_type.exit115 ], [ %.0, %89 ], [ %.0, %87 ], [ %.0, %83 ], [ %.0, %81 ], [ 13, %79 ], [ %.0, %72 ], [ 12, %63 ], [ %.0, %56 ], [ %.0, %unicode_byte_type.exit.thread121 ], [ %.0, %41 ], [ %.0, %32 ], [ %.0, %18 ], [ %.0, %20 ], [ %.0, %16 ], [ %.0, %45 ], [ %.0, %43 ], [ 12, %52 ], [ 12, %50 ], [ 13, %68 ], [ 13, %66 ], [ %.0, %86 ], [ %.0, %.fold.split ], [ %.0, %121 ], [ %.0, %.fold.split112 ], [ %.0, %7 ], [ %.0, %unicode_byte_type.exit.thread ], [ %.0, %unicode_byte_type.exit.thread ], [ %.0, %unicode_byte_type.exit.thread ], [ %.0, %unicode_byte_type.exit.thread ]
-  br label %unicode_byte_type.exit.thread
+unicode_byte_type.exit115.thread.backedge:        ; preds = %unicode_byte_type.exit115.thread, %unicode_byte_type.exit115.thread, %unicode_byte_type.exit115.thread, %unicode_byte_type.exit115.thread, %7, %102, %114, %119, %.fold.split112, %86, %.fold.split, %66, %68, %50, %52, %43, %45, %16, %20, %18, %32, %41, %unicode_byte_type.exit.thread121, %56, %63, %72, %79, %83, %81, %87, %89, %unicode_byte_type.exit115, %.critedge, %120, %122, %125, %unicode_byte_type.exit
+  %.pn.be = phi ptr [ %.0104, %unicode_byte_type.exit ], [ %.0104, %125 ], [ %.0104, %122 ], [ %.0104, %120 ], [ %.0104, %.critedge ], [ %.0104, %unicode_byte_type.exit115 ], [ %.0104, %89 ], [ %.0104, %87 ], [ %.0104, %83 ], [ %.0104, %81 ], [ %.0104, %79 ], [ %.0104, %72 ], [ %.0104, %63 ], [ %.0104, %56 ], [ %.0104, %unicode_byte_type.exit.thread121 ], [ %42, %41 ], [ %33, %32 ], [ %.0104, %18 ], [ %.0104, %20 ], [ %.0104, %16 ], [ %.0104, %45 ], [ %.0104, %43 ], [ %.0104, %52 ], [ %.0104, %50 ], [ %.0104, %68 ], [ %.0104, %66 ], [ %.0104, %86 ], [ %.0104, %.fold.split ], [ %.0104, %119 ], [ %.0104, %.fold.split112 ], [ %.0104, %114 ], [ %.0104, %102 ], [ %.0104, %7 ], [ %.0104, %unicode_byte_type.exit115.thread ], [ %.0104, %unicode_byte_type.exit115.thread ], [ %.0104, %unicode_byte_type.exit115.thread ], [ %.0104, %unicode_byte_type.exit115.thread ]
+  %.0102.be = phi i32 [ %.0102, %unicode_byte_type.exit ], [ 2, %125 ], [ 2, %122 ], [ 2, %120 ], [ 2, %.critedge ], [ 2, %unicode_byte_type.exit115 ], [ 2, %89 ], [ 2, %87 ], [ %.0102, %83 ], [ %.0102, %81 ], [ 0, %79 ], [ 2, %72 ], [ 0, %63 ], [ 2, %56 ], [ %.0102, %unicode_byte_type.exit.thread121 ], [ %.3, %41 ], [ %.2, %32 ], [ 1, %18 ], [ 1, %20 ], [ %.0102, %16 ], [ 1, %45 ], [ 1, %43 ], [ 2, %52 ], [ 2, %50 ], [ 2, %68 ], [ 2, %66 ], [ 0, %86 ], [ %.0102, %.fold.split ], [ 0, %119 ], [ %.0102, %.fold.split112 ], [ 2, %114 ], [ 2, %102 ], [ %.0102, %7 ], [ %.0102, %unicode_byte_type.exit115.thread ], [ %.0102, %unicode_byte_type.exit115.thread ], [ %.0102, %unicode_byte_type.exit115.thread ], [ %.0102, %unicode_byte_type.exit115.thread ]
+  %.0100.be = phi i32 [ %.0100, %unicode_byte_type.exit ], [ %.0100, %125 ], [ %.0100, %122 ], [ %.0100, %120 ], [ %.0100, %.critedge ], [ %.0100, %unicode_byte_type.exit115 ], [ %.0100, %89 ], [ %.0100, %87 ], [ %.0100, %83 ], [ %.0100, %81 ], [ %80, %79 ], [ %.0100, %72 ], [ %64, %63 ], [ %.0100, %56 ], [ %.0100, %unicode_byte_type.exit.thread121 ], [ %.0100, %41 ], [ %.0100, %32 ], [ %.0100, %18 ], [ %.0100, %20 ], [ %.0100, %16 ], [ %.0100, %45 ], [ %.0100, %43 ], [ %.0100, %52 ], [ %.0100, %50 ], [ %.0100, %68 ], [ %.0100, %66 ], [ %.0100, %86 ], [ %.0100, %.fold.split ], [ %.0100, %119 ], [ %.0100, %.fold.split112 ], [ %.0100, %114 ], [ %.0100, %102 ], [ %.0100, %7 ], [ %.0100, %unicode_byte_type.exit115.thread ], [ %.0100, %unicode_byte_type.exit115.thread ], [ %.0100, %unicode_byte_type.exit115.thread ], [ %.0100, %unicode_byte_type.exit115.thread ]
+  %.0.be = phi i32 [ %.0, %unicode_byte_type.exit ], [ %.0, %125 ], [ %.0, %122 ], [ %.0, %120 ], [ %.0, %.critedge ], [ %.0, %unicode_byte_type.exit115 ], [ %.0, %89 ], [ %.0, %87 ], [ %.0, %83 ], [ %.0, %81 ], [ 13, %79 ], [ %.0, %72 ], [ 12, %63 ], [ %.0, %56 ], [ %.0, %unicode_byte_type.exit.thread121 ], [ %.0, %41 ], [ %.0, %32 ], [ %.0, %18 ], [ %.0, %20 ], [ %.0, %16 ], [ %.0, %45 ], [ %.0, %43 ], [ 12, %52 ], [ 12, %50 ], [ 13, %68 ], [ 13, %66 ], [ %.0, %86 ], [ %.0, %.fold.split ], [ %.0, %119 ], [ %.0, %.fold.split112 ], [ %.0, %114 ], [ %.0, %102 ], [ %.0, %7 ], [ %.0, %unicode_byte_type.exit115.thread ], [ %.0, %unicode_byte_type.exit115.thread ], [ %.0, %unicode_byte_type.exit115.thread ], [ %.0, %unicode_byte_type.exit115.thread ]
+  br label %unicode_byte_type.exit115.thread
 
-7:                                                ; preds = %unicode_byte_type.exit.thread
+7:                                                ; preds = %unicode_byte_type.exit115.thread
   %8 = getelementptr inbounds nuw i8, ptr %.pn, i64 3
   %9 = load i8, ptr %8, align 1
   %switch.i = icmp ult i8 %9, -2
   %10 = icmp eq i32 %.0102, 0
   %or.cond = select i1 %switch.i, i1 %10, i1 false
-  br i1 %or.cond, label %43, label %unicode_byte_type.exit.thread.backedge
+  br i1 %or.cond, label %43, label %unicode_byte_type.exit115.thread.backedge
 
-unicode_byte_type.exit:                           ; preds = %unicode_byte_type.exit.thread
+unicode_byte_type.exit:                           ; preds = %unicode_byte_type.exit115.thread
   %11 = getelementptr inbounds nuw i8, ptr %.pn, i64 3
   %12 = load i8, ptr %11, align 1
   %13 = zext i8 %12 to i64
   %14 = getelementptr inbounds nuw [256 x i8], ptr %5, i64 0, i64 %13
   %15 = load i8, ptr %14, align 1
-  switch i8 %15, label %unicode_byte_type.exit.thread.backedge [
+  switch i8 %15, label %unicode_byte_type.exit115.thread.backedge [
     i8 5, label %16
     i8 6, label %24
     i8 7, label %unicode_byte_type.exit.thread119
@@ -14439,19 +14429,19 @@ unicode_byte_type.exit:                           ; preds = %unicode_byte_type.e
     i8 13, label %65
     i8 3, label %81
     i8 21, label %86
-    i8 9, label %121
-    i8 10, label %121
-    i8 11, label %127
-    i8 17, label %127
+    i8 9, label %119
+    i8 10, label %119
+    i8 11, label %125
+    i8 17, label %125
   ]
 
 16:                                               ; preds = %unicode_byte_type.exit
   %17 = icmp eq i32 %.0102, 0
-  br i1 %17, label %18, label %unicode_byte_type.exit.thread.backedge
+  br i1 %17, label %18, label %unicode_byte_type.exit115.thread.backedge
 
 18:                                               ; preds = %16
   %19 = icmp slt i32 %.0100, %2
-  br i1 %19, label %20, label %unicode_byte_type.exit.thread.backedge
+  br i1 %19, label %20, label %unicode_byte_type.exit115.thread.backedge
 
 20:                                               ; preds = %18
   %21 = sext i32 %.0100 to i64
@@ -14459,7 +14449,7 @@ unicode_byte_type.exit:                           ; preds = %unicode_byte_type.e
   store ptr %.0104, ptr %22, align 8
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 24
   store i8 1, ptr %23, align 8
-  br label %unicode_byte_type.exit.thread.backedge
+  br label %unicode_byte_type.exit115.thread.backedge
 
 24:                                               ; preds = %unicode_byte_type.exit
   %25 = icmp eq i32 %.0102, 0
@@ -14480,9 +14470,9 @@ unicode_byte_type.exit:                           ; preds = %unicode_byte_type.e
 32:                                               ; preds = %26, %28, %24
   %.2 = phi i32 [ %.0102, %24 ], [ 1, %28 ], [ 1, %26 ]
   %33 = getelementptr inbounds nuw i8, ptr %.pn, i64 3
-  br label %unicode_byte_type.exit.thread.backedge
+  br label %unicode_byte_type.exit115.thread.backedge
 
-unicode_byte_type.exit.thread119:                 ; preds = %unicode_byte_type.exit.thread, %unicode_byte_type.exit.thread, %unicode_byte_type.exit.thread, %unicode_byte_type.exit.thread, %unicode_byte_type.exit
+unicode_byte_type.exit.thread119:                 ; preds = %unicode_byte_type.exit115.thread, %unicode_byte_type.exit115.thread, %unicode_byte_type.exit115.thread, %unicode_byte_type.exit115.thread, %unicode_byte_type.exit
   %34 = icmp eq i32 %.0102, 0
   br i1 %34, label %35, label %41
 
@@ -14501,15 +14491,15 @@ unicode_byte_type.exit.thread119:                 ; preds = %unicode_byte_type.e
 41:                                               ; preds = %35, %37, %unicode_byte_type.exit.thread119
   %.3 = phi i32 [ %.0102, %unicode_byte_type.exit.thread119 ], [ 1, %37 ], [ 1, %35 ]
   %42 = getelementptr inbounds nuw i8, ptr %.pn, i64 4
-  br label %unicode_byte_type.exit.thread.backedge
+  br label %unicode_byte_type.exit115.thread.backedge
 
-unicode_byte_type.exit.thread121:                 ; preds = %unicode_byte_type.exit.thread, %unicode_byte_type.exit, %unicode_byte_type.exit, %unicode_byte_type.exit
+unicode_byte_type.exit.thread121:                 ; preds = %unicode_byte_type.exit115.thread, %unicode_byte_type.exit, %unicode_byte_type.exit, %unicode_byte_type.exit
   %.old = icmp eq i32 %.0102, 0
-  br i1 %.old, label %43, label %unicode_byte_type.exit.thread.backedge
+  br i1 %.old, label %43, label %unicode_byte_type.exit115.thread.backedge
 
 43:                                               ; preds = %7, %unicode_byte_type.exit.thread121
   %44 = icmp slt i32 %.0100, %2
-  br i1 %44, label %45, label %unicode_byte_type.exit.thread.backedge
+  br i1 %44, label %45, label %unicode_byte_type.exit115.thread.backedge
 
 45:                                               ; preds = %43
   %46 = sext i32 %.0100 to i64
@@ -14517,7 +14507,7 @@ unicode_byte_type.exit.thread121:                 ; preds = %unicode_byte_type.e
   store ptr %.0104, ptr %47, align 8
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 24
   store i8 1, ptr %48, align 8
-  br label %unicode_byte_type.exit.thread.backedge
+  br label %unicode_byte_type.exit115.thread.backedge
 
 49:                                               ; preds = %unicode_byte_type.exit
   %.not109 = icmp eq i32 %.0102, 2
@@ -14525,18 +14515,18 @@ unicode_byte_type.exit.thread121:                 ; preds = %unicode_byte_type.e
 
 50:                                               ; preds = %49
   %51 = icmp slt i32 %.0100, %2
-  br i1 %51, label %52, label %unicode_byte_type.exit.thread.backedge
+  br i1 %51, label %52, label %unicode_byte_type.exit115.thread.backedge
 
 52:                                               ; preds = %50
   %53 = getelementptr inbounds nuw i8, ptr %.pn, i64 4
   %54 = sext i32 %.0100 to i64
   %55 = getelementptr inbounds %struct.ATTRIBUTE, ptr %3, i64 %54, i32 1
   store ptr %53, ptr %55, align 8
-  br label %unicode_byte_type.exit.thread.backedge
+  br label %unicode_byte_type.exit115.thread.backedge
 
 56:                                               ; preds = %49
   %57 = icmp eq i32 %.0, 12
-  br i1 %57, label %58, label %unicode_byte_type.exit.thread.backedge
+  br i1 %57, label %58, label %unicode_byte_type.exit115.thread.backedge
 
 58:                                               ; preds = %56
   %59 = icmp slt i32 %.0100, %2
@@ -14550,7 +14540,7 @@ unicode_byte_type.exit.thread121:                 ; preds = %unicode_byte_type.e
 
 63:                                               ; preds = %60, %58
   %64 = add nsw i32 %.0100, 1
-  br label %unicode_byte_type.exit.thread.backedge
+  br label %unicode_byte_type.exit115.thread.backedge
 
 65:                                               ; preds = %unicode_byte_type.exit
   %.not108 = icmp eq i32 %.0102, 2
@@ -14558,18 +14548,18 @@ unicode_byte_type.exit.thread121:                 ; preds = %unicode_byte_type.e
 
 66:                                               ; preds = %65
   %67 = icmp slt i32 %.0100, %2
-  br i1 %67, label %68, label %unicode_byte_type.exit.thread.backedge
+  br i1 %67, label %68, label %unicode_byte_type.exit115.thread.backedge
 
 68:                                               ; preds = %66
   %69 = getelementptr inbounds nuw i8, ptr %.pn, i64 4
   %70 = sext i32 %.0100 to i64
   %71 = getelementptr inbounds %struct.ATTRIBUTE, ptr %3, i64 %70, i32 1
   store ptr %69, ptr %71, align 8
-  br label %unicode_byte_type.exit.thread.backedge
+  br label %unicode_byte_type.exit115.thread.backedge
 
 72:                                               ; preds = %65
   %73 = icmp eq i32 %.0, 13
-  br i1 %73, label %74, label %unicode_byte_type.exit.thread.backedge
+  br i1 %73, label %74, label %unicode_byte_type.exit115.thread.backedge
 
 74:                                               ; preds = %72
   %75 = icmp slt i32 %.0100, %2
@@ -14583,27 +14573,27 @@ unicode_byte_type.exit.thread121:                 ; preds = %unicode_byte_type.e
 
 79:                                               ; preds = %76, %74
   %80 = add nsw i32 %.0100, 1
-  br label %unicode_byte_type.exit.thread.backedge
+  br label %unicode_byte_type.exit115.thread.backedge
 
 81:                                               ; preds = %unicode_byte_type.exit
   %82 = icmp slt i32 %.0100, %2
-  br i1 %82, label %83, label %unicode_byte_type.exit.thread.backedge
+  br i1 %82, label %83, label %unicode_byte_type.exit115.thread.backedge
 
 83:                                               ; preds = %81
   %84 = sext i32 %.0100 to i64
   %85 = getelementptr inbounds %struct.ATTRIBUTE, ptr %3, i64 %84, i32 3
   store i8 0, ptr %85, align 8
-  br label %unicode_byte_type.exit.thread.backedge
+  br label %unicode_byte_type.exit115.thread.backedge
 
 86:                                               ; preds = %unicode_byte_type.exit
   switch i32 %.0102, label %.fold.split [
-    i32 1, label %unicode_byte_type.exit.thread.backedge
+    i32 1, label %unicode_byte_type.exit115.thread.backedge
     i32 2, label %87
   ]
 
 87:                                               ; preds = %86
   %88 = icmp slt i32 %.0100, %2
-  br i1 %88, label %89, label %unicode_byte_type.exit.thread.backedge
+  br i1 %88, label %89, label %unicode_byte_type.exit115.thread.backedge
 
 89:                                               ; preds = %87
   %90 = sext i32 %.0100 to i64
@@ -14611,7 +14601,7 @@ unicode_byte_type.exit.thread121:                 ; preds = %unicode_byte_type.e
   %92 = getelementptr inbounds nuw i8, ptr %91, i64 24
   %93 = load i8, ptr %92, align 8
   %.not106 = icmp eq i8 %93, 0
-  br i1 %.not106, label %unicode_byte_type.exit.thread.backedge, label %94
+  br i1 %.not106, label %unicode_byte_type.exit115.thread.backedge, label %94
 
 94:                                               ; preds = %89
   %95 = getelementptr inbounds nuw i8, ptr %91, i64 8
@@ -14628,17 +14618,13 @@ unicode_byte_type.exit.thread121:                 ; preds = %unicode_byte_type.e
 102:                                              ; preds = %98
   %103 = getelementptr inbounds nuw i8, ptr %.pn, i64 4
   %104 = load i8, ptr %103, align 1
-  switch i8 %104, label %118 [
+  switch i8 %104, label %unicode_byte_type.exit115.thread.backedge [
     i8 0, label %105
-    i8 -40, label %unicode_byte_type.exit115
-    i8 -39, label %unicode_byte_type.exit115
-    i8 -38, label %unicode_byte_type.exit115
-    i8 -37, label %unicode_byte_type.exit115
-    i8 -36, label %114
-    i8 -35, label %114
-    i8 -34, label %114
-    i8 -33, label %114
-    i8 -1, label %115
+    i8 -1, label %114
+    i8 -33, label %unicode_byte_type.exit115
+    i8 -34, label %unicode_byte_type.exit115
+    i8 -35, label %unicode_byte_type.exit115
+    i8 -36, label %unicode_byte_type.exit115
   ]
 
 105:                                              ; preds = %102
@@ -14654,55 +14640,49 @@ unicode_byte_type.exit.thread121:                 ; preds = %unicode_byte_type.e
   %113 = zext i8 %112 to i32
   br label %unicode_byte_type.exit115
 
-114:                                              ; preds = %102, %102, %102, %102
-  br label %unicode_byte_type.exit115
+114:                                              ; preds = %102
+  %115 = getelementptr inbounds nuw i8, ptr %.pn, i64 5
+  %116 = load i8, ptr %115, align 1
+  %switch.i113 = icmp ugt i8 %116, -3
+  br i1 %switch.i113, label %unicode_byte_type.exit115, label %unicode_byte_type.exit115.thread.backedge
 
-115:                                              ; preds = %102
-  %116 = getelementptr inbounds nuw i8, ptr %.pn, i64 5
-  %117 = load i8, ptr %116, align 1
-  %switch.i113 = icmp ugt i8 %117, -3
-  br i1 %switch.i113, label %unicode_byte_type.exit115, label %118
-
-118:                                              ; preds = %102, %115
-  br label %unicode_byte_type.exit115
-
-unicode_byte_type.exit115:                        ; preds = %102, %102, %102, %102, %118, %115, %114, %109
-  %119 = phi i32 [ %113, %109 ], [ 29, %118 ], [ 8, %114 ], [ 0, %115 ], [ 7, %102 ], [ 7, %102 ], [ 7, %102 ], [ 7, %102 ]
-  %120 = icmp eq i32 %119, %.0
-  br i1 %120, label %.critedge, label %unicode_byte_type.exit.thread.backedge
+unicode_byte_type.exit115:                        ; preds = %102, %102, %102, %102, %114, %109
+  %117 = phi i32 [ %113, %109 ], [ 0, %114 ], [ 8, %102 ], [ 8, %102 ], [ 8, %102 ], [ 8, %102 ]
+  %118 = icmp eq i32 %117, %.0
+  br i1 %118, label %.critedge, label %unicode_byte_type.exit115.thread.backedge
 
 .critedge:                                        ; preds = %94, %unicode_byte_type.exit115, %105, %98
   store i8 0, ptr %92, align 8
-  br label %unicode_byte_type.exit.thread.backedge
+  br label %unicode_byte_type.exit115.thread.backedge
 
-121:                                              ; preds = %unicode_byte_type.exit, %unicode_byte_type.exit
+119:                                              ; preds = %unicode_byte_type.exit, %unicode_byte_type.exit
   switch i32 %.0102, label %.fold.split112 [
-    i32 1, label %unicode_byte_type.exit.thread.backedge
-    i32 2, label %122
+    i32 1, label %unicode_byte_type.exit115.thread.backedge
+    i32 2, label %120
   ]
 
-122:                                              ; preds = %121
-  %123 = icmp slt i32 %.0100, %2
-  br i1 %123, label %124, label %unicode_byte_type.exit.thread.backedge
+120:                                              ; preds = %119
+  %121 = icmp slt i32 %.0100, %2
+  br i1 %121, label %122, label %unicode_byte_type.exit115.thread.backedge
 
-124:                                              ; preds = %122
-  %125 = sext i32 %.0100 to i64
-  %126 = getelementptr inbounds %struct.ATTRIBUTE, ptr %3, i64 %125, i32 3
-  store i8 0, ptr %126, align 8
-  br label %unicode_byte_type.exit.thread.backedge
+122:                                              ; preds = %120
+  %123 = sext i32 %.0100 to i64
+  %124 = getelementptr inbounds %struct.ATTRIBUTE, ptr %3, i64 %123, i32 3
+  store i8 0, ptr %124, align 8
+  br label %unicode_byte_type.exit115.thread.backedge
 
-127:                                              ; preds = %unicode_byte_type.exit, %unicode_byte_type.exit
+125:                                              ; preds = %unicode_byte_type.exit, %unicode_byte_type.exit
   %.not = icmp eq i32 %.0102, 2
-  br i1 %.not, label %unicode_byte_type.exit.thread.backedge, label %128
+  br i1 %.not, label %unicode_byte_type.exit115.thread.backedge, label %126
 
-128:                                              ; preds = %127
+126:                                              ; preds = %125
   ret i32 %.0100
 
 .fold.split:                                      ; preds = %86
-  br label %unicode_byte_type.exit.thread.backedge
+  br label %unicode_byte_type.exit115.thread.backedge
 
-.fold.split112:                                   ; preds = %121
-  br label %unicode_byte_type.exit.thread.backedge
+.fold.split112:                                   ; preds = %119
+  br label %unicode_byte_type.exit115.thread.backedge
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable

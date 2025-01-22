@@ -3038,17 +3038,16 @@ define internal void @vector_cleanup_callback(ptr noundef %0) #0 align 16 {
   br i1 %34, label %35, label %.preheader.i, !llvm.loop !23
 
 35:                                               ; preds = %29
-  %36 = and i8 %30, 1
-  %37 = icmp eq i8 %36, 0
-  br i1 %37, label %__vector_cleanup.exit, label %38
+  %36 = icmp eq i8 %30, 0
+  br i1 %36, label %__vector_cleanup.exit, label %37
 
-38:                                               ; preds = %35
-  %39 = load volatile i64, ptr @jiffies, align 64
-  %40 = add i64 %39, 1
-  %41 = tail call i32 @mod_timer(ptr noundef nonnull %0, i64 noundef %40) #15
+37:                                               ; preds = %35
+  %38 = load volatile i64, ptr @jiffies, align 64
+  %39 = add i64 %38, 1
+  %40 = tail call i32 @mod_timer(ptr noundef nonnull %0, i64 noundef %39) #15
   br label %__vector_cleanup.exit
 
-__vector_cleanup.exit:                            ; preds = %1, %35, %38
+__vector_cleanup.exit:                            ; preds = %1, %35, %37
   tail call void @_raw_spin_unlock_irq(ptr noundef nonnull @vector_lock) #15
   ret void
 }

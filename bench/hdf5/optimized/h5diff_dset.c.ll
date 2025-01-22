@@ -2864,7 +2864,7 @@ define range(i32 -1, 2) i32 @diff_can_type(i64 noundef %0, i64 noundef %1, i32 n
   %26 = load ptr, ptr @stderr, align 8
   %27 = tail call i64 @fwrite(ptr nonnull @.str.33, i64 32, i64 1, ptr %26) #13
   %28 = load ptr, ptr @stderr, align 8
-  %fputc231 = tail call i32 @fputc(i32 10, ptr %28)
+  %fputc232 = tail call i32 @fputc(i32 10, ptr %28)
   br label %214
 
 29:                                               ; preds = %10
@@ -2905,33 +2905,33 @@ define range(i32 -1, 2) i32 @diff_can_type(i64 noundef %0, i64 noundef %1, i32 n
 49:                                               ; preds = %48
   %50 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %51 = load i32, ptr %50, align 8
-  %.not226 = icmp eq i32 %51, 0
-  br i1 %.not226, label %52, label %55
+  %.not227 = icmp eq i32 %51, 0
+  br i1 %.not227, label %52, label %55
 
 52:                                               ; preds = %49
   %53 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %54 = load i32, ptr %53, align 8
-  %.not227 = icmp eq i32 %54, 0
-  br i1 %.not227, label %64, label %55
+  %.not228 = icmp eq i32 %54, 0
+  br i1 %.not228, label %64, label %55
 
 55:                                               ; preds = %52, %49
   %56 = getelementptr inbounds nuw i8, ptr %8, i64 1720
   %57 = load ptr, ptr %56, align 8
-  %.not228 = icmp eq ptr %57, null
-  br i1 %.not228, label %64, label %58
+  %.not229 = icmp eq ptr %57, null
+  br i1 %.not229, label %64, label %58
 
 58:                                               ; preds = %55
   %59 = getelementptr inbounds nuw i8, ptr %8, i64 1728
   %60 = load ptr, ptr %59, align 8
-  %.not229 = icmp eq ptr %60, null
-  br i1 %.not229, label %64, label %.sink.split
+  %.not230 = icmp eq ptr %60, null
+  br i1 %.not230, label %64, label %.sink.split
 
 .sink.split:                                      ; preds = %58
-  %.not230 = icmp eq i32 %9, 0
+  %.not231 = icmp eq i32 %9, 0
   %61 = tail call ptr @get_class(i32 noundef %11) #12
   %62 = load ptr, ptr %59, align 8
   %63 = tail call ptr @get_class(i32 noundef %30) #12
-  %.str.36..str.35 = select i1 %.not230, ptr @.str.36, ptr @.str.35
+  %.str.36..str.35 = select i1 %.not231, ptr @.str.36, ptr @.str.35
   tail call void (ptr, ...) @parallel_print(ptr noundef nonnull %.str.36..str.35, ptr noundef nonnull %57, ptr noundef %61, ptr noundef %62, ptr noundef %63) #12
   br label %64
 
@@ -2947,26 +2947,26 @@ define range(i32 -1, 2) i32 @diff_can_type(i64 noundef %0, i64 noundef %1, i32 n
 67:                                               ; preds = %66
   %68 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %69 = load i32, ptr %68, align 8
-  %.not222 = icmp eq i32 %69, 0
-  br i1 %.not222, label %70, label %73
+  %.not223 = icmp eq i32 %69, 0
+  br i1 %.not223, label %70, label %73
 
 70:                                               ; preds = %67
   %71 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %72 = load i32, ptr %71, align 8
-  %.not223 = icmp eq i32 %72, 0
-  br i1 %.not223, label %81, label %73
+  %.not224 = icmp eq i32 %72, 0
+  br i1 %.not224, label %81, label %73
 
 73:                                               ; preds = %70, %67
   %74 = getelementptr inbounds nuw i8, ptr %8, i64 1720
   %75 = load ptr, ptr %74, align 8
-  %.not224 = icmp eq ptr %75, null
-  br i1 %.not224, label %81, label %76
+  %.not225 = icmp eq ptr %75, null
+  br i1 %.not225, label %81, label %76
 
 76:                                               ; preds = %73
   %77 = getelementptr inbounds nuw i8, ptr %8, i64 1728
   %78 = load ptr, ptr %77, align 8
-  %.not225 = icmp eq ptr %78, null
-  br i1 %.not225, label %81, label %79
+  %.not226 = icmp eq ptr %78, null
+  br i1 %.not226, label %81, label %79
 
 79:                                               ; preds = %76
   %80 = tail call ptr @get_class(i32 noundef 2) #12
@@ -3036,19 +3036,19 @@ define range(i32 -1, 2) i32 @diff_can_type(i64 noundef %0, i64 noundef %1, i32 n
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %.lr.ph.split.us
   %indvars.iv250 = phi i64 [ %indvars.iv.next251, %.lr.ph.split.us ], [ 0, %.lr.ph ]
   %.0164240.us = phi i32 [ %spec.select.us, %.lr.ph.split.us ], [ 0, %.lr.ph ]
-  %.0165239.us = phi i32 [ %spec.select232.us, %.lr.ph.split.us ], [ 0, %.lr.ph ]
+  %.0165239.us = phi i32 [ %spec.select233.us, %.lr.ph.split.us ], [ 0, %.lr.ph ]
   %104 = getelementptr inbounds nuw i64, ptr %6, i64 %indvars.iv250
   %105 = load i64, ptr %104, align 8
   %106 = getelementptr inbounds nuw i64, ptr %7, i64 %indvars.iv250
   %107 = load i64, ptr %106, align 8
-  %.not216.us = icmp eq i64 %105, %107
-  %spec.select.us = select i1 %.not216.us, i32 %.0164240.us, i32 1
+  %.not217.us = icmp eq i64 %105, %107
+  %spec.select.us = select i1 %.not217.us, i32 %.0164240.us, i32 1
   %108 = getelementptr inbounds nuw i64, ptr %4, i64 %indvars.iv250
   %109 = load i64, ptr %108, align 8
   %110 = getelementptr inbounds nuw i64, ptr %5, i64 %indvars.iv250
   %111 = load i64, ptr %110, align 8
-  %.not217.us = icmp eq i64 %109, %111
-  %spec.select232.us = select i1 %.not217.us, i32 %.0165239.us, i32 1
+  %.not218.us = icmp eq i64 %109, %111
+  %spec.select233.us = select i1 %.not218.us, i32 %.0165239.us, i32 1
   %indvars.iv.next251 = add nuw nsw i64 %indvars.iv250, 1
   %exitcond254.not = icmp eq i64 %indvars.iv.next251, %wide.trip.count253
   br i1 %exitcond254.not, label %._crit_edge.loopexit, label %.lr.ph.split.us
@@ -3056,26 +3056,26 @@ define range(i32 -1, 2) i32 @diff_can_type(i64 noundef %0, i64 noundef %1, i32 n
 112:                                              ; preds = %100
   %113 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %114 = load i32, ptr %113, align 8
-  %.not218 = icmp eq i32 %114, 0
-  br i1 %.not218, label %115, label %118
+  %.not219 = icmp eq i32 %114, 0
+  br i1 %.not219, label %115, label %118
 
 115:                                              ; preds = %112
   %116 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %117 = load i32, ptr %116, align 8
-  %.not219 = icmp eq i32 %117, 0
-  br i1 %.not219, label %126, label %118
+  %.not220 = icmp eq i32 %117, 0
+  br i1 %.not220, label %126, label %118
 
 118:                                              ; preds = %115, %112
   %119 = getelementptr inbounds nuw i8, ptr %8, i64 1720
   %120 = load ptr, ptr %119, align 8
-  %.not220 = icmp eq ptr %120, null
-  br i1 %.not220, label %126, label %121
+  %.not221 = icmp eq ptr %120, null
+  br i1 %.not221, label %126, label %121
 
 121:                                              ; preds = %118
   %122 = getelementptr inbounds nuw i8, ptr %8, i64 1728
   %123 = load ptr, ptr %122, align 8
-  %.not221 = icmp eq ptr %123, null
-  br i1 %.not221, label %126, label %124
+  %.not222 = icmp eq ptr %123, null
+  br i1 %.not222, label %126, label %124
 
 124:                                              ; preds = %121
   tail call void (ptr, ...) @parallel_print(ptr noundef nonnull @.str.40, ptr noundef nonnull %120, i32 noundef %2) #12
@@ -3098,13 +3098,13 @@ define range(i32 -1, 2) i32 @diff_can_type(i64 noundef %0, i64 noundef %1, i32 n
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.split
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph.split ], [ 0, %.lr.ph ]
-  %.0165239 = phi i32 [ %spec.select232, %.lr.ph.split ], [ 0, %.lr.ph ]
+  %.0165239 = phi i32 [ %spec.select233, %.lr.ph.split ], [ 0, %.lr.ph ]
   %128 = getelementptr inbounds nuw i64, ptr %4, i64 %indvars.iv
   %129 = load i64, ptr %128, align 8
   %130 = getelementptr inbounds nuw i64, ptr %5, i64 %indvars.iv
   %131 = load i64, ptr %130, align 8
-  %.not217 = icmp eq i64 %129, %131
-  %spec.select232 = select i1 %.not217, i32 %.0165239, i32 1
+  %.not218 = icmp eq i64 %129, %131
+  %spec.select233 = select i1 %.not218, i32 %.0165239, i32 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count253
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split
@@ -3114,34 +3114,34 @@ define range(i32 -1, 2) i32 @diff_can_type(i64 noundef %0, i64 noundef %1, i32 n
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph.split, %._crit_edge.loopexit
-  %.0165.lcssa = phi i32 [ %spec.select232.us, %._crit_edge.loopexit ], [ %spec.select232, %.lr.ph.split ]
+  %.0165.lcssa = phi i32 [ %spec.select233.us, %._crit_edge.loopexit ], [ %spec.select233, %.lr.ph.split ]
   %.0164.lcssa = phi i1 [ %132, %._crit_edge.loopexit ], [ false, %.lr.ph.split ]
-  %.not235 = icmp eq i32 %.0165.lcssa, 0
-  br i1 %.not235, label %152, label %133
+  %.not199 = icmp eq i32 %.0165.lcssa, 0
+  br i1 %.not199, label %152, label %133
 
 133:                                              ; preds = %._crit_edge
   %134 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %135 = load i32, ptr %134, align 8
-  %.not212 = icmp eq i32 %135, 0
-  br i1 %.not212, label %136, label %139
+  %.not213 = icmp eq i32 %135, 0
+  br i1 %.not213, label %136, label %139
 
 136:                                              ; preds = %133
   %137 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %138 = load i32, ptr %137, align 8
-  %.not213 = icmp eq i32 %138, 0
-  br i1 %.not213, label %150, label %139
+  %.not214 = icmp eq i32 %138, 0
+  br i1 %.not214, label %150, label %139
 
 139:                                              ; preds = %136, %133
   %140 = getelementptr inbounds nuw i8, ptr %8, i64 1720
   %141 = load ptr, ptr %140, align 8
-  %.not214 = icmp eq ptr %141, null
-  br i1 %.not214, label %150, label %142
+  %.not215 = icmp eq ptr %141, null
+  br i1 %.not215, label %150, label %142
 
 142:                                              ; preds = %139
   %143 = getelementptr inbounds nuw i8, ptr %8, i64 1728
   %144 = load ptr, ptr %143, align 8
-  %.not215 = icmp eq ptr %144, null
-  br i1 %.not215, label %150, label %145
+  %.not216 = icmp eq ptr %144, null
+  br i1 %.not216, label %150, label %145
 
 145:                                              ; preds = %142
   tail call void (ptr, ...) @parallel_print(ptr noundef nonnull @.str.40, ptr noundef nonnull %141, i32 noundef %2) #12
@@ -3178,14 +3178,14 @@ define range(i32 -1, 2) i32 @diff_can_type(i64 noundef %0, i64 noundef %1, i32 n
 155:                                              ; preds = %152
   %156 = getelementptr inbounds nuw i8, ptr %8, i64 1720
   %157 = load ptr, ptr %156, align 8
-  %.not199 = icmp eq ptr %157, null
-  br i1 %.not199, label %.thread260, label %158
+  %.not200 = icmp eq ptr %157, null
+  br i1 %.not200, label %.thread260, label %158
 
 158:                                              ; preds = %155
   %159 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %160 = load i32, ptr %159, align 8
-  %.not200 = icmp eq i32 %160, 0
-  br i1 %.not200, label %.thread260, label %161
+  %.not201 = icmp eq i32 %160, 0
+  br i1 %.not201, label %.thread260, label %161
 
 161:                                              ; preds = %158
   tail call void (ptr, ...) @parallel_print(ptr noundef nonnull @.str.43) #12
@@ -3209,32 +3209,32 @@ define range(i32 -1, 2) i32 @diff_can_type(i64 noundef %0, i64 noundef %1, i32 n
 165:                                              ; preds = %.thread260
   %166 = tail call i32 @H5Tis_variable_str(i64 noundef %0) #12
   %167 = tail call i32 @H5Tis_variable_str(i64 noundef %1) #12
-  %.not201 = icmp eq i32 %166, %167
-  br i1 %.not201, label %.thread, label %168
+  %.not202 = icmp eq i32 %166, %167
+  br i1 %.not202, label %.thread, label %168
 
 168:                                              ; preds = %165
   %169 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %170 = load i32, ptr %169, align 8
-  %.not208 = icmp eq i32 %170, 0
-  br i1 %.not208, label %171, label %174
+  %.not209 = icmp eq i32 %170, 0
+  br i1 %.not209, label %171, label %174
 
 171:                                              ; preds = %168
   %172 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %173 = load i32, ptr %172, align 8
-  %.not209 = icmp eq i32 %173, 0
-  br i1 %.not209, label %181, label %174
+  %.not210 = icmp eq i32 %173, 0
+  br i1 %.not210, label %181, label %174
 
 174:                                              ; preds = %171, %168
   %175 = getelementptr inbounds nuw i8, ptr %8, i64 1720
   %176 = load ptr, ptr %175, align 8
-  %.not210 = icmp eq ptr %176, null
-  br i1 %.not210, label %181, label %177
+  %.not211 = icmp eq ptr %176, null
+  br i1 %.not211, label %181, label %177
 
 177:                                              ; preds = %174
   %178 = getelementptr inbounds nuw i8, ptr %8, i64 1728
   %179 = load ptr, ptr %178, align 8
-  %.not211 = icmp eq ptr %179, null
-  br i1 %.not211, label %181, label %180
+  %.not212 = icmp eq ptr %179, null
+  br i1 %.not212, label %181, label %180
 
 180:                                              ; preds = %177
   tail call void (ptr, ...) @parallel_print(ptr noundef nonnull @.str.45, ptr noundef nonnull %176, ptr noundef nonnull %179) #12
@@ -3248,8 +3248,8 @@ define range(i32 -1, 2) i32 @diff_can_type(i64 noundef %0, i64 noundef %1, i32 n
 183:                                              ; preds = %.thread260
   %184 = tail call i32 @H5Tget_nmembers(i64 noundef %0) #12
   %185 = tail call i32 @H5Tget_nmembers(i64 noundef %1) #12
-  %.not202 = icmp eq i32 %184, %185
-  br i1 %.not202, label %.preheader, label %187
+  %.not203 = icmp eq i32 %184, %185
+  br i1 %.not203, label %.preheader, label %187
 
 .preheader:                                       ; preds = %183
   %186 = icmp sgt i32 %184, 0
@@ -3258,26 +3258,26 @@ define range(i32 -1, 2) i32 @diff_can_type(i64 noundef %0, i64 noundef %1, i32 n
 187:                                              ; preds = %183
   %188 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %189 = load i32, ptr %188, align 8
-  %.not204 = icmp eq i32 %189, 0
-  br i1 %.not204, label %190, label %193
+  %.not205 = icmp eq i32 %189, 0
+  br i1 %.not205, label %190, label %193
 
 190:                                              ; preds = %187
   %191 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %192 = load i32, ptr %191, align 8
-  %.not205 = icmp eq i32 %192, 0
-  br i1 %.not205, label %201, label %193
+  %.not206 = icmp eq i32 %192, 0
+  br i1 %.not206, label %201, label %193
 
 193:                                              ; preds = %190, %187
   %194 = getelementptr inbounds nuw i8, ptr %8, i64 1720
   %195 = load ptr, ptr %194, align 8
-  %.not206 = icmp eq ptr %195, null
-  br i1 %.not206, label %201, label %196
+  %.not207 = icmp eq ptr %195, null
+  br i1 %.not207, label %201, label %196
 
 196:                                              ; preds = %193
   %197 = getelementptr inbounds nuw i8, ptr %8, i64 1728
   %198 = load ptr, ptr %197, align 8
-  %.not207 = icmp eq ptr %198, null
-  br i1 %.not207, label %201, label %199
+  %.not208 = icmp eq ptr %198, null
+  br i1 %.not208, label %201, label %199
 
 199:                                              ; preds = %196
   tail call void (ptr, ...) @parallel_print(ptr noundef nonnull @.str.46, ptr noundef nonnull %195, i32 noundef %184) #12
@@ -3296,8 +3296,8 @@ define range(i32 -1, 2) i32 @diff_can_type(i64 noundef %0, i64 noundef %1, i32 n
   %203 = tail call i64 @H5Tget_member_type(i64 noundef %0, i32 noundef %.0243) #12
   %204 = tail call i64 @H5Tget_member_type(i64 noundef %1, i32 noundef %.0243) #12
   %205 = tail call i32 @diff_can_type(i64 noundef %203, i64 noundef %204, i32 noundef %2, i32 noundef %2, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8, i32 noundef 1)
-  %.not203 = icmp eq i32 %205, 1
-  br i1 %.not203, label %210, label %206
+  %.not204 = icmp eq i32 %205, 1
+  br i1 %.not204, label %210, label %206
 
 206:                                              ; preds = %.lr.ph244
   %207 = getelementptr inbounds nuw i8, ptr %8, i64 76
@@ -3319,8 +3319,8 @@ define range(i32 -1, 2) i32 @diff_can_type(i64 noundef %0, i64 noundef %1, i32 n
   br label %.thread
 
 .thread:                                          ; preds = %210, %.preheader, %165, %.thread260, %206, %201, %181, %150, %126, %81, %64, %214
-  %.0168234 = phi i32 [ -1, %214 ], [ 1, %165 ], [ 1, %.thread260 ], [ 0, %206 ], [ 0, %201 ], [ 0, %181 ], [ 0, %150 ], [ 0, %126 ], [ 0, %81 ], [ 0, %64 ], [ 1, %.preheader ], [ 1, %210 ]
-  ret i32 %.0168234
+  %.0168235 = phi i32 [ -1, %214 ], [ 1, %165 ], [ 1, %.thread260 ], [ 0, %206 ], [ 0, %201 ], [ 0, %181 ], [ 0, %150 ], [ 0, %126 ], [ 0, %81 ], [ 0, %64 ], [ 1, %.preheader ], [ 1, %210 ]
+  ret i32 %.0168235
 }
 
 declare i32 @H5Tget_class(i64 noundef) local_unnamed_addr #2

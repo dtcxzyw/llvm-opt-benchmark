@@ -4476,7 +4476,7 @@ _ZN3tbb10interface98internal12range_vectorINS_13blocked_rangeIiEELh8EE13split_to
   br i1 %146, label %.noexc.i.i, label %174
 
 .noexc.i.i:                                       ; preds = %143
-  %147 = zext i8 %98 to i64
+  %147 = zext nneg i8 %98 to i64
   %148 = getelementptr inbounds nuw %"class.tbb::blocked_range", ptr %93, i64 %147
   %149 = getelementptr inbounds nuw [8 x i8], ptr %92, i64 0, i64 %147
   %150 = load i8, ptr %149, align 1
@@ -4517,7 +4517,7 @@ _ZN3tbb10interface98internal12range_vectorINS_13blocked_rangeIiEELh8EE13split_to
   tail call void %170(ptr noundef nonnull align 8 dereferenceable(8) %167, ptr noundef nonnull align 8 dereferenceable(8) %155, ptr noundef nonnull align 8 dereferenceable(8) %168)
   %171 = add i8 %137, -1
   store i8 %171, ptr %91, align 2
-  %172 = add i8 %98, 1
+  %172 = add nuw nsw i8 %98, 1
   %173 = and i8 %172, 7
   store i8 %173, ptr %90, align 1
   br label %_ZNK3tbb4task12is_cancelledEv.exit.i.i

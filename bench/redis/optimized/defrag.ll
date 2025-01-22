@@ -1091,14 +1091,13 @@ if.end25:                                         ; preds = %while.body.if.end25
 
 while.end.loopexit:                               ; preds = %if.end25
   %.pre15 = load ptr, ptr %ql, align 8
-  %9 = icmp ne i32 %bookmark_failed.1, 0
-  %10 = zext i1 %9 to i64
+  %9 = zext nneg i32 %bookmark_failed.1 to i64
   br label %while.end
 
 while.end:                                        ; preds = %while.end.loopexit, %if.end8
-  %11 = phi ptr [ %0, %if.end8 ], [ %.pre15, %while.end.loopexit ]
-  %bookmark_failed.0.lcssa = phi i64 [ 0, %if.end8 ], [ %10, %while.end.loopexit ]
-  %call27 = call i32 @quicklistBookmarkDelete(ptr noundef %11, ptr noundef nonnull @.str.6) #11
+  %10 = phi ptr [ %0, %if.end8 ], [ %.pre15, %while.end.loopexit ]
+  %bookmark_failed.0.lcssa = phi i64 [ 0, %if.end8 ], [ %9, %while.end.loopexit ]
+  %call27 = call i32 @quicklistBookmarkDelete(ptr noundef %10, ptr noundef nonnull @.str.6) #11
   store i64 0, ptr %cursor, align 8
   br label %return
 

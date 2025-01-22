@@ -12775,7 +12775,7 @@ define void @_ZN16wasmtime_environ9component5types16CanonicalAbiInfo14variant_st
   br i1 %.not50, label %._crit_edge, label %.lr.ph
 
 ._crit_edge.loopexit:                             ; preds = %57
-  %10 = trunc i8 %.sroa.0.1 to i1
+  %10 = trunc nuw i8 %.sroa.0.1 to i1
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %8
@@ -12876,7 +12876,7 @@ _ZN16wasmtime_environ9component5types8add_flat17h4446092aac2a602fE.exit: ; preds
   %55 = getelementptr inbounds nuw i8, ptr %44, i64 17
   %56 = load i8, ptr %55, align 1
   %brmerge.demorgan.i37 = and i8 %46, %.sroa.0.038
-  %brmerge.demorgan.i = trunc i8 %brmerge.demorgan.i37 to i1
+  %brmerge.demorgan.i = trunc nuw i8 %brmerge.demorgan.i37 to i1
   %..i36 = call i8 @llvm.umax.i8(i8 %.sroa.4.044, i8 %56)
   %.sroa.4.0.i = select i1 %brmerge.demorgan.i, i8 %..i36, i8 undef
   br label %57

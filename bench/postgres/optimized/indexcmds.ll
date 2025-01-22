@@ -3997,438 +3997,437 @@ define dso_local void @ExecReindex(ptr noundef %0, ptr noundef %1, i1 noundef ze
 
 .thread:                                          ; preds = %.lr.ph, %3
   store i32 0, ptr %8, align 8
-  br label %62
+  br label %61
 
 ._crit_edge:                                      ; preds = %43
-  %47 = and i8 %.134, 1
-  %48 = zext nneg i8 %47 to i32
-  br i1 %.1, label %49, label %50
+  %47 = zext nneg i8 %.134 to i32
+  br i1 %.1, label %48, label %49
 
-49:                                               ; preds = %._crit_edge
+48:                                               ; preds = %._crit_edge
   tail call void @PreventInTransactionBlock(i1 noundef zeroext %2, ptr noundef nonnull @.str.54) #12
-  br label %50
+  br label %49
 
-50:                                               ; preds = %49, %._crit_edge
-  %51 = phi i32 [ 8, %49 ], [ 0, %._crit_edge ]
-  %52 = or disjoint i32 %51, %48
-  store i32 %52, ptr %8, align 8
+49:                                               ; preds = %48, %._crit_edge
+  %50 = phi i32 [ 8, %48 ], [ 0, %._crit_edge ]
+  %51 = or disjoint i32 %50, %47
+  store i32 %51, ptr %8, align 8
   %.not42 = icmp eq ptr %.136, null
-  br i1 %.not42, label %62, label %53
+  br i1 %.not42, label %61, label %52
 
-53:                                               ; preds = %50
-  %54 = tail call i32 @get_tablespace_oid(ptr noundef nonnull %.136, i1 noundef zeroext false) #12
-  %55 = getelementptr inbounds nuw i8, ptr %8, i64 4
-  store i32 %54, ptr %55, align 4
-  %.not43 = icmp eq i32 %54, 0
-  %56 = load i32, ptr @MyDatabaseTableSpace, align 4
-  %.not44 = icmp eq i32 %54, %56
+52:                                               ; preds = %49
+  %53 = tail call i32 @get_tablespace_oid(ptr noundef nonnull %.136, i1 noundef zeroext false) #12
+  %54 = getelementptr inbounds nuw i8, ptr %8, i64 4
+  store i32 %53, ptr %54, align 4
+  %.not43 = icmp eq i32 %53, 0
+  %55 = load i32, ptr @MyDatabaseTableSpace, align 4
+  %.not44 = icmp eq i32 %53, %55
   %or.cond = select i1 %.not43, i1 true, i1 %.not44
-  br i1 %or.cond, label %65, label %57
+  br i1 %or.cond, label %64, label %56
 
-57:                                               ; preds = %53
-  %58 = tail call i32 @GetUserId() #12
-  %59 = tail call i32 @object_aclcheck(i32 noundef 1213, i32 noundef %54, i32 noundef %58, i64 noundef 512) #12
-  %.not45 = icmp eq i32 %59, 0
-  br i1 %.not45, label %65, label %60
+56:                                               ; preds = %52
+  %57 = tail call i32 @GetUserId() #12
+  %58 = tail call i32 @object_aclcheck(i32 noundef 1213, i32 noundef %53, i32 noundef %57, i64 noundef 512) #12
+  %.not45 = icmp eq i32 %58, 0
+  br i1 %.not45, label %64, label %59
 
-60:                                               ; preds = %57
-  %61 = tail call ptr @get_tablespace_name(i32 noundef %54) #12
-  tail call void @aclcheck_error(i32 noundef %59, i32 noundef 42, ptr noundef %61) #12
-  br label %65
+59:                                               ; preds = %56
+  %60 = tail call ptr @get_tablespace_name(i32 noundef %53) #12
+  tail call void @aclcheck_error(i32 noundef %58, i32 noundef 42, ptr noundef %60) #12
+  br label %64
 
-62:                                               ; preds = %.thread, %50
-  %63 = phi i32 [ 0, %.thread ], [ %52, %50 ]
-  %64 = getelementptr inbounds nuw i8, ptr %8, i64 4
-  store i32 0, ptr %64, align 4
-  br label %65
+61:                                               ; preds = %.thread, %49
+  %62 = phi i32 [ 0, %.thread ], [ %51, %49 ]
+  %63 = getelementptr inbounds nuw i8, ptr %8, i64 4
+  store i32 0, ptr %63, align 4
+  br label %64
 
-65:                                               ; preds = %53, %60, %57, %62
-  %66 = phi i32 [ %52, %53 ], [ %52, %60 ], [ %52, %57 ], [ %63, %62 ]
-  %67 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %68 = load i32, ptr %67, align 4
-  switch i32 %68, label %242 [
-    i32 0, label %69
-    i32 1, label %90
-    i32 2, label %121
-    i32 3, label %121
-    i32 4, label %121
+64:                                               ; preds = %52, %59, %56, %61
+  %65 = phi i32 [ %51, %52 ], [ %51, %59 ], [ %51, %56 ], [ %62, %61 ]
+  %66 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %67 = load i32, ptr %66, align 4
+  switch i32 %67, label %241 [
+    i32 0, label %68
+    i32 1, label %89
+    i32 2, label %120
+    i32 3, label %120
+    i32 4, label %120
   ]
 
-69:                                               ; preds = %65
+68:                                               ; preds = %64
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
-  %70 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %71 = load ptr, ptr %70, align 8
-  %72 = load i64, ptr %8, align 8
-  store i64 %72, ptr %6, align 8
-  %73 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store i32 0, ptr %73, align 8
-  %74 = and i64 %72, 8
-  %.not.i = icmp eq i64 %74, 0
-  %75 = select i1 %.not.i, i32 8, i32 4
-  %76 = call i32 @RangeVarGetRelidExtended(ptr noundef %71, i32 noundef %75, i32 noundef 0, ptr noundef nonnull @RangeVarCallbackForReindexIndex, ptr noundef nonnull %6) #12
-  %77 = call signext i8 @get_rel_persistence(i32 noundef %76) #12
-  %78 = call signext i8 @get_rel_relkind(i32 noundef %76) #12
-  %79 = icmp eq i8 %78, 73
-  %80 = trunc i64 %72 to i32
-  br i1 %79, label %81, label %82
+  %69 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %70 = load ptr, ptr %69, align 8
+  %71 = load i64, ptr %8, align 8
+  store i64 %71, ptr %6, align 8
+  %72 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  store i32 0, ptr %72, align 8
+  %73 = and i64 %71, 8
+  %.not.i = icmp eq i64 %73, 0
+  %74 = select i1 %.not.i, i32 8, i32 4
+  %75 = call i32 @RangeVarGetRelidExtended(ptr noundef %70, i32 noundef %74, i32 noundef 0, ptr noundef nonnull @RangeVarCallbackForReindexIndex, ptr noundef nonnull %6) #12
+  %76 = call signext i8 @get_rel_persistence(i32 noundef %75) #12
+  %77 = call signext i8 @get_rel_relkind(i32 noundef %75) #12
+  %78 = icmp eq i8 %77, 73
+  %79 = trunc i64 %71 to i32
+  br i1 %78, label %80, label %81
 
-81:                                               ; preds = %69
-  call fastcc void @ReindexPartitions(ptr noundef nonnull %1, i32 noundef %76, ptr noundef nonnull readonly %8, i1 noundef zeroext %2)
+80:                                               ; preds = %68
+  call fastcc void @ReindexPartitions(ptr noundef nonnull %1, i32 noundef %75, ptr noundef nonnull readonly %8, i1 noundef zeroext %2)
   br label %ReindexIndex.exit
 
-82:                                               ; preds = %69
-  %83 = and i32 %80, 8
-  %84 = icmp ne i32 %83, 0
-  %85 = icmp ne i8 %77, 116
-  %or.cond.i = select i1 %84, i1 %85, i1 false
-  br i1 %or.cond.i, label %86, label %88
+81:                                               ; preds = %68
+  %82 = and i32 %79, 8
+  %83 = icmp ne i32 %82, 0
+  %84 = icmp ne i8 %76, 116
+  %or.cond.i = select i1 %83, i1 %84, i1 false
+  br i1 %or.cond.i, label %85, label %87
 
-86:                                               ; preds = %82
-  %87 = call fastcc zeroext i1 @ReindexRelationConcurrently(ptr noundef nonnull %1, i32 noundef %76, ptr noundef nonnull readonly %8)
+85:                                               ; preds = %81
+  %86 = call fastcc zeroext i1 @ReindexRelationConcurrently(ptr noundef nonnull %1, i32 noundef %75, ptr noundef nonnull readonly %8)
   br label %ReindexIndex.exit
 
-88:                                               ; preds = %82
-  store i64 %72, ptr %7, align 8
-  %89 = or i32 %80, 2
-  store i32 %89, ptr %7, align 8
-  call void @reindex_index(ptr noundef nonnull %1, i32 noundef %76, i1 noundef zeroext false, i8 noundef signext %77, ptr noundef nonnull %7) #12
+87:                                               ; preds = %81
+  store i64 %71, ptr %7, align 8
+  %88 = or i32 %79, 2
+  store i32 %88, ptr %7, align 8
+  call void @reindex_index(ptr noundef nonnull %1, i32 noundef %75, i1 noundef zeroext false, i8 noundef signext %76, ptr noundef nonnull %7) #12
   br label %ReindexIndex.exit
 
-ReindexIndex.exit:                                ; preds = %81, %86, %88
+ReindexIndex.exit:                                ; preds = %80, %85, %87
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
-  br label %246
+  br label %245
 
-90:                                               ; preds = %65
+89:                                               ; preds = %64
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
-  %91 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %92 = load ptr, ptr %91, align 8
-  %93 = and i32 %66, 8
-  %.not.i46 = icmp eq i32 %93, 0
-  %94 = select i1 %.not.i46, i32 5, i32 4
-  %95 = tail call i32 @RangeVarGetRelidExtended(ptr noundef %92, i32 noundef %94, i32 noundef 0, ptr noundef nonnull @RangeVarCallbackOwnsTable, ptr noundef null) #12
-  %96 = tail call signext i8 @get_rel_relkind(i32 noundef %95) #12
-  %97 = icmp eq i8 %96, 112
-  br i1 %97, label %98, label %99
+  %90 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %91 = load ptr, ptr %90, align 8
+  %92 = and i32 %65, 8
+  %.not.i46 = icmp eq i32 %92, 0
+  %93 = select i1 %.not.i46, i32 5, i32 4
+  %94 = tail call i32 @RangeVarGetRelidExtended(ptr noundef %91, i32 noundef %93, i32 noundef 0, ptr noundef nonnull @RangeVarCallbackOwnsTable, ptr noundef null) #12
+  %95 = tail call signext i8 @get_rel_relkind(i32 noundef %94) #12
+  %96 = icmp eq i8 %95, 112
+  br i1 %96, label %97, label %98
 
-98:                                               ; preds = %90
-  call fastcc void @ReindexPartitions(ptr noundef nonnull %1, i32 noundef %95, ptr noundef nonnull readonly %8, i1 noundef zeroext %2)
+97:                                               ; preds = %89
+  call fastcc void @ReindexPartitions(ptr noundef nonnull %1, i32 noundef %94, ptr noundef nonnull readonly %8, i1 noundef zeroext %2)
   br label %ReindexTable.exit
 
-99:                                               ; preds = %90
-  br i1 %.not.i46, label %110, label %100
+98:                                               ; preds = %89
+  br i1 %.not.i46, label %109, label %99
 
-100:                                              ; preds = %99
-  %101 = tail call signext i8 @get_rel_persistence(i32 noundef %95) #12
-  %.not21.i = icmp eq i8 %101, 116
-  br i1 %.not21.i, label %110, label %102
+99:                                               ; preds = %98
+  %100 = tail call signext i8 @get_rel_persistence(i32 noundef %94) #12
+  %.not21.i = icmp eq i8 %100, 116
+  br i1 %.not21.i, label %109, label %101
 
-102:                                              ; preds = %100
-  %103 = call fastcc zeroext i1 @ReindexRelationConcurrently(ptr noundef nonnull %1, i32 noundef %95, ptr noundef nonnull readonly %8)
-  br i1 %103, label %ReindexTable.exit, label %104
+101:                                              ; preds = %99
+  %102 = call fastcc zeroext i1 @ReindexRelationConcurrently(ptr noundef nonnull %1, i32 noundef %94, ptr noundef nonnull readonly %8)
+  br i1 %102, label %ReindexTable.exit, label %103
 
-104:                                              ; preds = %102
-  %105 = tail call zeroext i1 @errstart(i32 noundef 18, ptr noundef null) #12
-  br i1 %105, label %106, label %ReindexTable.exit
+103:                                              ; preds = %101
+  %104 = tail call zeroext i1 @errstart(i32 noundef 18, ptr noundef null) #12
+  br i1 %104, label %105, label %ReindexTable.exit
 
-106:                                              ; preds = %104
-  %107 = getelementptr inbounds nuw i8, ptr %92, i64 24
-  %108 = load ptr, ptr %107, align 8
-  %109 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.106, ptr noundef %108) #12
+105:                                              ; preds = %103
+  %106 = getelementptr inbounds nuw i8, ptr %91, i64 24
+  %107 = load ptr, ptr %106, align 8
+  %108 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.106, ptr noundef %107) #12
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 3041, ptr noundef nonnull @__func__.ReindexTable) #12
   br label %ReindexTable.exit
 
-110:                                              ; preds = %100, %99
-  %111 = load i64, ptr %8, align 8
-  store i64 %111, ptr %5, align 8
-  %112 = trunc i64 %111 to i32
-  %113 = or i32 %112, 2
-  store i32 %113, ptr %5, align 8
-  %114 = call zeroext i1 @reindex_relation(ptr noundef nonnull %1, i32 noundef %95, i32 noundef 5, ptr noundef nonnull %5) #12
-  br i1 %114, label %ReindexTable.exit, label %115
+109:                                              ; preds = %99, %98
+  %110 = load i64, ptr %8, align 8
+  store i64 %110, ptr %5, align 8
+  %111 = trunc i64 %110 to i32
+  %112 = or i32 %111, 2
+  store i32 %112, ptr %5, align 8
+  %113 = call zeroext i1 @reindex_relation(ptr noundef nonnull %1, i32 noundef %94, i32 noundef 5, ptr noundef nonnull %5) #12
+  br i1 %113, label %ReindexTable.exit, label %114
 
-115:                                              ; preds = %110
-  %116 = call zeroext i1 @errstart(i32 noundef 18, ptr noundef null) #12
-  br i1 %116, label %117, label %ReindexTable.exit
+114:                                              ; preds = %109
+  %115 = call zeroext i1 @errstart(i32 noundef 18, ptr noundef null) #12
+  br i1 %115, label %116, label %ReindexTable.exit
 
-117:                                              ; preds = %115
-  %118 = getelementptr inbounds nuw i8, ptr %92, i64 24
-  %119 = load ptr, ptr %118, align 8
-  %120 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.107, ptr noundef %119) #12
+116:                                              ; preds = %114
+  %117 = getelementptr inbounds nuw i8, ptr %91, i64 24
+  %118 = load ptr, ptr %117, align 8
+  %119 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.107, ptr noundef %118) #12
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 3055, ptr noundef nonnull @__func__.ReindexTable) #12
   br label %ReindexTable.exit
 
-ReindexTable.exit:                                ; preds = %98, %102, %104, %106, %110, %115, %117
+ReindexTable.exit:                                ; preds = %97, %101, %103, %105, %109, %114, %116
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  br label %246
+  br label %245
 
-121:                                              ; preds = %65, %65, %65
-  %122 = icmp eq i32 %68, 2
-  %123 = icmp eq i32 %68, 3
-  %124 = select i1 %123, ptr @.str.56, ptr @.str.57
-  %125 = select i1 %122, ptr @.str.55, ptr %124
-  tail call void @PreventInTransactionBlock(i1 noundef zeroext %2, ptr noundef nonnull %125) #12
+120:                                              ; preds = %64, %64, %64
+  %121 = icmp eq i32 %67, 2
+  %122 = icmp eq i32 %67, 3
+  %123 = select i1 %122, ptr @.str.56, ptr @.str.57
+  %124 = select i1 %121, ptr @.str.55, ptr %123
+  tail call void @PreventInTransactionBlock(i1 noundef zeroext %2, ptr noundef nonnull %124) #12
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %4)
-  %126 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %127 = load ptr, ptr %126, align 8
-  %128 = load i32, ptr %67, align 4
-  %129 = icmp eq i32 %128, 3
-  br i1 %129, label %130, label %136
+  %125 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %126 = load ptr, ptr %125, align 8
+  %127 = load i32, ptr %66, align 4
+  %128 = icmp eq i32 %127, 3
+  br i1 %128, label %129, label %135
 
-130:                                              ; preds = %121
-  %131 = and i32 %66, 8
-  %.not.i47 = icmp eq i32 %131, 0
-  br i1 %.not.i47, label %.thread.i, label %132
+129:                                              ; preds = %120
+  %130 = and i32 %65, 8
+  %.not.i47 = icmp eq i32 %130, 0
+  br i1 %.not.i47, label %.thread.i, label %131
 
-132:                                              ; preds = %130
-  %133 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
-  tail call void @llvm.assume(i1 %133)
-  %134 = tail call i32 @errcode(i32 noundef 1088) #12
-  %135 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.93) #12
+131:                                              ; preds = %129
+  %132 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
+  tail call void @llvm.assume(i1 %132)
+  %133 = tail call i32 @errcode(i32 noundef 1088) #12
+  %134 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.93) #12
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 3101, ptr noundef nonnull @__func__.ReindexMultipleTables) #12
   unreachable
 
-136:                                              ; preds = %121
-  %137 = icmp eq i32 %128, 2
-  br i1 %137, label %138, label %.thread.i
+135:                                              ; preds = %120
+  %136 = icmp eq i32 %127, 2
+  br i1 %136, label %137, label %.thread.i
 
-138:                                              ; preds = %136
-  %139 = tail call i32 @get_namespace_oid(ptr noundef %127, i1 noundef zeroext false) #12
-  %140 = tail call i32 @GetUserId() #12
-  %141 = tail call zeroext i1 @object_ownercheck(i32 noundef 2615, i32 noundef %139, i32 noundef %140) #12
-  br i1 %141, label %.thread78.i, label %142
+137:                                              ; preds = %135
+  %138 = tail call i32 @get_namespace_oid(ptr noundef %126, i1 noundef zeroext false) #12
+  %139 = tail call i32 @GetUserId() #12
+  %140 = tail call zeroext i1 @object_ownercheck(i32 noundef 2615, i32 noundef %138, i32 noundef %139) #12
+  br i1 %140, label %.thread78.i, label %141
 
-142:                                              ; preds = %138
-  tail call void @aclcheck_error(i32 noundef 2, i32 noundef 36, ptr noundef %127) #12
+141:                                              ; preds = %137
+  tail call void @aclcheck_error(i32 noundef 2, i32 noundef 36, ptr noundef %126) #12
   br label %.thread78.i
 
-.thread.i:                                        ; preds = %136, %130
-  %143 = load i32, ptr @MyDatabaseId, align 4
-  %.not69.i = icmp eq ptr %127, null
-  br i1 %.not69.i, label %151, label %144
+.thread.i:                                        ; preds = %135, %129
+  %142 = load i32, ptr @MyDatabaseId, align 4
+  %.not69.i = icmp eq ptr %126, null
+  br i1 %.not69.i, label %150, label %143
 
-144:                                              ; preds = %.thread.i
-  %145 = tail call ptr @get_database_name(i32 noundef %143) #12
-  %146 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %127, ptr noundef nonnull dereferenceable(1) %145) #14
-  %.not70.i = icmp eq i32 %146, 0
-  br i1 %.not70.i, label %151, label %147
+143:                                              ; preds = %.thread.i
+  %144 = tail call ptr @get_database_name(i32 noundef %142) #12
+  %145 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %126, ptr noundef nonnull dereferenceable(1) %144) #14
+  %.not70.i = icmp eq i32 %145, 0
+  br i1 %.not70.i, label %150, label %146
 
-147:                                              ; preds = %144
-  %148 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
-  tail call void @llvm.assume(i1 %148)
-  %149 = tail call i32 @errcode(i32 noundef 1088) #12
-  %150 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.108) #12
+146:                                              ; preds = %143
+  %147 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
+  tail call void @llvm.assume(i1 %147)
+  %148 = tail call i32 @errcode(i32 noundef 1088) #12
+  %149 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.108) #12
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 3124, ptr noundef nonnull @__func__.ReindexMultipleTables) #12
   unreachable
 
-151:                                              ; preds = %144, %.thread.i
-  %152 = tail call i32 @GetUserId() #12
-  %153 = tail call zeroext i1 @object_ownercheck(i32 noundef 1262, i32 noundef %143, i32 noundef %152) #12
-  br i1 %153, label %161, label %154
+150:                                              ; preds = %143, %.thread.i
+  %151 = tail call i32 @GetUserId() #12
+  %152 = tail call zeroext i1 @object_ownercheck(i32 noundef 1262, i32 noundef %142, i32 noundef %151) #12
+  br i1 %152, label %160, label %153
 
-154:                                              ; preds = %151
-  %155 = tail call ptr @get_database_name(i32 noundef %143) #12
-  tail call void @aclcheck_error(i32 noundef 2, i32 noundef 9, ptr noundef %155) #12
-  %156 = load ptr, ptr @PortalContext, align 8
-  %157 = tail call ptr @AllocSetContextCreateInternal(ptr noundef %156, ptr noundef nonnull @__func__.ReindexMultipleTables, i64 noundef 0, i64 noundef 1024, i64 noundef 8192) #12
-  br label %164
+153:                                              ; preds = %150
+  %154 = tail call ptr @get_database_name(i32 noundef %142) #12
+  tail call void @aclcheck_error(i32 noundef 2, i32 noundef 9, ptr noundef %154) #12
+  %155 = load ptr, ptr @PortalContext, align 8
+  %156 = tail call ptr @AllocSetContextCreateInternal(ptr noundef %155, ptr noundef nonnull @__func__.ReindexMultipleTables, i64 noundef 0, i64 noundef 1024, i64 noundef 8192) #12
+  br label %163
 
-.thread78.i:                                      ; preds = %142, %138
-  %158 = load ptr, ptr @PortalContext, align 8
-  %159 = tail call ptr @AllocSetContextCreateInternal(ptr noundef %158, ptr noundef nonnull @__func__.ReindexMultipleTables, i64 noundef 0, i64 noundef 1024, i64 noundef 8192) #12
-  %160 = zext i32 %139 to i64
-  call void @ScanKeyInit(ptr noundef nonnull %4, i16 noundef signext 3, i16 noundef zeroext 3, i32 noundef 184, i64 noundef %160) #12
-  br label %164
+.thread78.i:                                      ; preds = %141, %137
+  %157 = load ptr, ptr @PortalContext, align 8
+  %158 = tail call ptr @AllocSetContextCreateInternal(ptr noundef %157, ptr noundef nonnull @__func__.ReindexMultipleTables, i64 noundef 0, i64 noundef 1024, i64 noundef 8192) #12
+  %159 = zext i32 %138 to i64
+  call void @ScanKeyInit(ptr noundef nonnull %4, i16 noundef signext 3, i16 noundef zeroext 3, i32 noundef 184, i64 noundef %159) #12
+  br label %163
 
-161:                                              ; preds = %151
-  %162 = load ptr, ptr @PortalContext, align 8
-  %163 = tail call ptr @AllocSetContextCreateInternal(ptr noundef %162, ptr noundef nonnull @__func__.ReindexMultipleTables, i64 noundef 0, i64 noundef 1024, i64 noundef 8192) #12
-  br label %164
+160:                                              ; preds = %150
+  %161 = load ptr, ptr @PortalContext, align 8
+  %162 = tail call ptr @AllocSetContextCreateInternal(ptr noundef %161, ptr noundef nonnull @__func__.ReindexMultipleTables, i64 noundef 0, i64 noundef 1024, i64 noundef 8192) #12
+  br label %163
 
-164:                                              ; preds = %161, %.thread78.i, %154
-  %165 = phi ptr [ %159, %.thread78.i ], [ %163, %161 ], [ %157, %154 ]
-  %.060.i = phi i32 [ 1, %.thread78.i ], [ 0, %161 ], [ 0, %154 ]
-  %166 = call ptr @table_open(i32 noundef 1259, i32 noundef 1) #12
-  %167 = call ptr @table_beginscan_catalog(ptr noundef %166, i32 noundef %.060.i, ptr noundef nonnull %4) #12
-  %168 = call ptr @heap_getnext(ptr noundef %167, i32 noundef 1) #12
-  %.not7182.i = icmp eq ptr %168, null
+163:                                              ; preds = %160, %.thread78.i, %153
+  %164 = phi ptr [ %158, %.thread78.i ], [ %162, %160 ], [ %156, %153 ]
+  %.060.i = phi i32 [ 1, %.thread78.i ], [ 0, %160 ], [ 0, %153 ]
+  %165 = call ptr @table_open(i32 noundef 1259, i32 noundef 1) #12
+  %166 = call ptr @table_beginscan_catalog(ptr noundef %165, i32 noundef %.060.i, ptr noundef nonnull %4) #12
+  %167 = call ptr @heap_getnext(ptr noundef %166, i32 noundef 1) #12
+  %.not7182.i = icmp eq ptr %167, null
   br i1 %.not7182.i, label %ReindexMultipleTables.exit, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %164
-  %169 = icmp eq i32 %128, 4
-  %170 = getelementptr inbounds nuw i8, ptr %8, i64 4
-  br label %171
+.lr.ph.i:                                         ; preds = %163
+  %168 = icmp eq i32 %127, 4
+  %169 = getelementptr inbounds nuw i8, ptr %8, i64 4
+  br label %170
 
-171:                                              ; preds = %.backedge.i, %.lr.ph.i
-  %172 = phi ptr [ %168, %.lr.ph.i ], [ %213, %.backedge.i ]
+170:                                              ; preds = %.backedge.i, %.lr.ph.i
+  %171 = phi ptr [ %167, %.lr.ph.i ], [ %212, %.backedge.i ]
   %.05885.i = phi ptr [ null, %.lr.ph.i ], [ %.058.be.i, %.backedge.i ]
   %.06184.i = phi i1 [ false, %.lr.ph.i ], [ %.061.be.i, %.backedge.i ]
   %.06283.i = phi i1 [ false, %.lr.ph.i ], [ %.062.be.i, %.backedge.i ]
-  %173 = getelementptr inbounds nuw i8, ptr %172, i64 16
-  %174 = load ptr, ptr %173, align 8
-  %175 = getelementptr inbounds nuw i8, ptr %174, i64 22
-  %176 = load i8, ptr %175, align 2
-  %177 = zext i8 %176 to i64
-  %178 = getelementptr i8, ptr %174, i64 %177
-  %179 = load i32, ptr %178, align 4
-  %180 = getelementptr inbounds nuw i8, ptr %178, i64 115
-  %181 = load i8, ptr %180, align 1
-  switch i8 %181, label %.backedge.i [
-    i8 114, label %182
-    i8 109, label %182
+  %172 = getelementptr inbounds nuw i8, ptr %171, i64 16
+  %173 = load ptr, ptr %172, align 8
+  %174 = getelementptr inbounds nuw i8, ptr %173, i64 22
+  %175 = load i8, ptr %174, align 2
+  %176 = zext i8 %175 to i64
+  %177 = getelementptr i8, ptr %173, i64 %176
+  %178 = load i32, ptr %177, align 4
+  %179 = getelementptr inbounds nuw i8, ptr %177, i64 115
+  %180 = load i8, ptr %179, align 1
+  switch i8 %180, label %.backedge.i [
+    i8 114, label %181
+    i8 109, label %181
   ]
 
-182:                                              ; preds = %171, %171
-  %183 = getelementptr inbounds nuw i8, ptr %178, i64 114
-  %184 = load i8, ptr %183, align 2
-  %185 = icmp eq i8 %184, 116
-  br i1 %185, label %186, label %190
+181:                                              ; preds = %170, %170
+  %182 = getelementptr inbounds nuw i8, ptr %177, i64 114
+  %183 = load i8, ptr %182, align 2
+  %184 = icmp eq i8 %183, 116
+  br i1 %184, label %185, label %189
 
-186:                                              ; preds = %182
-  %187 = getelementptr inbounds nuw i8, ptr %178, i64 68
-  %188 = load i32, ptr %187, align 4
-  %189 = call zeroext i1 @isTempNamespace(i32 noundef %188) #12
-  br i1 %189, label %190, label %.backedge.i
+185:                                              ; preds = %181
+  %186 = getelementptr inbounds nuw i8, ptr %177, i64 68
+  %187 = load i32, ptr %186, align 4
+  %188 = call zeroext i1 @isTempNamespace(i32 noundef %187) #12
+  br i1 %188, label %189, label %.backedge.i
 
-190:                                              ; preds = %186, %182
-  br i1 %129, label %191, label %193
+189:                                              ; preds = %185, %181
+  br i1 %128, label %190, label %192
 
-191:                                              ; preds = %190
-  %192 = call zeroext i1 @IsCatalogRelationOid(i32 noundef %179) #12
-  br i1 %192, label %.thread81.i, label %.backedge.i
+190:                                              ; preds = %189
+  %191 = call zeroext i1 @IsCatalogRelationOid(i32 noundef %178) #12
+  br i1 %191, label %.thread81.i, label %.backedge.i
 
-193:                                              ; preds = %190
-  br i1 %169, label %194, label %.thread81.i
+192:                                              ; preds = %189
+  br i1 %168, label %193, label %.thread81.i
 
-194:                                              ; preds = %193
-  %195 = call zeroext i1 @IsCatalogRelationOid(i32 noundef %179) #12
-  br i1 %195, label %.backedge.i, label %.thread81.i
+193:                                              ; preds = %192
+  %194 = call zeroext i1 @IsCatalogRelationOid(i32 noundef %178) #12
+  br i1 %194, label %.backedge.i, label %.thread81.i
 
-.thread81.i:                                      ; preds = %194, %193, %191
-  %196 = getelementptr inbounds nuw i8, ptr %178, i64 113
-  %197 = load i8, ptr %196, align 1
-  %198 = trunc i8 %197 to i1
-  br i1 %198, label %199, label %202
+.thread81.i:                                      ; preds = %193, %192, %190
+  %195 = getelementptr inbounds nuw i8, ptr %177, i64 113
+  %196 = load i8, ptr %195, align 1
+  %197 = trunc i8 %196 to i1
+  br i1 %197, label %198, label %201
 
-199:                                              ; preds = %.thread81.i
-  %200 = call i32 @GetUserId() #12
-  %201 = call zeroext i1 @object_ownercheck(i32 noundef 1259, i32 noundef %179, i32 noundef %200) #12
-  br i1 %201, label %202, label %.backedge.i
+198:                                              ; preds = %.thread81.i
+  %199 = call i32 @GetUserId() #12
+  %200 = call zeroext i1 @object_ownercheck(i32 noundef 1259, i32 noundef %178, i32 noundef %199) #12
+  br i1 %200, label %201, label %.backedge.i
 
-202:                                              ; preds = %199, %.thread81.i
-  %203 = load i32, ptr %8, align 8
-  %204 = and i32 %203, 8
-  %.not74.i = icmp eq i32 %204, 0
-  br i1 %.not74.i, label %214, label %205
+201:                                              ; preds = %198, %.thread81.i
+  %202 = load i32, ptr %8, align 8
+  %203 = and i32 %202, 8
+  %.not74.i = icmp eq i32 %203, 0
+  br i1 %.not74.i, label %213, label %204
 
-205:                                              ; preds = %202
-  %206 = call zeroext i1 @IsCatalogRelationOid(i32 noundef %179) #12
-  br i1 %206, label %207, label %214
+204:                                              ; preds = %201
+  %205 = call zeroext i1 @IsCatalogRelationOid(i32 noundef %178) #12
+  br i1 %205, label %206, label %213
 
-207:                                              ; preds = %205
-  br i1 %.06184.i, label %.backedge.i, label %208
+206:                                              ; preds = %204
+  br i1 %.06184.i, label %.backedge.i, label %207
 
-208:                                              ; preds = %207
-  %209 = call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #12
-  br i1 %209, label %210, label %.backedge.i
+207:                                              ; preds = %206
+  %208 = call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #12
+  br i1 %208, label %209, label %.backedge.i
 
-210:                                              ; preds = %208
-  %211 = call i32 @errcode(i32 noundef 1088) #12
-  %212 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.109) #12
+209:                                              ; preds = %207
+  %210 = call i32 @errcode(i32 noundef 1088) #12
+  %211 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.109) #12
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 3218, ptr noundef nonnull @__func__.ReindexMultipleTables) #12
   br label %.backedge.i
 
-.backedge.i:                                      ; preds = %236, %226, %224, %223, %210, %208, %207, %199, %194, %191, %186, %171
-  %.062.be.i = phi i1 [ %.06283.i, %194 ], [ %.06283.i, %236 ], [ %.06283.i, %199 ], [ %.06283.i, %191 ], [ %.06283.i, %186 ], [ %.06283.i, %171 ], [ %.06283.i, %210 ], [ %.06283.i, %208 ], [ %.06283.i, %207 ], [ true, %226 ], [ true, %224 ], [ true, %223 ]
-  %.061.be.i = phi i1 [ %.06184.i, %194 ], [ %.06184.i, %236 ], [ %.06184.i, %199 ], [ %.06184.i, %191 ], [ %.06184.i, %186 ], [ %.06184.i, %171 ], [ true, %210 ], [ true, %208 ], [ true, %207 ], [ %.06184.i, %226 ], [ %.06184.i, %224 ], [ %.06184.i, %223 ]
-  %.058.be.i = phi ptr [ %.05885.i, %194 ], [ %.159.i, %236 ], [ %.05885.i, %199 ], [ %.05885.i, %191 ], [ %.05885.i, %186 ], [ %.05885.i, %171 ], [ %.05885.i, %210 ], [ %.05885.i, %208 ], [ %.05885.i, %207 ], [ %.05885.i, %226 ], [ %.05885.i, %224 ], [ %.05885.i, %223 ]
-  %213 = call ptr @heap_getnext(ptr noundef %167, i32 noundef 1) #12
-  %.not71.i = icmp eq ptr %213, null
-  br i1 %.not71.i, label %ReindexMultipleTables.exit, label %171, !llvm.loop !21
+.backedge.i:                                      ; preds = %235, %225, %223, %222, %209, %207, %206, %198, %193, %190, %185, %170
+  %.062.be.i = phi i1 [ %.06283.i, %193 ], [ %.06283.i, %235 ], [ %.06283.i, %198 ], [ %.06283.i, %190 ], [ %.06283.i, %185 ], [ %.06283.i, %170 ], [ %.06283.i, %209 ], [ %.06283.i, %207 ], [ %.06283.i, %206 ], [ true, %225 ], [ true, %223 ], [ true, %222 ]
+  %.061.be.i = phi i1 [ %.06184.i, %193 ], [ %.06184.i, %235 ], [ %.06184.i, %198 ], [ %.06184.i, %190 ], [ %.06184.i, %185 ], [ %.06184.i, %170 ], [ true, %209 ], [ true, %207 ], [ true, %206 ], [ %.06184.i, %225 ], [ %.06184.i, %223 ], [ %.06184.i, %222 ]
+  %.058.be.i = phi ptr [ %.05885.i, %193 ], [ %.159.i, %235 ], [ %.05885.i, %198 ], [ %.05885.i, %190 ], [ %.05885.i, %185 ], [ %.05885.i, %170 ], [ %.05885.i, %209 ], [ %.05885.i, %207 ], [ %.05885.i, %206 ], [ %.05885.i, %225 ], [ %.05885.i, %223 ], [ %.05885.i, %222 ]
+  %212 = call ptr @heap_getnext(ptr noundef %166, i32 noundef 1) #12
+  %.not71.i = icmp eq ptr %212, null
+  br i1 %.not71.i, label %ReindexMultipleTables.exit, label %170, !llvm.loop !21
 
-214:                                              ; preds = %205, %202
-  %215 = load i32, ptr %170, align 4
-  %.not75.i = icmp eq i32 %215, 0
-  br i1 %.not75.i, label %229, label %216
+213:                                              ; preds = %204, %201
+  %214 = load i32, ptr %169, align 4
+  %.not75.i = icmp eq i32 %214, 0
+  br i1 %.not75.i, label %228, label %215
 
-216:                                              ; preds = %214
-  %217 = load i8, ptr %180, align 1
-  switch i8 %217, label %221 [
-    i8 114, label %218
-    i8 105, label %218
-    i8 83, label %218
-    i8 116, label %218
-    i8 109, label %218
+215:                                              ; preds = %213
+  %216 = load i8, ptr %179, align 1
+  switch i8 %216, label %220 [
+    i8 114, label %217
+    i8 105, label %217
+    i8 83, label %217
+    i8 116, label %217
+    i8 109, label %217
   ]
 
-218:                                              ; preds = %216, %216, %216, %216, %216
-  %219 = getelementptr inbounds nuw i8, ptr %178, i64 88
-  %220 = load i32, ptr %219, align 4
-  %.not76.i = icmp eq i32 %220, 0
-  br label %221
+217:                                              ; preds = %215, %215, %215, %215, %215
+  %218 = getelementptr inbounds nuw i8, ptr %177, i64 88
+  %219 = load i32, ptr %218, align 4
+  %.not76.i = icmp eq i32 %219, 0
+  br label %220
 
-221:                                              ; preds = %218, %216
-  %.0.i = phi i1 [ false, %216 ], [ %.not76.i, %218 ]
-  %222 = call zeroext i1 @IsSystemClass(i32 noundef %179, ptr noundef nonnull %178) #12
-  %spec.select77.i = select i1 %222, i1 true, i1 %.0.i
-  br i1 %spec.select77.i, label %223, label %229
+220:                                              ; preds = %217, %215
+  %.0.i = phi i1 [ false, %215 ], [ %.not76.i, %217 ]
+  %221 = call zeroext i1 @IsSystemClass(i32 noundef %178, ptr noundef nonnull %177) #12
+  %spec.select77.i = select i1 %221, i1 true, i1 %.0.i
+  br i1 %spec.select77.i, label %222, label %228
 
-223:                                              ; preds = %221
-  br i1 %.06283.i, label %.backedge.i, label %224
+222:                                              ; preds = %220
+  br i1 %.06283.i, label %.backedge.i, label %223
 
-224:                                              ; preds = %223
-  %225 = call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #12
-  br i1 %225, label %226, label %.backedge.i
+223:                                              ; preds = %222
+  %224 = call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #12
+  br i1 %224, label %225, label %.backedge.i
 
-226:                                              ; preds = %224
-  %227 = call i32 @errcode(i32 noundef 16797828) #12
-  %228 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.110) #12
+225:                                              ; preds = %223
+  %226 = call i32 @errcode(i32 noundef 16797828) #12
+  %227 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.110) #12
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 3251, ptr noundef nonnull @__func__.ReindexMultipleTables) #12
   br label %.backedge.i
 
-229:                                              ; preds = %221, %214
-  %230 = load ptr, ptr @CurrentMemoryContext, align 8
-  store ptr %165, ptr @CurrentMemoryContext, align 8
-  %231 = icmp eq i32 %179, 1259
-  br i1 %231, label %232, label %234
+228:                                              ; preds = %220, %213
+  %229 = load ptr, ptr @CurrentMemoryContext, align 8
+  store ptr %164, ptr @CurrentMemoryContext, align 8
+  %230 = icmp eq i32 %178, 1259
+  br i1 %230, label %231, label %233
 
-232:                                              ; preds = %229
-  %233 = call ptr @lcons_oid(i32 noundef 1259, ptr noundef %.05885.i) #12
-  br label %236
+231:                                              ; preds = %228
+  %232 = call ptr @lcons_oid(i32 noundef 1259, ptr noundef %.05885.i) #12
+  br label %235
 
-234:                                              ; preds = %229
-  %235 = call ptr @lappend_oid(ptr noundef %.05885.i, i32 noundef %179) #12
-  br label %236
+233:                                              ; preds = %228
+  %234 = call ptr @lappend_oid(ptr noundef %.05885.i, i32 noundef %178) #12
+  br label %235
 
-236:                                              ; preds = %234, %232
-  %.159.i = phi ptr [ %233, %232 ], [ %235, %234 ]
-  store ptr %230, ptr @CurrentMemoryContext, align 8
+235:                                              ; preds = %233, %231
+  %.159.i = phi ptr [ %232, %231 ], [ %234, %233 ]
+  store ptr %229, ptr @CurrentMemoryContext, align 8
   br label %.backedge.i
 
-ReindexMultipleTables.exit:                       ; preds = %.backedge.i, %164
-  %.058.lcssa.i = phi ptr [ null, %164 ], [ %.058.be.i, %.backedge.i ]
-  %237 = load ptr, ptr %167, align 8
-  %238 = getelementptr inbounds nuw i8, ptr %237, i64 312
-  %239 = load ptr, ptr %238, align 8
-  %240 = getelementptr inbounds nuw i8, ptr %239, i64 24
-  %241 = load ptr, ptr %240, align 8
-  call void %241(ptr noundef nonnull %167) #12
-  call void @table_close(ptr noundef %166, i32 noundef 1) #12
+ReindexMultipleTables.exit:                       ; preds = %.backedge.i, %163
+  %.058.lcssa.i = phi ptr [ null, %163 ], [ %.058.be.i, %.backedge.i ]
+  %236 = load ptr, ptr %166, align 8
+  %237 = getelementptr inbounds nuw i8, ptr %236, i64 312
+  %238 = load ptr, ptr %237, align 8
+  %239 = getelementptr inbounds nuw i8, ptr %238, i64 24
+  %240 = load ptr, ptr %239, align 8
+  call void %240(ptr noundef nonnull %166) #12
+  call void @table_close(ptr noundef %165, i32 noundef 1) #12
   call fastcc void @ReindexMultipleInternal(ptr noundef %1, ptr noundef %.058.lcssa.i, ptr noundef nonnull readonly %8)
-  call void @MemoryContextDelete(ptr noundef %165) #12
+  call void @MemoryContextDelete(ptr noundef %164) #12
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %4)
-  br label %246
+  br label %245
 
-242:                                              ; preds = %65
-  %243 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
-  tail call void @llvm.assume(i1 %243)
-  %244 = load i32, ptr %67, align 4
-  %245 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.58, i32 noundef %244) #12
+241:                                              ; preds = %64
+  %242 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
+  tail call void @llvm.assume(i1 %242)
+  %243 = load i32, ptr %66, align 4
+  %244 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.58, i32 noundef %243) #12
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2877, ptr noundef nonnull @__func__.ExecReindex) #12
   unreachable
 
-246:                                              ; preds = %ReindexMultipleTables.exit, %ReindexTable.exit, %ReindexIndex.exit
+245:                                              ; preds = %ReindexMultipleTables.exit, %ReindexTable.exit, %ReindexIndex.exit
   ret void
 }
 

@@ -8688,8 +8688,8 @@ _ZN12_GLOBAL__N_118SchedDAGReverseDFS6followEPKN4llvm5SUnitE.exit64: ; preds = %
   br i1 %194, label %195, label %198
 
 195:                                              ; preds = %.lr.ph.i.i
-  %196 = add i32 %.02028.i.i, 1
-  %197 = icmp ugt i32 %196, 3
+  %196 = add nuw nsw i32 %.02028.i.i, 1
+  %197 = icmp ugt i32 %.02028.i.i, 2
   br i1 %197, label %_ZN4llvm12SchedDFSImpl18visitPostorderEdgeERKNS_4SDepEPKNS_5SUnitE.exit.backedge, label %198, !llvm.loop !110
 
 198:                                              ; preds = %195, %.lr.ph.i.i
@@ -8950,8 +8950,8 @@ _ZNK4llvm12MachineInstr11isTransientEv.exit:      ; preds = %2, %2, %2, %2, %2, 
   br i1 %70, label %71, label %74
 
 71:                                               ; preds = %.lr.ph.i
-  %72 = add i32 %.02028.i, 1
-  %73 = icmp ugt i32 %72, 3
+  %72 = add nuw nsw i32 %.02028.i, 1
+  %73 = icmp ugt i32 %.02028.i, 2
   br i1 %73, label %_ZN4llvm12SchedDFSImpl15joinPredSubtreeERKNS_4SDepEPKNS_5SUnitEb.exit, label %74
 
 74:                                               ; preds = %71, %.lr.ph.i

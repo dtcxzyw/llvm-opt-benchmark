@@ -12130,7 +12130,7 @@ define hidden void @_ZN4llvm13CodeViewDebug30collectVariableInfoFromMFTableERNS_
   br i1 %34, label %35, label %37
 
 35:                                               ; preds = %30
-  %36 = icmp ult i64 %.079.i.i.i.i.i.i.i.i.i, 2
+  %36 = icmp samesign ult i64 %.079.i.i.i.i.i.i.i.i.i, 2
   br i1 %36, label %_ZZNK4llvm15MachineFunction29getInStackSlotVariableDbgInfoEvENKUlRKT_E_clINS0_15VariableDbgInfoEEEDaS3_.exit.i.i.i.i.i, label %37
 
 37:                                               ; preds = %35, %30
@@ -12175,7 +12175,7 @@ _ZN4llvm20filter_iterator_implIPKNS_15MachineFunction15VariableDbgInfoEZNKS1_29g
   br i1 %54, label %55, label %57
 
 55:                                               ; preds = %50
-  %56 = icmp ult i64 %.079.i.i.i.i.i.i.i7.i.i, 2
+  %56 = icmp samesign ult i64 %.079.i.i.i.i.i.i.i7.i.i, 2
   br i1 %56, label %_ZZNK4llvm15MachineFunction29getInStackSlotVariableDbgInfoEvENKUlRKT_E_clINS0_15VariableDbgInfoEEEDaS3_.exit.i.i.i9.i.i, label %57
 
 57:                                               ; preds = %55, %50
@@ -12452,7 +12452,7 @@ _ZN4llvm15SmallVectorImplISt4pairIPKNS_8MCSymbolES4_EE12emplace_backIJRS4_S8_EEE
   br i1 %189, label %190, label %192
 
 190:                                              ; preds = %185
-  %191 = icmp ult i64 %.079.i.i.i.i.i.i, 2
+  %191 = icmp samesign ult i64 %.079.i.i.i.i.i.i, 2
   br i1 %191, label %_ZZNK4llvm15MachineFunction29getInStackSlotVariableDbgInfoEvENKUlRKT_E_clINS0_15VariableDbgInfoEEEDaS3_.exit.i.i, label %192
 
 192:                                              ; preds = %190, %185

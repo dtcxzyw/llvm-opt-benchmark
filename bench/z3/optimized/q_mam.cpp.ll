@@ -7511,13 +7511,13 @@ _ZNK6vectorIPN3euf5enodeELb0EjE8capacityEv.exit.i: ; preds = %while.cond.i
   %arrayidx.i12.i = getelementptr inbounds i8, ptr %1, i64 -8
   %2 = load i32, ptr %arrayidx.i12.i, align 4
   %cmp3.i = icmp ult i32 %2, 16
-  br i1 %cmp3.i, label %while.body.i, label %while.end.i
+  br i1 %cmp3.i, label %while.body.i, label %invoke.cont18
 
 while.body.i:                                     ; preds = %_ZNK6vectorIPN3euf5enodeELb0EjE8capacityEv.exit.i, %while.cond.i
   invoke void @_ZN6vectorIPN3euf5enodeELb0EjE13expand_vectorEv(ptr noundef nonnull align 8 dereferenceable(8) %m_args)
           to label %while.condthread-pre-split.i unwind label %lpad17
 
-while.end.i:                                      ; preds = %_ZNK6vectorIPN3euf5enodeELb0EjE8capacityEv.exit.i
+invoke.cont18:                                    ; preds = %_ZNK6vectorIPN3euf5enodeELb0EjE8capacityEv.exit.i
   %arrayidx.i = getelementptr inbounds i8, ptr %1, i64 -4
   store i32 16, ptr %arrayidx.i, align 4
   %3 = load ptr, ptr %m_args, align 8
@@ -14995,8 +14995,8 @@ while.body.i:                                     ; preds = %if.then134, %if.end
   br i1 %tobool.i, label %if.then.i793, label %if.end4.i
 
 if.then.i793:                                     ; preds = %while.body.i
-  %inc.i794 = add i32 %num_too_simple.08.i, 1
-  %cmp2.i = icmp ugt i32 %inc.i794, 64
+  %inc.i794 = add nuw nsw i32 %num_too_simple.08.i, 1
+  %cmp2.i = icmp ugt i32 %num_too_simple.08.i, 63
   br i1 %cmp2.i, label %_ZN1q8compiler15find_best_childEPNS_6chooseE.exit.thread, label %if.end4.i
 
 if.end4.i:                                        ; preds = %if.then.i793, %while.body.i

@@ -5621,8 +5621,8 @@ ExprEvalPushStep.exit:                            ; preds = %191, %._crit_edge.i
   store i64 %.sink353, ptr %200, align 8
   %.sroa.13.0..sroa_idx153 = getelementptr inbounds nuw i8, ptr %200, i64 8
   %.sroa.15.0..sroa_idx173 = getelementptr inbounds nuw i8, ptr %200, i64 24
-  %.sroa.15.sroa.12.0.insert.ext219 = zext i32 %.sroa.8.0.sink to i64
-  %.sroa.15.sroa.12.0.insert.shift220 = shl nuw i64 %.sroa.15.sroa.12.0.insert.ext219, 32
+  %.sroa.15.sroa.12.0.insert.ext219 = zext nneg i32 %.sroa.8.0.sink to i64
+  %.sroa.15.sroa.12.0.insert.shift220 = shl nuw nsw i64 %.sroa.15.sroa.12.0.insert.ext219, 32
   %.sroa.15.sroa.0.0.insert.insert206 = or disjoint i64 %.sroa.15.sroa.12.0.insert.shift220, %140
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.13.0..sroa_idx153, i8 0, i64 16, i1 false)
   store i64 %.sroa.15.sroa.0.0.insert.insert206, ptr %.sroa.15.0..sroa_idx173, align 8

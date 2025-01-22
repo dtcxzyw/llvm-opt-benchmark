@@ -228,25 +228,25 @@ define noundef float @_Z22gmx_sparsematrix_valueP16gmx_sparsematrixii(ptr nocapt
   %14 = zext nneg i32 %8 to i64
   br label %15
 
-15:                                               ; preds = %.lr.ph, %21
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %21 ]
+15:                                               ; preds = %.lr.ph, %20
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %20 ]
   %16 = getelementptr inbounds nuw %struct.gmx_sparsematrix_entry, ptr %13, i64 %indvars.iv
   %17 = load i32, ptr %16, align 4
-  %18 = icmp eq i32 %17, %2
-  br i1 %18, label %.thread, label %21
+  %.not = icmp eq i32 %17, %2
+  br i1 %.not, label %.thread, label %20
 
 .thread:                                          ; preds = %15
-  %19 = getelementptr inbounds nuw %struct.gmx_sparsematrix_entry, ptr %13, i64 %indvars.iv, i32 1
-  %20 = load float, ptr %19, align 4
+  %18 = getelementptr inbounds nuw %struct.gmx_sparsematrix_entry, ptr %13, i64 %indvars.iv, i32 1
+  %19 = load float, ptr %18, align 4
   br label %._crit_edge
 
-21:                                               ; preds = %15
+20:                                               ; preds = %15
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %22 = icmp samesign ult i64 %indvars.iv.next, %14
-  br i1 %22, label %15, label %._crit_edge, !llvm.loop !12
+  %21 = icmp samesign ult i64 %indvars.iv.next, %14
+  br i1 %21, label %15, label %._crit_edge, !llvm.loop !12
 
-._crit_edge:                                      ; preds = %21, %.thread, %3
-  %.0.lcssa = phi float [ 0.000000e+00, %3 ], [ %20, %.thread ], [ 0.000000e+00, %21 ]
+._crit_edge:                                      ; preds = %20, %.thread, %3
+  %.0.lcssa = phi float [ 0.000000e+00, %3 ], [ %19, %.thread ], [ 0.000000e+00, %20 ]
   ret float %.0.lcssa
 }
 

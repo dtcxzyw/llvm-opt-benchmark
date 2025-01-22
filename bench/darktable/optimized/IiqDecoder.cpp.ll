@@ -1887,14 +1887,14 @@ define hidden void @_ZNK8rawspeed10IiqDecoder16CorrectPhaseOneCENS_10ByteStreamE
   %85 = getelementptr i8, ptr %71, i64 8
   br label %86
 
-.loopexit:                                        ; preds = %178, %67
+.loopexit:                                        ; preds = %176, %67
   ret void
 
-86:                                               ; preds = %178, %75
-  %87 = phi i64 [ 0, %75 ], [ %107, %178 ]
-  %88 = phi i8 [ 0, %75 ], [ %180, %178 ]
-  %89 = phi i8 [ 0, %75 ], [ %179, %178 ]
-  %90 = phi i32 [ 0, %75 ], [ %181, %178 ]
+86:                                               ; preds = %176, %75
+  %87 = phi i64 [ 0, %75 ], [ %107, %176 ]
+  %88 = phi i8 [ 0, %75 ], [ %178, %176 ]
+  %89 = phi i8 [ 0, %75 ], [ %177, %176 ]
+  %90 = phi i32 [ 0, %75 ], [ %179, %176 ]
   %91 = add nuw nsw i64 %87, 4
   %92 = icmp samesign ugt i64 %91, %63
   br i1 %92, label %93, label %94
@@ -1934,154 +1934,152 @@ define hidden void @_ZNK8rawspeed10IiqDecoder16CorrectPhaseOneCENS_10ByteStreamE
   %112 = load i32, ptr %111, align 1
   %113 = tail call i32 @llvm.bswap.i32(i32 %112)
   %114 = select i1 %30, i32 %112, i32 %113
-  switch i32 %98, label %178 [
+  switch i32 %98, label %176 [
     i32 1024, label %115
-    i32 1035, label %132
-    i32 1040, label %145
-    i32 1073, label %158
+    i32 1035, label %131
+    i32 1040, label %144
+    i32 1073, label %157
   ]
 
 115:                                              ; preds = %110
-  %116 = and i8 %89, 1
-  %117 = icmp eq i8 %116, 0
-  br i1 %117, label %119, label %118
+  %116 = icmp eq i8 %89, 0
+  br i1 %116, label %118, label %117
 
-118:                                              ; preds = %115
+117:                                              ; preds = %115
   tail call void (ptr, ...) @_ZN8rawspeed14ThrowExceptionINS_19RawDecoderExceptionEEEvPKcz(ptr noundef nonnull @.str.9, ptr noundef nonnull @__PRETTY_FUNCTION__._ZNK8rawspeed10IiqDecoder16CorrectPhaseOneCENS_10ByteStreamEjj) #16
   unreachable
 
-119:                                              ; preds = %115
+118:                                              ; preds = %115
   tail call void @llvm.experimental.noalias.scope.decl(metadata !131)
-  %120 = zext i32 %114 to i64
-  %121 = zext i32 %106 to i64
-  %122 = add nuw nsw i64 %120, %121
-  %123 = icmp samesign ugt i64 %122, %15
-  br i1 %123, label %124, label %125
+  %119 = zext i32 %114 to i64
+  %120 = zext i32 %106 to i64
+  %121 = add nuw nsw i64 %119, %120
+  %122 = icmp samesign ugt i64 %121, %15
+  br i1 %122, label %123, label %124
 
-124:                                              ; preds = %119
+123:                                              ; preds = %118
   tail call void (ptr, ...) @_ZN8rawspeed14ThrowExceptionINS_11IOExceptionEEEvPKcz(ptr noundef nonnull @.str.22, ptr noundef nonnull @__PRETTY_FUNCTION__._ZNK8rawspeed6Buffer10getSubViewEjj) #16, !noalias !131
   unreachable
 
-125:                                              ; preds = %119
-  %126 = add nuw nsw i32 %114, %106
-  %127 = icmp samesign ule i32 %126, %14
+124:                                              ; preds = %118
+  %125 = add nuw nsw i32 %114, %106
+  %126 = icmp samesign ule i32 %125, %14
+  tail call void @llvm.assume(i1 %126)
+  %127 = icmp sgt i32 %114, -1
   tail call void @llvm.assume(i1 %127)
-  %128 = icmp sgt i32 %114, -1
+  %128 = icmp sgt i32 %106, -1
   tail call void @llvm.assume(i1 %128)
-  %129 = icmp sgt i32 %106, -1
-  tail call void @llvm.assume(i1 %129)
-  %130 = getelementptr inbounds nuw i8, ptr %31, i64 %120
-  %131 = or disjoint i64 %73, %121
-  store ptr %130, ptr %5, align 8, !alias.scope !131
-  store i64 %131, ptr %83, align 8, !alias.scope !131
+  %129 = getelementptr inbounds nuw i8, ptr %31, i64 %119
+  %130 = or disjoint i64 %73, %120
+  store ptr %129, ptr %5, align 8, !alias.scope !131
+  store i64 %130, ptr %83, align 8, !alias.scope !131
   store i32 0, ptr %84, align 8, !tbaa !119, !alias.scope !131
   tail call void @_ZNK8rawspeed10IiqDecoder20correctSensorDefectsENS_10ByteStreamE(ptr noundef nonnull align 8 dereferenceable(112) %0, ptr noundef nonnull byval(%"class.rawspeed::ByteStream") align 8 %5)
-  br label %178
+  br label %176
 
-132:                                              ; preds = %110
+131:                                              ; preds = %110
   tail call void @llvm.experimental.noalias.scope.decl(metadata !134)
-  %133 = zext i32 %114 to i64
-  %134 = zext i32 %106 to i64
-  %135 = add nuw nsw i64 %133, %134
-  %136 = icmp samesign ugt i64 %135, %15
-  br i1 %136, label %137, label %138
+  %132 = zext i32 %114 to i64
+  %133 = zext i32 %106 to i64
+  %134 = add nuw nsw i64 %132, %133
+  %135 = icmp samesign ugt i64 %134, %15
+  br i1 %135, label %136, label %137
 
-137:                                              ; preds = %132
+136:                                              ; preds = %131
   tail call void (ptr, ...) @_ZN8rawspeed14ThrowExceptionINS_11IOExceptionEEEvPKcz(ptr noundef nonnull @.str.22, ptr noundef nonnull @__PRETTY_FUNCTION__._ZNK8rawspeed6Buffer10getSubViewEjj) #16, !noalias !134
   unreachable
 
-138:                                              ; preds = %132
-  %139 = add nuw nsw i32 %114, %106
-  %140 = icmp samesign ule i32 %139, %14
+137:                                              ; preds = %131
+  %138 = add nuw nsw i32 %114, %106
+  %139 = icmp samesign ule i32 %138, %14
+  tail call void @llvm.assume(i1 %139)
+  %140 = icmp sgt i32 %114, -1
   tail call void @llvm.assume(i1 %140)
-  %141 = icmp sgt i32 %114, -1
+  %141 = icmp sgt i32 %106, -1
   tail call void @llvm.assume(i1 %141)
-  %142 = icmp sgt i32 %106, -1
-  tail call void @llvm.assume(i1 %142)
-  %143 = getelementptr inbounds nuw i8, ptr %31, i64 %133
-  %144 = or disjoint i64 %73, %134
-  store ptr %143, ptr %6, align 8, !alias.scope !134
-  store i64 %144, ptr %81, align 8, !alias.scope !134
+  %142 = getelementptr inbounds nuw i8, ptr %31, i64 %132
+  %143 = or disjoint i64 %73, %133
+  store ptr %142, ptr %6, align 8, !alias.scope !134
+  store i64 %143, ptr %81, align 8, !alias.scope !134
   store i32 0, ptr %82, align 8, !tbaa !119, !alias.scope !134
   tail call void @_ZNK8rawspeed10IiqDecoder17PhaseOneFlatFieldENS_10ByteStreamENS0_7IiqCorrE(ptr noundef nonnull align 8 dereferenceable(112) %0, ptr noundef nonnull byval(%"class.rawspeed::ByteStream") align 8 %6, i32 noundef 1)
-  br label %178
+  br label %176
 
-145:                                              ; preds = %110
+144:                                              ; preds = %110
   tail call void @llvm.experimental.noalias.scope.decl(metadata !137)
-  %146 = zext i32 %114 to i64
-  %147 = zext i32 %106 to i64
-  %148 = add nuw nsw i64 %146, %147
-  %149 = icmp samesign ugt i64 %148, %15
-  br i1 %149, label %150, label %151
+  %145 = zext i32 %114 to i64
+  %146 = zext i32 %106 to i64
+  %147 = add nuw nsw i64 %145, %146
+  %148 = icmp samesign ugt i64 %147, %15
+  br i1 %148, label %149, label %150
 
-150:                                              ; preds = %145
+149:                                              ; preds = %144
   tail call void (ptr, ...) @_ZN8rawspeed14ThrowExceptionINS_11IOExceptionEEEvPKcz(ptr noundef nonnull @.str.22, ptr noundef nonnull @__PRETTY_FUNCTION__._ZNK8rawspeed6Buffer10getSubViewEjj) #16, !noalias !137
   unreachable
 
-151:                                              ; preds = %145
-  %152 = add nuw nsw i32 %114, %106
-  %153 = icmp samesign ule i32 %152, %14
+150:                                              ; preds = %144
+  %151 = add nuw nsw i32 %114, %106
+  %152 = icmp samesign ule i32 %151, %14
+  tail call void @llvm.assume(i1 %152)
+  %153 = icmp sgt i32 %114, -1
   tail call void @llvm.assume(i1 %153)
-  %154 = icmp sgt i32 %114, -1
+  %154 = icmp sgt i32 %106, -1
   tail call void @llvm.assume(i1 %154)
-  %155 = icmp sgt i32 %106, -1
-  tail call void @llvm.assume(i1 %155)
-  %156 = getelementptr inbounds nuw i8, ptr %31, i64 %146
-  %157 = or disjoint i64 %73, %147
-  store ptr %156, ptr %7, align 8, !alias.scope !137
-  store i64 %157, ptr %79, align 8, !alias.scope !137
+  %155 = getelementptr inbounds nuw i8, ptr %31, i64 %145
+  %156 = or disjoint i64 %73, %146
+  store ptr %155, ptr %7, align 8, !alias.scope !137
+  store i64 %156, ptr %79, align 8, !alias.scope !137
   store i32 0, ptr %80, align 8, !tbaa !119, !alias.scope !137
   tail call void @_ZNK8rawspeed10IiqDecoder17PhaseOneFlatFieldENS_10ByteStreamENS0_7IiqCorrE(ptr noundef nonnull align 8 dereferenceable(112) %0, ptr noundef nonnull byval(%"class.rawspeed::ByteStream") align 8 %7, i32 noundef 0)
-  br label %178
+  br label %176
 
-158:                                              ; preds = %110
-  %159 = and i8 %88, 1
-  %160 = icmp eq i8 %159, 0
-  br i1 %160, label %162, label %161
+157:                                              ; preds = %110
+  %158 = icmp eq i8 %88, 0
+  br i1 %158, label %160, label %159
 
-161:                                              ; preds = %158
+159:                                              ; preds = %157
   tail call void (ptr, ...) @_ZN8rawspeed14ThrowExceptionINS_19RawDecoderExceptionEEEvPKcz(ptr noundef nonnull @.str.10, ptr noundef nonnull @__PRETTY_FUNCTION__._ZNK8rawspeed10IiqDecoder16CorrectPhaseOneCENS_10ByteStreamEjj) #16
   unreachable
 
-162:                                              ; preds = %158
-  %163 = load i8, ptr %76, align 2, !tbaa !140, !range !116, !noundef !46
-  %164 = icmp eq i8 %163, 0
-  br i1 %164, label %178, label %165
+160:                                              ; preds = %157
+  %161 = load i8, ptr %76, align 2, !tbaa !140, !range !116, !noundef !46
+  %162 = icmp eq i8 %161, 0
+  br i1 %162, label %176, label %163
 
-165:                                              ; preds = %162
+163:                                              ; preds = %160
   tail call void @llvm.experimental.noalias.scope.decl(metadata !141)
-  %166 = zext i32 %114 to i64
-  %167 = zext i32 %106 to i64
-  %168 = add nuw nsw i64 %166, %167
-  %169 = icmp samesign ugt i64 %168, %15
-  br i1 %169, label %170, label %171
+  %164 = zext i32 %114 to i64
+  %165 = zext i32 %106 to i64
+  %166 = add nuw nsw i64 %164, %165
+  %167 = icmp samesign ugt i64 %166, %15
+  br i1 %167, label %168, label %169
 
-170:                                              ; preds = %165
+168:                                              ; preds = %163
   tail call void (ptr, ...) @_ZN8rawspeed14ThrowExceptionINS_11IOExceptionEEEvPKcz(ptr noundef nonnull @.str.22, ptr noundef nonnull @__PRETTY_FUNCTION__._ZNK8rawspeed6Buffer10getSubViewEjj) #16, !noalias !141
   unreachable
 
-171:                                              ; preds = %165
-  %172 = add nuw nsw i32 %114, %106
-  %173 = icmp samesign ule i32 %172, %14
+169:                                              ; preds = %163
+  %170 = add nuw nsw i32 %114, %106
+  %171 = icmp samesign ule i32 %170, %14
+  tail call void @llvm.assume(i1 %171)
+  %172 = icmp sgt i32 %114, -1
+  tail call void @llvm.assume(i1 %172)
+  %173 = icmp sgt i32 %106, -1
   tail call void @llvm.assume(i1 %173)
-  %174 = icmp sgt i32 %114, -1
-  tail call void @llvm.assume(i1 %174)
-  %175 = icmp sgt i32 %106, -1
-  tail call void @llvm.assume(i1 %175)
-  %176 = getelementptr inbounds nuw i8, ptr %31, i64 %166
-  %177 = or disjoint i64 %73, %167
-  store ptr %176, ptr %8, align 8, !alias.scope !141
-  store i64 %177, ptr %77, align 8, !alias.scope !141
+  %174 = getelementptr inbounds nuw i8, ptr %31, i64 %164
+  %175 = or disjoint i64 %73, %165
+  store ptr %174, ptr %8, align 8, !alias.scope !141
+  store i64 %175, ptr %77, align 8, !alias.scope !141
   store i32 0, ptr %78, align 8, !tbaa !119, !alias.scope !141
   tail call void @_ZNK8rawspeed10IiqDecoder34CorrectQuadrantMultipliersCombinedENS_10ByteStreamEjj(ptr noundef nonnull align 8 dereferenceable(112) %0, ptr noundef nonnull byval(%"class.rawspeed::ByteStream") align 8 %8, i32 noundef %2, i32 noundef %3)
-  br label %178
+  br label %176
 
-178:                                              ; preds = %171, %162, %151, %138, %125, %110
-  %179 = phi i8 [ %89, %110 ], [ %89, %151 ], [ %89, %138 ], [ 1, %125 ], [ %89, %171 ], [ %89, %162 ]
-  %180 = phi i8 [ %88, %110 ], [ %88, %151 ], [ %88, %138 ], [ %88, %125 ], [ 1, %171 ], [ 1, %162 ]
-  %181 = add nuw nsw i32 %90, 1
-  %182 = icmp eq i32 %181, %51
-  br i1 %182, label %.loopexit, label %86, !llvm.loop !144
+176:                                              ; preds = %169, %160, %150, %137, %124, %110
+  %177 = phi i8 [ %89, %110 ], [ %89, %150 ], [ %89, %137 ], [ 1, %124 ], [ %89, %169 ], [ %89, %160 ]
+  %178 = phi i8 [ %88, %110 ], [ %88, %150 ], [ %88, %137 ], [ %88, %124 ], [ 1, %169 ], [ 1, %160 ]
+  %179 = add nuw nsw i32 %90, 1
+  %180 = icmp eq i32 %179, %51
+  br i1 %180, label %.loopexit, label %86, !llvm.loop !144
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable

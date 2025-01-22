@@ -10674,9 +10674,9 @@ for.inc56.i:                                      ; preds = %invoke.cont49.i, %i
   %cmp.i.not.i23 = icmp eq ptr %incdec.ptr.i.i, %indices.sroa.9.1.i
   br i1 %cmp.i.not.i23, label %cleanup.i, label %for.body27.i
 
-cleanup.i:                                        ; preds = %invoke.cont49.i, %for.inc56.i, %if.end18.i
-  %retval.sroa.0.0.i = phi i1 [ undef, %if.end18.i ], [ false, %invoke.cont49.i ], [ true, %for.inc56.i ]
-  %retval.sroa.3.0.i = phi i1 [ false, %if.end18.i ], [ true, %invoke.cont49.i ], [ %isAsciiSet.1.i, %for.inc56.i ]
+cleanup.i:                                        ; preds = %for.inc56.i, %invoke.cont49.i, %if.end18.i
+  %retval.sroa.0.0.i = phi i1 [ undef, %if.end18.i ], [ true, %for.inc56.i ], [ false, %invoke.cont49.i ]
+  %retval.sroa.3.0.i = phi i1 [ false, %if.end18.i ], [ %isAsciiSet.1.i, %for.inc56.i ], [ true, %invoke.cont49.i ]
   %tobool.not.i.i.i.i24 = icmp eq ptr %indices.sroa.0.3.i22, null
   br i1 %tobool.not.i.i.i.i24, label %invoke.cont13, label %if.then.i.i.i.i25
 

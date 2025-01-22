@@ -7136,35 +7136,34 @@ _ZN2lp8lar_term14const_iteratorppEv.exit.i:       ; preds = %land.rhs.i.i.i.i.i
 
 for.end.loopexit.i:                               ; preds = %if.end14.i, %_ZN2lp8lar_term14const_iteratorppEv.exit.i, %while.body.i.i.i.i.i
   %6 = shl i32 %spec.select41, 1
-  %7 = shl i32 %spec.select, 1
-  %8 = and i8 %seen_plus.1.i, 1
-  %9 = xor i8 %8, 1
-  %10 = zext nneg i8 %9 to i32
-  %11 = select i1 %seen_minus.1.i, i32 %10, i32 1
+  %7 = xor i8 %seen_plus.1.i, 1
+  %8 = zext nneg i8 %7 to i32
+  %9 = select i1 %seen_minus.1.i, i32 %8, i32 1
+  %10 = shl i32 %spec.select, 1
   br label %if.end
 
 if.end:                                           ; preds = %while.body.i.i.i.i.i.i, %for.end.loopexit.i, %_ZNK2lp8lar_term5beginEv.exit.i
-  %sign.0.ph = phi i32 [ %11, %for.end.loopexit.i ], [ 1, %_ZNK2lp8lar_term5beginEv.exit.i ], [ 1, %while.body.i.i.i.i.i.i ]
-  %j.2.ph = phi i32 [ %7, %for.end.loopexit.i ], [ 0, %_ZNK2lp8lar_term5beginEv.exit.i ], [ 0, %while.body.i.i.i.i.i.i ]
+  %sign.0.ph = phi i32 [ %9, %for.end.loopexit.i ], [ 1, %_ZNK2lp8lar_term5beginEv.exit.i ], [ 1, %while.body.i.i.i.i.i.i ]
+  %j.2.ph = phi i32 [ %10, %for.end.loopexit.i ], [ 0, %_ZNK2lp8lar_term5beginEv.exit.i ], [ 0, %while.body.i.i.i.i.i.i ]
   %i.2.ph = phi i32 [ %6, %for.end.loopexit.i ], [ -2, %_ZNK2lp8lar_term5beginEv.exit.i ], [ -2, %while.body.i.i.i.i.i.i ]
   %m_evars = getelementptr inbounds nuw i8, ptr %this, i64 8
   %m_find.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
-  %12 = load ptr, ptr %m_find.i.i, align 8
-  %cmp.i.i.i = icmp eq ptr %12, null
+  %11 = load ptr, ptr %m_find.i.i, align 8
+  %cmp.i.i.i = icmp eq ptr %11, null
   br i1 %cmp.i.i.i, label %_ZNK3nla7var_eqsINS_7emonicsEE4findENS_10signed_varE.exit, label %_ZNK10union_findIN3nla7var_eqsINS0_7emonicsEEES3_E12get_num_varsEv.exit.i
 
 _ZNK10union_findIN3nla7var_eqsINS0_7emonicsEEES3_E12get_num_varsEv.exit.i: ; preds = %if.end
-  %arrayidx.i.i.i = getelementptr inbounds i8, ptr %12, i64 -4
-  %13 = load i32, ptr %arrayidx.i.i.i, align 4
-  %cmp.not.i1 = icmp ult i32 %i.2.ph, %13
+  %arrayidx.i.i.i = getelementptr inbounds i8, ptr %11, i64 -4
+  %12 = load i32, ptr %arrayidx.i.i.i, align 4
+  %cmp.not.i1 = icmp ult i32 %i.2.ph, %12
   br i1 %cmp.not.i1, label %while.body.i.i, label %_ZNK10union_findIN3nla7var_eqsINS0_7emonicsEEES3_E12get_num_varsEv.exit.i5
 
 while.body.i.i:                                   ; preds = %_ZNK10union_findIN3nla7var_eqsINS0_7emonicsEEES3_E12get_num_varsEv.exit.i, %while.body.i.i
-  %v.addr.0.i.i = phi i32 [ %14, %while.body.i.i ], [ %i.2.ph, %_ZNK10union_findIN3nla7var_eqsINS0_7emonicsEEES3_E12get_num_varsEv.exit.i ]
+  %v.addr.0.i.i = phi i32 [ %13, %while.body.i.i ], [ %i.2.ph, %_ZNK10union_findIN3nla7var_eqsINS0_7emonicsEEES3_E12get_num_varsEv.exit.i ]
   %idxprom.i.i.i = zext i32 %v.addr.0.i.i to i64
-  %arrayidx.i.i2.i = getelementptr inbounds nuw i32, ptr %12, i64 %idxprom.i.i.i
-  %14 = load i32, ptr %arrayidx.i.i2.i, align 4
-  %cmp.i.i = icmp eq i32 %14, %v.addr.0.i.i
+  %arrayidx.i.i2.i = getelementptr inbounds nuw i32, ptr %11, i64 %idxprom.i.i.i
+  %13 = load i32, ptr %arrayidx.i.i2.i, align 4
+  %cmp.i.i = icmp eq i32 %13, %v.addr.0.i.i
   br i1 %cmp.i.i, label %_ZNK10union_findIN3nla7var_eqsINS0_7emonicsEEES3_E12get_num_varsEv.exit.i5, label %while.body.i.i, !llvm.loop !14
 
 _ZNK3nla7var_eqsINS_7emonicsEE4findENS_10signed_varE.exit: ; preds = %if.end
@@ -7174,15 +7173,15 @@ _ZNK3nla7var_eqsINS_7emonicsEE4findENS_10signed_varE.exit: ; preds = %if.end
 _ZNK10union_findIN3nla7var_eqsINS0_7emonicsEEES3_E12get_num_varsEv.exit.i5: ; preds = %while.body.i.i, %_ZNK10union_findIN3nla7var_eqsINS0_7emonicsEEES3_E12get_num_varsEv.exit.i
   %retval.sroa.0.0.i.ph = phi i32 [ %i.2.ph, %_ZNK10union_findIN3nla7var_eqsINS0_7emonicsEEES3_E12get_num_varsEv.exit.i ], [ %v.addr.0.i.i, %while.body.i.i ]
   %add.i36 = or disjoint i32 %j.2.ph, %sign.0.ph
-  %cmp.not.i7 = icmp ult i32 %add.i36, %13
+  %cmp.not.i7 = icmp ult i32 %add.i36, %12
   br i1 %cmp.not.i7, label %while.body.i.i9, label %_ZNK3nla7var_eqsINS_7emonicsEE4findENS_10signed_varE.exit14
 
 while.body.i.i9:                                  ; preds = %_ZNK10union_findIN3nla7var_eqsINS0_7emonicsEEES3_E12get_num_varsEv.exit.i5, %while.body.i.i9
-  %v.addr.0.i.i10 = phi i32 [ %15, %while.body.i.i9 ], [ %add.i36, %_ZNK10union_findIN3nla7var_eqsINS0_7emonicsEEES3_E12get_num_varsEv.exit.i5 ]
+  %v.addr.0.i.i10 = phi i32 [ %14, %while.body.i.i9 ], [ %add.i36, %_ZNK10union_findIN3nla7var_eqsINS0_7emonicsEEES3_E12get_num_varsEv.exit.i5 ]
   %idxprom.i.i.i11 = zext i32 %v.addr.0.i.i10 to i64
-  %arrayidx.i.i2.i12 = getelementptr inbounds nuw i32, ptr %12, i64 %idxprom.i.i.i11
-  %15 = load i32, ptr %arrayidx.i.i2.i12, align 4
-  %cmp.i.i13 = icmp eq i32 %15, %v.addr.0.i.i10
+  %arrayidx.i.i2.i12 = getelementptr inbounds nuw i32, ptr %11, i64 %idxprom.i.i.i11
+  %14 = load i32, ptr %arrayidx.i.i2.i12, align 4
+  %cmp.i.i13 = icmp eq i32 %14, %v.addr.0.i.i10
   br i1 %cmp.i.i13, label %_ZNK3nla7var_eqsINS_7emonicsEE4findENS_10signed_varE.exit14, label %while.body.i.i9, !llvm.loop !14
 
 _ZNK3nla7var_eqsINS_7emonicsEE4findENS_10signed_varE.exit14: ; preds = %while.body.i.i9, %_ZNK3nla7var_eqsINS_7emonicsEE4findENS_10signed_varE.exit, %_ZNK10union_findIN3nla7var_eqsINS0_7emonicsEEES3_E12get_num_varsEv.exit.i5
@@ -7470,13 +7469,12 @@ _ZN2lp8lar_term14const_iteratorppEv.exit:         ; preds = %land.rhs.i.i.i.i, %
   br i1 %cmp.i.i.i.not, label %for.end.loopexit, label %for.body
 
 for.end.loopexit:                                 ; preds = %_ZN2lp8lar_term14const_iteratorppEv.exit
-  %7 = and i8 %seen_plus.1, 1
-  %8 = xor i8 %7, 1
-  %9 = select i1 %seen_minus.1, i8 %8, i8 1
+  %7 = xor i8 %seen_plus.1, 1
+  %8 = select i1 %seen_minus.1, i8 %7, i8 1
   br label %for.end
 
 for.end:                                          ; preds = %while.body.i.i.i.i.i, %for.end.loopexit, %_ZNK2lp8lar_term5beginEv.exit
-  %seen_minus.0.lcssa = phi i8 [ 1, %_ZNK2lp8lar_term5beginEv.exit ], [ %9, %for.end.loopexit ], [ 1, %while.body.i.i.i.i.i ]
+  %seen_minus.0.lcssa = phi i8 [ 1, %_ZNK2lp8lar_term5beginEv.exit ], [ %8, %for.end.loopexit ], [ 1, %while.body.i.i.i.i.i ]
   store i8 %seen_minus.0.lcssa, ptr %sign, align 1
   br label %return
 

@@ -32343,15 +32343,15 @@ define internal fastcc zeroext i1 @zend_propagate_list_refs(ptr nocapture nounde
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br label %5
 
-5:                                                ; preds = %.lr.ph, %25
-  %.pre2021 = phi i32 [ %3, %.lr.ph ], [ %.pre2022, %25 ]
-  %6 = phi i32 [ %3, %.lr.ph ], [ %26, %25 ]
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %25 ]
-  %.017 = phi i8 [ 0, %.lr.ph ], [ %.1, %25 ]
+5:                                                ; preds = %.lr.ph, %24
+  %.pre2021 = phi i32 [ %3, %.lr.ph ], [ %.pre2022, %24 ]
+  %6 = phi i32 [ %3, %.lr.ph ], [ %25, %24 ]
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %24 ]
+  %.017 = phi i8 [ 0, %.lr.ph ], [ %.1, %24 ]
   %7 = getelementptr inbounds nuw [1 x ptr], ptr %4, i64 0, i64 %indvars.iv
   %8 = load ptr, ptr %7, align 8
   %.not = icmp eq ptr %8, null
-  br i1 %.not, label %25, label %9
+  br i1 %.not, label %24, label %9
 
 9:                                                ; preds = %5
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 8
@@ -32376,28 +32376,27 @@ define internal fastcc zeroext i1 @zend_propagate_list_refs(ptr nocapture nounde
 18:                                               ; preds = %._crit_edge19, %14
   %.pre20 = phi i32 [ %.pre2021, %._crit_edge19 ], [ %.pre20.pre, %14 ]
   %19 = phi i16 [ %.pre, %._crit_edge19 ], [ %16, %14 ]
-  %20 = and i8 %.017, 1
-  %21 = zext nneg i8 %20 to i16
-  %22 = or i16 %19, %21
-  %23 = icmp ne i16 %22, 0
-  %24 = zext i1 %23 to i8
-  br label %25
+  %20 = zext nneg i8 %.017 to i16
+  %21 = or i16 %19, %20
+  %22 = icmp ne i16 %21, 0
+  %23 = zext i1 %22 to i8
+  br label %24
 
-25:                                               ; preds = %5, %18
+24:                                               ; preds = %5, %18
   %.pre2022 = phi i32 [ %.pre20, %18 ], [ %.pre2021, %5 ]
-  %26 = phi i32 [ %.pre20, %18 ], [ %6, %5 ]
-  %.1 = phi i8 [ %24, %18 ], [ %.017, %5 ]
+  %25 = phi i32 [ %.pre20, %18 ], [ %6, %5 ]
+  %.1 = phi i8 [ %23, %18 ], [ %.017, %5 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %27 = zext i32 %26 to i64
-  %28 = icmp samesign ult i64 %indvars.iv.next, %27
-  br i1 %28, label %5, label %._crit_edge.loopexit
+  %26 = zext i32 %25 to i64
+  %27 = icmp samesign ult i64 %indvars.iv.next, %26
+  br i1 %27, label %5, label %._crit_edge.loopexit
 
-._crit_edge.loopexit:                             ; preds = %25
-  %29 = trunc nuw i8 %.1 to i1
+._crit_edge.loopexit:                             ; preds = %24
+  %28 = trunc nuw i8 %.1 to i1
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %1
-  %.0.lcssa = phi i1 [ false, %1 ], [ %29, %._crit_edge.loopexit ]
+  %.0.lcssa = phi i1 [ false, %1 ], [ %28, %._crit_edge.loopexit ]
   ret i1 %.0.lcssa
 }
 
@@ -32771,27 +32770,26 @@ zend_compile_expr.exit66:                         ; preds = %144
   br i1 %158, label %44, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %155
-  %159 = and i8 %.1, 1
-  %160 = icmp eq i8 %159, 0
-  br i1 %160, label %._crit_edge.thread, label %161
+  %159 = icmp eq i8 %.1, 0
+  br i1 %159, label %._crit_edge.thread, label %160
 
 ._crit_edge.thread:                               ; preds = %4, %zval_make_interned_string.exit, %._crit_edge
   call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.237) #29
   unreachable
 
-161:                                              ; preds = %._crit_edge
+160:                                              ; preds = %._crit_edge
   %.not53 = icmp eq ptr %0, null
-  br i1 %.not53, label %163, label %162
+  br i1 %.not53, label %162, label %161
 
-162:                                              ; preds = %161
+161:                                              ; preds = %160
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false)
-  br label %164
+  br label %163
 
-163:                                              ; preds = %161
+162:                                              ; preds = %160
   call fastcc void @zend_do_free(ptr noundef %2)
-  br label %164
+  br label %163
 
-164:                                              ; preds = %163, %162
+163:                                              ; preds = %162, %161
   ret void
 }
 

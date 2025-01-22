@@ -313,7 +313,7 @@ for.end:                                          ; preds = %for.inc
   br i1 %cmp19.not, label %if.end21, label %if.end51
 
 if.end21:                                         ; preds = %for.end
-  %cmp22 = icmp ult i32 %valid_ptr.1, 512
+  %cmp22 = icmp samesign ult i32 %valid_ptr.1, 512
   br i1 %cmp22, label %if.end24, label %if.else
 
 if.else:                                          ; preds = %if.end21

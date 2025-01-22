@@ -5836,85 +5836,121 @@ define internal fastcc void @input_seq_print_bitmap(ptr noundef %0, ptr noundef 
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %10 = lshr i32 %6, 6
   %11 = zext nneg i32 %10 to i64
-  br label %12
+  br label %.outer
 
-12:                                               ; preds = %.thread, %4
-  %13 = phi i64 [ %11, %4 ], [ %15, %.thread ]
-  %14 = phi i8 [ 1, %4 ], [ %55, %.thread ]
-  %15 = add nsw i64 %13, -1
-  %16 = getelementptr i64, ptr %2, i64 %15
-  %17 = load i64, ptr %16, align 8
-  %18 = and i8 %14, 1
-  %19 = icmp ne i8 %18, 0
-  %20 = load i32, ptr %9, align 8
-  %21 = and i32 %20, 2
-  %22 = icmp eq i32 %21, 0
-  br i1 %22, label %44, label %23
+.outer:                                           ; preds = %.thread1, %4
+  %.ph = phi i64 [ %.us-phi8, %.thread1 ], [ %11, %4 ]
+  %.not = phi i1 [ true, %.thread1 ], [ false, %4 ]
+  br i1 %.not, label %.outer.split.us, label %.outer.split
 
-23:                                               ; preds = %12
-  %24 = icmp ult i64 %17, 4294967296
-  %25 = and i1 %19, %24
-  br i1 %25, label %30, label %26
+.outer.split.us:                                  ; preds = %.outer, %.thread.us
+  %12 = phi i64 [ %13, %.thread.us ], [ %.ph, %.outer ]
+  %13 = add nsw i64 %12, -1
+  %14 = getelementptr i64, ptr %2, i64 %13
+  %15 = load i64, ptr %14, align 8
+  %16 = load i32, ptr %9, align 8
+  %17 = and i32 %16, 2
+  %18 = icmp eq i32 %17, 0
+  br i1 %18, label %31, label %19
 
-26:                                               ; preds = %23
-  %27 = lshr i64 %17, 32
-  %28 = trunc nuw i64 %27 to i32
-  %29 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %5, i64 noundef 18, ptr noundef nonnull @.str.29, i32 noundef %28) #19
-  br label %30
+19:                                               ; preds = %.outer.split.us
+  %20 = lshr i64 %15, 32
+  %21 = trunc nuw i64 %20 to i32
+  %22 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %5, i64 noundef 18, ptr noundef nonnull @.str.29, i32 noundef %21) #19
+  %23 = trunc i64 %15 to i32
+  %24 = sext i32 %22 to i64
+  %25 = getelementptr i8, ptr %5, i64 %24
+  %26 = sub i32 18, %22
+  %27 = call i32 @llvm.smax.i32(i32 %26, i32 0)
+  %28 = zext nneg i32 %27 to i64
+  %29 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %25, i64 noundef %28, ptr noundef nonnull @.str.30, i32 noundef %23) #19
+  %30 = add i32 %29, %22
+  br label %33
 
-30:                                               ; preds = %26, %23
-  %31 = phi i32 [ %29, %26 ], [ 0, %23 ]
-  %32 = trunc i64 %17 to i32
-  %33 = or i32 %31, %32
-  %34 = icmp eq i32 %33, 0
-  %35 = and i1 %19, %34
-  br i1 %35, label %.thread, label %36
+31:                                               ; preds = %.outer.split.us
+  %32 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %5, i64 noundef 18, ptr noundef nonnull @.str.31, i64 noundef %15) #19
+  br label %33
 
-36:                                               ; preds = %30
-  %37 = sext i32 %31 to i64
-  %38 = getelementptr i8, ptr %5, i64 %37
-  %39 = sub i32 18, %31
-  %40 = call i32 @llvm.smax.i32(i32 %39, i32 0)
-  %41 = zext nneg i32 %40 to i64
-  %42 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %38, i64 noundef %41, ptr noundef nonnull @.str.30, i32 noundef %32) #19
-  %43 = add i32 %42, %31
-  br label %49
+33:                                               ; preds = %31, %19
+  %34 = phi i32 [ %32, %31 ], [ %30, %19 ]
+  %35 = icmp eq i32 %34, 0
+  br i1 %35, label %.thread.us, label %.thread1
 
-44:                                               ; preds = %12
-  %45 = icmp eq i64 %17, 0
-  %46 = and i1 %19, %45
-  br i1 %46, label %.thread, label %47
+.thread.us:                                       ; preds = %33
+  %36 = icmp samesign ugt i64 %12, 1
+  br i1 %36, label %.outer.split.us, label %.split.us, !llvm.loop !61
 
-47:                                               ; preds = %44
-  %48 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %5, i64 noundef 18, ptr noundef nonnull @.str.31, i64 noundef %17) #19
-  br label %49
+.outer.split:                                     ; preds = %.outer, %.thread
+  %37 = phi i64 [ %38, %.thread ], [ %.ph, %.outer ]
+  %38 = add nsw i64 %37, -1
+  %39 = getelementptr i64, ptr %2, i64 %38
+  %40 = load i64, ptr %39, align 8
+  %41 = load i32, ptr %9, align 8
+  %42 = and i32 %41, 2
+  %43 = icmp eq i32 %42, 0
+  br i1 %43, label %63, label %44
 
-49:                                               ; preds = %47, %36
-  %50 = phi i32 [ %48, %47 ], [ %43, %36 ]
-  %51 = icmp eq i32 %50, 0
-  br i1 %51, label %.thread, label %52
+44:                                               ; preds = %.outer.split
+  %45 = icmp ult i64 %40, 4294967296
+  br i1 %45, label %50, label %46
 
-52:                                               ; preds = %49
-  %53 = icmp eq i64 %13, 1
-  %54 = select i1 %53, ptr @.str.18, ptr @.str.27
-  call void (ptr, ptr, ...) @seq_printf(ptr noundef %0, ptr noundef nonnull @.str.91, ptr noundef nonnull %5, ptr noundef nonnull %54) #19
-  br label %.thread
+46:                                               ; preds = %44
+  %47 = lshr i64 %40, 32
+  %48 = trunc nuw i64 %47 to i32
+  %49 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %5, i64 noundef 18, ptr noundef nonnull @.str.29, i32 noundef %48) #19
+  br label %50
 
-.thread:                                          ; preds = %44, %30, %52, %49
-  %55 = phi i8 [ 0, %52 ], [ %14, %49 ], [ %14, %30 ], [ %14, %44 ]
-  %56 = icmp samesign ugt i64 %13, 1
-  br i1 %56, label %12, label %57, !llvm.loop !61
+50:                                               ; preds = %46, %44
+  %51 = phi i32 [ %49, %46 ], [ 0, %44 ]
+  %52 = trunc i64 %40 to i32
+  %53 = or i32 %51, %52
+  %54 = icmp eq i32 %53, 0
+  br i1 %54, label %.thread, label %55
 
-57:                                               ; preds = %.thread
-  %58 = and i8 %55, 1
-  %59 = icmp eq i8 %58, 0
-  br i1 %59, label %61, label %60
+55:                                               ; preds = %50
+  %56 = sext i32 %51 to i64
+  %57 = getelementptr i8, ptr %5, i64 %56
+  %58 = sub i32 18, %51
+  %59 = call i32 @llvm.smax.i32(i32 %58, i32 0)
+  %60 = zext nneg i32 %59 to i64
+  %61 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %57, i64 noundef %60, ptr noundef nonnull @.str.30, i32 noundef %52) #19
+  %62 = add i32 %61, %51
+  br label %67
 
-60:                                               ; preds = %57
+63:                                               ; preds = %.outer.split
+  %64 = icmp eq i64 %40, 0
+  br i1 %64, label %.thread, label %65
+
+65:                                               ; preds = %63
+  %66 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %5, i64 noundef 18, ptr noundef nonnull @.str.31, i64 noundef %40) #19
+  br label %67
+
+67:                                               ; preds = %65, %55
+  %68 = phi i32 [ %66, %65 ], [ %62, %55 ]
+  %69 = icmp eq i32 %68, 0
+  br i1 %69, label %.thread, label %.thread1
+
+.thread:                                          ; preds = %63, %50, %67
+  %70 = icmp samesign ugt i64 %37, 1
+  br i1 %70, label %.outer.split, label %.split.us, !llvm.loop !61
+
+.thread1:                                         ; preds = %67, %33
+  %.us-phi = phi i64 [ %12, %33 ], [ %37, %67 ]
+  %.us-phi8 = phi i64 [ %13, %33 ], [ %38, %67 ]
+  %71 = icmp eq i64 %.us-phi, 1
+  %72 = select i1 %71, ptr @.str.18, ptr @.str.27
+  call void (ptr, ptr, ...) @seq_printf(ptr noundef %0, ptr noundef nonnull @.str.91, ptr noundef nonnull %5, ptr noundef nonnull %72) #19
+  %73 = icmp samesign ugt i64 %.us-phi, 1
+  br i1 %73, label %.outer, label %.thread2, !llvm.loop !61
+
+.split.us:                                        ; preds = %.thread, %.thread.us
+  br i1 %.not, label %.thread2, label %74
+
+74:                                               ; preds = %.split.us
   call void @seq_putc(ptr noundef %0, i8 noundef zeroext 48) #19
-  br label %61
+  br label %.thread2
 
-61:                                               ; preds = %60, %57
+.thread2:                                         ; preds = %.thread1, %74, %.split.us
   call void @seq_putc(ptr noundef %0, i8 noundef zeroext 10) #19
   call void @llvm.lifetime.end.p0(i64 18, ptr nonnull %5) #19
   ret void

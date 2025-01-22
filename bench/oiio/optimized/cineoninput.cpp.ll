@@ -980,7 +980,7 @@ _ZNK6cineon13GenericHeader8BitDepthEi.exit.thread: ; preds = %for.body
   %bitDepth.i = getelementptr i8, ptr %4, i64 %5
   %6 = load i8, ptr %bitDepth.i, align 2
   %conv15578 = zext i8 %6 to i32
-  %spec.select = tail call i32 @llvm.smax.i32(i32 %retval.0.i62595597, i32 %conv15578)
+  %spec.select = tail call i32 @llvm.umax.i32(i32 %retval.0.i62595597, i32 %conv15578)
   br label %for.inc
 
 for.inc:                                          ; preds = %_ZNK6cineon13GenericHeader8BitDepthEi.exit.thread, %for.body

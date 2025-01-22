@@ -975,7 +975,7 @@ _ZN2cv3PtrINS_20FarnebackOpticalFlowEED2Ev.exit:  ; preds = %_ZN2cv3PtrINS_20Far
 
 .outer:                                           ; preds = %594, %346
   %.059.ph = phi i8 [ %589, %594 ], [ %106, %346 ]
-  %410 = trunc i8 %.059.ph to i1
+  %410 = trunc nuw i8 %.059.ph to i1
   %.str.21..str.22 = select i1 %410, ptr @.str.21, ptr @.str.22
   br label %411
 
@@ -1637,7 +1637,7 @@ _ZSt8_DestroyIPN2cv4UMatES1_EvT_S3_RSaIT0_E.exit.i39.i: ; preds = %_ZSt8_Destroy
   br label %.body140
 
 587:                                              ; preds = %584
-  %588 = trunc i8 %.059.ph to i1
+  %588 = trunc nuw i8 %.059.ph to i1
   %589 = xor i8 %.059.ph, 1
   invoke void @_ZN2cv3ocl12setUseOpenCLEb(i1 noundef zeroext %588)
           to label %590 unwind label %.loopexit.loopexit.split-lp

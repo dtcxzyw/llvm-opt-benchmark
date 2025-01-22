@@ -2683,7 +2683,7 @@ for.body.i.i:                                     ; preds = %for.inc.i.i, %invok
   br i1 %tobool.i.i, label %if.then.i.i, label %for.inc.i.i
 
 if.then.i.i:                                      ; preds = %for.body.i.i
-  %cmp1.i.i = icmp ult i64 %__n.05.i.i, 3
+  %cmp1.i.i = icmp samesign ult i64 %__n.05.i.i, 3
   br i1 %cmp1.i.i, label %_ZSt17holds_alternativeIN4absl12lts_2023080212AnyInvocableIFvNS1_8StatusOrISt6vectorIN17grpc_event_engine12experimental11EventEngine15ResolvedAddressESaIS8_EEEEEEEJSD_NS2_IFvNS3_IS4_INS7_11DNSResolver9SRVRecordESaISF_EEEEEEENS2_IFvNS3_IS4_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISQ_EEEEEEEEEbRKSt7variantIJDpT0_EE.exit, label %for.inc.i.i
 
 for.inc.i.i:                                      ; preds = %if.then.i.i, %for.body.i.i
@@ -4518,7 +4518,7 @@ for.body.i.i:                                     ; preds = %for.inc.i.i, %invok
   br i1 %tobool.i.i, label %if.then.i.i, label %for.inc.i.i
 
 if.then.i.i:                                      ; preds = %for.body.i.i
-  %cmp1.i.i = icmp ult i64 %__n.05.i.i, 3
+  %cmp1.i.i = icmp samesign ult i64 %__n.05.i.i, 3
   br i1 %cmp1.i.i, label %_ZSt17holds_alternativeIN4absl12lts_2023080212AnyInvocableIFvNS1_8StatusOrISt6vectorIN17grpc_event_engine12experimental11EventEngine11DNSResolver9SRVRecordESaIS9_EEEEEEEJNS2_IFvNS3_IS4_INS7_15ResolvedAddressESaISF_EEEEEEESE_NS2_IFvNS3_IS4_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISQ_EEEEEEEEEbRKSt7variantIJDpT0_EE.exit, label %for.inc.i.i
 
 for.inc.i.i:                                      ; preds = %if.then.i.i, %for.body.i.i
@@ -5592,7 +5592,7 @@ for.body.i.i:                                     ; preds = %for.inc.i.i, %invok
   br i1 %tobool.i.i, label %if.then.i.i, label %for.inc.i.i
 
 if.then.i.i:                                      ; preds = %for.body.i.i
-  %cmp1.i.i = icmp ult i64 %__n.05.i.i, 3
+  %cmp1.i.i = icmp samesign ult i64 %__n.05.i.i, 3
   br i1 %cmp1.i.i, label %_ZSt17holds_alternativeIN4absl12lts_2023080212AnyInvocableIFvNS1_8StatusOrISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISA_EEEEEEEJNS2_IFvNS3_IS4_IN17grpc_event_engine12experimental11EventEngine15ResolvedAddressESaISJ_EEEEEEENS2_IFvNS3_IS4_INSI_11DNSResolver9SRVRecordESaISQ_EEEEEEESF_EEbRKSt7variantIJDpT0_EE.exit, label %for.inc.i.i
 
 for.inc.i.i:                                      ; preds = %if.then.i.i, %for.body.i.i

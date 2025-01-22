@@ -509,7 +509,7 @@ define hidden range(i32 -1, 1) i32 @cdf_read_sat(ptr nocapture noundef readonly 
 29:                                               ; preds = %27, %19
   %30 = tail call ptr @__errno_location() #21
   store i32 22, ptr %30, align 4
-  br label %156
+  br label %149
 
 31:                                               ; preds = %27
   %32 = getelementptr inbounds nuw i8, ptr %1, i64 72
@@ -522,7 +522,7 @@ define hidden range(i32 -1, 1) i32 @cdf_read_sat(ptr nocapture noundef readonly 
   %38 = tail call noalias ptr @_ecalloc(i64 noundef %36, i64 noundef %8) #22
   store ptr %38, ptr %2, align 8
   %39 = icmp eq ptr %38, null
-  br i1 %39, label %156, label %.preheader121
+  br i1 %39, label %149, label %.preheader121
 
 .preheader121:                                    ; preds = %31
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -614,8 +614,8 @@ cdf_read_sector.exit:                             ; preds = %66
 
 85:                                               ; preds = %.lr.ph144, %._crit_edge
   %.2142 = phi i64 [ %.1.lcssa, %.lr.ph144 ], [ %.4.lcssa, %._crit_edge ]
-  %.075141 = phi i32 [ %80, %.lr.ph144 ], [ %148, %._crit_edge ]
-  %.076140 = phi i64 [ 0, %.lr.ph144 ], [ %149, %._crit_edge ]
+  %.075141 = phi i32 [ %80, %.lr.ph144 ], [ %141, %._crit_edge ]
+  %.076140 = phi i64 [ 0, %.lr.ph144 ], [ %142, %._crit_edge ]
   %exitcond156 = icmp eq i64 %.076140, 10000
   br i1 %exitcond156, label %cdf_read_sector.exit95.thread.sink.split, label %86
 
@@ -664,125 +664,106 @@ cdf_read_sector.exit95:                           ; preds = %103
   br i1 %.not25.i.i93, label %.preheader, label %cdf_read_sector.exit95.thread
 
 .preheader:                                       ; preds = %cdf_read_sector.exit95.thread163, %cdf_read_sector.exit95
-  br i1 %.not, label %._crit_edge, label %.lr.ph.preheader
+  br i1 %.not, label %._crit_edge, label %.lr.ph
 
-.lr.ph.preheader:                                 ; preds = %.preheader
-  %.pre158.b = load i1, ptr @cdf_bo.0, align 4
-  %.pre158 = select i1 %.pre158.b, i32 67305985, i32 0
-  br label %.lr.ph
+.lr.ph:                                           ; preds = %.preheader, %138
+  %.4138 = phi i64 [ %140, %138 ], [ %.2142, %.preheader ]
+  %.077137 = phi i64 [ %139, %138 ], [ 0, %.preheader ]
+  %108 = getelementptr inbounds i32, ptr %76, i64 %.077137
+  %109 = load i32, ptr %108, align 4
+  %110 = icmp slt i32 %109, 0
+  br i1 %110, label %.loopexit, label %111
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %141
-  %108 = phi i32 [ %142, %141 ], [ %.pre158, %.lr.ph.preheader ]
-  %.4138 = phi i64 [ %144, %141 ], [ %.2142, %.lr.ph.preheader ]
-  %.077137 = phi i64 [ %143, %141 ], [ 0, %.lr.ph.preheader ]
-  %109 = icmp eq i32 %108, 16909060
-  %110 = getelementptr inbounds i32, ptr %76, i64 %.077137
-  %111 = load i32, ptr %110, align 4
-  %.sroa.0.0.insert.insert.i = tail call i32 @llvm.bswap.i32(i32 %111)
-  %112 = select i1 %109, i32 %.sroa.0.0.insert.insert.i, i32 %111
-  %113 = icmp slt i32 %112, 0
-  br i1 %113, label %.loopexit, label %114
+111:                                              ; preds = %.lr.ph
+  %112 = load i64, ptr %37, align 8
+  %.not86 = icmp ult i64 %.4138, %112
+  br i1 %.not86, label %113, label %cdf_read_sector.exit95.thread.sink.split
 
-114:                                              ; preds = %.lr.ph
-  %115 = load i64, ptr %37, align 8
-  %.not86 = icmp ult i64 %.4138, %115
-  br i1 %.not86, label %116, label %cdf_read_sector.exit95.thread.sink.split
-
-116:                                              ; preds = %114
-  %117 = load i16, ptr %4, align 2
-  %118 = zext nneg i16 %117 to i32
-  %119 = shl nuw i32 1, %118
-  %120 = sext i32 %119 to i64
-  %121 = zext nneg i32 %112 to i64
-  %mul.i96 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %120, i64 %121)
+113:                                              ; preds = %111
+  %114 = load i16, ptr %4, align 2
+  %115 = zext nneg i16 %114 to i32
+  %116 = shl nuw i32 1, %115
+  %117 = sext i32 %116 to i64
+  %118 = zext nneg i32 %109 to i64
+  %mul.i96 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %117, i64 %118)
   %mul.ov.i97 = extractvalue { i64, i1 } %mul.i96, 1
-  br i1 %mul.ov.i97, label %cdf_read_sector.exit95.thread, label %122
+  br i1 %mul.ov.i97, label %cdf_read_sector.exit95.thread, label %119
 
-122:                                              ; preds = %116
-  %123 = mul i64 %.4138, %8
-  %124 = load ptr, ptr %2, align 8
-  %125 = add nuw nsw i64 %121, 1
-  %126 = mul nsw i64 %125, %120
-  %127 = getelementptr inbounds i8, ptr %124, i64 %123
-  %128 = load ptr, ptr %40, align 8
-  %.not.i.i98 = icmp eq ptr %128, null
-  br i1 %.not.i.i98, label %133, label %129
+119:                                              ; preds = %113
+  %120 = mul i64 %.4138, %8
+  %121 = load ptr, ptr %2, align 8
+  %122 = add nuw nsw i64 %118, 1
+  %123 = mul nsw i64 %122, %117
+  %124 = getelementptr inbounds i8, ptr %121, i64 %120
+  %125 = load ptr, ptr %40, align 8
+  %.not.i.i98 = icmp eq ptr %125, null
+  br i1 %.not.i.i98, label %130, label %126
 
-129:                                              ; preds = %122
-  %130 = add i64 %126, %8
-  %131 = load i64, ptr %41, align 8
-  %.not24.i.i99 = icmp ult i64 %131, %130
-  br i1 %.not24.i.i99, label %133, label %cdf_read_sector.exit103.thread114
+126:                                              ; preds = %119
+  %127 = add i64 %123, %8
+  %128 = load i64, ptr %41, align 8
+  %.not24.i.i99 = icmp ult i64 %128, %127
+  br i1 %.not24.i.i99, label %130, label %cdf_read_sector.exit103.thread114
 
-cdf_read_sector.exit103.thread114:                ; preds = %129
-  %132 = getelementptr inbounds i8, ptr %128, i64 %126
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %127, ptr noundef nonnull align 1 dereferenceable(1) %132, i64 %8, i1 false)
-  br label %141
+cdf_read_sector.exit103.thread114:                ; preds = %126
+  %129 = getelementptr inbounds i8, ptr %125, i64 %123
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %124, ptr noundef nonnull align 1 dereferenceable(1) %129, i64 %8, i1 false)
+  br label %138
 
-133:                                              ; preds = %129, %122
-  %134 = load i32, ptr %0, align 8
-  %135 = icmp eq i32 %134, -1
-  br i1 %135, label %cdf_read_sector.exit95.thread.sink.split, label %136
+130:                                              ; preds = %126, %119
+  %131 = load i32, ptr %0, align 8
+  %132 = icmp eq i32 %131, -1
+  br i1 %132, label %cdf_read_sector.exit95.thread.sink.split, label %133
 
-136:                                              ; preds = %133
-  %137 = tail call i64 @lseek(i32 noundef %134, i64 noundef range(i64 -4611686018427387904, 4611686020574871552) %126, i32 noundef 0) #20
-  %138 = icmp eq i64 %137, -1
-  br i1 %138, label %cdf_read_sector.exit95.thread, label %cdf_read_sector.exit103
+133:                                              ; preds = %130
+  %134 = tail call i64 @lseek(i32 noundef %131, i64 noundef range(i64 -4611686018427387904, 4611686020574871552) %123, i32 noundef 0) #20
+  %135 = icmp eq i64 %134, -1
+  br i1 %135, label %cdf_read_sector.exit95.thread, label %cdf_read_sector.exit103
 
-cdf_read_sector.exit103:                          ; preds = %136
-  %139 = load i32, ptr %0, align 8
-  %140 = tail call i64 @read(i32 noundef %139, ptr noundef %127, i64 noundef %8) #20
-  %.not25.i.i101 = icmp eq i64 %140, %8
-  %.pre.b = load i1, ptr @cdf_bo.0, align 4
-  %.pre = select i1 %.pre.b, i32 67305985, i32 0
-  br i1 %.not25.i.i101, label %141, label %cdf_read_sector.exit95.thread
+cdf_read_sector.exit103:                          ; preds = %133
+  %136 = load i32, ptr %0, align 8
+  %137 = tail call i64 @read(i32 noundef %136, ptr noundef %124, i64 noundef %8) #20
+  %.not25.i.i101 = icmp eq i64 %137, %8
+  br i1 %.not25.i.i101, label %138, label %cdf_read_sector.exit95.thread
 
-141:                                              ; preds = %cdf_read_sector.exit103.thread114, %cdf_read_sector.exit103
-  %142 = phi i32 [ %108, %cdf_read_sector.exit103.thread114 ], [ %.pre, %cdf_read_sector.exit103 ]
-  %143 = add nuw i64 %.077137, 1
-  %144 = add nuw i64 %.4138, 1
-  %exitcond155.not = icmp eq i64 %143, %10
-  br i1 %exitcond155.not, label %._crit_edge.loopexit, label %.lr.ph
+138:                                              ; preds = %cdf_read_sector.exit103.thread114, %cdf_read_sector.exit103
+  %139 = add nuw i64 %.077137, 1
+  %140 = add nuw i64 %.4138, 1
+  %exitcond155.not = icmp eq i64 %139, %10
+  br i1 %exitcond155.not, label %._crit_edge, label %.lr.ph
 
-._crit_edge.loopexit:                             ; preds = %141
-  %145 = icmp eq i32 %142, 16909060
-  br label %._crit_edge
-
-._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.preheader
-  %146 = phi i1 [ false, %.preheader ], [ %145, %._crit_edge.loopexit ]
-  %.4.lcssa = phi i64 [ %.2142, %.preheader ], [ %144, %._crit_edge.loopexit ]
-  %147 = load i32, ptr %84, align 4
-  %.sroa.0.0.insert.insert.i104 = tail call i32 @llvm.bswap.i32(i32 %147)
-  %148 = select i1 %146, i32 %.sroa.0.0.insert.insert.i104, i32 %147
-  %149 = add nuw nsw i64 %.076140, 1
-  %150 = load i32, ptr %32, align 8
-  %151 = zext i32 %150 to i64
-  %152 = icmp samesign uge i64 %149, %151
-  %153 = icmp slt i32 %148, 0
-  %or.cond = select i1 %152, i1 true, i1 %153
+._crit_edge:                                      ; preds = %138, %.preheader
+  %.4.lcssa = phi i64 [ %.2142, %.preheader ], [ %140, %138 ]
+  %141 = load i32, ptr %84, align 4
+  %142 = add nuw nsw i64 %.076140, 1
+  %143 = load i32, ptr %32, align 8
+  %144 = zext i32 %143 to i64
+  %145 = icmp samesign uge i64 %142, %144
+  %146 = icmp slt i32 %141, 0
+  %or.cond = select i1 %145, i1 true, i1 %146
   br i1 %or.cond, label %.loopexit, label %85
 
 .loopexit:                                        ; preds = %._crit_edge, %.lr.ph, %78
   %.3 = phi i64 [ %.1.lcssa, %78 ], [ %.4138, %.lr.ph ], [ %.4.lcssa, %._crit_edge ]
   store i64 %.3, ptr %37, align 8
   tail call void @_efree(ptr noundef nonnull %76) #20
-  br label %156
+  br label %149
 
-cdf_read_sector.exit95.thread.sink.split:         ; preds = %85, %100, %114, %133
-  %154 = tail call ptr @__errno_location() #21
-  store i32 22, ptr %154, align 4
+cdf_read_sector.exit95.thread.sink.split:         ; preds = %85, %100, %111, %130
+  %147 = tail call ptr @__errno_location() #21
+  store i32 22, ptr %147, align 4
   br label %cdf_read_sector.exit95.thread
 
-cdf_read_sector.exit95.thread:                    ; preds = %103, %86, %cdf_read_sector.exit95, %136, %116, %cdf_read_sector.exit103, %cdf_read_sector.exit95.thread.sink.split
+cdf_read_sector.exit95.thread:                    ; preds = %103, %86, %cdf_read_sector.exit95, %133, %113, %cdf_read_sector.exit103, %cdf_read_sector.exit95.thread.sink.split
   tail call void @_efree(ptr noundef nonnull %76) #20
   br label %cdf_read_sector.exit.thread
 
 cdf_read_sector.exit.thread:                      ; preds = %66, %46, %cdf_read_sector.exit, %69, %75, %cdf_read_sector.exit95.thread
-  %155 = load ptr, ptr %2, align 8
-  tail call void @_efree(ptr noundef %155) #20
-  br label %156
+  %148 = load ptr, ptr %2, align 8
+  tail call void @_efree(ptr noundef %148) #20
+  br label %149
 
-156:                                              ; preds = %31, %cdf_read_sector.exit.thread, %.loopexit, %29
+149:                                              ; preds = %31, %cdf_read_sector.exit.thread, %.loopexit, %29
   %.0 = phi i32 [ -1, %29 ], [ -1, %cdf_read_sector.exit.thread ], [ 0, %.loopexit ], [ -1, %31 ]
   ret i32 %.0
 }
@@ -2607,9 +2588,6 @@ declare ptr @_erealloc(ptr noundef, i64 noundef) local_unnamed_addr #18
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare { i64, i1 } @llvm.umul.with.overflow.i64(i64, i64) #19
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.bswap.i32(i32) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #19

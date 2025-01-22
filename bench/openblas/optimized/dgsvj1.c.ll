@@ -998,8 +998,8 @@ cdce.end:                                         ; preds = %cdce.call, %84
   %or.cond = select i1 %649, i1 %650, i1 false
   %spec.select = select i1 %or.cond, i32 %132, i32 %133
   %651 = select i1 %648, i32 %spec.select, i32 %132
-  %652 = add nsw i32 %651, 1
-  %653 = icmp sgt i32 %133, %652
+  %652 = add nuw nsw i32 %651, 1
+  %653 = icmp samesign ugt i32 %133, %652
   br i1 %653, label %654, label %665
 
 654:                                              ; preds = %640

@@ -2107,13 +2107,13 @@ wait_for_tests.exit.i:                            ; preds = %..loopexit_crit_edg
   %indvars.iv217.i = phi i64 [ 0, %.lr.ph176.preheader.i ], [ %indvars.iv.next218.i, %798 ]
   %.0132174.i = phi i32 [ 0, %.lr.ph176.preheader.i ], [ %.1133.i, %798 ]
   %747 = trunc nuw nsw i64 %indvars.iv217.i to i32
-  %748 = sub i32 %747, %.0132174.i
+  %748 = sub nsw i32 %747, %.0132174.i
   %749 = load i32, ptr @max_connections, align 4
   %.not150.i = icmp slt i32 %748, %749
   br i1 %.not150.i, label %798, label %750
 
 750:                                              ; preds = %.lr.ph176.i
-  %751 = sext i32 %.0132174.i to i64
+  %751 = zext nneg i32 %.0132174.i to i64
   %752 = getelementptr i32, ptr %24, i64 %751
   %753 = getelementptr i32, ptr %27, i64 %751
   %754 = getelementptr %struct.instr_time, ptr %26, i64 %751
@@ -2247,12 +2247,12 @@ wait_for_tests.exit:                              ; preds = %..loopexit_crit_edg
   br i1 %exitcond222.not.i, label %._crit_edge177.i, label %.lr.ph176.i, !llvm.loop !22
 
 ._crit_edge177.i:                                 ; preds = %798
-  %812 = sext i32 %.1133.i to i64
+  %812 = zext nneg i32 %.1133.i to i64
   %813 = getelementptr i32, ptr %24, i64 %812
   %814 = getelementptr i32, ptr %27, i64 %812
   %815 = getelementptr %struct.instr_time, ptr %26, i64 %812
   %816 = getelementptr ptr, ptr %20, i64 %812
-  %817 = sub i32 %.1135.i, %.1133.i
+  %817 = sub nsw i32 %.1135.i, %.1133.i
   call fastcc void @wait_for_tests(ptr noundef %813, ptr noundef %814, ptr noundef %815, ptr noundef %816, i32 noundef %817)
   call void (i32, ptr, ...) @emit_tap_output(i32 noundef 4, ptr noundef nonnull @.str.90)
   br label %833

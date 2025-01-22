@@ -186,7 +186,7 @@ Ivy_NodeGetLeafCostOne.exit:                      ; preds = %13, %22, %23, %Vec_
 
 75:                                               ; preds = %Ivy_NodeGetLeafCostOne.exit
   store i32 %15, ptr %5, align 16
-  %76 = icmp slt i32 %.0.i, 2
+  %76 = icmp samesign ult i32 %.0.i, 2
   br i1 %76, label %.critedge.thread, label %.thread
 
 .thread:                                          ; preds = %69, %71, %75

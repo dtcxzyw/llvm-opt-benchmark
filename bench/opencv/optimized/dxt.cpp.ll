@@ -453,7 +453,7 @@ define linkonce_odr hidden void @_ZN2cv15OcvDftBasicImpl4initEiiiiPb(ptr noundef
 52:                                               ; preds = %.lr.ph.i
   %53 = add nsw i32 %.05364.i, 2
   %54 = mul nsw i32 %53, %53
-  %55 = icmp samesign ugt i32 %54, %.165.i
+  %55 = icmp sgt i32 %54, %.165.i
   br i1 %55, label %58, label %56
 
 56:                                               ; preds = %52, %48
@@ -13807,7 +13807,7 @@ define linkonce_odr hidden void @_ZN2cv10OcvDctImpl5applyEPKhmPhm(ptr noundef no
 92:                                               ; preds = %.lr.ph.i
   %93 = add nsw i32 %.05364.i, 2
   %94 = mul nsw i32 %93, %93
-  %95 = icmp samesign ugt i32 %94, %.165.i
+  %95 = icmp sgt i32 %94, %.165.i
   br i1 %95, label %98, label %96
 
 96:                                               ; preds = %92, %88

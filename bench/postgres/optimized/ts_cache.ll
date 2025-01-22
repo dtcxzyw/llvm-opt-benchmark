@@ -874,8 +874,8 @@ init_ts_config_cache.exit:                        ; preds = %10, %18
   %158 = getelementptr inbounds nuw i8, ptr %.1, i64 12
   store i32 %157, ptr %158, align 4
   %159 = load ptr, ptr @CacheMemoryContext, align 8
-  %160 = zext nneg i32 %157 to i64
-  %161 = shl nuw nsw i64 %160, 4
+  %160 = shl nuw nsw i32 %157, 4
+  %161 = zext nneg i32 %160 to i64
   %162 = call ptr @MemoryContextAlloc(ptr noundef %159, i64 noundef %161) #9
   %163 = getelementptr inbounds nuw i8, ptr %.1, i64 16
   store ptr %162, ptr %163, align 8

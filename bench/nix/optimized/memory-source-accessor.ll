@@ -3423,7 +3423,7 @@ _ZN3nix9CanonPathD2Ev.exit:                       ; preds = %_ZNKSt7__cxx1112bas
   br i1 %104, label %105, label %107
 
 105:                                              ; preds = %101
-  %106 = icmp ult i64 %.079.i.i, 3
+  %106 = icmp samesign ult i64 %.079.i.i, 3
   br i1 %106, label %_ZSt17holds_alternativeIN3nix20MemorySourceAccessor4File9DirectoryEJNS2_7RegularES3_NS2_7SymlinkEEEbRKSt7variantIJDpT0_EE.exit, label %107
 
 107:                                              ; preds = %105, %101

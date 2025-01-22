@@ -2279,27 +2279,29 @@ _Z11cmHasPrefixSt17basic_string_viewIcSt11char_traitsIcEES2_.exit99.thread: ; pr
   br i1 %.not70, label %.loopexit, label %116
 
 116:                                              ; preds = %115
-  %117 = and i8 %.1, 1
-  %118 = xor i8 %117, 1
-  %119 = getelementptr inbounds nuw i8, ptr %.pre209, i64 104
-  %120 = load ptr, ptr %119, align 8
-  %121 = getelementptr inbounds nuw i8, ptr %.pre209, i64 88
-  %.not142177 = icmp eq ptr %120, %121
+  %117 = getelementptr inbounds nuw i8, ptr %.pre209, i64 104
+  %118 = load ptr, ptr %117, align 8
+  %119 = getelementptr inbounds nuw i8, ptr %.pre209, i64 88
+  %.not142177 = icmp eq ptr %118, %119
   br i1 %.not142177, label %_ZNKSt14default_deleteI29cmCompiledGeneratorExpressionEclEPS0_.exit.i, label %.lr.ph
 
-.lr.ph:                                           ; preds = %116, %_ZN19cmListFileBacktraceD2Ev.exit
-  %.sroa.0108.0178 = phi ptr [ %215, %_ZN19cmListFileBacktraceD2Ev.exit ], [ %120, %116 ]
+.lr.ph:                                           ; preds = %116
+  %120 = xor i8 %.1, 1
+  br label %121
+
+121:                                              ; preds = %.lr.ph, %_ZN19cmListFileBacktraceD2Ev.exit
+  %.sroa.0108.0178 = phi ptr [ %118, %.lr.ph ], [ %215, %_ZN19cmListFileBacktraceD2Ev.exit ]
   %122 = getelementptr inbounds nuw i8, ptr %.sroa.0108.0178, i64 32
   %123 = load ptr, ptr %122, align 8
   %124 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNK17cmGeneratorTarget7GetNameB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(2728) %123)
           to label %125 unwind label %223
 
-125:                                              ; preds = %.lr.ph
+125:                                              ; preds = %121
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(33) %17, ptr noundef nonnull align 8 dereferenceable(32) %124)
           to label %126 unwind label %223
 
 126:                                              ; preds = %125
-  store i8 %118, ptr %21, align 8
+  store i8 %120, ptr %21, align 8
   %127 = load ptr, ptr %12, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !14)
   %128 = load ptr, ptr %127, align 8, !noalias !14
@@ -2492,8 +2494,8 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
 _ZN19cmListFileBacktraceD2Ev.exit:                ; preds = %_ZN2BTISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbEED2Ev.exit, %197, %210, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(33) %17) #22
   %215 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.0108.0178) #27
-  %.not142 = icmp eq ptr %215, %121
-  br i1 %.not142, label %.loopexit.loopexit, label %.lr.ph
+  %.not142 = icmp eq ptr %215, %119
+  br i1 %.not142, label %.loopexit.loopexit, label %121
 
 216:                                              ; preds = %_Z11cmHasPrefixSt17basic_string_viewIcSt11char_traitsIcEES2_.exit99.thread
   %217 = landingpad { ptr, i32 }
@@ -2517,7 +2519,7 @@ _ZN19cmListFileBacktraceD2Ev.exit:                ; preds = %_ZN2BTISt4pairINSt7
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %15) #22
   br label %229
 
-223:                                              ; preds = %125, %.lr.ph
+223:                                              ; preds = %125, %121
   %224 = landingpad { ptr, i32 }
           cleanup
   br label %229

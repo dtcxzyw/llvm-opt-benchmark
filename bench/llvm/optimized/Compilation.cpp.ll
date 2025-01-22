@@ -1233,49 +1233,48 @@ _ZN4llvm16DenseMapIteratorIPKN5clang6driver9JobActionEPKcNS_12DenseMapInfoIS5_vE
   %.sroa.012.017 = phi ptr [ %.sroa.012.2, %_ZN4llvm16DenseMapIteratorIPKN5clang6driver9JobActionEPKcNS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S7_EELb1EEppEv.exit ], [ %.pn14.i, %.lr.ph ]
   %23 = load ptr, ptr %.sroa.012.017, align 8
   %.not11 = icmp eq ptr %23, %2
-  br i1 %.not11, label %24, label %32
+  br i1 %.not11, label %24, label %31
 
 24:                                               ; preds = %.lr.ph.split
   %25 = getelementptr inbounds nuw i8, ptr %.sroa.012.017, i64 8
   %26 = load ptr, ptr %25, align 8
   %27 = tail call noundef zeroext i1 @_ZNK5clang6driver11Compilation11CleanupFileEPKcb(ptr noundef nonnull align 8 dereferenceable(523) %0, ptr noundef %26, i1 noundef zeroext %3)
-  %28 = and i8 %.018, 1
-  %29 = icmp ne i8 %28, 0
-  %30 = select i1 %27, i1 %29, i1 false
-  %31 = zext i1 %30 to i8
-  br label %32
+  %28 = icmp ne i8 %.018, 0
+  %29 = select i1 %27, i1 %28, i1 false
+  %30 = zext i1 %29 to i8
+  br label %31
 
-32:                                               ; preds = %.lr.ph.split, %24
-  %.1 = phi i8 [ %.018, %.lr.ph.split ], [ %31, %24 ]
-  %33 = getelementptr inbounds nuw i8, ptr %.sroa.012.017, i64 16
-  %.not5.i3.i = icmp eq ptr %33, %12
+31:                                               ; preds = %.lr.ph.split, %24
+  %.1 = phi i8 [ %.018, %.lr.ph.split ], [ %30, %24 ]
+  %32 = getelementptr inbounds nuw i8, ptr %.sroa.012.017, i64 16
+  %.not5.i3.i = icmp eq ptr %32, %12
   br i1 %.not5.i3.i, label %_ZN4llvm16DenseMapIteratorIPKN5clang6driver9JobActionEPKcNS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S7_EELb1EEppEv.exit, label %.lr.ph.i4.i
 
-.lr.ph.i4.i:                                      ; preds = %32, %.critedge2.i6.i
-  %.sroa.012.1 = phi ptr [ %35, %.critedge2.i6.i ], [ %33, %32 ]
-  %34 = load ptr, ptr %.sroa.012.1, align 8
-  %magicptr.i5.i = ptrtoint ptr %34 to i64
+.lr.ph.i4.i:                                      ; preds = %31, %.critedge2.i6.i
+  %.sroa.012.1 = phi ptr [ %34, %.critedge2.i6.i ], [ %32, %31 ]
+  %33 = load ptr, ptr %.sroa.012.1, align 8
+  %magicptr.i5.i = ptrtoint ptr %33 to i64
   switch i64 %magicptr.i5.i, label %_ZN4llvm16DenseMapIteratorIPKN5clang6driver9JobActionEPKcNS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S7_EELb1EEppEv.exit [
     i64 -4096, label %.critedge2.i6.i
     i64 -8192, label %.critedge2.i6.i
   ]
 
 .critedge2.i6.i:                                  ; preds = %.lr.ph.i4.i, %.lr.ph.i4.i
-  %35 = getelementptr inbounds nuw i8, ptr %.sroa.012.1, i64 16
-  %.not.i7.i = icmp eq ptr %35, %12
+  %34 = getelementptr inbounds nuw i8, ptr %.sroa.012.1, i64 16
+  %.not.i7.i = icmp eq ptr %34, %12
   br i1 %.not.i7.i, label %_ZN4llvm16DenseMapIteratorIPKN5clang6driver9JobActionEPKcNS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S7_EELb1EEppEv.exit, label %.lr.ph.i4.i, !llvm.loop !26
 
-_ZN4llvm16DenseMapIteratorIPKN5clang6driver9JobActionEPKcNS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S7_EELb1EEppEv.exit: ; preds = %.lr.ph.i4.i, %.critedge2.i6.i, %32
-  %.sroa.012.2 = phi ptr [ %33, %32 ], [ %35, %.critedge2.i6.i ], [ %.sroa.012.1, %.lr.ph.i4.i ]
+_ZN4llvm16DenseMapIteratorIPKN5clang6driver9JobActionEPKcNS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S7_EELb1EEppEv.exit: ; preds = %.lr.ph.i4.i, %.critedge2.i6.i, %31
+  %.sroa.012.2 = phi ptr [ %32, %31 ], [ %34, %.critedge2.i6.i ], [ %.sroa.012.1, %.lr.ph.i4.i ]
   %.not15 = icmp eq ptr %.sroa.012.2, %12
   br i1 %.not15, label %._crit_edge.loopexit19, label %.lr.ph.split
 
 ._crit_edge.loopexit19:                           ; preds = %_ZN4llvm16DenseMapIteratorIPKN5clang6driver9JobActionEPKcNS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S7_EELb1EEppEv.exit
-  %36 = trunc nuw i8 %.1 to i1
+  %35 = trunc nuw i8 %.1 to i1
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.critedge2.i8.i14.i6.i, %_ZN4llvm16DenseMapIteratorIPKN5clang6driver9JobActionEPKcNS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S7_EELb1EEppEv.exit.us, %4, %._crit_edge.loopexit19, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang6driver9JobActionEPKcNS_12DenseMapInfoIS6_vEENS_6detail12DenseMapPairIS6_S8_EEEES6_S8_SA_SD_E5beginEv.exit
-  %.0.lcssa = phi i1 [ true, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang6driver9JobActionEPKcNS_12DenseMapInfoIS6_vEENS_6detail12DenseMapPairIS6_S8_EEEES6_S8_SA_SD_E5beginEv.exit ], [ %36, %._crit_edge.loopexit19 ], [ true, %4 ], [ %19, %_ZN4llvm16DenseMapIteratorIPKN5clang6driver9JobActionEPKcNS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S7_EELb1EEppEv.exit.us ], [ true, %.critedge2.i8.i14.i6.i ]
+  %.0.lcssa = phi i1 [ true, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang6driver9JobActionEPKcNS_12DenseMapInfoIS6_vEENS_6detail12DenseMapPairIS6_S8_EEEES6_S8_SA_SD_E5beginEv.exit ], [ %35, %._crit_edge.loopexit19 ], [ true, %4 ], [ %19, %_ZN4llvm16DenseMapIteratorIPKN5clang6driver9JobActionEPKcNS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S7_EELb1EEppEv.exit.us ], [ true, %.critedge2.i8.i14.i6.i ]
   ret i1 %.0.lcssa
 }
 

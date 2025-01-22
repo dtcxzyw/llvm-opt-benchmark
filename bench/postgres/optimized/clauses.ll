@@ -2452,7 +2452,7 @@ common.ret1117:                                   ; preds = %.thread741, %975, %
   %230 = getelementptr inbounds nuw i8, ptr %226, i64 32
   %231 = load i8, ptr %230, align 8
   %232 = or i8 %231, %.0606852869
-  %233 = and i8 %.0608851870, %231
+  %233 = and i8 %231, %.0608851870
   %indvars.iv.next918 = add nuw nsw i64 %indvars.iv917, 1
   %exitcond920.not = icmp eq i64 %indvars.iv.next918, %wide.trip.count919
   br i1 %exitcond920.not, label %._crit_edge855, label %224

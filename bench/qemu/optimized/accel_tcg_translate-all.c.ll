@@ -813,7 +813,7 @@ while.body:                                       ; preds = %if.end125, %if.end1
   %arrayidx138 = getelementptr [512 x i16], ptr %gen_insn_end_off136, i64 0, i64 %indvars.iv
   %58 = load i16, ptr %arrayidx138, align 2
   %conv139 = zext i16 %58 to i64
-  %cmp140 = icmp ult i64 %chunk_start.0156, %conv139
+  %cmp140 = icmp samesign ult i64 %chunk_start.0156, %conv139
   br i1 %cmp140, label %if.then142, label %if.end152
 
 if.then142:                                       ; preds = %while.body

@@ -179,27 +179,27 @@ define i32 @scan_graph_mode(ptr noundef %0, i32 noundef %1) local_unnamed_addr #
 9:                                                ; preds = %4, %2
   %10 = load i8, ptr @Reduce, align 1
   %11 = trunc i8 %10 to i1
-  br i1 %11, label %12, label %.loopexit136
+  br i1 %11, label %12, label %.loopexit137
 
 12:                                               ; preds = %9
   %13 = tail call ptr @agfstnode(ptr noundef %0) #20
-  %.not105142 = icmp eq ptr %13, null
-  br i1 %.not105142, label %.loopexit136, label %.lr.ph
+  %.not105143 = icmp eq ptr %13, null
+  br i1 %.not105143, label %.loopexit137, label %.lr.ph
 
 .lr.ph:                                           ; preds = %12
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 120
   br label %15
 
 15:                                               ; preds = %.lr.ph, %prune.exit
-  %.097144 = phi ptr [ %13, %.lr.ph ], [ %.096, %prune.exit ]
-  %.0119143 = phi ptr [ undef, %.lr.ph ], [ %.3122125, %prune.exit ]
-  %16 = tail call ptr @agnxtnode(ptr noundef %0, ptr noundef nonnull %.097144) #20
-  %17 = tail call ptr @agfstedge(ptr noundef %0, ptr noundef nonnull %.097144) #20
+  %.097145 = phi ptr [ %13, %.lr.ph ], [ %.096, %prune.exit ]
+  %.0119144 = phi ptr [ undef, %.lr.ph ], [ %.3122125, %prune.exit ]
+  %16 = tail call ptr @agnxtnode(ptr noundef %0, ptr noundef nonnull %.097145) #20
+  %17 = tail call ptr @agfstedge(ptr noundef %0, ptr noundef nonnull %.097145) #20
   %.not51.i = icmp eq ptr %17, null
   br i1 %.not51.i, label %prune.exit.sink.split, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %15, %38
-  %.1120 = phi ptr [ %.2121, %38 ], [ %.0119143, %15 ]
+  %.1120 = phi ptr [ %.2121, %38 ], [ %.0119144, %15 ]
   %.054.i = phi ptr [ %.1.i, %38 ], [ null, %15 ]
   %.04353.i = phi i32 [ %.144.i, %38 ], [ 0, %15 ]
   %.04552.i = phi ptr [ %39, %38 ], [ %17, %15 ]
@@ -220,7 +220,7 @@ define i32 @scan_graph_mode(ptr noundef %0, i32 noundef %1) local_unnamed_addr #
 
 29:                                               ; preds = %.lr.ph.i
   %30 = icmp eq i32 %.04353.i, 1
-  %31 = icmp eq ptr %27, %.097144
+  %31 = icmp eq ptr %27, %.097145
   br i1 %30, label %32, label %37
 
 32:                                               ; preds = %29
@@ -230,7 +230,7 @@ define i32 @scan_graph_mode(ptr noundef %0, i32 noundef %1) local_unnamed_addr #
 
 34:                                               ; preds = %32
   %35 = icmp eq ptr %27, %.054.i
-  %36 = icmp eq ptr %23, %.097144
+  %36 = icmp eq ptr %23, %.097145
   %or.cond49.i = and i1 %36, %35
   br i1 %or.cond49.i, label %38, label %prune.exit
 
@@ -242,30 +242,30 @@ define i32 @scan_graph_mode(ptr noundef %0, i32 noundef %1) local_unnamed_addr #
   %.2121 = phi ptr [ %.1120, %.lr.ph.i ], [ %.1120, %32 ], [ %.1120, %34 ], [ %..i, %37 ]
   %.144.i = phi i32 [ %.04353.i, %.lr.ph.i ], [ 1, %32 ], [ 1, %34 ], [ 1, %37 ]
   %.1.i = phi ptr [ %.054.i, %.lr.ph.i ], [ %.054.i, %32 ], [ %.054.i, %34 ], [ %..i, %37 ]
-  %39 = tail call ptr @agnxtedge(ptr noundef %0, ptr noundef nonnull %.04552.i, ptr noundef nonnull %.097144) #20
+  %39 = tail call ptr @agnxtedge(ptr noundef %0, ptr noundef nonnull %.04552.i, ptr noundef nonnull %.097145) #20
   %.not.i = icmp eq ptr %39, null
   br i1 %.not.i, label %degreeKind.exit, label %.lr.ph.i
 
 degreeKind.exit:                                  ; preds = %38
-  %switch = icmp eq i32 %.144.i, 0
-  br i1 %switch, label %prune.exit.sink.split, label %40
+  %switch.not.not = icmp eq i32 %.144.i, 0
+  br i1 %switch.not.not, label %prune.exit.sink.split, label %40
 
 40:                                               ; preds = %degreeKind.exit
   %41 = load ptr, ptr %14, align 8
-  %42 = tail call i32 @agdelete(ptr noundef %41, ptr noundef nonnull %.097144) #20
-  %.not32.i = icmp eq ptr %.2121, null
-  br i1 %.not32.i, label %prune.exit, label %.lr.ph.i113
+  %42 = tail call i32 @agdelete(ptr noundef %41, ptr noundef nonnull %.097145) #20
+  %.not33.i = icmp eq ptr %.2121, null
+  br i1 %.not33.i, label %prune.exit, label %.lr.ph.i113
 
 .lr.ph.i113:                                      ; preds = %40, %degreeKind.exit.thread.i
-  %.035.i = phi ptr [ %.222.i, %degreeKind.exit.thread.i ], [ %.2121, %40 ]
-  %.01734.i = phi ptr [ %.3.i, %degreeKind.exit.thread.i ], [ %16, %40 ]
-  %.02033.i = phi ptr [ %.222.i, %degreeKind.exit.thread.i ], [ undef, %40 ]
-  %43 = tail call ptr @agfstedge(ptr noundef nonnull %0, ptr noundef nonnull %.035.i) #20
+  %.036.i = phi ptr [ %.222.i, %degreeKind.exit.thread.i ], [ %.2121, %40 ]
+  %.01735.i = phi ptr [ %.3.i, %degreeKind.exit.thread.i ], [ %16, %40 ]
+  %.02034.i = phi ptr [ %.222.i, %degreeKind.exit.thread.i ], [ undef, %40 ]
+  %43 = tail call ptr @agfstedge(ptr noundef nonnull %0, ptr noundef nonnull %.036.i) #20
   %.not51.i.i = icmp eq ptr %43, null
   br i1 %.not51.i.i, label %degreeKind.exit.thread27.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i113, %64
-  %.121.i = phi ptr [ %.222.i, %64 ], [ %.02033.i, %.lr.ph.i113 ]
+  %.121.i = phi ptr [ %.222.i, %64 ], [ %.02034.i, %.lr.ph.i113 ]
   %.054.i.i = phi ptr [ %.1.i.i, %64 ], [ null, %.lr.ph.i113 ]
   %.04353.i.i = phi i32 [ %.144.i.i, %64 ], [ 0, %.lr.ph.i113 ]
   %.04552.i.i = phi ptr [ %65, %64 ], [ %43, %.lr.ph.i113 ]
@@ -286,7 +286,7 @@ degreeKind.exit:                                  ; preds = %38
 
 55:                                               ; preds = %.lr.ph.i.i
   %56 = icmp eq i32 %.04353.i.i, 1
-  %57 = icmp eq ptr %53, %.035.i
+  %57 = icmp eq ptr %53, %.036.i
   br i1 %56, label %58, label %63
 
 58:                                               ; preds = %55
@@ -296,7 +296,7 @@ degreeKind.exit:                                  ; preds = %38
 
 60:                                               ; preds = %58
   %61 = icmp eq ptr %53, %.054.i.i
-  %62 = icmp eq ptr %49, %.035.i
+  %62 = icmp eq ptr %49, %.036.i
   %or.cond49.i.i = and i1 %62, %61
   br i1 %or.cond49.i.i, label %64, label %prune.exit
 
@@ -308,52 +308,52 @@ degreeKind.exit:                                  ; preds = %38
   %.222.i = phi ptr [ %.121.i, %.lr.ph.i.i ], [ %.121.i, %58 ], [ %.121.i, %60 ], [ %..i.i, %63 ]
   %.144.i.i = phi i32 [ %.04353.i.i, %.lr.ph.i.i ], [ 1, %58 ], [ 1, %60 ], [ 1, %63 ]
   %.1.i.i = phi ptr [ %.054.i.i, %.lr.ph.i.i ], [ %.054.i.i, %58 ], [ %.054.i.i, %60 ], [ %..i.i, %63 ]
-  %65 = tail call ptr @agnxtedge(ptr noundef %0, ptr noundef nonnull %.04552.i.i, ptr noundef nonnull %.035.i) #20
+  %65 = tail call ptr @agnxtedge(ptr noundef %0, ptr noundef nonnull %.04552.i.i, ptr noundef nonnull %.036.i) #20
   %.not.i.i = icmp eq ptr %65, null
   br i1 %.not.i.i, label %degreeKind.exit.i, label %.lr.ph.i.i
 
 degreeKind.exit.i:                                ; preds = %64
-  %switch.i = icmp eq i32 %.144.i.i, 0
-  br i1 %switch.i, label %degreeKind.exit.thread27.i, label %69
+  %switch.not.not.i = icmp eq i32 %.144.i.i, 0
+  br i1 %switch.not.not.i, label %degreeKind.exit.thread27.i, label %69
 
 degreeKind.exit.thread27.i:                       ; preds = %degreeKind.exit.i, %.lr.ph.i113
-  %66 = icmp eq ptr %.01734.i, %.035.i
+  %66 = icmp eq ptr %.01735.i, %.036.i
   br i1 %66, label %67, label %prune.exit.sink.split
 
 67:                                               ; preds = %degreeKind.exit.thread27.i
-  %68 = tail call ptr @agnxtnode(ptr noundef %0, ptr noundef nonnull %.035.i) #20
+  %68 = tail call ptr @agnxtnode(ptr noundef %0, ptr noundef nonnull %.036.i) #20
   br label %prune.exit.sink.split
 
 69:                                               ; preds = %degreeKind.exit.i
-  %70 = icmp eq ptr %.01734.i, %.035.i
+  %70 = icmp eq ptr %.01735.i, %.036.i
   br i1 %70, label %71, label %degreeKind.exit.thread.i
 
 71:                                               ; preds = %69
-  %72 = tail call ptr @agnxtnode(ptr noundef %0, ptr noundef nonnull %.035.i) #20
+  %72 = tail call ptr @agnxtnode(ptr noundef %0, ptr noundef nonnull %.036.i) #20
   br label %degreeKind.exit.thread.i
 
 degreeKind.exit.thread.i:                         ; preds = %71, %69
-  %.3.i = phi ptr [ %72, %71 ], [ %.01734.i, %69 ]
+  %.3.i = phi ptr [ %72, %71 ], [ %.01735.i, %69 ]
   %73 = load ptr, ptr %14, align 8
-  %74 = tail call i32 @agdelete(ptr noundef %73, ptr noundef nonnull %.035.i) #20
+  %74 = tail call i32 @agdelete(ptr noundef %73, ptr noundef nonnull %.036.i) #20
   %.not.i114 = icmp eq ptr %.222.i, null
   br i1 %.not.i114, label %prune.exit, label %.lr.ph.i113
 
 prune.exit.sink.split:                            ; preds = %degreeKind.exit.thread27.i, %67, %15, %degreeKind.exit
-  %.035.i.lcssa.sink = phi ptr [ %.097144, %degreeKind.exit ], [ %.097144, %15 ], [ %.035.i, %67 ], [ %.035.i, %degreeKind.exit.thread27.i ]
-  %.3122125.ph = phi ptr [ %.2121, %degreeKind.exit ], [ %.0119143, %15 ], [ %.2121, %67 ], [ %.2121, %degreeKind.exit.thread27.i ]
-  %.096.ph = phi ptr [ %16, %degreeKind.exit ], [ %16, %15 ], [ %68, %67 ], [ %.01734.i, %degreeKind.exit.thread27.i ]
+  %.036.i.lcssa.sink = phi ptr [ %.097145, %degreeKind.exit ], [ %.097145, %15 ], [ %.036.i, %67 ], [ %.036.i, %degreeKind.exit.thread27.i ]
+  %.3122125.ph = phi ptr [ %.2121, %degreeKind.exit ], [ %.0119144, %15 ], [ %.2121, %67 ], [ %.2121, %degreeKind.exit.thread27.i ]
+  %.096.ph = phi ptr [ %16, %degreeKind.exit ], [ %16, %15 ], [ %68, %67 ], [ %.01735.i, %degreeKind.exit.thread27.i ]
   %75 = load ptr, ptr %14, align 8
-  %76 = tail call i32 @agdelete(ptr noundef %75, ptr noundef nonnull %.035.i.lcssa.sink) #20
+  %76 = tail call i32 @agdelete(ptr noundef %75, ptr noundef nonnull %.036.i.lcssa.sink) #20
   br label %prune.exit
 
 prune.exit:                                       ; preds = %34, %degreeKind.exit.thread.i, %60, %prune.exit.sink.split, %40
   %.3122125 = phi ptr [ null, %40 ], [ %.3122125.ph, %prune.exit.sink.split ], [ %.2121, %60 ], [ %.2121, %degreeKind.exit.thread.i ], [ %.1120, %34 ]
-  %.096 = phi ptr [ %16, %40 ], [ %.096.ph, %prune.exit.sink.split ], [ %.01734.i, %60 ], [ %.3.i, %degreeKind.exit.thread.i ], [ %16, %34 ]
+  %.096 = phi ptr [ %16, %40 ], [ %.096.ph, %prune.exit.sink.split ], [ %.01735.i, %60 ], [ %.3.i, %degreeKind.exit.thread.i ], [ %16, %34 ]
   %.not105 = icmp eq ptr %.096, null
-  br i1 %.not105, label %.loopexit136, label %15
+  br i1 %.not105, label %.loopexit137, label %15
 
-.loopexit136:                                     ; preds = %prune.exit, %12, %9
+.loopexit137:                                     ; preds = %prune.exit, %12, %9
   %77 = tail call i32 @agnnodes(ptr noundef %0) #20
   %78 = tail call i32 @agnedges(ptr noundef %0) #20
   %79 = tail call ptr @agattr(ptr noundef %0, i32 noundef 2, ptr noundef nonnull @.str.1, ptr noundef null) #20
@@ -362,7 +362,7 @@ prune.exit:                                       ; preds = %34, %degreeKind.exi
     i32 4, label %119
   ]
 
-80:                                               ; preds = %.loopexit136
+80:                                               ; preds = %.loopexit137
   %81 = sitofp i32 %77 to double
   %82 = fmul double %81, 1.000000e-04
   store double %82, ptr @Epsilon, align 8
@@ -411,34 +411,34 @@ gv_calloc.exit:                                   ; preds = %94
   %104 = getelementptr inbounds nuw i8, ptr %103, i64 184
   store ptr %96, ptr %104, align 8
   %105 = tail call ptr @agfstnode(ptr noundef nonnull %0) #20
-  %.not109150 = icmp eq ptr %105, null
-  br i1 %.not109150, label %.loopexit, label %.lr.ph154
+  %.not109151 = icmp eq ptr %105, null
+  br i1 %.not109151, label %.loopexit, label %.lr.ph155
 
-.lr.ph154:                                        ; preds = %gv_calloc.exit, %.lr.ph154
-  %indvars.iv177 = phi i64 [ %indvars.iv.next178, %.lr.ph154 ], [ 0, %gv_calloc.exit ]
-  %.093152 = phi double [ %117, %.lr.ph154 ], [ 0.000000e+00, %gv_calloc.exit ]
-  %.198151 = phi ptr [ %118, %.lr.ph154 ], [ %105, %gv_calloc.exit ]
+.lr.ph155:                                        ; preds = %gv_calloc.exit, %.lr.ph155
+  %indvars.iv178 = phi i64 [ %indvars.iv.next179, %.lr.ph155 ], [ 0, %gv_calloc.exit ]
+  %.093153 = phi double [ %117, %.lr.ph155 ], [ 0.000000e+00, %gv_calloc.exit ]
+  %.198152 = phi ptr [ %118, %.lr.ph155 ], [ %105, %gv_calloc.exit ]
   %106 = load ptr, ptr %102, align 8
   %107 = getelementptr inbounds nuw i8, ptr %106, i64 184
   %108 = load ptr, ptr %107, align 8
-  %109 = getelementptr inbounds nuw ptr, ptr %108, i64 %indvars.iv177
-  store ptr %.198151, ptr %109, align 8
-  %indvars.iv.next178 = add nuw nsw i64 %indvars.iv177, 1
-  %110 = getelementptr inbounds nuw i8, ptr %.198151, i64 16
+  %109 = getelementptr inbounds nuw ptr, ptr %108, i64 %indvars.iv178
+  store ptr %.198152, ptr %109, align 8
+  %indvars.iv.next179 = add nuw nsw i64 %indvars.iv178, 1
+  %110 = getelementptr inbounds nuw i8, ptr %.198152, i64 16
   %111 = load ptr, ptr %110, align 8
   %112 = getelementptr inbounds nuw i8, ptr %111, i64 164
-  %113 = trunc nuw nsw i64 %indvars.iv177 to i32
+  %113 = trunc nuw nsw i64 %indvars.iv178 to i32
   store i32 %113, ptr %112, align 4
   %114 = load ptr, ptr %110, align 8
   %115 = getelementptr inbounds nuw i8, ptr %114, i64 168
   store i32 -1, ptr %115, align 8
-  %116 = tail call fastcc double @setEdgeLen(ptr noundef nonnull %0, ptr noundef %.198151, ptr noundef %79)
-  %117 = fadd double %.093152, %116
-  %118 = tail call ptr @agnxtnode(ptr noundef nonnull %0, ptr noundef nonnull %.198151) #20
+  %116 = tail call fastcc double @setEdgeLen(ptr noundef nonnull %0, ptr noundef %.198152, ptr noundef %79)
+  %117 = fadd double %.093153, %116
+  %118 = tail call ptr @agnxtnode(ptr noundef nonnull %0, ptr noundef nonnull %.198152) #20
   %.not109 = icmp eq ptr %118, null
-  br i1 %.not109, label %.loopexit, label %.lr.ph154
+  br i1 %.not109, label %.loopexit, label %.lr.ph155
 
-119:                                              ; preds = %.loopexit136
+119:                                              ; preds = %.loopexit137
   store double 1.000000e-02, ptr @Epsilon, align 8
   tail call void @getdouble(ptr noundef %0, ptr noundef nonnull @.str.2, ptr noundef nonnull @Epsilon) #20
   %120 = add nsw i32 %77, 1
@@ -472,54 +472,54 @@ gv_calloc.exit117:                                ; preds = %125
   %135 = getelementptr inbounds nuw i8, ptr %134, i64 184
   store ptr %127, ptr %135, align 8
   %136 = tail call ptr @agfstnode(ptr noundef %0) #20
-  %.not107145 = icmp eq ptr %136, null
-  br i1 %.not107145, label %.loopexit, label %.lr.ph149
+  %.not107146 = icmp eq ptr %136, null
+  br i1 %.not107146, label %.loopexit, label %.lr.ph150
 
-.lr.ph149:                                        ; preds = %gv_calloc.exit117, %.lr.ph149
-  %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph149 ], [ 0, %gv_calloc.exit117 ]
-  %.295147 = phi double [ %146, %.lr.ph149 ], [ 0.000000e+00, %gv_calloc.exit117 ]
-  %.299146 = phi ptr [ %147, %.lr.ph149 ], [ %136, %gv_calloc.exit117 ]
+.lr.ph150:                                        ; preds = %gv_calloc.exit117, %.lr.ph150
+  %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph150 ], [ 0, %gv_calloc.exit117 ]
+  %.295148 = phi double [ %146, %.lr.ph150 ], [ 0.000000e+00, %gv_calloc.exit117 ]
+  %.299147 = phi ptr [ %147, %.lr.ph150 ], [ %136, %gv_calloc.exit117 ]
   %137 = load ptr, ptr %133, align 8
   %138 = getelementptr inbounds nuw i8, ptr %137, i64 184
   %139 = load ptr, ptr %138, align 8
   %140 = getelementptr inbounds nuw ptr, ptr %139, i64 %indvars.iv
-  store ptr %.299146, ptr %140, align 8
+  store ptr %.299147, ptr %140, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %141 = getelementptr inbounds nuw i8, ptr %.299146, i64 16
+  %141 = getelementptr inbounds nuw i8, ptr %.299147, i64 16
   %142 = load ptr, ptr %141, align 8
   %143 = getelementptr inbounds nuw i8, ptr %142, i64 164
   %144 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %144, ptr %143, align 4
-  %145 = tail call fastcc double @setEdgeLen(ptr noundef nonnull %0, ptr noundef %.299146, ptr noundef %79)
-  %146 = fadd double %.295147, %145
-  %147 = tail call ptr @agnxtnode(ptr noundef nonnull %0, ptr noundef nonnull %.299146) #20
+  %145 = tail call fastcc double @setEdgeLen(ptr noundef nonnull %0, ptr noundef %.299147, ptr noundef %79)
+  %146 = fadd double %.295148, %145
+  %147 = tail call ptr @agnxtnode(ptr noundef nonnull %0, ptr noundef nonnull %.299147) #20
   %.not107 = icmp eq ptr %147, null
-  br i1 %.not107, label %.loopexit, label %.lr.ph149
+  br i1 %.not107, label %.loopexit, label %.lr.ph150
 
-148:                                              ; preds = %.loopexit136
+148:                                              ; preds = %.loopexit137
   store double 1.000000e-04, ptr @Epsilon, align 8
   tail call void @getdouble(ptr noundef %0, ptr noundef nonnull @.str.2, ptr noundef nonnull @Epsilon) #20
   %149 = tail call ptr @agfstnode(ptr noundef %0) #20
-  %.not106156 = icmp eq ptr %149, null
-  br i1 %.not106156, label %.loopexit, label %.lr.ph160
+  %.not106157 = icmp eq ptr %149, null
+  br i1 %.not106157, label %.loopexit, label %.lr.ph161
 
-.lr.ph160:                                        ; preds = %148, %.lr.ph160
-  %.2159 = phi i32 [ %150, %.lr.ph160 ], [ 0, %148 ]
-  %.3158 = phi double [ %155, %.lr.ph160 ], [ 0.000000e+00, %148 ]
-  %.3100157 = phi ptr [ %156, %.lr.ph160 ], [ %149, %148 ]
-  %150 = add nuw nsw i32 %.2159, 1
-  %151 = getelementptr inbounds nuw i8, ptr %.3100157, i64 16
+.lr.ph161:                                        ; preds = %148, %.lr.ph161
+  %.2160 = phi i32 [ %150, %.lr.ph161 ], [ 0, %148 ]
+  %.3159 = phi double [ %155, %.lr.ph161 ], [ 0.000000e+00, %148 ]
+  %.3100158 = phi ptr [ %156, %.lr.ph161 ], [ %149, %148 ]
+  %150 = add nuw nsw i32 %.2160, 1
+  %151 = getelementptr inbounds nuw i8, ptr %.3100158, i64 16
   %152 = load ptr, ptr %151, align 8
   %153 = getelementptr inbounds nuw i8, ptr %152, i64 164
-  store i32 %.2159, ptr %153, align 4
-  %154 = tail call fastcc double @setEdgeLen(ptr noundef %0, ptr noundef %.3100157, ptr noundef %79)
-  %155 = fadd double %.3158, %154
-  %156 = tail call ptr @agnxtnode(ptr noundef %0, ptr noundef nonnull %.3100157) #20
+  store i32 %.2160, ptr %153, align 4
+  %154 = tail call fastcc double @setEdgeLen(ptr noundef %0, ptr noundef %.3100158, ptr noundef %79)
+  %155 = fadd double %.3159, %154
+  %156 = tail call ptr @agnxtnode(ptr noundef %0, ptr noundef nonnull %.3100158) #20
   %.not106 = icmp eq ptr %156, null
-  br i1 %.not106, label %.loopexit, label %.lr.ph160
+  br i1 %.not106, label %.loopexit, label %.lr.ph161
 
-.loopexit:                                        ; preds = %.lr.ph149, %.lr.ph154, %.lr.ph160, %gv_calloc.exit117, %gv_calloc.exit, %148
-  %.194 = phi double [ 0.000000e+00, %148 ], [ 0.000000e+00, %gv_calloc.exit ], [ 0.000000e+00, %gv_calloc.exit117 ], [ %155, %.lr.ph160 ], [ %117, %.lr.ph154 ], [ %146, %.lr.ph149 ]
+.loopexit:                                        ; preds = %.lr.ph150, %.lr.ph155, %.lr.ph161, %gv_calloc.exit117, %gv_calloc.exit, %148
+  %.194 = phi double [ 0.000000e+00, %148 ], [ 0.000000e+00, %gv_calloc.exit ], [ 0.000000e+00, %gv_calloc.exit117 ], [ %155, %.lr.ph161 ], [ %117, %.lr.ph155 ], [ %146, %.lr.ph150 ]
   %157 = tail call ptr @agget(ptr noundef %0, ptr noundef nonnull @.str.4) #20
   %.not110 = icmp eq ptr %157, null
   br i1 %.not110, label %164, label %158
@@ -609,9 +609,9 @@ gv_calloc.exit31.us.us.i:                         ; preds = %.lr.ph.split.split.
   unreachable
 
 .lr.ph.split.split.us.split.i:                    ; preds = %.lr.ph.split.split.us.i
-  %.not162 = icmp eq i32 %186, 0
+  %.not163 = icmp eq i32 %186, 0
   %wide.trip.count227.i = zext nneg i32 %77 to i64
-  br i1 %.not162, label %.lr.ph.split.split.us.split.split.split.split.i, label %.lr.ph.split.split.us.split.split.us.split.us.split.preheader.i
+  br i1 %.not163, label %.lr.ph.split.split.us.split.split.split.split.i, label %.lr.ph.split.split.us.split.split.us.split.us.split.preheader.i
 
 .lr.ph.split.split.us.split.split.us.split.us.split.preheader.i: ; preds = %.lr.ph.split.split.us.split.i
   %wide.trip.count217.i = zext nneg i32 %186 to i64

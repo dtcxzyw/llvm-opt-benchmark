@@ -4955,7 +4955,7 @@ define noundef range(i8 0, 3) i8 @_ZN12regex_syntax3ast5Flags10flag_state17h6b0b
   br i1 %12, label %15, label %13
 
 .loopexit:                                        ; preds = %15, %2, %17
-  %.0 = phi i8 [ %19, %17 ], [ 2, %2 ], [ 2, %15 ]
+  %.0 = phi i8 [ %18, %17 ], [ 2, %2 ], [ 2, %15 ]
   ret i8 %.0
 
 13:                                               ; preds = %.lr.ph
@@ -4968,8 +4968,7 @@ define noundef range(i8 0, 3) i8 @_ZN12regex_syntax3ast5Flags10flag_state17h6b0b
   br i1 %16, label %.loopexit, label %.lr.ph
 
 17:                                               ; preds = %13
-  %18 = and i8 %.0511, 1
-  %19 = xor i8 %18, 1
+  %18 = xor i8 %.0511, 1
   br label %.loopexit
 }
 

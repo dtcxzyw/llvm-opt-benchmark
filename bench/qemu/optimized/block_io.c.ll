@@ -380,7 +380,7 @@ for.body.lr.ph:                                   ; preds = %lor.end
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
-  %7 = phi i8 [ 0, %for.body.lr.ph ], [ %44, %for.inc ]
+  %7 = phi i8 [ 0, %for.body.lr.ph ], [ %43, %for.inc ]
   %8 = phi i32 [ 0, %for.body.lr.ph ], [ %33, %for.inc ]
   %9 = phi i32 [ 0, %for.body.lr.ph ], [ %34, %for.inc ]
   %10 = phi i64 [ 0, %for.body.lr.ph ], [ %35, %for.inc ]
@@ -469,13 +469,13 @@ if.then33:                                        ; preds = %if.end29
   %41 = load ptr, ptr %c.036, align 8
   %has_variable_length = getelementptr inbounds nuw i8, ptr %41, i64 16548
   %42 = load i8, ptr %has_variable_length, align 4
-  %43 = or i8 %7, %42
-  %or31 = and i8 %43, 1
+  %.masked = and i8 %42, 1
+  %or31 = or i8 %7, %.masked
   store i8 %or31, ptr %has_variable_length38, align 4
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end29, %if.then33
-  %44 = phi i8 [ %7, %if.end29 ], [ %or31, %if.then33 ]
+  %43 = phi i8 [ %7, %if.end29 ], [ %or31, %if.then33 ]
   %next = getelementptr inbounds nuw i8, ptr %c.036, i64 64
   %c.0 = load ptr, ptr %next, align 8
   %tobool23.not = icmp eq ptr %c.0, null
@@ -497,20 +497,20 @@ if.then44:                                        ; preds = %lor.end, %for.end
 
 if.end49:                                         ; preds = %if.then44, %for.end
   %bdrv_refresh_limits = getelementptr inbounds nuw i8, ptr %0, i64 320
-  %45 = load ptr, ptr %bdrv_refresh_limits, align 8
-  %tobool50.not = icmp eq ptr %45, null
+  %44 = load ptr, ptr %bdrv_refresh_limits, align 8
+  %tobool50.not = icmp eq ptr %44, null
   br i1 %tobool50.not, label %cleanup, label %if.then51
 
 if.then51:                                        ; preds = %if.end49
-  call void %45(ptr noundef %bs, ptr noundef %spec.select) #15
-  %46 = load ptr, ptr %spec.select, align 8
-  %tobool53.not = icmp eq ptr %46, null
+  call void %44(ptr noundef %bs, ptr noundef %spec.select) #15
+  %45 = load ptr, ptr %spec.select, align 8
+  %tobool53.not = icmp eq ptr %45, null
   br i1 %tobool53.not, label %if.end56, label %cleanup
 
 if.end56:                                         ; preds = %if.then51
   %.pre37 = load i32, ptr %bl14, align 8
-  %47 = icmp ugt i32 %.pre37, 1073741824
-  br i1 %47, label %if.then62, label %cleanup
+  %46 = icmp ugt i32 %.pre37, 1073741824
+  br i1 %46, label %if.then62, label %cleanup
 
 if.then62:                                        ; preds = %if.end56
   call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef nonnull %spec.select, ptr noundef nonnull @.str.1, i32 noundef 229, ptr noundef nonnull @__func__.bdrv_refresh_limits, ptr noundef nonnull @.str.6) #15

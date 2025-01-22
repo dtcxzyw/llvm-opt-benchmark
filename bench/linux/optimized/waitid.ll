@@ -202,7 +202,7 @@ define dso_local zeroext i1 @io_waitid_remove_all(ptr nocapture noundef readonly
   %7 = getelementptr i8, ptr %5, i64 -160
   %8 = icmp eq ptr %7, null
   %9 = or i1 %6, %8
-  br i1 %9, label %26, label %.preheader
+  br i1 %9, label %25, label %.preheader
 
 .preheader:                                       ; preds = %3, %17
   %10 = phi ptr [ %20, %17 ], [ %7, %3 ]
@@ -225,13 +225,12 @@ define dso_local zeroext i1 @io_waitid_remove_all(ptr nocapture noundef readonly
   br i1 %22, label %23, label %.preheader, !llvm.loop !14
 
 23:                                               ; preds = %17
-  %24 = and i8 %18, 1
-  %25 = icmp ne i8 %24, 0
-  br label %26
+  %24 = icmp ne i8 %18, 0
+  br label %25
 
-26:                                               ; preds = %23, %3
-  %27 = phi i1 [ false, %3 ], [ %25, %23 ]
-  ret i1 %27
+25:                                               ; preds = %23, %3
+  %26 = phi i1 [ false, %3 ], [ %24, %23 ]
+  ret i1 %26
 }
 
 ; Function Attrs: null_pointer_is_valid

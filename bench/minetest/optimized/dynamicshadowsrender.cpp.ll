@@ -7317,13 +7317,12 @@ for.body188.lr.ph:                                ; preds = %if.then177
   br label %for.body188
 
 for.cond.cleanup187:                              ; preds = %if.end195
-  %325 = and i8 %reset_sm_texture.1, 1
-  %326 = or disjoint i8 %325, 2
-  %327 = zext nneg i8 %326 to i16
-  %328 = load ptr, ptr %shadowMapClientMapFuture, align 8, !tbaa !65
-  %cmp200 = icmp eq ptr %328, null
-  %329 = load ptr, ptr %shadowMapClientMap, align 8
-  %spec.select = select i1 %cmp200, ptr %329, ptr %328
+  %325 = or disjoint i8 %reset_sm_texture.1, 2
+  %326 = zext nneg i8 %325 to i16
+  %327 = load ptr, ptr %shadowMapClientMapFuture, align 8, !tbaa !65
+  %cmp200 = icmp eq ptr %327, null
+  %328 = load ptr, ptr %shadowMapClientMap, align 8
+  %spec.select = select i1 %cmp200, ptr %328, ptr %327
   %m_shadow_depth_cb = getelementptr inbounds nuw i8, ptr %this, i64 176
   %m_shadow_depth_entity_cb = getelementptr inbounds nuw i8, ptr %this, i64 184
   %m_shadow_depth_trans_cb = getelementptr inbounds nuw i8, ptr %this, i64 192
@@ -7332,124 +7331,124 @@ for.cond.cleanup187:                              ; preds = %if.end195
   %m_perspective_bias_xy.i = getelementptr inbounds nuw i8, ptr %this, i64 144
   %m_driver = getelementptr inbounds nuw i8, ptr %this, i64 8
   %shadowMapTextureColors266 = getelementptr inbounds nuw i8, ptr %this, i64 56
-  %330 = load ptr, ptr %m_shadow_depth_cb, align 8, !tbaa !56
-  %331 = load ptr, ptr %m_shadow_depth_entity_cb, align 8, !tbaa !57
-  %332 = load ptr, ptr %m_shadow_depth_trans_cb, align 8, !tbaa !58
-  %tobool227.not.peel = icmp eq ptr %330, null
+  %329 = load ptr, ptr %m_shadow_depth_cb, align 8, !tbaa !56
+  %330 = load ptr, ptr %m_shadow_depth_entity_cb, align 8, !tbaa !57
+  %331 = load ptr, ptr %m_shadow_depth_trans_cb, align 8, !tbaa !58
+  %tobool227.not.peel = icmp eq ptr %329, null
   br i1 %tobool227.not.peel, label %if.end234.peel, label %if.then228.peel
 
 if.then228.peel:                                  ; preds = %for.cond.cleanup187
-  %333 = load float, ptr %m_shadow_map_texture_size229, align 4, !tbaa !43
-  %MapRes.peel = getelementptr inbounds nuw i8, ptr %330, i64 12
-  store float %333, ptr %MapRes.peel, align 4, !tbaa !205
-  %334 = load float, ptr %m_shadow_map_max_distance, align 8, !tbaa !42
-  %mul.peel = fmul nsz float %334, 1.000000e+01
-  %MaxFar.peel = getelementptr inbounds nuw i8, ptr %330, i64 8
+  %332 = load float, ptr %m_shadow_map_texture_size229, align 4, !tbaa !43
+  %MapRes.peel = getelementptr inbounds nuw i8, ptr %329, i64 12
+  store float %332, ptr %MapRes.peel, align 4, !tbaa !205
+  %333 = load float, ptr %m_shadow_map_max_distance, align 8, !tbaa !42
+  %mul.peel = fmul nsz float %333, 1.000000e+01
+  %MaxFar.peel = getelementptr inbounds nuw i8, ptr %329, i64 8
   store float %mul.peel, ptr %MaxFar.peel, align 8, !tbaa !212
-  %PerspectiveBiasXY.peel = getelementptr inbounds nuw i8, ptr %330, i64 16
-  %335 = load <2 x float>, ptr %m_perspective_bias_xy.i, align 8, !tbaa !32
-  store <2 x float> %335, ptr %PerspectiveBiasXY.peel, align 8, !tbaa !32
+  %PerspectiveBiasXY.peel = getelementptr inbounds nuw i8, ptr %329, i64 16
+  %334 = load <2 x float>, ptr %m_perspective_bias_xy.i, align 8, !tbaa !32
+  store <2 x float> %334, ptr %PerspectiveBiasXY.peel, align 8, !tbaa !32
   %call233.peel = call { <2 x float>, float } @_ZNK16DirectionalLight18getFuturePlayerPosEv(ptr noundef nonnull align 4 dereferenceable(429) %323)
   %call233.fca.0.extract.peel = extractvalue { <2 x float>, float } %call233.peel, 0
   %call233.fca.1.extract.peel = extractvalue { <2 x float>, float } %call233.peel, 1
-  %CameraPos.peel = getelementptr inbounds nuw i8, ptr %330, i64 24
+  %CameraPos.peel = getelementptr inbounds nuw i8, ptr %329, i64 24
   store <2 x float> %call233.fca.0.extract.peel, ptr %CameraPos.peel, align 8, !tbaa.struct !213
-  %ref.tmp232.sroa.4.0.CameraPos.sroa_idx.peel = getelementptr inbounds nuw i8, ptr %330, i64 32
+  %ref.tmp232.sroa.4.0.CameraPos.sroa_idx.peel = getelementptr inbounds nuw i8, ptr %329, i64 32
   store float %call233.fca.1.extract.peel, ptr %ref.tmp232.sroa.4.0.CameraPos.sroa_idx.peel, align 8, !tbaa !32
   br label %if.end234.peel
 
 if.end234.peel:                                   ; preds = %if.then228.peel, %for.cond.cleanup187
-  %tobool227.not.1.peel = icmp eq ptr %331, null
+  %tobool227.not.1.peel = icmp eq ptr %330, null
   br i1 %tobool227.not.1.peel, label %if.end234.1.peel, label %if.then228.1.peel
 
 if.then228.1.peel:                                ; preds = %if.end234.peel
-  %336 = load float, ptr %m_shadow_map_texture_size229, align 4, !tbaa !43
-  %MapRes.1.peel = getelementptr inbounds nuw i8, ptr %331, i64 12
-  store float %336, ptr %MapRes.1.peel, align 4, !tbaa !205
-  %337 = load float, ptr %m_shadow_map_max_distance, align 8, !tbaa !42
-  %mul.1.peel = fmul nsz float %337, 1.000000e+01
-  %MaxFar.1.peel = getelementptr inbounds nuw i8, ptr %331, i64 8
+  %335 = load float, ptr %m_shadow_map_texture_size229, align 4, !tbaa !43
+  %MapRes.1.peel = getelementptr inbounds nuw i8, ptr %330, i64 12
+  store float %335, ptr %MapRes.1.peel, align 4, !tbaa !205
+  %336 = load float, ptr %m_shadow_map_max_distance, align 8, !tbaa !42
+  %mul.1.peel = fmul nsz float %336, 1.000000e+01
+  %MaxFar.1.peel = getelementptr inbounds nuw i8, ptr %330, i64 8
   store float %mul.1.peel, ptr %MaxFar.1.peel, align 8, !tbaa !212
-  %PerspectiveBiasXY.1.peel = getelementptr inbounds nuw i8, ptr %331, i64 16
-  %338 = load <2 x float>, ptr %m_perspective_bias_xy.i, align 8, !tbaa !32
-  store <2 x float> %338, ptr %PerspectiveBiasXY.1.peel, align 8, !tbaa !32
+  %PerspectiveBiasXY.1.peel = getelementptr inbounds nuw i8, ptr %330, i64 16
+  %337 = load <2 x float>, ptr %m_perspective_bias_xy.i, align 8, !tbaa !32
+  store <2 x float> %337, ptr %PerspectiveBiasXY.1.peel, align 8, !tbaa !32
   %call233.1.peel = call { <2 x float>, float } @_ZNK16DirectionalLight18getFuturePlayerPosEv(ptr noundef nonnull align 4 dereferenceable(429) %323)
   %call233.fca.0.extract.1.peel = extractvalue { <2 x float>, float } %call233.1.peel, 0
   %call233.fca.1.extract.1.peel = extractvalue { <2 x float>, float } %call233.1.peel, 1
-  %CameraPos.1.peel = getelementptr inbounds nuw i8, ptr %331, i64 24
+  %CameraPos.1.peel = getelementptr inbounds nuw i8, ptr %330, i64 24
   store <2 x float> %call233.fca.0.extract.1.peel, ptr %CameraPos.1.peel, align 8, !tbaa.struct !213
-  %ref.tmp232.sroa.4.0.CameraPos.sroa_idx.1.peel = getelementptr inbounds nuw i8, ptr %331, i64 32
+  %ref.tmp232.sroa.4.0.CameraPos.sroa_idx.1.peel = getelementptr inbounds nuw i8, ptr %330, i64 32
   store float %call233.fca.1.extract.1.peel, ptr %ref.tmp232.sroa.4.0.CameraPos.sroa_idx.1.peel, align 8, !tbaa !32
   br label %if.end234.1.peel
 
 if.end234.1.peel:                                 ; preds = %if.then228.1.peel, %if.end234.peel
-  %tobool227.not.2.peel = icmp eq ptr %332, null
+  %tobool227.not.2.peel = icmp eq ptr %331, null
   br i1 %tobool227.not.2.peel, label %if.end234.2.peel, label %if.then228.2.peel
 
 if.then228.2.peel:                                ; preds = %if.end234.1.peel
-  %339 = load float, ptr %m_shadow_map_texture_size229, align 4, !tbaa !43
-  %MapRes.2.peel = getelementptr inbounds nuw i8, ptr %332, i64 12
-  store float %339, ptr %MapRes.2.peel, align 4, !tbaa !205
-  %340 = load float, ptr %m_shadow_map_max_distance, align 8, !tbaa !42
-  %mul.2.peel = fmul nsz float %340, 1.000000e+01
-  %MaxFar.2.peel = getelementptr inbounds nuw i8, ptr %332, i64 8
+  %338 = load float, ptr %m_shadow_map_texture_size229, align 4, !tbaa !43
+  %MapRes.2.peel = getelementptr inbounds nuw i8, ptr %331, i64 12
+  store float %338, ptr %MapRes.2.peel, align 4, !tbaa !205
+  %339 = load float, ptr %m_shadow_map_max_distance, align 8, !tbaa !42
+  %mul.2.peel = fmul nsz float %339, 1.000000e+01
+  %MaxFar.2.peel = getelementptr inbounds nuw i8, ptr %331, i64 8
   store float %mul.2.peel, ptr %MaxFar.2.peel, align 8, !tbaa !212
-  %PerspectiveBiasXY.2.peel = getelementptr inbounds nuw i8, ptr %332, i64 16
-  %341 = load <2 x float>, ptr %m_perspective_bias_xy.i, align 8, !tbaa !32
-  store <2 x float> %341, ptr %PerspectiveBiasXY.2.peel, align 8, !tbaa !32
+  %PerspectiveBiasXY.2.peel = getelementptr inbounds nuw i8, ptr %331, i64 16
+  %340 = load <2 x float>, ptr %m_perspective_bias_xy.i, align 8, !tbaa !32
+  store <2 x float> %340, ptr %PerspectiveBiasXY.2.peel, align 8, !tbaa !32
   %call233.2.peel = call { <2 x float>, float } @_ZNK16DirectionalLight18getFuturePlayerPosEv(ptr noundef nonnull align 4 dereferenceable(429) %323)
   %call233.fca.0.extract.2.peel = extractvalue { <2 x float>, float } %call233.2.peel, 0
   %call233.fca.1.extract.2.peel = extractvalue { <2 x float>, float } %call233.2.peel, 1
-  %CameraPos.2.peel = getelementptr inbounds nuw i8, ptr %332, i64 24
+  %CameraPos.2.peel = getelementptr inbounds nuw i8, ptr %331, i64 24
   store <2 x float> %call233.fca.0.extract.2.peel, ptr %CameraPos.2.peel, align 8, !tbaa.struct !213
-  %ref.tmp232.sroa.4.0.CameraPos.sroa_idx.2.peel = getelementptr inbounds nuw i8, ptr %332, i64 32
+  %ref.tmp232.sroa.4.0.CameraPos.sroa_idx.2.peel = getelementptr inbounds nuw i8, ptr %331, i64 32
   store float %call233.fca.1.extract.2.peel, ptr %ref.tmp232.sroa.4.0.CameraPos.sroa_idx.2.peel, align 8, !tbaa !32
   br label %if.end234.2.peel
 
 if.end234.2.peel:                                 ; preds = %if.then228.2.peel, %if.end234.1.peel
-  %342 = load i8, ptr %m_current_frame, align 2, !tbaa !31
-  %343 = load i8, ptr %m_map_shadow_update_frames, align 1, !tbaa !47
-  %cmp241.peel = icmp uge i8 %342, %343
-  %344 = load i8, ptr %m_force_update_shadow_map, align 4, !range !72
-  %tobool244.not.peel = icmp eq i8 %344, 0
+  %341 = load i8, ptr %m_current_frame, align 2, !tbaa !31
+  %342 = load i8, ptr %m_map_shadow_update_frames, align 1, !tbaa !47
+  %cmp241.peel = icmp uge i8 %341, %342
+  %343 = load i8, ptr %m_force_update_shadow_map, align 4, !range !72
+  %tobool244.not.peel = icmp eq i8 %343, 0
   %or.cond360.peel = select i1 %cmp241.peel, i1 %tobool244.not.peel, i1 false
   br i1 %or.cond360.peel, label %if.end277.peel, label %if.then245.peel
 
 if.then245.peel:                                  ; preds = %if.end234.2.peel
-  %345 = load ptr, ptr %m_driver, align 8, !tbaa !28
-  %vtable.i1189.peel = load ptr, ptr %345, align 8, !tbaa !12
+  %344 = load ptr, ptr %m_driver, align 8, !tbaa !28
+  %vtable.i1189.peel = load ptr, ptr %344, align 8, !tbaa !12
   %vfn.i1190.peel = getelementptr inbounds nuw i8, ptr %vtable.i1189.peel, i64 320
-  %346 = load ptr, ptr %vfn.i1190.peel, align 8
-  %call.i1191.peel = call noundef zeroext i1 %346(ptr noundef nonnull align 8 dereferenceable(8) %345, ptr noundef %spec.select, i16 noundef zeroext %327, i32 -1, float noundef 1.000000e+00, i8 noundef zeroext 0)
+  %345 = load ptr, ptr %vfn.i1190.peel, align 8
+  %call.i1191.peel = call noundef zeroext i1 %345(ptr noundef nonnull align 8 dereferenceable(8) %344, ptr noundef %spec.select, i16 noundef zeroext %326, i32 -1, float noundef 1.000000e+00, i8 noundef zeroext 0)
   call void @_ZN14ShadowRenderer15renderShadowMapEPN3irr5video8ITextureER16DirectionalLightNS0_5scene24E_SCENE_NODE_RENDER_PASSE(ptr noundef nonnull align 8 dereferenceable(216) %this, ptr poison, ptr noundef nonnull align 4 dereferenceable(429) %323, i32 noundef 8)
-  %347 = load i8, ptr %m_current_frame, align 2, !tbaa !31
-  %conv250.peel = zext i8 %347 to i32
-  %348 = load i8, ptr %m_map_shadow_update_frames, align 1, !tbaa !47
-  %conv252.peel = zext i8 %348 to i32
+  %346 = load i8, ptr %m_current_frame, align 2, !tbaa !31
+  %conv250.peel = zext i8 %346 to i32
+  %347 = load i8, ptr %m_map_shadow_update_frames, align 1, !tbaa !47
+  %conv252.peel = zext i8 %347 to i32
   %sub.peel = add nsw i32 %conv252.peel, -1
   %cmp253.peel = icmp ne i32 %sub.peel, %conv250.peel
-  %349 = load i8, ptr %m_force_update_shadow_map, align 4, !range !72
-  %tobool256.not.peel = icmp eq i8 %349, 0
+  %348 = load i8, ptr %m_force_update_shadow_map, align 4, !range !72
+  %tobool256.not.peel = icmp eq i8 %348, 0
   %or.cond361.peel = select i1 %cmp253.peel, i1 %tobool256.not.peel, i1 false
   br i1 %or.cond361.peel, label %if.end272.peel, label %if.then257.peel
 
 if.then257.peel:                                  ; preds = %if.then245.peel
-  %350 = load i8, ptr %m_shadow_map_colored88, align 1, !tbaa !45, !range !72, !noundef !73
-  %tobool259.not.peel = icmp eq i8 %350, 0
+  %349 = load i8, ptr %m_shadow_map_colored88, align 1, !tbaa !45, !range !72, !noundef !73
+  %tobool259.not.peel = icmp eq i8 %349, 0
   br i1 %tobool259.not.peel, label %if.end270.peel, label %if.then260.peel
 
 if.then260.peel:                                  ; preds = %if.then257.peel
-  %351 = load ptr, ptr %m_driver, align 8, !tbaa !28
-  %vtable.i1192.peel = load ptr, ptr %351, align 8, !tbaa !12
+  %350 = load ptr, ptr %m_driver, align 8, !tbaa !28
+  %vtable.i1192.peel = load ptr, ptr %350, align 8, !tbaa !12
   %vfn.i1193.peel = getelementptr inbounds nuw i8, ptr %vtable.i1192.peel, i64 320
-  %352 = load ptr, ptr %vfn.i1193.peel, align 8
-  %call.i1194.peel = call noundef zeroext i1 %352(ptr noundef nonnull align 8 dereferenceable(8) %351, ptr noundef null, i16 noundef zeroext 0, i32 -16777216, float noundef 1.000000e+00, i8 noundef zeroext 0)
-  %353 = load ptr, ptr %m_driver, align 8, !tbaa !28
-  %354 = load ptr, ptr %shadowMapTextureColors266, align 8, !tbaa !63
-  %vtable.i1195.peel = load ptr, ptr %353, align 8, !tbaa !12
+  %351 = load ptr, ptr %vfn.i1193.peel, align 8
+  %call.i1194.peel = call noundef zeroext i1 %351(ptr noundef nonnull align 8 dereferenceable(8) %350, ptr noundef null, i16 noundef zeroext 0, i32 -16777216, float noundef 1.000000e+00, i8 noundef zeroext 0)
+  %352 = load ptr, ptr %m_driver, align 8, !tbaa !28
+  %353 = load ptr, ptr %shadowMapTextureColors266, align 8, !tbaa !63
+  %vtable.i1195.peel = load ptr, ptr %352, align 8, !tbaa !12
   %vfn.i1196.peel = getelementptr inbounds nuw i8, ptr %vtable.i1195.peel, i64 320
-  %355 = load ptr, ptr %vfn.i1196.peel, align 8
-  %call.i1197.peel = call noundef zeroext i1 %355(ptr noundef nonnull align 8 dereferenceable(8) %353, ptr noundef %354, i16 noundef zeroext 1, i32 -1, float noundef 1.000000e+00, i8 noundef zeroext 0)
+  %354 = load ptr, ptr %vfn.i1196.peel, align 8
+  %call.i1197.peel = call noundef zeroext i1 %354(ptr noundef nonnull align 8 dereferenceable(8) %352, ptr noundef %353, i16 noundef zeroext 1, i32 -1, float noundef 1.000000e+00, i8 noundef zeroext 0)
   br label %if.end270.peel
 
 if.end270.peel:                                   ; preds = %if.then260.peel, %if.then257.peel
@@ -7457,11 +7456,11 @@ if.end270.peel:                                   ; preds = %if.then260.peel, %i
   br label %if.end272.peel
 
 if.end272.peel:                                   ; preds = %if.end270.peel, %if.then245.peel
-  %356 = load ptr, ptr %m_driver, align 8, !tbaa !28
-  %vtable.i1198.peel = load ptr, ptr %356, align 8, !tbaa !12
+  %355 = load ptr, ptr %m_driver, align 8, !tbaa !28
+  %vtable.i1198.peel = load ptr, ptr %355, align 8, !tbaa !12
   %vfn.i1199.peel = getelementptr inbounds nuw i8, ptr %vtable.i1198.peel, i64 320
-  %357 = load ptr, ptr %vfn.i1199.peel, align 8
-  %call.i1200.peel = call noundef zeroext i1 %357(ptr noundef nonnull align 8 dereferenceable(8) %356, ptr noundef null, i16 noundef zeroext 0, i32 -16777216, float noundef 1.000000e+00, i8 noundef zeroext 0)
+  %356 = load ptr, ptr %vfn.i1199.peel, align 8
+  %call.i1200.peel = call noundef zeroext i1 %356(ptr noundef nonnull align 8 dereferenceable(8) %355, ptr noundef null, i16 noundef zeroext 0, i32 -16777216, float noundef 1.000000e+00, i8 noundef zeroext 0)
   br label %if.end277.peel
 
 if.end277.peel:                                   ; preds = %if.end272.peel, %if.end234.2.peel
@@ -7472,10 +7471,10 @@ if.end277.peel:                                   ; preds = %if.end272.peel, %if
 for.body188:                                      ; preds = %if.end195, %for.body188.lr.ph
   %reset_sm_texture.01233 = phi i8 [ 0, %for.body188.lr.ph ], [ %reset_sm_texture.1, %if.end195 ]
   %__begin2179.sroa.0.01232 = phi ptr [ %323, %for.body188.lr.ph ], [ %incdec.ptr.i1187, %if.end195 ]
-  %358 = load i8, ptr %__begin2179.sroa.0.01232, align 4, !tbaa !214, !range !72, !noundef !73
-  %tobool190.not = icmp eq i8 %358, 0
-  %359 = load i8, ptr %m_force_update_shadow_map, align 4, !range !72
-  %tobool192.not = icmp eq i8 %359, 0
+  %357 = load i8, ptr %__begin2179.sroa.0.01232, align 4, !tbaa !214, !range !72, !noundef !73
+  %tobool190.not = icmp eq i8 %357, 0
+  %358 = load i8, ptr %m_force_update_shadow_map, align 4, !range !72
+  %tobool192.not = icmp eq i8 %358, 0
   %or.cond359 = select i1 %tobool190.not, i1 %tobool192.not, i1 false
   br i1 %or.cond359, label %if.end195, label %if.then193
 
@@ -7492,131 +7491,131 @@ if.end195:                                        ; preds = %if.then193, %for.bo
 
 for.cond.cleanup214:                              ; preds = %if.end277, %if.end277.peel, %if.then177
   %m_current_frame281 = getelementptr inbounds nuw i8, ptr %this, i64 142
-  %360 = load i8, ptr %m_current_frame281, align 2, !tbaa !31
-  %361 = load i8, ptr %m_map_shadow_update_frames, align 1, !tbaa !47
-  %cmp285.not = icmp ugt i8 %360, %361
+  %359 = load i8, ptr %m_current_frame281, align 2, !tbaa !31
+  %360 = load i8, ptr %m_map_shadow_update_frames, align 1, !tbaa !47
+  %cmp285.not = icmp ugt i8 %359, %360
   br i1 %cmp285.not, label %if.end288, label %if.then286
 
 for.body215:                                      ; preds = %if.end277.peel, %if.end277
   %__begin2206.sroa.0.01236 = phi ptr [ %incdec.ptr.i1201, %if.end277 ], [ %incdec.ptr.i1201.peel, %if.end277.peel ]
-  %362 = load ptr, ptr %m_shadow_depth_cb, align 8, !tbaa !56
-  %363 = load ptr, ptr %m_shadow_depth_entity_cb, align 8, !tbaa !57
-  %364 = load ptr, ptr %m_shadow_depth_trans_cb, align 8, !tbaa !58
-  %tobool227.not = icmp eq ptr %362, null
+  %361 = load ptr, ptr %m_shadow_depth_cb, align 8, !tbaa !56
+  %362 = load ptr, ptr %m_shadow_depth_entity_cb, align 8, !tbaa !57
+  %363 = load ptr, ptr %m_shadow_depth_trans_cb, align 8, !tbaa !58
+  %tobool227.not = icmp eq ptr %361, null
   br i1 %tobool227.not, label %if.end234, label %if.then228
 
 if.then228:                                       ; preds = %for.body215
-  %365 = load float, ptr %m_shadow_map_texture_size229, align 4, !tbaa !43
-  %MapRes = getelementptr inbounds nuw i8, ptr %362, i64 12
-  store float %365, ptr %MapRes, align 4, !tbaa !205
-  %366 = load float, ptr %m_shadow_map_max_distance, align 8, !tbaa !42
-  %mul = fmul nsz float %366, 1.000000e+01
-  %MaxFar = getelementptr inbounds nuw i8, ptr %362, i64 8
+  %364 = load float, ptr %m_shadow_map_texture_size229, align 4, !tbaa !43
+  %MapRes = getelementptr inbounds nuw i8, ptr %361, i64 12
+  store float %364, ptr %MapRes, align 4, !tbaa !205
+  %365 = load float, ptr %m_shadow_map_max_distance, align 8, !tbaa !42
+  %mul = fmul nsz float %365, 1.000000e+01
+  %MaxFar = getelementptr inbounds nuw i8, ptr %361, i64 8
   store float %mul, ptr %MaxFar, align 8, !tbaa !212
-  %PerspectiveBiasXY = getelementptr inbounds nuw i8, ptr %362, i64 16
-  %367 = load <2 x float>, ptr %m_perspective_bias_xy.i, align 8, !tbaa !32
-  store <2 x float> %367, ptr %PerspectiveBiasXY, align 8, !tbaa !32
+  %PerspectiveBiasXY = getelementptr inbounds nuw i8, ptr %361, i64 16
+  %366 = load <2 x float>, ptr %m_perspective_bias_xy.i, align 8, !tbaa !32
+  store <2 x float> %366, ptr %PerspectiveBiasXY, align 8, !tbaa !32
   %call233 = call { <2 x float>, float } @_ZNK16DirectionalLight18getFuturePlayerPosEv(ptr noundef nonnull align 4 dereferenceable(429) %__begin2206.sroa.0.01236)
   %call233.fca.0.extract = extractvalue { <2 x float>, float } %call233, 0
   %call233.fca.1.extract = extractvalue { <2 x float>, float } %call233, 1
-  %CameraPos = getelementptr inbounds nuw i8, ptr %362, i64 24
+  %CameraPos = getelementptr inbounds nuw i8, ptr %361, i64 24
   store <2 x float> %call233.fca.0.extract, ptr %CameraPos, align 8, !tbaa.struct !213
-  %ref.tmp232.sroa.4.0.CameraPos.sroa_idx = getelementptr inbounds nuw i8, ptr %362, i64 32
+  %ref.tmp232.sroa.4.0.CameraPos.sroa_idx = getelementptr inbounds nuw i8, ptr %361, i64 32
   store float %call233.fca.1.extract, ptr %ref.tmp232.sroa.4.0.CameraPos.sroa_idx, align 8, !tbaa !32
   br label %if.end234
 
 if.end234:                                        ; preds = %if.then228, %for.body215
-  %tobool227.not.1 = icmp eq ptr %363, null
+  %tobool227.not.1 = icmp eq ptr %362, null
   br i1 %tobool227.not.1, label %if.end234.1, label %if.then228.1
 
 if.then228.1:                                     ; preds = %if.end234
-  %368 = load float, ptr %m_shadow_map_texture_size229, align 4, !tbaa !43
-  %MapRes.1 = getelementptr inbounds nuw i8, ptr %363, i64 12
-  store float %368, ptr %MapRes.1, align 4, !tbaa !205
-  %369 = load float, ptr %m_shadow_map_max_distance, align 8, !tbaa !42
-  %mul.1 = fmul nsz float %369, 1.000000e+01
-  %MaxFar.1 = getelementptr inbounds nuw i8, ptr %363, i64 8
+  %367 = load float, ptr %m_shadow_map_texture_size229, align 4, !tbaa !43
+  %MapRes.1 = getelementptr inbounds nuw i8, ptr %362, i64 12
+  store float %367, ptr %MapRes.1, align 4, !tbaa !205
+  %368 = load float, ptr %m_shadow_map_max_distance, align 8, !tbaa !42
+  %mul.1 = fmul nsz float %368, 1.000000e+01
+  %MaxFar.1 = getelementptr inbounds nuw i8, ptr %362, i64 8
   store float %mul.1, ptr %MaxFar.1, align 8, !tbaa !212
-  %PerspectiveBiasXY.1 = getelementptr inbounds nuw i8, ptr %363, i64 16
-  %370 = load <2 x float>, ptr %m_perspective_bias_xy.i, align 8, !tbaa !32
-  store <2 x float> %370, ptr %PerspectiveBiasXY.1, align 8, !tbaa !32
+  %PerspectiveBiasXY.1 = getelementptr inbounds nuw i8, ptr %362, i64 16
+  %369 = load <2 x float>, ptr %m_perspective_bias_xy.i, align 8, !tbaa !32
+  store <2 x float> %369, ptr %PerspectiveBiasXY.1, align 8, !tbaa !32
   %call233.1 = call { <2 x float>, float } @_ZNK16DirectionalLight18getFuturePlayerPosEv(ptr noundef nonnull align 4 dereferenceable(429) %__begin2206.sroa.0.01236)
   %call233.fca.0.extract.1 = extractvalue { <2 x float>, float } %call233.1, 0
   %call233.fca.1.extract.1 = extractvalue { <2 x float>, float } %call233.1, 1
-  %CameraPos.1 = getelementptr inbounds nuw i8, ptr %363, i64 24
+  %CameraPos.1 = getelementptr inbounds nuw i8, ptr %362, i64 24
   store <2 x float> %call233.fca.0.extract.1, ptr %CameraPos.1, align 8, !tbaa.struct !213
-  %ref.tmp232.sroa.4.0.CameraPos.sroa_idx.1 = getelementptr inbounds nuw i8, ptr %363, i64 32
+  %ref.tmp232.sroa.4.0.CameraPos.sroa_idx.1 = getelementptr inbounds nuw i8, ptr %362, i64 32
   store float %call233.fca.1.extract.1, ptr %ref.tmp232.sroa.4.0.CameraPos.sroa_idx.1, align 8, !tbaa !32
   br label %if.end234.1
 
 if.end234.1:                                      ; preds = %if.then228.1, %if.end234
-  %tobool227.not.2 = icmp eq ptr %364, null
+  %tobool227.not.2 = icmp eq ptr %363, null
   br i1 %tobool227.not.2, label %if.end234.2, label %if.then228.2
 
 if.then228.2:                                     ; preds = %if.end234.1
-  %371 = load float, ptr %m_shadow_map_texture_size229, align 4, !tbaa !43
-  %MapRes.2 = getelementptr inbounds nuw i8, ptr %364, i64 12
-  store float %371, ptr %MapRes.2, align 4, !tbaa !205
-  %372 = load float, ptr %m_shadow_map_max_distance, align 8, !tbaa !42
-  %mul.2 = fmul nsz float %372, 1.000000e+01
-  %MaxFar.2 = getelementptr inbounds nuw i8, ptr %364, i64 8
+  %370 = load float, ptr %m_shadow_map_texture_size229, align 4, !tbaa !43
+  %MapRes.2 = getelementptr inbounds nuw i8, ptr %363, i64 12
+  store float %370, ptr %MapRes.2, align 4, !tbaa !205
+  %371 = load float, ptr %m_shadow_map_max_distance, align 8, !tbaa !42
+  %mul.2 = fmul nsz float %371, 1.000000e+01
+  %MaxFar.2 = getelementptr inbounds nuw i8, ptr %363, i64 8
   store float %mul.2, ptr %MaxFar.2, align 8, !tbaa !212
-  %PerspectiveBiasXY.2 = getelementptr inbounds nuw i8, ptr %364, i64 16
-  %373 = load <2 x float>, ptr %m_perspective_bias_xy.i, align 8, !tbaa !32
-  store <2 x float> %373, ptr %PerspectiveBiasXY.2, align 8, !tbaa !32
+  %PerspectiveBiasXY.2 = getelementptr inbounds nuw i8, ptr %363, i64 16
+  %372 = load <2 x float>, ptr %m_perspective_bias_xy.i, align 8, !tbaa !32
+  store <2 x float> %372, ptr %PerspectiveBiasXY.2, align 8, !tbaa !32
   %call233.2 = call { <2 x float>, float } @_ZNK16DirectionalLight18getFuturePlayerPosEv(ptr noundef nonnull align 4 dereferenceable(429) %__begin2206.sroa.0.01236)
   %call233.fca.0.extract.2 = extractvalue { <2 x float>, float } %call233.2, 0
   %call233.fca.1.extract.2 = extractvalue { <2 x float>, float } %call233.2, 1
-  %CameraPos.2 = getelementptr inbounds nuw i8, ptr %364, i64 24
+  %CameraPos.2 = getelementptr inbounds nuw i8, ptr %363, i64 24
   store <2 x float> %call233.fca.0.extract.2, ptr %CameraPos.2, align 8, !tbaa.struct !213
-  %ref.tmp232.sroa.4.0.CameraPos.sroa_idx.2 = getelementptr inbounds nuw i8, ptr %364, i64 32
+  %ref.tmp232.sroa.4.0.CameraPos.sroa_idx.2 = getelementptr inbounds nuw i8, ptr %363, i64 32
   store float %call233.fca.1.extract.2, ptr %ref.tmp232.sroa.4.0.CameraPos.sroa_idx.2, align 8, !tbaa !32
   br label %if.end234.2
 
 if.end234.2:                                      ; preds = %if.then228.2, %if.end234.1
-  %374 = load i8, ptr %m_current_frame, align 2, !tbaa !31
-  %375 = load i8, ptr %m_map_shadow_update_frames, align 1, !tbaa !47
-  %cmp241 = icmp uge i8 %374, %375
-  %376 = load i8, ptr %m_force_update_shadow_map, align 4, !range !72
-  %tobool244.not = icmp eq i8 %376, 0
+  %373 = load i8, ptr %m_current_frame, align 2, !tbaa !31
+  %374 = load i8, ptr %m_map_shadow_update_frames, align 1, !tbaa !47
+  %cmp241 = icmp uge i8 %373, %374
+  %375 = load i8, ptr %m_force_update_shadow_map, align 4, !range !72
+  %tobool244.not = icmp eq i8 %375, 0
   %or.cond360 = select i1 %cmp241, i1 %tobool244.not, i1 false
   br i1 %or.cond360, label %if.end277, label %if.then245
 
 if.then245:                                       ; preds = %if.end234.2
-  %377 = load ptr, ptr %m_driver, align 8, !tbaa !28
-  %vtable.i1189 = load ptr, ptr %377, align 8, !tbaa !12
+  %376 = load ptr, ptr %m_driver, align 8, !tbaa !28
+  %vtable.i1189 = load ptr, ptr %376, align 8, !tbaa !12
   %vfn.i1190 = getelementptr inbounds nuw i8, ptr %vtable.i1189, i64 320
-  %378 = load ptr, ptr %vfn.i1190, align 8
-  %call.i1191 = call noundef zeroext i1 %378(ptr noundef nonnull align 8 dereferenceable(8) %377, ptr noundef %spec.select, i16 noundef zeroext 2, i32 -1, float noundef 1.000000e+00, i8 noundef zeroext 0)
+  %377 = load ptr, ptr %vfn.i1190, align 8
+  %call.i1191 = call noundef zeroext i1 %377(ptr noundef nonnull align 8 dereferenceable(8) %376, ptr noundef %spec.select, i16 noundef zeroext 2, i32 -1, float noundef 1.000000e+00, i8 noundef zeroext 0)
   call void @_ZN14ShadowRenderer15renderShadowMapEPN3irr5video8ITextureER16DirectionalLightNS0_5scene24E_SCENE_NODE_RENDER_PASSE(ptr noundef nonnull align 8 dereferenceable(216) %this, ptr poison, ptr noundef nonnull align 4 dereferenceable(429) %__begin2206.sroa.0.01236, i32 noundef 8)
-  %379 = load i8, ptr %m_current_frame, align 2, !tbaa !31
-  %conv250 = zext i8 %379 to i32
-  %380 = load i8, ptr %m_map_shadow_update_frames, align 1, !tbaa !47
-  %conv252 = zext i8 %380 to i32
+  %378 = load i8, ptr %m_current_frame, align 2, !tbaa !31
+  %conv250 = zext i8 %378 to i32
+  %379 = load i8, ptr %m_map_shadow_update_frames, align 1, !tbaa !47
+  %conv252 = zext i8 %379 to i32
   %sub = add nsw i32 %conv252, -1
   %cmp253 = icmp ne i32 %sub, %conv250
-  %381 = load i8, ptr %m_force_update_shadow_map, align 4, !range !72
-  %tobool256.not = icmp eq i8 %381, 0
+  %380 = load i8, ptr %m_force_update_shadow_map, align 4, !range !72
+  %tobool256.not = icmp eq i8 %380, 0
   %or.cond361 = select i1 %cmp253, i1 %tobool256.not, i1 false
   br i1 %or.cond361, label %if.end272, label %if.then257
 
 if.then257:                                       ; preds = %if.then245
-  %382 = load i8, ptr %m_shadow_map_colored88, align 1, !tbaa !45, !range !72, !noundef !73
-  %tobool259.not = icmp eq i8 %382, 0
+  %381 = load i8, ptr %m_shadow_map_colored88, align 1, !tbaa !45, !range !72, !noundef !73
+  %tobool259.not = icmp eq i8 %381, 0
   br i1 %tobool259.not, label %if.end270, label %if.then260
 
 if.then260:                                       ; preds = %if.then257
-  %383 = load ptr, ptr %m_driver, align 8, !tbaa !28
-  %vtable.i1192 = load ptr, ptr %383, align 8, !tbaa !12
+  %382 = load ptr, ptr %m_driver, align 8, !tbaa !28
+  %vtable.i1192 = load ptr, ptr %382, align 8, !tbaa !12
   %vfn.i1193 = getelementptr inbounds nuw i8, ptr %vtable.i1192, i64 320
-  %384 = load ptr, ptr %vfn.i1193, align 8
-  %call.i1194 = call noundef zeroext i1 %384(ptr noundef nonnull align 8 dereferenceable(8) %383, ptr noundef null, i16 noundef zeroext 0, i32 -16777216, float noundef 1.000000e+00, i8 noundef zeroext 0)
-  %385 = load ptr, ptr %m_driver, align 8, !tbaa !28
-  %386 = load ptr, ptr %shadowMapTextureColors266, align 8, !tbaa !63
-  %vtable.i1195 = load ptr, ptr %385, align 8, !tbaa !12
+  %383 = load ptr, ptr %vfn.i1193, align 8
+  %call.i1194 = call noundef zeroext i1 %383(ptr noundef nonnull align 8 dereferenceable(8) %382, ptr noundef null, i16 noundef zeroext 0, i32 -16777216, float noundef 1.000000e+00, i8 noundef zeroext 0)
+  %384 = load ptr, ptr %m_driver, align 8, !tbaa !28
+  %385 = load ptr, ptr %shadowMapTextureColors266, align 8, !tbaa !63
+  %vtable.i1195 = load ptr, ptr %384, align 8, !tbaa !12
   %vfn.i1196 = getelementptr inbounds nuw i8, ptr %vtable.i1195, i64 320
-  %387 = load ptr, ptr %vfn.i1196, align 8
-  %call.i1197 = call noundef zeroext i1 %387(ptr noundef nonnull align 8 dereferenceable(8) %385, ptr noundef %386, i16 noundef zeroext 1, i32 -1, float noundef 1.000000e+00, i8 noundef zeroext 0)
+  %386 = load ptr, ptr %vfn.i1196, align 8
+  %call.i1197 = call noundef zeroext i1 %386(ptr noundef nonnull align 8 dereferenceable(8) %384, ptr noundef %385, i16 noundef zeroext 1, i32 -1, float noundef 1.000000e+00, i8 noundef zeroext 0)
   br label %if.end270
 
 if.end270:                                        ; preds = %if.then260, %if.then257
@@ -7624,11 +7623,11 @@ if.end270:                                        ; preds = %if.then260, %if.the
   br label %if.end272
 
 if.end272:                                        ; preds = %if.end270, %if.then245
-  %388 = load ptr, ptr %m_driver, align 8, !tbaa !28
-  %vtable.i1198 = load ptr, ptr %388, align 8, !tbaa !12
+  %387 = load ptr, ptr %m_driver, align 8, !tbaa !28
+  %vtable.i1198 = load ptr, ptr %387, align 8, !tbaa !12
   %vfn.i1199 = getelementptr inbounds nuw i8, ptr %vtable.i1198, i64 320
-  %389 = load ptr, ptr %vfn.i1199, align 8
-  %call.i1200 = call noundef zeroext i1 %389(ptr noundef nonnull align 8 dereferenceable(8) %388, ptr noundef null, i16 noundef zeroext 0, i32 -16777216, float noundef 1.000000e+00, i8 noundef zeroext 0)
+  %388 = load ptr, ptr %vfn.i1199, align 8
+  %call.i1200 = call noundef zeroext i1 %388(ptr noundef nonnull align 8 dereferenceable(8) %387, ptr noundef null, i16 noundef zeroext 0, i32 -16777216, float noundef 1.000000e+00, i8 noundef zeroext 0)
   br label %if.end277
 
 if.end277:                                        ; preds = %if.end272, %if.end234.2
@@ -7637,41 +7636,41 @@ if.end277:                                        ; preds = %if.end272, %if.end2
   br i1 %cmp.i1188.not, label %for.cond.cleanup214, label %for.body215, !llvm.loop !215
 
 if.then286:                                       ; preds = %for.cond.cleanup214
-  %inc = add i8 %360, 1
+  %inc = add i8 %359, 1
   store i8 %inc, ptr %m_current_frame281, align 2, !tbaa !31
   br label %if.end288
 
 if.end288:                                        ; preds = %if.then286, %for.cond.cleanup214
-  %390 = phi i8 [ %inc, %if.then286 ], [ %360, %for.cond.cleanup214 ]
-  %cmp293 = icmp ne i8 %390, %361
+  %389 = phi i8 [ %inc, %if.then286 ], [ %359, %for.cond.cleanup214 ]
+  %cmp293 = icmp ne i8 %389, %360
   %m_force_update_shadow_map295 = getelementptr inbounds nuw i8, ptr %this, i64 140
-  %391 = load i8, ptr %m_force_update_shadow_map295, align 4, !range !72
-  %tobool296.not = icmp eq i8 %391, 0
+  %390 = load i8, ptr %m_force_update_shadow_map295, align 4, !range !72
+  %tobool296.not = icmp eq i8 %390, 0
   %or.cond362 = select i1 %cmp293, i1 %tobool296.not, i1 false
   br i1 %or.cond362, label %if.end321, label %if.then297
 
 if.then297:                                       ; preds = %if.end288
-  %392 = load ptr, ptr %shadowMapClientMapFuture, align 8, !tbaa !37
-  %cmp299.not = icmp eq ptr %392, null
+  %391 = load ptr, ptr %shadowMapClientMapFuture, align 8, !tbaa !37
+  %cmp299.not = icmp eq ptr %391, null
   br i1 %cmp299.not, label %if.end303, label %if.then300
 
 if.then300:                                       ; preds = %if.then297
-  %393 = load ptr, ptr %shadowMapClientMap, align 8, !tbaa !37
-  store ptr %393, ptr %shadowMapClientMapFuture, align 8, !tbaa !37
-  store ptr %392, ptr %shadowMapClientMap, align 8, !tbaa !37
+  %392 = load ptr, ptr %shadowMapClientMap, align 8, !tbaa !37
+  store ptr %392, ptr %shadowMapClientMapFuture, align 8, !tbaa !37
+  store ptr %391, ptr %shadowMapClientMap, align 8, !tbaa !37
   br label %if.end303
 
 if.end303:                                        ; preds = %if.then300, %if.then297
-  %394 = load ptr, ptr %m_light_list, align 8, !tbaa !37
-  %395 = load ptr, ptr %_M_finish.i1184, align 8, !tbaa !37
-  %cmp.i1203.not1238 = icmp eq ptr %394, %395
+  %393 = load ptr, ptr %m_light_list, align 8, !tbaa !37
+  %394 = load ptr, ptr %_M_finish.i1184, align 8, !tbaa !37
+  %cmp.i1203.not1238 = icmp eq ptr %393, %394
   br i1 %cmp.i1203.not1238, label %if.end321, label %for.body315
 
 for.body315:                                      ; preds = %if.end303, %for.body315
-  %__begin3306.sroa.0.01239 = phi ptr [ %incdec.ptr.i1204, %for.body315 ], [ %394, %if.end303 ]
+  %__begin3306.sroa.0.01239 = phi ptr [ %incdec.ptr.i1204, %for.body315 ], [ %393, %if.end303 ]
   call void @_ZN16DirectionalLight13commitFrustumEv(ptr noundef nonnull align 4 dereferenceable(429) %__begin3306.sroa.0.01239)
   %incdec.ptr.i1204 = getelementptr inbounds nuw i8, ptr %__begin3306.sroa.0.01239, i64 432
-  %cmp.i1203.not = icmp eq ptr %incdec.ptr.i1204, %395
+  %cmp.i1203.not = icmp eq ptr %incdec.ptr.i1204, %394
   br i1 %cmp.i1203.not, label %if.end321, label %for.body315
 
 if.end321:                                        ; preds = %for.body315, %if.end303, %if.end288

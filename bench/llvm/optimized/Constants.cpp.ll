@@ -6902,9 +6902,9 @@ define dso_local noundef zeroext i1 @_ZNK4llvm8Constant13hasOneLiveUseEv(ptr noc
   %.not1923.i = icmp eq ptr %.sroa.015.022.i, null
   br i1 %.not1923.i, label %_ZNK4llvm8Constant12hasNLiveUsesEj.exit, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %1, %12
-  %.sroa.015.025.i = phi ptr [ %.sroa.015.0.i, %12 ], [ %.sroa.015.022.i, %1 ]
-  %.01124.i = phi i32 [ %.1.i, %12 ], [ 0, %1 ]
+.lr.ph.i:                                         ; preds = %1, %10
+  %.sroa.015.025.i = phi ptr [ %.sroa.015.0.i, %10 ], [ %.sroa.015.022.i, %1 ]
+  %.01124.i = phi i32 [ %.1.i, %10 ], [ 0, %1 ]
   %3 = getelementptr inbounds nuw i8, ptr %.sroa.015.025.i, i64 24
   %4 = load ptr, ptr %3, align 8
   %5 = load i8, ptr %4, align 8
@@ -6913,26 +6913,25 @@ define dso_local noundef zeroext i1 @_ZNK4llvm8Constant13hasOneLiveUseEv(ptr noc
 
 7:                                                ; preds = %.lr.ph.i
   %8 = tail call fastcc noundef zeroext i1 @_ZL14constantIsDeadPKN4llvm8ConstantEb(ptr noundef %4, i1 noundef zeroext false)
-  br i1 %8, label %12, label %9
+  br i1 %8, label %10, label %9
 
 9:                                                ; preds = %7, %.lr.ph.i
-  %10 = add i32 %.01124.i, 1
-  %11 = icmp ugt i32 %10, 1
-  br i1 %11, label %_ZNK4llvm8Constant12hasNLiveUsesEj.exit, label %12
+  %.not = icmp eq i32 %.01124.i, 0
+  br i1 %.not, label %10, label %_ZNK4llvm8Constant12hasNLiveUsesEj.exit
 
-12:                                               ; preds = %9, %7
-  %.1.i = phi i32 [ %.01124.i, %7 ], [ %10, %9 ]
-  %13 = getelementptr inbounds nuw i8, ptr %.sroa.015.025.i, i64 8
-  %.sroa.015.0.i = load ptr, ptr %13, align 8
+10:                                               ; preds = %9, %7
+  %.1.i = phi i32 [ %.01124.i, %7 ], [ 1, %9 ]
+  %11 = getelementptr inbounds nuw i8, ptr %.sroa.015.025.i, i64 8
+  %.sroa.015.0.i = load ptr, ptr %11, align 8
   %.not19.i = icmp eq ptr %.sroa.015.0.i, null
   br i1 %.not19.i, label %._crit_edge.i.loopexit, label %.lr.ph.i
 
-._crit_edge.i.loopexit:                           ; preds = %12
-  %14 = icmp eq i32 %.1.i, 1
+._crit_edge.i.loopexit:                           ; preds = %10
+  %12 = icmp ne i32 %.1.i, 0
   br label %_ZNK4llvm8Constant12hasNLiveUsesEj.exit
 
 _ZNK4llvm8Constant12hasNLiveUsesEj.exit:          ; preds = %9, %1, %._crit_edge.i.loopexit
-  %.0.i = phi i1 [ false, %1 ], [ %14, %._crit_edge.i.loopexit ], [ false, %9 ]
+  %.0.i = phi i1 [ false, %1 ], [ %12, %._crit_edge.i.loopexit ], [ false, %9 ]
   ret i1 %.0.i
 }
 

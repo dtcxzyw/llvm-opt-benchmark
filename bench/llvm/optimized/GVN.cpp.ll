@@ -9897,7 +9897,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm7GVNPass19processNonLocalLoadEPNS_8
   br i1 %.not47, label %.loopexit.loopexit, label %.lr.ph
 
 .loopexit.loopexit:                               ; preds = %50
-  %51 = trunc i8 %.241 to i1
+  %51 = trunc nuw i8 %.241 to i1
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %36, %32

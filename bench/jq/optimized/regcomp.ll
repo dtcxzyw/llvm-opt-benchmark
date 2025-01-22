@@ -1345,8 +1345,8 @@ define internal fastcc i32 @parse_and_tune(ptr noundef %0, ptr noundef %1, ptr n
 21:                                               ; preds = %.preheader
   %22 = getelementptr inbounds nuw i8, ptr %.09.i, i64 24
   %23 = load ptr, ptr %22, align 8
-  %.not11.i = icmp eq ptr %23, null
-  %spec.select.i = select i1 %.not11.i, i32 %.08.i, i32 1
+  %.not12.i = icmp eq ptr %23, null
+  %spec.select.i = select i1 %.not12.i, i32 %.08.i, i32 1
   %24 = getelementptr inbounds nuw i8, ptr %.09.i, i64 16
   br label %.preheader
 
@@ -1364,14 +1364,14 @@ define internal fastcc i32 @parse_and_tune(ptr noundef %0, ptr noundef %1, ptr n
   br i1 %.not.i, label %check_whole_options_position.exit, label %33
 
 33:                                               ; preds = %29
-  %.not12.i = icmp eq i32 %.08.i, 0
-  br i1 %.not12.i, label %check_whole_options_position.exit.thread, label %34
+  %.not10.i = icmp eq i32 %.08.i, 0
+  br i1 %.not10.i, label %check_whole_options_position.exit.thread, label %34
 
 34:                                               ; preds = %33
   %35 = getelementptr inbounds nuw i8, ptr %.09.i, i64 16
   %36 = load ptr, ptr %35, align 8
-  %.not10.i = icmp eq ptr %36, null
-  br i1 %.not10.i, label %check_whole_options_position.exit.thread, label %check_whole_options_position.exit
+  %.not11.i = icmp eq ptr %36, null
+  br i1 %.not11.i, label %check_whole_options_position.exit.thread, label %check_whole_options_position.exit
 
 check_whole_options_position.exit.thread:         ; preds = %33, %34, %16
   %37 = load ptr, ptr %8, align 8

@@ -6942,7 +6942,7 @@ _ZNSt6vectorIN3nix6SymbolESaIS1_EED2Ev.exit:      ; preds = %123, %125
   br i1 %131, label %132, label %134
 
 132:                                              ; preds = %127
-  %133 = icmp ult i64 %.079.i.i.i, 2
+  %133 = icmp samesign ult i64 %.079.i.i.i, 2
   br i1 %133, label %_ZNK3nix13OrSuggestionsINS_3refINS_10eval_cache10AttrCursorEEEEcvbEv.exit, label %134
 
 134:                                              ; preds = %132, %127

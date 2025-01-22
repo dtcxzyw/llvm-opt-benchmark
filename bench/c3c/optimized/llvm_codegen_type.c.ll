@@ -2957,7 +2957,7 @@ tailrecurse.backedge:                             ; preds = %24, %._crit_edge
   %.05473 = phi i64 [ %.155, %42 ], [ 0, %31 ]
   %34 = tail call i32 @type_size(ptr noundef %.05374) #6
   %35 = zext i32 %34 to i64
-  %36 = icmp ult i64 %.05473, %35
+  %36 = icmp samesign ult i64 %.05473, %35
   br i1 %36, label %37, label %42
 
 37:                                               ; preds = %.lr.ph

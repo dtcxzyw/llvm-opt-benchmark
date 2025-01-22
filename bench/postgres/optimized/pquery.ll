@@ -189,82 +189,82 @@ list_length.exit:                                 ; preds = %1
   %wide.trip.count = zext nneg i32 %3 to i64
   br label %46
 
-46:                                               ; preds = %.lr.ph64, %81
-  %indvars.iv = phi i64 [ 0, %.lr.ph64 ], [ %indvars.iv.next, %81 ]
-  %.0375762 = phi i32 [ 0, %.lr.ph64 ], [ %.1, %81 ]
+46:                                               ; preds = %.lr.ph64, %79
+  %indvars.iv = phi i64 [ 0, %.lr.ph64 ], [ %indvars.iv.next, %79 ]
+  %.0375762 = phi i32 [ 0, %.lr.ph64 ], [ %.1, %79 ]
   %47 = getelementptr %union.ListCell, ptr %45, i64 %indvars.iv
   %48 = load ptr, ptr %47, align 8
   %49 = load i32, ptr %48, align 4
   switch i32 %49, label %.split [
     i32 59, label %50
-    i32 314, label %64
+    i32 314, label %63
   ]
 
 50:                                               ; preds = %46
   %51 = getelementptr inbounds nuw i8, ptr %48, i64 24
   %52 = load i8, ptr %51, align 8
   %53 = trunc i8 %52 to i1
-  br i1 %53, label %54, label %81
+  br i1 %53, label %54, label %79
 
 54:                                               ; preds = %50
-  %55 = icmp sgt i32 %.0375762, 0
-  br i1 %55, label %.loopexit, label %56
+  %.not69 = icmp eq i32 %.0375762, 0
+  br i1 %.not69, label %55, label %.loopexit
 
-56:                                               ; preds = %54
-  %57 = getelementptr inbounds nuw i8, ptr %48, i64 4
-  %58 = load i32, ptr %57, align 4
-  %59 = icmp eq i32 %58, 6
-  br i1 %59, label %.loopexit, label %60
+55:                                               ; preds = %54
+  %56 = getelementptr inbounds nuw i8, ptr %48, i64 4
+  %57 = load i32, ptr %56, align 4
+  %58 = icmp eq i32 %57, 6
+  br i1 %58, label %.loopexit, label %59
 
-60:                                               ; preds = %56
-  %61 = getelementptr inbounds nuw i8, ptr %48, i64 128
-  %62 = load ptr, ptr %61, align 8
-  %63 = icmp eq ptr %62, null
-  br i1 %63, label %.loopexit, label %81
+59:                                               ; preds = %55
+  %60 = getelementptr inbounds nuw i8, ptr %48, i64 128
+  %61 = load ptr, ptr %60, align 8
+  %62 = icmp eq ptr %61, null
+  br i1 %62, label %.loopexit, label %79
 
-64:                                               ; preds = %46
-  %65 = getelementptr inbounds nuw i8, ptr %48, i64 18
-  %66 = load i8, ptr %65, align 2
-  %67 = trunc i8 %66 to i1
-  br i1 %67, label %68, label %81
+63:                                               ; preds = %46
+  %64 = getelementptr inbounds nuw i8, ptr %48, i64 18
+  %65 = load i8, ptr %64, align 2
+  %66 = trunc i8 %65 to i1
+  br i1 %66, label %67, label %79
 
-68:                                               ; preds = %64
-  %69 = icmp sgt i32 %.0375762, 0
-  br i1 %69, label %.loopexit, label %70
+67:                                               ; preds = %63
+  %.not = icmp eq i32 %.0375762, 0
+  br i1 %.not, label %68, label %.loopexit
 
-70:                                               ; preds = %68
-  %71 = getelementptr inbounds nuw i8, ptr %48, i64 4
-  %72 = load i32, ptr %71, align 4
-  %73 = icmp eq i32 %72, 6
-  br i1 %73, label %.loopexit, label %74
+68:                                               ; preds = %67
+  %69 = getelementptr inbounds nuw i8, ptr %48, i64 4
+  %70 = load i32, ptr %69, align 4
+  %71 = icmp eq i32 %70, 6
+  br i1 %71, label %.loopexit, label %72
 
-74:                                               ; preds = %70
-  %75 = getelementptr inbounds nuw i8, ptr %48, i64 16
-  %76 = load i8, ptr %75, align 8
-  %77 = trunc i8 %76 to i1
-  br i1 %77, label %81, label %.loopexit
+72:                                               ; preds = %68
+  %73 = getelementptr inbounds nuw i8, ptr %48, i64 16
+  %74 = load i8, ptr %73, align 8
+  %75 = trunc i8 %74 to i1
+  br i1 %75, label %79, label %.loopexit
 
 .split:                                           ; preds = %46
-  %78 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
-  tail call void @llvm.assume(i1 %78)
-  %79 = load i32, ptr %48, align 4
-  %80 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str, i32 noundef %79) #10
+  %76 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
+  tail call void @llvm.assume(i1 %76)
+  %77 = load i32, ptr %48, align 4
+  %78 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str, i32 noundef %77) #10
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 309, ptr noundef nonnull @__func__.ChoosePortalStrategy) #10
   unreachable
 
-81:                                               ; preds = %60, %50, %64, %74
-  %.1 = phi i32 [ 1, %60 ], [ %.0375762, %50 ], [ 1, %74 ], [ %.0375762, %64 ]
+79:                                               ; preds = %59, %50, %63, %72
+  %.1 = phi i32 [ 1, %59 ], [ %.0375762, %50 ], [ 1, %72 ], [ %.0375762, %63 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge.loopexit, label %46
 
-._crit_edge.loopexit:                             ; preds = %81
-  %82 = icmp eq i32 %.1, 1
-  %83 = select i1 %82, i32 1, i32 4
+._crit_edge.loopexit:                             ; preds = %79
+  %.not70 = icmp eq i32 %.1, 0
+  %80 = select i1 %.not70, i32 4, i32 1
   br label %.loopexit
 
-.loopexit:                                        ; preds = %54, %60, %56, %68, %74, %70, %.lr.ph, %1, %._crit_edge.loopexit, %35, %31, %20, %16
-  %.0 = phi i32 [ %., %16 ], [ %.47, %20 ], [ %.48, %31 ], [ %.49, %35 ], [ 4, %.lr.ph ], [ 4, %1 ], [ %83, %._crit_edge.loopexit ], [ 4, %70 ], [ 4, %74 ], [ 4, %68 ], [ 4, %56 ], [ 4, %60 ], [ 4, %54 ]
+.loopexit:                                        ; preds = %54, %59, %55, %67, %72, %68, %.lr.ph, %1, %._crit_edge.loopexit, %35, %31, %20, %16
+  %.0 = phi i32 [ %., %16 ], [ %.47, %20 ], [ %.48, %31 ], [ %.49, %35 ], [ 4, %.lr.ph ], [ 4, %1 ], [ %80, %._crit_edge.loopexit ], [ 4, %68 ], [ 4, %72 ], [ 4, %67 ], [ 4, %55 ], [ 4, %59 ], [ 4, %54 ]
   ret i32 %.0
 }
 

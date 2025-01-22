@@ -1619,9 +1619,9 @@ gv_alloc.exit.i.i:                                ; preds = %.lr.ph.i.i
   br i1 %72, label %78, label %73
 
 73:                                               ; preds = %69
-  %74 = shl i64 %.sroa.14.029.i.i, 3
+  %74 = shl nuw i64 %.sroa.14.029.i.i, 3
   %75 = getelementptr inbounds i8, ptr %71, i64 %74
-  %76 = sub i64 %spec.select.i.i.i.i, %.sroa.14.029.i.i
+  %76 = sub nsw i64 %spec.select.i.i.i.i, %.sroa.14.029.i.i
   %77 = shl i64 %76, 3
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %75, i8 0, i64 %77, i1 false), !noalias !4
   br label %cycles_append.exit.i.i

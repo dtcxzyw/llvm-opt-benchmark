@@ -6158,100 +6158,101 @@ _ZNSt6vectorIbSaIbEE6resizeEmb.exit:              ; preds = %51, %55
   resume { ptr, i32 } %lpad.phi
 
 .preheader:                                       ; preds = %58, %_ZNSt14_Bit_referenceaSEb.exit
-  %.021 = phi i32 [ %77, %_ZNSt14_Bit_referenceaSEb.exit ], [ 0, %58 ]
-  %60 = phi i1 [ %63, %_ZNSt14_Bit_referenceaSEb.exit ], [ false, %58 ]
-  %.01420 = phi i1 [ %.115, %_ZNSt14_Bit_referenceaSEb.exit ], [ true, %58 ]
-  %61 = invoke noundef zeroext i1 @_ZN5draco14RAnsBitDecoder13DecodeNextBitEv(ptr noundef nonnull align 8 dereferenceable(17) %4)
-          to label %62 unwind label %.loopexit
+  %.022 = phi i32 [ %76, %_ZNSt14_Bit_referenceaSEb.exit ], [ 0, %58 ]
+  %.01421 = phi i8 [ %spec.select, %_ZNSt14_Bit_referenceaSEb.exit ], [ 1, %58 ]
+  %60 = invoke noundef zeroext i1 @_ZN5draco14RAnsBitDecoder13DecodeNextBitEv(ptr noundef nonnull align 8 dereferenceable(17) %4)
+          to label %61 unwind label %.loopexit
 
-62:                                               ; preds = %.preheader
-  %63 = xor i1 %61, %.01420
-  %.115 = xor i1 %61, %60
-  %64 = load ptr, ptr %37, align 8
-  %65 = lshr i32 %.021, 6
-  %.zext19 = zext nneg i32 %65 to i64
-  %66 = getelementptr inbounds nuw i64, ptr %64, i64 %.zext19
-  %67 = and i32 %.021, 63
-  %68 = zext nneg i32 %67 to i64
-  %69 = shl nuw i64 1, %68
-  br i1 %.115, label %70, label %73
+61:                                               ; preds = %.preheader
+  %not. = xor i1 %60, true
+  %62 = zext i1 %not. to i8
+  %spec.select = xor i8 %.01421, %62
+  %63 = load ptr, ptr %37, align 8
+  %64 = lshr i32 %.022, 6
+  %.zext19 = zext nneg i32 %64 to i64
+  %65 = getelementptr inbounds nuw i64, ptr %63, i64 %.zext19
+  %66 = and i32 %.022, 63
+  %67 = zext nneg i32 %66 to i64
+  %68 = shl nuw i64 1, %67
+  %.not20 = icmp eq i8 %.01421, %62
+  br i1 %.not20, label %72, label %69
 
-70:                                               ; preds = %62
-  %71 = load i64, ptr %66, align 8
-  %72 = or i64 %71, %69
+69:                                               ; preds = %61
+  %70 = load i64, ptr %65, align 8
+  %71 = or i64 %70, %68
   br label %_ZNSt14_Bit_referenceaSEb.exit
 
-73:                                               ; preds = %62
-  %74 = xor i64 %69, -1
-  %75 = load i64, ptr %66, align 8
-  %76 = and i64 %75, %74
+72:                                               ; preds = %61
+  %73 = xor i64 %68, -1
+  %74 = load i64, ptr %65, align 8
+  %75 = and i64 %74, %73
   br label %_ZNSt14_Bit_referenceaSEb.exit
 
-_ZNSt14_Bit_referenceaSEb.exit:                   ; preds = %70, %73
-  %storemerge = phi i64 [ %76, %73 ], [ %72, %70 ]
-  store i64 %storemerge, ptr %66, align 8
-  %77 = add nuw i32 %.021, 1
-  %exitcond.not = icmp eq i32 %77, %20
-  br i1 %exitcond.not, label %78, label %.preheader, !llvm.loop !41
+_ZNSt14_Bit_referenceaSEb.exit:                   ; preds = %69, %72
+  %storemerge = phi i64 [ %75, %72 ], [ %71, %69 ]
+  store i64 %storemerge, ptr %65, align 8
+  %76 = add nuw i32 %.022, 1
+  %exitcond.not = icmp eq i32 %76, %20
+  br i1 %exitcond.not, label %77, label %.preheader, !llvm.loop !41
 
-78:                                               ; preds = %_ZNSt14_Bit_referenceaSEb.exit
-  %79 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %80 = load i64, ptr %79, align 8
-  %81 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %82 = load i64, ptr %81, align 8
-  %83 = add i64 %82, 4
-  %.not.i.i = icmp slt i64 %80, %83
-  br i1 %.not.i.i, label %_ZN5draco23PredictionSchemeDecoderIiNS_37PredictionSchemeWrapDecodingTransformIiiEEE20DecodePredictionDataEPNS_13DecoderBufferE.exit, label %84
+77:                                               ; preds = %_ZNSt14_Bit_referenceaSEb.exit
+  %78 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %79 = load i64, ptr %78, align 8
+  %80 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %81 = load i64, ptr %80, align 8
+  %82 = add i64 %81, 4
+  %.not.i.i = icmp slt i64 %79, %82
+  br i1 %.not.i.i, label %_ZN5draco23PredictionSchemeDecoderIiNS_37PredictionSchemeWrapDecodingTransformIiiEEE20DecodePredictionDataEPNS_13DecoderBufferE.exit, label %83
 
-84:                                               ; preds = %78
-  %85 = load ptr, ptr %1, align 8
-  %86 = getelementptr inbounds i8, ptr %85, i64 %82
-  %87 = load i32, ptr %86, align 1
-  store i64 %83, ptr %81, align 8
-  %88 = add i64 %82, 8
-  %.not14.i.i = icmp slt i64 %80, %88
-  br i1 %.not14.i.i, label %_ZN5draco23PredictionSchemeDecoderIiNS_37PredictionSchemeWrapDecodingTransformIiiEEE20DecodePredictionDataEPNS_13DecoderBufferE.exit, label %89
+83:                                               ; preds = %77
+  %84 = load ptr, ptr %1, align 8
+  %85 = getelementptr inbounds i8, ptr %84, i64 %81
+  %86 = load i32, ptr %85, align 1
+  store i64 %82, ptr %80, align 8
+  %87 = add i64 %81, 8
+  %.not14.i.i = icmp slt i64 %79, %87
+  br i1 %.not14.i.i, label %_ZN5draco23PredictionSchemeDecoderIiNS_37PredictionSchemeWrapDecodingTransformIiiEEE20DecodePredictionDataEPNS_13DecoderBufferE.exit, label %88
 
-89:                                               ; preds = %84
-  %90 = getelementptr inbounds i8, ptr %85, i64 %83
-  %91 = load i32, ptr %90, align 1
-  store i64 %88, ptr %81, align 8
-  %92 = icmp sgt i32 %87, %91
-  br i1 %92, label %_ZN5draco23PredictionSchemeDecoderIiNS_37PredictionSchemeWrapDecodingTransformIiiEEE20DecodePredictionDataEPNS_13DecoderBufferE.exit, label %93
+88:                                               ; preds = %83
+  %89 = getelementptr inbounds i8, ptr %84, i64 %82
+  %90 = load i32, ptr %89, align 1
+  store i64 %87, ptr %80, align 8
+  %91 = icmp sgt i32 %86, %90
+  br i1 %91, label %_ZN5draco23PredictionSchemeDecoderIiNS_37PredictionSchemeWrapDecodingTransformIiiEEE20DecodePredictionDataEPNS_13DecoderBufferE.exit, label %92
 
-93:                                               ; preds = %89
-  %94 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  store i32 %87, ptr %94, align 4
-  %95 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i32 %91, ptr %95, align 8
-  %96 = sext i32 %91 to i64
-  %97 = sext i32 %87 to i64
-  %98 = sub nsw i64 %96, %97
-  %or.cond.i.i.i = icmp ult i64 %98, 2147483647
-  br i1 %or.cond.i.i.i, label %99, label %_ZN5draco23PredictionSchemeDecoderIiNS_37PredictionSchemeWrapDecodingTransformIiiEEE20DecodePredictionDataEPNS_13DecoderBufferE.exit
+92:                                               ; preds = %88
+  %93 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  store i32 %86, ptr %93, align 4
+  %94 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store i32 %90, ptr %94, align 8
+  %95 = sext i32 %90 to i64
+  %96 = sext i32 %86 to i64
+  %97 = sub nsw i64 %95, %96
+  %or.cond.i.i.i = icmp ult i64 %97, 2147483647
+  br i1 %or.cond.i.i.i, label %98, label %_ZN5draco23PredictionSchemeDecoderIiNS_37PredictionSchemeWrapDecodingTransformIiiEEE20DecodePredictionDataEPNS_13DecoderBufferE.exit
 
-99:                                               ; preds = %93
-  %100 = trunc nuw nsw i64 %98 to i32
-  %101 = add nuw nsw i32 %100, 1
-  %102 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  store i32 %101, ptr %102, align 4
-  %103 = lshr i32 %101, 1
-  %104 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i32 %103, ptr %104, align 8
-  %105 = sub nsw i32 0, %103
-  %106 = getelementptr inbounds nuw i8, ptr %0, i64 36
-  store i32 %105, ptr %106, align 4
-  %107 = and i32 %100, 1
-  %.not.i.i.i = icmp eq i32 %107, 0
-  br i1 %.not.i.i.i, label %_ZN5draco23PredictionSchemeDecoderIiNS_37PredictionSchemeWrapDecodingTransformIiiEEE20DecodePredictionDataEPNS_13DecoderBufferE.exit, label %108
+98:                                               ; preds = %92
+  %99 = trunc nuw nsw i64 %97 to i32
+  %100 = add nuw nsw i32 %99, 1
+  %101 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  store i32 %100, ptr %101, align 4
+  %102 = lshr i32 %100, 1
+  %103 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  store i32 %102, ptr %103, align 8
+  %104 = sub nsw i32 0, %102
+  %105 = getelementptr inbounds nuw i8, ptr %0, i64 36
+  store i32 %104, ptr %105, align 4
+  %106 = and i32 %99, 1
+  %.not.i.i.i = icmp eq i32 %106, 0
+  br i1 %.not.i.i.i, label %_ZN5draco23PredictionSchemeDecoderIiNS_37PredictionSchemeWrapDecodingTransformIiiEEE20DecodePredictionDataEPNS_13DecoderBufferE.exit, label %107
 
-108:                                              ; preds = %99
-  %109 = add nsw i32 %103, -1
-  store i32 %109, ptr %104, align 8
+107:                                              ; preds = %98
+  %108 = add nsw i32 %102, -1
+  store i32 %108, ptr %103, align 8
   br label %_ZN5draco23PredictionSchemeDecoderIiNS_37PredictionSchemeWrapDecodingTransformIiiEEE20DecodePredictionDataEPNS_13DecoderBufferE.exit
 
-_ZN5draco23PredictionSchemeDecoderIiNS_37PredictionSchemeWrapDecodingTransformIiiEEE20DecodePredictionDataEPNS_13DecoderBufferE.exit: ; preds = %108, %99, %93, %89, %84, %78, %58
-  %.1 = phi i1 [ false, %58 ], [ false, %89 ], [ false, %78 ], [ false, %84 ], [ false, %93 ], [ true, %99 ], [ true, %108 ]
+_ZN5draco23PredictionSchemeDecoderIiNS_37PredictionSchemeWrapDecodingTransformIiiEEE20DecodePredictionDataEPNS_13DecoderBufferE.exit: ; preds = %107, %98, %92, %88, %83, %77, %58
+  %.1 = phi i1 [ false, %58 ], [ false, %88 ], [ false, %77 ], [ false, %83 ], [ false, %92 ], [ true, %98 ], [ true, %107 ]
   call void @_ZN5draco14RAnsBitDecoderD1Ev(ptr noundef nonnull align 8 dereferenceable(17) %4) #19
   br label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit
 
@@ -7771,8 +7772,8 @@ _ZN5draco46MeshPredictionSchemeTexCoordsPortablePredictorIiNS_24MeshPredictionSc
   br i1 %34, label %.preheader, label %_ZN5draco23PredictionSchemeDecoderIiNS_37PredictionSchemeWrapDecodingTransformIiiEEE20DecodePredictionDataEPNS_13DecoderBufferE.exit
 
 .preheader:                                       ; preds = %35
-  %.not24 = icmp eq i32 %11, 0
-  br i1 %.not24, label %._crit_edge, label %.lr.ph
+  %.not25 = icmp eq i32 %11, 0
+  br i1 %.not25, label %._crit_edge, label %.lr.ph
 
 .loopexit:                                        ; preds = %.lr.ph
   %lpad.loopexit = landingpad { ptr, i32 }
@@ -7789,99 +7790,100 @@ _ZN5draco46MeshPredictionSchemeTexCoordsPortablePredictorIiNS_24MeshPredictionSc
   call void @_ZN5draco14RAnsBitDecoderD1Ev(ptr noundef nonnull align 8 dereferenceable(17) %3) #19
   resume { ptr, i32 } %lpad.phi
 
-.lr.ph:                                           ; preds = %.preheader, %54
-  %.023 = phi i32 [ %55, %54 ], [ 0, %.preheader ]
-  %37 = phi i1 [ %40, %54 ], [ false, %.preheader ]
-  %.01322 = phi i1 [ %.114, %54 ], [ true, %.preheader ]
-  %38 = invoke noundef zeroext i1 @_ZN5draco14RAnsBitDecoder13DecodeNextBitEv(ptr noundef nonnull align 8 dereferenceable(17) %3)
-          to label %39 unwind label %.loopexit
+.lr.ph:                                           ; preds = %.preheader, %53
+  %.024 = phi i32 [ %54, %53 ], [ 0, %.preheader ]
+  %.01323 = phi i8 [ %spec.select, %53 ], [ 1, %.preheader ]
+  %37 = invoke noundef zeroext i1 @_ZN5draco14RAnsBitDecoder13DecodeNextBitEv(ptr noundef nonnull align 8 dereferenceable(17) %3)
+          to label %38 unwind label %.loopexit
 
-39:                                               ; preds = %.lr.ph
-  %40 = xor i1 %38, %.01322
-  %.114 = xor i1 %38, %37
-  %41 = load ptr, ptr %14, align 8
-  %42 = lshr i32 %.023, 6
-  %.sext.i17 = zext nneg i32 %42 to i64
-  %43 = getelementptr inbounds nuw i64, ptr %41, i64 %.sext.i17
-  %44 = and i32 %.023, 63
-  %45 = zext nneg i32 %44 to i64
-  %46 = shl nuw i64 1, %45
-  br i1 %.114, label %47, label %50
+38:                                               ; preds = %.lr.ph
+  %not. = xor i1 %37, true
+  %39 = zext i1 %not. to i8
+  %spec.select = xor i8 %.01323, %39
+  %.not22 = icmp eq i8 %.01323, %39
+  %40 = load ptr, ptr %14, align 8
+  %41 = lshr i32 %.024, 6
+  %.sext.i17 = zext nneg i32 %41 to i64
+  %42 = getelementptr inbounds nuw i64, ptr %40, i64 %.sext.i17
+  %43 = and i32 %.024, 63
+  %44 = zext nneg i32 %43 to i64
+  %45 = shl nuw i64 1, %44
+  br i1 %.not22, label %49, label %46
 
-47:                                               ; preds = %39
-  %48 = load i64, ptr %43, align 8
-  %49 = or i64 %48, %46
-  br label %54
+46:                                               ; preds = %38
+  %47 = load i64, ptr %42, align 8
+  %48 = or i64 %47, %45
+  br label %53
 
-50:                                               ; preds = %39
-  %51 = xor i64 %46, -1
-  %52 = load i64, ptr %43, align 8
-  %53 = and i64 %52, %51
-  br label %54
+49:                                               ; preds = %38
+  %50 = xor i64 %45, -1
+  %51 = load i64, ptr %42, align 8
+  %52 = and i64 %51, %50
+  br label %53
 
-54:                                               ; preds = %50, %47
-  %storemerge.i = phi i64 [ %53, %50 ], [ %49, %47 ]
-  store i64 %storemerge.i, ptr %43, align 8
-  %55 = add nuw nsw i32 %.023, 1
-  %exitcond.not = icmp eq i32 %55, %11
+53:                                               ; preds = %49, %46
+  %storemerge.i = phi i64 [ %52, %49 ], [ %48, %46 ]
+  store i64 %storemerge.i, ptr %42, align 8
+  %54 = add nuw nsw i32 %.024, 1
+  %exitcond.not = icmp eq i32 %54, %11
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !90
 
-._crit_edge:                                      ; preds = %54, %.preheader
-  %56 = load i64, ptr %4, align 8
-  %57 = load i64, ptr %6, align 8
-  %58 = add i64 %57, 4
-  %.not.i.i = icmp slt i64 %56, %58
-  br i1 %.not.i.i, label %_ZN5draco23PredictionSchemeDecoderIiNS_37PredictionSchemeWrapDecodingTransformIiiEEE20DecodePredictionDataEPNS_13DecoderBufferE.exit, label %59
+._crit_edge:                                      ; preds = %53, %.preheader
+  %55 = load i64, ptr %4, align 8
+  %56 = load i64, ptr %6, align 8
+  %57 = add i64 %56, 4
+  %.not.i.i = icmp slt i64 %55, %57
+  br i1 %.not.i.i, label %_ZN5draco23PredictionSchemeDecoderIiNS_37PredictionSchemeWrapDecodingTransformIiiEEE20DecodePredictionDataEPNS_13DecoderBufferE.exit, label %58
 
-59:                                               ; preds = %._crit_edge
-  %60 = load ptr, ptr %1, align 8
-  %61 = getelementptr inbounds i8, ptr %60, i64 %57
-  %62 = load i32, ptr %61, align 1
-  store i64 %58, ptr %6, align 8
-  %63 = add i64 %57, 8
-  %.not14.i.i = icmp slt i64 %56, %63
-  br i1 %.not14.i.i, label %_ZN5draco23PredictionSchemeDecoderIiNS_37PredictionSchemeWrapDecodingTransformIiiEEE20DecodePredictionDataEPNS_13DecoderBufferE.exit, label %64
+58:                                               ; preds = %._crit_edge
+  %59 = load ptr, ptr %1, align 8
+  %60 = getelementptr inbounds i8, ptr %59, i64 %56
+  %61 = load i32, ptr %60, align 1
+  store i64 %57, ptr %6, align 8
+  %62 = add i64 %56, 8
+  %.not14.i.i = icmp slt i64 %55, %62
+  br i1 %.not14.i.i, label %_ZN5draco23PredictionSchemeDecoderIiNS_37PredictionSchemeWrapDecodingTransformIiiEEE20DecodePredictionDataEPNS_13DecoderBufferE.exit, label %63
 
-64:                                               ; preds = %59
-  %65 = getelementptr inbounds i8, ptr %60, i64 %58
-  %66 = load i32, ptr %65, align 1
-  store i64 %63, ptr %6, align 8
-  %67 = icmp sgt i32 %62, %66
-  br i1 %67, label %_ZN5draco23PredictionSchemeDecoderIiNS_37PredictionSchemeWrapDecodingTransformIiiEEE20DecodePredictionDataEPNS_13DecoderBufferE.exit, label %68
+63:                                               ; preds = %58
+  %64 = getelementptr inbounds i8, ptr %59, i64 %57
+  %65 = load i32, ptr %64, align 1
+  store i64 %62, ptr %6, align 8
+  %66 = icmp sgt i32 %61, %65
+  br i1 %66, label %_ZN5draco23PredictionSchemeDecoderIiNS_37PredictionSchemeWrapDecodingTransformIiiEEE20DecodePredictionDataEPNS_13DecoderBufferE.exit, label %67
 
-68:                                               ; preds = %64
-  %69 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  store i32 %62, ptr %69, align 4
-  %70 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i32 %66, ptr %70, align 8
-  %71 = sext i32 %66 to i64
-  %72 = sext i32 %62 to i64
-  %73 = sub nsw i64 %71, %72
-  %or.cond.i.i.i = icmp ult i64 %73, 2147483647
-  br i1 %or.cond.i.i.i, label %74, label %_ZN5draco23PredictionSchemeDecoderIiNS_37PredictionSchemeWrapDecodingTransformIiiEEE20DecodePredictionDataEPNS_13DecoderBufferE.exit
+67:                                               ; preds = %63
+  %68 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  store i32 %61, ptr %68, align 4
+  %69 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store i32 %65, ptr %69, align 8
+  %70 = sext i32 %65 to i64
+  %71 = sext i32 %61 to i64
+  %72 = sub nsw i64 %70, %71
+  %or.cond.i.i.i = icmp ult i64 %72, 2147483647
+  br i1 %or.cond.i.i.i, label %73, label %_ZN5draco23PredictionSchemeDecoderIiNS_37PredictionSchemeWrapDecodingTransformIiiEEE20DecodePredictionDataEPNS_13DecoderBufferE.exit
 
-74:                                               ; preds = %68
-  %75 = trunc nuw nsw i64 %73 to i32
-  %76 = add nuw nsw i32 %75, 1
-  %77 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  store i32 %76, ptr %77, align 4
-  %78 = lshr i32 %76, 1
-  %79 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i32 %78, ptr %79, align 8
-  %80 = sub nsw i32 0, %78
-  %81 = getelementptr inbounds nuw i8, ptr %0, i64 36
-  store i32 %80, ptr %81, align 4
-  %82 = and i32 %75, 1
-  %.not.i.i.i = icmp eq i32 %82, 0
-  br i1 %.not.i.i.i, label %_ZN5draco23PredictionSchemeDecoderIiNS_37PredictionSchemeWrapDecodingTransformIiiEEE20DecodePredictionDataEPNS_13DecoderBufferE.exit, label %83
+73:                                               ; preds = %67
+  %74 = trunc nuw nsw i64 %72 to i32
+  %75 = add nuw nsw i32 %74, 1
+  %76 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  store i32 %75, ptr %76, align 4
+  %77 = lshr i32 %75, 1
+  %78 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  store i32 %77, ptr %78, align 8
+  %79 = sub nsw i32 0, %77
+  %80 = getelementptr inbounds nuw i8, ptr %0, i64 36
+  store i32 %79, ptr %80, align 4
+  %81 = and i32 %74, 1
+  %.not.i.i.i = icmp eq i32 %81, 0
+  br i1 %.not.i.i.i, label %_ZN5draco23PredictionSchemeDecoderIiNS_37PredictionSchemeWrapDecodingTransformIiiEEE20DecodePredictionDataEPNS_13DecoderBufferE.exit, label %82
 
-83:                                               ; preds = %74
-  %84 = add nsw i32 %78, -1
-  store i32 %84, ptr %79, align 8
+82:                                               ; preds = %73
+  %83 = add nsw i32 %77, -1
+  store i32 %83, ptr %78, align 8
   br label %_ZN5draco23PredictionSchemeDecoderIiNS_37PredictionSchemeWrapDecodingTransformIiiEEE20DecodePredictionDataEPNS_13DecoderBufferE.exit
 
-_ZN5draco23PredictionSchemeDecoderIiNS_37PredictionSchemeWrapDecodingTransformIiiEEE20DecodePredictionDataEPNS_13DecoderBufferE.exit: ; preds = %83, %74, %68, %64, %59, %._crit_edge, %35
-  %.1 = phi i1 [ false, %35 ], [ false, %64 ], [ false, %._crit_edge ], [ false, %59 ], [ false, %68 ], [ true, %74 ], [ true, %83 ]
+_ZN5draco23PredictionSchemeDecoderIiNS_37PredictionSchemeWrapDecodingTransformIiiEEE20DecodePredictionDataEPNS_13DecoderBufferE.exit: ; preds = %82, %73, %67, %63, %58, %._crit_edge, %35
+  %.1 = phi i1 [ false, %35 ], [ false, %63 ], [ false, %._crit_edge ], [ false, %58 ], [ false, %67 ], [ true, %73 ], [ true, %82 ]
   call void @_ZN5draco14RAnsBitDecoderD1Ev(ptr noundef nonnull align 8 dereferenceable(17) %3) #19
   br label %_ZN5draco13DecoderBuffer6DecodeIiEEbPT_.exit.thread
 
@@ -13641,100 +13643,101 @@ _ZNSt6vectorIbSaIbEE6resizeEmb.exit:              ; preds = %49, %53
   resume { ptr, i32 } %lpad.phi
 
 .preheader:                                       ; preds = %56, %_ZNSt14_Bit_referenceaSEb.exit
-  %.021 = phi i32 [ %75, %_ZNSt14_Bit_referenceaSEb.exit ], [ 0, %56 ]
-  %58 = phi i1 [ %61, %_ZNSt14_Bit_referenceaSEb.exit ], [ false, %56 ]
-  %.01420 = phi i1 [ %.115, %_ZNSt14_Bit_referenceaSEb.exit ], [ true, %56 ]
-  %59 = invoke noundef zeroext i1 @_ZN5draco14RAnsBitDecoder13DecodeNextBitEv(ptr noundef nonnull align 8 dereferenceable(17) %4)
-          to label %60 unwind label %.loopexit
+  %.022 = phi i32 [ %74, %_ZNSt14_Bit_referenceaSEb.exit ], [ 0, %56 ]
+  %.01421 = phi i8 [ %spec.select, %_ZNSt14_Bit_referenceaSEb.exit ], [ 1, %56 ]
+  %58 = invoke noundef zeroext i1 @_ZN5draco14RAnsBitDecoder13DecodeNextBitEv(ptr noundef nonnull align 8 dereferenceable(17) %4)
+          to label %59 unwind label %.loopexit
 
-60:                                               ; preds = %.preheader
-  %61 = xor i1 %59, %.01420
-  %.115 = xor i1 %59, %58
-  %62 = load ptr, ptr %35, align 8
-  %63 = lshr i32 %.021, 6
-  %.zext19 = zext nneg i32 %63 to i64
-  %64 = getelementptr inbounds nuw i64, ptr %62, i64 %.zext19
-  %65 = and i32 %.021, 63
-  %66 = zext nneg i32 %65 to i64
-  %67 = shl nuw i64 1, %66
-  br i1 %.115, label %68, label %71
+59:                                               ; preds = %.preheader
+  %not. = xor i1 %58, true
+  %60 = zext i1 %not. to i8
+  %spec.select = xor i8 %.01421, %60
+  %61 = load ptr, ptr %35, align 8
+  %62 = lshr i32 %.022, 6
+  %.zext19 = zext nneg i32 %62 to i64
+  %63 = getelementptr inbounds nuw i64, ptr %61, i64 %.zext19
+  %64 = and i32 %.022, 63
+  %65 = zext nneg i32 %64 to i64
+  %66 = shl nuw i64 1, %65
+  %.not20 = icmp eq i8 %.01421, %60
+  br i1 %.not20, label %70, label %67
 
-68:                                               ; preds = %60
-  %69 = load i64, ptr %64, align 8
-  %70 = or i64 %69, %67
+67:                                               ; preds = %59
+  %68 = load i64, ptr %63, align 8
+  %69 = or i64 %68, %66
   br label %_ZNSt14_Bit_referenceaSEb.exit
 
-71:                                               ; preds = %60
-  %72 = xor i64 %67, -1
-  %73 = load i64, ptr %64, align 8
-  %74 = and i64 %73, %72
+70:                                               ; preds = %59
+  %71 = xor i64 %66, -1
+  %72 = load i64, ptr %63, align 8
+  %73 = and i64 %72, %71
   br label %_ZNSt14_Bit_referenceaSEb.exit
 
-_ZNSt14_Bit_referenceaSEb.exit:                   ; preds = %68, %71
-  %storemerge = phi i64 [ %74, %71 ], [ %70, %68 ]
-  store i64 %storemerge, ptr %64, align 8
-  %75 = add nuw i32 %.021, 1
-  %exitcond.not = icmp eq i32 %75, %20
-  br i1 %exitcond.not, label %76, label %.preheader, !llvm.loop !205
+_ZNSt14_Bit_referenceaSEb.exit:                   ; preds = %67, %70
+  %storemerge = phi i64 [ %73, %70 ], [ %69, %67 ]
+  store i64 %storemerge, ptr %63, align 8
+  %74 = add nuw i32 %.022, 1
+  %exitcond.not = icmp eq i32 %74, %20
+  br i1 %exitcond.not, label %75, label %.preheader, !llvm.loop !205
 
-76:                                               ; preds = %_ZNSt14_Bit_referenceaSEb.exit
-  %77 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %78 = load i64, ptr %77, align 8
-  %79 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %80 = load i64, ptr %79, align 8
-  %81 = add i64 %80, 4
-  %.not.i.i = icmp slt i64 %78, %81
-  br i1 %.not.i.i, label %_ZN5draco23PredictionSchemeDecoderIiNS_37PredictionSchemeWrapDecodingTransformIiiEEE20DecodePredictionDataEPNS_13DecoderBufferE.exit, label %82
+75:                                               ; preds = %_ZNSt14_Bit_referenceaSEb.exit
+  %76 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %77 = load i64, ptr %76, align 8
+  %78 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %79 = load i64, ptr %78, align 8
+  %80 = add i64 %79, 4
+  %.not.i.i = icmp slt i64 %77, %80
+  br i1 %.not.i.i, label %_ZN5draco23PredictionSchemeDecoderIiNS_37PredictionSchemeWrapDecodingTransformIiiEEE20DecodePredictionDataEPNS_13DecoderBufferE.exit, label %81
 
-82:                                               ; preds = %76
-  %83 = load ptr, ptr %1, align 8
-  %84 = getelementptr inbounds i8, ptr %83, i64 %80
-  %85 = load i32, ptr %84, align 1
-  store i64 %81, ptr %79, align 8
-  %86 = add i64 %80, 8
-  %.not14.i.i = icmp slt i64 %78, %86
-  br i1 %.not14.i.i, label %_ZN5draco23PredictionSchemeDecoderIiNS_37PredictionSchemeWrapDecodingTransformIiiEEE20DecodePredictionDataEPNS_13DecoderBufferE.exit, label %87
+81:                                               ; preds = %75
+  %82 = load ptr, ptr %1, align 8
+  %83 = getelementptr inbounds i8, ptr %82, i64 %79
+  %84 = load i32, ptr %83, align 1
+  store i64 %80, ptr %78, align 8
+  %85 = add i64 %79, 8
+  %.not14.i.i = icmp slt i64 %77, %85
+  br i1 %.not14.i.i, label %_ZN5draco23PredictionSchemeDecoderIiNS_37PredictionSchemeWrapDecodingTransformIiiEEE20DecodePredictionDataEPNS_13DecoderBufferE.exit, label %86
 
-87:                                               ; preds = %82
-  %88 = getelementptr inbounds i8, ptr %83, i64 %81
-  %89 = load i32, ptr %88, align 1
-  store i64 %86, ptr %79, align 8
-  %90 = icmp sgt i32 %85, %89
-  br i1 %90, label %_ZN5draco23PredictionSchemeDecoderIiNS_37PredictionSchemeWrapDecodingTransformIiiEEE20DecodePredictionDataEPNS_13DecoderBufferE.exit, label %91
+86:                                               ; preds = %81
+  %87 = getelementptr inbounds i8, ptr %82, i64 %80
+  %88 = load i32, ptr %87, align 1
+  store i64 %85, ptr %78, align 8
+  %89 = icmp sgt i32 %84, %88
+  br i1 %89, label %_ZN5draco23PredictionSchemeDecoderIiNS_37PredictionSchemeWrapDecodingTransformIiiEEE20DecodePredictionDataEPNS_13DecoderBufferE.exit, label %90
 
-91:                                               ; preds = %87
-  %92 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  store i32 %85, ptr %92, align 4
-  %93 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i32 %89, ptr %93, align 8
-  %94 = sext i32 %89 to i64
-  %95 = sext i32 %85 to i64
-  %96 = sub nsw i64 %94, %95
-  %or.cond.i.i.i = icmp ult i64 %96, 2147483647
-  br i1 %or.cond.i.i.i, label %97, label %_ZN5draco23PredictionSchemeDecoderIiNS_37PredictionSchemeWrapDecodingTransformIiiEEE20DecodePredictionDataEPNS_13DecoderBufferE.exit
+90:                                               ; preds = %86
+  %91 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  store i32 %84, ptr %91, align 4
+  %92 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store i32 %88, ptr %92, align 8
+  %93 = sext i32 %88 to i64
+  %94 = sext i32 %84 to i64
+  %95 = sub nsw i64 %93, %94
+  %or.cond.i.i.i = icmp ult i64 %95, 2147483647
+  br i1 %or.cond.i.i.i, label %96, label %_ZN5draco23PredictionSchemeDecoderIiNS_37PredictionSchemeWrapDecodingTransformIiiEEE20DecodePredictionDataEPNS_13DecoderBufferE.exit
 
-97:                                               ; preds = %91
-  %98 = trunc nuw nsw i64 %96 to i32
-  %99 = add nuw nsw i32 %98, 1
-  %100 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  store i32 %99, ptr %100, align 4
-  %101 = lshr i32 %99, 1
-  %102 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i32 %101, ptr %102, align 8
-  %103 = sub nsw i32 0, %101
-  %104 = getelementptr inbounds nuw i8, ptr %0, i64 36
-  store i32 %103, ptr %104, align 4
-  %105 = and i32 %98, 1
-  %.not.i.i.i = icmp eq i32 %105, 0
-  br i1 %.not.i.i.i, label %_ZN5draco23PredictionSchemeDecoderIiNS_37PredictionSchemeWrapDecodingTransformIiiEEE20DecodePredictionDataEPNS_13DecoderBufferE.exit, label %106
+96:                                               ; preds = %90
+  %97 = trunc nuw nsw i64 %95 to i32
+  %98 = add nuw nsw i32 %97, 1
+  %99 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  store i32 %98, ptr %99, align 4
+  %100 = lshr i32 %98, 1
+  %101 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  store i32 %100, ptr %101, align 8
+  %102 = sub nsw i32 0, %100
+  %103 = getelementptr inbounds nuw i8, ptr %0, i64 36
+  store i32 %102, ptr %103, align 4
+  %104 = and i32 %97, 1
+  %.not.i.i.i = icmp eq i32 %104, 0
+  br i1 %.not.i.i.i, label %_ZN5draco23PredictionSchemeDecoderIiNS_37PredictionSchemeWrapDecodingTransformIiiEEE20DecodePredictionDataEPNS_13DecoderBufferE.exit, label %105
 
-106:                                              ; preds = %97
-  %107 = add nsw i32 %101, -1
-  store i32 %107, ptr %102, align 8
+105:                                              ; preds = %96
+  %106 = add nsw i32 %100, -1
+  store i32 %106, ptr %101, align 8
   br label %_ZN5draco23PredictionSchemeDecoderIiNS_37PredictionSchemeWrapDecodingTransformIiiEEE20DecodePredictionDataEPNS_13DecoderBufferE.exit
 
-_ZN5draco23PredictionSchemeDecoderIiNS_37PredictionSchemeWrapDecodingTransformIiiEEE20DecodePredictionDataEPNS_13DecoderBufferE.exit: ; preds = %106, %97, %91, %87, %82, %76, %56
-  %.1 = phi i1 [ false, %56 ], [ false, %87 ], [ false, %76 ], [ false, %82 ], [ false, %91 ], [ true, %97 ], [ true, %106 ]
+_ZN5draco23PredictionSchemeDecoderIiNS_37PredictionSchemeWrapDecodingTransformIiiEEE20DecodePredictionDataEPNS_13DecoderBufferE.exit: ; preds = %105, %96, %90, %86, %81, %75, %56
+  %.1 = phi i1 [ false, %56 ], [ false, %86 ], [ false, %75 ], [ false, %81 ], [ false, %90 ], [ true, %96 ], [ true, %105 ]
   call void @_ZN5draco14RAnsBitDecoderD1Ev(ptr noundef nonnull align 8 dereferenceable(17) %4) #19
   br label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit
 
@@ -14653,8 +14656,8 @@ _ZN5draco46MeshPredictionSchemeTexCoordsPortablePredictorIiNS_24MeshPredictionSc
   br i1 %34, label %.preheader, label %_ZN5draco23PredictionSchemeDecoderIiNS_37PredictionSchemeWrapDecodingTransformIiiEEE20DecodePredictionDataEPNS_13DecoderBufferE.exit
 
 .preheader:                                       ; preds = %35
-  %.not24 = icmp eq i32 %11, 0
-  br i1 %.not24, label %._crit_edge, label %.lr.ph
+  %.not25 = icmp eq i32 %11, 0
+  br i1 %.not25, label %._crit_edge, label %.lr.ph
 
 .loopexit:                                        ; preds = %.lr.ph
   %lpad.loopexit = landingpad { ptr, i32 }
@@ -14671,99 +14674,100 @@ _ZN5draco46MeshPredictionSchemeTexCoordsPortablePredictorIiNS_24MeshPredictionSc
   call void @_ZN5draco14RAnsBitDecoderD1Ev(ptr noundef nonnull align 8 dereferenceable(17) %3) #19
   resume { ptr, i32 } %lpad.phi
 
-.lr.ph:                                           ; preds = %.preheader, %54
-  %.023 = phi i32 [ %55, %54 ], [ 0, %.preheader ]
-  %37 = phi i1 [ %40, %54 ], [ false, %.preheader ]
-  %.01322 = phi i1 [ %.114, %54 ], [ true, %.preheader ]
-  %38 = invoke noundef zeroext i1 @_ZN5draco14RAnsBitDecoder13DecodeNextBitEv(ptr noundef nonnull align 8 dereferenceable(17) %3)
-          to label %39 unwind label %.loopexit
+.lr.ph:                                           ; preds = %.preheader, %53
+  %.024 = phi i32 [ %54, %53 ], [ 0, %.preheader ]
+  %.01323 = phi i8 [ %spec.select, %53 ], [ 1, %.preheader ]
+  %37 = invoke noundef zeroext i1 @_ZN5draco14RAnsBitDecoder13DecodeNextBitEv(ptr noundef nonnull align 8 dereferenceable(17) %3)
+          to label %38 unwind label %.loopexit
 
-39:                                               ; preds = %.lr.ph
-  %40 = xor i1 %38, %.01322
-  %.114 = xor i1 %38, %37
-  %41 = load ptr, ptr %14, align 8
-  %42 = lshr i32 %.023, 6
-  %.sext.i17 = zext nneg i32 %42 to i64
-  %43 = getelementptr inbounds nuw i64, ptr %41, i64 %.sext.i17
-  %44 = and i32 %.023, 63
-  %45 = zext nneg i32 %44 to i64
-  %46 = shl nuw i64 1, %45
-  br i1 %.114, label %47, label %50
+38:                                               ; preds = %.lr.ph
+  %not. = xor i1 %37, true
+  %39 = zext i1 %not. to i8
+  %spec.select = xor i8 %.01323, %39
+  %.not22 = icmp eq i8 %.01323, %39
+  %40 = load ptr, ptr %14, align 8
+  %41 = lshr i32 %.024, 6
+  %.sext.i17 = zext nneg i32 %41 to i64
+  %42 = getelementptr inbounds nuw i64, ptr %40, i64 %.sext.i17
+  %43 = and i32 %.024, 63
+  %44 = zext nneg i32 %43 to i64
+  %45 = shl nuw i64 1, %44
+  br i1 %.not22, label %49, label %46
 
-47:                                               ; preds = %39
-  %48 = load i64, ptr %43, align 8
-  %49 = or i64 %48, %46
-  br label %54
+46:                                               ; preds = %38
+  %47 = load i64, ptr %42, align 8
+  %48 = or i64 %47, %45
+  br label %53
 
-50:                                               ; preds = %39
-  %51 = xor i64 %46, -1
-  %52 = load i64, ptr %43, align 8
-  %53 = and i64 %52, %51
-  br label %54
+49:                                               ; preds = %38
+  %50 = xor i64 %45, -1
+  %51 = load i64, ptr %42, align 8
+  %52 = and i64 %51, %50
+  br label %53
 
-54:                                               ; preds = %50, %47
-  %storemerge.i = phi i64 [ %53, %50 ], [ %49, %47 ]
-  store i64 %storemerge.i, ptr %43, align 8
-  %55 = add nuw nsw i32 %.023, 1
-  %exitcond.not = icmp eq i32 %55, %11
+53:                                               ; preds = %49, %46
+  %storemerge.i = phi i64 [ %52, %49 ], [ %48, %46 ]
+  store i64 %storemerge.i, ptr %42, align 8
+  %54 = add nuw nsw i32 %.024, 1
+  %exitcond.not = icmp eq i32 %54, %11
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !239
 
-._crit_edge:                                      ; preds = %54, %.preheader
-  %56 = load i64, ptr %4, align 8
-  %57 = load i64, ptr %6, align 8
-  %58 = add i64 %57, 4
-  %.not.i.i = icmp slt i64 %56, %58
-  br i1 %.not.i.i, label %_ZN5draco23PredictionSchemeDecoderIiNS_37PredictionSchemeWrapDecodingTransformIiiEEE20DecodePredictionDataEPNS_13DecoderBufferE.exit, label %59
+._crit_edge:                                      ; preds = %53, %.preheader
+  %55 = load i64, ptr %4, align 8
+  %56 = load i64, ptr %6, align 8
+  %57 = add i64 %56, 4
+  %.not.i.i = icmp slt i64 %55, %57
+  br i1 %.not.i.i, label %_ZN5draco23PredictionSchemeDecoderIiNS_37PredictionSchemeWrapDecodingTransformIiiEEE20DecodePredictionDataEPNS_13DecoderBufferE.exit, label %58
 
-59:                                               ; preds = %._crit_edge
-  %60 = load ptr, ptr %1, align 8
-  %61 = getelementptr inbounds i8, ptr %60, i64 %57
-  %62 = load i32, ptr %61, align 1
-  store i64 %58, ptr %6, align 8
-  %63 = add i64 %57, 8
-  %.not14.i.i = icmp slt i64 %56, %63
-  br i1 %.not14.i.i, label %_ZN5draco23PredictionSchemeDecoderIiNS_37PredictionSchemeWrapDecodingTransformIiiEEE20DecodePredictionDataEPNS_13DecoderBufferE.exit, label %64
+58:                                               ; preds = %._crit_edge
+  %59 = load ptr, ptr %1, align 8
+  %60 = getelementptr inbounds i8, ptr %59, i64 %56
+  %61 = load i32, ptr %60, align 1
+  store i64 %57, ptr %6, align 8
+  %62 = add i64 %56, 8
+  %.not14.i.i = icmp slt i64 %55, %62
+  br i1 %.not14.i.i, label %_ZN5draco23PredictionSchemeDecoderIiNS_37PredictionSchemeWrapDecodingTransformIiiEEE20DecodePredictionDataEPNS_13DecoderBufferE.exit, label %63
 
-64:                                               ; preds = %59
-  %65 = getelementptr inbounds i8, ptr %60, i64 %58
-  %66 = load i32, ptr %65, align 1
-  store i64 %63, ptr %6, align 8
-  %67 = icmp sgt i32 %62, %66
-  br i1 %67, label %_ZN5draco23PredictionSchemeDecoderIiNS_37PredictionSchemeWrapDecodingTransformIiiEEE20DecodePredictionDataEPNS_13DecoderBufferE.exit, label %68
+63:                                               ; preds = %58
+  %64 = getelementptr inbounds i8, ptr %59, i64 %57
+  %65 = load i32, ptr %64, align 1
+  store i64 %62, ptr %6, align 8
+  %66 = icmp sgt i32 %61, %65
+  br i1 %66, label %_ZN5draco23PredictionSchemeDecoderIiNS_37PredictionSchemeWrapDecodingTransformIiiEEE20DecodePredictionDataEPNS_13DecoderBufferE.exit, label %67
 
-68:                                               ; preds = %64
-  %69 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  store i32 %62, ptr %69, align 4
-  %70 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i32 %66, ptr %70, align 8
-  %71 = sext i32 %66 to i64
-  %72 = sext i32 %62 to i64
-  %73 = sub nsw i64 %71, %72
-  %or.cond.i.i.i = icmp ult i64 %73, 2147483647
-  br i1 %or.cond.i.i.i, label %74, label %_ZN5draco23PredictionSchemeDecoderIiNS_37PredictionSchemeWrapDecodingTransformIiiEEE20DecodePredictionDataEPNS_13DecoderBufferE.exit
+67:                                               ; preds = %63
+  %68 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  store i32 %61, ptr %68, align 4
+  %69 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store i32 %65, ptr %69, align 8
+  %70 = sext i32 %65 to i64
+  %71 = sext i32 %61 to i64
+  %72 = sub nsw i64 %70, %71
+  %or.cond.i.i.i = icmp ult i64 %72, 2147483647
+  br i1 %or.cond.i.i.i, label %73, label %_ZN5draco23PredictionSchemeDecoderIiNS_37PredictionSchemeWrapDecodingTransformIiiEEE20DecodePredictionDataEPNS_13DecoderBufferE.exit
 
-74:                                               ; preds = %68
-  %75 = trunc nuw nsw i64 %73 to i32
-  %76 = add nuw nsw i32 %75, 1
-  %77 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  store i32 %76, ptr %77, align 4
-  %78 = lshr i32 %76, 1
-  %79 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i32 %78, ptr %79, align 8
-  %80 = sub nsw i32 0, %78
-  %81 = getelementptr inbounds nuw i8, ptr %0, i64 36
-  store i32 %80, ptr %81, align 4
-  %82 = and i32 %75, 1
-  %.not.i.i.i = icmp eq i32 %82, 0
-  br i1 %.not.i.i.i, label %_ZN5draco23PredictionSchemeDecoderIiNS_37PredictionSchemeWrapDecodingTransformIiiEEE20DecodePredictionDataEPNS_13DecoderBufferE.exit, label %83
+73:                                               ; preds = %67
+  %74 = trunc nuw nsw i64 %72 to i32
+  %75 = add nuw nsw i32 %74, 1
+  %76 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  store i32 %75, ptr %76, align 4
+  %77 = lshr i32 %75, 1
+  %78 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  store i32 %77, ptr %78, align 8
+  %79 = sub nsw i32 0, %77
+  %80 = getelementptr inbounds nuw i8, ptr %0, i64 36
+  store i32 %79, ptr %80, align 4
+  %81 = and i32 %74, 1
+  %.not.i.i.i = icmp eq i32 %81, 0
+  br i1 %.not.i.i.i, label %_ZN5draco23PredictionSchemeDecoderIiNS_37PredictionSchemeWrapDecodingTransformIiiEEE20DecodePredictionDataEPNS_13DecoderBufferE.exit, label %82
 
-83:                                               ; preds = %74
-  %84 = add nsw i32 %78, -1
-  store i32 %84, ptr %79, align 8
+82:                                               ; preds = %73
+  %83 = add nsw i32 %77, -1
+  store i32 %83, ptr %78, align 8
   br label %_ZN5draco23PredictionSchemeDecoderIiNS_37PredictionSchemeWrapDecodingTransformIiiEEE20DecodePredictionDataEPNS_13DecoderBufferE.exit
 
-_ZN5draco23PredictionSchemeDecoderIiNS_37PredictionSchemeWrapDecodingTransformIiiEEE20DecodePredictionDataEPNS_13DecoderBufferE.exit: ; preds = %83, %74, %68, %64, %59, %._crit_edge, %35
-  %.1 = phi i1 [ false, %35 ], [ false, %64 ], [ false, %._crit_edge ], [ false, %59 ], [ false, %68 ], [ true, %74 ], [ true, %83 ]
+_ZN5draco23PredictionSchemeDecoderIiNS_37PredictionSchemeWrapDecodingTransformIiiEEE20DecodePredictionDataEPNS_13DecoderBufferE.exit: ; preds = %82, %73, %67, %63, %58, %._crit_edge, %35
+  %.1 = phi i1 [ false, %35 ], [ false, %63 ], [ false, %._crit_edge ], [ false, %58 ], [ false, %67 ], [ true, %73 ], [ true, %82 ]
   call void @_ZN5draco14RAnsBitDecoderD1Ev(ptr noundef nonnull align 8 dereferenceable(17) %3) #19
   br label %_ZN5draco13DecoderBuffer6DecodeIiEEbPT_.exit.thread
 

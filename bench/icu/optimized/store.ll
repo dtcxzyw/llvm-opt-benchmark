@@ -498,7 +498,7 @@ while.body8.i:                                    ; preds = %if.end96.i, %while.
   br i1 %cmp10.not.i, label %if.end25.i, label %if.then12.i
 
 if.then12.i:                                      ; preds = %while.body8.i
-  %cmp13.i = icmp slt i32 %oldMappingLength.158.i, 4
+  %cmp13.i = icmp samesign ult i32 %oldMappingLength.158.i, 4
   br i1 %cmp13.i, label %if.then15.i, label %if.end25.i
 
 if.then15.i:                                      ; preds = %if.then12.i

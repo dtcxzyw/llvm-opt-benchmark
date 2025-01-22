@@ -41904,15 +41904,15 @@ if.end.i.i:                                       ; preds = %if.then.i
   %call3.i.i = call ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5beginEv(ptr noundef nonnull align 8 dereferenceable(32) %5) #38, !noalias !693
   %call4.i.i = call ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE3endEv(ptr noundef nonnull align 8 dereferenceable(32) %5) #38, !noalias !693
   %cmp.i.not3.i.i = icmp eq ptr %call3.i.i, %call4.i.i
-  br i1 %cmp.i.not3.i.i, label %sw.bb.i, label %for.body.i.i.outer
+  br i1 %cmp.i.not3.i.i, label %sw.bb.i, label %for.body.i.outer.i
 
-for.body.i.i.outer:                               ; preds = %if.end.i.i, %for.inc.i.i.thread
-  %switch.i = phi i1 [ false, %for.inc.i.i.thread ], [ true, %if.end.i.i ]
-  %__begin3.sroa.0.04.i.i.ph = phi ptr [ %incdec.ptr.i.i.i293, %for.inc.i.i.thread ], [ %call3.i.i, %if.end.i.i ]
+for.body.i.outer.i:                               ; preds = %if.end.i.i, %for.inc.i.thread.i
+  %switch.not.not.i = phi i1 [ false, %for.inc.i.thread.i ], [ true, %if.end.i.i ]
+  %__begin3.sroa.0.04.i.ph.i = phi ptr [ %incdec.ptr.i.i47.i, %for.inc.i.thread.i ], [ %call3.i.i, %if.end.i.i ]
   br label %for.body.i.i
 
-for.body.i.i:                                     ; preds = %for.body.i.i.outer, %for.inc.i.i
-  %__begin3.sroa.0.04.i.i = phi ptr [ %incdec.ptr.i.i.i, %for.inc.i.i ], [ %__begin3.sroa.0.04.i.i.ph, %for.body.i.i.outer ]
+for.body.i.i:                                     ; preds = %for.inc.i.i, %for.body.i.outer.i
+  %__begin3.sroa.0.04.i.i = phi ptr [ %incdec.ptr.i.i.i, %for.inc.i.i ], [ %__begin3.sroa.0.04.i.ph.i, %for.body.i.outer.i ]
   %21 = load i8, ptr %__begin3.sroa.0.04.i.i, align 1, !noalias !693
   %22 = add i8 %21, -97
   %23 = icmp ult i8 %22, 26
@@ -41923,20 +41923,20 @@ for.body.i.i:                                     ; preds = %for.body.i.i.outer,
 
 if.else.i.i:                                      ; preds = %for.body.i.i
   %cmp.i23.i = icmp eq i8 %21, 95
-  br i1 %cmp.i23.i, label %for.inc.i.i.thread, label %if.else.i32.i
+  br i1 %cmp.i23.i, label %for.inc.i.thread.i, label %if.else.i32.i
 
 for.inc.i.i:                                      ; preds = %for.body.i.i
   %incdec.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %__begin3.sroa.0.04.i.i, i64 1
   %cmp.i.not.i.i = icmp eq ptr %incdec.ptr.i.i.i, %call4.i.i
   br i1 %cmp.i.not.i.i, label %invoke.cont.i, label %for.body.i.i
 
-for.inc.i.i.thread:                               ; preds = %if.else.i.i
-  %incdec.ptr.i.i.i293 = getelementptr inbounds nuw i8, ptr %__begin3.sroa.0.04.i.i, i64 1
-  %cmp.i.not.i.i294 = icmp eq ptr %incdec.ptr.i.i.i293, %call4.i.i
-  br i1 %cmp.i.not.i.i294, label %sw.bb14.i, label %for.body.i.i.outer
+for.inc.i.thread.i:                               ; preds = %if.else.i.i
+  %incdec.ptr.i.i47.i = getelementptr inbounds nuw i8, ptr %__begin3.sroa.0.04.i.i, i64 1
+  %cmp.i.not.i48.i = icmp eq ptr %incdec.ptr.i.i47.i, %call4.i.i
+  br i1 %cmp.i.not.i48.i, label %sw.bb14.i, label %for.body.i.outer.i
 
 invoke.cont.i:                                    ; preds = %for.inc.i.i
-  br i1 %switch.i, label %sw.bb.i, label %sw.bb14.i
+  br i1 %switch.not.not.i, label %sw.bb.i, label %sw.bb14.i
 
 lpad.i:                                           ; preds = %sw.bb14.i, %call.i24.noexc.i, %sw.bb.i
   %27 = landingpad { ptr, i32 }
@@ -41964,7 +41964,7 @@ invoke.cont12.i:                                  ; preds = %call.i24.noexc.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp6.i.i), !noalias !693
   br label %_ZN6google8protobuf12_GLOBAL__N_117FlatAllocatorImplIJcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_14SourceCodeInfoENS0_20FileDescriptorTablesENS0_10FeatureSetENS0_14MessageOptionsENS0_12FieldOptionsENS0_11EnumOptionsENS0_16EnumValueOptionsENS0_21ExtensionRangeOptionsENS0_12OneofOptionsENS0_14ServiceOptionsENS0_13MethodOptionsENS0_11FileOptionsEEE18AllocateFieldNamesERKS8_SN_PSM_.exit
 
-sw.bb14.i:                                        ; preds = %for.inc.i.i.thread, %invoke.cont.i
+sw.bb14.i:                                        ; preds = %for.inc.i.thread.i, %invoke.cont.i
   invoke fastcc void @_ZN6google8protobuf12_GLOBAL__N_111ToCamelCaseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb(ptr noalias align 8 %ref.tmp16.i, ptr noundef nonnull align 8 dereferenceable(32) %5, i1 noundef zeroext true)
           to label %invoke.cont17.i unwind label %lpad.i, !noalias !693
 
@@ -42011,8 +42011,8 @@ if.else.i32.i:                                    ; preds = %if.else.i.i, %if.th
 invoke.cont25.i:                                  ; preds = %if.else.i32.i
   %_M_end_of_storage.i.i = getelementptr inbounds nuw i8, ptr %names.i, i64 16
   %.pre.i = load ptr, ptr %_M_finish.i.i, align 8, !noalias !693
-  %.pre44.i = load ptr, ptr %_M_end_of_storage.i.i, align 8, !noalias !693
-  %cmp.not.i.i.i = icmp eq ptr %.pre.i, %.pre44.i
+  %.pre45.i = load ptr, ptr %_M_end_of_storage.i.i, align 8, !noalias !693
+  %cmp.not.i.i.i = icmp eq ptr %.pre.i, %.pre45.i
   br i1 %cmp.not.i.i.i, label %if.else.i.i.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %invoke.cont25.i
@@ -42360,11 +42360,11 @@ if.then77:                                        ; preds = %land.lhs.true75
   store ptr @.str.144, ptr %ref.tmp.i, align 8
   call void @_ZN6google8protobuf17DescriptorBuilder8AddErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_7MessageENS0_14DescriptorPool14ErrorCollector13ErrorLocationEN4absl12lts_2023080211FunctionRefIFS7_vEEE(ptr noundef nonnull align 8 dereferenceable(356) %this, ptr noundef nonnull align 8 dereferenceable(32) %arrayidx.i86, ptr noundef nonnull align 8 dereferenceable(16) %proto, i32 noundef 4, ptr nonnull %ref.tmp.i, ptr nonnull @"_ZN4absl12lts_2023080219functional_internal12InvokeObjectIZN6google8protobuf17DescriptorBuilder8AddErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS4_7MessageENS4_14DescriptorPool14ErrorCollector13ErrorLocationEPKcE3$_0SB_JEEET0_NS1_7VoidPtrEDpNS1_8ForwardTIT1_E4typeE")
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i)
-  %.pre311 = load i32, ptr %6, align 8
+  %.pre305 = load i32, ptr %6, align 8
   br label %if.end79
 
 if.end79:                                         ; preds = %if.then77, %land.lhs.true75, %if.end69
-  %84 = phi i32 [ %.pre311, %if.then77 ], [ %80, %land.lhs.true75 ], [ %80, %if.end69 ]
+  %84 = phi i32 [ %.pre305, %if.then77 ], [ %80, %land.lhs.true75 ], [ %80, %if.end69 ]
   %and.i87 = and i32 %84, 1024
   %cmp.i88.not = icmp eq i32 %and.i87, 0
   br i1 %cmp.i88.not, label %if.end216, label %if.then81
@@ -43159,29 +43159,29 @@ _ZN6google8protobuf17DescriptorBuilder12MessageHints25RequestHintOnFieldNumbersE
   br label %if.end234
 
 if.end234:                                        ; preds = %_ZN6google8protobuf17DescriptorBuilder12MessageHints25RequestHintOnFieldNumbersERKNS0_7MessageENS0_14DescriptorPool14ErrorCollector13ErrorLocationEii.exit192, %_ZN6google8protobuf17DescriptorBuilder12MessageHints25RequestHintOnFieldNumbersERKNS0_7MessageENS0_14DescriptorPool14ErrorCollector13ErrorLocationEii.exit
-  %.pre315.pre = load ptr, ptr %result.addr, align 8
+  %.pre309.pre = load ptr, ptr %result.addr, align 8
   br i1 %is_extension, label %if.then236, label %if.else245
 
 if.then236:                                       ; preds = %if.else222, %if.end234
-  %.pre315 = phi ptr [ %230, %if.else222 ], [ %.pre315.pre, %if.end234 ]
+  %.pre309 = phi ptr [ %230, %if.else222 ], [ %.pre309.pre, %if.end234 ]
   %276 = load i32, ptr %6, align 8
   %and.i196 = and i32 %276, 2
   %cmp.i197.not = icmp eq i32 %and.i196, 0
   br i1 %cmp.i197.not, label %if.then238, label %if.end240
 
 if.then238:                                       ; preds = %if.then236
-  %all_names_.i198 = getelementptr inbounds nuw i8, ptr %.pre315, i64 8
+  %all_names_.i198 = getelementptr inbounds nuw i8, ptr %.pre309, i64 8
   %277 = load ptr, ptr %all_names_.i198, align 8
   %arrayidx.i199 = getelementptr inbounds nuw i8, ptr %277, i64 32
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i200)
   store ptr @.str.152, ptr %ref.tmp.i200, align 8
   call void @_ZN6google8protobuf17DescriptorBuilder8AddErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_7MessageENS0_14DescriptorPool14ErrorCollector13ErrorLocationEN4absl12lts_2023080211FunctionRefIFS7_vEEE(ptr noundef nonnull align 8 dereferenceable(356) %this, ptr noundef nonnull align 8 dereferenceable(32) %arrayidx.i199, ptr noundef nonnull align 8 dereferenceable(16) %proto, i32 noundef 3, ptr nonnull %ref.tmp.i200, ptr nonnull @"_ZN4absl12lts_2023080219functional_internal12InvokeObjectIZN6google8protobuf17DescriptorBuilder8AddErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS4_7MessageENS4_14DescriptorPool14ErrorCollector13ErrorLocationEPKcE3$_0SB_JEEET0_NS1_7VoidPtrEDpNS1_8ForwardTIT1_E4typeE")
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i200)
-  %.pre314 = load ptr, ptr %result.addr, align 8
+  %.pre308 = load ptr, ptr %result.addr, align 8
   br label %if.end240
 
 if.end240:                                        ; preds = %if.then238, %if.then236
-  %278 = phi ptr [ %.pre314, %if.then238 ], [ %.pre315, %if.then236 ]
+  %278 = phi ptr [ %.pre308, %if.then238 ], [ %.pre309, %if.then236 ]
   %279 = load ptr, ptr %parent.addr, align 8
   %scope_ = getelementptr inbounds nuw i8, ptr %278, i64 40
   store ptr %279, ptr %scope_, align 8
@@ -43201,25 +43201,25 @@ if.then242:                                       ; preds = %if.end240
   br label %if.end273
 
 if.else245:                                       ; preds = %if.end234, %land.lhs.true224
-  %.pre313 = phi ptr [ %230, %land.lhs.true224 ], [ %.pre315.pre, %if.end234 ]
+  %.pre307 = phi ptr [ %230, %land.lhs.true224 ], [ %.pre309.pre, %if.end234 ]
   %282 = load i32, ptr %6, align 8
   %and.i206 = and i32 %282, 2
   %cmp.i207.not = icmp eq i32 %and.i206, 0
   br i1 %cmp.i207.not, label %if.end249, label %if.then247
 
 if.then247:                                       ; preds = %if.else245
-  %all_names_.i208 = getelementptr inbounds nuw i8, ptr %.pre313, i64 8
+  %all_names_.i208 = getelementptr inbounds nuw i8, ptr %.pre307, i64 8
   %283 = load ptr, ptr %all_names_.i208, align 8
   %arrayidx.i209 = getelementptr inbounds nuw i8, ptr %283, i64 32
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i210)
   store ptr @.str.154, ptr %ref.tmp.i210, align 8
   call void @_ZN6google8protobuf17DescriptorBuilder8AddErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_7MessageENS0_14DescriptorPool14ErrorCollector13ErrorLocationEN4absl12lts_2023080211FunctionRefIFS7_vEEE(ptr noundef nonnull align 8 dereferenceable(356) %this, ptr noundef nonnull align 8 dereferenceable(32) %arrayidx.i209, ptr noundef nonnull align 8 dereferenceable(16) %proto, i32 noundef 3, ptr nonnull %ref.tmp.i210, ptr nonnull @"_ZN4absl12lts_2023080219functional_internal12InvokeObjectIZN6google8protobuf17DescriptorBuilder8AddErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS4_7MessageENS4_14DescriptorPool14ErrorCollector13ErrorLocationEPKcE3$_0SB_JEEET0_NS1_7VoidPtrEDpNS1_8ForwardTIT1_E4typeE")
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i210)
-  %.pre312 = load ptr, ptr %result.addr, align 8
+  %.pre306 = load ptr, ptr %result.addr, align 8
   br label %if.end249
 
 if.end249:                                        ; preds = %if.then247, %if.else245
-  %284 = phi ptr [ %.pre312, %if.then247 ], [ %.pre313, %if.else245 ]
+  %284 = phi ptr [ %.pre306, %if.then247 ], [ %.pre307, %if.else245 ]
   %285 = load ptr, ptr %parent.addr, align 8
   %containing_type_250 = getelementptr inbounds nuw i8, ptr %284, i64 32
   store ptr %285, ptr %containing_type_250, align 8
@@ -61073,8 +61073,8 @@ _ZN6google8protobuf12_GLOBAL__N_117FlatAllocatorImplIJcNSt7__cxx1112basic_string
   %5 = load i32, ptr %current_size_.i.i, align 8
   %idx.ext.i = sext i32 %5 to i64
   %add.ptr.i = getelementptr inbounds ptr, ptr %cond.i.i.i, i64 %idx.ext.i
-  %cmp.i.not69 = icmp eq i32 %5, 0
-  br i1 %cmp.i.not69, label %for.end, label %for.body.lr.ph
+  %cmp.i.not63 = icmp eq i32 %5, 0
+  br i1 %cmp.i.not63, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %_ZN6google8protobuf12_GLOBAL__N_117FlatAllocatorImplIJcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_14SourceCodeInfoENS0_20FileDescriptorTablesENS0_10FeatureSetENS0_14MessageOptionsENS0_12FieldOptionsENS0_11EnumOptionsENS0_16EnumValueOptionsENS0_21ExtensionRangeOptionsENS0_12OneofOptionsENS0_14ServiceOptionsENS0_13MethodOptionsENS0_11FileOptionsEEE9PlanArrayINS0_15FieldDescriptorEEEvi.exit
   %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %alloc, i64 136
@@ -61091,8 +61091,8 @@ for.body.lr.ph:                                   ; preds = %_ZN6google8protobuf
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
-  %__begin2.sroa.0.070 = phi ptr [ %cond.i.i.i, %for.body.lr.ph ], [ %incdec.ptr.i, %for.inc ]
-  %10 = load ptr, ptr %__begin2.sroa.0.070, align 8
+  %__begin2.sroa.0.064 = phi ptr [ %cond.i.i.i, %for.body.lr.ph ], [ %incdec.ptr.i, %for.inc ]
+  %10 = load ptr, ptr %__begin2.sroa.0.064, align 8
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %12 = load i32, ptr %11, align 4
   %and.i = and i32 %12, 32
@@ -61179,15 +61179,15 @@ if.end.i.i:                                       ; preds = %if.then.i
   %call3.i.i = call ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5beginEv(ptr noundef nonnull align 8 dereferenceable(32) %19) #38
   %call4.i.i = call ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE3endEv(ptr noundef nonnull align 8 dereferenceable(32) %19) #38
   %cmp.i.not3.i.i = icmp eq ptr %call3.i.i, %call4.i.i
-  br i1 %cmp.i.not3.i.i, label %sw.bb.i, label %for.body.i.i.outer
+  br i1 %cmp.i.not3.i.i, label %sw.bb.i, label %for.body.i.outer.i
 
-for.body.i.i.outer:                               ; preds = %if.end.i.i, %for.inc.i.i.thread
-  %switch.i = phi i1 [ false, %for.inc.i.i.thread ], [ true, %if.end.i.i ]
-  %__begin3.sroa.0.04.i.i.ph = phi ptr [ %incdec.ptr.i.i.i58, %for.inc.i.i.thread ], [ %call3.i.i, %if.end.i.i ]
+for.body.i.outer.i:                               ; preds = %if.end.i.i, %for.inc.i.thread.i
+  %switch.not.not.i = phi i1 [ false, %for.inc.i.thread.i ], [ true, %if.end.i.i ]
+  %__begin3.sroa.0.04.i.ph.i = phi ptr [ %incdec.ptr.i.i49.i, %for.inc.i.thread.i ], [ %call3.i.i, %if.end.i.i ]
   br label %for.body.i.i
 
-for.body.i.i:                                     ; preds = %for.body.i.i.outer, %for.inc.i.i
-  %__begin3.sroa.0.04.i.i = phi ptr [ %incdec.ptr.i.i.i, %for.inc.i.i ], [ %__begin3.sroa.0.04.i.i.ph, %for.body.i.i.outer ]
+for.body.i.i:                                     ; preds = %for.inc.i.i, %for.body.i.outer.i
+  %__begin3.sroa.0.04.i.i = phi ptr [ %incdec.ptr.i.i.i, %for.inc.i.i ], [ %__begin3.sroa.0.04.i.ph.i, %for.body.i.outer.i ]
   %26 = load i8, ptr %__begin3.sroa.0.04.i.i, align 1
   %27 = add i8 %26, -97
   %28 = icmp ult i8 %27, 26
@@ -61198,20 +61198,20 @@ for.body.i.i:                                     ; preds = %for.body.i.i.outer,
 
 if.else.i.i:                                      ; preds = %for.body.i.i
   %cmp.i9.i = icmp eq i8 %26, 95
-  br i1 %cmp.i9.i, label %for.inc.i.i.thread, label %if.end.i
+  br i1 %cmp.i9.i, label %for.inc.i.thread.i, label %if.end.i
 
 for.inc.i.i:                                      ; preds = %for.body.i.i
   %incdec.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %__begin3.sroa.0.04.i.i, i64 1
   %cmp.i.not.i.i = icmp eq ptr %incdec.ptr.i.i.i, %call4.i.i
   br i1 %cmp.i.not.i.i, label %_ZN6google8protobuf12_GLOBAL__N_117FlatAllocatorImplIJcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_14SourceCodeInfoENS0_20FileDescriptorTablesENS0_10FeatureSetENS0_14MessageOptionsENS0_12FieldOptionsENS0_11EnumOptionsENS0_16EnumValueOptionsENS0_21ExtensionRangeOptionsENS0_12OneofOptionsENS0_14ServiceOptionsENS0_13MethodOptionsENS0_11FileOptionsEEE16GetFieldNameCaseERKS8_.exit.i, label %for.body.i.i
 
-for.inc.i.i.thread:                               ; preds = %if.else.i.i
-  %incdec.ptr.i.i.i58 = getelementptr inbounds nuw i8, ptr %__begin3.sroa.0.04.i.i, i64 1
-  %cmp.i.not.i.i59 = icmp eq ptr %incdec.ptr.i.i.i58, %call4.i.i
-  br i1 %cmp.i.not.i.i59, label %sw.bb9.i, label %for.body.i.i.outer
+for.inc.i.thread.i:                               ; preds = %if.else.i.i
+  %incdec.ptr.i.i49.i = getelementptr inbounds nuw i8, ptr %__begin3.sroa.0.04.i.i, i64 1
+  %cmp.i.not.i50.i = icmp eq ptr %incdec.ptr.i.i49.i, %call4.i.i
+  br i1 %cmp.i.not.i50.i, label %sw.bb9.i, label %for.body.i.outer.i
 
 _ZN6google8protobuf12_GLOBAL__N_117FlatAllocatorImplIJcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_14SourceCodeInfoENS0_20FileDescriptorTablesENS0_10FeatureSetENS0_14MessageOptionsENS0_12FieldOptionsENS0_11EnumOptionsENS0_16EnumValueOptionsENS0_21ExtensionRangeOptionsENS0_12OneofOptionsENS0_14ServiceOptionsENS0_13MethodOptionsENS0_11FileOptionsEEE16GetFieldNameCaseERKS8_.exit.i: ; preds = %for.inc.i.i
-  br i1 %switch.i, label %sw.bb.i, label %sw.bb9.i
+  br i1 %switch.not.not.i, label %sw.bb.i, label %sw.bb9.i
 
 sw.bb.i:                                          ; preds = %_ZN6google8protobuf12_GLOBAL__N_117FlatAllocatorImplIJcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_14SourceCodeInfoENS0_20FileDescriptorTablesENS0_10FeatureSetENS0_14MessageOptionsENS0_12FieldOptionsENS0_11EnumOptionsENS0_16EnumValueOptionsENS0_21ExtensionRangeOptionsENS0_12OneofOptionsENS0_14ServiceOptionsENS0_13MethodOptionsENS0_11FileOptionsEEE16GetFieldNameCaseERKS8_.exit.i, %if.end.i.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp3.i.i)
@@ -61231,7 +61231,7 @@ _ZN6google8protobuf12_GLOBAL__N_117FlatAllocatorImplIJcNSt7__cxx1112basic_string
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp3.i.i)
   br label %_ZN6google8protobuf12_GLOBAL__N_117FlatAllocatorImplIJcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_14SourceCodeInfoENS0_20FileDescriptorTablesENS0_10FeatureSetENS0_14MessageOptionsENS0_12FieldOptionsENS0_11EnumOptionsENS0_16EnumValueOptionsENS0_21ExtensionRangeOptionsENS0_12OneofOptionsENS0_14ServiceOptionsENS0_13MethodOptionsENS0_11FileOptionsEEE14PlanFieldNamesERKS8_PSM_.exit
 
-sw.bb9.i:                                         ; preds = %for.inc.i.i.thread, %_ZN6google8protobuf12_GLOBAL__N_117FlatAllocatorImplIJcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_14SourceCodeInfoENS0_20FileDescriptorTablesENS0_10FeatureSetENS0_14MessageOptionsENS0_12FieldOptionsENS0_11EnumOptionsENS0_16EnumValueOptionsENS0_21ExtensionRangeOptionsENS0_12OneofOptionsENS0_14ServiceOptionsENS0_13MethodOptionsENS0_11FileOptionsEEE16GetFieldNameCaseERKS8_.exit.i
+sw.bb9.i:                                         ; preds = %for.inc.i.thread.i, %_ZN6google8protobuf12_GLOBAL__N_117FlatAllocatorImplIJcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_14SourceCodeInfoENS0_20FileDescriptorTablesENS0_10FeatureSetENS0_14MessageOptionsENS0_12FieldOptionsENS0_11EnumOptionsENS0_16EnumValueOptionsENS0_21ExtensionRangeOptionsENS0_12OneofOptionsENS0_14ServiceOptionsENS0_13MethodOptionsENS0_11FileOptionsEEE16GetFieldNameCaseERKS8_.exit.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp3.i11.i)
   %this.val.i12.i = load ptr, ptr %alloc, align 8
   %cmp.i.not.i13.i = icmp eq ptr %this.val.i12.i, null
@@ -61482,7 +61482,7 @@ _ZN6google8protobuf12_GLOBAL__N_117FlatAllocatorImplIJcNSt7__cxx1112basic_string
   br label %for.inc
 
 for.inc:                                          ; preds = %land.lhs.true12, %_ZN6google8protobuf12_GLOBAL__N_117FlatAllocatorImplIJcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_14SourceCodeInfoENS0_20FileDescriptorTablesENS0_10FeatureSetENS0_14MessageOptionsENS0_12FieldOptionsENS0_11EnumOptionsENS0_16EnumValueOptionsENS0_21ExtensionRangeOptionsENS0_12OneofOptionsENS0_14ServiceOptionsENS0_13MethodOptionsENS0_11FileOptionsEEE14PlanFieldNamesERKS8_PSM_.exit, %_ZN6google8protobuf12_GLOBAL__N_117FlatAllocatorImplIJcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_14SourceCodeInfoENS0_20FileDescriptorTablesENS0_10FeatureSetENS0_14MessageOptionsENS0_12FieldOptionsENS0_11EnumOptionsENS0_16EnumValueOptionsENS0_21ExtensionRangeOptionsENS0_12OneofOptionsENS0_14ServiceOptionsENS0_13MethodOptionsENS0_11FileOptionsEEE9PlanArrayIS8_EEvi.exit
-  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %__begin2.sroa.0.070, i64 8
+  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %__begin2.sroa.0.064, i64 8
   %cmp.i.not = icmp eq ptr %incdec.ptr.i, %add.ptr.i
   br i1 %cmp.i.not, label %for.end, label %for.body
 

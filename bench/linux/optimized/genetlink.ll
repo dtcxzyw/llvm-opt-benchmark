@@ -1493,7 +1493,7 @@ define dso_local range(i32 -2147483648, 1) i32 @genlmsg_multicast_allns(ptr noca
   tail call void asm sideeffect "726: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 726b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 726) #15, !srcloc !83
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 1939, i32 2307, i64 12) #15, !srcloc !84
   tail call void asm sideeffect "727: nop\0A\09.pushsection .discard.instr_end\0A\09.long 727b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 727) #15, !srcloc !85
-  br label %50
+  br label %49
 
 11:                                               ; preds = %5
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 132
@@ -1501,7 +1501,7 @@ define dso_local range(i32 -2147483648, 1) i32 @genlmsg_multicast_allns(ptr noca
   %14 = add i32 %13, %3
   %15 = load volatile ptr, ptr @net_namespace_list, align 8
   %16 = icmp eq ptr %15, @net_namespace_list
-  br i1 %16, label %40, label %.preheader
+  br i1 %16, label %39, label %.preheader
 
 .preheader:                                       ; preds = %11, %32
   %17 = phi ptr [ %34, %32 ], [ %15, %11 ]
@@ -1514,7 +1514,7 @@ define dso_local range(i32 -2147483648, 1) i32 @genlmsg_multicast_allns(ptr noca
 22:                                               ; preds = %.preheader
   %23 = tail call ptr @skb_clone(ptr noundef %1, i32 noundef %4) #15
   %24 = icmp eq ptr %23, null
-  br i1 %24, label %48, label %25
+  br i1 %24, label %47, label %25
 
 25:                                               ; preds = %22
   %26 = getelementptr inbounds nuw i8, ptr %18, i64 280
@@ -1523,7 +1523,7 @@ define dso_local range(i32 -2147483648, 1) i32 @genlmsg_multicast_allns(ptr noca
   store i32 %14, ptr %28, align 8
   %29 = tail call i32 @netlink_broadcast_filtered(ptr noundef %27, ptr noundef nonnull %23, i32 noundef %2, i32 noundef %14, i32 noundef %4, ptr noundef null, ptr noundef null) #15
   %30 = tail call i32 @llvm.smin.i32(i32 %29, i32 0)
-  switch i32 %30, label %48 [
+  switch i32 %30, label %47 [
     i32 0, label %32
     i32 -3, label %31
   ]
@@ -1538,32 +1538,31 @@ define dso_local range(i32 -2147483648, 1) i32 @genlmsg_multicast_allns(ptr noca
   br i1 %35, label %36, label %.preheader, !llvm.loop !86
 
 36:                                               ; preds = %32
-  %37 = and i8 %33, 1
-  %38 = icmp eq i8 %37, 0
-  %39 = select i1 %38, i32 -3, i32 0
-  br label %40
+  %37 = icmp eq i8 %33, 0
+  %38 = select i1 %37, i32 -3, i32 0
+  br label %39
 
-40:                                               ; preds = %36, %11
-  %41 = phi i32 [ -3, %11 ], [ %39, %36 ]
-  %42 = phi ptr [ null, %11 ], [ %20, %36 ]
-  %43 = getelementptr inbounds nuw i8, ptr %42, i64 280
-  %44 = load ptr, ptr %43, align 8
-  %45 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  store i32 %14, ptr %45, align 8
-  %46 = tail call i32 @netlink_broadcast_filtered(ptr noundef %44, ptr noundef %1, i32 noundef %2, i32 noundef %14, i32 noundef %4, ptr noundef null, ptr noundef null) #15
-  %47 = tail call i32 @llvm.smin.i32(i32 %46, i32 0)
-  %cond = icmp eq i32 %46, -3
-  %spec.select = select i1 %cond, i32 %41, i32 %47
-  br label %50
+39:                                               ; preds = %36, %11
+  %40 = phi i32 [ -3, %11 ], [ %38, %36 ]
+  %41 = phi ptr [ null, %11 ], [ %20, %36 ]
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 280
+  %43 = load ptr, ptr %42, align 8
+  %44 = getelementptr inbounds nuw i8, ptr %1, i64 56
+  store i32 %14, ptr %44, align 8
+  %45 = tail call i32 @netlink_broadcast_filtered(ptr noundef %43, ptr noundef %1, i32 noundef %2, i32 noundef %14, i32 noundef %4, ptr noundef null, ptr noundef null) #15
+  %46 = tail call i32 @llvm.smin.i32(i32 %45, i32 0)
+  %cond = icmp eq i32 %45, -3
+  %spec.select = select i1 %cond, i32 %40, i32 %46
+  br label %49
 
-48:                                               ; preds = %25, %22
-  %49 = phi i32 [ -12, %22 ], [ %30, %25 ]
+47:                                               ; preds = %25, %22
+  %48 = phi i32 [ -12, %22 ], [ %30, %25 ]
   tail call void @kfree_skb_reason(ptr noundef %1, i32 noundef 2) #15
-  br label %50
+  br label %49
 
-50:                                               ; preds = %40, %48, %10
-  %51 = phi i32 [ -22, %10 ], [ %49, %48 ], [ %spec.select, %40 ]
-  ret i32 %51
+49:                                               ; preds = %39, %47, %10
+  %50 = phi i32 [ -22, %10 ], [ %48, %47 ], [ %spec.select, %39 ]
+  ret i32 %50
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

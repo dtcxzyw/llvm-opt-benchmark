@@ -2487,13 +2487,12 @@ define internal fastcc zeroext i1 @obsolete_checksetup(ptr noundef %0) unnamed_a
   br i1 %31, label %2, label %32, !llvm.loop !75
 
 32:                                               ; preds = %28
-  %33 = and i8 %29, 1
-  %34 = icmp ne i8 %33, 0
+  %33 = icmp ne i8 %29, 0
   br label %.thread
 
 .thread:                                          ; preds = %24, %22, %32
-  %35 = phi i1 [ %34, %32 ], [ true, %22 ], [ true, %24 ]
-  ret i1 %35
+  %34 = phi i1 [ %33, %32 ], [ true, %22 ], [ true, %24 ]
+  ret i1 %34
 }
 
 ; Function Attrs: null_pointer_is_valid

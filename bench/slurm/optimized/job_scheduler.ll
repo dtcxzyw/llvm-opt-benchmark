@@ -7752,29 +7752,29 @@ define internal fastcc range(i32 0, 2030) i32 @_feature_string2list(ptr noundef 
   store ptr %8, ptr %2, align 8
   br label %9
 
-9:                                                ; preds = %154, %._crit_edge
-  %10 = phi ptr [ %7, %._crit_edge ], [ %155, %154 ]
-  %.0175 = phi i32 [ 0, %._crit_edge ], [ %.1176, %154 ]
-  %.0173 = phi i32 [ 0, %._crit_edge ], [ %.1174, %154 ]
-  %.0171 = phi i32 [ 0, %._crit_edge ], [ %156, %154 ]
-  %.0169 = phi i32 [ 0, %._crit_edge ], [ %.1170, %154 ]
-  %.0167 = phi i32 [ 0, %._crit_edge ], [ %.1168, %154 ]
-  %.0165 = phi ptr [ null, %._crit_edge ], [ %.1166, %154 ]
-  %.0162 = phi i8 [ 0, %._crit_edge ], [ %.2164, %154 ]
-  %.0160 = phi i8 [ 0, %._crit_edge ], [ %.1161, %154 ]
-  %.0159 = phi i1 [ false, %._crit_edge ], [ %.2, %154 ]
+9:                                                ; preds = %153, %._crit_edge
+  %10 = phi ptr [ %7, %._crit_edge ], [ %154, %153 ]
+  %.0175 = phi i32 [ 0, %._crit_edge ], [ %.1176, %153 ]
+  %.0173 = phi i32 [ 0, %._crit_edge ], [ %.1174, %153 ]
+  %.0171 = phi i32 [ 0, %._crit_edge ], [ %155, %153 ]
+  %.0169 = phi i32 [ 0, %._crit_edge ], [ %.1170, %153 ]
+  %.0167 = phi i32 [ 0, %._crit_edge ], [ %.1168, %153 ]
+  %.0165 = phi ptr [ null, %._crit_edge ], [ %.1166, %153 ]
+  %.0162 = phi i8 [ 0, %._crit_edge ], [ %.2164, %153 ]
+  %.0160 = phi i8 [ 0, %._crit_edge ], [ %.1161, %153 ]
+  %.0159 = phi i1 [ false, %._crit_edge ], [ %.2, %153 ]
   %11 = sext i32 %.0171 to i64
   %12 = getelementptr inbounds i8, ptr %10, i64 %11
   %13 = load i8, ptr %12, align 1
-  switch i8 %13, label %144 [
+  switch i8 %13, label %143 [
     i8 42, label %14
     i8 38, label %33
     i8 124, label %65
     i8 91, label %96
-    i8 93, label %108
-    i8 40, label %115
-    i8 41, label %121
-    i8 0, label %127
+    i8 93, label %107
+    i8 40, label %114
+    i8 41, label %120
+    i8 0, label %126
   ]
 
 14:                                               ; preds = %9
@@ -7794,7 +7794,7 @@ define internal fastcc range(i32 0, 2030) i32 @_feature_string2list(ptr noundef 
 23:                                               ; preds = %14
   %24 = tail call i32 @get_log_level() #16
   %25 = icmp sgt i32 %24, 3
-  br i1 %25, label %.sink.split, label %177
+  br i1 %25, label %.sink.split, label %176
 
 26:                                               ; preds = %14
   %.not190 = icmp eq i32 %.0175, 0
@@ -7805,7 +7805,7 @@ define internal fastcc range(i32 0, 2030) i32 @_feature_string2list(ptr noundef 
   %30 = xor i64 %29, -1
   %31 = add i64 %30, %28
   %32 = trunc i64 %31 to i32
-  br label %154
+  br label %153
 
 33:                                               ; preds = %9
   store i8 0, ptr %12, align 1
@@ -7815,7 +7815,7 @@ define internal fastcc range(i32 0, 2030) i32 @_feature_string2list(ptr noundef 
 35:                                               ; preds = %33
   %36 = tail call i32 @get_log_level() #16
   %37 = icmp sgt i32 %36, 3
-  br i1 %37, label %.sink.split, label %177
+  br i1 %37, label %.sink.split, label %176
 
 38:                                               ; preds = %33
   %39 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 40, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.6, i32 noundef 4744, ptr noundef nonnull @__func__._feature_string2list) #16
@@ -7867,7 +7867,7 @@ define internal fastcc range(i32 0, 2030) i32 @_feature_string2list(ptr noundef 
 63:                                               ; preds = %61, %62, %57
   %64 = load ptr, ptr %2, align 8
   tail call void @list_append(ptr noundef %64, ptr noundef nonnull %39) #16
-  br label %154
+  br label %153
 
 65:                                               ; preds = %9
   store i8 0, ptr %12, align 1
@@ -7877,7 +7877,7 @@ define internal fastcc range(i32 0, 2030) i32 @_feature_string2list(ptr noundef 
 67:                                               ; preds = %65
   %68 = tail call i32 @get_log_level() #16
   %69 = icmp sgt i32 %68, 3
-  br i1 %69, label %.sink.split, label %177
+  br i1 %69, label %.sink.split, label %176
 
 70:                                               ; preds = %65
   %71 = tail call zeroext i1 @node_features_g_changeable_feature(ptr noundef nonnull %.0165) #16
@@ -7916,16 +7916,16 @@ define internal fastcc range(i32 0, 2030) i32 @_feature_string2list(ptr noundef 
 90:                                               ; preds = %89
   %91 = load i8, ptr %3, align 1
   %92 = trunc i8 %91 to i1
-  %spec.select391 = select i1 %92, i8 2, i8 0
+  %spec.select392 = select i1 %92, i8 2, i8 0
   br label %93
 
 93:                                               ; preds = %90, %89, %86
-  %.sink = phi i8 [ 0, %86 ], [ 2, %89 ], [ %spec.select391, %90 ]
+  %.sink = phi i8 [ 0, %86 ], [ 2, %89 ], [ %spec.select392, %90 ]
   %94 = getelementptr inbounds nuw i8, ptr %73, i64 14
   store i8 %.sink, ptr %94, align 2
   %95 = load ptr, ptr %2, align 8
   tail call void @list_append(ptr noundef %95, ptr noundef nonnull %73) #16
-  br label %154
+  br label %153
 
 96:                                               ; preds = %9
   store i8 0, ptr %12, align 1
@@ -7939,183 +7939,183 @@ define internal fastcc range(i32 0, 2030) i32 @_feature_string2list(ptr noundef 
 100:                                              ; preds = %96
   %101 = tail call i32 @get_log_level() #16
   %102 = icmp sgt i32 %101, 3
-  br i1 %102, label %.sink.split, label %177
+  br i1 %102, label %.sink.split, label %176
 
 103:                                              ; preds = %96
-  %104 = icmp sgt i32 %.0167, 0
-  br i1 %104, label %105, label %154
+  %.not327 = icmp eq i32 %.0167, 0
+  br i1 %.not327, label %153, label %104
 
-105:                                              ; preds = %103
-  %106 = tail call i32 @get_log_level() #16
-  %107 = icmp sgt i32 %106, 3
-  br i1 %107, label %.sink.split, label %177
+104:                                              ; preds = %103
+  %105 = tail call i32 @get_log_level() #16
+  %106 = icmp sgt i32 %105, 3
+  br i1 %106, label %.sink.split, label %176
 
-108:                                              ; preds = %9
+107:                                              ; preds = %9
   store i8 0, ptr %12, align 1
-  %109 = icmp eq ptr %.0165, null
-  %110 = icmp eq i32 %.0175, 0
-  %or.cond9 = select i1 %109, i1 true, i1 %110
-  %111 = icmp ne i32 %.0169, 0
-  %or.cond11 = select i1 %or.cond9, i1 true, i1 %111
-  br i1 %or.cond11, label %112, label %154
+  %108 = icmp eq ptr %.0165, null
+  %109 = icmp eq i32 %.0175, 0
+  %or.cond9 = select i1 %108, i1 true, i1 %109
+  %110 = icmp ne i32 %.0169, 0
+  %or.cond11 = select i1 %or.cond9, i1 true, i1 %110
+  br i1 %or.cond11, label %111, label %153
 
-112:                                              ; preds = %108
-  %113 = tail call i32 @get_log_level() #16
-  %114 = icmp sgt i32 %113, 3
-  br i1 %114, label %.sink.split, label %177
+111:                                              ; preds = %107
+  %112 = tail call i32 @get_log_level() #16
+  %113 = icmp sgt i32 %112, 3
+  br i1 %113, label %.sink.split, label %176
 
-115:                                              ; preds = %9
+114:                                              ; preds = %9
   store i8 0, ptr %12, align 1
-  %116 = icmp ne ptr %.0165, null
-  %117 = icmp ne i32 %.0169, 0
-  %or.cond13 = select i1 %116, i1 true, i1 %117
-  br i1 %or.cond13, label %118, label %154
+  %115 = icmp ne ptr %.0165, null
+  %116 = icmp ne i32 %.0169, 0
+  %or.cond13 = select i1 %115, i1 true, i1 %116
+  br i1 %or.cond13, label %117, label %153
 
-118:                                              ; preds = %115
-  %119 = tail call i32 @get_log_level() #16
-  %120 = icmp sgt i32 %119, 3
-  br i1 %120, label %.sink.split, label %177
+117:                                              ; preds = %114
+  %118 = tail call i32 @get_log_level() #16
+  %119 = icmp sgt i32 %118, 3
+  br i1 %119, label %.sink.split, label %176
 
-121:                                              ; preds = %9
+120:                                              ; preds = %9
   store i8 0, ptr %12, align 1
-  %122 = icmp eq ptr %.0165, null
-  %123 = icmp eq i32 %.0169, 0
-  %or.cond15 = select i1 %122, i1 true, i1 %123
-  br i1 %or.cond15, label %124, label %154
+  %121 = icmp eq ptr %.0165, null
+  %122 = icmp eq i32 %.0169, 0
+  %or.cond15 = select i1 %121, i1 true, i1 %122
+  br i1 %or.cond15, label %123, label %153
 
-124:                                              ; preds = %121
-  %125 = tail call i32 @get_log_level() #16
-  %126 = icmp sgt i32 %125, 3
-  br i1 %126, label %.sink.split, label %177
+123:                                              ; preds = %120
+  %124 = tail call i32 @get_log_level() #16
+  %125 = icmp sgt i32 %124, 3
+  br i1 %125, label %.sink.split, label %176
 
-127:                                              ; preds = %9
+126:                                              ; preds = %9
   %.not183 = icmp eq ptr %.0165, null
-  br i1 %.not183, label %157, label %128
+  br i1 %.not183, label %156, label %127
 
-128:                                              ; preds = %127
-  %129 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 40, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.6, i32 noundef 4846, ptr noundef nonnull @__func__._feature_string2list) #16
-  %130 = trunc nuw nsw i32 %.0175 to i16
-  %131 = getelementptr inbounds nuw i8, ptr %129, i64 8
-  store i16 %130, ptr %131, align 8
-  %132 = tail call ptr @xstrdup(ptr noundef nonnull %.0165) #16
-  store ptr %132, ptr %129, align 8
-  %133 = tail call zeroext i1 @node_features_g_changeable_feature(ptr noundef nonnull %.0165) #16
-  %134 = getelementptr inbounds nuw i8, ptr %129, i64 10
-  %135 = zext i1 %133 to i8
-  store i8 %135, ptr %134, align 2
-  %136 = trunc i32 %.0173 to i16
-  %137 = getelementptr inbounds nuw i8, ptr %129, i64 12
-  store i16 %136, ptr %137, align 4
-  %138 = trunc nuw nsw i32 %.0169 to i16
-  %139 = getelementptr inbounds nuw i8, ptr %129, i64 32
-  store i16 %138, ptr %139, align 8
-  %140 = getelementptr inbounds nuw i8, ptr %129, i64 14
-  store i8 4, ptr %140, align 2
-  %141 = load ptr, ptr %2, align 8
-  tail call void @list_append(ptr noundef %141, ptr noundef nonnull %129) #16
-  %142 = load i8, ptr %134, align 2
-  %143 = or i8 %142, %.0162
-  br label %157
+127:                                              ; preds = %126
+  %128 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 40, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.6, i32 noundef 4846, ptr noundef nonnull @__func__._feature_string2list) #16
+  %129 = trunc nuw nsw i32 %.0175 to i16
+  %130 = getelementptr inbounds nuw i8, ptr %128, i64 8
+  store i16 %129, ptr %130, align 8
+  %131 = tail call ptr @xstrdup(ptr noundef nonnull %.0165) #16
+  store ptr %131, ptr %128, align 8
+  %132 = tail call zeroext i1 @node_features_g_changeable_feature(ptr noundef nonnull %.0165) #16
+  %133 = getelementptr inbounds nuw i8, ptr %128, i64 10
+  %134 = zext i1 %132 to i8
+  store i8 %134, ptr %133, align 2
+  %135 = trunc i32 %.0173 to i16
+  %136 = getelementptr inbounds nuw i8, ptr %128, i64 12
+  store i16 %135, ptr %136, align 4
+  %137 = trunc nuw nsw i32 %.0169 to i16
+  %138 = getelementptr inbounds nuw i8, ptr %128, i64 32
+  store i16 %137, ptr %138, align 8
+  %139 = getelementptr inbounds nuw i8, ptr %128, i64 14
+  store i8 4, ptr %139, align 2
+  %140 = load ptr, ptr %2, align 8
+  tail call void @list_append(ptr noundef %140, ptr noundef nonnull %128) #16
+  %141 = load i8, ptr %133, align 2
+  %142 = or i8 %141, %.0162
+  br label %156
 
-144:                                              ; preds = %9
-  %145 = icmp eq ptr %.0165, null
-  br i1 %145, label %154, label %146
+143:                                              ; preds = %9
+  %144 = icmp eq ptr %.0165, null
+  br i1 %144, label %153, label %145
 
-146:                                              ; preds = %144
+145:                                              ; preds = %143
   %.not182 = icmp eq i32 %.0171, 0
-  br i1 %.not182, label %154, label %147
+  br i1 %.not182, label %153, label %146
 
-147:                                              ; preds = %146
-  %148 = getelementptr i8, ptr %12, i64 -1
-  %149 = load i8, ptr %148, align 1
-  %150 = icmp eq i8 %149, 0
-  br i1 %150, label %151, label %154
+146:                                              ; preds = %145
+  %147 = getelementptr i8, ptr %12, i64 -1
+  %148 = load i8, ptr %147, align 1
+  %149 = icmp eq i8 %148, 0
+  br i1 %149, label %150, label %153
 
-151:                                              ; preds = %147
-  %152 = tail call i32 @get_log_level() #16
-  %153 = icmp sgt i32 %152, 3
-  br i1 %153, label %.sink.split, label %177
+150:                                              ; preds = %146
+  %151 = tail call i32 @get_log_level() #16
+  %152 = icmp sgt i32 %151, 3
+  br i1 %152, label %.sink.split, label %176
 
-154:                                              ; preds = %144, %121, %115, %108, %26, %93, %147, %146, %103, %63
-  %155 = phi ptr [ %15, %26 ], [ %10, %63 ], [ %10, %93 ], [ %10, %103 ], [ %10, %147 ], [ %10, %146 ], [ %10, %108 ], [ %10, %115 ], [ %10, %121 ], [ %10, %144 ]
-  %.1176 = phi i32 [ %.0175, %26 ], [ %.0175, %63 ], [ %.0175, %93 ], [ 1, %103 ], [ %.0175, %147 ], [ %.0175, %146 ], [ 0, %108 ], [ %.0175, %115 ], [ %.0175, %121 ], [ %.0175, %144 ]
-  %.1174 = phi i32 [ %19, %26 ], [ 0, %63 ], [ 0, %93 ], [ %.0173, %103 ], [ %.0173, %147 ], [ %.0173, %146 ], [ %.0173, %108 ], [ %.0173, %115 ], [ %.0173, %121 ], [ %.0173, %144 ]
-  %.1172 = phi i32 [ %32, %26 ], [ %.0171, %63 ], [ %.0171, %93 ], [ %.0171, %103 ], [ %.0171, %147 ], [ 0, %146 ], [ %.0171, %108 ], [ %.0171, %115 ], [ %.0171, %121 ], [ %.0171, %144 ]
-  %.1170 = phi i32 [ 0, %26 ], [ %.0169, %63 ], [ %.0169, %93 ], [ 0, %103 ], [ %.0169, %147 ], [ %.0169, %146 ], [ 0, %108 ], [ 1, %115 ], [ 0, %121 ], [ %.0169, %144 ]
-  %.1168 = phi i32 [ %.0167, %26 ], [ %.0167, %63 ], [ %.0167, %93 ], [ 1, %103 ], [ %.0167, %147 ], [ %.0167, %146 ], [ %.0167, %108 ], [ %.0167, %115 ], [ %.0167, %121 ], [ %.0167, %144 ]
-  %.1166 = phi ptr [ %.0165, %26 ], [ null, %63 ], [ null, %93 ], [ null, %103 ], [ %.0165, %147 ], [ %.0165, %146 ], [ %.0165, %108 ], [ null, %115 ], [ %.0165, %121 ], [ %12, %144 ]
-  %.2164 = phi i8 [ %.0162, %26 ], [ %53, %63 ], [ %85, %93 ], [ %.0162, %103 ], [ %.0162, %147 ], [ %.0162, %146 ], [ %.0162, %108 ], [ %.0162, %115 ], [ %.0162, %121 ], [ %.0162, %144 ]
-  %.1161 = phi i8 [ %.0160, %26 ], [ %.0160, %63 ], [ 1, %93 ], [ %.0160, %103 ], [ %.0160, %147 ], [ %.0160, %146 ], [ %.0160, %108 ], [ %.0160, %115 ], [ %.0160, %121 ], [ %.0160, %144 ]
-  %.2 = phi i1 [ %spec.select, %26 ], [ %.0159, %63 ], [ %.0159, %93 ], [ %.0159, %103 ], [ %.0159, %147 ], [ %.0159, %146 ], [ %.0159, %108 ], [ %.0159, %115 ], [ %.0159, %121 ], [ %.0159, %144 ]
-  %156 = add nsw i32 %.1172, 1
+153:                                              ; preds = %143, %120, %114, %107, %26, %93, %146, %145, %103, %63
+  %154 = phi ptr [ %15, %26 ], [ %10, %63 ], [ %10, %93 ], [ %10, %103 ], [ %10, %146 ], [ %10, %145 ], [ %10, %107 ], [ %10, %114 ], [ %10, %120 ], [ %10, %143 ]
+  %.1176 = phi i32 [ %.0175, %26 ], [ %.0175, %63 ], [ %.0175, %93 ], [ 1, %103 ], [ %.0175, %146 ], [ %.0175, %145 ], [ 0, %107 ], [ %.0175, %114 ], [ %.0175, %120 ], [ %.0175, %143 ]
+  %.1174 = phi i32 [ %19, %26 ], [ 0, %63 ], [ 0, %93 ], [ %.0173, %103 ], [ %.0173, %146 ], [ %.0173, %145 ], [ %.0173, %107 ], [ %.0173, %114 ], [ %.0173, %120 ], [ %.0173, %143 ]
+  %.1172 = phi i32 [ %32, %26 ], [ %.0171, %63 ], [ %.0171, %93 ], [ %.0171, %103 ], [ %.0171, %146 ], [ 0, %145 ], [ %.0171, %107 ], [ %.0171, %114 ], [ %.0171, %120 ], [ %.0171, %143 ]
+  %.1170 = phi i32 [ 0, %26 ], [ %.0169, %63 ], [ %.0169, %93 ], [ 0, %103 ], [ %.0169, %146 ], [ %.0169, %145 ], [ 0, %107 ], [ 1, %114 ], [ 0, %120 ], [ %.0169, %143 ]
+  %.1168 = phi i32 [ %.0167, %26 ], [ %.0167, %63 ], [ %.0167, %93 ], [ 1, %103 ], [ %.0167, %146 ], [ %.0167, %145 ], [ %.0167, %107 ], [ %.0167, %114 ], [ %.0167, %120 ], [ %.0167, %143 ]
+  %.1166 = phi ptr [ %.0165, %26 ], [ null, %63 ], [ null, %93 ], [ null, %103 ], [ %.0165, %146 ], [ %.0165, %145 ], [ %.0165, %107 ], [ null, %114 ], [ %.0165, %120 ], [ %12, %143 ]
+  %.2164 = phi i8 [ %.0162, %26 ], [ %53, %63 ], [ %85, %93 ], [ %.0162, %103 ], [ %.0162, %146 ], [ %.0162, %145 ], [ %.0162, %107 ], [ %.0162, %114 ], [ %.0162, %120 ], [ %.0162, %143 ]
+  %.1161 = phi i8 [ %.0160, %26 ], [ %.0160, %63 ], [ 1, %93 ], [ %.0160, %103 ], [ %.0160, %146 ], [ %.0160, %145 ], [ %.0160, %107 ], [ %.0160, %114 ], [ %.0160, %120 ], [ %.0160, %143 ]
+  %.2 = phi i1 [ %spec.select, %26 ], [ %.0159, %63 ], [ %.0159, %93 ], [ %.0159, %103 ], [ %.0159, %146 ], [ %.0159, %145 ], [ %.0159, %107 ], [ %.0159, %114 ], [ %.0159, %120 ], [ %.0159, %143 ]
+  %155 = add nsw i32 %.1172, 1
   br label %9
 
-157:                                              ; preds = %127, %128
-  %.1163 = phi i8 [ %143, %128 ], [ %.0162, %127 ]
+156:                                              ; preds = %126, %127
+  %.1163 = phi i8 [ %142, %127 ], [ %.0162, %126 ]
   %.not184 = icmp eq i32 %.0175, 0
-  br i1 %.not184, label %161, label %158
+  br i1 %.not184, label %160, label %157
 
-158:                                              ; preds = %157
-  %159 = tail call i32 @get_log_level() #16
-  %160 = icmp sgt i32 %159, 3
-  br i1 %160, label %.sink.split, label %177
+157:                                              ; preds = %156
+  %158 = tail call i32 @get_log_level() #16
+  %159 = icmp sgt i32 %158, 3
+  br i1 %159, label %.sink.split, label %176
 
-161:                                              ; preds = %157
+160:                                              ; preds = %156
   %.not185 = icmp eq i32 %.0169, 0
-  br i1 %.not185, label %165, label %162
+  br i1 %.not185, label %164, label %161
 
-162:                                              ; preds = %161
-  %163 = tail call i32 @get_log_level() #16
-  %164 = icmp sgt i32 %163, 3
-  br i1 %164, label %.sink.split, label %177
+161:                                              ; preds = %160
+  %162 = tail call i32 @get_log_level() #16
+  %163 = icmp sgt i32 %162, 3
+  br i1 %163, label %.sink.split, label %176
 
-165:                                              ; preds = %161
-  br i1 %.0159, label %166, label %173
+164:                                              ; preds = %160
+  br i1 %.0159, label %165, label %172
 
-166:                                              ; preds = %165
-  %167 = load ptr, ptr %2, align 8
-  %168 = tail call i32 @list_count(ptr noundef %167) #16
-  %169 = icmp sgt i32 %168, 1
-  br i1 %169, label %170, label %173
+165:                                              ; preds = %164
+  %166 = load ptr, ptr %2, align 8
+  %167 = tail call i32 @list_count(ptr noundef %166) #16
+  %168 = icmp sgt i32 %167, 1
+  br i1 %168, label %169, label %172
 
-170:                                              ; preds = %166
-  %171 = tail call i32 @get_log_level() #16
-  %172 = icmp sgt i32 %171, 3
-  br i1 %172, label %.sink.split, label %177
+169:                                              ; preds = %165
+  %170 = tail call i32 @get_log_level() #16
+  %171 = icmp sgt i32 %170, 3
+  br i1 %171, label %.sink.split, label %176
 
-173:                                              ; preds = %165, %166
-  %174 = trunc i8 %.1163 to i1
-  %175 = and i8 %.0160, 1
-  %176 = select i1 %174, i8 %175, i8 0
-  store i8 %176, ptr %3, align 1
-  br label %184
+172:                                              ; preds = %164, %165
+  %173 = trunc i8 %.1163 to i1
+  %174 = and i8 %.0160, 1
+  %175 = select i1 %173, i8 %174, i8 0
+  store i8 %175, ptr %3, align 1
+  br label %183
 
-.sink.split:                                      ; preds = %170, %162, %158, %151, %124, %118, %112, %105, %100, %67, %35, %23
-  %.str.116.sink = phi ptr [ @.str.116, %23 ], [ @.str.117, %35 ], [ @.str.118, %67 ], [ @.str.119, %100 ], [ @.str.120, %105 ], [ @.str.119, %112 ], [ @.str.121, %118 ], [ @.str.121, %124 ], [ @.str.122, %151 ], [ @.str.123, %158 ], [ @.str.124, %162 ], [ @.str.125, %170 ]
+.sink.split:                                      ; preds = %169, %161, %157, %150, %123, %117, %111, %104, %100, %67, %35, %23
+  %.str.116.sink = phi ptr [ @.str.116, %23 ], [ @.str.117, %35 ], [ @.str.118, %67 ], [ @.str.119, %100 ], [ @.str.120, %104 ], [ @.str.119, %111 ], [ @.str.121, %117 ], [ @.str.121, %123 ], [ @.str.122, %150 ], [ @.str.123, %157 ], [ @.str.124, %161 ], [ @.str.125, %169 ]
   tail call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull %.str.116.sink, ptr noundef %1, ptr noundef %0) #16
-  br label %177
+  br label %176
 
-177:                                              ; preds = %.sink.split, %23, %35, %67, %100, %105, %112, %118, %124, %151, %158, %162, %170
-  %178 = load ptr, ptr %2, align 8
-  %.not192 = icmp eq ptr %178, null
-  br i1 %.not192, label %180, label %179
+176:                                              ; preds = %.sink.split, %23, %35, %67, %100, %104, %111, %117, %123, %150, %157, %161, %169
+  %177 = load ptr, ptr %2, align 8
+  %.not192 = icmp eq ptr %177, null
+  br i1 %.not192, label %179, label %178
 
-179:                                              ; preds = %177
-  tail call void @list_destroy(ptr noundef nonnull %178) #16
-  br label %180
+178:                                              ; preds = %176
+  tail call void @list_destroy(ptr noundef nonnull %177) #16
+  br label %179
 
-180:                                              ; preds = %179, %177
+179:                                              ; preds = %178, %176
   store ptr null, ptr %2, align 8
-  %181 = tail call i32 @get_log_level() #16
-  %182 = icmp sgt i32 %181, 2
-  br i1 %182, label %183, label %184
+  %180 = tail call i32 @get_log_level() #16
+  %181 = icmp sgt i32 %180, 2
+  br i1 %181, label %182, label %183
 
-183:                                              ; preds = %180
+182:                                              ; preds = %179
   tail call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef nonnull @.str.126, ptr noundef %1, ptr noundef %0) #16
-  br label %184
+  br label %183
 
-184:                                              ; preds = %173, %180, %183
-  %.0196 = phi i32 [ 2029, %180 ], [ 2029, %183 ], [ 0, %173 ]
+183:                                              ; preds = %172, %179, %182
+  %.0196 = phi i32 [ 2029, %179 ], [ 2029, %182 ], [ 0, %172 ]
   call void @slurm_xfree(ptr noundef nonnull %5) #16
   ret i32 %.0196
 }

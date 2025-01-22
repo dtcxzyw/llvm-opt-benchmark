@@ -608,7 +608,7 @@ define void @dbdsvdx_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nounde
 
 378:                                              ; preds = %373
   %379 = sub nsw i32 %375, %369
-  %380 = sdiv i32 %379, 2
+  %380 = ashr exact i32 %379, 1
   %381 = add nsw i32 %380, 1
   %382 = zext i32 %369 to i64
   %383 = icmp eq i64 %374, %382

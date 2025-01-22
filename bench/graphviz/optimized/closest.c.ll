@@ -361,7 +361,7 @@ gv_alloc.exit.i.i:                                ; preds = %extractMax.exit.i
   br i1 %145, label %151, label %146
 
 146:                                              ; preds = %142
-  %147 = shl i64 %.sroa.8.0, 3
+  %147 = shl nuw i64 %.sroa.8.0, 3
   %148 = getelementptr inbounds i8, ptr %144, i64 %147
   %149 = sub nsw i64 %spec.select.i.i.i.i.i.i, %.sroa.8.0
   %150 = shl i64 %149, 3

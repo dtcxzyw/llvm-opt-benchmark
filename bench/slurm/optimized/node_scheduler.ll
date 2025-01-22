@@ -3328,7 +3328,7 @@ _set_err_msg.exit:                                ; preds = %226, %227, %.sink.s
   %263 = getelementptr inbounds nuw i8, ptr %262, i64 32
   %264 = load i16, ptr %263, align 8
   %265 = zext i16 %264 to i32
-  %266 = icmp slt i32 %.066128.i, %265
+  %266 = icmp samesign ult i32 %.066128.i, %265
   %267 = getelementptr inbounds nuw i8, ptr %262, i64 24
   br i1 %266, label %268, label %.thread.i
 

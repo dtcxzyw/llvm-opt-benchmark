@@ -2772,8 +2772,8 @@ Cec4_ObjSimEqual.exit76:                          ; preds = %.lr.ph.i63, %.lr.ph
   %71 = or disjoint i32 %70, %39
   store i32 %71, ptr %68, align 4
   %.val56 = load ptr, ptr %3, align 8
-  %72 = sext i32 %.040125 to i64
-  %73 = getelementptr inbounds i32, ptr %.val56, i64 %72
+  %72 = zext nneg i32 %.040125 to i64
+  %73 = getelementptr inbounds nuw i32, ptr %.val56, i64 %72
   store i32 %.043126, ptr %73, align 4
   br label %74
 
@@ -2785,24 +2785,27 @@ Cec4_ObjSimEqual.exit76:                          ; preds = %.lr.ph.i63, %.lr.ph
   %75 = getelementptr inbounds nuw i32, ptr %.val47, i64 %.pre-phi
   %.043 = load i32, ptr %75, align 4
   %76 = icmp sgt i32 %.043, 0
-  br i1 %76, label %40, label %._crit_edge, !llvm.loop !21
+  br i1 %76, label %40, label %._crit_edge.loopexit, !llvm.loop !21
 
-._crit_edge:                                      ; preds = %74, %Cec4_ObjSimEqual.exit
-  %.val57 = phi ptr [ %.val46, %Cec4_ObjSimEqual.exit ], [ %.val47, %74 ]
-  %.142.lcssa = phi i32 [ %.04198.us, %Cec4_ObjSimEqual.exit ], [ %.2, %74 ]
-  %.040.lcssa = phi i32 [ %.099.us, %Cec4_ObjSimEqual.exit ], [ %.1, %74 ]
+._crit_edge.loopexit:                             ; preds = %74
+  %.pre148 = zext nneg i32 %.1 to i64
+  br label %._crit_edge
+
+._crit_edge:                                      ; preds = %._crit_edge.loopexit, %Cec4_ObjSimEqual.exit
+  %.pre-phi149 = phi i64 [ %.pre148, %._crit_edge.loopexit ], [ %33, %Cec4_ObjSimEqual.exit ]
+  %.val57 = phi ptr [ %.val47, %._crit_edge.loopexit ], [ %.val46, %Cec4_ObjSimEqual.exit ]
+  %.142.lcssa = phi i32 [ %.2, %._crit_edge.loopexit ], [ %.04198.us, %Cec4_ObjSimEqual.exit ]
   %77 = sext i32 %.142.lcssa to i64
   %78 = getelementptr inbounds i32, ptr %.val57, i64 %77
   store i32 -1, ptr %78, align 4
   %.val58 = load ptr, ptr %3, align 8
-  %79 = sext i32 %.040.lcssa to i64
-  %80 = getelementptr inbounds i32, ptr %.val58, i64 %79
-  store i32 -1, ptr %80, align 4
+  %79 = getelementptr inbounds nuw i32, ptr %.val58, i64 %.pre-phi149
+  store i32 -1, ptr %79, align 4
   %.val48 = load ptr, ptr %3, align 8
-  %81 = getelementptr inbounds nuw i32, ptr %.val48, i64 %33
-  %82 = load i32, ptr %81, align 4
-  %83 = icmp sgt i32 %82, 0
-  br i1 %83, label %tailrecurse, label %Cec4_ObjSimEqual.exit.thread79
+  %80 = getelementptr inbounds nuw i32, ptr %.val48, i64 %33
+  %81 = load i32, ptr %80, align 4
+  %82 = icmp sgt i32 %81, 0
+  br i1 %82, label %tailrecurse, label %Cec4_ObjSimEqual.exit.thread79
 
 Cec4_ObjSimEqual.exit.thread79:                   ; preds = %._crit_edge, %tailrecurse, %.lr.ph, %.loopexit85.us
   ret void
@@ -9641,11 +9644,7 @@ Gia_ObjReprObj.exit:                              ; preds = %10, %17
   %26 = load i32, ptr %25, align 4
   %.unshifted79 = xor i32 %26, %24
   %27 = icmp ult i32 %.unshifted79, 2
-  br i1 %27, label %._crit_edge110, label %28
-
-._crit_edge110:                                   ; preds = %22
-  %.pre = zext nneg i32 %.05083 to i64
-  br label %35
+  br i1 %27, label %35, label %28
 
 28:                                               ; preds = %22, %Gia_ObjReprObj.exit
   %29 = or i32 %14, 268435455
@@ -9653,8 +9652,8 @@ Gia_ObjReprObj.exit:                              ; preds = %10, %17
   %.val65 = load ptr, ptr %2, align 8
   %30 = getelementptr inbounds nuw i32, ptr %.val65, i64 %12
   %31 = load i32, ptr %30, align 4
-  %32 = sext i32 %.05381 to i64
-  %33 = getelementptr inbounds i32, ptr %.val65, i64 %32
+  %32 = zext nneg i32 %.05381 to i64
+  %33 = getelementptr inbounds nuw i32, ptr %.val65, i64 %32
   store i32 %31, ptr %33, align 4
   %.val71 = load ptr, ptr %2, align 8
   %34 = getelementptr inbounds nuw i32, ptr %.val71, i64 %12
@@ -9662,17 +9661,17 @@ Gia_ObjReprObj.exit:                              ; preds = %10, %17
   %.val64.pre = load ptr, ptr %2, align 8
   br label %35
 
-35:                                               ; preds = %._crit_edge110, %28
-  %.pre-phi = phi i64 [ %.pre, %._crit_edge110 ], [ %32, %28 ]
-  %.val64 = phi ptr [ %.val6496, %._crit_edge110 ], [ %.val64.pre, %28 ]
-  %.154 = phi i32 [ %.05083, %._crit_edge110 ], [ %.05381, %28 ]
-  %36 = getelementptr inbounds i32, ptr %.val64, i64 %.pre-phi
+35:                                               ; preds = %22, %28
+  %.pre-phi = phi i64 [ %12, %22 ], [ %32, %28 ]
+  %.val64 = phi ptr [ %.val6496, %22 ], [ %.val64.pre, %28 ]
+  %.154 = phi i32 [ %.05083, %22 ], [ %.05381, %28 ]
+  %36 = getelementptr inbounds nuw i32, ptr %.val64, i64 %.pre-phi
   %.050 = load i32, ptr %36, align 4
   %37 = icmp sgt i32 %.050, -1
   br i1 %37, label %10, label %.preheader, !llvm.loop !72
 
 38:                                               ; preds = %.lr.ph94, %Gia_ObjIsHead.exit.thread
-  %.val107 = phi i32 [ %.val90, %.lr.ph94 ], [ %.val, %Gia_ObjIsHead.exit.thread ]
+  %.val108 = phi i32 [ %.val90, %.lr.ph94 ], [ %.val, %Gia_ObjIsHead.exit.thread ]
   %.val61103 = phi ptr [ %.val.i75100, %.lr.ph94 ], [ %.val61104, %Gia_ObjIsHead.exit.thread ]
   %.val63 = phi ptr [ %.val.i75100, %.lr.ph94 ], [ %.val63102, %Gia_ObjIsHead.exit.thread ]
   %.val.i75 = phi ptr [ %.val.i75100, %.lr.ph94 ], [ %.val.i7599, %Gia_ObjIsHead.exit.thread ]
@@ -9732,11 +9731,7 @@ Gia_ObjReprObj.exit77:                            ; preds = %.lr.ph88, %56
   %65 = load i32, ptr %64, align 4
   %.unshifted = xor i32 %65, %63
   %66 = icmp ult i32 %.unshifted, 2
-  br i1 %66, label %._crit_edge109, label %67
-
-._crit_edge109:                                   ; preds = %61
-  %.pre111 = zext nneg i32 %.187 to i64
-  br label %74
+  br i1 %66, label %74, label %67
 
 67:                                               ; preds = %61, %Gia_ObjReprObj.exit77
   %68 = or i32 %53, 268435455
@@ -9744,8 +9739,8 @@ Gia_ObjReprObj.exit77:                            ; preds = %.lr.ph88, %56
   %.val62 = load ptr, ptr %2, align 8
   %69 = getelementptr inbounds nuw i32, ptr %.val62, i64 %51
   %70 = load i32, ptr %69, align 4
-  %71 = sext i32 %.25585 to i64
-  %72 = getelementptr inbounds i32, ptr %.val62, i64 %71
+  %71 = zext nneg i32 %.25585 to i64
+  %72 = getelementptr inbounds nuw i32, ptr %.val62, i64 %71
   store i32 %70, ptr %72, align 4
   %.val69 = load ptr, ptr %2, align 8
   %73 = getelementptr inbounds nuw i32, ptr %.val69, i64 %51
@@ -9753,11 +9748,11 @@ Gia_ObjReprObj.exit77:                            ; preds = %.lr.ph88, %56
   %.val61.pre = load ptr, ptr %2, align 8
   br label %74
 
-74:                                               ; preds = %._crit_edge109, %67
-  %.pre-phi112 = phi i64 [ %.pre111, %._crit_edge109 ], [ %71, %67 ]
-  %.val61 = phi ptr [ %.val61105, %._crit_edge109 ], [ %.val61.pre, %67 ]
-  %.356 = phi i32 [ %.187, %._crit_edge109 ], [ %.25585, %67 ]
-  %75 = getelementptr inbounds i32, ptr %.val61, i64 %.pre-phi112
+74:                                               ; preds = %61, %67
+  %.pre-phi107 = phi i64 [ %51, %61 ], [ %71, %67 ]
+  %.val61 = phi ptr [ %.val61105, %61 ], [ %.val61.pre, %67 ]
+  %.356 = phi i32 [ %.187, %61 ], [ %.25585, %67 ]
+  %75 = getelementptr inbounds nuw i32, ptr %.val61, i64 %.pre-phi107
   %.1 = load i32, ptr %75, align 4
   %76 = icmp sgt i32 %.1, -1
   br i1 %76, label %.lr.ph88, label %Gia_ObjIsHead.exit.thread.loopexit, !llvm.loop !73
@@ -9767,7 +9762,7 @@ Gia_ObjIsHead.exit.thread.loopexit:               ; preds = %74
   br label %Gia_ObjIsHead.exit.thread
 
 Gia_ObjIsHead.exit.thread:                        ; preds = %Gia_ObjIsHead.exit.thread.loopexit, %46, %38, %Gia_ObjIsHead.exit
-  %.val = phi i32 [ %.val107, %Gia_ObjIsHead.exit ], [ %.val107, %38 ], [ %.val107, %46 ], [ %.val.pre, %Gia_ObjIsHead.exit.thread.loopexit ]
+  %.val = phi i32 [ %.val108, %Gia_ObjIsHead.exit ], [ %.val108, %38 ], [ %.val108, %46 ], [ %.val.pre, %Gia_ObjIsHead.exit.thread.loopexit ]
   %.val61104 = phi ptr [ %.val61103, %Gia_ObjIsHead.exit ], [ %.val61103, %38 ], [ %.val61103, %46 ], [ %.val61, %Gia_ObjIsHead.exit.thread.loopexit ]
   %.val63102 = phi ptr [ %.val63, %Gia_ObjIsHead.exit ], [ %.val63, %38 ], [ %.val63, %46 ], [ %.val61, %Gia_ObjIsHead.exit.thread.loopexit ]
   %.val.i7599 = phi ptr [ %.val.i75, %Gia_ObjIsHead.exit ], [ %.val.i75, %38 ], [ %.val63, %46 ], [ %.val61, %Gia_ObjIsHead.exit.thread.loopexit ]

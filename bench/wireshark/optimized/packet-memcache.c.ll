@@ -1563,7 +1563,7 @@ get_response_dissector.exit:                      ; preds = %18, %20, %23, %28, 
   br i1 %168, label %.sink.split.i.i, label %169
 
 169:                                              ; preds = %167
-  %170 = add i32 %.01520.i.i, 1
+  %170 = add nuw nsw i32 %.01520.i.i, 1
   %171 = icmp eq i32 %170, 2
   br i1 %171, label %.sink.split.i.i, label %find_stat_colon.exit.i
 

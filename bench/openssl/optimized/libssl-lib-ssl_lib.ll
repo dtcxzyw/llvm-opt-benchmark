@@ -14145,7 +14145,6 @@ for.body.lr.ph.i:                                 ; preds = %for.cond.preheader.
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.inc.i, %for.body.lr.ph.i
-  %scts_extracted.119.i = phi i32 [ 0, %for.body.lr.ph.i ], [ %scts_extracted.2.i, %for.inc.i ]
   %i.018.i = phi i32 [ 0, %for.body.lr.ph.i ], [ %inc.i, %for.inc.i ]
   %scts.117.i = phi ptr [ null, %for.body.lr.ph.i ], [ %scts.2.i, %for.inc.i ]
   %call23.i = call ptr @OCSP_resp_get0(ptr noundef nonnull %call15.i, i32 noundef %i.018.i) #24
@@ -14156,66 +14155,60 @@ if.end27.i:                                       ; preds = %for.body.i
   %call28.i = call ptr @OCSP_SINGLERESP_get1_ext_d2i(ptr noundef nonnull %call23.i, i32 noundef 954, ptr noundef null, ptr noundef null) #24
   %call30.i = call fastcc i32 @ct_move_scts(ptr noundef %scts29.i, ptr noundef %call28.i, i32 noundef 3)
   %cmp31.i = icmp slt i32 %call30.i, 0
-  br i1 %cmp31.i, label %ct_extract_ocsp_response_scts.exit.loopexit, label %for.inc.i
+  br i1 %cmp31.i, label %ct_extract_ocsp_response_scts.exit, label %for.inc.i
 
 for.inc.i:                                        ; preds = %if.end27.i, %for.body.i
   %scts.2.i = phi ptr [ %scts.117.i, %for.body.i ], [ %call28.i, %if.end27.i ]
-  %scts_extracted.2.i = phi i32 [ %scts_extracted.119.i, %for.body.i ], [ %call30.i, %if.end27.i ]
   %inc.i = add nuw nsw i32 %i.018.i, 1
   %call20.i = call i32 @OCSP_resp_count(ptr noundef nonnull %call15.i) #24
   %cmp21.i = icmp slt i32 %inc.i, %call20.i
-  br i1 %cmp21.i, label %for.body.i, label %ct_extract_ocsp_response_scts.exit.loopexit, !llvm.loop !21
+  br i1 %cmp21.i, label %for.body.i, label %lor.lhs.false17.critedge, !llvm.loop !21
 
-ct_extract_ocsp_response_scts.exit.loopexit:      ; preds = %for.inc.i, %if.end27.i
-  %scts.0.i.ph = phi ptr [ %call28.i, %if.end27.i ], [ %scts.2.i, %for.inc.i ]
-  %scts_extracted.0.i13.ph = phi i32 [ %call30.i, %if.end27.i ], [ %scts_extracted.2.i, %for.inc.i ]
-  %7 = icmp slt i32 %scts_extracted.0.i13.ph, 0
-  call void @SCT_LIST_free(ptr noundef %scts.0.i.ph) #24
+ct_extract_ocsp_response_scts.exit:               ; preds = %if.end27.i
+  call void @SCT_LIST_free(ptr noundef %call28.i) #24
   call void @OCSP_BASICRESP_free(ptr noundef nonnull %call15.i) #24
   call void @OCSP_RESPONSE_free(ptr noundef nonnull %call.i12) #24
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %p.i11)
-  br i1 %7, label %return, label %lor.lhs.false17
+  br label %return
 
-lor.lhs.false17.critedge:                         ; preds = %for.cond.preheader.i, %if.end14.i, %if.end.i, %lor.lhs.false.i, %lor.lhs.false
-  %br.0.i.ph = phi ptr [ %call15.i, %for.cond.preheader.i ], [ null, %if.end14.i ], [ null, %if.end.i ], [ null, %lor.lhs.false.i ], [ null, %lor.lhs.false ]
-  %rsp.0.i.ph = phi ptr [ %call.i12, %for.cond.preheader.i ], [ %call.i12, %if.end14.i ], [ null, %if.end.i ], [ null, %lor.lhs.false.i ], [ null, %lor.lhs.false ]
-  call void @SCT_LIST_free(ptr noundef null) #24
+lor.lhs.false17.critedge:                         ; preds = %for.inc.i, %for.cond.preheader.i, %if.end14.i, %if.end.i, %lor.lhs.false.i, %lor.lhs.false
+  %br.0.i.ph = phi ptr [ %call15.i, %for.cond.preheader.i ], [ null, %if.end14.i ], [ null, %if.end.i ], [ null, %lor.lhs.false.i ], [ null, %lor.lhs.false ], [ %call15.i, %for.inc.i ]
+  %rsp.0.i.ph = phi ptr [ %call.i12, %for.cond.preheader.i ], [ %call.i12, %if.end14.i ], [ null, %if.end.i ], [ null, %lor.lhs.false.i ], [ null, %lor.lhs.false ], [ %call.i12, %for.inc.i ]
+  %scts.0.i.ph = phi ptr [ null, %for.cond.preheader.i ], [ null, %if.end14.i ], [ null, %if.end.i ], [ null, %lor.lhs.false.i ], [ null, %lor.lhs.false ], [ %scts.2.i, %for.inc.i ]
+  call void @SCT_LIST_free(ptr noundef %scts.0.i.ph) #24
   call void @OCSP_BASICRESP_free(ptr noundef %br.0.i.ph) #24
   call void @OCSP_RESPONSE_free(ptr noundef %rsp.0.i.ph) #24
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %p.i11)
-  br label %lor.lhs.false17
-
-lor.lhs.false17:                                  ; preds = %lor.lhs.false17.critedge, %ct_extract_ocsp_response_scts.exit.loopexit
   %session.i = getelementptr inbounds nuw i8, ptr %cond1124, i64 2176
-  %8 = load ptr, ptr %session.i, align 8
-  %cmp.not.i14 = icmp eq ptr %8, null
+  %7 = load ptr, ptr %session.i, align 8
+  %cmp.not.i14 = icmp eq ptr %7, null
   br i1 %cmp.not.i14, label %if.end21, label %cond.end.i
 
-cond.end.i:                                       ; preds = %lor.lhs.false17
-  %peer.i = getelementptr inbounds nuw i8, ptr %8, i64 704
-  %9 = load ptr, ptr %peer.i, align 8
-  %cmp2.not.i = icmp eq ptr %9, null
+cond.end.i:                                       ; preds = %lor.lhs.false17.critedge
+  %peer.i = getelementptr inbounds nuw i8, ptr %7, i64 704
+  %8 = load ptr, ptr %peer.i, align 8
+  %cmp2.not.i = icmp eq ptr %8, null
   br i1 %cmp2.not.i, label %if.end21, label %ct_extract_x509v3_extension_scts.exit
 
 ct_extract_x509v3_extension_scts.exit:            ; preds = %cond.end.i
-  %call.i16 = call ptr @X509_get_ext_d2i(ptr noundef nonnull %9, i32 noundef 951, ptr noundef null, ptr noundef null) #24
+  %call.i16 = call ptr @X509_get_ext_d2i(ptr noundef nonnull %8, i32 noundef 951, ptr noundef null, ptr noundef null) #24
   %scts3.i = getelementptr inbounds nuw i8, ptr %cond1124, i64 2776
   %call4.i = call fastcc i32 @ct_move_scts(ptr noundef %scts3.i, ptr noundef %call.i16, i32 noundef 2)
   call void @SCT_LIST_free(ptr noundef %call.i16) #24
   %cmp19 = icmp slt i32 %call4.i, 0
   br i1 %cmp19, label %return, label %if.end21
 
-if.end21:                                         ; preds = %lor.lhs.false17, %cond.end.i, %ct_extract_x509v3_extension_scts.exit
+if.end21:                                         ; preds = %lor.lhs.false17.critedge, %cond.end.i, %ct_extract_x509v3_extension_scts.exit
   store i32 1, ptr %scts_parsed, align 8
   br label %if.end23
 
 if.end23:                                         ; preds = %if.end21, %if.end
   %scts = getelementptr inbounds nuw i8, ptr %cond1124, i64 2776
-  %10 = load ptr, ptr %scts, align 8
+  %9 = load ptr, ptr %scts, align 8
   br label %return
 
-return:                                           ; preds = %cond.false, %entry, %ct_extract_x509v3_extension_scts.exit, %ct_extract_ocsp_response_scts.exit.loopexit, %ct_extract_tls_extension_scts.exit, %cond.end10, %if.end23
-  %retval.0 = phi ptr [ %10, %if.end23 ], [ null, %cond.end10 ], [ null, %ct_extract_tls_extension_scts.exit ], [ null, %ct_extract_ocsp_response_scts.exit.loopexit ], [ null, %ct_extract_x509v3_extension_scts.exit ], [ null, %entry ], [ null, %cond.false ]
+return:                                           ; preds = %ct_extract_ocsp_response_scts.exit, %cond.false, %entry, %ct_extract_x509v3_extension_scts.exit, %ct_extract_tls_extension_scts.exit, %cond.end10, %if.end23
+  %retval.0 = phi ptr [ %9, %if.end23 ], [ null, %cond.end10 ], [ null, %ct_extract_tls_extension_scts.exit ], [ null, %ct_extract_ocsp_response_scts.exit ], [ null, %ct_extract_x509v3_extension_scts.exit ], [ null, %entry ], [ null, %cond.false ]
   ret ptr %retval.0
 }
 

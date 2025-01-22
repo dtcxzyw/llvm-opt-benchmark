@@ -546,7 +546,7 @@ define void @_ZN8WasmEdge8Executor8Executor11instantiateERNS_7Runtime12StoreMana
   br i1 %36, label %37, label %39
 
 37:                                               ; preds = %32
-  %38 = icmp ult i64 %.079.i.i, 2
+  %38 = icmp samesign ult i64 %.079.i.i, 2
   br i1 %38, label %_ZSt17holds_alternativeIN8WasmEdge3AST9Component8CoreSortEJS3_NS2_8SortCaseEEEbRKSt7variantIJDpT0_EE.exit, label %39
 
 39:                                               ; preds = %37, %32

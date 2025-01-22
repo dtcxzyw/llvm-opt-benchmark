@@ -12145,9 +12145,9 @@ _ZN14__gnu_parallel10_LoserTreeILb0ESt4pairIfjEZN7xgboost6metric7EvalAMS4EvalERK
   %125 = icmp sgt i64 %3, 0
   br i1 %125, label %.lr.ph94, label %._crit_edge95
 
-.lr.ph94:                                         ; preds = %_ZN14__gnu_parallel10_LoserTreeILb0ESt4pairIfjEZN7xgboost6metric7EvalAMS4EvalERKNS3_16HostDeviceVectorIfEERKNS3_8MetaInfoEEUlRKT_RKT0_E_E6__initEv.exit, %193
-  %.02993 = phi i64 [ %199, %193 ], [ 0, %_ZN14__gnu_parallel10_LoserTreeILb0ESt4pairIfjEZN7xgboost6metric7EvalAMS4EvalERKNS3_16HostDeviceVectorIfEERKNS3_8MetaInfoEEUlRKT_RKT0_E_E6__initEv.exit ]
-  %.sroa.075.092 = phi ptr [ %133, %193 ], [ %2, %_ZN14__gnu_parallel10_LoserTreeILb0ESt4pairIfjEZN7xgboost6metric7EvalAMS4EvalERKNS3_16HostDeviceVectorIfEERKNS3_8MetaInfoEEUlRKT_RKT0_E_E6__initEv.exit ]
+.lr.ph94:                                         ; preds = %_ZN14__gnu_parallel10_LoserTreeILb0ESt4pairIfjEZN7xgboost6metric7EvalAMS4EvalERKNS3_16HostDeviceVectorIfEERKNS3_8MetaInfoEEUlRKT_RKT0_E_E6__initEv.exit, %191
+  %.02993 = phi i64 [ %197, %191 ], [ 0, %_ZN14__gnu_parallel10_LoserTreeILb0ESt4pairIfjEZN7xgboost6metric7EvalAMS4EvalERKNS3_16HostDeviceVectorIfEERKNS3_8MetaInfoEEUlRKT_RKT0_E_E6__initEv.exit ]
+  %.sroa.075.092 = phi ptr [ %133, %191 ], [ %2, %_ZN14__gnu_parallel10_LoserTreeILb0ESt4pairIfjEZN7xgboost6metric7EvalAMS4EvalERKNS3_16HostDeviceVectorIfEERKNS3_8MetaInfoEEUlRKT_RKT0_E_E6__initEv.exit ]
   %126 = load ptr, ptr %25, align 8
   %127 = getelementptr inbounds nuw i8, ptr %126, i64 4
   %128 = load i32, ptr %127, align 4
@@ -12171,7 +12171,7 @@ _ZN14__gnu_parallel10_LoserTreeILb0ESt4pairIfjEZN7xgboost6metric7EvalAMS4EvalERK
   %143 = load i32, ptr %19, align 4
   %144 = add i32 %143, %142
   %.not18.i = icmp ult i32 %144, 2
-  br i1 %141, label %145, label %169
+  br i1 %141, label %145, label %168
 
 145:                                              ; preds = %.lr.ph94
   %.sroa.01.0.copyload = load i64, ptr %.0.lcssa101, align 4
@@ -12188,7 +12188,7 @@ _ZN14__gnu_parallel10_LoserTreeILb0ESt4pairIfjEZN7xgboost6metric7EvalAMS4EvalERK
   %.sroa.0.020.i = phi float [ %.sroa.0.1.i, %166 ], [ %146, %145 ]
   %.sroa.5.019.i = phi i32 [ %.sroa.5.1.i, %166 ], [ %.sroa.5.0.extract.trunc.i, %145 ]
   %.023.i = lshr i32 %.023.in.i, 1
-  %147 = trunc i8 %.01521.i to i1
+  %147 = trunc nuw i8 %.01521.i to i1
   %.pre.i43 = load ptr, ptr %25, align 8
   %.phi.trans.insert.i = zext nneg i32 %.023.i to i64
   %.phi.trans.insert27.i = getelementptr inbounds nuw %"struct.__gnu_parallel::_LoserTreeBase<std::pair<float, unsigned int>, (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/xgboost/xgboost/src/metric/rank_metric.cc:72:18)>::_Loser", ptr %.pre.i43, i64 %.phi.trans.insert.i
@@ -12211,8 +12211,8 @@ _ZN14__gnu_parallel10_LoserTreeILb0ESt4pairIfjEZN7xgboost6metric7EvalAMS4EvalERK
 
 155:                                              ; preds = %151, %.lr.ph._crit_edge.i
   %156 = phi i8 [ %.pre28.i, %.lr.ph._crit_edge.i ], [ %149, %151 ]
-  %157 = and i8 %.01521.i, 1
-  store i8 %157, ptr %.phi.trans.insert27.i, align 1
+  %157 = and i8 %156, 1
+  store i8 %.01521.i, ptr %.phi.trans.insert27.i, align 1
   %158 = load ptr, ptr %25, align 8
   %159 = getelementptr inbounds nuw %"struct.__gnu_parallel::_LoserTreeBase<std::pair<float, unsigned int>, (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/xgboost/xgboost/src/metric/rank_metric.cc:72:18)>::_Loser", ptr %158, i64 %.phi.trans.insert.i, i32 1
   %160 = load i32, ptr %159, align 4
@@ -12229,120 +12229,118 @@ _ZN14__gnu_parallel10_LoserTreeILb0ESt4pairIfjEZN7xgboost6metric7EvalAMS4EvalERK
 166:                                              ; preds = %155, %151, %148
   %.sroa.5.1.i = phi i32 [ %165, %155 ], [ %.sroa.5.019.i, %148 ], [ %.sroa.5.019.i, %151 ]
   %.sroa.0.1.i = phi float [ %163, %155 ], [ %.sroa.0.020.i, %148 ], [ %.sroa.0.020.i, %151 ]
-  %.116.i = phi i8 [ %156, %155 ], [ %.01521.i, %148 ], [ %.01521.i, %151 ]
+  %.116.i = phi i8 [ %157, %155 ], [ %.01521.i, %148 ], [ %.01521.i, %151 ]
   %.1.i = phi i32 [ %160, %155 ], [ %.01422.i, %148 ], [ %.01422.i, %151 ]
   %.not.i44 = icmp ult i32 %.023.in.i, 4
   br i1 %.not.i44, label %._crit_edge.loopexit.i, label %.lr.ph.i42, !llvm.loop !168
 
 ._crit_edge.loopexit.i:                           ; preds = %166
   %.pre29.i = load ptr, ptr %25, align 8
-  %167 = and i8 %.116.i, 1
   br label %_ZN14__gnu_parallel10_LoserTreeILb0ESt4pairIfjEZN7xgboost6metric7EvalAMS4EvalERKNS3_16HostDeviceVectorIfEERKNS3_8MetaInfoEEUlRKT_RKT0_E_E19__delete_min_insertES2_b.exit
 
 _ZN14__gnu_parallel10_LoserTreeILb0ESt4pairIfjEZN7xgboost6metric7EvalAMS4EvalERKNS3_16HostDeviceVectorIfEERKNS3_8MetaInfoEEUlRKT_RKT0_E_E19__delete_min_insertES2_b.exit: ; preds = %145, %._crit_edge.loopexit.i
-  %168 = phi ptr [ %126, %145 ], [ %.pre29.i, %._crit_edge.loopexit.i ]
+  %167 = phi ptr [ %126, %145 ], [ %.pre29.i, %._crit_edge.loopexit.i ]
   %.sroa.5.0.lcssa.i = phi i32 [ %.sroa.5.0.extract.trunc.i, %145 ], [ %.sroa.5.1.i, %._crit_edge.loopexit.i ]
   %.sroa.0.0.lcssa.i = phi float [ %146, %145 ], [ %.sroa.0.1.i, %._crit_edge.loopexit.i ]
-  %.015.lcssa.i = phi i8 [ 1, %145 ], [ %167, %._crit_edge.loopexit.i ]
+  %.015.lcssa.i = phi i8 [ 1, %145 ], [ %.116.i, %._crit_edge.loopexit.i ]
   %.014.lcssa.i = phi i32 [ %142, %145 ], [ %.1.i, %._crit_edge.loopexit.i ]
-  store i8 %.015.lcssa.i, ptr %168, align 4
-  br label %193
+  store i8 %.015.lcssa.i, ptr %167, align 4
+  br label %191
 
-169:                                              ; preds = %.lr.ph94
+168:                                              ; preds = %.lr.ph94
   %.sroa.0.0.copyload = load i64, ptr %138, align 4
   %.sroa.0.0.extract.trunc.i46 = trunc i64 %.sroa.0.0.copyload to i32
-  %170 = bitcast i32 %.sroa.0.0.extract.trunc.i46 to float
+  %169 = bitcast i32 %.sroa.0.0.extract.trunc.i46 to float
   %.sroa.5.0.extract.shift.i47 = lshr i64 %.sroa.0.0.copyload, 32
   %.sroa.5.0.extract.trunc.i48 = trunc nuw i64 %.sroa.5.0.extract.shift.i47 to i32
   br i1 %.not18.i, label %_ZN14__gnu_parallel10_LoserTreeILb0ESt4pairIfjEZN7xgboost6metric7EvalAMS4EvalERKNS3_16HostDeviceVectorIfEERKNS3_8MetaInfoEEUlRKT_RKT0_E_E19__delete_min_insertES2_b.exit74, label %.lr.ph.i50
 
-.lr.ph.i50:                                       ; preds = %169, %190
-  %.023.in.i51 = phi i32 [ %.023.i56, %190 ], [ %144, %169 ]
-  %.01422.i52 = phi i32 [ %.1.i63, %190 ], [ %142, %169 ]
-  %.01521.i53 = phi i8 [ %.116.i62, %190 ], [ 0, %169 ]
-  %.sroa.0.020.i54 = phi float [ %.sroa.0.1.i61, %190 ], [ %170, %169 ]
-  %.sroa.5.019.i55 = phi i32 [ %.sroa.5.1.i60, %190 ], [ %.sroa.5.0.extract.trunc.i48, %169 ]
+.lr.ph.i50:                                       ; preds = %168, %189
+  %.023.in.i51 = phi i32 [ %.023.i56, %189 ], [ %144, %168 ]
+  %.01422.i52 = phi i32 [ %.1.i63, %189 ], [ %142, %168 ]
+  %.01521.i53 = phi i8 [ %.116.i62, %189 ], [ 0, %168 ]
+  %.sroa.0.020.i54 = phi float [ %.sroa.0.1.i61, %189 ], [ %169, %168 ]
+  %.sroa.5.019.i55 = phi i32 [ %.sroa.5.1.i60, %189 ], [ %.sroa.5.0.extract.trunc.i48, %168 ]
   %.023.i56 = lshr i32 %.023.in.i51, 1
-  %171 = trunc i8 %.01521.i53 to i1
+  %170 = trunc nuw i8 %.01521.i53 to i1
   %.pre.i57 = load ptr, ptr %25, align 8
   %.phi.trans.insert.i58 = zext nneg i32 %.023.i56 to i64
   %.phi.trans.insert27.i59 = getelementptr inbounds nuw %"struct.__gnu_parallel::_LoserTreeBase<std::pair<float, unsigned int>, (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/xgboost/xgboost/src/metric/rank_metric.cc:72:18)>::_Loser", ptr %.pre.i57, i64 %.phi.trans.insert.i58
-  br i1 %171, label %.lr.ph._crit_edge.i72, label %172
+  br i1 %170, label %.lr.ph._crit_edge.i72, label %171
 
 .lr.ph._crit_edge.i72:                            ; preds = %.lr.ph.i50
   %.pre28.i73 = load i8, ptr %.phi.trans.insert27.i59, align 1
-  br label %179
+  br label %178
 
-172:                                              ; preds = %.lr.ph.i50
-  %173 = load i8, ptr %.phi.trans.insert27.i59, align 4
-  %174 = trunc i8 %173 to i1
-  br i1 %174, label %190, label %175
+171:                                              ; preds = %.lr.ph.i50
+  %172 = load i8, ptr %.phi.trans.insert27.i59, align 4
+  %173 = trunc i8 %172 to i1
+  br i1 %173, label %189, label %174
 
-175:                                              ; preds = %172
-  %176 = getelementptr inbounds nuw i8, ptr %.phi.trans.insert27.i59, i64 8
-  %177 = load float, ptr %176, align 4
-  %178 = fcmp ogt float %177, %.sroa.0.020.i54
-  br i1 %178, label %179, label %190
+174:                                              ; preds = %171
+  %175 = getelementptr inbounds nuw i8, ptr %.phi.trans.insert27.i59, i64 8
+  %176 = load float, ptr %175, align 4
+  %177 = fcmp ogt float %176, %.sroa.0.020.i54
+  br i1 %177, label %178, label %189
 
-179:                                              ; preds = %175, %.lr.ph._crit_edge.i72
-  %180 = phi i8 [ %.pre28.i73, %.lr.ph._crit_edge.i72 ], [ %173, %175 ]
-  %181 = and i8 %.01521.i53, 1
-  store i8 %181, ptr %.phi.trans.insert27.i59, align 1
-  %182 = load ptr, ptr %25, align 8
-  %183 = getelementptr inbounds nuw %"struct.__gnu_parallel::_LoserTreeBase<std::pair<float, unsigned int>, (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/xgboost/xgboost/src/metric/rank_metric.cc:72:18)>::_Loser", ptr %182, i64 %.phi.trans.insert.i58, i32 1
-  %184 = load i32, ptr %183, align 4
-  store i32 %.01422.i52, ptr %183, align 4
-  %185 = load ptr, ptr %25, align 8
-  %186 = getelementptr inbounds nuw %"struct.__gnu_parallel::_LoserTreeBase<std::pair<float, unsigned int>, (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/xgboost/xgboost/src/metric/rank_metric.cc:72:18)>::_Loser", ptr %185, i64 %.phi.trans.insert.i58, i32 2
-  %187 = load float, ptr %186, align 4
-  store float %.sroa.0.020.i54, ptr %186, align 4
-  %188 = getelementptr inbounds nuw i8, ptr %186, i64 4
-  %189 = load i32, ptr %188, align 4
-  store i32 %.sroa.5.019.i55, ptr %188, align 4
-  br label %190
+178:                                              ; preds = %174, %.lr.ph._crit_edge.i72
+  %179 = phi i8 [ %.pre28.i73, %.lr.ph._crit_edge.i72 ], [ %172, %174 ]
+  %180 = and i8 %179, 1
+  store i8 %.01521.i53, ptr %.phi.trans.insert27.i59, align 1
+  %181 = load ptr, ptr %25, align 8
+  %182 = getelementptr inbounds nuw %"struct.__gnu_parallel::_LoserTreeBase<std::pair<float, unsigned int>, (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/xgboost/xgboost/src/metric/rank_metric.cc:72:18)>::_Loser", ptr %181, i64 %.phi.trans.insert.i58, i32 1
+  %183 = load i32, ptr %182, align 4
+  store i32 %.01422.i52, ptr %182, align 4
+  %184 = load ptr, ptr %25, align 8
+  %185 = getelementptr inbounds nuw %"struct.__gnu_parallel::_LoserTreeBase<std::pair<float, unsigned int>, (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/xgboost/xgboost/src/metric/rank_metric.cc:72:18)>::_Loser", ptr %184, i64 %.phi.trans.insert.i58, i32 2
+  %186 = load float, ptr %185, align 4
+  store float %.sroa.0.020.i54, ptr %185, align 4
+  %187 = getelementptr inbounds nuw i8, ptr %185, i64 4
+  %188 = load i32, ptr %187, align 4
+  store i32 %.sroa.5.019.i55, ptr %187, align 4
+  br label %189
 
-190:                                              ; preds = %179, %175, %172
-  %.sroa.5.1.i60 = phi i32 [ %189, %179 ], [ %.sroa.5.019.i55, %172 ], [ %.sroa.5.019.i55, %175 ]
-  %.sroa.0.1.i61 = phi float [ %187, %179 ], [ %.sroa.0.020.i54, %172 ], [ %.sroa.0.020.i54, %175 ]
-  %.116.i62 = phi i8 [ %180, %179 ], [ %.01521.i53, %172 ], [ %.01521.i53, %175 ]
-  %.1.i63 = phi i32 [ %184, %179 ], [ %.01422.i52, %172 ], [ %.01422.i52, %175 ]
+189:                                              ; preds = %178, %174, %171
+  %.sroa.5.1.i60 = phi i32 [ %188, %178 ], [ %.sroa.5.019.i55, %171 ], [ %.sroa.5.019.i55, %174 ]
+  %.sroa.0.1.i61 = phi float [ %186, %178 ], [ %.sroa.0.020.i54, %171 ], [ %.sroa.0.020.i54, %174 ]
+  %.116.i62 = phi i8 [ %180, %178 ], [ %.01521.i53, %171 ], [ %.01521.i53, %174 ]
+  %.1.i63 = phi i32 [ %183, %178 ], [ %.01422.i52, %171 ], [ %.01422.i52, %174 ]
   %.not.i64 = icmp ult i32 %.023.in.i51, 4
   br i1 %.not.i64, label %._crit_edge.loopexit.i65, label %.lr.ph.i50, !llvm.loop !168
 
-._crit_edge.loopexit.i65:                         ; preds = %190
+._crit_edge.loopexit.i65:                         ; preds = %189
   %.pre29.i66 = load ptr, ptr %25, align 8
-  %191 = and i8 %.116.i62, 1
   br label %_ZN14__gnu_parallel10_LoserTreeILb0ESt4pairIfjEZN7xgboost6metric7EvalAMS4EvalERKNS3_16HostDeviceVectorIfEERKNS3_8MetaInfoEEUlRKT_RKT0_E_E19__delete_min_insertES2_b.exit74
 
-_ZN14__gnu_parallel10_LoserTreeILb0ESt4pairIfjEZN7xgboost6metric7EvalAMS4EvalERKNS3_16HostDeviceVectorIfEERKNS3_8MetaInfoEEUlRKT_RKT0_E_E19__delete_min_insertES2_b.exit74: ; preds = %169, %._crit_edge.loopexit.i65
-  %192 = phi ptr [ %126, %169 ], [ %.pre29.i66, %._crit_edge.loopexit.i65 ]
-  %.sroa.5.0.lcssa.i68 = phi i32 [ %.sroa.5.0.extract.trunc.i48, %169 ], [ %.sroa.5.1.i60, %._crit_edge.loopexit.i65 ]
-  %.sroa.0.0.lcssa.i69 = phi float [ %170, %169 ], [ %.sroa.0.1.i61, %._crit_edge.loopexit.i65 ]
-  %.015.lcssa.i70 = phi i8 [ 0, %169 ], [ %191, %._crit_edge.loopexit.i65 ]
-  %.014.lcssa.i71 = phi i32 [ %142, %169 ], [ %.1.i63, %._crit_edge.loopexit.i65 ]
-  store i8 %.015.lcssa.i70, ptr %192, align 4
-  br label %193
+_ZN14__gnu_parallel10_LoserTreeILb0ESt4pairIfjEZN7xgboost6metric7EvalAMS4EvalERKNS3_16HostDeviceVectorIfEERKNS3_8MetaInfoEEUlRKT_RKT0_E_E19__delete_min_insertES2_b.exit74: ; preds = %168, %._crit_edge.loopexit.i65
+  %190 = phi ptr [ %126, %168 ], [ %.pre29.i66, %._crit_edge.loopexit.i65 ]
+  %.sroa.5.0.lcssa.i68 = phi i32 [ %.sroa.5.0.extract.trunc.i48, %168 ], [ %.sroa.5.1.i60, %._crit_edge.loopexit.i65 ]
+  %.sroa.0.0.lcssa.i69 = phi float [ %169, %168 ], [ %.sroa.0.1.i61, %._crit_edge.loopexit.i65 ]
+  %.015.lcssa.i70 = phi i8 [ 0, %168 ], [ %.116.i62, %._crit_edge.loopexit.i65 ]
+  %.014.lcssa.i71 = phi i32 [ %142, %168 ], [ %.1.i63, %._crit_edge.loopexit.i65 ]
+  store i8 %.015.lcssa.i70, ptr %190, align 4
+  br label %191
 
-193:                                              ; preds = %_ZN14__gnu_parallel10_LoserTreeILb0ESt4pairIfjEZN7xgboost6metric7EvalAMS4EvalERKNS3_16HostDeviceVectorIfEERKNS3_8MetaInfoEEUlRKT_RKT0_E_E19__delete_min_insertES2_b.exit, %_ZN14__gnu_parallel10_LoserTreeILb0ESt4pairIfjEZN7xgboost6metric7EvalAMS4EvalERKNS3_16HostDeviceVectorIfEERKNS3_8MetaInfoEEUlRKT_RKT0_E_E19__delete_min_insertES2_b.exit74
+191:                                              ; preds = %_ZN14__gnu_parallel10_LoserTreeILb0ESt4pairIfjEZN7xgboost6metric7EvalAMS4EvalERKNS3_16HostDeviceVectorIfEERKNS3_8MetaInfoEEUlRKT_RKT0_E_E19__delete_min_insertES2_b.exit, %_ZN14__gnu_parallel10_LoserTreeILb0ESt4pairIfjEZN7xgboost6metric7EvalAMS4EvalERKNS3_16HostDeviceVectorIfEERKNS3_8MetaInfoEEUlRKT_RKT0_E_E19__delete_min_insertES2_b.exit74
   %.014.lcssa.i.sink = phi i32 [ %.014.lcssa.i, %_ZN14__gnu_parallel10_LoserTreeILb0ESt4pairIfjEZN7xgboost6metric7EvalAMS4EvalERKNS3_16HostDeviceVectorIfEERKNS3_8MetaInfoEEUlRKT_RKT0_E_E19__delete_min_insertES2_b.exit ], [ %.014.lcssa.i71, %_ZN14__gnu_parallel10_LoserTreeILb0ESt4pairIfjEZN7xgboost6metric7EvalAMS4EvalERKNS3_16HostDeviceVectorIfEERKNS3_8MetaInfoEEUlRKT_RKT0_E_E19__delete_min_insertES2_b.exit74 ]
   %.sroa.0.0.lcssa.i.sink = phi float [ %.sroa.0.0.lcssa.i, %_ZN14__gnu_parallel10_LoserTreeILb0ESt4pairIfjEZN7xgboost6metric7EvalAMS4EvalERKNS3_16HostDeviceVectorIfEERKNS3_8MetaInfoEEUlRKT_RKT0_E_E19__delete_min_insertES2_b.exit ], [ %.sroa.0.0.lcssa.i69, %_ZN14__gnu_parallel10_LoserTreeILb0ESt4pairIfjEZN7xgboost6metric7EvalAMS4EvalERKNS3_16HostDeviceVectorIfEERKNS3_8MetaInfoEEUlRKT_RKT0_E_E19__delete_min_insertES2_b.exit74 ]
   %.sroa.5.0.lcssa.i.sink = phi i32 [ %.sroa.5.0.lcssa.i, %_ZN14__gnu_parallel10_LoserTreeILb0ESt4pairIfjEZN7xgboost6metric7EvalAMS4EvalERKNS3_16HostDeviceVectorIfEERKNS3_8MetaInfoEEUlRKT_RKT0_E_E19__delete_min_insertES2_b.exit ], [ %.sroa.5.0.lcssa.i68, %_ZN14__gnu_parallel10_LoserTreeILb0ESt4pairIfjEZN7xgboost6metric7EvalAMS4EvalERKNS3_16HostDeviceVectorIfEERKNS3_8MetaInfoEEUlRKT_RKT0_E_E19__delete_min_insertES2_b.exit74 ]
+  %192 = load ptr, ptr %25, align 8
+  %193 = getelementptr inbounds nuw i8, ptr %192, i64 4
+  store i32 %.014.lcssa.i.sink, ptr %193, align 4
   %194 = load ptr, ptr %25, align 8
-  %195 = getelementptr inbounds nuw i8, ptr %194, i64 4
-  store i32 %.014.lcssa.i.sink, ptr %195, align 4
-  %196 = load ptr, ptr %25, align 8
-  %197 = getelementptr inbounds nuw i8, ptr %196, i64 8
-  store float %.sroa.0.0.lcssa.i.sink, ptr %197, align 4
-  %198 = getelementptr inbounds nuw i8, ptr %196, i64 12
-  store i32 %.sroa.5.0.lcssa.i.sink, ptr %198, align 4
-  %199 = add nuw nsw i64 %.02993, 1
-  %exitcond98.not = icmp eq i64 %199, %3
+  %195 = getelementptr inbounds nuw i8, ptr %194, i64 8
+  store float %.sroa.0.0.lcssa.i.sink, ptr %195, align 4
+  %196 = getelementptr inbounds nuw i8, ptr %194, i64 12
+  store i32 %.sroa.5.0.lcssa.i.sink, ptr %196, align 4
+  %197 = add nuw nsw i64 %.02993, 1
+  %exitcond98.not = icmp eq i64 %197, %3
   br i1 %exitcond98.not, label %._crit_edge95, label %.lr.ph94, !llvm.loop !169
 
-._crit_edge95:                                    ; preds = %193, %_ZN14__gnu_parallel10_LoserTreeILb0ESt4pairIfjEZN7xgboost6metric7EvalAMS4EvalERKNS3_16HostDeviceVectorIfEERKNS3_8MetaInfoEEUlRKT_RKT0_E_E6__initEv.exit
-  %.sroa.075.0.lcssa = phi ptr [ %2, %_ZN14__gnu_parallel10_LoserTreeILb0ESt4pairIfjEZN7xgboost6metric7EvalAMS4EvalERKNS3_16HostDeviceVectorIfEERKNS3_8MetaInfoEEUlRKT_RKT0_E_E6__initEv.exit ], [ %133, %193 ]
-  %200 = load ptr, ptr %25, align 8
-  call void @_ZdlPv(ptr noundef %200) #17
+._crit_edge95:                                    ; preds = %191, %_ZN14__gnu_parallel10_LoserTreeILb0ESt4pairIfjEZN7xgboost6metric7EvalAMS4EvalERKNS3_16HostDeviceVectorIfEERKNS3_8MetaInfoEEUlRKT_RKT0_E_E6__initEv.exit
+  %.sroa.075.0.lcssa = phi ptr [ %2, %_ZN14__gnu_parallel10_LoserTreeILb0ESt4pairIfjEZN7xgboost6metric7EvalAMS4EvalERKNS3_16HostDeviceVectorIfEERKNS3_8MetaInfoEEUlRKT_RKT0_E_E6__initEv.exit ], [ %133, %191 ]
+  %198 = load ptr, ptr %25, align 8
+  call void @_ZdlPv(ptr noundef %198) #17
   ret ptr %.sroa.075.0.lcssa
 }
 
@@ -48327,9 +48325,9 @@ _ZN14__gnu_parallel10_LoserTreeILb1EmZN7xgboost6common7ArgSortImNS2_18IndexTrans
   %100 = icmp sgt i64 %3, 0
   br i1 %100, label %.lr.ph89, label %._crit_edge90
 
-.lr.ph89:                                         ; preds = %_ZN14__gnu_parallel10_LoserTreeILb1EmZN7xgboost6common7ArgSortImNS2_18IndexTransformIterIZNS1_6linalg6cbeginIKfLi1EEEDaRKNS5_10TensorViewIT_XT0_EEEEUlmE_EEfSt7greaterIvEEESt6vectorIS9_SaIS9_EEPKNS1_7ContextET0_SN_T2_EUlRKmSQ_E_E6__initEv.exit, %209
-  %.088 = phi i64 [ %214, %209 ], [ 0, %_ZN14__gnu_parallel10_LoserTreeILb1EmZN7xgboost6common7ArgSortImNS2_18IndexTransformIterIZNS1_6linalg6cbeginIKfLi1EEEDaRKNS5_10TensorViewIT_XT0_EEEEUlmE_EEfSt7greaterIvEEESt6vectorIS9_SaIS9_EEPKNS1_7ContextET0_SN_T2_EUlRKmSQ_E_E6__initEv.exit ]
-  %.sroa.070.087 = phi ptr [ %109, %209 ], [ %2, %_ZN14__gnu_parallel10_LoserTreeILb1EmZN7xgboost6common7ArgSortImNS2_18IndexTransformIterIZNS1_6linalg6cbeginIKfLi1EEEDaRKNS5_10TensorViewIT_XT0_EEEEUlmE_EEfSt7greaterIvEEESt6vectorIS9_SaIS9_EEPKNS1_7ContextET0_SN_T2_EUlRKmSQ_E_E6__initEv.exit ]
+.lr.ph89:                                         ; preds = %_ZN14__gnu_parallel10_LoserTreeILb1EmZN7xgboost6common7ArgSortImNS2_18IndexTransformIterIZNS1_6linalg6cbeginIKfLi1EEEDaRKNS5_10TensorViewIT_XT0_EEEEUlmE_EEfSt7greaterIvEEESt6vectorIS9_SaIS9_EEPKNS1_7ContextET0_SN_T2_EUlRKmSQ_E_E6__initEv.exit, %207
+  %.088 = phi i64 [ %212, %207 ], [ 0, %_ZN14__gnu_parallel10_LoserTreeILb1EmZN7xgboost6common7ArgSortImNS2_18IndexTransformIterIZNS1_6linalg6cbeginIKfLi1EEEDaRKNS5_10TensorViewIT_XT0_EEEEUlmE_EEfSt7greaterIvEEESt6vectorIS9_SaIS9_EEPKNS1_7ContextET0_SN_T2_EUlRKmSQ_E_E6__initEv.exit ]
+  %.sroa.070.087 = phi ptr [ %109, %207 ], [ %2, %_ZN14__gnu_parallel10_LoserTreeILb1EmZN7xgboost6common7ArgSortImNS2_18IndexTransformIterIZNS1_6linalg6cbeginIKfLi1EEEDaRKNS5_10TensorViewIT_XT0_EEEEUlmE_EEfSt7greaterIvEEESt6vectorIS9_SaIS9_EEPKNS1_7ContextET0_SN_T2_EUlRKmSQ_E_E6__initEv.exit ]
   %101 = load ptr, ptr %28, align 8
   %102 = getelementptr inbounds nuw i8, ptr %101, i64 4
   %103 = load i32, ptr %102, align 4
@@ -48349,7 +48347,7 @@ _ZN14__gnu_parallel10_LoserTreeILb1EmZN7xgboost6common7ArgSortImNS2_18IndexTrans
   %115 = load i32, ptr %22, align 4
   %116 = add i32 %115, %114
   %.not31.i = icmp ult i32 %116, 2
-  br i1 %113, label %117, label %163
+  br i1 %113, label %117, label %162
 
 117:                                              ; preds = %.lr.ph89
   %118 = load i64, ptr %.029.lcssa95, align 8
@@ -48361,7 +48359,7 @@ _ZN14__gnu_parallel10_LoserTreeILb1EmZN7xgboost6common7ArgSortImNS2_18IndexTrans
   %.02633.i = phi i8 [ %.127.i, %.thread.i ], [ 1, %117 ]
   %.02832.i = phi i64 [ %.129.i, %.thread.i ], [ %118, %117 ]
   %.035.i = lshr i32 %.035.in.i, 1
-  %119 = trunc i8 %.02633.i to i1
+  %119 = trunc nuw i8 %.02633.i to i1
   %120 = load ptr, ptr %28, align 8
   %121 = zext nneg i32 %.035.i to i64
   %122 = getelementptr inbounds nuw %"struct.__gnu_parallel::_LoserTreeBase<unsigned long, (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/xgboost/xgboost/src/metric/../common/algorithm.h:82:13)>::_Loser", ptr %120, i64 %121
@@ -48413,8 +48411,8 @@ _ZN14__gnu_parallel10_LoserTreeILb1EmZN7xgboost6common7ArgSortImNS2_18IndexTrans
   br i1 %152, label %153, label %.thread.i
 
 153:                                              ; preds = %149, %131, %126, %125
-  %154 = and i8 %.02633.i, 1
-  store i8 %154, ptr %122, align 1
+  %154 = and i8 %123, 1
+  store i8 %.02633.i, ptr %122, align 1
   %155 = load ptr, ptr %28, align 8
   %156 = getelementptr inbounds nuw %"struct.__gnu_parallel::_LoserTreeBase<unsigned long, (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/xgboost/xgboost/src/metric/../common/algorithm.h:82:13)>::_Loser", ptr %155, i64 %121, i32 1
   %157 = load i32, ptr %156, align 4
@@ -48427,135 +48425,133 @@ _ZN14__gnu_parallel10_LoserTreeILb1EmZN7xgboost6common7ArgSortImNS2_18IndexTrans
 
 .thread.i:                                        ; preds = %153, %149, %147, %130, %126
   %.129.i = phi i64 [ %160, %153 ], [ %.02832.i, %130 ], [ %.02832.i, %147 ], [ %.02832.i, %149 ], [ %.02832.i, %126 ]
-  %.127.i = phi i8 [ %123, %153 ], [ %.02633.i, %130 ], [ %.02633.i, %147 ], [ %.02633.i, %149 ], [ %.02633.i, %126 ]
+  %.127.i = phi i8 [ %154, %153 ], [ %.02633.i, %130 ], [ %.02633.i, %147 ], [ %.02633.i, %149 ], [ %.02633.i, %126 ]
   %.1.i = phi i32 [ %157, %153 ], [ %.02534.i, %130 ], [ %.02534.i, %147 ], [ %.02534.i, %149 ], [ %.02534.i, %126 ]
   %.not.i45 = icmp ult i32 %.035.in.i, 4
   br i1 %.not.i45, label %._crit_edge.loopexit.i, label %.lr.ph.i44, !llvm.loop !826
 
 ._crit_edge.loopexit.i:                           ; preds = %.thread.i
   %.pre.i46 = load ptr, ptr %28, align 8
-  %161 = and i8 %.127.i, 1
   br label %_ZN14__gnu_parallel10_LoserTreeILb1EmZN7xgboost6common7ArgSortImNS2_18IndexTransformIterIZNS1_6linalg6cbeginIKfLi1EEEDaRKNS5_10TensorViewIT_XT0_EEEEUlmE_EEfSt7greaterIvEEESt6vectorIS9_SaIS9_EEPKNS1_7ContextET0_SN_T2_EUlRKmSQ_E_E19__delete_min_insertEmb.exit
 
 _ZN14__gnu_parallel10_LoserTreeILb1EmZN7xgboost6common7ArgSortImNS2_18IndexTransformIterIZNS1_6linalg6cbeginIKfLi1EEEDaRKNS5_10TensorViewIT_XT0_EEEEUlmE_EEfSt7greaterIvEEESt6vectorIS9_SaIS9_EEPKNS1_7ContextET0_SN_T2_EUlRKmSQ_E_E19__delete_min_insertEmb.exit: ; preds = %117, %._crit_edge.loopexit.i
-  %162 = phi ptr [ %101, %117 ], [ %.pre.i46, %._crit_edge.loopexit.i ]
+  %161 = phi ptr [ %101, %117 ], [ %.pre.i46, %._crit_edge.loopexit.i ]
   %.028.lcssa.i = phi i64 [ %118, %117 ], [ %.129.i, %._crit_edge.loopexit.i ]
-  %.026.lcssa.i = phi i8 [ 1, %117 ], [ %161, %._crit_edge.loopexit.i ]
+  %.026.lcssa.i = phi i8 [ 1, %117 ], [ %.127.i, %._crit_edge.loopexit.i ]
   %.025.lcssa.i = phi i32 [ %114, %117 ], [ %.1.i, %._crit_edge.loopexit.i ]
-  store i8 %.026.lcssa.i, ptr %162, align 8
-  br label %209
+  store i8 %.026.lcssa.i, ptr %161, align 8
+  br label %207
 
-163:                                              ; preds = %.lr.ph89
-  %164 = load i64, ptr %110, align 8
+162:                                              ; preds = %.lr.ph89
+  %163 = load i64, ptr %110, align 8
   br i1 %.not31.i, label %_ZN14__gnu_parallel10_LoserTreeILb1EmZN7xgboost6common7ArgSortImNS2_18IndexTransformIterIZNS1_6linalg6cbeginIKfLi1EEEDaRKNS5_10TensorViewIT_XT0_EEEEUlmE_EEfSt7greaterIvEEESt6vectorIS9_SaIS9_EEPKNS1_7ContextET0_SN_T2_EUlRKmSQ_E_E19__delete_min_insertEmb.exit69, label %.lr.ph.i49
 
-.lr.ph.i49:                                       ; preds = %163, %.thread.i58
-  %.035.in.i50 = phi i32 [ %.035.i54, %.thread.i58 ], [ %116, %163 ]
-  %.02534.i51 = phi i32 [ %.1.i61, %.thread.i58 ], [ %114, %163 ]
-  %.02633.i52 = phi i8 [ %.127.i60, %.thread.i58 ], [ 0, %163 ]
-  %.02832.i53 = phi i64 [ %.129.i59, %.thread.i58 ], [ %164, %163 ]
+.lr.ph.i49:                                       ; preds = %162, %.thread.i58
+  %.035.in.i50 = phi i32 [ %.035.i54, %.thread.i58 ], [ %116, %162 ]
+  %.02534.i51 = phi i32 [ %.1.i61, %.thread.i58 ], [ %114, %162 ]
+  %.02633.i52 = phi i8 [ %.127.i60, %.thread.i58 ], [ 0, %162 ]
+  %.02832.i53 = phi i64 [ %.129.i59, %.thread.i58 ], [ %163, %162 ]
   %.035.i54 = lshr i32 %.035.in.i50, 1
-  %165 = trunc i8 %.02633.i52 to i1
-  %166 = load ptr, ptr %28, align 8
-  %167 = zext nneg i32 %.035.i54 to i64
-  %168 = getelementptr inbounds nuw %"struct.__gnu_parallel::_LoserTreeBase<unsigned long, (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/xgboost/xgboost/src/metric/../common/algorithm.h:82:13)>::_Loser", ptr %166, i64 %167
-  %169 = load i8, ptr %168, align 8
-  %170 = trunc i8 %169 to i1
-  br i1 %165, label %171, label %176
+  %164 = trunc nuw i8 %.02633.i52 to i1
+  %165 = load ptr, ptr %28, align 8
+  %166 = zext nneg i32 %.035.i54 to i64
+  %167 = getelementptr inbounds nuw %"struct.__gnu_parallel::_LoserTreeBase<unsigned long, (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/xgboost/xgboost/src/metric/../common/algorithm.h:82:13)>::_Loser", ptr %165, i64 %166
+  %168 = load i8, ptr %167, align 8
+  %169 = trunc i8 %168 to i1
+  br i1 %164, label %170, label %175
 
-171:                                              ; preds = %.lr.ph.i49
-  br i1 %170, label %172, label %199
+170:                                              ; preds = %.lr.ph.i49
+  br i1 %169, label %171, label %198
 
-172:                                              ; preds = %171
-  %173 = getelementptr inbounds nuw i8, ptr %168, i64 4
-  %174 = load i32, ptr %173, align 4
-  %175 = icmp slt i32 %174, %.02534.i51
-  br i1 %175, label %199, label %.thread.i58
+171:                                              ; preds = %170
+  %172 = getelementptr inbounds nuw i8, ptr %167, i64 4
+  %173 = load i32, ptr %172, align 4
+  %174 = icmp slt i32 %173, %.02534.i51
+  br i1 %174, label %198, label %.thread.i58
 
-176:                                              ; preds = %.lr.ph.i49
-  br i1 %170, label %.thread.i58, label %177
+175:                                              ; preds = %.lr.ph.i49
+  br i1 %169, label %.thread.i58, label %176
 
-177:                                              ; preds = %176
-  %178 = getelementptr inbounds nuw i8, ptr %168, i64 8
-  %179 = load ptr, ptr %.sroa.2.0..sroa_idx.i.i, align 8
-  %180 = load i64, ptr %178, align 8
-  %.sroa.0.0.copyload1.i.i.i.i55 = load i64, ptr %179, align 8
-  %.sroa.4.0..sroa_idx.i.i.i.i56 = getelementptr inbounds nuw i8, ptr %179, i64 8
+176:                                              ; preds = %175
+  %177 = getelementptr inbounds nuw i8, ptr %167, i64 8
+  %178 = load ptr, ptr %.sroa.2.0..sroa_idx.i.i, align 8
+  %179 = load i64, ptr %177, align 8
+  %.sroa.0.0.copyload1.i.i.i.i55 = load i64, ptr %178, align 8
+  %.sroa.4.0..sroa_idx.i.i.i.i56 = getelementptr inbounds nuw i8, ptr %178, i64 8
   %.sroa.4.0.copyload.i.i.i.i57 = load ptr, ptr %.sroa.4.0..sroa_idx.i.i.i.i56, align 8
-  %181 = add i64 %.sroa.0.0.copyload1.i.i.i.i55, %180
-  %182 = load i64, ptr %.sroa.4.0.copyload.i.i.i.i57, align 8
-  %183 = mul i64 %182, %181
-  %184 = getelementptr inbounds nuw i8, ptr %.sroa.4.0.copyload.i.i.i.i57, i64 32
-  %185 = load ptr, ptr %184, align 8
-  %186 = getelementptr inbounds float, ptr %185, i64 %183
-  %187 = add i64 %.sroa.0.0.copyload1.i.i.i.i55, %.02832.i53
-  %188 = mul i64 %182, %187
-  %189 = getelementptr inbounds float, ptr %185, i64 %188
-  %190 = load float, ptr %186, align 4
-  %191 = load float, ptr %189, align 4
-  %192 = fcmp ogt float %190, %191
-  br i1 %192, label %199, label %193
+  %180 = add i64 %.sroa.0.0.copyload1.i.i.i.i55, %179
+  %181 = load i64, ptr %.sroa.4.0.copyload.i.i.i.i57, align 8
+  %182 = mul i64 %181, %180
+  %183 = getelementptr inbounds nuw i8, ptr %.sroa.4.0.copyload.i.i.i.i57, i64 32
+  %184 = load ptr, ptr %183, align 8
+  %185 = getelementptr inbounds float, ptr %184, i64 %182
+  %186 = add i64 %.sroa.0.0.copyload1.i.i.i.i55, %.02832.i53
+  %187 = mul i64 %181, %186
+  %188 = getelementptr inbounds float, ptr %184, i64 %187
+  %189 = load float, ptr %185, align 4
+  %190 = load float, ptr %188, align 4
+  %191 = fcmp ogt float %189, %190
+  br i1 %191, label %198, label %192
 
-193:                                              ; preds = %177
-  %194 = fcmp ogt float %191, %190
-  br i1 %194, label %.thread.i58, label %195
+192:                                              ; preds = %176
+  %193 = fcmp ogt float %190, %189
+  br i1 %193, label %.thread.i58, label %194
 
-195:                                              ; preds = %193
-  %196 = getelementptr inbounds nuw %"struct.__gnu_parallel::_LoserTreeBase<unsigned long, (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/xgboost/xgboost/src/metric/../common/algorithm.h:82:13)>::_Loser", ptr %166, i64 %167, i32 1
-  %197 = load i32, ptr %196, align 4
-  %198 = icmp slt i32 %197, %.02534.i51
-  br i1 %198, label %199, label %.thread.i58
+194:                                              ; preds = %192
+  %195 = getelementptr inbounds nuw %"struct.__gnu_parallel::_LoserTreeBase<unsigned long, (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/xgboost/xgboost/src/metric/../common/algorithm.h:82:13)>::_Loser", ptr %165, i64 %166, i32 1
+  %196 = load i32, ptr %195, align 4
+  %197 = icmp slt i32 %196, %.02534.i51
+  br i1 %197, label %198, label %.thread.i58
 
-199:                                              ; preds = %195, %177, %172, %171
-  %200 = and i8 %.02633.i52, 1
-  store i8 %200, ptr %168, align 1
-  %201 = load ptr, ptr %28, align 8
-  %202 = getelementptr inbounds nuw %"struct.__gnu_parallel::_LoserTreeBase<unsigned long, (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/xgboost/xgboost/src/metric/../common/algorithm.h:82:13)>::_Loser", ptr %201, i64 %167, i32 1
-  %203 = load i32, ptr %202, align 4
-  store i32 %.02534.i51, ptr %202, align 4
-  %204 = load ptr, ptr %28, align 8
-  %205 = getelementptr inbounds nuw %"struct.__gnu_parallel::_LoserTreeBase<unsigned long, (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/xgboost/xgboost/src/metric/../common/algorithm.h:82:13)>::_Loser", ptr %204, i64 %167, i32 2
-  %206 = load i64, ptr %205, align 8
-  store i64 %.02832.i53, ptr %205, align 8
+198:                                              ; preds = %194, %176, %171, %170
+  %199 = and i8 %168, 1
+  store i8 %.02633.i52, ptr %167, align 1
+  %200 = load ptr, ptr %28, align 8
+  %201 = getelementptr inbounds nuw %"struct.__gnu_parallel::_LoserTreeBase<unsigned long, (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/xgboost/xgboost/src/metric/../common/algorithm.h:82:13)>::_Loser", ptr %200, i64 %166, i32 1
+  %202 = load i32, ptr %201, align 4
+  store i32 %.02534.i51, ptr %201, align 4
+  %203 = load ptr, ptr %28, align 8
+  %204 = getelementptr inbounds nuw %"struct.__gnu_parallel::_LoserTreeBase<unsigned long, (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/xgboost/xgboost/src/metric/../common/algorithm.h:82:13)>::_Loser", ptr %203, i64 %166, i32 2
+  %205 = load i64, ptr %204, align 8
+  store i64 %.02832.i53, ptr %204, align 8
   br label %.thread.i58
 
-.thread.i58:                                      ; preds = %199, %195, %193, %176, %172
-  %.129.i59 = phi i64 [ %206, %199 ], [ %.02832.i53, %176 ], [ %.02832.i53, %193 ], [ %.02832.i53, %195 ], [ %.02832.i53, %172 ]
-  %.127.i60 = phi i8 [ %169, %199 ], [ %.02633.i52, %176 ], [ %.02633.i52, %193 ], [ %.02633.i52, %195 ], [ %.02633.i52, %172 ]
-  %.1.i61 = phi i32 [ %203, %199 ], [ %.02534.i51, %176 ], [ %.02534.i51, %193 ], [ %.02534.i51, %195 ], [ %.02534.i51, %172 ]
+.thread.i58:                                      ; preds = %198, %194, %192, %175, %171
+  %.129.i59 = phi i64 [ %205, %198 ], [ %.02832.i53, %175 ], [ %.02832.i53, %192 ], [ %.02832.i53, %194 ], [ %.02832.i53, %171 ]
+  %.127.i60 = phi i8 [ %199, %198 ], [ %.02633.i52, %175 ], [ %.02633.i52, %192 ], [ %.02633.i52, %194 ], [ %.02633.i52, %171 ]
+  %.1.i61 = phi i32 [ %202, %198 ], [ %.02534.i51, %175 ], [ %.02534.i51, %192 ], [ %.02534.i51, %194 ], [ %.02534.i51, %171 ]
   %.not.i62 = icmp ult i32 %.035.in.i50, 4
   br i1 %.not.i62, label %._crit_edge.loopexit.i63, label %.lr.ph.i49, !llvm.loop !826
 
 ._crit_edge.loopexit.i63:                         ; preds = %.thread.i58
   %.pre.i64 = load ptr, ptr %28, align 8
-  %207 = and i8 %.127.i60, 1
   br label %_ZN14__gnu_parallel10_LoserTreeILb1EmZN7xgboost6common7ArgSortImNS2_18IndexTransformIterIZNS1_6linalg6cbeginIKfLi1EEEDaRKNS5_10TensorViewIT_XT0_EEEEUlmE_EEfSt7greaterIvEEESt6vectorIS9_SaIS9_EEPKNS1_7ContextET0_SN_T2_EUlRKmSQ_E_E19__delete_min_insertEmb.exit69
 
-_ZN14__gnu_parallel10_LoserTreeILb1EmZN7xgboost6common7ArgSortImNS2_18IndexTransformIterIZNS1_6linalg6cbeginIKfLi1EEEDaRKNS5_10TensorViewIT_XT0_EEEEUlmE_EEfSt7greaterIvEEESt6vectorIS9_SaIS9_EEPKNS1_7ContextET0_SN_T2_EUlRKmSQ_E_E19__delete_min_insertEmb.exit69: ; preds = %163, %._crit_edge.loopexit.i63
-  %208 = phi ptr [ %101, %163 ], [ %.pre.i64, %._crit_edge.loopexit.i63 ]
-  %.028.lcssa.i66 = phi i64 [ %164, %163 ], [ %.129.i59, %._crit_edge.loopexit.i63 ]
-  %.026.lcssa.i67 = phi i8 [ 0, %163 ], [ %207, %._crit_edge.loopexit.i63 ]
-  %.025.lcssa.i68 = phi i32 [ %114, %163 ], [ %.1.i61, %._crit_edge.loopexit.i63 ]
-  store i8 %.026.lcssa.i67, ptr %208, align 8
-  br label %209
+_ZN14__gnu_parallel10_LoserTreeILb1EmZN7xgboost6common7ArgSortImNS2_18IndexTransformIterIZNS1_6linalg6cbeginIKfLi1EEEDaRKNS5_10TensorViewIT_XT0_EEEEUlmE_EEfSt7greaterIvEEESt6vectorIS9_SaIS9_EEPKNS1_7ContextET0_SN_T2_EUlRKmSQ_E_E19__delete_min_insertEmb.exit69: ; preds = %162, %._crit_edge.loopexit.i63
+  %206 = phi ptr [ %101, %162 ], [ %.pre.i64, %._crit_edge.loopexit.i63 ]
+  %.028.lcssa.i66 = phi i64 [ %163, %162 ], [ %.129.i59, %._crit_edge.loopexit.i63 ]
+  %.026.lcssa.i67 = phi i8 [ 0, %162 ], [ %.127.i60, %._crit_edge.loopexit.i63 ]
+  %.025.lcssa.i68 = phi i32 [ %114, %162 ], [ %.1.i61, %._crit_edge.loopexit.i63 ]
+  store i8 %.026.lcssa.i67, ptr %206, align 8
+  br label %207
 
-209:                                              ; preds = %_ZN14__gnu_parallel10_LoserTreeILb1EmZN7xgboost6common7ArgSortImNS2_18IndexTransformIterIZNS1_6linalg6cbeginIKfLi1EEEDaRKNS5_10TensorViewIT_XT0_EEEEUlmE_EEfSt7greaterIvEEESt6vectorIS9_SaIS9_EEPKNS1_7ContextET0_SN_T2_EUlRKmSQ_E_E19__delete_min_insertEmb.exit69, %_ZN14__gnu_parallel10_LoserTreeILb1EmZN7xgboost6common7ArgSortImNS2_18IndexTransformIterIZNS1_6linalg6cbeginIKfLi1EEEDaRKNS5_10TensorViewIT_XT0_EEEEUlmE_EEfSt7greaterIvEEESt6vectorIS9_SaIS9_EEPKNS1_7ContextET0_SN_T2_EUlRKmSQ_E_E19__delete_min_insertEmb.exit
+207:                                              ; preds = %_ZN14__gnu_parallel10_LoserTreeILb1EmZN7xgboost6common7ArgSortImNS2_18IndexTransformIterIZNS1_6linalg6cbeginIKfLi1EEEDaRKNS5_10TensorViewIT_XT0_EEEEUlmE_EEfSt7greaterIvEEESt6vectorIS9_SaIS9_EEPKNS1_7ContextET0_SN_T2_EUlRKmSQ_E_E19__delete_min_insertEmb.exit69, %_ZN14__gnu_parallel10_LoserTreeILb1EmZN7xgboost6common7ArgSortImNS2_18IndexTransformIterIZNS1_6linalg6cbeginIKfLi1EEEDaRKNS5_10TensorViewIT_XT0_EEEEUlmE_EEfSt7greaterIvEEESt6vectorIS9_SaIS9_EEPKNS1_7ContextET0_SN_T2_EUlRKmSQ_E_E19__delete_min_insertEmb.exit
   %.025.lcssa.i68.sink = phi i32 [ %.025.lcssa.i68, %_ZN14__gnu_parallel10_LoserTreeILb1EmZN7xgboost6common7ArgSortImNS2_18IndexTransformIterIZNS1_6linalg6cbeginIKfLi1EEEDaRKNS5_10TensorViewIT_XT0_EEEEUlmE_EEfSt7greaterIvEEESt6vectorIS9_SaIS9_EEPKNS1_7ContextET0_SN_T2_EUlRKmSQ_E_E19__delete_min_insertEmb.exit69 ], [ %.025.lcssa.i, %_ZN14__gnu_parallel10_LoserTreeILb1EmZN7xgboost6common7ArgSortImNS2_18IndexTransformIterIZNS1_6linalg6cbeginIKfLi1EEEDaRKNS5_10TensorViewIT_XT0_EEEEUlmE_EEfSt7greaterIvEEESt6vectorIS9_SaIS9_EEPKNS1_7ContextET0_SN_T2_EUlRKmSQ_E_E19__delete_min_insertEmb.exit ]
   %.028.lcssa.i66.sink = phi i64 [ %.028.lcssa.i66, %_ZN14__gnu_parallel10_LoserTreeILb1EmZN7xgboost6common7ArgSortImNS2_18IndexTransformIterIZNS1_6linalg6cbeginIKfLi1EEEDaRKNS5_10TensorViewIT_XT0_EEEEUlmE_EEfSt7greaterIvEEESt6vectorIS9_SaIS9_EEPKNS1_7ContextET0_SN_T2_EUlRKmSQ_E_E19__delete_min_insertEmb.exit69 ], [ %.028.lcssa.i, %_ZN14__gnu_parallel10_LoserTreeILb1EmZN7xgboost6common7ArgSortImNS2_18IndexTransformIterIZNS1_6linalg6cbeginIKfLi1EEEDaRKNS5_10TensorViewIT_XT0_EEEEUlmE_EEfSt7greaterIvEEESt6vectorIS9_SaIS9_EEPKNS1_7ContextET0_SN_T2_EUlRKmSQ_E_E19__delete_min_insertEmb.exit ]
+  %208 = load ptr, ptr %28, align 8
+  %209 = getelementptr inbounds nuw i8, ptr %208, i64 4
+  store i32 %.025.lcssa.i68.sink, ptr %209, align 4
   %210 = load ptr, ptr %28, align 8
-  %211 = getelementptr inbounds nuw i8, ptr %210, i64 4
-  store i32 %.025.lcssa.i68.sink, ptr %211, align 4
-  %212 = load ptr, ptr %28, align 8
-  %213 = getelementptr inbounds nuw i8, ptr %212, i64 8
-  store i64 %.028.lcssa.i66.sink, ptr %213, align 8
-  %214 = add nuw nsw i64 %.088, 1
-  %exitcond93.not = icmp eq i64 %214, %3
+  %211 = getelementptr inbounds nuw i8, ptr %210, i64 8
+  store i64 %.028.lcssa.i66.sink, ptr %211, align 8
+  %212 = add nuw nsw i64 %.088, 1
+  %exitcond93.not = icmp eq i64 %212, %3
   br i1 %exitcond93.not, label %._crit_edge90, label %.lr.ph89, !llvm.loop !827
 
-._crit_edge90:                                    ; preds = %209, %_ZN14__gnu_parallel10_LoserTreeILb1EmZN7xgboost6common7ArgSortImNS2_18IndexTransformIterIZNS1_6linalg6cbeginIKfLi1EEEDaRKNS5_10TensorViewIT_XT0_EEEEUlmE_EEfSt7greaterIvEEESt6vectorIS9_SaIS9_EEPKNS1_7ContextET0_SN_T2_EUlRKmSQ_E_E6__initEv.exit
-  %.sroa.070.0.lcssa = phi ptr [ %2, %_ZN14__gnu_parallel10_LoserTreeILb1EmZN7xgboost6common7ArgSortImNS2_18IndexTransformIterIZNS1_6linalg6cbeginIKfLi1EEEDaRKNS5_10TensorViewIT_XT0_EEEEUlmE_EEfSt7greaterIvEEESt6vectorIS9_SaIS9_EEPKNS1_7ContextET0_SN_T2_EUlRKmSQ_E_E6__initEv.exit ], [ %109, %209 ]
-  %215 = load ptr, ptr %28, align 8
-  call void @_ZdlPv(ptr noundef %215) #17
+._crit_edge90:                                    ; preds = %207, %_ZN14__gnu_parallel10_LoserTreeILb1EmZN7xgboost6common7ArgSortImNS2_18IndexTransformIterIZNS1_6linalg6cbeginIKfLi1EEEDaRKNS5_10TensorViewIT_XT0_EEEEUlmE_EEfSt7greaterIvEEESt6vectorIS9_SaIS9_EEPKNS1_7ContextET0_SN_T2_EUlRKmSQ_E_E6__initEv.exit
+  %.sroa.070.0.lcssa = phi ptr [ %2, %_ZN14__gnu_parallel10_LoserTreeILb1EmZN7xgboost6common7ArgSortImNS2_18IndexTransformIterIZNS1_6linalg6cbeginIKfLi1EEEDaRKNS5_10TensorViewIT_XT0_EEEEUlmE_EEfSt7greaterIvEEESt6vectorIS9_SaIS9_EEPKNS1_7ContextET0_SN_T2_EUlRKmSQ_E_E6__initEv.exit ], [ %109, %207 ]
+  %213 = load ptr, ptr %28, align 8
+  call void @_ZdlPv(ptr noundef %213) #17
   ret ptr %.sroa.070.0.lcssa
 }
 

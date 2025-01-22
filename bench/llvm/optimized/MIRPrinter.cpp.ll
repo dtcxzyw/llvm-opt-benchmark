@@ -2912,7 +2912,7 @@ _ZN4llvm9MIPrinterD2Ev.exit119:                   ; preds = %_ZN4llvm9MIPrinter2
   br i1 %473, label %474, label %476
 
 474:                                              ; preds = %469
-  %475 = icmp ult i64 %.079.i.i.i.i.i.i.i.i.i, 2
+  %475 = icmp samesign ult i64 %.079.i.i.i.i.i.i.i.i.i, 2
   br i1 %475, label %_ZZNK4llvm15MachineFunction29getInStackSlotVariableDbgInfoEvENKUlRKT_E_clINS0_15VariableDbgInfoEEEDaS3_.exit.i.i.i.i.i, label %476
 
 476:                                              ; preds = %474, %469
@@ -2957,7 +2957,7 @@ _ZN4llvm20filter_iterator_implIPKNS_15MachineFunction15VariableDbgInfoEZNKS1_29g
   br i1 %493, label %494, label %496
 
 494:                                              ; preds = %489
-  %495 = icmp ult i64 %.079.i.i.i.i.i.i.i7.i.i, 2
+  %495 = icmp samesign ult i64 %.079.i.i.i.i.i.i.i7.i.i, 2
   br i1 %495, label %_ZZNK4llvm15MachineFunction29getInStackSlotVariableDbgInfoEvENKUlRKT_E_clINS0_15VariableDbgInfoEEEDaS3_.exit.i.i.i9.i.i, label %496
 
 496:                                              ; preds = %494, %489
@@ -3148,7 +3148,7 @@ _ZL23printStackObjectDbgInfoIN4llvm4yaml18MachineStackObjectEEvRKNS0_15MachineFu
   br i1 %581, label %582, label %584
 
 582:                                              ; preds = %577
-  %583 = icmp ult i64 %.079.i.i.i.i.i.i, 2
+  %583 = icmp samesign ult i64 %.079.i.i.i.i.i.i, 2
   br i1 %583, label %_ZZNK4llvm15MachineFunction29getInStackSlotVariableDbgInfoEvENKUlRKT_E_clINS0_15VariableDbgInfoEEEDaS3_.exit.i.i, label %584
 
 584:                                              ; preds = %582, %577
@@ -3231,7 +3231,7 @@ define dso_local void @_ZN4llvm10MIRPrinter24convertEntryValueObjectsERNS_4yaml1
   br i1 %26, label %27, label %29
 
 27:                                               ; preds = %22
-  %28 = icmp ult i64 %.079.i.i.i.i.i.i.i.i.i, 2
+  %28 = icmp samesign ult i64 %.079.i.i.i.i.i.i.i.i.i, 2
   br i1 %28, label %_ZZNK4llvm15MachineFunction28getEntryValueVariableDbgInfoEvENKUlRKT_E_clINS0_15VariableDbgInfoEEEDaS3_.exit.i.i.i.i.i, label %29
 
 29:                                               ; preds = %27, %22
@@ -3276,7 +3276,7 @@ _ZN4llvm20filter_iterator_implIPKNS_15MachineFunction15VariableDbgInfoEZNKS1_28g
   br i1 %46, label %47, label %49
 
 47:                                               ; preds = %42
-  %48 = icmp ult i64 %.079.i.i.i.i.i.i.i7.i.i, 2
+  %48 = icmp samesign ult i64 %.079.i.i.i.i.i.i.i7.i.i, 2
   br i1 %48, label %_ZZNK4llvm15MachineFunction28getEntryValueVariableDbgInfoEvENKUlRKT_E_clINS0_15VariableDbgInfoEEEDaS3_.exit.i.i.i9.i.i, label %49
 
 49:                                               ; preds = %47, %42
@@ -3465,7 +3465,7 @@ _ZL11printRegMIRjRN4llvm4yaml11StringValueEPKNS_18TargetRegisterInfoE.exit: ; pr
   br i1 %119, label %120, label %122
 
 120:                                              ; preds = %115
-  %121 = icmp ult i64 %.079.i.i.i.i.i.i, 2
+  %121 = icmp samesign ult i64 %.079.i.i.i.i.i.i, 2
   br i1 %121, label %_ZZNK4llvm15MachineFunction28getEntryValueVariableDbgInfoEvENKUlRKT_E_clINS0_15VariableDbgInfoEEEDaS3_.exit.i.i, label %122
 
 122:                                              ; preds = %120, %115

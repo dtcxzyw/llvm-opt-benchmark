@@ -16095,7 +16095,7 @@ _ZN4llvmplERKNS_5TwineES2_.exit125:               ; preds = %76
   br i1 %.not, label %._crit_edge.loopexit, label %52
 
 ._crit_edge.loopexit:                             ; preds = %98
-  %100 = trunc i8 %.1 to i1
+  %100 = trunc nuw i8 %.1 to i1
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %1
@@ -33238,7 +33238,7 @@ _ZN4llvmplERKNS_5TwineES2_.exit50.i:              ; preds = %367
   br i1 %411, label %412, label %414
 
 412:                                              ; preds = %407
-  %413 = icmp ult i64 %.079.i.i.i.i.i.i.i, 2
+  %413 = icmp samesign ult i64 %.079.i.i.i.i.i.i.i, 2
   br i1 %413, label %_ZNK4llvm2gi20LLTCodeGenOrTempType12isLLTCodeGenEv.exit.i.i.i.i, label %414
 
 414:                                              ; preds = %412, %407
@@ -33559,7 +33559,7 @@ _ZN12_GLOBAL__N_118CombineRuleBuilder37emitCodeGenInstructionApplyImmOperandERN4
   br i1 %540, label %541, label %543
 
 541:                                              ; preds = %536
-  %542 = icmp ult i64 %.079.i.i.i.i.i.i, 2
+  %542 = icmp samesign ult i64 %.079.i.i.i.i.i.i, 2
   br i1 %542, label %_ZNK4llvm2gi20LLTCodeGenOrTempType12isLLTCodeGenEv.exit.i.i.i, label %543
 
 543:                                              ; preds = %541, %536
@@ -34577,7 +34577,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(48) ptr @_ZN4
   br i1 %20, label %21, label %23
 
 21:                                               ; preds = %16
-  %22 = icmp ult i64 %.079.i.i.i.i.i, 2
+  %22 = icmp samesign ult i64 %.079.i.i.i.i.i, 2
   br i1 %22, label %_ZNK4llvm2gi20LLTCodeGenOrTempType12isLLTCodeGenEv.exit.i.i, label %23
 
 23:                                               ; preds = %21, %16

@@ -302,7 +302,7 @@ define internal i32 @BDF_Face_Init(ptr noundef %0, ptr noundef %1, i32 noundef %
   br i1 %62, label %63, label %71
 
 63:                                               ; preds = %61
-  %64 = icmp ugt i64 %.081.i.i.ph, 65535
+  %64 = icmp samesign ugt i64 %.081.i.i.ph, 65535
   br i1 %64, label %65, label %67
 
 65:                                               ; preds = %63

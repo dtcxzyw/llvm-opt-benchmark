@@ -745,7 +745,7 @@ define internal fastcc noundef i32 @acpi_processor_get_power_info(ptr noundef %0
 .thread24:                                        ; preds = %..thread24_crit_edge, %285, %290
   %338 = phi i8 [ %.pre42, %..thread24_crit_edge ], [ 1, %285 ], [ 2, %290 ]
   %339 = zext i8 %338 to i32
-  %340 = icmp ugt i32 %279, %339
+  %340 = icmp samesign ugt i32 %279, %339
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %282, i64 12
   %.pre43 = load i32, ptr %.phi.trans.insert, align 4
   %341 = icmp ult i32 %.pre43, %280

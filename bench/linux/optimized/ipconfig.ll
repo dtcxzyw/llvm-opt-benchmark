@@ -846,8 +846,8 @@ define internal fastcc range(i32 -12, 1) i32 @ipconfig_proc_net_init() unnamed_a
 define internal fastcc noundef range(i32 -19, 1) i32 @wait_for_devices() unnamed_addr #0 section ".init.text" align 16 {
   br label %5
 
-1:                                                ; preds = %15, %18, %22
-  %2 = phi i8 [ 0, %22 ], [ %7, %18 ], [ %7, %15 ]
+1:                                                ; preds = %15, %17, %21
+  %2 = phi i8 [ 0, %21 ], [ %7, %17 ], [ 0, %15 ]
   tail call void @msleep(i32 noundef 1000) #17
   %3 = add nuw nsw i32 %6, 1
   %4 = icmp eq i32 %3, 12
@@ -869,31 +869,30 @@ define internal fastcc noundef range(i32 -19, 1) i32 @wait_for_devices() unnamed
 12:                                               ; preds = %8
   %13 = getelementptr i8, ptr %10, i64 -360
   %14 = tail call fastcc zeroext i1 @ic_is_init_dev(ptr noundef %13) #18
-  br i1 %14, label %23, label %8, !llvm.loop !18
+  br i1 %14, label %22, label %8, !llvm.loop !18
 
 15:                                               ; preds = %8
   tail call void @rtnl_unlock() #17
-  %16 = and i8 %7, 1
-  %17 = icmp eq i8 %16, 0
-  br i1 %17, label %1, label %18
+  %16 = icmp eq i8 %7, 0
+  br i1 %16, label %1, label %17
 
-18:                                               ; preds = %15
-  %19 = load i32, ptr @ROOT_DEV, align 4
-  %20 = and i32 %19, -2
-  %21 = icmp eq i32 %20, 254
-  br i1 %21, label %22, label %1
+17:                                               ; preds = %15
+  %18 = load i32, ptr @ROOT_DEV, align 4
+  %19 = and i32 %18, -2
+  %20 = icmp eq i32 %19, 254
+  br i1 %20, label %21, label %1
 
-22:                                               ; preds = %18
+21:                                               ; preds = %17
   tail call void @wait_for_init_devices_probe() #19
   br label %1
 
-23:                                               ; preds = %12
+22:                                               ; preds = %12
   tail call void @rtnl_unlock() #17
   br label %.loopexit
 
-.loopexit:                                        ; preds = %1, %23
-  %24 = phi i32 [ 0, %23 ], [ -19, %1 ]
-  ret i32 %24
+.loopexit:                                        ; preds = %1, %22
+  %23 = phi i32 [ 0, %22 ], [ -19, %1 ]
+  ret i32 %23
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize

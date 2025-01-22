@@ -574,7 +574,7 @@ define internal fastcc noundef double @_ZN3gmx12_GLOBAL__N_124biasedLogWeightFro
   br i1 %32, label %33, label %35
 
 33:                                               ; preds = %28
-  %34 = icmp ult i64 %.079.i.i.i.us, 2
+  %34 = icmp samesign ult i64 %.079.i.i.i.us, 2
   br i1 %34, label %_ZNK3gmx9DimParams20isFepLambdaDimensionEv.exit.us, label %35
 
 35:                                               ; preds = %33, %28
@@ -629,7 +629,7 @@ _ZNK3gmx9DimParams13pullDimParamsEv.exit.us:      ; preds = %38
   br i1 %59, label %60, label %62
 
 60:                                               ; preds = %55
-  %61 = icmp ult i64 %.079.i.i.i, 2
+  %61 = icmp samesign ult i64 %.079.i.i.i, 2
   br i1 %61, label %_ZNK3gmx9DimParams20isFepLambdaDimensionEv.exit, label %62
 
 62:                                               ; preds = %60, %55
@@ -2403,7 +2403,7 @@ define noundef double @_ZNK3gmx9BiasState29calcUmbrellaForceAndPotentialENS_8Arr
   br i1 %24, label %25, label %27
 
 25:                                               ; preds = %20
-  %26 = icmp ult i64 %.079.i.i.i.us, 2
+  %26 = icmp samesign ult i64 %.079.i.i.i.us, 2
   br i1 %26, label %_ZNK3gmx9DimParams20isFepLambdaDimensionEv.exit.us, label %27
 
 27:                                               ; preds = %25, %20
@@ -2460,7 +2460,7 @@ _ZNK3gmx9DimParams13pullDimParamsEv.exit.us:      ; preds = %30
   br i1 %52, label %53, label %55
 
 53:                                               ; preds = %48
-  %54 = icmp ult i64 %.079.i.i.i, 2
+  %54 = icmp samesign ult i64 %.079.i.i.i, 2
   br i1 %54, label %_ZNK3gmx9DimParams20isFepLambdaDimensionEv.exit, label %55
 
 55:                                               ; preds = %53, %48

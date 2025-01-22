@@ -143,8 +143,8 @@ define dso_local void @SyncPostCheckpoint() local_unnamed_addr #0 {
 
 33:                                               ; preds = %25, %28, %30, %18
   store i8 1, ptr %10, align 2
-  %34 = add i32 %.0173336, -1
-  %35 = icmp slt i32 %34, 1
+  %34 = add nsw i32 %.0173336, -1
+  %35 = icmp slt i32 %.0173336, 2
   br i1 %35, label %36, label %37
 
 36:                                               ; preds = %33

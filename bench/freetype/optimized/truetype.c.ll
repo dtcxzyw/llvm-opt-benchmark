@@ -5713,8 +5713,8 @@ Ins_SPVTL.exit.thread538:                         ; preds = %589, %1333, %1334, 
   br label %1834
 
 1834:                                             ; preds = %1829, %Ins_SPVTL.exit.thread538
-  %1835 = add i64 %.0332, 1
-  %1836 = icmp ugt i64 %1835, 1000000
+  %1835 = add nuw nsw i64 %.0332, 1
+  %1836 = icmp ugt i64 %.0332, 999999
   br i1 %1836, label %.loopexit.sink.split, label %1837
 
 1837:                                             ; preds = %Ins_Goto_CodeRange.exit, %1834

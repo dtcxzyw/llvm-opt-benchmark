@@ -307,7 +307,7 @@ _ZNK2cv17CommandLineParser3getINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIc
   %.041 = phi i32 [ %.142, %_ZN2cv3PtrINS_20BackgroundSubtractorEED2Ev.exit.thread ], [ 30, %.preheader ]
   %.039 = phi i32 [ %.14095, %_ZN2cv3PtrINS_20BackgroundSubtractorEED2Ev.exit.thread ], [ 0, %.preheader ]
   %.037 = phi i32 [ %.138, %_ZN2cv3PtrINS_20BackgroundSubtractorEED2Ev.exit.thread ], [ %63, %.preheader ]
-  %.036 = phi i1 [ %.1, %_ZN2cv3PtrINS_20BackgroundSubtractorEED2Ev.exit.thread ], [ false, %.preheader ]
+  %.036 = phi i1 [ %spec.select, %_ZN2cv3PtrINS_20BackgroundSubtractorEED2Ev.exit.thread ], [ false, %.preheader ]
   %99 = invoke noundef nonnull align 8 dereferenceable(41) ptr @_ZN2cv12VideoCapturersERNS_3MatE(ptr noundef nonnull align 8 dereferenceable(41) %9, ptr noundef nonnull align 8 dereferenceable(96) %10)
           to label %100 unwind label %.loopexit
 
@@ -695,7 +695,7 @@ _ZN2cv3PtrINS_20BackgroundSubtractorEED2Ev.exit.thread: ; preds = %132, %_ZN2cv3
   %.14095 = phi i32 [ %.039, %236 ], [ %spec.store.select, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i83 ], [ %spec.store.select, %231 ], [ %spec.store.select, %218 ], [ %spec.store.select, %_ZN2cv3PtrINS_20BackgroundSubtractorEEaSERKS2_.exit ], [ %.039, %132 ]
   %.138 = phi i32 [ %spec.store.select4, %236 ], [ %.037, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i83 ], [ %.037, %231 ], [ %.037, %218 ], [ %.037, %_ZN2cv3PtrINS_20BackgroundSubtractorEEaSERKS2_.exit ], [ %.037, %132 ]
   %or.cond6 = icmp eq i32 %136, 77
-  %.1 = xor i1 %.036, %or.cond6
+  %spec.select = xor i1 %.036, %or.cond6
   switch i32 %131, label %98 [
     i32 113, label %239
     i32 81, label %239

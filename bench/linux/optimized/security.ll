@@ -6813,8 +6813,8 @@ define internal fastcc void @ordered_lsm_parse(ptr noundef %0, ptr noundef %1) u
   %48 = icmp eq ptr %47, null
   br i1 %48, label %.loopexit15, label %.preheader14
 
-.preheader14:                                     ; preds = %.loopexit17, %70
-  %49 = phi ptr [ %71, %70 ], [ %47, %.loopexit17 ]
+.preheader14:                                     ; preds = %.loopexit17, %69
+  %49 = phi ptr [ %70, %69 ], [ %47, %.loopexit17 ]
   br i1 %4, label %.preheader13, label %.thread
 
 .preheader13:                                     ; preds = %.preheader14, %60
@@ -6842,153 +6842,152 @@ define internal fastcc void @ordered_lsm_parse(ptr noundef %0, ptr noundef %1) u
   br i1 %63, label %.preheader13, label %64, !llvm.loop !255
 
 64:                                               ; preds = %60
-  %65 = and i8 %61, 1
-  %66 = icmp eq i8 %65, 0
-  br i1 %66, label %.thread, label %70
+  %65 = icmp eq i8 %61, 0
+  br i1 %65, label %.thread, label %69
 
 .thread:                                          ; preds = %.preheader14, %64
-  %67 = load i1, ptr @debug, align 1
-  br i1 %67, label %68, label %70
+  %66 = load i1, ptr @debug, align 1
+  br i1 %66, label %67, label %69
 
-68:                                               ; preds = %.thread
-  %69 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.61, ptr noundef %1, ptr noundef nonnull %49) #16
-  br label %70
+67:                                               ; preds = %.thread
+  %68 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.61, ptr noundef %1, ptr noundef nonnull %49) #16
+  br label %69
 
-70:                                               ; preds = %68, %.thread, %64
-  %71 = call ptr @strsep(ptr noundef nonnull %3, ptr noundef nonnull @.str.60) #17
-  %72 = icmp eq ptr %71, null
-  br i1 %72, label %.loopexit15, label %.preheader14, !llvm.loop !256
+69:                                               ; preds = %67, %.thread, %64
+  %70 = call ptr @strsep(ptr noundef nonnull %3, ptr noundef nonnull @.str.60) #17
+  %71 = icmp eq ptr %70, null
+  br i1 %71, label %.loopexit15, label %.preheader14, !llvm.loop !256
 
-.loopexit15:                                      ; preds = %70, %.loopexit17
-  %73 = load ptr, ptr @chosen_major_lsm, align 8
-  %74 = icmp eq ptr %73, null
-  br i1 %74, label %.loopexit12, label %75
+.loopexit15:                                      ; preds = %69, %.loopexit17
+  %72 = load ptr, ptr @chosen_major_lsm, align 8
+  %73 = icmp eq ptr %72, null
+  br i1 %73, label %.loopexit12, label %74
 
-75:                                               ; preds = %.loopexit15
+74:                                               ; preds = %.loopexit15
   br i1 %4, label %.preheader11.preheader, label %.loopexit
 
-.preheader11.preheader:                           ; preds = %75
+.preheader11.preheader:                           ; preds = %74
   %.pre24 = load ptr, ptr @ordered_lsms, align 8
   br label %.preheader11
 
-.preheader11:                                     ; preds = %.preheader11.preheader, %92
-  %76 = phi ptr [ %93, %92 ], [ %.pre24, %.preheader11.preheader ]
-  %77 = phi ptr [ %94, %92 ], [ @__start_lsm_info, %.preheader11.preheader ]
-  br label %78
+.preheader11:                                     ; preds = %.preheader11.preheader, %91
+  %75 = phi ptr [ %92, %91 ], [ %.pre24, %.preheader11.preheader ]
+  %76 = phi ptr [ %93, %91 ], [ @__start_lsm_info, %.preheader11.preheader ]
+  br label %77
 
-78:                                               ; preds = %78, %.preheader11
-  %79 = phi ptr [ %76, %.preheader11 ], [ %84, %78 ]
-  %80 = load ptr, ptr %79, align 8
-  %81 = icmp ne ptr %80, null
-  %82 = icmp ne ptr %80, %77
-  %83 = and i1 %82, %81
-  %84 = getelementptr i8, ptr %79, i64 8
-  br i1 %83, label %78, label %85, !llvm.loop !257
+77:                                               ; preds = %77, %.preheader11
+  %78 = phi ptr [ %75, %.preheader11 ], [ %83, %77 ]
+  %79 = load ptr, ptr %78, align 8
+  %80 = icmp ne ptr %79, null
+  %81 = icmp ne ptr %79, %76
+  %82 = and i1 %81, %80
+  %83 = getelementptr i8, ptr %78, i64 8
+  br i1 %82, label %77, label %84, !llvm.loop !257
 
-85:                                               ; preds = %78
-  br i1 %81, label %92, label %86
+84:                                               ; preds = %77
+  br i1 %80, label %91, label %85
 
-86:                                               ; preds = %85
-  %87 = load ptr, ptr %77, align 8
-  %88 = load ptr, ptr @chosen_major_lsm, align 8
-  %89 = call i32 @strcmp(ptr noundef %87, ptr noundef %88) #17
-  %90 = icmp eq i32 %89, 0
-  br i1 %90, label %91, label %92
+85:                                               ; preds = %84
+  %86 = load ptr, ptr %76, align 8
+  %87 = load ptr, ptr @chosen_major_lsm, align 8
+  %88 = call i32 @strcmp(ptr noundef %86, ptr noundef %87) #17
+  %89 = icmp eq i32 %88, 0
+  br i1 %89, label %90, label %91
 
-91:                                               ; preds = %86
-  call fastcc void @append_ordered_lsm(ptr noundef %77, ptr noundef nonnull @.str.62) #15
+90:                                               ; preds = %85
+  call fastcc void @append_ordered_lsm(ptr noundef %76, ptr noundef nonnull @.str.62) #15
   %.pre = load ptr, ptr @ordered_lsms, align 8
-  br label %92
+  br label %91
 
-92:                                               ; preds = %91, %86, %85
-  %93 = phi ptr [ %.pre, %91 ], [ %76, %86 ], [ %76, %85 ]
-  %94 = getelementptr i8, ptr %77, i64 48
-  %95 = icmp ult ptr %94, @__end_lsm_info
-  br i1 %95, label %.preheader11, label %.loopexit12, !llvm.loop !258
+91:                                               ; preds = %90, %85, %84
+  %92 = phi ptr [ %.pre, %90 ], [ %75, %85 ], [ %75, %84 ]
+  %93 = getelementptr i8, ptr %76, i64 48
+  %94 = icmp ult ptr %93, @__end_lsm_info
+  br i1 %94, label %.preheader11, label %.loopexit12, !llvm.loop !258
 
-.loopexit12:                                      ; preds = %92, %.loopexit15
+.loopexit12:                                      ; preds = %91, %.loopexit15
   br i1 %4, label %.preheader10, label %.loopexit
 
-.preheader10:                                     ; preds = %.loopexit12, %101
-  %96 = phi ptr [ %102, %101 ], [ @__start_lsm_info, %.loopexit12 ]
-  %97 = getelementptr inbounds nuw i8, ptr %96, i64 8
-  %98 = load i32, ptr %97, align 8
-  %99 = icmp eq i32 %98, 1
-  br i1 %99, label %100, label %101
+.preheader10:                                     ; preds = %.loopexit12, %100
+  %95 = phi ptr [ %101, %100 ], [ @__start_lsm_info, %.loopexit12 ]
+  %96 = getelementptr inbounds nuw i8, ptr %95, i64 8
+  %97 = load i32, ptr %96, align 8
+  %98 = icmp eq i32 %97, 1
+  br i1 %98, label %99, label %100
 
-100:                                              ; preds = %.preheader10
-  call fastcc void @append_ordered_lsm(ptr noundef %96, ptr noundef nonnull @.str.63) #15
-  br label %101
+99:                                               ; preds = %.preheader10
+  call fastcc void @append_ordered_lsm(ptr noundef %95, ptr noundef nonnull @.str.63) #15
+  br label %100
 
-101:                                              ; preds = %100, %.preheader10
-  %102 = getelementptr i8, ptr %96, i64 48
-  %103 = icmp ult ptr %102, @__end_lsm_info
-  br i1 %103, label %.preheader10, label %.preheader.preheader, !llvm.loop !259
+100:                                              ; preds = %99, %.preheader10
+  %101 = getelementptr i8, ptr %95, i64 48
+  %102 = icmp ult ptr %101, @__end_lsm_info
+  br i1 %102, label %.preheader10, label %.preheader.preheader, !llvm.loop !259
 
-.preheader.preheader:                             ; preds = %101
+.preheader.preheader:                             ; preds = %100
   %.pre26 = load ptr, ptr @ordered_lsms, align 8
   br label %.preheader
 
-.preheader:                                       ; preds = %.preheader.preheader, %130
-  %104 = phi ptr [ %131, %130 ], [ %.pre26, %.preheader.preheader ]
-  %105 = phi ptr [ %132, %130 ], [ @__start_lsm_info, %.preheader.preheader ]
-  br label %106
+.preheader:                                       ; preds = %.preheader.preheader, %129
+  %103 = phi ptr [ %130, %129 ], [ %.pre26, %.preheader.preheader ]
+  %104 = phi ptr [ %131, %129 ], [ @__start_lsm_info, %.preheader.preheader ]
+  br label %105
 
-106:                                              ; preds = %106, %.preheader
-  %107 = phi ptr [ %104, %.preheader ], [ %112, %106 ]
-  %108 = load ptr, ptr %107, align 8
-  %109 = icmp ne ptr %108, null
-  %110 = icmp ne ptr %108, %105
-  %111 = and i1 %110, %109
-  %112 = getelementptr i8, ptr %107, i64 8
-  br i1 %111, label %106, label %113, !llvm.loop !257
+105:                                              ; preds = %105, %.preheader
+  %106 = phi ptr [ %103, %.preheader ], [ %111, %105 ]
+  %107 = load ptr, ptr %106, align 8
+  %108 = icmp ne ptr %107, null
+  %109 = icmp ne ptr %107, %104
+  %110 = and i1 %109, %108
+  %111 = getelementptr i8, ptr %106, i64 8
+  br i1 %110, label %105, label %112, !llvm.loop !257
 
-113:                                              ; preds = %106
-  br i1 %109, label %130, label %114
+112:                                              ; preds = %105
+  br i1 %108, label %129, label %113
 
-114:                                              ; preds = %113
-  %115 = getelementptr inbounds nuw i8, ptr %105, i64 24
-  %116 = load ptr, ptr %115, align 8
-  %117 = icmp eq ptr %116, null
-  br i1 %117, label %118, label %119
+113:                                              ; preds = %112
+  %114 = getelementptr inbounds nuw i8, ptr %104, i64 24
+  %115 = load ptr, ptr %114, align 8
+  %116 = icmp eq ptr %115, null
+  br i1 %116, label %117, label %118
 
-118:                                              ; preds = %114
-  store ptr @lsm_enabled_false, ptr %115, align 8
-  br label %125
+117:                                              ; preds = %113
+  store ptr @lsm_enabled_false, ptr %114, align 8
+  br label %124
 
-119:                                              ; preds = %114
-  %120 = icmp eq ptr %116, @lsm_enabled_true
-  br i1 %120, label %121, label %122
+118:                                              ; preds = %113
+  %119 = icmp eq ptr %115, @lsm_enabled_true
+  br i1 %119, label %120, label %121
 
-121:                                              ; preds = %119
-  store ptr @lsm_enabled_false, ptr %115, align 8
-  br label %125
+120:                                              ; preds = %118
+  store ptr @lsm_enabled_false, ptr %114, align 8
+  br label %124
 
-122:                                              ; preds = %119
-  %123 = icmp eq ptr %116, @lsm_enabled_false
-  br i1 %123, label %125, label %124
+121:                                              ; preds = %118
+  %122 = icmp eq ptr %115, @lsm_enabled_false
+  br i1 %122, label %124, label %123
 
-124:                                              ; preds = %122
-  store i32 0, ptr %116, align 4
-  br label %125
+123:                                              ; preds = %121
+  store i32 0, ptr %115, align 4
+  br label %124
 
-125:                                              ; preds = %124, %122, %121, %118
-  %126 = load i1, ptr @debug, align 1
-  br i1 %126, label %127, label %130
+124:                                              ; preds = %123, %121, %120, %117
+  %125 = load i1, ptr @debug, align 1
+  br i1 %125, label %126, label %129
 
-127:                                              ; preds = %125
-  %128 = load ptr, ptr %105, align 8
-  %129 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.64, ptr noundef %1, ptr noundef %128) #16
+126:                                              ; preds = %124
+  %127 = load ptr, ptr %104, align 8
+  %128 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.64, ptr noundef %1, ptr noundef %127) #16
   %.pre25 = load ptr, ptr @ordered_lsms, align 8
-  br label %130
+  br label %129
 
-130:                                              ; preds = %127, %125, %113
-  %131 = phi ptr [ %.pre25, %127 ], [ %104, %125 ], [ %104, %113 ]
-  %132 = getelementptr i8, ptr %105, i64 48
-  %133 = icmp ult ptr %132, @__end_lsm_info
-  br i1 %133, label %.preheader, label %.loopexit, !llvm.loop !260
+129:                                              ; preds = %126, %124, %112
+  %130 = phi ptr [ %.pre25, %126 ], [ %103, %124 ], [ %103, %112 ]
+  %131 = getelementptr i8, ptr %104, i64 48
+  %132 = icmp ult ptr %131, @__end_lsm_info
+  br i1 %132, label %.preheader, label %.loopexit, !llvm.loop !260
 
-.loopexit:                                        ; preds = %130, %.loopexit12, %75
+.loopexit:                                        ; preds = %129, %.loopexit12, %74
   call void @kfree(ptr noundef %46) #17
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #17
   ret void

@@ -1561,8 +1561,8 @@ for.inc:                                          ; preds = %_ZL14handle_control
   %frontend_in.2 = phi i8 [ %40, %if.then821 ], [ %frontend_in.1386, %if.then838 ], [ %frontend_in.1386, %if.else833 ], [ %frontend_in.1386, %_ZL14handle_controlPN3zmq13socket_base_tER13proxy_state_tRK11stats_proxy.exit ]
   %rc.3 = phi i32 [ %rc.2387, %if.then821 ], [ %rc.2387, %if.then838 ], [ %rc.2387, %if.else833 ], [ 0, %_ZL14handle_controlPN3zmq13socket_base_tER13proxy_state_tRK11stats_proxy.exit ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %45 = sext i32 %rc.3 to i64
-  %cmp781 = icmp slt i64 %indvars.iv.next, %45
+  %45 = zext nneg i32 %rc.3 to i64
+  %cmp781 = icmp samesign ult i64 %indvars.iv.next, %45
   br i1 %cmp781, label %for.body, label %for.end, !llvm.loop !4
 
 for.end:                                          ; preds = %for.inc, %for.inc.us, %land.lhs.true747, %do.body752

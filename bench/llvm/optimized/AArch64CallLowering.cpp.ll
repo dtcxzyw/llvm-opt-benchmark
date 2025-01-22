@@ -3082,7 +3082,7 @@ _ZN12_GLOBAL__N_128AArch64OutgoingValueAssignerC2EPFbjN4llvm3MVTES2_NS1_11CCValA
   br i1 %73, label %74, label %76
 
 74:                                               ; preds = %70
-  %75 = icmp ult i64 %.079.i.i.i, 3
+  %75 = icmp samesign ult i64 %.079.i.i.i, 3
   br i1 %75, label %_ZNK4llvm11CCValAssign8isRegLocEv.exit, label %76
 
 76:                                               ; preds = %74, %70

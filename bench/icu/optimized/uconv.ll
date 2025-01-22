@@ -3502,8 +3502,8 @@ call.i.noexc248:                                  ; preds = %if.end383
   %add.ptr.i = getelementptr inbounds nuw i8, ptr %call.i249, i64 %bufsz.0.lcssa97710051048
   %outbuf.i = getelementptr inbounds nuw i8, ptr %cf, i64 8
   store ptr %add.ptr.i, ptr %outbuf.i, align 8
-  %add.i = shl i64 %bufsz.0.lcssa97710051048, 2
-  %229 = add i64 %add.i, 4
+  %add.i = shl nsw i64 %bufsz.0.lcssa97710051048, 2
+  %229 = add nsw i64 %add.i, 4
   %call6.i250 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %229) #26
           to label %invoke.cont384 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 

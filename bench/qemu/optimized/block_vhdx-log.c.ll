@@ -133,8 +133,8 @@ if.end34:                                         ; preds = %if.end28
   br label %for.cond.i
 
 for.cond.i:                                       ; preds = %if.end44.i, %if.end34
-  %9 = phi i32 [ 0, %if.end34 ], [ %20, %if.end44.i ]
-  %candidate.sroa.0.0.i = phi i8 [ 0, %if.end34 ], [ %19, %if.end44.i ]
+  %9 = phi i32 [ 0, %if.end34 ], [ %19, %if.end44.i ]
+  %candidate.sroa.0.0.i = phi i8 [ 0, %if.end34 ], [ %18, %if.end44.i ]
   %candidate.sroa.6.0.i = phi i32 [ 0, %if.end34 ], [ %candidate.sroa.6.1.i, %if.end44.i ]
   %candidate.sroa.8.0.i = phi i32 [ 0, %if.end34 ], [ %candidate.sroa.8.1.i, %if.end44.i ]
   %candidate.sroa.9.0.i = phi i32 [ 0, %if.end34 ], [ %candidate.sroa.9.1.i, %if.end44.i ]
@@ -184,8 +184,7 @@ if.then30.i:                                      ; preds = %if.end16.i, %if.end
   %call1243.i.lcssa = phi i32 [ %call1239.i, %if.end16.i.preheader ], [ %call12.i, %if.end16.i ]
   %current.sroa.8.242.i.lcssa = phi i32 [ %11, %if.end16.i.preheader ], [ %16, %if.end16.i ]
   %current.sroa.41.241.i.lcssa = phi i32 [ 1, %if.end16.i.preheader ], [ %inc.i, %if.end16.i ]
-  %18 = and i8 %candidate.sroa.0.0.i, 1
-  %cmp34.i = icmp eq i8 %18, 0
+  %cmp34.i = icmp eq i8 %candidate.sroa.0.0.i, 0
   %cmp40.i = icmp ugt i64 %current.sroa.12.64.copyload.i, %candidate.sroa.11.0.i
   %or.cond.i = select i1 %cmp34.i, i1 true, i1 %cmp40.i
   br i1 %or.cond.i, label %if.then42.i, label %if.end44.i
@@ -199,17 +198,17 @@ if.then42.i:                                      ; preds = %if.then30.i
 
 if.end44.i:                                       ; preds = %if.then42.i, %if.then30.i, %if.end.i
   %ret.126.i = phi i32 [ %call1243.i.lcssa, %if.then42.i ], [ %call1243.i.lcssa, %if.then30.i ], [ %call.i, %if.end.i ]
-  %19 = phi i8 [ 1, %if.then42.i ], [ %candidate.sroa.0.0.i, %if.then30.i ], [ %candidate.sroa.0.0.i, %if.end.i ]
+  %18 = phi i8 [ 1, %if.then42.i ], [ %candidate.sroa.0.0.i, %if.then30.i ], [ %candidate.sroa.0.0.i, %if.end.i ]
   %candidate.sroa.6.1.i = phi i32 [ %current.sroa.41.241.i.lcssa, %if.then42.i ], [ %candidate.sroa.6.0.i, %if.then30.i ], [ %candidate.sroa.6.0.i, %if.end.i ]
   %candidate.sroa.8.1.i = phi i32 [ %current.sroa.8.242.i.lcssa, %if.then42.i ], [ %candidate.sroa.8.0.i, %if.then30.i ], [ %candidate.sroa.8.0.i, %if.end.i ]
   %candidate.sroa.9.1.i = phi i32 [ %9, %if.then42.i ], [ %candidate.sroa.9.0.i, %if.then30.i ], [ %candidate.sroa.9.0.i, %if.end.i ]
   %candidate.sroa.11.1.i = phi i64 [ %current.sroa.12.64.copyload.i, %if.then42.i ], [ %candidate.sroa.11.0.i, %if.then30.i ], [ %candidate.sroa.11.0.i, %if.end.i ]
-  %20 = load i32, ptr %read.i, align 4
-  %cmp46.i = icmp ult i32 %20, %9
+  %19 = load i32, ptr %read.i, align 4
+  %cmp46.i = icmp ult i32 %19, %9
   br i1 %cmp46.i, label %for.end50.i, label %for.cond.i
 
 for.end50.i:                                      ; preds = %if.end44.i
-  store i8 %19, ptr %logs, align 8
+  store i8 %18, ptr %logs, align 8
   %candidate.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %logs, i64 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %candidate.sroa.5.0..sroa_idx.i, ptr noundef nonnull align 1 dereferenceable(3) %candidate.sroa.5.i, i64 3, i1 false)
   %candidate.sroa.6.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %logs, i64 4
@@ -226,7 +225,7 @@ for.end50.i:                                      ; preds = %if.end44.i
   store i64 %candidate.sroa.11.1.i, ptr %candidate.sroa.11.0..sroa_idx.i, align 8
   %candidate.sroa.14.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %logs, i64 88
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %candidate.sroa.14.0..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(40) %candidate.sroa.14.i, i64 40, i1 false)
-  %tobool52.i = trunc nuw i8 %19 to i1
+  %tobool52.i = trunc nuw i8 %18 to i1
   br i1 %tobool52.i, label %if.then41, label %if.end39
 
 vhdx_log_search.exit.thread:                      ; preds = %if.then3.i, %for.cond.i, %if.end22.i

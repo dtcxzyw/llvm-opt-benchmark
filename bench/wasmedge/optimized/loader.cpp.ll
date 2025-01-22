@@ -2157,7 +2157,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit:                    ; preds = %211, %213
   br i1 %250, label %251, label %253
 
 251:                                              ; preds = %246
-  %252 = icmp ult i64 %.079.i.i, 2
+  %252 = icmp samesign ult i64 %.079.i.i, 2
   br i1 %252, label %_ZSt17holds_alternativeISt10unique_ptrIN8WasmEdge3AST6ModuleESt14default_deleteIS3_EEJS0_INS2_9Component9ComponentES4_IS8_EES6_EEbRKSt7variantIJDpT0_EE.exit, label %253
 
 253:                                              ; preds = %251, %246
@@ -3612,7 +3612,7 @@ define void @_ZN8WasmEdge6Loader6Loader11parseModuleERKNSt10filesystem7__cxx114p
   br i1 %15, label %16, label %18
 
 16:                                               ; preds = %11
-  %17 = icmp ult i64 %.079.i.i, 2
+  %17 = icmp samesign ult i64 %.079.i.i, 2
   br i1 %17, label %_ZSt17holds_alternativeISt10unique_ptrIN8WasmEdge3AST6ModuleESt14default_deleteIS3_EEJS0_INS2_9Component9ComponentES4_IS8_EES6_EEbRKSt7variantIJDpT0_EE.exit, label %18
 
 18:                                               ; preds = %16, %11
@@ -3716,7 +3716,7 @@ define void @_ZN8WasmEdge6Loader6Loader11parseModuleEN5cxx204spanIKhLm1844674407
   br i1 %16, label %17, label %19
 
 17:                                               ; preds = %12
-  %18 = icmp ult i64 %.079.i.i, 2
+  %18 = icmp samesign ult i64 %.079.i.i, 2
   br i1 %18, label %_ZSt17holds_alternativeISt10unique_ptrIN8WasmEdge3AST6ModuleESt14default_deleteIS3_EEJS0_INS2_9Component9ComponentES4_IS8_EES6_EEbRKSt7variantIJDpT0_EE.exit, label %19
 
 19:                                               ; preds = %17, %12

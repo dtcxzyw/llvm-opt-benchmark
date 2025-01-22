@@ -658,7 +658,7 @@ define internal i32 @dissect_eobi_message(ptr noundef %0, ptr noundef %1, ptr no
   br label %532
 
 91:                                               ; preds = %73
-  %92 = add i32 %.0460615, 1
+  %92 = add nsw i32 %.0460615, 1
   %93 = add nsw i32 %.0464613, -1
   br label %532
 

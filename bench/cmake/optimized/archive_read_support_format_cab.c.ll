@@ -3240,7 +3240,7 @@ cab_read_ahead_cfdata_deflate.exit:               ; preds = %55, %63, %87, %121,
   %301 = getelementptr inbounds nuw [18 x i32], ptr %4, i64 0, i64 %300
   %302 = load i32, ptr %301, align 4
   %303 = add nsw i32 %302, %.06393.i.i
-  %304 = icmp ult i32 %.194.i.i, 17
+  %304 = icmp samesign ult i32 %.194.i.i, 17
   br i1 %304, label %.preheader.i.i, label %307
 
 .preheader.i.i:                                   ; preds = %299, %296

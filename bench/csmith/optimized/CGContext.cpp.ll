@@ -2560,11 +2560,8 @@ _ZNK9CGContext17get_current_blockEv.exit:         ; preds = %_ZNK9CGContext17get
   %56 = icmp sgt i32 %55, -1
   br i1 %56, label %.lr.ph38, label %.loopexit
 
-.lr.ph38.loopexit:                                ; preds = %64
-  br label %.lr.ph38, !llvm.loop !20
-
-.lr.ph38:                                         ; preds = %45, %.lr.ph38.loopexit
-  %.236 = phi i32 [ %.3, %.lr.ph38.loopexit ], [ %55, %45 ]
+.lr.ph38:                                         ; preds = %45, %68
+  %.236 = phi i32 [ %.3, %68 ], [ %55, %45 ]
   %57 = zext nneg i32 %.236 to i64
   %58 = load ptr, ptr %46, align 8
   %59 = getelementptr inbounds nuw ptr, ptr %58, i64 %57
@@ -2584,10 +2581,14 @@ _ZNK9CGContext17get_current_blockEv.exit:         ; preds = %_ZNK9CGContext17get
   %66 = load ptr, ptr %65, align 8
   %67 = add nuw nsw i32 %.3, 1
   %.not29 = icmp eq ptr %66, null
-  br i1 %.not29, label %.lr.ph38.loopexit, label %61, !llvm.loop !20
+  br i1 %.not29, label %68, label %61, !llvm.loop !20
 
-.loopexit:                                        ; preds = %.lr.ph, %_ZNK9CGContext17get_current_blockEv.exit, %61, %45, %2
-  %.024 = phi i32 [ -1, %2 ], [ 8888, %45 ], [ 9999, %61 ], [ %.123, %_ZNK9CGContext17get_current_blockEv.exit ], [ 0, %.lr.ph ]
+68:                                               ; preds = %64
+  %69 = icmp sgt i32 %.3, -1
+  br i1 %69, label %.lr.ph38, label %.loopexit, !llvm.loop !21
+
+.loopexit:                                        ; preds = %.lr.ph, %_ZNK9CGContext17get_current_blockEv.exit, %68, %61, %45, %2
+  %.024 = phi i32 [ -1, %2 ], [ 8888, %45 ], [ 9999, %61 ], [ 8888, %68 ], [ %.123, %_ZNK9CGContext17get_current_blockEv.exit ], [ 0, %.lr.ph ]
   ret i32 %.024
 }
 
@@ -2763,7 +2764,7 @@ define dso_local void @_ZN9CGContext17output_call_chainERSo(ptr nocapture nounde
   %24 = sub i64 %22, %23
   %25 = ashr exact i64 %24, 3
   %26 = icmp ult i64 %19, %25
-  br i1 %26, label %.lr.ph, label %._crit_edge, !llvm.loop !21
+  br i1 %26, label %.lr.ph, label %._crit_edge, !llvm.loop !22
 
 ._crit_edge:                                      ; preds = %12, %2
   %27 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSoS_E(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_)
@@ -2824,7 +2825,7 @@ _ZNK9CGContext17get_current_blockEv.exit:         ; preds = %2, %4, %9
   %26 = sub i64 %24, %25
   %27 = ashr exact i64 %26, 3
   %28 = icmp ult i64 %21, %27
-  br i1 %28, label %.lr.ph, label %.loopexit, !llvm.loop !22
+  br i1 %28, label %.lr.ph, label %.loopexit, !llvm.loop !23
 
 .lr.ph:                                           ; preds = %.preheader, %20
   %29 = phi ptr [ %23, %20 ], [ %19, %.preheader ]
@@ -2969,7 +2970,7 @@ define dso_local noundef zeroext i1 @_ZNK9CGContext11in_conflictERK6Effect(ptr n
   %50 = sub i64 %48, %49
   %51 = ashr exact i64 %50, 3
   %52 = icmp ult i64 %45, %51
-  br i1 %52, label %13, label %.preheader, !llvm.loop !23
+  br i1 %52, label %13, label %.preheader, !llvm.loop !24
 
 53:                                               ; preds = %.lr.ph27, %73
   %54 = phi ptr [ %11, %.lr.ph27 ], [ %76, %73 ]
@@ -3013,7 +3014,7 @@ define dso_local noundef zeroext i1 @_ZNK9CGContext11in_conflictERK6Effect(ptr n
   %79 = sub i64 %77, %78
   %80 = ashr exact i64 %79, 3
   %81 = icmp ult i64 %74, %80
-  br i1 %81, label %53, label %_ZNK9CGContext14is_nonreadableEPK8Variable.exit, !llvm.loop !24
+  br i1 %81, label %53, label %_ZNK9CGContext14is_nonreadableEPK8Variable.exit, !llvm.loop !25
 
 _ZNK9CGContext14is_nonreadableEPK8Variable.exit:  ; preds = %39, %.loopexit, %.lr.ph.i, %58, %53, %60, %63, %68, %73, %.preheader
   %.0 = phi i1 [ false, %.preheader ], [ true, %58 ], [ true, %53 ], [ true, %60 ], [ true, %63 ], [ true, %68 ], [ false, %73 ], [ true, %.lr.ph.i ], [ true, %.loopexit ], [ true, %39 ]
@@ -3099,7 +3100,7 @@ _ZNK9CGContext17get_current_blockEv.exit.i:       ; preds = %32, %27, %.lr.ph
   %47 = sub i64 %45, %46
   %48 = ashr exact i64 %47, 3
   %49 = icmp ult i64 %42, %48
-  br i1 %49, label %.lr.ph.i, label %_ZNK9CGContext12is_frame_varEPK8Variable.exit, !llvm.loop !22
+  br i1 %49, label %.lr.ph.i, label %_ZNK9CGContext12is_frame_varEPK8Variable.exit, !llvm.loop !23
 
 .lr.ph.i:                                         ; preds = %.preheader.i, %41
   %50 = phi ptr [ %44, %41 ], [ %40, %.preheader.i ]
@@ -3182,7 +3183,7 @@ _ZNK9CGContext12is_frame_varEPK8Variable.exit:    ; preds = %41, %_ZNSt6vectorIP
   %87 = sub i64 %85, %86
   %88 = ashr exact i64 %87, 3
   %89 = icmp ult i64 %82, %88
-  br i1 %89, label %.lr.ph, label %.loopexit17.loopexit, !llvm.loop !25
+  br i1 %89, label %.lr.ph, label %.loopexit17.loopexit, !llvm.loop !26
 
 .loopexit17.loopexit:                             ; preds = %_ZNK9CGContext12is_frame_varEPK8Variable.exit
   %.pre = load ptr, ptr %4, align 8
@@ -3198,7 +3199,7 @@ _ZNK9CGContext12is_frame_varEPK8Variable.exit:    ; preds = %41, %_ZNSt6vectorIP
   %95 = sub i64 %93, %94
   %96 = ashr exact i64 %95, 3
   %97 = icmp ult i64 %92, %96
-  br i1 %97, label %11, label %._crit_edge, !llvm.loop !26
+  br i1 %97, label %11, label %._crit_edge, !llvm.loop !27
 
 ._crit_edge:                                      ; preds = %.loopexit17, %3
   ret void
@@ -3348,7 +3349,7 @@ _ZNSt6vectorIPK8VariableSaIS2_EE9push_backERKS2_.exit: ; preds = %_ZNSt6vectorIP
   %71 = sub i64 %69, %70
   %72 = ashr exact i64 %71, 3
   %73 = icmp ult i64 %63, %72
-  br i1 %73, label %27, label %.preheader, !llvm.loop !27
+  br i1 %73, label %27, label %.preheader, !llvm.loop !28
 
 74:                                               ; preds = %.lr.ph49, %_ZNSt6vectorIPK8VariableSaIS2_EE9push_backERKS2_.exit26
   %75 = phi ptr [ %25, %.lr.ph49 ], [ %116, %_ZNSt6vectorIPK8VariableSaIS2_EE9push_backERKS2_.exit26 ]
@@ -3440,7 +3441,7 @@ _ZNSt6vectorIPK8VariableSaIS2_EE9push_backERKS2_.exit26: ; preds = %_ZNSt6vector
   %119 = sub i64 %117, %118
   %120 = ashr exact i64 %119, 3
   %121 = icmp ult i64 %110, %120
-  br i1 %121, label %74, label %.loopexit, !llvm.loop !28
+  br i1 %121, label %74, label %.loopexit, !llvm.loop !29
 
 .loopexit:                                        ; preds = %_ZNSt6vectorIPK8VariableSaIS2_EE9push_backERKS2_.exit26, %.preheader, %_ZNSt6vectorIPK8VariableSaIS2_EE5clearEv.exit18
   %122 = getelementptr inbounds nuw i8, ptr %0, i64 88
@@ -3535,7 +3536,7 @@ _ZNSt6vectorIPK8VariableSaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__nor
 _ZNSt6vectorIPK8VariableSaIS2_EE9push_backERKS2_.exit34: ; preds = %_ZNSt6vectorIPK8VariableSaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i33, %139, %133
   %164 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.035.051) #24
   %.not45 = icmp eq ptr %164, %124
-  br i1 %.not45, label %._crit_edge, label %126, !llvm.loop !29
+  br i1 %.not45, label %._crit_edge, label %126, !llvm.loop !30
 
 ._crit_edge:                                      ; preds = %_ZNSt6vectorIPK8VariableSaIS2_EE9push_backERKS2_.exit34, %.loopexit
   ret void
@@ -3667,7 +3668,7 @@ _ZNSt6vectorIPK8VariableSaIS2_EE9push_backERKS2_.exit: ; preds = %_ZNSt6vectorIP
   %61 = sub i64 %59, %60
   %62 = ashr exact i64 %61, 3
   %63 = icmp ult i64 %54, %62
-  br i1 %63, label %19, label %.preheader, !llvm.loop !30
+  br i1 %63, label %19, label %.preheader, !llvm.loop !31
 
 64:                                               ; preds = %.lr.ph24, %_ZNSt6vectorIPK8VariableSaIS2_EE9push_backERKS2_.exit18
   %65 = phi ptr [ %17, %.lr.ph24 ], [ %103, %_ZNSt6vectorIPK8VariableSaIS2_EE9push_backERKS2_.exit18 ]
@@ -3755,7 +3756,7 @@ _ZNSt6vectorIPK8VariableSaIS2_EE9push_backERKS2_.exit18: ; preds = %_ZNSt6vector
   %106 = sub i64 %104, %105
   %107 = ashr exact i64 %106, 3
   %108 = icmp ult i64 %99, %107
-  br i1 %108, label %64, label %._crit_edge, !llvm.loop !31
+  br i1 %108, label %64, label %._crit_edge, !llvm.loop !32
 
 ._crit_edge:                                      ; preds = %_ZNSt6vectorIPK8VariableSaIS2_EE9push_backERKS2_.exit18, %.preheader
   ret void
@@ -3787,7 +3788,7 @@ define linkonce_odr dso_local void @_ZNSt8_Rb_treeIPK8VariableSt4pairIKS2_jESt10
   %6 = load ptr, ptr %5, align 8
   tail call void @_ZdlPv(ptr noundef nonnull %.07) #19
   %.not = icmp eq ptr %6, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !32
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !33
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   ret void
@@ -3885,7 +3886,7 @@ define linkonce_odr dso_local noundef ptr @_ZNSt8_Rb_treeIPK8VariableSt4pairIKS2
   %.0.in = getelementptr inbounds nuw i8, ptr %.037, i64 16
   %.0 = load ptr, ptr %.0.in, align 8
   %.not31 = icmp eq ptr %.0, null
-  br i1 %.not31, label %._crit_edge, label %.lr.ph, !llvm.loop !33
+  br i1 %.not31, label %._crit_edge, label %.lr.ph, !llvm.loop !34
 
 37:                                               ; preds = %20, %17
   %38 = landingpad { ptr, i32 }
@@ -3966,7 +3967,7 @@ define linkonce_odr dso_local { ptr, ptr } @_ZNSt8_Rb_treeIPK8VariableSt4pairIKS
   %.in.i = getelementptr inbounds nuw i8, ptr %.02024.i, i64 %.in.v.i
   %.020.i = load ptr, ptr %.in.i, align 8
   %.not.i = icmp eq ptr %.020.i, null
-  br i1 %.not.i, label %._crit_edge.i, label %19, !llvm.loop !34
+  br i1 %.not.i, label %._crit_edge.i, label %19, !llvm.loop !35
 
 ._crit_edge.i:                                    ; preds = %19
   br i1 %22, label %._crit_edge.thread.i, label %28
@@ -4038,7 +4039,7 @@ define linkonce_odr dso_local { ptr, ptr } @_ZNSt8_Rb_treeIPK8VariableSt4pairIKS
   %.in.i15 = getelementptr inbounds nuw i8, ptr %.02024.i13, i64 %.in.v.i14
   %.020.i16 = load ptr, ptr %.in.i15, align 8
   %.not.i17 = icmp eq ptr %.020.i16, null
-  br i1 %.not.i17, label %._crit_edge.i18, label %.lr.ph.i12, !llvm.loop !34
+  br i1 %.not.i17, label %._crit_edge.i18, label %.lr.ph.i12, !llvm.loop !35
 
 ._crit_edge.i18:                                  ; preds = %.lr.ph.i12
   br i1 %54, label %._crit_edge.thread.i27, label %58
@@ -4103,7 +4104,7 @@ define linkonce_odr dso_local { ptr, ptr } @_ZNSt8_Rb_treeIPK8VariableSt4pairIKS
   %.in.i35 = getelementptr inbounds nuw i8, ptr %.02024.i33, i64 %.in.v.i34
   %.020.i36 = load ptr, ptr %.in.i35, align 8
   %.not.i37 = icmp eq ptr %.020.i36, null
-  br i1 %.not.i37, label %._crit_edge.i38, label %.lr.ph.i32, !llvm.loop !34
+  br i1 %.not.i37, label %._crit_edge.i38, label %.lr.ph.i32, !llvm.loop !35
 
 ._crit_edge.i38:                                  ; preds = %.lr.ph.i32
   br i1 %80, label %._crit_edge.thread.i47, label %86
@@ -4264,3 +4265,4 @@ attributes #24 = { nounwind willreturn memory(read) }
 !32 = distinct !{!32, !6}
 !33 = distinct !{!33, !6}
 !34 = distinct !{!34, !6}
+!35 = distinct !{!35, !6}

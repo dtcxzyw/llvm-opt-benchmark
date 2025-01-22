@@ -139,7 +139,7 @@ for.body45:                                       ; preds = %while.body34, %for.
   %arrayidx51 = getelementptr inbounds nuw [2048 x float], ptr @grabbag__replaygain_analyze.lbuffer, i64 0, i64 %indvars.iv142
   store float %conv49, ptr %arrayidx51, align 4
   %8 = tail call i32 @llvm.abs.i32(i32 %7, i1 true)
-  %cond57 = tail call i32 @llvm.smax.i32(i32 %block_peak.3120, i32 %8)
+  %cond57 = tail call i32 @llvm.umax.i32(i32 %block_peak.3120, i32 %8)
   %indvars.iv.next143 = add nuw nsw i64 %indvars.iv142, 1
   %inc60 = add i32 %j.3118, 1
   %exitcond146.not = icmp eq i64 %indvars.iv.next143, %wide.trip.count145

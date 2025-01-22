@@ -3359,7 +3359,7 @@ define void @_ZN4pkpy11LiteralExpr5emit_EPNS_15CodeEmitContextE(ptr nocapture no
   br i1 %12, label %13, label %15
 
 13:                                               ; preds = %9
-  %14 = icmp ult i64 %.079.i.i, 4
+  %14 = icmp samesign ult i64 %.079.i.i, 4
   br i1 %14, label %_ZSt17holds_alternativeIlJSt9monostateldN4pkpy3StrEEEbRKSt7variantIJDpT0_EE.exit, label %15
 
 15:                                               ; preds = %13, %9
@@ -3443,7 +3443,7 @@ _ZN4pkpy6py_varIRlEEPNS_8PyObjectEPNS_2VMEOT_.exit.i: ; preds = %38, %34
   br i1 %46, label %47, label %49
 
 47:                                               ; preds = %.preheader24
-  %48 = icmp ult i64 %.079.i.i11, 4
+  %48 = icmp samesign ult i64 %.079.i.i11, 4
   br i1 %48, label %_ZSt17holds_alternativeIdJSt9monostateldN4pkpy3StrEEEbRKSt7variantIJDpT0_EE.exit, label %49
 
 49:                                               ; preds = %47, %.preheader24
@@ -3501,7 +3501,7 @@ _ZSt3getIdJSt9monostateldN4pkpy3StrEEERT_RSt7variantIJDpT0_EE.exit: ; preds = %5
   br i1 %68, label %69, label %71
 
 69:                                               ; preds = %.preheader
-  %70 = icmp ult i64 %.079.i.i18, 4
+  %70 = icmp samesign ult i64 %.079.i.i18, 4
   br i1 %70, label %_ZSt17holds_alternativeIN4pkpy3StrEJSt9monostateldS1_EEbRKSt7variantIJDpT0_EE.exit, label %71
 
 71:                                               ; preds = %69, %.preheader
@@ -3581,7 +3581,7 @@ define void @_ZN4pkpy11NegatedExpr5emit_EPNS_15CodeEmitContextE(ptr nocapture no
   br i1 %19, label %20, label %22
 
 20:                                               ; preds = %16
-  %21 = icmp ult i64 %.079.i.i, 4
+  %21 = icmp samesign ult i64 %.079.i.i, 4
   br i1 %21, label %_ZSt17holds_alternativeIlJSt9monostateldN4pkpy3StrEEEbRKSt7variantIJDpT0_EE.exit, label %22
 
 22:                                               ; preds = %20, %16
@@ -3667,7 +3667,7 @@ _ZN4pkpy6py_varIRlEEPNS_8PyObjectEPNS_2VMEOT_.exit.i: ; preds = %47, %43
   br i1 %55, label %56, label %58
 
 56:                                               ; preds = %.preheader
-  %57 = icmp ult i64 %.079.i.i13, 4
+  %57 = icmp samesign ult i64 %.079.i.i13, 4
   br i1 %57, label %_ZSt17holds_alternativeIdJSt9monostateldN4pkpy3StrEEEbRKSt7variantIJDpT0_EE.exit, label %58
 
 58:                                               ; preds = %56, %.preheader

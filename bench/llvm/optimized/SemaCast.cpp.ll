@@ -12703,7 +12703,7 @@ select.unfold95.i:                                ; preds = %112, %112, %112
 .loopexit:                                        ; preds = %"_ZZL28unwrapCastAwayConstnessLevelRN5clang10ASTContextERNS_8QualTypeES3_ENK3$_1clES2_.exit85.i", %.lr.ph.i, %112, %89
   %.sroa.09.0.copyload = phi i64 [ %.sroa.06.0.copyload103.i, %89 ], [ %.sroa.06.0.copyload.i, %"_ZZL28unwrapCastAwayConstnessLevelRN5clang10ASTContextERNS_8QualTypeES3_ENK3$_1clES2_.exit85.i" ], [ %.sroa.06.0.copyload107.i, %.lr.ph.i ], [ %.sroa.06.0.copyload107.i, %112 ]
   %.0.i.ph = phi i32 [ %.043.i, %89 ], [ %.2.i, %"_ZZL28unwrapCastAwayConstnessLevelRN5clang10ASTContextERNS_8QualTypeES3_ENK3$_1clES2_.exit85.i" ], [ %.1106.i, %.lr.ph.i ], [ %.1106.i, %112 ]
-  %spec.select = call i32 @llvm.smax.i32(i32 %.0.i.ph, i32 %.049)
+  %spec.select = call i32 @llvm.umax.i32(i32 %.0.i.ph, i32 %.049)
   store i64 0, ptr %11, align 8
   store i64 0, ptr %12, align 8
   %143 = load ptr, ptr %23, align 8
@@ -19568,9 +19568,6 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #12
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #14

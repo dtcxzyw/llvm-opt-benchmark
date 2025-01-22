@@ -4353,13 +4353,11 @@ _ZN5folly6detail17distributed_mutex33recordTimedWaiterAndClearTimedBitERbRm.exit
   br i1 %cmp, label %cleanup80.thread, label %while.end59
 
 cleanup80.thread:                                 ; preds = %_ZN5folly6detail17distributed_mutex33recordTimedWaiterAndClearTimedBitERbRm.exit
-  %tobool26 = icmp ne i8 %timedWaiter.1, 0
-  %frombool.i = zext i1 %tobool26 to i8
   store ptr null, ptr %agg.result, align 8, !tbaa !207
   %expected_.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i64 %or, ptr %expected_.i, align 8, !tbaa !208
   %timedWaiters_.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
-  store i8 %frombool.i, ptr %timedWaiters_.i, align 8, !tbaa !204
+  store i8 %timedWaiter.1, ptr %timedWaiters_.i, align 8, !tbaa !204
   %combined_.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 17
   store i8 0, ptr %combined_.i, align 1, !tbaa !198
   %waker_.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 24
@@ -4463,18 +4461,16 @@ _ZN5folly6detail17distributed_mutex6detachINS1_6WaiterISt6atomicEEZNS_16Throttle
 cleanup80.thread153:                              ; preds = %_ZN5folly6detail17distributed_mutex6detachINS1_6WaiterISt6atomicEEZNS_16ThrottledLifoSem21maybeStartWakingChainEvEUlvE_EEvRNS1_17RequestWithReturnIT0_EERT_bRNS_4UnitE.exit, %if.end62
   %and18.i123 = select i1 %cmp63, i64 0, i64 %9
   %15 = inttoptr i64 %and18.i123 to ptr
-  %tobool75 = icmp ne i8 %timedWaiter.1, 0
   %16 = or i1 %cmp66, %cmp67
   %17 = load i64, ptr %agg.tmp120.sroa.5.0..sroa_idx, align 8, !tbaa !47
   %and18.i124 = and i64 %17, -2
   %18 = inttoptr i64 %and18.i124 to ptr
-  %frombool.i125 = zext i1 %tobool75 to i8
   %frombool1.i = zext i1 %16 to i8
   store ptr %15, ptr %agg.result, align 8, !tbaa !207
   %expected_.i126 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i64 %spec.select, ptr %expected_.i126, align 8, !tbaa !208
   %timedWaiters_.i127 = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
-  store i8 %frombool.i125, ptr %timedWaiters_.i127, align 8, !tbaa !204
+  store i8 %timedWaiter.1, ptr %timedWaiters_.i127, align 8, !tbaa !204
   %combined_.i128 = getelementptr inbounds nuw i8, ptr %agg.result, i64 17
   store i8 %frombool1.i, ptr %combined_.i128, align 1, !tbaa !198
   %waker_.i129 = getelementptr inbounds nuw i8, ptr %agg.result, i64 24
@@ -5533,13 +5529,11 @@ _ZN5folly6detail17distributed_mutex33recordTimedWaiterAndClearTimedBitERbRm.exit
   br i1 %cmp, label %cleanup79.thread, label %while.end58
 
 cleanup79.thread:                                 ; preds = %_ZN5folly6detail17distributed_mutex33recordTimedWaiterAndClearTimedBitERbRm.exit
-  %tobool25 = icmp ne i8 %timedWaiter.1, 0
-  %frombool.i = zext i1 %tobool25 to i8
   store ptr null, ptr %agg.result, align 8, !tbaa !207
   %expected_.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i64 %or, ptr %expected_.i, align 8, !tbaa !208
   %timedWaiters_.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
-  store i8 %frombool.i, ptr %timedWaiters_.i, align 8, !tbaa !204
+  store i8 %timedWaiter.1, ptr %timedWaiters_.i, align 8, !tbaa !204
   %combined_.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 17
   store i8 0, ptr %combined_.i, align 1, !tbaa !198
   %waker_.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 24
@@ -5641,18 +5635,16 @@ _ZN5folly6detail17distributed_mutex6detachINS1_6WaiterISt6atomicEEZNS_16Throttle
 cleanup79.thread152:                              ; preds = %_ZN5folly6detail17distributed_mutex6detachINS1_6WaiterISt6atomicEEZNS_16ThrottledLifoSem16tryWaitUntilSlowINSt6chrono3_V212steady_clockENS8_8durationIlSt5ratioILl1ELl1000000000EEEEEEbRKNS8_10time_pointIT_T0_EEEUlvE_EEvRNS1_20RequestWithoutReturnISH_EERSG_bRNS_4UnitE.exit, %if.end61
   %and18.i122 = select i1 %cmp62, i64 0, i64 %9
   %14 = inttoptr i64 %and18.i122 to ptr
-  %tobool74 = icmp ne i8 %timedWaiter.1, 0
   %15 = or i1 %cmp65, %cmp66
   %16 = load i64, ptr %agg.tmp119.sroa.5.0..sroa_idx, align 8, !tbaa !47
   %and18.i123 = and i64 %16, -2
   %17 = inttoptr i64 %and18.i123 to ptr
-  %frombool.i124 = zext i1 %tobool74 to i8
   %frombool1.i = zext i1 %15 to i8
   store ptr %14, ptr %agg.result, align 8, !tbaa !207
   %expected_.i125 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i64 %spec.select, ptr %expected_.i125, align 8, !tbaa !208
   %timedWaiters_.i126 = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
-  store i8 %frombool.i124, ptr %timedWaiters_.i126, align 8, !tbaa !204
+  store i8 %timedWaiter.1, ptr %timedWaiters_.i126, align 8, !tbaa !204
   %combined_.i127 = getelementptr inbounds nuw i8, ptr %agg.result, i64 17
   store i8 %frombool1.i, ptr %combined_.i127, align 1, !tbaa !198
   %waker_.i128 = getelementptr inbounds nuw i8, ptr %agg.result, i64 24
@@ -5873,13 +5865,11 @@ _ZN5folly6detail17distributed_mutex33recordTimedWaiterAndClearTimedBitERbRm.exit
   br i1 %cmp, label %cleanup79.thread, label %while.end58
 
 cleanup79.thread:                                 ; preds = %_ZN5folly6detail17distributed_mutex33recordTimedWaiterAndClearTimedBitERbRm.exit
-  %tobool25 = icmp ne i8 %timedWaiter.1, 0
-  %frombool.i = zext i1 %tobool25 to i8
   store ptr null, ptr %agg.result, align 8, !tbaa !207
   %expected_.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i64 %or, ptr %expected_.i, align 8, !tbaa !208
   %timedWaiters_.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
-  store i8 %frombool.i, ptr %timedWaiters_.i, align 8, !tbaa !204
+  store i8 %timedWaiter.1, ptr %timedWaiters_.i, align 8, !tbaa !204
   %combined_.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 17
   store i8 0, ptr %combined_.i, align 1, !tbaa !198
   %waker_.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 24
@@ -5984,18 +5974,16 @@ _ZN5folly6detail17distributed_mutex6detachINS1_6WaiterISt6atomicEEZNS_16Throttle
 cleanup79.thread152:                              ; preds = %_ZN5folly6detail17distributed_mutex6detachINS1_6WaiterISt6atomicEEZNS_16ThrottledLifoSem16tryWaitUntilSlowINSt6chrono3_V212steady_clockENS8_8durationIlSt5ratioILl1ELl1000000000EEEEEEbRKNS8_10time_pointIT_T0_EEEUlvE0_EEvRNS1_17RequestWithReturnISH_EERSG_bRNS_4UnitE.exit, %if.end61
   %and18.i122 = select i1 %cmp62, i64 0, i64 %10
   %17 = inttoptr i64 %and18.i122 to ptr
-  %tobool74 = icmp ne i8 %timedWaiter.1, 0
   %18 = or i1 %cmp65, %cmp66
   %19 = load i64, ptr %agg.tmp119.sroa.5.0..sroa_idx, align 8, !tbaa !47
   %and18.i123 = and i64 %19, -2
   %20 = inttoptr i64 %and18.i123 to ptr
-  %frombool.i124 = zext i1 %tobool74 to i8
   %frombool1.i = zext i1 %18 to i8
   store ptr %17, ptr %agg.result, align 8, !tbaa !207
   %expected_.i125 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i64 %spec.select, ptr %expected_.i125, align 8, !tbaa !208
   %timedWaiters_.i126 = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
-  store i8 %frombool.i124, ptr %timedWaiters_.i126, align 8, !tbaa !204
+  store i8 %timedWaiter.1, ptr %timedWaiters_.i126, align 8, !tbaa !204
   %combined_.i127 = getelementptr inbounds nuw i8, ptr %agg.result, i64 17
   store i8 %frombool1.i, ptr %combined_.i127, align 1, !tbaa !198
   %waker_.i128 = getelementptr inbounds nuw i8, ptr %agg.result, i64 24
@@ -6136,13 +6124,11 @@ _ZN5folly6detail17distributed_mutex33recordTimedWaiterAndClearTimedBitERbRm.exit
   br i1 %cmp, label %cleanup80.thread, label %while.end59
 
 cleanup80.thread:                                 ; preds = %_ZN5folly6detail17distributed_mutex33recordTimedWaiterAndClearTimedBitERbRm.exit
-  %tobool26 = icmp ne i8 %timedWaiter.1, 0
-  %frombool.i = zext i1 %tobool26 to i8
   store ptr null, ptr %agg.result, align 8, !tbaa !207
   %expected_.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i64 %or, ptr %expected_.i, align 8, !tbaa !208
   %timedWaiters_.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
-  store i8 %frombool.i, ptr %timedWaiters_.i, align 8, !tbaa !204
+  store i8 %timedWaiter.1, ptr %timedWaiters_.i, align 8, !tbaa !204
   %combined_.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 17
   store i8 0, ptr %combined_.i, align 1, !tbaa !198
   %waker_.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 24
@@ -6246,18 +6232,16 @@ _ZN5folly6detail17distributed_mutex6detachINS1_6WaiterISt6atomicEEZNS_16Throttle
 cleanup80.thread153:                              ; preds = %_ZN5folly6detail17distributed_mutex6detachINS1_6WaiterISt6atomicEEZNS_16ThrottledLifoSem16tryWaitUntilSlowINSt6chrono3_V212steady_clockENS8_8durationIlSt5ratioILl1ELl1000000000EEEEEEbRKNS8_10time_pointIT_T0_EEEUlvE1_EEvRNS1_17RequestWithReturnISH_EERSG_bRNS_4UnitE.exit, %if.end62
   %and18.i123 = select i1 %cmp63, i64 0, i64 %9
   %15 = inttoptr i64 %and18.i123 to ptr
-  %tobool75 = icmp ne i8 %timedWaiter.1, 0
   %16 = or i1 %cmp66, %cmp67
   %17 = load i64, ptr %agg.tmp120.sroa.5.0..sroa_idx, align 8, !tbaa !47
   %and18.i124 = and i64 %17, -2
   %18 = inttoptr i64 %and18.i124 to ptr
-  %frombool.i125 = zext i1 %tobool75 to i8
   %frombool1.i = zext i1 %16 to i8
   store ptr %15, ptr %agg.result, align 8, !tbaa !207
   %expected_.i126 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i64 %spec.select, ptr %expected_.i126, align 8, !tbaa !208
   %timedWaiters_.i127 = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
-  store i8 %frombool.i125, ptr %timedWaiters_.i127, align 8, !tbaa !204
+  store i8 %timedWaiter.1, ptr %timedWaiters_.i127, align 8, !tbaa !204
   %combined_.i128 = getelementptr inbounds nuw i8, ptr %agg.result, i64 17
   store i8 %frombool1.i, ptr %combined_.i128, align 1, !tbaa !198
   %waker_.i129 = getelementptr inbounds nuw i8, ptr %agg.result, i64 24

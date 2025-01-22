@@ -4159,8 +4159,7 @@ for.body:                                         ; preds = %for.inc, %for.body.
   br i1 %call30, label %for.inc, label %if.else
 
 if.else:                                          ; preds = %for.body
-  %4 = and i8 %solid_below.064, 1
-  %tobool32.not = icmp eq i8 %4, 0
+  %tobool32.not = icmp eq i8 %solid_below.064, 0
   br i1 %tobool32.not, label %for.inc, label %if.then33
 
 if.then33:                                        ; preds = %if.else
@@ -4173,7 +4172,7 @@ if.then36:                                        ; preds = %if.then33
   br label %cleanup
 
 for.inc:                                          ; preds = %if.then33, %if.else, %for.body
-  %solid_below.1 = phi i8 [ %solid_below.064, %if.then33 ], [ %solid_below.064, %if.else ], [ 1, %for.body ]
+  %solid_below.1 = phi i8 [ %solid_below.064, %if.then33 ], [ 0, %if.else ], [ 1, %for.body ]
   %air_count.1 = phi i8 [ %inc, %if.then33 ], [ %air_count.065, %if.else ], [ 0, %for.body ]
   %inc41 = add i16 %y.066, 1
   %conv25 = sext i16 %inc41 to i32

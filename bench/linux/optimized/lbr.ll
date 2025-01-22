@@ -2274,68 +2274,67 @@ define internal fastcc void @intel_pmu_lbr_filter(ptr nocapture noundef %0) unna
   br i1 %77, label %17, label %78, !llvm.loop !48
 
 78:                                               ; preds = %73
-  %79 = and i8 %64, 1
-  %80 = icmp eq i8 %79, 0
-  br i1 %80, label %.critedge, label %81
+  %79 = icmp eq i8 %64, 0
+  br i1 %79, label %.critedge, label %80
 
-81:                                               ; preds = %78
-  %82 = getelementptr inbounds nuw i8, ptr %0, i64 3240
-  br label %83
+80:                                               ; preds = %78
+  %81 = getelementptr inbounds nuw i8, ptr %0, i64 3240
+  br label %82
 
-83:                                               ; preds = %115, %81
-  %84 = phi i64 [ %76, %81 ], [ %116, %115 ]
-  %85 = phi i32 [ 0, %81 ], [ %88, %115 ]
-  %86 = sext i32 %85 to i64
-  %87 = getelementptr [32 x %struct.perf_branch_entry], ptr %14, i64 0, i64 %86
-  %88 = add i32 %85, 1
-  %89 = sext i32 %88 to i64
-  br label %90
+82:                                               ; preds = %114, %80
+  %83 = phi i64 [ %76, %80 ], [ %115, %114 ]
+  %84 = phi i32 [ 0, %80 ], [ %87, %114 ]
+  %85 = sext i32 %84 to i64
+  %86 = getelementptr [32 x %struct.perf_branch_entry], ptr %14, i64 0, i64 %85
+  %87 = add i32 %84, 1
+  %88 = sext i32 %87 to i64
+  br label %89
 
-90:                                               ; preds = %.loopexit, %83
-  %91 = phi i64 [ %112, %.loopexit ], [ %84, %83 ]
-  %92 = icmp ugt i64 %91, %86
-  br i1 %92, label %93, label %.critedge
+89:                                               ; preds = %.loopexit, %82
+  %90 = phi i64 [ %111, %.loopexit ], [ %83, %82 ]
+  %91 = icmp ugt i64 %90, %85
+  br i1 %91, label %92, label %.critedge
 
-93:                                               ; preds = %90
-  %94 = load i64, ptr %87, align 8
-  %95 = icmp eq i64 %94, 0
-  br i1 %95, label %96, label %115
+92:                                               ; preds = %89
+  %93 = load i64, ptr %86, align 8
+  %94 = icmp eq i64 %93, 0
+  br i1 %94, label %95, label %114
 
-96:                                               ; preds = %93
-  %97 = icmp ugt i64 %91, %89
-  br i1 %97, label %.preheader, label %.loopexit
+95:                                               ; preds = %92
+  %96 = icmp ugt i64 %90, %88
+  br i1 %96, label %.preheader, label %.loopexit
 
-.preheader:                                       ; preds = %96, %.preheader
-  %98 = phi i64 [ %108, %.preheader ], [ %89, %96 ]
-  %99 = phi i32 [ %107, %.preheader ], [ %88, %96 ]
-  %100 = phi i32 [ %99, %.preheader ], [ %85, %96 ]
-  %101 = sext i32 %100 to i64
-  %102 = getelementptr [32 x %struct.perf_branch_entry], ptr %14, i64 0, i64 %101
-  %103 = getelementptr [32 x %struct.perf_branch_entry], ptr %14, i64 0, i64 %98
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(24) %102, ptr noundef align 8 dereferenceable(24) %103, i64 24, i1 false)
-  %104 = getelementptr [32 x i64], ptr %82, i64 0, i64 %98
-  %105 = load i64, ptr %104, align 8
-  %106 = getelementptr [32 x i64], ptr %82, i64 0, i64 %101
-  store i64 %105, ptr %106, align 8
-  %107 = add i32 %99, 1
-  %108 = sext i32 %107 to i64
-  %109 = load i64, ptr %10, align 8
-  %110 = icmp ugt i64 %109, %108
-  br i1 %110, label %.preheader, label %.loopexit, !llvm.loop !49
+.preheader:                                       ; preds = %95, %.preheader
+  %97 = phi i64 [ %107, %.preheader ], [ %88, %95 ]
+  %98 = phi i32 [ %106, %.preheader ], [ %87, %95 ]
+  %99 = phi i32 [ %98, %.preheader ], [ %84, %95 ]
+  %100 = sext i32 %99 to i64
+  %101 = getelementptr [32 x %struct.perf_branch_entry], ptr %14, i64 0, i64 %100
+  %102 = getelementptr [32 x %struct.perf_branch_entry], ptr %14, i64 0, i64 %97
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(24) %101, ptr noundef align 8 dereferenceable(24) %102, i64 24, i1 false)
+  %103 = getelementptr [32 x i64], ptr %81, i64 0, i64 %97
+  %104 = load i64, ptr %103, align 8
+  %105 = getelementptr [32 x i64], ptr %81, i64 0, i64 %100
+  store i64 %104, ptr %105, align 8
+  %106 = add i32 %98, 1
+  %107 = sext i32 %106 to i64
+  %108 = load i64, ptr %10, align 8
+  %109 = icmp ugt i64 %108, %107
+  br i1 %109, label %.preheader, label %.loopexit, !llvm.loop !49
 
-.loopexit:                                        ; preds = %.preheader, %96
-  %111 = phi i64 [ %91, %96 ], [ %109, %.preheader ]
-  %112 = add i64 %111, -1
-  store i64 %112, ptr %10, align 8
-  %113 = load i64, ptr %87, align 8
-  %114 = icmp eq i64 %113, 0
-  br i1 %114, label %90, label %115, !llvm.loop !50
+.loopexit:                                        ; preds = %.preheader, %95
+  %110 = phi i64 [ %90, %95 ], [ %108, %.preheader ]
+  %111 = add i64 %110, -1
+  store i64 %111, ptr %10, align 8
+  %112 = load i64, ptr %86, align 8
+  %113 = icmp eq i64 %112, 0
+  br i1 %113, label %89, label %114, !llvm.loop !50
 
-115:                                              ; preds = %.loopexit, %93
-  %116 = phi i64 [ %112, %.loopexit ], [ %91, %93 ]
-  br label %83, !llvm.loop !50
+114:                                              ; preds = %.loopexit, %92
+  %115 = phi i64 [ %111, %.loopexit ], [ %90, %92 ]
+  br label %82, !llvm.loop !50
 
-.critedge:                                        ; preds = %90, %9, %78, %1
+.critedge:                                        ; preds = %89, %9, %78, %1
   ret void
 }
 

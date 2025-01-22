@@ -3702,7 +3702,7 @@ define hidden zeroext range(i16 0, 256) i16 @calculate_clut_3dl(ptr noundef %0, 
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.55, ptr noundef %0) #29
   %17 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.56, i32 noundef 5) #29
   tail call void (ptr, ...) @dt_control_log(ptr noundef %17, ptr noundef %0) #29
-  br label %240
+  br label %239
 
 .preheader:                                       ; preds = %8, %135
   %18 = phi i16 [ %140, %135 ], [ 0, %8 ]
@@ -3812,7 +3812,7 @@ define hidden zeroext range(i16 0, 256) i16 @calculate_clut_3dl(ptr noundef %0, 
   %77 = load ptr, ptr %3, align 8, !tbaa !10
   call void @free(ptr noundef %77) #29
   %78 = call i32 @fclose(ptr noundef nonnull %6)
-  br label %240
+  br label %239
 
 79:                                               ; preds = %72
   %80 = zext i8 %60 to i32
@@ -3843,7 +3843,7 @@ define hidden zeroext range(i16 0, 256) i16 @calculate_clut_3dl(ptr noundef %0, 
   %95 = load ptr, ptr %3, align 8, !tbaa !10
   call void @free(ptr noundef %95) #29
   %96 = call i32 @fclose(ptr noundef nonnull %6)
-  br label %240
+  br label %239
 
 97:                                               ; preds = %62
   %98 = icmp eq i8 %60, 3
@@ -3902,17 +3902,17 @@ define hidden zeroext range(i16 0, 256) i16 @calculate_clut_3dl(ptr noundef %0, 
 
 ._crit_edge:                                      ; preds = %135
   %.pre = mul i32 %137, 3
-  %.pre40 = zext i32 %.pre to i64
+  %.pre41 = zext i32 %.pre to i64
   br label %split
 
 split:                                            ; preds = %99, %._crit_edge
-  %.pre-phi41 = phi i64 [ %.pre40, %._crit_edge ], [ %133, %99 ]
+  %.pre-phi42 = phi i64 [ %.pre41, %._crit_edge ], [ %133, %99 ]
   %143 = phi i64 [ %136, %._crit_edge ], [ %22, %99 ]
   %144 = phi ptr [ %139, %._crit_edge ], [ %19, %99 ]
   %145 = phi i16 [ %140, %._crit_edge ], [ %18, %99 ]
   %146 = phi i32 [ %137, %._crit_edge ], [ %131, %99 ]
   %147 = phi i32 [ %138, %._crit_edge ], [ %130, %99 ]
-  %148 = icmp ne i64 %143, %.pre-phi41
+  %148 = icmp ne i64 %143, %.pre-phi42
   %149 = icmp eq i32 %146, 0
   %150 = or i1 %149, %148
   br i1 %150, label %.thread, label %155
@@ -3926,7 +3926,7 @@ split:                                            ; preds = %99, %._crit_edge
   %153 = load ptr, ptr %3, align 8, !tbaa !10
   call void @free(ptr noundef %153) #29
   %154 = call i32 @fclose(ptr noundef nonnull %6)
-  br label %240
+  br label %239
 
 155:                                              ; preds = %split
   %156 = load ptr, ptr %3, align 8, !tbaa !10
@@ -3950,7 +3950,7 @@ split:                                            ; preds = %99, %._crit_edge
   %166 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.67, i32 noundef 5) #29
   call void (ptr, ...) @dt_control_log(ptr noundef %166) #29
   call void @free(ptr noundef %144) #29
-  br label %240
+  br label %239
 
 167:                                              ; preds = %163
   %168 = icmp eq i64 %143, 0
@@ -3960,7 +3960,7 @@ split:                                            ; preds = %99, %._crit_edge
   %170 = add nsw i32 %160, -1
   %171 = uitofp nneg i32 %170 to float
   %172 = icmp ult i64 %143, 32
-  br i1 %172, label %.preheader108, label %173
+  br i1 %172, label %223, label %173
 
 173:                                              ; preds = %169
   %174 = and i64 %143, 8589934560
@@ -3971,7 +3971,7 @@ split:                                            ; preds = %99, %._crit_edge
 
 177:                                              ; preds = %177, %173
   %178 = phi i64 [ 0, %173 ], [ %219, %177 ]
-  %179 = getelementptr inbounds float, ptr %144, i64 %178
+  %179 = getelementptr inbounds nuw float, ptr %144, i64 %178
   %180 = getelementptr inbounds nuw i8, ptr %179, i64 32
   %181 = getelementptr inbounds nuw i8, ptr %179, i64 64
   %182 = getelementptr inbounds nuw i8, ptr %179, i64 96
@@ -4015,55 +4015,53 @@ split:                                            ; preds = %99, %._crit_edge
   store <8 x float> %216, ptr %180, align 4, !tbaa !12
   store <8 x float> %217, ptr %181, align 4, !tbaa !12
   store <8 x float> %218, ptr %182, align 4, !tbaa !12
-  %219 = add nuw i64 %178, 32
+  %219 = add nuw nsw i64 %178, 32
   %220 = icmp eq i64 %219, %174
   br i1 %220, label %221, label %177, !llvm.loop !78
 
 221:                                              ; preds = %177
-  %222 = trunc nuw nsw i64 %174 to i32
-  %223 = icmp eq i64 %143, %174
-  br i1 %223, label %.loopexit, label %.preheader108
+  %222 = icmp eq i64 %143, %174
+  br i1 %222, label %.loopexit, label %223
 
-.preheader108:                                    ; preds = %221, %169
-  %.ph = phi i64 [ %174, %221 ], [ 0, %169 ]
-  %.ph109 = phi i32 [ %222, %221 ], [ 0, %169 ]
-  %224 = fdiv reassoc nsz arcp contract afn float 1.000000e+00, %171
-  br label %225
+223:                                              ; preds = %221, %169
+  %224 = phi i64 [ 0, %169 ], [ %174, %221 ]
+  %225 = and i64 %224, 4294967264
+  %226 = fdiv reassoc nsz arcp contract afn float 1.000000e+00, %171
+  br label %227
 
-225:                                              ; preds = %.preheader108, %235
-  %226 = phi i64 [ %238, %235 ], [ %.ph, %.preheader108 ]
-  %227 = phi i32 [ %237, %235 ], [ %.ph109, %.preheader108 ]
-  %228 = getelementptr inbounds nuw float, ptr %144, i64 %226
-  %229 = load float, ptr %228, align 4, !tbaa !12
-  %230 = fmul reassoc nsz arcp contract afn float %229, %224
-  %231 = fcmp reassoc nsz arcp contract afn ogt float %230, 1.000000e+00
-  br i1 %231, label %235, label %232
+227:                                              ; preds = %236, %223
+  %indvars.iv = phi i64 [ %indvars.iv.next, %236 ], [ %225, %223 ]
+  %228 = phi i64 [ %indvars.iv.next, %236 ], [ %224, %223 ]
+  %229 = getelementptr inbounds float, ptr %144, i64 %228
+  %230 = load float, ptr %229, align 4, !tbaa !12
+  %231 = fmul reassoc nsz arcp contract afn float %230, %226
+  %232 = fcmp reassoc nsz arcp contract afn ogt float %231, 1.000000e+00
+  br i1 %232, label %236, label %233
 
-232:                                              ; preds = %225
-  %233 = fcmp reassoc nsz arcp contract afn olt float %230, 0.000000e+00
-  br i1 %233, label %235, label %234
+233:                                              ; preds = %227
+  %234 = fcmp reassoc nsz arcp contract afn olt float %231, 0.000000e+00
+  br i1 %234, label %236, label %235
 
-234:                                              ; preds = %232
-  br label %235
+235:                                              ; preds = %233
+  br label %236
 
-235:                                              ; preds = %234, %232, %225
-  %236 = phi reassoc nsz arcp contract afn float [ 1.000000e+00, %225 ], [ %230, %234 ], [ 0.000000e+00, %232 ]
-  store float %236, ptr %228, align 4, !tbaa !12
-  %237 = add i32 %227, 1
-  %238 = zext i32 %237 to i64
-  %239 = icmp ugt i64 %143, %238
-  br i1 %239, label %225, label %.loopexit, !llvm.loop !79
+236:                                              ; preds = %235, %233, %227
+  %237 = phi reassoc nsz arcp contract afn float [ 1.000000e+00, %227 ], [ %231, %235 ], [ 0.000000e+00, %233 ]
+  store float %237, ptr %229, align 4, !tbaa !12
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %238 = icmp ugt i64 %143, %indvars.iv.next
+  br i1 %238, label %227, label %.loopexit, !llvm.loop !79
 
-.loopexit:                                        ; preds = %235, %221, %167
+.loopexit:                                        ; preds = %236, %221, %167
   store ptr %144, ptr %1, align 8, !tbaa !10
-  br label %240
+  br label %239
 
-240:                                              ; preds = %.loopexit, %165, %.thread, %93, %75, %16
-  %241 = phi i16 [ 0, %.thread ], [ 0, %16 ], [ 0, %165 ], [ %145, %.loopexit ], [ 0, %93 ], [ 0, %75 ]
+239:                                              ; preds = %.loopexit, %165, %.thread, %93, %75, %16
+  %240 = phi i16 [ 0, %.thread ], [ 0, %16 ], [ 0, %165 ], [ %145, %.loopexit ], [ 0, %93 ], [ 0, %75 ]
   call void @llvm.lifetime.end.p0(i64 150, ptr nonnull %5) #29
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #29
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #29
-  ret i16 %241
+  ret i16 %240
 }
 
 ; Function Attrs: nounwind uwtable

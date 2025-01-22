@@ -252,12 +252,10 @@ if.then114:                                       ; preds = %if.end106
   %expires115 = getelementptr inbounds nuw i8, ptr %call112, i64 40
   store i64 %11, ptr %expires115, align 8
   %includeSubDomains = getelementptr inbounds nuw i8, ptr %call112, i64 32
-  %frombool = and i8 %subdomains.1, 1
-  store i8 %frombool, ptr %includeSubDomains, align 8
+  store i8 %subdomains.1, ptr %includeSubDomains, align 8
   br label %return
 
 if.else117:                                       ; preds = %if.end106
-  %frombool.i = and i8 %subdomains.1, 1
   %call.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %hostname) #10
   %tobool.not.i = icmp eq i64 %call.i, 0
   br i1 %tobool.not.i, label %return, label %land.lhs.true.i
@@ -297,7 +295,7 @@ if.end13.i:                                       ; preds = %if.end9.i
   %expires14.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 40
   store i64 %11, ptr %expires14.i, align 8
   %includeSubDomains.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 32
-  store i8 %frombool.i, ptr %includeSubDomains.i, align 8
+  store i8 %subdomains.1, ptr %includeSubDomains.i, align 8
   %tail.i = getelementptr inbounds nuw i8, ptr %h, i64 8
   %16 = load ptr, ptr %tail.i, align 8
   call void @Curl_llist_insert_next(ptr noundef %h, ptr noundef %16, ptr noundef nonnull %call.i.i, ptr noundef nonnull %call.i.i) #9

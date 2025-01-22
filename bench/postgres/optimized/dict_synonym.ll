@@ -312,10 +312,9 @@ findwrd.exit.thread:                              ; preds = %53, %.lr.ph128, %69
   %124 = sext i32 %.056.lcssa to i64
   call void @pg_qsort(ptr noundef %123, i64 noundef %124, i64 noundef 24, ptr noundef nonnull @compareSyn) #7
   %125 = getelementptr inbounds nuw i8, ptr %45, i64 16
-  %126 = and i8 %.159, 1
-  store i8 %126, ptr %125, align 8
-  %127 = ptrtoint ptr %45 to i64
-  ret i64 %127
+  store i8 %.159, ptr %125, align 8
+  %126 = ptrtoint ptr %45 to i64
+  ret i64 %126
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)

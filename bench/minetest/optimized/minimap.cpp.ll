@@ -6609,7 +6609,7 @@ entry:
 
 for.cond2.preheader:                              ; preds = %for.cond.cleanup5, %entry
   %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %for.cond.cleanup5 ]
-  %indvars1 = trunc i64 %indvars.iv to i16
+  %indvars19 = trunc i64 %indvars.iv to i16
   br label %for.body6
 
 for.cond.cleanup:                                 ; preds = %for.cond.cleanup5
@@ -6627,105 +6627,103 @@ for.body6:                                        ; preds = %if.end28, %for.cond
   %arrayidx = getelementptr inbounds nuw [256 x %struct.MinimapPixel], ptr %this, i64 0, i64 %1
   %height = getelementptr inbounds nuw i8, ptr %arrayidx, i64 4
   %2 = trunc i64 %indvars.iv64 to i16
+  br label %for.body13.outer
+
+for.body13.outer:                                 ; preds = %if.end23.thread, %for.body6
+  %y.060.ph = phi i16 [ %dec, %if.end23.thread ], [ 15, %for.body6 ]
+  %tobool.not = phi i1 [ true, %if.end23.thread ], [ false, %for.body6 ]
+  %tobool24.not = phi i1 [ false, %if.end23.thread ], [ true, %for.body6 ]
+  %air_count.058.ph = phi i16 [ %air_count.058, %if.end23.thread ], [ 0, %for.body6 ]
   br label %for.body13
 
 for.cond.cleanup12:                               ; preds = %if.end23
-  %3 = and i8 %surface_found.1, 1
-  %tobool24.not = icmp eq i8 %3, 0
   br i1 %tobool24.not, label %if.then25, label %if.end28
 
-for.body13:                                       ; preds = %if.end23, %for.body6
-  %y.060 = phi i16 [ 15, %for.body6 ], [ %dec, %if.end23 ]
-  %surface_found.059 = phi i8 [ 0, %for.body6 ], [ %surface_found.1, %if.end23 ]
-  %air_count.058 = phi i16 [ 0, %for.body6 ], [ %air_count.1, %if.end23 ]
-  %4 = load i16, ptr %pos, align 2, !tbaa !45
-  %add.i = add i16 %4, %indvars1
-  %5 = load i16, ptr %Y.i50, align 2, !tbaa !46
-  %add8.i = add i16 %5, %y.060
-  %6 = load i16, ptr %Z.i51, align 2, !tbaa !47
-  %add13.i = add i16 %6, %2
+for.body13:                                       ; preds = %for.body13.outer, %if.end23
+  %y.060 = phi i16 [ %dec, %if.end23 ], [ %y.060.ph, %for.body13.outer ]
+  %air_count.058 = phi i16 [ %spec.select, %if.end23 ], [ %air_count.058.ph, %for.body13.outer ]
+  %3 = load i16, ptr %pos, align 2, !tbaa !45
+  %add.i = add i16 %3, %indvars19
+  %4 = load i16, ptr %Y.i50, align 2, !tbaa !46
+  %add8.i = add i16 %4, %y.060
+  %5 = load i16, ptr %Z.i51, align 2, !tbaa !47
+  %add13.i = add i16 %5, %2
   %retval.sroa.3.0.insert.ext.i = zext i16 %add13.i to i48
   %retval.sroa.3.0.insert.shift.i = shl nuw i48 %retval.sroa.3.0.insert.ext.i, 32
   %retval.sroa.2.0.insert.ext.i = zext i16 %add8.i to i48
   %retval.sroa.2.0.insert.shift.i = shl nuw nsw i48 %retval.sroa.2.0.insert.ext.i, 16
   %retval.sroa.0.0.insert.ext.i = zext i16 %add.i to i48
-  %7 = or disjoint i48 %retval.sroa.2.0.insert.shift.i, %retval.sroa.0.0.insert.ext.i
-  %retval.sroa.0.0.insert.insert.i = or disjoint i48 %7, %retval.sroa.3.0.insert.shift.i
+  %6 = or disjoint i48 %retval.sroa.2.0.insert.shift.i, %retval.sroa.0.0.insert.ext.i
+  %retval.sroa.0.0.insert.insert.i = or disjoint i48 %6, %retval.sroa.3.0.insert.shift.i
   call void @llvm.lifetime.start.p0(i64 18, ptr nonnull %voxel_area.i) #34
   store i48 %retval.sroa.0.0.insert.insert.i, ptr %voxel_area.i, align 8, !tbaa.struct !84
   store i48 %retval.sroa.0.0.insert.insert.i, ptr %MaxEdge.i.i, align 2, !tbaa.struct !84
   store i48 4295032833, ptr %m_cache_extent.i.i, align 4, !tbaa.struct !84
   call void @_ZN16VoxelManipulator7addAreaERK9VoxelArea(ptr noundef nonnull align 8 dereferenceable(48) %vmanip, ptr noundef nonnull align 2 dereferenceable(18) %voxel_area.i)
-  %8 = load ptr, ptr %m_flags.i, align 8, !tbaa !372
-  %p.sroa.0.0.extract.trunc.i.i = trunc nuw i48 %7 to i32
+  %7 = load ptr, ptr %m_flags.i, align 8, !tbaa !372
+  %p.sroa.0.0.extract.trunc.i.i = trunc nuw i48 %6 to i32
   %conv.i.i.i = sext i16 %add13.i to i32
-  %9 = load i16, ptr %Z.i.i.i, align 2, !tbaa !375
-  %conv2.i.i.i = sext i16 %9 to i32
+  %8 = load i16, ptr %Z.i.i.i, align 2, !tbaa !375
+  %conv2.i.i.i = sext i16 %8 to i32
   %sub.i.i.i = sub nsw i32 %conv.i.i.i, %conv2.i.i.i
-  %10 = load i16, ptr %Y.i.i.i, align 2, !tbaa !376
-  %conv3.i.i.i = sext i16 %10 to i32
+  %9 = load i16, ptr %Y.i.i.i, align 2, !tbaa !376
+  %conv3.i.i.i = sext i16 %9 to i32
   %mul.i.i.i = mul nsw i32 %sub.i.i.i, %conv3.i.i.i
-  %11 = load i16, ptr %m_cache_extent.i.i.i, align 2, !tbaa !377
-  %conv5.i.i.i = sext i16 %11 to i32
+  %10 = load i16, ptr %m_cache_extent.i.i.i, align 2, !tbaa !377
+  %conv5.i.i.i = sext i16 %10 to i32
   %conv7.i.i.i = ashr i32 %p.sroa.0.0.extract.trunc.i.i, 16
-  %12 = load i16, ptr %Y9.i.i.i, align 2, !tbaa !378
-  %conv10.i.i.i = sext i16 %12 to i32
+  %11 = load i16, ptr %Y9.i.i.i, align 2, !tbaa !378
+  %conv10.i.i.i = sext i16 %11 to i32
   %sub11.i.i.i = add nsw i32 %mul.i.i.i, %conv7.i.i.i
   %mul622.i.i.i = sub i32 %sub11.i.i.i, %conv10.i.i.i
   %add.i.i.i = mul i32 %mul622.i.i.i, %conv5.i.i.i
   %sext.i.i = shl i32 %p.sroa.0.0.extract.trunc.i.i, 16
   %conv16.i.i.i = ashr exact i32 %sext.i.i, 16
-  %13 = load i16, ptr %m_area.i, align 2, !tbaa !379
-  %conv19.i.i.i = sext i16 %13 to i32
+  %12 = load i16, ptr %m_area.i, align 2, !tbaa !379
+  %conv19.i.i.i = sext i16 %12 to i32
   %sub20.i.i.i = sub nsw i32 %conv16.i.i.i, %conv19.i.i.i
   %add21.i.i.i = add nsw i32 %sub20.i.i.i, %add.i.i.i
   %idxprom.i = sext i32 %add21.i.i.i to i64
-  %arrayidx.i = getelementptr inbounds i8, ptr %8, i64 %idxprom.i
-  %14 = load i8, ptr %arrayidx.i, align 1, !tbaa !92
-  %15 = and i8 %14, 2
-  %tobool.not.i = icmp eq i8 %15, 0
+  %arrayidx.i = getelementptr inbounds i8, ptr %7, i64 %idxprom.i
+  %13 = load i8, ptr %arrayidx.i, align 1, !tbaa !92
+  %14 = and i8 %13, 2
+  %tobool.not.i = icmp eq i8 %14, 0
   br i1 %tobool.not.i, label %if.end.i, label %_ZN16VoxelManipulator11getNodeNoExERKN3irr4core8vector3dIsEE.exit
 
 if.end.i:                                         ; preds = %for.body13
-  %16 = load ptr, ptr %m_data.i, align 8, !tbaa !380
-  %arrayidx6.i = getelementptr inbounds %struct.MapNode, ptr %16, i64 %idxprom.i
-  %17 = load i32, ptr %arrayidx6.i, align 4, !tbaa.struct !91
+  %15 = load ptr, ptr %m_data.i, align 8, !tbaa !380
+  %arrayidx6.i = getelementptr inbounds %struct.MapNode, ptr %15, i64 %idxprom.i
+  %16 = load i32, ptr %arrayidx6.i, align 4, !tbaa.struct !91
   br label %_ZN16VoxelManipulator11getNodeNoExERKN3irr4core8vector3dIsEE.exit
 
 _ZN16VoxelManipulator11getNodeNoExERKN3irr4core8vector3dIsEE.exit: ; preds = %if.end.i, %for.body13
-  %retval.sroa.0.0.insert.insert.i52 = phi i32 [ %17, %if.end.i ], [ 127, %for.body13 ]
+  %retval.sroa.0.0.insert.insert.i52 = phi i32 [ %16, %if.end.i ], [ 127, %for.body13 ]
   call void @llvm.lifetime.end.p0(i64 18, ptr nonnull %voxel_area.i) #34
-  %18 = and i8 %surface_found.059, 1
-  %tobool.not = icmp ne i8 %18, 0
-  %19 = and i32 %retval.sroa.0.0.insert.insert.i52, 65535
-  %cmp17.not = icmp eq i32 %19, 126
+  %17 = and i32 %retval.sroa.0.0.insert.insert.i52, 65535
+  %cmp17.not = icmp eq i32 %17, 126
   %or.cond = select i1 %tobool.not, i1 true, i1 %cmp17.not
-  br i1 %or.cond, label %if.else, label %if.then
-
-if.then:                                          ; preds = %_ZN16VoxelManipulator11getNodeNoExERKN3irr4core8vector3dIsEE.exit
-  store i16 %y.060, ptr %height, align 4, !tbaa !90
-  store i32 %retval.sroa.0.0.insert.insert.i52, ptr %arrayidx, align 4, !tbaa.struct !91
-  br label %if.end23
-
-if.else:                                          ; preds = %_ZN16VoxelManipulator11getNodeNoExERKN3irr4core8vector3dIsEE.exit
-  %inc = zext i1 %cmp17.not to i16
-  %spec.select = add i16 %air_count.058, %inc
-  br label %if.end23
-
-if.end23:                                         ; preds = %if.else, %if.then
-  %air_count.1 = phi i16 [ %air_count.058, %if.then ], [ %spec.select, %if.else ]
-  %surface_found.1 = phi i8 [ 1, %if.then ], [ %surface_found.059, %if.else ]
   %dec = add nsw i16 %y.060, -1
   %cmp11.not = icmp eq i16 %y.060, 0
+  br i1 %or.cond, label %if.end23, label %if.end23.thread
+
+if.end23:                                         ; preds = %_ZN16VoxelManipulator11getNodeNoExERKN3irr4core8vector3dIsEE.exit
+  %inc = zext i1 %cmp17.not to i16
+  %spec.select = add i16 %air_count.058, %inc
   br i1 %cmp11.not, label %for.cond.cleanup12, label %for.body13, !llvm.loop !381
+
+if.end23.thread:                                  ; preds = %_ZN16VoxelManipulator11getNodeNoExERKN3irr4core8vector3dIsEE.exit
+  store i16 %y.060, ptr %height, align 4, !tbaa !90
+  store i32 %retval.sroa.0.0.insert.insert.i52, ptr %arrayidx, align 4, !tbaa.struct !91
+  br i1 %cmp11.not, label %if.end28, label %for.body13.outer, !llvm.loop !381
 
 if.then25:                                        ; preds = %for.cond.cleanup12
   store i32 126, ptr %arrayidx, align 4, !tbaa.struct !91
   br label %if.end28
 
-if.end28:                                         ; preds = %if.then25, %for.cond.cleanup12
+if.end28:                                         ; preds = %if.end23.thread, %if.then25, %for.cond.cleanup12
+  %air_count.1510 = phi i16 [ %spec.select, %if.then25 ], [ %spec.select, %for.cond.cleanup12 ], [ %air_count.058, %if.end23.thread ]
   %air_count29 = getelementptr inbounds nuw i8, ptr %arrayidx, i64 6
-  store i16 %air_count.1, ptr %air_count29, align 2, !tbaa !87
+  store i16 %air_count.1510, ptr %air_count29, align 2, !tbaa !87
   %indvars.iv.next65 = add nuw nsw i64 %indvars.iv64, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next65, 16
   br i1 %exitcond.not, label %for.cond.cleanup5, label %for.body6, !llvm.loop !382

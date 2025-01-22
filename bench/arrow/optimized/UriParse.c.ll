@@ -927,11 +927,11 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %sw.epilog429.thread, %if.end.lr.ph
   %quadsAfterZipperCount.0476 = phi i32 [ 0, %if.end.lr.ph ], [ %quadsAfterZipperCount.1, %sw.epilog429.thread ]
-  %cmp1 = phi i1 [ false, %if.end.lr.ph ], [ true, %sw.epilog429.thread ]
+  %cmp1.not = phi i1 [ true, %if.end.lr.ph ], [ false, %sw.epilog429.thread ]
   %quadsDone.0473 = phi i32 [ 0, %if.end.lr.ph ], [ %quadsDone.1, %sw.epilog429.thread ]
   %zipperEver.0472 = phi i32 [ 0, %if.end.lr.ph ], [ %zipperEver.1, %sw.epilog429.thread ]
   %first.addr.0471 = phi ptr [ %first, %if.end.lr.ph ], [ %incdec.ptr430647, %sw.epilog429.thread ]
-  br i1 %cmp1, label %for.cond3, label %do.body
+  br i1 %cmp1.not, label %do.body, label %for.cond3
 
 for.cond3:                                        ; preds = %if.end, %sw.epilog
   %first.addr.1 = phi ptr [ %incdec.ptr, %sw.epilog ], [ %first.addr.0471, %if.end ]
@@ -2564,11 +2564,11 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %sw.epilog420.thread, %if.end.lr.ph
   %quadsAfterZipperCount.0476 = phi i32 [ 0, %if.end.lr.ph ], [ %quadsAfterZipperCount.1, %sw.epilog420.thread ]
-  %cmp1 = phi i1 [ false, %if.end.lr.ph ], [ true, %sw.epilog420.thread ]
+  %cmp1.not = phi i1 [ true, %if.end.lr.ph ], [ false, %sw.epilog420.thread ]
   %quadsDone.0473 = phi i32 [ 0, %if.end.lr.ph ], [ %quadsDone.1, %sw.epilog420.thread ]
   %zipperEver.0472 = phi i32 [ 0, %if.end.lr.ph ], [ %zipperEver.1, %sw.epilog420.thread ]
   %first.addr.0471 = phi ptr [ %first, %if.end.lr.ph ], [ %incdec.ptr421647, %sw.epilog420.thread ]
-  br i1 %cmp1, label %for.cond3, label %do.body
+  br i1 %cmp1.not, label %do.body, label %for.cond3
 
 for.cond3:                                        ; preds = %if.end, %sw.epilog
   %first.addr.1 = phi ptr [ %incdec.ptr, %sw.epilog ], [ %first.addr.0471, %if.end ]

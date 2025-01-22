@@ -269,16 +269,17 @@ define hidden range(i32 0, 2) i32 @rebuildScreenData(ptr noundef %0, i32 noundef
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %42
-  %67 = icmp eq i32 %.1, 0
-  br i1 %67, label %._crit_edge.thread, label %68
+  %.not28 = icmp eq i32 %.1, 0
+  br i1 %.not28, label %._crit_edge.thread, label %67
 
-68:                                               ; preds = %._crit_edge
-  %69 = load i32, ptr %3, align 4
-  call void (ptr, ...) @debug_screencast(ptr noundef nonnull @.str.11, ptr noundef nonnull @__func__.rebuildScreenData, i32 noundef 141, i32 noundef %69) #9
+67:                                               ; preds = %._crit_edge
+  %68 = load i32, ptr %3, align 4
+  call void (ptr, ...) @debug_screencast(ptr noundef nonnull @.str.11, ptr noundef nonnull @__func__.rebuildScreenData, i32 noundef 141, i32 noundef %68) #9
+  %69 = xor i32 %.1, 1
   br label %._crit_edge.thread
 
-._crit_edge.thread:                               ; preds = %._crit_edge, %68, %2, %17
-  %.0 = phi i32 [ 0, %17 ], [ 0, %68 ], [ 1, %._crit_edge ], [ 1, %2 ]
+._crit_edge.thread:                               ; preds = %._crit_edge, %67, %2, %17
+  %.0 = phi i32 [ 0, %17 ], [ %69, %67 ], [ 1, %._crit_edge ], [ 1, %2 ]
   ret i32 %.0
 }
 

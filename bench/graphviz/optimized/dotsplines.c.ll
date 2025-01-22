@@ -5564,9 +5564,9 @@ points_append.exit432.i:                          ; preds = %2864, %.lr.ph1079.i
   br i1 %2911, label %2917, label %2912
 
 2912:                                             ; preds = %2908
-  %2913 = shl i64 %.02931089.i, 4
+  %2913 = shl nuw i64 %.02931089.i, 4
   %2914 = getelementptr inbounds i8, ptr %2910, i64 %2913
-  %2915 = sub i64 %spec.select.i.i436.i, %.02931089.i
+  %2915 = sub nsw i64 %spec.select.i.i436.i, %.02931089.i
   %2916 = shl i64 %2915, 4
   call void @llvm.memset.p0.i64(ptr nonnull align 1 %2914, i8 0, i64 %2916, i1 false)
   br label %points_append.exit440.i

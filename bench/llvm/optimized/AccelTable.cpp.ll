@@ -3813,7 +3813,7 @@ _ZN4llvmplERKNS_5TwineES2_.exit.i:                ; preds = %167, %_ZN4llvmplERK
   br i1 %153, label %154, label %156
 
 154:                                              ; preds = %149
-  %155 = icmp ult i64 %.079.i.i.i, 2
+  %155 = icmp samesign ult i64 %.079.i.i.i, 2
   br i1 %155, label %_ZSt17holds_alternativeIPN4llvm8MCSymbolEJS2_mEEbRKSt7variantIJDpT0_EE.exit.i, label %156
 
 156:                                              ; preds = %154, %149
@@ -3909,7 +3909,7 @@ _ZN4llvmplERKNS_5TwineES2_.exit.i2:               ; preds = %212, %_ZN4llvmplERK
   br i1 %191, label %192, label %194
 
 192:                                              ; preds = %187
-  %193 = icmp ult i64 %.079.i.i.i4, 2
+  %193 = icmp samesign ult i64 %.079.i.i.i4, 2
   br i1 %193, label %_ZSt17holds_alternativeIPN4llvm8MCSymbolEJS2_mEEbRKSt7variantIJDpT0_EE.exit.i6, label %194
 
 194:                                              ; preds = %192, %187

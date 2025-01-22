@@ -75,18 +75,19 @@ define dso_local void @WalWriterMain() local_unnamed_addr #0 {
   br label %26
 
 26:                                               ; preds = %30, %20
-  %.011 = phi i1 [ false, %20 ], [ %.112, %30 ]
+  %.011 = phi i8 [ 0, %20 ], [ %.112, %30 ]
   %.010 = phi i32 [ 50, %20 ], [ %.1, %30 ]
   %27 = icmp slt i32 %.010, 2
-  %28 = xor i1 %.011, %27
-  br i1 %28, label %29, label %30
+  %28 = zext i1 %27 to i8
+  %.not13 = icmp eq i8 %.011, %28
+  br i1 %.not13, label %30, label %29
 
 29:                                               ; preds = %26
   call void @SetWalWriterSleeping(i1 noundef zeroext %27) #4
   br label %30
 
 30:                                               ; preds = %29, %26
-  %.112 = phi i1 [ %27, %29 ], [ %.011, %26 ]
+  %.112 = phi i8 [ %28, %29 ], [ %.011, %26 ]
   %31 = load ptr, ptr @MyLatch, align 8
   call void @ResetLatch(ptr noundef %31) #4
   call void @HandleMainLoopInterrupts() #4

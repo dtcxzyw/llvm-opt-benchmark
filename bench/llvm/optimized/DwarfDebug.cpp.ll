@@ -8803,7 +8803,7 @@ _ZNK4llvm6Module19debug_compile_unitsEv.exit:     ; preds = %._crit_edge, %.spli
   br i1 %305, label %306, label %308
 
 306:                                              ; preds = %301
-  %307 = icmp ult i64 %.079.i.i.i.i, 2
+  %307 = icmp samesign ult i64 %.079.i.i.i.i, 2
   br i1 %307, label %_ZNK4llvm20DWARF5AccelTableData12isNormalizedEv.exit.i, label %308
 
 308:                                              ; preds = %306, %301
@@ -11552,7 +11552,7 @@ _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapISt4pairIPKNS_6DINodeEPKNS_10DILocatio
   br i1 %172, label %173, label %175
 
 173:                                              ; preds = %168
-  %174 = icmp ult i64 %.079.i.i.i, 2
+  %174 = icmp samesign ult i64 %.079.i.i.i, 2
   br i1 %174, label %_ZNK4llvm15MachineFunction15VariableDbgInfo11inStackSlotEv.exit, label %175
 
 175:                                              ; preds = %173, %168
@@ -11605,7 +11605,7 @@ _ZNK4llvm15MachineFunction15VariableDbgInfo12getStackSlotEv.exit: ; preds = %178
   br i1 %192, label %193, label %195
 
 193:                                              ; preds = %188
-  %194 = icmp ult i64 %.079.i.i.i55, 2
+  %194 = icmp samesign ult i64 %.079.i.i.i55, 2
   br i1 %194, label %_ZNK4llvm15MachineFunction15VariableDbgInfo20inEntryValueRegisterEv.exit, label %195
 
 195:                                              ; preds = %193, %188
@@ -11648,7 +11648,7 @@ _ZNK4llvm15MachineFunction15VariableDbgInfo21getEntryValueRegisterEv.exit: ; pre
   br i1 %208, label %209, label %211
 
 209:                                              ; preds = %205
-  %210 = icmp ult i64 %.079.i.i.i60, 5
+  %210 = icmp samesign ult i64 %.079.i.i.i60, 5
   br i1 %210, label %_ZNK4llvm11DbgVariable5holdsINS_3Loc3MMIEEEbv.exit, label %211
 
 211:                                              ; preds = %209, %205
@@ -11725,7 +11725,7 @@ _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapISt4pairIPKNS_6DINodeEPKNS_10DILocatio
   br i1 %241, label %242, label %244
 
 242:                                              ; preds = %237
-  %243 = icmp ult i64 %.079.i.i.i67, 2
+  %243 = icmp samesign ult i64 %.079.i.i.i67, 2
   br i1 %243, label %_ZNK4llvm15MachineFunction15VariableDbgInfo11inStackSlotEv.exit70, label %244
 
 244:                                              ; preds = %242, %237
@@ -23325,7 +23325,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_6MDNodeEmNS_12DenseMapInfoIS4_vEENS_6de
   br i1 %260, label %261, label %263
 
 261:                                              ; preds = %256
-  %262 = icmp ult i64 %.079.i.i.i.i, 2
+  %262 = icmp samesign ult i64 %.079.i.i.i.i, 2
   br i1 %262, label %_ZNK4llvm20DWARF5AccelTableData12isNormalizedEv.exit.i, label %263
 
 263:                                              ; preds = %261, %256

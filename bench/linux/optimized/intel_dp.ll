@@ -6833,7 +6833,7 @@ define dso_local void @intel_dp_phy_test(ptr noundef %0) local_unnamed_addr #3 a
   br label %9, !llvm.loop !123
 
 .thread19:                                        ; preds = %246, %243, %._crit_edge.thread, %104, %242, %._crit_edge
-  %251 = phi i32 [ 0, %._crit_edge ], [ 0, %242 ], [ 0, %104 ], [ 0, %._crit_edge.thread ], [ 0, %243 ], [ %247, %246 ]
+  %251 = phi i32 [ 0, %104 ], [ 0, %242 ], [ 0, %._crit_edge ], [ 0, %._crit_edge.thread ], [ 0, %243 ], [ %247, %246 ]
   call void @drm_modeset_drop_locks(ptr noundef nonnull %4) #14
   call void @drm_modeset_acquire_fini(ptr noundef nonnull %4) #14
   %252 = icmp eq i32 %251, 0

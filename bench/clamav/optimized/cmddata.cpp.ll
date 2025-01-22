@@ -304,153 +304,152 @@ define void @_ZN11CommandData14SetTimeFiltersEPKwbb(ptr noundef nonnull align 8 
   %.040.lcssa.ph = phi i1 [ %.04052, %.lr.ph ], [ %.1, %10 ]
   %.0.lcssa.ph = phi ptr [ %.053, %.lr.ph ], [ %11, %10 ]
   %13 = select i1 %.040.lcssa.ph, ptr %1, ptr @.str.2
-  %14 = and i8 %.041.lcssa.ph, 1
   br label %.critedge
 
 .critedge:                                        ; preds = %.critedge.loopexit, %4
-  %.041.lcssa = phi i8 [ 0, %4 ], [ %14, %.critedge.loopexit ]
+  %.041.lcssa = phi i8 [ 0, %4 ], [ %.041.lcssa.ph, %.critedge.loopexit ]
   %.040.lcssa = phi ptr [ @.str.2, %4 ], [ %13, %.critedge.loopexit ]
   %.0.lcssa = phi ptr [ %1, %4 ], [ %.0.lcssa.ph, %.critedge.loopexit ]
-  %15 = load i32, ptr %.040.lcssa, align 4
-  %.not4860 = icmp eq i32 %15, 0
+  %14 = load i32, ptr %.040.lcssa, align 4
+  %.not4860 = icmp eq i32 %14, 0
   br i1 %.not4860, label %.critedge2, label %.lr.ph62
 
 .lr.ph62:                                         ; preds = %.critedge
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 58584
-  %17 = getelementptr inbounds nuw i8, ptr %0, i64 58594
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 58552
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 58562
-  %20 = getelementptr inbounds nuw i8, ptr %0, i64 58576
-  %21 = getelementptr inbounds nuw i8, ptr %0, i64 58593
-  %22 = getelementptr inbounds nuw i8, ptr %0, i64 58544
-  %23 = getelementptr inbounds nuw i8, ptr %0, i64 58561
-  %24 = getelementptr inbounds nuw i8, ptr %0, i64 58568
-  %25 = getelementptr inbounds nuw i8, ptr %0, i64 58592
-  %26 = getelementptr inbounds nuw i8, ptr %0, i64 58536
-  %27 = getelementptr inbounds nuw i8, ptr %0, i64 58560
-  br label %28
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 58584
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 58594
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 58552
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 58562
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 58576
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 58593
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 58544
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 58561
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 58568
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 58592
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 58536
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 58560
+  br label %27
 
-28:                                               ; preds = %.lr.ph62, %60
-  %29 = phi i32 [ %15, %.lr.ph62 ], [ %62, %60 ]
-  %.14461 = phi ptr [ %.040.lcssa, %.lr.ph62 ], [ %61, %60 ]
-  %30 = tail call ptr @wcschr(ptr noundef nonnull @.str.1, i32 noundef signext %29) #16
-  %.not49 = icmp eq ptr %30, null
-  br i1 %.not49, label %.critedge2, label %31
+27:                                               ; preds = %.lr.ph62, %59
+  %28 = phi i32 [ %14, %.lr.ph62 ], [ %61, %59 ]
+  %.14461 = phi ptr [ %.040.lcssa, %.lr.ph62 ], [ %60, %59 ]
+  %29 = tail call ptr @wcschr(ptr noundef nonnull @.str.1, i32 noundef signext %28) #16
+  %.not49 = icmp eq ptr %29, null
+  br i1 %.not49, label %.critedge2, label %30
 
-31:                                               ; preds = %28
-  %32 = tail call noundef i32 @_Z8toupperwi(i32 noundef %29)
-  switch i32 %32, label %60 [
-    i32 77, label %33
-    i32 67, label %42
-    i32 65, label %51
+30:                                               ; preds = %27
+  %31 = tail call noundef i32 @_Z8toupperwi(i32 noundef %28)
+  switch i32 %31, label %59 [
+    i32 77, label %32
+    i32 67, label %41
+    i32 65, label %50
   ]
 
-33:                                               ; preds = %31
-  br i1 %2, label %34, label %38
+32:                                               ; preds = %30
+  br i1 %2, label %33, label %37
+
+33:                                               ; preds = %32
+  br i1 %3, label %34, label %35
 
 34:                                               ; preds = %33
-  br i1 %3, label %35, label %36
+  tail call void @_ZN7RarTime10SetAgeTextEPKw(ptr noundef nonnull align 8 dereferenceable(8) %25, ptr noundef nonnull %.0.lcssa)
+  br label %36
 
-35:                                               ; preds = %34
-  tail call void @_ZN7RarTime10SetAgeTextEPKw(ptr noundef nonnull align 8 dereferenceable(8) %26, ptr noundef nonnull %.0.lcssa)
-  br label %37
+35:                                               ; preds = %33
+  tail call void @_ZN7RarTime10SetIsoTextEPKw(ptr noundef nonnull align 8 dereferenceable(8) %25, ptr noundef nonnull %.0.lcssa)
+  br label %36
 
-36:                                               ; preds = %34
-  tail call void @_ZN7RarTime10SetIsoTextEPKw(ptr noundef nonnull align 8 dereferenceable(8) %26, ptr noundef nonnull %.0.lcssa)
-  br label %37
+36:                                               ; preds = %35, %34
+  store i8 %.041.lcssa, ptr %26, align 8
+  br label %59
 
-37:                                               ; preds = %36, %35
-  store i8 %.041.lcssa, ptr %27, align 8
-  br label %60
+37:                                               ; preds = %32
+  br i1 %3, label %38, label %39
 
-38:                                               ; preds = %33
-  br i1 %3, label %39, label %40
+38:                                               ; preds = %37
+  tail call void @_ZN7RarTime10SetAgeTextEPKw(ptr noundef nonnull align 8 dereferenceable(8) %23, ptr noundef nonnull %.0.lcssa)
+  br label %40
 
-39:                                               ; preds = %38
-  tail call void @_ZN7RarTime10SetAgeTextEPKw(ptr noundef nonnull align 8 dereferenceable(8) %24, ptr noundef nonnull %.0.lcssa)
-  br label %41
+39:                                               ; preds = %37
+  tail call void @_ZN7RarTime10SetIsoTextEPKw(ptr noundef nonnull align 8 dereferenceable(8) %23, ptr noundef nonnull %.0.lcssa)
+  br label %40
 
-40:                                               ; preds = %38
-  tail call void @_ZN7RarTime10SetIsoTextEPKw(ptr noundef nonnull align 8 dereferenceable(8) %24, ptr noundef nonnull %.0.lcssa)
-  br label %41
+40:                                               ; preds = %39, %38
+  store i8 %.041.lcssa, ptr %24, align 8
+  br label %59
 
-41:                                               ; preds = %40, %39
-  store i8 %.041.lcssa, ptr %25, align 8
-  br label %60
+41:                                               ; preds = %30
+  br i1 %2, label %42, label %46
 
-42:                                               ; preds = %31
-  br i1 %2, label %43, label %47
+42:                                               ; preds = %41
+  br i1 %3, label %43, label %44
 
 43:                                               ; preds = %42
-  br i1 %3, label %44, label %45
+  tail call void @_ZN7RarTime10SetAgeTextEPKw(ptr noundef nonnull align 8 dereferenceable(8) %21, ptr noundef nonnull %.0.lcssa)
+  br label %45
 
-44:                                               ; preds = %43
-  tail call void @_ZN7RarTime10SetAgeTextEPKw(ptr noundef nonnull align 8 dereferenceable(8) %22, ptr noundef nonnull %.0.lcssa)
-  br label %46
+44:                                               ; preds = %42
+  tail call void @_ZN7RarTime10SetIsoTextEPKw(ptr noundef nonnull align 8 dereferenceable(8) %21, ptr noundef nonnull %.0.lcssa)
+  br label %45
 
-45:                                               ; preds = %43
-  tail call void @_ZN7RarTime10SetIsoTextEPKw(ptr noundef nonnull align 8 dereferenceable(8) %22, ptr noundef nonnull %.0.lcssa)
-  br label %46
+45:                                               ; preds = %44, %43
+  store i8 %.041.lcssa, ptr %22, align 1
+  br label %59
 
-46:                                               ; preds = %45, %44
-  store i8 %.041.lcssa, ptr %23, align 1
-  br label %60
+46:                                               ; preds = %41
+  br i1 %3, label %47, label %48
 
-47:                                               ; preds = %42
-  br i1 %3, label %48, label %49
+47:                                               ; preds = %46
+  tail call void @_ZN7RarTime10SetAgeTextEPKw(ptr noundef nonnull align 8 dereferenceable(8) %19, ptr noundef nonnull %.0.lcssa)
+  br label %49
 
-48:                                               ; preds = %47
-  tail call void @_ZN7RarTime10SetAgeTextEPKw(ptr noundef nonnull align 8 dereferenceable(8) %20, ptr noundef nonnull %.0.lcssa)
-  br label %50
+48:                                               ; preds = %46
+  tail call void @_ZN7RarTime10SetIsoTextEPKw(ptr noundef nonnull align 8 dereferenceable(8) %19, ptr noundef nonnull %.0.lcssa)
+  br label %49
 
-49:                                               ; preds = %47
-  tail call void @_ZN7RarTime10SetIsoTextEPKw(ptr noundef nonnull align 8 dereferenceable(8) %20, ptr noundef nonnull %.0.lcssa)
-  br label %50
+49:                                               ; preds = %48, %47
+  store i8 %.041.lcssa, ptr %20, align 1
+  br label %59
 
-50:                                               ; preds = %49, %48
-  store i8 %.041.lcssa, ptr %21, align 1
-  br label %60
+50:                                               ; preds = %30
+  br i1 %2, label %51, label %55
 
-51:                                               ; preds = %31
-  br i1 %2, label %52, label %56
+51:                                               ; preds = %50
+  br i1 %3, label %52, label %53
 
 52:                                               ; preds = %51
-  br i1 %3, label %53, label %54
+  tail call void @_ZN7RarTime10SetAgeTextEPKw(ptr noundef nonnull align 8 dereferenceable(8) %17, ptr noundef nonnull %.0.lcssa)
+  br label %54
 
-53:                                               ; preds = %52
-  tail call void @_ZN7RarTime10SetAgeTextEPKw(ptr noundef nonnull align 8 dereferenceable(8) %18, ptr noundef nonnull %.0.lcssa)
-  br label %55
+53:                                               ; preds = %51
+  tail call void @_ZN7RarTime10SetIsoTextEPKw(ptr noundef nonnull align 8 dereferenceable(8) %17, ptr noundef nonnull %.0.lcssa)
+  br label %54
 
-54:                                               ; preds = %52
-  tail call void @_ZN7RarTime10SetIsoTextEPKw(ptr noundef nonnull align 8 dereferenceable(8) %18, ptr noundef nonnull %.0.lcssa)
-  br label %55
-
-55:                                               ; preds = %54, %53
-  store i8 %.041.lcssa, ptr %19, align 2
-  br label %60
-
-56:                                               ; preds = %51
-  br i1 %3, label %57, label %58
-
-57:                                               ; preds = %56
-  tail call void @_ZN7RarTime10SetAgeTextEPKw(ptr noundef nonnull align 8 dereferenceable(8) %16, ptr noundef nonnull %.0.lcssa)
+54:                                               ; preds = %53, %52
+  store i8 %.041.lcssa, ptr %18, align 2
   br label %59
 
-58:                                               ; preds = %56
-  tail call void @_ZN7RarTime10SetIsoTextEPKw(ptr noundef nonnull align 8 dereferenceable(8) %16, ptr noundef nonnull %.0.lcssa)
+55:                                               ; preds = %50
+  br i1 %3, label %56, label %57
+
+56:                                               ; preds = %55
+  tail call void @_ZN7RarTime10SetAgeTextEPKw(ptr noundef nonnull align 8 dereferenceable(8) %15, ptr noundef nonnull %.0.lcssa)
+  br label %58
+
+57:                                               ; preds = %55
+  tail call void @_ZN7RarTime10SetIsoTextEPKw(ptr noundef nonnull align 8 dereferenceable(8) %15, ptr noundef nonnull %.0.lcssa)
+  br label %58
+
+58:                                               ; preds = %57, %56
+  store i8 %.041.lcssa, ptr %16, align 2
   br label %59
 
-59:                                               ; preds = %58, %57
-  store i8 %.041.lcssa, ptr %17, align 2
-  br label %60
+59:                                               ; preds = %30, %40, %36, %49, %45, %58, %54
+  %60 = getelementptr inbounds nuw i8, ptr %.14461, i64 4
+  %61 = load i32, ptr %60, align 4
+  %.not48 = icmp eq i32 %61, 0
+  br i1 %.not48, label %.critedge2, label %27, !llvm.loop !7
 
-60:                                               ; preds = %31, %41, %37, %50, %46, %59, %55
-  %61 = getelementptr inbounds nuw i8, ptr %.14461, i64 4
-  %62 = load i32, ptr %61, align 4
-  %.not48 = icmp eq i32 %62, 0
-  br i1 %.not48, label %.critedge2, label %28, !llvm.loop !7
-
-.critedge2:                                       ; preds = %28, %60, %.critedge
+.critedge2:                                       ; preds = %27, %59, %.critedge
   ret void
 }
 

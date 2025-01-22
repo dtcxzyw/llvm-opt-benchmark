@@ -2507,8 +2507,8 @@ if.then37:                                        ; preds = %if.then48.i, %do.bo
   %creationtime70.i = getelementptr inbounds nuw i8, ptr %call.i57, i64 60
   store i32 %41, ptr %creationtime70.i, align 4
   store ptr %mainco.098, ptr %call.i57, align 8
-  %inc = add i64 %matches.097, 1
-  %cmp = icmp ugt i64 %inc, 149
+  %inc = add nuw nsw i64 %matches.097, 1
+  %cmp = icmp ugt i64 %matches.097, 148
   br i1 %cmp, label %do.body, label %if.end48
 
 do.body:                                          ; preds = %if.then37
@@ -2541,7 +2541,7 @@ if.then51:                                        ; preds = %do.body, %land.lhs.
   %mainco.186 = phi ptr [ %mainco.2, %while.end ], [ %call.i57, %if.then42 ], [ %call.i57, %land.lhs.true40 ], [ %call.i57, %do.body ]
   %matches.185 = phi i64 [ %matches.2, %while.end ], [ %inc, %if.then42 ], [ %inc, %land.lhs.true40 ], [ %inc, %do.body ]
   %43 = load ptr, ptr @Curl_cmalloc, align 8
-  %mul = shl i64 %matches.185, 3
+  %mul = shl nsw i64 %matches.185, 3
   %call52 = tail call ptr %43(i64 noundef %mul) #12
   %tobool53.not = icmp eq ptr %call52, null
   br i1 %tobool53.not, label %fail, label %for.cond.preheader
@@ -2563,7 +2563,7 @@ for.body:                                         ; preds = %for.cond.preheader,
 for.end:                                          ; preds = %for.body, %for.cond.preheader
   tail call void @qsort(ptr noundef nonnull %call52, i64 noundef %matches.185, i64 noundef 8, ptr noundef nonnull @cookie_sort) #12
   %45 = load ptr, ptr %call52, align 8
-  %sub = add i64 %matches.185, -1
+  %sub = add nsw i64 %matches.185, -1
   %cmp62104.not = icmp eq i64 %sub, 0
   br i1 %cmp62104.not, label %for.end69, label %for.body63
 

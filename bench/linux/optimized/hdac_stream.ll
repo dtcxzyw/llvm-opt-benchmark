@@ -1485,72 +1485,71 @@ define dso_local void @snd_hdac_stream_timecounter_init(ptr nocapture noundef re
   %10 = icmp eq ptr %9, %8
   br i1 %10, label %.loopexit, label %.preheader
 
-.preheader:                                       ; preds = %2, %32
-  %11 = phi ptr [ %35, %32 ], [ %9, %2 ]
-  %12 = phi i8 [ %34, %32 ], [ 0, %2 ]
-  %13 = phi i64 [ %33, %32 ], [ 0, %2 ]
+.preheader:                                       ; preds = %2, %31
+  %11 = phi ptr [ %34, %31 ], [ %9, %2 ]
+  %12 = phi i8 [ %33, %31 ], [ 0, %2 ]
+  %13 = phi i64 [ %32, %31 ], [ 0, %2 ]
   %14 = getelementptr i8, ptr %11, i64 -107
   %15 = load i8, ptr %14, align 1
   %16 = zext nneg i8 %15 to i32
   %17 = shl nuw i32 1, %16
   %18 = and i32 %17, %1
   %19 = icmp eq i32 %18, 0
-  br i1 %19, label %32, label %20
+  br i1 %19, label %31, label %20
 
 20:                                               ; preds = %.preheader
-  %21 = and i8 %12, 1
-  %22 = icmp eq i8 %21, 0
-  %23 = getelementptr i8, ptr %11, i64 -72
-  %24 = getelementptr i8, ptr %11, i64 -32
-  store ptr @azx_cc_read, ptr %24, align 8
-  %25 = getelementptr i8, ptr %11, i64 -24
-  store i64 4294967295, ptr %25, align 8
-  %26 = getelementptr i8, ptr %11, i64 -16
-  %27 = getelementptr i8, ptr %11, i64 -12
-  tail call void @clocks_calc_mult_shift(ptr noundef %26, ptr noundef %27, i32 noundef 24000000, i32 noundef 1000000000, i32 noundef 178) #10
-  tail call void @timecounter_init(ptr noundef %23, ptr noundef %24, i64 noundef 0) #10
-  %28 = getelementptr i8, ptr %11, i64 -64
-  br i1 %22, label %30, label %29
+  %21 = icmp eq i8 %12, 0
+  %22 = getelementptr i8, ptr %11, i64 -72
+  %23 = getelementptr i8, ptr %11, i64 -32
+  store ptr @azx_cc_read, ptr %23, align 8
+  %24 = getelementptr i8, ptr %11, i64 -24
+  store i64 4294967295, ptr %24, align 8
+  %25 = getelementptr i8, ptr %11, i64 -16
+  %26 = getelementptr i8, ptr %11, i64 -12
+  tail call void @clocks_calc_mult_shift(ptr noundef %25, ptr noundef %26, i32 noundef 24000000, i32 noundef 1000000000, i32 noundef 178) #10
+  tail call void @timecounter_init(ptr noundef %22, ptr noundef %23, i64 noundef 0) #10
+  %27 = getelementptr i8, ptr %11, i64 -64
+  br i1 %21, label %29, label %28
+
+28:                                               ; preds = %20
+  store i64 %13, ptr %27, align 8
+  br label %31
 
 29:                                               ; preds = %20
-  store i64 %13, ptr %28, align 8
-  br label %32
+  %30 = load i64, ptr %27, align 8
+  br label %31
 
-30:                                               ; preds = %20
-  %31 = load i64, ptr %28, align 8
-  br label %32
+31:                                               ; preds = %29, %28, %.preheader
+  %32 = phi i64 [ %13, %28 ], [ %30, %29 ], [ %13, %.preheader ]
+  %33 = phi i8 [ %12, %28 ], [ 1, %29 ], [ %12, %.preheader ]
+  %34 = load ptr, ptr %11, align 8
+  %35 = icmp eq ptr %34, %8
+  br i1 %35, label %.loopexit, label %.preheader, !llvm.loop !43
 
-32:                                               ; preds = %30, %29, %.preheader
-  %33 = phi i64 [ %13, %29 ], [ %31, %30 ], [ %13, %.preheader ]
-  %34 = phi i8 [ %12, %29 ], [ 1, %30 ], [ %12, %.preheader ]
-  %35 = load ptr, ptr %11, align 8
-  %36 = icmp eq ptr %35, %8
-  br i1 %36, label %.loopexit, label %.preheader, !llvm.loop !43
-
-.loopexit:                                        ; preds = %32, %2
-  %37 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %38 = getelementptr inbounds nuw i8, ptr %7, i64 748
-  %39 = load i32, ptr %38, align 4
-  switch i32 %39, label %42 [
-    i32 1, label %40
-    i32 2, label %41
+.loopexit:                                        ; preds = %31, %2
+  %36 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %37 = getelementptr inbounds nuw i8, ptr %7, i64 748
+  %38 = load i32, ptr %37, align 4
+  switch i32 %38, label %41 [
+    i32 1, label %39
+    i32 2, label %40
   ]
 
+39:                                               ; preds = %.loopexit
+  tail call void @ktime_get_ts64(ptr noundef nonnull %36) #10
+  br label %42
+
 40:                                               ; preds = %.loopexit
-  tail call void @ktime_get_ts64(ptr noundef nonnull %37) #10
-  br label %43
+  tail call void @ktime_get_raw_ts64(ptr noundef nonnull %36) #10
+  br label %42
 
 41:                                               ; preds = %.loopexit
-  tail call void @ktime_get_raw_ts64(ptr noundef nonnull %37) #10
-  br label %43
+  tail call void @ktime_get_real_ts64(ptr noundef nonnull %36) #10
+  br label %42
 
-42:                                               ; preds = %.loopexit
-  tail call void @ktime_get_real_ts64(ptr noundef nonnull %37) #10
-  br label %43
-
-43:                                               ; preds = %42, %41, %40
-  %44 = getelementptr inbounds nuw i8, ptr %7, i64 32
-  store i8 1, ptr %44, align 8
+42:                                               ; preds = %41, %40, %39
+  %43 = getelementptr inbounds nuw i8, ptr %7, i64 32
+  store i8 1, ptr %43, align 8
   ret void
 }
 

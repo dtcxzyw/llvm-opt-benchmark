@@ -210,7 +210,7 @@ _ZN3gmx12_GLOBAL__N_124calcTargetUpdateIntervalERKNS_9AwhParamsERKNS_13AwhBiasPa
   br i1 %53, label %54, label %56
 
 54:                                               ; preds = %49
-  %55 = icmp ult i64 %.079.i.i.i.i, 2
+  %55 = icmp samesign ult i64 %.079.i.i.i.i, 2
   br i1 %55, label %_ZNK3gmx9DimParams15isPullDimensionEv.exit.i, label %56
 
 56:                                               ; preds = %54, %49

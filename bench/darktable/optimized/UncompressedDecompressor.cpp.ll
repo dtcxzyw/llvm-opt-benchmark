@@ -3604,7 +3604,7 @@ define linkonce_odr hidden void @_ZNK8rawspeed24UncompressedDecompressor14decode
 
 89:                                               ; preds = %.preheader
   %90 = add nuw nsw i32 %86, 4
-  %91 = icmp samesign ugt i32 %90, %35
+  %91 = icmp ugt i32 %90, %35
   br i1 %91, label %95, label %92
 
 92:                                               ; preds = %89
@@ -3613,7 +3613,7 @@ define linkonce_odr hidden void @_ZNK8rawspeed24UncompressedDecompressor14decode
   br label %107
 
 95:                                               ; preds = %89
-  %96 = icmp samesign ugt i32 %86, %55
+  %96 = icmp ugt i32 %86, %55
   br i1 %96, label %97, label %98
 
 97:                                               ; preds = %95
@@ -3979,7 +3979,7 @@ define linkonce_odr hidden void @_ZNK8rawspeed24UncompressedDecompressor14decode
 
 89:                                               ; preds = %.preheader
   %90 = add nuw nsw i32 %86, 4
-  %91 = icmp samesign ugt i32 %90, %35
+  %91 = icmp ugt i32 %90, %35
   br i1 %91, label %95, label %92
 
 92:                                               ; preds = %89
@@ -3988,7 +3988,7 @@ define linkonce_odr hidden void @_ZNK8rawspeed24UncompressedDecompressor14decode
   br label %107
 
 95:                                               ; preds = %89
-  %96 = icmp samesign ugt i32 %86, %55
+  %96 = icmp ugt i32 %86, %55
   br i1 %96, label %97, label %98
 
 97:                                               ; preds = %95
@@ -4347,7 +4347,7 @@ define linkonce_odr hidden void @_ZNK8rawspeed24UncompressedDecompressor14decode
 
 89:                                               ; preds = %.preheader
   %90 = add nuw nsw i32 %86, 4
-  %91 = icmp samesign ugt i32 %90, %35
+  %91 = icmp ugt i32 %90, %35
   br i1 %91, label %95, label %92
 
 92:                                               ; preds = %89
@@ -4356,7 +4356,7 @@ define linkonce_odr hidden void @_ZNK8rawspeed24UncompressedDecompressor14decode
   br label %107
 
 95:                                               ; preds = %89
-  %96 = icmp samesign ugt i32 %86, %55
+  %96 = icmp ugt i32 %86, %55
   br i1 %96, label %97, label %98
 
 97:                                               ; preds = %95
@@ -4722,7 +4722,7 @@ define linkonce_odr hidden void @_ZNK8rawspeed24UncompressedDecompressor14decode
 
 89:                                               ; preds = %.preheader
   %90 = add nuw nsw i32 %86, 4
-  %91 = icmp samesign ugt i32 %90, %35
+  %91 = icmp ugt i32 %90, %35
   br i1 %91, label %95, label %92
 
 92:                                               ; preds = %89
@@ -4731,7 +4731,7 @@ define linkonce_odr hidden void @_ZNK8rawspeed24UncompressedDecompressor14decode
   br label %107
 
 95:                                               ; preds = %89
-  %96 = icmp samesign ugt i32 %86, %55
+  %96 = icmp ugt i32 %86, %55
   br i1 %96, label %97, label %98
 
 97:                                               ; preds = %95
@@ -5096,7 +5096,7 @@ define linkonce_odr hidden void @_ZNK8rawspeed24UncompressedDecompressor15decode
 
 93:                                               ; preds = %.preheader
   %94 = add nuw nsw i32 %90, 4
-  %95 = icmp samesign ugt i32 %94, %35
+  %95 = icmp ugt i32 %94, %35
   br i1 %95, label %99, label %96
 
 96:                                               ; preds = %93
@@ -5105,7 +5105,7 @@ define linkonce_odr hidden void @_ZNK8rawspeed24UncompressedDecompressor15decode
   br label %111
 
 99:                                               ; preds = %93
-  %100 = icmp samesign ugt i32 %90, %59
+  %100 = icmp ugt i32 %90, %59
   br i1 %100, label %101, label %102
 
 101:                                              ; preds = %99
@@ -5676,7 +5676,7 @@ define linkonce_odr hidden void @_ZNK8rawspeed24UncompressedDecompressor15decode
 
 93:                                               ; preds = %.preheader
   %94 = add nuw nsw i32 %90, 4
-  %95 = icmp samesign ugt i32 %94, %35
+  %95 = icmp ugt i32 %94, %35
   br i1 %95, label %99, label %96
 
 96:                                               ; preds = %93
@@ -5685,7 +5685,7 @@ define linkonce_odr hidden void @_ZNK8rawspeed24UncompressedDecompressor15decode
   br label %111
 
 99:                                               ; preds = %93
-  %100 = icmp samesign ugt i32 %90, %59
+  %100 = icmp ugt i32 %90, %59
   br i1 %100, label %101, label %102
 
 101:                                              ; preds = %99
@@ -6019,7 +6019,7 @@ define linkonce_odr hidden void @_ZNK8rawspeed24UncompressedDecompressor15decode
 
 93:                                               ; preds = %.preheader
   %94 = add nuw nsw i32 %90, 4
-  %95 = icmp samesign ugt i32 %94, %35
+  %95 = icmp ugt i32 %94, %35
   br i1 %95, label %99, label %96
 
 96:                                               ; preds = %93
@@ -6028,7 +6028,7 @@ define linkonce_odr hidden void @_ZNK8rawspeed24UncompressedDecompressor15decode
   br label %111
 
 99:                                               ; preds = %93
-  %100 = icmp samesign ugt i32 %90, %59
+  %100 = icmp ugt i32 %90, %59
   br i1 %100, label %101, label %102
 
 101:                                              ; preds = %99

@@ -303,7 +303,7 @@ for.inc:                                          ; preds = %_ZN7obj_refI4expr11
   br i1 %cmp11.not, label %for.end.loopexit, label %for.body
 
 for.end.loopexit:                                 ; preds = %for.inc
-  %19 = icmp eq i32 %count.1, 1
+  %19 = icmp ne i32 %count.1, 0
   br label %cleanup
 
 cleanup:                                          ; preds = %if.then14, %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE3endEv.exit, %for.end.loopexit

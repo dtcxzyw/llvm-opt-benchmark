@@ -426,7 +426,7 @@ Vec_IntFillExtra.exit:                            ; preds = %95, %._crit_edge.i
   %160 = getelementptr inbounds ptr, ptr %.val169.val.val.i, i64 %159
   %161 = load ptr, ptr %160, align 8
   %162 = tail call fastcc i32 @Abc_NtkRetimeTiming_rec(ptr noundef %161, i32 noundef %2)
-  %spec.select.i = tail call i32 @llvm.smax.i32(i32 %.1287.i, i32 %162)
+  %spec.select.i = tail call i32 @llvm.umax.i32(i32 %.1287.i, i32 %162)
   %indvars.iv.next333.i = add nuw nsw i64 %indvars.iv332.i, 1
   %.val166.i = load i32, ptr %151, align 4
   %163 = sext i32 %.val166.i to i64
@@ -1275,7 +1275,7 @@ Abc_NtkRetimeTiming.exit:                         ; preds = %.critedge14.i, %498
   tail call void @free(ptr noundef nonnull %46) #8
   %499 = icmp eq i32 %.087, 0
   %spec.select = select i1 %499, i32 %.6.i, i32 %.079
-  %500 = icmp sgt i32 %.081, %.6.i
+  %500 = icmp samesign ugt i32 %.081, %.6.i
   br i1 %500, label %501, label %513
 
 501:                                              ; preds = %Abc_NtkRetimeTiming.exit

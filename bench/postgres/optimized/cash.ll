@@ -264,8 +264,7 @@ define dso_local i64 @cash_in(ptr nocapture noundef readonly %0) local_unnamed_a
 
 104:                                              ; preds = %93
   %105 = extractvalue { i64, i1 } %97, 0
-  %.mask = and i8 %.0120192, 1
-  %106 = zext nneg i8 %.mask to i64
+  %106 = zext nneg i8 %.0120192 to i64
   %spec.select150 = add i64 %.0116193, %106
   br label %117
 

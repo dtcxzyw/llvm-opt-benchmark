@@ -10866,7 +10866,7 @@ define internal i32 @packet_sendmsg_spkt(ptr nocapture noundef readonly %0, ptr 
 
 .thread12:                                        ; preds = %111
   tail call void @iov_iter_revert(ptr noundef nonnull %27, i64 noundef %112) #19
-  br label %234
+  br label %233
 
 114:                                              ; preds = %60
   %115 = getelementptr inbounds nuw i8, ptr %33, i64 56
@@ -11035,37 +11035,37 @@ define internal i32 @packet_sendmsg_spkt(ptr nocapture noundef readonly %0, ptr 
   br label %skb_setup_tx_timestamp.exit
 
 skb_setup_tx_timestamp.exit:                      ; preds = %218, %223
-  %226 = icmp eq i32 %49, 4
-  br i1 %226, label %227, label %231, !prof !18
+  %.not = icmp eq i32 %49, 0
+  br i1 %.not, label %230, label %226, !prof !22
 
-227:                                              ; preds = %skb_setup_tx_timestamp.exit
-  %228 = getelementptr inbounds nuw i8, ptr %30, i64 129
-  %229 = load i24, ptr %228, align 1
-  %230 = or i24 %229, 4096
-  store i24 %230, ptr %228, align 1
-  br label %231
+226:                                              ; preds = %skb_setup_tx_timestamp.exit
+  %227 = getelementptr inbounds nuw i8, ptr %30, i64 129
+  %228 = load i24, ptr %227, align 1
+  %229 = or i24 %228, 4096
+  store i24 %229, ptr %227, align 1
+  br label %230
 
-231:                                              ; preds = %227, %skb_setup_tx_timestamp.exit
+230:                                              ; preds = %226, %skb_setup_tx_timestamp.exit
   call fastcc void @packet_parse_headers(ptr noundef nonnull %30, ptr noundef %0)
-  %232 = call i32 @__dev_queue_xmit(ptr noundef nonnull %30, ptr noundef null) #19
+  %231 = call i32 @__dev_queue_xmit(ptr noundef nonnull %30, ptr noundef null) #19
   call void @__rcu_read_unlock() #19
   br label %.thread
 
 .loopexit:                                        ; preds = %48, %44, %35, %29, %182, %160, %156, %144, %142, %138, %134, %120
-  %233 = phi i32 [ %183, %182 ], [ -22, %144 ], [ -22, %142 ], [ -90, %160 ], [ -22, %134 ], [ -22, %138 ], [ -22, %120 ], [ -90, %156 ], [ -93, %44 ], [ -100, %35 ], [ -90, %48 ], [ -19, %29 ]
+  %232 = phi i32 [ %183, %182 ], [ -22, %144 ], [ -22, %142 ], [ -90, %160 ], [ -22, %134 ], [ -22, %138 ], [ -22, %120 ], [ -90, %156 ], [ -93, %44 ], [ -100, %35 ], [ -90, %48 ], [ -19, %29 ]
   call void @__rcu_read_unlock() #19
-  br label %234
+  br label %233
 
-234:                                              ; preds = %.thread12, %.loopexit
-  %235 = phi ptr [ %30, %.loopexit ], [ %79, %.thread12 ]
-  %236 = phi i32 [ %233, %.loopexit ], [ -14, %.thread12 ]
-  call void @kfree_skb_reason(ptr noundef %235, i32 noundef 2) #19
+233:                                              ; preds = %.thread12, %.loopexit
+  %234 = phi ptr [ %30, %.loopexit ], [ %79, %.thread12 ]
+  %235 = phi i32 [ %232, %.loopexit ], [ -14, %.thread12 ]
+  call void @kfree_skb_reason(ptr noundef %234, i32 noundef 2) #19
   br label %.thread
 
-.thread:                                          ; preds = %62, %234, %231, %9, %3
-  %237 = phi i32 [ %236, %234 ], [ %24, %231 ], [ -22, %9 ], [ -107, %3 ], [ -105, %62 ]
+.thread:                                          ; preds = %62, %233, %230, %9, %3
+  %236 = phi i32 [ %235, %233 ], [ %24, %230 ], [ -22, %9 ], [ -107, %3 ], [ -105, %62 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #19
-  ret i32 %237
+  ret i32 %236
 }
 
 ; Function Attrs: null_pointer_is_valid

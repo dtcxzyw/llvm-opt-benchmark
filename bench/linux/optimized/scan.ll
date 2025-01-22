@@ -3089,7 +3089,7 @@ define internal noundef i32 @acpi_bus_attach(ptr noundef %0, ptr noundef %1) #0 
 46:                                               ; preds = %41, %37
   %47 = and i32 %34, -105
   store i32 %47, ptr %33, align 4
-  br label %.thread11
+  br label %.loopexit17
 
 48:                                               ; preds = %41
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 576
@@ -3129,10 +3129,10 @@ define internal noundef i32 @acpi_bus_attach(ptr noundef %0, ptr noundef %1) #0 
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 132
   %73 = load ptr, ptr %71, align 8
-  %.not27 = icmp eq ptr %73, %71
+  %.not28 = icmp eq ptr %73, %71
   %74 = load ptr, ptr @acpi_scan_handlers_list, align 8
   %75 = icmp eq ptr %74, @acpi_scan_handlers_list
-  %or.cond = select i1 %.not27, i1 true, i1 %75
+  %or.cond = select i1 %.not28, i1 true, i1 %75
   br i1 %or.cond, label %.loopexit16.thread, label %.lr.ph.split
 
 .lr.ph.splitthread-pre-split:                     ; preds = %.backedge
@@ -3216,7 +3216,7 @@ define internal noundef i32 @acpi_bus_attach(ptr noundef %0, ptr noundef %1) #0 
   store ptr null, ptr %49, align 8
   %.not13 = icmp eq i32 %113, 0
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #19
-  br i1 %.not13, label %.backedge, label %.thread11
+  br i1 %.not13, label %.backedge, label %.loopexit17
 
 .backedge.sink.split:                             ; preds = %.loopexit, %.loopexit15, %.lr.ph.split, %107
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #19
@@ -3224,8 +3224,8 @@ define internal noundef i32 @acpi_bus_attach(ptr noundef %0, ptr noundef %1) #0 
 
 .backedge:                                        ; preds = %.backedge.sink.split, %115
   %116 = load ptr, ptr %77, align 8
-  %.not28 = icmp eq ptr %116, %71
-  br i1 %.not28, label %.loopexit16.thread, label %.lr.ph.splitthread-pre-split, !llvm.loop !30
+  %.not29 = icmp eq ptr %116, %71
+  br i1 %.not29, label %.loopexit16.thread, label %.lr.ph.splitthread-pre-split, !llvm.loop !30
 
 .loopexit16.thread:                               ; preds = %.backedge, %70
   %117 = load i32, ptr %33, align 4
@@ -3251,7 +3251,7 @@ define internal noundef i32 @acpi_bus_attach(ptr noundef %0, ptr noundef %1) #0 
   %126 = getelementptr inbounds nuw i8, ptr %0, i64 616
   %127 = call i32 @device_attach(ptr noundef nonnull %126) #19
   %128 = icmp slt i32 %127, 0
-  br i1 %128, label %.thread11, label %129
+  br i1 %128, label %.loopexit17, label %129
 
 129:                                              ; preds = %125
   %130 = load i32, ptr %72, align 4
@@ -3278,23 +3278,23 @@ define internal noundef i32 @acpi_bus_attach(ptr noundef %0, ptr noundef %1) #0 
   %141 = call i32 @acpi_dev_for_each_child(ptr noundef %0, ptr noundef nonnull @acpi_bus_attach, ptr noundef %1) #19
   %142 = load ptr, ptr %49, align 8
   %143 = icmp eq ptr %142, null
-  br i1 %143, label %.thread11, label %144
+  br i1 %143, label %.loopexit17, label %144
 
 144:                                              ; preds = %140
   %145 = getelementptr inbounds nuw i8, ptr %142, i64 136
   %146 = load ptr, ptr %145, align 8
   %147 = icmp eq ptr %146, null
-  br i1 %147, label %.thread11, label %148
+  br i1 %147, label %.loopexit17, label %148
 
 148:                                              ; preds = %144
   call void %146(ptr noundef %0) #19
-  br label %.thread11
+  br label %.loopexit17
 
 149:                                              ; preds = %8
   %150 = tail call i32 @acpi_dev_for_each_child(ptr noundef %0, ptr noundef nonnull @acpi_bus_attach, ptr noundef null) #19
-  br label %.thread11
+  br label %.loopexit17
 
-.thread11:                                        ; preds = %115, %149, %148, %144, %140, %125, %46
+.loopexit17:                                      ; preds = %115, %149, %148, %144, %140, %125, %46
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #19
   ret i32 0
 }

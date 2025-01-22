@@ -7341,8 +7341,8 @@ _ZN13obj_hashtableI4exprED2Ev.exit:               ; preds = %for.end, %for.cond.
   br label %sw.epilog
 
 sw.bb49:                                          ; preds = %while.body
-  %inc50 = add i32 %num_undef.0, 1
-  %cmp51 = icmp ugt i32 %inc50, 2
+  %inc50 = add nuw nsw i32 %num_undef.0, 1
+  %cmp51 = icmp ugt i32 %num_undef.0, 1
   br i1 %cmp51, label %cleanup57, label %sw.epilog
 
 sw.epilog:                                        ; preds = %sw.bb49, %_ZN10ref_vectorI4expr11ast_managerED2Ev.exit, %_ZN13obj_hashtableI4exprED2Ev.exit, %while.body

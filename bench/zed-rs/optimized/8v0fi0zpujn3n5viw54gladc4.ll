@@ -5056,8 +5056,8 @@ define hidden { ptr, ptr } @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6ins
   br i1 %35, label %._crit_edge.i.us.i, label %.lr.ph.i.us.us.i
 
 ._crit_edge.i.us.i:                               ; preds = %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$24find_or_find_insert_slot28_$u7b$$u7b$closure$u7d$$u7d$17hd719a4f0f6e6072cE.exit.thread.i.us.us.i", %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$7reserve17h63cc2bc4aeb10ffbE.exit.split.us.i"
-  %switch.not.i.us.i = icmp eq i64 %.sroa.01.0.i.us.i, 1
-  br i1 %switch.not.i.us.i, label %43, label %36
+  %switch.not.i.us.i = icmp eq i64 %.sroa.01.0.i.us.i, 0
+  br i1 %switch.not.i.us.i, label %36, label %43
 
 36:                                               ; preds = %._crit_edge.i.us.i
   %37 = icmp slt <16 x i8> %.sroa.0.0.copyload.i26.i.us.i, zeroinitializer
@@ -5074,7 +5074,7 @@ define hidden { ptr, ptr } @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6ins
 
 43:                                               ; preds = %36, %._crit_edge.i.us.i
   %.sroa.6.1.i.us.i = phi i64 [ %.sroa.3.0.i.i.us.i, %36 ], [ %.sroa.6.0.i.us.i, %._crit_edge.i.us.i ]
-  %.sroa.01.1.i.us.i = phi i64 [ %.sroa.0.0.i.i.us.i, %36 ], [ 1, %._crit_edge.i.us.i ]
+  %.sroa.01.1.i.us.i = phi i64 [ %.sroa.0.0.i.i.us.i, %36 ], [ %.sroa.01.0.i.us.i, %._crit_edge.i.us.i ]
   %44 = icmp eq <16 x i8> %.sroa.0.0.copyload.i26.i.us.i, splat (i8 -1)
   %45 = bitcast <16 x i1> %44 to i16
   %.not.i.us.i = icmp eq i16 %45, 0
@@ -5145,8 +5145,8 @@ define hidden { ptr, ptr } @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6ins
   br i1 %78, label %.loopexit, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$24find_or_find_insert_slot28_$u7b$$u7b$closure$u7d$$u7d$17hd719a4f0f6e6072cE.exit.thread.i.i"
 
 ._crit_edge.i.i:                                  ; preds = %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$24find_or_find_insert_slot28_$u7b$$u7b$closure$u7d$$u7d$17hd719a4f0f6e6072cE.exit.thread.i.i", %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$7reserve17h63cc2bc4aeb10ffbE.exit.split.i"
-  %switch.not.i.i = icmp eq i64 %.sroa.01.0.i.i, 1
-  br i1 %switch.not.i.i, label %89, label %82
+  %switch.not.i.i = icmp eq i64 %.sroa.01.0.i.i, 0
+  br i1 %switch.not.i.i, label %82, label %89
 
 "_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$24find_or_find_insert_slot28_$u7b$$u7b$closure$u7d$$u7d$17hd719a4f0f6e6072cE.exit.thread.i.i": ; preds = %75, %.lr.ph.i.i
   %79 = add i16 %.sroa.03.027.i.i, -1
@@ -5169,7 +5169,7 @@ define hidden { ptr, ptr } @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6ins
 
 89:                                               ; preds = %82, %._crit_edge.i.i
   %.sroa.6.1.i.i = phi i64 [ %.sroa.3.0.i.i.i, %82 ], [ %.sroa.6.0.i.i, %._crit_edge.i.i ]
-  %.sroa.01.1.i.i = phi i64 [ %.sroa.0.0.i.i.i, %82 ], [ 1, %._crit_edge.i.i ]
+  %.sroa.01.1.i.i = phi i64 [ %.sroa.0.0.i.i.i, %82 ], [ %.sroa.01.0.i.i, %._crit_edge.i.i ]
   %90 = icmp eq <16 x i8> %.sroa.0.0.copyload.i26.i.i, splat (i8 -1)
   %91 = bitcast <16 x i1> %90 to i16
   %.not.i.i = icmp eq i16 %91, 0

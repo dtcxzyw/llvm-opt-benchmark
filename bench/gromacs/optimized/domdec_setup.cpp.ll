@@ -1085,7 +1085,7 @@ _ZNSt6vectorIiSaIiEE5clearEv.exit14:              ; preds = %_ZNSt6vectorIiSaIiE
 .preheader:                                       ; preds = %.preheader.lr.ph, %._crit_edge
   %.026 = phi i32 [ %0, %.preheader.lr.ph ], [ %.1.lcssa, %._crit_edge ]
   %storemerge25 = phi i32 [ 2, %.preheader.lr.ph ], [ %86, %._crit_edge ]
-  %21 = urem i32 %.026, %storemerge25
+  %21 = srem i32 %.026, %storemerge25
   %22 = icmp eq i32 %21, 0
   br i1 %22, label %.lr.ph, label %._crit_edge
 

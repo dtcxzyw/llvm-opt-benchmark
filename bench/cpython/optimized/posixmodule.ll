@@ -10526,7 +10526,7 @@ if.end59.i:                                       ; preds = %if.end51.i, %if.end
   %setsize.1.i = phi i64 [ %mul56.i, %if.end51.i ], [ %setsize.031.i, %if.end28.i ]
   %ncpus.1.i = phi i32 [ %newncpus.1.i, %if.end51.i ], [ %ncpus.032.i, %if.end28.i ]
   %div6047.i = lshr i64 %call16.i, 3
-  %cmp61.i = icmp ult i64 %div6047.i, %setsize.1.i
+  %cmp61.i = icmp samesign ult i64 %div6047.i, %setsize.1.i
   br i1 %cmp61.i, label %cond.true.i, label %cond.end.i
 
 cond.true.i:                                      ; preds = %if.end59.i

@@ -542,9 +542,9 @@ define range(i32 -1, 1) i32 @opal_graph_add_edge(ptr nocapture noundef %0, ptr n
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %.01821 = load volatile ptr, ptr %5, align 8
-  %.not22 = icmp eq ptr %.01821, %6
-  br i1 %.not22, label %._crit_edge.thread, label %.lr.ph
+  %.01820 = load volatile ptr, ptr %5, align 8
+  %.not21 = icmp eq ptr %.01820, %6
+  br i1 %.not21, label %._crit_edge.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 40
@@ -554,16 +554,16 @@ define range(i32 -1, 1) i32 @opal_graph_add_edge(ptr nocapture noundef %0, ptr n
   br label %11
 
 11:                                               ; preds = %.lr.ph, %11
-  %.01825 = phi ptr [ %.01821, %.lr.ph ], [ %.018, %11 ]
-  %.024 = phi i8 [ 0, %.lr.ph ], [ %.1, %11 ]
-  %.01623 = phi ptr [ null, %.lr.ph ], [ %spec.select, %11 ]
-  %12 = getelementptr inbounds nuw i8, ptr %.01825, i64 40
+  %.01824 = phi ptr [ %.01820, %.lr.ph ], [ %.018, %11 ]
+  %.023 = phi i8 [ 0, %.lr.ph ], [ %.1, %11 ]
+  %.01622 = phi ptr [ null, %.lr.ph ], [ %spec.select, %11 ]
+  %12 = getelementptr inbounds nuw i8, ptr %.01824, i64 40
   %13 = load ptr, ptr %12, align 8
   %14 = icmp eq ptr %13, %8
-  %spec.select = select i1 %14, ptr %.01825, ptr %.01623
+  %spec.select = select i1 %14, ptr %.01824, ptr %.01622
   %15 = icmp eq ptr %13, %10
-  %.1 = select i1 %15, i8 1, i8 %.024
-  %16 = getelementptr inbounds nuw i8, ptr %.01825, i64 16
+  %.1 = select i1 %15, i8 1, i8 %.023
+  %16 = getelementptr inbounds nuw i8, ptr %.01824, i64 16
   %.018 = load volatile ptr, ptr %16, align 8
   %.not = icmp eq ptr %.018, %6
   br i1 %.not, label %._crit_edge, label %11, !llvm.loop !10
@@ -1677,21 +1677,21 @@ opal_obj_new.exit67:                              ; preds = %.lr.ph.i.i64, %90, 
   %113 = load ptr, ptr %112, align 8
   %114 = getelementptr inbounds nuw i8, ptr %113, i64 32
   %115 = getelementptr inbounds nuw i8, ptr %113, i64 16
-  %.01821.i = load volatile ptr, ptr %114, align 8
-  %.not22.i = icmp eq ptr %.01821.i, %115
-  br i1 %.not22.i, label %opal_graph_add_edge.exit, label %.lr.ph.i
+  %.01820.i = load volatile ptr, ptr %114, align 8
+  %.not21.i = icmp eq ptr %.01820.i, %115
+  br i1 %.not21.i, label %opal_graph_add_edge.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %opal_obj_new.exit67, %.lr.ph.i
-  %.01825.i = phi ptr [ %.018.i, %.lr.ph.i ], [ %.01821.i, %opal_obj_new.exit67 ]
-  %.024.i = phi i8 [ %.1.i, %.lr.ph.i ], [ 0, %opal_obj_new.exit67 ]
-  %.01623.i = phi ptr [ %spec.select.i, %.lr.ph.i ], [ null, %opal_obj_new.exit67 ]
-  %116 = getelementptr inbounds nuw i8, ptr %.01825.i, i64 40
+  %.01824.i = phi ptr [ %.018.i, %.lr.ph.i ], [ %.01820.i, %opal_obj_new.exit67 ]
+  %.023.i = phi i8 [ %.1.i, %.lr.ph.i ], [ 0, %opal_obj_new.exit67 ]
+  %.01622.i = phi ptr [ %spec.select.i, %.lr.ph.i ], [ null, %opal_obj_new.exit67 ]
+  %116 = getelementptr inbounds nuw i8, ptr %.01824.i, i64 40
   %117 = load ptr, ptr %116, align 8
   %118 = icmp eq ptr %117, %104
-  %spec.select.i = select i1 %118, ptr %.01825.i, ptr %.01623.i
+  %spec.select.i = select i1 %118, ptr %.01824.i, ptr %.01622.i
   %119 = icmp eq ptr %117, %109
-  %.1.i = select i1 %119, i8 1, i8 %.024.i
-  %120 = getelementptr inbounds nuw i8, ptr %.01825.i, i64 16
+  %.1.i = select i1 %119, i8 1, i8 %.023.i
+  %120 = getelementptr inbounds nuw i8, ptr %.01824.i, i64 16
   %.018.i = load volatile ptr, ptr %120, align 8
   %.not.i68 = icmp eq ptr %.018.i, %115
   br i1 %.not.i68, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !10

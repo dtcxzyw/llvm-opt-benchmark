@@ -16936,20 +16936,20 @@ sw.epilog.i:                                      ; preds = %if.then17.i, %sw.bb
   %subjectDnsName.sroa.5.1.i = phi i32 [ 0, %sw.bb14.i ], [ %258, %if.then17.i ], [ 0, %sw.bb7.i ], [ %255, %if.then10.i ], [ 0, %sw.bb.i179 ]
   %subjectDnsName.sroa.10.1.i = phi ptr [ null, %sw.bb14.i ], [ %257, %if.then17.i ], [ null, %sw.bb7.i ], [ %254, %if.then10.i ], [ null, %sw.bb.i179 ]
   %name.0.i = phi ptr [ %256, %sw.bb14.i ], [ %256, %if.then17.i ], [ %253, %sw.bb7.i ], [ %253, %if.then10.i ], [ %252, %sw.bb.i179 ]
-  %cmp24.not113.i = icmp eq ptr %name.0.i, null
-  br i1 %cmp24.not113.i, label %while.end.i, label %while.body.lr.ph.i
+  %cmp24.not112.i = icmp eq ptr %name.0.i, null
+  br i1 %cmp24.not112.i, label %while.end.i, label %while.body.lr.ph.i
 
 while.body.lr.ph.i:                               ; preds = %sw.epilog.i
   %conv1.i.i = zext nneg i8 %251 to i32
   br label %while.body.i
 
 while.body.i:                                     ; preds = %if.end38.i, %while.body.lr.ph.i
-  %name.1114.i = phi ptr [ %name.0.i, %while.body.lr.ph.i ], [ %272, %if.end38.i ]
-  %name7.i.i = getelementptr inbounds nuw i8, ptr %name.1114.i, i64 16
+  %name.1113.i = phi ptr [ %name.0.i, %while.body.lr.ph.i ], [ %272, %if.end38.i ]
+  %name7.i.i = getelementptr inbounds nuw i8, ptr %name.1113.i, i64 16
   br i1 %cmp2.i, label %if.end30.i, label %while.body.lr.ph.i.i
 
 while.body.lr.ph.i.i:                             ; preds = %while.body.i
-  %len.i.i = getelementptr inbounds nuw i8, ptr %name.1114.i, i64 12
+  %len.i.i = getelementptr inbounds nuw i8, ptr %name.1113.i, i64 12
   br label %while.body.i.i
 
 while.body.i.i:                                   ; preds = %if.end12.i.i, %while.body.lr.ph.i.i
@@ -16985,7 +16985,7 @@ if.end30.i:                                       ; preds = %if.end12.i.i, %whil
   br i1 %cmp.not10.not.i.i, label %if.end38.i, label %while.body.lr.ph.i27.i
 
 while.body.lr.ph.i27.i:                           ; preds = %if.end30.i
-  %len.i29.i = getelementptr inbounds nuw i8, ptr %name.1114.i, i64 12
+  %len.i29.i = getelementptr inbounds nuw i8, ptr %name.1113.i, i64 12
   br label %while.body.i30.i
 
 while.body.i30.i:                                 ; preds = %if.end12.i34.i, %while.body.lr.ph.i27.i
@@ -17018,11 +17018,11 @@ if.end12.i34.i:                                   ; preds = %land.lhs.true.i38.i
   br i1 %cmp.not.not.i.i, label %PermittedListOk.exit.i, label %while.body.i30.i, !llvm.loop !26
 
 PermittedListOk.exit.i:                           ; preds = %if.end12.i34.i
-  %.not.i = icmp eq i32 %need.2.i.i, 0
-  br i1 %.not.i, label %if.end38.i, label %return
+  %cmp33.not.not.not.i = icmp eq i32 %need.2.i.i, 0
+  br i1 %cmp33.not.not.not.i, label %if.end38.i, label %return
 
 if.end38.i:                                       ; preds = %land.lhs.true.i38.i, %PermittedListOk.exit.i, %if.end30.i
-  %272 = load ptr, ptr %name.1114.i, align 8
+  %272 = load ptr, ptr %name.1113.i, align 8
   %cmp24.not.i = icmp eq ptr %272, null
   br i1 %cmp24.not.i, label %while.end.i, label %while.body.i, !llvm.loop !27
 
@@ -17101,8 +17101,8 @@ if.end12.i72.i:                                   ; preds = %land.lhs.true.i82.i
   br i1 %cmp.not.not.i74.i, label %PermittedListOk.exit86.i, label %while.body.i67.i, !llvm.loop !26
 
 PermittedListOk.exit86.i:                         ; preds = %if.end12.i72.i
-  %.not109.i = icmp eq i32 %need.2.i73.i, 0
-  br i1 %.not109.i, label %for.inc.i, label %return
+  %cmp58.not.not.not.i = icmp eq i32 %need.2.i73.i, 0
+  br i1 %cmp58.not.not.not.i, label %for.inc.i, label %return
 
 for.inc.i:                                        ; preds = %land.lhs.true.i82.i, %PermittedListOk.exit86.i, %if.end55.i177, %while.end.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1

@@ -6413,51 +6413,49 @@ for.body.lr.ph:                                   ; preds = %entry
   br label %for.body
 
 for.cond.cleanup:                                 ; preds = %if.end8
-  %3 = and i8 %hasMeshBufferBBox.1, 1
-  %4 = icmp eq i8 %3, 0
-  br i1 %4, label %if.then10, label %if.end12
+  %3 = icmp eq i8 %hasMeshBufferBBox.1, 0
+  br i1 %3, label %if.then10, label %if.end12
 
 for.body:                                         ; preds = %if.end8, %for.body.lr.ph
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %if.end8 ]
-  %5 = phi ptr [ %1, %for.body.lr.ph ], [ %36, %if.end8 ]
+  %4 = phi ptr [ %1, %for.body.lr.ph ], [ %34, %if.end8 ]
   %hasMeshBufferBBox.033 = phi i8 [ 0, %for.body.lr.ph ], [ %hasMeshBufferBBox.1, %if.end8 ]
-  %add.ptr.i.i = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv
-  %6 = load ptr, ptr %add.ptr.i.i, align 8, !tbaa !91
-  %vtable = load ptr, ptr %6, align 8, !tbaa !3
+  %add.ptr.i.i = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv
+  %5 = load ptr, ptr %add.ptr.i.i, align 8, !tbaa !91
+  %vtable = load ptr, ptr %5, align 8, !tbaa !3
   %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 80
-  %7 = load ptr, ptr %vfn, align 8
-  %call4 = tail call noundef nonnull align 4 dereferenceable(24) ptr %7(ptr noundef nonnull align 8 dereferenceable(8) %6) #27
+  %6 = load ptr, ptr %vfn, align 8
+  %call4 = tail call noundef nonnull align 4 dereferenceable(24) ptr %6(ptr noundef nonnull align 8 dereferenceable(8) %5) #27
   %MaxEdge.i = getelementptr inbounds nuw i8, ptr %call4, i64 12
-  %8 = load float, ptr %call4, align 4, !tbaa !150
-  %9 = load float, ptr %MaxEdge.i, align 4, !tbaa !150
-  %sub.i.i.i = fsub float %8, %9
-  %10 = tail call noundef float @llvm.fabs.f32(float %sub.i.i.i)
-  %cmp.i.i.i = fcmp ugt float %10, 0x3EB0C6F7A0000000
+  %7 = load float, ptr %call4, align 4, !tbaa !150
+  %8 = load float, ptr %MaxEdge.i, align 4, !tbaa !150
+  %sub.i.i.i = fsub float %7, %8
+  %9 = tail call noundef float @llvm.fabs.f32(float %sub.i.i.i)
+  %cmp.i.i.i = fcmp ugt float %9, 0x3EB0C6F7A0000000
   br i1 %cmp.i.i.i, label %if.then, label %land.lhs.true.i.i
 
 land.lhs.true.i.i:                                ; preds = %for.body
   %Y.i.i = getelementptr inbounds nuw i8, ptr %call4, i64 4
-  %11 = load float, ptr %Y.i.i, align 4, !tbaa !151
+  %10 = load float, ptr %Y.i.i, align 4, !tbaa !151
   %Y4.i.i = getelementptr inbounds nuw i8, ptr %call4, i64 16
-  %12 = load float, ptr %Y4.i.i, align 4, !tbaa !151
-  %sub.i12.i.i = fsub float %11, %12
-  %13 = tail call noundef float @llvm.fabs.f32(float %sub.i12.i.i)
-  %cmp.i13.i.i = fcmp ugt float %13, 0x3EB0C6F7A0000000
+  %11 = load float, ptr %Y4.i.i, align 4, !tbaa !151
+  %sub.i12.i.i = fsub float %10, %11
+  %12 = tail call noundef float @llvm.fabs.f32(float %sub.i12.i.i)
+  %cmp.i13.i.i = fcmp ugt float %12, 0x3EB0C6F7A0000000
   br i1 %cmp.i13.i.i, label %if.then, label %_ZNK3irr4core8aabbox3dIfE7isEmptyEv.exit
 
 _ZNK3irr4core8aabbox3dIfE7isEmptyEv.exit:         ; preds = %land.lhs.true.i.i
   %Z.i.i = getelementptr inbounds nuw i8, ptr %call4, i64 8
-  %14 = load float, ptr %Z.i.i, align 4, !tbaa !105
+  %13 = load float, ptr %Z.i.i, align 4, !tbaa !105
   %Z7.i.i = getelementptr inbounds nuw i8, ptr %call4, i64 20
-  %15 = load float, ptr %Z7.i.i, align 4, !tbaa !105
-  %sub.i14.i.i = fsub float %14, %15
-  %16 = tail call noundef float @llvm.fabs.f32(float %sub.i14.i.i)
-  %cmp.i15.i.i = fcmp ugt float %16, 0x3EB0C6F7A0000000
+  %14 = load float, ptr %Z7.i.i, align 4, !tbaa !105
+  %sub.i14.i.i = fsub float %13, %14
+  %15 = tail call noundef float @llvm.fabs.f32(float %sub.i14.i.i)
+  %cmp.i15.i.i = fcmp ugt float %15, 0x3EB0C6F7A0000000
   br i1 %cmp.i15.i.i, label %if.then, label %if.end8
 
 if.then:                                          ; preds = %_ZNK3irr4core8aabbox3dIfE7isEmptyEv.exit, %land.lhs.true.i.i, %for.body
-  %17 = and i8 %hasMeshBufferBBox.033, 1
-  %tobool.not = icmp eq i8 %17, 0
+  %tobool.not = icmp eq i8 %hasMeshBufferBBox.033, 0
   br i1 %tobool.not, label %if.then6, label %if.else
 
 if.then6:                                         ; preds = %if.then
@@ -6466,132 +6464,132 @@ if.then6:                                         ; preds = %if.then
 
 if.else:                                          ; preds = %if.then
   %Y.i.i20 = getelementptr inbounds nuw i8, ptr %call4, i64 16
-  %18 = load float, ptr %Y.i.i20, align 4, !tbaa !151
+  %16 = load float, ptr %Y.i.i20, align 4, !tbaa !151
   %Z.i.i21 = getelementptr inbounds nuw i8, ptr %call4, i64 20
-  %19 = load float, ptr %Z.i.i21, align 4, !tbaa !105
-  %20 = load float, ptr %MaxEdge.i.i.i, align 4, !tbaa !245
-  %cmp.i.i.i22 = fcmp olt float %20, %9
+  %17 = load float, ptr %Z.i.i21, align 4, !tbaa !105
+  %18 = load float, ptr %MaxEdge.i.i.i, align 4, !tbaa !245
+  %cmp.i.i.i22 = fcmp olt float %18, %8
   br i1 %cmp.i.i.i22, label %if.then.i.i.i, label %if.end.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.else
-  store float %9, ptr %MaxEdge.i.i.i, align 4, !tbaa !245
+  store float %8, ptr %MaxEdge.i.i.i, align 4, !tbaa !245
   br label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %if.then.i.i.i, %if.else
-  %21 = phi float [ %9, %if.then.i.i.i ], [ %20, %if.else ]
-  %22 = load float, ptr %Y.i.i.i, align 8, !tbaa !246
-  %cmp5.i.i.i = fcmp olt float %22, %18
+  %19 = phi float [ %8, %if.then.i.i.i ], [ %18, %if.else ]
+  %20 = load float, ptr %Y.i.i.i, align 8, !tbaa !246
+  %cmp5.i.i.i = fcmp olt float %20, %16
   br i1 %cmp5.i.i.i, label %if.then6.i.i.i, label %if.end9.i.i.i
 
 if.then6.i.i.i:                                   ; preds = %if.end.i.i.i
-  store float %18, ptr %Y.i.i.i, align 8, !tbaa !246
+  store float %16, ptr %Y.i.i.i, align 8, !tbaa !246
   br label %if.end9.i.i.i
 
 if.end9.i.i.i:                                    ; preds = %if.then6.i.i.i, %if.end.i.i.i
-  %23 = phi float [ %18, %if.then6.i.i.i ], [ %22, %if.end.i.i.i ]
-  %24 = load float, ptr %Z.i.i.i, align 4, !tbaa !247
-  %cmp11.i.i.i = fcmp olt float %24, %19
+  %21 = phi float [ %16, %if.then6.i.i.i ], [ %20, %if.end.i.i.i ]
+  %22 = load float, ptr %Z.i.i.i, align 4, !tbaa !247
+  %cmp11.i.i.i = fcmp olt float %22, %17
   br i1 %cmp11.i.i.i, label %if.then12.i.i.i, label %if.end15.i.i.i
 
 if.then12.i.i.i:                                  ; preds = %if.end9.i.i.i
-  store float %19, ptr %Z.i.i.i, align 4, !tbaa !247
+  store float %17, ptr %Z.i.i.i, align 4, !tbaa !247
   br label %if.end15.i.i.i
 
 if.end15.i.i.i:                                   ; preds = %if.then12.i.i.i, %if.end9.i.i.i
-  %25 = phi float [ %19, %if.then12.i.i.i ], [ %24, %if.end9.i.i.i ]
-  %26 = load float, ptr %BoundingBox7, align 8, !tbaa !248
-  %cmp17.i.i.i = fcmp ogt float %26, %9
+  %23 = phi float [ %17, %if.then12.i.i.i ], [ %22, %if.end9.i.i.i ]
+  %24 = load float, ptr %BoundingBox7, align 8, !tbaa !248
+  %cmp17.i.i.i = fcmp ogt float %24, %8
   br i1 %cmp17.i.i.i, label %if.then18.i.i.i, label %if.end21.i.i.i
 
 if.then18.i.i.i:                                  ; preds = %if.end15.i.i.i
-  store float %9, ptr %BoundingBox7, align 8, !tbaa !248
+  store float %8, ptr %BoundingBox7, align 8, !tbaa !248
   br label %if.end21.i.i.i
 
 if.end21.i.i.i:                                   ; preds = %if.then18.i.i.i, %if.end15.i.i.i
-  %27 = phi float [ %9, %if.then18.i.i.i ], [ %26, %if.end15.i.i.i ]
-  %28 = load float, ptr %Y23.i.i.i, align 4, !tbaa !249
-  %cmp24.i.i.i = fcmp ogt float %28, %18
+  %25 = phi float [ %8, %if.then18.i.i.i ], [ %24, %if.end15.i.i.i ]
+  %26 = load float, ptr %Y23.i.i.i, align 4, !tbaa !249
+  %cmp24.i.i.i = fcmp ogt float %26, %16
   br i1 %cmp24.i.i.i, label %if.then25.i.i.i, label %if.end28.i.i.i
 
 if.then25.i.i.i:                                  ; preds = %if.end21.i.i.i
-  store float %18, ptr %Y23.i.i.i, align 4, !tbaa !249
+  store float %16, ptr %Y23.i.i.i, align 4, !tbaa !249
   br label %if.end28.i.i.i
 
 if.end28.i.i.i:                                   ; preds = %if.then25.i.i.i, %if.end21.i.i.i
-  %29 = phi float [ %18, %if.then25.i.i.i ], [ %28, %if.end21.i.i.i ]
-  %30 = load float, ptr %Z30.i.i.i, align 8, !tbaa !250
-  %cmp31.i.i.i = fcmp ogt float %30, %19
+  %27 = phi float [ %16, %if.then25.i.i.i ], [ %26, %if.end21.i.i.i ]
+  %28 = load float, ptr %Z30.i.i.i, align 8, !tbaa !250
+  %cmp31.i.i.i = fcmp ogt float %28, %17
   br i1 %cmp31.i.i.i, label %if.then32.i.i.i, label %_ZN3irr4core8aabbox3dIfE16addInternalPointERKNS0_8vector3dIfEE.exit.i
 
 if.then32.i.i.i:                                  ; preds = %if.end28.i.i.i
-  store float %19, ptr %Z30.i.i.i, align 8, !tbaa !250
+  store float %17, ptr %Z30.i.i.i, align 8, !tbaa !250
   br label %_ZN3irr4core8aabbox3dIfE16addInternalPointERKNS0_8vector3dIfEE.exit.i
 
 _ZN3irr4core8aabbox3dIfE16addInternalPointERKNS0_8vector3dIfEE.exit.i: ; preds = %if.then32.i.i.i, %if.end28.i.i.i
-  %31 = phi float [ %30, %if.end28.i.i.i ], [ %19, %if.then32.i.i.i ]
-  %32 = load float, ptr %call4, align 4, !tbaa !150
+  %29 = phi float [ %28, %if.end28.i.i.i ], [ %17, %if.then32.i.i.i ]
+  %30 = load float, ptr %call4, align 4, !tbaa !150
   %Y.i3.i = getelementptr inbounds nuw i8, ptr %call4, i64 4
-  %33 = load float, ptr %Y.i3.i, align 4, !tbaa !151
+  %31 = load float, ptr %Y.i3.i, align 4, !tbaa !151
   %Z.i4.i = getelementptr inbounds nuw i8, ptr %call4, i64 8
-  %34 = load float, ptr %Z.i4.i, align 4, !tbaa !105
-  %cmp.i.i6.i = fcmp olt float %21, %32
+  %32 = load float, ptr %Z.i4.i, align 4, !tbaa !105
+  %cmp.i.i6.i = fcmp olt float %19, %30
   br i1 %cmp.i.i6.i, label %if.then.i.i26.i, label %if.end.i.i7.i
 
 if.then.i.i26.i:                                  ; preds = %_ZN3irr4core8aabbox3dIfE16addInternalPointERKNS0_8vector3dIfEE.exit.i
-  store float %32, ptr %MaxEdge.i.i.i, align 4, !tbaa !245
+  store float %30, ptr %MaxEdge.i.i.i, align 4, !tbaa !245
   br label %if.end.i.i7.i
 
 if.end.i.i7.i:                                    ; preds = %if.then.i.i26.i, %_ZN3irr4core8aabbox3dIfE16addInternalPointERKNS0_8vector3dIfEE.exit.i
-  %cmp5.i.i9.i = fcmp olt float %23, %33
+  %cmp5.i.i9.i = fcmp olt float %21, %31
   br i1 %cmp5.i.i9.i, label %if.then6.i.i25.i, label %if.end9.i.i10.i
 
 if.then6.i.i25.i:                                 ; preds = %if.end.i.i7.i
-  store float %33, ptr %Y.i.i.i, align 8, !tbaa !246
+  store float %31, ptr %Y.i.i.i, align 8, !tbaa !246
   br label %if.end9.i.i10.i
 
 if.end9.i.i10.i:                                  ; preds = %if.then6.i.i25.i, %if.end.i.i7.i
-  %cmp11.i.i12.i = fcmp olt float %25, %34
+  %cmp11.i.i12.i = fcmp olt float %23, %32
   br i1 %cmp11.i.i12.i, label %if.then12.i.i24.i, label %if.end15.i.i13.i
 
 if.then12.i.i24.i:                                ; preds = %if.end9.i.i10.i
-  store float %34, ptr %Z.i.i.i, align 4, !tbaa !247
+  store float %32, ptr %Z.i.i.i, align 4, !tbaa !247
   br label %if.end15.i.i13.i
 
 if.end15.i.i13.i:                                 ; preds = %if.then12.i.i24.i, %if.end9.i.i10.i
-  %cmp17.i.i14.i = fcmp ogt float %27, %32
+  %cmp17.i.i14.i = fcmp ogt float %25, %30
   br i1 %cmp17.i.i14.i, label %if.then18.i.i23.i, label %if.end21.i.i15.i
 
 if.then18.i.i23.i:                                ; preds = %if.end15.i.i13.i
-  store float %32, ptr %BoundingBox7, align 8, !tbaa !248
+  store float %30, ptr %BoundingBox7, align 8, !tbaa !248
   br label %if.end21.i.i15.i
 
 if.end21.i.i15.i:                                 ; preds = %if.then18.i.i23.i, %if.end15.i.i13.i
-  %cmp24.i.i17.i = fcmp ogt float %29, %33
+  %cmp24.i.i17.i = fcmp ogt float %27, %31
   br i1 %cmp24.i.i17.i, label %if.then25.i.i22.i, label %if.end28.i.i18.i
 
 if.then25.i.i22.i:                                ; preds = %if.end21.i.i15.i
-  store float %33, ptr %Y23.i.i.i, align 4, !tbaa !249
+  store float %31, ptr %Y23.i.i.i, align 4, !tbaa !249
   br label %if.end28.i.i18.i
 
 if.end28.i.i18.i:                                 ; preds = %if.then25.i.i22.i, %if.end21.i.i15.i
-  %cmp31.i.i20.i = fcmp ogt float %31, %34
+  %cmp31.i.i20.i = fcmp ogt float %29, %32
   br i1 %cmp31.i.i20.i, label %if.then32.i.i21.i, label %if.end8
 
 if.then32.i.i21.i:                                ; preds = %if.end28.i.i18.i
-  store float %34, ptr %Z30.i.i.i, align 8, !tbaa !250
+  store float %32, ptr %Z30.i.i.i, align 8, !tbaa !250
   br label %if.end8
 
 if.end8:                                          ; preds = %if.then32.i.i21.i, %if.end28.i.i18.i, %if.then6, %_ZNK3irr4core8aabbox3dIfE7isEmptyEv.exit
   %hasMeshBufferBBox.1 = phi i8 [ %hasMeshBufferBBox.033, %_ZNK3irr4core8aabbox3dIfE7isEmptyEv.exit ], [ 1, %if.then6 ], [ %hasMeshBufferBBox.033, %if.end28.i.i18.i ], [ %hasMeshBufferBBox.033, %if.then32.i.i21.i ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %35 = load ptr, ptr %_M_finish.i.i, align 8, !tbaa !186
-  %36 = load ptr, ptr %MeshBuffers, align 8, !tbaa !187
-  %sub.ptr.lhs.cast.i.i = ptrtoint ptr %35 to i64
-  %sub.ptr.rhs.cast.i.i = ptrtoint ptr %36 to i64
+  %33 = load ptr, ptr %_M_finish.i.i, align 8, !tbaa !186
+  %34 = load ptr, ptr %MeshBuffers, align 8, !tbaa !187
+  %sub.ptr.lhs.cast.i.i = ptrtoint ptr %33 to i64
+  %sub.ptr.rhs.cast.i.i = ptrtoint ptr %34 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i.i = lshr exact i64 %sub.ptr.sub.i.i, 3
-  %37 = and i64 %sub.ptr.div.i.i, 4294967295
-  %cmp = icmp samesign ult i64 %indvars.iv.next, %37
+  %35 = and i64 %sub.ptr.div.i.i, 4294967295
+  %cmp = icmp samesign ult i64 %indvars.iv.next, %35
   br i1 %cmp, label %for.body, label %for.cond.cleanup, !llvm.loop !251
 
 if.then10:                                        ; preds = %for.cond.cleanup, %entry

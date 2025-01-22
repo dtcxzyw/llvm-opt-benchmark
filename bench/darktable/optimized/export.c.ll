@@ -3679,7 +3679,7 @@ define internal fastcc void @set_storage_by_name(ptr nocapture noundef readonly 
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 672
   %26 = load ptr, ptr %25, align 8, !tbaa !62
   tail call void @gtk_widget_hide(ptr noundef %26) #18
-  br label %105
+  br label %104
 
 27:                                               ; preds = %20, %12
   %28 = getelementptr inbounds nuw i8, ptr %13, i64 336
@@ -3748,70 +3748,69 @@ define internal fastcc void @set_storage_by_name(ptr nocapture noundef readonly 
   %64 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 184), align 8, !tbaa !63
   %65 = load ptr, ptr %64, align 8, !tbaa !47
   %66 = icmp eq ptr %65, null
-  br i1 %66, label %89, label %67
+  br i1 %66, label %88, label %67
 
 67:                                               ; preds = %58
   %68 = getelementptr inbounds nuw i8, ptr %63, i64 96
-  br label %72
+  br label %71
 
-69:                                               ; preds = %84
-  %70 = icmp eq i32 %85, 0
-  %71 = zext i1 %70 to i32
-  br label %89
+69:                                               ; preds = %83
+  %70 = xor i32 %84, 1
+  br label %88
 
-72:                                               ; preds = %84, %67
-  %73 = phi ptr [ %65, %67 ], [ %87, %84 ]
-  %74 = phi i32 [ 1, %67 ], [ %85, %84 ]
-  %75 = load ptr, ptr %73, align 8, !tbaa !48
-  %76 = load ptr, ptr %68, align 8, !tbaa !103
-  %77 = call i32 %76(ptr noundef %63, ptr noundef %75) #18
-  %78 = icmp eq i32 %77, 0
-  br i1 %78, label %84, label %79
+71:                                               ; preds = %83, %67
+  %72 = phi ptr [ %65, %67 ], [ %86, %83 ]
+  %73 = phi i32 [ 1, %67 ], [ %84, %83 ]
+  %74 = load ptr, ptr %72, align 8, !tbaa !48
+  %75 = load ptr, ptr %68, align 8, !tbaa !103
+  %76 = call i32 %75(ptr noundef %63, ptr noundef %74) #18
+  %77 = icmp eq i32 %76, 0
+  br i1 %77, label %83, label %78
 
-79:                                               ; preds = %72
-  %80 = load ptr, ptr %60, align 8, !tbaa !69
-  %81 = getelementptr inbounds nuw i8, ptr %75, i64 56
-  %82 = load ptr, ptr %81, align 8, !tbaa !104
-  %83 = call ptr %82() #18
-  call void @dt_bauhaus_combobox_add(ptr noundef %80, ptr noundef %83) #18
-  br label %84
+78:                                               ; preds = %71
+  %79 = load ptr, ptr %60, align 8, !tbaa !69
+  %80 = getelementptr inbounds nuw i8, ptr %74, i64 56
+  %81 = load ptr, ptr %80, align 8, !tbaa !104
+  %82 = call ptr %81() #18
+  call void @dt_bauhaus_combobox_add(ptr noundef %79, ptr noundef %82) #18
+  br label %83
 
-84:                                               ; preds = %79, %72
-  %85 = phi i32 [ 0, %79 ], [ %74, %72 ]
-  %86 = getelementptr inbounds nuw i8, ptr %73, i64 8
-  %87 = load ptr, ptr %86, align 8, !tbaa !47
-  %88 = icmp eq ptr %87, null
-  br i1 %88, label %69, label %72
+83:                                               ; preds = %78, %71
+  %84 = phi i32 [ 0, %78 ], [ %73, %71 ]
+  %85 = getelementptr inbounds nuw i8, ptr %72, i64 8
+  %86 = load ptr, ptr %85, align 8, !tbaa !47
+  %87 = icmp eq ptr %86, null
+  br i1 %87, label %69, label %71
 
-89:                                               ; preds = %69, %58
-  %90 = phi i32 [ 0, %58 ], [ %71, %69 ]
-  %91 = load ptr, ptr %60, align 8, !tbaa !69
-  call void @gtk_widget_set_sensitive(ptr noundef %91, i32 noundef %90) #18
-  %92 = call ptr @dt_conf_get_string_const(ptr noundef nonnull @.str.2) #18
-  %93 = call ptr @dt_imageio_get_format_by_name(ptr noundef %92) #18
-  %94 = icmp eq ptr %93, null
-  br i1 %94, label %102, label %95
+88:                                               ; preds = %69, %58
+  %89 = phi i32 [ 0, %58 ], [ %70, %69 ]
+  %90 = load ptr, ptr %60, align 8, !tbaa !69
+  call void @gtk_widget_set_sensitive(ptr noundef %90, i32 noundef %89) #18
+  %91 = call ptr @dt_conf_get_string_const(ptr noundef nonnull @.str.2) #18
+  %92 = call ptr @dt_imageio_get_format_by_name(ptr noundef %91) #18
+  %93 = icmp eq ptr %92, null
+  br i1 %93, label %101, label %94
 
-95:                                               ; preds = %89
-  %96 = load ptr, ptr %60, align 8, !tbaa !69
-  %97 = getelementptr inbounds nuw i8, ptr %93, i64 56
-  %98 = load ptr, ptr %97, align 8, !tbaa !104
-  %99 = call ptr %98() #18
-  %100 = call i32 @dt_bauhaus_combobox_set_from_text(ptr noundef %96, ptr noundef %99) #18
-  %101 = icmp eq i32 %100, 0
-  br i1 %101, label %102, label %104
+94:                                               ; preds = %88
+  %95 = load ptr, ptr %60, align 8, !tbaa !69
+  %96 = getelementptr inbounds nuw i8, ptr %92, i64 56
+  %97 = load ptr, ptr %96, align 8, !tbaa !104
+  %98 = call ptr %97() #18
+  %99 = call i32 @dt_bauhaus_combobox_set_from_text(ptr noundef %95, ptr noundef %98) #18
+  %100 = icmp eq i32 %99, 0
+  br i1 %100, label %101, label %103
 
-102:                                              ; preds = %95, %89
-  %103 = load ptr, ptr %60, align 8, !tbaa !69
-  call void @dt_bauhaus_combobox_set(ptr noundef %103, i32 noundef 0) #18
-  br label %104
+101:                                              ; preds = %94, %88
+  %102 = load ptr, ptr %60, align 8, !tbaa !69
+  call void @dt_bauhaus_combobox_set(ptr noundef %102, i32 noundef 0) #18
+  br label %103
 
-104:                                              ; preds = %102, %95
+103:                                              ; preds = %101, %94
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #18
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #18
-  br label %105
+  br label %104
 
-105:                                              ; preds = %104, %24
+104:                                              ; preds = %103, %24
   ret void
 }
 

@@ -728,11 +728,9 @@ _ZN5folly6detail17distributed_mutex33recordTimedWaiterAndClearTimedBitERbRm.exit
   br i1 %cmp.i.i, label %"_ZN5folly6detail17distributed_mutex18lockImplementationISt6atomicLb1ES3_ImENS1_20RequestWithoutReturnIZNS_14HeapTimekeeper6workerEvE3$_0EEEENS1_16DistributedMutexIT_XT0_EE26DistributedMutexStateProxyERSB_RT1_RT2_.exit.thread.i", label %while.end58.i.i
 
 "_ZN5folly6detail17distributed_mutex18lockImplementationISt6atomicLb1ES3_ImENS1_20RequestWithoutReturnIZNS_14HeapTimekeeper6workerEvE3$_0EEEENS1_16DistributedMutexIT_XT0_EE26DistributedMutexStateProxyERSB_RT1_RT2_.exit.thread.i": ; preds = %_ZN5folly6detail17distributed_mutex33recordTimedWaiterAndClearTimedBitERbRm.exit.i.i
-  %tobool25.i.i = icmp ne i8 %timedWaiter.1.i.i, 0
-  %frombool.i.i.i = zext i1 %tobool25.i.i to i8
   store ptr null, ptr %ref.tmp2.i, align 8, !tbaa !46, !alias.scope !42
   store i64 %or.i.i, ptr %expected_.i125.i.i, align 8, !tbaa !48, !alias.scope !42
-  store i8 %frombool.i.i.i, ptr %timedWaiters_.i126.i.i, align 8, !tbaa !49, !alias.scope !42
+  store i8 %timedWaiter.1.i.i, ptr %timedWaiters_.i126.i.i, align 8, !tbaa !49, !alias.scope !42
   store i8 0, ptr %combined_.i127.i.i, align 1, !tbaa !50, !alias.scope !42
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %waker_.i128.i.i, i8 0, i64 16, i1 false), !alias.scope !42
   store ptr %nextSleeper.0.i.i, ptr %ready_.i130.i.i, align 8, !tbaa !51, !alias.scope !42
@@ -996,16 +994,14 @@ cleanup79.i.i:                                    ; preds = %for.inc.us.i, %_ZN5
   %37 = and i64 %previous.0.i.i, -2
   %38 = inttoptr i64 %37 to ptr
   %39 = select i1 %cmp62.i.i479, ptr null, ptr %38
-  %tobool74.i.i = icmp ne i8 %timedWaiter.1.i.i, 0
   %40 = or i1 %cmp66.i.i482, %cmp65.i.i481
   %41 = load i64, ptr %agg.tmp119.sroa.5.0..sroa_idx.i.i, align 8, !tbaa !69, !noalias !42
   %and18.i123.i.i = and i64 %41, -2
   %42 = inttoptr i64 %and18.i123.i.i to ptr
-  %frombool.i124.i.i = zext i1 %tobool74.i.i to i8
   %frombool1.i.i.i = zext i1 %40 to i8
   store ptr %39, ptr %ref.tmp2.i, align 8, !tbaa !46, !alias.scope !42
   store i64 %spec.select.i.i480, ptr %expected_.i125.i.i, align 8, !tbaa !48, !alias.scope !42
-  store i8 %frombool.i124.i.i, ptr %timedWaiters_.i126.i.i, align 8, !tbaa !49, !alias.scope !42
+  store i8 %timedWaiter.1.i.i, ptr %timedWaiters_.i126.i.i, align 8, !tbaa !49, !alias.scope !42
   store i8 %frombool1.i.i.i, ptr %combined_.i127.i.i, align 1, !tbaa !50, !alias.scope !42
   store i64 %36, ptr %waker_.i128.i.i, align 8, !tbaa !70, !alias.scope !42
   store ptr %42, ptr %waiters_.i129.i.i, align 8, !tbaa !71, !alias.scope !42
@@ -1069,7 +1065,8 @@ terminate.lpad.i.i.i.i:                           ; preds = %if.then.i17.i
   unreachable
 
 if.end.i189:                                      ; preds = %"_ZN5folly6detail17distributed_mutex18lockImplementationISt6atomicLb1ES3_ImENS1_20RequestWithoutReturnIZNS_14HeapTimekeeper6workerEvE3$_0EEEENS1_16DistributedMutexIT_XT0_EE26DistributedMutexStateProxyERSB_RT1_RT2_.exit.i"
-  br i1 %tobool74.i.i, label %if.then.i19.i, label %invoke.cont4, !prof !66
+  %tobool74.i.i.not = icmp eq i8 %timedWaiter.1.i.i, 0
+  br i1 %tobool74.i.i.not, label %invoke.cont4, label %if.then.i19.i, !prof !45
 
 if.then.i19.i:                                    ; preds = %if.end.i189
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i.i.i.i.i.i) #13
@@ -1174,11 +1171,9 @@ _ZN5folly6detail17distributed_mutex33recordTimedWaiterAndClearTimedBitERbRm.exit
   br i1 %cmp.i.i217, label %invoke.cont.thread.i, label %while.end59.i.i
 
 invoke.cont.thread.i:                             ; preds = %_ZN5folly6detail17distributed_mutex33recordTimedWaiterAndClearTimedBitERbRm.exit.i.i214
-  %tobool26.i.i = icmp ne i8 %timedWaiter.1.i.i215, 0
-  %frombool.i.i.i245 = zext i1 %tobool26.i.i to i8
   store ptr null, ptr %ref.tmp3.i, align 8, !tbaa !46, !alias.scope !78
   store i64 %or.i.i202, ptr %expected_.i126.i.i, align 8, !tbaa !48, !alias.scope !78
-  store i8 %frombool.i.i.i245, ptr %timedWaiters_.i127.i.i, align 8, !tbaa !49, !alias.scope !78
+  store i8 %timedWaiter.1.i.i215, ptr %timedWaiters_.i127.i.i, align 8, !tbaa !49, !alias.scope !78
   store i8 0, ptr %combined_.i128.i.i, align 1, !tbaa !50, !alias.scope !78
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %waker_.i129.i.i, i8 0, i64 16, i1 false), !alias.scope !78
   store ptr %nextSleeper.0.i.i205, ptr %ready_.i131.i.i, align 8, !tbaa !51, !alias.scope !78
@@ -1290,16 +1285,14 @@ cleanup80.i.i:                                    ; preds = %call1.i.i32.i.noexc
 invoke.cont.i:                                    ; preds = %"_ZN5folly6detail17distributed_mutex6detachINS1_6WaiterISt6atomicEEZNS_14HeapTimekeeper6workerEvE3$_1EEvRNS1_17RequestWithReturnIT0_EERT_bRNS_4UnitE.exit.i.i", %if.end62.i.i
   %and18.i123.i.i223 = select i1 %cmp63.i.i, i64 0, i64 %63
   %68 = inttoptr i64 %and18.i123.i.i223 to ptr
-  %tobool75.i.i = icmp ne i8 %timedWaiter.1.i.i215, 0
   %69 = or i1 %cmp66.i.i222, %cmp67.i.i
   %70 = load i64, ptr %agg.tmp120.sroa.5.0..sroa_idx.i.i, align 8, !tbaa !69, !noalias !78
   %and18.i124.i.i = and i64 %70, -2
   %71 = inttoptr i64 %and18.i124.i.i to ptr
-  %frombool.i125.i.i = zext i1 %tobool75.i.i to i8
   %frombool1.i.i.i224 = zext i1 %69 to i8
   store ptr %68, ptr %ref.tmp3.i, align 8, !tbaa !46, !alias.scope !78
   store i64 %spec.select.i.i221, ptr %expected_.i126.i.i, align 8, !tbaa !48, !alias.scope !78
-  store i8 %frombool.i125.i.i, ptr %timedWaiters_.i127.i.i, align 8, !tbaa !49, !alias.scope !78
+  store i8 %timedWaiter.1.i.i215, ptr %timedWaiters_.i127.i.i, align 8, !tbaa !49, !alias.scope !78
   store i8 %frombool1.i.i.i224, ptr %combined_.i128.i.i, align 1, !tbaa !50, !alias.scope !78
   store i64 %62, ptr %waker_.i129.i.i, align 8, !tbaa !70, !alias.scope !78
   store ptr %71, ptr %waiters_.i130.i.i, align 8, !tbaa !71, !alias.scope !78
@@ -1328,7 +1321,8 @@ terminate.lpad.i.i.i.i227:                        ; preds = %if.then.i.i225
   unreachable
 
 if.end.i229:                                      ; preds = %invoke.cont.i, %invoke.cont.i
-  br i1 %tobool75.i.i, label %if.then.i34.i, label %invoke.cont46, !prof !66
+  %tobool75.i.i.not = icmp eq i8 %timedWaiter.1.i.i215, 0
+  br i1 %tobool75.i.i.not, label %invoke.cont46, label %if.then.i34.i, !prof !45
 
 if.then.i34.i:                                    ; preds = %if.end.i229
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i.i.i.i.i.i197) #13
@@ -2245,13 +2239,11 @@ _ZN5folly6detail17distributed_mutex33recordTimedWaiterAndClearTimedBitERbRm.exit
   br i1 %cmp.i.i, label %invoke.cont.thread.i, label %while.end61.i.i
 
 invoke.cont.thread.i:                             ; preds = %_ZN5folly6detail17distributed_mutex33recordTimedWaiterAndClearTimedBitERbRm.exit.i.i
-  %tobool27.i.i = icmp ne i8 %timedWaiter.1.i.i, 0
-  %frombool.i.i.i = zext i1 %tobool27.i.i to i8
   store ptr null, ptr %ref.tmp3.i, align 8, !tbaa !46, !alias.scope !130
   %expected_.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp3.i, i64 8
   store i64 %or.i.i, ptr %expected_.i.i.i, align 8, !tbaa !48, !alias.scope !130
   %timedWaiters_.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp3.i, i64 16
-  store i8 %frombool.i.i.i, ptr %timedWaiters_.i.i.i, align 8, !tbaa !49, !alias.scope !130
+  store i8 %timedWaiter.1.i.i, ptr %timedWaiters_.i.i.i, align 8, !tbaa !49, !alias.scope !130
   %combined_.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp3.i, i64 17
   store i8 0, ptr %combined_.i.i.i, align 1, !tbaa !50, !alias.scope !130
   %waker_.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp3.i, i64 24
@@ -2366,18 +2358,16 @@ cleanup82.i.i:                                    ; preds = %call1.i.i32.i.noexc
 invoke.cont.i:                                    ; preds = %"_ZN5folly6detail17distributed_mutex6detachINS1_6WaiterISt6atomicEEZNS_14HeapTimekeeperD1EvE3$_0EEvRNS1_17RequestWithReturnIT0_EERT_bRNS_4UnitE.exit.i.i", %if.end64.i.i
   %and18.i125.i.i = select i1 %cmp65.i.i, i64 0, i64 %9
   %14 = inttoptr i64 %and18.i125.i.i to ptr
-  %tobool77.i.i = icmp ne i8 %timedWaiter.1.i.i, 0
   %15 = or i1 %cmp68.i.i, %cmp69.i.i
   %16 = load i64, ptr %agg.tmp122.sroa.5.0..sroa_idx.i.i, align 8, !tbaa !69, !noalias !130
   %and18.i126.i.i = and i64 %16, -2
   %17 = inttoptr i64 %and18.i126.i.i to ptr
-  %frombool.i127.i.i = zext i1 %tobool77.i.i to i8
   %frombool1.i.i.i = zext i1 %15 to i8
   store ptr %14, ptr %ref.tmp3.i, align 8, !tbaa !46, !alias.scope !130
   %expected_.i128.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp3.i, i64 8
   store i64 %spec.select.i.i, ptr %expected_.i128.i.i, align 8, !tbaa !48, !alias.scope !130
   %timedWaiters_.i129.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp3.i, i64 16
-  store i8 %frombool.i127.i.i, ptr %timedWaiters_.i129.i.i, align 8, !tbaa !49, !alias.scope !130
+  store i8 %timedWaiter.1.i.i, ptr %timedWaiters_.i129.i.i, align 8, !tbaa !49, !alias.scope !130
   %combined_.i130.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp3.i, i64 17
   store i8 %frombool1.i.i.i, ptr %combined_.i130.i.i, align 1, !tbaa !50, !alias.scope !130
   %waker_.i131.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp3.i, i64 24
@@ -2410,7 +2400,8 @@ terminate.lpad.i.i.i.i:                           ; preds = %if.then.i.i
   unreachable
 
 if.end.i5:                                        ; preds = %invoke.cont.i, %invoke.cont.i
-  br i1 %tobool77.i.i, label %if.then.i33.i, label %invoke.cont, !prof !66
+  %tobool77.i.i.not = icmp eq i8 %timedWaiter.1.i.i, 0
+  br i1 %tobool77.i.i.not, label %invoke.cont, label %if.then.i33.i, !prof !45
 
 if.then.i33.i:                                    ; preds = %if.end.i5
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i.i.i.i.i.i) #13
@@ -3036,13 +3027,11 @@ _ZN5folly6detail17distributed_mutex33recordTimedWaiterAndClearTimedBitERbRm.exit
   br i1 %cmp.i.i, label %invoke.cont.thread.i, label %while.end58.i.i
 
 invoke.cont.thread.i:                             ; preds = %_ZN5folly6detail17distributed_mutex33recordTimedWaiterAndClearTimedBitERbRm.exit.i.i
-  %tobool25.i.i = icmp ne i8 %timedWaiter.1.i.i, 0
-  %frombool.i.i.i = zext i1 %tobool25.i.i to i8
   store ptr null, ptr %ref.tmp2.i, align 8, !tbaa !46, !alias.scope !177
   %expected_.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp2.i, i64 8
   store i64 %or.i.i, ptr %expected_.i.i.i, align 8, !tbaa !48, !alias.scope !177
   %timedWaiters_.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp2.i, i64 16
-  store i8 %frombool.i.i.i, ptr %timedWaiters_.i.i.i, align 8, !tbaa !49, !alias.scope !177
+  store i8 %timedWaiter.1.i.i, ptr %timedWaiters_.i.i.i, align 8, !tbaa !49, !alias.scope !177
   %combined_.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp2.i, i64 17
   store i8 0, ptr %combined_.i.i.i, align 1, !tbaa !50, !alias.scope !177
   %waker_.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp2.i, i64 24
@@ -3148,18 +3137,16 @@ cleanup79.i.i:                                    ; preds = %_ZN5folly6detail17d
 invoke.cont.i:                                    ; preds = %"_ZN5folly6detail17distributed_mutex6detachINS1_6WaiterISt6atomicEEZNS_14HeapTimekeeper7enqueueENS6_2OpEE3$_0EEvRNS1_17RequestWithReturnIT0_EERT_bRNS_4UnitE.exit.i.i", %if.end61.i.i
   %and18.i123.i.i = select i1 %cmp62.i.i, i64 0, i64 %10
   %15 = inttoptr i64 %and18.i123.i.i to ptr
-  %tobool74.i.i = icmp ne i8 %timedWaiter.1.i.i, 0
   %16 = or i1 %cmp65.i.i, %cmp66.i.i
   %17 = load i64, ptr %agg.tmp120.sroa.5.0..sroa_idx.i.i, align 8, !tbaa !69, !noalias !177
   %and18.i124.i.i = and i64 %17, -2
   %18 = inttoptr i64 %and18.i124.i.i to ptr
-  %frombool.i125.i.i = zext i1 %tobool74.i.i to i8
   %frombool1.i.i.i = zext i1 %16 to i8
   store ptr %15, ptr %ref.tmp2.i, align 8, !tbaa !46, !alias.scope !177
   %expected_.i126.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp2.i, i64 8
   store i64 %spec.select.i.i, ptr %expected_.i126.i.i, align 8, !tbaa !48, !alias.scope !177
   %timedWaiters_.i127.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp2.i, i64 16
-  store i8 %frombool.i125.i.i, ptr %timedWaiters_.i127.i.i, align 8, !tbaa !49, !alias.scope !177
+  store i8 %timedWaiter.1.i.i, ptr %timedWaiters_.i127.i.i, align 8, !tbaa !49, !alias.scope !177
   %combined_.i128.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp2.i, i64 17
   store i8 %frombool1.i.i.i, ptr %combined_.i128.i.i, align 1, !tbaa !50, !alias.scope !177
   %waker_.i129.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp2.i, i64 24
@@ -3308,7 +3295,8 @@ lpad6.i:                                          ; preds = %_ZNKSt6vectorIN5fol
   br label %ehcleanup14.i
 
 if.end.i3:                                        ; preds = %invoke.cont.i, %invoke.cont.i
-  br i1 %tobool74.i.i, label %if.then.i38.i, label %"_ZN5folly6detail17distributed_mutex16DistributedMutexISt6atomicLb1EE12lock_combineIZNS_14HeapTimekeeper7enqueueENS6_2OpEE3$_0EENS_13invoke_detail6traitsIRKT_E6resultIEESB_.exit", !prof !66
+  %tobool74.i.i.not = icmp eq i8 %timedWaiter.1.i.i, 0
+  br i1 %tobool74.i.i.not, label %"_ZN5folly6detail17distributed_mutex16DistributedMutexISt6atomicLb1EE12lock_combineIZNS_14HeapTimekeeper7enqueueENS6_2OpEE3$_0EENS_13invoke_detail6traitsIRKT_E6resultIEESB_.exit", label %if.then.i38.i, !prof !45
 
 if.then.i38.i:                                    ; preds = %if.end.i3
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i.i.i.i.i.i) #13

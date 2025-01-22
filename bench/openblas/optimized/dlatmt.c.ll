@@ -775,7 +775,7 @@ define void @dlatmt_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br i1 %477, label %478, label %485
 
 478:                                              ; preds = %.preheader89
-  %479 = add nsw i32 %474, 1
+  %479 = add nuw nsw i32 %474, 1
   %480 = mul i32 %479, %428
   %481 = add i32 %473, %429
   %482 = add i32 %481, %480
@@ -789,8 +789,8 @@ define void @dlatmt_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %486 = sub nsw i32 %472, %432
   store i32 %486, ptr %22, align 4, !tbaa !3
   %487 = call i32 @llvm.smax.i32(i32 %486, i32 1)
-  %488 = add nsw i32 %474, 2
-  %489 = sub i32 %488, %487
+  %488 = add nuw nsw i32 %474, 2
+  %489 = sub nsw i32 %488, %487
   store i32 %489, ptr %36, align 4, !tbaa !3
   store double 0.000000e+00, ptr %26, align 8, !tbaa !7
   %490 = icmp sgt i32 %472, %432

@@ -1945,9 +1945,9 @@ define dso_local noundef range(i32 -12, 1) i32 @xhci_alloc_tt_info(ptr nocapture
   %115 = icmp eq ptr %114, %113
   br i1 %115, label %.loopexit, label %.preheader
 
-.preheader:                                       ; preds = %109, %129
-  %116 = phi ptr [ %118, %129 ], [ %114, %109 ]
-  %117 = phi i8 [ %130, %129 ], [ 0, %109 ]
+.preheader:                                       ; preds = %109, %128
+  %116 = phi ptr [ %118, %128 ], [ %114, %109 ]
+  %117 = phi i8 [ %129, %128 ], [ 0, %109 ]
   %118 = load ptr, ptr %116, align 8
   %119 = getelementptr inbounds nuw i8, ptr %116, i64 16
   %120 = load i32, ptr %119, align 8
@@ -1963,27 +1963,26 @@ define dso_local noundef range(i32 -12, 1) i32 @xhci_alloc_tt_info(ptr nocapture
   store ptr inttoptr (i64 -2401263026318606080 to ptr), ptr %116, align 8
   store ptr inttoptr (i64 -2401263026318606046 to ptr), ptr %123, align 8
   tail call void @kfree(ptr noundef %116) #18
-  br label %129
+  br label %128
 
 126:                                              ; preds = %.preheader
-  %127 = and i8 %117, 1
-  %128 = icmp eq i8 %127, 0
-  br i1 %128, label %129, label %.loopexit
+  %127 = icmp eq i8 %117, 0
+  br i1 %127, label %128, label %.loopexit
 
-129:                                              ; preds = %126, %122
-  %130 = phi i8 [ 1, %122 ], [ %117, %126 ]
-  %131 = icmp eq ptr %118, %113
-  br i1 %131, label %.loopexit, label %.preheader, !llvm.loop !58
+128:                                              ; preds = %126, %122
+  %129 = phi i8 [ 1, %122 ], [ 0, %126 ]
+  %130 = icmp eq ptr %118, %113
+  br i1 %130, label %.loopexit, label %.preheader, !llvm.loop !58
 
-.loopexit:                                        ; preds = %94, %55, %129, %126, %109, %102, %.split.us, %12
-  %132 = phi i32 [ -12, %.split.us ], [ -12, %102 ], [ -12, %109 ], [ 0, %12 ], [ -12, %126 ], [ -12, %129 ], [ 0, %55 ], [ 0, %94 ]
-  ret i32 %132
+.loopexit:                                        ; preds = %94, %55, %128, %126, %109, %102, %.split.us, %12
+  %131 = phi i32 [ -12, %.split.us ], [ -12, %102 ], [ -12, %109 ], [ 0, %12 ], [ -12, %126 ], [ -12, %128 ], [ 0, %55 ], [ 0, %94 ]
+  ret i32 %131
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @xhci_free_virt_device(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
   %3 = icmp eq i32 %1, 0
-  br i1 %3, label %134, label %4
+  br i1 %3, label %133, label %4
 
 4:                                                ; preds = %2
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 360
@@ -1991,7 +1990,7 @@ define dso_local void @xhci_free_virt_device(ptr noundef %0, i32 noundef %1) loc
   %7 = getelementptr [256 x ptr], ptr %5, i64 0, i64 %6
   %8 = load ptr, ptr %7, align 8
   %9 = icmp eq ptr %8, null
-  br i1 %9, label %134, label %10
+  br i1 %9, label %133, label %10
 
 10:                                               ; preds = %4
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 136
@@ -2121,9 +2120,9 @@ define dso_local void @xhci_free_virt_device(ptr noundef %0, i32 noundef %1) loc
   %85 = icmp eq ptr %84, %83
   br i1 %85, label %.loopexit, label %.preheader
 
-.preheader:                                       ; preds = %78, %99
-  %86 = phi ptr [ %88, %99 ], [ %84, %78 ]
-  %87 = phi i8 [ %100, %99 ], [ 0, %78 ]
+.preheader:                                       ; preds = %78, %98
+  %86 = phi ptr [ %88, %98 ], [ %84, %78 ]
+  %87 = phi i8 [ %99, %98 ], [ 0, %78 ]
   %88 = load ptr, ptr %86, align 8
   %89 = getelementptr inbounds nuw i8, ptr %86, i64 16
   %90 = load i32, ptr %89, align 8
@@ -2139,76 +2138,75 @@ define dso_local void @xhci_free_virt_device(ptr noundef %0, i32 noundef %1) loc
   store ptr inttoptr (i64 -2401263026318606080 to ptr), ptr %86, align 8
   store ptr inttoptr (i64 -2401263026318606046 to ptr), ptr %93, align 8
   tail call void @kfree(ptr noundef %86) #18
-  br label %99
+  br label %98
 
 96:                                               ; preds = %.preheader
-  %97 = and i8 %87, 1
-  %98 = icmp eq i8 %97, 0
-  br i1 %98, label %99, label %.loopexit
+  %97 = icmp eq i8 %87, 0
+  br i1 %97, label %98, label %.loopexit
 
-99:                                               ; preds = %96, %92
-  %100 = phi i8 [ 1, %92 ], [ %87, %96 ]
-  %101 = icmp eq ptr %88, %83
-  br i1 %101, label %.loopexit, label %.preheader, !llvm.loop !58
+98:                                               ; preds = %96, %92
+  %99 = phi i8 [ 1, %92 ], [ 0, %96 ]
+  %100 = icmp eq ptr %88, %83
+  br i1 %100, label %.loopexit, label %.preheader, !llvm.loop !58
 
-.loopexit:                                        ; preds = %99, %96, %78, %71, %67
+.loopexit:                                        ; preds = %98, %96, %78, %71, %67
   tail call void @xhci_update_tt_active_eps(ptr noundef %0, ptr noundef nonnull %8, i32 noundef %42) #18
-  %102 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  %103 = load ptr, ptr %102, align 8
-  %104 = icmp eq ptr %103, null
-  br i1 %104, label %112, label %105
+  %101 = getelementptr inbounds nuw i8, ptr %8, i64 24
+  %102 = load ptr, ptr %101, align 8
+  %103 = icmp eq ptr %102, null
+  br i1 %103, label %111, label %104
 
-105:                                              ; preds = %.loopexit
-  %106 = getelementptr inbounds nuw i8, ptr %0, i64 2416
-  %107 = load ptr, ptr %106, align 8
-  %108 = getelementptr inbounds nuw i8, ptr %103, i64 8
-  %109 = load ptr, ptr %108, align 8
-  %110 = getelementptr inbounds nuw i8, ptr %103, i64 16
-  %111 = load i64, ptr %110, align 8
-  tail call void @dma_pool_free(ptr noundef %107, ptr noundef %109, i64 noundef %111) #18
-  tail call void @kfree(ptr noundef nonnull %103) #18
-  br label %112
+104:                                              ; preds = %.loopexit
+  %105 = getelementptr inbounds nuw i8, ptr %0, i64 2416
+  %106 = load ptr, ptr %105, align 8
+  %107 = getelementptr inbounds nuw i8, ptr %102, i64 8
+  %108 = load ptr, ptr %107, align 8
+  %109 = getelementptr inbounds nuw i8, ptr %102, i64 16
+  %110 = load i64, ptr %109, align 8
+  tail call void @dma_pool_free(ptr noundef %106, ptr noundef %108, i64 noundef %110) #18
+  tail call void @kfree(ptr noundef nonnull %102) #18
+  br label %111
 
-112:                                              ; preds = %105, %.loopexit
-  %113 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  %114 = load ptr, ptr %113, align 8
-  %115 = icmp eq ptr %114, null
-  br i1 %115, label %123, label %116
+111:                                              ; preds = %104, %.loopexit
+  %112 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  %113 = load ptr, ptr %112, align 8
+  %114 = icmp eq ptr %113, null
+  br i1 %114, label %122, label %115
 
-116:                                              ; preds = %112
-  %117 = getelementptr inbounds nuw i8, ptr %0, i64 2416
-  %118 = load ptr, ptr %117, align 8
-  %119 = getelementptr inbounds nuw i8, ptr %114, i64 8
-  %120 = load ptr, ptr %119, align 8
-  %121 = getelementptr inbounds nuw i8, ptr %114, i64 16
-  %122 = load i64, ptr %121, align 8
-  tail call void @dma_pool_free(ptr noundef %118, ptr noundef %120, i64 noundef %122) #18
-  tail call void @kfree(ptr noundef nonnull %114) #18
-  br label %123
+115:                                              ; preds = %111
+  %116 = getelementptr inbounds nuw i8, ptr %0, i64 2416
+  %117 = load ptr, ptr %116, align 8
+  %118 = getelementptr inbounds nuw i8, ptr %113, i64 8
+  %119 = load ptr, ptr %118, align 8
+  %120 = getelementptr inbounds nuw i8, ptr %113, i64 16
+  %121 = load i64, ptr %120, align 8
+  tail call void @dma_pool_free(ptr noundef %117, ptr noundef %119, i64 noundef %121) #18
+  tail call void @kfree(ptr noundef nonnull %113) #18
+  br label %122
 
-123:                                              ; preds = %116, %112
-  %124 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %125 = load ptr, ptr %124, align 8
-  %126 = icmp eq ptr %125, null
-  br i1 %126, label %132, label %127
+122:                                              ; preds = %115, %111
+  %123 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %124 = load ptr, ptr %123, align 8
+  %125 = icmp eq ptr %124, null
+  br i1 %125, label %131, label %126
 
-127:                                              ; preds = %123
-  %128 = getelementptr inbounds nuw i8, ptr %125, i64 1300
-  %129 = load i32, ptr %128, align 4
-  %130 = icmp eq i32 %129, 0
-  br i1 %130, label %132, label %131
+126:                                              ; preds = %122
+  %127 = getelementptr inbounds nuw i8, ptr %124, i64 1300
+  %128 = load i32, ptr %127, align 4
+  %129 = icmp eq i32 %128, 0
+  br i1 %129, label %131, label %130
 
-131:                                              ; preds = %127
-  store i32 0, ptr %128, align 4
-  br label %132
+130:                                              ; preds = %126
+  store i32 0, ptr %127, align 4
+  br label %131
 
-132:                                              ; preds = %131, %127, %123
-  %133 = load ptr, ptr %7, align 8
-  tail call void @kfree(ptr noundef %133) #18
+131:                                              ; preds = %130, %126, %122
+  %132 = load ptr, ptr %7, align 8
+  tail call void @kfree(ptr noundef %132) #18
   store ptr null, ptr %7, align 8
-  br label %134
+  br label %133
 
-134:                                              ; preds = %132, %4, %2
+133:                                              ; preds = %131, %4, %2
   ret void
 }
 

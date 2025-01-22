@@ -250,11 +250,11 @@ define void @_ZN5ZXing20PerspectiveTransformC2ERKNS_13QuadrilateralINS_6PointTId
   store double 0x7FF8000000000000, ptr %4, align 8
   br label %5
 
-5:                                                ; preds = %35, %3
-  %indvars.iv.i = phi i64 [ 0, %3 ], [ %indvars.iv.next.i, %35 ]
-  %.02641.i = phi i1 [ false, %3 ], [ %.1.i, %35 ]
-  %.03439.i = phi double [ 0.000000e+00, %3 ], [ %.sroa.speculated.i.i, %35 ]
-  %.03538.i = phi double [ 0x7FF0000000000000, %3 ], [ %.sroa.speculated8.i.i, %35 ]
+5:                                                ; preds = %34, %3
+  %indvars.iv.i = phi i64 [ 0, %3 ], [ %indvars.iv.next.i, %34 ]
+  %.02641.i = phi i8 [ 0, %3 ], [ %.1.i, %34 ]
+  %.03439.i = phi double [ 0.000000e+00, %3 ], [ %.sroa.speculated.i.i, %34 ]
+  %.03538.i = phi double [ 0x7FF0000000000000, %3 ], [ %.sroa.speculated8.i.i, %34 ]
   %6 = xor i64 %indvars.iv.i, 2
   %7 = getelementptr inbounds nuw [4 x %"struct.ZXing::PointT"], ptr %1, i64 0, i64 %6
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -283,82 +283,76 @@ define void @_ZN5ZXing20PerspectiveTransformC2ERKNS_13QuadrilateralINS_6PointTId
   %29 = fcmp olt double %.03439.i, %27
   %.sroa.speculated.i.i = select i1 %29, double %27, double %.03439.i
   %30 = icmp eq i64 %indvars.iv.i, 0
-  br i1 %30, label %31, label %33
-
-31:                                               ; preds = %5
-  %32 = fcmp ogt double %26, 0.000000e+00
-  br label %35
+  %31 = fcmp ogt double %26, 0.000000e+00
+  %32 = zext i1 %31 to i8
+  br i1 %30, label %34, label %33
 
 33:                                               ; preds = %5
-  %34 = fcmp ule double %26, 0.000000e+00
-  %.not.i = xor i1 %.02641.i, %34
-  br i1 %.not.i, label %35, label %_ZN5ZXing8IsConvexINS_6PointTIdEEEEbRKNS_13QuadrilateralIT_EE.exit.thread
+  %.not.i = icmp eq i8 %.02641.i, %32
+  br i1 %.not.i, label %34, label %_ZN5ZXing8IsConvexINS_6PointTIdEEEEbRKNS_13QuadrilateralIT_EE.exit.thread
 
-35:                                               ; preds = %33, %31
-  %.1.i = phi i1 [ %32, %31 ], [ %.02641.i, %33 ]
+34:                                               ; preds = %33, %5
+  %.1.i = phi i8 [ %.02641.i, %33 ], [ %32, %5 ]
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
   br i1 %exitcond.not.i, label %_ZN5ZXing8IsConvexINS_6PointTIdEEEEbRKNS_13QuadrilateralIT_EE.exit, label %5, !llvm.loop !4
 
-_ZN5ZXing8IsConvexINS_6PointTIdEEEEbRKNS_13QuadrilateralIT_EE.exit: ; preds = %35
-  %36 = fdiv double %.sroa.speculated.i.i, %.sroa.speculated8.i.i
-  %37 = fcmp olt double %36, 4.000000e+00
-  br i1 %37, label %.preheader, label %_ZN5ZXing8IsConvexINS_6PointTIdEEEEbRKNS_13QuadrilateralIT_EE.exit.thread
+_ZN5ZXing8IsConvexINS_6PointTIdEEEEbRKNS_13QuadrilateralIT_EE.exit: ; preds = %34
+  %35 = fdiv double %.sroa.speculated.i.i, %.sroa.speculated8.i.i
+  %36 = fcmp olt double %35, 4.000000e+00
+  br i1 %36, label %.preheader, label %_ZN5ZXing8IsConvexINS_6PointTIdEEEEbRKNS_13QuadrilateralIT_EE.exit.thread
 
-.preheader:                                       ; preds = %_ZN5ZXing8IsConvexINS_6PointTIdEEEEbRKNS_13QuadrilateralIT_EE.exit, %67
-  %indvars.iv.i5 = phi i64 [ %indvars.iv.next.i9, %67 ], [ 0, %_ZN5ZXing8IsConvexINS_6PointTIdEEEEbRKNS_13QuadrilateralIT_EE.exit ]
-  %.02641.i6 = phi i1 [ %.1.i14, %67 ], [ false, %_ZN5ZXing8IsConvexINS_6PointTIdEEEEbRKNS_13QuadrilateralIT_EE.exit ]
-  %.03439.i7 = phi double [ %.sroa.speculated.i.i11, %67 ], [ 0.000000e+00, %_ZN5ZXing8IsConvexINS_6PointTIdEEEEbRKNS_13QuadrilateralIT_EE.exit ]
-  %.03538.i8 = phi double [ %.sroa.speculated8.i.i10, %67 ], [ 0x7FF0000000000000, %_ZN5ZXing8IsConvexINS_6PointTIdEEEEbRKNS_13QuadrilateralIT_EE.exit ]
-  %38 = xor i64 %indvars.iv.i5, 2
-  %39 = getelementptr inbounds nuw [4 x %"struct.ZXing::PointT"], ptr %2, i64 0, i64 %38
+.preheader:                                       ; preds = %_ZN5ZXing8IsConvexINS_6PointTIdEEEEbRKNS_13QuadrilateralIT_EE.exit, %65
+  %indvars.iv.i5 = phi i64 [ %indvars.iv.next.i9, %65 ], [ 0, %_ZN5ZXing8IsConvexINS_6PointTIdEEEEbRKNS_13QuadrilateralIT_EE.exit ]
+  %.02641.i6 = phi i8 [ %.1.i14, %65 ], [ 0, %_ZN5ZXing8IsConvexINS_6PointTIdEEEEbRKNS_13QuadrilateralIT_EE.exit ]
+  %.03439.i7 = phi double [ %.sroa.speculated.i.i11, %65 ], [ 0.000000e+00, %_ZN5ZXing8IsConvexINS_6PointTIdEEEEbRKNS_13QuadrilateralIT_EE.exit ]
+  %.03538.i8 = phi double [ %.sroa.speculated8.i.i10, %65 ], [ 0x7FF0000000000000, %_ZN5ZXing8IsConvexINS_6PointTIdEEEEbRKNS_13QuadrilateralIT_EE.exit ]
+  %37 = xor i64 %indvars.iv.i5, 2
+  %38 = getelementptr inbounds nuw [4 x %"struct.ZXing::PointT"], ptr %2, i64 0, i64 %37
   %indvars.iv.next.i9 = add nuw nsw i64 %indvars.iv.i5, 1
-  %40 = and i64 %indvars.iv.next.i9, 3
-  %41 = getelementptr inbounds nuw [4 x %"struct.ZXing::PointT"], ptr %2, i64 0, i64 %40
-  %42 = load double, ptr %39, align 8
-  %43 = load double, ptr %41, align 8
-  %44 = fsub double %42, %43
-  %45 = getelementptr inbounds nuw i8, ptr %39, i64 8
-  %46 = load double, ptr %45, align 8
-  %47 = getelementptr inbounds nuw i8, ptr %41, i64 8
-  %48 = load double, ptr %47, align 8
-  %49 = fsub double %46, %48
-  %50 = getelementptr inbounds nuw [4 x %"struct.ZXing::PointT"], ptr %2, i64 0, i64 %indvars.iv.i5
-  %51 = load double, ptr %50, align 8
-  %52 = fsub double %51, %43
-  %53 = getelementptr inbounds nuw i8, ptr %50, i64 8
-  %54 = load double, ptr %53, align 8
-  %55 = fsub double %54, %48
-  %56 = fneg double %49
-  %57 = fmul double %52, %56
-  %58 = tail call noundef double @llvm.fmuladd.f64(double %44, double %55, double %57)
-  %59 = tail call double @llvm.fabs.f64(double %58)
-  %60 = fcmp olt double %59, %.03538.i8
-  %.sroa.speculated8.i.i10 = select i1 %60, double %59, double %.03538.i8
-  %61 = fcmp olt double %.03439.i7, %59
-  %.sroa.speculated.i.i11 = select i1 %61, double %59, double %.03439.i7
-  %62 = icmp eq i64 %indvars.iv.i5, 0
-  br i1 %62, label %63, label %65
+  %39 = and i64 %indvars.iv.next.i9, 3
+  %40 = getelementptr inbounds nuw [4 x %"struct.ZXing::PointT"], ptr %2, i64 0, i64 %39
+  %41 = load double, ptr %38, align 8
+  %42 = load double, ptr %40, align 8
+  %43 = fsub double %41, %42
+  %44 = getelementptr inbounds nuw i8, ptr %38, i64 8
+  %45 = load double, ptr %44, align 8
+  %46 = getelementptr inbounds nuw i8, ptr %40, i64 8
+  %47 = load double, ptr %46, align 8
+  %48 = fsub double %45, %47
+  %49 = getelementptr inbounds nuw [4 x %"struct.ZXing::PointT"], ptr %2, i64 0, i64 %indvars.iv.i5
+  %50 = load double, ptr %49, align 8
+  %51 = fsub double %50, %42
+  %52 = getelementptr inbounds nuw i8, ptr %49, i64 8
+  %53 = load double, ptr %52, align 8
+  %54 = fsub double %53, %47
+  %55 = fneg double %48
+  %56 = fmul double %51, %55
+  %57 = tail call noundef double @llvm.fmuladd.f64(double %43, double %54, double %56)
+  %58 = tail call double @llvm.fabs.f64(double %57)
+  %59 = fcmp olt double %58, %.03538.i8
+  %.sroa.speculated8.i.i10 = select i1 %59, double %58, double %.03538.i8
+  %60 = fcmp olt double %.03439.i7, %58
+  %.sroa.speculated.i.i11 = select i1 %60, double %58, double %.03439.i7
+  %61 = icmp eq i64 %indvars.iv.i5, 0
+  %62 = fcmp ogt double %57, 0.000000e+00
+  %63 = zext i1 %62 to i8
+  br i1 %61, label %65, label %64
 
-63:                                               ; preds = %.preheader
-  %64 = fcmp ogt double %58, 0.000000e+00
-  br label %67
+64:                                               ; preds = %.preheader
+  %.not.i12 = icmp eq i8 %.02641.i6, %63
+  br i1 %.not.i12, label %65, label %_ZN5ZXing8IsConvexINS_6PointTIdEEEEbRKNS_13QuadrilateralIT_EE.exit.thread
 
-65:                                               ; preds = %.preheader
-  %66 = fcmp ule double %58, 0.000000e+00
-  %.not.i12 = xor i1 %.02641.i6, %66
-  br i1 %.not.i12, label %67, label %_ZN5ZXing8IsConvexINS_6PointTIdEEEEbRKNS_13QuadrilateralIT_EE.exit.thread
-
-67:                                               ; preds = %65, %63
-  %.1.i14 = phi i1 [ %64, %63 ], [ %.02641.i6, %65 ]
+65:                                               ; preds = %64, %.preheader
+  %.1.i14 = phi i8 [ %.02641.i6, %64 ], [ %63, %.preheader ]
   %exitcond.not.i15 = icmp eq i64 %indvars.iv.next.i9, 4
   br i1 %exitcond.not.i15, label %_ZN5ZXing8IsConvexINS_6PointTIdEEEEbRKNS_13QuadrilateralIT_EE.exit16, label %.preheader, !llvm.loop !4
 
-_ZN5ZXing8IsConvexINS_6PointTIdEEEEbRKNS_13QuadrilateralIT_EE.exit16: ; preds = %67
-  %68 = fdiv double %.sroa.speculated.i.i11, %.sroa.speculated8.i.i10
-  %69 = fcmp olt double %68, 4.000000e+00
-  br i1 %69, label %70, label %_ZN5ZXing8IsConvexINS_6PointTIdEEEEbRKNS_13QuadrilateralIT_EE.exit.thread
+_ZN5ZXing8IsConvexINS_6PointTIdEEEEbRKNS_13QuadrilateralIT_EE.exit16: ; preds = %65
+  %66 = fdiv double %.sroa.speculated.i.i11, %.sroa.speculated8.i.i10
+  %67 = fcmp olt double %66, 4.000000e+00
+  br i1 %67, label %68, label %_ZN5ZXing8IsConvexINS_6PointTIdEEEEbRKNS_13QuadrilateralIT_EE.exit.thread
 
-70:                                               ; preds = %_ZN5ZXing8IsConvexINS_6PointTIdEEEEbRKNS_13QuadrilateralIT_EE.exit16
+68:                                               ; preds = %_ZN5ZXing8IsConvexINS_6PointTIdEEEEbRKNS_13QuadrilateralIT_EE.exit16
   %.sroa.067.0.copyload.i = load double, ptr %2, align 8, !noalias !6
   %.sroa.3.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.sroa.3.0.copyload.i = load double, ptr %.sroa.3.0..sroa_idx.i, align 8, !noalias !6
@@ -370,60 +364,60 @@ _ZN5ZXing8IsConvexINS_6PointTIdEEEEbRKNS_13QuadrilateralIT_EE.exit16: ; preds = 
   %.sroa.9.0.copyload.i = load double, ptr %.sroa.9.0..sroa_idx.i, align 8, !noalias !6
   %.sroa.11.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %2, i64 48
   %.sroa.11.0.copyload.i = load double, ptr %.sroa.11.0..sroa_idx.i, align 8, !noalias !6
-  %71 = fsub double %.sroa.067.0.copyload.i, %.sroa.5.0.copyload.i
-  %72 = fsub double %.sroa.3.0.copyload.i, %.sroa.7.0.copyload.i
-  %73 = fadd double %71, %.sroa.9.0.copyload.i
-  %74 = getelementptr inbounds nuw i8, ptr %2, i64 40
-  %75 = load double, ptr %74, align 8, !noalias !6
-  %76 = fadd double %72, %75
-  %77 = fsub double %73, %.sroa.11.0.copyload.i
-  %78 = getelementptr inbounds nuw i8, ptr %2, i64 56
-  %79 = load double, ptr %78, align 8, !noalias !6
-  %80 = fsub double %76, %79
-  %81 = fcmp oeq double %77, 0.000000e+00
-  %82 = fcmp oeq double %80, 0.000000e+00
-  %83 = select i1 %81, i1 %82, i1 false
-  br i1 %83, label %84, label %89
+  %69 = fsub double %.sroa.067.0.copyload.i, %.sroa.5.0.copyload.i
+  %70 = fsub double %.sroa.3.0.copyload.i, %.sroa.7.0.copyload.i
+  %71 = fadd double %69, %.sroa.9.0.copyload.i
+  %72 = getelementptr inbounds nuw i8, ptr %2, i64 40
+  %73 = load double, ptr %72, align 8, !noalias !6
+  %74 = fadd double %70, %73
+  %75 = fsub double %71, %.sroa.11.0.copyload.i
+  %76 = getelementptr inbounds nuw i8, ptr %2, i64 56
+  %77 = load double, ptr %76, align 8, !noalias !6
+  %78 = fsub double %74, %77
+  %79 = fcmp oeq double %75, 0.000000e+00
+  %80 = fcmp oeq double %78, 0.000000e+00
+  %81 = select i1 %79, i1 %80, i1 false
+  br i1 %81, label %82, label %87
 
-84:                                               ; preds = %70
-  %85 = fsub double %.sroa.5.0.copyload.i, %.sroa.067.0.copyload.i
-  %86 = fsub double %.sroa.9.0.copyload.i, %.sroa.5.0.copyload.i
-  %87 = fsub double %.sroa.7.0.copyload.i, %.sroa.3.0.copyload.i
-  %88 = fsub double %75, %.sroa.7.0.copyload.i
+82:                                               ; preds = %68
+  %83 = fsub double %.sroa.5.0.copyload.i, %.sroa.067.0.copyload.i
+  %84 = fsub double %.sroa.9.0.copyload.i, %.sroa.5.0.copyload.i
+  %85 = fsub double %.sroa.7.0.copyload.i, %.sroa.3.0.copyload.i
+  %86 = fsub double %73, %.sroa.7.0.copyload.i
   br label %_ZN5ZXing20PerspectiveTransform12UnitSquareToERKNS_13QuadrilateralINS_6PointTIdEEEE.exit
 
-89:                                               ; preds = %70
-  %90 = fsub double %.sroa.5.0.copyload.i, %.sroa.9.0.copyload.i
-  %91 = fsub double %.sroa.7.0.copyload.i, %75
-  %92 = fsub double %.sroa.11.0.copyload.i, %.sroa.9.0.copyload.i
-  %93 = fsub double %79, %75
-  %94 = fneg double %91
-  %95 = fmul double %92, %94
-  %96 = tail call noundef double @llvm.fmuladd.f64(double %90, double %93, double %95)
-  %97 = fneg double %80
-  %98 = fmul double %92, %97
-  %99 = tail call noundef double @llvm.fmuladd.f64(double %77, double %93, double %98)
-  %100 = fdiv double %99, %96
-  %101 = fmul double %77, %94
-  %102 = tail call noundef double @llvm.fmuladd.f64(double %90, double %80, double %101)
-  %103 = fdiv double %102, %96
-  %104 = fsub double %.sroa.5.0.copyload.i, %.sroa.067.0.copyload.i
-  %105 = tail call double @llvm.fmuladd.f64(double %100, double %.sroa.5.0.copyload.i, double %104)
-  %106 = fsub double %.sroa.11.0.copyload.i, %.sroa.067.0.copyload.i
-  %107 = tail call double @llvm.fmuladd.f64(double %103, double %.sroa.11.0.copyload.i, double %106)
-  %108 = fsub double %.sroa.7.0.copyload.i, %.sroa.3.0.copyload.i
-  %109 = tail call double @llvm.fmuladd.f64(double %100, double %.sroa.7.0.copyload.i, double %108)
-  %110 = fsub double %79, %.sroa.3.0.copyload.i
-  %111 = tail call double @llvm.fmuladd.f64(double %103, double %79, double %110)
+87:                                               ; preds = %68
+  %88 = fsub double %.sroa.5.0.copyload.i, %.sroa.9.0.copyload.i
+  %89 = fsub double %.sroa.7.0.copyload.i, %73
+  %90 = fsub double %.sroa.11.0.copyload.i, %.sroa.9.0.copyload.i
+  %91 = fsub double %77, %73
+  %92 = fneg double %89
+  %93 = fmul double %90, %92
+  %94 = tail call noundef double @llvm.fmuladd.f64(double %88, double %91, double %93)
+  %95 = fneg double %78
+  %96 = fmul double %90, %95
+  %97 = tail call noundef double @llvm.fmuladd.f64(double %75, double %91, double %96)
+  %98 = fdiv double %97, %94
+  %99 = fmul double %75, %92
+  %100 = tail call noundef double @llvm.fmuladd.f64(double %88, double %78, double %99)
+  %101 = fdiv double %100, %94
+  %102 = fsub double %.sroa.5.0.copyload.i, %.sroa.067.0.copyload.i
+  %103 = tail call double @llvm.fmuladd.f64(double %98, double %.sroa.5.0.copyload.i, double %102)
+  %104 = fsub double %.sroa.11.0.copyload.i, %.sroa.067.0.copyload.i
+  %105 = tail call double @llvm.fmuladd.f64(double %101, double %.sroa.11.0.copyload.i, double %104)
+  %106 = fsub double %.sroa.7.0.copyload.i, %.sroa.3.0.copyload.i
+  %107 = tail call double @llvm.fmuladd.f64(double %98, double %.sroa.7.0.copyload.i, double %106)
+  %108 = fsub double %77, %.sroa.3.0.copyload.i
+  %109 = tail call double @llvm.fmuladd.f64(double %101, double %77, double %108)
   br label %_ZN5ZXing20PerspectiveTransform12UnitSquareToERKNS_13QuadrilateralINS_6PointTIdEEEE.exit
 
-_ZN5ZXing20PerspectiveTransform12UnitSquareToERKNS_13QuadrilateralINS_6PointTIdEEEE.exit: ; preds = %84, %89
-  %.sink79.i = phi double [ %105, %89 ], [ %85, %84 ]
-  %.sink77.i = phi double [ %109, %89 ], [ %87, %84 ]
-  %.sink75.i = phi double [ %100, %89 ], [ 0.000000e+00, %84 ]
-  %.sink73.i = phi double [ %107, %89 ], [ %86, %84 ]
-  %.sink72.i = phi double [ %111, %89 ], [ %88, %84 ]
-  %.sink.i = phi double [ %103, %89 ], [ 0.000000e+00, %84 ]
+_ZN5ZXing20PerspectiveTransform12UnitSquareToERKNS_13QuadrilateralINS_6PointTIdEEEE.exit: ; preds = %82, %87
+  %.sink79.i = phi double [ %103, %87 ], [ %83, %82 ]
+  %.sink77.i = phi double [ %107, %87 ], [ %85, %82 ]
+  %.sink75.i = phi double [ %98, %87 ], [ 0.000000e+00, %82 ]
+  %.sink73.i = phi double [ %105, %87 ], [ %84, %82 ]
+  %.sink72.i = phi double [ %109, %87 ], [ %86, %82 ]
+  %.sink.i = phi double [ %101, %87 ], [ 0.000000e+00, %82 ]
   %.sroa.067.0.copyload.i17 = load double, ptr %1, align 8, !noalias !9
   %.sroa.3.0..sroa_idx.i18 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.3.0.copyload.i19 = load double, ptr %.sroa.3.0..sroa_idx.i18, align 8, !noalias !9
@@ -435,128 +429,128 @@ _ZN5ZXing20PerspectiveTransform12UnitSquareToERKNS_13QuadrilateralINS_6PointTIdE
   %.sroa.9.0.copyload.i25 = load double, ptr %.sroa.9.0..sroa_idx.i24, align 8, !noalias !9
   %.sroa.11.0..sroa_idx.i26 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %.sroa.11.0.copyload.i27 = load double, ptr %.sroa.11.0..sroa_idx.i26, align 8, !noalias !9
-  %112 = fsub double %.sroa.067.0.copyload.i17, %.sroa.5.0.copyload.i21
-  %113 = fsub double %.sroa.3.0.copyload.i19, %.sroa.7.0.copyload.i23
-  %114 = fadd double %112, %.sroa.9.0.copyload.i25
-  %115 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %116 = load double, ptr %115, align 8, !noalias !9
-  %117 = fadd double %113, %116
-  %118 = fsub double %114, %.sroa.11.0.copyload.i27
-  %119 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %120 = load double, ptr %119, align 8, !noalias !9
-  %121 = fsub double %117, %120
-  %122 = fcmp oeq double %118, 0.000000e+00
-  %123 = fcmp oeq double %121, 0.000000e+00
-  %124 = select i1 %122, i1 %123, i1 false
-  br i1 %124, label %125, label %130
+  %110 = fsub double %.sroa.067.0.copyload.i17, %.sroa.5.0.copyload.i21
+  %111 = fsub double %.sroa.3.0.copyload.i19, %.sroa.7.0.copyload.i23
+  %112 = fadd double %110, %.sroa.9.0.copyload.i25
+  %113 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %114 = load double, ptr %113, align 8, !noalias !9
+  %115 = fadd double %111, %114
+  %116 = fsub double %112, %.sroa.11.0.copyload.i27
+  %117 = getelementptr inbounds nuw i8, ptr %1, i64 56
+  %118 = load double, ptr %117, align 8, !noalias !9
+  %119 = fsub double %115, %118
+  %120 = fcmp oeq double %116, 0.000000e+00
+  %121 = fcmp oeq double %119, 0.000000e+00
+  %122 = select i1 %120, i1 %121, i1 false
+  br i1 %122, label %123, label %128
 
-125:                                              ; preds = %_ZN5ZXing20PerspectiveTransform12UnitSquareToERKNS_13QuadrilateralINS_6PointTIdEEEE.exit
-  %126 = fsub double %.sroa.5.0.copyload.i21, %.sroa.067.0.copyload.i17
-  %127 = fsub double %.sroa.9.0.copyload.i25, %.sroa.5.0.copyload.i21
-  %128 = fsub double %.sroa.7.0.copyload.i23, %.sroa.3.0.copyload.i19
-  %129 = fsub double %116, %.sroa.7.0.copyload.i23
+123:                                              ; preds = %_ZN5ZXing20PerspectiveTransform12UnitSquareToERKNS_13QuadrilateralINS_6PointTIdEEEE.exit
+  %124 = fsub double %.sroa.5.0.copyload.i21, %.sroa.067.0.copyload.i17
+  %125 = fsub double %.sroa.9.0.copyload.i25, %.sroa.5.0.copyload.i21
+  %126 = fsub double %.sroa.7.0.copyload.i23, %.sroa.3.0.copyload.i19
+  %127 = fsub double %114, %.sroa.7.0.copyload.i23
   br label %_ZN5ZXing20PerspectiveTransform12UnitSquareToERKNS_13QuadrilateralINS_6PointTIdEEEE.exit34
 
-130:                                              ; preds = %_ZN5ZXing20PerspectiveTransform12UnitSquareToERKNS_13QuadrilateralINS_6PointTIdEEEE.exit
-  %131 = fsub double %.sroa.5.0.copyload.i21, %.sroa.9.0.copyload.i25
-  %132 = fsub double %.sroa.7.0.copyload.i23, %116
-  %133 = fsub double %.sroa.11.0.copyload.i27, %.sroa.9.0.copyload.i25
-  %134 = fsub double %120, %116
-  %135 = fneg double %132
-  %136 = fmul double %133, %135
-  %137 = tail call noundef double @llvm.fmuladd.f64(double %131, double %134, double %136)
-  %138 = fneg double %121
-  %139 = fmul double %133, %138
-  %140 = tail call noundef double @llvm.fmuladd.f64(double %118, double %134, double %139)
-  %141 = fdiv double %140, %137
-  %142 = fmul double %118, %135
-  %143 = tail call noundef double @llvm.fmuladd.f64(double %131, double %121, double %142)
-  %144 = fdiv double %143, %137
-  %145 = fsub double %.sroa.5.0.copyload.i21, %.sroa.067.0.copyload.i17
-  %146 = tail call double @llvm.fmuladd.f64(double %141, double %.sroa.5.0.copyload.i21, double %145)
-  %147 = fsub double %.sroa.11.0.copyload.i27, %.sroa.067.0.copyload.i17
-  %148 = tail call double @llvm.fmuladd.f64(double %144, double %.sroa.11.0.copyload.i27, double %147)
-  %149 = fsub double %.sroa.7.0.copyload.i23, %.sroa.3.0.copyload.i19
-  %150 = tail call double @llvm.fmuladd.f64(double %141, double %.sroa.7.0.copyload.i23, double %149)
-  %151 = fsub double %120, %.sroa.3.0.copyload.i19
-  %152 = tail call double @llvm.fmuladd.f64(double %144, double %120, double %151)
+128:                                              ; preds = %_ZN5ZXing20PerspectiveTransform12UnitSquareToERKNS_13QuadrilateralINS_6PointTIdEEEE.exit
+  %129 = fsub double %.sroa.5.0.copyload.i21, %.sroa.9.0.copyload.i25
+  %130 = fsub double %.sroa.7.0.copyload.i23, %114
+  %131 = fsub double %.sroa.11.0.copyload.i27, %.sroa.9.0.copyload.i25
+  %132 = fsub double %118, %114
+  %133 = fneg double %130
+  %134 = fmul double %131, %133
+  %135 = tail call noundef double @llvm.fmuladd.f64(double %129, double %132, double %134)
+  %136 = fneg double %119
+  %137 = fmul double %131, %136
+  %138 = tail call noundef double @llvm.fmuladd.f64(double %116, double %132, double %137)
+  %139 = fdiv double %138, %135
+  %140 = fmul double %116, %133
+  %141 = tail call noundef double @llvm.fmuladd.f64(double %129, double %119, double %140)
+  %142 = fdiv double %141, %135
+  %143 = fsub double %.sroa.5.0.copyload.i21, %.sroa.067.0.copyload.i17
+  %144 = tail call double @llvm.fmuladd.f64(double %139, double %.sroa.5.0.copyload.i21, double %143)
+  %145 = fsub double %.sroa.11.0.copyload.i27, %.sroa.067.0.copyload.i17
+  %146 = tail call double @llvm.fmuladd.f64(double %142, double %.sroa.11.0.copyload.i27, double %145)
+  %147 = fsub double %.sroa.7.0.copyload.i23, %.sroa.3.0.copyload.i19
+  %148 = tail call double @llvm.fmuladd.f64(double %139, double %.sroa.7.0.copyload.i23, double %147)
+  %149 = fsub double %118, %.sroa.3.0.copyload.i19
+  %150 = tail call double @llvm.fmuladd.f64(double %142, double %118, double %149)
   br label %_ZN5ZXing20PerspectiveTransform12UnitSquareToERKNS_13QuadrilateralINS_6PointTIdEEEE.exit34
 
-_ZN5ZXing20PerspectiveTransform12UnitSquareToERKNS_13QuadrilateralINS_6PointTIdEEEE.exit34: ; preds = %125, %130
-  %.sink79.i28 = phi double [ %146, %130 ], [ %126, %125 ]
-  %.sink77.i29 = phi double [ %150, %130 ], [ %128, %125 ]
-  %.sink75.i30 = phi double [ %141, %130 ], [ 0.000000e+00, %125 ]
-  %.sink73.i31 = phi double [ %148, %130 ], [ %127, %125 ]
-  %.sink72.i32 = phi double [ %152, %130 ], [ %129, %125 ]
-  %.sink.i33 = phi double [ %144, %130 ], [ 0.000000e+00, %125 ]
-  %153 = fneg double %.sroa.3.0.copyload.i19
-  %154 = fmul double %.sroa.3.0.copyload.i19, %.sink.i33
-  %155 = fsub double %.sink72.i32, %154
-  %156 = fneg double %.sink73.i31
-  %157 = tail call double @llvm.fmuladd.f64(double %.sink.i33, double %.sroa.067.0.copyload.i17, double %156)
-  %158 = fneg double %.sroa.067.0.copyload.i17
-  %159 = fmul double %.sink72.i32, %158
-  %160 = tail call double @llvm.fmuladd.f64(double %.sink73.i31, double %.sroa.3.0.copyload.i19, double %159)
-  %161 = fneg double %.sink77.i29
-  %162 = tail call double @llvm.fmuladd.f64(double %.sink75.i30, double %.sroa.3.0.copyload.i19, double %161)
-  %163 = fmul double %.sroa.067.0.copyload.i17, %.sink75.i30
-  %164 = fsub double %.sink79.i28, %163
-  %165 = fmul double %.sink79.i28, %153
-  %166 = tail call double @llvm.fmuladd.f64(double %.sink77.i29, double %.sroa.067.0.copyload.i17, double %165)
-  %167 = fneg double %.sink72.i32
-  %168 = fmul double %.sink75.i30, %167
-  %169 = tail call double @llvm.fmuladd.f64(double %.sink77.i29, double %.sink.i33, double %168)
-  %170 = fneg double %.sink.i33
-  %171 = fmul double %.sink79.i28, %170
-  %172 = tail call double @llvm.fmuladd.f64(double %.sink75.i30, double %.sink73.i31, double %171)
-  %173 = fmul double %.sink77.i29, %156
-  %174 = tail call double @llvm.fmuladd.f64(double %.sink79.i28, double %.sink72.i32, double %173)
-  %175 = fmul double %.sink73.i, %162
-  %176 = tail call double @llvm.fmuladd.f64(double %.sink79.i, double %155, double %175)
-  %177 = tail call double @llvm.fmuladd.f64(double %.sroa.067.0.copyload.i, double %169, double %176)
-  %178 = fmul double %.sink73.i, %164
-  %179 = tail call double @llvm.fmuladd.f64(double %.sink79.i, double %157, double %178)
-  %180 = tail call double @llvm.fmuladd.f64(double %.sroa.067.0.copyload.i, double %172, double %179)
-  %181 = fmul double %.sink73.i, %166
-  %182 = tail call double @llvm.fmuladd.f64(double %.sink79.i, double %160, double %181)
-  %183 = tail call double @llvm.fmuladd.f64(double %.sroa.067.0.copyload.i, double %174, double %182)
-  %184 = fmul double %.sink72.i, %162
-  %185 = tail call double @llvm.fmuladd.f64(double %.sink77.i, double %155, double %184)
-  %186 = tail call double @llvm.fmuladd.f64(double %.sroa.3.0.copyload.i, double %169, double %185)
-  %187 = fmul double %.sink72.i, %164
-  %188 = tail call double @llvm.fmuladd.f64(double %.sink77.i, double %157, double %187)
-  %189 = tail call double @llvm.fmuladd.f64(double %.sroa.3.0.copyload.i, double %172, double %188)
-  %190 = fmul double %.sink72.i, %166
-  %191 = tail call double @llvm.fmuladd.f64(double %.sink77.i, double %160, double %190)
-  %192 = tail call double @llvm.fmuladd.f64(double %.sroa.3.0.copyload.i, double %174, double %191)
-  %193 = fmul double %.sink.i, %162
-  %194 = tail call double @llvm.fmuladd.f64(double %.sink75.i, double %155, double %193)
-  %195 = fadd double %169, %194
-  %196 = fmul double %.sink.i, %164
-  %197 = tail call double @llvm.fmuladd.f64(double %.sink75.i, double %157, double %196)
-  %198 = fadd double %172, %197
-  %199 = fmul double %.sink.i, %166
-  %200 = tail call double @llvm.fmuladd.f64(double %.sink75.i, double %160, double %199)
-  %201 = fadd double %174, %200
-  store double %177, ptr %0, align 8
+_ZN5ZXing20PerspectiveTransform12UnitSquareToERKNS_13QuadrilateralINS_6PointTIdEEEE.exit34: ; preds = %123, %128
+  %.sink79.i28 = phi double [ %144, %128 ], [ %124, %123 ]
+  %.sink77.i29 = phi double [ %148, %128 ], [ %126, %123 ]
+  %.sink75.i30 = phi double [ %139, %128 ], [ 0.000000e+00, %123 ]
+  %.sink73.i31 = phi double [ %146, %128 ], [ %125, %123 ]
+  %.sink72.i32 = phi double [ %150, %128 ], [ %127, %123 ]
+  %.sink.i33 = phi double [ %142, %128 ], [ 0.000000e+00, %123 ]
+  %151 = fneg double %.sroa.3.0.copyload.i19
+  %152 = fmul double %.sroa.3.0.copyload.i19, %.sink.i33
+  %153 = fsub double %.sink72.i32, %152
+  %154 = fneg double %.sink73.i31
+  %155 = tail call double @llvm.fmuladd.f64(double %.sink.i33, double %.sroa.067.0.copyload.i17, double %154)
+  %156 = fneg double %.sroa.067.0.copyload.i17
+  %157 = fmul double %.sink72.i32, %156
+  %158 = tail call double @llvm.fmuladd.f64(double %.sink73.i31, double %.sroa.3.0.copyload.i19, double %157)
+  %159 = fneg double %.sink77.i29
+  %160 = tail call double @llvm.fmuladd.f64(double %.sink75.i30, double %.sroa.3.0.copyload.i19, double %159)
+  %161 = fmul double %.sroa.067.0.copyload.i17, %.sink75.i30
+  %162 = fsub double %.sink79.i28, %161
+  %163 = fmul double %.sink79.i28, %151
+  %164 = tail call double @llvm.fmuladd.f64(double %.sink77.i29, double %.sroa.067.0.copyload.i17, double %163)
+  %165 = fneg double %.sink72.i32
+  %166 = fmul double %.sink75.i30, %165
+  %167 = tail call double @llvm.fmuladd.f64(double %.sink77.i29, double %.sink.i33, double %166)
+  %168 = fneg double %.sink.i33
+  %169 = fmul double %.sink79.i28, %168
+  %170 = tail call double @llvm.fmuladd.f64(double %.sink75.i30, double %.sink73.i31, double %169)
+  %171 = fmul double %.sink77.i29, %154
+  %172 = tail call double @llvm.fmuladd.f64(double %.sink79.i28, double %.sink72.i32, double %171)
+  %173 = fmul double %.sink73.i, %160
+  %174 = tail call double @llvm.fmuladd.f64(double %.sink79.i, double %153, double %173)
+  %175 = tail call double @llvm.fmuladd.f64(double %.sroa.067.0.copyload.i, double %167, double %174)
+  %176 = fmul double %.sink73.i, %162
+  %177 = tail call double @llvm.fmuladd.f64(double %.sink79.i, double %155, double %176)
+  %178 = tail call double @llvm.fmuladd.f64(double %.sroa.067.0.copyload.i, double %170, double %177)
+  %179 = fmul double %.sink73.i, %164
+  %180 = tail call double @llvm.fmuladd.f64(double %.sink79.i, double %158, double %179)
+  %181 = tail call double @llvm.fmuladd.f64(double %.sroa.067.0.copyload.i, double %172, double %180)
+  %182 = fmul double %.sink72.i, %160
+  %183 = tail call double @llvm.fmuladd.f64(double %.sink77.i, double %153, double %182)
+  %184 = tail call double @llvm.fmuladd.f64(double %.sroa.3.0.copyload.i, double %167, double %183)
+  %185 = fmul double %.sink72.i, %162
+  %186 = tail call double @llvm.fmuladd.f64(double %.sink77.i, double %155, double %185)
+  %187 = tail call double @llvm.fmuladd.f64(double %.sroa.3.0.copyload.i, double %170, double %186)
+  %188 = fmul double %.sink72.i, %164
+  %189 = tail call double @llvm.fmuladd.f64(double %.sink77.i, double %158, double %188)
+  %190 = tail call double @llvm.fmuladd.f64(double %.sroa.3.0.copyload.i, double %172, double %189)
+  %191 = fmul double %.sink.i, %160
+  %192 = tail call double @llvm.fmuladd.f64(double %.sink75.i, double %153, double %191)
+  %193 = fadd double %167, %192
+  %194 = fmul double %.sink.i, %162
+  %195 = tail call double @llvm.fmuladd.f64(double %.sink75.i, double %155, double %194)
+  %196 = fadd double %170, %195
+  %197 = fmul double %.sink.i, %164
+  %198 = tail call double @llvm.fmuladd.f64(double %.sink75.i, double %158, double %197)
+  %199 = fadd double %172, %198
+  store double %175, ptr %0, align 8
   %.sroa.254.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store double %186, ptr %.sroa.254.0..sroa_idx, align 8
+  store double %184, ptr %.sroa.254.0..sroa_idx, align 8
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store double %195, ptr %.sroa.3.0..sroa_idx, align 8
+  store double %193, ptr %.sroa.3.0..sroa_idx, align 8
   %.sroa.455.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store double %180, ptr %.sroa.455.0..sroa_idx, align 8
+  store double %178, ptr %.sroa.455.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store double %189, ptr %.sroa.5.0..sroa_idx, align 8
+  store double %187, ptr %.sroa.5.0..sroa_idx, align 8
   %.sroa.656.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store double %198, ptr %.sroa.656.0..sroa_idx, align 8
+  store double %196, ptr %.sroa.656.0..sroa_idx, align 8
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store double %183, ptr %.sroa.7.0..sroa_idx, align 8
+  store double %181, ptr %.sroa.7.0..sroa_idx, align 8
   %.sroa.857.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store double %192, ptr %.sroa.857.0..sroa_idx, align 8
-  store double %201, ptr %4, align 8
+  store double %190, ptr %.sroa.857.0..sroa_idx, align 8
+  store double %199, ptr %4, align 8
   br label %_ZN5ZXing8IsConvexINS_6PointTIdEEEEbRKNS_13QuadrilateralIT_EE.exit.thread
 
-_ZN5ZXing8IsConvexINS_6PointTIdEEEEbRKNS_13QuadrilateralIT_EE.exit.thread: ; preds = %33, %65, %_ZN5ZXing8IsConvexINS_6PointTIdEEEEbRKNS_13QuadrilateralIT_EE.exit, %_ZN5ZXing8IsConvexINS_6PointTIdEEEEbRKNS_13QuadrilateralIT_EE.exit16, %_ZN5ZXing20PerspectiveTransform12UnitSquareToERKNS_13QuadrilateralINS_6PointTIdEEEE.exit34
+_ZN5ZXing8IsConvexINS_6PointTIdEEEEbRKNS_13QuadrilateralIT_EE.exit.thread: ; preds = %33, %64, %_ZN5ZXing8IsConvexINS_6PointTIdEEEEbRKNS_13QuadrilateralIT_EE.exit, %_ZN5ZXing8IsConvexINS_6PointTIdEEEEbRKNS_13QuadrilateralIT_EE.exit16, %_ZN5ZXing20PerspectiveTransform12UnitSquareToERKNS_13QuadrilateralINS_6PointTIdEEEE.exit34
   ret void
 }
 

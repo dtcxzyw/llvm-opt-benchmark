@@ -193,7 +193,7 @@ ompi_comm_invalid.exit.thread:                    ; preds = %22, %ompi_comm_inva
   %92 = tail call i32 @ompi_errhandler_invoke(ptr noundef %89, ptr noundef nonnull %6, i32 noundef %91, i32 noundef 34, ptr noundef nonnull @FUNC_NAME) #7
   br label %271
 
-93:                                               ; preds = %111
+93:                                               ; preds = %112
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.lr.ph199.preheader, label %.lr.ph, !llvm.loop !4
@@ -227,32 +227,32 @@ ompi_comm_invalid.exit.thread:                    ; preds = %22, %ompi_comm_inva
   %105 = icmp ne i32 %104, 0
   %106 = icmp eq i64 %indvars.iv, 0
   %or.cond = and i1 %106, %105
-  br i1 %or.cond, label %107, label %109
+  br i1 %or.cond, label %107, label %110
 
 107:                                              ; preds = %102
   %108 = load i8, ptr %14, align 1
-  br label %111
+  %109 = and i8 %108, 1
+  br label %112
 
-109:                                              ; preds = %102
-  br i1 %105, label %._crit_edge225, label %110
+110:                                              ; preds = %102
+  br i1 %105, label %._crit_edge225, label %111
 
-._crit_edge225:                                   ; preds = %109
+._crit_edge225:                                   ; preds = %110
   %.pre226 = load i8, ptr %14, align 1
-  br label %111
+  br label %112
 
-110:                                              ; preds = %109
+111:                                              ; preds = %110
   store i8 0, ptr %14, align 1
-  br label %111
+  br label %112
 
-111:                                              ; preds = %._crit_edge225, %110, %107
-  %112 = phi i8 [ %108, %107 ], [ %.pre226, %._crit_edge225 ], [ 0, %110 ]
-  %.1 = phi i8 [ %108, %107 ], [ %.0101197, %._crit_edge225 ], [ %.0101197, %110 ]
-  %113 = xor i8 %112, %.1
+112:                                              ; preds = %._crit_edge225, %111, %107
+  %113 = phi i8 [ %108, %107 ], [ %.pre226, %._crit_edge225 ], [ 0, %111 ]
+  %.1 = phi i8 [ %109, %107 ], [ %.0101197, %._crit_edge225 ], [ %.0101197, %111 ]
   %114 = and i8 %113, 1
-  %.not127 = icmp eq i8 %114, 0
+  %.not127 = icmp eq i8 %.1, %114
   br i1 %.not127, label %93, label %115
 
-115:                                              ; preds = %111
+115:                                              ; preds = %112
   %116 = call i32 @ompi_errhandler_invoke(ptr noundef null, ptr noundef null, i32 noundef -1, i32 noundef 34, ptr noundef nonnull @FUNC_NAME) #7
   br label %271
 

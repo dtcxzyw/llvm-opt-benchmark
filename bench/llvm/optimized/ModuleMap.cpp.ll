@@ -20519,7 +20519,7 @@ switch.lookup:                                    ; preds = %105
   br i1 %167, label %168, label %170
 
 168:                                              ; preds = %164
-  %169 = icmp ult i64 %.079.i.i, 3
+  %169 = icmp samesign ult i64 %.079.i.i, 3
   br i1 %169, label %_ZSt17holds_alternativeISt9monostateJS0_N5clang12FileEntryRefENS1_17DirectoryEntryRefEEEbRKSt7variantIJDpT0_EE.exit, label %170
 
 170:                                              ; preds = %168, %164
@@ -21803,7 +21803,7 @@ _ZN5clang17DiagnosticBuilderD2Ev.exit:            ; preds = %.lr.ph.i.i.i.i, %45
   br i1 %92, label %93, label %95
 
 93:                                               ; preds = %89
-  %94 = icmp ult i64 %.079.i.i, 3
+  %94 = icmp samesign ult i64 %.079.i.i, 3
   br i1 %94, label %_ZSt17holds_alternativeISt9monostateJS0_N5clang12FileEntryRefENS1_17DirectoryEntryRefEEEbRKSt7variantIJDpT0_EE.exit, label %95
 
 95:                                               ; preds = %93, %89

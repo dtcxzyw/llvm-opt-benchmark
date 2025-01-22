@@ -434,28 +434,28 @@ _Z15reduce_contractRiiS_.exit:                    ; preds = %104, %110
 define void @_Z13survey_scoresRK14ddTableResultsiPKiR9data_typeRiPA5_9list_type(ptr nocapture noundef nonnull readonly align 4 dereferenceable(80) %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(20) %3, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %4, ptr nocapture noundef %5) local_unnamed_addr #4 {
   %7 = alloca [2 x %struct.data_type], align 16
   %8 = alloca %struct.list_type, align 4
-  %indvars.iv155.sroa.gep171 = getelementptr inbounds nuw i8, ptr %7, i64 20
+  %indvars.iv156.sroa.gep173 = getelementptr inbounds nuw i8, ptr %7, i64 20
   br label %.preheader
 
 .preheader:                                       ; preds = %6, %43
   %9 = phi i1 [ true, %6 ], [ false, %43 ]
-  %indvars.iv155.sroa.phi = phi ptr [ %7, %6 ], [ %indvars.iv155.sroa.gep171, %43 ]
-  %indvars.iv155 = phi i64 [ 0, %6 ], [ 1, %43 ]
-  %10 = or disjoint i64 %indvars.iv155, 2
-  %11 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv155
+  %indvars.iv156.sroa.phi = phi ptr [ %7, %6 ], [ %indvars.iv156.sroa.gep173, %43 ]
+  %indvars.iv156 = phi i64 [ 0, %6 ], [ 1, %43 ]
+  %10 = or disjoint i64 %indvars.iv156, 2
+  %11 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv156
   br label %12
 
 12:                                               ; preds = %.preheader, %42
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %42 ]
-  %.0122147 = phi i32 [ 0, %.preheader ], [ %.1123, %42 ]
-  %.0124146 = phi i32 [ 0, %.preheader ], [ %.1125, %42 ]
-  %.0126145 = phi i32 [ 0, %.preheader ], [ %.1127, %42 ]
-  %13 = getelementptr inbounds nuw [5 x %struct.list_type], ptr %5, i64 %indvars.iv155, i64 %indvars.iv
+  %.0122148 = phi i32 [ 0, %.preheader ], [ %.1123, %42 ]
+  %.0124147 = phi i32 [ 0, %.preheader ], [ %.1125, %42 ]
+  %.0126146 = phi i32 [ 0, %.preheader ], [ %.1127, %42 ]
+  %13 = getelementptr inbounds nuw [5 x %struct.list_type], ptr %5, i64 %indvars.iv156, i64 %indvars.iv
   %14 = getelementptr inbounds nuw [5 x i32], ptr @DENOM_ORDER, i64 0, i64 %indvars.iv
   %15 = load i32, ptr %14, align 4
   %16 = sext i32 %15 to i64
   %17 = getelementptr inbounds [5 x [4 x i32]], ptr %0, i64 0, i64 %16
-  %18 = getelementptr inbounds nuw i32, ptr %17, i64 %indvars.iv155
+  %18 = getelementptr inbounds nuw i32, ptr %17, i64 %indvars.iv156
   %19 = load i32, ptr %18, align 4
   %20 = getelementptr inbounds nuw i32, ptr %17, i64 %10
   %21 = load i32, ptr %20, align 4
@@ -481,32 +481,32 @@ define void @_Z13survey_scoresRK14ddTableResultsiPKiR9data_typeRiPA5_9list_type(
   store i32 %37, ptr %36, align 4
   %38 = getelementptr inbounds nuw i8, ptr %13, i64 12
   store i32 %22, ptr %38, align 4
-  %39 = icmp sgt i32 %35, %.0126145
-  %40 = icmp eq i32 %35, %.0126145
-  %41 = tail call i32 @llvm.smin.i32(i32 %27, i32 %.0124146)
-  %spec.select141 = select i1 %40, i32 %41, i32 %.0124146
-  %.2128 = tail call i32 @llvm.smax.i32(i32 %35, i32 %.0126145)
-  %.2 = select i1 %39, i32 %27, i32 %spec.select141
-  %.not140 = icmp slt i32 %26, %.0122147
-  %spec.select = select i1 %.not140, i32 %.0122147, i32 %27
+  %39 = icmp sgt i32 %35, %.0126146
+  %40 = icmp eq i32 %35, %.0126146
+  %41 = tail call i32 @llvm.smin.i32(i32 %27, i32 %.0124147)
+  %spec.select142 = select i1 %40, i32 %41, i32 %.0124147
+  %.2128 = tail call i32 @llvm.smax.i32(i32 %35, i32 %.0126146)
+  %.2 = select i1 %39, i32 %27, i32 %spec.select142
+  %.not141 = icmp slt i32 %26, %.0122148
+  %spec.select = select i1 %.not141, i32 %.0122148, i32 %27
   br label %42
 
 42:                                               ; preds = %12, %30
   %.sink = phi i32 [ %35, %30 ], [ 0, %12 ]
-  %.1127 = phi i32 [ %.2128, %30 ], [ %.0126145, %12 ]
-  %.1125 = phi i32 [ %.2, %30 ], [ %.0124146, %12 ]
-  %.1123 = phi i32 [ %spec.select, %30 ], [ %.0122147, %12 ]
+  %.1127 = phi i32 [ %.2128, %30 ], [ %.0126146, %12 ]
+  %.1125 = phi i32 [ %.2, %30 ], [ %.0124147, %12 ]
+  %.1123 = phi i32 [ %spec.select, %30 ], [ %.0122148, %12 ]
   store i32 %.sink, ptr %13, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 5
   br i1 %exitcond.not, label %43, label %12, !llvm.loop !11
 
 43:                                               ; preds = %42
-  %44 = getelementptr inbounds nuw i8, ptr %indvars.iv155.sroa.phi, i64 4
+  %44 = getelementptr inbounds nuw i8, ptr %indvars.iv156.sroa.phi, i64 4
   store i32 %.1123, ptr %44, align 4
-  %45 = getelementptr inbounds nuw i8, ptr %indvars.iv155.sroa.phi, i64 8
+  %45 = getelementptr inbounds nuw i8, ptr %indvars.iv156.sroa.phi, i64 8
   store i32 %.1125, ptr %45, align 4
-  %46 = getelementptr inbounds nuw i8, ptr %indvars.iv155.sroa.phi, i64 12
+  %46 = getelementptr inbounds nuw i8, ptr %indvars.iv156.sroa.phi, i64 12
   store i32 %.1127, ptr %46, align 4
   br i1 %9, label %.preheader, label %47, !llvm.loop !12
 
@@ -516,11 +516,11 @@ define void @_Z13survey_scoresRK14ddTableResultsiPKiR9data_typeRiPA5_9list_type(
   %50 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %51 = load i32, ptr %50, align 8
   %52 = icmp sgt i32 %49, %51
-  br i1 %52, label %.loopexit142, label %53
+  br i1 %52, label %.loopexit143, label %53
 
 53:                                               ; preds = %47
   %54 = icmp slt i32 %49, %51
-  br i1 %54, label %.loopexit142, label %55
+  br i1 %54, label %.loopexit143, label %55
 
 55:                                               ; preds = %53
   %56 = icmp eq i32 %49, 0
@@ -545,8 +545,8 @@ define void @_Z13survey_scoresRK14ddTableResultsiPKiR9data_typeRiPA5_9list_type(
   br label %69
 
 69:                                               ; preds = %58, %76
-  %.0129149 = phi i32 [ %1, %58 ], [ %77, %76 ]
-  %70 = srem i32 %.0129149, 4
+  %.0129150 = phi i32 [ %1, %58 ], [ %77, %76 ]
+  %70 = srem i32 %.0129150, 4
   %71 = sext i32 %70 to i64
   %72 = getelementptr inbounds i32, ptr %67, i64 %71
   %73 = load i32, ptr %72, align 4
@@ -554,15 +554,15 @@ define void @_Z13survey_scoresRK14ddTableResultsiPKiR9data_typeRiPA5_9list_type(
   br i1 %.not139, label %74, label %76
 
 74:                                               ; preds = %69
-  %75 = srem i32 %.0129149, 2
-  br label %.loopexit142
+  %75 = srem i32 %.0129150, 2
+  br label %.loopexit143
 
 76:                                               ; preds = %69
-  %77 = add i32 %.0129149, 1
-  %exitcond158.not = icmp eq i32 %.0129149, %smax
-  br i1 %exitcond158.not, label %.loopexit142, label %69, !llvm.loop !13
+  %77 = add i32 %.0129150, 1
+  %exitcond159.not = icmp eq i32 %.0129150, %smax
+  br i1 %exitcond159.not, label %.loopexit143, label %69, !llvm.loop !13
 
-.loopexit142:                                     ; preds = %76, %53, %47, %74
+.loopexit143:                                     ; preds = %76, %53, %47, %74
   %.0131 = phi i32 [ %75, %74 ], [ 0, %47 ], [ 1, %53 ], [ 0, %76 ]
   %78 = sext i32 %.0131 to i64
   %79 = getelementptr inbounds [2 x %struct.data_type], ptr %7, i64 0, i64 %78
@@ -593,23 +593,23 @@ define void @_Z13survey_scoresRK14ddTableResultsiPKiR9data_typeRiPA5_9list_type(
   store i32 %98, ptr %99, align 4
   br label %100
 
-100:                                              ; preds = %._crit_edge, %.loopexit142
-  %.0119 = phi i32 [ 5, %.loopexit142 ], [ %.1, %._crit_edge ]
+100:                                              ; preds = %._crit_edge, %.loopexit143
+  %.0119 = phi i32 [ 5, %.loopexit143 ], [ %.1, %._crit_edge ]
   %101 = icmp samesign ugt i32 %.0119, 1
   br i1 %101, label %.lr.ph.preheader, label %._crit_edge.thread
 
 .lr.ph.preheader:                                 ; preds = %100
-  %wide.trip.count = zext nneg i32 %.0119 to i64
+  %wide.trip.count = zext i32 %.0119 to i64
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %112
-  %indvars.iv159 = phi i64 [ 1, %.lr.ph.preheader ], [ %indvars.iv.next160, %112 ]
-  %.0118150 = phi i32 [ 0, %.lr.ph.preheader ], [ %.1, %112 ]
-  %102 = add nsw i64 %indvars.iv159, -1
+  %indvars.iv160 = phi i64 [ 1, %.lr.ph.preheader ], [ %indvars.iv.next161, %112 ]
+  %.0118151 = phi i32 [ 0, %.lr.ph.preheader ], [ %.1, %112 ]
+  %102 = add nsw i64 %indvars.iv160, -1
   %103 = getelementptr inbounds [5 x %struct.list_type], ptr %5, i64 %78, i64 %102
   %104 = getelementptr inbounds nuw i8, ptr %103, i64 8
   %105 = load i32, ptr %104, align 4
-  %106 = getelementptr inbounds [5 x %struct.list_type], ptr %5, i64 %78, i64 %indvars.iv159
+  %106 = getelementptr inbounds [5 x %struct.list_type], ptr %5, i64 %78, i64 %indvars.iv160
   %107 = getelementptr inbounds nuw i8, ptr %106, i64 8
   %108 = load i32, ptr %107, align 4
   %109 = icmp sgt i32 %105, %108
@@ -619,43 +619,43 @@ define void @_Z13survey_scoresRK14ddTableResultsiPKiR9data_typeRiPA5_9list_type(
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %8, ptr noundef nonnull align 4 dereferenceable(20) %103, i64 20, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %103, ptr noundef nonnull align 4 dereferenceable(20) %106, i64 20, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %106, ptr noundef nonnull align 4 dereferenceable(20) %8, i64 20, i1 false)
-  %111 = trunc nuw nsw i64 %indvars.iv159 to i32
+  %111 = trunc nuw nsw i64 %indvars.iv160 to i32
   br label %112
 
 112:                                              ; preds = %.lr.ph, %110
-  %.1 = phi i32 [ %.0118150, %.lr.ph ], [ %111, %110 ]
-  %indvars.iv.next160 = add nuw nsw i64 %indvars.iv159, 1
-  %exitcond162.not = icmp eq i64 %indvars.iv.next160, %wide.trip.count
-  br i1 %exitcond162.not, label %._crit_edge, label %.lr.ph, !llvm.loop !14
+  %.1 = phi i32 [ %.0118151, %.lr.ph ], [ %111, %110 ]
+  %indvars.iv.next161 = add nuw nsw i64 %indvars.iv160, 1
+  %exitcond163.not = icmp eq i64 %indvars.iv.next161, %wide.trip.count
+  br i1 %exitcond163.not, label %._crit_edge, label %.lr.ph, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %112
-  %113 = icmp sgt i32 %.1, 0
-  br i1 %113, label %100, label %._crit_edge.thread, !llvm.loop !15
+  %.not140 = icmp eq i32 %.1, 0
+  br i1 %.not140, label %._crit_edge.thread, label %100, !llvm.loop !15
 
 ._crit_edge.thread:                               ; preds = %100, %._crit_edge
   store i32 5, ptr %4, align 4
-  br label %114
+  br label %113
 
-114:                                              ; preds = %._crit_edge.thread, %121
-  %indvars.iv163 = phi i64 [ 0, %._crit_edge.thread ], [ %indvars.iv.next164, %121 ]
-  %115 = phi i32 [ 5, %._crit_edge.thread ], [ %122, %121 ]
-  %116 = getelementptr inbounds [5 x %struct.list_type], ptr %5, i64 %78, i64 %indvars.iv163, i32 2
-  %117 = load i32, ptr %116, align 4
-  %118 = icmp slt i32 %117, %81
-  br i1 %118, label %119, label %121
+113:                                              ; preds = %._crit_edge.thread, %120
+  %indvars.iv164 = phi i64 [ 0, %._crit_edge.thread ], [ %indvars.iv.next165, %120 ]
+  %114 = phi i32 [ 5, %._crit_edge.thread ], [ %121, %120 ]
+  %115 = getelementptr inbounds [5 x %struct.list_type], ptr %5, i64 %78, i64 %indvars.iv164, i32 2
+  %116 = load i32, ptr %115, align 4
+  %117 = icmp slt i32 %116, %81
+  br i1 %117, label %118, label %120
 
-119:                                              ; preds = %114
-  %120 = add nsw i32 %115, -1
-  store i32 %120, ptr %4, align 4
-  br label %121
+118:                                              ; preds = %113
+  %119 = add nsw i32 %114, -1
+  store i32 %119, ptr %4, align 4
+  br label %120
 
-121:                                              ; preds = %114, %119
-  %122 = phi i32 [ %115, %114 ], [ %120, %119 ]
-  %indvars.iv.next164 = add nuw nsw i64 %indvars.iv163, 1
-  %exitcond166.not = icmp eq i64 %indvars.iv.next164, 5
-  br i1 %exitcond166.not, label %.loopexit, label %114, !llvm.loop !16
+120:                                              ; preds = %113, %118
+  %121 = phi i32 [ %114, %113 ], [ %119, %118 ]
+  %indvars.iv.next165 = add nuw nsw i64 %indvars.iv164, 1
+  %exitcond167.not = icmp eq i64 %indvars.iv.next165, 5
+  br i1 %exitcond167.not, label %.loopexit, label %113, !llvm.loop !16
 
-.loopexit:                                        ; preds = %121, %57
+.loopexit:                                        ; preds = %120, %57
   ret void
 }
 

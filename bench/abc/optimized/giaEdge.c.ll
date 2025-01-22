@@ -5429,7 +5429,7 @@ Vec_IntStart.exit108:                             ; preds = %Vec_IntAlloc.exit.t
   %.0142153 = phi ptr [ null, %Vec_IntStart.exit108 ], [ %.2144, %52 ]
   %58 = tail call i32 @Edg_ManEvalEdgeDelay(ptr noundef %0)
   %59 = tail call i32 @Edg_ManEvalEdgeDelayR(ptr noundef %0)
-  %60 = icmp sgt i32 %.082155, %58
+  %60 = icmp samesign ugt i32 %.082155, %58
   br i1 %60, label %61, label %98
 
 61:                                               ; preds = %57

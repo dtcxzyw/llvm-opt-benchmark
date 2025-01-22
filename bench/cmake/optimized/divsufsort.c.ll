@@ -5455,7 +5455,7 @@ ss_heapsort.exit:                                 ; preds = %ss_fixdown.exit67.t
   %295 = getelementptr i8, ptr %294, i64 -1
   %296 = load i8, ptr %295, align 1
   %297 = zext i8 %296 to i32
-  %298 = icmp sgt i32 %.0386.lcssa, %297
+  %298 = icmp samesign ugt i32 %.0386.lcssa, %297
   br i1 %298, label %299, label %ss_partition.exit
 
 299:                                              ; preds = %._crit_edge651

@@ -176,7 +176,7 @@ while.body26.i.i:                                 ; preds = %land.rhs.i.i
 
 if.end28.i.i:                                     ; preds = %while.body26.i.i, %land.rhs.i.i, %if.then17.i.i
   %skip.1.i.i = phi i64 [ %skip.042.i.i, %if.then17.i.i ], [ 3, %while.body26.i.i ], [ %skip.239.i.i, %land.rhs.i.i ]
-  %add.ptr29.i.i = getelementptr inbounds i8, ptr %i.1.i.i, i64 %skip.1.i.i
+  %add.ptr29.i.i = getelementptr inbounds nuw i8, ptr %i.1.i.i, i64 %skip.1.i.i
   %cmp7.i.i = icmp ult ptr %add.ptr29.i.i, %add.ptr.i1.i
   br i1 %cmp7.i.i, label %while.cond8.preheader.i.i, label %sw.epilog, !llvm.loop !8
 

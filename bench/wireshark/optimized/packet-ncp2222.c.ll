@@ -13543,7 +13543,7 @@ thread-pre-split:                                 ; preds = %266, %dissect_nds_r
 781:                                              ; preds = %1143
   %782 = add i16 %.1396.i, 1
   %783 = zext i16 %782 to i32
-  %.not.i291 = icmp ult i32 %.1392.i, %783
+  %.not.i291 = icmp samesign ult i32 %.1392.i, %783
   br i1 %.not.i291, label %dissect_ncp_8x20reply.exit, label %784, !llvm.loop !12
 
 784:                                              ; preds = %781, %.lr.ph435.i

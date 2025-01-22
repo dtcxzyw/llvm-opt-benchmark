@@ -978,8 +978,7 @@ define i32 @WebPMuxAssemble(ptr noundef %0, ptr noundef writeonly %1) local_unna
 .lr.ph.i.i.outer.i.outer:                         ; preds = %54, %.lr.ph.i.i.i._crit_edge.thread
   %.ph.i.ph = phi ptr [ %.pre.i.i.i78, %.lr.ph.i.i.i._crit_edge.thread ], [ %56, %54 ]
   %.012.i.i.ph.i.ph = phi ptr [ %65, %.lr.ph.i.i.i._crit_edge.thread ], [ %55, %54 ]
-  %.not24.i = phi i1 [ true, %.lr.ph.i.i.i._crit_edge.thread ], [ false, %54 ]
-  %.0711.i.i.ph.i.ph = phi i32 [ 1, %.lr.ph.i.i.i._crit_edge.thread ], [ 0, %54 ]
+  %.not24.not.i = phi i1 [ false, %.lr.ph.i.i.i._crit_edge.thread ], [ true, %54 ]
   %57 = load i32, ptr %.ph.i.ph, align 8
   %58 = icmp eq i32 %57, %52
   br i1 %58, label %.thread.i.preheader, label %.lr.ph.i.i.i._crit_edge
@@ -990,7 +989,7 @@ define i32 @WebPMuxAssemble(ptr noundef %0, ptr noundef writeonly %1) local_unna
   br i1 %60, label %.thread.i.preheader.loopexit, label %.lr.ph.i.i.i._crit_edge, !llvm.loop !6
 
 .thread.i.preheader.loopexit:                     ; preds = %.lr.ph.i.i.outer.i
-  %61 = getelementptr inbounds nuw i8, ptr %.ph.i101, i64 24
+  %61 = getelementptr inbounds nuw i8, ptr %.ph.i99, i64 24
   br label %.thread.i.preheader
 
 .thread.i.preheader:                              ; preds = %.thread.i.preheader.loopexit, %.lr.ph.i.i.outer.i.outer
@@ -1004,8 +1003,8 @@ define i32 @WebPMuxAssemble(ptr noundef %0, ptr noundef writeonly %1) local_unna
   br i1 %63, label %.thread.i, label %.lr.ph.i.i.i._crit_edge.thread, !llvm.loop !6
 
 .lr.ph.i.i.i._crit_edge:                          ; preds = %.lr.ph.i.i.outer.i.outer, %.lr.ph.i.i.outer.i
-  %.ph.i101 = phi ptr [ %.pre.i.i.i, %.lr.ph.i.i.outer.i ], [ %.ph.i.ph, %.lr.ph.i.i.outer.i.outer ]
-  %64 = getelementptr inbounds nuw i8, ptr %.ph.i101, i64 24
+  %.ph.i99 = phi ptr [ %.pre.i.i.i, %.lr.ph.i.i.outer.i ], [ %.ph.i.ph, %.lr.ph.i.i.outer.i.outer ]
+  %64 = getelementptr inbounds nuw i8, ptr %.ph.i99, i64 24
   %.pre.i.i.i = load ptr, ptr %64, align 8
   %.not.i.i.i = icmp eq ptr %.pre.i.i.i, null
   br i1 %.not.i.i.i, label %MuxDeleteAllNamedData.exit.i, label %.lr.ph.i.i.outer.i, !llvm.loop !6
@@ -1024,10 +1023,10 @@ define i32 @WebPMuxAssemble(ptr noundef %0, ptr noundef writeonly %1) local_unna
   br i1 %.not.i.i29.i, label %.loopexit, label %.lr.ph.i.i.i, !llvm.loop !6
 
 MuxDeleteAllNamedData.exit.i:                     ; preds = %.lr.ph.i.i.i._crit_edge
-  br i1 %.not24.i, label %.loopexit, label %MuxCleanup.exit.thread
+  br i1 %.not24.not.i, label %MuxCleanup.exit.thread, label %.loopexit
 
 MuxCleanup.exit.thread:                           ; preds = %11, %17, %43, %MuxDeleteAllNamedData.exit.i, %54, %51, %51, %51
-  %.0.i.ph = phi i32 [ -1, %51 ], [ -1, %51 ], [ -1, %51 ], [ 0, %54 ], [ %.0711.i.i.ph.i.ph, %MuxDeleteAllNamedData.exit.i ], [ %45, %43 ], [ %18, %17 ], [ %13, %11 ]
+  %.0.i.ph = phi i32 [ -1, %51 ], [ -1, %51 ], [ -1, %51 ], [ 0, %54 ], [ 0, %MuxDeleteAllNamedData.exit.i ], [ %45, %43 ], [ %18, %17 ], [ %13, %11 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)

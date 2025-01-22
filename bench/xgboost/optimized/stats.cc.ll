@@ -11336,9 +11336,9 @@ _ZN14__gnu_parallel10_LoserTreeILb1EmZN7xgboost6common8QuantileINS2_18IndexTrans
   %99 = icmp sgt i64 %3, 0
   br i1 %99, label %.lr.ph88, label %._crit_edge89
 
-.lr.ph88:                                         ; preds = %_ZN14__gnu_parallel10_LoserTreeILb1EmZN7xgboost6common8QuantileINS2_18IndexTransformIterIZNS1_6linalg6cbeginIKfLi1EEEDaRKNS5_10TensorViewIT_XT0_EEEEUlmE_EEEEfPKNS1_7ContextEdRKS9_SJ_EUlmmE0_E6__initEv.exit, %208
-  %.087 = phi i64 [ %213, %208 ], [ 0, %_ZN14__gnu_parallel10_LoserTreeILb1EmZN7xgboost6common8QuantileINS2_18IndexTransformIterIZNS1_6linalg6cbeginIKfLi1EEEDaRKNS5_10TensorViewIT_XT0_EEEEUlmE_EEEEfPKNS1_7ContextEdRKS9_SJ_EUlmmE0_E6__initEv.exit ]
-  %.sroa.069.086 = phi ptr [ %108, %208 ], [ %2, %_ZN14__gnu_parallel10_LoserTreeILb1EmZN7xgboost6common8QuantileINS2_18IndexTransformIterIZNS1_6linalg6cbeginIKfLi1EEEDaRKNS5_10TensorViewIT_XT0_EEEEUlmE_EEEEfPKNS1_7ContextEdRKS9_SJ_EUlmmE0_E6__initEv.exit ]
+.lr.ph88:                                         ; preds = %_ZN14__gnu_parallel10_LoserTreeILb1EmZN7xgboost6common8QuantileINS2_18IndexTransformIterIZNS1_6linalg6cbeginIKfLi1EEEDaRKNS5_10TensorViewIT_XT0_EEEEUlmE_EEEEfPKNS1_7ContextEdRKS9_SJ_EUlmmE0_E6__initEv.exit, %206
+  %.087 = phi i64 [ %211, %206 ], [ 0, %_ZN14__gnu_parallel10_LoserTreeILb1EmZN7xgboost6common8QuantileINS2_18IndexTransformIterIZNS1_6linalg6cbeginIKfLi1EEEDaRKNS5_10TensorViewIT_XT0_EEEEUlmE_EEEEfPKNS1_7ContextEdRKS9_SJ_EUlmmE0_E6__initEv.exit ]
+  %.sroa.069.086 = phi ptr [ %108, %206 ], [ %2, %_ZN14__gnu_parallel10_LoserTreeILb1EmZN7xgboost6common8QuantileINS2_18IndexTransformIterIZNS1_6linalg6cbeginIKfLi1EEEDaRKNS5_10TensorViewIT_XT0_EEEEUlmE_EEEEfPKNS1_7ContextEdRKS9_SJ_EUlmmE0_E6__initEv.exit ]
   %100 = load ptr, ptr %27, align 8
   %101 = getelementptr inbounds nuw i8, ptr %100, i64 4
   %102 = load i32, ptr %101, align 4
@@ -11358,7 +11358,7 @@ _ZN14__gnu_parallel10_LoserTreeILb1EmZN7xgboost6common8QuantileINS2_18IndexTrans
   %114 = load i32, ptr %21, align 4
   %115 = add i32 %114, %113
   %.not31.i = icmp ult i32 %115, 2
-  br i1 %112, label %116, label %162
+  br i1 %112, label %116, label %161
 
 116:                                              ; preds = %.lr.ph88
   %117 = load i64, ptr %.028.lcssa94, align 8
@@ -11370,7 +11370,7 @@ _ZN14__gnu_parallel10_LoserTreeILb1EmZN7xgboost6common8QuantileINS2_18IndexTrans
   %.02633.i = phi i8 [ %.127.i, %.thread.i ], [ 1, %116 ]
   %.02832.i = phi i64 [ %.129.i, %.thread.i ], [ %117, %116 ]
   %.035.i = lshr i32 %.035.in.i, 1
-  %118 = trunc i8 %.02633.i to i1
+  %118 = trunc nuw i8 %.02633.i to i1
   %119 = load ptr, ptr %27, align 8
   %120 = zext nneg i32 %.035.i to i64
   %121 = getelementptr inbounds nuw %"struct.__gnu_parallel::_LoserTreeBase<unsigned long, (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/xgboost/xgboost/src/common/stats.h:48:16)>::_Loser", ptr %119, i64 %120
@@ -11422,8 +11422,8 @@ _ZN14__gnu_parallel10_LoserTreeILb1EmZN7xgboost6common8QuantileINS2_18IndexTrans
   br i1 %151, label %152, label %.thread.i
 
 152:                                              ; preds = %148, %130, %125, %124
-  %153 = and i8 %.02633.i, 1
-  store i8 %153, ptr %121, align 1
+  %153 = and i8 %122, 1
+  store i8 %.02633.i, ptr %121, align 1
   %154 = load ptr, ptr %27, align 8
   %155 = getelementptr inbounds nuw %"struct.__gnu_parallel::_LoserTreeBase<unsigned long, (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/xgboost/xgboost/src/common/stats.h:48:16)>::_Loser", ptr %154, i64 %120, i32 1
   %156 = load i32, ptr %155, align 4
@@ -11436,135 +11436,133 @@ _ZN14__gnu_parallel10_LoserTreeILb1EmZN7xgboost6common8QuantileINS2_18IndexTrans
 
 .thread.i:                                        ; preds = %152, %148, %146, %129, %125
   %.129.i = phi i64 [ %159, %152 ], [ %.02832.i, %129 ], [ %.02832.i, %146 ], [ %.02832.i, %148 ], [ %.02832.i, %125 ]
-  %.127.i = phi i8 [ %122, %152 ], [ %.02633.i, %129 ], [ %.02633.i, %146 ], [ %.02633.i, %148 ], [ %.02633.i, %125 ]
+  %.127.i = phi i8 [ %153, %152 ], [ %.02633.i, %129 ], [ %.02633.i, %146 ], [ %.02633.i, %148 ], [ %.02633.i, %125 ]
   %.1.i = phi i32 [ %156, %152 ], [ %.02534.i, %129 ], [ %.02534.i, %146 ], [ %.02534.i, %148 ], [ %.02534.i, %125 ]
   %.not.i44 = icmp ult i32 %.035.in.i, 4
   br i1 %.not.i44, label %._crit_edge.loopexit.i, label %.lr.ph.i43, !llvm.loop !161
 
 ._crit_edge.loopexit.i:                           ; preds = %.thread.i
   %.pre.i45 = load ptr, ptr %27, align 8
-  %160 = and i8 %.127.i, 1
   br label %_ZN14__gnu_parallel10_LoserTreeILb1EmZN7xgboost6common8QuantileINS2_18IndexTransformIterIZNS1_6linalg6cbeginIKfLi1EEEDaRKNS5_10TensorViewIT_XT0_EEEEUlmE_EEEEfPKNS1_7ContextEdRKS9_SJ_EUlmmE0_E19__delete_min_insertEmb.exit
 
 _ZN14__gnu_parallel10_LoserTreeILb1EmZN7xgboost6common8QuantileINS2_18IndexTransformIterIZNS1_6linalg6cbeginIKfLi1EEEDaRKNS5_10TensorViewIT_XT0_EEEEUlmE_EEEEfPKNS1_7ContextEdRKS9_SJ_EUlmmE0_E19__delete_min_insertEmb.exit: ; preds = %116, %._crit_edge.loopexit.i
-  %161 = phi ptr [ %100, %116 ], [ %.pre.i45, %._crit_edge.loopexit.i ]
+  %160 = phi ptr [ %100, %116 ], [ %.pre.i45, %._crit_edge.loopexit.i ]
   %.028.lcssa.i = phi i64 [ %117, %116 ], [ %.129.i, %._crit_edge.loopexit.i ]
-  %.026.lcssa.i = phi i8 [ 1, %116 ], [ %160, %._crit_edge.loopexit.i ]
+  %.026.lcssa.i = phi i8 [ 1, %116 ], [ %.127.i, %._crit_edge.loopexit.i ]
   %.025.lcssa.i = phi i32 [ %113, %116 ], [ %.1.i, %._crit_edge.loopexit.i ]
-  store i8 %.026.lcssa.i, ptr %161, align 8
-  br label %208
+  store i8 %.026.lcssa.i, ptr %160, align 8
+  br label %206
 
-162:                                              ; preds = %.lr.ph88
-  %163 = load i64, ptr %109, align 8
+161:                                              ; preds = %.lr.ph88
+  %162 = load i64, ptr %109, align 8
   br i1 %.not31.i, label %_ZN14__gnu_parallel10_LoserTreeILb1EmZN7xgboost6common8QuantileINS2_18IndexTransformIterIZNS1_6linalg6cbeginIKfLi1EEEDaRKNS5_10TensorViewIT_XT0_EEEEUlmE_EEEEfPKNS1_7ContextEdRKS9_SJ_EUlmmE0_E19__delete_min_insertEmb.exit68, label %.lr.ph.i48
 
-.lr.ph.i48:                                       ; preds = %162, %.thread.i57
-  %.035.in.i49 = phi i32 [ %.035.i53, %.thread.i57 ], [ %115, %162 ]
-  %.02534.i50 = phi i32 [ %.1.i60, %.thread.i57 ], [ %113, %162 ]
-  %.02633.i51 = phi i8 [ %.127.i59, %.thread.i57 ], [ 0, %162 ]
-  %.02832.i52 = phi i64 [ %.129.i58, %.thread.i57 ], [ %163, %162 ]
+.lr.ph.i48:                                       ; preds = %161, %.thread.i57
+  %.035.in.i49 = phi i32 [ %.035.i53, %.thread.i57 ], [ %115, %161 ]
+  %.02534.i50 = phi i32 [ %.1.i60, %.thread.i57 ], [ %113, %161 ]
+  %.02633.i51 = phi i8 [ %.127.i59, %.thread.i57 ], [ 0, %161 ]
+  %.02832.i52 = phi i64 [ %.129.i58, %.thread.i57 ], [ %162, %161 ]
   %.035.i53 = lshr i32 %.035.in.i49, 1
-  %164 = trunc i8 %.02633.i51 to i1
-  %165 = load ptr, ptr %27, align 8
-  %166 = zext nneg i32 %.035.i53 to i64
-  %167 = getelementptr inbounds nuw %"struct.__gnu_parallel::_LoserTreeBase<unsigned long, (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/xgboost/xgboost/src/common/stats.h:48:16)>::_Loser", ptr %165, i64 %166
-  %168 = load i8, ptr %167, align 8
-  %169 = trunc i8 %168 to i1
-  br i1 %164, label %170, label %175
+  %163 = trunc nuw i8 %.02633.i51 to i1
+  %164 = load ptr, ptr %27, align 8
+  %165 = zext nneg i32 %.035.i53 to i64
+  %166 = getelementptr inbounds nuw %"struct.__gnu_parallel::_LoserTreeBase<unsigned long, (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/xgboost/xgboost/src/common/stats.h:48:16)>::_Loser", ptr %164, i64 %165
+  %167 = load i8, ptr %166, align 8
+  %168 = trunc i8 %167 to i1
+  br i1 %163, label %169, label %174
 
-170:                                              ; preds = %.lr.ph.i48
-  br i1 %169, label %171, label %198
+169:                                              ; preds = %.lr.ph.i48
+  br i1 %168, label %170, label %197
 
-171:                                              ; preds = %170
-  %172 = getelementptr inbounds nuw i8, ptr %167, i64 4
-  %173 = load i32, ptr %172, align 4
-  %174 = icmp slt i32 %173, %.02534.i50
-  br i1 %174, label %198, label %.thread.i57
+170:                                              ; preds = %169
+  %171 = getelementptr inbounds nuw i8, ptr %166, i64 4
+  %172 = load i32, ptr %171, align 4
+  %173 = icmp slt i32 %172, %.02534.i50
+  br i1 %173, label %197, label %.thread.i57
 
-175:                                              ; preds = %.lr.ph.i48
-  br i1 %169, label %.thread.i57, label %176
+174:                                              ; preds = %.lr.ph.i48
+  br i1 %168, label %.thread.i57, label %175
 
-176:                                              ; preds = %175
-  %177 = getelementptr inbounds nuw i8, ptr %167, i64 8
-  %178 = load i64, ptr %177, align 8
-  %179 = load ptr, ptr %12, align 8
-  %.sroa.0.0.copyload1.i.i.i54 = load i64, ptr %179, align 8
-  %.sroa.4.0..sroa_idx.i.i.i55 = getelementptr inbounds nuw i8, ptr %179, i64 8
+175:                                              ; preds = %174
+  %176 = getelementptr inbounds nuw i8, ptr %166, i64 8
+  %177 = load i64, ptr %176, align 8
+  %178 = load ptr, ptr %12, align 8
+  %.sroa.0.0.copyload1.i.i.i54 = load i64, ptr %178, align 8
+  %.sroa.4.0..sroa_idx.i.i.i55 = getelementptr inbounds nuw i8, ptr %178, i64 8
   %.sroa.4.0.copyload.i.i.i56 = load ptr, ptr %.sroa.4.0..sroa_idx.i.i.i55, align 8
-  %180 = add i64 %.sroa.0.0.copyload1.i.i.i54, %178
-  %181 = load i64, ptr %.sroa.4.0.copyload.i.i.i56, align 8
-  %182 = mul i64 %181, %180
-  %183 = getelementptr inbounds nuw i8, ptr %.sroa.4.0.copyload.i.i.i56, i64 32
-  %184 = load ptr, ptr %183, align 8
-  %185 = getelementptr inbounds float, ptr %184, i64 %182
-  %186 = load float, ptr %185, align 4
-  %187 = add i64 %.sroa.0.0.copyload1.i.i.i54, %.02832.i52
-  %188 = mul i64 %181, %187
-  %189 = getelementptr inbounds float, ptr %184, i64 %188
-  %190 = load float, ptr %189, align 4
-  %191 = fcmp olt float %186, %190
-  br i1 %191, label %198, label %192
+  %179 = add i64 %.sroa.0.0.copyload1.i.i.i54, %177
+  %180 = load i64, ptr %.sroa.4.0.copyload.i.i.i56, align 8
+  %181 = mul i64 %180, %179
+  %182 = getelementptr inbounds nuw i8, ptr %.sroa.4.0.copyload.i.i.i56, i64 32
+  %183 = load ptr, ptr %182, align 8
+  %184 = getelementptr inbounds float, ptr %183, i64 %181
+  %185 = load float, ptr %184, align 4
+  %186 = add i64 %.sroa.0.0.copyload1.i.i.i54, %.02832.i52
+  %187 = mul i64 %180, %186
+  %188 = getelementptr inbounds float, ptr %183, i64 %187
+  %189 = load float, ptr %188, align 4
+  %190 = fcmp olt float %185, %189
+  br i1 %190, label %197, label %191
 
-192:                                              ; preds = %176
-  %193 = fcmp olt float %190, %186
-  br i1 %193, label %.thread.i57, label %194
+191:                                              ; preds = %175
+  %192 = fcmp olt float %189, %185
+  br i1 %192, label %.thread.i57, label %193
 
-194:                                              ; preds = %192
-  %195 = getelementptr inbounds nuw %"struct.__gnu_parallel::_LoserTreeBase<unsigned long, (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/xgboost/xgboost/src/common/stats.h:48:16)>::_Loser", ptr %165, i64 %166, i32 1
-  %196 = load i32, ptr %195, align 4
-  %197 = icmp slt i32 %196, %.02534.i50
-  br i1 %197, label %198, label %.thread.i57
+193:                                              ; preds = %191
+  %194 = getelementptr inbounds nuw %"struct.__gnu_parallel::_LoserTreeBase<unsigned long, (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/xgboost/xgboost/src/common/stats.h:48:16)>::_Loser", ptr %164, i64 %165, i32 1
+  %195 = load i32, ptr %194, align 4
+  %196 = icmp slt i32 %195, %.02534.i50
+  br i1 %196, label %197, label %.thread.i57
 
-198:                                              ; preds = %194, %176, %171, %170
-  %199 = and i8 %.02633.i51, 1
-  store i8 %199, ptr %167, align 1
-  %200 = load ptr, ptr %27, align 8
-  %201 = getelementptr inbounds nuw %"struct.__gnu_parallel::_LoserTreeBase<unsigned long, (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/xgboost/xgboost/src/common/stats.h:48:16)>::_Loser", ptr %200, i64 %166, i32 1
-  %202 = load i32, ptr %201, align 4
-  store i32 %.02534.i50, ptr %201, align 4
-  %203 = load ptr, ptr %27, align 8
-  %204 = getelementptr inbounds nuw %"struct.__gnu_parallel::_LoserTreeBase<unsigned long, (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/xgboost/xgboost/src/common/stats.h:48:16)>::_Loser", ptr %203, i64 %166, i32 2
-  %205 = load i64, ptr %204, align 8
-  store i64 %.02832.i52, ptr %204, align 8
+197:                                              ; preds = %193, %175, %170, %169
+  %198 = and i8 %167, 1
+  store i8 %.02633.i51, ptr %166, align 1
+  %199 = load ptr, ptr %27, align 8
+  %200 = getelementptr inbounds nuw %"struct.__gnu_parallel::_LoserTreeBase<unsigned long, (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/xgboost/xgboost/src/common/stats.h:48:16)>::_Loser", ptr %199, i64 %165, i32 1
+  %201 = load i32, ptr %200, align 4
+  store i32 %.02534.i50, ptr %200, align 4
+  %202 = load ptr, ptr %27, align 8
+  %203 = getelementptr inbounds nuw %"struct.__gnu_parallel::_LoserTreeBase<unsigned long, (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/xgboost/xgboost/src/common/stats.h:48:16)>::_Loser", ptr %202, i64 %165, i32 2
+  %204 = load i64, ptr %203, align 8
+  store i64 %.02832.i52, ptr %203, align 8
   br label %.thread.i57
 
-.thread.i57:                                      ; preds = %198, %194, %192, %175, %171
-  %.129.i58 = phi i64 [ %205, %198 ], [ %.02832.i52, %175 ], [ %.02832.i52, %192 ], [ %.02832.i52, %194 ], [ %.02832.i52, %171 ]
-  %.127.i59 = phi i8 [ %168, %198 ], [ %.02633.i51, %175 ], [ %.02633.i51, %192 ], [ %.02633.i51, %194 ], [ %.02633.i51, %171 ]
-  %.1.i60 = phi i32 [ %202, %198 ], [ %.02534.i50, %175 ], [ %.02534.i50, %192 ], [ %.02534.i50, %194 ], [ %.02534.i50, %171 ]
+.thread.i57:                                      ; preds = %197, %193, %191, %174, %170
+  %.129.i58 = phi i64 [ %204, %197 ], [ %.02832.i52, %174 ], [ %.02832.i52, %191 ], [ %.02832.i52, %193 ], [ %.02832.i52, %170 ]
+  %.127.i59 = phi i8 [ %198, %197 ], [ %.02633.i51, %174 ], [ %.02633.i51, %191 ], [ %.02633.i51, %193 ], [ %.02633.i51, %170 ]
+  %.1.i60 = phi i32 [ %201, %197 ], [ %.02534.i50, %174 ], [ %.02534.i50, %191 ], [ %.02534.i50, %193 ], [ %.02534.i50, %170 ]
   %.not.i61 = icmp ult i32 %.035.in.i49, 4
   br i1 %.not.i61, label %._crit_edge.loopexit.i62, label %.lr.ph.i48, !llvm.loop !161
 
 ._crit_edge.loopexit.i62:                         ; preds = %.thread.i57
   %.pre.i63 = load ptr, ptr %27, align 8
-  %206 = and i8 %.127.i59, 1
   br label %_ZN14__gnu_parallel10_LoserTreeILb1EmZN7xgboost6common8QuantileINS2_18IndexTransformIterIZNS1_6linalg6cbeginIKfLi1EEEDaRKNS5_10TensorViewIT_XT0_EEEEUlmE_EEEEfPKNS1_7ContextEdRKS9_SJ_EUlmmE0_E19__delete_min_insertEmb.exit68
 
-_ZN14__gnu_parallel10_LoserTreeILb1EmZN7xgboost6common8QuantileINS2_18IndexTransformIterIZNS1_6linalg6cbeginIKfLi1EEEDaRKNS5_10TensorViewIT_XT0_EEEEUlmE_EEEEfPKNS1_7ContextEdRKS9_SJ_EUlmmE0_E19__delete_min_insertEmb.exit68: ; preds = %162, %._crit_edge.loopexit.i62
-  %207 = phi ptr [ %100, %162 ], [ %.pre.i63, %._crit_edge.loopexit.i62 ]
-  %.028.lcssa.i65 = phi i64 [ %163, %162 ], [ %.129.i58, %._crit_edge.loopexit.i62 ]
-  %.026.lcssa.i66 = phi i8 [ 0, %162 ], [ %206, %._crit_edge.loopexit.i62 ]
-  %.025.lcssa.i67 = phi i32 [ %113, %162 ], [ %.1.i60, %._crit_edge.loopexit.i62 ]
-  store i8 %.026.lcssa.i66, ptr %207, align 8
-  br label %208
+_ZN14__gnu_parallel10_LoserTreeILb1EmZN7xgboost6common8QuantileINS2_18IndexTransformIterIZNS1_6linalg6cbeginIKfLi1EEEDaRKNS5_10TensorViewIT_XT0_EEEEUlmE_EEEEfPKNS1_7ContextEdRKS9_SJ_EUlmmE0_E19__delete_min_insertEmb.exit68: ; preds = %161, %._crit_edge.loopexit.i62
+  %205 = phi ptr [ %100, %161 ], [ %.pre.i63, %._crit_edge.loopexit.i62 ]
+  %.028.lcssa.i65 = phi i64 [ %162, %161 ], [ %.129.i58, %._crit_edge.loopexit.i62 ]
+  %.026.lcssa.i66 = phi i8 [ 0, %161 ], [ %.127.i59, %._crit_edge.loopexit.i62 ]
+  %.025.lcssa.i67 = phi i32 [ %113, %161 ], [ %.1.i60, %._crit_edge.loopexit.i62 ]
+  store i8 %.026.lcssa.i66, ptr %205, align 8
+  br label %206
 
-208:                                              ; preds = %_ZN14__gnu_parallel10_LoserTreeILb1EmZN7xgboost6common8QuantileINS2_18IndexTransformIterIZNS1_6linalg6cbeginIKfLi1EEEDaRKNS5_10TensorViewIT_XT0_EEEEUlmE_EEEEfPKNS1_7ContextEdRKS9_SJ_EUlmmE0_E19__delete_min_insertEmb.exit68, %_ZN14__gnu_parallel10_LoserTreeILb1EmZN7xgboost6common8QuantileINS2_18IndexTransformIterIZNS1_6linalg6cbeginIKfLi1EEEDaRKNS5_10TensorViewIT_XT0_EEEEUlmE_EEEEfPKNS1_7ContextEdRKS9_SJ_EUlmmE0_E19__delete_min_insertEmb.exit
+206:                                              ; preds = %_ZN14__gnu_parallel10_LoserTreeILb1EmZN7xgboost6common8QuantileINS2_18IndexTransformIterIZNS1_6linalg6cbeginIKfLi1EEEDaRKNS5_10TensorViewIT_XT0_EEEEUlmE_EEEEfPKNS1_7ContextEdRKS9_SJ_EUlmmE0_E19__delete_min_insertEmb.exit68, %_ZN14__gnu_parallel10_LoserTreeILb1EmZN7xgboost6common8QuantileINS2_18IndexTransformIterIZNS1_6linalg6cbeginIKfLi1EEEDaRKNS5_10TensorViewIT_XT0_EEEEUlmE_EEEEfPKNS1_7ContextEdRKS9_SJ_EUlmmE0_E19__delete_min_insertEmb.exit
   %.025.lcssa.i67.sink = phi i32 [ %.025.lcssa.i67, %_ZN14__gnu_parallel10_LoserTreeILb1EmZN7xgboost6common8QuantileINS2_18IndexTransformIterIZNS1_6linalg6cbeginIKfLi1EEEDaRKNS5_10TensorViewIT_XT0_EEEEUlmE_EEEEfPKNS1_7ContextEdRKS9_SJ_EUlmmE0_E19__delete_min_insertEmb.exit68 ], [ %.025.lcssa.i, %_ZN14__gnu_parallel10_LoserTreeILb1EmZN7xgboost6common8QuantileINS2_18IndexTransformIterIZNS1_6linalg6cbeginIKfLi1EEEDaRKNS5_10TensorViewIT_XT0_EEEEUlmE_EEEEfPKNS1_7ContextEdRKS9_SJ_EUlmmE0_E19__delete_min_insertEmb.exit ]
   %.028.lcssa.i65.sink = phi i64 [ %.028.lcssa.i65, %_ZN14__gnu_parallel10_LoserTreeILb1EmZN7xgboost6common8QuantileINS2_18IndexTransformIterIZNS1_6linalg6cbeginIKfLi1EEEDaRKNS5_10TensorViewIT_XT0_EEEEUlmE_EEEEfPKNS1_7ContextEdRKS9_SJ_EUlmmE0_E19__delete_min_insertEmb.exit68 ], [ %.028.lcssa.i, %_ZN14__gnu_parallel10_LoserTreeILb1EmZN7xgboost6common8QuantileINS2_18IndexTransformIterIZNS1_6linalg6cbeginIKfLi1EEEDaRKNS5_10TensorViewIT_XT0_EEEEUlmE_EEEEfPKNS1_7ContextEdRKS9_SJ_EUlmmE0_E19__delete_min_insertEmb.exit ]
+  %207 = load ptr, ptr %27, align 8
+  %208 = getelementptr inbounds nuw i8, ptr %207, i64 4
+  store i32 %.025.lcssa.i67.sink, ptr %208, align 4
   %209 = load ptr, ptr %27, align 8
-  %210 = getelementptr inbounds nuw i8, ptr %209, i64 4
-  store i32 %.025.lcssa.i67.sink, ptr %210, align 4
-  %211 = load ptr, ptr %27, align 8
-  %212 = getelementptr inbounds nuw i8, ptr %211, i64 8
-  store i64 %.028.lcssa.i65.sink, ptr %212, align 8
-  %213 = add nuw nsw i64 %.087, 1
-  %exitcond92.not = icmp eq i64 %213, %3
+  %210 = getelementptr inbounds nuw i8, ptr %209, i64 8
+  store i64 %.028.lcssa.i65.sink, ptr %210, align 8
+  %211 = add nuw nsw i64 %.087, 1
+  %exitcond92.not = icmp eq i64 %211, %3
   br i1 %exitcond92.not, label %._crit_edge89, label %.lr.ph88, !llvm.loop !162
 
-._crit_edge89:                                    ; preds = %208, %_ZN14__gnu_parallel10_LoserTreeILb1EmZN7xgboost6common8QuantileINS2_18IndexTransformIterIZNS1_6linalg6cbeginIKfLi1EEEDaRKNS5_10TensorViewIT_XT0_EEEEUlmE_EEEEfPKNS1_7ContextEdRKS9_SJ_EUlmmE0_E6__initEv.exit
-  %.sroa.069.0.lcssa = phi ptr [ %2, %_ZN14__gnu_parallel10_LoserTreeILb1EmZN7xgboost6common8QuantileINS2_18IndexTransformIterIZNS1_6linalg6cbeginIKfLi1EEEDaRKNS5_10TensorViewIT_XT0_EEEEUlmE_EEEEfPKNS1_7ContextEdRKS9_SJ_EUlmmE0_E6__initEv.exit ], [ %108, %208 ]
-  %214 = load ptr, ptr %27, align 8
-  call void @_ZdlPv(ptr noundef %214) #8
+._crit_edge89:                                    ; preds = %206, %_ZN14__gnu_parallel10_LoserTreeILb1EmZN7xgboost6common8QuantileINS2_18IndexTransformIterIZNS1_6linalg6cbeginIKfLi1EEEDaRKNS5_10TensorViewIT_XT0_EEEEUlmE_EEEEfPKNS1_7ContextEdRKS9_SJ_EUlmmE0_E6__initEv.exit
+  %.sroa.069.0.lcssa = phi ptr [ %2, %_ZN14__gnu_parallel10_LoserTreeILb1EmZN7xgboost6common8QuantileINS2_18IndexTransformIterIZNS1_6linalg6cbeginIKfLi1EEEDaRKNS5_10TensorViewIT_XT0_EEEEUlmE_EEEEfPKNS1_7ContextEdRKS9_SJ_EUlmmE0_E6__initEv.exit ], [ %108, %206 ]
+  %212 = load ptr, ptr %27, align 8
+  call void @_ZdlPv(ptr noundef %212) #8
   ret ptr %.sroa.069.0.lcssa
 }
 
@@ -18741,9 +18739,9 @@ _ZN14__gnu_parallel9__rd_log2IjEET_S1_.exit.i.i.i.i.i.i.i: ; preds = %_ZN14__gnu
   %2613 = icmp sgt i64 %.sroa.speculated.i.i.i, 0
   br i1 %2613, label %.lr.ph93.i.i.i.i.i, label %"_ZN14__gnu_parallel42__multiway_merge_k_variant_sentinel_switchILb0ELb1EN9__gnu_cxx17__normal_iteratorIPSt4pairIPmS4_ESt6vectorIS5_SaIS5_EEEENS2_IS4_S7_ImSaImEEEElZN7xgboost6common16WeightedQuantileINSF_18IndexTransformIterIZNSE_6linalg6cbeginIKfLi1EEEDaRKNSI_10TensorViewIT_XT0_EEEEUlmE_EENSH_IZNSF_6MedianEPKNSE_7ContextERKNSI_6TensorIfLi2EEERKNSE_16HostDeviceVectorIfEEPNSV_IfLi1EEEE3$_0EEEEfSU_dSM_SM_T0_EUlmmE0_EclESA_SA_SD_RKmlS18_.exit.i.i.i"
 
-.lr.ph93.i.i.i.i.i:                               ; preds = %._crit_edge.i.i52.i.i.i, %2720
-  %.091.i.i.i.i.i = phi i64 [ %2725, %2720 ], [ 0, %._crit_edge.i.i52.i.i.i ]
-  %.sroa.073.090.i.i.i.i.i = phi ptr [ %2620, %2720 ], [ %723, %._crit_edge.i.i52.i.i.i ]
+.lr.ph93.i.i.i.i.i:                               ; preds = %._crit_edge.i.i52.i.i.i, %2718
+  %.091.i.i.i.i.i = phi i64 [ %2723, %2718 ], [ 0, %._crit_edge.i.i52.i.i.i ]
+  %.sroa.073.090.i.i.i.i.i = phi ptr [ %2620, %2718 ], [ %723, %._crit_edge.i.i52.i.i.i ]
   %.val35.i.i.i.i.i = load ptr, ptr %2545, align 8
   %2614 = getelementptr i8, ptr %.val35.i.i.i.i.i, i64 4
   %.val35.val.i.i.i.i.i = load i32, ptr %2614, align 4
@@ -18763,7 +18761,7 @@ _ZN14__gnu_parallel9__rd_log2IjEET_S1_.exit.i.i.i.i.i.i.i: ; preds = %_ZN14__gnu
   %2626 = load i32, ptr %2539, align 4
   %2627 = add i32 %2626, %2625
   %.not31.i.i.i.i.i.i = icmp ult i32 %2627, 2
-  br i1 %2624, label %2628, label %2674
+  br i1 %2624, label %2628, label %2673
 
 2628:                                             ; preds = %.lr.ph93.i.i.i.i.i
   %2629 = load i64, ptr %.1.i.i.i.i.i, align 8
@@ -18775,7 +18773,7 @@ _ZN14__gnu_parallel9__rd_log2IjEET_S1_.exit.i.i.i.i.i.i.i: ; preds = %_ZN14__gnu
   %.02633.i.i.i.i.i.i = phi i8 [ %.127.i.i.i.i.i.i, %.thread.i.i.i.i.i.i ], [ 1, %2628 ]
   %.02832.i.i.i.i.i.i = phi i64 [ %.129.i.i.i.i.i.i, %.thread.i.i.i.i.i.i ], [ %2629, %2628 ]
   %.035.i.i.i.i.i.i = lshr i32 %.035.in.i.i.i.i.i.i, 1
-  %2630 = trunc i8 %.02633.i.i.i.i.i.i to i1
+  %2630 = trunc nuw i8 %.02633.i.i.i.i.i.i to i1
   %2631 = load ptr, ptr %2545, align 8
   %2632 = zext nneg i32 %.035.i.i.i.i.i.i to i64
   %2633 = getelementptr inbounds nuw %"struct.__gnu_parallel::_LoserTreeBase<unsigned long, (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/xgboost/xgboost/src/common/stats.h:91:16)>::_Loser", ptr %2631, i64 %2632
@@ -18827,8 +18825,8 @@ _ZN14__gnu_parallel9__rd_log2IjEET_S1_.exit.i.i.i.i.i.i.i: ; preds = %_ZN14__gnu
   br i1 %2663, label %2664, label %.thread.i.i.i.i.i.i
 
 2664:                                             ; preds = %2660, %2642, %2637, %2636
-  %2665 = and i8 %.02633.i.i.i.i.i.i, 1
-  store i8 %2665, ptr %2633, align 1
+  %2665 = and i8 %2634, 1
+  store i8 %.02633.i.i.i.i.i.i, ptr %2633, align 1
   %2666 = load ptr, ptr %2545, align 8
   %2667 = getelementptr inbounds nuw %"struct.__gnu_parallel::_LoserTreeBase<unsigned long, (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/xgboost/xgboost/src/common/stats.h:91:16)>::_Loser", ptr %2666, i64 %2632, i32 1
   %2668 = load i32, ptr %2667, align 4
@@ -18841,132 +18839,130 @@ _ZN14__gnu_parallel9__rd_log2IjEET_S1_.exit.i.i.i.i.i.i.i: ; preds = %_ZN14__gnu
 
 .thread.i.i.i.i.i.i:                              ; preds = %2664, %2660, %2658, %2641, %2637
   %.129.i.i.i.i.i.i = phi i64 [ %2671, %2664 ], [ %.02832.i.i.i.i.i.i, %2641 ], [ %.02832.i.i.i.i.i.i, %2658 ], [ %.02832.i.i.i.i.i.i, %2660 ], [ %.02832.i.i.i.i.i.i, %2637 ]
-  %.127.i.i.i.i.i.i = phi i8 [ %2634, %2664 ], [ %.02633.i.i.i.i.i.i, %2641 ], [ %.02633.i.i.i.i.i.i, %2658 ], [ %.02633.i.i.i.i.i.i, %2660 ], [ %.02633.i.i.i.i.i.i, %2637 ]
+  %.127.i.i.i.i.i.i = phi i8 [ %2665, %2664 ], [ %.02633.i.i.i.i.i.i, %2641 ], [ %.02633.i.i.i.i.i.i, %2658 ], [ %.02633.i.i.i.i.i.i, %2660 ], [ %.02633.i.i.i.i.i.i, %2637 ]
   %.1.i.i.i.i.i.i = phi i32 [ %2668, %2664 ], [ %.02534.i.i.i.i.i.i, %2641 ], [ %.02534.i.i.i.i.i.i, %2658 ], [ %.02534.i.i.i.i.i.i, %2660 ], [ %.02534.i.i.i.i.i.i, %2637 ]
   %.not.i48.i.i.i.i.i = icmp ult i32 %.035.in.i.i.i.i.i.i, 4
   br i1 %.not.i48.i.i.i.i.i, label %._crit_edge.loopexit.i.i.i.i.i.i, label %.lr.ph.i47.i.i.i.i.i, !llvm.loop !224
 
 ._crit_edge.loopexit.i.i.i.i.i.i:                 ; preds = %.thread.i.i.i.i.i.i
   %.pre.i49.i.i.i.i.i = load ptr, ptr %2545, align 8
-  %2672 = and i8 %.127.i.i.i.i.i.i, 1
   br label %"_ZN14__gnu_parallel10_LoserTreeILb1EmZN7xgboost6common16WeightedQuantileINS2_18IndexTransformIterIZNS1_6linalg6cbeginIKfLi1EEEDaRKNS5_10TensorViewIT_XT0_EEEEUlmE_EENS4_IZNS2_6MedianEPKNS1_7ContextERKNS5_6TensorIfLi2EEERKNS1_16HostDeviceVectorIfEEPNSI_IfLi1EEEE3$_0EEEEfSH_dS9_S9_T0_EUlmmE0_E19__delete_min_insertEmb.exit.i.i.i.i.i"
 
 "_ZN14__gnu_parallel10_LoserTreeILb1EmZN7xgboost6common16WeightedQuantileINS2_18IndexTransformIterIZNS1_6linalg6cbeginIKfLi1EEEDaRKNS5_10TensorViewIT_XT0_EEEEUlmE_EENS4_IZNS2_6MedianEPKNS1_7ContextERKNS5_6TensorIfLi2EEERKNS1_16HostDeviceVectorIfEEPNSI_IfLi1EEEE3$_0EEEEfSH_dS9_S9_T0_EUlmmE0_E19__delete_min_insertEmb.exit.i.i.i.i.i": ; preds = %._crit_edge.loopexit.i.i.i.i.i.i, %2628
-  %2673 = phi ptr [ %.val35.i.i.i.i.i, %2628 ], [ %.pre.i49.i.i.i.i.i, %._crit_edge.loopexit.i.i.i.i.i.i ]
+  %2672 = phi ptr [ %.val35.i.i.i.i.i, %2628 ], [ %.pre.i49.i.i.i.i.i, %._crit_edge.loopexit.i.i.i.i.i.i ]
   %.028.lcssa.i.i.i.i.i.i = phi i64 [ %2629, %2628 ], [ %.129.i.i.i.i.i.i, %._crit_edge.loopexit.i.i.i.i.i.i ]
-  %.026.lcssa.i.i.i.i.i.i = phi i8 [ 1, %2628 ], [ %2672, %._crit_edge.loopexit.i.i.i.i.i.i ]
+  %.026.lcssa.i.i.i.i.i.i = phi i8 [ 1, %2628 ], [ %.127.i.i.i.i.i.i, %._crit_edge.loopexit.i.i.i.i.i.i ]
   %.025.lcssa.i.i.i.i.i.i = phi i32 [ %2625, %2628 ], [ %.1.i.i.i.i.i.i, %._crit_edge.loopexit.i.i.i.i.i.i ]
-  store i8 %.026.lcssa.i.i.i.i.i.i, ptr %2673, align 8
-  br label %2720
+  store i8 %.026.lcssa.i.i.i.i.i.i, ptr %2672, align 8
+  br label %2718
 
-2674:                                             ; preds = %.lr.ph93.i.i.i.i.i
-  %2675 = load i64, ptr %2621, align 8
+2673:                                             ; preds = %.lr.ph93.i.i.i.i.i
+  %2674 = load i64, ptr %2621, align 8
   br i1 %.not31.i.i.i.i.i.i, label %"_ZN14__gnu_parallel10_LoserTreeILb1EmZN7xgboost6common16WeightedQuantileINS2_18IndexTransformIterIZNS1_6linalg6cbeginIKfLi1EEEDaRKNS5_10TensorViewIT_XT0_EEEEUlmE_EENS4_IZNS2_6MedianEPKNS1_7ContextERKNS5_6TensorIfLi2EEERKNS1_16HostDeviceVectorIfEEPNSI_IfLi1EEEE3$_0EEEEfSH_dS9_S9_T0_EUlmmE0_E19__delete_min_insertEmb.exit72.i.i.i.i.i", label %.lr.ph.i52.i.i.i.i.i
 
-.lr.ph.i52.i.i.i.i.i:                             ; preds = %2674, %.thread.i61.i.i.i.i.i
-  %.035.in.i53.i.i.i.i.i = phi i32 [ %.035.i57.i.i.i.i.i, %.thread.i61.i.i.i.i.i ], [ %2627, %2674 ]
-  %.02534.i54.i.i.i.i.i = phi i32 [ %.1.i64.i.i.i.i.i, %.thread.i61.i.i.i.i.i ], [ %2625, %2674 ]
-  %.02633.i55.i.i.i.i.i = phi i8 [ %.127.i63.i.i.i.i.i, %.thread.i61.i.i.i.i.i ], [ 0, %2674 ]
-  %.02832.i56.i.i.i.i.i = phi i64 [ %.129.i62.i.i.i.i.i, %.thread.i61.i.i.i.i.i ], [ %2675, %2674 ]
+.lr.ph.i52.i.i.i.i.i:                             ; preds = %2673, %.thread.i61.i.i.i.i.i
+  %.035.in.i53.i.i.i.i.i = phi i32 [ %.035.i57.i.i.i.i.i, %.thread.i61.i.i.i.i.i ], [ %2627, %2673 ]
+  %.02534.i54.i.i.i.i.i = phi i32 [ %.1.i64.i.i.i.i.i, %.thread.i61.i.i.i.i.i ], [ %2625, %2673 ]
+  %.02633.i55.i.i.i.i.i = phi i8 [ %.127.i63.i.i.i.i.i, %.thread.i61.i.i.i.i.i ], [ 0, %2673 ]
+  %.02832.i56.i.i.i.i.i = phi i64 [ %.129.i62.i.i.i.i.i, %.thread.i61.i.i.i.i.i ], [ %2674, %2673 ]
   %.035.i57.i.i.i.i.i = lshr i32 %.035.in.i53.i.i.i.i.i, 1
-  %2676 = trunc i8 %.02633.i55.i.i.i.i.i to i1
-  %2677 = load ptr, ptr %2545, align 8
-  %2678 = zext nneg i32 %.035.i57.i.i.i.i.i to i64
-  %2679 = getelementptr inbounds nuw %"struct.__gnu_parallel::_LoserTreeBase<unsigned long, (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/xgboost/xgboost/src/common/stats.h:91:16)>::_Loser", ptr %2677, i64 %2678
-  %2680 = load i8, ptr %2679, align 8
-  %2681 = trunc i8 %2680 to i1
-  br i1 %2676, label %2682, label %2687
+  %2675 = trunc nuw i8 %.02633.i55.i.i.i.i.i to i1
+  %2676 = load ptr, ptr %2545, align 8
+  %2677 = zext nneg i32 %.035.i57.i.i.i.i.i to i64
+  %2678 = getelementptr inbounds nuw %"struct.__gnu_parallel::_LoserTreeBase<unsigned long, (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/xgboost/xgboost/src/common/stats.h:91:16)>::_Loser", ptr %2676, i64 %2677
+  %2679 = load i8, ptr %2678, align 8
+  %2680 = trunc i8 %2679 to i1
+  br i1 %2675, label %2681, label %2686
 
-2682:                                             ; preds = %.lr.ph.i52.i.i.i.i.i
-  br i1 %2681, label %2683, label %2710
+2681:                                             ; preds = %.lr.ph.i52.i.i.i.i.i
+  br i1 %2680, label %2682, label %2709
 
-2683:                                             ; preds = %2682
-  %2684 = getelementptr inbounds nuw i8, ptr %2679, i64 4
-  %2685 = load i32, ptr %2684, align 4
-  %2686 = icmp slt i32 %2685, %.02534.i54.i.i.i.i.i
-  br i1 %2686, label %2710, label %.thread.i61.i.i.i.i.i
+2682:                                             ; preds = %2681
+  %2683 = getelementptr inbounds nuw i8, ptr %2678, i64 4
+  %2684 = load i32, ptr %2683, align 4
+  %2685 = icmp slt i32 %2684, %.02534.i54.i.i.i.i.i
+  br i1 %2685, label %2709, label %.thread.i61.i.i.i.i.i
 
-2687:                                             ; preds = %.lr.ph.i52.i.i.i.i.i
-  br i1 %2681, label %.thread.i61.i.i.i.i.i, label %2688
+2686:                                             ; preds = %.lr.ph.i52.i.i.i.i.i
+  br i1 %2680, label %.thread.i61.i.i.i.i.i, label %2687
 
-2688:                                             ; preds = %2687
-  %2689 = getelementptr inbounds nuw i8, ptr %2679, i64 8
-  %2690 = load i64, ptr %2689, align 8
+2687:                                             ; preds = %2686
+  %2688 = getelementptr inbounds nuw i8, ptr %2678, i64 8
+  %2689 = load i64, ptr %2688, align 8
   %.val11.i58.i.i.i.i.i = load ptr, ptr %2530, align 8
   %.val11.val.i59.i.i.i.i.i = load i64, ptr %.val11.i58.i.i.i.i.i, align 8
-  %2691 = getelementptr i8, ptr %.val11.i58.i.i.i.i.i, i64 8
-  %.val11.val12.i60.i.i.i.i.i = load ptr, ptr %2691, align 8
-  %2692 = add i64 %.val11.val.i59.i.i.i.i.i, %2690
-  %2693 = load i64, ptr %.val11.val12.i60.i.i.i.i.i, align 8
-  %2694 = mul i64 %2693, %2692
-  %2695 = getelementptr inbounds nuw i8, ptr %.val11.val12.i60.i.i.i.i.i, i64 32
-  %2696 = load ptr, ptr %2695, align 8
-  %2697 = getelementptr inbounds float, ptr %2696, i64 %2694
-  %2698 = load float, ptr %2697, align 4
-  %2699 = add i64 %.val11.val.i59.i.i.i.i.i, %.02832.i56.i.i.i.i.i
-  %2700 = mul i64 %2693, %2699
-  %2701 = getelementptr inbounds float, ptr %2696, i64 %2700
-  %2702 = load float, ptr %2701, align 4
-  %2703 = fcmp olt float %2698, %2702
-  br i1 %2703, label %2710, label %2704
+  %2690 = getelementptr i8, ptr %.val11.i58.i.i.i.i.i, i64 8
+  %.val11.val12.i60.i.i.i.i.i = load ptr, ptr %2690, align 8
+  %2691 = add i64 %.val11.val.i59.i.i.i.i.i, %2689
+  %2692 = load i64, ptr %.val11.val12.i60.i.i.i.i.i, align 8
+  %2693 = mul i64 %2692, %2691
+  %2694 = getelementptr inbounds nuw i8, ptr %.val11.val12.i60.i.i.i.i.i, i64 32
+  %2695 = load ptr, ptr %2694, align 8
+  %2696 = getelementptr inbounds float, ptr %2695, i64 %2693
+  %2697 = load float, ptr %2696, align 4
+  %2698 = add i64 %.val11.val.i59.i.i.i.i.i, %.02832.i56.i.i.i.i.i
+  %2699 = mul i64 %2692, %2698
+  %2700 = getelementptr inbounds float, ptr %2695, i64 %2699
+  %2701 = load float, ptr %2700, align 4
+  %2702 = fcmp olt float %2697, %2701
+  br i1 %2702, label %2709, label %2703
 
-2704:                                             ; preds = %2688
-  %2705 = fcmp olt float %2702, %2698
-  br i1 %2705, label %.thread.i61.i.i.i.i.i, label %2706
+2703:                                             ; preds = %2687
+  %2704 = fcmp olt float %2701, %2697
+  br i1 %2704, label %.thread.i61.i.i.i.i.i, label %2705
 
-2706:                                             ; preds = %2704
-  %2707 = getelementptr inbounds nuw %"struct.__gnu_parallel::_LoserTreeBase<unsigned long, (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/xgboost/xgboost/src/common/stats.h:91:16)>::_Loser", ptr %2677, i64 %2678, i32 1
-  %2708 = load i32, ptr %2707, align 4
-  %2709 = icmp slt i32 %2708, %.02534.i54.i.i.i.i.i
-  br i1 %2709, label %2710, label %.thread.i61.i.i.i.i.i
+2705:                                             ; preds = %2703
+  %2706 = getelementptr inbounds nuw %"struct.__gnu_parallel::_LoserTreeBase<unsigned long, (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/xgboost/xgboost/src/common/stats.h:91:16)>::_Loser", ptr %2676, i64 %2677, i32 1
+  %2707 = load i32, ptr %2706, align 4
+  %2708 = icmp slt i32 %2707, %.02534.i54.i.i.i.i.i
+  br i1 %2708, label %2709, label %.thread.i61.i.i.i.i.i
 
-2710:                                             ; preds = %2706, %2688, %2683, %2682
-  %2711 = and i8 %.02633.i55.i.i.i.i.i, 1
-  store i8 %2711, ptr %2679, align 1
-  %2712 = load ptr, ptr %2545, align 8
-  %2713 = getelementptr inbounds nuw %"struct.__gnu_parallel::_LoserTreeBase<unsigned long, (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/xgboost/xgboost/src/common/stats.h:91:16)>::_Loser", ptr %2712, i64 %2678, i32 1
-  %2714 = load i32, ptr %2713, align 4
-  store i32 %.02534.i54.i.i.i.i.i, ptr %2713, align 4
-  %2715 = load ptr, ptr %2545, align 8
-  %2716 = getelementptr inbounds nuw %"struct.__gnu_parallel::_LoserTreeBase<unsigned long, (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/xgboost/xgboost/src/common/stats.h:91:16)>::_Loser", ptr %2715, i64 %2678, i32 2
-  %2717 = load i64, ptr %2716, align 8
-  store i64 %.02832.i56.i.i.i.i.i, ptr %2716, align 8
+2709:                                             ; preds = %2705, %2687, %2682, %2681
+  %2710 = and i8 %2679, 1
+  store i8 %.02633.i55.i.i.i.i.i, ptr %2678, align 1
+  %2711 = load ptr, ptr %2545, align 8
+  %2712 = getelementptr inbounds nuw %"struct.__gnu_parallel::_LoserTreeBase<unsigned long, (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/xgboost/xgboost/src/common/stats.h:91:16)>::_Loser", ptr %2711, i64 %2677, i32 1
+  %2713 = load i32, ptr %2712, align 4
+  store i32 %.02534.i54.i.i.i.i.i, ptr %2712, align 4
+  %2714 = load ptr, ptr %2545, align 8
+  %2715 = getelementptr inbounds nuw %"struct.__gnu_parallel::_LoserTreeBase<unsigned long, (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/xgboost/xgboost/src/common/stats.h:91:16)>::_Loser", ptr %2714, i64 %2677, i32 2
+  %2716 = load i64, ptr %2715, align 8
+  store i64 %.02832.i56.i.i.i.i.i, ptr %2715, align 8
   br label %.thread.i61.i.i.i.i.i
 
-.thread.i61.i.i.i.i.i:                            ; preds = %2710, %2706, %2704, %2687, %2683
-  %.129.i62.i.i.i.i.i = phi i64 [ %2717, %2710 ], [ %.02832.i56.i.i.i.i.i, %2687 ], [ %.02832.i56.i.i.i.i.i, %2704 ], [ %.02832.i56.i.i.i.i.i, %2706 ], [ %.02832.i56.i.i.i.i.i, %2683 ]
-  %.127.i63.i.i.i.i.i = phi i8 [ %2680, %2710 ], [ %.02633.i55.i.i.i.i.i, %2687 ], [ %.02633.i55.i.i.i.i.i, %2704 ], [ %.02633.i55.i.i.i.i.i, %2706 ], [ %.02633.i55.i.i.i.i.i, %2683 ]
-  %.1.i64.i.i.i.i.i = phi i32 [ %2714, %2710 ], [ %.02534.i54.i.i.i.i.i, %2687 ], [ %.02534.i54.i.i.i.i.i, %2704 ], [ %.02534.i54.i.i.i.i.i, %2706 ], [ %.02534.i54.i.i.i.i.i, %2683 ]
+.thread.i61.i.i.i.i.i:                            ; preds = %2709, %2705, %2703, %2686, %2682
+  %.129.i62.i.i.i.i.i = phi i64 [ %2716, %2709 ], [ %.02832.i56.i.i.i.i.i, %2686 ], [ %.02832.i56.i.i.i.i.i, %2703 ], [ %.02832.i56.i.i.i.i.i, %2705 ], [ %.02832.i56.i.i.i.i.i, %2682 ]
+  %.127.i63.i.i.i.i.i = phi i8 [ %2710, %2709 ], [ %.02633.i55.i.i.i.i.i, %2686 ], [ %.02633.i55.i.i.i.i.i, %2703 ], [ %.02633.i55.i.i.i.i.i, %2705 ], [ %.02633.i55.i.i.i.i.i, %2682 ]
+  %.1.i64.i.i.i.i.i = phi i32 [ %2713, %2709 ], [ %.02534.i54.i.i.i.i.i, %2686 ], [ %.02534.i54.i.i.i.i.i, %2703 ], [ %.02534.i54.i.i.i.i.i, %2705 ], [ %.02534.i54.i.i.i.i.i, %2682 ]
   %.not.i65.i.i.i.i.i = icmp ult i32 %.035.in.i53.i.i.i.i.i, 4
   br i1 %.not.i65.i.i.i.i.i, label %._crit_edge.loopexit.i66.i.i.i.i.i, label %.lr.ph.i52.i.i.i.i.i, !llvm.loop !224
 
 ._crit_edge.loopexit.i66.i.i.i.i.i:               ; preds = %.thread.i61.i.i.i.i.i
   %.pre.i67.i.i.i.i.i = load ptr, ptr %2545, align 8
-  %2718 = and i8 %.127.i63.i.i.i.i.i, 1
   br label %"_ZN14__gnu_parallel10_LoserTreeILb1EmZN7xgboost6common16WeightedQuantileINS2_18IndexTransformIterIZNS1_6linalg6cbeginIKfLi1EEEDaRKNS5_10TensorViewIT_XT0_EEEEUlmE_EENS4_IZNS2_6MedianEPKNS1_7ContextERKNS5_6TensorIfLi2EEERKNS1_16HostDeviceVectorIfEEPNSI_IfLi1EEEE3$_0EEEEfSH_dS9_S9_T0_EUlmmE0_E19__delete_min_insertEmb.exit72.i.i.i.i.i"
 
-"_ZN14__gnu_parallel10_LoserTreeILb1EmZN7xgboost6common16WeightedQuantileINS2_18IndexTransformIterIZNS1_6linalg6cbeginIKfLi1EEEDaRKNS5_10TensorViewIT_XT0_EEEEUlmE_EENS4_IZNS2_6MedianEPKNS1_7ContextERKNS5_6TensorIfLi2EEERKNS1_16HostDeviceVectorIfEEPNSI_IfLi1EEEE3$_0EEEEfSH_dS9_S9_T0_EUlmmE0_E19__delete_min_insertEmb.exit72.i.i.i.i.i": ; preds = %._crit_edge.loopexit.i66.i.i.i.i.i, %2674
-  %2719 = phi ptr [ %.val35.i.i.i.i.i, %2674 ], [ %.pre.i67.i.i.i.i.i, %._crit_edge.loopexit.i66.i.i.i.i.i ]
-  %.028.lcssa.i69.i.i.i.i.i = phi i64 [ %2675, %2674 ], [ %.129.i62.i.i.i.i.i, %._crit_edge.loopexit.i66.i.i.i.i.i ]
-  %.026.lcssa.i70.i.i.i.i.i = phi i8 [ 0, %2674 ], [ %2718, %._crit_edge.loopexit.i66.i.i.i.i.i ]
-  %.025.lcssa.i71.i.i.i.i.i = phi i32 [ %2625, %2674 ], [ %.1.i64.i.i.i.i.i, %._crit_edge.loopexit.i66.i.i.i.i.i ]
-  store i8 %.026.lcssa.i70.i.i.i.i.i, ptr %2719, align 8
-  br label %2720
+"_ZN14__gnu_parallel10_LoserTreeILb1EmZN7xgboost6common16WeightedQuantileINS2_18IndexTransformIterIZNS1_6linalg6cbeginIKfLi1EEEDaRKNS5_10TensorViewIT_XT0_EEEEUlmE_EENS4_IZNS2_6MedianEPKNS1_7ContextERKNS5_6TensorIfLi2EEERKNS1_16HostDeviceVectorIfEEPNSI_IfLi1EEEE3$_0EEEEfSH_dS9_S9_T0_EUlmmE0_E19__delete_min_insertEmb.exit72.i.i.i.i.i": ; preds = %._crit_edge.loopexit.i66.i.i.i.i.i, %2673
+  %2717 = phi ptr [ %.val35.i.i.i.i.i, %2673 ], [ %.pre.i67.i.i.i.i.i, %._crit_edge.loopexit.i66.i.i.i.i.i ]
+  %.028.lcssa.i69.i.i.i.i.i = phi i64 [ %2674, %2673 ], [ %.129.i62.i.i.i.i.i, %._crit_edge.loopexit.i66.i.i.i.i.i ]
+  %.026.lcssa.i70.i.i.i.i.i = phi i8 [ 0, %2673 ], [ %.127.i63.i.i.i.i.i, %._crit_edge.loopexit.i66.i.i.i.i.i ]
+  %.025.lcssa.i71.i.i.i.i.i = phi i32 [ %2625, %2673 ], [ %.1.i64.i.i.i.i.i, %._crit_edge.loopexit.i66.i.i.i.i.i ]
+  store i8 %.026.lcssa.i70.i.i.i.i.i, ptr %2717, align 8
+  br label %2718
 
-2720:                                             ; preds = %"_ZN14__gnu_parallel10_LoserTreeILb1EmZN7xgboost6common16WeightedQuantileINS2_18IndexTransformIterIZNS1_6linalg6cbeginIKfLi1EEEDaRKNS5_10TensorViewIT_XT0_EEEEUlmE_EENS4_IZNS2_6MedianEPKNS1_7ContextERKNS5_6TensorIfLi2EEERKNS1_16HostDeviceVectorIfEEPNSI_IfLi1EEEE3$_0EEEEfSH_dS9_S9_T0_EUlmmE0_E19__delete_min_insertEmb.exit72.i.i.i.i.i", %"_ZN14__gnu_parallel10_LoserTreeILb1EmZN7xgboost6common16WeightedQuantileINS2_18IndexTransformIterIZNS1_6linalg6cbeginIKfLi1EEEDaRKNS5_10TensorViewIT_XT0_EEEEUlmE_EENS4_IZNS2_6MedianEPKNS1_7ContextERKNS5_6TensorIfLi2EEERKNS1_16HostDeviceVectorIfEEPNSI_IfLi1EEEE3$_0EEEEfSH_dS9_S9_T0_EUlmmE0_E19__delete_min_insertEmb.exit.i.i.i.i.i"
+2718:                                             ; preds = %"_ZN14__gnu_parallel10_LoserTreeILb1EmZN7xgboost6common16WeightedQuantileINS2_18IndexTransformIterIZNS1_6linalg6cbeginIKfLi1EEEDaRKNS5_10TensorViewIT_XT0_EEEEUlmE_EENS4_IZNS2_6MedianEPKNS1_7ContextERKNS5_6TensorIfLi2EEERKNS1_16HostDeviceVectorIfEEPNSI_IfLi1EEEE3$_0EEEEfSH_dS9_S9_T0_EUlmmE0_E19__delete_min_insertEmb.exit72.i.i.i.i.i", %"_ZN14__gnu_parallel10_LoserTreeILb1EmZN7xgboost6common16WeightedQuantileINS2_18IndexTransformIterIZNS1_6linalg6cbeginIKfLi1EEEDaRKNS5_10TensorViewIT_XT0_EEEEUlmE_EENS4_IZNS2_6MedianEPKNS1_7ContextERKNS5_6TensorIfLi2EEERKNS1_16HostDeviceVectorIfEEPNSI_IfLi1EEEE3$_0EEEEfSH_dS9_S9_T0_EUlmmE0_E19__delete_min_insertEmb.exit.i.i.i.i.i"
   %.025.lcssa.i71.sink.i.i.i.i.i = phi i32 [ %.025.lcssa.i71.i.i.i.i.i, %"_ZN14__gnu_parallel10_LoserTreeILb1EmZN7xgboost6common16WeightedQuantileINS2_18IndexTransformIterIZNS1_6linalg6cbeginIKfLi1EEEDaRKNS5_10TensorViewIT_XT0_EEEEUlmE_EENS4_IZNS2_6MedianEPKNS1_7ContextERKNS5_6TensorIfLi2EEERKNS1_16HostDeviceVectorIfEEPNSI_IfLi1EEEE3$_0EEEEfSH_dS9_S9_T0_EUlmmE0_E19__delete_min_insertEmb.exit72.i.i.i.i.i" ], [ %.025.lcssa.i.i.i.i.i.i, %"_ZN14__gnu_parallel10_LoserTreeILb1EmZN7xgboost6common16WeightedQuantileINS2_18IndexTransformIterIZNS1_6linalg6cbeginIKfLi1EEEDaRKNS5_10TensorViewIT_XT0_EEEEUlmE_EENS4_IZNS2_6MedianEPKNS1_7ContextERKNS5_6TensorIfLi2EEERKNS1_16HostDeviceVectorIfEEPNSI_IfLi1EEEE3$_0EEEEfSH_dS9_S9_T0_EUlmmE0_E19__delete_min_insertEmb.exit.i.i.i.i.i" ]
   %.028.lcssa.i69.sink.i.i.i.i.i = phi i64 [ %.028.lcssa.i69.i.i.i.i.i, %"_ZN14__gnu_parallel10_LoserTreeILb1EmZN7xgboost6common16WeightedQuantileINS2_18IndexTransformIterIZNS1_6linalg6cbeginIKfLi1EEEDaRKNS5_10TensorViewIT_XT0_EEEEUlmE_EENS4_IZNS2_6MedianEPKNS1_7ContextERKNS5_6TensorIfLi2EEERKNS1_16HostDeviceVectorIfEEPNSI_IfLi1EEEE3$_0EEEEfSH_dS9_S9_T0_EUlmmE0_E19__delete_min_insertEmb.exit72.i.i.i.i.i" ], [ %.028.lcssa.i.i.i.i.i.i, %"_ZN14__gnu_parallel10_LoserTreeILb1EmZN7xgboost6common16WeightedQuantileINS2_18IndexTransformIterIZNS1_6linalg6cbeginIKfLi1EEEDaRKNS5_10TensorViewIT_XT0_EEEEUlmE_EENS4_IZNS2_6MedianEPKNS1_7ContextERKNS5_6TensorIfLi2EEERKNS1_16HostDeviceVectorIfEEPNSI_IfLi1EEEE3$_0EEEEfSH_dS9_S9_T0_EUlmmE0_E19__delete_min_insertEmb.exit.i.i.i.i.i" ]
+  %2719 = load ptr, ptr %2545, align 8
+  %2720 = getelementptr inbounds nuw i8, ptr %2719, i64 4
+  store i32 %.025.lcssa.i71.sink.i.i.i.i.i, ptr %2720, align 4
   %2721 = load ptr, ptr %2545, align 8
-  %2722 = getelementptr inbounds nuw i8, ptr %2721, i64 4
-  store i32 %.025.lcssa.i71.sink.i.i.i.i.i, ptr %2722, align 4
-  %2723 = load ptr, ptr %2545, align 8
-  %2724 = getelementptr inbounds nuw i8, ptr %2723, i64 8
-  store i64 %.028.lcssa.i69.sink.i.i.i.i.i, ptr %2724, align 8
-  %2725 = add nuw nsw i64 %.091.i.i.i.i.i, 1
-  %exitcond97.not.i.i.i.i.i = icmp eq i64 %2725, %.sroa.speculated.i.i.i
+  %2722 = getelementptr inbounds nuw i8, ptr %2721, i64 8
+  store i64 %.028.lcssa.i69.sink.i.i.i.i.i, ptr %2722, align 8
+  %2723 = add nuw nsw i64 %.091.i.i.i.i.i, 1
+  %exitcond97.not.i.i.i.i.i = icmp eq i64 %2723, %.sroa.speculated.i.i.i
   br i1 %exitcond97.not.i.i.i.i.i, label %"_ZN14__gnu_parallel42__multiway_merge_k_variant_sentinel_switchILb0ELb1EN9__gnu_cxx17__normal_iteratorIPSt4pairIPmS4_ESt6vectorIS5_SaIS5_EEEENS2_IS4_S7_ImSaImEEEElZN7xgboost6common16WeightedQuantileINSF_18IndexTransformIterIZNSE_6linalg6cbeginIKfLi1EEEDaRKNSI_10TensorViewIT_XT0_EEEEUlmE_EENSH_IZNSF_6MedianEPKNSE_7ContextERKNSI_6TensorIfLi2EEERKNSE_16HostDeviceVectorIfEEPNSV_IfLi1EEEE3$_0EEEEfSU_dSM_SM_T0_EUlmmE0_EclESA_SA_SD_RKmlS18_.exit.i.i.i", label %.lr.ph93.i.i.i.i.i, !llvm.loop !225
 
-"_ZN14__gnu_parallel42__multiway_merge_k_variant_sentinel_switchILb0ELb1EN9__gnu_cxx17__normal_iteratorIPSt4pairIPmS4_ESt6vectorIS5_SaIS5_EEEENS2_IS4_S7_ImSaImEEEElZN7xgboost6common16WeightedQuantileINSF_18IndexTransformIterIZNSE_6linalg6cbeginIKfLi1EEEDaRKNSI_10TensorViewIT_XT0_EEEEUlmE_EENSH_IZNSF_6MedianEPKNSE_7ContextERKNSI_6TensorIfLi2EEERKNSE_16HostDeviceVectorIfEEPNSV_IfLi1EEEE3$_0EEEEfSU_dSM_SM_T0_EUlmmE0_EclESA_SA_SD_RKmlS18_.exit.i.i.i": ; preds = %2720, %._crit_edge.i.i52.i.i.i
+"_ZN14__gnu_parallel42__multiway_merge_k_variant_sentinel_switchILb0ELb1EN9__gnu_cxx17__normal_iteratorIPSt4pairIPmS4_ESt6vectorIS5_SaIS5_EEEENS2_IS4_S7_ImSaImEEEElZN7xgboost6common16WeightedQuantileINSF_18IndexTransformIterIZNSE_6linalg6cbeginIKfLi1EEEDaRKNSI_10TensorViewIT_XT0_EEEEUlmE_EENSH_IZNSF_6MedianEPKNSE_7ContextERKNSI_6TensorIfLi2EEERKNSE_16HostDeviceVectorIfEEPNSV_IfLi1EEEE3$_0EEEEfSU_dSM_SM_T0_EUlmmE0_EclESA_SA_SD_RKmlS18_.exit.i.i.i": ; preds = %2718, %._crit_edge.i.i52.i.i.i
   %.val34.i.i.i.i.i = load ptr, ptr %2545, align 8
   call void @_ZdlPv(ptr noundef %.val34.i.i.i.i.i) #8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %2)
@@ -18975,19 +18971,19 @@ _ZN14__gnu_parallel9__rd_log2IjEET_S1_.exit.i.i.i.i.i.i.i: ; preds = %_ZN14__gnu
 "_ZNK14__gnu_parallel32__possibly_stable_multiway_mergeILb1EN9__gnu_cxx17__normal_iteratorIPSt4pairIPmS4_ESt6vectorIS5_SaIS5_EEEENS2_IS4_S7_ImSaImEEEEZN7xgboost6common16WeightedQuantileINSF_18IndexTransformIterIZNSE_6linalg6cbeginIKfLi1EEEDaRKNSI_10TensorViewIT_XT0_EEEEUlmE_EENSH_IZNSF_6MedianEPKNSE_7ContextERKNSI_6TensorIfLi2EEERKNSE_16HostDeviceVectorIfEEPNSV_IfLi1EEEE3$_0EEEEfSU_dSM_SM_T0_EUlmmE0_lEclERKSA_S1B_RKSD_RS18_l.exit": ; preds = %"_ZNK14__gnu_parallel18_SplitConsistentlyILb1EN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEEZN7xgboost6common16WeightedQuantileINS9_18IndexTransformIterIZNS8_6linalg6cbeginIKfLi1EEEDaRKNSC_10TensorViewIT_XT0_EEEEUlmE_EENSB_IZNS9_6MedianEPKNS8_7ContextERKNSC_6TensorIfLi2EEERKNS8_16HostDeviceVectorIfEEPNSP_IfLi1EEEE3$_0EEEEfSO_dSG_SG_T0_EUlmmE0_S3_EclEtPNS_17_PMWMSSortingDataIS7_EERS12_l.exit", %"_ZNK14__gnu_parallel22__possibly_stable_sortILb1EPmZN7xgboost6common16WeightedQuantileINS3_18IndexTransformIterIZNS2_6linalg6cbeginIKfLi1EEEDaRKNS6_10TensorViewIT_XT0_EEEEUlmE_EENS5_IZNS3_6MedianEPKNS2_7ContextERKNS6_6TensorIfLi2EEERKNS2_16HostDeviceVectorIfEEPNSJ_IfLi1EEEE3$_0EEEEfSI_dSA_SA_T0_EUlmmE0_EclERKS1_SZ_RSW_.exit", %._crit_edge.i.i.i, %734, %_ZSt4copyIPmN9__gnu_cxx17__normal_iteratorIS0_St6vectorImSaImEEEEET0_T_S8_S7_.exit.i.i.i, %_ZSt4copyIPmN9__gnu_cxx17__normal_iteratorIS0_St6vectorImSaImEEEEET0_T_S8_S7_.exit.i.i.i.i.i, %_ZSt4copyIPmN9__gnu_cxx17__normal_iteratorIS0_St6vectorImSaImEEEEET0_T_S8_S7_.exit41.i.i.i.i.i, %"_ZN14__gnu_parallel42__multiway_merge_3_variant_sentinel_switchILb0EN9__gnu_cxx17__normal_iteratorIPSt4pairIPmS4_ESt6vectorIS5_SaIS5_EEEENS2_IS4_S7_ImSaImEEEElZN7xgboost6common16WeightedQuantileINSF_18IndexTransformIterIZNSE_6linalg6cbeginIKfLi1EEEDaRKNSI_10TensorViewIT_XT0_EEEEUlmE_EENSH_IZNSF_6MedianEPKNSE_7ContextERKNSI_6TensorIfLi2EEERKNSE_16HostDeviceVectorIfEEPNSV_IfLi1EEEE3$_0EEEEfSU_dSM_SM_T0_EUlmmE0_EclESA_SA_SD_lS18_.exit.i.i.i", %"_ZN14__gnu_parallel42__multiway_merge_4_variant_sentinel_switchILb0EN9__gnu_cxx17__normal_iteratorIPSt4pairIPmS4_ESt6vectorIS5_SaIS5_EEEENS2_IS4_S7_ImSaImEEEElZN7xgboost6common16WeightedQuantileINSF_18IndexTransformIterIZNSE_6linalg6cbeginIKfLi1EEEDaRKNSI_10TensorViewIT_XT0_EEEEUlmE_EENSH_IZNSF_6MedianEPKNSE_7ContextERKNSI_6TensorIfLi2EEERKNSE_16HostDeviceVectorIfEEPNSV_IfLi1EEEE3$_0EEEEfSU_dSM_SM_T0_EUlmmE0_EclESA_SA_SD_lS18_.exit.i.i.i", %"_ZN14__gnu_parallel42__multiway_merge_k_variant_sentinel_switchILb0ELb1EN9__gnu_cxx17__normal_iteratorIPSt4pairIPmS4_ESt6vectorIS5_SaIS5_EEEENS2_IS4_S7_ImSaImEEEElZN7xgboost6common16WeightedQuantileINSF_18IndexTransformIterIZNSE_6linalg6cbeginIKfLi1EEEDaRKNSI_10TensorViewIT_XT0_EEEEUlmE_EENSH_IZNSF_6MedianEPKNSE_7ContextERKNSI_6TensorIfLi2EEERKNSE_16HostDeviceVectorIfEEPNSV_IfLi1EEEE3$_0EEEEfSU_dSM_SM_T0_EUlmmE0_EclESA_SA_SD_RKmlS18_.exit.i.i.i"
   %.sroa.05.0937947 = phi ptr [ %702, %._crit_edge.i.i.i ], [ %702, %734 ], [ %702, %_ZSt4copyIPmN9__gnu_cxx17__normal_iteratorIS0_St6vectorImSaImEEEEET0_T_S8_S7_.exit.i.i.i ], [ %702, %_ZSt4copyIPmN9__gnu_cxx17__normal_iteratorIS0_St6vectorImSaImEEEEET0_T_S8_S7_.exit.i.i.i.i.i ], [ %702, %_ZSt4copyIPmN9__gnu_cxx17__normal_iteratorIS0_St6vectorImSaImEEEEET0_T_S8_S7_.exit41.i.i.i.i.i ], [ %702, %"_ZN14__gnu_parallel42__multiway_merge_3_variant_sentinel_switchILb0EN9__gnu_cxx17__normal_iteratorIPSt4pairIPmS4_ESt6vectorIS5_SaIS5_EEEENS2_IS4_S7_ImSaImEEEElZN7xgboost6common16WeightedQuantileINSF_18IndexTransformIterIZNSE_6linalg6cbeginIKfLi1EEEDaRKNSI_10TensorViewIT_XT0_EEEEUlmE_EENSH_IZNSF_6MedianEPKNSE_7ContextERKNSI_6TensorIfLi2EEERKNSE_16HostDeviceVectorIfEEPNSV_IfLi1EEEE3$_0EEEEfSU_dSM_SM_T0_EUlmmE0_EclESA_SA_SD_lS18_.exit.i.i.i" ], [ %702, %"_ZN14__gnu_parallel42__multiway_merge_4_variant_sentinel_switchILb0EN9__gnu_cxx17__normal_iteratorIPSt4pairIPmS4_ESt6vectorIS5_SaIS5_EEEENS2_IS4_S7_ImSaImEEEElZN7xgboost6common16WeightedQuantileINSF_18IndexTransformIterIZNSE_6linalg6cbeginIKfLi1EEEDaRKNSI_10TensorViewIT_XT0_EEEEUlmE_EENSH_IZNSF_6MedianEPKNSE_7ContextERKNSI_6TensorIfLi2EEERKNSE_16HostDeviceVectorIfEEPNSV_IfLi1EEEE3$_0EEEEfSU_dSM_SM_T0_EUlmmE0_EclESA_SA_SD_lS18_.exit.i.i.i" ], [ %702, %"_ZN14__gnu_parallel42__multiway_merge_k_variant_sentinel_switchILb0ELb1EN9__gnu_cxx17__normal_iteratorIPSt4pairIPmS4_ESt6vectorIS5_SaIS5_EEEENS2_IS4_S7_ImSaImEEEElZN7xgboost6common16WeightedQuantileINSF_18IndexTransformIterIZNSE_6linalg6cbeginIKfLi1EEEDaRKNSI_10TensorViewIT_XT0_EEEEUlmE_EENSH_IZNSF_6MedianEPKNSE_7ContextERKNSI_6TensorIfLi2EEERKNSE_16HostDeviceVectorIfEEPNSV_IfLi1EEEE3$_0EEEEfSU_dSM_SM_T0_EUlmmE0_EclESA_SA_SD_RKmlS18_.exit.i.i.i" ], [ null, %"_ZNK14__gnu_parallel22__possibly_stable_sortILb1EPmZN7xgboost6common16WeightedQuantileINS3_18IndexTransformIterIZNS2_6linalg6cbeginIKfLi1EEEDaRKNS6_10TensorViewIT_XT0_EEEEUlmE_EENS5_IZNS3_6MedianEPKNS2_7ContextERKNS6_6TensorIfLi2EEERKNS2_16HostDeviceVectorIfEEPNSJ_IfLi1EEEE3$_0EEEEfSI_dSA_SA_T0_EUlmmE0_EclERKS1_SZ_RSW_.exit" ], [ null, %"_ZNK14__gnu_parallel18_SplitConsistentlyILb1EN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEEZN7xgboost6common16WeightedQuantileINS9_18IndexTransformIterIZNS8_6linalg6cbeginIKfLi1EEEDaRKNSC_10TensorViewIT_XT0_EEEEUlmE_EENSB_IZNS9_6MedianEPKNS8_7ContextERKNSC_6TensorIfLi2EEERKNS8_16HostDeviceVectorIfEEPNSP_IfLi1EEEE3$_0EEEEfSO_dSG_SG_T0_EUlmmE0_S3_EclEtPNS_17_PMWMSSortingDataIS7_EERS12_l.exit" ]
   %.sink.i84939946 = phi i64 [ %704, %._crit_edge.i.i.i ], [ %704, %734 ], [ %704, %_ZSt4copyIPmN9__gnu_cxx17__normal_iteratorIS0_St6vectorImSaImEEEEET0_T_S8_S7_.exit.i.i.i ], [ %704, %_ZSt4copyIPmN9__gnu_cxx17__normal_iteratorIS0_St6vectorImSaImEEEEET0_T_S8_S7_.exit.i.i.i.i.i ], [ %704, %_ZSt4copyIPmN9__gnu_cxx17__normal_iteratorIS0_St6vectorImSaImEEEEET0_T_S8_S7_.exit41.i.i.i.i.i ], [ %704, %"_ZN14__gnu_parallel42__multiway_merge_3_variant_sentinel_switchILb0EN9__gnu_cxx17__normal_iteratorIPSt4pairIPmS4_ESt6vectorIS5_SaIS5_EEEENS2_IS4_S7_ImSaImEEEElZN7xgboost6common16WeightedQuantileINSF_18IndexTransformIterIZNSE_6linalg6cbeginIKfLi1EEEDaRKNSI_10TensorViewIT_XT0_EEEEUlmE_EENSH_IZNSF_6MedianEPKNSE_7ContextERKNSI_6TensorIfLi2EEERKNSE_16HostDeviceVectorIfEEPNSV_IfLi1EEEE3$_0EEEEfSU_dSM_SM_T0_EUlmmE0_EclESA_SA_SD_lS18_.exit.i.i.i" ], [ %704, %"_ZN14__gnu_parallel42__multiway_merge_4_variant_sentinel_switchILb0EN9__gnu_cxx17__normal_iteratorIPSt4pairIPmS4_ESt6vectorIS5_SaIS5_EEEENS2_IS4_S7_ImSaImEEEElZN7xgboost6common16WeightedQuantileINSF_18IndexTransformIterIZNSE_6linalg6cbeginIKfLi1EEEDaRKNSI_10TensorViewIT_XT0_EEEEUlmE_EENSH_IZNSF_6MedianEPKNSE_7ContextERKNSI_6TensorIfLi2EEERKNSE_16HostDeviceVectorIfEEPNSV_IfLi1EEEE3$_0EEEEfSU_dSM_SM_T0_EUlmmE0_EclESA_SA_SD_lS18_.exit.i.i.i" ], [ %704, %"_ZN14__gnu_parallel42__multiway_merge_k_variant_sentinel_switchILb0ELb1EN9__gnu_cxx17__normal_iteratorIPSt4pairIPmS4_ESt6vectorIS5_SaIS5_EEEENS2_IS4_S7_ImSaImEEEElZN7xgboost6common16WeightedQuantileINSF_18IndexTransformIterIZNSE_6linalg6cbeginIKfLi1EEEDaRKNSI_10TensorViewIT_XT0_EEEEUlmE_EENSH_IZNSF_6MedianEPKNSE_7ContextERKNSI_6TensorIfLi2EEERKNSE_16HostDeviceVectorIfEEPNSV_IfLi1EEEE3$_0EEEEfSU_dSM_SM_T0_EUlmmE0_EclESA_SA_SD_RKmlS18_.exit.i.i.i" ], [ 0, %"_ZNK14__gnu_parallel22__possibly_stable_sortILb1EPmZN7xgboost6common16WeightedQuantileINS3_18IndexTransformIterIZNS2_6linalg6cbeginIKfLi1EEEDaRKNS6_10TensorViewIT_XT0_EEEEUlmE_EENS5_IZNS3_6MedianEPKNS2_7ContextERKNS6_6TensorIfLi2EEERKNS2_16HostDeviceVectorIfEEPNSJ_IfLi1EEEE3$_0EEEEfSI_dSA_SA_T0_EUlmmE0_EclERKS1_SZ_RSW_.exit" ], [ 0, %"_ZNK14__gnu_parallel18_SplitConsistentlyILb1EN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEEZN7xgboost6common16WeightedQuantileINS9_18IndexTransformIterIZNS8_6linalg6cbeginIKfLi1EEEDaRKNSC_10TensorViewIT_XT0_EEEEUlmE_EENSB_IZNS9_6MedianEPKNS8_7ContextERKNSC_6TensorIfLi2EEERKNS8_16HostDeviceVectorIfEEPNSP_IfLi1EEEE3$_0EEEEfSO_dSG_SG_T0_EUlmmE0_S3_EclEtPNS_17_PMWMSSortingDataIS7_EERS12_l.exit" ]
-  %2726 = load ptr, ptr %16, align 8
-  %2727 = load ptr, ptr %2726, align 8
-  call void @_ZdlPv(ptr noundef %2727) #8
+  %2724 = load ptr, ptr %16, align 8
+  %2725 = load ptr, ptr %2724, align 8
+  call void @_ZdlPv(ptr noundef %2725) #8
   %.not.i.i.i101 = icmp eq ptr %.sroa.05.0937947, null
-  br i1 %.not.i.i.i101, label %_ZNSt6vectorISt4pairIPmS1_ESaIS2_EED2Ev.exit102, label %2728
+  br i1 %.not.i.i.i101, label %_ZNSt6vectorISt4pairIPmS1_ESaIS2_EED2Ev.exit102, label %2726
 
-2728:                                             ; preds = %"_ZNK14__gnu_parallel32__possibly_stable_multiway_mergeILb1EN9__gnu_cxx17__normal_iteratorIPSt4pairIPmS4_ESt6vectorIS5_SaIS5_EEEENS2_IS4_S7_ImSaImEEEEZN7xgboost6common16WeightedQuantileINSF_18IndexTransformIterIZNSE_6linalg6cbeginIKfLi1EEEDaRKNSI_10TensorViewIT_XT0_EEEEUlmE_EENSH_IZNSF_6MedianEPKNSE_7ContextERKNSI_6TensorIfLi2EEERKNSE_16HostDeviceVectorIfEEPNSV_IfLi1EEEE3$_0EEEEfSU_dSM_SM_T0_EUlmmE0_lEclERKSA_S1B_RKSD_RS18_l.exit"
-  %2729 = ptrtoint ptr %.sroa.05.0937947 to i64
-  %2730 = sub i64 %.sink.i84939946, %2729
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.05.0937947, i64 noundef %2730) #30
+2726:                                             ; preds = %"_ZNK14__gnu_parallel32__possibly_stable_multiway_mergeILb1EN9__gnu_cxx17__normal_iteratorIPSt4pairIPmS4_ESt6vectorIS5_SaIS5_EEEENS2_IS4_S7_ImSaImEEEEZN7xgboost6common16WeightedQuantileINSF_18IndexTransformIterIZNSE_6linalg6cbeginIKfLi1EEEDaRKNSI_10TensorViewIT_XT0_EEEEUlmE_EENSH_IZNSF_6MedianEPKNSE_7ContextERKNSI_6TensorIfLi2EEERKNSE_16HostDeviceVectorIfEEPNSV_IfLi1EEEE3$_0EEEEfSU_dSM_SM_T0_EUlmmE0_lEclERKSA_S1B_RKSD_RS18_l.exit"
+  %2727 = ptrtoint ptr %.sroa.05.0937947 to i64
+  %2728 = sub i64 %.sink.i84939946, %2727
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.05.0937947, i64 noundef %2728) #30
   br label %_ZNSt6vectorISt4pairIPmS1_ESaIS2_EED2Ev.exit102
 
-_ZNSt6vectorISt4pairIPmS1_ESaIS2_EED2Ev.exit102:  ; preds = %"_ZNK14__gnu_parallel32__possibly_stable_multiway_mergeILb1EN9__gnu_cxx17__normal_iteratorIPSt4pairIPmS4_ESt6vectorIS5_SaIS5_EEEENS2_IS4_S7_ImSaImEEEEZN7xgboost6common16WeightedQuantileINSF_18IndexTransformIterIZNSE_6linalg6cbeginIKfLi1EEEDaRKNSI_10TensorViewIT_XT0_EEEEUlmE_EENSH_IZNSF_6MedianEPKNSE_7ContextERKNSI_6TensorIfLi2EEERKNSE_16HostDeviceVectorIfEEPNSV_IfLi1EEEE3$_0EEEEfSU_dSM_SM_T0_EUlmmE0_lEclERKSA_S1B_RKSD_RS18_l.exit", %2728
+_ZNSt6vectorISt4pairIPmS1_ESaIS2_EED2Ev.exit102:  ; preds = %"_ZNK14__gnu_parallel32__possibly_stable_multiway_mergeILb1EN9__gnu_cxx17__normal_iteratorIPSt4pairIPmS4_ESt6vectorIS5_SaIS5_EEEENS2_IS4_S7_ImSaImEEEEZN7xgboost6common16WeightedQuantileINSF_18IndexTransformIterIZNSE_6linalg6cbeginIKfLi1EEEDaRKNSI_10TensorViewIT_XT0_EEEEUlmE_EENSH_IZNSF_6MedianEPKNSE_7ContextERKNSI_6TensorIfLi2EEERKNSE_16HostDeviceVectorIfEEPNSV_IfLi1EEEE3$_0EEEEfSU_dSM_SM_T0_EUlmmE0_lEclERKSA_S1B_RKSD_RS18_l.exit", %2726
   ret void
 }
 

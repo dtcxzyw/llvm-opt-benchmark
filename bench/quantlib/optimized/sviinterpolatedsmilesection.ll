@@ -13511,7 +13511,7 @@ for.body217:                                      ; preds = %for.body217.lr.ph, 
   %207 = load double, ptr %arrayidx.i285, align 8, !tbaa !81
   %add.ptr.i286 = getelementptr inbounds nuw double, ptr %187, i64 %i212.0423
   store double %207, ptr %add.ptr.i286, align 8, !tbaa !81
-  %inc225 = add nuw i64 %i212.0423, 1
+  %inc225 = add nuw nsw i64 %i212.0423, 1
   %exitcond462.not = icmp eq i64 %inc225, %bestParameters.sroa.11.1
   br i1 %exitcond462.not, label %for.cond.cleanup216, label %for.body217, !llvm.loop !237
 

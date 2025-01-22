@@ -14090,7 +14090,7 @@ _ZNSt6vectorIN2cv6Point_IfEESaIS2_EE9push_backERKS2_.exit: ; preds = %32, %_ZNSt
   %79 = phi ptr [ %7, %.preheader38 ], [ %125, %._crit_edge ]
   %80 = phi ptr [ %.pre53, %.preheader38 ], [ %128, %._crit_edge ]
   %81 = phi ptr [ %.pre, %.preheader38 ], [ %127, %._crit_edge ]
-  %.01844 = phi i64 [ 0, %.preheader38 ], [ %136, %._crit_edge ]
+  %.01844 = phi i64 [ 0, %.preheader38 ], [ %135, %._crit_edge ]
   %.not = icmp eq ptr %81, %80
   br i1 %.not, label %.loopexit, label %.lr.ph
 
@@ -14199,10 +14199,9 @@ _ZNSt6vectorIN2cv6Point_IfEESaIS2_EE9push_backERKS2_.exit35: ; preds = %_ZNSt6ve
   br i1 %133, label %.lr.ph, label %._crit_edge, !llvm.loop !273
 
 ._crit_edge:                                      ; preds = %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EE9push_backERKS2_.exit35
-  %134 = and i8 %.2, 1
-  %135 = icmp eq i8 %134, 0
-  %136 = add i64 %.01844, 1
-  br i1 %135, label %.preheader37, label %.loopexit, !llvm.loop !274
+  %134 = icmp eq i8 %.2, 0
+  %135 = add i64 %.01844, 1
+  br i1 %134, label %.preheader37, label %.loopexit, !llvm.loop !274
 
 .loopexit:                                        ; preds = %.preheader37, %._crit_edge, %._crit_edge47, %.preheader36
   ret void

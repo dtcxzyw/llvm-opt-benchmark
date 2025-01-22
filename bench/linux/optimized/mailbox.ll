@@ -756,19 +756,23 @@ define internal noundef range(i32 0, 2) i32 @txdone_hrtimer(ptr noundef %0) #0 a
 
 5:                                                ; preds = %1
   %6 = getelementptr i8, ptr %0, i64 -32
-  br label %7
+  br label %.outer
 
-7:                                                ; preds = %44, %5
-  %8 = phi i64 [ 0, %5 ], [ %46, %44 ]
-  %9 = phi i8 [ 0, %5 ], [ %45, %44 ]
+.outer:                                           ; preds = %.thread, %5
+  %.ph = phi i64 [ %49, %.thread ], [ 0, %5 ]
+  %7 = phi i1 [ false, %.thread ], [ true, %5 ]
+  br label %8
+
+8:                                                ; preds = %.outer, %44
+  %9 = phi i64 [ %45, %44 ], [ %.ph, %.outer ]
   %10 = load ptr, ptr %6, align 8
-  %11 = getelementptr %struct.mbox_chan, ptr %10, i64 %8
+  %11 = getelementptr %struct.mbox_chan, ptr %10, i64 %9
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 56
   %13 = load ptr, ptr %12, align 8
   %14 = icmp eq ptr %13, null
   br i1 %14, label %44, label %15
 
-15:                                               ; preds = %7
+15:                                               ; preds = %8
   %16 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %17 = load ptr, ptr %16, align 8
   %18 = icmp eq ptr %17, null
@@ -781,7 +785,7 @@ define internal noundef range(i32 0, 2) i32 @txdone_hrtimer(ptr noundef %0) #0 a
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 32
   %24 = load ptr, ptr %23, align 8
   %25 = tail call zeroext i1 %24(ptr noundef %11) #6
-  br i1 %25, label %26, label %44
+  br i1 %25, label %26, label %.thread
 
 26:                                               ; preds = %19
   %27 = getelementptr inbounds nuw i8, ptr %11, i64 232
@@ -817,20 +821,24 @@ define internal noundef range(i32 0, 2) i32 @txdone_hrtimer(ptr noundef %0) #0 a
   tail call void @complete(ptr noundef nonnull %43) #6
   br label %44
 
-44:                                               ; preds = %42, %37, %26, %19, %15, %7
-  %45 = phi i8 [ %9, %15 ], [ %9, %7 ], [ 1, %19 ], [ %9, %26 ], [ %9, %37 ], [ %9, %42 ]
-  %46 = add nuw nsw i64 %8, 1
-  %47 = load i32, ptr %2, align 8
-  %48 = sext i32 %47 to i64
-  %49 = icmp slt i64 %46, %48
-  br i1 %49, label %7, label %50, !llvm.loop !11
+44:                                               ; preds = %42, %37, %26, %15, %8
+  %45 = add nuw nsw i64 %9, 1
+  %46 = load i32, ptr %2, align 8
+  %47 = sext i32 %46 to i64
+  %48 = icmp slt i64 %45, %47
+  br i1 %48, label %8, label %53, !llvm.loop !11
 
-50:                                               ; preds = %44
-  %51 = and i8 %45, 1
-  %52 = icmp eq i8 %51, 0
-  br i1 %52, label %72, label %53
+.thread:                                          ; preds = %19
+  %49 = add nuw nsw i64 %9, 1
+  %50 = load i32, ptr %2, align 8
+  %51 = sext i32 %50 to i64
+  %52 = icmp slt i64 %49, %51
+  br i1 %52, label %.outer, label %.thread3, !llvm.loop !11
 
-53:                                               ; preds = %50
+53:                                               ; preds = %44
+  br i1 %7, label %72, label %.thread3
+
+.thread3:                                         ; preds = %.thread, %53
   %54 = getelementptr i8, ptr %0, i64 64
   %55 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef %54) #6
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -839,7 +847,7 @@ define internal noundef range(i32 0, 2) i32 @txdone_hrtimer(ptr noundef %0) #0 a
   %59 = icmp eq i8 %58, 0
   br i1 %59, label %60, label %71
 
-60:                                               ; preds = %53
+60:                                               ; preds = %.thread3
   %61 = getelementptr i8, ptr %0, i64 -16
   %62 = load i32, ptr %61, align 8
   %63 = zext i32 %62 to i64
@@ -852,12 +860,12 @@ define internal noundef range(i32 0, 2) i32 @txdone_hrtimer(ptr noundef %0) #0 a
   %70 = tail call i64 @hrtimer_forward(ptr noundef %0, i64 noundef %69, i64 noundef %64) #6
   br label %71
 
-71:                                               ; preds = %60, %53
+71:                                               ; preds = %60, %.thread3
   tail call void @_raw_spin_unlock_irqrestore(ptr noundef %54, i64 noundef %55) #6
   br label %72
 
-72:                                               ; preds = %71, %50, %1
-  %73 = phi i32 [ 1, %71 ], [ 0, %50 ], [ 0, %1 ]
+72:                                               ; preds = %71, %53, %1
+  %73 = phi i32 [ 1, %71 ], [ 0, %53 ], [ 0, %1 ]
   ret i32 %73
 }
 

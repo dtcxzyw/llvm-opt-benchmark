@@ -211,7 +211,7 @@ define dso_local zeroext i1 @io_futex_remove_all(ptr nocapture noundef readonly 
   %7 = getelementptr i8, ptr %5, i64 -160
   %8 = icmp eq ptr %7, null
   %9 = or i1 %6, %8
-  br i1 %9, label %57, label %.preheader
+  br i1 %9, label %56, label %.preheader
 
 .preheader:                                       ; preds = %3, %48
   %10 = phi ptr [ %51, %48 ], [ %7, %3 ]
@@ -289,13 +289,12 @@ define dso_local zeroext i1 @io_futex_remove_all(ptr nocapture noundef readonly 
   br i1 %53, label %54, label %.preheader, !llvm.loop !9
 
 54:                                               ; preds = %48
-  %55 = and i8 %49, 1
-  %56 = icmp ne i8 %55, 0
-  br label %57
+  %55 = icmp ne i8 %49, 0
+  br label %56
 
-57:                                               ; preds = %54, %3
-  %58 = phi i1 [ false, %3 ], [ %56, %54 ]
-  ret i1 %58
+56:                                               ; preds = %54, %3
+  %57 = phi i1 [ false, %3 ], [ %55, %54 ]
+  ret i1 %57
 }
 
 ; Function Attrs: null_pointer_is_valid

@@ -3646,7 +3646,7 @@ _ZL10print_epotP8_IO_FILEliffif.exit:             ; preds = %487, %493
   %.pre732 = load ptr, ptr %.phi.trans.insert731, align 16
   %.phi.trans.insert734 = getelementptr inbounds nuw [2 x %"class.gmx::ArrayRef.282"], ptr %47, i64 0, i64 %.phi.trans.insert
   %.pre735 = load ptr, ptr %.phi.trans.insert734, align 16
-  %.pre740 = sub nuw nsw i32 1, %.0323684
+  %.pre740 = xor i32 %.0323684, 1
   %.pre742 = zext nneg i32 %.pre740 to i64
   br label %.loopexit642
 
@@ -3695,7 +3695,7 @@ _ZL10print_epotP8_IO_FILEliffif.exit:             ; preds = %487, %493
 599:                                              ; preds = %570
   %600 = getelementptr inbounds nuw [2 x %"class.gmx::ArrayRef.282"], ptr %46, i64 0, i64 %582
   %601 = load ptr, ptr %600, align 16
-  %602 = sub nuw nsw i32 1, %.0323684
+  %602 = xor i32 %.0323684, 1
   %603 = zext nneg i32 %602 to i64
   %604 = getelementptr inbounds nuw [2 x %"class.gmx::ArrayRef.282"], ptr %46, i64 0, i64 %603
   %605 = load ptr, ptr %604, align 16

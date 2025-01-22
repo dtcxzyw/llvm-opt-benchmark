@@ -1044,8 +1044,8 @@ _ZNSt6vectorIiSaIiEE9push_backEOi.exit348:        ; preds = %155, %_ZNSt6vectorI
   br i1 %236, label %237, label %240
 
 237:                                              ; preds = %._crit_edge825
-  %238 = sext i32 %.1277 to i64
-  %239 = getelementptr inbounds float, ptr %.sroa.0579.7, i64 %238
+  %238 = zext nneg i32 %.1277 to i64
+  %239 = getelementptr inbounds nuw float, ptr %.sroa.0579.7, i64 %238
   store float 1.000000e+03, ptr %239, align 4
   br label %240
 

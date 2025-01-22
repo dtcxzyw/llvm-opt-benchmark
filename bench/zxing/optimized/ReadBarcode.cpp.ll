@@ -3399,12 +3399,13 @@ _ZNSt6vectorItSaItEE5clearEv.exit.._crit_edge_crit_edge: ; preds = %_ZNSt6vector
   %35 = phi ptr [ %30, %.lr.ph ], [ %70, %_ZNSt6vectorItSaItEE9push_backEOt.exit ]
   %.061 = phi ptr [ %20, %.lr.ph ], [ %.1, %_ZNSt6vectorItSaItEE9push_backEOt.exit ]
   %.02760 = phi ptr [ %20, %.lr.ph ], [ %71, %_ZNSt6vectorItSaItEE9push_backEOt.exit ]
-  %.02859 = phi i1 [ false, %.lr.ph ], [ %.129, %_ZNSt6vectorItSaItEE9push_backEOt.exit ]
+  %.02859 = phi i8 [ 0, %.lr.ph ], [ %.129, %_ZNSt6vectorItSaItEE9push_backEOt.exit ]
   %36 = load i8, ptr %.02760, align 1
   %37 = load i8, ptr %31, align 8
   %38 = icmp ule i8 %36, %37
-  %39 = xor i1 %.02859, %38
-  br i1 %39, label %40, label %_ZNSt6vectorItSaItEE9push_backEOt.exit
+  %39 = zext i1 %38 to i8
+  %.not32 = icmp eq i8 %.02859, %39
+  br i1 %.not32, label %_ZNSt6vectorItSaItEE9push_backEOt.exit, label %40
 
 40:                                               ; preds = %34
   %41 = ptrtoint ptr %.02760 to i64
@@ -3473,7 +3474,7 @@ _ZNSt6vectorItSaItEE17_M_realloc_insertIJtEEEvN9__gnu_cxx17__normal_iteratorIPtS
 
 _ZNSt6vectorItSaItEE9push_backEOt.exit:           ; preds = %_ZNSt6vectorItSaItEE17_M_realloc_insertIJtEEEvN9__gnu_cxx17__normal_iteratorIPtS1_EEDpOT_.exit.i.i, %47, %34
   %70 = phi ptr [ %35, %34 ], [ %49, %47 ], [ %67, %_ZNSt6vectorItSaItEE17_M_realloc_insertIJtEEEvN9__gnu_cxx17__normal_iteratorIPtS1_EEDpOT_.exit.i.i ]
-  %.129 = phi i1 [ %.02859, %34 ], [ %38, %47 ], [ %38, %_ZNSt6vectorItSaItEE17_M_realloc_insertIJtEEEvN9__gnu_cxx17__normal_iteratorIPtS1_EEDpOT_.exit.i.i ]
+  %.129 = phi i8 [ %.02859, %34 ], [ %39, %47 ], [ %39, %_ZNSt6vectorItSaItEE17_M_realloc_insertIJtEEEvN9__gnu_cxx17__normal_iteratorIPtS1_EEDpOT_.exit.i.i ]
   %.1 = phi ptr [ %.061, %34 ], [ %.02760, %47 ], [ %.02760, %_ZNSt6vectorItSaItEE17_M_realloc_insertIJtEEEvN9__gnu_cxx17__normal_iteratorIPtS1_EEDpOT_.exit.i.i ]
   %71 = getelementptr inbounds i8, ptr %.02760, i64 %32
   %.not = icmp eq ptr %71, %25

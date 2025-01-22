@@ -127,7 +127,7 @@ define dso_local void @_ZN17BM_FlatArray_Push4BodyEv() local_unnamed_addr #3 ali
   %indvars.iv = phi i64 [ 0, %0 ], [ %indvars.iv.next, %11 ]
   %.021 = phi i32 [ 64, %0 ], [ %.1, %11 ]
   %.01619 = phi ptr [ %1, %0 ], [ %.117, %11 ]
-  %3 = zext i32 %.021 to i64
+  %3 = zext nneg i32 %.021 to i64
   %4 = icmp eq i64 %indvars.iv, %3
   br i1 %4, label %5, label %11
 
@@ -1113,7 +1113,7 @@ define linkonce_odr dso_local void @_ZN17BM_FlatArray_Push3RunEv() local_unnamed
   %indvars.iv.i = phi i64 [ 0, %7 ], [ %indvars.iv.next.i, %18 ]
   %.021.i = phi i32 [ 64, %7 ], [ %.1.i, %18 ]
   %.01619.i = phi ptr [ %8, %7 ], [ %.117.i, %18 ]
-  %10 = zext i32 %.021.i to i64
+  %10 = zext nneg i32 %.021.i to i64
   %11 = icmp eq i64 %indvars.iv.i, %10
   br i1 %11, label %12, label %18
 

@@ -98,7 +98,7 @@ if.then6:                                         ; preds = %if.end4
   %tobool7.not = icmp eq i32 %targets_alloc.026, 0
   %mul = shl nsw i32 %targets_alloc.026, 1
   %cond = select i1 %tobool7.not, i32 64, i32 %mul
-  %conv = sext i32 %cond to i64
+  %conv = zext nneg i32 %cond to i64
   %mul.ov.i = icmp slt i32 %cond, 0
   br i1 %mul.ov.i, label %if.then.i, label %st_mult.exit22
 

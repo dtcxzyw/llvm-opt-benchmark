@@ -415,8 +415,7 @@ if.end:                                           ; preds = %if.then, %run_cert.
   br i1 %cmp.not, label %for.end, label %for.body, !llvm.loop !8
 
 for.end:                                          ; preds = %if.end
-  %cmp9 = icmp eq i32 %failed.1, 0
-  %conv10 = zext i1 %cmp9 to i32
+  %conv10 = xor i32 %failed.1, 1
   ret i32 %conv10
 }
 

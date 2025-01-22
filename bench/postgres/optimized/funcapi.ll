@@ -2413,51 +2413,51 @@ define dso_local ptr @get_func_result_name(i32 noundef %0) local_unnamed_addr #0
 
 51:                                               ; preds = %45
   call void @deconstruct_array_builtin(ptr noundef nonnull %36, i32 noundef 25, ptr noundef nonnull %2, ptr noundef null, ptr noundef nonnull %3) #9
-  %.not64 = icmp eq i32 %19, 0
-  br i1 %.not64, label %.loopexit, label %.lr.ph.preheader
+  %.not65 = icmp eq i32 %19, 0
+  br i1 %.not65, label %.loopexit, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %51
   %wide.trip.count = zext nneg i32 %19 to i64
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %66
-  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %66 ]
-  %.03855 = phi i32 [ 0, %.lr.ph.preheader ], [ %.1, %66 ]
-  %.14054 = phi ptr [ null, %.lr.ph.preheader ], [ %.2, %66 ]
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %65
+  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %65 ]
+  %.03855 = phi i32 [ 0, %.lr.ph.preheader ], [ %.1, %65 ]
+  %.14054 = phi ptr [ null, %.lr.ph.preheader ], [ %.2, %65 ]
   %52 = getelementptr i8, ptr %34, i64 %indvars.iv
   %53 = load i8, ptr %52, align 1
   switch i8 %53, label %54 [
-    i8 105, label %66
-    i8 118, label %66
+    i8 105, label %65
+    i8 118, label %65
   ]
 
 54:                                               ; preds = %.lr.ph
-  %55 = icmp sgt i32 %.03855, 0
-  br i1 %55, label %.loopexit, label %56
+  %.not64 = icmp eq i32 %.03855, 0
+  br i1 %.not64, label %55, label %.loopexit
 
-56:                                               ; preds = %54
-  %57 = load ptr, ptr %2, align 8
-  %58 = getelementptr i64, ptr %57, i64 %indvars.iv
-  %59 = load i64, ptr %58, align 8
-  %60 = inttoptr i64 %59 to ptr
-  %61 = call ptr @text_to_cstring(ptr noundef %60) #9
-  %62 = icmp eq ptr %61, null
-  br i1 %62, label %.loopexit, label %63
+55:                                               ; preds = %54
+  %56 = load ptr, ptr %2, align 8
+  %57 = getelementptr i64, ptr %56, i64 %indvars.iv
+  %58 = load i64, ptr %57, align 8
+  %59 = inttoptr i64 %58 to ptr
+  %60 = call ptr @text_to_cstring(ptr noundef %59) #9
+  %61 = icmp eq ptr %60, null
+  br i1 %61, label %.loopexit, label %62
 
-63:                                               ; preds = %56
-  %64 = load i8, ptr %61, align 1
-  %65 = icmp eq i8 %64, 0
-  br i1 %65, label %.loopexit, label %66
+62:                                               ; preds = %55
+  %63 = load i8, ptr %60, align 1
+  %64 = icmp eq i8 %63, 0
+  br i1 %64, label %.loopexit, label %65
 
-66:                                               ; preds = %.lr.ph, %.lr.ph, %63
-  %.2 = phi ptr [ %.14054, %.lr.ph ], [ %61, %63 ], [ %.14054, %.lr.ph ]
-  %.1 = phi i32 [ %.03855, %.lr.ph ], [ 1, %63 ], [ %.03855, %.lr.ph ]
+65:                                               ; preds = %.lr.ph, %.lr.ph, %62
+  %.2 = phi ptr [ %.14054, %.lr.ph ], [ %60, %62 ], [ %.14054, %.lr.ph ]
+  %.1 = phi i32 [ %.03855, %.lr.ph ], [ 1, %62 ], [ %.03855, %.lr.ph ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !14
 
-.loopexit:                                        ; preds = %66, %54, %63, %56, %51, %9, %11
-  %.039 = phi ptr [ null, %11 ], [ null, %9 ], [ null, %51 ], [ %.2, %66 ], [ null, %54 ], [ null, %63 ], [ null, %56 ]
+.loopexit:                                        ; preds = %65, %54, %62, %55, %51, %9, %11
+  %.039 = phi ptr [ null, %11 ], [ null, %9 ], [ null, %51 ], [ %.2, %65 ], [ null, %54 ], [ null, %62 ], [ null, %55 ]
   call void @ReleaseSysCache(ptr noundef nonnull %5) #9
   ret ptr %.039
 }

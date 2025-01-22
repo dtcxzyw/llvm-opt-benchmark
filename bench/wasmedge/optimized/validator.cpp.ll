@@ -837,7 +837,7 @@ define void @_ZN8WasmEdge9Validator9Validator8validateERKNS_3AST9Component9Compo
   br i1 %16, label %17, label %19
 
 17:                                               ; preds = %13
-  %18 = icmp ult i64 %.079.i.i, 12
+  %18 = icmp samesign ult i64 %.079.i.i, 12
   br i1 %18, label %_ZSt17holds_alternativeIN8WasmEdge3AST17CoreModuleSectionEJNS1_13CustomSectionES2_NS1_9Component19CoreInstanceSectionENS4_15CoreTypeSectionENS4_16ComponentSectionENS4_15InstanceSectionENS4_12AliasSectionENS4_11TypeSectionENS4_12CanonSectionENS4_12StartSectionENS4_13ImportSectionENS4_13ExportSectionEEEbRKSt7variantIJDpT0_EE.exit, label %19
 
 19:                                               ; preds = %17, %13
@@ -887,7 +887,7 @@ _ZSt3getIN8WasmEdge3AST17CoreModuleSectionEJNS1_13CustomSectionES2_NS1_9Componen
   br i1 %32, label %33, label %35
 
 33:                                               ; preds = %.preheader
-  %34 = icmp ult i64 %.079.i.i15, 12
+  %34 = icmp samesign ult i64 %.079.i.i15, 12
   br i1 %34, label %_ZSt17holds_alternativeIN8WasmEdge3AST9Component16ComponentSectionEJNS1_13CustomSectionENS1_17CoreModuleSectionENS2_19CoreInstanceSectionENS2_15CoreTypeSectionES3_NS2_15InstanceSectionENS2_12AliasSectionENS2_11TypeSectionENS2_12CanonSectionENS2_12StartSectionENS2_13ImportSectionENS2_13ExportSectionEEEbRKSt7variantIJDpT0_EE.exit, label %35
 
 35:                                               ; preds = %33, %.preheader

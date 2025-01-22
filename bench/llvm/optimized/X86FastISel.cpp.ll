@@ -1004,7 +1004,7 @@ _ZN12_GLOBAL__N_111X86FastISel14X86SelectStoreEPKN4llvm11InstructionE.exit: ; pr
   br i1 %338, label %339, label %341
 
 339:                                              ; preds = %335
-  %340 = icmp ult i64 %.079.i.i.i.i, 3
+  %340 = icmp samesign ult i64 %.079.i.i.i.i, 3
   br i1 %340, label %_ZNK4llvm11CCValAssign8isRegLocEv.exit.i, label %341
 
 341:                                              ; preds = %339, %335
@@ -5590,7 +5590,7 @@ _ZN12_GLOBAL__N_111X86FastISel17X86FastEmitExtendEN4llvm3ISD8NodeTypeENS1_3EVTEj
   br i1 %359, label %360, label %362
 
 360:                                              ; preds = %356
-  %361 = icmp ult i64 %.079.i.i.i, 3
+  %361 = icmp samesign ult i64 %.079.i.i.i, 3
   br i1 %361, label %_ZNK4llvm11CCValAssign8isRegLocEv.exit, label %362
 
 362:                                              ; preds = %360, %356

@@ -4679,7 +4679,7 @@ ZSTD_count.exit:                                  ; preds = %105, %111, %137
 142:                                              ; preds = %90, %94, %ZSTD_count.exit
   %.0468 = phi i32 [ %141, %ZSTD_count.exit ], [ 0, %94 ], [ 0, %90 ]
   %143 = zext i32 %.0468 to i64
-  %144 = icmp ult i64 %.0459558, %143
+  %144 = icmp samesign ult i64 %.0459558, %143
   br i1 %144, label %145, label %157
 
 145:                                              ; preds = %142
@@ -4708,7 +4708,7 @@ ZSTD_count.exit:                                  ; preds = %105, %111, %137
 ._crit_edge562:                                   ; preds = %157, %._crit_edge
   %.0459.lcssa = phi i64 [ %69, %._crit_edge ], [ %.1460, %157 ]
   %.0448.lcssa = phi i32 [ 0, %._crit_edge ], [ %.1449, %157 ]
-  %158 = icmp ult i64 %.0459.lcssa, 3
+  %158 = icmp samesign ult i64 %.0459.lcssa, 3
   br i1 %158, label %159, label %243
 
 159:                                              ; preds = %._crit_edge562
@@ -5331,7 +5331,7 @@ ZSTD_count.exit:                                  ; preds = %105, %111, %137
 142:                                              ; preds = %90, %94, %ZSTD_count.exit
   %.0468 = phi i32 [ %141, %ZSTD_count.exit ], [ 0, %94 ], [ 0, %90 ]
   %143 = zext i32 %.0468 to i64
-  %144 = icmp ult i64 %.0459528, %143
+  %144 = icmp samesign ult i64 %.0459528, %143
   br i1 %144, label %145, label %157
 
 145:                                              ; preds = %142
@@ -5805,7 +5805,7 @@ ZSTD_count.exit:                                  ; preds = %105, %111, %137
 142:                                              ; preds = %90, %94, %ZSTD_count.exit
   %.0468 = phi i32 [ %141, %ZSTD_count.exit ], [ 0, %94 ], [ 0, %90 ]
   %143 = zext i32 %.0468 to i64
-  %144 = icmp ult i64 %.0459528, %143
+  %144 = icmp samesign ult i64 %.0459528, %143
   br i1 %144, label %145, label %157
 
 145:                                              ; preds = %142
@@ -6279,7 +6279,7 @@ ZSTD_count.exit:                                  ; preds = %105, %111, %137
 142:                                              ; preds = %90, %94, %ZSTD_count.exit
   %.0468 = phi i32 [ %141, %ZSTD_count.exit ], [ 0, %94 ], [ 0, %90 ]
   %143 = zext i32 %.0468 to i64
-  %144 = icmp ult i64 %.0459528, %143
+  %144 = icmp samesign ult i64 %.0459528, %143
   br i1 %144, label %145, label %157
 
 145:                                              ; preds = %142
@@ -6785,7 +6785,7 @@ ZSTD_count.exit:                                  ; preds = %111, %117, %143
 162:                                              ; preds = %148, %155, %157, %101, %ZSTD_count.exit
   %.0468 = phi i32 [ %147, %ZSTD_count.exit ], [ 0, %101 ], [ %161, %157 ], [ 0, %155 ], [ 0, %148 ]
   %163 = zext i32 %.0468 to i64
-  %164 = icmp ult i64 %.0459568, %163
+  %164 = icmp samesign ult i64 %.0459568, %163
   br i1 %164, label %165, label %177
 
 165:                                              ; preds = %162
@@ -6814,7 +6814,7 @@ ZSTD_count.exit:                                  ; preds = %111, %117, %143
 ._crit_edge572:                                   ; preds = %177, %._crit_edge
   %.0459.lcssa = phi i64 [ %76, %._crit_edge ], [ %.1460, %177 ]
   %.0448.lcssa = phi i32 [ 0, %._crit_edge ], [ %.1449, %177 ]
-  %178 = icmp ult i64 %.0459.lcssa, 3
+  %178 = icmp samesign ult i64 %.0459.lcssa, 3
   br i1 %178, label %179, label %267
 
 179:                                              ; preds = %._crit_edge572
@@ -7495,7 +7495,7 @@ ZSTD_count.exit:                                  ; preds = %111, %117, %143
 162:                                              ; preds = %148, %155, %157, %101, %ZSTD_count.exit
   %.0468 = phi i32 [ %147, %ZSTD_count.exit ], [ 0, %101 ], [ %161, %157 ], [ 0, %155 ], [ 0, %148 ]
   %163 = zext i32 %.0468 to i64
-  %164 = icmp ult i64 %.0459535, %163
+  %164 = icmp samesign ult i64 %.0459535, %163
   br i1 %164, label %165, label %177
 
 165:                                              ; preds = %162
@@ -8018,7 +8018,7 @@ ZSTD_count.exit:                                  ; preds = %111, %117, %143
 162:                                              ; preds = %148, %155, %157, %101, %ZSTD_count.exit
   %.0468 = phi i32 [ %147, %ZSTD_count.exit ], [ 0, %101 ], [ %161, %157 ], [ 0, %155 ], [ 0, %148 ]
   %163 = zext i32 %.0468 to i64
-  %164 = icmp ult i64 %.0459535, %163
+  %164 = icmp samesign ult i64 %.0459535, %163
   br i1 %164, label %165, label %177
 
 165:                                              ; preds = %162
@@ -8541,7 +8541,7 @@ ZSTD_count.exit:                                  ; preds = %111, %117, %143
 162:                                              ; preds = %148, %155, %157, %101, %ZSTD_count.exit
   %.0468 = phi i32 [ %147, %ZSTD_count.exit ], [ 0, %101 ], [ %161, %157 ], [ 0, %155 ], [ 0, %148 ]
   %163 = zext i32 %.0468 to i64
-  %164 = icmp ult i64 %.0459535, %163
+  %164 = icmp samesign ult i64 %.0459535, %163
   br i1 %164, label %165, label %177
 
 165:                                              ; preds = %162
@@ -9092,7 +9092,7 @@ ZSTD_count.exit:                                  ; preds = %133, %139, %165
 183:                                              ; preds = %170, %176, %178, %123, %ZSTD_count.exit
   %.0468 = phi i32 [ %169, %ZSTD_count.exit ], [ 0, %123 ], [ %182, %178 ], [ 0, %176 ], [ 0, %170 ]
   %184 = zext i32 %.0468 to i64
-  %185 = icmp ult i64 %.0459586, %184
+  %185 = icmp samesign ult i64 %.0459586, %184
   br i1 %185, label %186, label %198
 
 186:                                              ; preds = %183
@@ -9121,7 +9121,7 @@ ZSTD_count.exit:                                  ; preds = %133, %139, %165
 ._crit_edge590:                                   ; preds = %198, %._crit_edge
   %.0459.lcssa = phi i64 [ %95, %._crit_edge ], [ %.1460, %198 ]
   %.0448.lcssa = phi i32 [ 0, %._crit_edge ], [ %.1449, %198 ]
-  %199 = icmp ult i64 %.0459.lcssa, 3
+  %199 = icmp samesign ult i64 %.0459.lcssa, 3
   br i1 %199, label %200, label %284
 
 200:                                              ; preds = %._crit_edge590
@@ -9908,7 +9908,7 @@ ZSTD_count.exit:                                  ; preds = %133, %139, %165
 183:                                              ; preds = %170, %176, %178, %123, %ZSTD_count.exit
   %.0468 = phi i32 [ %169, %ZSTD_count.exit ], [ 0, %123 ], [ %182, %178 ], [ 0, %176 ], [ 0, %170 ]
   %184 = zext i32 %.0468 to i64
-  %185 = icmp ult i64 %.0459554, %184
+  %185 = icmp samesign ult i64 %.0459554, %184
   br i1 %185, label %186, label %198
 
 186:                                              ; preds = %183
@@ -10546,7 +10546,7 @@ ZSTD_count.exit:                                  ; preds = %133, %139, %165
 183:                                              ; preds = %170, %176, %178, %123, %ZSTD_count.exit
   %.0468 = phi i32 [ %169, %ZSTD_count.exit ], [ 0, %123 ], [ %182, %178 ], [ 0, %176 ], [ 0, %170 ]
   %184 = zext i32 %.0468 to i64
-  %185 = icmp ult i64 %.0459554, %184
+  %185 = icmp samesign ult i64 %.0459554, %184
   br i1 %185, label %186, label %198
 
 186:                                              ; preds = %183
@@ -11184,7 +11184,7 @@ ZSTD_count.exit:                                  ; preds = %133, %139, %165
 183:                                              ; preds = %170, %176, %178, %123, %ZSTD_count.exit
   %.0468 = phi i32 [ %169, %ZSTD_count.exit ], [ 0, %123 ], [ %182, %178 ], [ 0, %176 ], [ 0, %170 ]
   %184 = zext i32 %.0468 to i64
-  %185 = icmp ult i64 %.0459554, %184
+  %185 = icmp samesign ult i64 %.0459554, %184
   br i1 %185, label %186, label %198
 
 186:                                              ; preds = %183

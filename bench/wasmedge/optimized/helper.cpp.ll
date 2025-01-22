@@ -824,7 +824,7 @@ _ZN8WasmEdge7Runtime12StackManager21removeInactiveHandlerEPKNS_3AST11Instruction
   br i1 %80, label %81, label %83
 
 81:                                               ; preds = %77
-  %82 = icmp ult i64 %.079.i.i.i, 3
+  %82 = icmp samesign ult i64 %.079.i.i.i, 3
   br i1 %82, label %_ZNK8WasmEdge7Runtime8Instance16FunctionInstance14isHostFunctionEv.exit, label %83
 
 83:                                               ; preds = %81, %77
@@ -1369,7 +1369,7 @@ _ZN8WasmEdge7Runtime12StackManager8popFrameEv.exit: ; preds = %_ZNSt6vectorIN8Wa
   br i1 %294, label %295, label %297
 
 295:                                              ; preds = %.preheader266
-  %296 = icmp ult i64 %.079.i.i.i138, 3
+  %296 = icmp samesign ult i64 %.079.i.i.i138, 3
   br i1 %296, label %_ZNK8WasmEdge7Runtime8Instance16FunctionInstance18isCompiledFunctionEv.exit, label %297
 
 297:                                              ; preds = %295, %.preheader266
@@ -2059,7 +2059,7 @@ _ZN8WasmEdge7Runtime12StackManager4pushINS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_
   br i1 %556, label %557, label %559
 
 557:                                              ; preds = %553
-  %558 = icmp ult i64 %.079.i.i.i201, 3
+  %558 = icmp samesign ult i64 %.079.i.i.i201, 3
   br i1 %558, label %_ZSt17holds_alternativeIN8WasmEdge7Runtime8Instance16FunctionInstance12WasmFunctionEJS4_NS0_6SymbolIvEESt10unique_ptrINS1_16HostFunctionBaseESt14default_deleteIS8_EEEEbRKSt7variantIJDpT0_EE.exit.i, label %559
 
 559:                                              ; preds = %557, %553

@@ -2448,7 +2448,7 @@ define internal fastcc void @dissect_eventdata_cmd(ptr noundef %0, ptr noundef %
   %31 = load i32, ptr @hf_gvcp_eventcmd_timestamp, align 4
   %32 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %31, ptr noundef %1, i32 noundef %30, i32 noundef 8, i32 noundef 0) #5
   %33 = add i32 %.06368, 24
-  %34 = icmp sgt i32 %.1, 24
+  %34 = icmp samesign ugt i32 %.1, 24
   br i1 %34, label %35, label %47
 
 35:                                               ; preds = %26

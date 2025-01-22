@@ -1367,15 +1367,19 @@ declare dso_local void @mutex_unlock(ptr noundef) local_unnamed_addr #5
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @module_param_sysfs_setup(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #4 align 16 {
   %4 = icmp eq i32 %2, 0
-  br i1 %4, label %49, label %5
+  br i1 %4, label %47, label %5
 
 5:                                                ; preds = %3
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  br label %7
+  br label %.outer
 
-7:                                                ; preds = %23, %5
-  %8 = phi i8 [ 0, %5 ], [ %24, %23 ]
-  %9 = phi i32 [ 0, %5 ], [ %25, %23 ]
+.outer:                                           ; preds = %.thread, %5
+  %7 = phi i1 [ false, %.thread ], [ true, %5 ]
+  %.ph7 = phi i32 [ %26, %.thread ], [ 0, %5 ]
+  br label %8
+
+8:                                                ; preds = %.outer, %23
+  %9 = phi i32 [ %24, %23 ], [ %.ph7, %.outer ]
   %10 = sext i32 %9 to i64
   %11 = getelementptr %struct.kernel_param, ptr %1, i64 %10
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 24
@@ -1383,63 +1387,65 @@ define dso_local i32 @module_param_sysfs_setup(ptr noundef %0, ptr noundef %1, i
   %14 = icmp eq i16 %13, 0
   br i1 %14, label %23, label %15
 
-15:                                               ; preds = %7
+15:                                               ; preds = %8
   %16 = load ptr, ptr %11, align 8
   %17 = tail call fastcc i32 @add_sysfs_param(ptr noundef nonnull %6, ptr noundef %11, ptr noundef %16), !range !21
   %18 = icmp eq i32 %17, 0
-  br i1 %18, label %23, label %19
+  br i1 %18, label %.thread, label %19
 
 19:                                               ; preds = %15
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %21 = load ptr, ptr %20, align 8
   %22 = icmp eq ptr %21, null
-  br i1 %22, label %45, label %39
+  br i1 %22, label %43, label %37
 
-23:                                               ; preds = %15, %7
-  %24 = phi i8 [ %8, %7 ], [ 1, %15 ]
-  %25 = add nuw i32 %9, 1
-  %26 = icmp eq i32 %25, %2
-  br i1 %26, label %27, label %7, !llvm.loop !22
+23:                                               ; preds = %8
+  %24 = add nuw i32 %9, 1
+  %25 = icmp eq i32 %24, %2
+  br i1 %25, label %28, label %8, !llvm.loop !22
 
-27:                                               ; preds = %23
-  %28 = and i8 %24, 1
-  %29 = icmp eq i8 %28, 0
-  br i1 %29, label %49, label %30
+.thread:                                          ; preds = %15
+  %26 = add nuw i32 %9, 1
+  %27 = icmp eq i32 %26, %2
+  br i1 %27, label %.thread6, label %.outer, !llvm.loop !22
 
-30:                                               ; preds = %27
-  %31 = getelementptr inbounds nuw i8, ptr %0, i64 160
-  %32 = load ptr, ptr %31, align 16
-  %33 = getelementptr inbounds nuw i8, ptr %32, i64 8
-  %34 = tail call i32 @sysfs_create_group(ptr noundef nonnull %6, ptr noundef nonnull %33) #17
-  %35 = icmp eq i32 %34, 0
-  br i1 %35, label %49, label %36
+28:                                               ; preds = %23
+  br i1 %7, label %47, label %.thread6
 
-36:                                               ; preds = %30
-  %37 = load ptr, ptr %31, align 8
-  %38 = icmp eq ptr %37, null
-  br i1 %38, label %45, label %39
+.thread6:                                         ; preds = %.thread, %28
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 160
+  %30 = load ptr, ptr %29, align 16
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 8
+  %32 = tail call i32 @sysfs_create_group(ptr noundef nonnull %6, ptr noundef nonnull %31) #17
+  %33 = icmp eq i32 %32, 0
+  br i1 %33, label %47, label %34
 
-39:                                               ; preds = %36, %19
-  %40 = phi ptr [ %21, %19 ], [ %37, %36 ]
-  %41 = phi ptr [ %20, %19 ], [ %31, %36 ]
-  %42 = phi i32 [ %17, %19 ], [ %34, %36 ]
-  %43 = getelementptr inbounds nuw i8, ptr %40, i64 32
-  %44 = load ptr, ptr %43, align 8
+34:                                               ; preds = %.thread6
+  %35 = load ptr, ptr %29, align 8
+  %36 = icmp eq ptr %35, null
+  br i1 %36, label %43, label %37
+
+37:                                               ; preds = %34, %19
+  %38 = phi ptr [ %21, %19 ], [ %35, %34 ]
+  %39 = phi ptr [ %20, %19 ], [ %29, %34 ]
+  %40 = phi i32 [ %17, %19 ], [ %32, %34 ]
+  %41 = getelementptr inbounds nuw i8, ptr %38, i64 32
+  %42 = load ptr, ptr %41, align 8
+  tail call void @kfree(ptr noundef %42) #17
+  %.pre = load ptr, ptr %39, align 8
+  br label %43
+
+43:                                               ; preds = %37, %34, %19
+  %44 = phi ptr [ null, %19 ], [ null, %34 ], [ %.pre, %37 ]
+  %45 = phi ptr [ %20, %19 ], [ %29, %34 ], [ %39, %37 ]
+  %46 = phi i32 [ %17, %19 ], [ %32, %34 ], [ %40, %37 ]
   tail call void @kfree(ptr noundef %44) #17
-  %.pre = load ptr, ptr %41, align 8
-  br label %45
+  store ptr null, ptr %45, align 8
+  br label %47
 
-45:                                               ; preds = %39, %36, %19
-  %46 = phi ptr [ null, %19 ], [ null, %36 ], [ %.pre, %39 ]
-  %47 = phi ptr [ %20, %19 ], [ %31, %36 ], [ %41, %39 ]
-  %48 = phi i32 [ %17, %19 ], [ %34, %36 ], [ %42, %39 ]
-  tail call void @kfree(ptr noundef %46) #17
-  store ptr null, ptr %47, align 8
-  br label %49
-
-49:                                               ; preds = %45, %30, %27, %3
-  %50 = phi i32 [ 0, %27 ], [ 0, %30 ], [ 0, %3 ], [ %48, %45 ]
-  ret i32 %50
+47:                                               ; preds = %43, %.thread6, %28, %3
+  %48 = phi i32 [ 0, %28 ], [ 0, %.thread6 ], [ 0, %3 ], [ %46, %43 ]
+  ret i32 %48
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

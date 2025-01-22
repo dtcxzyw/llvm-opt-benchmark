@@ -790,160 +790,159 @@ define dso_local void @ieee80211_get_tx_rates(ptr noundef readonly %0, ptr nound
   %210 = zext nneg i32 %4 to i64
   br label %211
 
-211:                                              ; preds = %289, %206
-  %212 = phi i64 [ 0, %206 ], [ %291, %289 ]
-  %213 = phi i8 [ 0, %206 ], [ %290, %289 ]
-  %214 = and i8 %213, 1
-  %215 = icmp eq i8 %214, 0
-  %216 = getelementptr %struct.ieee80211_tx_rate, ptr %3, i64 %212
-  br i1 %215, label %218, label %217
+211:                                              ; preds = %288, %206
+  %212 = phi i64 [ 0, %206 ], [ %290, %288 ]
+  %213 = phi i8 [ 0, %206 ], [ %289, %288 ]
+  %214 = icmp eq i8 %213, 0
+  %215 = getelementptr %struct.ieee80211_tx_rate, ptr %3, i64 %212
+  br i1 %214, label %217, label %216
+
+216:                                              ; preds = %211
+  store i8 -1, ptr %215, align 1
+  br label %288
 
 217:                                              ; preds = %211
-  store i8 -1, ptr %216, align 1
-  br label %289
+  %218 = load i8, ptr %215, align 1
+  %219 = icmp slt i8 %218, 0
+  br i1 %219, label %288, label %220
 
-218:                                              ; preds = %211
-  %219 = load i8, ptr %216, align 1
-  %220 = icmp slt i8 %219, 0
-  br i1 %220, label %289, label %221
+220:                                              ; preds = %217
+  %221 = getelementptr inbounds nuw i8, ptr %215, i64 1
+  %222 = load i16, ptr %221, align 1
+  %223 = lshr i16 %222, 5
+  %224 = zext nneg i16 %223 to i32
+  %225 = and i32 %224, 8
+  %226 = icmp eq i32 %225, 0
+  br i1 %226, label %240, label %227
 
-221:                                              ; preds = %218
-  %222 = getelementptr inbounds nuw i8, ptr %216, i64 1
-  %223 = load i16, ptr %222, align 1
-  %224 = lshr i16 %223, 5
-  %225 = zext nneg i16 %224 to i32
-  %226 = and i32 %225, 8
-  %227 = icmp eq i32 %226, 0
-  br i1 %227, label %241, label %228
+227:                                              ; preds = %220
+  %228 = icmp samesign ugt i8 %218, 76
+  br i1 %228, label %229, label %230, !prof !6
 
-228:                                              ; preds = %221
-  %229 = icmp samesign ugt i8 %219, 76
-  br i1 %229, label %230, label %231, !prof !6
-
-230:                                              ; preds = %228
+229:                                              ; preds = %227
   tail call void asm sideeffect "2983: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 2983b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 2983) #14, !srcloc !41
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 676, i32 2305, i64 12) #14, !srcloc !42
   tail call void asm sideeffect "2984: nop\0A\09.pushsection .discard.instr_end\0A\09.long 2984b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 2984) #14, !srcloc !43
-  %.pre = load i16, ptr %222, align 1
-  br label %231
+  %.pre = load i16, ptr %221, align 1
+  br label %230
 
-231:                                              ; preds = %230, %228
-  %232 = phi i16 [ %.pre, %230 ], [ %223, %228 ]
-  %233 = and i16 %232, 32
-  %234 = icmp eq i16 %233, 0
-  br i1 %234, label %235, label %289
+230:                                              ; preds = %229, %227
+  %231 = phi i16 [ %.pre, %229 ], [ %222, %227 ]
+  %232 = and i16 %231, 32
+  %233 = icmp eq i16 %232, 0
+  br i1 %233, label %234, label %288
 
-235:                                              ; preds = %231
-  %236 = load i8, ptr %207, align 1
-  %237 = and i8 %236, 2
-  %238 = icmp eq i8 %237, 0
-  br i1 %238, label %289, label %239
+234:                                              ; preds = %230
+  %235 = load i8, ptr %207, align 1
+  %236 = and i8 %235, 2
+  %237 = icmp eq i8 %236, 0
+  br i1 %237, label %288, label %238
 
-239:                                              ; preds = %235
-  %240 = or i16 %232, 64
-  store i16 %240, ptr %222, align 1
-  br label %289
+238:                                              ; preds = %234
+  %239 = or i16 %231, 64
+  store i16 %239, ptr %221, align 1
+  br label %288
 
-241:                                              ; preds = %221
-  %242 = and i32 %225, 256
-  %243 = icmp eq i32 %242, 0
-  br i1 %243, label %248, label %244
+240:                                              ; preds = %220
+  %241 = and i32 %224, 256
+  %242 = icmp eq i32 %241, 0
+  br i1 %242, label %247, label %243
 
-244:                                              ; preds = %241
-  %245 = and i8 %219, 14
-  %246 = icmp samesign ugt i8 %245, 9
-  br i1 %246, label %247, label %289, !prof !6
+243:                                              ; preds = %240
+  %244 = and i8 %218, 14
+  %245 = icmp samesign ugt i8 %244, 9
+  br i1 %245, label %246, label %288, !prof !6
 
-247:                                              ; preds = %244
+246:                                              ; preds = %243
   tail call void asm sideeffect "2985: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 2985b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 2985) #14, !srcloc !44
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 686, i32 2305, i64 12) #14, !srcloc !45
   tail call void asm sideeffect "2986: nop\0A\09.pushsection .discard.instr_end\0A\09.long 2986b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 2986) #14, !srcloc !46
-  br label %289
+  br label %288
 
-248:                                              ; preds = %241
-  %249 = load i8, ptr %207, align 1
-  %250 = and i8 %249, 1
-  %251 = icmp eq i8 %250, 0
-  br i1 %251, label %256, label %252
+247:                                              ; preds = %240
+  %248 = load i8, ptr %207, align 1
+  %249 = and i8 %248, 1
+  %250 = icmp eq i8 %249, 0
+  br i1 %250, label %255, label %251
 
-252:                                              ; preds = %248
-  %253 = or i16 %223, 32
-  store i16 %253, ptr %222, align 1
-  %254 = load i8, ptr %207, align 1
-  %255 = and i8 %254, -3
-  store i8 %255, ptr %207, align 1
-  %.pre15 = load i8, ptr %216, align 1
-  br label %256
+251:                                              ; preds = %247
+  %252 = or i16 %222, 32
+  store i16 %252, ptr %221, align 1
+  %253 = load i8, ptr %207, align 1
+  %254 = and i8 %253, -3
+  store i8 %254, ptr %207, align 1
+  %.pre15 = load i8, ptr %215, align 1
+  br label %255
 
-256:                                              ; preds = %252, %248
-  %257 = phi i8 [ %255, %252 ], [ %249, %248 ]
-  %258 = phi i8 [ %.pre15, %252 ], [ %219, %248 ]
-  %259 = sext i8 %258 to i32
-  %260 = load i32, ptr %208, align 8
-  %261 = icmp sgt i32 %260, %259
-  br i1 %261, label %263, label %262, !prof !14
+255:                                              ; preds = %251, %247
+  %256 = phi i8 [ %254, %251 ], [ %248, %247 ]
+  %257 = phi i8 [ %.pre15, %251 ], [ %218, %247 ]
+  %258 = sext i8 %257 to i32
+  %259 = load i32, ptr %208, align 8
+  %260 = icmp sgt i32 %259, %258
+  br i1 %260, label %262, label %261, !prof !14
 
-262:                                              ; preds = %256
+261:                                              ; preds = %255
   tail call void asm sideeffect "2987: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 2987b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 2987) #14, !srcloc !47
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 697, i32 2307, i64 12) #14, !srcloc !48
   tail call void asm sideeffect "2988: nop\0A\09.pushsection .discard.instr_end\0A\09.long 2988b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 2988) #14, !srcloc !49
-  store i8 -1, ptr %216, align 1
-  br label %289
+  store i8 -1, ptr %215, align 1
+  br label %288
 
-263:                                              ; preds = %256
-  %264 = load ptr, ptr %209, align 8
-  %265 = sext i8 %258 to i64
-  %266 = getelementptr %struct.ieee80211_rate, ptr %264, i64 %265
-  %267 = and i8 %257, 4
-  %268 = icmp eq i8 %267, 0
-  br i1 %268, label %._crit_edge, label %269
+262:                                              ; preds = %255
+  %263 = load ptr, ptr %209, align 8
+  %264 = sext i8 %257 to i64
+  %265 = getelementptr %struct.ieee80211_rate, ptr %263, i64 %264
+  %266 = and i8 %256, 4
+  %267 = icmp eq i8 %266, 0
+  br i1 %267, label %._crit_edge, label %268
 
-._crit_edge:                                      ; preds = %263
-  %.pre16 = load i16, ptr %222, align 1
-  br label %275
+._crit_edge:                                      ; preds = %262
+  %.pre16 = load i16, ptr %221, align 1
+  br label %274
 
-269:                                              ; preds = %263
-  %270 = load i32, ptr %266, align 4
-  %271 = and i32 %270, 1
-  %272 = icmp eq i32 %271, 0
-  %.pre17 = load i16, ptr %222, align 1
-  br i1 %272, label %275, label %273
+268:                                              ; preds = %262
+  %269 = load i32, ptr %265, align 4
+  %270 = and i32 %269, 1
+  %271 = icmp eq i32 %270, 0
+  %.pre17 = load i16, ptr %221, align 1
+  br i1 %271, label %274, label %272
 
-273:                                              ; preds = %269
-  %274 = or i16 %.pre17, 128
-  store i16 %274, ptr %222, align 1
-  br label %275
+272:                                              ; preds = %268
+  %273 = or i16 %.pre17, 128
+  store i16 %273, ptr %221, align 1
+  br label %274
 
-275:                                              ; preds = %._crit_edge, %273, %269
-  %276 = phi i16 [ %.pre16, %._crit_edge ], [ %274, %273 ], [ %.pre17, %269 ]
-  %277 = and i16 %276, 32
-  %278 = icmp eq i16 %277, 0
-  br i1 %278, label %279, label %289
+274:                                              ; preds = %._crit_edge, %272, %268
+  %275 = phi i16 [ %.pre16, %._crit_edge ], [ %273, %272 ], [ %.pre17, %268 ]
+  %276 = and i16 %275, 32
+  %277 = icmp eq i16 %276, 0
+  br i1 %277, label %278, label %288
 
-279:                                              ; preds = %275
-  %280 = load i8, ptr %207, align 1
-  %281 = and i8 %280, 2
-  %282 = icmp eq i8 %281, 0
-  br i1 %282, label %289, label %283
+278:                                              ; preds = %274
+  %279 = load i8, ptr %207, align 1
+  %280 = and i8 %279, 2
+  %281 = icmp eq i8 %280, 0
+  br i1 %281, label %288, label %282
 
-283:                                              ; preds = %279
-  %284 = load i32, ptr %266, align 4
-  %285 = and i32 %284, 16
-  %286 = icmp eq i32 %285, 0
-  br i1 %286, label %289, label %287
+282:                                              ; preds = %278
+  %283 = load i32, ptr %265, align 4
+  %284 = and i32 %283, 16
+  %285 = icmp eq i32 %284, 0
+  br i1 %285, label %288, label %286
 
-287:                                              ; preds = %283
-  %288 = or i16 %276, 64
-  store i16 %288, ptr %222, align 1
-  br label %289
+286:                                              ; preds = %282
+  %287 = or i16 %275, 64
+  store i16 %287, ptr %221, align 1
+  br label %288
 
-289:                                              ; preds = %287, %283, %279, %275, %262, %247, %244, %239, %235, %231, %218, %217
-  %290 = phi i8 [ %213, %217 ], [ %213, %231 ], [ %213, %239 ], [ %213, %235 ], [ %213, %262 ], [ %213, %275 ], [ %213, %287 ], [ %213, %283 ], [ %213, %279 ], [ 1, %218 ], [ %213, %247 ], [ %213, %244 ]
-  %291 = add nuw nsw i64 %212, 1
-  %292 = icmp eq i64 %291, %210
-  br i1 %292, label %.loopexit, label %211, !llvm.loop !50
+288:                                              ; preds = %286, %282, %278, %274, %261, %246, %243, %238, %234, %230, %217, %216
+  %289 = phi i8 [ %213, %216 ], [ 0, %230 ], [ 0, %238 ], [ 0, %234 ], [ 0, %261 ], [ 0, %274 ], [ 0, %286 ], [ 0, %282 ], [ 0, %278 ], [ 1, %217 ], [ 0, %246 ], [ 0, %243 ]
+  %290 = add nuw nsw i64 %212, 1
+  %291 = icmp eq i64 %290, %210
+  br i1 %291, label %.loopexit, label %211, !llvm.loop !50
 
-.loopexit:                                        ; preds = %289, %205, %155, %.loopexit14
+.loopexit:                                        ; preds = %288, %205, %155, %.loopexit14
   ret void
 }
 

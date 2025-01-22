@@ -11647,7 +11647,7 @@ _ZN4llvm15SmallPtrSetImplIPNS_8FunctionEE6insertES2_.exit395: ; preds = %.lr.ph.
   br i1 %.not495, label %.lr.ph551, label %.lr.ph547
 
 .lr.ph555:                                        ; preds = %"_ZZL16addArgumentAttrsRKN4llvm14SmallSetVectorIPNS_8FunctionELj8EEERNS_8SmallSetIS2_Lj8ESt4lessIS2_EEEENK3$_0clENS_9Attribute8AttrKindESD_.exit.thread"
-  %458 = and i32 %.0.i396475, -2
+  %458 = and i32 %.0.i396475, 126
   %or.cond.i397 = icmp eq i32 %458, 48
   br label %469
 

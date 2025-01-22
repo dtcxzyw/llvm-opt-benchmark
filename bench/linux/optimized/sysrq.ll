@@ -1486,8 +1486,8 @@ define internal noundef i64 @write_sysrq_trigger(ptr nocapture readnone %0, ptr 
   br i1 %5, label %.thread, label %.preheader
 
 .preheader:                                       ; preds = %4, %.thread3
-  %6 = phi i8 [ %21, %.thread3 ], [ 0, %4 ]
-  %7 = phi i64 [ %22, %.thread3 ], [ 0, %4 ]
+  %6 = phi i8 [ %20, %.thread3 ], [ 0, %4 ]
+  %7 = phi i64 [ %21, %.thread3 ], [ 0, %4 ]
   %8 = tail call i64 @llvm.read_register.i64(metadata !0)
   %9 = getelementptr i8, ptr %1, i64 %7
   %10 = tail call { ptr, i8, i64 } asm sideeffect "call __get_user_${4:P}", "={ax},={rdx},={rsp},0,i,{rsp},~{dirflag},~{fpsr},~{flags}"(ptr %9, i64 1, i64 %8) #18, !srcloc !28
@@ -1506,19 +1506,18 @@ define internal noundef i64 @write_sysrq_trigger(ptr nocapture readnone %0, ptr 
 
 19:                                               ; preds = %17
   tail call void @__handle_sysrq(i8 noundef zeroext %12, i1 noundef zeroext false)
-  %20 = and i8 %6, 1
-  %switch.not = icmp eq i8 %20, 0
+  %switch.not = icmp eq i8 %6, 0
   br i1 %switch.not, label %.thread, label %.thread3
 
 .thread3:                                         ; preds = %19, %17
-  %21 = phi i8 [ %6, %19 ], [ 1, %17 ]
-  %22 = add nuw i64 %7, 1
-  %23 = icmp eq i64 %22, %2
-  br i1 %23, label %.thread, label %.preheader, !llvm.loop !29
+  %20 = phi i8 [ %6, %19 ], [ 1, %17 ]
+  %21 = add nuw i64 %7, 1
+  %22 = icmp eq i64 %21, %2
+  br i1 %22, label %.thread, label %.preheader, !llvm.loop !29
 
 .thread:                                          ; preds = %.thread3, %19, %.preheader, %4
-  %24 = phi i64 [ 0, %4 ], [ %2, %.thread3 ], [ %2, %19 ], [ -14, %.preheader ]
-  ret i64 %24
+  %23 = phi i64 [ 0, %4 ], [ %2, %.thread3 ], [ %2, %19 ], [ -14, %.preheader ]
+  ret i64 %23
 }
 
 ; Function Attrs: null_pointer_is_valid

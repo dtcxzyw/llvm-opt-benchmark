@@ -1279,15 +1279,10 @@ define range(i32 -21, 4) i32 @arkRootCheck2(ptr noundef %0) local_unnamed_addr #
   %118 = load i32, ptr %27, align 8
   %119 = sext i32 %118 to i64
   %120 = icmp slt i64 %indvars.iv.next100, %119
-  br i1 %120, label %98, label %._crit_edge93.loopexit
+  br i1 %120, label %98, label %.loopexit
 
-._crit_edge93.loopexit:                           ; preds = %117
-  %121 = icmp ne i32 %.3, 0
-  %122 = zext i1 %121 to i32
-  br label %.loopexit
-
-.loopexit:                                        ; preds = %111, %.preheader84, %.preheader83, %.preheader, %._crit_edge93.loopexit, %85, %._crit_edge, %10, %4, %3
-  %.0 = phi i32 [ -21, %3 ], [ 0, %4 ], [ -12, %10 ], [ 0, %._crit_edge ], [ -12, %85 ], [ 0, %.preheader ], [ %122, %._crit_edge93.loopexit ], [ 0, %.preheader83 ], [ 0, %.preheader84 ], [ 3, %111 ]
+.loopexit:                                        ; preds = %111, %117, %.preheader84, %.preheader83, %.preheader, %85, %._crit_edge, %10, %4, %3
+  %.0 = phi i32 [ -21, %3 ], [ 0, %4 ], [ -12, %10 ], [ 0, %._crit_edge ], [ -12, %85 ], [ 0, %.preheader ], [ 0, %.preheader83 ], [ 0, %.preheader84 ], [ 3, %111 ], [ %.3, %117 ]
   ret i32 %.0
 }
 

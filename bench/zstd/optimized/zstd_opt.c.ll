@@ -4695,7 +4695,7 @@ ZSTD_count.exit:                                  ; preds = %if.then2.i, %if.end
 if.end230.i:                                      ; preds = %cond.end134.i, %if.then.i18, %ZSTD_count.exit
   %repLen.i.0 = phi i32 [ %add161.i, %ZSTD_count.exit ], [ 0, %if.then.i18 ], [ 0, %cond.end134.i ]
   %conv231.i = zext i32 %repLen.i.0 to i64
-  %cmp232.i = icmp ult i64 %bestLength.i.0493, %conv231.i
+  %cmp232.i = icmp samesign ult i64 %bestLength.i.0493, %conv231.i
   br i1 %cmp232.i, label %if.then234.i, label %if.end253.i
 
 if.then234.i:                                     ; preds = %if.end230.i
@@ -4724,7 +4724,7 @@ if.end253.i:                                      ; preds = %if.then234.i, %if.e
 land.lhs.true257.i:                               ; preds = %if.end253.i, %ZSTD_updateTree_internal.exit.i
   %bestLength.i.0.lcssa = phi i64 [ %conv123.i, %ZSTD_updateTree_internal.exit.i ], [ %bestLength.i.1, %if.end253.i ]
   %mnum.i.0.lcssa = phi i32 [ 0, %ZSTD_updateTree_internal.exit.i ], [ %mnum.i.1, %if.end253.i ]
-  %cmp259.i = icmp ult i64 %bestLength.i.0.lcssa, 3
+  %cmp259.i = icmp samesign ult i64 %bestLength.i.0.lcssa, 3
   br i1 %cmp259.i, label %if.then261.i, label %if.end314.i
 
 if.then261.i:                                     ; preds = %land.lhs.true257.i
@@ -5348,7 +5348,7 @@ ZSTD_count.exit:                                  ; preds = %if.then2.i, %if.end
 if.end230.i:                                      ; preds = %cond.end134.i, %if.then.i18, %ZSTD_count.exit
   %repLen.i.0 = phi i32 [ %add161.i, %ZSTD_count.exit ], [ 0, %if.then.i18 ], [ 0, %cond.end134.i ]
   %conv231.i = zext i32 %repLen.i.0 to i64
-  %cmp232.i = icmp ult i64 %bestLength.i.0415, %conv231.i
+  %cmp232.i = icmp samesign ult i64 %bestLength.i.0415, %conv231.i
   br i1 %cmp232.i, label %if.then234.i, label %if.end253.i
 
 if.then234.i:                                     ; preds = %if.end230.i
@@ -5823,7 +5823,7 @@ ZSTD_count.exit:                                  ; preds = %if.then2.i, %if.end
 if.end230.i:                                      ; preds = %cond.end134.i, %if.then.i18, %ZSTD_count.exit
   %repLen.i.0 = phi i32 [ %add161.i, %ZSTD_count.exit ], [ 0, %if.then.i18 ], [ 0, %cond.end134.i ]
   %conv231.i = zext i32 %repLen.i.0 to i64
-  %cmp232.i = icmp ult i64 %bestLength.i.0414, %conv231.i
+  %cmp232.i = icmp samesign ult i64 %bestLength.i.0414, %conv231.i
   br i1 %cmp232.i, label %if.then234.i, label %if.end253.i
 
 if.then234.i:                                     ; preds = %if.end230.i
@@ -6298,7 +6298,7 @@ ZSTD_count.exit:                                  ; preds = %if.then2.i, %if.end
 if.end230.i:                                      ; preds = %cond.end134.i, %if.then.i18, %ZSTD_count.exit
   %repLen.i.0 = phi i32 [ %add161.i, %ZSTD_count.exit ], [ 0, %if.then.i18 ], [ 0, %cond.end134.i ]
   %conv231.i = zext i32 %repLen.i.0 to i64
-  %cmp232.i = icmp ult i64 %bestLength.i.0414, %conv231.i
+  %cmp232.i = icmp samesign ult i64 %bestLength.i.0414, %conv231.i
   br i1 %cmp232.i, label %if.then234.i, label %if.end253.i
 
 if.then234.i:                                     ; preds = %if.end230.i
@@ -6805,7 +6805,7 @@ if.then193.i:                                     ; preds = %land.lhs.true188.i
 if.end230.i:                                      ; preds = %cond.false170.i, %land.lhs.true188.i, %if.then193.i, %if.then.i18, %ZSTD_count.exit
   %repLen.i.0 = phi i32 [ %add161.i, %ZSTD_count.exit ], [ 0, %if.then.i18 ], [ %add200.i, %if.then193.i ], [ 0, %land.lhs.true188.i ], [ 0, %cond.false170.i ]
   %conv231.i = zext i32 %repLen.i.0 to i64
-  %cmp232.i = icmp ult i64 %bestLength.i.0501, %conv231.i
+  %cmp232.i = icmp samesign ult i64 %bestLength.i.0501, %conv231.i
   br i1 %cmp232.i, label %if.then234.i, label %if.end253.i
 
 if.then234.i:                                     ; preds = %if.end230.i
@@ -6834,7 +6834,7 @@ if.end253.i:                                      ; preds = %if.then234.i, %if.e
 land.lhs.true257.i:                               ; preds = %if.end253.i, %ZSTD_updateTree_internal.exit.i
   %bestLength.i.0.lcssa = phi i64 [ %conv123.i, %ZSTD_updateTree_internal.exit.i ], [ %bestLength.i.1, %if.end253.i ]
   %mnum.i.0.lcssa = phi i32 [ 0, %ZSTD_updateTree_internal.exit.i ], [ %mnum.i.1, %if.end253.i ]
-  %cmp259.i = icmp ult i64 %bestLength.i.0.lcssa, 3
+  %cmp259.i = icmp samesign ult i64 %bestLength.i.0.lcssa, 3
   br i1 %cmp259.i, label %if.then261.i, label %if.end314.i
 
 if.then261.i:                                     ; preds = %land.lhs.true257.i
@@ -7516,7 +7516,7 @@ if.then193.i:                                     ; preds = %land.lhs.true188.i
 if.end230.i:                                      ; preds = %cond.false170.i, %land.lhs.true188.i, %if.then193.i, %if.then.i18, %ZSTD_count.exit
   %repLen.i.0 = phi i32 [ %add161.i, %ZSTD_count.exit ], [ 0, %if.then.i18 ], [ %add200.i, %if.then193.i ], [ 0, %land.lhs.true188.i ], [ 0, %cond.false170.i ]
   %conv231.i = zext i32 %repLen.i.0 to i64
-  %cmp232.i = icmp ult i64 %bestLength.i.0423, %conv231.i
+  %cmp232.i = icmp samesign ult i64 %bestLength.i.0423, %conv231.i
   br i1 %cmp232.i, label %if.then234.i, label %if.end253.i
 
 if.then234.i:                                     ; preds = %if.end230.i
@@ -8040,7 +8040,7 @@ if.then193.i:                                     ; preds = %land.lhs.true188.i
 if.end230.i:                                      ; preds = %cond.false170.i, %land.lhs.true188.i, %if.then193.i, %if.then.i18, %ZSTD_count.exit
   %repLen.i.0 = phi i32 [ %add161.i, %ZSTD_count.exit ], [ 0, %if.then.i18 ], [ %add200.i, %if.then193.i ], [ 0, %land.lhs.true188.i ], [ 0, %cond.false170.i ]
   %conv231.i = zext i32 %repLen.i.0 to i64
-  %cmp232.i = icmp ult i64 %bestLength.i.0422, %conv231.i
+  %cmp232.i = icmp samesign ult i64 %bestLength.i.0422, %conv231.i
   br i1 %cmp232.i, label %if.then234.i, label %if.end253.i
 
 if.then234.i:                                     ; preds = %if.end230.i
@@ -8564,7 +8564,7 @@ if.then193.i:                                     ; preds = %land.lhs.true188.i
 if.end230.i:                                      ; preds = %cond.false170.i, %land.lhs.true188.i, %if.then193.i, %if.then.i18, %ZSTD_count.exit
   %repLen.i.0 = phi i32 [ %add161.i, %ZSTD_count.exit ], [ 0, %if.then.i18 ], [ %add200.i, %if.then193.i ], [ 0, %land.lhs.true188.i ], [ 0, %cond.false170.i ]
   %conv231.i = zext i32 %repLen.i.0 to i64
-  %cmp232.i = icmp ult i64 %bestLength.i.0422, %conv231.i
+  %cmp232.i = icmp samesign ult i64 %bestLength.i.0422, %conv231.i
   br i1 %cmp232.i, label %if.then234.i, label %if.end253.i
 
 if.then234.i:                                     ; preds = %if.end230.i
@@ -9116,7 +9116,7 @@ if.then221.i:                                     ; preds = %land.lhs.true216.i
 if.end230.i:                                      ; preds = %cond.true164.i, %land.lhs.true216.i, %if.then221.i, %if.then.i18, %ZSTD_count.exit
   %repLen.i.0 = phi i32 [ %add161.i, %ZSTD_count.exit ], [ 0, %if.then.i18 ], [ %add228.i, %if.then221.i ], [ 0, %land.lhs.true216.i ], [ 0, %cond.true164.i ]
   %conv231.i = zext i32 %repLen.i.0 to i64
-  %cmp232.i = icmp ult i64 %bestLength.i.0517, %conv231.i
+  %cmp232.i = icmp samesign ult i64 %bestLength.i.0517, %conv231.i
   br i1 %cmp232.i, label %if.then234.i, label %if.end253.i
 
 if.then234.i:                                     ; preds = %if.end230.i
@@ -9145,7 +9145,7 @@ if.end253.i:                                      ; preds = %if.then234.i, %if.e
 land.lhs.true257.i:                               ; preds = %if.end253.i, %ZSTD_updateTree_internal.exit.i
   %bestLength.i.0.lcssa = phi i64 [ %conv123.i, %ZSTD_updateTree_internal.exit.i ], [ %bestLength.i.1, %if.end253.i ]
   %mnum.i.0.lcssa = phi i32 [ 0, %ZSTD_updateTree_internal.exit.i ], [ %mnum.i.1, %if.end253.i ]
-  %cmp259.i = icmp ult i64 %bestLength.i.0.lcssa, 3
+  %cmp259.i = icmp samesign ult i64 %bestLength.i.0.lcssa, 3
   br i1 %cmp259.i, label %if.then261.i, label %if.end314.i
 
 if.then261.i:                                     ; preds = %land.lhs.true257.i
@@ -9933,7 +9933,7 @@ if.then221.i:                                     ; preds = %land.lhs.true216.i
 if.end230.i:                                      ; preds = %cond.true164.i, %land.lhs.true216.i, %if.then221.i, %if.then.i18, %ZSTD_count.exit
   %repLen.i.0 = phi i32 [ %add161.i, %ZSTD_count.exit ], [ 0, %if.then.i18 ], [ %add228.i, %if.then221.i ], [ 0, %land.lhs.true216.i ], [ 0, %cond.true164.i ]
   %conv231.i = zext i32 %repLen.i.0 to i64
-  %cmp232.i = icmp ult i64 %bestLength.i.0439, %conv231.i
+  %cmp232.i = icmp samesign ult i64 %bestLength.i.0439, %conv231.i
   br i1 %cmp232.i, label %if.then234.i, label %if.end253.i
 
 if.then234.i:                                     ; preds = %if.end230.i
@@ -10572,7 +10572,7 @@ if.then221.i:                                     ; preds = %land.lhs.true216.i
 if.end230.i:                                      ; preds = %cond.true164.i, %land.lhs.true216.i, %if.then221.i, %if.then.i18, %ZSTD_count.exit
   %repLen.i.0 = phi i32 [ %add161.i, %ZSTD_count.exit ], [ 0, %if.then.i18 ], [ %add228.i, %if.then221.i ], [ 0, %land.lhs.true216.i ], [ 0, %cond.true164.i ]
   %conv231.i = zext i32 %repLen.i.0 to i64
-  %cmp232.i = icmp ult i64 %bestLength.i.0438, %conv231.i
+  %cmp232.i = icmp samesign ult i64 %bestLength.i.0438, %conv231.i
   br i1 %cmp232.i, label %if.then234.i, label %if.end253.i
 
 if.then234.i:                                     ; preds = %if.end230.i
@@ -11211,7 +11211,7 @@ if.then221.i:                                     ; preds = %land.lhs.true216.i
 if.end230.i:                                      ; preds = %cond.true164.i, %land.lhs.true216.i, %if.then221.i, %if.then.i18, %ZSTD_count.exit
   %repLen.i.0 = phi i32 [ %add161.i, %ZSTD_count.exit ], [ 0, %if.then.i18 ], [ %add228.i, %if.then221.i ], [ 0, %land.lhs.true216.i ], [ 0, %cond.true164.i ]
   %conv231.i = zext i32 %repLen.i.0 to i64
-  %cmp232.i = icmp ult i64 %bestLength.i.0438, %conv231.i
+  %cmp232.i = icmp samesign ult i64 %bestLength.i.0438, %conv231.i
   br i1 %cmp232.i, label %if.then234.i, label %if.end253.i
 
 if.then234.i:                                     ; preds = %if.end230.i

@@ -524,7 +524,7 @@ define dso_local noundef range(i32 0, 5) i32 @_ZN5clang8SemaCUDA14IdentifyTarget
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %17
-  %19 = trunc i8 %.115 to i1
+  %19 = trunc nuw i8 %.115 to i1
   %brmerge = select i1 %.111, i1 true, i1 %.113
   %. = select i1 %.111, i32 4, i32 1
   br i1 %brmerge, label %._crit_edge28.thread, label %20

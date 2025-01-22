@@ -5588,10 +5588,10 @@ Str_CountBits.exit:                               ; preds = %186, %191, %195, %1
 
 Str_CountBits.exit312:                            ; preds = %207, %212, %216, %220
   %.0.i311 = phi i32 [ %222, %220 ], [ 0, %207 ], [ 1, %212 ], [ 2, %216 ]
-  %223 = icmp ult i32 %.0232374, %.0.i311
+  %223 = icmp samesign ult i32 %.0232374, %.0.i311
   %224 = trunc nuw nsw i64 %indvars.iv409 to i32
   %spec.select = select i1 %223, i32 %224, i32 %.0246373
-  %spec.select276 = tail call i32 @llvm.smax.i32(i32 %.0232374, i32 %.0.i311)
+  %spec.select276 = tail call i32 @llvm.umax.i32(i32 %.0232374, i32 %.0.i311)
   %indvars.iv.next410 = add nuw nsw i64 %indvars.iv409, 1
   %exitcond413.not = icmp eq i64 %indvars.iv.next410, %wide.trip.count412
   br i1 %exitcond413.not, label %._crit_edge376, label %204, !llvm.loop !50
@@ -9086,6 +9086,9 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #26
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.scmp.i32.i32(i32, i32) #24
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.umax.i32(i32, i32) #24
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

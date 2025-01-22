@@ -2099,8 +2099,7 @@ if.end81:                                         ; preds = %_ZNSt8__detail8_Ada
 cleanup95:                                        ; preds = %if.end81, %if.then32, %if.then18
   %__reject.1 = phi i8 [ %frombool94, %if.end81 ], [ %__reject.0, %if.then18 ], [ %__reject.0, %if.then32 ]
   %__x.1 = phi double [ %__x.0, %if.end81 ], [ %20, %if.then18 ], [ %24, %if.then32 ]
-  %35 = and i8 %__reject.1, 1
-  %tobool100.not = icmp eq i8 %35, 0
+  %tobool100.not = icmp eq i8 %__reject.1, 0
   br i1 %tobool100.not, label %do.end, label %do.body, !llvm.loop !115
 
 do.end:                                           ; preds = %cleanup95
@@ -2121,20 +2120,20 @@ do.body121:                                       ; preds = %do.body121.preheade
 
 for.cond.cleanup.i.i261.loopexit:                 ; preds = %for.body.i.i247
   store i64 %rem.i.i.i.i.i253.1, ptr %__urng, align 8, !tbaa !80
-  %div17.i.i262 = fdiv double %37, %conv16.i.i258.1
+  %div17.i.i262 = fdiv double %36, %conv16.i.i258.1
   %cmp18.i.i263 = fcmp ult double %div17.i.i262, 1.000000e+00
   br i1 %cmp18.i.i263, label %_ZNSt8__detail8_AdaptorISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEdEclEv.exit267, label %if.then.i.i264, !prof !109
 
 for.body.i.i247:                                  ; preds = %do.body121, %for.body.i.i247
   %__k.038.i.i248 = phi i64 [ %dec.i.i259.1, %for.body.i.i247 ], [ %dec.i.i259.prol, %do.body121 ]
   %__tmp.037.i.i249 = phi double [ %conv16.i.i258.1, %for.body.i.i247 ], [ 0x41DFFFFFFF800000, %do.body121 ]
-  %__sum.036.i.i250 = phi double [ %37, %for.body.i.i247 ], [ %conv14.i.i255.prol, %do.body121 ]
+  %__sum.036.i.i250 = phi double [ %36, %for.body.i.i247 ], [ %conv14.i.i255.prol, %do.body121 ]
   %rem.i.i.i3435.i.i251 = phi i64 [ %rem.i.i.i.i.i253.1, %for.body.i.i247 ], [ %rem.i.i.i.i.i253.prol, %do.body121 ]
   %mul.i.i.i.i.i252 = mul nuw nsw i64 %rem.i.i.i3435.i.i251, 16807
   %rem.i.i.i.i.i253 = urem i64 %mul.i.i.i.i.i252, 2147483647
   %sub13.i.i254 = add nsw i64 %rem.i.i.i.i.i253, -1
   %conv14.i.i255 = uitofp i64 %sub13.i.i254 to double
-  %36 = tail call double @llvm.fmuladd.f64(double %conv14.i.i255, double %__tmp.037.i.i249, double %__sum.036.i.i250)
+  %35 = tail call double @llvm.fmuladd.f64(double %conv14.i.i255, double %__tmp.037.i.i249, double %__sum.036.i.i250)
   %conv15.i.i256 = fpext double %__tmp.037.i.i249 to x86_fp80
   %mul.i.i257 = fmul x86_fp80 %conv15.i.i256, 0xK401DFFFFFFFC00000000
   %conv16.i.i258 = fptrunc x86_fp80 %mul.i.i257 to double
@@ -2142,7 +2141,7 @@ for.body.i.i247:                                  ; preds = %do.body121, %for.bo
   %rem.i.i.i.i.i253.1 = urem i64 %mul.i.i.i.i.i252.1, 2147483647
   %sub13.i.i254.1 = add nsw i64 %rem.i.i.i.i.i253.1, -1
   %conv14.i.i255.1 = uitofp i64 %sub13.i.i254.1 to double
-  %37 = tail call double @llvm.fmuladd.f64(double %conv14.i.i255.1, double %conv16.i.i258, double %36)
+  %36 = tail call double @llvm.fmuladd.f64(double %conv14.i.i255.1, double %conv16.i.i258, double %35)
   %conv15.i.i256.1 = fpext double %conv16.i.i258 to x86_fp80
   %mul.i.i257.1 = fmul x86_fp80 %conv15.i.i256.1, 0xK401DFFFFFFFC00000000
   %conv16.i.i258.1 = fptrunc x86_fp80 %mul.i.i257.1 to double
@@ -2158,8 +2157,8 @@ _ZNSt8__detail8_AdaptorISt26linear_congruential_engineImLm16807ELm0ELm2147483647
   %__ret.0.i.i266 = phi double [ %call20.i.i265, %if.then.i.i264 ], [ %div17.i.i262, %for.cond.cleanup.i.i261.loopexit ]
   %mul123 = fmul double %__prod.0, %__ret.0.i.i266
   %add124 = add nuw nsw i64 %__x120.0, 1
-  %38 = load double, ptr %_M_lm_thr126, align 8, !tbaa !101
-  %cmp127 = fcmp ogt double %mul123, %38
+  %37 = load double, ptr %_M_lm_thr126, align 8, !tbaa !101
+  %cmp127 = fcmp ogt double %mul123, %37
   br i1 %cmp127, label %do.body121, label %cleanup132, !llvm.loop !110
 
 cleanup132:                                       ; preds = %_ZNSt8__detail8_AdaptorISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEdEclEv.exit267, %_ZNSt8__detail8_AdaptorISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEdEclEv.exit267.us19, %_ZNSt8__detail8_AdaptorISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEdEclEv.exit267.us, %do.body121.preheader.split.us, %do.end

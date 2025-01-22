@@ -1327,18 +1327,18 @@ entry:
   %m_neg.i = getelementptr inbounds nuw i8, ptr %dst, i64 8
   %m_pos.i.i = getelementptr inbounds nuw i8, ptr %dst, i64 16
   %0 = load i32, ptr %m_pos.i.i, align 8
-  %cmp4856 = icmp eq i32 %0, 0
-  br i1 %cmp4856, label %return, label %for.body.lr.ph.lr.ph
+  %cmp4653 = icmp eq i32 %0, 0
+  br i1 %cmp4653, label %return, label %for.body.lr.ph.lr.ph
 
 for.body.lr.ph.lr.ph:                             ; preds = %entry
   %m_num_bits.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 520
   br label %for.body
 
 for.body:                                         ; preds = %for.body.backedge, %for.body.lr.ph.lr.ph
-  %i.050 = phi i32 [ 0, %for.body.lr.ph.lr.ph ], [ %i.050.be, %for.body.backedge ]
-  %index.149 = phi i32 [ undef, %for.body.lr.ph.lr.ph ], [ %index.149.be, %for.body.backedge ]
+  %i.048 = phi i32 [ 0, %for.body.lr.ph.lr.ph ], [ %i.048.be, %for.body.backedge ]
+  %index.147 = phi i32 [ undef, %for.body.lr.ph.lr.ph ], [ %index.147.be, %for.body.backedge ]
   %1 = load ptr, ptr %m_neg.i, align 8
-  %idxprom.i.i = zext i32 %i.050 to i64
+  %idxprom.i.i = zext i32 %i.048 to i64
   %arrayidx.i.i = getelementptr inbounds nuw ptr, ptr %1, i64 %idxprom.i.i
   %2 = load ptr, ptr %arrayidx.i.i, align 8
   %3 = load ptr, ptr %dst, align 8
@@ -1353,12 +1353,17 @@ if.end:                                           ; preds = %for.body
   %7 = load i32, ptr %m_num_bits.i.i.i.i, align 8
   %div1.i.i.i = lshr i32 %7, 1
   %cmp22.not.i = icmp ult i32 %7, 2
-  br i1 %cmp22.not.i, label %return, label %for.body.i
+  br i1 %cmp22.not.i, label %return, label %for.body.i.outer
 
-for.body.i:                                       ; preds = %if.end, %for.inc.i
-  %index.2 = phi i32 [ %index.3, %for.inc.i ], [ %index.149, %if.end ]
-  %count.024.i = phi i32 [ %count.1.i, %for.inc.i ], [ 0, %if.end ]
-  %i.023.i = phi i32 [ %inc.i, %for.inc.i ], [ 0, %if.end ]
+for.body.i.outer:                                 ; preds = %if.end, %for.inc.i
+  %index.2.ph = phi i32 [ %index.3, %for.inc.i ], [ %index.147, %if.end ]
+  %count.024.i.ph = phi i32 [ %count.1.i, %for.inc.i ], [ 0, %if.end ]
+  %i.023.i.ph = phi i32 [ %inc.i, %for.inc.i ], [ 0, %if.end ]
+  br label %for.body.i
+
+for.body.i:                                       ; preds = %for.body.i.outer, %for.inc.i.thread
+  %count.024.i = phi i32 [ 0, %for.inc.i.thread ], [ %count.024.i.ph, %for.body.i.outer ]
+  %i.023.i = phi i32 [ %inc.i65, %for.inc.i.thread ], [ %i.023.i.ph, %for.body.i.outer ]
   %mul.i.i.i = shl nuw i32 %i.023.i, 1
   %div1.i.i.i.i.i = lshr i32 %i.023.i, 4
   %idxprom.i.i.i.i.i = zext nneg i32 %div1.i.i.i.i.i to i64
@@ -1396,21 +1401,26 @@ if.end.i:                                         ; preds = %if.then.i
 
 if.else.i:                                        ; preds = %if.end.i
   %cmp9.not.i = icmp eq i32 %or.i.i21.i, 3
-  br i1 %cmp9.not.i, label %for.inc.i, label %if.then16
+  br i1 %cmp9.not.i, label %for.inc.i.thread, label %if.then16
 
-for.inc.i:                                        ; preds = %if.end.i, %if.else.i, %for.body.i
-  %index.3 = phi i32 [ %index.2, %for.body.i ], [ %index.2, %if.else.i ], [ %i.023.i, %if.end.i ]
-  %count.1.i = phi i32 [ %count.024.i, %for.body.i ], [ 0, %if.else.i ], [ 1, %if.end.i ]
+for.inc.i:                                        ; preds = %if.end.i, %for.body.i
+  %index.3 = phi i32 [ %index.2.ph, %for.body.i ], [ %i.023.i, %if.end.i ]
+  %count.1.i = phi i32 [ %count.024.i, %for.body.i ], [ 1, %if.end.i ]
   %inc.i = add nuw nsw i32 %i.023.i, 1
   %exitcond.not.i = icmp eq i32 %inc.i, %div1.i.i.i
-  br i1 %exitcond.not.i, label %_ZN11doc_manager11diff_by_012ERK3tbvS2_Rj.exit, label %for.body.i, !llvm.loop !14
+  br i1 %exitcond.not.i, label %_ZN11doc_manager11diff_by_012ERK3tbvS2_Rj.exit, label %for.body.i.outer, !llvm.loop !14
+
+for.inc.i.thread:                                 ; preds = %if.else.i
+  %inc.i65 = add nuw nsw i32 %i.023.i, 1
+  %exitcond.not.i66 = icmp eq i32 %inc.i65, %div1.i.i.i
+  br i1 %exitcond.not.i66, label %return, label %for.body.i, !llvm.loop !14
 
 _ZN11doc_manager11diff_by_012ERK3tbvS2_Rj.exit:   ; preds = %for.inc.i
-  %switch = icmp eq i32 %count.1.i, 1
-  br i1 %switch, label %if.else19, label %return
+  %switch.not.not.not = icmp eq i32 %count.1.i, 0
+  br i1 %switch.not.not.not, label %return, label %if.else19
 
 if.then16:                                        ; preds = %if.else.i
-  tail call void @_ZN10union_bvecI11tbv_manager3tbvE5eraseERS0_j(ptr noundef nonnull align 8 dereferenceable(80) %m_neg.i, ptr noundef nonnull align 8 dereferenceable(552) %this, i32 noundef %i.050)
+  tail call void @_ZN10union_bvecI11tbv_manager3tbvE5eraseERS0_j(ptr noundef nonnull align 8 dereferenceable(80) %m_neg.i, ptr noundef nonnull align 8 dereferenceable(552) %this, i32 noundef %i.048)
   br label %for.inc
 
 if.else19:                                        ; preds = %_ZN11doc_manager11diff_by_012ERK3tbvS2_Rj.exit
@@ -1434,27 +1444,27 @@ if.else19:                                        ; preds = %_ZN11doc_manager11d
   %11 = load ptr, ptr %dst, align 8
   tail call void @_ZN10union_bvecI11tbv_manager3tbvE9intersectERS0_RKS1_(ptr noundef nonnull align 8 dereferenceable(80) %m_neg.i, ptr noundef nonnull align 8 dereferenceable(552) %this, ptr noundef nonnull align 4 dereferenceable(4) %11)
   %12 = load i32, ptr %m_pos.i.i, align 8
-  %cmp48 = icmp eq i32 %12, 0
-  br i1 %cmp48, label %return, label %for.body.backedge
+  %cmp46 = icmp eq i32 %12, 0
+  br i1 %cmp46, label %return, label %for.body.backedge
 
 for.inc.loopexit:                                 ; preds = %if.then.i
-  %13 = add i32 %i.050, 1
+  %13 = add i32 %i.048, 1
   br label %for.inc
 
 for.inc:                                          ; preds = %for.inc.loopexit, %if.then16
-  %i.1 = phi i32 [ %i.050, %if.then16 ], [ %13, %for.inc.loopexit ]
+  %i.1 = phi i32 [ %i.048, %if.then16 ], [ %13, %for.inc.loopexit ]
   %14 = load i32, ptr %m_pos.i.i, align 8
   %cmp.not = icmp ult i32 %i.1, %14
   br i1 %cmp.not, label %for.body.backedge, label %return
 
 for.body.backedge:                                ; preds = %for.inc, %if.else19
-  %i.050.be = phi i32 [ %i.1, %for.inc ], [ 0, %if.else19 ]
-  %index.149.be = phi i32 [ %index.2, %for.inc ], [ %index.3, %if.else19 ]
+  %i.048.be = phi i32 [ %i.1, %for.inc ], [ 0, %if.else19 ]
+  %index.147.be = phi i32 [ %index.2.ph, %for.inc ], [ %index.3, %if.else19 ]
   br label %for.body, !llvm.loop !15
 
-return:                                           ; preds = %if.else19, %_ZN11doc_manager11diff_by_012ERK3tbvS2_Rj.exit, %for.body, %for.inc, %if.end, %entry
-  %cmp.lcssa = phi i1 [ true, %entry ], [ true, %if.else19 ], [ false, %_ZN11doc_manager11diff_by_012ERK3tbvS2_Rj.exit ], [ false, %if.end ], [ true, %for.inc ], [ false, %for.body ]
-  ret i1 %cmp.lcssa
+return:                                           ; preds = %_ZN11doc_manager11diff_by_012ERK3tbvS2_Rj.exit, %if.else19, %for.body, %for.inc, %if.end, %for.inc.i.thread, %entry
+  %cmp43 = phi i1 [ true, %entry ], [ false, %for.inc.i.thread ], [ false, %_ZN11doc_manager11diff_by_012ERK3tbvS2_Rj.exit ], [ true, %if.else19 ], [ false, %for.body ], [ true, %for.inc ], [ false, %if.end ]
+  ret i1 %cmp43
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

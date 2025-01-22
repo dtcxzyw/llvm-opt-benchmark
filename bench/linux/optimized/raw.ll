@@ -179,7 +179,7 @@ define dso_local zeroext i1 @raw6_local_deliver(ptr noundef %0, i32 noundef %1) 
   %25 = getelementptr i8, ptr %23, i64 -104
   %26 = icmp eq ptr %25, null
   %27 = or i1 %24, %26
-  br i1 %27, label %139, label %28
+  br i1 %27, label %138, label %28
 
 28:                                               ; preds = %2
   %29 = trunc i32 %1 to i16
@@ -337,14 +337,13 @@ define dso_local zeroext i1 @raw6_local_deliver(ptr noundef %0, i32 noundef %1) 
   br i1 %135, label %136, label %39, !llvm.loop !10
 
 136:                                              ; preds = %128
-  %137 = and i8 %129, 1
-  %138 = icmp ne i8 %137, 0
-  br label %139
+  %137 = icmp ne i8 %129, 0
+  br label %138
 
-139:                                              ; preds = %136, %2
-  %140 = phi i1 [ false, %2 ], [ %138, %136 ]
+138:                                              ; preds = %136, %2
+  %139 = phi i1 [ false, %2 ], [ %137, %136 ]
   call void @__rcu_read_unlock() #13
-  ret i1 %140
+  ret i1 %139
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

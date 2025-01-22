@@ -2248,7 +2248,7 @@ define internal fastcc range(i32 -1, 2) i32 @inflate_table(i32 noundef range(i32
   br i1 %.not230, label %96, label %91
 
 96:                                               ; preds = %91
-  %97 = add i32 %.3219, -1
+  %97 = add nsw i32 %.3219, -1
   %98 = shl nuw i32 1, %97
   br label %99
 
@@ -2266,7 +2266,7 @@ define internal fastcc range(i32 -1, 2) i32 @inflate_table(i32 noundef range(i32
   %105 = add i32 %104, %.0192
   %.1195 = select i1 %.not232, i32 0, i32 %105
   %106 = add i32 %.2215, 1
-  %107 = zext i32 %.3219 to i64
+  %107 = zext nneg i32 %.3219 to i64
   %108 = getelementptr inbounds nuw [16 x i16], ptr %6, i64 0, i64 %107
   %109 = load i16, ptr %108, align 2
   %110 = add i16 %109, -1

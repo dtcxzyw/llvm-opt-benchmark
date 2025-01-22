@@ -1254,8 +1254,7 @@ if.end268:                                        ; preds = %if.end255
   br i1 %98, label %if.then270, label %if.else299
 
 if.then270:                                       ; preds = %if.end268
-  %125 = and i8 %lastscaledvalue_exists.0716, 1
-  %tobool271.not = icmp eq i8 %125, 0
+  %tobool271.not = icmp eq i8 %lastscaledvalue_exists.0716, 0
   br i1 %tobool271.not, label %cleanup323, label %if.then272
 
 if.then272:                                       ; preds = %if.then270
@@ -1275,8 +1274,8 @@ if.then272:                                       ; preds = %if.then270
   %agg.tmp288.sroa.0.0.copyload = load i32, ptr %color154, align 4, !tbaa !61
   %vtable291 = load ptr, ptr %driver, align 8, !tbaa !77
   %vfn292 = getelementptr inbounds nuw i8, ptr %vtable291, i64 424
-  %126 = load ptr, ptr %vfn292, align 8
-  invoke void %126(ptr noundef nonnull align 8 dereferenceable(8) %driver, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp279, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp284, i32 %agg.tmp288.sroa.0.0.copyload)
+  %125 = load ptr, ptr %vfn292, align 8
+  invoke void %125(ptr noundef nonnull align 8 dereferenceable(8) %driver, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp279, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp284, i32 %agg.tmp288.sroa.0.0.copyload)
           to label %invoke.cont293 unwind label %lpad286
 
 invoke.cont293:                                   ; preds = %if.then272
@@ -1285,7 +1284,7 @@ invoke.cont293:                                   ; preds = %if.then272
   br label %cleanup323
 
 lpad286:                                          ; preds = %if.then272
-  %127 = landingpad { ptr, i32 }
+  %126 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp284) #19
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp279) #19
@@ -1304,8 +1303,8 @@ if.else299:                                       ; preds = %if.end268
   %agg.tmp310.sroa.0.0.copyload = load i32, ptr %color154, align 4, !tbaa !61
   %vtable313 = load ptr, ptr %driver, align 8, !tbaa !77
   %vfn314 = getelementptr inbounds nuw i8, ptr %vtable313, i64 424
-  %128 = load ptr, ptr %vfn314, align 8
-  invoke void %128(ptr noundef nonnull align 8 dereferenceable(8) %driver, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp303, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp306, i32 %agg.tmp310.sroa.0.0.copyload)
+  %127 = load ptr, ptr %vfn314, align 8
+  invoke void %127(ptr noundef nonnull align 8 dereferenceable(8) %driver, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp303, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp306, i32 %agg.tmp310.sroa.0.0.copyload)
           to label %invoke.cont315 unwind label %lpad308
 
 invoke.cont315:                                   ; preds = %if.else299
@@ -1314,7 +1313,7 @@ invoke.cont315:                                   ; preds = %if.else299
   br label %cleanup323
 
 lpad308:                                          ; preds = %if.else299
-  %129 = landingpad { ptr, i32 }
+  %128 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp306) #19
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp303) #19
@@ -1330,19 +1329,19 @@ cleanup323:                                       ; preds = %invoke.cont315, %in
 
 if.then.i640:                                     ; preds = %cleanup323
   %add.ptr.i642 = getelementptr inbounds nuw i8, ptr %__begin2230.sroa.14.0712, i64 8
-  %130 = load ptr, ptr %add.ptr.i642, align 8, !tbaa !20
-  %add.ptr.i.i644 = getelementptr inbounds nuw i8, ptr %130, i64 480
+  %129 = load ptr, ptr %add.ptr.i642, align 8, !tbaa !20
+  %add.ptr.i.i644 = getelementptr inbounds nuw i8, ptr %129, i64 480
   br label %_ZNSt15_Deque_iteratorIN13ProfilerGraph5PieceERKS1_PS2_EppEv.exit645
 
 _ZNSt15_Deque_iteratorIN13ProfilerGraph5PieceERKS1_PS2_EppEv.exit645: ; preds = %if.then.i640, %cleanup323
   %__begin2230.sroa.14.1 = phi ptr [ %add.ptr.i642, %if.then.i640 ], [ %__begin2230.sroa.14.0712, %cleanup323 ]
   %__begin2230.sroa.11.1 = phi ptr [ %add.ptr.i.i644, %if.then.i640 ], [ %__begin2230.sroa.11.0713, %cleanup323 ]
-  %__begin2230.sroa.0.1 = phi ptr [ %130, %if.then.i640 ], [ %incdec.ptr.i637, %cleanup323 ]
+  %__begin2230.sroa.0.1 = phi ptr [ %129, %if.then.i640 ], [ %incdec.ptr.i637, %cleanup323 ]
   %cmp.i.i559.not = icmp eq ptr %__begin2230.sroa.0.1, %100
   br i1 %cmp.i.i559.not, label %for.cond.cleanup234, label %for.body235
 
 ehcleanup350:                                     ; preds = %lpad308, %lpad286, %ehcleanup224, %ehcleanup196, %ehcleanup160, %lpad130
-  %.pn461.pn.pn = phi { ptr, i32 } [ %.pn458.pn, %ehcleanup224 ], [ %.pn455.pn, %ehcleanup196 ], [ %68, %lpad130 ], [ %.pn.pn, %ehcleanup160 ], [ %127, %lpad286 ], [ %129, %lpad308 ]
+  %.pn461.pn.pn = phi { ptr, i32 } [ %.pn458.pn, %ehcleanup224 ], [ %.pn455.pn, %ehcleanup196 ], [ %68, %lpad130 ], [ %.pn.pn, %ehcleanup160 ], [ %126, %lpad286 ], [ %128, %lpad308 ]
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %buf) #19
   br label %ehcleanup373
 

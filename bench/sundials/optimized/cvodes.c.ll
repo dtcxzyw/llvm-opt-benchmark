@@ -8985,15 +8985,15 @@ cvPrepareNextStep.exit.i:                         ; preds = %2042, %2036, %2013,
   br i1 %exitcond421.not.i.i.i, label %2320, label %2315
 
 2320:                                             ; preds = %2315
-  %2321 = sext i32 %.2302.i.i.i to i64
-  %2322 = getelementptr inbounds [4 x double], ptr %11, i64 0, i64 %2321
+  %2321 = zext nneg i32 %.2302.i.i.i to i64
+  %2322 = getelementptr inbounds nuw [4 x double], ptr %11, i64 0, i64 %2321
   %2323 = load double, ptr %2322, align 8
   %2324 = fcmp olt double %.3321.i.i.i, 1.000000e-03
   br i1 %2324, label %2330, label %.preheader.i.i284.i
 
 .preheader.i.i284.i:                              ; preds = %2320, %.preheader.i.i284.i
   %indvars.iv422.i.i.i = phi i64 [ %indvars.iv.next423.i.i.i, %.preheader.i.i284.i ], [ 1, %2320 ]
-  %2325 = getelementptr inbounds [4 x [4 x double]], ptr %13, i64 0, i64 %indvars.iv422.i.i.i, i64 %2321
+  %2325 = getelementptr inbounds nuw [4 x [4 x double]], ptr %13, i64 0, i64 %indvars.iv422.i.i.i, i64 %2321
   %2326 = load double, ptr %2325, align 8
   %2327 = getelementptr inbounds nuw [4 x double], ptr %7, i64 0, i64 %indvars.iv422.i.i.i
   store double %2326, ptr %2327, align 8
@@ -10833,15 +10833,10 @@ define internal fastcc range(i32 -12, 4) i32 @cvRcheck2(ptr noundef nonnull %0) 
   %114 = load i32, ptr %23, align 8
   %115 = sext i32 %114 to i64
   %116 = icmp slt i64 %indvars.iv.next98, %115
-  br i1 %116, label %94, label %._crit_edge91.loopexit
+  br i1 %116, label %94, label %.loopexit
 
-._crit_edge91.loopexit:                           ; preds = %113
-  %117 = icmp ne i32 %.3, 0
-  %118 = zext i1 %117 to i32
-  br label %.loopexit
-
-.loopexit:                                        ; preds = %107, %.preheader82, %.preheader81, %.preheader, %._crit_edge91.loopexit, %81, %._crit_edge, %5, %1
-  %.072 = phi i32 [ 0, %1 ], [ -12, %5 ], [ 0, %._crit_edge ], [ -12, %81 ], [ 0, %.preheader ], [ %118, %._crit_edge91.loopexit ], [ 0, %.preheader81 ], [ 0, %.preheader82 ], [ 3, %107 ]
+.loopexit:                                        ; preds = %107, %113, %.preheader82, %.preheader81, %.preheader, %81, %._crit_edge, %5, %1
+  %.072 = phi i32 [ 0, %1 ], [ -12, %5 ], [ 0, %._crit_edge ], [ -12, %81 ], [ 0, %.preheader ], [ 0, %.preheader81 ], [ 0, %.preheader82 ], [ 3, %107 ], [ %.3, %113 ]
   ret i32 %.072
 }
 

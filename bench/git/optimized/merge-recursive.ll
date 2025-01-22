@@ -1586,7 +1586,7 @@ oideq.exit276.i.i:                                ; preds = %if.else.i263.i.i, %
   %..i.i270.i.i = select i1 %cmp.i.i269.i.i, i64 32, i64 20
   %bcmp.i.i271.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(20) %dst_other.i.i, ptr noundef nonnull readonly dereferenceable(20) %call239.i.i, i64 %..i.i270.i.i)
   %retval.0.in.i.i272.not.i.i = icmp eq i32 %bcmp.i.i271.i.i, 0
-  br i1 %retval.0.in.i.i272.not.i.i, label %if.then254.i.i, label %tailrecurse.i278.preheader.i.i
+  br i1 %retval.0.in.i.i272.not.i.i, label %if.end248.thread349.i.i, label %tailrecurse.i278.preheader.i.i
 
 tailrecurse.i278.preheader.i.i:                   ; preds = %oideq.exit276.i.i
   %call.i286.i.i = call ptr @xcalloc(i64 noundef 1, i64 noundef 24) #22
@@ -1602,7 +1602,7 @@ tailrecurse.i278.preheader.i.i:                   ; preds = %oideq.exit276.i.i
   store i8 %bf.clear.i292.i.i, ptr %processed.i290.i.i, align 8
   br label %if.end270.sink.split.i.i
 
-if.then254.i.i:                                   ; preds = %oideq.exit276.i.i
+if.end248.thread349.i.i:                          ; preds = %oideq.exit276.i.i
   store ptr %143, ptr %path255.i.i, align 8
   %212 = load ptr, ptr %pair94.i.i, align 8
   %213 = load ptr, ptr %212, align 8
@@ -1660,15 +1660,15 @@ if.then254.i.i:                                   ; preds = %oideq.exit276.i.i
   store i8 %bf.clear.i332.i.i, ptr %processed.i330.i.i, align 8
   br label %if.end270.sink.split.i.i
 
-if.end270.sink.split.i.i:                         ; preds = %if.then254.i.i, %tailrecurse.i278.preheader.i.i, %tailrecurse.i218.preheader.i.i, %tailrecurse.i180.preheader.i.i, %tailrecurse.i158.preheader.i.i, %setup_rename_conflict_info.exit149.i.i, %setup_rename_conflict_info.exit127.i.i, %setup_rename_conflict_info.exit.i.i
-  %.sink.in.i.i = phi ptr [ %ren12.i167.i.i, %tailrecurse.i158.preheader.i.i ], [ %ren12.i189.i.i, %tailrecurse.i180.preheader.i.i ], [ %ren12.i227.i.i, %tailrecurse.i218.preheader.i.i ], [ %ren12.i287.i.i, %tailrecurse.i278.preheader.i.i ], [ %ren12.i327.i.i, %if.then254.i.i ], [ %ren23.i.i.i, %setup_rename_conflict_info.exit.i.i ], [ %ren23.i117.i.i, %setup_rename_conflict_info.exit127.i.i ], [ %ren23.i139.i.i, %setup_rename_conflict_info.exit149.i.i ]
-  %call.i166.sink.i.i = phi ptr [ %call.i166.i.i, %tailrecurse.i158.preheader.i.i ], [ %call.i188.i.i, %tailrecurse.i180.preheader.i.i ], [ %call.i226.i.i, %tailrecurse.i218.preheader.i.i ], [ %call.i286.i.i, %tailrecurse.i278.preheader.i.i ], [ %call.i326.i.i, %if.then254.i.i ], [ %call.i.i50.i, %setup_rename_conflict_info.exit.i.i ], [ %call.i115.i.i, %setup_rename_conflict_info.exit127.i.i ], [ %call.i137.i.i, %setup_rename_conflict_info.exit149.i.i ]
-  %clean_merge.2.ph.i.i = phi i32 [ %clean_merge.0.ph.i.i, %tailrecurse.i158.preheader.i.i ], [ %clean_merge.0.ph.i.i, %tailrecurse.i180.preheader.i.i ], [ %clean_merge.0.ph.i.i, %tailrecurse.i218.preheader.i.i ], [ %clean_merge.0.ph.i.i, %tailrecurse.i278.preheader.i.i ], [ %clean_merge.0.ph.i.i, %if.then254.i.i ], [ 0, %setup_rename_conflict_info.exit.i.i ], [ %clean_merge.0.ph.i.i, %setup_rename_conflict_info.exit127.i.i ], [ 0, %setup_rename_conflict_info.exit149.i.i ]
+if.end270.sink.split.i.i:                         ; preds = %if.end248.thread349.i.i, %tailrecurse.i278.preheader.i.i, %tailrecurse.i218.preheader.i.i, %tailrecurse.i180.preheader.i.i, %tailrecurse.i158.preheader.i.i, %setup_rename_conflict_info.exit149.i.i, %setup_rename_conflict_info.exit127.i.i, %setup_rename_conflict_info.exit.i.i
+  %.sink.in.i.i = phi ptr [ %ren12.i327.i.i, %if.end248.thread349.i.i ], [ %ren12.i287.i.i, %tailrecurse.i278.preheader.i.i ], [ %ren12.i227.i.i, %tailrecurse.i218.preheader.i.i ], [ %ren12.i189.i.i, %tailrecurse.i180.preheader.i.i ], [ %ren12.i167.i.i, %tailrecurse.i158.preheader.i.i ], [ %ren23.i.i.i, %setup_rename_conflict_info.exit.i.i ], [ %ren23.i117.i.i, %setup_rename_conflict_info.exit127.i.i ], [ %ren23.i139.i.i, %setup_rename_conflict_info.exit149.i.i ]
+  %call.i326.sink.i.i = phi ptr [ %call.i326.i.i, %if.end248.thread349.i.i ], [ %call.i286.i.i, %tailrecurse.i278.preheader.i.i ], [ %call.i226.i.i, %tailrecurse.i218.preheader.i.i ], [ %call.i188.i.i, %tailrecurse.i180.preheader.i.i ], [ %call.i166.i.i, %tailrecurse.i158.preheader.i.i ], [ %call.i.i50.i, %setup_rename_conflict_info.exit.i.i ], [ %call.i115.i.i, %setup_rename_conflict_info.exit127.i.i ], [ %call.i137.i.i, %setup_rename_conflict_info.exit149.i.i ]
+  %clean_merge.2.ph.i.i = phi i32 [ %clean_merge.0.ph.i.i, %if.end248.thread349.i.i ], [ %clean_merge.0.ph.i.i, %tailrecurse.i278.preheader.i.i ], [ %clean_merge.0.ph.i.i, %tailrecurse.i218.preheader.i.i ], [ %clean_merge.0.ph.i.i, %tailrecurse.i180.preheader.i.i ], [ %clean_merge.0.ph.i.i, %tailrecurse.i158.preheader.i.i ], [ 0, %setup_rename_conflict_info.exit.i.i ], [ %clean_merge.0.ph.i.i, %setup_rename_conflict_info.exit127.i.i ], [ 0, %setup_rename_conflict_info.exit149.i.i ]
   %.sink.i.i = load ptr, ptr %.sink.in.i.i, align 8
-  %dst_entry6.i173.i.i = getelementptr inbounds nuw i8, ptr %.sink.i.i, i64 48
-  %223 = load ptr, ptr %dst_entry6.i173.i.i, align 8
-  %rename_conflict_info.i174.i.i = getelementptr inbounds nuw i8, ptr %223, i64 384
-  store ptr %call.i166.sink.i.i, ptr %rename_conflict_info.i174.i.i, align 8
+  %dst_entry6.i333.i.i = getelementptr inbounds nuw i8, ptr %.sink.i.i, i64 48
+  %223 = load ptr, ptr %dst_entry6.i333.i.i, align 8
+  %rename_conflict_info.i334.i.i = getelementptr inbounds nuw i8, ptr %223, i64 384
+  store ptr %call.i326.sink.i.i, ptr %rename_conflict_info.i334.i.i, align 8
   br label %if.end270.i.i
 
 if.end270.i.i:                                    ; preds = %if.end270.sink.split.i.i, %if.then96.i.i.i

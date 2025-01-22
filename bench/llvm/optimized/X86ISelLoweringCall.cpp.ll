@@ -6774,7 +6774,7 @@ _ZN4llvm7CCState13AllocateStackEjNS_5AlignE.exit: ; preds = %106, %109
   br i1 %133, label %134, label %136
 
 134:                                              ; preds = %130
-  %135 = icmp ult i64 %.079.i.i.i, 3
+  %135 = icmp samesign ult i64 %.079.i.i.i, 3
   br i1 %135, label %_ZNK4llvm11CCValAssign8isRegLocEv.exit, label %136
 
 136:                                              ; preds = %134, %130
@@ -7190,7 +7190,7 @@ _ZL15lowerRegToMasksRKN4llvm7SDValueERKNS_3EVTES5_RKNS_5SDLocERNS_12SelectionDAG
   br i1 %273, label %274, label %276
 
 274:                                              ; preds = %270
-  %275 = icmp ult i64 %.079.i.i.i412, 3
+  %275 = icmp samesign ult i64 %.079.i.i.i412, 3
   br i1 %275, label %_ZNK4llvm11CCValAssign8isRegLocEv.exit416, label %276
 
 276:                                              ; preds = %274, %270
@@ -9797,7 +9797,7 @@ _ZL18shouldGuaranteeTCOjb.exit.thread:            ; preds = %254, %254, %254, %2
   br i1 %281, label %282, label %284
 
 282:                                              ; preds = %278
-  %283 = icmp ult i64 %.079.i.i.i, 3
+  %283 = icmp samesign ult i64 %.079.i.i.i, 3
   br i1 %283, label %_ZNK4llvm11CCValAssign8isMemLocEv.exit, label %284
 
 284:                                              ; preds = %282, %278
@@ -10377,7 +10377,7 @@ _ZNK4llvm18TargetLoweringBase12getPointerTyERKNS_10DataLayoutEj.exit: ; preds = 
   br i1 %503, label %504, label %506
 
 504:                                              ; preds = %500
-  %505 = icmp ult i64 %.079.i.i.i925, 3
+  %505 = icmp samesign ult i64 %.079.i.i.i925, 3
   br i1 %505, label %_ZNK4llvm11CCValAssign8isRegLocEv.exit, label %506
 
 506:                                              ; preds = %504, %500
@@ -10886,7 +10886,7 @@ _ZNK4llvm7CCState19getFirstUnallocatedENS_8ArrayRefItEE.exit: ; preds = %635, %6
   br i1 %681, label %682, label %684
 
 682:                                              ; preds = %678
-  %683 = icmp ult i64 %.079.i.i.i958, 3
+  %683 = icmp samesign ult i64 %.079.i.i.i958, 3
   br i1 %683, label %_ZNK4llvm11CCValAssign8isRegLocEv.exit962, label %684
 
 684:                                              ; preds = %682, %678
@@ -12926,7 +12926,7 @@ _ZNK4llvm18TargetRegisterInfo19hasStackRealignmentERKNS_15MachineFunctionE.exit.
   br i1 %92, label %93, label %95
 
 93:                                               ; preds = %89
-  %94 = icmp ult i64 %.079.i.i.i, 3
+  %94 = icmp samesign ult i64 %.079.i.i.i, 3
   br i1 %94, label %_ZNK4llvm11CCValAssign8isRegLocEv.exit, label %95
 
 95:                                               ; preds = %93, %89
@@ -13076,7 +13076,7 @@ _ZNK4llvm11CCValAssign9getLocRegEv.exit:          ; preds = %.lr.ph214
   br i1 %157, label %158, label %160
 
 158:                                              ; preds = %154
-  %159 = icmp ult i64 %.079.i.i.i173, 3
+  %159 = icmp samesign ult i64 %.079.i.i.i173, 3
   br i1 %159, label %_ZNK4llvm11CCValAssign8isRegLocEv.exit177, label %160
 
 160:                                              ; preds = %158, %154
@@ -13162,7 +13162,7 @@ _ZN4llvm3isaINS_19GlobalAddressSDNodeENS_7SDValueEEEbRKT0_.exit: ; preds = %176
   br i1 %192, label %193, label %195
 
 193:                                              ; preds = %189
-  %194 = icmp ult i64 %.079.i.i.i180, 3
+  %194 = icmp samesign ult i64 %.079.i.i.i180, 3
   br i1 %194, label %_ZNK4llvm11CCValAssign8isRegLocEv.exit184, label %195
 
 195:                                              ; preds = %193, %189

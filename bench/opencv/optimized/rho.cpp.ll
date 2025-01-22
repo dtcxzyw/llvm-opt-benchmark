@@ -2453,7 +2453,7 @@ define linkonce_odr hidden void @_ZN2cv13RHO_HEST_REFC15getPROSACSampleEv(ptr no
   %58 = sub i32 %51, %.03043.i16
   %59 = uitofp i32 %58 to double
   %60 = fmul double %57, %59
-  %61 = xor i32 %.02944.i15, 3
+  %61 = sub nuw nsw i32 3, %.02944.i15
   %62 = uitofp nneg i32 %61 to double
   %63 = fcmp olt double %60, %62
   br i1 %63, label %64, label %68

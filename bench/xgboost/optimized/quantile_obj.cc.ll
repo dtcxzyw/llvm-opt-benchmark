@@ -20826,7 +20826,7 @@ define linkonce_odr void @_ZN14__gnu_parallel10_LoserTreeILb1EmZN7xgboost6common
   %.02330 = phi i8 [ %4, %.lr.ph ], [ %.124, %.thread ]
   %.02529 = phi i64 [ %1, %.lr.ph ], [ %.126, %.thread ]
   %.032 = lshr i32 %.032.in, 1
-  %14 = trunc i8 %.02330 to i1
+  %14 = trunc nuw i8 %.02330 to i1
   %15 = load ptr, ptr %5, align 8
   %16 = zext nneg i32 %.032 to i64
   %17 = getelementptr inbounds nuw %"struct.__gnu_parallel::_LoserTreeBase<unsigned long, (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/xgboost/xgboost/src/objective/../common/stats.h:48:16)>::_Loser", ptr %15, i64 %16
@@ -20870,8 +20870,8 @@ define linkonce_odr void @_ZN14__gnu_parallel10_LoserTreeILb1EmZN7xgboost6common
   %40 = phi ptr [ %35, %34 ], [ %.pre, %26 ], [ %15, %21 ], [ %15, %20 ]
   %41 = getelementptr inbounds nuw %"struct.__gnu_parallel::_LoserTreeBase<unsigned long, (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/xgboost/xgboost/src/objective/../common/stats.h:48:16)>::_Loser", ptr %40, i64 %16
   %42 = load i8, ptr %41, align 1
-  %43 = and i8 %.02330, 1
-  store i8 %43, ptr %41, align 1
+  %43 = and i8 %42, 1
+  store i8 %.02330, ptr %41, align 1
   %44 = load ptr, ptr %5, align 8
   %45 = getelementptr inbounds nuw %"struct.__gnu_parallel::_LoserTreeBase<unsigned long, (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/xgboost/xgboost/src/objective/../common/stats.h:48:16)>::_Loser", ptr %44, i64 %16, i32 1
   %46 = load i32, ptr %45, align 4
@@ -20884,7 +20884,7 @@ define linkonce_odr void @_ZN14__gnu_parallel10_LoserTreeILb1EmZN7xgboost6common
 
 .thread:                                          ; preds = %21, %25, %30, %34, %39
   %.126 = phi i64 [ %49, %39 ], [ %.02529, %25 ], [ %.02529, %30 ], [ %.02529, %34 ], [ %.02529, %21 ]
-  %.124 = phi i8 [ %42, %39 ], [ %.02330, %25 ], [ %.02330, %30 ], [ %.02330, %34 ], [ %.02330, %21 ]
+  %.124 = phi i8 [ %43, %39 ], [ %.02330, %25 ], [ %.02330, %30 ], [ %.02330, %34 ], [ %.02330, %21 ]
   %.1 = phi i32 [ %46, %39 ], [ %.02231, %25 ], [ %.02231, %30 ], [ %.02231, %34 ], [ %.02231, %21 ]
   %.not = icmp ult i32 %.032.in, 4
   br i1 %.not, label %._crit_edge.loopexit, label %13, !llvm.loop !385
@@ -31438,7 +31438,7 @@ define linkonce_odr void @_ZN14__gnu_parallel10_LoserTreeILb1EmZN7xgboost6common
   %.02330 = phi i8 [ %4, %.lr.ph ], [ %.124, %.thread ]
   %.02529 = phi i64 [ %1, %.lr.ph ], [ %.126, %.thread ]
   %.032 = lshr i32 %.032.in, 1
-  %14 = trunc i8 %.02330 to i1
+  %14 = trunc nuw i8 %.02330 to i1
   %15 = load ptr, ptr %5, align 8
   %16 = zext nneg i32 %.032 to i64
   %17 = getelementptr inbounds nuw %"struct.__gnu_parallel::_LoserTreeBase<unsigned long, (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/xgboost/xgboost/src/objective/../common/stats.h:91:16)>::_Loser", ptr %15, i64 %16
@@ -31482,8 +31482,8 @@ define linkonce_odr void @_ZN14__gnu_parallel10_LoserTreeILb1EmZN7xgboost6common
   %40 = phi ptr [ %35, %34 ], [ %.pre, %26 ], [ %15, %21 ], [ %15, %20 ]
   %41 = getelementptr inbounds nuw %"struct.__gnu_parallel::_LoserTreeBase<unsigned long, (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/xgboost/xgboost/src/objective/../common/stats.h:91:16)>::_Loser", ptr %40, i64 %16
   %42 = load i8, ptr %41, align 1
-  %43 = and i8 %.02330, 1
-  store i8 %43, ptr %41, align 1
+  %43 = and i8 %42, 1
+  store i8 %.02330, ptr %41, align 1
   %44 = load ptr, ptr %5, align 8
   %45 = getelementptr inbounds nuw %"struct.__gnu_parallel::_LoserTreeBase<unsigned long, (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/xgboost/xgboost/src/objective/../common/stats.h:91:16)>::_Loser", ptr %44, i64 %16, i32 1
   %46 = load i32, ptr %45, align 4
@@ -31496,7 +31496,7 @@ define linkonce_odr void @_ZN14__gnu_parallel10_LoserTreeILb1EmZN7xgboost6common
 
 .thread:                                          ; preds = %21, %25, %30, %34, %39
   %.126 = phi i64 [ %49, %39 ], [ %.02529, %25 ], [ %.02529, %30 ], [ %.02529, %34 ], [ %.02529, %21 ]
-  %.124 = phi i8 [ %42, %39 ], [ %.02330, %25 ], [ %.02330, %30 ], [ %.02330, %34 ], [ %.02330, %21 ]
+  %.124 = phi i8 [ %43, %39 ], [ %.02330, %25 ], [ %.02330, %30 ], [ %.02330, %34 ], [ %.02330, %21 ]
   %.1 = phi i32 [ %46, %39 ], [ %.02231, %25 ], [ %.02231, %30 ], [ %.02231, %34 ], [ %.02231, %21 ]
   %.not = icmp ult i32 %.032.in, 4
   br i1 %.not, label %._crit_edge.loopexit, label %13, !llvm.loop !591

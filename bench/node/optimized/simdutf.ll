@@ -11116,7 +11116,7 @@ if.end.i.i:                                       ; preds = %while.body.i
 
 if.end8.i.i:                                      ; preds = %if.end.i.i
   %shl.i.i = shl i64 %3, 1
-  %or.i.i = or i64 %shl.i.i, %next_leading.0338.i
+  %or.i.i = or disjoint i64 %shl.i.i, %next_leading.0338.i
   %xor.i.i = xor i64 %1, %3
   %cmp9.i.not.i = icmp eq i64 %xor.i.i, %or.i.i
   br i1 %cmp9.i.not.i, label %_ZN7simdutf7icelake12_GLOBAL__N_133process_block_from_utf8_to_latin1ILb0EEEmPKcmPcDv8_xS6_PyS7_.exit.i, label %_ZN7simdutf7icelake12_GLOBAL__N_121utf8_to_latin1_avx512EPKcmPc.exit
@@ -11126,7 +11126,7 @@ _ZN7simdutf7icelake12_GLOBAL__N_133process_block_from_utf8_to_latin1ILb0EEEmPKcm
   %8 = icmp eq <64 x i8> %unmaskedload.i, splat (i8 -61)
   %9 = bitcast <64 x i1> %8 to i64
   %shl12.i.i = shl i64 %9, 1
-  %or13.i.i = or i64 %shl12.i.i, %next_bit6.0337.i
+  %or13.i.i = or disjoint i64 %shl12.i.i, %next_bit6.0337.i
   %sub.i.i231.i = add <64 x i8> %unmaskedload.i, splat (i8 64)
   %10 = bitcast i64 %or13.i.i to <64 x i1>
   %11 = select <64 x i1> %10, <64 x i8> %sub.i.i231.i, <64 x i8> %unmaskedload.i
@@ -11187,7 +11187,7 @@ if.end.i127.i:                                    ; preds = %if.then8.i
 
 if.end10.i.i:                                     ; preds = %if.end.i127.i
   %shl.i196.i = shl i64 %22, 1
-  %or.i197.i = or i64 %shl.i196.i, %next_leading.0.lcssa.i
+  %or.i197.i = add nuw nsw i64 %shl.i196.i, %next_leading.0.lcssa.i
   %xor.i199.i = xor i64 %20, %22
   %cmp11.i.not.i = icmp eq i64 %xor.i199.i, %or.i197.i
   br i1 %cmp11.i.not.i, label %if.end13.i.i, label %_ZN7simdutf7icelake12_GLOBAL__N_121utf8_to_latin1_avx512EPKcmPc.exit
@@ -11196,7 +11196,7 @@ if.end13.i.i:                                     ; preds = %if.end10.i.i
   %27 = icmp eq <64 x i8> %18, splat (i8 -61)
   %28 = bitcast <64 x i1> %27 to i64
   %shl14.i.i = shl i64 %28, 1
-  %or15.i.i = or i64 %shl14.i.i, %next_bit6.0.lcssa.i
+  %or15.i.i = add nuw nsw i64 %shl14.i.i, %next_bit6.0.lcssa.i
   %sub.i.i.i = add <64 x i8> %18, splat (i8 64)
   %29 = bitcast i64 %or15.i.i to <64 x i1>
   %30 = select <64 x i1> %29, <64 x i8> %sub.i.i.i, <64 x i8> %18
@@ -11267,7 +11267,7 @@ if.end.i.i:                                       ; preds = %while.body.i
 
 if.end8.i.i:                                      ; preds = %if.end.i.i
   %shl.i.i = shl i64 %3, 1
-  %or.i.i = or i64 %shl.i.i, %next_leading.0338.i
+  %or.i.i = or disjoint i64 %shl.i.i, %next_leading.0338.i
   %xor.i.i = xor i64 %1, %3
   %cmp9.i.not.i = icmp eq i64 %xor.i.i, %or.i.i
   br i1 %cmp9.i.not.i, label %_ZN7simdutf7icelake12_GLOBAL__N_133process_block_from_utf8_to_latin1ILb0EEEmPKcmPcDv8_xS6_PyS7_.exit.i, label %_ZN7simdutf7icelake12_GLOBAL__N_121utf8_to_latin1_avx512EPKcmPc.exit
@@ -11277,7 +11277,7 @@ _ZN7simdutf7icelake12_GLOBAL__N_133process_block_from_utf8_to_latin1ILb0EEEmPKcm
   %8 = icmp eq <64 x i8> %unmaskedload.i, splat (i8 -61)
   %9 = bitcast <64 x i1> %8 to i64
   %shl12.i.i = shl i64 %9, 1
-  %or13.i.i = or i64 %shl12.i.i, %next_bit6.0337.i
+  %or13.i.i = or disjoint i64 %shl12.i.i, %next_bit6.0337.i
   %sub.i.i231.i = add <64 x i8> %unmaskedload.i, splat (i8 64)
   %10 = bitcast i64 %or13.i.i to <64 x i1>
   %11 = select <64 x i1> %10, <64 x i8> %sub.i.i231.i, <64 x i8> %unmaskedload.i
@@ -11338,7 +11338,7 @@ if.end.i127.i:                                    ; preds = %if.then8.i
 
 if.end10.i.i:                                     ; preds = %if.end.i127.i
   %shl.i196.i = shl i64 %22, 1
-  %or.i197.i = or i64 %shl.i196.i, %next_leading.0.lcssa.i
+  %or.i197.i = add nuw nsw i64 %shl.i196.i, %next_leading.0.lcssa.i
   %xor.i199.i = xor i64 %20, %22
   %cmp11.i.not.i = icmp eq i64 %xor.i199.i, %or.i197.i
   br i1 %cmp11.i.not.i, label %if.end13.i.i, label %_ZN7simdutf7icelake12_GLOBAL__N_121utf8_to_latin1_avx512EPKcmPc.exit
@@ -11347,7 +11347,7 @@ if.end13.i.i:                                     ; preds = %if.end10.i.i
   %27 = icmp eq <64 x i8> %18, splat (i8 -61)
   %28 = bitcast <64 x i1> %27 to i64
   %shl14.i.i = shl i64 %28, 1
-  %or15.i.i = or i64 %shl14.i.i, %next_bit6.0.lcssa.i
+  %or15.i.i = add nuw nsw i64 %shl14.i.i, %next_bit6.0.lcssa.i
   %sub.i.i.i = add <64 x i8> %18, splat (i8 64)
   %29 = bitcast i64 %or15.i.i to <64 x i1>
   %30 = select <64 x i1> %29, <64 x i8> %sub.i.i.i, <64 x i8> %18
@@ -11542,7 +11542,7 @@ if.end.i.i:                                       ; preds = %while.body.i
   %4 = icmp eq <64 x i8> %unmaskedload.i, splat (i8 -61)
   %5 = bitcast <64 x i1> %4 to i64
   %shl.i.i = shl i64 %5, 1
-  %or.i.i = or i64 %shl.i.i, %next_bit6.0301.i
+  %or.i.i = or disjoint i64 %shl.i.i, %next_bit6.0301.i
   %sub.i.i.i.i = add <64 x i8> %unmaskedload.i, splat (i8 64)
   %6 = bitcast i64 %or.i.i to <64 x i1>
   %7 = select <64 x i1> %6, <64 x i8> %sub.i.i.i.i, <64 x i8> %unmaskedload.i
@@ -11594,7 +11594,7 @@ if.end.i128.i:                                    ; preds = %if.then.i
   %19 = icmp eq <64 x i8> %14, splat (i8 -61)
   %20 = bitcast <64 x i1> %19 to i64
   %shl.i197.i = shl i64 %20, 1
-  %or.i198.i = or i64 %shl.i197.i, %next_bit6.0.lcssa.i
+  %or.i198.i = add nuw nsw i64 %shl.i197.i, %next_bit6.0.lcssa.i
   %sub.i.i.i203.i = add <64 x i8> %14, splat (i8 64)
   %21 = bitcast i64 %or.i198.i to <64 x i1>
   %22 = select <64 x i1> %21, <64 x i8> %sub.i.i.i203.i, <64 x i8> %14

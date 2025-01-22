@@ -31893,7 +31893,7 @@ for.body.i.i.i.i:                                 ; preds = %for.inc.i.i.i.i, %f
   br i1 %tobool.i.i.i.i, label %if.then.i.i.i.i, label %for.inc.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %for.body.i.i.i.i
-  %cmp1.i.i.i.i = icmp ult i64 %__n.05.i.i.i.i, 3
+  %cmp1.i.i.i.i = icmp samesign ult i64 %__n.05.i.i.i.i, 3
   br i1 %cmp1.i.i.i.i, label %_ZNK5arrow8FieldRef11IsFieldPathEv.exit.i, label %for.inc.i.i.i.i
 
 for.inc.i.i.i.i:                                  ; preds = %if.then.i.i.i.i, %for.body.i.i.i.i
@@ -32008,7 +32008,7 @@ for.body.i.i.i.i36:                               ; preds = %for.inc.i.i.i.i41, 
   br i1 %tobool.i.i.i.i40, label %if.then.i.i.i.i58, label %for.inc.i.i.i.i41
 
 if.then.i.i.i.i58:                                ; preds = %for.body.i.i.i.i36
-  %cmp1.i.i.i.i59 = icmp ult i64 %__n.05.i.i.i.i38, 3
+  %cmp1.i.i.i.i59 = icmp samesign ult i64 %__n.05.i.i.i.i38, 3
   br i1 %cmp1.i.i.i.i59, label %_ZNK5arrow8FieldRef11IsFieldPathEv.exit.i45, label %for.inc.i.i.i.i41
 
 for.inc.i.i.i.i41:                                ; preds = %if.then.i.i.i.i58, %for.body.i.i.i.i36
@@ -33458,7 +33458,7 @@ for.body.i.i.i.i:                                 ; preds = %for.inc.i.i.i.i, %e
   br i1 %tobool.i.i.i.i, label %if.then.i.i.i.i, label %for.inc.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %for.body.i.i.i.i
-  %cmp1.i.i.i.i = icmp ult i64 %__n.05.i.i.i.i, 3
+  %cmp1.i.i.i.i = icmp samesign ult i64 %__n.05.i.i.i.i, 3
   br i1 %cmp1.i.i.i.i, label %_ZNK5arrow8FieldRef6IsNameEv.exit.i, label %for.inc.i.i.i.i
 
 for.inc.i.i.i.i:                                  ; preds = %if.then.i.i.i.i, %for.body.i.i.i.i

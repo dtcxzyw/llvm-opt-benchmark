@@ -1989,7 +1989,7 @@ _ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit662:           ; preds = %543, %546
   store i64 %.sroa.0.0.copyload.i.i.i, ptr %52, align 8
   store i8 %.sroa.2.0.copyload.i665, ptr %.sroa.2347.0..sroa_idx, align 8
   %550 = call noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9) %52) #23
-  %551 = add i16 %.sroa.01033.1, -17
+  %551 = add nsw i16 %.sroa.01033.1, -17
   %spec.select.i.i.i668 = icmp ult i16 %551, 173
   br i1 %spec.select.i.i.i668, label %552, label %_ZNK4llvm3MVT13getScalarTypeEv.exit
 
@@ -16424,8 +16424,8 @@ _ZN4llvm3isaINS_19GlobalAddressSDNodeENS_7SDValueEEEbRKT0_.exit: ; preds = %810,
   br i1 %857, label %858, label %861
 
 858:                                              ; preds = %851
-  %859 = add i32 %.0373946, 1
-  %860 = icmp ugt i32 %859, 6
+  %859 = add nuw nsw i32 %.0373946, 1
+  %860 = icmp ugt i32 %.0373946, 5
   br i1 %860, label %_ZNK4llvm6SDNode9hasOneUseEv.exit, label %861
 
 861:                                              ; preds = %851, %858

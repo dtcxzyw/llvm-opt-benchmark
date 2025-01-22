@@ -2323,7 +2323,7 @@ define linkonce_odr { i64, ptr } @_ZNK3nix16BackedStringViewdeEv(ptr noundef non
   br i1 %8, label %9, label %11
 
 9:                                                ; preds = %4
-  %10 = icmp ult i64 %.079.i.i.i, 2
+  %10 = icmp samesign ult i64 %.079.i.i.i, 2
   br i1 %10, label %_ZNK3nix16BackedStringView7isOwnedEv.exit, label %11
 
 11:                                               ; preds = %9, %4

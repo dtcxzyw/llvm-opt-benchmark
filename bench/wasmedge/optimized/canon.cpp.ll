@@ -1172,7 +1172,7 @@ define void @_ZN8WasmEdge8Executor8Executor11instantiateERNS_7Runtime12StoreMana
   br i1 %37, label %38, label %40
 
 38:                                               ; preds = %34
-  %39 = icmp ult i64 %.079.i.i, 5
+  %39 = icmp samesign ult i64 %.079.i.i, 5
   br i1 %39, label %_ZSt17holds_alternativeIN8WasmEdge3AST9Component4LiftEJS3_NS2_5LowerENS2_11ResourceNewENS2_12ResourceDropENS2_11ResourceRepEEEbRKSt7variantIJDpT0_EE.exit, label %40
 
 40:                                               ; preds = %38, %34
@@ -1233,7 +1233,7 @@ _ZSt3getIN8WasmEdge3AST9Component4LiftEJS3_NS2_5LowerENS2_11ResourceNewENS2_12Re
   br i1 %59, label %60, label %62
 
 60:                                               ; preds = %56
-  %61 = icmp ult i64 %.079.i.i79, 4
+  %61 = icmp samesign ult i64 %.079.i.i79, 4
   br i1 %61, label %_ZSt17holds_alternativeIN8WasmEdge3AST9Component14StringEncodingEJS3_NS2_6MemoryENS2_7ReallocENS2_10PostReturnEEEbRKSt7variantIJDpT0_EE.exit, label %62
 
 62:                                               ; preds = %60, %56
@@ -1263,7 +1263,7 @@ _ZSt17holds_alternativeIN8WasmEdge3AST9Component14StringEncodingEJS3_NS2_6Memory
   br i1 %69, label %70, label %72
 
 70:                                               ; preds = %.preheader182
-  %71 = icmp ult i64 %.079.i.i84, 4
+  %71 = icmp samesign ult i64 %.079.i.i84, 4
   br i1 %71, label %_ZSt17holds_alternativeIN8WasmEdge3AST9Component6MemoryEJNS2_14StringEncodingES3_NS2_7ReallocENS2_10PostReturnEEEbRKSt7variantIJDpT0_EE.exit, label %72
 
 72:                                               ; preds = %70, %.preheader182
@@ -1306,7 +1306,7 @@ _ZSt3getIN8WasmEdge3AST9Component6MemoryEJNS2_14StringEncodingES3_NS2_7ReallocEN
   br i1 %86, label %87, label %89
 
 87:                                               ; preds = %.preheader181
-  %88 = icmp ult i64 %.079.i.i90, 4
+  %88 = icmp samesign ult i64 %.079.i.i90, 4
   br i1 %88, label %_ZSt17holds_alternativeIN8WasmEdge3AST9Component7ReallocEJNS2_14StringEncodingENS2_6MemoryES3_NS2_10PostReturnEEEbRKSt7variantIJDpT0_EE.exit, label %89
 
 89:                                               ; preds = %87, %.preheader181
@@ -1349,7 +1349,7 @@ _ZSt3getIN8WasmEdge3AST9Component7ReallocEJNS2_14StringEncodingENS2_6MemoryES3_N
   br i1 %103, label %104, label %106
 
 104:                                              ; preds = %.preheader
-  %105 = icmp ult i64 %.079.i.i96, 4
+  %105 = icmp samesign ult i64 %.079.i.i96, 4
   br i1 %105, label %_ZSt17holds_alternativeIN8WasmEdge3AST9Component10PostReturnEJNS2_14StringEncodingENS2_6MemoryENS2_7ReallocES3_EEbRKSt7variantIJDpT0_EE.exit, label %106
 
 106:                                              ; preds = %104, %.preheader
@@ -1403,7 +1403,7 @@ _ZSt17holds_alternativeIN8WasmEdge3AST9Component10PostReturnEJNS2_14StringEncodi
   br i1 %124, label %125, label %127
 
 125:                                              ; preds = %121
-  %126 = icmp ult i64 %.079.i.i101, 4
+  %126 = icmp samesign ult i64 %.079.i.i101, 4
   br i1 %126, label %_ZSt17holds_alternativeIN8WasmEdge3AST9Component8FuncTypeEJSt7variantIJNS2_11PrimValTypeENS2_6RecordENS2_9VariantTyENS2_4ListENS2_5TupleENS2_5FlagsENS2_4EnumENS2_6OptionENS2_6ResultENS2_3OwnENS2_6BorrowEEES3_NS2_13ComponentTypeENS2_12InstanceTypeEEEbRKS4_IJDpT0_EE.exit, label %127
 
 127:                                              ; preds = %125, %121
@@ -1542,7 +1542,7 @@ _ZNKSt14default_deleteIN8WasmEdge7Runtime8Instance16FunctionInstanceEEclEPS3_.ex
   br i1 %172, label %173, label %175
 
 173:                                              ; preds = %.preheader189
-  %174 = icmp ult i64 %.079.i.i108, 5
+  %174 = icmp samesign ult i64 %.079.i.i108, 5
   br i1 %174, label %_ZSt17holds_alternativeIN8WasmEdge3AST9Component5LowerEJNS2_4LiftES3_NS2_11ResourceNewENS2_12ResourceDropENS2_11ResourceRepEEEbRKSt7variantIJDpT0_EE.exit, label %175
 
 175:                                              ; preds = %173, %.preheader189
@@ -1607,7 +1607,7 @@ _ZSt3getIN8WasmEdge3AST9Component5LowerEJNS2_4LiftES3_NS2_11ResourceNewENS2_12Re
   br i1 %196, label %197, label %199
 
 197:                                              ; preds = %193
-  %198 = icmp ult i64 %.079.i.i117, 4
+  %198 = icmp samesign ult i64 %.079.i.i117, 4
   br i1 %198, label %_ZSt17holds_alternativeIN8WasmEdge3AST9Component14StringEncodingEJS3_NS2_6MemoryENS2_7ReallocENS2_10PostReturnEEEbRKSt7variantIJDpT0_EE.exit121, label %199
 
 199:                                              ; preds = %197, %193
@@ -1641,7 +1641,7 @@ _ZSt17holds_alternativeIN8WasmEdge3AST9Component14StringEncodingEJS3_NS2_6Memory
   br i1 %208, label %209, label %211
 
 209:                                              ; preds = %.preheader185
-  %210 = icmp ult i64 %.079.i.i123, 4
+  %210 = icmp samesign ult i64 %.079.i.i123, 4
   br i1 %210, label %_ZSt17holds_alternativeIN8WasmEdge3AST9Component6MemoryEJNS2_14StringEncodingES3_NS2_7ReallocENS2_10PostReturnEEEbRKSt7variantIJDpT0_EE.exit127, label %211
 
 211:                                              ; preds = %209, %.preheader185
@@ -1683,7 +1683,7 @@ _ZSt3getIN8WasmEdge3AST9Component6MemoryEJNS2_14StringEncodingES3_NS2_7ReallocEN
   br i1 %224, label %225, label %227
 
 225:                                              ; preds = %.preheader184
-  %226 = icmp ult i64 %.079.i.i131, 4
+  %226 = icmp samesign ult i64 %.079.i.i131, 4
   br i1 %226, label %_ZSt17holds_alternativeIN8WasmEdge3AST9Component7ReallocEJNS2_14StringEncodingENS2_6MemoryES3_NS2_10PostReturnEEEbRKSt7variantIJDpT0_EE.exit135, label %227
 
 227:                                              ; preds = %225, %.preheader184
@@ -1725,7 +1725,7 @@ _ZSt3getIN8WasmEdge3AST9Component7ReallocEJNS2_14StringEncodingENS2_6MemoryES3_N
   br i1 %240, label %241, label %243
 
 241:                                              ; preds = %.preheader183
-  %242 = icmp ult i64 %.079.i.i139, 4
+  %242 = icmp samesign ult i64 %.079.i.i139, 4
   br i1 %242, label %_ZSt17holds_alternativeIN8WasmEdge3AST9Component10PostReturnEJNS2_14StringEncodingENS2_6MemoryENS2_7ReallocES3_EEbRKSt7variantIJDpT0_EE.exit143, label %243
 
 243:                                              ; preds = %241, %.preheader183
@@ -1843,7 +1843,7 @@ _ZNKSt14default_deleteIN8WasmEdge7Runtime8Instance16FunctionInstanceEEclEPS3_.ex
   br i1 %283, label %284, label %286
 
 284:                                              ; preds = %.preheader188
-  %285 = icmp ult i64 %.079.i.i152, 5
+  %285 = icmp samesign ult i64 %.079.i.i152, 5
   br i1 %285, label %_ZSt17holds_alternativeIN8WasmEdge3AST9Component11ResourceNewEJNS2_4LiftENS2_5LowerES3_NS2_12ResourceDropENS2_11ResourceRepEEEbRKSt7variantIJDpT0_EE.exit, label %286
 
 286:                                              ; preds = %284, %.preheader188
@@ -1876,7 +1876,7 @@ _ZSt17holds_alternativeIN8WasmEdge3AST9Component11ResourceNewEJNS2_4LiftENS2_5Lo
   br i1 %294, label %295, label %297
 
 295:                                              ; preds = %.preheader187
-  %296 = icmp ult i64 %.079.i.i157, 5
+  %296 = icmp samesign ult i64 %.079.i.i157, 5
   br i1 %296, label %_ZSt17holds_alternativeIN8WasmEdge3AST9Component12ResourceDropEJNS2_4LiftENS2_5LowerENS2_11ResourceNewES3_NS2_11ResourceRepEEEbRKSt7variantIJDpT0_EE.exit, label %297
 
 297:                                              ; preds = %295, %.preheader187
@@ -1909,7 +1909,7 @@ _ZSt17holds_alternativeIN8WasmEdge3AST9Component12ResourceDropEJNS2_4LiftENS2_5L
   br i1 %305, label %306, label %308
 
 306:                                              ; preds = %.preheader186
-  %307 = icmp ult i64 %.079.i.i162, 5
+  %307 = icmp samesign ult i64 %.079.i.i162, 5
   br i1 %307, label %_ZSt17holds_alternativeIN8WasmEdge3AST9Component11ResourceRepEJNS2_4LiftENS2_5LowerENS2_11ResourceNewENS2_12ResourceDropES3_EEbRKSt7variantIJDpT0_EE.exit, label %308
 
 308:                                              ; preds = %306, %.preheader186
@@ -2779,7 +2779,7 @@ _ZNK8WasmEdge3AST9Component8FuncType13getResultListEv.exit.i: ; preds = %._crit_
   br i1 %59, label %60, label %62
 
 60:                                               ; preds = %55
-  %61 = icmp ult i64 %.079.i.i.i, 2
+  %61 = icmp samesign ult i64 %.079.i.i.i, 2
   br i1 %61, label %_ZSt17holds_alternativeISt7variantIJjN8WasmEdge3AST9Component11PrimValTypeEEEJS5_St6vectorINS3_12LabelValTypeESaIS7_EEEEbRKS0_IJDpT0_EE.exit.i, label %62
 
 62:                                               ; preds = %60, %55
@@ -4396,7 +4396,7 @@ define internal fastcc void @_ZN8WasmEdge8Executor12_GLOBAL__N_18pushTypeERNS_7R
   br i1 %10, label %11, label %13
 
 11:                                               ; preds = %6
-  %12 = icmp ult i64 %.079.i.i, 2
+  %12 = icmp samesign ult i64 %.079.i.i, 2
   br i1 %12, label %_ZSt17holds_alternativeIN8WasmEdge3AST9Component11PrimValTypeEJjS3_EEbRKSt7variantIJDpT0_EE.exit, label %13
 
 13:                                               ; preds = %11, %6
@@ -32673,7 +32673,7 @@ define linkonce_odr hidden ptr @_ZNK3fmt2v89formatterISt7variantIJjN8WasmEdge3AS
   br i1 %16, label %17, label %19
 
 17:                                               ; preds = %12
-  %18 = icmp ult i64 %.079.i.i, 2
+  %18 = icmp samesign ult i64 %.079.i.i, 2
   br i1 %18, label %_ZSt17holds_alternativeIN8WasmEdge3AST9Component11PrimValTypeEJjS3_EEbRKSt7variantIJDpT0_EE.exit, label %19
 
 19:                                               ; preds = %17, %12
@@ -33721,7 +33721,7 @@ _ZNK8WasmEdge3AST9Component8FuncType13getResultListEv.exit: ; preds = %60, %._cr
   br i1 %70, label %71, label %73
 
 71:                                               ; preds = %66
-  %72 = icmp ult i64 %.079.i.i, 2
+  %72 = icmp samesign ult i64 %.079.i.i, 2
   br i1 %72, label %_ZSt17holds_alternativeISt7variantIJjN8WasmEdge3AST9Component11PrimValTypeEEEJS5_St6vectorINS3_12LabelValTypeESaIS7_EEEEbRKS0_IJDpT0_EE.exit, label %73
 
 73:                                               ; preds = %71, %66

@@ -891,8 +891,8 @@ _ZSt4sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEN2cv17KeyPoint_Les
   %42 = load i32, ptr %41, align 4
   %43 = sext i32 %42 to i64
   %44 = getelementptr inbounds %"class.cv::KeyPoint", ptr %33, i64 %43
-  %45 = sext i32 %.04197 to i64
-  %46 = getelementptr inbounds i32, ptr %.sroa.072.086, i64 %45
+  %45 = zext nneg i32 %.04197 to i64
+  %46 = getelementptr inbounds nuw i32, ptr %.sroa.072.086, i64 %45
   %47 = load i32, ptr %46, align 4
   %48 = sext i32 %47 to i64
   %49 = getelementptr inbounds %"class.cv::KeyPoint", ptr %33, i64 %48

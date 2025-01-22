@@ -989,14 +989,14 @@ define void @_Z22put_residue_com_in_boxiiiP6t_atom7PbcTypePA3_fS3_(i32 noundef %
 49:                                               ; preds = %38
   %50 = load ptr, ptr @debug, align 8
   %.not55 = icmp eq ptr %50, null
-  %.pre = sext i32 %.05276 to i64
+  %.pre = zext i32 %.05276 to i64
   br i1 %.not55, label %._crit_edge93, label %51
 
 51:                                               ; preds = %49
-  %52 = getelementptr inbounds %struct.t_atom, ptr %3, i64 %.pre, i32 7
+  %52 = getelementptr inbounds nuw %struct.t_atom, ptr %3, i64 %.pre, i32 7
   %53 = load i32, ptr %52, align 4
   %54 = add nsw i32 %53, 1
-  %55 = add nsw i32 %.05276, 1
+  %55 = add nuw nsw i32 %.05276, 1
   %56 = fpext float %40 to double
   %57 = fpext float %42 to double
   %58 = fpext float %44 to double
@@ -1006,12 +1006,12 @@ define void @_Z22put_residue_com_in_boxiiiP6t_atom7PbcTypePA3_fS3_(i32 noundef %
   br label %._crit_edge93
 
 ._crit_edge93:                                    ; preds = %49, %51
-  %62 = icmp sgt i64 %indvars.iv88, %.pre
+  %62 = icmp samesign ugt i64 %indvars.iv88, %.pre
   br i1 %62, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %._crit_edge93, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ %.pre, %._crit_edge93 ]
-  %63 = getelementptr inbounds [3 x float], ptr %6, i64 %indvars.iv
+  %63 = getelementptr inbounds nuw [3 x float], ptr %6, i64 %indvars.iv
   %64 = load float, ptr %63, align 4
   %65 = fadd float %40, %64
   %66 = getelementptr inbounds nuw i8, ptr %63, i64 4
@@ -1023,7 +1023,7 @@ define void @_Z22put_residue_com_in_boxiiiP6t_atom7PbcTypePA3_fS3_(i32 noundef %
   store float %65, ptr %63, align 4
   store float %68, ptr %66, align 4
   store float %71, ptr %69, align 4
-  %indvars.iv.next = add nsw i64 %indvars.iv, 1
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %indvars.iv88
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !21
 

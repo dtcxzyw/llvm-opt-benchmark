@@ -1804,7 +1804,7 @@ _ZNSt5dequeIN9Stockfish12_GLOBAL__N_17TBTableILNS1_6TBTypeE1EEESaIS4_EE4backEv.e
 302:                                              ; preds = %300
   %303 = trunc i64 %298 to i32
   %304 = and i32 %303, 4095
-  %305 = icmp ugt i32 %304, %.01821.i
+  %305 = icmp samesign ugt i32 %304, %.01821.i
   br i1 %305, label %306, label %307
 
 306:                                              ; preds = %302
@@ -1900,7 +1900,7 @@ _ZNSt5dequeIN9Stockfish12_GLOBAL__N_17TBTableILNS1_6TBTypeE1EEESaIS4_EE4backEv.e
 343:                                              ; preds = %341
   %344 = trunc i64 %339 to i32
   %345 = and i32 %344, 4095
-  %346 = icmp ugt i32 %345, %.01821.i21
+  %346 = icmp samesign ugt i32 %345, %.01821.i21
   br i1 %346, label %347, label %348
 
 347:                                              ; preds = %343

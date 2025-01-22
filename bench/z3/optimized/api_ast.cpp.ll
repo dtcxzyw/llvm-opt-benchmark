@@ -9006,8 +9006,8 @@ _ZN6vectorIP4exprLb0EjE9push_backERKS1_.exit:     ; preds = %lor.lhs.false.i, %.
   %inc.i = add i32 %17, 1
   store i32 %inc.i, ptr %arrayidx10.i, align 4
   %18 = load ptr, ptr %todo, align 8
-  %cmp.i43444 = icmp eq ptr %18, null
-  br i1 %cmp.i43444, label %while.end, label %_ZNK6vectorIP4exprLb0EjE5emptyEv.exit.lr.ph
+  %cmp.i43443 = icmp eq ptr %18, null
+  br i1 %cmp.i43443, label %while.end, label %_ZNK6vectorIP4exprLb0EjE5emptyEv.exit.lr.ph
 
 _ZNK6vectorIP4exprLb0EjE5emptyEv.exit.lr.ph:      ; preds = %_ZN6vectorIP4exprLb0EjE9push_backERKS1_.exit
   %m_value.i.i293 = getelementptr inbounds nuw i8, ptr %ref.tmp.i292, i64 8
@@ -9201,9 +9201,9 @@ for.body77.preheader:                             ; preds = %_ZNK6vectorIP4exprL
   br label %for.body77
 
 for.body77:                                       ; preds = %for.body77.preheader, %for.inc90
-  %__begin5.0443 = phi ptr [ %incdec.ptr, %for.inc90 ], [ %m_args.i.ptr, %for.body77.preheader ]
+  %__begin5.0442 = phi ptr [ %incdec.ptr, %for.inc90 ], [ %m_args.i.ptr, %for.body77.preheader ]
   %change.0441 = phi i1 [ %change.1, %for.inc90 ], [ false, %for.body77.preheader ]
-  %42 = load ptr, ptr %__begin5.0443, align 8
+  %42 = load ptr, ptr %__begin5.0442, align 8
   %m_hash.i.i.i.i.i.i.i57 = getelementptr inbounds nuw i8, ptr %42, i64 12
   %43 = load i32, ptr %m_hash.i.i.i.i.i.i.i57, align 4
   %44 = load i32, ptr %m_capacity.i.i38, align 8
@@ -9355,7 +9355,7 @@ _ZN6vectorIP4exprLb0EjE9push_backERKS1_.exit113:  ; preds = %lor.lhs.false.i99, 
 
 for.inc90:                                        ; preds = %_ZN6vectorIP4exprLb0EjE9push_backERKS1_.exit113, %invoke.cont81
   %change.1 = phi i1 [ %59, %invoke.cont81 ], [ %change.0441, %_ZN6vectorIP4exprLb0EjE9push_backERKS1_.exit113 ]
-  %incdec.ptr = getelementptr inbounds nuw i8, ptr %__begin5.0443, i64 8
+  %incdec.ptr = getelementptr inbounds nuw i8, ptr %__begin5.0442, i64 8
   %cmp76.not = icmp eq ptr %incdec.ptr, %add.ptr.i56.ptr
   br i1 %cmp76.not, label %for.end91.loopexit, label %for.body77
 

@@ -567,7 +567,7 @@ define void @_ZN10open_spiel4json8ToStringB5cxx11ERKNS0_5ValueEbi(ptr dead_on_un
   br i1 %34, label %35, label %37
 
 35:                                               ; preds = %31
-  %36 = icmp ult i64 %.079.i.i.i, 7
+  %36 = icmp samesign ult i64 %.079.i.i.i, 7
   br i1 %36, label %_ZNK10open_spiel4json5Value6IsNullEv.exit, label %37
 
 37:                                               ; preds = %35, %31
@@ -624,7 +624,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   br i1 %49, label %50, label %52
 
 50:                                               ; preds = %.preheader77
-  %51 = icmp ult i64 %.079.i.i.i28, 7
+  %51 = icmp samesign ult i64 %.079.i.i.i28, 7
   br i1 %51, label %_ZNK10open_spiel4json5Value6IsBoolEv.exit, label %52
 
 52:                                               ; preds = %50, %.preheader77
@@ -733,7 +733,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit36: ; 
   br i1 %81, label %82, label %84
 
 82:                                               ; preds = %.preheader76
-  %83 = icmp ult i64 %.079.i.i.i38, 7
+  %83 = icmp samesign ult i64 %.079.i.i.i38, 7
   br i1 %83, label %_ZNK10open_spiel4json5Value5IsIntEv.exit, label %84
 
 84:                                               ; preds = %82, %.preheader76
@@ -805,7 +805,7 @@ _ZNK10open_spiel4json5Value6GetIntEv.exit:        ; preds = %87
   br i1 %104, label %105, label %107
 
 105:                                              ; preds = %.preheader75
-  %106 = icmp ult i64 %.079.i.i.i46, 7
+  %106 = icmp samesign ult i64 %.079.i.i.i46, 7
   br i1 %106, label %_ZNK10open_spiel4json5Value8IsDoubleEv.exit, label %107
 
 107:                                              ; preds = %105, %.preheader75
@@ -916,7 +916,7 @@ _ZN4absl7debian28AlphaNumC2EPKc.exit:             ; preds = %_ZNK10open_spiel4js
   br i1 %141, label %142, label %144
 
 142:                                              ; preds = %.preheader74
-  %143 = icmp ult i64 %.079.i.i.i55, 7
+  %143 = icmp samesign ult i64 %.079.i.i.i55, 7
   br i1 %143, label %_ZNK10open_spiel4json5Value8IsStringEv.exit, label %144
 
 144:                                              ; preds = %142, %.preheader74
@@ -1003,7 +1003,7 @@ _ZNK10open_spiel4json5Value9GetStringB5cxx11Ev.exit: ; preds = %_ZN4absl7debian2
   br i1 %165, label %166, label %168
 
 166:                                              ; preds = %.preheader73
-  %167 = icmp ult i64 %.079.i.i.i64, 7
+  %167 = icmp samesign ult i64 %.079.i.i.i64, 7
   br i1 %167, label %_ZNK10open_spiel4json5Value7IsArrayEv.exit, label %168
 
 168:                                              ; preds = %166, %.preheader73
@@ -1031,7 +1031,7 @@ _ZNK10open_spiel4json5Value7IsArrayEv.exit:       ; preds = %166, %168
   br i1 %175, label %176, label %178
 
 176:                                              ; preds = %.preheader
-  %177 = icmp ult i64 %.079.i.i.i69, 7
+  %177 = icmp samesign ult i64 %.079.i.i.i69, 7
   br i1 %177, label %_ZNK10open_spiel4json5Value8IsObjectEv.exit, label %178
 
 178:                                              ; preds = %176, %.preheader

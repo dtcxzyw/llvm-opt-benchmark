@@ -3946,9 +3946,9 @@ define internal fastcc void @_ZL19printOverrideStringRKN5clang20CodeCompletionSt
   %.ptr = getelementptr inbounds nuw i8, ptr %0, i64 32
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %23
-  %.022 = phi i8 [ %.1, %23 ], [ 0, %.lr.ph.preheader ]
-  %.01721 = phi ptr [ %24, %23 ], [ %.ptr, %.lr.ph.preheader ]
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %22
+  %.022 = phi i8 [ %.1, %22 ], [ 0, %.lr.ph.preheader ]
+  %.01721 = phi ptr [ %23, %22 ], [ %.ptr, %.lr.ph.preheader ]
   %7 = load i32, ptr %.01721, align 8
   %8 = icmp eq i32 %7, 2
   br i1 %8, label %9, label %12
@@ -3957,33 +3957,32 @@ define internal fastcc void @_ZL19printOverrideStringRKN5clang20CodeCompletionSt
   %10 = getelementptr inbounds nuw i8, ptr %.01721, i64 8
   %11 = load ptr, ptr %10, align 8
   tail call fastcc void @_ZL19printOverrideStringRKN5clang20CodeCompletionStringERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %2)
-  br label %23
+  br label %22
 
 12:                                               ; preds = %.lr.ph
   %13 = icmp eq i32 %7, 0
-  %14 = and i8 %.022, 1
-  %15 = zext i1 %13 to i8
-  %16 = or i8 %14, %15
-  %.not19 = icmp eq i8 %16, 0
-  %17 = getelementptr inbounds nuw i8, ptr %.01721, i64 8
-  %18 = load ptr, ptr %17, align 8
-  br i1 %.not19, label %21, label %19
+  %14 = zext i1 %13 to i8
+  %15 = or i8 %.022, %14
+  %.not19 = icmp eq i8 %15, 0
+  %16 = getelementptr inbounds nuw i8, ptr %.01721, i64 8
+  %17 = load ptr, ptr %16, align 8
+  br i1 %.not19, label %20, label %18
 
-19:                                               ; preds = %12
-  %20 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef %18) #29
-  br label %23
+18:                                               ; preds = %12
+  %19 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef %17) #29
+  br label %22
 
-21:                                               ; preds = %12
-  %22 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef %18) #29
-  br label %23
+20:                                               ; preds = %12
+  %21 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef %17) #29
+  br label %22
 
-23:                                               ; preds = %19, %21, %9
-  %.1 = phi i8 [ %.022, %9 ], [ 1, %19 ], [ 0, %21 ]
-  %24 = getelementptr inbounds nuw i8, ptr %.01721, i64 16
-  %.not = icmp eq ptr %24, %.ptr23
+22:                                               ; preds = %18, %20, %9
+  %.1 = phi i8 [ %.022, %9 ], [ 1, %18 ], [ 0, %20 ]
+  %23 = getelementptr inbounds nuw i8, ptr %.01721, i64 16
+  %.not = icmp eq ptr %23, %.ptr23
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
-._crit_edge:                                      ; preds = %23, %3
+._crit_edge:                                      ; preds = %22, %3
   ret void
 }
 

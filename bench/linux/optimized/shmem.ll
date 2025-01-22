@@ -7070,7 +7070,7 @@ define internal i64 @shmem_file_read_iter(ptr nocapture noundef %0, ptr noundef 
   %.ph10 = phi i64 [ %23, %70 ], [ %23, %65 ], [ %23, %64 ], [ %23, %36 ], [ 0, %2 ], [ %103, %110 ], [ %103, %101 ], [ %23, %20 ], [ %103, %112 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #18
   %117 = shl i64 %.ph, 12
-  %118 = add nuw i64 %117, %.ph8
+  %118 = add nuw nsw i64 %117, %.ph8
   store i64 %118, ptr %9, align 8
   %119 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %120 = load i32, ptr %119, align 8

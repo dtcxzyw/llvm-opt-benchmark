@@ -172,7 +172,7 @@ BrotliStoreHuffmanTreeOfHuffmanTreeToBitMask.exit: ; preds = %for.body29.i, %if.
   br i1 %cmp22, label %if.then23, label %if.end25
 
 if.then23:                                        ; preds = %BrotliStoreHuffmanTreeOfHuffmanTreeToBitMask.exit
-  %arrayidx24 = getelementptr inbounds [18 x i8], ptr %code_length_bitdepth, i64 0, i64 %code.0.lcssa
+  %arrayidx24 = getelementptr inbounds nuw [18 x i8], ptr %code_length_bitdepth, i64 0, i64 %code.0.lcssa
   store i8 0, ptr %arrayidx24, align 1
   br label %if.end25
 

@@ -669,7 +669,7 @@ if.then8:                                         ; preds = %land.lhs.true
   br i1 %cmp11, label %if.end29, label %if.then18
 
 if.end15:                                         ; preds = %land.lhs.true, %conv_ascii2bin.exit32
-  %cmp16 = icmp ult i64 %pad_len.072, 2
+  %cmp16 = icmp samesign ult i64 %pad_len.072, 2
   br i1 %cmp16, label %if.then18thread-pre-split, label %if.end29
 
 if.then18thread-pre-split:                        ; preds = %if.end15
@@ -760,8 +760,8 @@ if.then71:                                        ; preds = %if.end68
 
 if.end77:                                         ; preds = %if.then71, %if.end68
   %out.addr.2 = phi ptr [ %incdec.ptr76, %if.then71 ], [ %out.addr.1, %if.end68 ]
-  %reass.sub = add i64 %len.073, 3
-  %add78 = sub i64 %reass.sub, %pad_len.15265
+  %sub = xor i64 %pad_len.15265, 3
+  %add78 = add i64 %sub, %len.073
   %cmp1 = icmp ult i64 %add, %in_len
   br i1 %cmp1, label %for.body, label %for.end, !llvm.loop !10
 

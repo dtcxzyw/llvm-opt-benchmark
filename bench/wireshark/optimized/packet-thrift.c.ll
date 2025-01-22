@@ -2720,13 +2720,13 @@ dissect_thrift_t_stop.exit:                       ; preds = %132, %131, %110, %1
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @dissect_thrift_t_struct(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, ptr nocapture noundef readonly %9) local_unnamed_addr #0 {
+define range(i32 1, 0) i32 @dissect_thrift_t_struct(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, ptr nocapture noundef readonly %9) local_unnamed_addr #0 {
   %11 = tail call fastcc i32 @dissect_thrift_t_struct_expert(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, ptr noundef %9, ptr noundef null)
   ret i32 %11
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_thrift_t_struct_expert(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, ptr nocapture noundef readonly %9, ptr noundef %10) unnamed_addr #0 {
+define internal fastcc range(i32 1, 0) i32 @dissect_thrift_t_struct_expert(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, ptr nocapture noundef readonly %9, ptr noundef %10) unnamed_addr #0 {
   %12 = alloca i32, align 4
   %13 = alloca %struct._thrift_field_header_t, align 8
   %14 = alloca i32, align 4
@@ -2804,7 +2804,7 @@ thread-pre-split:                                 ; preds = %24, %25
   %47 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %48 = load i32, ptr %47, align 8
   %.not96109 = icmp eq i32 %48, 0
-  br i1 %.not96109, label %._crit_edge.thread, label %.lr.ph
+  br i1 %.not96109, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %45
   %49 = getelementptr inbounds nuw i8, ptr %13, i64 8
@@ -2929,72 +2929,68 @@ thread-pre-split104:                              ; preds = %97, %93, %102
   store i64 %115, ptr %46, align 8
   br label %.backedge
 
-._crit_edge:                                      ; preds = %.backedge
-  %116 = icmp slt i32 %68, 0
-  br i1 %116, label %dissect_thrift_t_stop.exit, label %._crit_edge.thread
+._crit_edge:                                      ; preds = %.backedge, %45
+  %116 = phi i32 [ %28, %45 ], [ %68, %.backedge ]
+  %117 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %116) #7
+  %118 = icmp slt i32 %117, 1
+  br i1 %118, label %dissect_thrift_t_stop.exit, label %119
 
-._crit_edge.thread:                               ; preds = %45, %._crit_edge
-  %117 = phi i32 [ %68, %._crit_edge ], [ %28, %45 ]
-  %118 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %117) #7
-  %119 = icmp slt i32 %118, 1
-  br i1 %119, label %dissect_thrift_t_stop.exit, label %120
+119:                                              ; preds = %._crit_edge
+  %120 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %116) #7
+  %.not.i = icmp eq i8 %120, 0
+  br i1 %.not.i, label %123, label %121
 
-120:                                              ; preds = %._crit_edge.thread
-  %121 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %117) #7
-  %.not.i = icmp eq i8 %121, 0
-  br i1 %.not.i, label %124, label %122
-
-122:                                              ; preds = %120
-  %123 = tail call ptr @proto_tree_add_expert(ptr noundef %.1, ptr noundef %1, ptr noundef nonnull @ei_thrift_wrong_type, ptr noundef %0, i32 noundef %117, i32 noundef 1) #7
+121:                                              ; preds = %119
+  %122 = tail call ptr @proto_tree_add_expert(ptr noundef %.1, ptr noundef %1, ptr noundef nonnull @ei_thrift_wrong_type, ptr noundef %0, i32 noundef %116, i32 noundef 1) #7
   br label %dissect_thrift_t_stop.exit
 
-124:                                              ; preds = %120
-  %125 = load i32, ptr @show_internal_thrift_fields, align 4
-  %.not16.i = icmp eq i32 %125, 0
-  br i1 %.not16.i, label %129, label %126
+123:                                              ; preds = %119
+  %124 = load i32, ptr @show_internal_thrift_fields, align 4
+  %.not16.i = icmp eq i32 %124, 0
+  br i1 %.not16.i, label %128, label %125
 
-126:                                              ; preds = %124
-  %127 = load i32, ptr @hf_thrift_type, align 4
-  %128 = tail call ptr @proto_tree_add_item(ptr noundef %.1, i32 noundef %127, ptr noundef %0, i32 noundef %117, i32 noundef 1, i32 noundef 0) #7
-  br label %129
+125:                                              ; preds = %123
+  %126 = load i32, ptr @hf_thrift_type, align 4
+  %127 = tail call ptr @proto_tree_add_item(ptr noundef %.1, i32 noundef %126, ptr noundef %0, i32 noundef %116, i32 noundef 1, i32 noundef 0) #7
+  br label %128
 
-129:                                              ; preds = %126, %124
-  %130 = add nuw i32 %117, 1
+128:                                              ; preds = %125, %123
+  %129 = add nuw i32 %116, 1
   br label %dissect_thrift_t_stop.exit
 
-dissect_thrift_t_stop.exit:                       ; preds = %._crit_edge, %._crit_edge.thread, %122, %129
-  %.0.i = phi i32 [ -2, %122 ], [ %130, %129 ], [ %68, %._crit_edge ], [ -1, %._crit_edge.thread ]
+dissect_thrift_t_stop.exit:                       ; preds = %._crit_edge, %121, %128
+  %.0.i = phi i32 [ -2, %121 ], [ %129, %128 ], [ -1, %._crit_edge ]
   %.not97 = icmp eq ptr %10, null
-  br i1 %.not97, label %133, label %131
+  br i1 %.not97, label %132, label %130
 
-131:                                              ; preds = %dissect_thrift_t_stop.exit
-  %132 = tail call ptr @expert_add_info(ptr noundef %1, ptr noundef %.082, ptr noundef nonnull %10) #7
-  br label %133
+130:                                              ; preds = %dissect_thrift_t_stop.exit
+  %131 = tail call ptr @expert_add_info(ptr noundef %1, ptr noundef %.082, ptr noundef nonnull %10) #7
+  br label %132
 
-133:                                              ; preds = %131, %dissect_thrift_t_stop.exit
-  %134 = icmp sgt i32 %.0.i, 0
-  %or.cond = select i1 %16, i1 %134, i1 false
-  br i1 %or.cond, label %135, label %136
+132:                                              ; preds = %130, %dissect_thrift_t_stop.exit
+  %133 = icmp sgt i32 %.0.i, 0
+  %or.cond = select i1 %16, i1 %133, i1 false
+  br i1 %or.cond, label %134, label %135
 
-135:                                              ; preds = %133
+134:                                              ; preds = %132
   tail call void @proto_item_set_end(ptr noundef %.082, ptr noundef %0, i32 noundef %.0.i) #7
-  br label %136
+  br label %135
 
-136:                                              ; preds = %135, %133
-  br i1 %.not93, label %139, label %137
+135:                                              ; preds = %134, %132
+  br i1 %.not93, label %138, label %136
 
-137:                                              ; preds = %136
-  %138 = sext i32 %6 to i64
-  store i64 %138, ptr %46, align 8
-  br label %139
+136:                                              ; preds = %135
+  %137 = sext i32 %6 to i64
+  store i64 %137, ptr %46, align 8
+  br label %138
 
-139:                                              ; preds = %137, %136
-  %140 = load i32, ptr @proto_thrift, align 4
-  tail call void @p_set_proto_depth(ptr noundef %1, i32 noundef %140, i32 noundef %.0) #7
+138:                                              ; preds = %136, %135
+  %139 = load i32, ptr @proto_thrift, align 4
+  tail call void @p_set_proto_depth(ptr noundef %1, i32 noundef %139, i32 noundef %.0) #7
   br label %.loopexit
 
-.loopexit:                                        ; preds = %111, %108, %102, %97, %59, %30, %thread-pre-split, %139, %81, %71, %37
-  %.081 = phi i32 [ -1, %37 ], [ -2, %71 ], [ -2, %81 ], [ %.0.i, %139 ], [ %28, %thread-pre-split ], [ -1, %30 ], [ %., %59 ], [ -1, %111 ], [ %109, %108 ], [ -1, %102 ], [ -1, %97 ]
+.loopexit:                                        ; preds = %111, %108, %102, %97, %59, %30, %thread-pre-split, %138, %81, %71, %37
+  %.081 = phi i32 [ -1, %37 ], [ -2, %71 ], [ -2, %81 ], [ %.0.i, %138 ], [ %28, %thread-pre-split ], [ -1, %30 ], [ %., %59 ], [ -1, %111 ], [ %109, %108 ], [ -1, %102 ], [ -1, %97 ]
   ret i32 %.081
 }
 
@@ -6371,7 +6367,7 @@ thrift_get_varint_enc.exit250:                    ; preds = %71
   %262 = call ptr @expert_add_info(ptr noundef nonnull %1, ptr noundef %.0219, ptr noundef nonnull @ei_thrift_protocol_exception) #7
   %263 = load i32, ptr @hf_thrift_exception, align 4
   %264 = load i32, ptr @ett_thrift_exception, align 4
-  %265 = call fastcc i32 @dissect_thrift_t_struct_expert(ptr noundef %237, ptr noundef nonnull %1, ptr noundef %22, i32 noundef 0, ptr noundef nonnull %4, i32 noundef 0, i32 noundef 0, i32 noundef %263, i32 noundef %264, ptr noundef nonnull @thrift_exception, ptr noundef null)
+  %265 = call fastcc range(i32 1, 0) i32 @dissect_thrift_t_struct_expert(ptr noundef %237, ptr noundef nonnull %1, ptr noundef %22, i32 noundef 0, ptr noundef nonnull %4, i32 noundef 0, i32 noundef 0, i32 noundef %263, i32 noundef %264, ptr noundef nonnull @thrift_exception, ptr noundef null)
   br label %266
 
 266:                                              ; preds = %255, %259, %261

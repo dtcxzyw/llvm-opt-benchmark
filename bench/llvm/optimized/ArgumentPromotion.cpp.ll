@@ -2904,9 +2904,8 @@ _ZN4llvm17PreservedAnalysesD2Ev.exit:             ; preds = %1062, %_ZN4llvm11Sm
 
 ._crit_edge131:                                   ; preds = %_ZN4llvm17PreservedAnalysesD2Ev.exit
   %1064 = trunc nuw i8 %.1 to i1
-  %.mask = and i8 %.1, 1
   %1065 = zext i1 %.0 to i8
-  %1066 = or i8 %.mask, %1065
+  %1066 = or i8 %.1, %1065
   %1067 = icmp ne i8 %1066, 0
   br i1 %1064, label %95, label %1068, !llvm.loop !49
 

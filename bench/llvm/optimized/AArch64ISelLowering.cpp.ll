@@ -56050,7 +56050,7 @@ _ZNK4llvm11CCValAssign15getLocMemOffsetEv.exit:   ; preds = %245
   br i1 %279, label %280, label %282
 
 280:                                              ; preds = %276
-  %281 = icmp ult i64 %.079.i.i.i, 3
+  %281 = icmp samesign ult i64 %.079.i.i.i, 3
   br i1 %281, label %_ZNK4llvm11CCValAssign8isRegLocEv.exit, label %282
 
 282:                                              ; preds = %280, %276
@@ -59493,7 +59493,7 @@ _ZN4llvm8dyn_castINS_19GlobalAddressSDNodeENS_7SDValueEEEDcRT0_.exit.thread: ; p
   br i1 %159, label %160, label %162
 
 160:                                              ; preds = %156
-  %161 = icmp ult i64 %.079.i.i.i, 3
+  %161 = icmp samesign ult i64 %.079.i.i.i, 3
   br i1 %161, label %_ZNK4llvm11CCValAssign8isRegLocEv.exit, label %162
 
 162:                                              ; preds = %160, %156
@@ -62066,7 +62066,7 @@ _ZN4llvm5APIntC2Ejmbb.exit1440:                   ; preds = %791, %798
   br i1 %823, label %824, label %826
 
 824:                                              ; preds = %820
-  %825 = icmp ult i64 %.079.i.i.i, 3
+  %825 = icmp samesign ult i64 %.079.i.i.i, 3
   br i1 %825, label %_ZNK4llvm11CCValAssign8isRegLocEv.exit, label %826
 
 826:                                              ; preds = %824, %820
@@ -65274,7 +65274,7 @@ define internal fastcc noundef zeroext i1 @"_ZN4llvm6any_ofIRNS_11SmallVectorINS
   br i1 %19, label %20, label %22
 
 20:                                               ; preds = %16
-  %21 = icmp ult i64 %.079.i.i.i.i.i.i.i.i.i.i, 3
+  %21 = icmp samesign ult i64 %.079.i.i.i.i.i.i.i.i.i.i, 3
   br i1 %21, label %_ZNK4llvm11CCValAssign8isRegLocEv.exit.i.i.i.i.i.i.i, label %22
 
 22:                                               ; preds = %20, %16
@@ -65355,7 +65355,7 @@ _ZNK4llvm11CCValAssign9getLocRegEv.exit7.thread2.i.i.i.i.i.i.i: ; preds = %_ZNK4
   br i1 %57, label %58, label %60
 
 58:                                               ; preds = %54
-  %59 = icmp ult i64 %.079.i.i.i.i.i41.i.i.i.i.i, 3
+  %59 = icmp samesign ult i64 %.079.i.i.i.i.i41.i.i.i.i.i, 3
   br i1 %59, label %_ZNK4llvm11CCValAssign8isRegLocEv.exit.i.i44.i.i.i.i.i, label %60
 
 60:                                               ; preds = %58, %54
@@ -65436,7 +65436,7 @@ _ZNK4llvm11CCValAssign9getLocRegEv.exit7.thread2.i.i50.i.i.i.i.i: ; preds = %_ZN
   br i1 %95, label %96, label %98
 
 96:                                               ; preds = %92
-  %97 = icmp ult i64 %.079.i.i.i.i.i56.i.i.i.i.i, 3
+  %97 = icmp samesign ult i64 %.079.i.i.i.i.i56.i.i.i.i.i, 3
   br i1 %97, label %_ZNK4llvm11CCValAssign8isRegLocEv.exit.i.i59.i.i.i.i.i, label %98
 
 98:                                               ; preds = %96, %92
@@ -65517,7 +65517,7 @@ _ZNK4llvm11CCValAssign9getLocRegEv.exit7.thread2.i.i65.i.i.i.i.i: ; preds = %_ZN
   br i1 %133, label %134, label %136
 
 134:                                              ; preds = %130
-  %135 = icmp ult i64 %.079.i.i.i.i.i71.i.i.i.i.i, 3
+  %135 = icmp samesign ult i64 %.079.i.i.i.i.i71.i.i.i.i.i, 3
   br i1 %135, label %_ZNK4llvm11CCValAssign8isRegLocEv.exit.i.i74.i.i.i.i.i, label %136
 
 136:                                              ; preds = %134, %130
@@ -65616,7 +65616,7 @@ _ZNK4llvm11CCValAssign9getLocRegEv.exit7.thread2.i.i80.i.i.i.i.i: ; preds = %_ZN
   br i1 %175, label %176, label %178
 
 176:                                              ; preds = %172
-  %177 = icmp ult i64 %.079.i.i.i.i.i86.i.i.i.i.i, 3
+  %177 = icmp samesign ult i64 %.079.i.i.i.i.i86.i.i.i.i.i, 3
   br i1 %177, label %_ZNK4llvm11CCValAssign8isRegLocEv.exit.i.i89.i.i.i.i.i, label %178
 
 178:                                              ; preds = %176, %172
@@ -65707,7 +65707,7 @@ _ZNK4llvm11CCValAssign9getLocRegEv.exit7.thread2.i.i95.i.i.i.i.i: ; preds = %_ZN
   br i1 %220, label %221, label %223
 
 221:                                              ; preds = %217
-  %222 = icmp ult i64 %.079.i.i.i.i.i101.i.i.i.i.i, 3
+  %222 = icmp samesign ult i64 %.079.i.i.i.i.i101.i.i.i.i.i, 3
   br i1 %222, label %_ZNK4llvm11CCValAssign8isRegLocEv.exit.i.i104.i.i.i.i.i, label %223
 
 223:                                              ; preds = %221, %217
@@ -65798,7 +65798,7 @@ _ZNK4llvm11CCValAssign9getLocRegEv.exit7.thread2.i.i110.i.i.i.i.i: ; preds = %_Z
   br i1 %265, label %266, label %268
 
 266:                                              ; preds = %262
-  %267 = icmp ult i64 %.079.i.i.i.i.i116.i.i.i.i.i, 3
+  %267 = icmp samesign ult i64 %.079.i.i.i.i.i116.i.i.i.i.i, 3
   br i1 %267, label %_ZNK4llvm11CCValAssign8isRegLocEv.exit.i.i119.i.i.i.i.i, label %268
 
 268:                                              ; preds = %266, %262

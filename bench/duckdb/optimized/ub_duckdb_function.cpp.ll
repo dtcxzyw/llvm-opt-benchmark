@@ -7965,13 +7965,12 @@ for.inc:                                          ; preds = %if.end14, %for.body
   br i1 %cmp9.not, label %for.body, label %cleanup23.loopexit, !llvm.loop !176
 
 cleanup23.loopexit:                               ; preds = %for.inc
-  %9 = and i8 %has_parameter.1, 1
-  %10 = icmp eq i8 %9, 0
-  %11 = select i1 %10, i64 %cost.2, i64 0
+  %9 = icmp eq i8 %has_parameter.1, 0
+  %10 = select i1 %9, i64 %cost.2, i64 0
   br label %return
 
 return:                                           ; preds = %if.end14, %cleanup23.loopexit, %for.cond.preheader, %if.end, %if.then
-  %retval.5 = phi i64 [ %call2, %if.then ], [ -1, %if.end ], [ 0, %for.cond.preheader ], [ %11, %cleanup23.loopexit ], [ -1, %if.end14 ]
+  %retval.5 = phi i64 [ %call2, %if.then ], [ -1, %if.end ], [ 0, %for.cond.preheader ], [ %10, %cleanup23.loopexit ], [ -1, %if.end14 ]
   ret i64 %retval.5
 }
 

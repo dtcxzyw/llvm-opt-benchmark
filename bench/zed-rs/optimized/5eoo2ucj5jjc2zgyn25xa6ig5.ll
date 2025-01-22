@@ -16492,8 +16492,8 @@ define hidden { ptr, ptr } @"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A
   unreachable
 
 ._crit_edge.loopexit.i.i.i.i.i.i:                 ; preds = %93
-  %56 = icmp ne i64 %.sroa.013.1.i.i.i.i.i.i, 1
-  %57 = icmp ne i64 %.sroa.015.1.i.i.i.i.i.i, 1
+  %56 = icmp eq i64 %.sroa.013.1.i.i.i.i.i.i, 0
+  %57 = icmp eq i64 %.sroa.015.1.i.i.i.i.i.i, 0
   %58 = select i1 %56, i1 true, i1 %57
   br label %._crit_edge.i.i.i.i.i.i
 
