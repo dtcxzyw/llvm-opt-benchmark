@@ -513,9 +513,8 @@ land.lhs.true4.i130:                              ; preds = %sw.bb87
 
 if.end.i110:                                      ; preds = %land.lhs.true4.i130
   %37 = load i8, ptr %utf8Friendly7, align 2
-  %tobool.i112 = icmp ne i8 %37, 0
-  %or.cond2.i113 = and i1 %cmp31, %tobool.i112
-  br i1 %or.cond2.i113, label %land.lhs.true19.i121, label %MBCSOkForBaseFromUnicode.exit132
+  %tobool.i112.not = icmp eq i8 %37, 0
+  br i1 %tobool.i112.not, label %MBCSOkForBaseFromUnicode.exit132, label %land.lhs.true19.i121
 
 land.lhs.true19.i121:                             ; preds = %if.end.i110
   %38 = load i16, ptr %utf8Max33, align 8

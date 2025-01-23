@@ -1587,13 +1587,13 @@ if.else.i240:                                     ; preds = %sw.default321
   unreachable
 
 if.then325.sink.split:                            ; preds = %do.body2.i243, %do.body2.i234
-  %cmp301506536.ph = phi i1 [ %cmp301, %do.body2.i234 ], [ %cmp301506538, %do.body2.i243 ]
+  %cmp301506536.ph = phi i1 [ false, %do.body2.i234 ], [ %cmp301506538, %do.body2.i243 ]
   %72 = load ptr, ptr @stderr, align 8
   %73 = tail call i64 @fwrite(ptr nonnull @.str.69, i64 32, i64 1, ptr %72) #23
   br label %if.then325
 
 if.then325:                                       ; preds = %if.then325.sink.split, %do.body2.i234, %do.body2.i243
-  %cmp301506536 = phi i1 [ %cmp301, %do.body2.i234 ], [ %cmp301506538, %do.body2.i243 ], [ %cmp301506536.ph, %if.then325.sink.split ]
+  %cmp301506536 = phi i1 [ false, %do.body2.i234 ], [ %cmp301506538, %do.body2.i243 ], [ %cmp301506536.ph, %if.then325.sink.split ]
   %.pr = load i32, ptr @runWithErrors, align 4
   %cmp.i248 = icmp eq i32 %.pr, 1
   br i1 %cmp.i248, label %do.body.i250, label %if.else.i249
@@ -1653,7 +1653,7 @@ if.end332:                                        ; preds = %if.end312.thread, %
   %throughput.013342344 = phi i64 [ %throughput.01383, %sw.bb315 ], [ %throughput.01383, %if.end312 ], [ %throughput.01383, %sw.bb316 ], [ %throughput.01383, %if.then277 ], [ 0, %if.end312.thread ], [ %throughput.01383, %sw.bb314 ]
   %minDhKeyBits.013542338 = phi i32 [ %minDhKeyBits.01381, %sw.bb315 ], [ %minDhKeyBits.01381, %if.end312 ], [ %minDhKeyBits.01381, %sw.bb316 ], [ %minDhKeyBits.01381, %if.then277 ], [ 1024, %if.end312.thread ], [ %minDhKeyBits.01381, %sw.bb314 ]
   %port.013742332 = phi i16 [ %port.01379, %sw.bb315 ], [ %port.01379, %if.end312 ], [ %port.01379, %sw.bb316 ], [ %port.01379, %if.then277 ], [ 11111, %if.end312.thread ], [ %port.01379, %sw.bb314 ]
-  %cmp301506543 = phi i1 [ %cmp301, %sw.bb315 ], [ %cmp301, %if.end312 ], [ %cmp301, %sw.bb316 ], [ false, %if.then277 ], [ false, %if.end312.thread ], [ %cmp301, %sw.bb314 ]
+  %cmp301506543 = phi i1 [ true, %sw.bb315 ], [ %cmp301, %if.end312 ], [ false, %sw.bb316 ], [ false, %if.then277 ], [ false, %if.end312.thread ], [ false, %sw.bb314 ]
   %method.0 = phi ptr [ @wolfTLSv1_3_server_method_ex, %sw.bb315 ], [ @wolfTLSv1_1_server_method_ex, %if.end312 ], [ @wolfSSLv23_server_method_ex, %sw.bb316 ], [ @wolfTLSv1_2_server_method_ex, %if.then277 ], [ @wolfTLSv1_2_server_method_ex, %if.end312.thread ], [ @wolfTLSv1_2_server_method_ex, %sw.bb314 ]
   %call330 = tail call ptr %method.0(ptr noundef null) #25, !callees !13
   %call331 = tail call ptr @wolfSSL_CTX_new(ptr noundef %call330) #25
@@ -1696,7 +1696,7 @@ if.then335:                                       ; preds = %do.body.i232, %do.b
   %throughput.013342342 = phi i64 [ %throughput.013342344, %if.end332 ], [ %throughput.01383, %if.then4.i255 ], [ %throughput.01383, %do.body2.i252 ], [ %throughput.01383, %do.body.i250 ], [ %throughput.01383, %do.body.i232 ], [ %throughput.01383, %do.body.i241 ]
   %minDhKeyBits.013542336 = phi i32 [ %minDhKeyBits.013542338, %if.end332 ], [ %minDhKeyBits.01381, %if.then4.i255 ], [ %minDhKeyBits.01381, %do.body2.i252 ], [ %minDhKeyBits.01381, %do.body.i250 ], [ %minDhKeyBits.01381, %do.body.i232 ], [ %minDhKeyBits.01381, %do.body.i241 ]
   %port.013742330 = phi i16 [ %port.013742332, %if.end332 ], [ %port.01379, %if.then4.i255 ], [ %port.01379, %do.body2.i252 ], [ %port.01379, %do.body.i250 ], [ %port.01379, %do.body.i232 ], [ %port.01379, %do.body.i241 ]
-  %cmp301506534 = phi i1 [ %cmp301506543, %if.end332 ], [ %cmp301506536, %if.then4.i255 ], [ %cmp301506536, %do.body2.i252 ], [ %cmp301506536, %do.body.i250 ], [ %cmp301, %do.body.i232 ], [ %cmp301506538, %do.body.i241 ]
+  %cmp301506534 = phi i1 [ %cmp301506543, %if.end332 ], [ %cmp301506536, %if.then4.i255 ], [ %cmp301506536, %do.body2.i252 ], [ %cmp301506536, %do.body.i250 ], [ false, %do.body.i232 ], [ %cmp301506538, %do.body.i241 ]
   %77 = load i32, ptr @catastrophic, align 4
   %cmp.i257 = icmp eq i32 %77, 1
   br i1 %cmp.i257, label %do.body.i259, label %if.else.i258
@@ -3293,8 +3293,8 @@ do.end809:                                        ; preds = %if.then800
   br label %exit
 
 exit:                                             ; preds = %do.end809, %if.then738, %if.else626
-  %.sink3563 = phi i32 [ 0, %do.end809 ], [ %call728, %if.then738 ], [ %call614, %if.else626 ]
-  store i32 %.sink3563, ptr %return_code, align 8
+  %.sink3562 = phi i32 [ 0, %do.end809 ], [ %call728, %if.then738 ], [ %call614, %if.else626 ]
+  store i32 %.sink3562, ptr %return_code, align 8
   ret ptr null
 }
 
